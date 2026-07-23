@@ -47,7 +47,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   v10 = (unsigned __int64 *)(a1 + 224);
-  v11 = KeAbPreAcquire(a1 + 224, 0LL, 0LL);
+  v11 = KeAbPreAcquire(a1 + 224, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v10, v11, (ULONG_PTR)v10);
   if ( v11 )
@@ -86,7 +86,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
       goto LABEL_17;
     v15 = KeGetCurrentThread();
     --v15->SpecialApcDisable;
-    v16 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0LL);
+    v16 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
     v18 = v16;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
       ExfAcquirePushLockExclusiveEx(v10, v16, (ULONG_PTR)v10);

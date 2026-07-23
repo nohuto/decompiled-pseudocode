@@ -1,10 +1,10 @@
 /*
- * XREFs of SleepstudyHelper_ReleaseComponentLock @ 0x1405A3550
+ * XREFs of SleepstudyHelper_ReleaseComponentLock @ 0x1405A3A40
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ReleaseComponentLock(volatile signed __int64 *a1, unsigned __int8 a2)
@@ -22,10 +22,13 @@ __int64 __fastcall SleepstudyHelper_ReleaseComponentLock(volatile signed __int64
   if ( a1 )
   {
     KxReleaseSpinLock(a1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

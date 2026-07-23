@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwVdmControl @ 0x140727050
+ * XREFs of ZwVdmControl @ 0x14072BC20
  * Callers:
- *     DifZwVdmControlWrapper @ 0x1406BEEA0 (DifZwVdmControlWrapper.c)
+ *     DifZwVdmControlWrapper @ 0x1406C2A80 (DifZwVdmControlWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwVdmControl(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwVdmControl(VDMSERVICECLASS Service, PVOID ServiceData)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&Service);
 }

@@ -25,14 +25,14 @@
  *     RtlSetUserValueHeap @ 0x18005AFE0 (RtlSetUserValueHeap.c)
  *     RtlValidateHeap @ 0x18006D290 (RtlValidateHeap.c)
  *     EtwEventActivityIdControl @ 0x18006DBD0 (EtwEventActivityIdControl.c)
- *     EtwpSetProviderTraits @ 0x1800760E4 (EtwpSetProviderTraits.c)
- *     EtwWriteUMSecurityEvent @ 0x18007BFF0 (EtwWriteUMSecurityEvent.c)
- *     EtwEventWriteNoRegistration @ 0x180086E70 (EtwEventWriteNoRegistration.c)
- *     EtwpGenerateFileName @ 0x1800888C4 (EtwpGenerateFileName.c)
- *     RtlCompactHeap @ 0x18008C090 (RtlCompactHeap.c)
- *     EtwSetMark @ 0x18008C330 (EtwSetMark.c)
- *     EtwpTrackProviderBinary @ 0x18008D2F4 (EtwpTrackProviderBinary.c)
- *     EtwRegisterSecurityProvider @ 0x18008F420 (EtwRegisterSecurityProvider.c)
+ *     EtwpSetProviderTraits @ 0x1800760F4 (EtwpSetProviderTraits.c)
+ *     EtwWriteUMSecurityEvent @ 0x18007C000 (EtwWriteUMSecurityEvent.c)
+ *     EtwEventWriteNoRegistration @ 0x180086E80 (EtwEventWriteNoRegistration.c)
+ *     EtwpGenerateFileName @ 0x1800888D4 (EtwpGenerateFileName.c)
+ *     RtlCompactHeap @ 0x18008C0A0 (RtlCompactHeap.c)
+ *     EtwSetMark @ 0x18008C340 (EtwSetMark.c)
+ *     EtwpTrackProviderBinary @ 0x18008D304 (EtwpTrackProviderBinary.c)
+ *     EtwRegisterSecurityProvider @ 0x18008F430 (EtwRegisterSecurityProvider.c)
  *     RtlSetUserFlagsHeap @ 0x1800F2680 (RtlSetUserFlagsHeap.c)
  *     RtlDebugAllocateHeap @ 0x1801071A0 (RtlDebugAllocateHeap.c)
  *     RtlDebugCompactHeap @ 0x180107568 (RtlDebugCompactHeap.c)
@@ -58,7 +58,7 @@
 
 ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
 {
-  unsigned int v1; // edx
+  unsigned __int32 v1; // edx
   struct _TEB *v2; // rax
   unsigned int v3; // r8d
   unsigned int v4; // r9d
@@ -85,7 +85,7 @@ ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
     if ( (Status & 0xF0000000) == 0xD0000000 )
       v1 = Status & 0xCFFFFFFF;
     v3 = 0;
-    v4 = 305;
+    v4 = 310;
     do
     {
       v5 = (v4 + v3) >> 1;
@@ -97,10 +97,10 @@ ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
       }
       else
       {
-        if ( v7 < (unsigned __int8)byte_18012B314[8 * v5] )
+        if ( v7 < (unsigned __int8)byte_18012B384[8 * v5] )
         {
-          v9 = byte_18012B315[8 * v5] == 1;
-          v10 = (unsigned __int16)word_18012B316[4 * v5];
+          v9 = byte_18012B385[8 * v5] == 1;
+          v10 = (unsigned __int16)word_18012B386[4 * v5];
           if ( v9 )
             return (unsigned __int16)RtlpStatusTable[v7 + v10];
           else

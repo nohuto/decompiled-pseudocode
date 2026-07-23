@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTraceDatabaseUnlock @ 0x140215E50
+ * XREFs of RtlTraceDatabaseUnlock @ 0x140215C7C
  * Callers:
  *     <none>
  * Callees:

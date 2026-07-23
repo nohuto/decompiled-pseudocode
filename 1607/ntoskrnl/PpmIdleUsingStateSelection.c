@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleUsingStateSelection @ 0x14000A354
+ * XREFs of PpmIdleUsingStateSelection @ 0x140009ED4
  * Callers:
- *     PoFxSendSystemLatencyUpdate @ 0x14000A2A0 (PoFxSendSystemLatencyUpdate.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x140009E20 (PoFxSendSystemLatencyUpdate.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockShared @ 0x14000E0B0 (PopAcquireRwLockShared.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x14000DC30 (PopAcquireRwLockShared.c)
  */
 
 bool PpmIdleUsingStateSelection()

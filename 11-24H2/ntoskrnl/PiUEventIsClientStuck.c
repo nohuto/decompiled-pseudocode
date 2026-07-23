@@ -1,9 +1,9 @@
 /*
- * XREFs of PiUEventIsClientStuck @ 0x140AC381C
+ * XREFs of PiUEventIsClientStuck @ 0x140ABF1A0
  * Callers:
- *     PiUEventNotifyClient @ 0x1408D2838 (PiUEventNotifyClient.c)
+ *     PiUEventNotifyClient @ 0x1408D0228 (PiUEventNotifyClient.c)
  * Callees:
- *     PiUEventIsProcessFrozen @ 0x140724BE4 (PiUEventIsProcessFrozen.c)
+ *     PiUEventIsProcessFrozen @ 0x140722774 (PiUEventIsProcessFrozen.c)
  */
 
 bool __fastcall PiUEventIsClientStuck(__int64 a1)

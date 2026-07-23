@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDoSort @ 0x140C4B394
+ * XREFs of CmpDoSort @ 0x140C4D530
  * Callers:
- *     CmpSortDriverList @ 0x140C4C8E0 (CmpSortDriverList.c)
+ *     CmpSortDriverList @ 0x140C4EA7C (CmpSortDriverList.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     CmpSortByTag @ 0x140C4C844 (CmpSortByTag.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     CmpSortByTag @ 0x140C4E9E0 (CmpSortByTag.c)
  */
 
 char __fastcall CmpDoSort(__int64 **a1, unsigned __int16 *a2)

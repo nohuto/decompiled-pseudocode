@@ -13,7 +13,7 @@ __int64 __fastcall RtlpHpSegMgrCommitInitiate(
         volatile signed __int16 *a2,
         int a3,
         char a4,
-        volatile signed __int32 *a5,
+        PRTL_SRWLOCK SRWLock,
         char *a6)
 {
   unsigned __int16 v6; // di
@@ -70,7 +70,7 @@ LABEL_16:
     if ( (v14 & 0x4000) != 0 )
     {
       v7 = 1;
-      RtlAcquireSRWLockExclusive(a5);
+      RtlAcquireSRWLockExclusive(SRWLock);
       v8 = -1;
     }
     v17 = _InterlockedCompareExchange16(a2, v14, v6);
@@ -80,7 +80,7 @@ LABEL_16:
       break;
     if ( v7 )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)a5);
+      RtlReleaseSRWLockExclusive(SRWLock);
       v7 = 0;
     }
     v9 = a4;

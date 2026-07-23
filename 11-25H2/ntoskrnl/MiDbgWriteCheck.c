@@ -53,8 +53,13 @@ __int64 __fastcall MiDbgWriteCheck(
     if ( v10 != 1 )
       return 1LL;
     v12 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-    if ( v12 && PsHalImageBase && (a1 < v12 || a1 >= PsNtosImageEnd) && (a1 < PsHalImageBase || a1 >= PsHalImageEnd) )
+    if ( v12
+      && PsHalImageBase
+      && (a1 < v12 || a1 >= PsNtosImageEnd)
+      && (a1 < (unsigned __int64)PsHalImageBase || a1 >= PsHalImageEnd) )
+    {
       return 1LL;
+    }
     v13 = (unsigned __int64 *)(((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL);
     v14 = *v13;
     v15 = ((*v13 >> 12) & 0xFFFFFFFFFFLL) + ((a1 >> 12) & 0x1FF);

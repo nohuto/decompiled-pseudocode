@@ -234,7 +234,8 @@ __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, int a2)
     }
     if ( (v15 < MmPfnDatabase || v15 > MmPfnDatabase + (MxPfnAllocation << 12))
       && (!PsNtosImageBase
-       || (v15 < PsNtosImageBase || v15 >= PsNtosImageEnd) && (v15 < PsHalImageBase || v15 >= PsHalImageEnd)) )
+       || (v15 < (unsigned __int64)PsNtosImageBase || v15 >= PsNtosImageEnd)
+       && (v15 < (unsigned __int64)PsHalImageBase || v15 >= PsHalImageEnd)) )
     {
       return 1;
     }

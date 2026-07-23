@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRegTraceCallback @ 0x14098BEA0
+ * XREFs of EtwpRegTraceCallback @ 0x1409764B0
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpCapturePreviousRegistryData @ 0x14098C820 (EtwpCapturePreviousRegistryData.c)
- *     EtwpCaptureRegistryData @ 0x14098C930 (EtwpCaptureRegistryData.c)
- *     CmCallbackGetKeyObjectID @ 0x1409D7040 (CmCallbackGetKeyObjectID.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpCapturePreviousRegistryData @ 0x140976E30 (EtwpCapturePreviousRegistryData.c)
+ *     EtwpCaptureRegistryData @ 0x140976F40 (EtwpCaptureRegistryData.c)
+ *     CmCallbackGetKeyObjectID @ 0x1409C76A0 (CmCallbackGetKeyObjectID.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRegTraceCallback(__int64 a1, __int64 a2, __int64 a3)
@@ -26,8 +26,8 @@ __int64 __fastcall EtwpRegTraceCallback(__int64 a1, __int64 a2, __int64 a3)
   int v15; // r15d
   int v16; // edx
   unsigned int v17; // r9d
-  __int64 **v18; // rax
-  __int64 *v19; // rcx
+  int **v18; // rax
+  int *v19; // rcx
   __int64 v20; // rax
   __int64 v21; // rax
   __int64 v22; // rax
@@ -352,18 +352,18 @@ LABEL_10:
         v78[1] = 8LL;
         v78[0] = &v73;
         v17 = 3;
-        v18 = (__int64 **)&v79;
+        v18 = (int **)&v79;
       }
       else
       {
         v17 = 2;
-        v18 = (__int64 **)v78;
+        v18 = (int **)v78;
       }
       v19 = &EtwpNull;
       if ( v8 != 1 )
-        v19 = (__int64 *)(v8 + 8);
+        v19 = (int *)(v8 + 8);
       *v18 = v19;
-      v18[1] = (__int64 *)4;
+      v18[1] = (int *)4;
       if ( v16 )
       {
         v20 = 2LL * v17++;

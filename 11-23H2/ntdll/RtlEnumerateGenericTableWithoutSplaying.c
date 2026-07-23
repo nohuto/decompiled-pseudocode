@@ -6,27 +6,27 @@
  *     RtlRealSuccessor @ 0x180063260 (RtlRealSuccessor.c)
  */
 
-__int64 __fastcall RtlEnumerateGenericTableWithoutSplaying(__int64 *a1, __int64 *a2)
+PVOID __cdecl RtlEnumerateGenericTableWithoutSplaying(PRTL_GENERIC_TABLE Table, PVOID *RestartKey)
 {
-  __int64 result; // rax
-  __int64 i; // rcx
+  PVOID result; // rax
+  _QWORD *i; // rcx
 
-  result = *a1;
-  if ( *a1 )
+  result = Table->TableRoot;
+  if ( Table->TableRoot )
   {
-    if ( *a2 )
+    if ( *RestartKey )
     {
-      result = RtlRealSuccessor(*a2);
+      result = RtlRealSuccessor((PRTL_SPLAY_LINKS)*RestartKey);
       if ( result )
-        *a2 = result;
+        *RestartKey = result;
     }
     else
     {
-      for ( i = *(_QWORD *)(result + 8); i; i = *(_QWORD *)(i + 8) )
+      for ( i = (_QWORD *)*((_QWORD *)result + 1); i; i = (_QWORD *)i[1] )
         result = i;
-      *a2 = result;
+      *RestartKey = result;
     }
-    return (result + 40) & -(__int64)(result != 0);
+    return (PVOID)(((unsigned __int64)result + 40) & -(__int64)(result != 0LL));
   }
   return result;
 }

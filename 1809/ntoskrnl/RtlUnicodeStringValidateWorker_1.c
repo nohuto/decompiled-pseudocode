@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUnicodeStringValidateWorker_1 @ 0x14028B55C
+ * XREFs of RtlUnicodeStringValidateWorker_1 @ 0x14028B74C
  * Callers:
- *     RtlUnicodeStringCchCopyN @ 0x14028B454 (RtlUnicodeStringCchCopyN.c)
+ *     RtlUnicodeStringCchCopyN @ 0x14028B644 (RtlUnicodeStringCchCopyN.c)
  * Callees:
  *     <none>
  */

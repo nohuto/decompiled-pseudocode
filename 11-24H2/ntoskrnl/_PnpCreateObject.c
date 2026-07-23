@@ -1,16 +1,16 @@
 /*
- * XREFs of _PnpCreateObject @ 0x14081A95C
+ * XREFs of _PnpCreateObject @ 0x14081B09C
  * Callers:
- *     PiCMCreateObject @ 0x1406F83C0 (PiCMCreateObject.c)
- *     PiCMOpenObjectKey @ 0x140963AF8 (PiCMOpenObjectKey.c)
+ *     PiCMCreateObject @ 0x1406F63C0 (PiCMCreateObject.c)
+ *     PiCMOpenObjectKey @ 0x14094B5B8 (PiCMOpenObjectKey.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpCreateObjectDispatch @ 0x14081AACC (_PnpCreateObjectDispatch.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpCreateObjectDispatch @ 0x14081B20C (_PnpCreateObjectDispatch.c)
  */
 
-__int64 __fastcall PnpCreateObject(__int64 a1, __int64 a2, unsigned int a3, int a4, HANDLE *a5)
+__int64 __fastcall PnpCreateObject(__int64 a1, __int64 a2, int a3, int a4, HANDLE *a5)
 {
   __int64 v5; // r14
   __int64 v9; // rsi
@@ -32,7 +32,7 @@ __int64 __fastcall PnpCreateObject(__int64 a1, __int64 a2, unsigned int a3, int 
   v19 = 0;
   if ( v9 )
   {
-    v10 = guard_dispatch_icall_no_overrides(v5, a2, a3, 3LL);
+    v10 = guard_dispatch_icall_no_overrides(v5, a2);
     if ( v10 == -1073741822 )
     {
       v9 = 0LL;
@@ -50,7 +50,7 @@ __int64 __fastcall PnpCreateObject(__int64 a1, __int64 a2, unsigned int a3, int 
   if ( v9 )
   {
     v15[0] = ObjectDispatch;
-    v13 = guard_dispatch_icall_no_overrides(v5, a2, a3, 3LL);
+    v13 = guard_dispatch_icall_no_overrides(v5, a2);
     if ( v13 != -1073741822 )
     {
       if ( v13 != -1073741536 )

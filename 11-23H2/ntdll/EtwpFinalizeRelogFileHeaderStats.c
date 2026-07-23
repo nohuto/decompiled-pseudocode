@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpFinalizeRelogFileHeaderStats @ 0x1801262BC
+ * XREFs of EtwpFinalizeRelogFileHeaderStats @ 0x18012628C
  * Callers:
  *     EtwpFinalizeLogFileHeader @ 0x18005B754 (EtwpFinalizeLogFileHeader.c)
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of HsaIommuWaitCommand @ 0x140446368
+ * XREFs of HsaIommuWaitCommand @ 0x14043E718
  * Callers:
- *     HsaFlushTbInternal @ 0x1404460A8 (HsaFlushTbInternal.c)
- *     HsaFlushDeviceTbOnly @ 0x140572BF0 (HsaFlushDeviceTbOnly.c)
- *     HsaInvalidateDTE @ 0x140573364 (HsaInvalidateDTE.c)
- *     HsaInvalidateRemappingTableEntries @ 0x1405733B4 (HsaInvalidateRemappingTableEntries.c)
+ *     HsaFlushTbInternal @ 0x14043E458 (HsaFlushTbInternal.c)
+ *     HsaFlushDeviceTbOnly @ 0x140570080 (HsaFlushDeviceTbOnly.c)
+ *     HsaInvalidateDTE @ 0x1405707F4 (HsaInvalidateDTE.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x140570844 (HsaInvalidateRemappingTableEntries.c)
  * Callees:
- *     HsaIommuSendCommand @ 0x14044639C (HsaIommuSendCommand.c)
+ *     HsaIommuSendCommand @ 0x14043E74C (HsaIommuSendCommand.c)
  */
 
 __int64 __fastcall HsaIommuWaitCommand(__int64 a1, unsigned int a2)

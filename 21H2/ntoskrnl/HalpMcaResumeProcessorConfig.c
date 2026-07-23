@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpMcaResumeProcessorConfig @ 0x140995A40
+ * XREFs of HalpMcaResumeProcessorConfig @ 0x140996A40
  * Callers:
- *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x1409A84D8 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140996864 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A9408 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpIsCmciImplemented @ 0x140999C64 (HalpIsCmciImplemented.c)
- *     HalpCmciInitProcessor @ 0x140999D20 (HalpCmciInitProcessor.c)
- *     HalpMcaSetProcessorConfig @ 0x140999E48 (HalpMcaSetProcessorConfig.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpIsCmciImplemented @ 0x14099AC64 (HalpIsCmciImplemented.c)
+ *     HalpCmciInitProcessor @ 0x14099AD20 (HalpCmciInitProcessor.c)
+ *     HalpMcaSetProcessorConfig @ 0x14099AE48 (HalpMcaSetProcessorConfig.c)
  */
 
 __int64 __fastcall HalpMcaResumeProcessorConfig(int a1)

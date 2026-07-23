@@ -1,24 +1,24 @@
 /*
- * XREFs of ObDereferenceDeviceMap @ 0x1407AFE5C
+ * XREFs of ObDereferenceDeviceMap @ 0x1407B004C
  * Callers:
- *     ObpDereferenceCurrentDeviceMap @ 0x1406FC2C8 (ObpDereferenceCurrentDeviceMap.c)
- *     SepDeReferenceLogonSession @ 0x14076CE00 (SepDeReferenceLogonSession.c)
- *     SepDeleteLogonSessionTrack @ 0x14076D33C (SepDeleteLogonSessionTrack.c)
- *     ObpSetCurrentProcessDeviceMap @ 0x1407AF5B4 (ObpSetCurrentProcessDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x1407AF750 (SeGetTokenDeviceMap.c)
- *     ObpSlowReferenceDeviceMap @ 0x1407AF9A8 (ObpSlowReferenceDeviceMap.c)
- *     ObpSetDeviceMap @ 0x1407AFABC (ObpSetDeviceMap.c)
- *     ObClearProcessDeviceMap @ 0x1407AFD88 (ObClearProcessDeviceMap.c)
- *     ObpDeleteDeviceMap @ 0x1407AFF84 (ObpDeleteDeviceMap.c)
- *     ObCleanupSiloState @ 0x14097ADD0 (ObCleanupSiloState.c)
- *     ObpDirectoryTeardownCallback @ 0x140A73F90 (ObpDirectoryTeardownCallback.c)
+ *     ObpDereferenceCurrentDeviceMap @ 0x1406FC4D8 (ObpDereferenceCurrentDeviceMap.c)
+ *     SepDeReferenceLogonSession @ 0x14076CFF0 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x14076D52C (SepDeleteLogonSessionTrack.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x1407AF7A4 (ObpSetCurrentProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1407AF940 (SeGetTokenDeviceMap.c)
+ *     ObpSlowReferenceDeviceMap @ 0x1407AFB98 (ObpSlowReferenceDeviceMap.c)
+ *     ObpSetDeviceMap @ 0x1407AFCAC (ObpSetDeviceMap.c)
+ *     ObClearProcessDeviceMap @ 0x1407AFF78 (ObClearProcessDeviceMap.c)
+ *     ObpDeleteDeviceMap @ 0x1407B0174 (ObpDeleteDeviceMap.c)
+ *     ObCleanupSiloState @ 0x14097AFD0 (ObCleanupSiloState.c)
+ *     ObpDirectoryTeardownCallback @ 0x140A74240 (ObpDirectoryTeardownCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ObpDeleteDeviceMap @ 0x1407AFF84 (ObpDeleteDeviceMap.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ObpDeleteDeviceMap @ 0x1407B0174 (ObpDeleteDeviceMap.c)
  */
 
 char __fastcall ObDereferenceDeviceMap(volatile signed __int64 *P, unsigned int a2)

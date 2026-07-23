@@ -16,11 +16,17 @@
  *     <none>
  */
 
-__int64 ZwSetValueKey()
+NTSTATUS __cdecl ZwSetValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        ULONG TitleIndex,
+        ULONG Type,
+        PVOID Data,
+        ULONG DataSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 96LL;
+  result = 96;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,23 +1,23 @@
 /*
- * XREFs of MmCreateKernelShadowStack @ 0x14064512C
+ * XREFs of MmCreateKernelShadowStack @ 0x14064567C
  * Callers:
- *     KeUserModeCallback @ 0x14076E880 (KeUserModeCallback.c)
- *     KiCreateKernelShadowStack @ 0x140974360 (KiCreateKernelShadowStack.c)
+ *     KeUserModeCallback @ 0x14076EA70 (KeUserModeCallback.c)
+ *     KiCreateKernelShadowStack @ 0x140974560 (KiCreateKernelShadowStack.c)
  * Callees:
- *     MiAllocateKernelStackPages @ 0x1402732C0 (MiAllocateKernelStackPages.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     FirstEntrySList @ 0x140428EA0 (FirstEntrySList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     MiDeleteKernelShadowStack @ 0x1406443C4 (MiDeleteKernelShadowStack.c)
- *     MiUpdateKernelShadowStackOwnerData @ 0x140645030 (MiUpdateKernelShadowStackOwnerData.c)
- *     VslAllocateKernelShadowStack @ 0x14094175C (VslAllocateKernelShadowStack.c)
+ *     MiAllocateKernelStackPages @ 0x140273550 (MiAllocateKernelStackPages.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     FirstEntrySList @ 0x140429230 (FirstEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     MiDeleteKernelShadowStack @ 0x140644914 (MiDeleteKernelShadowStack.c)
+ *     MiUpdateKernelShadowStackOwnerData @ 0x140645580 (MiUpdateKernelShadowStackOwnerData.c)
+ *     VslAllocateKernelShadowStack @ 0x14094195C (VslAllocateKernelShadowStack.c)
  */
 
 __int64 __fastcall MmCreateKernelShadowStack(
@@ -31,7 +31,7 @@ __int64 __fastcall MmCreateKernelShadowStack(
   int v6; // ebx
   ULONG_PTR v8; // r12
   unsigned __int16 *v9; // r8
-  union _SLIST_HEADER *v11; // rdi
+  _SLIST_HEADER *v11; // rdi
   struct _KPRCB *v12; // rdx
   _QWORD *v13; // r14
   __int64 v14; // rax
@@ -62,9 +62,9 @@ __int64 __fastcall MmCreateKernelShadowStack(
   v8 = a2;
   v9 = MiSystemPartition;
   if ( a1 )
-    v11 = *(union _SLIST_HEADER **)(qword_140C673C8 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 544) + 1838LL));
+    v11 = *(_SLIST_HEADER **)(qword_140C673C8 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 544) + 1838LL));
   else
-    v11 = (union _SLIST_HEADER *)MiSystemPartition;
+    v11 = (_SLIST_HEADER *)MiSystemPartition;
   if ( a2 > 2 )
     goto LABEL_21;
   if ( (a3 & 0x10) == 0
@@ -110,7 +110,7 @@ LABEL_21:
       MiReleasePtes((__int64)&unk_140C68460, (__int64 *)v20, 3u);
 LABEL_51:
       v29 = 1LL;
-      if ( v11 == (union _SLIST_HEADER *)MiSystemPartition )
+      if ( v11 == (_SLIST_HEADER *)MiSystemPartition )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
@@ -184,7 +184,7 @@ LABEL_41:
       return v18;
     }
     v23 = v22;
-    if ( v11 == (union _SLIST_HEADER *)MiSystemPartition )
+    if ( v11 == (_SLIST_HEADER *)MiSystemPartition )
     {
       v24 = KeGetCurrentPrcb();
       v25 = (int)v24->CachedResidentAvailable;
@@ -219,7 +219,7 @@ LABEL_40:
     goto LABEL_41;
   }
   v13 = a6;
-  if ( v11 != (union _SLIST_HEADER *)MiSystemPartition )
+  if ( v11 != (_SLIST_HEADER *)MiSystemPartition )
     goto LABEL_13;
   v14 = _InterlockedExchange64((volatile __int64 *)&v12->CachedShadowStack, 0LL);
   *v13 = v14;

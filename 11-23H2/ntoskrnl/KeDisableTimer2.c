@@ -1,26 +1,26 @@
 /*
- * XREFs of KeDisableTimer2 @ 0x14031DB78
+ * XREFs of KeDisableTimer2 @ 0x14031DE08
  * Callers:
- *     ExDeleteTimer @ 0x14031DAB0 (ExDeleteTimer.c)
- *     MiStoreEvictThread @ 0x1403A8650 (MiStoreEvictThread.c)
- *     PopPowerButtonWorkCallback @ 0x1405990F0 (PopPowerButtonWorkCallback.c)
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BE68C (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ExpDeleteTimer2 @ 0x140785720 (ExpDeleteTimer2.c)
- *     PopThermalZoneRemove @ 0x14098B010 (PopThermalZoneRemove.c)
+ *     ExDeleteTimer @ 0x14031DD40 (ExDeleteTimer.c)
+ *     MiStoreEvictThread @ 0x1403A8830 (MiStoreEvictThread.c)
+ *     PopPowerButtonWorkCallback @ 0x1405995E0 (PopPowerButtonWorkCallback.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BEBFC (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ExpDeleteTimer2 @ 0x140785910 (ExpDeleteTimer2.c)
+ *     PopThermalZoneRemove @ 0x14098B210 (PopThermalZoneRemove.c)
  * Callees:
- *     KiAcquireTimer2CollectionLockIfInserted @ 0x1402500B4 (KiAcquireTimer2CollectionLockIfInserted.c)
- *     KiAcquireTimer2LockUnlessDisabled @ 0x1402500F8 (KiAcquireTimer2LockUnlessDisabled.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiRemoveTimer2 @ 0x1402518B0 (KiRemoveTimer2.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2F90 (EtwGetKernelTraceTimestamp.c)
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
- *     KiUpdateTimer2Flags @ 0x14031E018 (KiUpdateTimer2Flags.c)
- *     EtwTraceTimedEvent @ 0x140338D50 (EtwTraceTimedEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiTraceCancelTimer2 @ 0x1404629E8 (KiTraceCancelTimer2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x140250184 (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x1402501C8 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveTimer2 @ 0x140251970 (KiRemoveTimer2.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402A3220 (EtwGetKernelTraceTimestamp.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
+ *     KiUpdateTimer2Flags @ 0x14031E2A8 (KiUpdateTimer2Flags.c)
+ *     EtwTraceTimedEvent @ 0x140338FE0 (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiTraceCancelTimer2 @ 0x140462DE8 (KiTraceCancelTimer2.c)
  */
 
 char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
@@ -98,7 +98,7 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -133,10 +133,10 @@ LABEL_14:
         if ( v32 )
           EtwGetKernelTraceTimestamp((__int64)v41, 1073872896LL);
         updated = KiUpdateTimer2Flags(a1, v36, v13);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v20 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v22 = CurrentPrcb->SchedulerAssist;
@@ -164,10 +164,10 @@ LABEL_14:
     v13 = 4;
     goto LABEL_14;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;

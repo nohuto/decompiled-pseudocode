@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestExecutionRequiredTimeoutCallback @ 0x1405CDA10
+ * XREFs of PopPowerRequestExecutionRequiredTimeoutCallback @ 0x1405CB180
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
  */
 
 char PopPowerRequestExecutionRequiredTimeoutCallback()
 {
-  return PopQueueWorkItem((__int64)&unk_140F0E128, DelayedWorkQueue);
+  return PopQueueWorkItem((__int64)&unk_140F0E2C8, DelayedWorkQueue);
 }

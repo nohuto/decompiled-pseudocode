@@ -243,14 +243,14 @@ LABEL_5:
     }
     goto LABEL_26;
   }
-  v63 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801D0980, 2 * ((a2 - qword_1801D0978) >> 20));
+  v63 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801D0978) >> 20));
   if ( v63 )
   {
     v10 = v63 - 1;
     if ( v10 != 2 )
       goto LABEL_5;
   }
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 64));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
   v64 = *(_QWORD *)(a1 + 80);
   v65 = *(_QWORD *)(a1 + 72);
   if ( (v64 & 1) != 0 )
@@ -289,13 +289,13 @@ LABEL_110:
   {
     v98 = *(_QWORD *)(v65 + 32) & 1;
     v25 = (*(_QWORD *)(v65 + 32) & 0xFFFFFFFFFFFFF000uLL) - *(unsigned __int16 *)(v65 + 24);
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 64));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
     v26 = v98;
     goto LABEL_20;
   }
 LABEL_116:
   v25 = -1LL;
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 64));
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
   v26 = 0;
 LABEL_20:
   if ( v25 != -1 )
@@ -328,7 +328,7 @@ LABEL_27:
   {
     if ( (v29 & 0x10) != 0 && *(_DWORD *)(a1 + 224) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
       RtlpHpEnvAcquireGlobalLockSharedContended(v9, v29);
-    v7 = RtlpHpFreeHeapSlow(a1, a2, v29);
+    v7 = RtlpHpFreeHeapSlow((unsigned int *)a1, a2, v29);
     goto LABEL_54;
   }
   if ( (_WORD)a2 )
@@ -336,10 +336,10 @@ LABEL_27:
     v30 = a1 + 320;
     goto LABEL_35;
   }
-  v31 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801D0980, 2 * ((a2 - qword_1801D0978) >> 20));
+  v31 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801D0978) >> 20));
   if ( !v31 || (_DWORD)v31 == 3 )
   {
-    v7 = RtlpHpLargeFree((volatile signed __int64 *)a1, a2) != 0;
+    v7 = RtlpHpLargeFree((__int128 *)a1, a2) != 0;
     goto LABEL_54;
   }
   v30 = a1 + 320;
@@ -570,7 +570,7 @@ LABEL_54:
   {
     v85 = NtCurrentTeb();
     v85->LastStatusValue = -1073741811;
-    v85->LastErrorValue = RtlNtStatusToDosErrorNoTeb(0xC000000D);
+    v85->LastErrorValue = RtlNtStatusToDosErrorNoTeb(-1073741811);
   }
 LABEL_56:
   if ( v7 && v5 )

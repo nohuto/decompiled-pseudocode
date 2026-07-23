@@ -9,15 +9,19 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-__int64 __fastcall sub_180103010(__int64 a1, __int64 a2, int a3)
+NTSTATUS __fastcall sub_180103010(__int64 a1, __int64 a2, int a3)
 {
-  _QWORD v7[7]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 UserModeGlobalLogger; // rcx
+  _QWORD Fields[7]; // [rsp+20h] [rbp-58h] BYREF
 
-  memset(v7, 0, 0x34uLL);
-  v7[4] = a1;
-  HIWORD(v7[0]) = 4153;
-  v7[5] = a2;
-  LODWORD(v7[6]) = a3;
-  RtlGetCurrentServiceSessionId();
-  return ZwTraceEvent();
+  memset(Fields, 0, 0x34uLL);
+  Fields[4] = a1;
+  HIWORD(Fields[0]) = 4153;
+  Fields[5] = a2;
+  LODWORD(Fields[6]) = a3;
+  if ( RtlGetCurrentServiceSessionId() )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+  else
+    UserModeGlobalLogger = 2147353472LL;
+  return ZwTraceEvent((HANDLE)*(unsigned __int8 *)UserModeGlobalLogger, 0x20402u, 0x14u, Fields);
 }

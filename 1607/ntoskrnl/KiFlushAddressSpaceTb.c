@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFlushAddressSpaceTb @ 0x1401D61D4
+ * XREFs of KiFlushAddressSpaceTb @ 0x1401D6000
  * Callers:
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     KeFlushEntireTb @ 0x14013CFC0 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     KeFlushEntireTb @ 0x14013D530 (KeFlushEntireTb.c)
  * Callees:
- *     KxSetTimeStampBusy @ 0x14009D6A8 (KxSetTimeStampBusy.c)
- *     HvlFlushAddressSpaceTb @ 0x1401C14DC (HvlFlushAddressSpaceTb.c)
+ *     KxSetTimeStampBusy @ 0x14009CEA8 (KxSetTimeStampBusy.c)
+ *     HvlFlushAddressSpaceTb @ 0x1401C13C0 (HvlFlushAddressSpaceTb.c)
  */
 
 __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, char a4)

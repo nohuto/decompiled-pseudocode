@@ -21,12 +21,12 @@ void CcPostDeferredWrites()
   unsigned int v0; // ebp
   struct _LIST_ENTRY **p_Blink; // rdi
   KIRQL v2; // al
-  struct _LIST_ENTRY *Flink; // rsi
+  _LIST_ENTRY *Flink; // rsi
   KIRQL v4; // r14
   unsigned int Blink; // edx
   unsigned int v6; // ebx
   struct _LIST_ENTRY *v7; // rdx
-  struct _LIST_ENTRY **v8; // rcx
+  _LIST_ENTRY **v8; // rcx
   struct _KEVENT *v9; // rcx
 
   v0 = 0;
@@ -45,7 +45,7 @@ void CcPostDeferredWrites()
       {
         v0 = v6;
         v7 = Flink->Flink;
-        v8 = (struct _LIST_ENTRY **)p_Blink[4];
+        v8 = (_LIST_ENTRY **)p_Blink[4];
         if ( Flink->Flink->Blink != Flink || *v8 != Flink )
           __fastfail(3u);
         *v8 = v7;

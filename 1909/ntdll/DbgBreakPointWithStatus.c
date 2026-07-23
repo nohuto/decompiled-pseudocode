@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void DbgBreakPointWithStatus()
+void __cdecl DbgBreakPointWithStatus(ULONG Status)
 {
   __debugbreak();
 }

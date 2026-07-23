@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTradeForPageTablePage @ 0x14033B46C
+ * XREFs of MiTradeForPageTablePage @ 0x14033D4EC
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiReplacePageTablePage @ 0x14033C35C (MiReplacePageTablePage.c)
- *     MiReleaseFaultState @ 0x14038DD90 (MiReleaseFaultState.c)
- *     KeSwapDirectoryTableBase @ 0x140483D2C (KeSwapDirectoryTableBase.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiReplacePageTablePage @ 0x14033E3DC (MiReplacePageTablePage.c)
+ *     MiReleaseFaultState @ 0x14038FB40 (MiReleaseFaultState.c)
+ *     KeSwapDirectoryTableBase @ 0x14047D69C (KeSwapDirectoryTableBase.c)
  */
 
 __int64 __fastcall MiTradeForPageTablePage(__int64 a1)
@@ -67,7 +67,7 @@ __int64 __fastcall MiTradeForPageTablePage(__int64 a1)
   }
   if ( v11 < 0 )
     return 1LL;
-  _InterlockedIncrement(&dword_140EF8C90);
+  _InterlockedIncrement(&dword_140EF8FF0);
   v2 = *(_QWORD *)(a1 + 256);
   v16 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 24), 0x3FuLL) )

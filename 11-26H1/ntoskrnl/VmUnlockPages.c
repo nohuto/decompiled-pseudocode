@@ -1,10 +1,10 @@
 /*
- * XREFs of VmUnlockPages @ 0x1406C0980
+ * XREFs of VmUnlockPages @ 0x1406C4560
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x1406EAAC0 (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x1406EF760 (MmUpdateMdlTrackerForMdlSwitch.c)
  */
 
 void __fastcall VmUnlockPages(PMDL MemoryDescriptorList, unsigned int a2)

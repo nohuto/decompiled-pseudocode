@@ -1,17 +1,17 @@
 /*
- * XREFs of SeReportSecurityEventWithSubCategory @ 0x1402529F0
+ * XREFs of SeReportSecurityEventWithSubCategory @ 0x1402858A0
  * Callers:
- *     SeReportSecurityEvent @ 0x140596CA0 (SeReportSecurityEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x140871D98 (CmpReportAuditVirtualizationEvent.c)
+ *     SeReportSecurityEvent @ 0x140596ED0 (SeReportSecurityEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140871EF8 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
- *     SepAuditingForSubCategory @ 0x140252C5C (SepAuditingForSubCategory.c)
- *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SepAuditingForSubCategory @ 0x140285B0C (SepAuditingForSubCategory.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2884 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140693BD0 (SepAdtAuditThisEventWithContext.c)
  */
 
 NTSTATUS __stdcall SeReportSecurityEventWithSubCategory(

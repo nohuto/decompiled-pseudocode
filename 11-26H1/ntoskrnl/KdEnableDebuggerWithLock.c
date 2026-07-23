@@ -1,16 +1,16 @@
 /*
- * XREFs of KdEnableDebuggerWithLock @ 0x1405E3B4C
+ * XREFs of KdEnableDebuggerWithLock @ 0x1405E64BC
  * Callers:
- *     KdEnableDebugger @ 0x1405E3B10 (KdEnableDebugger.c)
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
+ *     KdEnableDebugger @ 0x1405E6480 (KdEnableDebugger.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KdPowerTransitionEx @ 0x14050A220 (KdPowerTransitionEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KdInitSystem @ 0x140C12B60 (KdInitSystem.c)
- *     KdpRestoreAllBreakpoints @ 0x140C16A48 (KdpRestoreAllBreakpoints.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KdPowerTransitionEx @ 0x140503C90 (KdPowerTransitionEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KdInitSystem @ 0x140C18B60 (KdInitSystem.c)
+ *     KdpRestoreAllBreakpoints @ 0x140C1CA48 (KdpRestoreAllBreakpoints.c)
  */
 
 __int64 __fastcall KdEnableDebuggerWithLock(char a1)

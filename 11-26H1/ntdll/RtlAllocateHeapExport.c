@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlAllocateHeapExport @ 0x18013FD50
+ * XREFs of RtlAllocateHeapExport @ 0x18013FC50
  * Callers:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
  * Callees:
  *     <none>
  */
 
-__int64 RtlAllocateHeapExport()
+__int64 __fastcall RtlAllocateHeapExport(void *a1)
 {
   if ( RtlpHpExportType == 1 )
-    return RtlAllocateHeapFast();
+    return RtlAllocateHeapFast(a1);
   else
-    return RtlAllocateHeapFull();
+    return RtlAllocateHeapFull(a1);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlDeleteExtraCreateParameterLookasideList @ 0x14093CD30
+ * XREFs of FsRtlDeleteExtraCreateParameterLookasideList @ 0x14093CF30
  * Callers:
  *     <none>
  * Callees:
- *     ExDeletePagedLookasideList @ 0x1403584E0 (ExDeletePagedLookasideList.c)
- *     ExDeleteNPagedLookasideList @ 0x1403C6CD0 (ExDeleteNPagedLookasideList.c)
+ *     ExDeletePagedLookasideList @ 0x140358680 (ExDeletePagedLookasideList.c)
+ *     ExDeleteNPagedLookasideList @ 0x1403C6EB0 (ExDeleteNPagedLookasideList.c)
  */
 
 void __stdcall FsRtlDeleteExtraCreateParameterLookasideList(PVOID Lookaside, FSRTL_ECP_LOOKASIDE_FLAGS Flags)

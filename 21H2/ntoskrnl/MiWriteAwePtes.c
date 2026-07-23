@@ -1,33 +1,33 @@
 /*
- * XREFs of MiWriteAwePtes @ 0x14054E298
+ * XREFs of MiWriteAwePtes @ 0x14054E4D8
  * Callers:
- *     MiDeleteVadAwePtes @ 0x14054BB34 (MiDeleteVadAwePtes.c)
- *     NtMapUserPhysicalPages @ 0x1408D6CE0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x1408D6FA0 (NtMapUserPhysicalPagesScatter.c)
+ *     MiDeleteVadAwePtes @ 0x14054BD74 (MiDeleteVadAwePtes.c)
+ *     NtMapUserPhysicalPages @ 0x1408D6E40 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408D7100 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiInsertLargeTbFlushEntry @ 0x14029A7DC (MiInsertLargeTbFlushEntry.c)
- *     MiPageTableLockIsContended @ 0x140308460 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
- *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1402199E0 (MiInsertLargeTbFlushEntry.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiPageTableLockIsContended @ 0x1403131B0 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     MiMakeSystemAddressValid @ 0x1403190E0 (MiMakeSystemAddressValid.c)
+ *     MiGetLeafVa @ 0x140337BB0 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MiDeleteEmptyPageTables @ 0x1403F4F90 (MiDeleteEmptyPageTables.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiDecrementAweMapCount @ 0x14054B9E8 (MiDecrementAweMapCount.c)
- *     MiGetAweNode @ 0x14054C3E0 (MiGetAweNode.c)
- *     MiGetAweViewPageSize @ 0x14054C4D8 (MiGetAweViewPageSize.c)
- *     MiUpdateAwePageTable @ 0x14054E034 (MiUpdateAwePageTable.c)
- *     MiWriteAweClusterPte @ 0x14054E1E4 (MiWriteAweClusterPte.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiDecrementAweMapCount @ 0x14054BC28 (MiDecrementAweMapCount.c)
+ *     MiGetAweNode @ 0x14054C620 (MiGetAweNode.c)
+ *     MiGetAweViewPageSize @ 0x14054C718 (MiGetAweViewPageSize.c)
+ *     MiUpdateAwePageTable @ 0x14054E274 (MiUpdateAwePageTable.c)
+ *     MiWriteAweClusterPte @ 0x14054E424 (MiWriteAweClusterPte.c)
  */
 
 __int64 __fastcall MiWriteAwePtes(
@@ -373,8 +373,8 @@ LABEL_58:
       else
       {
         v58 = v51;
-        if ( qword_140C4DF40 && (v51 & 0x10) == 0 )
-          v58 = v51 & ~qword_140C4DF40;
+        if ( qword_140C4DF80 && (v51 & 0x10) == 0 )
+          v58 = v51 & ~qword_140C4DF80;
         v57 = v58 >> 12;
       }
       v54 = 0xFFFFFFFFFLL;

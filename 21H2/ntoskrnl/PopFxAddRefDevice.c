@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxAddRefDevice @ 0x14026077C
+ * XREFs of PopFxAddRefDevice @ 0x140281C48
  * Callers:
- *     PopFxActivateComponentWorker @ 0x1402606E0 (PopFxActivateComponentWorker.c)
- *     PopFxIdleWorkerTail @ 0x140260EC0 (PopFxIdleWorkerTail.c)
- *     PopFxActivateDevice @ 0x14036FCD0 (PopFxActivateDevice.c)
- *     PopFxQueueWorkOrder @ 0x140381658 (PopFxQueueWorkOrder.c)
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569410 (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x140569684 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxClearDeviceConstraints @ 0x140569DC4 (PopFxClearDeviceConstraints.c)
- *     PopFxIssueDirectedPowerTransition @ 0x14056B594 (PopFxIssueDirectedPowerTransition.c)
- *     PoFxSetTargetDripsDevicePowerState @ 0x1408E4550 (PoFxSetTargetDripsDevicePowerState.c)
+ *     PopFxActivateComponentWorker @ 0x140281BAC (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x140282390 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateDevice @ 0x14036FE80 (PopFxActivateDevice.c)
+ *     PopFxQueueWorkOrder @ 0x1403811A8 (PopFxQueueWorkOrder.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569650 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405698C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxClearDeviceConstraints @ 0x14056A004 (PopFxClearDeviceConstraints.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x14056B7D4 (PopFxIssueDirectedPowerTransition.c)
+ *     PoFxSetTargetDripsDevicePowerState @ 0x1408E46B0 (PoFxSetTargetDripsDevicePowerState.c)
  * Callees:
- *     IoAcquireRemoveLockEx @ 0x1402607C0 (IoAcquireRemoveLockEx.c)
- *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
+ *     IoAcquireRemoveLockEx @ 0x140281C90 (IoAcquireRemoveLockEx.c)
+ *     PopFxBugCheck @ 0x14056962C (PopFxBugCheck.c)
  */
 
 NTSTATUS __fastcall PopFxAddRefDevice(ULONG_PTR BugCheckParameter2)

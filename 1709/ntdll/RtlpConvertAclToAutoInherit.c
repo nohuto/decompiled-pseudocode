@@ -16,43 +16,43 @@
  */
 
 __int64 __fastcall RtlpConvertAclToAutoInherit(
-        __int64 a1,
-        unsigned __int16 *a2,
+        ACL *a1,
+        ACL *Src,
         __int64 a3,
         char a4,
-        _WORD *a5,
-        _WORD *a6,
-        _DWORD *a7,
-        unsigned __int64 *a8,
+        __int64 a5,
+        __int64 a6,
+        PGENERIC_MAPPING GenericMapping,
+        PVOID *a8,
         _DWORD *a9)
 {
-  unsigned __int64 *v10; // r14
+  PVOID *v10; // r14
   _DWORD *v11; // rdi
   void *ProcessHeap; // r15
   int v15; // ebx
   int v16; // eax
   int v17; // r14d
-  __int64 Heap; // rax
+  unsigned int *Heap; // rax
   unsigned __int16 *v19; // r12
-  unsigned __int8 *v20; // rsi
-  int *v21; // rbx
+  ACL *v20; // rsi
+  unsigned int *v21; // rbx
   int v22; // ecx
-  int v23; // ecx
+  unsigned int v23; // ecx
   char v24; // dl
   int v25; // r14d
   unsigned __int8 *v26; // rbx
   int v27; // ecx
-  int v28; // ecx
+  unsigned int v28; // ecx
   int v29; // eax
   char v30; // dl
   unsigned __int16 *v31; // r15
-  int v32; // eax
-  int v33; // edx
-  int v34; // ecx
-  int v35; // esi
+  ACCESS_MASK v32; // eax
+  unsigned int v33; // edx
+  ACCESS_MASK v34; // ecx
+  unsigned int v35; // esi
   int v36; // r12d
   _DWORD *v37; // r14
-  int v38; // edi
+  ACCESS_MASK v38; // edi
   char v39; // al
   char v40; // r8
   char v41; // r10
@@ -62,95 +62,94 @@ __int64 __fastcall RtlpConvertAclToAutoInherit(
   _DWORD *v45; // rdx
   __int64 v46; // rax
   __int64 v47; // rax
-  unsigned __int64 v48; // rbx
-  __int64 v49; // rax
-  __int64 v50; // r9
-  unsigned __int8 v51; // al
-  int v52; // ecx
+  unsigned __int16 *v48; // rbx
+  ACL *v49; // rax
+  ACL *v50; // r9
+  unsigned __int8 AclRevision; // al
+  signed int v52; // ecx
   _BYTE *v53; // r14
-  unsigned __int64 *v54; // rdi
+  __int64 v54; // rdi
   _DWORD *v55; // r15
   int v56; // ebx
   _BYTE *v57; // r12
   unsigned __int16 *v58; // rcx
-  unsigned int v59; // esi
+  ACCESS_MASK v59; // esi
   int v60; // ebx
-  int v61; // eax
-  int v62; // eax
-  unsigned __int64 v63; // rsi
-  void *v64; // rax
-  int v66; // [rsp+90h] [rbp-80h] BYREF
+  ACCESS_MASK v61; // eax
+  signed int AceCount; // eax
+  _WORD *v63; // rsi
+  PVOID v64; // rax
+  ACCESS_MASK v66; // [rsp+90h] [rbp-80h] BYREF
   char v67; // [rsp+94h] [rbp-7Ch] BYREF
   char v68; // [rsp+95h] [rbp-7Bh]
-  int v69; // [rsp+98h] [rbp-78h] BYREF
-  int v70; // [rsp+9Ch] [rbp-74h] BYREF
-  __int16 v71; // [rsp+A0h] [rbp-70h]
-  int v72; // [rsp+A4h] [rbp-6Ch] BYREF
-  unsigned __int64 *v73; // [rsp+A8h] [rbp-68h]
-  unsigned __int64 v74; // [rsp+B0h] [rbp-60h] BYREF
-  unsigned __int16 *v75; // [rsp+B8h] [rbp-58h]
-  unsigned __int64 v76; // [rsp+C0h] [rbp-50h]
-  __int64 v77; // [rsp+C8h] [rbp-48h] BYREF
-  void *v78; // [rsp+D0h] [rbp-40h]
-  unsigned __int64 v79; // [rsp+D8h] [rbp-38h] BYREF
-  int v80; // [rsp+E4h] [rbp-2Ch]
-  int v81; // [rsp+E8h] [rbp-28h]
-  int v82; // [rsp+ECh] [rbp-24h] BYREF
-  _DWORD *v83; // [rsp+F0h] [rbp-20h]
-  _WORD *v84; // [rsp+F8h] [rbp-18h]
-  _WORD *v85; // [rsp+100h] [rbp-10h]
-  __int64 v86; // [rsp+108h] [rbp-8h]
-  char v87[8]; // [rsp+110h] [rbp+0h] BYREF
-  int v88; // [rsp+118h] [rbp+8h]
-  char v89[8]; // [rsp+140h] [rbp+30h] BYREF
-  int v90; // [rsp+148h] [rbp+38h]
+  ACCESS_MASK v69; // [rsp+98h] [rbp-78h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+9Ch] [rbp-74h] BYREF
+  ACCESS_MASK v71; // [rsp+A4h] [rbp-6Ch] BYREF
+  __int64 v72; // [rsp+A8h] [rbp-68h]
+  PVOID v73; // [rsp+B0h] [rbp-60h] BYREF
+  unsigned __int16 *v74; // [rsp+B8h] [rbp-58h]
+  PVOID BaseAddress; // [rsp+C0h] [rbp-50h]
+  __int64 v76; // [rsp+C8h] [rbp-48h] BYREF
+  PVOID HeapHandle; // [rsp+D0h] [rbp-40h]
+  PVOID v78; // [rsp+D8h] [rbp-38h] BYREF
+  unsigned int v79; // [rsp+E4h] [rbp-2Ch]
+  unsigned int v80; // [rsp+E8h] [rbp-28h]
+  int v81; // [rsp+ECh] [rbp-24h] BYREF
+  _DWORD *v82; // [rsp+F0h] [rbp-20h]
+  __int64 v83; // [rsp+F8h] [rbp-18h]
+  __int64 v84; // [rsp+100h] [rbp-10h]
+  int v85[2]; // [rsp+108h] [rbp-8h]
+  __int64 v86; // [rsp+110h] [rbp+0h] BYREF
+  int v87; // [rsp+118h] [rbp+8h]
+  char Sid[8]; // [rsp+140h] [rbp+30h] BYREF
+  int v89; // [rsp+148h] [rbp+38h]
 
   v10 = a8;
   v11 = a9;
-  v85 = a5;
-  v84 = a6;
-  v79 = 0LL;
-  v74 = 0LL;
-  v76 = 0LL;
-  v70 = 0;
-  v86 = a1;
-  v77 = a3;
+  v84 = a5;
+  v83 = a6;
+  v78 = 0LL;
+  v73 = 0LL;
+  BaseAddress = 0LL;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  *(_QWORD *)v85 = a1;
+  v76 = a3;
   v68 = a4;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  v78 = ProcessHeap;
-  v73 = a8;
-  v83 = a9;
-  v71 = 768;
-  v15 = RtlInitializeSid((__int64)v89, (__int64)&v70, 1u);
+  HeapHandle = ProcessHeap;
+  v72 = (__int64)a8;
+  v82 = a9;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+  v15 = RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
   if ( v15 < 0 )
     return (unsigned int)v15;
-  v90 = 0;
-  v15 = RtlInitializeSid((__int64)v87, (__int64)&v70, 1u);
+  v89 = 0;
+  v15 = RtlInitializeSid(&v86, &IdentifierAuthority, 1u);
   if ( v15 < 0 )
     return (unsigned int)v15;
   *a9 = 1024;
   *a8 = 0LL;
-  v88 = 1;
-  if ( a1 && !RtlValidAcl(a1) || !RtlValidAcl((__int64)a2) )
+  v87 = 1;
+  if ( a1 && !RtlValidAcl(a1) || !RtlValidAcl(Src) )
     return (unsigned int)-1073741705;
   v16 = RtlpInheritAcl(
-          a1,
+          (__int64)a1,
           0,
           0,
           a4,
           1,
           0,
-          (__int64)v89,
-          (__int64)v87,
-          (__int64)v89,
-          (__int64)v87,
-          (__int64)a7,
+          (int)Sid,
+          (__int64)&v86,
+          (__int64)Sid,
+          (__int64)&v86,
+          GenericMapping,
           2,
-          (unsigned __int64)&v77 & -(__int64)(v77 != 0),
-          v77 != 0,
-          &v79,
+          (unsigned __int64)&v76 & -(__int64)(v76 != 0),
+          v76 != 0,
+          &v78,
           &v67,
-          &v82);
+          &v81);
   v15 = v16;
   if ( v16 == -2147483637 )
   {
@@ -160,36 +159,36 @@ __int64 __fastcall RtlpConvertAclToAutoInherit(
   v17 = 0;
   if ( v16 >= 0 )
   {
-    Heap = RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1310720, 24LL * a2[2]);
-    v76 = Heap;
+    Heap = (unsigned int *)RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, 24LL * Src->AceCount);
+    BaseAddress = Heap;
     if ( !Heap )
     {
       v15 = -1073741801;
       goto LABEL_90;
     }
-    v19 = a2 + 4;
-    v20 = (unsigned __int8 *)(a2 + 4);
-    v75 = a2 + 4;
-    if ( a2[2] )
+    v19 = (unsigned __int16 *)&Src[1];
+    v20 = Src + 1;
+    v74 = (unsigned __int16 *)&Src[1];
+    if ( Src->AceCount )
     {
-      v21 = (int *)(Heap + 4);
+      v21 = Heap + 1;
       do
       {
-        if ( *v20 > 8u || *v20 == 4 )
+        if ( v20->AclRevision > 8u || v20->AclRevision == 4 )
         {
 LABEL_36:
           *v11 |= 0x1000u;
-          v10 = v73;
+          v10 = (PVOID *)v72;
           goto LABEL_82;
         }
-        v69 = *((_DWORD *)v20 + 1);
-        RtlMapGenericMask(&v69, a7);
-        if ( *v20 <= 0xAu && (v22 = 1635, _bittest(&v22, *v20)) )
-          v23 = a7[3] & v69;
+        v69 = *(_DWORD *)&v20->AceCount;
+        RtlMapGenericMask(&v69, GenericMapping);
+        if ( v20->AclRevision <= 0xAu && (v22 = 1635, _bittest(&v22, v20->AclRevision)) )
+          v23 = GenericMapping->GenericAll & v69;
         else
-          v23 = (a7[3] | 0x1000000) & v69;
-        v24 = v20[1] & 3 | ~v20[1] & 8;
-        if ( (v20[1] & 2) != 0 )
+          v23 = (GenericMapping->GenericAll | 0x1000000) & v69;
+        v24 = v20->Sbz1 & 3 | ~v20->Sbz1 & 8;
+        if ( (v20->Sbz1 & 2) != 0 )
         {
           *(v21 - 1) = v23;
           v21[2] = v23;
@@ -221,25 +220,25 @@ LABEL_36:
         }
         ++v17;
         v21 += 6;
-        v20 += *((unsigned __int16 *)v20 + 1);
+        v20 = (ACL *)((char *)v20 + v20->AclSize);
       }
-      while ( v17 < a2[2] );
+      while ( v17 < Src->AceCount );
     }
     v25 = 0;
-    v72 = 0;
-    v26 = (unsigned __int8 *)(v79 + 8);
-    if ( *(_WORD *)(v79 + 4) )
+    v71 = 0;
+    v26 = (unsigned __int8 *)v78 + 8;
+    if ( *((_WORD *)v78 + 2) )
     {
       do
       {
         if ( *v26 > 8u || *v26 == 4 )
           goto LABEL_36;
         v66 = *((_DWORD *)v26 + 1);
-        RtlMapGenericMask(&v66, a7);
+        RtlMapGenericMask(&v66, GenericMapping);
         if ( *v26 <= 0xAu && (v27 = 1635, _bittest(&v27, *v26)) )
-          v28 = a7[3] & v66;
+          v28 = GenericMapping->GenericAll & v66;
         else
-          v28 = (a7[3] | 0x1000000) & v66;
+          v28 = (GenericMapping->GenericAll | 0x1000000) & v66;
         if ( v28 )
         {
           v29 = v26[1] & 3;
@@ -247,22 +246,22 @@ LABEL_36:
           if ( v29 | ~v26[1] & 8 )
           {
             v31 = v19;
-            v81 = (v26[1] & 2) != 0 ? v28 : 0;
+            v80 = (v26[1] & 2) != 0 ? v28 : 0;
             v32 = (v30 & 2) != 0 ? v28 : 0;
-            v70 = (v30 & 1) != 0 ? v28 : 0;
+            *(_DWORD *)IdentifierAuthority.Value = (v30 & 1) != 0 ? v28 : 0;
             v33 = (v30 & 8) != 0 ? v28 : 0;
-            v34 = v70;
+            v34 = *(_DWORD *)IdentifierAuthority.Value;
             v35 = v33;
-            v66 = v70;
-            v80 = v33;
-            if ( a2[2] )
+            v66 = *(_DWORD *)IdentifierAuthority.Value;
+            v79 = v33;
+            if ( Src->AceCount )
             {
               v36 = 0;
-              v37 = (_DWORD *)(v76 + 20);
+              v37 = (char *)BaseAddress + 20;
               v38 = v32;
               do
               {
-                v39 = RtlpCompareAces(v26, (unsigned __int8 *)v31, v85, v84);
+                v39 = RtlpCompareAces(v26, (unsigned __int8 *)v31, (void *)v84, (void *)v83);
                 v34 = v66;
                 if ( v39 )
                 {
@@ -270,19 +269,19 @@ LABEL_36:
                   v38 &= ~*(v37 - 5);
                   v34 = ~*(v37 - 4) & v66;
                   v66 = v34;
-                  *v37 &= ~v80;
-                  *(v37 - 2) &= ~v81;
-                  *(v37 - 1) &= ~v70;
+                  *v37 &= ~v79;
+                  *(v37 - 2) &= ~v80;
+                  *(v37 - 1) &= ~*(_DWORD *)IdentifierAuthority.Value;
                 }
                 ++v36;
                 v31 = (unsigned __int16 *)((char *)v31 + v31[1]);
                 v37 += 6;
               }
-              while ( v36 < a2[2] );
-              v25 = v72;
-              v19 = a2 + 4;
+              while ( v36 < Src->AceCount );
+              v25 = v71;
+              v19 = (unsigned __int16 *)&Src[1];
               v69 = v38;
-              v11 = v83;
+              v11 = v82;
               v32 = v69;
             }
             if ( v32 | v34 | v35 )
@@ -291,19 +290,19 @@ LABEL_36:
         }
         ++v25;
         v26 += *((unsigned __int16 *)v26 + 1);
-        v72 = v25;
+        v71 = v25;
       }
-      while ( v25 < *(unsigned __int16 *)(v79 + 4) );
-      ProcessHeap = v78;
+      while ( v25 < *((unsigned __int16 *)v78 + 2) );
+      ProcessHeap = HeapHandle;
     }
     v40 = 0;
     v41 = 0;
     v42 = 0;
     v43 = (unsigned __int8 *)v19;
     v44 = 0LL;
-    if ( a2[2] )
+    if ( Src->AceCount )
     {
-      v45 = (_DWORD *)(v76 + 16);
+      v45 = (char *)BaseAddress + 16;
       do
       {
         if ( *v45 | v45[1] | *(v45 - 1) )
@@ -313,7 +312,7 @@ LABEL_36:
           if ( !RtlBaseAceType[v47] && v41 || RtlBaseAceType[v47] == 1 && v40 )
           {
             *v11 |= 0x1000u;
-            v10 = v73;
+            v10 = (PVOID *)v72;
             goto LABEL_82;
           }
         }
@@ -322,7 +321,7 @@ LABEL_36:
           v46 = *v43;
           if ( !RtlBaseAceType[v46] )
             v40 = 1;
-          v11 = v83;
+          v11 = v82;
           if ( RtlBaseAceType[v46] == 1 )
             v41 = 1;
         }
@@ -330,50 +329,50 @@ LABEL_36:
         v43 += *((unsigned __int16 *)v43 + 1);
         v45 += 6;
       }
-      while ( v44 < a2[2] );
+      while ( v44 < Src->AceCount );
     }
     v15 = RtlpInheritAcl(
-            v86,
+            *(__int64 *)v85,
             0,
             0,
             v68,
             1,
             0,
-            (__int64)v85,
-            (__int64)v84,
-            (__int64)v85,
-            (__int64)v84,
-            (__int64)a7,
+            v84,
+            v83,
+            v84,
+            v83,
+            GenericMapping,
             2,
-            (unsigned __int64)&v77 & -(__int64)(v77 != 0),
-            v77 != 0,
-            &v74,
+            (unsigned __int64)&v76 & -(__int64)(v76 != 0),
+            v76 != 0,
+            &v73,
             &v67,
-            &v82);
+            &v81);
     if ( v15 >= 0 )
     {
-      v48 = v74;
-      v49 = RtlAllocateHeap(
-              (__int64)ProcessHeap,
-              NtdllBaseTag + 1310720,
-              v42 + (unsigned int)*(unsigned __int16 *)(v74 + 2));
-      v10 = v73;
+      v48 = (unsigned __int16 *)v73;
+      v49 = (ACL *)RtlAllocateHeap(
+                     ProcessHeap,
+                     NtdllBaseTag + 1310720,
+                     v42 + (unsigned int)*((unsigned __int16 *)v73 + 1));
+      v10 = (PVOID *)v72;
       v50 = v49;
-      *v73 = v49;
+      *(_QWORD *)v72 = v49;
       if ( !v49 )
         goto LABEL_86;
-      v51 = *(_BYTE *)a2;
-      if ( *(_BYTE *)v48 > *(_BYTE *)a2 )
-        v51 = *(_BYTE *)v48;
-      if ( (int)RtlCreateAcl(v50, v42 + (unsigned int)*(unsigned __int16 *)(v48 + 2), v51) >= 0 )
+      AclRevision = Src->AclRevision;
+      if ( *(_BYTE *)v48 > Src->AclRevision )
+        AclRevision = *(_BYTE *)v48;
+      if ( RtlCreateAcl(v50, v42 + v48[1], AclRevision) >= 0 )
       {
         v52 = 0;
-        v53 = (_BYTE *)(*v10 + 8);
+        v53 = (char *)*v10 + 8;
         v66 = 0;
-        if ( a2[2] )
+        if ( Src->AceCount )
         {
-          v54 = v73;
-          v55 = (_DWORD *)(v76 + 16);
+          v54 = v72;
+          v55 = (char *)BaseAddress + 16;
           do
           {
             v56 = *v55 | v55[1] | *(v55 - 1);
@@ -382,10 +381,10 @@ LABEL_36:
               memmove(v53, v19, v19[1]);
               v53[1] &= ~0x10u;
               v57 = v53;
-              v58 = v75;
+              v58 = v74;
               v59 = 0x80000000;
-              v53 += v75[1];
-              ++*(_WORD *)(*v54 + 4);
+              v53 += v74[1];
+              ++*(_WORD *)(*(_QWORD *)v54 + 4LL);
               *((_DWORD *)v57 + 1) = v56 & *((_DWORD *)v58 + 1);
               v60 = ~*((_DWORD *)v58 + 1) & v56;
               if ( v60 )
@@ -396,11 +395,11 @@ LABEL_36:
                     break;
                   if ( (v59 & *((_DWORD *)v58 + 1)) != 0 )
                   {
-                    v72 = v59;
-                    RtlMapGenericMask(&v72, a7);
-                    v61 = v72;
-                    v58 = v75;
-                    if ( (v72 & v60) != 0 )
+                    v71 = v59;
+                    RtlMapGenericMask(&v71, GenericMapping);
+                    v61 = v71;
+                    v58 = v74;
+                    if ( (v71 & v60) != 0 )
                     {
                       *((_DWORD *)v57 + 1) |= v59;
                       v60 &= ~v61;
@@ -409,27 +408,27 @@ LABEL_36:
                   v59 >>= 1;
                 }
                 while ( v60 );
-                v54 = v73;
+                v54 = v72;
               }
               *((_DWORD *)v57 + 1) |= v60;
-              v19 = v75;
+              v19 = v74;
               v52 = v66;
             }
             ++v52;
             v19 = (unsigned __int16 *)((char *)v19 + v19[1]);
             v66 = v52;
-            v62 = a2[2];
+            AceCount = Src->AceCount;
             v55 += 6;
-            v75 = v19;
+            v74 = v19;
           }
-          while ( v52 < v62 );
-          v11 = v83;
-          v48 = v74;
+          while ( v52 < AceCount );
+          v11 = v82;
+          v48 = (unsigned __int16 *)v73;
         }
-        v63 = v74;
-        memmove(v53, (const void *)(v74 + 8), (unsigned int)*(unsigned __int16 *)(v48 + 2) - 8);
-        v10 = v73;
-        *(_WORD *)(*v73 + 4) += *(_WORD *)(v63 + 4);
+        v63 = v73;
+        memmove(v53, (char *)v73 + 8, (unsigned int)v48[1] - 8);
+        v10 = (PVOID *)v72;
+        *(_WORD *)(*(_QWORD *)v72 + 4LL) += v63[2];
       }
       else
       {
@@ -437,19 +436,19 @@ LABEL_36:
       }
 LABEL_82:
       v15 = 0;
-      ProcessHeap = v78;
+      ProcessHeap = HeapHandle;
       if ( (*v11 & 0x1000) == 0 )
         goto LABEL_88;
       if ( *v10 )
       {
-        RtlFreeHeap((__int64)v78, 0, *v10);
+        RtlFreeHeap(HeapHandle, 0, *v10);
         *v10 = 0LL;
       }
-      v64 = (void *)RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1310720, a2[1]);
-      *v10 = (unsigned __int64)v64;
+      v64 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, Src->AclSize);
+      *v10 = v64;
       if ( v64 )
       {
-        memmove(v64, a2, a2[1]);
+        memmove(v64, Src, Src->AclSize);
         v15 = 0;
       }
       else
@@ -459,13 +458,13 @@ LABEL_86:
       }
     }
 LABEL_88:
-    if ( v76 )
-      RtlFreeHeap((__int64)ProcessHeap, 0, v76);
+    if ( BaseAddress )
+      RtlFreeHeap(ProcessHeap, 0, BaseAddress);
   }
 LABEL_90:
-  if ( v79 )
-    RtlFreeHeap((__int64)ProcessHeap, 0, v79);
-  if ( v74 )
-    RtlFreeHeap((__int64)ProcessHeap, 0, v74);
+  if ( v78 )
+    RtlFreeHeap(ProcessHeap, 0, v78);
+  if ( v73 )
+    RtlFreeHeap(ProcessHeap, 0, v73);
   return (unsigned int)v15;
 }

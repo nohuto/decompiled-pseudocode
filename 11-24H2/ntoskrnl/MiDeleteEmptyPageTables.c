@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDeleteEmptyPageTables @ 0x140405978
+ * XREFs of MiDeleteEmptyPageTables @ 0x1403C7ED4
  * Callers:
- *     MiDeleteAwePageTables @ 0x140681C60 (MiDeleteAwePageTables.c)
- *     MiFreeVirtualMemory @ 0x1408DBC38 (MiFreeVirtualMemory.c)
+ *     MiDeleteAwePageTables @ 0x140682E50 (MiDeleteAwePageTables.c)
+ *     MiFreeVirtualMemory @ 0x1408D9E68 (MiFreeVirtualMemory.c)
  * Callees:
- *     MiWalkPageTables @ 0x140235640 (MiWalkPageTables.c)
- *     MiVadPureReserve @ 0x140236380 (MiVadPureReserve.c)
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     MiDecommitInitializePacket @ 0x1402899B0 (MiDecommitInitializePacket.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1402BAD10 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiDeleteVaDirect @ 0x1402DA300 (MiDeleteVaDirect.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiLocateAddress @ 0x1402FC070 (MiLocateAddress.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140405E18 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x140405F18 (LOCK_ADDRESS_SPACE.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1404065E0 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiWalkPageTables @ 0x14020F7D0 (MiWalkPageTables.c)
+ *     MiVadPureReserve @ 0x140210510 (MiVadPureReserve.c)
+ *     MiDeleteVaDirect @ 0x14023BBE0 (MiDeleteVaDirect.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiDecommitInitializePacket @ 0x1402995B0 (MiDecommitInitializePacket.c)
+ *     MiLocateAddress @ 0x140344F70 (MiLocateAddress.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140362450 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x1403C8374 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403C8474 (LOCK_ADDRESS_SPACE.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403C8D90 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiDeleteEmptyPageTables(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -29,29 +29,32 @@ __int64 __fastcall MiDeleteEmptyPageTables(unsigned __int64 a1, unsigned __int64
   __int64 v9; // rbx
   int v10; // edx
   __int64 v11; // rax
-  _OWORD v13[3]; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v14; // [rsp+80h] [rbp-80h]
-  int v15; // [rsp+90h] [rbp-70h] BYREF
-  unsigned int v16; // [rsp+94h] [rbp-6Ch]
-  unsigned __int8 v17; // [rsp+99h] [rbp-67h]
-  int v18; // [rsp+A0h] [rbp-60h]
-  __int64 v19; // [rsp+B0h] [rbp-50h]
-  unsigned __int64 v20; // [rsp+B8h] [rbp-48h]
-  unsigned __int64 v21; // [rsp+C0h] [rbp-40h]
-  __int64 (__fastcall *v22)(_QWORD, _QWORD, _QWORD); // [rsp+138h] [rbp+38h]
-  __int64 (__fastcall *v23)(_QWORD, _QWORD, _QWORD, _QWORD); // [rsp+140h] [rbp+40h]
-  _QWORD *v24; // [rsp+148h] [rbp+48h]
-  _BYTE v25[160]; // [rsp+150h] [rbp+50h] BYREF
-  int v26; // [rsp+1F0h] [rbp+F0h]
-  _QWORD v27[2]; // [rsp+230h] [rbp+130h] BYREF
-  char v28[64]; // [rsp+240h] [rbp+140h] BYREF
-  __int64 v29; // [rsp+280h] [rbp+180h]
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  _OWORD v16[3]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v17; // [rsp+80h] [rbp-80h]
+  int v18; // [rsp+90h] [rbp-70h] BYREF
+  unsigned int v19; // [rsp+94h] [rbp-6Ch]
+  unsigned __int8 v20; // [rsp+99h] [rbp-67h]
+  int v21; // [rsp+A0h] [rbp-60h]
+  __int64 v22; // [rsp+B0h] [rbp-50h]
+  unsigned __int64 v23; // [rsp+B8h] [rbp-48h]
+  unsigned __int64 v24; // [rsp+C0h] [rbp-40h]
+  __int64 (*v25)(); // [rsp+138h] [rbp+38h]
+  __int64 (__fastcall *v26)(_QWORD, _QWORD, _QWORD, _QWORD); // [rsp+140h] [rbp+40h]
+  _QWORD *v27; // [rsp+148h] [rbp+48h]
+  _BYTE v28[160]; // [rsp+150h] [rbp+50h] BYREF
+  int v29; // [rsp+1F0h] [rbp+F0h]
+  _QWORD v30[2]; // [rsp+230h] [rbp+130h] BYREF
+  char v31[64]; // [rsp+240h] [rbp+140h] BYREF
+  __int64 v32; // [rsp+280h] [rbp+180h]
 
-  v14 = 0LL;
-  memset(v13, 0, sizeof(v13));
-  memset_0(v28, 0, 0x68uLL);
-  memset_0(v25, 0, 0xE0uLL);
-  memset_0(&v15, 0, 0xC0uLL);
+  v17 = 0LL;
+  memset(v16, 0, sizeof(v16));
+  memset_0(v31, 0, 0x68uLL);
+  memset_0(v28, 0, 0xE0uLL);
+  memset_0(&v18, 0, 0xC0uLL);
   CurrentThread = KeGetCurrentThread();
   Process = (__int64)CurrentThread->ApcState.Process;
   LOCK_ADDRESS_SPACE(CurrentThread, Process);
@@ -72,12 +75,12 @@ __int64 __fastcall MiDeleteEmptyPageTables(unsigned __int64 a1, unsigned __int64
           && ((*(unsigned int *)(v9 + 52) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 34) << 32)) < 0x7FFFFFFFDLL
            || (*(unsigned int *)(v9 + 52) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 34) << 32)) == 0x7FFFFFFFELL) )
         {
-          v11 = v29;
+          v11 = v32;
           if ( (a3 & 1) == 0 )
             v11 = v9;
-          v29 = v11;
+          v32 = v11;
           MiDecommitInitializePacket(
-            (__int64)v25,
+            (__int64)v28,
             ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
             ((__int64)(((a2 >> 9) & 0x7FFFFFFFF8LL) - ((a1 >> 9) & 0x7FFFFFFFF8LL)) >> 3) + 1,
             0LL,
@@ -85,27 +88,27 @@ __int64 __fastcall MiDeleteEmptyPageTables(unsigned __int64 a1, unsigned __int64
             v9,
             33,
             0LL,
-            (__int64)v13);
-          v18 = 0;
-          v27[0] = v25;
-          v26 = 128;
-          v27[1] = v13;
-          v15 = 7;
-          v20 = a1;
-          v16 = v16 & 0xFFFFFE3F | 0x40;
-          v24 = v27;
-          v22 = MiDeleteEmptyPageTable;
-          v23 = MiDeleteEmptyPageTableTail;
-          v21 = a2;
-          v19 = Process + 1024;
+            (__int64)v16);
+          v21 = 0;
+          v30[0] = v28;
+          v29 = 128;
+          v30[1] = v16;
+          v18 = 7;
+          v23 = a1;
+          v19 = v19 & 0xFFFFFE3F | 0x40;
+          v27 = v30;
+          v25 = MiDeleteEmptyPageTable;
+          v26 = MiDeleteEmptyPageTableTail;
+          v24 = a2;
+          v22 = Process + 1024;
           LOCK_PAGE_TABLE_COMMITMENT(CurrentThread, Process);
-          v17 = MiLockWorkingSetShared(Process + 1024);
-          if ( !MiDeleteVaDirect(&v15) )
-            MiWalkPageTables((__int64)&v15);
-          MiUnlockWorkingSetShared(Process + 1024, v17);
+          v20 = MiLockWorkingSetShared(Process + 1024, v12, v13, v14);
+          if ( !MiDeleteVaDirect((__int64)&v18) )
+            MiWalkPageTables(&v18);
+          MiUnlockWorkingSetShared(Process + 1024, v20);
           UNLOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process);
         }
-        MiUnlockVad((__int64)CurrentThread, v9);
+        MiUnlockVad(CurrentThread, v9);
       }
     }
   }

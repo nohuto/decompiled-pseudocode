@@ -8,40 +8,38 @@
  *     RtlReleaseSRWLockExclusive @ 0x180033DA0 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpFlsCloneComplete(__int64 a1, int a2)
+void __fastcall RtlpFlsCloneComplete(__int64 a1, int a2)
 {
-  __int64 v2; // rax
+  $2F38BEDF952D5DA5F266621B11247D04 v2; // rax
   __int64 v3; // rbx
-  signed __int64 result; // rax
-  unsigned int v6; // edi
-  int v7; // ecx
-  __int64 v8; // r8
-  volatile signed __int64 *v9; // rcx
+  unsigned int v5; // edi
+  int v6; // ecx
+  __int64 v7; // r8
+  _RTL_SRWLOCK *v8; // rcx
 
-  v2 = RtlpFlsContext;
+  v2 = RtlpFlsContext.0;
   v3 = (unsigned int)qword_180184E28;
   if ( a2 )
-    v2 = 1LL;
-  RtlpFlsContext = v2;
-  result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    v2 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
+  RtlpFlsContext.0 = v2;
+  RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   if ( (_DWORD)v3 )
   {
-    v6 = v3 + 16;
+    v5 = v3 + 16;
     do
     {
-      _BitScanReverse((unsigned int *)&v7, v6);
-      v8 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v7 - 4) + 1);
-      if ( v8 )
-        v9 = (volatile signed __int64 *)(v8 + 8 * ((v6 ^ (1 << v7)) + 2LL * (v6 ^ (1 << v7)) + 1));
+      _BitScanReverse((unsigned int *)&v6, v5);
+      v7 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v6 - 4) + 1);
+      if ( v7 )
+        v8 = (_RTL_SRWLOCK *)(v7 + 8 * ((v5 ^ (1 << v6)) + 2LL * (v5 ^ (1 << v6)) + 1));
       else
-        v9 = 0LL;
+        v8 = 0LL;
       if ( a2 )
-        *v9 = 1LL;
-      result = RtlReleaseSRWLockExclusive(v9);
-      --v6;
+        v8->Value = 1LL;
+      RtlReleaseSRWLockExclusive(v8);
+      --v5;
       --v3;
     }
     while ( v3 );
   }
-  return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipEnableCollectOrEvent @ 0x140A0D830
+ * XREFs of WmipEnableCollectOrEvent @ 0x140A0D280
  * Callers:
- *     WmipOpenBlock @ 0x140A0E050 (WmipOpenBlock.c)
+ *     WmipOpenBlock @ 0x140A0D540 (WmipOpenBlock.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipSendEnableRequest @ 0x140A0AF48 (WmipSendEnableRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipSendEnableRequest @ 0x140A0A1B0 (WmipSendEnableRequest.c)
  */
 
 __int64 __fastcall WmipEnableCollectOrEvent(ULONG_PTR BugCheckParameter2, int a2, _BYTE *a3)
@@ -22,20 +22,20 @@ __int64 __fastcall WmipEnableCollectOrEvent(ULONG_PTR BugCheckParameter2, int a2
   {
     v6 = 0;
     v7 = 0;
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     for ( i = *(__int64 **)(BugCheckParameter2 + 56); i != (__int64 *)(BugCheckParameter2 + 56); i = (__int64 *)*i )
     {
       v9 = *((_DWORD *)i + 4);
       if ( (v9 & 0x1000) == 0 && ((v9 & 0x8000) == 0 || !v6) && (v6 || (v9 & 4) != 0) )
         v6 = 1;
     }
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     if ( !v6 )
       return (unsigned int)v6;
 LABEL_14:
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     v6 = WmipSendEnableRequest((_DWORD *)BugCheckParameter2, v7);
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     if ( v6 >= 0 )
       *a3 = 1;
     return (unsigned int)v6;

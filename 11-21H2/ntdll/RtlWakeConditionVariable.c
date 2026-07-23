@@ -6,33 +6,35 @@
  *     <none>
  */
 
-signed __int64 __fastcall RtlWakeConditionVariable(volatile signed __int64 *a1)
+void __cdecl RtlWakeConditionVariable(PRTL_CONDITION_VARIABLE ConditionVariable)
 {
-  signed __int64 result; // rax
+  signed __int64 Ptr; // rax
   signed __int64 v2; // rdx
   signed __int64 v3; // rtt
   signed __int64 v4; // rtt
 
-  result = *a1;
-  while ( result )
+  Ptr = (signed __int64)ConditionVariable->Ptr;
+  while ( Ptr )
   {
-    if ( (result & 8) != 0 )
+    if ( (Ptr & 8) != 0 )
     {
-      if ( (result & 7) == 7 )
-        return result;
-      v4 = result;
-      result = _InterlockedCompareExchange64(a1, result + 1, result);
-      if ( v4 == result )
-        return result;
+      if ( (Ptr & 7) == 7 )
+        return;
+      v4 = Ptr;
+      Ptr = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, Ptr + 1, Ptr);
+      if ( v4 == Ptr )
+        return;
     }
     else
     {
-      v2 = result + 8;
-      v3 = result;
-      result = _InterlockedCompareExchange64(a1, result + 8, result);
-      if ( v3 == result )
-        return RtlpWakeConditionVariable(a1, v2, 1LL, a1);
+      v2 = Ptr + 8;
+      v3 = Ptr;
+      Ptr = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, Ptr + 8, Ptr);
+      if ( v3 == Ptr )
+      {
+        RtlpWakeConditionVariable(ConditionVariable, v2, 1LL, ConditionVariable);
+        return;
+      }
     }
   }
-  return result;
 }

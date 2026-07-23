@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetThreadExitStatus @ 0x1406CAFE0
+ * XREFs of PsGetThreadExitStatus @ 0x1406CC280
  * Callers:
- *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14064B720 (NtQueryInformationThread.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)

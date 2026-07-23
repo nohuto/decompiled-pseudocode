@@ -1,18 +1,18 @@
 /*
- * XREFs of MiWaitForVadDeletion @ 0x140531014
+ * XREFs of MiWaitForVadDeletion @ 0x140533514
  * Callers:
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiReturnLockedVadOrNextVa @ 0x14044E7E0 (MiReturnLockedVadOrNextVa.c)
- *     MiObtainReferencedSecureVad @ 0x1404E4F18 (MiObtainReferencedSecureVad.c)
- *     MiCleanVad @ 0x14095B57C (MiCleanVad.c)
- *     MiLockVadRange @ 0x140960DAC (MiLockVadRange.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiReturnLockedVadOrNextVa @ 0x140446910 (MiReturnLockedVadOrNextVa.c)
+ *     MiObtainReferencedSecureVad @ 0x1404DE4B8 (MiObtainReferencedSecureVad.c)
+ *     MiCleanVad @ 0x140A00E3C (MiCleanVad.c)
+ *     MiLockVadRange @ 0x140A0666C (MiLockVadRange.c)
  * Callees:
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     MiInsertVadEvent @ 0x14049B0F8 (MiInsertVadEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiInitializeQuotaTracker @ 0x1409C4B54 (MiInitializeQuotaTracker.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     MiInsertVadEvent @ 0x140494C48 (MiInsertVadEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiInitializeQuotaTracker @ 0x140995B34 (MiInitializeQuotaTracker.c)
  */
 
 int __fastcall MiWaitForVadDeletion(__int64 a1)

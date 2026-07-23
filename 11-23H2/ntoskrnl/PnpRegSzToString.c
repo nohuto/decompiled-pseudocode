@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpRegSzToString @ 0x1407C21BC
+ * XREFs of PnpRegSzToString @ 0x1407C248C
  * Callers:
- *     PiFindDevInstMatch @ 0x1407C1FB4 (PiFindDevInstMatch.c)
- *     PipApplyFunctionToServiceInstances @ 0x14084900C (PipApplyFunctionToServiceInstances.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x140878BF0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     PiDevCfgBuildIndirectString @ 0x14087B7D4 (PiDevCfgBuildIndirectString.c)
- *     PipGetDriverKsrGuidRegistryValue @ 0x140953298 (PipGetDriverKsrGuidRegistryValue.c)
- *     PipServiceInstanceToDeviceInstance @ 0x140958320 (PipServiceInstanceToDeviceInstance.c)
- *     PiDevCfgMakeServiceBootStart @ 0x14095E9BC (PiDevCfgMakeServiceBootStart.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140961AEC (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiFindDevInstMatch @ 0x1407C2284 (PiFindDevInstMatch.c)
+ *     PipApplyFunctionToServiceInstances @ 0x14084930C (PipApplyFunctionToServiceInstances.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x140878E30 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     PiDevCfgBuildIndirectString @ 0x14087BA14 (PiDevCfgBuildIndirectString.c)
+ *     PipGetDriverKsrGuidRegistryValue @ 0x140953498 (PipGetDriverKsrGuidRegistryValue.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x140958520 (PipServiceInstanceToDeviceInstance.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x14095EBBC (PiDevCfgMakeServiceBootStart.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x140961CEC (PiDevCfgResolveVariableKeyHandle.c)
  *     PipGetDriverTagPriority @ 0x140B3CCE8 (PipGetDriverTagPriority.c)
  *     PpInitGetGroupOrderIndex @ 0x140B3E124 (PpInitGetGroupOrderIndex.c)
  * Callees:

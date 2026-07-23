@@ -86,6 +86,6 @@ void __fastcall IoShutdownSystem(int a1)
     if ( (MmVerifierData & 0x10) != 0 )
       IovUnloadDrivers();
     SystemInformation = 2;
-    ZwSetSystemInformation(SystemInterruptInformation|0x80, &SystemInformation, 4uLL);
+    ZwSetSystemInformation(SystemSoftRebootInformation, &SystemInformation, 4uLL);
   }
 }

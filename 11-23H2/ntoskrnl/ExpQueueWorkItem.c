@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpQueueWorkItem @ 0x1402B76A0
+ * XREFs of ExpQueueWorkItem @ 0x1402B7930
  * Callers:
- *     ExQueueWorkItemFromIo @ 0x1402B7620 (ExQueueWorkItemFromIo.c)
- *     ExQueueWorkItemToPartition @ 0x1402B959C (ExQueueWorkItemToPartition.c)
- *     ExQueueWorkItemEx @ 0x14030B2B0 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemToPrivatePool @ 0x14046B74E (ExQueueWorkItemToPrivatePool.c)
- *     ExQueueWorkItemExFromIo @ 0x14060CBAC (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItemFromIo @ 0x1402B78B0 (ExQueueWorkItemFromIo.c)
+ *     ExQueueWorkItemToPartition @ 0x1402B982C (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemEx @ 0x14030B540 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x14046BB4E (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemExFromIo @ 0x14060D0FC (ExQueueWorkItemExFromIo.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     ExpIsPoolReadyForWork @ 0x1402B7BB0 (ExpIsPoolReadyForWork.c)
- *     ExpNewThreadNecessary @ 0x1402B7ED0 (ExpNewThreadNecessary.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402B8430 (KiSetBasePriorityAndClearDecrement.c)
- *     KiAdjustRealtimePriorityFloor @ 0x1402B852C (KiAdjustRealtimePriorityFloor.c)
- *     KiSignalThread @ 0x1402B85D0 (KiSignalThread.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     ExpIsPoolReadyForWork @ 0x1402B7E40 (ExpIsPoolReadyForWork.c)
+ *     ExpNewThreadNecessary @ 0x1402B8160 (ExpNewThreadNecessary.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1402B86C0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiAdjustRealtimePriorityFloor @ 0x1402B87BC (KiAdjustRealtimePriorityFloor.c)
+ *     KiSignalThread @ 0x1402B8860 (KiSignalThread.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpQueueWorkItem(__int64 a1, _QWORD *a2, int a3, unsigned int a4, int a5)
@@ -80,7 +80,7 @@ __int64 __fastcall ExpQueueWorkItem(__int64 a1, _QWORD *a2, int a3, unsigned int
   v51 = CurrentIrql;
   __writecr8(2uLL);
   LODWORD(v10) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -115,7 +115,7 @@ __int64 __fastcall ExpQueueWorkItem(__int64 a1, _QWORD *a2, int a3, unsigned int
     v17 = KeGetCurrentIrql();
     v52 = v17;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu )
     {
       v37 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)v17 != 2 )
@@ -247,17 +247,17 @@ LABEL_71:
     *(_QWORD *)(v40 + 8) = v7;
 LABEL_29:
     _InterlockedAnd((volatile signed __int32 *)v15, 0xFFFFFF7F);
-    KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, v52);
+    KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, v52);
     if ( (unsigned __int8)ExpNewThreadNecessary(v15, *(unsigned int *)(v15 + 720)) )
       KeSetEvent((PRKEVENT)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * *v13) + 16LL), 0, 0);
     v5 = 1;
 LABEL_32:
     LOBYTE(CurrentIrql) = v51;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v44 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v44 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v44 >= 2u )
     {
       v45 = KeGetCurrentPrcb();
       v46 = v45->SchedulerAssist;

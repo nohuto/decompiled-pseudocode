@@ -1,12 +1,12 @@
 /*
- * XREFs of CcRemoveExternalCache @ 0x14057AB08
+ * XREFs of CcRemoveExternalCache @ 0x140577F98
  * Callers:
- *     CcUnregisterExternalCache @ 0x14057AC80 (CcUnregisterExternalCache.c)
+ *     CcUnregisterExternalCache @ 0x140578110 (CcUnregisterExternalCache.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD54C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402E624C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall CcRemoveExternalCache(_QWORD *a1)

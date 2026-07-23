@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfSnapDeliveredPerformance @ 0x14010BA40
+ * XREFs of PpmPerfSnapDeliveredPerformance @ 0x14010BAC0
  * Callers:
- *     PpmPerfAction @ 0x14010B9A0 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x14010BA20 (PpmPerfAction.c)
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
  *     PpmSnapPerformanceAccumulation @ 0x14005BDC0 (PpmSnapPerformanceAccumulation.c)
- *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopDiagTraceIllegalProcessorThrottle @ 0x1402E178C (PopDiagTraceIllegalProcessorThrottle.c)
+ *     PpmConvertTime @ 0x1400A7C54 (PpmConvertTime.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopDiagTraceIllegalProcessorThrottle @ 0x1402E197C (PopDiagTraceIllegalProcessorThrottle.c)
  */
 
 char __fastcall PpmPerfSnapDeliveredPerformance(struct _KPRCB *a1)

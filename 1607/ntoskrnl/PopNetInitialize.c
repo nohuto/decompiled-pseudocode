@@ -3,14 +3,14 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlLengthRequiredSid @ 0x1404792F0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
- *     PopInitializeTimer @ 0x14057A27C (PopInitializeTimer.c)
- *     PopTraceStandbyConnectivityUpdate @ 0x14057C44C (PopTraceStandbyConnectivityUpdate.c)
- *     PopNetSetConnectivityConstraint @ 0x14057E94C (PopNetSetConnectivityConstraint.c)
+ *     RtlLengthRequiredSid @ 0x1404781C0 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
+ *     PopInitializeTimer @ 0x14057A7BC (PopInitializeTimer.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x14057C8F8 (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetSetConnectivityConstraint @ 0x14057EDF8 (PopNetSetConnectivityConstraint.c)
  */
 
 __int64 __fastcall PopNetInitialize(int a1)
@@ -20,7 +20,7 @@ __int64 __fastcall PopNetInitialize(int a1)
   _DWORD *PoolWithTag; // rax
   NTSTATUS v4; // edi
   int v6; // ecx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+48h] [rbp+10h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+48h] [rbp+10h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   v1 = 0LL;
@@ -65,7 +65,7 @@ LABEL_5:
     v1[5] = 378231328;
     v1[6] = -1590824699;
     v1[7] = 890457928;
-    PopNetBIServiceSid = (__int64)v1;
+    PopNetBIServiceSid = v1;
     v1 = 0LL;
     PopInitializeTimer(
       (__int64)&PopNetEvaluationTimer,

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaExtractFromVerifierShadowAdapter @ 0x1404F0014
+ * XREFs of HalpDmaExtractFromVerifierShadowAdapter @ 0x1404E95F4
  * Callers:
- *     HalDmaFreeCrashDumpRegistersEx @ 0x1404EFF50 (HalDmaFreeCrashDumpRegistersEx.c)
- *     HalAllocateAdapterChannel @ 0x1405799D0 (HalAllocateAdapterChannel.c)
- *     HalAllocateCrashDumpRegisters @ 0x140579C90 (HalAllocateCrashDumpRegisters.c)
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x140579DA0 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalpAllocateMapRegisters @ 0x140781460 (HalpAllocateMapRegisters.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x1404E9530 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     HalAllocateAdapterChannel @ 0x14057BF00 (HalAllocateAdapterChannel.c)
+ *     HalAllocateCrashDumpRegisters @ 0x14057C1C0 (HalAllocateCrashDumpRegisters.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x14057C2D0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalpAllocateMapRegisters @ 0x140783F60 (HalpAllocateMapRegisters.c)
  * Callees:
  *     <none>
  */

@@ -15,7 +15,7 @@ __int64 __fastcall MiComputeIdealDpcGang(__int64 a1, unsigned int a2)
   unsigned int v6; // r8d
   __int64 v7; // rdx
   __int64 v8; // rdx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
   USHORT Count; // [rsp+40h] [rbp+8h] BYREF
 
   Affinity = 0LL;
@@ -25,7 +25,7 @@ __int64 __fastcall MiComputeIdealDpcGang(__int64 a1, unsigned int a2)
   KeQueryNodeActiveAffinity(v4, &Affinity, &Count);
   v5 = 0;
   v6 = 0;
-  for ( *(struct _GROUP_AFFINITY *)(a1 + 200) = Affinity; v6 < (unsigned int)KeNumberProcessors_0; ++v6 )
+  for ( *(_GROUP_AFFINITY *)(a1 + 200) = Affinity; v6 < (unsigned int)KeNumberProcessors_0; ++v6 )
   {
     v7 = KiProcessorBlock[v6];
     if ( *(unsigned __int8 *)(v7 + 208) == Affinity.Group )

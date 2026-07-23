@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetSystemPageTableCommit @ 0x1404DBDFC
+ * XREFs of MmGetSystemPageTableCommit @ 0x1404D54DC
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140A5C194 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140A69154 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */
 
 struct _LIST_ENTRY *MmGetSystemPageTableCommit()
 {
-  return stru_140E36558.WaitBlock[0].WaitListEntry.Blink;
+  return stru_140E366D8.WaitBlock[0].WaitListEntry.Blink;
 }

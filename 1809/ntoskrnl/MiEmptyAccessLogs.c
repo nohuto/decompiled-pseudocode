@@ -7,17 +7,17 @@
  *     MiGetNextSession @ 0x140012754 (MiGetNextSession.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
- *     MiCheckAndProcessCcAccessLog @ 0x14013B848 (MiCheckAndProcessCcAccessLog.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MmDetachSession @ 0x14011A630 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A6C0 (MmAttachSession.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x14013B948 (MiCheckAndProcessCcAccessLog.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
  */
 
 void MiEmptyAccessLogs()
@@ -50,7 +50,7 @@ void MiEmptyAccessLogs()
   _BYTE v25[48]; // [rsp+38h] [rbp-38h] BYREF
 
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  if ( dword_14043A8E8 )
+  if ( dword_14043B9A8 )
   {
     WorkItem.Parameter = 0LL;
     KxReleaseQueuedSpinLock(&LockHandle);
@@ -105,7 +105,7 @@ void MiEmptyAccessLogs()
           MmDetachSession(v12, v25);
         }
       }
-      v15 = &unk_14043B080;
+      v15 = &unk_14043C140;
       v16 = 3LL;
       do
       {
@@ -119,7 +119,7 @@ void MiEmptyAccessLogs()
       KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
     }
     while ( WorkItem.Parameter != (void *)2 );
-    if ( !dword_14043A8E8 )
+    if ( !dword_14043B9A8 )
     {
       v0 = P;
       P = 0LL;

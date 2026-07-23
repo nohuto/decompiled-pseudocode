@@ -1,16 +1,16 @@
 /*
- * XREFs of HvipApertureDirectHypercall @ 0x140637A48
+ * XREFs of HvipApertureDirectHypercall @ 0x14063AA4C
  * Callers:
- *     HviEnterKernelAperture @ 0x140637888 (HviEnterKernelAperture.c)
- *     HviLeaveKernelAperture @ 0x140637960 (HviLeaveKernelAperture.c)
+ *     HviEnterKernelAperture @ 0x14063A88C (HviEnterKernelAperture.c)
+ *     HviLeaveKernelAperture @ 0x14063A964 (HviLeaveKernelAperture.c)
  * Callees:
- *     HvipApertureIntelVmcall @ 0x140732290 (HvipApertureIntelVmcall.c)
- *     HvipApertureAmdVmcall @ 0x1407322A0 (HvipApertureAmdVmcall.c)
+ *     HvipApertureIntelVmcall @ 0x140736E60 (HvipApertureIntelVmcall.c)
+ *     HvipApertureAmdVmcall @ 0x140736E70 (HvipApertureAmdVmcall.c)
  */
 
 __int64 __fastcall HvipApertureDirectHypercall(__int64 a1, __int64 a2)
 {
-  if ( LOBYTE(RtlpBootStatHandleLock.ExpectedRunTime) )
+  if ( BYTE2(RtlpBootStatHandleLock.ExpectedRunTime) )
     return HvipApertureIntelVmcall(a1, a2, 0LL);
   else
     return HvipApertureAmdVmcall(a1, a2, 0LL);

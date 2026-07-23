@@ -26,7 +26,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
   HANDLE KeyHandle; // [rsp+30h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-48h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-38h] BYREF
-  int v16; // [rsp+B0h] [rbp+30h] BYREF
+  DWORD Lcid; // [rsp+B0h] [rbp+30h] BYREF
   __int64 v17; // [rsp+C8h] [rbp+48h] BYREF
 
   KeyHandle = 0LL;
@@ -39,7 +39,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
     {
       memset(v6, 0, 0x158uLL);
       *a2 = 0;
-      v16 = 0;
+      Lcid = 0;
       *a3 = 0;
       RtlInitUnicodeString(
         &DestinationString,
@@ -58,7 +58,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
         v7 = LdrpQueryValueKey(KeyHandle, &DestinationString, (__int64)&v17);
         if ( v7 >= 0 )
         {
-          if ( v16 != 1 )
+          if ( Lcid != 1 )
             goto LABEL_15;
           v9 = *v5;
           v10 = v5;
@@ -76,15 +76,15 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
             ++v10;
           }
           RtlInitUnicodeString(&DestinationString, v5);
-          if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v16) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *a2 = v16;
+            *a2 = Lcid;
             if ( *v10 )
             {
               RtlInitUnicodeString(&DestinationString, v10);
-              if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v16) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v16;
+                *a3 = Lcid;
               }
               else
               {

@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwGetCurrentProcessorNumberEx(__int64 a1, __int64 a2)
+ULONG __cdecl ZwGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessorNumber);
 }

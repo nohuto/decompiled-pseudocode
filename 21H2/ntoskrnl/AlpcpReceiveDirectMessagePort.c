@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpReceiveDirectMessagePort @ 0x140693B70
+ * XREFs of AlpcpReceiveDirectMessagePort @ 0x1405F30D0
  * Callers:
- *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveMessage @ 0x1406D73D0 (AlpcpReceiveMessage.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     AlpcpInsertMessagePendingQueue @ 0x1405E3C64 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpLogReceiveMessage @ 0x1408C3D90 (AlpcpLogReceiveMessage.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1406D33C4 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpLookupMessage @ 0x1406D5FD0 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     AlpcpLogReceiveMessage @ 0x1408C3EF0 (AlpcpLogReceiveMessage.c)
  */
 
-__int64 __fastcall AlpcpReceiveDirectMessagePort(__int64 *a1, __int64 a2, int a3, ULONG_PTR *a4, int a5)
+__int64 __fastcall AlpcpReceiveDirectMessagePort(__int64 *a1, int a2, int a3, ULONG_PTR *a4, int a5)
 {
   __int64 result; // rax
   __int64 v7; // r14
@@ -26,17 +26,17 @@ __int64 __fastcall AlpcpReceiveDirectMessagePort(__int64 *a1, __int64 a2, int a3
   int v13; // eax
   volatile signed __int64 *v14; // rbp
   volatile signed __int64 *v15; // r12
-  unsigned int v16; // r8d
+  __int64 v16; // r8
   int v17; // edx
   volatile signed __int64 *v18; // rcx
   ULONG_PTR v19; // rbx
   ULONG_PTR BugCheckParameter2[2]; // [rsp+30h] [rbp-38h] BYREF
 
   BugCheckParameter2[0] = 0LL;
-  if ( !(_DWORD)a2 )
+  if ( !a2 )
     return 3221225485LL;
   v7 = *a1;
-  result = AlpcpLookupMessage(*a1, a2, a3, (__int64)a4, BugCheckParameter2);
+  result = AlpcpLookupMessage(*a1, a2, a3, (_DWORD)a4, (__int64)BugCheckParameter2);
   if ( (int)result >= 0 )
   {
     v8 = BugCheckParameter2[0];
@@ -96,7 +96,8 @@ LABEL_12:
     }
     if ( !v11 )
     {
-      v16 = (*(_QWORD *)(v8 + 136) != 0LL ? 0x80000000 : 0) | 0x40000000;
+      v16 = *(_QWORD *)(v8 + 136) != 0LL ? 0x80000000 : 0;
+      LODWORD(v16) = v16 | 0x40000000;
       if ( !*(_QWORD *)(v8 + 144) )
         v16 = *(_QWORD *)(v8 + 136) != 0LL ? 0x80000000 : 0;
       v17 = v16 | 0x10000000;
@@ -105,7 +106,7 @@ LABEL_12:
       if ( (v17 & a5) != 0 )
       {
         *(_WORD *)(v8 + 244) |= 0x2000u;
-        AlpcpInsertMessagePendingQueue(v7, v8);
+        AlpcpInsertMessagePendingQueue(v7, v8, v16, 0LL);
         goto LABEL_31;
       }
       *(_WORD *)(v8 + 244) &= ~0x2000u;

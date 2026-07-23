@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpHpVsChunkFree @ 0x18001F6B0
  * Callers:
- *     RtlpHpVsContextFreeInternal @ 0x18009FBDC (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeInternal @ 0x18009FBFC (RtlpHpVsContextFreeInternal.c)
  * Callees:
  *     RtlpHpVsFreeChunkInsert @ 0x18001E2D8 (RtlpHpVsFreeChunkInsert.c)
  *     RtlpHpVsChunkCoalesce @ 0x18001F778 (RtlpHpVsChunkCoalesce.c)

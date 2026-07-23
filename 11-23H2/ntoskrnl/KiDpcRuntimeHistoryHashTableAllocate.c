@@ -1,7 +1,7 @@
 /*
- * XREFs of KiDpcRuntimeHistoryHashTableAllocate @ 0x140383AD4
+ * XREFs of KiDpcRuntimeHistoryHashTableAllocate @ 0x140383CB4
  * Callers:
- *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x1408219C0 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
+ *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x140821CC0 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

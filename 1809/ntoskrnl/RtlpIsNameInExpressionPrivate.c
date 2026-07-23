@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpIsNameInExpressionPrivate @ 0x1400A3EE0
+ * XREFs of RtlpIsNameInExpressionPrivate @ 0x1400A3E20
  * Callers:
- *     RtlIsNameInExpression @ 0x1400A3DB0 (RtlIsNameInExpression.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x1400A3E40 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlIsNameInExpression @ 0x1400A3CF0 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x1400A3D80 (RtlIsNameInUnUpcasedExpression.c)
  * Callees:
- *     RtlDoesNameContainWildCards @ 0x1400A44A0 (RtlDoesNameContainWildCards.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlDoesNameContainWildCards @ 0x1400A43E0 (RtlDoesNameContainWildCards.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __int16 *a2, char a3, char a4, __int64 a5)

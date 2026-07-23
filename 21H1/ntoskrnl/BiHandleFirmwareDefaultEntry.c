@@ -30,7 +30,7 @@ __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3,
   v19 = 0;
   v20 = 0;
   P[0] = 0LL;
-  Element = BiGetElement((__int64)a2, 0x23000003u, P, &v20);
+  Element = BiGetElement(a2, 0x23000003u, P, &v20);
   LODWORD(v9) = Element;
   if ( Element == -1073741275 )
   {

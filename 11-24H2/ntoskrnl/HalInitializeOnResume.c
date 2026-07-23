@@ -1,9 +1,9 @@
 /*
- * XREFs of HalInitializeOnResume @ 0x1404F71E0
+ * XREFs of HalInitializeOnResume @ 0x1404F4AC0
  * Callers:
- *     PopHiberCheckResume @ 0x140B6E970 (PopHiberCheckResume.c)
+ *     PopHiberCheckResume @ 0x140B709E0 (PopHiberCheckResume.c)
  * Callees:
- *     HalpEfiInitializeOnResume @ 0x14054CBF4 (HalpEfiInitializeOnResume.c)
+ *     HalpEfiInitializeOnResume @ 0x14054A4B4 (HalpEfiInitializeOnResume.c)
  */
 
 __int64 HalInitializeOnResume()

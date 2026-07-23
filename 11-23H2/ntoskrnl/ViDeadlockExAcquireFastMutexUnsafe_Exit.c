@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockExAcquireFastMutexUnsafe_Exit @ 0x140AD9000
+ * XREFs of ViDeadlockExAcquireFastMutexUnsafe_Exit @ 0x140AD8FF0
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockAcquireResource @ 0x140AD6DDC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x140AD6DCC (VfDeadlockAcquireResource.c)
  */
 
 PVOID __fastcall ViDeadlockExAcquireFastMutexUnsafe_Exit(__int64 a1)

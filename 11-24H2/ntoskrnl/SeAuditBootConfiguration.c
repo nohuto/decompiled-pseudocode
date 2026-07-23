@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditBootConfiguration @ 0x1407906C4
+ * XREFs of SeAuditBootConfiguration @ 0x140790694
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x140348E4C (SepAdtLogAuditRecord.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     BcdUtilGetBootOptionBoolean @ 0x14081269C (BcdUtilGetBootOptionBoolean.c)
- *     BcdUtilGetBootOptionInteger @ 0x1408126E0 (BcdUtilGetBootOptionInteger.c)
- *     BcdUtilGetBootOptionString @ 0x140812728 (BcdUtilGetBootOptionString.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
+ *     SepAdtLogAuditRecord @ 0x1403C288C (SepAdtLogAuditRecord.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     BcdUtilGetBootOptionBoolean @ 0x140812DDC (BcdUtilGetBootOptionBoolean.c)
+ *     BcdUtilGetBootOptionInteger @ 0x140812E20 (BcdUtilGetBootOptionInteger.c)
+ *     BcdUtilGetBootOptionString @ 0x140812E68 (BcdUtilGetBootOptionString.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
  */
 
 void __fastcall SeAuditBootConfiguration(__int64 a1)

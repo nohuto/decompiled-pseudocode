@@ -1,20 +1,20 @@
 /*
- * XREFs of CcExtendVacbArray @ 0x1402F2A44
+ * XREFs of CcExtendVacbArray @ 0x1402F2CD4
  * Callers:
- *     CcSetFileSizesEx @ 0x1402F0FA0 (CcSetFileSizesEx.c)
+ *     CcSetFileSizesEx @ 0x1402F1230 (CcSetFileSizesEx.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1402A1030 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1402A1070 (CcAcquireBcbLockAndVacbLock.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     VacbLevelReference @ 0x1402F35D8 (VacbLevelReference.c)
- *     CcAllocateVacbLevel @ 0x1402F3600 (CcAllocateVacbLevel.c)
- *     CcFreeUnusedVacbLevels @ 0x1402F3684 (CcFreeUnusedVacbLevels.c)
- *     CcAllocateVacbLevels @ 0x1402F36E0 (CcAllocateVacbLevels.c)
- *     CcCalculateVacbLevelLockCount @ 0x1402F4C4C (CcCalculateVacbLevelLockCount.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1402A12C0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x1402A1300 (CcAcquireBcbLockAndVacbLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     VacbLevelReference @ 0x1402F3868 (VacbLevelReference.c)
+ *     CcAllocateVacbLevel @ 0x1402F3890 (CcAllocateVacbLevel.c)
+ *     CcFreeUnusedVacbLevels @ 0x1402F3914 (CcFreeUnusedVacbLevels.c)
+ *     CcAllocateVacbLevels @ 0x1402F3970 (CcAllocateVacbLevels.c)
+ *     CcCalculateVacbLevelLockCount @ 0x1402F4EDC (CcCalculateVacbLevelLockCount.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

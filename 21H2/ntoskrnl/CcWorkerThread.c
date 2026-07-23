@@ -1,27 +1,27 @@
 /*
- * XREFs of CcWorkerThread @ 0x1402F31F0
+ * XREFs of CcWorkerThread @ 0x1402FDF40
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     CcFindNextWorkQueueEntry @ 0x1402F3AF8 (CcFindNextWorkQueueEntry.c)
- *     CcLazyWriteScan @ 0x1402F5894 (CcLazyWriteScan.c)
- *     CcWriteBehind @ 0x1402F6160 (CcWriteBehind.c)
- *     CcFreeWorkQueueEntry @ 0x1402F6CBC (CcFreeWorkQueueEntry.c)
- *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
- *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
- *     CcPerformReadAhead @ 0x1402F9DF0 (CcPerformReadAhead.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     CcReEngageWorkerThreads @ 0x140380480 (CcReEngageWorkerThreads.c)
- *     CcPerfLogWorkItemEnqueue @ 0x1403BD5AC (CcPerfLogWorkItemEnqueue.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcFindNextWorkQueueEntry @ 0x1402FE848 (CcFindNextWorkQueueEntry.c)
+ *     CcLazyWriteScan @ 0x1403005E4 (CcLazyWriteScan.c)
+ *     CcWriteBehind @ 0x140300EB0 (CcWriteBehind.c)
+ *     CcFreeWorkQueueEntry @ 0x140301A0C (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x140301A7C (CcDereferencePartition.c)
+ *     ExQueueWorkItemToPartition @ 0x1403025FC (ExQueueWorkItemToPartition.c)
+ *     CcPerformReadAhead @ 0x140304B40 (CcPerformReadAhead.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     CcReEngageWorkerThreads @ 0x14037FFD0 (CcReEngageWorkerThreads.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x1403BD71C (CcPerfLogWorkItemEnqueue.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     CcLogExtraWBThreadAction @ 0x1404E9C84 (CcLogExtraWBThreadAction.c)
- *     CcOkToAddWriteBehindThread @ 0x1404E9D8C (CcOkToAddWriteBehindThread.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CcLogExtraWBThreadAction @ 0x1404E9EC4 (CcLogExtraWBThreadAction.c)
+ *     CcOkToAddWriteBehindThread @ 0x1404E9FCC (CcOkToAddWriteBehindThread.c)
  */
 
 __int64 __fastcall CcWorkerThread(__int64 a1)

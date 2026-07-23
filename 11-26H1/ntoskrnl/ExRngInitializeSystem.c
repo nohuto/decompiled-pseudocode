@@ -1,10 +1,10 @@
 /*
- * XREFs of ExRngInitializeSystem @ 0x140CE6E20
+ * XREFs of ExRngInitializeSystem @ 0x140CED1C0
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int128 *ExRngInitializeSystem()
@@ -63,7 +63,7 @@ __int128 *ExRngInitializeSystem()
 
   v0 = &ExpLFGRngState;
   v1 = 220LL;
-  WheapConfigTableLock.SuspendEvent.Header.WaitListHead.Blink = 0LL;
+  WheapConfigTableLock.SchedulerApc.SystemArgument1 = 0LL;
   v2 = 220;
   v3 = 2LL;
   v4 = *(_QWORD *)(KeLoaderBlock_0 + 240) + 344LL;
@@ -137,8 +137,8 @@ __int128 *ExRngInitializeSystem()
   }
   while ( v3 );
   v33 = 1024LL;
-  LODWORD(WheapConfigTableLock.ThreadListEntry.Flink) = (1024 - v2) >> 2;
-  memmove(&WheapConfigTableLock.ThreadListEntry.Blink, (const void *)(v4 + v2 + 1096LL), 4LL * ((1024 - v2) >> 2));
+  *(_DWORD *)&WheapConfigTableLock.SchedulerApcFill5[72] = (1024 - v2) >> 2;
+  memmove(&WheapConfigTableLock.SuspendEvent, (const void *)(v4 + v2 + 1096LL), 4LL * ((1024 - v2) >> 2));
   v34 = (_BYTE *)(v4 + 1096);
   do
   {

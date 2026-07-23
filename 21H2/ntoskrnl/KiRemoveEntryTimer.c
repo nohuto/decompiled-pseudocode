@@ -1,15 +1,15 @@
 /*
- * XREFs of KiRemoveEntryTimer @ 0x140247790
+ * XREFs of KiRemoveEntryTimer @ 0x1402EBFE0
  * Callers:
- *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
- *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
- *     KiInsertTimerTable @ 0x140348000 (KiInsertTimerTable.c)
- *     KiExpireTimerTable @ 0x1403894B0 (KiExpireTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x14039E16C (KiAdjustTimerDueTimes.c)
+ *     KiRetireDpcList @ 0x1402EAF00 (KiRetireDpcList.c)
+ *     ExpSetTimerObject @ 0x1402EDC70 (ExpSetTimerObject.c)
+ *     KiInsertTimerTable @ 0x140352D50 (KiInsertTimerTable.c)
+ *     KiExpireTimerTable @ 0x140389600 (KiExpireTimerTable.c)
+ *     KiAdjustTimerDueTimes @ 0x14039E2BC (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiTryToAcquireSpinLockInstrumented @ 0x1405169C4 (KiTryToAcquireSpinLockInstrumented.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x140516C04 (KiTryToAcquireSpinLockInstrumented.c)
  */
 
 unsigned __int64 __fastcall KiRemoveEntryTimer(__int64 a1, __int64 a2, unsigned int a3, volatile signed __int64 **a4)

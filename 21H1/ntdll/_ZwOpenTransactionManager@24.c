@@ -6,7 +6,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwOpenTransactionManager(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl ZwOpenTransactionManager(
+        PHANDLE TmHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LogFileName,
+        LPGUID TmIdentity,
+        ULONG OpenOptions)
 {
   return Wow64SystemServiceCall();
 }

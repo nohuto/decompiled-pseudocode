@@ -1,9 +1,9 @@
 /*
- * XREFs of CmFcRegisterFeatureConfigurationChangeNotification @ 0x14077A728
+ * XREFs of CmFcRegisterFeatureConfigurationChangeNotification @ 0x14077D658
  * Callers:
- *     RtlRegisterFeatureConfigurationChangeNotification @ 0x1405071B0 (RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     RtlRegisterFeatureConfigurationChangeNotification @ 0x140500B80 (RtlRegisterFeatureConfigurationChangeNotification.c)
  * Callees:
- *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140B482E0 (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
+ *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140B4A070 (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
  */
 
 __int64 __fastcall CmFcRegisterFeatureConfigurationChangeNotification(int a1, int a2, int a3, __int64 a4)

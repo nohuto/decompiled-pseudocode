@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSetLegacyAffinityThread @ 0x14025A52C
+ * XREFs of KiSetLegacyAffinityThread @ 0x14025BD0C
  * Callers:
- *     KeSetAffinityThread @ 0x1405EC030 (KeSetAffinityThread.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
+ *     KeSetAffinityThread @ 0x1405EE9A0 (KeSetAffinityThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
  * Callees:
- *     KiSetUserAffinityThread @ 0x14022A784 (KiSetUserAffinityThread.c)
- *     ?RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025A790 (-RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiCpuPartitionCheckAffinitization @ 0x1405F416C (KiCpuPartitionCheckAffinitization.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiSetUserAffinityThread @ 0x14022C114 (KiSetUserAffinityThread.c)
+ *     ?RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025BF70 (-RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405F6B2C (KiCpuPartitionCheckAffinitization.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiSetLegacyAffinityThread(__int64 a1, __int64 a2)
@@ -66,7 +66,7 @@ LABEL_7:
     v22.Bitmap[v9] |= a2;
     Size = v22.Size;
   }
-  RtlpAndAffinityEx(&v22, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister, &v22, Size);
+  RtlpAndAffinityEx(&v22, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister, &v22, Size);
   for ( i = 0; i < v22.Count; ++i )
   {
     if ( v22.Bitmap[i] )
@@ -110,7 +110,7 @@ LABEL_17:
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v4 + 64));
   LOBYTE(v13) = CurrentIrql;
   KiProcessDeferredReadyList(CurrentPrcb, &v20, v13);
-  if ( v6 && (WORD2(xmmword_140FBFC10) & 0x200) != 0 )
+  if ( v6 && (WORD2(xmmword_140FC0C10) & 0x200) != 0 )
     KiCpuPartitionCheckAffinitization(v4, a1, &v22, 0LL);
   return v5;
 }

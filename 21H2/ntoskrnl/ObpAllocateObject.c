@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpAllocateObject @ 0x1406FF230
+ * XREFs of ObpAllocateObject @ 0x140716610
  * Callers:
- *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
- *     IopAllocRealFileObject @ 0x1407030E0 (IopAllocRealFileObject.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
+ *     CmpCreateKeyBody @ 0x140713A70 (CmpCreateKeyBody.c)
+ *     IopAllocRealFileObject @ 0x14071A4C0 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObCreateObjectTypeEx @ 0x140795AF0 (ObCreateObjectTypeEx.c)
  * Callees:
- *     SeAuditHeaderRequired @ 0x1403521D0 (SeAuditHeaderRequired.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     SeAuditHeaderRequired @ 0x14035CF20 (SeAuditHeaderRequired.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpAllocateObject(int *a1, char a2, __int64 a3, __int128 *a4, int a5, char **a6, _BYTE *a7)

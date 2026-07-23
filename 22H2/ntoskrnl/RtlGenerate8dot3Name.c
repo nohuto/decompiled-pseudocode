@@ -130,7 +130,7 @@ NTSTATUS __stdcall RtlGenerate8dot3Name(
       }
       while ( (unsigned int)Context < 4 );
       v4->NameLength += 4;
-      v4->ChecksumInserted = 1;
+      v4->CheckSumInserted = 1;
     }
     if ( v8 == -1 )
     {
@@ -170,7 +170,7 @@ LABEL_48:
   }
   v16 = v4->LastIndexValue + 1;
   v4->LastIndexValue = v16;
-  if ( v16 > 4 && !v4->ChecksumInserted )
+  if ( v16 > 4 && !v4->CheckSumInserted )
   {
     v29 = RtlComputeLfnChecksum(Name);
     v4->Checksum = v29;
@@ -194,7 +194,7 @@ LABEL_48:
     v4->LastIndexValue = 1;
     v4->NameLength = 6 - v30;
     v16 = 1;
-    v4->ChecksumInserted = 1;
+    v4->CheckSumInserted = 1;
   }
   v17 = 1;
   v18 = 1;

@@ -8,14 +8,14 @@
  *     RtlpNlsGetNameIndex @ 0x18003BB38 (RtlpNlsGetNameIndex.c)
  *     RtlpLoadNlsData @ 0x18007D154 (RtlpLoadNlsData.c)
  *     _wcsicmp @ 0x18008E370 (_wcsicmp.c)
- *     RtlpGetAlternateCodePage @ 0x1800FD11C (RtlpGetAlternateCodePage.c)
+ *     RtlpGetAlternateCodePage @ 0x1800FD0DC (RtlpGetAlternateCodePage.c)
  */
 
 __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
         wchar_t *String2,
         char a2,
         bool *a3,
-        UNICODE_STRING *a4,
+        _UNICODE_STRING *a4,
         __int64 a5,
         unsigned __int16 a6)
 {

@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepUnicodeStringFromOperandValue @ 0x14022D190
+ * XREFs of AuthzBasepUnicodeStringFromOperandValue @ 0x14022D2A0
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF40 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x14030C158 (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepCompareFQBNOperands @ 0x14066F260 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14022C050 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14030C3E8 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x14066F7B0 (AuthzBasepCompareFQBNOperands.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1406DA280 (RtlUpcaseUnicodeChar.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1406DA2B0 (RtlUpcaseUnicodeChar.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

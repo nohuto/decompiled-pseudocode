@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x1404C3FF0
+ * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x1404BD8D0
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x1404C3F60 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x1404BD840 (EtwpLogMemInfoTimerCallback.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall EtwpQueuePerfMemInfoWorkItem(struct _LIST_ENTRY *a1)

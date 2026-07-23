@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380
+ * XREFs of _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710
  * Callers:
- *     _CmDeleteInterfaceClassWorker @ 0x140818F18 (_CmDeleteInterfaceClassWorker.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x14081BAFC (_CmGetMatchingDeviceInterfaceList.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1408B97F8 (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _CmDeleteDeviceWorker @ 0x1409B2CB8 (_CmDeleteDeviceWorker.c)
- *     PnpDisableDeviceInterfaces @ 0x140A10ED8 (PnpDisableDeviceInterfaces.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x140A77CC0 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PnpDeleteDeviceInterfaces @ 0x140AA7668 (PnpDeleteDeviceInterfaces.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x140819658 (_CmDeleteInterfaceClassWorker.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x14081C23C (_CmGetMatchingDeviceInterfaceList.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1408B71A0 (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _CmDeleteDeviceWorker @ 0x1409AA048 (_CmDeleteDeviceWorker.c)
+ *     PnpDisableDeviceInterfaces @ 0x1409BF2E8 (PnpDisableDeviceInterfaces.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140A71FC0 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PnpDeleteDeviceInterfaces @ 0x140AA2768 (PnpDeleteDeviceInterfaces.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiPnpRtlCmActionCallback @ 0x1408C7450 (PiPnpRtlCmActionCallback.c)
- *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1409B355C (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiPnpRtlCmActionCallback @ 0x1408C4E80 (PiPnpRtlCmActionCallback.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1409AA8EC (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceInterfaceList(
@@ -67,7 +67,7 @@ __int64 __fastcall CmGetMatchingFilteredDeviceInterfaceList(
     if ( v14 == PiPnpRtlCmActionCallback )
       v15 = PiPnpRtlCmActionCallback(a1, 0LL, 3LL, 17, 1, (__int64)v25);
     else
-      v15 = guard_dispatch_icall_no_overrides(a1, 0LL, 3LL, 17LL);
+      v15 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v15 == -1073741822 )
     {
       v18 = 0LL;
@@ -101,7 +101,7 @@ __int64 __fastcall CmGetMatchingFilteredDeviceInterfaceList(
   if ( v18 )
   {
     v25[0] = MatchingFilteredDeviceInterfaceListWorker;
-    v20 = guard_dispatch_icall_no_overrides(a1, 0LL, 3LL, 17LL);
+    v20 = guard_dispatch_icall_no_overrides(a1, 0LL);
     v21 = v20;
     if ( v20 != -1073741822 )
     {

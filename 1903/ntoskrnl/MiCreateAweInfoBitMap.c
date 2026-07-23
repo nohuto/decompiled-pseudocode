@@ -20,11 +20,11 @@ __int64 __fastcall MiCreateAweInfoBitMap(__int64 a1, __int64 a2, __int64 a3)
   __int16 v7; // ax
   unsigned __int64 v8; // rax
   unsigned __int64 v9; // rbx
-  PVOID PoolWithTag; // rax
-  void *v11; // rbp
+  unsigned __int64 *PoolWithTag; // rax
+  unsigned __int64 *v11; // rbp
   __int64 result; // rax
   int v13; // ebx
-  __int128 v14; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   Process = KeGetCurrentThread()->ApcState.Process;
   v5 = *(_QWORD *)(MiGetAweInfoPartition(a1, a2, a3) + 7880);
@@ -40,13 +40,16 @@ __int64 __fastcall MiCreateAweInfoBitMap(__int64 a1, __int64 a2, __int64 a3)
     v9 = v5 + 1;
   else
     v9 = (~(v8 - 1) & (v5 + v8 - 1)) / v8;
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8 * ((v9 >> 6) + ((v9 & 0x3F) != 0)), 0x4C646156u);
+  PoolWithTag = (unsigned __int64 *)ExAllocatePoolWithTag(
+                                      NonPagedPoolNx,
+                                      8 * ((v9 >> 6) + ((v9 & 0x3F) != 0)),
+                                      0x4C646156u);
   v11 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
-  *(_QWORD *)&v14 = v9;
-  *((_QWORD *)&v14 + 1) = PoolWithTag;
-  RtlClearAllBitsEx((__int64)&v14);
+  BitMapHeader.SizeOfBitMap = v9;
+  BitMapHeader.Buffer = PoolWithTag;
+  RtlClearAllBitsEx(&BitMapHeader);
   if ( (*(_DWORD *)a1 & 1) != 0
     && (v13 = PsChargeProcessNonPagedPoolQuota((__int64)Process, 8 * ((v9 >> 6) + ((v9 & 0x3F) != 0))), v13 < 0) )
   {
@@ -56,7 +59,7 @@ __int64 __fastcall MiCreateAweInfoBitMap(__int64 a1, __int64 a2, __int64 a3)
   else
   {
     result = 0LL;
-    *(_OWORD *)(a1 + 16) = v14;
+    *(_RTL_BITMAP_EX *)(a1 + 16) = BitMapHeader;
   }
   return result;
 }

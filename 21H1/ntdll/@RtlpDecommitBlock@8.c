@@ -24,26 +24,30 @@ char __fastcall RtlpDecommitBlock(int a1, _BYTE *a2)
   int v11; // eax
   int v12; // ebx
   int v13; // eax
-  const void *v15; // [esp+10h] [ebp-8h] BYREF
-  int v16; // [esp+14h] [ebp-4h] BYREF
+  SIZE_T v15; // [esp-8h] [ebp-20h]
+  ULONG v16; // [esp+0h] [ebp-18h]
+  const void *v17; // [esp+10h] [ebp-8h] BYREF
+  int v18; // [esp+14h] [ebp-4h] BYREF
 
   v4 = *(unsigned __int16 *)a2;
   a2[2] &= 0xF8u;
   a2[7] = 0;
   v5 = (*(_BYTE *)(a1 + 64) & 0x40) == 0;
-  v16 = v4;
+  v18 = v4;
   if ( !v5 )
   {
-    RtlFillMemoryUlong(a2 + 16, 8 * v4 - 16, -17891602);
+    HIDWORD(v15) = -17891602;
+    LODWORD(v15) = 8 * v4 - 16;
+    RtlFillMemoryUlong(a2 + 16, v15, v16);
     a2[2] |= 4u;
   }
   v6 = RtlpHeapKey ^ *(_DWORD *)(a1 + 204);
   if ( !v6 )
   {
-    LOBYTE(v6) = RtlpGetFreeBlockInsidePageBoundaries(&v15, &v16);
+    LOBYTE(v6) = RtlpGetFreeBlockInsidePageBoundaries(&v17, &v18);
     if ( (_BYTE)v6 )
     {
-      v7 = RtlpSecMemFreeVirtualMemory(&v16, 0x4000);
+      v7 = RtlpSecMemFreeVirtualMemory(&v18, 0x4000);
       if ( v7 < 0 )
       {
         if ( NtCurrentPeb()->Ldr )
@@ -54,8 +58,8 @@ char __fastcall RtlpDecommitBlock(int a1, _BYTE *a2)
                        "RtlpHeapFreeVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n",
                        v7,
                        (const void *)a1,
-                       v15,
-                       v16);
+                       v17,
+                       v18);
       }
       else
       {
@@ -65,9 +69,9 @@ char __fastcall RtlpDecommitBlock(int a1, _BYTE *a2)
         else
           v9 = 2147353472;
         if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-          RtlpLogHeapDecommit(v16, 7);
+          RtlpLogHeapDecommit(v18, 7);
         ++*(_DWORD *)(a1 + 544);
-        v10 = v16;
+        v10 = v18;
         ++*(_DWORD *)(a1 + 576);
         *(_DWORD *)(a1 + 580) += v10;
         ++*(_DWORD *)(a1 + 560);
@@ -79,7 +83,7 @@ char __fastcall RtlpDecommitBlock(int a1, _BYTE *a2)
         {
           if ( RtlGetCurrentServiceSessionId() )
             v8 = (int)NtCurrentPeb()->SharedData + 550;
-          RtlpLogHeapContractEvent(v16, 8 * *(_DWORD *)(a1 + 116), 0, 0, *(unsigned __int8 *)v8);
+          RtlpLogHeapContractEvent(v18, 8 * *(_DWORD *)(a1 + 116), 0, 0, (HANDLE)*(unsigned __int8 *)v8);
         }
         v12 = 2147353482;
         if ( RtlGetCurrentServiceSessionId() )
@@ -90,7 +94,7 @@ char __fastcall RtlpDecommitBlock(int a1, _BYTE *a2)
         {
           if ( RtlGetCurrentServiceSessionId() )
             v12 = (int)NtCurrentPeb()->SharedData + 560;
-          RtlpLogHeapContractEvent(v16, 8 * *(_DWORD *)(a1 + 116), 0, 0, *(unsigned __int8 *)v12);
+          RtlpLogHeapContractEvent(v18, 8 * *(_DWORD *)(a1 + 116), 0, 0, (HANDLE)*(unsigned __int8 *)v12);
         }
         LOBYTE(v6) = a2[2] & 0x13 | 8;
         a2[2] = v6;

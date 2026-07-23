@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwCallbackReturn @ 0x1800A0380
+ * XREFs of ZwCallbackReturn @ 0x1800A03A0
  * Callers:
- *     KiUserCallbackDispatcherHandler @ 0x1800A3F90 (KiUserCallbackDispatcherHandler.c)
- *     KiUserCallbackDispatcher @ 0x1800A4020 (KiUserCallbackDispatcher.c)
+ *     KiUserCallbackDispatcherHandler @ 0x1800A3FB0 (KiUserCallbackDispatcherHandler.c)
+ *     KiUserCallbackDispatcher @ 0x1800A4040 (KiUserCallbackDispatcher.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCallbackReturn()
+NTSTATUS __cdecl ZwCallbackReturn(PVOID OutputBuffer, ULONG OutputLength, NTSTATUS Status)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 5LL;
+  result = 5;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

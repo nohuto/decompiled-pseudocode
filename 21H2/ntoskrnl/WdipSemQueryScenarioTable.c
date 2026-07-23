@@ -1,7 +1,7 @@
 /*
- * XREFs of WdipSemQueryScenarioTable @ 0x140789724
+ * XREFs of WdipSemQueryScenarioTable @ 0x1407898E4
  * Callers:
- *     WdipSemEnableScenario @ 0x1407895DC (WdipSemEnableScenario.c)
+ *     WdipSemEnableScenario @ 0x14078979C (WdipSemEnableScenario.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall WdipSemQueryScenarioTable(_QWORD *a1, __int16 a2)
   if ( a1 )
   {
     v5 = 0;
-    if ( dword_140C1A540 )
+    if ( dword_140C1A560 )
     {
       while ( 1 )
       {
@@ -27,7 +27,7 @@ __int64 __fastcall WdipSemQueryScenarioTable(_QWORD *a1, __int16 a2)
           v7 = a1[1] - *(_QWORD *)(v6 + 8);
         if ( !v7 && a2 == *(_WORD *)(v6 + 16) )
           break;
-        if ( ++v5 >= (unsigned int)dword_140C1A540 )
+        if ( ++v5 >= (unsigned int)dword_140C1A560 )
           return v2;
       }
       return WdipSemScenarioTable[v5];

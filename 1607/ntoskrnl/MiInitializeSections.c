@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSections @ 0x14054F190
+ * XREFs of MiInitializeSections @ 0x14054F6D0
  * Callers:
- *     MiInitializePartition @ 0x14054ECF0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14054F230 (MiInitializePartition.c)
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     KeInitializeSemaphore @ 0x1400F2030 (KeInitializeSemaphore.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     KeInitializeSemaphore @ 0x1400EFE80 (KeInitializeSemaphore.c)
  */
 
 void __fastcall MiInitializeSections(__int64 a1)
@@ -37,8 +37,8 @@ void __fastcall MiInitializeSections(__int64 a1)
   KeInitializeTimerEx((PKTIMER)(a1 + 1456), SynchronizationTimer);
   if ( (int *)a1 == MiSystemPartition )
   {
-    KeInitializeEvent(&stru_140326938, NotificationEvent, 0);
-    InitializeSListHead(&stru_140326950);
+    KeInitializeEvent(&stru_140326978, NotificationEvent, 0);
+    InitializeSListHead(&stru_140326990);
   }
   *(_QWORD *)(a1 + 1304) = 1LL;
   *(_QWORD *)(a1 + 1272) = 0LL;

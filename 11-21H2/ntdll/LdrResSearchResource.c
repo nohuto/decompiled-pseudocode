@@ -24,82 +24,83 @@
  *     LdrpResValidateFilePath @ 0x1800EFF60 (LdrpResValidateFilePath.c)
  */
 
-__int64 __fastcall LdrResSearchResource(
-        HANDLE Handle,
+int __fastcall LdrResSearchResource(
+        WCHAR *Handle,
         void *Src,
-        unsigned int a3,
+        DWORD a3,
         int a4,
         __int64 a5,
-        __int64 a6,
+        void *a6,
         __int64 a7,
         __int64 a8)
 {
-  unsigned __int64 v10; // r14
+  PWSTR v10; // r14
   __int64 v11; // r13
   __int64 v12; // rcx
   __int64 v13; // r15
   __int64 v14; // rcx
   int v15; // ecx
   int v16; // esi
-  unsigned int v17; // ebx
-  __int64 result; // rax
+  int v17; // ebx
+  int result; // eax
   bool v19; // zf
   int v20; // eax
-  unsigned __int64 *v21; // rcx
-  int v22; // r12d
-  wchar_t *v23; // rbx
+  SIZE_T *v21; // rcx
+  DWORD v22; // r12d
+  const WCHAR *v23; // rbx
   int v24; // eax
-  void *v25; // rdx
-  unsigned int v26; // eax
-  __int64 v27; // r14
-  int v28; // [rsp+50h] [rbp-108h]
-  unsigned int v29; // [rsp+54h] [rbp-104h] BYREF
-  void *Srca; // [rsp+58h] [rbp-100h]
-  wchar_t *String2; // [rsp+60h] [rbp-F8h]
-  __int64 v32; // [rsp+68h] [rbp-F0h] BYREF
-  unsigned __int64 v33[2]; // [rsp+70h] [rbp-E8h] BYREF
-  __int64 v34; // [rsp+80h] [rbp-D8h]
-  int v35; // [rsp+88h] [rbp-D0h]
-  __int64 v36; // [rsp+90h] [rbp-C8h]
-  __int64 v37; // [rsp+98h] [rbp-C0h]
-  UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-B8h] BYREF
-  int v39; // [rsp+B0h] [rbp-A8h] BYREF
-  const wchar_t *v40; // [rsp+B8h] [rbp-A0h]
-  _BYTE v41[48]; // [rsp+C0h] [rbp-98h] BYREF
-  _QWORD v42[2]; // [rsp+F0h] [rbp-68h] BYREF
+  PWSTR v25; // r9
+  WCHAR *v26; // rdx
+  int v27; // eax
+  PVOID v28; // r14
+  int v29; // [rsp+50h] [rbp-108h]
+  DWORD Lcid; // [rsp+54h] [rbp-104h] BYREF
+  PWSTR FilePath; // [rsp+58h] [rbp-100h]
+  PVOID Module; // [rsp+60h] [rbp-F8h] BYREF
+  PVOID ResourceDllBase; // [rsp+68h] [rbp-F0h] BYREF
+  SIZE_T Size[2]; // [rsp+70h] [rbp-E8h] BYREF
+  __int64 v35; // [rsp+80h] [rbp-D8h]
+  int v36; // [rsp+88h] [rbp-D0h]
+  __int64 v37; // [rsp+90h] [rbp-C8h]
+  __int64 v38; // [rsp+98h] [rbp-C0h]
+  _UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-B8h] BYREF
+  int v40; // [rsp+B0h] [rbp-A8h] BYREF
+  const wchar_t *v41; // [rsp+B8h] [rbp-A0h]
+  _BYTE MemoryInformation[48]; // [rsp+C0h] [rbp-98h] BYREF
+  _QWORD v43[2]; // [rsp+F0h] [rbp-68h] BYREF
   PCWSTR SourceString; // [rsp+100h] [rbp-58h]
 
-  v29 = a3;
-  v10 = (unsigned __int64)Handle;
-  Srca = Handle;
-  v37 = a5;
-  v32 = a6;
-  v36 = a7;
-  v34 = a8;
-  String2 = 0LL;
-  LODWORD(v33[0]) = 3538996;
-  v33[1] = (unsigned __int64)L"LdrResSearchResource Enter";
-  v39 = 3407922;
-  v40 = L"LdrResSearchResource Exit";
+  Lcid = a3;
+  v10 = Handle;
+  FilePath = Handle;
+  v38 = a5;
+  ResourceDllBase = a6;
+  v37 = a7;
+  v35 = a8;
+  Module = 0LL;
+  LODWORD(Size[0]) = 3538996;
+  Size[1] = (SIZE_T)L"LdrResSearchResource Enter";
+  v40 = 3407922;
+  v41 = L"LdrResSearchResource Exit";
   v11 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v12 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v12 = 2147353477LL;
   if ( (*(_BYTE *)v12 & 1) != 0 )
   {
     v13 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v14 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v14 = 2147353476LL;
-    LdrpTraceLoadMUIDll(v33, *(unsigned __int8 *)v14);
+    LdrpTraceLoadMUIDll(Size, *(unsigned __int8 *)v14);
   }
   else
   {
     v13 = 2147353476LL;
   }
-  if ( !v10 || !Src || a7 && !v34 )
+  if ( !v10 || !Src || a7 && !v35 )
     goto LABEL_103;
   v15 = a4 | 0x100;
   if ( (a4 & 0xF00) != 0 )
@@ -109,22 +110,22 @@ __int64 __fastcall LdrResSearchResource(
     v16 = v15;
   if ( (v16 & 0xFFF00000) != 0 )
     goto LABEL_19;
-  if ( v29 < 3 && (v16 & 2) == 0 || v29 > 4 )
+  if ( Lcid < 3 && (v16 & 2) == 0 || Lcid > 4 )
   {
     v17 = -1073741583;
     goto LABEL_104;
   }
   if ( (v16 & 0x41) != 0 )
   {
-    if ( v29 != 4 )
-      return 3221225713LL;
+    if ( Lcid != 4 )
+      return -1073741583;
   }
-  else if ( v29 != 4 )
+  else if ( Lcid != 4 )
   {
     goto LABEL_30;
   }
   if ( (v16 & 0x41) == 0 )
-    return 3221225714LL;
+    return -1073741582;
 LABEL_30:
   if ( (v16 & 0x100) != 0 )
   {
@@ -145,42 +146,42 @@ LABEL_32:
 LABEL_19:
     v17 = -1073741582;
 LABEL_104:
-    v28 = v17;
+    v29 = v17;
     goto LABEL_105;
   }
 LABEL_37:
-  v35 = v16 & 0x8000;
+  v36 = v16 & 0x8000;
   if ( (v16 & 0x8000) != 0 && (~(_WORD)v16 & 0x810) != 0 || (v16 & 0x3000) == 0x3000 || (v16 & 0x18) == 0x18 )
     goto LABEL_19;
-  v33[0] = 0LL;
+  Size[0] = 0LL;
   if ( (v16 & 0x20000) != 0 )
   {
-    if ( (v16 & 0x400) == 0 || (v21 = (unsigned __int64 *)v32) == 0LL || !*(_QWORD *)v32 )
+    if ( (v16 & 0x400) == 0 || (v21 = (SIZE_T *)ResourceDllBase) == 0LL || !*(_QWORD *)ResourceDllBase )
     {
       v17 = -1073741811;
-      v28 = -1073741811;
+      v29 = -1073741811;
       goto LABEL_105;
     }
-    v33[0] = *(_QWORD *)v32;
+    Size[0] = *(_QWORD *)ResourceDllBase;
   }
   else
   {
-    v21 = (unsigned __int64 *)v32;
+    v21 = (SIZE_T *)ResourceDllBase;
   }
   if ( (v16 & 0x80000) != 0 )
   {
     if ( (v16 & 0x300) == 0 || !v21 || !*v21 )
     {
       v17 = -1073741811;
-      v28 = -1073741811;
+      v29 = -1073741811;
       goto LABEL_105;
     }
-    v33[0] = *v21;
+    Size[0] = *v21;
   }
-  memmove(v42, Src, 8LL * v29);
+  memmove(v43, Src, 8LL * Lcid);
   v22 = 3;
-  if ( v29 <= 3 )
-    v22 = v29;
+  if ( Lcid <= 3 )
+    v22 = Lcid;
   if ( v22 == 3 )
   {
     if ( (unsigned __int64)SourceString >= 0x10000 )
@@ -188,14 +189,14 @@ LABEL_37:
       if ( *SourceString )
       {
         RtlInitUnicodeString(&DestinationString, SourceString);
-        if ( !RtlCultureNameToLCID(&DestinationString.Length, &v29) )
-          return 3221225485LL;
+        if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
+          return -1073741811;
       }
       else
       {
-        v29 = 0;
+        Lcid = 0;
       }
-      SourceString = (PCWSTR)(unsigned __int16)v29;
+      SourceString = (PCWSTR)(unsigned __int16)Lcid;
       goto LABEL_69;
     }
     if ( !SourceString )
@@ -203,7 +204,7 @@ LABEL_37:
     if ( ((unsigned __int16)SourceString & 0x3FF) != 0 && SourceString != (PCWSTR)127 )
     {
       DestinationString = 0LL;
-      if ( (int)RtlLcidToLocaleName((unsigned int)SourceString, (__int64)&DestinationString, 2, 1) >= 0 )
+      if ( RtlLcidToLocaleName((LCID)SourceString, &DestinationString, 2u, 1u) >= 0 )
       {
         if ( DestinationString.Buffer )
           RtlFreeUnicodeString(&DestinationString);
@@ -220,73 +221,97 @@ LABEL_69:
     if ( (v16 & 0x400) == 0 && ((v16 & 0x800) == 0 || (~v16 & 0x8000) == 0) )
     {
 LABEL_93:
-      v10 = (unsigned __int64)Srca;
+      v10 = FilePath;
 LABEL_94:
-      if ( v35 )
+      if ( v36 )
       {
         result = LdrpResValidateFileHandle(v10);
-        if ( (int)result < 0 )
+        if ( result < 0 )
           return result;
-        v26 = LdrpResSearchResourceHandle((HANDLE)v10, v37, v32, v36, v34);
+        v27 = LdrpResSearchResourceHandle(v10, v38, (__int64)ResourceDllBase, v37, v35);
       }
       else
       {
-        v27 = v32;
-        v17 = LdrpResSearchResourceMappedFile((_DWORD)String2, v33[0], v16, (unsigned int)v42, v22, v37, v32, v36, v34);
-        v28 = v17;
+        v28 = ResourceDllBase;
+        v17 = LdrpResSearchResourceMappedFile(
+                (_DWORD)Module,
+                Size[0],
+                v16,
+                (unsigned int)v43,
+                v22,
+                v38,
+                (__int64)ResourceDllBase,
+                v37,
+                v35);
+        v29 = v17;
         if ( v17 != -1073741686 )
           goto LABEL_105;
-        if ( ((v42[0] - 16LL) & 0xFFFFFFFFFFFFFFF7uLL) == 0 )
+        if ( ((v43[0] - 16LL) & 0xFFFFFFFFFFFFFFF7uLL) == 0 )
           goto LABEL_105;
-        if ( (int)LdrLoadAlternateResourceModuleEx((__int64)String2, 62190, &v32, 0LL, 0x1000000) < 0 )
+        if ( LdrLoadAlternateResourceModuleEx(Module, 0xF2EEu, &ResourceDllBase, 0LL, 0x1000000u) < 0 )
           goto LABEL_105;
-        v33[0] = 0LL;
-        if ( (int)LdrpResGetMappingSize(v32, v33, v16, 0) < 0 )
+        Size[0] = 0LL;
+        if ( (int)LdrpResGetMappingSize((__int64)ResourceDllBase, Size, v16, 0) < 0 )
           goto LABEL_105;
-        v26 = LdrpResSearchResourceMappedFile(v32, v33[0], v16 | 0x1000000u, (unsigned int)v42, v22, v37, v27, v36, v34);
+        v27 = LdrpResSearchResourceMappedFile(
+                (_DWORD)ResourceDllBase,
+                Size[0],
+                v16 | 0x1000000u,
+                (unsigned int)v43,
+                v22,
+                v38,
+                (__int64)v28,
+                v37,
+                v35);
       }
-      v17 = v26;
-      v28 = v26;
+      v17 = v27;
+      v29 = v27;
 LABEL_105:
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
       {
         v11 = (__int64)NtCurrentPeb()->SharedData + 555;
-        v17 = v28;
+        v17 = v29;
       }
       if ( (*(_BYTE *)v11 & 1) != 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
         {
           v13 = (__int64)NtCurrentPeb()->SharedData + 554;
-          v17 = v28;
+          v17 = v29;
         }
-        LdrpTraceLoadMUIDll(&v39, *(unsigned __int8 *)v13);
+        LdrpTraceLoadMUIDll(&v40, *(unsigned __int8 *)v13);
       }
       return v17;
     }
     if ( (v16 & 0x1400) == 0x1400 )
     {
-      v23 = (wchar_t *)Srca;
-      result = LdrpResValidateFilePath(Srca);
+      v23 = FilePath;
+      result = LdrpResValidateFilePath(FilePath);
     }
     else
     {
-      v23 = (wchar_t *)Srca;
+      v23 = FilePath;
       if ( (v16 & 0x1000) == 0 )
       {
 LABEL_84:
-        v24 = LdrpResMapFile(v23);
+        v24 = LdrpResMapFile(v23, &Module, Size);
         v17 = v24;
-        v28 = v24;
+        v29 = v24;
         if ( v24 >= 0 )
         {
-          v10 = (unsigned __int64)Srca;
+          v10 = FilePath;
           if ( (v16 & 0x400) != 0 )
-            v25 = Srca;
-          else
+          {
             v25 = 0LL;
-          result = LdrAddLoadAsDataTable(String2, v25, 0LL);
-          if ( (int)result < 0 )
+            v26 = FilePath;
+          }
+          else
+          {
+            v25 = FilePath;
+            v26 = 0LL;
+          }
+          result = LdrAddLoadAsDataTable(Module, v26, Size[0], v25, 0LL);
+          if ( result < 0 )
             return result;
           goto LABEL_94;
         }
@@ -294,23 +319,30 @@ LABEL_84:
           goto LABEL_105;
         goto LABEL_93;
       }
-      result = LdrpResValidateFileHandle(Srca);
+      result = LdrpResValidateFileHandle(FilePath);
     }
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     goto LABEL_84;
   }
-  String2 = (wchar_t *)v10;
+  Module = v10;
   if ( (v16 & 0x200) == 0 )
     goto LABEL_76;
-  if ( (v10 & 1) == 0 )
-    String2 = (wchar_t *)(v10 | 1);
+  if ( ((unsigned __int8)v10 & 1) == 0 )
+    Module = (PVOID)((unsigned __int64)v10 | 1);
   if ( (v16 & 0x1000) == 0
-    || (result = ZwQueryVirtualMemory(-1LL, v10 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, v41, 48LL, 0LL), (int)result >= 0) )
+    || (result = ZwQueryVirtualMemory(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   (PVOID)((unsigned __int64)v10 & 0xFFFFFFFFFFFFFFFCuLL),
+                   MemoryBasicInformation,
+                   MemoryInformation,
+                   0x30uLL,
+                   0LL),
+        result >= 0) )
   {
 LABEL_76:
-    result = LdrpResGetMappingSize((__int64)String2, v33, v16, 0);
-    if ( (int)result >= 0 || (v16 & 0x1000) == 0 )
+    result = LdrpResGetMappingSize((__int64)Module, Size, v16, 0);
+    if ( result >= 0 || (v16 & 0x1000) == 0 )
       goto LABEL_94;
   }
   return result;

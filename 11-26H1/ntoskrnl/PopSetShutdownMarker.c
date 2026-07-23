@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSetShutdownMarker @ 0x14077D210
+ * XREFs of PopSetShutdownMarker @ 0x14077FD10
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     <none>
  */
 
 void PopSetShutdownMarker()
 {
-  *(_DWORD *)&stru_140E66FF0.SavedApcStateFill[16] = 1;
+  HIDWORD(stru_140E67200.OtherOperationCount) = 1;
 }

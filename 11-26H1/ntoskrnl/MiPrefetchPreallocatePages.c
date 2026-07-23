@@ -1,19 +1,19 @@
 /*
- * XREFs of MiPrefetchPreallocatePages @ 0x1406F719C
+ * XREFs of MiPrefetchPreallocatePages @ 0x1406FBE0C
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiThreadIdealNode @ 0x14030EB24 (MiThreadIdealNode.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiConvertLargeActivePageToChain @ 0x14040A4E0 (MiConvertLargeActivePageToChain.c)
- *     MiPrefetchReleasePreallocatedPages @ 0x140505F80 (MiPrefetchReleasePreallocatedPages.c)
- *     MiGetLargePage @ 0x14051E3C4 (MiGetLargePage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiThreadIdealNode @ 0x1402F0BA4 (MiThreadIdealNode.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiConvertLargeActivePageToChain @ 0x1404035D0 (MiConvertLargeActivePageToChain.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x1404FF830 (MiPrefetchReleasePreallocatedPages.c)
+ *     MiGetLargePage @ 0x1405209D4 (MiGetLargePage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiPrefetchPreallocatePages(

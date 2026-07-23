@@ -1,16 +1,16 @@
 /*
- * XREFs of AslpFileMappingGetFileKind @ 0x140B3EBDC
+ * XREFs of AslpFileMappingGetFileKind @ 0x140B40C0C
  * Callers:
- *     AslFileMappingCreateFromImageView @ 0x14088889C (AslFileMappingCreateFromImageView.c)
- *     AslFileMappingEnsure @ 0x1408889EC (AslFileMappingEnsure.c)
- *     AslFileMappingEnsureMappedAs @ 0x140888ABC (AslFileMappingEnsureMappedAs.c)
- *     AslpFileLargeAssignViewAndDelete @ 0x14088F6C0 (AslpFileLargeAssignViewAndDelete.c)
- *     AslFileMappingCreate @ 0x1409E3894 (AslFileMappingCreate.c)
+ *     AslFileMappingCreateFromImageView @ 0x14088EC98 (AslFileMappingCreateFromImageView.c)
+ *     AslFileMappingEnsure @ 0x14088EDE8 (AslFileMappingEnsure.c)
+ *     AslFileMappingEnsureMappedAs @ 0x14088EEB8 (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileLargeAssignViewAndDelete @ 0x140895ABC (AslpFileLargeAssignViewAndDelete.c)
+ *     AslFileMappingCreate @ 0x140A37E7C (AslFileMappingCreate.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileMappingGetFileKind(_QWORD *a1, int *a2)

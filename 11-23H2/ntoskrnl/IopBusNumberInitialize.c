@@ -1,9 +1,9 @@
 /*
- * XREFs of IopBusNumberInitialize @ 0x1408126D8
+ * XREFs of IopBusNumberInitialize @ 0x1408129A8
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ArbInitializeArbiterInstance @ 0x140813748 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x140813A18 (ArbInitializeArbiterInstance.c)
  */
 
 __int64 __fastcall IopBusNumberInitialize(__int64 a1, int a2)

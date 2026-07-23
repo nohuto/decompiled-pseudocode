@@ -1,20 +1,20 @@
 /*
- * XREFs of KsepResolveApplicableShimsForDriver @ 0x14085B7BC
+ * XREFs of KsepResolveApplicableShimsForDriver @ 0x14085B9FC
  * Callers:
  *     KsepGetShimsForDriver @ 0x140694008 (KsepGetShimsForDriver.c)
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     KsepLoadShimProvider @ 0x140580C48 (KsepLoadShimProvider.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     KsepIsShimRegistered @ 0x1408088E0 (KsepIsShimRegistered.c)
- *     KsepGetLoadedModulesList @ 0x14080895C (KsepGetLoadedModulesList.c)
- *     KsepResolveShimHooks @ 0x14085B9D8 (KsepResolveShimHooks.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     KsepLoadShimProvider @ 0x140581138 (KsepLoadShimProvider.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     KsepIsShimRegistered @ 0x140808BB0 (KsepIsShimRegistered.c)
+ *     KsepGetLoadedModulesList @ 0x140808C2C (KsepGetLoadedModulesList.c)
+ *     KsepResolveShimHooks @ 0x14085BC18 (KsepResolveShimHooks.c)
  */
 
 __int64 __fastcall KsepResolveApplicableShimsForDriver(_QWORD *a1, unsigned int a2)
@@ -123,7 +123,7 @@ LABEL_12:
         KeAbPostRelease((ULONG_PTR)&qword_140C64D60);
         KeLeaveCriticalRegion();
         v29 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-        dword_140C407C4[2 * v29] = LoadedModulesList;
+        dword_140C40784[2 * v29] = LoadedModulesList;
         KsepHistoryErrors[2 * v29] = 459299;
         if ( (KsepDebugFlag & 2) != 0 )
           KsepDebugPrint(
@@ -171,7 +171,7 @@ LABEL_17:
         goto LABEL_33;
     }
     v21 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C407C4[2 * v21] = LoadedModulesList;
+    dword_140C40784[2 * v21] = LoadedModulesList;
     KsepHistoryErrors[2 * v21] = 459222;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(6LL, "KSE: Failed to load provider for shim [0x%08X]. Status: 0x%x\n", *v20, LoadedModulesList);
@@ -216,7 +216,7 @@ LABEL_37:
     KeLeaveCriticalRegion();
     LoadedModulesList = -1073740782;
     v28 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C407C4[2 * v28] = -1073740782;
+    dword_140C40784[2 * v28] = -1073740782;
     KsepHistoryErrors[2 * v28] = 459251;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(6LL, "KSE: The provider did not register shim [0x%08X] in time\n", *v26);

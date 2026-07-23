@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCompressWorkSpaceSizeDeflate @ 0x18014CF70
+ * XREFs of RtlCompressWorkSpaceSizeDeflate @ 0x18014B330
  * Callers:
  *     <none>
  * Callees:

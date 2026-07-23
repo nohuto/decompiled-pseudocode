@@ -19,7 +19,7 @@ __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a
   __int64 v4; // rcx
   unsigned int v5; // r15d
   NTSTATUS v7; // edi
-  struct _OBJECT_NAME_INFORMATION *v8; // r14
+  _OBJECT_NAME_INFORMATION *v8; // r14
   struct _DEVICE_OBJECT *DeviceAttachmentBaseRefWithTag; // rax
   void *i; // rax
   void *v11; // rbx
@@ -40,7 +40,7 @@ __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a
   struct _DEVICE_OBJECT *Object; // [rsp+28h] [rbp-30h]
   PVOID P; // [rsp+30h] [rbp-28h] BYREF
   PVOID *p_P; // [rsp+38h] [rbp-20h]
-  struct _OBJECT_NAME_INFORMATION Src; // [rsp+40h] [rbp-18h] BYREF
+  _OBJECT_NAME_INFORMATION Src; // [rsp+40h] [rbp-18h] BYREF
   ULONG ReturnLength; // [rsp+A0h] [rbp+48h] BYREF
   unsigned int v32; // [rsp+A8h] [rbp+50h]
   _WORD *v33; // [rsp+B0h] [rbp+58h]
@@ -129,7 +129,7 @@ LABEL_14:
   if ( *(_QWORD *)(v18 + 64) && *(_WORD *)(v18 + 56) >= 2u )
   {
     Length = _mm_cvtsi128_si32(*(__m128i *)(v18 + 56));
-    Src = *(struct _OBJECT_NAME_INFORMATION *)(v18 + 56);
+    Src = *(_OBJECT_NAME_INFORMATION *)(v18 + 56);
     for ( Src.Name.Length = Length; Length >= 2u; Src.Name.Length = Length )
     {
       if ( Src.Name.Buffer[((unsigned __int64)Length >> 1) - 1] )
@@ -161,7 +161,7 @@ LABEL_44:
     }
     goto LABEL_50;
   }
-  v8 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x110uLL, 0x47706E50u);
+  v8 = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x110uLL, 0x47706E50u);
   if ( v8 )
   {
     v25 = ReturnLength;

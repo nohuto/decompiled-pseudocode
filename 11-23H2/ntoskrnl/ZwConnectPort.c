@@ -1,15 +1,23 @@
 /*
- * XREFs of ZwConnectPort @ 0x14041C1A0
+ * XREFs of ZwConnectPort @ 0x14041C530
  * Callers:
- *     DifZwConnectPortWrapper @ 0x1405EE080 (DifZwConnectPortWrapper.c)
- *     SepRmLsaConnectRequest @ 0x14082B9DC (SepRmLsaConnectRequest.c)
+ *     DifZwConnectPortWrapper @ 0x1405EE5F0 (DifZwConnectPortWrapper.c)
+ *     SepRmLsaConnectRequest @ 0x14082BCDC (SepRmLsaConnectRequest.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwConnectPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

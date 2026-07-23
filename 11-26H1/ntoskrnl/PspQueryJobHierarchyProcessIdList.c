@@ -1,17 +1,17 @@
 /*
- * XREFs of PspQueryJobHierarchyProcessIdList @ 0x140958B14
+ * XREFs of PspQueryJobHierarchyProcessIdList @ 0x140AD2220
  * Callers:
- *     NtQueryInformationJobObject @ 0x1407F2FB0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1407F8B10 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     ExReleaseFastResourceShared @ 0x140485E00 (ExReleaseFastResourceShared.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14095A350 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     ExReleaseFastResourceShared @ 0x14047F770 (ExReleaseFastResourceShared.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1409FFC10 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 __int64 __fastcall PspQueryJobHierarchyProcessIdList(__int64 *Object, void *a2, int a3, _DWORD *a4, char a5)
@@ -23,7 +23,7 @@ __int64 __fastcall PspQueryJobHierarchyProcessIdList(__int64 *Object, void *a2, 
   __int64 v13; // r8
   __int64 v14; // r9
   __int64 v15; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v17; // rcx
+  $241382875694CED3D471BC5892DE3337 *v17; // rcx
   __int64 v19; // [rsp+38h] [rbp-C0h] BYREF
   int v20; // [rsp+40h] [rbp-B8h]
   int v21; // [rsp+44h] [rbp-B4h]
@@ -51,14 +51,14 @@ __int64 __fastcall PspQueryJobHierarchyProcessIdList(__int64 *Object, void *a2, 
   v21 = 0;
   v22 = v11;
   v23 = a5;
-  v12 = PspEnumJobsAndProcessesInJobHierarchy(Object, (__int64)&v19, 1);
+  v12 = PspEnumJobsAndProcessesInJobHierarchy(Object, 0, 0, (int)PspQueryProcessIdListCallback, (__int64)&v19, 1);
   ExReleaseFastResourceShared((ULONG_PTR)v10, (ULONG_PTR)v26, v13, v14);
   if ( CurrentThread )
   {
     if ( CurrentThread->SpecialApcDisable++ == -1 )
     {
       v17 = &CurrentThread->152;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v17->ApcState.ApcListHead[0].Flink != v17 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v17->ApcState.ApcListHead[0].Flink != v17 )
         KiCheckForKernelApcDelivery((__int64)v17, v15);
     }
   }

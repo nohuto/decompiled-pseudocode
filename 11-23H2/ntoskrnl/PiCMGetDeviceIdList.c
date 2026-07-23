@@ -1,19 +1,19 @@
 /*
- * XREFs of PiCMGetDeviceIdList @ 0x1407C797C
+ * XREFs of PiCMGetDeviceIdList @ 0x1407C7C4C
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0760 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406D0790 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC6C (PiControlFreeUserModeCallersBuffer.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x14055F59C (McTemplateK0d_EtwWriteTransfer.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x1405638A4 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     PiCMReturnBufferResultData @ 0x1406D060C (PiCMReturnBufferResultData.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     PiAuDoesClientHaveAccess @ 0x14079A888 (PiAuDoesClientHaveAccess.c)
- *     PiCMConvertDeviceListFilters @ 0x1407C7BEC (PiCMConvertDeviceListFilters.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1407C7C88 (_CmGetMatchingFilteredDeviceList.c)
- *     PiCMCaptureDeviceListInputData @ 0x1407C7D8C (PiCMCaptureDeviceListInputData.c)
- *     _CmGetDeviceRelationsList @ 0x1408511D4 (_CmGetDeviceRelationsList.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14022BD7C (PiControlFreeUserModeCallersBuffer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14055FC5C (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x140563F64 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     PiCMReturnBufferResultData @ 0x1406D063C (PiCMReturnBufferResultData.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     PiAuDoesClientHaveAccess @ 0x14079AA78 (PiAuDoesClientHaveAccess.c)
+ *     PiCMConvertDeviceListFilters @ 0x1407C7EBC (PiCMConvertDeviceListFilters.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x1407C7F58 (_CmGetMatchingFilteredDeviceList.c)
+ *     PiCMCaptureDeviceListInputData @ 0x1407C805C (PiCMCaptureDeviceListInputData.c)
+ *     _CmGetDeviceRelationsList @ 0x1408514D4 (_CmGetDeviceRelationsList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

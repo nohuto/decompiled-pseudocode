@@ -6,7 +6,8 @@
  *     <none>
  */
 
-__int64 __fastcall RtlFlsFree(struct _RTLP_FLS_CONTEXT *a1)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlFlsFree(ULONG FlsIndex)
 {
-  return RtlpFlsFree(a1, (unsigned int)a1);
+  return RtlpFlsFree(*(struct _RTLP_FLS_CONTEXT **)&FlsIndex, FlsIndex);
 }

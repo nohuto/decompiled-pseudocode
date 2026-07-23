@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpGetProcessCommandLine @ 0x14072DCC4
+ * XREFs of PnpGetProcessCommandLine @ 0x14072BCD4
  * Callers:
- *     PnpLogVetoInformation @ 0x140A9F1B4 (PnpLogVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x140A9A584 (PnpLogVetoInformation.c)
  * Callees:
- *     PsQueryProcessCommandLine @ 0x140246E50 (PsQueryProcessCommandLine.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsQueryProcessCommandLine @ 0x1402E1810 (PsQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall PnpGetProcessCommandLine(PRKPROCESS PROCESS)
@@ -19,7 +19,7 @@ void *__fastcall PnpGetProcessCommandLine(PRKPROCESS PROCESS)
   ProcessCommandLine = PsQueryProcessCommandLine(PROCESS, 0LL, 0, 0, (unsigned int *)&v5);
   if ( ProcessCommandLine == -1073741820 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v5, 0x4F706E50u);
     if ( !Pool2 )
       return Pool2;
     ProcessCommandLine = PsQueryProcessCommandLine(PROCESS, (__int64)Pool2, v5, 0, (unsigned int *)&v5);

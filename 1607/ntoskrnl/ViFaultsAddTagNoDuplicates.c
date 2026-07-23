@@ -3,8 +3,8 @@
  * Callers:
  *     ViFaultsAddAllTags @ 0x1407111BC (ViFaultsAddAllTags.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     ViFaultsIsTagPresentInList @ 0x140711618 (ViFaultsIsTagPresentInList.c)
@@ -44,14 +44,14 @@ __int64 __fastcall ViFaultsAddTagNoDuplicates(__int64 a1, unsigned __int64 a2)
       }
       else
       {
-        v9 = (_QWORD *)qword_1403005E8;
+        v9 = (_QWORD *)qword_1403005C8;
         ViHaveFaultTags = 1;
-        if ( *(PVOID **)qword_1403005E8 != &ViFaultTagsList )
+        if ( *(PVOID **)qword_1403005C8 != &ViFaultTagsList )
           __fastfail(3u);
         *v6 = &ViFaultTagsList;
         v6[1] = v9;
         *v9 = v6;
-        qword_1403005E8 = (__int64)v6;
+        qword_1403005C8 = (__int64)v6;
       }
       KeReleaseSpinLock(&ViFaultInjectionLock, v8);
     }

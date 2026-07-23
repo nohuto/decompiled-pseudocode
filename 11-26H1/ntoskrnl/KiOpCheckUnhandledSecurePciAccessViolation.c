@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOpCheckUnhandledSecurePciAccessViolation @ 0x1403D2EBC
+ * XREFs of KiOpCheckUnhandledSecurePciAccessViolation @ 0x1403D5E8C
  * Callers:
- *     KiPreprocessFault @ 0x1403D2040 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x1403D5010 (KiPreprocessFault.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall KiOpCheckUnhandledSecurePciAccessViolation(__int64 a1, __int64 a2)

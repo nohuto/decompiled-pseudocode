@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCaptureRegistryData @ 0x1408BC19C
+ * XREFs of EtwpCaptureRegistryData @ 0x1408BD45C
  * Callers:
- *     EtwpRegTraceCallback @ 0x1408BC230 (EtwpRegTraceCallback.c)
+ *     EtwpRegTraceCallback @ 0x1408BD4F0 (EtwpRegTraceCallback.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCaptureRegistryData(_QWORD *a1, const void *a2, unsigned int a3)

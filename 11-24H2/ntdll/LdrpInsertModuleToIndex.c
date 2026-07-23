@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpInsertModuleToIndex @ 0x1800F4C10
+ * XREFs of LdrpInsertModuleToIndex @ 0x1800EF830
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x1800F4990 (LdrpInitializeNtdllDataTableEntry.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x1800EF5B0 (LdrpInitializeNtdllDataTableEntry.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     LdrpInsertModuleToIndexLockHeld @ 0x1800740B8 (LdrpInsertModuleToIndexLockHeld.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     LdrpInsertModuleToIndexLockHeld @ 0x180090998 (LdrpInsertModuleToIndexLockHeld.c)
  */
 
-__int64 __fastcall LdrpInsertModuleToIndex(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __fastcall LdrpInsertModuleToIndex(__int64 a1, _DWORD *a2)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock, a2, a3);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   LdrpInsertModuleToIndexLockHeld(a1, a2);
-  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+  RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 }

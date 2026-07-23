@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCbPrintfExA @ 0x1401B0F7C
+ * XREFs of RtlStringCbPrintfExA @ 0x1401B0E60
  * Callers:
- *     KiDisplayBlueScreen @ 0x1401D516C (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x1401D4F98 (KiDisplayBlueScreen.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlStringVPrintfWorkerA @ 0x140139A64 (RtlStringVPrintfWorkerA.c)
- *     RtlStringExValidateDestA @ 0x14014B80C (RtlStringExValidateDestA.c)
- *     RtlStringExHandleFillBehindNullA @ 0x1401B110C (RtlStringExHandleFillBehindNullA.c)
- *     RtlStringExHandleOtherFlagsA @ 0x1401B1130 (RtlStringExHandleOtherFlagsA.c)
+ *     RtlStringVPrintfWorkerA @ 0x140139FD4 (RtlStringVPrintfWorkerA.c)
+ *     RtlStringExValidateDestA @ 0x14014BD7C (RtlStringExValidateDestA.c)
+ *     RtlStringExHandleFillBehindNullA @ 0x1401B0FF0 (RtlStringExHandleFillBehindNullA.c)
+ *     RtlStringExHandleOtherFlagsA @ 0x1401B1014 (RtlStringExHandleOtherFlagsA.c)
  */
 
 NTSTATUS RtlStringCbPrintfExA(

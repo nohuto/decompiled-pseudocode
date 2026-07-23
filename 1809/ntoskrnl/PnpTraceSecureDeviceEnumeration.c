@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceSecureDeviceEnumeration @ 0x14083A094
+ * XREFs of PnpTraceSecureDeviceEnumeration @ 0x14083B2F4
  * Callers:
- *     PiProcessDriversLoadedOnSecureDevice @ 0x1408418F4 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x140842B54 (PiProcessDriversLoadedOnSecureDevice.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PnpTraceSecureDeviceEnumeration()
@@ -25,9 +25,9 @@ void PnpTraceSecureDeviceEnumeration()
   int *v12; // [rsp+90h] [rbp+37h]
   __int64 v13; // [rsp+98h] [rbp+3Fh]
 
-  if ( stru_1403FFBC8.LevelPlus1 > 5 )
+  if ( stru_140400BC8.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL) )
     {
       v3 = v2;
       v6 = v9;
@@ -40,7 +40,7 @@ void PnpTraceSecureDeviceEnumeration()
       v9[1] = 0;
       v11 = 4LL;
       v13 = 4LL;
-      TlgWrite(&stru_1403FFBC8, &unk_14036D515, 0LL, 0LL, 6u, &pData);
+      TlgWrite(&stru_140400BC8, &unk_14036E3E5, 0LL, 0LL, 6u, &pData);
     }
   }
 }

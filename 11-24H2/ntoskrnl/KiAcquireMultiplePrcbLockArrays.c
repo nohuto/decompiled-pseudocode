@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAcquireMultiplePrcbLockArrays @ 0x1402985F0
+ * XREFs of KiAcquireMultiplePrcbLockArrays @ 0x1402A70E0
  * Callers:
- *     KiAttemptToStealStandbyThread @ 0x140297D94 (KiAttemptToStealStandbyThread.c)
+ *     KiAttemptToStealStandbyThread @ 0x1402A6884 (KiAttemptToStealStandbyThread.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall KiAcquireMultiplePrcbLockArrays(unsigned __int64 *a1, int a2, unsigned __int64 *a3, unsigned int a4)

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpSnapShotHandleTables @ 0x14094CC30
+ * XREFs of ExpSnapShotHandleTables @ 0x14094CE00
  * Callers:
- *     ObGetHandleInformation @ 0x1408DCDEC (ObGetHandleInformation.c)
- *     ObGetHandleInformationEx @ 0x1408DCE40 (ObGetHandleInformationEx.c)
+ *     ObGetHandleInformation @ 0x1408DCF4C (ObGetHandleInformation.c)
+ *     ObGetHandleInformationEx @ 0x1408DCFA0 (ObGetHandleInformationEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExLockHandleTableEntry @ 0x140348860 (ExLockHandleTableEntry.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExpLookupHandleTableEntry @ 0x1406F11F0 (ExpLookupHandleTableEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExLockHandleTableEntry @ 0x1403535B0 (ExLockHandleTableEntry.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExpLookupHandleTableEntry @ 0x1407085D0 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 __fastcall ExpSnapShotHandleTables(
@@ -29,14 +29,17 @@ __int64 __fastcall ExpSnapShotHandleTables(
   signed __int64 *v12; // rax
   volatile signed __int64 *v13; // rsi
   __int64 v14; // r15
-  signed __int32 v16[8]; // [rsp+0h] [rbp-88h] BYREF
-  char *v17; // [rsp+40h] [rbp-48h] BYREF
-  struct _KTHREAD *v18; // [rsp+48h] [rbp-40h]
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  signed __int32 v19[8]; // [rsp+0h] [rbp-88h] BYREF
+  char *v20; // [rsp+40h] [rbp-48h] BYREF
+  struct _KTHREAD *v21; // [rsp+48h] [rbp-40h]
 
   CurrentThread = KeGetCurrentThread();
-  v18 = CurrentThread;
+  v21 = CurrentThread;
   v8 = 0;
-  v17 = (char *)a2 + (a5 != 0 ? 16LL : 8LL);
+  v20 = (char *)a2 + (a5 != 0 ? 16LL : 8LL);
   *a4 = a5 != 0 ? 16 : 8;
   *a2 = 0;
   --CurrentThread->KernelApcDisable;
@@ -55,18 +58,18 @@ __int64 __fastcall ExpSnapShotHandleTables(
       if ( (j & 0x3FC) != 0 && *v12 && ExLockHandleTableEntry(v10, v12) )
       {
         ++*a2;
-        v8 = a1(&v17, *(unsigned int *)(v10 + 40), v13, j, a3, a4);
+        v8 = a1(&v20, *(unsigned int *)(v10 + 40), v13, j, a3, a4);
         _InterlockedExchangeAdd64(v13, 1uLL);
-        _InterlockedOr(v16, 0);
+        _InterlockedOr(v19, 0);
         if ( *(_QWORD *)(v10 + 48) )
           ExfUnblockPushLock((volatile __int64 *)(v10 + 48), 0LL);
       }
     }
   }
-  v14 = (__int64)v18;
+  v14 = (__int64)v21;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&HandleTableListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&HandleTableListLock);
   KeAbPostRelease((ULONG_PTR)&HandleTableListLock);
-  KeLeaveCriticalRegionThread(v14);
+  KeLeaveCriticalRegionThread(v14, v15, v16, v17);
   return v8;
 }

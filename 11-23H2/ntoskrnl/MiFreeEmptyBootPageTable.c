@@ -3,10 +3,10 @@
  * Callers:
  *     MxCreateFreePfns @ 0x140B426A0 (MxCreateFreePfns.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiLockAndInsertPageInFreeList @ 0x14038CE04 (MiLockAndInsertPageInFreeList.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiLockAndInsertPageInFreeList @ 0x14038CFE4 (MiLockAndInsertPageInFreeList.c)
  */
 
 __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)

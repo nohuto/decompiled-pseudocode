@@ -3,7 +3,7 @@
  * Callers:
  *     IntpAssignProcessorsToPartitions @ 0x140B4EB70 (IntpAssignProcessorsToPartitions.c)
  * Callees:
- *     IntPartCriticalFailure @ 0x1405749F4 (IntPartCriticalFailure.c)
+ *     IntPartCriticalFailure @ 0x140574F34 (IntPartCriticalFailure.c)
  */
 
 __int64 __fastcall IntpAddNextProcessorToPartition(ULONG_PTR BugCheckParameter4, unsigned __int64 *a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of GetBootSystemTime @ 0x140A7182C
+ * XREFs of GetBootSystemTime @ 0x140A7282C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     HalQueryRealTimeClock @ 0x1402B5570 (HalQueryRealTimeClock.c)
- *     RtlpTimeFieldsToTime @ 0x1402B5984 (RtlpTimeFieldsToTime.c)
- *     RtlpTimeToTimeFields @ 0x1402B5C18 (RtlpTimeToTimeFields.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalSetRealTimeClock @ 0x1404B6B40 (HalSetRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x140233750 (HalQueryRealTimeClock.c)
+ *     RtlpTimeFieldsToTime @ 0x140233B64 (RtlpTimeFieldsToTime.c)
+ *     RtlpTimeToTimeFields @ 0x140233DF8 (RtlpTimeToTimeFields.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalSetRealTimeClock @ 0x1404B6D80 (HalSetRealTimeClock.c)
  */
 
 char __fastcall GetBootSystemTime(__int64 a1, ULONGLONG *a2)
@@ -62,7 +62,7 @@ char __fastcall GetBootSystemTime(__int64 a1, ULONGLONG *a2)
     RtlpTimeToTimeFields((__int64 *)&pullResult, &v18, v8);
     LOBYTE(CurrentServerSiloGlobals) = HalSetRealTimeClock((__int16 *)&v18);
   }
-  else if ( (qword_140C19858 & 4) == 0 )
+  else if ( (qword_140C197B8 & 4) == 0 )
   {
     LOBYTE(CurrentServerSiloGlobals) = HalQueryRealTimeClock((__int64)&v18);
     if ( (_BYTE)CurrentServerSiloGlobals )

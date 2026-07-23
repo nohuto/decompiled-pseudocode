@@ -10,21 +10,21 @@
  *     ZwQueryVirtualMemory @ 0x1403F3A20 (ZwQueryVirtualMemory.c)
  */
 
-int __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, int a3)
+NTSTATUS __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, int a3)
 {
   unsigned __int64 v5; // r14
   unsigned __int64 v6; // rbx
   bool v7; // r12
-  int result; // eax
-  __int16 v9; // dx
-  unsigned __int64 v10; // rdi
+  NTSTATUS result; // eax
+  unsigned __int16 Magic; // dx
+  unsigned __int64 SizeOfImage; // rdi
   PVOID *DataTableEntry; // rax
   __int128 MemoryInformation; // [rsp+40h] [rbp-58h] BYREF
   __int128 v13; // [rsp+50h] [rbp-48h]
   __int128 v14; // [rsp+60h] [rbp-38h]
-  __int64 v15; // [rsp+A0h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+A0h] [rbp+8h] BYREF
 
-  v15 = 0LL;
+  OutHeaders = 0LL;
   MemoryInformation = 0LL;
   v13 = 0LL;
   v14 = 0LL;
@@ -36,22 +36,22 @@ int __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, 
   *a2 = 0LL;
   v6 = 0LL;
   v7 = (a3 & 0x100) != 0 && (a1 & 1) == 0;
-  result = RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v15);
+  result = RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
   if ( result >= 0 )
   {
-    v9 = *(_WORD *)(v15 + 24);
-    if ( v9 == 267 || v9 == 523 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic == 267 || Magic == 523 )
     {
-      v10 = *(unsigned int *)(v15 + 80);
+      SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
     }
     else
     {
-      v10 = 0LL;
+      SizeOfImage = 0LL;
       result = -1073741701;
     }
     if ( result >= 0 )
     {
-      if ( !v7 || !v10 )
+      if ( !v7 || !SizeOfImage )
       {
         DataTableEntry = LdrpKrnGetDataTableEntry(a1);
         if ( DataTableEntry )
@@ -65,18 +65,18 @@ int __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, 
           result = ZwQueryVirtualMemory(
                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                      (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL),
-                     (MEMORY_INFORMATION_CLASS)3,
+                     MemoryRegionInformation,
                      &MemoryInformation,
                      0x30uLL,
                      0LL);
           if ( result >= 0 )
             v6 = v13;
         }
-        if ( v6 || !v10 )
+        if ( v6 || !SizeOfImage )
           goto LABEL_14;
         result = 0;
       }
-      v6 = v10;
+      v6 = SizeOfImage;
 LABEL_14:
       if ( result >= 0 )
       {

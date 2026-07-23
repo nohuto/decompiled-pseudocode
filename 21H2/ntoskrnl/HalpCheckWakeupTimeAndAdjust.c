@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpCheckWakeupTimeAndAdjust @ 0x1404D2888
+ * XREFs of HalpCheckWakeupTimeAndAdjust @ 0x1404D2AC8
  * Callers:
- *     HaliAcpiSleep @ 0x140385F30 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140386080 (HaliAcpiSleep.c)
  * Callees:
- *     HalQueryRealTimeClock @ 0x1402B5570 (HalQueryRealTimeClock.c)
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402B5A04 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     RtlpTimeToTimeFields @ 0x1402B5C18 (RtlpTimeToTimeFields.c)
- *     HalpAcpiPmRegisterWrite @ 0x14037C760 (HalpAcpiPmRegisterWrite.c)
- *     HalpSetWakeAlarm @ 0x1404C1D04 (HalpSetWakeAlarm.c)
+ *     HalQueryRealTimeClock @ 0x140233750 (HalQueryRealTimeClock.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140233BE4 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeToTimeFields @ 0x140233DF8 (RtlpTimeToTimeFields.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C2B0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpSetWakeAlarm @ 0x1404C1F44 (HalpSetWakeAlarm.c)
  */
 
 char HalpCheckWakeupTimeAndAdjust()
@@ -99,12 +99,12 @@ LABEL_21:
         v22 = 0LL;
         if ( !ExLeapSecondData || !*(_BYTE *)ExLeapSecondData )
         {
-          RtlpTimeFieldsToTimeNoLeapSeconds((__int16 *)&xmmword_140C49342, &v17);
+          RtlpTimeFieldsToTimeNoLeapSeconds((__int16 *)&xmmword_140C49382, &v17);
           goto LABEL_38;
         }
         v9 = *((_DWORD *)ExLeapSecondData + 1);
         _InterlockedOr(v16, 0);
-        if ( !RtlpTimeFieldsToTimeNoLeapSeconds((__int16 *)&xmmword_140C49342, &v22) )
+        if ( !RtlpTimeFieldsToTimeNoLeapSeconds((__int16 *)&xmmword_140C49382, &v22) )
           goto LABEL_38;
         v0 = v22;
         v10 = 0LL;
@@ -146,13 +146,13 @@ LABEL_38:
         {
           v20 += 300000000LL;
           RtlpTimeToTimeFields(&v20, &v18, v10);
-          xmmword_140C49342 = v18;
+          xmmword_140C49382 = v18;
           HalpSetWakeAlarm(v14, (unsigned __int8 *)&v18);
           LOBYTE(v0) = 0;
           v19 = 1024;
           if ( PmRegisters[0] )
             LOBYTE(v0) = HalpAcpiPmRegisterWrite(0, 0, (__int64)&v19, 2u, 0LL);
-          if ( byte_140C490F0 )
+          if ( byte_140C49130 )
             LOBYTE(v0) = HalpAcpiPmRegisterWrite(3, 0, (__int64)&v19, 2u, 0LL);
         }
       }

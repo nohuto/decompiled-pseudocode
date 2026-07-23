@@ -13,69 +13,69 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtCancelWaitCompletionPacket(void *a1)
+NTSTATUS __cdecl NtCancelWaitCompletionPacket(HANDLE WaitCompletionPacketHandle, BOOLEAN RemoveSignaledPacket)
 {
-  NTSTATUS v1; // eax
-  PVOID v2; // rbx
-  unsigned int v3; // edi
-  KSPIN_LOCK *v5; // rbp
-  KIRQL v6; // al
-  KSPIN_LOCK *v7; // rsi
-  KIRQL v8; // r14
+  NTSTATUS v2; // eax
+  PVOID v3; // rbx
+  NTSTATUS v4; // edi
+  KSPIN_LOCK *v6; // rbp
+  KIRQL v7; // al
+  KSPIN_LOCK *v8; // rsi
   KIRQL v9; // r14
+  KIRQL v10; // r14
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
   PVOID Object; // [rsp+80h] [rbp+18h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   Object = 0LL;
-  v1 = ObReferenceObjectByHandle(
-         a1,
+  v2 = ObReferenceObjectByHandle(
+         WaitCompletionPacketHandle,
          1u,
          IopWaitCompletionPacketObjectType,
          KeGetCurrentThread()->PreviousMode,
          &Object,
          0LL);
-  v2 = Object;
-  v3 = v1;
-  if ( v1 >= 0 )
+  v3 = Object;
+  v4 = v2;
+  if ( v2 >= 0 )
   {
-    v5 = (KSPIN_LOCK *)((char *)Object + 96);
-    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Object + 12);
-    v7 = (KSPIN_LOCK *)*((_QWORD *)v2 + 11);
-    v8 = v6;
-    if ( v7 )
-      ObfReferenceObjectWithTag(*((PVOID *)v2 + 11), 0x746C6644u);
-    KeReleaseSpinLock((PKSPIN_LOCK)v2 + 12, v8);
-    if ( !v7 )
+    v6 = (KSPIN_LOCK *)((char *)Object + 96);
+    v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Object + 12);
+    v8 = (KSPIN_LOCK *)*((_QWORD *)v3 + 11);
+    v9 = v7;
+    if ( v8 )
+      ObfReferenceObjectWithTag(*((PVOID *)v3 + 11), 0x746C6644u);
+    KeReleaseSpinLock((PKSPIN_LOCK)v3 + 12, v9);
+    if ( !v8 )
     {
-      v3 = -1073741536;
+      v4 = -1073741536;
       goto LABEL_2;
     }
-    KeAcquireInStackQueuedSpinLock(v7 + 8, &LockHandle);
-    v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v2 + 12);
-    if ( *((_BYTE *)v2 + 104) )
+    KeAcquireInStackQueuedSpinLock(v8 + 8, &LockHandle);
+    v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v3 + 12);
+    if ( *((_BYTE *)v3 + 104) )
     {
-      v2 = Object;
+      v3 = Object;
       if ( (unsigned __int8)IopCancelWaitCompletionPacket((struct _KWAIT_BLOCK *)Object) )
       {
 LABEL_10:
         KeReleaseInStackQueuedSpinLock(&LockHandle);
-        ObfDereferenceObjectWithTag(v7, 0x746C6644u);
+        ObfDereferenceObjectWithTag(v8, 0x746C6644u);
         goto LABEL_2;
       }
-      if ( *((_BYTE *)v2 + 104) )
-        v3 = 259;
+      if ( *((_BYTE *)v3 + 104) )
+        v4 = 259;
     }
     else
     {
-      v3 = -1073741536;
+      v4 = -1073741536;
     }
-    KeReleaseSpinLock(v5, v9);
-    v2 = Object;
+    KeReleaseSpinLock(v6, v10);
+    v3 = Object;
     goto LABEL_10;
   }
 LABEL_2:
-  if ( v2 )
-    ObfDereferenceObjectWithTag(v2, 0x746C6644u);
-  return v3;
+  if ( v3 )
+    ObfDereferenceObjectWithTag(v3, 0x746C6644u);
+  return v4;
 }

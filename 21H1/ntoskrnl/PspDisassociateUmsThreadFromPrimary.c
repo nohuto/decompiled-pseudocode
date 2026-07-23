@@ -40,16 +40,16 @@ __int64 __fastcall PspDisassociateUmsThreadFromPrimary(PETHREAD Thread, PADAPTER
   int v14; // r12d
   unsigned __int64 v15; // rax
   void *v16; // rsp
-  __int64 v17; // rbx
+  PCONTEXT_EX v17; // rbx
   __int64 v18; // r12
-  __int64 v19; // rdx
+  PCONTEXT_EX v19; // rdx
   __int64 v20; // rcx
   __int64 v21; // rdx
   struct _DMA_ADAPTER *v22; // rcx
-  __int64 v23; // r13
+  PCONTEXT_EX v23; // r13
   int v24; // eax
-  __int64 v26; // [rsp+30h] [rbp+0h] BYREF
-  __int64 v27; // [rsp+38h] [rbp+8h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+30h] [rbp+0h] BYREF
+  ULONG ContextLength[2]; // [rsp+38h] [rbp+8h] BYREF
   int CycleTime; // [rsp+40h] [rbp+10h] BYREF
   int v29; // [rsp+44h] [rbp+14h]
   unsigned int CurrentRunTime; // [rsp+48h] [rbp+18h]
@@ -59,8 +59,8 @@ __int64 __fastcall PspDisassociateUmsThreadFromPrimary(PETHREAD Thread, PADAPTER
   int v34; // [rsp+60h] [rbp+30h]
   int v35; // [rsp+64h] [rbp+34h]
 
-  v26 = 0LL;
-  LODWORD(v27) = 0;
+  ContextEx = 0LL;
+  ContextLength[0] = 0;
   updated = 0;
   CurrentUmsTeb = KeGetCurrentUmsTeb(Thread);
   v8 = 0;
@@ -86,24 +86,24 @@ LABEL_10:
     {
       KeSetCurrentUmsTeb(Thread, (unsigned __int64)Thread->Teb);
       v14 = MEMORY[0xFFFFF780000003D8] != 0LL ? 0x40 : 0;
-      RtlGetExtendedContextLength(v14 + 1048603, &v27);
-      v15 = (unsigned int)v27 + 15LL;
-      if ( v15 <= (unsigned int)v27 )
+      RtlGetExtendedContextLength(v14 + 1048603, ContextLength);
+      v15 = ContextLength[0] + 15LL;
+      if ( v15 <= ContextLength[0] )
         v15 = 0xFFFFFFFFFFFFFF0LL;
       v16 = alloca(v15 & 0xFFFFFFFFFFFFFFF0uLL);
-      memset(&v26, 0, (unsigned int)v27);
-      RtlInitializeExtendedContext((__int64)&v26, v14 + 1048603, (__int64)&v26);
-      v26 -= 1232LL;
-      v17 = v26;
-      PspGetContextThreadInternal((__int64)Thread, v26, 0, 1, 1);
-      v27 = **(_QWORD **)&DmaAdapter[31].Version;
-      v18 = v27;
-      KeFixUserSwitchContext((__int64)DmaAdapter, v27, 0LL, v17);
+      memset(&ContextEx, 0, ContextLength[0]);
+      RtlInitializeExtendedContext((PCONTEXT)&ContextEx, v14 + 1048603, &ContextEx);
+      ContextEx = (PCONTEXT_EX)((char *)ContextEx - 1232);
+      v17 = ContextEx;
+      PspGetContextThreadInternal((__int64)Thread, (__int64)ContextEx, 0, 1, 1);
+      *(_QWORD *)ContextLength = **(_QWORD **)&DmaAdapter[31].Version;
+      v18 = *(_QWORD *)ContextLength;
+      KeFixUserSwitchContext((__int64)DmaAdapter, *(__int64 *)ContextLength, 0LL, (__int64)v17);
       updated = KeRemoveUmsThreadCidOwnership(v18, 1);
       v9 = v8;
       if ( updated >= 0 )
       {
-        v19 = v26;
+        v19 = ContextEx;
         *a3 |= 2u;
         updated = PspSetUmsThreadContext(DmaAdapter, v19, a3);
         if ( updated >= 0 )
@@ -122,14 +122,14 @@ LABEL_10:
             *(_QWORD *)(v21 + 8) = Object[1];
             *(_QWORD *)(*(_QWORD *)&DmaAdapter[31].Version + 16LL) = Object[2];
           }
-          v23 = v26;
-          updated = KeBuildPrimaryThreadContext((__int64)Thread, 0LL, v26, 1, 0LL, 0LL);
+          v23 = ContextEx;
+          updated = KeBuildPrimaryThreadContext((__int64)Thread, 0LL, (__int64)ContextEx, 1, 0LL, 0LL);
           if ( updated >= 0 )
           {
-            PspSetContextThreadInternal(Thread, v23, 0, 1, 1);
+            PspSetContextThreadInternal(Thread, (__int64)v23, 0, 1, 1);
             *a3 |= 8u;
             if ( v8 )
-              updated = KeUpdateUmsThreadState(v27, 0, 1);
+              updated = KeUpdateUmsThreadState(*(__int64 *)ContextLength, 0, 1);
           }
         }
       }

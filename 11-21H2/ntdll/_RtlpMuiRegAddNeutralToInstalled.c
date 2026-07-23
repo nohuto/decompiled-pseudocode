@@ -17,12 +17,11 @@ __int64 __fastcall RtlpMuiRegAddNeutralToInstalled(__int64 a1)
   __int64 v5; // rbp
   __int64 v6; // r8
   __int64 v7; // rcx
-  unsigned int v9; // ecx
-  int v10; // [rsp+20h] [rbp-E8h] BYREF
-  _BYTE *v11; // [rsp+28h] [rbp-E0h]
-  _BYTE v12[176]; // [rsp+30h] [rbp-D8h] BYREF
+  LCID v9; // ecx
+  _UNICODE_STRING LocaleName; // [rsp+20h] [rbp-E8h] BYREF
+  _BYTE v11[176]; // [rsp+30h] [rbp-D8h] BYREF
 
-  memset(v12, 0, 0xAAuLL);
+  memset(v11, 0, 0xAAuLL);
   v2 = 0;
   if ( a1 && (v3 = *(_QWORD *)(a1 + 24)) != 0 && *(_QWORD *)(v3 + 16) )
   {
@@ -32,9 +31,9 @@ __int64 __fastcall RtlpMuiRegAddNeutralToInstalled(__int64 a1)
       if ( *(__int16 *)(v5 + 6) <= 0 )
       {
         v9 = *(unsigned __int16 *)(v5 + 4);
-        v10 = 11141120;
-        v11 = v12;
-        if ( (int)RtlLcidToLocaleName(v9, (__int64)&v10, 2, 0) < 0 )
+        *(_DWORD *)&LocaleName.Length = 11141120;
+        LocaleName.Buffer = (wchar_t *)v11;
+        if ( RtlLcidToLocaleName(v9, &LocaleName, 2u, 0) < 0 )
           goto LABEL_10;
       }
       else

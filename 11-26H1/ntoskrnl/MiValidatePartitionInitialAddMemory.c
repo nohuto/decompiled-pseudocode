@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidatePartitionInitialAddMemory @ 0x14070A030
+ * XREFs of MiValidatePartitionInitialAddMemory @ 0x14070ECE4
  * Callers:
- *     MmManagePartitionInitialAddMemory @ 0x14087D018 (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionInitialAddMemory @ 0x140883418 (MmManagePartitionInitialAddMemory.c)
  * Callees:
  *     <none>
  */

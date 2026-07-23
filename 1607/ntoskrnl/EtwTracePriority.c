@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwTracePriority @ 0x140226010
+ * XREFs of EtwTracePriority @ 0x140225E3C
  * Callers:
- *     KeBoostPriorityThread @ 0x140004884 (KeBoostPriorityThread.c)
- *     PsSetPagePriorityThread @ 0x140070C40 (PsSetPagePriorityThread.c)
- *     PsSetIoPriorityThread @ 0x140072110 (PsSetIoPriorityThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x14007EA64 (KeSetPriorityAndQuantumProcess.c)
- *     KeSetBasePriorityThread @ 0x14007ED94 (KeSetBasePriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     KeBoostPriorityThread @ 0x1400049F8 (KeBoostPriorityThread.c)
+ *     PsSetPagePriorityThread @ 0x1400707C0 (PsSetPagePriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x140071C90 (PsSetIoPriorityThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14007EAE4 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetBasePriorityThread @ 0x14007EE14 (KeSetBasePriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpPsProvTracePriority @ 0x140226C4C (EtwpPsProvTracePriority.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpPsProvTracePriority @ 0x140226A78 (EtwpPsProvTracePriority.c)
  */
 
 __int64 __fastcall EtwTracePriority(__int64 a1, unsigned __int16 a2, int a3, int a4, _BYTE *a5)
@@ -30,7 +30,7 @@ __int64 __fastcall EtwTracePriority(__int64 a1, unsigned __int16 a2, int a3, int
   {
     v5 = a4;
     v6 = a3;
-    if ( (dword_1402FD544 & 0x2000) != 0 )
+    if ( (dword_1402FD524 & 0x2000) != 0 )
       EtwpPsProvTracePriority(a1, a2);
     v10 = *(_DWORD *)(a1 + 1592);
     v11 = v6;

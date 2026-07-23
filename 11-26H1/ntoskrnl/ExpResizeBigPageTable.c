@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpResizeBigPageTable @ 0x14029B458
+ * XREFs of ExpResizeBigPageTable @ 0x14029A9B8
  * Callers:
- *     ExpAddTagForBigPages @ 0x14029B070 (ExpAddTagForBigPages.c)
+ *     ExpAddTagForBigPages @ 0x14029A5D0 (ExpAddTagForBigPages.c)
  * Callees:
- *     ExAllocateHeapPages @ 0x140346060 (ExAllocateHeapPages.c)
- *     ExpInsertPoolTracker @ 0x14034AEA4 (ExpInsertPoolTracker.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExAllocateHeapPages @ 0x1403480E0 (ExAllocateHeapPages.c)
+ *     ExpInsertPoolTracker @ 0x14034CF24 (ExpInsertPoolTracker.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ExpResizeBigPageTable(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  unsigned __int64 SListFaultAddress; // rbx
-  _QWORD *StackLimit; // rsi
+  unsigned __int64 v3; // rbx
+  _QWORD *v5; // rsi
   unsigned __int64 v6; // rbp
   unsigned __int64 v7; // r14
   size_t v8; // rbp
@@ -30,18 +30,18 @@ __int64 __fastcall ExpResizeBigPageTable(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int v22; // ecx
   __int64 v23; // rax
 
-  SListFaultAddress = (unsigned __int64)stru_140EFEF90.SListFaultAddress;
-  StackLimit = stru_140EFEF90.StackLimit;
+  v3 = PoolBigPageTableSize;
+  v5 = PoolBigPageTable;
   *a3 = 0LL;
-  if ( SListFaultAddress )
+  if ( v3 )
   {
-    v7 = 2 * SListFaultAddress;
-    if ( 2 * SListFaultAddress <= SListFaultAddress )
+    v7 = 2 * v3;
+    if ( 2 * v3 <= v3 )
       return 0LL;
     if ( v7 > 0x7FFFFFFFFFFFFFFLL )
       return 0LL;
-    v6 = (SListFaultAddress << 6) + 4095;
-    if ( SListFaultAddress << 6 >= v6 )
+    v6 = (v3 << 6) + 4095;
+    if ( v3 << 6 >= v6 )
       return 0LL;
   }
   else
@@ -63,8 +63,8 @@ __int64 __fastcall ExpResizeBigPageTable(__int64 a1, __int64 a2, _QWORD *a3)
   }
   while ( v11 != (_QWORD *)(v10 + 32 * v7) );
   v12 = v7 - 1;
-  v13 = &StackLimit[4 * SListFaultAddress];
-  for ( i = StackLimit; i != v13; i += 4 )
+  v13 = &v5[4 * v3];
+  for ( i = v5; i != v13; i += 4 )
   {
     if ( (*i & 1) == 0 )
     {
@@ -101,11 +101,11 @@ __int64 __fastcall ExpResizeBigPageTable(__int64 a1, __int64 a2, _QWORD *a3)
   *(_QWORD *)(v17 + v10 + 16) = v8;
   *(_DWORD *)(v17 + v10 + 12) = (unsigned __int8)v18 | 0x4000;
   _InterlockedIncrement(&ExpPoolBigEntriesInUse);
-  stru_140EFEF90.StackLimit = (void *volatile)v10;
-  stru_140EFEF90.SListFaultAddress = (void *)v7;
+  PoolBigPageTable = (void *)v10;
+  PoolBigPageTableSize = v7;
   ExpInsertPoolTracker(1819242320LL, v8, 64LL, v10);
-  if ( StackLimit )
-    *StackLimit = 0LL;
-  *a3 = StackLimit;
+  if ( v5 )
+    *v5 = 0LL;
+  *a3 = v5;
   return 1LL;
 }

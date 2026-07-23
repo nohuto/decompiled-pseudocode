@@ -1,11 +1,11 @@
 /*
- * XREFs of VslCreateSecureThread @ 0x14088F270
+ * XREFs of VslCreateSecureThread @ 0x14088F3D0
  * Callers:
- *     KeSecureThread @ 0x1405132DC (KeSecureThread.c)
+ *     KeSecureThread @ 0x14051351C (KeSecureThread.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall VslCreateSecureThread(

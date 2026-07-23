@@ -39,7 +39,7 @@ __int64 __fastcall KxFlushSingleTb(__int64 a1, int a2, int a3)
     v3 = 2LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -73,10 +73,10 @@ __int64 __fastcall KxFlushSingleTb(__int64 a1, int a2, int a3)
     v7 = 0;
   }
   KiIpiSendRequestEx((_DWORD)CurrentPrcb, v7, v6, (unsigned int)&v18, v3, (__int64)KiFlushSingleTbWorker, (__int64)&v18);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       v13 = KeGetCurrentPrcb();
       v14 = v13->SchedulerAssist;

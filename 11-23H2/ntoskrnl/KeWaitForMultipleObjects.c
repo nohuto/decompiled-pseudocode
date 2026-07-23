@@ -1,72 +1,72 @@
 /*
- * XREFs of KeWaitForMultipleObjects @ 0x1403111A0
+ * XREFs of KeWaitForMultipleObjects @ 0x140311430
  * Callers:
- *     MiReadyToZeroNextLargePage @ 0x1402D0440 (MiReadyToZeroNextLargePage.c)
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x14031056C (MmWaitMultipleForCacheManagerPrefetch.c)
- *     PopFxProcessWorkPool @ 0x140310FF4 (PopFxProcessWorkPool.c)
- *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140345310 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140368A50 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     MiMappedPageWriter @ 0x1403915B0 (MiMappedPageWriter.c)
- *     KeBalanceSetManager @ 0x140394500 (KeBalanceSetManager.c)
- *     MiRebuildLargePagesThread @ 0x1403967A0 (MiRebuildLargePagesThread.c)
- *     MiDereferenceSegmentThread @ 0x1403A7C90 (MiDereferenceSegmentThread.c)
- *     MiStoreEvictThread @ 0x1403A8650 (MiStoreEvictThread.c)
- *     MiZeroPageThread @ 0x1403B0030 (MiZeroPageThread.c)
- *     MiModifiedPageWriter @ 0x1403B2760 (MiModifiedPageWriter.c)
- *     CcAsyncReadWorker @ 0x1403BEB00 (CcAsyncReadWorker.c)
- *     CcQueueLazyWriteScanThreadForVolume @ 0x1403C0470 (CcQueueLazyWriteScanThreadForVolume.c)
- *     CcQueueLazyWriteScanThread @ 0x140536E40 (CcQueueLazyWriteScanThread.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x14053AC14 (CcAsyncLazywriteWorkerMulti.c)
- *     PopSleepDeviceList @ 0x140590A18 (PopSleepDeviceList.c)
- *     DifKeWaitForMultipleObjectsWrapper @ 0x1405E62C0 (DifKeWaitForMultipleObjectsWrapper.c)
- *     MiPartitionWorkingSetManager @ 0x140629550 (MiPartitionWorkingSetManager.c)
- *     MiIssueAsynchronousFlush @ 0x140636054 (MiIssueAsynchronousFlush.c)
- *     MiWaitForAsynchronousFlushes @ 0x140636354 (MiWaitForAsynchronousFlushes.c)
+ *     MiReadyToZeroNextLargePage @ 0x1402D06D0 (MiReadyToZeroNextLargePage.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x1403107FC (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     PopFxProcessWorkPool @ 0x140311284 (PopFxProcessWorkPool.c)
+ *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403455A0 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140368BF0 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     MiMappedPageWriter @ 0x140391790 (MiMappedPageWriter.c)
+ *     KeBalanceSetManager @ 0x1403946E0 (KeBalanceSetManager.c)
+ *     MiRebuildLargePagesThread @ 0x140396980 (MiRebuildLargePagesThread.c)
+ *     MiDereferenceSegmentThread @ 0x1403A7E70 (MiDereferenceSegmentThread.c)
+ *     MiStoreEvictThread @ 0x1403A8830 (MiStoreEvictThread.c)
+ *     MiZeroPageThread @ 0x1403B0210 (MiZeroPageThread.c)
+ *     MiModifiedPageWriter @ 0x1403B2940 (MiModifiedPageWriter.c)
+ *     CcAsyncReadWorker @ 0x1403BECE0 (CcAsyncReadWorker.c)
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x1403C0650 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcQueueLazyWriteScanThread @ 0x140537390 (CcQueueLazyWriteScanThread.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x14053B164 (CcAsyncLazywriteWorkerMulti.c)
+ *     PopSleepDeviceList @ 0x140590F08 (PopSleepDeviceList.c)
+ *     DifKeWaitForMultipleObjectsWrapper @ 0x1405E6830 (DifKeWaitForMultipleObjectsWrapper.c)
+ *     MiPartitionWorkingSetManager @ 0x140629AA0 (MiPartitionWorkingSetManager.c)
+ *     MiIssueAsynchronousFlush @ 0x1406365A4 (MiIssueAsynchronousFlush.c)
+ *     MiWaitForAsynchronousFlushes @ 0x1406368A4 (MiWaitForAsynchronousFlushes.c)
  *     CmpDoFileWrite @ 0x1406895CC (CmpDoFileWrite.c)
- *     ObWaitForMultipleObjects @ 0x1406E3890 (ObWaitForMultipleObjects.c)
- *     EtwpLogger @ 0x140773100 (EtwpLogger.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x1407737C0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     PiUEventNotifyUserMode @ 0x1407839EC (PiUEventNotifyUserMode.c)
- *     PfGenerateTrace @ 0x1407D3C00 (PfGenerateTrace.c)
- *     CmpFinishSystemHivesLoad @ 0x14080AF10 (CmpFinishSystemHivesLoad.c)
- *     MiNodeZeroConductor @ 0x14082F620 (MiNodeZeroConductor.c)
- *     PfTLoggingWorker @ 0x140838BD0 (PfTLoggingWorker.c)
- *     ExpWorkQueueManagerThread @ 0x140838DC0 (ExpWorkQueueManagerThread.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x1408A8840 (EtwpCovSampCaptureWorkerThread.c)
- *     PopThermalReadCounters @ 0x14098AEB4 (PopThermalReadCounters.c)
- *     PsShutdownSystem @ 0x1409B3544 (PsShutdownSystem.c)
- *     PnprQuiesceWorker @ 0x140A9DE60 (PnprQuiesceWorker.c)
- *     MiZeroAllPageFiles @ 0x140AABD74 (MiZeroAllPageFiles.c)
+ *     ObWaitForMultipleObjects @ 0x1406E38C0 (ObWaitForMultipleObjects.c)
+ *     EtwpLogger @ 0x1407732F0 (EtwpLogger.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1407739B0 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     PiUEventNotifyUserMode @ 0x140783BDC (PiUEventNotifyUserMode.c)
+ *     PfGenerateTrace @ 0x1407D3ED0 (PfGenerateTrace.c)
+ *     CmpFinishSystemHivesLoad @ 0x14080B1E0 (CmpFinishSystemHivesLoad.c)
+ *     MiNodeZeroConductor @ 0x14082F920 (MiNodeZeroConductor.c)
+ *     PfTLoggingWorker @ 0x140838ED0 (PfTLoggingWorker.c)
+ *     ExpWorkQueueManagerThread @ 0x1408390C0 (ExpWorkQueueManagerThread.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x1408A8A90 (EtwpCovSampCaptureWorkerThread.c)
+ *     PopThermalReadCounters @ 0x14098B0B4 (PopThermalReadCounters.c)
+ *     PsShutdownSystem @ 0x1409B3744 (PsShutdownSystem.c)
+ *     PnprQuiesceWorker @ 0x140A9DCD0 (PnprQuiesceWorker.c)
+ *     MiZeroAllPageFiles @ 0x140AABBE4 (MiZeroAllPageFiles.c)
  *     KiComputeDispatchInterruptCost @ 0x140B4CBF4 (KiComputeDispatchInterruptCost.c)
  * Callees:
  *     KiCompleteRescheduleContext @ 0x140201EB0 (KiCompleteRescheduleContext.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KiStartRescheduleContext @ 0x140238F20 (KiStartRescheduleContext.c)
- *     KiCommitThreadWait @ 0x140241F20 (KiCommitThreadWait.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402425A0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiFindRescheduleContextEntryForPrcb @ 0x140243B70 (KiFindRescheduleContextEntryForPrcb.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KiProcessDeferredReadyList @ 0x1402B0E70 (KiProcessDeferredReadyList.c)
- *     KiCheckForThreadDispatch @ 0x1402BCA78 (KiCheckForThreadDispatch.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x140307F0C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
- *     KiCommitRescheduleContext @ 0x140308574 (KiCommitRescheduleContext.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     KiWaitSatisfyMutant @ 0x140311AE0 (KiWaitSatisfyMutant.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     KiWaitForAllObjects @ 0x14034AEFC (KiWaitForAllObjects.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheck @ 0x14041EA30 (KeBugCheck.c)
- *     memset @ 0x140435A00 (memset.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSatisfyThreadWait @ 0x14057A2AC (KiSatisfyThreadWait.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KiStartRescheduleContext @ 0x140238FF0 (KiStartRescheduleContext.c)
+ *     KiCommitThreadWait @ 0x140241FF0 (KiCommitThreadWait.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140242670 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiFindRescheduleContextEntryForPrcb @ 0x140243C40 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KiProcessDeferredReadyList @ 0x1402B1100 (KiProcessDeferredReadyList.c)
+ *     KiCheckForThreadDispatch @ 0x1402BCD08 (KiCheckForThreadDispatch.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     KeAbPreWait @ 0x1402FD500 (KeAbPreWait.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x14030819C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiCommitRescheduleContext @ 0x140308804 (KiCommitRescheduleContext.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     KiWaitSatisfyMutant @ 0x140311D70 (KiWaitSatisfyMutant.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     KiWaitForAllObjects @ 0x14034B09C (KiWaitForAllObjects.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheck @ 0x14041EDC0 (KeBugCheck.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
+ *     KiSatisfyThreadWait @ 0x14057A79C (KiSatisfyThreadWait.c)
  */
 
 NTSTATUS __stdcall KeWaitForMultipleObjects(
@@ -213,7 +213,7 @@ LABEL_4:
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -265,10 +265,10 @@ LABEL_12:
     if ( !CurrentThread->ApcState.KernelApcPending || CurrentThread->SpecialApcDisable || v12 )
       break;
     CurrentThread->ThreadLock = 0LL;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v54 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v54 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v54 - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v56 = CurrentPrcb->SchedulerAssist;
@@ -282,7 +282,7 @@ LABEL_12:
     KiDeliverApc(0, 0LL, 0LL);
     v51 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v51 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v51 <= 0xFu )
     {
       v52 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v51 == 2 )
@@ -377,7 +377,7 @@ LABEL_26:
               while ( CurrentThread->ThreadLock );
             }
             KiSatisfyThreadWait((_DWORD)v89, (_DWORD)CurrentThread, v85, (_DWORD)v14, v19);
-            RtlRaiseStatus(3221225873LL);
+            RtlRaiseStatus(-1073741423);
           }
           v90 = Executive;
           while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
@@ -513,10 +513,10 @@ LABEL_46:
           {
             KiCheckForThreadDispatch(v34, 1u);
             KiDeliverApc(0, 0LL, 0LL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v78 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v78 - 2) <= 0xDu )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v78 - 2) <= 0xDu )
               {
                 v79 = KeGetCurrentPrcb();
                 v80 = v79->SchedulerAssist;
@@ -535,10 +535,10 @@ LABEL_46:
         }
         else
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v81 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v81 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v81 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v81 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v81 >= 2u )
             {
               v82 = KeGetCurrentPrcb();
               v83 = v82->SchedulerAssist;
@@ -691,7 +691,7 @@ LABEL_155:
         v85 = 0;
         v47 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
         {
           v48 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v47 == 2 )

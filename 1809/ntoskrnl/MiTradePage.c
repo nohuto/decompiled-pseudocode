@@ -1,32 +1,32 @@
 /*
- * XREFs of MiTradePage @ 0x14009C0F0
+ * XREFs of MiTradePage @ 0x14009C030
  * Callers:
- *     MiClaimPhysicalRun @ 0x14009BF20 (MiClaimPhysicalRun.c)
+ *     MiClaimPhysicalRun @ 0x14009BE60 (MiClaimPhysicalRun.c)
  * Callees:
  *     MiSetPfnTbFlushStamp @ 0x1400296A4 (MiSetPfnTbFlushStamp.c)
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInvalidPteConforms @ 0x140039720 (MiInvalidPteConforms.c)
  *     MiUnlinkFreeOrZeroedPage @ 0x140039AD0 (MiUnlinkFreeOrZeroedPage.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiReturnFreeZeroPage @ 0x14008229C (MiReturnFreeZeroPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiPfnLargeBitSet @ 0x14009AB50 (MiPfnLargeBitSet.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiActivePageClaimCandidate @ 0x14009CA50 (MiActivePageClaimCandidate.c)
- *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
- *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
- *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
- *     MiTradeTransitionPage @ 0x14011812C (MiTradeTransitionPage.c)
- *     MiDrainZeroLookasides @ 0x14011ACA0 (MiDrainZeroLookasides.c)
- *     MiAddMdlPageToTradeBlock @ 0x140126FD4 (MiAddMdlPageToTradeBlock.c)
- *     MiLargeFreePageToMdl @ 0x14012B8E8 (MiLargeFreePageToMdl.c)
- *     MiDemoteLargeFreePage @ 0x14012BAA4 (MiDemoteLargeFreePage.c)
- *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
- *     MiLockAndInsertPageInFreeList @ 0x140188C1C (MiLockAndInsertPageInFreeList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReuseStandbyPage @ 0x1402C0FA0 (MiReuseStandbyPage.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiReturnFreeZeroPage @ 0x14008228C (MiReturnFreeZeroPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiPfnLargeBitSet @ 0x14009AA90 (MiPfnLargeBitSet.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiActivePageClaimCandidate @ 0x14009C990 (MiActivePageClaimCandidate.c)
+ *     MiIsPfn @ 0x1400A8820 (MiIsPfn.c)
+ *     MiTrimSharedPage @ 0x1400E97F0 (MiTrimSharedPage.c)
+ *     MiStealPage @ 0x1400EBFC4 (MiStealPage.c)
+ *     MiTradeTransitionPage @ 0x14011819C (MiTradeTransitionPage.c)
+ *     MiDrainZeroLookasides @ 0x14011AD10 (MiDrainZeroLookasides.c)
+ *     MiAddMdlPageToTradeBlock @ 0x1401270A4 (MiAddMdlPageToTradeBlock.c)
+ *     MiLargeFreePageToMdl @ 0x14012B9B8 (MiLargeFreePageToMdl.c)
+ *     MiDemoteLargeFreePage @ 0x14012BB74 (MiDemoteLargeFreePage.c)
+ *     MiSwapStackPage @ 0x14012D250 (MiSwapStackPage.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140188D5C (MiLockAndInsertPageInFreeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReuseStandbyPage @ 0x1402C1190 (MiReuseStandbyPage.c)
  */
 
 __int64 __fastcall MiTradePage(__int64 *a1, ULONG_PTR a2, __int64 a3)
@@ -122,7 +122,7 @@ __int64 __fastcall MiTradePage(__int64 *a1, ULONG_PTR a2, __int64 a3)
     if ( !(unsigned int)MiIsPfn(a2) )
       goto LABEL_22;
     v14 = *(_QWORD *)(v10 + 40);
-    if ( *(_QWORD *)(qword_14043A748 + 8 * ((v14 >> 40) & 0x3FF)) != v13 )
+    if ( *(_QWORD *)(qword_14043B808 + 8 * ((v14 >> 40) & 0x3FF)) != v13 )
       break;
     if ( (*(_BYTE *)(v10 + 34) & 7) == 5 )
     {
@@ -132,11 +132,11 @@ __int64 __fastcall MiTradePage(__int64 *a1, ULONG_PTR a2, __int64 a3)
         goto LABEL_22;
       }
       v32 = v30;
-      if ( qword_14043A0C0 && (v30 & 0x10) == 0 )
-        v32 = ~qword_14043A0C0 & v30;
+      if ( qword_14043B180 && (v30 & 0x10) == 0 )
+        v32 = ~qword_14043B180 & v30;
       if ( HIDWORD(v32) != 4294967294 || v29 == v10 )
         goto LABEL_22;
-      v33 = dword_14043A088 & a2 | (((v14 >> 36) & 3) << byte_14043A04A) | (v14 >> 58 << byte_14043A049);
+      v33 = dword_14043B148 & a2 | (((v14 >> 36) & 3) << byte_14043B10A) | (v14 >> 58 << byte_14043B109);
       _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v12 < 2u )
       {
@@ -153,8 +153,8 @@ __int64 __fastcall MiTradePage(__int64 *a1, ULONG_PTR a2, __int64 a3)
     else
     {
       if ( (unsigned int)MiIsPfnFileOnly(48 * a2 - 0x58000000000LL) == 1
-        || byte_14043DBDE
-        && _bittest64((const signed __int64 *)qword_14043E218, (unsigned __int64)((__int64)(48 * a2) / 48) >> 9) )
+        || byte_14043EC9E
+        && _bittest64((const signed __int64 *)qword_14043F2D8, (unsigned __int64)((__int64)(48 * a2) / 48) >> 9) )
       {
         goto LABEL_22;
       }
@@ -217,7 +217,7 @@ __int64 __fastcall MiTradePage(__int64 *a1, ULONG_PTR a2, __int64 a3)
             v24 = MiTradeTransitionPage(48 * (int)a2, v12, v53, v57, v16, (__int64)&v52);
             if ( v24 == 3 )
             {
-              if ( *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL)) == v50 )
+              if ( *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL)) == v50 )
               {
                 if ( v8 )
                 {
@@ -331,7 +331,7 @@ LABEL_22:
             goto LABEL_25;
           if ( v27 != 2 )
           {
-            if ( *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL)) == v50 )
+            if ( *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL)) == v50 )
             {
 LABEL_40:
               *(_QWORD *)(v10 + 16) = ZeroPte;

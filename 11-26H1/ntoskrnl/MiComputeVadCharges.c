@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeVadCharges @ 0x1404C4640
+ * XREFs of MiComputeVadCharges @ 0x1404BDF20
  * Callers:
- *     MiDeletePartialVad @ 0x1403BCC54 (MiDeletePartialVad.c)
- *     MiDeleteNewlyCreatedPartialVads @ 0x14087EFD4 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
+ *     MiDeletePartialVad @ 0x1403C6AC4 (MiDeletePartialVad.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1408853D4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
  * Callees:
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     MiResidentPagesForSpan @ 0x14095DF90 (MiResidentPagesForSpan.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     MiResidentPagesForSpan @ 0x140A03850 (MiResidentPagesForSpan.c)
  */
 
 __int64 __fastcall MiComputeVadCharges(__int64 a1, __int64 a2)

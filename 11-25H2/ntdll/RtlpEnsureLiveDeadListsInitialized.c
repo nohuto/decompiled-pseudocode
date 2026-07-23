@@ -7,9 +7,9 @@
  *     RtlAcquirePebLock @ 0x1800E1E40 (RtlAcquirePebLock.c)
  */
 
-__int64 RtlpEnsureLiveDeadListsInitialized()
+NTSTATUS RtlpEnsureLiveDeadListsInitialized()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !g_SxsLiveActivationContexts )
   {

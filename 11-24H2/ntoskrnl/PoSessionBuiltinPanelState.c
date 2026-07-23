@@ -1,10 +1,10 @@
 /*
- * XREFs of PoSessionBuiltinPanelState @ 0x1405DAF70
+ * XREFs of PoSessionBuiltinPanelState @ 0x1405D8290
  * Callers:
- *     TtmpCallSetBuiltinPanelState @ 0x140768DAC (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x140768FCC (TtmpCallSetBuiltinPanelState.c)
  * Callees:
- *     PopBlockSessionSwitch @ 0x1409B7CC0 (PopBlockSessionSwitch.c)
- *     PopInvokeWin32Callout @ 0x1409BE358 (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x14099E318 (PopBlockSessionSwitch.c)
+ *     PopInvokeWin32Callout @ 0x1409A49A8 (PopInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PoSessionBuiltinPanelState(__int64 a1, int a2)

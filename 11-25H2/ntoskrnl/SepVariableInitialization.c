@@ -43,7 +43,7 @@ bool SepVariableInitialization()
   __int64 v26; // rax
   __int64 v27; // rax
   _DWORD *v28; // rbx
-  __int64 v29; // rax
+  _DWORD *v29; // rax
   __int64 v30; // rax
   __int64 v31; // rax
   __int64 v32; // rax
@@ -51,8 +51,8 @@ bool SepVariableInitialization()
   __int64 v34; // rax
   __int64 v35; // rax
   _DWORD *v36; // rax
-  _OWORD *v37; // r8
-  _OWORD *v38; // rdx
+  PSID v37; // r8
+  PSID v38; // rdx
   char *v39; // rcx
   __int64 v40; // rax
   _DWORD *Sid; // [rsp+20h] [rbp-E0h]
@@ -88,7 +88,7 @@ bool SepVariableInitialization()
   UNICODE_STRING v72; // [rsp+128h] [rbp+28h] BYREF
   UNICODE_STRING v73; // [rsp+138h] [rbp+38h] BYREF
   UNICODE_STRING v74; // [rsp+148h] [rbp+48h] BYREF
-  UNICODE_STRING String2; // [rsp+158h] [rbp+58h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+158h] [rbp+58h] BYREF
   UNICODE_STRING v76; // [rsp+168h] [rbp+68h] BYREF
   UNICODE_STRING v77; // [rsp+178h] [rbp+78h] BYREF
   UNICODE_STRING v78; // [rsp+188h] [rbp+88h] BYREF
@@ -116,15 +116,15 @@ bool SepVariableInitialization()
   PSID v100; // [rsp+2B8h] [rbp+1B8h]
   PSID v101; // [rsp+2C0h] [rbp+1C0h]
   PSID v102; // [rsp+2C8h] [rbp+1C8h]
-  PSID v103; // [rsp+2D0h] [rbp+1D0h]
+  PSID CapabilityGroupSid; // [rsp+2D0h] [rbp+1D0h]
   PSID v104; // [rsp+2D8h] [rbp+1D8h]
   __int64 v105; // [rsp+330h] [rbp+230h] BYREF
   __int64 v106; // [rsp+338h] [rbp+238h] BYREF
   __int64 v107; // [rsp+340h] [rbp+240h] BYREF
   __int64 v108; // [rsp+348h] [rbp+248h] BYREF
 
-  *(_QWORD *)&String2.Length = 2359330LL;
-  String2.Buffer = L"lpacAppExperience";
+  *(_QWORD *)&UnicodeString.Length = 2359330LL;
+  UnicodeString.Buffer = L"lpacAppExperience";
   *(_QWORD *)&v76.Length = 1048590LL;
   v76.Buffer = L"lpacCom";
   v74.Buffer = L"lpacCryptoServices";
@@ -272,8 +272,8 @@ bool SepVariableInitialization()
   SeAliasBackupOpsSid = (PSID)ExAllocatePool2(0x120uLL, v11, 0x69536553uLL);
   SeUntrustedMandatorySid = (PSID)ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
   SeLowMandatorySid = (PSID)ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
-  SeMediumMandatorySid = (void *)ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
-  SeHighMandatorySid = (void *)ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
+  SeMediumMandatorySid = (PSID)ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
+  SeHighMandatorySid = (PSID)ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
   SeSystemMandatorySid = ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
   SePackagePrefixSid = ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
   SeCapabilityPrefixSid = ExAllocatePool2(0x60uLL, v3, 0x69536553uLL);
@@ -302,7 +302,7 @@ bool SepVariableInitialization()
   Size = v13;
   SeUserModeDriversSid = (PSID)ExAllocatePool2(0x60uLL, v13, 0x69536553uLL);
   SeTrustedInstallerSid = ExAllocatePool2(0x60uLL, v13, 0x69536553uLL);
-  SeProcTrustWinTcbSid = ExAllocatePool2(0x60uLL, v11, 0x69536553uLL);
+  SeProcTrustWinTcbSid = (PSID)ExAllocatePool2(0x60uLL, v11, 0x69536553uLL);
   SeProcTrustWinSid = ExAllocatePool2(0x60uLL, v11, 0x69536553uLL);
   SeProcTrustAuthenticodeSid = ExAllocatePool2(0x60uLL, v11, 0x69536553uLL);
   SeProcTrustLiteAntimalwareSid = ExAllocatePool2(0x60uLL, v11, 0x69536553uLL);
@@ -454,7 +454,7 @@ bool SepVariableInitialization()
   v20 = SeUserModeDriversSid;
   if ( !SeUserModeDriversSid )
     return 0;
-  v97 = (PSID)SeProcTrustWinTcbSid;
+  v97 = SeProcTrustWinTcbSid;
   if ( !SeProcTrustWinTcbSid )
     return 0;
   v98 = (PSID)SeProcTrustWinSid;
@@ -489,7 +489,7 @@ bool SepVariableInitialization()
     return 0;
   if ( !SeConstrainedImpersonationCapabilitySid )
     return 0;
-  v103 = SeConstrainedImpersonationCapabilityGroupSid;
+  CapabilityGroupSid = SeConstrainedImpersonationCapabilityGroupSid;
   if ( !SeConstrainedImpersonationCapabilityGroupSid )
     return 0;
   if ( !SeSessionImpersonationCapabilitySid )
@@ -598,7 +598,7 @@ bool SepVariableInitialization()
   v19[3] = 2;
   v21[2] = 3;
   v21[3] = 0x10000;
-  if ( RtlDeriveCapabilitySidsFromName(&String2, v103, SeLpacAppExperienceCapabilitySid) < 0 )
+  if ( RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, SeLpacAppExperienceCapabilitySid) < 0 )
     return 0;
   if ( RtlDeriveCapabilitySidsFromName(&v76, SeConstrainedImpersonationCapabilityGroupSid, SeLpacComCapabilitySid) < 0 )
     return 0;
@@ -688,8 +688,8 @@ bool SepVariableInitialization()
   *((_DWORD *)SeUserModeDriversSid + 2) = 84;
   *(_QWORD *)(SeProcTrustNoneSid + 8) = 0LL;
   v29 = SeProcTrustWinTcbSid;
-  *(_DWORD *)(SeProcTrustWinTcbSid + 8) = 1024;
-  *(_DWORD *)(v29 + 12) = 0x2000;
+  *((_DWORD *)SeProcTrustWinTcbSid + 2) = 1024;
+  v29[3] = 0x2000;
   v30 = SeProcTrustWinSid;
   *(_DWORD *)(SeProcTrustWinSid + 8) = 1024;
   *(_DWORD *)(v30 + 12) = 4096;
@@ -828,7 +828,7 @@ bool SepVariableInitialization()
   qword_140FD92F8 = SeSystemMandatorySid;
   qword_140FD9308 = (__int64)SeAllAppPackagesSid;
   qword_140FD9310 = (__int64)SeUserModeDriversSid;
-  qword_140FD9318 = SeProcTrustWinTcbSid;
+  qword_140FD9318 = (__int64)SeProcTrustWinTcbSid;
   qword_140FD9320 = SeTrustedInstallerSid;
   qword_140FD9330 = (__int64)SeAppSiloSid;
   dword_140FD9104 = 0;

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetSlabRepurposedStandbyListWorker @ 0x1403EF5C0
+ * XREFs of MiGetSlabRepurposedStandbyListWorker @ 0x1403E2544
  * Callers:
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1403EF4B4 (MiGetSlabAllocatorRepurposedStandbyList.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1403E2438 (MiGetSlabAllocatorRepurposedStandbyList.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1403EF794 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1403E2718 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
  */
 
 __int64 __fastcall MiGetSlabRepurposedStandbyListWorker(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpAllocateAndEnableEventWatchdog @ 0x1409C7328
+ * XREFs of PnpAllocateAndEnableEventWatchdog @ 0x1409B9634
  * Callers:
- *     PnpDeviceEventWorker @ 0x1409EFB60 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x1409ED430 (PnpDeviceEventWorker.c)
  * Callees:
- *     RtlUnicodeStringCopyString @ 0x140465D3C (RtlUnicodeStringCopyString.c)
- *     PnpEnableWatchdog @ 0x1409C74F8 (PnpEnableWatchdog.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCopyString @ 0x14045D760 (RtlUnicodeStringCopyString.c)
+ *     PnpEnableWatchdog @ 0x1409B9804 (PnpEnableWatchdog.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpAllocateAndEnableEventWatchdog(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall PnpAllocateAndEnableEventWatchdog(__int64 a1)
   int v8; // edx
   __int64 v9; // rax
   __int64 v10; // rdi
-  __int16 v11; // di
+  unsigned __int16 v11; // di
   __int64 Pool2; // rax
   _QWORD *v13; // rbx
   __int64 v15; // rax
@@ -91,7 +91,7 @@ LABEL_32:
   while ( v5[v10] );
   v11 = 2 * (v10 + 1);
 LABEL_11:
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, v11 + 80LL, 0x57647050u);
   v13 = (_QWORD *)Pool2;
   if ( Pool2 )
   {

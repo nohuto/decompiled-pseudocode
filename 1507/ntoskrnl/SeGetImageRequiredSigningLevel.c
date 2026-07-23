@@ -8,27 +8,27 @@
  *     SeCompareSigningLevels @ 0x140509298 (SeCompareSigningLevels.c)
  */
 
-__int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, __int64 a3, char a4, _BYTE *a5)
+__int64 __fastcall SeGetImageRequiredSigningLevel(PVOID Object, __int64 a2, __int64 a3, char a4, _BYTE *a5)
 {
-  NTSTATUS IsUntrustedObject; // edi
+  NTSTATUS v5; // edi
   char v6; // bl
-  __int64 v7; // rsi
+  PVOID v7; // rsi
   char v9; // [rsp+30h] [rbp-18h] BYREF
   char v10; // [rsp+31h] [rbp-17h] BYREF
-  _BYTE v11[22]; // [rsp+32h] [rbp-16h] BYREF
+  BOOLEAN IsUntrustedObject[22]; // [rsp+32h] [rbp-16h] BYREF
 
-  IsUntrustedObject = 0;
+  v5 = 0;
   v6 = a3;
-  v7 = a1;
+  v7 = Object;
   if ( qword_14032C190 )
   {
-    return (unsigned int)qword_14032C190(a1, a2, a3);
+    return (unsigned int)qword_14032C190(Object, a2, a3);
   }
   else
   {
     LOBYTE(a2) = a3;
-    LOBYTE(a1) = a4;
-    if ( (unsigned int)SeCompareSigningLevels(a1, a2)
+    LOBYTE(Object) = a4;
+    if ( (unsigned int)SeCompareSigningLevels(Object, a2)
       || (unsigned __int8)SeILSigningPolicy > 4u
       || (BYTE2(KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink) & 7) != 0
       || v6 != 6 )
@@ -37,8 +37,8 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, __int6
     }
     else if ( qword_14032C158 )
     {
-      IsUntrustedObject = qword_14032C158(v7, &v9, &v10);
-      if ( IsUntrustedObject >= 0 )
+      v5 = qword_14032C158(v7, &v9, &v10);
+      if ( v5 >= 0 )
       {
         if ( v9 || v10 )
         {
@@ -46,9 +46,9 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, __int6
         }
         else
         {
-          IsUntrustedObject = RtlIsUntrustedObject(0LL, v7, v11);
-          if ( IsUntrustedObject >= 0 )
-            *a5 = v11[0] != 0 ? 6 : 0;
+          v5 = RtlIsUntrustedObject(0LL, v7, IsUntrustedObject);
+          if ( v5 >= 0 )
+            *a5 = IsUntrustedObject[0] != 0 ? 6 : 0;
         }
       }
     }
@@ -57,5 +57,5 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, __int6
       return (unsigned int)-1073741823;
     }
   }
-  return (unsigned int)IsUntrustedObject;
+  return (unsigned int)v5;
 }

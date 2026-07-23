@@ -1,12 +1,17 @@
 /*
- * XREFs of RtlGetLengthWithoutLastFullDosOrNtPathElement @ 0x18010B0D0
+ * XREFs of RtlGetLengthWithoutLastFullDosOrNtPathElement @ 0x180105E70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetLengthWithoutLastFullDosOrNtPathElement(__int64 a1, unsigned __int16 *a2, int *a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlGetLengthWithoutLastFullDosOrNtPathElement(ULONG Flags, PUNICODE_STRING PathString, PULONG Length)
 {
-  return RtlpGetLengthWithoutLastPathElement(a1, (__int64)a2, a2, a3);
+  return RtlpGetLengthWithoutLastPathElement(
+           *(__int64 *)&Flags,
+           (__int64)PathString,
+           &PathString->Length,
+           (int *)Length);
 }

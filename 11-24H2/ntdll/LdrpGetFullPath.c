@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpGetFullPath @ 0x180075FF0
+ * XREFs of LdrpGetFullPath @ 0x1800928D0
  * Callers:
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     LdrpPreprocessDllName @ 0x18005A570 (LdrpPreprocessDllName.c)
- *     LdrpResolveDllName @ 0x180075B50 (LdrpResolveDllName.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpPreprocessDllName @ 0x180070150 (LdrpPreprocessDllName.c)
+ *     LdrpResolveDllName @ 0x180092430 (LdrpResolveDllName.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
- *     RtlGetFullPathName_Ustr @ 0x18005BA20 (RtlGetFullPathName_Ustr.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
+ *     RtlGetFullPathName_Ustr @ 0x180071600 (RtlGetFullPathName_Ustr.c)
  */
 
 __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
 {
-  __int64 FullPathName_Ustr; // rsi
+  SIZE_T FullPathName_Ustr; // rsi
   _WORD *Atom; // r14
-  __int64 v7; // rcx
+  void *v7; // rcx
   char v8; // [rsp+68h] [rbp+10h] BYREF
   __int64 v9; // [rsp+70h] [rbp+18h] BYREF
   __int64 v10; // [rsp+78h] [rbp+20h] BYREF
@@ -27,7 +27,7 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
     FullPathName_Ustr = (unsigned int)RtlGetFullPathName_Ustr(
                                         a1,
                                         *(unsigned __int16 *)(a2 + 2),
-                                        *(_WORD **)(a2 + 8),
+                                        *(WCHAR **)(a2 + 8),
                                         &v10,
                                         &v8,
                                         &v9);
@@ -42,11 +42,11 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
       *(_WORD *)a2 = FullPathName_Ustr;
       return 0LL;
     }
-    Atom = (_WORD *)RtlpAllocateAtom(FullPathName_Ustr);
+    Atom = RtlpAllocateAtom(FullPathName_Ustr);
     if ( !Atom )
       return 3221225495LL;
-    v7 = *(_QWORD *)(a2 + 8);
-    if ( a2 + 16 != v7 )
+    v7 = *(void **)(a2 + 8);
+    if ( (void *)(a2 + 16) != v7 )
       RtlpSysVolFree(v7);
     *(_WORD *)(a2 + 16) = 0;
     *(_QWORD *)(a2 + 8) = Atom;

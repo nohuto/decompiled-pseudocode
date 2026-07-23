@@ -1,53 +1,48 @@
 /*
- * XREFs of AnFwpDisableProgressTimer @ 0x1409F34EC
+ * XREFs of AnFwpDisableProgressTimer @ 0x1409F44EC
  * Callers:
- *     AnFwDisplayFade @ 0x1409F1C00 (AnFwDisplayFade.c)
- *     AnFwDisplayProgressIndicator @ 0x1409F4370 (AnFwDisplayProgressIndicator.c)
- *     AnFwpBackgroundUpdateTimer @ 0x1409F71B0 (AnFwpBackgroundUpdateTimer.c)
+ *     AnFwDisplayFade @ 0x1409F2C00 (AnFwDisplayFade.c)
+ *     AnFwDisplayProgressIndicator @ 0x1409F5370 (AnFwDisplayProgressIndicator.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x1409F81B0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
- *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
- *     RaspClearCache @ 0x1409F35FC (RaspClearCache.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     BgpFwFreeMemory @ 0x14039BEB0 (BgpFwFreeMemory.c)
+ *     BgpGxRectangleDestroy @ 0x1409F3290 (BgpGxRectangleDestroy.c)
+ *     RaspClearCache @ 0x1409F45FC (RaspClearCache.c)
  */
 
-void __fastcall AnFwpDisableProgressTimer(_BOOL8 a1, __int64 a2, __int64 a3, _DWORD *a4)
+void __fastcall AnFwpDisableProgressTimer(_BOOL8 a1)
 {
-  __int64 v4; // rdx
-  _UNKNOWN **v5; // rbx
-  __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  _DWORD *v9; // r9
+  _UNKNOWN **v1; // rbx
+  __int64 v2; // rax
 
-  if ( byte_140CDB160 )
+  if ( byte_140CDB1A8 )
   {
     LOBYTE(a1) = 0;
     if ( (dword_140C134F0 & 0x100000) != 0 )
       a1 = (dword_140C134F0 & 0x1000) != 0;
-    v4 = 3072LL;
-    byte_140CDB160 = 0;
+    byte_140CDB1A8 = 0;
     if ( (dword_140C134F0 & 0xC00) != 0xC00 && !a1 )
-      KeCancelTimer(&stru_140CF3280);
-    v5 = (_UNKNOWN **)TxtpTextCache;
-    v6 = *(_QWORD *)TxtpTextCache;
+      KeCancelTimer(&stru_140CF32C0);
+    v1 = (_UNKNOWN **)TxtpTextCache;
+    v2 = *(_QWORD *)TxtpTextCache;
     if ( *((_UNKNOWN ***)TxtpTextCache + 1) != &TxtpTextCache )
 LABEL_15:
       __fastfail(3u);
     while ( 1 )
     {
-      if ( *(_UNKNOWN ***)(v6 + 8) != v5 )
+      if ( *(_UNKNOWN ***)(v2 + 8) != v1 )
         goto LABEL_15;
-      TxtpTextCache = (_UNKNOWN *)v6;
-      *(_QWORD *)(v6 + 8) = &TxtpTextCache;
-      if ( v5 == &TxtpTextCache )
+      TxtpTextCache = (_UNKNOWN *)v2;
+      *(_QWORD *)(v2 + 8) = &TxtpTextCache;
+      if ( v1 == &TxtpTextCache )
         break;
-      BgpGxRectangleDestroy((__int64)v5[6], v4, a3, a4);
-      BgpFwFreeMemory((__int64)v5, v7, v8, v9);
-      v5 = (_UNKNOWN **)TxtpTextCache;
+      BgpGxRectangleDestroy((__int64)v1[6]);
+      BgpFwFreeMemory((__int64)v1);
+      v1 = (_UNKNOWN **)TxtpTextCache;
       if ( *((_UNKNOWN ***)TxtpTextCache + 1) != &TxtpTextCache )
         goto LABEL_15;
-      v6 = *(_QWORD *)TxtpTextCache;
+      v2 = *(_QWORD *)TxtpTextCache;
     }
     dword_140C02CA8 = 0;
     if ( RasterizerInitialized )

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport10 @ 0x1402236DC (ViErrorReport10.c)
- *     VfDevObjIsDeviceRemoved @ 0x14070D6C4 (VfDevObjIsDeviceRemoved.c)
+ *     ViErrorReport10 @ 0x140223508 (ViErrorReport10.c)
+ *     VfDevObjIsDeviceRemoved @ 0x14070D6F4 (VfDevObjIsDeviceRemoved.c)
  */
 
 char __fastcall VfWmiVerifyIrpStackUpward(const void **a1, __int64 a2, __int64 a3, __int64 a4, int a5)

@@ -5,11 +5,11 @@
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x14023A1C0 (PsGetCurrentThreadProcess.c)
  *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
+ *     sub_1403CD84C @ 0x1403CD84C (sub_1403CD84C.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1407B66E0 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     sub_1407B66E0 @ 0x1407B66E0 (sub_1407B66E0.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -22,11 +22,11 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   _QWORD **ClientToken; // rax
   __int64 v9; // rbx
   __int64 v10; // r14
-  _KPROCESS *CurrentThreadProcess; // rax
+  __int64 CurrentThreadProcess; // rax
   PVOID *v12; // rdi
   int v13; // eax
-  _KPROCESS *v14; // rax
-  struct _LIST_ENTRY *Flink; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rcx
   PVOID DestinationString[3]; // [rsp+28h] [rbp-E0h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+40h] [rbp-C8h] BYREF
   _QWORD Src[132]; // [rsp+68h] [rbp-A0h] BYREF
@@ -59,10 +59,9 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   v9 = PrimaryToken[3];
   v10 = *ClientToken[19];
   CurrentThreadProcess = PsGetCurrentThreadProcess();
-  if ( (int)PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, DestinationString) < 0
-    || (v12 = (PVOID *)DestinationString[0]) == 0LL )
+  if ( (int)sub_1407B66E0(CurrentThreadProcess, DestinationString) < 0 || (v12 = (PVOID *)DestinationString[0]) == 0LL )
   {
-    RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"?");
+    RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], &word_14086AEA0);
     v12 = &DestinationString[1];
     DestinationString[0] = &DestinationString[1];
   }
@@ -73,7 +72,7 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   Src[7] = 0x2000000001LL;
   HIDWORD(Src[3]) = 4 * v13 + 8;
   Src[11] = 0x800000005LL;
-  Src[10] = &SeSubsystemName;
+  Src[10] = &qword_140001B08;
   Src[15] = 0x100000000DLL;
   Src[18] = TransactionId;
   Src[19] = 0x400000003LL;
@@ -85,11 +84,11 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   LODWORD(Src[31]) = 2;
   Src[34] = v12;
   LODWORD(Src[1]) = 8;
-  Flink = v14[1].Header.WaitListHead.Flink;
+  v15 = *(_QWORD *)(v14 + 1088);
   LODWORD(v14) = *(unsigned __int16 *)v12 + 16;
-  Src[28] = Flink;
-  HIDWORD(Src[31]) = (_DWORD)v14;
-  SepAdtLogAuditRecord(Src);
+  Src[28] = v15;
+  HIDWORD(Src[31]) = v14;
+  sub_1403CD84C(Src);
   SeReleaseSubjectContext(&SubjectContext);
   if ( DestinationString[0] )
   {

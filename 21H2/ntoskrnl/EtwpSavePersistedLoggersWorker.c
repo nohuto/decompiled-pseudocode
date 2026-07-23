@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpSavePersistedLoggersWorker @ 0x14094923C
+ * XREFs of EtwpSavePersistedLoggersWorker @ 0x14094940C
  * Callers:
- *     EtwpSavePersistedLoggers @ 0x14094920C (EtwpSavePersistedLoggers.c)
+ *     EtwpSavePersistedLoggers @ 0x1409493DC (EtwpSavePersistedLoggers.c)
  * Callees:
- *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EtwpSavePersistedLogger @ 0x140948E5C (EtwpSavePersistedLogger.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 EtwpSavePersistedLoggersWorker()

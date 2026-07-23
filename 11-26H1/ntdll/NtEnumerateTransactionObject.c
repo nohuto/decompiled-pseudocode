@@ -1,16 +1,21 @@
 /*
- * XREFs of NtEnumerateTransactionObject @ 0x180160C70
+ * XREFs of NtEnumerateTransactionObject @ 0x180160B70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtEnumerateTransactionObject()
+NTSTATUS __cdecl NtEnumerateTransactionObject(
+        HANDLE RootObjectHandle,
+        KTMOBJECT_TYPE QueryType,
+        PKTMOBJECT_CURSOR ObjectCursor,
+        ULONG ObjectCursorLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 234LL;
+  result = 234;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

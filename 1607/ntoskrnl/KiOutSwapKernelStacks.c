@@ -1,15 +1,15 @@
 /*
- * XREFs of KiOutSwapKernelStacks @ 0x1400A73BC
+ * XREFs of KiOutSwapKernelStacks @ 0x1400A5934
  * Callers:
- *     KeSwapProcessOrStack @ 0x14013D2D4 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x14013D844 (KeSwapProcessOrStack.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiWaitForContextSwap @ 0x1400CBAA8 (KiWaitForContextSwap.c)
- *     KiDecrementProcessStackCount @ 0x1400CEB20 (KiDecrementProcessStackCount.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     KeEnumerateKernelStackSegments @ 0x1400F0B58 (KeEnumerateKernelStackSegments.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiWaitForContextSwap @ 0x1400C9948 (KiWaitForContextSwap.c)
+ *     KiDecrementProcessStackCount @ 0x1400CC9C0 (KiDecrementProcessStackCount.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     KeEnumerateKernelStackSegments @ 0x1400EE9A8 (KeEnumerateKernelStackSegments.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 ULONG KiOutSwapKernelStacks()

@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpUnmapVirtualAddress @ 0x14037E180
+ * XREFs of HalpUnmapVirtualAddress @ 0x14037E320
  * Callers:
- *     HalpAcpiCheckAndMapTable @ 0x1403357EC (HalpAcpiCheckAndMapTable.c)
- *     HalpAcpiGetRsdt @ 0x140336DC8 (HalpAcpiGetRsdt.c)
- *     HalpAcpiGetTableWork @ 0x140337070 (HalpAcpiGetTableWork.c)
- *     HalpAcpiIsCachedTableCompromised @ 0x140337218 (HalpAcpiIsCachedTableCompromised.c)
- *     HalpHpetDiscover @ 0x1403777E0 (HalpHpetDiscover.c)
- *     HalpIvtProcessDrhdEntry @ 0x14037E8B4 (HalpIvtProcessDrhdEntry.c)
- *     HalUnmapIoSpace @ 0x14051F900 (HalUnmapIoSpace.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x140521070 (HalpUsbLegacyStopOhciInterrupt.c)
- *     WdHwDestroyHardwareRegister @ 0x14052A384 (WdHwDestroyHardwareRegister.c)
- *     HalpCheckLowMemoryPostSleep @ 0x140A96C0C (HalpCheckLowMemoryPostSleep.c)
- *     HalpCheckLowMemoryPreSleep @ 0x140A96D48 (HalpCheckLowMemoryPreSleep.c)
+ *     HalpAcpiCheckAndMapTable @ 0x140335A7C (HalpAcpiCheckAndMapTable.c)
+ *     HalpAcpiGetRsdt @ 0x140337058 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableWork @ 0x140337300 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiIsCachedTableCompromised @ 0x1403374A8 (HalpAcpiIsCachedTableCompromised.c)
+ *     HalpHpetDiscover @ 0x140377980 (HalpHpetDiscover.c)
+ *     HalpIvtProcessDrhdEntry @ 0x14037EA54 (HalpIvtProcessDrhdEntry.c)
+ *     HalUnmapIoSpace @ 0x14051FE50 (HalUnmapIoSpace.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x1405215C0 (HalpUsbLegacyStopOhciInterrupt.c)
+ *     WdHwDestroyHardwareRegister @ 0x14052A8D4 (WdHwDestroyHardwareRegister.c)
+ *     HalpCheckLowMemoryPostSleep @ 0x140A96A7C (HalpCheckLowMemoryPostSleep.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x140A96BB8 (HalpCheckLowMemoryPreSleep.c)
  *     HalpAcpiTableCacheInit @ 0x140B48D28 (HalpAcpiTableCacheInit.c)
  * Callees:
- *     HalpFlushTLB @ 0x14037E49C (HalpFlushTLB.c)
+ *     HalpFlushTLB @ 0x14037E63C (HalpFlushTLB.c)
  */
 
 char *__fastcall HalpUnmapVirtualAddress(unsigned __int64 a1, __int64 a2, __int64 a3)

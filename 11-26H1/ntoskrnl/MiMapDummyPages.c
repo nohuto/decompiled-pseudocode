@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMapDummyPages @ 0x140CF38D0
+ * XREFs of MiMapDummyPages @ 0x140CF9C50
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiComputeHash64 @ 0x1403DA200 (MiComputeHash64.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiComputeHash64 @ 0x1403DD3F0 (MiComputeHash64.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
  */
 
 unsigned __int64 __fastcall MiMapDummyPages(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -34,16 +34,16 @@ unsigned __int64 __fastcall MiMapDummyPages(__int64 a1, __int64 a2, __int64 a3, 
   __int64 v16; // rdx
   unsigned __int64 result; // rax
 
-  v4 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 3u, a3, a4);
+  v4 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 3u, a3, a4);
   if ( !v4 )
     MxInstallMoreMemory(6);
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(4);
   v6 = 0;
-  v7 = &qword_140E36020;
+  v7 = &qword_140E361A0;
   do
   {
     if ( v6 >= 2 )
-      v8 = qword_140E36070;
+      v8 = qword_140E361F0;
     else
       v8 = (__int64)*(v7 - 4);
     ValidPte = MiMakeValidPte(v4, v8, v6 < 2 ? 536870913 : -1610612732);
@@ -68,7 +68,7 @@ unsigned __int64 __fastcall MiMapDummyPages(__int64 a1, __int64 a2, __int64 a3, 
     result = (__int64)(v4 << 25) >> 16;
     if ( v6 >= 2 )
     {
-      qword_140E36078 = (__int64)(v4 << 25) >> 16;
+      qword_140E361F8 = (__int64)(v4 << 25) >> 16;
     }
     else
     {

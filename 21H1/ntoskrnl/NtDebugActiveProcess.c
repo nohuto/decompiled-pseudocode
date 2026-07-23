@@ -15,7 +15,7 @@
  *     PsRequestDebugSecureProcess @ 0x140908438 (PsRequestDebugSecureProcess.c)
  */
 
-NTSTATUS __fastcall NtDebugActiveProcess(void *a1, void *a2)
+NTSTATUS __cdecl NtDebugActiveProcess(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   KPROCESSOR_MODE PreviousMode; // bp
   NTSTATUS result; // eax
@@ -23,7 +23,7 @@ NTSTATUS __fastcall NtDebugActiveProcess(void *a1, void *a2)
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v7; // rdi
   _KPROCESS *Process; // rsi
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   unsigned __int64 v10; // rax
   __int16 v11; // cx
   unsigned __int64 Count; // rax
@@ -39,7 +39,7 @@ NTSTATUS __fastcall NtDebugActiveProcess(void *a1, void *a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v17[0] = 0LL;
   result = ObReferenceObjectByHandleWithTag(
-             a1,
+             ProcessHandle,
              0x800u,
              (POBJECT_TYPE)PsProcessType,
              PreviousMode,
@@ -70,7 +70,7 @@ NTSTATUS __fastcall NtDebugActiveProcess(void *a1, void *a2)
           || (Count = v7[176].Count) != 0 && ((v13 = *(_WORD *)(Count + 8), v13 == 332) || v13 == 452) )
         {
           Object = 0LL;
-          v9 = ObReferenceObjectByHandle(a2, 2u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+          v9 = ObReferenceObjectByHandle(DebugObjectHandle, 2u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
           if ( v9 >= 0 )
           {
             v14 = ExAcquireRundownProtection_0(v7 + 139);

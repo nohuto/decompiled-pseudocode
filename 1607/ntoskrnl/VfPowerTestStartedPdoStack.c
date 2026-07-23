@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     VfIrpSendSynchronousIrp @ 0x14070BF00 (VfIrpSendSynchronousIrp.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     VfIrpSendSynchronousIrp @ 0x14070BF30 (VfIrpSendSynchronousIrp.c)
  */
 
 __int64 __fastcall VfPowerTestStartedPdoStack(struct _DEVICE_OBJECT *a1)

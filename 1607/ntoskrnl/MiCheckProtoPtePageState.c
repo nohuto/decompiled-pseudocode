@@ -1,26 +1,26 @@
 /*
- * XREFs of MiCheckProtoPtePageState @ 0x14004E9B0
+ * XREFs of MiCheckProtoPtePageState @ 0x14004E530
  * Callers:
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MiIsSubsectionClean @ 0x1401DEDA0 (MiIsSubsectionClean.c)
- *     MiPurgeSubsection @ 0x1401DF074 (MiPurgeSubsection.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MiIsSubsectionClean @ 0x1401DEBCC (MiIsSubsectionClean.c)
+ *     MiPurgeSubsection @ 0x1401DEEA0 (MiPurgeSubsection.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiAreChargesNeededToLockPage @ 0x14004ED00 (MiAreChargesNeededToLockPage.c)
- *     MiIsPfnCommitNotCharged @ 0x14004F140 (MiIsPfnCommitNotCharged.c)
- *     MiWriteValidPteVolatile @ 0x1400FF0F4 (MiWriteValidPteVolatile.c)
- *     MiChargePartitionResidentAvailable @ 0x1401034A4 (MiChargePartitionResidentAvailable.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiAreChargesNeededToLockPage @ 0x14004E880 (MiAreChargesNeededToLockPage.c)
+ *     MiIsPfnCommitNotCharged @ 0x14004ECC0 (MiIsPfnCommitNotCharged.c)
+ *     MiWriteValidPteVolatile @ 0x1400FCE74 (MiWriteValidPteVolatile.c)
+ *     MiChargePartitionResidentAvailable @ 0x140101224 (MiChargePartitionResidentAvailable.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
  */
 
 __int64 __fastcall MiCheckProtoPtePageState(unsigned __int64 a1, unsigned __int8 *a2)
@@ -133,7 +133,7 @@ LABEL_50:
   if ( v20 == 1023 )
     v21 = MiSystemPartition;
   else
-    v21 = *(int **)(qword_140326FF8 + 8LL * v20);
+    v21 = *(int **)(qword_140327038 + 8LL * v20);
   if ( v17 && !(unsigned int)MiChargeCommit((__int64)v21, 1uLL, 4) )
     goto LABEL_39;
   if ( v21 == MiSystemPartition )

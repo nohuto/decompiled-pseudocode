@@ -33,7 +33,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(_OWORD *Buf2, unsigned __int
   char *v22; // rbx
   __int64 v23; // rax
   __int128 v24; // xmm1
-  __int64 v25; // [rsp+20h] [rbp-108h] BYREF
+  HANDLE Handle; // [rsp+20h] [rbp-108h] BYREF
   _BYTE v26[56]; // [rsp+28h] [rbp-100h] BYREF
   __int128 Buf1; // [rsp+60h] [rbp-C8h] BYREF
   __int128 v28; // [rsp+70h] [rbp-B8h]
@@ -49,9 +49,9 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(_OWORD *Buf2, unsigned __int
   int v38; // [rsp+108h] [rbp-20h]
 
   v4 = 0;
-  if ( (int)sub_180002FD8((char *)Buf2 + 172, &v25) >= 0 )
+  if ( (int)sub_180002FD8((char *)Buf2 + 172, &Handle) >= 0 )
   {
-    if ( (int)sub_18000329C(v26, v25, a2) >= 0 )
+    if ( (int)sub_18000329C(v26, Handle, a2) >= 0 )
     {
       v5 = Buf2[1];
       Buf1 = *Buf2;
@@ -102,7 +102,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(_OWORD *Buf2, unsigned __int
         *((_DWORD *)v22 + 10) = v38;
       }
     }
-    ZwClose(v25);
+    ZwClose(Handle);
   }
   return v4;
 }

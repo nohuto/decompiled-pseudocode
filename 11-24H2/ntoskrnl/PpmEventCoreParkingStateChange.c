@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventCoreParkingStateChange @ 0x14048E1F8
+ * XREFs of PpmEventCoreParkingStateChange @ 0x1404886C8
  * Callers:
- *     PpmParkReportUnparkedCore @ 0x140351950 (PpmParkReportUnparkedCore.c)
+ *     PpmParkReportUnparkedCore @ 0x1402B0778 (PpmParkReportUnparkedCore.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventCoreParkingStateChange(__int64 a1)

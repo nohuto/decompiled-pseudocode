@@ -8,93 +8,98 @@
  *     RtlRaiseStatus @ 0x180102540 (RtlRaiseStatus.c)
  */
 
-char __fastcall RtlConvertSharedToExclusive(__int64 a1)
+void __cdecl RtlConvertSharedToExclusive(PRTL_RESOURCE Resource)
 {
-  struct _TEB *v1; // rax
-  int v3; // ett
-  int v4; // eax
-  unsigned __int32 v5; // ecx
+  LONG NumberOfActive; // eax
+  LONG v3; // ett
+  LONG v4; // eax
+  LONG v5; // ecx
   int v6; // eax
-  signed __int32 v7; // r8d
+  signed int v7; // r8d
   bool v8; // zf
   int v9; // eax
   int v10; // eax
-  signed __int32 v11; // edx
+  signed int NumberOfWaitingExclusive; // edx
   bool v12; // zf
   int v13; // eax
   int v14; // eax
-  char v16; // [rsp+30h] [rbp+8h] BYREF
+  LONG PreviousCount; // [rsp+30h] [rbp+8h] BYREF
 
-  LODWORD(v1) = *(_DWORD *)(a1 + 68);
-  if ( (int)v1 >= 0 )
+  NumberOfActive = Resource->NumberOfActive;
+  if ( NumberOfActive >= 0 )
   {
-    if ( (_DWORD)v1 == 1 )
+    if ( NumberOfActive == 1 )
     {
       while ( 1 )
       {
-        v3 = (int)v1;
-        LODWORD(v1) = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 68), -1, (signed __int32)v1);
-        if ( v3 == (_DWORD)v1 )
+        v3 = NumberOfActive;
+        NumberOfActive = _InterlockedCompareExchange(&Resource->NumberOfActive, -1, NumberOfActive);
+        if ( v3 == NumberOfActive )
           break;
-        if ( (_DWORD)v1 != 1 )
+        if ( NumberOfActive != 1 )
           goto LABEL_7;
       }
-      v1 = NtCurrentTeb();
-      *(_QWORD *)(a1 + 72) = v1->ClientId.UniqueThread;
+      Resource->ExclusiveOwnerThread = NtCurrentTeb()->ClientId.UniqueThread;
     }
     else
     {
 LABEL_7:
-      v4 = *(_DWORD *)(a1 + 68);
+      v4 = Resource->NumberOfActive;
       if ( v4 >= 0 )
       {
-        if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 68), 0xFFFFFFFF) == 1 )
+        if ( _InterlockedExchangeAdd(&Resource->NumberOfActive, 0xFFFFFFFF) == 1 )
         {
-          v11 = *(_DWORD *)(a1 + 64);
-          v12 = v11 == 0;
-          if ( v11 > 0 )
+          NumberOfWaitingExclusive = Resource->NumberOfWaitingExclusive;
+          v12 = NumberOfWaitingExclusive == 0;
+          if ( NumberOfWaitingExclusive > 0 )
           {
             do
             {
-              v13 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 64), v11 - 1, v11);
-              if ( v11 == v13 )
+              v13 = _InterlockedCompareExchange(
+                      (volatile signed __int32 *)&Resource->NumberOfWaitingExclusive,
+                      NumberOfWaitingExclusive - 1,
+                      NumberOfWaitingExclusive);
+              if ( NumberOfWaitingExclusive == v13 )
                 break;
-              v11 = v13;
+              NumberOfWaitingExclusive = v13;
             }
             while ( v13 > 0 );
-            v12 = v11 == 0;
+            v12 = NumberOfWaitingExclusive == 0;
           }
           if ( !v12 )
           {
-            v14 = ZwReleaseSemaphore(*(_QWORD *)(a1 + 56), 1LL, &v16);
+            v14 = ZwReleaseSemaphore(Resource->ExclusiveSemaphore, 1, &PreviousCount);
             if ( v14 < 0 )
-              RtlRaiseStatus((unsigned int)v14);
+              RtlRaiseStatus(v14);
           }
         }
       }
       else
       {
         if ( v4 == -1 )
-          *(_QWORD *)(a1 + 72) = 0LL;
-        if ( !_InterlockedIncrement((volatile signed __int32 *)(a1 + 68)) )
+          Resource->ExclusiveOwnerThread = 0LL;
+        if ( !_InterlockedIncrement(&Resource->NumberOfActive) )
         {
-          if ( *(_DWORD *)(a1 + 48) )
+          if ( Resource->NumberOfWaitingShared )
           {
-            v5 = _InterlockedExchange((volatile __int32 *)(a1 + 48), 0);
+            v5 = _InterlockedExchange((volatile __int32 *)&Resource->NumberOfWaitingShared, 0);
             if ( v5 )
             {
-              v6 = ZwReleaseSemaphore(*(_QWORD *)(a1 + 40), v5, &v16);
+              v6 = ZwReleaseSemaphore(Resource->SharedSemaphore, v5, &PreviousCount);
               if ( v6 < 0 )
-                RtlRaiseStatus((unsigned int)v6);
+                RtlRaiseStatus(v6);
             }
           }
-          v7 = *(_DWORD *)(a1 + 64);
+          v7 = Resource->NumberOfWaitingExclusive;
           v8 = v7 == 0;
           if ( v7 > 0 )
           {
             do
             {
-              v9 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 64), v7 - 1, v7);
+              v9 = _InterlockedCompareExchange(
+                     (volatile signed __int32 *)&Resource->NumberOfWaitingExclusive,
+                     v7 - 1,
+                     v7);
               if ( v7 == v9 )
                 break;
               v7 = v9;
@@ -104,14 +109,13 @@ LABEL_7:
           }
           if ( !v8 )
           {
-            v10 = ZwReleaseSemaphore(*(_QWORD *)(a1 + 56), 1LL, &v16);
+            v10 = ZwReleaseSemaphore(Resource->ExclusiveSemaphore, 1, &PreviousCount);
             if ( v10 < 0 )
-              RtlRaiseStatus((unsigned int)v10);
+              RtlRaiseStatus(v10);
           }
         }
       }
-      LOBYTE(v1) = RtlAcquireResourceExclusive(a1, 1);
+      RtlAcquireResourceExclusive(Resource, 1u);
     }
   }
-  return (char)v1;
 }

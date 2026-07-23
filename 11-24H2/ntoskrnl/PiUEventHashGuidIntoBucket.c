@@ -1,8 +1,8 @@
 /*
- * XREFs of PiUEventHashGuidIntoBucket @ 0x14048C5F0
+ * XREFs of PiUEventHashGuidIntoBucket @ 0x140487310
  * Callers:
- *     PiUEventHandleRegistration @ 0x14085BCBC (PiUEventHandleRegistration.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x140A37B98 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventHandleRegistration @ 0x140857A2C (PiUEventHandleRegistration.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140A2C6D8 (PiUEventNotifyDeviceInterfaceChange.c)
  * Callees:
  *     <none>
  */

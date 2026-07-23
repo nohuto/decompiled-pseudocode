@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpMiscGetParameters @ 0x140A6CF88
+ * XREFs of HalpMiscGetParameters @ 0x140A6DF88
  * Callers:
- *     HalpMiscInitSystem @ 0x1409A1520 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x1409A2450 (HalpMiscInitSystem.c)
  * Callees:
- *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsHvPresent @ 0x1403A1FD8 (HalpIsHvPresent.c)
- *     HalpIsXboxNanovisorPresent @ 0x1403A2240 (HalpIsXboxNanovisorPresent.c)
- *     HalpIsPartitionCpuManager @ 0x1403A81EC (HalpIsPartitionCpuManager.c)
- *     strstr @ 0x1403D1880 (strstr.c)
- *     atoi @ 0x1403D1900 (atoi.c)
- *     HalpInterruptSetMsiOverride @ 0x1404BC8B0 (HalpInterruptSetMsiOverride.c)
- *     HalpIsHvUsedForReboot @ 0x1404C2404 (HalpIsHvUsedForReboot.c)
+ *     HalpInterruptModel @ 0x14037AEA4 (HalpInterruptModel.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A20E8 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsHvPresent @ 0x1403A2128 (HalpIsHvPresent.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403A2390 (HalpIsXboxNanovisorPresent.c)
+ *     HalpIsPartitionCpuManager @ 0x1403A8F7C (HalpIsPartitionCpuManager.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
+ *     atoi @ 0x1403D1A70 (atoi.c)
+ *     HalpInterruptSetMsiOverride @ 0x1404BCAF0 (HalpInterruptSetMsiOverride.c)
+ *     HalpIsHvUsedForReboot @ 0x1404C2644 (HalpIsHvUsedForReboot.c)
  */
 
 char __fastcall HalpMiscGetParameters(__int64 a1)

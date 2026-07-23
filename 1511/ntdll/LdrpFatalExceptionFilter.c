@@ -11,24 +11,26 @@
  *     RtlUnhandledExceptionFilter2 @ 0x1800E8AF0 (RtlUnhandledExceptionFilter2.c)
  */
 
-__int64 __fastcall LdrpFatalExceptionFilter(_DWORD **a1)
+__int64 __fastcall LdrpFatalExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
   struct _TEB *v2; // rcx
-  void (__fastcall *v3)(_DWORD **); // rax
+  NTSTATUS ExceptionCode; // esi
+  void (__fastcall *v4)(PEXCEPTION_POINTERS); // rax
 
   v2 = NtCurrentTeb();
-  if ( **a1 == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
+  ExceptionCode = ExceptionPointers->ExceptionRecord->ExceptionCode;
+  if ( ExceptionCode == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
   {
-    RtlReportSilentProcessExit(-1LL, -1073741571);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741571);
   }
   else
   {
-    v3 = (void (__fastcall *)(_DWORD **))RtlDecodePointer(RtlpUnhandledExceptionFilter);
-    if ( v3 )
-      v3(a1);
+    v4 = (void (__fastcall *)(PEXCEPTION_POINTERS))RtlDecodePointer(RtlpUnhandledExceptionFilter);
+    if ( v4 )
+      v4(ExceptionPointers);
     else
-      RtlUnhandledExceptionFilter2(a1, &unk_180101832);
+      RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&Flags);
   }
-  ZwTerminateProcess();
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionCode);
   return 0LL;
 }

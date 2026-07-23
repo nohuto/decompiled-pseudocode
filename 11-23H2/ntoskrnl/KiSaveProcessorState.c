@@ -2,11 +2,11 @@
  * XREFs of KiSaveProcessorState @ 0x14020E550
  * Callers:
  *     KiFreezeTargetExecution @ 0x14020E1D0 (KiFreezeTargetExecution.c)
- *     KxNmiInterrupt @ 0x14042CA00 (KxNmiInterrupt.c)
+ *     KxNmiInterrupt @ 0x14042CE00 (KxNmiInterrupt.c)
  * Callees:
  *     KiSaveNpxState @ 0x14020DD30 (KiSaveNpxState.c)
- *     KeContextFromKframes @ 0x14030E120 (KeContextFromKframes.c)
- *     KiSaveProcessorControlState @ 0x14041EDA0 (KiSaveProcessorControlState.c)
+ *     KeContextFromKframes @ 0x14030E3B0 (KeContextFromKframes.c)
+ *     KiSaveProcessorControlState @ 0x14041F130 (KiSaveProcessorControlState.c)
  */
 
 __int64 __fastcall KiSaveProcessorState(__int64 a1, __int64 a2)

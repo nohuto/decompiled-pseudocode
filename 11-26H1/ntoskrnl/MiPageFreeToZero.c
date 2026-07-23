@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPageFreeToZero @ 0x14028C220
+ * XREFs of MiPageFreeToZero @ 0x14028B780
  * Callers:
- *     MiMoveZeroedPage @ 0x14051F60C (MiMoveZeroedPage.c)
+ *     MiMoveZeroedPage @ 0x140521CB0 (MiMoveZeroedPage.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiFreeZeroPageSlistSufficient @ 0x1402898A0 (MiFreeZeroPageSlistSufficient.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiLocatePageCollisionByPfn @ 0x14028B258 (MiLocatePageCollisionByPfn.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiFreeZeroPageToColorHead @ 0x14028DDE0 (MiFreeZeroPageToColorHead.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiColorHasSlists @ 0x14042FDD0 (MiColorHasSlists.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiStopHugePageAccessor @ 0x14048E1B4 (MiStopHugePageAccessor.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiFreeZeroPageSlistSufficient @ 0x140288E00 (MiFreeZeroPageSlistSufficient.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiLocatePageCollisionByPfn @ 0x14028A7B8 (MiLocatePageCollisionByPfn.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiFreeZeroPageToColorHead @ 0x14028D340 (MiFreeZeroPageToColorHead.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiColorHasSlists @ 0x14041CE00 (MiColorHasSlists.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiStopHugePageAccessor @ 0x140487CF4 (MiStopHugePageAccessor.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a3)
@@ -81,10 +81,10 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
     if ( v8 == 3 )
       v8 = 3;
   }
-  v9 = dword_140E2D684;
-  if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-    || (v10 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, BugCheckParameter2 < *(_QWORD *)v10)
-    || dword_140E2D680 != dword_140E2D684 && BugCheckParameter2 >= *((_QWORD *)v10 + 2) )
+  v9 = dword_140E2D804;
+  if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+    || (v10 = (char *)qword_140E2D860 + 16 * dword_140E2D800, BugCheckParameter2 < *(_QWORD *)v10)
+    || dword_140E2D800 != dword_140E2D804 && BugCheckParameter2 >= *((_QWORD *)v10 + 2) )
   {
     for ( i = 0; ; i = v29 + 1 )
     {
@@ -93,23 +93,23 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
         if ( v9 < i )
           KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, 0LL, 0LL);
         v29 = (i + v9) >> 1;
-        v10 = (char *)qword_140E2D6E0 + 16 * v29;
+        v10 = (char *)qword_140E2D860 + 16 * v29;
         if ( BugCheckParameter2 >= *(_QWORD *)v10 )
           break;
         if ( !v29 )
           KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, (ULONG_PTR)v10, 0LL);
         v9 = v29 - 1;
       }
-      if ( v29 == dword_140E2D684 || BugCheckParameter2 < *((_QWORD *)v10 + 2) )
+      if ( v29 == dword_140E2D804 || BugCheckParameter2 < *((_QWORD *)v10 + 2) )
         break;
     }
-    dword_140E2D680 = (i + v9) >> 1;
+    dword_140E2D800 = (i + v9) >> 1;
   }
-  v53 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
+  v53 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
   v11 = *(_QWORD *)(v53 + 16) + 56320LL * *((unsigned int *)v10 + 2);
-  if ( v6 < 0xFFFFDE0000000000uLL || v6 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL )
+  if ( v6 < 0xFFFFDE0000000000uLL || v6 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL )
   {
-    v41 = ((__int64)(v6 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
+    v41 = ((__int64)(v6 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
     MiStopHugePageAccessor(v6);
     v51 = MiHugePfnPartition(v6);
     v15 = MiPageToNode(v41 << 18);
@@ -122,7 +122,7 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
       KeBugCheckEx(0x1Au, 0x1502uLL, v6, v13, BugCheckParameter4);
     _mm_lfence();
     *(_QWORD *)(v6 + 16) = MiMakeDemandZeroPte(4);
-    v51 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
+    v51 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
     v15 = MiPageToNode(v14);
     PfnPageSizeIndex = MiGetPfnPageSizeIndex(v6);
   }
@@ -140,10 +140,10 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
     v30 = MiPageSizes[v7];
     v31 = MiFreeZeroPageToColorHead(BugCheckParameter2);
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v31 + 32));
-    if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+    if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
     {
       v34 = BugCheckParameter2 & 0x1F;
-      v35 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
+      v35 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
       if ( v34 + v30 > 0x20 )
       {
         if ( (BugCheckParameter2 & 0x1F) != 0 )
@@ -176,10 +176,10 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
         _InterlockedOr(v35, ((1 << v30) - 1) << v34);
       }
     }
-    else if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+    else if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
     {
       v32 = BugCheckParameter2 & 0x1F;
-      v33 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
+      v33 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
       if ( v32 + v30 > 0x20 )
       {
         if ( (BugCheckParameter2 & 0x1F) != 0 )
@@ -214,7 +214,7 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
     }
     if ( v31 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !PopHibernateInProgress )
       {
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v31 + 32), retaddr);
         return 0LL;
@@ -261,9 +261,9 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
       v36 = *(_QWORD *)(v6 + 16);
       if ( v36 )
       {
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
-          v37 = qword_140E2D748 & v36;
+          v37 = qword_140E2D8C8 & v36;
           LODWORD(v36) = v36 & 0xFFFFFFEF;
           if ( (*(_QWORD *)(v6 + 16) & 0x10) == 0 )
             LODWORD(v36) = v37;
@@ -271,10 +271,10 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
       }
       v38 = (unsigned int)v36;
       v39 = (unsigned int)v36 | 0xFFFFFFFD00000000uLL;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        v40 = v38 | qword_140E2D740 | 0xFFFFFFFD00000000uLL;
-        if ( (qword_140E2D740 & v39) != 0 )
+        v40 = v38 | qword_140E2D8C0 | 0xFFFFFFFD00000000uLL;
+        if ( (qword_140E2D8C0 & v39) != 0 )
           v40 = (unsigned int)v38 | 0xFFFFFFFD00000010uLL;
         v39 = v40;
       }

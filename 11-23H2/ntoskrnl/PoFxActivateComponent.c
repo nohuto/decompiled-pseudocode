@@ -1,17 +1,17 @@
 /*
- * XREFs of PoFxActivateComponent @ 0x140287290
+ * XREFs of PoFxActivateComponent @ 0x140287520
  * Callers:
- *     PopFxActivateDevice @ 0x140322C60 (PopFxActivateDevice.c)
- *     HalpInterruptInitPowerManagement @ 0x140396E1C (HalpInterruptInitPowerManagement.c)
- *     HalpTimerInitPowerManagement @ 0x140396F38 (HalpTimerInitPowerManagement.c)
- *     PoFxStartDevicePowerManagement @ 0x1403979C0 (PoFxStartDevicePowerManagement.c)
- *     HalpDmaInitPowerManagement @ 0x14039C15C (HalpDmaInitPowerManagement.c)
- *     DifPoFxActivateComponentWrapper @ 0x1405E9130 (DifPoFxActivateComponentWrapper.c)
- *     PopFxUnregisterDevice @ 0x140985DC4 (PopFxUnregisterDevice.c)
+ *     PopFxActivateDevice @ 0x140322EF0 (PopFxActivateDevice.c)
+ *     HalpInterruptInitPowerManagement @ 0x140396FFC (HalpInterruptInitPowerManagement.c)
+ *     HalpTimerInitPowerManagement @ 0x140397118 (HalpTimerInitPowerManagement.c)
+ *     PoFxStartDevicePowerManagement @ 0x140397BA0 (PoFxStartDevicePowerManagement.c)
+ *     HalpDmaInitPowerManagement @ 0x14039C33C (HalpDmaInitPowerManagement.c)
+ *     DifPoFxActivateComponentWrapper @ 0x1405E96A0 (DifPoFxActivateComponentWrapper.c)
+ *     PopFxUnregisterDevice @ 0x140985FC4 (PopFxUnregisterDevice.c)
  *     PoFxRegisterDebugger @ 0x140B5DC20 (PoFxRegisterDebugger.c)
  * Callees:
- *     PopFxActivateComponent @ 0x140287300 (PopFxActivateComponent.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
+ *     PopFxActivateComponent @ 0x140287590 (PopFxActivateComponent.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PoFxActivateComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)

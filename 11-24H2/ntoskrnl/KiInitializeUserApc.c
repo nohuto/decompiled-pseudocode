@@ -1,22 +1,22 @@
 /*
- * XREFs of KiInitializeUserApc @ 0x1403E5264
+ * XREFs of KiInitializeUserApc @ 0x1403D2E04
  * Callers:
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     KePopulateContinuationContext @ 0x1403E5874 (KePopulateContinuationContext.c)
- *     KeContextFromKframes @ 0x1403E58C0 (KeContextFromKframes.c)
- *     RtlpGetNonLegacyXStateAreaLength @ 0x1403E5E9C (RtlpGetNonLegacyXStateAreaLength.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x1403E6858 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
- *     KeCopyExceptionRecord @ 0x140433170 (KeCopyExceptionRecord.c)
- *     KiSetupForInstrumentationReturn @ 0x140452ED0 (KiSetupForInstrumentationReturn.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KePopulateContinuationContext @ 0x1403D3414 (KePopulateContinuationContext.c)
+ *     KeContextFromKframes @ 0x1403D3460 (KeContextFromKframes.c)
+ *     RtlpGetNonLegacyXStateAreaLength @ 0x1403D3A3C (RtlpGetNonLegacyXStateAreaLength.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x1403D43F8 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
+ *     KeCopyExceptionRecord @ 0x1404252B0 (KeCopyExceptionRecord.c)
+ *     KiSetupForInstrumentationReturn @ 0x140447F80 (KiSetupForInstrumentationReturn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
  */
 
 unsigned __int64 __fastcall KiInitializeUserApc(
@@ -43,7 +43,7 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   _QWORD *v20; // r8
   const char *i; // rax
   unsigned __int64 v22; // rcx
-  int v23; // eax
+  NTSTATUS v23; // eax
   unsigned __int64 v24; // rtt
   unsigned int v25; // r9d
   __int64 v26; // rdx
@@ -57,11 +57,11 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   _QWORD *v37; // [rsp+C0h] [rbp-F8h]
   _QWORD *v38; // [rsp+C8h] [rbp-F0h]
   SIZE_T v39; // [rsp+D0h] [rbp-E8h]
-  ULONG_PTR v40[2]; // [rsp+E0h] [rbp-D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+E0h] [rbp-D8h] BYREF
 
   v7 = a4;
   v8 = a3;
-  memset_0(v40, 0, 0x98uLL);
+  memset_0(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   CurrentThread = KeGetCurrentThread();
   if ( a1 )
   {
@@ -159,59 +159,59 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   v17[3] = v8;
   v17[4] = a7;
   *(_QWORD *)(a2 + 384) = v17;
-  *(_QWORD *)(a2 + 360) = qword_140FC6458;
+  *(_QWORD *)(a2 + 360) = qword_140FC74D8;
   *(_WORD *)(a2 + 368) = 51;
   if ( *(_BYTE *)(a2 + 43) != 2 )
     KiSetupForInstrumentationReturn(a2);
-  result = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0] >= (unsigned __int64)qword_140E625C0;
-  if ( MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0] >= (unsigned __int64)qword_140E625C0 )
+  result = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0] >= (unsigned __int64)qword_140E62750;
+  if ( MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0] >= (unsigned __int64)qword_140E62750 )
   {
     __sidt(v34);
     v20 = (_QWORD *)v35;
     for ( i = (const char *)v35; (unsigned __int64)i < v35 + 848; i += 64 )
       _mm_prefetch(i, 0);
     v25 = 848;
-    v26 = qword_140E625B0;
+    v26 = qword_140E62740;
     while ( v25 >= 8 )
     {
-      v26 = __ROR8__(v26 - *v20++, qword_140E625B8);
+      v26 = __ROR8__(v26 - *v20++, qword_140E62748);
       v25 -= 8;
     }
     while ( v25 )
     {
-      v26 = __ROR8__(v26 - *(unsigned __int8 *)v20, qword_140E625B8);
+      v26 = __ROR8__(v26 - *(unsigned __int8 *)v20, qword_140E62748);
       v20 = (_QWORD *)((char *)v20 + 1);
       --v25;
     }
-    if ( qword_140E625C8 != v26 )
+    if ( qword_140E62758 != v26 )
     {
-      if ( qword_140E62580 )
+      if ( qword_140E62710 )
         goto LABEL_42;
-      qword_140E62580 = (unsigned int)__ROL4__(603979780, 166);
-      qword_140E62588 = 0LL;
-      qword_140E62590 = 0LL;
-      qword_140E62598 = 269LL;
-      qword_140E625A0 = v35;
+      qword_140E62710 = (unsigned int)__ROL4__(603979780, 166);
+      qword_140E62718 = 0LL;
+      qword_140E62720 = 0LL;
+      qword_140E62728 = 269LL;
+      qword_140E62730 = v35;
     }
-    if ( !qword_140E62580 )
+    if ( !qword_140E62710 )
     {
 LABEL_33:
       v24 = 41929663 * (__rdtsc() >> 4);
       result = v24 / 0x12A05F2000LL;
-      qword_140E625C0 = MEMORY[0xFFFFF78000000008] + v24 % 0x12A05F2000LL - MEMORY[0xFFFFF780000003B0] + 288000000000LL;
+      qword_140E62750 = MEMORY[0xFFFFF78000000008] + v24 % 0x12A05F2000LL - MEMORY[0xFFFFF780000003B0] + 288000000000LL;
       return result;
     }
 LABEL_42:
-    if ( stru_140E62540.DeferredRoutine != KiScanQueues )
+    if ( stru_140E626D0.DeferredRoutine != KiScanQueues )
     {
-      stru_140E62540.TargetInfoAsUlong = 275;
-      stru_140E62540.DeferredRoutine = KiScanQueues;
-      stru_140E62540.DeferredContext = &stru_140E62540;
-      stru_140E62540.DpcData = 0LL;
-      stru_140E62540.ProcessorHistory = 0LL;
+      stru_140E626D0.TargetInfoAsUlong = 275;
+      stru_140E626D0.DeferredRoutine = KiScanQueues;
+      stru_140E626D0.DeferredContext = &stru_140E626D0;
+      stru_140E626D0.DpcData = 0LL;
+      stru_140E626D0.ProcessorHistory = 0LL;
     }
-    qword_140E625A8 = 989824LL;
-    KeInsertQueueDpc(&stru_140E62540, 0LL, 0LL);
+    qword_140E62738 = 989824LL;
+    KeInsertQueueDpc(&stru_140E626D0, 0LL, 0LL);
     goto LABEL_33;
   }
   return result;

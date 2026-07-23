@@ -1,15 +1,19 @@
 /*
- * XREFs of DifZwAlpcSetInformationWrapper @ 0x1405ED9A0
+ * XREFs of DifZwAlpcSetInformationWrapper @ 0x1405EDF10
  * Callers:
  *     <none>
  * Callees:
- *     ZwAlpcSetInformation @ 0x14041BF00 (ZwAlpcSetInformation.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwAlpcSetInformation @ 0x14041C290 (ZwAlpcSetInformation.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwAlpcSetInformationWrapper(__int64 a1, unsigned int a2, __int64 a3, int a4)
+NTSTATUS __fastcall DifZwAlpcSetInformationWrapper(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -20,7 +24,7 @@ __int64 __fastcall DifZwAlpcSetInformationWrapper(__int64 a1, unsigned int a2, _
   int v14; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v18; // rdi
   _QWORD *v19; // rbx
   __int128 v20; // [rsp+20h] [rbp-30h] BYREF
@@ -60,17 +64,17 @@ LABEL_8:
   }
   *(_QWORD *)&v20 = 0LL;
 LABEL_10:
-  *(_QWORD *)&v22 = a1;
-  DWORD2(v21) = a2;
-  *(_QWORD *)&v21 = a3;
-  DWORD2(v20) = a4;
+  *(_QWORD *)&v22 = PortHandle;
+  DWORD2(v21) = PortInformationClass;
+  *(_QWORD *)&v21 = PortInformation;
+  DWORD2(v20) = Length;
   for ( i = (__int64 *)v13[4]; i != v13 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v20);
   }
 LABEL_17:
-  result = ZwAlpcSetInformation(a1, a2);
+  result = ZwAlpcSetInformation(PortHandle, PortInformationClass, PortInformation, Length);
   DWORD2(v22) = result;
   if ( v13 )
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsSnapTelemetry @ 0x14075D6C8
+ * XREFs of PopEsSnapTelemetry @ 0x14075C668
  * Callers:
- *     PopEsUpdateState @ 0x1404ECC9C (PopEsUpdateState.c)
- *     PopEsEnterSleepShutdown @ 0x140AB82C4 (PopEsEnterSleepShutdown.c)
+ *     PopEsUpdateState @ 0x1404E43DC (PopEsUpdateState.c)
+ *     PopEsEnterSleepShutdown @ 0x140AB2788 (PopEsEnterSleepShutdown.c)
  * Callees:
- *     PopTraceEsState @ 0x1405D6094 (PopTraceEsState.c)
- *     Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline @ 0x1405D890C (Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopTraceEsState @ 0x1405D36A8 (PopTraceEsState.c)
+ *     Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline @ 0x1405D5E20 (Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 char __fastcall PopEsSnapTelemetry(__int64 a1)
@@ -28,21 +28,21 @@ char __fastcall PopEsSnapTelemetry(__int64 a1)
     v1 = *(_DWORD *)(a1 + 12);
   if ( PopEsLastStateChangeTimeStamp )
   {
-    v4 = dword_140E6777C;
+    v4 = dword_140E67904;
     v5 = v3 - PopEsLastStateChangeTimeStamp;
     v6 = v1 - PopEsLastBatteryCharge;
-    if ( (unsigned int)Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline() && !dword_140F0BA4C )
-      PopEsLastBatteryThreshold = dword_140F0BA90;
+    if ( (unsigned int)Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline() && !dword_140F0B38C )
+      PopEsLastBatteryThreshold = dword_140F0B3D0;
     v8 = (unsigned int)PopEsModeGp;
     if ( PopEsReason != 32 )
       v8 = (unsigned int)PopEsMode;
     PopTraceEsState(v8, v5, v6, v7, v8, v10, v11, v4);
   }
   PopEsAcOnline = *(_BYTE *)a1;
-  PopEsLastBatteryThreshold = dword_140F0BA90;
-  result = byte_140F0BA95;
+  PopEsLastBatteryThreshold = dword_140F0B3D0;
+  result = byte_140F0B3D5;
   PopEsLastBatteryCharge = v1;
-  PopEsLastUserAwaySetting = byte_140F0BA95;
+  PopEsLastUserAwaySetting = byte_140F0B3D5;
   PopEsLastStateChangeTimeStamp = v3;
   return result;
 }

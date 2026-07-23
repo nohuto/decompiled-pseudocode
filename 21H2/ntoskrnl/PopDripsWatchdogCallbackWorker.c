@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDripsWatchdogCallbackWorker @ 0x1408EEF80
+ * XREFs of PopDripsWatchdogCallbackWorker @ 0x1408EF0E0
  * Callers:
  *     <none>
  * Callees:
- *     PopDirectedDripsClearDisengageReason @ 0x14037A4DC (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsSetDisengageReason @ 0x14037A544 (PopDirectedDripsSetDisengageReason.c)
- *     PopCalculateIdleInformation @ 0x140570410 (PopCalculateIdleInformation.c)
- *     PopDripsWatchdogAcquireContextLock @ 0x1408EEDB0 (PopDripsWatchdogAcquireContextLock.c)
- *     PopDripsWatchdogCallbackHandler @ 0x1408EEDD8 (PopDripsWatchdogCallbackHandler.c)
- *     PopDripsWatchdogReleaseContextLock @ 0x1408EF4C0 (PopDripsWatchdogReleaseContextLock.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x1408EF4E4 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14037A02C (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x14037A094 (PopDirectedDripsSetDisengageReason.c)
+ *     PopCalculateIdleInformation @ 0x140570650 (PopCalculateIdleInformation.c)
+ *     PopDripsWatchdogAcquireContextLock @ 0x1408EEF10 (PopDripsWatchdogAcquireContextLock.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x1408EEF38 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogReleaseContextLock @ 0x1408EF620 (PopDripsWatchdogReleaseContextLock.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1408EF644 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopDripsWatchdogCallbackWorker(__int64 a1)
@@ -85,7 +85,7 @@ __int64 __fastcall PopDripsWatchdogCallbackWorker(__int64 a1)
       *(_DWORD *)(a1 + 292) = v9 | 4;
       PopDripsWatchdogReleaseContextLock(a1);
       PopAcquirePolicyLock(v13);
-      if ( v4 || qword_140C4FF58 )
+      if ( v4 || qword_140C4FF98 )
         v2 = 0;
       PopReleasePolicyLock(v15, v14);
       if ( v2 )

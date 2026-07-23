@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSvmServicePageFault @ 0x1406D23E0
+ * XREFs of ExpSvmServicePageFault @ 0x1406D6410
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     ExpAcquireSvmAgentsLock @ 0x1406D13DC (ExpAcquireSvmAgentsLock.c)
- *     ExpReleaseSvmAgentsLock @ 0x1406D19E4 (ExpReleaseSvmAgentsLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     ExpAcquireSvmAgentsLock @ 0x1406D540C (ExpAcquireSvmAgentsLock.c)
+ *     ExpReleaseSvmAgentsLock @ 0x1406D5A14 (ExpReleaseSvmAgentsLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned int a3)
@@ -30,7 +30,7 @@ __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned i
     return 3221225477LL;
   Process = KeGetCurrentThread()->ApcState.Process;
   v8 = ExpAcquireSvmAgentsLock(&LockHandle);
-  v9 = (_KPROCESS *)*((_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread->Header.Lock + 3 * v3);
+  v9 = (_KPROCESS *)*((_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink->Flink + 3 * v3);
   ExpReleaseSvmAgentsLock(&LockHandle, v8);
   v10 = 0;
   if ( Process != v9 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpRundownNotifications @ 0x1408348C0
+ * XREFs of EtwpRundownNotifications @ 0x140837D94
  * Callers:
- *     EtwpDeleteRegistrationObject @ 0x14083C380 (EtwpDeleteRegistrationObject.c)
+ *     EtwpDeleteRegistrationObject @ 0x1408389E0 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpUnreferenceDataBlock @ 0x140835FF0 (EtwpUnreferenceDataBlock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpUnreferenceDataBlock @ 0x140836678 (EtwpUnreferenceDataBlock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
@@ -17,8 +17,8 @@ void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
   __int64 v2; // rsi
   signed __int64 *v4; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v6; // rax
-  _QWORD *v7; // rdi
+  char *v6; // rax
+  char *v7; // rdi
   _QWORD *v8; // rax
   _QWORD *v9; // rcx
   _QWORD *v10; // r8
@@ -26,7 +26,7 @@ void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
   signed __int64 v12; // rax
   signed __int64 v13; // rdx
   signed __int64 v14; // rtt
-  _QWORD *v15; // rbx
+  volatile signed __int32 **v15; // rbx
   __int64 v16; // rax
   PVOID P[2]; // [rsp+20h] [rbp-10h] BYREF
 
@@ -38,12 +38,12 @@ void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
     P[0] = P;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v6 = KeAbPreAcquire(v2 + 16, 0LL);
+    v6 = (char *)KeAbPreAcquire(v2 + 16, 0LL);
     v7 = v6;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 16), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 16), (__int64)v6, v2 + 16);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 16), v6, v2 + 16);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     v8 = *(_QWORD **)(v2 + 24);
     while ( v8 != (_QWORD *)(v2 + 24) )
     {
@@ -75,7 +75,7 @@ LABEL_12:
     KeLeaveCriticalRegionThread();
     while ( 1 )
     {
-      v15 = P[0];
+      v15 = (volatile signed __int32 **)P[0];
       if ( P[0] == P )
         break;
       if ( *((PVOID **)P[0] + 1) != P )

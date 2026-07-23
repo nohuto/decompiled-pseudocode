@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpAllocateMap @ 0x1407259B0
+ * XREFs of HvpAllocateMap @ 0x14061E850
  * Callers:
- *     HvpExpandMap @ 0x140723290 (HvpExpandMap.c)
- *     HvpInitMap @ 0x140723F9C (HvpInitMap.c)
+ *     HvpExpandMap @ 0x1406FB2BC (HvpExpandMap.c)
+ *     HvpInitMap @ 0x1406FBFC8 (HvpInitMap.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall HvpAllocateMap(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

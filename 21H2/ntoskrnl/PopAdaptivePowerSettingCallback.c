@@ -1,13 +1,13 @@
 /*
- * XREFs of PopAdaptivePowerSettingCallback @ 0x140790F60
+ * XREFs of PopAdaptivePowerSettingCallback @ 0x140792510
  * Callers:
- *     PopVideoPowerSettingCallback @ 0x1403A8230 (PopVideoPowerSettingCallback.c)
+ *     PopVideoPowerSettingCallback @ 0x1403A8FC0 (PopVideoPowerSettingCallback.c)
  * Callees:
- *     PopReleaseAdaptiveLock @ 0x14067DFA4 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x14067E094 (PopAcquireAdaptiveLock.c)
- *     PopDiagTracePolicyChange @ 0x140791060 (PopDiagTracePolicyChange.c)
- *     PopCheckConsoleTimeouts @ 0x1408F4FC4 (PopCheckConsoleTimeouts.c)
- *     PopInputDisabled @ 0x1408F510C (PopInputDisabled.c)
+ *     PopReleaseAdaptiveLock @ 0x140671D94 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x140671E84 (PopAcquireAdaptiveLock.c)
+ *     PopDiagTracePolicyChange @ 0x140792610 (PopDiagTracePolicyChange.c)
+ *     PopCheckConsoleTimeouts @ 0x1408F5124 (PopCheckConsoleTimeouts.c)
+ *     PopInputDisabled @ 0x1408F526C (PopInputDisabled.c)
  */
 
 __int64 __fastcall PopAdaptivePowerSettingCallback(__int64 *a1, int *a2, int a3)
@@ -38,7 +38,7 @@ __int64 __fastcall PopAdaptivePowerSettingCallback(__int64 *a1, int *a2, int a3)
     PopInputTimeout = *a2;
     if ( v6 )
     {
-      BYTE3(qword_140C205D0) = 1;
+      BYTE3(qword_140C20570) = 1;
       DWORD2(PopLazyContext) = v12;
       if ( !v12 )
       {

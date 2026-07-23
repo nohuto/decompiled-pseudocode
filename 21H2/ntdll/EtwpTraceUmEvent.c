@@ -2,14 +2,14 @@
  * XREFs of EtwpTraceUmEvent @ 0x180050CE4
  * Callers:
  *     EtwLogTraceEvent @ 0x180050CA0 (EtwLogTraceEvent.c)
- *     EtwTraceEventInstance @ 0x180110AC0 (EtwTraceEventInstance.c)
+ *     EtwTraceEventInstance @ 0x180110A80 (EtwTraceEventInstance.c)
  * Callees:
  *     EtwpRelogEvent @ 0x18005101C (EtwpRelogEvent.c)
  *     EtwpReserveTraceBuffer @ 0x180051178 (EtwpReserveTraceBuffer.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     EtwpDemuxUmTraceHandle @ 0x180110E40 (EtwpDemuxUmTraceHandle.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180110E00 (EtwpDemuxUmTraceHandle.c)
  */
 
 __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, unsigned int a3, int a4)
@@ -137,14 +137,9 @@ LABEL_5:
       v44 = v17;
       v18 = &v40;
       if ( v16 )
-        LODWORD(v18) = 0;
+        v18 = 0LL;
       v6 = v32;
-      v19 = (char *)EtwpReserveTraceBuffer(
-                      (_DWORD)v32,
-                      v29,
-                      v17->CurrentIdealProcessor.Reserved,
-                      (_DWORD)v18,
-                      (__int64)&v39);
+      v19 = (char *)EtwpReserveTraceBuffer(v32, v29, v17->CurrentIdealProcessor.Reserved, v18, &v39);
       v20 = v19;
       v43 = v19;
       if ( v19 )

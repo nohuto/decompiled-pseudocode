@@ -1,54 +1,52 @@
 /*
- * XREFs of KeWaitForGate @ 0x140415DEC
+ * XREFs of KeWaitForGate @ 0x140271C4C
  * Callers:
- *     MiWaitForVadDeletion @ 0x1402FBA58 (MiWaitForVadDeletion.c)
- *     MiAttemptSectionDelete @ 0x140314F64 (MiAttemptSectionDelete.c)
- *     MiCheckPurgeAndUpMapCount @ 0x14040EFF0 (MiCheckPurgeAndUpMapCount.c)
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     MiLockControlAreaSectionExtend @ 0x140414FF0 (MiLockControlAreaSectionExtend.c)
- *     MiWaitForPageWriteCompletion @ 0x14041514C (MiWaitForPageWriteCompletion.c)
- *     MiReferenceControlArea @ 0x140415208 (MiReferenceControlArea.c)
- *     MiWaitForZeroWorkers @ 0x14041561C (MiWaitForZeroWorkers.c)
- *     MiUnlinkWorkingSet @ 0x140416DF8 (MiUnlinkWorkingSet.c)
- *     MiDrainControlAreaWrites @ 0x140416FA4 (MiDrainControlAreaWrites.c)
- *     MmOutSwapProcess @ 0x14042D50C (MmOutSwapProcess.c)
- *     MiIncrementLargeSubsections @ 0x1404C96E0 (MiIncrementLargeSubsections.c)
- *     KeSrcuFree @ 0x1405C0B50 (KeSrcuFree.c)
- *     KiEpfStart @ 0x1405C3574 (KiEpfStart.c)
- *     KiExecuteDpc @ 0x1405C6F50 (KiExecuteDpc.c)
- *     MiChangingSubsectionProtos @ 0x14067A42C (MiChangingSubsectionProtos.c)
- *     MiWaitForExtentDeletions @ 0x14067BE30 (MiWaitForExtentDeletions.c)
- *     MiResolveAwePageConflict @ 0x140682F08 (MiResolveAwePageConflict.c)
- *     MiDeleteHardwareAccelerators @ 0x140690ACC (MiDeleteHardwareAccelerators.c)
- *     KeRcuSynchronize @ 0x14073C200 (KeRcuSynchronize.c)
- *     KeSrcuSynchronize @ 0x14073C950 (KeSrcuSynchronize.c)
- *     PspDereferenceSessionFinal @ 0x14077BA80 (PspDereferenceSessionFinal.c)
- *     MmScrubMemory @ 0x1407FDC70 (MmScrubMemory.c)
- *     PspQueryWorkingSetWatch @ 0x140A147AC (PspQueryWorkingSetWatch.c)
- *     sub_140BD60B0 @ 0x140BD60B0 (sub_140BD60B0.c)
- *     sub_140BDF96C @ 0x140BDF96C (sub_140BDF96C.c)
+ *     MiDrainControlAreaWrites @ 0x1402704C4 (MiDrainControlAreaWrites.c)
+ *     MiUnlinkWorkingSet @ 0x140270560 (MiUnlinkWorkingSet.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     MiLockControlAreaSectionExtend @ 0x140270E50 (MiLockControlAreaSectionExtend.c)
+ *     MiWaitForPageWriteCompletion @ 0x140270FAC (MiWaitForPageWriteCompletion.c)
+ *     MiReferenceControlArea @ 0x140271068 (MiReferenceControlArea.c)
+ *     MiWaitForZeroWorkers @ 0x14027147C (MiWaitForZeroWorkers.c)
+ *     MmOutSwapProcess @ 0x1402DDEEC (MmOutSwapProcess.c)
+ *     MiWaitForVadDeletion @ 0x140345500 (MiWaitForVadDeletion.c)
+ *     MiAttemptSectionDelete @ 0x1403F25B4 (MiAttemptSectionDelete.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x1404071F0 (MiCheckPurgeAndUpMapCount.c)
+ *     MiIncrementLargeSubsections @ 0x1404C2B90 (MiIncrementLargeSubsections.c)
+ *     KeSrcuFree @ 0x1405BE120 (KeSrcuFree.c)
+ *     KiEpfStart @ 0x1405C0B44 (KiEpfStart.c)
+ *     KiExecuteDpc @ 0x1405C4680 (KiExecuteDpc.c)
+ *     MiChangingSubsectionProtos @ 0x14067B60C (MiChangingSubsectionProtos.c)
+ *     MiWaitForExtentDeletions @ 0x14067D010 (MiWaitForExtentDeletions.c)
+ *     MiResolveAwePageConflict @ 0x1406840F8 (MiResolveAwePageConflict.c)
+ *     MiDeleteHardwareAccelerators @ 0x140691B9C (MiDeleteHardwareAccelerators.c)
+ *     KeRcuSynchronize @ 0x14073A130 (KeRcuSynchronize.c)
+ *     KeSrcuSynchronize @ 0x14073A880 (KeSrcuSynchronize.c)
+ *     PspDereferenceSessionFinal @ 0x14077B930 (PspDereferenceSessionFinal.c)
+ *     MmScrubMemory @ 0x1407FE3E0 (MmScrubMemory.c)
+ *     PspQueryWorkingSetWatch @ 0x140A0D6C8 (PspQueryWorkingSetWatch.c)
+ *     sub_140BD80B0 @ 0x140BD80B0 (sub_140BD80B0.c)
+ *     sub_140BE196C @ 0x140BE196C (sub_140BE196C.c)
  * Callees:
- *     KiBeginThreadWait @ 0x140209010 (KiBeginThreadWait.c)
- *     KiFastExitThreadWait @ 0x14024F840 (KiFastExitThreadWait.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiCommitThreadWait @ 0x140340C20 (KiCommitThreadWait.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiFastExitThreadWait @ 0x14027FE50 (KiFastExitThreadWait.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiCommitThreadWait @ 0x140320100 (KiCommitThreadWait.c)
+ *     KiBeginThreadWait @ 0x1403305F0 (KiBeginThreadWait.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall KeWaitForGate(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall KeWaitForGate(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  int v5; // r15d
-  __int64 v6; // rbx
-  $170BED6759C51D14495B6D160899A925 *v7; // rdi
+  __int64 v3; // rbx
+  $0C9BAADE586F3878B709A13404AA1ECE *v4; // rdi
   unsigned __int8 CurrentIrql; // bp
-  unsigned int v9; // ebp
-  struct _LIST_ENTRY *v10; // rcx
+  unsigned int v6; // ebp
+  struct _LIST_ENTRY *v7; // rcx
 
   CurrentThread = KeGetCurrentThread();
-  v5 = a2;
-  v6 = a1;
-  v7 = &CurrentThread->320;
+  v3 = a1;
+  v4 = &CurrentThread->320;
   do
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -60,32 +58,32 @@ __int64 __fastcall KeWaitForGate(__int64 a1, __int64 a2, char a3)
       KiRaiseIrqlProcessIrqlFlags(a1, a2);
     }
     CurrentThread->WaitIrql = CurrentIrql;
-    v9 = KiBeginThreadWait((ULONG_PTR)CurrentThread, a3, v5, 0, 0);
-    if ( v9 )
+    v6 = KiBeginThreadWait((ULONG_PTR)CurrentThread, 0);
+    if ( v6 )
       break;
     CurrentThread->WaitBlock[0].WaitType = 1;
     CurrentThread->WaitBlockFill4[17] = 4;
     CurrentThread->WaitBlock[0].WaitKey = 0;
-    CurrentThread->WaitBlock[0].Object = (PVOID)v6;
-    KiAcquireKobjectLockSafe((volatile signed __int32 *)v6);
-    if ( *(_DWORD *)(v6 + 4) )
+    CurrentThread->WaitBlock[0].Object = (PVOID)v3;
+    KiAcquireKobjectLockSafe(v3);
+    if ( *(_DWORD *)(v3 + 4) )
     {
-      *(_DWORD *)(v6 + 4) = 0;
-      _InterlockedAnd((volatile signed __int32 *)v6, 0xFFFFFF7F);
-      KiFastExitThreadWait(KeGetCurrentPrcb(), (ULONG_PTR)CurrentThread, 0);
-      return v9;
+      *(_DWORD *)(v3 + 4) = 0;
+      _InterlockedAnd((volatile signed __int32 *)v3, 0xFFFFFF7F);
+      KiFastExitThreadWait(KeGetCurrentPrcb(), (ULONG_PTR)CurrentThread);
+      return v6;
     }
-    v10 = *(struct _LIST_ENTRY **)(v6 + 16);
-    if ( v10->Flink != (struct _LIST_ENTRY *)(v6 + 8) )
+    v7 = *(struct _LIST_ENTRY **)(v3 + 16);
+    if ( v7->Flink != (struct _LIST_ENTRY *)(v3 + 8) )
       __fastfail(3u);
-    v7->WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)(v6 + 8);
-    CurrentThread->WaitBlock[0].WaitListEntry.Blink = v10;
-    v10->Flink = (struct _LIST_ENTRY *)v7;
-    *(_QWORD *)(v6 + 16) = v7;
-    _InterlockedAnd((volatile signed __int32 *)v6, 0xFFFFFF7F);
+    v4->WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)(v3 + 8);
+    CurrentThread->WaitBlock[0].WaitListEntry.Blink = v7;
+    v7->Flink = (struct _LIST_ENTRY *)v4;
+    *(_QWORD *)(v3 + 16) = v4;
+    _InterlockedAnd((volatile signed __int32 *)v3, 0xFFFFFF7F);
     CurrentThread->WaitBlockCount = 1;
-    v9 = KiCommitThreadWait((ULONG_PTR)CurrentThread, (__int64 *)&CurrentThread->320, 0, 0LL, 0, 0LL);
+    v6 = KiCommitThreadWait((ULONG_PTR)CurrentThread, 0, 0LL);
   }
-  while ( v9 == 256 );
-  return v9;
+  while ( v6 == 256 );
+  return v6;
 }

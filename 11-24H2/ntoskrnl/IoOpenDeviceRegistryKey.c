@@ -1,14 +1,14 @@
 /*
- * XREFs of IoOpenDeviceRegistryKey @ 0x1409CAEC0
+ * XREFs of IoOpenDeviceRegistryKey @ 0x1409B6100
  * Callers:
- *     DifIoOpenDeviceRegistryKeyWrapper @ 0x140629A40 (DifIoOpenDeviceRegistryKeyWrapper.c)
- *     PipDmgGetDeviceDmarRegistryValue @ 0x140727390 (PipDmgGetDeviceDmarRegistryValue.c)
+ *     DifIoOpenDeviceRegistryKeyWrapper @ 0x140628000 (DifIoOpenDeviceRegistryKeyWrapper.c)
+ *     PipDmgGetDeviceDmarRegistryValue @ 0x140724F20 (PipDmgGetDeviceDmarRegistryValue.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     IopApplyMutableTagToRegistryKey @ 0x1409CAFD4 (IopApplyMutableTagToRegistryKey.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x1409B6214 (IopApplyMutableTagToRegistryKey.c)
  */
 
 NTSTATUS __stdcall IoOpenDeviceRegistryKey(

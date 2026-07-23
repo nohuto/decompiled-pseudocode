@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReleaseVadEventBlocks @ 0x1406FB5DC
+ * XREFs of MiReleaseVadEventBlocks @ 0x1406FB7EC
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiRemoveVadCharges @ 0x1406FB440 (MiRemoveVadCharges.c)
- *     MiReserveUserMemory @ 0x14071F3E0 (MiReserveUserMemory.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiRemoveVadCharges @ 0x1406FB650 (MiRemoveVadCharges.c)
+ *     MiReserveUserMemory @ 0x14071F5E0 (MiReserveUserMemory.c)
  * Callees:
  *     MiDereferenceControlArea @ 0x14020B890 (MiDereferenceControlArea.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     MiGetVadWakeList @ 0x14028A170 (MiGetVadWakeList.c)
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     MiFreeVadEventBitmapCharges @ 0x1407DFA7C (MiFreeVadEventBitmapCharges.c)
- *     MiFreeRotateVadEvent @ 0x140A312C0 (MiFreeRotateVadEvent.c)
- *     MiComputeAweCharges @ 0x140A414B8 (MiComputeAweCharges.c)
- *     MiFreePlaceholderVadEvent @ 0x140A47DE0 (MiFreePlaceholderVadEvent.c)
- *     MiFreeLargePageView @ 0x140A49AA0 (MiFreeLargePageView.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     MiGetVadWakeList @ 0x14028A400 (MiGetVadWakeList.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     MiFreeVadEventBitmapCharges @ 0x1407DFD4C (MiFreeVadEventBitmapCharges.c)
+ *     MiFreeRotateVadEvent @ 0x140A31570 (MiFreeRotateVadEvent.c)
+ *     MiComputeAweCharges @ 0x140A41768 (MiComputeAweCharges.c)
+ *     MiFreePlaceholderVadEvent @ 0x140A48090 (MiFreePlaceholderVadEvent.c)
+ *     MiFreeLargePageView @ 0x140A49D50 (MiFreeLargePageView.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpPowerStateTransitionWatchdogPopRecord @ 0x140957A94
+ * XREFs of PnpPowerStateTransitionWatchdogPopRecord @ 0x140957C94
  * Callers:
- *     IoBuildPoDeviceNotifyList @ 0x140A9E0F8 (IoBuildPoDeviceNotifyList.c)
+ *     IoBuildPoDeviceNotifyList @ 0x140A9DF68 (IoBuildPoDeviceNotifyList.c)
  * Callees:
- *     PoDelistPowerStateTransitionBlocker @ 0x140AA616C (PoDelistPowerStateTransitionBlocker.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140AA5FDC (PoDelistPowerStateTransitionBlocker.c)
  */
 
 __int64 PnpPowerStateTransitionWatchdogPopRecord()

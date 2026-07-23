@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmConvertTimeTo @ 0x1403A7204
+ * XREFs of PpmConvertTimeTo @ 0x1403A73E4
  * Callers:
- *     PpmIdleGetPackageIdleIntervalStats @ 0x14084E760 (PpmIdleGetPackageIdleIntervalStats.c)
- *     PopIdleWakeConvertIntervalBucketsTo @ 0x14099A348 (PopIdleWakeConvertIntervalBucketsTo.c)
- *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x14099A860 (PopIdleWakeNotifyModernStandbyExitWorker.c)
- *     PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets @ 0x14099B098 (PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x14099C8E4 (PopDripsWatchdogUpdateMetrics.c)
+ *     PpmIdleGetPackageIdleIntervalStats @ 0x14084EA60 (PpmIdleGetPackageIdleIntervalStats.c)
+ *     PopIdleWakeConvertIntervalBucketsTo @ 0x14099A548 (PopIdleWakeConvertIntervalBucketsTo.c)
+ *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x14099AA60 (PopIdleWakeNotifyModernStandbyExitWorker.c)
+ *     PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets @ 0x14099B298 (PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x14099CAE4 (PopDripsWatchdogUpdateMetrics.c)
  * Callees:
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
  */
 
 unsigned __int64 __fastcall PpmConvertTimeTo(unsigned __int64 a1, unsigned __int64 a2)

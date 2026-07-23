@@ -1,19 +1,19 @@
 /*
- * XREFs of IommuProcessPageRequestQueue @ 0x140523100
+ * XREFs of IommuProcessPageRequestQueue @ 0x140523650
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IommupHvDismissPageFault @ 0x1405249D8 (IommupHvDismissPageFault.c)
- *     IommupHvValidatePageRequestGpa @ 0x1405255B8 (IommupHvValidatePageRequestGpa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IommupHvDismissPageFault @ 0x140524F28 (IommupHvDismissPageFault.c)
+ *     IommupHvValidatePageRequestGpa @ 0x140525B08 (IommupHvValidatePageRequestGpa.c)
  */
 
 char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
@@ -125,10 +125,13 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
     {
       ++*(_DWORD *)(v5 + 16);
       KxReleaseSpinLock((volatile signed __int64 *)v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -136,7 +139,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
           v12 = (v11 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v11;
           if ( v12 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(v7);
@@ -148,7 +151,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
       v13 = *(_QWORD *)((*(__int64 (**)(void))(HalIommuDispatch + 104))() + 8);
       v14 = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
       {
         v15 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v14 == 15 )
@@ -180,10 +183,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
       if ( j == v18 )
         KeBugCheckEx(0x159u, 4uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, (ULONG_PTR)BugCheckParameter4);
       KxReleaseSpinLock((volatile signed __int64 *)(v13 + 24));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v20 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v14 <= 0xFu && v20 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v14 <= 0xFu && v20 >= 2u )
         {
           v21 = KeGetCurrentPrcb();
           v22 = v21->SchedulerAssist;
@@ -191,7 +194,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
           v12 = (v23 & v22[5]) == 0;
           v22[5] &= v23;
           if ( v12 )
-            KiRemoveSystemWorkPriorityKick(v21);
+            KiRemoveSystemWorkPriorityKick((__int64)v21);
         }
       }
       __writecr8(v14);
@@ -204,10 +207,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
         v6 = (KSPIN_LOCK *)(v5 + 8);
         KxReleaseSpinLock((volatile signed __int64 *)(v5 + 8));
         v1 = 0LL;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v24 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v24 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v24 >= 2u )
           {
             v25 = KeGetCurrentPrcb();
             v26 = v25->SchedulerAssist;
@@ -215,7 +218,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
             v12 = (v27 & v26[5]) == 0;
             v26[5] &= v27;
             if ( v12 )
-              KiRemoveSystemWorkPriorityKick(v25);
+              KiRemoveSystemWorkPriorityKick((__int64)v25);
           }
         }
         __writecr8(v7);
@@ -256,10 +259,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
         if ( (v54 & 0x10) != 0 )
           *(_DWORD *)(v31 + 8 * v30 + 116) = v32 | 0x200000;
         KxReleaseSpinLock((volatile signed __int64 *)(v5 + 8));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v35 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v35 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v35 >= 2u )
           {
             v36 = KeGetCurrentPrcb();
             v37 = v36->SchedulerAssist;
@@ -267,7 +270,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
             v12 = (v38 & v37[5]) == 0;
             v37[5] &= v38;
             if ( v12 )
-              KiRemoveSystemWorkPriorityKick(v36);
+              KiRemoveSystemWorkPriorityKick((__int64)v36);
           }
         }
         __writecr8(v7);
@@ -311,10 +314,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
         }
         v6 = (KSPIN_LOCK *)(v5 + 8);
         KxReleaseSpinLock((volatile signed __int64 *)(v5 + 8));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v44 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v44 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v44 >= 2u )
           {
             v45 = KeGetCurrentPrcb();
             v46 = v45->SchedulerAssist;
@@ -322,7 +325,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
             v12 = (v47 & v46[5]) == 0;
             v46[5] &= v47;
             if ( v12 )
-              KiRemoveSystemWorkPriorityKick(v45);
+              KiRemoveSystemWorkPriorityKick((__int64)v45);
           }
         }
         __writecr8(v41);
@@ -332,10 +335,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v48 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v48 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v48 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v48 >= 2u )
     {
       v49 = KeGetCurrentPrcb();
       v50 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -343,7 +346,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
       v12 = (v50 & v51[5]) == 0;
       v51[5] &= v50;
       if ( v12 )
-        KiRemoveSystemWorkPriorityKick(v49);
+        KiRemoveSystemWorkPriorityKick((__int64)v49);
     }
   }
   __writecr8(v7);

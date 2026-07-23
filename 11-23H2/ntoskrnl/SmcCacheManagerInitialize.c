@@ -1,11 +1,11 @@
 /*
- * XREFs of SmcCacheManagerInitialize @ 0x14084F3E0
+ * XREFs of SmcCacheManagerInitialize @ 0x14084F6E0
  * Callers:
- *     SmPartitionInitialize @ 0x14084F2DC (SmPartitionInitialize.c)
+ *     SmPartitionInitialize @ 0x14084F5DC (SmPartitionInitialize.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall SmcCacheManagerInitialize(struct _EX_RUNDOWN_REF *a1)

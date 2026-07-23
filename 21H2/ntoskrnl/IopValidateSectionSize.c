@@ -1,7 +1,7 @@
 /*
- * XREFs of IopValidateSectionSize @ 0x140504B68
+ * XREFs of IopValidateSectionSize @ 0x140504AE8
  * Callers:
- *     KeCapturePersistentThreadState @ 0x140505040 (KeCapturePersistentThreadState.c)
+ *     KeCapturePersistentThreadState @ 0x140504FC0 (KeCapturePersistentThreadState.c)
  * Callees:
  *     <none>
  */

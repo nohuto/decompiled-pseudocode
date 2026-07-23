@@ -1,17 +1,22 @@
 /*
- * XREFs of DifNtSetCachedSigningLevelWrapper @ 0x14068AB50
+ * XREFs of DifNtSetCachedSigningLevelWrapper @ 0x14068E730
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtSetCachedSigningLevel @ 0x140B0CB40 (NtSetCachedSigningLevel.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtSetCachedSigningLevel @ 0x140B0E290 (NtSetCachedSigningLevel.c)
  */
 
-__int64 __fastcall DifNtSetCachedSigningLevelWrapper(int a1, char a2, __int64 a3, int a4, __int64 a5)
+__int64 __fastcall DifNtSetCachedSigningLevelWrapper(
+        ULONG a1,
+        SE_SIGNING_LEVEL a2,
+        HANDLE *a3,
+        ULONG a4,
+        HANDLE TargetFile)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -46,7 +51,7 @@ __int64 __fastcall DifNtSetCachedSigningLevelWrapper(int a1, char a2, __int64 a3
     }
     v12 = 0;
     DWORD1(v21) = a1;
-    *((_QWORD *)&v19 + 1) = a5;
+    *((_QWORD *)&v19 + 1) = TargetFile;
     LOBYTE(v21) = a2;
     *((_QWORD *)&v20 + 1) = a3;
     LODWORD(v20) = a4;
@@ -62,8 +67,7 @@ __int64 __fastcall DifNtSetCachedSigningLevelWrapper(int a1, char a2, __int64 a3
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LOBYTE(v9) = a2;
-  DWORD2(v21) = NtSetCachedSigningLevel(a1, v9, a3, a4, a5);
+  DWORD2(v21) = NtSetCachedSigningLevel(a1, a2, a3, a4, TargetFile);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

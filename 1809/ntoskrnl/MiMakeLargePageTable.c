@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMakeLargePageTable @ 0x1402B50E8
+ * XREFs of MiMakeLargePageTable @ 0x1402B52D8
  * Callers:
  *     MiCreateSystemPageTable @ 0x140026730 (MiCreateSystemPageTable.c)
  * Callees:
@@ -7,13 +7,13 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
- *     MiDemotePfnListChain @ 0x1402C53D0 (MiDemotePfnListChain.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiTransformValidPteInPlace @ 0x14016A80C (MiTransformValidPteInPlace.c)
+ *     MiDemotePfnListChain @ 0x1402C55C0 (MiDemotePfnListChain.c)
  */
 
 __int64 __fastcall MiMakeLargePageTable(__int64 a1, volatile signed __int64 *a2, int a3)
@@ -110,7 +110,7 @@ LABEL_30:
             if ( (unsigned int)MiPteHasShadow() )
             {
               v21 = 1;
-              if ( !HIBYTE(word_14043A1AC) )
+              if ( !HIBYTE(word_14043B26C) )
               {
                 v23 = (v22 & 1) == 0;
                 goto LABEL_26;

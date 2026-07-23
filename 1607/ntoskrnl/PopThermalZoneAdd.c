@@ -1,15 +1,15 @@
 /*
- * XREFs of PopThermalZoneAdd @ 0x14056C254
+ * XREFs of PopThermalZoneAdd @ 0x14056C794
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140144FE0 (PopThermalUpdateTelemetryClientCount.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x140145550 (PopThermalUpdateTelemetryClientCount.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopChangeCapability @ 0x14056DEF8 (PopChangeCapability.c)
+ *     PopChangeCapability @ 0x14056E438 (PopChangeCapability.c)
  */
 
 void __fastcall PopThermalZoneAdd(char *DeferredContext)
@@ -44,7 +44,7 @@ void __fastcall PopThermalZoneAdd(char *DeferredContext)
   {
     PopAcquirePolicyLock();
     LOBYTE(v3) = 1;
-    PopChangeCapability(&unk_140303F6D, v3);
+    PopChangeCapability(&unk_140303EAD, v3);
     PopReleasePolicyLock();
   }
   PopThermalUpdateTelemetryClientCount(1);

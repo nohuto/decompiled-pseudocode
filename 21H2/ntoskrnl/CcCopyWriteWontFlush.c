@@ -1,36 +1,47 @@
 /*
- * XREFs of CcCopyWriteWontFlush @ 0x14022BF00
+ * XREFs of CcCopyWriteWontFlush @ 0x1402D0780
  * Callers:
- *     FsRtlCopyWrite @ 0x14088A890 (FsRtlCopyWrite.c)
+ *     FsRtlCopyWrite @ 0x14088A9F0 (FsRtlCopyWrite.c)
  * Callees:
- *     PsGetBaseIoPriorityThread @ 0x14022C100 (PsGetBaseIoPriorityThread.c)
- *     CcIsFileObjectDirectMapped @ 0x1402C14B4 (CcIsFileObjectDirectMapped.c)
- *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
+ *     CcIsFileObjectDirectMapped @ 0x14023F954 (CcIsFileObjectDirectMapped.c)
+ *     PsGetBaseIoPriorityThread @ 0x1402D0980 (PsGetBaseIoPriorityThread.c)
+ *     CcCanIWriteStreamEx @ 0x14031E220 (CcCanIWriteStreamEx.c)
  */
 
 BOOLEAN __stdcall CcCopyWriteWontFlush(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset, ULONG Length)
 {
+  __int64 Flags; // rdx
   int BaseIoPriorityThread; // eax
-  int v5; // edx
-  int v6; // r8d
-  __int64 v7; // r9
+  int v6; // edx
+  int v7; // r8d
+  __int64 v8; // r9
   BOOLEAN result; // al
 
-  if ( Length < 0x1000000 && (FileObject->Flags & 0x10) == 0 )
+  if ( Length < 0x1000000 )
   {
-    if ( (BaseIoPriorityThread = PsGetBaseIoPriorityThread(KeGetCurrentThread()), BaseIoPriorityThread < 2)
-      && (struct _KTHREAD *)v7 == KeGetCurrentThread()
-      && *(_DWORD *)(v7 + 1360)
-      || BaseIoPriorityThread > 0 )
+    Flags = FileObject->Flags;
+    if ( (Flags & 0x10) == 0 )
     {
-      if ( (v5 & 0x1000000) == 0
-        || (unsigned __int8)CcCanIWriteStreamEx(*((_QWORD *)PspSystemPartition + 1), (_DWORD)FileObject, v6, 0, 0, 0LL) )
+      if ( (BaseIoPriorityThread = PsGetBaseIoPriorityThread(KeGetCurrentThread(), Flags), BaseIoPriorityThread < 2)
+        && (struct _KTHREAD *)v8 == KeGetCurrentThread()
+        && *(_DWORD *)(v8 + 1360)
+        || BaseIoPriorityThread > 0 )
       {
-        return 1;
+        if ( (v6 & 0x1000000) == 0
+          || (unsigned __int8)CcCanIWriteStreamEx(
+                                *((_QWORD *)PspSystemPartition + 1),
+                                (_DWORD)FileObject,
+                                v7,
+                                0,
+                                0,
+                                0LL) )
+        {
+          return 1;
+        }
       }
     }
   }
-  result = CcIsFileObjectDirectMapped(FileObject, 0LL);
+  result = CcIsFileObjectDirectMapped((__int64)FileObject, 0);
   if ( result )
     return 1;
   return result;

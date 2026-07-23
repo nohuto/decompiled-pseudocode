@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeForkMaps @ 0x140ABBCD8
+ * XREFs of MiInitializeForkMaps @ 0x140AB6CF8
  * Callers:
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
  * Callees:
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiMapSinglePage @ 0x140314164 (MiMapSinglePage.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     MiMapSinglePage @ 0x1403F14B0 (MiMapSinglePage.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeForkMaps(__int64 a1, __int64 a2, _QWORD *a3)

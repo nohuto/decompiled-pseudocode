@@ -137,14 +137,22 @@ void ViIovInitialization()
     (__int64)ViGenericBuildIrpLogEntry);
   if ( !ViRemLockInitialized )
   {
-    if ( (int)VfAvlInitializeTree(&ViRemLockAvl, 32LL, 136LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+    if ( (int)VfAvlInitializeTree(
+                &ViRemLockAvl,
+                32LL,
+                136LL,
+                (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
       _InterlockedExchange(&ViRemLockAllocationFailures, 1);
     else
       _InterlockedExchange(&ViRemLockInitialized, 1);
   }
   if ( !ViDevObjInitialized )
   {
-    if ( (int)VfAvlInitializeTree(ViDevObjAvl, 336LL, 24LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+    if ( (int)VfAvlInitializeTree(
+                ViDevObjAvl,
+                336LL,
+                24LL,
+                (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
       _InterlockedExchange(&ViDevObjAllocationFailures, 1);
     else
       _InterlockedExchange(&ViDevObjInitialized, 1);

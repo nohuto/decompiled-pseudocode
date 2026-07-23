@@ -1,17 +1,17 @@
 /*
- * XREFs of RaspScanConvert @ 0x1403B2610
+ * XREFs of RaspScanConvert @ 0x1403B2780
  * Callers:
- *     RaspRasterize @ 0x1403B233C (RaspRasterize.c)
+ *     RaspRasterize @ 0x1403B24AC (RaspRasterize.c)
  * Callees:
- *     BgpFmRoundUp @ 0x14039C868 (BgpFmRoundUp.c)
- *     RaspDestroySegmentList @ 0x1403B243C (RaspDestroySegmentList.c)
- *     RaspFreeMemory @ 0x1403B2508 (RaspFreeMemory.c)
- *     RaspTestIntersection @ 0x1403B2A70 (RaspTestIntersection.c)
- *     RaspRectangleCreate @ 0x1403B2E7C (RaspRectangleCreate.c)
- *     BgpGxInitializeRectangle @ 0x1403B2EF4 (BgpGxInitializeRectangle.c)
- *     RaspCreateSegmentList @ 0x1403B3630 (RaspCreateSegmentList.c)
- *     RaspAllocateMemory @ 0x1403B3A08 (RaspAllocateMemory.c)
- *     memset @ 0x140414200 (memset.c)
+ *     BgpFmRoundUp @ 0x14039C9B8 (BgpFmRoundUp.c)
+ *     RaspDestroySegmentList @ 0x1403B25AC (RaspDestroySegmentList.c)
+ *     RaspFreeMemory @ 0x1403B2678 (RaspFreeMemory.c)
+ *     RaspTestIntersection @ 0x1403B2BE0 (RaspTestIntersection.c)
+ *     RaspRectangleCreate @ 0x1403B2FEC (RaspRectangleCreate.c)
+ *     BgpGxInitializeRectangle @ 0x1403B3064 (BgpGxInitializeRectangle.c)
+ *     RaspCreateSegmentList @ 0x1403B37A0 (RaspCreateSegmentList.c)
+ *     RaspAllocateMemory @ 0x1403B3B78 (RaspAllocateMemory.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall RaspScanConvert(
@@ -46,19 +46,19 @@ __int64 __fastcall RaspScanConvert(
   int v29; // esi
   int v30; // r14d
   int v31; // eax
-  __int64 i; // r8
-  _DWORD *v33; // r9
-  __int64 *v34; // rdi
+  __int64 *v32; // rdi
   __int64 *Memory; // rbp
-  unsigned int v36; // edi
-  __int64 v37; // rbx
-  int v38; // r13d
-  size_t v39; // rcx
-  unsigned int v40; // r12d
-  _BYTE *v41; // rsi
-  signed int v42; // r10d
-  __int64 v43; // rdx
-  _DWORD *v44; // rax
+  unsigned int v34; // edi
+  __int64 v35; // rbx
+  int v36; // r13d
+  size_t v37; // rcx
+  unsigned int v38; // r12d
+  _BYTE *v39; // rsi
+  signed int v40; // r10d
+  __int64 v41; // rdx
+  _BYTE *v42; // r9
+  int i; // r8d
+  _BYTE *v44; // rax
   char v45; // cl
   __int64 v46; // rcx
   __int64 v48; // rax
@@ -139,7 +139,7 @@ __int64 __fastcall RaspScanConvert(
     v65[2] = v29;
     if ( v10 )
     {
-      v34 = qword_140D73000;
+      v32 = qword_140D73000;
       v64 = qword_140D73000;
       v14 = BgpGxInitializeRectangle(v65, 1LL, qword_140D73000, 3140LL);
       if ( v14 < 0 )
@@ -148,16 +148,16 @@ __int64 __fastcall RaspScanConvert(
     else
     {
       v31 = RaspRectangleCreate(v65, 1LL, &v64, v11);
-      v34 = v64;
+      v32 = v64;
       v14 = v31;
     }
     if ( v14 >= 0 )
     {
-      memset((void *)v34[3], 0, *((unsigned int *)v34 + 3));
+      memset((void *)v32[3], 0, *((unsigned int *)v32 + 3));
       if ( !v63 )
       {
         v58 = v68;
-        *a6 = v34;
+        *a6 = v32;
         *a7 = v58;
         return 0LL;
       }
@@ -175,74 +175,74 @@ __int64 __fastcall RaspScanConvert(
         if ( Memory )
         {
 LABEL_13:
+          v34 = 0;
+          v35 = v29;
           v36 = 0;
-          v37 = v29;
-          v38 = 0;
           a5 = 0;
           if ( v28 > 0 )
           {
-            v39 = 4LL * v29;
+            v37 = 4LL * v29;
             v60 = v68 << 6;
             while ( 1 )
             {
-              memset(Memory, 0, v39);
-              v40 = v60 + -16 * (v38 & 3) - ((unsigned int)v38 >> 2 << 6);
+              memset(Memory, 0, v37);
+              v38 = v60 + -16 * (v36 & 3) - ((unsigned int)v36 >> 2 << 6);
               if ( (_DWORD)v13 )
                 break;
 LABEL_20:
-              v43 = 0LL;
-              v33 = (_DWORD *)(v64[3] + ((unsigned __int64)v36 >> 3));
-              for ( i = 128 >> (v36 & 7); v43 < v37; v33 = v44 )
+              v41 = 0LL;
+              v42 = (_BYTE *)(v64[3] + ((unsigned __int64)v34 >> 3));
+              for ( i = 128 >> (v34 & 7); v41 < v35; v42 = v44 )
               {
-                if ( *((_DWORD *)Memory + v43) )
-                  *(_BYTE *)v33 |= i;
-                v44 = (_DWORD *)((char *)v33 + 1);
-                v45 = (unsigned __int8)i >> 1;
-                i = (unsigned __int8)i >> 1;
+                if ( *((_DWORD *)Memory + v41) )
+                  *v42 |= i;
+                LOBYTE(i) = (unsigned __int8)i >> 1;
+                v44 = v42 + 1;
+                v45 = i;
                 if ( !(_BYTE)i )
-                  i = 128LL;
-                ++v43;
+                  LOBYTE(i) = 0x80;
+                ++v41;
                 if ( v45 )
-                  v44 = v33;
+                  v44 = v42;
               }
-              v36 += v29;
-              v39 = 4 * v37;
-              ++v38;
-              a5 = v36;
-              if ( v38 >= v62 )
+              v34 += v29;
+              v37 = 4 * v35;
+              ++v36;
+              a5 = v34;
+              if ( v36 >= v62 )
                 goto LABEL_29;
             }
-            v41 = (_BYTE *)(v63 + 24);
+            v39 = (_BYTE *)(v63 + 24);
             while ( 1 )
             {
-              RaspTestIntersection(v41 - 24, v40, &v66, &v59);
-              v42 = v66;
+              RaspTestIntersection(v39 - 24, v38, &v66, &v59);
+              v40 = v66;
               if ( v66 != 0x7FFFFFFF )
                 break;
 LABEL_18:
-              v41 += 25;
+              v39 += 25;
               if ( !--v13 )
               {
-                v36 = a5;
+                v34 = a5;
                 v13 = v67;
                 v29 = v61;
                 goto LABEL_20;
               }
             }
-            v48 = *((_QWORD *)v41 - 1);
+            v48 = *((_QWORD *)v39 - 1);
             v49 = *(_DWORD *)(v48 + 12);
             v50 = v49
                 + *(_DWORD *)(v48 + 4)
-                - *(_DWORD *)(*((_QWORD *)v41 - 3) + 12LL)
-                - *(_DWORD *)(*((_QWORD *)v41 - 3) + 4LL);
+                - *(_DWORD *)(*((_QWORD *)v39 - 3) + 12LL)
+                - *(_DWORD *)(*((_QWORD *)v39 - 3) + 4LL);
             if ( !v50 )
             {
-              if ( *v41 == 1 )
+              if ( *v39 == 1 )
                 goto LABEL_59;
               v50 = v49
                   + *(_DWORD *)(v48 + 4)
-                  - *(_DWORD *)(*((_QWORD *)v41 - 2) + 12LL)
-                  - *(_DWORD *)(*((_QWORD *)v41 - 2) + 4LL);
+                  - *(_DWORD *)(*((_QWORD *)v39 - 2) + 12LL)
+                  - *(_DWORD *)(*((_QWORD *)v39 - 2) + 4LL);
             }
             if ( v50 > 0 )
             {
@@ -250,30 +250,30 @@ LABEL_18:
 LABEL_38:
               v52 = 0;
               v53 = 0LL;
-              if ( v37 <= 0 )
+              if ( v35 <= 0 )
                 goto LABEL_18;
               v54 = v59;
               while ( 1 )
               {
                 v55 = v30 + ((16 * v52) & 0xFFFFFFC0) + 16 * (v52 & 3);
-                if ( *v41 == 1 )
+                if ( *v39 == 1 )
                   break;
                 if ( v54 != 0x7FFFFFFF )
                 {
-                  if ( v55 < v42 || v55 > v54 )
+                  if ( v55 < v40 || v55 > v54 )
                     goto LABEL_44;
 LABEL_43:
                   *((_DWORD *)Memory + v53) += v51;
                   goto LABEL_44;
                 }
-                if ( v55 <= v42 )
+                if ( v55 <= v40 )
                   goto LABEL_43;
 LABEL_44:
                 ++v52;
-                if ( ++v53 >= v37 )
+                if ( ++v53 >= v35 )
                   goto LABEL_18;
               }
-              if ( v55 > v42 )
+              if ( v55 > v40 )
                 goto LABEL_44;
               goto LABEL_43;
             }
@@ -295,15 +295,15 @@ LABEL_29:
             goto LABEL_32;
           v46 = (__int64)Memory;
 LABEL_31:
-          RaspFreeMemory(v46, v11, i, v33);
+          RaspFreeMemory(v46, v11);
           goto LABEL_32;
         }
       }
       v14 = -1073741670;
     }
-    if ( !v34 )
+    if ( !v32 )
       goto LABEL_32;
-    v46 = (__int64)v34;
+    v46 = (__int64)v32;
     goto LABEL_31;
   }
 LABEL_32:

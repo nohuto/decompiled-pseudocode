@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRestoreImportTableProtection @ 0x1407E7808
+ * XREFs of MiRestoreImportTableProtection @ 0x1407E7DD8
  * Callers:
- *     MiResolveImageImports @ 0x1407E7750 (MiResolveImageImports.c)
+ *     MiResolveImageImports @ 0x1407E7D20 (MiResolveImageImports.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiSetImageProtection @ 0x140435EEC (MiSetImageProtection.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiSetImageProtection @ 0x14042896C (MiSetImageProtection.c)
  */
 
 __int64 __fastcall MiRestoreImportTableProtection(__int64 a1, __int64 a2)

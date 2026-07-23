@@ -22,13 +22,13 @@
 
 void __fastcall RtlDeactivateActivationContextUnsafeFast(__int64 a1)
 {
-  struct _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // rdi
+  PACTIVATION_CONTEXT_STACK ActivationContextStackPointer; // rdi
   ULONG_PTR ActiveFrame; // rdx
   ULONG_PTR v4; // rcx
-  struct _RTL_ACTIVATION_CONTEXT_STACK_FRAME **v5; // r14
+  PRTL_ACTIVATION_CONTEXT_STACK_FRAME *v5; // r14
   ULONG_PTR v6; // rax
   ULONG_PTR v7; // rsi
-  struct _RTL_ACTIVATION_CONTEXT_STACK_FRAME *v8; // r12
+  PRTL_ACTIVATION_CONTEXT_STACK_FRAME v8; // r12
   unsigned int v9; // r15d
   EXCEPTION_RECORD ExceptionRecord; // [rsp+38h] [rbp-79h] BYREF
   _UNKNOWN *retaddr; // [rsp+110h] [rbp+5Fh]
@@ -102,20 +102,20 @@ LABEL_31:
   }
   if ( (v4 & 0x10) == 0 )
   {
-    v5 = (struct _RTL_ACTIVATION_CONTEXT_STACK_FRAME **)(a1 + 16);
+    v5 = (PRTL_ACTIVATION_CONTEXT_STACK_FRAME *)(a1 + 16);
     if ( ActiveFrame != a1 + 16 )
     {
       v7 = (ULONG_PTR)ActivationContextStackPointer->ActiveFrame;
       v8 = *v5;
       v9 = 0;
       DbgPrintEx(
-        51LL,
-        2LL,
+        0x33u,
+        2u,
         "SXS: %s() Active frame is not the frame being deactivated %p != %p\n",
         "RtlDeactivateActivationContextUnsafeFast",
         ActivationContextStackPointer->ActiveFrame,
         (const void *)(a1 + 16));
-      while ( v7 && (struct _RTL_ACTIVATION_CONTEXT_STACK_FRAME *)v7 != v8 )
+      while ( v7 && (PRTL_ACTIVATION_CONTEXT_STACK_FRAME)v7 != v8 )
       {
         if ( (*(_DWORD *)(v7 + 16) & 0x70) != 0x20
           || (*(_BYTE *)(v7 + 16) & 8) == 0

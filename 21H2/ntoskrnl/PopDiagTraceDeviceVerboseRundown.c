@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDeviceVerboseRundown @ 0x14067E3D8
+ * XREFs of PopDiagTraceDeviceVerboseRundown @ 0x140672288
  * Callers:
- *     PopDiagTraceFxRundown @ 0x140284428 (PopDiagTraceFxRundown.c)
+ *     PopDiagTraceFxRundown @ 0x140272A80 (PopDiagTraceFxRundown.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PopPepGetDevicePlatformStateDependents @ 0x14028452C (PopPepGetDevicePlatformStateDependents.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PopPepGetDevicePlatformStateDependents @ 0x140272B84 (PopPepGetDevicePlatformStateDependents.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDeviceVerboseRundown(__int64 a1)
@@ -88,7 +88,7 @@ char __fastcall PopDiagTraceDeviceVerboseRundown(__int64 a1)
       }
       else
       {
-        RtlInitUnicodeString(&DestinationString_8, &word_1407D7BA0);
+        RtlInitUnicodeString(&DestinationString_8, &word_1407D7CE0);
         p_DestinationString_8 = &DestinationString_8;
       }
       Length = p_DestinationString_8->Length;

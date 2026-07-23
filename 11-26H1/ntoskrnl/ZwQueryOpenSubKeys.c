@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwQueryOpenSubKeys @ 0x140726070
+ * XREFs of ZwQueryOpenSubKeys @ 0x14072AC40
  * Callers:
- *     DifZwQueryOpenSubKeysWrapper @ 0x1406B32E0 (DifZwQueryOpenSubKeysWrapper.c)
+ *     DifZwQueryOpenSubKeysWrapper @ 0x1406B6EC0 (DifZwQueryOpenSubKeysWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryOpenSubKeys(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TargetKey);
 }

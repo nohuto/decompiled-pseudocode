@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryDpcWatchdogInformation @ 0x14010A040
+ * XREFs of KeQueryDpcWatchdogInformation @ 0x14010A0C0
  * Callers:
  *     <none>
  * Callees:

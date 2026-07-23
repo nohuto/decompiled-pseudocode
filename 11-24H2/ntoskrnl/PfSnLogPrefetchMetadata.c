@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogPrefetchMetadata @ 0x140953E74
+ * XREFs of PfSnLogPrefetchMetadata @ 0x140937824
  * Callers:
- *     PfSnPrefetchMetadata @ 0x140954444 (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchMetadata @ 0x140937DF4 (PfSnPrefetchMetadata.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogPrefetchMetadata(__int64 a1, int a2, char a3)
@@ -31,7 +31,7 @@ void __fastcall PfSnLogPrefetchMetadata(__int64 a1, int a2, char a3)
     v3 = &ThreadStart;
     if ( !a3 )
       v3 = &PfSnEvt_PrefetchMetadata_Stop;
-    if ( qword_140E67108 && EtwEventEnabled(qword_140E67108, v3) )
+    if ( qword_140E67258 && EtwEventEnabled(qword_140E67258, v3) )
     {
       v5 = -1LL;
       do
@@ -49,7 +49,7 @@ void __fastcall PfSnLogPrefetchMetadata(__int64 a1, int a2, char a3)
       v12 = 4LL;
       v14 = 4LL;
       v16 = 4LL;
-      EtwWrite(qword_140E67108, v3, 0LL, 5u, &UserData);
+      EtwWrite(qword_140E67258, v3, 0LL, 5u, &UserData);
     }
   }
 }

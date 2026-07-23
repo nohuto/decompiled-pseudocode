@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPurgeZeroList @ 0x14064DD3C
+ * XREFs of MiPurgeZeroList @ 0x14064E28C
  * Callers:
- *     MiMirrorPurgePartitionPages @ 0x140627E10 (MiMirrorPurgePartitionPages.c)
+ *     MiMirrorPurgePartitionPages @ 0x140628360 (MiMirrorPurgePartitionPages.c)
  * Callees:
- *     MiUnlinkFreeOrZeroedPage @ 0x1402D1E90 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPurgeLargeZeroNodePages @ 0x14064FC58 (MiPurgeLargeZeroNodePages.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x1402D2120 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPurgeLargeZeroNodePages @ 0x1406501A8 (MiPurgeLargeZeroNodePages.c)
  */
 
 void __fastcall MiPurgeZeroList(__int64 a1)
@@ -48,10 +48,13 @@ void __fastcall MiPurgeZeroList(__int64 a1)
             MiInsertPageInFreeOrZeroedList(v11, 2);
           }
           _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v5 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;

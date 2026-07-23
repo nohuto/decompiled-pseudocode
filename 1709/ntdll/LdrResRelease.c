@@ -12,94 +12,93 @@
  *     LdrpTraceLoadMUIDll @ 0x1800E0D64 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, int a3)
+__int64 __fastcall LdrResRelease(PVOID InitModule, PCWSTR SourceString, ULONG Flags)
 {
   __int64 v6; // r14
   __int64 v7; // rcx
   __int64 v8; // rsi
   unsigned __int64 v9; // rdi
-  __int64 v10; // r8
-  unsigned int v11; // edi
-  __int64 v13; // rcx
-  int v14; // eax
-  int v15; // [rsp+20h] [rbp-58h] BYREF
-  const wchar_t *v16; // [rsp+28h] [rbp-50h]
-  int v17; // [rsp+30h] [rbp-48h] BYREF
-  const wchar_t *v18; // [rsp+38h] [rbp-40h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
-  int v20; // [rsp+80h] [rbp+8h] BYREF
-  wchar_t *v21; // [rsp+98h] [rbp+20h] BYREF
+  unsigned __int32 v10; // edi
+  __int64 v12; // rcx
+  NTSTATUS v13; // eax
+  int v14; // [rsp+20h] [rbp-58h] BYREF
+  const wchar_t *v15; // [rsp+28h] [rbp-50h]
+  int v16; // [rsp+30h] [rbp-48h] BYREF
+  const wchar_t *v17; // [rsp+38h] [rbp-40h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+80h] [rbp+8h] BYREF
+  PVOID DllHandle; // [rsp+98h] [rbp+20h] BYREF
 
-  v15 = 2621478;
-  v16 = L"LdrResRelease Enter";
-  v17 = 2490404;
-  v18 = L"LdrResRelease Exit";
+  v14 = 2621478;
+  v15 = L"LdrResRelease Enter";
+  v16 = 2490404;
+  v17 = L"LdrResRelease Exit";
   v6 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v7 = 2147353477LL;
   if ( (*(_BYTE *)v7 & 1) != 0 )
   {
     v8 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v13 = (__int64)NtCurrentPeb()->SharedData + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v12 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v13 = 2147353476LL;
-    LdrpTraceLoadMUIDll(&v15, *(unsigned __int8 *)v13);
+      v12 = 2147353476LL;
+    LdrpTraceLoadMUIDll(&v14, *(unsigned __int8 *)v12);
   }
   else
   {
     v8 = 2147353476LL;
   }
-  if ( !String2 )
+  if ( !InitModule )
     return 3221225485LL;
-  v21 = 0LL;
-  if ( (a3 & 0x8800) == 0x8800 )
+  DllHandle = 0LL;
+  if ( (Flags & 0x8800) == 0x8800 )
     return 0LL;
   if ( (unsigned __int64)SourceString >= 0x10000 )
   {
     if ( *SourceString )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( !RtlCultureNameToLCID(&DestinationString.Length, &v20) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
         return 3221225485LL;
     }
     else
     {
-      v20 = 0;
+      Lcid = 0;
     }
-    LOWORD(SourceString) = v20;
+    LOWORD(SourceString) = Lcid;
   }
-  if ( (a3 & 0xC00) != 0 )
+  if ( (Flags & 0xC00) != 0 )
   {
-    v14 = LdrRemoveLoadAsDataTable(String2, &v21, 0LL, a3);
-    v11 = v14;
-    if ( v14 < 0 )
+    v13 = LdrRemoveLoadAsDataTable(InitModule, &DllHandle, 0LL, Flags);
+    v10 = v13;
+    if ( v13 < 0 )
     {
-      if ( v14 != -1073740024 && v14 != -1073741511 )
+      if ( v13 != -1073740024 && v13 != -1073741511 )
         goto LABEL_12;
       goto LABEL_11;
     }
   }
   else
   {
-    v21 = String2;
+    DllHandle = InitModule;
   }
-  v9 = (unsigned __int64)v21;
-  LdrUnloadAlternateResourceModuleEx((__int64)v21, (__int16)SourceString);
-  if ( (a3 & 0xC00) != 0 && v9 )
-    NtUnmapViewOfSection(-1LL, v9 & 0xFFFFFFFFFFFFFFFCuLL, v10);
+  v9 = (unsigned __int64)DllHandle;
+  LdrUnloadAlternateResourceModuleEx(DllHandle, (unsigned __int16)SourceString);
+  if ( (Flags & 0xC00) != 0 && v9 )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(v9 & 0xFFFFFFFFFFFFFFFCuLL));
 LABEL_11:
-  v11 = 0;
+  v10 = 0;
 LABEL_12:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 555;
   if ( (*(_BYTE *)v6 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 554;
-    LdrpTraceLoadMUIDll(&v17, *(unsigned __int8 *)v8);
+    LdrpTraceLoadMUIDll(&v16, *(unsigned __int8 *)v8);
   }
-  return v11;
+  return v10;
 }

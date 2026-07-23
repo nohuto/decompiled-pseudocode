@@ -1,11 +1,11 @@
 /*
- * XREFs of Xp10BuildAndWriteHuffmanEncodings @ 0x140788560
+ * XREFs of Xp10BuildAndWriteHuffmanEncodings @ 0x140788490
  * Callers:
- *     Xp10ExecuteHuffmanEncode @ 0x14078A8B0 (Xp10ExecuteHuffmanEncode.c)
+ *     Xp10ExecuteHuffmanEncode @ 0x14078A7E0 (Xp10ExecuteHuffmanEncode.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     Xp10BuildAndWriteHuffmanTables @ 0x14078892C (Xp10BuildAndWriteHuffmanTables.c)
- *     Xp10BuildHuffmanEncodings @ 0x140789654 (Xp10BuildHuffmanEncodings.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     Xp10BuildAndWriteHuffmanTables @ 0x14078885C (Xp10BuildAndWriteHuffmanTables.c)
+ *     Xp10BuildHuffmanEncodings @ 0x140789584 (Xp10BuildHuffmanEncodings.c)
  */
 
 __int64 __fastcall Xp10BuildAndWriteHuffmanEncodings(
@@ -114,7 +114,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanEncodings(
     v29 = v28;
     if ( v28 >= v24 )
       v29 = v24;
-    *v26 |= (byte_1400335D0[4 * v29] & 2) << (v25 & 7);
+    *v26 |= (byte_140033A40[4 * v29] & 2) << (v25 & 7);
     v30 = v24 - (unsigned int)v29;
     v31 = v26 + 1;
     v32 = 2u >> v28;
@@ -132,7 +132,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanEncodings(
       while ( v33 );
     }
     if ( (_DWORD)v30 )
-      *v31 |= (unsigned __int8)v32 & byte_1400335D0[4 * v30];
+      *v31 |= (unsigned __int8)v32 & byte_140033A40[4 * v30];
     *(_DWORD *)(a6 + 8) = v25 + v24;
   }
   result = Xp10BuildAndWriteHuffmanTables(a1, a5, a3, a6);
@@ -164,13 +164,13 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanEncodings(
               v43 = (unsigned __int8)v41;
               v40 -= 8;
               v41 >>= 8;
-              v39 = *((unsigned __int8 *)qword_140033600 + v43) | (v39 << 8);
+              v39 = *((unsigned __int8 *)qword_140033A70 + v43) | (v39 << 8);
               --v42;
             }
             while ( v42 );
           }
           if ( v40 )
-            v39 = (*((unsigned __int8 *)qword_140033600 + (unsigned __int8)v41) | (v39 << 8)) >> (8 - v40);
+            v39 = (*((unsigned __int8 *)qword_140033A70 + (unsigned __int8)v41) | (v39 << 8)) >> (8 - v40);
           v37 = (unsigned int)(v37 + 1);
           *v38++ = v60 & 0x1F | (32 * v39);
         }
@@ -194,13 +194,13 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanEncodings(
               v49 = (unsigned __int8)v46;
               v47 -= 8;
               v46 >>= 8;
-              v45 = *((unsigned __int8 *)qword_140033600 + v49) | (v45 << 8);
+              v45 = *((unsigned __int8 *)qword_140033A70 + v49) | (v45 << 8);
               --v48;
             }
             while ( v48 );
           }
           if ( v47 )
-            v45 = (*((unsigned __int8 *)qword_140033600 + (unsigned __int8)v46) | (v45 << 8)) >> (8 - v47);
+            v45 = (*((unsigned __int8 *)qword_140033A70 + (unsigned __int8)v46) | (v45 << 8)) >> (8 - v47);
           LODWORD(v37) = v37 + 1;
           *v44++ = v58 & 0x1F | (32 * v45);
         }
@@ -210,7 +210,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanEncodings(
       }
       v50 = (_BYTE *)(*(_QWORD *)v21 + ((unsigned __int64)v25 >> 3));
       v51 = (void *)(*(_QWORD *)v21 + ((unsigned __int64)(v25 + 7) >> 3));
-      *v50 &= byte_1400335D0[4 * (v25 & 7)];
+      *v50 &= byte_140033A40[4 * (v25 & 7)];
       memset_0(v51, 0, (unsigned __int64)(v59 + 7) >> 3);
       v52 = *(_DWORD *)(v21 + 12);
       *(_DWORD *)(v21 + 8) = v25;
@@ -236,7 +236,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanEncodings(
           while ( v57 );
         }
         if ( (_DWORD)v55 )
-          *v56 |= (unsigned __int8)v54 & byte_1400335D0[4 * v55];
+          *v56 |= (unsigned __int8)v54 & byte_140033A40[4 * v55];
         *(_DWORD *)(v21 + 8) = v23 + v25;
       }
     }

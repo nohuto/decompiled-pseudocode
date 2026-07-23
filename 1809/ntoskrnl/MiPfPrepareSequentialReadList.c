@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPfPrepareSequentialReadList @ 0x1405EBA20
+ * XREFs of MiPfPrepareSequentialReadList @ 0x1405ECA20
  * Callers:
- *     MmPrefetchForCacheManager @ 0x140662638 (MmPrefetchForCacheManager.c)
- *     MiPrefetchControlArea @ 0x1406C7244 (MiPrefetchControlArea.c)
+ *     MmPrefetchForCacheManager @ 0x1406637F8 (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x1406C84E4 (MiPrefetchControlArea.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiEndingOffsetWithLock @ 0x140031000 (MiEndingOffsetWithLock.c)
@@ -10,27 +10,27 @@
  *     MiControlAreaUsingExtents @ 0x1400321B0 (MiControlAreaUsingExtents.c)
  *     MiUpdatePfnPriorityByPte @ 0x14003DA70 (MiUpdatePfnPriorityByPte.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
- *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
- *     MiUseSlabAllocator @ 0x140065C90 (MiUseSlabAllocator.c)
- *     MiSetPfnLink @ 0x140065CA4 (MiSetPfnLink.c)
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiReadPteShadow @ 0x14006C550 (MiReadPteShadow.c)
- *     MiAddViewsForSection @ 0x140077170 (MiAddViewsForSection.c)
- *     MiGetControlAreaPtes @ 0x140077D18 (MiGetControlAreaPtes.c)
- *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x1400DED84 (MiRemoveViewsFromSectionWithPfn.c)
- *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
- *     MiGetAvailablePagesExcludeSlists @ 0x1401348AC (MiGetAvailablePagesExcludeSlists.c)
- *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
- *     MiRefillPurgedExtents @ 0x1402B6C50 (MiRefillPurgedExtents.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiReleaseReadListResources @ 0x1406628D0 (MiReleaseReadListResources.c)
- *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
+ *     MiObtainFaultCharges @ 0x140064D50 (MiObtainFaultCharges.c)
+ *     MiUseSlabAllocator @ 0x140065C80 (MiUseSlabAllocator.c)
+ *     MiSetPfnLink @ 0x140065C94 (MiSetPfnLink.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiReadPteShadow @ 0x14006C540 (MiReadPteShadow.c)
+ *     MiAddViewsForSection @ 0x140077160 (MiAddViewsForSection.c)
+ *     MiGetControlAreaPtes @ 0x140077D08 (MiGetControlAreaPtes.c)
+ *     MiGetControlAreaPartition @ 0x1400937E8 (MiGetControlAreaPartition.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400946E4 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiOffsetToProtos @ 0x1400AF770 (MiOffsetToProtos.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x1400DEE04 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiReturnFaultCharges @ 0x140134924 (MiReturnFaultCharges.c)
+ *     MiGetAvailablePagesExcludeSlists @ 0x14013497C (MiGetAvailablePagesExcludeSlists.c)
+ *     MiGetSharedProtos @ 0x140177274 (MiGetSharedProtos.c)
+ *     MiRefillPurgedExtents @ 0x1402B6E40 (MiRefillPurgedExtents.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiReleaseReadListResources @ 0x140663A90 (MiReleaseReadListResources.c)
+ *     MiPfAllocateMdls @ 0x140699460 (MiPfAllocateMdls.c)
  */
 
 __int64 MiPfPrepareSequentialReadList(__int64 a1, __int64 a2, unsigned __int64 a3, ...)
@@ -419,7 +419,7 @@ LABEL_54:
   if ( v31 )
   {
     v78 = v31;
-    PageChain = MiGetPageChain(v41, (__int64)v73, (v75 >> byte_14043A049) + 1, v68, 0, -1LL, (unsigned __int64 *)va);
+    PageChain = MiGetPageChain(v41, (__int64)v73, (v75 >> byte_14043B109) + 1, v68, 0, -1LL, (unsigned __int64 *)va);
     v45 = v78;
     v46 = (_QWORD *)PageChain;
     if ( v78 != v61 )

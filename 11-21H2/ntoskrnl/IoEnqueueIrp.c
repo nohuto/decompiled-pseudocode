@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
+ *     sub_1402AE1B0 @ 0x1402AE1B0 (sub_1402AE1B0.c)
  */
 
 __int64 __fastcall IoEnqueueIrp(__int64 a1)
 {
-  return IopQueueThreadIrp(a1);
+  return sub_1402AE1B0(a1);
 }

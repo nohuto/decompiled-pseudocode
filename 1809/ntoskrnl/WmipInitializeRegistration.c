@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipInitializeRegistration @ 0x1409D45A0
+ * XREFs of WmipInitializeRegistration @ 0x1409D55A0
  * Callers:
- *     WMIInitialize @ 0x1409AFD00 (WMIInitialize.c)
- *     WmipDriverEntry @ 0x1409D4020 (WmipDriverEntry.c)
+ *     WMIInitialize @ 0x1409B0D00 (WMIInitialize.c)
+ *     WmipDriverEntry @ 0x1409D5020 (WmipDriverEntry.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14015F9A0 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x14015FAA0 (ExInitializeNPagedLookasideListInternal.c)
  */
 
 void __fastcall WmipInitializeRegistration(int a1)

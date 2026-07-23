@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventQosSupport @ 0x140B2CA3C
+ * XREFs of PpmEventQosSupport @ 0x140B2EABC
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140A9D254 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AD8DD8 (PpmPerfUpdateDomainPolicy.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventQosSupport(char a1)
@@ -27,7 +27,7 @@ char __fastcall PpmEventQosSupport(char a1)
     v2 = &PPM_ETW_QOS_SUPPORT_CHANGED;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v1) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v2);
+    LOBYTE(v1) = EtwEventEnabled(PpmEtwHandle, v2);
     if ( (_BYTE)v1 )
     {
       *(_QWORD *)&UserData.Size = 4LL;
@@ -38,12 +38,7 @@ char __fastcall PpmEventQosSupport(char a1)
       UserData.Ptr = (ULONGLONG)&v4;
       v7 = &v5;
       v9 = &PpmPerfQosDisableReasons;
-      LOBYTE(v1) = EtwWrite(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v2,
-                     0LL,
-                     3u,
-                     &UserData);
+      LOBYTE(v1) = EtwWrite(PpmEtwHandle, v2, 0LL, 3u, &UserData);
     }
   }
   return (char)v1;

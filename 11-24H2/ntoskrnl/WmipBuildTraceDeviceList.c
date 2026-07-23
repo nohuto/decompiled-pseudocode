@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipBuildTraceDeviceList @ 0x14048A824
+ * XREFs of WmipBuildTraceDeviceList @ 0x14048564C
  * Callers:
- *     WmiSetNetworkNotify @ 0x1407A5604 (WmiSetNetworkNotify.c)
- *     WmiTraceRundownNotify @ 0x140A164A4 (WmiTraceRundownNotify.c)
+ *     WmiSetNetworkNotify @ 0x1407A5744 (WmiSetNetworkNotify.c)
+ *     WmiTraceRundownNotify @ 0x140A0F684 (WmiTraceRundownNotify.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutant @ 0x140337970 (KeReleaseMutant.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WmipFreeTraceDeviceList @ 0x140A16544 (WmipFreeTraceDeviceList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseMutant @ 0x1402DEA20 (KeReleaseMutant.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WmipFreeTraceDeviceList @ 0x140A0F724 (WmipFreeTraceDeviceList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WmipBuildTraceDeviceList(int a1, _QWORD *a2, unsigned int *a3)
@@ -40,7 +40,7 @@ LABEL_17:
     KeReleaseMutant((PRKMUTANT)&WmipSMMutex, 1, 0, 0);
     return v6;
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 16LL * (unsigned int)WmipInUseRegEntryCount, 0x70696D57u);
   v11 = (void *)Pool2;
   if ( !Pool2 )
   {

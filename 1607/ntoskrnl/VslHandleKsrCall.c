@@ -1,9 +1,9 @@
 /*
- * XREFs of VslHandleKsrCall @ 0x1401C2A7C
+ * XREFs of VslHandleKsrCall @ 0x1401C2960
  * Callers:
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VslHandleKsrCall(__int64 a1)

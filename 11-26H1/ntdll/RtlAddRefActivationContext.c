@@ -1,26 +1,28 @@
 /*
- * XREFs of RtlAddRefActivationContext @ 0x1800126B0
+ * XREFs of RtlAddRefActivationContext @ 0x18005DDE0
  * Callers:
- *     RtlGetActiveActivationContext @ 0x180011D20 (RtlGetActiveActivationContext.c)
- *     RtlActivateActivationContextEx @ 0x180011FC0 (RtlActivateActivationContextEx.c)
- *     RtlpFindActivationContextSection_FillOutReturnedData @ 0x180012924 (RtlpFindActivationContextSection_FillOutReturnedData.c)
- *     LdrpAllocateModuleEntry @ 0x1800D1C60 (LdrpAllocateModuleEntry.c)
+ *     RtlGetActiveActivationContext @ 0x18005D450 (RtlGetActiveActivationContext.c)
+ *     RtlActivateActivationContextEx @ 0x18005D6F0 (RtlActivateActivationContextEx.c)
+ *     RtlpFindActivationContextSection_FillOutReturnedData @ 0x18005E054 (RtlpFindActivationContextSection_FillOutReturnedData.c)
+ *     LdrpAllocateModuleEntry @ 0x1800CF3D0 (LdrpAllocateModuleEntry.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall RtlAddRefActivationContext(volatile signed __int32 *a1)
+void __cdecl RtlAddRefActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
-  signed __int32 v1; // eax
+  LONG RefCount; // eax
 
-  if ( a1 && (((unsigned __int64)a1 - 1) | 7) != 0xFFFFFFFFFFFFFFFFuLL && *a1 != 0x7FFFFFFF )
+  if ( ActivationContext
+    && (((unsigned __int64)&ActivationContext[-1].InlineStorageMapEntries[31] + 7) | 7) != 0xFFFFFFFFFFFFFFFFuLL
+    && ActivationContext->RefCount != 0x7FFFFFFF )
   {
     do
     {
-      if ( *a1 == 0x7FFFFFFF )
+      if ( ActivationContext->RefCount == 0x7FFFFFFF )
         break;
-      v1 = *a1;
+      RefCount = ActivationContext->RefCount;
     }
-    while ( v1 != _InterlockedCompareExchange(a1, v1 + 1, v1) );
+    while ( RefCount != _InterlockedCompareExchange(&ActivationContext->RefCount, RefCount + 1, RefCount) );
   }
 }

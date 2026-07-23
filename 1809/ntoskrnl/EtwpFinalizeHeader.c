@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpFinalizeHeader @ 0x14069A3FC
+ * XREFs of EtwpFinalizeHeader @ 0x14069B5BC
  * Callers:
- *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
- *     EtwpCreateLogFile @ 0x140699AFC (EtwpCreateLogFile.c)
- *     EtwpBufferingModeFlush @ 0x1408BE018 (EtwpBufferingModeFlush.c)
+ *     EtwpLogger @ 0x1405C2430 (EtwpLogger.c)
+ *     EtwpCreateLogFile @ 0x14069ACBC (EtwpCreateLogFile.c)
+ *     EtwpBufferingModeFlush @ 0x1408BF2D8 (EtwpBufferingModeFlush.c)
  * Callees:
  *     EtwpQueryMaximumFileSize @ 0x140014A4C (EtwpQueryMaximumFileSize.c)
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1401B8250 (ZwReadFile.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x1401B8AB0 (ZwQueryVolumeInformationFile.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpIsWow64Logger @ 0x14069AB50 (EtwpIsWow64Logger.c)
- *     EtwpAddDebugInfoEvents @ 0x1406FE100 (EtwpAddDebugInfoEvents.c)
- *     EtwpAddBinaryInfoEvents @ 0x1408BDE9C (EtwpAddBinaryInfoEvents.c)
+ *     KeQuerySystemTimePrecise @ 0x14008A4E0 (KeQuerySystemTimePrecise.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1401B83B0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     ZwSetInformationFile @ 0x1401B87D0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1401B8C10 (ZwQueryVolumeInformationFile.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpIsWow64Logger @ 0x14069BD10 (EtwpIsWow64Logger.c)
+ *     EtwpAddDebugInfoEvents @ 0x1406FF3A0 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1408BF15C (EtwpAddBinaryInfoEvents.c)
  */
 
 NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
@@ -25,10 +25,10 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
   _QWORD *v3; // r14
   ULONG Length; // esi
   char v8; // r12
-  PVOID Buffer; // rdi
+  LARGE_INTEGER *Buffer; // rdi
   NTSTATUS v10; // ebp
   int v11; // edx
-  unsigned int v12; // eax
+  unsigned int HighPart; // eax
   NTSTATUS v13; // eax
   NTSTATUS result; // eax
   unsigned __int64 MaximumFileSize; // rax
@@ -54,7 +54,7 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
     Length = *(_DWORD *)(a1 + 4);
     v8 = 1;
   }
-  Buffer = ExAllocatePoolWithTag(PagedPool, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
+  Buffer = (LARGE_INTEGER *)ExAllocatePoolWithTag(PagedPool, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
   if ( !Buffer )
     return -1073741801;
   ByteOffset.QuadPart = 0LL;
@@ -63,21 +63,21 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
   {
     if ( !a3 )
     {
-      *((_DWORD *)Buffer + 35) = *(_DWORD *)(a1 + 264);
-      *((_DWORD *)Buffer + 29) = EtwpQueryUsedProcessorCount(a1);
-      *((_DWORD *)Buffer + 38) += *(_DWORD *)(a1 + 256);
-      KeQuerySystemTimePrecise((__int64 *)Buffer + 15);
+      Buffer[17].HighPart = *(_DWORD *)(a1 + 264);
+      Buffer[14].HighPart = EtwpQueryUsedProcessorCount(a1);
+      Buffer[19].LowPart += *(_DWORD *)(a1 + 256);
+      KeQuerySystemTimePrecise(Buffer + 15);
       if ( (unsigned __int8)EtwpIsWow64Logger(a1) )
-        *((_DWORD *)Buffer + 93) += v11;
+        Buffer[46].HighPart += v11;
       else
-        *((_DWORD *)Buffer + 95) += v11;
+        Buffer[47].HighPart += v11;
     }
     if ( v8 )
     {
-      v12 = *((_DWORD *)Buffer + 1);
-      if ( v12 < Length && v12 >= 0x178 )
+      HighPart = Buffer->HighPart;
+      if ( HighPart < Length && HighPart >= 0x178 )
       {
-        *((_DWORD *)Buffer + 12) = v12;
+        Buffer[6].LowPart = HighPart;
         if ( (_QWORD *)*v3 != v3 || *(_DWORD *)(a1 + 136) )
           EtwpAddDebugInfoEvents(a1, (_DWORD)Buffer, Length, (_DWORD)Buffer + 88, 3);
         if ( *(_QWORD *)(a1 + 1024) != a1 + 1024 )

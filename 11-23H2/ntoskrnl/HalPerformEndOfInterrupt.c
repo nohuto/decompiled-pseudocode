@@ -1,21 +1,21 @@
 /*
- * XREFs of HalPerformEndOfInterrupt @ 0x140331810
+ * XREFs of HalPerformEndOfInterrupt @ 0x140331AA0
  * Callers:
- *     KiChainedDispatch @ 0x1404202A0 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x140420C70 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x1404210B0 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x1404214F0 (KiInterruptDispatchNoLockNoEtw.c)
- *     KxIsrLinkage @ 0x1404229F0 (KxIsrLinkage.c)
- *     KiApcInterrupt @ 0x140424740 (KiApcInterrupt.c)
- *     KiHvInterruptDispatch @ 0x140425FE0 (KiHvInterruptDispatch.c)
- *     KiSwInterrupt @ 0x140426B20 (KiSwInterrupt.c)
- *     KiDpcInterrupt @ 0x140427310 (KiDpcInterrupt.c)
- *     KiIpiInterrupt @ 0x140427A20 (KiIpiInterrupt.c)
- *     HvlPerformEndOfInterrupt @ 0x14045F4A0 (HvlPerformEndOfInterrupt.c)
+ *     KiChainedDispatch @ 0x140420630 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x140421000 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x140421440 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140421880 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KxIsrLinkage @ 0x140422D80 (KxIsrLinkage.c)
+ *     KiApcInterrupt @ 0x140424AD0 (KiApcInterrupt.c)
+ *     KiHvInterruptDispatch @ 0x140426370 (KiHvInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x140426EB0 (KiSwInterrupt.c)
+ *     KiDpcInterrupt @ 0x1404276A0 (KiDpcInterrupt.c)
+ *     KiIpiInterrupt @ 0x140427DB0 (KiIpiInterrupt.c)
+ *     HvlPerformEndOfInterrupt @ 0x14045F8A0 (HvlPerformEndOfInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x140506718 (HalpInterruptPerformDirectedEndOfInterrupt.c)
- *     HalpInterruptServiceActiveBoth @ 0x14050678C (HalpInterruptServiceActiveBoth.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x140506C68 (HalpInterruptPerformDirectedEndOfInterrupt.c)
+ *     HalpInterruptServiceActiveBoth @ 0x140506CDC (HalpInterruptServiceActiveBoth.c)
  */
 
 __int64 __fastcall HalPerformEndOfInterrupt(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpGetCurrentMicrocodePlatform @ 0x1405593C0
+ * XREFs of HalpGetCurrentMicrocodePlatform @ 0x140556FF0
  * Callers:
- *     HalpGetMicrocodePatchRecord @ 0x14055940C (HalpGetMicrocodePatchRecord.c)
- *     HalpMcUpdateInitializeBSP @ 0x140559BAC (HalpMcUpdateInitializeBSP.c)
+ *     HalpGetMicrocodePatchRecord @ 0x14055703C (HalpGetMicrocodePatchRecord.c)
+ *     HalpMcUpdateInitializeBSP @ 0x1405577DC (HalpMcUpdateInitializeBSP.c)
  * Callees:
  *     <none>
  */

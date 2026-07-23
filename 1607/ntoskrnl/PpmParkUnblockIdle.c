@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkUnblockIdle @ 0x1400D520C
+ * XREFs of PpmParkUnblockIdle @ 0x1400D30AC
  * Callers:
  *     <none>
  * Callees:
- *     KeRemoveProcessorAffinityEx @ 0x140030FBC (KeRemoveProcessorAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1400C8A70 (KeCountSetBitsAffinityEx.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     PpmPerfQueueAction @ 0x14012F6DC (PpmPerfQueueAction.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140030B3C (KeRemoveProcessorAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400C6910 (KeCountSetBitsAffinityEx.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     PpmPerfQueueAction @ 0x14012FC4C (PpmPerfQueueAction.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 char PpmParkUnblockIdle()

@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwSetInformationVirtualMemory @ 0x1406A9A10
+ * XREFs of ZwSetInformationVirtualMemory @ 0x1406AA9B0
  * Callers:
- *     CmSiPrefetchVirtualMemoryRange @ 0x140488BFC (CmSiPrefetchVirtualMemoryRange.c)
+ *     CmSiPrefetchVirtualMemoryRange @ 0x140483CEC (CmSiPrefetchVirtualMemoryRange.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationVirtualMemory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

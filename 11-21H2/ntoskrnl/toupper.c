@@ -1,7 +1,7 @@
 /*
  * XREFs of toupper @ 0x1403E30E0
  * Callers:
- *     AslStringPatternMatchExA @ 0x1406AD17C (AslStringPatternMatchExA.c)
+ *     sub_1406AD17C @ 0x1406AD17C (sub_1406AD17C.c)
  * Callees:
  *     RtlUpcaseUnicodeToMultiByteN @ 0x140759990 (RtlUpcaseUnicodeToMultiByteN.c)
  *     RtlAnsiCharToUnicodeChar @ 0x1407CD880 (RtlAnsiCharToUnicodeChar.c)
@@ -10,7 +10,7 @@
 int __cdecl toupper(int C)
 {
   int result; // eax
-  int *v2; // [rsp+30h] [rbp-10h] BYREF
+  PUCHAR SourceCharacter; // [rsp+30h] [rbp-10h] BYREF
   int v3; // [rsp+50h] [rbp+10h] BYREF
   CHAR MultiByteString; // [rsp+58h] [rbp+18h] BYREF
   unsigned __int8 v5; // [rsp+59h] [rbp+19h]
@@ -19,8 +19,8 @@ int __cdecl toupper(int C)
 
   v3 = C;
   BytesInMultiByteString = 0;
-  v2 = &v3;
-  UnicodeString = RtlAnsiCharToUnicodeChar(&v2);
+  SourceCharacter = (PUCHAR)&v3;
+  UnicodeString = RtlAnsiCharToUnicodeChar(&SourceCharacter);
   if ( RtlUpcaseUnicodeToMultiByteN(&MultiByteString, 2u, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
     return v3;
   result = (unsigned __int8)MultiByteString;

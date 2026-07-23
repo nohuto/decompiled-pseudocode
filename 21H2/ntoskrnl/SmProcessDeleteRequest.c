@@ -1,10 +1,10 @@
 /*
- * XREFs of SmProcessDeleteRequest @ 0x140929B18
+ * XREFs of SmProcessDeleteRequest @ 0x140929C78
  * Callers:
- *     SmSetStoreInformation @ 0x1406BE524 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x14061D784 (SmSetStoreInformation.c)
  * Callees:
- *     SmKmStoreDelete @ 0x1406BDA60 (SmKmStoreDelete.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmKmStoreDelete @ 0x14061CC70 (SmKmStoreDelete.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessDeleteRequest(__int64 a1, __int64 *a2, int a3, char a4)

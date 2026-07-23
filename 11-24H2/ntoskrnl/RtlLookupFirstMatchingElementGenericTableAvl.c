@@ -1,20 +1,18 @@
 /*
- * XREFs of RtlLookupFirstMatchingElementGenericTableAvl @ 0x1403EA3C0
+ * XREFs of RtlLookupFirstMatchingElementGenericTableAvl @ 0x1403D9D80
  * Callers:
  *     <none>
  * Callees:
- *     FindNodeOrParent @ 0x1403EA460 (FindNodeOrParent.c)
- *     RealPredecessor @ 0x1403EA558 (RealPredecessor.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     FindNodeOrParent @ 0x1403D9E20 (FindNodeOrParent.c)
+ *     RealPredecessor @ 0x1403D9F18 (RealPredecessor.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PVOID __stdcall RtlLookupFirstMatchingElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer, PVOID *RestartKey)
 {
-  char *v7; // rbx
-  char *v8; // rsi
-  char *v9; // rbp
-  __int64 v10; // rax
-  __int64 v11; // r9
+  __int64 v7; // rbx
+  __int64 v8; // rsi
+  void *v9; // rbp
 
   *RestartKey = 0LL;
   if ( (unsigned int)FindNodeOrParent(Table, Buffer) != 1 )
@@ -23,11 +21,10 @@ PVOID __stdcall RtlLookupFirstMatchingElementGenericTableAvl(PRTL_AVL_TABLE Tabl
   do
   {
     v8 = v7;
-    v9 = v7;
-    v10 = RealPredecessor(v7);
-    v7 = (char *)v10;
+    v9 = (void *)v7;
+    v7 = RealPredecessor(v7);
   }
-  while ( v10 && (unsigned int)guard_dispatch_icall_no_overrides(Table, Buffer, v10 + 32, v11) == 2 );
+  while ( v7 && (unsigned int)guard_dispatch_icall_no_overrides(Table, Buffer) == 2 );
   *RestartKey = v9;
-  return v8 + 32;
+  return (PVOID)(v8 + 32);
 }

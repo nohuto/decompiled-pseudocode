@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEnumerateNextSchedulerSubNodeInSystem @ 0x1405708A8
+ * XREFs of KiEnumerateNextSchedulerSubNodeInSystem @ 0x140570DE8
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392E0 (KiChooseTargetProcessor.c)
- *     KiTraceLogHeteroRundown @ 0x1403B060C (KiTraceLogHeteroRundown.c)
+ *     KiChooseTargetProcessor @ 0x1402393B0 (KiChooseTargetProcessor.c)
+ *     KiTraceLogHeteroRundown @ 0x1403B07EC (KiTraceLogHeteroRundown.c)
  * Callees:
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BFC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1E8C (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
  */
 
 __int64 __fastcall KiEnumerateNextSchedulerSubNodeInSystem(__int64 a1, _QWORD *a2)

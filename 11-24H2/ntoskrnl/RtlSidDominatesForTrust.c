@@ -1,46 +1,45 @@
 /*
- * XREFs of RtlSidDominatesForTrust @ 0x140359950
+ * XREFs of RtlSidDominatesForTrust @ 0x1403E3BC0
  * Callers:
- *     SepCommonAccessCheckEx @ 0x140360470 (SepCommonAccessCheckEx.c)
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x140608F80 (SeCreateClientSecurityFromSubjectContextEx.c)
- *     SeTokenCanImpersonate @ 0x140910A30 (SeTokenCanImpersonate.c)
- *     SepAdjustAccessStateForConstraints @ 0x1409175B0 (SepAdjustAccessStateForConstraints.c)
- *     SeAdjustAccessStateForAccessConstraints @ 0x1409AABF0 (SeAdjustAccessStateForAccessConstraints.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x1409B0CE0 (SeShouldCheckForAccessRightsFromParent.c)
- *     SeIsTokenAssignableToProcess @ 0x140A31678 (SeIsTokenAssignableToProcess.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x140A3FF20 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x140606840 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SeTokenCanImpersonate @ 0x1408E8180 (SeTokenCanImpersonate.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14090B020 (SepAdjustAccessStateForConstraints.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x140994420 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x14099A7A0 (SeShouldCheckForAccessRightsFromParent.c)
+ *     SeIsTokenAssignableToProcess @ 0x140A255F4 (SeIsTokenAssignableToProcess.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x140A35800 (SeCreateClientSecurityFromSubjectContext.c)
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1403599E0 (RtlIsValidProcessTrustLabelSid.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x1403E3C50 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-__int64 __fastcall RtlSidDominatesForTrust(__int64 a1, __int64 a2, bool *a3)
+NTSTATUS __cdecl RtlSidDominatesForTrust(PSID Sid1, PSID Sid2, PBOOLEAN DominatesTrust)
 {
-  __int64 v3; // r9
+  PSID v3; // r9
   __int64 v5; // r9
   __int64 v6; // r10
 
-  *a3 = 0;
-  v3 = a2;
-  if ( a1 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(a1, a2, a3) )
-    return 3221225485LL;
+  *DominatesTrust = 0;
+  v3 = Sid2;
+  if ( Sid1 && !RtlIsValidProcessTrustLabelSid(Sid1) )
+    return -1073741811;
   if ( !v3 )
   {
 LABEL_3:
-    *a3 = 1;
-    return 0LL;
+    *DominatesTrust = 1;
+    return 0;
   }
-  if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v3, a2, a3) )
-    return 3221225485LL;
+  if ( !RtlIsValidProcessTrustLabelSid(v3) )
+    return -1073741811;
   if ( v6 )
   {
     if ( *(_DWORD *)(v6 + 8) >= *(_DWORD *)(v5 + 8) && *(_DWORD *)(v6 + 12) >= *(_DWORD *)(v5 + 12) )
       goto LABEL_3;
-    *a3 = 0;
-    return 0LL;
+    *DominatesTrust = 0;
+    return 0;
   }
   else
   {
-    *a3 = *(_DWORD *)(v5 + 8) == 0;
-    return 0LL;
+    *DominatesTrust = *(_DWORD *)(v5 + 8) == 0;
+    return 0;
   }
 }

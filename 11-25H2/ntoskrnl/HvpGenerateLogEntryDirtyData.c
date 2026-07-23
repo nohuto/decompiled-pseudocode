@@ -12,7 +12,7 @@
 
 __int64 __fastcall HvpGenerateLogEntryDirtyData(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
-  RTL_BITMAP *v6; // rdi
+  _RTL_BITMAP *v6; // rdi
   int v10; // r9d
   __int64 v11; // rbx
   ULONG v12; // ebx
@@ -23,7 +23,7 @@ __int64 __fastcall HvpGenerateLogEntryDirtyData(__int64 a1, int a2, __int64 a3, 
 
   v15[0] = 0LL;
   v17 = 0;
-  v6 = (RTL_BITMAP *)(a1 + 88);
+  v6 = (_RTL_BITMAP *)(a1 + 88);
   a6 = 0;
   v16 = 0;
   if ( (unsigned __int8)HvpFindNextDirtyBlock(

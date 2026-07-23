@@ -1,23 +1,23 @@
 /*
- * XREFs of HalGetAdapterV3 @ 0x1407C33B0
+ * XREFs of HalGetAdapterV3 @ 0x1407C38D0
  * Callers:
- *     HalpGetAdapter @ 0x14076474C (HalpGetAdapter.c)
+ *     HalpGetAdapter @ 0x14076490C (HalpGetAdapter.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
- *     HalpAddAdapterToList @ 0x1403798BC (HalpAddAdapterToList.c)
- *     HalpDmaFindAdapterByDeviceObject @ 0x14037996C (HalpDmaFindAdapterByDeviceObject.c)
- *     HalpDmaIsAutomaticDomain @ 0x1404C4C50 (HalpDmaIsAutomaticDomain.c)
- *     HalpAddAdapterToSystemList @ 0x1404CE14C (HalpAddAdapterToSystemList.c)
- *     HalpDmaControllerValidateRequestLineBinding @ 0x1404CED7C (HalpDmaControllerValidateRequestLineBinding.c)
- *     HalpFindAdapterByRequestLine @ 0x1404CF098 (HalpFindAdapterByRequestLine.c)
- *     HalpFindDmaControllerByRequestLine @ 0x1404CF1D4 (HalpFindDmaControllerByRequestLine.c)
- *     HalpGetCacheCoherency @ 0x140764CFC (HalpGetCacheCoherency.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaGetAdapterVersion @ 0x140234490 (HalpDmaGetAdapterVersion.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     ObReferenceObjectByPointer @ 0x1402A5010 (ObReferenceObjectByPointer.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     HalpAddAdapterToList @ 0x14037940C (HalpAddAdapterToList.c)
+ *     HalpDmaFindAdapterByDeviceObject @ 0x1403794BC (HalpDmaFindAdapterByDeviceObject.c)
+ *     HalpDmaIsAutomaticDomain @ 0x1404C4E90 (HalpDmaIsAutomaticDomain.c)
+ *     HalpAddAdapterToSystemList @ 0x1404CE38C (HalpAddAdapterToSystemList.c)
+ *     HalpDmaControllerValidateRequestLineBinding @ 0x1404CEFBC (HalpDmaControllerValidateRequestLineBinding.c)
+ *     HalpFindAdapterByRequestLine @ 0x1404CF2D8 (HalpFindAdapterByRequestLine.c)
+ *     HalpFindDmaControllerByRequestLine @ 0x1404CF414 (HalpFindDmaControllerByRequestLine.c)
+ *     HalpGetCacheCoherency @ 0x140764EBC (HalpGetCacheCoherency.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C3BC8 (HalpDmaAllocateChildAdapterV3.c)
  */
 
 _QWORD *__fastcall HalGetAdapterV3(__int64 a1, __int64 a2, int a3, _DWORD *a4)
@@ -176,10 +176,10 @@ _QWORD *__fastcall HalGetAdapterV3(__int64 a1, __int64 a2, int a3, _DWORD *a4)
     v38 = v7;
     v30 = v7;
   }
-  v31 = dword_140C4BC98;
+  v31 = dword_140C4BCD8;
   v18 = v30;
   if ( !v14 )
-    v31 = dword_140C4BBB8;
+    v31 = dword_140C4BBF8;
   if ( !v35 )
   {
     v32 = v31 >> 13;

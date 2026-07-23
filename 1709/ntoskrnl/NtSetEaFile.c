@@ -43,7 +43,7 @@ NTSTATUS __stdcall NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock
   __int64 v18; // r9
   NTSTATUS v19; // ebx
   struct _KEVENT *Pool_2; // rax
-  struct _FILE_FULL_EA_INFORMATION *PoolWithQuota_0; // rdi
+  _FILE_FULL_EA_INFORMATION *PoolWithQuota_0; // rdi
   int v22; // eax
   PMDL Mdl; // rcx
   char v24; // [rsp+40h] [rbp-78h]
@@ -144,7 +144,7 @@ LABEL_15:
     {
       if ( (_DWORD)v4 )
       {
-        PoolWithQuota_0 = (struct _FILE_FULL_EA_INFORMATION *)IopVerifierExAllocatePoolWithQuota_0(0LL, v4);
+        PoolWithQuota_0 = (_FILE_FULL_EA_INFORMATION *)IopVerifierExAllocatePoolWithQuota_0(0LL, v4);
         Irp->AssociatedIrp.MasterIrp = (struct _IRP *)PoolWithQuota_0;
         memmove(PoolWithQuota_0, EaBuffer, v4);
         LODWORD(v4) = EaBufferSize;

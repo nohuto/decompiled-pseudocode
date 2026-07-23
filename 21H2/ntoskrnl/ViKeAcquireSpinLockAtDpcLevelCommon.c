@@ -1,21 +1,21 @@
 /*
- * XREFs of ViKeAcquireSpinLockAtDpcLevelCommon @ 0x1409DBEF0
+ * XREFs of ViKeAcquireSpinLockAtDpcLevelCommon @ 0x1409DCEF0
  * Callers:
- *     VerifierKeAcquireSpinLockAtDpcLevel @ 0x1409DA990 (VerifierKeAcquireSpinLockAtDpcLevel.c)
- *     VerifierKeAcquireSpinLockAtDpcLevelNoReboot @ 0x1409DA9E0 (VerifierKeAcquireSpinLockAtDpcLevelNoReboot.c)
+ *     VerifierKeAcquireSpinLockAtDpcLevel @ 0x1409DB990 (VerifierKeAcquireSpinLockAtDpcLevel.c)
+ *     VerifierKeAcquireSpinLockAtDpcLevelNoReboot @ 0x1409DB9E0 (VerifierKeAcquireSpinLockAtDpcLevelNoReboot.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C758C (VfUtilCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
  */
 
 __int64 __fastcall ViKeAcquireSpinLockAtDpcLevelCommon(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // di
 
-  ++dword_140C2A868;
+  ++dword_140C2A8A8;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(a2, 156LL);
   VfUtilCheckKernelAddress(BugCheckParameter3, 8uLL);

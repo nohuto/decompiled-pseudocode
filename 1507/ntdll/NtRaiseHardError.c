@@ -9,11 +9,17 @@
  *     <none>
  */
 
-__int64 NtRaiseHardError()
+NTSTATUS __cdecl NtRaiseHardError(
+        NTSTATUS ErrorStatus,
+        ULONG NumberOfParameters,
+        ULONG UnicodeStringParameterMask,
+        PULONG_PTR Parameters,
+        ULONG ValidResponseOptions,
+        PULONG Response)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 333LL;
+  result = 333;
   __asm { syscall; Low latency system call }
   return result;
 }

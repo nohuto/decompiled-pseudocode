@@ -1,11 +1,11 @@
 /*
- * XREFs of PopWnfMixedRealityCallback @ 0x14071EEF0
+ * XREFs of PopWnfMixedRealityCallback @ 0x140720190
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     ExQueryWnfStateData @ 0x1406C8280 (ExQueryWnfStateData.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14058BA3C (PopSetPowerSettingValueAcDc.c)
+ *     ExQueryWnfStateData @ 0x1406C9520 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfMixedRealityCallback(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IoWMIQuerySingleInstance @ 0x1409CBB30
+ * XREFs of IoWMIQuerySingleInstance @ 0x1409B2250
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WmipQuerySetExecuteSI @ 0x1409CDA80 (WmipQuerySetExecuteSI.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WmipQuerySetExecuteSI @ 0x1409B2A54 (WmipQuerySetExecuteSI.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMIQuerySingleInstance(
@@ -28,7 +28,7 @@ NTSTATUS __stdcall IoWMIQuerySingleInstance(
   Pool2 = OutBuffer;
   if ( !OutBuffer || v5 < v6 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, v6, 0x70696D57u);
     v5 = v6;
     if ( !Pool2 )
       return -1073741670;

@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbReleaseDatabase @ 0x14095CC2C
+ * XREFs of SdbReleaseDatabase @ 0x1409446EC
  * Callers:
- *     PpReleaseBootDDB @ 0x140724EC4 (PpReleaseBootDDB.c)
- *     KsepSdbBootRelease @ 0x140740044 (KsepSdbBootRelease.c)
- *     KsepSdbUnmapFromMemory @ 0x14095CBB4 (KsepSdbUnmapFromMemory.c)
- *     PiReleaseDDB @ 0x140A9687C (PiReleaseDDB.c)
+ *     PpReleaseBootDDB @ 0x140722A54 (PpReleaseBootDDB.c)
+ *     KsepSdbBootRelease @ 0x14073DF74 (KsepSdbBootRelease.c)
+ *     KsepSdbUnmapFromMemory @ 0x140944674 (KsepSdbUnmapFromMemory.c)
+ *     PiReleaseDDB @ 0x140A930AC (PiReleaseDDB.c)
  * Callees:
- *     SdbCloseDatabaseRead @ 0x14095BDD8 (SdbCloseDatabaseRead.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     SdbpCleanupUserSDBCache @ 0x14095CD4C (SdbpCleanupUserSDBCache.c)
- *     SdbpCleanupLocalDatabaseSupport @ 0x14095CD88 (SdbpCleanupLocalDatabaseSupport.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbCloseDatabaseRead @ 0x140943898 (SdbCloseDatabaseRead.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     SdbpCleanupUserSDBCache @ 0x14094480C (SdbpCleanupUserSDBCache.c)
+ *     SdbpCleanupLocalDatabaseSupport @ 0x140944848 (SdbpCleanupLocalDatabaseSupport.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbReleaseDatabase(__int64 a1)

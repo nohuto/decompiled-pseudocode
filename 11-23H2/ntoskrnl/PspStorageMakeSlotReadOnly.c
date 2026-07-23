@@ -1,14 +1,14 @@
 /*
- * XREFs of PspStorageMakeSlotReadOnly @ 0x140779FB8
+ * XREFs of PspStorageMakeSlotReadOnly @ 0x14077A1A8
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A068 (VrpHandleIoctlInitializeJobForVreg.c)
- *     PsMakeSiloContextPermanent @ 0x1409AC6A0 (PsMakeSiloContextPermanent.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A258 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     PsMakeSiloContextPermanent @ 0x1409AC8A0 (PsMakeSiloContextPermanent.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PspGetStorageArray @ 0x14077CC24 (PspGetStorageArray.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PspGetStorageArray @ 0x14077CE14 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PspStorageMakeSlotReadOnly(__int64 a1, __int64 a2)

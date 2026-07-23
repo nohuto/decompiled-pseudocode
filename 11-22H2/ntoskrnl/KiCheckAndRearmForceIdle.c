@@ -18,9 +18,9 @@ void KiCheckAndRearmForceIdle()
   signed __int32 v2; // eax
   signed __int32 v3; // ett
   int v4; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v5; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
-  v5.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( KiForceIdleDisabled )
     return;
   _disable();
@@ -36,7 +36,8 @@ void KiCheckAndRearmForceIdle()
     KeRemoveQueueDpcEx((__int64)&KiForceIdleStartDpc, 0);
     KiSetForceIdleState(2LL);
 LABEL_9:
-    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v5);
+    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                         + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
     goto LABEL_10;
   }
   if ( KiForceIdleState == 2 )

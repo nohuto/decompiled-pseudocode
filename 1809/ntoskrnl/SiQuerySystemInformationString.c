@@ -1,13 +1,13 @@
 /*
- * XREFs of SiQuerySystemInformationString @ 0x140714E5C
+ * XREFs of SiQuerySystemInformationString @ 0x1407160FC
  * Callers:
- *     SyspartGetFirmwarePartition @ 0x140714E00 (SyspartGetFirmwarePartition.c)
- *     SyspartGetSystemPartition @ 0x1408F4EB8 (SyspartGetSystemPartition.c)
+ *     SyspartGetFirmwarePartition @ 0x1407160A0 (SyspartGetFirmwarePartition.c)
+ *     SyspartGetSystemPartition @ 0x1408F6178 (SyspartGetSystemPartition.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiQuerySystemInformationString(

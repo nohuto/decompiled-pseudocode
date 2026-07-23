@@ -1,14 +1,14 @@
 /*
- * XREFs of CcGetDirtyPages @ 0x140471FC0
+ * XREFs of CcGetDirtyPages @ 0x14021ABB0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetNextPartitionUnsafe @ 0x140246D98 (PsGetNextPartitionUnsafe.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x1402A7F20 (CcDereferencePartition.c)
- *     CcGetDirtyPagesHelper @ 0x1402AA740 (CcGetDirtyPagesHelper.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
+ *     PsGetNextPartitionUnsafe @ 0x1402194E8 (PsGetNextPartitionUnsafe.c)
+ *     CcGetDirtyPagesHelper @ 0x140274DD0 (CcGetDirtyPagesHelper.c)
+ *     CcDereferencePartition @ 0x140279D10 (CcDereferencePartition.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
  */
 
 LARGE_INTEGER __stdcall CcGetDirtyPages(
@@ -17,7 +17,7 @@ LARGE_INTEGER __stdcall CcGetDirtyPages(
         PVOID Context1,
         PVOID Context2)
 {
-  __int64 v4; // rdi
+  void *v4; // rdi
   char v5; // si
   _QWORD *v6; // rcx
   _UNKNOWN **NextPartitionUnsafe; // rbp
@@ -27,17 +27,17 @@ LARGE_INTEGER __stdcall CcGetDirtyPages(
   char DirtyPagesHelper; // bl
   signed __int64 v13; // rax
   signed __int64 v14; // rtt
-  __int64 v15[4]; // [rsp+20h] [rbp-38h] BYREF
+  _QWORD v15[4]; // [rsp+20h] [rbp-38h] BYREF
   LARGE_INTEGER v16; // [rsp+40h] [rbp-18h]
 
   v16.QuadPart = 0LL;
   v4 = 0LL;
   v5 = 0;
-  v15[0] = (__int64)LogHandle;
+  v15[0] = LogHandle;
   v6 = 0LL;
-  v15[2] = (__int64)Context1;
-  v15[3] = (__int64)Context2;
-  v15[1] = (__int64)DirtyPageRoutine;
+  v15[2] = Context1;
+  v15[3] = Context2;
+  v15[1] = DirtyPageRoutine;
   while ( 1 )
   {
     NextPartitionUnsafe = PsGetNextPartitionUnsafe(v6);
@@ -48,7 +48,7 @@ LARGE_INTEGER __stdcall CcGetDirtyPages(
     v10 = v8;
     if ( v9 )
     {
-      v4 = (__int64)NextPartitionUnsafe[1];
+      v4 = NextPartitionUnsafe[1];
       if ( *((_BYTE *)v9 + 1294) >= 2u )
       {
         _m_prefetchw(v9 + 162);

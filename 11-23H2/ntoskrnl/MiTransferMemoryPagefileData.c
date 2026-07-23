@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTransferMemoryPagefileData @ 0x140660AA8
+ * XREFs of MiTransferMemoryPagefileData @ 0x140660FF8
  * Callers:
- *     MiZeroPageFile @ 0x140619B70 (MiZeroPageFile.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
- *     MiReadFromMemoryPagefile @ 0x140660948 (MiReadFromMemoryPagefile.c)
+ *     MiZeroPageFile @ 0x14061A0C0 (MiZeroPageFile.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
+ *     MiReadFromMemoryPagefile @ 0x140660E98 (MiReadFromMemoryPagefile.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MiCopyMemoryPagefileData @ 0x14065FB28 (MiCopyMemoryPagefileData.c)
- *     MiFindPageFileMemoryExtent @ 0x1406600C0 (MiFindPageFileMemoryExtent.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiCopyMemoryPagefileData @ 0x140660078 (MiCopyMemoryPagefileData.c)
+ *     MiFindPageFileMemoryExtent @ 0x140660610 (MiFindPageFileMemoryExtent.c)
  */
 
 _UNKNOWN **__fastcall MiTransferMemoryPagefileData(__int64 a1, __int64 a2, int a3, int a4)

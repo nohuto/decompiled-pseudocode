@@ -1,30 +1,30 @@
 /*
- * XREFs of BcdFlushStore @ 0x140A5C228
+ * XREFs of BcdFlushStore @ 0x140A5C4D8
  * Callers:
- *     PoInitHiberServices @ 0x140801AE8 (PoInitHiberServices.c)
- *     PopBcdClearPendingResume @ 0x140801C34 (PopBcdClearPendingResume.c)
+ *     PoInitHiberServices @ 0x140801DB8 (PoInitHiberServices.c)
+ *     PopBcdClearPendingResume @ 0x140801F04 (PopBcdClearPendingResume.c)
  * Callees:
- *     BiSanitizeHandle @ 0x1403699CC (BiSanitizeHandle.c)
- *     BiIsOfflineHandle @ 0x140373DD0 (BiIsOfflineHandle.c)
- *     ZwFlushKey @ 0x14041CB60 (ZwFlushKey.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
- *     BiAcquireBcdSyncMutant @ 0x140805634 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1408056DC (BiReleaseBcdSyncMutant.c)
+ *     BiSanitizeHandle @ 0x140369B6C (BiSanitizeHandle.c)
+ *     BiIsOfflineHandle @ 0x140373F70 (BiIsOfflineHandle.c)
+ *     ZwFlushKey @ 0x14041CEF0 (ZwFlushKey.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x140805904 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1408059AC (BiReleaseBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdFlushStore(__int64 a1)
+NTSTATUS __cdecl BcdFlushStore(HANDLE BcdStoreHandle)
 {
   char IsOfflineHandle; // di
   NTSTATUS v3; // eax
-  unsigned int v4; // r8d
+  NTSTATUS v4; // r8d
   void *v6; // rax
-  unsigned int v7; // ebx
+  NTSTATUS v7; // ebx
 
-  IsOfflineHandle = BiIsOfflineHandle(a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( v3 >= 0 )
   {
-    v6 = (void *)BiSanitizeHandle(a1);
+    v6 = (void *)BiSanitizeHandle((__int64)BcdStoreHandle);
     v7 = ZwFlushKey(v6);
     BiReleaseBcdSyncMutant(IsOfflineHandle);
     return v7;

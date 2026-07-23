@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpUnlockCallbackListExclusive @ 0x140364DA0
+ * XREFs of ExpUnlockCallbackListExclusive @ 0x140364F40
  * Callers:
  *     ExpDeleteCallback @ 0x140683260 (ExpDeleteCallback.c)
- *     ExCreateCallback @ 0x1407DC330 (ExCreateCallback.c)
+ *     ExCreateCallback @ 0x1407DC600 (ExCreateCallback.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char __fastcall ExpUnlockCallbackListExclusive(__int64 a1)

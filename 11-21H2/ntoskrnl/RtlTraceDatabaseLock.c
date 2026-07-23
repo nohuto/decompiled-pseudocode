@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x1405EE200 (RtlpTraceDatabaseAcquireLock.c)
+ *     sub_1405EE200 @ 0x1405EE200 (sub_1405EE200.c)
  */
 
 __int64 RtlTraceDatabaseLock()
 {
-  return RtlpTraceDatabaseAcquireLock();
+  return sub_1405EE200();
 }

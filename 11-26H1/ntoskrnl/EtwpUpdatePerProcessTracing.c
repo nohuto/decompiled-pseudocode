@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpUpdatePerProcessTracing @ 0x140A6C4E8
+ * XREFs of EtwpUpdatePerProcessTracing @ 0x140AB0700
  * Callers:
- *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140AB081C (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     EtwpUpdateProcessTracingCallback @ 0x140828630 (EtwpUpdateProcessTracingCallback.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     EtwpGetFlagExtension @ 0x140A6F278 (EtwpGetFlagExtension.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     EtwpUpdateProcessTracingCallback @ 0x14082E870 (EtwpUpdateProcessTracingCallback.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     EtwpGetFlagExtension @ 0x140AB1FF0 (EtwpGetFlagExtension.c)
  */
 
 LONG __fastcall EtwpUpdatePerProcessTracing(__int64 a1, __int64 a2, char a3, unsigned int a4)
@@ -30,7 +30,7 @@ LONG __fastcall EtwpUpdatePerProcessTracing(__int64 a1, __int64 a2, char a3, uns
   v17 = 0LL;
   Process = 0LL;
   v18 = 0;
-  KeWaitForSingleObject(ExpSysDbgLock.Padding, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&stru_140F03830.Header.WaitListHead.Blink, Executive, 0, 0, 0LL);
   LOBYTE(v18) = a3;
   if ( a2 == EtwpHostSiloState )
     *(_WORD *)(MmWriteableSharedUserData + 2 * v4 + 896) = v18;
@@ -61,5 +61,5 @@ LONG __fastcall EtwpUpdatePerProcessTracing(__int64 a1, __int64 a2, char a3, uns
       while ( v14 );
     }
   }
-  return KeReleaseMutex((PRKMUTEX)ExpSysDbgLock.Padding, 0);
+  return KeReleaseMutex((PRKMUTEX)&stru_140F03830.Header.WaitListHead.Blink, 0);
 }

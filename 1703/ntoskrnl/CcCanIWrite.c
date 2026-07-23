@@ -42,7 +42,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   bool v25; // si
   int v26; // eax
   KSPIN_LOCK *v27; // r8
-  struct _LIST_ENTRY *v28; // rcx
+  _LIST_ENTRY *v28; // rcx
   __int64 v29; // rdx
   __int64 v30; // rdx
   __int16 Object; // [rsp+30h] [rbp-89h] BYREF
@@ -54,7 +54,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   int v37; // [rsp+80h] [rbp-39h]
   PFILE_OBJECT v38; // [rsp+88h] [rbp-31h]
   ULONG v39; // [rsp+90h] [rbp-29h]
-  struct _LIST_ENTRY ListEntry; // [rsp+98h] [rbp-21h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+98h] [rbp-21h] BYREF
   __int16 *p_Object; // [rsp+A8h] [rbp-11h]
   ULONG v42; // [rsp+128h] [rbp+6Fh]
 
@@ -185,7 +185,7 @@ LABEL_50:
     p_Object = &Object;
     v27 = (KSPIN_LOCK *)(v4 + 832);
     v32 = 6;
-    v28 = (struct _LIST_ENTRY *)(v4 + 816);
+    v28 = (_LIST_ENTRY *)(v4 + 816);
     v33 = 0;
     v37 = 4719356;
     v38 = FileObject;

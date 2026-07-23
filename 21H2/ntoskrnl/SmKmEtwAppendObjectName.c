@@ -1,14 +1,14 @@
 /*
- * XREFs of SmKmEtwAppendObjectName @ 0x14059DC48
+ * XREFs of SmKmEtwAppendObjectName @ 0x14059DE78
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x14059E1E0 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x14059E410 (SmKmStoreTerminateWorker.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoSetThreadHardErrorMode @ 0x1402F4B10 (IoSetThreadHardErrorMode.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ObQueryNameString @ 0x1406C6F80 (ObQueryNameString.c)
  */
 
 __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAttachmentBaseRefWithTag)
@@ -17,7 +17,7 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAt
   unsigned int v4; // r14d
   __int64 v6; // rdx
   void *v7; // r13
-  struct _OBJECT_NAME_INFORMATION *v8; // rdi
+  _OBJECT_NAME_INFORMATION *v8; // rdi
   ULONG v9; // r14d
   void *v10; // rbp
   BOOLEAN v11; // r15
@@ -40,7 +40,7 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAt
   Src[0] = *(_OWORD *)L"\\Device\\Unknown";
   Src[1] = *(_OWORD *)L"Unknown";
   v7 = (void *)(v6 + 2);
-  v8 = (struct _OBJECT_NAME_INFORMATION *)((v6 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
+  v8 = (_OBJECT_NAME_INFORMATION *)((v6 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
   v9 = v6 + v4 - (_DWORD)v8;
   *(_QWORD *)&v8->Name.Length = 0LL;
   v8->Name.Buffer = 0LL;

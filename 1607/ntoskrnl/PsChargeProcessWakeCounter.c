@@ -1,13 +1,13 @@
 /*
- * XREFs of PsChargeProcessWakeCounter @ 0x14051E1B0
+ * XREFs of PsChargeProcessWakeCounter @ 0x140501218
  * Callers:
- *     EtwpQueueNotification @ 0x140490BB0 (EtwpQueueNotification.c)
- *     PopEnablePowerExecutionRequest @ 0x14051E148 (PopEnablePowerExecutionRequest.c)
- *     PopSetSpecialRequest @ 0x14066AA50 (PopSetSpecialRequest.c)
+ *     EtwpQueueNotification @ 0x140491640 (EtwpQueueNotification.c)
+ *     PopEnablePowerExecutionRequest @ 0x1405011B0 (PopEnablePowerExecutionRequest.c)
+ *     PopSetSpecialRequest @ 0x14066AB34 (PopSetSpecialRequest.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     PspChargeJobWakeCounter @ 0x140468C90 (PspChargeJobWakeCounter.c)
- *     PspCheckConditionalWakeCharge @ 0x1404F1C44 (PspCheckConditionalWakeCharge.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     PspChargeJobWakeCounter @ 0x140467B60 (PspChargeJobWakeCounter.c)
+ *     PspCheckConditionalWakeCharge @ 0x1404D43D8 (PspCheckConditionalWakeCharge.c)
  */
 
 __int64 __fastcall PsChargeProcessWakeCounter(__int64 a1, int a2, __int64 a3, __int64 a4)

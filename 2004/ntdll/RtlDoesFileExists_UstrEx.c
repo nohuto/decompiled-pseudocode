@@ -15,41 +15,36 @@
 bool __fastcall RtlDoesFileExists_UstrEx(int a1, char a2)
 {
   char v2; // bl
-  __int64 v4; // rsi
-  __int64 v5; // rax
-  int v6; // edi
-  __int128 v8; // [rsp+40h] [rbp-49h] BYREF
-  __int128 v9; // [rsp+50h] [rbp-39h] BYREF
-  __int64 v10; // [rsp+60h] [rbp-29h]
-  int v11; // [rsp+70h] [rbp-19h] BYREF
-  __int64 v12; // [rsp+78h] [rbp-11h]
-  __int128 *v13; // [rsp+80h] [rbp-9h]
-  int v14; // [rsp+88h] [rbp-1h]
-  __int128 v15; // [rsp+90h] [rbp+7h]
-  _BYTE v16[40]; // [rsp+A0h] [rbp+17h] BYREF
+  PVOID v4; // rsi
+  HANDLE ContainingDirectory; // rax
+  NTSTATUS v6; // edi
+  PVOID BaseAddress[2]; // [rsp+40h] [rbp-49h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+50h] [rbp-39h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-19h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+A0h] [rbp+17h] BYREF
 
   v2 = 0;
-  if ( (int)RtlpDosPathNameToRelativeNtPathName(2, a1, 0, (unsigned int)&v8, 0LL, 0LL, (__int64)&v9) < 0 )
+  if ( (int)RtlpDosPathNameToRelativeNtPathName(2, a1, 0, (unsigned int)BaseAddress, 0LL, 0LL, (__int64)&RelativeName) < 0 )
     return 0;
-  v4 = *((_QWORD *)&v8 + 1);
-  if ( (_WORD)v9 )
+  v4 = BaseAddress[1];
+  if ( RelativeName.RelativeName.Length )
   {
-    v5 = v10;
-    v8 = v9;
+    ContainingDirectory = RelativeName.ContainingDirectory;
+    *(UNICODE_STRING *)BaseAddress = RelativeName.RelativeName;
   }
   else
   {
-    v5 = 0LL;
-    v10 = 0LL;
+    ContainingDirectory = 0LL;
+    RelativeName.ContainingDirectory = 0LL;
   }
-  v12 = v5;
-  v11 = 48;
-  v13 = &v8;
-  v14 = 64;
-  v15 = 0LL;
-  v6 = ZwQueryAttributesFile(&v11, v16);
-  RtlReleaseRelativeName(&v9);
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v4);
+  ObjectAttributes.RootDirectory = ContainingDirectory;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)BaseAddress;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v6 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+  RtlReleaseRelativeName(&RelativeName);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   if ( v6 >= 0 )
     return 1;
   if ( v6 == -1073741790 || v6 == -1073741757 )

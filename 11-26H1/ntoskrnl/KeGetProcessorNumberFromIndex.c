@@ -1,15 +1,16 @@
 /*
- * XREFs of KeGetProcessorNumberFromIndex @ 0x1404289E0
+ * XREFs of KeGetProcessorNumberFromIndex @ 0x140202CC0
  * Callers:
- *     KeSetIdealProcessorThreadByNumber @ 0x140427F74 (KeSetIdealProcessorThreadByNumber.c)
- *     HalpInterruptInitializeIpis @ 0x14057F394 (HalpInterruptInitializeIpis.c)
- *     HalpPmuReservedResourcesProcessorCallback @ 0x1405805F8 (HalpPmuReservedResourcesProcessorCallback.c)
- *     IoGetAffinityInterrupt @ 0x1405D8CD0 (IoGetAffinityInterrupt.c)
- *     KiAltContextWorkQueueAddItem @ 0x1405FCC08 (KiAltContextWorkQueueAddItem.c)
- *     WheaFlushETWEventsAddWorkRtn @ 0x1406D6F0C (WheaFlushETWEventsAddWorkRtn.c)
- *     PnprAddProcessorResources @ 0x1407AEAEC (PnprAddProcessorResources.c)
- *     EtwpProcessorRundown @ 0x14082FBE8 (EtwpProcessorRundown.c)
- *     PnprQuiesceProcessorDpc @ 0x140BF2260 (PnprQuiesceProcessorDpc.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x140202C34 (KeSetIdealProcessorThreadByNumber.c)
+ *     KeIntSteerSnapPerf @ 0x140256EE0 (KeIntSteerSnapPerf.c)
+ *     HalpInterruptInitializeIpis @ 0x1405818B4 (HalpInterruptInitializeIpis.c)
+ *     HalpPmuReservedResourcesProcessorCallback @ 0x140582B18 (HalpPmuReservedResourcesProcessorCallback.c)
+ *     IoGetAffinityInterrupt @ 0x1405DB4D0 (IoGetAffinityInterrupt.c)
+ *     KiAltContextWorkQueueAddItem @ 0x1405FF658 (KiAltContextWorkQueueAddItem.c)
+ *     WheaFlushETWEventsAddWorkRtn @ 0x1406DB0A4 (WheaFlushETWEventsAddWorkRtn.c)
+ *     PnprAddProcessorResources @ 0x1407B1B4C (PnprAddProcessorResources.c)
+ *     EtwpProcessorRundown @ 0x140835E28 (EtwpProcessorRundown.c)
+ *     PnprQuiesceProcessorDpc @ 0x140BF8260 (PnprQuiesceProcessorDpc.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +26,7 @@ NTSTATUS __stdcall KeGetProcessorNumberFromIndex(ULONG ProcIndex, PPROCESSOR_NUM
   }
   if ( ProcIndex < KeMaximumProcessors )
   {
-    v2 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * ProcIndex);
+    v2 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + ProcIndex);
     if ( v2 )
     {
       ProcNumber->Reserved = 0;

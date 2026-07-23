@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpContinueProcessingWaitQueue @ 0x14043ECA0
+ * XREFs of HalpContinueProcessingWaitQueue @ 0x1404377B0
  * Callers:
- *     IoFreeAdapterChannelV3 @ 0x14043EB30 (IoFreeAdapterChannelV3.c)
- *     HalPutScatterGatherListV3 @ 0x14043ED84 (HalPutScatterGatherListV3.c)
+ *     IoFreeAdapterChannelV3 @ 0x140437640 (IoFreeAdapterChannelV3.c)
+ *     HalPutScatterGatherListV3 @ 0x140437894 (HalPutScatterGatherListV3.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpAllocateDmaResourcesInternal @ 0x14043E70C (HalpAllocateDmaResourcesInternal.c)
- *     IoFreeAdapterChannelV3Internal @ 0x14043EB84 (IoFreeAdapterChannelV3Internal.c)
- *     HalpDmaGetNextWcb @ 0x14043ECFC (HalpDmaGetNextWcb.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14043721C (HalpAllocateDmaResourcesInternal.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x140437694 (IoFreeAdapterChannelV3Internal.c)
+ *     HalpDmaGetNextWcb @ 0x14043780C (HalpDmaGetNextWcb.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall HalpContinueProcessingWaitQueue(__int64 a1)

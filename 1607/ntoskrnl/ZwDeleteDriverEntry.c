@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwDeleteDriverEntry @ 0x14015B540
+ * XREFs of ZwDeleteDriverEntry @ 0x14015BAB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDeleteDriverEntry(__int64 a1, __int64 a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwDeleteDriverEntry(ULONG Id)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(*(_QWORD *)&Id);
 }

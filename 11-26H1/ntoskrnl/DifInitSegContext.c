@@ -1,11 +1,11 @@
 /*
- * XREFs of DifInitSegContext @ 0x14064CF8C
+ * XREFs of DifInitSegContext @ 0x140650B6C
  * Callers:
- *     DifRegisterObjectTracking @ 0x14064B1A0 (DifRegisterObjectTracking.c)
- *     DifInit @ 0x14064B8C0 (DifInit.c)
+ *     DifRegisterObjectTracking @ 0x14064ED80 (DifRegisterObjectTracking.c)
+ *     DifInit @ 0x14064F4A0 (DifInit.c)
  * Callees:
- *     DifAllocSegments @ 0x14064CE30 (DifAllocSegments.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifAllocSegments @ 0x140650A10 (DifAllocSegments.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifInitSegContext(_DWORD *a1, int a2, unsigned int a3, unsigned int a4)

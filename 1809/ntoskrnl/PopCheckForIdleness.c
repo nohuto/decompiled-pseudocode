@@ -6,10 +6,10 @@
  *     PopDiagTraceIdleCheck @ 0x14000FFD0 (PopDiagTraceIdleCheck.c)
  *     PopCheckForWork @ 0x140010620 (PopCheckForWork.c)
  *     PopGetPolicyWorker @ 0x1400106A8 (PopGetPolicyWorker.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     PopQueueWorkItem @ 0x140138DC8 (PopQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopCheckForIdleness()
@@ -36,7 +36,7 @@ __int64 PopCheckForIdleness()
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
     _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
-  v2 = qword_140417678;
+  v2 = qword_1404186F8;
   v3 = MEMORY[0xFFFFF78000000320];
   v13 = MEMORY[0xFFFFF78000000320];
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
@@ -46,17 +46,17 @@ __int64 PopCheckForIdleness()
     KiRemoveSystemWorkPriorityKick(CurrentPrcb, 2LL);
   }
   __writecr8(CurrentIrql);
-  if ( dword_14041764C )
+  if ( dword_1404186CC )
   {
-    if ( byte_140417675 )
+    if ( byte_1404186F5 )
     {
       v4 = v3 - v2;
       if ( (int)v3 - v2 <= 0 )
       {
-        byte_140417675 = 0;
+        byte_1404186F5 = 0;
         goto LABEL_23;
       }
-      v15 = qword_1405416A8;
+      v15 = qword_1405426A8;
       v5 = 100;
       v16 = 0;
       v14 = &KeActiveProcessors;
@@ -87,24 +87,24 @@ __int64 PopCheckForIdleness()
         if ( v6 / ActiveProcessorCount < 0 )
           v5 = 0;
       }
-      dword_140417648 += PopIdleScanInterval;
-      dword_140417644 = v7;
+      dword_1404186C8 += PopIdleScanInterval;
+      dword_1404186C4 = v7;
       PopSIdle = v5;
       PopDiagTraceIdleCheck(v8, v7, v5);
       v3 = v13;
       if ( !PopPlatformAoAc
-        && PopPreSleepNotificationSeconds + 120 <= (unsigned int)dword_14041764C
-        && dword_140417648 + PopPreSleepNotificationSeconds >= (unsigned int)dword_14041764C
+        && PopPreSleepNotificationSeconds + 120 <= (unsigned int)dword_1404186CC
+        && dword_1404186C8 + PopPreSleepNotificationSeconds >= (unsigned int)dword_1404186CC
         && !PopIsAboutToSleep )
       {
         PopIsAboutToSleep = 1;
         PopQueueWorkItem(&PopPreSleepNotifyWorkItem, 1LL);
       }
     }
-    v15 = qword_1405416A8;
+    v15 = qword_1405426A8;
     v14 = &KeActiveProcessors;
-    qword_140417678 = v3;
-    byte_140417675 = 1;
+    qword_1404186F8 = v3;
+    byte_1404186F5 = 1;
     v16 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v12, &v14) )
       *(_DWORD *)(KiProcessorBlock[v12] + 24028) = *(_DWORD *)(*(_QWORD *)(KiProcessorBlock[v12] + 24) + 652LL);

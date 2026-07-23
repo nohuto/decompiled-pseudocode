@@ -1,19 +1,19 @@
 /*
- * XREFs of IovCallDriver @ 0x1404F36FC
+ * XREFs of IovCallDriver @ 0x1404ECCDC
  * Callers:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IofCallDriverSpecifyReturn @ 0x1404DC7D0 (IofCallDriverSpecifyReturn.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IofCallDriverSpecifyReturn @ 0x1404D5EB0 (IofCallDriverSpecifyReturn.c)
  * Callees:
- *     IopfCallDriver @ 0x1402655E0 (IopfCallDriver.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfBugCheckNoStackUsage @ 0x140642FF0 (VfBugCheckNoStackUsage.c)
- *     IovCallDriverNoIrpTracking @ 0x140C2A824 (IovCallDriverNoIrpTracking.c)
- *     IovCallDriverWithStackBuffer @ 0x140C2A83C (IovCallDriverWithStackBuffer.c)
- *     IovValidateDeviceObject @ 0x140C2AC4C (IovValidateDeviceObject.c)
- *     VfAfterCallDriver @ 0x140C2C09C (VfAfterCallDriver.c)
- *     VfBeforeCallDriver @ 0x140C2C2D8 (VfBeforeCallDriver.c)
- *     VfIrpAllocateCallDriverData @ 0x140C2C570 (VfIrpAllocateCallDriverData.c)
- *     VfIrpReleaseCallDriverData @ 0x140C2C5D0 (VfIrpReleaseCallDriverData.c)
+ *     IopfCallDriver @ 0x140264B50 (IopfCallDriver.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfBugCheckNoStackUsage @ 0x140646BD0 (VfBugCheckNoStackUsage.c)
+ *     IovCallDriverNoIrpTracking @ 0x140C30834 (IovCallDriverNoIrpTracking.c)
+ *     IovCallDriverWithStackBuffer @ 0x140C3084C (IovCallDriverWithStackBuffer.c)
+ *     IovValidateDeviceObject @ 0x140C30C5C (IovValidateDeviceObject.c)
+ *     VfAfterCallDriver @ 0x140C320AC (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x140C322E8 (VfBeforeCallDriver.c)
+ *     VfIrpAllocateCallDriverData @ 0x140C32580 (VfIrpAllocateCallDriverData.c)
+ *     VfIrpReleaseCallDriverData @ 0x140C325E0 (VfIrpReleaseCallDriverData.c)
  */
 
 __int64 __fastcall IovCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
@@ -35,8 +35,8 @@ __int64 __fastcall IovCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
   if ( CurrentIrql > 2u && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
   {
     KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-    qword_140FEFED8 = CurrentIrql;
-    *(_OWORD *)&xmmword_140FEFEE0 = 0LL;
+    qword_140FF0ED8 = CurrentIrql;
+    *(_OWORD *)&xmmword_140FF0EE0 = 0LL;
     *(_QWORD *)&VfBugcheckTmpData = 201LL;
     BugCheckParameter1 = 16LL;
     VfBugCheckNoStackUsage();
@@ -52,19 +52,19 @@ __int64 __fastcall IovCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
   if ( *(_WORD *)v8[21] != 6 && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
   {
     *((_BYTE *)v8 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-    qword_140FEFED8 = v8[21];
+    qword_140FF0ED8 = v8[21];
     *(_QWORD *)&VfBugcheckTmpData = 201LL;
     BugCheckParameter1 = 3LL;
-    *(_OWORD *)&xmmword_140FEFEE0 = 0LL;
+    *(_OWORD *)&xmmword_140FF0EE0 = 0LL;
     VfBugCheckNoStackUsage();
   }
   if ( !(unsigned __int8)IovValidateDeviceObject(a1) && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
   {
     *((_BYTE *)v8 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-    qword_140FEFED8 = v8[20];
+    qword_140FF0ED8 = v8[20];
     *(_QWORD *)&VfBugcheckTmpData = 201LL;
     BugCheckParameter1 = 4LL;
-    *(_OWORD *)&xmmword_140FEFEE0 = 0LL;
+    *(_OWORD *)&xmmword_140FF0EE0 = 0LL;
     VfBugCheckNoStackUsage();
   }
   v9 = *(_QWORD *)(a2 + 184);
@@ -76,9 +76,9 @@ __int64 __fastcall IovCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
       if ( (*(_DWORD *)(v10 + 80) & 0x204000) == 0x204000 && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
       {
         *((_BYTE *)v8 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-        qword_140FEFED8 = v8[20];
-        xmmword_140FEFEE0 = v8[21];
-        *(&xmmword_140FEFEE0 + 1) = *(_QWORD *)(v9 - 24);
+        qword_140FF0ED8 = v8[20];
+        xmmword_140FF0EE0 = v8[21];
+        *(&xmmword_140FF0EE0 + 1) = *(_QWORD *)(v9 - 24);
         *(_QWORD *)&VfBugcheckTmpData = 201LL;
         BugCheckParameter1 = 15LL;
         VfBugCheckNoStackUsage();

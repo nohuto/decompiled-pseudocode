@@ -9,7 +9,7 @@
  *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6130 (-terminate@details@gsl@@YAXXZ.c)
  */
 
-__int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, char a3)
+__int64 __fastcall MiInitializePrivateFixupBitmap(_RTL_BITMAP *a1, _QWORD *a2, char a3)
 {
   char v3; // bp
   unsigned __int64 v5; // rdi

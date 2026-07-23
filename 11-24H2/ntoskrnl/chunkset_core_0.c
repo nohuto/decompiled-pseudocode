@@ -1,10 +1,10 @@
 /*
- * XREFs of chunkset_core_0 @ 0x1406019EC
+ * XREFs of chunkset_core_0 @ 0x1405FF02C
  * Callers:
- *     chunkcopy_lapped_relaxed @ 0x1406019BC (chunkcopy_lapped_relaxed.c)
+ *     chunkcopy_lapped_relaxed @ 0x1405FEFFC (chunkcopy_lapped_relaxed.c)
  * Callees:
- *     chunkcopy_core @ 0x1405F3E0C (chunkcopy_core.c)
- *     chunkunroll_relaxed @ 0x140601B3C (chunkunroll_relaxed.c)
+ *     chunkcopy_core @ 0x1405F144C (chunkcopy_core.c)
+ *     chunkunroll_relaxed @ 0x1405FF17C (chunkunroll_relaxed.c)
  */
 
 __m128i *__fastcall chunkset_core_0(__m128i *a1, unsigned int a2, int a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwResetEvent @ 0x1800A0570
+ * XREFs of ZwResetEvent @ 0x1800A0530
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwResetEvent()
+NTSTATUS __cdecl ZwResetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 378LL;
+  result = 378;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

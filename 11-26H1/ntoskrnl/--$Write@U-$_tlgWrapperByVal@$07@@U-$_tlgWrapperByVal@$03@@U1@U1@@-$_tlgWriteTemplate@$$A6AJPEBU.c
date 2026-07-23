@@ -1,10 +1,10 @@
 /*
  * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@33@Z @ 0x140200488
  * Callers:
- *     ?ExpLookasideMgrTraceScanFinished@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z @ 0x140B2C7B8 (-ExpLookasideMgrTraceScanFinished@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z.c)
+ *     ?ExpLookasideMgrTraceScanFinished@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z @ 0x140B2E838 (-ExpLookasideMgrTraceScanFinished@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
@@ -35,5 +35,5 @@ __int64 __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_
   v15 = 8LL;
   v13 = 4LL;
   v11 = 8LL;
-  return tlgWriteTransfer_EtwWriteTransfer(&dword_140E09178, a2, 0LL, 0LL, 6, v9);
+  return tlgWriteTransfer_EtwWriteTransfer(&dword_140E09170, a2, 0LL, 0LL, 6, v9);
 }

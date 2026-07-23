@@ -1,27 +1,27 @@
 /*
- * XREFs of ExRegisterCallback @ 0x14037F1A0
+ * XREFs of ExRegisterCallback @ 0x14037ECF0
  * Callers:
- *     HvlPhase2Initialize @ 0x1403CF0B8 (HvlPhase2Initialize.c)
- *     HaliInitPowerManagement @ 0x1407AE1A0 (HaliInitPowerManagement.c)
- *     KeRegisterProcessorChangeCallback @ 0x1407C8800 (KeRegisterProcessorChangeCallback.c)
- *     HalpMiscInitializeKsr @ 0x1407C8C28 (HalpMiscInitializeKsr.c)
- *     IoRegisterBootDriverCallback @ 0x1407D3940 (IoRegisterBootDriverCallback.c)
- *     SeRegisterImageVerificationCallback @ 0x1407D4770 (SeRegisterImageVerificationCallback.c)
- *     IoRegisterContainerNotification @ 0x140894A40 (IoRegisterContainerNotification.c)
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
- *     PiCslInitialize @ 0x140A53224 (PiCslInitialize.c)
- *     PopUmpoInitializeChannel @ 0x140A6FE7C (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140A70AB0 (PopUmpoInitializeMonitorChannel.c)
- *     PopSetupKsrCallbacks @ 0x140A73FF0 (PopSetupKsrCallbacks.c)
- *     PiKsrNotifyInitialize @ 0x140A91350 (PiKsrNotifyInitialize.c)
+ *     HvlPhase2Initialize @ 0x1403CF228 (HvlPhase2Initialize.c)
+ *     HaliInitPowerManagement @ 0x1407AE3A0 (HaliInitPowerManagement.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407C8B20 (KeRegisterProcessorChangeCallback.c)
+ *     HalpMiscInitializeKsr @ 0x1407C8F48 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x1407D3AB0 (IoRegisterBootDriverCallback.c)
+ *     SeRegisterImageVerificationCallback @ 0x1407D48E0 (SeRegisterImageVerificationCallback.c)
+ *     IoRegisterContainerNotification @ 0x140894BA0 (IoRegisterContainerNotification.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
+ *     PiCslInitialize @ 0x140A54224 (PiCslInitialize.c)
+ *     PopUmpoInitializeChannel @ 0x140A70E7C (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140A71AB0 (PopUmpoInitializeMonitorChannel.c)
+ *     PopSetupKsrCallbacks @ 0x140A74FF0 (PopSetupKsrCallbacks.c)
+ *     PiKsrNotifyInitialize @ 0x140A92350 (PiKsrNotifyInitialize.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __stdcall ExRegisterCallback(

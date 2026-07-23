@@ -1,14 +1,14 @@
 /*
- * XREFs of CcCoalescingCallBackHelper @ 0x1405354D0
+ * XREFs of CcCoalescingCallBackHelper @ 0x140535A20
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x1402999F8 (CcScheduleLazyWriteScan.c)
- *     CcRescheduleLazyWriteScanOnVolume @ 0x140357668 (CcRescheduleLazyWriteScanOnVolume.c)
- *     CcRescheduleLazyWriteScan @ 0x140537328 (CcRescheduleLazyWriteScan.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x140299C88 (CcScheduleLazyWriteScan.c)
+ *     CcRescheduleLazyWriteScanOnVolume @ 0x140357808 (CcRescheduleLazyWriteScanOnVolume.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcRescheduleLazyWriteScan @ 0x140537878 (CcRescheduleLazyWriteScan.c)
  */
 
 char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
@@ -24,7 +24,7 @@ char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
   _DWORD *v13; // r8
   int v14; // eax
   bool v15; // zf
-  struct _KPRCB *v16; // rcx
+  __int64 v16; // rcx
   __int64 v17; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r11
@@ -54,10 +54,10 @@ char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_30;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_30;
     if ( CurrentIrql > 0xFu )
       goto LABEL_30;
@@ -72,7 +72,7 @@ char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
     SchedulerAssist[5] &= v21;
     if ( !v15 )
       goto LABEL_30;
-    v16 = CurrentPrcb;
+    v16 = (__int64)CurrentPrcb;
     goto LABEL_29;
   }
   v8 = v7 - 1;
@@ -94,10 +94,10 @@ char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
 LABEL_7:
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_30;
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_30;
     if ( v11 > 0xFu )
       goto LABEL_30;
@@ -112,7 +112,7 @@ LABEL_7:
     v13[5] &= v14;
     if ( !v15 )
       goto LABEL_30;
-    v16 = v12;
+    v16 = (__int64)v12;
 LABEL_29:
     KiRemoveSystemWorkPriorityKick(v16);
 LABEL_30:

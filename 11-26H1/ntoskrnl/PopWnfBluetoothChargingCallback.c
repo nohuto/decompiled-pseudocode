@@ -1,11 +1,11 @@
 /*
- * XREFs of PopWnfBluetoothChargingCallback @ 0x140603E10
+ * XREFs of PopWnfBluetoothChargingCallback @ 0x140606910
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfBluetoothChargingCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -24,11 +24,11 @@ __int64 __fastcall PopWnfBluetoothChargingCallback(__int64 a1, __int64 a2, __int
   {
     if ( v8[0] )
     {
-      v5 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.Spare35[1]);
-      HIBYTE(word_140F10724) = v7[0];
-      if ( LOBYTE(stru_140F10828.Spare35[0]) && v7[0] && !BYTE3(stru_140F10828.Spare35[0]) )
-        BYTE3(stru_140F10828.Spare35[0]) = 1;
-      KeReleaseSpinLock(&stru_140F10070.Spare35[1], v5);
+      v5 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
+      BYTE5(PpmIdlePolicyLock.ReadOperationCount) = v7[0];
+      if ( PopCsResiliencyStats[0] && v7[0] && !HIBYTE(word_140F10082) )
+        HIBYTE(word_140F10082) = 1;
+      KeReleaseSpinLock(&PopCsResiliencyStatsLock, v5);
     }
     else
     {

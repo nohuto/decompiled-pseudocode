@@ -1,27 +1,27 @@
 /*
- * XREFs of CcDeletePartition @ 0x14057C6EC
+ * XREFs of CcDeletePartition @ 0x140579B7C
  * Callers:
- *     CcGetPartitionWithCreate @ 0x1404DEB40 (CcGetPartitionWithCreate.c)
- *     CcCreatePartition @ 0x14057C660 (CcCreatePartition.c)
- *     CcExitPartition @ 0x14057CB90 (CcExitPartition.c)
+ *     CcGetPartitionWithCreate @ 0x1404D8560 (CcGetPartitionWithCreate.c)
+ *     CcCreatePartition @ 0x140579AF0 (CcCreatePartition.c)
+ *     CcExitPartition @ 0x14057A020 (CcExitPartition.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDereferencePartition @ 0x1402A7F20 (CcDereferencePartition.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     CcDeleteNumaNode @ 0x1402CBD74 (CcDeleteNumaNode.c)
- *     CcForEachNumaNode @ 0x1402CBE88 (CcForEachNumaNode.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     CcDrainDelayDeleteForPartitionExit @ 0x14057C3FC (CcDrainDelayDeleteForPartitionExit.c)
- *     CcUninitializePartitionVacbs @ 0x14057D4C0 (CcUninitializePartitionVacbs.c)
- *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcDereferencePartition @ 0x140279D10 (CcDereferencePartition.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDeleteNumaNode @ 0x140430FB0 (CcDeleteNumaNode.c)
+ *     CcForEachNumaNode @ 0x1404310C4 (CcForEachNumaNode.c)
+ *     CcDrainDelayDeleteForPartitionExit @ 0x14057988C (CcDrainDelayDeleteForPartitionExit.c)
+ *     CcUninitializePartitionVacbs @ 0x14057A950 (CcUninitializePartitionVacbs.c)
+ *     ZwWaitForSingleObject @ 0x1406A7430 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcDeletePartition(char *P)
@@ -87,7 +87,7 @@ void __fastcall CcDeletePartition(char *P)
   }
   CcUninitializePartitionVacbs(P);
   if ( !CcEnablePerVolumeLazyWriter )
-    CcForEachNumaNode((__int64)CcUnInitializeAsyncReadForNodeHelper, (__int64)P, 0LL, 0LL);
+    CcForEachNumaNode((__int64)CcUnInitializeAsyncReadForNodeHelper, (__int64)P, 0LL);
   v6 = (_QWORD **)(P + 16);
   while ( 1 )
   {

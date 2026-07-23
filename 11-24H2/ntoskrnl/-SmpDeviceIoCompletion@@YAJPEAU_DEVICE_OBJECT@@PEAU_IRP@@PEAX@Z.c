@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SmpDeviceIoCompletion@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x14060ECB0
+ * XREFs of ?SmpDeviceIoCompletion@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x14060D270
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     SmWorkItemQueue @ 0x14028F9CC (SmWorkItemQueue.c)
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     SmWorkItemQueue @ 0x14029F5CC (SmWorkItemQueue.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
  */
 
 __int64 __fastcall SmpDeviceIoCompletion(struct _DEVICE_OBJECT *a1, struct _IRP *a2, _QWORD *a3)
@@ -48,7 +48,7 @@ __int64 __fastcall SmpDeviceIoCompletion(struct _DEVICE_OBJECT *a1, struct _IRP 
   }
   else
   {
-    SmWorkItemQueue(v5, (unsigned __int64)a3, 1);
+    SmWorkItemQueue();
     SmKmStoreDereference(*(_QWORD *)(v5 + 7576), *(_DWORD *)(v5 + 6832));
   }
   return 3221225494LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiQueryCpuSetsProcessWithLock @ 0x140463100
+ * XREFs of KiQueryCpuSetsProcessWithLock @ 0x14045C0C0
  * Callers:
- *     KeQueryCpuSetsProcess @ 0x140462EDC (KeQueryCpuSetsProcess.c)
+ *     KeQueryCpuSetsProcess @ 0x14045BE9C (KeQueryCpuSetsProcess.c)
  * Callees:
  *     <none>
  */

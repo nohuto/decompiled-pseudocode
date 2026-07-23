@@ -1,56 +1,56 @@
 /*
- * XREFs of PspAllocateThread @ 0x140A01BF0
+ * XREFs of PspAllocateThread @ 0x140A7A6A8
  * Callers:
- *     PspCreateThread @ 0x140A0175C (PspCreateThread.c)
- *     PspCreatePicoThread @ 0x140A041C0 (PspCreatePicoThread.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     PspCreateThread @ 0x140A7A214 (PspCreateThread.c)
+ *     PspCreatePicoThread @ 0x140A7C010 (PspCreatePicoThread.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
  *     KeSelectInitialIdealProcessorForThread @ 0x140201100 (KeSelectInitialIdealProcessorForThread.c)
- *     KeQuerySystemTimePrecise @ 0x14021B070 (KeQuerySystemTimePrecise.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlGetExtendedContextLength @ 0x1403D6A40 (RtlGetExtendedContextLength.c)
- *     RtlLocateExtendedFeature @ 0x1403D7020 (RtlLocateExtendedFeature.c)
- *     PsQueryThreadStartAddress @ 0x140418630 (PsQueryThreadStartAddress.c)
- *     KeGetProcessorNodeNumberByIndex @ 0x1404684D0 (KeGetProcessorNodeNumberByIndex.c)
- *     KeGetProcessorNodeNumber @ 0x14046B620 (KeGetProcessorNodeNumber.c)
- *     PoEnergyEstimationEnabled @ 0x14047C5D0 (PoEnergyEstimationEnabled.c)
- *     PsInitializeThreadRngState @ 0x1404936B8 (PsInitializeThreadRngState.c)
- *     PsAssignThreadId @ 0x1404A266C (PsAssignThreadId.c)
- *     KeQuerySystemTimeUnsafe @ 0x1404B2F74 (KeQuerySystemTimeUnsafe.c)
- *     KeInitializeSemaphore @ 0x1404B5E80 (KeInitializeSemaphore.c)
- *     KeQueryMaximumGroupCount @ 0x1404BB300 (KeQueryMaximumGroupCount.c)
- *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404F4824 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline.c)
- *     KeSizeOfKThreadExtension @ 0x14051FE20 (KeSizeOfKThreadExtension.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     PspDeleteUserStack @ 0x14095EE54 (PspDeleteUserStack.c)
- *     MmDeleteTeb @ 0x14095F004 (MmDeleteTeb.c)
- *     MmCreateTeb @ 0x1409C8D18 (MmCreateTeb.c)
- *     PspSetupUserStack @ 0x1409EA234 (PspSetupUserStack.c)
- *     PspWow64InitThread @ 0x1409EA95C (PspWow64InitThread.c)
- *     PspSetupUserShadowStack @ 0x1409F1C84 (PspSetupUserShadowStack.c)
- *     ObInitializeFastReference @ 0x140A2BC10 (ObInitializeFastReference.c)
- *     MmSecureVirtualMemory @ 0x140AB0320 (MmSecureVirtualMemory.c)
- *     PspWow64SetupUserStack @ 0x140AB848C (PspWow64SetupUserStack.c)
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQuerySystemTimePrecise @ 0x14021CA00 (KeQuerySystemTimePrecise.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlGetExtendedContextLength @ 0x1403D9A10 (RtlGetExtendedContextLength.c)
+ *     RtlLocateExtendedFeature @ 0x1403D9FF0 (RtlLocateExtendedFeature.c)
+ *     PsQueryThreadStartAddress @ 0x14040CC40 (PsQueryThreadStartAddress.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x140461B80 (KeGetProcessorNodeNumberByIndex.c)
+ *     KeGetProcessorNodeNumber @ 0x140464DA0 (KeGetProcessorNodeNumber.c)
+ *     PoEnergyEstimationEnabled @ 0x140475F40 (PoEnergyEstimationEnabled.c)
+ *     PsInitializeThreadRngState @ 0x14048D204 (PsInitializeThreadRngState.c)
+ *     PsAssignThreadId @ 0x14049C08C (PsAssignThreadId.c)
+ *     KeQuerySystemTimeUnsafe @ 0x1404AC5F4 (KeQuerySystemTimeUnsafe.c)
+ *     KeInitializeSemaphore @ 0x1404AF2D0 (KeInitializeSemaphore.c)
+ *     KeQueryMaximumGroupCount @ 0x1404B4AE0 (KeQueryMaximumGroupCount.c)
+ *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404EDE04 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeSizeOfKThreadExtension @ 0x1405224C4 (KeSizeOfKThreadExtension.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     MmCreateTeb @ 0x140999CF8 (MmCreateTeb.c)
+ *     PspSetupUserStack @ 0x1409E6A04 (PspSetupUserStack.c)
+ *     PspWow64InitThread @ 0x1409E712C (PspWow64InitThread.c)
+ *     PspSetupUserShadowStack @ 0x1409EE454 (PspSetupUserShadowStack.c)
+ *     PspDeleteUserStack @ 0x140A04714 (PspDeleteUserStack.c)
+ *     MmDeleteTeb @ 0x140A048C4 (MmDeleteTeb.c)
+ *     ObInitializeFastReference @ 0x140A7BD9C (ObInitializeFastReference.c)
+ *     MmSecureVirtualMemory @ 0x140AADF70 (MmSecureVirtualMemory.c)
+ *     PspWow64SetupUserStack @ 0x140AB9ACC (PspWow64SetupUserStack.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspAllocateThread(
@@ -72,7 +72,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v16; // r13
   __int64 v17; // r11
   char v18; // r8
-  void *v19; // rax
+  _INITIAL_TEB *v19; // rax
   __int64 v20; // rdx
   __int64 v21; // rcx
   __int64 v22; // r8
@@ -101,7 +101,7 @@ __int64 __fastcall PspAllocateThread(
   __int16 v46; // ax
   _BYTE *v47; // rcx
   __int64 v48; // r9
-  _QWORD *v49; // r12
+  _INITIAL_TEB *v49; // r12
   void *v50; // rcx
   unsigned __int16 v51; // ax
   unsigned __int16 ProcessorNodeNumber; // ax
@@ -111,7 +111,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v56; // rax
   void **v57; // rcx
   __int64 Pool2; // rax
-  __int64 ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   SIZE_T v60; // rax
   __int16 UShortFromUser; // ax
   unsigned __int16 *v62; // rbx
@@ -121,13 +121,13 @@ __int64 __fastcall PspAllocateThread(
   char v66; // [rsp+52h] [rbp-1D6h]
   __int16 v67; // [rsp+52h] [rbp-1D6h]
   int v68; // [rsp+54h] [rbp-1D4h]
-  _QWORD *v69; // [rsp+58h] [rbp-1D0h]
+  _INITIAL_TEB *v69; // [rsp+58h] [rbp-1D0h]
   __int64 v70; // [rsp+60h] [rbp-1C8h]
   __int64 v72; // [rsp+70h] [rbp-1B8h] BYREF
   __int64 v73; // [rsp+78h] [rbp-1B0h]
   unsigned int v74; // [rsp+80h] [rbp-1A8h]
   int v75; // [rsp+84h] [rbp-1A4h]
-  int v76; // [rsp+88h] [rbp-1A0h] BYREF
+  ULONG ContextLength; // [rsp+88h] [rbp-1A0h] BYREF
   __int64 v77; // [rsp+90h] [rbp-198h]
   _BYTE *v78; // [rsp+98h] [rbp-190h]
   _BYTE *v79; // [rsp+A0h] [rbp-188h]
@@ -185,7 +185,7 @@ __int64 __fastcall PspAllocateThread(
   v90 = 0;
   v91 = 0;
   v82 = 0LL;
-  v76 = 0;
+  ContextLength = 0;
   Size = (SIZE_T)KeGetCurrentThread();
   v68 = 0;
   v17 = 0LL;
@@ -194,7 +194,7 @@ __int64 __fastcall PspAllocateThread(
   v18 = *(_BYTE *)(BugCheckParameter1 + 368) & 1;
   v65 = v18;
   if ( a6 )
-    v19 = *a6;
+    v19 = (_INITIAL_TEB *)*a6;
   else
     v19 = 0LL;
   Object[1] = v19;
@@ -238,7 +238,7 @@ __int64 __fastcall PspAllocateThread(
       {
         *(_QWORD *)(a4 + 8) |= 0x1000uLL;
         *(_WORD *)(a4 + 328) = *(unsigned __int8 *)(v21 + 208);
-        *($353D57E818BB6F967B4B818D974CF463 *)(a4 + 320) = *($353D57E818BB6F967B4B818D974CF463 *)((char *)&stru_140FC01F0.116
+        *($C9C4F79064DE35237E3F199A7D1BD3E1 *)(a4 + 320) = *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&stru_140FC11F0.116
                                                                                                 + 8
                                                                                                 * *(unsigned __int8 *)(v21 + 208)
                                                                                                 + 4);
@@ -440,7 +440,7 @@ LABEL_15:
       *((_QWORD *)v31 + 207) = v86[1];
       *((_QWORD *)v31 + 208) = v57[2];
       _interlockedbittestandset((volatile signed __int32 *)v31, 0x1Au);
-      RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, (__int64)&v76);
+      RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &ContextLength);
       Pool2 = ExAllocatePool2(0x100uLL);
       *((_QWORD *)v31 + 213) = Pool2;
       if ( !Pool2 )
@@ -459,10 +459,10 @@ LABEL_15:
       && (*(_DWORD *)(v38 + 48) & 0x100040) == 0x100040
       && (*(_DWORD *)(*(int *)(v38 + 1248) + v38 + 1232) & 0x800LL) != 0 )
     {
-      ExtendedFeature = RtlLocateExtendedFeature(v38 + 1232, 11LL);
+      ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(v38 + 1232), 0xBu, 0LL);
       if ( ExtendedFeature )
       {
-        if ( (*(_BYTE *)ExtendedFeature & 1) != 0 && *(_QWORD *)(ExtendedFeature + 8) )
+        if ( (*(_BYTE *)ExtendedFeature & 1) != 0 && ExtendedFeature[1] )
           *((_DWORD *)v31 + 29) |= 0x100000u;
       }
     }
@@ -530,7 +530,7 @@ LABEL_142:
     *((_DWORD *)v31 + 29) |= 0x100000u;
   if ( !*(_QWORD *)(BugCheckParameter1 + 784) )
   {
-    inited = PspSetupUserStack(BugCheckParameter1, v38, (__int64)v69, (__int64)v47);
+    inited = PspSetupUserStack(BugCheckParameter1, v38, v69, (__int64)v47, v68);
     if ( inited < 0 || (*((_DWORD *)v31 + 29) & 0x100000) == 0 )
       goto LABEL_63;
     v49 = v69;
@@ -543,7 +543,7 @@ LABEL_113:
   v93 = 0x8000LL;
   v94 = 0x40000LL;
   v92 = 0LL;
-  inited = PspSetupUserStack(BugCheckParameter1, v38, (__int64)v69, (__int64)&v88);
+  inited = PspSetupUserStack(BugCheckParameter1, v38, v69, (__int64)&v88, v68);
   if ( inited >= 0 )
   {
     v53 = (int)v79;

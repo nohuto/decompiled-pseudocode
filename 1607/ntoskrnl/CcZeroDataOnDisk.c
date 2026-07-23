@@ -1,10 +1,10 @@
 /*
- * XREFs of CcZeroDataOnDisk @ 0x14006B1EC
+ * XREFs of CcZeroDataOnDisk @ 0x14006AD6C
  * Callers:
- *     CcZeroData @ 0x1404584CC (CcZeroData.c)
+ *     CcZeroData @ 0x14045739C (CcZeroData.c)
  * Callees:
- *     MmZeroPageWrite @ 0x14006B26C (MmZeroPageWrite.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
+ *     MmZeroPageWrite @ 0x14006ADEC (MmZeroPageWrite.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
  */
 
 __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of VfPacketCreateAndLock @ 0x140B9B430
+ * XREFs of VfPacketCreateAndLock @ 0x140B9D430
  * Callers:
- *     IovpCallDriver1 @ 0x140B8CCB4 (IovpCallDriver1.c)
- *     VfIoAllocateIrp2 @ 0x140B8DE1C (VfIoAllocateIrp2.c)
- *     ViIrpAllocateLockedPacket @ 0x140B8E0BC (ViIrpAllocateLockedPacket.c)
+ *     IovpCallDriver1 @ 0x140B8ECB4 (IovpCallDriver1.c)
+ *     VfIoAllocateIrp2 @ 0x140B8FE1C (VfIoAllocateIrp2.c)
+ *     ViIrpAllocateLockedPacket @ 0x140B900BC (ViIrpAllocateLockedPacket.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     IovIsDisabledWithoutReboot @ 0x1405A2FFC (IovIsDisabledWithoutReboot.c)
- *     VfIrpDatabaseEntryInsertAndLock @ 0x140BA3F10 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     IovIsDisabledWithoutReboot @ 0x14059FF3C (IovIsDisabledWithoutReboot.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x140BA5F10 (VfIrpDatabaseEntryInsertAndLock.c)
  */
 
 _DWORD *__fastcall VfPacketCreateAndLock(__int64 a1)

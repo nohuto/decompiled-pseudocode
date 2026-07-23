@@ -1,10 +1,10 @@
 /*
- * XREFs of KeGetNextKernelStackSegment @ 0x1402E4B28
+ * XREFs of KeGetNextKernelStackSegment @ 0x140295E78
  * Callers:
- *     RtlpWalkFrameChain @ 0x14021D250 (RtlpWalkFrameChain.c)
- *     RtlpIsFrameInBoundsEx @ 0x140277828 (RtlpIsFrameInBoundsEx.c)
- *     KiInSwapKernelStacks @ 0x1402E46BC (KiInSwapKernelStacks.c)
- *     KeEnumerateKernelStackSegments @ 0x1402E4A8C (KeEnumerateKernelStackSegments.c)
+ *     RtlpIsFrameInBoundsEx @ 0x1402657C8 (RtlpIsFrameInBoundsEx.c)
+ *     KiInSwapKernelStacks @ 0x140295A0C (KiInSwapKernelStacks.c)
+ *     KeEnumerateKernelStackSegments @ 0x140295DDC (KeEnumerateKernelStackSegments.c)
+ *     RtlpWalkFrameChain @ 0x1402C1B50 (RtlpWalkFrameChain.c)
  * Callees:
  *     <none>
  */

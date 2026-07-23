@@ -25,14 +25,14 @@
  *     sub_180058A20 @ 0x180058A20 (sub_180058A20.c)
  */
 
-__int64 __fastcall sub_1800588D4(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+__int64 __fastcall sub_1800588D4(PRTL_SRWLOCK SRWLock, unsigned __int64 a2, unsigned __int64 a3)
 {
-  int v3; // r13d
+  int Ptr; // r13d
   unsigned __int64 v6; // rbp
   unsigned __int64 v7; // r12
   unsigned int v8; // edi
   unsigned __int64 v9; // rsi
-  __int64 v11; // rax
+  _QWORD *v11; // rax
   __int64 v12; // r14
   unsigned int v13; // r9d
   unsigned __int8 v14; // al
@@ -41,34 +41,34 @@ __int64 __fastcall sub_1800588D4(__int64 a1, unsigned __int64 a2, unsigned __int
   _DWORD *v17; // r10
   unsigned int v18; // edx
 
-  v3 = *(_DWORD *)(a1 + 48);
-  v6 = a2 % *(unsigned int *)(a1 + 56);
-  v7 = a2 / *(unsigned int *)(a1 + 56);
+  Ptr = (int)SRWLock[6].Ptr;
+  v6 = a2 % LODWORD(SRWLock[7].Ptr);
+  v7 = a2 / LODWORD(SRWLock[7].Ptr);
   v8 = 1;
-  sub_180058A00(a1, a1);
+  sub_180058A00(SRWLock, SRWLock);
   if ( a3 )
   {
     while ( 1 )
     {
-      v9 = (unsigned int)(*(_DWORD *)(a1 + 56) - v6);
+      v9 = (unsigned int)(LODWORD(SRWLock[7].Ptr) - v6);
       if ( a3 < v9 )
         LODWORD(v9) = a3;
-      if ( !v3 )
+      if ( !Ptr )
       {
-        v8 = *(_DWORD *)(a1 + 72) & 1;
+        v8 = (__int64)SRWLock[9].Ptr & 1;
         goto LABEL_6;
       }
-      if ( *(_QWORD *)(a1 + 8) )
+      if ( SRWLock[1].Ptr )
       {
-        if ( (unsigned __int8)sub_180058A20(a1, (unsigned int)v7) )
+        if ( (unsigned __int8)sub_180058A20(SRWLock, (unsigned int)v7) )
         {
-          v11 = *(_QWORD *)(a1 + 8);
-          v12 = *(_QWORD *)(v11 + 8LL * (unsigned int)v7);
+          v11 = SRWLock[1].Ptr;
+          v12 = v11[(unsigned int)v7];
           if ( v12 )
             break;
         }
       }
-      if ( (*(_BYTE *)(a1 + 72) & 1) == 0 )
+      if ( ((__int64)SRWLock[9].Ptr & 1) == 0 )
       {
         v8 = 0;
         goto LABEL_6;
@@ -80,8 +80,8 @@ LABEL_19:
       if ( !a3 )
         goto LABEL_6;
     }
-    --v3;
-    sub_180058A00(a1, *(_QWORD *)(v11 + 8LL * (unsigned int)v7));
+    --Ptr;
+    sub_180058A00(SRWLock, v11[(unsigned int)v7]);
     v13 = v9 + v6 - 1;
     if ( v13 < *(_DWORD *)(v12 + 8) )
     {
@@ -104,8 +104,8 @@ LABEL_31:
         v14 = (*v16 & v18) == v18;
 LABEL_16:
         v8 &= -(v14 != 0);
-        if ( (*(_BYTE *)(a1 + 72) & 4) == 0 )
-          RtlReleaseSRWLockShared((volatile signed __int64 *)v12);
+        if ( ((__int64)SRWLock[9].Ptr & 4) == 0 )
+          RtlReleaseSRWLockShared((PRTL_SRWLOCK)v12);
         if ( !v8 )
           goto LABEL_6;
         goto LABEL_19;
@@ -126,7 +126,7 @@ LABEL_23:
     goto LABEL_16;
   }
 LABEL_6:
-  if ( (*(_BYTE *)(a1 + 72) & 4) == 0 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)a1);
+  if ( ((__int64)SRWLock[9].Ptr & 4) == 0 )
+    RtlReleaseSRWLockShared(SRWLock);
   return v8;
 }

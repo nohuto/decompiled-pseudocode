@@ -1,28 +1,28 @@
 /*
- * XREFs of MiDeleteFinalPageTables @ 0x140075A98
+ * XREFs of MiDeleteFinalPageTables @ 0x140075B18
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140460678 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x14045F548 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiClearContainingMapping @ 0x140075D34 (MiClearContainingMapping.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     KeFlushProcessTb @ 0x140075E7C (KeFlushProcessTb.c)
- *     MiUnlinkProcessFromSession @ 0x140075E98 (MiUnlinkProcessFromSession.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiDeleteAllHashMappings @ 0x140101410 (MiDeleteAllHashMappings.c)
- *     MiGetTopPteAddress @ 0x14012A3F0 (MiGetTopPteAddress.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiDeleteProcessShadow @ 0x1401EF1E4 (MiDeleteProcessShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiClearContainingMapping @ 0x140075DB4 (MiClearContainingMapping.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     KeFlushProcessTb @ 0x140075EFC (KeFlushProcessTb.c)
+ *     MiUnlinkProcessFromSession @ 0x140075F18 (MiUnlinkProcessFromSession.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiDeleteAllHashMappings @ 0x1400FF190 (MiDeleteAllHashMappings.c)
+ *     MiGetTopPteAddress @ 0x14012A960 (MiGetTopPteAddress.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiDeleteProcessShadow @ 0x1401EF010 (MiDeleteProcessShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiDeleteFinalPageTables(ULONG_PTR BugCheckParameter2)
@@ -67,8 +67,8 @@ __int64 __fastcall MiDeleteFinalPageTables(ULONG_PTR BugCheckParameter2)
     v10 = 0;
     while ( v10 )
     {
-      v11 = qword_140326998;
-      if ( qword_140326998 )
+      v11 = qword_1403269D8;
+      if ( qword_1403269D8 )
         goto LABEL_6;
 LABEL_8:
       if ( ++v10 >= 2 )

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiArePagefileContentsCorrupted @ 0x1402DB9F0
+ * XREFs of MiArePagefileContentsCorrupted @ 0x1402BD7B0
  * Callers:
- *     MiValidatePagefilePageHash @ 0x14038CF80 (MiValidatePagefilePageHash.c)
- *     MiIsStandbyPageCorrupted @ 0x14050A00C (MiIsStandbyPageCorrupted.c)
+ *     MiValidatePagefilePageHash @ 0x14038ED2C (MiValidatePagefilePageHash.c)
+ *     MiIsStandbyPageCorrupted @ 0x140503ABC (MiIsStandbyPageCorrupted.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiReadEntirePageHashEntry @ 0x140490A98 (MiReadEntirePageHashEntry.c)
- *     MiPageHashBugCheck @ 0x14052F994 (MiPageHashBugCheck.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReadEntirePageHashEntry @ 0x14048A5E8 (MiReadEntirePageHashEntry.c)
+ *     MiPageHashBugCheck @ 0x140531E94 (MiPageHashBugCheck.c)
  */
 
 __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2, int a3)
@@ -45,46 +45,47 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2, int 
   __int64 v25; // rsi
   int v26; // ecx
   int v27; // r15d
-  unsigned __int64 v28; // rcx
-  _KPROCESS *v29; // rdx
-  int v30; // eax
-  __int64 v31; // rcx
-  volatile signed __int32 *v32; // rsi
-  unsigned int v33; // r14d
-  volatile signed __int32 i; // ecx
-  unsigned __int64 v36; // rdi
-  int v37; // eax
+  unsigned __int64 v28; // r8
+  unsigned __int64 v29; // rcx
+  _KPROCESS *v30; // rdx
+  int v31; // eax
+  __int64 v32; // rcx
+  volatile signed __int32 *v33; // rsi
+  unsigned int v34; // r14d
+  __int64 i; // rcx
+  unsigned __int64 v37; // rdi
   int v38; // eax
-  __int64 v39; // rcx
-  unsigned __int64 v40; // r8
-  __int64 v41; // rcx
-  int v42; // edx
-  unsigned __int64 v43; // [rsp+30h] [rbp-88h]
-  __int64 v44; // [rsp+30h] [rbp-88h]
-  __int128 v45; // [rsp+38h] [rbp-80h] BYREF
-  __int128 v46; // [rsp+48h] [rbp-70h] BYREF
-  int v47[4]; // [rsp+58h] [rbp-60h] BYREF
+  int v39; // eax
+  __int64 v40; // rcx
+  unsigned __int64 v41; // r8
+  __int64 v42; // rcx
+  int v43; // edx
+  unsigned __int64 v44; // [rsp+30h] [rbp-88h]
+  __int64 v45; // [rsp+30h] [rbp-88h]
+  __int128 v46; // [rsp+38h] [rbp-80h] BYREF
+  __int128 v47; // [rsp+48h] [rbp-70h] BYREF
+  int v48[4]; // [rsp+58h] [rbp-60h] BYREF
   __int64 retaddr; // [rsp+B8h] [rbp+0h]
-  unsigned __int8 v50; // [rsp+C8h] [rbp+10h] BYREF
-  int v51; // [rsp+D0h] [rbp+18h]
+  unsigned __int8 v51; // [rsp+C8h] [rbp+10h] BYREF
+  int v52; // [rsp+D0h] [rbp+18h]
 
-  v51 = a3;
+  v52 = a3;
   v3 = 48 * a1;
-  *(_QWORD *)&v45 = 48 * a1;
+  *(_QWORD *)&v46 = 48 * a1;
   v5 = a1;
-  *(_OWORD *)v47 = 0LL;
-  v46 = 0LL;
+  *(_OWORD *)v48 = 0LL;
+  v47 = 0LL;
   v6 = 0;
   v7 = *(_QWORD *)(48 * a1 - 0x220000000000LL + 16);
   v8 = (unsigned __int16)v7 >> 12;
-  v9 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(48 * a1 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
+  v9 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(48 * a1 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
   v10 = *(_QWORD *)(v9 + 8 * v8 + 22304);
   if ( (v7 & 8) != 0 )
   {
-    v36 = *(_QWORD *)(48 * a1 - 0x220000000000LL + 16);
-    if ( qword_140E2D740 && (v7 & 0x10) == 0 )
-      v36 = qword_140E2D748 & v7;
-    v11 = HIDWORD(v36);
+    v37 = *(_QWORD *)(48 * a1 - 0x220000000000LL + 16);
+    if ( qword_140E2D8C0 && (v7 & 0x10) == 0 )
+      v37 = qword_140E2D8C8 & v7;
+    v11 = HIDWORD(v37);
   }
   else
   {
@@ -94,7 +95,7 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2, int 
   if ( !a2 )
   {
     v13 = (_DWORD *)(v10 + 200);
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       _m_prefetchw(v13);
       v14 = *v13 & 0x7FFFFFFF;
@@ -117,30 +118,30 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2, int 
       LOBYTE(v9) = -1;
       ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v10 + 200, v9);
     }
-    v16 = *(_QWORD *)(v10 + 184) + (unsigned int)(dword_140E35F4C * v11);
+    v16 = *(_QWORD *)(v10 + 184) + (unsigned int)(dword_140E360CC * v11);
     if ( (*(_QWORD *)(((v16 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 1) != 0 )
     {
-      LODWORD(v46) = *(_DWORD *)v16;
-      if ( dword_140E35F50 )
+      LODWORD(v47) = *(_DWORD *)v16;
+      if ( dword_140E360D0 )
       {
-        *((_QWORD *)&v46 + 1) = *(_QWORD *)(v16 + 8);
-        DWORD1(v46) = *(_DWORD *)(v16 + 4);
+        *((_QWORD *)&v47 + 1) = *(_QWORD *)(v16 + 8);
+        DWORD1(v47) = *(_DWORD *)(v16 + 4);
       }
       else
       {
-        *((_QWORD *)&v46 + 1) = 0LL;
-        DWORD1(v46) = 0;
+        *((_QWORD *)&v47 + 1) = 0LL;
+        DWORD1(v47) = 0;
       }
     }
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v10 + 200));
-    v3 = v45;
-    a2 = &v46;
+    v3 = v46;
+    a2 = &v47;
     v5 = a1;
   }
   v17 = *(_DWORD *)a2;
   if ( *(_DWORD *)a2 == 3 || v17 == 2 )
     return 0LL;
-  if ( !v17 && (dword_140FBE210 & 1) == 0 && v12 != 31 )
+  if ( !v17 && (dword_140FBF210 & 1) == 0 && v12 != 31 )
   {
     if ( v12 >> 3 == 3 )
     {
@@ -153,19 +154,19 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2, int 
     }
   }
   v18 = *(_QWORD *)(v3 - 0x220000000000LL + 16);
-  v43 = *(_QWORD *)(v3 - 0x220000000000LL + 8);
+  v44 = *(_QWORD *)(v3 - 0x220000000000LL + 8);
   if ( (v18 & 8) != 0 )
   {
-    if ( qword_140E2D740 && (v18 & 0x10) == 0 )
-      v18 &= qword_140E2D748;
+    if ( qword_140E2D8C0 && (v18 & 0x10) == 0 )
+      v18 &= qword_140E2D8C8;
     v19 = HIDWORD(v18);
   }
   else
   {
     LODWORD(v19) = 0;
   }
-  v50 = 0;
-  v20 = (__int64 *)MiMapPageInHyperSpaceWorker(v5, &v50, 0);
+  v51 = 0;
+  v20 = (__int64 *)MiMapPageInHyperSpaceWorker(v5, &v51, 0);
   v21 = (unsigned __int64)v20;
   v22 = *v20;
   v23 = v20 + 508;
@@ -175,7 +176,7 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2, int 
     v20 += 4;
   }
   while ( v20 != v23 );
-  v24 = v50;
+  v24 = v51;
   v25 = v22 + v20[3] + v20[1] + v20[2];
   *(_QWORD *)KeGetCurrentPrcb()->MmInternal = 0LL;
   v26 = v25;
@@ -189,143 +190,144 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2, int 
     }
     __writecr8(v24);
   }
-  v47[1] = v19;
+  v48[1] = v19;
   v27 = HIDWORD(v25) + v26;
   if ( (unsigned int)(HIDWORD(v25) + v26) < 3 )
     v27 = 3;
-  v47[0] = v27;
-  v28 = v43;
-  v29 = (_KPROCESS *)a1;
-  v30 = *(_DWORD *)a2;
-  if ( (*(_QWORD *)(v45 - 0x21FFFFFFFFD8LL) & 0xFFFFFFFFFFLL) == a1 )
-    v28 = 0xFFFFF6FB7DBEDF68uLL;
-  v31 = v28 | 1;
-  v44 = v31;
-  *(_QWORD *)&v47[2] = v31;
-  if ( v30 == 1 )
+  v48[0] = v27;
+  v28 = 0xFFFFF6FB7DBEDF68uLL;
+  v29 = v44;
+  v30 = (_KPROCESS *)a1;
+  v31 = *(_DWORD *)a2;
+  if ( (*(_QWORD *)(v46 - 0x21FFFFFFFFD8LL) & 0xFFFFFFFFFFLL) == a1 )
+    v29 = 0xFFFFF6FB7DBEDF68uLL;
+  v32 = v29 | 1;
+  v45 = v32;
+  *(_QWORD *)&v48[2] = v32;
+  if ( v31 == 1 )
     goto LABEL_66;
-  if ( v30 )
+  if ( v31 )
   {
-    if ( dword_140E35F50 )
+    if ( dword_140E360D0 )
     {
-      if ( *((_QWORD *)a2 + 1) == v31 )
+      if ( *((_QWORD *)a2 + 1) == v32 )
       {
-        v38 = 0;
+        v39 = 0;
         if ( *((_DWORD *)a2 + 1) != (_DWORD)v19 )
-          v38 = 56;
-        v33 = v38;
+          v39 = 56;
+        v34 = v39;
       }
       else
       {
-        v33 = 59;
+        v34 = 59;
       }
     }
     else
     {
-      v33 = 0;
+      v34 = 0;
     }
   }
   else
   {
-    v32 = (volatile signed __int32 *)(v10 + 200);
-    v33 = 0;
-    v45 = 0LL;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    v33 = (volatile signed __int32 *)(v10 + 200);
+    v34 = 0;
+    v46 = 0LL;
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      if ( _interlockedbittestandset(v32, 0x1Fu) )
-        v33 = ExpWaitForSpinLockExclusiveAndAcquire((int *)(v10 + 200), 0xFFu);
-      for ( i = *v32; (*v32 & 0xBFFFFFFF) != 0x80000000; i = *v32 )
+      if ( _interlockedbittestandset(v33, 0x1Fu) )
+        v34 = ExpWaitForSpinLockExclusiveAndAcquire((int *)(v10 + 200), 0xFFu);
+      for ( i = *(unsigned int *)v33; (*v33 & 0xBFFFFFFF) != 0x80000000; i = *(unsigned int *)v33 )
       {
         if ( (i & 0x40000000) == 0 )
-          _InterlockedOr(v32, 0x40000000u);
-        if ( (++v33 & HvlLongSpinCountMask) == 0
+          _InterlockedOr(v33, 0x40000000u);
+        if ( (++v34 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && KiCheckVpBackingLongSpinWaitHypercall() )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(i, v30, v28) )
         {
-          HvlNotifyLongSpinWait(v33);
+          HvlNotifyLongSpinWait(v34);
         }
         else
         {
           _mm_pause();
         }
       }
-      v33 = 0;
+      v34 = 0;
     }
     else
     {
       ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented((int *)(v10 + 200), 0xFFu);
     }
-    if ( (*(_QWORD *)((((*(_QWORD *)(v10 + 184) + (unsigned __int64)(unsigned int)(dword_140E35F4C * v11)) >> 9) & 0x7FFFFFFFF8LL)
+    if ( (*(_QWORD *)((((*(_QWORD *)(v10 + 184) + (unsigned __int64)(unsigned int)(dword_140E360CC * v11)) >> 9) & 0x7FFFFFFFF8LL)
                     - 0x98000000000LL) & 1) == 0 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v10 + 200));
       return 0LL;
     }
-    MiReadEntirePageHashEntry(*(_QWORD *)(v10 + 184) + (unsigned int)(dword_140E35F4C * v11), &v45);
-    if ( (_DWORD)v45 == v27 )
+    MiReadEntirePageHashEntry(*(_QWORD *)(v10 + 184) + (unsigned int)(dword_140E360CC * v11), &v46);
+    if ( (_DWORD)v46 == v27 )
     {
-      *(_DWORD *)a2 = v45;
-      if ( dword_140E35F50 )
+      *(_DWORD *)a2 = v46;
+      if ( dword_140E360D0 )
       {
-        v41 = *((_QWORD *)&v45 + 1);
-        v42 = DWORD1(v45);
-        *((_QWORD *)a2 + 1) = *((_QWORD *)&v45 + 1);
-        *((_DWORD *)a2 + 1) = v42;
-        if ( dword_140E35F50 )
+        v42 = *((_QWORD *)&v46 + 1);
+        v43 = DWORD1(v46);
+        *((_QWORD *)a2 + 1) = *((_QWORD *)&v46 + 1);
+        *((_DWORD *)a2 + 1) = v43;
+        if ( dword_140E360D0 )
         {
-          if ( v41 != v44 )
-            v33 = 59;
-          if ( v42 != (_DWORD)v19 )
-            v33 = 56;
+          if ( v42 != v45 )
+            v34 = 59;
+          if ( v43 != (_DWORD)v19 )
+            v34 = 56;
         }
       }
     }
-    else if ( (*(_BYTE *)(48 * ((v40 >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFDELL) & 0x10) != 0 )
+    else if ( (*(_BYTE *)(48 * ((v41 >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFDELL) & 0x10) != 0 )
     {
-      if ( !stru_140E2EB88.SuspendEvent.Header.Type )
-        v33 = 58;
+      if ( !stru_140E2ED08.SuspendEvent.Header.Type )
+        v34 = 58;
     }
     else
     {
-      *(_DWORD *)v39 = v27;
-      if ( dword_140E35F50 )
+      *(_DWORD *)v40 = v27;
+      if ( dword_140E360D0 )
       {
-        *(_QWORD *)(v39 + 8) = v44;
-        *(_DWORD *)(v39 + 4) = v19;
+        *(_QWORD *)(v40 + 8) = v45;
+        *(_DWORD *)(v40 + 4) = v19;
       }
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      *v32 = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      *v33 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v10 + 200), retaddr);
-    if ( !v33 )
+    if ( !v34 )
       return 0LL;
-    v29 = (_KPROCESS *)a1;
+    v30 = (_KPROCESS *)a1;
   }
-  v37 = *(_DWORD *)a2;
+  v38 = *(_DWORD *)a2;
   if ( *(_DWORD *)a2 == 1 )
   {
 LABEL_66:
-    v33 = 60;
+    v34 = 60;
   }
-  else if ( v37 == v27 || (unsigned int)(v37 - 2) <= 1 )
+  else if ( v38 == v27 || (unsigned int)(v38 - 2) <= 1 )
   {
-    if ( !v33 )
+    if ( !v34 )
       return 0LL;
   }
-  else if ( v33 )
+  else if ( v34 )
   {
-    v33 = 57;
+    v34 = 57;
   }
   else
   {
-    v33 = 63;
+    v34 = 63;
   }
-  ++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[12];
-  stru_140E2EB88.SavedApcState.Process = v29;
-  if ( !*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[8] )
-    MiPageHashBugCheck(v33, (unsigned int)v11, (int)v47);
-  if ( *(_DWORD *)&stru_140E2EB88.SavedApcStateFill[8] == 1 )
+  ++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[12];
+  stru_140E2ED08.SavedApcState.Process = v30;
+  if ( !*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[8] )
+    MiPageHashBugCheck(v34, (unsigned int)v11, (int)v48);
+  if ( *(_DWORD *)&stru_140E2ED08.SavedApcStateFill[8] == 1 )
     return 1;
   return v6;
 }

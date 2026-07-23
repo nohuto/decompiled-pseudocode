@@ -61,7 +61,7 @@ unsigned __int64 *__fastcall PpmIdleSelectStates(
   __int16 v33; // r14
   unsigned __int64 v34; // rsi
   int v35; // ecx
-  unsigned int v36; // eax
+  ULONG v36; // eax
   bool v37; // zf
   char v38; // al
   __int64 v39; // rsi
@@ -90,7 +90,7 @@ unsigned __int64 *__fastcall PpmIdleSelectStates(
   unsigned __int64 v62; // rbx
   unsigned __int64 v63; // rdi
   int v64; // ecx
-  unsigned int v65; // eax
+  ULONG v65; // eax
   __int64 v66; // r8
   __int64 v67; // rcx
   unsigned __int64 v68; // rcx
@@ -428,7 +428,7 @@ LABEL_182:
   v35 = *(_DWORD *)(v28 + 11684);
   if ( v35 )
   {
-    v36 = KeMaximumIncrement / (unsigned int)(v35 + 1);
+    v36 = KeMaximumIncrement / (v35 + 1);
     if ( !v36 )
       v36 = 1;
     v29 = v36;
@@ -798,7 +798,7 @@ LABEL_62:
         v64 = *(_DWORD *)(v39 + 11684);
         if ( v64 )
         {
-          v65 = KeMaximumIncrement / (unsigned int)(v64 + 1);
+          v65 = KeMaximumIncrement / (v64 + 1);
           if ( !v65 )
             v65 = 1;
           v58 = v65;

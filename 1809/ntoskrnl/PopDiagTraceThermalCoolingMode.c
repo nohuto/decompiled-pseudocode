@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceThermalCoolingMode @ 0x14075174C
+ * XREFs of PopDiagTraceThermalCoolingMode @ 0x14075293C
  * Callers:
- *     PopThermalWorker @ 0x140750F60 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140752150 (PopThermalWorker.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceThermalCoolingMode(__int64 a1, __int16 a2)

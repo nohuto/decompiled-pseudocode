@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapProcessWorkQueueItem @ 0x140477F90
+ * XREFs of WheapProcessWorkQueueItem @ 0x140474590
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WheapFreeErrorRecord @ 0x14047808C (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x1404780BC (WheapGenerateETWEvents.c)
- *     WheapPredictiveFailureAnalysis @ 0x140A45940 (WheapPredictiveFailureAnalysis.c)
- *     WheapCreateLiveDumpFromPreviousSession @ 0x140B61ED8 (WheapCreateLiveDumpFromPreviousSession.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WheapFreeErrorRecord @ 0x14047468C (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x1404746BC (WheapGenerateETWEvents.c)
+ *     WheapPredictiveFailureAnalysis @ 0x140A3B4F0 (WheapPredictiveFailureAnalysis.c)
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x140B63FA8 (WheapCreateLiveDumpFromPreviousSession.c)
  */
 
 LONG __fastcall WheapProcessWorkQueueItem(__int64 a1, __int64 a2)
@@ -44,13 +44,13 @@ LONG __fastcall WheapProcessWorkQueueItem(__int64 a1, __int64 a2)
   else
   {
     KeWaitForSingleObject(&WheapWaitingETWEventLock, Executive, 0, 0, 0LL);
-    v4 = (__int64 *)qword_140EF9A98;
-    if ( *(__int64 **)qword_140EF9A98 != &WheapWaitingETWEvents )
+    v4 = (__int64 *)qword_140EF9D58;
+    if ( *(__int64 **)qword_140EF9D58 != &WheapWaitingETWEvents )
       __fastfail(3u);
     *(_QWORD *)a2 = &WheapWaitingETWEvents;
     *(_QWORD *)(a2 + 8) = v4;
     *v4 = a2;
-    qword_140EF9A98 = a2;
+    qword_140EF9D58 = a2;
     return KeSetEvent(&WheapWaitingETWEventLock, 0, 0);
   }
 }

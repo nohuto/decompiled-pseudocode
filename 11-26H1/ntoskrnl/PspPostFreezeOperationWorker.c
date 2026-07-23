@@ -1,23 +1,23 @@
 /*
- * XREFs of PspPostFreezeOperationWorker @ 0x140AEF430
+ * XREFs of PspPostFreezeOperationWorker @ 0x140AF23D0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwTraceWin32kFreezeChangeNotifyStart @ 0x140827D24 (EtwTraceWin32kFreezeChangeNotifyStart.c)
- *     EtwTraceWin32kFreezeChangeNotifyStop @ 0x140827DD8 (EtwTraceWin32kFreezeChangeNotifyStop.c)
- *     PspWin32kProcessFreezeNotify @ 0x140B05828 (PspWin32kProcessFreezeNotify.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwTraceWin32kFreezeChangeNotifyStart @ 0x14082DF64 (EtwTraceWin32kFreezeChangeNotifyStart.c)
+ *     EtwTraceWin32kFreezeChangeNotifyStop @ 0x14082E018 (EtwTraceWin32kFreezeChangeNotifyStop.c)
+ *     PspWin32kProcessFreezeNotify @ 0x140B076C8 (PspWin32kProcessFreezeNotify.c)
  */
 
 void __fastcall PspPostFreezeOperationWorker(__int64 a1)
@@ -117,7 +117,7 @@ LABEL_22:
       ExfTryToWakePushLock(v3);
     KeAbPostRelease((unsigned __int64)v3);
     KeLeaveCriticalRegion();
-    if ( (unsigned int)dword_140E08F80 > 5 && (qword_140E08F90 & 4) != 0 && (qword_140E08F98 & 4) == qword_140E08F98 )
+    if ( (unsigned int)dword_140E08F40 > 5 && (qword_140E08F50 & 4) != 0 && (qword_140E08F58 & 4) == qword_140E08F58 )
     {
       v22 = 1;
       EtwTraceWin32kFreezeChangeNotifyStart();

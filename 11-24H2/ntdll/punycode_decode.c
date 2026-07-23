@@ -1,11 +1,11 @@
 /*
- * XREFs of punycode_decode @ 0x1800BB890
+ * XREFs of punycode_decode @ 0x1800B3650
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x1800BB490 (RtlpIdnToUnicodeWorker.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1800B3250 (RtlpIdnToUnicodeWorker.c)
  * Callees:
- *     adapt @ 0x1800BCD48 (adapt.c)
- *     ValidateStd3Range @ 0x1800BD040 (ValidateStd3Range.c)
- *     _wcsnicmp @ 0x180122DB0 (_wcsnicmp.c)
+ *     adapt @ 0x1800B4B08 (adapt.c)
+ *     ValidateStd3Range @ 0x1800B4E00 (ValidateStd3Range.c)
+ *     _wcsnicmp @ 0x180120FE0 (_wcsnicmp.c)
  */
 
 __int64 __fastcall punycode_decode(

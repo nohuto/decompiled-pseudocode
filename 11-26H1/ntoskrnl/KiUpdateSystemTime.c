@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateSystemTime @ 0x14046AA24
+ * XREFs of KiUpdateSystemTime @ 0x1404641A4
  * Callers:
- *     KeSetTimeAdjustment @ 0x14037936C (KeSetTimeAdjustment.c)
- *     KiSetSystemTimeDpc @ 0x1403E4EA0 (KiSetSystemTimeDpc.c)
- *     KiCalibrateTimeAdjustment @ 0x140C078A0 (KiCalibrateTimeAdjustment.c)
+ *     KeSetTimeAdjustment @ 0x14037B11C (KeSetTimeAdjustment.c)
+ *     KiSetSystemTimeDpc @ 0x1403E8090 (KiSetSystemTimeDpc.c)
+ *     KiCalibrateTimeAdjustment @ 0x140C0DAB0 (KiCalibrateTimeAdjustment.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiComputeNewSystemTime @ 0x14046AB90 (KiComputeNewSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x14046AC24 (RtlWriteAcquireTickLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiComputeNewSystemTime @ 0x140464310 (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1404643A4 (RtlWriteAcquireTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiUpdateSystemTime(__int64 a1, __int64 a2, char a3)

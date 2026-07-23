@@ -37,9 +37,9 @@ void __stdcall RtlUnwindEx(
         PCONTEXT ContextRecord,
         PUNWIND_HISTORY_TABLE HistoryTable)
 {
-  PVOID v6; // rsi
-  __int64 v8; // rdi
-  unsigned int v9; // ebx
+  _CONTEXT_EX *v6; // rsi
+  ULONG64 v8; // rdi
+  ULONG v9; // ebx
   unsigned __int64 v10; // rcx
   unsigned __int64 v11; // rcx
   void *v12; // rsp
@@ -48,7 +48,7 @@ void __stdcall RtlUnwindEx(
   PCONTEXT v15; // r12
   struct _UNWIND_HISTORY_TABLE *v16; // rax
   unsigned __int64 v17; // rdi
-  unsigned __int64 v18; // r15
+  _CONTEXT_EX *v18; // r15
   ULONG64 v19; // r14
   __int64 v20; // rdx
   __int64 v21; // r8
@@ -67,7 +67,7 @@ void __stdcall RtlUnwindEx(
   char v34; // cl
   char *v35; // rdx
   _DWORD *p_BeginAddress; // r14
-  unsigned int v37; // edx
+  ULONG v37; // edx
   char v38; // r8
   _BYTE *v39; // rdi
   __int64 v40; // rbx
@@ -94,7 +94,7 @@ void __stdcall RtlUnwindEx(
   char v61; // bl
   int v62; // edx
   struct _CONTEXT *v63; // rax
-  int v64; // et0
+  ULONG v64; // et0
   bool v65; // zf
   int v66; // edx
   unsigned int v67; // edx
@@ -147,14 +147,14 @@ void __stdcall RtlUnwindEx(
   _BYTE v114[4]; // [rsp+40h] [rbp+0h] BYREF
   int v115; // [rsp+44h] [rbp+4h]
   unsigned __int64 ImageBase; // [rsp+48h] [rbp+8h] BYREF
-  unsigned int v117; // [rsp+50h] [rbp+10h] BYREF
+  ULONG ContextLength; // [rsp+50h] [rbp+10h] BYREF
   PRUNTIME_FUNCTION v118; // [rsp+58h] [rbp+18h]
   char *v119; // [rsp+60h] [rbp+20h]
   PEXCEPTION_ROUTINE v120; // [rsp+68h] [rbp+28h]
   PUNWIND_HISTORY_TABLE v121; // [rsp+70h] [rbp+30h]
   PVOID HandlerData; // [rsp+78h] [rbp+38h] BYREF
   struct _EXCEPTION_RECORD *ExceptionRecorda; // [rsp+80h] [rbp+40h]
-  unsigned __int64 EstablisherFrame; // [rsp+88h] [rbp+48h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+88h] [rbp+48h] BYREF
   unsigned __int64 v125; // [rsp+90h] [rbp+50h] BYREF
   unsigned __int64 v126; // [rsp+98h] [rbp+58h] BYREF
   PCONTEXT v127; // [rsp+A0h] [rbp+60h]
@@ -163,23 +163,23 @@ void __stdcall RtlUnwindEx(
   ULONG64 ControlPc; // [rsp+C0h] [rbp+80h] BYREF
   ULONG64 v131; // [rsp+C8h] [rbp+88h]
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+D0h] [rbp+90h]
-  unsigned __int64 v133; // [rsp+D8h] [rbp+98h]
+  _CONTEXT_EX *v133; // [rsp+D8h] [rbp+98h]
   PVOID v134; // [rsp+E0h] [rbp+A0h]
   PCONTEXT v135; // [rsp+E8h] [rbp+A8h]
-  EXCEPTION_ROUTINE *v136; // [rsp+F0h] [rbp+B0h]
+  EXCEPTION_DISPOSITION (__cdecl *v136)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+F0h] [rbp+B0h]
   PVOID v137; // [rsp+F8h] [rbp+B8h]
   struct _UNWIND_HISTORY_TABLE *v138; // [rsp+100h] [rbp+C0h]
   int v139; // [rsp+108h] [rbp+C8h]
-  PVOID v140; // [rsp+110h] [rbp+D0h]
+  _CONTEXT_EX *v140; // [rsp+110h] [rbp+D0h]
   PCONTEXT v141; // [rsp+118h] [rbp+D8h]
   int v142; // [rsp+120h] [rbp+E0h] BYREF
   __int64 v143; // [rsp+128h] [rbp+E8h]
   DWORD64 Rip; // [rsp+130h] [rbp+F0h]
   int v145; // [rsp+138h] [rbp+F8h]
 
-  v6 = TargetFrame;
+  v6 = (_CONTEXT_EX *)TargetFrame;
   v129 = TargetIp;
-  v140 = TargetFrame;
+  v140 = (_CONTEXT_EX *)TargetFrame;
   v141 = ContextRecord;
   v121 = HistoryTable;
   v128 = ReturnValue;
@@ -194,16 +194,16 @@ void __stdcall RtlUnwindEx(
     v9 = 1048651;
     v8 = 2048LL;
   }
-  RtlGetExtendedContextLength2(v9, &v117, v8);
-  v10 = v117 + 15LL;
-  if ( v10 <= v117 )
+  RtlGetExtendedContextLength2(v9, &ContextLength, v8);
+  v10 = ContextLength + 15LL;
+  if ( v10 <= ContextLength )
     v10 = 0xFFFFFFFFFFFFFF0LL;
   v11 = v10 & 0xFFFFFFFFFFFFFFF0uLL;
   v12 = alloca(v11);
   v13 = alloca(v11);
   v14 = (PCONTEXT)v114;
   v127 = (PCONTEXT)v114;
-  RtlInitializeExtendedContext2(v114, v9, &EstablisherFrame, v8);
+  RtlInitializeExtendedContext2((PCONTEXT)v114, v9, &ContextEx, v8);
   v15 = ContextRecord;
   sub_1800A0870(ContextRecord);
   v16 = v121;
@@ -293,15 +293,15 @@ LABEL_16:
       if ( v72 < *(unsigned __int8 *)(v25 + 2 * v106 + 4) )
       {
 LABEL_17:
-        v18 = v14->Rsp;
+        v18 = (_CONTEXT_EX *)v14->Rsp;
         goto LABEL_18;
       }
       v74 = *(unsigned __int8 *)(v25 + 3);
       v73 = *(_BYTE *)(v25 + 3);
     }
-    v18 = *(&v14->Rax + (v73 & 0xF)) - (v74 & 0xFFFFFFF0);
+    v18 = (_CONTEXT_EX *)(*(&v14->Rax + (v73 & 0xF)) - (v74 & 0xFFFFFFF0));
 LABEL_18:
-    EstablisherFrame = v18;
+    ContextEx = v18;
     if ( v24 )
       goto LABEL_31;
     if ( v26 >= 2 )
@@ -488,7 +488,7 @@ LABEL_29:
     if ( v84 < BeginAddress )
     {
 LABEL_156:
-      v103 = sub_18000108C(v83, v23, v84 + v23);
+      v103 = sub_18000108C(v83, v23, (void *)(v84 + v23));
       if ( !v103 || v84 == *v103 )
         goto LABEL_49;
 LABEL_139:
@@ -505,7 +505,7 @@ LABEL_139:
 LABEL_31:
     p_BeginAddress = &v118->BeginAddress;
     v37 = 0;
-    v117 = 0;
+    ContextLength = 0;
     while ( 1 )
     {
       v38 = 0;
@@ -554,13 +554,13 @@ LABEL_31:
                   goto LABEL_36;
                 case 4:
                   LODWORD(v40) = v40 + 1;
-                  *(&v14->Rax + v44) = *(_QWORD *)(v18 + 8LL * *(unsigned __int16 *)&v39[2 * (unsigned int)v40 + 4]);
+                  *(&v14->Rax + v44) = *((_QWORD *)&v18->All + *(unsigned __int16 *)&v39[2 * (unsigned int)v40 + 4]);
                   goto LABEL_36;
                 case 5:
                   v40 = (unsigned int)(v40 + 2);
-                  *(&v14->Rax + v44) = *(_QWORD *)(*(unsigned __int16 *)&v39[2 * (unsigned int)(v40 - 1) + 4]
-                                                 + v18
-                                                 + ((unsigned __int64)*(unsigned __int16 *)&v39[2 * v40 + 4] << 16));
+                  *(&v14->Rax + v44) = *(DWORD64 *)((char *)&v18[2048
+                                                               * (unsigned __int64)*(unsigned __int16 *)&v39[2 * v40 + 4]].All
+                                                  + *(unsigned __int16 *)&v39[2 * (unsigned int)(v40 - 1) + 4]);
                   goto LABEL_36;
                 case 6:
                   LODWORD(v40) = v40 + 1;
@@ -572,13 +572,12 @@ LABEL_31:
                   v40 = (unsigned int)(v40 + 1);
                   v86 = 2LL * *(unsigned __int16 *)&v39[2 * v40 + 4];
                   v87 = &v14->FltSave.XmmRegisters[(unsigned int)v44];
-                  v87->Low = *(_QWORD *)(v18 + 16LL * *(unsigned __int16 *)&v39[2 * v40 + 4]);
-                  v87->High = *(_QWORD *)(v18 + 8 * v86 + 8);
+                  v87->Low = *((_QWORD *)&v18->All + 2 * *(unsigned __int16 *)&v39[2 * v40 + 4]);
+                  v87->High = *((_QWORD *)&v18->Legacy + v86);
                   goto LABEL_36;
                 case 9:
                   v40 = (unsigned int)(v40 + 2);
-                  v110 = (ULONGLONG *)(v18
-                                     + ((unsigned __int64)*(unsigned __int16 *)&v39[2 * v40 + 4] << 16)
+                  v110 = (ULONGLONG *)((char *)&v18[2048 * (unsigned __int64)*(unsigned __int16 *)&v39[2 * v40 + 4]]
                                      + *(unsigned __int16 *)&v39[2 * (unsigned int)(v40 - 1) + 4]);
                   v111 = &v14->FltSave.XmmRegisters[(unsigned int)v44];
                   v111->Low = *v110;
@@ -609,7 +608,7 @@ LABEL_36:
         }
         while ( (unsigned int)v40 < v42 );
         v38 = v114[0];
-        v37 = v117;
+        v37 = ContextLength;
         v23 = ImageBase;
       }
       if ( (*v39 & 0x20) == 0 )
@@ -617,7 +616,7 @@ LABEL_36:
       v79 = v42;
       if ( (v42 & 1) != 0 )
         v79 = v42 + 1;
-      v117 = ++v37;
+      ContextLength = ++v37;
       p_BeginAddress = &v39[2 * v79 + 4];
       if ( v37 > 0x20 )
         goto LABEL_204;
@@ -662,13 +661,13 @@ LABEL_56:
     v51 = v23 + *(unsigned int *)&v46[2 * v50 + 4];
     v120 = (PEXCEPTION_ROUTINE)v51;
 LABEL_57:
-    if ( (v18 & 7) != 0
-      || (v56 = v126, v18 < v126)
-      || (v17 = v125, v18 >= v125)
-      || (v6 = v140) != 0LL && (unsigned __int64)v140 < v18 )
+    if ( ((unsigned __int8)v18 & 7) != 0
+      || (v56 = v126, (unsigned __int64)v18 < v126)
+      || (v17 = v125, (unsigned __int64)v18 >= v125)
+      || (v6 = v140) != 0LL && v140 < v18 )
     {
 LABEL_205:
-      RtlRaiseStatus(3221225512LL);
+      RtlRaiseStatus(-1073741784);
     }
     if ( v51 )
     {
@@ -677,7 +676,7 @@ LABEL_205:
       do
       {
         v58 = v115;
-        if ( v6 == (PVOID)v18 )
+        if ( v6 == v18 )
         {
           v58 = v115 | 0x20;
           v115 |= 0x20u;
@@ -685,7 +684,7 @@ LABEL_205:
         v59 = ExceptionRecorda;
         ExceptionRecorda->ExceptionFlags = v58;
         v15->Rax = (DWORD64)v128;
-        v136 = (EXCEPTION_ROUTINE *)v51;
+        v136 = (EXCEPTION_DISPOSITION (__cdecl *)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID))v51;
         v137 = HandlerData;
         v138 = v121;
         FunctionEntry = v48;
@@ -704,7 +703,7 @@ LABEL_205:
         if ( v62 )
         {
           if ( v62 != 2 )
-            RtlRaiseStatus(3221225510LL);
+            RtlRaiseStatus(-1073741786);
           v99 = v131;
           v100 = FunctionEntry;
           v101 = v141;
@@ -715,11 +714,11 @@ LABEL_205:
           v14 = v127;
           v15 = v101;
           sub_18001E080(v127, v101);
-          v102 = RtlVirtualUnwind(2u, v99, v19, v100, v14, &HandlerData, &EstablisherFrame, 0LL);
+          v102 = RtlVirtualUnwind(2u, v99, v19, v100, v14, &HandlerData, (PULONG64)&ContextEx, 0LL);
           v120 = v102;
-          if ( ((*((_QWORD *)&xmmword_18017A370 + 1) >> 12) & 3) == 1 )
+          if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
           {
-            if ( v102 != v136 || (v18 = EstablisherFrame, EstablisherFrame != v133) || HandlerData != v137 )
+            if ( v102 != v136 || (v18 = ContextEx, ContextEx != v133) || HandlerData != v137 )
               __fastfail(0x27u);
           }
           else
@@ -727,7 +726,7 @@ LABEL_205:
             v18 = v133;
             v120 = v136;
             HandlerData = v137;
-            EstablisherFrame = v133;
+            ContextEx = v133;
           }
           v61 = v115 | 0x40;
           v57 = v139;
@@ -736,14 +735,14 @@ LABEL_205:
         }
         else
         {
-          if ( (PVOID)v18 != v6 )
+          if ( v18 != v6 )
           {
             v63 = v15;
             v15 = v14;
             v14 = v63;
           }
           v64 = _mm_getcsr();
-          v117 = v64;
+          ContextLength = v64;
           v15->MxCsr = v64;
           v15->FltSave.MxCsr = v64;
           if ( v15->FltSave.ControlWord != 639 || (v15->FltSave.StatusWord & 0xB880) != 0 || v15->FltSave.TagWord )
@@ -759,25 +758,25 @@ LABEL_205:
 LABEL_77:
       v56 = v126;
     }
-    else if ( (PVOID)v18 != v140 )
+    else if ( v18 != v140 )
     {
       v76 = v15;
       v15 = v14;
       v14 = v76;
     }
-    if ( (v18 & 7) != 0 || v18 < v56 || v18 >= v17 )
+    if ( ((unsigned __int8)v18 & 7) != 0 || (unsigned __int64)v18 < v56 || (unsigned __int64)v18 >= v17 )
     {
-      if ( (PVOID)v18 == v6 )
+      if ( v18 == v6 )
         break;
       if ( v19 != v15->Rip )
       {
-        ZwRaiseException(ExceptionRecorda, v15, 0LL);
+        ZwRaiseException(ExceptionRecorda, v15, 0);
         return;
       }
 LABEL_204:
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
     }
-    if ( (PVOID)v18 != v6 )
+    if ( v18 != v6 )
     {
       v16 = v121;
       continue;

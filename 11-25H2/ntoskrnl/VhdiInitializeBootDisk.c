@@ -58,7 +58,7 @@ __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, int **a2, UNICODE_STRING *
   v5 = a2[3];
   if ( !*a2 || !v4 || !a2[2] || !v5 )
     return 3221225485LL;
-  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(const char **)(a1 + 184)) )
+  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(PCSTR *)(a1 + 184)) )
     return 3221225473LL;
   ConfigurationInformation = IoGetConfigurationInformation();
   v8 = 0LL;

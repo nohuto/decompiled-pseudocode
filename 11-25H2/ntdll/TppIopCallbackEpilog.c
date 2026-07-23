@@ -7,31 +7,31 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppIopCallbackEpilog(__int64 a1, __int64 a2, __int64 a3)
+signed __int32 __fastcall TppIopCallbackEpilog(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 (__fastcall *v5)(__int64); // rax
+  signed __int32 result; // eax
+  __int64 (__fastcall *v3)(); // rax
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    v5 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-    if ( (char *)v5 == (char *)TppSimplepFree )
+    v3 = **(__int64 (__fastcall ***)())(a1 + 8);
+    if ( v3 == TppSimplepFree )
     {
       TppCleanupGroupMemberDestroy(a1);
-      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a1);
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, (PVOID)a1);
     }
-    else if ( (char *)v5 == (char *)TppAlpcpFree )
+    else if ( (char *)v3 == (char *)TppAlpcpFree )
     {
-      return TppAlpcpFree(a1, a2, a3);
+      return TppAlpcpFree(a1);
     }
-    else if ( v5 == TppWorkpFree )
+    else if ( (char *)v3 == (char *)TppWorkpFree )
     {
-      return TppWorkpFree(a1);
+      return TppWorkpFree((void *)a1);
     }
     else
     {
-      return v5(a1);
+      return ((__int64 (__fastcall *)(__int64))v3)(a1);
     }
   }
   return result;

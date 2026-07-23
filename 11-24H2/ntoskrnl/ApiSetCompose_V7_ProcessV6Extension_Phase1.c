@@ -1,17 +1,17 @@
 /*
- * XREFs of ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406632E0
+ * XREFs of ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x140661BC4
  * Callers:
- *     ApiSetComposeSchema_V7 @ 0x14066169C (ApiSetComposeSchema_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x14065FE98 (ApiSetComposeSchema_V7.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x1404ADDF8 (ApiSetpSearchForApiSet.c)
- *     ApiSetpGetContractKeyInfo @ 0x140662194 (ApiSetpGetContractKeyInfo.c)
- *     ApiSetpGetExtensionNameKeyInfo @ 0x140662474 (ApiSetpGetExtensionNameKeyInfo.c)
- *     ApiSetpGetSearchKeyHash @ 0x1406625C4 (ApiSetpGetSearchKeyHash.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x140662838 (ApiSetpSearchForSectionIndex_V7.c)
- *     ApiSetSchemaExpander_InsertContractEntry @ 0x140662C94 (ApiSetSchemaExpander_InsertContractEntry.c)
- *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x140662D18 (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
- *     ApiSetSchemaExpander_InsertHostEntry @ 0x140662E14 (ApiSetSchemaExpander_InsertHostEntry.c)
- *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140662EC0 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
+ *     ApiSetpSearchForApiSet @ 0x1404A8708 (ApiSetpSearchForApiSet.c)
+ *     ApiSetpGetContractKeyInfo @ 0x140660A78 (ApiSetpGetContractKeyInfo.c)
+ *     ApiSetpGetExtensionNameKeyInfo @ 0x140660D58 (ApiSetpGetExtensionNameKeyInfo.c)
+ *     ApiSetpGetSearchKeyHash @ 0x140660EA8 (ApiSetpGetSearchKeyHash.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x14066111C (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetSchemaExpander_InsertContractEntry @ 0x140661578 (ApiSetSchemaExpander_InsertContractEntry.c)
+ *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x1406615FC (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
+ *     ApiSetSchemaExpander_InsertHostEntry @ 0x1406616F8 (ApiSetSchemaExpander_InsertHostEntry.c)
+ *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x1406617A4 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
  */
 
 __int64 __fastcall ApiSetCompose_V7_ProcessV6Extension_Phase1(__int64 a1, __int64 a2)

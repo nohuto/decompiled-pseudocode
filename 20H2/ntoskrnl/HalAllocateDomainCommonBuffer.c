@@ -15,7 +15,7 @@ __int64 __fastcall HalAllocateDomainCommonBuffer(
         _DWORD *a6,
         int a7,
         PHYSICAL_ADDRESS *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
   return HalpAllocateDomainCommonBufferInternal(*(_QWORD *)(a1 + 504), 0LL, a3, a4, a5, a6, a7, a8, a9);
 }

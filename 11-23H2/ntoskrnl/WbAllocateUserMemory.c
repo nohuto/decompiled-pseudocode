@@ -1,19 +1,19 @@
 /*
- * XREFs of WbAllocateUserMemory @ 0x140763F68
+ * XREFs of WbAllocateUserMemory @ 0x140764158
  * Callers:
- *     sub_140762140 @ 0x140762140 (sub_140762140.c)
+ *     sub_140762330 @ 0x140762330 (sub_140762330.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     sub_140763D04 @ 0x140763D04 (sub_140763D04.c)
- *     sub_140764204 @ 0x140764204 (sub_140764204.c)
- *     WbFreeMemoryBlock @ 0x1407644EC (WbFreeMemoryBlock.c)
- *     WbAllocateMemoryBlock @ 0x1407A513C (WbAllocateMemoryBlock.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     sub_140763EF4 @ 0x140763EF4 (sub_140763EF4.c)
+ *     sub_1407643F4 @ 0x1407643F4 (sub_1407643F4.c)
+ *     WbFreeMemoryBlock @ 0x1407646DC (WbFreeMemoryBlock.c)
+ *     WbAllocateMemoryBlock @ 0x1407A532C (WbAllocateMemoryBlock.c)
  */
 
 __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3, _QWORD *a4)
@@ -61,7 +61,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
     while ( 1 )
     {
       v6 = *(PVOID **)((unsigned int)(*(_DWORD *)(a1 + 184) * v12) + *(_QWORD *)(a1 + 200));
-      v8 = sub_140764204(v6, a2, v24);
+      v8 = sub_1407643F4(v6, a2, v24);
       if ( v8 < 0 )
         goto LABEL_35;
       if ( !v24[0] && (unsigned int)++v12 < *(_DWORD *)(a1 + 188) )
@@ -87,7 +87,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
     if ( v8 < 0 )
       goto LABEL_35;
     v7 = BaseAddress;
-    v8 = sub_140764204(BaseAddress, a2, v24);
+    v8 = sub_1407643F4(BaseAddress, a2, v24);
     if ( v8 < 0 )
       goto LABEL_20;
     v17 = KeGetCurrentThread();
@@ -98,7 +98,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v10, v18, (__int64)v10);
     if ( v20 )
       *(_BYTE *)(v20 + 18) = 1;
-    v8 = sub_140763D04(a1 + 184, (__int64)BaseAddress, v19, (__int64)BaseAddress[4], 8u, -1);
+    v8 = sub_140763EF4(a1 + 184, (__int64)BaseAddress, v19, (__int64)BaseAddress[4], 8u, -1);
     v21 = _InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v21 & 2) != 0 && (v21 & 4) == 0 )
       ExfTryToWakePushLock(v10);

@@ -15,25 +15,33 @@
  *     _RtlpUnsuppressForwardReferencingCallTarget@4 @ 0x4B363CC9 (_RtlpUnsuppressForwardReferencingCallTarget@4.c)
  */
 
-int __thiscall RtlpHandleInvalidUserCallTarget(void *this)
+NTSTATUS __thiscall RtlpHandleInvalidUserCallTarget(PVOID BaseAddress)
 {
-  int result; // eax
-  _BYTE v3[28]; // [esp+8h] [ebp-20h] BYREF
-  int v4; // [esp+24h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  ULONG_PTR *v3; // [esp+0h] [ebp-28h]
+  _BYTE MemoryInformation[28]; // [esp+8h] [ebp-20h] BYREF
+  NTSTATUS ProcessInformation; // [esp+24h] [ebp-4h] BYREF
 
-  if ( ZwQueryInformationProcess(-1, 34, (int)&v4, 4, 0) < 0
-    || (result = v4, (v4 & 2) == 0)
-    && ((v4 & 5) != 1
-     || (result = NtQueryVirtualMemory(-1, (int)this, 0, (int)v3, 28, 0), result < 0)
-     || (v3[20] & 0xF0) != 0) )
+  if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessExecuteFlags, &ProcessInformation, 4u, 0) < 0
+    || (result = ProcessInformation, (ProcessInformation & 2) == 0)
+    && ((ProcessInformation & 5) != 1
+     || (result = NtQueryVirtualMemory(
+                    (HANDLE)0xFFFFFFFF,
+                    BaseAddress,
+                    MemoryBasicInformation,
+                    MemoryInformation,
+                    0x1CuLL,
+                    v3),
+         result < 0)
+     || (MemoryInformation[20] & 0xF0) != 0) )
   {
-    if ( RtlGuardAllowSuppressedCalls && (unsigned __int8)RtlpGuardIsSuppressedAddress(this) )
+    if ( RtlGuardAllowSuppressedCalls && (unsigned __int8)RtlpGuardIsSuppressedAddress(BaseAddress) )
     {
-      return RtlpGuardGrantSuppressedCallAccess(this, 1);
+      return RtlpGuardGrantSuppressedCallAccess(BaseAddress, 1);
     }
     else if ( !LdrControlFlowGuardEnforcedWithExportSuppression()
-           || !(unsigned __int8)RtlGuardIsExportSuppressedAddress(this)
-           || (result = RtlpUnsuppressForwardReferencingCallTarget(this), result < 0) )
+           || !(unsigned __int8)RtlGuardIsExportSuppressedAddress(BaseAddress)
+           || (result = RtlpUnsuppressForwardReferencingCallTarget(BaseAddress), result < 0) )
     {
       RtlFailFast2((void *)0xA);
     }

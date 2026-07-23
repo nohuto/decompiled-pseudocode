@@ -6,10 +6,10 @@
  *     _RtlpHeapGenerateRandomValue32@0 @ 0x4B2B22F0 (_RtlpHeapGenerateRandomValue32@0.c)
  */
 
-unsigned int __stdcall RtlpUpdateLfhRandomDataArray()
+ULONG __stdcall RtlpUpdateLfhRandomDataArray()
 {
-  unsigned int RandomValue32; // esi
-  unsigned int result; // eax
+  ULONG RandomValue32; // esi
+  ULONG result; // eax
   int v2; // ecx
   __int16 HeapData_high; // [esp+4h] [ebp-4h]
 

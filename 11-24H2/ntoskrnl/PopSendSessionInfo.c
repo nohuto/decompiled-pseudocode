@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSendSessionInfo @ 0x1409B9C8C
+ * XREFs of PopSendSessionInfo @ 0x1409A02DC
  * Callers:
- *     PopAdaptivePowerSettingCallback @ 0x14075F370 (PopAdaptivePowerSettingCallback.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
+ *     PopAdaptivePowerSettingCallback @ 0x14075E310 (PopAdaptivePowerSettingCallback.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x1409BE358 (PopInvokeWin32Callout.c)
+ *     PopInvokeWin32Callout @ 0x1409A49A8 (PopInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopSendSessionInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

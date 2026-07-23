@@ -1,15 +1,15 @@
 /*
- * XREFs of VmPinMemoryRange @ 0x14079EC80
+ * XREFs of VmPinMemoryRange @ 0x14079ED90
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PfLockSharedAcquire @ 0x14047FC44 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     VmpPinMemoryRange @ 0x14064ACC0 (VmpPinMemoryRange.c)
- *     VmpUnpinMemoryRange @ 0x14079F79C (VmpUnpinMemoryRange.c)
- *     VmpLogPin @ 0x1407A00D0 (VmpLogPin.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PfLockSharedAcquire @ 0x14047A884 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     VmpPinMemoryRange @ 0x140649280 (VmpPinMemoryRange.c)
+ *     VmpUnpinMemoryRange @ 0x14079F8AC (VmpUnpinMemoryRange.c)
+ *     VmpLogPin @ 0x1407A01E0 (VmpLogPin.c)
  */
 
 __int64 __fastcall VmPinMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, __int64 a5)

@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbGetDriverFileMappedProperty @ 0x140B61BEC
+ * XREFs of DrvDbGetDriverFileMappedProperty @ 0x140B64C8C
  * Callers:
- *     DrvDbDispatchDriverFile @ 0x140B55610 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDriverFile @ 0x140B57EB0 (DrvDbDispatchDriverFile.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     DrvDbOpenDriverFileRegKey @ 0x14089E8F0 (DrvDbOpenDriverFileRegKey.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14091B9E0 (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x140B52864 (DrvDbGetObjectDatabaseNodeName.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     DrvDbOpenDriverFileRegKey @ 0x1408A4CF0 (DrvDbOpenDriverFileRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x140976440 (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x140B55104 (DrvDbGetObjectDatabaseNodeName.c)
  */
 
 __int64 __fastcall DrvDbGetDriverFileMappedProperty(
-        _QWORD *a1,
-        wchar_t *a2,
+        __int64 *a1,
+        __int64 a2,
         HANDLE a3,
         __int64 a4,
         _DWORD *a5,
@@ -36,7 +36,7 @@ __int64 __fastcall DrvDbGetDriverFileMappedProperty(
 
   v8 = a5;
   v10 = (unsigned int *)a8;
-  v11 = (int)a2;
+  v11 = a2;
   v12 = (int)a1;
   Handle = 0LL;
   *a5 = 0;

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAbProcessEffectiveIoPriorityChange @ 0x14031B0CC
+ * XREFs of KeAbProcessEffectiveIoPriorityChange @ 0x14031B35C
  * Callers:
- *     ExpApplyPriorityBoost @ 0x1402A8540 (ExpApplyPriorityBoost.c)
- *     PsBoostThreadIoQoS @ 0x14031A70C (PsBoostThreadIoQoS.c)
- *     ExpBoostIoAfterAcquire @ 0x14031AEB0 (ExpBoostIoAfterAcquire.c)
+ *     ExpApplyPriorityBoost @ 0x1402A87D0 (ExpApplyPriorityBoost.c)
+ *     PsBoostThreadIoQoS @ 0x14031A99C (PsBoostThreadIoQoS.c)
+ *     ExpBoostIoAfterAcquire @ 0x14031B140 (ExpBoostIoAfterAcquire.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x140307D48 (KiAbQueueAutoBoostDpc.c)
- *     KiAbThreadInsertList @ 0x140360020 (KiAbThreadInsertList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140307FD8 (KiAbQueueAutoBoostDpc.c)
+ *     KiAbThreadInsertList @ 0x1403601C0 (KiAbThreadInsertList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeAbProcessEffectiveIoPriorityChange(__int64 a1, int a2)
@@ -26,7 +26,7 @@ void __fastcall KeAbProcessEffectiveIoPriorityChange(__int64 a1, int a2)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v5) = 4;
@@ -37,10 +37,10 @@ void __fastcall KeAbProcessEffectiveIoPriorityChange(__int64 a1, int a2)
     CurrentPrcb = KeGetCurrentPrcb();
     if ( (unsigned int)KiAbThreadInsertList(a1, &CurrentPrcb->AbPropagateBoostsList, a1 + 808) )
       KiAbQueueAutoBoostDpc((__int64)CurrentPrcb);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
       {
         v7 = KeGetCurrentPrcb();
         v8 = v7->SchedulerAssist;

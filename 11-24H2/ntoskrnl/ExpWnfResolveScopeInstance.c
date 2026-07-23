@@ -1,34 +1,34 @@
 /*
- * XREFs of ExpWnfResolveScopeInstance @ 0x1408AD060
+ * XREFs of ExpWnfResolveScopeInstance @ 0x1409032C0
  * Callers:
- *     ExpNtDeleteWnfStateData @ 0x1407BF7A8 (ExpNtDeleteWnfStateData.c)
- *     NtCreateWnfStateName @ 0x140836950 (NtCreateWnfStateName.c)
- *     NtDeleteWnfStateName @ 0x1408AAC70 (NtDeleteWnfStateName.c)
- *     NtQueryWnfStateData @ 0x1408ABBD0 (NtQueryWnfStateData.c)
- *     ExpNtUpdateWnfStateData @ 0x1408AC580 (ExpNtUpdateWnfStateData.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x140A1946C (ExpWnfSubscribeWnfStateChange.c)
- *     NtQueryWnfStateNameInformation @ 0x140AE3050 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407BFBF8 (ExpNtDeleteWnfStateData.c)
+ *     NtCreateWnfStateName @ 0x1408340B0 (NtCreateWnfStateName.c)
+ *     NtDeleteWnfStateName @ 0x140900ED0 (NtDeleteWnfStateName.c)
+ *     NtQueryWnfStateData @ 0x140901E30 (NtQueryWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x1409027E0 (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140A125DC (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateNameInformation @ 0x140AE4930 (NtQueryWnfStateNameInformation.c)
  * Callees:
- *     ExfAcquireRundownProtection @ 0x140247210 (ExfAcquireRundownProtection.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     ExpWnfAllocateScopeMap @ 0x1408ABB48 (ExpWnfAllocateScopeMap.c)
- *     ExpWnfGetCurrentScopeInstance @ 0x140909CBC (ExpWnfGetCurrentScopeInstance.c)
- *     ExpWnfFindScopeInstance @ 0x1409FB7F8 (ExpWnfFindScopeInstance.c)
- *     ExpWnfCreateProcessContext @ 0x140A3AAE4 (ExpWnfCreateProcessContext.c)
- *     ExpWnfFreeScopeInstance @ 0x140A604C4 (ExpWnfFreeScopeInstance.c)
- *     ExpWnfAllocateScopeInstance @ 0x140A64F6C (ExpWnfAllocateScopeInstance.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquireRundownProtection @ 0x1402F60C0 (ExfAcquireRundownProtection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     ExpWnfGetCurrentScopeInstance @ 0x1408E13DC (ExpWnfGetCurrentScopeInstance.c)
+ *     ExpWnfAllocateScopeMap @ 0x140901DA8 (ExpWnfAllocateScopeMap.c)
+ *     ExpWnfFindScopeInstance @ 0x1409F4530 (ExpWnfFindScopeInstance.c)
+ *     ExpWnfCreateProcessContext @ 0x140A302C4 (ExpWnfCreateProcessContext.c)
+ *     ExpWnfFreeScopeInstance @ 0x140A58A14 (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfAllocateScopeInstance @ 0x140A5D73C (ExpWnfAllocateScopeInstance.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfResolveScopeInstance(_QWORD *a1, __int64 a2, __int64 a3, int a4, __int64 *Sid)
@@ -51,16 +51,16 @@ __int64 __fastcall ExpWnfResolveScopeInstance(_QWORD *a1, __int64 a2, __int64 a3
   __int64 v22; // rax
   signed __int64 *v23; // r14
   __int64 *v24; // rsi
-  _QWORD *v25; // rdi
+  char *v25; // rdi
   struct _EX_RUNDOWN_REF *ScopeInstance; // rax
-  _QWORD *v27; // rax
-  _QWORD *v28; // rdi
+  char *v27; // rax
+  char *v28; // rdi
   __int64 *v29; // rsi
   struct _EX_RUNDOWN_REF *v30; // rax
   char *v31; // rdi
   __int64 v32; // rax
   _QWORD *v33; // rdi
-  __int64 Pool2; // rax
+  _DWORD *Pool2; // rax
   BOOLEAN v35; // bl
   BOOLEAN v36; // bl
   int v37; // [rsp+30h] [rbp-40h] BYREF
@@ -70,9 +70,7 @@ __int64 __fastcall ExpWnfResolveScopeInstance(_QWORD *a1, __int64 a2, __int64 a3
   __int64 v41; // [rsp+48h] [rbp-28h] BYREF
   __int64 v42; // [rsp+50h] [rbp-20h] BYREF
   __int64 *v43; // [rsp+58h] [rbp-18h]
-  int v45; // [rsp+B8h] [rbp+48h]
 
-  v45 = a2;
   v5 = a4;
   v6 = a3;
   v42 = 0LL;
@@ -161,15 +159,15 @@ LABEL_36:
   }
   v43 = &v42;
   v38 = 8;
-  CurrentScopeInstance = ExpWnfGetCurrentScopeInstance(v45, v6, v5, (unsigned int)&v42, (__int64)&v38, (__int64)&v37);
+  CurrentScopeInstance = ExpWnfGetCurrentScopeInstance(a2, v6, v5, &v42, &v38, &v37);
   if ( CurrentScopeInstance == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
-    v8 = (void *)Pool2;
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, v38, 0x20666E57u);
+    v8 = Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741670;
     v43 = (__int64 *)Pool2;
-    CurrentScopeInstance = ExpWnfGetCurrentScopeInstance(v45, a3, v5, Pool2, (__int64)&v38, (__int64)&v37);
+    CurrentScopeInstance = ExpWnfGetCurrentScopeInstance(a2, a3, v5, Pool2, &v38, &v37);
   }
   if ( CurrentScopeInstance < 0 )
     goto LABEL_21;
@@ -193,16 +191,16 @@ LABEL_37:
   v23 = (signed __int64 *)(v22 + 8 * (3 * v5 + 4));
   v24 = (__int64 *)(v22 + 8 * (3 * v5 + 5));
   v43 = v24;
-  v25 = KeAbPreAcquire((__int64)v23, 0LL);
+  v25 = (char *)KeAbPreAcquire((__int64)v23, 0LL);
   if ( _InterlockedCompareExchange64(v23, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v23, 0, v25, (__int64)v23);
   if ( v25 )
-    *((_BYTE *)v25 + 10) = 1;
+    v25[10] = 1;
   ScopeInstance = (struct _EX_RUNDOWN_REF *)ExpWnfFindScopeInstance(v24, v13, v38);
   v19 = ScopeInstance;
   if ( ScopeInstance )
   {
-    v35 = ExAcquireRundownProtection(ScopeInstance + 1);
+    v35 = ExAcquireRundownProtection_0(ScopeInstance + 1);
     if ( _InterlockedCompareExchange64(v23, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v23);
     KeAbPostRelease((ULONG_PTR)v23);
@@ -218,19 +216,19 @@ LABEL_37:
     CurrentScopeInstance = ExpWnfAllocateScopeInstance(&v39, (unsigned int)v5, v13, v38);
     if ( CurrentScopeInstance < 0 )
       goto LABEL_21;
-    v27 = KeAbPreAcquire((__int64)v23, 0LL);
+    v27 = (char *)KeAbPreAcquire((__int64)v23, 0LL);
     v28 = v27;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v23, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v23, (__int64)v27, (__int64)v23);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v23, v27, (__int64)v23);
     if ( v28 )
-      *((_BYTE *)v28 + 10) = 1;
+      v28[10] = 1;
     v29 = v43;
     v30 = (struct _EX_RUNDOWN_REF *)ExpWnfFindScopeInstance(v43, v13, v38);
     v19 = v30;
     if ( !v30 )
     {
       v31 = (char *)v39;
-      ExAcquireRundownProtection((PEX_RUNDOWN_REF)v39 + 1);
+      ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)v39 + 1);
       v32 = *v29;
       v33 = v31 + 32;
       if ( *(__int64 **)(*v29 + 8) != v29 )
@@ -251,7 +249,7 @@ LABEL_20:
       CurrentScopeInstance = 0;
       goto LABEL_21;
     }
-    v36 = ExAcquireRundownProtection(v30 + 1);
+    v36 = ExAcquireRundownProtection_0(v30 + 1);
     if ( (_InterlockedExchangeAdd64(v23, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v23);
     KeAbPostRelease((ULONG_PTR)v23);

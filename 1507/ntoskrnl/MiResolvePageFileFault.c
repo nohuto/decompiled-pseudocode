@@ -640,7 +640,8 @@ LABEL_149:
   if ( v167 && *(_BYTE *)(a6 & 0xFFFFFFFFFFFFFFFEuLL) == 4
     || v166 + 0x80000000000LL <= 0x7FFFFFFFFFLL
     || PsNtosImageBase
-    && (v166 >= PsNtosImageBase && v166 < PsNtosImageEnd || v166 >= PsHalImageBase && v166 < PsHalImageEnd) )
+    && (v166 >= (unsigned __int64)PsNtosImageBase && v166 < PsNtosImageEnd
+     || v166 >= (unsigned __int64)PsHalImageBase && v166 < PsHalImageEnd) )
   {
     v164 = 8;
   }

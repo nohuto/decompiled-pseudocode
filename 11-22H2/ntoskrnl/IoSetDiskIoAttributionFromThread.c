@@ -58,10 +58,13 @@ __int64 __fastcall IoSetDiskIoAttributionFromThread(__int64 a1, struct _KTHREAD 
     v5 = 1;
   }
   ExReleaseSpinLockSharedFromDpcLevel(&PspThreadWorkOnBehalfLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v16 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -101,10 +104,10 @@ LABEL_12:
   if ( v12 )
     v9 = *(_QWORD *)(v12 + 24);
   ExReleaseSpinLockSharedFromDpcLevel(&IopDiskIoAttributionLock);
-  if ( !KiIrqlFlags )
+  if ( !(_DWORD)KiIrqlFlags )
     goto LABEL_17;
   v22 = KeGetCurrentIrql();
-  if ( (KiIrqlFlags & 1) == 0 || v22 > 0xFu )
+  if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v22 > 0xFu )
     goto LABEL_17;
   v13 = v26;
   if ( v26 <= 0xFu && v22 >= 2u )

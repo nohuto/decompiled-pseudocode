@@ -3,9 +3,9 @@
  * Callers:
  *     BgpFoInitialize @ 0x140B9D09C (BgpFoInitialize.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x14038762C (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x140387E14 (FioFwReadUlongAtOffset.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     BgpFwAllocateMemory @ 0x14038780C (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x140387FF4 (FioFwReadUlongAtOffset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     FopFreeFontData @ 0x140AEC314 (FopFreeFontData.c)
  *     BgpRasInitializeRasterizer @ 0x140B9C144 (BgpRasInitializeRasterizer.c)
  *     FopGetTableOffsetAndSize @ 0x140B9C8D8 (FopGetTableOffsetAndSize.c)

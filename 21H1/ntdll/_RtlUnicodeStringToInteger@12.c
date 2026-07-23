@@ -15,32 +15,32 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlUnicodeStringToInteger(unsigned __int16 *a1, unsigned int a2, int *a3)
+NTSTATUS __cdecl RtlUnicodeStringToInteger(PUNICODE_STRING String, ULONG Base, PULONG Value)
 {
-  int i; // edi
-  unsigned int v4; // eax
-  unsigned __int16 *v5; // esi
+  ULONG i; // edi
+  unsigned int Length; // eax
+  wchar_t *Buffer; // esi
   bool v6; // zf
   int v7; // edx
   unsigned __int16 v8; // cx
   int v9; // ebx
-  unsigned int v10; // eax
-  int result; // eax
+  ULONG v10; // eax
+  NTSTATUS result; // eax
   int v12; // eax
   int v13; // [esp-4h] [ebp-40h]
   int v14; // [esp-4h] [ebp-40h]
-  unsigned __int16 *v15; // [esp+14h] [ebp-28h]
+  wchar_t *v15; // [esp+14h] [ebp-28h]
   int v16; // [esp+1Ch] [ebp-20h]
   __int16 v17; // [esp+20h] [ebp-1Ch]
 
   i = 0;
-  v4 = *a1;
-  if ( !(_WORD)v4 || (v4 & 1) != 0 )
+  Length = String->Length;
+  if ( !(_WORD)Length || (Length & 1) != 0 )
     goto LABEL_52;
-  v5 = (unsigned __int16 *)*((_DWORD *)a1 + 1);
-  v7 = v4 >> 1;
-  v6 = v4 >> 1 == 0;
-  LOWORD(v4) = 0;
+  Buffer = String->Buffer;
+  v7 = Length >> 1;
+  v6 = Length >> 1 == 0;
+  LOWORD(Length) = 0;
   v17 = 0;
   if ( v6 )
   {
@@ -51,37 +51,37 @@ int __stdcall RtlUnicodeStringToInteger(unsigned __int16 *a1, unsigned int a2, i
     while ( 1 )
     {
       --v7;
-      v4 = *v5;
-      v17 = *v5++;
-      if ( v4 > 0x20 )
+      Length = *Buffer;
+      v17 = *Buffer++;
+      if ( Length > 0x20 )
         break;
       if ( !v7 )
       {
-        LOWORD(v4) = 0;
+        LOWORD(Length) = 0;
         v17 = 0;
         break;
       }
     }
   }
-  v8 = v4;
-  if ( (_WORD)v4 == 45 || (_WORD)v4 == 43 )
+  v8 = Length;
+  if ( (_WORD)Length == 45 || (_WORD)Length == 43 )
   {
     if ( v7 )
     {
       --v7;
-      v8 = *v5++;
+      v8 = *Buffer++;
     }
     else
     {
       v8 = 0;
     }
   }
-  v15 = v5;
+  v15 = Buffer;
   v16 = v7;
-  switch ( a2 )
+  switch ( Base )
   {
     case 0u:
-      a2 = 10;
+      Base = 10;
       v9 = 0;
       if ( v8 != 48 )
         goto LABEL_12;
@@ -92,10 +92,10 @@ LABEL_42:
         goto LABEL_12;
       }
       --v7;
-      v12 = *v5++;
+      v12 = *Buffer++;
       if ( v12 == 120 )
       {
-        a2 = 16;
+        Base = 16;
         v13 = 4;
       }
       else
@@ -104,24 +104,24 @@ LABEL_42:
         {
           if ( v12 == 98 )
           {
-            a2 = 2;
+            Base = 2;
             v9 = 1;
           }
           else
           {
             v7 = v16;
-            v5 = v15;
+            Buffer = v15;
           }
 LABEL_40:
           if ( v7 )
           {
             --v7;
-            v8 = *v5++;
+            v8 = *Buffer++;
             goto LABEL_12;
           }
           goto LABEL_42;
         }
-        a2 = 8;
+        Base = 8;
         v13 = 3;
       }
       v9 = v13;
@@ -133,9 +133,9 @@ LABEL_40:
       v14 = 3;
       goto LABEL_46;
   }
-  if ( a2 != 10 )
+  if ( Base != 10 )
   {
-    if ( a2 == 16 )
+    if ( Base == 16 )
     {
       v14 = 4;
 LABEL_46:
@@ -148,7 +148,7 @@ LABEL_52:
   }
   v9 = 0;
 LABEL_12:
-  for ( i = 0; v8; ++v5 )
+  for ( i = 0; v8; ++Buffer )
   {
     if ( (unsigned __int16)(v8 - 48) > 9u )
     {
@@ -167,18 +167,18 @@ LABEL_12:
     {
       v10 = v8 - 48;
     }
-    if ( v10 >= a2 )
+    if ( v10 >= Base )
       break;
-    i = v9 ? v10 | (i << v9) : v10 + a2 * i;
+    i = v9 ? v10 | (i << v9) : v10 + Base * i;
     if ( !v7 )
       break;
     --v7;
-    v8 = *v5;
+    v8 = *Buffer;
   }
   result = 0;
   if ( v17 == 45 )
     i = -i;
 LABEL_22:
-  *a3 = i;
+  *Value = i;
   return result;
 }

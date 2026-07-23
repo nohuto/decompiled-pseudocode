@@ -12,7 +12,6 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_
 {
   int v2; // ebx
   struct _ECP_LIST *PoolWithQuotaTag; // rax
-  _LOOKASIDE_LIST_EX *v5; // r9
 
   v2 = 0;
   *EcpList = 0LL;
@@ -22,16 +21,12 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_
   }
   else
   {
-    ++FsRtlEcpListLookaside.L.TotalAllocates;
-    PoolWithQuotaTag = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside.L.ListHead);
+    ++unk_140306B14;
+    PoolWithQuotaTag = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside);
     if ( !PoolWithQuotaTag )
     {
-      ++FsRtlEcpListLookaside.L.AllocateMisses;
-      PoolWithQuotaTag = (struct _ECP_LIST *)FsRtlEcpListLookaside.L.AllocateEx(
-                                               FsRtlEcpListLookaside.L.Type,
-                                               FsRtlEcpListLookaside.L.Size,
-                                               FsRtlEcpListLookaside.L.Tag,
-                                               v5);
+      ++unk_140306B18;
+      PoolWithQuotaTag = (struct _ECP_LIST *)unk_140306B30(unk_140306B24, unk_140306B2C, unk_140306B28);
     }
     v2 = 4;
   }

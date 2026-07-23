@@ -2,8 +2,8 @@
  * XREFs of RtlpMuiRegCreateLanguageConfigList @ 0x18000A970
  * Callers:
  *     RtlpLoadLanguageConfigList @ 0x18000A780 (RtlpLoadLanguageConfigList.c)
- *     RtlpMuiRegDupLanguageConfigList @ 0x180112AA8 (RtlpMuiRegDupLanguageConfigList.c)
- *     RtlpPopulateLanguageConfigList @ 0x1801144A8 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpMuiRegDupLanguageConfigList @ 0x180112A78 (RtlpMuiRegDupLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180114478 (RtlpPopulateLanguageConfigList.c)
  * Callees:
  *     _SafeAllocBlob @ 0x1800122A4 (_SafeAllocBlob.c)
  */

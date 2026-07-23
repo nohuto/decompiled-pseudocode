@@ -1,21 +1,21 @@
 /*
- * XREFs of KeDisableTimer2 @ 0x1400F79FC
+ * XREFs of KeDisableTimer2 @ 0x1400F583C
  * Callers:
- *     ExDeleteTimer @ 0x140130A78 (ExDeleteTimer.c)
- *     ExpDeleteTimer2 @ 0x14051BA4C (ExpDeleteTimer2.c)
+ *     ExDeleteTimer @ 0x140130FE8 (ExDeleteTimer.c)
+ *     ExpDeleteTimer2 @ 0x1404FEE3C (ExpDeleteTimer2.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     EtwTraceTimedEvent @ 0x14009E50C (EtwTraceTimedEvent.c)
- *     KeGenericProcessorCallback @ 0x1400CA714 (KeGenericProcessorCallback.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KiUpdateTimer2Flags @ 0x1400EC7B0 (KiUpdateTimer2Flags.c)
- *     KiAcquireTimer2CollectionLockIfInserted @ 0x1400EC828 (KiAcquireTimer2CollectionLockIfInserted.c)
- *     KiAcquireTimer2LockUnlessDisabled @ 0x1400EC864 (KiAcquireTimer2LockUnlessDisabled.c)
- *     KiRemoveTimer2 @ 0x1400F9890 (KiRemoveTimer2.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KiTraceCancelTimer2 @ 0x1401DAC30 (KiTraceCancelTimer2.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     EtwTraceTimedEvent @ 0x14009DEB8 (EtwTraceTimedEvent.c)
+ *     KeGenericProcessorCallback @ 0x1400C85B4 (KeGenericProcessorCallback.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KiUpdateTimer2Flags @ 0x1400EA620 (KiUpdateTimer2Flags.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x1400EA698 (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x1400EA6D4 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     KiRemoveTimer2 @ 0x1400F76D0 (KiRemoveTimer2.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KiTraceCancelTimer2 @ 0x1401DAA5C (KiTraceCancelTimer2.c)
  */
 
 char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)

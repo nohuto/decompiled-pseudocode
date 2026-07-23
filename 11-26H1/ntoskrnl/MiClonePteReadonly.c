@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClonePteReadonly @ 0x1404D91C0
+ * XREFs of MiClonePteReadonly @ 0x1404D28A0
  * Callers:
- *     MiPteForTrimmedProto @ 0x1402D15D4 (MiPteForTrimmedProto.c)
+ *     MiPteForTrimmedProto @ 0x1402B3394 (MiPteForTrimmedProto.c)
  * Callees:
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
  */
 
 _BOOL8 __fastcall MiClonePteReadonly(unsigned __int64 a1)

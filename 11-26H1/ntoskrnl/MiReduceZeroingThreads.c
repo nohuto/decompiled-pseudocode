@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReduceZeroingThreads @ 0x14051EB08
+ * XREFs of MiReduceZeroingThreads @ 0x1405211AC
  * Callers:
- *     MiScheduleZeroPageThreads @ 0x1402A8034 (MiScheduleZeroPageThreads.c)
- *     MiBackgroundZeroComplete @ 0x1404A543C (MiBackgroundZeroComplete.c)
+ *     MiScheduleZeroPageThreads @ 0x1402A7444 (MiScheduleZeroPageThreads.c)
+ *     MiBackgroundZeroComplete @ 0x14049EACC (MiBackgroundZeroComplete.c)
  * Callees:
- *     MiDecrementZeroEngineThread @ 0x1403E8DCC (MiDecrementZeroEngineThread.c)
- *     MiFindReductionContendingThread @ 0x1403E8FFC (MiFindReductionContendingThread.c)
- *     MiMoveZeroThreadsToOtherCores @ 0x1403E9690 (MiMoveZeroThreadsToOtherCores.c)
- *     MiEngineAffinity @ 0x1403E9844 (MiEngineAffinity.c)
- *     MiActivateBetterZeroEngine @ 0x1404E7EA4 (MiActivateBetterZeroEngine.c)
- *     MiGetNextEngineType @ 0x14051FCA8 (MiGetNextEngineType.c)
- *     MiStartBackgroundZeroTimer @ 0x14070EAF4 (MiStartBackgroundZeroTimer.c)
+ *     MiDecrementZeroEngineThread @ 0x1402F5CAC (MiDecrementZeroEngineThread.c)
+ *     MiFindReductionContendingThread @ 0x1402F5EDC (MiFindReductionContendingThread.c)
+ *     MiMoveZeroThreadsToOtherCores @ 0x1402F6570 (MiMoveZeroThreadsToOtherCores.c)
+ *     MiEngineAffinity @ 0x1402F6724 (MiEngineAffinity.c)
+ *     MiActivateBetterZeroEngine @ 0x1404E1264 (MiActivateBetterZeroEngine.c)
+ *     MiGetNextEngineType @ 0x14052234C (MiGetNextEngineType.c)
+ *     MiStartBackgroundZeroTimer @ 0x1407137F4 (MiStartBackgroundZeroTimer.c)
  */
 
 __int64 __fastcall MiReduceZeroingThreads(__int64 a1, __int64 a2, _DWORD *a3)

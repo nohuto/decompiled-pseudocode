@@ -1,33 +1,33 @@
 /*
- * XREFs of MiStoreWriteModifiedPages @ 0x140118960
+ * XREFs of MiStoreWriteModifiedPages @ 0x140118ED0
  * Callers:
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     MiStoreLogNotCandidate @ 0x140115C24 (MiStoreLogNotCandidate.c)
- *     MiStoreUpdatePagefileHash @ 0x1401167A0 (MiStoreUpdatePagefileHash.c)
- *     MiRefPageFileSpaceBitmaps @ 0x140116EE8 (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140116F54 (MiDerefPageFileSpaceBitmaps.c)
- *     MiStoreCheckCandidatePage @ 0x1401191C4 (MiStoreCheckCandidatePage.c)
- *     MiUpdatePfnBackingStore @ 0x140119AD8 (MiUpdatePfnBackingStore.c)
- *     MiUpdatePagefilePeakUsage @ 0x140119B84 (MiUpdatePagefilePeakUsage.c)
- *     MiStoreWriteIssue @ 0x140119B9C (MiStoreWriteIssue.c)
- *     MiStoreFreeWriteSupport @ 0x14011AE9C (MiStoreFreeWriteSupport.c)
- *     MiStoreModifiedWriteDereference @ 0x14011AEC0 (MiStoreModifiedWriteDereference.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
- *     MiTransferSoftwarePte @ 0x1401F299C (MiTransferSoftwarePte.c)
- *     MiStoreLogFullPagefile @ 0x1401F49E4 (MiStoreLogFullPagefile.c)
- *     MiStoreLogWriteDisabled @ 0x1401F4B00 (MiStoreLogWriteDisabled.c)
- *     MiStoreLogWriteIssueFailure @ 0x1401F4BA4 (MiStoreLogWriteIssueFailure.c)
- *     MiStoreLogWriteIssueRetry @ 0x1401F4D14 (MiStoreLogWriteIssueRetry.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     MiStoreLogNotCandidate @ 0x140116194 (MiStoreLogNotCandidate.c)
+ *     MiStoreUpdatePagefileHash @ 0x140116D10 (MiStoreUpdatePagefileHash.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x140117458 (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x1401174C4 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiStoreCheckCandidatePage @ 0x140119734 (MiStoreCheckCandidatePage.c)
+ *     MiUpdatePfnBackingStore @ 0x14011A048 (MiUpdatePfnBackingStore.c)
+ *     MiUpdatePagefilePeakUsage @ 0x14011A0F4 (MiUpdatePagefilePeakUsage.c)
+ *     MiStoreWriteIssue @ 0x14011A10C (MiStoreWriteIssue.c)
+ *     MiStoreFreeWriteSupport @ 0x14011B40C (MiStoreFreeWriteSupport.c)
+ *     MiStoreModifiedWriteDereference @ 0x14011B430 (MiStoreModifiedWriteDereference.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     MiTransferSoftwarePte @ 0x1401F27A4 (MiTransferSoftwarePte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
+ *     MiStoreLogFullPagefile @ 0x1401F4810 (MiStoreLogFullPagefile.c)
+ *     MiStoreLogWriteDisabled @ 0x1401F492C (MiStoreLogWriteDisabled.c)
+ *     MiStoreLogWriteIssueFailure @ 0x1401F49D0 (MiStoreLogWriteIssueFailure.c)
+ *     MiStoreLogWriteIssueRetry @ 0x1401F4B40 (MiStoreLogWriteIssueRetry.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -180,7 +180,7 @@ LABEL_6:
     v16 = v15;
     v81 = *v13;
     v75 = v15;
-    if ( *v13 == qword_140327688 || !*(_QWORD *)(v8 + 24) )
+    if ( *v13 == qword_1403276C8 || !*(_QWORD *)(v8 + 24) )
       goto LABEL_61;
     if ( v91 != *(_DWORD **)(v8 + 112) )
     {
@@ -484,7 +484,7 @@ LABEL_97:
     {
       _bittestandreset(*(signed __int32 **)(*(_QWORD *)(v5 + 1176) + 8LL), v48);
       v69 = *(_QWORD *)(v87 + 8LL * v48);
-      if ( v69 == qword_140327688 )
+      if ( v69 == qword_1403276C8 )
       {
         updated = MiUpdatePageFileHighInPte(updated, v48 + (unsigned int)v47);
         MiReleasePageFileInfo((struct _KEVENT *)v5, updated, 2);

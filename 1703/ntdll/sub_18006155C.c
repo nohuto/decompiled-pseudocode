@@ -14,9 +14,9 @@ __int64 sub_18006155C()
 
   memset(v2, 0, sizeof(v2));
   v0 = v2[10] & 0xFC | 2;
-  memset(&qword_180159600, 0, 0x50uLL);
+  memset(&stru_180159600, 0, 0x50uLL);
   dword_18015963C = -1;
-  qword_180159600 = 0LL;
+  stru_180159600.Ptr = 0LL;
   dword_180159630 = 0;
   dword_180159634 = 0x20000;
   qword_180159640 = 2072LL;

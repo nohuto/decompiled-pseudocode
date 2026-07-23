@@ -1,5 +1,5 @@
 /*
- * XREFs of KiNonNumaQueryNodeDistance @ 0x1405BB8A0
+ * XREFs of KiNonNumaQueryNodeDistance @ 0x1405B8ED0
  * Callers:
  *     <none>
  * Callees:

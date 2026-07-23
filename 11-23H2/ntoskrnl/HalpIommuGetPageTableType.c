@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuGetPageTableType @ 0x14037FE50
+ * XREFs of HalpIommuGetPageTableType @ 0x14037FFF0
  * Callers:
- *     HalpIommuAllocateDmaDomain @ 0x1403A98AC (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403A9A8C (HalpIommuAllocateDmaDomain.c)
  *     HalpIommuConstructReservedPageTable @ 0x140A8A50C (HalpIommuConstructReservedPageTable.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x140380630 (HalpGetCpuInfo.c)
+ *     HalpGetCpuInfo @ 0x1403807D0 (HalpGetCpuInfo.c)
  */
 
 __int64 __fastcall HalpIommuGetPageTableType(char a1, _DWORD *a2)

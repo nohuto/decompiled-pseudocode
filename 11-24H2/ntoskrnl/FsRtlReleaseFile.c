@@ -1,28 +1,28 @@
 /*
- * XREFs of FsRtlReleaseFile @ 0x140943180
+ * XREFs of FsRtlReleaseFile @ 0x14098D3F0
  * Callers:
- *     CcWriteBehindPostProcess @ 0x1402A883C (CcWriteBehindPostProcess.c)
- *     CcDeleteSharedCacheMap @ 0x1402CCE98 (CcDeleteSharedCacheMap.c)
- *     MiReferenceControlArea @ 0x140415208 (MiReferenceControlArea.c)
- *     FsRtlCreateSectionForDataScan @ 0x14044C520 (FsRtlCreateSectionForDataScan.c)
- *     CcZeroEndOfLastPage @ 0x14044C774 (CcZeroEndOfLastPage.c)
- *     MiCallCreateSectionFilters @ 0x140942138 (MiCallCreateSectionFilters.c)
- *     MiShareExistingControlArea @ 0x1409425C0 (MiShareExistingControlArea.c)
- *     MiCreateNewSection @ 0x1409433C0 (MiCreateNewSection.c)
+ *     MiReferenceControlArea @ 0x140271068 (MiReferenceControlArea.c)
+ *     CcWriteBehindPostProcess @ 0x14027A62C (CcWriteBehindPostProcess.c)
+ *     CcDeleteSharedCacheMap @ 0x1402E5B98 (CcDeleteSharedCacheMap.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140443420 (FsRtlCreateSectionForDataScan.c)
+ *     CcZeroEndOfLastPage @ 0x140443674 (CcZeroEndOfLastPage.c)
+ *     MiCallCreateSectionFilters @ 0x14098C3A8 (MiCallCreateSectionFilters.c)
+ *     MiShareExistingControlArea @ 0x14098C830 (MiShareExistingControlArea.c)
+ *     MiCreateNewSection @ 0x14098D630 (MiCreateNewSection.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1402D4AC0 (IoGetDeviceAttachmentBaseRef.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x140372F00 (IoGetBaseFileSystemDeviceObject.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     FsFilterPerformCallbacks @ 0x140374780 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlFree @ 0x140374B44 (FsFilterCtrlFree.c)
- *     FsFilterPerformCompletionCallbacks @ 0x140374BC0 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterCtrlInit @ 0x14042F400 (FsFilterCtrlInit.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x14025B7C0 (IoGetBaseFileSystemDeviceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     FsFilterPerformCallbacks @ 0x14025D040 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlFree @ 0x14025D404 (FsFilterCtrlFree.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x14025D480 (FsFilterPerformCompletionCallbacks.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x140355D40 (IoGetDeviceAttachmentBaseRef.c)
+ *     FsFilterCtrlInit @ 0x1404215D0 (FsFilterCtrlInit.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __stdcall FsRtlReleaseFile(PFILE_OBJECT FileObject)
@@ -74,7 +74,7 @@ LABEL_12:
         && FastIoDispatch->SizeOfFastIoDispatch >= 0x68
         && FastIoDispatch->ReleaseFileForNtCreateSection )
       {
-        guard_dispatch_icall_no_overrides(FileObject, v6, v7, v8);
+        guard_dispatch_icall_no_overrides(FileObject, v6);
       }
       else
       {

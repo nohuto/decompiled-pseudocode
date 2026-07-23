@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402A7A34
+ * XREFs of ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x140225B74
  * Callers:
- *     SmHpBufferProtectEx @ 0x140253F00 (SmHpBufferProtectEx.c)
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1402D70CC (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1402D77C0 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
- *     RtlHashBytes2 @ 0x1403F8A24 (RtlHashBytes2.c)
- *     MiAddMdlTracker @ 0x140530854 (MiAddMdlTracker.c)
- *     MiValidateMdlTracker @ 0x140530FD8 (MiValidateMdlTracker.c)
- *     SmFixSingleBitCorruption @ 0x14059D0E0 (SmFixSingleBitCorruption.c)
+ *     SmHpBufferProtectEx @ 0x140275470 (SmHpBufferProtectEx.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14028841C (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x140288B10 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
+ *     RtlHashBytes2 @ 0x1403F8A54 (RtlHashBytes2.c)
+ *     MiAddMdlTracker @ 0x140530A94 (MiAddMdlTracker.c)
+ *     MiValidateMdlTracker @ 0x140531218 (MiValidateMdlTracker.c)
+ *     SmFixSingleBitCorruption @ 0x14059D310 (SmFixSingleBitCorruption.c)
  * Callees:
  *     <none>
  */

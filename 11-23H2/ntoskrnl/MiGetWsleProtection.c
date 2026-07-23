@@ -3,9 +3,9 @@
  * Callers:
  *     MiSetReadOnlyOnSectionView @ 0x1402152F8 (MiSetReadOnlyOnSectionView.c)
  *     MiGetPfnProtection @ 0x1402160B4 (MiGetPfnProtection.c)
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MiWsleFlush @ 0x140280E10 (MiWsleFlush.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MiWsleFlush @ 0x1402810A0 (MiWsleFlush.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
  * Callees:
  *     <none>
  */

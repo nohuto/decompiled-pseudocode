@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetLastWin32Error @ 0x180089030
+ * XREFs of RtlGetLastWin32Error @ 0x180089020
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlGetLastWin32Error()
+LONG RtlGetLastWin32Error(void)
 {
   return NtCurrentTeb()->LastErrorValue;
 }

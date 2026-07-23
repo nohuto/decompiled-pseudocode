@@ -1,9 +1,9 @@
 /*
- * XREFs of VmpAllocateFeaturesBitmap @ 0x14077BF28
+ * XREFs of VmpAllocateFeaturesBitmap @ 0x14077EAA8
  * Callers:
- *     VmInitSystem @ 0x140C80258 (VmInitSystem.c)
+ *     VmInitSystem @ 0x140C86258 (VmInitSystem.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 VmpAllocateFeaturesBitmap()

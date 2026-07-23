@@ -1,24 +1,24 @@
 /*
- * XREFs of IopTrackLink @ 0x1404CB08C
+ * XREFs of IopTrackLink @ 0x1404B0AB8
  * Callers:
- *     NtSetInformationFile @ 0x140079360 (NtSetInformationFile.c)
- *     IopTrackLink @ 0x1404CB08C (IopTrackLink.c)
+ *     NtSetInformationFile @ 0x1400793E0 (NtSetInformationFile.c)
+ *     IopTrackLink @ 0x1404B0AB8 (IopTrackLink.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoGetTransactionParameterBlock @ 0x140089CB0 (IoGetTransactionParameterBlock.c)
- *     IopVerifierExAllocatePoolWithQuota_0 @ 0x14009AB34 (IopVerifierExAllocatePoolWithQuota_0.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlCompareMemoryUlong @ 0x1401674E0 (RtlCompareMemoryUlong.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoGetTransactionParameterBlock @ 0x1400893B0 (IoGetTransactionParameterBlock.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x14009A334 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlCompareMemoryUlong @ 0x140167A50 (RtlCompareMemoryUlong.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     IopTrackLink @ 0x1404CB08C (IopTrackLink.c)
- *     IopGetSetObjectId @ 0x1404CB9B0 (IopGetSetObjectId.c)
- *     IopMarshalIds @ 0x140581954 (IopMarshalIds.c)
- *     IopGetVolumeId @ 0x1406216AC (IopGetVolumeId.c)
- *     IopSendMessageToTrackService @ 0x1406224EC (IopSendMessageToTrackService.c)
- *     IopSetRemoteLink @ 0x1406230A4 (IopSetRemoteLink.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     IopTrackLink @ 0x1404B0AB8 (IopTrackLink.c)
+ *     IopGetSetObjectId @ 0x1404B13DC (IopGetSetObjectId.c)
+ *     IopMarshalIds @ 0x140581E04 (IopMarshalIds.c)
+ *     IopGetVolumeId @ 0x140621760 (IopGetVolumeId.c)
+ *     IopSendMessageToTrackService @ 0x1406225A0 (IopSendMessageToTrackService.c)
+ *     IopSetRemoteLink @ 0x140623158 (IopSetRemoteLink.c)
  */
 
 NTSTATUS __fastcall IopTrackLink(

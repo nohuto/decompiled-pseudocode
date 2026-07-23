@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegContextInitialize @ 0x140639184
+ * XREFs of RtlpHpSegContextInitialize @ 0x14063C194
  * Callers:
- *     RtlpHpHeapCreate @ 0x140638298 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14063B29C (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHpInitializeLock @ 0x14034B490 (RtlpHpInitializeLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpHpInitializeLock @ 0x14034D510 (RtlpHpInitializeLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 RtlpHpSegContextInitialize(

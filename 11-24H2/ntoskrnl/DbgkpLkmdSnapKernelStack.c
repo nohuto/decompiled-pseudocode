@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSnapKernelStack @ 0x14057E728
+ * XREFs of DbgkpLkmdSnapKernelStack @ 0x14057BBB8
  * Callers:
- *     DbgkpLkmdSnapThreadInContext @ 0x14070843C (DbgkpLkmdSnapThreadInContext.c)
+ *     DbgkpLkmdSnapThreadInContext @ 0x140705FFC (DbgkpLkmdSnapThreadInContext.c)
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x140269F48 (KeEnumerateKernelStackSegments.c)
- *     DbgkpLkmdSnapDataEx @ 0x14057E624 (DbgkpLkmdSnapDataEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeEnumerateKernelStackSegments @ 0x14021F4D8 (KeEnumerateKernelStackSegments.c)
+ *     DbgkpLkmdSnapDataEx @ 0x14057BAB4 (DbgkpLkmdSnapDataEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapKernelStack(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -53,7 +53,7 @@ __int64 __fastcall DbgkpLkmdSnapKernelStack(__int64 a1, __int64 a2, __int64 a3, 
   v19 = a6;
   KeEnumerateKernelStackSegments(
     a2,
-    (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))DbgkpLkmdSnapKernelStackSegmentCallback,
+    (void (__fastcall *)(__int64, _QWORD *, __int64))DbgkpLkmdSnapKernelStackSegmentCallback,
     (__int64)v14,
     a4);
   if ( v8 )
@@ -64,7 +64,7 @@ __int64 __fastcall DbgkpLkmdSnapKernelStack(__int64 a1, __int64 a2, __int64 a3, 
     memset_0(v20, 0, 0x40uLL);
     v22 = *((_QWORD *)v11 + 31);
     v21 = *((_QWORD *)v11 + 20);
-    DbgkpLkmdSnapDataEx(a1, (__int64)v20, 64LL, 5LL);
+    DbgkpLkmdSnapDataEx(a1, (__int64)v20);
     *v6 = v10 - 64;
     *(_BYTE *)(a3 + 388) = -1;
   }

@@ -6,7 +6,7 @@
  *     _ZwDebugContinue@12 @ 0x4B2F3660 (_ZwDebugContinue@12.c)
  */
 
-int __stdcall DbgUiContinue(int a1, int a2)
+NTSTATUS __cdecl DbgUiContinue(PCLIENT_ID AppClientId, NTSTATUS ContinueStatus)
 {
-  return ZwDebugContinue((int)NtCurrentTeb()->DbgSsReserved[1], a1, a2);
+  return ZwDebugContinue(NtCurrentTeb()->DbgSsReserved[1], AppClientId, ContinueStatus);
 }

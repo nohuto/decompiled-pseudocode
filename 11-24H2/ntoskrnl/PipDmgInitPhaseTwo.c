@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmgInitPhaseTwo @ 0x140731D4C
+ * XREFs of PipDmgInitPhaseTwo @ 0x14072FD5C
  * Callers:
- *     PiDmaGuardInitialize @ 0x1405A8D90 (PiDmaGuardInitialize.c)
+ *     PiDmaGuardInitialize @ 0x1405A5E7C (PiDmaGuardInitialize.c)
  * Callees:
- *     PipDmgInitReadGroupPolicy @ 0x140727558 (PipDmgInitReadGroupPolicy.c)
- *     PipDmgReevaluateQueue @ 0x140731E74 (PipDmgReevaluateQueue.c)
- *     PnpTraceDmaGuardSystemPolicy @ 0x140732690 (PnpTraceDmaGuardSystemPolicy.c)
+ *     PipDmgInitReadGroupPolicy @ 0x1407250E8 (PipDmgInitReadGroupPolicy.c)
+ *     PipDmgReevaluateQueue @ 0x14072FE84 (PipDmgReevaluateQueue.c)
+ *     PnpTraceDmaGuardSystemPolicy @ 0x1407306A0 (PnpTraceDmaGuardSystemPolicy.c)
  */
 
 __int64 PipDmgInitPhaseTwo()

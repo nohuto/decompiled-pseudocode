@@ -15,53 +15,53 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiUnlockDriverPages(unsigned __int64 *a1)
+void __fastcall MiUnlockDriverPages(_RTL_BITMAP_EX *a1)
 {
-  void *v2; // rcx
-  void *v3; // rcx
-  void *v4; // rcx
-  unsigned __int64 v5; // rdi
+  unsigned __int64 *Buffer; // rcx
+  unsigned __int64 *v3; // rcx
+  unsigned __int64 *v4; // rcx
+  unsigned __int64 SizeOfBitMap; // rdi
   __int64 PteAddress; // r14
-  unsigned __int64 v7; // r8
-  unsigned __int64 SetBits; // rax
+  ULONG64 v7; // r8
+  ULONG64 SetBits; // rax
   unsigned __int64 v9; // rsi
 
-  v2 = (void *)a1[7];
-  if ( v2 )
+  Buffer = a1[3].Buffer;
+  if ( Buffer )
   {
-    ExFreePoolWithTag(v2, 0);
-    a1[7] = 0LL;
+    ExFreePoolWithTag(Buffer, 0);
+    a1[3].Buffer = 0LL;
   }
-  v3 = (void *)a1[9];
+  v3 = a1[4].Buffer;
   if ( v3 )
   {
     ExFreePoolWithTag(v3, 0);
-    a1[9] = 0LL;
+    a1[4].Buffer = 0LL;
   }
-  v4 = (void *)a1[11];
+  v4 = a1[5].Buffer;
   if ( v4 )
   {
     ExFreePoolWithTag(v4, 0);
-    a1[11] = 0LL;
+    a1[5].Buffer = 0LL;
   }
-  if ( a1[5] )
+  if ( a1[2].Buffer )
   {
-    v5 = *a1;
-    if ( (a1[12] & 1) != 0 )
+    SizeOfBitMap = a1->SizeOfBitMap;
+    if ( (a1[6].SizeOfBitMap & 1) != 0 )
       KeReservePrivilegedPages();
-    PteAddress = MiGetPteAddress(*(_QWORD *)(v5 + 48));
+    PteAddress = MiGetPteAddress(*(_QWORD *)(SizeOfBitMap + 48));
     v7 = 0LL;
     while ( 1 )
     {
-      SetBits = RtlFindSetBitsEx(a1 + 4, 1uLL, v7);
+      SetBits = RtlFindSetBitsEx(a1 + 2, 1uLL, v7);
       v9 = SetBits;
       if ( SetBits == -1LL )
         break;
-      MiUnlockCodePage(PteAddress + 8 * SetBits, PteAddress + 8 * SetBits, (*((_DWORD *)a1 + 24) >> 1) & 1);
+      MiUnlockCodePage(PteAddress + 8 * SetBits, PteAddress + 8 * SetBits, (LODWORD(a1[6].SizeOfBitMap) >> 1) & 1);
       v7 = v9;
-      _bittestandreset64((signed __int64 *)a1[5], v9);
+      _bittestandreset64((signed __int64 *)a1[2].Buffer, v9);
     }
-    ExFreePoolWithTag((PVOID)a1[5], 0);
-    a1[5] = 0LL;
+    ExFreePoolWithTag(a1[2].Buffer, 0);
+    a1[2].Buffer = 0LL;
   }
 }

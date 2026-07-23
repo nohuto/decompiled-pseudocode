@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateSection @ 0x140705710
+ * XREFs of MiCreateSection @ 0x14071CAF0
  * Callers:
- *     MiCreateSystemSection @ 0x1403720DC (MiCreateSystemSection.c)
- *     MmCreateSpecialImageSection @ 0x140608784 (MmCreateSpecialImageSection.c)
- *     MmCreateCacheManagerSection @ 0x14069CB28 (MmCreateCacheManagerSection.c)
- *     MmCreateSectionEx @ 0x1406D4704 (MmCreateSectionEx.c)
- *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
+ *     MiCreateSystemSection @ 0x140371C2C (MiCreateSystemSection.c)
+ *     MmCreateCacheManagerSection @ 0x1405FBBF8 (MmCreateCacheManagerSection.c)
+ *     MmCreateSpecialImageSection @ 0x140698234 (MmCreateSpecialImageSection.c)
+ *     MmCreateSectionEx @ 0x1406AB9E4 (MmCreateSectionEx.c)
+ *     MiCreateSectionCommon @ 0x14071E810 (MiCreateSectionCommon.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
- *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
- *     MiInitializeCreateSectionPacket @ 0x140705930 (MiInitializeCreateSectionPacket.c)
- *     MiFinishCreateSection @ 0x140705C20 (MiFinishCreateSection.c)
- *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
- *     MiLogSectionObjectEvent @ 0x1408C7990 (MiLogSectionObjectEvent.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MmExtendSection @ 0x1405E894C (MmExtendSection.c)
+ *     MiCreatePagingFileMap @ 0x1406861B8 (MiCreatePagingFileMap.c)
+ *     MiInitializeCreateSectionPacket @ 0x14071CD10 (MiInitializeCreateSectionPacket.c)
+ *     MiFinishCreateSection @ 0x14071D000 (MiFinishCreateSection.c)
+ *     MiCreateImageOrDataSection @ 0x14071E2F0 (MiCreateImageOrDataSection.c)
+ *     MiLogSectionObjectEvent @ 0x1408C7AF0 (MiLogSectionObjectEvent.c)
  */
 
 __int64 __fastcall MiCreateSection(

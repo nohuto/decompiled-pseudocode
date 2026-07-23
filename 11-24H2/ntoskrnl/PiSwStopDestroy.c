@@ -1,20 +1,20 @@
 /*
- * XREFs of PiSwStopDestroy @ 0x140A102F4
+ * XREFs of PiSwStopDestroy @ 0x1409BE704
  * Callers:
- *     IopRemoveDevice @ 0x140A10084 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x1409BE494 (IopRemoveDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405A855C (McTemplateK0zzz_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405A8674 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PiSwLock @ 0x1408B9494 (PiSwLock.c)
- *     PnpConcatPWSTR @ 0x14090A620 (PnpConcatPWSTR.c)
- *     PiSwFindPdoAssociation @ 0x140A78594 (PiSwFindPdoAssociation.c)
- *     PiSwCloseDevice @ 0x140A93D94 (PiSwCloseDevice.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405A554C (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405A5664 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PiSwLock @ 0x1408B6E3C (PiSwLock.c)
+ *     PnpConcatPWSTR @ 0x1408E1D40 (PnpConcatPWSTR.c)
+ *     PiSwFindPdoAssociation @ 0x140A72894 (PiSwFindPdoAssociation.c)
+ *     PiSwCloseDevice @ 0x140A90544 (PiSwCloseDevice.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwStopDestroy(__int64 a1, const WCHAR *a2, __int64 a3)
@@ -55,7 +55,7 @@ __int64 __fastcall PiSwStopDestroy(__int64 a1, const WCHAR *a2, __int64 a3)
   *((_QWORD *)&v9 + 1) &= v8;
   if ( *((_QWORD *)&v9 + 1) )
   {
-    if ( (byte_140EEFD24 & 0x40) != 0 )
+    if ( (byte_140EEFF64 & 0x40) != 0 )
       McTemplateK0zzz_EtwWriteTransfer(
         v9,
         (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_KernelClose_Start,
@@ -90,7 +90,7 @@ __int64 __fastcall PiSwStopDestroy(__int64 a1, const WCHAR *a2, __int64 a3)
   }
   ExReleaseResourceLite(&PiSwLockObj);
   KeLeaveCriticalRegion();
-  if ( v5 && (byte_140EEFD24 & 0x40) != 0 )
+  if ( v5 && (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0zzzd_EtwWriteTransfer(
       v15,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_KernelClose_Stop,

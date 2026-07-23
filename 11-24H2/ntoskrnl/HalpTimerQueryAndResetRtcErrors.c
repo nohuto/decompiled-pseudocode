@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x1404D0280
+ * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x1404C93E0
  * Callers:
- *     HalpTimerInitSystem @ 0x14053AFA0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1405387E0 (HalpTimerInitSystem.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpTimerQueryAndResetRtcErrors(char a1, char a2)
@@ -27,7 +27,7 @@ __int64 __fastcall HalpTimerQueryAndResetRtcErrors(char a1, char a2)
   {
     if ( (unsigned int)dword_140E03B08 <= 5 || !tlgKeywordOn((__int64)&dword_140E03B08, 0x200000000000LL) )
       goto LABEL_14;
-    v4 = (unsigned __int8 *)byte_140042DC5;
+    v4 = (unsigned __int8 *)byte_1400431C5;
 LABEL_13:
     v12 = &v10;
     v10 = v2;
@@ -41,7 +41,7 @@ LABEL_14:
   {
     if ( (unsigned int)dword_140E03B08 <= 5 || !tlgKeywordOn((__int64)&dword_140E03B08, 0x400000000000LL) )
       goto LABEL_14;
-    v4 = (unsigned __int8 *)&word_140042D8A;
+    v4 = (unsigned __int8 *)&word_14004318A;
     goto LABEL_13;
   }
   if ( (unsigned int)dword_140E03B08 > 5 && tlgKeywordOn((__int64)&dword_140E03B08, 0x400000000000LL) )
@@ -49,7 +49,7 @@ LABEL_14:
     v10 = v2;
     v12 = &v10;
     v13 = 4LL;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140E03B08, (unsigned __int8 *)&byte_140042D50, v5, 1u, v8, v9, 3u, v11);
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140E03B08, (unsigned __int8 *)&byte_140043150, v5, 1u, v8, v9, 3u, v11);
   }
   v6 = 9;
   return v2 & (unsigned int)v6;

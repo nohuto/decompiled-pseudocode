@@ -3,7 +3,7 @@
  * Callers:
  *     MiMemoryLicense @ 0x14078EC84 (MiMemoryLicense.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall MiLimitLoaderBlockHighMemory(__int64 a1, ULONG_PTR a2)

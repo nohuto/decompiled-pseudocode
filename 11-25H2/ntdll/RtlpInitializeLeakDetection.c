@@ -14,7 +14,7 @@ char RtlpInitializeLeakDetection()
   unsigned __int64 v2; // rax
   unsigned __int64 v3; // rcx
 
-  Heap = (unsigned __int64 *)RtlAllocateHeap((char *)RtlpLeakHeap, 0, 0x840uLL);
+  Heap = (unsigned __int64 *)RtlAllocateHeap(RtlpLeakHeap, 0, 0x840uLL);
   RtlpProcessMemoryMap = (__int64)Heap;
   v1 = Heap;
   if ( Heap )
@@ -33,7 +33,7 @@ char RtlpInitializeLeakDetection()
     while ( v2 >= v3 );
     v1[2] = -1LL;
     *v1 = v3;
-    RtlpTempBlocks = (void *)RtlAllocateHeap((char *)RtlpLeakHeap, 0, 0x28000uLL);
+    RtlpTempBlocks = RtlAllocateHeap(RtlpLeakHeap, 0, 0x28000uLL);
     LOBYTE(Heap) = RtlpTempBlocks != 0LL;
   }
   return (char)Heap;

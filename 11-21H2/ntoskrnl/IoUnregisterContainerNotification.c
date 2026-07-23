@@ -7,7 +7,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -20,10 +20,10 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
   PVOID **v6; // rax
 
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&IopSessionNotificationLock, 0LL);
-  v3 = (PVOID *)IopSessionNotificationQueueHead;
-  while ( v3 != &IopSessionNotificationQueueHead )
+  --*((_WORD *)CurrentThread + 242);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C474D0, 0LL);
+  v3 = (PVOID *)qword_140C474C0;
+  while ( v3 != &qword_140C474C0 )
   {
     v4 = v3;
     v3 = (PVOID *)*v3;
@@ -40,6 +40,6 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
       break;
     }
   }
-  ExReleasePushLockEx((ULONG_PTR)&IopSessionNotificationLock, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  ExReleasePushLockEx((ULONG_PTR)&qword_140C474D0, 0LL);
+  sub_1402F9540((__int64)KeGetCurrentThread());
 }

@@ -8,7 +8,7 @@
  *     KiCheckForKernelApcDelivery @ 0x1400F2E0C (KiCheckForKernelApcDelivery.c)
  */
 
-bool __fastcall KiBlockAndActivateUmsThread(__int64 a1, struct _KQUEUE *a2, struct _LIST_ENTRY *a3, struct _KEVENT *a4)
+bool __fastcall KiBlockAndActivateUmsThread(__int64 a1, struct _KQUEUE *a2, _LIST_ENTRY *a3, struct _KEVENT *a4)
 {
   __int16 v6; // ax
   bool v7; // bl

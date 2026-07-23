@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmIdleRegisterDefaultStates @ 0x1407C9A54
+ * XREFs of PpmIdleRegisterDefaultStates @ 0x1407CCAF4
  * Callers:
- *     PopNewProcessorCallback @ 0x1407C8540 (PopNewProcessorCallback.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PopNewProcessorCallback @ 0x1407CB5A0 (PopNewProcessorCallback.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PpmHvUseNativeAlgorithms @ 0x1404EBFCC (PpmHvUseNativeAlgorithms.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PpmHvUseNativeAlgorithms @ 0x1404E55AC (PpmHvUseNativeAlgorithms.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PpmIdleRegisterDefaultStates()
@@ -52,13 +52,13 @@ __int64 PpmIdleRegisterDefaultStates()
       RtlInitUnicodeString((PUNICODE_STRING)(v3 + 152), L"Enlightened Idle");
       v1 = 2LL;
     }
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, v5, v6, v7);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, v5, v6, v7);
     v4 = PopExecuteOnTargetProcessors(
-           (__int64)&stru_140FC01F0.WaitRegister,
+           (__int64)&stru_140FC11F0.WaitRegister,
            (__int64)PpmIdleInstallDefaultStates,
            v3,
            v1);
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+    PopReleaseRwLock(&PpmIdlePolicyLock);
     ExFreePoolWithTag((PVOID)v3, 0x694D5050u);
   }
   else

@@ -1,17 +1,16 @@
 /*
- * XREFs of RtlpGetRetpolineStubsFunctionTable @ 0x1405B2244
+ * XREFs of RtlpGetRetpolineStubsFunctionTable @ 0x1405B27B4
  * Callers:
- *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405B2060 (RtlCopyRetpolineStubsUnwindInfo.c)
- *     RtlCreateRetpolineStubsFunctionTable @ 0x1405B2148 (RtlCreateRetpolineStubsFunctionTable.c)
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405B25D0 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x1405B26B8 (RtlCreateRetpolineStubsFunctionTable.c)
  * Callees:
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall RtlpGetRetpolineStubsFunctionTable(int a1, __int64 a2, __int64 a3, unsigned int a4, int *a5)
+unsigned int *__fastcall RtlpGetRetpolineStubsFunctionTable(void *a1, __int64 a2, __int64 a3, unsigned int a4, int *a5)
 {
   __int64 v6; // rdi
-  __int64 v7; // rsi
-  __int64 v8; // r11
+  unsigned int *v8; // r11
   unsigned __int64 v9; // rbx
   unsigned __int64 v10; // rdi
   int v11; // r9d
@@ -21,28 +20,26 @@ __int64 __fastcall RtlpGetRetpolineStubsFunctionTable(int a1, __int64 a2, __int6
   __int64 v15; // r8
   unsigned __int64 v16; // rsi
   unsigned __int64 v17; // rdx
-  __int64 result; // rax
+  unsigned int *result; // rax
   unsigned int *v19; // rdx
   int v20; // r9d
   int v21; // r8d
   unsigned int *v22; // rdx
-  unsigned int v23; // [rsp+20h] [rbp-18h] BYREF
+  ULONG v23[6]; // [rsp+20h] [rbp-18h] BYREF
 
-  v23 = 0;
+  v23[0] = 0;
   v6 = a4;
-  v7 = a2;
-  LOBYTE(a2) = 1;
-  v8 = RtlImageDirectoryEntryToData(a1, a2, 3, (int)&v23);
+  v8 = (unsigned int *)RtlImageDirectoryEntryToData(a1, 1u, 3u, v23);
   if ( !v8 )
     return 0LL;
-  if ( !v23 )
+  if ( !v23[0] )
     return 0LL;
-  if ( v23 != 12 * (v23 / 0xCuLL) )
+  if ( v23[0] != 12 * (v23[0] / 0xCuLL) )
     return 0LL;
-  v9 = a3 - v7;
+  v9 = a3 - a2;
   v10 = v9 + v6;
   v11 = 0;
-  v12 = v23 / 0xCuLL;
+  v12 = v23[0] / 0xCuLL;
   v13 = v12 - 1;
   if ( (int)v12 - 1 < 0 )
     return 0LL;
@@ -50,7 +47,7 @@ __int64 __fastcall RtlpGetRetpolineStubsFunctionTable(int a1, __int64 a2, __int6
   {
     v14 = (v11 + v13) >> 1;
     v15 = v14;
-    v16 = *(unsigned int *)(v8 + 12LL * v14);
+    v16 = v8[3 * v14];
     if ( v10 > v16 )
       break;
     v13 = v14 - 1;
@@ -58,7 +55,7 @@ LABEL_9:
     if ( v13 < v11 )
       return 0LL;
   }
-  v17 = *(unsigned int *)(v8 + 12LL * v14 + 4);
+  v17 = v8[3 * v14 + 1];
   if ( v9 >= v17 )
   {
     v11 = v14 + 1;
@@ -68,7 +65,7 @@ LABEL_9:
     return 0LL;
   if ( v14 > 0 )
   {
-    v19 = (unsigned int *)(v8 - 12 + 12LL * v14);
+    v19 = &v8[3 * v14 - 3];
     do
     {
       if ( *v19 < v9 )
@@ -83,7 +80,7 @@ LABEL_9:
   v21 = 1;
   if ( v14 + 1 < v12 )
   {
-    v22 = (unsigned int *)(v8 + 12LL * v14 + 16);
+    v22 = &v8[3 * v14 + 4];
     do
     {
       if ( *v22 > v10 )
@@ -94,7 +91,7 @@ LABEL_9:
     }
     while ( v20 < v12 );
   }
-  result = v8 + 12LL * v14;
+  result = &v8[3 * v14];
   *a5 = v21;
   return result;
 }

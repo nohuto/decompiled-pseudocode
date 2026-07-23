@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpSanitizeContextFlags @ 0x14030D73C
+ * XREFs of RtlpSanitizeContextFlags @ 0x14030D9CC
  * Callers:
- *     KiContinuePreviousModeUser @ 0x14030D1E4 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140578AF0 (KyRaiseException.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x140580714 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     PspSetContextThreadInternal @ 0x1407705F0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407707D4 (PspGetContextThreadInternal.c)
- *     NtCreateThread @ 0x1409ADCE0 (NtCreateThread.c)
+ *     KiContinuePreviousModeUser @ 0x14030D474 (KiContinuePreviousModeUser.c)
+ *     KyRaiseException @ 0x140578FE0 (KyRaiseException.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140580C04 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     PspSetContextThreadInternal @ 0x1407707E0 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1407709C4 (PspGetContextThreadInternal.c)
+ *     NtCreateThread @ 0x1409ADEE0 (NtCreateThread.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x14030DA40 (RtlpValidateContextFlags.c)
+ *     RtlpValidateContextFlags @ 0x14030DCD0 (RtlpValidateContextFlags.c)
  */
 
 __int64 __fastcall RtlpSanitizeContextFlags(unsigned int *a1, char a2)

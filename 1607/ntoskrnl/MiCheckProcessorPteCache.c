@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckProcessorPteCache @ 0x1400DD430
+ * XREFs of MiCheckProcessorPteCache @ 0x1400DB2D0
  * Callers:
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     MiEmptyPteBins @ 0x140017B18 (MiEmptyPteBins.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     MiEmptyPteBins @ 0x140017698 (MiEmptyPteBins.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
@@ -68,25 +68,25 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
   if ( CurrentPrcb->PteBitCache == -1LL )
   {
     __writecr8(CurrentIrql);
-    v25 = qword_1403278B8;
+    v25 = qword_1403278F8;
 LABEL_37:
     while ( 2 )
     {
-      v26 = qword_1403278C0;
-      v27 = &qword_140327870;
-      if ( qword_1403278C0 )
+      v26 = qword_140327900;
+      v27 = &qword_1403278B0;
+      if ( qword_140327900 )
       {
-        while ( qword_140327870 < v26 )
+        while ( qword_1403278B0 < v26 )
         {
-          KeAcquireInStackQueuedSpinLock(&qword_1403278A0, &LockHandle);
+          KeAcquireInStackQueuedSpinLock(&qword_1403278E0, &LockHandle);
           KeReleaseInStackQueuedSpinLock(&LockHandle);
-          v26 = qword_1403278C0;
-          if ( !qword_1403278C0 )
+          v26 = qword_140327900;
+          if ( !qword_140327900 )
             goto LABEL_41;
         }
         v27 = &v46;
-        v46 = qword_140327870 - v26;
-        v47 = (unsigned __int64 *)(qword_140327878 + 8 * (v26 >> 6));
+        v46 = qword_1403278B0 - v26;
+        v47 = (unsigned __int64 *)(qword_1403278B8 + 8 * (v26 >> 6));
         if ( v25 )
           v25 -= v26;
       }
@@ -120,8 +120,8 @@ LABEL_46:
             if ( v34 <= v31 && v34 != -1LL )
             {
               v35 = (v34 + v26) & 0xFFFFFFFFFFFFFFC0uLL;
-              v36 = *(_QWORD *)(qword_140327878 + 8 * (v35 >> 6));
-              v37 = (volatile signed __int64 *)(qword_140327878 + 8 * (v35 >> 6));
+              v36 = *(_QWORD *)(qword_1403278B8 + 8 * (v35 >> 6));
+              v37 = (volatile signed __int64 *)(qword_1403278B8 + 8 * (v35 >> 6));
               if ( v36 != -1LL )
               {
                 while ( 1 )
@@ -146,12 +146,12 @@ LABEL_46:
                     CurrentPrcb->PteBitOffset = v35;
                     v40 = ~v36 - ((~v36 >> 1) & 0x5555555555555555LL);
                     _InterlockedExchangeAdd64(
-                      &qword_1403278D0,
+                      &qword_140327910,
                       -(__int64)((unsigned int)((0x101010101010101LL
                                                * (((v40 & 0x3333333333333333LL)
                                                  + ((v40 >> 2) & 0x3333333333333333LL)
                                                  + (((v40 & 0x3333333333333333LL) + ((v40 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24));
-                    qword_1403278B8 = v35 + 64;
+                    qword_1403278F8 = v35 + 64;
                   }
                   else
                   {
@@ -174,7 +174,7 @@ LABEL_86:
         v31 = v41 - 1;
         v29 = 0LL;
       }
-      if ( (unsigned int)MiEmptyPteBins((__int64)&qword_140327870, 0) )
+      if ( (unsigned int)MiEmptyPteBins((__int64)&qword_1403278B0, 0) )
       {
         v25 = 0LL;
         continue;
@@ -324,7 +324,7 @@ LABEL_9:
     {
       if ( (v14 & 7) != 0 )
       {
-        *v16++ |= byte_14026F6A8[v15];
+        *v16++ |= byte_14026F6C8[v15];
         a1 -= (unsigned int)(8 - v15);
       }
       if ( a1 > 8 )
@@ -335,15 +335,15 @@ LABEL_9:
       }
       if ( !a1 )
         goto LABEL_13;
-      v17 = byte_14026F698[a1];
+      v17 = byte_14026F6B8[a1];
     }
     else
     {
-      v17 = byte_14026F698[a1] << v15;
+      v17 = byte_14026F6B8[a1] << v15;
     }
     *v16 |= v17;
 LABEL_13:
-    v4 = qword_140327880 + 8 * (v14 + CurrentPrcb->PteBitOffset);
+    v4 = qword_1403278C0 + 8 * (v14 + CurrentPrcb->PteBitOffset);
   }
 LABEL_14:
   __writecr8(v49);

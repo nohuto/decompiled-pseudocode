@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwLoadKey2 @ 0x18009F750
+ * XREFs of ZwLoadKey2 @ 0x18009F710
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwLoadKey2()
+NTSTATUS __cdecl ZwLoadKey2(POBJECT_ATTRIBUTES TargetKey, POBJECT_ATTRIBUTES SourceFile, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 265LL;
+  result = 265;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

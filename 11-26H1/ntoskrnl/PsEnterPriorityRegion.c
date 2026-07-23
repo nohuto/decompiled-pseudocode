@@ -1,9 +1,9 @@
 /*
- * XREFs of PsEnterPriorityRegion @ 0x14045E550
+ * XREFs of PsEnterPriorityRegion @ 0x1404580F0
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
  */
 
 void __fastcall PsEnterPriorityRegion(__int64 a1, __int64 a2, __int64 a3, struct _SINGLE_LIST_ENTRY *a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifPoFxSetComponentResidencyWrapper @ 0x1405E9CA0
+ * XREFs of DifPoFxSetComponentResidencyWrapper @ 0x1405EA210
  * Callers:
  *     <none>
  * Callees:
- *     PoFxSetComponentResidency @ 0x1403B3CB0 (PoFxSetComponentResidency.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     PoFxSetComponentResidency @ 0x1403B3E90 (PoFxSetComponentResidency.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 __int64 __fastcall DifPoFxSetComponentResidencyWrapper(__int64 a1, unsigned int a2, __int64 a3)

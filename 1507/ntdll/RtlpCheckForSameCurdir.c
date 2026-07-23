@@ -10,44 +10,44 @@
  *     NtClose @ 0x1800939F0 (NtClose.c)
  */
 
-bool __fastcall RtlpCheckForSameCurdir(unsigned __int16 *a1)
+bool __fastcall RtlpCheckForSameCurdir(PUNICODE_STRING String2)
 {
   bool v2; // di
-  unsigned __int64 v3; // rax
-  unsigned __int64 v4; // rbx
+  unsigned __int16 *v3; // rax
+  HANDLE *v4; // rbx
   _UNICODE_STRING DosPath; // xmm0
-  _UNICODE_STRING v7; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING String1; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
   v3 = RtlpReferenceCurrentDirectory(0);
-  v4 = v3;
+  v4 = (HANDLE *)v3;
   if ( v3 )
-    DosPath = *(_UNICODE_STRING *)(v3 + 24);
+    DosPath = *(_UNICODE_STRING *)(v3 + 12);
   else
     DosPath = NtCurrentPeb()->ProcessParameters->CurrentDirectory.DosPath;
-  v7 = DosPath;
+  String1 = DosPath;
   if ( DosPath.Length > 6u )
   {
-    if ( DosPath.Length - 2 != *a1 )
+    if ( DosPath.Length - 2 != String2->Length )
       goto LABEL_7;
-    v7.Length = DosPath.Length - 2;
+    String1.Length = DosPath.Length - 2;
     goto LABEL_6;
   }
-  if ( DosPath.Length == *a1 )
+  if ( DosPath.Length == String2->Length )
 LABEL_6:
-    v2 = RtlEqualUnicodeString(&v7.Length, a1, 1) != 0;
+    v2 = RtlEqualUnicodeString(&String1, String2, 1u) != 0;
 LABEL_7:
   if ( v4 )
   {
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)v4, 0xFFFFFFFF) == 1 )
     {
-      NtClose(*(HANDLE *)(v4 + 8));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+      NtClose(v4[1]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
     }
   }
   else
   {
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
   }
   return v2;
 }

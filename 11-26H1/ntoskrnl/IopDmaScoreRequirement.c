@@ -1,5 +1,5 @@
 /*
- * XREFs of IopDmaScoreRequirement @ 0x1407A6FB0
+ * XREFs of IopDmaScoreRequirement @ 0x1407A9B60
  * Callers:
  *     <none>
  * Callees:

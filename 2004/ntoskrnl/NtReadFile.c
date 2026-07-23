@@ -218,7 +218,7 @@ LABEL_96:
   v27 = KeGetCurrentThread();
   --v27->KernelApcDisable;
   v28 = FileObject;
-  v29 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0LL);
+  v29 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0);
   LOBYTE(v50) = 0;
   if ( _InterlockedExchange((volatile __int32 *)&v28->Busy, 1) )
   {
@@ -323,7 +323,7 @@ LABEL_52:
               {
                 Mdl = IoAllocateMdl(Buffer, Length, 0, 1u, v41);
                 if ( !Mdl )
-                  RtlRaiseStatus(0xC000009A);
+                  RtlRaiseStatus(-1073741670);
                 MmProbeAndLockPages(Mdl, PreviousMode, IoWriteAccess);
               }
             }

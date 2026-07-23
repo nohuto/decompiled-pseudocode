@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeDpcGang @ 0x1403A80A0
+ * XREFs of MiInitializeDpcGang @ 0x14026F77C
  * Callers:
- *     MiAllocateFastLargePagesForMdl @ 0x1403A7798 (MiAllocateFastLargePagesForMdl.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MiZeroHotAddMemory @ 0x1407EA394 (MiZeroHotAddMemory.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x14026EEC8 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MiZeroHotAddMemory @ 0x1407EA964 (MiZeroHotAddMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiComputeIdealDpcGang @ 0x1403A8170 (MiComputeIdealDpcGang.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiComputeIdealDpcGang @ 0x14026F84C (MiComputeIdealDpcGang.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeDpcGang(__int64 *a1, unsigned int a2, unsigned int a3)
@@ -25,7 +25,7 @@ __int64 __fastcall MiInitializeDpcGang(__int64 *a1, unsigned int a2, unsigned in
     v8 = a1 + 2;
     if ( (unsigned int)result > 8 )
     {
-      result = MiAllocatePool(0x40uLL, 16LL * (unsigned int)result, 1698982221);
+      result = MiAllocatePool(0x40uLL, 16LL * (unsigned int)result);
       *v8 = result;
     }
     if ( !*v8 )
@@ -39,7 +39,7 @@ __int64 __fastcall MiInitializeDpcGang(__int64 *a1, unsigned int a2, unsigned in
     v8 = a1 + 1;
     if ( (unsigned int)result > 8 )
     {
-      result = MiAllocatePool(0x40uLL, 8LL * (unsigned int)result, 1698982221);
+      result = MiAllocatePool(0x40uLL, 8LL * (unsigned int)result);
       *v8 = result;
     }
     if ( !*v8 )

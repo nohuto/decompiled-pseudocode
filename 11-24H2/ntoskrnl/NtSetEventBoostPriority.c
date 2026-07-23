@@ -1,22 +1,22 @@
 /*
- * XREFs of NtSetEventBoostPriority @ 0x140A98090
+ * XREFs of NtSetEventBoostPriority @ 0x140A948E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeSetEventBoostPriority @ 0x1404F7790 (KeSetEventBoostPriority.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeSetEventBoostPriority @ 0x1404F5070 (KeSetEventBoostPriority.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetEventBoostPriority(void *a1)
+NTSTATUS __cdecl NtSetEventBoostPriority(HANDLE EventHandle)
 {
-  NTSTATUS v1; // edi
+  int v1; // edi
   PVOID v2; // rbx
   PVOID Object; // [rsp+48h] [rbp+10h] BYREF
 
   Object = 0LL;
   v1 = ObReferenceObjectByHandle(
-         a1,
+         EventHandle,
          2u,
          (POBJECT_TYPE)ExEventObjectType,
          KeGetCurrentThread()->PreviousMode,
@@ -31,5 +31,5 @@ __int64 __fastcall NtSetEventBoostPriority(void *a1)
       v1 = -1073741788;
     ObfDereferenceObject(v2);
   }
-  return (unsigned int)v1;
+  return v1;
 }

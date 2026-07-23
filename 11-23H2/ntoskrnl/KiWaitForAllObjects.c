@@ -1,24 +1,24 @@
 /*
- * XREFs of KiWaitForAllObjects @ 0x14034AEFC
+ * XREFs of KiWaitForAllObjects @ 0x14034B09C
  * Callers:
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KiCommitThreadWait @ 0x140241F20 (KiCommitThreadWait.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiFastExitThreadWait @ 0x1402BBC10 (KiFastExitThreadWait.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     KiBeginThreadWait @ 0x1402C1910 (KiBeginThreadWait.c)
- *     KiCheckDueTimeExpired @ 0x1402C1A90 (KiCheckDueTimeExpired.c)
- *     KiCheckWaitNext @ 0x1402C2720 (KiCheckWaitNext.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     KiWaitSatisfyMutant @ 0x140311AE0 (KiWaitSatisfyMutant.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     KiWaitSatisfyOther @ 0x14034B3B4 (KiWaitSatisfyOther.c)
- *     KiUnlockKobjectArray @ 0x14034B3E4 (KiUnlockKobjectArray.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KiCommitThreadWait @ 0x140241FF0 (KiCommitThreadWait.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiFastExitThreadWait @ 0x1402BBEA0 (KiFastExitThreadWait.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     KiBeginThreadWait @ 0x1402C1BA0 (KiBeginThreadWait.c)
+ *     KiCheckDueTimeExpired @ 0x1402C1D20 (KiCheckDueTimeExpired.c)
+ *     KiCheckWaitNext @ 0x1402C29B0 (KiCheckWaitNext.c)
+ *     KeAbPreWait @ 0x1402FD500 (KeAbPreWait.c)
+ *     KiWaitSatisfyMutant @ 0x140311D70 (KiWaitSatisfyMutant.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     KiWaitSatisfyOther @ 0x14034B554 (KiWaitSatisfyOther.c)
+ *     KiUnlockKobjectArray @ 0x14034B584 (KiUnlockKobjectArray.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiWaitForAllObjects(unsigned int a1, _QWORD *a2, int a3, char a4, char a5, __int64 a6, __int64 *a7)
@@ -299,7 +299,7 @@ LABEL_22:
                   v67 = 0;
                   CurrentIrql = KeGetCurrentIrql();
                   __writecr8(2uLL);
-                  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+                  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
                   {
                     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                     if ( CurrentIrql == 2 )

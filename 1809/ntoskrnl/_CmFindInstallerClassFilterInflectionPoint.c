@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmFindInstallerClassFilterInflectionPoint @ 0x1408FD45C
+ * XREFs of _CmFindInstallerClassFilterInflectionPoint @ 0x1408FE71C
  * Callers:
- *     _CmMergeInstallerClassFilterLists @ 0x1408FF010 (_CmMergeInstallerClassFilterLists.c)
+ *     _CmMergeInstallerClassFilterLists @ 0x1409002D0 (_CmMergeInstallerClassFilterLists.c)
  * Callees:
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
  */
 
 const wchar_t *__fastcall CmFindInstallerClassFilterInflectionPoint(wchar_t *Str1, wchar_t *a2, wchar_t *Str2)

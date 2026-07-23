@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeSystemTrimCriteria @ 0x1402D04F0
+ * XREFs of MiComputeSystemTrimCriteria @ 0x1402F3C60
  * Callers:
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
  * Callees:
- *     MiComputeAgeDistribution @ 0x1402CF388 (MiComputeAgeDistribution.c)
- *     MiPulseLowAvailableEvent @ 0x1402CF65C (MiPulseLowAvailableEvent.c)
- *     MiGetAvailablePagesForTrimPass @ 0x1402D15A8 (MiGetAvailablePagesForTrimPass.c)
- *     MiPruneProcessLargePageCaches @ 0x1402D2D24 (MiPruneProcessLargePageCaches.c)
+ *     MiPulseLowAvailableEvent @ 0x1402F2C10 (MiPulseLowAvailableEvent.c)
+ *     MiGetAvailablePagesForTrimPass @ 0x1402F51C4 (MiGetAvailablePagesForTrimPass.c)
+ *     MiPruneProcessLargePageCaches @ 0x140353F9C (MiPruneProcessLargePageCaches.c)
+ *     MiComputeAgeDistribution @ 0x140425950 (MiComputeAgeDistribution.c)
  */
 
 __int64 __fastcall MiComputeSystemTrimCriteria(_QWORD *a1, __int64 a2, __int64 a3)
@@ -231,7 +231,7 @@ LABEL_21:
     {
       if ( *(_WORD *)(v3 + 274) == (_WORD)v9 )
         goto LABEL_27;
-      v32 = MiComputeAgeDistribution((__int64)a1, 1);
+      v32 = MiComputeAgeDistribution(a1, 1LL);
       v9 = 0LL;
       *(_WORD *)(v3 + 274) = v32;
       if ( !v32 )

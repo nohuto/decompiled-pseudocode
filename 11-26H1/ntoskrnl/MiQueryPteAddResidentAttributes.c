@@ -1,18 +1,18 @@
 /*
- * XREFs of MiQueryPteAddResidentAttributes @ 0x1404E9984
+ * XREFs of MiQueryPteAddResidentAttributes @ 0x1404E2D34
  * Callers:
- *     MiQueryPteLarge @ 0x1402D1850 (MiQueryPteLarge.c)
- *     MiQueryPteAttributes @ 0x1402D2E80 (MiQueryPteAttributes.c)
+ *     MiQueryPteLarge @ 0x1402B3610 (MiQueryPteLarge.c)
+ *     MiQueryPteAttributes @ 0x1402B4C40 (MiQueryPteAttributes.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiGetPfnProtection @ 0x140433FF0 (MiGetPfnProtection.c)
- *     MiGetValidAweProtection @ 0x1404E374C (MiGetValidAweProtection.c)
- *     MiGetProtectionFromPte @ 0x1405307CC (MiGetProtectionFromPte.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiGetPfnProtection @ 0x1404290C0 (MiGetPfnProtection.c)
+ *     MiGetValidAweProtection @ 0x1404DCCEC (MiGetValidAweProtection.c)
+ *     MiGetProtectionFromPte @ 0x140532CCC (MiGetProtectionFromPte.c)
  */
 
 __int64 __fastcall MiQueryPteAddResidentAttributes(__int64 BugCheckParameter3, unsigned __int64 a2, __int64 a3)
@@ -46,7 +46,7 @@ __int64 __fastcall MiQueryPteAddResidentAttributes(__int64 BugCheckParameter3, u
 
   v5 = *(_QWORD *)(*(_QWORD *)(a3 + 40) + 32LL);
   v6 = *(_DWORD *)(v5 + 48);
-  if ( a2 > qword_140E2D7A0 )
+  if ( a2 > qword_140E2D920 )
   {
     LODWORD(v7) = 0;
 LABEL_3:
@@ -80,7 +80,7 @@ LABEL_4:
   if ( (*(_QWORD *)(v15 + 40) & 0x20000000000000LL) != 0
     || (*(_DWORD *)(v15 + 32) & 0x8000000) != 0
     && (v15 < 0xFFFFDE0000000000uLL
-     || v15 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+     || v15 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
      || MiIsDecayPfn((__int64)(48 * v9) / 48)
      || (v17 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(48 * v9 - 0x220000000000LL) == 9) )
   {
@@ -149,14 +149,14 @@ LABEL_60:
     *(_QWORD *)(a3 + 8) = v29 | 0x40000000;
     return result;
   }
-  if ( !stru_140E36558.InitialStack )
+  if ( !stru_140E366D8.InitialStack )
     goto LABEL_51;
   if ( ((*(_QWORD *)(v8 + 40) >> 60) & 7) != 1 )
     goto LABEL_51;
-  InitialStack = stru_140E36558.InitialStack;
+  InitialStack = stru_140E366D8.InitialStack;
   v25 = ((unsigned __int64)((unsigned __int128)((v8 + 0x220000000000LL) * (__int128)v16) >> 64) >> 63)
       + ((__int64)((unsigned __int128)((v8 + 0x220000000000LL) * (__int128)v16) >> 64) >> 3);
-  if ( !stru_140E36558.InitialStack )
+  if ( !stru_140E366D8.InitialStack )
     goto LABEL_51;
   do
   {

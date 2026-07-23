@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpAllocateStackwalkApcPool @ 0x1409E8A34
+ * XREFs of EtwpAllocateStackwalkApcPool @ 0x1409E8CC4
  * Callers:
- *     EtwpEnableGuid @ 0x14077FD00 (EtwpEnableGuid.c)
- *     EtwpInitializeClassicStackTracing @ 0x1409E8AD4 (EtwpInitializeClassicStackTracing.c)
+ *     EtwpEnableGuid @ 0x14077FEF0 (EtwpEnableGuid.c)
+ *     EtwpInitializeClassicStackTracing @ 0x1409E8D64 (EtwpInitializeClassicStackTracing.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAllocateStackwalkApcPool(__int64 a1)
 {
-  struct _SLIST_ENTRY *Pool2; // rax
-  struct _SLIST_ENTRY *v3; // rdi
+  _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *v3; // rdi
 
   if ( *(_DWORD *)(a1 + 960) < *(_DWORD *)(a1 + 964) )
   {
     while ( (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(a1 + 960)) <= *(_DWORD *)(a1 + 964) )
     {
-      Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(72LL, 144LL, 1098347589LL);
+      Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(72LL, 144LL, 1098347589LL);
       v3 = Pool2;
       if ( !Pool2 )
         break;

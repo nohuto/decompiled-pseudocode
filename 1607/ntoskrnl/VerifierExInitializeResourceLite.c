@@ -3,16 +3,16 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     VfAvlReserveNode @ 0x1400842D8 (VfAvlReserveNode.c)
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x14008449C (VfAvlInsertReservedTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     VfUtilFreePoolCheckIRQL @ 0x14012EF04 (VfUtilFreePoolCheckIRQL.c)
- *     VfAvlDeleteTreeNode @ 0x14012EF54 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x14012F004 (VfAvlLookupTreeNode.c)
- *     VfUtilSynchronizationObjectSanityChecks @ 0x140703048 (VfUtilSynchronizationObjectSanityChecks.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlReserveNode @ 0x140082438 (VfAvlReserveNode.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1400825FC (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14012F474 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x14012F4C4 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14012F574 (VfAvlLookupTreeNode.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x140703078 (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierExInitializeResourceLite(void *a1)
@@ -20,7 +20,7 @@ __int64 __fastcall VerifierExInitializeResourceLite(void *a1)
   __int64 result; // rax
   unsigned int v3; // edi
   char *v4; // r14
-  struct _SLIST_ENTRY *v5; // rbp
+  _SLIST_ENTRY *v5; // rbp
   _BYTE v6[24]; // [rsp+30h] [rbp-18h] BYREF
 
   VfUtilSynchronizationObjectSanityChecks(a1, 104LL);
@@ -42,11 +42,7 @@ __int64 __fastcall VerifierExInitializeResourceLite(void *a1)
           if ( !ViResourcesAlreadyLoadedDrivers )
             VerifierBugCheckIfAppropriate(0xC4u, 0xD0uLL, (ULONG_PTR)a1, 0LL, 0LL);
           _InterlockedAdd(&ViResourceStaleNodes, 1u);
-          v5 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(
-                                        (__int64)&ViResourceAvl,
-                                        (__int64)v6,
-                                        (unsigned __int64)a1,
-                                        0LL);
+          v5 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViResourceAvl, (__int64)v6, (unsigned __int64)a1, 0LL);
         }
         VfAvlInsertReservedTreeNode((__int64)&ViResourceAvl, (__int64)v6, v4);
         VfAvlCleanupLockContext((__int64)v6);

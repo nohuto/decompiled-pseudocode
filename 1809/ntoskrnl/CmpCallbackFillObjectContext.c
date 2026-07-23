@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCallbackFillObjectContext @ 0x1405E6060
+ * XREFs of CmpCallbackFillObjectContext @ 0x1405E7060
  * Callers:
- *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
+ *     CmpCallCallBacksEx @ 0x1405E6AE0 (CmpCallCallBacksEx.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpGetCallbackObjectContext @ 0x14069C0B8 (CmpGetCallbackObjectContext.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpGetCallbackObjectContext @ 0x14069D278 (CmpGetCallbackObjectContext.c)
  */
 
 void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, __int64 *a3)

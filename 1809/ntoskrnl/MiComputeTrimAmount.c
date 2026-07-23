@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeTrimAmount @ 0x1402B2D8C
+ * XREFs of MiComputeTrimAmount @ 0x1402B2F7C
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14006D570 (MiTrimOrAgeWorkingSet.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ unsigned __int64 __fastcall MiComputeTrimAmount(__int64 a1, __int64 a2)
   v5 = v3 - v4;
   if ( v3 == v4 )
     return 0LL;
-  v6 = *(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a2 + 174)) + 7296LL);
+  v6 = *(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a2 + 174)) + 7296LL);
   v7 = 3;
   if ( v6 >= *(_QWORD *)(a1 + 72) && (*(_BYTE *)(a1 + 3) < 3u || (*(_BYTE *)a1 & 0x7F) != 0) )
     return 0LL;
@@ -133,7 +133,7 @@ LABEL_17:
   if ( v9 <= v5 )
     v5 = v9;
   result = v5;
-  v24 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a2 + 174));
+  v24 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a2 + 174));
   ++*(_DWORD *)(*(_QWORD *)(v24 + 7024) + 4LL * (*(_BYTE *)a1 & 0x7F) + 2552);
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentReformatAsSingle @ 0x1800DFFC4
+ * XREFs of RtlpHpLfhSubsegmentReformatAsSingle @ 0x1800DB0C4
  * Callers:
- *     RtlpHpLfhBucketGetSubsegment @ 0x18004B540 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x180061120 (RtlpHpLfhBucketGetSubsegment.c)
  * Callees:
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x180056220 (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x1800E00E0 (RtlpHpLfhSubsegmentReformatCheck.c)
- *     RtlpHpSegLfhVsCommit @ 0x1800E0280 (RtlpHpSegLfhVsCommit.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x18006BE00 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x1800DB1E0 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpSegLfhVsCommit @ 0x1800DB380 (RtlpHpSegLfhVsCommit.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentReformatAsSingle(__int64 a1, unsigned __int8 *a2)

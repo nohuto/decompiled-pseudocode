@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpVEExecuteCreateLogic @ 0x1404D91F4
+ * XREFs of CmpVEExecuteCreateLogic @ 0x1404BC7F8
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     CmRealKCBToVirtualPath @ 0x1403E1950 (CmRealKCBToVirtualPath.c)
- *     CmpIsSystemEntity @ 0x14040F144 (CmpIsSystemEntity.c)
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpIsMasterHive @ 0x1404D93FC (CmpIsMasterHive.c)
- *     CmpCheckAdminAccess @ 0x140600994 (CmpCheckAdminAccess.c)
- *     CmpDoAccessCheckOnKCB @ 0x140600AC8 (CmpDoAccessCheckOnKCB.c)
- *     CmpReparseToVirtualPath @ 0x140601758 (CmpReparseToVirtualPath.c)
- *     CmpReplicateKeyToVirtual @ 0x140601798 (CmpReplicateKeyToVirtual.c)
- *     CmpExamineSaclForAuditEvent @ 0x1406025C0 (CmpExamineSaclForAuditEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x140602880 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpIsSystemEntity @ 0x14040E004 (CmpIsSystemEntity.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpIsMasterHive @ 0x1404BCA00 (CmpIsMasterHive.c)
+ *     CmpCheckAdminAccess @ 0x140600A48 (CmpCheckAdminAccess.c)
+ *     CmpDoAccessCheckOnKCB @ 0x140600B7C (CmpDoAccessCheckOnKCB.c)
+ *     CmpReparseToVirtualPath @ 0x14060180C (CmpReparseToVirtualPath.c)
+ *     CmpReplicateKeyToVirtual @ 0x14060184C (CmpReplicateKeyToVirtual.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140602674 (CmpExamineSaclForAuditEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140602934 (CmpReportAuditVirtualizationEvent.c)
  */
 
 __int64 __fastcall CmpVEExecuteCreateLogic(

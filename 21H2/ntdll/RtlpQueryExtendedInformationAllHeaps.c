@@ -5,8 +5,8 @@
  * Callees:
  *     RtlpEnumProcessHeaps @ 0x1800752CC (RtlpEnumProcessHeaps.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall RtlpQueryExtendedInformationAllHeaps(__int64 a1)

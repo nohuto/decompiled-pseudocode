@@ -26,7 +26,7 @@ _DWORD *__fastcall RtlpHpVsSlotAllocate(__int64 a1, __int64 a2, unsigned int a3,
   __int64 v15; // rsi
   __int64 v16; // rdx
   __int64 v17; // rcx
-  _WORD *v18; // rax
+  unsigned __int64 v18; // rax
   _DWORD *v19; // rsi
   unsigned __int64 v20; // rdx
   unsigned __int64 v21; // rcx
@@ -143,11 +143,11 @@ LABEL_39:
       *(_QWORD *)(a2 + 40) = v17;
       if ( (*(_BYTE *)(a1 + 4) & 1) != 0 && ((v15 + 80) & 0xFFF) != 0 )
       {
-        v18 = (_WORD *)RtlpHpVsChunkAlignSplit(v17, v15, v15 + 48);
+        v18 = RtlpHpVsChunkAlignSplit(v17, v15, v15 + 48);
         if ( v18 )
           RtlpHpVsFreeChunkInsert(a1, a2, v15, v18);
       }
-      RtlpHpVsFreeChunkInsert(a1, a2, v15, (_WORD *)(v15 + 48));
+      RtlpHpVsFreeChunkInsert(a1, a2, v15, v15 + 48);
       v6 = a4;
       v7 = a3;
       continue;

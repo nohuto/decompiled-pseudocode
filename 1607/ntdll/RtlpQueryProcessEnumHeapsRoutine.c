@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryProcessEnumHeapsRoutine @ 0x180096360
+ * XREFs of RtlpQueryProcessEnumHeapsRoutine @ 0x180096350
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x18006DF8C (RtlpCommitQueryDebugInfo.c)
- *     RtlHpQuerySegmentHeapRoutine @ 0x18008A3A0 (RtlHpQuerySegmentHeapRoutine.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18006DF7C (RtlpCommitQueryDebugInfo.c)
+ *     RtlHpQuerySegmentHeapRoutine @ 0x18008A390 (RtlHpQuerySegmentHeapRoutine.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 

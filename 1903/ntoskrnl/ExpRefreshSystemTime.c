@@ -26,7 +26,7 @@ void ExpRefreshSystemTime()
   LARGE_INTEGER SystemTime; // [rsp+20h] [rbp-30h] BYREF
   LARGE_INTEGER v5; // [rsp+28h] [rbp-28h] BYREF
   LARGE_INTEGER Time; // [rsp+30h] [rbp-20h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-18h] BYREF
 
   SystemTime.QuadPart = 0LL;
   v5.QuadPart = 0LL;

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiOffsetToProtos @ 0x140033070
+ * XREFs of MiOffsetToProtos @ 0x140032BF0
  * Callers:
- *     MmMapViewInSystemCache @ 0x140018A20 (MmMapViewInSystemCache.c)
- *     MiSetSystemCodeProtection @ 0x1400FE0F4 (MiSetSystemCodeProtection.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
- *     MmHardFaultBytesRequired @ 0x140447550 (MmHardFaultBytesRequired.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
- *     MiScanRelocationPage @ 0x140524F40 (MiScanRelocationPage.c)
- *     MiLogRelocationRva @ 0x140525BF0 (MiLogRelocationRva.c)
- *     MiAddMappedPtes @ 0x140526020 (MiAddMappedPtes.c)
+ *     MmMapViewInSystemCache @ 0x1400185A0 (MmMapViewInSystemCache.c)
+ *     MiSetSystemCodeProtection @ 0x1400FBE74 (MiSetSystemCodeProtection.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
+ *     MmHardFaultBytesRequired @ 0x140446420 (MmHardFaultBytesRequired.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
+ *     MiScanRelocationPage @ 0x140507FA0 (MiScanRelocationPage.c)
+ *     MiLogRelocationRva @ 0x140508C50 (MiLogRelocationRva.c)
+ *     MiAddMappedPtes @ 0x140509080 (MiAddMappedPtes.c)
  * Callees:
- *     MiLocatePagefileSubsection @ 0x14002D040 (MiLocatePagefileSubsection.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089C20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DDDC (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DEBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiLocatePagefileSubsection @ 0x14002CBC0 (MiLocatePagefileSubsection.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089320 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DC08 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DCE8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiOffsetToProtos(_DWORD *a1, unsigned __int64 a2, unsigned __int64 *a3)

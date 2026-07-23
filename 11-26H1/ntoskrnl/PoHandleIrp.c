@@ -1,16 +1,16 @@
 /*
- * XREFs of PoHandleIrp @ 0x140486AFC
+ * XREFs of PoHandleIrp @ 0x1404804CC
  * Callers:
- *     IopPoHandleIrp @ 0x140486AA8 (IopPoHandleIrp.c)
+ *     IopPoHandleIrp @ 0x140480478 (IopPoHandleIrp.c)
  * Callees:
- *     PoDeviceReleaseIrp @ 0x140212C90 (PoDeviceReleaseIrp.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PopEnableIrpWatchdog @ 0x1403AACCC (PopEnableIrpWatchdog.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     PoDeviceAcquireIrp @ 0x140486D1C (PoDeviceAcquireIrp.c)
- *     PopDispatchQuerySetIrp @ 0x140486ECC (PopDispatchQuerySetIrp.c)
- *     PopDiagTraceDIrpAfterSx @ 0x140486F6C (PopDiagTraceDIrpAfterSx.c)
+ *     PoDeviceReleaseIrp @ 0x140212D70 (PoDeviceReleaseIrp.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PopEnableIrpWatchdog @ 0x1403B49DC (PopEnableIrpWatchdog.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     PoDeviceAcquireIrp @ 0x1404806EC (PoDeviceAcquireIrp.c)
+ *     PopDispatchQuerySetIrp @ 0x14048089C (PopDispatchQuerySetIrp.c)
+ *     PopDiagTraceDIrpAfterSx @ 0x14048093C (PopDiagTraceDIrpAfterSx.c)
  */
 
 char __fastcall PoHandleIrp(PIRP Irp, _DWORD *a2)
@@ -46,13 +46,13 @@ char __fastcall PoHandleIrp(PIRP Irp, _DWORD *a2)
   {
     if ( *(_BYTE *)(v5 + 184) == 2 && !*(_DWORD *)(v5 + 188) && *(_DWORD *)(v5 + 192) == 1 )
     {
-      KeAcquireInStackQueuedSpinLock(qword_140F10540, &LockHandle);
-      stru_140F10070.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitListEntry.Blink, &LockHandle);
+      PopIrpLockThread = (__int64)KeGetCurrentThread();
       _InterlockedAnd((volatile signed __int32 *)(v7 + 296), 0xFFFF7FFF);
       v16 = *(_QWORD *)(v7 + 264);
       if ( v16 )
         PopEnableIrpWatchdog(v16);
-      stru_140F10070.ApcState.ApcListHead[1].Flink = 0LL;
+      PopIrpLockThread = 0LL;
       KeReleaseInStackQueuedSpinLock(&LockHandle);
     }
     if ( *(_BYTE *)(v5 + 184) == 2 && *(_DWORD *)(v5 + 188) == 1 )
@@ -94,10 +94,10 @@ LABEL_17:
     return v9;
   }
 LABEL_13:
-  KeAcquireInStackQueuedSpinLock(qword_140F10540, &LockHandle);
-  stru_140F10070.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitListEntry.Blink, &LockHandle);
+  PopIrpLockThread = (__int64)KeGetCurrentThread();
   PopDispatchQuerySetIrp(Irp);
-  stru_140F10070.ApcState.ApcListHead[1].Flink = 0LL;
+  PopIrpLockThread = 0LL;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   *v3 = 259;
   return v9;

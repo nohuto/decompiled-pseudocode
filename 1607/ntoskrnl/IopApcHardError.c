@@ -1,9 +1,9 @@
 /*
- * XREFs of IopApcHardError @ 0x140620E1C
+ * XREFs of IopApcHardError @ 0x140620ED0
  * Callers:
  *     <none>
  * Callees:
- *     IopRaiseHardError @ 0x140622078 (IopRaiseHardError.c)
+ *     IopRaiseHardError @ 0x14062212C (IopRaiseHardError.c)
  */
 
 void __fastcall IopApcHardError(PIRP *a1)

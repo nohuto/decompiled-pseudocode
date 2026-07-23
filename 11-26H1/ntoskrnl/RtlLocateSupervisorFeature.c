@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlLocateSupervisorFeature @ 0x1403D4690
+ * XREFs of RtlLocateSupervisorFeature @ 0x1403D7660
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D4CB0 (RtlpLocateExtendedOrSupervisorFeature.c)
+ *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D7C80 (RtlpLocateExtendedOrSupervisorFeature.c)
  */
 
-__int64 __fastcall RtlLocateSupervisorFeature(__int64 a1, __int64 a2)
+PVOID __cdecl RtlLocateSupervisorFeature(PXSAVE_AREA_HEADER XStateHeader, ULONG FeatureId, PULONG Length)
 {
-  return RtlpLocateExtendedOrSupervisorFeature(a1, a2);
+  return (PVOID)RtlpLocateExtendedOrSupervisorFeature(XStateHeader, FeatureId);
 }

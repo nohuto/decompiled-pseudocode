@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPageProtection @ 0x140704210 (VfCheckPageProtection.c)
+ *     VfCheckPageProtection @ 0x140704240 (VfCheckPageProtection.c)
  */
 
 __int64 __fastcall VerifierMmProtectMdlSystemAddress(__int64 a1, unsigned int a2)

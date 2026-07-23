@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyFromRegProp @ 0x1406CC7D0
+ * XREFs of _CmGetDeviceMappedPropertyFromRegProp @ 0x1406CC800
  * Callers:
- *     _CmGetDeviceMappedProperty @ 0x1406CD210 (_CmGetDeviceMappedProperty.c)
- *     _CmGetDeviceCompoundFilters @ 0x1407FD450 (_CmGetDeviceCompoundFilters.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x14080A1B8 (_CmGetDeviceMappedPropertyKeys.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140A67E0C (_CmGetDeviceCompoundFiltersWorker.c)
+ *     _CmGetDeviceMappedProperty @ 0x1406CD240 (_CmGetDeviceMappedProperty.c)
+ *     _CmGetDeviceCompoundFilters @ 0x1407FD720 (_CmGetDeviceCompoundFilters.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x14080A488 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x140A680BC (_CmGetDeviceCompoundFiltersWorker.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpMultiSzGetLen @ 0x1406C939C (_PnpMultiSzGetLen.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     _PnpParseIndirectResourceString @ 0x14079E424 (_PnpParseIndirectResourceString.c)
- *     _PnpParseIndirectInfString @ 0x1407CB264 (_PnpParseIndirectInfString.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpMultiSzGetLen @ 0x1406C93CC (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     _PnpParseIndirectResourceString @ 0x14079E614 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x1407CB534 (_PnpParseIndirectInfString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

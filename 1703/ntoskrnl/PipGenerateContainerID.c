@@ -18,7 +18,7 @@
  *     ExUuidCreate @ 0x14054C980 (ExUuidCreate.c)
  */
 
-__int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, __int64 a3, const WCHAR *a4, _QWORD *a5)
+__int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, char a3, const WCHAR *a4, _QWORD *a5)
 {
   NTSTATUS v6; // ebx
   GUID *p_Guid; // rcx
@@ -29,17 +29,17 @@ __int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, __int64 a3, co
   __int64 v13; // rdx
   int DeviceRegProp; // edi
   __int64 i; // rdi
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-61h] BYREF
+  UNICODE_STRING GuidString; // [rsp+40h] [rbp-61h] BYREF
   int v17; // [rsp+50h] [rbp-51h] BYREF
   int v18; // [rsp+54h] [rbp-4Dh] BYREF
   GUID Guid; // [rsp+58h] [rbp-49h] BYREF
   WCHAR SourceString[40]; // [rsp+70h] [rbp-31h] BYREF
 
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   v6 = 0;
   *a5 = 0LL;
-  if ( !(_BYTE)a3 )
+  if ( !a3 )
   {
     p_Guid = (GUID *)(*(_QWORD *)(a1 + 16) + 664LL);
     goto LABEL_3;
@@ -56,9 +56,9 @@ __int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, __int64 a3, co
       DeviceRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, v13, (__int64)&v18, (__int64)SourceString, (__int64)&v17, 0);
       ExReleaseResourceLite(&PnpRegistryDeviceResource);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      if ( DeviceRegProp >= 0 && v18 == 1 && RtlCreateUnicodeString(&UnicodeString, SourceString) )
+      if ( DeviceRegProp >= 0 && v18 == 1 && RtlCreateUnicodeString(&GuidString, SourceString) )
       {
-        v6 = RtlGUIDFromString(&UnicodeString, &Guid);
+        v6 = RtlGUIDFromString(&GuidString, &Guid);
         if ( v6 >= 0 )
         {
           for ( i = *(_QWORD *)(a1 + 16); i; i = *(_QWORD *)(i + 16) )
@@ -72,7 +72,7 @@ LABEL_4:
           goto LABEL_5;
         }
 LABEL_26:
-        RtlFreeUnicodeString(&UnicodeString);
+        RtlFreeUnicodeString(&GuidString);
       }
     }
     v6 = ExUuidCreate(&Guid);
@@ -80,24 +80,23 @@ LABEL_26:
       return (unsigned int)v6;
     p_Guid = &Guid;
 LABEL_3:
-    LOBYTE(a3) = 1;
-    v6 = RtlStringFromGUIDEx(p_Guid, &UnicodeString, a3);
+    v6 = RtlStringFromGUIDEx(p_Guid, &GuidString, 1u);
     goto LABEL_4;
   }
-  if ( !RtlCreateUnicodeString(&UnicodeString, a4) )
+  if ( !RtlCreateUnicodeString(&GuidString, a4) )
     return (unsigned int)-1073741670;
 LABEL_5:
-  Buffer = UnicodeString.Buffer;
-  if ( UnicodeString.Buffer )
+  Buffer = GuidString.Buffer;
+  if ( GuidString.Buffer )
   {
-    MaximumLength = UnicodeString.MaximumLength;
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, UnicodeString.MaximumLength, 0x6E657050u);
+    MaximumLength = GuidString.MaximumLength;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, GuidString.MaximumLength, 0x6E657050u);
     *a5 = PoolWithTag;
     if ( PoolWithTag )
       memmove(PoolWithTag, Buffer, MaximumLength);
     else
       v6 = -1073741670;
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeUnicodeString(&GuidString);
   }
   return (unsigned int)v6;
 }

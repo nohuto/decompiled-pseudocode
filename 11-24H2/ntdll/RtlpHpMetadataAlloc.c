@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlpHpMetadataAlloc @ 0x180010830
+ * XREFs of RtlpHpMetadataAlloc @ 0x18003D230
  * Callers:
- *     RtlpHpLargeAlloc @ 0x180093F08 (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapAllocate @ 0x1800A5BA4 (RtlpHpHeapAllocate.c)
- *     RtlpHpTagContextAllocateTag @ 0x1800B79F0 (RtlpHpTagContextAllocateTag.c)
- *     RtlpFlsHeapAlloc @ 0x1800B9618 (RtlpFlsHeapAlloc.c)
- *     RtlpHpStackTraceAddStack @ 0x1800DF290 (RtlpHpStackTraceAddStack.c)
- *     RtlpHpStackTraceAllocAdd @ 0x1800DF434 (RtlpHpStackTraceAllocAdd.c)
- *     RtlpAllocateHeapMetadata @ 0x1800F0330 (RtlpAllocateHeapMetadata.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1800F23FC (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpTagRunOnceInit @ 0x18010AF10 (RtlpHpTagRunOnceInit.c)
- *     RtlpHpPerHeapStackTraceInitialize @ 0x18014B910 (RtlpHpPerHeapStackTraceInitialize.c)
- *     RtlpHpStackDbAllocRoutine @ 0x18014B970 (RtlpHpStackDbAllocRoutine.c)
- *     RtlpHpStackTraceEtwCallback @ 0x18014BDA0 (RtlpHpStackTraceEtwCallback.c)
+ *     RtlpHpLargeAlloc @ 0x18009A714 (RtlpHpLargeAlloc.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x18009AC38 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpTagContextAllocateTag @ 0x1800A1D38 (RtlpHpTagContextAllocateTag.c)
+ *     RtlpFlsHeapAlloc @ 0x1800B13B8 (RtlpFlsHeapAlloc.c)
+ *     RtlpHpStackTraceAddStack @ 0x1800DA400 (RtlpHpStackTraceAddStack.c)
+ *     RtlpHpStackTraceAllocAdd @ 0x1800DA5A4 (RtlpHpStackTraceAllocAdd.c)
+ *     RtlpAllocateHeapMetadata @ 0x1800EAFB0 (RtlpAllocateHeapMetadata.c)
+ *     RtlpHpHeapAllocate @ 0x1800EF054 (RtlpHpHeapAllocate.c)
+ *     RtlpHpTagRunOnceInit @ 0x180105CB0 (RtlpHpTagRunOnceInit.c)
+ *     RtlpHpPerHeapStackTraceInitialize @ 0x180149CC0 (RtlpHpPerHeapStackTraceInitialize.c)
+ *     RtlpHpStackDbAllocRoutine @ 0x180149D20 (RtlpHpStackDbAllocRoutine.c)
+ *     RtlpHpStackTraceEtwCallback @ 0x18014A150 (RtlpHpStackTraceEtwCallback.c)
  * Callees:
- *     EtwEventWriteTransfer @ 0x18003AD80 (EtwEventWriteTransfer.c)
- *     RtlpHpLfhSubsegmentPrefetch @ 0x18004B138 (RtlpHpLfhSubsegmentPrefetch.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x18004EAC0 (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpSegAlloc @ 0x180051440 (RtlpHpSegAlloc.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x180056390 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     TpSetTimerEx @ 0x18006AF80 (TpSetTimerEx.c)
- *     RtlpHpLargeAlloc @ 0x180093F08 (RtlpHpLargeAlloc.c)
- *     RtlRunOnceExecuteOnce @ 0x180098200 (RtlRunOnceExecuteOnce.c)
- *     RtlpHpLfhBucketCheckAndUpdate @ 0x1800A4EB0 (RtlpHpLfhBucketCheckAndUpdate.c)
- *     RtlpHpVsContextAllocate @ 0x1800ED0DC (RtlpHpVsContextAllocate.c)
- *     RtlpLogHeapAllocateEvent @ 0x180116248 (RtlpLogHeapAllocateEvent.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180119830 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     EtwEventWriteTransfer @ 0x18001B000 (EtwEventWriteTransfer.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002D050 (RtlRunOnceExecuteOnce.c)
+ *     RtlpHpLfhSubsegmentPrefetch @ 0x180060D18 (RtlpHpLfhSubsegmentPrefetch.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x1800646A0 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpSegAlloc @ 0x180067020 (RtlpHpSegAlloc.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x18006BF70 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     TpSetTimerEx @ 0x180087860 (TpSetTimerEx.c)
+ *     RtlpHpLargeAlloc @ 0x18009A714 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLfhBucketCheckAndUpdate @ 0x1800D6820 (RtlpHpLfhBucketCheckAndUpdate.c)
+ *     RtlpHpVsContextAllocate @ 0x1800E80AC (RtlpHpVsContextAllocate.c)
+ *     RtlpLogHeapAllocateEvent @ 0x1801113CC (RtlpLogHeapAllocateEvent.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180117A60 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2, int a3, __int128 *a4)
 {
   __int64 v4; // r13
   unsigned __int64 v5; // r12
-  __int64 *v8; // rdi
-  __int64 v9; // rdi
+  _RTL_RUN_ONCE *v8; // rdi
+  unsigned __int64 Value; // rdi
   unsigned int v10; // ecx
   int v11; // ecx
   __int64 v12; // rax
@@ -112,71 +112,68 @@ __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2,
   unsigned __int16 v94; // [rsp+42h] [rbp-87h]
   unsigned int v95; // [rsp+48h] [rbp-81h]
   int v96; // [rsp+4Ch] [rbp-7Dh]
-  __int64 v98; // [rsp+60h] [rbp-69h]
+  unsigned __int64 v98; // [rsp+60h] [rbp-69h]
   unsigned __int64 v99; // [rsp+70h] [rbp-59h]
   __int64 v100; // [rsp+80h] [rbp-49h]
-  _DWORD v101[2]; // [rsp+88h] [rbp-41h] BYREF
-  __int64 v102; // [rsp+90h] [rbp-39h]
-  __int128 v103; // [rsp+A0h] [rbp-29h] BYREF
-  __int128 v104; // [rsp+B0h] [rbp-19h]
-  void *v105; // [rsp+C0h] [rbp-9h] BYREF
-  int v106; // [rsp+C8h] [rbp-1h]
-  int v107; // [rsp+CCh] [rbp+3h]
-  void *v108; // [rsp+D0h] [rbp+7h]
-  int v109; // [rsp+D8h] [rbp+Fh]
-  int v110; // [rsp+DCh] [rbp+13h]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+88h] [rbp-41h] BYREF
+  __int128 Parameter; // [rsp+A0h] [rbp-29h] BYREF
+  __int128 v103; // [rsp+B0h] [rbp-19h]
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+C0h] [rbp-9h] BYREF
+  void *v105; // [rsp+D0h] [rbp+7h]
+  int v106; // [rsp+D8h] [rbp+Fh]
+  int v107; // [rsp+DCh] [rbp+13h]
 
   v4 = 0LL;
   v5 = a1;
-  v104 = *a4;
-  v99 = v104;
-  v8 = &qword_1801D21B8[2 * (unsigned int)dword_1801800C8[BYTE1(v104)]];
-  BYTE1(v99) = dword_1801800C8[BYTE1(v104)];
-  v103 = v99;
-  if ( !*v8 && (int)RtlRunOnceExecuteOnce(v8 + 1, RtlpHpMetadataHeapCreate, &v103, 0LL) < 0 )
+  v103 = *a4;
+  v99 = v103;
+  v8 = (_RTL_RUN_ONCE *)&qword_1801D11A8[2 * (unsigned int)dword_18017E8C8[BYTE1(v103)]];
+  BYTE1(v99) = dword_18017E8C8[BYTE1(v103)];
+  Parameter = v99;
+  if ( !v8->Value && RtlRunOnceExecuteOnce(v8 + 1, (PRTL_RUN_ONCE_INIT_FN)RtlpHpMetadataHeapCreate, &Parameter, 0LL) < 0 )
     return v4;
-  v9 = *v8;
+  Value = v8->Value;
   v10 = 3;
-  v98 = v9;
+  v98 = Value;
   if ( a3 != 2 )
   {
     if ( a3 )
     {
       if ( a3 != 1 )
         goto LABEL_104;
-      v11 = v9 + 320;
-      if ( v5 > *(unsigned int *)(v9 + 336) )
-        v11 = v9 + 512;
+      v11 = Value + 320;
+      if ( v5 > *(unsigned int *)(Value + 336) )
+        v11 = Value + 512;
       v12 = RtlpHpSegAlloc(v11, v5, v5, a2, a2 < v5 ? 0x4000000 : 0);
       goto LABEL_103;
     }
     v13 = v5;
-    if ( v5 >= *(unsigned __int16 *)(v9 + 900) )
+    if ( v5 >= *(unsigned __int16 *)(Value + 900) )
     {
 LABEL_94:
       if ( v5 > 0x20000 )
       {
-        if ( v5 > *(unsigned int *)(v9 + 528) )
+        if ( v5 > *(unsigned int *)(Value + 528) )
         {
-          v85 = RtlpHpLargeAlloc(v9, v5, v5, 0LL);
+          v85 = RtlpHpLargeAlloc(Value, v5, v5, 0LL);
         }
         else
         {
-          v86 = v9 + 320;
-          if ( v5 > *(unsigned int *)(v9 + 336) )
-            v86 = v9 + 512;
+          v86 = Value + 320;
+          if ( v5 > *(unsigned int *)(Value + 336) )
+            v86 = Value + 512;
           v85 = RtlpHpSegAlloc(v86, v5, v5, v5, 0);
         }
       }
       else
       {
-        v85 = RtlpHpVsContextAllocate(v9 + 704, v13, v13, 0LL);
+        v85 = RtlpHpVsContextAllocate(Value + 704, v13, v13, 0LL);
       }
       v10 = 3;
       v4 = v85;
       goto LABEL_104;
     }
-    v14 = v9 + 832;
+    v14 = Value + 832;
     v15 = *(unsigned __int16 *)(v14 + 76);
     v16 = (unsigned int)RtlpLfhBucketIndexMap[(unsigned int)(v5 + 15) >> 4] - 1;
     if ( v15 >= 0x40 )
@@ -196,7 +193,7 @@ LABEL_16:
           if ( !RtlpHpLfhBucketCheckAndUpdate(v14, (unsigned int)v16, v21) )
           {
 LABEL_93:
-            v9 = v98;
+            Value = v98;
             goto LABEL_94;
           }
           v22 = v14 + ((unsigned __int64)v92 << 8) + 1472;
@@ -220,7 +217,7 @@ LABEL_22:
           *(_QWORD *)(v23 + 56) = v24 - 1;
           v28 = NtCurrentTeb();
           v29 = *(unsigned __int8 *)((v24 & 0xFFFFFFFFFFFFF000uLL) + 0x18);
-          v30 = qword_1801CDEC8 ^ *(_DWORD *)((v24 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ ((v24 & 0xFFFFFFFFFFFFF000uLL) >> 12);
+          v30 = qword_1801CCEC8 ^ *(_DWORD *)((v24 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ ((v24 & 0xFFFFFFFFFFFFF000uLL) >> 12);
           v31 = v28->RngState[0];
           v32 = v28->RngState[1];
           v33 = (unsigned __int16)v30;
@@ -262,7 +259,7 @@ LABEL_90:
 LABEL_91:
           if ( Slow != -1 )
           {
-            v9 = v98;
+            Value = v98;
             v10 = 2;
             v4 = Slow;
             goto LABEL_104;
@@ -289,11 +286,11 @@ LABEL_91:
         v91 = v44 & 0xFFFFFFFFFFFFF000uLL;
         v48 = (v44 & 0xFFFFFFFFFFFFF000uLL) + 64;
         v49 = *(unsigned __int8 *)((v44 & 0xFFFFFFFFFFFFF000uLL) + 0x18);
-        v95 = (unsigned __int16)(qword_1801CDEC8 ^ *(_WORD *)((v44 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ ((v44 & 0xFFFFFFFFFFFFF000uLL) >> 12));
+        v95 = (unsigned __int16)(qword_1801CCEC8 ^ *(_WORD *)((v44 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ ((v44 & 0xFFFFFFFFFFFFF000uLL) >> 12));
         v50 = v46->RngState[0];
         if ( v13 >= v95 )
           v47 = 1LL;
-        v94 = ((unsigned int)qword_1801CDEC8 ^ *(_DWORD *)((v44 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ (unsigned int)((v44 & 0xFFFFFFFFFFFFF000uLL) >> 12)) >> 16;
+        v94 = ((unsigned int)qword_1801CCEC8 ^ *(_DWORD *)((v44 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ (unsigned int)((v44 & 0xFFFFFFFFFFFFF000uLL) >> 12)) >> 16;
         v51 = v46->RngState[1];
         v52 = v51 + v50;
         v53 = v50 ^ v51;
@@ -316,7 +313,7 @@ LABEL_41:
         }
         while ( 1 )
         {
-          if ( (qword_1801CDEE8 & 4) != 0 )
+          if ( (qword_1801CCEE8 & 4) != 0 )
           {
             _RCX = 1LL << ((unsigned __int16)(v54 * __popcnt(_RAX)) >> 8);
             __asm
@@ -419,25 +416,25 @@ LABEL_72:
           if ( !*(_BYTE *)(v79 + v14 + 92) )
           {
             *(_BYTE *)(v79 + v14 + 92) = 1;
-            v81 = qword_1801CE278;
-            if ( !(_DWORD)qword_1801CE278
-              && qword_1801CE268
-              && byte_1801D2908 == (_BYTE)qword_1801CE278
-              && v81 == _InterlockedCompareExchange((volatile signed __int32 *)&qword_1801CE278, 1, qword_1801CE278) )
+            v81 = qword_1801CD278;
+            if ( !(_DWORD)qword_1801CD278
+              && Context
+              && byte_1801D1908 == (_BYTE)qword_1801CD278
+              && v81 == _InterlockedCompareExchange((volatile signed __int32 *)&qword_1801CD278, 1, qword_1801CD278) )
             {
-              TpSetTimerEx(qword_1801CE268, &qword_1801CE270, 0LL, 1000LL);
-              if ( (RtlpHpHeapFeatures & 8) != 0 && (unsigned int)dword_1801CC670 > 5 )
+              TpSetTimerEx(Context, &DueTime, 0, 0x3E8u);
+              if ( (RtlpHpHeapFeatures & 8) != 0 && (unsigned int)dword_1801CB670 > 5 )
               {
-                v101[1] = 5;
-                v105 = off_1801CC678;
-                v101[0] = 184549376;
-                v102 = 0LL;
-                v106 = *(unsigned __int16 *)off_1801CC678;
-                v108 = &unk_1801A23DE;
-                v107 = 2;
-                v109 = 25;
-                v110 = 1;
-                EtwEventWriteTransfer(qword_1801CC690, (unsigned int)v101, 0, 0, 2, (__int64)&v105);
+                *(_DWORD *)&EventDescriptor.Level = 5;
+                UserData.Ptr = (unsigned __int64)off_1801CB678;
+                *(_DWORD *)&EventDescriptor.Id = 184549376;
+                EventDescriptor.Keyword = 0LL;
+                UserData.Size = *(unsigned __int16 *)off_1801CB678;
+                v105 = &unk_1801A157E;
+                UserData.Reserved = 2;
+                v106 = 25;
+                v107 = 1;
+                EtwEventWriteTransfer(qword_1801CB690, &EventDescriptor, 0LL, 0LL, 2u, &UserData);
               }
               v71 = v44 & 0xFFFFFFFFFFFFF000uLL;
             }
@@ -491,12 +488,12 @@ LABEL_67:
       goto LABEL_16;
     goto LABEL_15;
   }
-  v12 = RtlpHpVsContextAllocate(v9 + 704, (unsigned int)a2, (unsigned int)a2, 0LL);
+  v12 = RtlpHpVsContextAllocate(Value + 704, (unsigned int)a2, (unsigned int)a2, 0LL);
 LABEL_103:
   v10 = 3;
   v4 = v12;
 LABEL_104:
-  if ( *(char *)(v9 + 20) < 0 )
-    RtlpLogHeapAllocateEvent(v9, v4, v5, v10);
+  if ( *(char *)(Value + 20) < 0 )
+    RtlpLogHeapAllocateEvent(Value, v4, v5, v10);
   return v4;
 }

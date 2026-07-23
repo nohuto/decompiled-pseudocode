@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCmciSetProcessorConfigIntel @ 0x14045405C
+ * XREFs of HalpCmciSetProcessorConfigIntel @ 0x14044C18C
  * Callers:
- *     HalpCmciSetProcessorConfig @ 0x140453A20 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciSetProcessorConfig @ 0x14044BB50 (HalpCmciSetProcessorConfig.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpCmciSetProcessorConfigIntel(__int64 a1, char a2, __int64 a3)

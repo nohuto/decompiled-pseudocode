@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpRpLogDeprioEvent @ 0x1402D4C00
+ * XREFs of PfpRpLogDeprioEvent @ 0x1402738E0
  * Callers:
- *     PfCheckDeprioritizeFile @ 0x1406CD858 (PfCheckDeprioritizeFile.c)
+ *     PfCheckDeprioritizeFile @ 0x14067C4E8 (PfCheckDeprioritizeFile.c)
  * Callees:
- *     PfLogEvent @ 0x1402D4DFC (PfLogEvent.c)
+ *     PfLogEvent @ 0x140273ADC (PfLogEvent.c)
  */
 
 __int64 __fastcall PfpRpLogDeprioEvent(__int64 a1, int a2, int a3)
@@ -16,12 +16,12 @@ __int64 __fastcall PfpRpLogDeprioEvent(__int64 a1, int a2, int a3)
 
   v8 = 0;
   v6 = a2;
-  v5 = dword_140CEC350;
+  v5 = dword_140CEC390;
   v4 = a1;
   v7 = a3;
   return PfLogEvent(
            30LL,
-           dword_140C502DC
+           dword_140C5031C
          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                          + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
            &v4);

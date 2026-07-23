@@ -8,16 +8,16 @@
  *     _TpPostWork@4 @ 0x4B2C1B30 (_TpPostWork@4.c)
  */
 
-int __thiscall RtlpFcCallChangeCallbacks(int this)
+void __thiscall RtlpFcCallChangeCallbacks(_RTL_SRWLOCK *this)
 {
-  volatile signed __int32 *v2; // ebx
-  _DWORD *v3; // edi
-  _DWORD *i; // esi
+  _RTL_SRWLOCK *v2; // ebx
+  _RTL_SRWLOCK *v3; // edi
+  unsigned int i; // esi
 
-  v2 = (volatile signed __int32 *)(this + 144);
-  RtlAcquireSRWLockShared((volatile signed __int32 *)(this + 144));
-  v3 = (_DWORD *)(this + 148);
-  for ( i = *(_DWORD **)(this + 148); i != v3; i = (_DWORD *)*i )
-    TpPostWork(i[5]);
-  return RtlReleaseSRWLockShared(v2);
+  v2 = this + 36;
+  RtlAcquireSRWLockShared(this + 36);
+  v3 = this + 37;
+  for ( i = this[37].Value; (_RTL_SRWLOCK *)i != v3; i = *(_DWORD *)i )
+    TpPostWork(*(PTP_WORK *)(i + 20));
+  RtlReleaseSRWLockShared(v2);
 }

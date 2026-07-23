@@ -1,13 +1,13 @@
 /*
- * XREFs of KeThawProcess @ 0x140283E7C
+ * XREFs of KeThawProcess @ 0x14023A474
  * Callers:
- *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
+ *     PsThawProcess @ 0x1406001EC (PsThawProcess.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     KiThawSingleThread @ 0x140283FD8 (KiThawSingleThread.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiThawSingleThread @ 0x14023A5D0 (KiThawSingleThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -49,7 +49,7 @@ __int64 __fastcall KeThawProcess(__int64 a1, char a2)
     if ( a2 )
     {
       _interlockedbittestandreset((volatile signed __int32 *)(a1 + 632), 3u);
-      v7 = KiQueryUnbiasedInterruptTime() - *(_QWORD *)(a1 + 72);
+      v7 = KiQueryUnbiasedInterruptTime(0LL) - *(_QWORD *)(a1 + 72);
     }
     else
     {

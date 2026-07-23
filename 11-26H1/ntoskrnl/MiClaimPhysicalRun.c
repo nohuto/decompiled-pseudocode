@@ -1,13 +1,13 @@
 /*
- * XREFs of MiClaimPhysicalRun @ 0x140291700
+ * XREFs of MiClaimPhysicalRun @ 0x140290C60
  * Callers:
- *     MiFindContiguousPagesInOptimizedCandidates @ 0x14028EB58 (MiFindContiguousPagesInOptimizedCandidates.c)
- *     MiDefragmentSlabWorker @ 0x1407063E4 (MiDefragmentSlabWorker.c)
- *     MiScrubNode @ 0x140AC642C (MiScrubNode.c)
- *     MmRelocatePfnList @ 0x140B6D1F4 (MmRelocatePfnList.c)
+ *     MiFindContiguousPagesInOptimizedCandidates @ 0x14028E0B8 (MiFindContiguousPagesInOptimizedCandidates.c)
+ *     MiDefragmentSlabWorker @ 0x14070B0B4 (MiDefragmentSlabWorker.c)
+ *     MiScrubNode @ 0x140AC8020 (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x140B705C4 (MmRelocatePfnList.c)
  * Callees:
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
  */
 
 __int64 __fastcall MiClaimPhysicalRun(
@@ -82,9 +82,9 @@ __int64 __fastcall MiClaimPhysicalRun(
     {
       v18 = v22;
 LABEL_18:
-      _InterlockedIncrement(&dword_140EF8E6C);
+      _InterlockedIncrement(&dword_140EF91CC);
       v20 = a3 - v18;
-      _InterlockedExchange64(&qword_140EF8E70, (__int64)(v14 + 0x220000000000LL) / 48);
+      _InterlockedExchange64(&qword_140EF91D0, (__int64)(v14 + 0x220000000000LL) / 48);
       if ( a8 )
         *(_DWORD *)(a8 + 40) += -4096 * v20;
       for ( ; v20; --v20 )
@@ -112,7 +112,7 @@ LABEL_6:
   v22 -= v17;
   if ( v22 )
     goto LABEL_6;
-  _InterlockedIncrement(&dword_140EF8D88);
+  _InterlockedIncrement(&dword_140EF90E8);
   if ( a9 )
     *a9 = v25;
   return 0LL;

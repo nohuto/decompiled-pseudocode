@@ -3,14 +3,14 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     HalQueryRealTimeClock @ 0x14033B130 (HalQueryRealTimeClock.c)
- *     ExLocalTimeToSystemTime @ 0x14033B2A0 (ExLocalTimeToSystemTime.c)
- *     ExSystemTimeToLocalTime @ 0x14033B2F0 (ExSystemTimeToLocalTime.c)
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B3E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     RtlpTimeToTimeFields @ 0x14033B6C8 (RtlpTimeToTimeFields.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalSetRealTimeClock @ 0x1404FEC10 (HalSetRealTimeClock.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     HalQueryRealTimeClock @ 0x14033B3C0 (HalQueryRealTimeClock.c)
+ *     ExLocalTimeToSystemTime @ 0x14033B530 (ExLocalTimeToSystemTime.c)
+ *     ExSystemTimeToLocalTime @ 0x14033B580 (ExSystemTimeToLocalTime.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B670 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeToTimeFields @ 0x14033B958 (RtlpTimeToTimeFields.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalSetRealTimeClock @ 0x1404FF160 (HalSetRealTimeClock.c)
  */
 
 LARGE_INTEGER __fastcall GetBootSystemTime(__int64 a1, LARGE_INTEGER *a2)
@@ -74,7 +74,7 @@ LARGE_INTEGER __fastcall GetBootSystemTime(__int64 a1, LARGE_INTEGER *a2)
     HalSetRealTimeClock(v23);
     goto LABEL_16;
   }
-  if ( (qword_140C31B18 & 4) != 0 || !HalQueryRealTimeClock((__int64)v23) )
+  if ( (qword_140C31AB8 & 4) != 0 || !HalQueryRealTimeClock((__int64)v23) )
     goto LABEL_16;
   v26.QuadPart = 0LL;
   v11 = (char *)ExLeapSecondData;

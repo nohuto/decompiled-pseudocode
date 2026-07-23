@@ -43,8 +43,8 @@ PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
   unsigned int *v27; // r9
   unsigned __int64 v28; // r8
   unsigned __int64 v29; // rdx
-  __int128 v30; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v31; // [rsp+30h] [rbp-18h]
+  unsigned __int64 v30; // [rsp+28h] [rbp-20h]
+  unsigned int v31; // [rsp+34h] [rbp-14h]
 
   if ( HistoryTable )
   {
@@ -115,20 +115,20 @@ LABEL_2:
   if ( ControlPc < *((_QWORD *)&xmmword_18019C530 + 1)
     || ControlPc >= *((_QWORD *)&xmmword_18019C530 + 1) + (unsigned __int64)(unsigned int)qword_18019C540 )
   {
-    v6 = RtlpxLookupFunctionTable(ControlPc, &v30);
+    v6 = RtlpxLookupFunctionTable((PVOID)ControlPc);
   }
   else
   {
+    v30 = *((_QWORD *)&xmmword_18019C530 + 1);
     v6 = xmmword_18019C530;
-    v30 = xmmword_18019C530;
-    v31 = qword_18019C540;
+    v31 = HIDWORD(qword_18019C540);
   }
   if ( v6 )
   {
-    *ImageBase = *((_QWORD *)&v30 + 1);
+    *ImageBase = v30;
     v7 = 0LL;
-    v8 = HIDWORD(v31) / 0xC;
-    if ( HIDWORD(v31) / 0xC )
+    v8 = v31 / 0xC;
+    if ( v31 / 0xC )
     {
       v9 = ControlPc - *ImageBase;
       v10 = *(unsigned int *)(v6 + 12LL * (v8 - 1));

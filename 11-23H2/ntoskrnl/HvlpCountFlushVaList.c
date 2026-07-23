@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlpCountFlushVaList @ 0x1403CBE8C
+ * XREFs of HvlpCountFlushVaList @ 0x1403CC06C
  * Callers:
- *     HvlpFlushRangeListTb @ 0x1403CBDF4 (HvlpFlushRangeListTb.c)
- *     HvlpFlushRangeListTbEx @ 0x140549ACC (HvlpFlushRangeListTbEx.c)
+ *     HvlpFlushRangeListTb @ 0x1403CBFD4 (HvlpFlushRangeListTb.c)
+ *     HvlpFlushRangeListTbEx @ 0x14054A18C (HvlpFlushRangeListTbEx.c)
  * Callees:
  *     <none>
  */

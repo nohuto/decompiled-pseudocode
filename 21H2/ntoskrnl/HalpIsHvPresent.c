@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIsHvPresent @ 0x1403A1FD8
+ * XREFs of HalpIsHvPresent @ 0x1403A2128
  * Callers:
- *     HalSocRequestConfigurationData @ 0x1403A1E9C (HalSocRequestConfigurationData.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A6380 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalpTimerFindIdealPerformanceCounterSource @ 0x1403AA16C (HalpTimerFindIdealPerformanceCounterSource.c)
- *     HalpArtAvailable @ 0x1403AC43C (HalpArtAvailable.c)
- *     HalpNmiReboot @ 0x1404D2C88 (HalpNmiReboot.c)
- *     HalpLbrInitialize @ 0x14099B704 (HalpLbrInitialize.c)
- *     HalpMiscGetParameters @ 0x140A6CF88 (HalpMiscGetParameters.c)
+ *     HalSocRequestConfigurationData @ 0x1403A1FEC (HalSocRequestConfigurationData.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A20E8 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A64D0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalpTimerFindIdealPerformanceCounterSource @ 0x1403AAEFC (HalpTimerFindIdealPerformanceCounterSource.c)
+ *     HalpArtAvailable @ 0x1403AD1CC (HalpArtAvailable.c)
+ *     HalpNmiReboot @ 0x1404D2EC8 (HalpNmiReboot.c)
+ *     HalpLbrInitialize @ 0x14099C704 (HalpLbrInitialize.c)
+ *     HalpMiscGetParameters @ 0x140A6DF88 (HalpMiscGetParameters.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char HalpIsHvPresent()

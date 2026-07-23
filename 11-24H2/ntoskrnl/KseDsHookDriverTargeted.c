@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsHookDriverTargeted @ 0x1405CAE60
+ * XREFs of KseDsHookDriverTargeted @ 0x1405C8580
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventDriverLoad @ 0x1405CB544 (KsepDsEventDriverLoad.c)
+ *     KsepDsEventDriverLoad @ 0x1405C8C64 (KsepDsEventDriverLoad.c)
  */
 
 __int64 __fastcall KseDsHookDriverTargeted(int a1, int a2, int a3, int a4, char a5)

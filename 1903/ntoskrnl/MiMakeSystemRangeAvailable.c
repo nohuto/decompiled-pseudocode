@@ -21,8 +21,8 @@ __int64 __fastcall MiMakeSystemRangeAvailable(
 {
   ULONG_PTR BugCheckParameter4; // rbp
   ULONG_PTR v5; // rdi
-  union _SLIST_HEADER *v8; // rsi
-  union _SLIST_HEADER *v9; // r15
+  _SLIST_HEADER *v8; // rsi
+  _SLIST_HEADER *v9; // r15
   ULONG_PTR v10; // rbx
   ULONG_PTR v11; // r11
   unsigned __int8 v12; // al
@@ -49,12 +49,12 @@ __int64 __fastcall MiMakeSystemRangeAvailable(
   if ( (_DWORD)a3 == 5 )
     v8 = &qword_140465A58[11 * (unsigned int)MiNonPagedPoolToNode(BugCheckParameter2) + 4];
   else
-    v8 = (union _SLIST_HEADER *)MiSystemVaToDynamicBitmap((unsigned int)a3, BugCheckParameter3, a3, a4);
+    v8 = (_SLIST_HEADER *)MiSystemVaToDynamicBitmap((unsigned int)a3, BugCheckParameter3, a3, a4);
   v9 = v8;
   v10 = (BugCheckParameter2 - v8[2].Alignment) >> 21;
   if ( (_DWORD)BugCheckParameter4 == 13 )
   {
-    v9 = (union _SLIST_HEADER *)&v22;
+    v9 = (_SLIST_HEADER *)&v22;
     Alignment = v8[1].Alignment;
     Region = v8->Region;
     v22 = Alignment;

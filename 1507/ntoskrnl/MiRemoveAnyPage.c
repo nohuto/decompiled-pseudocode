@@ -44,12 +44,12 @@ __int64 __fastcall MiRemoveAnyPage(__int64 a1, unsigned int a2, int a3)
   __int64 v27; // rax
   __int64 v28; // rcx
   __int64 v29; // rdi
-  union _SLIST_HEADER *v30; // rcx
+  _SLIST_HEADER *v30; // rcx
   PSLIST_ENTRY v31; // rax
   _QWORD *p_Next; // rsi
   unsigned __int64 v33; // rbx
   unsigned __int64 v34; // r15
-  union _SLIST_HEADER *v35; // rcx
+  _SLIST_HEADER *v35; // rcx
   PSLIST_ENTRY v36; // rax
   __int64 DemandZeroPte; // rax
   _QWORD *v38; // rdx
@@ -57,11 +57,11 @@ __int64 __fastcall MiRemoveAnyPage(__int64 a1, unsigned int a2, int a3)
   unsigned __int64 v40; // rdx
   unsigned __int64 v41; // rdx
   __int64 v42; // rbx
-  union _SLIST_HEADER *v43; // rcx
+  _SLIST_HEADER *v43; // rcx
   PSLIST_ENTRY v44; // rax
   __int64 v45; // rax
   _QWORD *v46; // r8
-  union _SLIST_HEADER *v47; // rcx
+  _SLIST_HEADER *v47; // rcx
   PSLIST_ENTRY v48; // rax
   _QWORD *v49; // rdi
   unsigned __int64 v50; // rsi
@@ -312,7 +312,7 @@ LABEL_76:
     {
       v28 = *(_QWORD *)(v5 + 1488);
       v29 = 16LL * (unsigned int)v3;
-      v30 = (union _SLIST_HEADER *)(v29 + v28);
+      v30 = (_SLIST_HEADER *)(v29 + v28);
       if ( LOWORD(v30->Alignment) )
       {
         v31 = RtlpInterlockedPopEntrySList(v30);
@@ -339,7 +339,7 @@ LABEL_76:
             return v33;
         }
       }
-      v35 = (union _SLIST_HEADER *)(v29 + *(_QWORD *)(a1 + 1496));
+      v35 = (_SLIST_HEADER *)(v29 + *(_QWORD *)(a1 + 1496));
       if ( LOWORD(v35->Alignment) )
       {
         v36 = RtlpInterlockedPopEntrySList(v35);
@@ -360,7 +360,7 @@ LABEL_106:
       goto LABEL_107;
     }
     v42 = 16LL * (unsigned int)v3;
-    v43 = (union _SLIST_HEADER *)(v42 + *(_QWORD *)(v5 + 1496));
+    v43 = (_SLIST_HEADER *)(v42 + *(_QWORD *)(v5 + 1496));
     if ( LOWORD(v43->Alignment) )
     {
       v44 = RtlpInterlockedPopEntrySList(v43);
@@ -374,7 +374,7 @@ LABEL_106:
           return v41;
       }
     }
-    v47 = (union _SLIST_HEADER *)(v42 + *(_QWORD *)(v5 + 1488));
+    v47 = (_SLIST_HEADER *)(v42 + *(_QWORD *)(v5 + 1488));
     if ( LOWORD(v47->Alignment) )
     {
       v48 = RtlpInterlockedPopEntrySList(v47);

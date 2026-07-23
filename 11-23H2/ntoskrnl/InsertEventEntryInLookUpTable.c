@@ -3,26 +3,26 @@
  * Callers:
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
  *     MiLogPeriodicTelemetry @ 0x14021F654 (MiLogPeriodicTelemetry.c)
- *     MiLogPeriodicTelemetryForSlabAllocator @ 0x1403D0AA0 (MiLogPeriodicTelemetryForSlabAllocator.c)
- *     MiLogSlabEntriesDemote @ 0x1403D6B60 (MiLogSlabEntriesDemote.c)
- *     CmpThreadInfoLogStack @ 0x14061600C (CmpThreadInfoLogStack.c)
- *     MiLogBadMapper @ 0x140630DF8 (MiLogBadMapper.c)
- *     MiLogSlabEntryAllocateFailure @ 0x1406570EC (MiLogSlabEntryAllocateFailure.c)
+ *     MiLogPeriodicTelemetryForSlabAllocator @ 0x1403D0C80 (MiLogPeriodicTelemetryForSlabAllocator.c)
+ *     MiLogSlabEntriesDemote @ 0x1403D6D40 (MiLogSlabEntriesDemote.c)
+ *     CmpThreadInfoLogStack @ 0x14061655C (CmpThreadInfoLogStack.c)
+ *     MiLogBadMapper @ 0x140631348 (MiLogBadMapper.c)
+ *     MiLogSlabEntryAllocateFailure @ 0x14065763C (MiLogSlabEntryAllocateFailure.c)
  * Callees:
  *     ComputeEventEntryHash @ 0x14021336C (ComputeEventEntryHash.c)
  *     CompareEventEntry @ 0x1402134C4 (CompareEventEntry.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     CreateNewEventEntry @ 0x14034F794 (CreateNewEventEntry.c)
- *     EnableFlushTimer @ 0x1403C71E0 (EnableFlushTimer.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     CreateNewEventEntry @ 0x14034F934 (CreateNewEventEntry.c)
+ *     EnableFlushTimer @ 0x1403C73C0 (EnableFlushTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -236,10 +236,10 @@ LABEL_24:
     ExReleaseSpinLockSharedFromDpcLevel(v35);
     if ( v36 < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v37 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v37 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v37 - 2) <= 0xDu )
         {
           v38 = KeGetCurrentPrcb();
           v39 = v38->SchedulerAssist;

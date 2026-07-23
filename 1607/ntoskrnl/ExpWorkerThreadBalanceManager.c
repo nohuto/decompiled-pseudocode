@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpWorkerThreadBalanceManager @ 0x140566108
+ * XREFs of ExpWorkerThreadBalanceManager @ 0x140566648
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     KeTimeOutQueueWaiters @ 0x1400A8210 (KeTimeOutQueueWaiters.c)
- *     ExpNewThreadNecessary @ 0x1400C0E90 (ExpNewThreadNecessary.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     KeSetAffinityThread @ 0x140134304 (KeSetAffinityThread.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeSetMaximumCountPriQueue @ 0x1401DB0FC (KeSetMaximumCountPriQueue.c)
- *     ExpCreateWorkerThread @ 0x1403E4598 (ExpCreateWorkerThread.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x14061BB3C (DbgkWerCaptureLiveKernelDump.c)
- *     ExpAllocatePoolForNode @ 0x1406B5F40 (ExpAllocatePoolForNode.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     KeTimeOutQueueWaiters @ 0x1400A6788 (KeTimeOutQueueWaiters.c)
+ *     ExpNewThreadNecessary @ 0x1400BED20 (ExpNewThreadNecessary.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     KeSetAffinityThread @ 0x140134874 (KeSetAffinityThread.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeSetMaximumCountPriQueue @ 0x1401DAF28 (KeSetMaximumCountPriQueue.c)
+ *     ExpCreateWorkerThread @ 0x1403E5BC4 (ExpCreateWorkerThread.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14061BBF0 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExpAllocatePoolForNode @ 0x1406B6078 (ExpAllocatePoolForNode.c)
  */
 
 void __fastcall __noreturn ExpWorkerThreadBalanceManager(unsigned __int16 a1)

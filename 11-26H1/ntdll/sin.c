@@ -1,13 +1,13 @@
 /*
- * XREFs of sin @ 0x18012A6F0
+ * XREFs of sin @ 0x18012A460
  * Callers:
  *     <none>
  * Callees:
- *     cos_piby4 @ 0x18012A640 (cos_piby4.c)
- *     sin_piby4 @ 0x18012AA70 (sin_piby4.c)
- *     _controlfp @ 0x180130270 (_controlfp.c)
- *     _handle_error @ 0x1801303D0 (_handle_error.c)
- *     __remainder_piby2 @ 0x180130550 (__remainder_piby2.c)
+ *     cos_piby4 @ 0x18012A3B0 (cos_piby4.c)
+ *     sin_piby4 @ 0x18012A7E0 (sin_piby4.c)
+ *     _controlfp @ 0x18012FFE0 (_controlfp.c)
+ *     _handle_error @ 0x180130140 (_handle_error.c)
+ *     __remainder_piby2 @ 0x1801302C0 (__remainder_piby2.c)
  */
 
 double __cdecl sin(double X)

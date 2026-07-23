@@ -1,33 +1,33 @@
 /*
- * XREFs of CcGetVirtualAddress @ 0x140273EF0
+ * XREFs of CcGetVirtualAddress @ 0x140229480
  * Callers:
- *     CcPinFileData @ 0x140272D30 (CcPinFileData.c)
- *     CcPrepareMdlWrite @ 0x1402CC1E0 (CcPrepareMdlWrite.c)
- *     CcPurgeAndClearCacheSection @ 0x1404612E4 (CcPurgeAndClearCacheSection.c)
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
- *     CcMapData @ 0x140978410 (CcMapData.c)
- *     CcMapDataCommon @ 0x14099CDF0 (CcMapDataCommon.c)
- *     CcMapAndCopyFromCache @ 0x140AC2F00 (CcMapAndCopyFromCache.c)
- *     CcMdlRead @ 0x140AC3350 (CcMdlRead.c)
+ *     CcPinFileData @ 0x1402282C0 (CcPinFileData.c)
+ *     CcPrepareMdlWrite @ 0x14040B2B0 (CcPrepareMdlWrite.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404568F4 (CcPurgeAndClearCacheSection.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
+ *     CcMapData @ 0x140960C20 (CcMapData.c)
+ *     CcMapDataCommon @ 0x1409781B0 (CcMapDataCommon.c)
+ *     CcMapAndCopyFromCache @ 0x140ABE1E0 (CcMapAndCopyFromCache.c)
+ *     CcMdlRead @ 0x140ABE630 (CcMdlRead.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x14023F290 (CcUnmapVacbArray.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     CcGetVacbMiss @ 0x1402D5510 (CcGetVacbMiss.c)
- *     CcSetVacbLargeOffset @ 0x1402D5FE0 (CcSetVacbLargeOffset.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1403F8E34 (CcAcquireBcbLockAndVacbLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1403F8EA0 (CcReleaseBcbLockAndVacbLock.c)
- *     CcSetVacbInFreeList @ 0x1403F8F18 (CcSetVacbInFreeList.c)
- *     CcGetVacbLargeOffset @ 0x1403F8FC0 (CcGetVacbLargeOffset.c)
- *     CcInsertVacbArray @ 0x1404897B4 (CcInsertVacbArray.c)
- *     CcAllocateInitializeVacbArray @ 0x1404A41CC (CcAllocateInitializeVacbArray.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MmReserveViewInSystemCache @ 0x1407ED6D8 (MmReserveViewInSystemCache.c)
- *     CcUnmapVacb @ 0x1408E5FE0 (CcUnmapVacb.c)
+ *     CcUnmapVacbArray @ 0x1402073E0 (CcUnmapVacbArray.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     CcGetVacbMiss @ 0x140356790 (CcGetVacbMiss.c)
+ *     CcSetVacbLargeOffset @ 0x140357260 (CcSetVacbLargeOffset.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x1403EEF44 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1403EEFB0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcSetVacbInFreeList @ 0x1403EF028 (CcSetVacbInFreeList.c)
+ *     CcGetVacbLargeOffset @ 0x1403EF0D0 (CcGetVacbLargeOffset.c)
+ *     CcInsertVacbArray @ 0x1404844C8 (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x14049EF5C (CcAllocateInitializeVacbArray.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MmReserveViewInSystemCache @ 0x1407EDCA8 (MmReserveViewInSystemCache.c)
+ *     CcUnmapVacb @ 0x1409DC780 (CcUnmapVacb.c)
  */
 
 __int64 __fastcall CcGetVirtualAddress(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4, int a5, int a6)
@@ -189,7 +189,7 @@ LABEL_19:
       || (v38 = *(_QWORD *)(a1 + 104),
           v38 != _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 104), v37, v36)) )
     {
-      ExfReleasePushLock((_QWORD *)(a1 + 104));
+      ExfReleasePushLock(a1 + 104, v37);
     }
     KeAbPostRelease(a1 + 104);
     v29 = v54;
@@ -205,7 +205,7 @@ LABEL_19:
       || (v27 = *(_QWORD *)(a1 + 104),
           v27 != _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 104), v26, v25)) )
     {
-      ExfReleasePushLock((_QWORD *)(a1 + 104));
+      ExfReleasePushLock(a1 + 104, v26);
     }
     KeAbPostRelease(a1 + 104);
     VacbMiss = CcGetVacbMiss(a1, a2, v11, v13);

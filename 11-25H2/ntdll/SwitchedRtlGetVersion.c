@@ -20,22 +20,19 @@ __int64 __fastcall SwitchedRtlGetVersion(int *a1)
   int Version_WinBLUE; // eax
   wchar_t *Buffer; // r8
   int v6; // esi
-  __int64 v7; // rcx
-  size_t v8; // rax
-  _WORD v10[2]; // [rsp+30h] [rbp-38h] BYREF
-  int v11; // [rsp+34h] [rbp-34h]
-  const wchar_t *v12; // [rsp+38h] [rbp-30h]
-  int v13; // [rsp+70h] [rbp+8h] BYREF
-  int v14; // [rsp+78h] [rbp+10h] BYREF
-  int v15; // [rsp+80h] [rbp+18h] BYREF
-  int v16; // [rsp+88h] [rbp+20h] BYREF
+  size_t v7; // rax
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-38h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+70h] [rbp+8h] BYREF
+  ULONG Type; // [rsp+78h] [rbp+10h] BYREF
+  ULONG ResultDataSize; // [rsp+80h] [rbp+18h] BYREF
+  int Data; // [rsp+88h] [rbp+20h] BYREF
 
-  v11 = 0;
-  v14 = 0;
-  v15 = 0;
-  v16 = 0;
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  Type = 0;
+  ResultDataSize = 0;
+  Data = 0;
   v2 = NtCurrentPeb();
-  v13 = 0;
+  NtProductType = 0;
   a1[1] = v2->OSMajorVersion;
   a1[2] = v2->OSMinorVersion;
   a1[3] = v2->OSBuildNumber;
@@ -69,20 +66,23 @@ __int64 __fastcall SwitchedRtlGetVersion(int *a1)
   {
     *((_WORD *)a1 + 138) = HIBYTE(v2->OSCSDVersion);
     *((_WORD *)a1 + 139) = (unsigned __int8)v2->OSCSDVersion;
-    *((_WORD *)a1 + 140) = RtlGetSuiteMask(255LL);
+    *((_WORD *)a1 + 140) = RtlGetSuiteMask();
     if ( v6 == 292 )
-      a1[71] = RtlGetSuiteMask(v7) & 0x1FFFF;
+      a1[71] = RtlGetSuiteMask() & 0x1FFFF;
     *((_BYTE *)a1 + 282) = 0;
-    if ( (unsigned __int8)RtlGetNtProductType(&v13) )
-      *((_BYTE *)a1 + 282) = v13;
-    v11 = 0;
-    v12 = L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
-    v8 = 2 * wcslen(L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
-    if ( v8 >= 0xFFFE )
-      LOWORD(v8) = -4;
-    v10[0] = v8;
-    v10[1] = v8 + 2;
-    if ( (int)ZwQueryLicenseValue(v10, &v14, &v16, 4LL, &v15) < 0 || v16 != 1 || v14 != 4 || v15 != 4 )
+    if ( RtlGetNtProductType(&NtProductType) )
+      *((_BYTE *)a1 + 282) = NtProductType;
+    *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+    ValueName.Buffer = (wchar_t *)L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
+    v7 = 2 * wcslen(L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
+    if ( v7 >= 0xFFFE )
+      LOWORD(v7) = -4;
+    ValueName.Length = v7;
+    ValueName.MaximumLength = v7 + 2;
+    if ( ZwQueryLicenseValue(&ValueName, &Type, &Data, 4u, &ResultDataSize) < 0
+      || Data != 1
+      || Type != 4
+      || ResultDataSize != 4 )
     {
       *((_WORD *)a1 + 140) &= ~0x10u;
       *((_WORD *)a1 + 140) |= 0x100u;

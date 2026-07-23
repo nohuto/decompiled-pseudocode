@@ -1,10 +1,10 @@
 /*
- * XREFs of HsaGetPageFault @ 0x1405A9B40
+ * XREFs of HsaGetPageFault @ 0x1405AC350
  * Callers:
  *     <none>
  * Callees:
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HsaGetPageFault(_QWORD *a1, int *a2, _QWORD *a3, _WORD *a4, _QWORD *a5, __int64 *a6)
@@ -92,7 +92,7 @@ __int64 __fastcall HsaGetPageFault(_QWORD *a1, int *a2, _QWORD *a3, _WORD *a4, _
         KeBugCheckEx(0x159u, 0x2000uLL, 0LL, 0LL, 0LL);
     }
     if ( v17 )
-      ++dword_140F87364;
+      ++dword_140F87700;
     *v18 = 0LL;
     v10[1030] = (16 * v16) ^ (v13 ^ (16 * v16)) & 0xFFFFFFFFFFF8000FuLL;
     _InterlockedOr(v29, 0);

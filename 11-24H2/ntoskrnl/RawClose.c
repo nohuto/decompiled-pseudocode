@@ -1,12 +1,12 @@
 /*
- * XREFs of RawClose @ 0x1409A25BC
+ * XREFs of RawClose @ 0x1408AD84C
  * Callers:
- *     RawDispatch @ 0x1409A2210 (RawDispatch.c)
+ *     RawDispatch @ 0x1408AD4A0 (RawDispatch.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     RawInitiateDeleteVolume @ 0x14048419C (RawInitiateDeleteVolume.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     RawInitiateDeleteVolume @ 0x14047F73C (RawInitiateDeleteVolume.c)
  */
 
 __int64 __fastcall RawClose(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, PIRP Irp, __int64 a3)

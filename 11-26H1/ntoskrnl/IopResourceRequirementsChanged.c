@@ -1,9 +1,9 @@
 /*
- * XREFs of IopResourceRequirementsChanged @ 0x140B6E108
+ * XREFs of IopResourceRequirementsChanged @ 0x140B715B8
  * Callers:
- *     PiProcessQueryDeviceState @ 0x14090E340 (PiProcessQueryDeviceState.c)
+ *     PiProcessQueryDeviceState @ 0x1409B0470 (PiProcessQueryDeviceState.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
  */
 
 __int64 __fastcall IopResourceRequirementsChanged(void *a1, char a2)

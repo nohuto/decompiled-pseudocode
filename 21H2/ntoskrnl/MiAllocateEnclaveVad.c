@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAllocateEnclaveVad @ 0x1408D1E58
+ * XREFs of MiAllocateEnclaveVad @ 0x1408D1FB8
  * Callers:
- *     MiCreateEnclave @ 0x1408D27DC (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x1408D293C (MiCreateEnclave.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14025AE28 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     MiInsertPrivateVad @ 0x140316D84 (MiInsertPrivateVad.c)
- *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
- *     MiIsVaRangeAvailable @ 0x14061DBD8 (MiIsVaRangeAvailable.c)
- *     MiGetUserReservationHighestAddress @ 0x1406EC0BC (MiGetUserReservationHighestAddress.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x1406ECF60 (MiAdvanceVadHint.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14027C398 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiReferenceVad @ 0x14027C900 (MiReferenceVad.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031FFDC (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     MiInsertPrivateVad @ 0x140321AD4 (MiInsertPrivateVad.c)
+ *     MiIsVaRangeAvailable @ 0x140687848 (MiIsVaRangeAvailable.c)
+ *     MiSelectUserAddress @ 0x1406EA100 (MiSelectUserAddress.c)
+ *     MiGetUserReservationHighestAddress @ 0x14070349C (MiGetUserReservationHighestAddress.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x140704340 (MiAdvanceVadHint.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateEnclaveVad(int a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4, __int64 *a5)
@@ -79,7 +79,7 @@ __int64 __fastcall MiAllocateEnclaveVad(int a1, unsigned __int64 a2, unsigned __
   if ( !v9 )
   {
     Pool[16] |= 1u;
-    v17 = MiReservePtes((__int64)&qword_140C4EF40, 1u, v13, v14);
+    v17 = MiReservePtes((__int64)&qword_140C4EF80, 1u, v13, v14);
     *(_QWORD *)(v15 + 80) = v17;
     if ( !v17 )
     {
@@ -101,7 +101,7 @@ LABEL_23:
           v20 = *(void **)(v15 + 88);
           if ( v20 )
             ExFreePoolWithTag(v20, 0);
-          MiReleasePtes((__int64)&qword_140C4EF40, *(_QWORD **)(v15 + 80), 1u);
+          MiReleasePtes((__int64)&qword_140C4EF80, *(_QWORD **)(v15 + 80), 1u);
         }
         ExFreePoolWithTag((PVOID)v15, 0);
         return (unsigned int)inserted;

@@ -161,7 +161,7 @@ LABEL_70:
         }
         else
         {
-          v16 = KeAbPreAcquire((ULONG_PTR)&CmpDelayedCloseTableLock, 0LL, 0LL);
+          v16 = KeAbPreAcquire((ULONG_PTR)&CmpDelayedCloseTableLock, 0LL, 0);
           v17 = v16;
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(1uLL);

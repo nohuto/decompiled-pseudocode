@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpSubtreeEnumeratorStart @ 0x140915340
+ * XREFs of CmpSubtreeEnumeratorStart @ 0x140908DB0
  * Callers:
- *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140913D2C (CmpSubtreeEnumeratorStartForKcbStack.c)
- *     CmpPromoteSubtree @ 0x140914928 (CmpPromoteSubtree.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x140915678 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x1409077A0 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ *     CmpPromoteSubtree @ 0x140908398 (CmpPromoteSubtree.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x1409090E8 (CmpDoAccessCheckOnLayeredSubtree.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpStartKcbStack @ 0x14086DDF0 (CmpStartKcbStack.c)
- *     CmpKeyEnumStackStart @ 0x14091554C (CmpKeyEnumStackStart.c)
- *     CmpStartKeyNodeStack @ 0x1409155E4 (CmpStartKeyNodeStack.c)
- *     CmpKeyEnumStackInitialize @ 0x140916F34 (CmpKeyEnumStackInitialize.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpStartKcbStack @ 0x140872120 (CmpStartKcbStack.c)
+ *     CmpKeyEnumStackStart @ 0x140908FBC (CmpKeyEnumStackStart.c)
+ *     CmpStartKeyNodeStack @ 0x140909054 (CmpStartKeyNodeStack.c)
+ *     CmpKeyEnumStackInitialize @ 0x14090A9A4 (CmpKeyEnumStackInitialize.c)
  */
 
 __int64 __fastcall CmpSubtreeEnumeratorStart(__int64 a1, __int16 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall CmpSubtreeEnumeratorStart(__int64 a1, __int16 a2)
   __int64 result; // rax
 
   *(_WORD *)(a1 + 2) = a2;
-  Pool = CmpAllocatePool(0x100uLL);
+  Pool = CmpAllocatePool(0x100uLL, 0x33000uLL, 0x31394D43u);
   *(_QWORD *)(a1 + 96) = Pool;
   if ( !Pool )
     return 3221225626LL;

@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpVaMgrCtxStart(__int64 a1, __int64 a2, __int64 a3, __int
   v9 = 8 * v7;
   if ( !is_mul_ok(v8, 8uLL) || !is_mul_ok(v9, 0x20uLL) )
     return 3221225621LL;
-  result = RtlCSparseBitmapStart(a1 + 32, 32 * v9, 32LL, 1);
+  result = RtlCSparseBitmapStart((PVOID *)(a1 + 32), (void *)(32 * v9), 32LL, 1);
   if ( (int)result >= 0 )
   {
     *(_DWORD *)a1 = 0;

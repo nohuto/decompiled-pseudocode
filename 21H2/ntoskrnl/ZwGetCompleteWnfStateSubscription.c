@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwGetCompleteWnfStateSubscription @ 0x1403FC1E0
+ * XREFs of ZwGetCompleteWnfStateSubscription @ 0x1403FC3C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetCompleteWnfStateSubscription(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetCompleteWnfStateSubscription(
+        PWNF_STATE_NAME OldDescriptorStateName,
+        ULONG64 *OldSubscriptionId,
+        ULONG OldDescriptorEventMask,
+        ULONG OldDescriptorStatus,
+        PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(OldDescriptorStateName);
 }

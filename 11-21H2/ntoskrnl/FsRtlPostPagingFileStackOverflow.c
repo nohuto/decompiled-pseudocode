@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpPostStackOverflow @ 0x140542FC4 (FsRtlpPostStackOverflow.c)
+ *     sub_140542FC4 @ 0x140542FC4 (sub_140542FC4.c)
  */
 
 void __stdcall FsRtlPostPagingFileStackOverflow(
@@ -14,5 +14,5 @@ void __stdcall FsRtlPostPagingFileStackOverflow(
   char v3; // r9
 
   v3 = 1;
-  FsRtlpPostStackOverflow(Context, Event, StackOverflowRoutine, v3);
+  sub_140542FC4(Context, Event, StackOverflowRoutine, v3);
 }

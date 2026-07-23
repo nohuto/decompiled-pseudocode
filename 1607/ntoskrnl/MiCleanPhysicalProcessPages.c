@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCleanPhysicalProcessPages @ 0x14065C30C
+ * XREFs of MiCleanPhysicalProcessPages @ 0x14065C3F0
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     MiFreeMdlPageRun @ 0x140022A34 (MiFreeMdlPageRun.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140097430 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1400982A0 (ExAcquireAutoExpandPushLockExclusive.c)
- *     MiReturnProcessCommitment @ 0x1400A3E4C (MiReturnProcessCommitment.c)
- *     RtlFindNextForwardRunClearEx @ 0x1401129E8 (RtlFindNextForwardRunClearEx.c)
- *     RtlFindSetBitsEx @ 0x1401129F0 (RtlFindSetBitsEx.c)
- *     MiReturnPartitionResidentAvailable @ 0x1401718E8 (MiReturnPartitionResidentAvailable.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     MiFreeMdlPageRun @ 0x1400225B4 (MiFreeMdlPageRun.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140096C30 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140097AA0 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     MiReturnProcessCommitment @ 0x1400A2774 (MiReturnProcessCommitment.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140112F58 (RtlFindNextForwardRunClearEx.c)
+ *     RtlFindSetBitsEx @ 0x140112F60 (RtlFindSetBitsEx.c)
+ *     MiReturnPartitionResidentAvailable @ 0x140171DE4 (MiReturnPartitionResidentAvailable.c)
  */
 
 __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
@@ -23,13 +23,13 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
   int *ProcessPartition; // rax
   struct _KTHREAD *CurrentThread; // r15
   __int64 v6; // rdi
-  unsigned __int64 *v7; // r14
-  _DWORD *v8; // rcx
-  unsigned __int64 v9; // r15
-  unsigned __int64 SetBits; // rax
+  _RTL_BITMAP_EX *v7; // r14
+  _RTL_BITMAP_EX *v8; // rcx
+  ULONG64 v9; // r15
+  ULONG64 SetBits; // rax
   unsigned __int64 v11; // rsi
   unsigned __int64 NextForwardRunClear; // rax
-  unsigned __int64 v13; // rbx
+  unsigned __int64 SizeOfBitMap; // rbx
   unsigned __int64 v14; // r15
   unsigned __int64 v15; // rbx
   int *v16; // r9
@@ -43,11 +43,11 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
   ProcessPartition = MiGetProcessPartition(a1);
   CurrentThread = KeGetCurrentThread();
   v6 = (__int64)ProcessPartition;
-  v7 = *(unsigned __int64 **)(a1 + 1032);
+  v7 = *(_RTL_BITMAP_EX **)(a1 + 1032);
   v20 = CurrentThread;
   --CurrentThread->SpecialApcDisable;
-  BugCheckParameter2 = (ULONG_PTR)(v7 + 2);
-  ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)(v7 + 2), 0LL);
+  BugCheckParameter2 = (ULONG_PTR)&v7[1];
+  ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)&v7[1], 0LL);
   if ( *(_QWORD *)(a1 + 1600) )
   {
     v9 = 0LL;
@@ -58,17 +58,17 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
       if ( SetBits < v9 || SetBits == -1LL )
         break;
       NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)v7, SetBits, &v19);
-      v13 = v19;
+      SizeOfBitMap = v19;
       v14 = NextForwardRunClear;
       if ( !NextForwardRunClear )
-        v13 = *v7;
-      v15 = v13 - v11;
+        SizeOfBitMap = v7->SizeOfBitMap;
+      v15 = SizeOfBitMap - v11;
       RtlClearBitsEx((__int64)v7, v11, v15);
       v9 = v11 + v15 + v14;
       v2 += v15;
       v3 += MiFreeMdlPageRun(v11, v15, 0);
     }
-    while ( v9 < *v7 );
+    while ( v9 < v7->SizeOfBitMap );
     CurrentThread = v20;
     v16 = MiSystemPartition;
     if ( v2 )
@@ -77,7 +77,7 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
       *(_QWORD *)(a1 + 1600) = 0LL;
       MiReturnProcessCommitment(a1, v2);
       if ( (int *)v6 == v16 )
-        _InterlockedExchangeAdd64(&qword_1403278E8, v17);
+        _InterlockedExchangeAdd64(&qword_140327928, v17);
     }
     if ( v3 )
     {
@@ -87,11 +87,11 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
         MiReturnPartitionResidentAvailable(v6, v3);
       MiReturnCommit(v6, v3);
     }
-    v8 = (_DWORD *)BugCheckParameter2;
+    v8 = (_RTL_BITMAP_EX *)BugCheckParameter2;
   }
   else
   {
-    v8 = v7 + 2;
+    v8 = v7 + 1;
   }
   ExReleaseAutoExpandPushLockExclusive(v8, 0LL);
   return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);

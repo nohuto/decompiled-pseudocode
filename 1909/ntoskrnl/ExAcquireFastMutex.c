@@ -237,7 +237,7 @@ LABEL_8:
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset(&FastMutex->Count, 0) )
-    ExpAcquireFastMutexContended((ULONG_PTR)FastMutex);
+    ExpAcquireFastMutexContended((ULONG_PTR)FastMutex, (PRTL_BALANCED_NODE)v1);
   if ( v1 )
     *(_BYTE *)(v1 + 26) |= 1u;
   FastMutex->Owner = KeGetCurrentThread();

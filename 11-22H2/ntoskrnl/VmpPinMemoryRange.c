@@ -86,10 +86,10 @@ __int64 __fastcall VmpPinMemoryRange(
   if ( !v14 )
     goto LABEL_47;
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -123,10 +123,10 @@ LABEL_42:
         *((_DWORD *)v12 + 16) |= 1u;
         ++*((_QWORD *)SpinLock + 5);
         ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v23 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && v9 <= 0xFu && v23 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && v9 <= 0xFu && v23 >= 2u )
           {
             v24 = KeGetCurrentPrcb();
             v25 = v24->SchedulerAssist;

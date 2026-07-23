@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReadFixedMtrr @ 0x140A8FD98
+ * XREFs of KiReadFixedMtrr @ 0x140A8FC18
  * Callers:
- *     KeLoadMTRR @ 0x140A8F950 (KeLoadMTRR.c)
+ *     KeLoadMTRR @ 0x140A8F7D0 (KeLoadMTRR.c)
  *     KiInitializeMTRR @ 0x140B5F650 (KiInitializeMTRR.c)
  * Callees:
  *     <none>

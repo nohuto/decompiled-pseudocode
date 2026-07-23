@@ -1,11 +1,11 @@
 /*
- * XREFs of IommuFreeReservedLogicalAddressRange @ 0x14059F140
+ * XREFs of IommuFreeReservedLogicalAddressRange @ 0x1405A1930
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x14047B014 (HalpIommuDomainFreeLogicalAddressRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x14047B04C (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x140474984 (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404749BC (HalpIommuDomainUnmapLogicalRange.c)
  */
 
 __int64 __fastcall IommuFreeReservedLogicalAddressRange(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmap @ 0x1408F6E3C
+ * XREFs of MiUpdateCfgSystemWideBitmap @ 0x140974678
  * Callers:
- *     MiUpdateImageSystemWideBitmaps @ 0x1408F6B88 (MiUpdateImageSystemWideBitmaps.c)
+ *     MiUpdateImageSystemWideBitmaps @ 0x140974650 (MiUpdateImageSystemWideBitmaps.c)
  * Callees:
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1408F6F24 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiGetImageWowSubsystemIndex @ 0x1408F7300 (MiGetImageWowSubsystemIndex.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x140974760 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiGetImageWowSubsystemIndex @ 0x140974B3C (MiGetImageWowSubsystemIndex.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2, __int64 a3)
@@ -26,7 +26,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2,
   v8 = 0LL;
   if ( (*(_DWORD *)(*(_QWORD *)(*a1 + 56) + 76LL) & 0x40) != 0 )
   {
-    v8 = (unsigned int)dword_140E2D7B0;
+    v8 = (unsigned int)dword_140E2D8F0;
     v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 24), -1LL, -1LL);
   }
   v9 = 2 * (a2 >> 4);
@@ -36,9 +36,9 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2,
         + (unsigned __int64)(unsigned int)v8) >> 4);
   do
   {
-    LODWORD(v12) = qword_140E2D700;
+    LODWORD(v12) = qword_140E2D840;
     if ( !v10 && *(__int16 *)(v3 + 12) < 0 )
-      v12 = *((_QWORD *)&unk_140E2D698 + 8 * (unsigned __int64)(unsigned int)MiGetImageWowSubsystemIndex(v3, v8, v6));
+      v12 = *((_QWORD *)&unk_140E2D7D8 + 8 * (unsigned __int64)(unsigned int)MiGetImageWowSubsystemIndex(v3, v8, v6));
     result = MiUpdateCfgSystemWideBitmapWorker(v12, a3, v9, v11, v14, v7);
     if ( (int)result < 0 )
       break;

@@ -1,17 +1,22 @@
 /*
- * XREFs of DifRtlQueryRegistryValuesWrapper @ 0x140696330
+ * XREFs of DifRtlQueryRegistryValuesWrapper @ 0x140699F10
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlQueryRegistryValuesEx @ 0x140A10F30 (RtlQueryRegistryValuesEx.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlQueryRegistryValuesEx @ 0x140A10120 (RtlQueryRegistryValuesEx.c)
  */
 
-__int64 __fastcall DifRtlQueryRegistryValuesWrapper(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall DifRtlQueryRegistryValuesWrapper(
+        ULONG a1,
+        const WCHAR *a2,
+        _RTL_QUERY_REGISTRY_TABLE *a3,
+        void *a4,
+        PVOID Environment)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -46,7 +51,7 @@ __int64 __fastcall DifRtlQueryRegistryValuesWrapper(unsigned int a1, __int64 a2,
     }
     v12 = 0;
     DWORD2(v21) = a1;
-    *((_QWORD *)&v19 + 1) = a5;
+    *((_QWORD *)&v19 + 1) = Environment;
     *(_QWORD *)&v21 = a2;
     *((_QWORD *)&v20 + 1) = a3;
     *(_QWORD *)&v20 = a4;
@@ -62,7 +67,7 @@ __int64 __fastcall DifRtlQueryRegistryValuesWrapper(unsigned int a1, __int64 a2,
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  HIDWORD(v21) = RtlQueryRegistryValuesEx(a1, a2, a3, a4, a5);
+  HIDWORD(v21) = RtlQueryRegistryValuesEx(a1, a2, a3, a4, Environment);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

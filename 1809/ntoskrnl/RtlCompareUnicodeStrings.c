@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlCompareUnicodeStrings @ 0x14069B150
+ * XREFs of RtlCompareUnicodeStrings @ 0x14069C310
  * Callers:
- *     ApiSetpSearchForApiSet @ 0x140173EB8 (ApiSetpSearchForApiSet.c)
- *     EtwpAvlCompareKeyNames @ 0x140186AE0 (EtwpAvlCompareKeyNames.c)
- *     ApiSetpSearchForApiSetHost @ 0x140321D4C (ApiSetpSearchForApiSetHost.c)
- *     AsiSortValueList @ 0x140322248 (AsiSortValueList.c)
- *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
- *     EtwpExpandFileName @ 0x14069AF68 (EtwpExpandFileName.c)
- *     PnpCheckDeviceIdsChanged @ 0x14070B074 (PnpCheckDeviceIdsChanged.c)
- *     PiDevCfgResolveVariableExpression @ 0x14082EF30 (PiDevCfgResolveVariableExpression.c)
- *     PnpCompareMultiSz @ 0x14083A208 (PnpCompareMultiSz.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x140907A94 (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140907D38 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     ApiSetpSearchForApiSet @ 0x140173FB8 (ApiSetpSearchForApiSet.c)
+ *     EtwpAvlCompareKeyNames @ 0x140186C20 (EtwpAvlCompareKeyNames.c)
+ *     ApiSetpSearchForApiSetHost @ 0x140321F3C (ApiSetpSearchForApiSetHost.c)
+ *     AsiSortValueList @ 0x140322438 (AsiSortValueList.c)
+ *     CmQueryValueKey @ 0x1406461B0 (CmQueryValueKey.c)
+ *     EtwpExpandFileName @ 0x14069C128 (EtwpExpandFileName.c)
+ *     PnpCheckDeviceIdsChanged @ 0x14070C314 (PnpCheckDeviceIdsChanged.c)
+ *     PiDevCfgResolveVariableExpression @ 0x140830190 (PiDevCfgResolveVariableExpression.c)
+ *     PnpCompareMultiSz @ 0x14083B468 (PnpCompareMultiSz.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x140908D54 (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140908FF8 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
  *     <none>
  */

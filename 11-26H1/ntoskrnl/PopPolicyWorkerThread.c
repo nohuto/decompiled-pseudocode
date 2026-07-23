@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPolicyWorkerThread @ 0x1404C1A70
+ * XREFs of PopPolicyWorkerThread @ 0x1404BB2C0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PopPolicyWorkerThread(int a1)
@@ -20,29 +20,29 @@ void __fastcall PopPolicyWorkerThread(int a1)
   __int64 v9; // rdx
   unsigned int v10; // r8d
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140F10820);
-  v3 = *(_DWORD *)&stru_140F10828.ApcStateFill[32] | a1;
+  v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlock[2].WaitListEntry.Blink);
+  v3 = *(_DWORD *)&PpmIdlePolicyLock.WaitBlockFill11[112] | a1;
   v4 = v2;
-  *(_DWORD *)&stru_140F10828.ApcStateFill[32] = v3;
+  *(_DWORD *)&PpmIdlePolicyLock.WaitBlockFill11[112] = v3;
   v5 = 0;
   v6 = v3;
   while ( 1 )
   {
-    v10 = unk_140F10E44 & v6;
+    v10 = PopWorkerPending & v6;
     if ( !v10 )
       break;
     _BitScanForward((unsigned int *)&v7, v10);
     v8 = ~(1 << v7);
-    unk_140F10E44 &= v8;
-    *(_DWORD *)&stru_140F10828.ApcStateFill[32] = v3 & v8;
-    KeReleaseSpinLock(&qword_140F10820, v4);
+    PopWorkerPending &= v8;
+    *(_DWORD *)&PpmIdlePolicyLock.WaitBlockFill11[112] = v3 & v8;
+    KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlock[2].WaitListEntry.Blink, v4);
     if ( PopWorkerTypes[v7] )
       v5 |= guard_dispatch_icall_no_overrides(PopWorkerTypes, v9);
-    v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F10820);
-    *(_DWORD *)&stru_140F10828.ApcStateFill[32] |= 1 << v7;
-    v6 = *(_DWORD *)&stru_140F10828.ApcStateFill[32];
-    v3 = *(_DWORD *)&stru_140F10828.ApcStateFill[32];
+    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlock[2].WaitListEntry.Blink);
+    *(_DWORD *)&PpmIdlePolicyLock.WaitBlockFill11[112] |= 1 << v7;
+    v6 = *(_DWORD *)&PpmIdlePolicyLock.WaitBlockFill11[112];
+    v3 = *(_DWORD *)&PpmIdlePolicyLock.WaitBlockFill11[112];
   }
-  unk_140F10E44 |= v5;
-  KeReleaseSpinLock(&qword_140F10820, v4);
+  PopWorkerPending |= v5;
+  KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlock[2].WaitListEntry.Blink, v4);
 }

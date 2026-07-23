@@ -1,7 +1,7 @@
 /*
- * XREFs of PsspCaptureHandleTrace @ 0x1801296D8
+ * XREFs of PsspCaptureHandleTrace @ 0x1801296A8
  * Callers:
- *     PsspCaptureProcessInformation @ 0x180129A28 (PsspCaptureProcessInformation.c)
+ *     PsspCaptureProcessInformation @ 0x1801299F8 (PsspCaptureProcessInformation.c)
  * Callees:
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
  *     NtClose @ 0x1800A1090 (NtClose.c)
@@ -12,59 +12,74 @@
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-NTSTATUS __fastcall PsspCaptureHandleTrace(__int64 a1, void *a2)
+int __fastcall PsspCaptureHandleTrace(__int64 a1, void *a2)
 {
-  NTSTATUS result; // eax
+  int result; // eax
   unsigned __int64 v5; // rcx
-  int v6; // edi
+  NTSTATUS v6; // edi
   ULONG ReturnLength; // [rsp+50h] [rbp-B0h] BYREF
-  PVOID v8; // [rsp+58h] [rbp-A8h]
-  ULONG ProcessInformationLength; // [rsp+60h] [rbp-A0h]
-  int v10; // [rsp+64h] [rbp-9Ch]
-  HANDLE Handle; // [rsp+68h] [rbp-98h]
-  __int64 v12; // [rsp+70h] [rbp-90h]
+  PVOID BaseAddress; // [rsp+58h] [rbp-A8h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE SectionHandle; // [rsp+68h] [rbp-98h] BYREF
+  ULONG_PTR ViewSize[2]; // [rsp+70h] [rbp-90h] BYREF
   _BYTE ProcessInformation[8]; // [rsp+80h] [rbp-80h] BYREF
-  unsigned int v14; // [rsp+88h] [rbp-78h]
+  unsigned int v13; // [rsp+88h] [rbp-78h]
 
   memset_thunk_772440563353939046(ProcessInformation, 0, 0xB0uLL);
-  result = NtQueryInformationProcess(a2, (PROCESSINFOCLASS)32, ProcessInformation, 0xB0u, &ReturnLength);
+  result = NtQueryInformationProcess(a2, ProcessHandleTracing, ProcessInformation, 0xB0u, &ReturnLength);
   if ( (int)(result + 0x80000000) < 0 || result == -1073741820 )
   {
-    v5 = 160LL * v14;
+    v5 = 160LL * v13;
     if ( v5 > 0xFFFFFFFF || (int)v5 + 176 < (unsigned int)v5 )
     {
       return -1073741675;
     }
     else
     {
-      v10 = 0;
-      ProcessInformationLength = v5 + 176;
-      result = NtCreateSection();
+      MaximumSize.QuadPart = (unsigned int)(v5 + 176);
+      result = NtCreateSection(
+                 &SectionHandle,
+                 0xF0007u,
+                 (POBJECT_ATTRIBUTES)&stru_18015C608,
+                 &MaximumSize,
+                 4u,
+                 0x8000000u,
+                 0LL);
       if ( result >= 0 )
       {
-        v8 = 0LL;
-        v12 = 0LL;
-        v6 = ZwMapViewOfSection();
+        BaseAddress = 0LL;
+        ViewSize[0] = 0LL;
+        v6 = ZwMapViewOfSection(
+               SectionHandle,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               &BaseAddress,
+               0LL,
+               0LL,
+               0LL,
+               ViewSize,
+               ViewShare,
+               0,
+               4u);
         if ( v6 >= 0 )
         {
-          memset_thunk_772440563353939046(v8, 0, 0xB0uLL);
-          if ( NtQueryInformationProcess(a2, (PROCESSINFOCLASS)32, v8, ProcessInformationLength, &ReturnLength) >= 0 )
+          memset_thunk_772440563353939046(BaseAddress, 0, 0xB0uLL);
+          if ( NtQueryInformationProcess(a2, ProcessHandleTracing, BaseAddress, MaximumSize.LowPart, &ReturnLength) >= 0 )
           {
-            NtUnmapViewOfSection();
+            NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
             *(_DWORD *)(a1 + 936) = ReturnLength;
-            *(_QWORD *)(a1 + 944) = Handle;
+            *(_QWORD *)(a1 + 944) = SectionHandle;
             *(_QWORD *)(a1 + 952) = MEMORY[0x7FFE0014];
             return 0;
           }
           else
           {
-            NtUnmapViewOfSection();
-            return NtClose(Handle);
+            NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+            return NtClose(SectionHandle);
           }
         }
         else
         {
-          NtClose(Handle);
+          NtClose(SectionHandle);
           return v6;
         }
       }

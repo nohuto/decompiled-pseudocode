@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpGetProcessInformation @ 0x1405E6B60
+ * XREFs of ExpGetProcessInformation @ 0x1405E7B60
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
@@ -12,30 +12,30 @@
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
- *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     KeQueryValuesThread @ 0x14008EF50 (KeQueryValuesThread.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlQueryPackageIdentity @ 0x1400A5030 (RtlQueryPackageIdentity.c)
- *     SeSecurityAttributePresent @ 0x1400A7050 (SeSecurityAttributePresent.c)
- *     PsIsProcessInSilo @ 0x1400CB108 (PsIsProcessInSilo.c)
- *     KeFlushProcessWriteBuffers @ 0x1400ECFF8 (KeFlushProcessWriteBuffers.c)
- *     SmIsCompressionProcess @ 0x14011AFE8 (SmIsCompressionProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ExpCopyProcessInfo @ 0x1405FE390 (ExpCopyProcessInfo.c)
- *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
- *     PsQueryProcessEnergyValues @ 0x1406372A0 (PsQueryProcessEnergyValues.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
- *     ExCheckFullProcessInformationAccess @ 0x1406542F4 (ExCheckFullProcessInformationAccess.c)
- *     ExIsRestrictedCaller @ 0x1406AD9EC (ExIsRestrictedCaller.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1406B4DC0 (KeSynchronizeWithDynamicProcessors.c)
+ *     ObFastReferenceObjectLocked @ 0x14007DFE4 (ObFastReferenceObjectLocked.c)
+ *     MmGetSessionId @ 0x1400897A0 (MmGetSessionId.c)
+ *     KeQueryValuesThread @ 0x14008EE70 (KeQueryValuesThread.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     RtlQueryPackageIdentity @ 0x1400A4F70 (RtlQueryPackageIdentity.c)
+ *     SeSecurityAttributePresent @ 0x1400A6F90 (SeSecurityAttributePresent.c)
+ *     PsIsProcessInSilo @ 0x1400CB1E8 (PsIsProcessInSilo.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400ED078 (KeFlushProcessWriteBuffers.c)
+ *     SmIsCompressionProcess @ 0x14011B058 (SmIsCompressionProcess.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     ExpCopyProcessInfo @ 0x1405FF390 (ExpCopyProcessInfo.c)
+ *     SeQueryUserSidToken @ 0x1406112AC (SeQueryUserSidToken.c)
+ *     PsQueryProcessEnergyValues @ 0x1406382C0 (PsQueryProcessEnergyValues.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1406554B4 (ExCheckFullProcessInformationAccess.c)
+ *     ExIsRestrictedCaller @ 0x1406AEC8C (ExIsRestrictedCaller.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x1406B6060 (KeSynchronizeWithDynamicProcessors.c)
  */
 
 __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigned int *a3, _DWORD *a4, int a5)
@@ -110,8 +110,8 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   char *k; // rbx
   _LIST_ENTRY *v73; // rdi
   PACCESS_TOKEN v74; // rsi
-  unsigned __int64 v75; // r14
-  unsigned __int64 v76; // r15
+  ULONG_PTR v75; // r14
+  ULONG_PTR v76; // r15
   size_t v77; // rcx
   unsigned int v78; // esi
   unsigned int v79; // eax
@@ -127,7 +127,7 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   signed __int32 v89[8]; // [rsp+0h] [rbp-618h] BYREF
   int v90; // [rsp+40h] [rbp-5D8h]
   unsigned int v91; // [rsp+44h] [rbp-5D4h]
-  int PackageIdentity; // [rsp+48h] [rbp-5D0h]
+  NTSTATUS v92; // [rsp+48h] [rbp-5D0h]
   unsigned int v93; // [rsp+4Ch] [rbp-5CCh]
   char v94; // [rsp+50h] [rbp-5C8h]
   __int64 *v95; // [rsp+58h] [rbp-5C0h]
@@ -146,8 +146,8 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   unsigned int *v108; // [rsp+B8h] [rbp-560h]
   size_t Size; // [rsp+C0h] [rbp-558h] BYREF
   PVOID P; // [rsp+C8h] [rbp-550h] BYREF
-  __int64 v111; // [rsp+D0h] [rbp-548h] BYREF
-  __int64 v112; // [rsp+D8h] [rbp-540h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+D0h] [rbp-548h] BYREF
+  ULONG_PTR PackageSize; // [rsp+D8h] [rbp-540h] BYREF
   void *v113; // [rsp+E0h] [rbp-538h]
   const wchar_t *v114; // [rsp+E8h] [rbp-530h]
   int v115; // [rsp+F0h] [rbp-528h]
@@ -172,14 +172,14 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   _QWORD v134[12]; // [rsp+1E0h] [rbp-438h] BYREF
   _BYTE Src[80]; // [rsp+240h] [rbp-3D8h] BYREF
   _BYTE v136[432]; // [rsp+290h] [rbp-388h] BYREF
-  _BYTE v137[144]; // [rsp+440h] [rbp-1D8h] BYREF
-  _BYTE v138[256]; // [rsp+4D0h] [rbp-148h] BYREF
+  WCHAR AppId[72]; // [rsp+440h] [rbp-1D8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+4D0h] [rbp-148h] BYREF
 
   v115 = a5;
   v127 = a1;
   v108 = a3;
-  v111 = 130LL;
-  v112 = 254LL;
+  AppIdSize = 130LL;
+  PackageSize = 254LL;
   v5 = 0;
   Object = 0LL;
   v100 = 0LL;
@@ -207,7 +207,7 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   {
     if ( (unsigned int)ExIsRestrictedCaller(v9) )
       v94 = 1;
-    PackageIdentity = 0;
+    v92 = 0;
     P = 0LL;
     KeFlushProcessWriteBuffers(1);
     CurrentServerSilo = PsGetCurrentServerSilo();
@@ -220,9 +220,9 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
 LABEL_103:
       if ( !v10 )
       {
-        if ( v90 >= 0 && v106 && (*v106 = 0, PackageIdentity < 0) )
+        if ( v90 >= 0 && v106 && (*v106 = 0, v92 < 0) )
         {
-          v90 = PackageIdentity;
+          v90 = v92;
         }
         else if ( v108 )
         {
@@ -325,7 +325,7 @@ LABEL_102:
     {
       v91 += 624;
     }
-    PackageIdentity = v5;
+    v92 = v5;
     if ( v5 < 0 )
     {
       v90 = v5;
@@ -343,7 +343,7 @@ LABEL_102:
     {
       v55 = ExpCopyProcessInfo(v51, v10, v103, v134);
       v5 = v55;
-      PackageIdentity = v55;
+      v92 = v55;
       if ( v55 < 0 )
       {
         v90 = v55;
@@ -358,8 +358,8 @@ LABEL_102:
         *((_QWORD *)v51 + 12) = 0LL;
       if ( v10 == (struct _KPROCESS *)PsSecureSystemProcess )
       {
-        v57 = qword_14043A180 << 12;
-        *((_QWORD *)v51 + 18) = qword_14043A180 << 12;
+        v57 = qword_14043B240 << 12;
+        *((_QWORD *)v51 + 18) = qword_14043B240 << 12;
         *((_QWORD *)v51 + 1) = v57;
       }
       if ( v5 < 0 )
@@ -417,7 +417,7 @@ LABEL_123:
       }
       v10 = (struct _KPROCESS *)Object;
       v95 = (__int64 *)Object;
-      v5 = PackageIdentity;
+      v5 = v92;
       v52 = v91;
       v93 = v91;
       v51 = v106;
@@ -491,7 +491,7 @@ LABEL_123:
             }
             else
             {
-              v20 = qword_140437C28 && v18 == (PVOID)qword_140437C28;
+              v20 = qword_140438CE8 && v18 == (PVOID)qword_140438CE8;
               v98 = v20;
               v21 = *((_DWORD *)v17 + 12);
               if ( v20 )
@@ -537,8 +537,8 @@ LABEL_123:
             {
               *((_DWORD *)v17 + 12) |= 0x20u;
             }
-            v5 = PackageIdentity;
-            if ( PackageIdentity >= 0 )
+            v5 = v92;
+            if ( v92 >= 0 )
             {
               p_Blink = (char *)v100;
               v93 = v91;
@@ -547,7 +547,7 @@ LABEL_123:
               v11 = (char *)v113;
               goto LABEL_47;
             }
-            v90 = PackageIdentity;
+            v90 = v92;
 LABEL_203:
             p_Blink = (char *)v100;
 LABEL_271:
@@ -570,27 +570,21 @@ LABEL_48:
           v74 = PsReferencePrimaryToken(v10);
           v133 = v74;
           SeQueryUserSidToken(v74, Src, 68LL, &Size);
-          v112 = 254LL;
-          v111 = 130LL;
+          PackageSize = 254LL;
+          AppIdSize = 130LL;
           v5 = 0;
-          PackageIdentity = RtlQueryPackageIdentity(
-                              (__int64)v74,
-                              (__int64)v138,
-                              (__int64)&v112,
-                              (__int64)v137,
-                              (__int64)&v111,
-                              0LL);
-          if ( PackageIdentity >= 0 )
+          v92 = RtlQueryPackageIdentity(v74, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL);
+          if ( v92 >= 0 )
           {
-            v76 = v111;
-            v75 = v112;
+            v76 = AppIdSize;
+            v75 = PackageSize;
           }
           else
           {
             v75 = 0LL;
-            v112 = 0LL;
+            PackageSize = 0LL;
             v76 = 0LL;
-            v111 = 0LL;
+            AppIdSize = 0LL;
           }
           ObFastDereferenceObject(v95 + 107, (unsigned __int64)v74);
           v77 = (unsigned int)Size;
@@ -605,7 +599,7 @@ LABEL_48:
           v91 = v79;
           v93 = v79;
           v80 = v79;
-          PackageIdentity = v5;
+          v92 = v5;
           if ( v5 < 0 )
           {
             v90 = v5;
@@ -649,7 +643,7 @@ LABEL_188:
                 v91 = v75 + v80;
                 v5 = 0;
               }
-              PackageIdentity = v5;
+              v92 = v5;
               if ( v5 < 0 )
               {
                 v90 = v5;
@@ -669,7 +663,7 @@ LABEL_188:
               else
               {
                 *((_DWORD *)v11 + 14) = (_DWORD)v13 - (_DWORD)v11;
-                memmove(v13, v138, (unsigned int)v75);
+                memmove(v13, PackageFullName, (unsigned int)v75);
                 v13 += (unsigned int)v75;
                 v105 = v13;
               }
@@ -706,7 +700,7 @@ LABEL_188:
               v91 = v84;
               v5 = 0;
             }
-            PackageIdentity = v5;
+            v92 = v5;
             if ( v5 < 0 )
             {
               v90 = v5;
@@ -717,7 +711,7 @@ LABEL_188:
             if ( v85 <= a2 )
             {
               *((_DWORD *)v11 + 84) = (_DWORD)v13 - (_DWORD)v11;
-              memmove(v13, v137, (unsigned int)v76);
+              memmove(v13, AppId, (unsigned int)v76);
               v29 = 0;
               v13 += (unsigned int)v76;
               v105 = v13;
@@ -741,9 +735,9 @@ LABEL_49:
               else
               {
                 v31 = -1073741275;
-                if ( v10[2].ActiveProcessors.Bitmap[9] && (_QWORD)xmmword_14040E300 )
+                if ( v10[2].ActiveProcessors.Bitmap[9] && (_QWORD)xmmword_14040F360 )
                 {
-                  v31 = ((__int64 (__fastcall *)(__int64, PVOID *))xmmword_14040E300)(v30, &P);
+                  v31 = ((__int64 (__fastcall *)(__int64, PVOID *))xmmword_14040F360)(v30, &P);
                   goto LABEL_264;
                 }
                 v32 = v10[1].ActiveProcessors.Bitmap[15];
@@ -773,7 +767,7 @@ LABEL_264:
                     v29 = 0;
                   }
                 }
-                PackageIdentity = v31;
+                v92 = v31;
                 v35 = v31 < 0 ? (const wchar_t *)v10[1].ActiveProcessors.Bitmap[15] : (const wchar_t *)P;
               }
               v114 = v35;
@@ -815,7 +809,7 @@ LABEL_264:
                 v5 = v29;
               }
               v91 = v42;
-              PackageIdentity = v5;
+              v92 = v5;
               if ( v5 < 0 )
               {
                 v90 = v5;
@@ -894,7 +888,7 @@ LABEL_227:
           v91 = v64;
           v93 = v64;
           v65 = v64;
-          PackageIdentity = v5;
+          v92 = v5;
           if ( v5 < 0 )
           {
             v90 = v5;
@@ -946,7 +940,7 @@ LABEL_227:
                 }
                 v10 = (struct _KPROCESS *)Object;
                 v95 = (__int64 *)Object;
-                v5 = PackageIdentity;
+                v5 = v92;
                 p_Blink = (char *)v100;
                 v93 = v91;
                 v51 = v106;
@@ -972,7 +966,7 @@ LABEL_227:
                   v58[11] = *((_QWORD *)p_Blink + 6);
                   v10 = (struct _KPROCESS *)Object;
                   v95 = (__int64 *)Object;
-                  v5 = PackageIdentity;
+                  v5 = v92;
                   p_Blink = (char *)v100;
                   v93 = v91;
                   v51 = v106;
@@ -1033,7 +1027,7 @@ LABEL_227:
         v125 = p_Blink;
         v10 = (struct _KPROCESS *)Object;
         v95 = (__int64 *)Object;
-        v5 = PackageIdentity;
+        v5 = v92;
         v93 = v91;
         v51 = v106;
         v102 = v106;

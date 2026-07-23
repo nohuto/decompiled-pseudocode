@@ -1,20 +1,20 @@
 /*
- * XREFs of MiProcessLoaderEntry @ 0x1402909C8
+ * XREFs of MiProcessLoaderEntry @ 0x140290C58
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x14070498C (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x140704B9C (MiConstructLoaderEntry.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     RtlInsertInvertedFunctionTable @ 0x140290900 (RtlInsertInvertedFunctionTable.c)
- *     MmLockLoadedModuleListExclusive @ 0x140290C18 (MmLockLoadedModuleListExclusive.c)
- *     RtlRemoveInvertedFunctionTable @ 0x140369C60 (RtlRemoveInvertedFunctionTable.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     RtlInsertInvertedFunctionTable @ 0x140290B90 (RtlInsertInvertedFunctionTable.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140290EA8 (MmLockLoadedModuleListExclusive.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x140369E00 (RtlRemoveInvertedFunctionTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiProcessLoaderEntry(unsigned __int64 *a1, int a2)
@@ -58,7 +58,9 @@ _QWORD *__fastcall MiProcessLoaderEntry(unsigned __int64 *a1, int a2)
       *(_QWORD *)(v13 + 8) = v14;
       RtlAvlRemoveNode(&BugCheckParameter3, a1 + 29);
       ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v15 = v25;
         if ( v25 <= 0xFu && CurrentIrql >= 2u )
@@ -124,7 +126,7 @@ LABEL_24:
   }
   RtlAvlInsertNodeEx(&BugCheckParameter3, (unsigned __int64)v7, v6, (unsigned __int64)(a1 + 29));
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (v16 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v16 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v16 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v16 <= 0xFu )
   {
     v11 = v25;
     if ( v25 <= 0xFu && v16 >= 2u )

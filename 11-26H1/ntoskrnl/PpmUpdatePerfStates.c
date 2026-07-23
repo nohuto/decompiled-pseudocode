@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmUpdatePerfStates @ 0x140A9CEE0
+ * XREFs of PpmUpdatePerfStates @ 0x140AD8A50
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmReapplyPerfPolicy @ 0x140A9D088 (PpmReapplyPerfPolicy.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140A9D254 (PpmPerfUpdateDomainPolicy.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmReapplyPerfPolicy @ 0x140AD8B10 (PpmReapplyPerfPolicy.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AD8DD8 (PpmPerfUpdateDomainPolicy.c)
  */
 
 int __fastcall PpmUpdatePerfStates(unsigned int *a1, __int64 a2, unsigned int a3)
@@ -24,7 +24,7 @@ int __fastcall PpmUpdatePerfStates(unsigned int *a1, __int64 a2, unsigned int a3
   __int64 v13; // r10
   int v15; // [rsp+30h] [rbp+8h] BYREF
 
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
   if ( a1[2] )
   {
     v8 = *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2);
@@ -57,7 +57,7 @@ LABEL_19:
     v5 = *a1;
     if ( *(_DWORD *)(v4 + 460) == (_DWORD)v5 )
     {
-      LODWORD(v4) = PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+      LODWORD(v4) = PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
     }
     else
     {
@@ -67,7 +67,7 @@ LABEL_19:
     }
     if ( (unsigned int)PpmPerfDomainCount > 1 )
     {
-      PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v6, v7);
+      PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v6, v7);
       v15 = 2048;
       LODWORD(v4) = PpmReapplyPerfPolicy(&v15);
     }

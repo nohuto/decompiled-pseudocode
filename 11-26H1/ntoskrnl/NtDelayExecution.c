@@ -1,15 +1,15 @@
 /*
- * XREFs of NtDelayExecution @ 0x1408F2960
+ * XREFs of NtDelayExecution @ 0x1408F8F20
  * Callers:
- *     DifNtDelayExecutionWrapper @ 0x140675850 (DifNtDelayExecutionWrapper.c)
+ *     DifNtDelayExecutionWrapper @ 0x140679430 (DifNtDelayExecutionWrapper.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtDelayExecution(BOOLEAN a1, volatile void *a2)
+NTSTATUS __cdecl NtDelayExecution(BOOLEAN Alertable, PLARGE_INTEGER DelayInterval)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   LARGE_INTEGER Interval; // [rsp+58h] [rbp+20h] BYREF
@@ -18,13 +18,13 @@ NTSTATUS __fastcall NtDelayExecution(BOOLEAN a1, volatile void *a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)DelayInterval & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    Interval.QuadPart = RtlReadULong64FromUser(a2);
+    Interval.QuadPart = RtlReadULong64FromUser(DelayInterval);
   }
   else
   {
-    RtlCopyVolatileMemory(&Interval, (const void *)a2, 8uLL);
+    RtlCopyVolatileMemory(&Interval, DelayInterval, 8uLL);
   }
-  return KeDelayExecutionThread(PreviousMode, a1, &Interval);
+  return KeDelayExecutionThread(PreviousMode, Alertable, &Interval);
 }

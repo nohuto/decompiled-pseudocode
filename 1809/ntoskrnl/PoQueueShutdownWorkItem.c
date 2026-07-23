@@ -1,5 +1,5 @@
 /*
- * XREFs of PoQueueShutdownWorkItem @ 0x14086B3A0
+ * XREFs of PoQueueShutdownWorkItem @ 0x14086C600
  * Callers:
  *     <none>
  * Callees:
@@ -16,13 +16,13 @@ NTSTATUS __stdcall PoQueueShutdownWorkItem(PWORK_QUEUE_ITEM WorkItem)
   v2 = 0;
   if ( PopShutdownListAvailable )
   {
-    v3 = (struct _LIST_ENTRY *)qword_1404187A8;
-    if ( *(__int64 **)qword_1404187A8 != &PopShutdownQueue )
+    v3 = (struct _LIST_ENTRY *)qword_140419828;
+    if ( *(__int64 **)qword_140419828 != &PopShutdownQueue )
       __fastfail(3u);
     WorkItem->List.Flink = (struct _LIST_ENTRY *)&PopShutdownQueue;
     WorkItem->List.Blink = v3;
     v3->Flink = &WorkItem->List;
-    qword_1404187A8 = (__int64)WorkItem;
+    qword_140419828 = (__int64)WorkItem;
   }
   else
   {

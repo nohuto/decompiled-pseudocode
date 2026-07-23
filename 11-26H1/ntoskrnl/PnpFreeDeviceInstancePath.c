@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpFreeDeviceInstancePath @ 0x140AA7BC0
+ * XREFs of PnpFreeDeviceInstancePath @ 0x1409DB0F4
  * Callers:
- *     IopDestroyDeviceNode @ 0x14090EAA8 (IopDestroyDeviceNode.c)
- *     PiBuildDeviceNodeInstancePath @ 0x140AA7A68 (PiBuildDeviceNodeInstancePath.c)
+ *     IopDestroyDeviceNode @ 0x1409B0BD8 (IopDestroyDeviceNode.c)
+ *     PiBuildDeviceNodeInstancePath @ 0x1409DAF9C (PiBuildDeviceNodeInstancePath.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpFreeDeviceInstancePath(__int64 a1)

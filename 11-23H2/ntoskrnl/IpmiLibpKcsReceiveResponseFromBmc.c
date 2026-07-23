@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibpKcsReceiveResponseFromBmc @ 0x140678268
+ * XREFs of IpmiLibpKcsReceiveResponseFromBmc @ 0x1406787B8
  * Callers:
- *     IpmiLibpKcsBmcTransact @ 0x140678074 (IpmiLibpKcsBmcTransact.c)
+ *     IpmiLibpKcsBmcTransact @ 0x1406785C4 (IpmiLibpKcsBmcTransact.c)
  * Callees:
- *     IpmiLibReadOneByte @ 0x140677C6C (IpmiLibReadOneByte.c)
- *     IpmiLibWriteOneByte @ 0x140677CAC (IpmiLibWriteOneByte.c)
- *     IpmiLibpKcsSpinRegister @ 0x1406786C0 (IpmiLibpKcsSpinRegister.c)
- *     IpmiLibpHandleReadInterrupt @ 0x14067885C (IpmiLibpHandleReadInterrupt.c)
+ *     IpmiLibReadOneByte @ 0x1406781BC (IpmiLibReadOneByte.c)
+ *     IpmiLibWriteOneByte @ 0x1406781FC (IpmiLibWriteOneByte.c)
+ *     IpmiLibpKcsSpinRegister @ 0x140678C10 (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpHandleReadInterrupt @ 0x140678DAC (IpmiLibpHandleReadInterrupt.c)
  */
 
 __int64 __fastcall IpmiLibpKcsReceiveResponseFromBmc(__int64 a1, __int64 a2, unsigned __int16 *a3, __int64 a4)
@@ -26,7 +26,7 @@ __int64 __fastcall IpmiLibpKcsReceiveResponseFromBmc(__int64 a1, __int64 a2, uns
   v8 = 0;
   while ( 1 )
   {
-    while ( (dword_140C2CC40 & 1) != 0 )
+    while ( (dword_140C2CC00 & 1) != 0 )
     {
       Interrupt = IpmiLibpHandleReadInterrupt(a1, a4, a2, (unsigned __int16)v4, (__int64)&v15);
       v10 = Interrupt;
@@ -34,7 +34,7 @@ __int64 __fastcall IpmiLibpKcsReceiveResponseFromBmc(__int64 a1, __int64 a2, uns
       {
         if ( !Interrupt )
         {
-          dword_140C2CC74 = 7;
+          dword_140C2CC34 = 7;
           if ( (unsigned __int16)v15 >= 3u )
           {
             *a3 = v15;
@@ -68,7 +68,7 @@ __int64 __fastcall IpmiLibpKcsReceiveResponseFromBmc(__int64 a1, __int64 a2, uns
   if ( !(unsigned int)IpmiLibpKcsSpinRegister(a1, a4, 1LL) )
   {
     IpmiLibReadOneByte(a1, 0);
-    dword_140C2CC74 = 7;
+    dword_140C2CC34 = 7;
     if ( v8 >= 3u )
     {
       *a3 = v8;

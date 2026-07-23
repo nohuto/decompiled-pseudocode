@@ -151,7 +151,7 @@ void __fastcall MiUnloadSystemImage(ULONG_PTR BugCheckParameter3)
       MiFreeLoadedImportList(v4);
     }
     if ( v8 )
-      LdrUnloadAlternateResourceModule((__int64)v8);
+      LdrUnloadAlternateResourceModule(v8);
     if ( (*(_DWORD *)(BugCheckParameter3 + 104) & 0x100000) != 0 )
       DbgUnLoadImageSymbolsUnicode((PCUNICODE_STRING)(BugCheckParameter3 + 88), (__int64)v8, 0xFFFFFFFFLL);
     v11 = *(_DWORD *)(BugCheckParameter3 + 64);
@@ -191,7 +191,7 @@ void __fastcall MiUnloadSystemImage(ULONG_PTR BugCheckParameter3)
           (unsigned __int16 *)(BugCheckParameter3 + 72),
           0LL,
           0LL,
-          (unsigned __int64)v8,
+          v8,
           *(unsigned int *)(BugCheckParameter3 + 64),
           *(_DWORD *)(BugCheckParameter3 + 120),
           *(_WORD *)(BugCheckParameter3 + 110) & 0xF,

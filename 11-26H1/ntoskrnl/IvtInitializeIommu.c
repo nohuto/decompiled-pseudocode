@@ -1,33 +1,33 @@
 /*
- * XREFs of IvtInitializeIommu @ 0x140BEFC90
+ * XREFs of IvtInitializeIommu @ 0x140BF5C90
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     IvtFlushTbInternal @ 0x14042706C (IvtFlushTbInternal.c)
- *     IvtInvalidateRemappingTableEntries @ 0x140427790 (IvtInvalidateRemappingTableEntries.c)
- *     HalSocRequestApi @ 0x1404EF27C (HalSocRequestApi.c)
- *     IvtGetBlockedDomain @ 0x140500424 (IvtGetBlockedDomain.c)
- *     IvtBuildContextEntry @ 0x140516B24 (IvtBuildContextEntry.c)
- *     IvtGetPasidGranularTranslationType @ 0x14052623C (IvtGetPasidGranularTranslationType.c)
- *     IvtBuildScalableModeContextEntry @ 0x14052D3F4 (IvtBuildScalableModeContextEntry.c)
- *     IvtGetContextEntryType @ 0x1405315D0 (IvtGetContextEntryType.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
- *     IvtDisableGlobalCommandRegisterField @ 0x1405A5FF8 (IvtDisableGlobalCommandRegisterField.c)
- *     IvtEnableGlobalCommandRegisterField @ 0x1405A6290 (IvtEnableGlobalCommandRegisterField.c)
- *     IvtGetIdentityMappedDomain @ 0x1405A67D4 (IvtGetIdentityMappedDomain.c)
- *     IvtInitializeIdentityMappings @ 0x1405A6C50 (IvtInitializeIdentityMappings.c)
- *     IvtInitializeMTRR @ 0x1405A6EE8 (IvtInitializeMTRR.c)
- *     IvtInvalidateAllContextEntries @ 0x1405A7218 (IvtInvalidateAllContextEntries.c)
- *     IvtInvalidateScalableModePasidCache @ 0x1405A7368 (IvtInvalidateScalableModePasidCache.c)
- *     IvtSetScalableModeContextEntry @ 0x1405A7C20 (IvtSetScalableModeContextEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IvtProcessDeviceExceptions @ 0x140BF0684 (IvtProcessDeviceExceptions.c)
- *     IvtSetupScalableModeDefaultPasidTables @ 0x140BF08FC (IvtSetupScalableModeDefaultPasidTables.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     IvtFlushTbInternal @ 0x14043417C (IvtFlushTbInternal.c)
+ *     IvtInvalidateRemappingTableEntries @ 0x1404348A0 (IvtInvalidateRemappingTableEntries.c)
+ *     HalSocRequestApi @ 0x1404E885C (HalSocRequestApi.c)
+ *     IvtGetBlockedDomain @ 0x1404F9C14 (IvtGetBlockedDomain.c)
+ *     IvtBuildContextEntry @ 0x140510594 (IvtBuildContextEntry.c)
+ *     IvtGetPasidGranularTranslationType @ 0x1405288AC (IvtGetPasidGranularTranslationType.c)
+ *     IvtBuildScalableModeContextEntry @ 0x14052F914 (IvtBuildScalableModeContextEntry.c)
+ *     IvtGetContextEntryType @ 0x140533AD0 (IvtGetContextEntryType.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
+ *     IvtDisableGlobalCommandRegisterField @ 0x1405A8808 (IvtDisableGlobalCommandRegisterField.c)
+ *     IvtEnableGlobalCommandRegisterField @ 0x1405A8AA0 (IvtEnableGlobalCommandRegisterField.c)
+ *     IvtGetIdentityMappedDomain @ 0x1405A8FE4 (IvtGetIdentityMappedDomain.c)
+ *     IvtInitializeIdentityMappings @ 0x1405A9460 (IvtInitializeIdentityMappings.c)
+ *     IvtInitializeMTRR @ 0x1405A96F8 (IvtInitializeMTRR.c)
+ *     IvtInvalidateAllContextEntries @ 0x1405A9A28 (IvtInvalidateAllContextEntries.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x1405A9B78 (IvtInvalidateScalableModePasidCache.c)
+ *     IvtSetScalableModeContextEntry @ 0x1405AA430 (IvtSetScalableModeContextEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IvtProcessDeviceExceptions @ 0x140BF6684 (IvtProcessDeviceExceptions.c)
+ *     IvtSetupScalableModeDefaultPasidTables @ 0x140BF68FC (IvtSetupScalableModeDefaultPasidTables.c)
  */
 
 __int64 __fastcall IvtInitializeIommu(__int64 a1, int a2, char a3)
@@ -112,7 +112,7 @@ __int64 __fastcall IvtInitializeIommu(__int64 a1, int a2, char a3)
   memset(v66, 0, sizeof(v66));
   if ( !a2 )
   {
-    result = HalSocRequestApi(a1, 0LL, 4, 8LL, &qword_140F874B8);
+    result = HalSocRequestApi(a1, 0LL, 4, 8LL, &qword_140F87880);
     if ( (int)result < 0 )
       return result;
     v11 = *(_DWORD **)(a1 + 8);
@@ -237,8 +237,8 @@ LABEL_67:
         goto LABEL_96;
       if ( v61 == 1 )
       {
-        *(_QWORD *)(a1 + 288) = qword_140F874A8;
-        *(_QWORD *)(a1 + 296) = qword_140F874B0;
+        *(_QWORD *)(a1 + 288) = qword_140F87890;
+        *(_QWORD *)(a1 + 296) = qword_140F87898;
       }
       v49 = v63;
       if ( *(_QWORD *)(a1 + 288) )
@@ -288,10 +288,10 @@ LABEL_96:
         {
           memset_0(v52, 0, v50);
           *(_DWORD *)(a1 + 304) = v49;
-          if ( v48 == 1 && !qword_140F874A8 )
+          if ( v48 == 1 && !qword_140F87890 )
           {
-            qword_140F874A8 = *(_QWORD *)(a1 + 288);
-            qword_140F874B0 = *(_QWORD *)(a1 + 296);
+            qword_140F87890 = *(_QWORD *)(a1 + 288);
+            qword_140F87898 = *(_QWORD *)(a1 + 296);
           }
           goto LABEL_92;
         }
@@ -310,7 +310,7 @@ LABEL_96:
     if ( !IvtBlockedPageTable )
     {
       v18 = guard_dispatch_icall_no_overrides(-1LL, 1LL);
-      qword_140F874A0 = v18;
+      qword_140F87888 = v18;
       if ( !v18 )
         return 3221225473LL;
       v19 = HalMapIoSpace((LARGE_INTEGER)v18, 0x1000uLL, (MEMORY_CACHING_TYPE)*(_DWORD *)(a1 + 272));

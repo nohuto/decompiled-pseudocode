@@ -1,19 +1,19 @@
 /*
- * XREFs of PdcPoBlockSessionSwitchEx @ 0x14075D0B0
+ * XREFs of PdcPoBlockSessionSwitchEx @ 0x14075C050
  * Callers:
  *     <none>
  * Callees:
- *     PoBlockConsoleSwitchEx @ 0x14042F0D4 (PoBlockConsoleSwitchEx.c)
- *     PopDispatchStateCallout @ 0x1409B9D64 (PopDispatchStateCallout.c)
+ *     PoBlockConsoleSwitchEx @ 0x140420E04 (PoBlockConsoleSwitchEx.c)
+ *     PopDispatchStateCallout @ 0x1409A03B4 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PdcPoBlockSessionSwitchEx(char a1, int *a2, _QWORD *a3)
+__int64 __fastcall PdcPoBlockSessionSwitchEx(char a1, ULONG *a2, _QWORD *a3)
 {
   unsigned int v3; // ebx
   __int128 v5; // [rsp+20h] [rbp-38h] BYREF
   __int128 v6; // [rsp+30h] [rbp-28h]
   __int64 v7; // [rsp+40h] [rbp-18h]
-  int v8; // [rsp+60h] [rbp+8h] BYREF
+  ULONG v8; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = 0;
   v7 = 0LL;

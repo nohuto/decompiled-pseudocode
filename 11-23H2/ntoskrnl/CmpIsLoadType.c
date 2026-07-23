@@ -3,15 +3,15 @@
  * Callers:
  *     CmpFindDrivers @ 0x140B5A8DC (CmpFindDrivers.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     CmpFindValueByName @ 0x1406D0078 (CmpFindValueByName.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByName @ 0x14082594C (CmpFindSubKeyByName.c)
- *     CmpValueToData @ 0x140826228 (CmpValueToData.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     CmpFindValueByName @ 0x1406D00A8 (CmpFindValueByName.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x140825C4C (CmpFindSubKeyByName.c)
+ *     CmpValueToData @ 0x140826528 (CmpValueToData.c)
  *     CmpGetNodeName @ 0x140B5AC84 (CmpGetNodeName.c)
  */
 

@@ -13,7 +13,7 @@
  *     <none>
  */
 
-_BOOL8 __fastcall RtlIsCriticalSectionLockedByThread(__int64 a1)
+LOGICAL __cdecl RtlIsCriticalSectionLockedByThread(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  return *(void **)(a1 + 16) == NtCurrentTeb()->ClientId.UniqueThread;
+  return CriticalSection->OwningThread == NtCurrentTeb()->ClientId.UniqueThread;
 }

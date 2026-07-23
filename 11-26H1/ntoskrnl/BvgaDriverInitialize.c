@@ -1,12 +1,12 @@
 /*
- * XREFs of BvgaDriverInitialize @ 0x140CBA110
+ * XREFs of BvgaDriverInitialize @ 0x140CC0150
  * Callers:
- *     InbvDriverInitialize @ 0x140CBA030 (InbvDriverInitialize.c)
+ *     InbvDriverInitialize @ 0x140CC0070 (InbvDriverInitialize.c)
  * Callees:
- *     _strupr @ 0x140535360 (_strupr.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     BvgaSaveResources @ 0x140CBA288 (BvgaSaveResources.c)
- *     FindBitmapResource @ 0x140CBA31C (FindBitmapResource.c)
+ *     _strupr @ 0x1405377E0 (_strupr.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     BvgaSaveResources @ 0x140CC02C8 (BvgaSaveResources.c)
+ *     FindBitmapResource @ 0x140CC035C (FindBitmapResource.c)
  */
 
 char __fastcall BvgaDriverInitialize(unsigned int a1, __int64 a2, unsigned int a3)
@@ -45,8 +45,8 @@ char __fastcall BvgaDriverInitialize(unsigned int a1, __int64 a2, unsigned int a
 LABEL_15:
         BvgaSaveResources();
         BvgaProgressState = 0;
-        dword_140F86754 = 10000;
-        dword_140F86758 = 100;
+        dword_140F86AC4 = 10000;
+        dword_140F86AC8 = 100;
         return BvgaBootDriverInstalled;
       }
     }

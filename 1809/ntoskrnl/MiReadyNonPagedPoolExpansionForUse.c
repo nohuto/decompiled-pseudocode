@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReadyNonPagedPoolExpansionForUse @ 0x1401640D8
+ * XREFs of MiReadyNonPagedPoolExpansionForUse @ 0x1401641D8
  * Callers:
- *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
+ *     MiExpandNonPagedPool @ 0x1401627E8 (MiExpandNonPagedPool.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall MiReadyNonPagedPoolExpansionForUse(_QWORD *a1, __int64 a2, __int64 a3, int a4)

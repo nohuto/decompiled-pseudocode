@@ -43,7 +43,7 @@
  *     PopCheckpointSystemSleep @ 0x140993C64 (PopCheckpointSystemSleep.c)
  */
 
-__int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int a3, int a4)
+__int64 __fastcall PopIssueActionRequest(char a1, POWER_ACTION a2, SYSTEM_POWER_STATE a3, int a4)
 {
   unsigned int v5; // edi
   __int64 v9; // rdx
@@ -58,46 +58,45 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
   unsigned int v18; // r14d
   int v19; // eax
   int started; // eax
-  __int64 v21; // rdx
-  int v22; // esi
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  int v25; // ecx
-  char v26; // bl
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  int v29; // ecx
-  int v30; // ebx
-  int v31; // ecx
-  int v33; // ecx
-  __int64 v34; // rdx
-  int v35; // ecx
-  char v36; // bl
-  __int64 v37; // rdx
-  __int64 v38; // rcx
-  bool v39; // zf
-  int v40; // ecx
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  signed __int32 v43[8]; // [rsp+0h] [rbp-58h] BYREF
-  bool v44; // [rsp+20h] [rbp-38h]
-  char v45; // [rsp+21h] [rbp-37h]
-  unsigned int v46; // [rsp+24h] [rbp-34h]
-  int v47; // [rsp+28h] [rbp-30h]
-  __int128 v48; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v49; // [rsp+40h] [rbp-18h]
+  NTSTATUS v21; // esi
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  int v24; // ecx
+  char v25; // bl
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  int v28; // ecx
+  int v29; // ebx
+  int v30; // ecx
+  int v32; // ecx
+  __int64 v33; // rdx
+  int v34; // ecx
+  char v35; // bl
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  bool v38; // zf
+  int v39; // ecx
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  signed __int32 v42[8]; // [rsp+0h] [rbp-58h] BYREF
+  bool v43; // [rsp+20h] [rbp-38h]
+  char v44; // [rsp+21h] [rbp-37h]
+  ULONG v45; // [rsp+24h] [rbp-34h]
+  int v46; // [rsp+28h] [rbp-30h]
+  __int128 v47; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v48; // [rsp+40h] [rbp-18h]
 
-  v47 = a4;
+  v46 = a4;
   v5 = 0;
-  v49 = 0LL;
   v48 = 0LL;
-  v46 = 0;
+  v47 = 0LL;
+  v45 = 0;
   PopAcquireAwaymodeLock();
   PopReadSystemAwayModePolicy();
   v11 = 1;
   if ( !byte_140C23350 && !byte_140C23351
-    || a2 != 2
-    || (int)a3 >= 5
+    || a2 != PowerActionSleep
+    || a3 >= PowerSystemHibernate
     || (dword_140C23A54 & 0xFFFFFFFA) != 0
     || dword_140C23A54 == 1 )
   {
@@ -113,33 +112,33 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
     {
       v14 = 1;
     }
-    if ( a2 == 8 )
+    if ( a2 == PowerActionDisplayOff )
     {
       if ( !PopConsoleDisplayState )
         return 3221266435LL;
       PopReleasePolicyLock(v13, v12);
-      PopScreenOff(v14, v34);
-      PopAcquirePolicyLock(v35);
+      PopScreenOff(v14, v33);
+      PopAcquirePolicyLock(v34);
       return 0LL;
     }
     PopSetPowerActionWatchdogState(1u);
-    v44 = a2 - 4 <= 2;
-    if ( PsWin32CalloutsEstablished && a2 - 4 > 2 )
+    v43 = (unsigned int)(a2 - 4) <= 2;
+    if ( PsWin32CalloutsEstablished && (unsigned int)(a2 - 4) > 2 )
       v11 = 0;
     v17 = a4;
     v18 = a4 & 0xFFFFFFFE;
     v19 = v17 | 1;
-    if ( v47 >= 0 )
+    if ( v46 >= 0 )
       v18 = v19;
     if ( v11 )
       LOBYTE(PopAction) = PopAction & 0xFD;
-    v45 = byte_140C23AF0;
+    v44 = byte_140C23AF0;
     PopReleasePolicyLock(v16, v15);
     PpmBeginHighPerfRequest();
     PopSleepStats = 0;
     if ( !a1 )
     {
-      if ( v44 )
+      if ( v43 )
         goto LABEL_19;
       memset(&PopSleepStats, 0, 0x278uLL);
       PopDiagTracePowerTransitionStart(dword_140C23A54, dword_140C23A58);
@@ -147,107 +146,107 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
       PopEnableSystemSleepCheckpoint();
       PopCheckpointSystemSleep(1LL);
     }
-    if ( !v44 )
+    if ( !v43 )
       PopSetSleepMarker(1);
 LABEL_19:
     if ( v11 )
     {
-      v22 = ZwSetSystemPowerState(a2, a3);
+      v21 = ZwSetSystemPowerState(a2, a3, v18);
       goto LABEL_38;
     }
-    LOBYTE(v48) = a1;
-    *(_QWORD *)((char *)&v48 + 4) = __PAIR64__(a3, a2);
-    HIDWORD(v48) = v18;
-    HIDWORD(v49) = v14;
-    started = PoStartPowerStateTasks(&v48);
-    v22 = started;
+    LOBYTE(v47) = a1;
+    *(_QWORD *)((char *)&v47 + 4) = __PAIR64__(a3, a2);
+    HIDWORD(v47) = v18;
+    HIDWORD(v48) = v14;
+    started = PoStartPowerStateTasks(&v47);
+    v21 = started;
     if ( !a1 )
     {
-      if ( started >= 0 && !v45 )
-        PopPrepareSleep((__int64)&v48);
-      v46 = PoBlockConsoleSwitch((__int64)&v48, v21);
+      if ( started >= 0 && !v44 )
+        PopPrepareSleep((__int64)&v47);
+      v45 = PoBlockConsoleSwitch((__int64)&v47);
     }
-    if ( v22 >= 0 && !a1 )
+    if ( v21 >= 0 && !a1 )
     {
       PfPowerActionNotify(0LL);
       PopNoMoreInput = 1;
-      _InterlockedOr(v43, 0);
-      if ( !v45 )
+      _InterlockedOr(v42, 0);
+      if ( !v44 )
       {
-        LOBYTE(v24) = 1;
-        PopPowerAggregatorNotifySuspendResume(v24);
-        PopSuspendApps(&v48);
-        PopSuspendServices(&v48);
+        LOBYTE(v23) = 1;
+        PopPowerAggregatorNotifySuspendResume(v23);
+        PopSuspendApps(&v47);
+        PopSuspendServices(&v47);
       }
       if ( (v18 & 8) != 0 )
       {
-        LOBYTE(v24) = 1;
-        EtwShutdown(v24, v23);
+        LOBYTE(v23) = 1;
+        EtwShutdown(v23, v22);
       }
-      PopDispatchSuperfetchNotification(v18, a3);
-      v22 = ZwSetSystemPowerState(a2, a3);
-      PopAcquirePolicyLock(v25);
-      v26 = byte_140C23AF0;
-      PopReleasePolicyLock(v28, v27);
+      PopDispatchSuperfetchNotification(v18, (unsigned int)a3);
+      v21 = ZwSetSystemPowerState(a2, a3, v18);
+      PopAcquirePolicyLock(v24);
+      v25 = byte_140C23AF0;
+      PopReleasePolicyLock(v27, v26);
       PopNoMoreInput = 0;
-      _InterlockedOr(v43, 0);
-      if ( !v26 )
+      _InterlockedOr(v42, 0);
+      if ( !v25 )
       {
-        PopResumeServices(&v48);
+        PopResumeServices(&v47);
         PopPowerAggregatorNotifySuspendResume(0LL);
-        PopResumeApps(&v48);
+        PopResumeApps(&v47);
       }
       PfPowerActionNotify(7LL);
     }
-    PoEndPowerStateTasks(&v48);
+    PoEndPowerStateTasks(&v47);
     if ( TtmpEnabled == 1 )
     {
       if ( a1 )
         goto LABEL_43;
-      PopAcquirePolicyLock(v29);
-      v36 = PopTtmIsSxCompleteNotificationPending;
+      PopAcquirePolicyLock(v28);
+      v35 = PopTtmIsSxCompleteNotificationPending;
       PopTtmIsSxTransitionInProgress = 0;
-      PopReleasePolicyLock(v38, v37);
-      v39 = v36 == 0;
-      v30 = v46;
-      if ( v39 )
+      PopReleasePolicyLock(v37, v36);
+      v38 = v35 == 0;
+      v29 = v45;
+      if ( v38 )
         goto LABEL_37;
-      TtmNotifyLowPowerStateExited(v46);
-      PopAcquirePolicyLock(v40);
+      TtmNotifyLowPowerStateExited(v45);
+      PopAcquirePolicyLock(v39);
       PopTtmIsSxCompleteNotificationPending = 0;
-      PopReleasePolicyLock(v42, v41);
+      PopReleasePolicyLock(v41, v40);
     }
     else
     {
-      v30 = v46;
+      v29 = v45;
     }
     if ( !a1 )
     {
 LABEL_37:
-      PoUnblockConsoleSwitch(&v48, v30);
+      PoUnblockConsoleSwitch(&v47, v29);
 LABEL_38:
-      if ( !a1 && !v44 )
+      if ( !a1 && !v43 )
       {
-        if ( v22 >= 0 )
+        if ( v21 >= 0 )
         {
           qword_140C23F50 = KeQueryPerformanceCounter(0LL).QuadPart;
           PopDiagTraceHiberStats();
           PopDiagTracePowerTransitionTime();
           PopDiagTracePerfTrackData(v18);
           PopShutdownButtonPressTime = 0LL;
-          dword_140C24190 = a2;
-          dword_140C24194 = a3;
+          SystemAction = a2;
+          LightestSystemState = a3;
           PopSleepStats = 1;
         }
-        PopDiagTracePowerTransitionEnd(v22);
+        PopDiagTracePowerTransitionEnd(v21);
         PopCheckpointSystemSleep(41LL);
       }
     }
 LABEL_43:
     PpmEndHighPerfRequest(2);
-    PopAcquirePolicyLock(v31);
+    PopAcquirePolicyLock(v30);
     PopSetPowerActionWatchdogState(0);
-    return (unsigned int)v22;
+    return (unsigned int)v21;
   }
   if ( !dword_140C23358 )
   {
@@ -260,7 +259,7 @@ LABEL_43:
     {
       PopReleasePolicyLock(v10, v9);
       v5 = PopSetSystemAwayMode(1LL);
-      PopAcquirePolicyLock(v33);
+      PopAcquirePolicyLock(v32);
     }
   }
   PopReleaseAwaymodeLock();

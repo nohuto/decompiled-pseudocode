@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVsChunkSetUnusedBytes @ 0x1800137B0
+ * XREFs of RtlpHpVsChunkSetUnusedBytes @ 0x18005EEE0
  * Callers:
- *     RtlpHpVsContextAllocateFinalize @ 0x180013700 (RtlpHpVsContextAllocateFinalize.c)
- *     RtlpHpVsContextGrowInPlace @ 0x1800B27C0 (RtlpHpVsContextGrowInPlace.c)
+ *     RtlpHpVsContextAllocateFinalize @ 0x18005EE30 (RtlpHpVsContextAllocateFinalize.c)
+ *     RtlpHpVsContextGrowInPlace @ 0x180082330 (RtlpHpVsContextGrowInPlace.c)
  * Callees:
  *     <none>
  */

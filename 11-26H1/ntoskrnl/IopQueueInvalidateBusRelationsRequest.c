@@ -1,17 +1,17 @@
 /*
- * XREFs of IopQueueInvalidateBusRelationsRequest @ 0x1404D2C8C
+ * XREFs of IopQueueInvalidateBusRelationsRequest @ 0x1404CC4FC
  * Callers:
- *     IoInvalidateDeviceRelations @ 0x1404D2B60 (IoInvalidateDeviceRelations.c)
+ *     IoInvalidateDeviceRelations @ 0x1404CC3D0 (IoInvalidateDeviceRelations.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall IopQueueInvalidateBusRelationsRequest(_QWORD *Object, int a2)
@@ -104,14 +104,14 @@ LABEL_2:
       v9 = 0;
     }
     KxAcquireSpinLock(&IoInvalidateBusRelationsLock);
-    v10 = (__int64 *)qword_140F84B08;
+    v10 = (__int64 *)qword_140F84EA8;
     v11 = IoInvalidateBusRelationsQueue == (_QWORD)&IoInvalidateBusRelationsQueue;
-    if ( *(__int64 **)qword_140F84B08 != &IoInvalidateBusRelationsQueue )
+    if ( *(__int64 **)qword_140F84EA8 != &IoInvalidateBusRelationsQueue )
       __fastfail(3u);
     *(_QWORD *)Pool2 = &IoInvalidateBusRelationsQueue;
     *(_QWORD *)(Pool2 + 8) = v10;
     *v10 = Pool2;
-    qword_140F84B08 = Pool2;
+    qword_140F84EA8 = Pool2;
     KxReleaseSpinLock(&IoInvalidateBusRelationsLock);
     if ( v9 )
     {

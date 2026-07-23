@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlFindFirstOverlapInNode @ 0x1401B8D78
+ * XREFs of FsRtlFindFirstOverlapInNode @ 0x1401B89BC
  * Callers:
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1400C5DF4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlCheckNoSharedConflict @ 0x1401B8CD4 (FsRtlCheckNoSharedConflict.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1400C3C94 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlCheckNoSharedConflict @ 0x1401B8918 (FsRtlCheckNoSharedConflict.c)
  * Callees:
  *     <none>
  */

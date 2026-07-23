@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSetJobMemoryPartition @ 0x1409B2C24
+ * XREFs of PspSetJobMemoryPartition @ 0x1409B2E24
  * Callers:
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
  * Callees:
  *     PsIsServerSilo @ 0x14020C020 (PsIsServerSilo.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
  *     PsAssignProcessToJobObject @ 0x14069FF70 (PsAssignProcessToJobObject.c)
- *     SmCreatePartition @ 0x140706428 (SmCreatePartition.c)
- *     PsReferencePartitionByHandle @ 0x14076003C (PsReferencePartitionByHandle.c)
- *     PspConvertJobToMixed @ 0x1409B2164 (PspConvertJobToMixed.c)
- *     SmPartitionJobPaired @ 0x1409D6CA4 (SmPartitionJobPaired.c)
+ *     SmCreatePartition @ 0x140706638 (SmCreatePartition.c)
+ *     PsReferencePartitionByHandle @ 0x14076022C (PsReferencePartitionByHandle.c)
+ *     PspConvertJobToMixed @ 0x1409B2364 (PspConvertJobToMixed.c)
+ *     SmPartitionJobPaired @ 0x1409D6EA4 (SmPartitionJobPaired.c)
  */
 
 __int64 __fastcall PspSetJobMemoryPartition(__int64 a1, char a2, ULONG_PTR a3)

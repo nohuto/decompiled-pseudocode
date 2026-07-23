@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpIommuGetHardwareDomain @ 0x1404C95F4
+ * XREFs of HalpIommuGetHardwareDomain @ 0x1404C9834
  * Callers:
- *     HalpIommuInitializeDmar @ 0x1403AC628 (HalpIommuInitializeDmar.c)
- *     HalpIommuJoinDmaDomain @ 0x1404C98BC (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x1404C9994 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuInitializeDmar @ 0x1403AD3B8 (HalpIommuInitializeDmar.c)
+ *     HalpIommuJoinDmaDomain @ 0x1404C9AFC (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404C9BD4 (HalpIommuLeaveDmaDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpIommuAcquireNewDomain @ 0x1404CBB44 (HalpIommuAcquireNewDomain.c)
- *     HalpIommuGetDmarptRootAddress @ 0x1404DBC38 (HalpIommuGetDmarptRootAddress.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpIommuAcquireNewDomain @ 0x1404CBD84 (HalpIommuAcquireNewDomain.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x1404DBE78 (HalpIommuGetDmarptRootAddress.c)
  */
 
 __int64 __fastcall HalpIommuGetHardwareDomain(__int64 a1, __int64 a2, char a3, char a4, __int64 *a5)

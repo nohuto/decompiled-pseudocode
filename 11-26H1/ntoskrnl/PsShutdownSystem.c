@@ -1,26 +1,26 @@
 /*
- * XREFs of PsShutdownSystem @ 0x1407FA284
+ * XREFs of PsShutdownSystem @ 0x1407FFCB4
  * Callers:
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140449B6C (ExfAcquireReleasePushLockExclusive.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     ObFastReplaceObject @ 0x1404819D8 (ObFastReplaceObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PsTerminateServerSilo @ 0x1407EE820 (PsTerminateServerSilo.c)
- *     PspWaitForUsermodeExit @ 0x1407FBA94 (PspWaitForUsermodeExit.c)
- *     PsTerminateProcess @ 0x14095690C (PsTerminateProcess.c)
- *     PspGetNextSilo @ 0x140959E18 (PspGetNextSilo.c)
- *     PsEnumProcesses @ 0x14096E8BC (PsEnumProcesses.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     EtwUnregister @ 0x140A84ED0 (EtwUnregister.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140441C9C (ExfAcquireReleasePushLockExclusive.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     ObFastReplaceObject @ 0x14047B348 (ObFastReplaceObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PsTerminateServerSilo @ 0x1407F4380 (PsTerminateServerSilo.c)
+ *     PspWaitForUsermodeExit @ 0x1408014C4 (PspWaitForUsermodeExit.c)
+ *     PsTerminateProcess @ 0x14094A334 (PsTerminateProcess.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     PsEnumProcesses @ 0x1409BBF0C (PsEnumProcesses.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
+ *     EtwUnregister @ 0x1409BE550 (EtwUnregister.c)
+ *     PspGetNextSilo @ 0x1409FF6D8 (PspGetNextSilo.c)
  */
 
 __int64 PsShutdownSystem()
@@ -61,7 +61,7 @@ __int64 PsShutdownSystem()
   v0 = 1;
   ServerSiloGlobals = (_DWORD **)PsGetServerSiloGlobals(0LL);
   if ( _InterlockedCompareExchange64(
-         (volatile signed __int64 *)KiSystemServiceTraceCallbackLock.PriorityFloorCounts,
+         (volatile signed __int64 *)&KiSystemServiceTraceCallbackLock.PriorityFloorCounts[8],
          (signed __int64)KeGetCurrentThread(),
          0LL) )
   {
@@ -130,7 +130,7 @@ __int64 PsShutdownSystem()
   while ( v7 <= 0xA || PsContinueWaiting );
   v0 = 0;
 LABEL_26:
-  if ( LODWORD(stru_140F10828.KernelShadowStackInitial) )
+  if ( PopShutdownCleanly )
   {
     v14 = ServerSiloGlobals[106];
     if ( v14 )

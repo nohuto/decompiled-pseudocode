@@ -10,23 +10,29 @@
  *     _RtlAddressInSectionTable@12 @ 0x4B2B95F0 (_RtlAddressInSectionTable@12.c)
  */
 
-int __fastcall RtlpImageDirectoryEntryToData64(int a1, char a2, unsigned __int16 a3, _DWORD *a4, int a5, _DWORD *a6)
+int __fastcall RtlpImageDirectoryEntryToData64(
+        char *BaseOfImage,
+        char a2,
+        unsigned __int16 a3,
+        unsigned int *a4,
+        PIMAGE_NT_HEADERS NtHeaders,
+        _DWORD *a6)
 {
-  unsigned int v6; // edi
-  int v8; // eax
+  ULONG VirtualAddress; // edi
+  PVOID v8; // eax
 
-  if ( (unsigned int)a3 < *(_DWORD *)(a5 + 132) )
+  if ( a3 < NtHeaders->OptionalHeader.NumberOfRvaAndSizes )
   {
-    v6 = *(_DWORD *)(a5 + 8 * a3 + 136);
-    if ( !v6 )
+    VirtualAddress = NtHeaders->OptionalHeader.DataDirectory[a3].VirtualAddress;
+    if ( !VirtualAddress )
       return -1073741822;
-    *a4 = *(_DWORD *)(a5 + 8 * a3 + 140);
-    if ( a2 || v6 < *(_DWORD *)(a5 + 84) )
+    *a4 = NtHeaders->OptionalHeader.DataDirectory[a3].Size;
+    if ( a2 || VirtualAddress < NtHeaders->OptionalHeader.SizeOfHeaders )
     {
-      *a6 = v6 + a1;
+      *a6 = &BaseOfImage[VirtualAddress];
       return 0;
     }
-    v8 = RtlAddressInSectionTable(a5, a1, v6);
+    v8 = RtlAddressInSectionTable(NtHeaders, BaseOfImage, VirtualAddress);
     *a6 = v8;
     if ( v8 )
       return 0;

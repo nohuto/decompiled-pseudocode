@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwResumeThread @ 0x1800A0D20
+ * XREFs of ZwResumeThread @ 0x1800A0D40
  * Callers:
  *     EtwpCreateEtwThread @ 0x180051000 (EtwpCreateEtwThread.c)
  *     RtlSetProcessDebugInformation @ 0x1800D9C80 (RtlSetProcessDebugInformation.c)
@@ -11,11 +11,11 @@
  *     <none>
  */
 
-__int64 ZwResumeThread()
+NTSTATUS __cdecl ZwResumeThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 82LL;
+  result = 82;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

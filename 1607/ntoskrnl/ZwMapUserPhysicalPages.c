@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwMapUserPhysicalPages @ 0x14015BD40
+ * XREFs of ZwMapUserPhysicalPages @ 0x14015C2B0
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwMapUserPhysicalPages(PVOID VirtualAddresses, ULONG_PTR Numb
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(VirtualAddresses, NumberOfPages, UserPfnArray);
+  return KiServiceInternal(VirtualAddresses);
 }

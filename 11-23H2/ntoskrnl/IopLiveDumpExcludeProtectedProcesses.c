@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpExcludeProtectedProcesses @ 0x14094DFA8
+ * XREFs of IopLiveDumpExcludeProtectedProcesses @ 0x14094E1A8
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14094C56C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x14094C76C (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
- *     IopLiveDumpAddProcessFilter @ 0x14094C45C (IopLiveDumpAddProcessFilter.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
+ *     IopLiveDumpAddProcessFilter @ 0x14094C65C (IopLiveDumpAddProcessFilter.c)
  */
 
 __int64 __fastcall IopLiveDumpExcludeProtectedProcesses(__int64 a1)

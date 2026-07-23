@@ -1,17 +1,17 @@
 /*
- * XREFs of PspReferenceSystemDll @ 0x1407A34A4
+ * XREFs of PspReferenceSystemDll @ 0x1407A3694
  * Callers:
- *     DbgkCreateThread @ 0x14076FC1C (DbgkCreateThread.c)
- *     PspMapSystemDll @ 0x1407A32E0 (PspMapSystemDll.c)
+ *     DbgkCreateThread @ 0x14076FE0C (DbgkCreateThread.c)
+ *     PspMapSystemDll @ 0x1407A34D0 (PspMapSystemDll.c)
  *     MmInitSystemDll @ 0x140B75608 (MmInitSystemDll.c)
  *     PspGetSystemDllSecureHandle @ 0x140B96B2C (PspGetSystemDllSecureHandle.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObFastReferenceObject @ 0x1402A1650 (ObFastReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ObFastReferenceObjectLocked @ 0x140582AB0 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObFastReferenceObject @ 0x1402A18E0 (ObFastReferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ObFastReferenceObjectLocked @ 0x140582FA0 (ObFastReferenceObjectLocked.c)
  */
 
 unsigned __int64 __fastcall PspReferenceSystemDll(signed __int64 *a1)

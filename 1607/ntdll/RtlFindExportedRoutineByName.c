@@ -1,45 +1,45 @@
 /*
- * XREFs of RtlFindExportedRoutineByName @ 0x18007A290
+ * XREFs of RtlFindExportedRoutineByName @ 0x18007A280
  * Callers:
  *     <none>
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
  */
 
-unsigned __int64 __fastcall RtlFindExportedRoutineByName(unsigned __int64 a1, char *a2)
+PVOID __cdecl RtlFindExportedRoutineByName(PVOID BaseOfImage, PCSTR RoutineName)
 {
-  _DWORD *v4; // rax
-  _DWORD *v5; // r9
+  char *v4; // rax
+  char *v5; // r9
   int v6; // r8d
-  unsigned __int64 v7; // rsi
-  unsigned __int64 v8; // rdi
+  char *v7; // rsi
+  char *v8; // rdi
   int v9; // ecx
   int v10; // edx
-  char *v11; // rax
-  unsigned __int64 v12; // r11
-  char v13; // r10
+  PCSTR v11; // rax
+  signed __int64 v12; // r11
+  CHAR v13; // r10
   int v14; // eax
   unsigned int v16; // ecx
   __int64 v17; // rdx
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // r8
-  unsigned int v20; // [rsp+40h] [rbp+18h] BYREF
+  char *v18; // rcx
+  char *v19; // r8
+  ULONG v20; // [rsp+40h] [rbp+18h] BYREF
 
-  v4 = (_DWORD *)RtlImageDirectoryEntryToData(a1, 1, 0, &v20);
+  v4 = (char *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0, &v20);
   v5 = v4;
   if ( !v4 )
     return 0LL;
   v6 = 0;
-  v7 = a1 + (unsigned int)v4[8];
-  v8 = a1 + (unsigned int)v4[9];
-  v9 = v4[6] - 1;
+  v7 = (char *)BaseOfImage + *((unsigned int *)v4 + 8);
+  v8 = (char *)BaseOfImage + *((unsigned int *)v4 + 9);
+  v9 = *((_DWORD *)v4 + 6) - 1;
   if ( v9 < 0 )
     return 0LL;
   do
   {
     v10 = (v9 + v6) >> 1;
-    v11 = a2;
-    v12 = a1 + *(unsigned int *)(v7 + 4LL * v10) - (_QWORD)a2;
+    v11 = RoutineName;
+    v12 = (_BYTE *)BaseOfImage + *(unsigned int *)&v7[4 * v10] - RoutineName;
     while ( 1 )
     {
       v13 = *v11;
@@ -52,7 +52,7 @@ unsigned __int64 __fastcall RtlFindExportedRoutineByName(unsigned __int64 a1, ch
         goto LABEL_7;
       }
     }
-    v14 = (unsigned __int8)*v11 < (unsigned __int8)v11[v12] ? -1 : 1;
+    v14 = *v11 < (unsigned int)v11[v12] ? -1 : 1;
 LABEL_7:
     if ( v14 < 0 )
     {
@@ -69,14 +69,14 @@ LABEL_7:
   }
   while ( v9 >= v6 );
   if ( v9 >= v6
-    && (v16 = *(unsigned __int16 *)(v8 + 2LL * v10), v16 < v5[5])
+    && (v16 = *(unsigned __int16 *)&v8[2 * v10], v16 < *((_DWORD *)v5 + 5))
     && ((v17 = (unsigned __int16)v16,
-         v18 = a1 + (unsigned int)v5[7],
-         v19 = a1 + *(unsigned int *)(v18 + 4 * v17),
-         v19 <= (unsigned __int64)v5)
-     || v19 >= (unsigned __int64)v5 + v20) )
+         v18 = (char *)BaseOfImage + *((unsigned int *)v5 + 7),
+         v19 = (char *)BaseOfImage + *(unsigned int *)&v18[4 * v17],
+         v19 <= v5)
+     || v19 >= &v5[v20]) )
   {
-    return a1 + *(unsigned int *)(v18 + 4 * v17);
+    return (char *)BaseOfImage + *(unsigned int *)&v18[4 * v17];
   }
   else
   {

@@ -114,7 +114,7 @@ PVOID __stdcall ExAllocatePoolWithQuotaTag(POOL_TYPE PoolType, SIZE_T NumberOfBy
   unsigned __int64 v31; // rcx
   __int64 HeapFromVA; // rax
   __int64 v33; // rdx
-  int v34; // esi
+  NTSTATUS v34; // esi
   signed __int32 v35[8]; // [rsp+0h] [rbp-78h] BYREF
   unsigned __int64 v36; // [rsp+30h] [rbp-48h] BYREF
   __int64 v37; // [rsp+38h] [rbp-40h]
@@ -134,7 +134,7 @@ PVOID __stdcall ExAllocatePoolWithQuotaTag(POOL_TYPE PoolType, SIZE_T NumberOfBy
   if ( (PoolWithTag & 0xFFF) == 0 )
   {
     if ( !PoolWithTag && !v4 )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     return v8;
   }
   if ( ExpSpecialAllocations )
@@ -251,6 +251,6 @@ LABEL_20:
   }
   ExFreePoolWithTag(v8, Tag);
   if ( !v4 )
-    RtlRaiseStatus((unsigned int)v34);
+    RtlRaiseStatus(v34);
   return 0LL;
 }

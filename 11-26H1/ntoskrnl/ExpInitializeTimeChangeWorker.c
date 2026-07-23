@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpInitializeTimeChangeWorker @ 0x140B12A38
+ * XREFs of ExpInitializeTimeChangeWorker @ 0x140B147B8
  * Callers:
- *     ExpInitializeTimeZoneInformation @ 0x140B12860 (ExpInitializeTimeZoneInformation.c)
+ *     ExpInitializeTimeZoneInformation @ 0x140B145E0 (ExpInitializeTimeZoneInformation.c)
  * Callees:
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
  */
 
 void __fastcall ExpInitializeTimeChangeWorker(__int64 a1, KDEFERRED_ROUTINE *a2, void *a3, __int64 a4, __int64 a5)

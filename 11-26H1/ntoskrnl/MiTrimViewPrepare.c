@@ -1,18 +1,18 @@
 /*
- * XREFs of MiTrimViewPrepare @ 0x14046C4BC
+ * XREFs of MiTrimViewPrepare @ 0x140465C3C
  * Callers:
- *     MiTrimSharedPageFromView @ 0x14046BEB4 (MiTrimSharedPageFromView.c)
+ *     MiTrimSharedPageFromView @ 0x140465634 (MiTrimSharedPageFromView.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KeForceAttachProcess @ 0x14045D2E0 (KeForceAttachProcess.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KeForceAttachProcess @ 0x140456CE0 (KeForceAttachProcess.c)
  */
 
 __int64 __fastcall MiTrimViewPrepare(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -46,13 +46,13 @@ __int64 __fastcall MiTrimViewPrepare(__int64 a1, __int64 a2, __int64 a3, struct 
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      v14 = (_BYTE *)KeAbPreAcquire((__int64)&stru_140E34C08, 0LL, 0LL, a4);
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E34C08, 17LL, 0LL) )
+      v14 = (_BYTE *)KeAbPreAcquire((__int64)&stru_140E34D88, 0LL, 0LL, a4);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E34D88, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(
-          (signed __int64 *)&stru_140E34C08.Header.Lock,
+          (signed __int64 *)&stru_140E34D88.Header.Lock,
           0,
           (LegacyAutoBoost *)v14,
-          &stru_140E34C08);
+          &stru_140E34D88);
       if ( v14 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -65,9 +65,9 @@ __int64 __fastcall MiTrimViewPrepare(__int64 a1, __int64 a2, __int64 a3, struct 
           v14[10] = 1;
         }
       }
-      Flink = stru_140E34C08.Header.WaitListHead.Flink;
+      Flink = stru_140E34D88.Header.WaitListHead.Flink;
       v16 = *(struct _LIST_ENTRY **)(a1 + 272);
-      if ( stru_140E34C08.Header.WaitListHead.Flink )
+      if ( stru_140E34D88.Header.WaitListHead.Flink )
       {
         do
         {
@@ -97,12 +97,12 @@ __int64 __fastcall MiTrimViewPrepare(__int64 a1, __int64 a2, __int64 a3, struct 
           }
         }
       }
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E34C08, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)&stru_140E34C08.Header.Lock);
-      KeAbPostRelease((unsigned __int64)&stru_140E34C08);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E34D88, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)&stru_140E34D88.Header.Lock);
+      KeAbPostRelease((unsigned __int64)&stru_140E34D88);
       v22 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v22
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v21, v20);
       }
@@ -110,7 +110,7 @@ __int64 __fastcall MiTrimViewPrepare(__int64 a1, __int64 a2, __int64 a3, struct 
   }
   else
   {
-    v6 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v5 + 1198)) + 21384LL);
+    v6 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v5 + 1198)) + 21384LL);
     v7 = ExAcquireSpinLockExclusive(v6);
     v8 = *(_QWORD *)(a1 + 64);
     if ( (*(_DWORD *)(v8 + 500) & 0xC00u) < 0xC00

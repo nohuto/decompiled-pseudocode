@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReduceAffinityToRankListMaximums @ 0x140444690
+ * XREFs of KiReduceAffinityToRankListMaximums @ 0x14043D1A0
  * Callers:
- *     KiPerformHeteroSoftParkElection @ 0x140228D10 (KiPerformHeteroSoftParkElection.c)
+ *     KiPerformHeteroSoftParkElection @ 0x14022A6A0 (KiPerformHeteroSoftParkElection.c)
  * Callees:
  *     <none>
  */

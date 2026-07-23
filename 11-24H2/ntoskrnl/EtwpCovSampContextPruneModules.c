@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpCovSampContextPruneModules @ 0x140ADA1B8
+ * XREFs of EtwpCovSampContextPruneModules @ 0x140ADB9FC
  * Callers:
- *     EtwpCovSampContextGetModule @ 0x140901050 (EtwpCovSampContextGetModule.c)
- *     EtwpCoverageSamplerQuery @ 0x14095DA30 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCovSampContextGetModule @ 0x140923930 (EtwpCovSampContextGetModule.c)
+ *     EtwpCoverageSamplerQuery @ 0x1409454F0 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentThreadId @ 0x1404330A0 (PsGetCurrentThreadId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpCovSampModuleCleanup @ 0x140A13BA8 (EtwpCovSampModuleCleanup.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetCurrentThreadId @ 0x1404251E0 (PsGetCurrentThreadId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpCovSampModuleCleanup @ 0x140A0C308 (EtwpCovSampModuleCleanup.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
@@ -26,7 +26,7 @@ unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
   __int64 v6; // rcx
   struct _KTHREAD *CurrentThread; // rax
   volatile signed __int64 *v8; // r14
-  _QWORD *v9; // r13
+  char *v9; // r13
   __int64 *i; // rcx
   unsigned int v11; // eax
   __int64 v12; // rax
@@ -37,8 +37,8 @@ unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
   _QWORD *v17; // rdx
   __int64 v18; // r13
   struct _KTHREAD *v19; // rax
-  _QWORD *v20; // rax
-  _QWORD *v21; // r15
+  char *v20; // rax
+  char *v21; // r15
   _OWORD *v22; // r11
   _QWORD *v23; // rax
   char *v24; // r10
@@ -85,11 +85,11 @@ unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
       CurrentThread = KeGetCurrentThread();
       v8 = (volatile signed __int64 *)(a1 + 1176);
       --CurrentThread->KernelApcDisable;
-      v9 = KeAbPreAcquire(a1 + 1176, 0LL);
+      v9 = (char *)KeAbPreAcquire(a1 + 1176, 0LL);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1176), 17LL, 0LL) )
         ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 1176), 0, v9, a1 + 1176);
       if ( v9 )
-        *((_BYTE *)v9 + 10) = 1;
+        v9[10] = 1;
       for ( i = *(__int64 **)(a1 + 1224); i != (__int64 *)(a1 + 1224); i = (__int64 *)*i )
       {
         if ( *(i - 1) == 1 && !*((_DWORD *)i + 15) )
@@ -140,12 +140,12 @@ LABEL_62:
       v18 = 0LL;
       v19 = KeGetCurrentThread();
       --v19->KernelApcDisable;
-      v20 = KeAbPreAcquire(a1 + 1176, 0LL);
+      v20 = (char *)KeAbPreAcquire(a1 + 1176, 0LL);
       v21 = v20;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 1176), (__int64)v20, a1 + 1176);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 1176), v20, a1 + 1176);
       if ( v21 )
-        *((_BYTE *)v21 + 10) = 1;
+        v21[10] = 1;
       v22 = *(_OWORD **)&v39[0];
       *(_QWORD *)(a1 + 1184) = KeGetCurrentThread();
       while ( v22 != v39 )

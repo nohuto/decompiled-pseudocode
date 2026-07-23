@@ -12,32 +12,32 @@
  *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
  */
 
-char __fastcall SepVerifyDesktopAppPolicyOverrideCaller(int a1)
+char __fastcall SepVerifyDesktopAppPolicyOverrideCaller(HANDLE TokenHandle)
 {
   bool v2; // di
   KPROCESSOR_MODE PreviousMode; // dl
   void *v5; // rsi
   __int64 v6; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v7; // [rsp+50h] [rbp-B8h] BYREF
-  size_t v8; // [rsp+58h] [rbp-B0h] BYREF
-  size_t String2; // [rsp+60h] [rbp-A8h] BYREF
-  UNICODE_STRING String2_8; // [rsp+68h] [rbp-A0h] BYREF
+  _PS_PKG_CLAIM PkgClaim; // [rsp+50h] [rbp-B8h] BYREF
+  ULONG_PTR PackageSize; // [rsp+58h] [rbp-B0h] BYREF
+  ULONG_PTR v9; // [rsp+60h] [rbp-A8h] BYREF
+  UNICODE_STRING v10; // [rsp+68h] [rbp-A0h] BYREF
   UNICODE_STRING String1_8; // [rsp+78h] [rbp-90h] BYREF
-  _BYTE v12[16]; // [rsp+88h] [rbp-80h] BYREF
-  wchar_t v13[128]; // [rsp+98h] [rbp-70h] BYREF
-  wchar_t v14[128]; // [rsp+198h] [rbp+90h] BYREF
+  ULONG_PTR v12[2]; // [rsp+88h] [rbp-80h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+98h] [rbp-70h] BYREF
+  WCHAR v14[128]; // [rsp+198h] [rbp+90h] BYREF
 
-  v7 = 0LL;
+  PkgClaim = 0LL;
   HIDWORD(v6) = 0;
-  String2 = 256LL;
-  v8 = 256LL;
+  v9 = 256LL;
+  PackageSize = 256LL;
   v2 = 0;
-  String2_8 = 0LL;
+  v10 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   String1_8 = 0LL;
   if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
     return 1;
-  if ( RtlQueryPackageClaims(a1, v13, &v8, 0LL, 0LL, 0LL, 0, 0LL) >= 0 )
+  if ( RtlQueryPackageClaims(TokenHandle, PackageFullName, &PackageSize, 0LL, 0LL, 0LL, 0LL, 0LL) >= 0 )
   {
     v5 = (void *)PsReferenceEffectiveToken(
                    (unsigned int)KeGetCurrentThread(),
@@ -46,15 +46,15 @@ char __fastcall SepVerifyDesktopAppPolicyOverrideCaller(int a1)
                    (unsigned int)&v6,
                    (__int64)v12,
                    0LL);
-    if ( RtlQueryPackageClaims((int)v5, v14, &String2, 0LL, 0LL, 0LL, (int)&v7, 0LL) >= 0 && (v7 & 4) != 0 )
+    if ( RtlQueryPackageClaims(v5, v14, &v9, 0LL, 0LL, 0LL, &PkgClaim, 0LL) >= 0 && (PkgClaim.Flags & 4) != 0 )
     {
-      String1_8.Length = v8 - 2;
-      String1_8.MaximumLength = v8 - 2;
-      String1_8.Buffer = v13;
-      String2_8.Length = String2 - 2;
-      String2_8.MaximumLength = String2 - 2;
-      String2_8.Buffer = v14;
-      v2 = RtlCompareUnicodeString(&String1_8, &String2_8, 0) == 0;
+      String1_8.Length = PackageSize - 2;
+      String1_8.MaximumLength = PackageSize - 2;
+      String1_8.Buffer = PackageFullName;
+      v10.Length = v9 - 2;
+      v10.MaximumLength = v9 - 2;
+      v10.Buffer = v14;
+      v2 = RtlCompareUnicodeString(&String1_8, &v10, 0) == 0;
     }
     if ( v5 )
     {

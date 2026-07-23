@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpCallSetBuiltinPanelState @ 0x140768DAC
+ * XREFs of TtmpCallSetBuiltinPanelState @ 0x140768FCC
  * Callers:
- *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1407695D8 (TtmpPushTerminalDisplayStateOntoDevice.c)
+ *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1407697F8 (TtmpPushTerminalDisplayStateOntoDevice.c)
  * Callees:
- *     PoSessionBuiltinPanelState @ 0x1405DAF70 (PoSessionBuiltinPanelState.c)
- *     TtmpStartCallout @ 0x140769844 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1407699C4 (TtmpStopCallout.c)
+ *     PoSessionBuiltinPanelState @ 0x1405D8290 (PoSessionBuiltinPanelState.c)
+ *     TtmpStartCallout @ 0x140769A64 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x140769BE4 (TtmpStopCallout.c)
  */
 
 __int64 __fastcall TtmpCallSetBuiltinPanelState(int *a1, __int64 a2, unsigned int a3)

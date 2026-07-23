@@ -19,18 +19,18 @@
  *     ZwQueryVirtualMemory @ 0x180163680 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall LdrpProcessMappedModule(__int64 a1, int a2, int a3)
+NTSTATUS __fastcall LdrpProcessMappedModule(__int64 a1, int a2, int a3)
 {
-  unsigned __int64 v3; // rbp
+  char *v3; // rbp
   unsigned int v4; // edi
-  __int64 result; // rax
-  unsigned int v9; // r14d
-  __int64 v10; // rsi
+  NTSTATUS result; // eax
+  NTSTATUS v9; // r14d
+  PIMAGE_NT_HEADERS v10; // rsi
   __int64 v11; // rax
-  __int64 v12; // rax
-  unsigned __int64 v13; // rdx
+  char *v12; // rax
+  void *v13; // rdx
   __int64 v14; // rdx
-  unsigned int v15; // ecx
+  unsigned int AddressOfEntryPoint; // ecx
   __int64 v16; // rax
   int inited; // eax
   unsigned __int16 v18; // cx
@@ -44,39 +44,39 @@ __int64 __fastcall LdrpProcessMappedModule(__int64 a1, int a2, int a3)
   _DWORD *v27; // rdx
   __int64 v28; // rcx
   int v29; // eax
-  __int64 v30; // [rsp+30h] [rbp-88h] BYREF
+  PIMAGE_NT_HEADERS v30; // [rsp+30h] [rbp-88h] BYREF
   __int64 v31; // [rsp+38h] [rbp-80h] BYREF
-  __int128 v32; // [rsp+40h] [rbp-78h] BYREF
+  __int128 MemoryInformation; // [rsp+40h] [rbp-78h] BYREF
   __int64 v33; // [rsp+50h] [rbp-68h]
   _OWORD v34[2]; // [rsp+58h] [rbp-60h] BYREF
   __int128 v35; // [rsp+78h] [rbp-40h]
   __int64 v36; // [rsp+C0h] [rbp+8h] BYREF
-  __int64 v37; // [rsp+D8h] [rbp+20h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+D8h] [rbp+20h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 48);
+  v3 = *(char **)(a1 + 48);
   v4 = 0;
   v36 = 0LL;
-  result = RtlImageNtHeaderEx(3, v3, 0LL, &v36);
+  result = RtlImageNtHeaderEx(3u, v3, 0LL, (PIMAGE_NT_HEADERS *)&v36);
   v9 = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
-  v10 = v36;
+  v10 = (PIMAGE_NT_HEADERS)v36;
   if ( (*(_DWORD *)(a1 + 104) & 0x1000004) == 4 && *(_DWORD *)(a1 + 268) != 9 )
   {
     v11 = *(unsigned int *)(v36 + 40);
     if ( (_DWORD)v11 )
-      v12 = v3 + v11;
+      v12 = &v3[v11];
     else
       v12 = 0LL;
     *(_QWORD *)(a1 + 56) = v12;
   }
-  v13 = *(_QWORD *)(a1 + 48);
-  v37 = 0LL;
-  RtlImageNtHeaderEx(3, v13, 0LL, &v37);
-  v15 = *(_DWORD *)(v37 + 40);
-  if ( v15 && *(_QWORD *)(a1 + 56) && v15 < *(_DWORD *)(v37 + 84) )
-    return 3221225595LL;
-  *(_QWORD *)(a1 + 248) = *(_QWORD *)(v10 + 48);
+  v13 = *(void **)(a1 + 48);
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(3u, v13, 0LL, &OutHeaders);
+  AddressOfEntryPoint = OutHeaders->OptionalHeader.AddressOfEntryPoint;
+  if ( AddressOfEntryPoint && *(_QWORD *)(a1 + 56) && AddressOfEntryPoint < OutHeaders->OptionalHeader.SizeOfHeaders )
+    return -1073741701;
+  *(_QWORD *)(a1 + 248) = v10->OptionalHeader.ImageBase;
   *(_QWORD *)(a1 + 256) = MEMORY[0x7FFE0014];
   if ( (a2 & 0x800000) == 0 )
   {
@@ -86,11 +86,17 @@ __int64 __fastcall LdrpProcessMappedModule(__int64 a1, int a2, int a3)
         goto LABEL_28;
       v30 = 0LL;
       v33 = 0LL;
-      v32 = 0LL;
-      if ( (int)RtlImageNtHeaderEx(3, v3, 0LL, &v30) < 0
-        || *(_QWORD *)(v30 + 48) != v3
-        || (int)ZwQueryVirtualMemory(-1LL, v3, 6LL, &v32, 24LL, 0LL) < 0
-        || (_QWORD)v32 != v3
+      MemoryInformation = 0LL;
+      if ( RtlImageNtHeaderEx(3u, v3, 0LL, &v30) < 0
+        || (char *)v30->OptionalHeader.ImageBase != v3
+        || ZwQueryVirtualMemory(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             v3,
+             MemoryImageInformation,
+             &MemoryInformation,
+             0x18uLL,
+             0LL) < 0
+        || (char *)MemoryInformation != v3
         || (v33 & 2) != 0
         || (v33 & 1) != 0 )
       {
@@ -101,34 +107,39 @@ __int64 __fastcall LdrpProcessMappedModule(__int64 a1, int a2, int a3)
       goto LABEL_28;
     v31 = 0LL;
     v16 = LdrpGenRandom();
-    inited = LdrInitSecurityCookie(v3, *(_DWORD *)(a1 + 64), 0LL, v16 ^ (unsigned int)dword_1801EC4D8, &v31);
-    if ( v3 == 0x180000000LL || !*(_QWORD *)(a1 + 56) )
+    inited = LdrInitSecurityCookie(
+               (unsigned __int64 *)v3,
+               *(_DWORD *)(a1 + 64),
+               0LL,
+               v16 ^ LdrSystemDllInitBlock.RngData,
+               &v31);
+    if ( v3 == (char *)0x180000000LL || !*(_QWORD *)(a1 + 56) )
     {
 LABEL_26:
       result = LdrpCfgProcessLoadConfig(a1, v36, v31);
       v9 = result;
-      if ( (int)result < 0 )
+      if ( result < 0 )
         return result;
       *(_DWORD *)(a1 + 104) |= 0x2000u;
 LABEL_28:
       if ( (*(_DWORD *)(a1 + 104) & 0x200) == 0 )
       {
-        RtlInsertInvertedFunctionTable(v3, *(unsigned int *)(a1 + 64));
+        RtlInsertInvertedFunctionTable(v3, *(_DWORD *)(a1 + 64));
         *(_DWORD *)(a1 + 104) |= 0x200u;
       }
       if ( (*(_DWORD *)(a1 + 104) & 0x200000) == 0 )
       {
         result = RtlpInsertOrRemoveScpCfgFunctionTable(v3, v14, 1);
-        if ( (_DWORD)result )
+        if ( result )
         {
-          if ( (_DWORD)result == -1073741503 )
+          if ( result == -1073741503 )
           {
             memset(v34, 0, sizeof(v34));
             v35 = 0LL;
             if ( (int)NpQueryVirtualMemory(-1LL, v3, 0LL, v34, 48LL, 0LL) < 0 || DWORD2(v35) == 0x1000000 )
-              return 3221225793LL;
+              return -1073741503;
           }
-          else if ( (int)result < 0 )
+          else if ( result < 0 )
           {
             return result;
           }
@@ -153,7 +164,7 @@ LABEL_28:
     }
     if ( inited )
       goto LABEL_26;
-    return 3221225595LL;
+    return -1073741701;
   }
 LABEL_42:
   v19 = NtCurrentTeb();

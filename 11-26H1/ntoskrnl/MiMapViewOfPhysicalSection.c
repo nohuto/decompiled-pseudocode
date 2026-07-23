@@ -1,36 +1,36 @@
 /*
- * XREFs of MiMapViewOfPhysicalSection @ 0x14095C9CC
+ * XREFs of MiMapViewOfPhysicalSection @ 0x140A0228C
  * Callers:
- *     MiMapViewOfSection @ 0x1409C31E8 (MiMapViewOfSection.c)
+ *     MiMapViewOfSection @ 0x1409941C8 (MiMapViewOfSection.c)
  * Callees:
- *     MiReferenceVad @ 0x14027E890 (MiReferenceVad.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     MiInsertViewOfPhysicalSection @ 0x140315954 (MiInsertViewOfPhysicalSection.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiIsPfn @ 0x14042D9E0 (MiIsPfn.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiUpdateVadStartVpn @ 0x14049B0E4 (MiUpdateVadStartVpn.c)
- *     MiSanitizePage @ 0x1404A096C (MiSanitizePage.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiAdvanceVadHint @ 0x14095CE00 (MiAdvanceVadHint.c)
- *     MiInitializeQuotaTracker @ 0x1409C4B54 (MiInitializeQuotaTracker.c)
- *     MiSelectUserAddress @ 0x1409C4FA0 (MiSelectUserAddress.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
- *     MiCommitVadMetadataBits @ 0x1409C6E14 (MiCommitVadMetadataBits.c)
- *     MiIsVaRangeAvailable @ 0x1409CE424 (MiIsVaRangeAvailable.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiReferenceVad @ 0x14027DE00 (MiReferenceVad.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140317984 (MiInsertViewOfPhysicalSection.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiIsPfn @ 0x14041A8F0 (MiIsPfn.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiUpdateVadStartVpn @ 0x140494C34 (MiUpdateVadStartVpn.c)
+ *     MiSanitizePage @ 0x14049A4BC (MiSanitizePage.c)
+ *     MiInitializeQuotaTracker @ 0x140995B34 (MiInitializeQuotaTracker.c)
+ *     MiSelectUserAddress @ 0x140995F80 (MiSelectUserAddress.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiCommitVadMetadataBits @ 0x140997DF4 (MiCommitVadMetadataBits.c)
+ *     MiIsVaRangeAvailable @ 0x14099F404 (MiIsVaRangeAvailable.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiAdvanceVadHint @ 0x140A026C0 (MiAdvanceVadHint.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, unsigned __int64 *a2, _QWORD *a3, unsigned int a4)
 {
   int v4; // eax
-  __int64 v9; // r14
+  ULONG_PTR v9; // r14
   struct _KTHREAD *CurrentThread; // r13
   int CurrentProcessorColor; // eax
   __int64 PoolMm; // rax
@@ -59,7 +59,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, unsigned __int64 *a2, 
   __int64 v36; // rax
   __int64 v37; // [rsp+50h] [rbp-78h]
   unsigned __int64 v38; // [rsp+58h] [rbp-70h]
-  __int64 v39; // [rsp+60h] [rbp-68h]
+  unsigned __int64 v39; // [rsp+60h] [rbp-68h]
   unsigned __int64 v40; // [rsp+60h] [rbp-68h]
   unsigned __int64 v41; // [rsp+68h] [rbp-60h]
   __int64 v42; // [rsp+70h] [rbp-58h] BYREF
@@ -85,7 +85,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, unsigned __int64 *a2, 
   v13 = PoolMm;
   if ( !PoolMm )
     return 3221225626LL;
-  v14 = MiInitializeQuotaTracker(PoolMm + 68, v9, 0LL);
+  MiInitializeQuotaTracker((_BYTE *)(PoolMm + 68), v9, 0);
   v15 = *(_DWORD *)(v14 + 48);
   *(_QWORD *)(v14 + 16) = -2LL;
   *(_QWORD *)(v13 + 40) = 0LL;
@@ -103,7 +103,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, unsigned __int64 *a2, 
   {
     v22 = v19 + *a2;
     v21 = v22 + *(_QWORD *)(a1 + 24) - 1LL;
-    if ( !(unsigned int)MiIsVaRangeAvailable(v9, v22, *(_DWORD *)(a1 + 24), *(_QWORD *)a1, *(_QWORD *)(a1 + 8)) )
+    if ( !MiIsVaRangeAvailable(v9, v22, *(_QWORD *)(a1 + 24), *(_QWORD *)a1, *(_QWORD *)(a1 + 8)) )
     {
       inserted = -1073741800;
       goto LABEL_24;
@@ -121,8 +121,8 @@ __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, unsigned __int64 *a2, 
                  0LL,
                  a4,
                  0,
-                 (__int64)&v42,
-                 (__int64)&v45);
+                 &v42,
+                 &v45);
     if ( inserted < 0 )
       goto LABEL_24;
     v21 = v45 + v39 - 1;
@@ -209,7 +209,7 @@ LABEL_44:
   MiInsertViewOfPhysicalSection(v9, v13, v16, v28);
   v30 = v42;
   if ( v42 )
-    MiAdvanceVadHint(v44, v43, v42);
+    MiAdvanceVadHint(v44, v43);
   if ( !*(_DWORD *)(a1 + 120) )
   {
     UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, v9);
@@ -217,7 +217,7 @@ LABEL_44:
   }
   MiLockVad((__int64)CurrentThread, v13, v30, v29);
   UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, v9);
-  v35 = MiCommitVadMetadataBits(v13, 0LL);
+  v35 = MiCommitVadMetadataBits(v13, 0LL, *(_DWORD *)(a1 + 120));
   if ( v35 >= 0 )
   {
     MiUnlockVad((__int64)CurrentThread, v13);

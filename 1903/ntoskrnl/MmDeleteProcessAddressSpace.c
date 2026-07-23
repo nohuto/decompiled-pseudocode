@@ -34,7 +34,7 @@ __int64 __fastcall MmDeleteProcessAddressSpace(ULONG_PTR BugCheckParameter1)
   ULONG_PTR *ProcessPartition; // r14
   __int64 v9; // rsi
   __int64 v10; // rdx
-  struct _SLIST_ENTRY *v11; // rcx
+  _SLIST_ENTRY *v11; // rcx
   void *v12; // rcx
   void *v13; // rcx
   _QWORD *v15; // rax
@@ -108,7 +108,7 @@ __int64 __fastcall MmDeleteProcessAddressSpace(ULONG_PTR BugCheckParameter1)
       MiDeleteAweInfo(BugCheckParameter1, v10);
     ExCleanupAutoExpandPushLock(v9 + 408);
   }
-  v11 = (struct _SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
+  v11 = (_SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
   if ( v11 )
   {
     MiEmptyPageAccessLog(v11);

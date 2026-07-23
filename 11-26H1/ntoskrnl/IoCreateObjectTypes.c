@@ -1,13 +1,13 @@
 /*
- * XREFs of IoCreateObjectTypes @ 0x140CBA8B8
+ * XREFs of IoCreateObjectTypes @ 0x140CC0930
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
- *     IopCreateIoRingObjectType @ 0x140CBEE88 (IopCreateIoRingObjectType.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
+ *     IopCreateIoRingObjectType @ 0x140CC4F58 (IopCreateIoRingObjectType.c)
  */
 
 bool IoCreateObjectTypes()
@@ -23,7 +23,7 @@ bool IoCreateObjectTypes()
   void *v9; // [rsp+88h] [rbp+17h]
   void *v10; // [rsp+90h] [rbp+1Fh]
   void *v11; // [rsp+98h] [rbp+27h]
-  __int64 (__fastcall *v12)(__int64, int, ULONG *, UNICODE_STRING *, PULONG, int, int, __int64, char); // [rsp+A0h] [rbp+2Fh]
+  __int64 (__fastcall *v12)(__int64, int, DWORD *, UNICODE_STRING *, PULONG, int, int, __int64, char); // [rsp+A0h] [rbp+2Fh]
   __int64 (__fastcall *v13)(__int64, __int64, __int64, int, __int64, char); // [rsp+A8h] [rbp+37h]
   int v14; // [rsp+B8h] [rbp+47h]
   int v15; // [rsp+BCh] [rbp+4Bh]
@@ -41,7 +41,7 @@ bool IoCreateObjectTypes()
     return 0;
   RtlInitUnicodeString(&DestinationString, L"Controller");
   v8 = 72;
-  if ( (int)ObCreateObjectType(&DestinationString, Src, 0LL, (__int64)&stru_140FC01F0.648) < 0 )
+  if ( (int)ObCreateObjectType(&DestinationString, Src, 0LL, (__int64)&stru_140FC11F0.SavedApcStateFill[40]) < 0 )
     return 0;
   RtlInitUnicodeString(&DestinationString, L"Device");
   HIWORD(Src[0]) |= 0x101u;

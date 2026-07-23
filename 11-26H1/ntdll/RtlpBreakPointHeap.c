@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpBreakPointHeap @ 0x180027944
+ * XREFs of RtlpBreakPointHeap @ 0x180012A14
  * Callers:
- *     RtlDebugAllocateHeap @ 0x180014940 (RtlDebugAllocateHeap.c)
- *     RtlpCheckHeapSignature @ 0x180014E10 (RtlpCheckHeapSignature.c)
- *     RtlpValidateHeap @ 0x180014EB8 (RtlpValidateHeap.c)
- *     RtlValidateHeap @ 0x1800156C0 (RtlValidateHeap.c)
- *     RtlpValidateHeapEntry @ 0x180015970 (RtlpValidateHeapEntry.c)
- *     RtlpCheckBusyBlockTail @ 0x180015B4C (RtlpCheckBusyBlockTail.c)
- *     RtlUnlockHeap @ 0x180015DE0 (RtlUnlockHeap.c)
- *     RtlLockHeap @ 0x180015FD0 (RtlLockHeap.c)
- *     RtlpAllocateHeap @ 0x18001E7C0 (RtlpAllocateHeap.c)
- *     RtlpReAllocateHeap @ 0x1800216E0 (RtlpReAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x180022780 (RtlDebugReAllocateHeap.c)
- *     RtlpFreeHeap @ 0x1800233D0 (RtlpFreeHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x180024F50 (RtlpCoalesceFreeBlocks.c)
- *     RtlpDeCommitFreeBlock @ 0x180025C70 (RtlpDeCommitFreeBlock.c)
- *     RtlpGrowBlockInPlace @ 0x180028190 (RtlpGrowBlockInPlace.c)
- *     RtlpCreateSplitBlock @ 0x180028890 (RtlpCreateSplitBlock.c)
- *     RtlDebugFreeHeap @ 0x1800FF818 (RtlDebugFreeHeap.c)
- *     RtlDebugCreateHeap @ 0x180113EEC (RtlDebugCreateHeap.c)
+ *     RtlpAllocateHeap @ 0x180009890 (RtlpAllocateHeap.c)
+ *     RtlpReAllocateHeap @ 0x18000C7B0 (RtlpReAllocateHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18000D850 (RtlDebugReAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x18000E4A0 (RtlpFreeHeap.c)
+ *     RtlpCoalesceFreeBlocks @ 0x180010020 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010D40 (RtlpDeCommitFreeBlock.c)
+ *     RtlpGrowBlockInPlace @ 0x180013260 (RtlpGrowBlockInPlace.c)
+ *     RtlpCreateSplitBlock @ 0x180013960 (RtlpCreateSplitBlock.c)
+ *     RtlDebugAllocateHeap @ 0x180060070 (RtlDebugAllocateHeap.c)
+ *     RtlpCheckHeapSignature @ 0x180060540 (RtlpCheckHeapSignature.c)
+ *     RtlpValidateHeap @ 0x1800605E8 (RtlpValidateHeap.c)
+ *     RtlValidateHeap @ 0x180060DF0 (RtlValidateHeap.c)
+ *     RtlpValidateHeapEntry @ 0x1800610A0 (RtlpValidateHeapEntry.c)
+ *     RtlpCheckBusyBlockTail @ 0x18006127C (RtlpCheckBusyBlockTail.c)
+ *     RtlUnlockHeap @ 0x180061510 (RtlUnlockHeap.c)
+ *     RtlLockHeap @ 0x180061700 (RtlLockHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800FEF68 (RtlDebugFreeHeap.c)
+ *     RtlDebugCreateHeap @ 0x1801136E8 (RtlDebugCreateHeap.c)
  * Callees:
  *     <none>
  */

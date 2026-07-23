@@ -1,28 +1,28 @@
 /*
- * XREFs of _PnpOpenPropertiesKey @ 0x1409937F0
+ * XREFs of _PnpOpenPropertiesKey @ 0x14097E830
  * Callers:
- *     _CmSetInstallerClassRegPropWorker @ 0x1408192D4 (_CmSetInstallerClassRegPropWorker.c)
- *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x14081E250 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x14081E3E8 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14081FD28 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
- *     _PnpDeletePropertyWorker @ 0x140991470 (_PnpDeletePropertyWorker.c)
- *     _PnpSetPropertyWorker @ 0x14099197C (_PnpSetPropertyWorker.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1409920EC (_PnpGetGenericStorePropertyKeys.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x140994210 (_CmGetInstallerClassRegPropWorker.c)
- *     _PnpGetGenericStorePropertyLocales @ 0x1409944D8 (_PnpGetGenericStorePropertyLocales.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1409B7148 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A96FC0 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140819A14 (_CmSetInstallerClassRegPropWorker.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x14081E990 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x14081EB28 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140820468 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _PnpDeletePropertyWorker @ 0x14097C4B0 (_PnpDeletePropertyWorker.c)
+ *     _PnpSetPropertyWorker @ 0x14097C9BC (_PnpSetPropertyWorker.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x14097D12C (_PnpGetGenericStorePropertyKeys.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x14097F250 (_CmGetInstallerClassRegPropWorker.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x14097F518 (_PnpGetGenericStorePropertyLocales.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1409AE4D8 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A937F0 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlValidSecurityDescriptor @ 0x140867870 (RtlValidSecurityDescriptor.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _PnpCtxRegCreateTree @ 0x140926128 (_PnpCtxRegCreateTree.c)
- *     _SysCtxRegCreateKey @ 0x140A51E2C (_SysCtxRegCreateKey.c)
- *     _PnpGetPropertiesSecurityDescriptor @ 0x140A79378 (_PnpGetPropertiesSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlValidSecurityDescriptor @ 0x14086BB60 (RtlValidSecurityDescriptor.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxRegCreateTree @ 0x140928268 (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegCreateKey @ 0x140A496BC (_SysCtxRegCreateKey.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x140A73678 (_PnpGetPropertiesSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpOpenPropertiesKey(
@@ -79,7 +79,7 @@ __int64 __fastcall PnpOpenPropertiesKey(
     if ( (unsigned __int64)(512 - v15) >= 0x30 )
     {
       v17 = 512 - v15 + 12;
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v17, 0x52504E50u);
       if ( !Pool2 )
         return 3221225495LL;
     }

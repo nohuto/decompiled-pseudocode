@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnSystemImageCommitment @ 0x140A8F7AC
+ * XREFs of MiReturnSystemImageCommitment @ 0x140A8BE44
  * Callers:
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
- *     MiUnmapReturnCharges @ 0x140A8F804 (MiUnmapReturnCharges.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
+ *     MiUnmapReturnCharges @ 0x140A8BE9C (MiUnmapReturnCharges.c)
  */
 
 __int64 __fastcall MiReturnSystemImageCommitment(__int64 a1)
@@ -20,6 +20,6 @@ __int64 __fastcall MiReturnSystemImageCommitment(__int64 a1)
     v2[3] = v3;
     *v2 = v3;
   }
-  _InterlockedAdd(&dword_140E375F0, -*((_DWORD *)v2 + 6));
+  _InterlockedAdd(&dword_140E37730, -*((_DWORD *)v2 + 6));
   return MiUnmapReturnCharges(&MiSystemPartition, v2);
 }

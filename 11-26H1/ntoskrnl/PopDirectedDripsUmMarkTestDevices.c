@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x140A3CEBC
+ * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x1409F88DC
  * Callers:
- *     PopDirectedDripsIdleResiliencyCallback @ 0x140A3D284 (PopDirectedDripsIdleResiliencyCallback.c)
+ *     PopDirectedDripsIdleResiliencyCallback @ 0x1409F8CA4 (PopDirectedDripsIdleResiliencyCallback.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x14077EF08 (PopDirectedDripsMarkCandidateDevice.c)
- *     PopDirectedDripsNotify @ 0x140B08694 (PopDirectedDripsNotify.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140B479D4 (IoLockUnlockPnpDeviceTree.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x140781A08 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopDirectedDripsNotify @ 0x140B0A610 (PopDirectedDripsNotify.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x140B49768 (IoLockUnlockPnpDeviceTree.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmMarkTestDevices(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -23,22 +23,19 @@ __int64 __fastcall PopDirectedDripsUmMarkTestDevices(__int64 a1, __int64 a2, __i
   __int64 v11; // [rsp+28h] [rbp-10h]
   __int64 v12; // [rsp+40h] [rbp+8h] BYREF
 
-  _m_prefetchw(&PopDirectedDripsUmLock.Header.WaitListHead.Blink);
-  LODWORD(result) = PopDirectedDripsUmLock.Header.WaitListHead.Blink;
+  _m_prefetchw(&PopDirectedDripsUmTestDeviceCount);
+  LODWORD(result) = PopDirectedDripsUmTestDeviceCount;
   do
   {
     v5 = result;
-    result = (unsigned int)_InterlockedCompareExchange(
-                             (volatile signed __int32 *)&PopDirectedDripsUmLock.Header.WaitListHead.Blink,
-                             result,
-                             result);
+    result = (unsigned int)_InterlockedCompareExchange(&PopDirectedDripsUmTestDeviceCount, result, result);
   }
   while ( v5 != (_DWORD)result );
   if ( (_DWORD)result )
   {
-    PopAcquireRwLockShared((volatile signed __int64 *)&PopDirectedDripsUmLock.Header.Lock, a2, a3, a4);
-    v12 = qword_140F0F5D0;
-    PopDirectedDripsNotify(PopDirectedDripsUmLock.ApcStateFill[0] != 0 ? 4 : 2, &v12);
+    PopAcquireRwLockShared(&PopDirectedDripsUmLock, a2, a3, a4);
+    v12 = PopWnfCsEnterScenarioId;
+    PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 4 : 2, &v12);
     LOBYTE(v6) = 1;
     IoLockUnlockPnpDeviceTree(v6);
     v7 = IopRootDeviceNode;
@@ -51,7 +48,7 @@ __int64 __fastcall PopDirectedDripsUmMarkTestDevices(__int64 a1, __int64 a2, __i
         Buffer[1] = *((unsigned __int16 *)v7 + 20) >> 1;
         v11 = v7[6];
         Buffer[0] = 1;
-        if ( RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)&PopDirectedDripsUmLock.StackLimit, Buffer) )
+        if ( RtlLookupElementGenericTableAvl(&PopDirectedDripsUmTestDeviceTable, Buffer) )
           PopDirectedDripsMarkCandidateDevice(v7[10]);
       }
       v9 = (_QWORD *)*v7;
@@ -70,8 +67,8 @@ __int64 __fastcall PopDirectedDripsUmMarkTestDevices(__int64 a1, __int64 a2, __i
       }
     }
     IoLockUnlockPnpDeviceTree(0LL);
-    PopDirectedDripsNotify(PopDirectedDripsUmLock.ApcStateFill[0] != 0 ? 5 : 3, &v12);
-    return PopReleaseRwLock(&PopDirectedDripsUmLock);
+    PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 5 : 3, &v12);
+    return PopReleaseRwLock((struct _KTHREAD *)&PopDirectedDripsUmLock);
   }
   return result;
 }

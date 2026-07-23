@@ -1,72 +1,73 @@
 /*
- * XREFs of PiDaDispatch @ 0x1409FB870
+ * XREFs of PiDaDispatch @ 0x1409F45B0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2, __int64 a3, __int64 a4)
+__int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
-  IRP *v5; // r8
-  __int64 v6; // rbp
+  IRP *v3; // r8
+  __int64 v4; // rbp
   PFILE_OBJECT FileObject; // rax
-  unsigned int v8; // ebx
+  unsigned int v6; // ebx
   wchar_t *Buffer; // rdi
-  char *v11; // rdx
+  char *v9; // rdx
   unsigned __int64 i; // rax
-  wchar_t *v13; // rcx
-  __int64 v14; // r11
-  int v15; // r10d
+  wchar_t *v11; // rcx
+  __int64 v12; // r11
+  int v13; // r10d
+  int v14; // r9d
 
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
-  v5 = a2;
-  v6 = a1;
+  v3 = a2;
+  v4 = a1;
   FileObject = CurrentStackLocation->FileObject;
   if ( !CurrentStackLocation->MajorFunction )
   {
     Buffer = FileObject->FileName.Buffer;
     if ( Buffer )
     {
-      v11 = 0LL;
+      v9 = 0LL;
       for ( i = 0LL; i < 15; i += 3LL )
       {
-        v13 = (&IrpHandlingTable)[i];
-        v14 = (char *)Buffer - (char *)v13;
+        v11 = (&IrpHandlingTable)[i];
+        v12 = (char *)Buffer - (char *)v11;
         do
         {
-          v15 = *(wchar_t *)((char *)v13 + v14);
-          a4 = (unsigned int)*v13 - v15;
-          if ( (_DWORD)a4 )
+          v13 = *(wchar_t *)((char *)v11 + v12);
+          v14 = *v11 - v13;
+          if ( v14 )
             break;
-          ++v13;
+          ++v11;
         }
-        while ( v15 );
-        if ( !(_DWORD)a4 )
+        while ( v13 );
+        if ( !v14 )
         {
-          if ( v11 == (char *)-1LL )
+          if ( v9 == (char *)-1LL )
             break;
-          a1 = v6;
-          CurrentStackLocation->FileObject->FsContext = v11;
-          a2 = v5;
-          return (unsigned int)guard_dispatch_icall_no_overrides(a1, a2, v5, a4);
+          a1 = v4;
+          CurrentStackLocation->FileObject->FsContext = v9;
+          a2 = v3;
+          return (unsigned int)guard_dispatch_icall_no_overrides(a1, a2);
         }
-        ++v11;
+        ++v9;
       }
     }
-    v8 = -1073741811;
-    v5->IoStatus.Status = -1073741811;
+    v6 = -1073741811;
+    v3->IoStatus.Status = -1073741811;
     goto LABEL_16;
   }
   if ( FileObject->FsContext >= (PVOID)5 )
   {
-    v8 = -1073741808;
+    v6 = -1073741808;
     a2->IoStatus.Status = -1073741808;
 LABEL_16:
-    IofCompleteRequest(v5, 0);
-    return v8;
+    IofCompleteRequest(v3, 0);
+    return v6;
   }
-  return (unsigned int)guard_dispatch_icall_no_overrides(a1, a2, v5, a4);
+  return (unsigned int)guard_dispatch_icall_no_overrides(a1, a2);
 }

@@ -1,22 +1,21 @@
 /*
- * XREFs of SepPrivilegeCheck @ 0x140403670
+ * XREFs of SepPrivilegeCheck @ 0x1403FE430
  * Callers:
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140851390 (ObpGrantAccess.c)
- *     SeSinglePrivilegeCheckEx @ 0x140853CA0 (SeSinglePrivilegeCheckEx.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     PsOpenProcess @ 0x140854350 (PsOpenProcess.c)
- *     NtCreateEvent @ 0x140856FC0 (NtCreateEvent.c)
- *     ObpAdjustCreatorAccessState @ 0x14087AD00 (ObpAdjustCreatorAccessState.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     IopCheckBackupRestorePrivilege @ 0x1408A1C40 (IopCheckBackupRestorePrivilege.c)
- *     SeCheckPrivilegedObject @ 0x140913BF4 (SeCheckPrivilegedObject.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
- *     SeCheckAuditPrivilege @ 0x14091FC2C (SeCheckAuditPrivilege.c)
- *     NtPrivilegeCheck @ 0x140937BF0 (NtPrivilegeCheck.c)
- *     ObCreateObject @ 0x14098A240 (ObCreateObject.c)
- *     SePrivilegeCheck @ 0x1409B0320 (SePrivilegeCheck.c)
- *     PiAuDoesClientHavePrivilege @ 0x140A85868 (PiAuDoesClientHavePrivilege.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14084D650 (ObpGrantAccess.c)
+ *     SeSinglePrivilegeCheckEx @ 0x14084FF60 (SeSinglePrivilegeCheckEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     PsOpenProcess @ 0x140850610 (PsOpenProcess.c)
+ *     NtCreateEvent @ 0x1408532A0 (NtCreateEvent.c)
+ *     ObpAdjustCreatorAccessState @ 0x14087EBB0 (ObpAdjustCreatorAccessState.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     IopCheckBackupRestorePrivilege @ 0x1408AA2E0 (IopCheckBackupRestorePrivilege.c)
+ *     SeCheckPrivilegedObject @ 0x1408EB21C (SeCheckPrivilegedObject.c)
+ *     SeCheckAuditPrivilege @ 0x140912648 (SeCheckAuditPrivilege.c)
+ *     ObCreateObject @ 0x140973930 (ObCreateObject.c)
+ *     NtPrivilegeCheck @ 0x140984C80 (NtPrivilegeCheck.c)
+ *     SePrivilegeCheck @ 0x14099A020 (SePrivilegeCheck.c)
+ *     PiAuDoesClientHavePrivilege @ 0x140A803A8 (PiAuDoesClientHavePrivilege.c)
  * Callees:
  *     <none>
  */

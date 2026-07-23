@@ -92,7 +92,7 @@ __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
   __int64 *v70; // rcx
   KIRQL v71; // [rsp+50h] [rbp-B0h]
   __int64 v73; // [rsp+58h] [rbp-A8h]
-  RTL_BITMAP BitMapHeader; // [rsp+68h] [rbp-98h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+68h] [rbp-98h] BYREF
   __int64 v75; // [rsp+78h] [rbp-88h]
   __int64 v76; // [rsp+80h] [rbp-80h]
   __int64 v77; // [rsp+88h] [rbp-78h]

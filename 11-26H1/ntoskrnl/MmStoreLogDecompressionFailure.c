@@ -1,12 +1,12 @@
 /*
- * XREFs of MmStoreLogDecompressionFailure @ 0x14070AFC0
+ * XREFs of MmStoreLogDecompressionFailure @ 0x14070FC70
  * Callers:
- *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14063DFC8 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
+ *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x140641BA8 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     MmStoreGetPhysicalAddress @ 0x14052FCB8 (MmStoreGetPhysicalAddress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     MmStoreGetPhysicalAddress @ 0x1405321B8 (MmStoreGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MmStoreLogDecompressionFailure(unsigned __int64 a1, unsigned int a2, int a3, int a4, int a5)
@@ -43,19 +43,19 @@ void __fastcall MmStoreLogDecompressionFailure(unsigned __int64 a1, unsigned int
   __int64 v37; // [rsp+F8h] [rbp-8h]
 
   v5 = a2;
-  if ( stru_140E36558.FirstArgument )
+  if ( stru_140E366D8.FirstArgument )
   {
     v9 = (unsigned __int64)MmStoreGetPhysicalAddress(a1) >> 12;
     if ( ((v5 + 4095 + (a1 & 0xFFF)) & 0xFFFFFFFFFFFFF000uLL) != 0x1000 )
       MmStoreGetPhysicalAddress(a1 + (unsigned int)(v5 - 1));
     if ( a3 )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-        && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000002LL) )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+        && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000002LL) )
       {
         v19 = a1;
         v24 = &v19;
-        v12 = (unsigned __int8 *)byte_14005A16D;
+        v12 = (unsigned __int8 *)&word_14005B3DE;
         v16 = v5;
         v26 = &v16;
         v28 = &v17;
@@ -80,12 +80,12 @@ LABEL_11:
         tlgWriteEx_EtwWriteEx(v11, v12, v10, 1u, v14, v15, 9u, &v23);
       }
     }
-    else if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-           && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000002LL) )
+    else if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+           && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000002LL) )
     {
       v22 = a1;
       v24 = &v22;
-      v12 = (unsigned __int8 *)&word_14005A0D6;
+      v12 = (unsigned __int8 *)&dword_14005B479 + 1;
       v18 = v5;
       v26 = &v18;
       v28 = &v17;

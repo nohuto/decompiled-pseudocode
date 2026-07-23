@@ -213,7 +213,7 @@ LABEL_43:
       || (v10 = CcInitializeProcessor((__int64)v6), v10 < 0)
       || (v10 = EtwInitializeProcessor((__int64)v6), v10 < 0)
       || (v10 = WheaInitializeProcessor((__int64)v6, 0), v10 < 0)
-      || (v10 = HvlInitializeProcessor((union _SLIST_HEADER *)v6, v27, a3), v10 < 0) )
+      || (v10 = HvlInitializeProcessor((_SLIST_HEADER *)v6, v27, a3), v10 < 0) )
     {
 LABEL_41:
       if ( v6 )

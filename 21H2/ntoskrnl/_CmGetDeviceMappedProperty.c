@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetDeviceMappedProperty @ 0x14063C5AC
+ * XREFs of _CmGetDeviceMappedProperty @ 0x1406313BC
  * Callers:
- *     _PnpDispatchDevice @ 0x14063C410 (_PnpDispatchDevice.c)
+ *     _PnpDispatchDevice @ 0x140631220 (_PnpDispatchDevice.c)
  * Callees:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x14063C7AC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14063EDF8 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140752E20 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406315BC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x140633C08 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140752FE0 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedProperty(
@@ -75,7 +75,7 @@ __int64 __fastcall CmGetDeviceMappedProperty(
       if ( DeviceMappedPropertyFromRegProp != -1073741802 )
         return DeviceMappedPropertyFromRegProp;
 LABEL_6:
-      v16 = &off_140983DC0;
+      v16 = &off_140983FA0;
       v17 = 0;
       while ( 1 )
       {
@@ -97,7 +97,7 @@ LABEL_6:
       if ( DeviceMappedPropertyFromRegProp != -1073741802 )
         return DeviceMappedPropertyFromRegProp;
 LABEL_9:
-      v19 = &off_140985DB0;
+      v19 = &off_140985F90;
       v20 = 0;
       while ( 1 )
       {

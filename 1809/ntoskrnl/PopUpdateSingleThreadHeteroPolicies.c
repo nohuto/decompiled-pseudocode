@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUpdateSingleThreadHeteroPolicies @ 0x140876460
+ * XREFs of PopUpdateSingleThreadHeteroPolicies @ 0x1408776C0
  * Callers:
  *     <none>
  * Callees:
- *     KiSetHeteroPolicyThread @ 0x14029905C (KiSetHeteroPolicyThread.c)
+ *     KiSetHeteroPolicyThread @ 0x14029924C (KiSetHeteroPolicyThread.c)
  */
 
 __int64 __fastcall PopUpdateSingleThreadHeteroPolicies(__int64 a1, __int64 a2)

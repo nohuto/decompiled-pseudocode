@@ -13,7 +13,7 @@
  *     _TlgCreateWsz @ 0x1800D27C8 (_TlgCreateWsz.c)
  */
 
-char __fastcall LdrpResReportResourceAccessInternal(__int64 a1, __int64 a2, __int64 *a3, int a4)
+char __fastcall LdrpResReportResourceAccessInternal(PVOID BaseOfImage, __int64 a2, __int64 *a3, int a4)
 {
   _DWORD *RcConfig; // rax
   __int64 v9; // rdx
@@ -54,13 +54,9 @@ char __fastcall LdrpResReportResourceAccessInternal(__int64 a1, __int64 a2, __in
   unsigned __int8 *v45; // [rsp+E0h] [rbp-20h]
   __int64 v46; // [rsp+E8h] [rbp-18h]
   EVENT_DATA_DESCRIPTOR v47; // [rsp+F0h] [rbp-10h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+110h] [rbp+10h] BYREF
+  _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+110h] [rbp+10h] BYREF
 
-  LODWORD(RcConfig) = RtlRunOnceExecuteOnce(
-                        &qword_180160110,
-                        (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
-                        0LL,
-                        0LL);
+  LODWORD(RcConfig) = RtlRunOnceExecuteOnce(&stru_180160110, LdrpResReportResourceAccessInternalInitOnce, 0LL, 0LL);
   if ( (int)RcConfig >= 0 )
   {
     v10 = (unsigned __int16)dword_18015FFF0;
@@ -70,7 +66,7 @@ char __fastcall LdrpResReportResourceAccessInternal(__int64 a1, __int64 a2, __in
       v27 = 0LL;
       if ( a2 )
       {
-        LODWORD(RcConfig) = LdrResGetRCConfig(a1, a2, &v27, 4096, 0);
+        LODWORD(RcConfig) = LdrResGetRCConfig(BaseOfImage, a2, &v27, 4096, 0);
         if ( (int)RcConfig < 0 )
           v11 = 0LL;
         else
@@ -78,7 +74,7 @@ char __fastcall LdrpResReportResourceAccessInternal(__int64 a1, __int64 a2, __in
       }
       else
       {
-        RcConfig = LdrpGetRcConfig(a1, v9, 0, 1);
+        RcConfig = LdrpGetRcConfig(BaseOfImage, v9, 0, 1);
         v11 = RcConfig;
       }
       if ( v11 )

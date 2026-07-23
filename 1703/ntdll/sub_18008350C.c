@@ -7,9 +7,9 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_18008350C(__int64 a1, __int64 a2)
+void __fastcall sub_18008350C(__int64 a1, __int64 a2)
 {
-  RtlAcquireSRWLockExclusive(&qword_18015C040);
+  RtlAcquireSRWLockExclusive(&stru_18015C040);
   sub_18001BB44(a1, a2);
-  return RtlReleaseSRWLockExclusive(&qword_18015C040);
+  RtlReleaseSRWLockExclusive(&stru_18015C040);
 }

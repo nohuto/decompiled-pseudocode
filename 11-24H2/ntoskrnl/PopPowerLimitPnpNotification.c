@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerLimitPnpNotification @ 0x14074B970
+ * XREFs of PopPowerLimitPnpNotification @ 0x140749CA0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopAcquirePowerLimitInterface @ 0x14074AFC0 (PopAcquirePowerLimitInterface.c)
- *     PopDisablePowerLimitExtension @ 0x14074B2F8 (PopDisablePowerLimitExtension.c)
- *     PopEvaluatePowerLimitChange @ 0x14074B3D4 (PopEvaluatePowerLimitChange.c)
- *     PopOrphanPowerLimitExtension @ 0x14074B888 (PopOrphanPowerLimitExtension.c)
- *     PopDiagTracePowerLimitExtension @ 0x14075706C (PopDiagTracePowerLimitExtension.c)
- *     PopDiagTracePowerLimitRequest @ 0x140757400 (PopDiagTracePowerLimitRequest.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopAcquirePowerLimitInterface @ 0x1407492F0 (PopAcquirePowerLimitInterface.c)
+ *     PopDisablePowerLimitExtension @ 0x140749628 (PopDisablePowerLimitExtension.c)
+ *     PopEvaluatePowerLimitChange @ 0x140749704 (PopEvaluatePowerLimitChange.c)
+ *     PopOrphanPowerLimitExtension @ 0x140749BB8 (PopOrphanPowerLimitExtension.c)
+ *     PopDiagTracePowerLimitExtension @ 0x1407554EC (PopDiagTracePowerLimitExtension.c)
+ *     PopDiagTracePowerLimitRequest @ 0x140755880 (PopDiagTracePowerLimitRequest.c)
  */
 
 __int64 __fastcall PopPowerLimitPnpNotification(char *NotificationStructure, unsigned __int64 *Context)

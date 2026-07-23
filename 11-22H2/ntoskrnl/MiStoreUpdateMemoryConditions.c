@@ -43,8 +43,8 @@ void __fastcall MiStoreUpdateMemoryConditions(__int64 a1)
   if ( *(_DWORD *)(a1 + 1268) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-    v12 = KiIrqlFlags;
-    if ( !KiIrqlFlags )
+    v12 = (char)KiIrqlFlags;
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_17;
     goto LABEL_19;
   }
@@ -97,8 +97,8 @@ void __fastcall MiStoreUpdateMemoryConditions(__int64 a1)
       SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList(*(_QWORD *)(*(_QWORD *)(a1 + 200) + 24LL) + 1408LL, 0LL);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-  v12 = KiIrqlFlags;
-  if ( KiIrqlFlags )
+  v12 = (char)KiIrqlFlags;
+  if ( (_DWORD)KiIrqlFlags )
   {
 LABEL_19:
     CurrentIrql = KeGetCurrentIrql();

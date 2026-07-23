@@ -1,15 +1,15 @@
 /*
- * XREFs of PspUnlockQuotaExpansion @ 0x1400C6974
+ * XREFs of PspUnlockQuotaExpansion @ 0x1400C4814
  * Callers:
- *     PspReturnResourceQuota @ 0x1400C6840 (PspReturnResourceQuota.c)
- *     PspExpandQuota @ 0x1400C68C4 (PspExpandQuota.c)
- *     PspInsertExpansionEntry @ 0x14014A7F8 (PspInsertExpansionEntry.c)
- *     PspExpandLimit @ 0x14020EFA0 (PspExpandLimit.c)
+ *     PspReturnResourceQuota @ 0x1400C46E0 (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x1400C4764 (PspExpandQuota.c)
+ *     PspInsertExpansionEntry @ 0x14014AD68 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x14020EDCC (PspExpandLimit.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
  */
 
 void __fastcall PspUnlockQuotaExpansion(__int64 a1, KIRQL a2)

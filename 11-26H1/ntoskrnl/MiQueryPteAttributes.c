@@ -1,29 +1,29 @@
 /*
- * XREFs of MiQueryPteAttributes @ 0x1402D2E80
+ * XREFs of MiQueryPteAttributes @ 0x1402B4C40
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402D28A0 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x1402B4660 (MiGetWorkingSetInfoList.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiLockLeafPage @ 0x140298E10 (MiLockLeafPage.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiInvalidPteConforms @ 0x1402F4430 (MiInvalidPteConforms.c)
- *     MiLockProtoPoolPage @ 0x1402F50D0 (MiLockProtoPoolPage.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiRotatedToFrameBuffer @ 0x1403125B4 (MiRotatedToFrameBuffer.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiQueryPfn @ 0x140469560 (MiQueryPfn.c)
- *     MiIsLazyStampedPte @ 0x1404893A8 (MiIsLazyStampedPte.c)
- *     MiQueryPteAddResidentAttributes @ 0x1404E9984 (MiQueryPteAddResidentAttributes.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiLockLeafPage @ 0x140298370 (MiLockLeafPage.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiInvalidPteConforms @ 0x1402D64B0 (MiInvalidPteConforms.c)
+ *     MiLockProtoPoolPage @ 0x1402D7150 (MiLockProtoPoolPage.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiRotatedToFrameBuffer @ 0x1403145E4 (MiRotatedToFrameBuffer.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiQueryPfn @ 0x140462CE0 (MiQueryPfn.c)
+ *     MiIsLazyStampedPte @ 0x140482EE8 (MiIsLazyStampedPte.c)
+ *     MiQueryPteAddResidentAttributes @ 0x1404E2D34 (MiQueryPteAddResidentAttributes.c)
  */
 
 __int64 __fastcall MiQueryPteAttributes(__int64 *a1, __int64 a2, ULONG_PTR a3)
@@ -96,10 +96,10 @@ LABEL_30:
       v18 = *(_QWORD *)(a2 + 16);
       if ( *(_BYTE *)(a2 + 32) )
       {
-        ProtoPteAddress = qword_140E2D630;
+        ProtoPteAddress = qword_140E2D7B0;
         v19 = v18 & 0xFFFFFFFFFFFFF000uLL;
         if ( v19 == 2147352576 )
-          ProtoPteAddress = qword_140E2D628;
+          ProtoPteAddress = qword_140E2D7A8;
         PrototypePteDirect = ProtoPteAddress;
       }
       else if ( (v8 & 0x80000) != 0
@@ -184,7 +184,7 @@ LABEL_30:
     }
     v27 = (unsigned int)MiPageToNode((v3 >> 12) & 0xFFFFFFFFFFLL);
     v29 = 48 * v14 - 0x220000000000LL;
-    if ( v14 <= qword_140E2D7A0
+    if ( v14 <= qword_140E2D920
       && (*(_QWORD *)(48 * v14 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0
       && ((*(_DWORD *)(v29 + 32) & 0x40000000) != 0 || MiIsPageOnBadList(48 * v14 - 0x220000000000LL)) )
     {
@@ -228,7 +228,7 @@ LABEL_51:
       if ( (*(_DWORD *)(v29 + 32) & 0x8000000) == 0 )
         goto LABEL_60;
       if ( v29 >= 0xFFFFDE0000000000uLL
-        && v29 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+        && v29 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
         && !(unsigned int)MiIsDecayPfn((__int64)(48 * v14) / 48) )
       {
         if ( (v31 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v29) == 9 )

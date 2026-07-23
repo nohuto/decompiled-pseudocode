@@ -1,19 +1,19 @@
 /*
- * XREFs of PiAuCheckTokenMembership @ 0x14095B710
+ * XREFs of PiAuCheckTokenMembership @ 0x14095B910
  * Callers:
- *     PiAuCheckClientInteractive @ 0x14095B650 (PiAuCheckClientInteractive.c)
+ *     PiAuCheckClientInteractive @ 0x14095B850 (PiAuCheckClientInteractive.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140781FF0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1407EF0C0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1407821E0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1407EF390 (RtlSetGroupSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -50,7 +50,7 @@ __int64 __fastcall PiAuCheckTokenMembership(void *Src, BOOLEAN *a2)
     Acl = RtlCreateAcl(v8, v4 - 40, 2u);
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((__int64)v8, 2u, 0, 1, (unsigned __int8 *)Src, 0);
+      Acl = RtlpAddKnownAce(v8, 2u, 0, 1, (unsigned __int8 *)Src, 0);
       if ( Acl >= 0 )
       {
         Acl = RtlSetDaclSecurityDescriptor(v6, 1u, v8, 0);

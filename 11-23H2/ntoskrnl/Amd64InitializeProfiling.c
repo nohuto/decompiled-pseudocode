@@ -1,16 +1,16 @@
 /*
- * XREFs of Amd64InitializeProfiling @ 0x140A98780
+ * XREFs of Amd64InitializeProfiling @ 0x140A985F0
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377060 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpMmAllocateMemory @ 0x14037D6E0 (HalpMmAllocateMemory.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     Amd64FreeCounter @ 0x140529350 (Amd64FreeCounter.c)
- *     Amd64GetGenericPerfEvent @ 0x14052952C (Amd64GetGenericPerfEvent.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377200 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpMmAllocateMemory @ 0x14037D880 (HalpMmAllocateMemory.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     Amd64FreeCounter @ 0x1405298A0 (Amd64FreeCounter.c)
+ *     Amd64GetGenericPerfEvent @ 0x140529A7C (Amd64GetGenericPerfEvent.c)
  */
 
 __int64 Amd64InitializeProfiling()

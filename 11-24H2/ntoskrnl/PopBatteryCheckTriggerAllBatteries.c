@@ -1,8 +1,8 @@
 /*
- * XREFs of PopBatteryCheckTriggerAllBatteries @ 0x140A3C2D0
+ * XREFs of PopBatteryCheckTriggerAllBatteries @ 0x140A31AB0
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
- *     PopBatteryCheckTrigger @ 0x140A3C298 (PopBatteryCheckTrigger.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryCheckTrigger @ 0x140A31A78 (PopBatteryCheckTrigger.c)
  * Callees:
  *     <none>
  */
@@ -14,9 +14,9 @@ char __fastcall PopBatteryCheckTriggerAllBatteries(__int64 a1, int a2)
   unsigned int v5; // r10d
   unsigned int v6; // ecx
 
-  v2 = qword_140F0AE70;
+  v2 = qword_140F0BCB0;
   v4 = 1;
-  while ( (__int64 *)v2 != &qword_140F0AE70 )
+  while ( (__int64 *)v2 != &qword_140F0BCB0 )
   {
     v5 = *(_DWORD *)(v2 + 64);
     if ( v5 - 1 <= 0xFFFFFFFD )

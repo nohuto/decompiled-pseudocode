@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDrvDbUnloadNodeReset @ 0x1400B4F18
+ * XREFs of PiDrvDbUnloadNodeReset @ 0x1400B2D50
  * Callers:
- *     PiDrvDbUnloadNodeWorkerCallback @ 0x1403F1F94 (PiDrvDbUnloadNodeWorkerCallback.c)
+ *     PiDrvDbUnloadNodeWorkerCallback @ 0x1403F0E58 (PiDrvDbUnloadNodeWorkerCallback.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PiDrvDbUnloadNodeReset(__int64 a1)

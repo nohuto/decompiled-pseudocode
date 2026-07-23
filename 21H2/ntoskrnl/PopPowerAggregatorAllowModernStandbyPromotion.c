@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorAllowModernStandbyPromotion @ 0x1408EDF7C
+ * XREFs of PopPowerAggregatorAllowModernStandbyPromotion @ 0x1408EE0DC
  * Callers:
- *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE360 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE4C0 (PopPowerAggregatorHandleModernStandbyIntent.c)
  * Callees:
  *     <none>
  */

@@ -13,7 +13,7 @@
  *     HvpGetBinContextInitialize @ 0x140BA99C0 (HvpGetBinContextInitialize.c)
  */
 
-__int64 __fastcall HvCheckHive(__int64 a1, int a2, __int64 a3, RTL_BITMAP *a4, __int64 a5, __int64 a6)
+__int64 __fastcall HvCheckHive(__int64 a1, int a2, __int64 a3, _RTL_BITMAP *a4, __int64 a5, __int64 a6)
 {
   __int64 v8; // r13
   int v9; // r8d

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool __fastcall RtlTryAcquireSRWLockExclusive(volatile signed __int32 *a1)
+BOOLEAN __cdecl RtlTryAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  return !_interlockedbittestandset64(a1, 0LL);
+  return !_interlockedbittestandset64((volatile signed __int32 *)SRWLock, 0LL);
 }

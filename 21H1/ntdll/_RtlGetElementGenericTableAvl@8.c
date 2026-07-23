@@ -7,67 +7,79 @@
  *     _RealSuccessor@4 @ 0x4B2AB895 (_RealSuccessor@4.c)
  */
 
-_DWORD *__stdcall RtlGetElementGenericTableAvl(_DWORD *a1, unsigned int a2)
+PVOID __cdecl RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
 {
-  unsigned int v2; // edx
-  _DWORD *i; // ecx
-  _DWORD *result; // eax
+  unsigned int WhichOrderedElement; // edx
+  _DWORD *OrderedPointer; // ecx
+  PVOID result; // eax
   int v5; // edx
-  unsigned int j; // ebx
+  ULONG i; // ebx
   unsigned int v7; // eax
-  unsigned int v8; // ebx
+  ULONG v8; // ebx
   int v9; // edx
 
-  v2 = a1[5];
-  if ( a2 == -1 || a2 + 1 > a1[6] )
+  WhichOrderedElement = Table->WhichOrderedElement;
+  if ( I == -1 || I + 1 > Table->NumberGenericTableElements )
     return 0;
-  i = (_DWORD *)a1[4];
-  if ( !i )
+  OrderedPointer = Table->OrderedPointer;
+  if ( !OrderedPointer )
   {
-    for ( i = (_DWORD *)a1[2]; i[1]; i = (_DWORD *)i[1] )
-      ;
-    v2 = 0;
-    a1[4] = i;
-    a1[5] = 0;
-  }
-  if ( a2 == v2 )
-    return i + 4;
-  if ( a2 >= v2 )
-  {
-    v7 = a1[6] - a2;
-    v8 = a2 - v2;
-    if ( a2 - v2 > v7 )
+    for ( OrderedPointer = &Table->BalancedRoot.RightChild->Parent;
+          OrderedPointer[1];
+          OrderedPointer = (_DWORD *)OrderedPointer[1] )
     {
-      for ( i = (_DWORD *)a1[2]; i[2]; i = (_DWORD *)i[2] )
+      ;
+    }
+    WhichOrderedElement = 0;
+    Table->OrderedPointer = OrderedPointer;
+    Table->WhichOrderedElement = 0;
+  }
+  if ( I == WhichOrderedElement )
+    return OrderedPointer + 4;
+  if ( I >= WhichOrderedElement )
+  {
+    v7 = Table->NumberGenericTableElements - I;
+    v8 = I - WhichOrderedElement;
+    if ( I - WhichOrderedElement > v7 )
+    {
+      for ( OrderedPointer = &Table->BalancedRoot.RightChild->Parent;
+            OrderedPointer[2];
+            OrderedPointer = (_DWORD *)OrderedPointer[2] )
+      {
         ;
+      }
       if ( v7 != 1 )
       {
         do
-          i = RealPredecessor(i);
+          OrderedPointer = RealPredecessor(OrderedPointer);
         while ( v9 != 1 );
       }
     }
     else
     {
       for ( ; v8; --v8 )
-        i = RealSuccessor(i);
+        OrderedPointer = RealSuccessor(OrderedPointer);
     }
   }
-  else if ( a2 < v2 >> 1 )
+  else if ( I < WhichOrderedElement >> 1 )
   {
-    for ( i = (_DWORD *)a1[2]; i[1]; i = (_DWORD *)i[1] )
+    for ( OrderedPointer = &Table->BalancedRoot.RightChild->Parent;
+          OrderedPointer[1];
+          OrderedPointer = (_DWORD *)OrderedPointer[1] )
+    {
       ;
-    for ( j = a2; j; --j )
-      i = RealSuccessor(i);
+    }
+    for ( i = I; i; --i )
+      OrderedPointer = RealSuccessor(OrderedPointer);
   }
-  else if ( v2 != a2 )
+  else if ( WhichOrderedElement != I )
   {
     do
-      i = RealPredecessor(i);
+      OrderedPointer = RealPredecessor(OrderedPointer);
     while ( v5 != 1 );
   }
-  a1[4] = i;
-  result = i + 4;
-  a1[5] = a2;
+  Table->OrderedPointer = OrderedPointer;
+  result = OrderedPointer + 4;
+  Table->WhichOrderedElement = I;
   return result;
 }

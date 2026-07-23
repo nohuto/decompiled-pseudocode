@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwOpenSemaphore()
+NTSTATUS __cdecl ZwOpenSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 278LL;
+  result = 278;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     iswctype @ 0x180093860 (iswctype.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     iswctype @ 0x180093870 (iswctype.c)
  */
 
 LONG __stdcall RtlEthernetStringToAddressW(PCWSTR S, LPCWSTR *Terminator, DL_EUI48 *Addr)

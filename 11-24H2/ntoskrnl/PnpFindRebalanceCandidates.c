@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpFindRebalanceCandidates @ 0x140734EBC
+ * XREFs of PnpFindRebalanceCandidates @ 0x140732DEC
  * Callers:
- *     PnpRebalance @ 0x1407352B8 (PnpRebalance.c)
+ *     PnpRebalance @ 0x1407331E8 (PnpRebalance.c)
  * Callees:
- *     PnpQueryRebalance @ 0x140734FE8 (PnpQueryRebalance.c)
+ *     PnpQueryRebalance @ 0x140732F18 (PnpQueryRebalance.c)
  */
 
 __int64 __fastcall PnpFindRebalanceCandidates(

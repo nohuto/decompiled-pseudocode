@@ -1,22 +1,22 @@
 /*
- * XREFs of KiComputeGroupSchedulingRank @ 0x1400D0304
+ * XREFs of KiComputeGroupSchedulingRank @ 0x1400CE1A4
  * Callers:
- *     KiQueueReadyThread @ 0x1400D0C70 (KiQueueReadyThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D20C0 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400CEB10 (KiQueueReadyThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400CFF60 (KiGroupSchedulingQuantumEnd.c)
  * Callees:
- *     KiRemoveSchedulingGroupQueue @ 0x140099478 (KiRemoveSchedulingGroupQueue.c)
- *     KiResortScbQueue @ 0x1400996DC (KiResortScbQueue.c)
- *     KiCheckForEffectivePriorityChange @ 0x1400A6E74 (KiCheckForEffectivePriorityChange.c)
- *     KiCheckMaxOverQuotaTransition @ 0x1400D0428 (KiCheckMaxOverQuotaTransition.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x140098C78 (KiRemoveSchedulingGroupQueue.c)
+ *     KiResortScbQueue @ 0x140098EDC (KiResortScbQueue.c)
+ *     KiCheckForEffectivePriorityChange @ 0x1400A53EC (KiCheckForEffectivePriorityChange.c)
+ *     KiCheckMaxOverQuotaTransition @ 0x1400CE2C8 (KiCheckMaxOverQuotaTransition.c)
  */
 
-void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
 {
   char v6; // al
   unsigned __int64 v7; // r9
   bool v8; // r8
   bool v9; // r9
-  char v10; // al
+  unsigned __int64 v10; // rax
   __int64 v11; // r8
   unsigned int v12; // ecx
   volatile signed __int32 *v13; // rax
@@ -39,19 +39,21 @@ void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
     *(_QWORD *)(a3 + 24) = *(_QWORD *)(a3 + 8) + (v14 >> 7);
     KiCheckForEffectivePriorityChange(a2, a3);
   }
-  v10 = *(_BYTE *)(a3 + 112);
+  LOBYTE(v10) = *(_BYTE *)(a3 + 112);
   if ( (v10 & 1) != 0 )
   {
     if ( (v10 & 2) != 0 )
-      KiRemoveSchedulingGroupQueue(a2, a3, 1);
+      LOBYTE(v10) = KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a2, a3, 1);
     else
-      KiResortScbQueue(a2, a3, 1);
+      LOBYTE(v10) = KiResortScbQueue((_RTL_RB_TREE *)a2, a3, 1);
   }
   if ( (*(_BYTE *)(a3 + 112) & 4) != 0 && !*(_BYTE *)(a2 + 23321) )
   {
+    v10 = (unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a2 + 36)] >> 6;
     _InterlockedOr64(
-      &qword_1402F6C18[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a2 + 36)] >> 6],
+      &qword_1402F6C18[v10],
       1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a2 + 36)] & 0x3F));
     *(_BYTE *)(a2 + 23321) = 1;
   }
+  return v10;
 }

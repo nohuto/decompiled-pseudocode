@@ -1,7 +1,7 @@
 /*
- * XREFs of KdCopyToUserInternal @ 0x140533F48
+ * XREFs of KdCopyToUserInternal @ 0x1405363C8
  * Callers:
- *     KdCopyToUser @ 0x140533EA0 (KdCopyToUser.c)
+ *     KdCopyToUser @ 0x140536320 (KdCopyToUser.c)
  * Callees:
  *     <none>
  */

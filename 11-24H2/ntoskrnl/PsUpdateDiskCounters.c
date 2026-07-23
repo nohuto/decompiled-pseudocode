@@ -1,7 +1,7 @@
 /*
- * XREFs of PsUpdateDiskCounters @ 0x14043EFB0
+ * XREFs of PsUpdateDiskCounters @ 0x140434B60
  * Callers:
- *     CcChargeThreadForReadAhead @ 0x1404DD06C (CcChargeThreadForReadAhead.c)
+ *     CcChargeThreadForReadAhead @ 0x1404D6A8C (CcChargeThreadForReadAhead.c)
  * Callees:
  *     <none>
  */

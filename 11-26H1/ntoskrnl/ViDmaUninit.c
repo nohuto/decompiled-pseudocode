@@ -1,5 +1,5 @@
 /*
- * XREFs of ViDmaUninit @ 0x140C398D0
+ * XREFs of ViDmaUninit @ 0x140C3F8E0
  * Callers:
  *     <none>
  * Callees:

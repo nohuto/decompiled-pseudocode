@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrpCheckKernelAddressForIrp @ 0x1409D1888
+ * XREFs of ViIrpCheckKernelAddressForIrp @ 0x1409D2888
  * Callers:
- *     VfBeforeCallDriver @ 0x1409D1078 (VfBeforeCallDriver.c)
+ *     VfBeforeCallDriver @ 0x1409D2078 (VfBeforeCallDriver.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     VfTargetDriversIsEnabled @ 0x1409D6F30 (VfTargetDriversIsEnabled.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfTargetDriversIsEnabled @ 0x1409D7F30 (VfTargetDriversIsEnabled.c)
  */
 
 struct _KTHREAD *__fastcall ViIrpCheckKernelAddressForIrp(

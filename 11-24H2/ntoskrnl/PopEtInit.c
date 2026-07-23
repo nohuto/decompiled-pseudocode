@@ -1,25 +1,25 @@
 /*
- * XREFs of PopEtInit @ 0x140C32B60
+ * XREFs of PopEtInit @ 0x140C34CA0
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     PopEtInitializeBuiltinAppId @ 0x14075E474 (PopEtInitializeBuiltinAppId.c)
- *     RtlInternTableInitialize @ 0x1407877B8 (RtlInternTableInitialize.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
- *     PopEtAllocate @ 0x1409044A0 (PopEtAllocate.c)
- *     PoEnergyContextStart @ 0x140907444 (PoEnergyContextStart.c)
- *     RtlGetVersion @ 0x140A08A00 (RtlGetVersion.c)
- *     PoEnergyContextInitialize @ 0x140A57074 (PoEnergyContextInitialize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     PopEtInitializeBuiltinAppId @ 0x14075D414 (PopEtInitializeBuiltinAppId.c)
+ *     RtlInternTableInitialize @ 0x1407876E8 (RtlInternTableInitialize.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
+ *     PoEnergyContextStart @ 0x1408DEB60 (PoEnergyContextStart.c)
+ *     PopEtAllocate @ 0x14099D3A0 (PopEtAllocate.c)
+ *     RtlGetVersion @ 0x140A04F30 (RtlGetVersion.c)
+ *     PoEnergyContextInitialize @ 0x140A4EF04 (PoEnergyContextInitialize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 PopEtInit()
 {
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   _QWORD *v1; // rbx
   __int64 result; // rax
   _WORD *v3; // rcx
@@ -48,7 +48,7 @@ __int64 PopEtInit()
   int v26; // [rsp+58h] [rbp-A8h]
   __int64 (__fastcall *v27)(__int64, __int64, __int64, __int64); // [rsp+70h] [rbp-90h]
   __int64 (__fastcall *v28)(__int64 *); // [rsp+78h] [rbp-88h]
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+B0h] [rbp-50h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+B0h] [rbp-50h] BYREF
 
   DestinationString = 0LL;
   if ( !PopEnergyEstimationEnabled )
@@ -82,7 +82,7 @@ __int64 PopEtInit()
     if ( v6 )
       dwBuildNumber = VersionInformation.dwBuildNumber;
     v3[533] = dwBuildNumber;
-    v3[532] = 8036;
+    v3[532] = 8894;
   }
   v8 = (_QWORD *)PopEtGlobals;
   *(_OWORD *)(PopEtGlobals + 40) = 0LL;
@@ -135,7 +135,7 @@ __int64 PopEtInit()
   result = ObCreateObjectType(&DestinationString, &v21, 0LL, PopEtGlobals + 32);
   if ( (int)result >= 0 )
   {
-    v18 = PopEtAllocate();
+    v18 = PopEtAllocate(0x270uLL);
     v19 = PopEtGlobals;
     *(_QWORD *)(PopEtGlobals + 1088) = v18;
     if ( !v18 )

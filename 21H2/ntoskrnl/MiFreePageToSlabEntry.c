@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreePageToSlabEntry @ 0x140375880
+ * XREFs of MiFreePageToSlabEntry @ 0x1403753D0
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x140375730 (MiFreePageToSlabAllocator.c)
+ *     MiFreePageToSlabAllocator @ 0x140375280 (MiFreePageToSlabAllocator.c)
  * Callees:
  *     <none>
  */

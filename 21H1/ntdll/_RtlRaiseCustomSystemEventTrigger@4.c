@@ -17,99 +17,106 @@
  *     _RtlpGetSebDataAndFilterBuffer@40 @ 0x4B369F12 (_RtlpGetSebDataAndFilterBuffer@40.c)
  */
 
-int __stdcall RtlRaiseCustomSystemEventTrigger(int a1)
+DWORD __cdecl RtlRaiseCustomSystemEventTrigger(PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG TriggerConfig)
 {
-  int WnfStateData; // esi
-  int Heap; // eax
+  NTSTATUS SebDataAndFilterBuffer; // esi
+  _DWORD *Heap; // eax
   _DWORD *v3; // ebx
   int v4; // ecx
-  int v6; // [esp+Ch] [ebp-44h] BYREF
-  int v7; // [esp+10h] [ebp-40h] BYREF
-  int *v8; // [esp+14h] [ebp-3Ch] BYREF
-  int v9; // [esp+18h] [ebp-38h] BYREF
-  UNICODE_STRING DestinationString; // [esp+1Ch] [ebp-34h] BYREF
-  int v11; // [esp+24h] [ebp-2Ch]
-  int v12; // [esp+28h] [ebp-28h]
-  int v13; // [esp+2Ch] [ebp-24h]
-  int v14; // [esp+30h] [ebp-20h]
-  _DWORD v15[2]; // [esp+34h] [ebp-1Ch] BYREF
-  _BYTE v16[16]; // [esp+3Ch] [ebp-14h] BYREF
+  SIZE_T v6; // [esp-4h] [ebp-54h]
+  ULONG BufferSize; // [esp+Ch] [ebp-44h] BYREF
+  int InfoBuffer; // [esp+10h] [ebp-40h] BYREF
+  PVOID BaseAddress; // [esp+14h] [ebp-3Ch] BYREF
+  ULONG ChangeStamp; // [esp+18h] [ebp-38h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+1Ch] [ebp-34h] BYREF
+  int v12; // [esp+24h] [ebp-2Ch]
+  int v13; // [esp+28h] [ebp-28h]
+  int v14; // [esp+2Ch] [ebp-24h]
+  int v15; // [esp+30h] [ebp-20h]
+  WNF_STATE_NAME StateName; // [esp+34h] [ebp-1Ch] BYREF
+  GUID Guid; // [esp+3Ch] [ebp-14h] BYREF
 
-  v8 = 0;
-  v11 = 0;
+  BaseAddress = 0;
   v12 = 0;
   v13 = 0;
   v14 = 0;
-  v15[0] = WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED;
-  v15[1] = 1099172670;
-  memset(v16, 0, sizeof(v16));
-  if ( !a1 )
+  v15 = 0;
+  StateName.Data[0] = WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED;
+  StateName.Data[1] = 1099172670;
+  memset(&Guid, 0, sizeof(Guid));
+  if ( !TriggerConfig )
     return -1073741811;
-  RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(a1 + 4));
-  WnfStateData = RtlGUIDFromString(&DestinationString.Length, (int)v16);
-  if ( WnfStateData < 0 )
-    return WnfStateData;
+  RtlInitUnicodeString(&DestinationString, (PCWSTR)TriggerConfig->TriggerId);
+  SebDataAndFilterBuffer = RtlGUIDFromString(&DestinationString, &Guid);
+  if ( SebDataAndFilterBuffer < 0 )
+    return SebDataAndFilterBuffer;
   if ( _InterlockedExchange(RtlpCtPublishInProgress, 1) )
     return -1073741823;
-  v6 = 4096;
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 4096);
-  v3 = (_DWORD *)Heap;
+  LODWORD(v6) = 4096;
+  BufferSize = 4096;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
+  v3 = Heap;
   if ( Heap )
   {
-    WnfStateData = NtQueryWnfStateData((int)v15, 0, 0, (int)&v9, Heap, (int)&v6);
-    if ( WnfStateData >= 0 )
+    SebDataAndFilterBuffer = NtQueryWnfStateData(&StateName, 0, 0, &ChangeStamp, Heap, &BufferSize);
+    if ( SebDataAndFilterBuffer >= 0 )
     {
-      WnfStateData = NtQueryWnfStateNameInformation((int)v15, 2, 0, (int)&v7, 4);
-      if ( WnfStateData >= 0 )
+      SebDataAndFilterBuffer = NtQueryWnfStateNameInformation(&StateName, WnfInfoIsQuiescent, 0, &InfoBuffer, 4u);
+      if ( SebDataAndFilterBuffer >= 0 )
       {
-        if ( v7 )
+        if ( InfoBuffer )
         {
-          WnfStateData = NtQueryWnfStateNameInformation((int)v15, 1, 0, (int)&v7, 4);
-          if ( WnfStateData >= 0 )
+          SebDataAndFilterBuffer = NtQueryWnfStateNameInformation(
+                                     &StateName,
+                                     WnfInfoSubscribersPresent,
+                                     0,
+                                     &InfoBuffer,
+                                     4u);
+          if ( SebDataAndFilterBuffer >= 0 )
           {
-            if ( v7 )
+            if ( InfoBuffer )
             {
-              v6 = 4096;
-              WnfStateData = RtlpGetSebDataAndFilterBuffer(v16, v4, v3 + 2, &v6, v11, v12, v13, v14);
-              if ( WnfStateData >= 0 )
+              BufferSize = 4096;
+              SebDataAndFilterBuffer = RtlpGetSebDataAndFilterBuffer(&Guid, v4, v3 + 2, &BufferSize, v12, v13, v14, v15);
+              if ( SebDataAndFilterBuffer >= 0 )
               {
                 v3[1] = -1;
                 *v3 = 0;
-                *v3 = 4 * (v6 & 0xFFF | 0x100000);
-                WnfStateData = RtlpCtContextInit(&v8, v9);
-                if ( WnfStateData >= 0 )
+                *v3 = 4 * (BufferSize & 0xFFF | 0x100000);
+                SebDataAndFilterBuffer = RtlpCtContextInit(&BaseAddress, ChangeStamp);
+                if ( SebDataAndFilterBuffer >= 0 )
                 {
-                  WnfStateData = NtUpdateWnfStateData((int)v15, (int)v3, v6 + 8, 0, 0, v9, 1);
-                  if ( WnfStateData >= 0 )
+                  SebDataAndFilterBuffer = NtUpdateWnfStateData(&StateName, v3, BufferSize + 8, 0, 0, ChangeStamp, 1u);
+                  if ( SebDataAndFilterBuffer >= 0 )
                   {
-                    TpPostWork(*v8);
+                    TpPostWork(*(PTP_WORK *)BaseAddress);
                     goto LABEL_22;
                   }
                 }
-                if ( v8 )
-                  RtlpCtContextFree();
+                if ( BaseAddress )
+                  RtlpCtContextFree(BaseAddress);
               }
             }
             else
             {
-              WnfStateData = -1073741653;
+              SebDataAndFilterBuffer = -1073741653;
             }
           }
         }
         else
         {
-          WnfStateData = -1073741823;
+          SebDataAndFilterBuffer = -1073741823;
         }
       }
     }
   }
   else
   {
-    WnfStateData = -1073741670;
+    SebDataAndFilterBuffer = -1073741670;
   }
   _InterlockedExchange(RtlpCtPublishInProgress, 0);
 LABEL_22:
   if ( v3 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v3);
-  return WnfStateData;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+  return SebDataAndFilterBuffer;
 }

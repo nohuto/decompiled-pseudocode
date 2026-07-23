@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventCoreParkingStateChangeEx @ 0x1404C6BA4
+ * XREFs of PpmEventCoreParkingStateChangeEx @ 0x1404C0554
  * Callers:
- *     PpmParkReportParkedCore @ 0x140253514 (PpmParkReportParkedCore.c)
+ *     PpmParkReportParkedCore @ 0x140254E74 (PpmParkReportParkedCore.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventCoreParkingStateChangeEx(__int64 a1, char a2)
@@ -22,10 +22,10 @@ void __fastcall PpmEventCoreParkingStateChangeEx(__int64 a1, char a2)
 
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, &PPM_ETW_PARK_CORE) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_CORE) )
     {
       *(_QWORD *)&UserData.Size = 8LL;
-      UserData.Ptr = (ULONGLONG)&PopSleepstudySessionLock.SystemCallNumber;
+      UserData.Ptr = (ULONGLONG)&PpmCheckTime;
       v4 = *(unsigned __int8 *)(a1 + 208);
       v7 = &v4;
       v9 = a1 + 209;
@@ -34,15 +34,7 @@ void __fastcall PpmEventCoreParkingStateChangeEx(__int64 a1, char a2)
       v10 = 1LL;
       v5 = a2 != 0;
       v11 = &v5;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_PARK_CORE,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        4u,
-        &UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_PARK_CORE, 0LL, 0, 0LL, 0LL, 4u, &UserData);
     }
   }
 }

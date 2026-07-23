@@ -1,13 +1,13 @@
 /*
- * XREFs of MiIsVadEligibleForCommitRelease @ 0x1405327D4
+ * XREFs of MiIsVadEligibleForCommitRelease @ 0x140534C74
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiProcessCommitIntact @ 0x14044D910 (MiProcessCommitIntact.c)
- *     MiReleaseCommitForResetPages @ 0x1406E4EA0 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x1406E502C (MiReleaseOutSwappedProcessCommit.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiProcessCommitIntact @ 0x140445A40 (MiProcessCommitIntact.c)
+ *     MiReleaseCommitForResetPages @ 0x1406E9B50 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1406E9CDC (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
- *     MiVadSupportsPrivateCommit @ 0x1403BBFA4 (MiVadSupportsPrivateCommit.c)
- *     MiVadMapsLargeImage @ 0x1403BC004 (MiVadMapsLargeImage.c)
+ *     MiVadSupportsPrivateCommit @ 0x1403C5E14 (MiVadSupportsPrivateCommit.c)
+ *     MiVadMapsLargeImage @ 0x1403C5E74 (MiVadMapsLargeImage.c)
  */
 
 _BOOL8 __fastcall MiIsVadEligibleForCommitRelease(__int64 a1)

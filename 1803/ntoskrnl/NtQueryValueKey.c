@@ -331,7 +331,7 @@ LABEL_55:
           if ( !v34 )
           {
             ++dword_1403D1E18;
-            v34 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_1403D1E30)(
+            v34 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _SLIST_HEADER *))qword_1403D1E30)(
                                   (unsigned int)dword_1403D1E24,
                                   (unsigned int)dword_1403D1E2C,
                                   (unsigned int)dword_1403D1E28,
@@ -493,7 +493,7 @@ LABEL_76:
       if ( LOWORD(CmpBounceBufferLookaside.Alignment) >= (unsigned __int16)word_1403D1E10 )
       {
         ++dword_1403D1E20;
-        ((void (__fastcall *)(void *, union _SLIST_HEADER *))qword_1403D1E38)(Src, &CmpBounceBufferLookaside);
+        ((void (__fastcall *)(void *, _SLIST_HEADER *))qword_1403D1E38)(Src, &CmpBounceBufferLookaside);
       }
       else
       {

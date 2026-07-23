@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpQueryNumaProcessorMap @ 0x140AF62B8
+ * XREFs of ExpQueryNumaProcessorMap @ 0x140AF8958
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
  *     KeQueryNodeActiveAffinity @ 0x140201320 (KeQueryNodeActiveAffinity.c)
- *     KeQueryHighestNodeNumber @ 0x1404884A0 (KeQueryHighestNodeNumber.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     KeQueryHighestNodeNumber @ 0x140481FE0 (KeQueryHighestNodeNumber.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall ExpQueryNumaProcessorMap(_DWORD *a1, unsigned int a2, char a3, _DWORD *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall ExpQueryNumaProcessorMap(_DWORD *a1, unsigned int a2, char a3
   unsigned int v9; // edi
   unsigned int i; // ebx
   _DWORD *v11; // rcx
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-40h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-40h] BYREF
 
   if ( a2 < 4 )
   {

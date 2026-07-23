@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoGetDeviceObjectPointer @ 0x14070C7DC
+ * XREFs of VerifierIoGetDeviceObjectPointer @ 0x14070C80C
  * Callers:
  *     <none>
  * Callees:

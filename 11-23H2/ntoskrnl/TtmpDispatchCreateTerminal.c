@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmpDispatchCreateTerminal @ 0x1409A656C
+ * XREFs of TtmpDispatchCreateTerminal @ 0x1409A676C
  * Callers:
- *     TtmDispatchApi @ 0x1409A5F8C (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409A618C (TtmDispatchApi.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A6238 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiCreateTerminal @ 0x1409AADA8 (TtmiCreateTerminal.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A6438 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiCreateTerminal @ 0x1409AAFA8 (TtmiCreateTerminal.c)
  */
 
 __int64 __fastcall TtmpDispatchCreateTerminal(__int64 a1, __int64 a2)

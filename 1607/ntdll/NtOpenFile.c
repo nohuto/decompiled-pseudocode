@@ -2,19 +2,19 @@
  * XREFs of NtOpenFile @ 0x1800A6A80
  * Callers:
  *     RtlpCheckRelativeDrive @ 0x180001718 (RtlpCheckRelativeDrive.c)
- *     LdrpMapDllNtFileName @ 0x18002D3AC (LdrpMapDllNtFileName.c)
- *     RtlpResolveAssemblyStorageMapEntry @ 0x180068EAC (RtlpResolveAssemblyStorageMapEntry.c)
- *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800697C0 (RtlpProbeAssemblyStorageRootForAssembly.c)
- *     LdrpFindLoadedDllByMappingFile @ 0x18007833C (LdrpFindLoadedDllByMappingFile.c)
- *     RtlpCreateNewDirectoryReference @ 0x180079468 (RtlpCreateNewDirectoryReference.c)
- *     RtlLockBootStatusData @ 0x1800895E0 (RtlLockBootStatusData.c)
- *     RtlpSysVolTakeOwnership @ 0x18008B698 (RtlpSysVolTakeOwnership.c)
- *     LdrpCheckAppDirType @ 0x1800D1E74 (LdrpCheckAppDirType.c)
- *     AvrfMiniLoadDll @ 0x1800D7614 (AvrfMiniLoadDll.c)
- *     LdrpCnvrtShortToLongFileName @ 0x1800DC01C (LdrpCnvrtShortToLongFileName.c)
- *     RtlpMUIEnumerateFolder @ 0x1800E7250 (RtlpMUIEnumerateFolder.c)
+ *     LdrpMapDllNtFileName @ 0x18002D39C (LdrpMapDllNtFileName.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x180068E9C (RtlpResolveAssemblyStorageMapEntry.c)
+ *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800697B0 (RtlpProbeAssemblyStorageRootForAssembly.c)
+ *     LdrpFindLoadedDllByMappingFile @ 0x18007832C (LdrpFindLoadedDllByMappingFile.c)
+ *     RtlpCreateNewDirectoryReference @ 0x180079458 (RtlpCreateNewDirectoryReference.c)
+ *     RtlLockBootStatusData @ 0x1800895D0 (RtlLockBootStatusData.c)
+ *     RtlpSysVolTakeOwnership @ 0x18008B688 (RtlpSysVolTakeOwnership.c)
+ *     LdrpCheckAppDirType @ 0x1800D1F34 (LdrpCheckAppDirType.c)
+ *     AvrfMiniLoadDll @ 0x1800D76D4 (AvrfMiniLoadDll.c)
+ *     LdrpCnvrtShortToLongFileName @ 0x1800DC0DC (LdrpCnvrtShortToLongFileName.c)
+ *     RtlpMUIEnumerateFolder @ 0x1800E7310 (RtlpMUIEnumerateFolder.c)
  *     RtlpOpenAndMapCustomCultureFile @ 0x1800EF630 (RtlpOpenAndMapCustomCultureFile.c)
- *     _ResFindFirstFileExW @ 0x180104314 (_ResFindFirstFileExW.c)
+ *     _ResFindFirstFileExW @ 0x180104254 (_ResFindFirstFileExW.c)
  * Callees:
  *     <none>
  */

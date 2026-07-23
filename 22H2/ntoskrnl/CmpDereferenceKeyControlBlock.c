@@ -162,7 +162,7 @@ LABEL_69:
           }
           goto LABEL_54;
         }
-        v21 = KeAbPreAcquire((ULONG_PTR)&CmpDelayedCloseTableLock, 0LL, 0LL);
+        v21 = KeAbPreAcquire((ULONG_PTR)&CmpDelayedCloseTableLock, 0LL, 0);
         v22 = v21;
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(1uLL);

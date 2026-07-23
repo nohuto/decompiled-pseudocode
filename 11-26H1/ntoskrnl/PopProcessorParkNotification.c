@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorParkNotification @ 0x1406061F0
+ * XREFs of PopProcessorParkNotification @ 0x140608CF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopProcessorParkNotification(__int64 a1, __int64 a2)
@@ -24,12 +24,12 @@ __int64 __fastcall PopProcessorParkNotification(__int64 a1, __int64 a2)
   {
     v5 = i++;
   }
-  if ( LOBYTE(stru_140E66FF0.Padding[1]) )
+  if ( byte_140E676E5 )
     goto LABEL_9;
   v6 = guard_dispatch_icall_no_overrides(v3, 31LL);
   if ( !v6 )
-    LOBYTE(stru_140E66FF0.Padding[1]) = 1;
-  if ( LOBYTE(stru_140E66FF0.Padding[1]) )
+    byte_140E676E5 = 1;
+  if ( byte_140E676E5 )
 LABEL_9:
     v6 = guard_dispatch_icall_no_overrides(v3, 14LL);
   return v6 == 0 ? 0xC00000BB : 0;

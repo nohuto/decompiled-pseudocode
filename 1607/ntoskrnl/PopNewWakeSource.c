@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNewWakeSource @ 0x14066E234
+ * XREFs of PopNewWakeSource @ 0x14066E318
  * Callers:
  *     PopHandleWakeSources @ 0x1403D0AEC (PopHandleWakeSources.c)
- *     PopProcessWakeSourceWork @ 0x14066E27C (PopProcessWakeSourceWork.c)
+ *     PopProcessWakeSourceWork @ 0x14066E360 (PopProcessWakeSourceWork.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

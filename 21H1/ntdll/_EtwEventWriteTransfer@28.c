@@ -6,7 +6,22 @@
  *     _EtwpEventWriteFull@44 @ 0x4B2E3CCF (_EtwpEventWriteFull@44.c)
  */
 
-int __stdcall EtwEventWriteTransfer(int a1, __int16 a2, int a3, int a4, int a5, int a6, int a7)
+ULONG __cdecl EtwEventWriteTransfer(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        LPCGUID ActivityId,
+        LPCGUID RelatedActivityId,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  return EtwpEventWriteFull(a1, a2, 0, 0, 0, a4, a5, a6, a7);
+  return EtwpEventWriteFull(
+           RegHandle,
+           SWORD2(RegHandle),
+           0,
+           0,
+           0,
+           ActivityId,
+           RelatedActivityId,
+           UserDataCount,
+           UserData);
 }

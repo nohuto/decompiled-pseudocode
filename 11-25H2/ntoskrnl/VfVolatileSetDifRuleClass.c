@@ -39,7 +39,7 @@ __int64 __fastcall VfVolatileSetDifRuleClass(void *Src, size_t Size)
   v4 = 0LL;
   v5 = 0;
   v6 = 0;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return 3221228554LL;
   if ( (_DWORD)VfRuleClasses )
     return 3221228669LL;

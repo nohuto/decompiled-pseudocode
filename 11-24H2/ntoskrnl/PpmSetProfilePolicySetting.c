@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmSetProfilePolicySetting @ 0x1409BD414
+ * XREFs of PpmSetProfilePolicySetting @ 0x1409A3A64
  * Callers:
- *     PopSetNewPolicyValue @ 0x1409BC67C (PopSetNewPolicyValue.c)
+ *     PopSetNewPolicyValue @ 0x1409A2CCC (PopSetNewPolicyValue.c)
  * Callees:
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PpmInfoApplySettingUpdate @ 0x1409BDA78 (PpmInfoApplySettingUpdate.c)
- *     PpmInfoReleaseLocks @ 0x1409BDB24 (PpmInfoReleaseLocks.c)
- *     PpmInfoAdjustSetting @ 0x140A34538 (PpmInfoAdjustSetting.c)
- *     PpmEventTraceProfileSetting @ 0x140A56DDC (PpmEventTraceProfileSetting.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PpmInfoApplySettingUpdate @ 0x1409A40C8 (PpmInfoApplySettingUpdate.c)
+ *     PpmInfoReleaseLocks @ 0x1409A4174 (PpmInfoReleaseLocks.c)
+ *     PpmInfoAdjustSetting @ 0x140A28548 (PpmInfoAdjustSetting.c)
+ *     PpmEventTraceProfileSetting @ 0x140A4EC6C (PpmEventTraceProfileSetting.c)
  */
 
 __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __int64 a4, int a5)
@@ -80,7 +80,7 @@ __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __
     {
 LABEL_4:
       v10 = 0;
-      v11 = &off_140FC4F58;
+      v11 = &off_140FC5F68;
       do
       {
         v12 = v11 - 1;
@@ -101,7 +101,7 @@ LABEL_4:
             else
               PopAcquireRwLockExclusive(&PpmIdlePolicyLock);
             v52 = PpmCurrentProfile[0];
-            v48 = dword_140F0BA4C;
+            v48 = dword_140F0B38C;
             v18 = *a1 - *(_QWORD *)&CPER_EMPTY_GUID.Data1;
             if ( *a1 == *(_QWORD *)&CPER_EMPTY_GUID.Data1 )
               v18 = a1[1] - *(_QWORD *)CPER_EMPTY_GUID.Data4;
@@ -128,7 +128,7 @@ LABEL_4:
               if ( v21 )
               {
                 LOBYTE(v22) = v13;
-                LOBYTE(v24) = byte_140F06988;
+                LOBYTE(v24) = byte_140F06CA8;
                 PpmEventTraceProfileSetting(v24, (unsigned int)*v12, (unsigned int)*v11, v22, v20, v49, v6, 0);
                 if ( v52 == PpmDefaultProfile )
                 {

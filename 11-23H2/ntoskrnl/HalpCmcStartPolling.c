@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpCmcStartPolling @ 0x1403B4968
+ * XREFs of HalpCmcStartPolling @ 0x1403B4B48
  * Callers:
- *     HalpCmciDeferredRoutine @ 0x140505710 (HalpCmciDeferredRoutine.c)
+ *     HalpCmciDeferredRoutine @ 0x140505C60 (HalpCmciDeferredRoutine.c)
  *     HalpInitializeCmc @ 0x140A8AD2C (HalpInitializeCmc.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     HalpIsPartitionCpuManager @ 0x140377EF8 (HalpIsPartitionCpuManager.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x140377F3C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     HalpIsPartitionCpuManager @ 0x140378098 (HalpIsPartitionCpuManager.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403780DC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpCmcStartPolling(__int64 a1, __int64 a2)
@@ -43,10 +43,10 @@ char __fastcall HalpCmcStartPolling(__int64 a1, __int64 a2)
       HalpCmcPollingStartDeferred = 1;
     }
     LOBYTE(v5) = KxReleaseSpinLock((volatile signed __int64 *)&HalpCmcFallbackLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v5) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v5 <= 0xFu
         && (unsigned __int8)v4 <= 0xFu
         && (unsigned __int8)v5 >= 2u )

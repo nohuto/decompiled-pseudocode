@@ -24,7 +24,7 @@ NTSTATUS __stdcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING KeyPath)
   wchar_t *Buffer; // rax
   unsigned __int64 v7; // rdx
   int v8; // edi
-  int v9; // [rsp+38h] [rbp-39h] BYREF
+  ULONG StringLength; // [rsp+38h] [rbp-39h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-31h] BYREF
   ULONG ReturnLength; // [rsp+50h] [rbp-21h] BYREF
   PSID TokenInformation[12]; // [rsp+58h] [rbp-19h] BYREF
@@ -33,10 +33,10 @@ NTSTATUS __stdcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING KeyPath)
   result = ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, TokenUser, TokenInformation, 0x58u, &ReturnLength);
   if ( result >= 0 )
   {
-    result = RtlLengthSidAsUnicodeString(TokenInformation[0], &v9);
+    result = RtlLengthSidAsUnicodeString(TokenInformation[0], &StringLength);
     if ( result >= 0 )
     {
-      v3 = v9;
+      v3 = StringLength;
       KeyPath->Length = 0;
       v4 = (unsigned __int16)(v3 + 34);
       KeyPath->MaximumLength = v4;

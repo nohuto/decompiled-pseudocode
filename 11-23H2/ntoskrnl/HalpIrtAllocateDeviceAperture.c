@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIrtAllocateDeviceAperture @ 0x1409346A0
+ * XREFs of HalpIrtAllocateDeviceAperture @ 0x1409348A0
  * Callers:
- *     HalpIrtAllocateIndex @ 0x14081E298 (HalpIrtAllocateIndex.c)
- *     HalpIrtInitializeDeviceApertures @ 0x1409349E4 (HalpIrtInitializeDeviceApertures.c)
+ *     HalpIrtAllocateIndex @ 0x14081E568 (HalpIrtAllocateIndex.c)
+ *     HalpIrtInitializeDeviceApertures @ 0x140934BE4 (HalpIrtInitializeDeviceApertures.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     HalpIrtExtendApertureRange @ 0x1409347F0 (HalpIrtExtendApertureRange.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     HalpIrtExtendApertureRange @ 0x1409349F0 (HalpIrtExtendApertureRange.c)
  */
 
 __int64 __fastcall HalpIrtAllocateDeviceAperture(int a1, int a2, int a3, int a4, _DWORD *a5)

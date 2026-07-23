@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHvMapDeviceMsiRange @ 0x140BEAA94
+ * XREFs of HalpHvMapDeviceMsiRange @ 0x140BF0A94
  * Callers:
- *     HalpInterruptRemap @ 0x14057BD44 (HalpInterruptRemap.c)
+ *     HalpInterruptRemap @ 0x14057E274 (HalpInterruptRemap.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpHvBuildDeviceId @ 0x140BE942C (HalpHvBuildDeviceId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpHvBuildDeviceId @ 0x140BEF42C (HalpHvBuildDeviceId.c)
  */
 
 __int64 __fastcall HalpHvMapDeviceMsiRange(

@@ -6,35 +6,39 @@
  *     _RtlpPopulateContext@12 @ 0x4B35B59E (_RtlpPopulateContext@12.c)
  */
 
-char __stdcall RtlInsertEntryHashTable(int a1, _DWORD *a2, int a3, char *a4)
+BOOLEAN __cdecl RtlInsertEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry,
+        ULONG_PTR Signature,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
   char *v4; // esi
-  int *v5; // eax
-  int v6; // ecx
+  _LIST_ENTRY *v5; // eax
+  _LIST_ENTRY *Flink; // ecx
   char v8; // [esp+Ch] [ebp-Ch] BYREF
 
-  v4 = a4;
-  a2[2] = a3;
-  ++*(_DWORD *)(a1 + 20);
-  if ( a4 )
+  v4 = (char *)HIDWORD(Signature);
+  Entry->Signature = Signature;
+  ++HashTable->NumEntries;
+  if ( HIDWORD(Signature) )
   {
-    if ( !*(_DWORD *)a4 )
-      RtlpPopulateContext(a3);
+    if ( !*(_DWORD *)HIDWORD(Signature) )
+      RtlpPopulateContext(Signature);
   }
   else
   {
-    RtlpPopulateContext(a3);
+    RtlpPopulateContext(Signature);
     v4 = &v8;
   }
   if ( **(_DWORD **)v4 == *(_DWORD *)v4 )
-    ++*(_DWORD *)(a1 + 24);
-  v5 = (int *)*((_DWORD *)v4 + 1);
-  v6 = *v5;
-  if ( *(int **)(*v5 + 4) != v5 )
+    ++HashTable->NonEmptyBuckets;
+  v5 = (_LIST_ENTRY *)*((_DWORD *)v4 + 1);
+  Flink = v5->Flink;
+  if ( v5->Flink->Blink != v5 )
     __fastfail(3u);
-  a2[1] = v5;
-  *a2 = v6;
-  *(_DWORD *)(v6 + 4) = a2;
-  *v5 = (int)a2;
+  Entry->Linkage.Blink = v5;
+  Entry->Linkage.Flink = Flink;
+  Flink->Blink = &Entry->Linkage;
+  v5->Flink = &Entry->Linkage;
   return 1;
 }

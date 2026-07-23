@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStackDbContextCleanup @ 0x18012D1C8
+ * XREFs of RtlStackDbContextCleanup @ 0x18012D1F4
  * Callers:
- *     RtlpHpStackTraceDisable @ 0x18011751C (RtlpHpStackTraceDisable.c)
+ *     RtlpHpStackTraceDisable @ 0x1801174EC (RtlpHpStackTraceDisable.c)
  * Callees:
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */

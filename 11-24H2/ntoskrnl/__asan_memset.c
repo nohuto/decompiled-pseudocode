@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_memset @ 0x1405AC290
+ * XREFs of __asan_memset @ 0x1405A9200
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall _asan_memset(ULONG_PTR BugCheckParameter1, int Val, ULONG_PTR BugCheckParameter2)
@@ -16,7 +16,7 @@ void *__fastcall _asan_memset(ULONG_PTR BugCheckParameter1, int Val, ULONG_PTR B
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
   v3 = BugCheckParameter2;
-  if ( byte_140FCDC2A && BugCheckParameter1 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && BugCheckParameter1 >= 0xFFFF800000000000uLL )
   {
     if ( BugCheckParameter2 )
     {

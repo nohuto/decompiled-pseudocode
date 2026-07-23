@@ -30,7 +30,7 @@ __int64 __fastcall HalSendNMI(struct _KAFFINITY_EX *a1)
   bool v12; // di
   bool v13; // di
   bool v14; // di
-  struct _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-D0h] BYREF
+  _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-D0h] BYREF
   __int64 v16; // [rsp+40h] [rbp-C8h]
   __int128 v17; // [rsp+48h] [rbp-C0h]
   int v18; // [rsp+58h] [rbp-B0h]

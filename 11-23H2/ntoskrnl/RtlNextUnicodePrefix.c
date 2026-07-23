@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlNextUnicodePrefix @ 0x140865AC0
+ * XREFs of RtlNextUnicodePrefix @ 0x140865D00
  * Callers:
  *     <none>
  * Callees:
- *     RtlRealSuccessor @ 0x140326CF0 (RtlRealSuccessor.c)
+ *     RtlRealSuccessor @ 0x140326F80 (RtlRealSuccessor.c)
  */
 
 PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlNextUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, BOOLEAN Restart)
@@ -15,7 +15,7 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlNextUnicodePrefix(PUNICODE_PREFIX_TABLE
   RTL_SPLAY_LINKS *v7; // rcx
   RTL_SPLAY_LINKS *Parent; // rdx
   _RTL_SPLAY_LINKS *v9; // rax
-  RTL_SPLAY_LINKS *v10; // rcx
+  _RTL_SPLAY_LINKS *v10; // rcx
   _RTL_SPLAY_LINKS *LeftChild; // rcx
 
   if ( Restart || (LastNextEntry = PrefixTable->LastNextEntry) == 0LL )

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetAvailableProximityId @ 0x140CB13B4
+ * XREFs of HalpGetAvailableProximityId @ 0x140CB73F4
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140CB19FC (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140CB7A3C (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryActiveProcessorAffinity2 @ 0x140393770
+ * XREFs of KeQueryActiveProcessorAffinity2 @ 0x140393950
  * Callers:
- *     PpmCheckInitProcessors @ 0x14082E2C4 (PpmCheckInitProcessors.c)
- *     PpmRegisterPerfStates @ 0x14082E54C (PpmRegisterPerfStates.c)
- *     KeConfigureHeteroProcessors @ 0x1409728E8 (KeConfigureHeteroProcessors.c)
- *     PpmInstallPlatformIdleStates @ 0x140982410 (PpmInstallPlatformIdleStates.c)
- *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1409E4134 (EtwpGetMicroarchitecturalPmcAffinity.c)
+ *     PpmCheckInitProcessors @ 0x14082E5C4 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x14082E84C (PpmRegisterPerfStates.c)
+ *     KeConfigureHeteroProcessors @ 0x140972AE8 (KeConfigureHeteroProcessors.c)
+ *     PpmInstallPlatformIdleStates @ 0x140982610 (PpmInstallPlatformIdleStates.c)
+ *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1409E43C4 (EtwpGetMicroarchitecturalPmcAffinity.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
  */
 
 __int64 __fastcall KeQueryActiveProcessorAffinity2(__int64 a1)

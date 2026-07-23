@@ -1,20 +1,20 @@
 /*
- * XREFs of VfBranchTracingPluginEntry @ 0x140B937E0
+ * XREFs of VfBranchTracingPluginEntry @ 0x140B957E0
  * Callers:
- *     VfNotifyVerifierOfEvent @ 0x140B82EA0 (VfNotifyVerifierOfEvent.c)
+ *     VfNotifyVerifierOfEvent @ 0x140B84EA0 (VfNotifyVerifierOfEvent.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViIsBTSSupported @ 0x140B93A54 (ViIsBTSSupported.c)
- *     ViSetupBTSPerProcNoEnable @ 0x140B93B80 (ViSetupBTSPerProcNoEnable.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViIsBTSSupported @ 0x140B95A54 (ViIsBTSSupported.c)
+ *     ViSetupBTSPerProcNoEnable @ 0x140B95B80 (ViSetupBTSPerProcNoEnable.c)
  */
 
 __int64 VfBranchTracingPluginEntry()
 {
   int v1; // eax
   __int64 i; // rbx
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   _QWORD *v4; // rax
   void **v5; // rcx
   void *v6; // rcx

@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpReleaseSearchDBContext @ 0x1404852B4
+ * XREFs of SdbpReleaseSearchDBContext @ 0x14051463C
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14049D418 (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x140572FBC (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x140515544 (SdbGetDatabaseMatch.c)
+ *     SdbpCheckKObject @ 0x1405734FC (SdbpCheckKObject.c)
  * Callees:
- *     AslFree @ 0x14048538C (AslFree.c)
- *     SdbpFreePackageAttributes @ 0x1406C3208 (SdbpFreePackageAttributes.c)
- *     AslHashFree @ 0x1406C5E28 (AslHashFree.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     SdbpFreePackageAttributes @ 0x1406C3340 (SdbpFreePackageAttributes.c)
+ *     AslHashFree @ 0x1406C5F60 (AslHashFree.c)
  */
 
 void __fastcall SdbpReleaseSearchDBContext(__int64 a1)

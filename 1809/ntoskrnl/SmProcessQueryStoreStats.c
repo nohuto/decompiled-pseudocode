@@ -1,11 +1,11 @@
 /*
- * XREFs of SmProcessQueryStoreStats @ 0x1408AB234
+ * XREFs of SmProcessQueryStoreStats @ 0x1408AC494
  * Callers:
- *     PfpPrivSourceEnum @ 0x1405B1B60 (PfpPrivSourceEnum.c)
- *     EtwpLogMemInfoWs @ 0x1408B7FEC (EtwpLogMemInfoWs.c)
+ *     PfpPrivSourceEnum @ 0x1405B2B60 (PfpPrivSourceEnum.c)
+ *     EtwpLogMemInfoWs @ 0x1408B92AC (EtwpLogMemInfoWs.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SmpProcessQueryStoreStats @ 0x140306588 (SmpProcessQueryStoreStats.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SmpProcessQueryStoreStats @ 0x140306778 (SmpProcessQueryStoreStats.c)
  */
 
 __int64 __fastcall SmProcessQueryStoreStats(void *a1, _QWORD *a2, _QWORD *a3)

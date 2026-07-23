@@ -1,39 +1,49 @@
 /*
- * XREFs of PopIdleCsStateChanged @ 0x14099BE3C
+ * XREFs of PopIdleCsStateChanged @ 0x14099C03C
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1405997B0 (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x140599CA0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     PopIdleCancelAoAcDozeS4Timer @ 0x14032EFC0 (PopIdleCancelAoAcDozeS4Timer.c)
- *     PopGetModernStandbyTransitionReason @ 0x1403C84BC (PopGetModernStandbyTransitionReason.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x14059E178 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14032F250 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopGetModernStandbyTransitionReason @ 0x1403C869C (PopGetModernStandbyTransitionReason.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14059E668 (PopIdleArmAoAcDozeS4Timer.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopIdleCsStateChanged(int a1)
-{
-  char v1; // bl
-  unsigned int ModernStandbyTransitionReason; // eax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-
-  v1 = a1;
-  PopAcquirePolicyLock(a1);
-  byte_140C3CD51 = v1;
-  ModernStandbyTransitionReason = PopGetModernStandbyTransitionReason(0);
-  if ( v1 )
-  {
-    qword_140C3CD58 = qword_140CF7C08;
-    if ( !qword_140CF7C08 )
-      qword_140C3CD58 = MEMORY[0xFFFFF78000000008];
-    PopIdleArmAoAcDozeS4Timer();
-  }
-  else if ( ModernStandbyTransitionReason >= 0x1000000 || (ModernStandbyTransitionReason & 0xFFFFFF) != 6 )
-  {
-    PopIdleCancelAoAcDozeS4Timer(1u);
-    dword_140C3CD30 = 0;
-    qword_140C3CD58 = 0LL;
-  }
-  return PopReleasePolicyLock(v4, v3, v5);
-}
+/*
+ * Hex-Rays decompilation failed for PopIdleCsStateChanged @ 0x14099C03C
+ * Reason: Hex-Rays returned no pseudocode for 0x14099C03C
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 000000014099C03C: push    rbx
+ * 000000014099C03E: sub     rsp, 20h
+ * 000000014099C042: mov     bl, cl
+ * 000000014099C044: call    PopAcquirePolicyLock
+ * 000000014099C049: xor     ecx, ecx
+ * 000000014099C04B: mov     cs:byte_140C3CCF1, bl
+ * 000000014099C051: call    PopGetModernStandbyTransitionReason
+ * 000000014099C056: test    bl, bl
+ * 000000014099C058: jz      short loc_14099C088
+ * 000000014099C05A: mov     rax, cs:qword_140CF7C08
+ * 000000014099C061: mov     cs:qword_140C3CCF8, rax
+ * 000000014099C068: test    rax, rax
+ * 000000014099C06B: jnz     short loc_14099C081
+ * 000000014099C06D: mov     rax, 0FFFFF78000000008h
+ * 000000014099C077: mov     rax, [rax]
+ * 000000014099C07A: mov     cs:qword_140C3CCF8, rax
+ * 000000014099C081: call    PopIdleArmAoAcDozeS4Timer
+ * 000000014099C086: jmp     short loc_14099C0B2
+ * 000000014099C088: cmp     eax, 1000000h
+ * 000000014099C08D: jnb     short loc_14099C099
+ * 000000014099C08F: and     eax, 0FFFFFFh
+ * 000000014099C094: cmp     eax, 6
+ * 000000014099C097: jz      short loc_14099C0B2
+ * 000000014099C099: mov     ecx, 1
+ * 000000014099C09E: call    PopIdleCancelAoAcDozeS4Timer
+ * 000000014099C0A3: and     cs:dword_140C3CCD0, 0
+ * 000000014099C0AA: and     cs:qword_140C3CCF8, 0
+ * 000000014099C0B2: call    PopReleasePolicyLock
+ * 000000014099C0B7: add     rsp, 20h
+ * 000000014099C0BB: pop     rbx
+ * 000000014099C0BC: retn
+ */

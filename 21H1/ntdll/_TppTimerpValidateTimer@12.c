@@ -16,7 +16,7 @@ int __thiscall TppTimerpValidateTimer(int this, int a2)
   if ( this
     && !*(_BYTE *)(this + 221)
     && TppValidateCleanupGroupMember()
-    && *(int (__stdcall ***)(int))(this + 4) == TppTimerpCleanupGroupMemberVFuncs
+    && *(int (__stdcall ***)(PVOID))(this + 4) == &TppTimerpCleanupGroupMemberVFuncs
     && !NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     return 1;

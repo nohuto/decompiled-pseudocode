@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitializeSwapReference @ 0x14078D944
+ * XREFs of RtlInitializeSwapReference @ 0x14078D874
  * Callers:
- *     CmFcManagerInitialize @ 0x140C4CE4C (CmFcManagerInitialize.c)
+ *     CmFcManagerInitialize @ 0x140C4EFE8 (CmFcManagerInitialize.c)
  * Callees:
  *     <none>
  */

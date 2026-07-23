@@ -1,15 +1,15 @@
 /*
- * XREFs of KiDynamicProcessorInitialization @ 0x14051243C
+ * XREFs of KiDynamicProcessorInitialization @ 0x14051267C
  * Callers:
- *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1408BA7D8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     KeIpiGenericCall @ 0x1403A4C70 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeWriteProtectProcessorState @ 0x14099F128 (KeWriteProtectProcessorState.c)
+ *     KeWriteProtectProcessorState @ 0x1409A0058 (KeWriteProtectProcessorState.c)
  */
 
 void __fastcall KiDynamicProcessorInitialization(__int64 a1)
@@ -25,8 +25,8 @@ void __fastcall KiDynamicProcessorInitialization(__int64 a1)
   bool v10; // zf
   ULONG Context; // [rsp+20h] [rbp-30h] BYREF
   ULONG Context_4; // [rsp+24h] [rbp-2Ch]
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   v1 = *(unsigned int *)(a1 + 36);
   Affinity = 0LL;

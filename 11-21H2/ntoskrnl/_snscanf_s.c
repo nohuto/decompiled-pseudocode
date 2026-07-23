@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _sinput_s @ 0x1403E9BB4 (_sinput_s.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
+ *     sub_1403E9BB4 @ 0x1403E9BB4 (sub_1403E9BB4.c)
  */
 
 int snscanf_s(const char *Src, size_t MaxCount, const char *Format, ...)
@@ -13,7 +13,7 @@ int snscanf_s(const char *Src, size_t MaxCount, const char *Format, ...)
 
   va_start(va, Format);
   if ( Format )
-    return sinput_s(Src, MaxCount, Format, (__int64 *)va);
-  xHalTimerWatchdogStop();
+    return sub_1403E9BB4(Src, MaxCount, Format, (__int64 *)va);
+  _misaligned_access();
   return -1;
 }

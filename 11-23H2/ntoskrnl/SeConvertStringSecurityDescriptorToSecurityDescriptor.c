@@ -1,9 +1,9 @@
 /*
  * XREFs of SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14020BC20
  * Callers:
- *     IopUpdateSecureDeviceClassState @ 0x14083A8F8 (IopUpdateSecureDeviceClassState.c)
- *     IoCreateDeviceSecure @ 0x14083B030 (IoCreateDeviceSecure.c)
- *     PspIumVerifyParentSd @ 0x1409B63E4 (PspIumVerifyParentSd.c)
+ *     IopUpdateSecureDeviceClassState @ 0x14083ABF8 (IopUpdateSecureDeviceClassState.c)
+ *     IoCreateDeviceSecure @ 0x14083B330 (IoCreateDeviceSecure.c)
+ *     PspIumVerifyParentSd @ 0x1409B65E4 (PspIumVerifyParentSd.c)
  *     CmFcInitSystem2 @ 0x140B36B2C (CmFcInitSystem2.c)
  *     CmFcManagerStartRuntimePhase @ 0x140B37FF0 (CmFcManagerStartRuntimePhase.c)
  * Callees:

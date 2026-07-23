@@ -1,17 +1,17 @@
 /*
- * XREFs of KiResortScbQueue @ 0x140305700
+ * XREFs of KiResortScbQueue @ 0x140305990
  * Callers:
  *     KeSetSchedulingGroupRankBias @ 0x140205AD8 (KeSetSchedulingGroupRankBias.c)
  *     KiRemoveThreadFromScbQueue @ 0x1402067BC (KiRemoveThreadFromScbQueue.c)
- *     KiComputeGroupSchedulingRank @ 0x140305838 (KiComputeGroupSchedulingRank.c)
- *     KiInsertNonMaxOverQuotaScb @ 0x140308AEC (KiInsertNonMaxOverQuotaScb.c)
- *     KiRecomputeGroupSchedulingRank @ 0x140365570 (KiRecomputeGroupSchedulingRank.c)
+ *     KiComputeGroupSchedulingRank @ 0x140305AC8 (KiComputeGroupSchedulingRank.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x140308D7C (KiInsertNonMaxOverQuotaScb.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x140365710 (KiRecomputeGroupSchedulingRank.c)
  * Callees:
  *     KiRemoveSchedulingGroupQueue @ 0x140206878 (KiRemoveSchedulingGroupQueue.c)
- *     KiInsertSchedulingGroupQueue @ 0x140308B4C (KiInsertSchedulingGroupQueue.c)
+ *     KiInsertSchedulingGroupQueue @ 0x140308DDC (KiInsertSchedulingGroupQueue.c)
  */
 
-void __fastcall KiResortScbQueue(__int64 a1, __int64 a2, char a3)
+void __fastcall KiResortScbQueue(_RTL_RB_TREE *a1, __int64 a2, char a3)
 {
   unsigned __int64 *v3; // r9
   unsigned __int64 v6; // rcx

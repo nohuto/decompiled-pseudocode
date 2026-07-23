@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbCompareSnappedEntryState @ 0x1400ACD74
+ * XREFs of KiAbCompareSnappedEntryState @ 0x1400AB2DC
  * Callers:
- *     KiAbEntryGetLockedHeadEntry @ 0x1400ECA30 (KiAbEntryGetLockedHeadEntry.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x1400EA8A0 (KiAbEntryGetLockedHeadEntry.c)
  * Callees:
  *     <none>
  */

@@ -5,17 +5,17 @@
  * Callees:
  *     RtlNumberGenericTableElementsAvl @ 0x1402092D0 (RtlNumberGenericTableElementsAvl.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     RtlLookupElementGenericTableAvl @ 0x14022CF10 (RtlLookupElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x14031E9D0 (RtlDeleteElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x14031EC30 (RtlInsertElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14022D020 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14031EC60 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14031EEC0 (RtlInsertElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-_QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, __int64 a2, __int64 a3, int a4, __int128 *a5)
+_QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, void *a2, __int64 a3, int a4, __int128 *a5)
 {
   _QWORD *result; // rax
   _QWORD *v8; // r14
@@ -40,7 +40,7 @@ _QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, __int64 a2, __int64 a3, int
   Buffer = 0LL;
   v24 = 0LL;
   memset(v25, 0, sizeof(v25));
-  result = (_QWORD *)RtlImageNtHeader(a2);
+  result = RtlImageNtHeader(a2);
   v8 = result;
   if ( !result )
     return result;

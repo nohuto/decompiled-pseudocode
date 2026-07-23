@@ -7,48 +7,48 @@
  *     EtwpGetNextRegistration @ 0x180052AFC (EtwpGetNextRegistration.c)
  */
 
-__int64 __fastcall EtwEnumerateProcessRegGuids(__int64 a1, char *a2, _DWORD *a3, __int64 a4)
+ULONG __cdecl EtwEnumerateProcessRegGuids(PVOID OutBuffer, ULONG OutBufferSize, PULONG ReturnLength)
 {
-  unsigned int v6; // ebx
-  unsigned int v7; // esi
-  unsigned int v8; // edi
+  ULONG v5; // ebx
+  ULONG v6; // esi
+  ULONG v7; // edi
   __int64 i; // rax
-  char *v11; // rdx
-  __int64 v12; // r8
-  unsigned __int64 v13; // rcx
-  __int64 v14; // r9
-  unsigned int j; // eax
+  _RTL_SRWLOCK *v10; // rcx
+  ULONG v11; // r9d
+  ULONG j; // eax
+  __int64 v13; // r8
+  unsigned __int64 v14; // rdx
 
-  v6 = 0;
-  v7 = (unsigned int)a2 >> 4;
-  v8 = 0;
-  if ( !a1 && (_DWORD)a2 )
-    return 87LL;
-  for ( i = EtwpGetNextRegistration(0LL, a2, (__int64)a3, a4); ; i = EtwpGetNextRegistration(v13, v11, v12, v14) )
+  v5 = 0;
+  v6 = OutBufferSize >> 4;
+  v7 = 0;
+  if ( !OutBuffer && OutBufferSize )
+    return 87;
+  for ( i = EtwpGetNextRegistration(0LL); ; i = EtwpGetNextRegistration(v10) )
   {
-    v13 = i;
+    v10 = (_RTL_SRWLOCK *)i;
     if ( !i )
       break;
-    v14 = v7;
-    if ( v8 < v7 )
-      v14 = v8;
-    for ( j = 0; j < (unsigned int)v14; ++j )
+    v11 = v6;
+    if ( v7 < v6 )
+      v11 = v7;
+    for ( j = 0; j < v11; ++j )
     {
-      v12 = 16LL * j;
-      v11 = (char *)(*(_QWORD *)(v13 + 32) - *(_QWORD *)(v12 + a1));
-      if ( !v11 )
-        v11 = (char *)(*(_QWORD *)(v13 + 40) - *(_QWORD *)(v12 + a1 + 8));
-      if ( !v11 )
+      v13 = 16LL * j;
+      v14 = v10[4].Value - *(_QWORD *)((char *)OutBuffer + v13);
+      if ( !v14 )
+        v14 = v10[5].Value - *(_QWORD *)((char *)OutBuffer + v13 + 8);
+      if ( !v14 )
         goto LABEL_17;
     }
-    if ( v8 < v7 )
-      *(_OWORD *)(16LL * v8 + a1) = *(_OWORD *)(v13 + 32);
-    ++v8;
+    if ( v7 < v6 )
+      *((_OWORD *)OutBuffer + v7) = *(_OWORD *)&v10[4].0;
+    ++v7;
 LABEL_17:
     ;
   }
-  if ( v8 > v7 )
-    v6 = 122;
-  *a3 = 16 * v8;
-  return v6;
+  if ( v7 > v6 )
+    v5 = 122;
+  *ReturnLength = 16 * v7;
+  return v5;
 }

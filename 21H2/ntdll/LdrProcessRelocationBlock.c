@@ -1,12 +1,16 @@
 /*
- * XREFs of LdrProcessRelocationBlock @ 0x1800E3C40
+ * XREFs of LdrProcessRelocationBlock @ 0x1800E3C00
  * Callers:
  *     <none>
  * Callees:
  *     LdrProcessRelocationBlockLongLong @ 0x1800849C8 (LdrProcessRelocationBlockLongLong.c)
  */
 
-unsigned __int16 *__fastcall LdrProcessRelocationBlock(__int64 a1, int a2, unsigned __int16 *a3, __int64 a4)
+PIMAGE_BASE_RELOCATION __cdecl LdrProcessRelocationBlock(
+        ULONG_PTR VA,
+        ULONG SizeOfBlock,
+        PUSHORT NextOffset,
+        LONG_PTR Diff)
 {
-  return LdrProcessRelocationBlockLongLong(0x8664u, a1, a2, a3, a4);
+  return (PIMAGE_BASE_RELOCATION)LdrProcessRelocationBlockLongLong(0x8664u, VA, SizeOfBlock, NextOffset, Diff);
 }

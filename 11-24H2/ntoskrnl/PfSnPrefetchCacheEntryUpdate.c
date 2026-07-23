@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x140962F24
+ * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x14094A9E4
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x14096308C (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x14094AB4C (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     PfResourceExclusiveAcquire @ 0x14049EF58 (PfResourceExclusiveAcquire.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     PfSnPrefetchCacheEntryGet @ 0x140961580 (PfSnPrefetchCacheEntryGet.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PfResourceExclusiveAcquire @ 0x140499D88 (PfResourceExclusiveAcquire.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x140949040 (PfSnPrefetchCacheEntryGet.c)
  */
 
 void __fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
@@ -35,13 +35,13 @@ void __fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
     --v5;
   }
   while ( v5 );
-  PfResourceExclusiveAcquire(&stru_140E670A0);
-  v7 = qword_140E67090 - 16;
-  if ( !memcmp((const void *)(qword_140E67090 - 16 + 32), v1, 0x40uLL)
-    || (v7 = PfSnPrefetchCacheEntryGet((__int64)&unk_140E67078, v1, v4, 0LL)) != 0 )
+  PfResourceExclusiveAcquire(&stru_140E671F0);
+  v7 = qword_140E671E0 - 16;
+  if ( !memcmp((const void *)(qword_140E671E0 - 16 + 32), v1, 0x40uLL)
+    || (v7 = PfSnPrefetchCacheEntryGet((__int64)&unk_140E671C8, v1, v4, 0LL)) != 0 )
   {
     *(_DWORD *)(v7 + 116) = *(_DWORD *)(a1 + 68);
   }
-  ExReleaseResourceLite(&stru_140E670A0);
+  ExReleaseResourceLite(&stru_140E671F0);
   KeLeaveCriticalRegion();
 }

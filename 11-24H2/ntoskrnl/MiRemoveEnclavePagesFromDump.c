@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveEnclavePagesFromDump @ 0x140680AD4
+ * XREFs of MiRemoveEnclavePagesFromDump @ 0x140681CD4
  * Callers:
- *     MmGetDumpRange @ 0x140677B48 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x140678D28 (MmGetDumpRange.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _QWORD *__fastcall MiRemoveEnclavePagesFromDump(__int64 a1)
@@ -13,7 +13,7 @@ _QWORD *__fastcall MiRemoveEnclavePagesFromDump(__int64 a1)
   _QWORD *v4; // rcx
   _QWORD *v5; // rcx
 
-  result = (_QWORD *)qword_140E374B8;
+  result = (_QWORD *)qword_140E375F8;
   v3 = 0LL;
   while ( result )
   {
@@ -22,7 +22,7 @@ _QWORD *__fastcall MiRemoveEnclavePagesFromDump(__int64 a1)
   }
   while ( v3 )
   {
-    guard_dispatch_icall_no_overrides(a1, v3[3], v3[4], 2LL);
+    guard_dispatch_icall_no_overrides(a1, v3[3]);
     result = (_QWORD *)v3[1];
     v4 = v3;
     if ( result )

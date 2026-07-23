@@ -18,7 +18,7 @@ __int64 __fastcall SiQuerySystemPartitionInformation(void *a1, unsigned int a2, 
   unsigned int v10; // eax
   ULONG ReturnLength; // [rsp+58h] [rbp+20h] BYREF
 
-  v6 = ZwQuerySystemInformation(MaxSystemInfoClass, 0LL, 0, &ReturnLength);
+  v6 = ZwQuerySystemInformation(SystemSystemPartitionInformation, 0LL, 0, &ReturnLength);
   v7 = v6;
   if ( v6 == -1073741789 )
   {
@@ -26,7 +26,7 @@ __int64 __fastcall SiQuerySystemPartitionInformation(void *a1, unsigned int a2, 
     v9 = PoolWithTag;
     if ( PoolWithTag )
     {
-      v7 = ZwQuerySystemInformation(MaxSystemInfoClass, PoolWithTag, ReturnLength, &ReturnLength);
+      v7 = ZwQuerySystemInformation(SystemSystemPartitionInformation, PoolWithTag, ReturnLength, &ReturnLength);
       if ( v7 >= 0 )
       {
         v10 = *(unsigned __int16 *)v9 + 2;

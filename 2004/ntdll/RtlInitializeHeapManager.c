@@ -24,7 +24,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1, __int64 a2, __int64 a3)
   struct _PEB *v7; // rdi
   void (*v8)(void); // rax
   int v9; // eax
-  char NtProductType; // bl
+  BOOLEAN v10; // bl
   int ResourcePolicy; // eax
   int v12; // eax
   int v13; // ecx
@@ -32,7 +32,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1, __int64 a2, __int64 a3)
   __int64 v15; // rdx
   __int64 v16; // rcx
   __int64 v17; // r8
-  int v19; // [rsp+38h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+38h] [rbp+10h] BYREF
   int v20; // [rsp+40h] [rbp+18h] BYREF
 
   RtlpHpHeapGlobals = 0LL;
@@ -57,17 +57,17 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1, __int64 a2, __int64 a3)
   v9 = RtlpHpLfhPerfFlags;
   if ( (RtlpHpLfhPerfFlags & 0x40) != 0 )
   {
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
     RtlpHpOverrideGCInterval(a1);
     v9 = RtlpHpLfhPerfFlags;
   }
   RtlpHpLfhPerfFlags = v9 | 0x9C;
-  NtProductType = RtlGetNtProductType(&v19);
+  v10 = RtlGetNtProductType(&NtProductType);
   ResourcePolicy = RtlQueryResourcePolicy(0, 0, (__int64)&v20, 4LL);
-  if ( NtProductType && v19 != 1 || ResourcePolicy >= 0 && v20 > 10 )
+  if ( v10 && NtProductType != NtProductWinNt || ResourcePolicy >= 0 && v20 > 10 )
   {
     RtlpHpLfhPerfFlags |= 0x63u;
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
   }
   if ( (RtlpLowFragHeapGlobalFlags & 8) != 0 )
     RtlpHpHeapFeatures &= ~1u;
@@ -89,7 +89,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1, __int64 a2, __int64 a3)
   v7->NumberOfHeaps = 0;
   RtlpDisableBreakOnFailureCookie = v14 != 0 ? v13 : 0;
   v7->ProcessHeaps = (void **)&RtlpProcessHeapsListBuffer;
-  RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, 0LL, 0x10000000);
+  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
   RtlpHeapKey = RtlpHeapGenerateRandomValue64(v16, v15, v17);
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {

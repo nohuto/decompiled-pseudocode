@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAllocateWnfSerializationGroup @ 0x18010A300
+ * XREFs of RtlAllocateWnfSerializationGroup @ 0x180105230
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ __int64 RtlAllocateWnfSerializationGroup()
   __int64 result; // rax
 
   do
-    result = (unsigned int)_InterlockedIncrement(&dword_1801CE208);
+    result = (unsigned int)_InterlockedIncrement(&dword_1801CD208);
   while ( !(_DWORD)result );
   return result;
 }

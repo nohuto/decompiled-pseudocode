@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpReferenceObjectByHandle @ 0x140749F3C
+ * XREFs of ObpReferenceObjectByHandle @ 0x14074A12C
  * Callers:
- *     ObReferenceFileObjectForWrite @ 0x140749DE4 (ObReferenceFileObjectForWrite.c)
+ *     ObReferenceFileObjectForWrite @ 0x140749FD4 (ObReferenceFileObjectForWrite.c)
  * Callees:
- *     ObpIncrPointerCountEx @ 0x140224660 (ObpIncrPointerCountEx.c)
- *     ExSlowReplenishHandleTableEntry @ 0x14022EE90 (ExSlowReplenishHandleTableEntry.c)
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ExLockHandleTableEntry @ 0x1402BEAD4 (ExLockHandleTableEntry.c)
- *     ExFastReferenceHandleTableEntry @ 0x1402F4F24 (ExFastReferenceHandleTableEntry.c)
- *     ExFastReplenishHandleTableEntry @ 0x140363BC8 (ExFastReplenishHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     ExHandleLogBadReference @ 0x140606A28 (ExHandleLogBadReference.c)
- *     ExpLookupHandleTableEntry @ 0x1406E6930 (ExpLookupHandleTableEntry.c)
+ *     ObpIncrPointerCountEx @ 0x140224768 (ObpIncrPointerCountEx.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x14022EFA0 (ExSlowReplenishHandleTableEntry.c)
+ *     ExGetHandlePointer @ 0x14022F830 (ExGetHandlePointer.c)
+ *     ExLockHandleTableEntry @ 0x1402BED64 (ExLockHandleTableEntry.c)
+ *     ExFastReferenceHandleTableEntry @ 0x1402F51B4 (ExFastReferenceHandleTableEntry.c)
+ *     ExFastReplenishHandleTableEntry @ 0x140363D68 (ExFastReplenishHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     ExHandleLogBadReference @ 0x140606F78 (ExHandleLogBadReference.c)
+ *     ExpLookupHandleTableEntry @ 0x1406E6960 (ExpLookupHandleTableEntry.c)
  */
 
 volatile signed __int64 *__fastcall ObpReferenceObjectByHandle(

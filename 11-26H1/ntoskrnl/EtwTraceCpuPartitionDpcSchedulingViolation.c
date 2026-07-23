@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceCpuPartitionDpcSchedulingViolation @ 0x140530EFC
+ * XREFs of EtwTraceCpuPartitionDpcSchedulingViolation @ 0x1405333FC
  * Callers:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceCpuPartitionDpcSchedulingViolation(__int64 a1, int a2)
@@ -18,15 +18,23 @@ void __fastcall EtwTraceCpuPartitionDpcSchedulingViolation(__int64 a1, int a2)
 
   v6 = a2;
   v5 = a1;
-  if ( qword_140F03590 )
+  if ( stru_140F03830.SchedulerApc.Thread )
   {
-    if ( EtwEventEnabled(qword_140F03590, &CPU_PARTITION_EVENT_DPC_SCHEDULING_VIOLATION) )
+    if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SchedulerApc.Thread, &CPU_PARTITION_EVENT_DPC_SCHEDULING_VIOLATION) )
     {
       UserData.Ptr = (ULONGLONG)&v5;
       *(_QWORD *)&UserData.Size = 8LL;
       v3 = &v6;
       v4 = 4LL;
-      EtwWriteEx(qword_140F03590, &CPU_PARTITION_EVENT_DPC_SCHEDULING_VIOLATION, 0LL, 0, 0LL, 0LL, 2u, &UserData);
+      EtwWriteEx(
+        (REGHANDLE)stru_140F03830.SchedulerApc.Thread,
+        &CPU_PARTITION_EVENT_DPC_SCHEDULING_VIOLATION,
+        0LL,
+        0,
+        0LL,
+        0LL,
+        2u,
+        &UserData);
     }
   }
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of CcInitializePrivateVolumeCacheMap @ 0x1403E3550
+ * XREFs of CcInitializePrivateVolumeCacheMap @ 0x1403E6740
  * Callers:
- *     CcCreatePrivateVolumeCacheMap @ 0x1403E1FBC (CcCreatePrivateVolumeCacheMap.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x1403E51AC (CcCreatePrivateVolumeCacheMap.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcForEachNumaNode @ 0x1403E41A8 (CcForEachNumaNode.c)
- *     CcInitializeNumaNodeForVolume @ 0x1403E4224 (CcInitializeNumaNodeForVolume.c)
- *     CcInitializeQuickLWSThreadItem @ 0x1403E4630 (CcInitializeQuickLWSThreadItem.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcForEachNumaNode @ 0x1403E7398 (CcForEachNumaNode.c)
+ *     CcInitializeNumaNodeForVolume @ 0x1403E7414 (CcInitializeNumaNodeForVolume.c)
+ *     CcInitializeQuickLWSThreadItem @ 0x1403E7820 (CcInitializeQuickLWSThreadItem.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)
@@ -46,9 +46,9 @@ char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int6
   v9 = 0;
   v10 = 0LL;
   memset_0((void *)a2, 0, 0x680uLL);
-  *(_DWORD *)(a2 + 1608) = *(_DWORD *)&EmpParseLock.PriorityFloorCounts[28];
+  *(_DWORD *)(a2 + 1608) = EmpParseLock.ForegroundLossTime;
   v11 = CcEnableAsyncLazywrite == 0;
-  *(_DWORD *)(a2 + 1612) = *(_DWORD *)&EmpParseLock.PriorityFloorCounts[20];
+  *(_DWORD *)(a2 + 1612) = *(&EmpParseLock.ForegroundLossTime + 1);
   *(_DWORD *)a2 = 109052661;
   *(_QWORD *)(a2 + 32) = a1;
   *(_DWORD *)(a2 + 1552) = 20;
@@ -158,9 +158,9 @@ char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int6
   *(_BYTE *)(a2 + 984) = 1;
   if ( CcEnableAsyncLazywriteMulti && CcEnableAsyncLazywrite )
     *(_DWORD *)(a2 + 1616) |= 2u;
-  v14 = (unsigned __int8)dword_140FBE22C;
-  v15 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * ***(unsigned __int16 ***)(a1 + 8)) + 22288LL);
-  if ( (_BYTE)dword_140FBE22C )
+  v14 = (unsigned __int8)dword_140FBF22C;
+  v15 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * ***(unsigned __int16 ***)(a1 + 8)) + 22288LL);
+  if ( (_BYTE)dword_140FBF22C )
   {
     v28 = v15 >> 1;
     if ( (unsigned int)CcAzure_TopBottomDPTEqual < 2 )
@@ -170,7 +170,7 @@ char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int6
     *(_QWORD *)(a2 + 1024) = v28;
     *(_QWORD *)(a2 + 1032) = v29;
     *(_QWORD *)(a2 + 1016) = v28;
-    v16 = LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadListEntry.Flink) - 1;
+    v16 = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[48] - 1;
   }
   else
   {
@@ -182,10 +182,10 @@ char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int6
   *(_DWORD *)(a2 + 800) = v16;
   *(_DWORD *)(a2 + 1064) = 10;
   *(_QWORD *)(a2 + 1048) = 10 * v15;
-  v17 = LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadListEntry.Flink) - 1;
+  v17 = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[48] - 1;
   *(_QWORD *)(a2 + 1056) = 0LL;
   *(_DWORD *)(a2 + 776) = v17;
-  *(_DWORD *)(a2 + 804) = HIDWORD(EmpParseLock.ForegroundDpcStackListEntry.Next);
+  *(_DWORD *)(a2 + 804) = EmpParseLock.SchedulerAssistPriorityFloor;
   v18 = (*(_QWORD *)(a2 + 1016) >> 1) + (*(_QWORD *)(a2 + 1016) >> 2);
   if ( CcAzure_LazyWriterPercentageOfNumProcs )
   {

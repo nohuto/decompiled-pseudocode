@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprAddMemoryResources @ 0x1409655D4
+ * XREFs of PnprAddMemoryResources @ 0x1409657D4
  * Callers:
- *     PnprAddDeviceResources @ 0x140965550 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x140965750 (PnprAddDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x140375320 (RtlCmDecodeMemIoResource.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlCmDecodeMemIoResource @ 0x1403754C0 (RtlCmDecodeMemIoResource.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

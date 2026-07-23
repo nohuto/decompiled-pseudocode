@@ -63,7 +63,7 @@ __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
   }
   else
   {
-    v32 = RtlCSparseBitmapBitmaskRead(&unk_18017B720, 2 * ((a2 - qword_18017B718) >> 20));
+    v32 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_18017B718) >> 20));
     if ( !v32 || (v11 = v32 - 1, v11 == 2) )
     {
       v30 = RtlpHpLargeAllocSize(a1, a2, v10, 0LL);

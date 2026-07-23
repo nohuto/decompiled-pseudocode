@@ -1,13 +1,13 @@
 /*
- * XREFs of CcRegisterExternalCache @ 0x1405B1060
+ * XREFs of CcRegisterExternalCache @ 0x1405B3870
  * Callers:
  *     <none>
  * Callees:
- *     CcCreatePrivateVolumeCacheMap @ 0x1403E1FBC (CcCreatePrivateVolumeCacheMap.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CcAddExternalCacheInternal @ 0x1405B0900 (CcAddExternalCacheInternal.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x1403E51AC (CcCreatePrivateVolumeCacheMap.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CcAddExternalCacheInternal @ 0x1405B3110 (CcAddExternalCacheInternal.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcRegisterExternalCache(__int64 a1, _QWORD *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall CcRegisterExternalCache(__int64 a1, _QWORD *a2)
     *PoolWithTag = a1;
     if ( v7 )
     {
-      CcAddExternalCacheInternal((__int64)PoolWithTag, (__int64)&EmpParseLock.IptSaveArea);
+      CcAddExternalCacheInternal((__int64)PoolWithTag, (__int64)&EmpParseLock.1136);
       v6 = 0;
     }
     else

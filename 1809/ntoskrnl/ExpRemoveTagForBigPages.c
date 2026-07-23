@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRemoveTagForBigPages @ 0x14013E460
+ * XREFs of ExpRemoveTagForBigPages @ 0x14013E560
  * Callers:
- *     ExpSizeHeapPool @ 0x1401B79D4 (ExpSizeHeapPool.c)
+ *     ExpSizeHeapPool @ 0x1401B7B34 (ExpSizeHeapPool.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpRemoveTagForBigPages(
@@ -39,9 +39,9 @@ __int64 __fastcall ExpRemoveTagForBigPages(
   v11 = ExAcquireSpinLockShared(&ExpLargePoolTableLock);
   if ( (v10 & 0x20) != 0 )
   {
-    v12 = *(_QWORD *)(qword_140439FC0 + 8248);
-    v13 = (volatile signed __int32 *)(qword_140439FC0 + 8120);
-    v14 = *(_QWORD *)(qword_140439FC0 + 8256);
+    v12 = *(_QWORD *)(qword_14043B080 + 8248);
+    v13 = (volatile signed __int32 *)(qword_14043B080 + 8120);
+    v14 = *(_QWORD *)(qword_14043B080 + 8256);
   }
   else
   {
@@ -64,9 +64,9 @@ LABEL_13:
         if ( (v10 & 0x21) != 0
           || v12 != PoolBigPageTable
           || (unsigned int)MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process) == -1
-          || (v12 = *(_QWORD *)(qword_140439FC0 + 8248),
-              v13 = (volatile signed __int32 *)(qword_140439FC0 + 8120),
-              v14 = *(_QWORD *)(qword_140439FC0 + 8256),
+          || (v12 = *(_QWORD *)(qword_14043B080 + 8248),
+              v13 = (volatile signed __int32 *)(qword_14043B080 + 8120),
+              v14 = *(_QWORD *)(qword_14043B080 + 8256),
               !v12)
           || !v14 )
         {

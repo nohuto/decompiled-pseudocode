@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventDomainPerfStateChange @ 0x140468D90
+ * XREFs of PpmEventDomainPerfStateChange @ 0x140462364
  * Callers:
- *     PpmPerfApplyDomainState @ 0x14048A450 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyDomainState @ 0x140483F90 (PpmPerfApplyDomainState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KeAndGroupAffinityEx @ 0x140469070 (KeAndGroupAffinityEx.c)
- *     PpmFireWmiEvent @ 0x14060C8C8 (PpmFireWmiEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KeAndGroupAffinityEx @ 0x140462640 (KeAndGroupAffinityEx.c)
+ *     PpmFireWmiEvent @ 0x14060FA28 (PpmFireWmiEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
@@ -66,9 +66,7 @@ char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
     }
     if ( PpmEtwRegistered )
     {
-      LOBYTE(v1) = EtwEventEnabled(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     &PPM_ETW_DOMAIN_PERF_STATE_CHANGE);
+      LOBYTE(v1) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_DOMAIN_PERF_STATE_CHANGE);
       if ( (_BYTE)v1 )
       {
         v3 = 0;
@@ -77,11 +75,11 @@ char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
         do
         {
           v5 = &v36[v3];
-          v6 = v4 < *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+          v6 = v4 < *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
           *v5 = 0LL;
           *((_WORD *)v5 + 4) = v4;
           if ( v6 )
-            v7 = *(__int64 *)((char *)&stru_140FC01F0.116 + 8 * v4 + 4);
+            v7 = *(__int64 *)((char *)&stru_140FC11F0.116 + 8 * v4 + 4);
           else
             v7 = 0LL;
           *(_QWORD *)v5 = v7;
@@ -140,15 +138,7 @@ char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
         v27 = v19;
         *(&UserData.Ptr + v20) = (ULONGLONG)&v27;
         *((_QWORD *)&UserData.Size + v20) = 4LL;
-        LOBYTE(v1) = EtwWriteEx(
-                       (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                       &PPM_ETW_DOMAIN_PERF_STATE_CHANGE,
-                       0LL,
-                       0,
-                       0LL,
-                       0LL,
-                       v16 + 1,
-                       &UserData);
+        LOBYTE(v1) = EtwWriteEx(PpmEtwHandle, &PPM_ETW_DOMAIN_PERF_STATE_CHANGE, 0LL, 0, 0LL, 0LL, v16 + 1, &UserData);
       }
     }
   }

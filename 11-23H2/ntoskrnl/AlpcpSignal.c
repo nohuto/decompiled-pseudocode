@@ -1,27 +1,27 @@
 /*
- * XREFs of AlpcpSignal @ 0x1402B6C70
+ * XREFs of AlpcpSignal @ 0x1402B6F00
  * Callers:
- *     AlpciSendDeferredMessageBeforeWait @ 0x1402B69C0 (AlpciSendDeferredMessageBeforeWait.c)
- *     AlpcpSignalAndWait @ 0x1402B6BB0 (AlpcpSignalAndWait.c)
- *     AlpcpCompleteDeferSignalRequest @ 0x14071BE7C (AlpcpCompleteDeferSignalRequest.c)
- *     NtAlpcSendWaitReceivePort @ 0x14073ABB0 (NtAlpcSendWaitReceivePort.c)
+ *     AlpciSendDeferredMessageBeforeWait @ 0x1402B6C50 (AlpciSendDeferredMessageBeforeWait.c)
+ *     AlpcpSignalAndWait @ 0x1402B6E40 (AlpcpSignalAndWait.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x14071C07C (AlpcpCompleteDeferSignalRequest.c)
+ *     NtAlpcSendWaitReceivePort @ 0x14073ADA0 (NtAlpcSendWaitReceivePort.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     AlpcpQueueIoCompletion @ 0x14031A968 (AlpcpQueueIoCompletion.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
- *     IopAllocateMiniCompletionPacket @ 0x14073DFC8 (IopAllocateMiniCompletionPacket.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     AlpcpQueueIoCompletion @ 0x14031ABF8 (AlpcpQueueIoCompletion.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14073E1B8 (IopAllocateMiniCompletionPacket.c)
  */
 
 void __fastcall AlpcpSignal(__int64 a1, BOOLEAN a2, char a3, int a4)
@@ -85,10 +85,13 @@ void __fastcall AlpcpSignal(__int64 a1, BOOLEAN a2, char a3, int a4)
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && LockHandle.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -109,10 +112,10 @@ void __fastcall AlpcpSignal(__int64 a1, BOOLEAN a2, char a3, int a4)
             ++*(_DWORD *)(v7 + 16);
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
           v37 = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v38 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && LockHandle.OldIrql <= 0xFu && v38 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && LockHandle.OldIrql <= 0xFu && v38 >= 2u )
             {
               v39 = KeGetCurrentPrcb();
               v40 = v39->SchedulerAssist;
@@ -138,10 +141,10 @@ void __fastcall AlpcpSignal(__int64 a1, BOOLEAN a2, char a3, int a4)
         *(_DWORD *)(v7 + 12) = v10 + 1;
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v13 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v14 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && LockHandle.OldIrql <= 0xFu && v14 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && LockHandle.OldIrql <= 0xFu && v14 >= 2u )
           {
             v15 = KeGetCurrentPrcb();
             v16 = v15->SchedulerAssist;
@@ -168,7 +171,7 @@ void __fastcall AlpcpSignal(__int64 a1, BOOLEAN a2, char a3, int a4)
           v22 = KeGetCurrentIrql();
           v48 = v22;
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v22 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v22 <= 0xFu )
           {
             v23 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( (_BYTE)v22 == 2 )
@@ -211,7 +214,7 @@ void __fastcall AlpcpSignal(__int64 a1, BOOLEAN a2, char a3, int a4)
             *(_QWORD *)MiniCompletionPacket = 0LL;
           }
           _InterlockedAnd((volatile signed __int32 *)v8, 0xFFFFFF7F);
-          KiExitDispatcher((__int64)v25, a2 != 0 ? 3 : 0, (struct _PROCESSOR_NUMBER)1, 0, v48);
+          KiExitDispatcher((__int64)v25, a2 != 0 ? 3 : 0, (_PROCESSOR_NUMBER)1, 0, v48);
         }
       }
     }

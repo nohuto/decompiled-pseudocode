@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReturnSystemCharges @ 0x14045A7E8
+ * XREFs of MiReturnSystemCharges @ 0x14044FC38
  * Callers:
- *     MiGetPageTablePages @ 0x14039E9BC (MiGetPageTablePages.c)
- *     MiCleanupPageTablePages @ 0x1403A679C (MiCleanupPageTablePages.c)
- *     MiDeleteSystemPageTableTail @ 0x14045A5D0 (MiDeleteSystemPageTableTail.c)
- *     MiReturnPoolCharges @ 0x14045A754 (MiReturnPoolCharges.c)
- *     MiInitializeDynamicBitmap @ 0x1406794B8 (MiInitializeDynamicBitmap.c)
- *     MiDeleteSparseRange @ 0x1407FADD4 (MiDeleteSparseRange.c)
- *     MiGetLargePagesForSystemMapping @ 0x140AAD164 (MiGetLargePagesForSystemMapping.c)
+ *     MiGetPageTablePages @ 0x14021CA98 (MiGetPageTablePages.c)
+ *     MiCleanupPageTablePages @ 0x14026DA8C (MiCleanupPageTablePages.c)
+ *     MiDeleteSystemPageTableTail @ 0x14044FA20 (MiDeleteSystemPageTableTail.c)
+ *     MiReturnPoolCharges @ 0x14044FBA4 (MiReturnPoolCharges.c)
+ *     MiInitializeDynamicBitmap @ 0x14067A698 (MiInitializeDynamicBitmap.c)
+ *     MiDeleteSparseRange @ 0x1407FB544 (MiDeleteSparseRange.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140AA81E4 (MiGetLargePagesForSystemMapping.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
  */
 
 unsigned __int64 __fastcall MiReturnSystemCharges(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -22,9 +22,9 @@ unsigned __int64 __fastcall MiReturnSystemCharges(__int64 a1, unsigned __int64 a
   {
     v7 = -(__int64)a2;
     if ( a4 == 3 )
-      _InterlockedAdd64(&qword_140E375F8, v7);
+      _InterlockedAdd64(&qword_140E37738, v7);
     else
-      _InterlockedAdd64(&qword_140E375E0, v7);
+      _InterlockedAdd64(&qword_140E37720, v7);
   }
   return MiReturnResident(a1, a2);
 }

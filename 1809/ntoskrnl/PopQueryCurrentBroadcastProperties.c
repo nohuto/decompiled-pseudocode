@@ -1,9 +1,9 @@
 /*
- * XREFs of PopQueryCurrentBroadcastProperties @ 0x14086F564
+ * XREFs of PopQueryCurrentBroadcastProperties @ 0x1408707C4
  * Callers:
- *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x1408693B8 (PopDirectedDripsNotifyDrivers.c)
  * Callees:
- *     IoQueryDeviceNodeDirectedDripsFlags @ 0x14028B330 (IoQueryDeviceNodeDirectedDripsFlags.c)
+ *     IoQueryDeviceNodeDirectedDripsFlags @ 0x14028B520 (IoQueryDeviceNodeDirectedDripsFlags.c)
  */
 
 _QWORD *__fastcall PopQueryCurrentBroadcastProperties(char *a1, char *a2)
@@ -21,10 +21,10 @@ _QWORD *__fastcall PopQueryCurrentBroadcastProperties(char *a1, char *a2)
 
   v2 = 0;
   v3 = 0;
-  if ( qword_1404176B0 )
+  if ( qword_140418730 )
   {
     v6 = 0;
-    v7 = (_QWORD **)((char *)qword_1404176B0 + 72);
+    v7 = (_QWORD **)((char *)qword_140418730 + 72);
     do
     {
       if ( *((_DWORD *)v7 - 2) )

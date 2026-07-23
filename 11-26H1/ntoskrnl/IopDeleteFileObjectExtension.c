@@ -1,35 +1,35 @@
 /*
- * XREFs of IopDeleteFileObjectExtension @ 0x1403DB7A0
+ * XREFs of IopDeleteFileObjectExtension @ 0x1403DE990
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IopDeleteFile @ 0x140A1ECD0 (IopDeleteFile.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140A282F0 (IopDeleteFile.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269BD0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PsReleaseSiloHardReference @ 0x1403DBC10 (PsReleaseSiloHardReference.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     IopCleanupNotifications @ 0x1404E4DE8 (IopCleanupNotifications.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpDeregisterObject @ 0x140779D4C (ObpDeregisterObject.c)
- *     FsRtlFreeExtraCreateParameter @ 0x140903780 (FsRtlFreeExtraCreateParameter.c)
- *     ObpRemoveObjectRoutine @ 0x140923BC0 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x140A5A090 (ObpHandleRevocationBlockRemoveObject.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140B05900 (PspAdjustKeepAliveCountProcess.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269140 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsReleaseSiloHardReference @ 0x1403DEE00 (PsReleaseSiloHardReference.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     IopCleanupNotifications @ 0x1404DE388 (IopCleanupNotifications.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpDeregisterObject @ 0x14077CC7C (ObpDeregisterObject.c)
+ *     ObpRemoveObjectRoutine @ 0x1408FF6D0 (ObpRemoveObjectRoutine.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x140933710 (FsRtlFreeExtraCreateParameter.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140A67000 (ObpHandleRevocationBlockRemoveObject.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140B07994 (PspAdjustKeepAliveCountProcess.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDeleteFileObjectExtension(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi
   __int64 i; // rbx
-  struct _SLIST_ENTRY *v5; // rdi
+  _SLIST_ENTRY *v5; // rdi
   _SLIST_ENTRY *v6; // r14
   _QWORD *v7; // r14
   ULONG_PTR v8; // r14
@@ -49,14 +49,14 @@ void __fastcall IopDeleteFileObjectExtension(__int64 a1, __int64 a2)
   _BYTE *v22; // r15
   _QWORD *v23; // r13
   KIRQL v24; // r12
-  struct _SLIST_ENTRY *Next; // r14
+  _SLIST_ENTRY *Next; // r14
   _QWORD *v26; // rcx
-  struct _SLIST_ENTRY *v27; // rcx
+  _SLIST_ENTRY *v27; // rcx
   _QWORD *v28; // rdi
   unsigned __int8 v29; // [rsp+60h] [rbp+8h]
 
   v2 = *(_QWORD *)(a1 + 208);
-  if ( !v2 || (__int64 *)v2 == qword_140019060 )
+  if ( !v2 || (__int64 *)v2 == qword_1400137E0 )
     return;
   for ( i = 0LL; i < 10; ++i )
   {
@@ -64,7 +64,7 @@ void __fastcall IopDeleteFileObjectExtension(__int64 a1, __int64 a2)
     {
       while ( 1 )
       {
-        v5 = *(struct _SLIST_ENTRY **)(v2 + 8 * i + 8);
+        v5 = *(_SLIST_ENTRY **)(v2 + 8 * i + 8);
         if ( !v5 )
           goto LABEL_6;
         if ( i == 4 )
@@ -149,14 +149,14 @@ LABEL_66:
         ExFreePoolWithTag(*(PVOID *)(v2 + 8 * i + 8), 0);
         goto LABEL_6;
       }
-      ++IopOplockFoExtLookasideList.L.TotalFrees;
-      if ( LOWORD(IopOplockFoExtLookasideList.L.ListHead.Alignment) < IopOplockFoExtLookasideList.L.Depth )
+      ++unk_140E1185C;
+      if ( LOWORD(IopOplockFoExtLookasideList.Alignment) < unk_140E11850 )
       {
-        RtlpInterlockedPushEntrySList(&IopOplockFoExtLookasideList.L.ListHead, v5);
+        RtlpInterlockedPushEntrySList(&IopOplockFoExtLookasideList, v5);
       }
       else
       {
-        ++IopOplockFoExtLookasideList.L.FreeMisses;
+        ++unk_140E11860;
         guard_dispatch_icall_no_overrides(v5, a2);
       }
       i = 7LL;
@@ -174,13 +174,13 @@ LABEL_66:
       v22 = (_BYTE *)v7[3];
       v23 = v7;
       v7 = (_QWORD *)*v7;
-      v24 = KeAcquireSpinLockRaiseToDpc(&IopSessionNotificationLock.Padding[4]);
+      v24 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink);
       v29 = v22[18];
       if ( v22[16] == 1 )
         v22[17] = 1;
       else
         ExFreePoolWithTag(v22, 0);
-      KeReleaseSpinLock(&IopSessionNotificationLock.Padding[4], v24);
+      KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink, v24);
       if ( *((_DWORD *)v23 + 4) )
       {
         PspAdjustKeepAliveCountProcess(v23[1], 0xFFFFFFFFLL, a1, v29);

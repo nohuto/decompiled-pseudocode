@@ -1,40 +1,38 @@
 /*
- * XREFs of SepAdtOpenRegAndSetupNotification @ 0x140817F0C
+ * XREFs of SepAdtOpenRegAndSetupNotification @ 0x14081E11C
  * Callers:
- *     SepAdtInitializeAuditingOptions @ 0x140CDE828 (SepAdtInitializeAuditingOptions.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140CE4BC0 (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     NtNotifyChangeMultipleKeys @ 0x14097A180 (NtNotifyChangeMultipleKeys.c)
- *     SepRegOpenKey @ 0x140AB2DF4 (SepRegOpenKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x14093C190 (NtNotifyChangeMultipleKeys.c)
+ *     SepRegOpenKey @ 0x140AB4194 (SepRegOpenKey.c)
  */
 
-__int64 SepAdtOpenRegAndSetupNotification()
+NTSTATUS SepAdtOpenRegAndSetupNotification()
 {
-  __int64 result; // rax
-  SIZE_T Length; // [rsp+50h] [rbp-18h]
+  NTSTATUS result; // eax
 
   result = SepRegOpenKey(
              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa",
              0x211u,
              &SepAdtRegNotifyHandle);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    LODWORD(Length) = 0;
-    qword_140E67F78 = (__int64)SepAdtRegNotificationCallback;
-    qword_140E67F80 = 0LL;
-    SepAdtLsaRegWatchWorkItem = 0LL;
+    qword_140E68230 = (__int64)SepAdtRegNotificationCallback;
+    qword_140E68238 = 0LL;
+    *(_QWORD *)SepAdtLsaRegWatchWorkItem = 0LL;
     return NtNotifyChangeMultipleKeys(
-             (int)SepAdtRegNotifyHandle,
-             0,
-             0,
-             0,
-             (__int64)&SepAdtLsaRegWatchWorkItem,
-             1LL,
-             &SepAdtIoStatusBlock,
-             5,
+             SepAdtRegNotifyHandle,
              0,
              0LL,
-             Length,
-             1);
+             0LL,
+             SepAdtLsaRegWatchWorkItem,
+             (PVOID)1,
+             &SepAdtIoStatusBlock,
+             5u,
+             0,
+             0LL,
+             0,
+             1u);
   }
   return result;
 }

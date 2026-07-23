@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlQueryAssociatedProcessors @ 0x1401BD7B0
+ * XREFs of HvlQueryAssociatedProcessors @ 0x1401BD694
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlQueryAssociatedProcessors(int a1, unsigned int *a2, void *a3)

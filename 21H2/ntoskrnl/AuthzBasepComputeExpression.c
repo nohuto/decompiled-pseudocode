@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepComputeExpression @ 0x1405C1E58
+ * XREFs of AuthzBasepComputeExpression @ 0x1405C2088
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepOperandValueTypesCompatible @ 0x14024F3D0 (AuthzBasepOperandValueTypesCompatible.c)
- *     AuthzBasepComputeBitwise @ 0x1405C1DF4 (AuthzBasepComputeBitwise.c)
+ *     AuthzBasepOperandValueTypesCompatible @ 0x1402F3C20 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepComputeBitwise @ 0x1405C2024 (AuthzBasepComputeBitwise.c)
  */
 
 __int64 __fastcall AuthzBasepComputeExpression(char a1, __int64 a2, __int64 *a3)

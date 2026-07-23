@@ -7,25 +7,29 @@
  *     _RtlpGetNormalization@8 @ 0x4B375A88 (_RtlpGetNormalization@8.c)
  */
 
-int __stdcall RtlIsNormalizedString(int a1, unsigned __int16 *a2, int a3, _BYTE *a4)
+NTSTATUS __cdecl RtlIsNormalizedString(
+        ULONG NormForm,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PBOOLEAN Normalized)
 {
-  int v4; // esi
-  int result; // eax
+  LONG v4; // esi
+  NTSTATUS result; // eax
   int v6; // [esp+4h] [ebp-4h] BYREF
 
-  if ( !a2 )
+  if ( !SourceString )
     return -1073741811;
-  if ( !a4 )
+  if ( !Normalized )
     return -1073741811;
-  v4 = a3;
-  if ( a3 < -1 || !a1 )
+  v4 = SourceStringLength;
+  if ( SourceStringLength < -1 || !NormForm )
     return -1073741811;
-  result = RtlpGetNormalization(a1, &v6);
+  result = RtlpGetNormalization(NormForm, &v6);
   if ( result >= 0 )
   {
-    if ( a3 == -1 )
-      v4 = wcslen(a2) + 1;
-    return Normalization__IsNormalized(v6, a2, v4, a4);
+    if ( SourceStringLength == -1 )
+      v4 = wcslen((const unsigned __int16 *)SourceString) + 1;
+    return Normalization__IsNormalized(v6, (unsigned __int16 *)SourceString, v4, Normalized);
   }
   return result;
 }

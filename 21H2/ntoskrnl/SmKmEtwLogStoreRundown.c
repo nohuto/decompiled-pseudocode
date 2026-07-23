@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmEtwLogStoreRundown @ 0x1407BCC08
+ * XREFs of SmKmEtwLogStoreRundown @ 0x1407BD398
  * Callers:
- *     SmEtwEnableCallback @ 0x1407BCBB0 (SmEtwEnableCallback.c)
+ *     SmEtwEnableCallback @ 0x1407BD340 (SmEtwEnableCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreReferenceEx @ 0x1402D959C (SmKmStoreReferenceEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
- *     SmKmEtwLogStoreChange @ 0x14092B06C (SmKmEtwLogStoreChange.c)
- *     SmKmEtwLogStoreStats @ 0x14092B17C (SmKmEtwLogStoreStats.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     SmKmStoreReferenceEx @ 0x14028A8EC (SmKmStoreReferenceEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmEtwLogStoreChange @ 0x14092B1CC (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x14092B2DC (SmKmEtwLogStoreStats.c)
  */
 
 void __fastcall SmKmEtwLogStoreRundown(__int64 a1, __int64 a2, __int64 a3)
@@ -26,7 +26,7 @@ void __fastcall SmKmEtwLogStoreRundown(__int64 a1, __int64 a2, __int64 a3)
       SmKmEtwLogStoreStats(a1, v6);
       SmKmEtwLogStoreChange(a1, v7, SmEventStoreRundown);
       v8 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a2, i & 0x3FF);
-      ExReleaseRundownProtection_0(v8 + 1);
+      ExReleaseRundownProtection(v8 + 1);
     }
   }
 }

@@ -3,8 +3,8 @@
  * Callers:
  *     ??$GetEntryIndex@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@$0A@@@YAHPEAU_RESCDIRECTORY@@U_RESCACHEID@@I@Z @ 0x1800FF860 (--$GetEntryIndex@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@$0A@@@YAHPEAU_RESCDIRECTORY@@U_RESCACHEID@.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     ResCCompareCacheIDs @ 0x18008A100 (ResCCompareCacheIDs.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     ResCCompareCacheIDs @ 0x18008A0F0 (ResCCompareCacheIDs.c)
  */
 
 __int64 __fastcall GetFirstEntryIndex<_RESCDIRECTORY *,_RESCDENTRY *,0>(__int64 a1, _QWORD *a2)
@@ -60,7 +60,7 @@ __int64 __fastcall GetFirstEntryIndex<_RESCDIRECTORY *,_RESCDENTRY *,0>(__int64 
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
   }
   return v2;
 }

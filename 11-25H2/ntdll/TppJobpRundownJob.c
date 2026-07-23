@@ -18,28 +18,29 @@
 
 void __fastcall TppJobpRundownJob(__int64 a1)
 {
-  volatile signed __int64 *v2; // rsi
-  __int64 v3; // rcx
-  int v4; // eax
+  _RTL_SRWLOCK *v2; // rsi
+  void *v3; // rcx
+  NTSTATUS v4; // eax
   unsigned __int64 v5; // rax
   signed __int64 v6; // rbx
   unsigned __int64 v7; // rbx
   _QWORD *v8; // rcx
   void (*v9)(void); // rax
-  __int128 v10; // [rsp+30h] [rbp-18h] BYREF
+  __int128 JobObjectInformation; // [rsp+30h] [rbp-18h] BYREF
   unsigned __int64 v11; // [rsp+50h] [rbp+8h] BYREF
 
   v11 = 0LL;
   if ( *(_QWORD *)(a1 + 272) )
   {
-    v2 = (volatile signed __int64 *)(a1 + 288);
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 288));
-    v3 = *(_QWORD *)(a1 + 272);
+    v2 = (_RTL_SRWLOCK *)(a1 + 288);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 288));
+    v3 = *(void **)(a1 + 272);
     if ( v3 )
     {
-      v10 = 0LL;
-      v4 = ZwSetInformationJobObject(v3, 7LL, &v10);
-      if ( v4 < 0 || (v4 = NtQueryInformationJobObject(*(_QWORD *)(a1 + 272), 17LL, &v11), v4 < 0) )
+      JobObjectInformation = 0LL;
+      v4 = ZwSetInformationJobObject(v3, JobObjectAssociateCompletionPortInformation, &JobObjectInformation, 0x10u);
+      if ( v4 < 0
+        || (v4 = NtQueryInformationJobObject(*(HANDLE *)(a1 + 272), JobObjectCompletionCounter, &v11, 8u, 0LL), v4 < 0) )
       {
         TppRaiseHandleStatus((unsigned int)v4, *(_QWORD *)(a1 + 272), 0LL);
       }
@@ -67,7 +68,7 @@ void __fastcall TppJobpRundownJob(__int64 a1)
             }
             else if ( (char *)v9 == (char *)TppWorkpFree )
             {
-              TppWorkpFree((__int64)v8);
+              TppWorkpFree(v8);
             }
             else
             {

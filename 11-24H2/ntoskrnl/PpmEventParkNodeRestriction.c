@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventParkNodeRestriction @ 0x1404ED06C
+ * XREFs of PpmEventParkNodeRestriction @ 0x1404E4890
  * Callers:
- *     PpmParkEvaluateRestriction @ 0x1404EE4B8 (PpmParkEvaluateRestriction.c)
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmParkEvaluateRestriction @ 0x1404E5C48 (PpmParkEvaluateRestriction.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventParkNodeRestrictionEx @ 0x1405DE51C (PpmEventParkNodeRestrictionEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventParkNodeRestrictionEx @ 0x1405DB39C (PpmEventParkNodeRestrictionEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkNodeRestriction(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -58,22 +58,22 @@ char __fastcall PpmEventParkNodeRestriction(__int64 a1, __int64 a2, __int64 a3, 
         UserData.Reserved = 0;
         v17 = 0;
         v20 = 0;
-        v9 = *(_BYTE *)(a2 + 1228) == 0;
+        v9 = *(_BYTE *)(a2 + 1236) == 0;
         UserData.Ptr = a2 + 4;
         v13 = !v9;
         v15 = a2 + 16;
-        v10 = *(_BYTE *)(a2 + 1224);
+        v10 = *(_BYTE *)(a2 + 1232);
         v23 = 0;
         v26 = 0;
         v29 = 0;
         v12 = v10;
         v18 = &v12;
         v21 = &v13;
-        v27 = *(_QWORD *)(a2 + 1248);
-        v28 = 4 * *(unsigned __int16 *)(a2 + 1244);
+        v27 = *(_QWORD *)(a2 + 1256);
+        v28 = 4 * *(unsigned __int16 *)(a2 + 1252);
         v19 = 1;
         v22 = 1;
-        v24 = a2 + 1244;
+        v24 = a2 + 1252;
         v25 = 1;
         UserData.Size = 2;
         v16 = 8;

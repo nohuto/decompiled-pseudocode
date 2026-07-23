@@ -8,31 +8,29 @@
  *     sub_18006EBF4 @ 0x18006EBF4 (sub_18006EBF4.c)
  */
 
-struct _TEB *RtlCleanUpTEBLangLists()
+void RtlCleanUpTEBLangLists(void)
 {
-  unsigned __int64 *UserPrefLanguages; // rbx
-  struct _TEB *result; // rax
+  PVOID *UserPrefLanguages; // rbx
+  PVOID v1; // rcx
 
-  sub_180040BA0((unsigned __int64)NtCurrentTeb()->MergedPrefLanguages);
+  sub_180040BA0(NtCurrentTeb()->MergedPrefLanguages);
   NtCurrentTeb()->MergedPrefLanguages = 0LL;
-  UserPrefLanguages = (unsigned __int64 *)NtCurrentTeb()->UserPrefLanguages;
+  UserPrefLanguages = (PVOID *)NtCurrentTeb()->UserPrefLanguages;
   if ( UserPrefLanguages )
   {
     if ( *UserPrefLanguages )
       sub_180040BA0(*UserPrefLanguages);
-    if ( UserPrefLanguages[1] )
-      sub_18006EBF4();
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)UserPrefLanguages);
+    v1 = UserPrefLanguages[1];
+    if ( v1 )
+      sub_18006EBF4(v1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, UserPrefLanguages);
   }
   NtCurrentTeb()->UserPrefLanguages = 0LL;
-  sub_180040BA0((unsigned __int64)NtCurrentTeb()->PreferredLanguages);
+  sub_180040BA0(NtCurrentTeb()->PreferredLanguages);
   NtCurrentTeb()->PreferredLanguages = 0LL;
-  result = NtCurrentTeb();
-  if ( result->ResourceRetValue )
+  if ( NtCurrentTeb()->ResourceRetValue )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)NtCurrentTeb()->ResourceRetValue);
-    result = NtCurrentTeb();
-    result->ResourceRetValue = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, NtCurrentTeb()->ResourceRetValue);
+    NtCurrentTeb()->ResourceRetValue = 0LL;
   }
-  return result;
 }

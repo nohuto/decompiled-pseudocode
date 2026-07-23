@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDmgGetDriversDmarPolicy @ 0x14072748C
+ * XREFs of PipDmgGetDriversDmarPolicy @ 0x14072501C
  * Callers:
- *     PiDmaGuardProcessPreAddDevice @ 0x1409C6A98 (PiDmaGuardProcessPreAddDevice.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x140981740 (PiDmaGuardProcessPreAddDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PipDmgGetDriverDmarCompatLevel @ 0x140A88AFC (PipDmgGetDriverDmarCompatLevel.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x140A84EFC (PipDmgGetDriverDmarCompatLevel.c)
  */
 
 __int64 __fastcall PipDmgGetDriversDmarPolicy(_QWORD *a1)

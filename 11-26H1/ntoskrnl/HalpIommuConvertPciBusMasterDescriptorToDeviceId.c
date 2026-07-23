@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuConvertPciBusMasterDescriptorToDeviceId @ 0x1405332D0
+ * XREFs of HalpIommuConvertPciBusMasterDescriptorToDeviceId @ 0x140535750
  * Callers:
- *     HalpIommuAllocateRemappingTableEntry @ 0x140587838 (HalpIommuAllocateRemappingTableEntry.c)
+ *     HalpIommuAllocateRemappingTableEntry @ 0x140589E10 (HalpIommuAllocateRemappingTableEntry.c)
  * Callees:
  *     <none>
  */

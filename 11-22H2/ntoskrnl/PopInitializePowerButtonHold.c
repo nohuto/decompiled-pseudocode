@@ -20,7 +20,7 @@ int __fastcall PopInitializePowerButtonHold(int a1)
   __int64 v4; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE DestinationString[3]; // [rsp+50h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v7; // [rsp+98h] [rbp-70h] BYREF
+  ULONG BufferLengthOut[4]; // [rsp+98h] [rbp-70h] BYREF
   WCHAR SourceString[264]; // [rsp+A8h] [rbp-60h] BYREF
   _UNKNOWN *retaddr; // [rsp+2D0h] [rbp+1C8h] BYREF
 
@@ -54,7 +54,14 @@ int __fastcall PopInitializePowerButtonHold(int a1)
     return (int)v1;
   if ( RtlIsStateSeparationEnabled() )
   {
-    if ( (int)RtlGetPersistedStateLocation(L"PowerButton", 0LL, 0LL, 0, SourceString, 0x208u, (unsigned int *)&v7) >= 0 )
+    if ( RtlGetPersistedStateLocation(
+           L"PowerButton",
+           0LL,
+           0LL,
+           LocationTypeRegistry,
+           SourceString,
+           0x208u,
+           BufferLengthOut) >= 0 )
     {
       RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], SourceString);
       ObjectAttributes.Length = 48;

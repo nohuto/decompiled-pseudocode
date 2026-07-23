@@ -47,7 +47,7 @@ void __fastcall PopDiagTraceIllegalProcessorThrottle(int a1, __int64 a2, _QWORD 
     v10 = &v20;
     v11 = 8;
     if ( *a3 )
-      v7 = (unsigned int)KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *a3) / 10000000LL;
+      v7 = KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *a3) / 10000000LL;
     else
       LODWORD(v7) = 0;
     v15 = 0;

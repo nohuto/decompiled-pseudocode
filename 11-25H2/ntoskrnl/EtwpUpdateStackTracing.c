@@ -8,7 +8,7 @@
  *     EtwpInitializeClassicStackTracing @ 0x140A391F0 (EtwpInitializeClassicStackTracing.c)
  */
 
-__int64 __fastcall EtwpUpdateStackTracing(RTL_BITMAP *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall EtwpUpdateStackTracing(_RTL_BITMAP *a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rbx
   int v7; // esi

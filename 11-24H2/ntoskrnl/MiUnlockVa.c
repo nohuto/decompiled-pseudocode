@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockVa @ 0x1402C7B34
+ * XREFs of MiUnlockVa @ 0x1403DB604
  * Callers:
- *     NtUnlockVirtualMemory @ 0x1402333D0 (NtUnlockVirtualMemory.c)
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiMakeVaRangeNoAccess @ 0x140498B94 (MiMakeVaRangeNoAccess.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     NtUnlockVirtualMemory @ 0x140213FA0 (NtUnlockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiMakeVaRangeNoAccess @ 0x14049351C (MiMakeVaRangeNoAccess.c)
  * Callees:
- *     MiUnlockWsle @ 0x1402C7B94 (MiUnlockWsle.c)
+ *     MiUnlockWsle @ 0x1403DB664 (MiUnlockWsle.c)
  */
 
 __int64 __fastcall MiUnlockVa(__int64 a1, unsigned __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreateInitialLargeLeafPfns @ 0x14046AE30
+ * XREFs of MiCreateInitialLargeLeafPfns @ 0x1404645B0
  * Callers:
- *     MiDeleteSectionCluster @ 0x140318360 (MiDeleteSectionCluster.c)
- *     MiInitializeNewPfns @ 0x1406E6548 (MiInitializeNewPfns.c)
- *     MxInsertFreePages @ 0x140CF7300 (MxInsertFreePages.c)
+ *     MiDeleteSectionCluster @ 0x14031A390 (MiDeleteSectionCluster.c)
+ *     MiInitializeNewPfns @ 0x1406EB1F8 (MiInitializeNewPfns.c)
+ *     MxInsertFreePages @ 0x140CFD680 (MxInsertFreePages.c)
  * Callees:
  *     <none>
  */
@@ -35,9 +35,9 @@ unsigned __int64 __fastcall MiCreateInitialLargeLeafPfns(
 
   v6 = a1;
   v8 = MiPageSizes[a3];
-  si128 = _mm_load_si128((const __m128i *)&xmmword_140E2EA80);
-  v21 = _mm_load_si128((const __m128i *)&xmmword_140E2EA90);
-  v9 = _mm_load_si128((const __m128i *)&xmmword_140E2EAA0);
+  si128 = _mm_load_si128((const __m128i *)&xmmword_140E2EC00);
+  v21 = _mm_load_si128((const __m128i *)&xmmword_140E2EC10);
+  v9 = _mm_load_si128((const __m128i *)&xmmword_140E2EC20);
   v22.m128i_i64[0] = v9.m128i_i64[0];
   v22.m128i_i64[1] = ((unsigned __int64)a5 << 43) ^ (v9.m128i_i64[1] ^ ((unsigned __int64)a5 << 43)) & 0xFFE007FFFFFFFFFFuLL;
   v10 = (__m128i *)(48 * a1 - 0x220000000000LL);

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmRegisterMachineHiveLoadedNotification @ 0x1407D1AB0
+ * XREFs of CmRegisterMachineHiveLoadedNotification @ 0x1407D1FA0
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140C4D180 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140C4F31C (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CmpWorkItemQueueWork @ 0x1403A68B0 (CmpWorkItemQueueWork.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpFindMachineHiveByMountPoint @ 0x1407D1E18 (CmpFindMachineHiveByMountPoint.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     CmpWorkItemQueueWork @ 0x14021E9B0 (CmpWorkItemQueueWork.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpFindMachineHiveByMountPoint @ 0x1407D2308 (CmpFindMachineHiveByMountPoint.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmRegisterMachineHiveLoadedNotification(
@@ -24,11 +24,11 @@ __int64 __fastcall CmRegisterMachineHiveLoadedNotification(
   __int64 v9; // rsi
   __int64 v10; // r14
   unsigned __int64 *v11; // rdi
-  _QWORD *v12; // rax
-  _QWORD *v13; // rbx
+  char *v12; // rax
+  char *v13; // rbx
   unsigned __int64 *v14; // rbx
-  _QWORD *v15; // rax
-  _QWORD *v16; // rbp
+  char *v15; // rax
+  char *v16; // rbp
   wchar_t ***v17; // rcx
   signed __int64 v18; // rax
   signed __int64 v19; // rdx
@@ -46,7 +46,7 @@ __int64 __fastcall CmRegisterMachineHiveLoadedNotification(
   result = CmpFindMachineHiveByMountPoint(a3);
   if ( (int)result >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x70uLL, 0x32394D43u);
     v9 = Pool2;
     if ( Pool2 )
     {
@@ -67,12 +67,12 @@ __int64 __fastcall CmRegisterMachineHiveLoadedNotification(
       *(_DWORD *)(v10 + 44) = 1;
       *(_QWORD *)(v10 + 48) = CmpMachineHiveLoadedWorkItem;
       *(_QWORD *)(v10 + 56) = v9;
-      v12 = KeAbPreAcquire((__int64)&CmpMachineHiveList[17], 0LL);
+      v12 = (char *)KeAbPreAcquire((__int64)&CmpMachineHiveList[17], 0LL);
       v13 = v12;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&CmpMachineHiveList[17], 0LL) )
-        ExfAcquirePushLockExclusiveEx(v11, (__int64)v12, (__int64)v11);
+        ExfAcquirePushLockExclusiveEx(v11, v12, (__int64)v11);
       if ( v13 )
-        *((_BYTE *)v13 + 10) = 1;
+        v13[10] = 1;
       if ( HIDWORD(CmpMachineHiveList[14]) == 1 )
       {
         CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)v10);
@@ -80,12 +80,12 @@ __int64 __fastcall CmRegisterMachineHiveLoadedNotification(
       else
       {
         v14 = (unsigned __int64 *)&CmpMachineHiveList[18];
-        v15 = KeAbPreAcquire((__int64)&CmpMachineHiveList[18], 0LL);
+        v15 = (char *)KeAbPreAcquire((__int64)&CmpMachineHiveList[18], 0LL);
         v16 = v15;
         if ( _interlockedbittestandset64((volatile signed __int32 *)&CmpMachineHiveList[18], 0LL) )
-          ExfAcquirePushLockExclusiveEx(v14, (__int64)v15, (__int64)v14);
+          ExfAcquirePushLockExclusiveEx(v14, v15, (__int64)v14);
         if ( v16 )
-          *((_BYTE *)v16 + 10) = 1;
+          v16[10] = 1;
         v17 = (wchar_t ***)CmpMachineHiveList[20];
         if ( *v17 != &CmpMachineHiveList[19] )
           __fastfail(3u);

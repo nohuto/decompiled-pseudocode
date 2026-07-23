@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpPoolRunDown @ 0x14093E300
+ * XREFs of EtwpPoolRunDown @ 0x14093E4D0
  * Callers:
- *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079763C (EtwpKernelTraceRundown.c)
  * Callees:
- *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
- *     ExGetSessionPoolTagInfo @ 0x140298C6C (ExGetSessionPoolTagInfo.c)
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExGetBigPoolInfo @ 0x1405B375C (ExGetBigPoolInfo.c)
- *     ExGetPoolTagInfo @ 0x1406DD4D8 (ExGetPoolTagInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExGetSessionPoolTagInfo @ 0x14021564C (ExGetSessionPoolTagInfo.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     MmGetSessionId @ 0x1402863C0 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x1402872E0 (MmGetNextSession.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExGetBigPoolInfo @ 0x1405B398C (ExGetBigPoolInfo.c)
+ *     ExGetPoolTagInfo @ 0x1406B47B8 (ExGetPoolTagInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
@@ -55,7 +55,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   unsigned int v37; // r8d
   __int64 v38; // rdx
   int v39; // eax
-  _KPROCESS *NextSession; // rax
+  ULONG_PTR NextSession; // rax
   __int64 v41; // rdi
   unsigned int v43; // [rsp+3Ch] [rbp-45h] BYREF
   unsigned int i; // [rsp+40h] [rbp-41h] BYREF
@@ -166,11 +166,11 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   }
   for ( j = 0LL; ; j = (struct _DMA_ADAPTER *)v41 )
   {
-    NextSession = (_KPROCESS *)MmGetNextSession(j);
-    v41 = (__int64)NextSession;
+    NextSession = MmGetNextSession(j);
+    v41 = NextSession;
     if ( !NextSession )
       break;
-    if ( (int)MmAttachSession(NextSession, (__int64)v47) >= 0 )
+    if ( (int)MmAttachSession(NextSession) >= 0 )
     {
       SessionId = MmGetSessionId(v41);
       v23 = 4000;

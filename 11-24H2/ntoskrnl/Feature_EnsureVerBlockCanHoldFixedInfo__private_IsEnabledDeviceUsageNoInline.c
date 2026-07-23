@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline @ 0x140696BB0
+ * XREFs of Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline @ 0x140697C80
  * Callers:
- *     AslpFileGetVersionBlock @ 0x14080E580 (AslpFileGetVersionBlock.c)
+ *     AslpFileGetVersionBlock @ 0x14080ECC0 (AslpFileGetVersionBlock.c)
  * Callees:
- *     Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledFallback @ 0x140696BE8 (Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledFallback.c)
+ *     Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledFallback @ 0x140697CB8 (Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline()

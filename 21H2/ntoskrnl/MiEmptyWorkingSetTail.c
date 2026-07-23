@@ -1,9 +1,9 @@
 /*
- * XREFs of MiEmptyWorkingSetTail @ 0x1402C94C0
+ * XREFs of MiEmptyWorkingSetTail @ 0x140247DA0
  * Callers:
  *     <none>
  * Callees:
- *     MiFreeWsleList @ 0x140327320 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x140332070 (MiFreeWsleList.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetTail(__int64 a1)

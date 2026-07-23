@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapScanRegistryForPolicyChanges @ 0x140849C2C
+ * XREFs of WheapScanRegistryForPolicyChanges @ 0x14084FF3C
  * Callers:
- *     WheaRegChangeNotifyCallback @ 0x140849930 (WheaRegChangeNotifyCallback.c)
- *     WheapLoadPolicy @ 0x140CE85FC (WheapLoadPolicy.c)
+ *     WheaRegChangeNotifyCallback @ 0x14084FC40 (WheaRegChangeNotifyCallback.c)
+ *     WheapLoadPolicy @ 0x140CEE99C (WheapLoadPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     WheapSetPolicyValue @ 0x140849D14 (WheapSetPolicyValue.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     WheapSetPolicyValue @ 0x140850024 (WheapSetPolicyValue.c)
  */
 
 void WheapScanRegistryForPolicyChanges()
@@ -26,7 +26,7 @@ void WheapScanRegistryForPolicyChanges()
 
   DestinationString = 0LL;
   ResultLength = 0;
-  if ( CmpCallbackListLock.WaitBlock[2].Object )
+  if ( CmpContextListLock.WaitBlock[1].Object )
   {
     v0 = 0;
     v1 = &unk_140E093AC;
@@ -34,7 +34,7 @@ void WheapScanRegistryForPolicyChanges()
     {
       RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(v1 - 28));
       v2 = ZwQueryValueKey(
-             CmpCallbackListLock.WaitBlock[2].Object,
+             CmpContextListLock.WaitBlock[1].Object,
              &DestinationString,
              KeyValuePartialInformation,
              KeyValueInformation,

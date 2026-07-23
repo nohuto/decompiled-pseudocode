@@ -96,7 +96,7 @@ __int64 __fastcall MiCommitPoolMemory(ULONG_PTR *a1, __int64 a2, int a3, unsigne
   unsigned __int64 v61; // rax
   __int64 v62; // rsi
   unsigned __int64 v63; // rsi
-  union _SLIST_HEADER *v64; // rbx
+  _SLIST_HEADER *v64; // rbx
   unsigned __int64 v65; // rdi
   unsigned __int64 Alignment; // rax
   _QWORD *v67; // rbx

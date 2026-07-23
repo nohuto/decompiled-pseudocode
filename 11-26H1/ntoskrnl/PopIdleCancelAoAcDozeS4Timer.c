@@ -1,17 +1,16 @@
 /*
- * XREFs of PopIdleCancelAoAcDozeS4Timer @ 0x1404F15DC
+ * XREFs of PopIdleCancelAoAcDozeS4Timer @ 0x1404EABBC
  * Callers:
- *     PopUpdateSmartUserPresencePredictions @ 0x14077C938 (PopUpdateSmartUserPresencePredictions.c)
- *     PopPowerAggregatorDozeTimerWorker @ 0x1407D66B0 (PopPowerAggregatorDozeTimerWorker.c)
- *     PopIdleCsStateChanged @ 0x1407DA1D0 (PopIdleCsStateChanged.c)
- *     PopIdleGlobalUserPresenceCallback @ 0x1407DA270 (PopIdleGlobalUserPresenceCallback.c)
- *     PopIdleTriggerAdaptiveStandbyAction @ 0x1407DA37C (PopIdleTriggerAdaptiveStandbyAction.c)
- *     PopUpdateSystemIdleContext @ 0x140945524 (PopUpdateSystemIdleContext.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x14077F42C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopPowerAggregatorDozeTimerWorker @ 0x1407D9840 (PopPowerAggregatorDozeTimerWorker.c)
+ *     PopIdleCsStateChanged @ 0x1407DE134 (PopIdleCsStateChanged.c)
+ *     PopIdleGlobalUserPresenceCallback @ 0x1407DE1C0 (PopIdleGlobalUserPresenceCallback.c)
+ *     PopUpdateSystemIdleContext @ 0x1409C0E94 (PopUpdateSystemIdleContext.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer2 @ 0x1403AA4E0 (KeCancelTimer2.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerCancelled @ 0x1407D5FC0 (PopTraceSystemIdleS0LowPowerDozeTimerCancelled.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer2 @ 0x1403B40F0 (KeCancelTimer2.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerCancelled @ 0x1407D9170 (PopTraceSystemIdleS0LowPowerDozeTimerCancelled.c)
  */
 
 char __fastcall PopIdleCancelAoAcDozeS4Timer(unsigned int a1)
@@ -20,14 +19,14 @@ char __fastcall PopIdleCancelAoAcDozeS4Timer(unsigned int a1)
   KIRQL v3; // si
 
   v2 = 0;
-  v3 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-  if ( BYTE4(stru_140F0F620.SchedulerAssistLastYieldBoostTime) )
+  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopPdcDeviceListLock.SystemAffinityTokenListHead);
+  if ( byte_140F10354 )
   {
-    KeCancelTimer2((__int64)&PopIdleAoAcDozeS4Timer);
-    BYTE4(stru_140F0F620.SchedulerAssistLastYieldBoostTime) = 0;
+    KeCancelTimer2((__int64)&PopPdcDeviceListLock.SchedulerAssistLastYieldBoostTime);
+    byte_140F10354 = 0;
     v2 = 1;
   }
-  KeReleaseSpinLock(&PopIdleAoAcDozeS4Lock, v3);
+  KeReleaseSpinLock((PKSPIN_LOCK)&PopPdcDeviceListLock.SystemAffinityTokenListHead, v3);
   if ( v2 )
     PopTraceSystemIdleS0LowPowerDozeTimerCancelled(a1);
   return v2;

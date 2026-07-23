@@ -1,28 +1,28 @@
 /*
- * XREFs of AlpcpCreateSecurityContext @ 0x1408963D8
+ * XREFs of AlpcpCreateSecurityContext @ 0x14089E878
  * Callers:
- *     AlpcpCaptureSecurityAttribute @ 0x14088DE30 (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1408949C0 (AlpcpCaptureSecurityAttributeInternal.c)
- *     AlpcCreateSecurityContext @ 0x140A59730 (AlpcCreateSecurityContext.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x14089CE60 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x1409C12C0 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcCreateSecurityContext @ 0x140A50FF0 (AlpcCreateSecurityContext.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     IoThreadToProcess @ 0x140441CC0 (IoThreadToProcess.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14088DADC (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpDereferenceBlobEx @ 0x140890420 (AlpcpDereferenceBlobEx.c)
- *     AlpcpInsertResourcePort @ 0x140893BB8 (AlpcpInsertResourcePort.c)
- *     PsChargeProcessPagedPoolQuota @ 0x140896630 (PsChargeProcessPagedPoolQuota.c)
- *     AlpcpReferenceBlob @ 0x1408966C0 (AlpcpReferenceBlob.c)
- *     SeCreateClientSecurity @ 0x140896720 (SeCreateClientSecurity.c)
- *     AlpcpStartInitialization @ 0x140940834 (AlpcpStartInitialization.c)
- *     AlpcAddHandleTableEntry @ 0x1409408A0 (AlpcAddHandleTableEntry.c)
- *     AlpcpEndInitialization @ 0x140A14170 (AlpcpEndInitialization.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     IoThreadToProcess @ 0x140438740 (IoThreadToProcess.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1408923C8 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpStartInitialization @ 0x140894E74 (AlpcpStartInitialization.c)
+ *     AlpcAddHandleTableEntry @ 0x140894EE0 (AlpcAddHandleTableEntry.c)
+ *     AlpcpInsertResourcePort @ 0x1408966E0 (AlpcpInsertResourcePort.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x14089EAD0 (PsChargeProcessPagedPoolQuota.c)
+ *     AlpcpReferenceBlob @ 0x14089EB60 (AlpcpReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14089EBC0 (AlpcpDereferenceBlobEx.c)
+ *     SeCreateClientSecurity @ 0x14089EDC0 (SeCreateClientSecurity.c)
+ *     AlpcpEndInitialization @ 0x140A0C980 (AlpcpEndInitialization.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AlpcpCreateSecurityContext(
@@ -38,18 +38,14 @@ __int64 __fastcall AlpcpCreateSecurityContext(
   unsigned __int64 v12; // rax
   __int64 v13; // rtt
   NTSTATUS ClientSecurity; // esi
-  __int64 v15; // r8
-  __int64 v16; // r9
-  volatile signed __int64 *v17; // rbx
-  _QWORD *v18; // rsi
-  __int64 v19; // rcx
-  __int64 v20; // rax
-  __int64 v22; // r8
-  __int64 v23; // r9
-  ULONG_PTR v24[7]; // [rsp+20h] [rbp-38h] BYREF
+  volatile signed __int64 *v15; // rbx
+  char *v16; // rsi
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  ULONG_PTR v20[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v9 = IoThreadToProcess(a2);
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0xA0uLL, 0x65536C41u);
   if ( !Pool2 )
     return 3221225626LL;
   *(_WORD *)(Pool2 + 16) = 768;
@@ -95,46 +91,46 @@ LABEL_18:
         *a5 = v11;
         return 0LL;
       }
-      v17 = (volatile signed __int64 *)(a1 + 352);
-      v18 = KeAbPreAcquire(a1 + 352, 0LL);
+      v15 = (volatile signed __int64 *)(a1 + 352);
+      v16 = (char *)KeAbPreAcquire(a1 + 352, 0LL);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 352), 17LL, 0LL) )
-        ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 352), 0, v18, a1 + 352);
-      if ( v18 )
-        *((_BYTE *)v18 + 10) = 1;
+        ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 352), 0, v16, a1 + 352);
+      if ( v16 )
+        v16[10] = 1;
       if ( (*(_DWORD *)(a1 + 416) & 0x20) == 0 )
       {
         AlpcpStartInitialization(v11);
         AlpcpReferenceBlob(v11);
-        v19 = *(_QWORD *)(a1 + 16) + 40LL;
-        v24[0] = v11;
-        *(_QWORD *)v11 = v19;
-        v20 = AlpcAddHandleTableEntry(v19, v24);
-        *(_QWORD *)(v11 + 8) = v20;
-        if ( v20 != -1 )
+        v17 = *(_QWORD *)(a1 + 16) + 40LL;
+        v20[0] = v11;
+        *(_QWORD *)v11 = v17;
+        v18 = AlpcAddHandleTableEntry(v17, v20);
+        *(_QWORD *)(v11 + 8) = v18;
+        if ( v18 != -1 )
         {
           PsReferenceSiloContext((void *)a1);
           *(_QWORD *)(v11 + 24) = a1;
           AlpcpInsertResourcePort(a1, v11);
-          if ( _InterlockedCompareExchange64(v17, 0LL, 17LL) != 17 )
+          if ( _InterlockedCompareExchange64(v15, 0LL, 17LL) != 17 )
             ExfReleasePushLockShared((signed __int64 *)(a1 + 352));
           KeAbPostRelease(a1 + 352);
           AlpcpEndInitialization(v11);
           goto LABEL_18;
         }
-        if ( _InterlockedCompareExchange64(v17, 0LL, 17LL) != 17 )
+        if ( _InterlockedCompareExchange64(v15, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)(a1 + 352));
         KeAbPostRelease(a1 + 352);
         *(_QWORD *)v11 = 0LL;
         AlpcpEndInitialization(v11);
-        AlpcpDereferenceBlobEx(v11, 2, v22, v23);
+        AlpcpDereferenceBlobEx(v11);
         return 3221225626LL;
       }
-      if ( _InterlockedCompareExchange64(v17, 0LL, 17LL) != 17 )
+      if ( _InterlockedCompareExchange64(v15, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(a1 + 352));
       KeAbPostRelease(a1 + 352);
       ClientSecurity = -1073741670;
     }
   }
-  AlpcpDereferenceBlobEx(v11, 1, v15, v16);
+  AlpcpDereferenceBlobEx(v11);
   return (unsigned int)ClientSecurity;
 }

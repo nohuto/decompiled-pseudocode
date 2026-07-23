@@ -23,7 +23,7 @@ __int64 __fastcall KeSetEventBoostPriorityEx(__int64 a1, _QWORD *a2, _DWORD *a3,
 {
   _DWORD *v6; // r14
   unsigned __int8 CurrentIrql; // cl
-  struct _PROCESSOR_NUMBER v10; // esi
+  _PROCESSOR_NUMBER v10; // esi
   struct _KPRCB *CurrentPrcb; // rbp
   _QWORD *v12; // r15
   int v13; // edi
@@ -54,9 +54,9 @@ __int64 __fastcall KeSetEventBoostPriorityEx(__int64 a1, _QWORD *a2, _DWORD *a3,
   v6 = a3;
   CurrentIrql = KeGetCurrentIrql();
   v37 = CurrentIrql;
-  v10 = (struct _PROCESSOR_NUMBER)2;
+  v10 = (_PROCESSOR_NUMBER)2;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -105,7 +105,7 @@ LABEL_4:
       *(_QWORD *)v15 = 0LL;
       v25 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v25 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu )
       {
         v26 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v25 == 2 )
@@ -197,6 +197,6 @@ LABEL_14:
   }
   if ( !v21 )
 LABEL_20:
-    v10 = (struct _PROCESSOR_NUMBER)1;
+    v10 = (_PROCESSOR_NUMBER)1;
   return KiExitDispatcher((__int64)CurrentPrcb, 0, v10, a5, v37);
 }

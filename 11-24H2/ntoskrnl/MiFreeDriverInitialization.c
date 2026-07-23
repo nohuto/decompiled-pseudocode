@@ -1,30 +1,30 @@
 /*
- * XREFs of MiFreeDriverInitialization @ 0x140A3DC80
+ * XREFs of MiFreeDriverInitialization @ 0x140A33590
  * Callers:
- *     MiFreeBootDriverInitializationCode @ 0x1407E7D50 (MiFreeBootDriverInitializationCode.c)
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
- *     MmFreeDriverInitialization @ 0x140A3D86C (MmFreeDriverInitialization.c)
+ *     MiFreeBootDriverInitializationCode @ 0x1407E8320 (MiFreeBootDriverInitializationCode.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
+ *     MmFreeDriverInitialization @ 0x140A3317C (MmFreeDriverInitialization.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSnapDriverRange @ 0x140A3DE88 (MiSnapDriverRange.c)
- *     MiFreeInitializationCode @ 0x140AE67EC (MiFreeInitializationCode.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSnapDriverRange @ 0x140A33798 (MiSnapDriverRange.c)
+ *     MiFreeInitializationCode @ 0x140AE80CC (MiFreeInitializationCode.c)
  */
 
 __int64 __fastcall MiFreeDriverInitialization(__int64 a1)
 {
-  unsigned __int64 v1; // rbx
+  PVOID v1; // rbx
   __int64 result; // rax
   int v4; // ebx
   __int64 v5; // [rsp+40h] [rbp+8h] BYREF
   __int64 v6; // [rsp+48h] [rbp+10h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(PVOID *)(a1 + 48);
   v6 = 0LL;
   v5 = 0LL;
-  result = MI_IS_PHYSICAL_ADDRESS(v1);
+  result = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v1);
   if ( (!(_DWORD)result || v1 == PsNtosImageBase || v1 == PsHalImageBase)
     && (*(_DWORD *)(a1 + 104) & 0x800) == 0
-    && (!dword_140FC4258 || v1 != PsNtosImageBase && v1 != PsHalImageBase) )
+    && (!dword_140FC5258 || v1 != PsNtosImageBase && v1 != PsHalImageBase) )
   {
     v4 = 0;
     do

@@ -1,15 +1,15 @@
 /*
- * XREFs of VslpIumPhase4Initialize @ 0x1403CEDD8
+ * XREFs of VslpIumPhase4Initialize @ 0x1403CEF48
  * Callers:
- *     VslInitSystem @ 0x140A72D70 (VslInitSystem.c)
+ *     VslInitSystem @ 0x140A73D70 (VslInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwRegisterClassicProvider @ 0x140762C60 (EtwRegisterClassicProvider.c)
- *     PoDisableSleepStates @ 0x1408E3C20 (PoDisableSleepStates.c)
- *     VslpIumInitializeTelemetry @ 0x140A72D90 (VslpIumInitializeTelemetry.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwRegisterClassicProvider @ 0x140762E20 (EtwRegisterClassicProvider.c)
+ *     PoDisableSleepStates @ 0x1408E3D80 (PoDisableSleepStates.c)
+ *     VslpIumInitializeTelemetry @ 0x140A73D90 (VslpIumInitializeTelemetry.c)
  */
 
 __int64 VslpIumPhase4Initialize()

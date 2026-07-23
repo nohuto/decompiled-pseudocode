@@ -1,12 +1,12 @@
 /*
- * XREFs of IopGetLegacyVetoListDeviceNode @ 0x1409B98DC
+ * XREFs of IopGetLegacyVetoListDeviceNode @ 0x14099FF2C
  * Callers:
- *     IoGetLegacyVetoList @ 0x1409B9120 (IoGetLegacyVetoList.c)
- *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1409B98DC (IopGetLegacyVetoListDeviceNode.c)
+ *     IoGetLegacyVetoList @ 0x14099F770 (IoGetLegacyVetoList.c)
+ *     PopFilterCapabilities @ 0x14099F88C (PopFilterCapabilities.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x14099FF2C (IopGetLegacyVetoListDeviceNode.c)
  * Callees:
- *     IopAppendLegacyVeto @ 0x1407330BC (IopAppendLegacyVeto.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1409B98DC (IopGetLegacyVetoListDeviceNode.c)
+ *     IopAppendLegacyVeto @ 0x140730FF0 (IopAppendLegacyVeto.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x14099FF2C (IopGetLegacyVetoListDeviceNode.c)
  */
 
 char __fastcall IopGetLegacyVetoListDeviceNode(__int64 a1, __int64 a2)

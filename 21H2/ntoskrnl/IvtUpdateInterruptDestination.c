@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtUpdateInterruptDestination @ 0x1404E1100
+ * XREFs of IvtUpdateInterruptDestination @ 0x1404E1340
  * Callers:
- *     IvtUpdateRemappingTableEntry @ 0x1404E1270 (IvtUpdateRemappingTableEntry.c)
+ *     IvtUpdateRemappingTableEntry @ 0x1404E14B0 (IvtUpdateRemappingTableEntry.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IvtUpdateInterruptDestination(unsigned __int64 *BugCheckParameter3, _DWORD *BugCheckParameter4)

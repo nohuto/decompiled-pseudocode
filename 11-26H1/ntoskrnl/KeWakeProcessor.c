@@ -1,19 +1,19 @@
 /*
- * XREFs of KeWakeProcessor @ 0x1405F0F90
+ * XREFs of KeWakeProcessor @ 0x1405F3900
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403EB78C (PpmIdleExecuteTransition.c)
- *     KxIsrLinkage @ 0x14072BC20 (KxIsrLinkage.c)
- *     KiHvInterrupt @ 0x14072CCD0 (KiHvInterrupt.c)
- *     KiVmbusInterrupt0 @ 0x14072D060 (KiVmbusInterrupt0.c)
- *     KiVmbusInterrupt1 @ 0x14072D3F0 (KiVmbusInterrupt1.c)
- *     KiVmbusInterrupt2 @ 0x14072D780 (KiVmbusInterrupt2.c)
- *     KiVmbusInterrupt3 @ 0x14072DB10 (KiVmbusInterrupt3.c)
- *     KiSwInterrupt @ 0x14072E7F0 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x14072F700 (KiIpiInterrupt.c)
- *     KiNmiInterruptStart @ 0x140733AC0 (KiNmiInterruptStart.c)
- *     KiMcheckAbort @ 0x140738080 (KiMcheckAbort.c)
+ *     PpmIdleExecuteTransition @ 0x1402F87D0 (PpmIdleExecuteTransition.c)
+ *     KxIsrLinkage @ 0x1407307F0 (KxIsrLinkage.c)
+ *     KiHvInterrupt @ 0x1407318A0 (KiHvInterrupt.c)
+ *     KiVmbusInterrupt0 @ 0x140731C30 (KiVmbusInterrupt0.c)
+ *     KiVmbusInterrupt1 @ 0x140731FC0 (KiVmbusInterrupt1.c)
+ *     KiVmbusInterrupt2 @ 0x140732350 (KiVmbusInterrupt2.c)
+ *     KiVmbusInterrupt3 @ 0x1407326E0 (KiVmbusInterrupt3.c)
+ *     KiSwInterrupt @ 0x1407333C0 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x1407342D0 (KiIpiInterrupt.c)
+ *     KiNmiInterruptStart @ 0x1407386C0 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x14073CC80 (KiMcheckAbort.c)
  * Callees:
- *     KeInterlockedClearProcessorAffinityEx @ 0x14042C170 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140420840 (KeInterlockedClearProcessorAffinityEx.c)
  */
 
 unsigned __int64 KeWakeProcessor()
@@ -24,7 +24,7 @@ unsigned __int64 KeWakeProcessor()
 
   CurrentPrcb = KeGetCurrentPrcb();
   CurrentPrcb->DeepSleep = 0;
-  KeInterlockedClearProcessorAffinityEx((__int64)&KiDpcCorralLock.SListFaultAddress, CurrentPrcb->Number);
+  KeInterlockedClearProcessorAffinityEx((__int64)&KiDpcCorralLock.Header.WaitListHead.Blink, CurrentPrcb->Number);
   v1 = __readcr4();
   if ( (v1 & 0x20080) != 0 )
   {

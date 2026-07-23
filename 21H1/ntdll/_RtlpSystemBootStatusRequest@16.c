@@ -10,27 +10,27 @@
  *     _ZwPowerInformation@20 @ 0x4B2F2F70 (_ZwPowerInformation@20.c)
  */
 
-int __fastcall RtlpSystemBootStatusRequest(int a1, int a2, unsigned int a3, int a4)
+NTSTATUS __fastcall RtlpSystemBootStatusRequest(int a1, int a2, int a3, PVOID OutputBuffer)
 {
-  int result; // eax
-  int v7; // eax
-  _DWORD v8[4]; // [esp+Ch] [ebp-14h] BYREF
-  int v9; // [esp+1Ch] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  ULONG v7; // eax
+  _DWORD InputBuffer[4]; // [esp+Ch] [ebp-14h] BYREF
+  ULONG OutputBufferLength; // [esp+1Ch] [ebp-4h] BYREF
 
-  if ( a4 )
+  if ( OutputBuffer )
   {
-    result = RtlULongLongToUInt(&v9, 4 * a3, (unsigned __int64)a3 >> 30);
+    result = RtlULongLongToUInt((int *)&OutputBufferLength, 4 * a3, (unsigned __int64)(unsigned int)a3 >> 30);
     if ( result < 0 )
       return result;
-    v7 = v9;
+    v7 = OutputBufferLength;
   }
   else
   {
     v7 = 0;
   }
-  v8[1] = 0;
-  v8[0] = a1;
-  v8[2] = a3;
-  v8[3] = a2;
-  return ZwPowerInformation(87, (int)v8, 16, a4, v7);
+  InputBuffer[1] = 0;
+  InputBuffer[0] = a1;
+  InputBuffer[2] = a3;
+  InputBuffer[3] = a2;
+  return ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x10u, OutputBuffer, v7);
 }

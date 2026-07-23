@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpRemoveSubKeyFromList @ 0x14066B670
+ * XREFs of CmpRemoveSubKeyFromList @ 0x140660490
  * Callers:
- *     CmpRemoveSubKey @ 0x14066B95C (CmpRemoveSubKey.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F610 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F7C4 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpRemoveSubKey @ 0x14066077C (CmpRemoveSubKey.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F770 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F924 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpFindSubKeyInRoot @ 0x1405ED60C (CmpFindSubKeyInRoot.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
- *     CmpFindSubKeyInLeaf @ 0x14087A5A0 (CmpFindSubKeyInLeaf.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpFindSubKeyInRoot @ 0x1406DCD6C (CmpFindSubKeyInRoot.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
+ *     CmpFindSubKeyInLeaf @ 0x14087A700 (CmpFindSubKeyInLeaf.c)
  */
 
 char __fastcall CmpRemoveSubKeyFromList(ULONG_PTR BugCheckParameter2, int *a2, unsigned int a3)
@@ -83,13 +83,13 @@ char __fastcall CmpRemoveSubKeyFromList(ULONG_PTR BugCheckParameter2, int *a2, u
     goto LABEL_11;
   p_DestinationString = &DestinationString;
   if ( v10 )
-    p_DestinationString = 0LL;
+    LODWORD(p_DestinationString) = 0;
   SubKeyInRoot = CmpFindSubKeyInRoot(
                    BugCheckParameter2,
-                   (__int64)v13,
-                   (__int64)p_DestinationString,
+                   (_DWORD)v13,
+                   (_DWORD)p_DestinationString,
                    (unsigned __int64)&DestinationString & -(__int64)(v10 != 0),
-                   &v37);
+                   (__int64)&v37);
   if ( SubKeyInRoot < 0 )
     goto LABEL_8;
   v33 = v32;

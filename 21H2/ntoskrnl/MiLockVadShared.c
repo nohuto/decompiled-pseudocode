@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockVadShared @ 0x14025B344
+ * XREFs of MiLockVadShared @ 0x14027C8B4
  * Callers:
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E590 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
- *     NtAreMappedFilesTheSame @ 0x1406BD520 (NtAreMappedFilesTheSame.c)
- *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
- *     MiHotPatchProcess @ 0x1408CA658 (MiHotPatchProcess.c)
- *     MiSetImageHotPatchAllowed @ 0x1408CE504 (MiSetImageHotPatchAllowed.c)
- *     MmIsFileMapped @ 0x1408D1020 (MmIsFileMapped.c)
- *     MiFinishPlaceholderVadReplacement @ 0x1408D8388 (MiFinishPlaceholderVadReplacement.c)
+ *     NtAreMappedFilesTheSame @ 0x14061C730 (NtAreMappedFilesTheSame.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140688200 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MmQueryVirtualMemory @ 0x1406885A0 (MmQueryVirtualMemory.c)
+ *     MiHotPatchImage @ 0x1408CA494 (MiHotPatchImage.c)
+ *     MiHotPatchProcess @ 0x1408CA7B8 (MiHotPatchProcess.c)
+ *     MiSetImageHotPatchAllowed @ 0x1408CE664 (MiSetImageHotPatchAllowed.c)
+ *     MmIsFileMapped @ 0x1408D1180 (MmIsFileMapped.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x1408D84E8 (MiFinishPlaceholderVadReplacement.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall MiLockVadShared(__int64 a1, __int64 a2)

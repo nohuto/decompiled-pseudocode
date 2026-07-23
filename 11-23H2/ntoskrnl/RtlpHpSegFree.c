@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegFree @ 0x14031515C
+ * XREFs of RtlpHpSegFree @ 0x1403153EC
  * Callers:
- *     RtlpHpSegLfhVsFree @ 0x140315140 (RtlpHpSegLfhVsFree.c)
+ *     RtlpHpSegLfhVsFree @ 0x1403153D0 (RtlpHpSegLfhVsFree.c)
  * Callees:
- *     RtlpHpSegPageRangeShrink @ 0x14024E6C0 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315CC0 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     RtlpHpSegDescriptorValidate @ 0x140316860 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpVsContextFree @ 0x140323630 (RtlpHpVsContextFree.c)
- *     RtlpHpLfhBucketUpdateStats @ 0x140323AC0 (RtlpHpLfhBucketUpdateStats.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024E790 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315F50 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpSegDescriptorValidate @ 0x140316AF0 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpVsContextFree @ 0x1403238C0 (RtlpHpVsContextFree.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x140323D50 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a3)

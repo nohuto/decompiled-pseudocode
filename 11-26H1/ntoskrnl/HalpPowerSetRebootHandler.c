@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPowerSetRebootHandler @ 0x14057F810
+ * XREFs of HalpPowerSetRebootHandler @ 0x140581D30
  * Callers:
  *     <none>
  * Callees:

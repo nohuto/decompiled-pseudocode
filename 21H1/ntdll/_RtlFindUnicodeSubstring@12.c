@@ -7,99 +7,104 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-char *__stdcall RtlFindUnicodeSubstring(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+PWCHAR __cdecl RtlFindUnicodeSubstring(
+        PUNICODE_STRING FullString,
+        PUNICODE_STRING SearchString,
+        BOOLEAN CaseInSensitive)
 {
-  int v3; // edx
+  int Length; // edx
   int v4; // ecx
-  char *v5; // edi
-  size_t v6; // esi
-  char *v7; // ebx
-  unsigned __int16 *v8; // eax
-  unsigned __int16 *v9; // edx
+  wchar_t *Buffer; // edi
+  int v6; // esi
+  wchar_t *v7; // ebx
+  wchar_t *v8; // eax
+  wchar_t *v9; // edx
   int v10; // ecx
   bool v11; // zf
   unsigned __int16 v13; // si
   unsigned __int16 v14; // ax
-  const void *v15; // eax
-  unsigned __int16 *v16; // [esp+Ch] [ebp-1Ch]
-  const void *v17; // [esp+Ch] [ebp-1Ch]
-  char *v18; // [esp+10h] [ebp-18h]
-  unsigned __int16 v19; // [esp+14h] [ebp-14h]
-  unsigned __int16 *v20; // [esp+1Ch] [ebp-Ch]
-  int v21; // [esp+20h] [ebp-8h]
-  unsigned __int16 *v22; // [esp+24h] [ebp-4h]
+  wchar_t *v15; // eax
+  size_t v16; // [esp-4h] [ebp-2Ch]
+  wchar_t *v17; // [esp+Ch] [ebp-1Ch]
+  wchar_t *v18; // [esp+Ch] [ebp-1Ch]
+  wchar_t *v19; // [esp+10h] [ebp-18h]
+  unsigned __int16 v20; // [esp+14h] [ebp-14h]
+  wchar_t *v21; // [esp+1Ch] [ebp-Ch]
+  int v22; // [esp+20h] [ebp-8h]
+  wchar_t *v23; // [esp+24h] [ebp-4h]
 
-  v3 = *a2;
-  v4 = *a1;
-  if ( (unsigned __int16)v4 >= (unsigned __int16)v3 )
+  Length = SearchString->Length;
+  v4 = FullString->Length;
+  if ( (unsigned __int16)v4 >= (unsigned __int16)Length )
   {
-    v5 = (char *)*((_DWORD *)a1 + 1);
-    v6 = *a2;
-    v7 = &v5[v4 - v3];
-    v18 = v7;
-    if ( !a3 )
+    Buffer = FullString->Buffer;
+    v6 = SearchString->Length;
+    v7 = (wchar_t *)((char *)Buffer + v4 - Length);
+    v19 = v7;
+    if ( !CaseInSensitive )
     {
-      if ( v5 <= v7 )
+      if ( Buffer <= v7 )
       {
-        v15 = (const void *)*((_DWORD *)a2 + 1);
-        v17 = v15;
+        v15 = SearchString->Buffer;
+        v18 = v15;
         do
         {
-          if ( !memcmp(v5, v15, v6) )
-            return v5;
-          v15 = v17;
-          v5 += 2;
+          LODWORD(v16) = v6;
+          if ( !memcmp(Buffer, v15, v16) )
+            return (PWCHAR)Buffer;
+          v15 = v18;
+          ++Buffer;
         }
-        while ( v5 <= v7 );
+        while ( Buffer <= v7 );
       }
       return 0;
     }
-    v8 = (unsigned __int16 *)*((_DWORD *)a2 + 1);
-    v16 = v8;
-    v9 = (unsigned __int16 *)((char *)v8 + v3);
-    v20 = (unsigned __int16 *)((char *)v8 + v6);
-    if ( v5 <= v7 )
+    v8 = SearchString->Buffer;
+    v17 = v8;
+    v9 = (wchar_t *)((char *)v8 + Length);
+    v21 = (wchar_t *)((char *)v8 + v6);
+    if ( Buffer <= v7 )
     {
-      v10 = v5 - (char *)v8;
-      v21 = v5 - (char *)v8;
+      v10 = (char *)Buffer - (char *)v8;
+      v22 = (char *)Buffer - (char *)v8;
       while ( 1 )
       {
-        v22 = v8;
+        v23 = v8;
         v11 = v8 == v9;
         if ( v8 >= v9 )
           goto LABEL_9;
         while ( 1 )
         {
-          v19 = *(unsigned __int16 *)((char *)v8 + v10);
-          if ( v19 != *v8 )
+          v20 = *(wchar_t *)((char *)v8 + v10);
+          if ( v20 != *v8 )
             break;
 LABEL_7:
-          v22 = ++v8;
+          v23 = ++v8;
           if ( v8 >= v9 )
             goto LABEL_8;
         }
         v13 = NLS_UPCASE(*v8);
-        v14 = NLS_UPCASE(v19);
-        v9 = v20;
+        v14 = NLS_UPCASE(v20);
+        v9 = v21;
         v11 = v14 == v13;
-        v8 = v22;
+        v8 = v23;
         if ( v11 )
           break;
 LABEL_8:
-        v7 = v18;
+        v7 = v19;
         v11 = v8 == v9;
-        v10 = v21;
+        v10 = v22;
 LABEL_9:
         if ( v11 )
-          return v5;
-        v8 = v16;
-        v5 += 2;
+          return (PWCHAR)Buffer;
+        v8 = v17;
+        ++Buffer;
         v10 += 2;
-        v21 = v10;
-        if ( v5 > v7 )
+        v22 = v10;
+        if ( Buffer > v7 )
           return 0;
       }
-      v10 = v21;
+      v10 = v22;
       goto LABEL_7;
     }
   }

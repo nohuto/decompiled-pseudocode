@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSrcuInitializeTopology @ 0x1405C0FF8
+ * XREFs of KiSrcuInitializeTopology @ 0x1405BE5C8
  * Callers:
- *     KeSrcuAllocate @ 0x1405C0830 (KeSrcuAllocate.c)
+ *     KeSrcuAllocate @ 0x1405BDE00 (KeSrcuAllocate.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KiSrcuProcessorAddToTopologyTree @ 0x1405C166C (KiSrcuProcessorAddToTopologyTree.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KiSrcuProcessorAddToTopologyTree @ 0x1405BEC3C (KiSrcuProcessorAddToTopologyTree.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 KiSrcuInitializeTopology()
@@ -42,7 +42,7 @@ __int64 KiSrcuInitializeTopology()
   v0 = (unsigned int)KeMaximumProcessors;
   if ( (unsigned int)KeMaximumProcessors <= 0x40 )
   {
-    LOBYTE(v2) = 0;
+    LODWORD(v2) = 0;
     v1 = 1;
   }
   else
@@ -50,36 +50,39 @@ __int64 KiSrcuInitializeTopology()
     v1 = 2;
     v2 = ((unsigned __int64)(unsigned int)KeMaximumProcessors + 63) >> 6;
   }
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F10058);
-  if ( !byte_140F10060 )
+  Pool2 = (void *)ExAllocatePool2(
+                    0x40uLL,
+                    8 * ((unsigned int)KeMaximumProcessors + 2LL * (unsigned int)(v2 + 1)),
+                    0x75635253u);
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F10318);
+  if ( !byte_140F10320 )
   {
     if ( !Pool2 )
     {
-      KeReleaseSpinLock(&qword_140F10058, v4);
+      KeReleaseSpinLock(&qword_140F10318, v4);
       return 0LL;
     }
-    byte_140F10061[0] = v1;
-    byte_140F10064 = 1;
+    byte_140F10321[0] = v1;
+    byte_140F10324 = 1;
     if ( v1 == 1 )
     {
-      byte_140F10062 = v0;
+      byte_140F10322 = v0;
     }
     else
     {
-      byte_140F10065 = v2;
-      byte_140F10062 = v2;
-      byte_140F10063 = 64;
+      byte_140F10325 = v2;
+      byte_140F10322 = v2;
+      byte_140F10323 = 64;
     }
-    qword_140F10068 = (__int64)Pool2;
-    qword_140F10070 = (__int64)Pool2 + 8 * v0;
+    qword_140F10328 = (__int64)Pool2;
+    qword_140F10330 = (__int64)Pool2 + 8 * v0;
     Pool2 = 0LL;
-    qword_140F10078 = qword_140F10070 + 16;
+    qword_140F10338 = qword_140F10330 + 16;
     if ( v1 > 1u )
     {
-      v6 = &byte_140F10065;
-      v7 = &qword_140F10078;
-      v8 = &byte_140F10062;
+      v6 = &byte_140F10325;
+      v7 = &qword_140F10338;
+      v8 = &byte_140F10322;
       v9 = (unsigned int)v1 - 1;
       do
       {
@@ -109,7 +112,7 @@ __int64 KiSrcuInitializeTopology()
       while ( v9 );
     }
     v25 = 0;
-    v15 = (unsigned __int8)byte_140F10061[v1];
+    v15 = (unsigned __int8)byte_140F10321[v1];
     if ( (_DWORD)v0 )
     {
       v16 = 0LL;
@@ -117,7 +120,7 @@ __int64 KiSrcuInitializeTopology()
       v18 = 0;
       do
       {
-        *(_QWORD *)(v16 + qword_140F10068) = 1LL << (v17 % v15);
+        *(_QWORD *)(v16 + qword_140F10328) = 1LL << (v17 % v15);
         v17 = v18 + 1;
         v16 += 8LL;
         v18 = v17;
@@ -133,9 +136,9 @@ __int64 KiSrcuInitializeTopology()
     while ( !(unsigned int)KeEnumerateNextProcessor(&v25, v21) )
       KiSrcuProcessorAddToTopologyTree(KiProcessorBlock[v25], 1LL, v19);
     _InterlockedOr(v20, 0);
-    byte_140F10060 = 1;
+    byte_140F10320 = 1;
   }
-  KeReleaseSpinLock(&qword_140F10058, v4);
+  KeReleaseSpinLock(&qword_140F10318, v4);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x75635253u);
   return 1LL;

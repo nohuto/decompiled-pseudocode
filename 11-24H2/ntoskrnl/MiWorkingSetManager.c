@@ -1,34 +1,34 @@
 /*
- * XREFs of MiWorkingSetManager @ 0x1402D3D20
+ * XREFs of MiWorkingSetManager @ 0x140354FA0
  * Callers:
- *     KeBalanceSetManager @ 0x1405C45C0 (KeBalanceSetManager.c)
- *     MiPartitionWorkingSetManager @ 0x1406732E0 (MiPartitionWorkingSetManager.c)
+ *     KeBalanceSetManager @ 0x1405C1BE0 (KeBalanceSetManager.c)
+ *     MiPartitionWorkingSetManager @ 0x1406744B0 (MiPartitionWorkingSetManager.c)
  * Callees:
- *     MiAdjustCachedStacks @ 0x140269740 (MiAdjustCachedStacks.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiReclaimUnusedUltraMdlMaps @ 0x1402D25D4 (MiReclaimUnusedUltraMdlMaps.c)
- *     MiFreeDeferredAcceleratorPool @ 0x1402D26BC (MiFreeDeferredAcceleratorPool.c)
- *     MiCheckLogPinDriverAddresses @ 0x1402D2718 (MiCheckLogPinDriverAddresses.c)
- *     MiAdjustModifiedPageLoad @ 0x1402D2864 (MiAdjustModifiedPageLoad.c)
- *     MiScanPagefiles @ 0x1402D2B08 (MiScanPagefiles.c)
- *     MiPruneProcessLargePageCaches @ 0x1402D2D24 (MiPruneProcessLargePageCaches.c)
- *     MiLogPeriodicTelemetry @ 0x1402D2E24 (MiLogPeriodicTelemetry.c)
- *     MiCheckTrimUnusedPageFileRegions @ 0x1402D3414 (MiCheckTrimUnusedPageFileRegions.c)
- *     MiSignalLargePageRebuild @ 0x1402D34E0 (MiSignalLargePageRebuild.c)
- *     MiScheduleZeroPageThreads @ 0x1402D36A0 (MiScheduleZeroPageThreads.c)
- *     MiFreeUnusedSlabPages @ 0x1402D398C (MiFreeUnusedSlabPages.c)
- *     MiEmptyDecayClusterTimers @ 0x1402D4090 (MiEmptyDecayClusterTimers.c)
- *     MiReleaseSystemCacheView @ 0x1402D4388 (MiReleaseSystemCacheView.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
- *     MiWakeZeroingThreads @ 0x1403C7310 (MiWakeZeroingThreads.c)
- *     MiAdjustPteBins @ 0x1403FC540 (MiAdjustPteBins.c)
- *     KePulseEvent @ 0x1404674D0 (KePulseEvent.c)
- *     MiQueueExtentPfnDeletion @ 0x1404CF468 (MiQueueExtentPfnDeletion.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiAdjustCachedStacks @ 0x1402AF604 (MiAdjustCachedStacks.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
+ *     MiReclaimUnusedUltraMdlMaps @ 0x14035384C (MiReclaimUnusedUltraMdlMaps.c)
+ *     MiFreeDeferredAcceleratorPool @ 0x140353934 (MiFreeDeferredAcceleratorPool.c)
+ *     MiCheckLogPinDriverAddresses @ 0x140353990 (MiCheckLogPinDriverAddresses.c)
+ *     MiAdjustModifiedPageLoad @ 0x140353ADC (MiAdjustModifiedPageLoad.c)
+ *     MiScanPagefiles @ 0x140353D80 (MiScanPagefiles.c)
+ *     MiPruneProcessLargePageCaches @ 0x140353F9C (MiPruneProcessLargePageCaches.c)
+ *     MiLogPeriodicTelemetry @ 0x14035409C (MiLogPeriodicTelemetry.c)
+ *     MiCheckTrimUnusedPageFileRegions @ 0x14035468C (MiCheckTrimUnusedPageFileRegions.c)
+ *     MiSignalLargePageRebuild @ 0x140354758 (MiSignalLargePageRebuild.c)
+ *     MiScheduleZeroPageThreads @ 0x140354918 (MiScheduleZeroPageThreads.c)
+ *     MiFreeUnusedSlabPages @ 0x140354C04 (MiFreeUnusedSlabPages.c)
+ *     MiEmptyDecayClusterTimers @ 0x140355310 (MiEmptyDecayClusterTimers.c)
+ *     MiReleaseSystemCacheView @ 0x140355608 (MiReleaseSystemCacheView.c)
+ *     MiAdjustPteBins @ 0x1403F5F00 (MiAdjustPteBins.c)
+ *     MiWakeZeroingThreads @ 0x140412F50 (MiWakeZeroingThreads.c)
+ *     KePulseEvent @ 0x14045EF70 (KePulseEvent.c)
+ *     MiQueueExtentPfnDeletion @ 0x1404C8730 (MiQueueExtentPfnDeletion.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 LARGE_INTEGER __fastcall MiWorkingSetManager(__int64 a1, int a2)
@@ -42,24 +42,23 @@ LARGE_INTEGER __fastcall MiWorkingSetManager(__int64 a1, int a2)
   __int64 *v10; // r9
   __int64 v11; // rdx
   __int64 v12; // r10
-  __int64 v13; // rdx
-  int v14; // eax
-  int v15; // ebp
-  char v16; // al
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rdx
-  KIRQL v20; // r15
-  __int64 v21; // rcx
+  int v13; // eax
+  int v14; // ebp
+  char v15; // al
+  unsigned __int64 v16; // rax
+  unsigned __int64 v17; // rdx
+  KIRQL v19; // r15
+  __int64 v20; // rcx
+  int v21; // eax
   int v22; // eax
-  int v23; // eax
-  __int64 v24; // rcx
-  char v25; // di
+  __int64 v23; // rcx
+  char v24; // di
   struct _KTHREAD *CurrentThread; // rax
-  KIRQL v27; // di
-  _BYTE v28[4]; // [rsp+20h] [rbp-A8h] BYREF
-  char v29; // [rsp+24h] [rbp-A4h]
+  KIRQL v26; // di
+  _BYTE v27[4]; // [rsp+20h] [rbp-A8h] BYREF
+  char v28; // [rsp+24h] [rbp-A4h]
 
-  memset_0(v28, 0, 0x70uLL);
+  memset_0(v27, 0, 0x70uLL);
   v4 = *(_QWORD *)(a1 + 17600);
   if ( !*(_QWORD *)(v4 + 88) )
   {
@@ -90,17 +89,17 @@ LARGE_INTEGER __fastcall MiWorkingSetManager(__int64 a1, int a2)
         while ( v12 );
         if ( (unsigned __int64)(v11 + *(_QWORD *)(v5 + 3856)) >= 0x40 )
         {
-          v20 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v5 + 15280));
+          v19 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v5 + 15280));
           if ( *(_QWORD *)(v5 + 15272) )
           {
             if ( !*(_BYTE *)(v5 + 15296) )
             {
-              v21 = *(_QWORD *)(v5 + 15272);
+              v20 = *(_QWORD *)(v5 + 15272);
               *(_BYTE *)(v5 + 15296) = 1;
-              MiWakeZeroingThreads(v21);
+              MiWakeZeroingThreads(v20);
             }
           }
-          MiReleaseSpinLockExclusive((_DWORD *)(v5 + 15280), v20);
+          MiReleaseSpinLockExclusive((_DWORD *)(v5 + 15280), v19);
         }
       }
       v5 += 57216LL;
@@ -111,20 +110,20 @@ LARGE_INTEGER __fastcall MiWorkingSetManager(__int64 a1, int a2)
     MiReclaimUnusedUltraMdlMaps();
     MiFreeDeferredAcceleratorPool();
     MiCheckLogPinDriverAddresses();
-    if ( stru_140E2FEA8.Header.SignalState )
+    if ( stru_140E2FFE8.Header.SignalState )
     {
-      if ( byte_140E30152 == 1 && ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
+      if ( byte_140E30292 == 1 && ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
       {
-        v27 = ExAcquireSpinLockExclusive(dword_140E3A7A0);
-        if ( byte_140E30152 == 1 )
+        v26 = ExAcquireSpinLockExclusive(dword_140E3A8E0);
+        if ( byte_140E30292 == 1 )
         {
-          stru_140E30180.Parameter = 0LL;
-          stru_140E30180.List.Flink = 0LL;
-          stru_140E30180.WorkerRoutine = (void (__fastcall *)(void *))MiBadPageSignaler;
-          byte_140E30152 = 2;
-          ExQueueWorkItem(&stru_140E30180, DelayedWorkQueue);
+          stru_140E302C0.Parameter = 0LL;
+          stru_140E302C0.List.Flink = 0LL;
+          stru_140E302C0.WorkerRoutine = (void (__fastcall *)(void *))MiBadPageSignaler;
+          byte_140E30292 = 2;
+          ExQueueWorkItem(&stru_140E302C0, DelayedWorkQueue);
         }
-        MiReleaseSpinLockExclusive(dword_140E3A7A0, v27);
+        MiReleaseSpinLockExclusive(dword_140E3A8E0, v26);
       }
     }
   }
@@ -132,35 +131,35 @@ LARGE_INTEGER __fastcall MiWorkingSetManager(__int64 a1, int a2)
   MiFreeUnusedSlabPages((_QWORD *)a1);
   MiPruneProcessLargePageCaches(a1, 1);
   MiReleaseSystemCacheView(a1, 0LL);
-  v14 = *(_DWORD *)(v4 + 32) + 1;
-  *(_DWORD *)(v4 + 32) = v14;
-  if ( v14 == *(_DWORD *)(v4 + 36) )
+  v13 = *(_DWORD *)(v4 + 32) + 1;
+  *(_DWORD *)(v4 + 32) = v13;
+  if ( v13 == *(_DWORD *)(v4 + 36) )
   {
-    v22 = *(_DWORD *)(v4 + 24);
+    v21 = *(_DWORD *)(v4 + 24);
     *(_DWORD *)(v4 + 32) = 0;
-    v23 = ((_BYTE)v22 + 1) & 0xF;
-    *(_DWORD *)(v4 + 24) = v23;
-    v24 = ((_BYTE)v23 - 8) & 0xF;
-    if ( *(_QWORD *)(88 * (v24 + 64) + a1) )
-      KeSetEvent((PRKEVENT)(a1 + 8 * (v24 + 2 * (v24 + 457))), 0, 0);
+    v22 = ((_BYTE)v21 + 1) & 0xF;
+    *(_DWORD *)(v4 + 24) = v22;
+    v23 = ((_BYTE)v22 - 8) & 0xF;
+    if ( *(_QWORD *)(88 * (v23 + 64) + a1) )
+      KeSetEvent((PRKEVENT)(a1 + 8 * (v23 + 2 * (v23 + 457))), 0, 0);
   }
   if ( (ULONG *)a1 == &MiSystemPartition && !a2 )
-    KePulseEvent(&Event, 0, 0);
-  MiLogPeriodicTelemetry((ULONG *)a1, v13);
-  v29 = 1;
-  v15 = 0;
-  MiProcessWorkingSets(a1);
-  v16 = v29;
-  if ( v29 != 1 )
+    KePulseEvent(&stru_140E37508, 0, 0);
+  MiLogPeriodicTelemetry((ULONG *)a1);
+  v28 = 1;
+  v14 = 0;
+  MiProcessWorkingSets(a1, (__int64)v27);
+  v15 = v28;
+  if ( v28 != 1 )
   {
-    v25 = 1;
+    v24 = 1;
     do
     {
-      if ( v16 == 3 )
+      if ( v15 == 3 )
         break;
-      if ( v25 == v16 )
+      if ( v24 == v15 )
       {
-        v29 = 3;
+        v28 = 3;
         ++*(_DWORD *)(v4 + 504);
       }
       else
@@ -168,30 +167,30 @@ LARGE_INTEGER __fastcall MiWorkingSetManager(__int64 a1, int a2)
         MiAdjustModifiedPageLoad(a1, *(_QWORD *)(v4 + 264), *(_DWORD *)(v4 + 120));
         ++*(_DWORD *)(v4 + 500);
         MiScanPagefiles(a1);
-        v15 = 1;
+        v14 = 1;
       }
-      v25 = v29;
-      MiProcessWorkingSets(a1);
-      v16 = v29;
+      v24 = v28;
+      MiProcessWorkingSets(a1, (__int64)v27);
+      v15 = v28;
     }
-    while ( v29 != 1 );
+    while ( v28 != 1 );
   }
   if ( (ULONG *)a1 == &MiSystemPartition )
   {
     MiAdjustPteBins();
-    if ( byte_140E2D602 )
+    if ( byte_140E2D742 )
       MiQueueExtentPfnDeletion(0LL);
   }
   MiAdjustCachedStacks(a1, 0);
-  if ( !v15 )
+  if ( !v14 )
   {
     MiAdjustModifiedPageLoad(a1, *(_QWORD *)(v4 + 264), *(_DWORD *)(v4 + 120));
     MiScanPagefiles(a1);
   }
   MiCheckTrimUnusedPageFileRegions(a1);
-  v17 = *(_QWORD *)(a1 + 19392);
-  v18 = *(_QWORD *)(a1 + 19616);
-  if ( v17 > v18 && v17 - v18 >= 0x320 )
+  v16 = *(_QWORD *)(a1 + 19392);
+  v17 = *(_QWORD *)(a1 + 19616);
+  if ( v16 > v17 && v16 - v17 >= 0x320 )
     KeSetEvent((PRKEVENT)(a1 + 840), 0, 0);
   MiSignalLargePageRebuild(a1);
   return MiScheduleZeroPageThreads(a1);

@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPepComponentSetLatency @ 0x1403B1784
+ * XREFs of PopPepComponentSetLatency @ 0x1403BB494
  * Callers:
- *     PoFxSetComponentLatency @ 0x1403B1590 (PoFxSetComponentLatency.c)
+ *     PoFxSetComponentLatency @ 0x1403BB2A0 (PoFxSetComponentLatency.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExTryQueueWorkItem @ 0x140382070 (ExTryQueueWorkItem.c)
- *     PopPepTriggerActivity @ 0x1403AFA10 (PopPepTriggerActivity.c)
- *     PopPepPromoteActivities @ 0x1403B0F90 (PopPepPromoteActivities.c)
- *     PopPepGetComponentPreferedIdleState @ 0x1403B1B10 (PopPepGetComponentPreferedIdleState.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExTryQueueWorkItem @ 0x140383E20 (ExTryQueueWorkItem.c)
+ *     PopPepTriggerActivity @ 0x1403B9720 (PopPepTriggerActivity.c)
+ *     PopPepPromoteActivities @ 0x1403BACA0 (PopPepPromoteActivities.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1403BB820 (PopPepGetComponentPreferedIdleState.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
  */
 
 void __fastcall PopPepComponentSetLatency(__int64 a1, unsigned int a2, unsigned __int64 a3)
@@ -34,7 +34,7 @@ void __fastcall PopPepComponentSetLatency(__int64 a1, unsigned int a2, unsigned 
   _DWORD *v15; // rdx
   KIRQL v16; // al
   unsigned int v17; // edx
-  struct _KSEMAPHORE *p_Process; // rsi
+  _ULARGE_INTEGER *p_ReadTransferCount; // rsi
   __int64 v19; // r12
   __int64 v21; // [rsp+70h] [rbp+18h]
 
@@ -84,22 +84,26 @@ LABEL_6:
       v17 = v13 - v11;
       if ( v17 )
       {
-        p_Process = (struct _KSEMAPHORE *)&unk_140F12260;
+        p_ReadTransferCount = (_ULARGE_INTEGER *)&PopFxBlockingDeviceListLock.ReadTransferCount;
         if ( (*(_QWORD *)(v4 + 24) & 0x20LL) != 0 )
-          p_Process = (struct _KSEMAPHORE *)&stru_140F12420.Process;
+          p_ReadTransferCount = &PopFxBlockingDeviceListLock.Timer.DueTime;
         v21 = v17;
         do
         {
-          KeReleaseSemaphore(p_Process + 2, 0, 1, 0);
+          KeReleaseSemaphore((PRKSEMAPHORE)&p_ReadTransferCount[8], 0, 1, 0);
           v19 = 0LL;
           do
           {
-            _m_prefetchw(&p_Process[3]);
-            if ( ((1 << v19) & _InterlockedOr(&p_Process[3].Header.Lock, 1 << v19)) == 0 )
+            _m_prefetchw(&p_ReadTransferCount[12]);
+            if ( ((1 << v19) & _InterlockedOr((volatile signed __int32 *)&p_ReadTransferCount[12], 1 << v19)) == 0 )
             {
-              if ( ExTryQueueWorkItem((_QWORD *)&p_Process[v19 + 3].Header.WaitListHead.Blink + (unsigned int)v19, 48LL) )
+              if ( ExTryQueueWorkItem(
+                     (_ULARGE_INTEGER *)&p_ReadTransferCount[4 * v19 + 14 + (unsigned int)v19].QuadPart,
+                     48LL) )
+              {
                 break;
-              _InterlockedAnd(&p_Process[3].Header.Lock, ~(1 << v19));
+              }
+              _InterlockedAnd((volatile signed __int32 *)&p_ReadTransferCount[12], ~(1 << v19));
             }
             v19 = (unsigned int)(v19 + 1);
           }

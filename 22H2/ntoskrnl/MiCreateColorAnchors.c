@@ -22,8 +22,8 @@ __int64 __fastcall MiCreateColorAnchors(__int64 a1, unsigned int a2)
   __int64 result; // rax
   _QWORD *v10; // rcx
   __int64 v11; // rdx
-  struct _GROUP_AFFINITY v12; // xmm0
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY v12; // xmm0
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
   USHORT Count; // [rsp+50h] [rbp+18h] BYREF
 
   Affinity = 0LL;
@@ -74,7 +74,7 @@ LABEL_4:
     *(_QWORD *)a1 = result;
     result = 1LL;
     *(_DWORD *)(a1 + 20) = 0;
-    *(struct _GROUP_AFFINITY *)(a1 + 32) = v12;
+    *(_GROUP_AFFINITY *)(a1 + 32) = v12;
     *(_DWORD *)(a1 + 16) = v8;
     *(_DWORD *)(a1 + 24) = ClosestNodeWithProcessors;
     *(_DWORD *)(a1 + 8) = 0;

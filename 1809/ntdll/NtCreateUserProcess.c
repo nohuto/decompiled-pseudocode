@@ -1,16 +1,27 @@
 /*
- * XREFs of NtCreateUserProcess @ 0x1800A1B30
+ * XREFs of NtCreateUserProcess @ 0x1800A1B50
  * Callers:
- *     RtlpCreateUserProcess @ 0x18008D5C0 (RtlpCreateUserProcess.c)
+ *     RtlpCreateUserProcess @ 0x18008D5D0 (RtlpCreateUserProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateUserProcess()
+NTSTATUS __cdecl NtCreateUserProcess(
+        PHANDLE ProcessHandle,
+        PHANDLE ThreadHandle,
+        ACCESS_MASK ProcessDesiredAccess,
+        ACCESS_MASK ThreadDesiredAccess,
+        POBJECT_ATTRIBUTES ProcessObjectAttributes,
+        POBJECT_ATTRIBUTES ThreadObjectAttributes,
+        ULONG ProcessFlags,
+        ULONG ThreadFlags,
+        PVOID ProcessParameters,
+        PPS_CREATE_INFO CreateInfo,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 195LL;
+  result = 195;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

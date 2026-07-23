@@ -1,26 +1,26 @@
 /*
- * XREFs of SepCleanupMarkedForDeletionEntries @ 0x1405240DC
+ * XREFs of SepCleanupMarkedForDeletionEntries @ 0x14052674C
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x140A2B9A4 (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x140AB7B44 (SepAddLuidToIndexEntry.c)
  * Callees:
- *     SepCleanSingletonEntry @ 0x1403CB1DC (SepCleanSingletonEntry.c)
- *     RtlEnumerateEntryHashTable @ 0x1403D8330 (RtlEnumerateEntryHashTable.c)
- *     RtlInitEnumerationHashTable @ 0x140466F60 (RtlInitEnumerationHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x140477880 (RtlRemoveEntryHashTable.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepCleanSingletonEntry @ 0x1403B2248 (SepCleanSingletonEntry.c)
+ *     RtlEnumerateEntryHashTable @ 0x1403DB300 (RtlEnumerateEntryHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1404606B0 (RtlInitEnumerationHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x140471000 (RtlRemoveEntryHashTable.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 struct _LIST_ENTRY *SepCleanupMarkedForDeletionEntries()
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *Flink; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *Flink; // rbx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v1; // rax
   unsigned int *v2; // rdi
   struct _LIST_ENTRY *result; // rax
   struct _LIST_ENTRY *Blink; // rcx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-30h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-30h] BYREF
 
   memset(&Enumerator, 0, sizeof(Enumerator));
-  Flink = (struct _RTL_DYNAMIC_HASH_TABLE *)SeLuidToIndexMapping->Header.WaitListHead.Flink;
+  Flink = (_RTL_DYNAMIC_HASH_TABLE *)SeLuidToIndexMapping->Header.WaitListHead.Flink;
   RtlInitEnumerationHashTable(Flink, &Enumerator);
   while ( 1 )
   {
@@ -30,17 +30,17 @@ struct _LIST_ENTRY *SepCleanupMarkedForDeletionEntries()
       break;
     if ( LOBYTE(v1[2].Linkage.Flink) && RtlRemoveEntryHashTable(Flink, v1, 0LL) )
     {
-      SepCleanSingletonEntry();
+      SepCleanSingletonEntry(v2[10]);
       *((_BYTE *)SeLuidToIndexMapping->SListFaultAddress + ((unsigned __int64)v2[10] >> 3)) &= ~(1 << (v2[10] & 7));
       ExFreePoolWithTag(v2, 0);
     }
   }
   --Flink->NumEnumerators;
   result = Enumerator.HashEntry.Linkage.Flink;
-  if ( (struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Enumerator.HashEntry.Linkage.Flink != &Enumerator )
+  if ( (_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Enumerator.HashEntry.Linkage.Flink != &Enumerator )
   {
     Blink = Enumerator.HashEntry.Linkage.Blink;
-    if ( (struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Enumerator.HashEntry.Linkage.Flink->Blink != &Enumerator
+    if ( (_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Enumerator.HashEntry.Linkage.Flink->Blink != &Enumerator
       || Enumerator.HashEntry.Linkage.Blink->Flink != (struct _LIST_ENTRY *)&Enumerator )
     {
       __fastfail(3u);

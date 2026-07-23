@@ -1,16 +1,16 @@
 /*
- * XREFs of PsCreateVsmEnclave @ 0x1409B6F88
+ * XREFs of PsCreateVsmEnclave @ 0x1409B7188
  * Callers:
- *     MiCreateVsmEnclave @ 0x140A3DAC0 (MiCreateVsmEnclave.c)
+ *     MiCreateVsmEnclave @ 0x140A3DD70 (MiCreateVsmEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEA50 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     VslCreateEnclave @ 0x1409419F0 (VslCreateEnclave.c)
- *     PspVsmEnclaveHashAllocator @ 0x1409B7BBC (PspVsmEnclaveHashAllocator.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DED20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     VslCreateEnclave @ 0x140941BF0 (VslCreateEnclave.c)
+ *     PspVsmEnclaveHashAllocator @ 0x1409B7DBC (PspVsmEnclaveHashAllocator.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

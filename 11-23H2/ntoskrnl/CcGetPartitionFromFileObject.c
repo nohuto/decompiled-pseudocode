@@ -1,8 +1,8 @@
 /*
- * XREFs of CcGetPartitionFromFileObject @ 0x1402FBB08
+ * XREFs of CcGetPartitionFromFileObject @ 0x1402FBD98
  * Callers:
- *     CcZeroData @ 0x1402FB700 (CcZeroData.c)
- *     CcDeferWrite @ 0x140537480 (CcDeferWrite.c)
+ *     CcZeroData @ 0x1402FB990 (CcZeroData.c)
+ *     CcDeferWrite @ 0x1405379D0 (CcDeferWrite.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfUtilIsProtectedDriver @ 0x1409261C4
+ * XREFs of VfUtilIsProtectedDriver @ 0x1409271C4
  * Callers:
- *     VfDriverEnableVerifier @ 0x140927E78 (VfDriverEnableVerifier.c)
- *     VfDriverEnableVerifierForAll @ 0x140928018 (VfDriverEnableVerifierForAll.c)
+ *     VfDriverEnableVerifier @ 0x140928E78 (VfDriverEnableVerifier.c)
+ *     VfDriverEnableVerifierForAll @ 0x140929018 (VfDriverEnableVerifierForAll.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall VfUtilIsProtectedDriver(PCUNICODE_STRING String2)

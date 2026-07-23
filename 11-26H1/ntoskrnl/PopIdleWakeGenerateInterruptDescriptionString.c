@@ -1,16 +1,16 @@
 /*
- * XREFs of PopIdleWakeGenerateInterruptDescriptionString @ 0x140B22D10
+ * XREFs of PopIdleWakeGenerateInterruptDescriptionString @ 0x140B25110
  * Callers:
- *     PopIdleWakeGenerateDescriptionString @ 0x140B28AFC (PopIdleWakeGenerateDescriptionString.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x140B2AFCC (PopIdleWakeGenerateDescriptionString.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403E4700 (RtlUnicodeStringCat.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringCatString @ 0x140438C68 (RtlUnicodeStringCatString.c)
- *     RtlUnicodeStringCopyString @ 0x140484B94 (RtlUnicodeStringCopyString.c)
- *     MmEnumerateSystemImages @ 0x1404E5150 (MmEnumerateSystemImages.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopGenerateDeviceFriendlyName @ 0x140B22F30 (PopGenerateDeviceFriendlyName.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlUnicodeStringCat @ 0x1403E78F0 (RtlUnicodeStringCat.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCatString @ 0x1404278C8 (RtlUnicodeStringCatString.c)
+ *     RtlUnicodeStringCopyString @ 0x14047E504 (RtlUnicodeStringCopyString.c)
+ *     MmEnumerateSystemImages @ 0x1404DE6F0 (MmEnumerateSystemImages.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140B25330 (PopGenerateDeviceFriendlyName.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopIdleWakeGenerateInterruptDescriptionString(__int64 a1, __int64 a2)

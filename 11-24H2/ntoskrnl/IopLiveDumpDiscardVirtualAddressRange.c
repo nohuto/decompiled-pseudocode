@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpDiscardVirtualAddressRange @ 0x140262A88
+ * XREFs of IopLiveDumpDiscardVirtualAddressRange @ 0x14029293C
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x14049A8E4 (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpAddProcessFilter @ 0x140597F48 (IopLiveDumpAddProcessFilter.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1405982F0 (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpAllocateExtraBuffers @ 0x1405989DC (IopLiveDumpAllocateExtraBuffers.c)
- *     IopLiveDumpAllocateFromIOSpace @ 0x140598D2C (IopLiveDumpAllocateFromIOSpace.c)
- *     IopLiveDumpAllocateIptBuffers @ 0x1405995D4 (IopLiveDumpAllocateIptBuffers.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1404952D4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAddProcessFilter @ 0x140594EC8 (IopLiveDumpAddProcessFilter.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140595270 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x14059595C (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x140595CAC (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpAllocateIptBuffers @ 0x140596554 (IopLiveDumpAllocateIptBuffers.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140261AD0 (RtlClearBitsEx.c)
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     RtlClearBitsEx @ 0x1402920E0 (RtlClearBitsEx.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
  */
 
 void __fastcall IopLiveDumpDiscardVirtualAddressRange(__int64 a1, char *a2, unsigned __int64 a3)
@@ -26,7 +26,7 @@ void __fastcall IopLiveDumpDiscardVirtualAddressRange(__int64 a1, char *a2, unsi
     {
       for ( i = (a3 >> 12) + ((a3 & 0xFFF) != 0); i; --i )
       {
-        if ( (unsigned __int8)MmIsAddressValidEx(v3) )
+        if ( MmIsAddressValidEx((__int64)v3) )
         {
           v6.QuadPart = (unsigned __int64)MmGetPhysicalAddress(v3).QuadPart >> 12;
           if ( v6.QuadPart < *(_QWORD *)(a1 + 576) )

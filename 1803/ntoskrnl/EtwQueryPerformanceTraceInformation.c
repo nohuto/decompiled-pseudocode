@@ -68,7 +68,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
   unsigned int v38; // edx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int *v40; // rax
-  struct _RTL_BITMAP *v41; // rsi
+  _RTL_BITMAP *v41; // rsi
   unsigned int v42; // eax
   ULONG v43; // ebx
   __int64 i; // r12
@@ -117,7 +117,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       v40 = EtwpAcquireLoggerContextByLoggerId(v12, v38, 1);
-      v41 = (struct _RTL_BITMAP *)v40;
+      v41 = (_RTL_BITMAP *)v40;
       P = v40;
       if ( v40 )
       {

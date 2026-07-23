@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMmFreeTiledMemoryMap @ 0x14099A150
+ * XREFs of HalpMmFreeTiledMemoryMap @ 0x14099B150
  * Callers:
- *     HalpFreeResumeStructures @ 0x1409982DC (HalpFreeResumeStructures.c)
- *     HalpBuildResumeStructures @ 0x14099835C (HalpBuildResumeStructures.c)
- *     HalpInterruptStartProcessor @ 0x140999F74 (HalpInterruptStartProcessor.c)
- *     HalpMmBuildTiledMemoryMap @ 0x14099A1BC (HalpMmBuildTiledMemoryMap.c)
+ *     HalpFreeResumeStructures @ 0x1409992DC (HalpFreeResumeStructures.c)
+ *     HalpBuildResumeStructures @ 0x14099935C (HalpBuildResumeStructures.c)
+ *     HalpInterruptStartProcessor @ 0x14099AF74 (HalpInterruptStartProcessor.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099B1BC (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
  */
 
 __int64 __fastcall HalpMmFreeTiledMemoryMap(unsigned int *a1)

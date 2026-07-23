@@ -1,14 +1,14 @@
 /*
- * XREFs of MiConvertContiguousPages @ 0x14046B804
+ * XREFs of MiConvertContiguousPages @ 0x140464F84
  * Callers:
- *     MiFindContiguousPagesFinish @ 0x1404F702C (MiFindContiguousPagesFinish.c)
+ *     MiFindContiguousPagesFinish @ 0x1404F063C (MiFindContiguousPagesFinish.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiMakeLinkedListPte @ 0x140365844 (MiMakeLinkedListPte.c)
- *     MiChangePageAttributeBatch @ 0x140368E1C (MiChangePageAttributeBatch.c)
- *     MiGetPteLink @ 0x140369198 (MiGetPteLink.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiMakeLinkedListPte @ 0x1403675E4 (MiMakeLinkedListPte.c)
+ *     MiChangePageAttributeBatch @ 0x14036ABBC (MiChangePageAttributeBatch.c)
+ *     MiGetPteLink @ 0x14036AF38 (MiGetPteLink.c)
  */
 
 __int64 __fastcall MiConvertContiguousPages(__int64 a1, __int64 a2, unsigned int a3, char a4)
@@ -61,17 +61,17 @@ __int64 __fastcall MiConvertContiguousPages(__int64 a1, __int64 a2, unsigned int
     while ( 1 )
     {
       v15 = *(_QWORD *)v14;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         if ( (v15 & 0x10) != 0 )
           v15 &= ~0x10uLL;
         else
-          v15 &= qword_140E2D748;
+          v15 &= qword_140E2D8C8;
       }
       v16 = HIDWORD(v15);
       if ( (*(_QWORD *)v14 & 0x3E0LL) != 0
         || (v17 = (*(_DWORD *)(v14 + 16) >> 22) & 3, v17 != a3)
-        && ((unsigned __int8)((1 << v17) | (1 << a3)) & (unsigned __int8)byte_140E2D798) != 0 )
+        && ((unsigned __int8)((1 << v17) | (1 << a3)) & (unsigned __int8)byte_140E2D918) != 0 )
       {
         v18 = 1;
         v36 = 0;

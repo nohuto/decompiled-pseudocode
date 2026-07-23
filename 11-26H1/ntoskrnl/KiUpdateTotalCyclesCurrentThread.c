@@ -1,28 +1,28 @@
 /*
- * XREFs of KiUpdateTotalCyclesCurrentThread @ 0x140226F90
+ * XREFs of KiUpdateTotalCyclesCurrentThread @ 0x140228920
  * Callers:
  *     KeSetPriorityAndQuantumProcess @ 0x140202264 (KeSetPriorityAndQuantumProcess.c)
- *     KiSetThreadSchedulingGroup @ 0x140203774 (KiSetThreadSchedulingGroup.c)
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x1402287D0 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiSelectIdleProcessor @ 0x1402288B0 (KiSelectIdleProcessor.c)
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x140237F74 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
- *     PspRevertContainerImpersonation @ 0x14037D900 (PspRevertContainerImpersonation.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
- *     KiCompleteDirectSwitchThread @ 0x1404399F8 (KiCompleteDirectSwitchThread.c)
- *     KeSetBasePriorityThread @ 0x140528B30 (KeSetBasePriorityThread.c)
- *     KeBoostPriorityThread @ 0x14052C560 (KeBoostPriorityThread.c)
- *     KiStartDebugAccumulation @ 0x1405F6204 (KiStartDebugAccumulation.c)
+ *     KiSetThreadSchedulingGroup @ 0x140203854 (KiSetThreadSchedulingGroup.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x14022A160 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiSelectIdleProcessor @ 0x14022A240 (KiSelectIdleProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1402398D4 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
+ *     PspRevertContainerImpersonation @ 0x14037F6B0 (PspRevertContainerImpersonation.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
+ *     KiCompleteDirectSwitchThread @ 0x14042C2A8 (KiCompleteDirectSwitchThread.c)
+ *     KeSetBasePriorityThread @ 0x14052B1A0 (KeSetBasePriorityThread.c)
+ *     KeBoostPriorityThread @ 0x14052EA80 (KeBoostPriorityThread.c)
+ *     KiStartDebugAccumulation @ 0x1405F8BC4 (KiStartDebugAccumulation.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     HalRequestSoftwareInterrupt @ 0x14021E010 (HalRequestSoftwareInterrupt.c)
- *     KiUpdateThreadHgsFeedback @ 0x140226C00 (KiUpdateThreadHgsFeedback.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     HalRequestSoftwareInterrupt @ 0x14021F9A0 (HalRequestSoftwareInterrupt.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140228590 (KiUpdateThreadHgsFeedback.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall KiUpdateTotalCyclesCurrentThread(__int64 a1, __int64 a2, _QWORD *a3)
@@ -191,7 +191,7 @@ unsigned __int64 __fastcall KiUpdateTotalCyclesCurrentThread(__int64 a1, __int64
           v96 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v113 = &unk_140FBB448;
+            v113 = &unk_140FBB7E8;
             do
             {
               if ( v11 == *v113 )
@@ -274,7 +274,7 @@ unsigned __int64 __fastcall KiUpdateTotalCyclesCurrentThread(__int64 a1, __int64
           v94 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v109 = &unk_140FBB448;
+            v109 = &unk_140FBB7E8;
             do
             {
               if ( v11 == *v109 )
@@ -364,9 +364,9 @@ unsigned __int64 __fastcall KiUpdateTotalCyclesCurrentThread(__int64 a1, __int64
           v22 = v7;
         }
         v23 = (*((unsigned __int64 *)&v21 + 1)
-             * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64;
+             * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64;
         v3 = ((v22 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-           * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40];
+           * (unsigned __int64)stru_140FC11F0.SavedApcState.Process;
         v24 = (*((_QWORD *)&v3 + 1) >> KiMaximumIncrementShiftCount) - (v23 >> KiMaximumIncrementShiftCount);
         if ( v24 )
         {
@@ -494,7 +494,7 @@ LABEL_36:
           v40 = 100;
         }
         v41 = 0;
-        v42 = (unsigned __int16 *)(a1 + 35464);
+        v42 = (unsigned __int16 *)(a1 + 35468);
         do
         {
           if ( v40 <= *v42 )
@@ -505,7 +505,7 @@ LABEL_36:
         while ( v41 < 3 );
         v43 = *(_BYTE *)(a1 + 35352);
         *((_QWORD *)&v3 + 1) = (v43 != 0 ? 8 : 0) + v37 + 16LL * v41;
-        LODWORD(v3) = *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1);
+        LODWORD(v3) = HIDWORD(KsepShimDbLock.UserWaitTime);
         **((_QWORD **)&v3 + 1) += v8;
         v44 = *(_DWORD *)(v37 + 192);
         if ( (unsigned int)v3 > v44 )
@@ -558,7 +558,7 @@ LABEL_36:
       KiUpdateThreadHgsFeedback((_BYTE *)a1, v6, v8, 0);
     if ( *(_QWORD *)(a1 + 34480) )
     {
-      if ( *(_UNKNOWN **)(v6 + 544) != &unk_140FC8F40 )
+      if ( *(_UNKNOWN **)(v6 + 544) != &unk_140FC9F40 )
       {
         *((_QWORD *)&v3 + 1) = *(unsigned __int8 *)(v6 + 516);
         if ( *(unsigned __int8 *)(v6 + 516) < 7u )
@@ -581,7 +581,7 @@ LABEL_36:
         for ( i = (_QWORD *)(v76 + *(unsigned int *)(a1 + 216)); i; i = (_QWORD *)i[55] )
           *i += v8;
       }
-      if ( (*(_BYTE *)(v6 + 2) & 8) != 0 && *(_UNKNOWN **)(v6 + 544) != &unk_140FC8F40 )
+      if ( (*(_BYTE *)(v6 + 2) & 8) != 0 && *(_UNKNOWN **)(v6 + 544) != &unk_140FC9F40 )
       {
         v92 = *(_QWORD *)(a1 + 192);
         *((_QWORD *)&v3 + 1) = *(_QWORD *)(*(_QWORD *)(v6 + 576) + 8LL * *(unsigned __int16 *)(v92 + 136) + 8);
@@ -643,7 +643,7 @@ LABEL_36:
           v95 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v29 = &unk_140FBB448;
+            v29 = &unk_140FBB7E8;
             do
             {
               if ( v54 == *v29 )
@@ -731,7 +731,7 @@ LABEL_36:
           v93 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v29 = &unk_140FBB448;
+            v29 = &unk_140FBB7E8;
             do
             {
               if ( v54 == *v29 )
@@ -829,9 +829,9 @@ LABEL_36:
       v10 = 1LL;
       v51 = v136;
       *((_QWORD *)&v3 + 1) = (unsigned int)((unsigned __int64)((((v65 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-                                                              * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount)
+                                                              * (unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount)
                            - (unsigned int)((unsigned __int64)((*((unsigned __int64 *)&v3 + 1)
-                                                              * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount);
+                                                              * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount);
       if ( DWORD2(v3) )
       {
         v84 = DWORD2(v3) + *(_DWORD *)(a1 + 34372);
@@ -867,7 +867,7 @@ LABEL_36:
     {
       v69 = 100;
     }
-    v70 = (unsigned __int16 *)(a1 + 35464);
+    v70 = (unsigned __int16 *)(a1 + 35468);
     do
     {
       if ( v69 <= *v70 )

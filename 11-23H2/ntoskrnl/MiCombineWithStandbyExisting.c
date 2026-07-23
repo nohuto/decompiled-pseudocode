@@ -1,24 +1,24 @@
 /*
- * XREFs of MiCombineWithStandbyExisting @ 0x14035A17C
+ * XREFs of MiCombineWithStandbyExisting @ 0x14035A31C
  * Callers:
- *     MiConvertStandbyToProto @ 0x140359E80 (MiConvertStandbyToProto.c)
+ *     MiConvertStandbyToProto @ 0x14035A020 (MiConvertStandbyToProto.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
  *     MiMapSinglePage @ 0x140217D58 (MiMapSinglePage.c)
  *     MiConfirmCombinePageContents @ 0x140218630 (MiConfirmCombinePageContents.c)
  *     MiTryLockLeafPage @ 0x140219AC4 (MiTryLockLeafPage.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiUpdatePfnPriority @ 0x1402E23B0 (MiUpdatePfnPriority.c)
- *     MiStandbyPageStillCombineCandidate @ 0x14035A4B0 (MiStandbyPageStillCombineCandidate.c)
- *     MiRecheckCombineVm @ 0x14035A564 (MiRecheckCombineVm.c)
- *     MiUnlockNestedProtoPoolPage @ 0x14035A61C (MiUnlockNestedProtoPoolPage.c)
- *     MiWriteRepurposedTransitionPte @ 0x14035A658 (MiWriteRepurposedTransitionPte.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiUpdatePfnPriority @ 0x1402E2640 (MiUpdatePfnPriority.c)
+ *     MiStandbyPageStillCombineCandidate @ 0x14035A650 (MiStandbyPageStillCombineCandidate.c)
+ *     MiRecheckCombineVm @ 0x14035A704 (MiRecheckCombineVm.c)
+ *     MiUnlockNestedProtoPoolPage @ 0x14035A7BC (MiUnlockNestedProtoPoolPage.c)
+ *     MiWriteRepurposedTransitionPte @ 0x14035A7F8 (MiWriteRepurposedTransitionPte.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
  */
 
 __int64 __fastcall MiCombineWithStandbyExisting(__int64 a1, __int64 a2, __int64 a3)

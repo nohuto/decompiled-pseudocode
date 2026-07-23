@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWnfStartKernelDispatcher @ 0x1406AB61C
+ * XREFs of ExpWnfStartKernelDispatcher @ 0x140609D0C
  * Callers:
- *     ExpWnfNotifyNameSubscribers @ 0x14061088C (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfNotifySubscription @ 0x1406AB524 (ExpWnfNotifySubscription.c)
+ *     ExpWnfNotifySubscription @ 0x140609C14 (ExpWnfNotifySubscription.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406A033C (ExpWnfNotifyNameSubscribers.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     ExpWnfDispatchKernelSubscription @ 0x1406AB6C4 (ExpWnfDispatchKernelSubscription.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x140609DB4 (ExpWnfDispatchKernelSubscription.c)
  */
 
 void __fastcall ExpWnfStartKernelDispatcher(int a1)

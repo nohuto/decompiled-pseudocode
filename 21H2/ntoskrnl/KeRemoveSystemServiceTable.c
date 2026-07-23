@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRemoveSystemServiceTable @ 0x1408BADB0
+ * XREFs of KeRemoveSystemServiceTable @ 0x1408BAF10
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  */
 
 char __fastcall KeRemoveSystemServiceTable(int a1)

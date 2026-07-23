@@ -1,7 +1,7 @@
 /*
- * XREFs of wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x180117184
+ * XREFs of wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x180112174
  * Callers:
- *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1800D5CE4 (wil_details_FeatureReporting_RecordUsageInCache.c)
+ *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1800D1054 (wil_details_FeatureReporting_RecordUsageInCache.c)
  * Callees:
  *     <none>
  */

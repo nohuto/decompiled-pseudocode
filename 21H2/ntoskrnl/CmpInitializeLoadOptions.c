@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpInitializeLoadOptions @ 0x1403B7CE0
+ * XREFs of CmpInitializeLoadOptions @ 0x1403B7E50
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 wchar_t *__fastcall CmpInitializeLoadOptions(ULONG_PTR BugCheckParameter3)
 {
-  const char *v1; // rdx
+  const CHAR *v1; // rdx
   wchar_t *result; // rax
-  STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
 
-  v1 = *(const char **)(BugCheckParameter3 + 216);
+  v1 = *(const CHAR **)(BugCheckParameter3 + 216);
   SourceString = 0LL;
   RtlInitAnsiString(&SourceString, v1);
   CmpLoadOptions.Length = 0;

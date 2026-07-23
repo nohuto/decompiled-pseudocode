@@ -1,30 +1,30 @@
 /*
- * XREFs of MiFindFreePageFileSpace @ 0x140405E3C
+ * XREFs of MiFindFreePageFileSpace @ 0x1403FEF30
  * Callers:
- *     MiReservePageFileSpace @ 0x1403670E8 (MiReservePageFileSpace.c)
- *     MiTrimUnusedPageFileRegionsApc @ 0x140404A00 (MiTrimUnusedPageFileRegionsApc.c)
- *     MiGetKernelStackSwapSupport @ 0x140405AA8 (MiGetKernelStackSwapSupport.c)
- *     MiFindPageFileWriteCluster @ 0x140405CC8 (MiFindPageFileWriteCluster.c)
- *     MiModwriterConfirmMdl @ 0x140408738 (MiModwriterConfirmMdl.c)
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x140AC1C6C (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiReservePageFileSpace @ 0x140368E88 (MiReservePageFileSpace.c)
+ *     MiTrimUnusedPageFileRegionsApc @ 0x1403FDB00 (MiTrimUnusedPageFileRegionsApc.c)
+ *     MiGetKernelStackSwapSupport @ 0x1403FEB9C (MiGetKernelStackSwapSupport.c)
+ *     MiFindPageFileWriteCluster @ 0x1403FEDBC (MiFindPageFileWriteCluster.c)
+ *     MiModwriterConfirmMdl @ 0x140401828 (MiModwriterConfirmMdl.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x140AC3D0C (MiReserveWorkingSetSwapSpaceRuns.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     MiSetPageFileAllocationBits @ 0x140404AF4 (MiSetPageFileAllocationBits.c)
- *     MiPageFileLargestBitmapsRun @ 0x140405994 (MiPageFileLargestBitmapsRun.c)
- *     MiRescanPagefileBitmaps @ 0x14044C0DC (MiRescanPagefileBitmaps.c)
- *     MiFindFreePageFileSpaceForward @ 0x14044C19C (MiFindFreePageFileSpaceForward.c)
- *     MiCheckHintedPageFileSpace @ 0x14047143C (MiCheckHintedPageFileSpace.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x14047DE74 (MiInvalidatePageFileBitmapsCache.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     MiSetPageFileAllocationBits @ 0x1403FDBF4 (MiSetPageFileAllocationBits.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1403FEA88 (MiPageFileLargestBitmapsRun.c)
+ *     MiRescanPagefileBitmaps @ 0x1404441FC (MiRescanPagefileBitmaps.c)
+ *     MiFindFreePageFileSpaceForward @ 0x1404442BC (MiFindFreePageFileSpaceForward.c)
+ *     MiCheckHintedPageFileSpace @ 0x14046ABBC (MiCheckHintedPageFileSpace.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1404777E4 (MiInvalidatePageFileBitmapsCache.c)
  */
 
 __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned int a4)
@@ -88,8 +88,8 @@ __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 a2, unsi
   else
   {
     v11 = *v6;
-    if ( qword_140E2D740 && (v11 & 0x10) == 0 )
-      v11 &= qword_140E2D748;
+    if ( qword_140E2D8C0 && (v11 & 0x10) == 0 )
+      v11 &= qword_140E2D8C8;
     v8 = HIDWORD(v11);
   }
   if ( (v4 & 0x10) != 0 )

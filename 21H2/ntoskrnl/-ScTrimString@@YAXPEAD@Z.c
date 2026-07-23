@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ScTrimString@@YAXPEAD@Z @ 0x1405C6918
+ * XREFs of ?ScTrimString@@YAXPEAD@Z @ 0x1405C6B48
  * Callers:
- *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x1405C6868 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
+ *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x1405C6A98 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
  * Callees:
- *     isspace @ 0x1403D2760 (isspace.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     isspace @ 0x1403D28D0 (isspace.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 void __fastcall ScTrimString(char *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetInformationFile @ 0x1800A07C0
+ * XREFs of ZwSetInformationFile @ 0x1800A07E0
  * Callers:
  *     TpBindFileToDirect @ 0x180030EA8 (TpBindFileToDirect.c)
  *     EtwpAddLogHeaderToLogFile @ 0x1800514D0 (EtwpAddLogHeaderToLogFile.c)
@@ -10,11 +10,16 @@
  *     <none>
  */
 
-__int64 ZwSetInformationFile()
+NTSTATUS __cdecl ZwSetInformationFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 39LL;
+  result = 39;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

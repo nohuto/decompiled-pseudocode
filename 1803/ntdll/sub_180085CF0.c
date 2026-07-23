@@ -14,46 +14,46 @@
 
 __int64 __fastcall sub_180085CF0(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v3; // rcx
+  void *v3; // rcx
   unsigned int v5; // ebx
-  __int64 v6; // rcx
-  NTSTATUS DllFullName; // eax
+  PWCH Buffer; // rcx
+  int DllFullName; // eax
   unsigned int v10; // [rsp+20h] [rbp-E0h] BYREF
-  __int128 v11; // [rsp+28h] [rbp-D8h] BYREF
+  _UNICODE_STRING FullDllName; // [rsp+28h] [rbp-D8h] BYREF
   __int64 v12; // [rsp+38h] [rbp-C8h]
   char v13; // [rsp+40h] [rbp-C0h] BYREF
 
-  v3 = *(_QWORD *)(a2 + 48);
+  v3 = *(void **)(a2 + 48);
   v5 = 0;
-  if ( v3 < *((_QWORD *)&xmmword_18016F4E0 + 1)
-    || v3 >= *((_QWORD *)&xmmword_18016F4E0 + 1) + (unsigned __int64)(unsigned int)qword_18016F4F0 )
+  if ( (unsigned __int64)v3 < *((_QWORD *)&xmmword_18016F4E0 + 1)
+    || (unsigned __int64)v3 >= *((_QWORD *)&xmmword_18016F4E0 + 1) + (unsigned __int64)(unsigned int)qword_18016F4F0 )
   {
-    sub_18000EF10(v3, (__int64 *)&v11);
+    sub_18000EF10(v3, (__int64)&FullDllName);
   }
   else
   {
-    v11 = xmmword_18016F4E0;
+    FullDllName = (_UNICODE_STRING)xmmword_18016F4E0;
     v12 = qword_18016F4F0;
   }
-  v6 = *((_QWORD *)&v11 + 1);
-  if ( !*((_QWORD *)&v11 + 1) )
+  Buffer = FullDllName.Buffer;
+  if ( !FullDllName.Buffer )
     return 87;
   if ( (*(_WORD *)(a2 + 98) & 0x3FFF) == 2 )
   {
-    v5 = sub_180107D2C(*((_QWORD *)&v11 + 1), 0x3FFFLL, &v11, &v10);
+    v5 = sub_180107D2C(FullDllName.Buffer, 0x3FFFLL, &FullDllName, &v10);
     if ( v5 )
       return v5;
-    return (unsigned int)sub_180107DF8(a1, v11, v10);
+    return (unsigned int)sub_180107DF8(a1, *(_QWORD *)&FullDllName.Length, v10);
   }
   if ( *(__int16 *)(a2 + 98) < 0 )
   {
-    *((_QWORD *)&v11 + 1) = &v13;
-    WORD1(v11) = 260;
-    DllFullName = LdrGetDllFullName(v6, (__int64)&v11);
+    FullDllName.Buffer = (PWCH)&v13;
+    FullDllName.MaximumLength = 260;
+    DllFullName = LdrGetDllFullName(Buffer, &FullDllName);
     if ( DllFullName < 0 )
       return RtlNtStatusToDosError(DllFullName);
     else
-      return (unsigned int)sub_180085DDC(a1, &v11, a2 + 32);
+      return (unsigned int)sub_180085DDC(a1, &FullDllName, a2 + 32);
   }
   return v5;
 }

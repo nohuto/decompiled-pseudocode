@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAreBitsClearEx @ 0x14041D1F0
+ * XREFs of RtlAreBitsClearEx @ 0x140411AE0
  * Callers:
- *     MiPatchDataPagesCallback @ 0x1407F5330 (MiPatchDataPagesCallback.c)
- *     MiHotAddPartitionMemory @ 0x1407FC284 (MiHotAddPartitionMemory.c)
- *     MiCommitPageTablesForVad @ 0x1408E26C0 (MiCommitPageTablesForVad.c)
- *     MiReturnPageTablePageCommitment @ 0x1409DE1C0 (MiReturnPageTablePageCommitment.c)
- *     MiMarkRetpolineBits @ 0x140A88520 (MiMarkRetpolineBits.c)
+ *     MiPatchDataPagesCallback @ 0x1407F5A20 (MiPatchDataPagesCallback.c)
+ *     MiHotAddPartitionMemory @ 0x1407FC9F4 (MiHotAddPartitionMemory.c)
+ *     MiCommitPageTablesForVad @ 0x140919270 (MiCommitPageTablesForVad.c)
+ *     MiReturnPageTablePageCommitment @ 0x1409D7D90 (MiReturnPageTablePageCommitment.c)
+ *     MiMarkRetpolineBits @ 0x140A84A10 (MiMarkRetpolineBits.c)
  * Callees:
  *     <none>
  */

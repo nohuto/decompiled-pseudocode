@@ -13,7 +13,11 @@
  *     EtwpEventWriteFull @ 0x180049D14 (EtwpEventWriteFull.c)
  */
 
-__int64 __fastcall EtwEventWrite(int a1, int a2, int a3, __int64 a4)
+ULONG __cdecl EtwEventWrite(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  return EtwpEventWriteFull(a1, a2, 0, 0, 0, 0LL, 0LL, a3, a4);
+  return EtwpEventWriteFull(RegHandle, (_DWORD)EventDescriptor, 0, 0, 0, 0LL, 0LL, UserDataCount, (__int64)UserData);
 }

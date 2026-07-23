@@ -1,17 +1,17 @@
 /*
- * XREFs of PiControlGetDeviceStack @ 0x14072FB64
+ * XREFs of PiControlGetDeviceStack @ 0x14072FD30
  * Callers:
- *     PiControlGetPropertyData @ 0x1406ADDA0 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x14060C640 (PiControlGetPropertyData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x1402CCF4C (IoGetLowerDeviceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140362020 (IoGetAttachedDeviceReferenceWithTag.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x14024B44C (IoGetLowerDeviceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x1402F76F0 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ObQueryNameString @ 0x1406C6F80 (ObQueryNameString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a3, unsigned int *a4)
@@ -19,7 +19,7 @@ __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a
   __int64 v4; // rcx
   unsigned int v5; // r15d
   NTSTATUS v7; // edi
-  struct _OBJECT_NAME_INFORMATION *v8; // r14
+  _OBJECT_NAME_INFORMATION *v8; // r14
   struct _DEVICE_OBJECT *DeviceAttachmentBaseRefWithTag; // rax
   void *i; // rax
   void *v11; // rbx
@@ -40,7 +40,7 @@ __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a
   struct _DEVICE_OBJECT *Object; // [rsp+28h] [rbp-30h]
   PVOID P; // [rsp+30h] [rbp-28h] BYREF
   PVOID *p_P; // [rsp+38h] [rbp-20h]
-  struct _OBJECT_NAME_INFORMATION Src; // [rsp+40h] [rbp-18h] BYREF
+  _OBJECT_NAME_INFORMATION Src; // [rsp+40h] [rbp-18h] BYREF
   ULONG ReturnLength; // [rsp+A0h] [rbp+48h] BYREF
   unsigned int v32; // [rsp+A8h] [rbp+50h]
   _WORD *v33; // [rsp+B0h] [rbp+58h]
@@ -129,7 +129,7 @@ LABEL_14:
   if ( *(_QWORD *)(v18 + 64) && *(_WORD *)(v18 + 56) >= 2u )
   {
     Length = _mm_cvtsi128_si32(*(__m128i *)(v18 + 56));
-    Src = *(struct _OBJECT_NAME_INFORMATION *)(v18 + 56);
+    Src = *(_OBJECT_NAME_INFORMATION *)(v18 + 56);
     for ( Src.Name.Length = Length; Length >= 2u; Src.Name.Length = Length )
     {
       if ( Src.Name.Buffer[((unsigned __int64)Length >> 1) - 1] )
@@ -161,7 +161,7 @@ LABEL_44:
     }
     goto LABEL_50;
   }
-  v8 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x110uLL, 0x47706E50u);
+  v8 = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x110uLL, 0x47706E50u);
   if ( v8 )
   {
     v25 = ReturnLength;

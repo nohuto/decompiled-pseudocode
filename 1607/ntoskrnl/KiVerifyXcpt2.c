@@ -3,7 +3,7 @@
  * Callers:
  *     KiVerifyXcpt15 @ 0x1407772E0 (KiVerifyXcpt15.c)
  * Callees:
- *     _local_unwind @ 0x14014D1B0 (_local_unwind.c)
+ *     _local_unwind @ 0x14014D720 (_local_unwind.c)
  *     KiVerifyXcptFilter @ 0x1407B1D3C (KiVerifyXcptFilter.c)
  *     KiVerifyXcptFinally @ 0x1407B1D54 (KiVerifyXcptFinally.c)
  */

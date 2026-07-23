@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStackDbContextInitialize @ 0x140623368
+ * XREFs of RtlStackDbContextInitialize @ 0x1406263B8
  * Callers:
- *     ObpInitStackAndObjectTables @ 0x1407C4BE8 (ObpInitStackAndObjectTables.c)
+ *     ObpInitStackAndObjectTables @ 0x1407C7C48 (ObpInitStackAndObjectTables.c)
  * Callees:
  *     <none>
  */
@@ -10,15 +10,12 @@ __int64 (__fastcall *RtlStackDbContextInitialize())()
 {
   __int64 (__fastcall *result)(); // rax
 
-  qword_140F13210 = (__int64)ObpStackDbAllocRoutine;
+  ObpStackTraceLock.SchedulerApc.Reserved[2] = ObpStackDbAllocRoutine;
   result = ObpStackDbFreeRoutine;
-  qword_140F13218 = (__int64)ObpStackDbFreeRoutine;
-  qword_140F131E0 = 0LL;
-  qword_140F131E8 = 0LL;
-  qword_140F131F0 = 0LL;
-  qword_140F131F8 = 0LL;
-  qword_140F13208 = 0LL;
-  *(_QWORD *)&qword_140F13200.Header.Lock = 0LL;
-  qword_140F13220 = 0LL;
+  ObpStackTraceLock.SchedulerApc.NormalContext = ObpStackDbFreeRoutine;
+  *(_OWORD *)&ObpStackTraceLock.SchedulerApc.Type = 0uLL;
+  *(_OWORD *)&ObpStackTraceLock.SchedulerApcFill5[16] = 0uLL;
+  *(_OWORD *)&ObpStackTraceLock.SchedulerApcFill5[32] = 0uLL;
+  ObpStackTraceLock.SchedulerApc.SystemArgument1 = 0LL;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTrimPoisonedPage @ 0x1406FFBBC
+ * XREFs of MiTrimPoisonedPage @ 0x14070488C
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
  * Callees:
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MI_WSLE_LOG_ACCESS @ 0x14035DBA4 (MI_WSLE_LOG_ACCESS.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x14035F944 (MI_WSLE_LOG_ACCESS.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiTrimPoisonedPage(__int64 a1)
@@ -27,9 +27,10 @@ __int64 __fastcall MiTrimPoisonedPage(__int64 a1)
   __int64 v11; // rcx
   __int64 *ProcessorFlushList; // rax
   ULONG_PTR v13; // rsi
-  __int64 v14; // rcx
-  ULONG *v15; // rax
-  __int64 v16; // rdx
+  unsigned __int64 v14; // r8
+  __int64 v15; // rcx
+  ULONG *v16; // rax
+  __int64 v17; // rdx
 
   v2 = 1;
   v3 = *(_DWORD *)(a1 + 16);
@@ -65,13 +66,13 @@ __int64 __fastcall MiTrimPoisonedPage(__int64 a1)
   v11 = *(_QWORD *)(*(_QWORD *)(a1 + 256) + 40LL) & 0xFFFFFFFFFFLL;
   if ( v11 == *(_QWORD *)(a1 + 240) )
   {
-    _InterlockedAdd(&dword_140EF8D60, 1u);
+    _InterlockedAdd(&dword_140EF90C0, 1u);
     return v2;
   }
   if ( (v5 & 0x42) != 0 )
   {
 LABEL_27:
-    _InterlockedAdd(&dword_140EF8D64, 1u);
+    _InterlockedAdd(&dword_140EF90C4, 1u);
     return v2;
   }
   if ( (*(_DWORD *)(*(_QWORD *)(a1 + 256) + 32LL) & 0x8000000) == 0
@@ -85,15 +86,15 @@ LABEL_27:
       *((_DWORD *)ProcessorFlushList + 1037),
       2,
       1);
-    v14 = *(_QWORD *)(a1 + 200);
-    if ( (*(_DWORD *)(v14 + 184) & 0xF) == 1 )
-      v15 = &MiSystemPartition;
+    v15 = *(_QWORD *)(a1 + 200);
+    if ( (*(_DWORD *)(v15 + 184) & 0xF) == 1 )
+      v16 = &MiSystemPartition;
     else
-      v15 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v14 + 174));
-    if ( v15[4539] )
-      MI_WSLE_LOG_ACCESS(*(_QWORD *)(a1 + 200), *(_QWORD *)(a1 + 192));
+      v16 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v15 + 174));
+    if ( v16[4539] )
+      MI_WSLE_LOG_ACCESS(*(_QWORD *)(a1 + 200), *(_QWORD *)(a1 + 192), v14);
     MiInsertTbFlushEntry(v13, *(_QWORD *)(a1 + 176), 1LL, 0);
-    v2 = 2 - (MiFreeWsleList(*(_QWORD *)(a1 + 200), v16, v13, 0) != 0);
+    v2 = 2 - (MiFreeWsleList(*(_QWORD *)(a1 + 200), v17, v13, 0) != 0);
     MiReleaseProcessorFlushList();
   }
   return v2;

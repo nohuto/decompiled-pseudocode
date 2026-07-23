@@ -9,26 +9,27 @@
  *     ZwSetInformationVirtualMemory @ 0x1800A2380 (ZwSetInformationVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpGuardGrantSuppressedCallAccess(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall RtlpGuardGrantSuppressedCallAccess(__int64 a1, unsigned int a2)
 {
   char v3; // [rsp+30h] [rbp-9h] BYREF
-  unsigned __int64 v4; // [rsp+38h] [rbp-1h]
-  __int64 v5; // [rsp+40h] [rbp+7h]
-  __int64 v6; // [rsp+48h] [rbp+Fh]
-  char *v7; // [rsp+50h] [rbp+17h]
-  _QWORD *v8; // [rsp+58h] [rbp+1Fh]
-  __int64 v9; // [rsp+60h] [rbp+27h]
-  __int64 v10; // [rsp+68h] [rbp+2Fh]
-  _QWORD v11[2]; // [rsp+70h] [rbp+37h] BYREF
+  _MEMORY_RANGE_ENTRY VirtualAddresses; // [rsp+38h] [rbp-1h] BYREF
+  _QWORD VmInformation[5]; // [rsp+48h] [rbp+Fh] BYREF
+  _QWORD v6[2]; // [rsp+70h] [rbp+37h] BYREF
 
-  v5 = 4096LL;
-  v4 = a1 & 0xFFFFFFFFFFFFF000uLL;
-  v11[1] = a2;
-  v11[0] = a1 & 0xFFF;
-  v7 = &v3;
-  v9 = 0LL;
-  v8 = v11;
-  v10 = 0LL;
-  v6 = 1LL;
-  return ZwSetInformationVirtualMemory();
+  VirtualAddresses.NumberOfBytes = 4096LL;
+  VirtualAddresses.VirtualAddress = (PVOID)(a1 & 0xFFFFFFFFFFFFF000uLL);
+  v6[1] = a2;
+  v6[0] = a1 & 0xFFF;
+  VmInformation[1] = &v3;
+  VmInformation[3] = 0LL;
+  VmInformation[2] = v6;
+  VmInformation[4] = 0LL;
+  VmInformation[0] = 1LL;
+  return ZwSetInformationVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           VmCfgCallTargetInformation,
+           1uLL,
+           &VirtualAddresses,
+           VmInformation,
+           0x28u);
 }

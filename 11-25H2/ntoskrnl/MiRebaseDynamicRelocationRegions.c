@@ -51,13 +51,9 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
     v10 = v4;
     for ( i = 39LL; ; i -= 9LL )
     {
-      MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), v3, v10);
+      MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
       if ( i >= 0xC )
-        MiApplyDynamicRelocations(
-          *(_QWORD *)(v2 + 48),
-          *(unsigned int *)(v2 + 64),
-          v3 + (1LL << i) - 1,
-          v10 + (1LL << i) - 1);
+        MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
       if ( (unsigned int)++v9 > 4 )
         break;
       v3 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -66,7 +62,7 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
     v1 = a1;
   }
   if ( (MiFlags & 0x4000) != 0 || v5 != 0xFFFFDE0000000000uLL )
-    MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), 0xFFFFDE0000000000uLL, v5);
+    MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
   result = MiPrepareScpFixupsForNtAndHal(v1);
   MmPteBase = v4;
   qword_140E013A0 = v4;

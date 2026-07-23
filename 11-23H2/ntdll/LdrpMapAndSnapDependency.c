@@ -36,7 +36,7 @@ _DWORD *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   int v12; // r9d
   unsigned int v13; // eax
   int v14; // edx
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   int v16; // r9d
   __int64 v17; // r12
   __int64 v18; // rdx
@@ -49,9 +49,9 @@ _DWORD *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   __int64 v25; // rcx
   int DependentModuleW; // eax
   __int128 v27; // [rsp+30h] [rbp-20h] BYREF
-  STRING SourceString; // [rsp+40h] [rbp-10h] BYREF
+  ANSI_STRING SourceString; // [rsp+40h] [rbp-10h] BYREF
   int v29; // [rsp+90h] [rbp+40h]
-  __int64 v30; // [rsp+98h] [rbp+48h] BYREF
+  PVOID BaseAddress; // [rsp+98h] [rbp+48h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
   v2 = (*(_DWORD *)(a1 + 32) & 0x800000) == 0;
@@ -114,7 +114,7 @@ _DWORD *__fastcall LdrpMapAndSnapDependency(__int64 a1)
     if ( v4 )
     {
 LABEL_17:
-      Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8u, 8LL * v8);
+      Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 8LL * v8);
       *(_QWORD *)(a1 + 88) = Heap;
       if ( Heap )
       {
@@ -123,7 +123,7 @@ LABEL_17:
         *(_DWORD *)(a1 + 108) = v29 + 1;
         if ( v4 )
           *(_DWORD *)(a1 + 108) = v29 + 2;
-        v30 = 0LL;
+        BaseAddress = 0LL;
         v17 = 0LL;
         if ( v9 )
         {
@@ -154,7 +154,7 @@ LABEL_17:
               DllActivationContext = LdrpLoadDependentModuleA(
                                        &SourceString,
                                        *(_QWORD *)(a1 + 88) + 8 * v17,
-                                       (__int64)&v30);
+                                       (__int64)&BaseAddress);
               if ( DllActivationContext < 0 )
                 break;
             }
@@ -166,13 +166,13 @@ LABEL_17:
         }
         if ( v4 )
         {
-          DependentModuleW = LdrpLoadDependentModuleW((unsigned int)&v27, a1, v1, v16, a1 + 96, (__int64)&v30);
+          DependentModuleW = LdrpLoadDependentModuleW((unsigned int)&v27, a1, v1, v16, a1 + 96, (__int64)&BaseAddress);
           DllActivationContext = DependentModuleW;
           if ( DependentModuleW < 0 )
             LdrpLogEtwHotPatchStatus(LdrpImageEntry + 88, v1, (unsigned int)&v27, DependentModuleW, 5);
         }
-        if ( v30 )
-          RtlFreeHeap(LdrpHeap, 0LL, v30);
+        if ( BaseAddress )
+          RtlFreeHeap(LdrpHeap, 0, BaseAddress);
         if ( DllActivationContext >= 0 )
         {
           RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);

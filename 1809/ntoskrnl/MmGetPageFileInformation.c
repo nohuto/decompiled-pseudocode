@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetPageFileInformation @ 0x1406CB1A4
+ * XREFs of MmGetPageFileInformation @ 0x1406CC444
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     MiPartitionObjectToPartition @ 0x140011CE4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall MmGetPageFileInformation(__int64 a1, __int64 a2, unsigned int a3, int a4, unsigned int *a5)

@@ -1,40 +1,42 @@
 /*
- * XREFs of MiRelinkStandbyPage @ 0x140271FD8
+ * XREFs of MiRelinkStandbyPage @ 0x14025FF78
  * Callers:
- *     MiUpdatePfnPriority @ 0x140270DA4 (MiUpdatePfnPriority.c)
- *     MiEmptyDecayClusterTimers @ 0x140271E00 (MiEmptyDecayClusterTimers.c)
- *     MiUpdatePfnPriorityByPte @ 0x14032BF10 (MiUpdatePfnPriorityByPte.c)
- *     MmSetPfnListInfo @ 0x140372BE4 (MmSetPfnListInfo.c)
+ *     MiUpdatePfnPriority @ 0x14025ED44 (MiUpdatePfnPriority.c)
+ *     MiEmptyDecayClusterTimers @ 0x14025FDA0 (MiEmptyDecayClusterTimers.c)
+ *     MiUpdatePfnPriorityByPte @ 0x140336C60 (MiUpdatePfnPriorityByPte.c)
+ *     MmSetPfnListInfo @ 0x140372734 (MmSetPfnListInfo.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiRestoreTransitionPte @ 0x1402A2DD0 (MiRestoreTransitionPte.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
+ *     MiRestoreTransitionPte @ 0x140220210 (MiRestoreTransitionPte.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
  */
 
-__int64 __fastcall MiRelinkStandbyPage(ULONG_PTR BugCheckParameter2, int a2)
+__int64 __fastcall MiRelinkStandbyPage(ULONG_PTR a1, int a2)
 {
-  if ( *(_WORD *)(BugCheckParameter2 + 32) )
+  __int64 v4; // r8
+
+  if ( *(_WORD *)(a1 + 32) )
   {
     if ( a2 != 0xFFFFFF )
-      *(_BYTE *)(BugCheckParameter2 + 35) ^= (a2 ^ *(_BYTE *)(BugCheckParameter2 + 35)) & 7;
+      *(_BYTE *)(a1 + 35) ^= (a2 ^ *(_BYTE *)(a1 + 35)) & 7;
   }
   else
   {
-    if ( !(unsigned int)MiUnlinkPageFromList(BugCheckParameter2, 0) )
+    if ( !(unsigned int)MiUnlinkPageFromList(a1) )
     {
-      MiRestoreTransitionPte(BugCheckParameter2);
-      *(_QWORD *)(BugCheckParameter2 + 40) &= ~0x8000000000000000uLL;
-      *(_BYTE *)(BugCheckParameter2 + 34) &= 0xC7u;
-      *(_BYTE *)(BugCheckParameter2 + 35) &= ~0x20u;
-      *(_BYTE *)(BugCheckParameter2 + 34) = *(_BYTE *)(BugCheckParameter2 + 34) & 0xF8 | 5;
-      *(_QWORD *)(BugCheckParameter2 + 24) |= 0x4000000000000000uLL;
-      MiInsertPageInFreeOrZeroedList((__int64)(BugCheckParameter2 + 0x58000000000LL) / 48, 2);
+      MiRestoreTransitionPte(a1, 0LL, v4);
+      *(_QWORD *)(a1 + 40) &= ~0x8000000000000000uLL;
+      *(_BYTE *)(a1 + 34) &= 0xC7u;
+      *(_BYTE *)(a1 + 35) &= ~0x20u;
+      *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 5;
+      *(_QWORD *)(a1 + 24) |= 0x4000000000000000uLL;
+      MiInsertPageInFreeOrZeroedList((__int64)(a1 + 0x58000000000LL) / 48);
       return 0LL;
     }
     if ( a2 != 0xFFFFFF )
-      *(_BYTE *)(BugCheckParameter2 + 35) ^= (a2 ^ *(_BYTE *)(BugCheckParameter2 + 35)) & 7;
-    MiInsertPageInList(BugCheckParameter2, 4LL);
+      *(_BYTE *)(a1 + 35) ^= (a2 ^ *(_BYTE *)(a1 + 35)) & 7;
+    MiInsertPageInList(a1, 4LL);
   }
   return 1LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of AVrfpIsVerifierProviderDll @ 0x1800EC8BC
+ * XREFs of AVrfpIsVerifierProviderDll @ 0x1800E74EC
  * Callers:
- *     AVrfDllLoadNotification @ 0x1800EC804 (AVrfDllLoadNotification.c)
- *     AVrfpSnapAlreadyLoadedDlls @ 0x180115C90 (AVrfpSnapAlreadyLoadedDlls.c)
- *     AVrfDllUnloadNotification @ 0x180118E30 (AVrfDllUnloadNotification.c)
+ *     AVrfDllLoadNotification @ 0x1800E7434 (AVrfDllLoadNotification.c)
+ *     AVrfpSnapAlreadyLoadedDlls @ 0x180111124 (AVrfpSnapAlreadyLoadedDlls.c)
+ *     AVrfDllUnloadNotification @ 0x180113F70 (AVrfDllUnloadNotification.c)
  * Callees:
  *     <none>
  */

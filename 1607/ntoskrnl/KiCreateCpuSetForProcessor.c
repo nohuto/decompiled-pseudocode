@@ -4,10 +4,10 @@
  *     KiCompleteKernelInit @ 0x1403D46A0 (KiCompleteKernelInit.c)
  *     KiAllocateCpuSetData @ 0x14079344C (KiAllocateCpuSetData.c)
  * Callees:
- *     RtlWriteReleaseTickLock @ 0x14008351C (RtlWriteReleaseTickLock.c)
- *     RtlWriteAcquireTickLock @ 0x140083528 (RtlWriteAcquireTickLock.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
+ *     RtlWriteReleaseTickLock @ 0x14008419C (RtlWriteReleaseTickLock.c)
+ *     RtlWriteAcquireTickLock @ 0x1400841A8 (RtlWriteAcquireTickLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
  */
 
 __int64 __fastcall KiCreateCpuSetForProcessor(__int64 a1)

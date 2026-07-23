@@ -24,10 +24,10 @@
  *     RtlpInitializeLangRegistryInfo @ 0x18003ED50 (RtlpInitializeLangRegistryInfo.c)
  */
 
-__int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpCreateProcessRegistryInfo(_QWORD *a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rax
-  __int64 v4; // rbx
+  PVOID v3; // rax
+  PVOID v4; // rbx
   int v6; // edi
 
   v3 = g_RegInfo;
@@ -36,9 +36,9 @@ __int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1, __int64 a2, __int6
   if ( !g_RegInfo )
   {
     RtlpInitMuiCriticalSection(a1, a2, a3);
-    RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     v6 = RtlpInitializeLangRegistryInfo(&g_RegInfo);
-    RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
     v3 = g_RegInfo;
   }
   if ( a1 )

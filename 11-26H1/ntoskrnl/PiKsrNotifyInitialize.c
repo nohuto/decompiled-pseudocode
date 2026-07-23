@@ -1,11 +1,11 @@
 /*
- * XREFs of PiKsrNotifyInitialize @ 0x140CC7840
+ * XREFs of PiKsrNotifyInitialize @ 0x140CCD930
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x1404F0710 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x1404E9CF0 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
  */
 
 __int64 PiKsrNotifyInitialize()
@@ -14,7 +14,7 @@ __int64 PiKsrNotifyInitialize()
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  qword_140F82628 = (__int64)&PnpKsrNotifyList;
+  qword_140F82968 = (__int64)&PnpKsrNotifyList;
   PnpKsrNotifyList = &PnpKsrNotifyList;
   *(_QWORD *)&ObjectAttributes.Attributes = 80LL;
   PnpKsrNotifyLock.Event.Header.WaitListHead.Blink = &PnpKsrNotifyLock.Event.Header.WaitListHead;

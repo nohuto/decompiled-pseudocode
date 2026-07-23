@@ -1,11 +1,11 @@
 /*
- * XREFs of MD4Final @ 0x18015BA00
+ * XREFs of MD4Final @ 0x180159DC0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptMd4Result @ 0x180161720 (SymCryptMd4Result.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     SymCryptMd4Result @ 0x18015FAE0 (SymCryptMd4Result.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 unsigned __int64 __fastcall MD4Final(__int128 *a1)

@@ -11,11 +11,11 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BE818 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall IoStartDiskIoAttributionForContext(unsigned __int64 a1)
+__int64 __fastcall IoStartDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // al
-  _BOOL8 v3; // r8
-  unsigned __int64 v4; // rbx
+  __int64 v3; // r8
+  unsigned __int64 Root; // rbx
   KIRQL v5; // si
   int v6; // edi
   unsigned __int64 v7; // rax
@@ -23,24 +23,24 @@ __int64 __fastcall IoStartDiskIoAttributionForContext(unsigned __int64 a1)
   struct _KPRCB *CurrentPrcb; // rcx
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  v4 = IopDiskIoAttributionTree;
+  Root = (unsigned __int64)IopDiskIoAttributionTree.Root;
   v5 = v2;
-  if ( (BYTE8(IopDiskIoAttributionTree) & 1) != 0 && (_QWORD)IopDiskIoAttributionTree )
-    v4 = (unsigned __int64)&IopDiskIoAttributionTree ^ IopDiskIoAttributionTree;
+  if ( (*(_BYTE *)&IopDiskIoAttributionTree.0 & 1) != 0 && IopDiskIoAttributionTree.Root )
+    Root = (unsigned __int64)&IopDiskIoAttributionTree ^ (unsigned __int64)IopDiskIoAttributionTree.Root;
   LOBYTE(v3) = 0;
-  v6 = BYTE8(IopDiskIoAttributionTree) & 1;
-  if ( v4 )
+  v6 = *(_BYTE *)&IopDiskIoAttributionTree.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)IopDiskIoAttributionTreeCompare(a1 + 24, v4, v3) < 0 )
+      if ( (int)IopDiskIoAttributionTreeCompare(&Node[1], Root, v3) < 0 )
       {
-        v7 = *(_QWORD *)v4;
+        v7 = *(_QWORD *)Root;
         if ( v6 )
         {
           if ( !v7 )
             goto LABEL_15;
-          v7 ^= v4;
+          v7 ^= Root;
         }
         if ( !v7 )
         {
@@ -51,12 +51,12 @@ LABEL_15:
       }
       else
       {
-        v7 = *(_QWORD *)(v4 + 8);
+        v7 = *(_QWORD *)(Root + 8);
         if ( v6 )
         {
           if ( !v7 )
             goto LABEL_16;
-          v7 ^= v4;
+          v7 ^= Root;
         }
         if ( !v7 )
         {
@@ -65,10 +65,10 @@ LABEL_16:
           break;
         }
       }
-      v4 = v7;
+      Root = v7;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&IopDiskIoAttributionTree, v4, v3, a1);
+  RtlRbInsertNodeEx(&IopDiskIoAttributionTree, (PRTL_BALANCED_NODE)Root, v3, Node);
   ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v5 < 2u )
   {

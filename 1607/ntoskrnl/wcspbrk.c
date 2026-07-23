@@ -1,9 +1,9 @@
 /*
- * XREFs of wcspbrk @ 0x14014F864
+ * XREFs of wcspbrk @ 0x14014FE24
  * Callers:
- *     RtlpMuiRegLoadLicInformation @ 0x14014059C (RtlpMuiRegLoadLicInformation.c)
- *     IoRegisterDeviceInterface @ 0x140540868 (IoRegisterDeviceInterface.c)
- *     PoThermalCounterSetCallback @ 0x1406701F4 (PoThermalCounterSetCallback.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x140140B0C (RtlpMuiRegLoadLicInformation.c)
+ *     IoRegisterDeviceInterface @ 0x140540DA8 (IoRegisterDeviceInterface.c)
+ *     PoThermalCounterSetCallback @ 0x1406702D8 (PoThermalCounterSetCallback.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcGetMessageAttribute @ 0x180076440
+ * XREFs of AlpcGetMessageAttribute @ 0x180076450
  * Callers:
  *     <none>
  * Callees:
- *     AlpcGetHeaderSize @ 0x180076480 (AlpcGetHeaderSize.c)
+ *     AlpcGetHeaderSize @ 0x180076490 (AlpcGetHeaderSize.c)
  */
 
-char *__fastcall AlpcGetMessageAttribute(_DWORD *a1, int a2)
+PVOID __cdecl AlpcGetMessageAttribute(PALPC_MESSAGE_ATTRIBUTES Buffer, ULONG AttributeFlag)
 {
-  if ( (a2 & *a1) == 0 || ((a2 - 1) & a2) != 0 )
+  if ( (AttributeFlag & Buffer->AllocatedAttributes) == 0 || ((AttributeFlag - 1) & AttributeFlag) != 0 )
     return 0LL;
   else
-    return (char *)a1 + (unsigned int)AlpcGetHeaderSize(*a1 & (unsigned int)(-2 * a2));
+    return (char *)Buffer + AlpcGetHeaderSize(Buffer->AllocatedAttributes & (-2 * AttributeFlag));
 }

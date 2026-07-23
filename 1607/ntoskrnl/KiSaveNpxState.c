@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSaveNpxState @ 0x140082E2C
+ * XREFs of KiSaveNpxState @ 0x140083AAC
  * Callers:
- *     KiSaveProcessorState @ 0x140082BD8 (KiSaveProcessorState.c)
+ *     KiSaveProcessorState @ 0x140083858 (KiSaveProcessorState.c)
  * Callees:
- *     RtlXSave @ 0x14008308C (RtlXSave.c)
+ *     RtlXSave @ 0x140083D0C (RtlXSave.c)
  */
 
 __int64 __fastcall KiSaveNpxState(__int64 a1, int a2)

@@ -1,37 +1,37 @@
 /*
- * XREFs of MiMakePageAvoidRead @ 0x140282DC0
+ * XREFs of MiMakePageAvoidRead @ 0x140282330
  * Callers:
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiLockAndInsertPageInFreeList @ 0x140293098 (MiLockAndInsertPageInFreeList.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     MiInitializePfn @ 0x1402D7680 (MiInitializePfn.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
- *     MiLockProtoPoolPage @ 0x1402F50D0 (MiLockProtoPoolPage.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPfnZeroingNeeded @ 0x14033AAB0 (MiPfnZeroingNeeded.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiMapCacheExceptionFilter @ 0x14086A9FC (MiMapCacheExceptionFilter.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1402925F8 (MiLockAndInsertPageInFreeList.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     MiInitializePfn @ 0x1402B9440 (MiInitializePfn.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
+ *     MiLockProtoPoolPage @ 0x1402D7150 (MiLockProtoPoolPage.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPfnZeroingNeeded @ 0x14033CB30 (MiPfnZeroingNeeded.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiMapCacheExceptionFilter @ 0x140870DDC (MiMapCacheExceptionFilter.c)
  */
 
 __int64 __fastcall MiMakePageAvoidRead(
@@ -118,7 +118,7 @@ __int64 __fastcall MiMakePageAvoidRead(
   v61 = SubsectionFromPte;
   v8 = *(_QWORD *)SubsectionFromPte;
   v60 = v8;
-  v9 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v8 + 60) & 0x3FF));
+  v9 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v8 + 60) & 0x3FF));
   if ( ((*(_DWORD *)(v8 + 56) >> 20) & 0x7F) != 0 )
     v10 = ((*(_DWORD *)(v8 + 56) >> 20) & 0x7F) - 1;
   else
@@ -187,12 +187,12 @@ __int64 __fastcall MiMakePageAvoidRead(
     }
     while ( v26 != v25 );
   }
-  v27 = MiReservePtes(&stru_140E36558.WaitBlockList, 1LL);
+  v27 = MiReservePtes(&stru_140E366D8.WaitBlockList, 1LL);
   v55 = (unsigned __int64 *)v27;
   if ( v27 )
   {
     v28 = 4;
-    if ( v52 <= qword_140E2D7A0 && (*(_QWORD *)(v21 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
+    if ( v52 <= qword_140E2D920 && (*(_QWORD *)(v21 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
     {
       v29 = (*(_DWORD *)(v21 - 0x21FFFFFFFFE0LL) >> 22) & 3;
       if ( !v29 || v29 == 3 )
@@ -232,7 +232,7 @@ __int64 __fastcall MiMakePageAvoidRead(
       RtlCopyVolatileMemory(v34, Src, Size);
     else
       RtlCopyFromUser(v34, Src, Size);
-    MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, v30, 1u);
+    MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, v30, 1u);
   }
   else
   {
@@ -276,7 +276,7 @@ LABEL_47:
     if ( (v42 = *(_DWORD *)(v21 - 0x21FFFFFFFFE0LL), (*(_QWORD *)(v21 - 0x21FFFFFFFFD8LL) & 0x20000000000000LL) != 0)
       || (*(_DWORD *)(v21 - 0x21FFFFFFFFE0LL) & 0x8000000) != 0
       && (v22 < 0xFFFFDE0000000000uLL
-       || v22 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+       || v22 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
        || (unsigned int)MiIsDecayPfn(v21 / 48)
        || (v42 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v22) == 9)
       || (v42 & 0x7000000u) > 0x2000000 )

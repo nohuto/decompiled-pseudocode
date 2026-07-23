@@ -1,10 +1,10 @@
 /*
- * XREFs of VmUnpinMemoryRange @ 0x14081D5D0
+ * XREFs of VmUnpinMemoryRange @ 0x1408237E0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VmUnpinMemoryRanges @ 0x14081D680 (VmUnpinMemoryRanges.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VmUnpinMemoryRanges @ 0x140823890 (VmUnpinMemoryRanges.c)
  */
 
 __int64 __fastcall VmUnpinMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

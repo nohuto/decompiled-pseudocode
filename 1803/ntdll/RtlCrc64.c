@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCrc64(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
+ULONGLONG __cdecl RtlCrc64(const void *Buffer, size_t Size, ULONGLONG InitialCrc)
 {
-  return sub_18007DDB0(a1, a2, a3, &off_180111430);
+  return sub_18007DDB0((unsigned __int64)Buffer, Size, InitialCrc, &off_180111430);
 }

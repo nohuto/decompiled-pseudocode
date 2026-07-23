@@ -59,7 +59,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
   struct _KTHREAD *v12; // rax
   ULONG v13; // r15d
   bool v14; // bl
-  char IsElevatedRid; // al
+  BOOLEAN IsElevatedRid; // al
   int v16; // eax
   struct _KTHREAD *v17; // rax
   UCHAR v18; // cl
@@ -70,8 +70,8 @@ NTSTATUS __stdcall SeQueryInformationToken(
   int v23; // edx
   struct _KTHREAD *CurrentThread; // rax
   ULONG v25; // r15d
-  struct _SID_AND_ATTRIBUTES *PoolWithTag; // rax
-  struct _SID_AND_ATTRIBUTES *v27; // rdi
+  _SID_AND_ATTRIBUTES *PoolWithTag; // rax
+  _SID_AND_ATTRIBUTES *v27; // rdi
   _DWORD *v28; // rax
   int v29; // edx
   struct _KTHREAD *v30; // rax
@@ -121,7 +121,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
   __int64 v74; // rax
   char *v75; // rax
   PVOID v76; // rbx
-  struct _SID_AND_ATTRIBUTES *v77; // r9
+  _SID_AND_ATTRIBUTES *v77; // r9
   struct _KTHREAD *v78; // rax
   __int64 v79; // rax
   unsigned int v80; // eax
@@ -234,7 +234,7 @@ LABEL_6:
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Token + 6), 1u);
         v25 = 4 * *(unsigned __int8 *)(**((_QWORD **)Token + 19) + 1LL) + 24;
-        PoolWithTag = (struct _SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v25, 0x20206553u);
+        PoolWithTag = (_SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v25, 0x20206553u);
         v27 = PoolWithTag;
         if ( !PoolWithTag )
           goto LABEL_62;
@@ -437,7 +437,7 @@ LABEL_6:
         v76 = v75;
         if ( v75 )
         {
-          v77 = (struct _SID_AND_ATTRIBUTES *)(v75 + 56);
+          v77 = (_SID_AND_ATTRIBUTES *)(v75 + 56);
           *((_QWORD *)v75 + 6) = *((_QWORD *)Token + 3);
           *((_DWORD *)v75 + 1) = v65;
           *(_DWORD *)v75 = *((_DWORD *)Token + 31);
@@ -512,7 +512,7 @@ LABEL_6:
           {
             if ( v14 )
               break;
-            IsElevatedRid = RtlIsElevatedRid(*((_QWORD *)Token + 19) + 16LL * v3++);
+            IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(*((_QWORD *)Token + 19) + 16LL * v3++));
             v14 = IsElevatedRid;
           }
           while ( v3 < v13 );

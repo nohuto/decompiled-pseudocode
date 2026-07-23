@@ -13,7 +13,7 @@
  *     MiUpdateHugePageCounts @ 0x140622DB8 (MiUpdateHugePageCounts.c)
  */
 
-__int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx
   __int64 *v7; // rbx
@@ -27,10 +27,10 @@ __int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, __int64 a2, __in
   unsigned int v15; // ebp
   __int64 v16; // rax
   volatile LONG *v17; // rcx
-  __int64 v18; // rbx
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v21; // eax
   bool v22; // zf
   __int64 v23; // [rsp+70h] [rbp+8h]
   __int64 v26; // [rsp+88h] [rbp+20h]
@@ -80,26 +80,25 @@ __int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, __int64 a2, __in
     MiUpdateHugePageCounts(a2, a1, 1LL, 0LL);
     MiUpdateHugePageCounts(a3, a1, 1LL, 1LL);
   }
-  v18 = (((__int64)v7 - qword_140C67EF0) >> 3) & 0x3FFFFF;
-  result = (unsigned int)~(1 << (v18 & 0x1F));
-  _InterlockedAnd((volatile signed __int32 *)(qword_140C67EF8 + 4 * ((unsigned __int64)(unsigned int)v18 >> 5)), result);
-  if ( KiIrqlFlags )
+  _InterlockedAnd(
+    (volatile signed __int32 *)(qword_140C67EF8 + 4 * (((((__int64)v7 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
+    ~(1 << ((((__int64)v7 - qword_140C67EF0) >> 3) & 0x1F)));
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v14 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-      v22 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
+      v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+      v22 = (v21 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v21;
       if ( v22 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v14);
-  return result;
 }

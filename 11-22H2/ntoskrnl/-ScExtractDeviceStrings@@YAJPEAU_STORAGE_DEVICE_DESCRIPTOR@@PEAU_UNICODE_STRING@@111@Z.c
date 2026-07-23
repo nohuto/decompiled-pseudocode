@@ -16,9 +16,9 @@ __int64 __fastcall ScExtractDeviceStrings(
 {
   struct _UNICODE_STRING **v5; // rsi
   unsigned int *v6; // rbx
-  ULONG Size; // r14d
+  DWORD Size; // r14d
   unsigned int v9; // r14d
-  ULONG SerialNumberOffset; // eax
+  DWORD SerialNumberOffset; // eax
   int v11; // ecx
   unsigned int v12; // edi
   __int64 v13; // rax

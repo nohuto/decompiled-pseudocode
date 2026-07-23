@@ -5,7 +5,7 @@
  *     RtlSetLastWin32Error @ 0x18004ED60 (RtlSetLastWin32Error.c)
  *     EtwEventWriteEndScenario @ 0x180068760 (EtwEventWriteEndScenario.c)
  *     LdrpLogDeprecatedDllEtwEvent @ 0x1800715FC (LdrpLogDeprecatedDllEtwEvent.c)
- *     EtwEventWriteStartScenario @ 0x18008F130 (EtwEventWriteStartScenario.c)
+ *     EtwEventWriteStartScenario @ 0x18008F140 (EtwEventWriteStartScenario.c)
  *     LdrpAppxEtwGenericIntegrityFailure @ 0x1800CD9E0 (LdrpAppxEtwGenericIntegrityFailure.c)
  *     LdrpAppxEtwIntegrityFailure @ 0x1800CDA68 (LdrpAppxEtwIntegrityFailure.c)
  *     LdrpLogFatalUserCallbackException @ 0x1800D14D0 (LdrpLogFatalUserCallbackException.c)
@@ -16,7 +16,11 @@
  *     EtwpEventWriteFull @ 0x18004DCF4 (EtwpEventWriteFull.c)
  */
 
-__int64 __fastcall EtwEventWrite(int a1, int a2, int a3, __int64 a4)
+ULONG __cdecl EtwEventWrite(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  return EtwpEventWriteFull(a1, a2, 0, 0, 0, 0LL, 0LL, a3, a4);
+  return EtwpEventWriteFull(RegHandle, (_DWORD)EventDescriptor, 0, 0, 0, 0LL, 0LL, UserDataCount, (__int64)UserData);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeTestBitGroupMask @ 0x140428520
+ * XREFs of KeTestBitGroupMask @ 0x14041C6B0
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

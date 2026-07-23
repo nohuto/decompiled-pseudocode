@@ -1,93 +1,95 @@
 /*
- * XREFs of RtlCompareExchangePointerMapping @ 0x180142ED0
+ * XREFs of RtlCompareExchangePointerMapping @ 0x180141280
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlRbInsertNodeEx @ 0x180054EB0 (RtlRbInsertNodeEx.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlRbInsertNodeEx @ 0x18006AA90 (RtlRbInsertNodeEx.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlCompareExchangePointerMapping(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4)
+__int64 __fastcall RtlCompareExchangePointerMapping(
+        _RTL_BALANCED_NODE *a1,
+        _RTL_BALANCED_NODE *a2,
+        _RTL_BALANCED_NODE **a3,
+        _RTL_BALANCED_NODE **a4)
 {
-  unsigned __int64 Heap; // rdi
-  volatile signed __int32 **v9; // rdx
-  unsigned __int64 v10; // r8
-  __int64 v11; // rdx
-  bool v12; // r8
-  __int64 v13; // rax
-  unsigned int v14; // ebx
-  __int64 v15; // rax
-  __int64 v16; // rax
+  _RTL_BALANCED_NODE *Heap; // rdi
+  unsigned __int64 Root; // rdx
+  BOOLEAN v10; // r8
+  _RTL_BALANCED_NODE *v11; // rax
+  unsigned int v12; // ebx
+  unsigned __int64 v13; // rax
+  _RTL_BALANCED_NODE *v14; // rax
 
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0x28uLL);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpPtrTreeLock, v9, v10);
-  v11 = RtlpPtrTree;
-  if ( (qword_1801CD0A0 & 1) != 0 )
+  Heap = (_RTL_BALANCED_NODE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x28uLL);
+  RtlAcquireSRWLockExclusive(&RtlpPtrTreeLock);
+  Root = (unsigned __int64)RtlpPtrTree.Root;
+  if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 )
   {
-    if ( !RtlpPtrTree )
+    if ( !RtlpPtrTree.Root )
     {
-      v12 = 0;
+      v10 = 0;
       goto LABEL_8;
     }
-    v11 = (unsigned __int64)&RtlpPtrTree ^ RtlpPtrTree;
+    Root = (unsigned __int64)&RtlpPtrTree ^ (unsigned __int64)RtlpPtrTree.Root;
   }
-  v12 = 0;
-  if ( v11 )
+  v10 = 0;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( a1 - *(_QWORD *)(v11 + 24) >= 0 )
+      if ( (__int64)a1 - *(_QWORD *)(Root + 24) >= 0 )
       {
-        if ( a1 - *(_QWORD *)(v11 + 24) <= 0 )
+        if ( (__int64)a1 - *(_QWORD *)(Root + 24) <= 0 )
         {
-          v16 = *(_QWORD *)(v11 + 32);
-          if ( !a3 || v16 == *a3 )
-            *(_QWORD *)(v11 + 32) = a2;
-          v14 = 0x40000000;
+          v14 = *(_RTL_BALANCED_NODE **)(Root + 32);
+          if ( !a3 || v14 == *a3 )
+            *(_QWORD *)(Root + 32) = a2;
+          v12 = 0x40000000;
 LABEL_24:
           if ( a4 )
-            *a4 = v16;
+            *a4 = v14;
           goto LABEL_26;
         }
-        v15 = *(_QWORD *)(v11 + 8);
-        if ( !v15 || (v13 = v11 ^ v15) == 0 )
+        v13 = *(_QWORD *)(Root + 8);
+        if ( !v13 || (v11 = (_RTL_BALANCED_NODE *)(Root ^ v13)) == 0LL )
         {
-          v12 = 1;
+          v10 = 1;
           break;
         }
       }
       else
       {
-        if ( !*(_QWORD *)v11 )
+        if ( !*(_QWORD *)Root )
           break;
-        v13 = v11 ^ *(_QWORD *)v11;
-        if ( !v13 )
+        v11 = (_RTL_BALANCED_NODE *)(Root ^ *(_QWORD *)Root);
+        if ( !v11 )
           break;
       }
-      v11 = v13;
+      Root = (unsigned __int64)v11;
     }
   }
 LABEL_8:
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 24) = a1;
-    *(_QWORD *)(Heap + 32) = a2;
-    RtlRbInsertNodeEx((unsigned __int64)&RtlpPtrTree, v11, v12, Heap);
+    Heap[1].Children[0] = a1;
+    Heap[1].Children[1] = a2;
+    RtlRbInsertNodeEx(&RtlpPtrTree, (PRTL_BALANCED_NODE)Root, v10, Heap);
     if ( a3 )
-      v16 = *a3;
+      v14 = *a3;
     else
-      v16 = 0LL;
+      v14 = 0LL;
     Heap = 0LL;
-    v14 = 0;
+    v12 = 0;
     goto LABEL_24;
   }
-  v14 = -1073741670;
+  v12 = -1073741670;
 LABEL_26:
   RtlReleaseSRWLockExclusive(&RtlpPtrTreeLock);
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  return v14;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v12;
 }

@@ -5,7 +5,7 @@
  *     EmpInfParseGetGuidFromName @ 0x1407A8524 (EmpInfParseGetGuidFromName.c)
  *     EmpInfParseGetStringIndexFromName @ 0x1407A8A54 (EmpInfParseGetStringIndexFromName.c)
  * Callees:
- *     _strnicmp @ 0x14014D40C (_strnicmp.c)
+ *     _strnicmp @ 0x14014D97C (_strnicmp.c)
  *     CmpGetSectionLineIndex @ 0x1407A8AF8 (CmpGetSectionLineIndex.c)
  *     CmpGetKeyName @ 0x1407A8C08 (CmpGetKeyName.c)
  */

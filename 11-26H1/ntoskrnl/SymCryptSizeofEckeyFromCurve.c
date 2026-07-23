@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptSizeofEckeyFromCurve @ 0x14055BDA8
+ * XREFs of SymCryptSizeofEckeyFromCurve @ 0x14055E290
  * Callers:
- *     SymCryptEckeyAllocate @ 0x14055B6A4 (SymCryptEckeyAllocate.c)
- *     SymCryptEckeyWipe @ 0x14055BD7C (SymCryptEckeyWipe.c)
+ *     SymCryptEckeyAllocate @ 0x14055DB88 (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeyWipe @ 0x14055E264 (SymCryptEckeyWipe.c)
  * Callees:
- *     SymCryptEcurveDigitsofScalarMultiplier @ 0x14055AD5C (SymCryptEcurveDigitsofScalarMultiplier.c)
- *     SymCryptSizeofIntFromDigits @ 0x14055C9A8 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x140564C8C (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcurveDigitsofScalarMultiplier @ 0x14055D270 (SymCryptEcurveDigitsofScalarMultiplier.c)
+ *     SymCryptSizeofIntFromDigits @ 0x14055EE90 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x14056707C (SymCryptSizeofEcpointFromCurve.c)
  */
 
 __int64 __fastcall SymCryptSizeofEckeyFromCurve(__int64 a1)

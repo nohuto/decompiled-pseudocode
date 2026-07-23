@@ -1,20 +1,20 @@
 /*
- * XREFs of KeFlushSingleCurrentTb @ 0x14012C860
+ * XREFs of KeFlushSingleCurrentTb @ 0x14012CDD0
  * Callers:
- *     MiDbgWriteCheck @ 0x14012C5DC (MiDbgWriteCheck.c)
- *     MiDbgReleaseAddress @ 0x14012C7DC (MiDbgReleaseAddress.c)
- *     MiDbgTranslatePhysicalAddress @ 0x1401470C4 (MiDbgTranslatePhysicalAddress.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x1401487C8 (MiDbgUnTranslatePhysicalAddress.c)
- *     MiStackTheftIsr @ 0x1401E666C (MiStackTheftIsr.c)
- *     MmReadProcessPageTables @ 0x1401EEF28 (MmReadProcessPageTables.c)
+ *     MiDbgWriteCheck @ 0x14012CB4C (MiDbgWriteCheck.c)
+ *     MiDbgReleaseAddress @ 0x14012CD4C (MiDbgReleaseAddress.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140147634 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140148D38 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiStackTheftIsr @ 0x1401E6498 (MiStackTheftIsr.c)
+ *     MmReadProcessPageTables @ 0x1401EED54 (MmReadProcessPageTables.c)
  *     MmInvalidateDumpAddresses @ 0x1403CB944 (MmInvalidateDumpAddresses.c)
  * Callees:
- *     KiIsSecureProcessFlush @ 0x14001DECC (KiIsSecureProcessFlush.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlFlushSingleTb @ 0x1401C1520 (HvlFlushSingleTb.c)
- *     VmFlushTb @ 0x140223CE0 (VmFlushTb.c)
- *     ExFlushTb @ 0x14022EB0C (ExFlushTb.c)
+ *     KiIsSecureProcessFlush @ 0x14001DA4C (KiIsSecureProcessFlush.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlFlushSingleTb @ 0x1401C1404 (HvlFlushSingleTb.c)
+ *     VmFlushTb @ 0x140223B0C (VmFlushTb.c)
+ *     ExFlushTb @ 0x14022E938 (ExFlushTb.c)
  */
 
 __int64 __fastcall KeFlushSingleCurrentTb(unsigned __int64 a1, int a2)

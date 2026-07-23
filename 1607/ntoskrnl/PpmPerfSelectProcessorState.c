@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfSelectProcessorState @ 0x1400D4DE0
+ * XREFs of PpmPerfSelectProcessorState @ 0x1400D2C80
  * Callers:
- *     PpmPerfSelectProcessorStates @ 0x1400D4D10 (PpmPerfSelectProcessorStates.c)
+ *     PpmPerfSelectProcessorStates @ 0x1400D2BB0 (PpmPerfSelectProcessorStates.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwpLevelKeywordEnabled @ 0x1400D81F0 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwpLevelKeywordEnabled @ 0x1400D6090 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 int __fastcall PpmPerfSelectProcessorState(__int64 a1)
@@ -79,11 +79,11 @@ int __fastcall PpmPerfSelectProcessorState(__int64 a1)
   v41 = 1;
   if ( (unsigned int)PpmMfBufferingThreshold > 0x64 )
     v3 = 100;
-  v8 = &PpmCurrentProfile[174 * dword_140303E0C + 5];
-  if ( v7 && PpmCurrentProfile == (__int64 *)PpmLowPowerProfile && byte_140303E4C && v7[185] < v3 )
+  v8 = &PpmCurrentProfile[174 * dword_140303D4C + 5];
+  if ( v7 && PpmCurrentProfile == (__int64 *)PpmLowPowerProfile && byte_140303D8C && v7[185] < v3 )
   {
     v2 = 4096;
-    v8 = (__int64 *)((char *)&unk_1403017C8 + 1392 * dword_140303E0C);
+    v8 = (__int64 *)((char *)&unk_1403017C8 + 1392 * dword_140303D4C);
     v38 = 4096;
   }
   LOBYTE(v9) = *(_BYTE *)(a1 + 23858);

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHiberChecksumHiberFileData @ 0x140B5D0C0
+ * XREFs of PopHiberChecksumHiberFileData @ 0x140B5F13C
  * Callers:
- *     PopRequestRead @ 0x140B5DC4C (PopRequestRead.c)
- *     PopRequestWrite @ 0x140B5E080 (PopRequestWrite.c)
+ *     PopRequestRead @ 0x140B5FCCC (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140B60100 (PopRequestWrite.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1406B3530 (tcpxsum.c)
- *     PopCheckpointSystemSleep @ 0x140B6675C (PopCheckpointSystemSleep.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1406B44D0 (tcpxsum.c)
+ *     PopCheckpointSystemSleep @ 0x140B6889C (PopCheckpointSystemSleep.c)
  */
 
 unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
@@ -77,11 +77,11 @@ unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
       if ( a2 )
       {
         *(_QWORD *)(a1 + 448) = v10;
-        qword_140F0B3B0 += result;
+        qword_140F0BFF0 += result;
       }
       else
       {
-        qword_140F0B4F0 += result;
+        qword_140F0C130 += result;
       }
     }
   }

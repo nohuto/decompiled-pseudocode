@@ -1,22 +1,22 @@
 /*
- * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408293FC
+ * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140829C2C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140929280 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x14092B3C0 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x1403F0070 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14040EEDC (PsIsThreadInSilo.c)
- *     PsGetJobSilo @ 0x14040EF70 (PsGetJobSilo.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpDestroyNamespaceNode @ 0x140929080 (VrpDestroyNamespaceNode.c)
- *     VRegEnabledInJob @ 0x1409296E0 (VRegEnabledInJob.c)
- *     VrpUnlockJobContextExclusive @ 0x140929B2C (VrpUnlockJobContextExclusive.c)
- *     VrpCreateNamespaceNode @ 0x140929B68 (VrpCreateNamespaceNode.c)
- *     VrpLockJobContextExclusive @ 0x14092A064 (VrpLockJobContextExclusive.c)
- *     VrpAddNamespaceNodeToList @ 0x14092A0C4 (VrpAddNamespaceNodeToList.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x14092A1E8 (VrpCreateNamespaceNodePlaceholderKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x1403E3CE0 (PsGetPermanentSiloContext.c)
+ *     PsIsThreadInSilo @ 0x1404070DC (PsIsThreadInSilo.c)
+ *     PsGetJobSilo @ 0x140407170 (PsGetJobSilo.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     VrpDestroyNamespaceNode @ 0x14092B1C0 (VrpDestroyNamespaceNode.c)
+ *     VRegEnabledInJob @ 0x14092B820 (VRegEnabledInJob.c)
+ *     VrpUnlockJobContextExclusive @ 0x14092BC6C (VrpUnlockJobContextExclusive.c)
+ *     VrpCreateNamespaceNode @ 0x14092BCA8 (VrpCreateNamespaceNode.c)
+ *     VrpLockJobContextExclusive @ 0x14092C1A4 (VrpLockJobContextExclusive.c)
+ *     VrpAddNamespaceNodeToList @ 0x14092C204 (VrpAddNamespaceNodeToList.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x14092C328 (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlCreateMultipleNamespaceNodes(
@@ -141,7 +141,7 @@ LABEL_23:
         JobSilo = -1073741811;
         goto LABEL_33;
       }
-      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x67655256u);
       if ( !Pool2 )
       {
         JobSilo = -1073741670;

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSetDefaultUILanguage()
+NTSTATUS __cdecl ZwSetDefaultUILanguage(LANGID DefaultUILanguageId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 371LL;
+  result = 371;
   __asm { syscall; Low latency system call }
   return result;
 }

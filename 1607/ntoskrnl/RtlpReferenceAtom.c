@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpReferenceAtom @ 0x140014AB8
+ * XREFs of RtlpReferenceAtom @ 0x140014638
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x140014694 (RtlAddAtomToAtomTableEx.c)
+ *     RtlAddAtomToAtomTableEx @ 0x140014214 (RtlAddAtomToAtomTableEx.c)
  * Callees:
  *     <none>
  */

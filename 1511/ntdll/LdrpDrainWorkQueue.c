@@ -32,13 +32,13 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
   __int64 v6; // rax
   struct _TEB *result; // rax
 
-  v1 = (HANDLE)LdrpWorkCompleteEvent;
+  v1 = LdrpWorkCompleteEvent;
   v2 = 0;
   if ( !a1 )
     v1 = LdrpLoadCompleteEvent;
   while ( 1 )
   {
-    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
     v4 = LdrpDetourExist;
     if ( !LdrpDetourExist || a1 == 1 )
     {
@@ -72,7 +72,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
       }
       v5 = &LdrpWorkQueue;
     }
-    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
     if ( v2 )
       break;
     if ( &LdrpWorkQueue == v5 )

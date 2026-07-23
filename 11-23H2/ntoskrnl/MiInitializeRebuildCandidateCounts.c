@@ -1,9 +1,9 @@
 /*
  * XREFs of MiInitializeRebuildCandidateCounts @ 0x140B47430
  * Callers:
- *     MiCreatePfnBitMaps @ 0x14081C29C (MiCreatePfnBitMaps.c)
+ *     MiCreatePfnBitMaps @ 0x14081C56C (MiCreatePfnBitMaps.c)
  * Callees:
- *     MiUpdateLargePageCandidates @ 0x140376508 (MiUpdateLargePageCandidates.c)
+ *     MiUpdateLargePageCandidates @ 0x1403766A8 (MiUpdateLargePageCandidates.c)
  */
 
 __int64 __fastcall MiInitializeRebuildCandidateCounts(unsigned int a1, unsigned int a2)

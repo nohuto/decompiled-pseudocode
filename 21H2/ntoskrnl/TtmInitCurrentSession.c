@@ -1,22 +1,22 @@
 /*
- * XREFs of TtmInitCurrentSession @ 0x1408FE65C
+ * XREFs of TtmInitCurrentSession @ 0x1408FE7BC
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     memset @ 0x140414200 (memset.c)
- *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
- *     TtmiCreateTerminal @ 0x1408FD52C (TtmiCreateTerminal.c)
- *     TtmiUpdateActiveTerminalCount @ 0x1408FF490 (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
- *     TtmiLogInitCurrentSessionStart @ 0x140902D30 (TtmiLogInitCurrentSessionStart.c)
- *     TtmiLogInitCurrentSessionStop @ 0x140902DD8 (TtmiLogInitCurrentSessionStop.c)
- *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x140903940 (TtmiLogSessionDeviceAssignmentPolicySet.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PoRegisterPowerSettingCallback @ 0x14066F440 (PoRegisterPowerSettingCallback.c)
+ *     TtmiCreateTerminal @ 0x1408FD68C (TtmiCreateTerminal.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1408FF5F0 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
+ *     TtmiLogInitCurrentSessionStart @ 0x140902E90 (TtmiLogInitCurrentSessionStart.c)
+ *     TtmiLogInitCurrentSessionStop @ 0x140902F38 (TtmiLogInitCurrentSessionStop.c)
+ *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x140903AA0 (TtmiLogSessionDeviceAssignmentPolicySet.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 TtmInitCurrentSession()

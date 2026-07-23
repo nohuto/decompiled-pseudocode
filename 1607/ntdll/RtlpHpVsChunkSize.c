@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsChunkSize @ 0x18004BDF8
+ * XREFs of RtlpHpVsChunkSize @ 0x18004BDE8
  * Callers:
- *     RtlpHpSegAllocSizeInternal @ 0x18004460C (RtlpHpSegAllocSizeInternal.c)
- *     RtlpHpSizeHeap @ 0x180046370 (RtlpHpSizeHeap.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
- *     RtlpHpVsSubsegmentWalk @ 0x18004E298 (RtlpHpVsSubsegmentWalk.c)
+ *     RtlpHpSegAllocSizeInternal @ 0x1800445FC (RtlpHpSegAllocSizeInternal.c)
+ *     RtlpHpSizeHeap @ 0x180046360 (RtlpHpSizeHeap.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
+ *     RtlpHpVsSubsegmentWalk @ 0x18004E288 (RtlpHpVsSubsegmentWalk.c)
  * Callees:
  *     <none>
  */

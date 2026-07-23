@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcHandleDataDestroyProcedure @ 0x140A15180
+ * XREFs of AlpcHandleDataDestroyProcedure @ 0x140A0DFA0
  * Callers:
  *     <none>
  * Callees:
- *     ObReleaseDuplicateInfo @ 0x140A151E8 (ObReleaseDuplicateInfo.c)
+ *     ObReleaseDuplicateInfo @ 0x140A0E008 (ObReleaseDuplicateInfo.c)
  */
 
 __int64 __fastcall AlpcHandleDataDestroyProcedure(__int64 a1)

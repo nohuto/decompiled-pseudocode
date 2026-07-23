@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReturnBadPagesToBadList @ 0x1406F1C24
+ * XREFs of MiReturnBadPagesToBadList @ 0x1406F6894
  * Callers:
- *     MiRemoveBadPages @ 0x1406F17A0 (MiRemoveBadPages.c)
- *     MmRemovePhysicalMemory @ 0x140867460 (MmRemovePhysicalMemory.c)
+ *     MiRemoveBadPages @ 0x1406F6410 (MiRemoveBadPages.c)
+ *     MmRemovePhysicalMemory @ 0x14086D840 (MmRemovePhysicalMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiReturnBadPagesToBadList(__int64 a1, unsigned __int64 a2)

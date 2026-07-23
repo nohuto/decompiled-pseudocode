@@ -1,31 +1,31 @@
 /*
- * XREFs of LdrpSearchResourceSection_U @ 0x140A86DB4
+ * XREFs of LdrpSearchResourceSection_U @ 0x140A8DEE4
  * Callers:
- *     LdrpGetRcConfig @ 0x1403DC6CC (LdrpGetRcConfig.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x1403DCA90 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrFindResourceDirectory_U @ 0x140801C30 (LdrFindResourceDirectory_U.c)
- *     LdrFindResourceEx_U @ 0x140801C50 (LdrFindResourceEx_U.c)
- *     RtlLoadString @ 0x1408024F0 (RtlLoadString.c)
- *     LdrFindResource_U @ 0x140A86CD0 (LdrFindResource_U.c)
- *     RtlFindMessage @ 0x140A86CF0 (RtlFindMessage.c)
+ *     LdrpGetRcConfig @ 0x1403DF8BC (LdrpGetRcConfig.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x1403DFC80 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrFindResourceDirectory_U @ 0x1408076D0 (LdrFindResourceDirectory_U.c)
+ *     LdrFindResourceEx_U @ 0x1408076F0 (LdrFindResourceEx_U.c)
+ *     RtlLoadString @ 0x140807F90 (RtlLoadString.c)
+ *     LdrFindResource_U @ 0x140A8DE00 (LdrFindResource_U.c)
+ *     RtlFindMessage @ 0x140A8DE20 (RtlFindMessage.c)
  * Callees:
- *     LdrIsResItemExist @ 0x1403DC648 (LdrIsResItemExist.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x1403DCA90 (LdrpLoadResourceFromAlternativeModule.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     LdrpCompareResourceNamesWithValidation @ 0x1404ABCB0 (LdrpCompareResourceNamesWithValidation.c)
- *     LdrpGetParentLangId @ 0x1404F40D0 (LdrpGetParentLangId.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     LdrIsResItemExist @ 0x1403DF838 (LdrIsResItemExist.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x1403DFC80 (LdrpLoadResourceFromAlternativeModule.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x1404A5340 (LdrpCompareResourceNamesWithValidation.c)
+ *     LdrpGetParentLangId @ 0x1404ED6B0 (LdrpGetParentLangId.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpSearchResourceSection_U(unsigned __int64 a1, __int64 *a2, unsigned int a3, int a4, __int64 *a5)
+NTSTATUS __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned int a3, ULONG a4, __int64 *a5)
 {
-  int v5; // r14d
+  ULONG v5; // r14d
   int v6; // r15d
   __int64 *v7; // r13
   int v8; // eax
   unsigned __int16 v9; // r12
-  __int64 v10; // rax
+  PVOID v10; // rax
   __int64 v11; // r8
   __int64 v12; // rdi
   __int64 v13; // rsi
@@ -54,7 +54,7 @@ __int64 __fastcall LdrpSearchResourceSection_U(unsigned __int64 a1, __int64 *a2,
   int v36; // eax
   int v37; // eax
   int v38; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v40; // eax
   int v41; // eax
   int v42; // eax
@@ -71,12 +71,12 @@ __int64 __fastcall LdrpSearchResourceSection_U(unsigned __int64 a1, __int64 *a2,
   char v53; // [rsp+44h] [rbp-104h] BYREF
   char v54[3]; // [rsp+45h] [rbp-103h] BYREF
   unsigned int v55; // [rsp+48h] [rbp-100h]
-  int v56; // [rsp+4Ch] [rbp-FCh] BYREF
+  ULONG Size; // [rsp+4Ch] [rbp-FCh] BYREF
   int v57; // [rsp+50h] [rbp-F8h]
-  int v58; // [rsp+54h] [rbp-F4h]
+  ULONG v58; // [rsp+54h] [rbp-F4h]
   __int64 *v59; // [rsp+58h] [rbp-F0h]
   __int64 v60; // [rsp+60h] [rbp-E8h] BYREF
-  unsigned __int64 v61; // [rsp+68h] [rbp-E0h]
+  void *v61; // [rsp+68h] [rbp-E0h]
   __int64 v62; // [rsp+70h] [rbp-D8h]
   bool v63; // [rsp+78h] [rbp-D0h]
   char v64; // [rsp+79h] [rbp-CFh]
@@ -111,7 +111,7 @@ __int64 __fastcall LdrpSearchResourceSection_U(unsigned __int64 a1, __int64 *a2,
   v51 = 1;
   v49 = 1;
   if ( a3 < 3 && (a4 & 2) == 0 || a3 > 4 || (a4 & 0x41) != 0 && a3 != 4 || a3 == 4 && (a4 & 0x41) == 0 )
-    return 3221225713LL;
+    return -1073741583;
   v8 = 3;
   if ( a3 != 4 )
     v8 = a3;
@@ -121,17 +121,17 @@ __int64 __fastcall LdrpSearchResourceSection_U(unsigned __int64 a1, __int64 *a2,
   v9 = 0;
   v46[0] = 0;
   if ( (unsigned __int64)a2 - 1 > 0xFFFFFFFFFFFFFFFDuLL
-    || a1 - 1 > 0xFFFFFFFFFFFFFFFDuLL
+    || (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL
     || (unsigned __int64)a5 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
-  v10 = RtlImageDirectoryEntryToData(a1, 1, 2u, &v56);
-  v69 = v10;
+  v10 = RtlImageDirectoryEntryToData(a1, 1u, 2u, &Size);
+  v69 = (__int64)v10;
   if ( !v10 )
-    return 3221225609LL;
-  v12 = v10;
-  v67 = v10;
+    return -1073741687;
+  v12 = (__int64)v10;
+  v67 = (__int64)v10;
   v60 = 61166LL;
   v66 = 0;
   v13 = 0LL;
@@ -157,7 +157,7 @@ __int64 __fastcall LdrpSearchResourceSection_U(unsigned __int64 a1, __int64 *a2,
   if ( (~(_BYTE)v5 & 8) == 0 || (v14 & 0xF3FF) != 0 || (_WORD)v14 == 3072 )
   {
 LABEL_18:
-    v5 |= LdrIsResItemExist(v61, v7, v11);
+    v5 |= LdrIsResItemExist((__int64)v61, v7, v11);
     v58 = v5;
 LABEL_19:
     v14 = v52;
@@ -204,9 +204,9 @@ LABEL_35:
     goto LABEL_39;
   if ( v17 )
   {
-    result = LdrpLoadResourceFromAlternativeModule(v61, (__int64)v79, v6, v5 | 0x1000000u, v59);
+    result = LdrpLoadResourceFromAlternativeModule(v61, (__int64)v79, v6, v5 | 0x1000000, v59);
     v50 = result;
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
       return result;
     v26 = v57;
   }
@@ -256,7 +256,7 @@ LABEL_39:
                 v80 = (unsigned __int16)PsInstallUILanguageId;
                 result = LdrpLoadResourceFromAlternativeModule(v61, (__int64)v79, v6, v5, v59);
                 v50 = result;
-                if ( (int)result >= 0 )
+                if ( result >= 0 )
                   return result;
               }
               v43 = PsInstallUILanguageId;
@@ -284,7 +284,7 @@ LABEL_39:
                   v80 = 1033LL;
                   result = LdrpLoadResourceFromAlternativeModule(v61, (__int64)v79, v6, v5, v59);
                   v50 = result;
-                  if ( (int)result >= 0 )
+                  if ( result >= 0 )
                     return result;
                 }
               }
@@ -306,7 +306,7 @@ LABEL_114:
                 v80 = (unsigned __int16)PsDefaultSystemLocaleId;
                 result = LdrpLoadResourceFromAlternativeModule(v61, (__int64)v79, v6, v5, v59);
                 v50 = result;
-                if ( (int)result >= 0 )
+                if ( result >= 0 )
                   return result;
               }
             }
@@ -320,7 +320,7 @@ LABEL_114:
               v80 = (unsigned __int16)PsMachineUILanguageId;
               result = LdrpLoadResourceFromAlternativeModule(v61, (__int64)v79, v6, v5, v59);
               v50 = result;
-              if ( (int)result >= 0 )
+              if ( result >= 0 )
                 return result;
               v43 = PsMachineUILanguageId;
 LABEL_112:
@@ -356,7 +356,7 @@ LABEL_112:
             v80 = v9;
             result = LdrpLoadResourceFromAlternativeModule(v61, (__int64)v79, v6, v5, v59);
             v50 = result;
-            if ( (int)result >= 0 )
+            if ( result >= 0 )
               return result;
           }
           if ( v9 )
@@ -370,7 +370,7 @@ LABEL_112:
           v80 = (unsigned __int16)v14;
           result = LdrpLoadResourceFromAlternativeModule(v61, (__int64)v79, v6, v5, v59);
           v50 = result;
-          if ( (int)result >= 0 )
+          if ( result >= 0 )
             return result;
           v14 = v52;
         }
@@ -392,7 +392,7 @@ LABEL_65:
     v26 = v57;
 LABEL_41:
     v29 = *(unsigned __int16 *)(v12 + 12);
-    LOWORD(v56) = v29;
+    LOWORD(Size) = v29;
     v30 = (unsigned int *)(v12 + 16);
     v73 = (unsigned int *)(v12 + 16);
     v22 = (unsigned __int16)v29;
@@ -401,7 +401,7 @@ LABEL_41:
       v30 += 2 * v29;
       v73 = v30;
       LOWORD(v29) = *(_WORD *)(v12 + 14);
-      LOWORD(v56) = v29;
+      LOWORD(Size) = v29;
       v22 = (unsigned __int16)v29;
     }
     if ( !(_WORD)v22 )
@@ -466,14 +466,14 @@ LABEL_33:
             LOWORD(v29) = v32;
           else
             LOWORD(v29) = v32 - 1;
-          LOWORD(v56) = v29;
+          LOWORD(Size) = v29;
         }
         else
         {
           v30 = v19 + 2;
           v73 = v19 + 2;
           LOWORD(v29) = v32;
-          LOWORD(v56) = v32;
+          LOWORD(Size) = v32;
           v31 = v74;
         }
       }
@@ -518,13 +518,13 @@ LABEL_81:
       switch ( v25 - v26 )
       {
         case 1u:
-          result = 3221225610LL;
+          result = -1073741686;
           goto LABEL_95;
         case 2u:
-          result = 3221225611LL;
+          result = -1073741685;
           break;
         case 3u:
-          result = 3221225988LL;
+          result = -1073741308;
           v50 = -1073741308;
           if ( !v28 )
             return result;
@@ -536,10 +536,10 @@ LABEL_81:
             continue;
           }
 LABEL_148:
-          result = 3221225988LL;
+          result = -1073741308;
           break;
         default:
-          result = 3221225485LL;
+          result = -1073741811;
           goto LABEL_95;
       }
       v50 = result;
@@ -549,7 +549,7 @@ LABEL_148:
   }
   *v59 = v12;
 LABEL_94:
-  result = 0LL;
+  result = 0;
 LABEL_95:
   v50 = result;
   return result;

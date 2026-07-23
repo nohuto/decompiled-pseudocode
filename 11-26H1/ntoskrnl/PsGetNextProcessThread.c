@@ -1,31 +1,31 @@
 /*
- * XREFs of PsGetNextProcessThread @ 0x1409573A0
+ * XREFs of PsGetNextProcessThread @ 0x14094ADD0
  * Callers:
- *     PspSynchronizeThreadIsolationDomains @ 0x1404C6128 (PspSynchronizeThreadIsolationDomains.c)
- *     PsMultiResumeProcess @ 0x140528200 (PsMultiResumeProcess.c)
- *     KeEtwRundown @ 0x1405E48E8 (KeEtwRundown.c)
- *     KiTraceSchedulingGroupRundown @ 0x1405F92A0 (KiTraceSchedulingGroupRundown.c)
- *     PspWaitForUsermodeExit @ 0x1407FBA94 (PspWaitForUsermodeExit.c)
- *     PsSuspendProcess @ 0x1407FCF70 (PsSuspendProcess.c)
- *     DbgkpPostFakeThreadMessages @ 0x1409556F0 (DbgkpPostFakeThreadMessages.c)
- *     PspFindFirstThreadByTebValue @ 0x140955E54 (PspFindFirstThreadByTebValue.c)
- *     NtGetNextThread @ 0x140956360 (NtGetNextThread.c)
- *     ExSwapinWorkerThreads @ 0x140956958 (ExSwapinWorkerThreads.c)
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140956BB4 (IopCancelIrpsInThreadListForCurrentProcess.c)
- *     PspTerminateAllThreads @ 0x14095705C (PspTerminateAllThreads.c)
- *     PsEnumProcessThreads @ 0x14096F1F0 (PsEnumProcessThreads.c)
- *     DbgkpSetProcessDebugObject @ 0x140985C5C (DbgkpSetProcessDebugObject.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspSynchronizeThreadIsolationDomains @ 0x1404BFAD8 (PspSynchronizeThreadIsolationDomains.c)
+ *     PsMultiResumeProcess @ 0x14052A870 (PsMultiResumeProcess.c)
+ *     KeEtwRundown @ 0x1405E7258 (KeEtwRundown.c)
+ *     KiTraceSchedulingGroupRundown @ 0x1405FBCC0 (KiTraceSchedulingGroupRundown.c)
+ *     PspWaitForUsermodeExit @ 0x1408014C4 (PspWaitForUsermodeExit.c)
+ *     PsSuspendProcess @ 0x1408029A0 (PsSuspendProcess.c)
+ *     DbgkpSetProcessDebugObject @ 0x14091D490 (DbgkpSetProcessDebugObject.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140949760 (DbgkpPostFakeThreadMessages.c)
+ *     PspFindFirstThreadByTebValue @ 0x140949C14 (PspFindFirstThreadByTebValue.c)
+ *     NtGetNextThread @ 0x140949FE0 (NtGetNextThread.c)
+ *     ExSwapinWorkerThreads @ 0x14094A380 (ExSwapinWorkerThreads.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x14094A5DC (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     PspTerminateAllThreads @ 0x14094AA84 (PspTerminateAllThreads.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     PsEnumProcessThreads @ 0x1409BC840 (PsEnumProcessThreads.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
 _QWORD *__fastcall PsGetNextProcessThread(__int64 a1, _QWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -39,8 +39,6 @@ _QWORD *__fastcall PsGetNextProcessThread(__int64 a1, _QWORD *a2, __int64 a3, st
   void *v11; // rdx
   LegacyAutoBoost *v12; // rbx
   _QWORD *v13; // rbx
-  __int64 v14; // rdx
-  __int64 v15; // r8
 
   CurrentThread = KeGetCurrentThread();
   v5 = (signed __int64 *)(a1 + 456);
@@ -76,7 +74,7 @@ _QWORD *__fastcall PsGetNextProcessThread(__int64 a1, _QWORD *a2, __int64 a3, st
   if ( _InterlockedCompareExchange64(v5, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v5);
   KeAbPostRelease((unsigned __int64)v5);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread, v14, v15);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( a2 )
     ObfDereferenceObjectWithTag(a2, 0x6E457350u);
   if ( v10 )

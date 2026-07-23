@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpTimLogMitigationForProcess @ 0x14093C644
+ * XREFs of EtwpTimLogMitigationForProcess @ 0x14093C814
  * Callers:
  *     EtwTimLogProhibitFsctlSystemCalls @ 0x1405D0984 (EtwTimLogProhibitFsctlSystemCalls.c)
- *     MiAllowImageMap @ 0x14061D9F0 (MiAllowImageMap.c)
- *     EtwTimLogProhibitDynamicCode @ 0x14093BD78 (EtwTimLogProhibitDynamicCode.c)
- *     EtwTimLogProhibitWin32kSystemCalls @ 0x14093C430 (EtwTimLogProhibitWin32kSystemCalls.c)
+ *     MiAllowImageMap @ 0x140687660 (MiAllowImageMap.c)
+ *     EtwTimLogProhibitDynamicCode @ 0x14093BF48 (EtwTimLogProhibitDynamicCode.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x14093C600 (EtwTimLogProhibitWin32kSystemCalls.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x14025F884 (EtwpTiFillThreadIdentity.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwpTiFillThreadIdentity @ 0x14027E480 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillProcessIdentity @ 0x14027E4B8 (EtwpTiFillProcessIdentity.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x1406F20C8 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTimLogMitigationForProcess(int a1, int a2, const EVENT_DESCRIPTOR *a3, __int64 a4)
@@ -132,7 +132,7 @@ void __fastcall EtwpTimLogMitigationForProcess(int a1, int a2, const EVENT_DESCR
     v38 = v19;
     v39[1] = 0;
     v41 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02BF0, (unsigned __int8 *)&byte_14002D85F, 0LL, 0LL, 9u, &v27);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02BF0, (unsigned __int8 *)byte_14002D430, 0LL, 0LL, 9u, &v27);
   }
   if ( v19 )
     ExFreePoolWithTag(v19, 0);

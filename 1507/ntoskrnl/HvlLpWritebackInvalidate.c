@@ -11,25 +11,25 @@
 __int64 __fastcall HvlLpWritebackInvalidate(int a1)
 {
   char v2; // bp
-  union _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_HEADER *CurrentPrcb; // rbx
   _DWORD *HypercallCachedPages; // rdi
   _SLIST_ENTRY *Next; // r14
   PSLIST_ENTRY v6; // rax
-  struct _SLIST_ENTRY *v7; // r15
+  _SLIST_ENTRY *v7; // r15
   char v8; // si
   __int16 v9; // ax
   bool v10; // zf
   unsigned int v11; // edi
   __int64 v12; // rax
   struct _KPRCB *v13; // rcx
-  union _SLIST_HEADER *v15; // [rsp+28h] [rbp-50h]
-  struct _SLIST_ENTRY *v16; // [rsp+30h] [rbp-48h]
+  _SLIST_HEADER *v15; // [rsp+28h] [rbp-50h]
+  _SLIST_ENTRY *v16; // [rsp+30h] [rbp-48h]
   _SLIST_ENTRY *v17; // [rsp+38h] [rbp-40h]
   __int16 v18; // [rsp+70h] [rbp-8h]
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v6 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     HypercallCachedPages = v6;
     if ( v6 )

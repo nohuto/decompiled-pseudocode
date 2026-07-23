@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaInitializeServices @ 0x140C44660
+ * XREFs of WheaInitializeServices @ 0x140C467B0
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     WheapInitializeInUsePageOfflineNotifications @ 0x1407C7EC4 (WheapInitializeInUsePageOfflineNotifications.c)
- *     WheapSetDefaultErrorSourceConfiguration @ 0x140C44A34 (WheapSetDefaultErrorSourceConfiguration.c)
+ *     WheapInitializeInUsePageOfflineNotifications @ 0x1407C8364 (WheapInitializeInUsePageOfflineNotifications.c)
+ *     WheapSetDefaultErrorSourceConfiguration @ 0x140C46B84 (WheapSetDefaultErrorSourceConfiguration.c)
  */
 
 PVOID *WheaInitializeServices()
@@ -13,7 +13,7 @@ PVOID *WheaInitializeServices()
 
   WheapSetDefaultErrorSourceConfiguration();
   WheapPfaLock = 0LL;
-  qword_140EEF808 = (__int64)&WheapPfaList;
+  qword_140EEFA18 = (__int64)&WheapPfaList;
   WheapPfaList = &WheapPfaList;
   _InterlockedOr(v1, 0);
   WheapPfaInitialized = 1;

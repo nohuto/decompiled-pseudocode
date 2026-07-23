@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x1404EDA5C
+ * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x1404EDC9C
  * Callers:
  *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
  *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpGetValueCountForKeyNodeStack @ 0x1404ECE88 (CmpGetValueCountForKeyNodeStack.c)
- *     CmpPopulateKeyNodeInformation @ 0x14066A590 (CmpPopulateKeyNodeInformation.c)
- *     CmpPopulateKeyFullInformation @ 0x14066B140 (CmpPopulateKeyFullInformation.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140729F10 (CmpGetEffectiveKeyNodeSemantics.c)
- *     HvpGetCellContextInitialize @ 0x140875CF8 (HvpGetCellContextInitialize.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x14087A70C (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpPopulateKeyBasicInformation @ 0x140882644 (CmpPopulateKeyBasicInformation.c)
- *     CmpPopulateKeyCachedInformation @ 0x1408826F8 (CmpPopulateKeyCachedInformation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ED0C8 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1405F8E58 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpPopulateKeyNodeInformation @ 0x14065F3B0 (CmpPopulateKeyNodeInformation.c)
+ *     CmpPopulateKeyFullInformation @ 0x14065FF60 (CmpPopulateKeyFullInformation.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14072A3C0 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     HvpGetCellContextInitialize @ 0x140875E58 (HvpGetCellContextInitialize.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x14087A86C (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPopulateKeyBasicInformation @ 0x1408827A4 (CmpPopulateKeyBasicInformation.c)
+ *     CmpPopulateKeyCachedInformation @ 0x140882858 (CmpPopulateKeyCachedInformation.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromKeyNodeStack(__int16 *a1, int a2, __int64 a3, unsigned int a4, __int64 a5)

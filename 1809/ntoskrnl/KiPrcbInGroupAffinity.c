@@ -1,16 +1,16 @@
 /*
- * XREFs of KiPrcbInGroupAffinity @ 0x1400D5734
+ * XREFs of KiPrcbInGroupAffinity @ 0x1400D57B4
  * Callers:
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
- *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiDeferGroupSchedulingPreemption @ 0x1400D2CA0 (KiDeferGroupSchedulingPreemption.c)
- *     KiSetSystemAffinityThread @ 0x1400D6400 (KiSetSystemAffinityThread.c)
- *     KiSetAffinityThread @ 0x14011547C (KiSetAffinityThread.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x1401156A8 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiGroupSchedulingMoveThread @ 0x140116CA4 (KiGroupSchedulingMoveThread.c)
- *     KeSetIdealProcessorThreadEx @ 0x14015CE4C (KeSetIdealProcessorThreadEx.c)
+ *     KiComputeThreadAffinity @ 0x14008A420 (KiComputeThreadAffinity.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1400D2D20 (KiDeferGroupSchedulingPreemption.c)
+ *     KiSetSystemAffinityThread @ 0x1400D6480 (KiSetSystemAffinityThread.c)
+ *     KiSetAffinityThread @ 0x1401154EC (KiSetAffinityThread.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x140115718 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiGroupSchedulingMoveThread @ 0x140116D14 (KiGroupSchedulingMoveThread.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14015CF4C (KeSetIdealProcessorThreadEx.c)
  * Callees:
  *     <none>
  */

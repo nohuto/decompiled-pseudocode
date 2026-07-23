@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogEndTrace @ 0x140AA3B48
+ * XREFs of PfSnLogEndTrace @ 0x140AA68E8
  * Callers:
- *     PfSnEndTrace @ 0x140AA3588 (PfSnEndTrace.c)
+ *     PfSnEndTrace @ 0x140AA6328 (PfSnEndTrace.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogEndTrace(__int64 a1)
@@ -24,8 +24,8 @@ void __fastcall PfSnLogEndTrace(__int64 a1)
   __int64 v13; // [rsp+88h] [rbp+3Fh]
 
   if ( a1
-    && stru_140E66FF0.WaitBlock[0].Thread
-    && EtwEventEnabled((REGHANDLE)stru_140E66FF0.WaitBlock[0].Thread, &PfSnEvt_EndTrace_Info) )
+    && stru_140E67200.WaitBlock[0].Thread
+    && EtwEventEnabled((REGHANDLE)stru_140E67200.WaitBlock[0].Thread, &PfSnEvt_EndTrace_Info) )
   {
     v2 = -1LL;
     do
@@ -43,6 +43,6 @@ void __fastcall PfSnLogEndTrace(__int64 a1)
     v9 = 4LL;
     v11 = 4LL;
     v13 = 4LL;
-    EtwWrite((REGHANDLE)stru_140E66FF0.WaitBlock[0].Thread, &PfSnEvt_EndTrace_Info, 0LL, 5u, &UserData);
+    EtwWrite((REGHANDLE)stru_140E67200.WaitBlock[0].Thread, &PfSnEvt_EndTrace_Info, 0LL, 5u, &UserData);
   }
 }

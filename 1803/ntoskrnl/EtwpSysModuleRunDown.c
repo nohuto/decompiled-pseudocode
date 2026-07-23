@@ -26,7 +26,7 @@ __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
   __int64 v17; // [rsp+88h] [rbp-9h]
   __int64 v18; // [rsp+90h] [rbp-1h]
   __int64 v19; // [rsp+98h] [rbp+7h]
-  ULONG_PTR *v20; // [rsp+A8h] [rbp+17h] BYREF
+  PVOID *v20; // [rsp+A8h] [rbp+17h] BYREF
   __int64 v21; // [rsp+B0h] [rbp+1Fh]
   void *v22; // [rsp+C8h] [rbp+37h]
   __int64 v23; // [rsp+D0h] [rbp+3Fh]
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
     {
       v8 = *(_DWORD *)a1;
       v9 = *(_QWORD *)(a1 + 1112);
-      v20 = (ULONG_PTR *)&v10;
+      v20 = (PVOID *)&v10;
       v21 = 8LL;
       EtwpLogKernelEvent((__int64)&v20, v9, v8, 1u, 0x1422u, 0x401802u);
     }
@@ -55,7 +55,7 @@ __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
     v4 = 5124;
   v12 = v4;
   v14 = 0;
-  v20 = (ULONG_PTR *)v13;
+  v20 = (PVOID *)v13;
   v17 = 0LL;
   v22 = &EtwpNull;
   v15 = 0;

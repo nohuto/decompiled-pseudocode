@@ -12,16 +12,19 @@
 
 __int64 __fastcall sub_1800024A8(__int64 a1)
 {
+  void *v2; // rcx
+
   if ( !_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 328), 0, 1) )
     return 4201LL;
   sub_180002524(*(unsigned int *)(a1 + 20));
-  if ( *(_QWORD *)(a1 + 544) )
+  v2 = *(void **)(a1 + 544);
+  if ( v2 )
   {
-    ZwClose();
+    ZwClose(v2);
     *(_QWORD *)(a1 + 544) = 0LL;
   }
   _InterlockedExchange64((volatile __int64 *)(qword_18015A420 + 16LL * *(unsigned int *)(a1 + 20)), 3LL);
-  RtlWakeAllConditionVariable(a1 + 80);
+  RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 80));
   sub_180005554(a1, 2LL, *(unsigned int *)(a1 + 40));
   return 0LL;
 }

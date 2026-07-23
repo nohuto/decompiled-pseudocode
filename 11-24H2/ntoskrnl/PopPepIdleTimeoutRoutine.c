@@ -1,27 +1,27 @@
 /*
- * XREFs of PopPepIdleTimeoutRoutine @ 0x140452AB0
+ * XREFs of PopPepIdleTimeoutRoutine @ 0x140447B60
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PopPepUpdateIdleState @ 0x140316D20 (PopPepUpdateIdleState.c)
- *     PopPepRequestWork @ 0x1403170D0 (PopPepRequestWork.c)
- *     PopPepPromoteActivities @ 0x140319590 (PopPepPromoteActivities.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PopPepArmIdleTimer @ 0x1403785FC (PopPepArmIdleTimer.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140452CA0 (PopPepComponentGetResidencyIdleState.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     PopPepUpdateIdleState @ 0x1402BF8D0 (PopPepUpdateIdleState.c)
+ *     PopPepRequestWork @ 0x1402BFC80 (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x1402C2120 (PopPepPromoteActivities.c)
+ *     PopPepArmIdleTimer @ 0x1402E6CD8 (PopPepArmIdleTimer.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140447D50 (PopPepComponentGetResidencyIdleState.c)
  */
 
 void PopPepIdleTimeoutRoutine()
 {
   __int64 v0; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v2; // rdi
+  char *v2; // rdi
   __int64 i; // rdi
   KIRQL v4; // r15
   unsigned int v5; // ecx
@@ -40,11 +40,11 @@ void PopPepIdleTimeoutRoutine()
   v0 = MEMORY[0xFFFFF78000000008];
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v2 = KeAbPreAcquire((__int64)&PopPepDeviceListLock, 0LL);
+  v2 = (char *)KeAbPreAcquire((__int64)&PopPepDeviceListLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopPepDeviceListLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&PopPepDeviceListLock, 0, v2, (__int64)&PopPepDeviceListLock);
   if ( v2 )
-    *((_BYTE *)v2 + 10) = 1;
+    v2[10] = 1;
   for ( i = PopPepDeviceList; (__int64 *)i != &PopPepDeviceList; i = *(_QWORD *)i )
   {
     if ( (*(_BYTE *)(i + 16) & 1) == 0 )

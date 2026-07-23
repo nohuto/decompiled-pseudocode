@@ -21,15 +21,15 @@ struct _TEB *__fastcall sub_18001F91C(__int64 a1)
     }
     else
     {
-      RtlAcquireSRWLockExclusive(a1 + 336);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 336));
       if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
       {
-        RtlAcquireSRWLockExclusive(a1 + 176);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 176));
         if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
         {
-          RtlAcquireSRWLockExclusive(a1 + 88);
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 88));
           if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-            RtlAcquireSRWLockExclusive(a1 + 48);
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 48));
         }
       }
       result = NtCurrentTeb();

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsDiagNotifySessionStart @ 0x14088578C
+ * XREFs of PopDirectedDripsDiagNotifySessionStart @ 0x1408859CC
  * Callers:
- *     PopDirectedDripsNotify @ 0x1408754E4 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsNotify @ 0x140875724 (PopDirectedDripsNotify.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 ULONG __fastcall PopDirectedDripsDiagNotifySessionStart(__int64 a1, int a2)
@@ -24,8 +24,8 @@ ULONG __fastcall PopDirectedDripsDiagNotifySessionStart(__int64 a1, int a2)
   if ( (result & 1) != 0 )
   {
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopDirectedDripsDiagLock, 0LL);
-    qword_140C38EC0 = a1;
-    dword_140C38EC8 = a2;
+    qword_140C38FE0 = a1;
+    dword_140C38FE8 = a2;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsDiagLock);
     return KeAbPostRelease((ULONG_PTR)&PopDirectedDripsDiagLock);

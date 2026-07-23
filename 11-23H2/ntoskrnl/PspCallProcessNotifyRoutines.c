@@ -1,16 +1,16 @@
 /*
- * XREFs of PspCallProcessNotifyRoutines @ 0x1406AF954
+ * XREFs of PspCallProcessNotifyRoutines @ 0x1406AF984
  * Callers:
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     PspExitProcess @ 0x140751434 (PspExitProcess.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     PspExitProcess @ 0x140751624 (PspExitProcess.c)
  * Callees:
  *     ExReferenceCallBackBlock @ 0x140214EF0 (ExReferenceCallBackBlock.c)
  *     ExDereferenceCallBackBlock @ 0x140214FB0 (ExDereferenceCallBackBlock.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExGetExtensionTable @ 0x1402FA6D0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402FA700 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PsTerminateProcess @ 0x140683794 (PsTerminateProcess.c)
  *     PsReferenceProcessFilePointer @ 0x14069A0A0 (PsReferenceProcessFilePointer.c)
  */

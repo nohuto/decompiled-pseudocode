@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerAggregatorNotifySuspendResume @ 0x140775D28
+ * XREFs of PopPowerAggregatorNotifySuspendResume @ 0x140775EE8
  * Callers:
- *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140775BC8 (PopIssueActionRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14 (PopPowerAggregatorHandleIntentUnsafe.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x140776334 (PopPowerAggregatorDiagTraceEvent.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775FD4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407764F4 (PopPowerAggregatorDiagTraceEvent.c)
  */
 
 void __fastcall PopPowerAggregatorNotifySuspendResume(unsigned __int8 a1)
@@ -26,7 +26,7 @@ void __fastcall PopPowerAggregatorNotifySuspendResume(unsigned __int8 a1)
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
   UserData.Reserved = 0;
   v8 = 0;
-  v4 = dword_140C218B0;
+  v4 = dword_140C21910;
   UserData.Ptr = (ULONGLONG)&v3;
   UserData.Size = 4;
   v7 = 4;
@@ -35,12 +35,12 @@ void __fastcall PopPowerAggregatorNotifySuspendResume(unsigned __int8 a1)
   PopPowerAggregatorDiagTraceEvent(&POP_ETW_EVENT_POWER_AGGREGATOR_SUSPEND_RESUME, 2u, &UserData);
   if ( (_BYTE)v1 )
   {
-    if ( ++dword_140C218B0 != 1 )
+    if ( ++dword_140C21910 != 1 )
       goto LABEL_5;
     v2 = 7LL;
     goto LABEL_4;
   }
-  if ( !--dword_140C218B0 )
+  if ( !--dword_140C21910 )
   {
     v2 = 8LL;
 LABEL_4:
@@ -49,5 +49,5 @@ LABEL_4:
 LABEL_5:
   PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
   if ( (_BYTE)v1 )
-    KeWaitForSingleObject(&word_140C21898, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&word_140C218F8, Executive, 0, 0, 0LL);
 }

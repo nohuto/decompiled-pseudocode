@@ -3,7 +3,7 @@
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  * Callees:
- *     KeSetPagePrivilege @ 0x140146DA4 (KeSetPagePrivilege.c)
+ *     KeSetPagePrivilege @ 0x140147314 (KeSetPagePrivilege.c)
  */
 
 int __fastcall ExpRevokeBootLoaderPagePrivileges(__int64 a1)

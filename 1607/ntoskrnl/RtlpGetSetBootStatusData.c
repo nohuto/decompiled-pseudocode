@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGetSetBootStatusData @ 0x14054346C
+ * XREFs of RtlpGetSetBootStatusData @ 0x1405439AC
  * Callers:
- *     RtlGetSetBootStatusData @ 0x140543314 (RtlGetSetBootStatusData.c)
+ *     RtlGetSetBootStatusData @ 0x140543854 (RtlGetSetBootStatusData.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwReadFile @ 0x140159D40 (ZwReadFile.c)
- *     ZwWriteFile @ 0x140159D80 (ZwWriteFile.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x14015A2B0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x14015A2F0 (ZwWriteFile.c)
  */
 
 NTSTATUS __fastcall RtlpGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, void *a4, unsigned int a5, _DWORD *a6)

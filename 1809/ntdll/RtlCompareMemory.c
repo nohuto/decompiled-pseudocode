@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCompareMemory @ 0x1800A4A60
+ * XREFs of RtlCompareMemory @ 0x1800A4A80
  * Callers:
  *     RtlpHpSizeHeap @ 0x180017AC0 (RtlpHpSizeHeap.c)
  *     RtlIsCapabilitySid @ 0x1800463D0 (RtlIsCapabilitySid.c)
  *     RtlGetAppContainerSidType @ 0x18004B1C0 (RtlGetAppContainerSidType.c)
- *     RtlpFindGuidInSection @ 0x180075074 (RtlpFindGuidInSection.c)
- *     RtlIsPackageSid @ 0x180086900 (RtlIsPackageSid.c)
+ *     RtlpFindGuidInSection @ 0x180075084 (RtlpFindGuidInSection.c)
+ *     RtlIsPackageSid @ 0x180086910 (RtlIsPackageSid.c)
  *     CompareNamesCaseSensitive @ 0x1800E7168 (CompareNamesCaseSensitive.c)
  *     RtlpCheckBusyBlockTail @ 0x1800F5BF8 (RtlpCheckBusyBlockTail.c)
  *     RtlpHeapTrkTrackStack @ 0x1800FACD4 (RtlpHeapTrkTrackStack.c)

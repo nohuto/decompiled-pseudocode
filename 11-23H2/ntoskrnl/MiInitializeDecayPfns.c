@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY MiInitializeDecayPfns()
@@ -14,8 +14,8 @@ PSLIST_ENTRY MiInitializeDecayPfns()
   PSLIST_ENTRY result; // rax
 
   v0 = 2048LL;
-  BitMapHeader.SizeOfBitMap = 2048;
-  BitMapHeader.Buffer = (unsigned int *)&unk_140C68198;
+  stru_140C68188.SizeOfBitMap = 2048;
+  stru_140C68188.Buffer = (unsigned int *)&unk_140C68198;
   if ( ((unsigned __int8)&ListHead & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
   ListHead = 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpFastResourceLegacyAcquireShared @ 0x1403C88E4
+ * XREFs of ExpFastResourceLegacyAcquireShared @ 0x1403C8AC4
  * Callers:
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     SepMandatoryIntegrityCheck @ 0x1402B5EA0 (SepMandatoryIntegrityCheck.c)
- *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x1403380F0 (ExEnterCriticalRegionAndAcquireResourceShared.c)
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1403384E0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     SepMandatoryIntegrityCheck @ 0x1402B6130 (SepMandatoryIntegrityCheck.c)
+ *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x140338380 (ExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x140338770 (ExEnterPriorityRegionAndAcquireResourceShared.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x1403C9180 (ExAcquireFastResourceShared.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x1403C9884 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     ExpFastResourceLegacyAcquireShared2 @ 0x140415548 (ExpFastResourceLegacyAcquireShared2.c)
+ *     ExAcquireFastResourceShared @ 0x1403C9360 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x1403C9A64 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     ExpFastResourceLegacyAcquireShared2 @ 0x1404158DC (ExpFastResourceLegacyAcquireShared2.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

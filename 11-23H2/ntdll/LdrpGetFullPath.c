@@ -27,7 +27,7 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
   FullPathName_Ustr = RtlGetFullPathName_Ustr(
                         a1,
                         *(unsigned __int16 *)(a2 + 2),
-                        *(_WORD **)(a2 + 8),
+                        *(wchar_t **)(a2 + 8),
                         &v14,
                         &v11,
                         (__int64)&v12);
@@ -60,7 +60,7 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
     FullPathName_Ustr = RtlGetFullPathName_Ustr(
                           a1,
                           *(unsigned __int16 *)(a2 + 2),
-                          *(_WORD **)(a2 + 8),
+                          *(wchar_t **)(a2 + 8),
                           &v14,
                           &v11,
                           (__int64)&v12);

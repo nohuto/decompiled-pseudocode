@@ -1,15 +1,15 @@
 /*
- * XREFs of KeRestoreExtendedAndSupervisorState @ 0x1402C2C98
+ * XREFs of KeRestoreExtendedAndSupervisorState @ 0x1402411B8
  * Callers:
- *     KeRestoreExtendedProcessorState @ 0x1402C2C80 (KeRestoreExtendedProcessorState.c)
- *     PopHandleNextState @ 0x1409930D0 (PopHandleNextState.c)
- *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
+ *     KeRestoreExtendedProcessorState @ 0x1402411A0 (KeRestoreExtendedProcessorState.c)
+ *     PopHandleNextState @ 0x1409940D0 (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AF2C0 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     RtlXRestore @ 0x1402C2DBC (RtlXRestore.c)
- *     KeFreeXStateContext @ 0x1402C2E00 (KeFreeXStateContext.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlXRestoreS @ 0x140381D18 (RtlXRestoreS.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlXRestore @ 0x1402412DC (RtlXRestore.c)
+ *     KeFreeXStateContext @ 0x140241320 (KeFreeXStateContext.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlXRestoreS @ 0x140381868 (RtlXRestoreS.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall KeRestoreExtendedAndSupervisorState(__int64 a1)
@@ -59,7 +59,7 @@ char __fastcall KeRestoreExtendedAndSupervisorState(__int64 a1)
   {
     if ( CurrentIrql == 2 && (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
     {
-      result = RtlXRestoreS(*(_QWORD *)(a1 + 40), v7);
+      result = RtlXRestoreS(*(_QWORD *)(a1 + 40));
       goto LABEL_19;
     }
     result = RtlXRestore(*(_QWORD *)(a1 + 40), v7);

@@ -10,22 +10,22 @@
 char __fastcall ExpGetNtProductTypeFromLicenseValue(_DWORD *a1)
 {
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  int v4; // [rsp+58h] [rbp+18h] BYREF
-  int v5; // [rsp+60h] [rbp+20h] BYREF
-  int v6; // [rsp+68h] [rbp+28h] BYREF
+  ULONG Type; // [rsp+58h] [rbp+18h] BYREF
+  ULONG ResultDataSize; // [rsp+60h] [rbp+20h] BYREF
+  int Data; // [rsp+68h] [rbp+28h] BYREF
 
-  v4 = 0;
-  v5 = 0;
-  v6 = 0;
+  Type = 0;
+  ResultDataSize = 0;
+  Data = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"Kernel-ProductType");
-  if ( (int)NtQueryLicenseValue((unsigned __int64)&DestinationString, &v4, &v6, 4u, &v5) < 0
-    || v4 != 4
-    || v5 != 4
-    || v6 != 1 && (unsigned int)(v6 - 2) >= 2 )
+  if ( NtQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) < 0
+    || Type != 4
+    || ResultDataSize != 4
+    || Data != 1 && (unsigned int)(Data - 2) >= 2 )
   {
     return 0;
   }
-  *a1 = v6;
+  *a1 = Data;
   return 1;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopLiveDumpCallRemovePagesCallbacks @ 0x1409AB5C0
+ * XREFs of IopLiveDumpCallRemovePagesCallbacks @ 0x1409AC4F0
  * Callers:
- *     IopLiveDumpEstimateMemoryPages @ 0x1409AC28C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AD1BC (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IoFreeDumpRange @ 0x140502360 (IoFreeDumpRange.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTraceRemovePagesCallbackFailure @ 0x140509FD4 (IopLiveDumpTraceRemovePagesCallbackFailure.c)
- *     RtlStringCbLengthA @ 0x14050A2FC (RtlStringCbLengthA.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140517B98 (KeValidateBugCheckCallbackRecord.c)
- *     MmIsAddressValid @ 0x140536B70 (MmIsAddressValid.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IoFreeDumpRange @ 0x1405022E0 (IoFreeDumpRange.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508C5C (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTraceRemovePagesCallbackFailure @ 0x14050A210 (IopLiveDumpTraceRemovePagesCallbackFailure.c)
+ *     RtlStringCbLengthA @ 0x14050A538 (RtlStringCbLengthA.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517DD8 (KeValidateBugCheckCallbackRecord.c)
+ *     MmIsAddressValid @ 0x140536DB0 (MmIsAddressValid.c)
  */
 
 char __fastcall IopLiveDumpCallRemovePagesCallbacks(_DWORD *a1)
@@ -54,8 +54,8 @@ char __fastcall IopLiveDumpCallRemovePagesCallbacks(_DWORD *a1)
   v26 = 0LL;
   v2 = 1;
   pcbLength = 1LL;
-  v3 = qword_1409A1A70;
-  v16 = qword_1409A1A70;
+  v3 = qword_1409A29A0;
+  v16 = qword_1409A29A0;
   IsTracingEnabled = IopLiveDumpIsTracingEnabled();
   if ( IsTracingEnabled )
     EtwWrite(IopLiveDumpEtwRegHandle, &LIVEDUMP_EVENT_SIZING_WORKFLOW_REMOVEPAGES_CALLBACKS_START, 0LL, 0, 0LL);
@@ -83,7 +83,7 @@ char __fastcall IopLiveDumpCallRemovePagesCallbacks(_DWORD *a1)
         {
           pcbLength = 1LL;
           v2 = 1;
-          v3 = qword_1409A1A70;
+          v3 = qword_1409A29A0;
         }
         v16 = v3;
         UserData.Ptr = (ULONGLONG)v3;

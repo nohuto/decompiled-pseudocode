@@ -1,8 +1,8 @@
 /*
- * XREFs of CcFreeSharedCacheMapIgnoreNull @ 0x14040FA90
+ * XREFs of CcFreeSharedCacheMapIgnoreNull @ 0x14040FC70
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
- *     CcDeleteSharedCacheMap @ 0x140299FC0 (CcDeleteSharedCacheMap.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
+ *     CcDeleteSharedCacheMap @ 0x14029A250 (CcDeleteSharedCacheMap.c)
  * Callees:
  *     ExFreeToLookasideListEx @ 0x14020B9E0 (ExFreeToLookasideListEx.c)
  */

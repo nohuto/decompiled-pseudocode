@@ -1,13 +1,13 @@
 /*
- * XREFs of BCryptEncrypt @ 0x1402FE4B4
+ * XREFs of BCryptEncrypt @ 0x1402FE6A4
  * Callers:
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x140286438 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_Encrypt_DmpData @ 0x1402866A0 (SecureDump_Encrypt_DmpData.c)
- *     SmCrAuthEncrypt @ 0x1403095A4 (SmCrAuthEncrypt.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x140286628 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_Encrypt_DmpData @ 0x140286890 (SecureDump_Encrypt_DmpData.c)
+ *     SmCrAuthEncrypt @ 0x140309794 (SmCrAuthEncrypt.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptEncrypt(

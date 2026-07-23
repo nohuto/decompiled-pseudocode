@@ -1,14 +1,14 @@
 /*
- * XREFs of PipSetDependency @ 0x14089DFF4
+ * XREFs of PipSetDependency @ 0x14089E154
  * Callers:
- *     PipConvertResolutionsToReservations @ 0x1407CD718 (PipConvertResolutionsToReservations.c)
- *     IoReserveDependency @ 0x14089D7A0 (IoReserveDependency.c)
- *     IoSetDependency @ 0x14089D840 (IoSetDependency.c)
+ *     PipConvertResolutionsToReservations @ 0x1407CD888 (PipConvertResolutionsToReservations.c)
+ *     IoReserveDependency @ 0x14089D900 (IoReserveDependency.c)
+ *     IoSetDependency @ 0x14089D9A0 (IoSetDependency.c)
  * Callees:
- *     PipAddDependencyEdgeBetweenNodes @ 0x14050C510 (PipAddDependencyEdgeBetweenNodes.c)
- *     PipQueryBindingResolution @ 0x1407B4BF8 (PipQueryBindingResolution.c)
- *     PipCreateDependencyNode @ 0x1407B4C9C (PipCreateDependencyNode.c)
- *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x14050C750 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipQueryBindingResolution @ 0x1407B6518 (PipQueryBindingResolution.c)
+ *     PipCreateDependencyNode @ 0x1407B65BC (PipCreateDependencyNode.c)
+ *     PipDeleteDependencyNode @ 0x1407CD820 (PipDeleteDependencyNode.c)
  */
 
 __int64 __fastcall PipSetDependency(__int64 a1, __int64 a2)

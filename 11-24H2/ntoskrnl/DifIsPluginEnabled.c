@@ -1,7 +1,7 @@
 /*
- * XREFs of DifIsPluginEnabled @ 0x140619784
+ * XREFs of DifIsPluginEnabled @ 0x140617D44
  * Callers:
- *     DifIsValidTrackingObject @ 0x140617BBC (DifIsValidTrackingObject.c)
+ *     DifIsValidTrackingObject @ 0x14061617C (DifIsValidTrackingObject.c)
  * Callees:
  *     <none>
  */

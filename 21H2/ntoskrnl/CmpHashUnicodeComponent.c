@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpHashUnicodeComponent @ 0x14066A224
+ * XREFs of CmpHashUnicodeComponent @ 0x14065F044
  * Callers:
- *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
- *     CmpCheckLeaf @ 0x1405EBF20 (CmpCheckLeaf.c)
- *     CmpGetNameControlBlock @ 0x1405EFC10 (CmpGetNameControlBlock.c)
- *     CmpAddToLeaf @ 0x140669B1C (CmpAddToLeaf.c)
- *     CmpGetMappingHiveForString @ 0x140672808 (CmpGetMappingHiveForString.c)
- *     CmpAddStringToMapping @ 0x1406C24B4 (CmpAddStringToMapping.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x14072998C (CmpSubtreeEnumeratorAdvance.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x140766570 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x1407ACA90 (CmpFindSubKeyByHashWithStatus.c)
- *     CmpWaitForHiveMount @ 0x1407C3E84 (CmpWaitForHiveMount.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
- *     CmpPartialPromoteSubkeys @ 0x1408800C0 (CmpPartialPromoteSubkeys.c)
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
- *     CmpCreateRegistryRoot @ 0x140A5AED4 (CmpCreateRegistryRoot.c)
+ *     CmDeleteLayeredKey @ 0x1404ED2B8 (CmDeleteLayeredKey.c)
+ *     CmpAddStringToMapping @ 0x140621174 (CmpAddStringToMapping.c)
+ *     CmpAddToLeaf @ 0x14065E93C (CmpAddToLeaf.c)
+ *     CmpGetMappingHiveForString @ 0x140667A38 (CmpGetMappingHiveForString.c)
+ *     CmpCheckLeaf @ 0x1406DB680 (CmpCheckLeaf.c)
+ *     CmpGetNameControlBlock @ 0x1406DF370 (CmpGetNameControlBlock.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140729E3C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140766730 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x1407ACC90 (CmpFindSubKeyByHashWithStatus.c)
+ *     CmpWaitForHiveMount @ 0x1407C43A4 (CmpWaitForHiveMount.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmpDoBuildVirtualStack @ 0x1408700FC (CmpDoBuildVirtualStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x140880220 (CmpPartialPromoteSubkeys.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
+ *     CmpCreateRegistryRoot @ 0x140A5BED4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall CmpHashUnicodeComponent(__m128i *a1)

@@ -25,7 +25,7 @@ int __fastcall MiInitializeKernelCfg(__int64 a1, __int64 a2, unsigned __int64 a3
   PVOID *v7; // rbx
   PVOID v8; // rcx
   PIMAGE_NT_HEADERS v9; // rax
-  char v10[8]; // [rsp+20h] [rbp-88h] BYREF
+  _BYTE v10[8]; // [rsp+20h] [rbp-88h] BYREF
   unsigned __int64 v11; // [rsp+28h] [rbp-80h]
   __int64 v12; // [rsp+30h] [rbp-78h]
 
@@ -61,7 +61,7 @@ int __fastcall MiInitializeKernelCfg(__int64 a1, __int64 a2, unsigned __int64 a3
           if ( ((_DWORD)v7[13] & 0x2000) == 0 )
           {
             v8 = v7[6];
-            if ( v8 == (PVOID)PsNtosImageBase )
+            if ( v8 == PsNtosImageBase )
             {
               v9 = RtlImageNtHeader(v8);
               MiMarkKernelImageCfgBits((__int64)v7, (__int64)v9);

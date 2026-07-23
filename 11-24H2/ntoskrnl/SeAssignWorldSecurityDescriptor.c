@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAssignWorldSecurityDescriptor @ 0x140A59B64
+ * XREFs of SeAssignWorldSecurityDescriptor @ 0x140A51424
  * Callers:
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall SeAssignWorldSecurityDescriptor(__int64 a1, unsigned int *a2, _DWORD *a3)

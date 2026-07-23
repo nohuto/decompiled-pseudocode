@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpIsHiveLoadUnloadRundownActive @ 0x140BB9E48
+ * XREFs of CmpIsHiveLoadUnloadRundownActive @ 0x140BBBE48
  * Callers:
- *     CmpTryToRundownHive @ 0x1402C6840 (CmpTryToRundownHive.c)
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveThread @ 0x1407CB060 (CmpLoadHiveThread.c)
- *     CmUnloadKey @ 0x14092B0F8 (CmUnloadKey.c)
- *     CmpInitHiveFromFile @ 0x14092EC1C (CmpInitHiveFromFile.c)
+ *     CmpTryToRundownHive @ 0x1402BB3C0 (CmpTryToRundownHive.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveThread @ 0x1407CB550 (CmpLoadHiveThread.c)
+ *     CmUnloadKey @ 0x14092D238 (CmUnloadKey.c)
+ *     CmpInitHiveFromFile @ 0x140930D5C (CmpInitHiveFromFile.c)
  * Callees:
  *     <none>
  */

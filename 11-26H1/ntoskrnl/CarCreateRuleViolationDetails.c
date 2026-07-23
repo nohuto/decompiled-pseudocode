@@ -1,11 +1,11 @@
 /*
- * XREFs of CarCreateRuleViolationDetails @ 0x140649850
+ * XREFs of CarCreateRuleViolationDetails @ 0x14064D430
  * Callers:
- *     CarReportDifPluginRuleViolation @ 0x14064A330 (CarReportDifPluginRuleViolation.c)
+ *     CarReportDifPluginRuleViolation @ 0x14064DF10 (CarReportDifPluginRuleViolation.c)
  * Callees:
- *     CarInitializeRuleViolationDetails @ 0x140649C60 (CarInitializeRuleViolationDetails.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CarInitializeRuleViolationDetails @ 0x14064D840 (CarInitializeRuleViolationDetails.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CarCreateRuleViolationDetails(PVOID *a1)

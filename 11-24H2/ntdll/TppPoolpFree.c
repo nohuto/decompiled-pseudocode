@@ -1,48 +1,46 @@
 /*
- * XREFs of TppPoolpFree @ 0x1800DEE44
+ * XREFs of TppPoolpFree @ 0x1800D9FB4
  * Callers:
- *     TppCleanupGroupMemberInitialize @ 0x18001A830 (TppCleanupGroupMemberInitialize.c)
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
- *     RtlQueueWorkItem @ 0x18006D9E0 (RtlQueueWorkItem.c)
- *     RtlpTpWorkUnposted @ 0x18006F660 (RtlpTpWorkUnposted.c)
- *     TpReleasePool @ 0x1800DEB80 (TpReleasePool.c)
- *     TpUnreserveTaskPost @ 0x1800EE35C (TpUnreserveTaskPost.c)
+ *     TppCleanupGroupMemberInitialize @ 0x180047230 (TppCleanupGroupMemberInitialize.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
+ *     RtlQueueWorkItem @ 0x18008A2C0 (RtlQueueWorkItem.c)
+ *     RtlpTpWorkUnposted @ 0x18008BF40 (RtlpTpWorkUnposted.c)
+ *     TpReleasePool @ 0x1800D9CF0 (TpReleasePool.c)
+ *     TpUnreserveTaskPost @ 0x1800E953C (TpUnreserveTaskPost.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppDestroyTimerSubQueue @ 0x1800DEF60 (TppDestroyTimerSubQueue.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppDestroyTimerSubQueue @ 0x1800DA0D0 (TppDestroyTimerSubQueue.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
  */
 
-__int64 __fastcall TppPoolpFree(unsigned __int64 a1)
+LOGICAL __fastcall TppPoolpFree(char *BaseAddress)
 {
   void *v2; // rcx
-  volatile signed __int32 **v3; // rdx
-  unsigned __int64 v4; // r8
-  __int64 v5; // r8
-  _QWORD *v6; // rdx
+  char **v3; // r8
+  PVOID *v4; // rdx
 
-  v2 = *(void **)(a1 + 56);
+  v2 = (void *)*((_QWORD *)BaseAddress + 7);
   if ( v2 )
   {
     NtClose(v2);
-    *(_QWORD *)(a1 + 56) = 0LL;
+    *((_QWORD *)BaseAddress + 7) = 0LL;
   }
-  TppDestroyTimerSubQueue(a1 + 120);
-  TppDestroyTimerSubQueue(a1 + 240);
-  NtClose(*(HANDLE *)(a1 + 64));
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_QWORD *)(a1 + 16));
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_QWORD *)(a1 + 40));
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_QWORD *)(a1 + 48));
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&TppPoolpListLock, v3, v4);
-  v5 = *(_QWORD *)(a1 + 384);
-  v6 = *(_QWORD **)(a1 + 392);
-  if ( *(_QWORD *)(v5 + 8) != a1 + 384 || *v6 != a1 + 384 )
+  TppDestroyTimerSubQueue(BaseAddress + 120);
+  TppDestroyTimerSubQueue(BaseAddress + 240);
+  NtClose(*((HANDLE *)BaseAddress + 8));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *((PVOID *)BaseAddress + 2));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *((PVOID *)BaseAddress + 5));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *((PVOID *)BaseAddress + 6));
+  RtlAcquireSRWLockExclusive(&TppPoolpListLock);
+  v3 = (char **)*((_QWORD *)BaseAddress + 48);
+  v4 = (PVOID *)*((_QWORD *)BaseAddress + 49);
+  if ( v3[1] != BaseAddress + 384 || *v4 != BaseAddress + 384 )
     __fastfail(3u);
-  *v6 = v5;
-  *(_QWORD *)(v5 + 8) = v6;
+  *v4 = v3;
+  v3[1] = (char *)v4;
   RtlReleaseSRWLockExclusive(&TppPoolpListLock);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, BaseAddress);
 }

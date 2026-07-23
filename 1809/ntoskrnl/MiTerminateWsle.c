@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTerminateWsle @ 0x14007ACA0
+ * XREFs of MiTerminateWsle @ 0x14007AC90
  * Callers:
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiRemoveSystemImagePage @ 0x14012C0BC (MiRemoveSystemImagePage.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiRemoveSystemImagePage @ 0x14012C18C (MiRemoveSystemImagePage.c)
  * Callees:
  *     MiUnlockWsle @ 0x14001A18C (MiUnlockWsle.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiRemoveWsle @ 0x14006A870 (MiRemoveWsle.c)
- *     MiRebuildPageTableLeafAges @ 0x14007AE10 (MiRebuildPageTableLeafAges.c)
- *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14007F930 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
+ *     MiRemoveWsle @ 0x14006A860 (MiRemoveWsle.c)
+ *     MiRebuildPageTableLeafAges @ 0x14007AE00 (MiRebuildPageTableLeafAges.c)
+ *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14007F920 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiEvictPageTableLock @ 0x1400982E0 (MiEvictPageTableLock.c)
  */
 
 __int64 __fastcall MiTerminateWsle(__int64 a1, unsigned __int64 a2, char a3, int *a4)

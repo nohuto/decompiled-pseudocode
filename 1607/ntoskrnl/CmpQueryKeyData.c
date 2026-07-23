@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpQueryKeyData @ 0x1404BB618
+ * XREFs of CmpQueryKeyData @ 0x1404A7348
  * Callers:
- *     CmQueryKey @ 0x14043A810 (CmQueryKey.c)
+ *     CmQueryKey @ 0x1404396E0 (CmQueryKey.c)
  * Callees:
- *     CmpQueryKeyDataFromNode @ 0x140438210 (CmpQueryKeyDataFromNode.c)
- *     CmpQueryKeyDataFromCache @ 0x1404BB6F8 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1404370E0 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromCache @ 0x1404A7428 (CmpQueryKeyDataFromCache.c)
  */
 
 __int64 __fastcall CmpQueryKeyData(__int64 a1, int a2, __int64 a3, int a4, __int64 a5, __int64 a6)

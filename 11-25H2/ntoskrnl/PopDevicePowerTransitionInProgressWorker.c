@@ -11,17 +11,17 @@
 void PopDevicePowerTransitionInProgressWorker()
 {
   KIRQL v0; // dl
-  BOOL v1; // [rsp+58h] [rbp+10h] BYREF
+  BOOL Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopPendingPowerTransitionLock);
   do
   {
-    v1 = PopPendingSetPowerDeviceIrps != 0;
+    Buffer = PopPendingSetPowerDeviceIrps != 0;
     KeReleaseSpinLock(&PopPendingPowerTransitionLock, v0);
-    ZwUpdateWnfStateData(&WNF_PO_DEVICE_POWER_TRANSITION, &v1, 4LL, 0LL, 0LL, 0, 0);
+    ZwUpdateWnfStateData(&WNF_PO_DEVICE_POWER_TRANSITION, &Buffer, 4u, 0LL, 0LL, 0, 0);
     v0 = KeAcquireSpinLockRaiseToDpc(&PopPendingPowerTransitionLock);
   }
-  while ( v1 != (PopPendingSetPowerDeviceIrps != 0) );
+  while ( Buffer != (PopPendingSetPowerDeviceIrps != 0) );
   PopDevicePowerTransitionInProgressWorkerQueued = 0;
   KeReleaseSpinLock(&PopPendingPowerTransitionLock, v0);
 }

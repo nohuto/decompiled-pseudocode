@@ -9,9 +9,9 @@
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceEnable(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 RtlpHpStackTraceEnable()
 {
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpHpStackTrackingContext, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
   if ( (dword_180166388 & 1) == 0 )
   {
     dword_180166388 = 3;

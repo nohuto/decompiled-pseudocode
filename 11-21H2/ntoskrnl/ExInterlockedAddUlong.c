@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseSpinLockDisabled @ 0x140243164 (ExpReleaseSpinLockDisabled.c)
- *     ExpAcquireSpinLockDisabled @ 0x14024319C (ExpAcquireSpinLockDisabled.c)
+ *     sub_140243164 @ 0x140243164 (sub_140243164.c)
+ *     sub_14024319C @ 0x14024319C (sub_14024319C.c)
  */
 
 ULONG __stdcall ExInterlockedAddUlong(PULONG Addend, ULONG Increment, PKSPIN_LOCK Lock)
@@ -12,9 +12,9 @@ ULONG __stdcall ExInterlockedAddUlong(PULONG Addend, ULONG Increment, PKSPIN_LOC
   char v6; // al
   ULONG v7; // ebx
 
-  v6 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock);
+  v6 = sub_14024319C((volatile signed __int32 *)Lock);
   v7 = *Addend;
   *Addend += Increment;
-  ExpReleaseSpinLockDisabled((volatile signed __int64 *)Lock, v6);
+  sub_140243164((volatile signed __int64 *)Lock, v6);
   return v7;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExReleaseResourceAndLeaveCriticalRegion @ 0x14093FDC0
+ * XREFs of VerifierExReleaseResourceAndLeaveCriticalRegion @ 0x140940DC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViResourceReleaseSanityChecks @ 0x1409400D0 (ViResourceReleaseSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViResourceReleaseSanityChecks @ 0x1409410D0 (ViResourceReleaseSanityChecks.c)
  */
 
 __int64 __fastcall VerifierExReleaseResourceAndLeaveCriticalRegion(ULONG_PTR a1)

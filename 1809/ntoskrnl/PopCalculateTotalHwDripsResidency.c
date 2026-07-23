@@ -1,8 +1,8 @@
 /*
- * XREFs of PopCalculateTotalHwDripsResidency @ 0x1402DF0BC
+ * XREFs of PopCalculateTotalHwDripsResidency @ 0x1402DF2AC
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1402DE260 (PdcPoCurrentPdcPhase.c)
- *     PopCalculateCsSummary @ 0x1402DEB58 (PopCalculateCsSummary.c)
+ *     PdcPoCurrentPdcPhase @ 0x1402DE450 (PdcPoCurrentPdcPhase.c)
+ *     PopCalculateCsSummary @ 0x1402DED48 (PopCalculateCsSummary.c)
  * Callees:
  *     <none>
  */

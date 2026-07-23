@@ -135,45 +135,15 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
   int v14; // edx
   __int64 v15; // rdx
   __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // rdx
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // rcx
-  __int64 v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // r8
-  __int64 v38; // rdx
-  __int64 v39; // rcx
-  __int64 v40; // r8
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // rdx
-  __int64 v45; // rcx
-  __int64 v46; // r8
   LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp-30h] BYREF
-  int v49; // [rsp+48h] [rbp-28h] BYREF
-  __int128 v50; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v51; // [rsp+60h] [rbp-10h]
+  int Buffer; // [rsp+48h] [rbp-28h] BYREF
+  __int128 DataBuffer; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v21; // [rsp+60h] [rbp-10h]
 
   PopOsInitPhase = a1;
   PerformanceFrequency.QuadPart = 0LL;
-  v51 = 0LL;
-  v50 = 0LL;
+  v21 = 0LL;
+  DataBuffer = 0LL;
   if ( !a1 )
   {
     KeQueryPerformanceCounter(&PerformanceFrequency);
@@ -529,21 +499,21 @@ LABEL_42:
         goto LABEL_43;
       }
       v12 = 0;
-      if ( (int)HalGetInterruptTargetInformation(2, 0, (__int64)&v50) >= 0 )
+      if ( (int)HalGetInterruptTargetInformation(2, 0, (__int64)&DataBuffer) >= 0 )
       {
-        PopApicMode = HIDWORD(v51);
+        PopApicMode = HIDWORD(v21);
         PoSkipTickMode = !PopCheckSkipTick();
 LABEL_43:
         PpmInitIllegalThrottleLogging();
         PopCheckShutdownMarker(a2);
-        LODWORD(v51) = 0;
-        v50 = 0LL;
-        if ( RtlGetSystemBootStatus(13, (__int64)&v50, 20, 0LL) >= 0 && HIDWORD(v50) )
+        LODWORD(v21) = 0;
+        DataBuffer = 0LL;
+        if ( RtlGetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL) >= 0 && HIDWORD(DataBuffer) )
         {
           PopTraceBootError();
-          LODWORD(v51) = 0;
-          v50 = 0LL;
-          RtlSetSystemBootStatus(13, (__int64)&v50, 20);
+          LODWORD(v21) = 0;
+          DataBuffer = 0LL;
+          RtlSetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
         }
         if ( (unsigned __int8)off_140C01CE0[0]()
           || (unsigned int)(PoOffCrashConfigTable - 1) <= 1 && DWORD1(PoOffCrashConfigTable) )
@@ -595,32 +565,32 @@ LABEL_61:
         PopInitializeAdpm();
         PopEsInit(3LL);
         PopInitilizeAcDcSettings();
-        v49 = 1;
+        Buffer = 1;
         PopUpdateConsoleDisplayState(1u);
-        ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v49);
+        ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &Buffer, 4u, 0LL, 0LL, 0, 0);
         PopNetInitialize(3LL);
         PopReleasePolicyLock();
         PopIdleInitAoAcDozeS4Timer();
-        PopCreateIdlePhaseWatchdog(v16, v15, v17);
-        PopInitializeSystemIdleDetection(v19, v18, v20);
+        PopCreateIdlePhaseWatchdog();
+        PopInitializeSystemIdleDetection();
         PopInitializePreSleepNotifications();
-        v21 = *(_QWORD *)(a2 + 240);
-        PopHiberLoaderScratchPages = *(_DWORD *)(v21 + 272);
-        PopHiberResumeXhciHandoffSkip = (*(_DWORD *)(v21 + 132) & 0x10000000) != 0;
+        v15 = *(_QWORD *)(a2 + 240);
+        PopHiberLoaderScratchPages = *(_DWORD *)(v15 + 272);
+        PopHiberResumeXhciHandoffSkip = (*(_DWORD *)(v15 + 132) & 0x10000000) != 0;
         PopSetupHighPerfPowerRequest();
         PpmEnableWmiInterface();
         if ( (*(_DWORD *)(*(_QWORD *)(a2 + 240) + 2648LL) & 0x8000LL) != 0 )
           PopFasr = 1;
         PopAcquirePolicyLock();
-        PopCoalescingInitialize(v23, v22, v24);
+        PopCoalescingInitialize();
         PopReleasePolicyLock();
         PopInitializeDirectedDrips(3LL);
         ExInitializeResourceLite(&PopDripsWatchdogContext);
         if ( PopPlatformAoAc )
         {
-          if ( (int)PopDripsWatchdogInitializeActions(v26, v25, v27) < 0
-            || (int)PopDripsWatchdogInitializeCallbackTimer(v29, v28, v30) < 0
-            || (int)PopDripsWatchdogInitializeDiagnosticTimer(v32, v31, v33) < 0 )
+          if ( (int)PopDripsWatchdogInitializeActions() < 0
+            || (int)PopDripsWatchdogInitializeCallbackTimer() < 0
+            || (int)PopDripsWatchdogInitializeDiagnosticTimer() < 0 )
           {
             goto LABEL_73;
           }
@@ -646,7 +616,7 @@ LABEL_73:
           if ( PerformanceFrequency.LowPart == 2 )
             PopErrataReportingIncorrectLidState = 1;
         }
-        PopLidReliabilityInit(v34);
+        PopLidReliabilityInit(v16);
         if ( PopPlatformAoAc )
         {
           if ( PopLidStateForInputSuppressionOverride != -1 )
@@ -664,11 +634,11 @@ LABEL_73:
               PopEnableInputSuppression = PopEnableInputSuppressionOverride != 0;
           }
         }
-        PopPowerButtonSuppressionInit(v36, v35, v37);
+        PopPowerButtonSuppressionInit();
         PopBatteryQueueWork(1u);
-        PopSetupKsrCallbacks(v39, v38, v40);
-        PopHiberEvaluateSkippingMemoryMapValidation(v42, v41, v43);
-        PopReadErrataSkipMemoryOverwriteRequestControlLockAction(v45, v44, v46);
+        PopSetupKsrCallbacks();
+        PopHiberEvaluateSkippingMemoryMapValidation();
+        PopReadErrataSkipMemoryOverwriteRequestControlLockAction();
         goto LABEL_84;
       }
     }

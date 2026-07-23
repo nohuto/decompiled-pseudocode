@@ -11,11 +11,11 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall IoStartDiskIoAttributionForContext(unsigned __int64 a1)
+void __fastcall IoStartDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   unsigned __int64 v2; // rsi
-  unsigned __int64 v3; // rbx
-  bool v4; // r8
+  signed __int64 v3; // rbx
+  BOOLEAN v4; // r8
   int v5; // edi
   unsigned __int64 v6; // rax
   unsigned __int8 CurrentIrql; // al
@@ -25,24 +25,24 @@ void __fastcall IoStartDiskIoAttributionForContext(unsigned __int64 a1)
   bool v11; // zf
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  if ( (BYTE8(IopDiskIoAttributionTree) & 1) != 0 )
+  if ( (*(_BYTE *)(&IopDiskIoAttributionTree + 1) & 1) != 0 )
   {
-    if ( (_QWORD)IopDiskIoAttributionTree )
-      v3 = IopDiskIoAttributionTree ^ (unsigned __int64)&IopDiskIoAttributionTree;
+    if ( IopDiskIoAttributionTree )
+      v3 = (unsigned __int64)IopDiskIoAttributionTree ^ (unsigned __int64)&IopDiskIoAttributionTree;
     else
       v3 = 0LL;
   }
   else
   {
-    v3 = IopDiskIoAttributionTree;
+    v3 = (signed __int64)IopDiskIoAttributionTree;
   }
   v4 = 0;
-  v5 = BYTE8(IopDiskIoAttributionTree) & 1;
+  v5 = *(_BYTE *)(&IopDiskIoAttributionTree + 1) & 1;
   if ( v3 )
   {
     while ( 1 )
     {
-      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)(a1 + 24), v3) < 0 )
+      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)&Node[1], v3) < 0 )
       {
         v6 = *(_QWORD *)v3;
         if ( v5 )
@@ -77,12 +77,15 @@ LABEL_15:
       v3 = v6;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&IopDiskIoAttributionTree, v3, v4, a1);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)&IopDiskIoAttributionTree, (PRTL_BALANCED_NODE)v3, v4, Node);
   ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

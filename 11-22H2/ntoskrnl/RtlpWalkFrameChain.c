@@ -29,8 +29,8 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   __int64 v8; // rcx
   int v9; // r12d
   char v10; // al
-  unsigned int v11; // ebx
-  __int64 v12; // r14
+  ULONG v11; // ebx
+  ULONG64 v12; // r14
   unsigned __int64 v13; // rcx
   unsigned __int64 v14; // rcx
   void *v15; // rsp
@@ -59,14 +59,14 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   unsigned int v39; // [rsp+68h] [rbp+8h]
   _QWORD *v40; // [rsp+70h] [rbp+10h]
   unsigned __int64 v41; // [rsp+78h] [rbp+18h]
-  __int64 v42; // [rsp+80h] [rbp+20h] BYREF
+  ULONG ContextLength[2]; // [rsp+80h] [rbp+20h] BYREF
   int v43; // [rsp+88h] [rbp+28h]
   struct _KTHREAD *CurrentThread; // [rsp+90h] [rbp+30h]
   _QWORD *v45; // [rsp+98h] [rbp+38h]
   __int64 v46; // [rsp+A0h] [rbp+40h] BYREF
   unsigned __int64 v47; // [rsp+A8h] [rbp+48h] BYREF
   void *Teb; // [rsp+B0h] [rbp+50h]
-  __int64 v49; // [rsp+B8h] [rbp+58h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+B8h] [rbp+58h] BYREF
   __int64 v50; // [rsp+C0h] [rbp+60h]
   unsigned __int64 v51; // [rsp+C8h] [rbp+68h]
   int v52; // [rsp+D0h] [rbp+70h]
@@ -92,8 +92,8 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   v56 = a1;
   v60 = 0LL;
   v61 = 0LL;
-  v49 = 0LL;
-  LODWORD(v42) = 0;
+  ContextEx = 0LL;
+  ContextLength[0] = 0;
   v62 = 0LL;
   v63 = 0LL;
   v47 = 0LL;
@@ -136,14 +136,14 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
     v11 = 1048651;
     v12 = 2048LL;
   }
-  RtlGetExtendedContextLength2(v11, &v42, v12);
-  v13 = (unsigned int)v42 + 15LL;
-  if ( v13 <= (unsigned int)v42 )
+  RtlGetExtendedContextLength2(v11, ContextLength, v12);
+  v13 = ContextLength[0] + 15LL;
+  if ( v13 <= ContextLength[0] )
     v13 = 0xFFFFFFFFFFFFFF0LL;
   v14 = v13 & 0xFFFFFFFFFFFFFFF0uLL;
   v15 = alloca(v14);
   v16 = alloca(v14);
-  RtlInitializeExtendedContext2(&v34, v11, &v49, v12);
+  RtlInitializeExtendedContext2((PCONTEXT)&v34, v11, &ContextEx, v12);
   RtlpCaptureContext2(&v34);
   v36 = 0;
   if ( !(unsigned __int8)RtlpGetStackLimits((__int64)&v46, (__int64)&v47) )
@@ -166,7 +166,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
     v20 = v50;
     v21 = v39;
 LABEL_17:
-    v42 = v20;
+    *(_QWORD *)ContextLength = v20;
     v60 = xmmword_140E00030;
     v61 = qword_140E00040;
     while ( 1 )
@@ -196,7 +196,7 @@ LABEL_17:
       if ( v36 )
         v35 = 0;
       if ( v7 == 1 && v17 && v57 && v67 == v57 )
-        v67 = *(_QWORD *)(*(_QWORD *)(RtlLocateExtendedFeature2(v49, 11LL, 0xFFFFF780000003D8uLL) + 8) - 8LL);
+        v67 = *(_QWORD *)(*(_QWORD *)(RtlLocateExtendedFeature2(ContextEx, 11LL, 0xFFFFF780000003D8uLL) + 8) - 8LL);
       if ( !v67 )
       {
         if ( v9 )
@@ -231,23 +231,23 @@ LABEL_99:
         {
           if ( v67 > 0x7FFFFFFEFFFFLL )
             goto LABEL_107;
-          if ( v42 && v67 == *(_QWORD *)(v41 + 360) )
+          if ( *(_QWORD *)ContextLength && v67 == *(_QWORD *)(v41 + 360) )
           {
             v7 = 2;
             v43 = 2;
-            v67 = *(_QWORD *)(v42 + 312);
-            v57 = v42 + 320;
-            v58 = *(_QWORD *)(v42 + 248);
-            v56 = *(_QWORD *)(v42 + 256);
-            *(_QWORD *)&v60 = *(_QWORD *)(v42 + 264);
-            v59 = *(_QWORD *)(v42 + 272);
-            v64 = *(_QWORD *)(v42 + 280);
-            v65 = *(_OWORD *)(v42 + 288);
-            v66 = *(_QWORD *)(v42 + 304);
+            v67 = *(_QWORD *)(*(_QWORD *)ContextLength + 312LL);
+            v57 = *(_QWORD *)ContextLength + 320LL;
+            v58 = *(_QWORD *)(*(_QWORD *)ContextLength + 248LL);
+            v56 = *(_QWORD *)(*(_QWORD *)ContextLength + 256LL);
+            *(_QWORD *)&v60 = *(_QWORD *)(*(_QWORD *)ContextLength + 264LL);
+            v59 = *(_QWORD *)(*(_QWORD *)ContextLength + 272LL);
+            v64 = *(_QWORD *)(*(_QWORD *)ContextLength + 280LL);
+            v65 = *(_OWORD *)(*(_QWORD *)ContextLength + 288LL);
+            v66 = *(_QWORD *)(*(_QWORD *)ContextLength + 304LL);
             if ( v34 )
-              *(_QWORD *)RtlLocateExtendedFeature2(v49, 11LL, 0xFFFFF780000003D8uLL) = 0LL;
-            v42 = v40[4];
-            v50 = v42;
+              *(_QWORD *)RtlLocateExtendedFeature2(ContextEx, 11LL, 0xFFFFF780000003D8uLL) = 0LL;
+            *(_QWORD *)ContextLength = v40[4];
+            v50 = *(_QWORD *)ContextLength;
             v23 = (_QWORD *)v40[5];
             v40 = v23;
             if ( !v23 )
@@ -271,7 +271,7 @@ LABEL_99:
           v46 = v58;
           v55 = v59;
           v47 = v59;
-          v42 = v50;
+          *(_QWORD *)ContextLength = v50;
           if ( v50 )
           {
             v41 = *(_QWORD *)(v50 + 208);
@@ -298,9 +298,9 @@ LABEL_99:
             goto LABEL_107;
           v7 = 1;
           v43 = 1;
-          if ( v42 )
+          if ( *(_QWORD *)ContextLength )
           {
-            v41 = *(_QWORD *)(v42 + 208);
+            v41 = *(_QWORD *)(*(_QWORD *)ContextLength + 208LL);
             v51 = v41;
             if ( v41 < 0xFFFF800000000000uLL )
               goto LABEL_107;
@@ -308,7 +308,7 @@ LABEL_99:
           if ( v34 )
           {
             LODWORD(CurrentThread) = (unsigned int)CurrentThread | 0x100040;
-            ExtendedFeature2 = (_QWORD *)RtlLocateExtendedFeature2(v49, 11LL, 0xFFFFF780000003D8uLL);
+            ExtendedFeature2 = (_QWORD *)RtlLocateExtendedFeature2(ContextEx, 11LL, 0xFFFFF780000003D8uLL);
             *ExtendedFeature2 = 1LL;
             ExtendedFeature2[1] = __readmsr(0x6A7u);
           }

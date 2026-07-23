@@ -178,7 +178,7 @@ LABEL_14:
       if ( v8 )
       {
 LABEL_91:
-        inited = PiDevCfgConfigureDevice(a1, (unsigned int)v44, 0, (unsigned int)&v35, (__int64)&v39);
+        inited = PiDevCfgConfigureDevice(a1, v44, 0LL, &v35, &v39);
         if ( inited >= 0 )
         {
           v7 = v35;
@@ -462,7 +462,7 @@ LABEL_20:
   {
     if ( v50 )
     {
-      inited = PiDevCfgConfigureDevice(a1, (unsigned int)v44, v6, (unsigned int)&v35, (__int64)&v39);
+      inited = PiDevCfgConfigureDevice(a1, v44, v6, &v35, &v39);
       if ( inited >= 0 )
       {
         v7 = v35;

@@ -3,7 +3,7 @@
  * Callers:
  *     swprintf_s @ 0x1800A2340 (swprintf_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     _swoutput_s @ 0x1800A4098 (_swoutput_s.c)
  */
 

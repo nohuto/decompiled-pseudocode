@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpGetPerfCounter @ 0x14032D3B0
+ * XREFs of EtwpGetPerfCounter @ 0x14032F3E0
  * Callers:
- *     KiLoadDirectoryTableBase @ 0x140247600 (KiLoadDirectoryTableBase.c)
- *     HvlpFastFlushAddressSpaceTb @ 0x140250E04 (HvlpFastFlushAddressSpaceTb.c)
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
- *     HvlFlushRangeListTb @ 0x14032B100 (HvlFlushRangeListTb.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlUpdatePerformanceStateCountersForLp @ 0x14032BD30 (HvlUpdatePerformanceStateCountersForLp.c)
- *     HvcallFastExtended @ 0x14032BFB0 (HvcallFastExtended.c)
- *     KiIpiProcessRequest @ 0x14032C2E0 (KiIpiProcessRequest.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     KiExecuteAllDpcs @ 0x14032DD00 (KiExecuteAllDpcs.c)
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     WmiGetClock @ 0x1406C66F0 (WmiGetClock.c)
+ *     KiLoadDirectoryTableBase @ 0x140248F60 (KiLoadDirectoryTableBase.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x140252764 (HvlpFastFlushAddressSpaceTb.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
+ *     HvlFlushRangeListTb @ 0x14032D130 (HvlFlushRangeListTb.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     HvlUpdatePerformanceStateCountersForLp @ 0x14032DD60 (HvlUpdatePerformanceStateCountersForLp.c)
+ *     HvcallFastExtended @ 0x14032DFE0 (HvcallFastExtended.c)
+ *     KiIpiProcessRequest @ 0x14032E310 (KiIpiProcessRequest.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     KiExecuteAllDpcs @ 0x14032FD30 (KiExecuteAllDpcs.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     WmiGetClock @ 0x1406CA3F0 (WmiGetClock.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 EtwpGetPerfCounter()
@@ -69,7 +69,7 @@ unsigned __int64 EtwpGetPerfCounter()
         v11 = 0;
         if ( HalpTimerQueryCounterHandlerCount )
         {
-          v21 = &unk_140FBB448;
+          v21 = &unk_140FBB7E8;
           do
           {
             if ( v0 == *v21 )
@@ -154,7 +154,7 @@ unsigned __int64 EtwpGetPerfCounter()
         v10 = 0;
         if ( HalpTimerQueryCounterHandlerCount )
         {
-          v18 = &unk_140FBB448;
+          v18 = &unk_140FBB7E8;
           do
           {
             if ( v0 == *v18 )

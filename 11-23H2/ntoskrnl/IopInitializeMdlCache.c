@@ -1,5 +1,5 @@
 /*
- * XREFs of IopInitializeMdlCache @ 0x140834934
+ * XREFs of IopInitializeMdlCache @ 0x140834C34
  * Callers:
  *     IoInitSystem @ 0x140B5D6A0 (IoInitSystem.c)
  * Callees:

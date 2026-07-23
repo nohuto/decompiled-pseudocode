@@ -72,7 +72,7 @@ _QWORD *__fastcall CcGetVacbMiss(_QWORD *a1, __int64 a2, unsigned int a3, int a4
     v14 = -1073741670;
 LABEL_35:
     if ( v5 || v6 != 1 )
-      RtlRaiseStatus((unsigned int)v14);
+      RtlRaiseStatus(v14);
     Partition = v21;
     v5 = 1;
     v4 = v23;

@@ -1,9 +1,9 @@
 /*
  * XREFs of MiValidateExistingImage @ 0x1406AA324
  * Callers:
- *     MiShareExistingControlArea @ 0x140723CDC (MiShareExistingControlArea.c)
+ *     MiShareExistingControlArea @ 0x140723EDC (MiShareExistingControlArea.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     MiValidateSectionSigningPolicy @ 0x1406AA5DC (MiValidateSectionSigningPolicy.c)
  *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
  *     SeGetImageRequiredSigningLevel @ 0x1406AA89C (SeGetImageRequiredSigningLevel.c)
@@ -13,30 +13,28 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
 {
   __int64 *v1; // r15
   char v2; // r14
-  __int64 v3; // r12
+  void *v3; // r12
   int v4; // edi
   __int64 v6; // rdx
   __int64 result; // rax
-  int v8; // r9d
-  __int64 v9; // rdx
-  int v10; // r8d
-  int v11; // ecx
-  __int64 v12; // r13
-  int v13; // esi
-  __int64 v14; // rcx
-  unsigned int v15; // ebp
+  __int64 v8; // rdx
+  int v9; // ecx
+  __int64 v10; // r13
+  int v11; // esi
+  __int64 v12; // rcx
+  unsigned int v13; // ebp
   int Blink; // ebp
-  _BYTE *v17; // rsi
-  __int64 v18; // r8
-  __int64 v19; // r9
-  int v20; // eax
-  int v21; // eax
-  int v22; // ecx
-  char v23; // [rsp+80h] [rbp+8h] BYREF
+  _BYTE *v15; // rsi
+  __int64 v16; // r8
+  __int64 v17; // r9
+  int v18; // eax
+  int v19; // eax
+  int v20; // ecx
+  __int64 v21; // [rsp+80h] [rbp+8h] BYREF
 
   v1 = (__int64 *)*((_QWORD *)a1 + 8);
   v2 = 0;
-  v3 = *((_QWORD *)a1 + 7);
+  v3 = (void *)*((_QWORD *)a1 + 7);
   v4 = 0;
   if ( (v1[7] & 0x800) != 0 && (*a1 & 0x100000) != 0 )
   {
@@ -53,43 +51,40 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
     dword_140C65810 = 13;
     return result;
   }
-  v9 = *a1;
-  v10 = 6;
-  if ( (v9 & 0x100) != 0 )
+  v8 = *a1;
+  if ( (v8 & 0x100) != 0 )
   {
-    v11 = 4;
+    v9 = 4;
   }
-  else if ( (v9 & 0x20) != 0 )
+  else if ( (v8 & 0x20) != 0 )
   {
-    v11 = 1;
+    v9 = 1;
   }
-  else if ( (v9 & 0x10) != 0 )
+  else if ( (v8 & 0x10) != 0 )
   {
-    v11 = (*a1 & 0x1000) != 0 ? 8 : 2;
+    v9 = (*a1 & 0x1000) != 0 ? 8 : 2;
   }
   else
   {
-    v11 = 0;
+    v9 = 0;
   }
-  v12 = *v1;
-  v13 = v11 | 0x10;
-  if ( (v9 & 0x800) == 0 )
-    v13 = v11;
-  v14 = (unsigned int)v9;
-  if ( (v9 & 0x400) != 0 && (v9 & 0x10) == 0 )
+  v10 = *v1;
+  v11 = v9 | 0x10;
+  if ( (v8 & 0x800) == 0 )
+    v11 = v9;
+  v12 = (unsigned int)v8;
+  if ( (v8 & 0x400) != 0 && (v8 & 0x10) == 0 )
   {
     Blink = (int)KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
-    LOBYTE(v10) = *((_BYTE *)a1 + 24);
-    LOBYTE(v8) = *(_BYTE *)(v12 + 15) >> 4;
-    v23 = 0;
-    result = SeGetImageRequiredSigningLevel(v3, v13, v10, v8, (__int64)&v23);
+    LOBYTE(v21) = 0;
+    result = SeGetImageRequiredSigningLevel(v3, (__int64)&v21);
     if ( (int)result < 0 )
     {
       dword_140C65810 = 14;
       return result;
     }
-    v14 = *a1;
-    if ( (v14 & 0x800) == 0 )
+    v12 = *a1;
+    if ( (v12 & 0x800) == 0 )
     {
       if ( *((_BYTE *)a1 + 24) && (Blink & 0x800000) != 0 )
         v4 = 1;
@@ -104,70 +99,70 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
           v2 = 6;
       }
     }
-    *((_BYTE *)a1 + 24) = v23;
+    *((_BYTE *)a1 + 24) = v21;
   }
-  if ( (v14 & 0x100000) != 0 )
+  if ( (v12 & 0x100000) != 0 )
   {
-    v13 |= 0x40000000u;
+    v11 |= 0x40000000u;
     if ( !*((_BYTE *)a1 + 24) )
       *((_BYTE *)a1 + 24) = 4;
   }
-  v15 = v13 | 0x20000000;
-  if ( (v14 & 0x800000) == 0 )
-    v15 = v13;
-  if ( (v14 & 0x400) != 0 )
+  v13 = v11 | 0x20000000;
+  if ( (v12 & 0x800000) == 0 )
+    v13 = v11;
+  if ( (v12 & 0x400) != 0 )
   {
-    if ( (v14 & 0x10) != 0 )
+    if ( (v12 & 0x10) != 0 )
       goto LABEL_43;
-    v17 = (_BYTE *)(v12 + 15);
-    v18 = *(unsigned __int8 *)(v12 + 15);
-    LOBYTE(v9) = *((_BYTE *)a1 + 24);
-    if ( qword_140C37A38 )
+    v15 = (_BYTE *)(v10 + 15);
+    v16 = *(unsigned __int8 *)(v10 + 15);
+    LOBYTE(v8) = *((_BYTE *)a1 + 24);
+    if ( qword_140C379D8 )
     {
-      v19 = ((unsigned int)v18 >> 1) & 7;
-      LOBYTE(v18) = (unsigned __int8)v18 >> 4;
-      v20 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, __int64, _QWORD, __int64))qword_140C37A38)(
-              v15,
-              v9,
-              v18,
-              v19,
+      v17 = ((unsigned int)v16 >> 1) & 7;
+      LOBYTE(v16) = (unsigned __int8)v16 >> 4;
+      v18 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, __int64, _QWORD, void *))qword_140C379D8)(
+              v13,
+              v8,
+              v16,
+              v17,
               *((_QWORD *)a1 + 20),
               v3);
-      LOBYTE(v9) = *((_BYTE *)a1 + 24);
-      LOBYTE(v18) = *v17;
-      if ( v20 )
+      LOBYTE(v8) = *((_BYTE *)a1 + 24);
+      LOBYTE(v16) = *v15;
+      if ( v18 )
         goto LABEL_43;
     }
-    if ( !qword_140C379E0
-      || (LOBYTE(v14) = (unsigned __int8)v18 >> 4, !(unsigned int)qword_140C379E0(v14, v9))
-      || (v15 & 0x40000000) != 0 && (*((_DWORD *)v1 + 23) & 0xC0000) != 0x80000
-      || (*v17 & 0xF0) == 0 && *(char *)(*(_QWORD *)(v12 + 56) + 46LL) < 0 )
+    if ( !qword_140C37980
+      || (LOBYTE(v12) = (unsigned __int8)v16 >> 4, !(unsigned int)qword_140C37980(v12, v8))
+      || (v13 & 0x40000000) != 0 && (*((_DWORD *)v1 + 23) & 0xC0000) != 0x80000
+      || (*v15 & 0xF0) == 0 && *(char *)(*(_QWORD *)(v10 + 56) + 46LL) < 0 )
     {
 LABEL_43:
       v4 |= 2u;
-      v17 = (_BYTE *)(v12 + 15);
+      v15 = (_BYTE *)(v10 + 15);
     }
-    v21 = (int)qword_140C379E0;
-    if ( qword_140C379E0 )
+    v19 = (int)qword_140C37980;
+    if ( qword_140C37980 )
     {
-      LOBYTE(v9) = v2;
-      LOBYTE(v14) = *v17 >> 4;
-      v21 = qword_140C379E0(v14, v9);
+      LOBYTE(v8) = v2;
+      LOBYTE(v12) = *v15 >> 4;
+      v19 = qword_140C37980(v12, v8);
     }
-    v22 = v4 | 4;
-    if ( v21 )
-      v22 = v4;
-    v4 = v22;
+    v20 = v4 | 4;
+    if ( v19 )
+      v20 = v4;
+    v4 = v20;
     if ( (*a1 & 0x10000000) != 0 )
-      v4 = v22 | 8;
+      v4 = v20 | 8;
   }
   result = MiValidateSectionSigningPolicy(
              1,
-             v3,
+             (_DWORD)v3,
              (_DWORD)v1,
              a1[42],
              *((_QWORD *)a1 + 20),
-             v15,
+             v13,
              v4,
              *((_BYTE *)a1 + 24),
              v2);

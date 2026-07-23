@@ -153,7 +153,7 @@ LABEL_27:
         goto LABEL_55;
       case 0x14:
         if ( !*v8 )
-          ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL);
+          ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0, 0LL, 0LL, 0, 0);
         goto LABEL_27;
       case 0x1D:
 LABEL_55:

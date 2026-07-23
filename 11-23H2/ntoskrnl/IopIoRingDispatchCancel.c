@@ -1,12 +1,12 @@
 /*
- * XREFs of IopIoRingDispatchCancel @ 0x14094927C
+ * XREFs of IopIoRingDispatchCancel @ 0x14094947C
  * Callers:
- *     IopProcessIoRingEntry @ 0x140949F78 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x14094A178 (IopProcessIoRingEntry.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopCompleteIoRingEntry @ 0x14055935C (IopCompleteIoRingEntry.c)
- *     IopCancelIoFile @ 0x1407C198C (IopCancelIoFile.c)
- *     IopIoRingReferenceFileObject @ 0x140949F04 (IopIoRingReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopCompleteIoRingEntry @ 0x140559A1C (IopCompleteIoRingEntry.c)
+ *     IopCancelIoFile @ 0x1407C1C5C (IopCancelIoFile.c)
+ *     IopIoRingReferenceFileObject @ 0x14094A104 (IopIoRingReferenceFileObject.c)
  */
 
 LONG_PTR __fastcall IopIoRingDispatchCancel(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbGetDriverInfFileMappedProperty @ 0x1405044D0
+ * XREFs of DrvDbGetDriverInfFileMappedProperty @ 0x1404E7460
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x140503EA4 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x1404E6E34 (DrvDbDispatchDriverInfFile.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     DrvDbOpenObjectRegKey @ 0x1404FBF14 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetRegValueMappedProperty @ 0x140503FAC (DrvDbGetRegValueMappedProperty.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x1404DEEA4 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1404E6F3C (DrvDbGetRegValueMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
@@ -30,7 +30,7 @@ __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
   HANDLE Handle[2]; // [rsp+40h] [rbp-28h] BYREF
 
   Handle[0] = 0LL;
-  v11 = &off_1402581F0;
+  v11 = &off_1402581E0;
   *a5 = 0;
   *a8 = 0;
   v12 = 0LL;
@@ -51,7 +51,7 @@ __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
       return (unsigned int)-1073741802;
   }
   v15 = 5 * v12;
-  v16 = &off_1402581F0 + 5 * v12;
+  v16 = &off_1402581E0 + 5 * v12;
   if ( !v16 )
     return (unsigned int)-1073741802;
   if ( !a3 )

@@ -11,18 +11,19 @@
  *     ?RtlpFlsDataCleanup@@YAXPEAU_RTLP_FLS_CONTEXT@@PEAU_RTLP_FLS_DATA@@K@Z @ 0x18005F2B4 (-RtlpFlsDataCleanup@@YAXPEAU_RTLP_FLS_CONTEXT@@PEAU_RTLP_FLS_DATA@@K@Z.c)
  *     SbCleanupTrace @ 0x180061734 (SbCleanupTrace.c)
  *     RtlDetectHeapLeaks @ 0x180061790 (RtlDetectHeapLeaks.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
  */
 
-void __fastcall LdrShutdownProcess(struct _RTLP_FLS_CONTEXT *a1)
+void __noreturn LdrShutdownProcess(void)
 {
+  struct _RTLP_FLS_CONTEXT *v0; // rcx
   struct _TEB *v1; // rdi
   _PEB *ProcessEnvironmentBlock; // rbx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
   struct _RTLP_FLS_DATA *FlsData; // rdx
   char v5; // r14
-  __int64 v6; // rcx
+  REGHANDLE v6; // rcx
   __int64 *v7; // rsi
   __int64 v8; // rbx
   __int64 (__fastcall *v9)(__int64, _QWORD, __int64); // r15
@@ -63,7 +64,7 @@ void __fastcall LdrShutdownProcess(struct _RTLP_FLS_CONTEXT *a1)
       ((void (*)(void))(__ROR8__(g_pfnSE_ProcessDying, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))();
     FlsData = (struct _RTLP_FLS_DATA *)v1->FlsData;
     if ( FlsData )
-      RtlpFlsDataCleanup(a1, FlsData, 1u);
+      RtlpFlsDataCleanup(v0, FlsData, 1u);
     if ( (LdrpPolicyBits & 2) != 0
       || (ProcessEnvironmentBlock->ProcessParameters->Flags & 0x40000000) != 0
       || (AvrfAppVerifierMode & 1) != 0 )
@@ -109,9 +110,9 @@ void __fastcall LdrShutdownProcess(struct _RTLP_FLS_CONTEXT *a1)
     }
     if ( NtCurrentPeb()->ProcessHeap && VSMEnclaveProvidersRegistered )
     {
-      v6 = qword_1801665B0;
+      v6 = RegHandle;
       dword_180166590 = 0;
-      qword_1801665B0 = 0LL;
+      RegHandle = 0LL;
       EtwEventUnregister(v6);
       VSMEnclaveProvidersRegistered = 0;
     }

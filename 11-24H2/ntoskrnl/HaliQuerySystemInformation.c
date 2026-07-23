@@ -1,36 +1,36 @@
 /*
- * XREFs of HaliQuerySystemInformation @ 0x140B6B760
+ * XREFs of HaliQuerySystemInformation @ 0x140B6CB90
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerQueryClockSourceType @ 0x1404B08E8 (HalpTimerQueryClockSourceType.c)
- *     xKdEnumerateDebuggingDevices @ 0x1404FA9F0 (xKdEnumerateDebuggingDevices.c)
- *     RtlCopyDeviceMemory @ 0x140520F1C (RtlCopyDeviceMemory.c)
- *     HalpTimerQueryWatchdogType @ 0x14053B6D0 (HalpTimerQueryWatchdogType.c)
- *     HalpGetDisplayBiosInformation @ 0x14053C0B0 (HalpGetDisplayBiosInformation.c)
- *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x140544168 (HalpDpQueryMaxHotPlugMemoryAddress.c)
- *     HalpQueryNumaRangeTableInformation @ 0x140558C60 (HalpQueryNumaRangeTableInformation.c)
- *     HalpHvQueryHyperlaunchEntrypoint @ 0x140558DEC (HalpHvQueryHyperlaunchEntrypoint.c)
- *     HalpGetApHibernateResumePc @ 0x14056A064 (HalpGetApHibernateResumePc.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HalpGetMcaLog @ 0x1406FD8C8 (HalpGetMcaLog.c)
- *     HalpInterruptQueryControllerInfo @ 0x1406FD930 (HalpInterruptQueryControllerInfo.c)
- *     HalpInterruptGetIrtInfo @ 0x1406FDDA4 (HalpInterruptGetIrtInfo.c)
- *     HalpQueryPerDeviceMsiLimitInformation @ 0x1406FDE8C (HalpQueryPerDeviceMsiLimitInformation.c)
- *     HalpQueryIommuReservedRegionInformation @ 0x1406FF184 (HalpQueryIommuReservedRegionInformation.c)
- *     HalpDmaGetRemappingInformation @ 0x140700080 (HalpDmaGetRemappingInformation.c)
- *     HalpQuerySecondaryInterruptInformation @ 0x140700D0C (HalpQuerySecondaryInterruptInformation.c)
- *     HalpGetAcpiStaticNumaTopology @ 0x1407018B8 (HalpGetAcpiStaticNumaTopology.c)
- *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x140701A48 (HalpQueryHeterogeneousMemoryAttributesInterface.c)
- *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x140701EB4 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
- *     HalpGetProcessorBrandString @ 0x1407028D0 (HalpGetProcessorBrandString.c)
- *     HalpAuditQueryResults @ 0x140702BE4 (HalpAuditQueryResults.c)
- *     HalpChannelPowerRequest @ 0x140703F2C (HalpChannelPowerRequest.c)
- *     xHalAllocatePmcCounterSet @ 0x140A6D760 (xHalAllocatePmcCounterSet.c)
- *     HalpQueryProfileInformation @ 0x140ABC9C4 (HalpQueryProfileInformation.c)
- *     HalpQueryDebuggerInformation @ 0x140B75B70 (HalpQueryDebuggerInformation.c)
- *     HalpQueryChannelTopologyInformation @ 0x140C15018 (HalpQueryChannelTopologyInformation.c)
+ *     HalpTimerQueryClockSourceType @ 0x1404AB178 (HalpTimerQueryClockSourceType.c)
+ *     xKdEnumerateDebuggingDevices @ 0x1404F82D0 (xKdEnumerateDebuggingDevices.c)
+ *     RtlCopyDeviceMemory @ 0x14051E7EC (RtlCopyDeviceMemory.c)
+ *     HalpTimerQueryWatchdogType @ 0x140538F10 (HalpTimerQueryWatchdogType.c)
+ *     HalpGetDisplayBiosInformation @ 0x140539990 (HalpGetDisplayBiosInformation.c)
+ *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x140541AB8 (HalpDpQueryMaxHotPlugMemoryAddress.c)
+ *     HalpQueryNumaRangeTableInformation @ 0x1405565A0 (HalpQueryNumaRangeTableInformation.c)
+ *     HalpHvQueryHyperlaunchEntrypoint @ 0x14055672C (HalpHvQueryHyperlaunchEntrypoint.c)
+ *     HalpGetHibernateResumePc @ 0x1405674F4 (HalpGetHibernateResumePc.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HalpGetMcaLog @ 0x1406FB508 (HalpGetMcaLog.c)
+ *     HalpInterruptQueryControllerInfo @ 0x1406FB570 (HalpInterruptQueryControllerInfo.c)
+ *     HalpInterruptGetIrtInfo @ 0x1406FB9E4 (HalpInterruptGetIrtInfo.c)
+ *     HalpQueryPerDeviceMsiLimitInformation @ 0x1406FBACC (HalpQueryPerDeviceMsiLimitInformation.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x1406FCDC4 (HalpQueryIommuReservedRegionInformation.c)
+ *     HalpDmaGetRemappingInformation @ 0x1406FDCC0 (HalpDmaGetRemappingInformation.c)
+ *     HalpQuerySecondaryInterruptInformation @ 0x1406FE94C (HalpQuerySecondaryInterruptInformation.c)
+ *     HalpGetAcpiStaticNumaTopology @ 0x1406FF4F8 (HalpGetAcpiStaticNumaTopology.c)
+ *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x1406FF688 (HalpQueryHeterogeneousMemoryAttributesInterface.c)
+ *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x1406FFAF4 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
+ *     HalpGetProcessorBrandString @ 0x140700510 (HalpGetProcessorBrandString.c)
+ *     HalpAuditQueryResults @ 0x140700824 (HalpAuditQueryResults.c)
+ *     HalpChannelPowerRequest @ 0x140701AEC (HalpChannelPowerRequest.c)
+ *     xHalAllocatePmcCounterSet @ 0x140A66E20 (xHalAllocatePmcCounterSet.c)
+ *     HalpQueryProfileInformation @ 0x140AB79E4 (HalpQueryProfileInformation.c)
+ *     HalpQueryDebuggerInformation @ 0x140B77B70 (HalpQueryDebuggerInformation.c)
+ *     HalpQueryChannelTopologyInformation @ 0x140C17018 (HalpQueryChannelTopologyInformation.c)
  */
 
 __int64 __fastcall HaliQuerySystemInformation(
@@ -51,7 +51,7 @@ __int64 __fastcall HaliQuerySystemInformation(
   int v19; // edi
   int v20; // edi
   int v21; // edi
-  __int64 ApHibernateResumePc; // rax
+  __int64 HibernateResumePc; // rax
   int HeterogeneousMemoryAttributesInterface; // eax
   int WatchdogType; // eax
   bool v25; // cc
@@ -106,7 +106,7 @@ LABEL_87:
           v21 = 8;
           if ( a2 != 8 )
             return (unsigned int)-1073741820;
-          ApHibernateResumePc = (__int64)HalpGetApHibernateResumePc();
+          HibernateResumePc = (__int64)HalpGetHibernateResumePc();
           goto LABEL_72;
         }
         return (unsigned int)HalpQueryProfileInformation((unsigned int)a1, a2, (__int64)a3, (unsigned int *)a4);
@@ -142,7 +142,7 @@ LABEL_99:
       case '$':
         return (unsigned int)HalpChannelPowerRequest((__int16 *)a3, a2, a4);
       case '%':
-        v12 = (char *)&off_140009B00;
+        v12 = (char *)&off_140009DD8;
         if ( a2 < 0x10 )
           v12 = 0LL;
         v11 = a2 < 0x10 ? 0 : 0x10;
@@ -284,9 +284,9 @@ LABEL_11:
           v21 = 8;
           if ( a2 != 8 )
             return (unsigned int)-1073741820;
-          ApHibernateResumePc = HalpDpQueryMaxHotPlugMemoryAddress();
+          HibernateResumePc = HalpDpQueryMaxHotPlugMemoryAddress();
 LABEL_72:
-          *a3 = (__int64 (__fastcall *)(unsigned int, int, __int64, int))ApHibernateResumePc;
+          *a3 = (__int64 (__fastcall *)(unsigned int, int, __int64, int))HibernateResumePc;
 LABEL_73:
           *a4 = v21;
           return PerDeviceMsiLimitInformation;

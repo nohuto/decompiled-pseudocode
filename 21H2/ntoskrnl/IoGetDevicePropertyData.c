@@ -1,19 +1,19 @@
 /*
- * XREFs of IoGetDevicePropertyData @ 0x14063A080
+ * XREFs of IoGetDevicePropertyData @ 0x14062EE90
  * Callers:
- *     PopFxQueryBiosDeviceName @ 0x14036F4A4 (PopFxQueryBiosDeviceName.c)
- *     HalpAreDriversDmarCompatible @ 0x140379674 (HalpAreDriversDmarCompatible.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x140569684 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDevicePotentialDripsConstraint @ 0x14056AFC0 (PopFxIsDevicePotentialDripsConstraint.c)
- *     IopGetSessionIdFromPDO @ 0x14073E25C (IopGetSessionIdFromPDO.c)
- *     IopGetInterruptConnectionData @ 0x1407628FC (IopGetInterruptConnectionData.c)
- *     PnprIsMemoryDevice @ 0x1408ADC20 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x1408ADCD8 (PnprIsProcessorDevice.c)
- *     VfGetDmaAdapter @ 0x1409CBE60 (VfGetDmaAdapter.c)
+ *     PopFxQueryBiosDeviceName @ 0x14036F654 (PopFxQueryBiosDeviceName.c)
+ *     HalpAreDriversDmarCompatible @ 0x1403791C4 (HalpAreDriversDmarCompatible.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405698C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDevicePotentialDripsConstraint @ 0x14056B200 (PopFxIsDevicePotentialDripsConstraint.c)
+ *     IopGetSessionIdFromPDO @ 0x14073E41C (IopGetSessionIdFromPDO.c)
+ *     IopGetInterruptConnectionData @ 0x140762ABC (IopGetInterruptConnectionData.c)
+ *     PnprIsMemoryDevice @ 0x1408ADD80 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x1408ADE38 (PnprIsProcessorDevice.c)
+ *     VfGetDmaAdapter @ 0x1409CCE60 (VfGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PnpGetDevicePropertyData @ 0x14063A118 (PnpGetDevicePropertyData.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PnpGetDevicePropertyData @ 0x14062EF28 (PnpGetDevicePropertyData.c)
  */
 
 NTSTATUS __stdcall IoGetDevicePropertyData(
@@ -91,13 +91,5 @@ NTSTATUS __stdcall IoGetDevicePropertyData(
 LABEL_16:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)Pdo, 0LL, 0LL);
   }
-  return PnpGetDevicePropertyData(
-           (int)Pdo,
-           (int)PropertyKey,
-           Lcid,
-           Flags,
-           Size,
-           Data,
-           (__int64)RequiredSize,
-           (__int64)Type);
+  return PnpGetDevicePropertyData(Pdo, PropertyKey, Lcid, Flags, Size, Data, RequiredSize, Type);
 }

@@ -8,23 +8,23 @@
  *     LdrpMergeLangFallbackLists @ 0x18003C708 (LdrpMergeLangFallbackLists.c)
  *     RtlGetThreadPreferredUILanguages @ 0x18003CC60 (RtlGetThreadPreferredUILanguages.c)
  *     RtlpMuiRegFreeRegistryInfo @ 0x18004BA00 (RtlpMuiRegFreeRegistryInfo.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007A100 (RtlGetSystemPreferredUILanguages.c)
- *     RtlpQueryDefaultUILanguage @ 0x18007A6A0 (RtlpQueryDefaultUILanguage.c)
- *     RtlGetUserPreferredUILanguages @ 0x180080700 (RtlGetUserPreferredUILanguages.c)
- *     RtlpUpdateTEBLanguage @ 0x180080C90 (RtlpUpdateTEBLanguage.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180088CD0 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18007A110 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlpQueryDefaultUILanguage @ 0x18007A6B0 (RtlpQueryDefaultUILanguage.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180080710 (RtlGetUserPreferredUILanguages.c)
+ *     RtlpUpdateTEBLanguage @ 0x180080CA0 (RtlpUpdateTEBLanguage.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180088CE0 (RtlSetProcessPreferredUILanguages.c)
  * Callees:
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlpMuiRegFreeLanguageList(unsigned __int64 a1)
+LOGICAL __fastcall RtlpMuiRegFreeLanguageList(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    if ( (*(_BYTE *)(a1 + 40) & 0x40) == 0 )
-      return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    if ( (*((_BYTE *)BaseAddress + 40) & 0x40) == 0 )
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

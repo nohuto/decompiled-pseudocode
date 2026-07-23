@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpMarkProcessPeb @ 0x140775AB4
+ * XREFs of DbgkpMarkProcessPeb @ 0x14077895C
  * Callers:
- *     DbgkClearProcessDebugObject @ 0x140957E88 (DbgkClearProcessDebugObject.c)
- *     DbgkCopyProcessDebugPort @ 0x1409845B8 (DbgkCopyProcessDebugPort.c)
- *     DbgkpSetProcessDebugObject @ 0x140985C5C (DbgkpSetProcessDebugObject.c)
- *     DbgkpCloseObject @ 0x140AFF4E0 (DbgkpCloseObject.c)
+ *     DbgkpSetProcessDebugObject @ 0x14091D490 (DbgkpSetProcessDebugObject.c)
+ *     DbgkCopyProcessDebugPort @ 0x1409465C8 (DbgkCopyProcessDebugPort.c)
+ *     DbgkClearProcessDebugObject @ 0x14094B8B8 (DbgkClearProcessDebugObject.c)
+ *     DbgkpCloseObject @ 0x1409BA900 (DbgkpCloseObject.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
  */
 
 void __fastcall DbgkpMarkProcessPeb(PRKPROCESS PROCESS)
@@ -34,7 +34,7 @@ void __fastcall DbgkpMarkProcessPeb(PRKPROCESS PROCESS)
     if ( PROCESS[1].ProcessListEntry.Blink )
     {
       KeStackAttachProcess(PROCESS, &ApcState);
-      ExAcquireFastMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
+      ExAcquireFastMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
       v3 = PROCESS[1].UserTime != 0;
       LOBYTE(v4) = v3;
       RtlWriteUCharToUser((char *)&PROCESS[1].ProcessListEntry.Blink->Flink + 2, v4);
@@ -53,7 +53,7 @@ void __fastcall DbgkpMarkProcessPeb(PRKPROCESS PROCESS)
           }
         }
       }
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
       KiUnstackDetachProcess((__int64)&ApcState, 0);
     }
     ExReleaseRundownProtection_0(p_Blink);

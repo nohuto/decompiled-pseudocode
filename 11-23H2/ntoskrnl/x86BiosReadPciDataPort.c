@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosReadPciDataPort @ 0x1403ABA08
+ * XREFs of x86BiosReadPciDataPort @ 0x1403ABBE8
  * Callers:
- *     x86BiosReadIoSpace @ 0x1403C2810 (x86BiosReadIoSpace.c)
+ *     x86BiosReadIoSpace @ 0x1403C29F0 (x86BiosReadIoSpace.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall x86BiosReadPciDataPort(int a1, unsigned __int16 a2)

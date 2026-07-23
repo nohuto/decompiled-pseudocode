@@ -1,9 +1,9 @@
 /*
- * XREFs of CmInitializeThreadInfo @ 0x1401B2F58
+ * XREFs of CmInitializeThreadInfo @ 0x1401B3098
  * Callers:
- *     ExpWatchProductTypeWork @ 0x1406BF910 (ExpWatchProductTypeWork.c)
+ *     ExpWatchProductTypeWork @ 0x1406C0BB0 (ExpWatchProductTypeWork.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
  */
 
 __int64 __fastcall CmInitializeThreadInfo(__int64 a1)

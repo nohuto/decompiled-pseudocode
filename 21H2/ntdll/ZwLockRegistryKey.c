@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwLockRegistryKey @ 0x18009F7D0
+ * XREFs of ZwLockRegistryKey @ 0x18009F790
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwLockRegistryKey()
+NTSTATUS __cdecl ZwLockRegistryKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 269LL;
+  result = 269;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

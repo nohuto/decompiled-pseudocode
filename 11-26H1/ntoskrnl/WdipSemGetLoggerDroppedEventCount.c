@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemGetLoggerDroppedEventCount @ 0x140ADB33C
+ * XREFs of WdipSemGetLoggerDroppedEventCount @ 0x140AD7DEC
  * Callers:
- *     WdipSemWriteSemActionsEvent @ 0x140ADB0D8 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemWriteSemActionsEvent @ 0x140AD7B88 (WdipSemWriteSemActionsEvent.c)
  * Callees:
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
- *     WmipQueryTraceInformation @ 0x140829064 (WmipQueryTraceInformation.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
+ *     WmipQueryTraceInformation @ 0x14082F2A4 (WmipQueryTraceInformation.c)
  */
 
 __int64 __fastcall WdipSemGetLoggerDroppedEventCount(unsigned int a1, _DWORD *a2)

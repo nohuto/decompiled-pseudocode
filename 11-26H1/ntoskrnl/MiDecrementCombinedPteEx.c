@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDecrementCombinedPteEx @ 0x14036A1BC
+ * XREFs of MiDecrementCombinedPteEx @ 0x14036BF5C
  * Callers:
- *     MiConvertStandbyToProto @ 0x140306E68 (MiConvertStandbyToProto.c)
- *     MiConvertPrivateToProto @ 0x140307A8C (MiConvertPrivateToProto.c)
- *     MiDecommitHandleProtoFormatPte @ 0x140360F60 (MiDecommitHandleProtoFormatPte.c)
- *     MiCopyOnWriteCombineCloneDereference @ 0x14036ACB0 (MiCopyOnWriteCombineCloneDereference.c)
- *     MiCopyOnWriteUpdatePte @ 0x14036B2E0 (MiCopyOnWriteUpdatePte.c)
+ *     MiConvertStandbyToProto @ 0x1402E8EE8 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x1402E9B0C (MiConvertPrivateToProto.c)
+ *     MiDecommitHandleProtoFormatPte @ 0x140362D00 (MiDecommitHandleProtoFormatPte.c)
+ *     MiCopyOnWriteCombineCloneDereference @ 0x14036CA50 (MiCopyOnWriteCombineCloneDereference.c)
+ *     MiCopyOnWriteUpdatePte @ 0x14036D080 (MiCopyOnWriteUpdatePte.c)
  * Callees:
- *     MiFreeCombineBlock @ 0x1402C67C4 (MiFreeCombineBlock.c)
- *     MiDecrementCloneBlock @ 0x14036A250 (MiDecrementCloneBlock.c)
- *     MiLogCombinedPteDelete @ 0x1407049B0 (MiLogCombinedPteDelete.c)
+ *     MiFreeCombineBlock @ 0x140311464 (MiFreeCombineBlock.c)
+ *     MiDecrementCloneBlock @ 0x14036BFF0 (MiDecrementCloneBlock.c)
+ *     MiLogCombinedPteDelete @ 0x140709680 (MiLogCombinedPteDelete.c)
  */
 
 __int64 __fastcall MiDecrementCombinedPteEx(int a1, __int64 a2, int a3)

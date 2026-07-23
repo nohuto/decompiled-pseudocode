@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipUnregisterEtwProvider @ 0x1409E1B10
+ * XREFs of WmipUnregisterEtwProvider @ 0x1409E1DA0
  * Callers:
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140882764 (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x1408829A4 (WmipUnlinkInstanceSetFromGuidEntry.c)
  * Callees:
- *     WmipQueueLegacyEtwWork @ 0x140852D10 (WmipQueueLegacyEtwWork.c)
+ *     WmipQueueLegacyEtwWork @ 0x140853010 (WmipQueueLegacyEtwWork.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

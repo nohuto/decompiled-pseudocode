@@ -1,35 +1,35 @@
 /*
- * XREFs of NtMapViewOfSectionEx @ 0x1407A2F30
+ * XREFs of NtMapViewOfSectionEx @ 0x1407A3120
  * Callers:
  *     <none>
  * Callees:
- *     MiMapViewOfSectionExCommon @ 0x1407A34F0 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407A36E0 (MiMapViewOfSectionExCommon.c)
  */
 
-__int64 __fastcall NtMapViewOfSectionEx(
-        int a1,
-        int a2,
-        int a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        int a7,
-        volatile void *a8,
-        int a9)
+NTSTATUS __cdecl NtMapViewOfSectionEx(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   ULONGLONG ullMultiplicand; // [rsp+48h] [rbp-30h]
 
-  LODWORD(ullMultiplicand) = a9;
+  LODWORD(ullMultiplicand) = ExtendedParameterCount;
   return MiMapViewOfSectionExCommon(
-           a1,
-           a2,
+           (int)SectionHandle,
+           (int)ProcessHandle,
            0,
-           a3,
-           a4,
-           a5,
-           a6,
-           a7,
-           a8,
+           (int)BaseAddress,
+           (__int64)SectionOffset,
+           (__int64)ViewSize,
+           AllocationType,
+           PageProtection,
+           ExtendedParameters,
            ullMultiplicand,
            0,
            0LL,

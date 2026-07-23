@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpLogUnreadableLog @ 0x140ADFC38
+ * XREFs of HvpLogUnreadableLog @ 0x140ADD478
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140ADF748 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140ADCF88 (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall HvpLogUnreadableLog(char a1, int a2)
@@ -31,7 +31,7 @@ int __fastcall HvpLogUnreadableLog(char a1, int a2)
       v8 = 1LL;
       LODWORD(v2) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)&dword_140E09EE8,
-                      (unsigned __int8 *)word_140057452,
+                      (unsigned __int8 *)byte_14005837D,
                       0LL,
                       0LL,
                       4u,

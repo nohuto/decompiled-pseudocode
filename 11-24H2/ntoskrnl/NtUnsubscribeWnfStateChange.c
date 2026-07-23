@@ -1,18 +1,18 @@
 /*
- * XREFs of NtUnsubscribeWnfStateChange @ 0x1408AB0C0
+ * XREFs of NtUnsubscribeWnfStateChange @ 0x140901320
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExpWnfDeleteSubscription @ 0x1408AA348 (ExpWnfDeleteSubscription.c)
- *     ExpWnfAcquireSubscriptionByName @ 0x1408AABA8 (ExpWnfAcquireSubscriptionByName.c)
- *     ExpCaptureWnfStateName @ 0x1408AB180 (ExpCaptureWnfStateName.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExpWnfDeleteSubscription @ 0x1409005A8 (ExpWnfDeleteSubscription.c)
+ *     ExpWnfAcquireSubscriptionByName @ 0x140900E08 (ExpWnfAcquireSubscriptionByName.c)
+ *     ExpCaptureWnfStateName @ 0x1409013E0 (ExpCaptureWnfStateName.c)
  */
 
-__int64 __fastcall NtUnsubscribeWnfStateChange(void *a1)
+NTSTATUS __cdecl NtUnsubscribeWnfStateChange(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   _KPROCESS *Process; // rdi
   __int64 v4; // rdx
   PVOID P; // [rsp+50h] [rbp+18h] BYREF
@@ -20,7 +20,7 @@ __int64 __fastcall NtUnsubscribeWnfStateChange(void *a1)
   P = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v2 = ExpCaptureWnfStateName(a1);
+  v2 = ExpCaptureWnfStateName((void *)StateName);
   if ( v2 >= 0 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
@@ -40,5 +40,5 @@ __int64 __fastcall NtUnsubscribeWnfStateChange(void *a1)
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v2;
+  return v2;
 }

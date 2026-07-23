@@ -1,13 +1,13 @@
 /*
- * XREFs of PrpLogSfsVersion @ 0x1406DDC3C
+ * XREFs of PrpLogSfsVersion @ 0x1406E1EDC
  * Callers:
- *     SfsGetFwVersions @ 0x1406DD060 (SfsGetFwVersions.c)
+ *     SfsGetFwVersions @ 0x1406E1300 (SfsGetFwVersions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
  */
 
 __int64 __fastcall PrpLogSfsVersion(__int64 a1, _DWORD *a2)
@@ -39,13 +39,13 @@ __int64 __fastcall PrpLogSfsVersion(__int64 a1, _DWORD *a2)
   int v28; // ecx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  int Blink_high; // [rsp+B0h] [rbp+40h] BYREF
+  int Flink_high; // [rsp+B0h] [rbp+40h] BYREF
   HANDLE KeyHandle; // [rsp+B8h] [rbp+48h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
-  Blink_high = 0;
+  Flink_high = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\HARDWARE\\DESCRIPTION\\SYSTEM\\SFS");
   ObjectAttributes.Length = 48;
@@ -66,8 +66,8 @@ __int64 __fastcall PrpLogSfsVersion(__int64 a1, _DWORD *a2)
       {
         if ( *v5 || *Data )
         {
-          Blink_high = HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Blink);
-          v4 = ZwSetValueKey(KeyHandle, &SfsLastAttemptU, 0, 4u, &Blink_high, 4u);
+          Flink_high = HIDWORD(CmpContextListLock.Timer.Header.WaitListHead.Flink);
+          v4 = ZwSetValueKey(KeyHandle, &SfsLastAttemptU, 0, 4u, &Flink_high, 4u);
           if ( v4 < 0 )
             goto LABEL_56;
         }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsPoolHeader @ 0x1400A9E38
+ * XREFs of MiIsPoolHeader @ 0x1400A83B8
  * Callers:
- *     MiReplacePageOfProtoPool @ 0x1400A99CC (MiReplacePageOfProtoPool.c)
+ *     MiReplacePageOfProtoPool @ 0x1400A7F4C (MiReplacePageOfProtoPool.c)
  * Callees:
  *     <none>
  */

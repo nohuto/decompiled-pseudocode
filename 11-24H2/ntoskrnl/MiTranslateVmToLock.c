@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTranslateVmToLock @ 0x1403FB1A0
+ * XREFs of MiTranslateVmToLock @ 0x1403FC970
  * Callers:
- *     MiIsPageTableLocked @ 0x1403FAAB4 (MiIsPageTableLocked.c)
+ *     MiIsPageTableLocked @ 0x140295EE4 (MiIsPageTableLocked.c)
  * Callees:
  *     <none>
  */
@@ -21,14 +21,14 @@ _KLOCK_QUEUE_HANDLE *__fastcall MiTranslateVmToLock(__int64 a1, _QWORD *a2)
     if ( v3 == 7 )
     {
       v4 = 1;
-      v5 = (char *)&unk_140E2FCC0 + 8;
+      v5 = (char *)&unk_140E2FE00 + 8;
     }
     else
     {
       v4 = 3;
       if ( v3 == 5 )
         v4 = 0;
-      v5 = (char *)&unk_140E2FCC0 + 8 * v4;
+      v5 = (char *)&unk_140E2FE00 + 8 * v4;
     }
   }
   else

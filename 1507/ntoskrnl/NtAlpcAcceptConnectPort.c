@@ -7,26 +7,47 @@
  *     AlpcpAcceptConnectPort @ 0x140471474 (AlpcpAcceptConnectPort.c)
  */
 
-__int64 __fastcall NtAlpcAcceptConnectPort(__int64 a1, __int64 a2, int a3)
+NTSTATUS __cdecl NtAlpcAcceptConnectPort(
+        PHANDLE PortHandle,
+        HANDLE ConnectionPortHandle,
+        ULONG Flags,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        PALPC_MESSAGE_ATTRIBUTES ConnectionMessageAttributes,
+        BOOLEAN AcceptConnection)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v4; // eax
-  struct _KTHREAD *v5; // rdx
-  unsigned int v6; // ebx
-  __int16 v7; // cx
+  NTSTATUS v10; // eax
+  struct _KTHREAD *v11; // rdx
+  NTSTATUS v12; // ebx
+  __int16 v13; // cx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v4 = AlpcpAcceptConnectPort(a1, a3 & 0xC0000000, a2);
-  v5 = KeGetCurrentThread();
-  v6 = v4;
-  v7 = v5->KernelApcDisable + 1;
-  v5->KernelApcDisable = v7;
-  if ( !v7
-    && ($CD287064E7C9F7953DE243E927CFCB99 *)v5->ApcState.ApcListHead[0].Flink != &v5->152
-    && !v5->SpecialApcDisable )
+  v10 = AlpcpAcceptConnectPort(
+          PortHandle,
+          Flags & 0xC0000000,
+          ConnectionPortHandle,
+          ObjectAttributes,
+          PortAttributes,
+          PortContext,
+          ConnectionRequest,
+          ConnectionMessageAttributes,
+          AcceptConnection,
+          0LL,
+          0LL,
+          0);
+  v11 = KeGetCurrentThread();
+  v12 = v10;
+  v13 = v11->KernelApcDisable + 1;
+  v11->KernelApcDisable = v13;
+  if ( !v13
+    && ($CD287064E7C9F7953DE243E927CFCB99 *)v11->ApcState.ApcListHead[0].Flink != &v11->152
+    && !v11->SpecialApcDisable )
   {
     KiCheckForKernelApcDelivery();
   }
-  return v6;
+  return v12;
 }

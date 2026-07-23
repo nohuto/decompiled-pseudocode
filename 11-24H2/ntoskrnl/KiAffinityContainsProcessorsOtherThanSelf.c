@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x140297D50
+ * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x1402A6840
  * Callers:
- *     KiEnterLongDpcProcessing @ 0x140298AA4 (KiEnterLongDpcProcessing.c)
- *     KxFlushEntireTb @ 0x1403B07A4 (KxFlushEntireTb.c)
- *     KxFlushNonGlobalTb @ 0x1403B0E50 (KxFlushNonGlobalTb.c)
+ *     KiEnterLongDpcProcessing @ 0x1402A7594 (KiEnterLongDpcProcessing.c)
+ *     KxFlushEntireTb @ 0x14039EFB4 (KxFlushEntireTb.c)
+ *     KxFlushNonGlobalTb @ 0x14039F660 (KxFlushNonGlobalTb.c)
  * Callees:
  *     <none>
  */

@@ -176,12 +176,12 @@
  *     <none>
  */
 
-void *__stdcall RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  void *result; // eax
+  ULONG result; // eax
 
-  result = NtCurrentPeb()->SharedData;
+  result = (ULONG)NtCurrentPeb()->SharedData;
   if ( result )
-    return *(void **)result;
+    return *(_DWORD *)result;
   return result;
 }

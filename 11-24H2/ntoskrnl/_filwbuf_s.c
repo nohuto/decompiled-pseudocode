@@ -1,8 +1,8 @@
 /*
- * XREFs of _filwbuf_s @ 0x140489C50
+ * XREFs of _filwbuf_s @ 0x140484960
  * Callers:
- *     _fgetwc_nolock @ 0x140507BE4 (_fgetwc_nolock.c)
- *     CmFcpConnectToAlpcServer @ 0x140A80380 (CmFcpConnectToAlpcServer.c)
+ *     _fgetwc_nolock @ 0x1405054A4 (_fgetwc_nolock.c)
+ *     CmFcpConnectToAlpcServer @ 0x140A7ADE0 (CmFcpConnectToAlpcServer.c)
  * Callees:
  *     <none>
  */

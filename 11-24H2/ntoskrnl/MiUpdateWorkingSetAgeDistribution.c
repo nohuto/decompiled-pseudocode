@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateWorkingSetAgeDistribution @ 0x1402E2910
+ * XREFs of MiUpdateWorkingSetAgeDistribution @ 0x1403923F0
  * Callers:
- *     MiRemoveWsle @ 0x1402C8340 (MiRemoveWsle.c)
+ *     MiRemoveWsle @ 0x1402007F4 (MiRemoveWsle.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertActivePageTableLinksTail @ 0x1402E24F8 (MiInsertActivePageTableLinksTail.c)
- *     MiRemoveActivePageTableLinks @ 0x1402E2CB8 (MiRemoveActivePageTableLinks.c)
- *     MiRebuildPageTableAges @ 0x1402E3D14 (MiRebuildPageTableAges.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertActivePageTableLinksTail @ 0x140392798 (MiInsertActivePageTableLinksTail.c)
+ *     MiRemoveActivePageTableLinks @ 0x1403929A8 (MiRemoveActivePageTableLinks.c)
+ *     MiRebuildPageTableAges @ 0x140392C6C (MiRebuildPageTableAges.c)
  */
 
 __int64 __fastcall MiUpdateWorkingSetAgeDistribution(
@@ -39,7 +39,7 @@ __int64 __fastcall MiUpdateWorkingSetAgeDistribution(
   __int64 **v28; // rbx
   __int64 *v29; // rax
   __int64 **v30; // rax
-  void *retaddr; // [rsp+48h] [rbp+0h]
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
 
   v6 = a3;
   v9 = 0;
@@ -81,7 +81,7 @@ __int64 __fastcall MiUpdateWorkingSetAgeDistribution(
         MiRemoveActivePageTableLinks(a1, v13, 0LL);
       *(_QWORD *)v13 = v25 & 0xFC001FFFFFFFFFFFuLL | ((a4 & 0x3FF | ((unsigned __int64)(v6 & 7) << 10)) << 45);
 LABEL_25:
-      MiInsertActivePageTableLinksTail(a1, v13, v6, 0);
+      MiInsertActivePageTableLinksTail(a1, v13, (unsigned __int8)v6, 0LL);
       goto LABEL_8;
     }
     *(_QWORD *)v13 = ((unsigned __int64)(unsigned int)(v15 + a4) << 45) ^ (*(_QWORD *)v13 ^ ((unsigned __int64)(unsigned int)(v15 + a4) << 45)) & 0xFF801FFFFFFFFFFFuLL;
@@ -99,7 +99,7 @@ LABEL_8:
   _InterlockedAdd64((volatile signed __int64 *)(a1 + 8 * v6 + 40), a4);
   if ( (_BYTE)v6 != 7 )
     return v9;
-  v21 = (_QWORD *)*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174));
+  v21 = (_QWORD *)*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174));
   v22 = v21[2200];
   if ( *(_QWORD *)(a1 + 96) >= *(_QWORD *)(v22 + 56) )
   {
@@ -122,7 +122,7 @@ LABEL_8:
   }
   if ( v24 == v23 )
     return v9;
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E373C0);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&SpinLock);
   if ( *(_BYTE *)(v22 + 53) || (v26 = *v23) == 0 )
   {
     *(_BYTE *)(v22 + 54) = 1;
@@ -157,8 +157,8 @@ LABEL_37:
     }
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-    dword_140E373C0 = 0;
+    SpinLock = 0;
   else
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E373C0, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&SpinLock, retaddr);
   return v9;
 }

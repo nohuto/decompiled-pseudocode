@@ -3,11 +3,11 @@
  * Callers:
  *     PfPowerActionNotify @ 0x1403CFF90 (PfPowerActionNotify.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -24,10 +24,10 @@ __int64 PfpStartLoggingHardFaultEvents()
   if ( PoolWithTag )
   {
     PoolWithTag[40] = 0;
-    v3 = KeAcquireSpinLockRaiseToDpc(&qword_1403285C8);
-    *(_DWORD *)(v2 + 164) = ++dword_1403285D4;
-    _InterlockedOr(&dword_14033B814, 1u);
-    KeReleaseSpinLock(&qword_1403285C8, v3);
+    v3 = KeAcquireSpinLockRaiseToDpc(&qword_140328608);
+    *(_DWORD *)(v2 + 164) = ++dword_140328614;
+    _InterlockedOr(&dword_14033B854, 1u);
+    KeReleaseSpinLock(&qword_140328608, v3);
     KeInitializeTimerEx((PKTIMER)(v2 + 64), NotificationTimer);
     KeInitializeDpc((PRKDPC)v2, (PKDEFERRED_ROUTINE)PfpPowerActionDpcRoutine, (PVOID)v2);
     KiSetTimerEx(v2 + 64, -200000000LL, 0, 0, v2);

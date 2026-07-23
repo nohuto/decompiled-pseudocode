@@ -15,7 +15,7 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   __int64 v1; // r8
   __int64 v3; // r14
   __int64 v4; // rdi
-  ULONG_PTR v5; // rax
+  char *v5; // rax
   __int64 v6; // rax
   unsigned __int64 v7; // r15
   int v8; // eax
@@ -43,11 +43,11 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   v3 = (unsigned int)dword_140400168;
   qword_14087C5A0 = v1;
   v4 = *(_QWORD *)v1;
-  PsNtosImageBase = *(_QWORD *)(v1 + 48);
-  v5 = PsNtosImageBase + *(unsigned int *)(v1 + 64);
+  PsNtosImageBase = *(PVOID *)(v1 + 48);
+  v5 = (char *)PsNtosImageBase + *(unsigned int *)(v1 + 64);
   MxHalDataTableEntry = v4;
   PsHalImageBase = *(PVOID *)(v4 + 48);
-  PsNtosImageEnd = v5;
+  PsNtosImageEnd = (__int64)v5;
   PsHalImageEnd = (__int64)PsHalImageBase + *(unsigned int *)(v4 + 64);
   if ( *(_QWORD *)(v1 + 48) >= *(_QWORD *)(v4 + 48) )
   {

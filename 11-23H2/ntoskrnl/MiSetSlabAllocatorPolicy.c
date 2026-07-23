@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetSlabAllocatorPolicy @ 0x1403B6228
+ * XREFs of MiSetSlabAllocatorPolicy @ 0x1403B6408
  * Callers:
- *     MiMakePartitionActive @ 0x140292600 (MiMakePartitionActive.c)
+ *     MiMakePartitionActive @ 0x140292890 (MiMakePartitionActive.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetSlabAllocatorPolicy(__int64 a1)
@@ -28,10 +28,10 @@ __int64 __fastcall MiSetSlabAllocatorPolicy(__int64 a1)
     *(_DWORD *)(a1 + 4) |= 8u;
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )

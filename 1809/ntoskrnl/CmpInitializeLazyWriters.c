@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpInitializeLazyWriters @ 0x1407485B4
+ * XREFs of CmpInitializeLazyWriters @ 0x1407497A4
  * Callers:
- *     CmpCmdInit @ 0x140747E08 (CmpCmdInit.c)
+ *     CmpCmdInit @ 0x140748FF8 (CmpCmdInit.c)
  * Callees:
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     PoRegisterPowerSettingCallback @ 0x14058AEE0 (PoRegisterPowerSettingCallback.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
  */
 
 NTSTATUS CmpInitializeLazyWriters()
@@ -23,11 +23,11 @@ NTSTATUS CmpInitializeLazyWriters()
   __int128 v7; // [rsp+70h] [rbp-28h]
   HANDLE Handle; // [rsp+A0h] [rbp+8h] BYREF
 
-  v0 = &unk_1403FE8D8;
-  dword_1403FE8F0 = CmpLazyFlushIntervalInSeconds;
+  v0 = &unk_1403FF8D8;
+  dword_1403FF8F0 = CmpLazyFlushIntervalInSeconds;
   v1 = 0LL;
-  dword_1403FE9B0 = CmpLazyReconcileIntervalInSeconds;
-  dword_1403FEA70 = CmpLazyLocalizeIntervalInSeconds;
+  dword_1403FF9B0 = CmpLazyReconcileIntervalInSeconds;
+  dword_1403FFA70 = CmpLazyLocalizeIntervalInSeconds;
   do
   {
     KeInitializeTimerEx(&CmpLazyWriterData + 3 * v1, NotificationTimer);

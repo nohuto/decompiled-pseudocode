@@ -1,24 +1,24 @@
 /*
- * XREFs of CcScheduleLazyWriteScan @ 0x14043C9B0
+ * XREFs of CcScheduleLazyWriteScan @ 0x140264F40
  * Callers:
- *     CcWriteBehindPostProcess @ 0x1402A883C (CcWriteBehindPostProcess.c)
- *     CcDecrementOpenCount @ 0x1402ABDBC (CcDecrementOpenCount.c)
- *     CcNotifyOfMappedWrite @ 0x14036BCAC (CcNotifyOfMappedWrite.c)
- *     CcCoalescingCallBackHelper @ 0x14043C800 (CcCoalescingCallBackHelper.c)
- *     CcRescheduleLazyWriteScan @ 0x14043CD34 (CcRescheduleLazyWriteScan.c)
- *     CcInitializeCacheMapInternal @ 0x14045D6F0 (CcInitializeCacheMapInternal.c)
- *     CcAddDirtyPagesToExternalCache @ 0x1404B4F00 (CcAddDirtyPagesToExternalCache.c)
- *     CcCanIWrite @ 0x1404DBAA0 (CcCanIWrite.c)
- *     CcRegisterExternalCacheEx @ 0x14057A990 (CcRegisterExternalCacheEx.c)
- *     CcUpdateExternalCacheInfoEx @ 0x14057AD00 (CcUpdateExternalCacheInfoEx.c)
- *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x14057AEF8 (CcWaitForCurrentLazyWriterActivityOnNode.c)
- *     CcDeferWrite @ 0x14057B140 (CcDeferWrite.c)
- *     CcDeleteSectionsForPartition @ 0x14057C948 (CcDeleteSectionsForPartition.c)
+ *     CcCoalescingCallBackHelper @ 0x140264D90 (CcCoalescingCallBackHelper.c)
+ *     CcRescheduleLazyWriteScan @ 0x1402652C4 (CcRescheduleLazyWriteScan.c)
+ *     CcDecrementOpenCount @ 0x140279504 (CcDecrementOpenCount.c)
+ *     CcWriteBehindPostProcess @ 0x14027A62C (CcWriteBehindPostProcess.c)
+ *     CcNotifyOfMappedWrite @ 0x1402EDA4C (CcNotifyOfMappedWrite.c)
+ *     CcInitializeCacheMapInternal @ 0x1404527B0 (CcInitializeCacheMapInternal.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x1404AF700 (CcAddDirtyPagesToExternalCache.c)
+ *     CcCanIWrite @ 0x1404D54C0 (CcCanIWrite.c)
+ *     CcRegisterExternalCacheEx @ 0x140577E20 (CcRegisterExternalCacheEx.c)
+ *     CcUpdateExternalCacheInfoEx @ 0x140578190 (CcUpdateExternalCacheInfoEx.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x140578388 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     CcDeferWrite @ 0x1405785D0 (CcDeferWrite.c)
+ *     CcDeleteSectionsForPartition @ 0x140579DD8 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     CcNotifyWriteBehindInternal @ 0x1402CF16C (CcNotifyWriteBehindInternal.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     CcNotifyWriteBehindVolume @ 0x14043CB2C (CcNotifyWriteBehindVolume.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     CcNotifyWriteBehindInternal @ 0x1402638AC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindVolume @ 0x1402650BC (CcNotifyWriteBehindVolume.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall CcScheduleLazyWriteScan(_BYTE *a1, _BYTE *a2, char a3, char a4)
@@ -55,7 +55,7 @@ char __fastcall CcScheduleLazyWriteScan(_BYTE *a1, _BYTE *a2, char a3, char a4)
         {
           if ( !a2[984] )
             KeBugCheckEx(0x34u, 0x7CBuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-          result = KiSetTimerEx((__int64)(a2 + 920), CcFirstDelay, 0, 0, 0LL);
+          result = KiSetTimerEx((int)a2 + 920, CcFirstDelay, 0, 0, 0LL);
         }
       }
       if ( !a2[1172] )
@@ -88,7 +88,7 @@ char __fastcall CcScheduleLazyWriteScan(_BYTE *a1, _BYTE *a2, char a3, char a4)
         {
           if ( !a1[1048] )
             KeBugCheckEx(0x34u, 0x371uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-          result = KiSetTimerEx((__int64)(a1 + 984), CcFirstDelay, 0, 0, 0LL);
+          result = KiSetTimerEx((int)a1 + 984, CcFirstDelay, 0, 0, 0LL);
         }
       }
       if ( !a1[1292] )

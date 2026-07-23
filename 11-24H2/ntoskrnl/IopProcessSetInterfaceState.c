@@ -1,39 +1,39 @@
 /*
- * XREFs of IopProcessSetInterfaceState @ 0x1408B42D4
+ * XREFs of IopProcessSetInterfaceState @ 0x1408B1BC4
  * Callers:
- *     IopDoDeferredSetInterfaceState @ 0x1408B24D0 (IopDoDeferredSetInterfaceState.c)
- *     IoSetDeviceInterfaceState @ 0x1408B40B0 (IoSetDeviceInterfaceState.c)
+ *     IopDoDeferredSetInterfaceState @ 0x1408AFDC4 (IopDoDeferredSetInterfaceState.c)
+ *     IoSetDeviceInterfaceState @ 0x1408B19A0 (IoSetDeviceInterfaceState.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x1406A7D10 (ZwCreateSymbolicLinkObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x1406A8B10 (ZwOpenSymbolicLinkObject.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PipCanEnableInterfaces @ 0x1408B3394 (PipCanEnableInterfaces.c)
- *     _PnpRaiseNtPlugPlayInterfacePropertyChangeEvent @ 0x1408B3538 (_PnpRaiseNtPlugPlayInterfacePropertyChangeEvent.c)
- *     PnpSetDeviceClassChange @ 0x1408B3588 (PnpSetDeviceClassChange.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1408B4894 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x1408B4924 (PiDmAddCacheReferenceForObject.c)
- *     PiDmObjectManagerReleaseLock @ 0x1408B523C (PiDmObjectManagerReleaseLock.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x1408B52AC (PiDmObjectManagerAcquireSharedLock.c)
- *     PiDmLookupObject @ 0x1408B5470 (PiDmLookupObject.c)
- *     IopBuildGlobalSymbolicLinkString @ 0x1408B5640 (IopBuildGlobalSymbolicLinkString.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BDDF0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmGetDeviceInterfaceClassGuid @ 0x1408CB640 (_CmGetDeviceInterfaceClassGuid.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
- *     PiDeferSetInterfaceState @ 0x140A0C5A8 (PiDeferSetInterfaceState.c)
- *     PiRemoveDeferredSetInterfaceState @ 0x140A957EC (PiRemoveDeferredSetInterfaceState.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1406A8CB0 (ZwCreateSymbolicLinkObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1406A9AB0 (ZwOpenSymbolicLinkObject.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PipCanEnableInterfaces @ 0x1408B0C84 (PipCanEnableInterfaces.c)
+ *     _PnpRaiseNtPlugPlayInterfacePropertyChangeEvent @ 0x1408B0E28 (_PnpRaiseNtPlugPlayInterfacePropertyChangeEvent.c)
+ *     PnpSetDeviceClassChange @ 0x1408B0E78 (PnpSetDeviceClassChange.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1408B2184 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1408B2214 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1408B2B2C (PiDmObjectManagerReleaseLock.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1408B2B9C (PiDmObjectManagerAcquireSharedLock.c)
+ *     PiDmLookupObject @ 0x1408B2D60 (PiDmLookupObject.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x1408B2F30 (IopBuildGlobalSymbolicLinkString.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BB740 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1408C9070 (_CmGetDeviceInterfaceClassGuid.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
+ *     PiDeferSetInterfaceState @ 0x140A8C6C0 (PiDeferSetInterfaceState.c)
+ *     PiRemoveDeferredSetInterfaceState @ 0x140A9201C (PiRemoveDeferredSetInterfaceState.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopProcessSetInterfaceState(unsigned __int16 *a1, unsigned __int8 a2, char a3)
@@ -48,7 +48,7 @@ __int64 __fastcall IopProcessSetInterfaceState(unsigned __int16 *a1, unsigned __
   __int64 v11; // r8
   _WORD *Pool2; // rax
   _WORD *v13; // rbx
-  int DeviceInterfaceClassGuid; // ebx
+  NTSTATUS DeviceInterfaceClassGuid; // ebx
   __int64 v15; // rax
   int ObjectProperty; // eax
   int v18; // eax
@@ -112,7 +112,7 @@ LABEL_29:
     && ((_WORD)v10 != (_WORD)v11 || v9[((unsigned __int64)*a1 >> 1) - 1])
     && (v10 > v11 - 2 || v9[(v10 >> 1) - 1] && v9[v10 >> 1]) )
   {
-    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v10 + 2, 0x75737050u);
     v13 = Pool2;
     if ( !Pool2 )
       goto LABEL_28;
@@ -132,7 +132,7 @@ LABEL_12:
   DeviceInterfaceClassGuid = IopBuildGlobalSymbolicLinkString(a1, P);
   if ( DeviceInterfaceClassGuid < 0 )
     goto LABEL_17;
-  v15 = ExAllocatePool2(0x100uLL);
+  v15 = ExAllocatePool2(0x100uLL, 0x190uLL, 0x20207050u);
   v35 = (WCHAR *)v15;
   v4 = (WCHAR *)v15;
   if ( !v15 )
@@ -200,7 +200,7 @@ LABEL_62:
     {
       if ( v5 )
         ExFreePoolWithTag(v5, 0);
-      v5 = (void *)ExAllocatePool2(0x100uLL);
+      v5 = (void *)ExAllocatePool2(0x100uLL, BufferLength, 0x20207050u);
       if ( !v5 )
         goto LABEL_28;
       DeviceProperty = IoGetDeviceProperty(v7, DevicePropertyPhysicalDeviceObjectName, BufferLength, v5, &BufferLength);
@@ -236,7 +236,11 @@ LABEL_62:
         ObjectAttributes.SecurityQualityOfService = 0LL;
         DeviceInterfaceClassGuid = ZwOpenSymbolicLinkObject((PHANDLE)(v6 + 40), 0xF0001u, &ObjectAttributes);
         if ( DeviceInterfaceClassGuid == -1073741772 )
-          DeviceInterfaceClassGuid = ZwCreateSymbolicLinkObject(v6 + 40, 983041LL);
+          DeviceInterfaceClassGuid = ZwCreateSymbolicLinkObject(
+                                       (PHANDLE)(v6 + 40),
+                                       0xF0001u,
+                                       &ObjectAttributes,
+                                       &DestinationString);
         if ( DeviceInterfaceClassGuid >= 0 )
           HIBYTE(v29) = 1;
         goto LABEL_41;

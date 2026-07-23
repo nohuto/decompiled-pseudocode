@@ -1,30 +1,30 @@
 /*
- * XREFs of MiRemovePteTracker @ 0x14055F060
+ * XREFs of MiRemovePteTracker @ 0x14055F2A0
  * Callers:
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     MmFreeMappingAddress @ 0x140768700 (MmFreeMappingAddress.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     MmFreeMappingAddress @ 0x1407688C0 (MmFreeMappingAddress.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, ULONG_PTR a3)
 {
-  struct _SLIST_ENTRY *v5; // rdi
+  _SLIST_ENTRY *v5; // rdi
   __int64 v6; // rbx
   ULONG_PTR v7; // r14
-  struct _SLIST_ENTRY *v8; // rdx
-  struct _SLIST_ENTRY *Next; // r8
+  _SLIST_ENTRY *v8; // rdx
+  _SLIST_ENTRY *Next; // r8
   ULONG_PTR v10; // r9
   ULONG_PTR v11; // rax
   ULONG_PTR v12; // r9
   _SLIST_ENTRY *v13; // rcx
-  struct _SLIST_ENTRY **v14; // rax
+  _SLIST_ENTRY **v14; // rax
   __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
   struct _KPRCB *CurrentPrcb; // r10
@@ -36,8 +36,8 @@ __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __i
   v5 = 0LL;
   v6 = 40543LL * (unsigned int)(a2 >> 12);
   v7 = a2 & 0xFFFFFFFFFFFFF000uLL;
-  KeAcquireInStackQueuedSpinLock(&qword_140C4EAD0, &LockHandle);
-  v8 = (struct _SLIST_ENTRY *)((char *)&unk_140C4F830 + 16 * (((unsigned __int8)v6 ^ BYTE4(v6)) & 0xF));
+  KeAcquireInStackQueuedSpinLock(&qword_140C4EB10, &LockHandle);
+  v8 = (_SLIST_ENTRY *)((char *)&unk_140C4F870 + 16 * (((unsigned __int8)v6 ^ BYTE4(v6)) & 0xF));
   Next = v8->Next;
   if ( v8->Next == v8 )
     goto LABEL_16;
@@ -55,7 +55,7 @@ __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __i
         v11 = *((_QWORD *)&Next[3].Next + 1);
         if ( v11 != *(_QWORD *)(BugCheckParameter3 + 48) )
           KeBugCheckEx(0xDAu, 4uLL, (ULONG_PTR)Next, v11, *(_QWORD *)(BugCheckParameter3 + 48));
-        if ( !byte_140C4ED54 )
+        if ( !byte_140C4ED94 )
         {
           if ( v10 != *(_QWORD *)(BugCheckParameter3 + 24) )
             KeBugCheckEx(0xDAu, 3uLL, (ULONG_PTR)Next, v10, *(_QWORD *)(BugCheckParameter3 + 24));
@@ -65,7 +65,7 @@ __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __i
         }
       }
       v13 = Next->Next;
-      v14 = (struct _SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
+      v14 = (_SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
       if ( *(&Next->Next->Next + 1) != Next || *v14 != Next )
         __fastfail(3u);
       *v14 = v13;
@@ -78,11 +78,11 @@ __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __i
   if ( !v5 )
   {
 LABEL_16:
-    if ( !byte_140C4EBBD )
+    if ( !byte_140C4EBFD )
       KeBugCheckEx(0xDAu, 6uLL, BugCheckParameter3, v7, a3);
   }
-  qword_140C4F930 -= a3;
-  --qword_140C4F938;
+  qword_140C4F970 -= a3;
+  --qword_140C4F978;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
@@ -105,6 +105,6 @@ LABEL_16:
   }
   __writecr8(OldIrql);
   if ( v5 )
-    return (__int64)RtlpInterlockedPushEntrySList(&stru_140C4EAC0, v5);
+    return (__int64)RtlpInterlockedPushEntrySList(&stru_140C4EB00, v5);
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of CmGetBoundTransaction @ 0x1404EDEAC
+ * XREFs of CmGetBoundTransaction @ 0x1404CFF78
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of BootApplicationPersistentDataInitialize @ 0x140C402D4
+ * XREFs of BootApplicationPersistentDataInitialize @ 0x140C42424
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall BootApplicationPersistentDataInitialize(__int64 a1)
@@ -17,8 +17,8 @@ void __fastcall BootApplicationPersistentDataInitialize(__int64 a1)
   void *v5; // rax
   _QWORD *v6; // rax
 
-  qword_140E62308 = &qword_140E62300;
-  qword_140E62300 = (__int64)&qword_140E62300;
+  qword_140E62458 = &qword_140E62450;
+  qword_140E62450 = (__int64)&qword_140E62450;
   v1 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 232LL);
   v2 = *v1;
   while ( v2 != v1 )
@@ -39,13 +39,13 @@ void __fastcall BootApplicationPersistentDataInitialize(__int64 a1)
       *((_DWORD *)Pool2 + 6) = *((_DWORD *)v3 + 6);
       Pool2[2] = v5;
       memmove(v5, (const void *)v3[2], *((unsigned int *)v3 + 6));
-      v6 = qword_140E62308;
-      if ( *(__int64 **)qword_140E62308 != &qword_140E62300 )
+      v6 = qword_140E62458;
+      if ( *(__int64 **)qword_140E62458 != &qword_140E62450 )
         __fastfail(3u);
-      *Pool2 = &qword_140E62300;
+      *Pool2 = &qword_140E62450;
       Pool2[1] = v6;
       *v6 = Pool2;
-      qword_140E62308 = Pool2;
+      qword_140E62458 = Pool2;
     }
   }
 }

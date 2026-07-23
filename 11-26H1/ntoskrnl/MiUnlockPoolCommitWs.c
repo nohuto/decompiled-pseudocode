@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockPoolCommitWs @ 0x140365110
+ * XREFs of MiUnlockPoolCommitWs @ 0x140366EB0
  * Callers:
- *     MiCommitPoolMemory @ 0x140364AE0 (MiCommitPoolMemory.c)
- *     MiFillPoolCommitPageTable @ 0x1403652A0 (MiFillPoolCommitPageTable.c)
+ *     MiCommitPoolMemory @ 0x140366880 (MiCommitPoolMemory.c)
+ *     MiFillPoolCommitPageTable @ 0x140367040 (MiFillPoolCommitPageTable.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __fastcall MiUnlockPoolCommitWs(__int64 a1)
@@ -53,7 +53,7 @@ void __fastcall MiUnlockPoolCommitWs(__int64 a1)
         v9 = 2 * (unsigned int)((__int64)(v1 + 0x90482413000LL) >> 3);
         v10 = ~(2 << (v9 & 0x1F)) & ~(1 << (v9 & 0x1F));
         v1 = v9 >> 5;
-        _InterlockedAnd((volatile signed __int32 *)&stru_140E2D930.PriorityFloorCounts[4 * v1 + 4], v10);
+        _InterlockedAnd((volatile signed __int32 *)&stru_140E2DAB0.PriorityFloorCounts[4 * v1 + 4], v10);
       }
       else
       {

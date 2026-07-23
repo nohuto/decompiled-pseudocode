@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGetRecoveryInformation @ 0x14057AFC4
+ * XREFs of KiGetRecoveryInformation @ 0x14057B4B4
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x14057A42C (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x14057A91C (KiAttemptBugcheckRecovery.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiGetRecoveryInformation(_DWORD *a1)

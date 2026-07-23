@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCbCopyA @ 0x14047C2C8
+ * XREFs of RtlStringCbCopyA @ 0x140475C38
  * Callers:
- *     ObpInitializeObjectRefInfo @ 0x1407C4CA8 (ObpInitializeObjectRefInfo.c)
- *     ObpInitializeObjectRefsByStack @ 0x1407C4D98 (ObpInitializeObjectRefsByStack.c)
- *     EtwpLogRefSetAutoMark @ 0x14082F58C (EtwpLogRefSetAutoMark.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     IopStoreArcInformation @ 0x140CBDF98 (IopStoreArcInformation.c)
+ *     ObpInitializeObjectRefInfo @ 0x1407C7D08 (ObpInitializeObjectRefInfo.c)
+ *     ObpInitializeObjectRefsByStack @ 0x1407C7DF8 (ObpInitializeObjectRefsByStack.c)
+ *     EtwpLogRefSetAutoMark @ 0x1408357CC (EtwpLogRefSetAutoMark.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     IopStoreArcInformation @ 0x140CC4068 (IopStoreArcInformation.c)
  * Callees:
  *     <none>
  */

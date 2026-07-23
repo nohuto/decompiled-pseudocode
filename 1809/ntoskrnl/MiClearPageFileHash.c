@@ -1,15 +1,15 @@
 /*
- * XREFs of MiClearPageFileHash @ 0x140156888
+ * XREFs of MiClearPageFileHash @ 0x140156988
  * Callers:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
@@ -19,7 +19,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
   __int64 *v5; // rbx
   __int64 v6; // rax
   __int64 v7; // rcx
-  struct _SLIST_ENTRY *v8; // r14
+  _SLIST_ENTRY *v8; // r14
   __int64 Next; // rcx
   __int64 v10; // r11
   unsigned __int64 v11; // r9
@@ -45,15 +45,15 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
   v7 = v6;
   if ( (v6 & 1) == 0 )
   {
-    if ( qword_14043A0C0 && (v6 & 0x10) == 0 )
-      v6 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v6 & 0x10) == 0 )
+      v6 &= ~qword_14043B180;
     updated = MiUpdatePageFileHighInPte(v7, (unsigned int)(HIDWORD(v6) - 1));
     if ( !MiPteInShadowRange((unsigned __int64)v5) )
       goto LABEL_25;
     if ( (unsigned int)MiPteHasShadow() )
     {
       v19 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
       {
 LABEL_25:
         *v5 = v18;
@@ -71,20 +71,20 @@ LABEL_25:
     goto LABEL_25;
   }
   *(_DWORD *)v4 = 1;
-  v8 = (struct _SLIST_ENTRY *)(48
-                             * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&updated) >> 12) & 0xFFFFFFFFFLL)
-                             - 0x58000000000LL);
+  v8 = (_SLIST_ENTRY *)(48
+                      * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&updated) >> 12) & 0xFFFFFFFFFLL)
+                      - 0x58000000000LL);
   Next = (__int64)v8[1].Next;
   HIDWORD(v10) = HIDWORD(Next);
-  if ( qword_14043A0C0 && (Next & 0x10) == 0 )
-    v10 = Next & ~qword_14043A0C0;
+  if ( qword_14043B180 && (Next & 0x10) == 0 )
+    v10 = Next & ~qword_14043B180;
   updated = MiUpdatePageFileHighInPte(Next, (unsigned int)(HIDWORD(v10) - 1));
   if ( MiPteInShadowRange(v11) )
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
       v14 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_8;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -114,7 +114,7 @@ LABEL_12:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v17 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_12;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

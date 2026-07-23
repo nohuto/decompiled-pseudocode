@@ -1,34 +1,34 @@
 /*
- * XREFs of LdrpCallTlsInitializers @ 0x18004C040
+ * XREFs of LdrpCallTlsInitializers @ 0x1800365C0
  * Callers:
- *     LdrShutdownThread @ 0x180086CA0 (LdrShutdownThread.c)
- *     LdrShutdownProcess @ 0x180087920 (LdrShutdownProcess.c)
- *     LdrpInitializeThread @ 0x1800CF3C0 (LdrpInitializeThread.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     LdrpInitializeNode @ 0x18011A300 (LdrpInitializeNode.c)
- *     LdrpProcessDetachNode @ 0x18011B0A8 (LdrpProcessDetachNode.c)
+ *     LdrShutdownThread @ 0x18007E040 (LdrShutdownThread.c)
+ *     LdrShutdownProcess @ 0x18007ECA0 (LdrShutdownProcess.c)
+ *     LdrpInitializeThread @ 0x1800CCB30 (LdrpInitializeThread.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     LdrpInitializeNode @ 0x18011A0B0 (LdrpInitializeNode.c)
+ *     LdrpProcessDetachNode @ 0x18011AE58 (LdrpProcessDetachNode.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     RtlpAcquireSRWLockSharedContended @ 0x18004B7F0 (RtlpAcquireSRWLockSharedContended.c)
- *     LdrpCallInitRoutine @ 0x18004C46C (LdrpCallInitRoutine.c)
- *     RtlReportException @ 0x18010BBF0 (RtlReportException.c)
- *     NtSetInformationThread @ 0x18015F0E0 (NtSetInformationThread.c)
- *     ZwAlertThreadByThreadIdEx @ 0x18015FD70 (ZwAlertThreadByThreadIdEx.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     RtlpAcquireSRWLockSharedContended @ 0x180035D70 (RtlpAcquireSRWLockSharedContended.c)
+ *     LdrpCallInitRoutine @ 0x1800369EC (LdrpCallInitRoutine.c)
+ *     RtlReportException @ 0x18010B740 (RtlReportException.c)
+ *     NtSetInformationThread @ 0x18015EFE0 (NtSetInformationThread.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x18015FC70 (ZwAlertThreadByThreadIdEx.c)
  */
 
-struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
+int __fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
 {
-  _QWORD *v4; // r9
+  char *v4; // r9
   _QWORD *SchedulerSharedDataSlot; // r8
   unsigned int i; // edx
-  unsigned __int64 v7; // rax
+  volatile signed __int64 *v7; // rax
   char v8; // cl
   _UNKNOWN **v9; // rbx
   _UNKNOWN **j; // rax
   signed __int64 v11; // rax
   _BYTE *v12; // rsi
-  struct _TEB *result; // rax
+  struct _TEB *v13; // rax
   _QWORD *v14; // rdx
   unsigned int n; // ecx
   __int64 *v16; // rbx
@@ -42,7 +42,7 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
   __int64 v24; // rcx
   signed __int64 v25; // rcx
   signed __int64 v26; // rtt
-  __int64 *v27; // r15
+  _RTL_SRWLOCK *v27; // r15
   _QWORD *v28; // r8
   __int64 m; // rdx
   __int64 v30; // rax
@@ -52,7 +52,7 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
   __int64 v34; // rsi
   __int64 v35; // rcx
   signed __int64 v36; // rax
-  _QWORD v37[3]; // [rsp+58h] [rbp-30h] BYREF
+  _QWORD ThreadInformation[3]; // [rsp+58h] [rbp-30h] BYREF
 
   v4 = 0LL;
   SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -62,16 +62,16 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
     {
       if ( !SchedulerSharedDataSlot[i] )
       {
-        v4 = &SchedulerSharedDataSlot[i];
+        v4 = (char *)&SchedulerSharedDataSlot[i];
         break;
       }
     }
   }
   if ( v4 )
-    *v4 = &LdrpTlsLock;
-  v7 = _InterlockedCompareExchange64(&LdrpTlsLock, 17LL, 0LL);
+    *(_QWORD *)v4 = &LdrpTlsLock;
+  v7 = (volatile signed __int64 *)_InterlockedCompareExchange64((volatile signed __int64 *)&LdrpTlsLock, 17LL, 0LL);
   if ( v7 )
-    RtlpAcquireSRWLockSharedContended(&LdrpTlsLock, (unsigned __int64)v4, v7, (unsigned __int64)v4);
+    RtlpAcquireSRWLockSharedContended((volatile signed __int64 *)&LdrpTlsLock, (unsigned __int64)v4, v7, v4);
   v8 = 0;
   v9 = 0LL;
   for ( j = (_UNKNOWN **)LdrpTlsList; j != &LdrpTlsList; j = (_UNKNOWN **)*j )
@@ -85,7 +85,7 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
   }
   if ( !v8 )
     v9 = 0LL;
-  v11 = _InterlockedCompareExchange64(&LdrpTlsLock, 0LL, 17LL);
+  v11 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpTlsLock, 0LL, 17LL);
   if ( v11 != 17 )
   {
     if ( (v11 & 1) == 0 )
@@ -96,7 +96,7 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
       if ( (v11 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
         v18 = v11 - 16;
       v19 = v11;
-      v11 = _InterlockedCompareExchange64(&LdrpTlsLock, v18, v11);
+      v11 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpTlsLock, v18, v11);
       if ( v19 == v11 )
         goto LABEL_19;
     }
@@ -121,7 +121,7 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
         v24 = v22;
       v25 = v11 + v24;
       v26 = v11;
-      v11 = _InterlockedCompareExchange64(&LdrpTlsLock, v25, v11);
+      v11 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpTlsLock, v25, v11);
     }
     while ( v26 != v11 );
     if ( v23 == 2 )
@@ -131,7 +131,7 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
       {
         while ( (v25 & 1) != 0 )
         {
-          v36 = _InterlockedCompareExchange64(&LdrpTlsLock, v25 - 4, v25);
+          v36 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpTlsLock, v25 - 4, v25);
           v31 = v25 == v36;
           v25 = v36;
           if ( v31 )
@@ -153,7 +153,7 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
             break;
         }
         v27 = 0LL;
-        v32 = _InterlockedCompareExchange64(&LdrpTlsLock, 0LL, v25);
+        v32 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpTlsLock, 0LL, v25);
         v31 = v25 == v32;
         v25 = v32;
         if ( v31 )
@@ -161,7 +161,7 @@ struct _TEB *__fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
       }
       *(_QWORD *)((v25 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v30;
       *(_QWORD *)(m + 16) = 0LL;
-      _InterlockedAnd64(&LdrpTlsLock, 0xFFFFFFFFFFFFFFFBuLL);
+      _InterlockedAnd64((volatile signed __int64 *)&LdrpTlsLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_64:
@@ -177,14 +177,14 @@ LABEL_64:
   }
 LABEL_19:
   v12 = 0LL;
-  result = NtCurrentTeb();
-  v14 = result->SchedulerSharedDataSlot;
+  v13 = NtCurrentTeb();
+  v14 = v13->SchedulerSharedDataSlot;
   if ( v14 )
   {
     for ( n = 0; n < 8; ++n )
     {
-      result = (struct _TEB *)(v14[n] & 0x7FFFFFFFFFFFFFFCLL);
-      if ( result == (struct _TEB *)((unsigned __int64)&LdrpTlsLock & 0x7FFFFFFFFFFFFFFCLL) )
+      v13 = (struct _TEB *)(v14[n] & 0x7FFFFFFFFFFFFFFCLL);
+      if ( v13 == (struct _TEB *)((unsigned __int64)&LdrpTlsLock & 0x7FFFFFFFFFFFFFFCLL) )
       {
         v12 = &v14[n];
         break;
@@ -196,9 +196,13 @@ LABEL_19:
     *v12 |= 2u;
     if ( (char)v12[7] < 0 )
     {
-      v37[1] = 0LL;
-      v37[0] = (v12 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-      result = (struct _TEB *)NtSetInformationThread(-2LL, 56LL, v37, 16LL);
+      ThreadInformation[1] = 0LL;
+      ThreadInformation[0] = (v12 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+      LODWORD(v13) = NtSetInformationThread(
+                       (HANDLE)0xFFFFFFFFFFFFFFFELL,
+                       ThreadUpdateLockOwnership,
+                       ThreadInformation,
+                       0x10u);
     }
     *(_QWORD *)v12 = 0LL;
   }
@@ -214,7 +218,7 @@ LABEL_19:
           break;
         ++v16;
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrtls.c",
+          "minkernel\\ldr\\ldrtls.c",
           1187,
           (__int64)"LdrpCallTlsInitializers",
           2,
@@ -222,9 +226,9 @@ LABEL_19:
           v17,
           a2 + 72,
           *(_QWORD *)(a2 + 48));
-        result = (struct _TEB *)LdrpCallInitRoutine(ImageTlsCallbackCaller, *(_QWORD *)(a2 + 48), a1, v17);
+        LODWORD(v13) = LdrpCallInitRoutine(ImageTlsCallbackCaller, *(_QWORD *)(a2 + 48), a1, v17);
       }
     }
   }
-  return result;
+  return (int)v13;
 }

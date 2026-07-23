@@ -1,7 +1,7 @@
 /*
- * XREFs of PopGetPowerActionWatchdogTimeout @ 0x1406077FC
+ * XREFs of PopGetPowerActionWatchdogTimeout @ 0x14060A35C
  * Callers:
- *     PopSetPowerActionWatchdogState @ 0x1404FE998 (PopSetPowerActionWatchdogState.c)
+ *     PopSetPowerActionWatchdogState @ 0x1404F7F48 (PopSetPowerActionWatchdogState.c)
  * Callees:
  *     <none>
  */

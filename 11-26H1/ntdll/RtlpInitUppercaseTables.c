@@ -1,28 +1,34 @@
 /*
- * XREFs of RtlpInitUppercaseTables @ 0x1800D5550
+ * XREFs of RtlpInitUppercaseTables @ 0x1800DD2A0
  * Callers:
- *     LdrpInitializeNlsInfo @ 0x1800D5244 (LdrpInitializeNlsInfo.c)
+ *     LdrpInitializeNlsInfo @ 0x1800DCF9C (LdrpInitializeNlsInfo.c)
  * Callees:
- *     ZwGetNlsSectionPtr @ 0x180160F70 (ZwGetNlsSectionPtr.c)
+ *     ZwGetNlsSectionPtr @ 0x180160E70 (ZwGetNlsSectionPtr.c)
  */
 
 __int64 __fastcall RtlpInitUppercaseTables(__int16 a1)
 {
-  __int64 v2; // rax
-  __int64 v3; // [rsp+48h] [rbp+10h] BYREF
+  PVOID v2; // rax
+  PVOID SectionPointer; // [rsp+48h] [rbp+10h] BYREF
 
-  v3 = 0LL;
-  if ( a1 && ((int)ZwGetNlsSectionPtr(14LL, 0LL, 0LL, &v3, 0LL) >= 0 ? (v2 = v3) : (v2 = 0LL, v3 = 0LL), v2) )
+  SectionPointer = 0LL;
+  if ( a1
+    && (ZwGetNlsSectionPtr(0xEu, 0, 0LL, &SectionPointer, 0LL) >= 0
+      ? (v2 = SectionPointer)
+      : (v2 = 0LL, SectionPointer = 0LL),
+        v2) )
   {
-    _InterlockedExchange64(&qword_1801C6038, v2 + 4);
-    _InterlockedExchange64(&qword_1801C6040, v3 + 2LL * *(unsigned __int16 *)(v3 + 2) + 4);
-    qword_1801C6030 = v3;
+    _InterlockedExchange64(&qword_1801C5038, (__int64)v2 + 4);
+    _InterlockedExchange64(
+      &qword_1801C5040,
+      (__int64)SectionPointer + 2 * *((unsigned __int16 *)SectionPointer + 1) + 4);
+    qword_1801C5030 = (__int64)SectionPointer;
   }
   else
   {
-    qword_1801C6038 = 0LL;
-    qword_1801C6040 = 0LL;
-    qword_1801C6030 = 0LL;
+    qword_1801C5038 = 0LL;
+    qword_1801C5040 = 0LL;
+    qword_1801C5030 = 0LL;
   }
   return 0LL;
 }

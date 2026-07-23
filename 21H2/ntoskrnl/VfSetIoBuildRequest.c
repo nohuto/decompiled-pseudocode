@@ -1,12 +1,12 @@
 /*
- * XREFs of VfSetIoBuildRequest @ 0x1409D16D8
+ * XREFs of VfSetIoBuildRequest @ 0x1409D26D8
  * Callers:
- *     IovBuildAsynchronousFsdRequest @ 0x1409C4AD0 (IovBuildAsynchronousFsdRequest.c)
- *     IovBuildDeviceIoControlRequest @ 0x1409C4B60 (IovBuildDeviceIoControlRequest.c)
- *     IovBuildSynchronousFsdRequest @ 0x1409C4C20 (IovBuildSynchronousFsdRequest.c)
+ *     IovBuildAsynchronousFsdRequest @ 0x1409C5AD0 (IovBuildAsynchronousFsdRequest.c)
+ *     IovBuildDeviceIoControlRequest @ 0x1409C5B60 (IovBuildDeviceIoControlRequest.c)
+ *     IovBuildSynchronousFsdRequest @ 0x1409C5C20 (IovBuildSynchronousFsdRequest.c)
  * Callees:
- *     VfIrpDatabaseEntryFindAndLock @ 0x1409E07A8 (VfIrpDatabaseEntryFindAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x1409E092C (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x1409E17A8 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E192C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 char __fastcall VfSetIoBuildRequest(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of __GSHandlerCheckCommon @ 0x18012E65C
+ * XREFs of __GSHandlerCheckCommon @ 0x18012E3CC
  * Callers:
- *     __GSHandlerCheck @ 0x18012E638 (__GSHandlerCheck.c)
- *     __GSHandlerCheck_SEH @ 0x18015EA30 (__GSHandlerCheck_SEH.c)
+ *     __GSHandlerCheck @ 0x18012E3A8 (__GSHandlerCheck.c)
+ *     __GSHandlerCheck_SEH @ 0x18015E930 (__GSHandlerCheck_SEH.c)
  * Callees:
  *     <none>
  */

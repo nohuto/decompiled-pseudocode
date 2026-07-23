@@ -12,9 +12,9 @@
  * Fallback: raw IDA disassembly follows.
  *
  * 000000004B32E7CE: mov     edi, edi
- * 000000004B32E7D0: push    ebp; pszFormat
+ * 000000004B32E7D0: push    ebp; pcchNewDestLength
  * 000000004B32E7D1: mov     ebp, esp
- * 000000004B32E7D3: mov     eax, [ebp+cbDest]
+ * 000000004B32E7D3: mov     eax, dword ptr [ebp+cbDest]
  * 000000004B32E7D6: xor     ecx, ecx
  * 000000004B32E7D8: test    eax, eax
  * 000000004B32E7DA: jz      short loc_4B32E7E3
@@ -23,10 +23,10 @@
  * 000000004B32E7E3: mov     ecx, 80070057h
  * 000000004B32E7E8: test    ecx, ecx
  * 000000004B32E7EA: js      short loc_4B32E802
- * 000000004B32E7EC: lea     ecx, [ebp+pcchNewDestLength]
+ * 000000004B32E7EC: lea     ecx, [ebp+pszFormat]
  * 000000004B32E7EF: mov     edx, eax
- * 000000004B32E7F1: push    ecx; pcchNewDestLength
- * 000000004B32E7F2: push    [ebp+pszFormat]; cchDest
+ * 000000004B32E7F1: push    ecx
+ * 000000004B32E7F2: push    dword ptr [ebp+cbDest+4]; cchDest
  * 000000004B32E7F5: push    ecx; pszDest
  * 000000004B32E7F6: mov     ecx, [ebp+pszDest]
  * 000000004B32E7F9: call    StringVPrintfWorkerA

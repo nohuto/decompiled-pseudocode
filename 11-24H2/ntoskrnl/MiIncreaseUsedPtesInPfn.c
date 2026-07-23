@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIncreaseUsedPtesInPfn @ 0x140396FF4
+ * XREFs of MiIncreaseUsedPtesInPfn @ 0x1403916FC
  * Callers:
- *     MiInitializePfn @ 0x14021E510 (MiInitializePfn.c)
- *     MiBuildForkPte @ 0x1402C53E8 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x14036D640 (MiHandleForkTransitionPte.c)
- *     MiWriteSharedDemandZeroPte @ 0x1403951B4 (MiWriteSharedDemandZeroPte.c)
- *     MiDuplicateCloneLeaf @ 0x140396854 (MiDuplicateCloneLeaf.c)
- *     MiWriteUselessChildPte @ 0x140396F60 (MiWriteUselessChildPte.c)
- *     MiBuildForkPageTable @ 0x1404A304C (MiBuildForkPageTable.c)
- *     MiInitializeDummyPages @ 0x140C4F7E0 (MiInitializeDummyPages.c)
- *     MxCreatePfnsForPtes @ 0x140C52830 (MxCreatePfnsForPtes.c)
- *     MiFillGapPtes @ 0x140C54D90 (MiFillGapPtes.c)
+ *     MiInitializePfn @ 0x14024B260 (MiInitializePfn.c)
+ *     MiHandleForkTransitionPte @ 0x1402678C4 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1402687D0 (MiBuildForkPte.c)
+ *     MiWriteSharedDemandZeroPte @ 0x14026A080 (MiWriteSharedDemandZeroPte.c)
+ *     MiDuplicateCloneLeaf @ 0x14038FAFC (MiDuplicateCloneLeaf.c)
+ *     MiWriteUselessChildPte @ 0x140391668 (MiWriteUselessChildPte.c)
+ *     MiBuildForkPageTable @ 0x14049DFAC (MiBuildForkPageTable.c)
+ *     MiInitializeDummyPages @ 0x140C51970 (MiInitializeDummyPages.c)
+ *     MxCreatePfnsForPtes @ 0x140C549C0 (MxCreatePfnsForPtes.c)
+ *     MiFillGapPtes @ 0x140C56F20 (MiFillGapPtes.c)
  * Callees:
  *     <none>
  */

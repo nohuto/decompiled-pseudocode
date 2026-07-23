@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlTimeFieldsToTime(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlTimeFieldsToTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time)
 {
-  return RtlpTimeFieldsToTime(a1, a2, 0LL);
+  return RtlpTimeFieldsToTime(TimeFields, Time, 0LL);
 }

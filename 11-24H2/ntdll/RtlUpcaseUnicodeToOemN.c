@@ -1,27 +1,39 @@
 /*
- * XREFs of RtlUpcaseUnicodeToOemN @ 0x1800D4410
+ * XREFs of RtlUpcaseUnicodeToOemN @ 0x1800CF780
  * Callers:
- *     RtlUpcaseUnicodeStringToOemString @ 0x1800D4300 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x18013C490 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x1800CF670 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x18013A680 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
- *     RtlpIsUtf8Process @ 0x180070CD0 (RtlpIsUtf8Process.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x1800D45B0 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     RtlpIsUtf8Process @ 0x18008D5B0 (RtlpIsUtf8Process.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x1800CF920 (UpcaseUnicodeToSingleByteNHelper.c)
  */
 
-__int64 RtlUpcaseUnicodeToOemN()
+NTSTATUS __cdecl RtlUpcaseUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  int v0; // edx
-  _BYTE *v1; // rcx
-  _DWORD *v2; // r8
-  __int64 v3; // r9
-  unsigned int v4; // r10d
-  signed __int32 v6[8]; // [rsp+0h] [rbp-48h] BYREF
+  ULONG v5; // edx
+  CHAR *v6; // rcx
+  ULONG *v7; // r8
+  const WCHAR *v8; // r9
+  unsigned int v9; // r10d
+  signed __int32 v11[8]; // [rsp+0h] [rbp-48h] BYREF
 
   if ( RtlpIsUtf8Process() )
-    return UpcaseUnicodeToUTF8NHelper(v1, v0, v2, v3, v4);
-  _InterlockedOr(v6, 0);
-  if ( word_1801CCFDC )
-    return UpcaseUnicodeToMultiByteNHelper((_DWORD)v1, v0, (_DWORD)v2, v3, v4);
+    return UpcaseUnicodeToUTF8NHelper(v6, v5, v7, (__int64)v8, v9);
+  _InterlockedOr(v11, 0);
+  if ( CodePageTable.DBCSCodePage )
+    return UpcaseUnicodeToMultiByteNHelper(v6, v5, v7, v8, v9);
   else
-    return UpcaseUnicodeToSingleByteNHelper((_DWORD)v1, v0, (_DWORD)v2, v3, v4, qword_1801CCFF8, qword_1801CCFF0);
+    return UpcaseUnicodeToSingleByteNHelper(
+             (_DWORD)v6,
+             v5,
+             (_DWORD)v7,
+             (_DWORD)v8,
+             v9,
+             (__int64)CodePageTable.WideCharTable,
+             (__int64)CodePageTable.MultiByteTable);
 }

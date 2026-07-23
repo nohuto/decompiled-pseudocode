@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllImeWndProc_A @ 0x18015ED60
+ * XREFs of NtdllImeWndProc_A @ 0x18015EC60
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllImeWndProc_A()
 {
-  off_1801E01B8();
+  off_1801DF1B8();
 }

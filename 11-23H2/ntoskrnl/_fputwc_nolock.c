@@ -1,10 +1,10 @@
 /*
- * XREFs of _fputwc_nolock @ 0x1403DDE6C
+ * XREFs of _fputwc_nolock @ 0x1403DE04C
  * Callers:
- *     write_char @ 0x1403DCCD0 (write_char.c)
+ *     write_char @ 0x1403DCEB0 (write_char.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
- *     _flswbuf @ 0x1403DE370 (_flswbuf.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
+ *     _flswbuf @ 0x1403DE550 (_flswbuf.c)
  */
 
 wint_t __cdecl fputwc_nolock(wchar_t Ch, FILE *File)

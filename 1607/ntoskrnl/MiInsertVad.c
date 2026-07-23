@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertVad @ 0x140042950
+ * XREFs of MiInsertVad @ 0x1400424D0
  * Callers:
- *     MiGetWsAndInsertVad @ 0x140030AE0 (MiGetWsAndInsertVad.c)
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiInsertPrivateVad @ 0x1400965F0 (MiInsertPrivateVad.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E214 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiInsertViewOfPhysicalSection @ 0x140146848 (MiInsertViewOfPhysicalSection.c)
+ *     MiGetWsAndInsertVad @ 0x140030660 (MiGetWsAndInsertVad.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiInsertPrivateVad @ 0x140095DF0 (MiInsertPrivateVad.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E778 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140146DB8 (MiInsertViewOfPhysicalSection.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
  */
 
 __int64 __fastcall MiInsertVad(unsigned __int64 a1, __int64 a2)

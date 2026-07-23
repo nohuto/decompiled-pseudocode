@@ -1,17 +1,17 @@
 /*
- * XREFs of VrpHandleIoctlLoadDifferencingHiveForHost @ 0x1408296E4
+ * XREFs of VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140829F14
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140929280 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x14092B3C0 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     VrpLoadDifferencingHive @ 0x14092A57C (VrpLoadDifferencingHive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     VrpLoadDifferencingHive @ 0x14092C6BC (VrpLoadDifferencingHive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(__int64 a1, unsigned int a2, KPROCESSOR_MODE a3)
@@ -22,13 +22,13 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(__int64 a1, unsigne
   unsigned int v9; // ebx
   unsigned int v10; // edx
   unsigned int v11; // ecx
-  unsigned __int16 v12; // dx
+  unsigned __int64 v12; // rdx
   unsigned __int64 v13; // rax
   _WORD *Pool2; // rsi
   int DifferencingHive; // edi
-  _QWORD *v16; // rax
+  char *v16; // rax
   signed __int8 v17; // cf
-  _QWORD *v18; // rdi
+  char *v18; // rdi
   void *Src[2]; // [rsp+40h] [rbp-30h] BYREF
   __int128 v21; // [rsp+50h] [rbp-20h] BYREF
   __int128 v22; // [rsp+60h] [rbp-10h] BYREF
@@ -60,18 +60,18 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(__int64 a1, unsigne
   }
   else if ( SeSinglePrivilegeCheck(SeBackupPrivilege, a3) && SeSinglePrivilegeCheck(SeRestorePrivilege, a3) )
   {
-    v12 = *(_WORD *)(a1 + 8);
+    v12 = *(unsigned __int16 *)(a1 + 8);
     Src[1] = (void *)(a1 + 24);
     WORD1(Src[0]) = v12;
     LOWORD(Src[0]) = v12;
     v13 = *(unsigned __int16 *)(a1 + 10);
     WORD1(v22) = v13;
     LOWORD(v22) = v13;
-    *((_QWORD *)&v22 + 1) = a1 + 24 + 2 * ((unsigned __int64)v12 >> 1);
+    *((_QWORD *)&v22 + 1) = a1 + 24 + 2 * (v12 >> 1);
     *((_QWORD *)&v21 + 1) = *((_QWORD *)&v22 + 1) + 2 * (v13 >> 1);
     WORD1(v21) = *(_WORD *)(a1 + 12);
     LOWORD(v21) = WORD1(v21);
-    Pool2 = (_WORD *)ExAllocatePool2(0x101uLL);
+    Pool2 = (_WORD *)ExAllocatePool2(0x101uLL, v12 + 10, 0x67655256u);
     if ( Pool2 )
     {
       Pool2[4] = Src[0];
@@ -92,13 +92,13 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(__int64 a1, unsigne
       }
       else
       {
-        v16 = KeAbPreAcquire((__int64)&VrpHostLoadedHivesLock, 0LL);
+        v16 = (char *)KeAbPreAcquire((__int64)&VrpHostLoadedHivesLock, 0LL);
         v17 = _interlockedbittestandset64((volatile signed __int32 *)&VrpHostLoadedHivesLock, 0LL);
         v18 = v16;
         if ( v17 )
-          ExfAcquirePushLockExclusiveEx(&VrpHostLoadedHivesLock, (__int64)v16, (__int64)&VrpHostLoadedHivesLock);
+          ExfAcquirePushLockExclusiveEx(&VrpHostLoadedHivesLock, v16, (__int64)&VrpHostLoadedHivesLock);
         if ( v18 )
-          *((_BYTE *)v18 + 10) = 1;
+          v18[10] = 1;
         *(_QWORD *)Pool2 = VrpHostLoadedHives;
         VrpHostLoadedHives = (__int64)Pool2;
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&VrpHostLoadedHivesLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

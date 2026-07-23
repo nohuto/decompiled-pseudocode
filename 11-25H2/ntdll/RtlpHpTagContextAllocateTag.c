@@ -41,7 +41,7 @@ __int64 __fastcall RtlpHpTagContextAllocateTag(__int64 a1, __int128 *a2, __int64
     *(_QWORD *)(v7 + 32) = a4;
     *(_QWORD *)(v7 + 8) = a3;
     *(_OWORD *)(v7 + 16) = v9;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpHpTagContext);
+    RtlAcquireSRWLockExclusive(&RtlpHpTagContext);
     Mapping = RtlpHpTagContextFindMapping(&RtlpHpTagContext, a2, a3);
     if ( Mapping )
     {

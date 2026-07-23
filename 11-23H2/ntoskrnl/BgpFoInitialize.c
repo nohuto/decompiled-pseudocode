@@ -3,9 +3,9 @@
  * Callers:
  *     BgpFwLibraryInitialize @ 0x140AEDC78 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14038762C (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x140387E14 (FioFwReadUlongAtOffset.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14038780C (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x140387FF4 (FioFwReadUlongAtOffset.c)
  *     FopInitializeFonts @ 0x140B9CF5C (FopInitializeFonts.c)
  */
 

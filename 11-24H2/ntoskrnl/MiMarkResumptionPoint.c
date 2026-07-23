@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMarkResumptionPoint @ 0x14042F550
+ * XREFs of MiMarkResumptionPoint @ 0x140421720
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1402DC430 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14023DD10 (MiWalkPageTablesRecursively.c)
  * Callees:
  *     <none>
  */

@@ -19,7 +19,7 @@ NTSTATUS __stdcall IoWritePartitionTable(
         ULONG NumberOfHeads,
         struct _DRIVE_LAYOUT_INFORMATION *PartitionBuffer)
 {
-  ULONG PartitionCount; // eax
+  DWORD PartitionCount; // eax
   struct SC_DISK_LAYOUT *PoolWithTag; // rax
   struct SC_DISK_LAYOUT *v8; // rbx
   NTSTATUS v9; // edi

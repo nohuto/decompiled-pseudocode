@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseInPageRefs @ 0x140309D08
+ * XREFs of MiReleaseInPageRefs @ 0x1402EBD88
  * Callers:
- *     MiInvalidateCollidedIos @ 0x14030F394 (MiInvalidateCollidedIos.c)
+ *     MiInvalidateCollidedIos @ 0x1402F1414 (MiInvalidateCollidedIos.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiDereferenceControlAreaPfnList @ 0x14030A130 (MiDereferenceControlAreaPfnList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402EC1B0 (MiDereferenceControlAreaPfnList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)

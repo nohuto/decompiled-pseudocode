@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlEnableVsmCalls @ 0x140C5D014
+ * XREFs of HvlEnableVsmCalls @ 0x140C1B930
  * Callers:
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
  * Callees:
- *     HvlpTryConfigureInterface @ 0x14058B81C (HvlpTryConfigureInterface.c)
- *     HvlpGetVtlCallVa @ 0x1406A0B30 (HvlpGetVtlCallVa.c)
- *     VslBindNtIum @ 0x140C199BC (VslBindNtIum.c)
+ *     HvlpTryConfigureInterface @ 0x140588B0C (HvlpTryConfigureInterface.c)
+ *     HvlpGetVtlCallVa @ 0x1405895B0 (HvlpGetVtlCallVa.c)
+ *     VslBindNtIum @ 0x140C1B9F4 (VslBindNtIum.c)
  */
 
 __int64 __fastcall HvlEnableVsmCalls(__int64 a1)

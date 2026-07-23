@@ -3,9 +3,9 @@
  * Callers:
  *     sub_140A0F914 @ 0x140A0F914 (sub_140A0F914.c)
  * Callees:
- *     ?wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x140361540 (-wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCac.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     WbAlloc @ 0x1407E3010 (WbAlloc.c)
+ *     sub_140361540 @ 0x140361540 (sub_140361540.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_1407E3010 @ 0x1407E3010 (sub_1407E3010.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -19,7 +19,6 @@ __int64 __fastcall sub_140A10548(__int64 a1, unsigned int a2, _OWORD *a3, __int6
   _OWORD *v12; // rax
   _OWORD *v13; // rax
   PVOID P[2]; // [rsp+68h] [rbp-40h] BYREF
-  int v16; // [rsp+B8h] [rbp+10h] BYREF
 
   *(_OWORD *)P = 0LL;
   if ( a2 < 0x10 )
@@ -29,7 +28,7 @@ LABEL_20:
     v9 = P[1];
     goto LABEL_21;
   }
-  v7 = WbAlloc(0xF4u, &P[1]);
+  v7 = sub_1407E3010(0xF4u, &P[1]);
   if ( v7 < 0 )
     goto LABEL_20;
   v8 = *(_OWORD **)(a1 + 8);
@@ -63,7 +62,7 @@ LABEL_20:
   {
     ExFreePoolWithTag(v9, 0);
     P[1] = 0LL;
-    v7 = WbAlloc(0xF8u, &P[1]);
+    v7 = sub_1407E3010(0xF8u, &P[1]);
     if ( v7 < 0 )
       goto LABEL_20;
     v12 = *(_OWORD **)(a1 + 8);
@@ -93,25 +92,8 @@ LABEL_20:
   }
   else
   {
-    v16 = 3;
-    if ( (unsigned int)wil_details_FeatureReporting_ReportUsageToServiceDirect(
-                         &stru_140CE21C8,
-                         0xE67B5Au,
-                         0,
-                         0,
-                         wil_details_ServiceReportingKind_PotentialDeviceUsage)
-      && g_wil_details_pfnFeatureLoggingHook )
-    {
-      g_wil_details_pfnFeatureLoggingHook(
-        0xE67B5Au,
-        &Feature_PdttSupport_logged_traits,
-        0LL,
-        0,
-        (const enum wil_ReportingKind *)&v16,
-        0LL,
-        0,
-        1uLL);
-    }
+    if ( (unsigned int)sub_140361540((__int64)&unk_140CE21C8, 0xE67B5Au, 0, 0, 6u) && qword_140D048F8 )
+      sub_14042A5E0(15104858LL, &qword_14000FFC8);
     if ( v11 )
     {
       v7 = -1073741811;

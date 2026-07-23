@@ -1,12 +1,12 @@
 /*
- * XREFs of KiProcessNMI @ 0x14008269C
+ * XREFs of KiProcessNMI @ 0x140083318
  * Callers:
- *     KxNmiInterrupt @ 0x140169BC0 (KxNmiInterrupt.c)
+ *     KxNmiInterrupt @ 0x14016A0C0 (KxNmiInterrupt.c)
  * Callees:
- *     KxTryToAcquireSpinLock @ 0x1400825BC (KxTryToAcquireSpinLock.c)
- *     KiCheckForFreezeExecution @ 0x1400827F4 (KiCheckForFreezeExecution.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     KxTryToAcquireSpinLock @ 0x140083238 (KxTryToAcquireSpinLock.c)
+ *     KiCheckForFreezeExecution @ 0x140083470 (KiCheckForFreezeExecution.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 unsigned __int64 __fastcall KiProcessNMI(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptEcpointOnCurve @ 0x1405680C4
+ * XREFs of SymCryptEcpointOnCurve @ 0x140567278
  * Callers:
- *     SymCryptEckeyPerformPublicKeyValidation @ 0x14055B7B4 (SymCryptEckeyPerformPublicKeyValidation.c)
+ *     SymCryptEckeyPerformPublicKeyValidation @ 0x14055DC98 (SymCryptEckeyPerformPublicKeyValidation.c)
  * Callees:
  *     <none>
  */

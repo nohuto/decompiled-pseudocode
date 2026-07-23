@@ -30,7 +30,7 @@ __int64 __fastcall PipIs32bitKey(HANDLE KeyHandle)
     v2 = 0;
     if ( ZwQueryValueKey(
            KeyHandle,
-           (PUNICODE_STRING)&ValueName,
+           (PUNICODE_STRING)&stru_140375D20,
            KeyValuePartialInformation,
            KeyValueInformation,
            0x14u,

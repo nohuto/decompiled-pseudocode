@@ -1,18 +1,18 @@
 /*
- * XREFs of KseShimDatabaseClose @ 0x14067D98C
+ * XREFs of KseShimDatabaseClose @ 0x14067EB4C
  * Callers:
- *     KsepDbGetDriverShims @ 0x14067D8A4 (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x140720CDC (KsepDbCacheReadDevice.c)
- *     KsepDbGetShimInfo @ 0x140847808 (KsepDbGetShimInfo.c)
- *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
+ *     KsepDbGetDriverShims @ 0x14067EA64 (KsepDbGetDriverShims.c)
+ *     KsepDbCacheReadDevice @ 0x140721F7C (KsepDbCacheReadDevice.c)
+ *     KsepDbGetShimInfo @ 0x140848A68 (KsepDbGetShimInfo.c)
+ *     KseInitialize @ 0x1409B0930 (KseInitialize.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
- *     KsepShimDbUnmapFromMemory @ 0x1406835D0 (KsepShimDbUnmapFromMemory.c)
- *     KseShimDatabaseBootRelease @ 0x1407503C4 (KseShimDatabaseBootRelease.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlAssert @ 0x1402EFA50 (RtlAssert.c)
+ *     KsepShimDbUnmapFromMemory @ 0x140684790 (KsepShimDbUnmapFromMemory.c)
+ *     KseShimDatabaseBootRelease @ 0x1407515B4 (KseShimDatabaseBootRelease.c)
  */
 
 _QWORD *__fastcall KseShimDatabaseClose(PVOID a1)

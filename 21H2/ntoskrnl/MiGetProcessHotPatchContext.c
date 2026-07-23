@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetProcessHotPatchContext @ 0x1408CA1F8
+ * XREFs of MiGetProcessHotPatchContext @ 0x1408CA358
  * Callers:
- *     MiDeleteImageHotPatchState @ 0x1408C9B1C (MiDeleteImageHotPatchState.c)
- *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
- *     MiLogHotPatchRundown @ 0x1408CBFBC (MiLogHotPatchRundown.c)
- *     MiQueryProcessActivePatches @ 0x1408CDEE8 (MiQueryProcessActivePatches.c)
- *     MmPostHotPatchDbgModuleMessages @ 0x1408CEA00 (MmPostHotPatchDbgModuleMessages.c)
+ *     MiDeleteImageHotPatchState @ 0x1408C9C7C (MiDeleteImageHotPatchState.c)
+ *     MiHotPatchImage @ 0x1408CA494 (MiHotPatchImage.c)
+ *     MiLogHotPatchRundown @ 0x1408CC11C (MiLogHotPatchRundown.c)
+ *     MiQueryProcessActivePatches @ 0x1408CE048 (MiQueryProcessActivePatches.c)
+ *     MmPostHotPatchDbgModuleMessages @ 0x1408CEB60 (MmPostHotPatchDbgModuleMessages.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiGetProcessHotPatchContext(__int64 a1, int a2)

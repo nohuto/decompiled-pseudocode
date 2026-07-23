@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSyscallProviderOptIn @ 0x1409B4ECC
+ * XREFs of PspSyscallProviderOptIn @ 0x1409B50CC
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PspDereferenceSyscallProvider @ 0x1405A4BCC (PspDereferenceSyscallProvider.c)
- *     PspLookupSyscallProviderById @ 0x1405A4C90 (PspLookupSyscallProviderById.c)
- *     PspAttachProcessToSyscallProvider @ 0x1409B488C (PspAttachProcessToSyscallProvider.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PspDereferenceSyscallProvider @ 0x1405A513C (PspDereferenceSyscallProvider.c)
+ *     PspLookupSyscallProviderById @ 0x1405A5200 (PspLookupSyscallProviderById.c)
+ *     PspAttachProcessToSyscallProvider @ 0x1409B4A8C (PspAttachProcessToSyscallProvider.c)
  */
 
 __int64 __fastcall PspSyscallProviderOptIn(__int64 a1, __int64 a2)

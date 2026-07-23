@@ -1,8 +1,8 @@
 /*
- * XREFs of PiCMConvertRegistryProperty @ 0x1407C0A70
+ * XREFs of PiCMConvertRegistryProperty @ 0x1407C0D40
  * Callers:
- *     PiCMGetRegistryProperty @ 0x1407C0874 (PiCMGetRegistryProperty.c)
- *     PiCMSetRegistryProperty @ 0x14096AB14 (PiCMSetRegistryProperty.c)
+ *     PiCMGetRegistryProperty @ 0x1407C0B44 (PiCMGetRegistryProperty.c)
+ *     PiCMSetRegistryProperty @ 0x14096AD14 (PiCMSetRegistryProperty.c)
  * Callees:
  *     <none>
  */

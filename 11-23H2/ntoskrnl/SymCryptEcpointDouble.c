@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptEcpointDouble @ 0x140402CB4
+ * XREFs of SymCryptEcpointDouble @ 0x140402E94
  * Callers:
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403FE3A0 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x1403FE8B0 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptPrecomputation @ 0x1403FEF40 (SymCryptPrecomputation.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403FE580 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x1403FEA90 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptPrecomputation @ 0x1403FF120 (SymCryptPrecomputation.c)
  * Callees:
  *     <none>
  */

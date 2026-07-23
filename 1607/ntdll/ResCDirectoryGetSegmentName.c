@@ -1,9 +1,9 @@
 /*
- * XREFs of ResCDirectoryGetSegmentName @ 0x1800FFF40
+ * XREFs of ResCDirectoryGetSegmentName @ 0x1800FFE78
  * Callers:
  *     ResCRuntimeGetSegmentDataEx @ 0x1800FF43C (ResCRuntimeGetSegmentDataEx.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  */
 
 __int64 __fastcall ResCDirectoryGetSegmentName(_QWORD *a1, unsigned int a2)
@@ -21,7 +21,7 @@ __int64 __fastcall ResCDirectoryGetSegmentName(_QWORD *a1, unsigned int a2)
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
   }
   return 0LL;
 }

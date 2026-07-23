@@ -1,8 +1,8 @@
 /*
- * XREFs of PsIsThreadTerminating @ 0x1400891D0
+ * XREFs of PsIsThreadTerminating @ 0x1400891C0
  * Callers:
  *     IopWaitForLockAlertable @ 0x14000EBDC (IopWaitForLockAlertable.c)
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
  * Callees:
  *     <none>
  */

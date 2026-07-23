@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateProcessShadow @ 0x14065B8D0
+ * XREFs of MiAllocateProcessShadow @ 0x14065B9B4
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess @ 0x14057D0BC (MmInitializeHandBuiltProcess.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x14057D568 (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
- *     KeMakeUserDirectoryTableBase @ 0x1401DBB9C (KeMakeUserDirectoryTableBase.c)
- *     MiAcquireNonPagedResources @ 0x1401E1B24 (MiAcquireNonPagedResources.c)
- *     MiAllocateTopLevelPage @ 0x140656D60 (MiAllocateTopLevelPage.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
+ *     KeMakeUserDirectoryTableBase @ 0x1401DB9C8 (KeMakeUserDirectoryTableBase.c)
+ *     MiAcquireNonPagedResources @ 0x1401E1950 (MiAcquireNonPagedResources.c)
+ *     MiAllocateTopLevelPage @ 0x140656E44 (MiAllocateTopLevelPage.c)
  */
 
 __int64 __fastcall MiAllocateProcessShadow(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MiAllocateProcessShadow(__int64 a1)
     ProcessPartition = MiGetProcessPartition(a1);
     if ( !(unsigned int)MiAcquireNonPagedResources(ProcessPartition, 1uLL) )
       return 3221225626LL;
-    v5 = MiReservePtes((__int64)&qword_140327870, 1uLL, v3);
+    v5 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, v3);
     v6 = v5;
     if ( !v5 )
     {

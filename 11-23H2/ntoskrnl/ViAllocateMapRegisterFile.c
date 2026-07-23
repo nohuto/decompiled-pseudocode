@@ -1,21 +1,21 @@
 /*
- * XREFs of ViAllocateMapRegisterFile @ 0x140AC7CB4
+ * XREFs of ViAllocateMapRegisterFile @ 0x140AC7CA4
  * Callers:
- *     VfAllocateAdapterChannel @ 0x140AC4BC0 (VfAllocateAdapterChannel.c)
- *     VfBuildScatterGatherList @ 0x140AC5680 (VfBuildScatterGatherList.c)
- *     VfGetScatterGatherList @ 0x140AC6830 (VfGetScatterGatherList.c)
- *     VfHalAllocateMapRegisters @ 0x140AC6D90 (VfHalAllocateMapRegisters.c)
+ *     VfAllocateAdapterChannel @ 0x140AC4BB0 (VfAllocateAdapterChannel.c)
+ *     VfBuildScatterGatherList @ 0x140AC5670 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x140AC6820 (VfGetScatterGatherList.c)
+ *     VfHalAllocateMapRegisters @ 0x140AC6D80 (VfHalAllocateMapRegisters.c)
  * Callees:
- *     IoAllocateMdl @ 0x14022E2A0 (IoAllocateMdl.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     ExInterlockedInsertHeadList @ 0x140351FA0 (ExInterlockedInsertHeadList.c)
+ *     IoAllocateMdl @ 0x14022E3B0 (IoAllocateMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     ExInterlockedInsertHeadList @ 0x140352140 (ExInterlockedInsertHeadList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     ViAllocateFromContiguousMemory @ 0x140AC7BBC (ViAllocateFromContiguousMemory.c)
- *     ViFreeToContiguousMemory @ 0x140AC8D64 (ViFreeToContiguousMemory.c)
- *     ViInitializePadding @ 0x140AC9714 (ViInitializePadding.c)
+ *     ViAllocateFromContiguousMemory @ 0x140AC7BAC (ViAllocateFromContiguousMemory.c)
+ *     ViFreeToContiguousMemory @ 0x140AC8D54 (ViFreeToContiguousMemory.c)
+ *     ViInitializePadding @ 0x140AC9704 (ViInitializePadding.c)
  */
 
 char *__fastcall ViAllocateMapRegisterFile(__int64 a1, unsigned int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SyspartGetPhysicalPartitions @ 0x14097349C
+ * XREFs of SyspartGetPhysicalPartitions @ 0x14097367C
  * Callers:
- *     BiSpacesUpdatePhysicalDevicePath @ 0x1405C3FDC (BiSpacesUpdatePhysicalDevicePath.c)
+ *     BiSpacesUpdatePhysicalDevicePath @ 0x1405C420C (BiSpacesUpdatePhysicalDevicePath.c)
  * Callees:
- *     SiFindSystemPartition @ 0x140973668 (SiFindSystemPartition.c)
- *     SiQueryProperty @ 0x1409738E8 (SiQueryProperty.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SiFindSystemPartition @ 0x140973848 (SiFindSystemPartition.c)
+ *     SiQueryProperty @ 0x140973AC8 (SiQueryProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SyspartGetPhysicalPartitions(__int64 a1, _DWORD *a2, unsigned int a3)

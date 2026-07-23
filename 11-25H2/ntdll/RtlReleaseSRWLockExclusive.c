@@ -285,18 +285,18 @@
  *     ZwAlertThreadByThreadIdEx @ 0x180164050 (ZwAlertThreadByThreadIdEx.c)
  */
 
-__int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
   signed __int64 v2; // rax
-  __int64 result; // rax
-  __int64 v4; // rdx
-  __int64 v5; // rdi
-  _BYTE *v6; // rbx
+  char *SchedulerSharedDataSlot; // rdx
+  unsigned int v4; // eax
+  unsigned __int64 v5; // rdi
+  char *v6; // rbx
   __int64 v7; // rdx
   signed __int64 v8; // rcx
   signed __int64 v9; // rdx
   signed __int64 v10; // rtt
-  volatile signed __int64 *v11; // rsi
+  PRTL_SRWLOCK v11; // rsi
   unsigned __int64 v12; // r9
   _QWORD *v13; // r8
   __int64 v14; // rcx
@@ -307,9 +307,9 @@ __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
   __int64 v19; // rax
   signed __int64 v20; // rax
   _QWORD *v21; // rax
-  _QWORD v22[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD ThreadInformation[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = _InterlockedCompareExchange64(a1, 0LL, 1LL);
+  v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
   if ( v2 != 1 )
   {
     do
@@ -320,17 +320,17 @@ __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
         v7 = -1LL;
       v9 = v2 + v7;
       v10 = v2;
-      v2 = _InterlockedCompareExchange64(a1, v9, v2);
+      v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v9, v2);
     }
     while ( v10 != v2 );
     if ( v8 == 2 )
     {
-      v11 = a1;
+      v11 = SRWLock;
       while ( 1 )
       {
         while ( (v9 & 1) != 0 )
         {
-          v20 = _InterlockedCompareExchange64(a1, v9 - 4, v9);
+          v20 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v9 - 4, v9);
           v16 = v9 == v20;
           v9 = v20;
           if ( v16 )
@@ -359,7 +359,7 @@ __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
             break;
         }
         v11 = 0LL;
-        v17 = _InterlockedCompareExchange64(a1, 0LL, v9);
+        v17 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, v9);
         v16 = v9 == v17;
         v9 = v17;
         if ( v16 )
@@ -367,7 +367,7 @@ __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
       }
       *(_QWORD *)((v9 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v15;
       *(_QWORD *)(v14 + 16) = 0LL;
-      _InterlockedAnd64(a1, 0xFFFFFFFFFFFFFFFBuLL);
+      _InterlockedAnd64((volatile signed __int64 *)SRWLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_21:
@@ -382,32 +382,30 @@ LABEL_21:
     }
   }
 LABEL_2:
-  result = (__int64)NtCurrentTeb();
-  v4 = *(_QWORD *)(result + 6224);
-  if ( v4 )
+  SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
+  if ( SchedulerSharedDataSlot )
   {
-    result = 0LL;
-    v5 = (unsigned __int64)a1 & 0x7FFFFFFFFFFFFFFCLL;
-    while ( (unsigned int)result < 8 )
+    v4 = 0;
+    v5 = (unsigned __int64)SRWLock & 0x7FFFFFFFFFFFFFFCLL;
+    while ( v4 < 8 )
     {
-      v6 = (_BYTE *)(v4 + 8LL * (unsigned int)result);
+      v6 = &SchedulerSharedDataSlot[8 * v4];
       if ( (*(_QWORD *)v6 & 0x7FFFFFFFFFFFFFFCLL) == v5 )
       {
         if ( v6 )
         {
           *v6 |= 2u;
-          if ( (char)v6[7] < 0 )
+          if ( v6[7] < 0 )
           {
-            v22[1] = 0LL;
-            v22[0] = (v6 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-            result = NtSetInformationThread(-2LL, 56LL, v22);
+            ThreadInformation[1] = 0LL;
+            ThreadInformation[0] = (v6 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+            NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, ThreadInformation, 0x10u);
           }
           *(_QWORD *)v6 = 0LL;
         }
-        return result;
+        return;
       }
-      result = (unsigned int)(result + 1);
+      ++v4;
     }
   }
-  return result;
 }

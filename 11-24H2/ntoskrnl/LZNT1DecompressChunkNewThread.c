@@ -1,13 +1,13 @@
 /*
- * XREFs of LZNT1DecompressChunkNewThread @ 0x1402482A4
+ * XREFs of LZNT1DecompressChunkNewThread @ 0x1402E24E4
  * Callers:
- *     RtlDecompressBufferLZNT1 @ 0x1409EC6A0 (RtlDecompressBufferLZNT1.c)
- *     RtlDecompressFragmentLZNT1 @ 0x140A1B0B0 (RtlDecompressFragmentLZNT1.c)
+ *     RtlDecompressBufferLZNT1 @ 0x1409E59D0 (RtlDecompressBufferLZNT1.c)
+ *     RtlDecompressFragmentLZNT1 @ 0x140A138F0 (RtlDecompressFragmentLZNT1.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     LZNT1DecompressChunk @ 0x1406B4370 (LZNT1DecompressChunk.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     LZNT1DecompressChunk @ 0x1406B5310 (LZNT1DecompressChunk.c)
  */
 
 __int64 __fastcall LZNT1DecompressChunkNewThread(
@@ -31,7 +31,7 @@ __int64 __fastcall LZNT1DecompressChunkNewThread(
     return LZNT1DecompressChunk(a2, (_DWORD)a3, a4, a5, (__int64)&v15);
   if ( (__int64)((__int64)a3 - a2) < a6 )
     return LZNT1DecompressChunk(a2, (_DWORD)a3, a4, a5, (__int64)&v15);
-  v10 = (struct _WORK_QUEUE_ITEM *)ExAllocateFromNPagedLookasideList(&RtlLznt1DecompressChunkLookaside);
+  v10 = (struct _WORK_QUEUE_ITEM *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&RtlLznt1DecompressChunkLookaside);
   v11 = v10;
   if ( !v10 )
     return LZNT1DecompressChunk(a2, (_DWORD)a3, a4, a5, (__int64)&v15);

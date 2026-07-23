@@ -1,16 +1,16 @@
 /*
- * XREFs of ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x1400E2E80
+ * XREFs of ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x1400E2F00
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2BA0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2C20 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
  * Callees:
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     ?NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z @ 0x1400E30F8 (-NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z.c)
- *     SmHpChunkHeapInitialize @ 0x1400E492C (SmHpChunkHeapInitialize.c)
- *     SmHpChunkHeapCleanup @ 0x14011DFAC (SmHpChunkHeapCleanup.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ?NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z @ 0x1400E3178 (-NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z.c)
+ *     SmHpChunkHeapInitialize @ 0x1400E49AC (SmHpChunkHeapInitialize.c)
+ *     SmHpChunkHeapCleanup @ 0x14011E01C (SmHpChunkHeapCleanup.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a3, __int64 a4, __int64 a5, int a6)
@@ -21,7 +21,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
   __int64 v12; // rcx
   int v13; // eax
   PVOID PoolWithTag; // rax
-  struct _RTL_BITMAP *v15; // rcx
+  _RTL_BITMAP *v15; // rcx
   PVOID v16; // rdx
   __int64 v17; // rsi
   NTSTATUS result; // eax
@@ -56,14 +56,14 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
                     0x74536D73u);
     if ( !PoolWithTag )
       return -1073741670;
-    v15 = (struct _RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
     *(_DWORD *)(a2 + 840) = *(_DWORD *)(a1 + 12);
     *(_QWORD *)(a2 + 848) = PoolWithTag;
     v13 = *(_DWORD *)(a2 + 776);
   }
   else
   {
-    v15 = (struct _RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
   }
   if ( (v13 & 0x40000) != 0 )
     RtlSetAllBits(v15);
@@ -89,7 +89,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
   memset(v19, 0, sizeof(v19));
   if ( (*a3 & 8) != 0 )
   {
-    result = ZwQuerySystemInformation(SystemLoadGdiDriverInSystemSpaceInformation|0x80, SystemInformation, 0x38u, 0LL);
+    result = ZwQuerySystemInformation(SystemMemoryUsageInformation, SystemInformation, 0x38u, 0LL);
     if ( result < 0 )
       return result;
     if ( SystemInformation[0] >> 21 >= 0x10uLL )

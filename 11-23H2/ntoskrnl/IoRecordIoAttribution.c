@@ -5,7 +5,7 @@
  * Callees:
  *     IopRecordIoAttribution @ 0x14020C6C0 (IopRecordIoAttribution.c)
  *     IoDiskIoAttributionDereference @ 0x14020C878 (IoDiskIoAttributionDereference.c)
- *     IopFindDiskIoAttribution @ 0x140316E48 (IopFindDiskIoAttribution.c)
+ *     IopFindDiskIoAttribution @ 0x1403170D8 (IopFindDiskIoAttribution.c)
  */
 
 __int64 __fastcall IoRecordIoAttribution(__int64 a1, _DWORD *a2)

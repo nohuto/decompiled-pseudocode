@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReferenceAccelerator @ 0x140507D64
+ * XREFs of MiReferenceAccelerator @ 0x140501738
  * Callers:
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiSetThreadAffinity @ 0x1403C34E0 (MiSetThreadAffinity.c)
- *     MiAllocateAcceleratorDescriptor @ 0x1405319C8 (MiAllocateAcceleratorDescriptor.c)
- *     MiSoloZeroHugeRange @ 0x140705384 (MiSoloZeroHugeRange.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiSetThreadAffinity @ 0x1403CD3E0 (MiSetThreadAffinity.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x140533E70 (MiAllocateAcceleratorDescriptor.c)
+ *     MiSoloZeroHugeRange @ 0x14070A054 (MiSoloZeroHugeRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 _QWORD *__fastcall MiReferenceAccelerator(unsigned int a1)
@@ -22,18 +22,18 @@ _QWORD *__fastcall MiReferenceAccelerator(unsigned int a1)
   _QWORD *v7; // r8
 
   v1 = a1;
-  if ( !*(_WORD *)(*(_QWORD *)(384LL * a1 + qword_140E2D6B8 + 376) + 24LL) )
+  if ( !*(_WORD *)(*(_QWORD *)(384LL * a1 + qword_140E2D838 + 376) + 24LL) )
     return 0LL;
   if ( KeGetCurrentIrql() == 2 )
   {
     v3 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36530);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E366B0);
   }
   else
   {
-    v3 = ExAcquireSpinLockExclusive(&dword_140E36530);
+    v3 = ExAcquireSpinLockExclusive(&dword_140E366B0);
   }
-  v4 = (_QWORD *)((char *)&unk_140E36100 + 16 * v1);
+  v4 = (_QWORD *)((char *)&unk_140E36280 + 16 * v1);
   v5 = 0LL;
   v6 = (_QWORD *)*v4;
   if ( (_QWORD *)*v4 != v4 )
@@ -41,7 +41,7 @@ _QWORD *__fastcall MiReferenceAccelerator(unsigned int a1)
     do
     {
       v7 = (_QWORD *)*v6;
-      if ( (*((_DWORD *)v6 + 13) & 1) == 0 && *((_DWORD *)v6 + 12) != -1 && !byte_140E36504 )
+      if ( (*((_DWORD *)v6 + 13) & 1) == 0 && *((_DWORD *)v6 + 12) != -1 && !byte_140E36684 )
       {
         if ( v5 )
         {
@@ -60,8 +60,8 @@ _QWORD *__fastcall MiReferenceAccelerator(unsigned int a1)
       ++*((_DWORD *)v5 + 12);
   }
   if ( v3 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36530);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E366B0);
   else
-    ExReleaseSpinLockExclusive(&dword_140E36530, v3);
+    ExReleaseSpinLockExclusive(&dword_140E366B0, v3);
   return v5;
 }

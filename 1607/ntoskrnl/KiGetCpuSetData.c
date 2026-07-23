@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetCpuSetData @ 0x1400B5C54
+ * XREFs of KiGetCpuSetData @ 0x1400B3A7C
  * Callers:
  *     KiConfigureCpuSetSchedulingInformation @ 0x1403D39E4 (KiConfigureCpuSetSchedulingInformation.c)
- *     KeQueryCpuSetInformation @ 0x140578728 (KeQueryCpuSetInformation.c)
+ *     KeQueryCpuSetInformation @ 0x140578C68 (KeQueryCpuSetInformation.c)
  * Callees:
  *     <none>
  */

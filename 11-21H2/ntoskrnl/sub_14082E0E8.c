@@ -1,8 +1,8 @@
 /*
  * XREFs of sub_14082E0E8 @ 0x14082E0E8
  * Callers:
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14082DE40 (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA6E0 (SLUpdateLicenseDataInternal.c)
+ *     sub_14082DE40 @ 0x14082DE40 (sub_14082DE40.c)
+ *     sub_1409FA6E0 @ 0x1409FA6E0 (sub_1409FA6E0.c)
  * Callees:
  *     memset @ 0x140435E00 (memset.c)
  */

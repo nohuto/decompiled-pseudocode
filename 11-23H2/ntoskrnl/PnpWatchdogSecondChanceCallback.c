@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpWatchdogSecondChanceCallback @ 0x140560EB0
+ * XREFs of PnpWatchdogSecondChanceCallback @ 0x140561570
  * Callers:
  *     <none>
  * Callees:
- *     PnpWatchdogBugcheck @ 0x140560714 (PnpWatchdogBugcheck.c)
- *     PnpWatchdogEtwWrite @ 0x140560A70 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogBugcheck @ 0x140560DD4 (PnpWatchdogBugcheck.c)
+ *     PnpWatchdogEtwWrite @ 0x140561130 (PnpWatchdogEtwWrite.c)
  */
 
 char __fastcall PnpWatchdogSecondChanceCallback(__int64 a1)

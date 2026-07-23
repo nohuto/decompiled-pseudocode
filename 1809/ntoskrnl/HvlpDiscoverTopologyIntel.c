@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpDiscoverTopologyIntel @ 0x1409F4250
+ * XREFs of HvlpDiscoverTopologyIntel @ 0x1409F5250
  * Callers:
- *     HvlpDiscoverTopologyWorker @ 0x1408179B0 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x140818BB0 (HvlpDiscoverTopologyWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvlpLpCpuid @ 0x1409F43CC (HvlpLpCpuid.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvlpLpCpuid @ 0x1409F53CC (HvlpLpCpuid.c)
  */
 
 __int64 __fastcall HvlpDiscoverTopologyIntel(__int64 a1, int a2, _DWORD *a3, _DWORD *a4)

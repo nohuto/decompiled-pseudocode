@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwBusRelationRemove @ 0x1409FA96C
+ * XREFs of PiSwBusRelationRemove @ 0x1409F32DC
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiSwProcessRemove @ 0x1409FB008 (PiSwProcessRemove.c)
- *     PiSwCloseDevice @ 0x140A93D94 (PiSwCloseDevice.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x1409F3978 (PiSwProcessRemove.c)
+ *     PiSwCloseDevice @ 0x140A90544 (PiSwCloseDevice.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405A855C (McTemplateK0zzz_EtwWriteTransfer.c)
- *     PiSwDeviceDereference @ 0x1409FB4F8 (PiSwDeviceDereference.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405A554C (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     PiSwDeviceDereference @ 0x1409F3E68 (PiSwDeviceDereference.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwBusRelationRemove(const wchar_t **P, __int64 a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall PiSwBusRelationRemove(const wchar_t **P, __int64 a2, __int64 
   void *v10; // rdi
 
   v3 = (char *)(P + 14);
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0zzz_EtwWriteTransfer(
       (__int64)P,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_RelationRemove,

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCoverageFlushPending @ 0x140684810
+ * XREFs of EtwpCoverageFlushPending @ 0x1406859D0
  * Callers:
- *     EtwpCoverageFlushWorkItemCallback @ 0x140684740 (EtwpCoverageFlushWorkItemCallback.c)
- *     EtwpCoverageRecord @ 0x1406B41DC (EtwpCoverageRecord.c)
- *     EtwpFlushCoverage @ 0x1406DD350 (EtwpFlushCoverage.c)
- *     EtwpCoverageReset @ 0x1408B6A28 (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1408B6C08 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x140685900 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwpCoverageRecord @ 0x1406B547C (EtwpCoverageRecord.c)
+ *     EtwpFlushCoverage @ 0x1406DE5F0 (EtwpFlushCoverage.c)
+ *     EtwpCoverageReset @ 0x1408B7CE8 (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1408B7EC8 (EtwpCoverageResetCP.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeCancelTimer2 @ 0x1400FAFF0 (KeCancelTimer2.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 int *__fastcall EtwpCoverageFlushPending(int **a1)
@@ -54,9 +54,9 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
     v3 = a1[5];
     v4 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
     v9 = *((_WORD *)a1 + 32);
-    if ( stru_140400340.LevelPlus1 > 5 )
+    if ( stru_140401340.LevelPlus1 > 5 )
     {
-      if ( TlgKeywordOn(&stru_140400340, 0x400000000000uLL) )
+      if ( TlgKeywordOn(&stru_140401340, 0x400000000000uLL) )
       {
         v5 = *a1;
         v6 = *((_QWORD *)v3 + 4);
@@ -84,7 +84,7 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
         v25 = 4;
         v28 = 2;
         v30 = v6;
-        TlgWrite(&stru_140400340, &unk_140372D35, 0LL, 0LL, 8u, &pData);
+        TlgWrite(&stru_140401340, &unk_140373CC5, 0LL, 0LL, 8u, &pData);
       }
     }
     *((_QWORD *)v3 + 4) = *((_QWORD *)v3 + 3);

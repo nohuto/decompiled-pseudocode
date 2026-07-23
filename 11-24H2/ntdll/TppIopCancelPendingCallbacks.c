@@ -1,11 +1,11 @@
 /*
- * XREFs of TppIopCancelPendingCallbacks @ 0x18015C460
+ * XREFs of TppIopCancelPendingCallbacks @ 0x18015A820
  * Callers:
  *     <none>
  * Callees:
- *     TppBarrierAdjust @ 0x180011D50 (TppBarrierAdjust.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     TppETWCallbackCancel @ 0x18006A664 (TppETWCallbackCancel.c)
+ *     TppBarrierAdjust @ 0x18003E750 (TppBarrierAdjust.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     TppETWCallbackCancel @ 0x180086D54 (TppETWCallbackCancel.c)
  */
 
 void __fastcall TppIopCancelPendingCallbacks(__int64 a1)
@@ -16,8 +16,8 @@ void __fastcall TppIopCancelPendingCallbacks(__int64 a1)
   v2 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
   if ( v2 )
   {
-    TppBarrierAdjust((volatile signed __int64 *)(a1 + 56), -v2, 0);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    TppBarrierAdjust((_RTL_SRWLOCK *)(a1 + 56), -v2, 0);
+    if ( RtlGetCurrentServiceSessionId() )
       v3 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v3 = 2147353478LL;

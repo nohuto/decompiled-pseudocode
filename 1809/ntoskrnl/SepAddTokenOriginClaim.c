@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAddTokenOriginClaim @ 0x1408A1D68
+ * XREFs of SepAddTokenOriginClaim @ 0x1408A2FC8
  * Callers:
- *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x1408A1A1C (SeDuplicateTokenAndAddOriginClaim.c)
+ *     SeSubProcessToken @ 0x14064FC0C (SeSubProcessToken.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x1408A2C7C (SeDuplicateTokenAndAddOriginClaim.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A94 (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8B14 (AuthzBasepSetSecurityAttributesToken.c)
  */
 
 __int64 __fastcall SepAddTokenOriginClaim(__int64 a1, int a2, __int64 a3)

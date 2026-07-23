@@ -1,19 +1,19 @@
 /*
- * XREFs of NtCompareTokens @ 0x140475A20
+ * XREFs of NtCompareTokens @ 0x1404748F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     SeTokenIsRestricted @ 0x14007F740 (SeTokenIsRestricted.c)
- *     SeTokenIsWriteRestricted @ 0x14007F750 (SeTokenIsWriteRestricted.c)
- *     SepReleaseOrderedReadLocks @ 0x14007F7D8 (SepReleaseOrderedReadLocks.c)
- *     SepAcquireOrderedReadLocks @ 0x14007F810 (SepAcquireOrderedReadLocks.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1404767E0 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
- *     SepCompareClaimAttributes @ 0x1404768C4 (SepCompareClaimAttributes.c)
- *     SepCompareSidAndAttributeArrays @ 0x140476924 (SepCompareSidAndAttributeArrays.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     SeTokenIsRestricted @ 0x14007F7C0 (SeTokenIsRestricted.c)
+ *     SeTokenIsWriteRestricted @ 0x14007F7D0 (SeTokenIsWriteRestricted.c)
+ *     SepReleaseOrderedReadLocks @ 0x14007F858 (SepReleaseOrderedReadLocks.c)
+ *     SepAcquireOrderedReadLocks @ 0x14007F890 (SepAcquireOrderedReadLocks.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1404756B0 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     SepCompareClaimAttributes @ 0x140475794 (SepCompareClaimAttributes.c)
+ *     SepCompareSidAndAttributeArrays @ 0x1404757F4 (SepCompareSidAndAttributeArrays.c)
  */
 
 NTSTATUS __stdcall NtCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)

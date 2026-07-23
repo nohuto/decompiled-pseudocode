@@ -1,35 +1,40 @@
 /*
- * XREFs of RtlAllocateAndInitializeSidEx @ 0x140780AEC
+ * XREFs of RtlAllocateAndInitializeSidEx @ 0x140780A1C
  * Callers:
- *     EtwpUserInAdminOrLogUsersGroup @ 0x1407A9470 (EtwpUserInAdminOrLogUsersGroup.c)
+ *     EtwpUserInAdminOrLogUsersGroup @ 0x1407A95B0 (EtwpUserInAdminOrLogUsersGroup.c)
  * Callees:
- *     RtlLengthRequiredSid @ 0x140867110 (RtlLengthRequiredSid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlLengthRequiredSid @ 0x14086B5A0 (RtlLengthRequiredSid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, __int64 a2, _DWORD *a3, __int64 *a4)
+NTSTATUS __cdecl RtlAllocateAndInitializeSidEx(
+        PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
+        UCHAR SubAuthorityCount,
+        PULONG SubAuthorities,
+        PSID *Sid)
 {
   __int64 v5; // rdi
-  __int64 Pool2; // rax
-  __int64 v10; // rcx
+  ULONG v8; // eax
+  char *Pool2; // rax
+  signed __int64 v11; // rcx
 
   v5 = 2LL;
-  RtlLengthRequiredSid(2u);
-  Pool2 = ExAllocatePool2(0x41uLL);
+  v8 = RtlLengthRequiredSid(2u);
+  Pool2 = (char *)ExAllocatePool2(0x41uLL, v8, 0x62507452u);
   if ( !Pool2 )
-    return 3221225495LL;
-  *(_BYTE *)Pool2 = 1;
-  v10 = Pool2 - (_QWORD)a3;
-  *(_DWORD *)(Pool2 + 2) = *(_DWORD *)a1;
-  *(_WORD *)(Pool2 + 6) = *(_WORD *)(a1 + 4);
-  *(_BYTE *)(Pool2 + 1) = 2;
+    return -1073741801;
+  *Pool2 = 1;
+  v11 = Pool2 - (char *)SubAuthorities;
+  *(_DWORD *)(Pool2 + 2) = *(_DWORD *)IdentifierAuthority->Value;
+  *((_WORD *)Pool2 + 3) = *(_WORD *)&IdentifierAuthority->Value[4];
+  Pool2[1] = 2;
   do
   {
-    *(_DWORD *)((char *)a3 + v10 + 8) = *a3;
-    ++a3;
+    *(PULONG)((char *)SubAuthorities + v11 + 8) = *SubAuthorities;
+    ++SubAuthorities;
     --v5;
   }
   while ( v5 );
-  *a4 = Pool2;
-  return 0LL;
+  *Sid = Pool2;
+  return 0;
 }

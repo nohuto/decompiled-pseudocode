@@ -14,13 +14,17 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtReleaseKeyedEvent(HANDLE Handle, struct _LIST_ENTRY *a2, BOOLEAN a3, unsigned __int64 a4)
+NTSTATUS __cdecl NtReleaseKeyedEvent(
+        HANDLE KeyedEventHandle,
+        PVOID KeyValue,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   NTSTATUS v6; // r12d
   char v7; // r14
   struct _KTHREAD *CurrentThread; // rdi
   KPROCESSOR_MODE PreviousMode; // cl
-  __int64 *v10; // rax
+  PLARGE_INTEGER v10; // rax
   NTSTATUS result; // eax
   char *v12; // rcx
   unsigned __int64 *v13; // rsi
@@ -47,40 +51,40 @@ NTSTATUS __fastcall NtReleaseKeyedEvent(HANDLE Handle, struct _LIST_ENTRY *a2, B
   __int64 v34; // rdx
   __int64 v35; // r8
   __int64 v36; // r9
-  __int64 v37; // [rsp+38h] [rbp-70h] BYREF
+  LONGLONG QuadPart; // [rsp+38h] [rbp-70h] BYREF
   PVOID Object; // [rsp+40h] [rbp-68h] BYREF
   void *InitialStack; // [rsp+48h] [rbp-60h]
   PVOID v40; // [rsp+50h] [rbp-58h]
   _KPROCESS *Process; // [rsp+60h] [rbp-48h]
   KPROCESSOR_MODE WaitMode; // [rsp+B8h] [rbp+10h]
-  LARGE_INTEGER *Timeout; // [rsp+C8h] [rbp+20h]
+  LARGE_INTEGER *Timeouta; // [rsp+C8h] [rbp+20h]
 
-  Timeout = (LARGE_INTEGER *)a4;
+  Timeouta = Timeout;
   v6 = 0;
-  v37 = 0LL;
+  QuadPart = 0LL;
   InitialStack = 0LL;
   v7 = 1;
-  if ( ((unsigned __int8)a2 & 1) != 0 )
+  if ( ((unsigned __int8)KeyValue & 1) != 0 )
     return -1073741585;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   WaitMode = PreviousMode;
-  v10 = (__int64 *)a4;
-  if ( a4 )
+  v10 = Timeout;
+  if ( Timeout )
   {
     if ( PreviousMode )
     {
-      if ( a4 + 8 > 0x7FFFFFFF0000LL || a4 + 8 < a4 )
-        v10 = (__int64 *)a4;
+      if ( (unsigned __int64)&Timeout[1] > 0x7FFFFFFF0000LL || &Timeout[1] < Timeout )
+        v10 = Timeout;
       PreviousMode = CurrentThread->PreviousMode;
     }
-    v37 = *v10;
-    Timeout = (LARGE_INTEGER *)&v37;
+    QuadPart = v10->QuadPart;
+    Timeouta = (LARGE_INTEGER *)&QuadPart;
   }
-  if ( Handle )
+  if ( KeyedEventHandle )
   {
     Object = 0LL;
-    result = ObReferenceObjectByHandle(Handle, 2u, ExpKeyedEventObjectType, PreviousMode, &Object, 0LL);
+    result = ObReferenceObjectByHandle(KeyedEventHandle, 2u, ExpKeyedEventObjectType, PreviousMode, &Object, 0LL);
     v6 = result;
     v12 = (char *)Object;
     v40 = Object;
@@ -94,7 +98,7 @@ NTSTATUS __fastcall NtReleaseKeyedEvent(HANDLE Handle, struct _LIST_ENTRY *a2, B
   }
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x20u;
   Process = CurrentThread->ApcState.Process;
-  v13 = (unsigned __int64 *)&v12[24 * (((unsigned __int64)a2 >> 5) & 0x3F)];
+  v13 = (unsigned __int64 *)&v12[24 * (((unsigned __int64)KeyValue >> 5) & 0x3F)];
   v14 = (struct _LIST_ENTRY *)(v13 + 1);
   --CurrentThread->KernelApcDisable;
   v15 = KeAbPreAcquire((__int64)v13, 0LL);
@@ -108,7 +112,7 @@ NTSTATUS __fastcall NtReleaseKeyedEvent(HANDLE Handle, struct _LIST_ENTRY *a2, B
     if ( i == v14 )
     {
       InitialStack = CurrentThread[1].InitialStack;
-      CurrentThread[1].InitialStack = (void *)((unsigned __int64)a2 | 1);
+      CurrentThread[1].InitialStack = (void *)((unsigned __int64)KeyValue | 1);
       p_WaitListHead = &CurrentThread[1].Header.WaitListHead;
       Flink = v14->Flink;
       if ( v14->Flink->Blink != v14 )
@@ -121,7 +125,7 @@ NTSTATUS __fastcall NtReleaseKeyedEvent(HANDLE Handle, struct _LIST_ENTRY *a2, B
       goto LABEL_21;
     }
     p_Blink = &i[-77].Blink;
-    if ( i[2].Flink == a2 && p_Blink[68] == (struct _LIST_ENTRY *)Process )
+    if ( i[2].Flink == KeyValue && p_Blink[68] == (struct _LIST_ENTRY *)Process )
       break;
   }
   v19 = i->Flink;
@@ -145,7 +149,7 @@ LABEL_21:
   else
   {
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v23, v24, v25);
-    v6 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, WaitMode, a3, Timeout);
+    v6 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, WaitMode, Alertable, Timeouta);
     if ( v6 )
     {
       --CurrentThread->KernelApcDisable;
@@ -178,7 +182,7 @@ LABEL_21:
     CurrentThread[1].InitialStack = InitialStack;
   }
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= ~0x20u;
-  if ( Handle )
+  if ( KeyedEventHandle )
     ObfDereferenceObject(v40);
   return v6;
 }

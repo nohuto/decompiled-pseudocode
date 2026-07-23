@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpPushTerminalState @ 0x14087E41C
+ * XREFs of TtmpPushTerminalState @ 0x14087F67C
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x14087D71C (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionDeviceListWorker @ 0x14087E97C (TtmiSessionDeviceListWorker.c)
  * Callees:
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmpCallSetInputMode @ 0x14087DB08 (TtmpCallSetInputMode.c)
- *     TtmpQueueTerminalDisplayStateOntoDevice @ 0x14087E4E0 (TtmpQueueTerminalDisplayStateOntoDevice.c)
- *     TtmiGetTerminalById @ 0x14087EAA0 (TtmiGetTerminalById.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmpCallSetInputMode @ 0x14087ED68 (TtmpCallSetInputMode.c)
+ *     TtmpQueueTerminalDisplayStateOntoDevice @ 0x14087F740 (TtmpQueueTerminalDisplayStateOntoDevice.c)
+ *     TtmiGetTerminalById @ 0x14087FD00 (TtmiGetTerminalById.c)
  */
 
 char __fastcall TtmpPushTerminalState(__int64 a1, __int64 a2)

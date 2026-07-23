@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDeviceEquals @ 0x140B75580
+ * XREFs of HalpDeviceEquals @ 0x140B77580
  * Callers:
- *     HalpKdEnumerateDebuggingDevices @ 0x140B75850 (HalpKdEnumerateDebuggingDevices.c)
+ *     HalpKdEnumerateDebuggingDevices @ 0x140B77850 (HalpKdEnumerateDebuggingDevices.c)
  * Callees:
- *     wcsncmp @ 0x1404FFFD0 (wcsncmp.c)
+ *     wcsncmp @ 0x1404FD890 (wcsncmp.c)
  */
 
 char __fastcall HalpDeviceEquals(__int64 a1, __int64 a2)

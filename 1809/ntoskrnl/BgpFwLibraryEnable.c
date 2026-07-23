@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpFwLibraryEnable @ 0x14016F7E0
+ * XREFs of BgpFwLibraryEnable @ 0x14016F8E0
  * Callers:
- *     BgLibraryEnable @ 0x140159828 (BgLibraryEnable.c)
- *     BgpFwLibraryInitialize @ 0x14094F95C (BgpFwLibraryInitialize.c)
+ *     BgLibraryEnable @ 0x140159928 (BgLibraryEnable.c)
+ *     BgpFwLibraryInitialize @ 0x14095095C (BgpFwLibraryInitialize.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
- *     ResFwBackgroundTransition @ 0x140950360 (ResFwBackgroundTransition.c)
+ *     MmMapIoSpaceEx @ 0x1400E5DE0 (MmMapIoSpaceEx.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     MmUnmapIoSpace @ 0x1401232F0 (MmUnmapIoSpace.c)
+ *     ResFwBackgroundTransition @ 0x140951360 (ResFwBackgroundTransition.c)
  */
 
 __int64 __fastcall BgpFwLibraryEnable(__int64 a1)
@@ -24,8 +24,8 @@ __int64 __fastcall BgpFwLibraryEnable(__int64 a1)
   __int64 v12; // rax
   int v13; // eax
 
-  v2 = dword_140405AD0 & 0xC00;
-  if ( (dword_140405AD0 & 2) != 0 && v2 != 3072 )
+  v2 = dword_140406AD0 & 0xC00;
+  if ( (dword_140406AD0 & 2) != 0 && v2 != 3072 )
     return 0LL;
   v3 = 0LL;
   if ( !*(_BYTE *)a1 || *(_BYTE *)(a1 + 1) )
@@ -35,23 +35,23 @@ LABEL_10:
       ResFwBackgroundTransition(0LL);
     BgInternal = *(_OWORD *)a1;
     v10 = _mm_cvtsi128_si32(*(__m128i *)(a1 + 16));
-    xmmword_140405A70 = *(_OWORD *)(a1 + 16);
-    qword_140405A80 = *(PVOID *)(a1 + 32);
+    xmmword_140406A70 = *(_OWORD *)(a1 + 16);
+    qword_140406A80 = *(PVOID *)(a1 + 32);
     if ( v10 == 1 )
     {
-      dword_140405AD0 |= 8u;
-      LODWORD(xmmword_140405A70) = 5;
+      dword_140406AD0 |= 8u;
+      LODWORD(xmmword_140406A70) = 5;
     }
-    dword_140405AD0 |= 2u;
+    dword_140406AD0 |= 2u;
     return 0LL;
   }
   if ( v2 == 3072 )
   {
-    if ( !(_BYTE)xmmword_140405A88
-      || !BYTE1(xmmword_140405A88)
-      || *(_DWORD *)(a1 + 16) != (_DWORD)xmmword_140405A98
-      || *(_QWORD *)(a1 + 4) != *(_QWORD *)((char *)&xmmword_140405A88 + 4)
-      || *(_DWORD *)(a1 + 12) != HIDWORD(xmmword_140405A88)
+    if ( !(_BYTE)xmmword_140406A88
+      || !BYTE1(xmmword_140406A88)
+      || *(_DWORD *)(a1 + 16) != (_DWORD)xmmword_140406A98
+      || *(_QWORD *)(a1 + 4) != *(_QWORD *)((char *)&xmmword_140406A88 + 4)
+      || *(_DWORD *)(a1 + 12) != HIDWORD(xmmword_140406A88)
       || *(_QWORD *)(a1 + 32) != MmGetPhysicalAddress(BaseAddress) )
     {
       return 3221225659LL;
@@ -73,16 +73,16 @@ LABEL_10:
   if ( v9 || (v12 = MmMapIoSpaceEx(v7, v8, 0x204u), (*(_QWORD *)(a1 + 32) = v12) != 0LL) )
   {
     *(_BYTE *)(a1 + 1) = 1;
-    if ( (_BYTE)xmmword_140405A88 && BYTE1(xmmword_140405A88) )
+    if ( (_BYTE)xmmword_140406A88 && BYTE1(xmmword_140406A88) )
     {
-      v13 = DWORD1(xmmword_140405A88);
-      if ( ((BYTE2(xmmword_140405A88) - 1) & 0xFD) == 0 )
-        v13 = DWORD2(xmmword_140405A88);
-      LOBYTE(v3) = (_DWORD)xmmword_140405A98 != 4;
-      MmUnmapIoSpace(BaseAddress, (unsigned int)(HIDWORD(xmmword_140405A88) * v13) * (v3 + 3));
+      v13 = DWORD1(xmmword_140406A88);
+      if ( ((BYTE2(xmmword_140406A88) - 1) & 0xFD) == 0 )
+        v13 = DWORD2(xmmword_140406A88);
+      LOBYTE(v3) = (_DWORD)xmmword_140406A98 != 4;
+      MmUnmapIoSpace(BaseAddress, (unsigned int)(HIDWORD(xmmword_140406A88) * v13) * (v3 + 3));
     }
-    xmmword_140405A88 = *(_OWORD *)a1;
-    xmmword_140405A98 = *(_OWORD *)(a1 + 16);
+    xmmword_140406A88 = *(_OWORD *)a1;
+    xmmword_140406A98 = *(_OWORD *)(a1 + 16);
     BaseAddress = *(PVOID *)(a1 + 32);
     goto LABEL_10;
   }

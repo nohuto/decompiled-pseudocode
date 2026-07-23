@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmHeteroDetectFavoredCores @ 0x1407EAA7C
+ * XREFs of PpmHeteroDetectFavoredCores @ 0x1407EAD4C
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PoHeteroIsArchFavoredCoreSupported @ 0x14041132C (PoHeteroIsArchFavoredCoreSupported.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PoHeteroIsArchFavoredCoreSupported @ 0x140411538 (PoHeteroIsArchFavoredCoreSupported.c)
  */
 
 char __fastcall PpmHeteroDetectFavoredCores(__int64 a1)
@@ -36,7 +36,7 @@ char __fastcall PpmHeteroDetectFavoredCores(__int64 a1)
   if ( (unsigned __int8)v2 <= 1u || PoHeteroIsArchFavoredCoreSupported() && v4 <= (unsigned __int8)PpmMaxCoreClasses )
     return 0;
   *(_DWORD *)(a1 + 4) = 1;
-  v13[1] = (unsigned __int16 *)qword_140C0BD58;
+  v13[1] = (unsigned __int16 *)qword_140C0BD68;
   v13[0] = (unsigned __int16 *)&PpmPerfStatesRegistered;
   v14 = 0;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v17, v13) )

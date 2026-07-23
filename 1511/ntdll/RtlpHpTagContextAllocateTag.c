@@ -17,33 +17,30 @@ __int64 __fastcall RtlpHpTagContextAllocateTag(__int64 a1, __int128 *a2, __int64
   _QWORD *v7; // rax
   _QWORD *v8; // rsi
   __int128 v9; // xmm0
-  char *v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
   __int64 Mapping; // rax
   unsigned __int16 i; // di
-  bool v15; // zf
-  unsigned __int16 v16; // di
-  unsigned __int16 v17; // r14
-  __int64 v18; // rdx
-  __int64 v19; // r9
-  char v21; // r15
-  unsigned __int64 v22; // rbx
-  unsigned __int64 v23; // r9
-  _QWORD *v24; // r8
-  unsigned __int64 v25; // r10
-  unsigned __int64 v26; // rcx
-  char v27; // dl
-  unsigned int v28; // r8d
-  __int64 v29; // r11
-  __int64 v30; // rcx
-  __int64 v31; // r12
-  _QWORD *v32; // r10
-  __int64 v33; // rdx
-  __int64 v34; // [rsp+20h] [rbp-10h]
-  __int64 v35; // [rsp+60h] [rbp+30h]
+  bool v12; // zf
+  unsigned __int16 v13; // di
+  unsigned __int16 v14; // r14
+  __int64 v15; // rdx
+  __int64 v16; // r9
+  char v18; // r15
+  unsigned __int64 v19; // rbx
+  unsigned __int64 v20; // r9
+  _QWORD *v21; // r8
+  unsigned __int64 v22; // r10
+  unsigned __int64 v23; // rcx
+  char v24; // dl
+  unsigned int v25; // r8d
+  __int64 v26; // r11
+  __int64 v27; // rcx
+  __int64 v28; // r12
+  _QWORD *v29; // r10
+  __int64 v30; // rdx
+  __int64 v31; // [rsp+20h] [rbp-10h]
+  __int64 v32; // [rsp+60h] [rbp+30h]
 
-  v7 = (_QWORD *)RtlpHpMetadataAlloc(48LL);
+  v7 = (_QWORD *)RtlpHpMetadataAlloc(0x30uLL);
   v8 = v7;
   if ( !v7 )
     return 0;
@@ -52,16 +49,16 @@ __int64 __fastcall RtlpHpTagContextAllocateTag(__int64 a1, __int128 *a2, __int64
   v8[4] = a4;
   v8[1] = a3;
   *((_OWORD *)v8 + 1) = v9;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpHpTagContext, v10, v11, v12);
+  RtlAcquireSRWLockExclusive(&RtlpHpTagContext);
   Mapping = RtlpHpTagContextFindMapping(&RtlpHpTagContext, a2, a3);
   if ( Mapping )
   {
     _InterlockedExchangeAdd64((volatile signed __int64 *)(Mapping + 32), a4);
-    v17 = *(_WORD *)(Mapping + 40);
+    v14 = *(_WORD *)(Mapping + 40);
   }
   else if ( word_1801438A2 == 1024 )
   {
-    v17 = 0;
+    v14 = 0;
   }
   else
   {
@@ -72,114 +69,114 @@ __int64 __fastcall RtlpHpTagContextAllocateTag(__int64 a1, __int128 *a2, __int64
       if ( !*(_QWORD *)(qword_180143898 + 8LL * i) )
         break;
     }
-    v15 = i == 0xFFFF;
-    v16 = i + 1;
-    v17 = v16;
-    if ( v15 )
+    v12 = i == 0xFFFF;
+    v13 = i + 1;
+    v14 = v13;
+    if ( v12 )
       goto LABEL_11;
     if ( dword_180143888 < 2 * ((unsigned int)dword_18014388C >> 5) )
       goto LABEL_10;
-    v21 = -1;
-    v22 = 2 * ((unsigned __int64)(unsigned int)dword_18014388C >> 5);
-    if ( v22 > 0xFFFFFFFF )
+    v18 = -1;
+    v19 = 2 * ((unsigned __int64)(unsigned int)dword_18014388C >> 5);
+    if ( v19 > 0xFFFFFFFF )
       goto LABEL_10;
-    if ( (unsigned int)v22 < 4 )
-      v22 = 4LL;
-    v23 = RtlpHpMetadataAlloc(8LL * (unsigned int)v22);
-    if ( v23 )
+    if ( (unsigned int)v19 < 4 )
+      v19 = 4LL;
+    v20 = RtlpHpMetadataAlloc(8LL * (unsigned int)v19);
+    if ( v20 )
     {
-      if ( (((_DWORD)v22 - 1) & (unsigned int)v22) != 0 )
+      if ( (((_DWORD)v19 - 1) & (unsigned int)v19) != 0 )
       {
         do
         {
-          ++v21;
-          LODWORD(v22) = (unsigned int)v22 >> 1;
+          ++v18;
+          LODWORD(v19) = (unsigned int)v19 >> 1;
         }
-        while ( (_DWORD)v22 );
-        v22 = (unsigned int)(1 << v21);
+        while ( (_DWORD)v19 );
+        v19 = (unsigned int)(1 << v18);
       }
-      v24 = (_QWORD *)v23;
-      v25 = 0LL;
-      if ( (unsigned int)v22 > 0x4000000 )
-        v22 = 0x4000000LL;
-      v26 = (8 * v22 + 7) >> 3;
-      if ( v23 > v23 + 8 * v22 )
-        v26 = 0LL;
-      if ( v26 )
+      v21 = (_QWORD *)v20;
+      v22 = 0LL;
+      if ( (unsigned int)v19 > 0x4000000 )
+        v19 = 0x4000000LL;
+      v23 = (8 * v19 + 7) >> 3;
+      if ( v20 > v20 + 8 * v19 )
+        v23 = 0LL;
+      if ( v23 )
       {
         do
         {
-          ++v25;
-          *v24++ = (char *)&dword_180143888 + 1;
+          ++v22;
+          *v21++ = (char *)&dword_180143888 + 1;
         }
-        while ( v25 < v26 );
+        while ( v22 < v23 );
       }
-      v27 = dword_18014388C;
-      v28 = 0;
-      v29 = -1LL << (dword_18014388C & 0x1F);
+      v24 = dword_18014388C;
+      v25 = 0;
+      v26 = -1LL << (dword_18014388C & 0x1F);
       if ( (dword_18014388C & 0xFFFFFFE0) != 0 )
       {
         do
         {
-          v31 = qword_180143890;
+          v28 = qword_180143890;
           while ( 1 )
           {
-            v32 = *(_QWORD **)(v31 + 8LL * v28);
-            if ( ((unsigned __int8)v32 & 1) != 0 )
+            v29 = *(_QWORD **)(v28 + 8LL * v25);
+            if ( ((unsigned __int8)v29 & 1) != 0 )
               break;
-            *(_QWORD *)(v31 + 8LL * v28) = *v32;
-            v35 = v29 & v32[1];
-            v33 = (37
-                 * (BYTE6(v35)
+            *(_QWORD *)(v28 + 8LL * v25) = *v29;
+            v32 = v26 & v29[1];
+            v30 = (37
+                 * (BYTE6(v32)
                   + 37
-                  * (BYTE5(v35)
+                  * (BYTE5(v32)
                    + 37
-                   * (BYTE4(v35)
-                    + 37 * (BYTE3(v35) + 37 * (BYTE2(v35) + 37 * (BYTE1(v35) + 37 * ((unsigned __int8)v35 + 11623883)))))))
-                 + HIBYTE(v35)) & (unsigned int)(v22 - 1);
-            *v32 = *(_QWORD *)(v23 + 8 * v33);
-            *(_QWORD *)(v23 + 8 * v33) = v32;
+                   * (BYTE4(v32)
+                    + 37 * (BYTE3(v32) + 37 * (BYTE2(v32) + 37 * (BYTE1(v32) + 37 * ((unsigned __int8)v32 + 11623883)))))))
+                 + HIBYTE(v32)) & (unsigned int)(v19 - 1);
+            *v29 = *(_QWORD *)(v20 + 8 * v30);
+            *(_QWORD *)(v20 + 8 * v30) = v29;
           }
-          v27 = dword_18014388C;
-          ++v28;
+          v24 = dword_18014388C;
+          ++v25;
         }
-        while ( v28 < (unsigned int)dword_18014388C >> 5 );
+        while ( v25 < (unsigned int)dword_18014388C >> 5 );
       }
-      v30 = qword_180143890;
-      qword_180143890 = v23;
-      dword_18014388C = v27 & 0x1F | (32 * v22);
-      if ( v30 )
-        RtlpHpMetadataFree(v30);
+      v27 = qword_180143890;
+      qword_180143890 = v20;
+      dword_18014388C = v24 & 0x1F | (32 * v19);
+      if ( v27 )
+        RtlpHpMetadataFree(v27);
       goto LABEL_10;
     }
     if ( (dword_18014388C & 0xFFFFFFE0) != 0 )
     {
 LABEL_10:
-      *((_WORD *)v8 + 20) = v16;
-      *(_QWORD *)(qword_180143898 + 8LL * v16 - 8) = v8;
-      v34 = v8[1] & (-1LL << (dword_18014388C & 0x1F));
-      v18 = qword_180143890;
-      v19 = (37
-           * (BYTE6(v34)
+      *((_WORD *)v8 + 20) = v13;
+      *(_QWORD *)(qword_180143898 + 8LL * v13 - 8) = v8;
+      v31 = v8[1] & (-1LL << (dword_18014388C & 0x1F));
+      v15 = qword_180143890;
+      v16 = (37
+           * (BYTE6(v31)
             + 37
-            * (BYTE5(v34)
+            * (BYTE5(v31)
              + 37
-             * (BYTE4(v34)
-              + 37 * (BYTE3(v34) + 37 * (BYTE2(v34) + 37 * (BYTE1(v34) + 37 * ((unsigned __int8)v34 + 11623883)))))))
-           + HIBYTE(v34)) & (((unsigned int)dword_18014388C >> 5) - 1);
-      *v8 = *(_QWORD *)(qword_180143890 + 8 * v19);
-      *(_QWORD *)(v18 + 8 * v19) = v8;
+             * (BYTE4(v31)
+              + 37 * (BYTE3(v31) + 37 * (BYTE2(v31) + 37 * (BYTE1(v31) + 37 * ((unsigned __int8)v31 + 11623883)))))))
+           + HIBYTE(v31)) & (((unsigned int)dword_18014388C >> 5) - 1);
+      *v8 = *(_QWORD *)(qword_180143890 + 8 * v16);
+      *(_QWORD *)(v15 + 8 * v16) = v8;
       v8 = 0LL;
       ++dword_180143888;
       ++word_1801438A2;
-      word_1801438A0 = v16;
+      word_1801438A0 = v13;
       goto LABEL_11;
     }
-    v17 = 0;
+    v14 = 0;
   }
 LABEL_11:
   RtlReleaseSRWLockExclusive(&RtlpHpTagContext);
   if ( v8 )
     RtlpHpMetadataFree(v8);
-  return v17;
+  return v14;
 }

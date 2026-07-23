@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetLargePagesForSystemMapping @ 0x1408C8A44
+ * XREFs of MiGetLargePagesForSystemMapping @ 0x1408C8BA4
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x140307B4C (MiMakeZeroedPageTablesEx.c)
  * Callees:
- *     MiReturnSystemCharges @ 0x1402B9B18 (MiReturnSystemCharges.c)
- *     MiObtainSystemCharges @ 0x1402E5ABC (MiObtainSystemCharges.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiThreadIdealNode @ 0x140547BCC (MiThreadIdealNode.c)
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiReturnSystemCharges @ 0x140237D28 (MiReturnSystemCharges.c)
+ *     MiObtainSystemCharges @ 0x140296E0C (MiObtainSystemCharges.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiThreadIdealNode @ 0x140547E0C (MiThreadIdealNode.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
  */
 
 __int64 __fastcall MiGetLargePagesForSystemMapping(__int64 a1, unsigned __int64 a2)
@@ -61,7 +61,7 @@ __int64 __fastcall MiGetLargePagesForSystemMapping(__int64 a1, unsigned __int64 
   if ( v16 )
     v15 = 1LL;
   v18 = 0;
-  v19 = (unsigned int *)(qword_140C4DE98 + 4LL * v14 * (unsigned __int16)KeNumberNodes);
+  v19 = (unsigned int *)(qword_140C4DED8 + 4LL * v14 * (unsigned __int16)KeNumberNodes);
   v20 = &v19[v15];
   while ( 1 )
   {

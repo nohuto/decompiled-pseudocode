@@ -111,7 +111,7 @@ LABEL_24:
     v20 = (HIWORD(v35) + v18 * (unsigned __int16)v35) >> v17;
     v21 = ((HIWORD(v35) + v18 * (unsigned __int16)v35 + (unsigned __int16)v35 - 1) >> v17) + 1;
     v22 = a2 + HIWORD(v35) + v18 * (unsigned __int16)v35;
-    RtlAcquireSRWLockShared(a2 + 24);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
     if ( (unsigned int)v20 < v21 )
     {
       v23 = (__int16 *)(v19 + 2 * v20);
@@ -125,7 +125,7 @@ LABEL_24:
       LODWORD(v20) = -1;
     }
 LABEL_16:
-    RtlReleaseSRWLockShared(a2 + 24);
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
     if ( (_DWORD)v20 != -1 )
     {
       v24 = RtlpHpLfhSubsegmentSizeBlockInternal(a2, v22, v18, a6);

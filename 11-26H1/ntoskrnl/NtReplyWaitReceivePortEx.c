@@ -1,26 +1,31 @@
 /*
- * XREFs of NtReplyWaitReceivePortEx @ 0x1407BFF70
+ * XREFs of NtReplyWaitReceivePortEx @ 0x1407C2FD0
  * Callers:
- *     DifNtReplyWaitReceivePortExWrapper @ 0x140689450 (DifNtReplyWaitReceivePortExWrapper.c)
- *     NtReplyWaitReceivePort @ 0x1407BFF20 (NtReplyWaitReceivePort.c)
+ *     DifNtReplyWaitReceivePortExWrapper @ 0x14068D030 (DifNtReplyWaitReceivePortExWrapper.c)
+ *     NtReplyWaitReceivePort @ 0x1407C2F80 (NtReplyWaitReceivePort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x1408F5AA0 (AlpcpProbeForWriteMessageHeader.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x140A49448 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpCompleteDeferSignalRequest @ 0x140A78190 (AlpcpCompleteDeferSignalRequest.c)
- *     AlpcpReceiveLegacyMessage @ 0x140ACBE7C (AlpcpReceiveLegacyMessage.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x140925A30 (AlpcpProbeForWriteMessageHeader.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140A52738 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x140A80C30 (AlpcpCompleteDeferSignalRequest.c)
+ *     AlpcpReceiveLegacyMessage @ 0x140ACE0BC (AlpcpReceiveLegacyMessage.c)
  */
 
-__int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl NtReplyWaitReceivePortEx(
+        HANDLE PortHandle,
+        PVOID *PortContext,
+        PPORT_MESSAGE ReplyMessage,
+        PPORT_MESSAGE ReceiveMessage,
+        PLARGE_INTEGER Timeout)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v11; // rax
   KPROCESSOR_MODE PreviousMode; // r14
-  NTSTATUS v13; // ebx
+  int v13; // ebx
   __int64 v14; // r8
   __int64 v15; // r9
   PVOID v16; // rdi
@@ -30,12 +35,12 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a
   _QWORD v20[6]; // [rsp+40h] [rbp-58h] BYREF
   int v21; // [rsp+70h] [rbp-28h]
 
-  if ( *(_DWORD *)&AlpcpMessageLogLock.ApcStateFill[8] )
+  if ( LODWORD(AlpcpMessageLogLock.TrapFrame) )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     KeLeaveCriticalRegion();
-    return 3221225659LL;
+    return -1073741637;
   }
   else
   {
@@ -44,15 +49,15 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a
     --v11->KernelApcDisable;
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode )
-      AlpcpProbeForWriteMessageHeader(a4, 0LL);
+      AlpcpProbeForWriteMessageHeader(ReceiveMessage, 0LL);
     Object = 0LL;
-    v13 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v13 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( v13 >= 0 )
     {
       v16 = Object;
       v20[0] = Object;
       v21 = 0;
-      if ( !a3 )
+      if ( !ReplyMessage )
         goto LABEL_13;
       v17 = (*((_DWORD *)Object + 104) & 0x2000) == 0;
       memset(&v20[3], 0, 24);
@@ -60,13 +65,13 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a
       {
         v21 = 65541;
         LOBYTE(v15) = PreviousMode;
-        v18 = AlpcpSendMessage(v20, a3, 0LL, v15);
+        v18 = AlpcpSendMessage(v20, ReplyMessage, 0LL, v15);
       }
       else
       {
         v21 = 4;
         LOBYTE(v14) = PreviousMode;
-        v18 = AlpcpReplyLegacySynchronousRequest(v20, a3, v14);
+        v18 = AlpcpReplyLegacySynchronousRequest(v20, ReplyMessage, v14);
       }
       v13 = v18;
       if ( v18 < 0 )
@@ -78,12 +83,12 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a
       else
       {
 LABEL_13:
-        v13 = AlpcpReceiveLegacyMessage(v20, a4, a5, a2);
+        v13 = AlpcpReceiveLegacyMessage(v20, ReceiveMessage, Timeout, PortContext);
         AlpcpCompleteDeferSignalRequest(v20);
         ObfDereferenceObject(v16);
       }
     }
     KeLeaveCriticalRegion();
-    return (unsigned int)v13;
+    return v13;
   }
 }

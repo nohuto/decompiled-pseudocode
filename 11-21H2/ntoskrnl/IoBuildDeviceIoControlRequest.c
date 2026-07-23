@@ -4,29 +4,29 @@
  *     IoVolumeDeviceToGuidPath @ 0x14068BA10 (IoVolumeDeviceToGuidPath.c)
  *     IoVolumeDeviceNameToGuidPath @ 0x14068BB80 (IoVolumeDeviceNameToGuidPath.c)
  *     FsRtlQueryCachedVdl @ 0x1406C2860 (FsRtlQueryCachedVdl.c)
- *     IopGetSetObjectId @ 0x1406D3ACC (IopGetSetObjectId.c)
- *     IoVolumeDeviceToDosName @ 0x140710B90 (IoVolumeDeviceToDosName.c)
- *     NtApphelpCacheControl @ 0x140780D40 (NtApphelpCacheControl.c)
+ *     sub_1406D3ACC @ 0x1406D3ACC (sub_1406D3ACC.c)
+ *     RtlVolumeDeviceToDosName @ 0x140710B90 (RtlVolumeDeviceToDosName.c)
+ *     sub_140780D40 @ 0x140780D40 (sub_140780D40.c)
  *     FsRtlIssueDeviceIoControl @ 0x1407FA460 (FsRtlIssueDeviceIoControl.c)
  *     FsRtlBalanceReads @ 0x1407FC880 (FsRtlBalanceReads.c)
- *     IopInvalidateVolumesForDevice @ 0x14080AB40 (IopInvalidateVolumesForDevice.c)
- *     IopLoadFileSystemDriver @ 0x14080C5C8 (IopLoadFileSystemDriver.c)
- *     IopCreateArcName @ 0x14080F068 (IopCreateArcName.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14081C234 (FsRtlIssueFileNotificationFsctl.c)
- *     HalpQueryAcpiRealTimeClock @ 0x140908124 (HalpQueryAcpiRealTimeClock.c)
- *     HalpSetAcpiRealTimeClock @ 0x140908208 (HalpSetAcpiRealTimeClock.c)
- *     HalpCallWakeAlarmDriver @ 0x14090A480 (HalpCallWakeAlarmDriver.c)
- *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x14090A560 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
- *     ?Control@NT_DISK@@UEAAJKPEAXK0K@Z @ 0x140930280 (-Control@NT_DISK@@UEAAJKPEAXK0K@Z.c)
- *     IopGetVolumeId @ 0x14093449C (IopGetVolumeId.c)
- *     IopSetRemoteLink @ 0x140935C64 (IopSetRemoteLink.c)
- *     IopIssueSystemEnvironmentRequest @ 0x14093F428 (IopIssueSystemEnvironmentRequest.c)
- *     RawPerformDevIoCtrl @ 0x1409B4F34 (RawPerformDevIoCtrl.c)
- *     RawQueryFsSizeInfo @ 0x1409B5088 (RawQueryFsSizeInfo.c)
- *     SmKmSendDeviceControl @ 0x1409D6368 (SmKmSendDeviceControl.c)
- *     VhdiVerifyBootDisk @ 0x140A3437C (VhdiVerifyBootDisk.c)
+ *     sub_14080AB40 @ 0x14080AB40 (sub_14080AB40.c)
+ *     sub_14080C5C8 @ 0x14080C5C8 (sub_14080C5C8.c)
+ *     sub_14080F068 @ 0x14080F068 (sub_14080F068.c)
+ *     sub_14081C234 @ 0x14081C234 (sub_14081C234.c)
+ *     sub_140908124 @ 0x140908124 (sub_140908124.c)
+ *     sub_140908208 @ 0x140908208 (sub_140908208.c)
+ *     sub_14090A480 @ 0x14090A480 (sub_14090A480.c)
+ *     sub_14090A560 @ 0x14090A560 (sub_14090A560.c)
+ *     sub_140930280 @ 0x140930280 (sub_140930280.c)
+ *     sub_14093449C @ 0x14093449C (sub_14093449C.c)
+ *     sub_140935C64 @ 0x140935C64 (sub_140935C64.c)
+ *     sub_14093F428 @ 0x14093F428 (sub_14093F428.c)
+ *     sub_1409B4F34 @ 0x1409B4F34 (sub_1409B4F34.c)
+ *     sub_1409B5088 @ 0x1409B5088 (sub_1409B5088.c)
+ *     sub_1409D6368 @ 0x1409D6368 (sub_1409D6368.c)
+ *     sub_140A3437C @ 0x140A3437C (sub_140A3437C.c)
  * Callees:
- *     IopBuildDeviceIoControlRequest @ 0x1403428E0 (IopBuildDeviceIoControlRequest.c)
+ *     sub_1403428E0 @ 0x1403428E0 (sub_1403428E0.c)
  */
 
 PIRP __stdcall IoBuildDeviceIoControlRequest(
@@ -42,7 +42,7 @@ PIRP __stdcall IoBuildDeviceIoControlRequest(
 {
   void *retaddr; // [rsp+58h] [rbp+0h]
 
-  return (PIRP)IopBuildDeviceIoControlRequest(
+  return (PIRP)sub_1403428E0(
                  IoControlCode,
                  DeviceObject,
                  InputBuffer,

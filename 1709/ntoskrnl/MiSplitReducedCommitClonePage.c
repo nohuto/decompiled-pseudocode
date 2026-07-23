@@ -153,7 +153,7 @@ __int64 __fastcall MiSplitReducedCommitClonePage(__int64 a1, __int64 **a2)
           {
             v16->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v16->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v8->LockEntries[v15]);
+              KiAbEntryRemoveFromTree(&v8->LockEntries[v15].TreeNode);
             v31 = 0;
             v31 = v16->BoostBitmap.AllFields & 0x1FFFF;
             v16->BoostBitmap.AllFields &= 0xFFFE0000;

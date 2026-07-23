@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwGetProcessorBuffer @ 0x1406C3720
+ * XREFs of EtwGetProcessorBuffer @ 0x1406C7360
  * Callers:
- *     KiSaveCurrentEtwTraceBuffer @ 0x1405E8920 (KiSaveCurrentEtwTraceBuffer.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x1405EB290 (KiSaveCurrentEtwTraceBuffer.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 __int64 __fastcall EtwGetProcessorBuffer(unsigned int a1, unsigned int a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall EtwGetProcessorBuffer(unsigned int a1, unsigned int a2, __int
 
   v3 = 0;
   v4 = a2;
-  if ( (unsigned __int8)EtwpBootPhase <= 1u )
+  if ( LOBYTE(stru_140F03830.CycleTime) <= 1u )
     return 3221225473LL;
   if ( a1 >= *(_DWORD *)(EtwpHostSiloState + 16) )
     return (unsigned int)-1073741816;

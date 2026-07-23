@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwIrpGetLifetime @ 0x1408AEA70
+ * XREFs of PiSwIrpGetLifetime @ 0x1408AEBD0
  * Callers:
- *     PiSwDispatch @ 0x14074D990 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14074DB50 (PiSwDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PiSwDeviceOperationsAllowed @ 0x14074D08C (PiSwDeviceOperationsAllowed.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PiSwDeviceOperationsAllowed @ 0x14074D24C (PiSwDeviceOperationsAllowed.c)
  */
 
 __int64 __fastcall PiSwIrpGetLifetime(PIRP Irp)
@@ -17,6 +17,9 @@ __int64 __fastcall PiSwIrpGetLifetime(PIRP Irp)
   struct _IRP *MasterIrp; // r14
   __int64 FsContext2; // rsi
   struct _KTHREAD *CurrentThread; // rax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   v2 = 0;
@@ -37,7 +40,7 @@ __int64 __fastcall PiSwIrpGetLifetime(PIRP Irp)
       v2 = -1073741637;
     }
     ExReleaseResourceLite(&PiSwLockObj);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
   }
   else
   {

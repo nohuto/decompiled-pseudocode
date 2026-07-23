@@ -1,11 +1,11 @@
 /*
  * XREFs of KdpReadRemoteFile @ 0x1406F6854
  * Callers:
- *     KdPullRemoteFile @ 0x1406F2368 (KdPullRemoteFile.c)
+ *     KdPullRemoteFile @ 0x1406F2000 (KdPullRemoteFile.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KdEnterDebugger @ 0x1406F2738 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x1406F2838 (KdExitDebugger.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KdEnterDebugger @ 0x1406F23D0 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1406F24D0 (KdExitDebugger.c)
  */
 
 __int64 __fastcall KdpReadRemoteFile(int a1, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)

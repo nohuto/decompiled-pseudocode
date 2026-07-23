@@ -1,11 +1,11 @@
 /*
- * XREFs of IoEnumerateKsrPersistentMemoryEx @ 0x1405A4230
+ * XREFs of IoEnumerateKsrPersistentMemoryEx @ 0x1405A1170
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PipGetDriverKsrGuid @ 0x14071BC80 (PipGetDriverKsrGuid.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PipGetDriverKsrGuid @ 0x140719810 (PipGetDriverKsrGuid.c)
  */
 
 __int64 __fastcall IoEnumerateKsrPersistentMemoryEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

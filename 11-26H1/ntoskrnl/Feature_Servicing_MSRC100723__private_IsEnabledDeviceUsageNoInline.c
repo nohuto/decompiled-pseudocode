@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_MSRC100723__private_IsEnabledDeviceUsageNoInline @ 0x140615708
+ * XREFs of Feature_Servicing_MSRC100723__private_IsEnabledDeviceUsageNoInline @ 0x140618728
  * Callers:
- *     NtQueryInformationJobObject @ 0x1407F2FB0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1407F8B10 (NtQueryInformationJobObject.c)
  * Callees:
- *     Feature_Servicing_MSRC100723__private_IsEnabledFallback @ 0x140615744 (Feature_Servicing_MSRC100723__private_IsEnabledFallback.c)
+ *     Feature_Servicing_MSRC100723__private_IsEnabledFallback @ 0x140618764 (Feature_Servicing_MSRC100723__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_MSRC100723__private_IsEnabledDeviceUsageNoInline()

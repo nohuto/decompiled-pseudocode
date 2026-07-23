@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDrainCrossPartitionUsage @ 0x140659A24
+ * XREFs of MiDrainCrossPartitionUsage @ 0x140659F74
  * Callers:
- *     MiDeletePartition @ 0x1406293AC (MiDeletePartition.c)
+ *     MiDeletePartition @ 0x1406298FC (MiDeletePartition.c)
  * Callees:
  *     MiDecrementControlAreaCount @ 0x140219AA0 (MiDecrementControlAreaCount.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1403221B0 (ExWaitForRundownProtectionReleaseCacheAware.c)
- *     CcExitPartition @ 0x1405393E8 (CcExitPartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x140624BC8 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiDecrementCloneHeaderCount @ 0x140663E0C (MiDecrementCloneHeaderCount.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x140322440 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcExitPartition @ 0x140539938 (CcExitPartition.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140625118 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiDecrementCloneHeaderCount @ 0x14066435C (MiDecrementCloneHeaderCount.c)
  */
 
 void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
@@ -49,10 +49,13 @@ void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -83,10 +86,10 @@ void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
   *(_QWORD *)(a1 + 2408) = &Object;
 LABEL_13:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v11 >= 2u )
     {
       v12 = KeGetCurrentPrcb();
       v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));

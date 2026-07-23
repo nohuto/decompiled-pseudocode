@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpInitializeExtendedContext @ 0x140B7939C
+ * XREFs of KdpInitializeExtendedContext @ 0x140B7B39C
  * Callers:
- *     KdpGetContext @ 0x140B772F8 (KdpGetContext.c)
+ *     KdpGetContext @ 0x140B792F8 (KdpGetContext.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KdpInitializeExtendedContext(_DWORD *a1, int a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwCancelTimer2 @ 0x1800A1510
+ * XREFs of ZwCancelTimer2 @ 0x1800A1530
  * Callers:
  *     TppUpdateSubQueueTimer @ 0x18002D104 (TppUpdateSubQueueTimer.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCancelTimer2()
+NTSTATUS __cdecl ZwCancelTimer2(HANDLE TimerHandle, PT2_CANCEL_PARAMETERS Parameters)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 146LL;
+  result = 146;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

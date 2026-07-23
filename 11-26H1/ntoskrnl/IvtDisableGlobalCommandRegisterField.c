@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtDisableGlobalCommandRegisterField @ 0x1405A5FF8
+ * XREFs of IvtDisableGlobalCommandRegisterField @ 0x1405A8808
  * Callers:
- *     IvtInitializeIommu @ 0x140BEFC90 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x140BF5C90 (IvtInitializeIommu.c)
  * Callees:
- *     IvtWaitForGlobalCommandCompletion @ 0x1405A7E38 (IvtWaitForGlobalCommandCompletion.c)
+ *     IvtWaitForGlobalCommandCompletion @ 0x1405AA648 (IvtWaitForGlobalCommandCompletion.c)
  */
 
 __int64 __fastcall IvtDisableGlobalCommandRegisterField(__int64 a1, char a2)

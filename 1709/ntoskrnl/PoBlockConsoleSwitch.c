@@ -12,9 +12,9 @@
  *     PopDispatchStateCallout @ 0x1406FCB40 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PoBlockConsoleSwitch(__int64 a1)
+ULONG __fastcall PoBlockConsoleSwitch(__int64 a1)
 {
-  int ActiveConsoleId; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActiveConsoleId; // [rsp+30h] [rbp+8h] BYREF
   LARGE_INTEGER Interval; // [rsp+38h] [rbp+10h] BYREF
 
   Interval.QuadPart = -100000LL;

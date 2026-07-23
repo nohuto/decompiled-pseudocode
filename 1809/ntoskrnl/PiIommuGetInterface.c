@@ -1,12 +1,12 @@
 /*
- * XREFs of PiIommuGetInterface @ 0x1406F8A70
+ * XREFs of PiIommuGetInterface @ 0x1406F9D10
  * Callers:
- *     PiDmaGuardProcessNewDeviceNode @ 0x1406F89E0 (PiDmaGuardProcessNewDeviceNode.c)
+ *     PiDmaGuardProcessNewDeviceNode @ 0x1406F9C80 (PiDmaGuardProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PnpQueryInterface @ 0x1406F9178 (PnpQueryInterface.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PnpQueryInterface @ 0x1406FA418 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PiIommuGetInterface(struct _DEVICE_OBJECT *BugCheckParameter2, _QWORD *a2)

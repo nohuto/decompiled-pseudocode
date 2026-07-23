@@ -1,12 +1,24 @@
 /*
- * XREFs of NtLoadKey2 @ 0x140781B20
+ * XREFs of NtLoadKey2 @ 0x140781CE0
  * Callers:
  *     <none>
  * Callees:
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
  */
 
-__int64 __fastcall NtLoadKey2(__int64 a1, void *a2, unsigned int a3)
+NTSTATUS __cdecl NtLoadKey2(POBJECT_ATTRIBUTES TargetKey, POBJECT_ATTRIBUTES SourceFile, ULONG Flags)
 {
-  return CmLoadDifferencingKey(a1, a2, a3, 0LL, 0LL, 0, 0LL, 0, 0LL, 0, 0LL, KeGetCurrentThread()->PreviousMode);
+  return CmLoadDifferencingKey(
+           (__int64)TargetKey,
+           SourceFile,
+           Flags,
+           0LL,
+           0LL,
+           0,
+           0LL,
+           0,
+           0LL,
+           0,
+           0LL,
+           KeGetCurrentThread()->PreviousMode);
 }

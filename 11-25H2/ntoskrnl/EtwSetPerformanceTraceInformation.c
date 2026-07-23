@@ -79,7 +79,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(
   unsigned int v32; // r12d
   int v33; // r13d
   int v34; // esi
-  unsigned int v35; // edi
+  ULONG v35; // edi
   __int64 v36; // rax
   unsigned int v37; // edx
   struct _KTHREAD *v38; // rax
@@ -392,7 +392,7 @@ LABEL_84:
               return 3221225506LL;
             v35 = *((_DWORD *)Address + 1);
             KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
-            v17 = NtSetIntervalProfile(v35, 0);
+            v17 = NtSetIntervalProfile(v35, ProfileTime);
             if ( v17 >= 0 )
               EtwpProfileInterval = v35;
             break;
@@ -561,7 +561,7 @@ LABEL_9:
           switch ( v80 )
           {
             case 6:
-              updated = EtwpUpdateStackTracing((RTL_BITMAP *)v25, (__int64)v21, v20);
+              updated = EtwpUpdateStackTracing((_RTL_BITMAP *)v25, (__int64)v21, v20);
 LABEL_177:
               v17 = updated;
               goto LABEL_178;

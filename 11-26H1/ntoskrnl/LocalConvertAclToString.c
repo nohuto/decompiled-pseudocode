@@ -1,18 +1,18 @@
 /*
- * XREFs of LocalConvertAclToString @ 0x140A607C4
+ * XREFs of LocalConvertAclToString @ 0x140A6D784
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140A61D64 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x140A6ED34 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     _ultow_s @ 0x14053B580 (_ultow_s.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     SddlpFreeUuidString @ 0x1408186A4 (SddlpFreeUuidString.c)
- *     SddlpUuidToString @ 0x14081874C (SddlpUuidToString.c)
- *     LookupSidInTable @ 0x140925630 (LookupSidInTable.c)
- *     SddlpFree @ 0x1409ED230 (SddlpFree.c)
- *     LocalGetAceCondition @ 0x140A614C8 (LocalGetAceCondition.c)
- *     RtlNtStatusToDosError @ 0x140A62640 (RtlNtStatusToDosError.c)
- *     SddlpAlloc @ 0x140A62788 (SddlpAlloc.c)
- *     LocalConvertSidToStringSidW @ 0x140A633E0 (LocalConvertSidToStringSidW.c)
+ *     _ultow_s @ 0x14053DA00 (_ultow_s.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     SddlpFreeUuidString @ 0x14081E8B4 (SddlpFreeUuidString.c)
+ *     SddlpUuidToString @ 0x14081E95C (SddlpUuidToString.c)
+ *     LookupSidInTable @ 0x140901140 (LookupSidInTable.c)
+ *     SddlpFree @ 0x1409E9A00 (SddlpFree.c)
+ *     LocalGetAceCondition @ 0x140A6E49C (LocalGetAceCondition.c)
+ *     RtlNtStatusToDosError @ 0x140A6F610 (RtlNtStatusToDosError.c)
+ *     SddlpAlloc @ 0x140A6F758 (SddlpAlloc.c)
+ *     LocalConvertSidToStringSidW @ 0x140A703B0 (LocalConvertSidToStringSidW.c)
  */
 
 __int64 __fastcall LocalConvertAclToString(
@@ -26,29 +26,29 @@ __int64 __fastcall LocalConvertAclToString(
         unsigned int Val,
         char a9)
 {
-  unsigned int v9; // r12d
-  __int64 v11; // r13
-  __int64 v12; // r14
+  unsigned int v9; // r15d
+  __int64 v11; // r12
+  __int64 v12; // rbx
   ULONG v13; // edi
   wchar_t *v14; // rax
   __int64 result; // rax
   __int64 v16; // rax
-  int v17; // ebx
-  unsigned __int8 *v18; // r15
-  int v19; // r14d
-  char *v20; // rcx
+  unsigned __int8 *v17; // r14
+  int v18; // esi
+  char *v19; // rcx
+  unsigned int v20; // r9d
   unsigned int v21; // edx
-  void **v22; // r15
+  void **v22; // rsi
   wchar_t *v23; // r14
   unsigned __int8 *v24; // r9
-  unsigned __int64 v25; // rbx
-  unsigned int v26; // r15d
+  unsigned int v25; // r15d
+  unsigned __int64 v26; // rbx
   char *v27; // rcx
   unsigned int v28; // edx
   wchar_t *v29; // r14
   rsize_t v30; // rbx
-  unsigned int v31; // esi
-  wchar_t *v32; // r14
+  wchar_t *v31; // r14
+  unsigned int v32; // esi
   rsize_t v33; // rbx
   char *v34; // rdx
   unsigned int v35; // r10d
@@ -77,7 +77,7 @@ __int64 __fastcall LocalConvertAclToString(
   wchar_t *v58; // r14
   rsize_t v59; // rbx
   wchar_t *v60; // r14
-  char *v61; // rcx
+  _QWORD *v61; // r13
   wchar_t *v62; // r14
   rsize_t v63; // rbx
   const wchar_t *v64; // rsi
@@ -99,16 +99,16 @@ __int64 __fastcall LocalConvertAclToString(
   __int64 v80; // rax
   unsigned int v81; // eax
   unsigned int v82; // ebx
-  char *v83; // r15
-  _BYTE *v84; // r13
-  unsigned int v85; // eax
-  unsigned int m; // r15d
-  int *v87; // rcx
-  int v88; // r9d
-  unsigned int v89; // r8d
-  void *v90; // rcx
-  unsigned int k; // r8d
-  unsigned int v92; // ecx
+  _BYTE *v83; // rsi
+  unsigned int v84; // eax
+  unsigned int n; // r15d
+  int *v86; // rcx
+  int v87; // r9d
+  unsigned int v88; // r8d
+  void *v89; // rcx
+  unsigned int m; // r8d
+  unsigned int v91; // ecx
+  __int64 v92; // r15
   unsigned int v93; // ecx
   unsigned int v94; // ecx
   unsigned int v95; // ecx
@@ -116,7 +116,7 @@ __int64 __fastcall LocalConvertAclToString(
   unsigned int v97; // ecx
   unsigned int v98; // ecx
   unsigned int v99; // ebx
-  unsigned __int8 *v100; // r14
+  unsigned __int8 *v100; // rdi
   ULONG AceCondition; // eax
   int v102; // r11d
   _DWORD *v103; // r10
@@ -124,13 +124,13 @@ __int64 __fastcall LocalConvertAclToString(
   int *v105; // rcx
   int v106; // r8d
   unsigned int v107; // edx
-  unsigned int j; // r10d
+  unsigned int k; // r10d
   int *v109; // rcx
   __int64 v110; // r8
   __int64 v111; // rax
   wchar_t **v112; // rbx
   __int64 v113; // rax
-  int v114; // r13d
+  int v114; // r12d
   __int64 v115; // rax
   unsigned int v116; // ecx
   unsigned int v117; // ecx
@@ -144,56 +144,55 @@ __int64 __fastcall LocalConvertAclToString(
   __int64 *v125; // rax
   __int64 v126; // rcx
   __int64 v127; // rax
-  int v128; // edi
+  int v128; // r12d
   unsigned int i; // ebx
-  unsigned int v130; // ecx
-  char *v131; // r8
-  unsigned int v132; // edx
-  unsigned int v133; // r10d
-  wchar_t **v134; // rcx
-  __int64 v135; // rax
-  wchar_t *v136; // rcx
-  __int64 v137; // rax
-  wchar_t **v138; // rax
-  wchar_t **v139; // rdi
-  __int64 v140; // rax
-  wchar_t **v141; // rdi
-  __int64 v142; // rax
-  wchar_t **v143; // rsi
-  __int64 v144; // rax
-  wchar_t **v145; // rsi
-  __int64 v146; // rax
-  wchar_t *v147; // rax
+  char *v130; // r8
+  unsigned int v131; // r10d
+  wchar_t **v132; // rcx
+  __int64 v133; // rax
+  unsigned int j; // edx
+  wchar_t *v135; // rcx
+  __int64 v136; // rax
+  wchar_t **v137; // rax
+  wchar_t **v138; // rdi
+  __int64 v139; // rax
+  wchar_t **v140; // rdi
+  __int64 v141; // rax
+  wchar_t **v142; // rsi
+  __int64 v143; // rax
+  wchar_t **v144; // rsi
+  __int64 v145; // rax
+  wchar_t *v146; // rax
+  __int64 v147; // rsi
   __int64 v148; // rsi
-  __int64 v149; // rsi
-  unsigned __int8 *v150; // r8
-  unsigned int v151; // r9d
-  int v152; // edx
-  unsigned int v153; // [rsp+58h] [rbp-69h]
-  int v154; // [rsp+5Ch] [rbp-65h] BYREF
-  __int64 v155; // [rsp+60h] [rbp-61h]
-  ULONG v156; // [rsp+68h] [rbp-59h] BYREF
-  unsigned __int8 *v157; // [rsp+70h] [rbp-51h]
-  wchar_t *Src; // [rsp+78h] [rbp-49h] BYREF
-  unsigned __int8 *v159; // [rsp+80h] [rbp-41h]
-  wchar_t *v160; // [rsp+88h] [rbp-39h] BYREF
-  __int64 v161; // [rsp+90h] [rbp-31h] BYREF
-  char *v162; // [rsp+98h] [rbp-29h]
-  _DWORD *v163; // [rsp+A0h] [rbp-21h]
-  int v164; // [rsp+A8h] [rbp-19h]
-  unsigned int *v165; // [rsp+B0h] [rbp-11h]
-  _BYTE *v166; // [rsp+B8h] [rbp-9h]
+  int v149; // edx
+  unsigned int v150; // ecx
+  __int64 v151; // r8
+  unsigned int v152; // [rsp+58h] [rbp-69h]
+  int v153; // [rsp+5Ch] [rbp-65h] BYREF
+  ULONG v154; // [rsp+60h] [rbp-61h] BYREF
+  __int64 v155; // [rsp+68h] [rbp-59h]
+  char *v156; // [rsp+70h] [rbp-51h]
+  unsigned __int8 *v157; // [rsp+78h] [rbp-49h]
+  PSID Sid; // [rsp+80h] [rbp-41h]
+  wchar_t *Src; // [rsp+88h] [rbp-39h] BYREF
+  wchar_t *v160; // [rsp+90h] [rbp-31h] BYREF
+  __int64 v161; // [rsp+98h] [rbp-29h] BYREF
+  _DWORD *v162; // [rsp+A0h] [rbp-21h]
+  int v163; // [rsp+A8h] [rbp-19h]
+  unsigned int *v164; // [rsp+B0h] [rbp-11h]
+  _BYTE *v165; // [rsp+B8h] [rbp-9h]
   unsigned int Vala; // [rsp+140h] [rbp+7Fh]
 
   v9 = 0;
-  v164 = 0;
+  v163 = 0;
   LODWORD(v11) = 0;
   v155 = 0LL;
   v12 = a1;
   v160 = 0LL;
   v13 = 0;
   Vala = 0;
-  v159 = 0LL;
+  Sid = 0LL;
   v161 = 0LL;
   Src = 0LL;
   if ( !a4 || !a5 )
@@ -227,43 +226,44 @@ LABEL_9:
     result = 0LL;
     goto LABEL_9;
   }
-  v17 = 2 - (a3 != 0);
-  v153 = v17;
-  v162 = (char *)SddlpAlloc(8 * v16);
+  v152 = 2 - (a3 != 0);
+  v156 = (char *)SddlpAlloc(8 * v16);
+  if ( !v156 )
+    return 8LL;
+  v165 = (_BYTE *)SddlpAlloc(*(unsigned __int16 *)(v12 + 4));
+  if ( !v165 )
+  {
+    v89 = v156;
+    goto LABEL_119;
+  }
+  v162 = (_DWORD *)SddlpAlloc(4LL * *(unsigned __int16 *)(v12 + 4));
   if ( !v162 )
-    return 8LL;
-  v166 = (_BYTE *)SddlpAlloc(*(unsigned __int16 *)(v12 + 4));
-  if ( !v166 )
   {
-    v90 = v162;
-    goto LABEL_117;
-  }
-  v163 = (_DWORD *)SddlpAlloc(4LL * *(unsigned __int16 *)(v12 + 4));
-  if ( !v163 )
-  {
-    SddlpFree(v162);
-    v90 = v166;
-LABEL_117:
-    SddlpFree(v90);
+    SddlpFree(v156);
+    v89 = v165;
+LABEL_119:
+    SddlpFree(v89);
     return 8LL;
   }
+  v154 = 0;
   v157 = (unsigned __int8 *)(v12 + 8);
-  v18 = (unsigned __int8 *)(v12 + 8);
+  v17 = (unsigned __int8 *)(v12 + 8);
   while ( v9 < *(unsigned __int16 *)(v12 + 4) )
   {
-    v19 = *v18;
-    v20 = byte_140E0889C;
+    v18 = *v17;
+    v19 = byte_140E0888C;
+    v20 = v152;
     v11 = (unsigned int)(v11 + 2);
-    v21 = 0;
     v155 = v11;
-    while ( (v17 & *((_DWORD *)v20 + 1)) != v17 || v19 != *(_DWORD *)v20 )
+    v21 = 0;
+    while ( (v152 & *((_DWORD *)v19 + 1)) != v152 || v18 != *(_DWORD *)v19 )
     {
       ++v21;
-      v20 += 24;
+      v19 += 24;
       if ( v21 >= 0x11 )
         goto LABEL_19;
     }
-    v125 = (__int64 *)(0x140000000LL + 24LL * v21 + 14715024);
+    v125 = (__int64 *)(0x140000000LL + 24LL * v21 + 14715008);
     if ( !v125 )
     {
 LABEL_19:
@@ -275,64 +275,59 @@ LABEL_19:
     do
       ++v127;
     while ( *(_WORD *)(v126 + 2 * v127) );
-    v128 = v11 + 2 + 2 * v127;
+    v128 = v11 + 2 * v127 + 2;
     for ( i = 0; i < 8; ++i )
     {
-      if ( (v18[1] & (1 << i)) == 0 )
-        continue;
-      v130 = v153;
-      v131 = (char *)&unk_140E08784;
-      v132 = 0;
-      v133 = 0;
-      while ( 1 )
+      if ( (v17[1] & (1 << i)) == 0 )
+        goto LABEL_193;
+      v130 = (char *)&unk_140E08774;
+      v131 = 0;
+      while ( (v20 & *((_DWORD *)v130 - 1)) != v20 )
       {
-        if ( (v130 & *((_DWORD *)v131 - 1)) != v130 )
-          goto LABEL_184;
-        if ( !*(_DWORD *)v131 )
-          break;
-        while ( v132 < *(_DWORD *)v131 )
-        {
-          if ( *(_BYTE *)(v132 + *(_QWORD *)(v131 + 4)) == (_BYTE)v19 )
-          {
-            v130 = v153;
-            goto LABEL_183;
-          }
-          ++v132;
-        }
-        v130 = v153;
-LABEL_184:
-        ++v133;
-        v131 += 32;
-        if ( v133 >= 9 )
-          goto LABEL_185;
-        v132 = 0;
+LABEL_187:
+        ++v131;
+        v130 += 32;
+        if ( v131 >= 9 )
+          goto LABEL_193;
       }
-LABEL_183:
-      if ( 1 << i != *((_DWORD *)v131 - 2) )
-        goto LABEL_184;
-      v134 = &(&off_140E08770)[4 * v133];
-      if ( v134 )
+      if ( *(_DWORD *)v130 )
       {
-        v135 = -1LL;
-        do
-          ++v135;
-        while ( (*v134)[v135] );
-        v128 += 2 * v135;
+        for ( j = 0; j < *(_DWORD *)v130; ++j )
+        {
+          if ( *(_BYTE *)(j + *(_QWORD *)(v130 + 4)) == (_BYTE)v18 )
+            goto LABEL_185;
+        }
+LABEL_186:
+        v20 = v152;
+        goto LABEL_187;
       }
 LABEL_185:
-      ;
-    }
-    v92 = *v18;
-    LODWORD(v11) = v128 + 2;
-    v155 = (unsigned int)(v128 + 2);
-    v154 = v128 + 2;
-    if ( v92 <= 9 )
-    {
-      if ( v92 != 9 )
+      if ( 1 << i != *((_DWORD *)v130 - 2) )
+        goto LABEL_186;
+      v132 = &(&off_140E08760)[4 * v131];
+      if ( v132 )
       {
-        if ( v92 )
+        v133 = -1LL;
+        do
+          ++v133;
+        while ( (*v132)[v133] );
+        v128 += 2 * v133;
+      }
+LABEL_193:
+      v20 = v152;
+    }
+    v91 = *v17;
+    v11 = (unsigned int)(v128 + 2);
+    v92 = v154;
+    v155 = v11;
+    v153 = v11;
+    if ( v91 <= 9 )
+    {
+      if ( v91 != 9 )
+      {
+        if ( v91 )
         {
-          v116 = v92 - 1;
+          v116 = v91 - 1;
           if ( v116 )
           {
             v117 = v116 - 1;
@@ -351,126 +346,121 @@ LABEL_185:
                       goto LABEL_19;
                   }
                 }
-                goto LABEL_222;
+                goto LABEL_225;
               }
             }
           }
         }
       }
-LABEL_134:
-      v99 = *((_DWORD *)v18 + 1);
-      v100 = v18 + 8;
-      v159 = v18 + 8;
+LABEL_136:
+      v99 = *((_DWORD *)v17 + 1);
+      v100 = v17 + 8;
+      Sid = v17 + 8;
       Vala = v99;
     }
     else
     {
-      v93 = v92 - 10;
+      v93 = v91 - 10;
       if ( !v93 )
-        goto LABEL_134;
+        goto LABEL_136;
       v94 = v93 - 1;
       if ( v94 )
       {
         v95 = v94 - 2;
         if ( !v95 )
-          goto LABEL_134;
+          goto LABEL_136;
         v96 = v95 - 4;
         if ( !v96 )
-          goto LABEL_134;
+          goto LABEL_136;
         v97 = v96 - 1;
         if ( !v97 )
-          goto LABEL_134;
+          goto LABEL_136;
         v98 = v97 - 1;
         if ( !v98 || v98 - 1 <= 1 )
-          goto LABEL_134;
+          goto LABEL_136;
         goto LABEL_19;
       }
-LABEL_222:
-      v150 = v18 + 12;
-      v99 = *((_DWORD *)v18 + 1);
-      v151 = *((_DWORD *)v18 + 2) & 1;
+LABEL_225:
+      v99 = *((_DWORD *)v17 + 1);
+      v149 = *((_DWORD *)v17 + 2) & 2;
+      v150 = *((_DWORD *)v17 + 2) & 1;
+      v151 = 16LL * v150;
       Vala = v99;
-      v152 = *((_DWORD *)v18 + 2) & 2;
-      v100 = &v18[16 * v151 + (v152 != 0 ? 28LL : 12LL)];
-      v159 = v100;
-      if ( (-(__int64)(v151 != 0) & (unsigned __int64)(v18 + 12)) != 0 )
+      v100 = &v17[(v149 != 0 ? 28LL : 12LL) + v151];
+      Sid = v100;
+      if ( v150 && v17 != (unsigned __int8 *)-12LL )
       {
-        LODWORD(v11) = v128 + 74;
-        v154 = v128 + 74;
+        LODWORD(v11) = v11 + 72;
+        v153 = v11;
       }
-      if ( v152 )
-      {
-        if ( v151 )
-          v150 = v18 + 28;
-        if ( v150 )
-          v154 = v11 + 72;
-      }
+      if ( v149 && &v17[v151 + 12] )
+        v153 = v11 + 72;
     }
     if ( Src )
     {
       SddlpFree(Src);
       Src = 0LL;
     }
-    v156 = 0;
-    AceCondition = LocalGetAceCondition(v18, v100, &Src, &v156);
+    v154 = 0;
+    AceCondition = LocalGetAceCondition(v17, v100, &Src, &v154);
     v102 = 0;
     v13 = AceCondition;
     if ( AceCondition )
     {
-      LODWORD(v11) = v154;
-      v155 = (unsigned int)v154;
+      LODWORD(v11) = v153;
+      v155 = (unsigned int)v153;
     }
     else
     {
-      v103 = v163;
-      v104 = v153;
-      v105 = dword_140E08A3C;
-      v106 = v153;
+      v103 = v162;
+      v104 = v152;
+      v105 = dword_140E08A2C;
+      v106 = v152;
       v107 = 0;
-      v163[v9] = 0;
-      if ( *v18 == 17 )
+      v162[v92] = 0;
+      if ( *v17 == 17 )
         v106 = 4;
       while ( (v106 & v105[1]) != v106 || v99 != *v105 )
       {
         ++v107;
         v105 += 6;
         if ( v107 >= 0x1C )
-          goto LABEL_143;
+          goto LABEL_145;
       }
-      v138 = &(&off_140E08A30)[3 * v107];
-      if ( v138 )
+      v137 = &(&off_140E08A20)[3 * v107];
+      if ( v137 )
       {
-        v103[v9] = 1;
-        v136 = *v138;
-        v137 = -1LL;
+        v103[v92] = 1;
+        v135 = *v137;
+        v136 = -1LL;
         do
-          ++v137;
-        while ( v136[v137] );
-        v102 = 2 * v137;
-        goto LABEL_153;
+          ++v136;
+        while ( v135[v136] );
+        v102 = 2 * v136;
+        goto LABEL_155;
       }
-LABEL_143:
-      for ( j = 0; j < 0x20; ++j )
+LABEL_145:
+      for ( k = 0; k < 0x20; ++k )
       {
-        if ( (Vala & (1 << j)) != 0 )
+        if ( (Vala & (1 << k)) != 0 )
         {
-          v109 = dword_140E08A3C;
-          if ( *v18 == 17 )
+          v109 = dword_140E08A2C;
+          if ( *v17 == 17 )
             v104 = 4LL;
           v110 = 0LL;
-          while ( ((unsigned int)v104 & v109[1]) != (_DWORD)v104 || (Vala & (1 << j)) != *v109 )
+          while ( ((unsigned int)v104 & v109[1]) != (_DWORD)v104 || (Vala & (1 << k)) != *v109 )
           {
             v110 = (unsigned int)(v110 + 1);
             v109 += 6;
             if ( (unsigned int)v110 >= 0x1C )
-              goto LABEL_152;
+              goto LABEL_154;
           }
-          v122 = &(&off_140E08A30)[3 * v110];
+          v122 = &(&off_140E08A20)[3 * v110];
           if ( !v122 )
           {
-LABEL_152:
+LABEL_154:
             v102 = 20;
-            v163[v9] = 2;
+            v162[v92] = 2;
             break;
           }
           v123 = *v122;
@@ -478,52 +468,52 @@ LABEL_152:
           do
             ++v124;
           while ( v123[v124] );
-          v104 = v153;
+          v104 = v152;
           v102 += 2 * v124;
         }
       }
-LABEL_153:
-      LODWORD(v11) = v102 + v154 + 6;
+LABEL_155:
+      LODWORD(v11) = v102 + v153 + 6;
       v155 = (unsigned int)v11;
-      v111 = LookupSidInTable(0LL, v100, a6, v104, (int)&v154, a9, &v161);
-      v112 = (wchar_t **)&v162[8 * v9];
+      v111 = LookupSidInTable(0LL, Sid, a6, v104, (int)&v153, a9, &v161);
+      v112 = (wchar_t **)&v156[8 * v92];
       if ( v111 )
       {
         *v112 = (wchar_t *)(v111 + 2);
-LABEL_155:
+LABEL_157:
         v113 = -1LL;
         do
           ++v113;
         while ( (*v112)[v113] );
         v12 = a1;
         v114 = v11 + 2 * v113;
-        v115 = *((unsigned __int16 *)v18 + 1);
+        v115 = *((unsigned __int16 *)v17 + 1);
         v11 = (unsigned int)(v114 + 4);
-        v17 = v153;
-        ++v9;
+        v9 = v92 + 1;
         v155 = v11;
-        v18 += v115;
+        v17 += v115;
+        v154 = v9;
         continue;
       }
       if ( v161 )
       {
-        v147 = (wchar_t *)SddlpAlloc(6uLL);
-        *v112 = v147;
-        if ( v147 )
+        v146 = (wchar_t *)SddlpAlloc(6uLL);
+        *v112 = v146;
+        if ( v146 )
         {
-          wcscpy_s(v147, 3uLL, L"SA");
-          goto LABEL_169;
+          wcscpy_s(v146, 3uLL, L"SA");
+          goto LABEL_171;
         }
         v13 = 8;
       }
       else
       {
-        v121 = LocalConvertSidToStringSidW(v100);
+        v121 = LocalConvertSidToStringSidW(Sid);
         if ( v121 >= 0 )
         {
-LABEL_169:
-          v166[v9] = 1;
-          goto LABEL_155;
+LABEL_171:
+          v165[v92] = 1;
+          goto LABEL_157;
         }
         v13 = RtlNtStatusToDosError(v121);
       }
@@ -533,7 +523,7 @@ LABEL_169:
   if ( (_DWORD)v11 )
   {
     if ( v13 )
-      goto LABEL_93;
+      goto LABEL_103;
     if ( (v11 & 1) != 0 )
     {
       LODWORD(v11) = v11 + 1;
@@ -545,68 +535,72 @@ LABEL_169:
     if ( v23 )
     {
       v24 = v157;
-      v25 = (unsigned __int64)(unsigned int)v11 >> 1;
-      v26 = 0;
+      v25 = 0;
+      v26 = (unsigned __int64)(unsigned int)v11 >> 1;
       while ( 1 )
       {
-        v154 = v26;
-        if ( v26 >= *(unsigned __int16 *)(a1 + 4) )
+        v153 = v25;
+        if ( v25 >= *(unsigned __int16 *)(a1 + 4) )
         {
-LABEL_92:
+LABEL_102:
           LODWORD(v11) = v155;
-          goto LABEL_93;
+          goto LABEL_103;
         }
-        if ( !v25 )
-          goto LABEL_91;
-        v27 = byte_140E0889C;
+        if ( !v26 )
+          goto LABEL_101;
+        v27 = byte_140E0888C;
         *v23 = 40;
         v28 = 0;
         v29 = v23 + 1;
-        v30 = v25 - 1;
-        while ( (v153 & *((_DWORD *)v27 + 1)) != v153 || *v24 != *(_DWORD *)v27 )
+        v30 = v26 - 1;
+        while ( (v152 & *((_DWORD *)v27 + 1)) != v152 || *v24 != *(_DWORD *)v27 )
         {
           ++v28;
           v27 += 24;
           if ( v28 >= 0x11 )
             goto LABEL_32;
         }
-        v139 = &(&off_140E08890)[3 * v28];
-        if ( v139 )
+        v138 = &(&off_140E08880)[3 * v28];
+        if ( v138 )
         {
-          wcscpy_s(v29, v30, *v139);
-          v140 = *((unsigned int *)v139 + 2);
+          wcscpy_s(v29, v30, *v138);
+          v139 = *((unsigned int *)v138 + 2);
           v24 = v157;
-          v30 -= v140;
-          v29 += v140;
+          v30 -= v139;
+          v29 += v139;
         }
 LABEL_32:
         if ( !v30 )
-          goto LABEL_91;
+        {
+LABEL_101:
+          v13 = 1336;
+          goto LABEL_102;
+        }
         *v29 = 59;
-        v31 = 0;
-        v32 = v29 + 1;
+        v31 = v29 + 1;
+        v32 = 0;
         v33 = v30 - 1;
         do
         {
-          if ( ((unsigned __int8)(1 << v31) & v24[1]) == 0 )
+          if ( ((unsigned __int8)(1 << v32) & v24[1]) == 0 )
             goto LABEL_41;
-          v34 = (char *)&unk_140E08784;
+          v34 = (char *)&unk_140E08774;
           v35 = 0;
           while ( 1 )
           {
-            if ( (v153 & *((_DWORD *)v34 - 1)) == v153 )
+            if ( (v152 & *((_DWORD *)v34 - 1)) == v152 )
             {
               if ( *(_DWORD *)v34 )
               {
-                for ( k = 0; k < *(_DWORD *)v34; ++k )
+                for ( m = 0; m < *(_DWORD *)v34; ++m )
                 {
-                  if ( *(_BYTE *)(k + *(_QWORD *)(v34 + 4)) == *v24 )
+                  if ( *(_BYTE *)(m + *(_QWORD *)(v34 + 4)) == *v24 )
                     goto LABEL_38;
                 }
                 goto LABEL_39;
               }
 LABEL_38:
-              if ( 1 << v31 == *((_DWORD *)v34 - 2) )
+              if ( 1 << v32 == *((_DWORD *)v34 - 2) )
                 break;
             }
 LABEL_39:
@@ -615,30 +609,30 @@ LABEL_39:
             if ( v35 >= 9 )
               goto LABEL_40;
           }
-          v141 = &(&off_140E08770)[4 * v35];
-          if ( v141 )
+          v140 = &(&off_140E08760)[4 * v35];
+          if ( v140 )
           {
-            wcscpy_s(v32, v33, *v141);
-            v142 = *((unsigned int *)v141 + 2);
-            v33 -= v142;
-            v32 += v142;
+            wcscpy_s(v31, v33, *v140);
+            v141 = *((unsigned int *)v140 + 2);
+            v33 -= v141;
+            v31 += v141;
 LABEL_40:
             v24 = v157;
             goto LABEL_41;
           }
           v24 = v157;
 LABEL_41:
-          ++v31;
+          ++v32;
         }
-        while ( v31 < 8 );
-        v36 = (unsigned int)v154;
+        while ( v32 < 8 );
+        v36 = (unsigned int)v153;
         if ( !v33 )
-          goto LABEL_91;
-        *v32 = 59;
+          goto LABEL_101;
+        *v31 = 59;
         v37 = v33 - 1;
         v38 = *v24;
-        v39 = v32 + 1;
-        v165 = 0LL;
+        v39 = v31 + 1;
+        v164 = 0LL;
         v40 = 0LL;
         v161 = 0LL;
         v41 = 0LL;
@@ -666,7 +660,7 @@ LABEL_41:
               if ( v74 - 1 > 1 )
               {
 LABEL_51:
-                v48 = v159;
+                v48 = (unsigned __int8 *)Sid;
                 goto LABEL_52;
               }
             }
@@ -677,18 +671,18 @@ LABEL_84:
           v77 = *((_DWORD *)v24 + 2) & 1;
           Vala = *((_DWORD *)v24 + 1);
           v48 = &v24[v76 + (v75 != 0 ? 28LL : 12LL)];
-          v159 = v48;
+          Sid = v48;
           if ( v75 )
             v41 = (unsigned int *)&v24[v76 + 12];
           v161 = (__int64)v41;
           if ( v77 )
           {
             v40 = (unsigned int *)(v24 + 12);
-            v165 = (unsigned int *)(v24 + 12);
+            v164 = (unsigned int *)(v24 + 12);
           }
           else
           {
-            v165 = 0LL;
+            v164 = 0LL;
           }
           goto LABEL_52;
         }
@@ -719,7 +713,7 @@ LABEL_84:
 LABEL_90:
         v81 = *((_DWORD *)v24 + 1);
         v48 = v24 + 8;
-        v159 = v24 + 8;
+        Sid = v24 + 8;
         Vala = v81;
 LABEL_52:
         if ( Src )
@@ -728,12 +722,12 @@ LABEL_52:
           Src = 0LL;
         }
         v49 = v157;
-        v156 = 0;
-        v156 = LocalGetAceCondition(v157, v48, &Src, &v156);
-        v13 = v156;
-        if ( v156 )
-          goto LABEL_92;
-        v50 = v163[v36];
+        v154 = 0;
+        v154 = LocalGetAceCondition(v157, v48, &Src, &v154);
+        v13 = v154;
+        if ( v154 )
+          goto LABEL_102;
+        v50 = v162[v36];
         if ( v50 == 2 )
         {
           wcscpy_s(v39, v37, L"0x");
@@ -749,8 +743,8 @@ LABEL_52:
         }
         else if ( v50 == 1 )
         {
-          v54 = dword_140E08A3C;
-          v55 = v153;
+          v54 = dword_140E08A2C;
+          v55 = v152;
           if ( *v49 == 17 )
             v55 = 4;
           v56 = 0;
@@ -761,96 +755,96 @@ LABEL_52:
             if ( v56 >= 0x1C )
               goto LABEL_66;
           }
-          v143 = &(&off_140E08A30)[3 * v56];
-          if ( v143 )
+          v142 = &(&off_140E08A20)[3 * v56];
+          if ( v142 )
           {
-            wcscpy_s(v39, v37, *v143);
-            v144 = *((unsigned int *)v143 + 2);
-            v37 -= v144;
-            v39 += v144;
+            wcscpy_s(v39, v37, *v142);
+            v143 = *((unsigned int *)v142 + 2);
+            v37 -= v143;
+            v39 += v143;
           }
         }
         else
         {
-          v85 = Vala;
-          for ( m = 0; m < 0x20; ++m )
+          v84 = Vala;
+          for ( n = 0; n < 0x20; ++n )
           {
-            if ( (v85 & (1 << m)) != 0 )
+            if ( (v84 & (1 << n)) != 0 )
             {
-              v87 = dword_140E08A3C;
-              v88 = v153;
-              v89 = 0;
+              v86 = dword_140E08A2C;
+              v87 = v152;
+              v88 = 0;
               if ( *v49 == 17 )
-                v88 = 4;
-              while ( (v88 & v87[1]) != v88 || (v85 & (1 << m)) != *v87 )
+                v87 = 4;
+              while ( (v87 & v86[1]) != v87 || (v84 & (1 << n)) != *v86 )
               {
-                ++v89;
-                v87 += 6;
-                if ( v89 >= 0x1C )
-                  goto LABEL_112;
+                ++v88;
+                v86 += 6;
+                if ( v88 >= 0x1C )
+                  goto LABEL_114;
               }
-              v145 = &(&off_140E08A30)[3 * v89];
-              if ( v145 )
+              v144 = &(&off_140E08A20)[3 * v88];
+              if ( v144 )
               {
-                wcscpy_s(v39, v37, *v145);
-                v146 = *((unsigned int *)v145 + 2);
-                v37 -= v146;
-                v39 += v146;
+                wcscpy_s(v39, v37, *v144);
+                v145 = *((unsigned int *)v144 + 2);
+                v37 -= v145;
+                v39 += v145;
               }
               v49 = v157;
-LABEL_112:
-              v85 = Vala;
+LABEL_114:
+              v84 = Vala;
             }
           }
-          v13 = v156;
-          v40 = v165;
+          v13 = v154;
+          v40 = v164;
           v41 = (unsigned int *)v161;
-          LODWORD(v36) = v154;
+          LODWORD(v36) = v153;
         }
 LABEL_66:
         if ( !v37 )
-          goto LABEL_91;
-        v57 = v37 - 1;
+          goto LABEL_101;
         *v39 = 59;
+        v57 = v37 - 1;
         v58 = v39 + 1;
         if ( !v40 )
           goto LABEL_68;
         if ( !(unsigned int)SddlpUuidToString(v40, &v160) )
-          goto LABEL_92;
-        v148 = -1LL;
+          goto LABEL_102;
+        v147 = -1LL;
         do
-          ++v148;
-        while ( v160[v148] );
+          ++v147;
+        while ( v160[v147] );
         wcscpy_s(v58, v57, v160);
-        v57 -= v148;
-        v58 += v148;
+        v57 -= v147;
+        v58 += v147;
         SddlpFreeUuidString((void **)&v160);
 LABEL_68:
         if ( !v57 )
-          goto LABEL_91;
-        *v58 = 59;
+          goto LABEL_101;
         v59 = v57 - 1;
+        *v58 = 59;
         v60 = v58 + 1;
         if ( !v41 )
           goto LABEL_70;
         if ( !(unsigned int)SddlpUuidToString(v41, &v160) )
-          goto LABEL_92;
-        v149 = -1LL;
+          goto LABEL_102;
+        v148 = -1LL;
         do
-          ++v149;
-        while ( v160[v149] );
+          ++v148;
+        while ( v160[v148] );
         wcscpy_s(v60, v59, v160);
-        v59 -= v149;
-        v60 += v149;
+        v59 -= v148;
+        v60 += v148;
         SddlpFreeUuidString((void **)&v160);
 LABEL_70:
+        v61 = v156;
         if ( !v59 )
           goto LABEL_91;
-        v61 = v162;
         *v60 = 59;
         v62 = v60 + 1;
         v63 = v59 - 1;
-        v64 = *(const wchar_t **)&v61[8 * (unsigned int)v36];
+        v64 = (const wchar_t *)v61[(unsigned int)v36];
         wcscpy_s(v62, v63, v64);
         v65 = -1LL;
         do
@@ -876,16 +870,18 @@ LABEL_70:
             goto LABEL_74;
           }
 LABEL_91:
+          LODWORD(v11) = v155;
           v13 = 1336;
+          v22 = a4;
           goto LABEL_92;
         }
 LABEL_74:
         if ( v68 <= 1 )
           goto LABEL_91;
         v69 = v157;
-        v25 = v68 - 1;
+        v26 = v68 - 1;
         *v67 = 41;
-        v26 = v36 + 1;
+        v25 = v36 + 1;
         v23 = v67 + 1;
         *v23 = 0;
         v24 = &v69[*((unsigned __int16 *)v69 + 1)];
@@ -897,27 +893,27 @@ LABEL_74:
   else
   {
     v13 = 1336;
-LABEL_93:
+LABEL_103:
     v22 = a4;
   }
+  v61 = v156;
+LABEL_92:
   v82 = 0;
   if ( *(_WORD *)(a1 + 4) )
   {
-    v83 = v162;
-    v84 = v166;
+    v83 = v165;
     do
     {
-      if ( v84[v82] )
-        SddlpFree(*(void **)&v83[8 * v82]);
+      if ( v83[v82] )
+        SddlpFree((void *)v61[v82]);
       ++v82;
     }
     while ( v82 < *(unsigned __int16 *)(a1 + 4) );
-    LODWORD(v11) = v155;
     v22 = a4;
   }
+  SddlpFree(v61);
+  SddlpFree(v165);
   SddlpFree(v162);
-  SddlpFree(v166);
-  SddlpFree(v163);
   SddlpFree(Src);
   if ( v13 )
   {

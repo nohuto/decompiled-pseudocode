@@ -1,21 +1,21 @@
 /*
- * XREFs of IoSetIoCompletionEx2 @ 0x14007DEC0
+ * XREFs of IoSetIoCompletionEx2 @ 0x14007DF40
  * Callers:
- *     IoSetIoCompletionEx @ 0x14007E5C4 (IoSetIoCompletionEx.c)
- *     AlpcpQueueIoCompletionPort @ 0x1400A5470 (AlpcpQueueIoCompletionPort.c)
- *     AlpcpLookasidePacketCallbackRoutine @ 0x1400F87A0 (AlpcpLookasidePacketCallbackRoutine.c)
- *     IopXxxControlFile @ 0x140443F00 (IopXxxControlFile.c)
- *     NtSetIoCompletion @ 0x140471964 (NtSetIoCompletion.c)
- *     IoSetIoCompletion @ 0x1404DBF04 (IoSetIoCompletion.c)
+ *     IoSetIoCompletionEx @ 0x14007E644 (IoSetIoCompletionEx.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1400A39E8 (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpLookasidePacketCallbackRoutine @ 0x1400F65E0 (AlpcpLookasidePacketCallbackRoutine.c)
+ *     IopXxxControlFile @ 0x140442DD0 (IopXxxControlFile.c)
+ *     NtSetIoCompletion @ 0x140470834 (NtSetIoCompletion.c)
+ *     IoSetIoCompletion @ 0x1404BF508 (IoSetIoCompletion.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KeInsertQueueEx @ 0x14007E0BC (KeInsertQueueEx.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
- *     IopAllocateMiniCompletionPacket @ 0x140471A08 (IopAllocateMiniCompletionPacket.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KeInsertQueueEx @ 0x14007E13C (KeInsertQueueEx.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1404708D8 (IopAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoSetIoCompletionEx2(

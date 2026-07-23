@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpSvmFaultRoutine @ 0x1406D22C0
+ * XREFs of ExpSvmFaultRoutine @ 0x1406D62F0
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall ExpSvmFaultRoutine(unsigned int a1)
@@ -13,13 +13,14 @@ __int64 __fastcall ExpSvmFaultRoutine(unsigned int a1)
 
   v1 = 104LL * a1;
   result = (unsigned int)_InterlockedCompareExchange(
-                           (volatile signed __int32 *)((char *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Blink[6]
-                                                     + v1),
+                           (volatile signed __int32 *)(v1
+                                                     + *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[16]
+                                                     + 96),
                            1,
                            0);
   if ( !(_DWORD)result )
     return KiInsertQueueDpc(
-             (ULONG_PTR)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Blink[2] + v1,
+             v1 + *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[16] + 32LL,
              0LL,
              0LL,
              0LL,

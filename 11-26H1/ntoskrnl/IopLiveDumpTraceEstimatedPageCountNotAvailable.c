@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpTraceEstimatedPageCountNotAvailable @ 0x1405D79B8
+ * XREFs of IopLiveDumpTraceEstimatedPageCountNotAvailable @ 0x1405DA1A8
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x1404E439C (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1404DD93C (IopLiveDumpAllocateDumpBuffers.c)
  * Callees:
- *     IopLiveDumpTraceEventGeneric @ 0x1405D7A30 (IopLiveDumpTraceEventGeneric.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405DA220 (IopLiveDumpTraceEventGeneric.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopLiveDumpTraceEstimatedPageCountNotAvailable(__int64 a1, __int64 a2, __int64 a3)

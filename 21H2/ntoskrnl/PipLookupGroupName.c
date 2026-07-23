@@ -1,12 +1,12 @@
 /*
- * XREFs of PipLookupGroupName @ 0x140A5ED70
+ * XREFs of PipLookupGroupName @ 0x140A5FD70
  * Callers:
- *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
- *     PipCheckDependencies @ 0x140A5ED14 (PipCheckDependencies.c)
+ *     IopInitializeSystemDrivers @ 0x140A5E754 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
+ *     PipCheckDependencies @ 0x140A5FD14 (PipCheckDependencies.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     PipCreateEntry @ 0x140A5EE6C (PipCreateEntry.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     PipCreateEntry @ 0x140A5FE6C (PipCreateEntry.c)
  */
 
 __int64 __fastcall PipLookupGroupName(PCUNICODE_STRING String1, int a2)

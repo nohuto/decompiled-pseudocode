@@ -6,7 +6,7 @@
  *     ExpSetTimer2 @ 0x1400E2540 (ExpSetTimer2.c)
  */
 
-NTSTATUS __fastcall NtSetIRTimer(void *a1, void **a2)
+NTSTATUS __cdecl NtSetIRTimer(HANDLE TimerHandle, PLARGE_INTEGER DueTime)
 {
-  return ExpSetTimer2(a1, a2, 0LL);
+  return ExpSetTimer2(TimerHandle, (void **)DueTime, 0LL);
 }

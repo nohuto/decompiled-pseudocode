@@ -1,17 +1,17 @@
 /*
- * XREFs of HsaFreeRemappingTableEntry @ 0x14052FE10
+ * XREFs of HsaFreeRemappingTableEntry @ 0x140530360
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExtEnvCriticalFailure @ 0x14051F4D8 (ExtEnvCriticalFailure.c)
- *     ExtEnvFreeMemory @ 0x14051F5AC (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x14051F5EC (ExtEnvFreePhysicalMemory.c)
- *     HsaGetDeviceAperture @ 0x140530010 (HsaGetDeviceAperture.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14053144C (HsaUpdateRemappingTableInDeviceTableEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExtEnvCriticalFailure @ 0x14051FA28 (ExtEnvCriticalFailure.c)
+ *     ExtEnvFreeMemory @ 0x14051FAFC (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14051FB3C (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x140530560 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14053199C (HsaUpdateRemappingTableInDeviceTableEntry.c)
  */
 
 __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a3)
@@ -60,10 +60,13 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
       v9 = (unsigned __int8)byte_140C5FC18;
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5FC10);
       v10 = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v10 = (unsigned int)(v9 + 1);
@@ -72,7 +75,7 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
           v8 = (v14 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v14;
           if ( v8 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(v9);

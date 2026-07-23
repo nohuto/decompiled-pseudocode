@@ -6,48 +6,48 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlEnumerateGenericTableAvl(__int64 a1, char a2)
+PVOID __cdecl RtlEnumerateGenericTableAvl(PRTL_AVL_TABLE Table, BOOLEAN Restart)
 {
-  _QWORD *result; // rax
-  _QWORD *v4; // r8
-  _QWORD *v5; // rcx
-  _QWORD *j; // rdx
-  _QWORD *v7; // rdx
-  _QWORD *k; // rdx
-  _QWORD *i; // rdx
+  PVOID result; // rax
+  _RTL_BALANCED_LINKS *RestartKey; // r8
+  _RTL_BALANCED_LINKS *RightChild; // rcx
+  _RTL_BALANCED_LINKS *j; // rdx
+  _RTL_BALANCED_LINKS *v7; // rdx
+  _RTL_BALANCED_LINKS *k; // rdx
+  _RTL_BALANCED_LINKS *i; // rdx
 
   result = 0LL;
-  if ( a2 )
-    *(_QWORD *)(a1 + 56) = 0LL;
-  if ( *(_DWORD *)(a1 + 44) )
+  if ( Restart )
+    Table->RestartKey = 0LL;
+  if ( Table->NumberGenericTableElements )
   {
-    v4 = *(_QWORD **)(a1 + 56);
-    if ( !v4 )
+    RestartKey = Table->RestartKey;
+    if ( !RestartKey )
     {
-      v5 = *(_QWORD **)(a1 + 16);
-      for ( i = (_QWORD *)v5[1]; i; i = (_QWORD *)i[1] )
-        v5 = i;
-      v7 = v5;
+      RightChild = Table->BalancedRoot.RightChild;
+      for ( i = RightChild->LeftChild; i; i = i->LeftChild )
+        RightChild = i;
+      v7 = RightChild;
 LABEL_10:
-      *(_QWORD *)(a1 + 56) = v7;
-      return v5 + 4;
+      Table->RestartKey = v7;
+      return &RightChild[1];
     }
-    v5 = (_QWORD *)v4[2];
-    if ( v5 )
+    RightChild = RestartKey->RightChild;
+    if ( RightChild )
     {
-      for ( j = (_QWORD *)v5[1]; j; j = (_QWORD *)j[1] )
-        v5 = j;
+      for ( j = RightChild->LeftChild; j; j = j->LeftChild )
+        RightChild = j;
     }
     else
     {
-      for ( k = (_QWORD *)*v4; (_QWORD *)k[2] == v4; k = (_QWORD *)*k )
-        v4 = k;
-      v5 = 0LL;
-      if ( (_QWORD *)k[1] == v4 )
-        v5 = k;
+      for ( k = RestartKey->Parent; k->RightChild == RestartKey; k = k->Parent )
+        RestartKey = k;
+      RightChild = 0LL;
+      if ( k->LeftChild == RestartKey )
+        RightChild = k;
     }
-    v7 = v5;
-    if ( v5 )
+    v7 = RightChild;
+    if ( RightChild )
       goto LABEL_10;
   }
   return result;

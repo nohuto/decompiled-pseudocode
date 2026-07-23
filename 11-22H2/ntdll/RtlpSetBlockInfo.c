@@ -11,9 +11,9 @@
  *     RtlpSetBlockInfo @ 0x180103CE0 (RtlpSetBlockInfo.c)
  */
 
-unsigned __int64 __fastcall RtlpSetBlockInfo(_QWORD *a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+int __fastcall RtlpSetBlockInfo(_QWORD *a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 result; // rax
+  unsigned __int64 v5; // rax
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // rdi
   unsigned __int64 v11; // rdx
@@ -21,8 +21,8 @@ unsigned __int64 __fastcall RtlpSetBlockInfo(_QWORD *a1, unsigned __int64 a2, __
   _QWORD *v13; // rbx
   _QWORD *Heap; // rax
 
-  result = a3 + a2 - 1;
-  if ( result >= a1[1] && a2 <= a1[2] )
+  v5 = a3 + a2 - 1;
+  if ( v5 >= a1[1] && a2 <= a1[2] )
   {
     v9 = a2 - a1[1];
     if ( a2 <= a1[1] )
@@ -31,7 +31,7 @@ unsigned __int64 __fastcall RtlpSetBlockInfo(_QWORD *a1, unsigned __int64 a2, __
       v10 = v9 / *a1;
     v11 = (v9 + a3 - 1) % *a1;
     v12 = (v9 + a3 - 1) / *a1;
-    result = 255LL;
+    LODWORD(v5) = 255;
     if ( v12 > 0xFF )
       v12 = 255LL;
     if ( v10 <= v12 )
@@ -43,33 +43,33 @@ unsigned __int64 __fastcall RtlpSetBlockInfo(_QWORD *a1, unsigned __int64 a2, __
         {
           if ( a4 )
           {
-            if ( *v13 )
-            {
-              if ( *v13 != a4 )
-                result = DbgPrint("Error\n", v11);
-            }
+            if ( *v13 && *v13 != a4 )
+              LODWORD(v5) = DbgPrint("Error\n", v11);
             *v13 = a4;
           }
           else
           {
             v11 = v10 >> 3;
-            result = v10 & 7;
-            *((_BYTE *)a1 + (v10 >> 3) + 24) |= 1 << result;
+            LODWORD(v5) = v10 & 7;
+            *((_BYTE *)a1 + (v10 >> 3) + 24) |= 1 << v5;
           }
         }
         else
         {
           if ( !*v13 )
           {
-            Heap = (_QWORD *)RtlAllocateHeap(RtlpLeakHeap, 0, 2112LL);
+            Heap = RtlAllocateHeap(RtlpLeakHeap, 0, 0x840uLL);
             *v13 = Heap;
             if ( !Heap )
-              return DbgPrint("Not enough memory to complete\n");
+            {
+              LODWORD(v5) = DbgPrint("Not enough memory to complete\n");
+              return v5;
+            }
             RtlpInitializeMap(Heap, a1);
             *(_QWORD *)(*v13 + 8LL) = a1[1] + *a1 * v10;
             *(_QWORD *)(*v13 + 16LL) = a1[1] - 1LL + *a1 * (v10 + 1);
           }
-          result = RtlpSetBlockInfo(*v13, a2, a3, a4);
+          LODWORD(v5) = RtlpSetBlockInfo(*v13, a2, a3, a4);
         }
         ++v10;
         ++v13;
@@ -77,5 +77,5 @@ unsigned __int64 __fastcall RtlpSetBlockInfo(_QWORD *a1, unsigned __int64 a2, __
       while ( v10 <= v12 );
     }
   }
-  return result;
+  return v5;
 }

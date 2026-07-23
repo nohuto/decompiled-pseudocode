@@ -1,9 +1,9 @@
 /*
- * XREFs of CcShouldLazyWriteCacheMap @ 0x1400713B0
+ * XREFs of CcShouldLazyWriteCacheMap @ 0x140070F30
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
  * Callees:
- *     CcCanIWriteStream @ 0x140020AA0 (CcCanIWriteStream.c)
+ *     CcCanIWriteStream @ 0x140020620 (CcCanIWriteStream.c)
  */
 
 bool __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, int a4)

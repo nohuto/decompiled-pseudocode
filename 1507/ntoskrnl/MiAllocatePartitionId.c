@@ -26,11 +26,11 @@ __int64 __fastcall MiAllocatePartitionId(__int64 a1, __int64 a2, __int64 a3, __i
   __int64 v7; // r9
   signed __int8 v8; // cf
   __int64 v9; // rsi
-  struct _RTL_BITMAP *ClearBitsAndSet; // rsi
+  _RTL_BITMAP *ClearBitsAndSet; // rsi
   __int64 *v11; // rdx
   PRTL_BITMAP v12; // rcx
   unsigned int v13; // ebp
-  struct _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *PoolWithTag; // rax
   __int16 v15; // cx
   __int64 *v17; // rax
   unsigned __int64 v18; // r14
@@ -48,8 +48,8 @@ __int64 __fastcall MiAllocatePartitionId(__int64 a1, __int64 a2, __int64 a3, __i
     ExfAcquirePushLockExclusiveEx(&qword_14034F0A8, v6, (ULONG_PTR)&qword_14034F0A8, v7);
   if ( v9 )
     *(_BYTE *)(v9 + 26) |= 1u;
-  ClearBitsAndSet = (struct _RTL_BITMAP *)RtlFindClearBitsAndSet(qword_14034F0C8, 1u, 0);
-  if ( ClearBitsAndSet == (struct _RTL_BITMAP *)0xFFFFFFFFLL )
+  ClearBitsAndSet = (_RTL_BITMAP *)RtlFindClearBitsAndSet(qword_14034F0C8, 1u, 0);
+  if ( ClearBitsAndSet == (_RTL_BITMAP *)0xFFFFFFFFLL )
   {
     v11 = (__int64 *)qword_14034F0E8;
     v12 = qword_14034F0C8;
@@ -62,10 +62,10 @@ __int64 __fastcall MiAllocatePartitionId(__int64 a1, __int64 a2, __int64 a3, __i
     }
     else
     {
-      PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                            PagedPool,
-                                            8 * (((v13 & 0x3F) != 0) + (v13 >> 6)) + 16,
-                                            0x20206D4Du);
+      PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                     PagedPool,
+                                     8 * (((v13 & 0x3F) != 0) + (v13 >> 6)) + 16,
+                                     0x20206D4Du);
       ClearBitsAndSet = PoolWithTag;
       if ( !PoolWithTag )
       {

@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpQueryInformationCurrentProcess @ 0x1800B1560
+ * XREFs of LdrpQueryInformationCurrentProcess @ 0x18007DE00
  * Callers:
- *     LdrQueryInLoadOrderModuleList32 @ 0x1800B1410 (LdrQueryInLoadOrderModuleList32.c)
+ *     LdrQueryInLoadOrderModuleList32 @ 0x18007DCB0 (LdrQueryInLoadOrderModuleList32.c)
  * Callees:
  *     <none>
  */

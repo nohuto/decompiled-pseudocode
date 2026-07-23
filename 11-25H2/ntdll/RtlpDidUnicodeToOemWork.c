@@ -28,7 +28,7 @@ char __fastcall RtlpDidUnicodeToOemWork(__int64 a1)
   _InterlockedOr(v13, 0);
   v4 = 1;
   v5 = 0;
-  if ( word_1801CEFDC )
+  if ( CodePageTable.DBCSCodePage )
   {
     v7 = *v2;
     v8 = 0;
@@ -39,13 +39,13 @@ char __fastcall RtlpDidUnicodeToOemWork(__int64 a1)
       if ( *(_WORD *)(qword_1801CF028 + 2 * v10) && (v12 = v5 + 1, (unsigned int)v12 < v7) )
       {
         ++v5;
-        v11 = ((char)v10 << 8) + *(unsigned __int8 *)(v12 + v9) == word_1801CEFD4;
+        v11 = ((char)v10 << 8) + *(unsigned __int8 *)(v12 + v9) == CodePageTable.DefaultChar;
       }
       else
       {
-        v11 = (char)v10 == (unsigned __int8)word_1801CEFD4;
+        v11 = (char)v10 == LOBYTE(CodePageTable.DefaultChar);
       }
-      if ( v11 && *(_WORD *)(*(_QWORD *)(v3 + 8) + 2LL * v8) != word_1801CEFD8 )
+      if ( v11 && *(_WORD *)(*(_QWORD *)(v3 + 8) + 2LL * v8) != CodePageTable.TransDefaultChar )
         return 0;
       ++v5;
       ++v8;
@@ -55,8 +55,8 @@ char __fastcall RtlpDidUnicodeToOemWork(__int64 a1)
   {
     while ( v5 < *v2 )
     {
-      if ( *(char *)(v5 + *(_QWORD *)(a1 + 8)) == (unsigned __int8)word_1801CEFD4
-        && *(_WORD *)(*(_QWORD *)(v3 + 8) + 2LL * v5) != word_1801CEFD8 )
+      if ( *(char *)(v5 + *(_QWORD *)(a1 + 8)) == LOBYTE(CodePageTable.DefaultChar)
+        && *(_WORD *)(*(_QWORD *)(v3 + 8) + 2LL * v5) != CodePageTable.TransDefaultChar )
       {
         return 0;
       }

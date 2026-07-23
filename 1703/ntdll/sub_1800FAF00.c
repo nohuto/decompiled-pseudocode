@@ -22,8 +22,8 @@ __int64 __fastcall sub_1800FAF00(__int64 a1, __int64 a2, const WCHAR *a3, char a
   __int64 v15; // rdx
   __int64 v16; // rcx
   __int64 result; // rax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  int v19; // [rsp+60h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
 
   if ( !a1 )
     return 3221225485LL;
@@ -34,9 +34,9 @@ __int64 __fastcall sub_1800FAF00(__int64 a1, __int64 a2, const WCHAR *a3, char a
   v9 = a5;
   if ( !a5 )
     return 3221225485LL;
-  if ( (int)sub_1800FB4E4(a1, a3, 0LL, &v19) >= 0 )
+  if ( (int)sub_1800FB4E4(a1, a3, 0LL, &Lcid) >= 0 )
   {
-    v10 = v19;
+    v10 = Lcid;
     v11 = 0;
     for ( i = 0; i < 8; i += 2 )
     {
@@ -44,7 +44,7 @@ __int64 __fastcall sub_1800FAF00(__int64 a1, __int64 a2, const WCHAR *a3, char a
       if ( v13 == 2 )
       {
         v14 = *(__int16 *)(a2 + 2LL * v11 + 12);
-        if ( *(_WORD *)(28 * v14 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + 6) == (_WORD)v19 )
+        if ( *(_WORD *)(28 * v14 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + 6) == (_WORD)Lcid )
         {
           v15 = 28LL * (__int16)v14;
           v16 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL);
@@ -54,7 +54,7 @@ __int64 __fastcall sub_1800FAF00(__int64 a1, __int64 a2, const WCHAR *a3, char a
           return 0LL;
         }
       }
-      else if ( *(_WORD *)(a2 + 2LL * v11 + 12) != (_WORD)v19 && v13 != 3 )
+      else if ( *(_WORD *)(a2 + 2LL * v11 + 12) != (_WORD)Lcid && v13 != 3 )
       {
         result = 0LL;
         *(_QWORD *)v9 = 0LL;
@@ -68,10 +68,10 @@ __int64 __fastcall sub_1800FAF00(__int64 a1, __int64 a2, const WCHAR *a3, char a
     }
   }
   if ( a4
-    && (RtlInitUnicodeString(&DestinationString, a3), RtlCultureNameToLCID(&DestinationString.Length, &v19))
-    && v19 != 4096 )
+    && (RtlInitUnicodeString(&DestinationString, a3), RtlCultureNameToLCID(&DestinationString, &Lcid))
+    && Lcid != 4096 )
   {
-    return sub_1800FAD34(a1, a2, v19, 0, v9);
+    return sub_1800FAD34(a1, a2, Lcid, 0, v9);
   }
   else
   {

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiWalkVaRange @ 0x140093C90
+ * XREFs of MiWalkVaRange @ 0x140093BD0
  * Callers:
- *     MiResetVirtualMemory @ 0x140132AD4 (MiResetVirtualMemory.c)
- *     MiProcessVaRangesInfoClass @ 0x1406BCC38 (MiProcessVaRangesInfoClass.c)
+ *     MiResetVirtualMemory @ 0x140132BA4 (MiResetVirtualMemory.c)
+ *     MiProcessVaRangesInfoClass @ 0x1406BDED8 (MiProcessVaRangesInfoClass.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
@@ -12,19 +12,19 @@
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiMakeProtoLeafValid @ 0x14012736C (MiMakeProtoLeafValid.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetNextPageTable @ 0x140084230 (MiGetNextPageTable.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiMakeProtoLeafValid @ 0x14012743C (MiMakeProtoLeafValid.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128D60 (MI_PROTO_FORMAT_COMBINED.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB40C (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiWalkVaRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -204,8 +204,8 @@ LABEL_15:
       if ( v54 == 2 && (unsigned __int8)MI_PROTO_FORMAT_COMBINED(v21, v22, 2LL) )
       {
         v41 = v23;
-        if ( qword_14043A0C0 && (v23 & 0x10) == 0 )
-          v41 = v23 & ~qword_14043A0C0;
+        if ( qword_14043B180 && (v23 & 0x10) == 0 )
+          v41 = v23 & ~qword_14043B180;
         ProtoPteAddress = v41 >> 16;
 LABEL_51:
         v24 = v56;
@@ -217,7 +217,7 @@ LABEL_51:
       {
         v26 = (__int64)((v8 << 25) - (v28 << 25)) >> 16;
         if ( ((v26 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000
-           || (v26 & 0xFFFFFFFFFFFFF000uLL) == qword_14043A008 && qword_14043A008)
+           || (v26 & 0xFFFFFFFFFFFFF000uLL) == qword_14043B0C8 && qword_14043B0C8)
           && (Process[2].ActiveProcessors.Bitmap[0] & 0x100000000LL) == 0 )
         {
           goto LABEL_76;
@@ -228,15 +228,15 @@ LABEL_51:
           if ( MiIsPrototypePteVadLookup(v23) )
             goto LABEL_51;
           v44 = v23;
-          if ( qword_14043A0C0 && (v23 & 0x10) == 0 )
-            v44 = v23 & ~qword_14043A0C0;
+          if ( qword_14043B180 && (v23 & 0x10) == 0 )
+            v44 = v23 & ~qword_14043B180;
           if ( ProtoPteAddress == v44 >> 16 )
             goto LABEL_51;
           v27 = v54;
         }
         v45 = v23;
-        if ( qword_14043A0C0 && (v23 & 0x10) == 0 )
-          v45 = v23 & ~qword_14043A0C0;
+        if ( qword_14043B180 && (v23 & 0x10) == 0 )
+          v45 = v23 & ~qword_14043B180;
         ProtoPteAddress = v45 >> 16;
         if ( (_DWORD)v27 != 2 )
         {

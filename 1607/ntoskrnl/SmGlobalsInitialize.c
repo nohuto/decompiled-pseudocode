@@ -3,10 +3,10 @@
  * Callers:
  *     SmInitSystem @ 0x1407B62B8 (SmInitSystem.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140148544 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SmRegistrationCtxInitialize @ 0x1404F161C (SmRegistrationCtxInitialize.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140148AB4 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SmRegistrationCtxInitialize @ 0x1404D3710 (SmRegistrationCtxInitialize.c)
  */
 
 __int64 __fastcall SmGlobalsInitialize(__int64 a1)

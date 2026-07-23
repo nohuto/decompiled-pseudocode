@@ -1,11 +1,11 @@
 /*
- * XREFs of SepReferenceTokenByHandle @ 0x1400A8D80
+ * XREFs of SepReferenceTokenByHandle @ 0x1400A8CC0
  * Callers:
- *     NtQuerySecurityAttributesToken @ 0x140626040 (NtQuerySecurityAttributesToken.c)
- *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
+ *     NtQuerySecurityAttributesToken @ 0x140627060 (NtQuerySecurityAttributesToken.c)
+ *     NtQueryInformationToken @ 0x14062B780 (NtQueryInformationToken.c)
  * Callees:
- *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8E10 (SepReferenceTokenUsingPseudoHandle.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8D50 (SepReferenceTokenUsingPseudoHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SepReferenceTokenByHandle(

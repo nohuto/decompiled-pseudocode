@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlFindFirstOverlappingSharedNode @ 0x1400C553C
+ * XREFs of FsRtlFindFirstOverlappingSharedNode @ 0x1400C33DC
  * Callers:
- *     FsRtlPrivateInsertSharedLock @ 0x1400C4F94 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlFastUnlockSingleShared @ 0x1400C530C (FsRtlFastUnlockSingleShared.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1400C5DF4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlCheckNoSharedConflict @ 0x1401B8CD4 (FsRtlCheckNoSharedConflict.c)
- *     FsRtlGetNextFileLock @ 0x1401B8DC0 (FsRtlGetNextFileLock.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1400C2E34 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1400C31AC (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1400C3C94 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlCheckNoSharedConflict @ 0x1401B8918 (FsRtlCheckNoSharedConflict.c)
+ *     FsRtlGetNextFileLock @ 0x1401B8A04 (FsRtlGetNextFileLock.c)
  * Callees:
  *     <none>
  */

@@ -34,7 +34,7 @@ LONG __stdcall RtlIpv6StringToAddressExW(PCWSTR AddressString, struct in6_addr *
   v5 = 0;
   v20 = 0;
   v6 = *AddressString;
-  v19 = *AddressString;
+  v19 = *(unsigned __int16 *)AddressString;
   if ( v6 == 91 )
     v4 = AddressString + 1;
   v22 = v6 == 91;
@@ -85,7 +85,7 @@ LABEL_20:
       v11 = ++v8;
       v12 = 8;
       v21 = 8;
-      v13 = *v8;
+      v13 = *(unsigned __int16 *)v8;
       if ( v13 == 120 || v13 == 88 )
       {
         v12 = 16;
@@ -99,7 +99,7 @@ LABEL_20:
     }
     while ( 1 )
     {
-      v14 = *v8;
+      v14 = *(unsigned __int16 *)v8;
       if ( !(_WORD)v14 )
         break;
       if ( (unsigned __int16)v14 < 0x80u

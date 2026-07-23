@@ -24,21 +24,25 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   __int64 Pool2; // rdi
   KPROCESSOR_MODE PreviousMode; // r14
   struct _KTHREAD *CurrentThread; // rax
-  int v5; // esi
+  NTSTATUS v5; // esi
   size_t v7; // rbx
   size_t v8; // rax
   __int64 i; // rbx
-  HANDLE Handle; // [rsp+28h] [rbp-50h] BYREF
+  HANDLE FileHandle; // [rsp+28h] [rbp-50h] BYREF
   __int64 v11; // [rsp+30h] [rbp-48h]
   ULONGLONG pullResult; // [rsp+38h] [rbp-40h] BYREF
   __int64 v13; // [rsp+40h] [rbp-38h]
-  char v14; // [rsp+98h] [rbp+20h]
+  BOOLEAN Verified; // [rsp+88h] [rbp+10h] BYREF
+  KPROCESSOR_MODE v15; // [rsp+90h] [rbp+18h]
+  char v16; // [rsp+98h] [rbp+20h]
 
   pullResult = 0LL;
+  Verified = 0;
   Pool2 = 0LL;
-  Handle = 0LL;
-  v14 = 0;
+  FileHandle = 0LL;
+  v16 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v15 = PreviousMode;
   if ( PreviousMode )
   {
     v5 = RtlULongLongMult(*(unsigned int *)(a1 + 8), 0x18uLL, &pullResult);
@@ -72,29 +76,29 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
     Pool2 = *(_QWORD *)(a1 + 16);
     v11 = Pool2;
   }
-  v14 = 1;
+  v16 = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopBootStatLock, 0LL);
-  v5 = RtlLockBootStatusData(&Handle);
+  v5 = RtlLockBootStatusData(&FileHandle);
   if ( v5 >= 0 )
   {
-    if ( !PreviousMode || (v5 = PopBootStatAccessCheck(Handle, PreviousMode, 1u), v5 >= 0) )
+    if ( !PreviousMode || (v5 = PopBootStatAccessCheck(FileHandle, PreviousMode, 1u), v5 >= 0) )
     {
-      v5 = RtlCheckBootStatusIntegrity(Handle);
+      v5 = RtlCheckBootStatusIntegrity(FileHandle, &Verified);
       if ( v5 >= 0 )
       {
         if ( *(_DWORD *)(Pool2 + 16) )
-          **(_BYTE **)(Pool2 + 8) = 0;
+          **(_BYTE **)(Pool2 + 8) = Verified;
         else
           v5 = -1073741811;
       }
     }
   }
 LABEL_8:
-  if ( Handle )
-    RtlUnlockBootStatusData(Handle);
-  if ( v14 )
+  if ( FileHandle )
+    RtlUnlockBootStatusData(FileHandle);
+  if ( v16 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopBootStatLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&PopBootStatLock);

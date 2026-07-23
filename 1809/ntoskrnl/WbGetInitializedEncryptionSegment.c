@@ -1,20 +1,20 @@
 /*
- * XREFs of WbGetInitializedEncryptionSegment @ 0x140583F8C
+ * XREFs of WbGetInitializedEncryptionSegment @ 0x140584F8C
  * Callers:
- *     WbDecryptEncryptionSegment @ 0x140583E04 (WbDecryptEncryptionSegment.c)
- *     WbReEncryptEncryptionSegment @ 0x140583EC8 (WbReEncryptEncryptionSegment.c)
+ *     WbDecryptEncryptionSegment @ 0x140584E04 (WbDecryptEncryptionSegment.c)
+ *     WbReEncryptEncryptionSegment @ 0x140584EC8 (WbReEncryptEncryptionSegment.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WbGetWarbirdEncryptionSegment @ 0x14058410C (WbGetWarbirdEncryptionSegment.c)
- *     sub_140584234 @ 0x140584234 (sub_140584234.c)
- *     WbValidateEncryptionSegmentArguments @ 0x1405842C0 (WbValidateEncryptionSegmentArguments.c)
- *     WbInitializeEncryptionSegment @ 0x140584B2C (WbInitializeEncryptionSegment.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WbGetWarbirdEncryptionSegment @ 0x14058510C (WbGetWarbirdEncryptionSegment.c)
+ *     sub_140585234 @ 0x140585234 (sub_140585234.c)
+ *     WbValidateEncryptionSegmentArguments @ 0x1405852C0 (WbValidateEncryptionSegmentArguments.c)
+ *     WbInitializeEncryptionSegment @ 0x140585B2C (WbInitializeEncryptionSegment.c)
  */
 
 __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
@@ -23,8 +23,8 @@ __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, uns
   int WarbirdEncryptionSegment; // edi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v11; // rsi
-  __int64 v12; // rax
-  __int64 v13; // r15
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // r15
   char v14; // r14
   __int64 v15; // [rsp+20h] [rbp-50h] BYREF
   PVOID P[2]; // [rsp+30h] [rbp-40h] BYREF
@@ -54,7 +54,7 @@ __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, uns
     if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
       ExfAcquirePushLockExclusiveEx(v11, v12, (ULONG_PTR)v11);
     if ( v13 )
-      *(_BYTE *)(v13 + 26) |= 1u;
+      BYTE2(v13[1].Left) |= 1u;
     if ( !*(_DWORD *)(v7 + 16) )
     {
       v17 = *(_OWORD *)P;
@@ -82,7 +82,7 @@ LABEL_4:
     v7 = 0LL;
   }
 LABEL_7:
-  sub_140584234(v7);
+  sub_140585234(v7);
   if ( P[1] )
     ExFreePoolWithTag(P[1], 0x42524157u);
   return (unsigned int)WarbirdEncryptionSegment;

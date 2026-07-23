@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSessionWinlogonNotification @ 0x140ACB1FC
+ * XREFs of PopSessionWinlogonNotification @ 0x140AC8DB8
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PopPrintEx @ 0x1402CB174 (PopPrintEx.c)
- *     Feature_RemUserPresentSessionUnlock__private_IsEnabledDeviceUsageNoInline @ 0x1405DADAC (Feature_RemUserPresentSessionUnlock__private_IsEnabledDeviceUsageNoInline.c)
- *     PopDiagTraceSessionStates @ 0x1409BA66C (PopDiagTraceSessionStates.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
- *     PopNotifyConsoleUserPresent @ 0x1409BB660 (PopNotifyConsoleUserPresent.c)
- *     PopSetPowerSettingValueAcDc @ 0x1409BC77C (PopSetPowerSettingValueAcDc.c)
- *     PopAcquireAdaptiveLock @ 0x140A30168 (PopAcquireAdaptiveLock.c)
+ *     PopPrintEx @ 0x14047F604 (PopPrintEx.c)
+ *     Feature_RemUserPresentSessionUnlock__private_IsEnabledDeviceUsageNoInline @ 0x1405D80CC (Feature_RemUserPresentSessionUnlock__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopDiagTraceSessionStates @ 0x1409A0CBC (PopDiagTraceSessionStates.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409A1CB0 (PopNotifyConsoleUserPresent.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1409A2DCC (PopSetPowerSettingValueAcDc.c)
+ *     PopAcquireAdaptiveLock @ 0x140A24C58 (PopAcquireAdaptiveLock.c)
  */
 
 __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
@@ -44,13 +44,13 @@ __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
     PopAcquireAdaptiveLock(0);
     if ( v2 )
     {
-      byte_140F07341 = 1;
+      byte_140F07661 = 1;
     }
     else
     {
-      byte_140F07341 = 0;
+      byte_140F07661 = 0;
       if ( !(unsigned int)Feature_RemUserPresentSessionUnlock__private_IsEnabledDeviceUsageNoInline() )
-        v9 = byte_140F07342 == 0;
+        v9 = byte_140F07662 == 0;
     }
     PopReleaseAdaptiveLock();
     v11 = v2 != 0;

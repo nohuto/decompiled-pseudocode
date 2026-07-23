@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAreBitsClear @ 0x14044B100
+ * XREFs of RtlAreBitsClear @ 0x140442240
  * Callers:
- *     CmpLoadHiveThread @ 0x1407CB060 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1407CBE38 (CmpMountPreloadedHives.c)
- *     HvIsRangeDirty @ 0x1407E364C (HvIsRangeDirty.c)
- *     HvGetHiveLogFileStatus @ 0x14097F0D0 (HvGetHiveLogFileStatus.c)
- *     MiReleaseDriverPtes @ 0x140A67CE4 (MiReleaseDriverPtes.c)
- *     HalpMmAllocCtxMarkHiberPhase @ 0x140B4C234 (HalpMmAllocCtxMarkHiberPhase.c)
+ *     CmpLoadHiveThread @ 0x1407CB550 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407CC328 (CmpMountPreloadedHives.c)
+ *     HvIsRangeDirty @ 0x1407E3B9C (HvIsRangeDirty.c)
+ *     HvGetHiveLogFileStatus @ 0x1409678E0 (HvGetHiveLogFileStatus.c)
+ *     MiReleaseDriverPtes @ 0x140A611E4 (MiReleaseDriverPtes.c)
+ *     HalpMmAllocCtxMarkHiberPhase @ 0x140B4E274 (HalpMmAllocCtxMarkHiberPhase.c)
  * Callees:
  *     <none>
  */

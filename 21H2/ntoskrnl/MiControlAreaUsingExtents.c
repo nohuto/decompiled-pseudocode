@@ -1,19 +1,19 @@
 /*
- * XREFs of MiControlAreaUsingExtents @ 0x140332C50
+ * XREFs of MiControlAreaUsingExtents @ 0x14033D9A0
  * Callers:
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     MmPurgeSection @ 0x140238BA0 (MmPurgeSection.c)
- *     MiGatherMappedPages @ 0x140255BC8 (MiGatherMappedPages.c)
- *     MiInsertUnusedSubsection @ 0x140263D60 (MiInsertUnusedSubsection.c)
- *     MiAppendSubsectionChain @ 0x1402A147C (MiAppendSubsectionChain.c)
- *     MiReferenceDataSubsections @ 0x1402FD12C (MiReferenceDataSubsections.c)
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x140331500 (MmCopyToCachedPage.c)
- *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
- *     MiExtendSection @ 0x140689798 (MiExtendSection.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiAppendSubsectionChain @ 0x14021E9FC (MiAppendSubsectionChain.c)
+ *     MiInsertUnusedSubsection @ 0x14022A08C (MiInsertUnusedSubsection.c)
+ *     MiGatherMappedPages @ 0x140277138 (MiGatherMappedPages.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     MmPurgeSection @ 0x1402DD3F0 (MmPurgeSection.c)
+ *     MiReferenceDataSubsections @ 0x140307E7C (MiReferenceDataSubsections.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x14033C250 (MmCopyToCachedPage.c)
+ *     MmExtendSection @ 0x1405E894C (MmExtendSection.c)
+ *     MiExtendSection @ 0x1405E8C28 (MiExtendSection.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140706CF0 (MiPfPrepareReadList.c)
  * Callees:
  *     <none>
  */

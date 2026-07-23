@@ -1,10 +1,10 @@
 /*
- * XREFs of AslpFileVerStringBlockGetValue @ 0x14071F960
+ * XREFs of AslpFileVerStringBlockGetValue @ 0x140720C00
  * Callers:
- *     AslpFileQueryVersionString @ 0x14071FA04 (AslpFileQueryVersionString.c)
+ *     AslpFileQueryVersionString @ 0x140720CA4 (AslpFileQueryVersionString.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14011CAC8 (RtlStringCbLengthW.c)
- *     AslpFileVerBlockGetValueOffset @ 0x140178F0C (AslpFileVerBlockGetValueOffset.c)
+ *     RtlStringCbLengthW @ 0x14011CB38 (RtlStringCbLengthW.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x14017900C (AslpFileVerBlockGetValueOffset.c)
  */
 
 NTSTATUS __fastcall AslpFileVerStringBlockGetValue(__int64 *a1, size_t *a2, __int64 a3, unsigned __int64 a4)

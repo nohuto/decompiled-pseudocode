@@ -9,11 +9,11 @@
 struct _KPRCB *__fastcall HvlSchedulerAssistAcknowledgeEvents(unsigned __int64 a1)
 {
   struct _KPRCB *result; // rax
-  volatile signed __int64 *SchedulerAssist; // rdx
+  __int64 v2; // rdx
 
   result = KeGetCurrentPrcb();
-  SchedulerAssist = (volatile signed __int64 *)result->SchedulerAssist;
-  if ( SchedulerAssist )
-    _InterlockedExchangeAdd64(SchedulerAssist + 6, a1);
+  v2 = *((_QWORD *)result + 4375);
+  if ( v2 )
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v2 + 48), a1);
   return result;
 }

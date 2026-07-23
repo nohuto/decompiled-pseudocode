@@ -2,7 +2,7 @@
  * XREFs of MiPteBinsNeedTrimming @ 0x14021E3B8
  * Callers:
  *     MiAdjustPteBins @ 0x14021DCE8 (MiAdjustPteBins.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
  * Callees:
  *     MiGetNumberOfCachedPtes @ 0x14021E40C (MiGetNumberOfCachedPtes.c)
  */

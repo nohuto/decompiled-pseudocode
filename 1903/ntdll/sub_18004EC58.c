@@ -39,8 +39,8 @@ __int64 __fastcall sub_18004EC58(__int64 a1, __int128 *a2, __int64 a3, unsigned 
     *(_QWORD *)(v8 + 32) = a4;
     *(_QWORD *)(v8 + 8) = a3;
     *(_OWORD *)(v8 + 16) = v9;
-    RtlAcquireSRWLockExclusive(&qword_180163B40);
-    v10 = sub_18004EE4C(&qword_180163B40, a2, a3);
+    RtlAcquireSRWLockExclusive(&Parameter);
+    v10 = sub_18004EE4C(&Parameter, a2, a3);
     if ( v10 )
     {
       _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 32), a4);
@@ -80,7 +80,7 @@ __int64 __fastcall sub_18004EC58(__int64 a1, __int128 *a2, __int64 a3, unsigned 
         ++word_180163B62;
       }
     }
-    RtlReleaseSRWLockExclusive(&qword_180163B40);
+    RtlReleaseSRWLockExclusive(&Parameter);
     if ( v8 )
     {
       v20 = xmmword_1801638B0;

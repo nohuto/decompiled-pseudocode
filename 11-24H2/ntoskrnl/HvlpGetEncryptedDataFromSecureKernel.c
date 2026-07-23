@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpGetEncryptedDataFromSecureKernel @ 0x14058A8F8
+ * XREFs of HvlpGetEncryptedDataFromSecureKernel @ 0x140587BE8
  * Callers:
- *     HvlGetEncryptedData @ 0x14058A430 (HvlGetEncryptedData.c)
+ *     HvlGetEncryptedData @ 0x140587720 (HvlGetEncryptedData.c)
  * Callees:
- *     HvlpEndSecurePageListIteration @ 0x14058C2C0 (HvlpEndSecurePageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x14058C5B8 (HvlpStartSecurePageListIteration.c)
- *     VslGetSecurePageList @ 0x14058D214 (VslGetSecurePageList.c)
+ *     HvlpEndSecurePageListIteration @ 0x140589660 (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x140589958 (HvlpStartSecurePageListIteration.c)
+ *     VslGetSecurePageList @ 0x14058A504 (VslGetSecurePageList.c)
  */
 
 __int64 __fastcall HvlpGetEncryptedDataFromSecureKernel(__int64 a1, __int64 a2, int a3, __int64 a4, _DWORD *a5)
@@ -33,7 +33,7 @@ __int64 __fastcall HvlpGetEncryptedDataFromSecureKernel(__int64 a1, __int64 a2, 
     result = HvlpStartSecurePageListIteration(1LL, v9, a2, a4, a3, v13);
     if ( (int)result < 0 )
       return result;
-    *((_QWORD *)&xmmword_140F8E020 + 1) = v13[0];
+    *((_QWORD *)&xmmword_140F8E200 + 1) = v13[0];
     LOBYTE(HvlpCrashdumpIterationState) = 1;
     BYTE3(HvlpCrashdumpIterationState) = v9;
   }

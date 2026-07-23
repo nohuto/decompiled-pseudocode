@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDpcWatchdog @ 0x1405FADE0
+ * XREFs of KiDpcWatchdog @ 0x1405FD800
  * Callers:
  *     <none>
  * Callees:
- *     KiDpcWatchdogCounterReset @ 0x14047A150 (KiDpcWatchdogCounterReset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiDpcWatchdogCounterReset @ 0x140473AC0 (KiDpcWatchdogCounterReset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiDpcWatchdog(struct _KDPC *Dpc, PVOID DeferredContext, PVOID SystemArgument1, PVOID SystemArgument2)

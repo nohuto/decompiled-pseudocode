@@ -6,19 +6,24 @@
  *     RtlQueryPackageClaims @ 0x140084770 (RtlQueryPackageClaims.c)
  */
 
-__int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, __int64 a2, int *a3, _WORD *a4, __int64 *a5)
+__int64 __fastcall AppModelPolicy_GetPolicy_Internal(
+        void *a1,
+        __int64 a2,
+        int *a3,
+        _PS_PKG_CLAIM *a4,
+        unsigned __int64 *a5)
 {
-  int PackageClaims; // edx
-  __int64 v8; // rax
+  NTSTATUS PackageClaims; // edx
+  unsigned __int64 v8; // rax
   int v9; // eax
-  __int64 v11; // rcx
+  _PS_PKG_CLAIM v11; // rcx
 
   PackageClaims = RtlQueryPackageClaims(a1, 0LL, 0LL, 0LL, 0LL, 0LL, a4, a5);
   if ( PackageClaims == -1073741275 )
   {
     *a5 = 0LL;
     PackageClaims = 0;
-    *a4 = 0;
+    LOWORD(a4->Flags) = 0;
   }
   *a3 = 0;
   if ( PackageClaims >= 0 )
@@ -26,18 +31,18 @@ __int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, __int64 a2, int
     v8 = *a5;
     if ( (*a5 & 1) != 0 && (v8 & 2) != 0 )
     {
-      if ( (v8 & 4) != 0 || (v11 = *(_QWORD *)a4, (*(_QWORD *)a4 & 0x400LL) != 0) || (v11 & 0x800) != 0 )
+      if ( (v8 & 4) != 0 || (v11 = *a4, (*(_QWORD *)a4 & 0x400LL) != 0) || (v11.Flags & 0x800) != 0 )
       {
 LABEL_17:
         v9 = 3014657;
         goto LABEL_6;
       }
-      if ( (v11 & 4) == 0 )
+      if ( (v11.Flags & 4) == 0 )
       {
-        if ( (v11 & 8) == 0 )
+        if ( (v11.Flags & 8) == 0 )
         {
           v9 = 3014656;
-          if ( (v11 & 0x40) == 0 )
+          if ( (v11.Flags & 0x40) == 0 )
             v9 = ((*(_QWORD *)a4 & 0x1000LL) == 0) | 0x2E0000;
           goto LABEL_6;
         }

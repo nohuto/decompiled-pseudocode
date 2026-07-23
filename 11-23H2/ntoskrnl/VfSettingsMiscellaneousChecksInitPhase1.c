@@ -1,10 +1,10 @@
 /*
- * XREFs of VfSettingsMiscellaneousChecksInitPhase1 @ 0x140ADAEB8
+ * XREFs of VfSettingsMiscellaneousChecksInitPhase1 @ 0x140ADAEA8
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140AC2D18 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140AC2D08 (VfInitSystemNoRebootNeeded.c)
  *     ViInitSystemPhase1 @ 0x140B532E4 (ViInitSystemPhase1.c)
  * Callees:
- *     ViSettingsEnableKernelHandleChecking @ 0x140ADAEEC (ViSettingsEnableKernelHandleChecking.c)
+ *     ViSettingsEnableKernelHandleChecking @ 0x140ADAEDC (ViSettingsEnableKernelHandleChecking.c)
  */
 
 __int64 VfSettingsMiscellaneousChecksInitPhase1()

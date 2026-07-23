@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscPluginUnload @ 0x140615040
+ * XREFs of VfMiscPluginUnload @ 0x140613600
  * Callers:
  *     <none>
  * Callees:
- *     VfDeleteLookasideTree @ 0x140B9FE18 (VfDeleteLookasideTree.c)
- *     VfDeleteResourceTree @ 0x140BA1984 (VfDeleteResourceTree.c)
+ *     VfDeleteLookasideTree @ 0x140BA1E18 (VfDeleteLookasideTree.c)
+ *     VfDeleteResourceTree @ 0x140BA3984 (VfDeleteResourceTree.c)
  */
 
 __int64 VfMiscPluginUnload()

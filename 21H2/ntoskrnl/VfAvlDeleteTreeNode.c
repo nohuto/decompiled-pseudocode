@@ -1,21 +1,21 @@
 /*
- * XREFs of VfAvlDeleteTreeNode @ 0x14037EB38
+ * XREFs of VfAvlDeleteTreeNode @ 0x14037E688
  * Callers:
- *     VfTargetDriversRemove @ 0x14037E990 (VfTargetDriversRemove.c)
- *     ViDevObjRemove @ 0x1409D634C (ViDevObjRemove.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x1409D6804 (ViRemLockDeleteFirstTreeNode.c)
- *     ViLookasideAdd @ 0x1409E15B4 (ViLookasideAdd.c)
- *     ViLookasideDelete @ 0x1409E16DC (ViLookasideDelete.c)
- *     VerifierExDeleteResourceLite @ 0x1409E1E20 (VerifierExDeleteResourceLite.c)
- *     VerifierExInitializeResourceLite @ 0x1409E2200 (VerifierExInitializeResourceLite.c)
- *     VfCheckForResource @ 0x1409E248C (VfCheckForResource.c)
+ *     VfTargetDriversRemove @ 0x14037E4E0 (VfTargetDriversRemove.c)
+ *     ViDevObjRemove @ 0x1409D734C (ViDevObjRemove.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x1409D7804 (ViRemLockDeleteFirstTreeNode.c)
+ *     ViLookasideAdd @ 0x1409E25B4 (ViLookasideAdd.c)
+ *     ViLookasideDelete @ 0x1409E26DC (ViLookasideDelete.c)
+ *     VerifierExDeleteResourceLite @ 0x1409E2E20 (VerifierExDeleteResourceLite.c)
+ *     VerifierExInitializeResourceLite @ 0x1409E3200 (VerifierExInitializeResourceLite.c)
+ *     VfCheckForResource @ 0x1409E348C (VfCheckForResource.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x140371C0C (ViAvlReleaseTableLockFromDpcLevel.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140371C40 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     ViAvlRaiseIrqlSafe @ 0x140371C9C (ViAvlRaiseIrqlSafe.c)
- *     ViAvlTableIndex @ 0x140371CD4 (ViAvlTableIndex.c)
- *     ViAvlNodeInitializeSessionId @ 0x140371D7C (ViAvlNodeInitializeSessionId.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x140252950 (RtlDeleteElementGenericTableAvl.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x14037175C (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140371790 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     ViAvlRaiseIrqlSafe @ 0x1403717EC (ViAvlRaiseIrqlSafe.c)
+ *     ViAvlTableIndex @ 0x140371824 (ViAvlTableIndex.c)
+ *     ViAvlNodeInitializeSessionId @ 0x1403718CC (ViAvlNodeInitializeSessionId.c)
  */
 
 __int64 __fastcall VfAvlDeleteTreeNode(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)

@@ -19,7 +19,7 @@ void __fastcall KiAltContextWorkQueueAddItem(PLIST_ENTRY ListEntry)
   __int16 v3; // [rsp+30h] [rbp-10h]
   int v4; // [rsp+32h] [rbp-Eh]
   __int16 v5; // [rsp+36h] [rbp-Ah]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+58h] [rbp+18h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+58h] [rbp+18h] BYREF
   ULONG ProcIndex; // [rsp+60h] [rbp+20h] BYREF
 
   ProcNumber = 0;

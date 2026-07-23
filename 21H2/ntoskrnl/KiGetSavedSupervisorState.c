@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetSavedSupervisorState @ 0x14051A280
+ * XREFs of KiGetSavedSupervisorState @ 0x14051A4C0
  * Callers:
- *     KiGetSavedIptState @ 0x14051A1D0 (KiGetSavedIptState.c)
+ *     KiGetSavedIptState @ 0x14051A410 (KiGetSavedIptState.c)
  * Callees:
  *     <none>
  */

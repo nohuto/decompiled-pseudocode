@@ -1,14 +1,14 @@
 /*
- * XREFs of IoFreeAdapterChannelV3 @ 0x1404C639C
+ * XREFs of IoFreeAdapterChannelV3 @ 0x1404C65DC
  * Callers:
- *     IoFreeAdapterChannel @ 0x1404B8D10 (IoFreeAdapterChannel.c)
- *     IoFreeAdapterChannelV3Passive @ 0x1404C6590 (IoFreeAdapterChannelV3Passive.c)
+ *     IoFreeAdapterChannel @ 0x1404B8F50 (IoFreeAdapterChannel.c)
+ *     IoFreeAdapterChannelV3Passive @ 0x1404C67D0 (IoFreeAdapterChannelV3Passive.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaGetNextWcb @ 0x1404B79E4 (HalpDmaGetNextWcb.c)
- *     IoFreeAdapterChannelV3Internal @ 0x1404C6540 (IoFreeAdapterChannelV3Internal.c)
- *     HalpAllocateDmaResourcesInternal @ 0x1404CA5DC (HalpAllocateDmaResourcesInternal.c)
+ *     HalpDmaGetNextWcb @ 0x1404B7C24 (HalpDmaGetNextWcb.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x1404C6780 (IoFreeAdapterChannelV3Internal.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA81C (HalpAllocateDmaResourcesInternal.c)
  */
 
 void __fastcall IoFreeAdapterChannelV3(PDMA_ADAPTER DmaAdapter)

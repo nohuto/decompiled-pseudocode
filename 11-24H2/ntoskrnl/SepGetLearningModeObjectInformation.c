@@ -1,14 +1,14 @@
 /*
- * XREFs of SepGetLearningModeObjectInformation @ 0x140608AD4
+ * XREFs of SepGetLearningModeObjectInformation @ 0x140606348
  * Callers:
- *     SeLogAccessFailure @ 0x14035F070 (SeLogAccessFailure.c)
+ *     SeLogAccessFailure @ 0x140438750 (SeLogAccessFailure.c)
  * Callees:
- *     SepGetCurrentLogLevel @ 0x14040C5D0 (SepGetCurrentLogLevel.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SepGetCurrentLogLevel @ 0x140404C60 (SepGetCurrentLogLevel.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _OWORD *__fastcall SepGetLearningModeObjectInformation(_BYTE *a1)
@@ -78,27 +78,27 @@ _OWORD *__fastcall SepGetLearningModeObjectInformation(_BYTE *a1)
           if ( (char *)v17[1] + WORD1(v17[0]) > (void *)0x7FFFFFFF0000LL || (char *)v17[1] + WORD1(v17[0]) < v17[1] )
             v10 = WORD1(*(_OWORD *)v8);
         }
-        Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL);
+        Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL, 0x38uLL, 0x494F6553u);
         if ( Pool2 )
         {
           *Pool2 = 0LL;
           Pool2[1] = 0LL;
           Pool2[2] = 0LL;
           *((_QWORD *)Pool2 + 6) = 0LL;
-          v12 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL);
+          v12 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x544F6553u);
           v13 = v12;
           if ( v12 )
           {
             *v12 = 0LL;
-            v2 = (void *)ExAllocatePool2(0x100uLL);
+            v2 = (void *)ExAllocatePool2(0x100uLL, WORD1(Src[0]), 0x544F6553u);
             if ( v2 )
             {
-              v14 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL);
+              v14 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x4E4F6553u);
               v1 = v14;
               if ( v14 )
               {
                 *v14 = 0LL;
-                v15 = (void *)ExAllocatePool2(0x100uLL);
+                v15 = (void *)ExAllocatePool2(0x100uLL, v10, 0x4E4F6553u);
                 if ( v15 )
                 {
                   memmove(v2, Src[1], WORD1(Src[0]));

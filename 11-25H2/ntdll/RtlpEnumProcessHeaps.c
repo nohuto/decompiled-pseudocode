@@ -39,7 +39,7 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(__int64, __int6
   v6 = -1073741823;
   v7 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsLock);
   v8 = RtlpProcessHeaps;
   v9 = &RtlpProcessHeaps;
   while ( 1 )
@@ -91,6 +91,6 @@ LABEL_10:
   }
 LABEL_25:
   if ( !v7 )
-    RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlLeaveCriticalSection(&RtlpProcessHeapsLock);
   return (unsigned int)v6;
 }

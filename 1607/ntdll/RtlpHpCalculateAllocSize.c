@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpCalculateAllocSize @ 0x180043BA8
+ * XREFs of RtlpHpCalculateAllocSize @ 0x180043B98
  * Callers:
- *     RtlpHpReallocComputeSizes @ 0x180043A24 (RtlpHpReallocComputeSizes.c)
- *     RtlpHpAllocateHeap @ 0x1800507D8 (RtlpHpAllocateHeap.c)
+ *     RtlpHpReallocComputeSizes @ 0x180043A14 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpAllocateHeap @ 0x1800507C8 (RtlpHpAllocateHeap.c)
  * Callees:
  *     <none>
  */

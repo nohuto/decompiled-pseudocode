@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCollectTriageDumpData @ 0x1405522F0
+ * XREFs of IopCollectTriageDumpData @ 0x1405529B0
  * Callers:
- *     IoCapturePristineTriageDump @ 0x14054F768 (IoCapturePristineTriageDump.c)
- *     IoWriteCrashDump @ 0x140551300 (IoWriteCrashDump.c)
+ *     IoCapturePristineTriageDump @ 0x14054FE28 (IoCapturePristineTriageDump.c)
+ *     IoWriteCrashDump @ 0x1405519C0 (IoWriteCrashDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IoFillTriageDumpBuffer @ 0x14054FED0 (IoFillTriageDumpBuffer.c)
- *     IopUpdateMinidumpContext @ 0x140553AE4 (IopUpdateMinidumpContext.c)
- *     MmSnapTriageDumpInformation @ 0x1406307AC (MmSnapTriageDumpInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IoFillTriageDumpBuffer @ 0x140550590 (IoFillTriageDumpBuffer.c)
+ *     IopUpdateMinidumpContext @ 0x1405541A4 (IopUpdateMinidumpContext.c)
+ *     MmSnapTriageDumpInformation @ 0x140630CFC (MmSnapTriageDumpInformation.c)
  */
 
 __int64 __fastcall IopCollectTriageDumpData(

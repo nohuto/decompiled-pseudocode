@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpAllocateCriticalMemory @ 0x1404C5AB8
+ * XREFs of PnpAllocateCriticalMemory @ 0x140485EEC
  * Callers:
- *     PnpSetTargetDeviceRemove @ 0x1404C3F44 (PnpSetTargetDeviceRemove.c)
- *     PiEventAllocateVetoBuffer @ 0x1404C4F00 (PiEventAllocateVetoBuffer.c)
- *     PnpResizeTargetDeviceBlock @ 0x1404C4F54 (PnpResizeTargetDeviceBlock.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x1404C5028 (PnpQueuePendingSurpriseRemoval.c)
- *     PiEventBuildPdoList @ 0x1404C539C (PiEventBuildPdoList.c)
- *     PnpCompileDeviceInstancePaths @ 0x1404C56AC (PnpCompileDeviceInstancePaths.c)
- *     IopAllocateRelationList @ 0x1404C5958 (IopAllocateRelationList.c)
- *     PiAllocateDeviceObjectList @ 0x1404C5A00 (PiAllocateDeviceObjectList.c)
+ *     PnpSetTargetDeviceRemove @ 0x140484C7C (PnpSetTargetDeviceRemove.c)
+ *     PiEventAllocateVetoBuffer @ 0x140485334 (PiEventAllocateVetoBuffer.c)
+ *     PnpResizeTargetDeviceBlock @ 0x140485388 (PnpResizeTargetDeviceBlock.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x14048545C (PnpQueuePendingSurpriseRemoval.c)
+ *     PiEventBuildPdoList @ 0x1404857D0 (PiEventBuildPdoList.c)
+ *     PnpCompileDeviceInstancePaths @ 0x140485AE0 (PnpCompileDeviceInstancePaths.c)
+ *     IopAllocateRelationList @ 0x140485D8C (IopAllocateRelationList.c)
+ *     PiAllocateDeviceObjectList @ 0x140485E34 (PiAllocateDeviceObjectList.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

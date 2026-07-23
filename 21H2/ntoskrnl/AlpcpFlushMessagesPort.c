@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpFlushMessagesPort @ 0x1405E2314
+ * XREFs of AlpcpFlushMessagesPort @ 0x1406D1A74
  * Callers:
- *     AlpcpDoPortCleanup @ 0x1405E20E8 (AlpcpDoPortCleanup.c)
+ *     AlpcpDoPortCleanup @ 0x1406D1848 (AlpcpDoPortCleanup.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     AlpcpFlushQueue @ 0x1405E24D0 (AlpcpFlushQueue.c)
- *     AlpcpFlushCancelQueue @ 0x1405E262C (AlpcpFlushCancelQueue.c)
- *     AlpcpFlushMessagesByRequestor @ 0x1406B41E4 (AlpcpFlushMessagesByRequestor.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpFlushMessagesByRequestor @ 0x1406133B4 (AlpcpFlushMessagesByRequestor.c)
+ *     AlpcpFlushQueue @ 0x1406D1C30 (AlpcpFlushQueue.c)
+ *     AlpcpFlushCancelQueue @ 0x1406D1D8C (AlpcpFlushCancelQueue.c)
  */
 
 void __fastcall AlpcpFlushMessagesPort(__int64 a1)
@@ -43,11 +43,11 @@ void __fastcall AlpcpFlushMessagesPort(__int64 a1)
     {
       if ( (*(_DWORD *)(v4 + 416) & 0x40) == 0 && v5 && (*(_DWORD *)(v5 + 416) & 8) == 0 )
       {
-        AlpcpFlushMessagesByRequestor(v5, v4, v4 + 144, 1LL);
-        AlpcpFlushMessagesByRequestor(v5, v4, v4 + 160, 2LL);
+        AlpcpFlushMessagesByRequestor(v5, (volatile signed __int64 *)v4, (ULONG_PTR *)(v4 + 144), 1u);
+        AlpcpFlushMessagesByRequestor(v5, (volatile signed __int64 *)v4, (ULONG_PTR *)(v4 + 160), 2u);
         if ( (*(_DWORD *)(a1 + 416) & 0x80u) == 0 )
-          AlpcpFlushMessagesByRequestor(v5, v4, v4 + 184, 3LL);
-        AlpcpFlushMessagesByRequestor(v5, v4, v4 + 208, 4LL);
+          AlpcpFlushMessagesByRequestor(v5, (volatile signed __int64 *)v4, (ULONG_PTR *)(v4 + 184), 3u);
+        AlpcpFlushMessagesByRequestor(v5, (volatile signed __int64 *)v4, (ULONG_PTR *)(v4 + 208), 4u);
         AlpcpFlushCancelQueue(v4, a1);
       }
       HalPutDmaAdapter((PADAPTER_OBJECT)v4);

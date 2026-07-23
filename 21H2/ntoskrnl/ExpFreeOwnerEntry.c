@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpFreeOwnerEntry @ 0x1402F4FF0
+ * XREFs of ExpFreeOwnerEntry @ 0x1402FFD40
  * Callers:
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
  * Callees:
- *     PsBoostThreadIoQoS @ 0x140287458 (PsBoostThreadIoQoS.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoQoS @ 0x1402045F8 (PsBoostThreadIoQoS.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
  */
 
 __int64 __fastcall ExpFreeOwnerEntry(__int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ LABEL_11:
   }
   if ( (v2 & 4) != 0 )
   {
-    PsBoostThreadIoQoS(v4, 1LL);
+    PsBoostThreadIoQoS(v4, 1);
     *(_DWORD *)(a1 + 8) &= ~4u;
     v2 = *(_DWORD *)(a1 + 8);
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpStopCallout @ 0x1406776BC
+ * XREFs of TtmpStopCallout @ 0x1406777A0
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1406770C8 (TtmiSessionDeviceListWorker.c)
- *     TtmpCallSetBuiltinPanelState @ 0x1406772BC (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x140677314 (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x140677390 (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x1406776F4 (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x1406771AC (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1406773A0 (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x1406773F8 (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x140677474 (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x1406777D8 (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
- *     TtmiLogCalloutStop @ 0x14067A4F8 (TtmiLogCalloutStop.c)
+ *     TtmiLogCalloutStop @ 0x14067A5DC (TtmiLogCalloutStop.c)
  */
 
 __int64 __fastcall TtmpStopCallout(__int64 a1, int a2)

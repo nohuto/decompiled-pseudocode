@@ -1,16 +1,16 @@
 /*
- * XREFs of ObGetProcessHandleCount @ 0x1408ECB30
+ * XREFs of ObGetProcessHandleCount @ 0x14085E360
  * Callers:
- *     ExpCopyProcessInfo @ 0x1408EC6F4 (ExpCopyProcessInfo.c)
- *     EtwpProcessPerfCtrsRundown @ 0x14094BEA8 (EtwpProcessPerfCtrsRundown.c)
- *     EtwTraceAppStateChange @ 0x14094C00C (EtwTraceAppStateChange.c)
- *     EtwpPsProvTraceProcess @ 0x14094D000 (EtwpPsProvTraceProcess.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     ExpCopyProcessInfo @ 0x14085DF24 (ExpCopyProcessInfo.c)
+ *     EtwpProcessPerfCtrsRundown @ 0x1408F0418 (EtwpProcessPerfCtrsRundown.c)
+ *     EtwTraceAppStateChange @ 0x1408F057C (EtwTraceAppStateChange.c)
+ *     EtwpPsProvTraceProcess @ 0x1408F1570 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExfReleaseRundownProtection @ 0x1402456A0 (ExfReleaseRundownProtection.c)
- *     ExfAcquireRundownProtection @ 0x140247210 (ExfAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExfReleaseRundownProtection @ 0x14020DE80 (ExfReleaseRundownProtection.c)
+ *     ExfAcquireRundownProtection @ 0x1402F60C0 (ExfAcquireRundownProtection.c)
  */
 
 __int64 __fastcall ObGetProcessHandleCount(struct _EX_RUNDOWN_REF *a1, _DWORD *a2)

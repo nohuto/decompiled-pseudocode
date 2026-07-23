@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorSelectRequest @ 0x140875CD4
+ * XREFs of PopPowerAggregatorSelectRequest @ 0x140876F34
  * Callers:
- *     PopPowerAggregatorWorker @ 0x140875F10 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorWorker @ 0x140877170 (PopPowerAggregatorWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopDiagTracePowerAggregatorInvalidRequestIndex @ 0x140873708 (PopDiagTracePowerAggregatorInvalidRequestIndex.c)
- *     PopDiagTracePowerAggregatorRequest @ 0x140873880 (PopDiagTracePowerAggregatorRequest.c)
- *     PopPowerAggregatorGetPromotionReason @ 0x140875C18 (PopPowerAggregatorGetPromotionReason.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopDiagTracePowerAggregatorInvalidRequestIndex @ 0x140874968 (PopDiagTracePowerAggregatorInvalidRequestIndex.c)
+ *     PopDiagTracePowerAggregatorRequest @ 0x140874AE0 (PopDiagTracePowerAggregatorRequest.c)
+ *     PopPowerAggregatorGetPromotionReason @ 0x140876E78 (PopPowerAggregatorGetPromotionReason.c)
  */
 
 void __fastcall PopPowerAggregatorSelectRequest(int *a1, __int64 a2)
@@ -26,16 +26,16 @@ void __fastcall PopPowerAggregatorSelectRequest(int *a1, __int64 a2)
   unsigned int v13; // ebx
   _DWORD v16[16]; // [rsp+30h] [rbp-88h] BYREF
 
-  v2 = dword_140410844;
+  v2 = dword_140411904;
   v3 = a2;
   v4 = a1;
-  if ( (unsigned int)dword_140410844 < 0x10 )
+  if ( (unsigned int)dword_140411904 < 0x10 )
   {
     memset(v16, 0, sizeof(v16));
-    v5 = dword_140410848;
+    v5 = dword_140411908;
     LOBYTE(v6) = 1;
-    v7 = dword_140410844;
-    if ( (unsigned int)dword_140410848 > 1 )
+    v7 = dword_140411904;
+    if ( (unsigned int)dword_140411908 > 1 )
     {
       do
       {
@@ -66,20 +66,20 @@ void __fastcall PopPowerAggregatorSelectRequest(int *a1, __int64 a2)
         PopDiagTracePowerAggregatorRequest(
           *v4,
           v13,
-          (__int64)&PopPowerAggregatorRequestQueue[12 * (((_BYTE)v13 + (_BYTE)dword_140410844) & 0xF) + 12],
-          v16[((_BYTE)v13 + (_BYTE)dword_140410844) & 0xF]);
+          (__int64)&PopPowerAggregatorRequestQueue[12 * (((_BYTE)v13 + (_BYTE)dword_140411904) & 0xF) + 12],
+          v16[((_BYTE)v13 + (_BYTE)dword_140411904) & 0xF]);
         ++v13;
       }
-      while ( v13 < dword_140410848 );
+      while ( v13 < dword_140411908 );
     }
     *(_QWORD *)v3 = *(_QWORD *)&PopPowerAggregatorRequestQueue[12 * v7 + 12];
     *(_DWORD *)(v3 + 8) = *(_DWORD *)&PopPowerAggregatorRequestQueue[12 * v7 + 20];
-    dword_140410844 = 0;
-    dword_140410848 = 0;
-    memset(&unk_14041084C, 0, 0xC0uLL);
+    dword_140411904 = 0;
+    dword_140411908 = 0;
+    memset(&unk_14041190C, 0, 0xC0uLL);
   }
   else
   {
-    PopDiagTracePowerAggregatorInvalidRequestIndex(dword_140410844, dword_140410848);
+    PopDiagTracePowerAggregatorInvalidRequestIndex(dword_140411904, dword_140411908);
   }
 }

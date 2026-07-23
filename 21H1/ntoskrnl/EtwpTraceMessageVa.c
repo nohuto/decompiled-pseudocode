@@ -248,7 +248,7 @@ LABEL_99:
     v11 = v57;
     goto LABEL_100;
   }
-  v28 = EtwpReserveTraceBuffer(v13, v27, (__int64)&v74, &v66, 0);
+  v28 = EtwpReserveTraceBuffer((unsigned int *)v13, v27, (__int64)&v74, &v66, 0);
   v29 = 0;
   v30 = v68;
   v31 = *(volatile signed __int32 **)(v68 + 280);

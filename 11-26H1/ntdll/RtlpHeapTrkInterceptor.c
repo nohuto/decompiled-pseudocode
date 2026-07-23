@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpHeapTrkInterceptor @ 0x1800117C0
+ * XREFs of RtlpHeapTrkInterceptor @ 0x18005CEF0
  * Callers:
- *     RtlpCallInterceptRoutine @ 0x18001C570 (RtlpCallInterceptRoutine.c)
+ *     RtlpCallInterceptRoutine @ 0x180007640 (RtlpCallInterceptRoutine.c)
  * Callees:
- *     RtlpHeapTrkTrackStack @ 0x180010860 (RtlpHeapTrkTrackStack.c)
- *     RtlpHeapTrkTrackAdd @ 0x1800116E0 (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkHash @ 0x180011B90 (RtlpHeapTrkHash.c)
- *     RtlpHeapTrkDereferenceStack @ 0x180011C20 (RtlpHeapTrkDereferenceStack.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FC1E8 (RtlpHeapTrkTrackRemoveHeap.c)
- *     NtQueryPerformanceCounter @ 0x18015F560 (NtQueryPerformanceCounter.c)
- *     RtlGetCurrentProcessorNumberEx @ 0x180163540 (RtlGetCurrentProcessorNumberEx.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpHeapTrkTrackStack @ 0x18005BF90 (RtlpHeapTrkTrackStack.c)
+ *     RtlpHeapTrkTrackAdd @ 0x18005CE10 (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkHash @ 0x18005D2C0 (RtlpHeapTrkHash.c)
+ *     RtlpHeapTrkDereferenceStack @ 0x18005D350 (RtlpHeapTrkDereferenceStack.c)
+ *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FB938 (RtlpHeapTrkTrackRemoveHeap.c)
+ *     NtQueryPerformanceCounter @ 0x18015F460 (NtQueryPerformanceCounter.c)
+ *     RtlGetCurrentProcessorNumberEx @ 0x180163440 (RtlGetCurrentProcessorNumberEx.c)
  */
 
-__int64 __fastcall RtlpHeapTrkInterceptor(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpHeapTrkInterceptor(PVOID a1, unsigned __int64 a2, int a3)
 {
   int v4; // r8d
   int v5; // r8d
   int v6; // r8d
   int v7; // r8d
   unsigned __int64 v9; // rdi
-  unsigned __int8 v10; // dl
+  unsigned __int8 Number; // dl
   signed __int32 v11; // r9d
   unsigned __int64 v12; // r8
   __int64 v13; // rdx
@@ -32,27 +32,27 @@ __int64 __fastcall RtlpHeapTrkInterceptor(__int64 a1, unsigned __int64 a2, int a
   unsigned int v15; // eax
   __int64 v16; // rbx
   __int64 v17; // r14
-  volatile signed __int32 *v18; // rdx
+  volatile signed __int64 *v18; // rdx
   _QWORD *SchedulerSharedDataSlot; // r9
   unsigned int i; // ecx
   _QWORD **v21; // rcx
   _QWORD *j; // rbx
   _QWORD *Heap_0; // r14
   __int64 v24; // rbx
-  __int64 v25; // rax
+  __int64 *v25; // rax
   __int64 v26; // rdi
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // rax
-  _QWORD *v30; // rax
-  _QWORD *v31; // rdx
-  __int64 v32; // r10
-  __int64 v33; // [rsp+20h] [rbp-28h] BYREF
-  _QWORD v34[4]; // [rsp+28h] [rbp-20h] BYREF
-  int v35; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  _QWORD *v29; // rax
+  _QWORD *v30; // rdx
+  __int64 v31; // r10
+  void *v32; // rcx
+  LARGE_INTEGER v33; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+28h] [rbp-20h] BYREF
+  _PROCESSOR_NUMBER ProcessorNumber; // [rsp+50h] [rbp+8h] BYREF
 
-  v35 = 0;
-  if ( a1 == qword_1801C7798 || dword_1801C77D8 == 1 )
+  ProcessorNumber = 0;
+  if ( a1 == HeapHandle || dword_1801C6828 == 1 )
     return 0LL;
   v4 = a3 - 2;
   if ( !v4 )
@@ -61,34 +61,34 @@ LABEL_10:
     if ( a2 )
     {
       v9 = (a2 >> 3) | 0xE000000000000000uLL;
-      if ( dword_1801C7290 == 1 )
+      if ( dword_1801C6290 == 1 )
       {
-        RtlpHeapTrkTrackAdd(a1, v9);
+        RtlpHeapTrkTrackAdd((__int64)a1, v9);
       }
-      else if ( dword_1801C7290 == 2 )
+      else if ( dword_1801C6290 == 2 )
       {
-        RtlGetCurrentProcessorNumberEx(&v35);
-        v10 = BYTE2(v35);
-        if ( BYTE2(v35) >= (unsigned int)dword_1801C7790 )
-          v10 = 0;
-        BYTE2(v35) = v10;
-        v11 = **(_DWORD **)(qword_1801C77E0 + 8LL * v10);
+        RtlGetCurrentProcessorNumberEx(&ProcessorNumber);
+        Number = ProcessorNumber.Number;
+        if ( ProcessorNumber.Number >= (unsigned int)dword_1801C67E0 )
+          Number = 0;
+        ProcessorNumber.Number = Number;
+        v11 = **(_DWORD **)(qword_1801C6830 + 8LL * Number);
         v12 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
         if ( (unsigned int)(v12 - v11) >= 0x3E8 )
         {
-          v32 = 8LL * v10;
-          if ( v11 == _InterlockedCompareExchange(*(volatile signed __int32 **)(v32 + qword_1801C77E0), v12, v11) )
+          v31 = 8LL * Number;
+          if ( v11 == _InterlockedCompareExchange(*(volatile signed __int32 **)(v31 + qword_1801C6830), v12, v11) )
             _InterlockedExchange64(
-              (volatile __int64 *)(*(_QWORD *)(v32 + qword_1801C77E0) + 8LL),
-              qword_1801C77D0 / 100);
+              (volatile __int64 *)(*(_QWORD *)(v31 + qword_1801C6830) + 8LL),
+              PerformanceFrequency.QuadPart / 100);
         }
-        v13 = *(_QWORD *)(qword_1801C77E0 + 8LL * BYTE2(v35));
+        v13 = *(_QWORD *)(qword_1801C6830 + 8LL * ProcessorNumber.Number);
         if ( *(__int64 *)(v13 + 8) > 0 )
         {
-          v34[0] = 0LL;
-          v33 = 0LL;
-          NtQueryPerformanceCounter(v34, 0LL);
-          Heap_0 = (_QWORD *)RtlAllocateHeap_0(qword_1801C7798, 0LL, 40LL);
+          PerformanceCounter.QuadPart = 0LL;
+          v33.QuadPart = 0LL;
+          NtQueryPerformanceCounter(&PerformanceCounter, 0LL);
+          Heap_0 = RtlAllocateHeap_0(HeapHandle, 0, 0x28uLL);
           if ( Heap_0 )
           {
             v24 = (unsigned int)RtlpHeapTrkHash(v9);
@@ -99,26 +99,29 @@ LABEL_10:
             if ( v25 )
             {
               v26 = 8 * (v24 & 0xF);
-              RtlAcquireSRWLockExclusive(*(_QWORD *)(v26 + qword_1801C7778));
-              v28 = 16 * v24 + qword_1801C7280;
-              v29 = *(_QWORD *)v28;
-              if ( *(_QWORD *)(*(_QWORD *)v28 + 8LL) != v28 )
+              RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(v26 + qword_1801C67C8));
+              v27 = 16 * v24 + qword_1801C6280;
+              v28 = *(_QWORD *)v27;
+              if ( *(_QWORD *)(*(_QWORD *)v27 + 8LL) != v27 )
                 goto LABEL_38;
-              *Heap_0 = v29;
-              Heap_0[1] = v28;
-              *(_QWORD *)(v29 + 8) = Heap_0;
-              *(_QWORD *)v28 = Heap_0;
-              RtlReleaseSRWLockExclusive(*(_QWORD *)(v26 + qword_1801C7778), v27);
+              *Heap_0 = v28;
+              Heap_0[1] = v27;
+              *(_QWORD *)(v28 + 8) = Heap_0;
+              *(_QWORD *)v27 = Heap_0;
+              RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(v26 + qword_1801C67C8));
             }
             else
             {
-              RtlFreeHeap_0(qword_1801C7798, 0LL, Heap_0);
+              RtlFreeHeap_0(HeapHandle, 0, Heap_0);
             }
           }
           NtQueryPerformanceCounter(&v33, 0LL);
-          v33 -= v34[0];
-          _InterlockedAdd64((volatile signed __int64 *)(*(_QWORD *)(qword_1801C77E0 + 8LL * BYTE2(v35)) + 8LL), ~v33);
-          _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(qword_1801C77E0 + 8LL * BYTE2(v35)) + 16LL));
+          v33.QuadPart -= PerformanceCounter.QuadPart;
+          _InterlockedAdd64(
+            (volatile signed __int64 *)(*(_QWORD *)(qword_1801C6830 + 8LL * ProcessorNumber.Number) + 8LL),
+            ~v33.QuadPart);
+          _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(qword_1801C6830 + 8LL * ProcessorNumber.Number)
+                                                            + 16LL));
         }
         else
         {
@@ -150,7 +153,7 @@ LABEL_10:
     v15 = RtlpHeapTrkHash(v14);
     v16 = v15;
     v17 = 8LL * (v15 & 0xF);
-    v18 = *(volatile signed __int32 **)(v17 + qword_1801C7778);
+    v18 = *(volatile signed __int64 **)(v17 + qword_1801C67C8);
     SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
     if ( SchedulerSharedDataSlot )
     {
@@ -163,32 +166,33 @@ LABEL_10:
         }
       }
     }
-    if ( _interlockedbittestandset64(v18, 0LL) )
-      RtlpAcquireSRWLockExclusiveContended(v18);
-    v21 = (_QWORD **)(16 * v16 + qword_1801C7280);
+    if ( _interlockedbittestandset64((volatile signed __int32 *)v18, 0LL) )
+      RtlpAcquireSRWLockExclusiveContended(v18, (unsigned __int64)v18);
+    v21 = (_QWORD **)(16 * v16 + qword_1801C6280);
     for ( j = *v21; ; j = (_QWORD *)*j )
     {
       if ( j == v21 )
       {
-        RtlReleaseSRWLockExclusive(*(_QWORD *)(v17 + qword_1801C7778), v18);
+        RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(v17 + qword_1801C67C8));
         return 0LL;
       }
-      if ( j[3] == v14 && j[2] == a1 )
+      if ( j[3] == v14 && (PVOID)j[2] == a1 )
         break;
     }
-    v30 = (_QWORD *)*j;
-    if ( *(_QWORD **)(*j + 8LL) != j || (v31 = (_QWORD *)j[1], (_QWORD *)*v31 != j) )
+    v29 = (_QWORD *)*j;
+    if ( *(_QWORD **)(*j + 8LL) != j || (v30 = (_QWORD *)j[1], (_QWORD *)*v30 != j) )
 LABEL_38:
       __fastfail(3u);
-    *v31 = v30;
-    v30[1] = v31;
-    RtlReleaseSRWLockExclusive(*(_QWORD *)(v17 + qword_1801C7778), v31);
-    if ( j[4] )
+    *v30 = v29;
+    v29[1] = v30;
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(v17 + qword_1801C67C8));
+    v32 = (void *)j[4];
+    if ( v32 )
     {
-      RtlpHeapTrkDereferenceStack();
+      RtlpHeapTrkDereferenceStack(v32);
       j[4] = 0LL;
     }
-    RtlFreeHeap_0(qword_1801C7798, 0LL, j);
+    RtlFreeHeap_0(HeapHandle, 0, j);
   }
   return 0LL;
 }

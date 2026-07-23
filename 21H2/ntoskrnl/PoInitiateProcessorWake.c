@@ -1,18 +1,18 @@
 /*
- * XREFs of PoInitiateProcessorWake @ 0x140565510
+ * XREFs of PoInitiateProcessorWake @ 0x140565750
  * Callers:
  *     <none>
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     HalRequestIpi @ 0x14027AEA0 (HalRequestIpi.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmIdleTransitionStall @ 0x140566F98 (PpmIdleTransitionStall.c)
- *     PpmIdleUpdateSynchronizationState @ 0x140567138 (PpmIdleUpdateSynchronizationState.c)
+ *     HalRequestIpi @ 0x140268E40 (HalRequestIpi.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmIdleTransitionStall @ 0x1405671D8 (PpmIdleTransitionStall.c)
+ *     PpmIdleUpdateSynchronizationState @ 0x140567378 (PpmIdleUpdateSynchronizationState.c)
  */
 
 char __fastcall PoInitiateProcessorWake(unsigned int a1)

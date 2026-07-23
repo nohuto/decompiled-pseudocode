@@ -1,14 +1,14 @@
 /*
- * XREFs of KeRegisterBugCheckReasonCallback @ 0x14012DCB0
+ * XREFs of KeRegisterBugCheckReasonCallback @ 0x14012E220
  * Callers:
- *     HvlpInitializeHvCrashdump @ 0x1401C08E8 (HvlpInitializeHvCrashdump.c)
- *     SmPrepareForFatalPageError @ 0x140222168 (SmPrepareForFatalPageError.c)
+ *     HvlpInitializeHvCrashdump @ 0x1401C07CC (HvlpInitializeHvCrashdump.c)
+ *     SmPrepareForFatalPageError @ 0x140221F94 (SmPrepareForFatalPageError.c)
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x14012DD8C (KiCheckForDuplicateBugCheckCallback.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KiCheckForDuplicateBugCheckCallback @ 0x14012E2FC (KiCheckForDuplicateBugCheckCallback.c)
  */
 
 BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(

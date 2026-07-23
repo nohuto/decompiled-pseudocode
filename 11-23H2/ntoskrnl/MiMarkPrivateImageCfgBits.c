@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMarkPrivateImageCfgBits @ 0x1407A3F60
+ * XREFs of MiMarkPrivateImageCfgBits @ 0x1407A4150
  * Callers:
- *     MiCommitVadCfgBits @ 0x1406AE938 (MiCommitVadCfgBits.c)
+ *     MiCommitVadCfgBits @ 0x1406AE968 (MiCommitVadCfgBits.c)
  * Callees:
  *     MiGetControlAreaLoadConfig @ 0x140214E04 (MiGetControlAreaLoadConfig.c)
- *     MiVadMapsLargeImage @ 0x14027CF40 (MiVadMapsLargeImage.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
- *     MiMarkPrivateOpenCfgBits @ 0x1407A4934 (MiMarkPrivateOpenCfgBits.c)
- *     MiPopulateCfgBitMap @ 0x1407A4970 (MiPopulateCfgBitMap.c)
+ *     MiVadMapsLargeImage @ 0x14027D1D0 (MiVadMapsLargeImage.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
+ *     MiMarkPrivateOpenCfgBits @ 0x1407A4B24 (MiMarkPrivateOpenCfgBits.c)
+ *     MiPopulateCfgBitMap @ 0x1407A4B60 (MiPopulateCfgBitMap.c)
  */
 
 __int64 __fastcall MiMarkPrivateImageCfgBits(__int64 a1, __int64 a2, __int64 a3)

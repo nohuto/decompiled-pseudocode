@@ -1,17 +1,17 @@
 /*
- * XREFs of BgpGxRectangleCreate @ 0x14095021C
+ * XREFs of BgpGxRectangleCreate @ 0x14095121C
  * Callers:
- *     BgpGxConvertRectangleEx @ 0x14016F3C8 (BgpGxConvertRectangleEx.c)
- *     BgpGxParseBitmap @ 0x14094E848 (BgpGxParseBitmap.c)
- *     BgpGxReadRectangle @ 0x14094E98C (BgpGxReadRectangle.c)
- *     AnFwDisplayFade @ 0x14094EBA8 (AnFwDisplayFade.c)
- *     BgpGxFindSubRectangle @ 0x14094F240 (BgpGxFindSubRectangle.c)
- *     BgpTxtCreateRegion @ 0x14095003C (BgpTxtCreateRegion.c)
- *     BgpGxBlendRectangle @ 0x140954208 (BgpGxBlendRectangle.c)
- *     BgpTxtDisplayString @ 0x1409545A0 (BgpTxtDisplayString.c)
+ *     BgpGxConvertRectangleEx @ 0x14016F4C8 (BgpGxConvertRectangleEx.c)
+ *     BgpGxParseBitmap @ 0x14094F848 (BgpGxParseBitmap.c)
+ *     BgpGxReadRectangle @ 0x14094F98C (BgpGxReadRectangle.c)
+ *     AnFwDisplayFade @ 0x14094FBA8 (AnFwDisplayFade.c)
+ *     BgpGxFindSubRectangle @ 0x140950240 (BgpGxFindSubRectangle.c)
+ *     BgpTxtCreateRegion @ 0x14095103C (BgpTxtCreateRegion.c)
+ *     BgpGxBlendRectangle @ 0x140955208 (BgpGxBlendRectangle.c)
+ *     BgpTxtDisplayString @ 0x1409555A0 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
- *     GxpBitsToBytes @ 0x14016F654 (GxpBitsToBytes.c)
+ *     BgpFwAllocateMemory @ 0x14016F5D8 (BgpFwAllocateMemory.c)
+ *     GxpBitsToBytes @ 0x14016F754 (GxpBitsToBytes.c)
  */
 
 __int64 __fastcall BgpGxRectangleCreate(_DWORD *a1, int a2, __int64 *a3)

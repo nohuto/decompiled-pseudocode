@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnArrayGrow @ 0x1404CA040
+ * XREFs of PfSnArrayGrow @ 0x1404AFDC0
  * Callers:
- *     PfSnVolumeKeyQuery @ 0x1404C9F88 (PfSnVolumeKeyQuery.c)
+ *     PfSnVolumeKeyQuery @ 0x1404AFD08 (PfSnVolumeKeyQuery.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

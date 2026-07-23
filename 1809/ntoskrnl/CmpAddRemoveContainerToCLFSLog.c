@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x140706574
+ * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x140707814
  * Callers:
- *     CmpStartCLFSLog @ 0x14070E78C (CmpStartCLFSLog.c)
- *     CmpAddRemoveRMLogContainer @ 0x1407F8C38 (CmpAddRemoveRMLogContainer.c)
+ *     CmpStartCLFSLog @ 0x14070FA2C (CmpStartCLFSLog.c)
+ *     CmpAddRemoveRMLogContainer @ 0x1407F9E38 (CmpAddRemoveRMLogContainer.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     sprintf_s @ 0x14019B640 (sprintf_s.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PsRestoreImpersonation @ 0x140648D10 (PsRestoreImpersonation.c)
- *     PsDisableImpersonation @ 0x140648E70 (PsDisableImpersonation.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     sprintf_s @ 0x14019B780 (sprintf_s.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     PsRestoreImpersonation @ 0x140649ED0 (PsRestoreImpersonation.c)
+ *     PsDisableImpersonation @ 0x14064A030 (PsDisableImpersonation.c)
  */
 
 __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
@@ -33,8 +33,8 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
   BOOLEAN v13; // bl
   UNICODE_STRING Destination; // [rsp+20h] [rbp-91h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-81h] BYREF
-  STRING SourceString; // [rsp+40h] [rbp-71h] BYREF
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+50h] [rbp-61h] BYREF
+  _STRING SourceString; // [rsp+40h] [rbp-71h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+50h] [rbp-61h] BYREF
   char v19[48]; // [rsp+60h] [rbp-51h] BYREF
   char DstBuf[16]; // [rsp+90h] [rbp-21h] BYREF
 

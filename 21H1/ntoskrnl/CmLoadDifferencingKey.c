@@ -104,7 +104,7 @@ __int64 __fastcall CmLoadDifferencingKey(
   HANDLE v58[2]; // [rsp+128h] [rbp-250h] BYREF
   __int128 v59; // [rsp+138h] [rbp-240h]
   __int128 v60; // [rsp+148h] [rbp-230h]
-  struct _SLIST_ENTRY v61; // [rsp+158h] [rbp-220h] BYREF
+  _SLIST_ENTRY v61; // [rsp+158h] [rbp-220h] BYREF
   __int64 v62; // [rsp+168h] [rbp-210h]
   int v63; // [rsp+170h] [rbp-208h]
   void *v64; // [rsp+178h] [rbp-200h]

@@ -11,7 +11,7 @@ __int64 __fastcall TpReserveTaskPost(volatile signed __int32 *a1, __int64 a2, __
 {
   unsigned int v3; // ebx
   __int64 *v5; // rcx
-  void *v6; // rdx
+  _RTL_SRWLOCK *v6; // rdx
   __int64 result; // rax
   volatile signed __int32 *v8; // [rsp+30h] [rbp+8h] BYREF
 
@@ -27,11 +27,11 @@ LABEL_6:
   if ( a3 && (*(_BYTE *)(a3 + 56) & 2) != 0 )
   {
     v5 = &TppPoolpSerializedPool;
-    v6 = &TppPoolpSerializedPoolLock;
+    v6 = (_RTL_SRWLOCK *)&TppPoolpSerializedPoolLock;
   }
   else
   {
-    v5 = &TppPoolpGlobalPool;
+    v5 = (__int64 *)&TppPoolpGlobalPool;
     v6 = &TppPoolpGlobalPoolLock;
   }
   result = TppPoolpReferenceGlobalPool(v5, v6, &v8);

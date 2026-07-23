@@ -1,32 +1,32 @@
 /*
- * XREFs of BiResolveLocate @ 0x140892F3C
+ * XREFs of BiResolveLocate @ 0x14089933C
  * Callers:
- *     BiConvertRegistryDataToElement @ 0x140B635D4 (BiConvertRegistryDataToElement.c)
+ *     BiConvertRegistryDataToElement @ 0x140B66674 (BiConvertRegistryDataToElement.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BiGetCurrentBootEntryIdentifier @ 0x140891180 (BiGetCurrentBootEntryIdentifier.c)
- *     BiEnumerateDiskPartitions @ 0x1408920E0 (BiEnumerateDiskPartitions.c)
- *     BiGetBcdDeviceType @ 0x140892204 (BiGetBcdDeviceType.c)
- *     BiGetPhysicalDiskNumber @ 0x1408927E8 (BiGetPhysicalDiskNumber.c)
- *     BiGetLocateTarget @ 0x140892EA8 (BiGetLocateTarget.c)
- *     SyspartEnumerateDisks @ 0x140894798 (SyspartEnumerateDisks.c)
- *     BiGetObjectIdentifier @ 0x1409D3F80 (BiGetObjectIdentifier.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     BiTranslateSymbolicLink @ 0x140B220E4 (BiTranslateSymbolicLink.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BiGetCurrentBootEntryIdentifier @ 0x14089757C (BiGetCurrentBootEntryIdentifier.c)
+ *     BiEnumerateDiskPartitions @ 0x1408984DC (BiEnumerateDiskPartitions.c)
+ *     BiGetBcdDeviceType @ 0x140898600 (BiGetBcdDeviceType.c)
+ *     BiGetPhysicalDiskNumber @ 0x140898BE8 (BiGetPhysicalDiskNumber.c)
+ *     BiGetLocateTarget @ 0x1408992A8 (BiGetLocateTarget.c)
+ *     SyspartEnumerateDisks @ 0x14089AB98 (SyspartEnumerateDisks.c)
+ *     BiGetObjectIdentifier @ 0x1409A4F60 (BiGetObjectIdentifier.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     BiTranslateSymbolicLink @ 0x140B244E4 (BiTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiResolveLocate(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
+__int64 __fastcall BiResolveLocate(__int64 a1, void *a2, __int64 a3, unsigned int *a4)
 {
   void *v7; // r14
   __int64 v8; // rdi
   __int64 v9; // r8
   __int64 v10; // rax
-  int ObjectIdentifier; // ebx
+  NTSTATUS ObjectIdentifier; // ebx
   unsigned int v12; // ecx
   void *v13; // rsi
   __int64 v14; // rax
@@ -139,7 +139,7 @@ LABEL_38:
     }
     goto LABEL_26;
   }
-  if ( (a2 & 1) != 0 )
+  if ( ((unsigned __int8)a2 & 1) != 0 )
     goto LABEL_3;
   ObjectIdentifier = BiGetObjectIdentifier(a2, &Buf1, v9);
   if ( ObjectIdentifier < 0 )

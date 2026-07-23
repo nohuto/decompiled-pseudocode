@@ -1,9 +1,9 @@
 /*
- * XREFs of _wtoi @ 0x180129570
+ * XREFs of _wtoi @ 0x1801292E0
  * Callers:
  *     <none>
  * Callees:
- *     wcstolX @ 0x18012E524 (wcstolX.c)
+ *     wcstolX @ 0x18012E294 (wcstolX.c)
  */
 
 int __cdecl wtoi(const wchar_t *String)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpLogApplicationEvent @ 0x1400D8498
+ * XREFs of PfpLogApplicationEvent @ 0x1400D8518
  * Callers:
- *     PspExitProcess @ 0x140608E0C (PspExitProcess.c)
- *     PfCalculateProcessHash @ 0x140666FA0 (PfCalculateProcessHash.c)
+ *     PspExitProcess @ 0x140609E0C (PspExitProcess.c)
+ *     PfCalculateProcessHash @ 0x140668160 (PfCalculateProcessHash.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MmGetSessionGlobalVA @ 0x1405B12A8 (MmGetSessionGlobalVA.c)
- *     MmGetDirectoryFrameFromProcess @ 0x1406CB194 (MmGetDirectoryFrameFromProcess.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PfLogEvent @ 0x1400D5478 (PfLogEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MmGetSessionGlobalVA @ 0x1405B22A8 (MmGetSessionGlobalVA.c)
+ *     MmGetDirectoryFrameFromProcess @ 0x1406CC434 (MmGetDirectoryFrameFromProcess.c)
  */
 
 __int64 __fastcall PfpLogApplicationEvent(__int64 a1, UNICODE_STRING *a2, char a3)
@@ -34,7 +34,7 @@ __int64 __fastcall PfpLogApplicationEvent(__int64 a1, UNICODE_STRING *a2, char a
   _QWORD v20[256]; // [rsp+30h] [rbp-D0h] BYREF
 
   p_DestinationString = a2;
-  if ( dword_14043BD58 >= (unsigned int)dword_14043BD5C )
+  if ( dword_14043CE18 >= (unsigned int)dword_14043CE1C )
     return 3221225659LL;
   v5 = 0;
   v20[255] = 0LL;
@@ -86,7 +86,7 @@ __int64 __fastcall PfpLogApplicationEvent(__int64 a1, UNICODE_STRING *a2, char a
   }
   return PfLogEvent(
            v14,
-           dword_14043C09C
+           dword_14043D15C
          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
                          + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10),
            v20,

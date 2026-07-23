@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x18007C424
+ * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x18006AC44
  * Callers:
- *     RtlLogStackBackTraceEx @ 0x18007C250 (RtlLogStackBackTraceEx.c)
+ *     RtlLogStackBackTraceEx @ 0x18006AA70 (RtlLogStackBackTraceEx.c)
  * Callees:
- *     RtlpStdExtendUpperWatermark @ 0x18007C34C (RtlpStdExtendUpperWatermark.c)
- *     RtlpStdLockAcquire @ 0x18007C4EC (RtlpStdLockAcquire.c)
- *     RtlpStdLockRelease @ 0x18007C50C (RtlpStdLockRelease.c)
+ *     RtlpStdExtendUpperWatermark @ 0x18006AB6C (RtlpStdExtendUpperWatermark.c)
+ *     RtlpStdLockAcquire @ 0x18006AD0C (RtlpStdLockAcquire.c)
+ *     RtlpStdLockRelease @ 0x18006AD2C (RtlpStdLockRelease.c)
  */
 
 __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int16 *a2)
@@ -14,7 +14,7 @@ __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int1
   __int64 v5; // r8
   _DWORD *v6; // rdx
   __int64 v7; // rsi
-  unsigned __int64 v8; // rdx
+  void *v8; // rdx
   _QWORD *v9; // rax
   __int64 v10; // rbx
 

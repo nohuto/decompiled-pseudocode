@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpRequestOplockOnHiveFile @ 0x1407E5D88
+ * XREFs of CmpRequestOplockOnHiveFile @ 0x1407E6358
  * Callers:
- *     CmpHiveCachePopulateHiveEntryThread @ 0x1407E5970 (CmpHiveCachePopulateHiveEntryThread.c)
+ *     CmpHiveCachePopulateHiveEntryThread @ 0x1407E5F40 (CmpHiveCachePopulateHiveEntryThread.c)
  * Callees:
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     ZwFsControlFile @ 0x1406A6B30 (ZwFsControlFile.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     ZwFsControlFile @ 0x1406A7AD0 (ZwFsControlFile.c)
  */
 
 __int64 __fastcall CmpRequestOplockOnHiveFile(HANDLE *a1, __int64 a2, __int64 a3)

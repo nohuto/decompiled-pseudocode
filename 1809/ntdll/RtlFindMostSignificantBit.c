@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlFindMostSignificantBit @ 0x180088560
+ * XREFs of RtlFindMostSignificantBit @ 0x180088570
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlFindMostSignificantBit(unsigned __int64 a1)
+CCHAR __cdecl RtlFindMostSignificantBit(ULONGLONG Set)
 {
   bool v1; // zf
   __int64 v2; // rdx
-  __int64 result; // rax
+  CCHAR result; // al
 
-  v1 = !_BitScanReverse64((unsigned __int64 *)&v2, a1);
-  result = 0xFFFFFFFFLL;
+  v1 = !_BitScanReverse64((unsigned __int64 *)&v2, Set);
+  result = -1;
   if ( !v1 )
-    return (unsigned __int8)v2;
+    return v2;
   return result;
 }

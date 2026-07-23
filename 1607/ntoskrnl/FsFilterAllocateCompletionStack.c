@@ -1,9 +1,9 @@
 /*
- * XREFs of FsFilterAllocateCompletionStack @ 0x1401B9CCC
+ * XREFs of FsFilterAllocateCompletionStack @ 0x1401B9BB0
  * Callers:
- *     FsFilterCtrlInit @ 0x140026580 (FsFilterCtrlInit.c)
+ *     FsFilterCtrlInit @ 0x140026100 (FsFilterCtrlInit.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

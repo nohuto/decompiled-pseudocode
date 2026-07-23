@@ -20,7 +20,13 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlpQueryRegistryValues(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, __int64 a5, char a6)
+__int64 __fastcall RtlpQueryRegistryValues(
+        __int64 a1,
+        const WCHAR *a2,
+        __int64 a3,
+        __int64 a4,
+        PVOID Environment,
+        char a6)
 {
   __int64 v6; // rsi
   int v9; // r13d
@@ -28,31 +34,29 @@ __int64 __fastcall RtlpQueryRegistryValues(__int64 a1, const WCHAR *a2, __int64 
   int v11; // r13d
   __int64 v12; // rax
   __int64 v13; // rdi
-  int v14; // ebx
-  unsigned int v15; // r14d
+  NTSTATUS v14; // ebx
+  ULONG Length; // r14d
   _BYTE *v16; // r12
   const WCHAR *v17; // rdx
   int v18; // esi
   int v19; // eax
   int v20; // eax
   int v21; // r14d
-  unsigned int i; // esi
+  ULONG i; // esi
   __int64 v23; // rax
   __int64 v24; // rax
   int v25; // eax
-  unsigned int v26; // [rsp+48h] [rbp-59h] BYREF
-  unsigned int v27; // [rsp+4Ch] [rbp-55h] BYREF
-  __int64 v28; // [rsp+50h] [rbp-51h] BYREF
-  HANDLE v29; // [rsp+58h] [rbp-49h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-41h]
+  unsigned __int32 v26; // [rsp+48h] [rbp-59h]
+  NTSTATUS v27; // [rsp+48h] [rbp-59h]
+  NTSTATUS v28; // [rsp+48h] [rbp-59h]
+  ULONG ResultLength; // [rsp+4Ch] [rbp-55h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp-51h] BYREF
+  HANDLE KeyHandle; // [rsp+58h] [rbp-49h] BYREF
+  ULONG v32[2]; // [rsp+60h] [rbp-41h]
   HANDLE Handle; // [rsp+68h] [rbp-39h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-31h] BYREF
-  UNICODE_STRING v33; // [rsp+80h] [rbp-21h] BYREF
-  int v34; // [rsp+90h] [rbp-11h] BYREF
-  HANDLE v35; // [rsp+98h] [rbp-9h]
-  UNICODE_STRING *v36; // [rsp+A0h] [rbp-1h]
-  int v37; // [rsp+A8h] [rbp+7h]
-  __int128 v38; // [rsp+B0h] [rbp+Fh]
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-31h] BYREF
+  _UNICODE_STRING v35; // [rsp+80h] [rbp-21h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-11h] BYREF
 
   v6 = a4;
   v9 = a1;
@@ -63,33 +67,33 @@ __int64 __fastcall RtlpQueryRegistryValues(__int64 a1, const WCHAR *a2, __int64 
     v11 = v9 & 0x40000000;
     if ( v11 )
     {
-      *(_QWORD *)&v33.Length = 0LL;
-      v33.Buffer = 0LL;
+      *(_QWORD *)&v35.Length = 0LL;
+      v35.Buffer = 0LL;
     }
     else
     {
-      RtlInitUnicodeString(&v33, a2);
+      RtlInitUnicodeString(&v35, a2);
     }
-    v28 = 4096LL;
-    v12 = RtlpAllocDeallocQueryBuffer(&v28, 0LL, 0LL, &v26);
+    RegionSize = 4096LL;
+    v12 = RtlpAllocDeallocQueryBuffer(&RegionSize);
     v13 = v12;
     if ( v12 )
     {
       v14 = v26;
       *(_DWORD *)(v12 + 8) = 0;
-      v15 = v28 - 2;
-      v30 = v28 - 2;
-      v29 = Handle;
+      Length = RegionSize - 2;
+      *(_QWORD *)v32 = RegionSize - 2;
+      KeyHandle = Handle;
 LABEL_6:
       v16 = (_BYTE *)(a3 + 8);
       if ( *(_QWORD *)a3 || (*v16 & 0x21) != 0 )
       {
         if ( (*v16 & 0x20) == 0 || *(_QWORD *)(a3 + 16) && (*v16 & 1) == 0 && !*(_QWORD *)a3 )
         {
-          if ( (*v16 & 3) != 0 && v29 != Handle )
+          if ( (*v16 & 3) != 0 && KeyHandle != Handle )
           {
-            NtClose(v29);
-            v29 = Handle;
+            NtClose(KeyHandle);
+            KeyHandle = Handle;
           }
           v17 = *(const WCHAR **)(a3 + 16);
           if ( (*v16 & 1) == 0 )
@@ -106,19 +110,25 @@ LABEL_6:
                   DbgPrint("RtlpQueryRegistryValues: Miscomputed buffer size at line %d\n", 1276);
                   goto LABEL_29;
                 }
-                v14 = NtQueryValueKey(v29, &DestinationString, 1LL, v13, v15, &v27);
+                v14 = NtQueryValueKey(
+                        KeyHandle,
+                        &DestinationString,
+                        KeyValueFullInformation,
+                        (PVOID)v13,
+                        Length,
+                        &ResultLength);
                 if ( v14 == -2147483643 )
                   v14 = -1073741789;
-                v26 = v14;
+                v27 = v14;
                 if ( v14 < 0 )
                 {
                   if ( v14 == -1073741772 )
                   {
                     *(_DWORD *)(v13 + 4) = 0;
                     *(_DWORD *)(v13 + 12) = 0;
-                    v27 = v15;
-                    v14 = RtlpCallQueryRegistryRoutine((_DWORD)v29, a3, v13, (unsigned int)&v27, a4, a5, a6);
-                    v26 = v14;
+                    ResultLength = Length;
+                    v14 = RtlpCallQueryRegistryRoutine((int)KeyHandle, a3, v13, (int)&ResultLength, a4, Environment, a6);
+                    v27 = v14;
                   }
                   if ( v14 != -1073741789 )
                     goto LABEL_26;
@@ -127,19 +137,19 @@ LABEL_6:
                 {
                   if ( *(_DWORD *)(v13 + 4) == 7 )
                   {
-                    *(_WORD *)(v27 + v13) = 0;
+                    *(_WORD *)(ResultLength + v13) = 0;
                     *(_DWORD *)(v13 + 12) += 2;
                   }
-                  v27 = v15;
-                  v20 = RtlpCallQueryRegistryRoutine((_DWORD)v29, a3, v13, (unsigned int)&v27, a4, a5, a6);
-                  v26 = v20;
+                  ResultLength = Length;
+                  v20 = RtlpCallQueryRegistryRoutine((int)KeyHandle, a3, v13, (int)&ResultLength, a4, Environment, a6);
+                  v27 = v20;
                   v14 = v20;
                   if ( v20 != -1073741789 )
                   {
                     if ( v20 < 0 )
                       goto LABEL_29;
                     if ( (*v16 & 0x40) != 0 )
-                      ZwDeleteValueKey(v29, &DestinationString);
+                      ZwDeleteValueKey(KeyHandle, &DestinationString);
 LABEL_26:
                     v6 = a4;
 LABEL_27:
@@ -151,15 +161,15 @@ LABEL_27:
                     goto LABEL_29;
                   }
                 }
-                v28 = v27 + 10LL;
-                v23 = RtlpAllocDeallocQueryBuffer(&v28, v13, v28, &v26);
-                v14 = v26;
+                RegionSize = ResultLength + 10LL;
+                v23 = RtlpAllocDeallocQueryBuffer(&RegionSize);
+                v14 = v27;
                 v13 = v23;
                 if ( !v23 )
                   goto LABEL_29;
                 *(_DWORD *)(v23 + 8) = 0;
-                v15 = v28 - 2;
-                v30 = v28 - 2;
+                Length = RegionSize - 2;
+                *(_QWORD *)v32 = RegionSize - 2;
               }
             }
             if ( (*v16 & 8) != 0 )
@@ -177,13 +187,13 @@ LABEL_27:
           }
           if ( v17 )
           {
-            RtlInitUnicodeString(&v33, v17);
-            v35 = Handle;
-            v34 = 48;
-            v36 = &v33;
-            v37 = 576;
-            v38 = 0LL;
-            v14 = NtOpenKey(&v29, 0x2000000LL, &v34);
+            RtlInitUnicodeString(&v35, v17);
+            ObjectAttributes.RootDirectory = Handle;
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = &v35;
+            ObjectAttributes.Attributes = 576;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            v14 = NtOpenKey(&KeyHandle, 0x2000000u, &ObjectAttributes);
             if ( v14 < 0 )
               goto LABEL_29;
             if ( !*(_QWORD *)a3 )
@@ -192,39 +202,39 @@ LABEL_43:
             v21 = 0;
             for ( i = 0; ; ++i )
             {
-              v14 = ZwEnumerateValueKey(v29, i, 1LL, v13, v30, &v27);
+              v14 = ZwEnumerateValueKey(KeyHandle, i, KeyValueFullInformation, (PVOID)v13, v32[0], &ResultLength);
               if ( v14 == -2147483643 )
                 v14 = -1073741789;
-              v26 = v14;
+              v28 = v14;
               if ( v14 == -2147483622 )
                 break;
               if ( v14 >= 0 )
               {
-                v27 = v30;
-                v14 = RtlpCallQueryRegistryRoutine((_DWORD)v29, a3, v13, (unsigned int)&v27, a4, a5, a6);
-                v26 = v14;
+                ResultLength = v32[0];
+                v14 = RtlpCallQueryRegistryRoutine((int)KeyHandle, a3, v13, (int)&ResultLength, a4, Environment, a6);
+                v28 = v14;
               }
               if ( v14 == -1073741789 )
               {
-                v28 = v27 + 10LL;
-                v24 = RtlpAllocDeallocQueryBuffer(&v28, v13, v28, &v26);
+                RegionSize = ResultLength + 10LL;
+                v24 = RtlpAllocDeallocQueryBuffer(&RegionSize);
                 v13 = v24;
                 if ( !v24 )
                 {
-                  v14 = v26;
+                  v14 = v28;
 LABEL_50:
-                  v15 = v30;
+                  Length = v32[0];
                   goto LABEL_26;
                 }
                 *(_DWORD *)(v24 + 8) = 0;
                 --i;
-                v30 = v28 - 2;
+                *(_QWORD *)v32 = RegionSize - 2;
                 v25 = v21++;
                 if ( v25 > 4 )
                 {
                   DbgPrint("RtlpQueryRegistryValues: Miscomputed buffer size at line %d\n", 1457);
-                  v14 = v26;
-                  v15 = v30;
+                  v14 = v28;
+                  Length = v32[0];
                   goto LABEL_26;
                 }
               }
@@ -238,7 +248,7 @@ LABEL_50:
                   DestinationString.Buffer = (wchar_t *)(v13 + 20);
                   DestinationString.Length = *(_WORD *)(v13 + 16);
                   DestinationString.MaximumLength = *(_WORD *)(v13 + 16);
-                  if ( (int)ZwDeleteValueKey(v29, &DestinationString) >= 0 )
+                  if ( ZwDeleteValueKey(KeyHandle, &DestinationString) >= 0 )
                     --i;
                 }
               }
@@ -253,12 +263,12 @@ LABEL_50:
 LABEL_29:
       if ( Handle && !v11 )
         NtClose(Handle);
-      if ( v29 )
+      if ( KeyHandle )
       {
-        if ( v29 != Handle )
-          NtClose(v29);
+        if ( KeyHandle != Handle )
+          NtClose(KeyHandle);
       }
-      RtlpAllocDeallocQueryBuffer(0LL, v13, v28, 0LL);
+      RtlpAllocDeallocQueryBuffer(0LL);
       return (unsigned int)v14;
     }
     else

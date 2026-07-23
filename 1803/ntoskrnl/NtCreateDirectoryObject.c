@@ -15,5 +15,5 @@ NTSTATUS __stdcall NtCreateDirectoryObject(
         ACCESS_MASK DesiredAccess,
         POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  return ObpCreateDirectoryObject(DirectoryHandle);
+  return ObpCreateDirectoryObject(DirectoryHandle, DesiredAccess, ObjectAttributes, 0LL, 0);
 }

@@ -3,16 +3,16 @@
  * Callers:
  *     KsepMatchInitMachineInfo @ 0x1407B76CC (KsepMatchInitMachineInfo.c)
  * Callees:
- *     KsepLogInfo @ 0x140084DC8 (KsepLogInfo.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcstoul @ 0x14014F48C (wcstoul.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     __report_rangecheckfailure @ 0x1401B1250 (__report_rangecheckfailure.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     KsepRegistryCloseKey @ 0x140485714 (KsepRegistryCloseKey.c)
- *     KsepRegistryOpenKey @ 0x140485914 (KsepRegistryOpenKey.c)
- *     KsepRegistryQueryMULTISZ @ 0x140578EA8 (KsepRegistryQueryMULTISZ.c)
- *     KsepRegistryQuerySZ @ 0x140578ED0 (KsepRegistryQuerySZ.c)
+ *     KsepLogInfo @ 0x14010B3D0 (KsepLogInfo.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcstoul @ 0x14014FA4C (wcstoul.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     __report_rangecheckfailure @ 0x1401B1134 (__report_rangecheckfailure.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     KsepRegistryCloseKey @ 0x140514A9C (KsepRegistryCloseKey.c)
+ *     KsepRegistryOpenKey @ 0x140514C9C (KsepRegistryOpenKey.c)
+ *     KsepRegistryQueryMULTISZ @ 0x1405793E8 (KsepRegistryQueryMULTISZ.c)
+ *     KsepRegistryQuerySZ @ 0x140579410 (KsepRegistryQuerySZ.c)
  */
 
 __int64 KsepMatchInitBiosInfo()
@@ -37,7 +37,7 @@ __int64 KsepMatchInitBiosInfo()
   wchar_t Str[6]; // [rsp+4Ch] [rbp-14h] BYREF
 
   KeyHandle = 0LL;
-  memset(&qword_1403413A8, 0, 0x38uLL);
+  memset(&qword_1403413E8, 0, 0x38uLL);
   v0 = -1;
   v1 = KsepRegistryOpenKey(L"\\Registry\\Machine\\Hardware\\Description\\System", 0LL, &KeyHandle);
   v2 = KeyHandle;
@@ -53,10 +53,10 @@ __int64 KsepMatchInitBiosInfo()
       if ( (v4 & 1) != 0 )
         KsepDebugPrint(0LL, "KSE: BiosDate name [%ws] .\n", v16);
       KsepLogInfo(0LL, (__int64)"KSE: BiosDate name [%ws] .\n", v16);
-      MULTISZ = KsepRegistryQueryMULTISZ(KeyHandle, L"SystemBiosVersion", (__int64)&unk_140329440, 520LL, (__int64)&v15);
-      word_140329646 = 0;
+      MULTISZ = KsepRegistryQueryMULTISZ(KeyHandle, L"SystemBiosVersion", (__int64)&unk_140329480, 520LL, (__int64)&v15);
+      word_140329686 = 0;
       v5 = 0LL;
-      v6 = &unk_140329440;
+      v6 = &unk_140329480;
       while ( *v6 != 32 )
       {
         v5 = (unsigned int)(v5 + 1);
@@ -67,13 +67,13 @@ __int64 KsepMatchInitBiosInfo()
       v7 = 2 * v5;
       if ( v7 >= 0x208 )
         _report_rangecheckfailure();
-      *(_WORD *)((char *)&unk_140329440 + v7) = 0;
+      *(_WORD *)((char *)&unk_140329480 + v7) = 0;
 LABEL_11:
       v8 = KsepDebugFlag;
       KsepHistoryMessages[((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F] = 655840LL;
       if ( (v8 & 1) != 0 )
-        KsepDebugPrint(0LL, "KSE: BiosVendor name [%ws] .\n", &unk_140329440);
-      KsepLogInfo(0LL, (__int64)"KSE: BiosVendor name [%ws] .\n", &unk_140329440);
+        KsepDebugPrint(0LL, "KSE: BiosVendor name [%ws] .\n", &unk_140329480);
+      KsepLogInfo(0LL, (__int64)"KSE: BiosVendor name [%ws] .\n", &unk_140329480);
       v16[2] = 0;
       v17[2] = 0;
       v9 = wcstoul(Str, 0LL, 16);
@@ -91,13 +91,13 @@ LABEL_11:
     KsepRegistryCloseKey(v2);
   if ( MULTISZ < 0 )
   {
-    dword_1403413D0 = -1;
-    qword_1403413A8 = 0LL;
+    dword_140341410 = -1;
+    qword_1403413E8 = 0LL;
   }
   else
   {
-    qword_1403413A8 = (__int64)&unk_140329440;
-    dword_1403413D0 = v0;
+    qword_1403413E8 = (__int64)&unk_140329480;
+    dword_140341410 = v0;
   }
   return (unsigned int)MULTISZ;
 }

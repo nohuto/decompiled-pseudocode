@@ -1,29 +1,29 @@
 /*
- * XREFs of MiWaitForCollidedFaultComplete @ 0x1402EF008
+ * XREFs of MiWaitForCollidedFaultComplete @ 0x1402EF298
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiHandleCollidedFault @ 0x1402EED90 (MiHandleCollidedFault.c)
- *     MiFlushWaitForReadInProgress @ 0x140635F38 (MiFlushWaitForReadInProgress.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiTranslatePageForCopy @ 0x1402EE0D4 (MiTranslatePageForCopy.c)
+ *     MiHandleCollidedFault @ 0x1402EF020 (MiHandleCollidedFault.c)
+ *     MiFlushWaitForReadInProgress @ 0x140636488 (MiFlushWaitForReadInProgress.c)
  * Callees:
  *     MiImagePageOk @ 0x14021858C (MiImagePageOk.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiRelockFaultState @ 0x140286E98 (MiRelockFaultState.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiRelockProtoPoolPage @ 0x1402EF244 (MiRelockProtoPoolPage.c)
- *     MiReleaseFaultState @ 0x1402EF2A0 (MiReleaseFaultState.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiIsFaultPteIntact @ 0x1402EF3C8 (MiIsFaultPteIntact.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRelockFaultState @ 0x140287128 (MiRelockFaultState.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiRelockProtoPoolPage @ 0x1402EF4D4 (MiRelockProtoPoolPage.c)
+ *     MiReleaseFaultState @ 0x1402EF530 (MiReleaseFaultState.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiIsFaultPteIntact @ 0x1402EF658 (MiIsFaultPteIntact.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KeAbPreWait @ 0x1402FD500 (KeAbPreWait.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWaitForCollidedFaultComplete(
@@ -92,7 +92,9 @@ LABEL_33:
   }
   else
   {
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v23 = v31;
       if ( v31 <= 0xFu && CurrentIrql >= 2u )

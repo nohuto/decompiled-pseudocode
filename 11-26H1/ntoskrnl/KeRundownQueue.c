@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRundownQueue @ 0x1403DAAD0
+ * XREFs of KeRundownQueue @ 0x1403DDCC0
  * Callers:
  *     <none>
  * Callees:
- *     KeRundownQueueEx @ 0x1403DC2B8 (KeRundownQueueEx.c)
+ *     KeRundownQueueEx @ 0x1403DF4A8 (KeRundownQueueEx.c)
  */
 
 PLIST_ENTRY __stdcall KeRundownQueue(PRKQUEUE Queue)

@@ -8,16 +8,21 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwQueryLicenseValue(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
+NTSTATUS __fastcall VfZwQueryLicenseValue(
+        UNICODE_STRING *a1,
+        ULONG *a2,
+        void *a3,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
   {
-    ViZwCheckVirtualAddress(a2, (int)retaddr);
-    ViZwCheckVirtualAddress(a3, (int)retaddr);
-    ViZwCheckVirtualAddress(a5, (int)retaddr);
-    ViZwCheckUnicodeString(a1, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a2, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a3, (int)retaddr);
+    ViZwCheckVirtualAddress((int)ResultDataSize, (int)retaddr);
+    ViZwCheckUnicodeString((int)a1, (int)retaddr);
   }
-  return pXdvZwQueryLicenseValue(a1, a2, a3);
+  return pXdvZwQueryLicenseValue(a1, a2, a3, DataSize, ResultDataSize);
 }

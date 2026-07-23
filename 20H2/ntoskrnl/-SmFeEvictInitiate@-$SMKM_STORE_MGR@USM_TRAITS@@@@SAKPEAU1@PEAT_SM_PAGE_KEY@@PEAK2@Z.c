@@ -29,7 +29,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictInitiate(__int64 a1, unsi
   unsigned int v13; // edx
   bool v14; // zf
   __int64 v15; // rcx
-  unsigned __int64 v16; // rdi
+  __int64 v16; // rdi
   __int64 v17; // rdx
   __int64 v18; // rcx
   int v20[3]; // [rsp+34h] [rbp-A5h] BYREF
@@ -70,7 +70,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictInitiate(__int64 a1, unsi
     v14 = !_BitScanReverse((unsigned int *)&v15, v13);
     if ( v14 )
       break;
-    v16 = (unsigned __int64)&v10->LockEntries[v15];
+    v16 = (__int64)&v10->LockEntries[v15];
     v13 &= ~(1 << v15);
     if ( (*(_BYTE *)(v16 + 26) & 1) != 0
       && (*(_DWORD *)(v16 + 32) & 1) == 0
@@ -84,12 +84,12 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictInitiate(__int64 a1, unsi
         {
           *(_BYTE *)(v16 + 32) |= 2u;
           if ( *(__int64 *)(v16 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v16);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v16);
           v20[0] = *(_DWORD *)(v16 + 88) & 0x1FFFF;
           *(_DWORD *)(v16 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v16 + 25) &= ~1u;
           *(_QWORD *)(v16 + 32) = 0LL;
-          v17 = (__int64)(v16 - (unsigned __int64)v10->LockEntries) / 96;
+          v17 = (signed __int64)(v16 - (unsigned __int64)v10->LockEntries) / 96;
           if ( v12 == 1 )
             v10->AbEntrySummary |= 1 << v17;
           else

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViXdvBindXdvDDIWrappers @ 0x140704F2C
+ * XREFs of ViXdvBindXdvDDIWrappers @ 0x140704F5C
  * Callers:
- *     ViXdvDriverLoadImage @ 0x14070512C (ViXdvDriverLoadImage.c)
+ *     ViXdvDriverLoadImage @ 0x14070515C (ViXdvDriverLoadImage.c)
  * Callees:
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     ViXdvSearchAllThunkArrays @ 0x1407052FC (ViXdvSearchAllThunkArrays.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     ViXdvSearchAllThunkArrays @ 0x14070532C (ViXdvSearchAllThunkArrays.c)
  */
 
 char __fastcall ViXdvBindXdvDDIWrappers(__int64 (__fastcall *a1)(_QWORD))

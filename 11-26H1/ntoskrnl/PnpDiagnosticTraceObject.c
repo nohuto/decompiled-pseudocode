@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpDiagnosticTraceObject @ 0x140493A8C
+ * XREFs of PnpDiagnosticTraceObject @ 0x14048D5DC
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x1404937E0 (PnpDeviceCompletionRoutine.c)
- *     PnpRebalance @ 0x1407B3F98 (PnpRebalance.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14090AD94 (PnpQueueQueryAndRemoveEvent.c)
- *     PipEnumerateDevice @ 0x14090DEA8 (PipEnumerateDevice.c)
- *     PnpStartDeviceNode @ 0x140910A7C (PnpStartDeviceNode.c)
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     PiDevCfgProcessDevice @ 0x140AD089C (PiDevCfgProcessDevice.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140B1EEB0 (PiDrvDbLoadNodeWorkerCallback.c)
- *     IopUnloadDriver @ 0x140B2ADF8 (IopUnloadDriver.c)
- *     PiDrvDbUnloadNodeWorkerCallback @ 0x140B34450 (PiDrvDbUnloadNodeWorkerCallback.c)
- *     PnpEarlyLaunchImageNotificationPostProcess @ 0x140CC3DC0 (PnpEarlyLaunchImageNotificationPostProcess.c)
- *     PnpEarlyLaunchImageNotificationPreProcess @ 0x140CC3E90 (PnpEarlyLaunchImageNotificationPreProcess.c)
- *     PnpInitializeBootStartDriver @ 0x140D08CFC (PnpInitializeBootStartDriver.c)
+ *     PnpDeviceCompletionRoutine @ 0x14048D330 (PnpDeviceCompletionRoutine.c)
+ *     PnpRebalance @ 0x1407B6FF8 (PnpRebalance.c)
+ *     PipEnumerateDevice @ 0x1409AFFD8 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x1409B2B5C (PnpStartDeviceNode.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x1409B5DE4 (PnpQueueQueryAndRemoveEvent.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     PiDevCfgProcessDevice @ 0x140AE7A3C (PiDevCfgProcessDevice.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140B20F30 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     IopUnloadDriver @ 0x140B2CE78 (IopUnloadDriver.c)
+ *     PiDrvDbUnloadNodeWorkerCallback @ 0x140B368A0 (PiDrvDbUnloadNodeWorkerCallback.c)
+ *     PnpEarlyLaunchImageNotificationPostProcess @ 0x140CC9EA0 (PnpEarlyLaunchImageNotificationPostProcess.c)
+ *     PnpEarlyLaunchImageNotificationPreProcess @ 0x140CC9F70 (PnpEarlyLaunchImageNotificationPreProcess.c)
+ *     PnpInitializeBootStartDriver @ 0x140D0EFCC (PnpInitializeBootStartDriver.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTraceObject(PCEVENT_DESCRIPTOR EventDescriptor, unsigned __int16 *a2)

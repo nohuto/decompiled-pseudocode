@@ -1,55 +1,53 @@
 /*
- * XREFs of DifExRaiseAccessViolationWrapper @ 0x14061FAB0
+ * XREFs of DifExRaiseAccessViolationWrapper @ 0x14061E070
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
  */
 
 void __noreturn DifExRaiseAccessViolationWrapper()
 {
   __int64 *APIThunkContextById; // rax
   __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 *v4; // rbx
-  int v5; // eax
-  BOOLEAN v6; // di
-  _QWORD *v7; // rsi
+  __int64 *v2; // rbx
+  int v3; // eax
+  BOOLEAN v4; // di
+  _QWORD *v5; // rsi
   _QWORD *i; // rbx
   void *retaddr; // [rsp+28h] [rbp+0h]
   PVOID ReturnAddressForWrappers; // [rsp+30h] [rbp+8h] BYREF
 
   ReturnAddressForWrappers = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(394);
-  v4 = APIThunkContextById;
+  v2 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v5 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v5 & 0x18) != 0 )
+    v3 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v3 & 0x18) != 0 )
     {
       ReturnAddressForWrappers = retaddr;
     }
-    else if ( (v5 & 4) != 0 )
+    else if ( (v3 & 4) != 0 )
     {
       ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
     }
-    v6 = 0;
+    v4 = 0;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v6 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v4 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v7 = v4 + 4;
-      for ( i = (_QWORD *)v4[4]; i != v7; i = (_QWORD *)*i )
+      v5 = v2 + 4;
+      for ( i = (_QWORD *)v2[4]; i != v5; i = (_QWORD *)*i )
       {
         if ( i != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&ReturnAddressForWrappers, v1, v2, v3);
+          guard_dispatch_icall_no_overrides(&ReturnAddressForWrappers, v1);
       }
-      if ( v6 )
+      if ( v4 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }

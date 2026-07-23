@@ -14,30 +14,30 @@ __int64 __fastcall RtlpInheritAcl(
         int a2,
         int a3,
         char a4,
-        char a5,
+        __int64 a5,
         char a6,
-        __int64 a7,
+        int a7,
         __int64 a8,
         __int64 a9,
         __int64 a10,
-        __int64 a11,
+        PGENERIC_MAPPING a11,
         int a12,
         __int64 a13,
         int a14,
-        __int64 *a15,
+        PVOID *a15,
         _BYTE *a16,
         _DWORD *a17)
 {
   int v20; // ebp
   void *ProcessHeap; // rsi
-  __int64 *v22; // rbx
+  PVOID *v22; // rbx
   unsigned int v23; // ecx
   int v24; // r14d
-  __int64 Heap; // rax
+  ACL *Acl; // rax
   int v26; // r9d
   unsigned int v27; // edi
-  int v29; // [rsp+20h] [rbp-98h]
-  int v30; // [rsp+D0h] [rbp+18h] BYREF
+  __int64 v29; // [rsp+20h] [rbp-98h]
+  __int64 v30; // [rsp+D0h] [rbp+18h] BYREF
 
   v20 = a1;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
@@ -45,13 +45,13 @@ __int64 __fastcall RtlpInheritAcl(
   {
     v22 = a15;
     v23 = 200;
-    v30 = 200;
+    LODWORD(v30) = 200;
     v24 = 0;
     while ( 1 )
     {
-      Heap = RtlAllocateHeap(ProcessHeap, (unsigned int)(NtdllBaseTag + 1310720), v23);
-      *v22 = Heap;
-      if ( !Heap )
+      Acl = (ACL *)RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v23);
+      *v22 = Acl;
+      if ( !Acl )
         break;
       LOBYTE(v26) = a4;
       LOBYTE(v29) = a5;
@@ -71,19 +71,19 @@ __int64 __fastcall RtlpInheritAcl(
               a13,
               a14,
               (__int64)&v30,
-              Heap,
+              Acl,
               (__int64)a16,
-              (__int64)a17);
+              a17);
       if ( (v27 & 0x80000000) == 0 )
       {
-        if ( !v30 )
+        if ( !(_DWORD)v30 )
         {
-          RtlFreeHeap(ProcessHeap, 0LL, *v22);
+          RtlFreeHeap(ProcessHeap, 0, *v22);
           *v22 = 0LL;
         }
         return v27;
       }
-      RtlFreeHeap(ProcessHeap, 0LL, *v22);
+      RtlFreeHeap(ProcessHeap, 0, *v22);
       *v22 = 0LL;
       if ( v27 != -1073741789 )
         return v27;
@@ -96,7 +96,7 @@ __int64 __fastcall RtlpInheritAcl(
   else
   {
     *a16 = 0;
-    *a17 = a5 != 0 ? 0x400 : 0;
+    *a17 = (_BYTE)a5 != 0 ? 0x400 : 0;
     *a15 = 0LL;
     return 2147483659LL;
   }

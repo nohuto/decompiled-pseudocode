@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcRegisterLogRoutine @ 0x14084B598
+ * XREFs of AlpcRegisterLogRoutine @ 0x14084C7F8
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1406C6A30 (EtwpEnableKernelTrace.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 AlpcRegisterLogRoutine()
@@ -36,13 +36,13 @@ __int64 AlpcRegisterLogRoutine()
       goto LABEL_11;
     }
   }
-  v5 = off_1404018B0[0];
-  if ( *(PVOID **)off_1404018B0[0] != &AlpcpLogCallbackListHead )
+  v5 = off_1404028B0[0];
+  if ( *(PVOID **)off_1404028B0[0] != &AlpcpLogCallbackListHead )
     __fastfail(3u);
   *v2 = &AlpcpLogCallbackListHead;
   v2[1] = v5;
   *v5 = v2;
-  off_1404018B0[0] = v2;
+  off_1404028B0[0] = v2;
   AlpcpLogEnabled = 1;
 LABEL_11:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpLogLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

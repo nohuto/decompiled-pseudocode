@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCheckWakeTimerAccess @ 0x1407EB8C8
+ * XREFs of ExpCheckWakeTimerAccess @ 0x1407EBB98
  * Callers:
- *     ExpSetTimerObject @ 0x14032E824 (ExpSetTimerObject.c)
- *     ExpCheckIRTimerAccess @ 0x1407EBA64 (ExpCheckIRTimerAccess.c)
+ *     ExpSetTimerObject @ 0x14032EAB4 (ExpSetTimerObject.c)
+ *     ExpCheckIRTimerAccess @ 0x1407EBD34 (ExpCheckIRTimerAccess.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x1402316C0 (SeAccessCheckWithHint.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
+ *     SeAccessCheckWithHint @ 0x140231790 (SeAccessCheckWithHint.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
  */
 
 __int64 __fastcall ExpCheckWakeTimerAccess(char a1)
@@ -32,7 +32,7 @@ __int64 __fastcall ExpCheckWakeTimerAccess(char a1)
     (__int64)&ExTimerObjectType->TypeInfo.GenericMapping,
     1,
     &v4,
-    (int *)&v3);
+    (NTSTATUS *)&v3);
   SeReleaseSubjectContext(&SubjectContext);
   return v3;
 }

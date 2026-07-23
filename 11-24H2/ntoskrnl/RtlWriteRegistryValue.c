@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlWriteRegistryValue @ 0x140A54360
+ * XREFs of RtlWriteRegistryValue @ 0x1409B6290
  * Callers:
- *     KseKPSOHookDriverTargeted @ 0x1405CC010 (KseKPSOHookDriverTargeted.c)
- *     RtlSetPortableOperatingSystem @ 0x1405E9470 (RtlSetPortableOperatingSystem.c)
- *     DifRtlWriteRegistryValueWrapper @ 0x14063B040 (DifRtlWriteRegistryValueWrapper.c)
- *     RtlSetActiveTimeBias @ 0x1407821AC (RtlSetActiveTimeBias.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x140782648 (RtlpSetTimeZoneInformationWorker.c)
- *     RtlpUpdateDynamicTimeZones @ 0x14078291C (RtlpUpdateDynamicTimeZones.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x1407A6158 (WmipSaveGuidSecurityDescriptor.c)
- *     EtwStartAutoLogger @ 0x1407ADDF8 (EtwStartAutoLogger.c)
- *     EtwpEnumerateAutologgerPath @ 0x1407AEE98 (EtwpEnumerateAutologgerPath.c)
- *     ExpSetTimeZoneInformation @ 0x1407B5844 (ExpSetTimeZoneInformation.c)
- *     WheaWritePolicyValueToRegistry @ 0x1407C8C3C (WheaWritePolicyValueToRegistry.c)
- *     EtwpEnableAutoLoggerProvider @ 0x140A79EF0 (EtwpEnableAutoLoggerProvider.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x140A87340 (PerfDiagpSaveActiveDCLLogFileName.c)
- *     EtwpEnumerateKeyProviders @ 0x140A99E54 (EtwpEnumerateKeyProviders.c)
- *     IopStoreBootDriveLetter @ 0x140C1D39C (IopStoreBootDriveLetter.c)
+ *     KseKPSOHookDriverTargeted @ 0x1405C9730 (KseKPSOHookDriverTargeted.c)
+ *     RtlSetPortableOperatingSystem @ 0x1405E69C0 (RtlSetPortableOperatingSystem.c)
+ *     DifRtlWriteRegistryValueWrapper @ 0x140639600 (DifRtlWriteRegistryValueWrapper.c)
+ *     RtlSetActiveTimeBias @ 0x1407820DC (RtlSetActiveTimeBias.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x140782578 (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x14078284C (RtlpUpdateDynamicTimeZones.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x1407A6298 (WmipSaveGuidSecurityDescriptor.c)
+ *     EtwStartAutoLogger @ 0x1407AE248 (EtwStartAutoLogger.c)
+ *     EtwpEnumerateAutologgerPath @ 0x1407AF2E8 (EtwpEnumerateAutologgerPath.c)
+ *     ExpSetTimeZoneInformation @ 0x1407B5C94 (ExpSetTimeZoneInformation.c)
+ *     WheaWritePolicyValueToRegistry @ 0x1407C912C (WheaWritePolicyValueToRegistry.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x140A741F0 (EtwpEnableAutoLoggerProvider.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x140A82090 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     EtwpEnumerateKeyProviders @ 0x140A953C0 (EtwpEnumerateKeyProviders.c)
+ *     IopStoreBootDriveLetter @ 0x140C1F3DC (IopStoreBootDriveLetter.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     RtlpGetRegistryHandle @ 0x1409CC85C (RtlpGetRegistryHandle.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     RtlpGetRegistryHandle @ 0x1409B52DC (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __stdcall RtlWriteRegistryValue(

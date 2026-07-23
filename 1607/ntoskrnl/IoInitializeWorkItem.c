@@ -1,9 +1,9 @@
 /*
- * XREFs of IoInitializeWorkItem @ 0x1400A898C
+ * XREFs of IoInitializeWorkItem @ 0x1400A6F0C
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInitializeWorkItem(PVOID IoObject, PIO_WORKITEM IoWorkItem)

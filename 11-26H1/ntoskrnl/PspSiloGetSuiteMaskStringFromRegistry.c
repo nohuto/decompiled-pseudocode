@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSiloGetSuiteMaskStringFromRegistry @ 0x1407EF678
+ * XREFs of PspSiloGetSuiteMaskStringFromRegistry @ 0x1407F51D8
  * Callers:
- *     PspSiloInitializeUserSharedData @ 0x1407EF83C (PspSiloInitializeUserSharedData.c)
+ *     PspSiloInitializeUserSharedData @ 0x1407F539C (PspSiloInitializeUserSharedData.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall PspSiloGetSuiteMaskStringFromRegistry(_OWORD *a1)

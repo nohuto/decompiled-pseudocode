@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpIncrementUmLoggerFile @ 0x180111040
+ * XREFs of EtwpIncrementUmLoggerFile @ 0x180111000
  * Callers:
  *     EtwProcessPrivateLoggerRequest @ 0x180049AF0 (EtwProcessPrivateLoggerRequest.c)
  * Callees:

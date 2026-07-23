@@ -8,24 +8,24 @@
  *     LdrFindResource_U @ 0x140822C40 (LdrFindResource_U.c)
  */
 
-__int64 __fastcall FindBitmapResource(__int64 a1, __int64 a2)
+PVOID __fastcall FindBitmapResource(ULONG_PTR a1, ULONG *a2)
 {
-  unsigned int *v4; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v5; // [rsp+28h] [rbp-30h] BYREF
-  __int64 v6[3]; // [rsp+30h] [rbp-28h] BYREF
+  PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry; // [rsp+20h] [rbp-38h] BYREF
+  PVOID ResourceBuffer; // [rsp+28h] [rbp-30h] BYREF
+  _LDR_RESOURCE_INFO v6; // [rsp+30h] [rbp-28h] BYREF
 
-  v4 = 0LL;
-  v5 = 0LL;
-  v6[2] = 0LL;
-  v6[1] = a1;
-  v6[0] = 2LL;
-  if ( (int)LdrFindResource_U(0x140000000LL, v6, 3u, &v4) < 0
-    || (int)LdrAccessResource(0x140000000LL, (unsigned __int64)v4, (__int64)&v5, a2) < 0 )
+  ResourceDataEntry = 0LL;
+  ResourceBuffer = 0LL;
+  v6.Language = 0LL;
+  v6.Name = a1;
+  v6.Type = 2LL;
+  if ( LdrFindResource_U((PVOID)0x140000000LL, &v6, 3u, &ResourceDataEntry) < 0
+    || LdrAccessResource((PVOID)0x140000000LL, ResourceDataEntry, &ResourceBuffer, a2) < 0 )
   {
     return 0LL;
   }
   else
   {
-    return v5;
+    return ResourceBuffer;
   }
 }

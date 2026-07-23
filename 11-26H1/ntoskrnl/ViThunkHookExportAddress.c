@@ -1,11 +1,11 @@
 /*
- * XREFs of ViThunkHookExportAddress @ 0x140C35AD0
+ * XREFs of ViThunkHookExportAddress @ 0x140C3BAE0
  * Callers:
- *     VerifierMmGetSystemRoutineAddress @ 0x140C3F720 (VerifierMmGetSystemRoutineAddress.c)
+ *     VerifierMmGetSystemRoutineAddress @ 0x140C45730 (VerifierMmGetSystemRoutineAddress.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall ViThunkHookExportAddress(unsigned __int8 **a1, const UNICODE_STRING *a2, unsigned __int8 **a3)
@@ -19,7 +19,7 @@ __int64 __fastcall ViThunkHookExportAddress(unsigned __int8 **a1, const UNICODE_
   int v12; // r8d
   int v13; // ecx
   unsigned __int8 *v14; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
   *(_QWORD *)&DestinationString.Length = 0LL;

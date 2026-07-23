@@ -1,29 +1,23 @@
 /*
- * XREFs of vDbgPrintExWithPrefixInternal @ 0x18005C428
+ * XREFs of vDbgPrintExWithPrefixInternal @ 0x18005C418
  * Callers:
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
- *     DbgPrintReturnControlC @ 0x1800DB9A0 (DbgPrintReturnControlC.c)
- *     vDbgPrintEx @ 0x1800DBA50 (vDbgPrintEx.c)
- *     vDbgPrintExWithPrefix @ 0x1800DBA80 (vDbgPrintExWithPrefix.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
+ *     DbgPrintReturnControlC @ 0x1800DBA60 (DbgPrintReturnControlC.c)
+ *     vDbgPrintEx @ 0x1800DBB10 (vDbgPrintEx.c)
+ *     vDbgPrintExWithPrefix @ 0x1800DBB40 (vDbgPrintExWithPrefix.c)
  * Callees:
- *     RtlRaiseException @ 0x180036770 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     _vsnprintf @ 0x180098190 (_vsnprintf.c)
+ *     RtlRaiseException @ 0x180036760 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     _vsnprintf @ 0x180098180 (_vsnprintf.c)
  *     ZwQueryDebugFilterState @ 0x1800A8A10 (ZwQueryDebugFilterState.c)
  *     DbgBreakPointWithStatus @ 0x1800A9CC0 (DbgBreakPointWithStatus.c)
  *     DebugPrint @ 0x1800A9CD0 (DebugPrint.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall vDbgPrintExWithPrefixInternal(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int a3,
-        char *a4,
-        va_list a5,
-        char a6)
+__int64 __fastcall vDbgPrintExWithPrefixInternal(_BYTE *a1, ULONG a2, ULONG a3, char *a4, va_list a5, char a6)
 {
   _BYTE *v7; // rdx
   struct _TEB *v8; // rsi
@@ -41,8 +35,8 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
   _BYTE v21[96]; // [rsp+0h] [rbp-80h] BYREF
   int v22; // [rsp+80h] [rbp+0h]
   int v23; // [rsp+84h] [rbp+4h]
-  unsigned int v24; // [rsp+88h] [rbp+8h]
-  unsigned int v25; // [rsp+8Ch] [rbp+Ch]
+  ULONG v24; // [rsp+88h] [rbp+8h]
+  ULONG v25; // [rsp+8Ch] [rbp+Ch]
   _BYTE *v26; // [rsp+90h] [rbp+10h]
   void *Src; // [rsp+98h] [rbp+18h]
   struct _TEB *v28; // [rsp+A0h] [rbp+20h]
@@ -63,7 +57,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
   v28 = v8;
   if ( a2 != -1 && (!NtCurrentPeb()->BeingDebugged || a2 != 101) )
   {
-    if ( !(unsigned int)ZwQueryDebugFilterState(a2, a3) )
+    if ( !ZwQueryDebugFilterState(a2, a3) )
       return 0LL;
     v7 = Src;
   }
@@ -153,7 +147,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
   v20 = DebugPrint(&v32, v25, v24);
   if ( v20 == -2147483645 && a6 == 1 )
   {
-    DbgBreakPointWithStatus(1LL);
+    DbgBreakPointWithStatus(1u);
     v20 = 0;
   }
   v8->SameTebFlags &= ~2u;

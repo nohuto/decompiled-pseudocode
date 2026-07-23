@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpUpdateLockWordForRelease @ 0x1403D7440
+ * XREFs of ExpUpdateLockWordForRelease @ 0x1402F0F20
  * Callers:
- *     ExpConvertFastResourceExclusiveToShared @ 0x1403D75C8 (ExpConvertFastResourceExclusiveToShared.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1402F10A8 (ExpConvertFastResourceExclusiveToShared.c)
  * Callees:
  *     <none>
  */

@@ -1,0 +1,18 @@
+/*
+ * XREFs of sub_1405844F0 @ 0x1405844F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1405844F0(unsigned __int64 a1, __int64 a2)
+{
+  unsigned __int64 v2; // r8
+
+  v2 = *(_QWORD *)(a2 + 64);
+  if ( a1 >= v2 )
+    return a1 > v2;
+  else
+    return 0xFFFFFFFFLL;
+}

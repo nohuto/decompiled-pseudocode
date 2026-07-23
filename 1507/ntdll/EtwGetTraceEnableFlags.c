@@ -10,6 +10,6 @@ __int64 __fastcall EtwGetTraceEnableFlags(__int64 a1)
 {
   if ( (unsigned __int16)(a1 - 64) > 0xFFBEu && a1 )
     return HIDWORD(a1);
-  RtlSetLastWin32Error(6u);
+  RtlSetLastWin32Error(6);
   return 0LL;
 }

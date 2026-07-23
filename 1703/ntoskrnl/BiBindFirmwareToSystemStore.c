@@ -7,7 +7,7 @@
  *     BiBindEfiNamespaceObjects @ 0x1407364EC (BiBindEfiNamespaceObjects.c)
  */
 
-__int64 __fastcall BiBindFirmwareToSystemStore(__int64 a1)
+__int64 __fastcall BiBindFirmwareToSystemStore(HANDLE BcdStoreHandle)
 {
   unsigned int v1; // ebx
   int v3; // eax
@@ -26,7 +26,7 @@ __int64 __fastcall BiBindFirmwareToSystemStore(__int64 a1)
     }
     else
     {
-      return (unsigned int)BiBindEfiNamespaceObjects(a1);
+      return (unsigned int)BiBindEfiNamespaceObjects(BcdStoreHandle);
     }
   }
   return v1;

@@ -10,19 +10,19 @@
  *     LdrpAppendUnicodeStringToFilenameBuffer @ 0x180019D38 (LdrpAppendUnicodeStringToFilenameBuffer.c)
  */
 
-__int64 __fastcall LdrpBuildSystem32FileName(unsigned __int16 *a1, const void **a2, __int64 a3, __int64 a4)
+__int64 __fastcall LdrpBuildSystem32FileName(unsigned __int16 *a1, const void **a2)
 {
-  unsigned int v4; // ebx
+  unsigned int v2; // ebx
   const WCHAR *NtSystemRoot; // rax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = 0;
+  v2 = 0;
   *a1 = 0;
-  NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot((__int64)a1, (__int64)a2, a3, a4);
+  NtSystemRoot = RtlGetNtSystemRoot();
   RtlInitUnicodeString(&DestinationString, NtSystemRoot);
   LdrpAppendUnicodeStringToFilenameBuffer(a1, (const void **)&DestinationString);
-  LdrpAppendUnicodeStringToFilenameBuffer(a1, &SlashSystem32SlashString);
+  LdrpAppendUnicodeStringToFilenameBuffer(a1, (const void **)&SlashSystem32SlashString);
   if ( a2 )
     return (unsigned int)LdrpAppendUnicodeStringToFilenameBuffer(a1, a2);
-  return v4;
+  return v2;
 }

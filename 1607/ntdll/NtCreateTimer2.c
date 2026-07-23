@@ -1,16 +1,21 @@
 /*
  * XREFs of NtCreateTimer2 @ 0x1800A7B10
  * Callers:
- *     TppInitializeTimerSubQueue @ 0x180073350 (TppInitializeTimerSubQueue.c)
+ *     TppInitializeTimerSubQueue @ 0x180073340 (TppInitializeTimerSubQueue.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateTimer2()
+NTSTATUS __cdecl NtCreateTimer2(
+        PHANDLE TimerHandle,
+        PVOID Reserved1,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Attributes,
+        ACCESS_MASK DesiredAccess)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 184LL;
+  result = 184;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

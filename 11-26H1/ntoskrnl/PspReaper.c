@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReaper @ 0x140410640
+ * XREFs of PspReaper @ 0x14040FD60
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeDeleteThread @ 0x1404106F4 (KeDeleteThread.c)
- *     KeEnumerateKernelStackSegments @ 0x1404107D8 (KeEnumerateKernelStackSegments.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeDeleteThread @ 0x14040FE14 (KeDeleteThread.c)
+ *     KeEnumerateKernelStackSegments @ 0x14040FEF8 (KeEnumerateKernelStackSegments.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 signed __int64 PspReaper()
@@ -19,7 +19,7 @@ signed __int64 PspReaper()
   do
   {
     v0 = (_QWORD *)_InterlockedExchange64(
-                     (volatile __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[0].WaitListEntry.Blink,
+                     (volatile __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Flink,
                      1LL);
     do
     {
@@ -41,7 +41,7 @@ signed __int64 PspReaper()
     }
     while ( v0 && v0 != (_QWORD *)1 );
     result = _InterlockedCompareExchange64(
-               (volatile signed __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[0].WaitListEntry.Blink,
+               (volatile signed __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Flink,
                0LL,
                1LL);
   }

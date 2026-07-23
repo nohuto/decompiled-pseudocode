@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAttachProcess @ 0x14022DAB0
+ * XREFs of KiAttachProcess @ 0x14022DBC0
  * Callers:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KeAttachProcess @ 0x140364370 (KeAttachProcess.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KeAttachProcess @ 0x140364510 (KeAttachProcess.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x14022E120 (KiSetAddressPolicy.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiInSwapSingleProcess @ 0x14034DBB4 (KiInSwapSingleProcess.c)
- *     HvlSwitchVirtualAddressSpace @ 0x140549890 (HvlSwitchVirtualAddressSpace.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetAddressPolicy @ 0x14022E230 (KiSetAddressPolicy.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiInSwapSingleProcess @ 0x14034DD54 (KiInSwapSingleProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x140549F50 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __int8 a3, char a4, __int64 a5)
@@ -91,7 +91,7 @@ unsigned __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __i
     KiInSwapSingleProcess(a1, a2, a3);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -152,10 +152,10 @@ unsigned __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __i
   if ( !v14 )
   {
     result = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));

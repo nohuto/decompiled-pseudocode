@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvPortGetByte @ 0x14071E7B0
+ * XREFs of InbvPortGetByte @ 0x140723440
  * Callers:
- *     HdlspDispatch @ 0x140C4C320 (HdlspDispatch.c)
- *     HdlspGetLine @ 0x140C4CAA8 (HdlspGetLine.c)
+ *     HdlspDispatch @ 0x140C52320 (HdlspDispatch.c)
+ *     HdlspGetLine @ 0x140C52AA8 (HdlspGetLine.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall InbvPortGetByte(unsigned int a1, _BYTE *a2)
@@ -14,15 +14,15 @@ char __fastcall InbvPortGetByte(unsigned int a1, _BYTE *a2)
   if ( a1 < 4 )
   {
     v2 = 5LL * a1;
-    if ( *((_QWORD *)&WheapPfaLock.GlobalUpdateVpThreadPriorityListEntry.Flink + v2) )
+    if ( WheapPfaLock.Spare35[v2 + 2] )
     {
-      if ( *((_BYTE *)&WheapPfaLock.KernelShadowStackInitial + 8 * v2 + 1) )
+      if ( *((_BYTE *)&WheapPfaLock.SchedulerSharedSwappablePage + 8 * v2 + 1) )
       {
-        *a2 = *((_BYTE *)&WheapPfaLock.KernelShadowStackInitial + 8 * v2);
-        *((_BYTE *)&WheapPfaLock.KernelShadowStackInitial + 8 * v2 + 1) = 0;
+        *a2 = *((_BYTE *)&WheapPfaLock.SchedulerSharedSwappablePage + 8 * v2);
+        *((_BYTE *)&WheapPfaLock.SchedulerSharedSwappablePage + 8 * v2 + 1) = 0;
         return 1;
       }
-      if ( !(unsigned int)guard_dispatch_icall_no_overrides((char *)&WheapPfaLock.1008 + 8 * v2, a2) )
+      if ( !(unsigned int)guard_dispatch_icall_no_overrides(&WheapPfaLock.Spare35[v2 + 2], a2) )
         return 1;
     }
   }

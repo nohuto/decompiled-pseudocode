@@ -11,7 +11,7 @@
  */
 
 int __thiscall WerpAllocateAndInitializeSid(
-        void *this,
+        _SID_IDENTIFIER_AUTHORITY *this,
         int a2,
         int a3,
         int a4,
@@ -20,35 +20,39 @@ int __thiscall WerpAllocateAndInitializeSid(
         int a7,
         int a8,
         int a9,
-        void **a10)
+        _DWORD *a10)
 {
-  int VirtualMemory; // esi
+  NTSTATUS VirtualMemory; // esi
+  ULONG_PTR v12; // [esp-10h] [ebp-4Ch]
+  size_t v13; // [esp-4h] [ebp-40h]
+  ULONG v14; // [esp+0h] [ebp-3Ch]
   size_t Size; // [esp+1Ch] [ebp-20h] BYREF
-  void *v14; // [esp+20h] [ebp-1Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+24h] [ebp-18h]
 
-  Size = 12;
-  v14 = 0;
+  Size = 12LL;
   if ( !a10 )
     return -1073741811;
   ms_exc.registration.TryLevel = 0;
-  VirtualMemory = NtAllocateVirtualMemory(-1, (int)&v14, 0, (int)&Size, 4096, 4);
+  HIDWORD(v12) = &Size;
+  LODWORD(v12) = 0;
+  VirtualMemory = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&Size + 1, v12, (PSIZE_T)0x1000, 4u, v14);
   ms_exc.registration.TryLevel = -2;
   if ( VirtualMemory < 0 )
     goto LABEL_8;
-  if ( v14 )
+  if ( HIDWORD(Size) )
   {
-    memset(v14, 0, Size);
-    VirtualMemory = RtlInitializeSid((int)v14, (int)this, 1u);
+    LODWORD(v13) = Size;
+    memset((void *)HIDWORD(Size), 0, v13);
+    VirtualMemory = RtlInitializeSid((PSID)HIDWORD(Size), this, 1u);
     if ( VirtualMemory >= 0 )
     {
-      *((_DWORD *)v14 + 2) = 18;
-      *a10 = v14;
+      *(_DWORD *)(HIDWORD(Size) + 8) = 18;
+      *a10 = HIDWORD(Size);
       return 0;
     }
 LABEL_8:
-    if ( v14 )
-      WerpFreeSid(v14);
+    if ( HIDWORD(Size) )
+      WerpFreeSid(HIDWORD(Size));
   }
   return VirtualMemory;
 }

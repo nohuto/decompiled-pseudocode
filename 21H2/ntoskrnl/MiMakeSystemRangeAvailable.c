@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMakeSystemRangeAvailable @ 0x1402FD514
+ * XREFs of MiMakeSystemRangeAvailable @ 0x140308264
  * Callers:
- *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
+ *     MiReturnSystemVa @ 0x140305338 (MiReturnSystemVa.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSystemVaToDynamicBitmap @ 0x1402B407C (MiSystemVaToDynamicBitmap.c)
- *     MiNonPagedPoolToNode @ 0x1402CCB04 (MiNonPagedPoolToNode.c)
- *     MiReleaseSessionVa @ 0x1402D124C (MiReleaseSessionVa.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14023222C (MiSystemVaToDynamicBitmap.c)
+ *     MiNonPagedPoolToNode @ 0x14024B164 (MiNonPagedPoolToNode.c)
+ *     MiReleaseSessionVa @ 0x14024F6DC (MiReleaseSessionVa.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiMakeSystemRangeAvailable(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
 {
   ULONG_PTR BugCheckParameter4; // rbp
   ULONG_PTR v4; // rdi
-  union _SLIST_HEADER *v7; // rsi
-  union _SLIST_HEADER *v8; // r12
+  _SLIST_HEADER *v7; // rsi
+  _SLIST_HEADER *v8; // r12
   ULONG_PTR v9; // rbx
   unsigned __int8 v10; // al
   __int64 result; // rax
@@ -43,12 +43,12 @@ __int64 __fastcall MiMakeSystemRangeAvailable(ULONG_PTR BugCheckParameter2, ULON
   if ( a3 == 5 )
     v7 = &SListHead[11 * (unsigned int)MiNonPagedPoolToNode(BugCheckParameter2) + 4];
   else
-    v7 = (union _SLIST_HEADER *)MiSystemVaToDynamicBitmap(a3);
+    v7 = (_SLIST_HEADER *)MiSystemVaToDynamicBitmap(a3);
   v8 = v7;
   v9 = (BugCheckParameter2 - v7[2].Alignment) >> 21;
   if ( (_DWORD)BugCheckParameter4 == 13 )
   {
-    v8 = (union _SLIST_HEADER *)&v21;
+    v8 = (_SLIST_HEADER *)&v21;
     Alignment = v7[1].Alignment;
     *((_QWORD *)&v21 + 1) = v7->Region;
     *(_QWORD *)&v21 = Alignment;
@@ -102,9 +102,9 @@ LABEL_11:
   {
     v7[1].Region = v9;
   }
-  _InterlockedExchangeAdd64(&qword_140C4F948[(int)BugCheckParameter4], -(__int64)v4);
+  _InterlockedExchangeAdd64(&qword_140C4F988[(int)BugCheckParameter4], -(__int64)v4);
   if ( (_DWORD)BugCheckParameter4 == 8 )
-    qword_140C4E048 += BugCheckParameter3;
+    qword_140C4E088 += BugCheckParameter3;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;

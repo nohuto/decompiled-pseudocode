@@ -23,17 +23,17 @@ char RtlpHeapTrkDumpStacks()
   v0 = 0;
   if ( !TrkContext )
     return 0;
-  *(_DWORD *)(TrkContext + 64) = dword_1801D020C;
+  *((_DWORD *)TrkContext + 16) = dword_1801D020C;
   if ( dword_1801D0830 )
   {
     v7 = 0LL;
     v8 = (unsigned int)dword_1801D0830;
     do
     {
-      *(_QWORD *)(TrkContext + 72) += *(_QWORD *)(*(_QWORD *)(v7 + qword_1801D0880) + 16LL);
+      *((_QWORD *)TrkContext + 9) += *(_QWORD *)(*(_QWORD *)(v7 + qword_1801D0880) + 16LL);
       v9 = *(_QWORD *)(v7 + qword_1801D0880);
       v7 += 8LL;
-      *(_QWORD *)(TrkContext + 80) += *(_QWORD *)(v9 + 24);
+      *((_QWORD *)TrkContext + 10) += *(_QWORD *)(v9 + 24);
       --v8;
     }
     while ( v8 );
@@ -45,13 +45,13 @@ LABEL_5:
     v3 = v2 & 0xF;
     v4 = 16LL * v2;
     v5 = *(__int64 **)(v4 + qword_1801D0288);
-    if ( RtlTryAcquireSRWLockExclusive(*(volatile signed __int32 **)(qword_1801D0838 + 8 * v3)) )
+    if ( RtlTryAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801D0838 + 8 * v3)) )
     {
       while ( 1 )
       {
         if ( v5 == (__int64 *)(v4 + qword_1801D0288) )
         {
-          RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801D0838 + 8 * v3));
+          RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801D0838 + 8 * v3));
           ++v2;
           goto LABEL_5;
         }
@@ -61,7 +61,7 @@ LABEL_5:
           break;
         v5 = (__int64 *)*v5;
       }
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801D0838 + 8 * v3));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801D0838 + 8 * v3));
     }
     return 0;
   }

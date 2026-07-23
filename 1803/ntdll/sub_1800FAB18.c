@@ -12,14 +12,14 @@
  *     sub_1800FA524 @ 0x1800FA524 (sub_1800FA524.c)
  */
 
-__int64 __fastcall sub_1800FAB18(__int64 a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall sub_1800FAB18(__int64 a1, void *a2, _BYTE *a3)
 {
   unsigned __int64 v3; // rbp
   unsigned int v7; // edi
-  int v8; // r12d
+  ULONG v8; // r12d
   __int64 v9; // rsi
-  int v10; // eax
-  int v11; // ebx
+  NTSTATUS v10; // eax
+  NTSTATUS v11; // ebx
   unsigned __int64 v12; // rdx
   int v14; // [rsp+50h] [rbp+0h] BYREF
 
@@ -36,17 +36,22 @@ __int64 __fastcall sub_1800FAB18(__int64 a1, __int64 a2, _BYTE *a3)
   *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 170;
   if ( (int)sub_18006F7EC(
               a2,
-              v3 + 16,
+              (PUNICODE_STRING)(v3 + 16),
               (_DWORD *)((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL),
               (void *)(v3 + 32),
-              (unsigned int *)(v3 + 4)) < 0
+              (ULONG *)(v3 + 4)) < 0
     || *(_DWORD *)v3 != 1 )
   {
     goto LABEL_15;
   }
   RtlInitUnicodeString((PUNICODE_STRING)(v3 + 16), (PCWSTR)(v3 + 32));
   *(_DWORD *)v3 = 7;
-  v10 = sub_18006F7EC(a2, v3 + 16, (_DWORD *)((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL), 0LL, 0LL);
+  v10 = sub_18006F7EC(
+          a2,
+          (PUNICODE_STRING)(v3 + 16),
+          (_DWORD *)((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL),
+          0LL,
+          0LL);
   v11 = v10;
   if ( (!v10 || v10 == -2147483643)
     && (*(_DWORD *)v3 == 7 || *(_DWORD *)v3 == 1)
@@ -63,7 +68,7 @@ __int64 __fastcall sub_1800FAB18(__int64 a1, __int64 a2, _BYTE *a3)
 LABEL_15:
     if ( v7 >= 4 )
       return 0LL;
-    v11 = ZwEnumerateValueKey();
+    v11 = ZwEnumerateValueKey(a2, v8, KeyValueFullInformation, (PVOID)(v3 + 224), 0x200u, (PULONG)(v3 + 8));
     if ( v11 >= 0
       && (*(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE4) == 7
        || *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE4) == 1) )
@@ -74,13 +79,12 @@ LABEL_15:
         *(_WORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xF4 + 2 * (v12 >> 1)) = 0;
         RtlInitUnicodeString((PUNICODE_STRING)(v3 + 16), (PCWSTR)(v3 + 244));
         if ( (!(_DWORD)v9
-           || (unsigned int)RtlCompareUnicodeStrings(
-                              *(unsigned __int16 **)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
-                              (unsigned __int64)*(unsigned __int16 *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL)
-                                                                    + 0x10) >> 1,
-                              v3 + 32,
-                              (unsigned int)v9,
-                              1))
+           || RtlCompareUnicodeStrings(
+                *(PCWCH *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
+                (unsigned __int64)*(unsigned __int16 *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) >> 1,
+                (PCWCH)(v3 + 32),
+                (unsigned int)v9,
+                1u))
           && (int)sub_1800FA524(
                     a1,
                     (__int64)a3,

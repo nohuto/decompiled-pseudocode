@@ -12,12 +12,12 @@ char __stdcall RtlTraceDatabaseFind(int a1, int a2, int a3, int a4)
 {
   char v4; // bl
 
-  RtlEnterCriticalSection(a1 + 28);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   *(_DWORD *)(a1 + 24) = 0;
   v4 = RtlpTraceDatabaseInternalFind(a3, a4);
   if ( v4 )
     ++*(_DWORD *)(a1 + 68);
   *(_DWORD *)(a1 + 24) = 0;
-  RtlLeaveCriticalSection(a1 + 28);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   return v4;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDrvDbUnmountNode @ 0x140971418
+ * XREFs of PiDrvDbUnmountNode @ 0x140971618
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1406D64B0 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1406D64E0 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PiDrvDbFindNode @ 0x140565040 (PiDrvDbFindNode.c)
- *     PiDrvDbUnregisterNode @ 0x140971474 (PiDrvDbUnregisterNode.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x140565700 (PiDrvDbFindNode.c)
+ *     PiDrvDbUnregisterNode @ 0x140971674 (PiDrvDbUnregisterNode.c)
  */
 
 __int64 __fastcall PiDrvDbUnmountNode(PCWSTR SourceString)

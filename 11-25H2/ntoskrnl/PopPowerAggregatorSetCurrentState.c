@@ -14,24 +14,24 @@
  *     PopPowerAggregatorDiagTraceInternalStateChange @ 0x140A2C524 (PopPowerAggregatorDiagTraceInternalStateChange.c)
  */
 
-__int64 __fastcall PopPowerAggregatorSetCurrentState(__int64 a1, __int64 a2)
+LARGE_INTEGER *__fastcall PopPowerAggregatorSetCurrentState(LARGE_INTEGER *a1, __int64 a2)
 {
-  _OWORD *v2; // rbx
-  __int64 result; // rax
+  LARGE_INTEGER *v2; // rbx
+  LARGE_INTEGER *result; // rax
   __int128 v6; // xmm1
 
-  v2 = (_OWORD *)(a1 + 56);
-  *(_DWORD *)(a2 + 4) = *(_DWORD *)(a1 + 24);
-  *(_QWORD *)(a2 + 8) = *(_QWORD *)(a1 + 32);
-  PopPowerAggregatorDiagTraceInternalStateChange(a1 + 56);
-  result = PopPowerAggregatorAllocateLogEntry(a1, 2);
-  *(_OWORD *)(result + 24) = *v2;
-  *(_OWORD *)(result + 40) = v2[1];
-  *(_OWORD *)(result + 56) = *(_OWORD *)a2;
-  *(_OWORD *)(result + 72) = *(_OWORD *)(a2 + 16);
-  *v2 = *(_OWORD *)a2;
+  v2 = a1 + 7;
+  *(_DWORD *)(a2 + 4) = a1[3].LowPart;
+  *(LARGE_INTEGER *)(a2 + 8) = a1[4];
+  PopPowerAggregatorDiagTraceInternalStateChange(&a1[7]);
+  result = PopPowerAggregatorAllocateLogEntry(a1, 2u);
+  *(_OWORD *)&result[3].LowPart = *(_OWORD *)&v2->LowPart;
+  *(_OWORD *)&result[5].LowPart = *(_OWORD *)&v2[2].LowPart;
+  *(_OWORD *)&result[7].LowPart = *(_OWORD *)a2;
+  *(_OWORD *)&result[9].LowPart = *(_OWORD *)(a2 + 16);
+  *(_OWORD *)&v2->LowPart = *(_OWORD *)a2;
   v6 = *(_OWORD *)(a2 + 16);
-  *(_DWORD *)(a1 + 8) |= 2u;
-  v2[1] = v6;
+  a1[1].LowPart |= 2u;
+  *(_OWORD *)&v2[2].LowPart = v6;
   return result;
 }

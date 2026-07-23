@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDqIrpQueryCreate @ 0x14098EFF8
+ * XREFs of PiDqIrpQueryCreate @ 0x14094FA58
  * Callers:
- *     PiDqDispatch @ 0x14098EE00 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x14094F860 (PiDqDispatch.c)
  * Callees:
- *     IoSetActivityIdThread @ 0x140491810 (IoSetActivityIdThread.c)
- *     IoClearActivityIdThread @ 0x140499E20 (IoClearActivityIdThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PiDqQuerySerializeActionQueue @ 0x14098E76C (PiDqQuerySerializeActionQueue.c)
- *     PiDqQueryLock @ 0x14098FDD0 (PiDqQueryLock.c)
- *     PiDqQueryUnlock @ 0x14098FE44 (PiDqQueryUnlock.c)
- *     PnpIsNullGuid @ 0x14098FEA4 (PnpIsNullGuid.c)
- *     PiDqQueryFreeActiveData @ 0x140990044 (PiDqQueryFreeActiveData.c)
- *     PiDqIrpComplete @ 0x1409900E4 (PiDqIrpComplete.c)
- *     PiDqQueryGetNextIoctlInfo @ 0x140990240 (PiDqQueryGetNextIoctlInfo.c)
- *     PiDqQueryValidateQueryData @ 0x1409903CC (PiDqQueryValidateQueryData.c)
- *     PiDqTraceQueryCreate @ 0x140990524 (PiDqTraceQueryCreate.c)
+ *     IoSetActivityIdThread @ 0x14048B360 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x140493970 (IoClearActivityIdThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14094F1CC (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQueryLock @ 0x140950830 (PiDqQueryLock.c)
+ *     PiDqQueryUnlock @ 0x1409508A4 (PiDqQueryUnlock.c)
+ *     PnpIsNullGuid @ 0x140950904 (PnpIsNullGuid.c)
+ *     PiDqQueryFreeActiveData @ 0x140950AA4 (PiDqQueryFreeActiveData.c)
+ *     PiDqIrpComplete @ 0x140950B44 (PiDqIrpComplete.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x140950CA0 (PiDqQueryGetNextIoctlInfo.c)
+ *     PiDqQueryValidateQueryData @ 0x140950E2C (PiDqQueryValidateQueryData.c)
+ *     PiDqTraceQueryCreate @ 0x140950F84 (PiDqTraceQueryCreate.c)
  */
 
 __int64 __fastcall PiDqIrpQueryCreate(PIRP Irp)
@@ -90,7 +90,7 @@ __int64 __fastcall PiDqIrpQueryCreate(PIRP Irp)
                               FsContext2 + 16);
         if ( ValidateQueryData >= 0 )
         {
-          NdrMesTypeDecode3(*(_QWORD *)(FsContext2 + 16), "TP 3\a", &off_140004B10, &off_140E06EF0, 0, FsContext2 + 24);
+          NdrMesTypeDecode3(*(_QWORD *)(FsContext2 + 16), "TP 3\a", &off_1400047E8, &off_140E06EF0, 0, FsContext2 + 24);
           ValidateQueryData = PiDqQueryValidateQueryData(*(_QWORD *)(FsContext2 + 24));
           if ( ValidateQueryData >= 0 )
           {

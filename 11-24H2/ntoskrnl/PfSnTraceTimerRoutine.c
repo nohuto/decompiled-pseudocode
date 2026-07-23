@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnTraceTimerRoutine @ 0x14047FAD0
+ * XREFs of PfSnTraceTimerRoutine @ 0x140314FF0
  * Callers:
- *     KiProcessExpiredTimerList @ 0x1403358E0 (KiProcessExpiredTimerList.c)
+ *     KiProcessExpiredTimerList @ 0x140315CC0 (KiProcessExpiredTimerList.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     PfSnTraceGetLogEntry @ 0x140276790 (PfSnTraceGetLogEntry.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     PfSnTraceGetLogEntry @ 0x14022BD20 (PfSnTraceGetLogEntry.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
  */
 
 void __fastcall PfSnTraceTimerRoutine(
@@ -47,15 +47,15 @@ LABEL_9:
   *v9 &= 0xFuLL;
   v7[1] = 0LL;
   *v7 = *v7 & 0xFFFFFFFFFFFFFFF0uLL | 4;
-  if ( *((_DWORD *)DeferredContext + 82) >= dword_140E66E54 )
+  if ( *((_DWORD *)DeferredContext + 82) >= dword_140E66FA4 )
   {
     v8 = _InterlockedCompareExchange((volatile signed __int32 *)DeferredContext + 100, 4, 0) == 0;
     goto LABEL_9;
   }
   KxAcquireSpinLock((PKSPIN_LOCK)DeferredContext + 34);
-  if ( !*((_DWORD *)DeferredContext + 100) && ExAcquireRundownProtection((PEX_RUNDOWN_REF)DeferredContext + 45) )
+  if ( !*((_DWORD *)DeferredContext + 100) && ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)DeferredContext + 45) )
     KiSetTimerEx(
-      (__int64)(DeferredContext + 136),
+      (_DWORD)DeferredContext + 136,
       *((_QWORD *)DeferredContext + 25),
       0,
       0,

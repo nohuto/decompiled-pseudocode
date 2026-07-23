@@ -1,18 +1,18 @@
 /*
- * XREFs of MiVaToPfn @ 0x140099010
+ * XREFs of MiVaToPfn @ 0x140098F50
  * Callers:
- *     MiGetPhysicalAddress @ 0x1401210F8 (MiGetPhysicalAddress.c)
- *     MiCheckKernelShadow @ 0x14012B218 (MiCheckKernelShadow.c)
- *     MiInsertNonPagedPoolOnSlist @ 0x140161260 (MiInsertNonPagedPoolOnSlist.c)
- *     MiDuplicateCloneLeaf @ 0x1402C99D8 (MiDuplicateCloneLeaf.c)
- *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
- *     MiInitializeShadowPageTable @ 0x14072A3F4 (MiInitializeShadowPageTable.c)
- *     MiScrubNonPagedPool @ 0x14084F0D8 (MiScrubNonPagedPool.c)
- *     MxConsumeLargePageSlush @ 0x1409BD51C (MxConsumeLargePageSlush.c)
- *     MiCheckLargePageOk @ 0x1409D7394 (MiCheckLargePageOk.c)
+ *     MiGetPhysicalAddress @ 0x1401211C8 (MiGetPhysicalAddress.c)
+ *     MiCheckKernelShadow @ 0x14012B2E8 (MiCheckKernelShadow.c)
+ *     MiInsertNonPagedPoolOnSlist @ 0x140161360 (MiInsertNonPagedPoolOnSlist.c)
+ *     MiDuplicateCloneLeaf @ 0x1402C9BC8 (MiDuplicateCloneLeaf.c)
+ *     MiFreeInitializationCode @ 0x1406C8ABC (MiFreeInitializationCode.c)
+ *     MiInitializeShadowPageTable @ 0x14072B5E4 (MiInitializeShadowPageTable.c)
+ *     MiScrubNonPagedPool @ 0x140850338 (MiScrubNonPagedPool.c)
+ *     MxConsumeLargePageSlush @ 0x1409BE51C (MxConsumeLargePageSlush.c)
+ *     MiCheckLargePageOk @ 0x1409D8394 (MiCheckLargePageOk.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
  */
 
 unsigned __int64 __fastcall MiVaToPfn(__int64 a1)

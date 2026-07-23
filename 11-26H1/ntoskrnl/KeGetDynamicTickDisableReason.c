@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetDynamicTickDisableReason @ 0x14050476C
+ * XREFs of KeGetDynamicTickDisableReason @ 0x1404FDF30
  * Callers:
- *     PopDiagTraceDynamicTickStatusRundown @ 0x140AC14D4 (PopDiagTraceDynamicTickStatusRundown.c)
- *     EtwpClockSourceRunDown @ 0x140B5DA54 (EtwpClockSourceRunDown.c)
+ *     PopDiagTraceDynamicTickStatusRundown @ 0x140AC3574 (PopDiagTraceDynamicTickStatusRundown.c)
+ *     EtwpClockSourceRunDown @ 0x140B60BD4 (EtwpClockSourceRunDown.c)
  * Callees:
  *     <none>
  */

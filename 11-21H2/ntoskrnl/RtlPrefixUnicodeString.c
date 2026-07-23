@@ -1,50 +1,50 @@
 /*
  * XREFs of RtlPrefixUnicodeString @ 0x14077F870
  * Callers:
- *     SepPotentialGlobalTableAttribute @ 0x1402D6A64 (SepPotentialGlobalTableAttribute.c)
- *     IoConfigureCrashDump @ 0x140551D58 (IoConfigureCrashDump.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x1405CB06C (PopFxBuildDripsBlockingDeviceList.c)
- *     IopValidateJunctionTarget @ 0x14066119C (IopValidateJunctionTarget.c)
- *     ObCheckRefTraceProcess @ 0x14066D3F8 (ObCheckRefTraceProcess.c)
- *     SepIsMinTCB @ 0x14066F678 (SepIsMinTCB.c)
- *     IopQueryRegistryKeySystemPath @ 0x14067AFB0 (IopQueryRegistryKeySystemPath.c)
- *     IopBuildFullDriverPath @ 0x14067B1DC (IopBuildFullDriverPath.c)
- *     AuthzBasepIsCompareRelevantAttribute @ 0x1406960C8 (AuthzBasepIsCompareRelevantAttribute.c)
- *     SepValidateReferencedCachedHandles @ 0x140696944 (SepValidateReferencedCachedHandles.c)
- *     RtlpProcessIFEOKeyFilter @ 0x1406C2EE8 (RtlpProcessIFEOKeyFilter.c)
- *     PiPnpRtlEnumeratorFilterCallback @ 0x1406C5650 (PiPnpRtlEnumeratorFilterCallback.c)
- *     _CmGetDeviceInterfacePathFormat @ 0x1406DBA7C (_CmGetDeviceInterfacePathFormat.c)
- *     PiNormalizeDeviceText @ 0x1406E1D34 (PiNormalizeDeviceText.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140723F80 (SepAdtAuditObjectAccessWithContext.c)
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x14076D4A4 (_CmOpenDeviceContainerRegKeyWorker.c)
- *     _CmIsRootEnumeratedDevice @ 0x140778D60 (_CmIsRootEnumeratedDevice.c)
- *     _CmValidateDeviceInterfaceName @ 0x14077F150 (_CmValidateDeviceInterfaceName.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x14077F420 (_CmOpenDeviceRegKeyWorker.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x140781268 (_CmOpenCommonClassRegKeyWorker.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x140781A70 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     ObpIsUnsecureName @ 0x1407FAE50 (ObpIsUnsecureName.c)
- *     PiCreateRegistryPath @ 0x140943E3C (PiCreateRegistryPath.c)
- *     PiOpenDirectoryWithRoot @ 0x140944390 (PiOpenDirectoryWithRoot.c)
- *     PiDevCfgMakeServiceBootStart @ 0x14094C79C (PiDevCfgMakeServiceBootStart.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14095A750 (PiCreateDriverSwDeviceCallback.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x14095D038 (PiDrvDbQuerySystemPathWin32.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14095DAF0 (PiDrvDbResolveKeyFilePaths.c)
- *     PopBatteryDeviceState @ 0x1409949AC (PopBatteryDeviceState.c)
- *     PopDirectedDripsDiagSanitizeHardwareId @ 0x14099E860 (PopDirectedDripsDiagSanitizeHardwareId.c)
- *     _CmDeleteCommonClassRegKeyWorker @ 0x140A23328 (_CmDeleteCommonClassRegKeyWorker.c)
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140A23A34 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A24104 (_CmDeleteDeviceRegKeyWorker.c)
- *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A25AC0 (_CmDeleteDeviceContainerRegKeyWorker.c)
- *     _CmDeleteDevicePanelRegKeyWorker @ 0x140A281F8 (_CmDeleteDevicePanelRegKeyWorker.c)
- *     _CmOpenDevicePanelRegKeyWorker @ 0x140A28FC4 (_CmOpenDevicePanelRegKeyWorker.c)
+ *     sub_1402D6A64 @ 0x1402D6A64 (sub_1402D6A64.c)
+ *     sub_140551D58 @ 0x140551D58 (sub_140551D58.c)
+ *     sub_1405CB06C @ 0x1405CB06C (sub_1405CB06C.c)
+ *     sub_14066119C @ 0x14066119C (sub_14066119C.c)
+ *     sub_14066D3F8 @ 0x14066D3F8 (sub_14066D3F8.c)
+ *     sub_14066F678 @ 0x14066F678 (sub_14066F678.c)
+ *     sub_14067AFB0 @ 0x14067AFB0 (sub_14067AFB0.c)
+ *     sub_14067B1DC @ 0x14067B1DC (sub_14067B1DC.c)
+ *     sub_1406960C8 @ 0x1406960C8 (sub_1406960C8.c)
+ *     sub_140696944 @ 0x140696944 (sub_140696944.c)
+ *     sub_1406C2EE8 @ 0x1406C2EE8 (sub_1406C2EE8.c)
+ *     sub_1406C5650 @ 0x1406C5650 (sub_1406C5650.c)
+ *     sub_1406DBA7C @ 0x1406DBA7C (sub_1406DBA7C.c)
+ *     sub_1406E1D34 @ 0x1406E1D34 (sub_1406E1D34.c)
+ *     sub_140723F80 @ 0x140723F80 (sub_140723F80.c)
+ *     sub_14076D4A4 @ 0x14076D4A4 (sub_14076D4A4.c)
+ *     sub_140778D60 @ 0x140778D60 (sub_140778D60.c)
+ *     sub_14077F150 @ 0x14077F150 (sub_14077F150.c)
+ *     sub_14077F420 @ 0x14077F420 (sub_14077F420.c)
+ *     sub_140781268 @ 0x140781268 (sub_140781268.c)
+ *     sub_140781A70 @ 0x140781A70 (sub_140781A70.c)
+ *     sub_1407FAE50 @ 0x1407FAE50 (sub_1407FAE50.c)
+ *     sub_140943E3C @ 0x140943E3C (sub_140943E3C.c)
+ *     sub_140944390 @ 0x140944390 (sub_140944390.c)
+ *     sub_14094C79C @ 0x14094C79C (sub_14094C79C.c)
+ *     sub_14095A750 @ 0x14095A750 (sub_14095A750.c)
+ *     sub_14095D038 @ 0x14095D038 (sub_14095D038.c)
+ *     sub_14095DAF0 @ 0x14095DAF0 (sub_14095DAF0.c)
+ *     sub_1409949AC @ 0x1409949AC (sub_1409949AC.c)
+ *     sub_14099E860 @ 0x14099E860 (sub_14099E860.c)
+ *     sub_140A23328 @ 0x140A23328 (sub_140A23328.c)
+ *     sub_140A23A34 @ 0x140A23A34 (sub_140A23A34.c)
+ *     sub_140A24104 @ 0x140A24104 (sub_140A24104.c)
+ *     sub_140A25AC0 @ 0x140A25AC0 (sub_140A25AC0.c)
+ *     sub_140A281F8 @ 0x140A281F8 (sub_140A281F8.c)
+ *     sub_140A28FC4 @ 0x140A28FC4 (sub_140A28FC4.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_1403477B0 @ 0x1403477B0 (sub_1403477B0.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
 BOOLEAN __stdcall RtlPrefixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
+  _QWORD *v3; // rax
   __int64 v4; // rdx
   char v5; // r8
   unsigned __int16 *v6; // r9
@@ -59,9 +59,9 @@ BOOLEAN __stdcall RtlPrefixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STR
   __int16 v16; // r11
   __int64 v17; // rcx
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+  v3 = sub_140347DB0();
   v7 = (unsigned __int16 *)*((_QWORD *)v6 + 1);
-  v8 = CurrentServerSiloGlobals[154];
+  v8 = v3[154];
   v9 = *v6;
   if ( *(_WORD *)v4 >= (unsigned __int16)v9 )
   {
@@ -77,8 +77,8 @@ BOOLEAN __stdcall RtlPrefixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STR
         v13 = *(unsigned __int16 *)((char *)v7 + v11);
         if ( *v7 != v13 )
         {
-          NLS_UPCASE(v8, v13);
-          v15 = NLS_UPCASE(v8, v12);
+          sub_1403477B0(v8, v13);
+          v15 = sub_1403477B0(v8, v12);
           if ( v15 != v16 )
             break;
         }

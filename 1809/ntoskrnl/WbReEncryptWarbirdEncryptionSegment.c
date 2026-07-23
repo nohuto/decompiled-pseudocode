@@ -1,12 +1,12 @@
 /*
- * XREFs of WbReEncryptWarbirdEncryptionSegment @ 0x1405847A8
+ * XREFs of WbReEncryptWarbirdEncryptionSegment @ 0x1405857A8
  * Callers:
- *     WbReEncryptEncryptionSegment @ 0x140583EC8 (WbReEncryptEncryptionSegment.c)
+ *     WbReEncryptEncryptionSegment @ 0x140584EC8 (WbReEncryptEncryptionSegment.c)
  * Callees:
- *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E6C (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     sub_14058485C @ 0x14058485C (sub_14058485C.c)
- *     sub_1408E5884 @ 0x1408E5884 (sub_1408E5884.c)
+ *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4DAC (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     sub_14058585C @ 0x14058585C (sub_14058585C.c)
+ *     sub_1408E6B44 @ 0x1408E6B44 (sub_1408E6B44.c)
  */
 
 __int64 __fastcall WbReEncryptWarbirdEncryptionSegment(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall WbReEncryptWarbirdEncryptionSegment(__int64 a1, __int64 a2)
           v7 = v6;
           if ( *(_DWORD *)(a1 + 48) == 1 )
           {
-            v8 = sub_1408E5884(a1, 16LL * v6 + *(_QWORD *)(a1 + 56) + 248LL);
+            v8 = sub_1408E6B44(a1, 16LL * v6 + *(_QWORD *)(a1 + 56) + 248LL);
           }
           else
           {
@@ -45,7 +45,7 @@ __int64 __fastcall WbReEncryptWarbirdEncryptionSegment(__int64 a1, __int64 a2)
             {
               g_wil_details_pfnFeatureLoggingHook(
                 0xE67B5Au,
-                (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B948,
+                (const struct FEATURE_LOGGED_TRAITS *)&unk_14035C848,
                 0LL,
                 0,
                 (const enum wil_ReportingKind *)&v10,
@@ -58,7 +58,7 @@ __int64 __fastcall WbReEncryptWarbirdEncryptionSegment(__int64 a1, __int64 a2)
               LODWORD(v3) = -1073741811;
               return (unsigned int)v3;
             }
-            v8 = sub_14058485C(a1, *(_QWORD *)(a1 + 56) + 4 * (3LL * v6 + 61));
+            v8 = sub_14058585C(a1, *(_QWORD *)(a1 + 56) + 4 * (3LL * v6 + 61));
           }
           v3 = (unsigned int)v8;
           if ( v8 >= 0 )

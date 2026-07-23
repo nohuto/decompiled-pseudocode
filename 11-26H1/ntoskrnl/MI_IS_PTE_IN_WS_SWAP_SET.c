@@ -1,14 +1,14 @@
 /*
- * XREFs of MI_IS_PTE_IN_WS_SWAP_SET @ 0x140472790
+ * XREFs of MI_IS_PTE_IN_WS_SWAP_SET @ 0x14046BF10
  * Callers:
- *     MiAbandonPrivatePfn @ 0x14030B84C (MiAbandonPrivatePfn.c)
- *     MiDecommitAddToList @ 0x140323520 (MiDecommitAddToList.c)
- *     MiDecommitHandleTransitionPte @ 0x14033DDD4 (MiDecommitHandleTransitionPte.c)
- *     MiDecommitHandlePageFileFormatPte @ 0x140360BD0 (MiDecommitHandlePageFileFormatPte.c)
- *     MiReservePageFileSpace @ 0x1403670E8 (MiReservePageFileSpace.c)
- *     MiAddToReservationCluster @ 0x140472460 (MiAddToReservationCluster.c)
+ *     MiAbandonPrivatePfn @ 0x1402ED8CC (MiAbandonPrivatePfn.c)
+ *     MiDecommitAddToList @ 0x140325550 (MiDecommitAddToList.c)
+ *     MiDecommitHandleTransitionPte @ 0x14033FE54 (MiDecommitHandleTransitionPte.c)
+ *     MiDecommitHandlePageFileFormatPte @ 0x140362970 (MiDecommitHandlePageFileFormatPte.c)
+ *     MiReservePageFileSpace @ 0x140368E88 (MiReservePageFileSpace.c)
+ *     MiAddToReservationCluster @ 0x14046BBE0 (MiAddToReservationCluster.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MI_IS_PTE_IN_WS_SWAP_SET(__int64 a1, __int64 *a2)

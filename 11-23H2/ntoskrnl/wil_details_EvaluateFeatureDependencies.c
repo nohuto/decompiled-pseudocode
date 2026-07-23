@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_EvaluateFeatureDependencies @ 0x140A122C0
+ * XREFs of wil_details_EvaluateFeatureDependencies @ 0x140A12570
  * Callers:
  *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x14067EE70 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x140374854 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x14080E99C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403749F4 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x14080EC6C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
  */
 
 unsigned int **wil_details_EvaluateFeatureDependencies()

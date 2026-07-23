@@ -25,35 +25,36 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall LdrpUnloadNode(__int64 a1)
+int __fastcall LdrpUnloadNode(__int64 a1)
 {
   struct _PEB *v1; // r14
-  __int64 result; // rax
+  _QWORD *v3; // rax
   void (__fastcall *v4)(_QWORD *); // rdi
   _QWORD *i; // rsi
-  __int64 v6; // rdx
-  __int64 **v7; // rcx
-  __int64 *v8; // rdi
-  __int64 v9; // rsi
-  _QWORD *v10; // r8
-  _QWORD **v11; // rdx
-  _QWORD *v12; // rax
-  _QWORD **v13; // rax
-  _QWORD *v14; // rdi
-  _QWORD *v15; // rsi
-  __int64 v16; // rdi
-  __int64 v17; // rdx
-  int v18; // [rsp+60h] [rbp+8h] BYREF
+  _QWORD *v6; // rbp
+  __int64 v7; // rdx
+  _QWORD **v8; // rcx
+  _QWORD *v9; // rdi
+  __int64 v10; // rsi
+  _QWORD *v11; // r8
+  _QWORD **v12; // rdx
+  _QWORD *v13; // rax
+  _QWORD **v14; // rax
+  _QWORD *v15; // rdi
+  _QWORD *v16; // rsi
+  __int64 v17; // rdi
+  __int64 v18; // rdx
+  int v20; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = NtCurrentPeb();
-  result = *(unsigned int *)(a1 + 56);
+  LODWORD(v3) = *(_DWORD *)(a1 + 56);
   v4 = 0LL;
-  v18 = 0;
-  if ( (_DWORD)result != -4 )
+  v20 = 0;
+  if ( (_DWORD)v3 != -4 )
   {
-    if ( (_DWORD)result == 7 )
+    if ( (_DWORD)v3 == 7 )
       goto LABEL_3;
-    if ( (_DWORD)result != 9 )
+    if ( (_DWORD)v3 != 9 )
       goto LABEL_13;
   }
   *(_DWORD *)(a1 + 56) = -1;
@@ -66,95 +67,90 @@ LABEL_3:
   RtlEnterCriticalSection(&LdrpDllNotificationLock);
   for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
   {
+    v6 = i - 20;
     if ( (*(_BYTE *)(i - 7) & 8) != 0 )
     {
       LdrpSendDllNotifications(i - 20, 2LL);
       if ( v4 )
         v4(i - 20);
-      SbUpdateSwitchContextBasedOnDll(i - 20, v6, 1LL);
+      SbUpdateSwitchContextBasedOnDll(i - 20, v7, 1LL);
       if ( (v1->NtGlobalFlag & 0x100) != 0 )
         AVrfDllUnloadNotification(i - 20);
     }
-    LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrsnap.c",
-      4078,
-      (int)"LdrpUnloadNode",
-      2,
-      "Unmapping DLL \"%wZ\"\n",
-      (_BYTE)i - 88);
-    LdrUnloadAlternateResourceModuleEx(*(i - 14), 0);
+    LdrpLogInternal("minkernel\\ldr\\ldrsnap.c", 4078LL, "LdrpUnloadNode", 2LL, "Unmapping DLL \"%wZ\"\n", v6 + 9);
+    LdrUnloadAlternateResourceModuleEx((PVOID)v6[6], 0);
   }
-  result = RtlLeaveCriticalSection(&LdrpDllNotificationLock);
+  LODWORD(v3) = RtlLeaveCriticalSection(&LdrpDllNotificationLock);
 LABEL_13:
   while ( 1 )
   {
-    v7 = *(__int64 ***)(a1 + 40);
-    if ( !v7 )
+    v8 = *(_QWORD ***)(a1 + 40);
+    if ( !v8 )
       break;
-    v8 = *v7;
-    if ( *v7 == (__int64 *)v7 )
+    v9 = *v8;
+    if ( *v8 == v8 )
     {
       *(_QWORD *)(a1 + 40) = 0LL;
     }
     else
     {
-      result = *v8;
-      *v7 = (__int64 *)*v8;
+      v3 = (_QWORD *)*v9;
+      *v8 = (_QWORD *)*v9;
     }
-    if ( !v8 )
+    if ( !v9 )
       break;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
-    v9 = v8[1];
-    v10 = v8 + 2;
-    v11 = *(_QWORD ***)(v9 + 48);
-    v12 = *v11;
-    if ( *v11 != v8 + 2 )
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+    v10 = v9[1];
+    v11 = v9 + 2;
+    v12 = *(_QWORD ***)(v10 + 48);
+    v13 = *v12;
+    if ( *v12 != v9 + 2 )
     {
       do
       {
-        v11 = (_QWORD **)v12;
-        v12 = (_QWORD *)*v12;
+        v12 = (_QWORD **)v13;
+        v13 = (_QWORD *)*v13;
       }
-      while ( v12 != v10 );
+      while ( v13 != v11 );
     }
-    *v11 = (_QWORD *)*v10;
-    if ( *(_QWORD **)(v9 + 48) == v10 )
+    *v12 = (_QWORD *)*v11;
+    if ( *(_QWORD **)(v10 + 48) == v11 )
     {
-      v13 = 0LL;
-      if ( v11 != v10 )
-        v13 = v11;
-      *(_QWORD *)(v9 + 48) = v13;
+      v14 = 0LL;
+      if ( v12 != v11 )
+        v14 = v12;
+      *(_QWORD *)(v10 + 48) = v14;
     }
-    LdrpDecrementNodeLoadCountLockHeld(v9, 0, &v18);
+    LdrpDecrementNodeLoadCountLockHeld(v10, 0, &v20);
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-    if ( v18 )
-      LdrpUnloadNode(v9);
-    result = RtlFreeHeap(LdrpHeap, 0LL, v8);
+    if ( v20 )
+      LdrpUnloadNode(v10);
+    LODWORD(v3) = RtlFreeHeap(LdrpHeap, 0, v9);
   }
-  v14 = *(_QWORD **)a1;
+  v15 = *(_QWORD **)a1;
   *(_DWORD *)(a1 + 56) = -2;
-  if ( v14 != (_QWORD *)a1 )
+  if ( v15 != (_QWORD *)a1 )
   {
     do
     {
-      v15 = (_QWORD *)*v14;
-      *((_DWORD *)v14 - 14) |= 2u;
-      v16 = (__int64)(v14 - 20);
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
-      LdrpRemoveDataTableEntry(v16);
-      if ( *(char *)(v16 + 104) < 0 )
+      v16 = (_QWORD *)*v15;
+      *((_DWORD *)v15 - 14) |= 2u;
+      v17 = (__int64)(v15 - 20);
+      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+      LdrpRemoveDataTableEntry(v17);
+      if ( *(char *)(v17 + 104) < 0 )
       {
-        RtlRbRemoveNode((unsigned __int64)&LdrpMappingInfoIndex, (unsigned __int64 *)(v16 + 224));
-        RtlRbRemoveNode((unsigned __int64)&LdrpModuleBaseAddressIndex, (unsigned __int64 *)(v16 + 200));
-        *(_DWORD *)(v16 + 64) = 0;
+        RtlRbRemoveNode(&LdrpMappingInfoIndex, (PRTL_BALANCED_NODE)(v17 + 224));
+        RtlRbRemoveNode(&LdrpModuleBaseAddressIndex, (PRTL_BALANCED_NODE)(v17 + 200));
+        *(_DWORD *)(v17 + 64) = 0;
       }
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
       if ( LdrpIsSecureProcess )
-        LdrpUnmapModule(v16, v17);
-      result = LdrpDereferenceModule(v16);
-      v14 = v15;
+        LdrpUnmapModule(v17, v18);
+      LODWORD(v3) = LdrpDereferenceModule((PVOID)v17);
+      v15 = v16;
     }
-    while ( v15 != (_QWORD *)a1 );
+    while ( v16 != (_QWORD *)a1 );
   }
-  return result;
+  return (int)v3;
 }

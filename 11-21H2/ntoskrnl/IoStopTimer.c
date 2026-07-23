@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopDisableTimer @ 0x1403DDF0C (IopDisableTimer.c)
+ *     sub_1403DDF0C @ 0x1403DDF0C (sub_1403DDF0C.c)
  */
 
 void __stdcall IoStopTimer(PDEVICE_OBJECT DeviceObject)
 {
-  IopDisableTimer(DeviceObject->Timer);
+  sub_1403DDF0C(DeviceObject->Timer);
 }

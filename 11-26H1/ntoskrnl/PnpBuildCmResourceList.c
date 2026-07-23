@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpBuildCmResourceList @ 0x140AF8B10
+ * XREFs of PnpBuildCmResourceList @ 0x140AFB1F0
  * Callers:
- *     IopAllocateBootResourcesInternal @ 0x1407A5F8C (IopAllocateBootResourcesInternal.c)
- *     PnpBuildCmResourceLists @ 0x1407B30F8 (PnpBuildCmResourceLists.c)
+ *     IopAllocateBootResourcesInternal @ 0x1407A8B3C (IopAllocateBootResourcesInternal.c)
+ *     PnpBuildCmResourceLists @ 0x1407B6158 (PnpBuildCmResourceLists.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopParentToRawTranslation @ 0x1407A2CD8 (IopParentToRawTranslation.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     IopWriteResourceList @ 0x140AF8FD4 (IopWriteResourceList.c)
- *     IopChildToRootTranslation @ 0x140AF91B4 (IopChildToRootTranslation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IopParentToRawTranslation @ 0x1407A5818 (IopParentToRawTranslation.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     IopWriteResourceList @ 0x140AFB6B4 (IopWriteResourceList.c)
+ *     IopChildToRootTranslation @ 0x140AFB894 (IopChildToRootTranslation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpBuildCmResourceList(__int64 a1, ULONG a2)
@@ -48,7 +48,7 @@ void __fastcall PnpBuildCmResourceList(__int64 a1, ULONG a2)
   int v28; // edi
   __int16 v29; // ax
   int v30; // eax
-  char *v31; // r14
+  __int64 v31; // r14
   HANDLE v32; // rsi
   int v33; // r14d
   int v34; // [rsp+48h] [rbp-C0h] BYREF
@@ -220,7 +220,7 @@ LABEL_25:
   }
   if ( Disposition )
   {
-    v31 = *(char **)v4;
+    v31 = *(_QWORD *)v4;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&KiSystemServiceTraceCallbackLock.Header.WaitListHead;
     *(_QWORD *)&ObjectAttributes.Length = 48LL;
     *(_QWORD *)&ObjectAttributes.Attributes = 576LL;

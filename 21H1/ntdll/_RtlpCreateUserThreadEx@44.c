@@ -14,67 +14,79 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlpCreateUserThreadEx(
-        int a1,
-        int a2,
+NTSTATUS __fastcall RtlpCreateUserThreadEx(
+        HANDLE ProcessHandle,
+        void *a2,
         int a3,
-        int a4,
-        int a5,
+        SIZE_T ZeroBits,
+        unsigned int a5,
         int a6,
-        int a7,
-        int a8,
-        void *a9,
-        HANDLE *a10,
-        _DWORD *a11)
+        NTSTATUS (__cdecl *a7)(PVOID),
+        void *a8,
+        HANDLE *a9,
+        _DWORD *a10)
 {
-  int v11; // eax
-  int result; // eax
-  _DWORD v13[6]; // [esp+10h] [ebp-54h] BYREF
-  int v14; // [esp+28h] [ebp-3Ch]
-  int v15; // [esp+2Ch] [ebp-38h] BYREF
-  int v16; // [esp+30h] [ebp-34h]
-  HANDLE Handle; // [esp+34h] [ebp-30h] BYREF
-  _DWORD v18[9]; // [esp+38h] [ebp-2Ch] BYREF
+  ULONG v10; // eax
+  NTSTATUS result; // eax
+  SIZE_T v12; // [esp+0h] [ebp-64h]
+  _PS_ATTRIBUTE_LIST *v13; // [esp+8h] [ebp-5Ch]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-54h] BYREF
+  PUSER_THREAD_START_ROUTINE StartRoutine; // [esp+28h] [ebp-3Ch]
+  int v16; // [esp+2Ch] [ebp-38h] BYREF
+  int v17; // [esp+30h] [ebp-34h]
+  HANDLE ThreadHandle; // [esp+34h] [ebp-30h] BYREF
+  _DWORD v19[9]; // [esp+38h] [ebp-2Ch] BYREF
 
-  v15 = 0;
   v16 = 0;
-  v14 = a8;
-  Handle = a9;
+  v17 = 0;
+  StartRoutine = a7;
+  ThreadHandle = a8;
   if ( (a3 & 0xFFFFFF88) != 0 )
     return -1073741811;
-  v11 = a3 & 1;
+  v10 = a3 & 1;
   if ( (a3 & 2) != 0 )
-    v11 |= 2u;
+    v10 |= 2u;
   if ( (a3 & 4) != 0 )
-    v11 |= 4u;
+    v10 |= 4u;
   if ( (a3 & 0x10) != 0 )
-    v11 |= 0x10u;
+    v10 |= 0x10u;
   if ( (a3 & 0x20) != 0 )
-    v11 |= 0x20u;
+    v10 |= 0x20u;
   if ( (a3 & 0x40) != 0 )
-    v11 |= 0x40u;
-  v13[0] = 24;
-  v13[1] = 0;
-  v13[2] = 0;
-  v13[5] = 0;
-  v18[4] = 0;
-  v18[3] = &v15;
-  v13[3] = 512;
-  v13[4] = a2;
-  v18[1] = 65539;
-  v18[2] = 8;
-  v18[0] = 20;
-  result = NtCreateThreadEx(&Handle, 0x1FFFFF, v13, a1, v14, Handle, v11, a4, a6, a5, v18);
+    v10 |= 0x40u;
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.ObjectName = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  v19[4] = 0;
+  v19[3] = &v16;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.SecurityDescriptor = a2;
+  v19[1] = 65539;
+  v19[2] = 8;
+  v19[0] = 20;
+  result = NtCreateThreadEx(
+             &ThreadHandle,
+             0x1FFFFFu,
+             &ObjectAttributes,
+             ProcessHandle,
+             StartRoutine,
+             ThreadHandle,
+             v10,
+             __PAIR64__(a5, ZeroBits),
+             __PAIR64__(v19, HIDWORD(ZeroBits)),
+             v12,
+             v13);
   if ( result >= 0 )
   {
-    if ( a10 )
-      *a10 = Handle;
+    if ( a9 )
+      *a9 = ThreadHandle;
     else
-      NtClose(Handle);
-    if ( a11 )
+      NtClose(ThreadHandle);
+    if ( a10 )
     {
-      *a11 = v15;
-      a11[1] = v16;
+      *a10 = v16;
+      a10[1] = v17;
     }
     return 0;
   }

@@ -3,8 +3,8 @@
  * Callers:
  *     HdlspProcessDumpCommand @ 0x140723978 (HdlspProcessDumpCommand.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     HdlspGetLine @ 0x140723450 (HdlspGetLine.c)
  *     HdlspPutString @ 0x140723C8C (HdlspPutString.c)
  */

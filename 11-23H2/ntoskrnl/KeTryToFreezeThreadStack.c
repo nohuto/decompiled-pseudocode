@@ -1,12 +1,12 @@
 /*
- * XREFs of KeTryToFreezeThreadStack @ 0x14056F0D8
+ * XREFs of KeTryToFreezeThreadStack @ 0x14056F618
  * Callers:
- *     MiSwapStackPage @ 0x140399F3C (MiSwapStackPage.c)
+ *     MiSwapStackPage @ 0x14039A11C (MiSwapStackPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiIsKernelStackSwappable @ 0x14057A280 (KiIsKernelStackSwappable.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiIsKernelStackSwappable @ 0x14057A770 (KiIsKernelStackSwappable.c)
  */
 
 char __fastcall KeTryToFreezeThreadStack(__int64 a1, _QWORD *a2)

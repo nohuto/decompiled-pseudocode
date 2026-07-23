@@ -1,8 +1,8 @@
 /*
- * XREFs of NtQueryDebugFilterState @ 0x1401264A0
+ * XREFs of NtQueryDebugFilterState @ 0x140126570
  * Callers:
- *     vDbgPrintExWithPrefixInternal @ 0x140126350 (vDbgPrintExWithPrefixInternal.c)
- *     DbgQueryDebugFilterState @ 0x1402EC9D0 (DbgQueryDebugFilterState.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x140126420 (vDbgPrintExWithPrefixInternal.c)
+ *     DbgQueryDebugFilterState @ 0x1402ECBC0 (DbgQueryDebugFilterState.c)
  * Callees:
  *     <none>
  */

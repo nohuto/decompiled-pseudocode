@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInitializeProcess @ 0x14046EE78
+ * XREFs of KeInitializeProcess @ 0x14046DD48
  * Callers:
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     KiSetIdealNodeProcessByGroup @ 0x14007D128 (KiSetIdealNodeProcessByGroup.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     VslCreateSecureProcess @ 0x140620670 (VslCreateSecureProcess.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x14007D1A8 (KiSetIdealNodeProcessByGroup.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     VslCreateSecureProcess @ 0x140620724 (VslCreateSecureProcess.c)
  */
 
 __int64 __fastcall KeInitializeProcess(__int64 a1, char a2, __int64 *a3, __int64 a4, __int64 a5, char a6)

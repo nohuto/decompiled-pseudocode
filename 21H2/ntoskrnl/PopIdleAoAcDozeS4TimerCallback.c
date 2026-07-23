@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIdleAoAcDozeS4TimerCallback @ 0x14057C150
+ * XREFs of PopIdleAoAcDozeS4TimerCallback @ 0x14057C390
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14026F788 (PopDeepSleepSetDisengageReason.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -20,7 +20,7 @@ void PopIdleAoAcDozeS4TimerCallback()
   bool v5; // zf
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-  byte_140C233A4 = 0;
+  byte_140C239A4 = 0;
   KxReleaseSpinLock(&PopIdleAoAcDozeS4Lock);
   if ( KiIrqlFlags )
   {
@@ -40,8 +40,8 @@ void PopIdleAoAcDozeS4TimerCallback()
     }
   }
   __writecr8(v0);
-  _m_prefetchw(&dword_140C233AC);
-  if ( !_InterlockedOr(&dword_140C233AC, 1u) )
+  _m_prefetchw(&dword_140C239AC);
+  if ( !_InterlockedOr(&dword_140C239AC, 1u) )
   {
     PopDeepSleepSetDisengageReason(4u);
     ExQueueWorkItem(&PopIdleAoAcDozeS4WorkItem, DelayedWorkQueue);

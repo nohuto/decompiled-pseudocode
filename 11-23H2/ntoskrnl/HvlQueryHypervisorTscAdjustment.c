@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlQueryHypervisorTscAdjustment @ 0x14053FA4C
+ * XREFs of HvlQueryHypervisorTscAdjustment @ 0x14054010C
  * Callers:
- *     PopSstDiagInitializeResumeTimer @ 0x140AAA664 (PopSstDiagInitializeResumeTimer.c)
+ *     PopSstDiagInitializeResumeTimer @ 0x140AAA4D4 (PopSstDiagInitializeResumeTimer.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 HvlQueryHypervisorTscAdjustment()

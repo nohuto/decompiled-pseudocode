@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtInvalidateRemappingTableEntries @ 0x1404E07BC
+ * XREFs of IvtInvalidateRemappingTableEntries @ 0x1404E09FC
  * Callers:
- *     IvtInvalidateRemappingTableEntry @ 0x1404E0810 (IvtInvalidateRemappingTableEntry.c)
- *     IvtUpdateRemappingDestination @ 0x1404E11A0 (IvtUpdateRemappingDestination.c)
- *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
+ *     IvtInvalidateRemappingTableEntry @ 0x1404E0A50 (IvtInvalidateRemappingTableEntry.c)
+ *     IvtUpdateRemappingDestination @ 0x1404E13E0 (IvtUpdateRemappingDestination.c)
+ *     IvtInitializeIommu @ 0x1409AA880 (IvtInitializeIommu.c)
  * Callees:
- *     IvtIommuSendCommand @ 0x1404E0830 (IvtIommuSendCommand.c)
- *     IvtIommuWaitCommand @ 0x1404E0A30 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x1404E0A70 (IvtIommuSendCommand.c)
+ *     IvtIommuWaitCommand @ 0x1404E0C70 (IvtIommuWaitCommand.c)
  */
 
 __int64 __fastcall IvtInvalidateRemappingTableEntries(__int64 a1, _DWORD *a2)

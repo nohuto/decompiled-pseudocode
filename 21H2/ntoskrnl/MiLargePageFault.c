@@ -1,22 +1,22 @@
 /*
- * XREFs of MiLargePageFault @ 0x140548AB4
+ * XREFs of MiLargePageFault @ 0x140548CF4
  * Callers:
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
- *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
+ *     MiInPagePageTable @ 0x140316B10 (MiInPagePageTable.c)
  * Callees:
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     MiCheckSystemNxFault @ 0x1402C77E8 (MiCheckSystemNxFault.c)
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     MiNoFaultFound @ 0x1403121C8 (MiNoFaultFound.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiCanGrantExecute @ 0x1405480D8 (MiCanGrantExecute.c)
- *     MiGetVirtualFaultPageInfo @ 0x14054876C (MiGetVirtualFaultPageInfo.c)
- *     MiValidVirtualizationFault @ 0x140548F5C (MiValidVirtualizationFault.c)
+ *     MiCheckSystemNxFault @ 0x140245F28 (MiCheckSystemNxFault.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     MiNoFaultFound @ 0x14031CF18 (MiNoFaultFound.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiCanGrantExecute @ 0x140548318 (MiCanGrantExecute.c)
+ *     MiGetVirtualFaultPageInfo @ 0x1405489AC (MiGetVirtualFaultPageInfo.c)
+ *     MiValidVirtualizationFault @ 0x14054919C (MiValidVirtualizationFault.c)
  */
 
 __int64 __fastcall MiLargePageFault(__int64 a1, unsigned __int64 a2)

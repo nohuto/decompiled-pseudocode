@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAddVaToProtectFlushList @ 0x14024F3A4
+ * XREFs of MiAddVaToProtectFlushList @ 0x140250D04
  * Callers:
- *     MiProtectNonPagedPool @ 0x14024F130 (MiProtectNonPagedPool.c)
- *     MiProtectPagedPool @ 0x1404B84A4 (MiProtectPagedPool.c)
+ *     MiProtectNonPagedPool @ 0x140250A90 (MiProtectNonPagedPool.c)
+ *     MiProtectPagedPool @ 0x1404B1CD4 (MiProtectPagedPool.c)
  * Callees:
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
  */
 
 __int64 __fastcall MiAddVaToProtectFlushList(int a1, __int64 a2, __int64 *a3)

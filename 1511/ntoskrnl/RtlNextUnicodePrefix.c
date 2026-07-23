@@ -14,7 +14,7 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlNextUnicodePrefix(PUNICODE_PREFIX_TABLE
   RTL_SPLAY_LINKS *v6; // rax
   _RTL_SPLAY_LINKS *i; // rcx
   _RTL_SPLAY_LINKS *v8; // rax
-  struct _RTL_SPLAY_LINKS *v9; // rcx
+  _RTL_SPLAY_LINKS *v9; // rcx
   PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // rax
   _RTL_SPLAY_LINKS *LeftChild; // rcx
 

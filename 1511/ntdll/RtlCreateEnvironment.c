@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlCreateEnvironment()
+NTSTATUS __cdecl RtlCreateEnvironment(BOOLEAN CloneCurrentEnvironment, PVOID *Environment)
 {
-  return RtlCreateEnvironmentEx(0LL);
+  return RtlCreateEnvironmentEx(0LL, Environment, CloneCurrentEnvironment == 0 ? 4 : 0);
 }

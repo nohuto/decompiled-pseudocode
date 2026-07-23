@@ -1,11 +1,11 @@
 /*
- * XREFs of IopQueryProcessorInitValues @ 0x140794008
+ * XREFs of IopQueryProcessorInitValues @ 0x140796B38
  * Callers:
- *     IoInitializeProcessor @ 0x140793D48 (IoInitializeProcessor.c)
- *     PspInitializeQuotaBlock @ 0x1407EFFF0 (PspInitializeQuotaBlock.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitializeProcessor @ 0x140796878 (IoInitializeProcessor.c)
+ *     PspInitializeQuotaBlock @ 0x1407F5B50 (PspInitializeQuotaBlock.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x1404E6E00 (MmIsThisAnNtAsSystem.c)
+ *     MmIsThisAnNtAsSystem @ 0x1404E02A0 (MmIsThisAnNtAsSystem.c)
  */
 
 __int64 __fastcall IopQueryProcessorInitValues(__int64 a1)
@@ -25,8 +25,8 @@ __int64 __fastcall IopQueryProcessorInitValues(__int64 a1)
   *(_WORD *)(a1 + 2) = v4;
   *(_DWORD *)(a1 + 12) = 280;
   *(_DWORD *)(a1 + 28) = (unsigned int)(IsThisAnNtAsSystem != 0 ? 0x10000 : 1536) >> 11;
-  *(_DWORD *)(a1 + 16) = 72 * LODWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) + 208;
-  result = HIDWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage);
+  *(_DWORD *)(a1 + 16) = 72 * HIDWORD(IopPerfIoTrackingLock.AffinityVersion) + 208;
+  result = LODWORD(IopPerfIoTrackingLock.AffinityVersion);
   *(_DWORD *)(a1 + 24) = 184;
   *(_DWORD *)(a1 + 20) = 72 * result + 208;
   return result;

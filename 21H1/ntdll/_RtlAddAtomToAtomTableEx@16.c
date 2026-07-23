@@ -14,7 +14,7 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __fastcall RtlAddAtomToAtomTableEx(int a1, _WORD *a2, unsigned __int16 *a3, int a4)
+int __fastcall RtlAddAtomToAtomTableEx(_RTL_SRWLOCK *a1, WCHAR *a2, USHORT *a3, int a4)
 {
   int v6; // ecx
   int v7; // ecx
@@ -22,77 +22,79 @@ int __fastcall RtlAddAtomToAtomTableEx(int a1, _WORD *a2, unsigned __int16 *a3, 
   int v9; // edx
   int AtomTableEntry; // eax
   int v11; // edi
-  size_t v12; // eax
-  unsigned __int16 v14; // ax
-  _WORD *v17; // [esp+1Ch] [ebp-30h] BYREF
-  int *v18; // [esp+20h] [ebp-2Ch] BYREF
-  int v19; // [esp+24h] [ebp-28h] BYREF
-  size_t Size; // [esp+28h] [ebp-24h] BYREF
-  int v21; // [esp+2Ch] [ebp-20h]
-  unsigned __int16 v22; // [esp+30h] [ebp-1Ch] BYREF
+  unsigned int v12; // eax
+  USHORT v14; // ax
+  size_t v15; // [esp-4h] [ebp-50h]
+  _WORD *v18; // [esp+1Ch] [ebp-30h] BYREF
+  _DWORD *v19; // [esp+20h] [ebp-2Ch] BYREF
+  int v20; // [esp+24h] [ebp-28h] BYREF
+  unsigned int Size; // [esp+28h] [ebp-24h] BYREF
+  int Size_4; // [esp+2Ch] [ebp-20h]
+  USHORT IntegerAtom; // [esp+30h] [ebp-1Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+34h] [ebp-18h]
 
   if ( (unsigned __int8)RtlpLockAtomTable(a1) )
   {
     ms_exc.registration.TryLevel = 0;
-    if ( (unsigned __int8)RtlGetIntegerAtom(a2, &v22) )
+    if ( RtlGetIntegerAtom(a2, &IntegerAtom) )
     {
-      v14 = v22;
-      if ( v22 >= 0xC000u )
+      v14 = IntegerAtom;
+      if ( IntegerAtom >= 0xC000u )
       {
         v14 = 0;
-        v22 = 0;
+        IntegerAtom = 0;
         v8 = -1073741811;
       }
       else
       {
         v8 = 0;
       }
-      v21 = v8;
+      Size_4 = v8;
       if ( a3 )
         *a3 = v14;
       goto LABEL_13;
     }
     if ( *a2 )
     {
-      v8 = RtlpHashStringToAtom(v6, &v18, &Size, &v17, &v19);
-      v21 = v8;
+      v8 = RtlpHashStringToAtom(v6, &v19, &Size, &v18, &v20);
+      Size_4 = v8;
       if ( v8 < 0 )
         goto LABEL_13;
-      v9 = v19;
-      if ( v19 )
+      v9 = v20;
+      if ( v20 )
       {
-        if ( *v17 == 0xFFFF )
-          v17[1] |= 1u;
+        if ( *v18 == 0xFFFF )
+          v18[1] |= 1u;
         else
-          ++*v17;
+          ++*v18;
         if ( a3 )
           *a3 = *(_WORD *)(v9 + 6);
         v8 = 0;
       }
       else
       {
-        if ( v18 )
+        if ( v19 )
         {
           v8 = -1073741801;
-          v21 = -1073741801;
+          Size_4 = -1073741801;
           AtomTableEntry = RtlpAllocateAtomTableEntry(v7);
           v11 = AtomTableEntry;
-          v19 = AtomTableEntry;
+          v20 = AtomTableEntry;
           if ( AtomTableEntry )
           {
-            memcpy((void *)(AtomTableEntry + 14), a2, Size);
+            LODWORD(v15) = Size;
+            memcpy((void *)(AtomTableEntry + 14), a2, v15);
             v12 = Size >> 1;
             *(_BYTE *)(v11 + 12) = Size >> 1;
             *(_WORD *)(v11 + 2 * (unsigned __int8)v12 + 14) = 0;
             if ( !(unsigned __int8)RtlpInsertStringAtom(a1, v11) )
             {
-              RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v11);
-              v8 = v21;
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v11);
+              v8 = Size_4;
               goto LABEL_13;
             }
             *(_WORD *)(v11 + 6) = *(_WORD *)(v11 + 4) | 0xC000;
-            *v18 = v11;
+            *v19 = v11;
             if ( a3 )
               *a3 = *(_WORD *)(v11 + 6);
             v8 = 0;
@@ -100,7 +102,7 @@ int __fastcall RtlAddAtomToAtomTableEx(int a1, _WORD *a2, unsigned __int16 *a3, 
           }
 LABEL_13:
           ms_exc.registration.TryLevel = -2;
-          RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 8));
+          RtlReleaseSRWLockExclusive(a1 + 2);
           return v8;
         }
         v8 = -1073741811;
@@ -111,7 +113,7 @@ LABEL_13:
       v8 = -1073741773;
     }
 LABEL_12:
-    v21 = v8;
+    Size_4 = v8;
     goto LABEL_13;
   }
   return -1073741811;

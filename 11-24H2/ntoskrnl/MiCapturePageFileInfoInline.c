@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCapturePageFileInfoInline @ 0x14039D800
+ * XREFs of MiCapturePageFileInfoInline @ 0x1402FAB00
  * Callers:
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiWriteCompletePfn @ 0x14039D574 (MiWriteCompletePfn.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiWriteCompletePfn @ 0x1402FA874 (MiWriteCompletePfn.c)
  * Callees:
  *     <none>
  */

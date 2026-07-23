@@ -159,7 +159,7 @@ LABEL_8:
   if ( !v7 && ($69CD3F157F9F39B6F7113F2231989901 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery();
   if ( !_interlockedbittestandreset(&FastMutex->Count, 0) )
-    ExpAcquireFastMutexContended((ULONG_PTR)FastMutex);
+    ExpAcquireFastMutexContended((ULONG_PTR)FastMutex, (PRTL_BALANCED_NODE)v2);
   if ( v2 )
     *(_BYTE *)(v2 + 26) |= 1u;
   FastMutex->Owner = CurrentThread;

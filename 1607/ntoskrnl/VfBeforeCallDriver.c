@@ -1,16 +1,16 @@
 /*
- * XREFs of VfBeforeCallDriver @ 0x14070BAA8
+ * XREFs of VfBeforeCallDriver @ 0x14070BAD8
  * Callers:
  *     IovCallDriver @ 0x140700AD4 (IovCallDriver.c)
  *     IovpCallDriverNoIrpTracking @ 0x1407011F8 (IovpCallDriverNoIrpTracking.c)
  *     IovpCallDriverWithStackBuffer @ 0x14070126C (IovpCallDriverWithStackBuffer.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400516C0 (KeAreInterruptsEnabled.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfBugCheckNoStackUsage @ 0x140223398 (VfBugCheckNoStackUsage.c)
- *     IovpCallDriver1 @ 0x14070A890 (IovpCallDriver1.c)
- *     VfGetPristineDispatchRoutine @ 0x14070B864 (VfGetPristineDispatchRoutine.c)
- *     ViIrpCheckKernelAddressForIrp @ 0x14070C24C (ViIrpCheckKernelAddressForIrp.c)
+ *     KeAreInterruptsEnabled @ 0x140051240 (KeAreInterruptsEnabled.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfBugCheckNoStackUsage @ 0x1402231C4 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriver1 @ 0x14070A8C0 (IovpCallDriver1.c)
+ *     VfGetPristineDispatchRoutine @ 0x14070B894 (VfGetPristineDispatchRoutine.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x14070C27C (ViIrpCheckKernelAddressForIrp.c)
  *     VfDeadlockBeforeCallDriver @ 0x140713C50 (VfDeadlockBeforeCallDriver.c)
  */
 

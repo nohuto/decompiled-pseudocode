@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogSessionPowerControlStart @ 0x140903D50
+ * XREFs of TtmiLogSessionPowerControlStart @ 0x140903EB0
  * Callers:
- *     TtmpSessionPowerControl @ 0x1408FFF84 (TtmpSessionPowerControl.c)
+ *     TtmpSessionPowerControl @ 0x1409000E4 (TtmpSessionPowerControl.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionPowerControlStart(char a1, int a2)
@@ -43,13 +43,7 @@ void __fastcall TtmiLogSessionPowerControlStart(char a1, int a2)
       v5 = a1;
       v13 = 1;
       v7 = a2;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140D2D8C8,
-        (unsigned __int8 *)&dword_14002B7AC,
-        0LL,
-        0LL,
-        5u,
-        &v8);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)byte_14002AF5D, 0LL, 0LL, 5u, &v8);
     }
   }
 }

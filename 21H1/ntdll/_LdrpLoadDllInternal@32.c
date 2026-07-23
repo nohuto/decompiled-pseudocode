@@ -26,25 +26,25 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-_DWORD *__thiscall LdrpLoadDllInternal(void *this, int a2, int a3, int a4, int a5, int *a6, int *a7)
+int *__thiscall LdrpLoadDllInternal(void *this, int a2, int a3, int a4, int a5, PVOID *a6, int *a7)
 {
-  _DWORD *result; // eax
+  int *result; // eax
   int *v8; // esi
   char v9; // al
   int v10; // eax
   int v11; // edx
-  int v12; // eax
+  PVOID v12; // eax
   int v13; // eax
   int v14; // eax
-  int v15; // [esp+20h] [ebp-20h] BYREF
+  PVOID BaseAddress; // [esp+20h] [ebp-20h] BYREF
   char v16; // [esp+27h] [ebp-19h]
   CPPEH_RECORD ms_exc; // [esp+28h] [ebp-18h]
 
   if ( (ShowSnaps & 9) != 0 )
     LdrpLogDbgPrint("minkernel\\ntdll\\ldrapi.c", 425, "LdrpLoadDllInternal", 3, "DLL name: %wZ\n", this);
   *a6 = 0;
-  v15 = 0;
-  result = (_DWORD *)LdrpFastpthReloadedDll(a5, a6);
+  BaseAddress = 0;
+  result = (int *)LdrpFastpthReloadedDll(a5, a6);
   if ( (int)result < 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
@@ -63,11 +63,11 @@ _DWORD *__thiscall LdrpLoadDllInternal(void *this, int a2, int a3, int a4, int a
     {
       LdrpDetectDetour();
       v8 = a7;
-      v10 = LdrpFindOrPrepareLoadingModule(a2, a3, a4, &v15, a7);
+      v10 = LdrpFindOrPrepareLoadingModule(a2, a3, a4, &BaseAddress, a7);
       if ( v10 == -1073741515 )
       {
         LOBYTE(v11) = 1;
-        LdrpProcessWork(*(_DWORD *)(v15 + 92), v11);
+        LdrpProcessWork(*((_DWORD *)BaseAddress + 23), v11);
       }
       else if ( v10 != -1073741267 && v10 < 0 )
       {
@@ -79,36 +79,36 @@ _DWORD *__thiscall LdrpLoadDllInternal(void *this, int a2, int a3, int a4, int a
       v8 = a7;
       *a7 = -1073741515;
     }
-    result = (_DWORD *)LdrpDrainWorkQueue(1);
-    if ( v15 )
+    result = (int *)LdrpDrainWorkQueue(1);
+    if ( BaseAddress )
     {
-      v12 = LdrpHandleReplacedModule();
+      v12 = (PVOID)LdrpHandleReplacedModule();
       *a6 = v12;
-      if ( v15 != v12 )
+      if ( BaseAddress != v12 )
       {
-        LdrpFreeReplacedModule();
-        v15 = *a6;
+        LdrpFreeReplacedModule(BaseAddress);
+        BaseAddress = *a6;
       }
-      if ( *(_DWORD *)(v15 + 92) )
-        LdrpCondenseGraph(*(_DWORD *)(v15 + 80));
+      if ( *((_DWORD *)BaseAddress + 23) )
+        LdrpCondenseGraph(*((_DWORD *)BaseAddress + 20));
       if ( *v8 >= 0 )
       {
-        v13 = LdrpPrepareModuleForExecution(v15, v8);
+        v13 = LdrpPrepareModuleForExecution(BaseAddress, v8);
         *v8 = v13;
         if ( v13 >= 0 )
         {
-          v14 = LdrpBuildForwarderLink(a5, v15);
+          v14 = LdrpBuildForwarderLink(a5, BaseAddress);
           *v8 = v14;
           if ( v14 >= 0 && !LdrInitState )
-            LdrpPinModule(v15);
+            LdrpPinModule(BaseAddress);
         }
       }
-      result = (_DWORD *)LdrpFreeLoadContextOfNode(*(_DWORD *)(v15 + 80), v8);
+      result = (int *)LdrpFreeLoadContextOfNode(*((_DWORD *)BaseAddress + 20), v8);
       if ( *v8 < 0 )
       {
         *a6 = 0;
-        LdrpDecrementModuleLoadCountEx(v15, 0);
-        result = LdrpDereferenceModule(v15);
+        LdrpDecrementModuleLoadCountEx(BaseAddress, 0);
+        result = LdrpDereferenceModule((char *)BaseAddress);
       }
     }
     else
@@ -117,7 +117,7 @@ _DWORD *__thiscall LdrpLoadDllInternal(void *this, int a2, int a3, int a4, int a
     }
     ms_exc.registration.TryLevel = -2;
     if ( !v16 )
-      result = (_DWORD *)LdrpDropLastInProgressCount();
+      result = (int *)LdrpDropLastInProgressCount();
   }
   else
   {
@@ -125,12 +125,6 @@ _DWORD *__thiscall LdrpLoadDllInternal(void *this, int a2, int a3, int a4, int a
     *a7 = (int)result;
   }
   if ( (ShowSnaps & 9) != 0 )
-    return (_DWORD *)LdrpLogDbgPrint(
-                       "minkernel\\ntdll\\ldrapi.c",
-                       655,
-                       "LdrpLoadDllInternal",
-                       4,
-                       "Status: 0x%08lx\n",
-                       *v8);
+    return (int *)LdrpLogDbgPrint("minkernel\\ntdll\\ldrapi.c", 655, "LdrpLoadDllInternal", 4, "Status: 0x%08lx\n", *v8);
   return result;
 }

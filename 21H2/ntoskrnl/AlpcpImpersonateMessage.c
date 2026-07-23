@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpImpersonateMessage @ 0x1405E9BE0
+ * XREFs of AlpcpImpersonateMessage @ 0x1406D9340
  * Callers:
- *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1406D9170 (NtAlpcImpersonateClientOfPort.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpReferenceConnectedPort @ 0x1405E9F00 (AlpcpReferenceConnectedPort.c)
- *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
- *     SeCreateClientSecurity @ 0x14065DD70 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityEx @ 0x14065DF60 (SeCreateClientSecurityEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsImpersonateClient @ 0x14064FCC0 (PsImpersonateClient.c)
+ *     SeCreateClientSecurity @ 0x140652B90 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x140652D80 (SeCreateClientSecurityEx.c)
+ *     AlpcpReferenceConnectedPort @ 0x1406D9660 (AlpcpReferenceConnectedPort.c)
  */
 
 __int64 __fastcall AlpcpImpersonateMessage(__int64 a1, __int64 a2, int a3, int a4, SECURITY_IMPERSONATION_LEVEL a5)
@@ -25,7 +25,7 @@ __int64 __fastcall AlpcpImpersonateMessage(__int64 a1, __int64 a2, int a3, int a
   _DWORD *v13; // rax
   struct _KTHREAD *v14; // rcx
   struct _SECURITY_QUALITY_OF_SERVICE *v15; // rdx
-  NTSTATUS v16; // eax
+  int ClientSecurity; // eax
   unsigned int v17; // edi
   BOOLEAN v18; // dh
   struct _DMA_ADAPTER *ClientToken; // rcx
@@ -69,11 +69,11 @@ __int64 __fastcall AlpcpImpersonateMessage(__int64 a1, __int64 a2, int a3, int a
           }
           v15 = (struct _SECURITY_QUALITY_OF_SERVICE *)(v13 + 65);
           if ( a3 )
-            v16 = SeCreateClientSecurityEx(v14, v15, 0LL, &ClientContext);
+            ClientSecurity = SeCreateClientSecurityEx((__int64)v14, (int)v15, 0, (__int64)&ClientContext);
           else
-            v16 = SeCreateClientSecurity(v14, v15, 0, &ClientContext);
-          v17 = v16;
-          if ( v16 < 0 )
+            ClientSecurity = SeCreateClientSecurity(v14, v15, 0, &ClientContext);
+          v17 = ClientSecurity;
+          if ( ClientSecurity < 0 )
             goto LABEL_20;
           p_ClientContext = &ClientContext;
           v8 = 1;

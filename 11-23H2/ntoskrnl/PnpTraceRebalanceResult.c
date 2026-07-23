@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpTraceRebalanceResult @ 0x14096BF4C
+ * XREFs of PnpTraceRebalanceResult @ 0x14096C14C
  * Callers:
- *     PnpRebalance @ 0x14096E8B8 (PnpRebalance.c)
+ *     PnpRebalance @ 0x14096EAB8 (PnpRebalance.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer @ 0x140564668 (McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer.c)
- *     McTemplateK0zzqqzttquxt_EtwWriteTransfer @ 0x140564880 (McTemplateK0zzqqzttquxt_EtwWriteTransfer.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer @ 0x140564D28 (McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer.c)
+ *     McTemplateK0zzqqzttquxt_EtwWriteTransfer @ 0x140564F40 (McTemplateK0zzqqzttquxt_EtwWriteTransfer.c)
  */
 
 char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
@@ -174,7 +174,7 @@ char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
       v59 = 1LL;
       LOBYTE(v8) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C03918,
-                     (unsigned __int8 *)&byte_14002D02F,
+                     (unsigned __int8 *)&byte_14002D117,
                      0LL,
                      0LL,
                      0x12u,

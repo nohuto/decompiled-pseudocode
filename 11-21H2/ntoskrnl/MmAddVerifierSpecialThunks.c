@@ -3,18 +3,18 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
- *     MiLookupDataTableEntry @ 0x1402FDA80 (MiLookupDataTableEntry.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     VfThunkAddSpecialDriverThunks @ 0x140A93398 (VfThunkAddSpecialDriverThunks.c)
+ *     sub_1402DA4B0 @ 0x1402DA4B0 (sub_1402DA4B0.c)
+ *     sub_1402FDA80 @ 0x1402FDA80 (sub_1402FDA80.c)
+ *     sub_1406F5AF0 @ 0x1406F5AF0 (sub_1406F5AF0.c)
+ *     sub_1406F5B50 @ 0x1406F5B50 (sub_1406F5B50.c)
+ *     sub_140A93398 @ 0x140A93398 (sub_140A93398.c)
  */
 
 NTSTATUS __stdcall MmAddVerifierSpecialThunks(ULONG_PTR EntryRoutine, PVOID ThunkBuffer, ULONG ThunkBufferSize)
 {
   int v6; // ebx
   ULONG v7; // edi
-  struct _KTHREAD *Lock; // rsi
+  struct _KTHREAD *v9; // rsi
   _QWORD *v10; // rax
   _QWORD *v11; // r9
   unsigned __int64 v12; // rdx
@@ -23,17 +23,17 @@ NTSTATUS __stdcall MmAddVerifierSpecialThunks(ULONG_PTR EntryRoutine, PVOID Thun
   NTSTATUS v15; // ebx
   unsigned __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  if ( (MiFlags & 1) == 0 )
+  if ( (dword_140D06880 & 1) == 0 )
     return -1073741637;
   v6 = 0;
-  if ( !(unsigned int)VfIsVerifierEnabled() || (VfRuleClasses & 0xFFA9F6E6) == 0 && (VfRuleClasses & 0x200000000LL) == 0 )
+  if ( !(unsigned int)sub_1402DA4B0() || (qword_140D01450 & 0xFFA9F6E6) == 0 && (qword_140D01450 & 0x200000000LL) == 0 )
     return -1073741637;
   v7 = ThunkBufferSize >> 4;
   if ( !(ThunkBufferSize >> 4) )
     return -1073741583;
-  VfNumberOfClassDriverThunks += v7;
-  Lock = MmAcquireLoadLock();
-  v10 = MiLookupDataTableEntry(EntryRoutine, 0);
+  dword_140C1AA74 += v7;
+  v9 = sub_1406F5B50();
+  v10 = sub_1402FDA80(EntryRoutine, 0);
   v11 = v10;
   if ( v10 && (v12 = v10[6], retaddr >= v12) && (v13 = v12 + *((unsigned int *)v10 + 16), retaddr < v13) )
   {
@@ -43,7 +43,7 @@ NTSTATUS __stdcall MmAddVerifierSpecialThunks(ULONG_PTR EntryRoutine, PVOID Thun
       v14 += 2;
       if ( ++v6 >= v7 )
       {
-        v15 = VfThunkAddSpecialDriverThunks(EntryRoutine, ThunkBuffer, ThunkBufferSize, v11);
+        v15 = sub_140A93398(EntryRoutine, ThunkBuffer, ThunkBufferSize, v11);
         goto LABEL_17;
       }
     }
@@ -54,6 +54,6 @@ NTSTATUS __stdcall MmAddVerifierSpecialThunks(ULONG_PTR EntryRoutine, PVOID Thun
     v15 = -1073741585;
   }
 LABEL_17:
-  MmReleaseLoadLock((__int64)Lock);
+  sub_1406F5AF0((__int64)v9);
   return v15;
 }

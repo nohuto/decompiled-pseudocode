@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpParseFastCache @ 0x1406AF56C
+ * XREFs of ExpParseFastCache @ 0x1406AF6A4
  * Callers:
- *     sub_1406AF038 @ 0x1406AF038 (sub_1406AF038.c)
- *     ExpParseFastCacheHelper @ 0x1406AF5FC (ExpParseFastCacheHelper.c)
+ *     sub_1406AF170 @ 0x1406AF170 (sub_1406AF170.c)
+ *     ExpParseFastCacheHelper @ 0x1406AF734 (ExpParseFastCacheHelper.c)
  *     sub_1407D22C0 @ 0x1407D22C0 (sub_1407D22C0.c)
  * Callees:
  *     <none>

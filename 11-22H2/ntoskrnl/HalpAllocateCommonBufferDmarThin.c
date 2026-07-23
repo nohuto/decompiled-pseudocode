@@ -25,10 +25,10 @@ __int64 __fastcall HalpAllocateCommonBufferDmarThin(
         MEMORY_CACHING_TYPE *a6,
         unsigned int a7,
         _QWORD *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
   SIZE_T v9; // r14
-  PVOID v11; // rbp
+  _RTL_BALANCED_NODE *v11; // rbp
   struct _MDL *v12; // rsi
   int CommonBufferEntry; // edi
   __int64 v14; // rax
@@ -75,7 +75,8 @@ __int64 __fastcall HalpAllocateCommonBufferDmarThin(
                                        Flags,
                                        0LL);
       v12 = PagesForMdl;
-      if ( PagesForMdl && (v11 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, CacheType, 0LL, 0, 0x40000010u)) != 0LL )
+      if ( PagesForMdl
+        && (v11 = (_RTL_BALANCED_NODE *)MmMapLockedPagesSpecifyCache(PagesForMdl, 0, CacheType, 0LL, 0, 0x40000010u)) != 0LL )
       {
         LODWORD(v21) = 0;
         v19 = BugCheckParameter3[5];
@@ -86,12 +87,7 @@ __int64 __fastcall HalpAllocateCommonBufferDmarThin(
                               &v21);
         if ( CommonBufferEntry >= 0 )
         {
-          CommonBufferEntry = HalpAllocateCommonBufferEntry(
-                                (__int64)v12,
-                                (unsigned __int64)v11,
-                                0LL,
-                                (__int64)BugCheckParameter3,
-                                1);
+          CommonBufferEntry = HalpAllocateCommonBufferEntry((__int64)v12, v11, 0LL, (__int64)BugCheckParameter3, 1);
           if ( CommonBufferEntry >= 0 )
           {
             *a8 = 0LL;

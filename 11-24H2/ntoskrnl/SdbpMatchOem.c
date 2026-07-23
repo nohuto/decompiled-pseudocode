@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpMatchOem @ 0x140805434
+ * XREFs of SdbpMatchOem @ 0x140805B74
  * Callers:
- *     SdbpCheckKObject @ 0x140959920 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x1409413E0 (SdbpCheckKObject.c)
  * Callees:
- *     SdbpMatchDeviceDWORD @ 0x140805338 (SdbpMatchDeviceDWORD.c)
- *     SdbpMatchDeviceString @ 0x1408053C4 (SdbpMatchDeviceString.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
+ *     SdbpMatchDeviceDWORD @ 0x140805A78 (SdbpMatchDeviceDWORD.c)
+ *     SdbpMatchDeviceString @ 0x140805B04 (SdbpMatchDeviceString.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpMatchOem(__int64 a1, __int64 a2, __int64 a3)

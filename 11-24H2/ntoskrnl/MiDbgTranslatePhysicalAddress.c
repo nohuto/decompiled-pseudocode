@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDbgTranslatePhysicalAddress @ 0x14067F1F0
+ * XREFs of MiDbgTranslatePhysicalAddress @ 0x1406803F0
  * Callers:
- *     MiDbgCopyMemory @ 0x14067E4A8 (MiDbgCopyMemory.c)
- *     MiDbgPteWriteInProgress @ 0x14067EFB8 (MiDbgPteWriteInProgress.c)
+ *     MiDbgCopyMemory @ 0x14067F6A8 (MiDbgCopyMemory.c)
+ *     MiDbgPteWriteInProgress @ 0x1406801B8 (MiDbgPteWriteInProgress.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x140313770 (MiMakeProtectionPfnCompatible.c)
- *     MiCheckPhysicalAddressRange @ 0x1403952D0 (MiCheckPhysicalAddressRange.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeFlushSingleCurrentTb @ 0x1405BC8EC (KeFlushSingleCurrentTb.c)
- *     KeFlushSingleTb @ 0x1405BCAD4 (KeFlushSingleTb.c)
- *     MiFreezeIoPfnNode @ 0x140675EAC (MiFreezeIoPfnNode.c)
- *     MiDbgPatchIdentity @ 0x14067EF00 (MiDbgPatchIdentity.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x14067F588 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1403F26B0 (MiMakeProtectionPfnCompatible.c)
+ *     MiCheckPhysicalAddressRange @ 0x1403F45B8 (MiCheckPhysicalAddressRange.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeFlushSingleCurrentTb @ 0x1405B9F1C (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1405BA104 (KeFlushSingleTb.c)
+ *     MiFreezeIoPfnNode @ 0x14067707C (MiFreezeIoPfnNode.c)
+ *     MiDbgPatchIdentity @ 0x140680100 (MiDbgPatchIdentity.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140680788 (MiDbgUnTranslatePhysicalAddress.c)
  */
 
 unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, int a2, int *a3)
@@ -49,12 +49,12 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, i
   unsigned __int64 v33; // [rsp+20h] [rbp-48h]
   unsigned int v34; // [rsp+78h] [rbp+10h] BYREF
 
-  v3 = qword_140E301D8;
+  v3 = qword_140E30318;
   v5 = a2 & 4;
   v6 = a2;
   v7 = a1;
   if ( (a2 & 4) != 0 )
-    v3 = qword_140E301D0;
+    v3 = qword_140E30310;
   if ( !v3 || !(unsigned int)MiCheckPhysicalAddressRange(a1, 1LL) )
     return 0LL;
   v10 = a3 + 10;
@@ -84,7 +84,7 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, i
     }
   }
   *((_BYTE *)a3 + 4) = CurrentIrql;
-  if ( v11 <= qword_140E2DBE0 )
+  if ( v11 <= qword_140E2DD20 )
   {
     v16 = 6 * v11;
     if ( ((*(_QWORD *)(8 * v16 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
@@ -133,7 +133,7 @@ LABEL_23:
         }
         if ( (v6 & 0x41) != 0 || (KiBugCheckActive & 3) == 0 )
           return 0LL;
-        ++dword_140E301E0;
+        ++dword_140E30320;
       }
       *a3 = v9;
       goto LABEL_23;
@@ -159,12 +159,12 @@ LABEL_23:
     v24 = (*(_DWORD *)(*(_QWORD *)v22
                      + 4
                      * ((unsigned __int64)(2
-                                         * (((unsigned int)v33 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2DB38
+                                         * (((unsigned int)v33 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2DC78
                                                                                        - 12))
                                                                 - 1))
                                           - *(_DWORD *)(*(_QWORD *)v22 + 24LL))) >> 5)
                      + 44) >> ((2
-                              * ((v33 & ((1LL << ((unsigned __int8)dword_140E2DB38 - 12)) - 1))
+                              * ((v33 & ((1LL << ((unsigned __int8)dword_140E2DC78 - 12)) - 1))
                                - *(_BYTE *)(*(_QWORD *)v22 + 24LL))) & 0x1F)) & 3;
   if ( v24 == 3 )
   {
@@ -229,11 +229,11 @@ LABEL_70:
     }
   }
   if ( v24 == 3 )
-    ++dword_140E301E0;
+    ++dword_140E30320;
 LABEL_63:
   ValidPte = MiMakeValidPte(v3, v21, v14 | 0xA0000000);
   if ( (v6 & 0x41) != 0 )
-    byte_140E301C8 = 1;
+    byte_140E30308 = 1;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v3, ValidPte, 0LL) )
     goto LABEL_70;
   v31 = *a3;

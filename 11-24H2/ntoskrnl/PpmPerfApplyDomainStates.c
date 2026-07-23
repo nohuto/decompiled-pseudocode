@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfApplyDomainStates @ 0x1403B2C20
+ * XREFs of PpmPerfApplyDomainStates @ 0x1403A1430
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfApplyDomainState @ 0x1403B2CE0 (PpmPerfApplyDomainState.c)
- *     KeIsSubsetAffinityEx @ 0x1403B34F0 (KeIsSubsetAffinityEx.c)
+ *     PpmPerfApplyDomainState @ 0x1403A14F0 (PpmPerfApplyDomainState.c)
+ *     KeIsSubsetAffinityEx @ 0x1403A1D00 (KeIsSubsetAffinityEx.c)
  */
 
 char PpmPerfApplyDomainStates()

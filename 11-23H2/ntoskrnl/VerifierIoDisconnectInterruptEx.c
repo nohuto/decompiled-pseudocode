@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoDisconnectInterruptEx @ 0x140AE4970
+ * XREFs of VerifierIoDisconnectInterruptEx @ 0x140AE4960
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

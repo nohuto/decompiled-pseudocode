@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_VhdBootAttachNullTerminate__private_IsEnabledDeviceUsageNoInline @ 0x14071EA90
+ * XREFs of Feature_VhdBootAttachNullTerminate__private_IsEnabledDeviceUsageNoInline @ 0x140723720
  * Callers:
- *     VhdiAutoAttachOneVhd @ 0x1408A614C (VhdiAutoAttachOneVhd.c)
- *     VhdiMountVhdFile @ 0x1408A63B0 (VhdiMountVhdFile.c)
- *     VhdAutoAttachVirtualDisks @ 0x140D02604 (VhdAutoAttachVirtualDisks.c)
- *     VhdInitialize @ 0x140D02894 (VhdInitialize.c)
+ *     VhdiAutoAttachOneVhd @ 0x1408AC5BC (VhdiAutoAttachOneVhd.c)
+ *     VhdiMountVhdFile @ 0x1408AC820 (VhdiMountVhdFile.c)
+ *     VhdAutoAttachVirtualDisks @ 0x140D089A4 (VhdAutoAttachVirtualDisks.c)
+ *     VhdInitialize @ 0x140D08C34 (VhdInitialize.c)
  * Callees:
- *     Feature_VhdBootAttachNullTerminate__private_IsEnabledFallback @ 0x14071EACC (Feature_VhdBootAttachNullTerminate__private_IsEnabledFallback.c)
+ *     Feature_VhdBootAttachNullTerminate__private_IsEnabledFallback @ 0x14072375C (Feature_VhdBootAttachNullTerminate__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_VhdBootAttachNullTerminate__private_IsEnabledDeviceUsageNoInline()

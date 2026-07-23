@@ -1,19 +1,19 @@
 /*
- * XREFs of WheaReportHwError @ 0x14031FD20
+ * XREFs of WheaReportHwError @ 0x14031FF10
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     WheapAddToDumpFile @ 0x140320048 (WheapAddToDumpFile.c)
- *     WheapAllocErrorRecord @ 0x140320088 (WheapAllocErrorRecord.c)
- *     WheapApplyThresholdChecks @ 0x14032011C (WheapApplyThresholdChecks.c)
- *     WheapAttemptErrorRecovery @ 0x140320218 (WheapAttemptErrorRecovery.c)
- *     WheapCompressErrorRecord @ 0x1403202E4 (WheapCompressErrorRecord.c)
- *     WheapFreeErrorRecord @ 0x140320420 (WheapFreeErrorRecord.c)
- *     WheapGetErrorSource @ 0x140320454 (WheapGetErrorSource.c)
- *     WheapGenerateETWEvents @ 0x140320F88 (WheapGenerateETWEvents.c)
- *     WheapWorkQueueAddItem @ 0x140321184 (WheapWorkQueueAddItem.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     WheapAddToDumpFile @ 0x140320238 (WheapAddToDumpFile.c)
+ *     WheapAllocErrorRecord @ 0x140320278 (WheapAllocErrorRecord.c)
+ *     WheapApplyThresholdChecks @ 0x14032030C (WheapApplyThresholdChecks.c)
+ *     WheapAttemptErrorRecovery @ 0x140320408 (WheapAttemptErrorRecovery.c)
+ *     WheapCompressErrorRecord @ 0x1403204D4 (WheapCompressErrorRecord.c)
+ *     WheapFreeErrorRecord @ 0x140320610 (WheapFreeErrorRecord.c)
+ *     WheapGetErrorSource @ 0x140320644 (WheapGetErrorSource.c)
+ *     WheapGenerateETWEvents @ 0x140321178 (WheapGenerateETWEvents.c)
+ *     WheapWorkQueueAddItem @ 0x140321374 (WheapWorkQueueAddItem.c)
  */
 
 __int64 __fastcall WheaReportHwError(__int64 a1)
@@ -69,7 +69,7 @@ __int64 __fastcall WheaReportHwError(__int64 a1)
   v14 = (unsigned int)(v17 - 40);
   *(_DWORD *)(v11 + 24) ^= (*(_DWORD *)(v11 + 24) ^ (*(_DWORD *)(a1 + 12) >> 2)) & 4;
   *(_DWORD *)(v11 + 24) ^= ((unsigned __int8)*(_DWORD *)(v11 + 24) ^ (unsigned __int8)(*(_DWORD *)(a1 + 12) >> 2)) & 8;
-  v15 = (*((__int64 (__fastcall **)(__int64, __int64, __int64, __int64, _QWORD))&unk_1404DC0C0 + 6 * *(int *)(v9 + 40)))(
+  v15 = (*((__int64 (__fastcall **)(__int64, __int64, __int64, __int64, _QWORD))&unk_1404DD180 + 6 * *(int *)(v9 + 40)))(
           v9 + 89,
           a1,
           v11 + 40,

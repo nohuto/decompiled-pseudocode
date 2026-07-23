@@ -9,11 +9,11 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlpGetTimeZoneInfoHandle(char a1, const unsigned __int16 **a2)
+NTSTATUS __fastcall RtlpGetTimeZoneInfoHandle(char a1, HANDLE *a2)
 {
-  int result; // eax
-  int v5; // [esp+Ch] [ebp-214h] BYREF
-  unsigned __int16 v6[262]; // [esp+10h] [ebp-210h] BYREF
+  NTSTATUS result; // eax
+  ULONG BufferLengthOut; // [esp+Ch] [ebp-214h] BYREF
+  WCHAR TargetPath[262]; // [esp+10h] [ebp-210h] BYREF
 
   if ( dword_4B3A6650 != 2 )
   {
@@ -21,14 +21,14 @@ int __fastcall RtlpGetTimeZoneInfoHandle(char a1, const unsigned __int16 **a2)
                L"TimeZoneInformationSettings",
                L"TargetNtPath",
                0,
-               0,
-               v6,
+               LocationTypeRegistry,
+               TargetPath,
                0x208u,
-               (size_t *)&v5);
+               &BufferLengthOut);
     if ( result >= 0 )
     {
       dword_4B3A6650 = 1;
-      result = RtlpGetRegistryHandle(0, v6, a1, a2);
+      result = RtlpGetRegistryHandle(0, TargetPath, a1, a2);
       if ( result != -1073741772 )
         return result;
     }
@@ -39,5 +39,5 @@ int __fastcall RtlpGetTimeZoneInfoHandle(char a1, const unsigned __int16 **a2)
       dword_4B3A6650 = 2;
     }
   }
-  return RtlpGetRegistryHandle(2, L"TimeZoneInformation", a1, a2);
+  return RtlpGetRegistryHandle(2, (const WCHAR *)L"TimeZoneInformation", a1, a2);
 }

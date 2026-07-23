@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerEtwEventEnabled @ 0x140220B30
+ * XREFs of KiIntSteerEtwEventEnabled @ 0x1402C5430
  * Callers:
- *     KeIntSteerPeriodic @ 0x140229480 (KeIntSteerPeriodic.c)
- *     KiIntSteerLogState @ 0x140377FB4 (KiIntSteerLogState.c)
- *     KiIntSteerLogStatus @ 0x14052281C (KiIntSteerLogStatus.c)
+ *     KeIntSteerPeriodic @ 0x1402CDD80 (KeIntSteerPeriodic.c)
+ *     KiIntSteerLogState @ 0x140377B04 (KiIntSteerLogState.c)
+ *     KiIntSteerLogStatus @ 0x140522A5C (KiIntSteerLogStatus.c)
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x140220B80 (EtwpLevelKeywordEnabled.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402C5480 (EtwpLevelKeywordEnabled.c)
  */
 
 bool __fastcall KiIntSteerEtwEventEnabled(__int64 a1)

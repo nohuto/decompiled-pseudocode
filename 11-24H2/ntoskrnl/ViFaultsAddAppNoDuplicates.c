@@ -1,23 +1,23 @@
 /*
- * XREFs of ViFaultsAddAppNoDuplicates @ 0x140B969F8
+ * XREFs of ViFaultsAddAppNoDuplicates @ 0x140B989F8
  * Callers:
- *     VfFaultsAddAllApps @ 0x140B961E0 (VfFaultsAddAllApps.c)
+ *     VfFaultsAddAllApps @ 0x140B981E0 (VfFaultsAddAllApps.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlUpcaseUnicodeString @ 0x140962470 (RtlUpcaseUnicodeString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViFaultsIsAppTarget @ 0x140B96CF0 (ViFaultsIsAppTarget.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlUpcaseUnicodeString @ 0x140949F30 (RtlUpcaseUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViFaultsIsAppTarget @ 0x140B98CF0 (ViFaultsIsAppTarget.c)
  */
 
 __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
 {
   size_t v2; // rdi
   unsigned int v4; // ebp
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   UNICODE_STRING *v6; // rsi
   KIRQL v7; // bl
   UNICODE_STRING **v8; // rax
@@ -39,13 +39,13 @@ __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
     }
     else
     {
-      v8 = (UNICODE_STRING **)qword_140F04098;
-      if ( *(PVOID **)qword_140F04098 != &ViFaultApplicationsList )
+      v8 = (UNICODE_STRING **)qword_140F04418;
+      if ( *(PVOID **)qword_140F04418 != &ViFaultApplicationsList )
         __fastfail(3u);
       *(_QWORD *)&v6->Length = &ViFaultApplicationsList;
       v6->Buffer = (wchar_t *)v8;
       *v8 = v6;
-      qword_140F04098 = (__int64)v6;
+      qword_140F04418 = (__int64)v6;
     }
     KeReleaseSpinLock(&ViFaultInjectionLock, v7);
   }

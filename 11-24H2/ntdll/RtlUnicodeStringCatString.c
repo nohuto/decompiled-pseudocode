@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCatString @ 0x18015E418
+ * XREFs of RtlUnicodeStringCatString @ 0x18015C7D8
  * Callers:
- *     RtlpEnsureTailingSlashAndAddToList @ 0x18015E4D4 (RtlpEnsureTailingSlashAndAddToList.c)
+ *     RtlpEnsureTailingSlashAndAddToList @ 0x18015C894 (RtlpEnsureTailingSlashAndAddToList.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x1800DC300 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1800D74C0 (RtlUnicodeStringValidateDestWorker.c)
  */
 
 __int64 __fastcall RtlUnicodeStringCatString(_WORD *a1)

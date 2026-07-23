@@ -1,7 +1,7 @@
 /*
  * XREFs of MmAreMdlPagesCached @ 0x140384950
  * Callers:
- *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x140391D3C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
+ *     sub_140391D3C @ 0x140391D3C (sub_140391D3C.c)
  * Callees:
  *     <none>
  */

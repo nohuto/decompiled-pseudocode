@@ -1,17 +1,17 @@
 /*
- * XREFs of NtImpersonateClientOfPort @ 0x1408C1FE0
+ * XREFs of NtImpersonateClientOfPort @ 0x1408C2140
  * Callers:
  *     <none>
  * Callees:
- *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1406D9170 (NtAlpcImpersonateClientOfPort.c)
  */
 
-__int64 __fastcall NtImpersonateClientOfPort(void *a1, __int64 a2)
+NTSTATUS __cdecl NtImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = NtAlpcImpersonateClientOfPort(a1, a2, 0LL);
-  if ( (_DWORD)result == -1073740030 )
-    return 3221226015LL;
+  result = NtAlpcImpersonateClientOfPort(PortHandle, Message, 0LL);
+  if ( result == -1073740030 )
+    return -1073741281;
   return result;
 }

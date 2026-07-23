@@ -1,9 +1,9 @@
 /*
- * XREFs of KiVerifyXcptFinally @ 0x140A668DC
+ * XREFs of KiVerifyXcptFinally @ 0x140A678DC
  * Callers:
- *     KiVerifyXcpt2 @ 0x140A661DC (KiVerifyXcpt2.c)
+ *     KiVerifyXcpt2 @ 0x140A671DC (KiVerifyXcpt2.c)
  * Callees:
- *     _local_unwind @ 0x1403D1B90 (_local_unwind.c)
+ *     _local_unwind @ 0x1403D1D00 (_local_unwind.c)
  */
 
 __int64 __fastcall KiVerifyXcptFinally(_DWORD **a1)

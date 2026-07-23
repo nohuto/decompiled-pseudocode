@@ -8,9 +8,9 @@
 
 void __stdcall RtlFreeOemString(POEM_STRING OemString)
 {
-  char *Buffer; // rcx
+  _OBJECT_BOUNDARY_DESCRIPTOR *Buffer; // rcx
 
-  Buffer = OemString->Buffer;
+  Buffer = (_OBJECT_BOUNDARY_DESCRIPTOR *)OemString->Buffer;
   if ( Buffer )
-    RtlDeleteBoundaryDescriptor((__int64)Buffer);
+    RtlDeleteBoundaryDescriptor(Buffer);
 }

@@ -28,7 +28,7 @@ char __fastcall EtwTraceAdminlessAccessFailure(int a1, __int64 a2, int a3, char 
   int v19; // [rsp+48h] [rbp-C0h] BYREF
   int v20; // [rsp+4Ch] [rbp-BCh] BYREF
   __int64 v21; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v22[3]; // [rsp+58h] [rbp-B0h] BYREF
+  LARGE_INTEGER v22[3]; // [rsp+58h] [rbp-B0h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-98h] BYREF
   int *v24; // [rsp+80h] [rbp-88h]
   __int64 v25; // [rsp+88h] [rbp-80h]
@@ -64,9 +64,9 @@ char __fastcall EtwTraceAdminlessAccessFailure(int a1, __int64 a2, int a3, char 
   int v55; // [rsp+1F8h] [rbp+F0h] BYREF
 
   v55 = a1;
-  v22[0] = 0LL;
-  v22[2] = (__int64)&word_1407C4EE0;
-  v22[1] = 0x20000LL;
+  v22[0].QuadPart = 0LL;
+  v22[2].QuadPart = (LONGLONG)&word_1407C4EE0;
+  v22[1].QuadPart = 0x20000LL;
   v5 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
   if ( !a3 )
   {

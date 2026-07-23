@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteProcessLargePageCache @ 0x1404D05EC
+ * XREFs of MiDeleteProcessLargePageCache @ 0x1404CA01C
  * Callers:
- *     MiDeleteWorkingSetList @ 0x1404D0588 (MiDeleteWorkingSetList.c)
+ *     MiDeleteWorkingSetList @ 0x1404C9FB8 (MiDeleteWorkingSetList.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiPruneProcessLargePageCaches @ 0x1402A8FB4 (MiPruneProcessLargePageCaches.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFreeProcessLargePageCache @ 0x140711EB0 (MiFreeProcessLargePageCache.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiPruneProcessLargePageCaches @ 0x1402A83C4 (MiPruneProcessLargePageCaches.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFreeProcessLargePageCache @ 0x140716BA8 (MiFreeProcessLargePageCache.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteProcessLargePageCache(__int64 a1)
@@ -23,7 +23,7 @@ void __fastcall MiDeleteProcessLargePageCache(__int64 a1)
   v1 = *(_QWORD **)(*(_QWORD *)(a1 + 1040) + 1176LL);
   if ( v1 )
   {
-    v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 1198));
+    v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 1198));
     v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 16832));
     v4 = *v1;
     if ( *(_QWORD **)(*v1 + 8LL) != v1 || (v5 = (_QWORD *)v1[1], (_QWORD *)*v5 != v1) )

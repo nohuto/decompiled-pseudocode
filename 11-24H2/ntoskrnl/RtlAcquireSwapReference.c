@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlAcquireSwapReference @ 0x1403A4E34
+ * XREFs of RtlAcquireSwapReference @ 0x14021E2E4
  * Callers:
- *     CmFcManagerNotifyFeatureUsage @ 0x1403A4D48 (CmFcManagerNotifyFeatureUsage.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6924 (RtlpFcBufferManagerReferenceBuffers.c)
- *     CmFcManagerRecordFeatureUsage @ 0x1403A6974 (CmFcManagerRecordFeatureUsage.c)
- *     RtlQueryFeatureConfiguration @ 0x1403A7E90 (RtlQueryFeatureConfiguration.c)
- *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x1407E4EE8 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x14021E1F8 (CmFcManagerNotifyFeatureUsage.c)
+ *     CmFcManagerRecordFeatureUsage @ 0x14048C624 (CmFcManagerRecordFeatureUsage.c)
+ *     RtlQueryFeatureConfiguration @ 0x140496030 (RtlQueryFeatureConfiguration.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1404975C8 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x1407E54B8 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
  * Callees:
- *     RtlBackoff @ 0x140253B30 (RtlBackoff.c)
+ *     RtlBackoff @ 0x140284140 (RtlBackoff.c)
  */
 
 unsigned __int64 __fastcall RtlAcquireSwapReference(__int64 *a1)
@@ -15,7 +15,7 @@ unsigned __int64 __fastcall RtlAcquireSwapReference(__int64 *a1)
   __int64 *v1; // r9
   unsigned __int64 v2; // rdx
   __int64 v3; // rtt
-  unsigned int v5; // [rsp+30h] [rbp+8h] BYREF
+  int v5; // [rsp+30h] [rbp+8h] BYREF
 
   v5 = 0;
   v1 = a1;

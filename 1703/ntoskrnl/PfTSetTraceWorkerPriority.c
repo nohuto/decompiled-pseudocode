@@ -24,7 +24,7 @@ __int64 __fastcall PfTSetTraceWorkerPriority(unsigned int Priority)
   struct _KTHREAD *v4; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v6; // r14
-  __int64 v7; // r8
+  unsigned int v7; // r8d
   bool v8; // zf
   __int64 v9; // rcx
   int v10; // eax
@@ -59,7 +59,7 @@ __int64 __fastcall PfTSetTraceWorkerPriority(unsigned int Priority)
       SessionId = 0xFFFFFFFFLL;
     --v4->SpecialApcDisable;
     v6 = ++v4->AbAllocationRegionCount;
-    LODWORD(v7) = ((char)v4->AbEntrySummary | (char)v4->AbOrphanedEntrySummary) ^ 0x3F;
+    v7 = ((char)v4->AbEntrySummary | (char)v4->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v8 = !_BitScanReverse((unsigned int *)&v9, v7);
@@ -69,7 +69,7 @@ __int64 __fastcall PfTSetTraceWorkerPriority(unsigned int Priority)
       v10 = 1 << v9;
       v11 = v9;
       v12 = &v4->LockEntries[v11];
-      v7 = ~v10 & (unsigned int)v7;
+      v7 &= ~v10;
       if ( (v12->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v12->LockState.0 & 1) == 0
         && (*(_QWORD *)&v12->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&PfTGlobals & 0x7FFFFFFFFFFFFFFCLL)
@@ -82,7 +82,7 @@ __int64 __fastcall PfTSetTraceWorkerPriority(unsigned int Priority)
           {
             v12->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v12->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v4->LockEntries[v11], SessionId, v7);
+              KiAbEntryRemoveFromTree(&v4->LockEntries[v11].TreeNode, SessionId);
             v17 = 0;
             v17 = v12->BoostBitmap.AllFields & 0x1FFFF;
             v12->BoostBitmap.AllFields &= 0xFFFE0000;

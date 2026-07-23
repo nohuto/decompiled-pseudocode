@@ -10,33 +10,33 @@
  *     _RtlpHpVsContextAllocate@16 @ 0x4B37F139 (_RtlpHpVsContextAllocate@16.c)
  */
 
-int __fastcall RtlpHpAllocateHeapInternal(int a1, size_t a2, size_t Size, int a4, int *a5)
+int __fastcall RtlpHpAllocateHeapInternal(unsigned __int16 *BaseAddress, int a2, size_t Size, int *a4)
 {
-  int v6; // ecx
-  int v7; // eax
-  int v9; // [esp+Ch] [ebp-4h]
+  int v5; // ecx
+  int v6; // eax
+  int v8; // [esp+Ch] [ebp-4h]
 
-  v9 = 3;
-  if ( Size > (unsigned int)*(unsigned __int16 *)(a1 + 736) - 8
-    || (v6 = RtlpHpLfhContextAllocate(a1 + 704, a2, Size, a4), v6 == -1) )
+  v8 = 3;
+  if ( (unsigned int)Size > (unsigned int)BaseAddress[368] - 8
+    || (v5 = RtlpHpLfhContextAllocate((int)(BaseAddress + 352), a2, Size, SHIDWORD(Size)), v5 == -1) )
   {
-    if ( Size > 0x20000 )
+    if ( (unsigned int)Size > 0x20000 )
     {
-      if ( Size > *(_DWORD *)(a1 + 396) )
-        v7 = RtlpHpLargeAlloc(Size, a4);
+      if ( (unsigned int)Size > *((_DWORD *)BaseAddress + 99) )
+        v6 = RtlpHpLargeAlloc(BaseAddress, Size);
       else
-        v7 = RtlpHpSegAlloc(Size, Size, a4);
+        v6 = RtlpHpSegAlloc(Size, Size, HIDWORD(Size));
     }
     else
     {
-      v7 = RtlpHpVsContextAllocate(Size, a4);
+      v6 = RtlpHpVsContextAllocate(Size, HIDWORD(Size));
     }
-    v6 = v7;
+    v5 = v6;
   }
   else
   {
-    v9 = 2;
+    v8 = 2;
   }
-  *a5 = v9;
-  return v6;
+  *a4 = v8;
+  return v5;
 }

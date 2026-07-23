@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPortBacktrackAllocation @ 0x1408A3100
+ * XREFs of IopPortBacktrackAllocation @ 0x1408A3260
  * Callers:
  *     <none>
  * Callees:
- *     RtlDeleteRange @ 0x140761400 (RtlDeleteRange.c)
- *     IopPortGetNextAlias @ 0x1407C7D34 (IopPortGetNextAlias.c)
+ *     RtlDeleteRange @ 0x1407615C0 (RtlDeleteRange.c)
+ *     IopPortGetNextAlias @ 0x1407C8054 (IopPortGetNextAlias.c)
  */
 
 __int64 __fastcall IopPortBacktrackAllocation(__int64 a1, unsigned __int64 *a2)

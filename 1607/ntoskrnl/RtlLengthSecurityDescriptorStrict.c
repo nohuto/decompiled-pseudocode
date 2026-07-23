@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLengthSecurityDescriptorStrict @ 0x140210E84
+ * XREFs of RtlLengthSecurityDescriptorStrict @ 0x140210CB0
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x1403FCD98 (CmpSetSecurityDescriptorInfo.c)
- *     CmpFindMatchingDescriptorCell @ 0x1403FD488 (CmpFindMatchingDescriptorCell.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x1406026C8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1403FBC58 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpFindMatchingDescriptorCell @ 0x1403FC348 (CmpFindMatchingDescriptorCell.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14060277C (CmpGetSecurityDescriptorNodeEx.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAccessCheck @ 0x140092A0C
+ * XREFs of MiAccessCheck @ 0x14009294C
  * Callers:
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiAllowGuardFault @ 0x140117CB8 (MiAllowGuardFault.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiAllowGuardFault @ 0x140117D28 (MiAllowGuardFault.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiAccessCheck(
@@ -61,7 +61,7 @@ __int64 __fastcall MiAccessCheck(
     if ( (unsigned int)MiPteHasShadow(v20, v19) )
     {
       LODWORD(v19) = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
       {
 LABEL_39:
         *BugCheckParameter2 = v18;
@@ -91,7 +91,7 @@ LABEL_39:
   if ( (unsigned int)MiPteHasShadow(v16, v15) )
   {
     LODWORD(v15) = 1;
-    if ( HIBYTE(word_14043A1AC) )
+    if ( HIBYTE(word_14043B26C) )
       goto LABEL_27;
 LABEL_25:
     if ( (v14 & 1) != 0 )

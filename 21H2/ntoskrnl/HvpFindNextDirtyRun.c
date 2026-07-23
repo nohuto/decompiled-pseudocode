@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpFindNextDirtyRun @ 0x1402670E8
+ * XREFs of HvpFindNextDirtyRun @ 0x140255088
  * Callers:
- *     HvpFindNextDirtyBlock @ 0x14064611C (HvpFindNextDirtyBlock.c)
+ *     HvpFindNextDirtyBlock @ 0x14063AF08 (HvpFindNextDirtyBlock.c)
  * Callees:
  *     <none>
  */
@@ -39,7 +39,7 @@ char __fastcall HvpFindNextDirtyRun(__int64 a1, unsigned int *a2, unsigned int *
   v11 = *a2;
   v12 = (_DWORD *)(v10 + 4 * ((unsigned __int64)(v6 - 1) >> 5));
   v13 = (_DWORD *)(v10 + 4 * ((unsigned __int64)v4 >> 5));
-  if ( v13 != v12 && (*v13 | *((_DWORD *)qword_140011C70 + (v4 & 0x1F))) == -1 )
+  if ( v13 != v12 && (*v13 | *((_DWORD *)qword_140012120 + (v4 & 0x1F))) == -1 )
   {
     v11 = v4 - (v4 & 0x1F) + 32;
     for ( ++v13; v13 < v12 && *v13 == -1; ++v13 )
@@ -54,7 +54,7 @@ char __fastcall HvpFindNextDirtyRun(__int64 a1, unsigned int *a2, unsigned int *
   if ( v13 != v12 )
   {
     v15 = v11 & 0x1F;
-    if ( (*v13 & ~*((_DWORD *)qword_140011C70 + v15)) == 0 )
+    if ( (*v13 & ~*((_DWORD *)qword_140012120 + v15)) == 0 )
     {
       v14 = 32 - v15;
       if ( (_DWORD)v15 == 33 )
@@ -110,7 +110,7 @@ LABEL_20:
     if ( v25 != v24 )
     {
       v26 = v4 & 0x1F;
-      if ( (*v25 | *((_DWORD *)qword_140011C70 + v26)) == -1 )
+      if ( (*v25 | *((_DWORD *)qword_140012120 + v26)) == -1 )
       {
         v21 = v4 - v26 + 32;
         for ( ++v25; v25 < v24 && *v25 == -1; ++v25 )
@@ -126,7 +126,7 @@ LABEL_20:
     if ( v25 != v24 )
     {
       v27 = v21 & 0x1F;
-      if ( (*v25 & ~*((_DWORD *)qword_140011C70 + v27)) == 0 )
+      if ( (*v25 & ~*((_DWORD *)qword_140012120 + v27)) == 0 )
       {
         v22 = 32 - v27;
         if ( (_DWORD)v27 == 33 )

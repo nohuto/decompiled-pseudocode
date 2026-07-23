@@ -1,9 +1,9 @@
 /*
  * XREFs of IoBuildPartialMdl @ 0x14021A4E0
  * Callers:
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14037A8BC (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
- *     HalpDmaCheckMdlAccessibility @ 0x140503D4C (HalpDmaCheckMdlAccessibility.c)
- *     HalpDmaFlushBuffer @ 0x140513310 (HalpDmaFlushBuffer.c)
+ *     sub_14037A8BC @ 0x14037A8BC (sub_14037A8BC.c)
+ *     sub_140503D4C @ 0x140503D4C (sub_140503D4C.c)
+ *     sub_140513310 @ 0x140513310 (sub_140513310.c)
  * Callees:
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */

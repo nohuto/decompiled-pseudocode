@@ -1,11 +1,11 @@
 /*
- * XREFs of AslGuidToString @ 0x140AA4DBC
+ * XREFs of AslGuidToString @ 0x140AA00BC
  * Callers:
- *     SdbpGetCustomSdbFileName @ 0x140806910 (SdbpGetCustomSdbFileName.c)
- *     SdbGetEntryFlags @ 0x140AA4CF0 (SdbGetEntryFlags.c)
+ *     SdbpGetCustomSdbFileName @ 0x140807050 (SdbpGetCustomSdbFileName.c)
+ *     SdbGetEntryFlags @ 0x140A9FFF0 (SdbGetEntryFlags.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslGuidToString(wchar_t *a1, unsigned int a2, unsigned int *a3)
@@ -50,6 +50,6 @@ __int64 __fastcall AslGuidToString(wchar_t *a1, unsigned int a2, unsigned int *a
   if ( v3 >= 0 )
     return 0;
   else
-    AslLogCallPrintf(1LL, (__int64)"AslGuidToString", 334LL, (__int64)"RtlStringCchPrintfW failed [%x]");
+    AslLogCallPrintf(1LL, (__int64)"AslGuidToString");
   return (unsigned int)v3;
 }

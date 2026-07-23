@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwSetTimerEx()
+NTSTATUS __cdecl ZwSetTimerEx(
+        HANDLE TimerHandle,
+        TIMER_SET_INFORMATION_CLASS TimerSetInformationClass,
+        PVOID TimerSetInformation,
+        ULONG TimerSetInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 403LL;
+  result = 403;
   __asm { syscall; Low latency system call }
   return result;
 }

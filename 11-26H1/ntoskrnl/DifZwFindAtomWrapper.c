@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwFindAtomWrapper @ 0x1406A6210
+ * XREFs of DifZwFindAtomWrapper @ 0x1406A9DF0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwFindAtom @ 0x140723670 (ZwFindAtom.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwFindAtom @ 0x140728240 (ZwFindAtom.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwFindAtomWrapper(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall DifZwFindAtomWrapper(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -45,9 +45,9 @@ __int64 __fastcall DifZwFindAtomWrapper(__int64 a1, unsigned int a2, __int64 a3)
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    *((_QWORD *)&v18 + 1) = a1;
-    LODWORD(v18) = a2;
-    *((_QWORD *)&v17 + 1) = a3;
+    *((_QWORD *)&v18 + 1) = AtomName;
+    LODWORD(v18) = Length;
+    *((_QWORD *)&v17 + 1) = Atom;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -60,7 +60,7 @@ __int64 __fastcall DifZwFindAtomWrapper(__int64 a1, unsigned int a2, __int64 a3)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = ZwFindAtom(a1, a2, a3);
+  LODWORD(v19) = ZwFindAtom(AtomName, Length, Atom);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

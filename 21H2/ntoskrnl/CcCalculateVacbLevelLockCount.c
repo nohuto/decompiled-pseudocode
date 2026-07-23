@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCalculateVacbLevelLockCount @ 0x14037D820
+ * XREFs of CcCalculateVacbLevelLockCount @ 0x14037D370
  * Callers:
- *     CcExtendVacbArray @ 0x14029B324 (CcExtendVacbArray.c)
+ *     CcExtendVacbArray @ 0x140212CB4 (CcExtendVacbArray.c)
  * Callees:
- *     VacbLevelReference @ 0x1402F575C (VacbLevelReference.c)
+ *     VacbLevelReference @ 0x1403004AC (VacbLevelReference.c)
  */
 
 _DWORD *__fastcall CcCalculateVacbLevelLockCount(__int64 a1, __int64 a2)

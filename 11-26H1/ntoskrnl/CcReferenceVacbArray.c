@@ -1,10 +1,10 @@
 /*
- * XREFs of CcReferenceVacbArray @ 0x140414F60
+ * XREFs of CcReferenceVacbArray @ 0x140409590
  * Callers:
- *     CcGetRandomVacbArrayWithReference @ 0x140414840 (CcGetRandomVacbArrayWithReference.c)
- *     CcUnmapInactiveViewsInternal @ 0x140414910 (CcUnmapInactiveViewsInternal.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x140408E70 (CcGetRandomVacbArrayWithReference.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140408F40 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _DWORD *__fastcall CcReferenceVacbArray(unsigned int a1)
@@ -13,7 +13,7 @@ _DWORD *__fastcall CcReferenceVacbArray(unsigned int a1)
   _DWORD *v2; // r9
 
   result = 0LL;
-  v2 = *(_DWORD **)(*(_QWORD *)&EmpParseLock.AbWaitEntryCount + 8LL * a1);
+  v2 = (_DWORD *)*((_QWORD *)EmpParseLock.SchedulerSharedSystemSlot + a1);
   if ( v2 )
   {
     ++v2[1];

@@ -1,17 +1,17 @@
 /*
- * XREFs of AslpFileGetChecksumAttributes @ 0x14080CCA0
+ * XREFs of AslpFileGetChecksumAttributes @ 0x14080D3E0
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x14080C45C (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x14080CB9C (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     RtlFileMapFree @ 0x1404B5148 (RtlFileMapFree.c)
- *     RtlFileMapMapView @ 0x1406966E4 (RtlFileMapMapView.c)
- *     Feature_DisableCrcChecksumBoot__private_IsEnabledDeviceUsageNoInline @ 0x140696B5C (Feature_DisableCrcChecksumBoot__private_IsEnabledDeviceUsageNoInline.c)
- *     AslFileMappingEnsureMappedAs @ 0x14080922C (AslFileMappingEnsureMappedAs.c)
- *     AslpFileGetChecksum @ 0x14080CBCC (AslpFileGetChecksum.c)
- *     AslpFileGetCrcChecksum @ 0x14080D24C (AslpFileGetCrcChecksum.c)
- *     AslpFileGetCrcChecksumBoot @ 0x14080D344 (AslpFileGetCrcChecksumBoot.c)
- *     AslpFileGetImageNtHeader @ 0x14080DFA4 (AslpFileGetImageNtHeader.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlFileMapFree @ 0x1404AF948 (RtlFileMapFree.c)
+ *     RtlFileMapMapView @ 0x1406977B4 (RtlFileMapMapView.c)
+ *     Feature_DisableCrcChecksumBoot__private_IsEnabledDeviceUsageNoInline @ 0x140697C2C (Feature_DisableCrcChecksumBoot__private_IsEnabledDeviceUsageNoInline.c)
+ *     AslFileMappingEnsureMappedAs @ 0x14080996C (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileGetChecksum @ 0x14080D30C (AslpFileGetChecksum.c)
+ *     AslpFileGetCrcChecksum @ 0x14080D98C (AslpFileGetCrcChecksum.c)
+ *     AslpFileGetCrcChecksumBoot @ 0x14080DA84 (AslpFileGetCrcChecksumBoot.c)
+ *     AslpFileGetImageNtHeader @ 0x14080E6E4 (AslpFileGetImageNtHeader.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetChecksumAttributes(__int64 a1, _DWORD *a2)

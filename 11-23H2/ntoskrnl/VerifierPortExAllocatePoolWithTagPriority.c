@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierPortExAllocatePoolWithTagPriority @ 0x140ADD4C0
+ * XREFs of VerifierPortExAllocatePoolWithTagPriority @ 0x140ADD4B0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14034EA00 (ExAllocatePoolWithTagPriority.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14034EBA0 (ExAllocatePoolWithTagPriority.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 PVOID __fastcall VerifierPortExAllocatePoolWithTagPriority(

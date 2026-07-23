@@ -1,12 +1,12 @@
 /*
- * XREFs of _umatherr @ 0x1801313B0
+ * XREFs of _umatherr @ 0x180131120
  * Callers:
- *     _except1 @ 0x180130B90 (_except1.c)
- *     _handle_qnan1 @ 0x180130FD0 (_handle_qnan1.c)
+ *     _except1 @ 0x180130900 (_except1.c)
+ *     _handle_qnan1 @ 0x180130D40 (_handle_qnan1.c)
  * Callees:
- *     _errno @ 0x180107440 (_errno.c)
- *     _ctrlfp @ 0x1801316F0 (_ctrlfp.c)
- *     _matherr @ 0x180132810 (_matherr.c)
+ *     _errno @ 0x180106E40 (_errno.c)
+ *     _ctrlfp @ 0x180131460 (_ctrlfp.c)
+ *     _matherr @ 0x180132580 (_matherr.c)
  */
 
 double __fastcall umatherr(int a1, int a2, double a3, double a4, double a5, __int64 a6)
@@ -21,7 +21,7 @@ double __fastcall umatherr(int a1, int a2, double a3, double a4, double a5, __in
   *(_QWORD *)&Except.type = 0LL;
   memset(&Except.arg1, 0, 20);
   v7 = 0;
-  v8 = &unk_1801722A0;
+  v8 = &unk_1801712A0;
   while ( *v8 != a2 )
   {
     ++v7;
@@ -48,7 +48,7 @@ LABEL_5:
       return a5;
     }
   }
-  Except.name = (char *)*((_QWORD *)&unk_1801722A0 + 2 * v7 + 1);
+  Except.name = (char *)*((_QWORD *)&unk_1801712A0 + 2 * v7 + 1);
   if ( !Except.name )
     goto LABEL_5;
   Except.retval = a5;

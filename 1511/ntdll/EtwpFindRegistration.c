@@ -9,75 +9,75 @@
  *     RtlTryAcquireSRWLockShared @ 0x18007B490 (RtlTryAcquireSRWLockShared.c)
  */
 
-_QWORD *__fastcall EtwpFindRegistration(__int64 a1, char *a2, __int64 a3, __int64 a4)
+_RTL_SRWLOCK *__fastcall EtwpFindRegistration(__int64 a1, __int16 a2)
 {
-  _QWORD *v4; // rbx
-  _QWORD *v5; // rdi
-  int v6; // eax
-  _QWORD *v8; // rax
-  _QWORD *v9; // rcx
-  __int64 v10; // [rsp+20h] [rbp-18h] BYREF
-  __int16 v11; // [rsp+28h] [rbp-10h]
+  _RTL_SRWLOCK *v2; // rbx
+  _RTL_BALANCED_NODE *Root; // rdi
+  int v4; // eax
+  _RTL_SRWLOCK *Value; // rax
+  _RTL_SRWLOCK *v7; // rcx
+  __int64 v8; // [rsp+20h] [rbp-18h] BYREF
+  __int16 v9; // [rsp+28h] [rbp-10h]
 
-  v10 = a1;
-  v11 = (__int16)a2;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&EtwpProvLock, a2, a3, a4);
-  v4 = 0LL;
-  v5 = (_QWORD *)EtwpRegistrationTable;
+  v8 = a1;
+  v9 = a2;
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  v2 = 0LL;
+  Root = EtwpRegistrationTable.Root;
   EtwpProvLockOwner = (int)NtCurrentTeb()->ClientId.UniqueThread;
-  while ( v5 )
+  while ( Root )
   {
-    v6 = EtwpRegistrationCompare(&v10, v5);
-    if ( v6 < 0 )
+    v4 = EtwpRegistrationCompare(&v8, Root);
+    if ( v4 < 0 )
     {
 LABEL_3:
-      v5 = (_QWORD *)*v5;
+      Root = Root->Children[0];
     }
     else
     {
-      if ( v6 <= 0 )
+      if ( v4 <= 0 )
       {
-        v4 = v5;
+        v2 = (_RTL_SRWLOCK *)Root;
         goto LABEL_3;
       }
-      v5 = (_QWORD *)v5[1];
+      Root = Root->Children[1];
     }
   }
-  if ( v4 )
+  if ( v2 )
   {
-    while ( !(unsigned __int8)RtlTryAcquireSRWLockShared(v4 + 9) )
+    while ( !RtlTryAcquireSRWLockShared(v2 + 9) )
     {
-      v8 = (_QWORD *)v4[1];
-      v9 = v4;
-      if ( v8 )
+      Value = (_RTL_SRWLOCK *)v2[1].Value;
+      v7 = v2;
+      if ( Value )
       {
         do
         {
-          v4 = v8;
-          v8 = (_QWORD *)*v8;
+          v2 = Value;
+          Value = (_RTL_SRWLOCK *)Value->Value;
         }
-        while ( v8 );
+        while ( Value );
       }
       else
       {
         while ( 1 )
         {
-          v4 = (_QWORD *)(v4[2] & 0xFFFFFFFFFFFFFFFCuLL);
-          if ( !v4 || (_QWORD *)*v4 == v9 )
+          v2 = (_RTL_SRWLOCK *)(v2[2].Value & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !v2 || (_RTL_SRWLOCK *)v2->Value == v7 )
             break;
-          v9 = v4;
+          v7 = v2;
         }
       }
-      if ( !v4 || (unsigned int)EtwpRegistrationCompare(&v10, v4) )
+      if ( !v2 || (unsigned int)EtwpRegistrationCompare(&v8, v2) )
         goto LABEL_11;
     }
   }
   else
   {
 LABEL_11:
-    v4 = 0LL;
+    v2 = 0LL;
   }
   EtwpProvLockOwner = 0;
   RtlReleaseSRWLockExclusive(&EtwpProvLock);
-  return v4;
+  return v2;
 }

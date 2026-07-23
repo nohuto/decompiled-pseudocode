@@ -1,7 +1,7 @@
 /*
- * XREFs of MiClonePteReadonly @ 0x14049B904
+ * XREFs of MiClonePteReadonly @ 0x140496434
  * Callers:
- *     MiPteForTrimmedProto @ 0x140232FE4 (MiPteForTrimmedProto.c)
+ *     MiPteForTrimmedProto @ 0x140202660 (MiPteForTrimmedProto.c)
  * Callees:
  *     <none>
  */

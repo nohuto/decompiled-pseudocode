@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCbCopyUnicodeString @ 0x1400FC610
+ * XREFs of RtlStringCbCopyUnicodeString @ 0x1400FA390
  * Callers:
- *     PoStoreRequester @ 0x1400FB3C0 (PoStoreRequester.c)
- *     PopSafeCopyUnicodeString @ 0x1400FC55C (PopSafeCopyUnicodeString.c)
+ *     PoStoreRequester @ 0x1400F914C (PoStoreRequester.c)
+ *     PopSafeCopyUnicodeString @ 0x1400FA2DC (PopSafeCopyUnicodeString.c)
  * Callees:
  *     <none>
  */

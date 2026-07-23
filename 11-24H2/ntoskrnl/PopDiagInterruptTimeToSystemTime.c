@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDiagInterruptTimeToSystemTime @ 0x140B6DB38
+ * XREFs of PopDiagInterruptTimeToSystemTime @ 0x140B6F3D8
  * Callers:
- *     PopDiagTraceRtcWakeInfo @ 0x1404D48D4 (PopDiagTraceRtcWakeInfo.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140758C14 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ *     PopDiagTraceRtcWakeInfo @ 0x1404CDAB0 (PopDiagTraceRtcWakeInfo.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140757094 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
  * Callees:
  *     <none>
  */

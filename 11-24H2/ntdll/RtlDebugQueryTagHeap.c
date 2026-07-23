@@ -1,38 +1,38 @@
 /*
- * XREFs of RtlDebugQueryTagHeap @ 0x180144B18
+ * XREFs of RtlDebugQueryTagHeap @ 0x180142EC8
  * Callers:
- *     RtlQueryTagHeap @ 0x180141AE0 (RtlQueryTagHeap.c)
+ *     RtlQueryTagHeap @ 0x18013FCC0 (RtlQueryTagHeap.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlpCheckHeapSignature @ 0x18003F9F0 (RtlpCheckHeapSignature.c)
- *     RtlpValidateHeap @ 0x180040D80 (RtlpValidateHeap.c)
- *     RtlNtStatusToDosErrorNoTeb @ 0x18009F9E0 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlpHeapExceptionFilter @ 0x18010A4D0 (RtlpHeapExceptionFilter.c)
- *     RtlQueryTagHeap @ 0x180141AE0 (RtlQueryTagHeap.c)
+ *     RtlpCheckHeapSignature @ 0x180020320 (RtlpCheckHeapSignature.c)
+ *     RtlpValidateHeap @ 0x1800216B0 (RtlpValidateHeap.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x1800872D0 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlpHeapExceptionFilter @ 0x180105400 (RtlpHeapExceptionFilter.c)
+ *     RtlQueryTagHeap @ 0x18013FCC0 (RtlQueryTagHeap.c)
  */
 
-void *__fastcall RtlDebugQueryTagHeap(__int64 a1, int a2, unsigned __int16 a3, char a4, __int64 a5)
+PWSTR __fastcall RtlDebugQueryTagHeap(_QWORD *HeapHandle, int a2, USHORT a3, BOOLEAN a4, PRTL_HEAP_TAG_INFO TagInfo)
 {
   char v9; // si
-  void *TagHeap; // r14
-  int v11; // ebx
+  PWSTR TagHeap; // r14
+  ULONG v11; // ebx
 
   v9 = 0;
   TagHeap = 0LL;
-  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlQueryTagHeap") )
+  if ( RtlpCheckHeapSignature(HeapHandle, "RtlQueryTagHeap") )
   {
-    v11 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v11 = *((_DWORD *)HeapHandle + 29) | 0x10000000 | a2;
     if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)HeapHandle[44]);
       v9 = 1;
       v11 |= 1u;
     }
-    if ( RtlpValidateHeap(a1, 0) )
-      TagHeap = RtlQueryTagHeap(a1, v11, a3, a4, a5);
+    if ( RtlpValidateHeap(HeapHandle, 0) )
+      TagHeap = RtlQueryTagHeap(HeapHandle, v11, a3, a4, TagInfo);
   }
   if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)HeapHandle[44]);
   return TagHeap;
 }

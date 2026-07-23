@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHgsCoresUnparkedCountEx @ 0x1405DDA78
+ * XREFs of PpmEventHgsCoresUnparkedCountEx @ 0x1405DA8F8
  * Callers:
- *     PpmEventHgsCoresUnparkedCount @ 0x1404ECF2C (PpmEventHgsCoresUnparkedCount.c)
+ *     PpmEventHgsCoresUnparkedCount @ 0x1404E4750 (PpmEventHgsCoresUnparkedCount.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventHgsCoresUnparkedCountEx(__int64 a1)
@@ -44,15 +44,15 @@ void __fastcall PpmEventHgsCoresUnparkedCountEx(__int64 a1)
       v3 = v8;
       v4 = &UserData[v8];
       v4->Reserved = 0;
-      v4->Ptr = a1 + 1260;
+      v4->Ptr = a1 + 1268;
       v4->Size = 2;
       v5 = &UserData[v3 + 1];
       v5->Reserved = 0;
-      v5->Ptr = a1 + 1256;
+      v5->Ptr = a1 + 1264;
       v5->Size = 2;
       v6 = &UserData[v3 + 2];
       v6->Reserved = 0;
-      v6->Ptr = a1 + 1258;
+      v6->Ptr = a1 + 1266;
       v6->Size = 2;
       v7 = &UserData[v3 + 3];
       v7->Reserved = 0;

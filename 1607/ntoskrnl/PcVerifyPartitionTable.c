@@ -1,13 +1,13 @@
 /*
- * XREFs of PcVerifyPartitionTable @ 0x14023B78C
+ * XREFs of PcVerifyPartitionTable @ 0x14023B670
  * Callers:
- *     IopCreateArcName @ 0x14054FC84 (IopCreateArcName.c)
- *     IoVerifyPartitionTable @ 0x1406200CC (IoVerifyPartitionTable.c)
+ *     IopCreateArcName @ 0x1405501C4 (IopCreateArcName.c)
+ *     IoVerifyPartitionTable @ 0x140620180 (IoVerifyPartitionTable.c)
  * Callees:
- *     ??1PC_DISK@@QEAA@XZ @ 0x1401475A4 (--1PC_DISK@@QEAA@XZ.c)
- *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x1401475BC (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ?VerifyPartitionTable@PC_GPT@@QEAAJE@Z @ 0x14023C60C (-VerifyPartitionTable@PC_GPT@@QEAAJE@Z.c)
+ *     ??1PC_DISK@@QEAA@XZ @ 0x140147B14 (--1PC_DISK@@QEAA@XZ.c)
+ *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x140147B2C (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ?VerifyPartitionTable@PC_GPT@@QEAAJE@Z @ 0x14023C4F0 (-VerifyPartitionTable@PC_GPT@@QEAAJE@Z.c)
  */
 
 __int64 __fastcall PcVerifyPartitionTable(struct _DEVICE_OBJECT *a1, unsigned __int8 a2, __int64 a3, unsigned int a4)

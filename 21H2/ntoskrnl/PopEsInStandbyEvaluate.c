@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEsInStandbyEvaluate @ 0x1408F27A0
+ * XREFs of PopEsInStandbyEvaluate @ 0x1408F2900
  * Callers:
- *     PopEsInStandbyLowPowerEpochCallback @ 0x1408F2770 (PopEsInStandbyLowPowerEpochCallback.c)
+ *     PopEsInStandbyLowPowerEpochCallback @ 0x1408F28D0 (PopEsInStandbyLowPowerEpochCallback.c)
  * Callees:
- *     PopGetPowerSettingValue @ 0x140281EC4 (PopGetPowerSettingValue.c)
- *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
- *     PopEsQueueStateEvaluation @ 0x14077FFBC (PopEsQueueStateEvaluation.c)
- *     PopTraceEsBgActivityPolicyUpdate @ 0x1408EC2AC (PopTraceEsBgActivityPolicyUpdate.c)
+ *     PopGetPowerSettingValue @ 0x140270104 (PopGetPowerSettingValue.c)
+ *     ExQueryWnfStateData @ 0x14061A450 (ExQueryWnfStateData.c)
+ *     PopEsQueueStateEvaluation @ 0x14078017C (PopEsQueueStateEvaluation.c)
+ *     PopTraceEsBgActivityPolicyUpdate @ 0x1408EC40C (PopTraceEsBgActivityPolicyUpdate.c)
  */
 
 __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)
   int v5; // ecx
   __int64 v7; // [rsp+20h] [rbp-20h]
   __int64 v8; // [rsp+20h] [rbp-20h]
-  _DWORD v9[4]; // [rsp+30h] [rbp-10h] BYREF
+  _BYTE v9[16]; // [rsp+30h] [rbp-10h] BYREF
   char v10; // [rsp+60h] [rbp+20h] BYREF
   unsigned int v11; // [rsp+68h] [rbp+28h] BYREF
   int v12; // [rsp+70h] [rbp+30h] BYREF
@@ -35,7 +35,7 @@ __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)
     {
       v4 = 1;
       v11 = 1;
-      PowerSettingValue = ExQueryWnfStateData(PopEsWnfSubscriptionOpportunisticCs, v9, &v10, &v11);
+      PowerSettingValue = ExQueryWnfStateData(PopEsWnfSubscriptionOpportunisticCs, (__int64)v9, (__int64)&v10, &v11);
       if ( PowerSettingValue >= 0 )
       {
         if ( v11 )

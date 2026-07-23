@@ -8,33 +8,47 @@
  *     ObInsertObjectEx @ 0x14067A230 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateMutant(__int64 *a1, ACCESS_MASK a2, int a3)
+NTSTATUS __cdecl NtCreateMutant(
+        PHANDLE MutantHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN InitialOwner)
 {
   char PreviousMode; // di
-  __int64 v6; // rcx
-  int inserted; // ecx
-  __int64 v9; // [rsp+20h] [rbp-48h]
+  __int64 v7; // rcx
+  NTSTATUS inserted; // ecx
+  __int64 v10; // [rsp+20h] [rbp-48h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-18h] BYREF
-  __int64 v11; // [rsp+58h] [rbp-10h] BYREF
+  __int64 v12; // [rsp+58h] [rbp-10h] BYREF
 
-  v11 = 0LL;
+  v12 = 0LL;
   DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a1;
-    *(_QWORD *)v6 = *(_QWORD *)v6;
+    v7 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)MutantHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)MutantHandle;
+    *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  inserted = ObCreateObjectEx(PreviousMode, ExMutantObjectType, a3, PreviousMode, v9, 56, 0, 0, &DmaAdapter, 0LL);
+  inserted = ObCreateObjectEx(
+               PreviousMode,
+               ExMutantObjectType,
+               (int)ObjectAttributes,
+               PreviousMode,
+               v10,
+               56,
+               0,
+               0,
+               &DmaAdapter,
+               0LL);
   if ( inserted >= 0 )
   {
     KeInitializeMutantEx((ULONG_PTR)DmaAdapter);
-    inserted = ObInsertObjectEx(DmaAdapter, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v11);
+    inserted = ObInsertObjectEx(DmaAdapter, 0LL, DesiredAccess, 0, 0, 0LL, (unsigned __int64 *)&v12);
     LODWORD(DmaAdapter) = inserted;
     if ( inserted >= 0 )
-      *a1 = v11;
+      *MutantHandle = (HANDLE)v12;
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

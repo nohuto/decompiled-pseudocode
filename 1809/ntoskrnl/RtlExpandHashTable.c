@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlExpandHashTable @ 0x1400DA6D0
+ * XREFs of RtlExpandHashTable @ 0x1400DA750
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x1400D9DDC (RtlpGetChainHead.c)
- *     RtlpAllocateSecondLevelDir @ 0x140139610 (RtlpAllocateSecondLevelDir.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlpGetChainHead @ 0x1400D9E5C (RtlpGetChainHead.c)
+ *     RtlpAllocateSecondLevelDir @ 0x140139710 (RtlpAllocateSecondLevelDir.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)

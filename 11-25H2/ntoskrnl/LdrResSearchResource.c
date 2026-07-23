@@ -22,7 +22,7 @@
  */
 
 __int64 __fastcall LdrResSearchResource(
-        __int64 a1,
+        unsigned __int64 a1,
         const void *a2,
         unsigned int a3,
         int a4,
@@ -31,7 +31,7 @@ __int64 __fastcall LdrResSearchResource(
         void *a7,
         __int64 a8)
 {
-  __int64 v10; // r14
+  void *v10; // r14
   int v11; // ecx
   unsigned int v12; // edi
   bool v13; // zf
@@ -42,10 +42,10 @@ __int64 __fastcall LdrResSearchResource(
   unsigned int v18; // ebx
   int v19; // eax
   int v20; // eax
-  int v21; // eax
+  NTSTATUS v21; // eax
   __int64 v22; // r9
-  __int64 v23; // [rsp+58h] [rbp-80h] BYREF
-  __int64 v24; // [rsp+60h] [rbp-78h] BYREF
+  ULONG64 v23; // [rsp+58h] [rbp-80h] BYREF
+  PVOID ResourceDllBase; // [rsp+60h] [rbp-78h] BYREF
   _QWORD *v25; // [rsp+68h] [rbp-70h]
   __int64 v26; // [rsp+70h] [rbp-68h]
   _QWORD v27[2]; // [rsp+78h] [rbp-60h] BYREF
@@ -127,18 +127,18 @@ LABEL_17:
     v20 = 0;
     if ( *(_WORD *)v28 )
       v20 = (unsigned __int16)DownLevelLanguageNameToLangID((const void *)v28, 2);
-    LODWORD(v24) = v20;
+    LODWORD(ResourceDllBase) = v20;
     v28 = (unsigned __int16)v20;
   }
 LABEL_27:
   if ( (v12 & 0x300) == 0 )
     goto LABEL_31;
-  v10 = a1;
+  v10 = (void *)a1;
   if ( (v12 & 0x200) != 0 )
   {
-    v10 = a1 | 1;
+    v10 = (void *)(a1 | 1);
     if ( (a1 & 1) != 0 )
-      v10 = a1;
+      v10 = (void *)a1;
   }
   result = LdrpResGetMappingSize(v10, &v23, v12, v14);
   if ( (int)result >= 0 || (v12 & 0x1000) == 0 )
@@ -148,13 +148,22 @@ LABEL_31:
     v18 = LdrpResSearchResourceMappedFile(v10, v23, v12, v27, v15, v25, a6, a7, v26);
     if ( v18 == -1073741686 && ((v27[0] - 16LL) & 0xFFFFFFFFFFFFFFF7uLL) != 0 )
     {
-      v24 = 0LL;
-      v21 = LdrLoadAlternateResourceModuleEx(v10, 0xF2EEu, &v24, 0LL, 0x1000000);
+      ResourceDllBase = 0LL;
+      v21 = LdrLoadAlternateResourceModuleEx(v10, 0xF2EEu, &ResourceDllBase, 0LL, 0x1000000u);
       if ( v21 >= 0 )
       {
         v23 = 0LL;
-        if ( (int)LdrpResGetMappingSize(v24, &v23, v12, v22) >= 0 )
-          return (unsigned int)LdrpResSearchResourceMappedFile(v24, v23, v12 | 0x1000000, v27, v15, v25, a6, a7, v17);
+        if ( (int)LdrpResGetMappingSize(ResourceDllBase, &v23, v12, v22) >= 0 )
+          return (unsigned int)LdrpResSearchResourceMappedFile(
+                                 ResourceDllBase,
+                                 v23,
+                                 v12 | 0x1000000,
+                                 v27,
+                                 v15,
+                                 v25,
+                                 a6,
+                                 a7,
+                                 v17);
       }
     }
     return v18;

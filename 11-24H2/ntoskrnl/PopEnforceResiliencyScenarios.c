@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEnforceResiliencyScenarios @ 0x140AAC0B0
+ * XREFs of PopEnforceResiliencyScenarios @ 0x140AA7080
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x1403B5638 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x1404B7970 (PopEnsureCoalescingWorkerWillRun.c)
- *     PopEnforceDeepSleep @ 0x140AAC13C (PopEnforceDeepSleep.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1402AD9A8 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x1404B2150 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PopEnforceDeepSleep @ 0x140AA710C (PopEnforceDeepSleep.c)
  */
 
 void __fastcall PopEnforceResiliencyScenarios(int *a1)
@@ -18,9 +18,9 @@ void __fastcall PopEnforceResiliencyScenarios(int *a1)
   int v4; // ecx
 
   PopEnforceDeepSleep((unsigned int)a1[1]);
-  PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock, v2, v3);
+  PpmAcquireLock(&PopFxSystemLatencyLock, v2, v3);
   PoFxSendSystemLatencyUpdate();
-  PpmReleaseLock(&PopFxSystemLatencyLock);
+  PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
   v4 = *a1;
   if ( *a1 )
   {

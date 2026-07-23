@@ -1,13 +1,13 @@
 /*
- * XREFs of VslFinalizeLiveDumpInSk @ 0x14058CE7C
+ * XREFs of VslFinalizeLiveDumpInSk @ 0x14058A16C
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x140599FDC (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x140596F60 (IopLiveDumpCaptureMemoryPages.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslAbortLiveDump @ 0x14058CB68 (VslAbortLiveDump.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     VslAbortLiveDump @ 0x140589E60 (VslAbortLiveDump.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslFinalizeLiveDumpInSk(_QWORD *a1, _QWORD *a2, __int64 a3)
@@ -45,7 +45,7 @@ LABEL_10:
     }
     while ( (unsigned int)v8 < v13 );
   }
-  v10 = VslpEnterIumSecureMode(2u, 62LL, 0, (__int64)v12);
+  v10 = VslpEnterIumSecureMode(2u, 0x3Eu, 0, (__int64)v12);
   if ( v10 < 0 )
     goto LABEL_10;
   *a1 = v14[0];

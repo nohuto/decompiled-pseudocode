@@ -1,22 +1,22 @@
 /*
- * XREFs of PoFxStartDevicePowerManagement @ 0x140141B30
+ * XREFs of PoFxStartDevicePowerManagement @ 0x1401420A0
  * Callers:
- *     PoFxEnableDStateReporting @ 0x14066C318 (PoFxEnableDStateReporting.c)
+ *     PoFxEnableDStateReporting @ 0x14066C3FC (PoFxEnableDStateReporting.c)
  *     PoFxRegisterDebugger @ 0x1407B21AC (PoFxRegisterDebugger.c)
  * Callees:
- *     PopFxActivateDevice @ 0x140008088 (PopFxActivateDevice.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PoFxActivateComponent @ 0x1400C10E0 (PoFxActivateComponent.c)
- *     PopFxIdleComponent @ 0x1400C1B10 (PopFxIdleComponent.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     PopFxIncrementDeviceSleepCount @ 0x14012328C (PopFxIncrementDeviceSleepCount.c)
- *     PopPepInitializeVetoMasks @ 0x1402065A8 (PopPepInitializeVetoMasks.c)
- *     PopDiagTraceFxDeviceStartPowerManagement @ 0x1405668E8 (PopDiagTraceFxDeviceStartPowerManagement.c)
+ *     PopFxActivateDevice @ 0x140007BFC (PopFxActivateDevice.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PoFxActivateComponent @ 0x1400BEF70 (PoFxActivateComponent.c)
+ *     PopFxIdleComponent @ 0x1400BF9A0 (PopFxIdleComponent.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x1401237FC (PopFxIncrementDeviceSleepCount.c)
+ *     PopPepInitializeVetoMasks @ 0x1402063D4 (PopPepInitializeVetoMasks.c)
+ *     PopDiagTraceFxDeviceStartPowerManagement @ 0x140566E28 (PopDiagTraceFxDeviceStartPowerManagement.c)
  */
 
 void __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)

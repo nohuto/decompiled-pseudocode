@@ -29,5 +29,5 @@ NTSTATUS __stdcall ZwQueryVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return KiServiceInternal(ProcessHandle);
 }

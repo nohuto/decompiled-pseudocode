@@ -6,12 +6,8 @@
  *     <none>
  */
 
-_DWORD *__stdcall PfxInitialize(_DWORD *a1)
+void __cdecl PfxInitialize(PPREFIX_TABLE PrefixTable)
 {
-  _DWORD *result; // eax
-
-  result = a1;
-  *a1 = 512;
-  a1[1] = a1;
-  return result;
+  *(_DWORD *)&PrefixTable->NodeTypeCode = 512;
+  PrefixTable->NextPrefixTree = (PPREFIX_TABLE_ENTRY)PrefixTable;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpOplockSendModernAppTermination @ 0x14035C258
+ * XREFs of FsRtlpOplockSendModernAppTermination @ 0x14035C3F8
  * Callers:
- *     FsRtlpOplockBreakToII @ 0x1402FBB38 (FsRtlpOplockBreakToII.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1402FD670 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToNone @ 0x14053E8F0 (FsRtlpOplockBreakToNone.c)
- *     FsRtlpOplockBreakNotify @ 0x14093E488 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockBreakToII @ 0x1402FBDC8 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1402FD900 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402FEAC0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToNone @ 0x14053EFB8 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpOplockBreakNotify @ 0x14093E688 (FsRtlpOplockBreakNotify.c)
  * Callees:
- *     FsRtlSendModernAppTermination @ 0x14035C320 (FsRtlSendModernAppTermination.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     FsRtlSendModernAppTermination @ 0x14035C4C0 (FsRtlSendModernAppTermination.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
@@ -16,7 +16,7 @@
 void __fastcall FsRtlpOplockSendModernAppTermination(__int64 a1, __int64 a2)
 {
   char v2; // bp
-  unsigned int v4; // edi
+  ULONG v4; // edi
   int *PoolWithTag; // rbx
   _QWORD *v6; // rsi
   unsigned int v7; // edx
@@ -67,7 +67,7 @@ void __fastcall FsRtlpOplockSendModernAppTermination(__int64 a1, __int64 a2)
     v12 = *(_DWORD *)(v10 + 1088);
   }
 LABEL_8:
-  FsRtlSendModernAppTermination(PoolWithTag, v4, 1LL);
+  FsRtlSendModernAppTermination(PoolWithTag, v4);
   if ( v2 )
     ExFreePoolWithTag(PoolWithTag, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of IopBusNumberUnpackResource @ 0x1407FD810
+ * XREFs of IopBusNumberUnpackResource @ 0x1407FDAE0
  * Callers:
  *     <none>
  * Callees:

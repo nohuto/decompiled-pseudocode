@@ -1,32 +1,38 @@
 /*
- * XREFs of RtlGuardCheckLongJumpTarget @ 0x140530D10
+ * XREFs of RtlGuardCheckLongJumpTarget @ 0x140533210
  * Callers:
- *     RtlUnwindEx @ 0x1402E8510 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x1402CA550 (RtlUnwindEx.c)
  * Callees:
- *     RtlpControlFlowGuardEnforced @ 0x14041D914 (RtlpControlFlowGuardEnforced.c)
- *     RtlPcToFileHeader @ 0x14047F990 (RtlPcToFileHeader.c)
- *     RtlFailFast2 @ 0x140535240 (RtlFailFast2.c)
- *     bsearch_s @ 0x140536A50 (bsearch_s.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x14077DECC (LdrImageDirectoryEntryToLoadConfig.c)
+ *     RtlpControlFlowGuardEnforced @ 0x140415164 (RtlpControlFlowGuardEnforced.c)
+ *     RtlPcToFileHeader @ 0x140479300 (RtlPcToFileHeader.c)
+ *     RtlFailFast2 @ 0x1405376C0 (RtlFailFast2.c)
+ *     bsearch_s @ 0x140538ED0 (bsearch_s.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x1407809CC (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
-__int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlGuardCheckLongJumpTarget(PVOID PcValue, BOOL IsFastFail, PBOOL IsLongJumpTarget)
 {
+  __int64 v3; // r9
   __int64 Config; // rax
   rsize_t v6; // r8
   int Key; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  PVOID BaseOfImage; // [rsp+50h] [rbp+18h] BYREF
 
   Key = 0;
-  v9 = 0LL;
-  if ( (unsigned int)RtlpControlFlowGuardEnforced(a1, a2, a3, a4) )
+  BaseOfImage = 0LL;
+  if ( (unsigned int)RtlpControlFlowGuardEnforced(
+                       (__int64)PcValue,
+                       *(__int64 *)&IsFastFail,
+                       (__int64)IsLongJumpTarget,
+                       v3) )
   {
-    RtlPcToFileHeader(a1, &v9);
-    if ( !v9
-      || (Config = LdrImageDirectoryEntryToLoadConfig(v9)) != 0
+    RtlPcToFileHeader(PcValue, &BaseOfImage);
+    if ( !BaseOfImage
+      || (Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage)) != 0
       && *(_DWORD *)Config >= 0xC0u
       && (*(_DWORD *)(Config + 144) & 0x10000) != 0
-      && ((Key = a1 - v9, (v6 = *(_QWORD *)(Config + 184)) == 0)
+      && ((Key = (_DWORD)PcValue - (_DWORD)BaseOfImage, (v6 = *(_QWORD *)(Config + 184)) == 0)
        || !bsearch_s(
              &Key,
              *(const void **)(Config + 176),
@@ -35,8 +41,8 @@ __int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1, __int64 a2, 
              (int (__cdecl *)(void *, const void *, const void *))RtlpTargetCompare,
              0LL)) )
     {
-      RtlFailFast2(38LL, a1);
+      RtlFailFast2(38LL, PcValue);
     }
   }
-  return 0LL;
+  return 0;
 }

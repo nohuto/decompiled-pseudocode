@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGlobalLockKeyForWrite @ 0x140B1034C
+ * XREFs of CmpGlobalLockKeyForWrite @ 0x140B11D8C
  * Callers:
- *     CmLockKeyForWrite @ 0x140A30B0C (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x140A4BA6C (CmLockKeyForWrite.c)
  * Callees:
- *     CmpLockGlobalKeyLockTrackerExclusive @ 0x14085BAF8 (CmpLockGlobalKeyLockTrackerExclusive.c)
- *     CmpUnlockGlobalKeyLockTracker @ 0x14085BB70 (CmpUnlockGlobalKeyLockTracker.c)
- *     CmpLockGlobalKeyLockTrackerShared @ 0x140B103FC (CmpLockGlobalKeyLockTrackerShared.c)
- *     CmpCreateGlobalKeyLockEntry @ 0x140B4EA48 (CmpCreateGlobalKeyLockEntry.c)
+ *     CmpLockGlobalKeyLockTrackerExclusive @ 0x140861DEC (CmpLockGlobalKeyLockTrackerExclusive.c)
+ *     CmpUnlockGlobalKeyLockTracker @ 0x140861E64 (CmpUnlockGlobalKeyLockTracker.c)
+ *     CmpLockGlobalKeyLockTrackerShared @ 0x140B11E3C (CmpLockGlobalKeyLockTrackerShared.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x140B512D8 (CmpCreateGlobalKeyLockEntry.c)
  */
 
 __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, struct _LIST_ENTRY **a2)

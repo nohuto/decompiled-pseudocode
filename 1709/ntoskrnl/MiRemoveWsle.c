@@ -52,7 +52,8 @@ char __fastcall MiRemoveWsle(__int64 a1, unsigned __int64 a2, char a3, int a4)
   if ( (*(_BYTE *)(a1 + 192) & 7) == 4 )
   {
     if ( PsNtosImageBase
-      && (a2 >= PsNtosImageBase && a2 < PsNtosImageEnd || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
+      && (a2 >= (unsigned __int64)PsNtosImageBase && a2 < PsNtosImageEnd
+       || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
     {
       LODWORD(xmmword_140388420) = xmmword_140388420 - 1;
     }

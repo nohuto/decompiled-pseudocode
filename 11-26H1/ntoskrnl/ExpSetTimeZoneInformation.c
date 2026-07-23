@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpSetTimeZoneInformation @ 0x14083337C
+ * XREFs of ExpSetTimeZoneInformation @ 0x1408395BC
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1408051C8 (RtlpSetTimeZoneInformationWorker.c)
- *     ExpReadSiloTimeZoneMarker @ 0x140836264 (ExpReadSiloTimeZoneMarker.c)
- *     NtSetSystemTime @ 0x1408366B0 (NtSetSystemTime.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     RtlWriteRegistryValue @ 0x140A11D10 (RtlWriteRegistryValue.c)
- *     ExAcquireTimeRefreshLockShared @ 0x140A8BDD0 (ExAcquireTimeRefreshLockShared.c)
- *     ExReleaseTimeRefreshLockShared @ 0x140A8BE50 (ExReleaseTimeRefreshLockShared.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14080AC68 (RtlpSetTimeZoneInformationWorker.c)
+ *     ExpReadSiloTimeZoneMarker @ 0x14083C4A4 (ExpReadSiloTimeZoneMarker.c)
+ *     NtSetSystemTime @ 0x14083C8F0 (NtSetSystemTime.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlWriteRegistryValue @ 0x140A10F00 (RtlWriteRegistryValue.c)
+ *     ExAcquireTimeRefreshLockShared @ 0x140A910A0 (ExAcquireTimeRefreshLockShared.c)
+ *     ExReleaseTimeRefreshLockShared @ 0x140A91120 (ExReleaseTimeRefreshLockShared.c)
  */
 
 NTSTATUS __fastcall ExpSetTimeZoneInformation(void *Src, int a2)

@@ -9,17 +9,17 @@
  *     RtlpHpVsContextLockUnlock @ 0x18011DC50 (RtlpHpVsContextLockUnlock.c)
  */
 
-__int64 __fastcall RtlpHpLockHeapForProcessCloneOrTerminate(__int64 a1)
+__int64 __fastcall RtlpHpLockHeapForProcessCloneOrTerminate(_RTL_SRWLOCK *a1)
 {
-  __int64 v1; // rbx
+  _RTL_SRWLOCK *v1; // rbx
 
-  v1 = a1 + 320;
-  RtlpHpLargeLockAcquire(a1 + 320);
-  RtlpHpLargeLockAcquire(v1 + 192);
+  v1 = a1 + 40;
+  RtlpHpLargeLockAcquire(a1 + 40);
+  RtlpHpLargeLockAcquire(v1 + 24);
   RtlpHpLargeLockAcquire(a1);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v1 + 112));
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v1 + 304));
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 232));
-  RtlpHpVsContextLockUnlock(a1 + 704, 0LL);
-  return RtlpHpLfhContextLockUnlock(a1 + 832);
+  RtlAcquireSRWLockExclusive(v1 + 14);
+  RtlAcquireSRWLockExclusive(v1 + 38);
+  RtlAcquireSRWLockExclusive(a1 + 29);
+  RtlpHpVsContextLockUnlock(&a1[88], 0LL);
+  return RtlpHpLfhContextLockUnlock(&a1[104]);
 }

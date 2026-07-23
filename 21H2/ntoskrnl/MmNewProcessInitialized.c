@@ -1,26 +1,26 @@
 /*
- * XREFs of MmNewProcessInitialized @ 0x1406D9630
+ * XREFs of MmNewProcessInitialized @ 0x1406B0910
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiSetProcessPebHotPatchState @ 0x1408CE664 (MiSetProcessPebHotPatchState.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiSetProcessPebHotPatchState @ 0x1408CE7C4 (MiSetProcessPebHotPatchState.c)
  */
 
-__int64 __fastcall MmNewProcessInitialized(_KPROCESS *a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall MmNewProcessInitialized(_KPROCESS *a1)
 {
-  unsigned int v4; // ebx
-  _OWORD v7[3]; // [rsp+20h] [rbp-48h] BYREF
+  unsigned int v1; // ebx
+  _OWORD v4[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  v4 = 0;
+  v1 = 0;
   if ( a1[2].ActiveProcessors.Bitmap[2] )
   {
-    memset(v7, 0, sizeof(v7));
-    KiStackAttachProcess(a1, 0LL, (__int64)v7, a4);
-    v4 = MiSetProcessPebHotPatchState(a1);
-    KiUnstackDetachProcess((__int64)v7, 0);
+    memset(v4, 0, sizeof(v4));
+    KiStackAttachProcess(a1, 0, (__int64)v4);
+    v1 = MiSetProcessPebHotPatchState(a1);
+    KiUnstackDetachProcess((__int64)v4, 0LL);
   }
-  return v4;
+  return v1;
 }

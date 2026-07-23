@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCompleteInitializeProfiling @ 0x140A913BC
+ * XREFs of HalpCompleteInitializeProfiling @ 0x140A9123C
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140A91320 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x140A911A0 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (*HalpCompleteInitializeProfiling())(void)

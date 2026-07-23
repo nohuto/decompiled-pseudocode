@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogOutswappedProcessCommitReacquire @ 0x14061822C
+ * XREFs of MiLogOutswappedProcessCommitReacquire @ 0x14061877C
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x140618F08 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x140619458 (MiReAcquireOutSwappedProcessCommit.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, int a3, int a4)
@@ -42,21 +42,21 @@ void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, in
         if ( **(_DWORD **)&qword_140C698E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C698E8, 4LL) )
         {
           tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v11 + 1448));
-          v10 = word_140038342;
+          v10 = word_14003842A;
           goto LABEL_13;
         }
       }
       else if ( **(_DWORD **)&qword_140C698E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C698E8, 4LL) )
       {
         tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v12 + 1448));
-        v10 = (__int16 *)&word_140038396;
+        v10 = (__int16 *)&word_14003847E;
         goto LABEL_13;
       }
     }
     else if ( **(_DWORD **)&qword_140C698E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C698E8, 4LL) )
     {
       tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v5 + 1448));
-      v10 = word_1400382F2;
+      v10 = word_1400383DA;
 LABEL_13:
       v13 = *(_DWORD *)(v9 + 1088);
       v22 = 0;

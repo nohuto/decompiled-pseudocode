@@ -1,33 +1,33 @@
 /*
- * XREFs of WheaRegisterInUsePageOfflineNotification @ 0x1408484F0
+ * XREFs of WheaRegisterInUsePageOfflineNotification @ 0x14084E7C0
  * Callers:
- *     HvlRegisterWheaErrorNotification @ 0x140791780 (HvlRegisterWheaErrorNotification.c)
+ *     HvlRegisterWheaErrorNotification @ 0x1407942B0 (HvlRegisterWheaErrorNotification.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall WheaRegisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFLINE_NOTIFY Callback, PVOID Context)
 {
   __int64 Pool2; // rax
   struct _KLOCK_ENTRIES *v6; // r9
-  struct _LIST_ENTRY *v7; // rdi
+  _QWORD *v7; // rdi
   struct _KTHREAD *CurrentThread; // rax
   AutoBoost *v9; // rax
   void *v10; // rdx
   signed __int8 v11; // cf
   AutoBoost *v12; // rsi
-  struct _LIST_ENTRY *Blink; // rax
+  _QWORD *v13; // rax
 
   if ( !WheapInUsePageOfflineNotifyInit )
     return -1073741823;
   Pool2 = ExAllocatePool2(0x40uLL);
-  v7 = (struct _LIST_ENTRY *)Pool2;
+  v7 = (_QWORD *)Pool2;
   if ( !Pool2 )
     return -1073741801;
   *(_QWORD *)(Pool2 + 24) = Context;
@@ -49,13 +49,13 @@ NTSTATUS __stdcall WheaRegisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFL
     else
       *((_BYTE *)v12 + 10) = 1;
   }
-  Blink = WheapInUsePageOfflineNotifyLock.Header.WaitListHead.Blink;
-  if ( WheapInUsePageOfflineNotifyLock.Header.WaitListHead.Blink->Flink != &WheapInUsePageOfflineNotifyLock.Header.WaitListHead )
+  v13 = (_QWORD *)qword_140EEF118;
+  if ( *(PVOID **)qword_140EEF118 != &WheapInUsePageOfflineNotifyList )
     __fastfail(3u);
-  v7->Flink = &WheapInUsePageOfflineNotifyLock.Header.WaitListHead;
-  v7->Blink = Blink;
-  Blink->Flink = v7;
-  WheapInUsePageOfflineNotifyLock.Header.WaitListHead.Blink = v7;
+  *v7 = &WheapInUsePageOfflineNotifyList;
+  v7[1] = v13;
+  *v13 = v7;
+  qword_140EEF118 = (__int64)v7;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapInUsePageOfflineNotifyLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&WheapInUsePageOfflineNotifyLock.Header.Lock);
   KeAbPostRelease((unsigned __int64)&WheapInUsePageOfflineNotifyLock);

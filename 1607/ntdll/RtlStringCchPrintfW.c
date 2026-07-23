@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringCchPrintfW @ 0x180081278
+ * XREFs of RtlStringCchPrintfW @ 0x180081268
  * Callers:
- *     RtlGetAppContainerNamedObjectPath @ 0x18000F010 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x18000F000 (RtlGetAppContainerNamedObjectPath.c)
  * Callees:
- *     _vsnwprintf @ 0x180098260 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x180098250 (_vsnwprintf.c)
  */
 
 __int64 RtlStringCchPrintfW(wchar_t *Buffer, __int64 a2, const wchar_t *a3, ...)

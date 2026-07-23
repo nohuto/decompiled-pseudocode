@@ -1,20 +1,20 @@
 /*
- * XREFs of PopResetCurrentPolicies @ 0x14056DF0C
+ * XREFs of PopResetCurrentPolicies @ 0x14056E44C
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopEnableHiberFile @ 0x14056C7F8 (PopEnableHiberFile.c)
- *     PopCreateHiberFile @ 0x14056CF34 (PopCreateHiberFile.c)
- *     PopChangeCapability @ 0x14056DEF8 (PopChangeCapability.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopEnableHiberFile @ 0x14056CD38 (PopEnableHiberFile.c)
+ *     PopCreateHiberFile @ 0x14056D474 (PopCreateHiberFile.c)
+ *     PopChangeCapability @ 0x14056E438 (PopChangeCapability.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     PopOpenPowerKey @ 0x140132520 (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopApplyPolicy @ 0x14056DFD8 (PopApplyPolicy.c)
- *     PopDefaultPolicy @ 0x14057F920 (PopDefaultPolicy.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     PopOpenPowerKey @ 0x140132A90 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopApplyPolicy @ 0x14056E518 (PopApplyPolicy.c)
+ *     PopDefaultPolicy @ 0x14057FDCC (PopDefaultPolicy.c)
  */
 
 __int64 PopResetCurrentPolicies()

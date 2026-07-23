@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmHeteroInitializeHgsSupport @ 0x140192A80
+ * XREFs of PpmHeteroInitializeHgsSupport @ 0x140192BC0
  * Callers:
- *     PpmHeteroHgsBackupInit @ 0x140192A40 (PpmHeteroHgsBackupInit.c)
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PpmHeteroHgsBackupInit @ 0x140192B80 (PpmHeteroHgsBackupInit.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
  *     MmAllocatePagesForMdlEx @ 0x140010EE0 (MmAllocatePagesForMdlEx.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 PpmHeteroInitializeHgsSupport()
@@ -50,13 +50,13 @@ __int64 PpmHeteroInitializeHgsSupport()
         __writemsr(0x17D0u, (p_Next[6] << 12) | 1LL);
         __writemsr(0x17D1u, 1uLL);
         PpmHeteroHgsInterface = (__int64)MappedSystemVa;
-        qword_140541BC8 = (__int64)PpmHeteroHgsUpdateDpcRoutine;
+        qword_140542BC8 = (__int64)PpmHeteroHgsUpdateDpcRoutine;
         v11 = 0;
         LODWORD(PpmHeteroHgsUpdateDpc) = 787;
         PpmHeteroHgsUpdateWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PpmHeteroHgsUpdateWorker;
-        qword_140541BD0 = 0LL;
-        qword_140541BE8 = 0LL;
-        qword_140541BC0 = 0LL;
+        qword_140542BD0 = 0LL;
+        qword_140542BE8 = 0LL;
+        qword_140542BC0 = 0LL;
         PpmHeteroHgsUpdateWorkItem.Parameter = 0LL;
         PpmHeteroHgsUpdateWorkItem.List.Flink = 0LL;
         PpmHeteroHgsTableMdl = (__int64)p_Next;

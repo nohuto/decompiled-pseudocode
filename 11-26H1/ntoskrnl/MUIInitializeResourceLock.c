@@ -1,14 +1,14 @@
 /*
- * XREFs of MUIInitializeResourceLock @ 0x140AE5278
+ * XREFs of MUIInitializeResourceLock @ 0x140AE3038
  * Callers:
- *     NtFlushInstallUILanguage @ 0x140844590 (NtFlushInstallUILanguage.c)
- *     NtMapCMFModule @ 0x1408446A0 (NtMapCMFModule.c)
- *     NtGetMUIRegistryInfo @ 0x140AE5010 (NtGetMUIRegistryInfo.c)
+ *     NtFlushInstallUILanguage @ 0x140849A20 (NtFlushInstallUILanguage.c)
+ *     NtMapCMFModule @ 0x140849B30 (NtMapCMFModule.c)
+ *     NtGetMUIRegistryInfo @ 0x140AE2DD0 (NtGetMUIRegistryInfo.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     ExDeleteResourceLite @ 0x140474A20 (ExDeleteResourceLite.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x14046E1A0 (ExDeleteResourceLite.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MUIInitializeResourceLock(volatile signed __int64 *a1)

@@ -23,74 +23,74 @@
  *     ExAllocatePool2 @ 0x1409B7280 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtCopyFileChunk(
-        void *a1,
-        ULONG_PTR a2,
-        void *a3,
-        int *a4,
-        unsigned int a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        int a10)
+NTSTATUS __cdecl NtCopyFileChunk(
+        HANDLE SourceHandle,
+        HANDLE DestinationHandle,
+        HANDLE EventHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG Length,
+        PLARGE_INTEGER SourceOffset,
+        PLARGE_INTEGER DestOffset,
+        PULONG SourceKey,
+        PULONG DestKey,
+        ULONG Flags)
 {
   KPROCESSOR_MODE PreviousMode; // r15
-  __int64 v13; // r12
+  PLARGE_INTEGER v13; // r12
   __int64 v14; // rcx
   __int128 v15; // xmm6
-  __int64 v16; // rdi
+  LONGLONG v16; // rdi
   char *Pool2; // rax
   char *v18; // rsi
-  int File; // edi
+  NTSTATUS File; // edi
   char *v20; // r13
   __int64 v21; // rcx
-  __int64 v22; // rdx
-  int v23; // r13d
+  HANDLE v22; // rdx
+  ULONG v23; // r13d
   PADAPTER_OBJECT *v24; // rdi
   int Object; // [rsp+20h] [rbp-F8h]
-  SIZE_T Length; // [rsp+30h] [rbp-E8h]
-  int v27; // [rsp+60h] [rbp-B8h]
+  SIZE_T v26; // [rsp+30h] [rbp-E8h]
+  NTSTATUS Status; // [rsp+60h] [rbp-B8h]
   char v28; // [rsp+70h] [rbp-A8h]
   struct _KEVENT *v29; // [rsp+78h] [rbp-A0h]
-  __int64 v30; // [rsp+80h] [rbp-98h]
+  LONGLONG QuadPart; // [rsp+80h] [rbp-98h]
   char *v31; // [rsp+90h] [rbp-88h]
   PVOID v32; // [rsp+98h] [rbp-80h] BYREF
   POBJECT_HANDLE_INFORMATION v33; // [rsp+A0h] [rbp-78h]
   PIRP Irp; // [rsp+A8h] [rbp-70h]
   struct _KEVENT Event; // [rsp+B0h] [rbp-68h] BYREF
   __int128 v36; // [rsp+C8h] [rbp-50h]
-  int v40; // [rsp+168h] [rbp+50h]
+  ULONG Flagsa; // [rsp+168h] [rbp+50h]
 
   v36 = 0LL;
   memset(&Event, 0, sizeof(Event));
   v29 = 0LL;
   Irp = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a10 )
-    return 3221225485LL;
+  if ( Flags )
+    return -1073741811;
   if ( PreviousMode )
   {
-    v13 = a6;
-    if ( (a6 & 3) != 0 )
+    v13 = SourceOffset;
+    if ( ((unsigned __int8)SourceOffset & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v14 = 0x7FFFFFFF0000LL;
-    v30 = *(_QWORD *)a6;
-    if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-      v14 = (__int64)a4;
+    QuadPart = SourceOffset->QuadPart;
+    if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
+      v14 = (__int64)IoStatusBlock;
     *(_DWORD *)v14 = *(_DWORD *)v14;
-    v15 = *(_OWORD *)a4;
-    v36 = *(_OWORD *)a4;
-    v16 = v30;
+    v15 = *(_OWORD *)&IoStatusBlock->Status;
+    v36 = *(_OWORD *)&IoStatusBlock->Status;
+    v16 = QuadPart;
   }
   else
   {
-    v13 = a6;
-    v16 = *(_QWORD *)a6;
-    v15 = *(_OWORD *)a4;
-    v36 = *(_OWORD *)a4;
+    v13 = SourceOffset;
+    v16 = SourceOffset->QuadPart;
+    v15 = *(_OWORD *)&IoStatusBlock->Status;
+    v36 = *(_OWORD *)&IoStatusBlock->Status;
   }
-  Pool2 = (char *)ExAllocatePool2(67LL, a5 + 72LL, 1883467593LL);
+  Pool2 = (char *)ExAllocatePool2(67LL, Length + 72LL, 1883467593LL);
   v18 = Pool2;
   if ( Pool2 )
   {
@@ -100,57 +100,65 @@ __int64 __fastcall NtCopyFileChunk(
     v18 += 72;
     *((_QWORD *)v20 + 8) = v16;
     v33 = (POBJECT_HANDLE_INFORMATION)(v20 + 56);
-    File = IopReferenceFileObject(a1, 1u, PreviousMode, (PVOID *)v20 + 7, 0LL);
+    File = IopReferenceFileObject(SourceHandle, 1u, PreviousMode, (PVOID *)v20 + 7, 0LL);
     if ( File < 0 )
       goto LABEL_40;
-    File = ObReferenceFileObjectForWrite(a2);
+    File = ObReferenceFileObjectForWrite((ULONG_PTR)DestinationHandle);
     if ( File >= 0 && IopFileObjectRevoked(*((_QWORD *)v20 + 6)) )
       File = -1073739504;
     if ( File < 0 )
       goto LABEL_40;
     v21 = *((_QWORD *)v20 + 6);
-    v40 = *(_DWORD *)(v21 + 80) & 2;
+    Flagsa = *(_DWORD *)(v21 + 80) & 2;
     v28 = (*(_DWORD *)(v21 + 80) & 4) != 0;
     v22 = 0LL;
-    if ( !v40 )
-      v22 = (__int64)a3;
+    if ( !Flagsa )
+      v22 = EventHandle;
     File = IopPopulateCopyWriteWorkerData(
              v21,
-             (__int64)a4,
+             (__int64)IoStatusBlock,
              (__int64)v18,
-             a5,
+             Length,
              Object,
              (__int64)v33,
-             v22,
-             a7,
-             a9,
+             (__int64)v22,
+             (__int64)DestOffset,
+             (__int64)DestKey,
              0,
              (__int64)(v20 + 32));
     if ( File >= 0 )
     {
-      v23 = v40;
-      if ( v40 )
+      v23 = Flagsa;
+      if ( Flagsa )
       {
         KeInitializeEvent(&Event, SynchronizationEvent, 0);
         *(_QWORD *)(*((_QWORD *)v31 + 4) + 80LL) = &Event;
         *(_DWORD *)(*((_QWORD *)v31 + 4) + 16LL) |= 4u;
-        if ( a3 )
+        if ( EventHandle )
         {
           v32 = 0LL;
-          File = ObReferenceObjectByHandle(a3, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &v32, 0LL);
+          File = ObReferenceObjectByHandle(EventHandle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &v32, 0LL);
           v29 = (struct _KEVENT *)v32;
           if ( File < 0 )
             goto LABEL_40;
           KeResetEvent((PRKEVENT)v32);
         }
         Irp = (PIRP)*((_QWORD *)v31 + 4);
-        v23 = v40;
+        v23 = Flagsa;
       }
-      *(_OWORD *)a4 = v15;
+      *(_OWORD *)&IoStatusBlock->Status = v15;
       v24 = (PADAPTER_OBJECT *)v33;
       ObfReferenceObject(*(PVOID *)v33);
-      LODWORD(Length) = a5;
-      File = IopReadFile(*v24, (__int64)a4, v18, Length, v13, a8, 0x40000000, (__int64)v24);
+      LODWORD(v26) = Length;
+      File = IopReadFile(
+               *v24,
+               (__int64)IoStatusBlock,
+               v18,
+               v26,
+               (__int64)v13,
+               (__int64)SourceKey,
+               0x40000000,
+               (__int64)v24);
       v18 = 0LL;
       if ( File >= 0 && v23 )
       {
@@ -160,18 +168,18 @@ __int64 __fastcall NtCopyFileChunk(
           if ( PreviousMode )
           {
             if ( IoIs32bitProcess(0LL) )
-              v27 = *(_DWORD *)(unsigned int)*a4;
+              Status = *(_DWORD *)(unsigned int)IoStatusBlock->Status;
             else
-              v27 = *a4;
-            File = v27;
+              Status = IoStatusBlock->Status;
+            File = Status;
           }
           else if ( IoIs32bitProcess(0LL) )
           {
-            File = *(_DWORD *)(unsigned int)*a4;
+            File = *(_DWORD *)(unsigned int)IoStatusBlock->Status;
           }
           else
           {
-            File = *a4;
+            File = IoStatusBlock->Status;
           }
         }
         if ( v29 )
@@ -194,5 +202,5 @@ LABEL_40:
     IopFreeCopyObjectsFromDataBuffer((__int64)v18, 1);
   if ( v29 )
     HalPutDmaAdapter((PADAPTER_OBJECT)v29);
-  return (unsigned int)File;
+  return File;
 }

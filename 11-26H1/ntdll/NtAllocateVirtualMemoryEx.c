@@ -1,16 +1,23 @@
 /*
- * XREFs of NtAllocateVirtualMemoryEx @ 0x18015FE30
+ * XREFs of NtAllocateVirtualMemoryEx @ 0x18015FD30
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x18008BE90 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpEnvAllocVA @ 0x18006F2D0 (RtlpHpEnvAllocVA.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtAllocateVirtualMemoryEx()
+NTSTATUS __cdecl NtAllocateVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 120LL;
+  result = 120;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

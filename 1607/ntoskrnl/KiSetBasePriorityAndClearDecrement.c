@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetBasePriorityAndClearDecrement @ 0x14007EFD8
+ * XREFs of KiSetBasePriorityAndClearDecrement @ 0x14007F058
  * Callers:
- *     KiTryUnwaitThreadWithPriority @ 0x14007E954 (KiTryUnwaitThreadWithPriority.c)
- *     KeSetPriorityAndQuantumProcess @ 0x14007EA64 (KeSetPriorityAndQuantumProcess.c)
- *     KeSetBasePriorityThread @ 0x14007ED94 (KeSetBasePriorityThread.c)
- *     KeRemovePriQueue @ 0x1400E79D0 (KeRemovePriQueue.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x14007E9D4 (KiTryUnwaitThreadWithPriority.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14007EAE4 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetBasePriorityThread @ 0x14007EE14 (KeSetBasePriorityThread.c)
+ *     KeRemovePriQueue @ 0x1400E5870 (KeRemovePriQueue.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x14006C668 (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14006C1E8 (KiAbQueueAutoBoostDpc.c)
  */
 
 __int64 __fastcall KiSetBasePriorityAndClearDecrement(__int64 a1, _BYTE *a2, int a3)

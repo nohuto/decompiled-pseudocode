@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpSetPlugPlayEvent @ 0x140990378
+ * XREFs of PnpSetPlugPlayEvent @ 0x14097B3B0
  * Callers:
- *     PiInitializeDevice @ 0x140734A0C (PiInitializeDevice.c)
- *     PipProcessStartPhase3 @ 0x14099006C (PipProcessStartPhase3.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiInitializeDevice @ 0x14073293C (PiInitializeDevice.c)
+ *     PipProcessStartPhase3 @ 0x14097B0A4 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpCreateDeviceEventEntry @ 0x1408B3920 (PnpCreateDeviceEventEntry.c)
- *     PnpInsertEventInQueue @ 0x1408B3950 (PnpInsertEventInQueue.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x1408B1210 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x1408B1240 (PnpInsertEventInQueue.c)
  */
 
 void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
@@ -31,7 +31,7 @@ void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
     if ( v4 )
     {
       v5 = *(unsigned __int16 *)(v4 + 40) + 80;
-      DeviceEventEntry = PnpCreateDeviceEventEntry();
+      DeviceEventEntry = PnpCreateDeviceEventEntry((unsigned int)*(unsigned __int16 *)(v4 + 40) + 200);
       v7 = DeviceEventEntry;
       if ( DeviceEventEntry )
       {

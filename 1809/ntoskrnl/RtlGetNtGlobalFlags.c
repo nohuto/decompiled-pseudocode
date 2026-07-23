@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetNtGlobalFlags @ 0x1408958A0
+ * XREFs of RtlGetNtGlobalFlags @ 0x140896B00
  * Callers:
- *     RtlpAllocateHeap @ 0x1402EFD30 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x1402EFF20 (RtlpAllocateHeap.c)
  * Callees:
  *     <none>
  */

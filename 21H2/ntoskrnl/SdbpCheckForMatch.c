@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpCheckForMatch @ 0x1407547A4
+ * XREFs of SdbpCheckForMatch @ 0x140754964
  * Callers:
- *     SdbpCheckKObject @ 0x140754D5C (SdbpCheckKObject.c)
- *     SdbpCheckExe @ 0x1407D220C (SdbpCheckExe.c)
+ *     SdbpCheckKObject @ 0x140754F1C (SdbpCheckKObject.c)
+ *     SdbpCheckExe @ 0x1407D237C (SdbpCheckExe.c)
  * Callees:
- *     SdbpMatchList @ 0x1407548A8 (SdbpMatchList.c)
- *     SdbpMatchOsVersion @ 0x140754B18 (SdbpMatchOsVersion.c)
- *     SdbReadWORDTag @ 0x140759ECC (SdbReadWORDTag.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     SdbpGetExeEntryFlags @ 0x1407C1B60 (SdbpGetExeEntryFlags.c)
+ *     SdbpMatchList @ 0x140754A68 (SdbpMatchList.c)
+ *     SdbpMatchOsVersion @ 0x140754CD8 (SdbpMatchOsVersion.c)
+ *     SdbReadWORDTag @ 0x14075A08C (SdbReadWORDTag.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     SdbpGetExeEntryFlags @ 0x1407C2080 (SdbpGetExeEntryFlags.c)
  */
 
 __int64 __fastcall SdbpCheckForMatch(int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, __int64 a6)

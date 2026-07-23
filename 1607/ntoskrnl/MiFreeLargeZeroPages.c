@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeLargeZeroPages @ 0x140662930
+ * XREFs of MiFreeLargeZeroPages @ 0x140662A14
  * Callers:
- *     MiCreatePagingFileMap @ 0x1404B8370 (MiCreatePagingFileMap.c)
- *     MiMapUserLargePages @ 0x140662B28 (MiMapUserLargePages.c)
+ *     MiCreatePagingFileMap @ 0x1404A2750 (MiCreatePagingFileMap.c)
+ *     MiMapUserLargePages @ 0x140662C0C (MiMapUserLargePages.c)
  * Callees:
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiInsertUnusedLargePageInNodeList @ 0x1401F58D4 (MiInsertUnusedLargePageInNodeList.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiInsertUnusedLargePageInNodeList @ 0x1401F5700 (MiInsertUnusedLargePageInNodeList.c)
  */
 
 _UNKNOWN **__fastcall MiFreeLargeZeroPages(__int64 a1, _QWORD **a2)

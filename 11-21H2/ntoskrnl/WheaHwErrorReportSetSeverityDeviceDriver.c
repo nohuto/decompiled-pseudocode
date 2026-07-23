@@ -4,7 +4,7 @@
  *     WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x140644300 (WheaHwErrorReportSetFatalSeverityDeviceDriver.c)
  *     WheaReportHwErrorDeviceDriverEx @ 0x140644630 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapErrorHandleIsValid @ 0x1406447EC (WheapErrorHandleIsValid.c)
+ *     sub_1406447EC @ 0x1406447EC (sub_1406447EC.c)
  */
 
 __int64 WheaHwErrorReportSetSeverityDeviceDriver()
@@ -13,7 +13,7 @@ __int64 WheaHwErrorReportSetSeverityDeviceDriver()
   __int64 v1; // rcx
   __int64 v3; // rax
 
-  if ( !(unsigned __int8)WheapErrorHandleIsValid() )
+  if ( !(unsigned __int8)sub_1406447EC() )
     return 3221225480LL;
   v3 = *(_QWORD *)(v1 + 40);
   *(_DWORD *)(v1 + 52) = v0;

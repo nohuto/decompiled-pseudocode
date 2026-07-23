@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierMmMapLockedPagesWithReservedMapping @ 0x14070CB40
+ * XREFs of VerifierMmMapLockedPagesWithReservedMapping @ 0x14070CB70
  * Callers:
  *     <none>
  * Callees:

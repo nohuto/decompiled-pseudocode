@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpLkmdIsMemoryBlockPresentFromCallback @ 0x140811D10
+ * XREFs of DbgkpLkmdIsMemoryBlockPresentFromCallback @ 0x140812F10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall DbgkpLkmdIsMemoryBlockPresentFromCallback(__int64 a1)

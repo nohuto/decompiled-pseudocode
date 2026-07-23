@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlFreeMemoryBlockLookaside @ 0x1801701A0
+ * XREFs of RtlFreeMemoryBlockLookaside @ 0x18016F1A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x180165A40 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x180163E00 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall RtlFreeMemoryBlockLookaside(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlFreeMemoryBlockLookaside(PVOID MemoryBlockLookaside, PVOID Block)
 {
-  RtlpInterlockedPushEntrySList(*(__int128 **)(a2 - 48 + 32), (_QWORD *)(a2 - 48));
-  return 0LL;
+  RtlpInterlockedPushEntrySList(*((__int128 **)Block - 2), (_QWORD *)Block - 6);
+  return 0;
 }

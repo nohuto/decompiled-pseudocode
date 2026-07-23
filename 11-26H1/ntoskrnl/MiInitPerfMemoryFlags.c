@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitPerfMemoryFlags @ 0x14052B958
+ * XREFs of MiInitPerfMemoryFlags @ 0x14052DE78
  * Callers:
- *     MiLogSectionCreate @ 0x14086893C (MiLogSectionCreate.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
+ *     MiLogSectionCreate @ 0x14086ED1C (MiLogSectionCreate.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
  * Callees:
  *     <none>
  */

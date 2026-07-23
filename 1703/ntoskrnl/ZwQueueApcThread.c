@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwQueueApcThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, ApcRoutine, NormalContext);
+  return KiServiceInternal(ThreadHandle);
 }

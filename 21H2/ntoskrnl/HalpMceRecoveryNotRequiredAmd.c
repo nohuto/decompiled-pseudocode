@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMceRecoveryNotRequiredAmd @ 0x1404D059C
+ * XREFs of HalpMceRecoveryNotRequiredAmd @ 0x1404D07DC
  * Callers:
- *     HalpMceRecovery @ 0x1404D02A0 (HalpMceRecovery.c)
+ *     HalpMceRecovery @ 0x1404D04E0 (HalpMceRecovery.c)
  * Callees:
- *     HalpMemoryErrorDeferredRecovery @ 0x1404CFF30 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1404D0170 (HalpMemoryErrorDeferredRecovery.c)
  */
 
 char __fastcall HalpMceRecoveryNotRequiredAmd(__int64 a1)

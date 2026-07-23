@@ -1,10 +1,10 @@
 /*
- * XREFs of KiBugCheckShouldEnterPostBugCheckDebugger @ 0x140569A44
+ * XREFs of KiBugCheckShouldEnterPostBugCheckDebugger @ 0x14056A104
  * Callers:
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
- *     KiAttemptBugcheckRecovery @ 0x14057A42C (KiAttemptBugcheckRecovery.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
+ *     KiAttemptBugcheckRecovery @ 0x14057A91C (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     KdRefreshDebuggerNotPresent @ 0x1403B1ED0 (KdRefreshDebuggerNotPresent.c)
+ *     KdRefreshDebuggerNotPresent @ 0x1403B20B0 (KdRefreshDebuggerNotPresent.c)
  */
 
 char __fastcall KiBugCheckShouldEnterPostBugCheckDebugger(int a1, __int64 a2)

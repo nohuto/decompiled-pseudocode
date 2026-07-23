@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDeviceIdleCheck @ 0x1402080D4
+ * XREFs of PopDiagTraceDeviceIdleCheck @ 0x140207F00
  * Callers:
- *     PopScanIdleList @ 0x140009938 (PopScanIdleList.c)
+ *     PopScanIdleList @ 0x1400094AC (PopScanIdleList.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDeviceIdleCheck(__int64 a1, int a2, int a3)

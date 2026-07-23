@@ -1,15 +1,15 @@
 /*
- * XREFs of CarEtwRegister @ 0x1406159C4
+ * XREFs of CarEtwRegister @ 0x140613F84
  * Callers:
- *     CarInitLogging @ 0x1406160A0 (CarInitLogging.c)
+ *     CarInitLogging @ 0x140614660 (CarInitLogging.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     McGenEventRegister_EtwRegister @ 0x14057D754 (McGenEventRegister_EtwRegister.c)
- *     CarTipLogDriverLoad @ 0x1406162B0 (CarTipLogDriverLoad.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     McGenEventRegister_EtwRegister @ 0x14057ABE4 (McGenEventRegister_EtwRegister.c)
+ *     CarTipLogDriverLoad @ 0x140614870 (CarTipLogDriverLoad.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 NTSTATUS CarEtwRegister()
@@ -39,15 +39,15 @@ NTSTATUS CarEtwRegister()
   int *v22; // [rsp+D0h] [rbp+37h]
   __int64 v23; // [rsp+D8h] [rbp+3Fh]
 
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E09000, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E09070, 0LL, 0LL);
   result = McGenEventRegister_EtwRegister((const GUID *)EtwProvider, v0, EtwProvider_Context, EtwProvider_Context);
   v2 = result;
   if ( result >= 0 )
   {
-    if ( dword_140E09000
-      && tlgKeywordOn((__int64)&dword_140E09000, 0x800000000000LL)
+    if ( dword_140E09070
+      && tlgKeywordOn((__int64)&dword_140E09070, 0x800000000000LL)
       && v3 > 5
-      && tlgKeywordOn((__int64)&dword_140E09000, 0x400000000000LL) )
+      && tlgKeywordOn((__int64)&dword_140E09070, 0x400000000000LL) )
     {
       v6 = CarTipTag;
       v13 = 4LL;
@@ -67,8 +67,8 @@ NTSTATUS CarEtwRegister()
       v21 = 4LL;
       v23 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E09000,
-        (unsigned __int8 *)byte_1400518A5,
+        (__int64)&dword_140E09070,
+        (unsigned __int8 *)&byte_1400522B7,
         0LL,
         0LL,
         9u,

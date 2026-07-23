@@ -44,7 +44,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, ULONG_PTR a2, ULON
   __int64 v21; // rdx
   __int64 v22; // r8
   __int64 v23; // r9
-  __int64 v25; // rax
+  PRTL_BALANCED_NODE v25; // rax
   __int64 v26; // rdx
   __int64 v27; // r8
   __int64 v28; // r9
@@ -110,7 +110,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, ULONG_PTR a2, ULON
     v25 = KeAbPreAcquire(v11, 0LL, 0);
     v17 = (_KLOCK_ENTRY *)v25;
     if ( v25 )
-      KeAbPreWait(v25);
+      KeAbPreWait((__int64)v25);
   }
   else
   {
@@ -119,7 +119,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, ULONG_PTR a2, ULON
   KeWaitForSingleObject((PVOID)(v11 + 56), WrPageIn, 0, 0, 0LL);
   if ( v17 )
   {
-    KeAbPreAcquire(v11, (__int64)v17, 0);
+    KeAbPreAcquire(v11, &v17->TreeNode, 0);
     KeAbPostReleaseEx(v11, v17);
   }
   MiFreeInPageSupportBlock((char *)v11);

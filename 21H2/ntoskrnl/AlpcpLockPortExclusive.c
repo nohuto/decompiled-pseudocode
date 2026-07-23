@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpLockPortExclusive @ 0x1408C2F0C
+ * XREFs of AlpcpLockPortExclusive @ 0x1408C306C
  * Callers:
- *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x1406D8320 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall AlpcpLockPortExclusive(__int64 a1)

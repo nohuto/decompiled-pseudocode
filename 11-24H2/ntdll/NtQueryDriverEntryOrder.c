@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryDriverEntryOrder @ 0x180164660
+ * XREFs of NtQueryDriverEntryOrder @ 0x180162A20
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryDriverEntryOrder()
+NTSTATUS __cdecl NtQueryDriverEntryOrder(PULONG Ids, PULONG Count)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 335LL;
+  result = 335;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

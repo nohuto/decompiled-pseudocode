@@ -1,9 +1,9 @@
 /*
- * XREFs of KiReleasePrcbLocksForGroupAffinity @ 0x1405B10F0
+ * XREFs of KiReleasePrcbLocksForGroupAffinity @ 0x1405AE060
  * Callers:
- *     KiCompleteKernelInit @ 0x140B55C50 (KiCompleteKernelInit.c)
+ *     KiCompleteKernelInit @ 0x140B57CA0 (KiCompleteKernelInit.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
  */
 
 __int64 __fastcall KiReleasePrcbLocksForGroupAffinity(__int64 a1)

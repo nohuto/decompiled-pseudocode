@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmDeleteDeviceRegKeyWorker @ 0x140A2A8BC
+ * XREFs of _CmDeleteDeviceRegKeyWorker @ 0x140A3D94C
  * Callers:
- *     _CmDeleteDeviceRegKey @ 0x140A8A734 (_CmDeleteDeviceRegKey.c)
+ *     _CmDeleteDeviceRegKey @ 0x1409B7554 (_CmDeleteDeviceRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     wcsrchr @ 0x140538350 (wcsrchr.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _CmSetDeviceRegProp @ 0x14090A0E8 (_CmSetDeviceRegProp.c)
- *     _CmGetDeviceRegKeyPath @ 0x140994330 (_CmGetDeviceRegKeyPath.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140996AB8 (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x140A2AEB0 (_PnpCtxRegOpenCurrentUserKey.c)
- *     _PnpCtxRegDeleteKey @ 0x140A2D8BC (_PnpCtxRegDeleteKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140A2D8F8 (_PnpCtxRegDeleteTree.c)
- *     _CmDeleteDeviceRegKey @ 0x140A8A734 (_CmDeleteDeviceRegKey.c)
- *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x140B3E404 (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     wcsrchr @ 0x14053A7D0 (wcsrchr.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _CmGetDeviceRegKeyPath @ 0x140954D90 (_CmGetDeviceRegKeyPath.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140957518 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _CmSetDeviceRegProp @ 0x1409AC6A0 (_CmSetDeviceRegProp.c)
+ *     _CmDeleteDeviceRegKey @ 0x1409B7554 (_CmDeleteDeviceRegKey.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x140A3DF40 (_PnpCtxRegOpenCurrentUserKey.c)
+ *     _PnpCtxRegDeleteKey @ 0x140A3F2C8 (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A3F304 (_PnpCtxRegDeleteTree.c)
+ *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x140B4043C (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDeviceRegKeyWorker(__int64 a1, __int64 a2, int a3, int a4, char a5)
@@ -35,13 +35,13 @@ __int64 __fastcall CmDeleteDeviceRegKeyWorker(__int64 a1, __int64 a2, int a3, in
   HANDLE v18; // r12
   unsigned int v20; // r13d
   int v21; // eax
-  UNICODE_STRING *p_DestinationString; // rax
+  int *p_DestinationString; // rax
   unsigned int v23; // r13d
   int v24; // eax
   wchar_t *v25; // rax
   wchar_t *v26; // r14
   size_t v27; // [rsp+30h] [rbp-40h]
-  UNICODE_STRING *v28; // [rsp+40h] [rbp-30h] BYREF
+  int *v28; // [rsp+40h] [rbp-30h] BYREF
   HANDLE v29; // [rsp+48h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-18h] BYREF
@@ -134,7 +134,7 @@ LABEL_17:
   if ( (unsigned __int8)a3 == 18 && (a3 & 0xF00) == 0 )
   {
     *(_DWORD *)&DestinationString.Length = 786;
-    p_DestinationString = &DestinationString;
+    p_DestinationString = (int *)&DestinationString;
     *(_DWORD *)(&DestinationString.MaximumLength + 1) = 530;
     v23 = 0;
     LODWORD(DestinationString.Buffer) = 274;
@@ -143,7 +143,7 @@ LABEL_17:
       v28 = p_DestinationString;
       if ( v23 >= 3 )
         break;
-      v24 = CmDeleteDeviceRegKey(a1, a2, *(unsigned int *)&p_DestinationString->Length);
+      v24 = CmDeleteDeviceRegKey(a1, a2, *p_DestinationString, 0);
       if ( v24 && v24 != -1073741772 && v24 != -1073741811 && v24 != -1073741637 )
       {
         inited = v24;
@@ -152,7 +152,7 @@ LABEL_17:
         break;
       }
       ++v23;
-      p_DestinationString = (UNICODE_STRING *)(&v28->MaximumLength + 1);
+      p_DestinationString = v28 + 1;
     }
     CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues(a1, a2);
     v21 = CmSetDeviceRegProp(a1, a2, 0LL, 0xAu, 1, 0LL, 0, 0);

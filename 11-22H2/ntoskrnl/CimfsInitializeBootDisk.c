@@ -65,7 +65,7 @@ __int64 __fastcall CimfsInitializeBootDisk(__int64 a1, wchar_t *a2, UNICODE_STRI
   Source2 = v5;
   if ( !v4 || !v5 )
     return 3221225485LL;
-  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(const char **)(a1 + 184)) )
+  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(PCSTR *)(a1 + 184)) )
     return 3221225473LL;
   v7 = 0LL;
   v8 = 0;

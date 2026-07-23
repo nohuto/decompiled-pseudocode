@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwWaitForMultipleObjects @ 0x14015A7E0
+ * XREFs of ZwWaitForMultipleObjects @ 0x14015AD50
  * Callers:
  *     <none>
  * Callees:
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwWaitForMultipleObjects(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&Count, Object, *(_QWORD *)&WaitType);
+  return KiServiceInternal(*(_QWORD *)&Count);
 }

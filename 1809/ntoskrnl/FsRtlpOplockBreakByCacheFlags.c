@@ -1,25 +1,25 @@
 /*
  * XREFs of FsRtlpOplockBreakByCacheFlags @ 0x140018CB0
  * Callers:
- *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
- *     FsRtlOplockBreakToNoneEx @ 0x14026F7F0 (FsRtlOplockBreakToNoneEx.c)
- *     FsRtlCheckUpperOplock @ 0x1405854A0 (FsRtlCheckUpperOplock.c)
- *     FsRtlOplockBreakH @ 0x1406C4C90 (FsRtlOplockBreakH.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7BC0 (FsRtlCheckOplockEx.c)
+ *     FsRtlOplockBreakToNoneEx @ 0x14026F9E0 (FsRtlOplockBreakToNoneEx.c)
+ *     FsRtlCheckUpperOplock @ 0x1405864A0 (FsRtlCheckUpperOplock.c)
+ *     FsRtlOplockBreakH @ 0x1406C5F30 (FsRtlOplockBreakH.c)
  * Callees:
  *     IoReleaseCancelSpinLock @ 0x140017DC0 (IoReleaseCancelSpinLock.c)
  *     FsRtlpComputeShareableOplockState @ 0x140018750 (FsRtlpComputeShareableOplockState.c)
  *     FsRtlpOplockKeysEqual @ 0x1400199A0 (FsRtlpOplockKeysEqual.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x140107DA0 (FsRtlpModifyThreadPriorities.c)
- *     IoAcquireCancelSpinLock @ 0x140111D70 (IoAcquireCancelSpinLock.c)
- *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133290 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x140134D00 (FsRtlpOplockSendModernAppTermination.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FFCC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpWaitOnIrp @ 0x140270170 (FsRtlpWaitOnIrp.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140107E20 (FsRtlpModifyThreadPriorities.c)
+ *     IoAcquireCancelSpinLock @ 0x140111DE0 (IoAcquireCancelSpinLock.c)
+ *     FsRtlpClearOwner @ 0x14012180C (FsRtlpClearOwner.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133360 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x140134DD0 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B37D4 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1402701BC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402702C0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x140270360 (FsRtlpWaitOnIrp.c)
  */
 
 __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
@@ -48,10 +48,10 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
   unsigned int v24; // ecx
   bool v25; // zf
   __int64 v26; // rsi
-  KIRQL *v27; // rbx
+  UCHAR *v27; // rbx
   __int64 v28; // rcx
   PIRP v29; // rsi
-  KIRQL *v30; // rbx
+  UCHAR *v30; // rbx
   struct _IRP *MasterIrp; // rcx
   char v32; // r15
   int v33; // eax
@@ -74,14 +74,14 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
   char v50; // al
   __int64 *v51; // rsi
   PIRP v52; // rsi
-  KIRQL *v53; // rbx
+  UCHAR *v53; // rbx
   struct _IRP *v54; // rcx
   PIRP v55; // rsi
-  KIRQL *v56; // rbx
+  UCHAR *v56; // rbx
   struct _IRP *v57; // rdx
   int v58; // eax
   PIRP v59; // rsi
-  KIRQL *v60; // rbx
+  UCHAR *v60; // rbx
   PIRP v61; // rax
   void *v62; // rcx
   struct _IRP *v63; // rcx
@@ -152,7 +152,7 @@ LABEL_139:
           if ( (a5 & 0x5000) == 0x5000 )
           {
             v26 = *(_QWORD *)a1;
-            v27 = (KIRQL *)(*(_QWORD *)a1 + 69LL);
+            v27 = (UCHAR *)(*(_QWORD *)a1 + 69LL);
             IoAcquireCancelSpinLock(v27);
             _InterlockedExchange64((volatile __int64 *)(v26 + 104), 0LL);
             IoReleaseCancelSpinLock(*v27);
@@ -182,7 +182,7 @@ LABEL_139:
             if ( (a5 & 0x4000) == 0 )
               goto LABEL_141;
             v29 = *(PIRP *)a1;
-            v30 = (KIRQL *)(*(_QWORD *)a1 + 69LL);
+            v30 = (UCHAR *)(*(_QWORD *)a1 + 69LL);
             IoAcquireCancelSpinLock(v30);
             _InterlockedExchange64((volatile __int64 *)&v29->CancelRoutine, 0LL);
             IoReleaseCancelSpinLock(*v30);
@@ -215,7 +215,7 @@ LABEL_139:
             if ( a5 == 0x4000 )
             {
               v52 = *(PIRP *)a1;
-              v53 = (KIRQL *)(*(_QWORD *)a1 + 69LL);
+              v53 = (UCHAR *)(*(_QWORD *)a1 + 69LL);
               IoAcquireCancelSpinLock(v53);
               _InterlockedExchange64((volatile __int64 *)&v52->CancelRoutine, 0LL);
               IoReleaseCancelSpinLock(*v53);
@@ -244,7 +244,7 @@ LABEL_122:
             else if ( a5 == 0x2000 )
             {
               v55 = *(PIRP *)a1;
-              v56 = (KIRQL *)(*(_QWORD *)a1 + 69LL);
+              v56 = (UCHAR *)(*(_QWORD *)a1 + 69LL);
               IoAcquireCancelSpinLock(v56);
               _InterlockedExchange64((volatile __int64 *)&v55->CancelRoutine, 0LL);
               IoReleaseCancelSpinLock(*v56);
@@ -281,7 +281,7 @@ LABEL_122:
               if ( (a5 & 0x5000) != 0x5000 )
                 goto LABEL_141;
               v59 = *(PIRP *)a1;
-              v60 = (KIRQL *)(*(_QWORD *)a1 + 69LL);
+              v60 = (UCHAR *)(*(_QWORD *)a1 + 69LL);
               IoAcquireCancelSpinLock(v60);
               _InterlockedExchange64((volatile __int64 *)&v59->CancelRoutine, 0LL);
               IoReleaseCancelSpinLock(*v60);

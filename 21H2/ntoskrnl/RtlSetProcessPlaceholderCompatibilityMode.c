@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlSetProcessPlaceholderCompatibilityMode @ 0x1409175E0
+ * XREFs of RtlSetProcessPlaceholderCompatibilityMode @ 0x140917740
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlSetProcessPlaceholderCompatibilityMode(unsigned __int8 a1)
+CHAR __cdecl RtlSetProcessPlaceholderCompatibilityMode(CHAR Mode)
 {
   unsigned __int64 v1; // r8
-  char result; // al
+  CHAR result; // al
 
-  if ( a1 > 3u )
+  if ( (unsigned __int8)Mode > 3u )
     return -1;
   v1 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[4];
   if ( !v1 )
     return -3;
   result = *(_BYTE *)(v1 + 1968);
-  *(_BYTE *)(v1 + 1968) = a1;
+  *(_BYTE *)(v1 + 1968) = Mode;
   return result;
 }

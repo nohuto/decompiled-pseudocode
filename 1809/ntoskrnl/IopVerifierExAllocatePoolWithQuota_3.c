@@ -1,11 +1,11 @@
 /*
- * XREFs of IopVerifierExAllocatePoolWithQuota_3 @ 0x14028439C
+ * XREFs of IopVerifierExAllocatePoolWithQuota_3 @ 0x14028458C
  * Callers:
- *     IoQueryInformationByName @ 0x14081C540 (IoQueryInformationByName.c)
+ *     IoQueryInformationByName @ 0x14081D740 (IoQueryInformationByName.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePoolWithQuota_3(__int64 a1, SIZE_T a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiIpiSendRequestEx @ 0x140030DC0
+ * XREFs of KiIpiSendRequestEx @ 0x140030940
  * Callers:
- *     KxFlushNonGlobalTb @ 0x140030C90 (KxFlushNonGlobalTb.c)
- *     KeInvalidateAllCaches @ 0x1400B5930 (KeInvalidateAllCaches.c)
- *     KxFlushMultipleTb @ 0x1400B5DC8 (KxFlushMultipleTb.c)
- *     KxFlushSingleTb @ 0x14010A720 (KxFlushSingleTb.c)
- *     KxFlushEntireTb @ 0x14013CFFC (KxFlushEntireTb.c)
- *     KeInvalidateRangeAllCaches @ 0x1401D6C2C (KeInvalidateRangeAllCaches.c)
+ *     KxFlushNonGlobalTb @ 0x140030810 (KxFlushNonGlobalTb.c)
+ *     KeInvalidateAllCaches @ 0x1400B3758 (KeInvalidateAllCaches.c)
+ *     KxFlushMultipleTb @ 0x1400B3BF0 (KxFlushMultipleTb.c)
+ *     KxFlushSingleTb @ 0x1401084A0 (KxFlushSingleTb.c)
+ *     KxFlushEntireTb @ 0x14013D56C (KxFlushEntireTb.c)
+ *     KeInvalidateRangeAllCaches @ 0x1401D6A58 (KeInvalidateRangeAllCaches.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x140030E80 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     KiIpiSendRequest @ 0x1400E0AE0 (KiIpiSendRequest.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x140030A00 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiIpiSendRequest @ 0x1400DE980 (KiIpiSendRequest.c)
  */
 
 __int64 __fastcall KiIpiSendRequestEx(

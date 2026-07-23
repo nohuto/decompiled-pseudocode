@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRearrangeReqList @ 0x140AA5658
+ * XREFs of IopRearrangeReqList @ 0x140AA06C8
  * Callers:
- *     PnpRestoreResourcesInternal @ 0x1407348C0 (PnpRestoreResourcesInternal.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x14098DBA0 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PnpRestoreResourcesInternal @ 0x1407327F0 (PnpRestoreResourcesInternal.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x140978BD8 (PnpGetResourceRequirementsForAssignTable.c)
  * Callees:
- *     qsort @ 0x1404FED20 (qsort.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
  */
 
 unsigned __int64 __fastcall IopRearrangeReqList(__int64 a1)

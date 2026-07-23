@@ -1,5 +1,5 @@
 /*
- * XREFs of KeAddSystemServiceTable @ 0x14056938C
+ * XREFs of KeAddSystemServiceTable @ 0x1405698CC
  * Callers:
  *     <none>
  * Callees:

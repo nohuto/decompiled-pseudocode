@@ -6,7 +6,7 @@
  *     ZwQueryInformationThread @ 0x1801636C0 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall RtlWow64GetThreadContext(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlWow64GetThreadContext(HANDLE ThreadHandle, PWOW64_CONTEXT ThreadContext)
 {
-  return ZwQueryInformationThread(a1, 29LL, a2);
+  return ZwQueryInformationThread(ThreadHandle, ThreadWow64Context, ThreadContext, 0x2CCu, 0LL);
 }

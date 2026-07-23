@@ -1,21 +1,21 @@
 /*
- * XREFs of KeIsSubsetAffinityEx @ 0x1403B34F0
+ * XREFs of KeIsSubsetAffinityEx @ 0x1403A1D00
  * Callers:
- *     KeSetUserAffinityThread @ 0x140209564 (KeSetUserAffinityThread.c)
- *     KeSetUserGroupAffinityThread @ 0x1403B2A30 (KeSetUserGroupAffinityThread.c)
- *     PpmPerfApplyDomainStates @ 0x1403B2C20 (PpmPerfApplyDomainStates.c)
- *     PpmPerfApplyDomainState @ 0x1403B2CE0 (PpmPerfApplyDomainState.c)
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x1403C82C8 (KiModifySystemAllowedCpuSetsWithLock.c)
- *     PpmHeteroHgsGetContainmentType @ 0x1404BAFC0 (PpmHeteroHgsGetContainmentType.c)
- *     KeCpuPartitionMoveCpus @ 0x1405BF6B0 (KeCpuPartitionMoveCpus.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1405CE3DC (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleRecheckCoordinatedIdleMask @ 0x1405CEA0C (PpmIdleRecheckCoordinatedIdleMask.c)
- *     PpmUpdateIdleDomains @ 0x1405CF4E0 (PpmUpdateIdleDomains.c)
- *     PsUpdateActiveProcessAffinity @ 0x140774758 (PsUpdateActiveProcessAffinity.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
- *     PspSetProcessAffinitySafe @ 0x140A4B2A4 (PspSetProcessAffinitySafe.c)
- *     PspCheckForJobAffinityViolation @ 0x140A61BBC (PspCheckForJobAffinityViolation.c)
+ *     KeSetUserAffinityThread @ 0x140330B44 (KeSetUserAffinityThread.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A1240 (KeSetUserGroupAffinityThread.c)
+ *     PpmPerfApplyDomainStates @ 0x1403A1430 (PpmPerfApplyDomainStates.c)
+ *     PpmPerfApplyDomainState @ 0x1403A14F0 (PpmPerfApplyDomainState.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x14048B680 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     PpmHeteroHgsGetContainmentType @ 0x1404B5E60 (PpmHeteroHgsGetContainmentType.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405BCCE0 (KeCpuPartitionMoveCpus.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1405CBAFC (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRecheckCoordinatedIdleMask @ 0x1405CC12C (PpmIdleRecheckCoordinatedIdleMask.c)
+ *     PpmUpdateIdleDomains @ 0x1405CCC00 (PpmUpdateIdleDomains.c)
+ *     PsUpdateActiveProcessAffinity @ 0x140774978 (PsUpdateActiveProcessAffinity.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     PspSetProcessAffinitySafe @ 0x140A42004 (PspSetProcessAffinitySafe.c)
+ *     PspCheckForJobAffinityViolation @ 0x140A5A4B0 (PspCheckForJobAffinityViolation.c)
  * Callees:
  *     <none>
  */

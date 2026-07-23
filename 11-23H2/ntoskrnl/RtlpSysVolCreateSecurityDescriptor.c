@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x1409BE9E4
+ * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x1409BEBE4
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x1409BE3F0 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1409BE5F0 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlSetControlSecurityDescriptor @ 0x14085CC20 (RtlSetControlSecurityDescriptor.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlSetControlSecurityDescriptor @ 0x14085CE60 (RtlSetControlSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -60,10 +60,10 @@ LABEL_11:
     SecurityDescriptor = Acl;
     goto LABEL_12;
   }
-  Acl = RtlpAddKnownAce((__int64)v10, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
+  Acl = RtlpAddKnownAce(v10, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
   if ( Acl < 0
     || (Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v10, 0), Acl < 0)
-    || (Acl = RtlSetControlSecurityDescriptor((__int64)v5, 0x1000u, 0x1000u), Acl < 0) )
+    || (Acl = RtlSetControlSecurityDescriptor(v5, 0x1000u, 0x1000u), Acl < 0) )
   {
     v12 = v10;
     goto LABEL_11;

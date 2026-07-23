@@ -1,15 +1,15 @@
 /*
- * XREFs of SeQuerySecurityDescriptorInfo @ 0x140878A10
+ * XREFs of SeQuerySecurityDescriptorInfo @ 0x14087CD40
  * Callers:
- *     CmpSecurityMethod @ 0x140852E10 (CmpSecurityMethod.c)
- *     SeDefaultObjectMethod @ 0x140858190 (SeDefaultObjectMethod.c)
- *     ObQuerySecurityDescriptorInfo @ 0x1408792D4 (ObQuerySecurityDescriptorInfo.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x140879E8C (ObpAllocateAndQuerySecurityDescriptorInfo.c)
- *     EtwQueryPerformanceTraceInformation @ 0x14095E9DC (EtwQueryPerformanceTraceInformation.c)
+ *     CmpSecurityMethod @ 0x14084F0D0 (CmpSecurityMethod.c)
+ *     SeDefaultObjectMethod @ 0x140854470 (SeDefaultObjectMethod.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x14087D604 (ObQuerySecurityDescriptorInfo.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x14087E1BC (ObpAllocateAndQuerySecurityDescriptorInfo.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14094649C (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlpFilterSacl @ 0x140878E9C (RtlpFilterSacl.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlpFilterSacl @ 0x14087D1CC (RtlpFilterSacl.c)
  */
 
 NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(
@@ -33,7 +33,7 @@ NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(
   char *v18; // r11
   __int16 v19; // r14
   ULONG v20; // edi
-  ULONG v21; // r9d
+  DWORD v21; // r9d
   int v22; // eax
   int v23; // ecx
   char v24; // al

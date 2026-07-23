@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpFindAndLockBufferForFlushing @ 0x180110F40
+ * XREFs of EtwpFindAndLockBufferForFlushing @ 0x180110F00
  * Callers:
- *     EtwpBufferingModeFlush @ 0x180110C60 (EtwpBufferingModeFlush.c)
+ *     EtwpBufferingModeFlush @ 0x180110C20 (EtwpBufferingModeFlush.c)
  * Callees:
  *     <none>
  */

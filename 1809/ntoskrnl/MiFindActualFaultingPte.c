@@ -8,9 +8,9 @@
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiCheckVirtualAddress @ 0x140098C30 (MiCheckVirtualAddress.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFindActualFaultingPte(__int64 a1, unsigned __int64 a2)
@@ -89,10 +89,10 @@ LABEL_6:
   {
     if ( !(unsigned int)MiIsPrototypePteVadLookup(v7, v6, v7, v8) )
     {
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
         if ( (v9 & 0x10) == 0 )
-          v9 &= ~qword_14043A0C0;
+          v9 &= ~qword_14043B180;
       }
       v11 = v9 >> 16;
 LABEL_12:

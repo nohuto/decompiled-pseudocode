@@ -1,18 +1,18 @@
 /*
- * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x140404528
+ * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x1403C752C
  * Callers:
- *     MiFlushAllPages @ 0x1404C8494 (MiFlushAllPages.c)
- *     MmProcessWorkingSetControl @ 0x140A4C914 (MmProcessWorkingSetControl.c)
+ *     MiFlushAllPages @ 0x1402653D4 (MiFlushAllPages.c)
+ *     MmProcessWorkingSetControl @ 0x140A434A4 (MmProcessWorkingSetControl.c)
  * Callees:
- *     MiGetNextVad @ 0x1402614BC (MiGetNextVad.c)
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     MiVadSupportsPrivateCommit @ 0x1402FBA00 (MiVadSupportsPrivateCommit.c)
- *     MiGetFirstVad @ 0x1404043B8 (MiGetFirstVad.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140404438 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404044B8 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadMapsLargeImage @ 0x140404B60 (MiVadMapsLargeImage.c)
- *     MiEmptyWorkingSetInitiate @ 0x140404B98 (MiEmptyWorkingSetInitiate.c)
+ *     MiGetNextVad @ 0x140291ACC (MiGetNextVad.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiVadSupportsPrivateCommit @ 0x1403455B0 (MiVadSupportsPrivateCommit.c)
+ *     MiGetFirstVad @ 0x1403C6358 (MiGetFirstVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403C63D8 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403C6458 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadMapsLargeImage @ 0x1403C7440 (MiVadMapsLargeImage.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     MiEmptyWorkingSetInitiate @ 0x1403C9030 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, int a2)
@@ -50,7 +50,7 @@ __int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, int a2)
           (*(unsigned int *)(v9 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 32) << 32)) << 12,
           ((*(unsigned int *)(v9 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 33) << 32)) << 12) | 0xFFF);
       }
-      MiUnlockVad((__int64)CurrentThread, v9);
+      MiUnlockVad(CurrentThread, v9);
       FirstVad = MiGetNextVad(v9);
     }
   }

@@ -6,26 +6,27 @@
  *     NLS_UPCASE @ 0x180016160 (NLS_UPCASE.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
-        __int64 a1,
-        int a2,
-        unsigned int a3,
-        unsigned int *a4,
-        unsigned __int16 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlUpcaseUnicodeToCustomCPN(
+        PCPTABLEINFO CustomCP,
+        PCH CustomCPString,
+        ULONG MaxBytesInCustomCPString,
+        PULONG BytesInCustomCPString,
+        PWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v6; // r11d
-  unsigned int v8; // ebx
+  ULONG v6; // r11d
+  ULONG v8; // ebx
   _BYTE *v9; // r10
-  unsigned int v11; // eax
-  __int64 v12; // rbp
-  unsigned __int16 *v13; // rsi
+  ULONG v11; // eax
+  _BYTE *v12; // rbp
+  PWCH v13; // rsi
   __int64 v14; // r14
   unsigned __int16 v15; // ax
   _BYTE *v16; // r10
-  __int64 v17; // r15
-  __int64 v19; // r12
-  unsigned __int16 *v20; // rbp
+  PUSHORT DBCSOffsets; // r15
+  int v18; // r14d
+  _WORD *WideCharTable; // r12
+  PWCH v20; // rbp
   __int64 v21; // rax
   unsigned __int16 v22; // dx
   unsigned __int64 v23; // rax
@@ -33,28 +34,29 @@ __int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
   __int16 v25; // dx
   unsigned int v26; // eax
 
-  v6 = a6 >> 1;
-  v8 = a3;
-  LODWORD(v9) = a2;
-  if ( *(_WORD *)(a1 + 12) )
+  v6 = BytesInUnicodeString >> 1;
+  v8 = MaxBytesInCustomCPString;
+  LODWORD(v9) = (_DWORD)CustomCPString;
+  if ( CustomCP->DBCSCodePage )
   {
-    v17 = *(_QWORD *)(a1 + 56);
-    v19 = *(_QWORD *)(a1 + 40);
+    DBCSOffsets = CustomCP->DBCSOffsets;
+    v18 = (int)CustomCPString;
+    WideCharTable = CustomCP->WideCharTable;
     if ( v6 )
     {
-      v20 = a5;
+      v20 = UnicodeString;
       do
       {
         if ( !v8 )
           break;
         v21 = *v20++;
-        v22 = *(_WORD *)(v19 + 2 * v21);
+        v22 = WideCharTable[v21];
         v23 = (unsigned __int64)v22 >> 8;
-        if ( *(_WORD *)(v17 + 2 * v23) )
-          v24 = *(_WORD *)(v17 + 2 * ((unsigned __int8)v22 + (unsigned __int64)*(unsigned __int16 *)(v17 + 2 * v23)));
+        if ( DBCSOffsets[v23] )
+          v24 = DBCSOffsets[(unsigned __int8)v22 + (unsigned __int64)DBCSOffsets[v23]];
         else
-          v24 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * (unsigned __int8)v22);
-        v25 = *(_WORD *)(v19 + 2LL * NLS_UPCASE(v24));
+          v24 = CustomCP->MultiByteTable[(unsigned __int8)v22];
+        v25 = WideCharTable[NLS_UPCASE(v24)];
         if ( HIBYTE(v25) )
         {
           v26 = v8--;
@@ -69,25 +71,25 @@ __int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
       }
       while ( v6 );
     }
-    if ( a4 )
-      *a4 = (_DWORD)v9 - a2;
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = (_DWORD)v9 - v18;
   }
   else
   {
-    v11 = a3;
-    if ( v6 < a3 )
-      v11 = a6 >> 1;
-    if ( a4 )
-      *a4 = v11;
-    v12 = *(_QWORD *)(a1 + 40);
+    v11 = MaxBytesInCustomCPString;
+    if ( v6 < MaxBytesInCustomCPString )
+      v11 = BytesInUnicodeString >> 1;
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = v11;
+    v12 = CustomCP->WideCharTable;
     if ( v11 )
     {
-      v13 = a5;
+      v13 = UnicodeString;
       v14 = v11;
       do
       {
-        v15 = NLS_UPCASE(*(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*v13++ + v12)));
-        *v16 = *(_BYTE *)(v15 + v12);
+        v15 = NLS_UPCASE(CustomCP->MultiByteTable[(unsigned __int8)v12[*v13++]]);
+        *v16 = v12[v15];
         --v14;
       }
       while ( v14 );

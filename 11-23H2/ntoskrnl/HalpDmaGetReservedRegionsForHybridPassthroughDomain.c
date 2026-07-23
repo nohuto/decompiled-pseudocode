@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x1405128F8
+ * XREFs of HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x140512E48
  * Callers:
- *     HalpDmaAllocateDomain @ 0x1403906A0 (HalpDmaAllocateDomain.c)
+ *     HalpDmaAllocateDomain @ 0x140390880 (HalpDmaAllocateDomain.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     RtlCmDecodeMemIoResource @ 0x140375320 (RtlCmDecodeMemIoResource.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpDmaGetIommuInterface @ 0x1404FFDC4 (HalpDmaGetIommuInterface.c)
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     RtlCmDecodeMemIoResource @ 0x1403754C0 (RtlCmDecodeMemIoResource.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpDmaGetIommuInterface @ 0x140500314 (HalpDmaGetIommuInterface.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
  */
 
 __int64 __fastcall HalpDmaGetReservedRegionsForHybridPassthroughDomain(__int64 a1)

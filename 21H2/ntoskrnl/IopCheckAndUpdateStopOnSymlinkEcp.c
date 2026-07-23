@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCheckAndUpdateStopOnSymlinkEcp @ 0x1408940C4
+ * XREFs of IopCheckAndUpdateStopOnSymlinkEcp @ 0x140894224
  * Callers:
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
  * Callees:
- *     FsRtlFindExtraCreateParameter @ 0x1407039E0 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x14071ADC0 (FsRtlFindExtraCreateParameter.c)
  */
 
 bool __fastcall IopCheckAndUpdateStopOnSymlinkEcp(struct _ECP_LIST *a1, int a2, __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of VslFlushSecureAddressSpace @ 0x1404B2398
+ * XREFs of VslFlushSecureAddressSpace @ 0x1404ACC28
  * Callers:
- *     HvlFlushRangeListTb @ 0x1403AEEF0 (HvlFlushRangeListTb.c)
- *     KeFlushTb @ 0x1403AFDF0 (KeFlushTb.c)
- *     HvlpSlowFlushListTbEx @ 0x1403CA27C (HvlpSlowFlushListTbEx.c)
+ *     HvlFlushRangeListTb @ 0x14039D700 (HvlFlushRangeListTb.c)
+ *     KeFlushTb @ 0x14039E600 (KeFlushTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x1403A4E4C (HvlpSlowFlushListTbEx.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 VslFlushSecureAddressSpace()
@@ -19,5 +19,5 @@ __int64 VslFlushSecureAddressSpace()
   if ( KeGetCurrentIrql() > 2u )
     return 255LL;
   SecureHandle = KeGetCurrentThread()->ApcState.Process->SecureState.SecureHandle;
-  return VslpEnterIumSecureMode(2u, 240LL, 0, (__int64)v1);
+  return VslpEnterIumSecureMode(2u, 0xF0u, 0, (__int64)v1);
 }

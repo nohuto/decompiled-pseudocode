@@ -1,14 +1,14 @@
 /*
- * XREFs of CmSiSetProcessWorkingSetMaximum @ 0x1403741E8
+ * XREFs of CmSiSetProcessWorkingSetMaximum @ 0x140374388
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x14080AADC (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x14080ADAC (CmpInitializeRegistryProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1402E9C78 (MmAdjustWorkingSetSizeEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     CmSiRWLockReleaseExclusive @ 0x140747338 (CmSiRWLockReleaseExclusive.c)
- *     CmSiRWLockAcquireExclusive @ 0x14074736C (CmSiRWLockAcquireExclusive.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x1402E9F08 (MmAdjustWorkingSetSizeEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     CmSiRWLockReleaseExclusive @ 0x140747528 (CmSiRWLockReleaseExclusive.c)
+ *     CmSiRWLockAcquireExclusive @ 0x14074755C (CmSiRWLockAcquireExclusive.c)
  */
 
 __int64 CmSiSetProcessWorkingSetMaximum()
@@ -19,15 +19,15 @@ __int64 CmSiSetProcessWorkingSetMaximum()
 
   memset(&v3, 0, sizeof(v3));
   KiStackAttachProcess(*((_KPROCESS **)&CmpRegistryProcess + 1), 0, (__int64)&v3);
-  CmSiRWLockAcquireExclusive(&xmmword_140C13F30);
+  CmSiRWLockAcquireExclusive(&xmmword_140C13EF0);
   v2[0] = 0;
-  v0 = MmAdjustWorkingSetSizeEx(xmmword_140C13F40, 0x4000000uLL, 0, 1, 0, v2);
+  v0 = MmAdjustWorkingSetSizeEx(xmmword_140C13F00, 0x4000000uLL, 0, 1, 0, v2);
   if ( v0 >= 0 )
   {
-    *((_QWORD *)&xmmword_140C13F40 + 1) = 0x4000000LL;
+    *((_QWORD *)&xmmword_140C13F00 + 1) = 0x4000000LL;
     v0 = 0;
   }
-  CmSiRWLockReleaseExclusive((ULONG_PTR)&xmmword_140C13F30);
+  CmSiRWLockReleaseExclusive((ULONG_PTR)&xmmword_140C13EF0);
   KiUnstackDetachProcess(&v3);
   return (unsigned int)v0;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of PspUnlockQuotaExpansion @ 0x1402BF2B4
+ * XREFs of PspUnlockQuotaExpansion @ 0x14023D704
  * Callers:
- *     PspReturnResourceQuota @ 0x1402BF168 (PspReturnResourceQuota.c)
- *     PspExpandQuota @ 0x1402BF1E8 (PspExpandQuota.c)
- *     PspInsertExpansionEntry @ 0x1403CBC54 (PspInsertExpansionEntry.c)
- *     PspExpandLimit @ 0x14058123C (PspExpandLimit.c)
+ *     PspReturnResourceQuota @ 0x14023D5B8 (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x14023D638 (PspExpandQuota.c)
+ *     PspInsertExpansionEntry @ 0x1403CBDC4 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x14058147C (PspExpandLimit.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
@@ -34,7 +34,6 @@ __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
   __int64 v13; // rdi
   unsigned int v14; // ecx
   __int64 v15; // rdx
-  __int64 v16; // rcx
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
 
@@ -96,7 +95,7 @@ __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
           {
             *(_BYTE *)(v13 + 32) |= 2u;
             if ( *(__int64 *)(v13 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v13);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
             v14 = *(_DWORD *)(v13 + 88) & 0xFFFE0000;
             *(_BYTE *)(v13 + 25) &= ~1u;
             *(_DWORD *)(v13 + 88) = v14;
@@ -119,7 +118,7 @@ LABEL_19:
     KiAbThreadRemoveBoosts((ULONG_PTR)v7);
     v11 = v7->SpecialApcDisable++ == -1;
     if ( v11 && ($C459BD0D405E8E46662177FB3D0A143F *)v7->ApcState.ApcListHead[0].Flink != &v7->152 )
-      KiCheckForKernelApcDelivery(v16);
+      KiCheckForKernelApcDelivery();
     return KiLeaveGuardedRegionUnsafe(CurrentThread);
   }
   return result;

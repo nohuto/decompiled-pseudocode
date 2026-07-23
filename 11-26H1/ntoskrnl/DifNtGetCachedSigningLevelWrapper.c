@@ -1,24 +1,24 @@
 /*
- * XREFs of DifNtGetCachedSigningLevelWrapper @ 0x140678990
+ * XREFs of DifNtGetCachedSigningLevelWrapper @ 0x14067C570
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtGetCachedSigningLevel @ 0x14080F6E0 (NtGetCachedSigningLevel.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtGetCachedSigningLevel @ 0x140815170 (NtGetCachedSigningLevel.c)
  */
 
 __int64 __fastcall DifNtGetCachedSigningLevelWrapper(
         void *a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        volatile void *Address,
-        __int64 a6)
+        ULONG *a2,
+        BYTE *a3,
+        UCHAR *a4,
+        ULONG *ThumbprintSize,
+        ULONG *ThumbprintAlgorithm)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -54,8 +54,8 @@ __int64 __fastcall DifNtGetCachedSigningLevelWrapper(
 LABEL_7:
   v14 = 0;
   v20[6] = a1;
-  v20[2] = Address;
-  v20[1] = a6;
+  v20[2] = ThumbprintSize;
+  v20[1] = ThumbprintAlgorithm;
   v20[5] = a2;
   v20[4] = a3;
   v20[3] = a4;
@@ -71,7 +71,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  CachedSigningLevel = NtGetCachedSigningLevel(a1, Address, a6);
+  CachedSigningLevel = NtGetCachedSigningLevel(a1, a2, a3, a4, ThumbprintSize, ThumbprintAlgorithm);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

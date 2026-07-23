@@ -1,98 +1,98 @@
 /*
- * XREFs of LdrRemoveLoadAsDataTable @ 0x1800643D0
+ * XREFs of LdrRemoveLoadAsDataTable @ 0x180079FB0
  * Callers:
- *     LdrAddLoadAsDataTable @ 0x180064190 (LdrAddLoadAsDataTable.c)
- *     LdrResRelease @ 0x18010BB50 (LdrResRelease.c)
- *     LdrpResMapFile @ 0x18010E614 (LdrpResMapFile.c)
+ *     LdrAddLoadAsDataTable @ 0x180079D70 (LdrAddLoadAsDataTable.c)
+ *     LdrResRelease @ 0x180106520 (LdrResRelease.c)
+ *     LdrpResMapFile @ 0x180109564 (LdrpResMapFile.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlReleaseActivationContext @ 0x18005E4D0 (RtlReleaseActivationContext.c)
- *     LdrpInitMuiCrits @ 0x180064024 (LdrpInitMuiCrits.c)
- *     RtlReAllocateHeap @ 0x1800A0E30 (RtlReAllocateHeap.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlReleaseActivationContext @ 0x1800740B0 (RtlReleaseActivationContext.c)
+ *     LdrpInitMuiCrits @ 0x180079C04 (LdrpInitMuiCrits.c)
+ *     RtlReAllocateHeap @ 0x18007A7D0 (RtlReAllocateHeap.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
  */
 
-__int64 __fastcall LdrRemoveLoadAsDataTable(wchar_t *String2, wchar_t **a2, _QWORD *a3, int a4)
+NTSTATUS __cdecl LdrRemoveLoadAsDataTable(PVOID InitModule, PVOID *BaseModule, PSIZE_T Size, ULONG Flags)
 {
-  wchar_t *v8; // r14
-  unsigned int v9; // esi
-  __int64 v10; // rdx
+  PVOID v8; // r14
+  NTSTATUS v9; // esi
+  _QWORD *v10; // rdx
   bool v11; // zf
   int i; // edi
-  unsigned __int64 v13; // r8
-  volatile signed __int32 *v14; // rcx
+  void *v13; // r8
+  _ACTIVATION_CONTEXT *v14; // rcx
   __int64 v15; // rax
   __int64 v16; // rax
-  __int64 Heap; // rax
+  _QWORD *Heap; // rax
   int v18; // r13d
   const wchar_t *v19; // rcx
   __int64 v20; // rax
   int v21; // eax
-  wchar_t **v22; // rcx
+  PVOID *v22; // rcx
   __int64 v24; // [rsp+60h] [rbp+8h]
 
-  if ( String2 )
+  if ( InitModule )
   {
     v8 = 0LL;
     v9 = -1073741511;
-    LdrpInitMuiCrits((__int64)String2, (__int64)a2);
-    RtlEnterCriticalSection((__int64)&LoadAsDataCrits);
+    LdrpInitMuiCrits((__int64)InitModule, (__int64)BaseModule);
+    RtlEnterCriticalSection(&LoadAsDataCrits);
     if ( LoadAsDataTableCount )
     {
-      if ( (a4 & 0xE00) == 0 )
+      if ( (Flags & 0xE00) == 0 )
       {
         v10 = LoadAsDataTable;
         goto LABEL_5;
       }
-      if ( a2 )
+      if ( BaseModule )
       {
-        *a2 = 0LL;
+        *BaseModule = 0LL;
         v18 = LoadAsDataTableCount;
         v10 = LoadAsDataTable;
         while ( v18 )
         {
-          if ( (a4 & 0x800) != 0 )
+          if ( (Flags & 0x800) != 0 )
           {
-            v22 = (wchar_t **)(48LL * (unsigned int)(v18 - 1) + v10);
-            if ( v22[3] == String2 )
+            v22 = (PVOID *)&v10[6 * (unsigned int)(v18 - 1)];
+            if ( v22[3] == InitModule )
             {
               v8 = *v22;
               break;
             }
           }
-          else if ( (a4 & 0x400) != 0
-                 && (v24 = 48LL * (unsigned int)(v18 - 1), (v19 = *(const wchar_t **)(v24 + v10 + 8)) != 0LL) )
+          else if ( (Flags & 0x400) != 0
+                 && (v24 = 6LL * (unsigned int)(v18 - 1), (v19 = (const wchar_t *)v10[v24 + 1]) != 0LL) )
           {
-            if ( !wcsicmp(v19, String2) )
+            if ( !wcsicmp(v19, (const wchar_t *)InitModule) )
             {
               v10 = LoadAsDataTable;
-              v8 = *(wchar_t **)(v24 + LoadAsDataTable);
+              v8 = *(PVOID *)((char *)LoadAsDataTable + v24 * 8);
               break;
             }
             v10 = LoadAsDataTable;
           }
-          else if ( (a4 & 0x200) != 0 )
+          else if ( (Flags & 0x200) != 0 )
           {
-            v20 = 48LL * (unsigned int)(v18 - 1);
-            if ( *(wchar_t **)(v20 + v10) == String2 )
+            v20 = 6LL * (unsigned int)(v18 - 1);
+            if ( (PVOID)v10[v20] == InitModule )
             {
-              v8 = *(wchar_t **)(v20 + v10);
+              v8 = (PVOID)v10[v20];
               break;
             }
           }
           --v18;
         }
         if ( v8 )
-          *a2 = v8;
-        if ( (a4 & 0x200000) != 0 )
+          *BaseModule = v8;
+        if ( (Flags & 0x200000) != 0 )
         {
-          if ( v8 && a3 )
+          if ( v8 && Size )
           {
-            *a3 = *(_QWORD *)(v10 + 48LL * (unsigned int)(v18 - 1) + 16);
-            if ( (a4 & 0x40000) != 0 )
-              ++*(_DWORD *)(v10 + 48LL * (unsigned int)(v18 - 1) + 32);
+            *Size = v10[6 * (unsigned int)(v18 - 1) + 2];
+            if ( (Flags & 0x40000) != 0 )
+              ++LODWORD(v10[6 * (unsigned int)(v18 - 1) + 4]);
             v9 = 0;
           }
         }
@@ -103,39 +103,38 @@ __int64 __fastcall LdrRemoveLoadAsDataTable(wchar_t *String2, wchar_t **a2, _QWO
           {
 LABEL_6:
             if ( v11 )
-              v8 = String2;
+              v8 = InitModule;
             for ( i = LoadAsDataTableCount; i; --i )
             {
-              if ( *(wchar_t **)(v10 + 48LL * (unsigned int)(i - 1)) == v8 )
+              if ( (PVOID)v10[6 * (unsigned int)(i - 1)] == v8 )
               {
-                v13 = *(_QWORD *)(v10 + 48LL * (unsigned int)(i - 1) + 8);
+                v13 = (void *)v10[6 * (unsigned int)(i - 1) + 1];
                 if ( v13 )
                 {
-                  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v13);
+                  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v13);
                   v10 = LoadAsDataTable;
-                  *(_QWORD *)(LoadAsDataTable + 48LL * (unsigned int)(i - 1) + 8) = 0LL;
+                  *((_QWORD *)LoadAsDataTable + 6 * (unsigned int)(i - 1) + 1) = 0LL;
                 }
-                v14 = *(volatile signed __int32 **)(v10 + 48LL * (unsigned int)(i - 1) + 40);
-                if ( (unsigned __int64)v14 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
+                v14 = (_ACTIVATION_CONTEXT *)v10[6 * (unsigned int)(i - 1) + 5];
+                if ( (unsigned __int64)&v14[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
                 {
                   RtlReleaseActivationContext(v14);
                   v10 = LoadAsDataTable;
-                  *(_QWORD *)(LoadAsDataTable + 48LL * (unsigned int)(i - 1) + 40) = 0LL;
+                  *((_QWORD *)LoadAsDataTable + 6 * (unsigned int)(i - 1) + 5) = 0LL;
                 }
                 if ( i != LoadAsDataTableCount )
                 {
                   v15 = 6LL * (unsigned int)(LoadAsDataTableCount - 1);
-                  *(_OWORD *)(v10 + 48LL * (unsigned int)(i - 1)) = *(_OWORD *)(v10
-                                                                              + 48LL
-                                                                              * (unsigned int)(LoadAsDataTableCount - 1));
-                  *(_OWORD *)(v10 + 48LL * (unsigned int)(i - 1) + 16) = *(_OWORD *)(v10 + 8 * v15 + 16);
-                  *(_OWORD *)(v10 + 48LL * (unsigned int)(i - 1) + 32) = *(_OWORD *)(v10 + 8 * v15 + 32);
+                  *(_OWORD *)&v10[6 * (unsigned int)(i - 1)] = *(_OWORD *)&v10[6
+                                                                             * (unsigned int)(LoadAsDataTableCount - 1)];
+                  *(_OWORD *)&v10[6 * (unsigned int)(i - 1) + 2] = *(_OWORD *)&v10[v15 + 2];
+                  *(_OWORD *)&v10[6 * (unsigned int)(i - 1) + 4] = *(_OWORD *)&v10[v15 + 4];
                 }
                 --LoadAsDataTableCount;
                 v16 = (unsigned int)(LoadAsDataTableBlockCount - 32);
                 if ( LoadAsDataTableCount < (unsigned int)v16 )
                 {
-                  Heap = RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, LoadAsDataTable, 48 * v16);
+                  Heap = RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, LoadAsDataTable, 48 * v16);
                   v10 = Heap;
                   if ( !Heap )
                   {
@@ -150,8 +149,8 @@ LABEL_6:
             }
             goto LABEL_50;
           }
-          v21 = *(_DWORD *)(v10 + 48LL * (unsigned int)(v18 - 1) + 32) - 1;
-          *(_DWORD *)(v10 + 48LL * (unsigned int)(v18 - 1) + 32) = v21;
+          v21 = LODWORD(v10[6 * (unsigned int)(v18 - 1) + 4]) - 1;
+          LODWORD(v10[6 * (unsigned int)(v18 - 1) + 4]) = v21;
           if ( v21 <= 0 )
           {
 LABEL_5:
@@ -167,8 +166,8 @@ LABEL_5:
       }
     }
 LABEL_50:
-    RtlLeaveCriticalSection((__int64)&LoadAsDataCrits);
+    RtlLeaveCriticalSection(&LoadAsDataCrits);
     return v9;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

@@ -15,14 +15,14 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
+NTSTATUS __cdecl NtRollbackRegistryTransaction(HANDLE RegistryTransactionHandle, ULONG Flags)
 {
   __int64 v4; // rdx
   __int64 v5; // rcx
   __int64 v6; // r8
   __int64 v7; // rdx
   __int64 v8; // rcx
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   NTSTATUS v10; // eax
   PVOID v11; // rdi
   PVOID Object; // [rsp+30h] [rbp-58h] BYREF
@@ -34,7 +34,7 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
   CmpInitializeThreadInfo((__int64)&v14);
   if ( (unsigned __int8)CmpAcquireShutdownRundown(v5, v4, v6) )
   {
-    if ( a2 )
+    if ( Flags )
     {
       v9 = -1073741811;
     }
@@ -42,7 +42,7 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
     {
       Object = 0LL;
       v10 = ObReferenceObjectByHandle(
-              Handle,
+              RegistryTransactionHandle,
               0x10u,
               CmRegistryTransactionType,
               KeGetCurrentThread()->PreviousMode,
@@ -68,5 +68,5 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
     v9 = -1073741431;
   }
   CmCleanupThreadInfo((__int64 *)&v14);
-  return (unsigned int)v9;
+  return v9;
 }

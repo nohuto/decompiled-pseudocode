@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPageForWriteCluster @ 0x140116654
+ * XREFs of MiGetPageForWriteCluster @ 0x140116BC4
  * Callers:
- *     MiBuildReservationCluster @ 0x14011603C (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1401165AC (MiBuildReservationCluster.c)
  * Callees:
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiReferencePageForModifiedWrite @ 0x140101FB8 (MiReferencePageForModifiedWrite.c)
- *     MiGetPageFileReservationOffset @ 0x1401EE980 (MiGetPageFileReservationOffset.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiReferencePageForModifiedWrite @ 0x1400FFD38 (MiReferencePageForModifiedWrite.c)
+ *     MiGetPageFileReservationOffset @ 0x1401EE7AC (MiGetPageFileReservationOffset.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
  */
 
 __int64 MiGetPageForWriteCluster(__int64 a1, ULONG_PTR a2, ...)
@@ -48,7 +48,7 @@ LABEL_6:
     if ( *v17 <= 0x1Fu
       && !_bittest64(*(const signed __int64 **)(a1 + 8), (unsigned int)MiGetPageFileReservationOffset((__int64 *)va)) )
     {
-      v8 = qword_140327680;
+      v8 = qword_1403276C0;
       *v10 = v11 + 1;
       return (__int64)(v8 + 0x58000000000LL) / 48;
     }

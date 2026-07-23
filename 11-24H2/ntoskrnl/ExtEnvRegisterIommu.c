@@ -1,17 +1,17 @@
 /*
- * XREFs of ExtEnvRegisterIommu @ 0x140C10D18
+ * XREFs of ExtEnvRegisterIommu @ 0x140C12D0C
  * Callers:
- *     HalpIommuProcessIvhdEntry @ 0x140571BB8 (HalpIommuProcessIvhdEntry.c)
- *     HalpIvtLegacyProcessDrhdEntry @ 0x140577968 (HalpIvtLegacyProcessDrhdEntry.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405781C8 (HalpIvtProcessDrhdEntry.c)
+ *     HalpIommuProcessIvhdEntry @ 0x14056F048 (HalpIommuProcessIvhdEntry.c)
+ *     HalpIvtLegacyProcessDrhdEntry @ 0x140574DF8 (HalpIvtLegacyProcessDrhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x140575658 (HalpIvtProcessDrhdEntry.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     HalpExtBuildResourceIdString @ 0x14054CD64 (HalpExtBuildResourceIdString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     HalpExtBuildResourceIdString @ 0x14054A624 (HalpExtBuildResourceIdString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
@@ -152,14 +152,14 @@ __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
       *(_WORD *)(v14 + 522) = Length + 2;
       *(_DWORD *)(v14 + 516) = v23;
       RtlCopyUnicodeString((PUNICODE_STRING)(v14 + 520), &DestinationString);
-      v24 = (__int64 *)qword_140FC0958;
-      if ( *(ULONG_PTR **)qword_140FC0958 != &HalpIommuList )
+      v24 = (__int64 *)qword_140FC0BB8;
+      if ( *(ULONG_PTR **)qword_140FC0BB8 != &HalpIommuList )
         __fastfail(3u);
       ++HalpIommuCount;
       *(_QWORD *)v14 = &HalpIommuList;
       *(_QWORD *)(v14 + 8) = v24;
       *v24 = v14;
-      qword_140FC0958 = v14;
+      qword_140FC0BB8 = v14;
       if ( a3 )
         *a3 = *(_QWORD *)(v14 + 16);
     }

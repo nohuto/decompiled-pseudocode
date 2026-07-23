@@ -1,12 +1,12 @@
 /*
- * XREFs of PsIsSessionInCurrentServerSilo @ 0x1405E6DC8
+ * XREFs of PsIsSessionInCurrentServerSilo @ 0x1405E43C8
  * Callers:
- *     PopGetSettingNotificationName @ 0x1409BAE7C (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x1409A14CC (PopGetSettingNotificationName.c)
  * Callees:
- *     PsGetCurrentProcessSessionId @ 0x140331630 (PsGetCurrentProcessSessionId.c)
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
+ *     PsGetCurrentProcessSessionId @ 0x1402BAD30 (PsGetCurrentProcessSessionId.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
  */
 
 char __fastcall PsIsSessionInCurrentServerSilo(unsigned int a1)

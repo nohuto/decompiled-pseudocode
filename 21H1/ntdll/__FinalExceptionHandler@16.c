@@ -9,37 +9,39 @@
  *     _RtlUnhandledExceptionFilter2@8 @ 0x4B3686E0 (_RtlUnhandledExceptionFilter2@8.c)
  */
 
-BOOL __stdcall _FinalExceptionHandler(int a1, _EXCEPTION_REGISTRATION_RECORD *a2, int a3, int a4)
+BOOL __stdcall _FinalExceptionHandler(EXCEPTION_RECORD *a1, _EXCEPTION_REGISTRATION_RECORD *a2, _CONTEXT *a3, int a4)
 {
   int v4; // esi
-  int v5; // edx
+  PULONG v5; // edx
   int v6; // edi
-  int InformationProcess; // eax
-  int (__thiscall *v8)(_DWORD, _DWORD *); // edi
-  int v9; // eax
-  _DWORD v11[2]; // [esp+4h] [ebp-Ch] BYREF
-  int v12; // [esp+Ch] [ebp-4h] BYREF
+  int v7; // eax
+  int (__thiscall *v8)(_DWORD, _EXCEPTION_POINTERS *); // edi
+  LONG v9; // eax
+  _EXCEPTION_POINTERS ExceptionPointers; // [esp+4h] [ebp-Ch] BYREF
+  ULONG *ProcessInformation; // [esp+Ch] [ebp-4h] BYREF
 
   v4 = 1;
   if ( NtCurrentTeb()->NtTib.ExceptionList == a2 )
   {
     v5 = `RtlpGetCookieValue'::`2'::CookieValue;
-    v11[0] = a1;
-    v11[1] = a3;
+    ExceptionPointers.ExceptionRecord = a1;
+    ExceptionPointers.ContextRecord = a3;
     v6 = RtlpUnhandledExceptionFilter;
     if ( !`RtlpGetCookieValue'::`2'::CookieValue )
     {
-      InformationProcess = ZwQueryInformationProcess(-1, 36, (int)&v12, 4, 0);
-      if ( InformationProcess < 0 )
-        RtlRaiseStatus(InformationProcess);
-      v5 = v12;
-      `RtlpGetCookieValue'::`2'::CookieValue = v12;
+      v7 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+      if ( v7 < 0 )
+        RtlRaiseStatus(v7);
+      v5 = ProcessInformation;
+      `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
     }
-    v8 = (int (__thiscall *)(_DWORD, _DWORD *))(v5 ^ __ROR4__(v6, 32 - (v5 & 0x1F)));
+    v8 = (int (__thiscall *)(_DWORD, _EXCEPTION_POINTERS *))((unsigned int)v5 ^ __ROR4__(
+                                                                                  v6,
+                                                                                  32 - ((unsigned __int8)v5 & 0x1F)));
     if ( v8 )
-      v9 = v8(v8, v11);
+      v9 = v8(v8, &ExceptionPointers);
     else
-      v9 = RtlUnhandledExceptionFilter2(v11, &dword_4B2850A4);
+      v9 = RtlUnhandledExceptionFilter2(&ExceptionPointers, (ULONG)&dword_4B2850A4);
     return v9 != -1;
   }
   return v4;

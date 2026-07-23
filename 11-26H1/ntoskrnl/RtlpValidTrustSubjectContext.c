@@ -1,33 +1,24 @@
 /*
- * XREFs of RtlpValidTrustSubjectContext @ 0x1402AC0BC
+ * XREFs of RtlpValidTrustSubjectContext @ 0x1403AF76C
  * Callers:
- *     RtlpNewSecurityObject @ 0x1408E0FD0 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x1409229F0 (RtlpSetSecurityObject.c)
- *     RtlpValidFilterAclSubjectContext @ 0x140A5DD80 (RtlpValidFilterAclSubjectContext.c)
+ *     RtlpNewSecurityObject @ 0x1408E7590 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1408FE500 (RtlpSetSecurityObject.c)
+ *     RtlpValidFilterAclSubjectContext @ 0x140A6AD40 (RtlpValidFilterAclSubjectContext.c)
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1402AC970 (RtlIsValidProcessTrustLabelSid.c)
+ *     RtlSidDominatesForTrust @ 0x1403AF7B0 (RtlSidDominatesForTrust.c)
  */
 
-char __fastcall RtlpValidTrustSubjectContext(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+BOOLEAN __fastcall RtlpValidTrustSubjectContext(void *a1, void *a2, __int64 a3, NTSTATUS *a4)
 {
-  __int64 v4; // rdx
-  __int64 v5; // r10
-  __int64 v7; // r10
-  __int64 v8; // r11
+  BOOLEAN result; // al
+  NTSTATUS *v5; // r10
+  NTSTATUS v6; // eax
+  BOOLEAN DominatesTrust; // [rsp+40h] [rbp+18h] BYREF
 
-  LOBYTE(a3) = 0;
-  if ( !a1 || !(unsigned __int8)RtlIsValidProcessTrustLabelSid(a1, a2, a3) )
-    goto LABEL_6;
-  if ( !v5 )
-    goto LABEL_4;
-  if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v5, v4, a3) )
-    goto LABEL_6;
-  if ( *(_DWORD *)(v8 + 8) >= *(_DWORD *)(v7 + 8) && *(_DWORD *)(v8 + 12) >= *(_DWORD *)(v7 + 12) )
-LABEL_4:
-    LOBYTE(a3) = 1;
-  *a4 = 0;
-  if ( !(_BYTE)a3 )
-LABEL_6:
-    *a4 = -1073741790;
-  return a3;
+  result = 0;
+  v5 = a4;
+  DominatesTrust = 0;
+  if ( !a1 || (v6 = RtlSidDominatesForTrust(a1, a2, &DominatesTrust), *v5 = v6, (result = DominatesTrust) == 0) )
+    *v5 = -1073741790;
+  return result;
 }

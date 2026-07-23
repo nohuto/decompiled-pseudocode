@@ -42,7 +42,7 @@ NTSTATUS __stdcall NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock
   IRP *Irp; // rsi
   struct _KTHREAD *v20; // rdi
   ULONG Flags; // eax
-  struct _FILE_FULL_EA_INFORMATION *v22; // rdi
+  _FILE_FULL_EA_INFORMATION *v22; // rdi
   int v23; // eax
   struct _MDL *Mdl; // rcx
   char v25; // r12
@@ -150,7 +150,7 @@ LABEL_20:
           if ( (_DWORD)v4 )
           {
             v29 = 0;
-            v22 = (struct _FILE_FULL_EA_INFORMATION *)sub_14008E44C(0LL, v4);
+            v22 = (_FILE_FULL_EA_INFORMATION *)sub_14008E44C(0LL, v4);
             Irp->AssociatedIrp.MasterIrp = (struct _IRP *)v22;
             memmove(v22, EaBuffer, v4);
             LODWORD(v4) = EaBufferSize;

@@ -1,9 +1,9 @@
 /*
- * XREFs of MUIBugCheck @ 0x1405B9B78
+ * XREFs of MUIBugCheck @ 0x1405B9DA8
  * Callers:
- *     NtGetMUIRegistryInfo @ 0x14069C770 (NtGetMUIRegistryInfo.c)
+ *     NtGetMUIRegistryInfo @ 0x1405FB840 (NtGetMUIRegistryInfo.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn MUIBugCheck(int a1)

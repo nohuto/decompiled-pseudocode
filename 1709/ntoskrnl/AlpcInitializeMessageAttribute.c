@@ -7,20 +7,22 @@
  *     AlpcGetHeaderSize @ 0x1400AEDD0 (AlpcGetHeaderSize.c)
  */
 
-__int64 __fastcall AlpcInitializeMessageAttribute(__int64 a1, _DWORD *a2, unsigned __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl AlpcInitializeMessageAttribute(
+        ULONG AttributeFlags,
+        PALPC_MESSAGE_ATTRIBUTES Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T RequiredBufferSize)
 {
-  int v7; // ebp
-  unsigned int HeaderSize; // eax
+  ULONG HeaderSize; // eax
 
-  v7 = a1;
-  HeaderSize = AlpcGetHeaderSize(a1);
-  *a4 = HeaderSize;
-  if ( HeaderSize > a3 )
-    return 3221225507LL;
-  if ( a2 )
+  HeaderSize = AlpcGetHeaderSize(AttributeFlags);
+  *RequiredBufferSize = HeaderSize;
+  if ( HeaderSize > BufferSize )
+    return -1073741789;
+  if ( Buffer )
   {
-    a2[1] = 0;
-    *a2 = v7;
+    Buffer->ValidAttributes = 0;
+    Buffer->AllocatedAttributes = AttributeFlags;
   }
-  return 0LL;
+  return 0;
 }

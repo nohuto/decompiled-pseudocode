@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpQueryRebalanceWorker @ 0x14096E698
+ * XREFs of PnpQueryRebalanceWorker @ 0x14096E898
  * Callers:
- *     PnpQueryRebalance @ 0x14096E5E4 (PnpQueryRebalance.c)
+ *     PnpQueryRebalance @ 0x14096E7E4 (PnpQueryRebalance.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x14078F864 (PnpGetResourceRequirementsForAssignTable.c)
- *     PipSetDevNodeFlags @ 0x1407956CC (PipSetDevNodeFlags.c)
- *     PnpCancelStopDeviceNode @ 0x14096E3F4 (PnpCancelStopDeviceNode.c)
- *     PnpQueryStopDeviceNode @ 0x14096E828 (PnpQueryStopDeviceNode.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x14078FA54 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PipSetDevNodeFlags @ 0x1407958BC (PipSetDevNodeFlags.c)
+ *     PnpCancelStopDeviceNode @ 0x14096E5F4 (PnpCancelStopDeviceNode.c)
+ *     PnpQueryStopDeviceNode @ 0x14096EA28 (PnpQueryStopDeviceNode.c)
  */
 
 __int64 __fastcall PnpQueryRebalanceWorker(

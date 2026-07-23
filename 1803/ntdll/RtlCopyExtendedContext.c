@@ -6,7 +6,7 @@
  *     sub_1800EE3A4 @ 0x1800EE3A4 (sub_1800EE3A4.c)
  */
 
-__int64 __fastcall RtlCopyExtendedContext(int a1, int a2, __int64 a3)
+NTSTATUS __cdecl RtlCopyExtendedContext(PCONTEXT_EX Destination, ULONG ContextFlags, PCONTEXT_EX Source)
 {
-  return sub_1800EE3A4(a1, a1, a3, a2, a3);
+  return sub_1800EE3A4((_DWORD)Destination, (_DWORD)Destination, (_DWORD)Source, ContextFlags, (__int64)Source);
 }

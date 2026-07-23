@@ -12,5 +12,5 @@
 void __fastcall IoFreeMiniCompletionPacket(__int64 a1)
 {
   *(_QWORD *)(a1 + 56) = 0LL;
-  IopFreeMiniCompletionPacket((struct _SLIST_ENTRY *)a1);
+  IopFreeMiniCompletionPacket((_SLIST_ENTRY *)a1);
 }

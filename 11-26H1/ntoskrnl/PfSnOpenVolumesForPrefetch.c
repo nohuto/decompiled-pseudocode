@@ -1,22 +1,22 @@
 /*
- * XREFs of PfSnOpenVolumesForPrefetch @ 0x1409B2A78
+ * XREFs of PfSnOpenVolumesForPrefetch @ 0x140983B38
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x1409B77C0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1409887A0 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtCreateEvent @ 0x1408EF8C0 (NtCreateEvent.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     IoGetDeviceInterfaces @ 0x140908920 (IoGetDeviceInterfaces.c)
- *     PfSnLogOpenVolumesForPrefetch @ 0x1409B1154 (PfSnLogOpenVolumesForPrefetch.c)
- *     PfSnQueryVolumeInfo @ 0x1409B1250 (PfSnQueryVolumeInfo.c)
- *     PfSnIsVolumeMounted @ 0x1409B30E4 (PfSnIsVolumeMounted.c)
- *     PfpOpenHandleClose @ 0x1409BA288 (PfpOpenHandleClose.c)
- *     PfpOpenHandleCreate @ 0x1409BAE10 (PfpOpenHandleCreate.c)
- *     PfSnVolumeCheckIsSdBus @ 0x140AEC16C (PfSnVolumeCheckIsSdBus.c)
- *     PfSnVolumeCheckSeekPenalty @ 0x140AF0998 (PfSnVolumeCheckSeekPenalty.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtCreateEvent @ 0x1408F5E80 (NtCreateEvent.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     PfSnLogOpenVolumesForPrefetch @ 0x140982214 (PfSnLogOpenVolumesForPrefetch.c)
+ *     PfSnQueryVolumeInfo @ 0x140982310 (PfSnQueryVolumeInfo.c)
+ *     PfSnIsVolumeMounted @ 0x1409841A4 (PfSnIsVolumeMounted.c)
+ *     PfpOpenHandleClose @ 0x14098B268 (PfpOpenHandleClose.c)
+ *     PfpOpenHandleCreate @ 0x14098BDF0 (PfpOpenHandleCreate.c)
+ *     IoGetDeviceInterfaces @ 0x140A30A80 (IoGetDeviceInterfaces.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x140AEF17C (PfSnVolumeCheckIsSdBus.c)
+ *     PfSnVolumeCheckSeekPenalty @ 0x140AF3568 (PfSnVolumeCheckSeekPenalty.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
   int v6; // ebx
   __int64 Pool2; // rax
   _QWORD *v8; // rdi
-  int DeviceInterfaces; // edi
+  NTSTATUS DeviceInterfaces; // edi
   const WCHAR *i; // rdi
   __int64 v11; // r12
   unsigned __int64 v12; // rcx
@@ -60,40 +60,35 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
   PVOID P; // [rsp+40h] [rbp-99h] BYREF
   PVOID *p_P; // [rsp+48h] [rbp-91h]
   PZZWSTR SymbolicLinkList; // [rsp+50h] [rbp-89h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-81h] BYREF
+  HANDLE EventHandle; // [rsp+58h] [rbp-81h] BYREF
   PVOID *v44; // [rsp+60h] [rbp-79h] BYREF
   __int128 v45; // [rsp+68h] [rbp-71h] BYREF
   __m256i v46; // [rsp+78h] [rbp-61h] BYREF
   __m256i v47; // [rsp+98h] [rbp-41h] BYREF
   unsigned __int64 v48; // [rsp+B8h] [rbp-21h]
-  __int128 v49; // [rsp+C0h] [rbp-19h] BYREF
-  __int128 v50; // [rsp+D0h] [rbp-9h]
-  __int128 v51; // [rsp+E0h] [rbp+7h]
-  int v52; // [rsp+140h] [rbp+67h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C0h] [rbp-19h] BYREF
+  int v50; // [rsp+140h] [rbp+67h]
   int j; // [rsp+140h] [rbp+67h]
   size_t cbDest; // [rsp+150h] [rbp+77h]
-  int v56; // [rsp+158h] [rbp+7Fh] BYREF
+  int v54; // [rsp+158h] [rbp+7Fh] BYREF
 
   v2 = *a1;
   v3 = 0;
   v44 = 0LL;
-  *(_QWORD *)&v51 = 0LL;
-  DWORD2(v51) = 0;
-  v56 = 0;
+  v54 = 0;
   p_P = &P;
-  v52 = 0;
+  v50 = 0;
   P = &P;
   v47.m256i_i64[3] = 0x200000000LL;
   v5 = 0LL;
   v46.m256i_i64[3] = 0x200000000LL;
-  v49 = 0LL;
+  memset(&ObjectAttributes, 0, 44);
   SymbolicLinkList = 0LL;
   v6 = 0;
-  v50 = 0LL;
   memset(&v47, 0, 24);
   v45 = 0LL;
   memset(&v46, 0, 24);
-  Handle = 0LL;
+  EventHandle = 0LL;
   PfSnLogOpenVolumesForPrefetch(v2, 1);
   if ( v2 && *(_DWORD *)(v2 + 112) < 0x4000u )
   {
@@ -120,12 +115,12 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
         while ( (unsigned int)v5 < *(_DWORD *)(v2 + 112) );
         v3 = 0;
       }
-      LODWORD(v49) = 48;
-      *((_QWORD *)&v49 + 1) = 0LL;
-      DWORD2(v50) = 512;
-      *(_QWORD *)&v50 = 0LL;
-      v51 = 0LL;
-      DeviceInterfaces = NtCreateEvent(&Handle, 0x1F0003u, (__int64)&v49, NotificationEvent, 0);
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 512;
+      ObjectAttributes.ObjectName = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      DeviceInterfaces = NtCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
       if ( DeviceInterfaces >= 0 )
       {
         DeviceInterfaces = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_VOLUME, 0LL, 0, &SymbolicLinkList);
@@ -142,11 +137,11 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
             if ( v3 <= v12 )
               v3 = v12;
             IsVolumeMounted = PfSnIsVolumeMounted(i);
-            v14 = v52;
+            v14 = v50;
             if ( IsVolumeMounted < 0 )
               v14 = 0;
-            v52 = v14;
-            if ( v14 && (int)PfSnQueryVolumeInfo(a1[1], i, &v47, &v44, &v56) >= 0 )
+            v50 = v14;
+            if ( v14 && (int)PfSnQueryVolumeInfo(a1[1], i, &v47, &v44, &v54) >= 0 )
             {
               v15 = (PVOID **)ExAllocatePool2(0x100uLL);
               v16 = v15;
@@ -159,7 +154,7 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
               v17 = *(_OWORD *)v47.m256i_i8;
               v18 = *(_OWORD *)&v47.m256i_u64[2];
               v16[8] = v44;
-              *((_DWORD *)v16 + 15) = v56;
+              *((_DWORD *)v16 + 15) = v54;
               *((_OWORD *)v16 + 1) = v17;
               v47.m256i_i64[0] = 0LL;
               v16[6] = (PVOID *)i;
@@ -253,7 +248,7 @@ LABEL_26:
                 *(_QWORD *)v23 = a1 + 5;
                 *(_QWORD *)(v23 + 8) = v37;
                 *v37 = v23;
-                v27 = Handle;
+                v27 = EventHandle;
                 a1[6] = v23;
                 v28 = PfSnVolumeCheckSeekPenalty(v23 + 32, v27);
                 *(_DWORD *)(v23 + 108) ^= (v28 ^ (unsigned __int8)*(_DWORD *)(v23 + 108)) & 1;
@@ -261,7 +256,7 @@ LABEL_26:
                 {
                   v6 |= 1u;
                 }
-                else if ( (v6 & 2) == 0 && (v6 & 1) == 0 && !(unsigned int)PfSnVolumeCheckIsSdBus(v23 + 32, Handle) )
+                else if ( (v6 & 2) == 0 && (v6 & 1) == 0 && !(unsigned int)PfSnVolumeCheckIsSdBus(v23 + 32, EventHandle) )
                 {
                   v6 |= 2u;
                 }
@@ -310,8 +305,8 @@ LABEL_34:
   }
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
-  if ( Handle )
-    NtClose(Handle);
+  if ( EventHandle )
+    NtClose(EventHandle);
   PfSnLogOpenVolumesForPrefetch(v2, 0);
   return (unsigned int)DeviceInterfaces;
 }

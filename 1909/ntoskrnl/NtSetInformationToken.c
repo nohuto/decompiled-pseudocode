@@ -211,7 +211,7 @@ NTSTATUS __stdcall NtSetInformationToken(
       MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
-  if ( (unsigned int)TokenInformationClass > (MaxTokenInfoClass|TokenOwner) )
+  if ( (unsigned int)TokenInformationClass > TokenChildProcessFlags )
     return -1073741821;
   v10 = 0x24800F8B5070LL;
   if ( !_bittest64(&v10, TokenInformationClass) )

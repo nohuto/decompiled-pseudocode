@@ -14,11 +14,22 @@
  *     <none>
  */
 
-__int64 ZwCreateFile()
+NTSTATUS __cdecl ZwCreateFile(
+        PHANDLE FileHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER AllocationSize,
+        ULONG FileAttributes,
+        ULONG ShareAccess,
+        ULONG CreateDisposition,
+        ULONG CreateOptions,
+        PVOID EaBuffer,
+        ULONG EaLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 85LL;
+  result = 85;
   __asm { syscall; Low latency system call }
   return result;
 }

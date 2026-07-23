@@ -1,11 +1,11 @@
 /*
- * XREFs of ArbDeleteMmConfigRange @ 0x140C1567C
+ * XREFs of ArbDeleteMmConfigRange @ 0x140C1767C
  * Callers:
- *     HalpPciReportMmConfigAddressRange @ 0x140C1322C (HalpPciReportMmConfigAddressRange.c)
+ *     HalpPciReportMmConfigAddressRange @ 0x140C1522C (HalpPciReportMmConfigAddressRange.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
  */
 
 NTSTATUS ArbDeleteMmConfigRange()

@@ -1,50 +1,59 @@
 /*
- * XREFs of PnpSetDevicePropertyData @ 0x1408666A8
+ * XREFs of PnpSetDevicePropertyData @ 0x1408668E8
  * Callers:
- *     IoSetDevicePropertyData @ 0x140866600 (IoSetDevicePropertyData.c)
+ *     IoSetDevicePropertyData @ 0x140866840 (IoSetDevicePropertyData.c)
  * Callees:
- *     PnpSetDeviceInstancePropertyChangeEvent @ 0x1403B6EA0 (PnpSetDeviceInstancePropertyChangeEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PiPnpRtlSetObjectProperty @ 0x140796788 (PiPnpRtlSetObjectProperty.c)
- *     PnpSetInterruptInformation @ 0x140858E94 (PnpSetInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x1409BECF0 (RtlLCIDToCultureName.c)
+ *     PnpSetDeviceInstancePropertyChangeEvent @ 0x1403B7080 (PnpSetDeviceInstancePropertyChangeEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140796978 (PiPnpRtlSetObjectProperty.c)
+ *     PnpSetInterruptInformation @ 0x1408590D4 (PnpSetInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x1409BEEF0 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpSetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         int a5,
         unsigned int a6,
         const wchar_t *a7)
 {
   __int64 v10; // rdi
-  __int64 v11; // rcx
+  wchar_t *Buffer; // rcx
   int v12; // ebx
   __int64 v14; // rax
-  __int64 v15; // [rsp+50h] [rbp-F8h] BYREF
-  _BYTE *v16; // [rsp+58h] [rbp-F0h]
-  _BYTE v17[176]; // [rsp+60h] [rbp-E8h] BYREF
+  UNICODE_STRING String; // [rsp+50h] [rbp-F8h] BYREF
+  _BYTE v16[176]; // [rsp+60h] [rbp-E8h] BYREF
 
-  memset(v17, 0, 0xAAuLL);
-  v15 = 0LL;
+  memset(v16, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
   if ( !a1 || (v10 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL)) == 0 || !*(_QWORD *)(v10 + 48) )
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    WORD1(v15) = 170;
-    v16 = v17;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v15) )
+    String.MaximumLength = 170;
+    String.Buffer = (wchar_t *)v16;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
-    v11 = (__int64)v16;
+    Buffer = String.Buffer;
   }
   else
   {
-    v11 = 0LL;
+    Buffer = 0LL;
   }
-  v12 = PiPnpRtlSetObjectProperty(*(__int64 *)&PiPnpRtlCtx, *(const WCHAR **)(v10 + 48), 1, 0LL, v11, a2, a5, a7, a6, 0);
+  v12 = PiPnpRtlSetObjectProperty(
+          *(__int64 *)&PiPnpRtlCtx,
+          *(const WCHAR **)(v10 + 48),
+          1,
+          0LL,
+          (__int64)Buffer,
+          a2,
+          a5,
+          a7,
+          a6,
+          0);
   if ( v12 >= 0 )
   {
     if ( *(_DWORD *)(a2 + 16) != 2 )

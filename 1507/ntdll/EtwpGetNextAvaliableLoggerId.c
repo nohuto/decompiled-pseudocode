@@ -20,7 +20,7 @@ __int64 __fastcall EtwpGetNextAvaliableLoggerId(__int64 a1, unsigned int *a2)
   v3 = 0;
   if ( !EtwpLoggerArray )
   {
-    Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 1024LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x400uLL);
     v2 = (__int64)Heap;
     if ( !Heap )
       return 1450LL;

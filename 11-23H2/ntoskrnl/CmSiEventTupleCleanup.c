@@ -3,8 +3,8 @@
  * Callers:
  *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall CmSiEventTupleCleanup(__int64 a1)

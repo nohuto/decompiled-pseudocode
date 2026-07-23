@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpDisableLazyFlush @ 0x1402D3FFC
+ * XREFs of CmpDisableLazyFlush @ 0x14025226C
  * Callers:
- *     CmSetLazyFlushState @ 0x14077755C (CmSetLazyFlushState.c)
- *     CmFreezeRegistry @ 0x1408720F0 (CmFreezeRegistry.c)
+ *     CmSetLazyFlushState @ 0x14077771C (CmSetLazyFlushState.c)
+ *     CmFreezeRegistry @ 0x140872250 (CmFreezeRegistry.c)
  * Callees:
  *     <none>
  */

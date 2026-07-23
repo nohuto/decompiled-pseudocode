@@ -18,7 +18,7 @@
  *     CmpTransSearchAddTransFromKeyBody @ 0x1406569A4 (CmpTransSearchAddTransFromKeyBody.c)
  */
 
-__int64 __fastcall CmpQueryKeySecurity(_QWORD *a1, ULONG *a2, void *a3, ULONG *a4, __int64 a5)
+__int64 __fastcall CmpQueryKeySecurity(_QWORD *a1, DWORD *a2, void *a3, ULONG *a4, __int64 a5)
 {
   char v5; // si
   struct _KTHREAD *CurrentThread; // rax

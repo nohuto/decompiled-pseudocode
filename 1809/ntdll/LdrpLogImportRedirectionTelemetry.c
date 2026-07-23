@@ -1,12 +1,12 @@
 /*
  * XREFs of LdrpLogImportRedirectionTelemetry @ 0x1800D1664
  * Callers:
- *     LdrpInitializeImportRedirection @ 0x180084E3C (LdrpInitializeImportRedirection.c)
+ *     LdrpInitializeImportRedirection @ 0x180084E4C (LdrpInitializeImportRedirection.c)
  * Callees:
  *     RtlRunOnceExecuteOnce @ 0x1800213E0 (RtlRunOnceExecuteOnce.c)
  *     _TlgKeywordOn @ 0x18004B5F0 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
@@ -31,7 +31,7 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
   {
     LOBYTE(v1) = RtlRunOnceExecuteOnce(
                    &LibLoaderTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LibLoaderTelemetryInitOnce,
+                   (PRTL_RUN_ONCE_INIT_FN)LibLoaderTelemetryInitOnce,
                    0LL,
                    0LL);
     if ( dword_18015F4E8 > 5u )
@@ -51,7 +51,7 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
         v16[0] = *(unsigned __int16 *)(LdrpImageEntry + 72);
         v8 = 2;
         v13 = 2;
-        LOBYTE(v1) = TlgWrite(v3, &unk_18012C2A2, (LPCGUID)2, v4, 6u, &pData);
+        LOBYTE(v1) = TlgWrite(v3, &unk_18012C332, (LPCGUID)2, v4, 6u, &pData);
       }
     }
   }

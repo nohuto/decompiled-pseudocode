@@ -1,18 +1,18 @@
 /*
- * XREFs of EmonAllocateResources @ 0x1404D31B8
+ * XREFs of EmonAllocateResources @ 0x1404D33F8
  * Callers:
- *     EmonReserveProfileResources @ 0x1404D45B0 (EmonReserveProfileResources.c)
+ *     EmonReserveProfileResources @ 0x1404D47F0 (EmonReserveProfileResources.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A24C4 (HalpQueryMaximumRegisteredProcessorCount.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     EmonMarkCountersReserved @ 0x1404D36D4 (EmonMarkCountersReserved.c)
- *     EmonReleaseProfileResourcesInternal @ 0x1404D41E0 (EmonReleaseProfileResourcesInternal.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EmonMarkCountersReserved @ 0x1404D3914 (EmonMarkCountersReserved.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x1404D4420 (EmonReleaseProfileResourcesInternal.c)
  */
 
 __int64 __fastcall EmonAllocateResources(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
@@ -119,13 +119,13 @@ LABEL_33:
     }
   }
   v21 = KeAcquireSpinLockRaiseToDpc(&EmonReservedResourcesLock);
-  v22 = (_QWORD *)qword_140C49028;
-  if ( *(__int64 **)qword_140C49028 != &EmonReservedResourcesList )
+  v22 = (_QWORD *)qword_140C49068;
+  if ( *(__int64 **)qword_140C49068 != &EmonReservedResourcesList )
     __fastfail(3u);
   *v15 = &EmonReservedResourcesList;
   v15[1] = v22;
   *v22 = v15;
-  qword_140C49028 = (__int64)v15;
+  qword_140C49068 = (__int64)v15;
   KxReleaseSpinLock(&EmonReservedResourcesLock);
   if ( KiIrqlFlags )
   {

@@ -1,33 +1,33 @@
 /*
- * XREFs of MiFreePagesFromMdl @ 0x140099EF8
+ * XREFs of MiFreePagesFromMdl @ 0x1400996F8
  * Callers:
- *     MmFreePagesFromMdl @ 0x140099EF0 (MmFreePagesFromMdl.c)
- *     MiInitializeMdlPages @ 0x140106A8C (MiInitializeMdlPages.c)
- *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x140120180 (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
- *     MmFreePagesFromMdlEx @ 0x1401E49C0 (MmFreePagesFromMdlEx.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1401F0FD8 (MiAllocatePartitionPhysicalPages.c)
- *     PspIumAllocatePhysicalPages @ 0x1402100F8 (PspIumAllocatePhysicalPages.c)
- *     PspIumFreePhysicalPages @ 0x140210218 (PspIumFreePhysicalPages.c)
- *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x14021EA98 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
- *     NtAllocateUserPhysicalPages @ 0x14065CA98 (NtAllocateUserPhysicalPages.c)
- *     NtFreeUserPhysicalPages @ 0x14065D220 (NtFreeUserPhysicalPages.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MmFreePagesFromMdl @ 0x1400996F0 (MmFreePagesFromMdl.c)
+ *     MiInitializeMdlPages @ 0x14010480C (MiInitializeMdlPages.c)
+ *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1401206F0 (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
+ *     MmFreePagesFromMdlEx @ 0x1401E47EC (MmFreePagesFromMdlEx.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1401F0E04 (MiAllocatePartitionPhysicalPages.c)
+ *     PspIumAllocatePhysicalPages @ 0x14020FF24 (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePhysicalPages @ 0x140210044 (PspIumFreePhysicalPages.c)
+ *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x14021E8C4 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
+ *     NtAllocateUserPhysicalPages @ 0x14065CB7C (NtAllocateUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x14065D304 (NtFreeUserPhysicalPages.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  *     KiComputeNumaCosts @ 0x1407927E0 (KiComputeNumaCosts.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiFreeMdlPageRun @ 0x140022A34 (MiFreeMdlPageRun.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140161E50 (KeZeroPages.c)
- *     MiRetardMdl @ 0x1401E2EB0 (MiRetardMdl.c)
- *     MiLogMdlRangeEvent @ 0x1401E4868 (MiLogMdlRangeEvent.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiFreeMdlPageRun @ 0x1400225B4 (MiFreeMdlPageRun.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1401623C0 (KeZeroPages.c)
+ *     MiRetardMdl @ 0x1401E2CDC (MiRetardMdl.c)
+ *     MiLogMdlRangeEvent @ 0x1401E4694 (MiLogMdlRangeEvent.c)
  */
 
 __int16 __fastcall MiFreePagesFromMdl(ULONG_PTR BugCheckParameter2, unsigned int a2)
@@ -129,8 +129,8 @@ LABEL_11:
       if ( (_WORD)v15 != 1023 )
       {
         v23 = (unsigned __int16)v15;
-        LOWORD(v15) = qword_140326FF8;
-        v19 = *(int **)(qword_140326FF8 + 8 * v23);
+        LOWORD(v15) = qword_140327038;
+        v19 = *(int **)(qword_140327038 + 8 * v23);
         v21 = v30;
       }
       if ( (int *)v4 != v19 )
@@ -147,7 +147,7 @@ LABEL_11:
         _InterlockedAnd64((volatile signed __int64 *)(v24 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         LOWORD(v15) = (unsigned __int8)v15;
         __writecr8((unsigned __int8)v15);
-        _InterlockedDecrement64(&qword_140326AA0);
+        _InterlockedDecrement64(&qword_140326AE0);
       }
       if ( v18 )
       {
@@ -205,7 +205,7 @@ LABEL_39:
     }
   }
   if ( (int *)v4 == MiSystemPartition )
-    _InterlockedExchangeAdd64(&qword_1403278E8, -(__int64)v17);
+    _InterlockedExchangeAdd64(&qword_140327928, -(__int64)v17);
   *(_WORD *)(BugCheckParameter2 + 10) &= ~2u;
   return v15;
 }

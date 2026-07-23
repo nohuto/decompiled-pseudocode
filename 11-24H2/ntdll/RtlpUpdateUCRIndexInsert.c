@@ -1,8 +1,7 @@
 /*
- * XREFs of RtlpUpdateUCRIndexInsert @ 0x1800A0BD4
+ * XREFs of RtlpUpdateUCRIndexInsert @ 0x1800DBCC4
  * Callers:
- *     RtlpInsertUCRBlock @ 0x18009FB50 (RtlpInsertUCRBlock.c)
- *     RtlpCreateUCREntry @ 0x1800A0100 (RtlpCreateUCREntry.c)
+ *     RtlpInsertUCRBlock @ 0x1800DB980 (RtlpInsertUCRBlock.c)
  * Callees:
  *     <none>
  */

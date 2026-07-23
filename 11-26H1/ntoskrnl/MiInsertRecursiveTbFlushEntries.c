@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertRecursiveTbFlushEntries @ 0x140363B4C
+ * XREFs of MiInsertRecursiveTbFlushEntries @ 0x1403658EC
  * Callers:
- *     MiInitializeSystemPageTable @ 0x14033AB8C (MiInitializeSystemPageTable.c)
- *     MiFlushValidPteFromTb @ 0x140343898 (MiFlushValidPteFromTb.c)
- *     MiDeleteNonPagedPoolPte @ 0x140363600 (MiDeleteNonPagedPoolPte.c)
- *     MiWritePteHighLevel @ 0x1406F2B98 (MiWritePteHighLevel.c)
+ *     MiInitializeSystemPageTable @ 0x14033CC0C (MiInitializeSystemPageTable.c)
+ *     MiFlushValidPteFromTb @ 0x140345918 (MiFlushValidPteFromTb.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1403653A0 (MiDeleteNonPagedPoolPte.c)
+ *     MiWritePteHighLevel @ 0x1406F7808 (MiWritePteHighLevel.c)
  * Callees:
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
  */
 
 void __fastcall MiInsertRecursiveTbFlushEntries(__int64 a1, int a2, unsigned __int64 a3)

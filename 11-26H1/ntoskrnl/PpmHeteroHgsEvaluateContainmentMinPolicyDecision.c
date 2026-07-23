@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmHeteroHgsEvaluateContainmentMinPolicyDecision @ 0x1404F9310
+ * XREFs of PpmHeteroHgsEvaluateContainmentMinPolicyDecision @ 0x1404F2920
  * Callers:
- *     PpmHeteroHgsEvaluateContainmentDecision @ 0x1404F9270 (PpmHeteroHgsEvaluateContainmentDecision.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroHgsEvaluateContainmentDecision @ 0x1404F2880 (PpmHeteroHgsEvaluateContainmentDecision.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
  *     <none>
  */

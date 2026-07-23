@@ -77,29 +77,26 @@
  *     RtlpAcquireSRWLockSharedContended @ 0x18007A040 (RtlpAcquireSRWLockSharedContended.c)
  */
 
-__int64 __fastcall RtlAcquireSRWLockShared(volatile signed __int64 *a1)
+void __cdecl RtlAcquireSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
   char *SchedulerSharedDataSlot; // r8
   __int64 i; // rdx
-  volatile signed __int64 **v3; // rax
-  __int64 result; // rax
+  PRTL_SRWLOCK *v3; // rax
 
   SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
   {
     for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
     {
-      v3 = (volatile signed __int64 **)&SchedulerSharedDataSlot[8 * i];
+      v3 = (PRTL_SRWLOCK *)&SchedulerSharedDataSlot[8 * i];
       if ( !*v3 )
       {
         if ( v3 )
-          *v3 = a1;
+          *v3 = SRWLock;
         break;
       }
     }
   }
-  result = _InterlockedCompareExchange64(a1, 17LL, 0LL);
-  if ( result )
-    return RtlpAcquireSRWLockSharedContended(a1, 17LL, result);
-  return result;
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 17LL, 0LL) )
+    RtlpAcquireSRWLockSharedContended(SRWLock);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpFreeKeyContext @ 0x140612F08
+ * XREFs of VrpFreeKeyContext @ 0x140612FBC
  * Callers:
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     RegistryCallback @ 0x140464700 (RegistryCallback.c)
- *     VrpPostOpenOrCreate @ 0x140615588 (VrpPostOpenOrCreate.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     RegistryCallback @ 0x1404635D0 (RegistryCallback.c)
+ *     VrpPostOpenOrCreate @ 0x14061563C (VrpPostOpenOrCreate.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

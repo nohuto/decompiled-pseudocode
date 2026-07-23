@@ -10,65 +10,63 @@
  *     ViCheckTag @ 0x140AC9514 (ViCheckTag.c)
  */
 
-__int64 __fastcall ViCheckAdapterBuffers(__int64 a1)
+void __fastcall ViCheckAdapterBuffers(__int64 a1)
 {
-  __int64 result; // rax
-  _QWORD **v2; // rbx
-  __int16 v3; // bp
-  volatile signed __int64 *v4; // rsi
-  KIRQL v5; // al
-  _QWORD *v6; // r14
-  unsigned __int64 v7; // rdi
+  _QWORD **v1; // rbx
+  __int16 v2; // bp
+  volatile signed __int64 *v3; // rsi
+  KIRQL v4; // al
+  _QWORD *v5; // r14
+  unsigned __int64 v6; // rdi
   __int64 i; // r10
-  __int64 v9; // rdx
-  __int16 v10; // r9
-  unsigned __int64 v11; // rax
+  __int64 v8; // rdx
+  __int16 v9; // r9
+  unsigned __int64 v10; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v14; // zf
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
+  int v14; // eax
+  bool v15; // zf
 
-  result = (__int64)&retaddr;
-  v2 = (_QWORD **)(a1 + 112);
-  v3 = 0;
-  if ( *v2 != v2 )
+  v1 = (_QWORD **)(a1 + 112);
+  v2 = 0;
+  if ( *v1 != v1 )
   {
-    v4 = (volatile signed __int64 *)(a1 + 128);
-    v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 128));
-    v6 = *v2;
-    v7 = v5;
-    for ( i = (__int64)(*v2 - 6); v2 != v6; v6 = (_QWORD *)*v6 )
+    v3 = (volatile signed __int64 *)(a1 + 128);
+    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 128));
+    v5 = *v1;
+    v6 = v4;
+    for ( i = (__int64)(*v1 - 6); v1 != v5; v5 = (_QWORD *)*v5 )
     {
-      v9 = *(unsigned int *)(i + 8);
-      v10 = v3 | 1;
-      v11 = *(_QWORD *)(i + 24) - *(_QWORD *)(i + 16);
-      if ( v11 < 8 )
-        v10 = v3;
-      v3 = v10 | 2;
-      if ( v9 + v11 + 8 > *(unsigned int *)(i + 4) )
-        v3 = v10;
-      ViCheckTag(*(_QWORD *)(i + 24), v9);
-      i = *v6 - 48LL;
+      v8 = *(unsigned int *)(i + 8);
+      v9 = v2 | 1;
+      v10 = *(_QWORD *)(i + 24) - *(_QWORD *)(i + 16);
+      if ( v10 < 8 )
+        v9 = v2;
+      v2 = v9 | 2;
+      if ( v8 + v10 + 8 > *(unsigned int *)(i + 4) )
+        v2 = v9;
+      ViCheckTag(*(_QWORD *)(i + 24), v8);
+      i = *v5 - 48LL;
     }
-    result = KxReleaseSpinLock(v4);
-    if ( KiIrqlFlags )
+    KxReleaseSpinLock(v3);
+    if ( (_DWORD)KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && (unsigned __int8)v7 <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      CurrentIrql = KeGetCurrentIrql();
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v14 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
-    __writecr8(v7);
+    __writecr8(v6);
   }
-  return result;
 }

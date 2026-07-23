@@ -1,16 +1,16 @@
 /*
- * XREFs of KiIdleLoop @ 0x1404239C0
+ * XREFs of KiIdleLoop @ 0x140423D50
  * Callers:
  *     KiSystemStartup @ 0x140A87010 (KiSystemStartup.c)
  * Callees:
- *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
- *     PoIdle @ 0x1402C4B60 (PoIdle.c)
- *     KiIdleSchedule @ 0x140307420 (KiIdleSchedule.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     SwapContext @ 0x1404283C0 (SwapContext.c)
- *     KzSetIrqlUnsafe @ 0x14056C060 (KzSetIrqlUnsafe.c)
+ *     KiRetireDpcList @ 0x140245AC0 (KiRetireDpcList.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
+ *     PoIdle @ 0x1402C4DF0 (PoIdle.c)
+ *     KiIdleSchedule @ 0x1403076B0 (KiIdleSchedule.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     SwapContext @ 0x140428750 (SwapContext.c)
+ *     KzSetIrqlUnsafe @ 0x14056C720 (KzSetIrqlUnsafe.c)
  */
 
 void __noreturn KiIdleLoop()
@@ -105,13 +105,13 @@ LABEL_33:
       {
         if ( (_BYTE)KeSmapEnabled )
           __asm { stac }
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
           KzSetIrqlUnsafe(0LL);
         else
           __writecr8(0LL);
         PoIdle((ULONG_PTR)CurrentPrcb);
         _enable();
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
           KzSetIrqlUnsafe(2LL);
         else
           __writecr8(2uLL);

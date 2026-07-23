@@ -1,0 +1,47 @@
+/*
+ * XREFs of sub_14085E010 @ 0x14085E010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140435B40 (memmove.c)
+ *     sub_14085E124 @ 0x14085E124 (sub_14085E124.c)
+ */
+
+__int64 __fastcall sub_14085E010(__int64 a1, _DWORD *a2, void *a3, unsigned int a4, unsigned int *a5, _BYTE *a6)
+{
+  unsigned int v9; // ebx
+  char v10; // dl
+  size_t v11; // r8
+  BOOL Src; // [rsp+40h] [rbp-68h] BYREF
+  _OWORD SystemInformation[2]; // [rsp+48h] [rbp-60h] BYREF
+  int v15; // [rsp+68h] [rbp-40h]
+
+  v15 = 0;
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  v9 = sub_14085E124(a1, L"*,", a2, a3, a4, a5, a6);
+  if ( (int)(v9 + 0x80000000) >= 0 && v9 != -1073741789 )
+  {
+    *a5 = 4;
+    v9 = 0;
+    if ( ZwQuerySystemInformation(SystemCodeIntegrityUnlockInformation, SystemInformation, 0x24u, 0LL) < 0 )
+    {
+      v9 = -1073741772;
+    }
+    else if ( a4 < *a5 )
+    {
+      v9 = -1073741789;
+    }
+    else
+    {
+      v10 = SystemInformation[0] & 5;
+      *a2 = 4;
+      v11 = *a5;
+      Src = v10 == 5;
+      memmove(a3, &Src, v11);
+    }
+    *a6 = 1;
+  }
+  return v9;
+}

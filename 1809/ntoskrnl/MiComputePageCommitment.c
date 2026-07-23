@@ -1,18 +1,18 @@
 /*
- * XREFs of MiComputePageCommitment @ 0x140083950
+ * XREFs of MiComputePageCommitment @ 0x140083940
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
- *     MiCommitExistingVad @ 0x140071470 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiCountCommittedPages @ 0x1402BD154 (MiCountCommittedPages.c)
+ *     MiProtectPrivateMemory @ 0x140070DB0 (MiProtectPrivateMemory.c)
+ *     MiCommitExistingVad @ 0x140071460 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiCountCommittedPages @ 0x1402BD344 (MiCountCommittedPages.c)
  * Callees:
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiGetNextPageTable @ 0x140084230 (MiGetNextPageTable.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128D60 (MI_PROTO_FORMAT_COMBINED.c)
  */
 
 __int64 __fastcall MiComputePageCommitment(
@@ -163,8 +163,8 @@ __int64 __fastcall MiComputePageCommitment(
               {
                 goto LABEL_20;
               }
-              if ( qword_14043A0C0 && (v29 & 0x10) == 0 )
-                v29 &= ~qword_14043A0C0;
+              if ( qword_14043B180 && (v29 & 0x10) == 0 )
+                v29 &= ~qword_14043B180;
               v26 = v29 >> 16;
             }
             CloneAddress = MiLocateCloneAddress(Process, v26);

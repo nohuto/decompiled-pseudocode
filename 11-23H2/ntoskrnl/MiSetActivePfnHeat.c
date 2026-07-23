@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetActivePfnHeat @ 0x1406548B8
+ * XREFs of MiSetActivePfnHeat @ 0x140654E08
  * Callers:
- *     MmSetPfnListInfo @ 0x14038C2D0 (MmSetPfnListInfo.c)
- *     MiMakeTransitionHeatBatch @ 0x1406542B8 (MiMakeTransitionHeatBatch.c)
+ *     MmSetPfnListInfo @ 0x14038C4B0 (MmSetPfnListInfo.c)
+ *     MiMakeTransitionHeatBatch @ 0x140654808 (MiMakeTransitionHeatBatch.c)
  * Callees:
- *     MiSetNonResidentPteHeat @ 0x1402D90B0 (MiSetNonResidentPteHeat.c)
+ *     MiSetNonResidentPteHeat @ 0x1402D9340 (MiSetNonResidentPteHeat.c)
  */
 
 unsigned __int64 __fastcall MiSetActivePfnHeat(__int64 a1, int a2)

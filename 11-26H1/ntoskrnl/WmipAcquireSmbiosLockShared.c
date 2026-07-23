@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipAcquireSmbiosLockShared @ 0x140AC4E34
+ * XREFs of WmipAcquireSmbiosLockShared @ 0x140AC6AA4
  * Callers:
- *     WmipFindSMBiosStructure @ 0x1408227A4 (WmipFindSMBiosStructure.c)
- *     WmipGetSMBiosTableData @ 0x140AC4C90 (WmipGetSMBiosTableData.c)
+ *     WmipFindSMBiosStructure @ 0x1408289B4 (WmipFindSMBiosStructure.c)
+ *     WmipGetSMBiosTableData @ 0x140AC6900 (WmipGetSMBiosTableData.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
  */
 
 BOOLEAN WmipAcquireSmbiosLockShared()
@@ -13,5 +13,5 @@ BOOLEAN WmipAcquireSmbiosLockShared()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  return ExAcquireResourceSharedLite((PERESOURCE)&EtwpSecurityLock.WpsFeedback, 1u);
+  return ExAcquireResourceSharedLite(&WmipSMBiosLock, 1u);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpKeyNodeStackEntryPopulate @ 0x140876310
+ * XREFs of CmpKeyNodeStackEntryPopulate @ 0x140876470
  * Callers:
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpKeyNodeStackEntryPopulate(__int64 a1, __int64 a2, unsigned int a3)

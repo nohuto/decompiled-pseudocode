@@ -1,13 +1,13 @@
 /*
- * XREFs of PopTraceEsBgActivityPolicyUpdate @ 0x1407D58C8
+ * XREFs of PopTraceEsBgActivityPolicyUpdate @ 0x1407D8A78
  * Callers:
- *     PopEsInStandbyEvaluate @ 0x14094683C (PopEsInStandbyEvaluate.c)
+ *     PopEsInStandbyEvaluate @ 0x1409C21AC (PopEsInStandbyEvaluate.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
@@ -29,7 +29,7 @@ void __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
 
   v14 = a1;
   v5 = PopEsBgActivityPolicy;
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v3 = v1;
     v10 = &v3;
@@ -37,24 +37,17 @@ void __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
     v12 = &v4;
     v11 = 4LL;
     v13 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)byte_14004B185, 0LL, 0LL, 4u, &v9);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)&word_14004B7DE, 0LL, 0LL, 4u, &v9);
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_BACKGROUND_ACTIVITY_POLICY_UPDATE) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_BACKGROUND_ACTIVITY_POLICY_UPDATE) )
     {
       UserData.Ptr = (ULONGLONG)&v14;
       *(_QWORD *)&UserData.Size = 4LL;
       v7 = &v5;
       v8 = 4LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_BACKGROUND_ACTIVITY_POLICY_UPDATE,
-        0LL,
-        2u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_BACKGROUND_ACTIVITY_POLICY_UPDATE, 0LL, 2u, &UserData);
     }
   }
 }

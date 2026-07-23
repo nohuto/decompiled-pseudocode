@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpDmaFastFlushDeviceDomainVaList @ 0x1405BE764
+ * XREFs of HvlpDmaFastFlushDeviceDomainVaList @ 0x1405C0FD4
  * Callers:
- *     HvlDmaFlushDeviceDomainVaList @ 0x1405BC4B0 (HvlDmaFlushDeviceDomainVaList.c)
+ *     HvlDmaFlushDeviceDomainVaList @ 0x1405BED20 (HvlDmaFlushDeviceDomainVaList.c)
  * Callees:
- *     HvlpCopyFlushVaList @ 0x14032BEF0 (HvlpCopyFlushVaList.c)
- *     HvcallFastExtended @ 0x14032BFB0 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     HvlpCopyFlushVaList @ 0x14032DF20 (HvlpCopyFlushVaList.c)
+ *     HvcallFastExtended @ 0x14032DFE0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HvlpDmaFastFlushDeviceDomainVaList(int *a1, unsigned int a2, void *a3, char a4)

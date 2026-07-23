@@ -1,13 +1,13 @@
 /*
- * XREFs of KiScheduleNextForegroundBoost @ 0x1403D41BC
+ * XREFs of KiScheduleNextForegroundBoost @ 0x1403D439C
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiComputeEffectivePriority @ 0x1402B2790 (KiComputeEffectivePriority.c)
- *     KiTryScheduleNextForegroundBoost @ 0x1402B9B5C (KiTryScheduleNextForegroundBoost.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiComputeEffectivePriority @ 0x1402B2A20 (KiComputeEffectivePriority.c)
+ *     KiTryScheduleNextForegroundBoost @ 0x1402B9DEC (KiTryScheduleNextForegroundBoost.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
  */
 
 void __fastcall KiScheduleNextForegroundBoost(__int64 a1)

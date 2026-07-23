@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInitializeIRTimer @ 0x1403813E0
+ * XREFs of KeInitializeIRTimer @ 0x140380F30
  * Callers:
- *     ExAllocateTimerInternal2 @ 0x140280440 (ExAllocateTimerInternal2.c)
- *     PopInitializeIRTimer @ 0x1403AE390 (PopInitializeIRTimer.c)
- *     PopPowerButtonWorkCallback @ 0x140578850 (PopPowerButtonWorkCallback.c)
- *     NtCreateTimer2 @ 0x1406D4930 (NtCreateTimer2.c)
- *     PopIdleInitAoAcDozeS4Timer @ 0x14078F230 (PopIdleInitAoAcDozeS4Timer.c)
- *     PopThermalZoneAdd @ 0x1407907E0 (PopThermalZoneAdd.c)
+ *     ExAllocateTimerInternal2 @ 0x14026E680 (ExAllocateTimerInternal2.c)
+ *     PopInitializeIRTimer @ 0x1403AE4E0 (PopInitializeIRTimer.c)
+ *     PopPowerButtonWorkCallback @ 0x140578A90 (PopPowerButtonWorkCallback.c)
+ *     NtCreateTimer2 @ 0x1406ABC10 (NtCreateTimer2.c)
+ *     PopIdleInitAoAcDozeS4Timer @ 0x1407907E0 (PopIdleInitAoAcDozeS4Timer.c)
+ *     PopThermalZoneAdd @ 0x140791D90 (PopThermalZoneAdd.c)
  * Callees:
- *     KiInitializeTimer2 @ 0x1402E927C (KiInitializeTimer2.c)
- *     ExCheckValidIRTimerId @ 0x140381434 (ExCheckValidIRTimerId.c)
+ *     KiInitializeTimer2 @ 0x14029A5CC (KiInitializeTimer2.c)
+ *     ExCheckValidIRTimerId @ 0x140380F84 (ExCheckValidIRTimerId.c)
  */
 
 __int64 __fastcall KeInitializeIRTimer(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 *a4, int a5)

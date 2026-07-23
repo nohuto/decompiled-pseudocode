@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitializePreloadedHives @ 0x140CEB354
+ * XREFs of CmpInitializePreloadedHives @ 0x140CF16F4
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140B4E1EC (CmpHiveRootSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpInitializePreloadedHive @ 0x140CEAEF0 (CmpInitializePreloadedHive.c)
- *     CmpInitializeSystemHive @ 0x140CEB618 (CmpInitializeSystemHive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140B50A7C (CmpHiveRootSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpInitializePreloadedHive @ 0x140CF1290 (CmpInitializePreloadedHive.c)
+ *     CmpInitializeSystemHive @ 0x140CF19B8 (CmpInitializeSystemHive.c)
  */
 
 __int64 __fastcall CmpInitializePreloadedHives(__int64 a1, int a2)
@@ -53,13 +53,13 @@ __int64 __fastcall CmpInitializePreloadedHives(__int64 a1, int a2)
   }
   else
   {
-    CmpCallbackListLock.ThreadLock = (unsigned __int64)&CmpCallbackListLock.StackBase;
-    CmpCallbackListLock.StackBase = &CmpCallbackListLock.StackBase;
+    CmpContextListLock.StackBase = (void *)&CmpContextListLock.StackLimit;
+    CmpContextListLock.StackLimit = (void *volatile)&CmpContextListLock.StackLimit;
     v5 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 312LL);
     v6 = *v5;
     while ( v6 != v5 )
     {
-      ++LODWORD(WheapPfaLock.StackLimit);
+      ++LODWORD(WheapPfaLock.CycleTime);
       v6 = (_QWORD *)*v6;
       v5 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 312LL);
     }

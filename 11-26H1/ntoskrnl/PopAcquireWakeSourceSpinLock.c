@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAcquireWakeSourceSpinLock @ 0x1404F94F8
+ * XREFs of PopAcquireWakeSourceSpinLock @ 0x1404F2B08
  * Callers:
- *     PopHandleWakeSources @ 0x140BF952C (PopHandleWakeSources.c)
- *     PopProcessDeviceWakeSource @ 0x140BF97FC (PopProcessDeviceWakeSource.c)
- *     PopNewWakeInfo @ 0x140C09008 (PopNewWakeInfo.c)
+ *     PopHandleWakeSources @ 0x140BFF52C (PopHandleWakeSources.c)
+ *     PopProcessDeviceWakeSource @ 0x140BFF7FC (PopProcessDeviceWakeSource.c)
+ *     PopNewWakeInfo @ 0x140C0F218 (PopNewWakeInfo.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall PopAcquireWakeSourceSpinLock(PKLOCK_QUEUE_HANDLE LockHandle)
 {
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F11D08.Teb, LockHandle);
+  KeAcquireInStackQueuedSpinLock(&PopWakeSourceLock, LockHandle);
 }

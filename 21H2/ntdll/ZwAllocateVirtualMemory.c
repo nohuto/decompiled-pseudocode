@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAllocateVirtualMemory @ 0x18009D940
+ * XREFs of ZwAllocateVirtualMemory @ 0x18009D900
  * Callers:
  *     RtlExtendMemoryZone @ 0x180001A70 (RtlExtendMemoryZone.c)
  *     LdrEnsureMrdataHeapExists @ 0x18000787C (LdrEnsureMrdataHeapExists.c)
@@ -20,40 +20,46 @@
  *     RtlCreateMemoryZone @ 0x18007B790 (RtlCreateMemoryZone.c)
  *     EtwpInitializeCompression @ 0x180088068 (EtwpInitializeCompression.c)
  *     RtlpHpAllocVirtBlockCommitFirst @ 0x18009CDC8 (RtlpHpAllocVirtBlockCommitFirst.c)
- *     RtlCreateProcessReflection @ 0x1800D5BB0 (RtlCreateProcessReflection.c)
- *     RtlpProcessReflectionStartup @ 0x1800D6140 (RtlpProcessReflectionStartup.c)
- *     RtlCreateQueryDebugBuffer @ 0x1800D7430 (RtlCreateQueryDebugBuffer.c)
- *     RtlpCommitQueryDebugInfo @ 0x1800D8A38 (RtlpCommitQueryDebugInfo.c)
- *     RtlpCopyRemoteDebugInformation @ 0x1800D8AD0 (RtlpCopyRemoteDebugInformation.c)
- *     WerpAllocateAndInitializeSid @ 0x1800DD8DC (WerpAllocateAndInitializeSid.c)
- *     GetShipAssertBuffer @ 0x1800DDDD4 (GetShipAssertBuffer.c)
- *     WerEscalationLazyInit @ 0x1800DE1B8 (WerEscalationLazyInit.c)
- *     RtlResetStackOverflow @ 0x1800DE804 (RtlResetStackOverflow.c)
- *     RtlValidateProcessHeaps @ 0x1800F3350 (RtlValidateProcessHeaps.c)
- *     RtlpAllocateTags @ 0x1800F3490 (RtlpAllocateTags.c)
- *     RtlpHeapPerformCrossProcessQuery @ 0x1800F4174 (RtlpHeapPerformCrossProcessQuery.c)
- *     RtlpValidateHeap @ 0x1800FA614 (RtlpValidateHeap.c)
- *     RtlpValidateHeapHeaders @ 0x1800FABF4 (RtlpValidateHeapHeaders.c)
- *     RtlStdInitializeStackDatabase @ 0x1801011D0 (RtlStdInitializeStackDatabase.c)
- *     RtlpStdExtendLowerWatermark @ 0x180101674 (RtlpStdExtendLowerWatermark.c)
- *     RtlpStdExtendUpperWatermark @ 0x180101754 (RtlpStdExtendUpperWatermark.c)
- *     RtlpTraceDatabaseAllocate @ 0x180102C80 (RtlpTraceDatabaseAllocate.c)
- *     PssNtCaptureSnapshot @ 0x180113CF0 (PssNtCaptureSnapshot.c)
- *     PsspCaptureAuxiliaryPages @ 0x18011508C (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureVaSpaceInformation @ 0x18011541C (PsspCaptureVaSpaceInformation.c)
- *     PsspCaptureHandleInformation @ 0x180115BB4 (PsspCaptureHandleInformation.c)
- *     PsspCaptureThreadInformation @ 0x18011661C (PsspCaptureThreadInformation.c)
- *     PsspDuplicateSnapshotLocalToRemote @ 0x1801172B8 (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x18011785C (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     RtlCreateProcessReflection @ 0x1800D5B70 (RtlCreateProcessReflection.c)
+ *     RtlpProcessReflectionStartup @ 0x1800D6100 (RtlpProcessReflectionStartup.c)
+ *     RtlCreateQueryDebugBuffer @ 0x1800D73F0 (RtlCreateQueryDebugBuffer.c)
+ *     RtlpCommitQueryDebugInfo @ 0x1800D89F8 (RtlpCommitQueryDebugInfo.c)
+ *     RtlpCopyRemoteDebugInformation @ 0x1800D8A90 (RtlpCopyRemoteDebugInformation.c)
+ *     WerpAllocateAndInitializeSid @ 0x1800DD89C (WerpAllocateAndInitializeSid.c)
+ *     GetShipAssertBuffer @ 0x1800DDD94 (GetShipAssertBuffer.c)
+ *     WerEscalationLazyInit @ 0x1800DE178 (WerEscalationLazyInit.c)
+ *     RtlResetStackOverflow @ 0x1800DE7C4 (RtlResetStackOverflow.c)
+ *     RtlValidateProcessHeaps @ 0x1800F3310 (RtlValidateProcessHeaps.c)
+ *     RtlpAllocateTags @ 0x1800F3450 (RtlpAllocateTags.c)
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1800F4134 (RtlpHeapPerformCrossProcessQuery.c)
+ *     RtlpValidateHeap @ 0x1800FA5D4 (RtlpValidateHeap.c)
+ *     RtlpValidateHeapHeaders @ 0x1800FABB4 (RtlpValidateHeapHeaders.c)
+ *     RtlStdInitializeStackDatabase @ 0x180101190 (RtlStdInitializeStackDatabase.c)
+ *     RtlpStdExtendLowerWatermark @ 0x180101634 (RtlpStdExtendLowerWatermark.c)
+ *     RtlpStdExtendUpperWatermark @ 0x180101714 (RtlpStdExtendUpperWatermark.c)
+ *     RtlpTraceDatabaseAllocate @ 0x180102C40 (RtlpTraceDatabaseAllocate.c)
+ *     PssNtCaptureSnapshot @ 0x180113CB0 (PssNtCaptureSnapshot.c)
+ *     PsspCaptureAuxiliaryPages @ 0x18011504C (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureVaSpaceInformation @ 0x1801153DC (PsspCaptureVaSpaceInformation.c)
+ *     PsspCaptureHandleInformation @ 0x180115B74 (PsspCaptureHandleInformation.c)
+ *     PsspCaptureThreadInformation @ 0x1801165DC (PsspCaptureThreadInformation.c)
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x180117278 (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x1801177E4 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAllocateVirtualMemory()
+NTSTATUS __cdecl ZwAllocateVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG Protect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 24LL;
+  result = 24;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

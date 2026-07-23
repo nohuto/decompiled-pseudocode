@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagDeviceRundownWorker @ 0x1408A5A10
+ * XREFs of PopDiagDeviceRundownWorker @ 0x1408A5C60
  * Callers:
  *     <none>
  * Callees:
- *     IoControlPnpDeviceActionQueue @ 0x1403C3E7C (IoControlPnpDeviceActionQueue.c)
- *     PoDiagTraceDeviceRundown @ 0x14098BDB4 (PoDiagTraceDeviceRundown.c)
+ *     IoControlPnpDeviceActionQueue @ 0x1403C405C (IoControlPnpDeviceActionQueue.c)
+ *     PoDiagTraceDeviceRundown @ 0x14098BFB4 (PoDiagTraceDeviceRundown.c)
  */
 
 __int64 PopDiagDeviceRundownWorker()

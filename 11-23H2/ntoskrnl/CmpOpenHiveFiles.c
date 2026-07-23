@@ -4,8 +4,8 @@
  *     CmpInitHiveFromFile @ 0x14068B418 (CmpInitHiveFromFile.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
  *     CmpQueryFileSecurityDescriptor @ 0x14068C0AC (CmpQueryFileSecurityDescriptor.c)
  */

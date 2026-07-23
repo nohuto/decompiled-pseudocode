@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFinishMdlForMappedFileFault @ 0x14031A46C
+ * XREFs of MiFinishMdlForMappedFileFault @ 0x1403251BC
  * Callers:
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiFlowThroughInsertNode @ 0x1402D006C (MiFlowThroughInsertNode.c)
- *     MiReferenceControlAreaPfn @ 0x140319F80 (MiReferenceControlAreaPfn.c)
- *     MiObtainProtoReference @ 0x14031A00C (MiObtainProtoReference.c)
- *     MiEndingOffsetWithLock @ 0x14031C790 (MiEndingOffsetWithLock.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x140328BC0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlowThroughInsertNode @ 0x14024E3EC (MiFlowThroughInsertNode.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiReferenceControlAreaPfn @ 0x140324CD0 (MiReferenceControlAreaPfn.c)
+ *     MiObtainProtoReference @ 0x140324D5C (MiObtainProtoReference.c)
+ *     MiEndingOffsetWithLock @ 0x1403274E0 (MiEndingOffsetWithLock.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140333910 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int16 __fastcall MiFinishMdlForMappedFileFault(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4, unsigned int a5)
@@ -68,7 +68,7 @@ __int16 __fastcall MiFinishMdlForMappedFileFault(__int64 a1, __int64 a2, unsigne
   v18 = *(_QWORD *)(48LL * *(_QWORD *)(a1 + 320) - 0x58000000000LL + 8) | 0x8000000000000000uLL;
   v37 = v18;
   if ( a4 )
-    MiFlowThroughInsertNode(a1, a4);
+    MiFlowThroughInsertNode(a1, a4, v16);
   v39 = *(_QWORD *)(a1 + 232);
   v19 = MI_READ_PTE_LOCK_FREE(v39);
   v20 = a5;

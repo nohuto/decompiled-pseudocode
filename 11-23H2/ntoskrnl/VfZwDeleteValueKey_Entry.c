@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwDeleteValueKey_Entry @ 0x140AD46B0
+ * XREFs of VfZwDeleteValueKey_Entry @ 0x140AD46A0
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckUnicodeString @ 0x140AD4FB4 (ViZwCheckUnicodeString.c)
- *     ViZwShouldCheck @ 0x140AD5078 (ViZwShouldCheck.c)
+ *     ViZwCheckUnicodeString @ 0x140AD4FA4 (ViZwCheckUnicodeString.c)
+ *     ViZwShouldCheck @ 0x140AD5068 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwDeleteValueKey_Entry(__int64 a1, __int64 a2)

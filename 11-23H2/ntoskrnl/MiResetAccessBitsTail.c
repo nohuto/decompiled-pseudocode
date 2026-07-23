@@ -1,11 +1,11 @@
 /*
- * XREFs of MiResetAccessBitsTail @ 0x140348650
+ * XREFs of MiResetAccessBitsTail @ 0x1403488E0
  * Callers:
- *     MiResetAccessBitPte @ 0x14027BA20 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPte @ 0x14027BCB0 (MiResetAccessBitPte.c)
  * Callees:
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiProcessVmAccessedInfo @ 0x14046BFBE (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x14046C08C (MiQueryEPTAccessedState.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiProcessVmAccessedInfo @ 0x14046C3BE (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x14046C48C (MiQueryEPTAccessedState.c)
  */
 
 __int64 __fastcall MiResetAccessBitsTail(__int64 a1)

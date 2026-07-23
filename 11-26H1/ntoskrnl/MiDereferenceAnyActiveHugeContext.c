@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDereferenceAnyActiveHugeContext @ 0x1404A1094
+ * XREFs of MiDereferenceAnyActiveHugeContext @ 0x14049ABC4
  * Callers:
- *     MiZeroThreadStopZeroing @ 0x1404F5FB8 (MiZeroThreadStopZeroing.c)
- *     MiDeleteZeroThreadContext @ 0x140530728 (MiDeleteZeroThreadContext.c)
+ *     MiZeroThreadStopZeroing @ 0x1404EF578 (MiZeroThreadStopZeroing.c)
+ *     MiDeleteZeroThreadContext @ 0x140532C28 (MiDeleteZeroThreadContext.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDereferenceHugeContext @ 0x1404F6860 (MiDereferenceHugeContext.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDereferenceHugeContext @ 0x1404EFE70 (MiDereferenceHugeContext.c)
  */
 
 void __fastcall MiDereferenceAnyActiveHugeContext(__int64 a1)

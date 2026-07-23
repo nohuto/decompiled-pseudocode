@@ -1,9 +1,9 @@
 /*
- * XREFs of KeProfileInterruptWithSource @ 0x1401D6D00
+ * XREFs of KeProfileInterruptWithSource @ 0x1401D6B2C
  * Callers:
  *     <none>
  * Callees:
- *     KiProcessProfileList @ 0x1401D708C (KiProcessProfileList.c)
+ *     KiProcessProfileList @ 0x1401D6EB8 (KiProcessProfileList.c)
  */
 
 __int64 __fastcall KeProfileInterruptWithSource(__int64 a1, __int64 a2)

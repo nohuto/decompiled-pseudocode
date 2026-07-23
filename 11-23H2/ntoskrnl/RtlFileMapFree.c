@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlFileMapFree @ 0x1402F7C50
+ * XREFs of RtlFileMapFree @ 0x1402F7EE0
  * Callers:
- *     AslFileMappingDelete @ 0x140756FB8 (AslFileMappingDelete.c)
- *     AslpFileGetVersionBlock @ 0x1407595FC (AslpFileGetVersionBlock.c)
- *     AslpFileGetChecksumAttributes @ 0x140A57DDC (AslpFileGetChecksumAttributes.c)
+ *     AslFileMappingDelete @ 0x1407571A8 (AslFileMappingDelete.c)
+ *     AslpFileGetVersionBlock @ 0x1407597EC (AslpFileGetVersionBlock.c)
+ *     AslpFileGetChecksumAttributes @ 0x140A5808C (AslpFileGetChecksumAttributes.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwUnmapViewOfSection @ 0x14041B2A0 (ZwUnmapViewOfSection.c)
- *     MmUnsecureVirtualMemory @ 0x1406B0260 (MmUnsecureVirtualMemory.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x14041B630 (ZwUnmapViewOfSection.c)
+ *     MmUnsecureVirtualMemory @ 0x1406B0290 (MmUnsecureVirtualMemory.c)
  */
 
 __int64 __fastcall RtlFileMapFree(__int64 a1)

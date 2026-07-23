@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEnlargeHiberFile @ 0x140752424
+ * XREFs of PopEnlargeHiberFile @ 0x140750744
  * Callers:
- *     PopTransitionToSleep @ 0x140B65430 (PopTransitionToSleep.c)
+ *     PopTransitionToSleep @ 0x140B67570 (PopTransitionToSleep.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x14045F260 (MmGetNumberOfPhysicalPages.c)
- *     PopResizeHiberFile @ 0x140A78054 (PopResizeHiberFile.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140454120 (MmGetNumberOfPhysicalPages.c)
+ *     PopResizeHiberFile @ 0x140A72354 (PopResizeHiberFile.c)
  */
 
 __int64 __fastcall PopEnlargeHiberFile(bool *a1)
@@ -16,14 +16,14 @@ __int64 __fastcall PopEnlargeHiberFile(bool *a1)
 
   v5 = 0LL;
   v6 = 0LL;
-  qword_140F0CFC8 = qword_140F0AD50;
+  qword_140F0D2A8 = qword_140F0BB90;
   v2 = MmGetNumberOfPhysicalPages(0) << 12;
   v3 = PopResizeHiberFile(v2, &v5, &v6);
   if ( v3 >= 0 )
   {
-    qword_140F0CFD8 = v5;
-    qword_140F0CFE0 = v6;
-    qword_140F0CFD0 = v2;
+    qword_140F0D2B8 = v5;
+    qword_140F0D2C0 = v6;
+    qword_140F0D2B0 = v2;
     if ( a1 )
       *a1 = (unsigned int)(100 * v2 / v5) < 0x28;
   }

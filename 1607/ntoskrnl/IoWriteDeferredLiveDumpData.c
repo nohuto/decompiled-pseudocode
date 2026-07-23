@@ -1,19 +1,19 @@
 /*
- * XREFs of IoWriteDeferredLiveDumpData @ 0x14062651C
+ * XREFs of IoWriteDeferredLiveDumpData @ 0x1406265D0
  * Callers:
- *     DbgkpWerDeferredWriteRoutine @ 0x14061C1BC (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x14061C270 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     EtwActivityIdControl @ 0x1400A0BF4 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IopLiveDumpTrace @ 0x1401CAF0C (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceDumpFileWriteEnd @ 0x1401CB0C8 (IopLiveDumpTraceDumpFileWriteEnd.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x1401CB1E0 (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x1401CB270 (IopLiveDumpTraceInterfaceStart.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwActivityIdControl @ 0x14009F51C (EtwActivityIdControl.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IopLiveDumpTrace @ 0x1401CADF0 (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x1401CAFAC (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x1401CB0C4 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x1401CB154 (IopLiveDumpTraceInterfaceStart.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopLiveDumpReleaseResources @ 0x1406272E8 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFile @ 0x140627610 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpReleaseResources @ 0x14062739C (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1406276C4 (IopLiveDumpWriteDumpFile.c)
  */
 
 __int64 __fastcall IoWriteDeferredLiveDumpData(__int64 P)
@@ -49,7 +49,7 @@ __int64 __fastcall IoWriteDeferredLiveDumpData(__int64 P)
     v10 = 8;
     v12 = &v7;
     v13 = 8;
-    TlgWrite(&stru_1402F3560, &unk_14027B922, (LPCGUID)(P + 624), (LPCGUID)(P + 608), 4u, &pData);
+    TlgWrite(&stru_1402F3560, &unk_14027BA22, (LPCGUID)(P + 624), (LPCGUID)(P + 608), 4u, &pData);
   }
   EtwActivityIdControl(2u, (LPGUID)(P + 608));
   IopLiveDumpReleaseResources(P);

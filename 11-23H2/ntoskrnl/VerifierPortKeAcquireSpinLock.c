@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierPortKeAcquireSpinLock @ 0x140AD5A10
+ * XREFs of VerifierPortKeAcquireSpinLock @ 0x140AD5A00
  * Callers:
  *     <none>
  * Callees:
- *     ViKeAcquireSpinLockCommon @ 0x140AD5D1C (ViKeAcquireSpinLockCommon.c)
+ *     ViKeAcquireSpinLockCommon @ 0x140AD5D0C (ViKeAcquireSpinLockCommon.c)
  */
 
 __int64 __fastcall VerifierPortKeAcquireSpinLock(__int64 a1, __int64 a2, __int64 a3)

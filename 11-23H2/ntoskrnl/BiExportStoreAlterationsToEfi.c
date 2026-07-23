@@ -1,16 +1,16 @@
 /*
- * XREFs of BiExportStoreAlterationsToEfi @ 0x140A5E93C
+ * XREFs of BiExportStoreAlterationsToEfi @ 0x140A5EBEC
  * Callers:
- *     BiExportStoreAlterationsToFirmware @ 0x140A5D3E4 (BiExportStoreAlterationsToFirmware.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x140A5D694 (BiExportStoreAlterationsToFirmware.c)
  * Callees:
- *     BiFreeIdentifierList @ 0x140801E74 (BiFreeIdentifierList.c)
- *     BiBuildIdentifierList @ 0x140804668 (BiBuildIdentifierList.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
- *     BiExportBcdObjects @ 0x140A5E4A4 (BiExportBcdObjects.c)
- *     BiExportEfiBootManager @ 0x140A5E5CC (BiExportEfiBootManager.c)
+ *     BiFreeIdentifierList @ 0x140802144 (BiFreeIdentifierList.c)
+ *     BiBuildIdentifierList @ 0x140804938 (BiBuildIdentifierList.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
+ *     BiExportBcdObjects @ 0x140A5E754 (BiExportBcdObjects.c)
+ *     BiExportEfiBootManager @ 0x140A5E87C (BiExportEfiBootManager.c)
  */
 
-__int64 __fastcall BiExportStoreAlterationsToEfi(_QWORD *a1)
+__int64 __fastcall BiExportStoreAlterationsToEfi(_QWORD *BcdStoreHandle)
 {
   __int64 v2; // rdx
   int v3; // ebx
@@ -21,14 +21,14 @@ __int64 __fastcall BiExportStoreAlterationsToEfi(_QWORD *a1)
   BiLogMessage(2LL, L"Exporting store alterations to efi");
   v7[1] = v7;
   v7[0] = v7;
-  v3 = BiBuildIdentifierList(a1, v2, (__int64)v7);
+  v3 = BiBuildIdentifierList(BcdStoreHandle, v2, (__int64)v7);
   if ( v3 < 0 )
     goto LABEL_6;
-  v4 = BiExportBcdObjects((__int64)a1, (__int64 *)v7);
+  v4 = BiExportBcdObjects(BcdStoreHandle, (const GUID **)v7);
   if ( v4 < 0 )
     v3 = v4;
   v5 = v3;
-  v3 = BiExportEfiBootManager((__int64)a1, (__int64)v7);
+  v3 = BiExportEfiBootManager(BcdStoreHandle, (__int64)v7);
   if ( v3 < 0 || (v3 = v5, v5 < 0) )
 LABEL_6:
     BiLogMessage(4LL, L"BiExportStoreAlterationsToEfi failed %x", (unsigned int)v3);

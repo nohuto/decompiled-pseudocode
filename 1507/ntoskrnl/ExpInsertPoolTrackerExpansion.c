@@ -32,7 +32,7 @@ void __fastcall ExpInsertPoolTrackerExpansion(unsigned int a1, unsigned __int64 
   __int64 v9; // r9
   __int64 v10; // r10
   unsigned __int64 v11; // rax
-  struct _SLIST_ENTRY *v12; // rdi
+  _SLIST_ENTRY *v12; // rdi
   unsigned __int64 v13; // rdx
   __int64 v14; // rax
   int v15; // eax
@@ -95,7 +95,7 @@ LABEL_18:
     v9 = ExpSessionPoolTrackTable;
     v10 = ExpSessionPoolTrackTableSize;
     v11 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
-    v12 = *(struct _SLIST_ENTRY **)(v11 + 7920);
+    v12 = *(_SLIST_ENTRY **)(v11 + 7920);
     v13 = *(_QWORD *)(v11 + 7928);
   }
   else
@@ -103,7 +103,7 @@ LABEL_18:
     v9 = PoolTrackTable;
     v10 = PoolTrackTableSize;
     v13 = PoolTrackTableExpansionSize;
-    v12 = (struct _SLIST_ENTRY *)PoolTrackTableExpansion;
+    v12 = (_SLIST_ENTRY *)PoolTrackTableExpansion;
   }
   v39 = v10;
   v37 = v9;

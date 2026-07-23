@@ -1,17 +1,17 @@
 /*
- * XREFs of KeForceResumeProcess @ 0x1404A7414
+ * XREFs of KeForceResumeProcess @ 0x1404A1E44
  * Callers:
- *     MiReAcquireCommitFailWorker @ 0x14066A250 (MiReAcquireCommitFailWorker.c)
- *     PspExitLastThread @ 0x1409374F0 (PspExitLastThread.c)
- *     PspTerminateProcess @ 0x140939700 (PspTerminateProcess.c)
- *     PsFreezeProcess @ 0x14093A750 (PsFreezeProcess.c)
+ *     MiReAcquireCommitFailWorker @ 0x14066B420 (MiReAcquireCommitFailWorker.c)
+ *     PspExitLastThread @ 0x1408F27B8 (PspExitLastThread.c)
+ *     PspTerminateProcess @ 0x1408F4E40 (PspTerminateProcess.c)
+ *     PsFreezeProcess @ 0x140ACF964 (PsFreezeProcess.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiThawSingleThread @ 0x140296388 (KiThawSingleThread.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiReleaseProcessLockExclusive @ 0x1403B3B08 (KiReleaseProcessLockExclusive.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiThawSingleThread @ 0x1402DD1F8 (KiThawSingleThread.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiReleaseProcessLockExclusive @ 0x1403A2318 (KiReleaseProcessLockExclusive.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall KeForceResumeProcess(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of SecureDump_ConvertBinaryToHexString @ 0x1405D6010
+ * XREFs of SecureDump_ConvertBinaryToHexString @ 0x1405D8800
  * Callers:
- *     SecureDump_LoadCertAndProvisionKey @ 0x1405D6938 (SecureDump_LoadCertAndProvisionKey.c)
+ *     SecureDump_LoadCertAndProvisionKey @ 0x1405D9128 (SecureDump_LoadCertAndProvisionKey.c)
  * Callees:
  *     <none>
  */

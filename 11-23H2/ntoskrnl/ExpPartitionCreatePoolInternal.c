@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpPartitionCreatePoolInternal @ 0x1408497C0
+ * XREFs of ExpPartitionCreatePoolInternal @ 0x140849AC0
  * Callers:
- *     ExpPartitionCreatePool @ 0x1408494F8 (ExpPartitionCreatePool.c)
- *     ExpPartitionInitialize @ 0x140849608 (ExpPartitionInitialize.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140A00854 (ExpPartitionCreatePoolDelayed.c)
+ *     ExpPartitionCreatePool @ 0x1408497F8 (ExpPartitionCreatePool.c)
+ *     ExpPartitionInitialize @ 0x140849908 (ExpPartitionInitialize.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x140A00AE4 (ExpPartitionCreatePoolDelayed.c)
  * Callees:
  *     ExpCreateWorkerThread @ 0x140683520 (ExpCreateWorkerThread.c)
- *     ExpWorkQueueInitialize @ 0x1408498A8 (ExpWorkQueueInitialize.c)
- *     ExpWorkQueueDestroy @ 0x140A00AC4 (ExpWorkQueueDestroy.c)
+ *     ExpWorkQueueInitialize @ 0x140849BA8 (ExpWorkQueueInitialize.c)
+ *     ExpWorkQueueDestroy @ 0x140A00D54 (ExpWorkQueueDestroy.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

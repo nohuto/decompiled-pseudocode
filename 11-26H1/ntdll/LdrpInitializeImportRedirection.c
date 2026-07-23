@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpInitializeImportRedirection @ 0x18011D004
+ * XREFs of LdrpInitializeImportRedirection @ 0x18011CDB4
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpReleaseDllPath @ 0x180051400 (LdrpReleaseDllPath.c)
- *     LdrpLoadDll @ 0x180051A00 (LdrpLoadDll.c)
- *     LdrpAcquireLoaderLock @ 0x180084090 (LdrpAcquireLoaderLock.c)
- *     LdrpReleaseLoaderLock @ 0x1800854C0 (LdrpReleaseLoaderLock.c)
- *     LdrpDrainWorkQueue @ 0x180087180 (LdrpDrainWorkQueue.c)
- *     LdrpInitializeDllPath @ 0x18009B960 (LdrpInitializeDllPath.c)
- *     LdrpDropLastInProgressCount @ 0x1800E1CDC (LdrpDropLastInProgressCount.c)
- *     LdrpInitializeGraphRecurse @ 0x1800E81A0 (LdrpInitializeGraphRecurse.c)
- *     LdrpLogImportRedirectionTelemetry @ 0x18015D73C (LdrpLogImportRedirectionTelemetry.c)
- *     LdrpBuildImportRedirection @ 0x18015E1F0 (LdrpBuildImportRedirection.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpReleaseDllPath @ 0x18003B980 (LdrpReleaseDllPath.c)
+ *     LdrpLoadDll @ 0x18003BF80 (LdrpLoadDll.c)
+ *     LdrpAcquireLoaderLock @ 0x18007B430 (LdrpAcquireLoaderLock.c)
+ *     LdrpReleaseLoaderLock @ 0x18007C860 (LdrpReleaseLoaderLock.c)
+ *     LdrpDrainWorkQueue @ 0x18007E4F0 (LdrpDrainWorkQueue.c)
+ *     LdrpInitializeDllPath @ 0x18009AA90 (LdrpInitializeDllPath.c)
+ *     LdrpDropLastInProgressCount @ 0x1800DF57C (LdrpDropLastInProgressCount.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800E73B0 (LdrpInitializeGraphRecurse.c)
+ *     LdrpLogImportRedirectionTelemetry @ 0x18015D5FC (LdrpLogImportRedirectionTelemetry.c)
+ *     LdrpBuildImportRedirection @ 0x18015E0F4 (LdrpBuildImportRedirection.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 LdrpInitializeImportRedirection()
@@ -37,14 +37,14 @@ __int64 LdrpInitializeImportRedirection()
   if ( p_RedirectionDllName->Length )
   {
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrredirect.c",
+      "minkernel\\ldr\\ldrredirect.c",
       557,
       (__int64)"LdrpInitializeImportRedirection",
       2,
       "Loading import redirection DLL: '%wZ'\n",
       p_RedirectionDllName);
     LdrpInitializeDllPath(0LL, 0LL, (__int64)v9);
-    Dll = LdrpLoadDll(&p_RedirectionDllName->Length, (__int64)v9, 16777217, (__int64)&v8);
+    Dll = LdrpLoadDll(p_RedirectionDllName, (__int64)v9, 16777217, (__int64)&v8);
     LdrpReleaseDllPath((__int64)v9);
     if ( Dll >= 0 )
     {
@@ -71,7 +71,7 @@ __int64 LdrpInitializeImportRedirection()
       else
       {
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrredirect.c",
+          "minkernel\\ldr\\ldrredirect.c",
           584,
           (__int64)"LdrpInitializeImportRedirection",
           0,

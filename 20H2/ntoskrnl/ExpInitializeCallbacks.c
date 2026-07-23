@@ -20,11 +20,11 @@ char ExpInitializeCallbacks()
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-79h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-69h] BYREF
   _QWORD v7[16]; // [rsp+60h] [rbp-39h] BYREF
-  HANDLE Handle; // [rsp+100h] [rbp+67h] BYREF
+  HANDLE DirectoryHandle; // [rsp+100h] [rbp+67h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  Handle = 0LL;
+  DirectoryHandle = 0LL;
   DestinationString = 0LL;
   ExpCallbackListLock = 0LL;
   qword_140C192B8 = (__int64)&ExpCallbackListHead;
@@ -47,9 +47,9 @@ char ExpInitializeCallbacks()
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 80;
     ObjectAttributes.SecurityQualityOfService = 0LL;
-    if ( (int)NtCreateDirectoryObject((__int64)&Handle) >= 0 )
+    if ( NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes) >= 0 )
     {
-      NtClose(Handle);
+      NtClose(DirectoryHandle);
       ExpCallbackEvent.Header.WaitListHead.Blink = &ExpCallbackEvent.Header.WaitListHead;
       v0 = 0;
       ExpCallbackEvent.Header.WaitListHead.Flink = &ExpCallbackEvent.Header.WaitListHead;

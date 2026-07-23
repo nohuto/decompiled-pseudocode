@@ -1,13 +1,13 @@
 /*
- * XREFs of ExCancelTimer @ 0x1403C05F0
+ * XREFs of ExCancelTimer @ 0x1403AF1B0
  * Callers:
- *     EtwpUpdatePeriodicCaptureState @ 0x1407AD74C (EtwpUpdatePeriodicCaptureState.c)
- *     EtwpStopLoggerInstance @ 0x1409D9164 (EtwpStopLoggerInstance.c)
- *     PnpWatchdogTimerPause @ 0x1409F001C (PnpWatchdogTimerPause.c)
- *     WdtpCancelTimer @ 0x1409F0120 (WdtpCancelTimer.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x1407ADBA0 (EtwpUpdatePeriodicCaptureState.c)
+ *     EtwpStopLoggerInstance @ 0x1409D3C74 (EtwpStopLoggerInstance.c)
+ *     PnpWatchdogTimerPause @ 0x1409ED8EC (PnpWatchdogTimerPause.c)
+ *     WdtpCancelTimer @ 0x1409ED9F0 (WdtpCancelTimer.c)
  * Callees:
- *     ExpCheckForFreedEnhancedTimer @ 0x1403C0598 (ExpCheckForFreedEnhancedTimer.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x1403AF158 (ExpCheckForFreedEnhancedTimer.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
  */
 
 __int64 __fastcall ExCancelTimer(ULONG_PTR a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpReturnAccessBuffer @ 0x1404D94E0
+ * XREFs of PfpReturnAccessBuffer @ 0x1404D2BC0
  * Callers:
- *     PfpFlushBuffers @ 0x140A05BE0 (PfpFlushBuffers.c)
+ *     PfpFlushBuffers @ 0x1409F13D0 (PfpFlushBuffers.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     MmFreeAccessPfnBuffer @ 0x1404A3E88 (MmFreeAccessPfnBuffer.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     MmFreeAccessPfnBuffer @ 0x14049D998 (MmFreeAccessPfnBuffer.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall PfpReturnAccessBuffer(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlStackTraceHashFunction @ 0x180110740
+ * XREFs of RtlStackTraceHashFunction @ 0x180110710
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpTscAdvSynchSkewCounter @ 0x140583908
+ * XREFs of HalpTscAdvSynchSkewCounter @ 0x140585E28
  * Callers:
- *     HalpTscAdvSynchTarget @ 0x1404C5628 (HalpTscAdvSynchTarget.c)
- *     HalpTscAdvSynchToTarget @ 0x140583930 (HalpTscAdvSynchToTarget.c)
+ *     HalpTscAdvSynchTarget @ 0x1404BEFD8 (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchToTarget @ 0x140585E50 (HalpTscAdvSynchToTarget.c)
  * Callees:
  *     <none>
  */

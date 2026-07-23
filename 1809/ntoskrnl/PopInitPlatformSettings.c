@@ -1,16 +1,16 @@
 /*
- * XREFs of PopInitPlatformSettings @ 0x1409DCD88
+ * XREFs of PopInitPlatformSettings @ 0x1409DDD88
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
- *     HvlIsPartitionCpuManager @ 0x140178300 (HvlIsPartitionCpuManager.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopLogSleepDisabled @ 0x14070AA34 (PopLogSleepDisabled.c)
+ *     HvlIsPartitionCpuManager @ 0x140178400 (HvlIsPartitionCpuManager.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopLogSleepDisabled @ 0x14070BCD4 (PopLogSleepDisabled.c)
  */
 
 __int64 PopInitPlatformSettings()
@@ -48,7 +48,7 @@ __int64 PopInitPlatformSettings()
     {
       if ( v0[24] >= 3u )
         PopFirmwarePlatformRole = (unsigned __int8)v0[61];
-      if ( (unsigned __int8)off_1403FE5A0[0]() )
+      if ( (unsigned __int8)off_1403FF5A0[0]() )
         PopPlatformAoAc = 1;
       if ( PopPlatformRoleOverride != -1 )
         PopFirmwarePlatformRole = PopPlatformRoleOverride;

@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmParkReportUnparkedCores @ 0x1402B0500
+ * XREFs of PpmParkReportUnparkedCores @ 0x14022E860
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
- *     PpmPerfQueueAction @ 0x1403990CC (PpmPerfQueueAction.c)
+ *     KeCountSetBitsAffinityEx @ 0x140269420 (KeCountSetBitsAffinityEx.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeSubtractAffinityEx @ 0x1402CFF20 (KeSubtractAffinityEx.c)
+ *     PpmPerfQueueAction @ 0x14039921C (PpmPerfQueueAction.c)
  */
 
 char PpmParkReportUnparkedCores()
 {
   __int64 Prcb; // rax
-  unsigned __int16 *v2[2]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v2[2]; // [rsp+20h] [rbp-28h] BYREF
   __int16 v3; // [rsp+30h] [rbp-18h]
   int v4; // [rsp+32h] [rbp-16h]
   __int16 v5; // [rsp+36h] [rbp-12h]
@@ -24,16 +24,16 @@ char PpmParkReportUnparkedCores()
   v6 = 0;
   if ( !PpmIsParkingEnabled
     || !(unsigned int)KeSubtractAffinityEx(
-                        PpmPerfChangedCoreParkingMask,
-                        (unsigned __int16 *)&PpmPerfNewCoreParkingMask,
+                        &PpmPerfChangedCoreParkingMask,
+                        &PpmPerfNewCoreParkingMask,
                         &PpmPerfNewUnparkedMask) )
   {
     return 1;
   }
-  PpmCheckCount = KeCountSetBitsAffinityEx((unsigned __int16 *)&PpmPerfNewUnparkedMask);
-  v2[1] = (unsigned __int16 *)qword_140C12BB8;
+  PpmCheckCount = KeCountSetBitsAffinityEx(&PpmPerfNewUnparkedMask);
+  v2[1] = qword_140C12B98;
   v3 = 0;
-  v2[0] = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
+  v2[0] = &PpmPerfNewUnparkedMask;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v6, v2) )
   {
     Prcb = KeGetPrcb(v6);

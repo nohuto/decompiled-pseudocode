@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetPagingIoPriority @ 0x1402AB590
+ * XREFs of IoGetPagingIoPriority @ 0x1402296D0
  * Callers:
  *     <none>
  * Callees:

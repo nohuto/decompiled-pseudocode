@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpCovSampLookasideGrow @ 0x1405AF3BC
+ * XREFs of EtwpCovSampLookasideGrow @ 0x1405AF5EC
  * Callers:
- *     EtwpCovSampCaptureContextStart @ 0x1409422B8 (EtwpCovSampCaptureContextStart.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x140942AC0 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureContextStart @ 0x140942488 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140942C90 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbp
   unsigned int v5; // ebx
-  struct _SLIST_ENTRY *v6; // rdi
+  _SLIST_ENTRY *v6; // rdi
   KSPIN_LOCK *v7; // r14
   unsigned __int64 v8; // rsi
   unsigned int v9; // eax
@@ -33,7 +33,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
   KeGetCurrentIrql();
   if ( *(_DWORD *)(a2 + 52) < *(_DWORD *)(a2 + 56) )
   {
-    v6 = (struct _SLIST_ENTRY *)(*(__int64 (**)(void))(v2 + 48))();
+    v6 = (_SLIST_ENTRY *)(*(__int64 (**)(void))(v2 + 48))();
     if ( v6 )
     {
       v7 = (KSPIN_LOCK *)(a1 + 264);
@@ -41,7 +41,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
       if ( *(_DWORD *)(a2 + 40) && (v9 = *(_DWORD *)(a2 + 52), v9 < *(_DWORD *)(a2 + 56)) )
       {
         *(_DWORD *)(a2 + 52) = v9 + 1;
-        v10 = (struct _SLIST_ENTRY *)((char *)v6 + 24);
+        v10 = (_SLIST_ENTRY *)((char *)v6 + 24);
         ++*(_DWORD *)(v2 + 72);
         v11 = v2 + 32;
         v12 = *(_SLIST_ENTRY **)(v11 + 8);

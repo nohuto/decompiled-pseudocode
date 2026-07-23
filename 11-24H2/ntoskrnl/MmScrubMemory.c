@@ -1,18 +1,18 @@
 /*
- * XREFs of MmScrubMemory @ 0x1407FDC70
+ * XREFs of MmScrubMemory @ 0x1407FE3E0
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
- *     MiReferencePageRuns @ 0x1404401F0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x1404473D0 (MiDereferencePageRuns.c)
- *     KeInitializeGate @ 0x1404892A8 (KeInitializeGate.c)
- *     MiReferenceNonPagedMemoryProcessList @ 0x1407FD7C8 (MiReferenceNonPagedMemoryProcessList.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MiDereferencePageRuns @ 0x1403F89A4 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x1403F8A50 (MiReferencePageRuns.c)
+ *     KeInitializeGate @ 0x1404842C4 (KeInitializeGate.c)
+ *     MiReferenceNonPagedMemoryProcessList @ 0x1407FDF38 (MiReferenceNonPagedMemoryProcessList.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmScrubMemory(__int64 a1, ULONG_PTR a2, _QWORD *a3)
@@ -65,14 +65,14 @@ __int64 __fastcall MmScrubMemory(__int64 a1, ULONG_PTR a2, _QWORD *a3)
           *(v13 - 3) = 0LL;
           *(v13 - 1) = MiScrubMemoryWorker;
           *v13 = v12;
-          ExQueueWorkItemToPartition((ULONG_PTR)(v13 - 3), 4, v11++, qword_140E38CB8);
+          ExQueueWorkItemToPartition((ULONG_PTR)(v13 - 3), 4, v11++, qword_140E38DF8);
           v12 += 25;
           v13 += 25;
         }
         while ( v11 < v5 );
       }
       v8 = 0;
-      KeWaitForGate((__int64)(v7 + 1), 0LL, 0);
+      KeWaitForGate((__int64)(v7 + 1), 0LL);
       v14 = (int *)v12 + 3;
       while ( 1 )
       {
@@ -97,7 +97,7 @@ LABEL_12:
       if ( *((_DWORD *)Object + 1) || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0 )
         v8 = -1073741248;
       else
-        _InterlockedIncrement(&dword_140E301A0);
+        _InterlockedIncrement(&dword_140E302E0);
     }
     else
     {

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFreePrcbThreads @ 0x14056BD08
+ * XREFs of KiFreePrcbThreads @ 0x14056C3C8
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall KiFreePrcbThreads(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInitializeXSave @ 0x1405732C0
+ * XREFs of KiInitializeXSave @ 0x1405742C0
  * Callers:
- *     KiSystemStartup @ 0x140565010 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140566010 (KiSystemStartup.c)
  * Callees:
- *     KiGetXSaveSupportedFeatures @ 0x14018BB20 (KiGetXSaveSupportedFeatures.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiGetIptInfo @ 0x140294538 (KiGetIptInfo.c)
- *     KiUpdateXSaveSizeAndVolatileFeatures @ 0x14057357C (KiUpdateXSaveSizeAndVolatileFeatures.c)
- *     KiIntersectFeaturesWithPolicy @ 0x140573624 (KiIntersectFeaturesWithPolicy.c)
- *     KiParseLoadOptions @ 0x14057385C (KiParseLoadOptions.c)
+ *     KiGetXSaveSupportedFeatures @ 0x14018BC60 (KiGetXSaveSupportedFeatures.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiGetIptInfo @ 0x140294728 (KiGetIptInfo.c)
+ *     KiUpdateXSaveSizeAndVolatileFeatures @ 0x14057457C (KiUpdateXSaveSizeAndVolatileFeatures.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x140574624 (KiIntersectFeaturesWithPolicy.c)
+ *     KiParseLoadOptions @ 0x14057485C (KiParseLoadOptions.c)
  */
 
 __int64 __fastcall KiInitializeXSave(__int64 a1, int a2)

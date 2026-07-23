@@ -1,21 +1,21 @@
 /*
- * XREFs of HvFreeHivePartial @ 0x140A4FDCC
+ * XREFs of HvFreeHivePartial @ 0x140A46B7C
  * Callers:
- *     HvpTruncateBins @ 0x14097ED44 (HvpTruncateBins.c)
- *     HvpPerformLogFileRecovery @ 0x140AB060C (HvpPerformLogFileRecovery.c)
+ *     HvpTruncateBins @ 0x140967554 (HvpTruncateBins.c)
+ *     HvpPerformLogFileRecovery @ 0x140AAB57C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     RtlNumberOfSetBits @ 0x14042B480 (RtlNumberOfSetBits.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpViewMapShrinkStorage @ 0x1407DF04C (HvpViewMapShrinkStorage.c)
- *     CmpReleaseGlobalQuota @ 0x14087EEC0 (CmpReleaseGlobalQuota.c)
- *     HvpAdjustHiveFreeDisplay @ 0x14087EF00 (HvpAdjustHiveFreeDisplay.c)
- *     HvpMapEntryGetFreeBin @ 0x140883424 (HvpMapEntryGetFreeBin.c)
- *     HvpFreeMap @ 0x140A51610 (HvpFreeMap.c)
- *     CmpUpdateSystemHiveHysteresis @ 0x140A5B334 (CmpUpdateSystemHiveHysteresis.c)
- *     HvpFreeBin @ 0x140A6A13C (HvpFreeBin.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140377880 (RtlNumberOfSetBits.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpViewMapShrinkStorage @ 0x1407DF59C (HvpViewMapShrinkStorage.c)
+ *     CmpReleaseGlobalQuota @ 0x140882D70 (CmpReleaseGlobalQuota.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x140882DB0 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpMapEntryGetFreeBin @ 0x1408872D4 (HvpMapEntryGetFreeBin.c)
+ *     HvpFreeMap @ 0x140A486DC (HvpFreeMap.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x140A52C44 (CmpUpdateSystemHiveHysteresis.c)
+ *     HvpFreeBin @ 0x140A634EC (HvpFreeBin.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvFreeHivePartial(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3)
@@ -28,23 +28,21 @@ __int64 __fastcall HvFreeHivePartial(ULONG_PTR BugCheckParameter2, unsigned int 
   _BYTE *CellMap; // rax
   _BYTE *v12; // rdi
   _QWORD *FreeBin; // rax
-  __int64 v14; // r8
-  __int64 v15; // r9
-  _QWORD *v16; // rcx
-  __int64 v17; // rdx
-  _QWORD *v18; // rax
-  unsigned int v19; // ecx
-  __int64 v20; // rax
-  unsigned int v21; // r8d
-  ULONG v22; // r14d
-  ULONG v23; // ebx
-  int v24; // ebx
-  unsigned int v25; // [rsp+68h] [rbp+10h]
+  _QWORD *v14; // rcx
+  __int64 v15; // rdx
+  _QWORD *v16; // rax
+  unsigned int v17; // ecx
+  __int64 v18; // rax
+  unsigned int v19; // r8d
+  ULONG v20; // r14d
+  ULONG v21; // ebx
+  int v22; // ebx
+  unsigned int v23; // [rsp+68h] [rbp+10h]
 
   v5 = 632LL * a3;
   v7 = a2;
   result = *(unsigned int *)(v5 + BugCheckParameter2 + 280);
-  v25 = result;
+  v23 = result;
   if ( a2 != (_DWORD)result )
   {
     v9 = a3 << 31;
@@ -56,42 +54,42 @@ __int64 __fastcall HvFreeHivePartial(ULONG_PTR BugCheckParameter2, unsigned int 
       if ( !CellMap )
         KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v10, 0x165uLL);
       FreeBin = (_QWORD *)HvpMapEntryGetFreeBin(CellMap);
-      v16 = FreeBin;
+      v14 = FreeBin;
       if ( FreeBin )
       {
-        v17 = *FreeBin;
-        if ( *(_QWORD **)(*FreeBin + 8LL) != FreeBin || (v18 = (_QWORD *)FreeBin[1], (_QWORD *)*v18 != v16) )
+        v15 = *FreeBin;
+        if ( *(_QWORD **)(*FreeBin + 8LL) != FreeBin || (v16 = (_QWORD *)FreeBin[1], (_QWORD *)*v16 != v14) )
           __fastfail(3u);
-        *v18 = v17;
-        *(_QWORD *)(v17 + 8) = v18;
-        guard_dispatch_icall_no_overrides(v16, 24LL, v14, v15);
+        *v16 = v15;
+        *(_QWORD *)(v15 + 8) = v16;
+        guard_dispatch_icall_no_overrides(v14, 24LL);
       }
-      v19 = *((_DWORD *)v12 + 4);
+      v17 = *((_DWORD *)v12 + 4);
       if ( (*((_QWORD *)v12 + 1) & 8) != 0 )
-        HvpFreeBin(BugCheckParameter2, v19);
+        HvpFreeBin(BugCheckParameter2, v17);
       else
-        CmpReleaseGlobalQuota(v19);
+        CmpReleaseGlobalQuota(v17);
       v7 += *((_DWORD *)v12 + 4);
       do
       {
-        v20 = HvpGetCellMap(BugCheckParameter2, v10);
-        if ( !v20 )
+        v18 = HvpGetCellMap(BugCheckParameter2, v10);
+        if ( !v18 )
           KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v10, 0x19EuLL);
         v10 += 4096;
-        *(_OWORD *)v20 = 0LL;
-        *(_QWORD *)(v20 + 16) = 0LL;
+        *(_OWORD *)v18 = 0LL;
+        *(_QWORD *)(v18 + 16) = 0LL;
       }
       while ( v10 - v9 < v7 );
     }
-    while ( v7 < v25 );
+    while ( v7 < v23 );
     if ( a2 )
-      v21 = (a2 - 1) >> 21;
+      v19 = (a2 - 1) >> 21;
     else
-      v21 = -1;
+      v19 = -1;
     HvpFreeMap(
       BugCheckParameter2,
       *(_QWORD *)(v5 + BugCheckParameter2 + 288),
-      v21 + 1,
+      v19 + 1,
       (unsigned int)((*(_DWORD *)(v5 + BugCheckParameter2 + 280) >> 12) - 1) >> 9);
     if ( !a3 )
     {
@@ -105,18 +103,18 @@ __int64 __fastcall HvFreeHivePartial(ULONG_PTR BugCheckParameter2, unsigned int 
     *(_DWORD *)(v5 + BugCheckParameter2 + 280) = a2 & 0x7FFFFFFF;
     if ( !a3 )
     {
-      v22 = a2 >> 9;
-      v23 = *(_DWORD *)(BugCheckParameter2 + 88) - v22;
-      RtlClearBits((PRTL_BITMAP)(BugCheckParameter2 + 88), v22, v23);
-      RtlClearBits((PRTL_BITMAP)(BugCheckParameter2 + 112), v22, v23);
+      v20 = a2 >> 9;
+      v21 = *(_DWORD *)(BugCheckParameter2 + 88) - v20;
+      RtlClearBits((PRTL_BITMAP)(BugCheckParameter2 + 88), v20, v21);
+      RtlClearBits((PRTL_BITMAP)(BugCheckParameter2 + 112), v20, v21);
       *(_QWORD *)(BugCheckParameter2 + 96) = *(_QWORD *)(BugCheckParameter2 + 96);
-      *(_DWORD *)(BugCheckParameter2 + 88) = v22;
+      *(_DWORD *)(BugCheckParameter2 + 88) = v20;
       *(_QWORD *)(BugCheckParameter2 + 120) = *(_QWORD *)(BugCheckParameter2 + 120);
-      *(_DWORD *)(BugCheckParameter2 + 112) = v22;
-      v24 = *(_DWORD *)(BugCheckParameter2 + 104);
+      *(_DWORD *)(BugCheckParameter2 + 112) = v20;
+      v22 = *(_DWORD *)(BugCheckParameter2 + 104);
       *(_DWORD *)(BugCheckParameter2 + 104) = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 88));
       *(_DWORD *)(BugCheckParameter2 + 128) = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 112));
-      _InterlockedAdd(&CmpDirtySectorCount, *(_DWORD *)(BugCheckParameter2 + 104) - v24);
+      _InterlockedAdd(&CmpDirtySectorCount, *(_DWORD *)(BugCheckParameter2 + 104) - v22);
     }
     return HvpAdjustHiveFreeDisplay(BugCheckParameter2, *(_DWORD *)(v5 + BugCheckParameter2 + 280), a3);
   }

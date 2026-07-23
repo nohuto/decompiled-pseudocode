@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiXorAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14035564C
+ * XREFs of ?KiXorAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x1404C9668
  * Callers:
- *     KeXorAffinityEx2 @ 0x140354F38 (KeXorAffinityEx2.c)
+ *     KeXorAffinityEx2 @ 0x1402B2C68 (KeXorAffinityEx2.c)
  * Callees:
  *     <none>
  */

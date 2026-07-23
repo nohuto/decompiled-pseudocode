@@ -15,14 +15,14 @@ __int64 __fastcall sub_18003CBC0(_WORD *a1, __int64 a2)
 {
   unsigned int v2; // ebx
   const WCHAR *NtSystemRoot; // rax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
   *a1 = 0;
-  NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot();
+  NtSystemRoot = RtlGetNtSystemRoot();
   RtlInitUnicodeString(&DestinationString, NtSystemRoot);
   sub_18003CC2C(a1, &DestinationString);
-  sub_18003CC2C(a1, &unk_180110370);
+  sub_18003CC2C(a1, &stru_180110370);
   if ( a2 )
     return (unsigned int)sub_18003CC2C(a1, a2);
   return v2;

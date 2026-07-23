@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentConstructCommitState @ 0x18004E980
+ * XREFs of RtlpHpLfhSubsegmentConstructCommitState @ 0x180064560
  * Callers:
- *     RtlpHpLfhOwnerRunMaintenance @ 0x18004D870 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x18004E800 (RtlpHpLfhSubsegmentReformatAsMulti.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x1800E00E0 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x180063450 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1800643E0 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x1800DB1E0 (RtlpHpLfhSubsegmentReformatCheck.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentConstructCommitState(__int64 a1, unsigned 
   unsigned __int16 v20; // [rsp+32h] [rbp+Ah]
 
   v4 = 0;
-  v6 = qword_1801CDEC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
+  v6 = qword_1801CCEC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
   v7 = a3;
   v8 = (unsigned __int16)v6;
   *a4 = 1;

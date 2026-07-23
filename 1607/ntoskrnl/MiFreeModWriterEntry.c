@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeModWriterEntry @ 0x14008EF68
+ * XREFs of MiFreeModWriterEntry @ 0x14008E6C8
  * Callers:
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
- *     MiMappedPageWriter @ 0x14013D554 (MiMappedPageWriter.c)
- *     MiDeleteMappedMdls @ 0x1401E5C18 (MiDeleteMappedMdls.c)
- *     MiDeletePagefile @ 0x14065AE08 (MiDeletePagefile.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
+ *     MiMappedPageWriter @ 0x14013DAC4 (MiMappedPageWriter.c)
+ *     MiDeleteMappedMdls @ 0x1401E5A44 (MiDeleteMappedMdls.c)
+ *     MiDeletePagefile @ 0x14065AEEC (MiDeletePagefile.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

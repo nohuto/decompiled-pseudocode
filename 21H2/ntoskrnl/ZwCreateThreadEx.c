@@ -1,16 +1,27 @@
 /*
- * XREFs of ZwCreateThreadEx @ 0x1403FBBE0
+ * XREFs of ZwCreateThreadEx @ 0x1403FBDC0
  * Callers:
- *     RtlpCreateUserThreadEx @ 0x14067F1E0 (RtlpCreateUserThreadEx.c)
- *     DbgkUserReportWorkRoutine @ 0x140886D50 (DbgkUserReportWorkRoutine.c)
- *     MiForceCrashForInvalidAccess @ 0x1408C42A4 (MiForceCrashForInvalidAccess.c)
+ *     RtlpCreateUserThreadEx @ 0x1405D9C80 (RtlpCreateUserThreadEx.c)
+ *     DbgkUserReportWorkRoutine @ 0x140886EB0 (DbgkUserReportWorkRoutine.c)
+ *     MiForceCrashForInvalidAccess @ 0x1408C4404 (MiForceCrashForInvalidAccess.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateThreadEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateThreadEx(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PUSER_THREAD_START_ROUTINE StartRoutine,
+        PVOID Argument,
+        ULONG CreateFlags,
+        SIZE_T ZeroBits,
+        SIZE_T StackSize,
+        SIZE_T MaximumStackSize,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

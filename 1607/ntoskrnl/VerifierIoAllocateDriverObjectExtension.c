@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoAllocateDriverObjectExtension @ 0x1407053F4
+ * XREFs of VerifierIoAllocateDriverObjectExtension @ 0x140705424
  * Callers:
  *     <none>
  * Callees:

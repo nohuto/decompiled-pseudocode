@@ -3,9 +3,9 @@
  * Callers:
  *     PsInitSystem @ 0x140793634 (PsInitSystem.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     RtlGetSystemTimePrecise @ 0x1400F2118 (RtlGetSystemTimePrecise.c)
- *     RtlRandomEx @ 0x1404E91F8 (RtlRandomEx.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     RtlGetSystemTimePrecise @ 0x1400EFF68 (RtlGetSystemTimePrecise.c)
+ *     RtlRandomEx @ 0x1404CB2E8 (RtlRandomEx.c)
  *     PspInitializeProtectedProcessParameters @ 0x1407B6040 (PspInitializeProtectedProcessParameters.c)
  *     PspInitializeSystemDlls @ 0x1407B6180 (PspInitializeSystemDlls.c)
  */
@@ -20,7 +20,7 @@ bool PspInitPhase2()
   ULONG Seed; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[2].ActiveProcessors.Bitmap[16] = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;

@@ -10,36 +10,36 @@
  *     _NtUnlockVirtualMemory@16 @ 0x4B2F4630 (_NtUnlockVirtualMemory@16.c)
  */
 
-int __stdcall RtlLockMemoryZone(int a1)
+NTSTATUS __cdecl RtlLockMemoryZone(PVOID MemoryZone)
 {
   int locked; // ebx
   _DWORD *i; // edi
   _DWORD *j; // esi
   _DWORD *k; // esi
-  _DWORD *v6; // [esp+10h] [ebp-8h] BYREF
-  int v7; // [esp+14h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+10h] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+14h] [ebp-4h] BYREF
 
   locked = 0;
-  RtlAcquireSRWLockExclusive(a1 + 16);
-  if ( *(_DWORD *)(a1 + 20) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
+  if ( *((_DWORD *)MemoryZone + 5) )
   {
 LABEL_7:
-    ++*(_DWORD *)(a1 + 20);
+    ++*((_DWORD *)MemoryZone + 5);
   }
   else
   {
-    for ( i = *(_DWORD **)(a1 + 24); i; i = (_DWORD *)*i )
+    for ( i = (_DWORD *)*((_DWORD *)MemoryZone + 6); i; i = (_DWORD *)*i )
     {
-      v6 = i;
-      v7 = i[1];
-      locked = ZwLockVirtualMemory(-1, &v6, &v7, 1);
+      BaseAddress = i;
+      LODWORD(RegionSize) = i[1];
+      locked = ZwLockVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 1u);
       if ( locked < 0 )
       {
-        for ( j = *(_DWORD **)(a1 + 24); j != i; j = (_DWORD *)*j )
+        for ( j = (_DWORD *)*((_DWORD *)MemoryZone + 6); j != i; j = (_DWORD *)*j )
         {
-          v6 = j;
-          v7 = j[1];
-          NtUnlockVirtualMemory(-1, &v6, &v7, 1);
+          BaseAddress = j;
+          LODWORD(RegionSize) = j[1];
+          NtUnlockVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 1u);
         }
         goto LABEL_8;
       }
@@ -47,14 +47,14 @@ LABEL_7:
     locked = RtlpRegisterLockedMemoryZone();
     if ( locked >= 0 )
       goto LABEL_7;
-    for ( k = *(_DWORD **)(a1 + 24); k; k = (_DWORD *)*k )
+    for ( k = (_DWORD *)*((_DWORD *)MemoryZone + 6); k; k = (_DWORD *)*k )
     {
-      v6 = k;
-      v7 = k[1];
-      NtUnlockVirtualMemory(-1, &v6, &v7, 1);
+      BaseAddress = k;
+      LODWORD(RegionSize) = k[1];
+      NtUnlockVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 1u);
     }
   }
 LABEL_8:
-  RtlReleaseSRWLockExclusive(a1 + 16);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
   return locked;
 }

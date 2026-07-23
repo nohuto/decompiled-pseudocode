@@ -1,13 +1,13 @@
 /*
- * XREFs of IommupValidateMdl @ 0x140567674
+ * XREFs of IommupValidateMdl @ 0x140565100
  * Callers:
- *     IommuMapIdentityRangeEx @ 0x1403ACCD0 (IommuMapIdentityRangeEx.c)
- *     IommuUnmapIdentityRangeEx @ 0x1403AD580 (IommuUnmapIdentityRangeEx.c)
- *     IommuMapLogicalRangeEx @ 0x1403ADCD0 (IommuMapLogicalRangeEx.c)
- *     IommupProcessPhysicalAddress @ 0x140474728 (IommupProcessPhysicalAddress.c)
- *     IommuMapIdentityRange @ 0x140566A30 (IommuMapIdentityRange.c)
- *     IommuMapLogicalRange @ 0x140566AA0 (IommuMapLogicalRange.c)
- *     IommuUnmapIdentityRange @ 0x140567200 (IommuUnmapIdentityRange.c)
+ *     IommuMapIdentityRangeEx @ 0x14039B4E0 (IommuMapIdentityRangeEx.c)
+ *     IommuUnmapIdentityRangeEx @ 0x14039BD90 (IommuUnmapIdentityRangeEx.c)
+ *     IommuMapLogicalRangeEx @ 0x14039C4E0 (IommuMapLogicalRangeEx.c)
+ *     IommupProcessPhysicalAddress @ 0x140470534 (IommupProcessPhysicalAddress.c)
+ *     IommuMapIdentityRange @ 0x140564730 (IommuMapIdentityRange.c)
+ *     IommuMapLogicalRange @ 0x1405647A0 (IommuMapLogicalRange.c)
+ *     IommuUnmapIdentityRange @ 0x140564D90 (IommuUnmapIdentityRange.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwOpenEventPair @ 0x1406A8910
+ * XREFs of ZwOpenEventPair @ 0x1406A98B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenEventPair(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenEventPair(
+        PHANDLE EventPairHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(EventPairHandle);
 }

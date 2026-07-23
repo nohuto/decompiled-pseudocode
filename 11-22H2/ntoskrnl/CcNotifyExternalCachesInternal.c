@@ -70,10 +70,10 @@ __int64 __fastcall CcNotifyExternalCachesInternal(unsigned int a1, __int64 a2, _
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&CcExternalCacheListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v6 <= 0xFu
       && (unsigned __int8)result >= 2u )

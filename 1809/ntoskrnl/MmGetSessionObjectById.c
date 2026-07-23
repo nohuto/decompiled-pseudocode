@@ -1,20 +1,20 @@
 /*
- * XREFs of MmGetSessionObjectById @ 0x14007F244
+ * XREFs of MmGetSessionObjectById @ 0x14007F234
  * Callers:
- *     SeSetSessionIdToken @ 0x1405BC45C (SeSetSessionIdToken.c)
- *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
- *     SepSetTokenSessionById @ 0x14064FD7C (SepSetTokenSessionById.c)
- *     NtSetInformationObject @ 0x14068D6B0 (NtSetInformationObject.c)
- *     IoGetContainerInformation @ 0x14071DE00 (IoGetContainerInformation.c)
- *     SeExchangePrimaryToken @ 0x140748B98 (SeExchangePrimaryToken.c)
- *     IoRegisterContainerNotification @ 0x14075FFE0 (IoRegisterContainerNotification.c)
+ *     SeSetSessionIdToken @ 0x1405BD45C (SeSetSessionIdToken.c)
+ *     SepDuplicateToken @ 0x14064A640 (SepDuplicateToken.c)
+ *     SepSetTokenSessionById @ 0x140650F3C (SepSetTokenSessionById.c)
+ *     NtSetInformationObject @ 0x14068E870 (NtSetInformationObject.c)
+ *     IoGetContainerInformation @ 0x14071F0A0 (IoGetContainerInformation.c)
+ *     SeExchangePrimaryToken @ 0x140749D88 (SeExchangePrimaryToken.c)
+ *     IoRegisterContainerNotification @ 0x1407611D0 (IoRegisterContainerNotification.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmGetSessionById @ 0x14007E4D0 (MmGetSessionById.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void *__fastcall MmGetSessionObjectById(unsigned int a1)
@@ -34,7 +34,7 @@ void *__fastcall MmGetSessionObjectById(unsigned int a1)
   {
     v4 = *(_QWORD *)(SessionById + 1024);
     v1 = *(void **)(v4 + 72);
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
     if ( (*(_DWORD *)(v4 + 4) & 2) != 0 )
       v1 = 0LL;
     else

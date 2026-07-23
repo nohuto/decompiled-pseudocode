@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitializeParseContext @ 0x1406D0C4C
+ * XREFs of CmpInitializeParseContext @ 0x1406D1EEC
  * Callers:
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void *__fastcall CmpInitializeParseContext(_QWORD *a1)

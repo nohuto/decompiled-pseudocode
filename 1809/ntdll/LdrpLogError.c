@@ -8,25 +8,25 @@
  *     LdrpMapDllNtFileName @ 0x18002ABA0 (LdrpMapDllNtFileName.c)
  *     LdrpReleaseLoaderLock @ 0x18002AFD4 (LdrpReleaseLoaderLock.c)
  *     LdrpProcessWork @ 0x180070CEC (LdrpProcessWork.c)
- *     LdrUnlockLoaderLock @ 0x180081CA0 (LdrUnlockLoaderLock.c)
+ *     LdrUnlockLoaderLock @ 0x180081CB0 (LdrUnlockLoaderLock.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
  *     LdrpLogEtwEvent @ 0x1800D1238 (LdrpLogEtwEvent.c)
  */
 
-unsigned int *__fastcall LdrpLogError(int a1, char a2, char a3, __int64 a4)
+int __fastcall LdrpLogError(int a1, char a2, char a3, __int64 a4)
 {
-  unsigned int *result; // rax
+  struct _PEB *v8; // rax
   __int64 v9; // r10
   int v10; // r8d
   int v11; // r9d
   __int64 v12; // rcx
 
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(v8) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v8 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v9 = *((_QWORD *)result + 18) + 554LL;
+    v8 = NtCurrentPeb();
+    v9 = (__int64)v8->SharedData + 554;
   }
   else
   {
@@ -34,14 +34,14 @@ unsigned int *__fastcall LdrpLogError(int a1, char a2, char a3, __int64 a4)
   }
   if ( *(_BYTE *)v9 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 4) != 0 )
+    v8 = NtCurrentPeb();
+    if ( (v8->TracingFlags & 4) != 0 )
     {
-      result = RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v8) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v8 )
       {
-        result = (unsigned int *)NtCurrentPeb();
-        v12 = *((_QWORD *)result + 18) + 555LL;
+        v8 = NtCurrentPeb();
+        v12 = (__int64)v8->SharedData + 555;
       }
       else
       {
@@ -51,9 +51,9 @@ unsigned int *__fastcall LdrpLogError(int a1, char a2, char a3, __int64 a4)
       {
         LOBYTE(v11) = a3;
         LOBYTE(v10) = a2;
-        return (unsigned int *)LdrpLogEtwEvent(5284, a1, v10, v11, a4, 0LL);
+        LODWORD(v8) = LdrpLogEtwEvent(5284, a1, v10, v11, a4, 0LL);
       }
     }
   }
-  return result;
+  return (int)v8;
 }

@@ -11,7 +11,7 @@
  *     WdipSemFastAllocate @ 0x140504B4C (WdipSemFastAllocate.c)
  */
 
-__int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
+__int64 __fastcall WdipSemUpdateFrequentScenarioTable(_SLIST_ENTRY *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 v2; // rbx

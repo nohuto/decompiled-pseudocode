@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpFreeInterruptInformation @ 0x1404750F0
+ * XREFs of PnpFreeInterruptInformation @ 0x140473FC0
  * Callers:
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of IopInvalidateVolumesForDevice @ 0x14077B820
+ * XREFs of IopInvalidateVolumesForDevice @ 0x14077B9E0
  * Callers:
- *     PiIrpQueryRemoveDevice @ 0x1407342EC (PiIrpQueryRemoveDevice.c)
- *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
+ *     PiIrpQueryRemoveDevice @ 0x1407344AC (PiIrpQueryRemoveDevice.c)
+ *     IopRemoveDevice @ 0x140738AB4 (IopRemoveDevice.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
- *     IoCreateStreamFileObjectLite @ 0x14071BEC0 (IoCreateStreamFileObjectLite.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1402D09B0 (IoBuildDeviceIoControlRequest.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     IoCreateStreamFileObjectLite @ 0x1406C9310 (IoCreateStreamFileObjectLite.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall IopInvalidateVolumesForDevice(PDEVICE_OBJECT DeviceObject)
@@ -33,12 +33,18 @@ __int64 __fastcall IopInvalidateVolumesForDevice(PDEVICE_OBJECT DeviceObject)
   struct _DEVICE_OBJECT *k; // r13
   PIRP v11; // rax
   int Status; // eax
-  NTSTATUS v13; // [rsp+50h] [rbp-68h]
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  NTSTATUS v19; // [rsp+50h] [rbp-68h]
   PFILE_OBJECT DmaAdapter; // [rsp+58h] [rbp-60h]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-58h] BYREF
   struct _KEVENT Event; // [rsp+70h] [rbp-48h] BYREF
   HANDLE InputBuffer; // [rsp+C8h] [rbp+10h] BYREF
-  PDEVICE_OBJECT v19; // [rsp+D0h] [rbp+18h]
+  PDEVICE_OBJECT v25; // [rsp+D0h] [rbp+18h]
 
   v1 = DeviceObject;
   result = 0LL;
@@ -47,7 +53,7 @@ __int64 __fastcall IopInvalidateVolumesForDevice(PDEVICE_OBJECT DeviceObject)
   IoStatusBlock = 0LL;
   for ( i = DeviceObject; ; i = i->AttachedDevice )
   {
-    v19 = i;
+    v25 = i;
     if ( !i )
       break;
     if ( i->Vpb )
@@ -58,8 +64,8 @@ __int64 __fastcall IopInvalidateVolumesForDevice(PDEVICE_OBJECT DeviceObject)
       InputBuffer = 0LL;
       DmaAdapter = IoCreateStreamFileObjectLite(0LL, i);
       DmaAdapter->Vpb = i->Vpb;
-      v13 = ObOpenObjectByPointer(DmaAdapter, 0x200u, 0LL, 0, (POBJECT_TYPE)IoFileObjectType, 0, &InputBuffer);
-      if ( v13 >= 0 )
+      v19 = ObOpenObjectByPointer(DmaAdapter, 0x200u, 0LL, 0, (POBJECT_TYPE)IoFileObjectType, 0, &InputBuffer);
+      if ( v19 >= 0 )
       {
         v5 = KeGetCurrentThread();
         --v5->KernelApcDisable;
@@ -106,18 +112,18 @@ __int64 __fastcall IopInvalidateVolumesForDevice(PDEVICE_OBJECT DeviceObject)
             v8 = Status;
         }
         ExReleaseResourceLite(&IopDatabaseResource);
-        KeLeaveCriticalRegionThread((__int64)v5);
+        KeLeaveCriticalRegionThread((__int64)v5, v13, v14, v15);
         if ( DmaAdapter )
         {
           HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
           if ( InputBuffer )
             ZwClose(InputBuffer);
         }
-        v13 = v8;
+        v19 = v8;
       }
       KeSetEvent(&i->DeviceLock, 0, 0);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      result = (unsigned int)v13;
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17, v18);
+      result = (unsigned int)v19;
       v1 = DeviceObject;
     }
   }

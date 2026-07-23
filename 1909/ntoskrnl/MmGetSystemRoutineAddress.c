@@ -13,8 +13,8 @@
 PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
 {
   const UNICODE_STRING *v2; // rdx
-  char *ExportedRoutineByName; // rbx
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  PVOID ExportedRoutineByName; // rbx
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&DestinationString.Length = 0LL;
   v2 = SystemRoutineName;
@@ -24,9 +24,9 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);
     v2 = SystemRoutineName;
   }
-  ExportedRoutineByName = RtlFindExportedRoutineByName((char *)PsNtosImageBase, DestinationString.Buffer);
+  ExportedRoutineByName = RtlFindExportedRoutineByName(PsNtosImageBase, DestinationString.Buffer);
   if ( !ExportedRoutineByName )
-    ExportedRoutineByName = RtlFindExportedRoutineByName((char *)PsHalImageBase, DestinationString.Buffer);
+    ExportedRoutineByName = RtlFindExportedRoutineByName(PsHalImageBase, DestinationString.Buffer);
   RtlFreeAnsiString((PUNICODE_STRING)&DestinationString);
   if ( ExportedRoutineByName && (int)MiMarkKernelCfgTarget() < 0 )
     return 0LL;

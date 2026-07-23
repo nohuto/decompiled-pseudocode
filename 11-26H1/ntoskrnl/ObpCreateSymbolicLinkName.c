@@ -1,27 +1,27 @@
 /*
- * XREFs of ObpCreateSymbolicLinkName @ 0x1409E185C
+ * XREFs of ObpCreateSymbolicLinkName @ 0x1409DE86C
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObDereferenceObjectDeferDelete @ 0x140265670 (ObDereferenceObjectDeferDelete.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ObpReleaseLookupContext @ 0x14027BE10 (ObpReleaseLookupContext.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x14041BC20 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     ObFastReplaceObject @ 0x1404819D8 (ObFastReplaceObject.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
- *     ObpLockDirectoryShared @ 0x1409E1EF0 (ObpLockDirectoryShared.c)
- *     ObpUnlockDirectory @ 0x1409E2240 (ObpUnlockDirectory.c)
- *     ObpLookupDirectoryEntry @ 0x1409E2350 (ObpLookupDirectoryEntry.c)
- *     ObpLockChildDirectory @ 0x1409E2630 (ObpLockChildDirectory.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140264BE0 (ObDereferenceObjectDeferDelete.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ObpReleaseLookupContext @ 0x14027B380 (ObpReleaseLookupContext.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x140413470 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     ObFastReplaceObject @ 0x14047B348 (ObFastReplaceObject.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
+ *     ObpLockDirectoryShared @ 0x1409DEF00 (ObpLockDirectoryShared.c)
+ *     ObpUnlockDirectory @ 0x1409DF250 (ObpUnlockDirectory.c)
+ *     ObpLookupDirectoryEntry @ 0x1409DF360 (ObpLookupDirectoryEntry.c)
+ *     ObpLockChildDirectory @ 0x1409DF640 (ObpLockChildDirectory.c)
  */
 
 __int16 __fastcall ObpCreateSymbolicLinkName(ULONG_PTR a1)
@@ -88,7 +88,7 @@ __int16 __fastcall ObpCreateSymbolicLinkName(ULONG_PTR a1)
               v37 = 0LL;
               v36 = 0LL;
               CurrentSilo = PsGetCurrentSilo();
-              Object = OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO((__int64)CurrentSilo);
+              Object = (PVOID)OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO((__int64)CurrentSilo);
               PsReferenceSiloContext(Object);
               v7 = *(__m128i *)(a1 + 8);
               v34 = v7;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPfnProtection @ 0x140433FF0
+ * XREFs of MiGetPfnProtection @ 0x1404290C0
  * Callers:
- *     MiSectionProtectValidPte @ 0x140304460 (MiSectionProtectValidPte.c)
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
- *     MiRevokeExecutePte @ 0x140433EB0 (MiRevokeExecutePte.c)
- *     MiQueryPteAddResidentAttributes @ 0x1404E9984 (MiQueryPteAddResidentAttributes.c)
+ *     MiSectionProtectValidPte @ 0x1402E64E0 (MiSectionProtectValidPte.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
+ *     MiRevokeExecutePte @ 0x140428F80 (MiRevokeExecutePte.c)
+ *     MiQueryPteAddResidentAttributes @ 0x1404E2D34 (MiQueryPteAddResidentAttributes.c)
  * Callees:
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
  */
 
 unsigned __int64 __fastcall MiGetPfnProtection(__int64 a1, unsigned __int64 a2, __int64 a3)

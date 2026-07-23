@@ -1,21 +1,21 @@
 /*
- * XREFs of IoSynchronousPageWriteEx @ 0x1400DEA20
+ * XREFs of IoSynchronousPageWriteEx @ 0x1400DEAA0
  * Callers:
- *     IoSynchronousPageWrite @ 0x1400DE6E0 (IoSynchronousPageWrite.c)
- *     MiIssueSynchronousFlush @ 0x14011C958 (MiIssueSynchronousFlush.c)
- *     MiZeroPageWrite @ 0x140128438 (MiZeroPageWrite.c)
- *     MiSynchronousPageWrite @ 0x140188404 (MiSynchronousPageWrite.c)
+ *     IoSynchronousPageWrite @ 0x1400DE760 (IoSynchronousPageWrite.c)
+ *     MiIssueSynchronousFlush @ 0x14011C9C8 (MiIssueSynchronousFlush.c)
+ *     MiZeroPageWrite @ 0x140128508 (MiZeroPageWrite.c)
+ *     MiSynchronousPageWrite @ 0x140188544 (MiSynchronousPageWrite.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
- *     MmIsFileObjectAPagingFile @ 0x1400DE988 (MmIsFileObjectAPagingFile.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1400DEBC0 (IoSetDiskIoAttributionFromThread.c)
- *     IopSetDiskIoAttributionExtension @ 0x1400DF570 (IopSetDiskIoAttributionExtension.c)
- *     IopAllocateBackpocketIrp @ 0x14027E420 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x14027E700 (IopAllocateReserveIrp.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IopQueueThreadIrp @ 0x1400BC2C0 (IopQueueThreadIrp.c)
+ *     MmIsFileObjectAPagingFile @ 0x1400DEA08 (MmIsFileObjectAPagingFile.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1400DEC40 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1400DF5F0 (IopSetDiskIoAttributionExtension.c)
+ *     IopAllocateBackpocketIrp @ 0x14027E610 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x14027E8F0 (IopAllocateReserveIrp.c)
  */
 
 NTSTATUS __fastcall IoSynchronousPageWriteEx(

@@ -14,7 +14,7 @@
  *     sub_18003015C @ 0x18003015C (sub_18003015C.c)
  */
 
-signed __int64 __fastcall sub_180050570(__int64 a1, unsigned __int64 a2)
+void __fastcall sub_180050570(__int64 a1, __int64 a2)
 {
   __int64 v4; // r8
   __int64 v5; // rbx
@@ -26,11 +26,11 @@ signed __int64 __fastcall sub_180050570(__int64 a1, unsigned __int64 a2)
   _QWORD *v11; // r8
   _QWORD *i; // rcx
   int v13; // eax
-  _QWORD *v16; // rcx
-  _QWORD *v17; // rdx
-  _QWORD *v18; // rax
+  _QWORD *v15; // rcx
+  _QWORD *v16; // rdx
+  _QWORD *v17; // rax
 
-  RtlAcquireSRWLockExclusive(&qword_18015C040);
+  RtlAcquireSRWLockExclusive(&stru_18015C040);
   v4 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 152LL);
   *(_QWORD *)(a1 + 48) = a2;
   v5 = *(_QWORD *)(a2 + 152);
@@ -53,7 +53,7 @@ signed __int64 __fastcall sub_180050570(__int64 a1, unsigned __int64 a2)
     {
       v8 = 0LL;
     }
-    sub_18003015C(a2);
+    sub_18003015C((char *)a2);
     v9 = v8[1] & 0xFFFFFFFFFFFFFFF8uLL;
     v10 = *(_QWORD *)(*(_QWORD *)v9 + 16LL);
     if ( sub_18001BB08(v9, v5) )
@@ -63,32 +63,32 @@ signed __int64 __fastcall sub_180050570(__int64 a1, unsigned __int64 a2)
       *i = *v11;
       if ( *(_QWORD **)(v9 + 40) == v11 )
       {
-        v18 = 0LL;
+        v17 = 0LL;
         if ( i != v11 )
-          v18 = i;
-        *(_QWORD *)(v9 + 40) = v18;
+          v17 = i;
+        *(_QWORD *)(v9 + 40) = v17;
       }
       v13 = *(_DWORD *)(v5 + 24);
       if ( v13 != -1 )
         *(_DWORD *)(v5 + 24) = v13 - 1;
-      RtlFreeHeap(qword_18015B328, 0, (unsigned __int64)v11);
+      RtlFreeHeap(HeapHandle, 0, v11);
       v11 = 0LL;
     }
     else
     {
       v11[1] = v5;
-      v16 = v11 + 2;
-      v17 = *(_QWORD **)(v5 + 48);
-      if ( v17 )
+      v15 = v11 + 2;
+      v16 = *(_QWORD **)(v5 + 48);
+      if ( v16 )
       {
-        *v16 = *v17;
-        *v17 = v16;
+        *v15 = *v16;
+        *v16 = v15;
       }
       else
       {
-        *v16 = v16;
+        *v15 = v15;
       }
-      *(_QWORD *)(v5 + 48) = v16;
+      *(_QWORD *)(v5 + 48) = v15;
     }
     if ( v10 && (*(int *)(v5 + 56) >= 2 || !v11) && (*(_DWORD *)(v10 + 92))-- == 1 )
     {
@@ -96,5 +96,5 @@ signed __int64 __fastcall sub_180050570(__int64 a1, unsigned __int64 a2)
       sub_1800141D4(v10);
     }
   }
-  return RtlReleaseSRWLockExclusive(&qword_18015C040);
+  RtlReleaseSRWLockExclusive(&stru_18015C040);
 }

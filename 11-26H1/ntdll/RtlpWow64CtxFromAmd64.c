@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpWow64CtxFromAmd64 @ 0x1800C2EB0
+ * XREFs of RtlpWow64CtxFromAmd64 @ 0x1800C0580
  * Callers:
  *     <none>
  * Callees:
- *     RtlFxToFnFrame @ 0x1800C31B0 (RtlFxToFnFrame.c)
- *     RtlpCopyXStateChunk @ 0x1800C3E28 (RtlpCopyXStateChunk.c)
+ *     RtlFxToFnFrame @ 0x1800C0880 (RtlFxToFnFrame.c)
+ *     RtlpCopyXStateChunk @ 0x1800C14F8 (RtlpCopyXStateChunk.c)
  */
 
 __int64 __fastcall RtlpWow64CtxFromAmd64(int a1, _DWORD *a2, int *a3)

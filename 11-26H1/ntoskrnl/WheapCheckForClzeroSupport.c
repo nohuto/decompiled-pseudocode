@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapCheckForClzeroSupport @ 0x1406D4824
+ * XREFs of WheapCheckForClzeroSupport @ 0x1406D88A4
  * Callers:
- *     WheaInitialize @ 0x140CE7AB8 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140CEDE58 (WheaInitialize.c)
  * Callees:
  *     <none>
  */

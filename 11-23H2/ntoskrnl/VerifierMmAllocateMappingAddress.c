@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmAllocateMappingAddress @ 0x140AE2950
+ * XREFs of VerifierMmAllocateMappingAddress @ 0x140AE2940
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall VerifierMmAllocateMappingAddress(__int64 a1, unsigned int a2)

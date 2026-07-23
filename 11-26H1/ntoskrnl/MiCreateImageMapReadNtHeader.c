@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateImageMapReadNtHeader @ 0x140A55D18
+ * XREFs of MiCreateImageMapReadNtHeader @ 0x140A632A0
  * Callers:
- *     MiCreateNewSection @ 0x140A562D8 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140A63860 (MiCreateNewSection.c)
  * Callees:
- *     MiAllocateEntireImageFileExtents @ 0x14086CD18 (MiAllocateEntireImageFileExtents.c)
- *     MiCreateMdl @ 0x140A560A8 (MiCreateMdl.c)
- *     MiReadImageHeaders @ 0x140A577D8 (MiReadImageHeaders.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408730F8 (MiAllocateEntireImageFileExtents.c)
+ *     MiCreateMdl @ 0x140A63630 (MiCreateMdl.c)
+ *     MiReadImageHeaders @ 0x140A64D58 (MiReadImageHeaders.c)
  */
 
 __int64 __fastcall MiCreateImageMapReadNtHeader(__int64 a1)
@@ -36,14 +36,14 @@ __int64 __fastcall MiCreateImageMapReadNtHeader(__int64 a1)
   v3 = *(unsigned int *)(v1 + 60);
   if ( (int)v3 + 264 < (unsigned int)v3 )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 42;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 42;
     return 3221225776LL;
   }
   v4 = *(_QWORD *)(a1 + 40);
   v5 = v3 + 264;
   if ( v3 + 264 > v4 )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 43;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 43;
     return 3221225776LL;
   }
   if ( v5 <= *(_QWORD *)(a1 + 48) << 12 )
@@ -60,7 +60,7 @@ LABEL_6:
       *(_DWORD *)(a1 + 128) = v3;
       return result;
     }
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 47;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 47;
     return 3221225776LL;
   }
   v10 = *(unsigned int *)(a1 + 24);
@@ -74,7 +74,7 @@ LABEL_6:
   v15 = Mdl;
   if ( !Mdl )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 44;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 44;
     return 3221225626LL;
   }
   v16 = (unsigned int)v3 & 0xFFFFF000;
@@ -91,7 +91,7 @@ LABEL_6:
     result = MiAllocateEntireImageFileExtents(v18, v12, v19, &v22);
     if ( (int)result < 0 )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 128;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 128;
       return result;
     }
     *(_QWORD *)(a1 + 64) = v22;
@@ -107,9 +107,9 @@ LABEL_6:
       *(_QWORD *)(a1 + 32) = *((_QWORD *)&v21 + 1) + (unsigned int)v16;
       goto LABEL_6;
     }
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 46;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 46;
     return 3221225776LL;
   }
-  *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 45;
+  *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 45;
   return result;
 }

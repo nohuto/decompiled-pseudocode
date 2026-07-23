@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpTlLogVAChange @ 0x180119D88
+ * XREFs of RtlpHpTlLogVAChange @ 0x180119D58
  * Callers:
  *     RtlpHpAllocVA @ 0x180047270 (RtlpHpAllocVA.c)
  *     RtlpHpFreeVA @ 0x180047764 (RtlpHpFreeVA.c)
@@ -15,7 +15,7 @@ void __fastcall RtlpHpTlLogVAChange(int a1, __int64 a2, __int64 a3, __int64 a4)
   int v6; // [rsp+30h] [rbp-29h] BYREF
   __int64 v7; // [rsp+38h] [rbp-21h] BYREF
   _QWORD v8[2]; // [rsp+40h] [rbp-19h] BYREF
-  char v9[32]; // [rsp+50h] [rbp-9h] BYREF
+  _EVENT_DATA_DESCRIPTOR v9; // [rsp+50h] [rbp-9h] BYREF
   __int64 *v10; // [rsp+70h] [rbp+17h]
   __int64 v11; // [rsp+78h] [rbp+1Fh]
   __int64 *v12; // [rsp+80h] [rbp+27h]
@@ -30,21 +30,21 @@ void __fastcall RtlpHpTlLogVAChange(int a1, __int64 a2, __int64 a3, __int64 a4)
         return;
       v8[0] = a2;
       v12 = &v7;
-      v5 = (unsigned __int8 *)&unk_18014E2AE;
+      v5 = (unsigned __int8 *)&dword_18014E34D;
       goto LABEL_13;
     case 0x2000:
       if ( (unsigned int)dword_180181430 <= 5 )
         return;
       v8[0] = a2;
       v12 = &v7;
-      v5 = (unsigned __int8 *)&unk_18014E253;
+      v5 = (unsigned __int8 *)&unk_18014E2D3;
       goto LABEL_13;
     case 0x4000:
       if ( (unsigned int)dword_180181430 <= 5 )
         return;
       v8[0] = a2;
       v12 = &v7;
-      v5 = (unsigned __int8 *)&unk_18014E1AC;
+      v5 = (unsigned __int8 *)&unk_18014E22C;
 LABEL_13:
       v4 = v8;
       v7 = a3;
@@ -56,7 +56,7 @@ LABEL_13:
     v4 = &v7;
     v8[0] = a3;
     v12 = v8;
-    v5 = (unsigned __int8 *)&unk_18014E302;
+    v5 = (unsigned __int8 *)&unk_18014E382;
 LABEL_14:
     v10 = v4;
     v14 = &v6;
@@ -64,6 +64,6 @@ LABEL_14:
     v13 = 8LL;
     v6 = a4;
     v15 = 4LL;
-    tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_180181430, v5, a3, a4, 5, (__int64)v9);
+    tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_180181430, v5, a3, a4, 5u, &v9);
   }
 }

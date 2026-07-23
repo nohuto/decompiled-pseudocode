@@ -15,7 +15,7 @@
 
 struct _LIST_ENTRY *SepCleanupMarkedForDeletionEntries()
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v0; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *v0; // rbx
   volatile LONG *SingletonEntryFromIndexNumber; // rax
   volatile LONG *v2; // rsi
   KIRQL v3; // al
@@ -26,10 +26,10 @@ struct _LIST_ENTRY *SepCleanupMarkedForDeletionEntries()
   unsigned int *v8; // rdi
   struct _LIST_ENTRY *result; // rax
   struct _LIST_ENTRY *Blink; // rcx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-30h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-30h] BYREF
 
   memset(&Enumerator, 0, sizeof(Enumerator));
-  v0 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+  v0 = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   RtlInitWeakEnumerationHashTable(v0, &Enumerator);
   while ( 1 )
   {
@@ -62,10 +62,10 @@ struct _LIST_ENTRY *SepCleanupMarkedForDeletionEntries()
   }
   --v0->NumEnumerators;
   result = Enumerator.HashEntry.Linkage.Flink;
-  if ( (struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Enumerator.HashEntry.Linkage.Flink != &Enumerator )
+  if ( (_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Enumerator.HashEntry.Linkage.Flink != &Enumerator )
   {
     Blink = Enumerator.HashEntry.Linkage.Blink;
-    if ( (struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Enumerator.HashEntry.Linkage.Flink->Blink != &Enumerator
+    if ( (_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Enumerator.HashEntry.Linkage.Flink->Blink != &Enumerator
       || Enumerator.HashEntry.Linkage.Blink->Flink != (struct _LIST_ENTRY *)&Enumerator )
     {
       __fastfail(3u);

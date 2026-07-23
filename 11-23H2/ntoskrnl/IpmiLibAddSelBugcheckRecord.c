@@ -1,11 +1,11 @@
 /*
- * XREFs of IpmiLibAddSelBugcheckRecord @ 0x140677CF4
+ * XREFs of IpmiLibAddSelBugcheckRecord @ 0x140678244
  * Callers:
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x14067778C (IpmiHwContextInitialized.c)
- *     IpmiLibAddSelRecord @ 0x140677EB8 (IpmiLibAddSelRecord.c)
- *     IpmiLibpAddSelRawData @ 0x140677F60 (IpmiLibpAddSelRawData.c)
+ *     IpmiHwContextInitialized @ 0x140677CDC (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelRecord @ 0x140678408 (IpmiLibAddSelRecord.c)
+ *     IpmiLibpAddSelRawData @ 0x1406784B0 (IpmiLibpAddSelRawData.c)
  */
 
 __int64 __fastcall IpmiLibAddSelBugcheckRecord(__int64 a1, __int64 a2, __int64 a3, int a4)

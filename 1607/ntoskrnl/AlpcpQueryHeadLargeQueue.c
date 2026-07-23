@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpQueryHeadLargeQueue @ 0x14044D630
+ * XREFs of AlpcpQueryHeadLargeQueue @ 0x14044C500
  * Callers:
- *     AlpcpReceiveMessagePort @ 0x14044CD70 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x14044BC40 (AlpcpReceiveMessagePort.c)
  * Callees:
  *     <none>
  */

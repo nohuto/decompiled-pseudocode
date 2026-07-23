@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeLeaveCriticalRegion @ 0x140939C10
+ * XREFs of VerifierKeLeaveCriticalRegion @ 0x14093AC10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViKeLogCriticalRegionStackTrace @ 0x14030B1DC (ViKeLogCriticalRegionStackTrace.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViKeLogCriticalRegionStackTrace @ 0x14030B3CC (ViKeLogCriticalRegionStackTrace.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 VerifierKeLeaveCriticalRegion()

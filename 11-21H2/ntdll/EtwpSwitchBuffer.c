@@ -13,7 +13,7 @@
 
 char __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
 {
-  __int64 v3; // r12
+  _RTL_CRITICAL_SECTION *v3; // r12
   __int64 v5; // rbx
   int v6; // r13d
   char v7; // r15
@@ -23,12 +23,12 @@ char __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
   __int64 v12; // r10
   _QWORD *v13; // rcx
 
-  v3 = a1 + 72;
+  v3 = (_RTL_CRITICAL_SECTION *)(a1 + 72);
   v5 = a3;
   v6 = *(_DWORD *)(a1 + 308) & 0x400;
   v7 = 0;
   v9 = 1;
-  RtlEnterCriticalSection(a1 + 72);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   v10 = (unsigned int)v5;
   for ( i = *(_QWORD *)(a1 + 8 * v5 + 560); !i || a2 == i; i = *(_QWORD *)(a1 + 8 * v10 + 560) )
   {
@@ -75,7 +75,7 @@ LABEL_5:
       v9 = 0;
       break;
     }
-    RtlSleepConditionVariableCS(a1 + 64, v3, 0LL);
+    RtlSleepConditionVariableCS((PRTL_CONDITION_VARIABLE)(a1 + 64), v3, 0LL);
   }
   RtlLeaveCriticalSection(v3);
   if ( a2 )
@@ -84,7 +84,7 @@ LABEL_5:
     && (!*(_DWORD *)(a1 + 352)
      || (unsigned int)(*(_DWORD *)(a1 + 208) - *(_DWORD *)(a1 + 188) - *(_DWORD *)(a1 + 212)) >= *(_DWORD *)(a1 + 352)) )
   {
-    ZwSetEvent(*(_QWORD *)(a1 + 112), 0LL);
+    ZwSetEvent(*(HANDLE *)(a1 + 112), 0LL);
   }
   return v9;
 }

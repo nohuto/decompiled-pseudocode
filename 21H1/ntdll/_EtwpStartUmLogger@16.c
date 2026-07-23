@@ -30,28 +30,30 @@ ULONG __fastcall EtwpStartUmLogger(int a1, _DWORD *a2, _DWORD *a3, int a4)
   char v9; // dl
   int v10; // eax
   ULONG result; // eax
-  unsigned int v12; // ebx
-  _DWORD *inited; // esi
+  int v12; // ebx
+  int inited; // esi
   int v14; // eax
   NTSTATUS v15; // eax
   unsigned int v16; // eax
   ULONG TraceBufferPool; // ebx
+  int v18; // ecx
   int EtwThread; // eax
-  unsigned int v19; // eax
-  NTSTATUS v20; // eax
-  int v23; // [esp+14h] [ebp-4Ch]
-  unsigned int v24; // [esp+18h] [ebp-48h] BYREF
-  int v25; // [esp+1Ch] [ebp-44h]
-  size_t Size; // [esp+20h] [ebp-40h]
-  char v27[4]; // [esp+24h] [ebp-3Ch] BYREF
-  _DWORD *v28; // [esp+28h] [ebp-38h] BYREF
-  unsigned int v29; // [esp+2Ch] [ebp-34h]
+  unsigned int v20; // eax
+  NTSTATUS v21; // eax
+  size_t v22; // [esp-8h] [ebp-68h]
+  int v25; // [esp+14h] [ebp-4Ch]
+  int v26; // [esp+18h] [ebp-48h] BYREF
+  int v27; // [esp+1Ch] [ebp-44h]
+  unsigned int Size; // [esp+20h] [ebp-40h]
+  size_t Size_4; // [esp+24h] [ebp-3Ch] BYREF
+  int v30; // [esp+28h] [ebp-38h] BYREF
+  int v31; // [esp+2Ch] [ebp-34h]
   char SystemInformation[8]; // [esp+30h] [ebp-30h] BYREF
-  int v31; // [esp+38h] [ebp-28h]
+  int v33; // [esp+38h] [ebp-28h]
 
-  v28 = 0;
+  v30 = 0;
   v4 = *(_DWORD *)a4 < 0xB0u;
-  v25 = 0;
+  v27 = 0;
   Size = 0;
   if ( v4 )
     return 87;
@@ -65,7 +67,7 @@ ULONG __fastcall EtwpStartUmLogger(int a1, _DWORD *a2, _DWORD *a3, int a4)
     v8 = (unsigned __int8)v7;
     v7 >>= 8;
     v9 = RtlpBitsClearTotal[v8];
-    v29 = v7 >> 8;
+    v31 = v7 >> 8;
     if ( RtlpBitsClearTotal[(unsigned __int8)v7] + v9 + RtlpBitsClearTotal[BYTE1(v7)] + RtlpBitsClearTotal[HIWORD(v7)] == 1 )
       goto LABEL_4;
     return 87;
@@ -86,48 +88,50 @@ LABEL_4:
   }
   if ( (v5 & 6) == 6 || (v5 & 0xC000) == 0xC000 || (v5 & 0x4000000) != 0 && ((v5 & 0x26) != 0 || (v5 & 0x400) != 0) )
     return 87;
-  if ( !EtwpGetPrivateLoggerContextByName(a4 + 144, &v28) )
+  if ( !EtwpGetPrivateLoggerContextByName(a4 + 144, &v30) )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v28[5] + 4));
+    _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * *(_DWORD *)(v30 + 20) + 4));
     return 183;
   }
-  result = EtwpGetNextAvailableLoggerId(a4, &v24);
+  result = EtwpGetNextAvailableLoggerId(a4, &v26);
   if ( !result )
   {
     if ( (*(_DWORD *)(a4 + 64) & 0x10000) != 0 )
     {
-      v19 = (*(unsigned __int16 *)(a4 + 130) + *(unsigned __int16 *)(a4 + 146) + 183) & 0xFFFFFFF8;
-      Size = *(_DWORD *)a4 - v19;
-      v25 = a4 + v19;
+      v20 = (*(unsigned __int16 *)(a4 + 130) + *(unsigned __int16 *)(a4 + 146) + 183) & 0xFFFFFFF8;
+      Size = *(_DWORD *)a4 - v20;
+      v27 = a4 + v20;
       NumberOfProcessors = -1;
     }
     else if ( (*(_DWORD *)(a4 + 64) & 0x10000000) == 0 )
     {
       NumberOfProcessors = NtCurrentPeb()->NumberOfProcessors;
     }
-    v12 = v24;
-    v29 = v24;
-    inited = (_DWORD *)EtwpInitLoggerContext(NumberOfProcessors, v25, Size);
-    v28 = inited;
+    v12 = v26;
+    v31 = v26;
+    inited = EtwpInitLoggerContext(NumberOfProcessors, v27, Size);
+    v30 = inited;
     if ( inited )
     {
       v14 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x2Cu, 0);
       if ( v14 < 0 )
         return RtlNtStatusToDosError(v14);
-      inited[35] = ~(v31 - 1) & (v31 + inited[35] - 1);
-      if ( (inited[53] & 0x4000000) != 0 )
+      *(_DWORD *)(inited + 140) = ~(v33 - 1) & (v33 + *(_DWORD *)(inited + 140) - 1);
+      if ( (*(_DWORD *)(inited + 212) & 0x4000000) != 0 )
       {
-        v20 = EtwpInitializeCompression(inited);
-        if ( v20 )
+        v21 = EtwpInitializeCompression(inited);
+        if ( v21 )
         {
-          TraceBufferPool = RtlNtStatusToDosError(v20);
+          TraceBufferPool = RtlNtStatusToDosError(v21);
           if ( TraceBufferPool )
             goto LABEL_51;
         }
       }
-      if ( (inited[53] & 0x400) == 0 )
+      if ( (*(_DWORD *)(inited + 212) & 0x400) == 0 )
       {
-        v15 = EtwpAddLogHeaderToLogFile(Size, (inited[53] & 4) != 0);
+        HIDWORD(v22) = (*(_DWORD *)(inited + 212) & 4) != 0;
+        LODWORD(v22) = Size;
+        v15 = EtwpAddLogHeaderToLogFile(v22);
         if ( v15 )
         {
           TraceBufferPool = RtlNtStatusToDosError(v15);
@@ -135,30 +139,31 @@ LABEL_4:
             goto LABEL_51;
         }
       }
-      v16 = inited[35] - 72;
+      v16 = *(_DWORD *)(inited + 140) - 72;
       if ( v16 >= 0xFFFF )
         v16 = 0xFFFF;
-      inited[36] = v16 & 0xFFFFFFF8;
+      *(_DWORD *)(inited + 144) = v16 & 0xFFFFFFF8;
       TraceBufferPool = EtwpAllocateTraceBufferPool(inited);
       if ( TraceBufferPool )
         goto LABEL_51;
-      if ( (inited[53] & 0x20000) == 0 )
+      if ( (*(_DWORD *)(inited + 212) & 0x20000) == 0 )
       {
-        TraceBufferPool = EtwpRegisterPrivateSession(v27);
+        TraceBufferPool = EtwpRegisterPrivateSession(&Size_4);
         if ( TraceBufferPool )
           goto LABEL_51;
-        inited[95] = v23;
+        *(_DWORD *)(inited + 380) = v25;
       }
-      _InterlockedIncrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v29 + 4));
-      if ( (inited[53] & 0x400) == 0 )
+      v18 = v31;
+      _InterlockedIncrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v31 + 4));
+      if ( (*(_DWORD *)(inited + 212) & 0x400) == 0 )
       {
-        EtwThread = EtwpCreateEtwThread(EtwpLogger, inited);
+        EtwThread = EtwpCreateEtwThread(v18, (int)EtwpLogger, inited);
         if ( !EtwThread )
         {
-          inited = v28;
+          inited = v30;
           TraceBufferPool = NtCurrentTeb()->LastErrorValue;
 LABEL_28:
-          _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v29 + 4));
+          _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v31 + 4));
           if ( !TraceBufferPool )
           {
             *a2 = *(_DWORD *)a4;
@@ -170,15 +175,15 @@ LABEL_51:
           {
             NtClose(*(HANDLE *)(a4 + 88));
             *(_DWORD *)(a4 + 88) = 0;
-            inited[26] = 0;
+            *(_DWORD *)(inited + 104) = 0;
           }
-          EtwpFreeLoggerContext(inited);
+          EtwpFreeLoggerContext((char *)inited);
           return TraceBufferPool;
         }
-        inited[7] = EtwThread;
+        *(_DWORD *)(inited + 28) = EtwThread;
       }
-      EtwpGetUmLoggerInfoFromContext(v27);
-      _InterlockedExchange((volatile __int32 *)(EtwpLoggerArray + 8 * v29), (__int32)inited);
+      EtwpGetUmLoggerInfoFromContext(&Size_4);
+      _InterlockedExchange((volatile __int32 *)(EtwpLoggerArray + 8 * v31), inited);
       EtwpSendSessionNotification(0);
       goto LABEL_28;
     }

@@ -1,12 +1,12 @@
 /*
- * XREFs of BgConsoleGetInterface @ 0x1409F1664
+ * XREFs of BgConsoleGetInterface @ 0x1409F2664
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14039BB40 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkInitialize @ 0x140A96F04 (BgkInitialize.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x140A974E8 (BcpDisplayEarlyBugCheckScreen.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14039BC90 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkInitialize @ 0x140A97F04 (BgkInitialize.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x140A984E8 (BcpDisplayEarlyBugCheckScreen.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
  */
 
 __int64 (__fastcall **BgConsoleGetInterface())()

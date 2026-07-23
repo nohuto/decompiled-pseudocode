@@ -52,7 +52,7 @@ __int64 __fastcall HalpInterruptSendIpi(_DWORD *a1, unsigned int a2)
   unsigned __int64 v33; // rdx
   __int64 (__fastcall *v34)(_QWORD, _DWORD *, __int128 *, _QWORD, _DWORD *); // rax
   int v35; // eax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-238h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-238h] BYREF
   __int128 v37; // [rsp+38h] [rbp-230h] BYREF
   __int64 v38; // [rsp+48h] [rbp-220h]
   _DWORD v39[2]; // [rsp+50h] [rbp-218h] BYREF

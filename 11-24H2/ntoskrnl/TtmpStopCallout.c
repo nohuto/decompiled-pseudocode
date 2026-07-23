@@ -1,18 +1,18 @@
 /*
- * XREFs of TtmpStopCallout @ 0x1407699C4
+ * XREFs of TtmpStopCallout @ 0x140769BE4
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x140768A40 (TtmiSessionDeviceListWorker.c)
- *     TtmpCallAssignedToTerminal @ 0x140768D10 (TtmpCallAssignedToTerminal.c)
- *     TtmpCallSetBuiltinPanelState @ 0x140768DAC (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x140768E2C (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x140768EDC (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x140769A8C (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x140768C60 (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x140768F30 (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x140768FCC (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x14076904C (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x1407690FC (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x140769CAC (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     TtmpAcquireSessionLock @ 0x1406F73C8 (TtmpAcquireSessionLock.c)
- *     TtmpGetCalloutTagFromCalloutType @ 0x140769340 (TtmpGetCalloutTagFromCalloutType.c)
- *     TtmiLogCalloutStop @ 0x14076BDB4 (TtmiLogCalloutStop.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     TtmpAcquireSessionLock @ 0x1406F53C8 (TtmpAcquireSessionLock.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x140769560 (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmiLogCalloutStop @ 0x14076BFD4 (TtmiLogCalloutStop.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  */
 
 BOOLEAN __fastcall TtmpStopCallout(__int64 a1, int a2)

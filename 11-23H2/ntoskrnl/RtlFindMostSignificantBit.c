@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindMostSignificantBit @ 0x140356460
+ * XREFs of RtlFindMostSignificantBit @ 0x140356600
  * Callers:
- *     MiValidateZeroBits @ 0x1407210B0 (MiValidateZeroBits.c)
- *     MiStoreGraphicsProtectionInVad @ 0x140A2EA94 (MiStoreGraphicsProtectionInVad.c)
+ *     MiValidateZeroBits @ 0x1407212B0 (MiValidateZeroBits.c)
+ *     MiStoreGraphicsProtectionInVad @ 0x140A2ED44 (MiStoreGraphicsProtectionInVad.c)
  * Callees:
  *     <none>
  */

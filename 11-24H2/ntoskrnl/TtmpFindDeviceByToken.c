@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpFindDeviceByToken @ 0x140769308
+ * XREFs of TtmpFindDeviceByToken @ 0x140769528
  * Callers:
- *     TtmNotifyDeviceArrival @ 0x140768290 (TtmNotifyDeviceArrival.c)
- *     TtmNotifyDeviceDeparture @ 0x140768590 (TtmNotifyDeviceDeparture.c)
- *     TtmNotifyDeviceInput @ 0x140768650 (TtmNotifyDeviceInput.c)
+ *     TtmNotifyDeviceArrival @ 0x1407684B0 (TtmNotifyDeviceArrival.c)
+ *     TtmNotifyDeviceDeparture @ 0x1407687B0 (TtmNotifyDeviceDeparture.c)
+ *     TtmNotifyDeviceInput @ 0x140768870 (TtmNotifyDeviceInput.c)
  * Callees:
  *     <none>
  */

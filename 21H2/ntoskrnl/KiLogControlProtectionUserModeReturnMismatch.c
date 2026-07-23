@@ -1,9 +1,9 @@
 /*
- * XREFs of KiLogControlProtectionUserModeReturnMismatch @ 0x1403F2B88
+ * XREFs of KiLogControlProtectionUserModeReturnMismatch @ 0x1403F2BD8
  * Callers:
- *     KiProcessControlProtection @ 0x140512760 (KiProcessControlProtection.c)
+ *     KiProcessControlProtection @ 0x1405129A0 (KiProcessControlProtection.c)
  * Callees:
- *     Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage @ 0x1403F2A24 (Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage.c)
+ *     Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage @ 0x1403F2A74 (Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage.c)
  *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1405D0494 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of WbValidateEncryptionSegmentArguments @ 0x1407D260C
+ * XREFs of WbValidateEncryptionSegmentArguments @ 0x1407D28DC
  * Callers:
- *     WbGetInitializedEncryptionSegment @ 0x1407D2280 (WbGetInitializedEncryptionSegment.c)
+ *     WbGetInitializedEncryptionSegment @ 0x1407D2550 (WbGetInitializedEncryptionSegment.c)
  * Callees:
- *     WbAlloc @ 0x140763988 (WbAlloc.c)
+ *     WbAlloc @ 0x140763B78 (WbAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

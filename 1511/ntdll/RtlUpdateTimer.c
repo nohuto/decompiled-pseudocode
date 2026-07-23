@@ -10,39 +10,36 @@
  *     RtlAcquireSRWLockExclusive @ 0x18002DA60 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlUpdateTimer(__int64 a1, __int64 a2, __int64 a3, int a4)
+NTSTATUS __cdecl RtlUpdateTimer(HANDLE TimerQueueHandle, HANDLE TimerHandle, ULONG DueTime, ULONG Period)
 {
   __int64 v5; // r15
-  char *v7; // rdx
-  int v8; // edi
-  __int64 v9; // r8
-  __int64 v10; // r9
-  HANDLE v12; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v13[4]; // [rsp+28h] [rbp-20h] BYREF
+  int v7; // edi
+  HANDLE v9; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER DueTimea; // [rsp+28h] [rbp-20h] BYREF
 
-  v5 = (unsigned int)a3;
-  v12 = 0LL;
+  v5 = DueTime;
+  v9 = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 3221225473LL;
-  if ( !a1 )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  if ( (*(_DWORD *)(a2 + 48) & 1) != 0 )
-    return 3221225480LL;
-  v8 = RtlpTpRevertCapture(&v12, 0, a3);
-  if ( v8 >= 0 )
+    return -1073741823;
+  if ( !TimerQueueHandle )
+    return -1073741585;
+  if ( !TimerHandle )
+    return -1073741584;
+  if ( (*((_DWORD *)TimerHandle + 12) & 1) != 0 )
+    return -1073741816;
+  v7 = RtlpTpRevertCapture(&v9, 0);
+  if ( v7 >= 0 )
   {
-    RtlAcquireSRWLockExclusive(a2 + 80, v7, v9, v10);
-    if ( *(_BYTE *)(a2 + 88) || !*(_DWORD *)(a2 + 92) )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)TimerHandle + 10);
+    if ( *((_BYTE *)TimerHandle + 88) || !*((_DWORD *)TimerHandle + 23) )
     {
-      *(_BYTE *)(a2 + 88) = a4 != 0;
-      v13[0] = -10000 * v5;
-      TpSetTimerEx(*(_QWORD *)(a2 + 64), (__int64)v13, a4, 0);
+      *((_BYTE *)TimerHandle + 88) = Period != 0;
+      DueTimea.QuadPart = -10000 * v5;
+      TpSetTimerEx(*((PTP_TIMER *)TimerHandle + 8), &DueTimea, Period, 0);
     }
-    v8 = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
+    v7 = 0;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)TimerHandle + 10);
   }
-  RtlpTpResumeImpersonation(v12);
-  return (unsigned int)v8;
+  RtlpTpResumeImpersonation(v9);
+  return v7;
 }

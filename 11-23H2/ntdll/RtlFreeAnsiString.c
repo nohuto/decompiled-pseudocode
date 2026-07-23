@@ -13,7 +13,7 @@ void __stdcall RtlFreeAnsiString(PANSI_STRING AnsiString)
   Buffer = AnsiString->Buffer;
   if ( Buffer )
   {
-    NtdllpFreeStringRoutine((__int64)Buffer);
+    NtdllpFreeStringRoutine(Buffer);
     *AnsiString = 0LL;
   }
 }

@@ -11,9 +11,9 @@
  *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
  */
 
-__int64 __fastcall CmpSetSystemValues(__int64 *a1)
+__int64 __fastcall CmpSetSystemValues(__int64 a1)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   int v4; // ecx
   HANDLE KeyHandle; // [rsp+38h] [rbp-D0h] BYREF
   int Data; // [rsp+40h] [rbp-C8h] BYREF
@@ -43,27 +43,27 @@ __int64 __fastcall CmpSetSystemValues(__int64 *a1)
            CmpLoadOptions.Length);
     if ( v2 >= 0 )
     {
-      v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpSystemBootDeviceString, a1[23]);
+      v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpSystemBootDeviceString, *(PCSTR *)(a1 + 184));
       if ( v2 >= 0 )
       {
-        v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpFirmwareBootDeviceString, a1[24]);
+        v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpFirmwareBootDeviceString, *(PCSTR *)(a1 + 192));
         if ( v2 >= 0 )
         {
-          v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpWindowsSysPartString, a1[43]);
+          v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpWindowsSysPartString, *(PCSTR *)(a1 + 344));
           if ( v2 >= 0 )
           {
-            v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpOsBootstatPathString, a1[41]);
+            v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpOsBootstatPathString, *(PCSTR *)(a1 + 328));
             if ( v2 >= 0 )
             {
-              Data = *(_DWORD *)(a1[30] + 132) & 1;
+              Data = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 1;
               v2 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpLastBootSucceededString, 0, 4u, &Data, 4u);
               if ( v2 >= 0 )
               {
-                Data = (*(_DWORD *)(a1[30] + 132) >> 1) & 1;
+                Data = (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) >> 1) & 1;
                 v2 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpLastBootShutdownString, 0, 4u, &Data, 4u);
                 if ( v2 >= 0 )
                 {
-                  if ( (*(_DWORD *)(a1[30] + 132) & 2) == 0 )
+                  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) == 0 )
                   {
                     if ( ZwQueryValueKey(
                            KeyHandle,

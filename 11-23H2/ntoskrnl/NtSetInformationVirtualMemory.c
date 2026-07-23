@@ -1,71 +1,71 @@
 /*
- * XREFs of NtSetInformationVirtualMemory @ 0x1407A4020
+ * XREFs of NtSetInformationVirtualMemory @ 0x1407A4210
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MiProcessVaContiguityInformation @ 0x14065D9B4 (MiProcessVaContiguityInformation.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     MiValidateMemoryRangeEntries @ 0x1407A46BC (MiValidateMemoryRangeEntries.c)
- *     MiCfgMarkValidEntries @ 0x1407A474C (MiCfgMarkValidEntries.c)
- *     MiProcessVaRangesInfoClass @ 0x1407A5004 (MiProcessVaRangesInfoClass.c)
- *     VmPrefetchVirtualAddresses @ 0x1409DBEE4 (VmPrefetchVirtualAddresses.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
- *     MiProcessRemoveFromWorkingSet @ 0x140A31150 (MiProcessRemoveFromWorkingSet.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1402E1780 (MiGetEffectivePagePriorityThread.c)
+ *     MiPrefetchVirtualMemory @ 0x1402EE458 (MiPrefetchVirtualMemory.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiProcessVaContiguityInformation @ 0x14065DF04 (MiProcessVaContiguityInformation.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     MiValidateMemoryRangeEntries @ 0x1407A48AC (MiValidateMemoryRangeEntries.c)
+ *     MiCfgMarkValidEntries @ 0x1407A493C (MiCfgMarkValidEntries.c)
+ *     MiProcessVaRangesInfoClass @ 0x1407A51F4 (MiProcessVaRangesInfoClass.c)
+ *     VmPrefetchVirtualAddresses @ 0x1409DC0E4 (VmPrefetchVirtualAddresses.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
+ *     MiProcessRemoveFromWorkingSet @ 0x140A31400 (MiProcessRemoveFromWorkingSet.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetInformationVirtualMemory(
-        ULONG_PTR a1,
-        unsigned int a2,
-        char *a3,
-        char *a4,
-        unsigned __int64 a5,
-        unsigned int a6)
+NTSTATUS __cdecl NtSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
   unsigned __int64 v7; // r13
   ULONG_PTR v9; // r15
   char v10; // r11
   int v11; // ebx
-  NTSTATUS valid; // edi
+  int valid; // edi
   __int64 v13; // rcx
   struct _KTHREAD *CurrentThread; // r9
   LONG *p_LockNV; // r8
   char PreviousMode; // r9
-  __int64 v17; // rax
-  unsigned __int64 v18; // rcx
+  unsigned __int64 v17; // rax
+  char *v18; // rcx
   unsigned int v19; // eax
   __int64 v20; // r13
   __int64 v21; // r13
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *Pool; // r15
   int v24; // r8d
-  unsigned int v25; // r14d
-  unsigned int v26; // r14d
+  __int32 v25; // r14d
+  __int32 v26; // r14d
   _BYTE *v27; // r14
   bool v28; // zf
   PVOID v29; // r13
   __int64 v30; // r8
   int v31; // r9d
-  NTSTATUS v32; // eax
+  int v32; // eax
   __int64 v33; // r9
   __int64 v34; // r8
-  unsigned int v35; // r14d
-  unsigned int v36; // r14d
-  unsigned int v37; // r14d
-  unsigned int v38; // r14d
+  __int32 v35; // r14d
+  __int32 v36; // r14d
+  int v37; // r14d
+  int v38; // r14d
   KPROCESSOR_MODE AccessMode; // [rsp+50h] [rbp-318h]
   PVOID v40; // [rsp+58h] [rbp-310h]
   _BYTE *v41; // [rsp+60h] [rbp-308h]
@@ -81,19 +81,19 @@ __int64 __fastcall NtSetInformationVirtualMemory(
   __int64 v51; // [rsp+C0h] [rbp-2A8h]
   PVOID v52; // [rsp+C8h] [rbp-2A0h] BYREF
   struct _KTHREAD *v53; // [rsp+D0h] [rbp-298h]
-  ULONG_PTR v54; // [rsp+D8h] [rbp-290h]
+  HANDLE v54; // [rsp+D8h] [rbp-290h]
   LONG *v55; // [rsp+E0h] [rbp-288h]
   void *Src; // [rsp+E8h] [rbp-280h]
   $115DCDF994C6370D29323EAB0E0C9502 v57; // [rsp+100h] [rbp-268h] BYREF
   _BYTE v58[256]; // [rsp+130h] [rbp-238h] BYREF
   _BYTE v59[256]; // [rsp+230h] [rbp-138h] BYREF
 
-  Src = a4;
-  v7 = (unsigned __int64)a3;
-  P = a3;
-  v9 = a1;
-  BugCheckParameter1 = a1;
-  v54 = a1;
+  Src = VirtualAddresses;
+  v7 = NumberOfEntries;
+  P = (PVOID)NumberOfEntries;
+  v9 = (ULONG_PTR)ProcessHandle;
+  BugCheckParameter1 = (ULONG_PTR)ProcessHandle;
+  v54 = ProcessHandle;
   Object = 0LL;
   memset(&v57, 0, sizeof(v57));
   v47 = 0;
@@ -104,38 +104,43 @@ __int64 __fastcall NtSetInformationVirtualMemory(
   v41 = v58;
   valid = 0;
   v42 = 0;
-  if ( a2 >= 2 )
+  if ( (unsigned int)VmInformationClass >= VmCfgCallTargetInformation )
   {
-    if ( a2 == 2 )
+    if ( VmInformationClass == VmCfgCallTargetInformation )
     {
-      v13 = a6;
-      if ( a6 == 40 )
+      v13 = VmInformationLength;
+      if ( VmInformationLength == 40 )
         goto LABEL_4;
-      return 3221225716LL;
+      return -1073741580;
     }
-    if ( a2 != 3 && a2 != 4 && a2 != 5 && a2 - 6 >= 2 )
-      return 3221225712LL;
+    if ( VmInformationClass != VmPageDirtyStateInformation
+      && VmInformationClass != VmImageHotPatchInformation
+      && VmInformationClass != VmPhysicalContiguityInformation
+      && (unsigned int)(VmInformationClass - 6) >= 2 )
+    {
+      return -1073741584;
+    }
   }
-  if ( !a5 )
-    return 3221225715LL;
-  v13 = a6;
-  if ( a6 != 4 )
-    return 3221225716LL;
-  if ( a2 == a6 )
+  if ( !VmInformation )
+    return -1073741581;
+  v13 = VmInformationLength;
+  if ( VmInformationLength != 4 )
+    return -1073741580;
+  if ( VmInformationClass == VmInformationLength )
   {
     if ( !dword_140C6987C )
-      return 3221225659LL;
-    if ( a3 != (char *)1 )
-      return 3221225713LL;
+      return -1073741637;
+    if ( NumberOfEntries != 1 )
+      return -1073741583;
   }
 LABEL_4:
-  if ( (unsigned __int64)(a3 - 1) > 0xFFFFFFFFFFFFFFELL )
-    return 3221225713LL;
+  if ( NumberOfEntries - 1 > 0xFFFFFFFFFFFFFFELL )
+    return -1073741583;
   CurrentThread = KeGetCurrentThread();
   v53 = CurrentThread;
   p_LockNV = &CurrentThread->ApcState.Process->Header.LockNV;
   v55 = p_LockNV;
-  if ( a2 == 2 && (p_LockNV[628] & 0x100) != 0 )
+  if ( VmInformationClass == VmCfgCallTargetInformation && (p_LockNV[628] & 0x100) != 0 )
   {
     if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 0x40000) == 0 )
       v10 = 1;
@@ -148,34 +153,34 @@ LABEL_4:
   AccessMode = PreviousMode;
   if ( PreviousMode )
   {
-    v17 = 16 * v7;
+    v17 = v7;
     if ( 16 * v7 )
     {
-      if ( ((unsigned __int8)a4 & 3) != 0 )
+      if ( ((unsigned __int8)VirtualAddresses & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&a4[v17] > 0x7FFFFFFF0000LL || &a4[v17] < a4 )
+      if ( (unsigned __int64)&VirtualAddresses[v17] > 0x7FFFFFFF0000LL || &VirtualAddresses[v17] < VirtualAddresses )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    if ( a2 == 2 )
+    if ( VmInformationClass == VmCfgCallTargetInformation )
     {
       if ( (_DWORD)v13 )
       {
-        if ( (a5 & 3) != 0 )
+        if ( ((unsigned __int8)VmInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        v18 = a5 + v13;
-        if ( v18 > 0x7FFFFFFF0000LL || v18 < a5 )
+        v18 = (char *)VmInformation + v13;
+        if ( (unsigned __int64)v18 > 0x7FFFFFFF0000LL || v18 < VmInformation )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      *(_OWORD *)Address = *(_OWORD *)a5;
-      *(_OWORD *)Handle = *(_OWORD *)(a5 + 16);
-      v51 = *(_QWORD *)(a5 + 32);
+      *(_OWORD *)Address = *(_OWORD *)VmInformation;
+      *(_OWORD *)Handle = *((_OWORD *)VmInformation + 1);
+      v51 = *((_QWORD *)VmInformation + 4);
       v19 = _mm_cvtsi128_si32(*(__m128i *)Address);
       v43 = v19;
       if ( !v19 )
-        return 3221225715LL;
+        return -1073741581;
       v20 = v19;
       if ( HIDWORD(Address[0]) )
-        return 3221225715LL;
+        return -1073741581;
       ProbeForWrite(Address[1], 4uLL, 4u);
       v21 = 16 * v20;
       if ( v21 )
@@ -190,27 +195,27 @@ LABEL_4:
     }
     else
     {
-      if ( (a5 & 3) != 0 )
+      if ( ((unsigned __int8)VmInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v42 = *(_DWORD *)a5;
+      v42 = *(_DWORD *)VmInformation;
       v43 = (unsigned int)Address[0];
     }
     p_LockNV = v55;
     v9 = BugCheckParameter1;
     goto LABEL_36;
   }
-  if ( a2 != 2 )
+  if ( VmInformationClass != VmCfgCallTargetInformation )
   {
-    v42 = *(_DWORD *)a5;
+    v42 = *(_DWORD *)VmInformation;
     v43 = (unsigned int)Address[0];
     goto LABEL_36;
   }
-  *(_OWORD *)Address = *(_OWORD *)a5;
-  *(_OWORD *)Handle = *(_OWORD *)(a5 + 16);
-  v51 = *(_QWORD *)(a5 + 32);
+  *(_OWORD *)Address = *(_OWORD *)VmInformation;
+  *(_OWORD *)Handle = *((_OWORD *)VmInformation + 1);
+  v51 = *((_QWORD *)VmInformation + 4);
   v43 = _mm_cvtsi128_si32(*(__m128i *)Address);
   if ( !v43 || HIDWORD(Address[0]) )
-    return 3221225715LL;
+    return -1073741581;
 LABEL_36:
   if ( v9 == -1LL )
   {
@@ -228,7 +233,7 @@ LABEL_36:
                0LL,
                0LL);
     valid = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
   }
   Pool = v59;
@@ -247,7 +252,7 @@ LABEL_100:
       goto LABEL_53;
     }
   }
-  if ( a2 == 2 )
+  if ( VmInformationClass == VmCfgCallTargetInformation )
   {
     if ( v43 > 0x10 )
     {
@@ -268,11 +273,11 @@ LABEL_100:
     }
   }
   memmove(Pool, Src, 16 * v7);
-  if ( a2 == 2 )
+  if ( VmInformationClass == VmCfgCallTargetInformation )
     memmove(v41, Handle[0], 16LL * v43);
   if ( v53->ApcState.Process != Object )
   {
-    if ( a2 - 3 <= 1 )
+    if ( (unsigned int)(VmInformationClass - 3) <= 1 )
     {
       valid = -1073741585;
       goto LABEL_73;
@@ -285,7 +290,7 @@ LABEL_100:
     valid = -1073741582;
     goto LABEL_73;
   }
-  if ( !a2 )
+  if ( VmInformationClass == VmPrefetchInformation )
   {
     if ( v42 == v24 )
     {
@@ -297,7 +302,7 @@ LABEL_100:
     }
     goto LABEL_116;
   }
-  v25 = a2 - 1;
+  v25 = VmInformationClass - 1;
   if ( v25 )
   {
     v26 = v25 - 1;
@@ -410,5 +415,5 @@ LABEL_53:
     ExFreePoolWithTag(Pool, 0);
   if ( v27 != v58 )
     ExFreePoolWithTag(v27, 0);
-  return (unsigned int)valid;
+  return valid;
 }

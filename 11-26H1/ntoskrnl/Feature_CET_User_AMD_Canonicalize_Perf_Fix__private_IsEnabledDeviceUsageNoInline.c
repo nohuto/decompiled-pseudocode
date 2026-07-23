@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledDeviceUsageNoInline @ 0x1405F4820
+ * XREFs of Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledDeviceUsageNoInline @ 0x1405F71E0
  * Callers:
- *     KiSetControlEnforcement @ 0x140BF7410 (KiSetControlEnforcement.c)
+ *     KiSetControlEnforcement @ 0x140BFD410 (KiSetControlEnforcement.c)
  * Callees:
- *     Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledFallback @ 0x1405F485C (Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledFallback.c)
+ *     Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledFallback @ 0x1405F721C (Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledDeviceUsageNoInline()

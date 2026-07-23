@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipFindRegEntryByProviderId @ 0x14022A9F4
+ * XREFs of WmipFindRegEntryByProviderId @ 0x14022AB04
  * Callers:
- *     WmipForwardWmiIrp @ 0x1406C7480 (WmipForwardWmiIrp.c)
- *     IoWMISystemControl @ 0x1407E2AE4 (IoWMISystemControl.c)
+ *     WmipForwardWmiIrp @ 0x1406C74B0 (WmipForwardWmiIrp.c)
+ *     IoWMISystemControl @ 0x1407E2DB4 (IoWMISystemControl.c)
  * Callees:
- *     WmipDoFindRegEntryByProviderId @ 0x14022AA80 (WmipDoFindRegEntryByProviderId.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x14022AB90 (WmipDoFindRegEntryByProviderId.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
@@ -30,10 +30,13 @@ __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
   if ( RegEntryByProviderId )
     _InterlockedIncrement((volatile signed __int32 *)(RegEntryByProviderId + 48));
   KxReleaseSpinLock(&WmipRegistrationSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

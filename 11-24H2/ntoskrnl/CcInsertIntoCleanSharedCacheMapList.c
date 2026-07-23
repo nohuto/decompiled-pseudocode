@@ -1,11 +1,11 @@
 /*
- * XREFs of CcInsertIntoCleanSharedCacheMapList @ 0x14044ADDC
+ * XREFs of CcInsertIntoCleanSharedCacheMapList @ 0x140441F1C
  * Callers:
- *     CcUnpinFileDataEx @ 0x1402AB380 (CcUnpinFileDataEx.c)
- *     CcInitializeCacheMapInternal @ 0x14045D6F0 (CcInitializeCacheMapInternal.c)
- *     CcAcquireByteRangeForWrite @ 0x1404DC470 (CcAcquireByteRangeForWrite.c)
+ *     CcUnpinFileDataEx @ 0x1402766A0 (CcUnpinFileDataEx.c)
+ *     CcInitializeCacheMapInternal @ 0x1404527B0 (CcInitializeCacheMapInternal.c)
+ *     CcAcquireByteRangeForWrite @ 0x1404D5E90 (CcAcquireByteRangeForWrite.c)
  * Callees:
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
  */
 
 _QWORD *__fastcall CcInsertIntoCleanSharedCacheMapList(__int64 a1)

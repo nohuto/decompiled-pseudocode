@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpIommuBlockUnblockDevice @ 0x14096EF58
+ * XREFs of PnpIommuBlockUnblockDevice @ 0x14096F158
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     PiIommuUnblockDevice @ 0x14085007C (PiIommuUnblockDevice.c)
- *     PiIommuBlockDevice @ 0x140865C58 (PiIommuBlockDevice.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     PiIommuUnblockDevice @ 0x14085037C (PiIommuUnblockDevice.c)
+ *     PiIommuBlockDevice @ 0x140865E98 (PiIommuBlockDevice.c)
  */
 
 __int64 __fastcall PnpIommuBlockUnblockDevice(__int64 a1, int a2)

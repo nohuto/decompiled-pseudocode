@@ -1,14 +1,14 @@
 /*
- * XREFs of IdnaMemAlloc @ 0x180080824
+ * XREFs of IdnaMemAlloc @ 0x1800B18CC
  * Callers:
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180080044 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180080384 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     RtlIdnToUnicode @ 0x1800B9AA0 (RtlIdnToUnicode.c)
+ *     RtlIdnToUnicode @ 0x1800B1840 (RtlIdnToUnicode.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1800CB894 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1800CBBD4 (OpenGlobalizationUserSettingsKey_ForMua.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall IdnaMemAlloc(unsigned __int64 a1)
+PVOID __fastcall IdnaMemAlloc(SIZE_T a1)
 {
-  return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, a1);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, a1);
 }

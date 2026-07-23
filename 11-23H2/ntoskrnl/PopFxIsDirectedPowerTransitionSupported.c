@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFxIsDirectedPowerTransitionSupported @ 0x14058A998
+ * XREFs of PopFxIsDirectedPowerTransitionSupported @ 0x14058AE88
  * Callers:
- *     PopDripsWatchdogCallbackHandler @ 0x14099BFF0 (PopDripsWatchdogCallbackHandler.c)
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FB50 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x14099C1F0 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FD50 (PopDirectedDripsBuildBroadcastTreeFull.c)
  * Callees:
  *     <none>
  */

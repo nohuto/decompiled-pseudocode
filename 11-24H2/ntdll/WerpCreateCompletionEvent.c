@@ -1,29 +1,24 @@
 /*
- * XREFs of WerpCreateCompletionEvent @ 0x180112E18
+ * XREFs of WerpCreateCompletionEvent @ 0x18010E0D8
  * Callers:
- *     RtlReportExceptionEx @ 0x1801342D0 (RtlReportExceptionEx.c)
+ *     RtlReportExceptionEx @ 0x180132500 (RtlReportExceptionEx.c)
  * Callees:
- *     ZwCreateEvent @ 0x180162590 (ZwCreateEvent.c)
+ *     ZwCreateEvent @ 0x180160950 (ZwCreateEvent.c)
  */
 
-__int64 __fastcall WerpCreateCompletionEvent(_QWORD *a1)
+NTSTATUS __fastcall WerpCreateCompletionEvent(HANDLE *a1)
 {
-  _DWORD v2[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v3; // [rsp+38h] [rbp-30h]
-  __int64 v4; // [rsp+40h] [rbp-28h]
-  int v5; // [rsp+48h] [rbp-20h]
-  int v6; // [rsp+4Ch] [rbp-1Ch]
-  __int128 v7; // [rsp+50h] [rbp-18h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
-  v2[1] = 0;
-  v6 = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   if ( !a1 )
-    return 3221225711LL;
+    return -1073741585;
   *a1 = 0LL;
-  v2[0] = 48;
-  v3 = 0LL;
-  v5 = 2;
-  v7 = 0LL;
-  v4 = 0LL;
-  return ZwCreateEvent(a1, 2031619LL, v2, 0LL, 0);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 2;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ObjectAttributes.ObjectName = 0LL;
+  return ZwCreateEvent(a1, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
 }

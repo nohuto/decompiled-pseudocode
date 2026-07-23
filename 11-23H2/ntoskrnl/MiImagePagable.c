@@ -1,13 +1,13 @@
 /*
- * XREFs of MiImagePagable @ 0x14070106C
+ * XREFs of MiImagePagable @ 0x14070127C
  * Callers:
- *     MmResetDriverPaging @ 0x140703630 (MmResetDriverPaging.c)
+ *     MmResetDriverPaging @ 0x140703840 (MmResetDriverPaging.c)
  *     MiEnablePagingTheExecutive @ 0x140B5EC88 (MiEnablePagingTheExecutive.c)
  *     MiLockPagableSections @ 0x140B5EDA8 (MiLockPagableSections.c)
  * Callees:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
  */
 
 _QWORD *__fastcall MiImagePagable(_QWORD *a1, unsigned __int64 a2)

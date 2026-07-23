@@ -1,8 +1,8 @@
 /*
- * XREFs of ExRegisterHost @ 0x140821610
+ * XREFs of ExRegisterHost @ 0x140821910
  * Callers:
- *     IopInitializeIoRate @ 0x1403837C4 (IopInitializeIoRate.c)
- *     EtwpInitializeProcessorTrace @ 0x14082138C (EtwpInitializeProcessorTrace.c)
+ *     IopInitializeIoRate @ 0x1403839A4 (IopInitializeIoRate.c)
+ *     EtwpInitializeProcessorTrace @ 0x14082168C (EtwpInitializeProcessorTrace.c)
  *     ExpInitSystemPhase1 @ 0x140B49FE4 (ExpInitSystemPhase1.c)
  *     KiInitSupervisorStateExtensionHost @ 0x140B4D170 (KiInitSupervisorStateExtensionHost.c)
  *     PspInitializeOctagonExtensionHost @ 0x140B4D294 (PspInitializeOctagonExtensionHost.c)
@@ -15,14 +15,14 @@
  *     SepInitializeAuthorizationCallbacks @ 0x140B4D5EC (SepInitializeAuthorizationCallbacks.c)
  *     VmInitSystem @ 0x140B4ECF8 (VmInitSystem.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     ExpFindHost @ 0x14082176C (ExpFindHost.c)
- *     ExpDereferenceHost @ 0x140A015AC (ExpDereferenceHost.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     ExpFindHost @ 0x140821A6C (ExpFindHost.c)
+ *     ExpDereferenceHost @ 0x140A0183C (ExpDereferenceHost.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
 

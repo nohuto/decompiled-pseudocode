@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDeletePagefile @ 0x14065AE08
+ * XREFs of MiDeletePagefile @ 0x14065AEEC
  * Callers:
- *     MmStoreRegister @ 0x140567FC0 (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     MiCreatePagefile @ 0x140568D38 (MiCreatePagefile.c)
- *     MiDeletePagingFiles @ 0x14065AF04 (MiDeletePagingFiles.c)
+ *     MmStoreRegister @ 0x140568500 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     MiCreatePagefile @ 0x140569278 (MiCreatePagefile.c)
+ *     MiDeletePagingFiles @ 0x14065AFE8 (MiDeletePagingFiles.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     MiFreeModWriterEntry @ 0x14008EF68 (MiFreeModWriterEntry.c)
- *     MiFreePageFileHashPfns @ 0x1400BE8F8 (MiFreePageFileHashPfns.c)
- *     MiUpdatePageFileList @ 0x140142C4C (MiUpdatePageFileList.c)
- *     MiReleasePageHash @ 0x1401FB6E4 (MiReleasePageHash.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MiFreeModWriterEntry @ 0x14008E6C8 (MiFreeModWriterEntry.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     MiFreePageFileHashPfns @ 0x1400BC788 (MiFreePageFileHashPfns.c)
+ *     MiUpdatePageFileList @ 0x1401431BC (MiUpdatePageFileList.c)
+ *     MiReleasePageHash @ 0x1401FB510 (MiReleasePageHash.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     PiPagePathSetState @ 0x14057D324 (PiPagePathSetState.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     PiPagePathSetState @ 0x14057D7D0 (PiPagePathSetState.c)
  */
 
 void __fastcall MiDeletePagefile(char *P, int a2)

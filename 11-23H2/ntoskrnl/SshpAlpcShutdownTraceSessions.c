@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpAlpcShutdownTraceSessions @ 0x1409A2504
+ * XREFs of SshpAlpcShutdownTraceSessions @ 0x1409A2704
  * Callers:
- *     SshSessionManagerFlushBuffers @ 0x1409A1798 (SshSessionManagerFlushBuffers.c)
+ *     SshSessionManagerFlushBuffers @ 0x1409A1998 (SshSessionManagerFlushBuffers.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14032D320 (SSHSupportReleasePushLockExclusive.c)
- *     SshpAlpcSendMessage @ 0x14084C7E0 (SshpAlpcSendMessage.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x14032D5B0 (SSHSupportReleasePushLockExclusive.c)
+ *     SshpAlpcSendMessage @ 0x14084CAE0 (SshpAlpcSendMessage.c)
  */
 
 signed __int32 SshpAlpcShutdownTraceSessions()
@@ -14,8 +14,8 @@ signed __int32 SshpAlpcShutdownTraceSessions()
   _BYTE *v1; // rax
   __int64 v2; // rdx
 
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C38548, 0LL);
-  v1 = &unk_140C3855C;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C384E8, 0LL);
+  v1 = &unk_140C384FC;
   v2 = 2LL;
   do
   {
@@ -24,6 +24,6 @@ signed __int32 SshpAlpcShutdownTraceSessions()
     --v2;
   }
   while ( v2 );
-  SshpAlpcSendMessage(v0, 4LL, 0, 0LL, 1);
-  return SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C38548);
+  SshpAlpcSendMessage(v0, 4, 0, 0LL, 1);
+  return SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C384E8);
 }

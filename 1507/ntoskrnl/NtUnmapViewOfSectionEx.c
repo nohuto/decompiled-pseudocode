@@ -8,20 +8,20 @@
  *     MiUnmapViewOfSection @ 0x1404B72D0 (MiUnmapViewOfSection.c)
  */
 
-NTSTATUS __fastcall NtUnmapViewOfSectionEx(void *a1, unsigned __int64 a2, unsigned int a3)
+NTSTATUS __cdecl NtUnmapViewOfSectionEx(HANDLE ProcessHandle, PVOID BaseAddress, ULONG Flags)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   PVOID Object; // [rsp+68h] [rbp+20h] BYREF
 
-  if ( (a3 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
     return -1073741583;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 > (unsigned __int64)MmHighestUserAddress && PreviousMode == 1 )
+  if ( BaseAddress > MmHighestUserAddress && PreviousMode == 1 )
     return -1073741799;
   result = ObReferenceObjectByHandleWithTag(
-             a1,
+             ProcessHandle,
              8u,
              (POBJECT_TYPE)PsProcessType,
              PreviousMode,
@@ -30,7 +30,7 @@ NTSTATUS __fastcall NtUnmapViewOfSectionEx(void *a1, unsigned __int64 a2, unsign
              0LL);
   if ( result >= 0 )
   {
-    v7 = MiUnmapViewOfSection(Object, a2, a3);
+    v7 = MiUnmapViewOfSection(Object, BaseAddress, Flags);
     ObfDereferenceObjectWithTag(Object, 0x77566D4Du);
     return v7;
   }

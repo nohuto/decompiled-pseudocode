@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryFileInformation @ 0x14096A7E0
+ * XREFs of IoQueryFileInformation @ 0x140953270
  * Callers:
  *     <none>
  * Callees:
- *     IopQueryXxxInformation @ 0x14096A530 (IopQueryXxxInformation.c)
+ *     IopQueryXxxInformation @ 0x140952FC0 (IopQueryXxxInformation.c)
  */
 
 NTSTATUS __stdcall IoQueryFileInformation(

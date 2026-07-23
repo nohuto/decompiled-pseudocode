@@ -1,36 +1,41 @@
 /*
- * XREFs of NtGetNextProcess @ 0x140718D70
+ * XREFs of NtGetNextProcess @ 0x14071A010
  * Callers:
  *     <none>
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsIsProcessInSilo @ 0x1400CB108 (PsIsProcessInSilo.c)
- *     PspLockUnlockProcessExclusive @ 0x14012F2C0 (PspLockUnlockProcessExclusive.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
- *     PsGetPreviousProcess @ 0x14088ED0C (PsGetPreviousProcess.c)
+ *     PsIsProcessInSilo @ 0x1400CB1E8 (PsIsProcessInSilo.c)
+ *     PspLockUnlockProcessExclusive @ 0x14012F390 (PspLockUnlockProcessExclusive.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     SeCreateAccessState @ 0x140613230 (SeCreateAccessState.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
+ *     PsGetPreviousProcess @ 0x14088FF6C (PsGetPreviousProcess.c)
  */
 
-__int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3, int a4, HANDLE *a5)
+NTSTATUS __cdecl NtGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
   char v5; // r15
   char AccessMode; // r12
   ULONG v8; // r14d
   __int64 v9; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v11; // r15d
   unsigned __int64 PreviousProcess; // rax
   __int64 v13; // rbx
   struct _KTHREAD *CurrentThread; // rsi
   __int64 CurrentServerSilo; // rax
-  int AccessState; // esi
+  NTSTATUS AccessState; // esi
   unsigned __int64 NextProcess; // rax
   bool v18; // zf
   bool v19; // [rsp+40h] [rbp-208h]
@@ -41,23 +46,23 @@ __int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3
   struct _ACCESS_STATE PassedAccessState; // [rsp+90h] [rbp-1B8h] BYREF
   char v26; // [rsp+130h] [rbp-118h] BYREF
 
-  v5 = a4;
+  v5 = Flags;
   AccessMode = KeGetCurrentThread()->PreviousMode;
-  v8 = a3 & (AccessMode != 0 ? 7666 : 73714);
+  v8 = HandleAttributes & (AccessMode != 0 ? 7666 : 73714);
   if ( AccessMode )
   {
-    v9 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v9 = (__int64)NewProcessHandle;
+    if ( (unsigned __int64)NewProcessHandle >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v9 = *(_QWORD *)v9;
   }
-  *a5 = 0LL;
-  if ( (a4 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  if ( BugCheckParameter1 )
+  *NewProcessHandle = 0LL;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  if ( ProcessHandle )
   {
     result = ObpReferenceObjectByHandleWithTag(
-               BugCheckParameter1,
+               (ULONG_PTR)ProcessHandle,
                0,
                (__int64)PsProcessType,
                AccessMode,
@@ -65,7 +70,7 @@ __int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3
                &Object,
                0LL,
                0LL);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
   }
   else
@@ -79,7 +84,7 @@ __int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3
     PreviousProcess = PsGetNextProcess(Object);
   v13 = PreviousProcess;
   if ( !PreviousProcess )
-    return 2147483674LL;
+    return -2147483622;
   v19 = SeSinglePrivilegeCheck(SeDebugPrivilege, AccessMode) != 0;
   CurrentThread = KeGetCurrentThread();
   v24 = CurrentThread;
@@ -96,7 +101,7 @@ __int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3
     }
     if ( PsIsProcessInSilo((struct _KPROCESS *)v13, CurrentServerSilo) )
     {
-      AccessState = SeCreateAccessState((int)&PassedAccessState, (int)&v26, a2, (__int64)PsProcessType + 76);
+      AccessState = SeCreateAccessState((int)&PassedAccessState, (int)&v26, DesiredAccess, (__int64)PsProcessType + 76);
       if ( AccessState < 0 )
         goto LABEL_21;
       if ( v19 )
@@ -119,7 +124,7 @@ __int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3
       SeReleaseSubjectContext(&PassedAccessState.SubjectSecurityContext);
       if ( AccessState >= 0 )
       {
-        *a5 = Handle;
+        *NewProcessHandle = Handle;
         goto LABEL_21;
       }
       if ( AccessState != -1073741790 )
@@ -140,5 +145,5 @@ LABEL_27:
 LABEL_21:
   if ( v13 )
     ObfDereferenceObjectWithTag((PVOID)v13, 0x6E457350u);
-  return (unsigned int)AccessState;
+  return AccessState;
 }

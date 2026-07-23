@@ -1,14 +1,14 @@
 /*
- * XREFs of IopQueueDeviceResetEvent @ 0x1407A29D4
+ * XREFs of IopQueueDeviceResetEvent @ 0x1407A5514
  * Callers:
- *     PiProcessDeviceResetAction @ 0x1405D9548 (PiProcessDeviceResetAction.c)
+ *     PiProcessDeviceResetAction @ 0x1405DBD48 (PiProcessDeviceResetAction.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IopMarkDeviceToBeReset @ 0x1407A2860 (IopMarkDeviceToBeReset.c)
- *     PipSetDevNodeStateFlags @ 0x1407A5540 (PipSetDevNodeStateFlags.c)
- *     PnpRequestDeviceRemoval @ 0x14091493C (PnpRequestDeviceRemoval.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IopMarkDeviceToBeReset @ 0x1407A53A0 (IopMarkDeviceToBeReset.c)
+ *     PipSetDevNodeStateFlags @ 0x1407A8080 (PipSetDevNodeStateFlags.c)
+ *     PnpRequestDeviceRemoval @ 0x14096F3A8 (PnpRequestDeviceRemoval.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
  */
 
 __int64 __fastcall IopQueueDeviceResetEvent(struct _DEVICE_OBJECT *BugCheckParameter2, _BYTE *a2)

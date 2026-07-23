@@ -1,20 +1,20 @@
 /*
- * XREFs of IopGetRootDevices @ 0x140A624B8
+ * XREFs of IopGetRootDevices @ 0x140A5ADB8
  * Callers:
- *     IopPnPDispatch @ 0x140A5D2E0 (IopPnPDispatch.c)
+ *     IopPnPDispatch @ 0x140A55010 (IopPnPDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x140A1A490 (_CmGetMatchingFilteredDeviceList.c)
- *     IopInitializeDeviceInstanceKey @ 0x140A626D8 (IopInitializeDeviceInstanceKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140A163D4 (_CmGetMatchingFilteredDeviceList.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140A5AFD8 (IopInitializeDeviceInstanceKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetRootDevices(_QWORD *a1)
@@ -36,7 +36,7 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
   __int64 v17; // [rsp+64h] [rbp-1Ch]
   int v18; // [rsp+6Ch] [rbp-14h]
   PVOID P; // [rsp+70h] [rbp-10h]
-  int v20; // [rsp+C0h] [rbp+40h] BYREF
+  unsigned int v20; // [rsp+C0h] [rbp+40h] BYREF
   HANDLE Handle; // [rsp+C8h] [rbp+48h] BYREF
 
   *a1 = 0LL;
@@ -45,7 +45,7 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
   Handle = 0LL;
   Pool2 = 0LL;
   DestinationString = 0LL;
-  P = (PVOID)ExAllocatePool2(0x100uLL);
+  P = (PVOID)ExAllocatePool2(0x100uLL, 0x400uLL, 0x64647050u);
   if ( !P )
     return 3221225626LL;
   CurrentThread = KeGetCurrentThread();
@@ -61,7 +61,7 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
       goto LABEL_18;
     if ( Pool2 )
       ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, 2LL * v20, 0x64647050u);
     if ( !Pool2 )
     {
       inited = -1073741670;
@@ -119,7 +119,7 @@ LABEL_26:
   v8 = HIDWORD(v17);
   if ( !HIDWORD(v17) )
     goto LABEL_26;
-  v10 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  v10 = (_DWORD *)ExAllocatePool2(0x100uLL, 8LL * HIDWORD(v17) + 16, 0x64647050u);
   v11 = v10;
   if ( v10 )
   {

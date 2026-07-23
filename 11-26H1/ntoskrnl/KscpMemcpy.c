@@ -1,11 +1,11 @@
 /*
- * XREFs of KscpMemcpy @ 0x140C5EE80
+ * XREFs of KscpMemcpy @ 0x140C64E80
  * Callers:
- *     KscpCopyFromUser @ 0x140C5EBC0 (KscpCopyFromUser.c)
- *     KscpCopyFromUserSmap @ 0x140C5EBE0 (KscpCopyFromUserSmap.c)
- *     KscpCopyToUser @ 0x140C5EC20 (KscpCopyToUser.c)
- *     KscpCopyToUserSmap @ 0x140C5EC40 (KscpCopyToUserSmap.c)
- *     KscpMemmoveUserToUser @ 0x140C5EFA0 (KscpMemmoveUserToUser.c)
+ *     KscpCopyFromUser @ 0x140C64BC0 (KscpCopyFromUser.c)
+ *     KscpCopyFromUserSmap @ 0x140C64BE0 (KscpCopyFromUserSmap.c)
+ *     KscpCopyToUser @ 0x140C64C20 (KscpCopyToUser.c)
+ *     KscpCopyToUserSmap @ 0x140C64C40 (KscpCopyToUserSmap.c)
+ *     KscpMemmoveUserToUser @ 0x140C64FA0 (KscpMemmoveUserToUser.c)
  * Callees:
  *     <none>
  */

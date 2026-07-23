@@ -1,7 +1,7 @@
 /*
- * XREFs of BiLookupObjectByIdentifierAndBootEntry @ 0x140A5EB6C
+ * XREFs of BiLookupObjectByIdentifierAndBootEntry @ 0x140A5EE1C
  * Callers:
- *     BiBuildIdentifierList @ 0x140804668 (BiBuildIdentifierList.c)
+ *     BiBuildIdentifierList @ 0x140804938 (BiBuildIdentifierList.c)
  * Callees:
  *     <none>
  */

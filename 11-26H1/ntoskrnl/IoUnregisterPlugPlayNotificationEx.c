@@ -1,9 +1,9 @@
 /*
- * XREFs of IoUnregisterPlugPlayNotificationEx @ 0x140AEA4D0
+ * XREFs of IoUnregisterPlugPlayNotificationEx @ 0x140AECFC0
  * Callers:
- *     PopCleanPowerLimitExtension @ 0x1406039E0 (PopCleanPowerLimitExtension.c)
+ *     PopCleanPowerLimitExtension @ 0x140606490 (PopCleanPowerLimitExtension.c)
  * Callees:
- *     PnpUnregisterPlugPlayNotification @ 0x1404ABEF8 (PnpUnregisterPlugPlayNotification.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x1404A5588 (PnpUnregisterPlugPlayNotification.c)
  */
 
 NTSTATUS __stdcall IoUnregisterPlugPlayNotificationEx(PVOID NotificationEntry)

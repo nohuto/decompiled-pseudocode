@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsQueryEmSettings @ 0x140868574
+ * XREFs of PopDirectedDripsQueryEmSettings @ 0x1408697D4
  * Callers:
- *     PopInitializeDirectedDrips @ 0x1409DC6E0 (PopInitializeDirectedDrips.c)
+ *     PopInitializeDirectedDrips @ 0x1409DD6E0 (PopInitializeDirectedDrips.c)
  * Callees:
- *     EmClientQueryRuleState @ 0x1405653B0 (EmClientQueryRuleState.c)
+ *     EmClientQueryRuleState @ 0x1405663B0 (EmClientQueryRuleState.c)
  */
 
 __int64 __fastcall PopDirectedDripsQueryEmSettings(char *a1)

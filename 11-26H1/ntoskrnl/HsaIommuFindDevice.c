@@ -1,10 +1,10 @@
 /*
- * XREFs of HsaIommuFindDevice @ 0x1405AA258
+ * XREFs of HsaIommuFindDevice @ 0x1405ACA68
  * Callers:
- *     HsaCreateDevice @ 0x1405A9390 (HsaCreateDevice.c)
- *     HsaFindDevice @ 0x1405A9730 (HsaFindDevice.c)
+ *     HsaCreateDevice @ 0x1405ABBA0 (HsaCreateDevice.c)
+ *     HsaFindDevice @ 0x1405ABF40 (HsaFindDevice.c)
  * Callees:
- *     HsaQueryAcpiDeviceMapping @ 0x1405AA780 (HsaQueryAcpiDeviceMapping.c)
+ *     HsaQueryAcpiDeviceMapping @ 0x1405ACF90 (HsaQueryAcpiDeviceMapping.c)
  */
 
 bool __fastcall HsaIommuFindDevice(__int64 a1, __int128 *a2, char a3)

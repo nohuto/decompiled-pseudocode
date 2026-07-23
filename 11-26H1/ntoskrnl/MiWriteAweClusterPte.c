@@ -1,14 +1,14 @@
 /*
- * XREFs of MiWriteAweClusterPte @ 0x14052DDF8
+ * XREFs of MiWriteAweClusterPte @ 0x140530318
  * Callers:
- *     MiWriteAwePtes @ 0x140477F10 (MiWriteAwePtes.c)
- *     MiApplyBreakMakeToAwePtes @ 0x1407008A0 (MiApplyBreakMakeToAwePtes.c)
- *     MiApplyLazyStampToAwePteBits @ 0x140700940 (MiApplyLazyStampToAwePteBits.c)
- *     MiZeroAndFlushAweLazyPtes @ 0x140702FEC (MiZeroAndFlushAweLazyPtes.c)
+ *     MiWriteAwePtes @ 0x140471690 (MiWriteAwePtes.c)
+ *     MiApplyBreakMakeToAwePtes @ 0x140705570 (MiApplyBreakMakeToAwePtes.c)
+ *     MiApplyLazyStampToAwePteBits @ 0x140705610 (MiApplyLazyStampToAwePteBits.c)
+ *     MiZeroAndFlushAweLazyPtes @ 0x140707CBC (MiZeroAndFlushAweLazyPtes.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiWriteValidPteNewPage @ 0x14029FC70 (MiWriteValidPteNewPage.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiWriteValidPteNewPage @ 0x14029F1C0 (MiWriteValidPteNewPage.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
  */
 
 __int64 __fastcall MiWriteAweClusterPte(signed __int64 a1, signed __int64 *a2, unsigned __int64 a3, int a4, __int64 a5)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTpCompletion @ 0x140BB7010
+ * XREFs of KiTpCompletion @ 0x140BB9010
  * Callers:
- *     KiTpHandleTrap @ 0x1404F7320 (KiTpHandleTrap.c)
+ *     KiTpHandleTrap @ 0x1404F4C00 (KiTpHandleTrap.c)
  * Callees:
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
  */
 
 __int64 __fastcall KiTpCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)

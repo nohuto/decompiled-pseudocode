@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpFlsAlloc @ 0x140787824
+ * XREFs of RtlpFlsAlloc @ 0x140787754
  * Callers:
- *     PspTlsAlloc @ 0x14077A558 (PspTlsAlloc.c)
+ *     PspTlsAlloc @ 0x14077A658 (PspTlsAlloc.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ?SlotAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z @ 0x1405F2208 (-SlotAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z.c)
- *     ?SlotFree@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAXPEAU1@K@Z @ 0x1405F22E0 (-SlotFree@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAXPEAU1@K@Z.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ?SlotAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z @ 0x1405EF848 (-SlotAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z.c)
+ *     ?SlotFree@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAXPEAU1@K@Z @ 0x1405EF920 (-SlotFree@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAXPEAU1@K@Z.c)
  */
 
 __int64 __fastcall RtlpFlsAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5)
 {
-  _QWORD *v6; // rax
+  char *v6; // rax
   signed __int8 v7; // cf
-  _QWORD *v8; // rbx
+  char *v8; // rbx
   unsigned int v9; // edi
   __int64 v10; // r15
   unsigned int v11; // eax
@@ -28,14 +28,14 @@ __int64 __fastcall RtlpFlsAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, 
   __int64 v18; // rdx
   __int64 v19; // rax
 
-  v6 = KeAbPreAcquire((__int64)&PspTlsContext, 0LL);
+  v6 = (char *)KeAbPreAcquire((__int64)&PspTlsContext, 0LL);
   v7 = _interlockedbittestandset64((volatile signed __int32 *)&PspTlsContext, 0LL);
   v8 = v6;
   if ( v7 )
-    ExfAcquirePushLockExclusiveEx(&PspTlsContext, (__int64)v6, (__int64)&PspTlsContext);
+    ExfAcquirePushLockExclusiveEx(&PspTlsContext, v6, (__int64)&PspTlsContext);
   v9 = 0;
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v10 = 8LL;
   while ( 1 )
   {
@@ -82,8 +82,8 @@ LABEL_25:
     a3 = -1LL;
   *(_QWORD *)v10 = a3;
   *(_QWORD *)v19 = 0LL;
-  if ( v12 > dword_140E280E8 )
-    dword_140E280E8 = v12;
+  if ( v12 > dword_140E28228 )
+    dword_140E28228 = v12;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PspTlsContext, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PspTlsContext);
   KeAbPostRelease((ULONG_PTR)&PspTlsContext);

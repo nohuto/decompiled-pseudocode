@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapAttemptArchitecturalErrorRecovery @ 0x14065BD00
+ * XREFs of WheapAttemptArchitecturalErrorRecovery @ 0x14065A420
  * Callers:
- *     WheapAttemptErrorRecovery @ 0x14065BDA0 (WheapAttemptErrorRecovery.c)
+ *     WheapAttemptErrorRecovery @ 0x14065A4C0 (WheapAttemptErrorRecovery.c)
  * Callees:
- *     WheapGetErrorSource @ 0x14042E7A8 (WheapGetErrorSource.c)
- *     WheapGetErrorSourceFunction @ 0x14048B9BC (WheapGetErrorSourceFunction.c)
- *     WheaGetErrPacketFromErrRecord @ 0x140555050 (WheaGetErrPacketFromErrRecord.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     WheapGetErrorSource @ 0x1404204D8 (WheapGetErrorSource.c)
+ *     WheapGetErrorSourceFunction @ 0x14048678C (WheapGetErrorSourceFunction.c)
+ *     WheaGetErrPacketFromErrRecord @ 0x140552990 (WheaGetErrPacketFromErrRecord.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall WheapAttemptArchitecturalErrorRecovery(__int64 a1)
@@ -16,11 +16,9 @@ __int64 __fastcall WheapAttemptArchitecturalErrorRecovery(__int64 a1)
   __int64 *ErrorSource; // rax
   __int64 v5; // r11
   __int64 *v6; // rbx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  int v10; // [rsp+30h] [rbp+8h] BYREF
+  int v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v10 = *(_DWORD *)(a1 + 12);
+  v8 = *(_DWORD *)(a1 + 12);
   v2 = -1073741811;
   ErrPacketFromErrRecord = WheaGetErrPacketFromErrRecord((PWHEA_ERROR_RECORD)a1);
   if ( ErrPacketFromErrRecord )
@@ -34,11 +32,11 @@ __int64 __fastcall WheapAttemptArchitecturalErrorRecovery(__int64 a1)
         if ( *(_QWORD *)(v5 + 48) )
         {
           if ( WheapGetErrorSourceFunction((__int64)ErrorSource, 3, 0) )
-            v2 = guard_dispatch_icall_no_overrides(a1, &v10, v7, v8);
+            v2 = guard_dispatch_icall_no_overrides(a1, &v8);
           else
             v2 = -1073741822;
           _InterlockedDecrement((volatile signed __int32 *)v6 + 23);
-          *(_DWORD *)(a1 + 12) = v10;
+          *(_DWORD *)(a1 + 12) = v8;
         }
       }
     }

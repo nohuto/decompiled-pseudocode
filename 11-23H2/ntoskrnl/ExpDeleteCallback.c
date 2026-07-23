@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExpUnlockCallbackListExclusive @ 0x140364DA0 (ExpUnlockCallbackListExclusive.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpUnlockCallbackListExclusive @ 0x140364F40 (ExpUnlockCallbackListExclusive.c)
  */
 
 char __fastcall ExpDeleteCallback(__int64 a1)

@@ -25,7 +25,7 @@ LONG __stdcall RtlIpv4StringToAddressExW(PCWSTR AddressString, BOOLEAN Strict, s
 
   if ( !AddressString || !Address || !Port || RtlIpv4StringToAddressW(AddressString, Strict, &Terminator, Address) < 0 )
     return -1073741811;
-  v5 = *Terminator;
+  v5 = *(unsigned __int16 *)Terminator;
   if ( v5 == 58 )
   {
     v6 = Terminator + 1;
@@ -37,7 +37,7 @@ LONG __stdcall RtlIpv4StringToAddressExW(PCWSTR AddressString, BOOLEAN Strict, s
       v9 = ++v6;
       v8 = 8;
       Terminator = (LPCWSTR)8;
-      v10 = *v6;
+      v10 = *(unsigned __int16 *)v6;
       if ( v10 == 120 || v10 == 88 )
       {
         v8 = 16;
@@ -45,7 +45,7 @@ LONG __stdcall RtlIpv4StringToAddressExW(PCWSTR AddressString, BOOLEAN Strict, s
         Terminator = (LPCWSTR)16;
       }
     }
-    v11 = *v6;
+    v11 = *(unsigned __int16 *)v6;
     v12 = *v6;
     v16 = *v6;
     if ( (_WORD)v11 )
@@ -74,7 +74,7 @@ LONG __stdcall RtlIpv4StringToAddressExW(PCWSTR AddressString, BOOLEAN Strict, s
           v8 = (__int16)Terminator;
           v7 = v11 - (v14 != 0 ? 97 : 65) + 16 * v7 + 10;
         }
-        v11 = *v6;
+        v11 = *(unsigned __int16 *)v6;
       }
       while ( (_WORD)v11 );
       v12 = v16;

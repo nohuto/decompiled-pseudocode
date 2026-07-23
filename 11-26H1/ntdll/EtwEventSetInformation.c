@@ -1,32 +1,36 @@
 /*
- * XREFs of EtwEventSetInformation @ 0x180117E20
+ * XREFs of EtwEventSetInformation @ 0x180117BD0
  * Callers:
- *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18016F69C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
+ *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18016E69C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
  * Callees:
- *     EtwpTrackProviderBinary @ 0x180117EAC (EtwpTrackProviderBinary.c)
+ *     EtwpTrackProviderBinary @ 0x180117C5C (EtwpTrackProviderBinary.c)
  */
 
-__int64 __fastcall EtwEventSetInformation(__int64 a1, __int64 a2, __int64 a3, int a4)
+ULONG __cdecl EtwEventSetInformation(
+        REGHANDLE RegHandle,
+        EVENT_INFO_CLASS InformationClass,
+        PVOID EventInformation,
+        ULONG InformationLength)
 {
-  if ( (_DWORD)a2 )
+  if ( InformationClass )
   {
-    if ( (_DWORD)a2 == 2 )
+    if ( InformationClass == 2 )
     {
-      if ( a3 && (unsigned int)(a4 - 3) <= 0xFFFC )
-        return EtwpSetProviderTraits(a1, a3, a4);
-      return 87LL;
+      if ( EventInformation && InformationLength - 3 <= 0xFFFC )
+        return EtwpSetProviderTraits(RegHandle, (__int64)EventInformation, InformationLength);
+      return 87;
     }
-    if ( (_DWORD)a2 == 3 )
+    if ( InformationClass == 3 )
     {
-      if ( a3 && a4 == 1 )
-        return EtwpUseDescriptorType(a1, a3);
-      return 87LL;
+      if ( EventInformation && InformationLength == 1 )
+        return EtwpUseDescriptorType(RegHandle, EventInformation);
+      return 87;
     }
-    if ( (_DWORD)a2 != 4 )
-      return 50LL;
+    if ( InformationClass != 4 )
+      return 50;
   }
-  if ( a4 )
-    return 87LL;
-  LOBYTE(a2) = (_DWORD)a2 == 4;
-  return EtwpTrackProviderBinary(a1, a2);
+  if ( InformationLength )
+    return 87;
+  LOBYTE(InformationClass) = InformationClass == 4;
+  return EtwpTrackProviderBinary(RegHandle, InformationClass);
 }

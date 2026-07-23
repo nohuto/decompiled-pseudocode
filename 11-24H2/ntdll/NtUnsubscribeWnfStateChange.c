@@ -1,16 +1,16 @@
 /*
- * XREFs of NtUnsubscribeWnfStateChange @ 0x180165880
+ * XREFs of NtUnsubscribeWnfStateChange @ 0x180163C40
  * Callers:
- *     RtlpDereferenceWnfNameSubscription @ 0x1800996E0 (RtlpDereferenceWnfNameSubscription.c)
+ *     RtlpDereferenceWnfNameSubscription @ 0x18002E530 (RtlpDereferenceWnfNameSubscription.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtUnsubscribeWnfStateChange()
+NTSTATUS __cdecl NtUnsubscribeWnfStateChange(PCWNF_STATE_NAME StateName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 480LL;
+  result = 480;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

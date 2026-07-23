@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMirrorVerify @ 0x1406285E0
+ * XREFs of MiMirrorVerify @ 0x140628B30
  * Callers:
- *     MmDuplicateMemory @ 0x140AAC84C (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140AAC6BC (MmDuplicateMemory.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiMirrorVerify(__int64 a1)

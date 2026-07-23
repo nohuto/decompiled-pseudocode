@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnParametersSetDefaults @ 0x140CCE37C
+ * XREFs of PfSnParametersSetDefaults @ 0x140CD44DC
  * Callers:
- *     PfpParametersInitialize @ 0x140CCE460 (PfpParametersInitialize.c)
+ *     PfpParametersInitialize @ 0x140CD45C0 (PfpParametersInitialize.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
  */
 
 NTSTATUS __fastcall PfSnParametersSetDefaults(__int64 a1)

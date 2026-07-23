@@ -1,22 +1,22 @@
 /*
- * XREFs of _PnpDispatchDeviceInterface @ 0x1408CCC00
+ * XREFs of _PnpDispatchDeviceInterface @ 0x1408CA5F0
  * Callers:
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectPropertyWorker @ 0x1408CD660 (_PnpGetObjectPropertyWorker.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1408CB050 (_PnpGetObjectPropertyWorker.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x14044D63C (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x14081BAFC (_CmGetMatchingDeviceInterfaceList.c)
- *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x14081E740 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x1408B1540 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408B640C (_CmGetDeviceInterfaceMappedPropertyKeys.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1408B6638 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B6960 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmValidateDeviceInterfaceName @ 0x1408C9D90 (_CmValidateDeviceInterfaceName.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmDeleteDeviceInterface @ 0x1409B3840 (_CmDeleteDeviceInterface.c)
- *     _CmCreateDeviceInterface @ 0x1409D3B38 (_CmCreateDeviceInterface.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x14044453C (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x14081C23C (_CmGetMatchingDeviceInterfaceList.c)
+ *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x14081EE80 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1408AEE34 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408B3D7C (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1408B3FA8 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B42D0 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1408C77C0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmDeleteDeviceInterface @ 0x1409AABD0 (_CmDeleteDeviceInterface.c)
+ *     _CmCreateDeviceInterface @ 0x1409C3968 (_CmCreateDeviceInterface.c)
  */
 
 __int64 __fastcall PnpDispatchDeviceInterface(_QWORD *a1, WCHAR *a2, __int64 a3, int a4, _DWORD *a5)
@@ -170,7 +170,7 @@ LABEL_15:
   {
     while ( (unsigned int)v8 < 3 )
     {
-      v25 = (__int64)*(&off_140B3B400 + 2 * (unsigned int)v8);
+      v25 = (__int64)*(&off_140B3D1B0 + 2 * (unsigned int)v8);
       if ( v25 && *(_DWORD *)(v23 + 16) == *(_DWORD *)(v25 + 16) )
       {
         v31 = *(_QWORD *)v23 - *(_QWORD *)v25;
@@ -197,7 +197,7 @@ LABEL_15:
     }
     for ( i = 0; i < 4; ++i )
     {
-      v29 = (__int64)*(&off_140B3BC30 + 2 * i);
+      v29 = (__int64)*(&off_140B3DA10 + 2 * i);
       if ( *(_DWORD *)(v23 + 16) == *(_DWORD *)(v29 + 16) )
       {
         v30 = *(_QWORD *)v23 - *(_QWORD *)v29;

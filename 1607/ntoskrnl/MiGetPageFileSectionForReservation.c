@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPageFileSectionForReservation @ 0x140115A88
+ * XREFs of MiGetPageFileSectionForReservation @ 0x140115FF8
  * Callers:
- *     MiReservePageFileSpace @ 0x14001E5D0 (MiReservePageFileSpace.c)
- *     MiBuildReservationCluster @ 0x14011603C (MiBuildReservationCluster.c)
+ *     MiReservePageFileSpace @ 0x14001E150 (MiReservePageFileSpace.c)
+ *     MiBuildReservationCluster @ 0x1401165AC (MiBuildReservationCluster.c)
  * Callees:
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiReferencePfBackedSection @ 0x14008FB80 (MiReferencePfBackedSection.c)
- *     MiReleasePageFileSectionInfo @ 0x140115B2C (MiReleasePageFileSectionInfo.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiReferencePfBackedSection @ 0x14008F2E0 (MiReferencePfBackedSection.c)
+ *     MiReleasePageFileSectionInfo @ 0x14011609C (MiReleasePageFileSectionInfo.c)
  */
 
 __int64 __fastcall MiGetPageFileSectionForReservation(unsigned __int64 a1, __int64 a2, int a3)

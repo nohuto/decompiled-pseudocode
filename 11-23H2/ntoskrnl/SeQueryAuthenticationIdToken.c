@@ -1,5 +1,5 @@
 /*
- * XREFs of SeQueryAuthenticationIdToken @ 0x1407BC890
+ * XREFs of SeQueryAuthenticationIdToken @ 0x1407BCB60
  * Callers:
  *     <none>
  * Callees:

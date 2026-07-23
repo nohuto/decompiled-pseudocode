@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReInitializeFreeSlabPfn @ 0x1403759EC
+ * XREFs of MiReInitializeFreeSlabPfn @ 0x14037553C
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x140375730 (MiFreePageToSlabAllocator.c)
- *     MiAllocateSlabEntry @ 0x140392868 (MiAllocateSlabEntry.c)
- *     MiGetSlabStandbyPage @ 0x1405530CC (MiGetSlabStandbyPage.c)
+ *     MiFreePageToSlabAllocator @ 0x140375280 (MiFreePageToSlabAllocator.c)
+ *     MiAllocateSlabEntry @ 0x1403929B8 (MiAllocateSlabEntry.c)
+ *     MiGetSlabStandbyPage @ 0x14055330C (MiGetSlabStandbyPage.c)
  * Callees:
- *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiSetPfnBlink @ 0x140322E80 (MiSetPfnBlink.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140334C80 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 unsigned __int64 __fastcall MiReInitializeFreeSlabPfn(__int64 a1, __int64 a2)

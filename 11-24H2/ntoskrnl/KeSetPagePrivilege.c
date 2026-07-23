@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSetPagePrivilege @ 0x14036C260
+ * XREFs of KeSetPagePrivilege @ 0x140492188
  * Callers:
- *     MiCopyPage @ 0x1402254C0 (MiCopyPage.c)
- *     MiMarkPfnVerified @ 0x140436D24 (MiMarkPfnVerified.c)
- *     MiAdjustSecureDriverStateForIatCapture @ 0x1404CBB68 (MiAdjustSecureDriverStateForIatCapture.c)
- *     MiLockDriverPageRange @ 0x14066AEB0 (MiLockDriverPageRange.c)
- *     MiProtectDriverSectionPte @ 0x14066B400 (MiProtectDriverSectionPte.c)
- *     ExpRevokeBootLoaderPagePrivileges @ 0x140C0AA10 (ExpRevokeBootLoaderPagePrivileges.c)
+ *     MiCopyPage @ 0x140252870 (MiCopyPage.c)
+ *     MiMarkPfnVerified @ 0x1404297A4 (MiMarkPfnVerified.c)
+ *     MiAdjustSecureDriverStateForIatCapture @ 0x1404C4FE4 (MiAdjustSecureDriverStateForIatCapture.c)
+ *     MiLockDriverPageRange @ 0x14066C080 (MiLockDriverPageRange.c)
+ *     MiProtectDriverSectionPte @ 0x14066C5D0 (MiProtectDriverSectionPte.c)
+ *     ExpRevokeBootLoaderPagePrivileges @ 0x140C0CA10 (ExpRevokeBootLoaderPagePrivileges.c)
  * Callees:
- *     VslRemoveProtectedPage @ 0x14026638C (VslRemoveProtectedPage.c)
- *     VslMakeProtectedPageExecutable @ 0x14036C2C0 (VslMakeProtectedPageExecutable.c)
- *     VslSetPrivilegedPte @ 0x14036C358 (VslSetPrivilegedPte.c)
- *     VslRegisterProtectedPage @ 0x1404F88B4 (VslRegisterProtectedPage.c)
+ *     VslRemoveProtectedPage @ 0x1403A9AF4 (VslRemoveProtectedPage.c)
+ *     VslMakeProtectedPageExecutable @ 0x1404921E8 (VslMakeProtectedPageExecutable.c)
+ *     VslSetPrivilegedPte @ 0x140492280 (VslSetPrivilegedPte.c)
+ *     VslRegisterProtectedPage @ 0x1404F6194 (VslRegisterProtectedPage.c)
  */
 
 __int64 __fastcall KeSetPagePrivilege(__int64 a1, __int64 a2, __int128 *a3, unsigned int a4)

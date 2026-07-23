@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSetSystemPowerState()
+NTSTATUS __cdecl ZwSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER_STATE LightestSystemState, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 399LL;
+  result = 399;
   __asm { syscall; Low latency system call }
   return result;
 }

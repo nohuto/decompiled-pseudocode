@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReleaseWriteInProgressCharges @ 0x14043A500
+ * XREFs of MiReleaseWriteInProgressCharges @ 0x14042CD34
  * Callers:
- *     MiAddPageToInsertList @ 0x1402F2180 (MiAddPageToInsertList.c)
- *     MiBuildMappedCluster @ 0x14036ABB8 (MiBuildMappedCluster.c)
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
- *     MiGatherPagefilePages @ 0x14039C8C8 (MiGatherPagefilePages.c)
- *     MiFreeModWriterEntry @ 0x14043A49C (MiFreeModWriterEntry.c)
+ *     MiAddPageToInsertList @ 0x140257CC0 (MiAddPageToInsertList.c)
+ *     MiBuildMappedCluster @ 0x1402EC958 (MiBuildMappedCluster.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
+ *     MiGatherPagefilePages @ 0x1402F9BC8 (MiGatherPagefilePages.c)
+ *     MiFreeModWriterEntry @ 0x14042CCD0 (MiFreeModWriterEntry.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     MiSignalCommitSignals @ 0x14028F200 (MiSignalCommitSignals.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiRestockOverCommit @ 0x14043A6C0 (MiRestockOverCommit.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     MiSignalCommitSignals @ 0x14029EE00 (MiSignalCommitSignals.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRestockOverCommit @ 0x14042CEF4 (MiRestockOverCommit.c)
  */
 
 void __fastcall MiReleaseWriteInProgressCharges(__int64 a1, unsigned __int64 a2, int a3)

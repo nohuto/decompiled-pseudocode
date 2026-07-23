@@ -1,13 +1,13 @@
 /*
- * XREFs of KeCleanupThreadState @ 0x140444DEC
+ * XREFs of KeCleanupThreadState @ 0x14043CF94
  * Callers:
- *     PspThreadDelete @ 0x140AD1250 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x140ACF4E0 (PspThreadDelete.c)
  * Callees:
- *     KeFlushQueuedDpcs @ 0x140204EA0 (KeFlushQueuedDpcs.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402A1A20 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiAbCleanupLockEntriesState @ 0x140444ED4 (KiAbCleanupLockEntriesState.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1402D1150 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KeFlushQueuedDpcs @ 0x14032C480 (KeFlushQueuedDpcs.c)
+ *     KiAbCleanupLockEntriesState @ 0x14043D07C (KiAbCleanupLockEntriesState.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)

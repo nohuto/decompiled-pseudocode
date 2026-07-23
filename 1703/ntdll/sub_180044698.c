@@ -21,23 +21,23 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-__int64 __fastcall sub_180044698(char *a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src, char a6)
+__int64 __fastcall sub_180044698(PACL Acl, unsigned int a2, int a3, int a4, unsigned __int8 *Sid, BYTE a6)
 {
-  unsigned __int8 v10; // bp
+  BYTE AclRevision; // bp
   unsigned int v11; // eax
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // rcx
+  PACL v12; // rdx
+  PACL v13; // rcx
   unsigned int v14; // r8d
-  unsigned __int64 v15; // r9
-  unsigned __int16 v16; // r8
+  ACL *v15; // r9
+  WORD v16; // r8
 
-  if ( !(unsigned __int8)RtlValidSid(Src) )
+  if ( !RtlValidSid(Sid) )
     return 3221225592LL;
-  if ( (unsigned __int8)*a1 > 4u || a2 > 4 )
+  if ( Acl->AclRevision > 4u || a2 > 4 )
     return 3221225561LL;
-  v10 = a2;
-  if ( (unsigned __int8)*a1 > (unsigned __int8)a2 )
-    v10 = *a1;
+  AclRevision = a2;
+  if ( Acl->AclRevision > (unsigned __int8)a2 )
+    AclRevision = Acl->AclRevision;
   v11 = a3 & 0xFFFFFFE0;
   if ( (a3 & 0xFFFFFFE0) != 0 )
   {
@@ -46,35 +46,35 @@ __int64 __fastcall sub_180044698(char *a1, unsigned int a2, int a3, int a4, unsi
     if ( v11 )
       return 3221225485LL;
   }
-  if ( !(unsigned __int8)RtlValidAcl(a1) )
+  if ( !RtlValidAcl(Acl) )
     return 3221225591LL;
-  v12 = (unsigned __int64)(a1 + 8);
+  v12 = Acl + 1;
   v13 = 0LL;
   v14 = 0;
-  if ( *((_WORD *)a1 + 2) )
+  if ( Acl->AceCount )
   {
-    while ( v12 < (unsigned __int64)&a1[*((unsigned __int16 *)a1 + 1)] )
+    while ( v12 < (PACL)((char *)Acl + Acl->AclSize) )
     {
       ++v14;
-      v12 += *(unsigned __int16 *)(v12 + 2);
-      if ( v14 >= *((unsigned __int16 *)a1 + 2) )
+      v12 = (PACL)((char *)v12 + v12->AclSize);
+      if ( v14 >= Acl->AceCount )
         goto LABEL_9;
     }
     return 3221225591LL;
   }
 LABEL_9:
-  v15 = (unsigned __int64)&a1[*((unsigned __int16 *)a1 + 1)];
+  v15 = (PACL)((char *)Acl + Acl->AclSize);
   if ( v12 <= v15 )
     v13 = v12;
-  v16 = 4 * (Src[1] + 4);
-  if ( !v13 || v13 + v16 > v15 )
+  v16 = 4 * (Sid[1] + 4);
+  if ( !v13 || (PACL)((char *)v13 + v16) > v15 )
     return 3221225625LL;
-  *(_WORD *)(v13 + 2) = v16;
-  *(_BYTE *)(v13 + 1) = a3;
-  *(_BYTE *)v13 = a6;
-  *(_DWORD *)(v13 + 4) = a4;
-  memmove((void *)(v13 + 8), Src, 4 * (unsigned int)Src[1] + 8);
-  *a1 = v10;
-  ++*((_WORD *)a1 + 2);
+  v13->AclSize = v16;
+  v13->Sbz1 = a3;
+  v13->AclRevision = a6;
+  *(_DWORD *)&v13->AceCount = a4;
+  memmove(&v13[1], Sid, 4 * (unsigned int)Sid[1] + 8);
+  Acl->AclRevision = AclRevision;
+  ++Acl->AceCount;
   return 0LL;
 }

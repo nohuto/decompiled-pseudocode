@@ -1,21 +1,21 @@
 /*
- * XREFs of IoVerifyVolume @ 0x140B47540
+ * XREFs of IoVerifyVolume @ 0x140B49570
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     IopQueueThreadIrp @ 0x14032F090 (IopQueueThreadIrp.c)
- *     IopDecrementVpbRefCount @ 0x1403EB430 (IopDecrementVpbRefCount.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IopDereferenceVpbAndFree @ 0x140469EB0 (IopDereferenceVpbAndFree.c)
- *     IopReferenceVerifyVpb @ 0x1404FE4D0 (IopReferenceVerifyVpb.c)
- *     IopMountVolume @ 0x140B1E87C (IopMountVolume.c)
- *     PoVolumeDevice @ 0x140B52CC8 (PoVolumeDevice.c)
- *     IopCreateVpb @ 0x140B63D74 (IopCreateVpb.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     IopDecrementVpbRefCount @ 0x1402FB760 (IopDecrementVpbRefCount.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IopQueueThreadIrp @ 0x1403310C0 (IopQueueThreadIrp.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IopDereferenceVpbAndFree @ 0x140463630 (IopDereferenceVpbAndFree.c)
+ *     IopReferenceVerifyVpb @ 0x1404F7A80 (IopReferenceVerifyVpb.c)
+ *     IopMountVolume @ 0x140B208FC (IopMountVolume.c)
+ *     PoVolumeDevice @ 0x140B55568 (PoVolumeDevice.c)
+ *     IopCreateVpb @ 0x140B66E14 (IopCreateVpb.c)
  */
 
 NTSTATUS __stdcall IoVerifyVolume(PDEVICE_OBJECT DeviceObject, BOOLEAN AllowRawMount)
@@ -36,34 +36,36 @@ NTSTATUS __stdcall IoVerifyVolume(PDEVICE_OBJECT DeviceObject, BOOLEAN AllowRawM
   __int64 v17; // rdx
   __int64 v18; // r8
   __int64 v19; // rdx
-  __int128 v21; // [rsp+30h] [rbp-30h] BYREF
+  __int64 v20; // r8
+  __int64 v21; // r9
+  __int128 v23; // [rsp+30h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v23; // [rsp+A0h] [rbp+40h] BYREF
+  __int64 v25; // [rsp+A0h] [rbp+40h] BYREF
   PDEVICE_OBJECT DeviceObjecta; // [rsp+B0h] [rbp+50h] BYREF
 
   p_DeviceLock = &DeviceObject->DeviceLock;
   memset(&Event, 0, sizeof(Event));
-  v21 = 0LL;
+  v23 = 0LL;
   CurrentThread = KeGetCurrentThread();
   DeviceObjecta = 0LL;
-  v23 = 0LL;
+  v25 = 0LL;
   --CurrentThread->KernelApcDisable;
   KeWaitForSingleObject(&DeviceObject->DeviceLock, Executive, 0, 0, 0LL);
-  if ( !IopReferenceVerifyVpb((__int64)DeviceObject, (ULONG_PTR *)&v23, &DeviceObjecta) )
+  if ( !IopReferenceVerifyVpb((__int64)DeviceObject, (ULONG_PTR *)&v25, &DeviceObjecta) )
   {
     v6 = 0;
 LABEL_11:
     if ( (int)IopCreateVpb(DeviceObject) < 0
       || (PoVolumeDevice(DeviceObject),
-          v23 = 0LL,
-          (int)IopMountVolume(DeviceObject, AllowRawMount, 1, 0, (ULONG_PTR *)&v23) < 0) )
+          v25 = 0LL,
+          (int)IopMountVolume(DeviceObject, AllowRawMount, 1, 0, (ULONG_PTR *)&v25) < 0) )
     {
       DeviceObject->Flags &= ~2u;
     }
-    else if ( v23 )
+    else if ( v25 )
     {
       LOBYTE(v19) = 1;
-      IopDecrementVpbRefCount(v23, v19);
+      IopDecrementVpbRefCount(v25, v19, v20, v21);
     }
 LABEL_16:
     KeSetEvent(p_DeviceLock, 0, 0);
@@ -80,10 +82,10 @@ LABEL_16:
   if ( Irp )
   {
     *(_BYTE *)(Irp + 64) = 0;
-    v15 = v23;
+    v15 = v25;
     *(_DWORD *)(Irp + 16) = 66;
     *(_QWORD *)(Irp + 80) = &Event;
-    *(_QWORD *)(Irp + 72) = &v21;
+    *(_QWORD *)(Irp + 72) = &v23;
     v16 = *(_QWORD *)(Irp + 184);
     *(_QWORD *)(Irp + 152) = KeGetCurrentThread();
     *(_WORD *)(v16 - 72) = 525;
@@ -95,14 +97,14 @@ LABEL_16:
     if ( v6 == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      v6 = v21;
+      v6 = v23;
     }
     IopDereferenceVpbAndFree(v15, v17, v18);
     if ( v6 != -1073741806 )
       goto LABEL_16;
     goto LABEL_11;
   }
-  IopDereferenceVpbAndFree(v23, v12, v13);
+  IopDereferenceVpbAndFree(v25, v12, v13);
   KeSetEvent(p_DeviceLock, 0, 0);
   v6 = -1073741670;
 LABEL_17:

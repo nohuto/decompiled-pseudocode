@@ -14,14 +14,14 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-_QWORD *__fastcall sub_180009940(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
+_QWORD *__fastcall sub_180009940(PRTL_SRWLOCK SRWLock, size_t Size, unsigned int a3, unsigned int a4)
 {
   size_t v4; // r12
   unsigned int v5; // r13d
   unsigned int v7; // r15d
   int v8; // ebp
   __int64 i; // rax
-  unsigned __int64 v10; // rdi
+  unsigned __int64 Ptr; // rdi
   int v11; // ebx
   _QWORD *v12; // r14
   int v13; // eax
@@ -35,66 +35,66 @@ _QWORD *__fastcall sub_180009940(__int64 a1, unsigned int a2, unsigned int a3, u
   unsigned __int64 v21; // rdx
   _QWORD *v22; // rbx
   unsigned __int64 v23; // rcx
-  _QWORD *v25; // rbx
-  _QWORD *v26; // rcx
+  _RTL_SRWLOCK *v25; // rbx
+  PRTL_SRWLOCK *v26; // rcx
 
-  v4 = a2;
+  v4 = (unsigned int)Size;
   v5 = a3 + 2;
-  if ( a2 == a3 )
+  if ( (_DWORD)Size == a3 )
     v5 = a3;
   v7 = (v5 + 15) >> 4;
   v8 = a4 & 1;
   if ( (a4 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1);
+    RtlAcquireSRWLockExclusive(SRWLock);
   for ( i = (v7 + 1) << 16; ; i = (v7 + 1) << 16 )
   {
-    v10 = *(_QWORD *)(a1 + 8);
-    v11 = *(_BYTE *)(a1 + 16) & 1;
+    Ptr = (unsigned __int64)SRWLock[1].Ptr;
+    v11 = (__int64)SRWLock[2].Ptr & 1;
     v12 = 0LL;
-    while ( v10 )
+    while ( Ptr )
     {
-      v13 = sub_18002CBD0(i, v10);
+      v13 = sub_18002CBD0(i, Ptr);
       if ( !v13 )
         goto LABEL_16;
       if ( v13 < 0 )
       {
-        v14 = *(_QWORD *)v10;
-        v12 = (_QWORD *)v10;
+        v14 = *(_QWORD *)Ptr;
+        v12 = (_QWORD *)Ptr;
       }
       else
       {
-        v14 = *(_QWORD *)(v10 + 8);
+        v14 = *(_QWORD *)(Ptr + 8);
       }
       if ( v11 && v14 )
-        v10 ^= v14;
+        Ptr ^= v14;
       else
-        v10 = v14;
+        Ptr = v14;
       i = (v7 + 1) << 16;
     }
-    v10 = (unsigned __int64)v12;
+    Ptr = (unsigned __int64)v12;
 LABEL_16:
-    if ( v10 )
+    if ( Ptr )
       break;
     if ( !v8 )
-      RtlReleaseSRWLockExclusive(a1);
-    v25 = (_QWORD *)sub_180009E2C(a1, v5, a4);
+      RtlReleaseSRWLockExclusive(SRWLock);
+    v25 = (_RTL_SRWLOCK *)sub_180009E2C(SRWLock, v5, a4);
     if ( !v25 )
       return 0LL;
     if ( !v8 )
-      RtlAcquireSRWLockExclusive(a1);
-    if ( (*(_DWORD *)(a1 + 104) & 0x8000000) == 0 )
+      RtlAcquireSRWLockExclusive(SRWLock);
+    if ( ((__int64)SRWLock[13].Ptr & 0x8000000) == 0 )
     {
-      v26 = *(_QWORD **)(a1 + 32);
-      if ( *v26 != a1 + 24 )
+      v26 = (PRTL_SRWLOCK *)SRWLock[4].Ptr;
+      if ( *v26 != &SRWLock[3] )
         __fastfail(3u);
-      *v25 = a1 + 24;
-      v25[1] = v26;
+      v25->Ptr = &SRWLock[3];
+      v25[1].Ptr = v26;
       *v26 = v25;
-      *(_QWORD *)(a1 + 32) = v25;
+      SRWLock[4].Ptr = v25;
     }
-    sub_180009BD0(a1, v25, v25 + 6);
+    sub_180009BD0(SRWLock, v25, &v25[6]);
   }
-  v15 = (_QWORD *)(v10 - 8);
+  v15 = (_QWORD *)(Ptr - 8);
   v16 = v15;
   v17 = HIDWORD(*v15);
   v18 = v17 ^ HIDWORD(v15) ^ HIDWORD(qword_18015BFA8);
@@ -116,7 +116,7 @@ LABEL_21:
   v21 = ((unsigned __int64)v16 - (unsigned int)(v20 << 12)) & 0xFFFFFFFFFFFFF000uLL;
   if ( (*(_WORD *)(v21 + 34) ^ 0xABED) == *(_WORD *)(v21 + 32) )
   {
-    if ( (unsigned int)sub_180029050(a1, v21, (_DWORD)v15, v7 + 1, a4) )
+    if ( (unsigned int)sub_180029050((_DWORD)SRWLock, v21, (_DWORD)v15, v7 + 1, a4) )
     {
       v22 = v15 + 2;
       v23 = 16 * ((WORD1(qword_18015BFA8) ^ ((unsigned int)v15 >> 16) ^ *((unsigned __int16 *)v15 + 1)) - 1);
@@ -139,7 +139,7 @@ LABEL_21:
         }
       }
       if ( !v8 )
-        RtlReleaseSRWLockExclusive(a1);
+        RtlReleaseSRWLockExclusive(SRWLock);
       if ( (a4 & 2) != 0 )
         memset(v15 + 2, 0, v4);
       return v22;
@@ -147,10 +147,10 @@ LABEL_21:
   }
   else
   {
-    sub_1800A4DFC(17, *(_QWORD *)(a1 + 56), v21, (_DWORD)v15, 0LL, 0LL);
+    sub_1800A4DFC(17, SRWLock[7].Ptr, v21, (_DWORD)v15, 0LL, 0LL);
   }
   v22 = 0LL;
   if ( !v8 )
-    RtlReleaseSRWLockExclusive(a1);
+    RtlReleaseSRWLockExclusive(SRWLock);
   return v22;
 }

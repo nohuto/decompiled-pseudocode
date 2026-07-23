@@ -2,17 +2,17 @@
  * XREFs of PerfLogImageUnload @ 0x140697438
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiUnmapViewOfSection @ 0x14071EFC0 (MiUnmapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x14071F1C0 (MiUnmapViewOfSection.c)
  * Callees:
  *     EtwpTraceImageUnload @ 0x140211D68 (EtwpTraceImageUnload.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
  *     KeAreAllApcsDisabled @ 0x140215000 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     EtwpCoverageSamplerUnloadImage @ 0x1409F398C (EtwpCoverageSamplerUnloadImage.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     EtwpCoverageSamplerUnloadImage @ 0x1409F3C1C (EtwpCoverageSamplerUnloadImage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -21,16 +21,16 @@ void __fastcall PerfLogImageUnload(
         unsigned __int16 *a1,
         void *a2,
         __int64 a3,
-        __int64 a4,
+        void *a4,
         __int64 a5,
-        int a6,
+        int CheckSum,
         int a7,
         int a8,
         unsigned int a9)
 {
-  __int64 v13; // rbx
-  int v14; // edi
-  __int64 v15; // rax
+  __int64 ImageBase; // rbx
+  int TimeDateStamp; // edi
+  PIMAGE_NT_HEADERS v15; // rax
   __int64 Pool2; // rsi
   __int64 v17; // rdx
   int v18; // eax
@@ -40,11 +40,11 @@ void __fastcall PerfLogImageUnload(
   __int64 v22; // [rsp+60h] [rbp-58h] BYREF
   _OWORD v23[5]; // [rsp+68h] [rbp-50h] BYREF
 
-  v13 = 0LL;
+  ImageBase = 0LL;
   v21 = 0LL;
   v23[0] = 0LL;
   v22 = 0LL;
-  v14 = 0;
+  TimeDateStamp = 0;
   v20 = 0;
   if ( EtwpHostSiloState != -4572 && (*(_DWORD *)(EtwpHostSiloState + 4572) & 4) != 0 )
     EtwpCoverageSamplerUnloadImage(a3, a4, a5);
@@ -53,11 +53,11 @@ void __fastcall PerfLogImageUnload(
     v15 = RtlImageNtHeader(a4);
     if ( v15 )
     {
-      a6 = *(_DWORD *)(v15 + 88);
-      v14 = *(_DWORD *)(v15 + 8);
-      v20 = v14;
-      v13 = *(_QWORD *)(v15 + 48);
-      v21 = v13;
+      CheckSum = v15->OptionalHeader.CheckSum;
+      TimeDateStamp = v15->FileHeader.TimeDateStamp;
+      v20 = TimeDateStamp;
+      ImageBase = v15->OptionalHeader.ImageBase;
+      v21 = ImageBase;
     }
   }
   if ( a2 )
@@ -72,11 +72,11 @@ void __fastcall PerfLogImageUnload(
         *(_QWORD *)(Pool2 + 96) = a3;
         *(_QWORD *)(Pool2 + 104) = a4;
         *(_QWORD *)(Pool2 + 112) = a5;
-        *(_DWORD *)(Pool2 + 120) = a6;
-        *(_DWORD *)(Pool2 + 124) = v14;
+        *(_DWORD *)(Pool2 + 120) = CheckSum;
+        *(_DWORD *)(Pool2 + 124) = TimeDateStamp;
         *(_DWORD *)(Pool2 + 128) = a7;
         *(_DWORD *)(Pool2 + 132) = a8;
-        *(_QWORD *)(Pool2 + 136) = v13;
+        *(_QWORD *)(Pool2 + 136) = ImageBase;
         KeInitializeApc(
           Pool2,
           (__int64)KeGetCurrentThread(),
@@ -90,8 +90,8 @@ void __fastcall PerfLogImageUnload(
           return;
         ExFreePoolWithTag((PVOID)Pool2, 0);
         ObfDereferenceObject(a2);
-        v13 = v21;
-        v14 = v20;
+        ImageBase = v21;
+        TimeDateStamp = v20;
       }
       v17 = 512LL;
     }
@@ -108,7 +108,7 @@ void __fastcall PerfLogImageUnload(
       a1 = v19;
     }
   }
-  EtwpTraceImageUnload(a1, a3, a4, a5, a6, v14, a7, a8, v13, a9);
+  EtwpTraceImageUnload(a1, a3, (__int64)a4, a5, CheckSum, TimeDateStamp, a7, a8, ImageBase, a9);
   if ( v22 )
     (*(void (**)(void))(FltMgrCallbacks + 32))();
 }

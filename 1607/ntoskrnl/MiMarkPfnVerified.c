@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMarkPfnVerified @ 0x14010A2D4
+ * XREFs of MiMarkPfnVerified @ 0x140108054
  * Callers:
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
- *     MiValidateInPage @ 0x1400267B0 (MiValidateInPage.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiRevertValidPte @ 0x1400E17F0 (MiRevertValidPte.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiCompleteSecureProcessFault @ 0x1401EF744 (MiCompleteSecureProcessFault.c)
- *     MmChangeImageProtection @ 0x140483178 (MmChangeImageProtection.c)
- *     MiValidateImagePfn @ 0x14052685C (MiValidateImagePfn.c)
- *     MiFillPerSessionProtos @ 0x140661E34 (MiFillPerSessionProtos.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
+ *     MiValidateInPage @ 0x140026330 (MiValidateInPage.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiRevertValidPte @ 0x1400DF690 (MiRevertValidPte.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiCompleteSecureProcessFault @ 0x1401EF570 (MiCompleteSecureProcessFault.c)
+ *     MmChangeImageProtection @ 0x140481ECC (MmChangeImageProtection.c)
+ *     MiValidateImagePfn @ 0x1405098BC (MiValidateImagePfn.c)
+ *     MiFillPerSessionProtos @ 0x140661F18 (MiFillPerSessionProtos.c)
  *     MiInitializeBootLoadedDriverPfns @ 0x1407A5FDC (MiInitializeBootLoadedDriverPfns.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiGetPagePrivilege @ 0x1400E3730 (MiGetPagePrivilege.c)
- *     KeSetPagePrivilege @ 0x140146DA4 (KeSetPagePrivilege.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiGetPagePrivilege @ 0x1400E15D0 (MiGetPagePrivilege.c)
+ *     KeSetPagePrivilege @ 0x140147314 (KeSetPagePrivilege.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
  */
 
 char __fastcall MiMarkPfnVerified(__int64 a1, char a2)

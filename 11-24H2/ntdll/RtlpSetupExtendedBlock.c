@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpSetupExtendedBlock @ 0x1800DF090
+ * XREFs of RtlpSetupExtendedBlock @ 0x1800DA200
  * Callers:
- *     RtlpReAllocateHeapInternal @ 0x1800A1040 (RtlpReAllocateHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x18005AF10 (RtlpReAllocateHeapInternal.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlpAnalyzeHeapFailure @ 0x18002F740 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x18000F2D0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
  */
 
 __int64 __fastcall RtlpSetupExtendedBlock(
-        __int64 a1,
+        unsigned __int64 a1,
         unsigned __int8 a2,
         __int64 a3,
         __int64 a4,
@@ -84,7 +84,7 @@ LABEL_6:
   }
   if ( ((*(_BYTE *)(a1 + 116) | a2) & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
     v8 = 1;
   }
   if ( *(_DWORD *)(a1 + 124) )
@@ -107,6 +107,6 @@ LABEL_6:
   *(_WORD *)(v10 - 4) = a5 + v17;
   *(_DWORD *)(v10 - 8) = a6;
   if ( v8 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return v10;
 }

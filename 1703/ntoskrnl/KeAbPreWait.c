@@ -17,13 +17,13 @@
  *     KiAbEntryRemoveFromTree @ 0x140048030 (KiAbEntryRemoveFromTree.c)
  */
 
-char __fastcall KeAbPreWait(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall KeAbPreWait(__int64 a1, __int64 a2)
 {
   char result; // al
 
   *(_BYTE *)(a1 + 32) |= 2u;
   if ( *(__int64 *)(a1 + 32) < 0 )
-    KiAbEntryRemoveFromTree(a1, a2, a3);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a1, a2);
   *(_BYTE *)(a1 + 25) |= 1u;
   result = *(_BYTE *)(a1 + 32) & 0xFD;
   *(_BYTE *)(a1 + 32) = result;

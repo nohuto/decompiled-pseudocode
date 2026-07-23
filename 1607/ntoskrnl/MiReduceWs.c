@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReduceWs @ 0x1400B1DE0
+ * XREFs of MiReduceWs @ 0x1400AFD20
  * Callers:
- *     MiPreUnlockWorkingSetExclusive @ 0x1401F2A6C (MiPreUnlockWorkingSetExclusive.c)
+ *     MiPreUnlockWorkingSetExclusive @ 0x1401F2898 (MiPreUnlockWorkingSetExclusive.c)
  * Callees:
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
  */
 
 void __fastcall MiReduceWs(ULONG_PTR a1, char a2, unsigned __int64 a3)

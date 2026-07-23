@@ -1,14 +1,14 @@
 /*
- * XREFs of IoBuildSynchronousFsdRequest @ 0x1404CDF10
+ * XREFs of IoBuildSynchronousFsdRequest @ 0x14050E5A8
  * Callers:
  *     IoShutdownSystem @ 0x1403D9EDC (IoShutdownSystem.c)
  *     IopShutdownBaseFileSystems @ 0x1403DA1F0 (IopShutdownBaseFileSystems.c)
- *     PnpQueryInterface @ 0x1404CDDFC (PnpQueryInterface.c)
- *     IopCreateArcName @ 0x14054FC84 (IopCreateArcName.c)
- *     RawQueryFileSystemInformation @ 0x1406834A4 (RawQueryFileSystemInformation.c)
+ *     PnpQueryInterface @ 0x14050E494 (PnpQueryInterface.c)
+ *     IopCreateArcName @ 0x1405501C4 (IopCreateArcName.c)
+ *     RawQueryFileSystemInformation @ 0x140683588 (RawQueryFileSystemInformation.c)
  *     IopCreateArcNamesCd @ 0x140798420 (IopCreateArcNamesCd.c)
  * Callees:
- *     IopBuildSynchronousFsdRequest @ 0x1404CDF48 (IopBuildSynchronousFsdRequest.c)
+ *     IopBuildSynchronousFsdRequest @ 0x14050E5E0 (IopBuildSynchronousFsdRequest.c)
  */
 
 PIRP __stdcall IoBuildSynchronousFsdRequest(

@@ -1,5 +1,5 @@
 /*
- * XREFs of isspace @ 0x180127C80
+ * XREFs of isspace @ 0x1801279F0
  * Callers:
  *     <none>
  * Callees:
@@ -13,5 +13,5 @@ int __cdecl isspace(int C)
   v1 = (unsigned __int8)C;
   if ( C == -1 )
     v1 = -1;
-  return off_1801C5150[v1] & 8;
+  return off_1801C4150[v1] & 8;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of CarReportDifPluginRuleViolation @ 0x140617240
+ * XREFs of CarReportDifPluginRuleViolation @ 0x140615800
  * Callers:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     CarHandleEtwEvent @ 0x140615FAC (CarHandleEtwEvent.c)
- *     CarCopyRuleViolationDetails @ 0x140616580 (CarCopyRuleViolationDetails.c)
- *     CarCreateRuleViolationDetails @ 0x140616760 (CarCreateRuleViolationDetails.c)
- *     CarDeleteRuleViolationDetails @ 0x140616800 (CarDeleteRuleViolationDetails.c)
- *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x14061696C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
- *     CarInitializeTelemetryData @ 0x140616BA0 (CarInitializeTelemetryData.c)
- *     CarQueryReportActionForTriage @ 0x140616E00 (CarQueryReportActionForTriage.c)
- *     CarInitiateBugcheck @ 0x140619AA0 (CarInitiateBugcheck.c)
- *     CarWriteLivedump @ 0x140619D14 (CarWriteLivedump.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfUtilGetSigningLevel @ 0x140B833C0 (VfUtilGetSigningLevel.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     CarHandleEtwEvent @ 0x14061456C (CarHandleEtwEvent.c)
+ *     CarCopyRuleViolationDetails @ 0x140614B40 (CarCopyRuleViolationDetails.c)
+ *     CarCreateRuleViolationDetails @ 0x140614D20 (CarCreateRuleViolationDetails.c)
+ *     CarDeleteRuleViolationDetails @ 0x140614DC0 (CarDeleteRuleViolationDetails.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x140614F2C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     CarInitializeTelemetryData @ 0x140615160 (CarInitializeTelemetryData.c)
+ *     CarQueryReportActionForTriage @ 0x1406153C0 (CarQueryReportActionForTriage.c)
+ *     CarInitiateBugcheck @ 0x140618060 (CarInitiateBugcheck.c)
+ *     CarWriteLivedump @ 0x1406182D4 (CarWriteLivedump.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfUtilGetSigningLevel @ 0x140B853C0 (VfUtilGetSigningLevel.c)
  */
 
 __int64 __fastcall CarReportDifPluginRuleViolation(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -26,14 +26,14 @@ __int64 __fastcall CarReportDifPluginRuleViolation(__int64 a1, unsigned int a2, 
   int v9; // r15d
   unsigned int v10; // esi
   __int64 *RuleClassConfigurationEntryByRuleClassId; // rax
-  const wchar_t ***v12; // r14
+  unsigned __int16 **v12; // r14
   const CHAR *v13; // rbp
   __int64 Pool2; // rax
   wchar_t *v15; // rdi
-  const wchar_t ***v16; // r14
+  unsigned __int16 **v16; // r14
   __int64 v18[9]; // [rsp+40h] [rbp-48h] BYREF
   int v19; // [rsp+A0h] [rbp+18h]
-  const wchar_t ***v20; // [rsp+A8h] [rbp+20h] BYREF
+  unsigned __int16 **v20; // [rsp+A8h] [rbp+20h] BYREF
 
   v18[0] = 0LL;
   v20 = 0LL;
@@ -89,7 +89,7 @@ __int64 __fastcall CarReportDifPluginRuleViolation(__int64 a1, unsigned int a2, 
           RuleViolationDetails = CarQueryReportActionForTriage(v9, v10, v18);
           if ( RuleViolationDetails >= 0 )
           {
-            Pool2 = ExAllocatePool2(0x40uLL);
+            Pool2 = ExAllocatePool2(0x40uLL, 0x550uLL, 0x4E726143u);
             v15 = (wchar_t *)Pool2;
             if ( Pool2 )
             {
@@ -111,19 +111,19 @@ __int64 __fastcall CarReportDifPluginRuleViolation(__int64 a1, unsigned int a2, 
             v16 = v20;
             if ( _InterlockedCompareExchange(&CarIsViolationSnapshotTaken, 1, 0) != 1 )
             {
-              dword_140F01FC8 = v9;
-              dword_140F01FCC = v10;
+              dword_140F022A8 = v9;
+              dword_140F022AC = v10;
               if ( v20 )
               {
-                qword_140F01FD0 = (__int64)*v20;
-                qword_140F01FD8 = (__int64)v20[1];
-                qword_140F01FE0 = (__int64)v20[2];
+                qword_140F022B0 = (__int64)*v20;
+                qword_140F022B8 = (__int64)v20[1];
+                qword_140F022C0 = (__int64)v20[2];
               }
               else
               {
-                qword_140F01FD0 = 0LL;
-                qword_140F01FD8 = 0LL;
-                qword_140F01FE0 = 0LL;
+                qword_140F022B0 = 0LL;
+                qword_140F022B8 = 0LL;
+                qword_140F022C0 = 0LL;
               }
               RtlStringCchCopyW(&pszDest, 0x20uLL, v15 + 2);
             }

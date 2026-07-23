@@ -1,34 +1,34 @@
 /*
- * XREFs of MmDuplicateMemory @ 0x14099525C
+ * XREFs of MmDuplicateMemory @ 0x14099625C
  * Callers:
- *     MmCreateMirror @ 0x1408C7310 (MmCreateMirror.c)
- *     PopTransitionToSleep @ 0x1409950D0 (PopTransitionToSleep.c)
- *     IopLiveDumpCaptureMemoryPages @ 0x1409AB964 (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x1409AC28C (IopLiveDumpEstimateMemoryPages.c)
- *     PnprInitiateReplaceOperation @ 0x1409AD7FC (PnprInitiateReplaceOperation.c)
+ *     MmCreateMirror @ 0x1408C7470 (MmCreateMirror.c)
+ *     PopTransitionToSleep @ 0x1409960D0 (PopTransitionToSleep.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1409AC894 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AD1BC (IopLiveDumpEstimateMemoryPages.c)
+ *     PnprInitiateReplaceOperation @ 0x1409AE72C (PnprInitiateReplaceOperation.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x1402AC034 (MiUnlockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryExclusive @ 0x1402AC3F4 (MiLockDynamicMemoryExclusive.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MmUnlockPagableImageSection @ 0x14031AA10 (MmUnlockPagableImageSection.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiLockAllMemoryLists @ 0x14038415C (MiLockAllMemoryLists.c)
- *     MiUnlockAllMemoryLists @ 0x140384198 (MiUnlockAllMemoryLists.c)
- *     MiResumeFromHibernate @ 0x1403841D0 (MiResumeFromHibernate.c)
- *     MiMirrorVerify @ 0x14038432C (MiMirrorVerify.c)
- *     CcNotifyWriteBehind @ 0x140384670 (CcNotifyWriteBehind.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1402745E0 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryExclusive @ 0x1402749A0 (MiLockDynamicMemoryExclusive.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MmUnlockPagableImageSection @ 0x140325760 (MmUnlockPagableImageSection.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiLockAllMemoryLists @ 0x1403842AC (MiLockAllMemoryLists.c)
+ *     MiUnlockAllMemoryLists @ 0x1403842E8 (MiUnlockAllMemoryLists.c)
+ *     MiResumeFromHibernate @ 0x140384320 (MiResumeFromHibernate.c)
+ *     MiMirrorVerify @ 0x14038447C (MiMirrorVerify.c)
+ *     CcNotifyWriteBehind @ 0x1403847C0 (CcNotifyWriteBehind.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiMirrorBlackPhase @ 0x1403F4064 (MiMirrorBlackPhase.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MmLockPagableSectionByHandle @ 0x1406EF0C0 (MmLockPagableSectionByHandle.c)
- *     MiUpdateMirrorBitmaps @ 0x1407775F4 (MiUpdateMirrorBitmaps.c)
- *     MiActOnMirrorBitmap @ 0x140777634 (MiActOnMirrorBitmap.c)
- *     MiMirrorBrownPhase @ 0x14099568C (MiMirrorBrownPhase.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MmLockPagableSectionByHandle @ 0x1407064A0 (MmLockPagableSectionByHandle.c)
+ *     MiUpdateMirrorBitmaps @ 0x1407777B4 (MiUpdateMirrorBitmaps.c)
+ *     MiActOnMirrorBitmap @ 0x1407777F4 (MiActOnMirrorBitmap.c)
+ *     MiMirrorBrownPhase @ 0x14099668C (MiMirrorBrownPhase.c)
  */
 
 NTSTATUS __fastcall MmDuplicateMemory(__int64 a1)
@@ -80,7 +80,7 @@ NTSTATUS __fastcall MmDuplicateMemory(__int64 a1)
   BYTE4(v19) = 0;
   CurrentThread = KeGetCurrentThread();
   result = KeWaitForSingleObject(
-             &stru_140C4E6D0,
+             &stru_140C4E710,
              WrVirtualMemory,
              0,
              0,
@@ -92,18 +92,18 @@ NTSTATUS __fastcall MmDuplicateMemory(__int64 a1)
     if ( (MiFlags & 4) == 0 )
       MmLockPagableSectionByHandle(ExPageLockHandle);
     --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E608, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E648, 0LL);
     MiLockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)CurrentThread);
-    _InterlockedIncrement(&dword_140C4EED8);
+    _InterlockedIncrement(&dword_140C4EF18);
     if ( !(unsigned int)MiUpdateMirrorBitmaps() )
     {
       v8 = -1073741670;
 LABEL_53:
-      dword_140C4E6CC = 0;
+      dword_140C4E70C = 0;
       if ( BYTE4(v19) == 1 )
-        _InterlockedAdd(&dword_140C4ED4C, 0xFFFFFFFF);
-      if ( qword_140C4E708 )
-        qword_140C4E708 = 0LL;
+        _InterlockedAdd(&dword_140C4ED8C, 0xFFFFFFFF);
+      if ( qword_140C4E748 )
+        qword_140C4E748 = 0LL;
       if ( v2 != 17 )
       {
         if ( v4 != 17 )
@@ -129,24 +129,24 @@ LABEL_53:
       }
       if ( v6 == 1 )
       {
-        stru_140C4E6E8.Parameter = (void *)HIDWORD(v18);
-        ExQueueWorkItem(&stru_140C4E6E8, HyperCriticalWorkQueue);
+        stru_140C4E728.Parameter = (void *)HIDWORD(v18);
+        ExQueueWorkItem(&stru_140C4E728, HyperCriticalWorkQueue);
       }
       else
       {
-        _InterlockedAdd(&dword_140C4EED8, 0xFFFFFFFF);
-        KeSetEvent(&stru_140C4E6D0, 0, 0);
+        _InterlockedAdd(&dword_140C4EF18, 0xFFFFFFFF);
+        KeSetEvent(&stru_140C4E710, 0, 0);
       }
       MiUnlockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)CurrentThread);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E608, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(&qword_140C4E608);
-      KeAbPostRelease((ULONG_PTR)&qword_140C4E608);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E648, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(&qword_140C4E648);
+      KeAbPostRelease((ULONG_PTR)&qword_140C4E648);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
       if ( (MiFlags & 4) == 0 )
         MmUnlockPagableImageSection(ExPageLockHandle);
       return v8;
     }
-    MiActOnMirrorBitmap((__int64)&qword_140C4E720, 1);
+    MiActOnMirrorBitmap((__int64)&qword_140C4E760, 1);
     v9 = 1;
     LODWORD(v19) = 0;
     if ( (BYTE8(v18) & 1) != 0 )
@@ -158,13 +158,13 @@ LABEL_31:
       v8 = (*(__int64 (**)(void))a1)();
       if ( v8 < 0 )
         goto LABEL_52;
-      dword_140C4E6CC = 1;
+      dword_140C4E70C = 1;
       v8 = MiMirrorBrownPhase(&v18);
       if ( v8 < 0 )
         goto LABEL_52;
       if ( (BYTE8(v18) & 2) == 0 && BYTE4(v19) == 1 )
       {
-        _InterlockedAdd(&dword_140C4ED4C, 0xFFFFFFFF);
+        _InterlockedAdd(&dword_140C4ED8C, 0xFFFFFFFF);
         BYTE4(v19) = 0;
       }
       v2 = KeGetCurrentIrql();
@@ -173,7 +173,7 @@ LABEL_31:
         goto LABEL_52;
       v4 = KeGetCurrentIrql();
       if ( *(_QWORD *)(a1 + 24) )
-        MiActOnMirrorBitmap((__int64)qword_140C4E710, 1);
+        MiActOnMirrorBitmap((__int64)qword_140C4E750, 1);
       if ( v4 < 2u )
       {
         v10 = KeGetCurrentIrql();
@@ -186,17 +186,17 @@ LABEL_31:
         v4 = v10;
       }
       MiLockAllMemoryLists();
-      qword_140C4E708 = (__int64)CurrentThread;
+      qword_140C4E748 = (__int64)CurrentThread;
       if ( BYTE4(v19) == 1 )
       {
-        _InterlockedAdd(&dword_140C4ED4C, 0xFFFFFFFF);
+        _InterlockedAdd(&dword_140C4ED8C, 0xFFFFFFFF);
         BYTE4(v19) = 0;
       }
-      dword_140C4E6CC = 2;
+      dword_140C4E70C = 2;
       v8 = MiMirrorBlackPhase((__int64)&v18);
       if ( v8 < 0
         || (v8 = MiMirrorVerify(a1), v8 < 0)
-        || (v12 = (*(__int64 (__fastcall **)(__int64))(a1 + 8))(1LL), qword_140C4E708 = 0LL, v8 = v12, v12 != 1073742484)
+        || (v12 = (*(__int64 (__fastcall **)(__int64))(a1 + 8))(1LL), qword_140C4E748 = 0LL, v8 = v12, v12 != 1073742484)
         || v9 )
       {
 LABEL_52:

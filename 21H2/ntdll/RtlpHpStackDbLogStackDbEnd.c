@@ -1,30 +1,28 @@
 /*
- * XREFs of RtlpHpStackDbLogStackDbEnd @ 0x1801088B8
+ * XREFs of RtlpHpStackDbLogStackDbEnd @ 0x180108878
  * Callers:
- *     RtlpHpStackTraceEventWriter @ 0x180109240 (RtlpHpStackTraceEventWriter.c)
+ *     RtlpHpStackTraceEventWriter @ 0x180109200 (RtlpHpStackTraceEventWriter.c)
  * Callees:
  *     EtwEventWrite @ 0x180050300 (EtwEventWrite.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpStackDbLogStackDbEnd(int a1, int a2)
+ULONG __fastcall RtlpHpStackDbLogStackDbEnd(int a1, int a2)
 {
-  int *v3; // [rsp+20h] [rbp-38h] BYREF
-  int v4; // [rsp+28h] [rbp-30h]
-  int v5; // [rsp+2Ch] [rbp-2Ch]
-  int *v6; // [rsp+30h] [rbp-28h]
-  int v7; // [rsp+38h] [rbp-20h]
-  int v8; // [rsp+3Ch] [rbp-1Ch]
-  int v9; // [rsp+60h] [rbp+8h] BYREF
-  int v10; // [rsp+68h] [rbp+10h] BYREF
+  _EVENT_DATA_DESCRIPTOR v3; // [rsp+20h] [rbp-38h] BYREF
+  int *v4; // [rsp+30h] [rbp-28h]
+  int v5; // [rsp+38h] [rbp-20h]
+  int v6; // [rsp+3Ch] [rbp-1Ch]
+  int v7; // [rsp+60h] [rbp+8h] BYREF
+  int v8; // [rsp+68h] [rbp+10h] BYREF
 
-  v10 = a2;
-  v9 = a1;
-  v3 = &v9;
-  v5 = 0;
-  v4 = 4;
-  v6 = &v10;
-  v8 = 0;
-  v7 = 4;
-  return EtwEventWrite(RtlpHpStackTraceProviderHandle, (int)&HeapSnapshotEnd, 2, (__int64)&v3);
+  v8 = a2;
+  v7 = a1;
+  v3.Ptr = (unsigned __int64)&v7;
+  v3.Reserved = 0;
+  v3.Size = 4;
+  v4 = &v8;
+  v6 = 0;
+  v5 = 4;
+  return EtwEventWrite(RtlpHpStackTraceProviderHandle, &HeapSnapshotEnd, 2u, &v3);
 }

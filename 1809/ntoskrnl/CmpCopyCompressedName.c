@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCopyCompressedName @ 0x1405AF298
+ * XREFs of CmpCopyCompressedName @ 0x1405B0298
  * Callers:
- *     CmpMarkIndexDirty @ 0x1405AD40C (CmpMarkIndexDirty.c)
- *     CmpAddSubKeyToList @ 0x1405AECF4 (CmpAddSubKeyToList.c)
- *     CmpPopulateNodeInformation @ 0x1405AF14C (CmpPopulateNodeInformation.c)
- *     CmpInitializeValueNameString @ 0x1405AF46C (CmpInitializeValueNameString.c)
- *     CmpQueryKeyValueData @ 0x1405D1B30 (CmpQueryKeyValueData.c)
- *     CmpConstructNameFromKeyNodes @ 0x1405D75E0 (CmpConstructNameFromKeyNodes.c)
- *     CmAddLogForAction @ 0x1406BCEDC (CmAddLogForAction.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1407F0C34 (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpInitializeKeyNameString @ 0x1407FD7EC (CmpInitializeKeyNameString.c)
- *     CmpLoadHiveVolatile @ 0x1408028F8 (CmpLoadHiveVolatile.c)
- *     CmSelectQualifiedInstallLanguage @ 0x1409CD3F0 (CmSelectQualifiedInstallLanguage.c)
- *     CmpGetNodeName @ 0x1409CEA0C (CmpGetNodeName.c)
+ *     CmpMarkIndexDirty @ 0x1405AE40C (CmpMarkIndexDirty.c)
+ *     CmpAddSubKeyToList @ 0x1405AFCF4 (CmpAddSubKeyToList.c)
+ *     CmpPopulateNodeInformation @ 0x1405B014C (CmpPopulateNodeInformation.c)
+ *     CmpInitializeValueNameString @ 0x1405B046C (CmpInitializeValueNameString.c)
+ *     CmpQueryKeyValueData @ 0x1405D2B30 (CmpQueryKeyValueData.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1405D85E0 (CmpConstructNameFromKeyNodes.c)
+ *     CmAddLogForAction @ 0x1406BE17C (CmAddLogForAction.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x1407F1E34 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpInitializeKeyNameString @ 0x1407FE9EC (CmpInitializeKeyNameString.c)
+ *     CmpLoadHiveVolatile @ 0x140803AF8 (CmpLoadHiveVolatile.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x1409CE3F0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpGetNodeName @ 0x1409CFA0C (CmpGetNodeName.c)
  * Callees:
  *     <none>
  */

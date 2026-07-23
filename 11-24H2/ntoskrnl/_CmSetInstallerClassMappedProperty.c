@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmSetInstallerClassMappedProperty @ 0x14081F7C4
+ * XREFs of _CmSetInstallerClassMappedProperty @ 0x14081FF04
  * Callers:
- *     _CmDeleteInstallerClassWorker @ 0x140818B70 (_CmDeleteInstallerClassWorker.c)
- *     _PnpDispatchInstallerClass @ 0x1409B6670 (_PnpDispatchInstallerClass.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1408192B0 (_CmDeleteInstallerClassWorker.c)
+ *     _PnpDispatchInstallerClass @ 0x1409ADA00 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x14081E250 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
- *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x14081FA7C (_CmSetInstallerClassMappedPropertyFromRegProp.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B95AC (_PnpObjectRaisePropertyChangeEvent.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegDeleteValue @ 0x14098FA7C (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegSetValue @ 0x140993B14 (_PnpCtxRegSetValue.c)
- *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A96FC0 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x14081E990 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x1408201BC (_CmSetInstallerClassMappedPropertyFromRegProp.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B6F54 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x14097AAB4 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegSetValue @ 0x14097EB54 (_PnpCtxRegSetValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A937F0 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedProperty(
@@ -74,7 +74,7 @@ LABEL_11:
   {
     if ( i >= 0xD )
       goto LABEL_23;
-    v19 = (__int64)*(&off_140B3D540 + 4 * i);
+    v19 = (__int64)*(&off_140B3F2F0 + 4 * i);
     if ( *(_DWORD *)(v12 + 16) == *(_DWORD *)(v19 + 16) )
     {
       v20 = *(_QWORD *)v12 - *(_QWORD *)v19;
@@ -150,7 +150,7 @@ LABEL_40:
 LABEL_43:
     for ( j = 0; j < 4; ++j )
     {
-      v28 = (__int64)*(&off_140B3BBF0 + 2 * j);
+      v28 = (__int64)*(&off_140B3D9D0 + 2 * j);
       if ( *(_DWORD *)(v12 + 16) == *(_DWORD *)(v28 + 16) )
       {
         v29 = *(_QWORD *)v12 - *(_QWORD *)v28;

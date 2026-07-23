@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMirrorBlackPhase @ 0x140672C9C
+ * XREFs of MiMirrorBlackPhase @ 0x140673E6C
  * Callers:
- *     MmDuplicateMemory @ 0x140B62998 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140B64A68 (MmDuplicateMemory.c)
  * Callees:
- *     MiMirrorPerformBlackWrites @ 0x140428BB0 (MiMirrorPerformBlackWrites.c)
- *     MiMirrorReduceBlackWrites @ 0x140429260 (MiMirrorReduceBlackWrites.c)
- *     MiIterateOverPartitions @ 0x140489A44 (MiIterateOverPartitions.c)
- *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x1404A212C (MiMirrorReduceBlackToActiveAndPrivatePages.c)
- *     MiMirrorDiscardTreePageContents @ 0x1404F54BC (MiMirrorDiscardTreePageContents.c)
- *     MiRemoveEnclavePagesFromMirror @ 0x140B63788 (MiRemoveEnclavePagesFromMirror.c)
+ *     MiMirrorPerformBlackWrites @ 0x14041CD00 (MiMirrorPerformBlackWrites.c)
+ *     MiMirrorReduceBlackWrites @ 0x14041D3B0 (MiMirrorReduceBlackWrites.c)
+ *     MiIterateOverPartitions @ 0x140484754 (MiIterateOverPartitions.c)
+ *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x14049D0BC (MiMirrorReduceBlackToActiveAndPrivatePages.c)
+ *     MiMirrorDiscardTreePageContents @ 0x1404F2DBC (MiMirrorDiscardTreePageContents.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x140B65858 (MiRemoveEnclavePagesFromMirror.c)
  */
 
 __int64 __fastcall MiMirrorBlackPhase(__int64 *a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiMirrorBlackPhase(__int64 *a1)
   if ( (a1[1] & 0x800) != 0 )
     return 0LL;
   v3 = *a1;
-  if ( qword_140E374B8 )
+  if ( qword_140E375F8 )
     MiRemoveEnclavePagesFromMirror(*a1);
   v4 = *((_DWORD *)a1 + 2);
   if ( (v4 & 0x40D) != 0 )
@@ -40,8 +40,8 @@ __int64 __fastcall MiMirrorBlackPhase(__int64 *a1)
     {
       MiIterateOverPartitions((__int64)MiMirrorReduceBlackWrites, (__int64)a1);
     }
-    MiMirrorDiscardTreePageContents((_QWORD **)&qword_140E2FE38);
-    MiMirrorDiscardTreePageContents((_QWORD **)&qword_140E2FE28);
+    MiMirrorDiscardTreePageContents((_QWORD **)&qword_140E2FF78);
+    MiMirrorDiscardTreePageContents((_QWORD **)&qword_140E2FF68);
     MiIterateOverPartitions((__int64)MiFailInProgressZeroing, 0LL);
   }
   return MiMirrorPerformBlackWrites(v3);

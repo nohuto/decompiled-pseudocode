@@ -1,11 +1,11 @@
 /*
- * XREFs of IommupHvUnmapDeviceLogicalRange @ 0x14047B100
+ * XREFs of IommupHvUnmapDeviceLogicalRange @ 0x140474A70
  * Callers:
- *     IommuUnmapLogicalRange @ 0x14047AF50 (IommuUnmapLogicalRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x14047B04C (HalpIommuDomainUnmapLogicalRange.c)
+ *     IommuUnmapLogicalRange @ 0x1404748C0 (IommuUnmapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404749BC (HalpIommuDomainUnmapLogicalRange.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvUnmapDeviceLogicalRange(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)

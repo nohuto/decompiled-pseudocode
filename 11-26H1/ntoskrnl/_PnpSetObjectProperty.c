@@ -1,46 +1,46 @@
 /*
- * XREFs of _PnpSetObjectProperty @ 0x1409DBEB0
+ * XREFs of _PnpSetObjectProperty @ 0x140A19100
  * Callers:
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14077CB10 (_CmGetInstallerClassCompoundFiltersWorker.c)
- *     PiIommuSaveDeviceAtsSettings @ 0x14077EF50 (PiIommuSaveDeviceAtsSettings.c)
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x14079EAB0 (IoReportRootDevice.c)
- *     IoGetDeviceDirectory @ 0x1407A05B0 (IoGetDeviceDirectory.c)
- *     PnpUpdateRebootRequiredReason @ 0x1407A4B70 (PnpUpdateRebootRequiredReason.c)
- *     PipSetGuestAssignedProperty @ 0x1407B4BBC (PipSetGuestAssignedProperty.c)
- *     PiDrvDbRegisterNode @ 0x1407B6B90 (PiDrvDbRegisterNode.c)
- *     PiDrvDbSetupNodeHive @ 0x1407B7DA0 (PiDrvDbSetupNodeHive.c)
- *     PiDrvDbSetupNodes @ 0x1407B8228 (PiDrvDbSetupNodes.c)
- *     PipProcessStartPhase3 @ 0x140908998 (PipProcessStartPhase3.c)
- *     PnpStartDeviceNode @ 0x140910A7C (PnpStartDeviceNode.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x14091129C (PnpUnlinkDeviceRemovalRelations.c)
- *     PipDmgSaveDeviceDmarPolicy @ 0x140914594 (PipDmgSaveDeviceDmarPolicy.c)
- *     PipDmgSaveDeviceDmarAvailability @ 0x140914778 (PipDmgSaveDeviceDmarAvailability.c)
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PipCallDriverAddDevice @ 0x1409156CC (PipCallDriverAddDevice.c)
- *     PiPnpRtlCmActionCallback @ 0x1409A2FF0 (PiPnpRtlCmActionCallback.c)
- *     IopRegisterDeviceInterface @ 0x1409D8950 (IopRegisterDeviceInterface.c)
- *     _CmUpdateDevicePanel @ 0x1409D97C8 (_CmUpdateDevicePanel.c)
- *     PiPnpRtlSetObjectProperty @ 0x1409DBA24 (PiPnpRtlSetObjectProperty.c)
- *     PnpDeleteLockedDeviceNodes @ 0x140A89F58 (PnpDeleteLockedDeviceNodes.c)
- *     _CmDeleteDeviceWorker @ 0x140A8A2C4 (_CmDeleteDeviceWorker.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
- *     _CmUpdateDevicePanelInterface @ 0x140AF175C (_CmUpdateDevicePanelInterface.c)
- *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140B038D0 (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
- *     PiDcContainerRequiresConfiguration @ 0x140B04F50 (PiDcContainerRequiresConfiguration.c)
- *     PnpInitializeInheritedRestrictedSd @ 0x140B07DD0 (PnpInitializeInheritedRestrictedSd.c)
- *     PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x140B13360 (PipDmgSetIommuDomainPolicyAndNotifyHal.c)
- *     PnpInitializeSessionId @ 0x140B18FB0 (PnpInitializeSessionId.c)
- *     PnpClearDeviceTemporaryProperties @ 0x140B19254 (PnpClearDeviceTemporaryProperties.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140B1EEB0 (PiDrvDbLoadNodeWorkerCallback.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140B227E8 (_CmGetDeviceCompoundFiltersWorker.c)
- *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x140B3E404 (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
- *     PipMigrateResetDeviceCallback @ 0x140CC2C10 (PipMigrateResetDeviceCallback.c)
- *     PipInitComputerIds @ 0x140D056B0 (PipInitComputerIds.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14077F604 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     PiIommuSaveDeviceAtsSettings @ 0x140781A50 (PiIommuSaveDeviceAtsSettings.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x1407A15F0 (IoReportRootDevice.c)
+ *     IoGetDeviceDirectory @ 0x1407A30F0 (IoGetDeviceDirectory.c)
+ *     PnpUpdateRebootRequiredReason @ 0x1407A76B0 (PnpUpdateRebootRequiredReason.c)
+ *     PipSetGuestAssignedProperty @ 0x1407B7C1C (PipSetGuestAssignedProperty.c)
+ *     PiDrvDbRegisterNode @ 0x1407B9BF0 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbSetupNodeHive @ 0x1407BAE00 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbSetupNodes @ 0x1407BB288 (PiDrvDbSetupNodes.c)
+ *     PiPnpRtlCmActionCallback @ 0x140963A50 (PiPnpRtlCmActionCallback.c)
+ *     PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x14096ED2C (PipDmgSetIommuDomainPolicyAndNotifyHal.c)
+ *     PipDmgSaveDeviceDmarPolicy @ 0x14096F000 (PipDmgSaveDeviceDmarPolicy.c)
+ *     PipDmgSaveDeviceDmarAvailability @ 0x14096F1E4 (PipDmgSaveDeviceDmarAvailability.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PipCallDriverAddDevice @ 0x140970138 (PipCallDriverAddDevice.c)
+ *     IopRegisterDeviceInterface @ 0x1409A9840 (IopRegisterDeviceInterface.c)
+ *     PipProcessStartPhase3 @ 0x1409AB9E8 (PipProcessStartPhase3.c)
+ *     PnpStartDeviceNode @ 0x1409B2B5C (PnpStartDeviceNode.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409B337C (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1409B6D78 (PnpDeleteLockedDeviceNodes.c)
+ *     _CmDeleteDeviceWorker @ 0x1409B70E4 (_CmDeleteDeviceWorker.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140A151A0 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x140A16A1C (_CmUpdateDevicePanel.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140A18C74 (PiPnpRtlSetObjectProperty.c)
+ *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140B054E0 (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140B06B60 (PiDcContainerRequiresConfiguration.c)
+ *     PnpInitializeInheritedRestrictedSd @ 0x140B09F00 (PnpInitializeInheritedRestrictedSd.c)
+ *     PnpInitializeSessionId @ 0x140B1B3F8 (PnpInitializeSessionId.c)
+ *     PnpClearDeviceTemporaryProperties @ 0x140B1B6A4 (PnpClearDeviceTemporaryProperties.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140B20F30 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x140B24BE8 (_CmGetDeviceCompoundFiltersWorker.c)
+ *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x140B4043C (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
+ *     PipMigrateResetDeviceCallback @ 0x140CC8CE0 (PipMigrateResetDeviceCallback.c)
+ *     PipInitComputerIds @ 0x140D0B980 (PipInitComputerIds.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _PnpSetObjectPropertyWorker @ 0x1409DC180 (_PnpSetObjectPropertyWorker.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140A193D0 (_PnpSetObjectPropertyWorker.c)
  */
 
 __int64 __fastcall PnpSetObjectProperty(
@@ -63,12 +63,12 @@ __int64 __fastcall PnpSetObjectProperty(
   int v20; // ecx
   unsigned int v21; // eax
   _DWORD v22[4]; // [rsp+58h] [rbp-39h] BYREF
-  __int64 v23; // [rsp+68h] [rbp-29h]
+  int v23[2]; // [rsp+68h] [rbp-29h]
   __int64 v24; // [rsp+70h] [rbp-21h]
   __int64 v25; // [rsp+78h] [rbp-19h]
   int v26; // [rsp+80h] [rbp-11h]
   __int64 v27; // [rsp+88h] [rbp-9h]
-  ULONG v28; // [rsp+90h] [rbp-1h]
+  ULONG SecurityDescriptorLength; // [rsp+90h] [rbp-1h]
   int v29; // [rsp+94h] [rbp+3h]
 
   memset_0(v22, 0, 0x50uLL);
@@ -77,9 +77,9 @@ __int64 __fastcall PnpSetObjectProperty(
   v25 = a6;
   v26 = a7;
   v27 = a8;
-  v28 = a9;
+  SecurityDescriptorLength = a9;
   v29 = a10;
-  v23 = a4;
+  *(_QWORD *)v23 = a4;
   if ( v14 )
   {
     v15 = guard_dispatch_icall_no_overrides(a1, a2);
@@ -95,7 +95,7 @@ __int64 __fastcall PnpSetObjectProperty(
         return (unsigned int)-1073741595;
     }
   }
-  v18 = PnpSetObjectPropertyWorker(a1, a2, a3, v23, v24, v25, v26, v27, v28, v29);
+  v18 = PnpSetObjectPropertyWorker(a1, a2, a3, v23[0], v24, v25, v26, v27, SecurityDescriptorLength, v29);
   v16 = v18;
   if ( v14 )
   {

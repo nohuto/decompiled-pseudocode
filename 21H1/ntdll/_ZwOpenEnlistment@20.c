@@ -6,7 +6,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwOpenEnlistment(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl ZwOpenEnlistment(
+        PHANDLE EnlistmentHandle,
+        ACCESS_MASK DesiredAccess,
+        HANDLE ResourceManagerHandle,
+        LPGUID EnlistmentGuid,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   return Wow64SystemServiceCall();
 }

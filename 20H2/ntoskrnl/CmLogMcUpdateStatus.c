@@ -17,7 +17,7 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
+__int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)
 {
   NTSTATUS v4; // ebx
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
@@ -28,7 +28,7 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
   UNICODE_STRING v11; // [rsp+98h] [rbp-68h] BYREF
   STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
   _DWORD v13[18]; // [rsp+C0h] [rbp-40h] BYREF
-  char SourceString[16]; // [rsp+110h] [rbp+10h] BYREF
+  CHAR String[16]; // [rsp+110h] [rbp+10h] BYREF
   char v15; // [rsp+120h] [rbp+20h] BYREF
 
   DestinationString = 0LL;
@@ -54,8 +54,8 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
     v4 = ZwOpenKey(&v9, 0x20019u, &ObjectAttributes);
     if ( v4 >= 0 )
     {
-      RtlIntegerToChar(a1, 10LL, 12LL, SourceString);
-      RtlInitAnsiString(&DestinationString, SourceString);
+      RtlIntegerToChar(Value, 0xAu, 12, String);
+      RtlInitAnsiString(&DestinationString, String);
       *(_DWORD *)&v11.Length = 1572864;
       v11.Buffer = (wchar_t *)&v15;
       RtlAnsiStringToUnicodeString(&v11, &DestinationString, 0);
@@ -74,7 +74,7 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
       }
       v13[6] = 1;
       v13[7] = 1;
-      v13[10] = a1;
+      v13[10] = Value;
       v4 = CmpInitializeRegistryNode(
              (unsigned int)v13,
              (_DWORD)KeyHandle,

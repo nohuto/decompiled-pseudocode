@@ -23,8 +23,8 @@ __int64 __fastcall LdrpHandleTlsData(__int64 a1)
   __int64 v1; // r13
   unsigned int v2; // ebx
   int v3; // eax
-  __int64 v4; // r15
-  _BYTE *Heap; // rdi
+  PVOID v4; // r15
+  _DWORD *Heap; // rdi
   int TlsEntry; // esi
   int *v8; // r8
   unsigned int v9; // r9d
@@ -35,46 +35,46 @@ __int64 __fastcall LdrpHandleTlsData(__int64 a1)
   unsigned int v14; // r9d
   __int64 v15; // r15
   int v16; // eax
-  __int64 v17; // rax
+  PVOID v17; // rax
   _QWORD *v18; // r14
   __int64 v19; // rcx
-  _BYTE *v20; // rax
+  _DWORD *v20; // rax
   int v21; // r14d
   __int64 v22; // rsi
   __int64 v23; // r8
   __int64 NewTlsVector; // rcx
   unsigned __int64 v25; // rcx
   signed int v26; // esi
-  __int64 v27; // r8
-  __int64 v28; // r8
+  SIZE_T v27; // r8
+  void *v28; // r8
   __int64 v29; // rcx
-  _BYTE *v30; // rax
+  _DWORD *v30; // rax
   char v31; // [rsp+30h] [rbp-E8h]
   char v32; // [rsp+31h] [rbp-E7h] BYREF
-  int v33; // [rsp+34h] [rbp-E4h]
+  NTSTATUS v33; // [rsp+34h] [rbp-E4h]
   unsigned int v34; // [rsp+38h] [rbp-E0h] BYREF
-  unsigned int v35; // [rsp+3Ch] [rbp-DCh]
+  unsigned int SizeOfBitMap; // [rsp+3Ch] [rbp-DCh]
   unsigned int v36; // [rsp+40h] [rbp-D8h]
   unsigned int v37; // [rsp+44h] [rbp-D4h]
   int v38; // [rsp+48h] [rbp-D0h]
   unsigned int v39; // [rsp+4Ch] [rbp-CCh]
   int v40; // [rsp+50h] [rbp-C8h]
-  __int64 v41; // [rsp+58h] [rbp-C0h] BYREF
+  PVOID v41; // [rsp+58h] [rbp-C0h] BYREF
   int v42; // [rsp+60h] [rbp-B8h]
   _BYTE *v43; // [rsp+68h] [rbp-B0h]
   size_t Size; // [rsp+70h] [rbp-A8h]
   unsigned __int64 v45; // [rsp+78h] [rbp-A0h]
-  _BYTE *v46; // [rsp+80h] [rbp-98h]
+  _DWORD *v46; // [rsp+80h] [rbp-98h]
   __int64 v47; // [rsp+88h] [rbp-90h] BYREF
   __int64 v48; // [rsp+90h] [rbp-88h]
-  __int64 v49; // [rsp+98h] [rbp-80h]
-  _BYTE *v50; // [rsp+A0h] [rbp-78h]
+  PVOID BaseAddress; // [rsp+98h] [rbp-80h]
+  _DWORD *v50; // [rsp+A0h] [rbp-78h]
   int *v51; // [rsp+A8h] [rbp-70h]
   __int64 v52; // [rsp+B0h] [rbp-68h]
   size_t v53; // [rsp+B8h] [rbp-60h]
   __int64 v54; // [rsp+C0h] [rbp-58h]
-  _BYTE *v55; // [rsp+C8h] [rbp-50h]
-  _BYTE v56[40]; // [rsp+D0h] [rbp-48h] BYREF
+  _DWORD *v55; // [rsp+C8h] [rbp-50h]
+  _BYTE ProcessInformation[40]; // [rsp+D0h] [rbp-48h] BYREF
 
   v1 = a1;
   v52 = a1;
@@ -82,7 +82,7 @@ __int64 __fastcall LdrpHandleTlsData(__int64 a1)
   v2 = 0;
   if ( !LdrpActiveThreadCount || *(_DWORD *)(a1 + 268) == 9 )
     return 0LL;
-  v3 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(a1 + 48), 1, 9, (unsigned int)&v34, (__int64)&v41);
+  v3 = RtlpImageDirectoryEntryToDataEx(*(PVOID *)(a1 + 48), (__int64)&v41);
   v4 = v41;
   if ( v3 < 0 )
     v4 = 0LL;
@@ -95,8 +95,8 @@ __int64 __fastcall LdrpHandleTlsData(__int64 a1)
   RtlAcquireSRWLockExclusive(&LdrpTlsLock);
   if ( LdrpActiveThreadCount == 1 )
   {
-    Heap = v56;
-    v43 = v56;
+    Heap = ProcessInformation;
+    v43 = ProcessInformation;
   }
   else
   {
@@ -118,7 +118,7 @@ __int64 __fastcall LdrpHandleTlsData(__int64 a1)
       v26 = v25 + 16 < v25 ? 0xC0000095 : 0;
       if ( v25 + 16 >= v25 )
       {
-        Heap = (_BYTE *)RtlAllocateHeap(LdrpTlsHeap, (unsigned int)(NtdllBaseTag + 786432), v27);
+        Heap = RtlAllocateHeap(LdrpTlsHeap, NtdllBaseTag + 786432, v27);
         v43 = Heap;
         if ( !Heap )
           v26 = -1073741801;
@@ -132,28 +132,28 @@ __int64 __fastcall LdrpHandleTlsData(__int64 a1)
   }
   v50 = Heap;
   v46 = Heap;
-  v35 = LdrpTlsBitmap;
-  TlsEntry = LdrpAllocateTlsEntry(v4, v1, (unsigned int)&v34, (unsigned int)&v32, (__int64)&v47);
+  SizeOfBitMap = LdrpTlsBitmap.SizeOfBitMap;
+  TlsEntry = LdrpAllocateTlsEntry((_DWORD)v4, v1, (unsigned int)&v34, (unsigned int)&v32, (__int64)&v47);
   v33 = TlsEntry;
   if ( TlsEntry < 0 )
     goto LABEL_31;
-  v8 = (int *)(Heap + 8);
-  v51 = (int *)(Heap + 8);
-  v55 = Heap + 8;
-  *((_DWORD *)Heap + 2) = LdrpActiveThreadCount;
+  v8 = Heap + 2;
+  v51 = Heap + 2;
+  v55 = Heap + 2;
+  Heap[2] = LdrpActiveThreadCount;
   v31 = v32;
   v9 = v34;
   v36 = v34;
   if ( v32 )
   {
-    *((_DWORD *)Heap + 1) = 1;
-    *((_DWORD *)Heap + 3) = v35;
-    v35 = LdrpTlsBitmap;
+    Heap[1] = 1;
+    Heap[3] = SizeOfBitMap;
+    SizeOfBitMap = LdrpTlsBitmap.SizeOfBitMap;
   }
   else
   {
-    *((_DWORD *)Heap + 1) = 0;
-    *((_DWORD *)Heap + 3) = v9;
+    Heap[1] = 0;
+    Heap[3] = v9;
   }
   v48 = v47;
   v10 = (*(_DWORD *)(v47 + 52) >> 20) & 0xF;
@@ -177,19 +177,19 @@ __int64 __fastcall LdrpHandleTlsData(__int64 a1)
     v16 = *v8;
     if ( (unsigned int)v15 >= *v8 )
     {
-      *(_DWORD *)Heap = 0;
-      v33 = NtSetInformationProcess(-1LL, 35LL, Heap, (unsigned int)(24 * v16 + 16));
+      *Heap = 0;
+      v33 = NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessTlsInformation, Heap, 24 * v16 + 16);
       goto LABEL_22;
     }
     v45 = v14;
-    v17 = RtlAllocateHeap(LdrpTlsHeap, (unsigned int)(NtdllBaseTag + 786432), v14 + v11 + 1);
-    v49 = v17;
+    v17 = RtlAllocateHeap(LdrpTlsHeap, NtdllBaseTag + 786432, v14 + v11 + 1);
+    BaseAddress = v17;
     if ( !v17 )
     {
       v33 = -1073741801;
       goto LABEL_22;
     }
-    v18 = (_QWORD *)(~v45 & (v17 + v37));
+    v18 = (_QWORD *)(~v45 & ((unsigned __int64)v17 + v37));
     v45 = (unsigned __int64)v18;
     *(v18 - 1) = v17;
     memmove(v18, *(const void **)(v48 + 16), Size);
@@ -198,21 +198,21 @@ __int64 __fastcall LdrpHandleTlsData(__int64 a1)
 LABEL_20:
     v19 = 3LL * (unsigned int)v15;
     v20 = v50;
-    *(_QWORD *)&v50[8 * v19 + 24] = v18;
-    *(_DWORD *)&v20[8 * v19 + 16] = 0;
+    *(_QWORD *)&v50[2 * v19 + 6] = v18;
+    v20[2 * v19 + 4] = 0;
     LODWORD(v15) = v15 + 1;
     v8 = v51;
     v14 = v39;
     v11 = Size;
   }
-  NewTlsVector = LdrpGetNewTlsVector(v35);
+  NewTlsVector = LdrpGetNewTlsVector(SizeOfBitMap);
   if ( NewTlsVector )
   {
     *(_QWORD *)(NewTlsVector + 8LL * v36) = v18;
     v18 = (_QWORD *)NewTlsVector;
     goto LABEL_20;
   }
-  RtlFreeHeap(LdrpTlsHeap, 0LL, v49);
+  RtlFreeHeap(LdrpTlsHeap, 0, BaseAddress);
   v33 = -1073741801;
 LABEL_22:
   v21 = v40;
@@ -220,36 +220,36 @@ LABEL_22:
   while ( (_DWORD)v15 )
   {
     v15 = (unsigned int)(v15 - 1);
-    if ( (Heap[24 * v15 + 16] & 2) != 0 )
+    if ( (Heap[6 * v15 + 4] & 2) != 0 )
     {
-      v23 = *(_QWORD *)&Heap[24 * v15 + 24];
+      v23 = *(_QWORD *)&Heap[6 * v15 + 6];
       if ( !v23 )
         continue;
       if ( v31 )
       {
-        LdrpQueueDeferredTlsData(v23, *(_QWORD *)&Heap[24 * v15 + 32]);
+        LdrpQueueDeferredTlsData(v23, *(_QWORD *)&Heap[6 * v15 + 8]);
         continue;
       }
-      v28 = *(_QWORD *)(v23 - 8);
+      v28 = *(void **)(v23 - 8);
       goto LABEL_53;
     }
-    if ( (Heap[24 * v15 + 16] & 1) == 0 )
+    if ( (Heap[6 * v15 + 4] & 1) == 0 )
     {
       ++v21;
-      v29 = *(_QWORD *)&Heap[24 * v15 + 24];
+      v29 = *(_QWORD *)&Heap[6 * v15 + 6];
       if ( v31 )
       {
-        v46 = *(_BYTE **)(v29 + 8 * v22);
-        RtlFreeHeap(LdrpTlsHeap, 0LL, v29 - 16);
+        v46 = *(_DWORD **)(v29 + 8 * v22);
+        RtlFreeHeap(LdrpTlsHeap, 0, (PVOID)(v29 - 16));
         v30 = v46;
       }
       else
       {
-        v30 = *(_BYTE **)&Heap[24 * v15 + 24];
+        v30 = *(_DWORD **)&Heap[6 * v15 + 6];
       }
-      v28 = *((_QWORD *)v30 - 1);
+      v28 = (void *)*((_QWORD *)v30 - 1);
 LABEL_53:
-      RtlFreeHeap(LdrpTlsHeap, 0LL, v28);
+      RtlFreeHeap(LdrpTlsHeap, 0, v28);
       continue;
     }
     ++LdrpPotentialTlsLeaks;
@@ -260,7 +260,7 @@ LABEL_53:
   {
     LdrpReleaseTlsEntry(v52, &v41);
     if ( v31 )
-      LdrpTlsBitmap -= 8;
+      LdrpTlsBitmap.SizeOfBitMap -= 8;
   }
   else if ( v21 )
   {
@@ -270,10 +270,10 @@ LABEL_31:
   if ( TlsEntry >= 0 )
     *(_WORD *)(v1 + 110) = -1;
   RtlReleaseSRWLockExclusive(&LdrpTlsLock);
-  if ( Heap != v56 )
-    RtlFreeHeap(LdrpTlsHeap, 0LL, Heap);
+  if ( Heap != (_DWORD *)ProcessInformation )
+    RtlFreeHeap(LdrpTlsHeap, 0, Heap);
   if ( v41 )
-    RtlFreeHeap(LdrpTlsHeap, 0LL, v41);
+    RtlFreeHeap(LdrpTlsHeap, 0, v41);
   if ( TlsEntry < 0 )
     return (unsigned int)TlsEntry;
   return v2;

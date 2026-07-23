@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlStringCbCopyNW @ 0x14027F1B8
+ * XREFs of RtlStringCbCopyNW @ 0x14026D5E8
  * Callers:
- *     PopDiagGetDriverName @ 0x140388F7C (PopDiagGetDriverName.c)
- *     LocalConvertSidToStringSidW @ 0x140673500 (LocalConvertSidToStringSidW.c)
- *     IopCheckIfNotNativeDriver @ 0x1408912F0 (IopCheckIfNotNativeDriver.c)
- *     AslPathWildcardFindFirst @ 0x140968AF4 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x1409690C4 (AslPathWildcardFindNext.c)
- *     AuthzBasepCopyoutClaimAttributeValues @ 0x14096C7DC (AuthzBasepCopyoutClaimAttributeValues.c)
- *     AuthzBasepCopyoutClaimAttributes @ 0x14096CA4C (AuthzBasepCopyoutClaimAttributes.c)
+ *     PopDiagGetDriverName @ 0x1403890CC (PopDiagGetDriverName.c)
+ *     LocalConvertSidToStringSidW @ 0x140668730 (LocalConvertSidToStringSidW.c)
+ *     IopCheckIfNotNativeDriver @ 0x140891450 (IopCheckIfNotNativeDriver.c)
+ *     AslPathWildcardFindFirst @ 0x140968CD4 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1409692A4 (AslPathWildcardFindNext.c)
+ *     AuthzBasepCopyoutClaimAttributeValues @ 0x14096C9BC (AuthzBasepCopyoutClaimAttributeValues.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x14096CC2C (AuthzBasepCopyoutClaimAttributes.c)
  * Callees:
- *     RtlStringCopyWorkerW_1 @ 0x14027F218 (RtlStringCopyWorkerW_1.c)
+ *     RtlStringCopyWorkerW_2 @ 0x14026D648 (RtlStringCopyWorkerW_2.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyNW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, STRSAFE_PCNZWCH pszSrc, size_t cbToCopy)
@@ -32,7 +32,7 @@ NTSTATUS __stdcall RtlStringCbCopyNW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, STR
     }
     else
     {
-      return RtlStringCopyWorkerW_1(pszDest, v4, (size_t *)pszSrc, pszSrc, cchToCopy);
+      return RtlStringCopyWorkerW_2(pszDest, v4, (size_t *)pszSrc, pszSrc, cchToCopy);
     }
   }
   return v5;

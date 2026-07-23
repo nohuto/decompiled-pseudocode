@@ -1,7 +1,7 @@
 /*
- * XREFs of MiWakeAllZeroCalibrationProcessors @ 0x140710BE8
+ * XREFs of MiWakeAllZeroCalibrationProcessors @ 0x1407158E4
  * Callers:
- *     MiZeroPageCalibrateDpc @ 0x140711360 (MiZeroPageCalibrateDpc.c)
+ *     MiZeroPageCalibrateDpc @ 0x140716060 (MiZeroPageCalibrateDpc.c)
  * Callees:
  *     <none>
  */

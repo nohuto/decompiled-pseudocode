@@ -1,32 +1,32 @@
 /*
- * XREFs of MiRemovePteTracker @ 0x1404ED38C
+ * XREFs of MiRemovePteTracker @ 0x1404E696C
  * Callers:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmFreeMappingAddress @ 0x140B12E50 (MmFreeMappingAddress.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmFreeMappingAddress @ 0x140B14CF0 (MmFreeMappingAddress.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, ULONG_PTR a3)
 {
-  struct _SLIST_ENTRY *v3; // rbx
+  _SLIST_ENTRY *v3; // rbx
   unsigned __int64 v6; // rdi
   ULONG_PTR v7; // r15
   KIRQL v8; // r14
-  struct _SLIST_ENTRY *v9; // rdx
-  struct _SLIST_ENTRY *Next; // r8
+  _SLIST_ENTRY *v9; // rdx
+  _SLIST_ENTRY *Next; // r8
   _SLIST_ENTRY *v11; // rcx
   ULONG_PTR v12; // r9
   ULONG_PTR v13; // r9
   ULONG_PTR v14; // r9
   _SLIST_ENTRY *v15; // rcx
-  struct _SLIST_ENTRY **v16; // rax
+  _SLIST_ENTRY **v16; // rax
 
   v3 = 0LL;
   v6 = (40543 * (a2 >> 12)) ^ ((40543 * (a2 >> 12)) >> 32);
@@ -34,13 +34,13 @@ void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int6
   if ( KeGetCurrentIrql() == 2 )
   {
     v8 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E349D0);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34B50);
   }
   else
   {
-    v8 = ExAcquireSpinLockExclusive(&dword_140E349D0);
+    v8 = ExAcquireSpinLockExclusive(&dword_140E34B50);
   }
-  v9 = (struct _SLIST_ENTRY *)((char *)&unk_140E378B0 + 16 * (v6 & 0xF));
+  v9 = (_SLIST_ENTRY *)((char *)&unk_140E37A30 + 16 * (v6 & 0xF));
   Next = v9->Next;
   if ( v9->Next == v9 )
     goto LABEL_19;
@@ -59,7 +59,7 @@ void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int6
         v13 = *((_QWORD *)&Next[3].Next + 1);
         if ( v13 != *(_QWORD *)(BugCheckParameter3 + 48) )
           KeBugCheckEx(0xDAu, 4uLL, (ULONG_PTR)Next, v13, *(_QWORD *)(BugCheckParameter3 + 48));
-        if ( !byte_140E35FDC )
+        if ( !byte_140E3615C )
         {
           if ( v11 != *(_SLIST_ENTRY **)(BugCheckParameter3 + 24) )
             KeBugCheckEx(0xDAu, 3uLL, (ULONG_PTR)Next, (ULONG_PTR)Next[2].Next, *(_QWORD *)(BugCheckParameter3 + 24));
@@ -69,11 +69,8 @@ void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int6
         }
       }
       v15 = Next->Next;
-      if ( *(&Next->Next->Next + 1) != Next
-        || (v16 = (struct _SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1), *v16 != Next) )
-      {
+      if ( *(&Next->Next->Next + 1) != Next || (v16 = (_SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1), *v16 != Next) )
         __fastfail(3u);
-      }
       *v16 = v15;
       v3 = Next;
       *((_QWORD *)&v15->Next + 1) = v16;
@@ -84,15 +81,15 @@ void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int6
   if ( !v3 )
   {
 LABEL_19:
-    if ( !byte_140E34B65 )
+    if ( !byte_140E34CE5 )
       KeBugCheckEx(0xDAu, 6uLL, BugCheckParameter3, v7, a3);
   }
-  qword_140E379B0 -= a3;
-  --qword_140E379B8;
+  qword_140E37B30 -= a3;
+  --qword_140E37B38;
   if ( v8 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E349D0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34B50);
   else
-    ExReleaseSpinLockExclusive(&dword_140E349D0, v8);
+    ExReleaseSpinLockExclusive(&dword_140E34B50, v8);
   if ( v3 )
-    RtlpInterlockedPushEntrySList(&stru_140E349C0, v3);
+    RtlpInterlockedPushEntrySList(&stru_140E34B40, v3);
 }

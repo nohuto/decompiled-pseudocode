@@ -1,9 +1,9 @@
 /*
- * XREFs of VmSetThreadSchedulerAssist @ 0x1405A2790
+ * XREFs of VmSetThreadSchedulerAssist @ 0x1405A29C0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetThreadSchedulerAssist @ 0x14051E5C8 (KeSetThreadSchedulerAssist.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E808 (KeSetThreadSchedulerAssist.c)
  */
 
 char __fastcall VmSetThreadSchedulerAssist(struct _KTHREAD *a1, void *a2, __int64 a3, _DWORD *a4)

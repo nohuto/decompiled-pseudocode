@@ -1,12 +1,12 @@
 /*
- * XREFs of NtWaitForSingleObject @ 0x1405E9AA0
+ * XREFs of NtWaitForSingleObject @ 0x1405EAAA0
  * Callers:
- *     SepRmCallLsa @ 0x14012FB40 (SepRmCallLsa.c)
- *     PfSnPrefetchFileMetadata @ 0x14065CAE4 (PfSnPrefetchFileMetadata.c)
+ *     SepRmCallLsa @ 0x14012FC10 (SepRmCallLsa.c)
+ *     PfSnPrefetchFileMetadata @ 0x14065DCA4 (PfSnPrefetchFileMetadata.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall NtWaitForSingleObject(HANDLE Object, BOOLEAN Alertable, PLARGE_INTEGER Timeout)

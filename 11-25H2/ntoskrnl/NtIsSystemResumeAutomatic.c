@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool NtIsSystemResumeAutomatic()
+BOOLEAN NtIsSystemResumeAutomatic(void)
 {
   return (PopFullWake & 3) == 0;
 }

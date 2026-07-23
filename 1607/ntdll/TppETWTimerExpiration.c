@@ -1,13 +1,13 @@
 /*
  * XREFs of TppETWTimerExpiration @ 0x180001F88
  * Callers:
- *     TppSingleTimerExpiration @ 0x18003CC28 (TppSingleTimerExpiration.c)
+ *     TppSingleTimerExpiration @ 0x18003CC18 (TppSingleTimerExpiration.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  */
 
-__int64 __fastcall TppETWTimerExpiration(__int64 a1, __int64 a2)
+NTSTATUS __fastcall TppETWTimerExpiration(__int64 a1, __int64 a2)
 {
   int v2; // eax
   _WORD v4[16]; // [rsp+20h] [rbp-58h] BYREF
@@ -24,5 +24,5 @@ __int64 __fastcall TppETWTimerExpiration(__int64 a1, __int64 a2)
   v6 = a1;
   v8 = v2;
   v9 = *(_DWORD *)(a2 + 344);
-  return NtTraceEvent(MEMORY[0x7FFE0386], 1026LL, 32LL, v4);
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE0386], 0x402u, 0x20u, v4);
 }

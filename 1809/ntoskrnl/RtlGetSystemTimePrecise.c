@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlGetSystemTimePrecise @ 0x14008A510
+ * XREFs of RtlGetSystemTimePrecise @ 0x14008A500
  * Callers:
  *     EtwGetKernelTraceTimestampSilo @ 0x140019DBC (EtwGetKernelTraceTimestampSilo.c)
- *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     KiExecuteAllDpcs @ 0x1400C6D40 (KiExecuteAllDpcs.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     WmiGetClock @ 0x14030EE10 (WmiGetClock.c)
- *     EtwpTraceSystemInitialization @ 0x1409D1A58 (EtwpTraceSystemInitialization.c)
- *     PspInitPhase2 @ 0x1409D5F0C (PspInitPhase2.c)
+ *     KeQuerySystemTimePrecise @ 0x14008A4E0 (KeQuerySystemTimePrecise.c)
+ *     KiExecuteAllDpcs @ 0x1400C6C80 (KiExecuteAllDpcs.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     WmiGetClock @ 0x14030F000 (WmiGetClock.c)
+ *     EtwpTraceSystemInitialization @ 0x1409D2A58 (EtwpTraceSystemInitialization.c)
+ *     PspInitPhase2 @ 0x1409D6F0C (PspInitPhase2.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x14008A5E4 (RtlBeginReadTickLock.c)
+ *     RtlBeginReadTickLock @ 0x14008A5D4 (RtlBeginReadTickLock.c)
  */
 
-__int64 RtlGetSystemTimePrecise()
+LARGE_INTEGER RtlGetSystemTimePrecise(void)
 {
   __int64 TickLock; // rax
   unsigned __int64 v1; // rbp
@@ -48,5 +48,5 @@ __int64 RtlGetSystemTimePrecise()
       v10 <<= v5;
     v9 = ((unsigned __int64)v10 * (unsigned __int128)v2) >> 64;
   }
-  return v7 + v9;
+  return (LARGE_INTEGER)(v7 + v9);
 }

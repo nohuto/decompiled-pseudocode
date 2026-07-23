@@ -1,13 +1,13 @@
 /*
- * XREFs of IoCreateController @ 0x140796180
+ * XREFs of IoCreateController @ 0x140798CB0
  * Callers:
- *     DifIoCreateControllerWrapper @ 0x14065A4F0 (DifIoCreateControllerWrapper.c)
+ *     DifIoCreateControllerWrapper @ 0x14065E0D0 (DifIoCreateControllerWrapper.c)
  * Callees:
- *     KeInitializeDeviceQueue @ 0x1404ED660 (KeInitializeDeviceQueue.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     KeInitializeDeviceQueue @ 0x1404E6C40 (KeInitializeDeviceQueue.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
 PCONTROLLER_OBJECT __stdcall IoCreateController(ULONG Size)
@@ -31,7 +31,7 @@ PCONTROLLER_OBJECT __stdcall IoCreateController(ULONG Size)
   v4[1] = 0LL;
   v4[2] = 0LL;
   v7 = 0LL;
-  if ( (int)ObCreateObjectEx(0, *(_DWORD *)&stru_140FC01F0.SchedulerApc.Type, (unsigned int)v4, 0) >= 0
+  if ( (int)ObCreateObjectEx(0, *(_DWORD *)&stru_140FC11F0.SavedApcStateFill[40], (unsigned int)v4, 0) >= 0
     && (int)ObInsertObjectEx(v8, 0LL, 3LL, 1LL, 0, &v8, &Handle) >= 0 )
   {
     ObCloseHandle(Handle, 0);

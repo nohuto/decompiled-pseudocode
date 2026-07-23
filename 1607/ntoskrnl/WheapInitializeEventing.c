@@ -3,7 +3,7 @@
  * Callers:
  *     WheaInitialize @ 0x1407A0948 (WheaInitialize.c)
  * Callees:
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
  */
 
 NTSTATUS WheapInitializeEventing()

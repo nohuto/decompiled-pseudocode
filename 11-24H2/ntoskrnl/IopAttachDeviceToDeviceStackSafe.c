@@ -1,27 +1,27 @@
 /*
- * XREFs of IopAttachDeviceToDeviceStackSafe @ 0x1403C4D24
+ * XREFs of IopAttachDeviceToDeviceStackSafe @ 0x1403B38E4
  * Callers:
- *     IoAttachDeviceToDeviceStackSafe @ 0x1403C4FF0 (IoAttachDeviceToDeviceStackSafe.c)
- *     IoAttachDeviceToDeviceStack @ 0x1403C50F0 (IoAttachDeviceToDeviceStack.c)
- *     IoAttachDeviceByPointer @ 0x1405968D0 (IoAttachDeviceByPointer.c)
+ *     IoAttachDeviceToDeviceStackSafe @ 0x1403B3BB0 (IoAttachDeviceToDeviceStackSafe.c)
+ *     IoAttachDeviceToDeviceStack @ 0x1403B3CB0 (IoAttachDeviceToDeviceStack.c)
+ *     IoAttachDeviceByPointer @ 0x1405938B0 (IoAttachDeviceByPointer.c)
  * Callees:
- *     IopGetDeviceAttachmentBase @ 0x1402D4B38 (IopGetDeviceAttachmentBase.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoGetAttachedDevice @ 0x1403C4FC0 (IoGetAttachedDevice.c)
- *     PnpCheckForWaitingReportedDevice @ 0x1403C5014 (PnpCheckForWaitingReportedDevice.c)
- *     IopIsKnownGoodLegacyFsFilter @ 0x1403C5078 (IopIsKnownGoodLegacyFsFilter.c)
- *     IoGetDiskDeviceObject @ 0x14049E200 (IoGetDiskDeviceObject.c)
- *     McTemplateK0hzr0_EtwWriteTransfer @ 0x140596F74 (McTemplateK0hzr0_EtwWriteTransfer.c)
- *     McTemplateK0hzr0hzr2_EtwWriteTransfer @ 0x140596FFC (McTemplateK0hzr0hzr2_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ObQueryNameString @ 0x140969A10 (ObQueryNameString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     IovAttachDeviceToDeviceStack @ 0x140B82514 (IovAttachDeviceToDeviceStack.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     IopGetDeviceAttachmentBase @ 0x140355DB8 (IopGetDeviceAttachmentBase.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     IoGetAttachedDevice @ 0x1403B3B80 (IoGetAttachedDevice.c)
+ *     PnpCheckForWaitingReportedDevice @ 0x1403B3BD4 (PnpCheckForWaitingReportedDevice.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x1403B3C38 (IopIsKnownGoodLegacyFsFilter.c)
+ *     IoGetDiskDeviceObject @ 0x140499000 (IoGetDiskDeviceObject.c)
+ *     McTemplateK0hzr0_EtwWriteTransfer @ 0x140593F54 (McTemplateK0hzr0_EtwWriteTransfer.c)
+ *     McTemplateK0hzr0hzr2_EtwWriteTransfer @ 0x140593FDC (McTemplateK0hzr0hzr2_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ObQueryNameString @ 0x1409524A0 (ObQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     IovAttachDeviceToDeviceStack @ 0x140B84514 (IovAttachDeviceToDeviceStack.c)
  */
 
 PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _DEVICE_OBJECT *a2, PDEVICE_OBJECT *a3)
@@ -39,34 +39,33 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   PDEVICE_OBJECT v16; // rax
   int v17; // edx
   int v18; // ecx
-  __int64 v19; // r9
-  unsigned int v20; // eax
-  int v21; // r8d
-  __int64 v23; // rax
-  struct _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
-  struct _OBJECT_NAME_INFORMATION *v25; // r15
-  int v26; // r9d
-  PDEVICE_OBJECT v27; // r13
-  NTSTATUS v28; // r12d
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rax
-  __int16 v30; // dx
-  bool v31; // [rsp+40h] [rbp-B8h]
-  bool v32; // [rsp+41h] [rbp-B7h]
+  unsigned int v19; // eax
+  int v20; // r8d
+  __int64 v22; // rax
+  _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
+  _OBJECT_NAME_INFORMATION *v24; // r15
+  int v25; // r9d
+  PDEVICE_OBJECT v26; // r13
+  NTSTATUS v27; // r12d
+  _OBJECT_NAME_INFORMATION *Pool2; // rax
+  __int16 v29; // dx
+  bool v30; // [rsp+40h] [rbp-B8h]
+  bool v31; // [rsp+41h] [rbp-B7h]
   KIRQL OldIrql; // [rsp+42h] [rbp-B6h]
   KIRQL OldIrqla[2]; // [rsp+42h] [rbp-B6h]
   ULONG Length; // [rsp+44h] [rbp-B4h] BYREF
   PDEVICE_OBJECT DiskDeviceObject; // [rsp+48h] [rbp-B0h] BYREF
-  _QWORD v37[2]; // [rsp+50h] [rbp-A8h] BYREF
+  _QWORD v36[2]; // [rsp+50h] [rbp-A8h] BYREF
   struct _DEVICE_OBJECT *DeviceAttachmentBase; // [rsp+60h] [rbp-98h]
-  struct _DEVICE_OBJECT *v39; // [rsp+68h] [rbp-90h]
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+70h] [rbp-88h] BYREF
+  struct _DEVICE_OBJECT *v38; // [rsp+68h] [rbp-90h]
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+70h] [rbp-88h] BYREF
 
   v4 = 0;
   DiskDeviceObject = *(PDEVICE_OBJECT *)(a1 + 312);
   v5 = 0;
+  v30 = 0;
   v31 = 0;
-  v32 = 0;
-  v39 = a2;
+  v38 = a2;
   OldIrql = KeAcquireQueuedSpinLock(0xAuLL);
   if ( (MmVerifierData & 0x10) != 0 )
     IovAttachDeviceToDeviceStack((unsigned int)MmVerifierData, a2);
@@ -84,9 +83,9 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
       v14 = DeviceAttachmentBase->Flags & 0x10000000;
       v4 = v14 != 0;
       v15 = DeviceObjectExtension->ExtensionFlags & 0x2000;
-      v31 = v14 != 0;
+      v30 = v14 != 0;
       v5 = (DeviceObjectExtension->ExtensionFlags & 0x2000) != 0;
-      v32 = v5;
+      v31 = v5;
       if ( IopBlockLegacyFsFilters || v14 || (_DWORD)v15 )
       {
         v9 = 1;
@@ -94,8 +93,8 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
           v9 = 0;
         else
           ObfReferenceObjectWithTag(DeviceAttachmentBase, 0x746C6644u);
-        v32 = v5;
-        v31 = v4;
+        v31 = v5;
+        v30 = v4;
       }
     }
   }
@@ -141,75 +140,75 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
     else if ( v4 && (Microsoft_Windows_Kernel_IOEnableBits & 4) != 0
            || v5 && (Microsoft_Windows_Kernel_IOEnableBits & 4) != 0 )
     {
-      v23 = *(_QWORD *)(a1 + 8);
+      v22 = *(_QWORD *)(a1 + 8);
       p_ObjectNameInfo = &ObjectNameInfo;
-      v37[0] = 1835034LL;
-      v25 = (struct _OBJECT_NAME_INFORMATION *)v37;
-      v26 = *(unsigned __int16 *)(v23 + 56);
-      LOWORD(v26) = (unsigned __int16)v26 >> 1;
+      v36[0] = 1835034LL;
+      v24 = (_OBJECT_NAME_INFORMATION *)v36;
+      v25 = *(unsigned __int16 *)(v22 + 56);
+      LOWORD(v25) = (unsigned __int16)v25 >> 1;
       DiskDeviceObject = 0LL;
-      *(_WORD *)OldIrqla = v26;
-      v37[1] = L"(Unavailable)";
+      *(_WORD *)OldIrqla = v25;
+      v36[1] = L"(Unavailable)";
       Length = 64;
       if ( KeGetCurrentIrql() < 2u )
       {
         if ( IoGetDiskDeviceObject(v10, &DiskDeviceObject) >= 0 )
         {
-          v27 = DiskDeviceObject;
-          v28 = ObQueryNameString(DiskDeviceObject, &ObjectNameInfo, Length, &Length);
-          if ( v28 == -1073741820 )
+          v26 = DiskDeviceObject;
+          v27 = ObQueryNameString(DiskDeviceObject, &ObjectNameInfo, Length, &Length);
+          if ( v27 == -1073741820 )
           {
-            Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(0x100uLL);
+            Pool2 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(0x100uLL, Length, 0x6E4F6F49u);
             p_ObjectNameInfo = Pool2;
             if ( Pool2 )
-              v28 = ObQueryNameString(v27, Pool2, Length, &Length);
+              v27 = ObQueryNameString(v26, Pool2, Length, &Length);
             else
-              v28 = -1073741670;
+              v27 = -1073741670;
           }
-          ObfDereferenceObjectWithTag(v27, 0x746C6644u);
+          ObfDereferenceObjectWithTag(v26, 0x746C6644u);
           v10 = DeviceAttachmentBase;
-          if ( v28 >= 0 )
-            v25 = p_ObjectNameInfo;
+          if ( v27 >= 0 )
+            v24 = p_ObjectNameInfo;
         }
-        v26 = *(unsigned __int16 *)OldIrqla;
+        v25 = *(unsigned __int16 *)OldIrqla;
       }
-      v30 = v25->Name.Length >> 1;
-      if ( v31 )
+      v29 = v24->Name.Length >> 1;
+      if ( v30 )
       {
         if ( (Microsoft_Windows_Kernel_IOEnableBits & 4) != 0 )
           McTemplateK0hzr0hzr2_EtwWriteTransfer(
             *(_QWORD *)(a1 + 8),
             (unsigned int)IoMgr_LegacyFsFilterBlockedOnScm,
             KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink,
-            v26,
+            v25,
             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 64LL),
-            v30,
-            (__int64)v25->Name.Buffer);
+            v29,
+            (__int64)v24->Name.Buffer);
       }
-      else if ( v32 && (Microsoft_Windows_Kernel_IOEnableBits & 4) != 0 )
+      else if ( v31 && (Microsoft_Windows_Kernel_IOEnableBits & 4) != 0 )
       {
         McTemplateK0hzr0hzr2_EtwWriteTransfer(
           *(_QWORD *)(a1 + 8),
           (unsigned int)IoMgr_LegacyFsFilterAttachDisallowed,
           KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink,
-          v26,
+          v25,
           *(_QWORD *)(*(_QWORD *)(a1 + 8) + 64LL),
-          v30,
-          (__int64)v25->Name.Buffer);
+          v29,
+          (__int64)v24->Name.Buffer);
       }
       if ( p_ObjectNameInfo && p_ObjectNameInfo != &ObjectNameInfo )
         ExFreePoolWithTag(p_ObjectNameInfo, 0);
     }
     ObfDereferenceObjectWithTag(v10, 0x746C6644u);
   }
-  v20 = v39->DeviceType;
-  if ( v20 <= 0x14 )
+  v19 = v38->DeviceType;
+  if ( v19 <= 0x14 )
   {
-    v21 = 1048840;
-    if ( _bittest(&v21, v20) )
+    v20 = 1048840;
+    if ( _bittest(&v20, v19) )
     {
       if ( FltMgrCallbacks )
-        guard_dispatch_icall_no_overrides(a1, v39, 1048840LL, v19);
+        guard_dispatch_icall_no_overrides(a1, v38);
     }
   }
   return AttachedDevice;

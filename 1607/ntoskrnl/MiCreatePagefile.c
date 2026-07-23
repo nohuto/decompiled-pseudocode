@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreatePagefile @ 0x140568D38
+ * XREFs of MiCreatePagefile @ 0x140569278
  * Callers:
- *     MmStoreRegister @ 0x140567FC0 (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
+ *     MmStoreRegister @ 0x140568500 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     RtlSetAllBits @ 0x1400055D0 (RtlSetAllBits.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     MiAllocateModWriterEntry @ 0x140102A50 (MiAllocateModWriterEntry.c)
- *     MiInitializePagefileBitmapsCache @ 0x140142D04 (MiInitializePagefileBitmapsCache.c)
- *     MiReservePageHash @ 0x140142DF0 (MiReservePageHash.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     RtlSetAllBits @ 0x140005744 (RtlSetAllBits.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     MiAllocateModWriterEntry @ 0x1401007D0 (MiAllocateModWriterEntry.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140143274 (MiInitializePagefileBitmapsCache.c)
+ *     MiReservePageHash @ 0x140143360 (MiReservePageHash.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x140569020 (MiCreatePageFileSpaceBitmaps.c)
- *     MiDeletePagefile @ 0x14065AE08 (MiDeletePagefile.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x140569560 (MiCreatePageFileSpaceBitmaps.c)
+ *     MiDeletePagefile @ 0x14065AEEC (MiDeletePagefile.c)
  */
 
 _QWORD *__fastcall MiCreatePagefile(

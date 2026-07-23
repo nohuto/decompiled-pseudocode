@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockAndInsertPageInFreeList @ 0x140144DA4
+ * XREFs of MiLockAndInsertPageInFreeList @ 0x140145314
  * Callers:
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiEnableNewPfns @ 0x1401E1B74 (MiEnableNewPfns.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiEnableNewPfns @ 0x1401E19A0 (MiEnableNewPfns.c)
  *     MiFreeBootPageTable @ 0x1407B28EC (MiFreeBootPageTable.c)
  *     MiFreeEmptyBootPageTable @ 0x1407D0638 (MiFreeEmptyBootPageTable.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
  */
 
 __int64 __fastcall MiLockAndInsertPageInFreeList(__int64 a1)

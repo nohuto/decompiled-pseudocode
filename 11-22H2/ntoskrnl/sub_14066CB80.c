@@ -101,7 +101,7 @@ void __fastcall __noreturn sub_14066CB80(__int64 a1, __int64 a2, __int64 a3)
     }
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -138,10 +138,10 @@ void __fastcall __noreturn sub_14066CB80(__int64 a1, __int64 a2, __int64 a3)
     *(_BYTE *)(v17 + 1) = 72;
     *(_BYTE *)v17 = 46;
     ((void (__fastcall *)(unsigned __int64, __int64, _QWORD, _QWORD))v17)(v17, v23, 0LL, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v26 = CurrentPrcb->SchedulerAssist;

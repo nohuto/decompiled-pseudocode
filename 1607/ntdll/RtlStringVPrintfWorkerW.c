@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringVPrintfWorkerW @ 0x18005CE14
+ * XREFs of RtlStringVPrintfWorkerW @ 0x18005CE04
  * Callers:
- *     RtlStringCchPrintfExW @ 0x18005CCF0 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x18005CCE0 (RtlStringCchPrintfExW.c)
  * Callees:
- *     _vsnwprintf @ 0x180098260 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x180098250 (_vsnwprintf.c)
  */
 
 __int64 __fastcall RtlStringVPrintfWorkerW(

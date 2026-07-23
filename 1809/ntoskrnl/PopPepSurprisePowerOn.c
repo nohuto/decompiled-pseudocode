@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepSurprisePowerOn @ 0x140158724
+ * XREFs of PopPepSurprisePowerOn @ 0x140158824
  * Callers:
- *     PoFxNotifySurprisePowerOn @ 0x1401586D0 (PoFxNotifySurprisePowerOn.c)
+ *     PoFxNotifySurprisePowerOn @ 0x1401587D0 (PoFxNotifySurprisePowerOn.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     PopPepReleaseActivityLink @ 0x1400FF74C (PopPepReleaseActivityLink.c)
- *     PopPepRequestWork @ 0x1400FF7C4 (PopPepRequestWork.c)
- *     PopPepPromoteActivities @ 0x1400FF954 (PopPepPromoteActivities.c)
- *     PopPepTriggerActivity @ 0x1400FFD18 (PopPepTriggerActivity.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     PopPepReleaseActivityLink @ 0x1400FF7CC (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x1400FF844 (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x1400FF9D4 (PopPepPromoteActivities.c)
+ *     PopPepTriggerActivity @ 0x1400FFD98 (PopPepTriggerActivity.c)
  */
 
 __int64 __fastcall PopPepSurprisePowerOn(__int64 a1)

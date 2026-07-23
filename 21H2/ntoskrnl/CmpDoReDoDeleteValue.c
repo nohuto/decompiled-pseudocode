@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoReDoDeleteValue @ 0x140881F5C
+ * XREFs of CmpDoReDoDeleteValue @ 0x1408820BC
  * Callers:
- *     CmpDoReDoRecord @ 0x140881FB8 (CmpDoReDoRecord.c)
+ *     CmpDoReDoRecord @ 0x140882118 (CmpDoReDoRecord.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     CmpDoReOpenTransKey @ 0x1408822B0 (CmpDoReOpenTransKey.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     CmpDoReOpenTransKey @ 0x140882410 (CmpDoReOpenTransKey.c)
  */
 
 __int64 __fastcall CmpDoReDoDeleteValue(__int64 a1, UNICODE_STRING *a2)

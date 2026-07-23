@@ -11,7 +11,7 @@ char __stdcall AVrfpEnableHeapVerifier()
   if ( (AVrfpVerifierFlags & 1) != 0 )
   {
     NtCurrentPeb()->NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag | 0x2000000;
-    *(_DWORD *)RtlpDebugPageHeapTable |= 1u;
+    *RtlpDebugPageHeapTable |= 1u;
   }
   else if ( (AVrfpVerifierFlags & 0x8000) != 0 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaCvmMakeMdlDevicePrivate @ 0x1406FFE28
+ * XREFs of HalpDmaCvmMakeMdlDevicePrivate @ 0x1406FDA68
  * Callers:
- *     HalpDmaFreeChildAdapter @ 0x14054F560 (HalpDmaFreeChildAdapter.c)
+ *     HalpDmaFreeChildAdapter @ 0x14054CEA0 (HalpDmaFreeChildAdapter.c)
  * Callees:
- *     HalpDmaCvmSetPageShareability @ 0x1406FFFBC (HalpDmaCvmSetPageShareability.c)
+ *     HalpDmaCvmSetPageShareability @ 0x1406FDBFC (HalpDmaCvmSetPageShareability.c)
  */
 
 __int64 __fastcall HalpDmaCvmMakeMdlDevicePrivate(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall HalpDmaCvmMakeMdlDevicePrivate(__int64 a1)
   while ( v3 < v4 )
   {
     v5 = *(_QWORD *)(a1 + 8 * v3 + 48) << 12;
-    if ( (v5 & qword_140FC0AE8) != 0 )
+    if ( (v5 & qword_140FC0D48) != 0 )
     {
       result = HalpDmaCvmSetPageShareability(v5, 1LL, 0LL, &v7);
       if ( (int)result < 0 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64ResumeProfiling @ 0x14056C690
+ * XREFs of Amd64ResumeProfiling @ 0x140569B20
  * Callers:
  *     <none>
  * Callees:
- *     Amd64ResumeProfilingInternal @ 0x14056C6CC (Amd64ResumeProfilingInternal.c)
+ *     Amd64ResumeProfilingInternal @ 0x140569B5C (Amd64ResumeProfilingInternal.c)
  */
 
 __int64 Amd64ResumeProfiling()

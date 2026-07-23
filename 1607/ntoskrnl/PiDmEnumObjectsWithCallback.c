@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDmEnumObjectsWithCallback @ 0x1405012F0
+ * XREFs of PiDmEnumObjectsWithCallback @ 0x1404E4280
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14048AD7C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmGetObjectList @ 0x1404E2AF0 (PiDmGetObjectList.c)
- *     PiDmListInit @ 0x140564054 (PiDmListInit.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14048B010 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDmGetObjectList @ 0x1404C5A54 (PiDmGetObjectList.c)
+ *     PiDmListInit @ 0x140564594 (PiDmListInit.c)
  *     PpDevCfgInit @ 0x1407B8124 (PpDevCfgInit.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1400C3D4C (RtlEnumerateGenericTableLikeADirectory.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1404FF308 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectIsEnumerable @ 0x140501280 (PiDmObjectIsEnumerable.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x14050157C (PiDmObjectManagerAcquireSharedLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1400C1BEC (RtlEnumerateGenericTableLikeADirectory.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1404E2298 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectIsEnumerable @ 0x1404E4210 (PiDmObjectIsEnumerable.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1404E450C (PiDmObjectManagerAcquireSharedLock.c)
  */
 
 __int64 __fastcall PiDmEnumObjectsWithCallback(
@@ -22,8 +22,8 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
         __int64 a3)
 {
   int v3; // edi
-  struct _RTL_AVL_TABLE *ObjectManagerForObjectType; // rax
-  struct _RTL_AVL_TABLE *v7; // rsi
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // rax
+  _RTL_AVL_TABLE *v7; // rsi
   int v8; // r9d
   const wchar_t *v9; // rax
   unsigned int **v10; // rax
@@ -49,13 +49,13 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
   DeleteCount = 0;
   P = &v24;
   v20[0] = 0;
-  ObjectManagerForObjectType = (struct _RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
+  ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
   v26 = 0;
   v7 = ObjectManagerForObjectType;
   v27 = v8;
   v9 = L"\\\\?\\";
   if ( v8 != 3 )
-    v9 = &word_140583CF0;
+    v9 = &word_1405841A0;
   v25 = v9;
   PiDmObjectManagerAcquireSharedLock(v7);
   v10 = (unsigned int **)RtlEnumerateGenericTableLikeADirectory(v7 + 1, 0LL, 0LL, 0, RestartKey, &DeleteCount, &P);

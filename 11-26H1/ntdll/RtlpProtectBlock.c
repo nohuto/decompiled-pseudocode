@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlpProtectBlock @ 0x18015092C
+ * XREFs of RtlpProtectBlock @ 0x1801507DC
  * Callers:
- *     RtlpSubSegmentDebugInitialize @ 0x1800753AC (RtlpSubSegmentDebugInitialize.c)
+ *     RtlpSubSegmentDebugInitialize @ 0x180095F9C (RtlpSubSegmentDebugInitialize.c)
  * Callees:
- *     ZwProtectVirtualMemory @ 0x18015F940 (ZwProtectVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x18015F840 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpProtectBlock(__int64 a1, __int64 a2)
+NTSTATUS __fastcall RtlpProtectBlock(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
-  int v3; // [rsp+40h] [rbp+10h] BYREF
-  __int64 v4; // [rsp+50h] [rbp+20h] BYREF
-  __int64 v5; // [rsp+58h] [rbp+28h] BYREF
+  NTSTATUS result; // eax
+  ULONG OldProtect; // [rsp+40h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+20h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp+28h] BYREF
 
   if ( (*(_BYTE *)(a1 + 38) & 1) != 0 )
   {
-    v5 = a2 + 16 * (*(unsigned __int16 *)(a1 + 36) + 1LL);
+    BaseAddress = (PVOID)(a2 + 16 * (*(unsigned __int16 *)(a1 + 36) + 1LL));
   }
   else
   {
     if ( (*(_BYTE *)(a1 + 38) & 2) == 0 )
       return result;
-    v5 = a2 - 4096;
+    BaseAddress = (PVOID)(a2 - 4096);
   }
-  v3 = 0;
-  v4 = 4096LL;
-  return ZwProtectVirtualMemory(-1LL, &v5, &v4, 1LL, &v3);
+  OldProtect = 0;
+  RegionSize = 4096LL;
+  return ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u, &OldProtect);
 }

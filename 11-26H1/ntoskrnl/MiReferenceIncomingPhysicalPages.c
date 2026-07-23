@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceIncomingPhysicalPages @ 0x140702580
+ * XREFs of MiReferenceIncomingPhysicalPages @ 0x140707250
  * Callers:
- *     NtMapUserPhysicalPagesScatter @ 0x140879900 (NtMapUserPhysicalPagesScatter.c)
- *     NtMapUserPhysicalPages @ 0x140B39FC0 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14087FCE0 (NtMapUserPhysicalPagesScatter.c)
+ *     NtMapUserPhysicalPages @ 0x140B3C1D0 (NtMapUserPhysicalPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetAweViewPageSize @ 0x140477EDC (MiGetAweViewPageSize.c)
- *     MiDecrementAweMapCount @ 0x14048007C (MiDecrementAweMapCount.c)
- *     MiGetVadCacheAttribute @ 0x1404E25CC (MiGetVadCacheAttribute.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiGetAweNode @ 0x140526364 (MiGetAweNode.c)
- *     MiIncrementAweMapCount @ 0x140701B48 (MiIncrementAweMapCount.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetAweViewPageSize @ 0x14047165C (MiGetAweViewPageSize.c)
+ *     MiDecrementAweMapCount @ 0x1404799BC (MiDecrementAweMapCount.c)
+ *     MiGetVadCacheAttribute @ 0x1404DBCAC (MiGetVadCacheAttribute.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiGetAweNode @ 0x1405289D4 (MiGetAweNode.c)
+ *     MiIncrementAweMapCount @ 0x140706818 (MiIncrementAweMapCount.c)
  */
 
 __int64 __fastcall MiReferenceIncomingPhysicalPages(

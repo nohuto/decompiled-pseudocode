@@ -31,17 +31,17 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
   int Acl; // edi
   ACL *v13; // rcx
   HANDLE EventHandle; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING SourceString; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+88h] [rbp-78h] BYREF
-  unsigned __int8 Sid[48]; // [rsp+B0h] [rbp-50h] BYREF
-  char v19[48]; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned __int8 CapabilitySid[48]; // [rsp+B0h] [rbp-50h] BYREF
+  char CapabilityGroupSid[48]; // [rsp+E0h] [rbp-20h] BYREF
 
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  *(_QWORD *)&SourceString.Length = 2621478LL;
-  SourceString.Buffer = L"lpacInstrumentation";
-  result = RtlDeriveCapabilitySidsFromName(&SourceString, v19, Sid);
+  *(_QWORD *)&UnicodeString.Length = 2621478LL;
+  UnicodeString.Buffer = L"lpacInstrumentation";
+  result = RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid);
   if ( result >= 0 )
   {
     result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -51,7 +51,7 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
       v6 = RtlLengthSid(SeLocalSystemSid) + v5;
       v7 = RtlLengthSid(SeLocalSid) + v6;
       v8 = RtlLengthSid(SeAllAppPackagesSid) + v7;
-      v9 = v8 + RtlLengthSid(Sid) + 68;
+      v9 = v8 + RtlLengthSid(CapabilitySid) + 68;
       PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x6C636144u);
       v11 = PoolWithTag;
       if ( !PoolWithTag )
@@ -68,7 +68,7 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
           v13 = v11;
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, Sid, 0);
+            Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, CapabilitySid, 0);
             v13 = v11;
             if ( Acl >= 0 )
             {

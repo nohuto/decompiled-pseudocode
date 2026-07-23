@@ -1,9 +1,9 @@
 /*
- * XREFs of ExCreateCallback @ 0x1404EADFC
+ * XREFs of ExCreateCallback @ 0x1404CCE20
  * Callers:
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
- *     KeRegisterProcessorChangeCallback @ 0x140578064 (KeRegisterProcessorChangeCallback.c)
- *     IoRegisterBootDriverCallback @ 0x140580D50 (IoRegisterBootDriverCallback.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1405785A4 (KeRegisterProcessorChangeCallback.c)
+ *     IoRegisterBootDriverCallback @ 0x1405811FC (IoRegisterBootDriverCallback.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  *     ExpInitializeCallbacks @ 0x1407A20B8 (ExpInitializeCallbacks.c)
@@ -11,13 +11,13 @@
  *     PopUmpoInitializeMonitorChannel @ 0x1407BA6CC (PopUmpoInitializeMonitorChannel.c)
  *     IopInitializeSessionNotifications @ 0x1407BCB20 (IopInitializeSessionNotifications.c)
  * Callees:
- *     ExpLockCallbackListExclusive @ 0x140148500 (ExpLockCallbackListExclusive.c)
- *     ExpUnlockCallbackListExclusive @ 0x14014876C (ExpUnlockCallbackListExclusive.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
+ *     ExpLockCallbackListExclusive @ 0x140148A70 (ExpLockCallbackListExclusive.c)
+ *     ExpUnlockCallbackListExclusive @ 0x140148CDC (ExpUnlockCallbackListExclusive.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
  */
 
 NTSTATUS __stdcall ExCreateCallback(

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopWriteImageHeader @ 0x14057D740
+ * XREFs of PopWriteImageHeader @ 0x14057E740
  * Callers:
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
  * Callees:
- *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1401C5090 (tcpxsum.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopWriteHiberPages @ 0x140569C48 (PopWriteHiberPages.c)
+ *     DbgPrint @ 0x1401263A0 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1401C51F0 (tcpxsum.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopWriteHiberPages @ 0x14056AC48 (PopWriteHiberPages.c)
  */
 
 __int64 (*__fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, __int64 a4))(void)
@@ -33,30 +33,30 @@ __int64 (*__fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3
     KeBugCheckEx(0xA0u, 0x109uLL, 0xAuLL, *(unsigned int *)(a2 + 80), BugCheckParameter4);
   }
   v8 = __rdtsc();
-  qword_140417BB0 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
-  dword_140417D74 = ((unsigned int)dword_140417840 >> 4) - 1;
+  qword_140418C50 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
+  dword_140418E14 = ((unsigned int)dword_1404188E0 >> 4) - 1;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   v10 = 0;
-  for ( qword_140417BE0 = PerformanceCounter.QuadPart;
+  for ( qword_140418C80 = PerformanceCounter.QuadPart;
         v10 < *(_DWORD *)(a1 + 256);
-        qword_140417BC0 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 80) )
+        qword_140418C60 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 80) )
   {
     v11 = v10++;
     v11 <<= 7;
-    qword_140417D40 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 56);
-    qword_140417BB8 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 40);
+    qword_140418DE0 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 56);
+    qword_140418C58 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 40);
   }
-  qword_140417D50 = qword_140417D68;
-  qword_140417D60 = (unsigned int)dword_140417D70;
-  qword_140417D68 += qword_140417D48;
-  v12 = qword_140417D38;
-  dword_140417D70 += qword_140417D58;
-  *(_QWORD *)(a2 + 88) = qword_140417D38;
-  if ( byte_140417861 )
-    *(_QWORD *)(a2 + 88) = qword_140417D40 + v12;
+  qword_140418DF0 = qword_140418E08;
+  qword_140418E00 = (unsigned int)dword_140418E10;
+  qword_140418E08 += qword_140418DE8;
+  v12 = qword_140418DD8;
+  dword_140418E10 += qword_140418DF8;
+  *(_QWORD *)(a2 + 88) = qword_140418DD8;
+  if ( byte_140418901 )
+    *(_QWORD *)(a2 + 88) = qword_140418DE0 + v12;
   v13 = 3LL;
   v14 = a2 + 136;
-  v15 = &qword_140417B98;
+  v15 = &qword_140418C38;
   do
   {
     *(_OWORD *)v14 = *(_OWORD *)v15;

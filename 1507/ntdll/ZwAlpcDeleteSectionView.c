@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwAlpcDeleteSectionView()
+NTSTATUS __cdecl ZwAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 126LL;
+  result = 126;
   __asm { syscall; Low latency system call }
   return result;
 }

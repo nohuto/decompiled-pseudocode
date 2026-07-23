@@ -1,63 +1,73 @@
 /*
- * XREFs of RtlpHpRemoteStackSerializeWriter @ 0x1801450E0
+ * XREFs of RtlpHpRemoteStackSerializeWriter @ 0x180144F90
  * Callers:
  *     <none>
  * Callees:
- *     ZwMapViewOfSection @ 0x18015F440 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x18015F480 (NtUnmapViewOfSection.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     ZwMapViewOfSection @ 0x18015F340 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x18015F380 (NtUnmapViewOfSection.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlpHpRemoteStackSerializeWriter(char *Src, size_t Size, __int64 *a3)
+NTSTATUS __fastcall RtlpHpRemoteStackSerializeWriter(char *Src, size_t Size, __int64 a3)
 {
   size_t v4; // rdi
-  _QWORD *v6; // r15
-  __int64 *v7; // r14
+  PVOID *v6; // r15
+  ULONG_PTR *ViewSize; // r14
   __int64 v8; // rdx
-  void *v9; // rcx
+  char *v9; // rcx
   size_t v10; // rsi
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 result; // rax
-  __int64 v14; // [rsp+20h] [rbp-48h]
+  ULONG_PTR v11; // rcx
+  void *v12; // rcx
+  NTSTATUS result; // eax
+  SIZE_T CommitSize; // [rsp+20h] [rbp-48h]
 
-  a3[4] += Size;
+  *(_QWORD *)(a3 + 32) += Size;
   v4 = Size;
-  if ( *((_DWORD *)a3 + 7) != -1073741789 && Size )
+  if ( *(_DWORD *)(a3 + 28) != -1073741789 && Size )
   {
-    v6 = a3 + 6;
-    v7 = a3 + 7;
+    v6 = (PVOID *)(a3 + 48);
+    ViewSize = (ULONG_PTR *)(a3 + 56);
     while ( 1 )
     {
-      v8 = a3[9];
-      v9 = (void *)(v8 + *v6);
-      if ( v8 + v4 <= *v7 )
+      v8 = *(_QWORD *)(a3 + 72);
+      v9 = (char *)*v6 + v8;
+      if ( v8 + v4 <= *ViewSize )
         break;
-      v10 = *v7 - v8;
+      v10 = *ViewSize - v8;
       memmove(v9, Src, v10);
       v4 -= v10;
       Src += v10;
-      a3[8] += *v7;
-      if ( a3[8] >= a3[1] )
+      *(_QWORD *)(a3 + 64) += *ViewSize;
+      if ( *(_QWORD *)(a3 + 64) >= *(_QWORD *)(a3 + 8) )
       {
-        *((_DWORD *)a3 + 7) = -1073741789;
-        return 0LL;
+        *(_DWORD *)(a3 + 28) = -1073741789;
+        return 0;
       }
-      NtUnmapViewOfSection(-1LL, *v6);
-      v11 = *v7;
-      if ( *v7 >= (unsigned __int64)(a3[1] - a3[8]) )
-        v11 = a3[1] - a3[8];
-      *v7 = v11;
-      v14 = v11;
-      v12 = *a3;
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v6);
+      v11 = *ViewSize;
+      if ( *ViewSize >= *(_QWORD *)(a3 + 8) - *(_QWORD *)(a3 + 64) )
+        v11 = *(_QWORD *)(a3 + 8) - *(_QWORD *)(a3 + 64);
+      *ViewSize = v11;
+      CommitSize = v11;
+      v12 = *(void **)a3;
       *v6 = 0LL;
-      result = ZwMapViewOfSection(v12, -1LL, v6, 0LL, v14, a3 + 8, v7, 2, 0, 4);
-      if ( (int)result < 0 )
+      result = ZwMapViewOfSection(
+                 v12,
+                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                 v6,
+                 0LL,
+                 CommitSize,
+                 (PLARGE_INTEGER)(a3 + 64),
+                 ViewSize,
+                 ViewUnmap,
+                 0,
+                 4u);
+      if ( result < 0 )
         return result;
-      a3[9] = 0LL;
+      *(_QWORD *)(a3 + 72) = 0LL;
     }
     memmove(v9, Src, v4);
-    a3[9] += v4;
+    *(_QWORD *)(a3 + 72) += v4;
   }
-  return 0LL;
+  return 0;
 }

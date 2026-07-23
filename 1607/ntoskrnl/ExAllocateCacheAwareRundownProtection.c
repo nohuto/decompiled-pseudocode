@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAllocateCacheAwareRundownProtection @ 0x1404C17A0
+ * XREFs of ExAllocateCacheAwareRundownProtection @ 0x1404AD4D0
  * Callers:
- *     RawInitializeVcb @ 0x1404C167C (RawInitializeVcb.c)
- *     EtwInitializeSiloState @ 0x1405631E8 (EtwInitializeSiloState.c)
+ *     RawInitializeVcb @ 0x1404AD3AC (RawInitializeVcb.c)
+ *     EtwInitializeSiloState @ 0x140563728 (EtwInitializeSiloState.c)
  * Callees:
- *     KeGetRecommendedSharedDataAlignment @ 0x14009D700 (KeGetRecommendedSharedDataAlignment.c)
+ *     KeGetRecommendedSharedDataAlignment @ 0x14009CF00 (KeGetRecommendedSharedDataAlignment.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

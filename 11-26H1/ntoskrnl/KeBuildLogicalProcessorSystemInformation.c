@@ -1,11 +1,11 @@
 /*
- * XREFs of KeBuildLogicalProcessorSystemInformation @ 0x140AB5EB0
+ * XREFs of KeBuildLogicalProcessorSystemInformation @ 0x140AB7250
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
  *     KeQueryNodeGroupAffinity @ 0x14020183C (KeQueryNodeGroupAffinity.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
  */
 
 __int64 __fastcall KeBuildLogicalProcessorSystemInformation(
@@ -54,7 +54,7 @@ __int64 __fastcall KeBuildLogicalProcessorSystemInformation(
       if ( v13 )
       {
         _BitScanReverse64(&v14, v13);
-        v15 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+        v15 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
               + (unsigned int)(((_DWORD)v12 << 6) + v14));
       }
       else
@@ -86,7 +86,7 @@ __int64 __fastcall KeBuildLogicalProcessorSystemInformation(
       if ( v16 )
       {
         _BitScanReverse64(&v17, v16);
-        v18 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+        v18 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
               + (unsigned int)(((_DWORD)v12 << 6) + v17));
       }
       else
@@ -129,7 +129,7 @@ __int64 __fastcall KeBuildLogicalProcessorSystemInformation(
         if ( v23 )
         {
           _BitScanReverse64(&v24, v23);
-          v25 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock + 64 * v22 + (int)v24);
+          v25 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v22].Flink + (int)v24);
         }
         else
         {

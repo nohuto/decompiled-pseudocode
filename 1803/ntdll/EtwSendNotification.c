@@ -10,48 +10,67 @@
  *     sub_1801076A4 @ 0x1801076A4 (sub_1801076A4.c)
  */
 
-__int64 __fastcall EtwSendNotification(int *a1, int a2, char *a3, __int64 a4, __int64 a5)
+ULONG __cdecl EtwSendNotification(
+        PETW_NOTIFICATION_HEADER DataBlock,
+        ULONG ReceiveDataBlockSize,
+        PVOID ReceiveDataBlock,
+        PULONG ReplyReceived,
+        PULONG ReplySizeNeeded)
 {
-  char v5; // bp
-  int v8; // edi
+  BOOLEAN ReplyRequested; // bp
+  int v7; // r14d
+  ULONG Timeout; // edi
   NTSTATUS v11; // eax
   int v12; // r8d
   ULONG v13; // ebx
-  int v15; // r9d
-  int v16; // r10d
-  int v17; // r11d
-  __int64 v18; // rbp
+  ULONG ReplyCount; // r9d
+  ETW_NOTIFICATION_TYPE NotificationType; // r10d
+  ULONG v17; // r11d
+  void *Reserved2; // rbp
   char *v19; // rax
-  char v20; // [rsp+58h] [rbp-D0h] BYREF
+  PULONG ReturnLength; // [rsp+28h] [rbp-100h]
+  ULONG v21; // [rsp+50h] [rbp-D8h] BYREF
+  char v22; // [rsp+58h] [rbp-D0h] BYREF
 
-  v5 = *((_BYTE *)a1 + 12);
-  v8 = a1[4];
-  if ( v5 == 1 && !v8 )
-    v8 = 60000;
-  v11 = ZwTraceControl(17LL, a1, (unsigned int)a1[1]);
+  ReplyRequested = DataBlock->ReplyRequested;
+  v7 = (int)ReceiveDataBlock;
+  Timeout = DataBlock->Timeout;
+  if ( ReplyRequested == 1 && !Timeout )
+    Timeout = 60000;
+  v11 = ZwTraceControl(EtwSendDataBlock, DataBlock, DataBlock->NotificationSize, DataBlock, 0x48u, &v21);
   if ( v11 )
     v13 = RtlNtStatusToDosError(v11);
   else
     v13 = 0;
-  if ( v5 )
+  if ( ReplyRequested )
   {
     if ( !v13 )
     {
-      v15 = a1[5];
-      if ( v15 )
+      ReplyCount = DataBlock->ReplyCount;
+      if ( ReplyCount )
       {
-        v16 = *a1;
+        NotificationType = DataBlock->NotificationType;
         v17 = 120;
-        v18 = *((_QWORD *)a1 + 3);
-        v19 = &v20;
-        if ( *a1 != 3 )
-          v17 = a2;
-        if ( v16 != 3 )
-          v19 = a3;
-        LOBYTE(v12) = v16 == 3;
-        v13 = sub_1801076A4(v18, v8, v12, v15, (__int64)v19, v17, a4, a5, *a1);
-        if ( v18 )
-          ZwClose(v18);
+        Reserved2 = (void *)DataBlock->Reserved2;
+        v19 = &v22;
+        if ( DataBlock->NotificationType != EtwNotificationTypeEnable )
+          v17 = ReceiveDataBlockSize;
+        if ( NotificationType != EtwNotificationTypeEnable )
+          LODWORD(v19) = v7;
+        LODWORD(ReturnLength) = v17;
+        LOBYTE(v12) = NotificationType == EtwNotificationTypeEnable;
+        v13 = sub_1801076A4(
+                (int)Reserved2,
+                Timeout,
+                v12,
+                ReplyCount,
+                (ULONG)v19,
+                (SIZE_T)ReturnLength,
+                (__int64)ReplyReceived,
+                (__int64)ReplySizeNeeded,
+                DataBlock->NotificationType);
+        if ( Reserved2 )
+          ZwClose(Reserved2);
       }
     }
   }

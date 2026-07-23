@@ -1,11 +1,11 @@
 /*
- * XREFs of VslVerifySessionSpace @ 0x140943550
+ * XREFs of VslVerifySessionSpace @ 0x140943750
  * Callers:
  *     <none>
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MmEnumerateSystemImages @ 0x140820BD0 (MmEnumerateSystemImages.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MmEnumerateSystemImages @ 0x140820ED0 (MmEnumerateSystemImages.c)
  */
 
 __int64 __fastcall VslVerifySessionSpace(int a1)

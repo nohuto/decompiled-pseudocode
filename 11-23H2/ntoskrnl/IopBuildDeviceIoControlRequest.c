@@ -1,24 +1,24 @@
 /*
- * XREFs of IopBuildDeviceIoControlRequest @ 0x140251210
+ * XREFs of IopBuildDeviceIoControlRequest @ 0x1402512D0
  * Callers:
- *     IoBuildDeviceIoControlRequest @ 0x140251550 (IoBuildDeviceIoControlRequest.c)
- *     FsRtlGetVirtualDiskNestingLevel @ 0x1403C40A0 (FsRtlGetVirtualDiskNestingLevel.c)
+ *     IoBuildDeviceIoControlRequest @ 0x140251610 (IoBuildDeviceIoControlRequest.c)
+ *     FsRtlGetVirtualDiskNestingLevel @ 0x1403C4280 (FsRtlGetVirtualDiskNestingLevel.c)
  *     IopStoreBootDriveLetter @ 0x140B39740 (IopStoreBootDriveLetter.c)
  *     IopCreateArcNamesCd @ 0x140B39BCC (IopCreateArcNamesCd.c)
  *     IopGetBootDiskInformation @ 0x140B93A0C (IopGetBootDiskInformation.c)
  *     SbpAddTransportToInstance @ 0x140B9B95C (SbpAddTransportToInstance.c)
  *     SbpStartLanman @ 0x140B9BB50 (SbpStartLanman.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     IoFreeIrp @ 0x1402AF210 (IoFreeIrp.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     IopProbeAndLockPages @ 0x140371DD4 (IopProbeAndLockPages.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     IoFreeIrp @ 0x1402AF4A0 (IoFreeIrp.c)
+ *     IopAllocateMdl @ 0x1402FC37C (IopAllocateMdl.c)
+ *     IopProbeAndLockPages @ 0x140371F74 (IopProbeAndLockPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -146,7 +146,7 @@ LABEL_12:
   p_ThreadListEntry = &v15->ThreadListEntry;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -165,10 +165,10 @@ LABEL_12:
   Flink->Blink = p_ThreadListEntry;
   p_SystemCallNumber->Flink = p_ThreadListEntry;
   KxReleaseSpinLock(p_Thread);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v37 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v27 = CurrentPrcb->SchedulerAssist;

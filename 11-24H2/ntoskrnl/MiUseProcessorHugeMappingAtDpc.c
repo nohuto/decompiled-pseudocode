@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUseProcessorHugeMappingAtDpc @ 0x140685FC4
+ * XREFs of MiUseProcessorHugeMappingAtDpc @ 0x1406870F4
  * Callers:
- *     MiSoloZeroHugeRange @ 0x140685E14 (MiSoloZeroHugeRange.c)
+ *     MiSoloZeroHugeRange @ 0x140686F44 (MiSoloZeroHugeRange.c)
  * Callees:
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
- *     MiUpdateProtectionMask @ 0x14021BFAC (MiUpdateProtectionMask.c)
- *     MiWriteLargePte @ 0x1403090A0 (MiWriteLargePte.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiUpdateProtectionMask @ 0x140248CFC (MiUpdateProtectionMask.c)
+ *     MiWriteLargePte @ 0x140312F80 (MiWriteLargePte.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiUseProcessorHugeMappingAtDpc(__int64 a1, __int64 a2, int a3, unsigned __int8 *a4)

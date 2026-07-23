@@ -1,37 +1,37 @@
 /*
- * XREFs of RtlpInitMuiCriticalSection @ 0x180013B94
+ * XREFs of RtlpInitMuiCriticalSection @ 0x180013B84
  * Callers:
- *     RtlpSetProcUserMachineLangList @ 0x180012958 (RtlpSetProcUserMachineLangList.c)
- *     RtlGetThreadPreferredUILanguages @ 0x180013DA0 (RtlGetThreadPreferredUILanguages.c)
- *     RtlpCreateProcessRegistryInfo @ 0x180014540 (RtlpCreateProcessRegistryInfo.c)
- *     RtlUpdateProcessRegistryInfo @ 0x1800706C4 (RtlUpdateProcessRegistryInfo.c)
- *     RtlpSetProcMergedLangList @ 0x1800847CC (RtlpSetProcMergedLangList.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180088A20 (RtlSetProcessPreferredUILanguages.c)
- *     RtlGetProcessPreferredUILanguages @ 0x1800E58F0 (RtlGetProcessPreferredUILanguages.c)
- *     RtlpCleanupRegistryKeys @ 0x1800E65D0 (RtlpCleanupRegistryKeys.c)
+ *     RtlpSetProcUserMachineLangList @ 0x180012948 (RtlpSetProcUserMachineLangList.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180013D90 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlpCreateProcessRegistryInfo @ 0x180014530 (RtlpCreateProcessRegistryInfo.c)
+ *     RtlUpdateProcessRegistryInfo @ 0x1800706B4 (RtlUpdateProcessRegistryInfo.c)
+ *     RtlpSetProcMergedLangList @ 0x1800847BC (RtlpSetProcMergedLangList.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180088A10 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlGetProcessPreferredUILanguages @ 0x1800E59B0 (RtlGetProcessPreferredUILanguages.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800E6690 (RtlpCleanupRegistryKeys.c)
  * Callees:
- *     RtlInitializeCriticalSectionEx @ 0x18002B290 (RtlInitializeCriticalSectionEx.c)
+ *     RtlInitializeCriticalSectionEx @ 0x18002B280 (RtlInitializeCriticalSectionEx.c)
  *     ZwDelayExecution @ 0x1800A6AA0 (ZwDelayExecution.c)
  */
 
-__int64 RtlpInitMuiCriticalSection()
+NTSTATUS RtlpInitMuiCriticalSection()
 {
-  __int64 result; // rax
-  __int64 v1; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   while ( _InterlockedCompareExchange(&InitRegistryInfoCritSect, 1, 0) )
   {
-    result = (unsigned int)InitRegistryInfoCritSect;
+    result = InitRegistryInfoCritSect;
     if ( InitRegistryInfoCritSect == 1 )
     {
-      ZwDelayExecution(0LL, &v1);
-      result = (unsigned int)InitRegistryInfoCritSect;
+      ZwDelayExecution(0, &DelayInterval);
+      result = InitRegistryInfoCritSect;
     }
-    if ( (_DWORD)result == 2 )
+    if ( result == 2 )
       return result;
   }
-  result = RtlInitializeCriticalSectionEx(&RegistryInfoCritSect, 0LL, 0LL);
+  result = RtlInitializeCriticalSectionEx(&RegistryInfoCritSect, 0, 0);
   InitRegistryInfoCritSect = 2;
   return result;
 }

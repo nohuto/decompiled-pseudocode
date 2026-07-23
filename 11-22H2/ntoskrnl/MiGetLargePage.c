@@ -173,10 +173,10 @@ __int64 __fastcall MiGetLargePage(
     _InterlockedAnd64((volatile signed __int64 *)(v22 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   v23 = CurrentIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v19 = (unsigned __int64 *)KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v19 <= 0xFu
       && (unsigned __int8)CurrentIrql <= 0xFu
       && (unsigned __int8)v19 >= 2u )

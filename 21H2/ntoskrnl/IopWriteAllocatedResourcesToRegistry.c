@@ -1,19 +1,19 @@
 /*
- * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x14074F64C
+ * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x14074F80C
  * Callers:
- *     PnpBuildCmResourceLists @ 0x14074F54C (PnpBuildCmResourceLists.c)
- *     PnpReleaseResourcesInternal @ 0x140750F94 (PnpReleaseResourcesInternal.c)
- *     IopLegacyResourceAllocation @ 0x140753474 (IopLegacyResourceAllocation.c)
- *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
- *     PnpRestoreResourcesInternal @ 0x1408B3348 (PnpRestoreResourcesInternal.c)
+ *     PnpBuildCmResourceLists @ 0x14074F70C (PnpBuildCmResourceLists.c)
+ *     PnpReleaseResourcesInternal @ 0x140751154 (PnpReleaseResourcesInternal.c)
+ *     IopLegacyResourceAllocation @ 0x140753634 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x1407AEB10 (IoReportDetectedDevice.c)
+ *     PnpRestoreResourcesInternal @ 0x1408B34A8 (PnpRestoreResourcesInternal.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
  */
 
 __int64 __fastcall IopWriteAllocatedResourcesToRegistry(__int64 a1, void *a2, ULONG a3)
@@ -21,6 +21,9 @@ __int64 __fastcall IopWriteAllocatedResourcesToRegistry(__int64 a1, void *a2, UL
   struct _KTHREAD *CurrentThread; // rax
   int v7; // ebx
   NTSTATUS v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-18h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp+8h] BYREF
 
@@ -42,6 +45,6 @@ __int64 __fastcall IopWriteAllocatedResourcesToRegistry(__int64 a1, void *a2, UL
     ZwClose(KeyHandle);
   }
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
   return (unsigned int)v7;
 }

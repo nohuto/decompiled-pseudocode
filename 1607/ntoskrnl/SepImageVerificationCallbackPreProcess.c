@@ -1,9 +1,9 @@
 /*
- * XREFs of SepImageVerificationCallbackPreProcess @ 0x1404EE29C
+ * XREFs of SepImageVerificationCallbackPreProcess @ 0x1404D0364
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 char *__fastcall SepImageVerificationCallbackPreProcess(

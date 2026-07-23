@@ -1,19 +1,23 @@
 /*
- * XREFs of RtlGetSystemBootStatus @ 0x140763080
+ * XREFs of RtlGetSystemBootStatus @ 0x140764270
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071D774 (RtlpSystemBootStatusRequest.c)
  */
 
-__int64 __fastcall RtlGetSystemBootStatus(int a1, __int64 a2, int a3, void *a4)
+NTSTATUS __cdecl RtlGetSystemBootStatus(
+        RTL_BSD_ITEM_TYPE BootStatusInformationClass,
+        PVOID DataBuffer,
+        ULONG DataLength,
+        PULONG ReturnLength)
 {
-  int v5; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-20h]
-  int v7; // [rsp+30h] [rbp-18h]
+  RTL_BSD_ITEM_TYPE v5; // [rsp+20h] [rbp-28h] BYREF
+  PVOID v6; // [rsp+28h] [rbp-20h]
+  ULONG v7; // [rsp+30h] [rbp-18h]
 
-  v7 = a3;
-  v5 = a1;
-  v6 = a2;
-  return RtlpSystemBootStatusRequest(0x1Fu, (__int64)&v5, 1u, a4);
+  v7 = DataLength;
+  v5 = BootStatusInformationClass;
+  v6 = DataBuffer;
+  return RtlpSystemBootStatusRequest(0x1Fu, (__int64)&v5, 1u, ReturnLength);
 }

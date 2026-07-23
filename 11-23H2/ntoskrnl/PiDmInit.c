@@ -3,9 +3,9 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PiDmListInit @ 0x140839680 (PiDmListInit.c)
- *     PiDmObjectManagerPopulate @ 0x1408396DC (PiDmObjectManagerPopulate.c)
- *     PiDmObjectManagerInit @ 0x140839828 (PiDmObjectManagerInit.c)
+ *     PiDmListInit @ 0x140839980 (PiDmListInit.c)
+ *     PiDmObjectManagerPopulate @ 0x1408399DC (PiDmObjectManagerPopulate.c)
+ *     PiDmObjectManagerInit @ 0x140839B28 (PiDmObjectManagerInit.c)
  */
 
 __int64 PiDmInit()

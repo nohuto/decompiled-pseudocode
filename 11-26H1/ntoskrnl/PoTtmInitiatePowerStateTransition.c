@@ -1,14 +1,14 @@
 /*
- * XREFs of PoTtmInitiatePowerStateTransition @ 0x1407DB808
+ * XREFs of PoTtmInitiatePowerStateTransition @ 0x1407DF818
  * Callers:
- *     TtmpInitiateModernStandbyTransition @ 0x1407E703C (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x1407ECB94 (TtmpInitiateModernStandbyTransition.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
- *     PopTriggerMonitorPowerEvent @ 0x140A3EF18 (PopTriggerMonitorPowerEvent.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1409FA938 (PopTriggerMonitorPowerEvent.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, unsigned int a2)
@@ -29,7 +29,7 @@ __int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, unsigned int a2)
 
   memset_0(v17, 0, 0x4CuLL);
   PopAcquirePolicyLock(v5, v4);
-  PopFilterCapabilities(&stru_140F10828.WaitBlockFill11[24], v17);
+  PopFilterCapabilities(&PpmIdlePolicyLock.Padding[1], v17);
   v10 = 0;
   if ( v17[20] )
   {
@@ -43,7 +43,7 @@ __int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, unsigned int a2)
     v15 = 0LL;
     if ( a1 )
     {
-      if ( !LOBYTE(stru_140F110C0.QuantumTarget) )
+      if ( !PopTtmIsSxTransitionInProgress )
       {
         v14[0] = 5;
         v14[1] = 128;
@@ -52,9 +52,9 @@ __int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, unsigned int a2)
         PopExecutePowerAction((unsigned int)v14, 0, (unsigned int)v13, 4, 1);
       }
     }
-    else if ( LOBYTE(stru_140F110C0.QuantumTarget) )
+    else if ( PopTtmIsSxTransitionInProgress )
     {
-      byte_140F11080 = 1;
+      PopTtmIsSxCompleteNotificationPending = 1;
       v10 = 259;
     }
   }

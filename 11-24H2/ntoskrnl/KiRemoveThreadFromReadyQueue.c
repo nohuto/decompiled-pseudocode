@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRemoveThreadFromReadyQueue @ 0x14030D494
+ * XREFs of KiRemoveThreadFromReadyQueue @ 0x1402D8C40
  * Callers:
- *     KiNormalPriorityReadyScan @ 0x140251B60 (KiNormalPriorityReadyScan.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x14030D3E8 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
+ *     KiNormalPriorityReadyScan @ 0x140282170 (KiNormalPriorityReadyScan.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1402D8B94 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
- *     KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x14030D768 (KiUpdateLocalReadyQueueStatisticsOnRemoval.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x1402D8F08 (KiUpdateLocalReadyQueueStatisticsOnRemoval.c)
  */
 
 __int64 __fastcall KiRemoveThreadFromReadyQueue(__int64 a1, _QWORD *a2, char a3)

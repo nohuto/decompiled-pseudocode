@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAttemptSectionDelete @ 0x14035F720
+ * XREFs of MiAttemptSectionDelete @ 0x14035F8C0
  * Callers:
- *     MmFlushImageSection @ 0x14034E400 (MmFlushImageSection.c)
- *     MiForceSectionClosed @ 0x14035F6C0 (MiForceSectionClosed.c)
+ *     MmFlushImageSection @ 0x14034E5A0 (MmFlushImageSection.c)
+ *     MiForceSectionClosed @ 0x14035F860 (MiForceSectionClosed.c)
  * Callees:
  *     MiCleanSection @ 0x1402016FC (MiCleanSection.c)
  *     MiRemoveUnusedSegment @ 0x140219970 (MiRemoveUnusedSegment.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiAttemptSectionDelete(__int64 a1, unsigned __int8 a2, char a3)
@@ -43,10 +43,13 @@ char __fastcall MiAttemptSectionDelete(__int64 a1, unsigned __int8 a2, char a3)
     if ( (a3 & 4) != 0 )
       *(_DWORD *)(a1 + 56) |= 0x40000u;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -71,10 +74,10 @@ char __fastcall MiAttemptSectionDelete(__int64 a1, unsigned __int8 a2, char a3)
     v21 = 263;
     v22 = 6;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = v10->SchedulerAssist;

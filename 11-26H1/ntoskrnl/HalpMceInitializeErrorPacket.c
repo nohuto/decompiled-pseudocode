@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMceInitializeErrorPacket @ 0x140C0AF38
+ * XREFs of HalpMceInitializeErrorPacket @ 0x140C11148
  * Callers:
- *     HalpMceInitProcessor @ 0x140C0A268 (HalpMceInitProcessor.c)
+ *     HalpMceInitProcessor @ 0x140C10478 (HalpMceInitProcessor.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpGetMcaPcrContext @ 0x140453A54 (HalpGetMcaPcrContext.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpMceInitializeErrorPacketContents @ 0x140C0AFC4 (HalpMceInitializeErrorPacketContents.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpGetMcaPcrContext @ 0x14044BB84 (HalpGetMcaPcrContext.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpMceInitializeErrorPacketContents @ 0x140C111D4 (HalpMceInitializeErrorPacketContents.c)
  */
 
 void __fastcall HalpMceInitializeErrorPacket(__int64 a1, __int64 a2)

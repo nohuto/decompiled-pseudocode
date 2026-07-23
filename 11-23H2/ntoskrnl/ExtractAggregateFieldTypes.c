@@ -3,8 +3,8 @@
  * Callers:
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
  *     MiLogPeriodicTelemetry @ 0x14021F654 (MiLogPeriodicTelemetry.c)
- *     MiLogSlabEntriesDemote @ 0x1403D6B60 (MiLogSlabEntriesDemote.c)
- *     MiLogSlabEntryAllocateFailure @ 0x1406570EC (MiLogSlabEntryAllocateFailure.c)
+ *     MiLogSlabEntriesDemote @ 0x1403D6D40 (MiLogSlabEntriesDemote.c)
+ *     MiLogSlabEntryAllocateFailure @ 0x14065763C (MiLogSlabEntryAllocateFailure.c)
  * Callees:
  *     <none>
  */

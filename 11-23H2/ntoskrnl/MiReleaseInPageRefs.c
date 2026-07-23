@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseInPageRefs @ 0x14033034C
+ * XREFs of MiReleaseInPageRefs @ 0x1403305DC
  * Callers:
- *     MiInvalidateCollidedIos @ 0x1403300F0 (MiInvalidateCollidedIos.c)
+ *     MiInvalidateCollidedIos @ 0x140330380 (MiInvalidateCollidedIos.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiDereferenceControlAreaPfnList @ 0x140339B70 (MiDereferenceControlAreaPfnList.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140339E00 (MiDereferenceControlAreaPfnList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)
@@ -38,10 +38,13 @@ __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)
   if ( *(__int64 *)(BugCheckParameter2 + 40) < 0 && (*(_DWORD *)(BugCheckParameter2 + 16) & 0x400LL) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,10 +70,10 @@ __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)
     result = 0x7FFFFFFFFFFFFFFFLL;
     *(_QWORD *)(BugCheckParameter2 + 16) &= ~2uLL;
     _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v3 <= 0xFu
         && (unsigned __int8)result >= 2u )

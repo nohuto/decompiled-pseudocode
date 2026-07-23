@@ -1,22 +1,22 @@
 /*
- * XREFs of NtQueryPerformanceCounter @ 0x1801622B0
+ * XREFs of NtQueryPerformanceCounter @ 0x180160670
  * Callers:
- *     LdrpGenSecurityCookie @ 0x180008DE0 (LdrpGenSecurityCookie.c)
- *     RtlpCallInterceptRoutine @ 0x1800280E0 (RtlpCallInterceptRoutine.c)
- *     RtlQueryPerformanceCounter @ 0x18003A620 (RtlQueryPerformanceCounter.c)
- *     RtlpHeapTrkInterceptor @ 0x18003CA10 (RtlpHeapTrkInterceptor.c)
- *     RtlGetSystemTimePrecise @ 0x18003D900 (RtlGetSystemTimePrecise.c)
- *     RtlGetInterruptTimePrecise @ 0x1800DB220 (RtlGetInterruptTimePrecise.c)
- *     RtlHeapTrkInitialize @ 0x1801134A0 (RtlHeapTrkInitialize.c)
+ *     RtlQueryPerformanceCounter @ 0x18001A8A0 (RtlQueryPerformanceCounter.c)
+ *     RtlpHeapTrkInterceptor @ 0x18001CC90 (RtlpHeapTrkInterceptor.c)
+ *     RtlGetSystemTimePrecise @ 0x18001DB80 (RtlGetSystemTimePrecise.c)
+ *     LdrpGenSecurityCookie @ 0x1800357E0 (LdrpGenSecurityCookie.c)
+ *     RtlpCallInterceptRoutine @ 0x180054AE0 (RtlpCallInterceptRoutine.c)
+ *     RtlGetInterruptTimePrecise @ 0x1800D5780 (RtlGetInterruptTimePrecise.c)
+ *     RtlHeapTrkInitialize @ 0x18010E7A0 (RtlHeapTrkInitialize.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryPerformanceCounter()
+NTSTATUS __cdecl NtQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter, PLARGE_INTEGER PerformanceFrequency)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 49LL;
+  result = 49;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

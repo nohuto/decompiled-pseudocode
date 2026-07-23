@@ -1,35 +1,35 @@
 /*
- * XREFs of PopWriteBsdPoInfo @ 0x140427FF8
+ * XREFs of PopWriteBsdPoInfo @ 0x14041C188
  * Callers:
- *     PopBsdFlush @ 0x140A6B984 (PopBsdFlush.c)
+ *     PopBsdFlush @ 0x140A64EE4 (PopBsdFlush.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlSetSystemBootStatus @ 0x140A6C590 (RtlSetSystemBootStatus.c)
- *     PopQpcTimeInMs @ 0x140B6A560 (PopQpcTimeInMs.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlSetSystemBootStatus @ 0x140A65AF0 (RtlSetSystemBootStatus.c)
+ *     PopQpcTimeInMs @ 0x140B6BC70 (PopQpcTimeInMs.c)
  */
 
-unsigned int __fastcall PopWriteBsdPoInfo(ULONG a1)
+unsigned int __fastcall PopWriteBsdPoInfo(unsigned __int32 BootStatusInformationClass)
 {
-  unsigned int v2; // ebx
+  ULONG v2; // ebx
   char v3; // r12
   __int128 *v4; // r14
   __int128 *v5; // rsi
-  unsigned int v6; // r15d
-  int v7; // ebx
+  ULONG v6; // r15d
+  NTSTATUS v7; // ebx
   unsigned int result; // eax
   __int64 v9; // r10
   LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp-99h] BYREF
   LARGE_INTEGER v11; // [rsp+38h] [rbp-91h] BYREF
   __int64 v12; // [rsp+40h] [rbp-89h] BYREF
   __int64 v13; // [rsp+48h] [rbp-81h] BYREF
-  _BYTE Src[64]; // [rsp+50h] [rbp-79h] BYREF
+  _BYTE DataBuffer[64]; // [rsp+50h] [rbp-79h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+90h] [rbp-39h] BYREF
   LARGE_INTEGER *p_PerformanceCounter; // [rsp+B0h] [rbp-19h]
   int v17; // [rsp+B8h] [rbp-11h]
@@ -45,10 +45,10 @@ unsigned int __fastcall PopWriteBsdPoInfo(ULONG a1)
   int v27; // [rsp+ECh] [rbp+23h]
 
   v2 = 64;
-  memset_0(Src, 0, sizeof(Src));
+  memset_0(DataBuffer, 0, sizeof(DataBuffer));
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   v3 = 1;
-  if ( a1 == 7 )
+  if ( BootStatusInformationClass == 7 )
   {
     v4 = &PopBsdPowerTransition;
     v5 = &PopBsdPowerTransitionOnDisk;
@@ -56,13 +56,13 @@ LABEL_3:
     v2 = 32;
     goto LABEL_4;
   }
-  if ( a1 == 16 )
+  if ( BootStatusInformationClass == 16 )
   {
     v4 = &PopBsdPowerTransitionExtension;
     v5 = &PopBsdPowerTransitionExtensionOnDisk;
     goto LABEL_3;
   }
-  if ( a1 != 14 )
+  if ( BootStatusInformationClass != 14 )
   {
     v7 = -1073741811;
     goto LABEL_7;
@@ -77,28 +77,28 @@ LABEL_4:
   }
   else
   {
-    memmove(Src, v4, v2);
-    PopReleaseRwLock((signed __int64 *)&PopBsdUpdateLock);
-    v7 = RtlSetSystemBootStatus(a1, Src, v2, 0LL);
+    memmove(DataBuffer, v4, v2);
+    PopReleaseRwLock(&PopBsdUpdateLock);
+    v7 = RtlSetSystemBootStatus((RTL_BSD_ITEM_TYPE)BootStatusInformationClass, DataBuffer, v2, 0LL);
     PopAcquireRwLockExclusive(&PopBsdUpdateLock);
     if ( v7 < 0 )
     {
-      if ( a1 == 14 && HIWORD(xmmword_140E672C0) != 0xFFFF )
-        ++HIWORD(xmmword_140E672C0);
+      if ( BootStatusInformationClass == 14 && HIWORD(xmmword_140E674C0) != 0xFFFF )
+        ++HIWORD(xmmword_140E674C0);
     }
     else
     {
-      memmove(v5, Src, v6);
+      memmove(v5, DataBuffer, v6);
     }
   }
 LABEL_7:
   v11 = KeQueryPerformanceCounter(0LL);
   result = PopQpcTimeInMs(&PerformanceCounter, &v11);
   v9 = result;
-  if ( (v7 < 0 || result) && (unsigned int)dword_140E076F0 > 5 )
+  if ( (v7 < 0 || result) && (unsigned int)dword_140E07680 > 5 )
   {
-    if ( (qword_140E07700 & 0x200000000000LL) == 0
-      || (result = 0, (qword_140E07708 & 0x200000000000LL) != qword_140E07708) )
+    if ( (qword_140E07690 & 0x200000000000LL) == 0
+      || (result = 0, (qword_140E07698 & 0x200000000000LL) != qword_140E07698) )
     {
       v3 = 0;
     }
@@ -116,13 +116,13 @@ LABEL_7:
       v20 = 8;
       v23 = 4;
       v26 = 8;
-      PerformanceCounter.LowPart = a1;
+      PerformanceCounter.LowPart = BootStatusInformationClass;
       v12 = v9;
       v11.LowPart = v7;
       v13 = 0x1000000LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E076F0,
-               (unsigned __int8 *)byte_140048B88,
+               (__int64)&dword_140E07680,
+               (unsigned __int8 *)&word_140048CE6,
                0LL,
                0LL,
                6u,

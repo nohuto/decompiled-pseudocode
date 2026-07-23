@@ -9,18 +9,18 @@
  *     PspIoRateEntryVolumeCompare @ 0x140489C00 (PspIoRateEntryVolumeCompare.c)
  */
 
-void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
+void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   KIRQL v4; // al
   unsigned __int64 v5; // r12
-  unsigned __int64 v6; // rbx
-  bool v7; // di
+  signed __int64 v6; // rbx
+  BOOLEAN v7; // di
   KIRQL v8; // r13
   int v9; // ebp
   unsigned __int64 v10; // rax
 
   v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1688));
-  v5 = *(_QWORD *)(a2 + 24);
+  v5 = (unsigned __int64)a2[1].Children[0];
   v6 = *(_QWORD *)(a1 + 1696);
   v7 = 0;
   v8 = v4;
@@ -62,6 +62,6 @@ LABEL_10:
       v6 = v10;
     }
   }
-  RtlRbInsertNodeEx((__int64 *)(a1 + 1696), v6, v7, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 1696), (PRTL_BALANCED_NODE)v6, v7, a2);
   ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1688), v8);
 }

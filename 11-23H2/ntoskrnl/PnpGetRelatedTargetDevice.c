@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpGetRelatedTargetDevice @ 0x140322698
+ * XREFs of PnpGetRelatedTargetDevice @ 0x140322928
  * Callers:
  *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14077F0F4 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
- *     IoGetRelatedTargetDevice @ 0x14079459C (IoGetRelatedTargetDevice.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14077F2E4 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     IoGetRelatedTargetDevice @ 0x14079478C (IoGetRelatedTargetDevice.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     PnpSendIrp @ 0x140322798 (PnpSendIrp.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     PnpSendIrp @ 0x140322A28 (PnpSendIrp.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

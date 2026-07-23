@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCreateVpb @ 0x14057D9D0
+ * XREFs of IopCreateVpb @ 0x14057DE7C
  * Callers:
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     IoVerifyVolume @ 0x140623CF0 (IoVerifyVolume.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     IoVerifyVolume @ 0x140623DA4 (IoVerifyVolume.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

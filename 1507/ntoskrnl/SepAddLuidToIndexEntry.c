@@ -22,14 +22,14 @@
 __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, unsigned __int64 *a2)
 {
   PVOID v4; // r15
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rbp
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rbp
   __int64 v6; // r9
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v8; // rsi
   __int64 v9; // rax
   __int64 v10; // r9
   __int64 v11; // rdi
-  struct _RTL_BITMAP *v12; // rsi
+  _RTL_BITMAP *v12; // rsi
   ULONG ClearBitsAndSet; // r14d
   int v14; // edi
   ULONG_PTR v15; // r8
@@ -37,10 +37,10 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, unsigned __int64 *a2)
   struct _KTHREAD *v17; // rcx
   __int16 v18; // ax
   ULONG v20; // r14d
-  struct _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+60h] [rbp+18h]
+  _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+60h] [rbp+18h]
 
   v4 = 0LL;
-  PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x74446553u);
+  PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x74446553u);
   if ( !PoolWithTag )
     return (unsigned int)-1073741801;
   CurrentThread = KeGetCurrentThread();
@@ -52,8 +52,8 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, unsigned __int64 *a2)
     ExfAcquirePushLockExclusiveEx(v8, v9, (ULONG_PTR)v8, v10);
   if ( v11 )
     *(_BYTE *)(v11 + 26) |= 1u;
-  v12 = (struct _RTL_BITMAP *)(SeLuidToIndexMapping + 16);
-  HashTable = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+  v12 = (_RTL_BITMAP *)(SeLuidToIndexMapping + 16);
+  HashTable = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)(SeLuidToIndexMapping + 16), 1u, 0);
   if ( ClearBitsAndSet == -1 )
   {

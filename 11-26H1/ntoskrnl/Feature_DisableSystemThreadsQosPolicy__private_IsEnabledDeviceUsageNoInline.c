@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140467DE0
+ * XREFs of Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140461530
  * Callers:
- *     KiComputeThreadQos @ 0x1402BC220 (KiComputeThreadQos.c)
- *     KeCalculateProcessDefaultQos @ 0x1405F93F0 (KeCalculateProcessDefaultQos.c)
+ *     KiComputeThreadQos @ 0x140306EE0 (KiComputeThreadQos.c)
+ *     KeCalculateProcessDefaultQos @ 0x1405FBE10 (KeCalculateProcessDefaultQos.c)
  * Callees:
- *     Feature_DisableSystemThreadsQosPolicy__private_IsEnabledFallback @ 0x1405F62AC (Feature_DisableSystemThreadsQosPolicy__private_IsEnabledFallback.c)
+ *     Feature_DisableSystemThreadsQosPolicy__private_IsEnabledFallback @ 0x1405F8C6C (Feature_DisableSystemThreadsQosPolicy__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline()

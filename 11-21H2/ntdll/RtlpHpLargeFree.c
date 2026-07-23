@@ -15,90 +15,90 @@
  *     RtlpLogHeapFailure @ 0x18011F650 (RtlpLogHeapFailure.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeFree(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+ULONG_PTR __fastcall RtlpHpLargeFree(__int64 a1, PVOID a2, char a3)
 {
-  int v5; // esi
-  unsigned __int64 *v6; // rcx
-  unsigned __int64 v7; // rbx
-  unsigned __int64 v8; // rax
+  int v4; // esi
+  _RTL_RB_TREE *v5; // rcx
+  signed __int64 v6; // rbx
+  unsigned __int64 v7; // rax
+  signed __int64 v8; // rax
   unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rax
-  char v11; // cl
-  __int64 v12; // rax
-  unsigned __int64 v13; // rbx
-  unsigned __int64 v14; // rsi
-  __int64 v15; // rcx
-  __int128 v17; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int64 v18; // [rsp+60h] [rbp+20h] BYREF
-  unsigned __int64 v19; // [rsp+68h] [rbp+28h] BYREF
+  char v10; // cl
+  __int64 v11; // rax
+  ULONG_PTR v12; // rbx
+  ULONG_PTR v13; // rsi
+  __int64 v14; // rcx
+  __int128 v16; // [rsp+30h] [rbp-10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+20h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp+28h] BYREF
 
-  v19 = a2;
-  v5 = a3 & 1;
+  BaseAddress = a2;
+  v4 = a3 & 1;
   if ( (a3 & 1) == 0 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 64, a2, a3, a4);
-    a2 = v19;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+    a2 = BaseAddress;
   }
-  v6 = (unsigned __int64 *)(a1 + 72);
-  v7 = *(_QWORD *)(a1 + 72);
-  if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v7 )
-    v7 ^= (unsigned __int64)v6;
-  while ( v7 )
+  v5 = (_RTL_RB_TREE *)(a1 + 72);
+  v6 = *(_QWORD *)(a1 + 72);
+  if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v6 )
+    v6 ^= (unsigned __int64)v5;
+  while ( v6 )
   {
-    v8 = *(_QWORD *)(v7 + 24) & 0xFFFFFFFFFFFF0000uLL;
-    if ( a2 >= v8 )
+    v7 = *(_QWORD *)(v6 + 24) & 0xFFFFFFFFFFFF0000uLL;
+    if ( (unsigned __int64)a2 >= v7 )
     {
-      if ( a2 <= v8 )
+      if ( (unsigned __int64)a2 <= v7 )
         break;
-      v9 = *(_QWORD *)(v7 + 8);
+      v8 = *(_QWORD *)(v6 + 8);
     }
     else
     {
-      v9 = *(_QWORD *)v7;
+      v8 = *(_QWORD *)v6;
     }
-    if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v9 )
-      v7 ^= v9;
+    if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v8 )
+      v6 ^= v8;
     else
-      v7 = v9;
+      v6 = v8;
   }
-  if ( v7 )
+  if ( v6 )
   {
-    RtlRbRemoveNode(v6, v7);
-    if ( !v5 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-    v10 = *(_QWORD *)(v7 + 32);
-    v11 = (unsigned __int8)v10 >> 2;
-    v17 = *(_OWORD *)a1;
-    v12 = (((v10 >> 12) + ((v10 >> 1) & 1)) << 12) - 1;
-    v18 = (1LL << v11) - (((1LL << v11) - 1) & ((1LL << v11) + v12)) + v12;
-    RtlpHpFreeVA(&v19, &v18, 0x8000, &v17);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 96), -(*(_QWORD *)(v7 + 32) >> 12));
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 88), -(__int64)(v18 >> 12));
-    v17 = *(_OWORD *)a1;
-    RtlpHpMetadataFree(v7, &v17);
-    v13 = v18;
-    v14 = v18;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    RtlRbRemoveNode(v5, (PRTL_BALANCED_NODE)v6);
+    if ( !v4 )
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+    v9 = *(_QWORD *)(v6 + 32);
+    v10 = (unsigned __int8)v9 >> 2;
+    v16 = *(_OWORD *)a1;
+    v11 = (((v9 >> 12) + ((v9 >> 1) & 1)) << 12) - 1;
+    RegionSize = (1LL << v10) - (((1LL << v10) - 1) & ((1LL << v10) + v11)) + v11;
+    RtlpHpFreeVA(&BaseAddress, &RegionSize, 0x8000, &v16);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 96), -(*(_QWORD *)(v6 + 32) >> 12));
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 88), -(__int64)(RegionSize >> 12));
+    v16 = *(_OWORD *)a1;
+    RtlpHpMetadataFree(v6, &v16);
+    v12 = RegionSize;
+    v13 = RegionSize;
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v13 = v18;
-      v15 = (__int64)NtCurrentPeb()->SharedData + 558;
+      v12 = RegionSize;
+      v14 = (__int64)NtCurrentPeb()->SharedData + 558;
     }
     else
     {
-      v15 = 2147353480LL;
+      v14 = 2147353480LL;
     }
-    if ( *(_BYTE *)v15 )
-      RtlpHeapLogRangeRelease(a1, v19, v13);
+    if ( *(_BYTE *)v14 )
+      RtlpHeapLogRangeRelease(a1, BaseAddress, v12);
   }
   else
   {
-    if ( !v5 )
+    if ( !v4 )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-      LODWORD(a2) = v19;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+      LODWORD(a2) = (_DWORD)BaseAddress;
     }
-    RtlpLogHeapFailure(8, a1, a2, 0, 0LL, 0LL);
+    RtlpLogHeapFailure(8, a1, (_DWORD)a2, 0, 0LL, 0LL);
     return 0LL;
   }
-  return v14;
+  return v13;
 }

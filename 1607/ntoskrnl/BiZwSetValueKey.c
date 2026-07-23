@@ -1,7 +1,7 @@
 /*
- * XREFs of BiZwSetValueKey @ 0x14012E0C0
+ * XREFs of BiZwSetValueKey @ 0x14012E630
  * Callers:
- *     BiSetRegistryValue @ 0x14053E21C (BiSetRegistryValue.c)
+ *     BiSetRegistryValue @ 0x14053E75C (BiSetRegistryValue.c)
  * Callees:
  *     <none>
  */

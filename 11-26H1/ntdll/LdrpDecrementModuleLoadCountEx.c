@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpDecrementModuleLoadCountEx @ 0x180055460
+ * XREFs of LdrpDecrementModuleLoadCountEx @ 0x18003F9E0
  * Callers:
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpFastpthReloadedDll @ 0x180052D40 (LdrpFastpthReloadedDll.c)
- *     LdrUnloadDll @ 0x1800553B0 (LdrUnloadDll.c)
- *     LdrpCorInitialize @ 0x1800BE60C (LdrpCorInitialize.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpFastpthReloadedDll @ 0x18003D2C0 (LdrpFastpthReloadedDll.c)
+ *     LdrUnloadDll @ 0x18003F930 (LdrUnloadDll.c)
+ *     LdrpCorInitialize @ 0x1800BC06C (LdrpCorInitialize.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     LdrpAcquireLoaderLock @ 0x180084090 (LdrpAcquireLoaderLock.c)
- *     LdrpReleaseLoaderLock @ 0x1800854C0 (LdrpReleaseLoaderLock.c)
- *     LdrpDecrementNodeLoadCountLockHeld @ 0x1801193D0 (LdrpDecrementNodeLoadCountLockHeld.c)
- *     LdrpUnloadNode @ 0x18011BEB0 (LdrpUnloadNode.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     LdrpAcquireLoaderLock @ 0x18007B430 (LdrpAcquireLoaderLock.c)
+ *     LdrpReleaseLoaderLock @ 0x18007C860 (LdrpReleaseLoaderLock.c)
+ *     LdrpDecrementNodeLoadCountLockHeld @ 0x180119180 (LdrpDecrementNodeLoadCountLockHeld.c)
+ *     LdrpUnloadNode @ 0x18011BC60 (LdrpUnloadNode.c)
  */
 
 __int64 __fastcall LdrpDecrementModuleLoadCountEx(__int64 a1, char *a2)
@@ -49,7 +49,7 @@ __int64 __fastcall LdrpDecrementModuleLoadCountEx(__int64 a1, char *a2)
   }
 LABEL_11:
   if ( _interlockedbittestandset64((volatile signed __int32 *)&LdrpModuleDatatableLock, 0LL) )
-    RtlpAcquireSRWLockExclusiveContended(&LdrpModuleDatatableLock, (__int64)a2);
+    RtlpAcquireSRWLockExclusiveContended((volatile signed __int64 *)&LdrpModuleDatatableLock, (unsigned __int64)a2);
   v10 = *(_QWORD *)(a1 + 152);
   v11 = LdrpDecrementNodeLoadCountLockHeld(v10, v3, &v13);
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);

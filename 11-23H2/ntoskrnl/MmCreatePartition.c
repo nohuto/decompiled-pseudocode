@@ -1,24 +1,24 @@
 /*
- * XREFs of MmCreatePartition @ 0x1403AC6AC
+ * XREFs of MmCreatePartition @ 0x1403AC88C
  * Callers:
- *     DifGetAvailableSystemPages @ 0x1405F85F4 (DifGetAvailableSystemPages.c)
- *     PspAllocatePartition @ 0x140859010 (PspAllocatePartition.c)
+ *     DifGetAvailableSystemPages @ 0x1405F8B64 (DifGetAvailableSystemPages.c)
+ *     PspAllocatePartition @ 0x140859250 (PspAllocatePartition.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetPartitionLargePageListCount @ 0x140375BE4 (MiGetPartitionLargePageListCount.c)
- *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x1403A0F30 (MiPopulateFreeKernelShadowStackCacheEntries.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1403AF01C (MiInitializeWorkingSetManagerParameters.c)
- *     MiDeletePartition @ 0x1406293AC (MiDeletePartition.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x140792260 (ExAllocateCacheAwareRundownProtection.c)
- *     MiInitializeMemoryEvents @ 0x14081BD98 (MiInitializeMemoryEvents.c)
- *     MiCreatePfnBitMaps @ 0x14081C29C (MiCreatePfnBitMaps.c)
- *     MiInitializePartition @ 0x1408372A0 (MiInitializePartition.c)
- *     MiAllocatePartitionId @ 0x140A2F880 (MiAllocatePartitionId.c)
- *     MiInitializePartitionThreads @ 0x140A2FAE0 (MiInitializePartitionThreads.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiGetPartitionLargePageListCount @ 0x140375D84 (MiGetPartitionLargePageListCount.c)
+ *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x1403A1110 (MiPopulateFreeKernelShadowStackCacheEntries.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403AF1FC (MiInitializeWorkingSetManagerParameters.c)
+ *     MiDeletePartition @ 0x1406298FC (MiDeletePartition.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x140792450 (ExAllocateCacheAwareRundownProtection.c)
+ *     MiInitializeMemoryEvents @ 0x14081C068 (MiInitializeMemoryEvents.c)
+ *     MiCreatePfnBitMaps @ 0x14081C56C (MiCreatePfnBitMaps.c)
+ *     MiInitializePartition @ 0x1408375A0 (MiInitializePartition.c)
+ *     MiAllocatePartitionId @ 0x140A2FB30 (MiAllocatePartitionId.c)
+ *     MiInitializePartitionThreads @ 0x140A2FD90 (MiInitializePartitionThreads.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
+__int64 __fastcall MmCreatePartition(_SLIST_HEADER **a1, char a2)
 {
   __int64 result; // rax
   unsigned __int64 v5; // r14
@@ -28,8 +28,8 @@ __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
   __int64 v9; // rdi
   __int64 v10; // r12
   SIZE_T v11; // r14
-  union _SLIST_HEADER *Pool; // rax
-  union _SLIST_HEADER *v13; // rbx
+  _SLIST_HEADER *Pool; // rax
+  _SLIST_HEADER *v13; // rbx
   __int64 v14; // r8
   __int64 v15; // rdx
   unsigned __int64 v16; // r8
@@ -42,7 +42,7 @@ __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
 
   if ( (a2 & 1) != 0 )
   {
-    *a1 = (union _SLIST_HEADER *)&MiSystemPartition;
+    *a1 = (_SLIST_HEADER *)&MiSystemPartition;
     result = 0LL;
     qword_140C6B508 = (__int64)a1;
     return result;
@@ -54,7 +54,7 @@ __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
   v9 = v7 * (16LL * (unsigned int)dword_140C65B80[0] + 8);
   v10 = 24LL * PartitionLargePageListCount;
   v11 = 24576 * v7 + ((v10 + v9 + 15 + v5) & 0xFFFFFFFFFFFFFFF0uLL);
-  Pool = (union _SLIST_HEADER *)MiAllocatePool(64, v11, 0x6150694Du);
+  Pool = (_SLIST_HEADER *)MiAllocatePool(64, v11, 0x6150694Du);
   v13 = Pool;
   if ( !Pool )
     return 3221225626LL;
@@ -80,7 +80,7 @@ __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
     return 3221225495LL;
   }
   MiInitializePartition(v13, PartitionId);
-  MiPopulateFreeKernelShadowStackCacheEntries(v13, (struct _SLIST_ENTRY *)((v19 + v9 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v8);
+  MiPopulateFreeKernelShadowStackCacheEntries(v13, (_SLIST_ENTRY *)((v19 + v9 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v8);
   if ( !(unsigned int)MiInitializeMemoryEvents(v13)
     || !(unsigned int)MiCreatePfnBitMaps(v13, 0LL)
     || !(unsigned int)MiInitializeWorkingSetManagerParameters(v13)

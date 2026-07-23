@@ -1,13 +1,13 @@
 /*
- * XREFs of VslRequestSecureKernelDebuggerBreakIn @ 0x14058E090
+ * XREFs of VslRequestSecureKernelDebuggerBreakIn @ 0x14058B440
  * Callers:
- *     KeFreezeExecution @ 0x1404D5B60 (KeFreezeExecution.c)
+ *     KeFreezeExecution @ 0x1404CEFB0 (KeFreezeExecution.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 VslRequestSecureKernelDebuggerBreakIn()
@@ -29,7 +29,7 @@ __int64 VslRequestSecureKernelDebuggerBreakIn()
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v0);
     }
   }
-  result = VslpEnterIumSecureMode(2u, 275LL, 0, (__int64)v3);
+  result = VslpEnterIumSecureMode(2u, 0x113u, 0, (__int64)v3);
   if ( CurrentIrql < 2u )
   {
     if ( KiIrqlFlags )

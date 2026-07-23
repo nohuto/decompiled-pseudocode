@@ -33,7 +33,7 @@ NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(
   char *v18; // r11
   __int16 v19; // r14
   ULONG v20; // edi
-  ULONG v21; // r9d
+  DWORD v21; // r9d
   int v22; // eax
   int v23; // ecx
   char v24; // al

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCopyMemoryPagefileData @ 0x14065FB28
+ * XREFs of MiCopyMemoryPagefileData @ 0x140660078
  * Callers:
- *     MiTransferMemoryPagefileData @ 0x140660AA8 (MiTransferMemoryPagefileData.c)
+ *     MiTransferMemoryPagefileData @ 0x140660FF8 (MiTransferMemoryPagefileData.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReturnPteMappingSet @ 0x140284188 (MiReturnPteMappingSet.c)
- *     MiGetPteMappingSet @ 0x1402841F0 (MiGetPteMappingSet.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeCopyPage @ 0x1404246E0 (KeCopyPage.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReturnPteMappingSet @ 0x140284418 (MiReturnPteMappingSet.c)
+ *     MiGetPteMappingSet @ 0x140284480 (MiGetPteMappingSet.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeCopyPage @ 0x140424A70 (KeCopyPage.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 unsigned __int64 __fastcall MiCopyMemoryPagefileData(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5)

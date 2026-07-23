@@ -1,12 +1,12 @@
 /*
- * XREFs of HalGetScatterGatherListDmarThin @ 0x140490C00
+ * XREFs of HalGetScatterGatherListDmarThin @ 0x14048A750
  * Callers:
  *     <none>
  * Callees:
- *     HalpGetNumberOfSGElementsDmarThin @ 0x140490F78 (HalpGetNumberOfSGElementsDmarThin.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x140490FD4 (HalpConstructScatterGatherListDmarThin.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HalpGetNumberOfSGElementsDmarThin @ 0x14048AAC8 (HalpGetNumberOfSGElementsDmarThin.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x14048AB24 (HalpConstructScatterGatherListDmarThin.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalGetScatterGatherListDmarThin(

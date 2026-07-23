@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUpdatePfnForPrefetchByPte @ 0x1402F2FD0
+ * XREFs of MiUpdatePfnForPrefetchByPte @ 0x1402D5050
  * Callers:
- *     MiSystemFault @ 0x1403A4508 (MiSystemFault.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
+ *     MiSystemFault @ 0x1403A6268 (MiSystemFault.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiRelinkStandbyPage @ 0x140299860 (MiRelinkStandbyPage.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiInvalidPteConforms @ 0x1402F4430 (MiInvalidPteConforms.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiRelinkStandbyPage @ 0x140298DC0 (MiRelinkStandbyPage.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiInvalidPteConforms @ 0x1402D64B0 (MiInvalidPteConforms.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiUpdatePfnForPrefetchByPte(__int64 a1, unsigned int a2, _DWORD *a3)
@@ -101,8 +101,8 @@ LABEL_77:
         result = MiInvalidPteConforms(v9);
         if ( !(_DWORD)result )
           return result;
-        if ( qword_140E2D740 && (v9 & 0x10) == 0 )
-          v11 = v9 & qword_140E2D748;
+        if ( qword_140E2D8C0 && (v9 & 0x10) == 0 )
+          v11 = v9 & qword_140E2D8C8;
         v10 = 2;
 LABEL_6:
         v12 = v7 & (v11 >> 12);
@@ -223,7 +223,7 @@ LABEL_32:
   }
   else if ( (*(_DWORD *)(v13 + 32) & 0x8000000) != 0
          && (v13 < 0xFFFFDE0000000000uLL
-          || v13 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+          || v13 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
           || (unsigned int)MiIsDecayPfn((__int64)(v13 + 0x220000000000LL) / 48)
           || (v17 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v13) == 9) )
   {
@@ -239,9 +239,9 @@ LABEL_32:
     {
       if ( v18
         || (*(_DWORD *)(v13 + 16) & 0x400LL) != 0
-        || (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0
+        || (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0
         || (v30 = *(_QWORD *)(v13 + 16), (v30 & 8) == 0)
-        || (unsigned __int16)v30 >> 12 != *(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock
+        || (unsigned __int16)v30 >> 12 != *(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock
                                                                 + 8 * ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL))
                                                     + 1300LL) )
       {

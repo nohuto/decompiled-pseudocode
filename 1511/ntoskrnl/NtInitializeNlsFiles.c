@@ -10,65 +10,69 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtInitializeNlsFiles(_QWORD *a1, DWORD *a2, ULONG64 a3)
+NTSTATUS __cdecl NtInitializeNlsFiles(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  _QWORD *v5; // rsi
-  _DWORD *v6; // rcx
-  _BYTE *v7; // rcx
+  PVOID *v6; // rsi
+  _DWORD *v7; // rcx
+  _BYTE *v8; // rcx
   NTSTATUS result; // eax
-  int v9; // ebx
-  _DWORD v10[2]; // [rsp+58h] [rbp-30h] BYREF
+  NTSTATUS v10; // ebx
+  _DWORD v11[2]; // [rsp+58h] [rbp-30h] BYREF
   PVOID Object; // [rsp+60h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+68h] [rbp-20h] BYREF
-  __int64 v13; // [rsp+70h] [rbp-18h] BYREF
-  DWORD DefaultLocaleId; // [rsp+A8h] [rbp+20h] BYREF
+  void *v13; // [rsp+68h] [rbp-20h] BYREF
+  __int64 v14; // [rsp+70h] [rbp-18h] BYREF
+  DWORD DefaultLocaleIda; // [rsp+A8h] [rbp+20h] BYREF
 
-  v5 = a1;
+  v6 = BaseAddress;
   if ( !KeGetCurrentThread()->PreviousMode )
     return -1073741637;
-  if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    a1 = (_QWORD *)MmUserProbeAddress;
-  *a1 = *a1;
-  v6 = a2;
-  if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-    v6 = (_DWORD *)MmUserProbeAddress;
-  *v6 = *v6;
-  if ( (a3 & 3) != 0 )
-    ExRaiseDatatypeMisalignment();
-  v7 = (_BYTE *)a3;
-  if ( a3 >= MmUserProbeAddress )
-    v7 = (_BYTE *)MmUserProbeAddress;
+  if ( (unsigned __int64)BaseAddress >= MmUserProbeAddress )
+    BaseAddress = (PVOID *)MmUserProbeAddress;
+  *BaseAddress = *BaseAddress;
+  v7 = DefaultLocaleId;
+  if ( (unsigned __int64)DefaultLocaleId >= MmUserProbeAddress )
+    v7 = (_DWORD *)MmUserProbeAddress;
   *v7 = *v7;
-  v7[7] = v7[7];
-  result = ZwQueryDefaultLocale(0, &DefaultLocaleId);
+  if ( ((unsigned __int8)DefaultCasingTableSize & 3) != 0 )
+    ExRaiseDatatypeMisalignment();
+  v8 = DefaultCasingTableSize;
+  if ( (unsigned __int64)DefaultCasingTableSize >= MmUserProbeAddress )
+    v8 = (_BYTE *)MmUserProbeAddress;
+  *v8 = *v8;
+  v8[7] = v8[7];
+  result = ZwQueryDefaultLocale(0, &DefaultLocaleIda);
   if ( result >= 0 )
   {
     result = ExpGetGlobalLocaleSection(&Object);
     if ( result >= 0 )
     {
-      v12 = 0LL;
-      v10[0] = 0;
-      v10[1] = 0;
       v13 = 0LL;
-      v9 = MmMapViewOfSection(
-             (_DWORD)Object,
-             KeGetCurrentThread()->ApcState.Process,
-             (unsigned int)&v12,
-             0,
-             0LL,
-             (__int64)v10,
-             (__int64)&v13,
-             1,
-             0x400000,
-             2);
+      v11[0] = 0;
+      v11[1] = 0;
+      v14 = 0LL;
+      v10 = MmMapViewOfSection(
+              (_DWORD)Object,
+              KeGetCurrentThread()->ApcState.Process,
+              (unsigned int)&v13,
+              0,
+              0LL,
+              (__int64)v11,
+              (__int64)&v14,
+              1,
+              0x400000,
+              2);
       ObfDereferenceObject(Object);
-      if ( v9 >= 0 )
+      if ( v10 >= 0 )
       {
-        *v5 = v12;
-        *a2 = DefaultLocaleId;
-        *(_QWORD *)a3 = NlsDefaultCasingTableSize;
+        *v6 = v13;
+        *DefaultLocaleId = DefaultLocaleIda;
+        DefaultCasingTableSize->QuadPart = NlsDefaultCasingTableSize;
       }
-      return v9;
+      return v10;
     }
   }
   return result;

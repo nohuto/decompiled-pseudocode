@@ -1,10 +1,10 @@
 /*
- * XREFs of mbstowcs @ 0x1403D2870
+ * XREFs of mbstowcs @ 0x1403D29E0
  * Callers:
  *     <none>
  * Callees:
- *     _mbstrlen @ 0x1403D5D48 (_mbstrlen.c)
- *     RtlMultiByteToUnicodeN @ 0x14062C730 (RtlMultiByteToUnicodeN.c)
+ *     _mbstrlen @ 0x1403D5EB8 (_mbstrlen.c)
+ *     RtlMultiByteToUnicodeN @ 0x1406638C0 (RtlMultiByteToUnicodeN.c)
  */
 
 size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)

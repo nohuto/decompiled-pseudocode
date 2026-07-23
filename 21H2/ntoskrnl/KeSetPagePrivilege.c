@@ -1,21 +1,21 @@
 /*
- * XREFs of KeSetPagePrivilege @ 0x140512E78
+ * XREFs of KeSetPagePrivilege @ 0x1405130B8
  * Callers:
- *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     MiClearPfnImageVerified @ 0x1402A3214 (MiClearPfnImageVerified.c)
- *     MiMarkPfnVerified @ 0x1402B8A04 (MiMarkPfnVerified.c)
- *     MiDeletePerSessionProtos @ 0x1402CF174 (MiDeletePerSessionProtos.c)
- *     MiLockDriverPageRange @ 0x14052DA04 (MiLockDriverPageRange.c)
- *     MiDbgWriteCheck @ 0x1405466BC (MiDbgWriteCheck.c)
- *     ExpRevokeBootLoaderPagePrivileges @ 0x140A8C354 (ExpRevokeBootLoaderPagePrivileges.c)
+ *     MiClearPfnImageVerified @ 0x140220654 (MiClearPfnImageVerified.c)
+ *     MiMarkPfnVerified @ 0x140236C14 (MiMarkPfnVerified.c)
+ *     MiDeletePerSessionProtos @ 0x14024D674 (MiDeletePerSessionProtos.c)
+ *     MiAllocateWsle @ 0x1402B65C0 (MiAllocateWsle.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     MiLockDriverPageRange @ 0x14052DC44 (MiLockDriverPageRange.c)
+ *     MiDbgWriteCheck @ 0x1405468FC (MiDbgWriteCheck.c)
+ *     ExpRevokeBootLoaderPagePrivileges @ 0x140A8D354 (ExpRevokeBootLoaderPagePrivileges.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     VslMakeProtectedPageExecutable @ 0x1404FCE38 (VslMakeProtectedPageExecutable.c)
- *     VslMakeProtectedPageWritable @ 0x1404FCED4 (VslMakeProtectedPageWritable.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VslMakeProtectedPageExecutable @ 0x1404FCDB8 (VslMakeProtectedPageExecutable.c)
+ *     VslMakeProtectedPageWritable @ 0x1404FCE54 (VslMakeProtectedPageWritable.c)
  */
 
 int __fastcall KeSetPagePrivilege(__int64 a1, __int128 *a2, __int16 a3)

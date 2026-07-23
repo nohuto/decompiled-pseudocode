@@ -1,24 +1,24 @@
 /*
- * XREFs of PpmCheckCustomRun @ 0x1403B45DC
+ * XREFs of PpmCheckCustomRun @ 0x14044C05C
  * Callers:
- *     PoLatencySensitivityHint @ 0x1403B7A90 (PoLatencySensitivityHint.c)
- *     PpmCheckApplyParkConstraints @ 0x1404B38A4 (PpmCheckApplyParkConstraints.c)
- *     PpmCheckApplyResetNotification @ 0x1404B3B5C (PpmCheckApplyResetNotification.c)
- *     PpmCheckDelayedPeriodicStart @ 0x1404B48A0 (PpmCheckDelayedPeriodicStart.c)
- *     PpmPerfLatencySensitivityHintWorker @ 0x1404C0B20 (PpmPerfLatencySensitivityHintWorker.c)
- *     PpmParkSetLpiCap @ 0x1404CF9C8 (PpmParkSetLpiCap.c)
- *     PopIntSteerSetMode @ 0x1405DC310 (PopIntSteerSetMode.c)
- *     PpmPerfReApplyStates @ 0x14074FB74 (PpmPerfReApplyStates.c)
- *     PpmCheckApplyPerfConstraints @ 0x140A8E688 (PpmCheckApplyPerfConstraints.c)
+ *     PpmPerfLatencySensitivityHintWorker @ 0x14044BD40 (PpmPerfLatencySensitivityHintWorker.c)
+ *     PpmCheckDelayedPeriodicStart @ 0x14044BD70 (PpmCheckDelayedPeriodicStart.c)
+ *     PpmCheckApplyResetNotification @ 0x14044BDA8 (PpmCheckApplyResetNotification.c)
+ *     PpmCheckApplyParkConstraints @ 0x14044BDC4 (PpmCheckApplyParkConstraints.c)
+ *     PoLatencySensitivityHint @ 0x14044BDE0 (PoLatencySensitivityHint.c)
+ *     PpmParkSetLpiCap @ 0x1404C8A78 (PpmParkSetLpiCap.c)
+ *     PopIntSteerSetMode @ 0x1405D91E0 (PopIntSteerSetMode.c)
+ *     PpmPerfReApplyStates @ 0x14074DEA4 (PpmPerfReApplyStates.c)
+ *     PpmCheckApplyPerfConstraints @ 0x140A8ACF8 (PpmCheckApplyPerfConstraints.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiEndThreadCycleAccumulation @ 0x14034D120 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x14034ED50 (KiStartThreadCycleAccumulation.c)
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1403B6408 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     PpmCheckStart @ 0x140457794 (PpmCheckStart.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1402AE6EC (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     KiEndThreadCycleAccumulation @ 0x14036B600 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x14036D230 (KiStartThreadCycleAccumulation.c)
+ *     PpmCheckStart @ 0x14044C244 (PpmCheckStart.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall PpmCheckCustomRun(__int64 a1)
@@ -99,6 +99,6 @@ void __fastcall PpmCheckCustomRun(__int64 a1)
   }
   __writecr8(CurrentIrql);
   v16 = 22;
-  KiClearSystemPriority((ULONG_PTR)KeGetCurrentThread(), &v16);
+  KiClearSystemPriority(KeGetCurrentThread(), &v16);
   KeLeaveCriticalRegion();
 }

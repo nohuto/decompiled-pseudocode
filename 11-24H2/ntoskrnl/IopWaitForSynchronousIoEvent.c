@@ -1,12 +1,12 @@
 /*
- * XREFs of IopWaitForSynchronousIoEvent @ 0x140438000
+ * XREFs of IopWaitForSynchronousIoEvent @ 0x14042ABC0
  * Callers:
- *     NtCopyFileChunk @ 0x1409886C0 (NtCopyFileChunk.c)
+ *     NtCopyFileChunk @ 0x140ABE950 (NtCopyFileChunk.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IopCancelAlertedRequest @ 0x140A7BD74 (IopCancelAlertedRequest.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IopCancelAlertedRequest @ 0x140A76074 (IopCancelAlertedRequest.c)
  */
 
 NTSTATUS __fastcall IopWaitForSynchronousIoEvent(PIRP Irp, KPROCESSOR_MODE a2, char a3, _DWORD *a4)

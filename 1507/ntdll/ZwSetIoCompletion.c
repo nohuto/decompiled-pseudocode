@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwSetIoCompletion()
+NTSTATUS __cdecl ZwSetIoCompletion(
+        HANDLE IoCompletionHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 389LL;
+  result = 389;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -6,9 +6,17 @@
  *     <none>
  */
 
-__int64 __fastcall ZwLoadKey3(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwLoadKey3(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        PCM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount,
+        ACCESS_MASK DesiredAccess,
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(TargetKey);
 }

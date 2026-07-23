@@ -1,9 +1,9 @@
 /*
- * XREFs of KiReduceAffinityToRankListMaximums @ 0x140202640
+ * XREFs of KiReduceAffinityToRankListMaximums @ 0x14032AD30
  * Callers:
- *     KiTallyHeteroSoftParkElectionVotes @ 0x1402018D0 (KiTallyHeteroSoftParkElectionVotes.c)
- *     KiHeteroReduceToMaximallyPreferredByClass @ 0x140202324 (KiHeteroReduceToMaximallyPreferredByClass.c)
- *     KiHeteroIdleSetReduction @ 0x140202360 (KiHeteroIdleSetReduction.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x140329FC0 (KiTallyHeteroSoftParkElectionVotes.c)
+ *     KiHeteroReduceToMaximallyPreferredByClass @ 0x14032AA14 (KiHeteroReduceToMaximallyPreferredByClass.c)
+ *     KiHeteroIdleSetReduction @ 0x14032AA50 (KiHeteroIdleSetReduction.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDiskEnumCallback @ 0x1404127A0
+ * XREFs of ExpDiskEnumCallback @ 0x140412AE0
  * Callers:
  *     BcdEnumerateDisks @ 0x140680EC0 (BcdEnumerateDisks.c)
  * Callees:
- *     ExpGetPartitionTableInfo @ 0x1409FCB94 (ExpGetPartitionTableInfo.c)
+ *     ExpGetPartitionTableInfo @ 0x1409FCE24 (ExpGetPartitionTableInfo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

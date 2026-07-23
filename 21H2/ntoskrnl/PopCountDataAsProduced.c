@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCountDataAsProduced @ 0x14099451C
+ * XREFs of PopCountDataAsProduced @ 0x14099551C
  * Callers:
- *     PopWriteHiberImage @ 0x140993C74 (PopWriteHiberImage.c)
- *     PopCompressHiberBlocks @ 0x14099432C (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140994C74 (PopWriteHiberImage.c)
+ *     PopCompressHiberBlocks @ 0x14099532C (PopCompressHiberBlocks.c)
  * Callees:
- *     ProducerConsumerCopyToContextBuffer @ 0x14099461C (ProducerConsumerCopyToContextBuffer.c)
- *     ProducerConsumerBufferComplete @ 0x1409946AC (ProducerConsumerBufferComplete.c)
- *     ProducerGetBuffer @ 0x140994778 (ProducerGetBuffer.c)
+ *     ProducerConsumerCopyToContextBuffer @ 0x14099561C (ProducerConsumerCopyToContextBuffer.c)
+ *     ProducerConsumerBufferComplete @ 0x1409956AC (ProducerConsumerBufferComplete.c)
+ *     ProducerGetBuffer @ 0x140995778 (ProducerGetBuffer.c)
  */
 
 char __fastcall PopCountDataAsProduced(__int64 a1, void *a2, _DWORD *a3, void *a4, int a5, unsigned int a6)
@@ -19,10 +19,10 @@ char __fastcall PopCountDataAsProduced(__int64 a1, void *a2, _DWORD *a3, void *a
   unsigned __int64 v15; // rbx
   unsigned __int64 v16; // rax
 
-  v7 = (char *)qword_140C238D8;
+  v7 = (char *)qword_140C23EF8;
   v11 = 8 * (unsigned __int8)*a3;
   v12 = ((*a3 >> 8) & 0x3FFFFF) + v11;
-  Buffer = ProducerGetBuffer(qword_140C238D8, v12 + 4, (unsigned int)(a5 << 12), a6);
+  Buffer = ProducerGetBuffer(qword_140C23EF8, v12 + 4, (unsigned int)(a5 << 12), a6);
   result = 0;
   if ( Buffer )
   {

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpUpdateHeapRates @ 0x1800CBC10
+ * XREFs of RtlpUpdateHeapRates @ 0x1800C9380
  * Callers:
- *     RtlpReAllocateHeap @ 0x1800216E0 (RtlpReAllocateHeap.c)
+ *     RtlpReAllocateHeap @ 0x18000C7B0 (RtlpReAllocateHeap.c)
  * Callees:
  *     <none>
  */

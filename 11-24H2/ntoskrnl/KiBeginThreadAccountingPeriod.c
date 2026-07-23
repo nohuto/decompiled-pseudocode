@@ -1,11 +1,11 @@
 /*
- * XREFs of KiBeginThreadAccountingPeriod @ 0x14030C650
+ * XREFs of KiBeginThreadAccountingPeriod @ 0x1402DB6B0
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiInsertDeferredPreemptionApc @ 0x14030C908 (KiInsertDeferredPreemptionApc.c)
- *     KiBeginCounterAccumulation @ 0x140492190 (KiBeginCounterAccumulation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1402DB968 (KiInsertDeferredPreemptionApc.c)
+ *     KiBeginCounterAccumulation @ 0x14048D030 (KiBeginCounterAccumulation.c)
  */
 
 void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmHeteroRegisterWpsUpdatesIntel @ 0x140765C90
+ * XREFs of PpmHeteroRegisterWpsUpdatesIntel @ 0x140765660
  * Callers:
  *     <none>
  * Callees:

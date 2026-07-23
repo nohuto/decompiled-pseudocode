@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmInstallNewIdleStates @ 0x140602D60
+ * XREFs of PpmInstallNewIdleStates @ 0x140605810
  * Callers:
- *     PpmIdleInstallDefaultStates @ 0x140602160 (PpmIdleInstallDefaultStates.c)
+ *     PpmIdleInstallDefaultStates @ 0x140604C10 (PpmIdleInstallDefaultStates.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     PpmResetIdlePolicy @ 0x1403E6300 (PpmResetIdlePolicy.c)
- *     PpmDeepestHardwareIdleState @ 0x1404E7190 (PpmDeepestHardwareIdleState.c)
- *     PpmIdleIsStateDisabled @ 0x1404ECBDC (PpmIdleIsStateDisabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     PpmResetIdlePolicy @ 0x1402F31E0 (PpmResetIdlePolicy.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     PpmDeepestHardwareIdleState @ 0x1404E054C (PpmDeepestHardwareIdleState.c)
+ *     PpmIdleIsStateDisabled @ 0x1404E61BC (PpmIdleIsStateDisabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
@@ -36,7 +36,7 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
   __int64 v21; // r15
   char *v22; // rdi
   __int64 v23; // r9
-  unsigned int *IptSaveArea; // rcx
+  unsigned __int64 v24; // rcx
   __int64 v25; // r14
   bool v26; // zf
   __int64 *v27; // rax
@@ -150,12 +150,12 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
           *(_QWORD *)(v19 - 33) = v19 - 33;
           if ( PpmIdleIsStateDisabled(1, v17) )
             *(_DWORD *)(v19 - 41) = 0x80000000;
-          IptSaveArea = (unsigned int *)stru_140E66FF0.IptSaveArea;
-          if ( stru_140E66FF0.IptSaveArea )
+          v24 = stru_140E67200.Padding[4];
+          if ( stru_140E67200.Padding[4] )
           {
-            *(_DWORD *)(v19 - 13) = *((_DWORD *)stru_140E66FF0.IptSaveArea + 1);
+            *(_DWORD *)(v19 - 13) = *(_DWORD *)(stru_140E67200.Padding[4] + 4);
             *(_QWORD *)(v19 - 9) = v21;
-            v21 += (unsigned __int64)IptSaveArea[1] << 6;
+            v21 += (unsigned __int64)*(unsigned int *)(v24 + 4) << 6;
           }
           if ( v18 != (unsigned int *)4 && (*(_DWORD *)v20 & 0x100) == 0 )
           {
@@ -170,7 +170,7 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
         }
         while ( v17 < (unsigned int)v9 );
         v25 = v44 + v41;
-        v26 = stru_140E66FF0.IptSaveArea == 0LL;
+        v26 = stru_140E67200.Padding[4] == 0;
         *(_QWORD *)(v44 + 984) = v44 + v40;
         *(_DWORD *)v25 = v9;
         if ( !v26 )
@@ -187,10 +187,10 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
           }
           while ( v28 );
         }
-        KxAcquireSpinLock(&stru_140F10070.KcsanThread);
+        KxAcquireSpinLock(&PpmIdleVetoLock);
         v30 = (_DWORD *)*v45;
         *v45 = v44;
-        KxReleaseSpinLock(&stru_140F10070.KcsanThread);
+        KxReleaseSpinLock(&PpmIdleVetoLock);
         if ( v39 )
           *(_DWORD *)(v44 + 36) = v30[9];
         if ( !v30 || (v31 = v30[6], v31 >= (unsigned int)v9) )
@@ -213,8 +213,7 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
         else
         {
           v36 = a1;
-          *(_QWORD *)(v25 + 24) = (unsigned int)KeMaximumIncrement
-                                * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(a1 + 24) + 652LL);
+          *(_QWORD *)(v25 + 24) = KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(a1 + 24) + 652LL);
         }
         PpmResetIdlePolicy(v45);
         if ( v32 )
@@ -226,8 +225,8 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
         guard_dispatch_icall_no_overrides(v37, &v46);
         if ( *(_DWORD *)(v44 + 44) != 1 && *(_BYTE *)v44 )
           PpmIdleDurationExpirationTimeout = (unsigned int)(10000 * PpmIdleDurationExpirationTimeoutMs);
-        if ( !v45[74] )
-          v45[74] = ExAllocatePool2(0x40uLL);
+        if ( !v45[75] )
+          v45[75] = ExAllocatePool2(0x40uLL);
         if ( v30 )
           ExFreePoolWithTag(v30, 0x694D5050u);
       }

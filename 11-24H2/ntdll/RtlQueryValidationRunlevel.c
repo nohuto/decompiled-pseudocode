@@ -1,34 +1,43 @@
 /*
- * XREFs of RtlQueryValidationRunlevel @ 0x180147670
+ * XREFs of RtlQueryValidationRunlevel @ 0x180145A20
  * Callers:
  *     <none>
  * Callees:
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x180161F70 (NtQueryValueKey.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x180160330 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlQueryValidationRunlevel(__int64 a1)
+ULONG __cdecl RtlQueryValidationRunlevel(PUNICODE_STRING ComponentName)
 {
   int v1; // ebx
-  unsigned int v3; // edi
-  int v5; // [rsp+30h] [rbp-30h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-28h] BYREF
-  __int128 v7; // [rsp+40h] [rbp-20h] BYREF
+  int v3; // edi
+  ULONG ResultLength; // [rsp+30h] [rbp-30h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-28h] BYREF
+  __int128 KeyValueInformation; // [rsp+40h] [rbp-20h] BYREF
   int v8; // [rsp+50h] [rbp-10h]
 
   v1 = 0;
-  Handle = 0LL;
-  v5 = 0;
+  KeyHandle = 0LL;
+  ResultLength = 0;
   v8 = 0;
-  v7 = 0LL;
+  KeyValueInformation = 0LL;
   v3 = MEMORY[0x7FFE0258];
-  if ( a1 && MEMORY[0x7FFE0258] != -1 && (int)NtOpenKey(&Handle, 1LL, &unk_180174B90) >= 0 )
+  if ( ComponentName && MEMORY[0x7FFE0258] != -1 && NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_180173BA0) >= 0 )
   {
-    if ( (int)NtQueryValueKey(Handle, a1, 2LL, &v7, 20, &v5) >= 0 && *(_QWORD *)((char *)&v7 + 4) == 0x400000004LL )
-      v1 = HIDWORD(v7);
-    NtClose(Handle);
+    if ( NtQueryValueKey(
+           KeyHandle,
+           ComponentName,
+           KeyValuePartialInformation,
+           &KeyValueInformation,
+           0x14u,
+           &ResultLength) >= 0
+      && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
+    {
+      v1 = HIDWORD(KeyValueInformation);
+    }
+    NtClose(KeyHandle);
   }
   return v1 | v3;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x1403BC9C0
+ * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x140409280
  * Callers:
- *     IopFreeMiniCompletionPacket @ 0x1409A71B0 (IopFreeMiniCompletionPacket.c)
+ *     IopFreeMiniCompletionPacket @ 0x140990680 (IopFreeMiniCompletionPacket.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     AlpcpQueueIoCompletion @ 0x1403BD9A0 (AlpcpQueueIoCompletion.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IoFreeMiniCompletionPacket @ 0x1409A7190 (IoFreeMiniCompletionPacket.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     AlpcpQueueIoCompletion @ 0x1403AC630 (AlpcpQueueIoCompletion.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IoFreeMiniCompletionPacket @ 0x140990660 (IoFreeMiniCompletionPacket.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
@@ -22,7 +22,7 @@ void __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
   __int64 v2; // rsi
   unsigned int v3; // ebx
   int v6; // ebp
-  int v7; // r12d
+  __int64 v7; // r12
   unsigned __int8 CurrentIrql; // di
   _QWORD *v9; // rdx
   int v10; // eax
@@ -43,7 +43,7 @@ void __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
   do
   {
     v17 = (volatile signed __int64 *)v2;
-    v7 = 0;
+    v7 = 0LL;
     v16 = 0LL;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
@@ -70,7 +70,7 @@ void __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
       v11 = *(_DWORD *)(v2 + 20);
       if ( v11 )
       {
-        v7 = -1;
+        v7 = -1LL;
         *(_DWORD *)(v2 + 20) = v11 - 1;
       }
       else
@@ -110,7 +110,7 @@ LABEL_15:
   }
   while ( !ObReferenceObjectSafeWithTag(*(_QWORD *)(v2 + 40), 0x746C6644u) );
   v15 = *(void **)(v2 + 40);
-  AlpcpQueueIoCompletion((_DWORD)v15, *(_QWORD *)(v2 + 48), v7, a1, 0, 0);
+  AlpcpQueueIoCompletion((__int64)v15, *(_QWORD *)(v2 + 48), v7, a1, 0, 0);
   ObfDereferenceObjectWithTag(v15, 0x746C6644u);
 LABEL_18:
   if ( v6 )

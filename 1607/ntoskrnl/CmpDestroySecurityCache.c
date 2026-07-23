@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpDestroySecurityCache @ 0x14049FDD4
+ * XREFs of CmpDestroySecurityCache @ 0x1405181E0
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x1403F8C28 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmpReorganizeHive @ 0x14047FA2C (CmpReorganizeHive.c)
- *     CmLoadKey @ 0x14049C9B4 (CmLoadKey.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     CmpFreeAllMemory @ 0x1405FCA7C (CmpFreeAllMemory.c)
- *     CmReplaceKey @ 0x1405FE0FC (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
- *     HvRefreshHive @ 0x140605F64 (HvRefreshHive.c)
- *     CmpDestroyTemporaryHive @ 0x14060D2A0 (CmpDestroyTemporaryHive.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1403F7AE8 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmpReorganizeHive @ 0x14047E780 (CmpReorganizeHive.c)
+ *     CmLoadKey @ 0x1404A4834 (CmLoadKey.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     CmpFreeAllMemory @ 0x1405FCB30 (CmpFreeAllMemory.c)
+ *     CmReplaceKey @ 0x1405FE1B0 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
+ *     HvRefreshHive @ 0x140606018 (HvRefreshHive.c)
+ *     CmpDestroyTemporaryHive @ 0x14060D354 (CmpDestroyTemporaryHive.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

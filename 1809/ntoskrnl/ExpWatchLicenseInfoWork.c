@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpWatchLicenseInfoWork @ 0x1408CD560
+ * XREFs of ExpWatchLicenseInfoWork @ 0x1408CE820
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcscat_s @ 0x14019BC20 (wcscat_s.c)
- *     wcscpy_s @ 0x14019BCC0 (wcscpy_s.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
- *     NtNotifyChangeKey @ 0x1405CF350 (NtNotifyChangeKey.c)
- *     NtEnumerateKey @ 0x1405D22F0 (NtEnumerateKey.c)
- *     CmOpenKey @ 0x1405E0EA0 (CmOpenKey.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtQueryKey @ 0x14063FB90 (NtQueryKey.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcscat_s @ 0x14019BD60 (wcscat_s.c)
+ *     wcscpy_s @ 0x14019BE00 (wcscpy_s.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     NtSetValueKey @ 0x1405CD8E0 (NtSetValueKey.c)
+ *     NtNotifyChangeKey @ 0x1405D0350 (NtNotifyChangeKey.c)
+ *     NtEnumerateKey @ 0x1405D32F0 (NtEnumerateKey.c)
+ *     CmOpenKey @ 0x1405E1EA0 (CmOpenKey.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtQueryKey @ 0x140640BB0 (NtQueryKey.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
  */
 
 NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)

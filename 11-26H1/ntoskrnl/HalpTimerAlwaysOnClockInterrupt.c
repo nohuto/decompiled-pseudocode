@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpTimerAlwaysOnClockInterrupt @ 0x140596CC0
+ * XREFs of HalpTimerAlwaysOnClockInterrupt @ 0x140599440
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14021F300 (HalpTimerWatchdogTriggerSystemReset.c)
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpScanForProfilingCorruptionInternal @ 0x140468338 (HalpScanForProfilingCorruptionInternal.c)
- *     HalpTimerSwitchToNormalClock @ 0x1405202C0 (HalpTimerSwitchToNormalClock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x140220C90 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpScanForProfilingCorruptionInternal @ 0x140461978 (HalpScanForProfilingCorruptionInternal.c)
+ *     HalpTimerSwitchToNormalClock @ 0x140522964 (HalpTimerSwitchToNormalClock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpTimerAlwaysOnClockInterrupt(__int64 a1)
@@ -31,14 +31,14 @@ char __fastcall HalpTimerAlwaysOnClockInterrupt(__int64 a1)
   unsigned int v13; // ebx
   _QWORD *v14; // rdi
   __int64 QuadPart; // rbx
-  unsigned __int64 v17; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 136);
   v3 = *(_BYTE *)(v2 + 41);
   InternalData = HalpTimerGetInternalData(HalpAlwaysOnTimer);
   guard_dispatch_icall_no_overrides(InternalData, v5);
   v6 = 3LL * (((unsigned __int8)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u) + 1) & 0xF);
-  *((_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.WaitBlock[2].Thread + v6) = RtlGetInterruptTimePrecise(&v17);
+  *((LARGE_INTEGER *)&IommuInterfaceStateChangeCallbackPushLock.WaitBlock[2].Thread + v6) = RtlGetInterruptTimePrecise(&PerformanceCounter);
   Number = KeGetPcr()->Prcb.Number;
   IommuInterfaceStateChangeCallbackPushLock.WaitBlockFill7[8 * v6 + 136] = 0;
   *(_DWORD *)&IommuInterfaceStateChangeCallbackPushLock.WaitBlockFill11[8 * v6 + 128] = Number;

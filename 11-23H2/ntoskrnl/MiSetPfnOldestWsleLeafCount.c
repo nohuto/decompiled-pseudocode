@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetPfnOldestWsleLeafCount @ 0x140292504
+ * XREFs of MiSetPfnOldestWsleLeafCount @ 0x140292794
  * Callers:
- *     MiAllocateTopLevelPage @ 0x140706194 (MiAllocateTopLevelPage.c)
- *     MiInitializeShadowPageTable @ 0x14081DF00 (MiInitializeShadowPageTable.c)
+ *     MiAllocateTopLevelPage @ 0x1407063A4 (MiAllocateTopLevelPage.c)
+ *     MiInitializeShadowPageTable @ 0x14081E1D0 (MiInitializeShadowPageTable.c)
  * Callees:
  *     <none>
  */

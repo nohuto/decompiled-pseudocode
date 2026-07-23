@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpGetOrCreateContextForSiloNoRef @ 0x1409E1D14
+ * XREFs of CmpGetOrCreateContextForSiloNoRef @ 0x1409DBAC4
  * Callers:
- *     CmInitServerSiloState @ 0x1407D5B34 (CmInitServerSiloState.c)
- *     CmInitSiloNamespace @ 0x1409E1CA8 (CmInitSiloNamespace.c)
+ *     CmInitServerSiloState @ 0x1407D6024 (CmInitServerSiloState.c)
+ *     CmInitSiloNamespace @ 0x1409DBA58 (CmInitSiloNamespace.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     CmpGetContextForSiloNoRef @ 0x1409E1EF0 (CmpGetContextForSiloNoRef.c)
- *     CmpAllocateSiloContext @ 0x1409E1F20 (CmpAllocateSiloContext.c)
- *     CmpAttachContextToSilo @ 0x1409E2078 (CmpAttachContextToSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     CmpGetContextForSiloNoRef @ 0x1409DBCA0 (CmpGetContextForSiloNoRef.c)
+ *     CmpAllocateSiloContext @ 0x1409DBCD0 (CmpAllocateSiloContext.c)
+ *     CmpAttachContextToSilo @ 0x1409DBE28 (CmpAttachContextToSilo.c)
  */
 
 __int64 __fastcall CmpGetOrCreateContextForSiloNoRef(__int64 a1, __int64 *a2)

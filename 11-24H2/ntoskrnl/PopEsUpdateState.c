@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsUpdateState @ 0x1404ECC9C
+ * XREFs of PopEsUpdateState @ 0x1404E43DC
  * Callers:
- *     PopEsWorker @ 0x140AC95F0 (PopEsWorker.c)
+ *     PopEsWorker @ 0x140AC7510 (PopEsWorker.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDiagTraceEsState @ 0x1405D4CC8 (PopDiagTraceEsState.c)
- *     PopEsPublishStateV2 @ 0x14075D588 (PopEsPublishStateV2.c)
- *     PopEsSnapTelemetry @ 0x14075D6C8 (PopEsSnapTelemetry.c)
- *     PopCurrentPowerState @ 0x140A2C1F8 (PopCurrentPowerState.c)
- *     PopEsEvaluateNextStateV2 @ 0x140AC9360 (PopEsEvaluateNextStateV2.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDiagTraceEsState @ 0x1405D2488 (PopDiagTraceEsState.c)
+ *     PopEsPublishStateV2 @ 0x14075C528 (PopEsPublishStateV2.c)
+ *     PopEsSnapTelemetry @ 0x14075C668 (PopEsSnapTelemetry.c)
+ *     PopCurrentPowerState @ 0x140A20120 (PopCurrentPowerState.c)
+ *     PopEsEvaluateNextStateV2 @ 0x140AC7298 (PopEsEvaluateNextStateV2.c)
  */
 
 __int64 __fastcall PopEsUpdateState(char a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PopEsUpdateState(char a1)
   v3 = 1;
   PopCurrentPowerState(v13);
   v4 = PopEsReason;
-  v5 = dword_140E6777C;
+  v5 = dword_140E67904;
   v6 = PopEsEvaluateNextStateV2(v13, &v14);
   v7 = v14;
   v8 = v6;
@@ -50,9 +50,9 @@ __int64 __fastcall PopEsUpdateState(char a1)
     PopEsSnapTelemetry(v13);
     v11 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
     PopEsReason = v7;
-    dword_140E6777C = v8;
+    dword_140E67904 = v8;
     if ( PopCsResiliencyStats[0] && (v2 || v10) )
-      ++dword_140F0BF28;
+      ++dword_140F0C3A8;
     KeReleaseSpinLock(&PopCsResiliencyStatsLock, v11);
     if ( v2 )
     {

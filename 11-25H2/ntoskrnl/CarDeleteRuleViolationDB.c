@@ -15,7 +15,7 @@
 void CarDeleteRuleViolationDB()
 {
   BOOLEAN i; // dl
-  RTL_AVL_TABLE *v1; // rbx
+  _RTL_AVL_TABLE *v1; // rbx
   PVOID v2; // rax
   __int128 v3; // [rsp+20h] [rbp-18h] BYREF
 

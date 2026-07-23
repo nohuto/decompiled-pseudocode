@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateWsleAge @ 0x14029C120
+ * XREFs of MiUpdateWsleAge @ 0x14029B680
  * Callers:
- *     MiActOnValidPte @ 0x140297138 (MiActOnValidPte.c)
+ *     MiActOnValidPte @ 0x140296698 (MiActOnValidPte.c)
  * Callees:
- *     MiGetVaAge @ 0x14029C6E0 (MiGetVaAge.c)
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiGetVaAge @ 0x14029BC40 (MiGetVaAge.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiUpdateWsleAge(__int64 a1, __int64 a2, char a3)

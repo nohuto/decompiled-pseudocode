@@ -1,20 +1,20 @@
 /*
- * XREFs of KeFlushCurrentTbOnly @ 0x140250688
+ * XREFs of KeFlushCurrentTbOnly @ 0x140251FE8
  * Callers:
- *     MI_FLUSH_ENTIRE_TB @ 0x140250014 (MI_FLUSH_ENTIRE_TB.c)
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
+ *     MI_FLUSH_ENTIRE_TB @ 0x140251974 (MI_FLUSH_ENTIRE_TB.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
  * Callees:
- *     HvlpFastFlushAddressSpaceTb @ 0x140250E04 (HvlpFastFlushAddressSpaceTb.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x140251218 (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x1403E65B8 (HvlpSlowFlushAddressSpaceTbEx.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1403E6A1C (HvlpFastFlushAddressSpaceTbEx.c)
- *     KiPrepareFlushCurrentAffinity @ 0x14041D8A0 (KiPrepareFlushCurrentAffinity.c)
- *     KiIsFlushEntire @ 0x140430D04 (KiIsFlushEntire.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140469420 (HvlpSlowFlushAddressSpaceTb.c)
- *     KiFlushCurrentTbOnly @ 0x140470540 (KiFlushCurrentTbOnly.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x140252764 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x140252B78 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1402F3498 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1402F38FC (HvlpFastFlushAddressSpaceTbEx.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x1404150F0 (KiPrepareFlushCurrentAffinity.c)
+ *     KiIsFlushEntire @ 0x14041DD34 (KiIsFlushEntire.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404629F0 (HvlpSlowFlushAddressSpaceTb.c)
+ *     KiFlushCurrentTbOnly @ 0x140469CC0 (KiFlushCurrentTbOnly.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KeFlushCurrentTbOnly(unsigned int a1)

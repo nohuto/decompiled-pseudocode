@@ -15,16 +15,21 @@
  *     LdrpLogDbgPrint @ 0x1800D0E14 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrGetDllHandleEx(int a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
+NTSTATUS __cdecl LdrGetDllHandleEx(
+        ULONG Flags,
+        PWSTR DllPath,
+        PULONG DllCharacteristics,
+        PUNICODE_STRING DllName,
+        PVOID *DllHandle)
 {
-  int LoadedDll; // ebx
-  __int64 v10; // rdi
-  int Count; // eax
-  __int64 v12; // [rsp+30h] [rbp-B8h] BYREF
-  _QWORD v13[15]; // [rsp+40h] [rbp-A8h] BYREF
+  NTSTATUS LoadedDll; // ebx
+  PVOID v10; // rdi
+  NTSTATUS Count; // eax
+  PVOID BaseAddress; // [rsp+30h] [rbp-B8h] BYREF
+  PWSTR Path[15]; // [rsp+40h] [rbp-A8h] BYREF
   char v14; // [rsp+BCh] [rbp-2Ch]
 
-  v12 = 0LL;
+  BaseAddress = 0LL;
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
       (unsigned int)"minkernel\\ntdll\\ldrapi.c",
@@ -32,36 +37,36 @@ __int64 __fastcall LdrGetDllHandleEx(int a1, __int64 a2, __int64 a3, __int64 a4,
       (unsigned int)"LdrGetDllHandleEx",
       3,
       "DLL name: %wZ\n",
-      a4);
-  LdrpInitializeDllPath(*(_QWORD *)(a4 + 8), a2, v13);
-  if ( (a1 & 0xFFFFFFF8) != 0 || (a1 & 3) == 3 || !a5 && (a1 & 2) == 0 )
+      DllName);
+  LdrpInitializeDllPath(DllName->Buffer, DllPath, Path);
+  if ( (Flags & 0xFFFFFFF8) != 0 || (Flags & 3) == 3 || !DllHandle && (Flags & 2) == 0 )
   {
     LoadedDll = -1073741811;
     goto LABEL_6;
   }
-  LoadedDll = LdrpFindLoadedDll((unsigned __int16 *)a4, (int)v13, &v12);
+  LoadedDll = LdrpFindLoadedDll(&DllName->Length, (__int64)Path, (char **)&BaseAddress);
   if ( LoadedDll >= 0 )
   {
-    v10 = v12;
-    if ( (a1 & 2) != 0 )
+    v10 = BaseAddress;
+    if ( (Flags & 2) != 0 )
     {
-      Count = LdrpPinModule(v12);
+      Count = LdrpPinModule((__int64)BaseAddress);
     }
     else
     {
-      if ( (a1 & 1) != 0 )
+      if ( (Flags & 1) != 0 )
         goto LABEL_15;
-      Count = LdrpIncrementModuleLoadCount(v12);
+      Count = LdrpIncrementModuleLoadCount((__int64)BaseAddress);
     }
     LoadedDll = Count;
 LABEL_15:
-    if ( LoadedDll >= 0 && a5 )
-      *a5 = *(_QWORD *)(v10 + 48);
-    LdrpDereferenceModule(v10);
+    if ( LoadedDll >= 0 && DllHandle )
+      *DllHandle = (PVOID)*((_QWORD *)v10 + 6);
+    LdrpDereferenceModule((char *)v10);
   }
 LABEL_6:
   if ( v14 )
-    RtlReleasePath(v13[0]);
+    RtlReleasePath(Path[0]);
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
       (unsigned int)"minkernel\\ntdll\\ldrapi.c",
@@ -70,5 +75,5 @@ LABEL_6:
       4,
       "Status: 0x%08lx\n",
       LoadedDll);
-  return (unsigned int)LoadedDll;
+  return LoadedDll;
 }

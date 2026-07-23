@@ -1,18 +1,18 @@
 /*
- * XREFs of ObpFreeObject @ 0x140729850
+ * XREFs of ObpFreeObject @ 0x140729A50
  * Callers:
- *     ObpRemoveObjectRoutine @ 0x140729770 (ObpRemoveObjectRoutine.c)
+ *     ObpRemoveObjectRoutine @ 0x140729970 (ObpRemoveObjectRoutine.c)
  * Callees:
  *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     PspReturnQuota @ 0x1402AD0A0 (PspReturnQuota.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     PspReturnQuota @ 0x1402AD330 (PspReturnQuota.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     PspDereferenceQuotaBlock @ 0x14069ECF4 (PspDereferenceQuotaBlock.c)
- *     SeReleaseSecurityDescriptor @ 0x1407373D0 (SeReleaseSecurityDescriptor.c)
- *     PspRemoveQuotaBlock @ 0x1409AE08C (PspRemoveQuotaBlock.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407375C0 (SeReleaseSecurityDescriptor.c)
+ *     PspRemoveQuotaBlock @ 0x1409AE28C (PspRemoveQuotaBlock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -34,7 +34,7 @@ void __fastcall ObpFreeObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   ULONG v18; // edx
   __int64 v19; // rcx
   struct _KPRCB *CurrentPrcb; // r8
-  struct _SLIST_ENTRY *v21; // rdx
+  _SLIST_ENTRY *v21; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
   void *v23; // rcx
   struct _KTHREAD *CurrentThread; // rax
@@ -112,7 +112,7 @@ void __fastcall ObpFreeObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
       *(_QWORD *)(*(_QWORD *)(a1 + 32) + 32LL) = 0LL;
     }
     CurrentPrcb = KeGetCurrentPrcb();
-    v21 = *(struct _SLIST_ENTRY **)(a1 + 32);
+    v21 = *(_SLIST_ENTRY **)(a1 + 32);
     P = CurrentPrcb->PPLookasideList[4].P;
     ++P->TotalFrees;
     if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -126,7 +126,7 @@ void __fastcall ObpFreeObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v21);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v21);
     }
     goto LABEL_24;
   }

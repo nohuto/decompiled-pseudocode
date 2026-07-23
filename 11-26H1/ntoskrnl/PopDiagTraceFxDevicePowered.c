@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxDevicePowered @ 0x1403B2FFC
+ * XREFs of PopDiagTraceFxDevicePowered @ 0x1403BCD0C
  * Callers:
- *     PopFxCompleteDevicePowerRequired @ 0x1403B2E44 (PopFxCompleteDevicePowerRequired.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x1403BCB54 (PopFxCompleteDevicePowerRequired.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDevicePowered(__int64 a1)
@@ -33,21 +33,13 @@ void __fastcall PopDiagTraceFxDevicePowered(__int64 a1)
       *(_QWORD *)(v3 + 8 * v2 + 16) = 0LL;
     }
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_DEVICE_POWERED) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_POWERED) )
     {
       UserData.Ptr = (ULONGLONG)&v4;
       *(_QWORD *)&UserData.Size = 8LL;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_DEVICE_POWERED,
-        0LL,
-        1u,
-        0LL,
-        0LL,
-        1u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_DEVICE_POWERED, 0LL, 1u, 0LL, 0LL, 1u, &UserData);
     }
   }
 }

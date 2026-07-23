@@ -130,7 +130,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   int *v81; // r8
   int *v82; // r9
   __int64 v83; // rcx
-  __int64 v84; // rax
+  ACL *v84; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v87; // rdx
@@ -182,7 +182,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   PVOID v133; // [rsp+108h] [rbp-130h] BYREF
   int v134; // [rsp+110h] [rbp-128h] BYREF
   int v135; // [rsp+114h] [rbp-124h] BYREF
-  __int64 v136; // [rsp+118h] [rbp-120h]
+  ACL *v136; // [rsp+118h] [rbp-120h]
   PVOID P; // [rsp+120h] [rbp-118h]
   __int64 v138; // [rsp+128h] [rbp-110h]
   __int64 v139; // [rsp+130h] [rbp-108h] BYREF
@@ -558,7 +558,7 @@ LABEL_48:
   {
     if ( *(__int16 *)v129 >= 0 )
     {
-      v84 = *(_QWORD *)(v126 + 24);
+      v84 = *(ACL **)(v126 + 24);
     }
     else
     {
@@ -568,7 +568,7 @@ LABEL_48:
         v136 = 0LL;
         goto LABEL_55;
       }
-      v84 = v126 + v83;
+      v84 = (ACL *)(v126 + v83);
     }
     v136 = v84;
     if ( v84 )

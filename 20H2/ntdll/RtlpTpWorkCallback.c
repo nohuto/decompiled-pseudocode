@@ -23,17 +23,17 @@
  *     RtlTpETWCallbackDequeue @ 0x1801139EC (RtlTpETWCallbackDequeue.c)
  */
 
-void __fastcall RtlpTpWorkCallback(__int64 a1, __int64 a2)
+void __fastcall RtlpTpWorkCallback(_TP_CALLBACK_INSTANCE *Instance, __int64 a2)
 {
   __int64 v4; // r14
   __int64 v5; // rdi
   __int64 v6; // rcx
-  volatile signed __int32 *v7; // rsi
-  __int64 v8; // r12
+  _ACTIVATION_CONTEXT *v7; // rsi
+  void *v8; // r12
   void *v9; // r15
   __int64 v10; // rcx
   __int64 v11; // rax
-  __int64 v12; // [rsp+38h] [rbp-A0h] BYREF
+  __int64 ThreadInformation; // [rsp+38h] [rbp-A0h] BYREF
   __int64 v13[4]; // [rsp+40h] [rbp-98h] BYREF
   __int64 v14; // [rsp+60h] [rbp-78h] BYREF
   int v15; // [rsp+68h] [rbp-70h]
@@ -52,7 +52,7 @@ void __fastcall RtlpTpWorkCallback(__int64 a1, __int64 a2)
   v19 = 0LL;
   v4 = 0LL;
   v5 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v6 = 2147353478LL;
@@ -66,30 +66,30 @@ void __fastcall RtlpTpWorkCallback(__int64 a1, __int64 a2)
       v11 = TpPoolReferenceExistingGlobalPool();
       v4 = v11;
     }
-    *(_QWORD *)(a1 + 128) = v11;
-    TpCallbackMayRunLong(a1);
+    *((_QWORD *)Instance + 16) = v11;
+    TpCallbackMayRunLong(Instance);
   }
   if ( *(_QWORD *)(a2 + 40) )
     RtlpTpImpersonate();
   v21 = *(void (__fastcall **)(__int64))(a2 + 56);
   v20 = *(_QWORD *)(a2 + 64);
-  v7 = *(volatile signed __int32 **)(a2 + 72);
-  v8 = *(_QWORD *)(a2 + 80);
-  v13[1] = v8;
+  v7 = *(_ACTIVATION_CONTEXT **)(a2 + 72);
+  v8 = *(void **)(a2 + 80);
+  v13[1] = (__int64)v8;
   v9 = *(void **)(a2 + 96);
   v13[3] = (__int64)v9;
   if ( v9 )
     RtlSetThreadSubProcessTag(v9);
   NtCurrentTeb()->ActivityId = *(_GUID *)(a2 + 104);
-  if ( v7 != (volatile signed __int32 *)-1LL )
+  if ( v7 != (_ACTIVATION_CONTEXT *)-1LL )
     *(_QWORD *)(a2 + 72) = -1LL;
   if ( v8 )
     *(_QWORD *)(a2 + 80) = 0LL;
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 88), 0xFFFFFFFF) == 1 )
     RtlpTpWorkUnposted(a2, *(_QWORD *)(a2 + 32));
-  if ( v7 != (volatile signed __int32 *)-1LL )
+  if ( v7 != (_ACTIVATION_CONTEXT *)-1LL )
     RtlActivateActivationContextUnsafeFast((__int64)&v14, (__int64)v7);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v10 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v10 = 2147353478LL;
@@ -97,7 +97,7 @@ void __fastcall RtlpTpWorkCallback(__int64 a1, __int64 a2)
     RtlpTpETWCallbackStart(0, a2, (_DWORD)v21, v20, (__int64)v9);
   TppStartThreadData(v13, (__int64)v21, v20, (__int64)NtCurrentTeb()->SubProcessTag);
   v21(v20);
-  if ( v7 != (volatile signed __int32 *)-1LL )
+  if ( v7 != (_ACTIVATION_CONTEXT *)-1LL )
   {
     RtlDeactivateActivationContextUnsafeFast((__int64)&v14);
     RtlReleaseActivationContext(v7);
@@ -106,14 +106,14 @@ void __fastcall RtlpTpWorkCallback(__int64 a1, __int64 a2)
     LdrUnloadDll(v8);
   if ( NtCurrentTeb()->IsImpersonating )
   {
-    v12 = 0LL;
-    NtSetInformationThread(-2LL, 5LL, &v12, 8LL);
+    ThreadInformation = 0LL;
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
   }
   if ( v4 )
     TpDereferenceGlobalPool(v4);
   if ( v9 )
     RtlSetThreadSubProcessTag(0LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v5 = (__int64)NtCurrentPeb()->SharedData + 556;
   if ( *(_BYTE *)v5 )
     RtlpTpETWCallbackStop(0, a2, (_DWORD)v21, v20, (__int64)v9);

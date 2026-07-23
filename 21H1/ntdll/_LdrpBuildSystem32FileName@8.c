@@ -13,10 +13,10 @@
 int __fastcall LdrpBuildSystem32FileName(_WORD *a1, int a2)
 {
   const WCHAR *NtSystemRoot; // eax
-  UNICODE_STRING DestinationString; // [esp+8h] [ebp-8h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+8h] [ebp-8h] BYREF
 
   *a1 = 0;
-  NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot();
+  NtSystemRoot = RtlGetNtSystemRoot();
   RtlInitUnicodeString(&DestinationString, NtSystemRoot);
   LdrpAppendUnicodeStringToFilenameBuffer(a1, &DestinationString);
   LdrpAppendUnicodeStringToFilenameBuffer(a1, &SlashSystem32SlashString);

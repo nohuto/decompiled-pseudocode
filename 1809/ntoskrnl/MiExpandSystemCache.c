@@ -1,15 +1,15 @@
 /*
- * XREFs of MiExpandSystemCache @ 0x1400F61CC
+ * XREFs of MiExpandSystemCache @ 0x1400F624C
  * Callers:
- *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1400AD160 (MiObtainSystemCacheView.c)
  * Callees:
  *     MiMakeZeroedPageTablesEx @ 0x140028584 (MiMakeZeroedPageTablesEx.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     InsertTailListPte @ 0x140079D00 (InsertTailListPte.c)
- *     MiSetSystemCacheReverseMap @ 0x1400F63B0 (MiSetSystemCacheReverseMap.c)
- *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     InsertTailListPte @ 0x140079CF0 (InsertTailListPte.c)
+ *     MiSetSystemCacheReverseMap @ 0x1400F6430 (MiSetSystemCacheReverseMap.c)
+ *     MiObtainSystemVa @ 0x1400F69E4 (MiObtainSystemVa.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiExpandSystemCache(struct _KTHREAD **a1, unsigned __int64 *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall MiExpandSystemCache(struct _KTHREAD **a1, unsigned __int64 *a
   __int64 v17; // [rsp+68h] [rbp+10h] BYREF
 
   *a2 = 0LL;
-  if ( (unsigned __int64)qword_14043A1C8 <= 0x4000000 )
+  if ( (unsigned __int64)qword_14043B288 <= 0x4000000 )
     return 0LL;
   PoolWithTag = (__int64 *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x180uLL, 0x6353694Du);
   if ( !PoolWithTag )

@@ -18,50 +18,50 @@ __int64 __fastcall sub_18002E0EC(
         int a4,
         __int64 a5,
         int a6,
-        _QWORD *a7,
+        HANDLE *a7,
         _QWORD *a8,
-        __int64 *a9)
+        unsigned __int64 *a9)
 {
   __int64 v13; // rcx
   int v14; // ebx
-  __int64 v15; // rdi
+  unsigned __int64 v15; // rdi
   __int64 v17; // rcx
-  __int64 v18; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v19; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-38h] BYREF
+  PVOID BaseAddress; // [rsp+30h] [rbp-48h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-40h] BYREF
+  ULONG_PTR v20[2]; // [rsp+40h] [rbp-38h] BYREF
 
-  v19 = 0LL;
+  Handle = 0LL;
   *a7 = 0LL;
   *a8 = 0LL;
   *a9 = 0LL;
-  v18 = 0LL;
-  v20 = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v13 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  BaseAddress = 0LL;
+  v20[0] = 0LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v13 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   else
     v13 = 2147353477LL;
   if ( (*(_BYTE *)v13 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v17 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v17 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
       v17 = 2147353476LL;
     sub_1800DBCC0(a2, *(unsigned __int8 *)v17);
   }
-  v14 = sub_18002CD64(a1, a2, a3, &v19, &v18, &v20);
+  v14 = sub_18002CD64(a1, a2, a3, &Handle, &BaseAddress, v20);
   if ( v14 >= 0 )
   {
-    v15 = v18 | 1;
-    if ( (unsigned __int8)sub_180030F54(a1, v18 | 1, a2, a5, a4, a6) )
+    v15 = (unsigned __int64)BaseAddress | 1;
+    if ( (unsigned __int8)sub_180030F54(a1, (unsigned __int64)BaseAddress | 1, a2, a5, a4, a6) )
     {
-      *a7 = v19;
-      *a8 = v20;
+      *a7 = Handle;
+      *a8 = v20[0];
       *a9 = v15;
     }
     else
     {
-      ZwUnmapViewOfSection(-1LL);
-      ZwClose(v19);
+      ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+      ZwClose(Handle);
       return (unsigned int)-1073020926;
     }
   }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSmartSuspendValidatePredictions @ 0x140B62E3C
+ * XREFs of PopSmartSuspendValidatePredictions @ 0x140B65EDC
  * Callers:
- *     PopIdleGlobalUserPresenceCallback @ 0x1407DA270 (PopIdleGlobalUserPresenceCallback.c)
+ *     PopIdleGlobalUserPresenceCallback @ 0x1407DE1C0 (PopIdleGlobalUserPresenceCallback.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     PopDiagTraceSmartSuspendValidation @ 0x1407D5088 (PopDiagTraceSmartSuspendValidation.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     PopDiagTraceSmartSuspendValidation @ 0x1407D8240 (PopDiagTraceSmartSuspendValidation.c)
  */
 
 unsigned __int8 PopSmartSuspendValidatePredictions()
 {
   unsigned __int8 result; // al
-  unsigned __int8 *v1; // rdi
+  char *v1; // rdi
   __int64 v2; // rsi
   unsigned __int64 v3; // rbx
   __int64 v4; // rdx
@@ -24,7 +24,7 @@ unsigned __int8 PopSmartSuspendValidatePredictions()
   result = SSHSupportIsPlatformAoAc();
   if ( result )
   {
-    v1 = &stru_140F0C428.WaitBlockFill7[153];
+    v1 = (char *)&unk_140F0CA61;
     v2 = 16LL;
     v3 = MEMORY[0xFFFFF78000000014];
     while ( 1 )

@@ -82,7 +82,9 @@ LABEL_10:
       v12 = 0LL;
 LABEL_12:
     KxReleaseSpinLock(v27);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v18 = v28;
       if ( v28 <= 0xFu && CurrentIrql >= 2u )

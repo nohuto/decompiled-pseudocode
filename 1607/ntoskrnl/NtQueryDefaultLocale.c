@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryDefaultLocale @ 0x14045A7F8
+ * XREFs of NtQueryDefaultLocale @ 0x1404596C8
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionLocaleId @ 0x14045964C (MmGetSessionLocaleId.c)
+ *     MmGetSessionLocaleId @ 0x14045851C (MmGetSessionLocaleId.c)
  */
 
 NTSTATUS __stdcall NtQueryDefaultLocale(BOOLEAN UserProfile, PLCID DefaultLocaleId)

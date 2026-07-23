@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMemoryClassBasicInfo @ 0x140AA32A0
+ * XREFs of MiMemoryClassBasicInfo @ 0x140923530
  * Callers:
- *     MiQueryBasicInfo @ 0x140AA3200 (MiQueryBasicInfo.c)
+ *     MiQueryBasicInfo @ 0x140923490 (MiQueryBasicInfo.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRemoveTimerFromTimerList @ 0x1405CB6EC
+ * XREFs of IopRemoveTimerFromTimerList @ 0x1405CDFBC
  * Callers:
- *     IoDeleteDevice @ 0x140437BA0 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x140426AC0 (IoDeleteDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall IopRemoveTimerFromTimerList(__int64 a1)
@@ -20,6 +20,6 @@ void __fastcall IopRemoveTimerFromTimerList(__int64 a1)
   *v4 = v3;
   *(_QWORD *)(v3 + 8) = v4;
   if ( *(_WORD *)(a1 + 2) )
-    --IopTimerCount;
+    --*(_DWORD *)&IopPerfIoTrackingLock.WaitBlockFill11[80];
   KeReleaseSpinLock(&IopTimerLock, v2);
 }

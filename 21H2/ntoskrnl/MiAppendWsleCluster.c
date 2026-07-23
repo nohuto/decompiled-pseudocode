@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAppendWsleCluster @ 0x140335AD0
+ * XREFs of MiAppendWsleCluster @ 0x140340820
  * Callers:
- *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
- *     MiRemoveMappedPtes @ 0x140308500 (MiRemoveMappedPtes.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiDeleteSystemPagableVm @ 0x1403107D0 (MiDeleteSystemPagableVm.c)
+ *     MiRemoveMappedPtes @ 0x140313250 (MiRemoveMappedPtes.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
  * Callees:
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiTerminateWsleCluster @ 0x14033AD20 (MiTerminateWsleCluster.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiTerminateWsleCluster @ 0x140345A70 (MiTerminateWsleCluster.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 

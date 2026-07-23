@@ -4,8 +4,8 @@
  *     VfDeadlockAcquireResource @ 0x140713510 (VfDeadlockAcquireResource.c)
  *     VfDeadlockInitializeResource @ 0x1407140E4 (VfDeadlockInitializeResource.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     VfUtilAddressRangeAdd @ 0x140702B58 (VfUtilAddressRangeAdd.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     VfUtilAddressRangeAdd @ 0x140702B88 (VfUtilAddressRangeAdd.c)
  *     ViDeadlockPreprocessOptions @ 0x1407156D0 (ViDeadlockPreprocessOptions.c)
  *     ViDeadlockRemoveResource @ 0x140715928 (ViDeadlockRemoveResource.c)
  *     ViDeadlockSearchResource @ 0x140715C10 (ViDeadlockSearchResource.c)

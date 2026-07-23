@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSectionCreated @ 0x14048555C
+ * XREFs of MiSectionCreated @ 0x14047EECC
  * Callers:
- *     MiCreateNewSection @ 0x140A562D8 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140A63860 (MiCreateNewSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInitializeNewImageSectionProtos @ 0x1404AE73C (MiInitializeNewImageSectionProtos.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInitializeNewImageSectionProtos @ 0x1404A7DCC (MiInitializeNewImageSectionProtos.c)
  */
 
 __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
@@ -45,7 +45,7 @@ __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
     v6 = *(_QWORD *)(v10 + 80);
   }
   *(_QWORD *)(a2 + 64) = *(_QWORD *)(v10 + 64);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2C7C0);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2C940);
   v11 = *(_QWORD **)(v3 + 40);
   if ( v7 )
   {
@@ -66,7 +66,7 @@ __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
     *v11 = a2;
     *(_DWORD *)(a2 + 56) &= ~2u;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2C7C0);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2C940);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v10 + 72));
   if ( v8 == 17 )
     ExReleaseSpinLockExclusiveFromDpcLevel(v4);

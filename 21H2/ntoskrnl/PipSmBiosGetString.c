@@ -1,10 +1,10 @@
 /*
- * XREFs of PipSmBiosGetString @ 0x140A5C8BC
+ * XREFs of PipSmBiosGetString @ 0x140A5D8BC
  * Callers:
- *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
+ *     PipInitComputerIds @ 0x140A5C730 (PipInitComputerIds.c)
  * Callees:
- *     strchr @ 0x1403D36F0 (strchr.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     strchr @ 0x1403D3860 (strchr.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall PipSmBiosGetString(
@@ -23,7 +23,7 @@ NTSTATUS __fastcall PipSmBiosGetString(
   char *v11; // rdi
   char v12; // al
   bool v14; // zf
-  STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
 
   v5 = a2;
   SourceString = 0LL;

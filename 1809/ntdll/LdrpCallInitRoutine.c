@@ -12,7 +12,7 @@
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
  *     LdrpLogError @ 0x18007168C (LdrpLogError.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     LdrpLogEtwEvent @ 0x1800D1238 (LdrpLogEtwEvent.c)
  */
 
@@ -43,7 +43,7 @@ char __fastcall LdrpCallInitRoutine(__int64 a1, int a2, int a3)
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
     v8 = 2147353477LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v13 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
       v13 = 2147353477LL;
@@ -63,7 +63,7 @@ char __fastcall LdrpCallInitRoutine(__int64 a1, int a2, int a3)
     v6 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v8 & 0x20) != 0 )
     {

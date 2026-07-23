@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlPcToFileImageInfo @ 0x140419660
+ * XREFs of RtlPcToFileImageInfo @ 0x14040DB90
  * Callers:
- *     KiLogFlushQueuedDpcsCalledAtDispatchLevel @ 0x1405F11A4 (KiLogFlushQueuedDpcsCalledAtDispatchLevel.c)
+ *     KiLogFlushQueuedDpcsCalledAtDispatchLevel @ 0x1405F3B14 (KiLogFlushQueuedDpcsCalledAtDispatchLevel.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x140366D8C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x140366E14 (MmLockLoadedModuleListShared.c)
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140368B2C (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x140368BB4 (MmLockLoadedModuleListShared.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
  */
 
 __int64 __fastcall RtlPcToFileImageInfo(unsigned __int64 a1, __int64 a2)

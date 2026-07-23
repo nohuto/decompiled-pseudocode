@@ -1,29 +1,29 @@
 /*
- * XREFs of LdrpEnclaveAddForwarderModules @ 0x1800CD6B4
+ * XREFs of LdrpEnclaveAddForwarderModules @ 0x1800CD674
  * Callers:
- *     LdrpLoadEnclaveModule @ 0x1800CD958 (LdrpLoadEnclaveModule.c)
+ *     LdrpLoadEnclaveModule @ 0x1800CD918 (LdrpLoadEnclaveModule.c)
  * Callees:
  *     RtlpImageDirectoryEntryToDataEx @ 0x180032920 (RtlpImageDirectoryEntryToDataEx.c)
  *     LdrpParseForwarderDescription @ 0x180076AF4 (LdrpParseForwarderDescription.c)
- *     LdrpEnclaveAddDependentModule @ 0x1800CD57C (LdrpEnclaveAddDependentModule.c)
+ *     LdrpEnclaveAddDependentModule @ 0x1800CD53C (LdrpEnclaveAddDependentModule.c)
  */
 
 __int64 __fastcall LdrpEnclaveAddForwarderModules(_QWORD *a1)
 {
   int v2; // edi
   unsigned __int64 v3; // r14
-  int v4; // eax
+  NTSTATUS v4; // eax
   char *v5; // rsi
   unsigned int *v6; // rbx
   unsigned int *v7; // rbp
   unsigned __int64 v8; // r15
-  STRING v10[4]; // [rsp+30h] [rbp-48h] BYREF
-  ULONG v11; // [rsp+80h] [rbp+8h] BYREF
+  PCSTR v10[9]; // [rsp+30h] [rbp-48h] BYREF
+  unsigned int v11; // [rsp+80h] [rbp+8h] BYREF
   char *v12; // [rsp+88h] [rbp+10h] BYREF
 
   v2 = 0;
   v3 = *(_QWORD *)(a1[7] + 48LL);
-  v4 = RtlpImageDirectoryEntryToDataEx(v3, 1, 0, &v11, (__int64 *)&v12);
+  v4 = RtlpImageDirectoryEntryToDataEx(v3, 1, 0, &v11, &v12);
   v5 = v12;
   if ( v4 < 0 )
     v5 = 0LL;

@@ -16,13 +16,13 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, PVOID Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r9
-  unsigned int v6; // ebx
-  unsigned int v7; // edi
-  NTSTATUS v8; // r14d
+  unsigned int MessageId; // ebx
+  unsigned int CallbackId; // edi
+  int v8; // r14d
   __int64 v9; // r8
   PVOID v10; // rdi
   ULONG_PTR v11; // rbx
@@ -35,32 +35,32 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && (a2 & 3) != 0 )
+  if ( PreviousMode && ((unsigned __int8)Message & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( (*(_WORD *)(a2 + 4) & 0x1000) != 0 )
+  if ( (Message->u2.s2.Type & 0x1000) != 0 )
   {
-    v6 = *(_DWORD *)(a2 + 16);
-    v7 = *(_DWORD *)(a2 + 20);
+    MessageId = *((_DWORD *)&Message->DoNotUseThisField + 2);
+    CallbackId = *((_DWORD *)&Message->DoNotUseThisField + 3);
   }
   else
   {
-    if ( PreviousMode && (a2 & 3) != 0 )
+    if ( PreviousMode && ((unsigned __int8)Message & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v6 = *(_DWORD *)(a2 + 24);
-    v7 = *(_DWORD *)(a2 + 32);
+    MessageId = Message->MessageId;
+    CallbackId = Message->CallbackId;
   }
-  if ( v6 && a3 < 2 )
+  if ( MessageId && (unsigned __int64)Flags < 2 )
   {
-    v8 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v8 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( v8 >= 0 )
     {
-      v9 = v7;
+      v9 = CallbackId;
       v10 = Object;
-      v8 = AlpcpLookupMessage(Object, v6, v9, &BugCheckParameter2);
+      v8 = AlpcpLookupMessage(Object, MessageId, v9, &BugCheckParameter2);
       if ( v8 >= 0 )
       {
         v11 = BugCheckParameter2;
-        v8 = AlpcpImpersonateMessage(v10, BugCheckParameter2, a3 == 1);
+        v8 = AlpcpImpersonateMessage(v10, BugCheckParameter2, Flags == (PVOID)1);
         if ( AlpcpMessageLogEnabled )
           AlpcpEnterStateChangeEventMessageLog(v11);
         v12 = 0;
@@ -94,5 +94,5 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
     v8 = -1073741811;
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v8;
+  return v8;
 }

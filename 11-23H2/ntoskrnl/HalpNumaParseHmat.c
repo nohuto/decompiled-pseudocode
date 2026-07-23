@@ -3,9 +3,9 @@
  * Callers:
  *     HalpSetupAcpiPhase0 @ 0x140B65578 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpNumaQueryProximityNode @ 0x1403B5E00 (HalpNumaQueryProximityNode.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpNumaQueryProximityNode @ 0x1403B5FE0 (HalpNumaQueryProximityNode.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HalpVerifyHmatEntryValidity @ 0x140B91910 (HalpVerifyHmatEntryValidity.c)
  */
 

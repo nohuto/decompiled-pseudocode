@@ -35,8 +35,7 @@ bool __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, _D
   {
     v11 = *(_QWORD *)(a1 + 240);
     return *(_DWORD *)(v11 + 104)
-        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v11 + 136)
-                                                + 0x9896800uLL / (unsigned int)KeMaximumIncrement)
+        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v11 + 136) + 0x9896800uLL / KeMaximumIncrement)
         || *(_DWORD *)(a1 + 112) >= 0x40u;
   }
   if ( (v6 & 0x200) != 0 )

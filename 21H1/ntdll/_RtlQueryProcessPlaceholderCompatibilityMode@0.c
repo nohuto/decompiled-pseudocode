@@ -6,7 +6,7 @@
  *     <none>
  */
 
-char __stdcall RtlQueryProcessPlaceholderCompatibilityMode()
+CHAR RtlQueryProcessPlaceholderCompatibilityMode(void)
 {
   struct _PEB *v0; // eax
 

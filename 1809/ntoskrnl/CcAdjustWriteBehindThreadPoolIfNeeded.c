@@ -2,15 +2,15 @@
  * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140023880
  * Callers:
  *     CcChargeDirtyPages @ 0x140023780 (CcChargeDirtyPages.c)
- *     CcUninitializeCacheMap @ 0x14007C530 (CcUninitializeCacheMap.c)
- *     CcCanIWrite @ 0x140104D20 (CcCanIWrite.c)
- *     CcQueueLazyWriteScanThread @ 0x140183840 (CcQueueLazyWriteScanThread.c)
+ *     CcUninitializeCacheMap @ 0x14007C520 (CcUninitializeCacheMap.c)
+ *     CcCanIWrite @ 0x140104DA0 (CcCanIWrite.c)
+ *     CcQueueLazyWriteScanThread @ 0x140183980 (CcQueueLazyWriteScanThread.c)
  * Callees:
  *     CcAdjustWriteBehindThreadPool @ 0x1400239F0 (CcAdjustWriteBehindThreadPool.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcBoostLowPriorityWorkerThread @ 0x140107F50 (CcBoostLowPriorityWorkerThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140107FD0 (CcBoostLowPriorityWorkerThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
@@ -22,7 +22,7 @@ void __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 0;
-  if ( (_BYTE)dword_14054019C )
+  if ( (_BYTE)dword_14054119C )
     return;
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 192), &LockHandle);
   if ( *(_DWORD *)(a1 + 316) )

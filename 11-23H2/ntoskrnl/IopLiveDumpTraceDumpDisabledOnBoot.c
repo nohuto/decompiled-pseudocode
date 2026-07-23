@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTraceDumpDisabledOnBoot @ 0x14094F074
+ * XREFs of IopLiveDumpTraceDumpDisabledOnBoot @ 0x14094F274
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559D90 (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14055A450 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceDumpDisabledOnBoot()
@@ -47,7 +47,7 @@ char IopLiveDumpTraceDumpDisabledOnBoot()
       v9 = 1;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140C03870,
-               (unsigned __int8 *)&word_14002BAB6,
+               (unsigned __int8 *)&word_14002BB9E,
                0LL,
                0LL,
                4u,

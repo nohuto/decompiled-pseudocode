@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpEnumerateAllHigherLayerKcbs @ 0x1404F14AC
+ * XREFs of CmpEnumerateAllHigherLayerKcbs @ 0x1404D35A0
  * Callers:
- *     CmpCleanupDiscardReplaceContext @ 0x1403FC01C (CmpCleanupDiscardReplaceContext.c)
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14060B908 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x14060BB54 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
- *     CmpForceInvalidateAllHigherLayerKcbs @ 0x14060BBC0 (CmpForceInvalidateAllHigherLayerKcbs.c)
- *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14060BDB0 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x14060E464 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRecreateKeyUoW @ 0x14060E734 (CmpLightWeightCommitRecreateKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x14060F280 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x1403FAEDC (CmpCleanupDiscardReplaceContext.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14060B9BC (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x14060BC08 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
+ *     CmpForceInvalidateAllHigherLayerKcbs @ 0x14060BC74 (CmpForceInvalidateAllHigherLayerKcbs.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14060BE64 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14060E518 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRecreateKeyUoW @ 0x14060E7E8 (CmpLightWeightCommitRecreateKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14060F334 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x140437B40 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpReferenceKeyControlBlock @ 0x1404A0538 (CmpReferenceKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140436A10 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpReferenceKeyControlBlock @ 0x140518944 (CmpReferenceKeyControlBlock.c)
  */
 
 _UNKNOWN **__fastcall CmpEnumerateAllHigherLayerKcbs(

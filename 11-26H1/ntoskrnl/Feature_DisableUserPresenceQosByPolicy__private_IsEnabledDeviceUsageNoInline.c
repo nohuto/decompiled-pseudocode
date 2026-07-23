@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x14060636C
+ * XREFs of Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140608E6C
  * Callers:
- *     PsComputeProcessPpmPolicy @ 0x140614E6C (PsComputeProcessPpmPolicy.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140945E50 (PpmCompareAndApplyPolicySettings.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140A9D254 (PpmPerfUpdateDomainPolicy.c)
+ *     PsComputeProcessPpmPolicy @ 0x140617D08 (PsComputeProcessPpmPolicy.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x1409C17C0 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AD8DD8 (PpmPerfUpdateDomainPolicy.c)
  * Callees:
- *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledFallback @ 0x1406063A8 (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledFallback.c)
+ *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledFallback @ 0x140608EA8 (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline()

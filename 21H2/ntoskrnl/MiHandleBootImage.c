@@ -1,24 +1,24 @@
 /*
- * XREFs of MiHandleBootImage @ 0x140A4FB14
+ * XREFs of MiHandleBootImage @ 0x140A50B14
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A509F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     DbgLoadImageSymbolsUnicode @ 0x140371FA4 (DbgLoadImageSymbolsUnicode.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14037294C (DbgUnLoadImageSymbolsUnicode.c)
- *     MiAllocateDriverPage @ 0x1406D1A78 (MiAllocateDriverPage.c)
- *     MiUseLargeDriverPage @ 0x140770E88 (MiUseLargeDriverPage.c)
- *     MiMapSystemImageWithLargePage @ 0x1408DA3D0 (MiMapSystemImageWithLargePage.c)
- *     MiGetBootImagePageProtection @ 0x140A4FD90 (MiGetBootImagePageProtection.c)
- *     MiTradeBootImagePage @ 0x140A4FE60 (MiTradeBootImagePage.c)
- *     MiFreeBootDriverPages @ 0x140A50050 (MiFreeBootDriverPages.c)
- *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140A503EC (MiImportOptimizationCompatibleWithDriverRelocation.c)
- *     MiBootImageRelocated @ 0x140A92B80 (MiBootImageRelocated.c)
- *     MiReleaseSystemImageVa @ 0x140A92C18 (MiReleaseSystemImageVa.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x140371AF4 (DbgLoadImageSymbolsUnicode.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14037249C (DbgUnLoadImageSymbolsUnicode.c)
+ *     MiAllocateDriverPage @ 0x1406A8D58 (MiAllocateDriverPage.c)
+ *     MiUseLargeDriverPage @ 0x140771048 (MiUseLargeDriverPage.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA530 (MiMapSystemImageWithLargePage.c)
+ *     MiGetBootImagePageProtection @ 0x140A50D90 (MiGetBootImagePageProtection.c)
+ *     MiTradeBootImagePage @ 0x140A50E60 (MiTradeBootImagePage.c)
+ *     MiFreeBootDriverPages @ 0x140A51050 (MiFreeBootDriverPages.c)
+ *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140A513EC (MiImportOptimizationCompatibleWithDriverRelocation.c)
+ *     MiBootImageRelocated @ 0x140A93B80 (MiBootImageRelocated.c)
+ *     MiReleaseSystemImageVa @ 0x140A93C18 (MiReleaseSystemImageVa.c)
  */
 
 __int64 __fastcall MiHandleBootImage(int a1, __int64 a2, __int64 a3)
@@ -26,14 +26,14 @@ __int64 __fastcall MiHandleBootImage(int a1, __int64 a2, __int64 a3)
   int v3; // r12d
   unsigned __int64 v4; // rdi
   unsigned int v6; // r13d
-  __int64 v7; // r15
+  PIMAGE_NT_HEADERS v7; // r15
   unsigned __int64 v8; // rbp
   __int64 result; // rax
   unsigned __int64 v10; // r14
   unsigned int v11; // ebx
   __int64 v12; // r12
   char v13; // bl
-  int v14; // ecx
+  unsigned int VirtualAddress; // ecx
   unsigned int v15; // edi
   unsigned __int64 v16; // rbp
   BOOL v17; // r13d
@@ -48,14 +48,14 @@ __int64 __fastcall MiHandleBootImage(int a1, __int64 a2, __int64 a3)
   v24 = a3;
   v3 = 1;
   v4 = *(_QWORD *)(a2 + 48);
-  v6 = ((unsigned int)dword_140C4CCB0 >> 12) + ((dword_140C4CCB0 & 0xFFF) != 0);
-  LODWORD(v23) = dword_140C4CC4C;
-  v7 = RtlImageNtHeader(v4);
+  v6 = ((unsigned int)dword_140C4CCF0 >> 12) + ((dword_140C4CCF0 & 0xFFF) != 0);
+  LODWORD(v23) = dword_140C4CC8C;
+  v7 = RtlImageNtHeader((PVOID)v4);
   v8 = ((unsigned __int64)*(unsigned int *)(a2 + 64) + 4095) >> 12;
   result = 0xFFFFF68000000000uLL;
   v10 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v11 = v6;
-  if ( v4 == PsNtosImageBase || v4 == PsHalImageBase )
+  if ( (PVOID)v4 == PsNtosImageBase || (PVOID)v4 == PsHalImageBase )
   {
     result = MI_IS_PHYSICAL_ADDRESS(v4);
     if ( (_DWORD)result )
@@ -71,16 +71,17 @@ __int64 __fastcall MiHandleBootImage(int a1, __int64 a2, __int64 a3)
   }
   if ( v11 )
     result = MiFreeBootDriverPages(v4, ((v4 >> 9) & 0xFFFFFFF8) + 8 * v8, v11, v3, v24);
-  if ( v4 != PsNtosImageBase && v4 != PsHalImageBase )
+  if ( (PVOID)v4 != PsNtosImageBase && (PVOID)v4 != PsHalImageBase )
   {
     v12 = 0LL;
-    *(_QWORD *)(v7 + 48) = v4;
+    v7->OptionalHeader.ImageBase = v4;
     if ( (*(_DWORD *)(a2 + 104) & 0x800000) == 0 )
     {
       v13 = 4;
-      if ( (*(_BYTE *)(v7 + 22) & 1) != 0
-        || *(_DWORD *)(v7 + 132) <= 5u
-        || (v14 = *(_DWORD *)(v7 + 176)) != 0 && (unsigned int)(*(_DWORD *)(v7 + 180) + v14) > *(_DWORD *)(a2 + 64) )
+      if ( (v7->FileHeader.Characteristics & 1) != 0
+        || v7->OptionalHeader.NumberOfRvaAndSizes <= 5
+        || (VirtualAddress = v7->OptionalHeader.DataDirectory[5].VirtualAddress) != 0
+        && v7->OptionalHeader.DataDirectory[5].Size + VirtualAddress > *(_DWORD *)(a2 + 64) )
       {
         v13 = 0;
       }
@@ -101,7 +102,7 @@ __int64 __fastcall MiHandleBootImage(int a1, __int64 a2, __int64 a3)
               if ( result )
               {
                 v13 = 7;
-                MiBootImageRelocated(a1, a2, v4, result, v7, v8);
+                MiBootImageRelocated(a1, a2, v4, result, (__int64)v7, v8);
                 MiFreeBootDriverPages(v4, (v4 >> 9) & 0xFFFFFFF8, v8, 0, v24);
                 result = MiReleaseSystemImageVa(v4, (unsigned int)(v8 + v23));
               }

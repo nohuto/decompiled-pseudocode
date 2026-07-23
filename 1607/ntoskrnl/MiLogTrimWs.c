@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogTrimWs @ 0x140088154
+ * XREFs of MiLogTrimWs @ 0x14010C344
  * Callers:
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiFillLogProcessInfo @ 0x1400881FC (MiFillLogProcessInfo.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _TlgCreateSz @ 0x1401CDF00 (_TlgCreateSz.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiFillLogProcessInfo @ 0x14010C3EC (MiFillLogProcessInfo.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _TlgCreateSz @ 0x1401CDD4C (_TlgCreateSz.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
  */
 
 void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -26,7 +26,7 @@ void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int 
   _BYTE v17[4]; // [rsp+60h] [rbp+0h] BYREF
 
   v5 = (unsigned __int64)v17 & 0xFFFFFFFFFFFFFFE0uLL;
-  if ( hProvider )
+  if ( qword_1403277E0 )
   {
     v8 = MiPartitionIdToPointer(*(_WORD *)(a1 + 164));
     MiFillLogProcessInfo(v9, v5 + 4, v5 + 16);
@@ -82,7 +82,7 @@ void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int 
         *(_DWORD *)(((unsigned __int64)v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0xD8) = 8;
         *(_DWORD *)(((unsigned __int64)v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE8) = 4;
         *(_DWORD *)(((unsigned __int64)v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0xF8) = 4;
-        TlgWriteEx(v16, &unk_14027C584, 0LL, 1u, 0LL, 0LL, 0xCu, (EVENT_DATA_DESCRIPTOR *)(v5 + 64));
+        TlgWriteEx(v16, &unk_14027C684, 0LL, 1u, 0LL, 0LL, 0xCu, (EVENT_DATA_DESCRIPTOR *)(v5 + 64));
       }
     }
   }

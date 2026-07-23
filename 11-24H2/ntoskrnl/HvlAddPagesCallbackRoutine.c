@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlAddPagesCallbackRoutine @ 0x140589CB0
+ * XREFs of HvlAddPagesCallbackRoutine @ 0x140586FA0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetPageList @ 0x14058C388 (HvlpGetPageList.c)
- *     HvlpGetPageListIterator @ 0x14058C440 (HvlpGetPageListIterator.c)
- *     HvlpStartPageListIteration @ 0x14058C594 (HvlpStartPageListIteration.c)
- *     IoIsPartialDumpRetry @ 0x140591BA0 (IoIsPartialDumpRetry.c)
+ *     HvlpGetPageList @ 0x140589728 (HvlpGetPageList.c)
+ *     HvlpGetPageListIterator @ 0x1405897E0 (HvlpGetPageListIterator.c)
+ *     HvlpStartPageListIteration @ 0x140589934 (HvlpStartPageListIteration.c)
+ *     IoIsPartialDumpRetry @ 0x14058EBC0 (IoIsPartialDumpRetry.c)
  */
 
 void __fastcall HvlAddPagesCallbackRoutine(

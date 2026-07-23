@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComparePageFileMemoryExtents @ 0x14068E304
+ * XREFs of MiComparePageFileMemoryExtents @ 0x14068F434
  * Callers:
- *     MiFindPageFileMemoryExtent @ 0x14068E68C (MiFindPageFileMemoryExtent.c)
- *     MiInsertPageFileMemoryExtents @ 0x14068E7E8 (MiInsertPageFileMemoryExtents.c)
- *     MiCreatePagefileMemoryExtents @ 0x1407FDE8C (MiCreatePagefileMemoryExtents.c)
+ *     MiFindPageFileMemoryExtent @ 0x14068F7BC (MiFindPageFileMemoryExtent.c)
+ *     MiInsertPageFileMemoryExtents @ 0x14068F918 (MiInsertPageFileMemoryExtents.c)
+ *     MiCreatePagefileMemoryExtents @ 0x1407FE5FC (MiCreatePagefileMemoryExtents.c)
  * Callees:
  *     <none>
  */

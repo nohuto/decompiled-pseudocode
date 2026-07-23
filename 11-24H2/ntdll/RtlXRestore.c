@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlXRestore @ 0x1800EABB0
+ * XREFs of RtlXRestore @ 0x1800E68F0
  * Callers:
  *     <none>
  * Callees:

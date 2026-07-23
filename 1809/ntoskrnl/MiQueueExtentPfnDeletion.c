@@ -1,14 +1,14 @@
 /*
- * XREFs of MiQueueExtentPfnDeletion @ 0x1402B6B8C
+ * XREFs of MiQueueExtentPfnDeletion @ 0x1402B6D7C
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
- *     MiClearFileOnlyPfn @ 0x1402B5764 (MiClearFileOnlyPfn.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
+ *     MiClearFileOnlyPfn @ 0x1402B5954 (MiClearFileOnlyPfn.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeFileOnlyReaper @ 0x1402B726C (MiWakeFileOnlyReaper.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeFileOnlyReaper @ 0x1402B745C (MiWakeFileOnlyReaper.c)
  */
 
 __int64 __fastcall MiQueueExtentPfnDeletion(_QWORD *a1, __int64 a2, __int64 a3)
@@ -26,16 +26,16 @@ __int64 __fastcall MiQueueExtentPfnDeletion(_QWORD *a1, __int64 a2, __int64 a3)
   if ( a1 )
   {
     LockHandle.LockQueue.Next = 0LL;
-    LockHandle.LockQueue.Lock = qword_14043D920;
-    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_14043D920, a3);
-    *a1 = qword_140438D28;
-    qword_140438D28 = (__int64)a1;
+    LockHandle.LockQueue.Lock = qword_14043E9E0;
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_14043E9E0, a3);
+    *a1 = qword_140439DE8;
+    qword_140439DE8 = (__int64)a1;
     MiWakeFileOnlyReaper(v5, v4);
     return KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   }
   else
   {
-    KeAcquireInStackQueuedSpinLock(qword_14043D920, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(qword_14043E9E0, &LockHandle);
     MiWakeFileOnlyReaper(v8, v7);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;

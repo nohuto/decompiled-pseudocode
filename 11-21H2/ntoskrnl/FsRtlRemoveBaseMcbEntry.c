@@ -3,9 +3,9 @@
  * Callers:
  *     FsRtlRemoveLargeMcbEntry @ 0x140541470 (FsRtlRemoveLargeMcbEntry.c)
  * Callees:
- *     FsRtlFindLargeIndex @ 0x14022C700 (FsRtlFindLargeIndex.c)
- *     FsRtlAddEntry @ 0x14022C788 (FsRtlAddEntry.c)
- *     FsRtlRemoveLargeEntry @ 0x14022C8A4 (FsRtlRemoveLargeEntry.c)
+ *     sub_14022C700 @ 0x14022C700 (sub_14022C700.c)
+ *     sub_14022C788 @ 0x14022C788 (sub_14022C788.c)
+ *     sub_14022C8A4 @ 0x14022C8A4 (sub_14022C8A4.c)
  */
 
 BOOLEAN __stdcall FsRtlRemoveBaseMcbEntry(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG SectorCount)
@@ -69,7 +69,7 @@ BOOLEAN __stdcall FsRtlRemoveBaseMcbEntry(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG 
     return 1;
   while ( 1 )
   {
-    if ( !(unsigned __int8)FsRtlFindLargeIndex(Mcb, (unsigned int)v5, &v42) )
+    if ( !(unsigned __int8)sub_14022C700(Mcb, (unsigned int)v5, &v42) )
       return 1;
     v7 = v42;
     if ( v42 )
@@ -154,7 +154,7 @@ LABEL_27:
         }
         v17 = 2LL;
 LABEL_16:
-        FsRtlRemoveLargeEntry(Mcb, v16, v17);
+        sub_14022C8A4(Mcb, v16, v17);
         goto LABEL_17;
       }
     }
@@ -185,7 +185,7 @@ LABEL_16:
         if ( v26 + v28 - v27 )
         {
 LABEL_38:
-          if ( (unsigned __int8)FsRtlAddEntry(Mcb, v42, 1LL) )
+          if ( (unsigned __int8)sub_14022C788(Mcb, v42, 1LL) )
           {
             *((_DWORD *)Mcb->Mapping + 2 * v7 + 1) = -1;
             *((_DWORD *)Mcb->Mapping + 2 * v7) = v4 + v5;
@@ -213,7 +213,7 @@ LABEL_38:
       }
       else
       {
-        if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v38, 1LL) )
+        if ( !(unsigned __int8)sub_14022C788(Mcb, v38, 1LL) )
           return 0;
         *((_DWORD *)Mcb->Mapping + 2 * v39 + 1) = -1;
         *((_DWORD *)Mcb->Mapping + 2 * v39) = *((_DWORD *)Mcb->Mapping + 2 * v32);
@@ -228,7 +228,7 @@ LABEL_17:
   }
   if ( v31 == -1 )
     return 1;
-  if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v42, 2LL) )
+  if ( !(unsigned __int8)sub_14022C788(Mcb, v42, 2LL) )
     return 0;
   v35 = (unsigned int)(v7 + 1);
   *((_DWORD *)Mcb->Mapping + 2 * v7 + 1) = *((_DWORD *)Mcb->Mapping + 2 * (unsigned int)(v7 + 2) + 1);

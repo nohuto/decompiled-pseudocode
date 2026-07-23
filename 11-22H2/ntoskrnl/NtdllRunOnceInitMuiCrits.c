@@ -6,8 +6,8 @@
  *     KiInitializeMutant @ 0x14033ABEC (KiInitializeMutant.c)
  */
 
-__int64 __fastcall NtdllRunOnceInitMuiCrits(PRTL_RUN_ONCE RunOnce, __int64 *Parameter, PVOID *Context)
+__int64 __fastcall NtdllRunOnceInitMuiCrits(PRTL_RUN_ONCE a1, __int64 *a2, PVOID *a3)
 {
-  KiInitializeMutant(*Parameter, 0, 1, 0);
+  KiInitializeMutant(*a2, 0, 1, 0);
   return 1LL;
 }

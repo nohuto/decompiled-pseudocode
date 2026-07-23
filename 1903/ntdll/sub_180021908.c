@@ -13,40 +13,39 @@
  *     __security_check_cookie @ 0x18008C7B0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall sub_180021908(__int64 a1, int a2, __int64 *a3)
+__int64 __fastcall sub_180021908(__int64 a1, __int64 a2, char **a3)
 {
-  int v5; // ebx
-  int v7; // [rsp+30h] [rbp-D0h] BYREF
-  _DWORD v8[3]; // [rsp+34h] [rbp-CCh] BYREF
-  int v9; // [rsp+40h] [rbp-C0h] BYREF
-  _WORD *v10; // [rsp+48h] [rbp-B8h]
-  _WORD v11[128]; // [rsp+50h] [rbp-B0h] BYREF
+  int v4; // ebx
+  int v6; // [rsp+30h] [rbp-D0h] BYREF
+  int v7; // [rsp+34h] [rbp-CCh]
+  _UNICODE_STRING v8; // [rsp+40h] [rbp-C0h] BYREF
+  _WORD v9[128]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v9 = 0x1000000;
+  *(_DWORD *)&v8.Length = 0x1000000;
   *a3 = 0LL;
-  v7 = 0;
-  v10 = v11;
-  v11[0] = 0;
-  v5 = sub_180025240(a1, &v9, 0LL, &v7);
-  if ( v5 >= 0 )
+  v6 = 0;
+  v8.Buffer = v9;
+  v9[0] = 0;
+  v4 = sub_180025240(a1, &v8, 0LL, &v6);
+  if ( v4 >= 0 )
   {
-    v5 = sub_1800219E8((unsigned int)&v9, a2, (_DWORD)a3, (unsigned int)v8, v7);
-    if ( v5 >= 0 && v8[0] < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
+    v4 = sub_1800219E8(&v8, v6);
+    if ( v4 >= 0 && v7 < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
     {
       sub_18001B678(*a3);
       *a3 = 0LL;
       sub_18002E73C(0LL);
-      v5 = sub_1800219E8((unsigned int)&v9, a2, (_DWORD)a3, (unsigned int)v8, v7);
+      v4 = sub_1800219E8(&v8, v6);
       sub_180073E1C();
-      if ( v5 >= 0 && v8[0] != 9 )
+      if ( v4 >= 0 && v7 != 9 )
       {
         sub_18001B678(*a3);
         *a3 = 0LL;
-        v5 = -1073741515;
+        v4 = -1073741515;
       }
     }
   }
-  if ( v11 != v10 )
-    RtlDeleteBoundaryDescriptor(v10);
-  return (unsigned int)v5;
+  if ( v9 != v8.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v8.Buffer);
+  return (unsigned int)v4;
 }

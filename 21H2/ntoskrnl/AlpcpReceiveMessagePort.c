@@ -1,30 +1,30 @@
 /*
- * XREFs of AlpcpReceiveMessagePort @ 0x1405E8BC0
+ * XREFs of AlpcpReceiveMessagePort @ 0x1406D8320
  * Callers:
- *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
- *     AlpcpReceiveLegacyMessage @ 0x1405EA7A0 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpReceiveMessage @ 0x1406D73D0 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x1406D9F00 (AlpcpReceiveLegacyMessage.c)
  * Callees:
- *     AlpcpWaitForSingleObject @ 0x1402B6BF8 (AlpcpWaitForSingleObject.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpWaitForSingleObject @ 0x140234DD8 (AlpcpWaitForSingleObject.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  *     AlpcpQueryHeadCanceledQueue @ 0x1405CF074 (AlpcpQueryHeadCanceledQueue.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpQueryHeadLargeQueue @ 0x1405E9240 (AlpcpQueryHeadLargeQueue.c)
- *     AlpcpTryLockForCachedReferenceBlob @ 0x1405E9260 (AlpcpTryLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
- *     AlpcpCompleteDeferSignalRequestAndWait @ 0x14069989C (AlpcpCompleteDeferSignalRequestAndWait.c)
- *     AlpcpUnlockPortShared @ 0x1408C24F0 (AlpcpUnlockPortShared.c)
- *     AlpcpLockPortExclusive @ 0x1408C2F0C (AlpcpLockPortExclusive.c)
- *     AlpcpUnlockIncomingQueue @ 0x1408C2F60 (AlpcpUnlockIncomingQueue.c)
- *     AlpcpUnlockPortExclusive @ 0x1408C2F9C (AlpcpUnlockPortExclusive.c)
- *     AlpcpLogReceiveMessage @ 0x1408C3D90 (AlpcpLogReceiveMessage.c)
- *     AlpcpLogWaitForNewMessage @ 0x1408C3ED8 (AlpcpLogWaitForNewMessage.c)
+ *     AlpcpCompleteDeferSignalRequestAndWait @ 0x1405F8A60 (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1406D0224 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpQueryHeadLargeQueue @ 0x1406D89A0 (AlpcpQueryHeadLargeQueue.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1406D89C0 (AlpcpTryLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     AlpcpUnlockPortShared @ 0x1408C2650 (AlpcpUnlockPortShared.c)
+ *     AlpcpLockPortExclusive @ 0x1408C306C (AlpcpLockPortExclusive.c)
+ *     AlpcpUnlockIncomingQueue @ 0x1408C30C0 (AlpcpUnlockIncomingQueue.c)
+ *     AlpcpUnlockPortExclusive @ 0x1408C30FC (AlpcpUnlockPortExclusive.c)
+ *     AlpcpLogReceiveMessage @ 0x1408C3EF0 (AlpcpLogReceiveMessage.c)
+ *     AlpcpLogWaitForNewMessage @ 0x1408C4038 (AlpcpLogWaitForNewMessage.c)
  */
 
-__int64 __fastcall AlpcpReceiveMessagePort(__int64 *a1, unsigned __int8 a2, __int64 a3, ULONG_PTR *a4, LONG a5)
+__int64 __fastcall AlpcpReceiveMessagePort(__int64 *a1, unsigned __int8 a2, LARGE_INTEGER *a3, ULONG_PTR *a4, LONG a5)
 {
   struct _KTHREAD *CurrentThread; // r15
   __int64 v7; // rdi
@@ -139,7 +139,7 @@ LABEL_72:
             AlpcpUnlockPortShared(v7);
           if ( AlpcpLogEnabled )
             AlpcpLogWaitForNewMessage(v7);
-          result = AlpcpCompleteDeferSignalRequestAndWait(a1, *(_QWORD *)(v7 + 248), v19, a2, a3);
+          result = AlpcpCompleteDeferSignalRequestAndWait((__int64)a1, *(void **)(v7 + 248), v19, a2, a3);
           if ( (_DWORD)result )
             return result;
           goto LABEL_2;
@@ -170,7 +170,7 @@ LABEL_72:
           AlpcpUnlockPortExclusive(v7);
           if ( AlpcpLogEnabled )
             AlpcpLogWaitForNewMessage(v7);
-          v18 = AlpcpCompleteDeferSignalRequestAndWait(a1, &CurrentThread[1].KernelStack, v17, a2, a3);
+          v18 = AlpcpCompleteDeferSignalRequestAndWait((__int64)a1, &CurrentThread[1].KernelStack, v17, a2, a3);
           if ( v18 )
           {
             ExAcquirePushLockExclusiveEx(v7 + 224, 0LL);

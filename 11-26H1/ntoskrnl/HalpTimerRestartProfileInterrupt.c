@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerRestartProfileInterrupt @ 0x1405845EC
+ * XREFs of HalpTimerRestartProfileInterrupt @ 0x140586B0C
  * Callers:
- *     HalpTimerPowerChange @ 0x140582BE4 (HalpTimerPowerChange.c)
- *     DefaultRestartProfiling @ 0x140BEADE0 (DefaultRestartProfiling.c)
+ *     HalpTimerPowerChange @ 0x140585104 (HalpTimerPowerChange.c)
+ *     DefaultRestartProfiling @ 0x140BF0DE0 (DefaultRestartProfiling.c)
  * Callees:
- *     HalpSetTimer @ 0x1402086B0 (HalpSetTimer.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpTimerSetProblemEx @ 0x1404FEB94 (HalpTimerSetProblemEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpSetTimer @ 0x140208790 (HalpSetTimer.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpTimerSetProblemEx @ 0x1404F8144 (HalpTimerSetProblemEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void HalpTimerRestartProfileInterrupt()

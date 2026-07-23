@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateFileOnlyPfns @ 0x140A33C48
+ * XREFs of MiCreateFileOnlyPfns @ 0x140A33EF8
  * Callers:
- *     MiAllocateFileExtents @ 0x140A33068 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140A33318 (MiAllocateFileExtents.c)
  * Callees:
- *     MiGetControlAreaPartition @ 0x1402756B0 (MiGetControlAreaPartition.c)
- *     MiDecrementProtoShareCounts @ 0x14063C98C (MiDecrementProtoShareCounts.c)
- *     MiFillFileOnlyProtoAsBad @ 0x14063CF90 (MiFillFileOnlyProtoAsBad.c)
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiGetControlAreaPartition @ 0x140275940 (MiGetControlAreaPartition.c)
+ *     MiDecrementProtoShareCounts @ 0x14063CEDC (MiDecrementProtoShareCounts.c)
+ *     MiFillFileOnlyProtoAsBad @ 0x14063D4E0 (MiFillFileOnlyProtoAsBad.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  */
 
 __int64 __fastcall MiCreateFileOnlyPfns(__int64 *a1, __int64 a2, char a3, __int64 a4, unsigned __int64 a5)

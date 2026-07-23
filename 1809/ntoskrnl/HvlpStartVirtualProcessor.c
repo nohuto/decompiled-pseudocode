@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpStartVirtualProcessor @ 0x1402730B8
+ * XREFs of HvlpStartVirtualProcessor @ 0x1402732A8
  * Callers:
- *     HvlHalStartVirtualProcessor @ 0x140274280 (HvlHalStartVirtualProcessor.c)
+ *     HvlHalStartVirtualProcessor @ 0x140274470 (HvlHalStartVirtualProcessor.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpStartVirtualProcessor(unsigned int a1, _OWORD *a2)

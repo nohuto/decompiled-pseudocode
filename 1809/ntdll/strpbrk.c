@@ -1,10 +1,10 @@
 /*
- * XREFs of strpbrk @ 0x180094F50
+ * XREFs of strpbrk @ 0x180094F60
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x180090060 (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x180090070 (__report_rangecheckfailure.c)
  */
 
 char *__cdecl strpbrk(const char *Str, const char *Control)

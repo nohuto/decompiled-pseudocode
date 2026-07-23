@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwShutdownSystem()
+NTSTATUS __cdecl ZwShutdownSystem(SHUTDOWN_ACTION Action)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 423LL;
+  result = 423;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

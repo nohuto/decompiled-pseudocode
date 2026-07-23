@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUpdateForkMaps @ 0x14055B7A0
+ * XREFs of MiUpdateForkMaps @ 0x14055B9E0
  * Callers:
- *     MiCloneVads @ 0x140559328 (MiCloneVads.c)
+ *     MiCloneVads @ 0x140559568 (MiCloneVads.c)
  * Callees:
- *     MiIncreaseUsedPtesCount @ 0x1403097D4 (MiIncreaseUsedPtesCount.c)
- *     MiFillPteHierarchy @ 0x14030C470 (MiFillPteHierarchy.c)
- *     MiGetNextPageTable @ 0x14030D820 (MiGetNextPageTable.c)
- *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiMapSinglePage @ 0x14036B104 (MiMapSinglePage.c)
- *     MiBuildForkPageTable @ 0x140557FCC (MiBuildForkPageTable.c)
- *     MiDoneWithThisPageGetAnother @ 0x14055A138 (MiDoneWithThisPageGetAnother.c)
+ *     MiIncreaseUsedPtesCount @ 0x140314524 (MiIncreaseUsedPtesCount.c)
+ *     MiFillPteHierarchy @ 0x1403171C0 (MiFillPteHierarchy.c)
+ *     MiGetNextPageTable @ 0x140318570 (MiGetNextPageTable.c)
+ *     MiMakeSystemAddressValid @ 0x1403190E0 (MiMakeSystemAddressValid.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiMapSinglePage @ 0x14036B2B4 (MiMapSinglePage.c)
+ *     MiBuildForkPageTable @ 0x14055820C (MiBuildForkPageTable.c)
+ *     MiDoneWithThisPageGetAnother @ 0x14055A378 (MiDoneWithThisPageGetAnother.c)
  */
 
 ULONG_PTR __fastcall MiUpdateForkMaps(__int64 *a1, __int64 a2, __int64 a3, _QWORD *a4, __int64 a5, char a6)
@@ -48,7 +48,7 @@ ULONG_PTR __fastcall MiUpdateForkMaps(__int64 *a1, __int64 a2, __int64 a3, _QWOR
   v33 = 0;
   v31 = 0LL;
   v32 = 0LL;
-  NextPageTable = MiGetNextPageTable(a2, a3, 0LL, a6, 4u, &v33);
+  NextPageTable = MiGetNextPageTable(a2, a3, 0LL, a6, 4, &v33);
   v30 = NextPageTable;
   v9 = NextPageTable;
   if ( !NextPageTable )
@@ -108,12 +108,12 @@ ULONG_PTR __fastcall MiUpdateForkMaps(__int64 *a1, __int64 a2, __int64 a3, _QWOR
               }
             }
           }
-          else if ( qword_140C4DF40 )
+          else if ( qword_140C4DF80 )
           {
             if ( (v21 & 0x10) != 0 )
               v22 = v21 & 0xFFFFFFFFFFFFFFEFuLL;
             else
-              v22 = ~qword_140C4DF40 & v21;
+              v22 = ~qword_140C4DF80 & v21;
           }
           v17 = (v22 >> 12) & 0xFFFFFFFFFLL;
         }

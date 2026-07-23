@@ -1,8 +1,8 @@
 /*
- * XREFs of KiDisconnectInterruptInternal @ 0x1401243DC
+ * XREFs of KiDisconnectInterruptInternal @ 0x14012494C
  * Callers:
- *     KiDisconnectInterruptCommon @ 0x1401242B8 (KiDisconnectInterruptCommon.c)
- *     KiProcessPendingDisconnect @ 0x1401D8C94 (KiProcessPendingDisconnect.c)
+ *     KiDisconnectInterruptCommon @ 0x140124828 (KiDisconnectInterruptCommon.c)
+ *     KiProcessPendingDisconnect @ 0x1401D8AC0 (KiProcessPendingDisconnect.c)
  * Callees:
  *     <none>
  */

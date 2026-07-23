@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwCreateJobObject @ 0x14015B0E0
+ * XREFs of ZwCreateJobObject @ 0x14015B650
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(JobHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(JobHandle);
 }

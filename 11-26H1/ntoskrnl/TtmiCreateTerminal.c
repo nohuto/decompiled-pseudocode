@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmiCreateTerminal @ 0x1407EBA48
+ * XREFs of TtmiCreateTerminal @ 0x1407F15A8
  * Callers:
- *     TtmpDispatchCreateTerminal @ 0x1407E7E84 (TtmpDispatchCreateTerminal.c)
- *     TtmInitCurrentSession @ 0x140A3A0D4 (TtmInitCurrentSession.c)
+ *     TtmpDispatchCreateTerminal @ 0x1407ED9E4 (TtmpDispatchCreateTerminal.c)
+ *     TtmInitCurrentSession @ 0x1409F5CD4 (TtmInitCurrentSession.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     TtmiUpdateActiveTerminalCount @ 0x1407E6AF4 (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogTerminalCreated @ 0x1407EAE38 (TtmiLogTerminalCreated.c)
- *     TtmpSetTerminalPendingCleanup @ 0x1407EC8C0 (TtmpSetTerminalPendingCleanup.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1407EC64C (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogTerminalCreated @ 0x1407F0998 (TtmiLogTerminalCreated.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x1407F2420 (TtmpSetTerminalPendingCleanup.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiCreateTerminal(

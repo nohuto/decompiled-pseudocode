@@ -10,40 +10,41 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-signed __int32 __fastcall RtlpLookupCurDirSetting(int a1, signed __int32 a2, volatile signed __int32 *a3)
+int __fastcall RtlpLookupCurDirSetting(PUNICODE_STRING ValueName, signed __int32 a2, volatile signed __int32 *a3)
 {
   HANDLE v5; // esi
   signed __int32 v6; // edx
-  signed __int32 result; // eax
-  int v8; // [esp+10h] [ebp-1Ch] BYREF
-  HANDLE Handle; // [esp+14h] [ebp-18h] BYREF
-  _BYTE v10[12]; // [esp+18h] [ebp-14h] BYREF
+  int result; // eax
+  ULONG ResultLength; // [esp+10h] [ebp-1Ch] BYREF
+  HANDLE KeyHandle; // [esp+14h] [ebp-18h] BYREF
+  _BYTE KeyValueInformation[12]; // [esp+18h] [ebp-14h] BYREF
   unsigned int v11; // [esp+24h] [ebp-8h]
 
   if ( !LdrpIsSecureProcess )
   {
-    v5 = (HANDLE)dword_4B3A67D0;
-    Handle = (HANDLE)dword_4B3A67D0;
-    if ( !dword_4B3A67D0 )
+    v5 = ::KeyHandle;
+    KeyHandle = ::KeyHandle;
+    if ( !::KeyHandle )
     {
-      if ( (int)ZwOpenKey(&Handle, 1, dword_4B28141C) < 0 )
+      if ( ZwOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_4B28141C) < 0 )
       {
 LABEL_7:
         v6 = a2;
         goto LABEL_8;
       }
-      v5 = (HANDLE)_InterlockedCompareExchange(&dword_4B3A67D0, (signed __int32)Handle, 0);
+      v5 = (HANDLE)_InterlockedCompareExchange((volatile signed __int32 *)&::KeyHandle, (signed __int32)KeyHandle, 0);
       if ( v5 )
       {
-        NtClose(Handle);
-        Handle = v5;
+        NtClose(KeyHandle);
+        KeyHandle = v5;
       }
       else
       {
-        v5 = Handle;
+        v5 = KeyHandle;
       }
     }
-    if ( (int)ZwQueryValueKey(v5, a1, 2, v10, 16, &v8) >= 0 && v8 == 16 )
+    if ( ZwQueryValueKey(v5, ValueName, KeyValuePartialInformation, KeyValueInformation, 0x10u, &ResultLength) >= 0
+      && ResultLength == 16 )
     {
       v6 = v11;
       if ( v11 < 2 )

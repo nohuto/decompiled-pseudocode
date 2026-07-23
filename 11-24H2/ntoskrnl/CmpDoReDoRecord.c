@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpDoReDoRecord @ 0x1407E6CC4
+ * XREFs of CmpDoReDoRecord @ 0x1407E7294
  * Callers:
- *     CmpRmReDoPhase @ 0x1407E09C4 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x1407E0F14 (CmpRmReDoPhase.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x1406A7F90 (ZwDeleteKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     ZwSetInformationKey @ 0x1406A9950 (ZwSetInformationKey.c)
- *     ZwSetSecurityObject @ 0x1406A9B30 (ZwSetSecurityObject.c)
- *     CmpDoReDoCreateKey @ 0x1407E6BD4 (CmpDoReDoCreateKey.c)
- *     CmpDoReOpenTransKey @ 0x1407E6EF4 (CmpDoReOpenTransKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1406A8F30 (ZwDeleteKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     ZwSetInformationKey @ 0x1406AA8F0 (ZwSetInformationKey.c)
+ *     ZwSetSecurityObject @ 0x1406AAAD0 (ZwSetSecurityObject.c)
+ *     CmpDoReDoCreateKey @ 0x1407E71A4 (CmpDoReDoCreateKey.c)
+ *     CmpDoReOpenTransKey @ 0x1407E74C4 (CmpDoReOpenTransKey.c)
  */
 
 __int64 __fastcall CmpDoReDoRecord(__int64 a1, __int64 a2)

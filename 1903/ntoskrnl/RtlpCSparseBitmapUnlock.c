@@ -101,7 +101,7 @@ __int64 __fastcall RtlpCSparseBitmapUnlock(int *a1)
             {
               v15->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v15->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v14]);
+                KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v14].TreeNode);
               v19 = v15->BoostBitmap.AllFields & 0x1FFFF;
               v15->BoostBitmap.AllFields &= 0xFFFE0000;
               v15->ThreadLocalFlags &= ~1u;

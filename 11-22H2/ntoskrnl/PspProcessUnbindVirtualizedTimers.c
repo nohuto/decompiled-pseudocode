@@ -51,10 +51,10 @@ __int64 __fastcall PspProcessUnbindVirtualizedTimers(__int64 a1)
       ObfDereferenceObjectWithTag(v9, 0x54567350u);
     }
     result = KxReleaseSpinLock(v3);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v4 <= 0xFu
         && (unsigned __int8)result >= 2u )

@@ -1,18 +1,18 @@
 /*
- * XREFs of SepSidInToken @ 0x1402AFC70
+ * XREFs of SepSidInToken @ 0x1403DB410
  * Callers:
- *     SepMaximumAccessCheckEx @ 0x1402ACD9C (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x1402AF210 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x1402B0BC0 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheck @ 0x1402B1890 (SepMaximumAccessCheck.c)
- *     SeMaximumAuditMask @ 0x1404A5E44 (SeMaximumAuditMask.c)
- *     AuthzBasepMemberOf @ 0x140517AE0 (AuthzBasepMemberOf.c)
- *     SeTokenIsAdmin @ 0x140920530 (SeTokenIsAdmin.c)
- *     SepExamineSaclEx @ 0x1409F7C30 (SepExamineSaclEx.c)
- *     SeExamineSacl @ 0x1409F8430 (SeExamineSacl.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x140A91D08 (SepIsImpersonationAllowedDueToCapability.c)
+ *     SeMaximumAuditMask @ 0x14049F4D4 (SeMaximumAuditMask.c)
+ *     AuthzBasepMemberOf @ 0x140511550 (AuthzBasepMemberOf.c)
+ *     SepMaximumAccessCheck @ 0x14051A140 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x14051B700 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x14051BF40 (SepNormalAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x14051D0B0 (SepNormalAccessCheckEx.c)
+ *     SeTokenIsAdmin @ 0x1409238F0 (SeTokenIsAdmin.c)
+ *     SepExamineSaclEx @ 0x140A60770 (SepExamineSaclEx.c)
+ *     SeExamineSacl @ 0x140A60F70 (SeExamineSacl.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x140A96858 (SepIsImpersonationAllowedDueToCapability.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 bool __fastcall SepSidInToken(__int64 a1, unsigned __int8 *a2, unsigned __int8 *a3, char a4, char a5, char a6)
@@ -43,20 +43,17 @@ bool __fastcall SepSidInToken(__int64 a1, unsigned __int8 *a2, unsigned __int8 *
     v6 = 232LL;
   v9 = a1 + v6;
   if ( a2
-    && *(_WORD *)RtlpBootStatHandleLock.WaitBlock[2].SparePtr == *(_WORD *)a3
+    && *(_WORD *)RtlpBootStatHandleLock.RelativeTimerBias == *(_WORD *)a3
     && !memcmp(
-          RtlpBootStatHandleLock.WaitBlock[2].SparePtr,
+          (const void *)RtlpBootStatHandleLock.RelativeTimerBias,
           a3,
-          4LL * HIBYTE(*(_WORD *)RtlpBootStatHandleLock.WaitBlock[2].SparePtr) + 8) )
+          4LL * HIBYTE(*(_WORD *)RtlpBootStatHandleLock.RelativeTimerBias) + 8) )
   {
     v7 = a2;
   }
   if ( a6
-    && RtlpBootStatHandleLock.WaitBlock[3].WaitListEntry.Flink->Flink == (struct _LIST_ENTRY *)*(_WORD *)v7
-    && !memcmp(
-          RtlpBootStatHandleLock.WaitBlock[3].WaitListEntry.Flink,
-          v7,
-          4 * ((unsigned __int64)RtlpBootStatHandleLock.WaitBlock[3].WaitListEntry.Flink->Flink >> 8) + 8) )
+    && *(_WORD *)RtlpBootStatHandleLock.Teb == *(_WORD *)v7
+    && !memcmp(RtlpBootStatHandleLock.Teb, v7, 4LL * HIBYTE(*(_WORD *)RtlpBootStatHandleLock.Teb) + 8) )
   {
     return 1;
   }

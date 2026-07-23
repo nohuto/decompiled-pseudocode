@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetBugMessageText @ 0x1405B289C
+ * XREFs of KeGetBugMessageText @ 0x1405AF80C
  * Callers:
- *     KiDisplayBlueScreen @ 0x1405B38C0 (KiDisplayBlueScreen.c)
- *     CmpCreateHwProfileFriendlyName @ 0x1407D3860 (CmpCreateHwProfileFriendlyName.c)
+ *     KiDisplayBlueScreen @ 0x1405B0834 (KiDisplayBlueScreen.c)
+ *     CmpCreateHwProfileFriendlyName @ 0x1407D3D50 (CmpCreateHwProfileFriendlyName.c)
  * Callees:
  *     <none>
  */

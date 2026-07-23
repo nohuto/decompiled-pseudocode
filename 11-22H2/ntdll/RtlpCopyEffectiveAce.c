@@ -73,7 +73,7 @@ char __fastcall RtlpCopyEffectiveAce(
   __int64 v64; // [rsp+58h] [rbp-81h]
   __int64 v65; // [rsp+60h] [rbp-79h]
   char *v67; // [rsp+70h] [rbp-69h]
-  __int16 v68; // [rsp+80h] [rbp-59h] BYREF
+  __int16 Sid2; // [rsp+80h] [rbp-59h] BYREF
   int v69; // [rsp+82h] [rbp-57h]
   __int16 v70; // [rsp+86h] [rbp-53h]
   int v71; // [rsp+88h] [rbp-51h]
@@ -92,7 +92,7 @@ char __fastcall RtlpCopyEffectiveAce(
     v18 = (__int64)a5;
   v64 = v18;
   v60 = 0;
-  v68 = 257;
+  Sid2 = 257;
   v70 = 768;
   v71 = 0;
   v65 = v22;
@@ -138,7 +138,7 @@ LABEL_10:
     Srca = (unsigned __int8 *)(Src + 6);
     v26 = 12;
     v25 = &Src[2 * *((unsigned __int8 *)Src + 13) + 10];
-    if ( !(unsigned __int8)RtlEqualPrefixSid(Src + 6, &v68) )
+    if ( !RtlEqualPrefixSid(Src + 6, &Sid2) )
     {
       v49 = *((unsigned __int8 *)Src + 13);
       goto LABEL_74;
@@ -285,13 +285,13 @@ LABEL_11:
     if ( v31 != *((_DWORD *)Src + 1) )
       *a15 = 1;
     v32 = v31 & 0x11FFFFF;
-    if ( !v32 && !(unsigned __int8)RtlEqualPrefixSid(v25, &v68) )
+    if ( !v32 && !RtlEqualPrefixSid(v25, &Sid2) )
     {
       v23 = a11;
       LODWORD(v24) = 0;
       goto LABEL_35;
     }
-    if ( !(unsigned __int8)RtlEqualPrefixSid(v25, &v68) )
+    if ( !RtlEqualPrefixSid(v25, &Sid2) )
     {
 LABEL_27:
       if ( v60 && *a15 )

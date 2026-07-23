@@ -1,26 +1,29 @@
 /*
- * XREFs of WmipGetSMBiosTableData @ 0x14068276C
+ * XREFs of WmipGetSMBiosTableData @ 0x1405E4738
  * Callers:
- *     WmipRawSMBiosTableHandler @ 0x140294940 (WmipRawSMBiosTableHandler.c)
- *     WmipQueryWmiDataBlock @ 0x140682580 (WmipQueryWmiDataBlock.c)
+ *     WmipRawSMBiosTableHandler @ 0x140216600 (WmipRawSMBiosTableHandler.c)
+ *     WmipQueryWmiDataBlock @ 0x1405E3F50 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     WmipGetRegistryHideMachine @ 0x14068286C (WmipGetRegistryHideMachine.c)
- *     WmipSMBiosHideMachine @ 0x1409321EC (WmipSMBiosHideMachine.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     WmipGetRegistryHideMachine @ 0x1405E4838 (WmipGetRegistryHideMachine.c)
+ *     WmipSMBiosHideMachine @ 0x14093234C (WmipSMBiosHideMachine.c)
  */
 
 __int64 __fastcall WmipGetSMBiosTableData(void *a1, _DWORD *a2, _DWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v7; // ebx
-  void *v9; // rax
-  void *v10; // rsi
-  unsigned int v11; // ebx
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  void *v12; // rax
+  void *v13; // rsi
+  unsigned int v14; // ebx
 
   if ( !a2 )
     return 3221225485LL;
@@ -33,13 +36,13 @@ __int64 __fastcall WmipGetSMBiosTableData(void *a1, _DWORD *a2, _DWORD *a3)
   {
     if ( WmipSMBiosTablePhysicalAddress )
     {
-      v9 = (void *)MmMapIoSpaceEx(WmipSMBiosTablePhysicalAddress, (unsigned int)WmipSMBiosTableLength, 4u);
-      v10 = v9;
-      if ( v9 )
+      v12 = (void *)MmMapIoSpaceEx(WmipSMBiosTablePhysicalAddress, (unsigned int)WmipSMBiosTableLength, 4u);
+      v13 = v12;
+      if ( v12 )
       {
-        v11 = WmipSMBiosTableLength;
-        memmove(a1, v9, (unsigned int)WmipSMBiosTableLength);
-        MmUnmapIoSpace(v10, v11);
+        v14 = WmipSMBiosTableLength;
+        memmove(a1, v12, (unsigned int)WmipSMBiosTableLength);
+        MmUnmapIoSpace(v13, v14);
         v7 = 0;
       }
       else
@@ -63,6 +66,6 @@ __int64 __fastcall WmipGetSMBiosTableData(void *a1, _DWORD *a2, _DWORD *a3)
       WmipSMBiosHideMachine(a1, (unsigned int)*a2);
   }
   ExReleaseResourceLite(&WmipSMBiosLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v8, v9, v10);
   return (unsigned int)v7;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqIrpQueryGetResult @ 0x14098E4A4
+ * XREFs of PiDqIrpQueryGetResult @ 0x14094EF04
  * Callers:
- *     PiDqDispatch @ 0x14098EE00 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x14094F860 (PiDqDispatch.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     PiDqQuerySerializeActionQueue @ 0x14098E76C (PiDqQuerySerializeActionQueue.c)
- *     PiDqQueryLock @ 0x14098FDD0 (PiDqQueryLock.c)
- *     PiDqQueryUnlock @ 0x14098FE44 (PiDqQueryUnlock.c)
- *     PiDqQueryFreeActiveData @ 0x140990044 (PiDqQueryFreeActiveData.c)
- *     PiDqIrpComplete @ 0x1409900E4 (PiDqIrpComplete.c)
- *     PiDqQueryGetNextIoctlInfo @ 0x140990240 (PiDqQueryGetNextIoctlInfo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14094F1CC (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQueryLock @ 0x140950830 (PiDqQueryLock.c)
+ *     PiDqQueryUnlock @ 0x1409508A4 (PiDqQueryUnlock.c)
+ *     PiDqQueryFreeActiveData @ 0x140950AA4 (PiDqQueryFreeActiveData.c)
+ *     PiDqIrpComplete @ 0x140950B44 (PiDqIrpComplete.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x140950CA0 (PiDqQueryGetNextIoctlInfo.c)
  */
 
 __int64 __fastcall PiDqIrpQueryGetResult(PIRP Irp)

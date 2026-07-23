@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGenerateInheritedAce @ 0x14065CA30
+ * XREFs of RtlpGenerateInheritedAce @ 0x140651850
  * Callers:
- *     RtlpGenerateInheritAcl @ 0x14065C860 (RtlpGenerateInheritAcl.c)
+ *     RtlpGenerateInheritAcl @ 0x140651680 (RtlpGenerateInheritAcl.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlpIsDuplicateAce @ 0x14065A590 (RtlpIsDuplicateAce.c)
- *     RtlpCopyEffectiveAce @ 0x14065D8E0 (RtlpCopyEffectiveAce.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlpIsDuplicateAce @ 0x14064F3B0 (RtlpIsDuplicateAce.c)
+ *     RtlpCopyEffectiveAce @ 0x140652700 (RtlpCopyEffectiveAce.c)
  */
 
 __int64 __fastcall RtlpGenerateInheritedAce(

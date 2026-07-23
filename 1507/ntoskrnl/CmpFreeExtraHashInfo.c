@@ -6,7 +6,7 @@
  *     <none>
  */
 
-PSLIST_ENTRY __fastcall CmpFreeExtraHashInfo(struct _SLIST_ENTRY *a1)
+PSLIST_ENTRY __fastcall CmpFreeExtraHashInfo(_SLIST_ENTRY *a1)
 {
   struct _KPRCB *CurrentPrcb; // rdx
   _GENERAL_LOOKASIDE *P; // r8

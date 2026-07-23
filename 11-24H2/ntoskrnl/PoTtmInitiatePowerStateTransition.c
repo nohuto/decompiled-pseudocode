@@ -1,14 +1,14 @@
 /*
- * XREFs of PoTtmInitiatePowerStateTransition @ 0x14075D348
+ * XREFs of PoTtmInitiatePowerStateTransition @ 0x14075C2E8
  * Callers:
- *     TtmpInitiateModernStandbyTransition @ 0x14076A7B8 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x14076A9D8 (TtmpInitiateModernStandbyTransition.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopExecutePowerAction @ 0x140753574 (PopExecutePowerAction.c)
- *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
- *     PopTriggerMonitorPowerEvent @ 0x1409BBE7C (PopTriggerMonitorPowerEvent.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopExecutePowerAction @ 0x140751894 (PopExecutePowerAction.c)
+ *     PopFilterCapabilities @ 0x14099F88C (PopFilterCapabilities.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1409A24CC (PopTriggerMonitorPowerEvent.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, unsigned int a2)

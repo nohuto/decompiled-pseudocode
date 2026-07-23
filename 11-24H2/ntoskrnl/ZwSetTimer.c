@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetTimer @ 0x1406A7050
+ * XREFs of ZwSetTimer @ 0x1406A7FF0
  * Callers:
- *     DifZwSetTimerWrapper @ 0x140649250 (DifZwSetTimerWrapper.c)
+ *     DifZwSetTimerWrapper @ 0x140647810 (DifZwSetTimerWrapper.c)
  * Callees:
  *     <none>
  */
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwSetTimer(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, DueTime);
+  return KiServiceInternal(TimerHandle);
 }

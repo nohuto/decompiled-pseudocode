@@ -1,24 +1,24 @@
 /*
- * XREFs of DbgkpQueueMessage @ 0x140953A1C
+ * XREFs of DbgkpQueueMessage @ 0x1409CF35C
  * Callers:
- *     DbgkPostModuleMessage @ 0x1404C6E8C (DbgkPostModuleMessage.c)
- *     DbgkpSendApiMessage @ 0x1409534DC (DbgkpSendApiMessage.c)
- *     DbgkForwardException @ 0x1409535F0 (DbgkForwardException.c)
- *     DbgkExitThread @ 0x14095559C (DbgkExitThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x1409556F0 (DbgkpPostFakeThreadMessages.c)
- *     DbgkSendSystemDllMessages @ 0x140B51ED8 (DbgkSendSystemDllMessages.c)
+ *     DbgkPostModuleMessage @ 0x1404C083C (DbgkPostModuleMessage.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140949760 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpSendApiMessage @ 0x1409CEE1C (DbgkpSendApiMessage.c)
+ *     DbgkForwardException @ 0x1409CEF30 (DbgkForwardException.c)
+ *     DbgkExitThread @ 0x140B3C484 (DbgkExitThread.c)
+ *     DbgkSendSystemDllMessages @ 0x140B54778 (DbgkSendSystemDllMessages.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4, PRKEVENT Event)
@@ -59,7 +59,7 @@ __int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4,
   {
     v27 = a4;
     v12 = v25;
-    ExAcquireFastMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
+    ExAcquireFastMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
     v23 = *(_DWORD *)(a3 + 40);
     Event = (PRKEVENT)*((_QWORD *)Object + 97);
     if ( (v23 == 1 || v23 == 2) && (a2[1440] & 0x40) != 0 )
@@ -136,7 +136,7 @@ __int64 __fastcall DbgkpQueueMessage(PVOID Object, char *a2, __int64 a3, int a4,
   }
   else
   {
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
     if ( v19 >= 0 )
     {
       KeWaitForSingleObject(v12 + 16, Executive, 0, 0, 0LL);

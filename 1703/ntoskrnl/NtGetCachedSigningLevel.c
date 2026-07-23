@@ -12,24 +12,24 @@
  *     ObReferenceObjectByHandle @ 0x1405317C0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtGetCachedSigningLevel(
-        void *a1,
-        _DWORD *a2,
-        volatile void *a3,
-        volatile void *a4,
-        unsigned int *a5,
-        volatile void *a6)
+NTSTATUS __cdecl NtGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
   PVOID v10; // r15
   KPROCESSOR_MODE PreviousMode; // r13
-  NTSTATUS v12; // edi
+  int v12; // edi
   int v13; // eax
   char v14; // cl
-  unsigned int v15; // r14d
+  ULONG v15; // r14d
   void *v16; // rax
   _DWORD *v17; // r14
   _BYTE v19[4]; // [rsp+30h] [rbp-D8h] BYREF
-  int v20; // [rsp+34h] [rbp-D4h] BYREF
+  ULONG v20; // [rsp+34h] [rbp-D4h] BYREF
   SIZE_T Length; // [rsp+38h] [rbp-D0h] BYREF
   int v22; // [rsp+40h] [rbp-C8h]
   volatile void *Address; // [rsp+48h] [rbp-C0h]
@@ -40,16 +40,16 @@ __int64 __fastcall NtGetCachedSigningLevel(
   PVOID v28; // [rsp+70h] [rbp-98h]
   _BYTE Src[64]; // [rsp+80h] [rbp-88h] BYREF
 
-  v24 = a4;
-  Address = a3;
-  Handle = a1;
-  v27 = a6;
+  v24 = Thumbprint;
+  Address = SigningLevel;
+  Handle = File;
+  v27 = ThumbprintAlgorithm;
   v10 = 0LL;
   memset(Src, 0, sizeof(Src));
   Length = 64LL;
   v20 = 0;
   v19[0] = 0;
-  if ( a1 && a2 && a3 )
+  if ( File && Flags && SigningLevel )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     v12 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
@@ -57,7 +57,7 @@ __int64 __fastcall NtGetCachedSigningLevel(
     v28 = Object;
     if ( v12 >= 0 )
     {
-      v13 = a4
+      v13 = Thumbprint
           ? SeGetCachedSigningLevel(
               (_DWORD)Object,
               (unsigned int)&v20,
@@ -71,23 +71,23 @@ __int64 __fastcall NtGetCachedSigningLevel(
       {
         if ( PreviousMode == 1 )
         {
-          ProbeForWrite(a2, 4uLL, 4u);
+          ProbeForWrite(Flags, 4uLL, 4u);
           ProbeForWrite(Address, 1uLL, 1u);
         }
         v14 = v20;
-        *a2 = v20;
+        *Flags = v20;
         *(_BYTE *)Address = v19[0];
-        if ( a5 )
+        if ( ThumbprintSize )
         {
           if ( PreviousMode == 1 )
           {
-            ProbeForWrite(a5, 4uLL, 4u);
+            ProbeForWrite(ThumbprintSize, 4uLL, 4u);
             v14 = v20;
           }
           if ( (v14 & 2) != 0 )
           {
             v15 = Length;
-            if ( *a5 >= (unsigned int)Length && (v16 = (void *)v24) != 0LL )
+            if ( *ThumbprintSize >= (unsigned int)Length && (v16 = (void *)v24) != 0LL )
             {
               if ( PreviousMode == 1 )
               {
@@ -102,7 +102,7 @@ __int64 __fastcall NtGetCachedSigningLevel(
               v12 = -1073741789;
               v22 = -1073741789;
             }
-            *a5 = v15;
+            *ThumbprintSize = v15;
             v17 = v27;
             if ( v27 )
             {
@@ -113,7 +113,7 @@ __int64 __fastcall NtGetCachedSigningLevel(
           }
           else
           {
-            *a5 = 0;
+            *ThumbprintSize = 0;
           }
         }
       }
@@ -125,5 +125,5 @@ __int64 __fastcall NtGetCachedSigningLevel(
   }
   if ( v10 )
     ObfDereferenceObject(v10);
-  return (unsigned int)v12;
+  return v12;
 }

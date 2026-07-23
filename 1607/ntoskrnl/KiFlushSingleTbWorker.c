@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushSingleTbWorker @ 0x1401DBC04
+ * XREFs of KiFlushSingleTbWorker @ 0x1401DBA30
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 struct _KTHREAD *__fastcall KiFlushSingleTbWorker(__int64 a1)

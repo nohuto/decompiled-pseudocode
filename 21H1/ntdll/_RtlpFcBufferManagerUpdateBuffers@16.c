@@ -23,18 +23,19 @@ void *__fastcall RtlpFcBufferManagerUpdateBuffers(
   _DWORD *v11; // esi
   bool v12; // zf
   unsigned int v13; // ecx
-  volatile __int32 *v15; // [esp+Ch] [ebp-14h]
-  int v16; // [esp+10h] [ebp-10h]
-  int v18; // [esp+18h] [ebp-8h]
-  int i; // [esp+1Ch] [ebp-4h] BYREF
+  size_t v15; // [esp-4h] [ebp-24h]
+  volatile __int32 *v16; // [esp+Ch] [ebp-14h]
+  int v17; // [esp+10h] [ebp-10h]
+  int v19; // [esp+18h] [ebp-8h]
+  int CompareAddress; // [esp+1Ch] [ebp-4h] BYREF
 
   v4 = *a1 & 1;
-  i = 3;
-  v16 = v4;
-  v18 = ((_BYTE)v4 - 1) & 1;
-  v15 = &a1[12 * v4 + 4];
-  v5 = (char *)v15 - a2;
-  v6 = (char *)&a1[12 * v18 + 4] - a2;
+  CompareAddress = 3;
+  v17 = v4;
+  v19 = ((_BYTE)v4 - 1) & 1;
+  v16 = &a1[12 * v4 + 4];
+  v5 = (char *)v16 - a2;
+  v6 = (char *)&a1[12 * v19 + 4] - a2;
   do
   {
     v7 = &a2[v6];
@@ -53,21 +54,22 @@ void *__fastcall RtlpFcBufferManagerUpdateBuffers(
     v11 = v8 + 4;
     v10 = v7 + 4;
     a2 += 16;
-    v12 = i-- == 1;
+    v12 = CompareAddress-- == 1;
     *v10 = *v11++;
     *++v10 = *v11;
     v10[1] = v11[1];
   }
   while ( !v12 );
-  a1[2 * v18 + 28] = a3;
-  a1[2 * v18 + 29] = a4;
-  v13 = (unsigned int)_InterlockedExchange(a1, v18) >> 1;
+  a1[2 * v19 + 28] = a3;
+  a1[2 * v19 + 29] = a4;
+  v13 = (unsigned int)_InterlockedExchange(a1, v19) >> 1;
   if ( v13 )
   {
-    for ( i = v13 + _InterlockedExchangeAdd(a1 + 1, v13); i; i = *((_DWORD *)a1 + 1) )
-      RtlWaitOnAddress(a1 + 1, &i, 4, 0);
+    for ( CompareAddress = v13 + _InterlockedExchangeAdd(a1 + 1, v13); CompareAddress; CompareAddress = *((_DWORD *)a1 + 1) )
+      RtlWaitOnAddress((void *)(a1 + 1), &CompareAddress, 4uLL, (PLARGE_INTEGER)HIDWORD(v15));
   }
-  a1[2 * v16 + 28] = 0;
-  a1[2 * v16 + 29] = 0;
-  return memset((void *)v15, 0, 0x30u);
+  LODWORD(v15) = 48;
+  a1[2 * v17 + 28] = 0;
+  a1[2 * v17 + 29] = 0;
+  return memset((void *)v16, 0, v15);
 }

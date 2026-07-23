@@ -10,9 +10,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Handle);
 }

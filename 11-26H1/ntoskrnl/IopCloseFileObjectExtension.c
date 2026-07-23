@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCloseFileObjectExtension @ 0x1403DBC40
+ * XREFs of IopCloseFileObjectExtension @ 0x1403DEE30
  * Callers:
- *     IoCancelFileOpen @ 0x140903830 (IoCancelFileOpen.c)
- *     IopCloseFile @ 0x140A1EFA0 (IopCloseFile.c)
+ *     IoCancelFileOpen @ 0x1409337C0 (IoCancelFileOpen.c)
+ *     IopCloseFile @ 0x140A285C0 (IopCloseFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspHardDereferenceSiloWorker @ 0x1403DBCA0 (PspHardDereferenceSiloWorker.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspHardDereferenceSiloWorker @ 0x1403DEE90 (PspHardDereferenceSiloWorker.c)
  */
 
 __int64 *__fastcall IopCloseFileObjectExtension(__int64 a1)
@@ -17,7 +17,7 @@ __int64 *__fastcall IopCloseFileObjectExtension(__int64 a1)
   result = *(__int64 **)(a1 + 208);
   if ( result )
   {
-    if ( result != qword_140019060 )
+    if ( result != qword_1400137E0 )
     {
       v2 = result[8];
       if ( v2 )

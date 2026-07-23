@@ -1,7 +1,7 @@
 /*
  * XREFs of IoSetIrpExtraCreateParameter @ 0x1406BA6F0
  * Callers:
- *     IopSymlinkAllocateAndAddECP @ 0x1406B9EA8 (IopSymlinkAllocateAndAddECP.c)
+ *     sub_1406B9EA8 @ 0x1406B9EA8 (sub_1406B9EA8.c)
  * Callees:
  *     <none>
  */
@@ -13,6 +13,6 @@ NTSTATUS __stdcall IoSetIrpExtraCreateParameter(PIRP Irp, struct _ECP_LIST *Extr
   if ( Irp->UserBuffer )
     return -1073741584;
   Irp->UserBuffer = ExtraCreateParameter;
-  ExtraCreateParameter->Flags |= 8u;
+  *((_DWORD *)ExtraCreateParameter + 1) |= 8u;
   return 0;
 }

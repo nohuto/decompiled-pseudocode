@@ -162,7 +162,7 @@ __int64 __fastcall EtwWriteErrorLogEntry(
   HIDWORD(v46[v34]) = 0;
   memset(v44, 0, sizeof(v44));
   *((_QWORD *)&v44[23] + 1) = EtwpHostSiloState;
-  *(_OWORD *)((char *)&v44[1] + 8) = LegacyEventLogGuid;
+  *(GUID *)((char *)&v44[1] + 8) = LegacyEventLogGuid;
   WORD3(v44[7]) = v8;
   LODWORD(v44[7]) = 1;
   BYTE4(v44[7]) = -1;

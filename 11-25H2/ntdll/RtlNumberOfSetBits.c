@@ -7,13 +7,13 @@
  *     <none>
  */
 
-__int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
+ULONG __cdecl RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
 {
-  int v1; // ebp
-  unsigned __int64 *v2; // r8
+  unsigned int SizeOfBitMap; // ebp
+  unsigned int *Buffer; // r8
   unsigned int v3; // edx
-  int v4; // esi
-  unsigned int v5; // r10d
+  unsigned int v4; // esi
+  ULONG v5; // r10d
   int v6; // r9d
   unsigned int v7; // ebx
   unsigned int v8; // r11d
@@ -28,17 +28,17 @@ __int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
   unsigned int v18; // ebx
   char v19; // cl
 
-  v1 = *a1;
-  v2 = (unsigned __int64 *)*((_QWORD *)a1 + 1);
-  v3 = *a1 >> 3;
-  v4 = *a1 & 7;
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
+  Buffer = BitMapHeader->Buffer;
+  v3 = BitMapHeader->SizeOfBitMap >> 3;
+  v4 = BitMapHeader->SizeOfBitMap & 7;
   v5 = 0;
-  v6 = (unsigned __int8)v2 & 7;
+  v6 = (unsigned __int8)Buffer & 7;
   v7 = v3 + (v4 != 0);
-  if ( 8 - (unsigned __int64)(a1[2] & 7) > (unsigned __int64)*a1 >> 3 )
+  if ( 8 - (unsigned __int64)((__int64)BitMapHeader->Buffer & 7) > (unsigned __int64)BitMapHeader->SizeOfBitMap >> 3 )
   {
     v10 = 0;
-    v8 = v3 + ((*a1 & 7) != 0);
+    v8 = v3 + ((BitMapHeader->SizeOfBitMap & 7) != 0);
     v11 = 0;
   }
   else
@@ -52,10 +52,10 @@ __int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
   }
   for ( i = 0; v8; --v8 )
   {
-    v13 = *(_BYTE *)v2;
-    v2 = (unsigned __int64 *)((char *)v2 + 1);
+    v13 = *(_BYTE *)Buffer;
+    Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v7 - 1 && v4 )
-      v13 &= byte_180194138[v1 & 7];
+      v13 &= byte_180194138[SizeOfBitMap & 7];
     ++i;
     v5 += RtlpBitsClearTotal[(unsigned __int8)~v13];
   }
@@ -66,7 +66,8 @@ __int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
     i += 8 * v15;
     do
     {
-      v17 = *v2++;
+      v17 = *(_QWORD *)Buffer;
+      Buffer += 2;
       v5 += __popcnt(v17);
       --v16;
     }
@@ -77,10 +78,10 @@ __int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
     v18 = v7 - 1;
     do
     {
-      v19 = *(_BYTE *)v2;
-      v2 = (unsigned __int64 *)((char *)v2 + 1);
-      if ( i == v18 && (v1 & 7) != 0 )
-        v19 &= byte_180194138[v1 & 7];
+      v19 = *(_BYTE *)Buffer;
+      Buffer = (unsigned int *)((char *)Buffer + 1);
+      if ( i == v18 && (SizeOfBitMap & 7) != 0 )
+        v19 &= byte_180194138[SizeOfBitMap & 7];
       ++i;
       v5 += RtlpBitsClearTotal[(unsigned __int8)~v19];
       --v10;

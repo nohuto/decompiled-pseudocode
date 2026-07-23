@@ -1,11 +1,11 @@
 /*
- * XREFs of KeFindNextProcessorIndexEx @ 0x14045EADC
+ * XREFs of KeFindNextProcessorIndexEx @ 0x14025F64C
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x14025D7A0 (PpmParkComputeUnparkMask.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
- *     PpmParkFindSpecificTopologyMask @ 0x14045E650 (PpmParkFindSpecificTopologyMask.c)
+ *     PpmParkFindSpecificTopologyMask @ 0x14025DB70 (PpmParkFindSpecificTopologyMask.c)
+ *     PpmParkComputeUnparkMask @ 0x14025E0F0 (PpmParkComputeUnparkMask.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
  * Callees:
- *     KeFindNextProcessorNumberEx @ 0x14045EB50 (KeFindNextProcessorNumberEx.c)
+ *     KeFindNextProcessorNumberEx @ 0x14025F6C0 (KeFindNextProcessorNumberEx.c)
  */
 
 __int64 __fastcall KeFindNextProcessorIndexEx(__int64 a1, unsigned int a2)
@@ -16,12 +16,11 @@ __int64 __fastcall KeFindNextProcessorIndexEx(__int64 a1, unsigned int a2)
 
   v4 = 0;
   v5 = 0;
-  v2 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * a2);
+  v2 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + a2);
   HIWORD(v4) = v2 & 0x3F;
   LOWORD(v4) = v2 >> 6;
   if ( (unsigned int)KeFindNextProcessorNumberEx(a1, &v4, &v5) )
-    return *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-           + 64 * (unsigned __int16)v5
+    return *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v5].Flink
            + BYTE2(v5));
   else
     return 0xFFFFFFFFLL;

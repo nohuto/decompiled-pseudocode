@@ -38,10 +38,10 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
         __int64 a8,
         char a9,
         int *a10,
-        int *a11,
+        NTSTATUS *a11,
         char a12)
 {
-  int *v12; // r15
+  NTSTATUS *v12; // r15
   unsigned int v13; // r14d
   int v17; // ebx
   __int16 v18; // r9
@@ -53,7 +53,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   __int64 v24; // r13
   int v25; // eax
   int v26; // edx
-  int *v27; // rcx
+  NTSTATUS *v27; // rcx
   char v28; // dl
   char v29; // cl
   int v30; // eax
@@ -107,9 +107,9 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   struct _SECURITY_SUBJECT_CONTEXT *v78; // rcx
   int v79; // ecx
   int v80; // r15d
-  __int64 v81; // r11
-  __int64 v82; // rdi
-  int v83; // eax
+  void *v81; // r11
+  void *v82; // rdi
+  NTSTATUS v83; // eax
   bool v84; // zf
   __int64 v85; // rbx
   char v86; // r14
@@ -123,7 +123,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   __int64 v94; // rax
   __int16 v95; // cx
   __int64 v96; // rax
-  __int64 v97; // rax
+  ACL *v97; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v100; // rdx
@@ -151,8 +151,8 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   int v122; // eax
   __int64 v123; // rcx
   __int64 v124; // rcx
-  char v125; // [rsp+A0h] [rbp-80h] BYREF
-  char v126; // [rsp+A1h] [rbp-7Fh] BYREF
+  BOOLEAN DominatesTrust; // [rsp+A0h] [rbp-80h] BYREF
+  BOOLEAN v126; // [rsp+A1h] [rbp-7Fh] BYREF
   char v127; // [rsp+A2h] [rbp-7Eh]
   char v128; // [rsp+A3h] [rbp-7Dh] BYREF
   int v129; // [rsp+A4h] [rbp-7Ch]
@@ -169,7 +169,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   int v140; // [rsp+E0h] [rbp-40h]
   __int64 v141; // [rsp+E8h] [rbp-38h]
   int v142; // [rsp+F0h] [rbp-30h] BYREF
-  __int64 v143; // [rsp+F8h] [rbp-28h]
+  ACL *v143; // [rsp+F8h] [rbp-28h]
   __int64 v144; // [rsp+100h] [rbp-20h] BYREF
   __int64 v145; // [rsp+108h] [rbp-18h]
   int v146; // [rsp+110h] [rbp-10h] BYREF
@@ -218,7 +218,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
         SeLockSubjectContext((PSECURITY_SUBJECT_CONTEXT)a3);
       v18 = *(_WORD *)(a1 + 2);
       v19 = 0;
-      v125 = 0;
+      DominatesTrust = 0;
       v126 = 0;
       while ( (v18 & 0x10) != 0 )
       {
@@ -252,7 +252,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
           if ( v21 )
           {
             v80 = *(_DWORD *)(v21 + 4);
-            v81 = v21 + 8;
+            v81 = (void *)(v21 + 8);
             if ( v21 == -8 )
             {
               v12 = a11;
@@ -261,18 +261,18 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
             {
               if ( !*(_QWORD *)a3 )
                 goto LABEL_180;
-              v82 = *(_QWORD *)(*(_QWORD *)a3 + 1104LL);
-              v83 = RtlSidDominatesForTrust(*(_QWORD *)(*((_QWORD *)a3 + 2) + 1104LL), v82, &v126);
+              v82 = *(void **)(*(_QWORD *)a3 + 1104LL);
+              v83 = RtlSidDominatesForTrust(*(PSID *)(*((_QWORD *)a3 + 2) + 1104LL), v82, &v126);
               if ( v83 >= 0 )
               {
                 if ( !v126 )
 LABEL_180:
-                  v82 = *(_QWORD *)(*((_QWORD *)a3 + 2) + 1104LL);
-                v83 = RtlSidDominatesForTrust(v82, v81, &v125);
+                  v82 = *(void **)(*((_QWORD *)a3 + 2) + 1104LL);
+                v83 = RtlSidDominatesForTrust(v82, v81, &DominatesTrust);
                 if ( v83 >= 0 )
                 {
                   v17 = v80 | 0x1000000;
-                  if ( v125 )
+                  if ( DominatesTrust )
                     v17 = -1;
                 }
               }
@@ -401,7 +401,7 @@ LABEL_38:
           {
             if ( v95 >= 0 )
             {
-              v97 = *(_QWORD *)(a1 + 24);
+              v97 = *(ACL **)(a1 + 24);
             }
             else
             {
@@ -411,7 +411,7 @@ LABEL_38:
                 v143 = 0LL;
                 goto LABEL_219;
               }
-              v97 = a1 + v96;
+              v97 = (ACL *)(a1 + v96);
             }
             v143 = v97;
             if ( v97 )
@@ -475,7 +475,7 @@ LABEL_39:
               v37 = (unsigned __int64)v32[4 * ((unsigned __int64)(unsigned int)v35 >> 8) + 4] >> 4;
               v38 = v32[4 * ((unsigned __int64)(unsigned int)v35 >> 8) + 4] & 0xF;
               LOBYTE(v39) = 0;
-              v125 = 0;
+              DominatesTrust = 0;
               v40 = *(_QWORD *)&v33[2 * v38 + 4] & *(_QWORD *)&v33[2 * v37 + 36];
               if ( !v40 )
                 goto LABEL_47;
@@ -502,7 +502,7 @@ LABEL_79:
                       || ((_DWORD)v59[1] & 4) != 0 )
                     {
                       if ( *(_DWORD *)(v24 + 128) )
-                        v42 = SepSidInTokenSidHash(v24 + 504, 0LL, v32, 0, 1, 0, a12);
+                        v42 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v24 + 504), 0LL, v32, 0, 1, 0, a12);
                       else
                         v42 = 1;
                     }
@@ -601,12 +601,12 @@ LABEL_127:
                 v133 = v57;
                 if ( !(_BYTE)v57 )
                 {
-                  LOBYTE(v39) = v125;
+                  LOBYTE(v39) = DominatesTrust;
 LABEL_142:
                   v77 = v40;
                   LOBYTE(v39) = v39 + 8;
                   v40 >>= 8;
-                  v125 = v39;
+                  DominatesTrust = v39;
                   if ( v77 < 0x100 )
                   {
 LABEL_47:
@@ -684,7 +684,7 @@ LABEL_51:
                       v91 = v137;
                       v92 = *a10;
                       v93 = 0;
-                      v125 = 0;
+                      DominatesTrust = 0;
                       v132 = v92;
                       LOBYTE(v133) = 0;
                       v136 = 0;
@@ -699,7 +699,7 @@ LABEL_51:
                             goto LABEL_262;
                           if ( !v50 )
                           {
-                            v104 = AuthzBasepInitializeResourceClaimsFromSacl(v143, &P);
+                            v104 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v143, &P);
                             v50 = P;
                             v103 = v141;
                             v105 = (unsigned __int8)v133;
@@ -851,7 +851,7 @@ LABEL_262:
                                     0LL,
                                     a12);
                             v156 = v47;
-                            if ( v125 )
+                            if ( DominatesTrust )
                               v92 = v139 & v132;
                             else
                               v92 = v139;
@@ -863,7 +863,7 @@ LABEL_262:
                             }
                             v90 = v142;
                             v134 = v142;
-                            v125 = 1;
+                            DominatesTrust = 1;
                             if ( v142 < 0 )
                               break;
                             v50 = P;

@@ -1,21 +1,21 @@
 /*
- * XREFs of CcFlushCachePostProcess @ 0x1402ABF10
+ * XREFs of CcFlushCachePostProcess @ 0x1402791F0
  * Callers:
- *     CcWriteBehindInternal @ 0x1402A81F0 (CcWriteBehindInternal.c)
- *     CcWriteBehindAsync @ 0x1402A91A8 (CcWriteBehindAsync.c)
- *     CcFlushCachePriv @ 0x1402AC810 (CcFlushCachePriv.c)
- *     CcQueueAsyncLazywriteCompletion @ 0x14057E2B0 (CcQueueAsyncLazywriteCompletion.c)
+ *     CcFlushCachePriv @ 0x1402771F0 (CcFlushCachePriv.c)
+ *     CcWriteBehindInternal @ 0x140279FE0 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x14027B44C (CcWriteBehindAsync.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x14057B740 (CcQueueAsyncLazywriteCompletion.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcPostDeferredWrites @ 0x1402AAB14 (CcPostDeferredWrites.c)
- *     CcDecrementOpenCount @ 0x1402ABDBC (CcDecrementOpenCount.c)
- *     CcUpdateLazyWriterPerf @ 0x1402AC0C4 (CcUpdateLazyWriterPerf.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcUpdateLazyWriterPerf @ 0x1402793A4 (CcUpdateLazyWriterPerf.c)
+ *     CcDecrementOpenCount @ 0x140279504 (CcDecrementOpenCount.c)
+ *     CcPostDeferredWrites @ 0x1402795B0 (CcPostDeferredWrites.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall CcFlushCachePostProcess(__int64 a1)
+__int64 __fastcall CcFlushCachePostProcess(__int64 *a1)
 {
   __int64 v1; // rbp
   __int64 v2; // rsi
@@ -24,23 +24,24 @@ __int64 __fastcall CcFlushCachePostProcess(__int64 a1)
   int *v6; // r15
   volatile __int64 *v7; // rsi
   unsigned __int8 CurrentIrql; // bp
+  __int64 v9; // rdx
   __int64 result; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
-  v1 = *(_QWORD *)a1;
-  v2 = *(_QWORD *)(a1 + 8);
-  v4 = *(_QWORD *)(a1 + 16);
-  v5 = *(_BYTE *)(a1 + 132);
-  v6 = *(int **)(a1 + 112);
+  v1 = *a1;
+  v2 = a1[1];
+  v4 = a1[2];
+  v5 = *((_BYTE *)a1 + 132);
+  v6 = (int *)a1[14];
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( *(_DWORD *)(a1 + 52) && **(_QWORD **)(a1 + 184) != *(_QWORD *)(a1 + 184) )
+  if ( *((_DWORD *)a1 + 13) && *(_QWORD *)a1[23] != a1[23] )
     CcPostDeferredWrites(v1, v2);
-  if ( *(_QWORD *)(a1 + 240) )
+  if ( a1[30] )
     CcUpdateLazyWriterPerf(
       v2,
-      a1 + 232,
-      a1 + 240,
-      *(unsigned int *)(a1 + 248),
+      a1 + 29,
+      a1 + 30,
+      *((unsigned int *)a1 + 62),
       LockHandle.LockQueue.Next,
       LockHandle.LockQueue.Lock,
       *(_QWORD *)&LockHandle.OldIrql);
@@ -56,8 +57,9 @@ __int64 __fastcall CcFlushCachePostProcess(__int64 a1)
     LockHandle.OldIrql = CurrentIrql;
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      if ( _InterlockedExchange64(v7, (__int64)&LockHandle) )
-        KxWaitForLockOwnerShip(&LockHandle);
+      v9 = _InterlockedExchange64(v7, (__int64)&LockHandle);
+      if ( v9 )
+        KxWaitForLockOwnerShip(&LockHandle, v9);
     }
     else
     {
@@ -66,11 +68,11 @@ __int64 __fastcall CcFlushCachePostProcess(__int64 a1)
     CcDecrementOpenCount(v4);
     if ( !v5 )
       --*(_DWORD *)(v4 + 524);
-    if ( *(_BYTE *)(a1 + 138) && *v6 >= 0 && *(int *)(a1 + 128) >= 0 && (*(_DWORD *)(v4 + 112) || *(_DWORD *)(v4 + 524)) )
-      *(_DWORD *)(a1 + 128) = -1073741740;
+    if ( *((_BYTE *)a1 + 138) && *v6 >= 0 && *((int *)a1 + 32) >= 0 && (*(_DWORD *)(v4 + 112) || *(_DWORD *)(v4 + 524)) )
+      *((_DWORD *)a1 + 32) = -1073741740;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   }
-  result = *(unsigned int *)(a1 + 128);
+  result = *((unsigned int *)a1 + 32);
   if ( (int)result < 0 )
     *v6 = result;
   return result;

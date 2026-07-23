@@ -1,19 +1,19 @@
 /*
- * XREFs of ArbQueryConflict @ 0x140789170
+ * XREFs of ArbQueryConflict @ 0x14078BCA0
  * Callers:
- *     IopMemQueryConflict @ 0x1407A6A10 (IopMemQueryConflict.c)
+ *     IopMemQueryConflict @ 0x1407A95C0 (IopMemQueryConflict.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ArbpBuildAlternative @ 0x140789DCC (ArbpBuildAlternative.c)
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
- *     RtlCopyRangeList @ 0x140AE4CD0 (RtlCopyRangeList.c)
- *     RtlFreeRangeList @ 0x140AE4E90 (RtlFreeRangeList.c)
- *     RtlDeleteOwnersRanges @ 0x140B10130 (RtlDeleteOwnersRanges.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ArbpBuildAlternative @ 0x14078C8F4 (ArbpBuildAlternative.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
+ *     RtlCopyRangeList @ 0x140AE2A90 (RtlCopyRangeList.c)
+ *     RtlFreeRangeList @ 0x140AE2C50 (RtlFreeRangeList.c)
+ *     RtlDeleteOwnersRanges @ 0x140B11B70 (RtlDeleteOwnersRanges.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbQueryConflict(_QWORD *a1, __int64 a2)

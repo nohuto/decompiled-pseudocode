@@ -1,29 +1,29 @@
 /*
- * XREFs of IopQueryXxxInformation @ 0x1406C9708
+ * XREFs of IopQueryXxxInformation @ 0x140677FF8
  * Callers:
- *     IopQueryNameInternal @ 0x140620504 (IopQueryNameInternal.c)
- *     IoQueryFileInformation @ 0x1406C5CF0 (IoQueryFileInformation.c)
- *     IoQueryVolumeInformation @ 0x1406C5D20 (IoQueryVolumeInformation.c)
- *     PfpPrefetchEntireDirectory @ 0x1406C846C (PfpPrefetchEntireDirectory.c)
- *     PfSnGetSectionObject @ 0x1406C8EA8 (PfSnGetSectionObject.c)
- *     IopValidateJunctionTarget @ 0x140892EE4 (IopValidateJunctionTarget.c)
- *     IopGetNetworkOpenInformation @ 0x140894894 (IopGetNetworkOpenInformation.c)
- *     MiAttemptPageFileExtension @ 0x1408D0304 (MiAttemptPageFileExtension.c)
+ *     IoQueryFileInformation @ 0x1406745E0 (IoQueryFileInformation.c)
+ *     IoQueryVolumeInformation @ 0x140674610 (IoQueryVolumeInformation.c)
+ *     PfpPrefetchEntireDirectory @ 0x140676D5C (PfpPrefetchEntireDirectory.c)
+ *     PfSnGetSectionObject @ 0x140677798 (PfSnGetSectionObject.c)
+ *     IopQueryNameInternal @ 0x14068A174 (IopQueryNameInternal.c)
+ *     IopValidateJunctionTarget @ 0x140893044 (IopValidateJunctionTarget.c)
+ *     IopGetNetworkOpenInformation @ 0x1408949F4 (IopGetNetworkOpenInformation.c)
+ *     MiAttemptPageFileExtension @ 0x1408D0464 (MiAttemptPageFileExtension.c)
  * Callees:
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopWaitForSynchronousIo @ 0x1402D41CC (IopWaitForSynchronousIo.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
- *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140890E54 (IopAllocateIrpCleanup.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     IopWaitForSynchronousIo @ 0x140272EA4 (IopWaitForSynchronousIo.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x140355FE0 (IopQueueThreadIrp.c)
+ *     IopReleaseFileObjectLock @ 0x1403584A0 (IopReleaseFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140890FB4 (IopAllocateIrpCleanup.c)
  */
 
 __int64 __fastcall IopQueryXxxInformation(
@@ -49,7 +49,7 @@ __int64 __fastcall IopQueryXxxInformation(
   NTSTATUS v21; // eax
   unsigned int DmaOperations; // esi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v25; // rax
+  PRTL_BALANCED_NODE v25; // rax
   unsigned int v26; // edi
   __int128 v27; // [rsp+30h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-20h] BYREF
@@ -79,7 +79,7 @@ __int64 __fastcall IopQueryXxxInformation(
     else
     {
       if ( v25 )
-        *(_BYTE *)(v25 + 26) |= 1u;
+        BYTE2(v25[1].Left) |= 1u;
       ObfReferenceObject(DmaAdapter);
     }
     KeResetEvent((PRKEVENT)&DmaAdapter[9].DmaOperations);

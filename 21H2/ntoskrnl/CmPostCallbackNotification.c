@@ -1,12 +1,12 @@
 /*
- * XREFs of CmPostCallbackNotification @ 0x1406677D0
+ * XREFs of CmPostCallbackNotification @ 0x14065C5F0
  * Callers:
- *     CmpDoQueryKeyName @ 0x14027EBD0 (CmpDoQueryKeyName.c)
- *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
- *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
+ *     CmpDoQueryKeyName @ 0x14026CB70 (CmpDoQueryKeyName.c)
+ *     CmUnloadKey @ 0x1405DF54C (CmUnloadKey.c)
+ *     CmpDeleteKeyObject @ 0x14065C3E0 (CmpDeleteKeyObject.c)
  * Callees:
- *     ExIsResourceAcquiredSharedLite @ 0x14034FE80 (ExIsResourceAcquiredSharedLite.c)
- *     CmpCallCallBacksEx @ 0x1406F3440 (CmpCallCallBacksEx.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14035ABD0 (ExIsResourceAcquiredSharedLite.c)
+ *     CmpCallCallBacksEx @ 0x14070A820 (CmpCallCallBacksEx.c)
  */
 
 __int64 __fastcall CmPostCallbackNotification(int a1, __int64 a2, unsigned int a3, __int64 a4, _QWORD *a5)

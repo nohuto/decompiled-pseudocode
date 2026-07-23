@@ -7,11 +7,11 @@
  *     PsGetCurrentServerSiloGlobals @ 0x14023CD40 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 __fastcall RtlSetSystemGlobalData(__int64 a1, _DWORD *a2)
+DWORD __cdecl RtlSetSystemGlobalData(RTL_SYSTEM_GLOBAL_DATA_ID DataId, PVOID Buffer, DWORD Size)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 141) + 584LL) = *a2;
+    *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 141) + 584LL) = *(_DWORD *)Buffer;
   else
-    MEMORY[0xFFFFF78000000240] = *a2;
-  return 0LL;
+    MEMORY[0xFFFFF78000000240] = *(_DWORD *)Buffer;
+  return 0;
 }

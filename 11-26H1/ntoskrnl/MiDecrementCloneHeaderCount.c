@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDecrementCloneHeaderCount @ 0x14050D03C
+ * XREFs of MiDecrementCloneHeaderCount @ 0x140506AAC
  * Callers:
- *     MiDrainCrossPartitionUsage @ 0x1406F0580 (MiDrainCrossPartitionUsage.c)
- *     MiFreeCloneDescriptor @ 0x140B44944 (MiFreeCloneDescriptor.c)
+ *     MiDrainCrossPartitionUsage @ 0x1406F51F0 (MiDrainCrossPartitionUsage.c)
+ *     MiFreeCloneDescriptor @ 0x140B46704 (MiFreeCloneDescriptor.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 int __fastcall MiDecrementCloneHeaderCount(__int64 a1)

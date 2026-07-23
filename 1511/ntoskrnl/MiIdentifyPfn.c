@@ -384,7 +384,8 @@ LABEL_128:
         if ( (v29 < qword_1402FE7B0 || v29 >= qword_1402FE7B0 + (qword_1402FE7A0 << 21))
           && v29 + 0x80000000000LL > 0x7FFFFFFFFFLL
           && (!PsNtosImageBase
-           || (v29 >= PsNtosImageEnd || v29 < PsNtosImageBase) && (v29 >= PsHalImageEnd || v29 < PsHalImageBase)) )
+           || (v29 >= PsNtosImageEnd || v29 < (unsigned __int64)PsNtosImageBase)
+           && (v29 >= PsHalImageEnd || v29 < (unsigned __int64)PsHalImageBase)) )
         {
           if ( v29 && qword_1402FE8F0 && v29 >= qword_1402FE8F0 && v29 < qword_1402FE8F0 + (qword_1402FE8D0 << 21) )
           {

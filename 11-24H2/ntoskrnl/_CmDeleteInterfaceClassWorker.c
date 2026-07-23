@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmDeleteInterfaceClassWorker @ 0x140818F18
+ * XREFs of _CmDeleteInterfaceClassWorker @ 0x140819658
  * Callers:
- *     _CmDeleteInterfaceClass @ 0x140818DC0 (_CmDeleteInterfaceClass.c)
+ *     _CmDeleteInterfaceClass @ 0x140819500 (_CmDeleteInterfaceClass.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _CmDeleteInterfaceClassRegKey @ 0x140818EEC (_CmDeleteInterfaceClassRegKey.c)
- *     _CmRaiseDeleteEvent @ 0x14081C2C0 (_CmRaiseDeleteEvent.c)
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14081F34C (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x14081FBDC (_CmSetInterfaceClassMappedProperty.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _CmDeleteInterfaceClassRegKey @ 0x14081962C (_CmDeleteInterfaceClassRegKey.c)
+ *     _CmRaiseDeleteEvent @ 0x14081CA00 (_CmRaiseDeleteEvent.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14081FA8C (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x14082031C (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteInterfaceClassWorker(__int64 a1, __int64 a2, __int16 a3)
@@ -24,14 +24,15 @@ __int64 __fastcall CmDeleteInterfaceClassWorker(__int64 a1, __int64 a2, __int16 
   void *Pool2; // rdi
   unsigned int v12; // ebp
   int InterfaceClassMappedPropertyKeys; // eax
+  unsigned __int64 v14; // r14
   __int64 i; // rbp
-  int v15; // eax
-  unsigned int v17; // [rsp+50h] [rbp-48h] BYREF
-  int v18; // [rsp+54h] [rbp-44h] BYREF
-  _DWORD v19[4]; // [rsp+58h] [rbp-40h] BYREF
+  int v16; // eax
+  unsigned int v18; // [rsp+50h] [rbp-48h] BYREF
+  int v19; // [rsp+54h] [rbp-44h] BYREF
+  _DWORD v20[4]; // [rsp+58h] [rbp-40h] BYREF
 
   v3 = 0;
-  v18 = 0;
+  v19 = 0;
   if ( a3 )
   {
     return (unsigned int)-1073741811;
@@ -47,7 +48,7 @@ __int64 __fastcall CmDeleteInterfaceClassWorker(__int64 a1, __int64 a2, __int16 
                                             0LL,
                                             0LL,
                                             0,
-                                            (__int64)&v18,
+                                            (__int64)&v19,
                                             0);
     if ( MatchingFilteredDeviceInterfaceList == -1073741789 )
     {
@@ -59,11 +60,11 @@ __int64 __fastcall CmDeleteInterfaceClassWorker(__int64 a1, __int64 a2, __int16 
     }
     else
     {
-      v19[0] = 832;
-      v8 = v19;
-      v19[1] = 576;
+      v20[0] = 832;
+      v8 = v20;
+      v20[1] = 576;
       v9 = 0;
-      v19[2] = 320;
+      v20[2] = 320;
       while ( v9 < 3 )
       {
         v10 = CmDeleteInterfaceClassRegKey(a1, a2, *v8);
@@ -79,7 +80,7 @@ __int64 __fastcall CmDeleteInterfaceClassWorker(__int64 a1, __int64 a2, __int16 
       }
       Pool2 = 0LL;
       v12 = 0;
-      v17 = 0;
+      v18 = 0;
       while ( 1 )
       {
         LOBYTE(v7) = 1;
@@ -90,18 +91,19 @@ __int64 __fastcall CmDeleteInterfaceClassWorker(__int64 a1, __int64 a2, __int16 
                                              v7,
                                              (__int64)Pool2,
                                              v12,
-                                             (__int64)&v17);
+                                             (__int64)&v18);
         if ( InterfaceClassMappedPropertyKeys != -1073741789 )
           break;
-        v12 = v17;
-        if ( 20 * (unsigned __int64)v17 > 0xFFFFFFFF )
+        v12 = v18;
+        v14 = 20LL * v18;
+        if ( v14 > 0xFFFFFFFF )
         {
           InterfaceClassMappedPropertyKeys = -1073741811;
           goto LABEL_25;
         }
         if ( Pool2 )
           ExFreePoolWithTag(Pool2, 0);
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v14, 0x52504E50u);
         if ( !Pool2 )
         {
           InterfaceClassMappedPropertyKeys = -1073741801;
@@ -112,12 +114,12 @@ LABEL_25:
       }
       if ( InterfaceClassMappedPropertyKeys && InterfaceClassMappedPropertyKeys != -1073741275 )
         goto LABEL_25;
-      for ( i = 0LL; (unsigned int)i < v17; i = (unsigned int)(i + 1) )
+      for ( i = 0LL; (unsigned int)i < v18; i = (unsigned int)(i + 1) )
       {
-        v15 = CmSetInterfaceClassMappedProperty(a1, a2, 0, 0, (__int64)Pool2 + 20 * i, 0, 0LL, 0);
-        if ( v15 && v15 != -1073741275 && v15 != -1073741790 && v15 != -1073741802 && v15 != -1073741637 )
+        v16 = CmSetInterfaceClassMappedProperty(a1, a2, 0, 0, (__int64)Pool2 + 20 * i, 0, 0LL, 0);
+        if ( v16 && v16 != -1073741275 && v16 != -1073741790 && v16 != -1073741802 && v16 != -1073741637 )
         {
-          v3 = v15;
+          v3 = v16;
           break;
         }
       }

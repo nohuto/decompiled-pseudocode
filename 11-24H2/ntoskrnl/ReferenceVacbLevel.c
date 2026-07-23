@@ -1,7 +1,7 @@
 /*
- * XREFs of ReferenceVacbLevel @ 0x140447954
+ * XREFs of ReferenceVacbLevel @ 0x140440074
  * Callers:
- *     CcAdjustVacbLevelLockCount @ 0x1403654E4 (CcAdjustVacbLevelLockCount.c)
+ *     CcAdjustVacbLevelLockCount @ 0x1403EAB94 (CcAdjustVacbLevelLockCount.c)
  * Callees:
  *     <none>
  */

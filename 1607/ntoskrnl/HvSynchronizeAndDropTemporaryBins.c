@@ -1,21 +1,21 @@
 /*
- * XREFs of HvSynchronizeAndDropTemporaryBins @ 0x1400B4C7C
+ * XREFs of HvSynchronizeAndDropTemporaryBins @ 0x1400B2AB4
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     HvWriteHivePrimaryFile @ 0x140483AA4 (HvWriteHivePrimaryFile.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     HvWriteHivePrimaryFile @ 0x1404827F8 (HvWriteHivePrimaryFile.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     RtlCopyBitMap @ 0x140076A78 (RtlCopyBitMap.c)
- *     RtlMergeBitMaps @ 0x14009CD90 (RtlMergeBitMaps.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvViewMapCopyToFileOffset @ 0x1401B6684 (HvViewMapCopyToFileOffset.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     RtlCopyBitMap @ 0x140076AF8 (RtlCopyBitMap.c)
+ *     RtlMergeBitMaps @ 0x14009C590 (RtlMergeBitMaps.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvViewMapCopyToFileOffset @ 0x1401B6568 (HvViewMapCopyToFileOffset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
- *     HvViewMapUnpinForFileOffset @ 0x14060FE80 (HvViewMapUnpinForFileOffset.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
+ *     HvViewMapUnpinForFileOffset @ 0x14060FF34 (HvViewMapUnpinForFileOffset.c)
  */
 
 __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
@@ -25,8 +25,8 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
         unsigned int a4,
         char a5)
 {
-  char *PoolWithTag; // rax
-  char *v11; // r12
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v11; // r12
   int v12; // ebx
   unsigned int v13; // edi
   __int64 CellMap; // rcx
@@ -43,8 +43,8 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
   unsigned int v25; // r14d
   unsigned int v26; // ecx
   unsigned int v27; // r10d
-  char *v28; // r8
-  char *v29; // r9
+  unsigned int *v28; // r8
+  unsigned int *v29; // r9
   unsigned int v30; // edx
   bool i; // zf
   unsigned int v32; // r14d
@@ -52,35 +52,37 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
   struct _EX_RUNDOWN_REF *v34; // rbp
   __int64 v35; // [rsp+30h] [rbp-58h]
   unsigned __int64 v36; // [rsp+38h] [rbp-50h]
-  unsigned int v37; // [rsp+40h] [rbp-48h] BYREF
-  char *v38; // [rsp+48h] [rbp-40h]
-  int v39; // [rsp+90h] [rbp+8h]
+  _RTL_BITMAP Destination; // [rsp+40h] [rbp-48h] BYREF
+  int v38; // [rsp+90h] [rbp+8h]
 
   if ( (*(_BYTE *)(BugCheckParameter2 + 124) & 4) == 0 )
     return 0LL;
-  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(BugCheckParameter2 + 92), 0x30364D43u);
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(
+                                  PagedPool,
+                                  *(unsigned int *)(BugCheckParameter2 + 92),
+                                  0x30364D43u);
   v11 = PoolWithTag;
   if ( PoolWithTag )
   {
-    v38 = PoolWithTag;
-    v37 = *(_DWORD *)(BugCheckParameter2 + 72);
+    Destination.Buffer = PoolWithTag;
+    Destination.SizeOfBitMap = *(_DWORD *)(BugCheckParameter2 + 72);
     if ( !a2 )
     {
       memset(PoolWithTag, 0, *(unsigned int *)(BugCheckParameter2 + 92));
       goto LABEL_13;
     }
-    RtlCopyBitMap((unsigned int *)(BugCheckParameter2 + 72), (__int64)&v37, 0);
-    RtlMergeBitMaps((__int64)&v37, BugCheckParameter2 + 96);
+    RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 72), &Destination, 0);
+    RtlMergeBitMaps((__int64)&Destination, BugCheckParameter2 + 96);
     if ( (*(_DWORD *)(BugCheckParameter2 + 5488) & 1) != 0 )
     {
       if ( *(struct _KTHREAD **)(BugCheckParameter2 + 5440) == KeGetCurrentThread() && !a5 )
         goto LABEL_13;
-      RtlMergeBitMaps((__int64)&v37, BugCheckParameter2 + 2856);
+      RtlMergeBitMaps((__int64)&Destination, BugCheckParameter2 + 2856);
     }
     if ( a5 )
-      RtlMergeBitMaps((__int64)&v37, BugCheckParameter2 + 2904);
+      RtlMergeBitMaps((__int64)&Destination, BugCheckParameter2 + 2904);
 LABEL_13:
-    v39 = 0;
+    v38 = 0;
     if ( !a4 )
       goto LABEL_46;
     while ( 1 )
@@ -119,15 +121,15 @@ LABEL_13:
           {
             v26 = (v25 + v19) >> 9;
             v27 = v26 + 7;
-            if ( v26 + 7 >= v37 )
+            if ( v26 + 7 >= Destination.SizeOfBitMap )
               goto LABEL_33;
-            v28 = &v11[4 * ((unsigned __int64)v26 >> 5)];
-            v29 = &v11[4 * ((unsigned __int64)v27 >> 5)];
+            v28 = &v11[(unsigned __int64)v26 >> 5];
+            v29 = &v11[(unsigned __int64)v27 >> 5];
             if ( v28 != v29 )
               break;
             v30 = 255 << v26;
 LABEL_26:
-            if ( (v30 & *(_DWORD *)v28) != 0 )
+            if ( (v30 & *v28) != 0 )
               goto LABEL_33;
             HvViewMapUnpinForFileOffset(BugCheckParameter2 + 200, v25 + v19 + 4096, 4096LL);
 LABEL_34:
@@ -139,10 +141,9 @@ LABEL_34:
               goto LABEL_36;
             }
           }
-          for ( i = ((-1 << v26) & *(_DWORD *)v28) == 0; i; i = *(_DWORD *)v28 == 0 )
+          for ( i = ((-1 << v26) & *v28) == 0; i; i = *v28 == 0 )
           {
-            v28 += 4;
-            if ( v28 == v29 )
+            if ( ++v28 == v29 )
             {
               v30 = 0xFFFFFFFF >> (-1 - v27);
               goto LABEL_26;
@@ -177,10 +178,10 @@ LABEL_36:
         }
       }
       while ( v19 < a3[4] + *a3 - 4096 );
-      v18 = v39;
+      v18 = v38;
 LABEL_45:
       a3 += 6;
-      v39 = v18 + 1;
+      v38 = v18 + 1;
       if ( v18 + 1 >= a4 )
       {
 LABEL_46:

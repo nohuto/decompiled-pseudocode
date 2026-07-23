@@ -1,11 +1,11 @@
 /*
- * XREFs of KeFindConfigurationNextEntry @ 0x140C29370
+ * XREFs of KeFindConfigurationNextEntry @ 0x140C2B410
  * Callers:
- *     HalpAcpiFindRsdp @ 0x140C0D868 (HalpAcpiFindRsdp.c)
- *     KeFindConfigurationEntry @ 0x140C29340 (KeFindConfigurationEntry.c)
- *     KeFindConfigurationNextEntry @ 0x140C29370 (KeFindConfigurationNextEntry.c)
+ *     HalpAcpiFindRsdp @ 0x140C0F868 (HalpAcpiFindRsdp.c)
+ *     KeFindConfigurationEntry @ 0x140C2B3E0 (KeFindConfigurationEntry.c)
+ *     KeFindConfigurationNextEntry @ 0x140C2B410 (KeFindConfigurationNextEntry.c)
  * Callees:
- *     KeFindConfigurationNextEntry @ 0x140C29370 (KeFindConfigurationNextEntry.c)
+ *     KeFindConfigurationNextEntry @ 0x140C2B410 (KeFindConfigurationNextEntry.c)
  */
 
 __int64 __fastcall KeFindConfigurationNextEntry(__int64 a1, int a2, int a3, int *a4, _QWORD *a5)

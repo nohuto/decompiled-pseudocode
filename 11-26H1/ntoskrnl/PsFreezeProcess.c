@@ -1,20 +1,20 @@
 /*
- * XREFs of PsFreezeProcess @ 0x14077B540
+ * XREFs of PsFreezeProcess @ 0x14077E180
  * Callers:
- *     NtChangeProcessState @ 0x1407F1690 (NtChangeProcessState.c)
- *     PsForceCrashForInvalidAccess @ 0x1407FD140 (PsForceCrashForInvalidAccess.c)
- *     DbgkpSuspendProcess @ 0x140953D38 (DbgkpSuspendProcess.c)
- *     PspChangeProcessExecutionState @ 0x140ADE6AC (PspChangeProcessExecutionState.c)
+ *     NtChangeProcessState @ 0x1407F71F0 (NtChangeProcessState.c)
+ *     PsForceCrashForInvalidAccess @ 0x140802B70 (PsForceCrashForInvalidAccess.c)
+ *     DbgkpSuspendProcess @ 0x1409CF678 (DbgkpSuspendProcess.c)
+ *     PspChangeProcessExecutionState @ 0x140ADB89C (PspChangeProcessExecutionState.c)
  * Callees:
- *     KeForceResumeProcess @ 0x140203144 (KeForceResumeProcess.c)
- *     KeFreezeProcess @ 0x140208E90 (KeFreezeProcess.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     PspPauseProcessVirtualTimers @ 0x140617048 (PspPauseProcessVirtualTimers.c)
- *     EtwTiLogSuspendResumeProcess @ 0x140AF12D8 (EtwTiLogSuspendResumeProcess.c)
- *     PspPostFreezeOperationWorkEnqueue @ 0x140AFE9EC (PspPostFreezeOperationWorkEnqueue.c)
- *     EtwTraceFreezeThawProcess @ 0x140B11910 (EtwTraceFreezeThawProcess.c)
+ *     KeForceResumeProcess @ 0x140203224 (KeForceResumeProcess.c)
+ *     KeFreezeProcess @ 0x140208F70 (KeFreezeProcess.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     PspPauseProcessVirtualTimers @ 0x14061A038 (PspPauseProcessVirtualTimers.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x140AF3F18 (EtwTiLogSuspendResumeProcess.c)
+ *     PspPostFreezeOperationWorkEnqueue @ 0x140B00A5C (PspPostFreezeOperationWorkEnqueue.c)
+ *     EtwTraceFreezeThawProcess @ 0x140B13690 (EtwTraceFreezeThawProcess.c)
  */
 
 char __fastcall PsFreezeProcess(__int64 a1, char a2)

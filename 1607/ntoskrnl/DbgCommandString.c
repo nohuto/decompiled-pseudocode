@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgCommandString @ 0x1401499A0
+ * XREFs of DbgCommandString @ 0x140149F10
  * Callers:
  *     <none>
  * Callees:
- *     DebugService2 @ 0x140166DD0 (DebugService2.c)
+ *     DebugService2 @ 0x140167340 (DebugService2.c)
  */
 
 void __stdcall DbgCommandString(PCCH Name, PCCH Command)

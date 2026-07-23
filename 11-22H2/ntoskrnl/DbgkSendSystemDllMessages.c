@@ -24,8 +24,8 @@ int __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD 
   _DWORD *v7; // rdi
   int i; // esi
   struct _KTHREAD *v9; // r12
-  __int64 SListFaultAddress; // rbx
-  __int64 v11; // rax
+  void *SListFaultAddress; // rbx
+  PIMAGE_NT_HEADERS v11; // rax
   struct _KTHREAD *v12; // rcx
   _QWORD *v13; // r11
   char v15; // [rsp+30h] [rbp-108h]
@@ -62,7 +62,7 @@ int __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD 
         *(_OWORD *)v7 = 0LL;
         *((_OWORD *)v7 + 1) = 0LL;
         Teb = 0LL;
-        SListFaultAddress = (__int64)v9->SListFaultAddress;
+        SListFaultAddress = v9->SListFaultAddress;
         *((_QWORD *)v7 + 1) = SListFaultAddress;
         if ( a1 && i )
         {
@@ -76,8 +76,8 @@ int __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD 
         v11 = RtlImageNtHeader(SListFaultAddress);
         if ( v11 )
         {
-          v7[4] = *(_DWORD *)(v11 + 12);
-          v7[5] = *(_DWORD *)(v11 + 16);
+          v7[4] = v11->FileHeader.PointerToSymbolTable;
+          v7[5] = v11->FileHeader.NumberOfSymbols;
         }
         if ( !a1 )
         {

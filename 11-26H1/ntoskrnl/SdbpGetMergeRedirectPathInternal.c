@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpGetMergeRedirectPathInternal @ 0x140881504
+ * XREFs of SdbpGetMergeRedirectPathInternal @ 0x140887904
  * Callers:
- *     SdbGetMergeRedirectPath @ 0x140880AF0 (SdbGetMergeRedirectPath.c)
+ *     SdbGetMergeRedirectPath @ 0x140886EF0 (SdbGetMergeRedirectPath.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x140459140 (RtlStringCchLengthW.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     SdbpGetFileTimestamp @ 0x140880F74 (SdbpGetFileTimestamp.c)
- *     SdbpGetManifestedMergeStubAlloc @ 0x140881180 (SdbpGetManifestedMergeStubAlloc.c)
- *     SdbpSafeAllocAndConcatW @ 0x140881B80 (SdbpSafeAllocAndConcatW.c)
- *     AslRegistryGetString @ 0x1408883F4 (AslRegistryGetString.c)
- *     AslPathGetFileNamePart @ 0x1408896A4 (AslPathGetFileNamePart.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     AslRegistryGetKey @ 0x140B30838 (AslRegistryGetKey.c)
- *     AslRegistryGetUInt32 @ 0x140B30A48 (AslRegistryGetUInt32.c)
+ *     RtlStringCchLengthW @ 0x1404509C0 (RtlStringCchLengthW.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     SdbpGetFileTimestamp @ 0x140887374 (SdbpGetFileTimestamp.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140887580 (SdbpGetManifestedMergeStubAlloc.c)
+ *     SdbpSafeAllocAndConcatW @ 0x140887F80 (SdbpSafeAllocAndConcatW.c)
+ *     AslRegistryGetString @ 0x14088E7F0 (AslRegistryGetString.c)
+ *     AslPathGetFileNamePart @ 0x14088FAA0 (AslPathGetFileNamePart.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslRegistryGetKey @ 0x140B32A38 (AslRegistryGetKey.c)
+ *     AslRegistryGetUInt32 @ 0x140B32C48 (AslRegistryGetUInt32.c)
  */
 
 __int64 __fastcall SdbpGetMergeRedirectPathInternal(const WCHAR **a1, _DWORD *a2, int a3, const wchar_t *a4)

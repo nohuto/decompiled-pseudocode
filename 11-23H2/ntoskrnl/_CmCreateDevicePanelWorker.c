@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmCreateDevicePanelWorker @ 0x140A65CB8
+ * XREFs of _CmCreateDevicePanelWorker @ 0x140A65F68
  * Callers:
- *     _CmCreateDevicePanel @ 0x140A65B58 (_CmCreateDevicePanel.c)
+ *     _CmCreateDevicePanel @ 0x140A65E08 (_CmCreateDevicePanel.c)
  * Callees:
- *     _CmRaiseCreateEvent @ 0x1408805A4 (_CmRaiseCreateEvent.c)
- *     _CmOpenDevicePanelRegKey @ 0x140A667B4 (_CmOpenDevicePanelRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x1408807E4 (_CmRaiseCreateEvent.c)
+ *     _CmOpenDevicePanelRegKey @ 0x140A66A64 (_CmOpenDevicePanelRegKey.c)
  */
 
 __int64 __fastcall CmCreateDevicePanelWorker(__int64 a1, __int64 a2, int a3, __int64 *a4, _BYTE *a5, __int16 a6)

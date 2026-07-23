@@ -6,7 +6,8 @@
  *     <none>
  */
 
-__int64 __fastcall RtlExtendMemoryBlockLookaside(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlExtendMemoryBlockLookaside(PVOID MemoryBlockLookaside, ULONG Increment)
 {
-  return RtlExtendMemoryZone(*(_QWORD *)(a1 + 16), a2);
+  return RtlExtendMemoryZone(*((_QWORD *)MemoryBlockLookaside + 2), *(__int64 *)&Increment);
 }

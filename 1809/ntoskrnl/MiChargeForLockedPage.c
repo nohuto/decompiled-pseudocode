@@ -10,7 +10,7 @@
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiIsPfnCommitNotCharged @ 0x140030DB0 (MiIsPfnCommitNotCharged.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiChargeForLockedPage(__int64 a1, char a2)
@@ -36,8 +36,8 @@ __int64 __fastcall MiChargeForLockedPage(__int64 a1, char a2)
   v8 = (v2 & 0x200000000000000LL) != 0 && (*(_DWORD *)(a1 + 16) & 0x400LL) != 0
     || (unsigned int)MiIsPfnCommitNotCharged(a1, v5) != 0;
   v9 = (v2 >> 40) & 0x3FF;
-  v10 = *(_QWORD *)(qword_14043A748 + 8 * v9);
-  if ( !v8 || (result = MiChargeCommit(*(_QWORD *)(qword_14043A748 + 8 * v9), 1LL, v6), (_DWORD)result) )
+  v10 = *(_QWORD *)(qword_14043B808 + 8 * v9);
+  if ( !v8 || (result = MiChargeCommit(*(_QWORD *)(qword_14043B808 + 8 * v9), 1LL, v6), (_DWORD)result) )
   {
     v11 = MiChargeResident(v10, 1LL, v7);
     if ( !v11 && v8 )

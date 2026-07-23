@@ -13,9 +13,9 @@
 
 char WheapPfaReset()
 {
-  __int64 v0; // rax
+  _RTL_BALANCED_NODE *v0; // rax
   signed __int8 v1; // cf
-  __int64 v2; // rbx
+  _RTL_BALANCED_NODE *v2; // rbx
   PVOID *v3; // rbx
   PVOID *v4; // rax
   PVOID *v5; // rcx
@@ -27,7 +27,7 @@ char WheapPfaReset()
   if ( v1 )
     ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v0, (ULONG_PTR)&WheapPfaLock);
   if ( v2 )
-    *(_BYTE *)(v2 + 26) |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   WheapApplyPolicyChanges();
   v3 = (PVOID *)WheapPfaList;
   while ( v3 != &WheapPfaList )

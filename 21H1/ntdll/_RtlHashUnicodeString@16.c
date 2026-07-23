@@ -6,34 +6,38 @@
  *     _NLS_UPCASE@4 @ 0x4B2BFDC8 (_NLS_UPCASE@4.c)
  */
 
-int __stdcall RtlHashUnicodeString(unsigned __int16 *a1, char a2, unsigned int a3, int *a4)
+NTSTATUS __cdecl RtlHashUnicodeString(
+        PUNICODE_STRING String,
+        BOOLEAN CaseInSensitive,
+        ULONG HashAlgorithm,
+        PULONG HashValue)
 {
-  int v4; // esi
+  NTSTATUS v4; // esi
   int v5; // ebx
-  int *v6; // edx
-  unsigned __int16 *v7; // ecx
+  PULONG v6; // edx
+  wchar_t *Buffer; // ecx
   int v8; // edi
-  unsigned __int16 *v9; // esi
+  wchar_t *v9; // esi
   int v10; // ecx
   int v12; // eax
 
   v4 = 0;
   v5 = 0;
-  if ( !a1 )
+  if ( !String )
     return -1073741811;
-  v6 = a4;
-  if ( !a4 )
+  v6 = HashValue;
+  if ( !HashValue )
     return -1073741811;
-  v7 = (unsigned __int16 *)*((_DWORD *)a1 + 1);
-  *a4 = 0;
-  v8 = *a1 >> 1;
-  if ( a3 > 1 )
+  Buffer = String->Buffer;
+  *HashValue = 0;
+  v8 = String->Length >> 1;
+  if ( HashAlgorithm > 1 )
     return -1073741811;
   if ( v8 )
   {
-    if ( a2 )
+    if ( CaseInSensitive )
     {
-      v9 = v7;
+      v9 = Buffer;
       do
       {
         v10 = *v9++;
@@ -41,14 +45,14 @@ int __stdcall RtlHashUnicodeString(unsigned __int16 *a1, char a2, unsigned int a
         --v8;
       }
       while ( v8 );
-      v6 = a4;
+      v6 = HashValue;
       v4 = 0;
     }
     else
     {
       do
       {
-        v12 = *v7++;
+        v12 = *Buffer++;
         v5 = v12 + 65599 * v5;
         --v8;
       }

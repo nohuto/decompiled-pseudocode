@@ -1,23 +1,23 @@
 /*
  * XREFs of Phase1InitializationIoReady @ 0x140B4DC38
  * Callers:
- *     Phase1Initialization @ 0x140820F30 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x140821230 (Phase1Initialization.c)
  * Callees:
- *     ExNotifyCallback @ 0x14033BF40 (ExNotifyCallback.c)
- *     MmEncodeExportSection @ 0x14034BC68 (MmEncodeExportSection.c)
- *     InbvSetProgressBarSubset @ 0x140383780 (InbvSetProgressBarSubset.c)
- *     ExLogTimeZoneInformation @ 0x1403B0B20 (ExLogTimeZoneInformation.c)
- *     RtlpInitializeNonVolatileFlush @ 0x1403B5A50 (RtlpInitializeNonVolatileFlush.c)
- *     KeBugCheck @ 0x14041EA30 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     FsRtlInitSystem2 @ 0x14053C830 (FsRtlInitSystem2.c)
- *     VfClearVerifierSettings @ 0x1405CDE1C (VfClearVerifierSettings.c)
- *     CarInitLogging @ 0x1405D3260 (CarInitLogging.c)
- *     CarReportUnusualShutdown @ 0x1405D45B0 (CarReportUnusualShutdown.c)
- *     ExInitLicenseData @ 0x14080EF78 (ExInitLicenseData.c)
- *     ExQueryBootEntropyInformation @ 0x140821840 (ExQueryBootEntropyInformation.c)
- *     ExInitializeNls @ 0x140821884 (ExInitializeNls.c)
- *     VfNotifyVerifierOfEvent @ 0x140AC2150 (VfNotifyVerifierOfEvent.c)
+ *     ExNotifyCallback @ 0x14033C1D0 (ExNotifyCallback.c)
+ *     MmEncodeExportSection @ 0x14034BE08 (MmEncodeExportSection.c)
+ *     InbvSetProgressBarSubset @ 0x140383960 (InbvSetProgressBarSubset.c)
+ *     ExLogTimeZoneInformation @ 0x1403B0D00 (ExLogTimeZoneInformation.c)
+ *     RtlpInitializeNonVolatileFlush @ 0x1403B5C30 (RtlpInitializeNonVolatileFlush.c)
+ *     KeBugCheck @ 0x14041EDC0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     FsRtlInitSystem2 @ 0x14053CD80 (FsRtlInitSystem2.c)
+ *     VfClearVerifierSettings @ 0x1405CE38C (VfClearVerifierSettings.c)
+ *     CarInitLogging @ 0x1405D37D0 (CarInitLogging.c)
+ *     CarReportUnusualShutdown @ 0x1405D4B20 (CarReportUnusualShutdown.c)
+ *     ExInitLicenseData @ 0x14080F248 (ExInitLicenseData.c)
+ *     ExQueryBootEntropyInformation @ 0x140821B40 (ExQueryBootEntropyInformation.c)
+ *     ExInitializeNls @ 0x140821B84 (ExInitializeNls.c)
+ *     VfNotifyVerifierOfEvent @ 0x140AC2140 (VfNotifyVerifierOfEvent.c)
  *     CmInitSystem2 @ 0x140B39668 (CmInitSystem2.c)
  *     MmInitSystem @ 0x140B443B4 (MmInitSystem.c)
  *     CcInitializeCacheManager @ 0x140B49A88 (CcInitializeCacheManager.c)
@@ -63,7 +63,7 @@ __int64 __fastcall Phase1InitializationIoReady(ULONG_PTR a1, char a2)
     KeBugCheckEx(0x32u, inited, 8uLL, 1uLL, 0LL);
   TmInitSystemPhase2();
   InbvSetProgressBarSubset();
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     LOBYTE(v8) = a2;
     InitSafeBoot(v8);
@@ -103,7 +103,7 @@ LABEL_26:
   }
   if ( VfClearanceFlag )
     VfClearVerifierSettings();
-  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) == 0 && !(_DWORD)InitSafeBootMode )
+  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) == 0 && !InitSafeBootMode )
     CarReportUnusualShutdown();
   ExQueryBootEntropyInformation(0LL);
   result = KeInitSystem(4LL);

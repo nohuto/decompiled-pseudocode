@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpCalculateScatterGatherListSize @ 0x14035A6D0
+ * XREFs of HalpCalculateScatterGatherListSize @ 0x14035C470
  * Callers:
- *     HalBuildScatterGatherListV2 @ 0x14035A080 (HalBuildScatterGatherListV2.c)
- *     HalCalculateScatterGatherListSizeV2 @ 0x1404E84B0 (HalCalculateScatterGatherListSizeV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x14035BE20 (HalBuildScatterGatherListV2.c)
+ *     HalCalculateScatterGatherListSizeV2 @ 0x1404E1870 (HalCalculateScatterGatherListSizeV2.c)
  * Callees:
  *     <none>
  */

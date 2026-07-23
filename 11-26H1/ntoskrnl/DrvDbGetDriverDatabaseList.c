@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseList @ 0x140A823EC
+ * XREFs of DrvDbGetDriverDatabaseList @ 0x140A8825C
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x140A82250 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x140A880C0 (DrvDbDispatchDriverDatabase.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseList(

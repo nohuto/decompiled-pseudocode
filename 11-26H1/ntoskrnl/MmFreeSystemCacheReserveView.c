@@ -1,13 +1,13 @@
 /*
- * XREFs of MmFreeSystemCacheReserveView @ 0x14086AA70
+ * XREFs of MmFreeSystemCacheReserveView @ 0x140870E50
  * Callers:
- *     CcUninitializePartitionVacbs @ 0x1405B2FF8 (CcUninitializePartitionVacbs.c)
+ *     CcUninitializePartitionVacbs @ 0x1405B5808 (CcUninitializePartitionVacbs.c)
  * Callees:
- *     MiReleaseSystemCacheView @ 0x1402A71F0 (MiReleaseSystemCacheView.c)
- *     MiGetSystemCacheReverseMap @ 0x1402E46F0 (MiGetSystemCacheReverseMap.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     PfpPartitionFromParent @ 0x1404A2E00 (PfpPartitionFromParent.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiReleaseSystemCacheView @ 0x1402A6600 (MiReleaseSystemCacheView.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402C6730 (MiGetSystemCacheReverseMap.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     PfpPartitionFromParent @ 0x14049C820 (PfpPartitionFromParent.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MmFreeSystemCacheReserveView(unsigned __int64 a1)

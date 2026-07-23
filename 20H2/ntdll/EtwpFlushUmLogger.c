@@ -36,7 +36,7 @@ __int64 __fastcall EtwpFlushUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
         v10 = 2;
         goto LABEL_6;
       }
-      v10 = EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (_QWORD *)(v11 + 168));
+      v10 = EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (_UNICODE_STRING *)(v11 + 168));
       if ( v10 )
         goto LABEL_6;
       v10 = EtwpBufferingModeFlush(v9);

@@ -13,7 +13,7 @@ __int64 __fastcall ViThunkCreateSharedExportInformation(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         ULONG_PTR *a5)
 {
   unsigned int v8; // ebx

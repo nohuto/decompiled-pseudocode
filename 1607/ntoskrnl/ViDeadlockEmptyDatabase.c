@@ -3,8 +3,8 @@
  * Callers:
  *     ViDeadlockDetectionApplySettings @ 0x140715140 (ViDeadlockDetectionApplySettings.c)
  * Callees:
- *     ViLowerIrql @ 0x140223C44 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x140223C54 (ViRaiseIrqlToDpcLevel.c)
+ *     ViLowerIrql @ 0x140223A70 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x140223A80 (ViRaiseIrqlToDpcLevel.c)
  *     ViDeadlockDetectionLock @ 0x14071518C (ViDeadlockDetectionLock.c)
  *     ViDeadlockDetectionUnlock @ 0x1407151C0 (ViDeadlockDetectionUnlock.c)
  *     ViDeadlockFree @ 0x140715474 (ViDeadlockFree.c)

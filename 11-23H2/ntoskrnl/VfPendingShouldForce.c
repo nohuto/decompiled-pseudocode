@@ -1,11 +1,11 @@
 /*
- * XREFs of VfPendingShouldForce @ 0x140AD1ABC
+ * XREFs of VfPendingShouldForce @ 0x140AD1AAC
  * Callers:
- *     IovpCallDriver1 @ 0x140ACC1A0 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x140ACC190 (IovpCallDriver1.c)
  * Callees:
- *     VfRandomGetNumber @ 0x140AC2388 (VfRandomGetNumber.c)
- *     VfDriverIsKernelImageAddress @ 0x140ACA744 (VfDriverIsKernelImageAddress.c)
- *     VfTargetDriversIsEnabled @ 0x140ACB644 (VfTargetDriversIsEnabled.c)
+ *     VfRandomGetNumber @ 0x140AC2378 (VfRandomGetNumber.c)
+ *     VfDriverIsKernelImageAddress @ 0x140ACA734 (VfDriverIsKernelImageAddress.c)
+ *     VfTargetDriversIsEnabled @ 0x140ACB634 (VfTargetDriversIsEnabled.c)
  */
 
 __int64 __fastcall VfPendingShouldForce(

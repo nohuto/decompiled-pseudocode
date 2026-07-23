@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerClockActivate @ 0x140546980
+ * XREFs of HalpTimerClockActivate @ 0x140544240
  * Callers:
  *     <none>
  * Callees:
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     HalpTimerPrepareClockInterrupt @ 0x140547020 (HalpTimerPrepareClockInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x14055A460 (HalpInterruptSetIdtEntry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     HalpTimerPrepareClockInterrupt @ 0x1405448E0 (HalpTimerPrepareClockInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x140558090 (HalpInterruptSetIdtEntry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpTimerClockActivate(char a1)
@@ -18,8 +18,6 @@ __int64 __fastcall HalpTimerClockActivate(char a1)
   int v4; // r9d
   __int64 result; // rax
   __int64 InternalData; // rax
-  __int64 v7; // r8
-  __int64 v8; // r9
 
   if ( a1 )
   {
@@ -37,7 +35,7 @@ __int64 __fastcall HalpTimerClockActivate(char a1)
     if ( (result & 1) != 0 && (result & 0x800) != 0 )
     {
       InternalData = HalpTimerGetInternalData(HalpClockTimer);
-      return guard_dispatch_icall_no_overrides(InternalData, 209LL, v7, v8);
+      return guard_dispatch_icall_no_overrides(InternalData, 209LL);
     }
   }
   return result;

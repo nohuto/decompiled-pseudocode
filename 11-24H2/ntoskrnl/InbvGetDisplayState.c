@@ -1,17 +1,17 @@
 /*
- * XREFs of InbvGetDisplayState @ 0x14058F40C
+ * XREFs of InbvGetDisplayState @ 0x14058C42C
  * Callers:
- *     FinalizeBootLogo @ 0x14058F72C (FinalizeBootLogo.c)
- *     InbvRotateGuiBootDisplay @ 0x14058F780 (InbvRotateGuiBootDisplay.c)
- *     RotBarUpdate @ 0x14058F8DC (RotBarUpdate.c)
+ *     FinalizeBootLogo @ 0x14058C74C (FinalizeBootLogo.c)
+ *     InbvRotateGuiBootDisplay @ 0x14058C7A0 (InbvRotateGuiBootDisplay.c)
+ *     RotBarUpdate @ 0x14058C8FC (RotBarUpdate.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall InbvGetDisplayState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall InbvGetDisplayState(__int64 a1, __int64 a2)
 {
-  if ( qword_140E65D40 && *(_QWORD *)(qword_140E65D40 + 144) )
-    return guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+  if ( qword_140E65E70 && *(_QWORD *)(qword_140E65E70 + 144) )
+    return guard_dispatch_icall_no_overrides(a1, a2);
   else
     return 2LL;
 }

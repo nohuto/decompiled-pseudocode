@@ -42,7 +42,7 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(__int64 a1, str
     return 0LL;
   v7 = (unsigned __int64 *)(v6 + 8 * (3 * v2 + 4));
   v8 = (struct _EX_RUNDOWN_REF **)(v6 + 8 * (3 * v2 + 5));
-  v9 = KeAbPreAcquire((ULONG_PTR)v7, 0LL, 0LL);
+  v9 = KeAbPreAcquire((ULONG_PTR)v7, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v7, v9, (ULONG_PTR)v7);
   if ( v9 )

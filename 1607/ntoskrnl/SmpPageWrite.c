@@ -1,11 +1,11 @@
 /*
- * XREFs of SmpPageWrite @ 0x140119C58
+ * XREFs of SmpPageWrite @ 0x14011A1C8
  * Callers:
- *     MiStoreWriteIssue @ 0x140119B9C (MiStoreWriteIssue.c)
+ *     MiStoreWriteIssue @ 0x14011A10C (MiStoreWriteIssue.c)
  * Callees:
- *     SmKmStoreDereference @ 0x140002F88 (SmKmStoreDereference.c)
- *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x140119D48 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
- *     SmpKeyedStoreReference @ 0x14011C808 (SmpKeyedStoreReference.c)
+ *     SmKmStoreDereference @ 0x1400030FC (SmKmStoreDereference.c)
+ *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14011A2B8 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
+ *     SmpKeyedStoreReference @ 0x14011CD78 (SmpKeyedStoreReference.c)
  */
 
 __int64 __fastcall SmpPageWrite(int a1, __int64 a2, unsigned int a3, int a4, __int64 a5, __int64 a6, int a7)

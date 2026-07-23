@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x1409DA680
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x1409DB680
  * Callers:
- *     VerifierKeAcquireInStackQueuedSpinLock @ 0x1409DA500 (VerifierKeAcquireInStackQueuedSpinLock.c)
- *     VerifierKeAcquireInStackQueuedSpinLockNoReboot @ 0x1409DA800 (VerifierKeAcquireInStackQueuedSpinLockNoReboot.c)
+ *     VerifierKeAcquireInStackQueuedSpinLock @ 0x1409DB500 (VerifierKeAcquireInStackQueuedSpinLock.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockNoReboot @ 0x1409DB800 (VerifierKeAcquireInStackQueuedSpinLockNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C758C (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DD27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockCommon(ULONG_PTR a1, __int64 a2, ULONG_PTR a3)
@@ -16,7 +16,7 @@ __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockCommon(ULONG_PTR a1, __
   __int64 v6; // rbx
   __int64 result; // rax
 
-  ++dword_140C2A868;
+  ++dword_140C2A8A8;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(a2, 156LL);
   VfUtilCheckKernelAddress(a1, 8uLL);

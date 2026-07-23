@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpKeyEnumStackEntryNotifyPromotion @ 0x1407FF6C4
+ * XREFs of CmpKeyEnumStackEntryNotifyPromotion @ 0x1408008C4
  * Callers:
- *     CmpKeyEnumStackNotifyPromotion @ 0x1407FF8E4 (CmpKeyEnumStackNotifyPromotion.c)
+ *     CmpKeyEnumStackNotifyPromotion @ 0x140800AE4 (CmpKeyEnumStackNotifyPromotion.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpDoFindSubKeyByNumber @ 0x1405D3470 (CmpDoFindSubKeyByNumber.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1405D4470 (CmpDoFindSubKeyByNumber.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackEntryNotifyPromotion(_QWORD *a1)

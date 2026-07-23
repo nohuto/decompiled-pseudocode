@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeWpsWorkloadClasses @ 0x140B56740
+ * XREFs of KiInitializeWpsWorkloadClasses @ 0x140B58790
  * Callers:
- *     PoInitHeteroDetection @ 0x140C2D09C (PoInitHeteroDetection.c)
+ *     PoInitHeteroDetection @ 0x140C2F1BC (PoInitHeteroDetection.c)
  * Callees:
- *     PoGetWorkloadClassCount @ 0x140B5FDBC (PoGetWorkloadClassCount.c)
+ *     PoGetWorkloadClassCount @ 0x140B61E88 (PoGetWorkloadClassCount.c)
  */
 
 __int64 __fastcall KiInitializeWpsWorkloadClasses(__int64 a1)

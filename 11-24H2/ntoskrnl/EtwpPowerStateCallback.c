@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpPowerStateCallback @ 0x140AB25D0
+ * XREFs of EtwpPowerStateCallback @ 0x140AAD540
  * Callers:
  *     <none>
  * Callees:

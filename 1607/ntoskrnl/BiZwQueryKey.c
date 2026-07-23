@@ -1,8 +1,8 @@
 /*
- * XREFs of BiZwQueryKey @ 0x14012DF78
+ * XREFs of BiZwQueryKey @ 0x14012E4E8
  * Callers:
- *     BiGetKeyName @ 0x1405328D4 (BiGetKeyName.c)
- *     BiEnumerateSubKeys @ 0x14053C2A0 (BiEnumerateSubKeys.c)
+ *     BiGetKeyName @ 0x140532E14 (BiGetKeyName.c)
+ *     BiEnumerateSubKeys @ 0x14053C7E0 (BiEnumerateSubKeys.c)
  * Callees:
  *     <none>
  */

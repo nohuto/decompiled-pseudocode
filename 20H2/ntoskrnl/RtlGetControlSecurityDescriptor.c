@@ -9,11 +9,14 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetControlSecurityDescriptor(unsigned __int8 *a1, _WORD *a2, _DWORD *a3)
+NTSTATUS __cdecl RtlGetControlSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSECURITY_DESCRIPTOR_CONTROL Control,
+        PULONG Revision)
 {
-  *a3 = *a1;
-  if ( *a1 != 1 )
-    return 3221225560LL;
-  *a2 = *((_WORD *)a1 + 1);
-  return 0LL;
+  *Revision = *(unsigned __int8 *)SecurityDescriptor;
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  *Control = *((_WORD *)SecurityDescriptor + 1);
+  return 0;
 }

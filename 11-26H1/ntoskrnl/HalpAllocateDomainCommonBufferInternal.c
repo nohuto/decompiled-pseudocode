@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpAllocateDomainCommonBufferInternal @ 0x140589FC0
+ * XREFs of HalpAllocateDomainCommonBufferInternal @ 0x14058C6F0
  * Callers:
- *     HalAllocateCommonBufferExV3 @ 0x1405886A0 (HalAllocateCommonBufferExV3.c)
- *     HalAllocateCommonBufferWithBounds @ 0x140588840 (HalAllocateCommonBufferWithBounds.c)
- *     HalAllocateDomainCommonBuffer @ 0x1405899D0 (HalAllocateDomainCommonBuffer.c)
+ *     HalAllocateCommonBufferExV3 @ 0x14058AD70 (HalAllocateCommonBufferExV3.c)
+ *     HalAllocateCommonBufferWithBounds @ 0x14058AF10 (HalAllocateCommonBufferWithBounds.c)
+ *     HalAllocateDomainCommonBuffer @ 0x14058C100 (HalAllocateDomainCommonBuffer.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     HalpDmaDereferenceDomainObject @ 0x1403444A8 (HalpDmaDereferenceDomainObject.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x140348200 (MmAllocatePagesForMdlEx.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140348260 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     HalpAllocateCommonBufferEntry @ 0x140348EB0 (HalpAllocateCommonBufferEntry.c)
- *     MmAllocateContiguousMemoryEx @ 0x140348FD0 (MmAllocateContiguousMemoryEx.c)
- *     HalpDmaReferenceDomainObject @ 0x14034914C (HalpDmaReferenceDomainObject.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     CvmDebugLog @ 0x140532568 (CvmDebugLog.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpDmaCvmMakeContiguousVirtualBufferShared @ 0x140782F78 (HalpDmaCvmMakeContiguousVirtualBufferShared.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140346528 (HalpDmaDereferenceDomainObject.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x14034A280 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x14034A2E0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     HalpAllocateCommonBufferEntry @ 0x14034AF30 (HalpAllocateCommonBufferEntry.c)
+ *     MmAllocateContiguousMemoryEx @ 0x14034B050 (MmAllocateContiguousMemoryEx.c)
+ *     HalpDmaReferenceDomainObject @ 0x14034B1CC (HalpDmaReferenceDomainObject.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     CvmDebugLog @ 0x140534A08 (CvmDebugLog.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDmaCvmMakeContiguousVirtualBufferShared @ 0x140785AAC (HalpDmaCvmMakeContiguousVirtualBufferShared.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
@@ -31,9 +31,9 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
         MEMORY_CACHING_TYPE *a6,
         int a7,
         _QWORD *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
-  PVOID v9; // r12
+  _RTL_BALANCED_NODE *v9; // r12
   struct _MDL *v12; // r15
   int CommonBufferEntry; // r14d
   __int64 v14; // rax
@@ -179,7 +179,7 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
                                         (unsigned int)v25,
                                         &BaseAddress,
                                         &v41);
-      v9 = BaseAddress;
+      v9 = (_RTL_BALANCED_NODE *)BaseAddress;
       CommonBufferEntry = ContiguousVirtualBufferShared;
       CvmDebugLog("Marking common buffer as shared: VirtualAddr=%p Length=0x%08X NewVirtualAddress=%p PhysicalAddress=%p\n");
       if ( CommonBufferEntry < 0 )
@@ -191,7 +191,7 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
     }
     else
     {
-      v9 = BaseAddress;
+      v9 = (_RTL_BALANCED_NODE *)BaseAddress;
     }
     if ( *(_QWORD *)v37 == v25 )
       goto LABEL_41;
@@ -226,7 +226,7 @@ LABEL_36:
   v12 = PagesForMdl;
   if ( !PagesForMdl )
     goto LABEL_57;
-  v9 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, v36, 0LL, 0, 0x40000010u);
+  v9 = (_RTL_BALANCED_NODE *)MmMapLockedPagesSpecifyCache(PagesForMdl, 0, v36, 0LL, 0, 0x40000010u);
 LABEL_41:
   if ( !v9 )
     goto LABEL_57;
@@ -251,13 +251,7 @@ LABEL_41:
     {
       v34 = 1;
 LABEL_51:
-      CommonBufferEntry = HalpAllocateCommonBufferEntry(
-                            (__int64)v12,
-                            (unsigned __int64)v9,
-                            QuadPart,
-                            a1,
-                            1,
-                            (__int64)v42);
+      CommonBufferEntry = HalpAllocateCommonBufferEntry((__int64)v12, v9, QuadPart, a1, 1, (__int64)v42);
       if ( CommonBufferEntry >= 0 )
       {
         *a8 = QuadPart;

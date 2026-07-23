@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNotifySessionDisplayRequired @ 0x14052D7EC
+ * XREFs of PopNotifySessionDisplayRequired @ 0x14052DD2C
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
- *     TtmNotifySessionDisplayRequiredChange @ 0x140678A30 (TtmNotifySessionDisplayRequiredChange.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x140678B14 (TtmNotifySessionDisplayRequiredChange.c)
  */
 
 __int64 __fastcall PopNotifySessionDisplayRequired(char a1, __int64 a2)

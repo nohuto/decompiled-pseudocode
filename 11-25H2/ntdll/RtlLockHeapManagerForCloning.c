@@ -25,8 +25,8 @@ __int64 RtlLockHeapManagerForCloning()
   __int64 **v5; // rbx
   _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
-  RtlpCSparseBitmapLock((__int64)&unk_1801D0980, 1, (__int64)v7);
+  RtlEnterCriticalSection(&RtlpProcessHeapsLock);
+  RtlpCSparseBitmapLock((_RTL_SRWLOCK *)BaseAddress, 1, (__int64)v7);
   RtlpFlsClonePrepare(&RtlpHpEnvFlsContext);
   v0 = 0LL;
   do
@@ -49,6 +49,6 @@ __int64 RtlLockHeapManagerForCloning()
     v0 = v5;
   }
   RtlpHpUnlockHeapManagerForClone(0LL);
-  RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+  RtlLeaveCriticalSection(&RtlpProcessHeapsLock);
   return (unsigned int)v3;
 }

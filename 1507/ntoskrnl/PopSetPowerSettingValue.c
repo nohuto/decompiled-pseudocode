@@ -161,7 +161,7 @@ __int64 __fastcall PopSetPowerSettingValue(const GUID *a1, unsigned int a2, int 
     *v41 = v16;
     *(_QWORD *)(v34 + 8) = v16;
     v43 = 1;
-    if ( PopPopPowerSettingSetChangeNotification )
+    if ( PopPopPowerSettingSetChangeNotification.Data[0] || PopPopPowerSettingSetChangeNotification.Data[1] )
       v44 = 1;
   }
   v17 = P;
@@ -270,7 +270,7 @@ LABEL_15:
   if ( (unsigned int)PopOsInitPhase >= 3 )
   {
     if ( v44 )
-      ZwUpdateWnfStateData((__int64)&PopPopPowerSettingSetChangeNotification, 0LL, 0LL);
+      ZwUpdateWnfStateData(&PopPopPowerSettingSetChangeNotification, 0LL, 0, 0LL, 0LL, 0, 0);
     if ( v5 )
       PopSetNotificationWork(0x20u);
     if ( (_BYTE)v6 )

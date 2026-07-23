@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscIoFreeMdl_Entry @ 0x140B9DB10
+ * XREFs of VfMiscIoFreeMdl_Entry @ 0x140B9FB10
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404B2134 (VfMiscCheckKernelAddress.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     VfMiscCheckKernelAddress @ 0x1404AC9C4 (VfMiscCheckKernelAddress.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 char __fastcall VfMiscIoFreeMdl_Entry(__int64 a1)

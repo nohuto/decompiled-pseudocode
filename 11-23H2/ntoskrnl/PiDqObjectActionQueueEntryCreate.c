@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDqObjectActionQueueEntryCreate @ 0x1407872B0
+ * XREFs of PiDqObjectActionQueueEntryCreate @ 0x1407874A0
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x140787F20 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x140788110 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

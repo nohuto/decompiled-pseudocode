@@ -1,20 +1,20 @@
 /*
- * XREFs of PopTracePowerLimitHistogram @ 0x140609CFC
+ * XREFs of PopTracePowerLimitHistogram @ 0x14060C8BC
  * Callers:
- *     PopPowerLimitTelemetryWorker @ 0x140435524 (PopPowerLimitTelemetryWorker.c)
- *     PopPowerLimitSxTransition @ 0x140529A8C (PopPowerLimitSxTransition.c)
- *     PopFreePowerLimitRequest @ 0x1407CADDC (PopFreePowerLimitRequest.c)
+ *     PopPowerLimitTelemetryWorker @ 0x140424A9C (PopPowerLimitTelemetryWorker.c)
+ *     PopPowerLimitSxTransition @ 0x14052BF20 (PopPowerLimitSxTransition.c)
+ *     PopFreePowerLimitRequest @ 0x1407CDE7C (PopFreePowerLimitRequest.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PoStoreDiagnosticContext @ 0x1404372B0 (PoStoreDiagnosticContext.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     RtlIsZeroMemory @ 0x1404D9FD0 (RtlIsZeroMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PoStoreDiagnosticContext @ 0x140426240 (PoStoreDiagnosticContext.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     RtlIsZeroMemory @ 0x1404D36B0 (RtlIsZeroMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopTracePowerLimitHistogram(__int64 a1)
@@ -31,7 +31,7 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
   _DWORD *v11; // r8
   _QWORD *v12; // rcx
   __int64 v13; // r9
-  char IsZeroMemory; // al
+  BOOLEAN IsZeroMemory; // al
   __int64 v15; // rcx
   __int64 v16; // [rsp+38h] [rbp-99h] BYREF
   unsigned __int64 v17; // [rsp+40h] [rbp-91h] BYREF
@@ -47,7 +47,7 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
   __int64 v27; // [rsp+B0h] [rbp-21h]
   _OWORD *v28; // [rsp+B8h] [rbp-19h]
   __int64 v29; // [rsp+C0h] [rbp-11h]
-  _OWORD v30[3]; // [rsp+C8h] [rbp-9h] BYREF
+  _OWORD Buffer[3]; // [rsp+C8h] [rbp-9h] BYREF
 
   v17 = 0LL;
   v2 = 0LL;
@@ -73,8 +73,8 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
             v9 = 0;
             for ( i = (const WCHAR *)((char *)v2 + v2[2]); v9 < *(_DWORD *)(a1 + 32); ++v9 )
             {
-              memset(v30, 0, sizeof(v30));
-              v11 = v30;
+              memset(Buffer, 0, sizeof(Buffer));
+              v11 = Buffer;
               v12 = (_QWORD *)(*(_QWORD *)(a1 + 56) + 104LL * v9 + 8);
               v13 = 12LL;
               do
@@ -84,11 +84,11 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
                 --v13;
               }
               while ( v13 );
-              IsZeroMemory = RtlIsZeroMemory(v30, 0x30uLL);
+              IsZeroMemory = RtlIsZeroMemory(Buffer, 0x30uLL);
               v8 = 0LL;
               if ( !IsZeroMemory
-                && (unsigned int)dword_140E07598 > 5
-                && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+                && (unsigned int)dword_140E07560 > 5
+                && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
               {
                 v20 = 2LL;
                 v19 = v22;
@@ -102,12 +102,12 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
                 v25 = 1LL;
                 LODWORD(v17) = *(_DWORD *)(v15 + 16LL * v9 + 4);
                 v26 = &v17;
-                v28 = v30;
+                v28 = Buffer;
                 v27 = 4LL;
                 v29 = 48LL;
                 tlgWriteTransfer_EtwWriteTransfer(
-                  (__int64)&dword_140E07598,
-                  (unsigned __int8 *)word_14004AC32,
+                  (__int64)&dword_140E07560,
+                  (unsigned __int8 *)&dword_14004B22C,
                   0LL,
                   0LL,
                   8u,

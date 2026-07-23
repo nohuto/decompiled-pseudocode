@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwReplyPort @ 0x140723570
+ * XREFs of ZwReplyPort @ 0x140728140
  * Callers:
- *     DifZwReplyPortWrapper @ 0x1406B74F0 (DifZwReplyPortWrapper.c)
+ *     DifZwReplyPortWrapper @ 0x1406BB0D0 (DifZwReplyPortWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReplyPort(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwReplyPort(HANDLE PortHandle, PPORT_MESSAGE ReplyMessage)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

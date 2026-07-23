@@ -6,7 +6,7 @@
  * Callees:
  *     RtlpWaitOnAddressWithTimeout @ 0x180064D1C (RtlpWaitOnAddressWithTimeout.c)
  *     RtlpWaitOnAddressWakeEntireList @ 0x18006509C (RtlpWaitOnAddressWakeEntireList.c)
- *     NtWaitForAlertByThreadId @ 0x1800A1070 (NtWaitForAlertByThreadId.c)
+ *     NtWaitForAlertByThreadId @ 0x1800A1030 (NtWaitForAlertByThreadId.c)
  */
 
 signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, __int64 a2)
@@ -93,7 +93,7 @@ LABEL_15:
           if ( !v8 )
           {
             if ( !v10 && _InterlockedExchange((volatile __int32 *)(a2 + 40), 0) != 2 )
-              NtWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+              NtWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
             *(_QWORD *)(v9 + 32) = v11;
             do
             {
@@ -115,6 +115,6 @@ LABEL_15:
     }
   }
   if ( _InterlockedExchange((volatile __int32 *)(a2 + 40), 1) != 2 )
-    return RtlpWaitOnAddressWithTimeout(a1, (_QWORD *)a2, 0LL, RtlpWaitOnAddressSpinCycleCount);
+    return RtlpWaitOnAddressWithTimeout(a1, (PVOID *)a2, 0LL, RtlpWaitOnAddressSpinCycleCount);
   return result;
 }

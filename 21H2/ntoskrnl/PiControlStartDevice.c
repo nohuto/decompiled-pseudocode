@@ -1,11 +1,11 @@
 /*
- * XREFs of PiControlStartDevice @ 0x1408B3BC0
+ * XREFs of PiControlStartDevice @ 0x1408B3D20
  * Callers:
  *     <none>
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
- *     PiQueueDeviceRequest @ 0x14072F218 (PiQueueDeviceRequest.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140252870 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x14062A4E0 (PiControlMakeUserModeCallersCopy.c)
+ *     PiQueueDeviceRequest @ 0x14072F3E4 (PiQueueDeviceRequest.c)
  */
 
 __int64 __fastcall PiControlStartDevice(__int64 a1, void **a2, __int64 a3, char a4)

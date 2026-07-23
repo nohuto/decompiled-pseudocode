@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogInsertSecureImageActivePatch @ 0x1407F5020
+ * XREFs of MiLogInsertSecureImageActivePatch @ 0x1407F5714
  * Callers:
- *     MmInsertSecureImageActivePatch @ 0x1407F6080 (MmInsertSecureImageActivePatch.c)
+ *     MmInsertSecureImageActivePatch @ 0x1407F67F4 (MmInsertSecureImageActivePatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogInsertSecureImageActivePatch(int a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6)
@@ -46,9 +46,9 @@ void __fastcall MiLogInsertSecureImageActivePatch(int a1, __int64 a2, __int64 a3
   int v40; // [rsp+E8h] [rbp+2Fh]
   int v41; // [rsp+ECh] [rbp+33h]
 
-  if ( *(_QWORD *)&qword_140E37518
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000020LL) )
+  if ( *(_QWORD *)&qword_140E37658
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000020LL) )
   {
     v23 = 0;
     v26 = 0;
@@ -78,6 +78,6 @@ void __fastcall MiLogInsertSecureImageActivePatch(int a1, __int64 a2, __int64 a3
     v15 = v10;
     v16 = v7;
     v40 = 8;
-    tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_140057763, v7, 1u, v11, v12, 9u, &v20);
+    tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_140057DAF, v7, 1u, v11, v12, 9u, &v20);
   }
 }

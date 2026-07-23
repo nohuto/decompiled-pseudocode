@@ -1,53 +1,53 @@
 /*
- * XREFs of KeBugCheck2 @ 0x140516AD0
+ * XREFs of KeBugCheck2 @ 0x140516D10
  * Callers:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     KeQueryCurrentStackInformation @ 0x140277230 (KeQueryCurrentStackInformation.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
- *     MmIsSessionAddress @ 0x140349110 (MmIsSessionAddress.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     KdRefreshDebuggerNotPresent @ 0x1403CFF10 (KdRefreshDebuggerNotPresent.c)
- *     KiFilterBugCheckInfo @ 0x1403DBE3C (KiFilterBugCheckInfo.c)
- *     KiMarkBugCheckRegions @ 0x1403DC7D8 (KiMarkBugCheckRegions.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
- *     HvlLogGuestCrashInformation @ 0x1404F1BCC (HvlLogGuestCrashInformation.c)
- *     HvlNotifyRootCrashdump @ 0x1404F5E94 (HvlNotifyRootCrashdump.c)
- *     HvlPrepareForRootCrashdump @ 0x1404F5F5C (HvlPrepareForRootCrashdump.c)
- *     IoInitializeBugCheckProgress @ 0x140502508 (IoInitializeBugCheckProgress.c)
- *     IoSaveBugCheckProgress @ 0x140502780 (IoSaveBugCheckProgress.c)
- *     IoSetBugCheckProgressFlag @ 0x1405029A8 (IoSetBugCheckProgressFlag.c)
- *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
- *     KdDecodeDataBlock @ 0x140510804 (KdDecodeDataBlock.c)
- *     KdEnableDebuggerWithLock @ 0x140510D7C (KdEnableDebuggerWithLock.c)
- *     KiCheckForFreezeExecution @ 0x140512610 (KiCheckForFreezeExecution.c)
- *     KiBugCheckDebugBreak @ 0x140517E20 (KiBugCheckDebugBreak.c)
- *     KiBugCheckUnicodeToAnsi @ 0x140518040 (KiBugCheckUnicodeToAnsi.c)
- *     KiBugcheckUnloadDebugSymbols @ 0x140518084 (KiBugcheckUnloadDebugSymbols.c)
- *     KiDisplayBlueScreen @ 0x1405180C0 (KiDisplayBlueScreen.c)
- *     KiDumpParameterImages @ 0x140518454 (KiDumpParameterImages.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405185EC (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x1405187A8 (KiInvokeBugCheckEntryCallbacks.c)
- *     KiPcToFileHeader @ 0x140518870 (KiPcToFileHeader.c)
- *     KiSaveCurrentEtwTraceBuffer @ 0x140518940 (KiSaveCurrentEtwTraceBuffer.c)
- *     KiScanBugCheckCallbackList @ 0x140518A6C (KiScanBugCheckCallbackList.c)
- *     KeSaveSupervisorState @ 0x140519EF8 (KeSaveSupervisorState.c)
- *     KiSendFreeze @ 0x14051E180 (KiSendFreeze.c)
- *     KiSendThawExecution @ 0x14051E250 (KiSendThawExecution.c)
- *     KiSetDebuggerOwner @ 0x14051E414 (KiSetDebuggerOwner.c)
- *     KiAttemptBugcheckRecovery @ 0x140524D84 (KiAttemptBugcheckRecovery.c)
- *     MmLocateUnloadedDriver @ 0x1405358CC (MmLocateUnloadedDriver.c)
- *     MmIsAddressValid @ 0x140536B70 (MmIsAddressValid.c)
- *     MmIsSpecialPoolAddress @ 0x1405374F0 (MmIsSpecialPoolAddress.c)
- *     PoAddPowerTriageData @ 0x14056EA5C (PoAddPowerTriageData.c)
- *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
+ *     KeQueryCurrentStackInformation @ 0x1402651D0 (KeQueryCurrentStackInformation.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403461F0 (KeRemoveProcessorAffinityEx.c)
+ *     MmIsSessionAddress @ 0x140353E60 (MmIsSessionAddress.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     KdRefreshDebuggerNotPresent @ 0x1403D0080 (KdRefreshDebuggerNotPresent.c)
+ *     KiFilterBugCheckInfo @ 0x1403DBFAC (KiFilterBugCheckInfo.c)
+ *     KiMarkBugCheckRegions @ 0x1403DC948 (KiMarkBugCheckRegions.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalReturnToFirmware @ 0x1404BE3E0 (HalReturnToFirmware.c)
+ *     HvlLogGuestCrashInformation @ 0x1404F1B4C (HvlLogGuestCrashInformation.c)
+ *     HvlNotifyRootCrashdump @ 0x1404F5E14 (HvlNotifyRootCrashdump.c)
+ *     HvlPrepareForRootCrashdump @ 0x1404F5EDC (HvlPrepareForRootCrashdump.c)
+ *     IoInitializeBugCheckProgress @ 0x140502488 (IoInitializeBugCheckProgress.c)
+ *     IoSaveBugCheckProgress @ 0x140502700 (IoSaveBugCheckProgress.c)
+ *     IoSetBugCheckProgressFlag @ 0x140502928 (IoSetBugCheckProgressFlag.c)
+ *     IoWriteCrashDump @ 0x140502C50 (IoWriteCrashDump.c)
+ *     KdDecodeDataBlock @ 0x140510A44 (KdDecodeDataBlock.c)
+ *     KdEnableDebuggerWithLock @ 0x140510FBC (KdEnableDebuggerWithLock.c)
+ *     KiCheckForFreezeExecution @ 0x140512850 (KiCheckForFreezeExecution.c)
+ *     KiBugCheckDebugBreak @ 0x140518060 (KiBugCheckDebugBreak.c)
+ *     KiBugCheckUnicodeToAnsi @ 0x140518280 (KiBugCheckUnicodeToAnsi.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x1405182C4 (KiBugcheckUnloadDebugSymbols.c)
+ *     KiDisplayBlueScreen @ 0x140518300 (KiDisplayBlueScreen.c)
+ *     KiDumpParameterImages @ 0x140518694 (KiDumpParameterImages.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14051882C (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1405189E8 (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiPcToFileHeader @ 0x140518AB0 (KiPcToFileHeader.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x140518B80 (KiSaveCurrentEtwTraceBuffer.c)
+ *     KiScanBugCheckCallbackList @ 0x140518CAC (KiScanBugCheckCallbackList.c)
+ *     KeSaveSupervisorState @ 0x14051A138 (KeSaveSupervisorState.c)
+ *     KiSendFreeze @ 0x14051E3C0 (KiSendFreeze.c)
+ *     KiSendThawExecution @ 0x14051E490 (KiSendThawExecution.c)
+ *     KiSetDebuggerOwner @ 0x14051E654 (KiSetDebuggerOwner.c)
+ *     KiAttemptBugcheckRecovery @ 0x140524FC4 (KiAttemptBugcheckRecovery.c)
+ *     MmLocateUnloadedDriver @ 0x140535B0C (MmLocateUnloadedDriver.c)
+ *     MmIsAddressValid @ 0x140536DB0 (MmIsAddressValid.c)
+ *     MmIsSpecialPoolAddress @ 0x140537730 (MmIsSpecialPoolAddress.c)
+ *     PoAddPowerTriageData @ 0x14056EC9C (PoAddPowerTriageData.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C7050 (VfNotifyVerifierOfEvent.c)
  */
 
 void __fastcall __noreturn KeBugCheck2(
@@ -213,11 +213,11 @@ LABEL_11:
   CurrentPrcb = KeGetCurrentPrcb();
   Number = CurrentPrcb->Number;
   KeSaveSupervisorState(CurrentPrcb->ExtendedSupervisorState, MEMORY[0xFFFFF780000005F0] | 0x100LL, v11);
-  if ( !qword_140C23480 )
+  if ( !qword_140C23AA0 )
     goto LABEL_14;
   if ( PopSimulateHiberBugcheck )
     PoPowerDownActionInProgress = 0;
-  if ( *(_BYTE *)(qword_140C23480 + 3) )
+  if ( *(_BYTE *)(qword_140C23AA0 + 3) )
   {
     if ( v59 )
     {
@@ -291,13 +291,13 @@ LABEL_14:
     HalReturnToFirmware(3);
   }
   *((_QWORD *)&KiBugCheckData + 1) = a2;
-  *(_QWORD *)&xmmword_140C31550 = a3;
+  *(_QWORD *)&xmmword_140C31530 = a3;
   if ( v67 == -1073741103 )
     v29 = 195;
-  *((_QWORD *)&xmmword_140C31550 + 1) = a4;
+  *((_QWORD *)&xmmword_140C31530 + 1) = a4;
   *(_QWORD *)&KiBugCheckData = v29;
   v67 = v29;
-  qword_140C31560 = a5;
+  qword_140C31540 = a5;
   if ( v29 > 0xCB )
   {
     if ( v29 != 216 )
@@ -420,7 +420,7 @@ LABEL_112:
     v8 = a4;
 LABEL_66:
     v70 = *(_QWORD *)(v8 + 360);
-    *((_QWORD *)&xmmword_140C31550 + 1) = v70;
+    *((_QWORD *)&xmmword_140C31530 + 1) = v70;
     v30 = KiPcToFileHeader(v70, &v74, 0LL, &v61);
     if ( KeGetCurrentThread()->ApcStateIndex == 1
       && MmIsSessionAddress(v70)
@@ -481,9 +481,9 @@ LABEL_115:
   HvlLogGuestCrashInformation(
     KiBugCheckData,
     *((__int64 *)&KiBugCheckData + 1),
-    xmmword_140C31550,
-    *((__int64 *)&xmmword_140C31550 + 1),
-    qword_140C31560);
+    xmmword_140C31530,
+    *((__int64 *)&xmmword_140C31530 + 1),
+    qword_140C31540);
   if ( KiBugCheckDriver )
   {
     KiBugCheckUnicodeToAnsi(KiBugCheckDriver, pszDest);
@@ -513,9 +513,9 @@ LABEL_143:
       "\n*** Fatal System Error: 0x%08lx\n                       (0x%p,0x%p,0x%p,0x%p)\n\n",
       (_DWORD)KiBugCheckData,
       *((const void **)&KiBugCheckData + 1),
-      (const void *)xmmword_140C31550,
-      *((const void **)&xmmword_140C31550 + 1),
-      (const void *)qword_140C31560);
+      (const void *)xmmword_140C31530,
+      *((const void **)&xmmword_140C31530 + 1),
+      (const void *)qword_140C31540);
     if ( KiBugCheckDriver )
       DbgPrintEx(0x65u, 0, "Driver at fault: %s.\n", pszDest);
     if ( v65 )
@@ -612,13 +612,13 @@ LABEL_144:
       {
         KiMarkBugCheckRegions(
           *((__int64 *)&KiBugCheckData + 1),
-          xmmword_140C31550,
-          *((unsigned __int64 *)&xmmword_140C31550 + 1),
-          qword_140C31560);
-        if ( qword_140C31560 == 47 )
+          xmmword_140C31530,
+          *((unsigned __int64 *)&xmmword_140C31530 + 1),
+          qword_140C31540);
+        if ( qword_140C31540 == 47 )
         {
-          v56 = *((_QWORD *)&xmmword_140C31550 + 1);
-          if ( MmIsAddressValid((PVOID)(*((_QWORD *)&xmmword_140C31550 + 1) + 1928LL)) )
+          v56 = *((_QWORD *)&xmmword_140C31530 + 1);
+          if ( MmIsAddressValid((PVOID)(*((_QWORD *)&xmmword_140C31530 + 1) + 1928LL)) )
             IoAddTriageDumpDataBlock(*(_QWORD *)(v56 + 1928), (PVOID)0x1000);
         }
       }
@@ -631,9 +631,9 @@ LABEL_185:
           IoWriteCrashDump(
             KiBugCheckData,
             *((__int64 *)&KiBugCheckData + 1),
-            xmmword_140C31550,
-            *((__int64 *)&xmmword_140C31550 + 1),
-            qword_140C31560,
+            xmmword_140C31530,
+            *((__int64 *)&xmmword_140C31530 + 1),
+            qword_140C31540,
             v80,
             v33,
             (__int64)v78);

@@ -23,21 +23,28 @@
  *     _LdrpLogEtwEvent@24 @ 0x4B330117 (_LdrpLogEtwEvent@24.c)
  */
 
-int __fastcall LdrpGetDllPath(_WORD *a1, int a2, void **a3, _DWORD *a4, _DWORD *a5, void *a6, _DWORD *a7)
+int __fastcall LdrpGetDllPath(
+        WCHAR *DosFileName,
+        int a2,
+        const WCHAR **a3,
+        _DWORD *a4,
+        _DWORD *a5,
+        void *a6,
+        _DWORD *a7)
 {
   unsigned int v8; // eax
   char v9; // cl
   int v10; // esi
-  int v11; // eax
+  RTL_PATH_TYPE v11; // eax
   bool v12; // al
   char v13; // dl
   int result; // eax
   int v15; // eax
   _DWORD *CachedPath; // esi
-  _WORD *v17; // edi
+  WCHAR *v17; // edi
   signed __int8 v18; // cf
-  signed __int32 v19; // edx
-  signed __int32 v20; // esi
+  signed __int32 Value; // edx
+  $64EDA4DD838E80CF9A7DD220E06F3FD2 v20; // esi
   unsigned __int32 v21; // edx
   unsigned int v22; // ecx
   unsigned int v23; // ecx
@@ -51,29 +58,29 @@ int __fastcall LdrpGetDllPath(_WORD *a1, int a2, void **a3, _DWORD *a4, _DWORD *
   _DWORD *v31; // eax
   _DWORD *v32; // edi
   int v33; // eax
-  void *v34; // esi
+  const WCHAR *v34; // esi
   _DWORD *SharedData; // eax
   int v36; // eax
   char *v37; // eax
-  int *v38; // eax
-  char v39; // al
+  const WCHAR *v38; // eax
+  BOOLEAN v39; // al
   bool v40; // [esp+Dh] [ebp-53h]
   char v41; // [esp+Eh] [ebp-52h]
   char v42; // [esp+Fh] [ebp-51h]
-  char v43; // [esp+Fh] [ebp-51h]
+  BOOLEAN v43; // [esp+Fh] [ebp-51h]
   unsigned int v44; // [esp+10h] [ebp-50h]
   int v45; // [esp+10h] [ebp-50h]
   unsigned int v46; // [esp+10h] [ebp-50h]
-  _WORD *v47; // [esp+14h] [ebp-4Ch]
+  WCHAR *v47; // [esp+14h] [ebp-4Ch]
   int v48; // [esp+14h] [ebp-4Ch]
   bool v49; // [esp+18h] [ebp-48h]
   unsigned __int32 v50; // [esp+1Ch] [ebp-44h]
   int v51; // [esp+20h] [ebp-40h] BYREF
   unsigned int v52; // [esp+24h] [ebp-3Ch]
   signed __int32 v53; // [esp+28h] [ebp-38h]
-  void *Src; // [esp+2Ch] [ebp-34h]
-  UNICODE_STRING UnicodeString; // [esp+30h] [ebp-30h] BYREF
-  UNICODE_STRING v56; // [esp+38h] [ebp-28h] BYREF
+  PCWSTR SourceString; // [esp+2Ch] [ebp-34h]
+  _UNICODE_STRING UnicodeString; // [esp+30h] [ebp-30h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+38h] [ebp-28h] BYREF
   unsigned int v57; // [esp+40h] [ebp-20h] BYREF
   unsigned int *v58; // [esp+44h] [ebp-1Ch]
   int v59; // [esp+48h] [ebp-18h]
@@ -81,7 +88,7 @@ int __fastcall LdrpGetDllPath(_WORD *a1, int a2, void **a3, _DWORD *a4, _DWORD *
   int v61; // [esp+50h] [ebp-10h]
   signed __int32 v62[3]; // [esp+54h] [ebp-Ch] BYREF
 
-  Src = a1;
+  SourceString = DosFileName;
   v8 = a2 & 0xFFFFDFFF;
   v40 = (a2 & 0x2000) != 0;
   v44 = a2 & 0xFFFFDFFF;
@@ -114,9 +121,13 @@ LABEL_10:
   v10 = v8 & 0x100;
   if ( (v8 & 0x100) == 0 && !v9 )
     goto LABEL_26;
-  v11 = RtlDetermineDosPathNameType_U(a1);
-  v12 = v11 != 1 && v11 != 2 && (v11 != 6 || a1[2] != 63 || RtlDetermineDosPathNameType_U(a1 + 4) != 2);
-  v47 = a1;
+  v11 = RtlDetermineDosPathNameType_U(DosFileName);
+  v12 = v11 != RtlPathTypeUncAbsolute
+     && v11 != RtlPathTypeDriveAbsolute
+     && (v11 != RtlPathTypeLocalDevice
+      || DosFileName[2] != 63
+      || RtlDetermineDosPathNameType_U(DosFileName + 4) != RtlPathTypeDriveAbsolute);
+  v47 = DosFileName;
   if ( !v12 )
   {
     v9 = v41;
@@ -125,7 +136,7 @@ LABEL_26:
     goto LABEL_27;
   }
   if ( !v41
-    || (LdrpLogRelativePathWithAlteredSearchError(a1), v13 = LdrpPolicyBits, (LdrpPolicyBits & 0x40) == 0)
+    || (LdrpLogRelativePathWithAlteredSearchError(DosFileName), v13 = LdrpPolicyBits, (LdrpPolicyBits & 0x40) == 0)
     || (v9 = 0, v10) )
   {
     if ( v44 )
@@ -159,18 +170,18 @@ LABEL_34:
   {
     v42 = 1;
     v51 = 0;
-    v18 = _interlockedbittestandset(&RtlpCachedPathLock, 0);
+    v18 = _interlockedbittestandset((volatile signed __int32 *)&RtlpCachedPathLock, 0);
     if ( v18 )
     {
-      v19 = RtlpCachedPathLock;
+      Value = RtlpCachedPathLock.Value;
       while ( 1 )
       {
-        v50 = v19;
-        if ( (v19 & 1) == 0 )
+        v50 = Value;
+        if ( (Value & 1) == 0 )
           break;
         if ( (unsigned __int8)RtlpWaitCouldDeadlock() )
         {
-          ZwTerminateProcess(-1, -1073741749);
+          ZwTerminateProcess((HANDLE)0xFFFFFFFF, -1073741749);
           v21 = v50;
           v22 = 1;
         }
@@ -194,7 +205,10 @@ LABEL_34:
           if ( !(v21 >> 4) )
             v61 = -2;
         }
-        v20 = _InterlockedCompareExchange(&RtlpCachedPathLock, v23, v21);
+        v20 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)_InterlockedCompareExchange(
+                                                   (volatile signed __int32 *)&RtlpCachedPathLock,
+                                                   v23,
+                                                   v21);
         if ( v20 != v21 )
           goto LABEL_39;
         if ( v49 )
@@ -232,22 +246,22 @@ LABEL_34:
           do
             ZwWaitForAlertByThreadId(&RtlpCachedPathLock, 0);
           while ( (v62[0] & 4) == 0 );
-          v19 = v20;
+          Value = (signed __int32)v20;
         }
         else
         {
 LABEL_40:
-          v19 = v20;
+          Value = (signed __int32)v20;
         }
       }
-      if ( _InterlockedCompareExchange(&RtlpCachedPathLock, v19 + 1, v19) == v19 )
+      if ( _InterlockedCompareExchange((volatile signed __int32 *)&RtlpCachedPathLock, Value + 1, Value) == Value )
       {
         v17 = 0;
         goto LABEL_65;
       }
 LABEL_39:
       RtlBackoff(&v51);
-      v20 = RtlpCachedPathLock;
+      v20 = RtlpCachedPathLock.0;
       goto LABEL_40;
     }
 LABEL_65:
@@ -259,14 +273,14 @@ LABEL_65:
        || *(_DWORD *)(RtlpDllSearchPath + 56) == NtCurrentPeb()->ProcessParameters->EnvironmentVersion) )
     {
       ++*(_DWORD *)(RtlpDllSearchPath + 52);
-      v28 = _InterlockedCompareExchange(&RtlpCachedPathLock, 0, 1);
+      v28 = _InterlockedCompareExchange((volatile signed __int32 *)&RtlpCachedPathLock, 0, 1);
       if ( v28 != 1 )
       {
         while ( 1 )
         {
           v29 = (v28 & 4) != 0 || (v28 & 2) == 0 ? -1 : 3;
           v53 = v29 + v28;
-          v30 = _InterlockedCompareExchange(&RtlpCachedPathLock, v29 + v28, v28);
+          v30 = _InterlockedCompareExchange((volatile signed __int32 *)&RtlpCachedPathLock, v29 + v28, v28);
           if ( v30 == v28 )
             break;
           v28 = v30;
@@ -308,7 +322,7 @@ LABEL_90:
     *a7 = CachedPath[16];
     if ( a6 )
       qmemcpy(a6, CachedPath, 0x34u);
-    *a3 = (void *)(v45 + 80);
+    *a3 = (const WCHAR *)(v45 + 80);
     if ( a4 )
     {
       if ( v40 )
@@ -320,8 +334,8 @@ LABEL_90:
     if ( a5 )
       *a5 = *(_DWORD *)(v45 + 68);
     v34 = *a3;
-    *(_DWORD *)&v56.Length = 0;
-    v56.Buffer = 0;
+    *(_DWORD *)&DestinationString.Length = 0;
+    DestinationString.Buffer = 0;
     *(_DWORD *)&UnicodeString.Length = 0;
     UnicodeString.Buffer = 0;
     SharedData = NtCurrentPeb()->SharedData;
@@ -334,19 +348,19 @@ LABEL_90:
       v37 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
       if ( (*v37 & 0x20) != 0 )
       {
-        v38 = (int *)Src;
-        if ( !Src )
-          v38 = &dword_4B285DEC;
-        v43 = RtlCreateUnicodeString((int)&v56, v38);
-        v39 = RtlCreateUnicodeString((int)&UnicodeString, v34);
+        v38 = SourceString;
+        if ( !SourceString )
+          v38 = (const WCHAR *)&dword_4B285DEC;
+        v43 = RtlCreateUnicodeString(&DestinationString, v38);
+        v39 = RtlCreateUnicodeString(&UnicodeString, v34);
         if ( v43 )
         {
           if ( v39 )
           {
-            LdrpLogEtwEvent(0, 0, &UnicodeString, &v56);
+            LdrpLogEtwEvent(0, 0, &UnicodeString, &DestinationString);
             RtlFreeAnsiString(&UnicodeString);
           }
-          RtlFreeAnsiString(&v56);
+          RtlFreeAnsiString(&DestinationString);
         }
       }
     }

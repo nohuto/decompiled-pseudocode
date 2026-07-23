@@ -1,8 +1,8 @@
 /*
- * XREFs of PopEtBucketsAllocate @ 0x1407E9F24
+ * XREFs of PopEtBucketsAllocate @ 0x1407EA1F4
  * Callers:
- *     PopEtProcessSnapshotCreate @ 0x1407B1918 (PopEtProcessSnapshotCreate.c)
- *     PopEtAggregateGet @ 0x1407B2578 (PopEtAggregateGet.c)
+ *     PopEtProcessSnapshotCreate @ 0x1407B1B08 (PopEtProcessSnapshotCreate.c)
+ *     PopEtAggregateGet @ 0x1407B2768 (PopEtAggregateGet.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

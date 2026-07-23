@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRecordShutdownTime @ 0x140319928
+ * XREFs of ExpRecordShutdownTime @ 0x140319B18
  * Callers:
- *     ExShutdownSystem @ 0x14057E4C0 (ExShutdownSystem.c)
+ *     ExShutdownSystem @ 0x14057F4C0 (ExShutdownSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ZwFlushKey @ 0x1401B9DF0 (ZwFlushKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ZwFlushKey @ 0x1401B9F50 (ZwFlushKey.c)
  */
 
 int ExpRecordShutdownTime()

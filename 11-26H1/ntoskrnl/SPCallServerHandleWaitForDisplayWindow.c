@@ -1,14 +1,14 @@
 /*
- * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x140B23B64
+ * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x140B25F64
  * Callers:
- *     SPCall2ServerInternal @ 0x140A1AE00 (SPCall2ServerInternal.c)
+ *     SPCall2ServerInternal @ 0x140A24430 (SPCall2ServerInternal.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SPCallServerHandleWaitForDisplayWindow(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -87,7 +87,7 @@ __int64 __fastcall SPCallServerHandleWaitForDisplayWindow(__int64 a1, __int64 a2
     HIDWORD(ExpPlatformBinaryLock.WaitStatus) = 1;
     do
     {
-      v15 = KeWaitForSingleObject(&stru_140EF49E0, UserRequest, 1, 1u, 0LL);
+      v15 = KeWaitForSingleObject(&stru_140EF4D40, UserRequest, 1, 1u, 0LL);
       v16 = v15;
     }
     while ( v15 == 257 );
@@ -165,7 +165,7 @@ LABEL_41:
 LABEL_56:
           ++*(_DWORD *)a4;
           v32 = *(_QWORD *)(a4 + 8);
-          v33 = dword_140FD5058;
+          v33 = dword_140FD6058;
           if ( !v32 )
           {
             v34 = *(_DWORD *)(a4 + 4);

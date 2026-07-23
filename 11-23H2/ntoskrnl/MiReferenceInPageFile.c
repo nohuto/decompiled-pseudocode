@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceInPageFile @ 0x1402A1504
+ * XREFs of MiReferenceInPageFile @ 0x1402A1794
  * Callers:
- *     MiIssueHardFault @ 0x1402A10B0 (MiIssueHardFault.c)
- *     MiPfExecuteReadList @ 0x1407240F4 (MiPfExecuteReadList.c)
+ *     MiIssueHardFault @ 0x1402A1340 (MiIssueHardFault.c)
+ *     MiPfExecuteReadList @ 0x1407242F4 (MiPfExecuteReadList.c)
  * Callees:
- *     ObFastReferenceObject @ 0x1402A1650 (ObFastReferenceObject.c)
- *     MiComputeImagePteIndex @ 0x1402A2644 (MiComputeImagePteIndex.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     MiCanPageMove @ 0x1403BDEAC (MiCanPageMove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObFastReferenceObject @ 0x1402A18E0 (ObFastReferenceObject.c)
+ *     MiComputeImagePteIndex @ 0x1402A28D4 (MiComputeImagePteIndex.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     MiCanPageMove @ 0x1403BE08C (MiCanPageMove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiReferenceInPageFile(__int64 a1, unsigned int a2)
@@ -42,10 +42,13 @@ unsigned __int64 __fastcall MiReferenceInPageFile(__int64 a1, unsigned int a2)
     if ( v6 )
       ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(v5 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

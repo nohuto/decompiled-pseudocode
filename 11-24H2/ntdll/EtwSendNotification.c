@@ -1,124 +1,141 @@
 /*
- * XREFs of EtwSendNotification @ 0x1800EE760
+ * XREFs of EtwSendNotification @ 0x1800E9940
  * Callers:
  *     <none>
  * Callees:
- *     RtlNtStatusToDosError @ 0x18001C620 (RtlNtStatusToDosError.c)
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x180051AD4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     EtwpReceiveReplyDataBlock @ 0x1800EE9F8 (EtwpReceiveReplyDataBlock.c)
- *     _tlgKeywordOn @ 0x18010D208 (_tlgKeywordOn.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtTraceControl @ 0x180165740 (NtTraceControl.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlNtStatusToDosError @ 0x180049020 (RtlNtStatusToDosError.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x1800676B4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     EtwpReceiveReplyDataBlock @ 0x1800E9BD8 (EtwpReceiveReplyDataBlock.c)
+ *     _tlgKeywordOn @ 0x1801081C8 (_tlgKeywordOn.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtTraceControl @ 0x180163B00 (NtTraceControl.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall EtwSendNotification(__int64 a1, int a2, _BYTE *a3, __int64 a4, __int64 a5)
+ULONG __cdecl EtwSendNotification(
+        PETW_NOTIFICATION_HEADER DataBlock,
+        ULONG ReceiveDataBlockSize,
+        PVOID ReceiveDataBlock,
+        PULONG ReplyReceived,
+        PULONG ReplySizeNeeded)
 {
-  char v5; // r15
-  int v7; // esi
+  BOOLEAN ReplyRequested; // r15
+  ULONG Timeout; // esi
   char v8; // r14
   NTSTATUS v11; // eax
   __int64 v12; // r8
   __int64 v13; // r9
   ULONG v14; // edi
-  ULONG v16; // r15d
-  void *v17; // r14
-  int v18; // edi
+  ULONG ReplyCount; // r15d
+  void *Reserved2; // r14
+  ULONG v18; // edi
   __int64 v19; // r8
   _BYTE *v20; // rax
   __int64 v21; // r9
-  int v22; // [rsp+40h] [rbp-C0h]
+  ETW_NOTIFICATION_TYPE v22; // [rsp+40h] [rbp-C0h]
   ULONG v23; // [rsp+50h] [rbp-B0h] BYREF
-  int v24; // [rsp+54h] [rbp-ACh] BYREF
-  int v25; // [rsp+58h] [rbp-A8h] BYREF
-  int v26; // [rsp+5Ch] [rbp-A4h] BYREF
+  ETW_NOTIFICATION_TYPE NotificationType; // [rsp+54h] [rbp-ACh] BYREF
+  ULONG ReturnLength; // [rsp+58h] [rbp-A8h] BYREF
+  ETW_NOTIFICATION_TYPE v26; // [rsp+5Ch] [rbp-A4h] BYREF
   __int64 v27; // [rsp+60h] [rbp-A0h]
   __int64 v28; // [rsp+68h] [rbp-98h]
   _BYTE v29[128]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v30[32]; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v31; // [rsp+110h] [rbp+10h]
+  _EVENT_DATA_DESCRIPTOR v30[2]; // [rsp+F0h] [rbp-10h] BYREF
+  GUID *p_DestinationGuid; // [rsp+110h] [rbp+10h]
   __int64 v32; // [rsp+118h] [rbp+18h]
-  int *v33; // [rsp+120h] [rbp+20h]
+  ETW_NOTIFICATION_TYPE *p_NotificationType; // [rsp+120h] [rbp+20h]
   __int64 v34; // [rsp+128h] [rbp+28h]
   ULONG *v35; // [rsp+130h] [rbp+30h]
   __int64 v36; // [rsp+138h] [rbp+38h]
-  int *v37; // [rsp+140h] [rbp+40h]
+  ETW_NOTIFICATION_TYPE *v37; // [rsp+140h] [rbp+40h]
   __int64 v38; // [rsp+148h] [rbp+48h]
 
-  v5 = *(_BYTE *)(a1 + 12);
-  v7 = *(_DWORD *)(a1 + 16);
+  ReplyRequested = DataBlock->ReplyRequested;
+  Timeout = DataBlock->Timeout;
   v8 = 1;
-  v28 = a4;
-  v27 = a5;
-  v25 = 0;
-  if ( v5 == 1 )
+  v28 = (__int64)ReplyReceived;
+  v27 = (__int64)ReplySizeNeeded;
+  ReturnLength = 0;
+  if ( ReplyRequested == 1 )
   {
-    *(_QWORD *)(a1 + 24) = 0LL;
-    if ( !v7 )
-      v7 = 60000;
+    DataBlock->Reserved2 = 0LL;
+    if ( !Timeout )
+      Timeout = 60000;
   }
-  v11 = NtTraceControl(17LL, a1, *(unsigned int *)(a1 + 4), a1, 72, &v25);
+  v11 = NtTraceControl(EtwSendDataBlock, DataBlock, DataBlock->NotificationSize, DataBlock, 0x48u, &ReturnLength);
   if ( v11 )
     v14 = RtlNtStatusToDosError(v11);
   else
     v14 = 0;
-  if ( v5 )
+  if ( ReplyRequested )
   {
-    v16 = *(_DWORD *)(a1 + 20);
+    ReplyCount = DataBlock->ReplyCount;
     if ( v14 )
     {
-      if ( (unsigned int)dword_1801CC6F0 > 2 )
+      if ( (unsigned int)dword_1801CB6F0 > 2 )
       {
-        if ( (byte_1801CC700 & 0xA) == 0 || (qword_1801CC708 & 0xA) != qword_1801CC708 )
+        if ( (byte_1801CB700 & 0xA) == 0 || (qword_1801CB708 & 0xA) != qword_1801CB708 )
           v8 = 0;
         if ( v8 )
         {
-          v31 = a1 + 40;
-          v24 = *(_DWORD *)a1;
-          v33 = &v24;
+          p_DestinationGuid = &DataBlock->DestinationGuid;
+          NotificationType = DataBlock->NotificationType;
+          p_NotificationType = &NotificationType;
           v34 = 4LL;
           v36 = 4LL;
           v35 = &v23;
           v32 = 16LL;
           v23 = v14;
-          tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CC6F0, byte_1801A2550, v12, v13, 5, (__int64)v30);
+          tlgWriteTransfer_EtwEventWriteTransfer(
+            (__int64)&dword_1801CB6F0,
+            (unsigned __int8 *)dword_1801A175D,
+            v12,
+            v13,
+            5u,
+            v30);
         }
       }
     }
     else
     {
-      v17 = *(void **)(a1 + 24);
-      if ( v16 )
+      Reserved2 = (void *)DataBlock->Reserved2;
+      if ( ReplyCount )
       {
         v18 = 120;
         memset_thunk_772440563353939046(v29, 0, 0x78uLL);
-        if ( (unsigned int)dword_1801CC6F0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1801CC6F0, 10LL) )
+        if ( (unsigned int)dword_1801CB6F0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1801CB6F0, 10LL) )
         {
           v32 = 16LL;
-          v31 = a1 + 40;
-          v26 = *(_DWORD *)a1;
+          p_DestinationGuid = &DataBlock->DestinationGuid;
+          v26 = DataBlock->NotificationType;
           v35 = &v23;
-          v33 = &v26;
-          v37 = &v24;
+          p_NotificationType = &v26;
+          v37 = &NotificationType;
           v34 = 4LL;
-          v23 = v16;
+          v23 = ReplyCount;
           v36 = 4LL;
-          v24 = v7;
+          NotificationType = Timeout;
           v38 = 4LL;
-          tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CC6F0, byte_1801A259F, v19, v21, 6, (__int64)v30);
+          tlgWriteTransfer_EtwEventWriteTransfer(
+            (__int64)&dword_1801CB6F0,
+            (unsigned __int8 *)dword_1801A16F0,
+            v19,
+            v21,
+            6u,
+            v30);
         }
         v20 = v29;
-        v22 = *(_DWORD *)a1;
-        if ( *(_DWORD *)a1 != 3 )
-          v18 = a2;
-        if ( v22 != 3 )
-          v20 = a3;
-        LOBYTE(v19) = v22 == 3;
-        v14 = EtwpReceiveReplyDataBlock((_DWORD)v17, v7, v19, v16, (__int64)v20, v18, v28, v27, v22);
+        v22 = DataBlock->NotificationType;
+        if ( DataBlock->NotificationType != EtwNotificationTypeEnable )
+          v18 = ReceiveDataBlockSize;
+        if ( v22 != EtwNotificationTypeEnable )
+          v20 = ReceiveDataBlock;
+        LOBYTE(v19) = v22 == EtwNotificationTypeEnable;
+        v14 = EtwpReceiveReplyDataBlock((int)Reserved2, Timeout, v19, ReplyCount, v20, v18, v28, v27, v22);
       }
-      if ( v17 )
-        NtClose(v17);
+      if ( Reserved2 )
+        NtClose(Reserved2);
     }
   }
   return v14;

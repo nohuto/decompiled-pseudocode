@@ -1,23 +1,23 @@
 /*
- * XREFs of TtmpAcquireSessionById @ 0x1408FF5F0
+ * XREFs of TtmpAcquireSessionById @ 0x1408FF750
  * Callers:
- *     TtmGetSessionDisplayRequiredCount @ 0x1408FE5FC (TtmGetSessionDisplayRequiredCount.c)
- *     TtmNotifyConsoleUserPresent @ 0x1408FE8E4 (TtmNotifyConsoleUserPresent.c)
- *     TtmNotifyLowPowerStateExited @ 0x1408FE978 (TtmNotifyLowPowerStateExited.c)
- *     TtmNotifySessionDisplayBurst @ 0x1408FE9EC (TtmNotifySessionDisplayBurst.c)
- *     TtmNotifySessionDisplayRequiredChange @ 0x1408FEA88 (TtmNotifySessionDisplayRequiredChange.c)
- *     TtmNotifySessionPowerRequestDeleted @ 0x1408FEBD4 (TtmNotifySessionPowerRequestDeleted.c)
- *     TtmNotifySessionPowerStateChange @ 0x1408FEDF0 (TtmNotifySessionPowerStateChange.c)
- *     TtmNotifySessionTerminalInput @ 0x1408FEE7C (TtmNotifySessionTerminalInput.c)
- *     TtmSessionMonitorControl @ 0x1408FEF14 (TtmSessionMonitorControl.c)
- *     TtmiAcquireCurrentSession @ 0x1408FEFC4 (TtmiAcquireCurrentSession.c)
- *     TtmpInsertPowerRequestToSession @ 0x1408FFB48 (TtmpInsertPowerRequestToSession.c)
- *     TtmpUpdatePowerRequestAttribute @ 0x140900520 (TtmpUpdatePowerRequestAttribute.c)
+ *     TtmGetSessionDisplayRequiredCount @ 0x1408FE75C (TtmGetSessionDisplayRequiredCount.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1408FEA44 (TtmNotifyConsoleUserPresent.c)
+ *     TtmNotifyLowPowerStateExited @ 0x1408FEAD8 (TtmNotifyLowPowerStateExited.c)
+ *     TtmNotifySessionDisplayBurst @ 0x1408FEB4C (TtmNotifySessionDisplayBurst.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x1408FEBE8 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionPowerRequestDeleted @ 0x1408FED34 (TtmNotifySessionPowerRequestDeleted.c)
+ *     TtmNotifySessionPowerStateChange @ 0x1408FEF50 (TtmNotifySessionPowerStateChange.c)
+ *     TtmNotifySessionTerminalInput @ 0x1408FEFDC (TtmNotifySessionTerminalInput.c)
+ *     TtmSessionMonitorControl @ 0x1408FF074 (TtmSessionMonitorControl.c)
+ *     TtmiAcquireCurrentSession @ 0x1408FF124 (TtmiAcquireCurrentSession.c)
+ *     TtmpInsertPowerRequestToSession @ 0x1408FFCA8 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpUpdatePowerRequestAttribute @ 0x140900680 (TtmpUpdatePowerRequestAttribute.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpAcquireSessionById(_QWORD *a1, int a2)

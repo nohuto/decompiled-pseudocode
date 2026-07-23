@@ -20,7 +20,7 @@
 void __fastcall VfTargetDriversRemove(__int64 a1)
 {
   __int64 v1; // r15
-  struct _SLIST_ENTRY *v2; // rdi
+  _SLIST_ENTRY *v2; // rdi
   __int64 v3; // rax
   __int64 v4; // rsi
   __int64 v5; // rdi
@@ -54,7 +54,7 @@ void __fastcall VfTargetDriversRemove(__int64 a1)
       v9[2] = v7;
       if ( P )
         --dword_14032BAE0;
-      v2 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViTargetDriversAvl, v8, v1, 1LL);
+      v2 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViTargetDriversAvl, v8, v1, 1LL);
     }
     VfAvlCleanupLockContext(v8);
     if ( v2 )

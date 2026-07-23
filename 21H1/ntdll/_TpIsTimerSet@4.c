@@ -6,7 +6,7 @@
  *     _TppTimerpValidateTimer@12 @ 0x4B2B46DB (_TppTimerpValidateTimer@12.c)
  */
 
-BOOL __stdcall TpIsTimerSet(int a1)
+LOGICAL __cdecl TpIsTimerSet(PTP_TIMER Timer)
 {
-  return TppTimerpValidateTimer(1) && *(_QWORD *)(a1 + 200) != 0LL;
+  return TppTimerpValidateTimer(1) && *((_QWORD *)Timer + 25) != 0LL;
 }

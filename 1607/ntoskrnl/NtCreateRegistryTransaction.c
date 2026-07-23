@@ -1,19 +1,23 @@
 /*
- * XREFs of NtCreateRegistryTransaction @ 0x1404E9C94
+ * XREFs of NtCreateRegistryTransaction @ 0x1404CBD88
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
-__int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int64 a3, int a4)
+NTSTATUS __cdecl NtCreateRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes,
+        ULONG CreateOptions)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v9; // rdx
@@ -26,7 +30,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
   __int64 v16; // rdx
   __int64 v17; // r8
   __int64 v18; // r9
-  int inserted; // ebx
+  NTSTATUS inserted; // ebx
   HANDLE Handle; // [rsp+58h] [rbp-30h] BYREF
   PVOID Object[2]; // [rsp+60h] [rbp-28h] BYREF
 
@@ -37,7 +41,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
   v10 = ExAcquireRundownProtection(&CmpShutdownRundown);
   if ( v10 )
   {
-    if ( a4 )
+    if ( CreateOptions )
     {
       inserted = -1073741811;
     }
@@ -46,27 +50,36 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
       PreviousMode = KeGetCurrentThread()->PreviousMode;
       if ( PreviousMode == 1 )
       {
-        v14 = (__int64)a1;
-        if ( (unsigned __int64)a1 >= 0x7FFFFFFF0000LL )
+        v14 = (__int64)RegistryTransactionHandle;
+        if ( (unsigned __int64)RegistryTransactionHandle >= 0x7FFFFFFF0000LL )
           v14 = 0x7FFFFFFF0000LL;
         *(_QWORD *)v14 = 0LL;
       }
       else
       {
-        *a1 = 0LL;
+        *RegistryTransactionHandle = 0LL;
       }
-      inserted = ObCreateObject(PreviousMode, CmRegistryTransactionType, a3, PreviousMode, 0, 32, 0, 0, Object);
+      inserted = ObCreateObject(
+                   PreviousMode,
+                   CmRegistryTransactionType,
+                   (__int64)ObjAttributes,
+                   PreviousMode,
+                   0,
+                   32,
+                   0,
+                   0,
+                   Object);
       if ( inserted >= 0 )
       {
         v15 = Object[0];
         memset(Object[0], 0, 0x20uLL);
         memset(v15, 0, 0x20uLL);
         v15[1] = 0LL;
-        inserted = ObInsertObject(v15, 0LL, a2, 0, 0LL, &Handle);
+        inserted = ObInsertObject(v15, 0LL, DesiredAccess, 0, 0LL, &Handle);
         Object[0] = 0LL;
         if ( inserted >= 0 )
         {
-          *a1 = Handle;
+          *RegistryTransactionHandle = Handle;
           Handle = 0LL;
           inserted = 0;
         }
@@ -87,5 +100,5 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
     ExReleaseRundownProtection(&CmpShutdownRundown);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v16, v17, v18);
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

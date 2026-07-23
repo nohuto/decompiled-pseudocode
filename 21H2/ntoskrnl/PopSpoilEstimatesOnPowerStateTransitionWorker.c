@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x14077A640
+ * XREFs of PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x14077A800
  * Callers:
  *     <none>
  * Callees:
- *     PopSpoilBatteryEstimate @ 0x140781608 (PopSpoilBatteryEstimate.c)
+ *     PopSpoilBatteryEstimate @ 0x1407817C8 (PopSpoilBatteryEstimate.c)
  */
 
 __int64 PopSpoilEstimatesOnPowerStateTransitionWorker()

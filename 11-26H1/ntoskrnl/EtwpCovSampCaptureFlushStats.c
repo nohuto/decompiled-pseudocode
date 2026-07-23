@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampCaptureFlushStats @ 0x14077A220
+ * XREFs of EtwpCovSampCaptureFlushStats @ 0x14077D150
  * Callers:
- *     EtwpCoverageSamplerQuery @ 0x14093FBF0 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCoverageSamplerQuery @ 0x140A32D00 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
  */
 
 ULONG __fastcall EtwpCovSampCaptureFlushStats(__int64 a1, _DWORD *a2)
@@ -28,7 +28,8 @@ ULONG __fastcall EtwpCovSampCaptureFlushStats(__int64 a1, _DWORD *a2)
     {
       v7 = ((unsigned int)*(_QWORD *)(a1 + 8) >> 13) & 0x3FFFF;
       _BitScanReverse(&v8, v7);
-      v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v5 + ExSaPageArrays) + 8LL * (v8 - 2))
+      v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)((char *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress + v5)
+                                 + 8LL * (v8 - 2))
                      + 8 * (v7 ^ (unsigned int)(1 << v8))
                      + 8)
          + 8 * ((*(_QWORD *)(a1 + 8) >> 4) & 0x1FFLL)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFlushTbAsNeeded @ 0x140097FD0
+ * XREFs of MiFlushTbAsNeeded @ 0x140097F10
  * Callers:
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiAssignNonPagedPoolPtes @ 0x1400992E0 (MiAssignNonPagedPoolPtes.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
+ *     MiAssignNonPagedPoolPtes @ 0x140099220 (MiAssignNonPagedPoolPtes.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
  * Callees:
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiCompareTbFlushTimeStamp @ 0x14009831C (MiCompareTbFlushTimeStamp.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCanMergeTbFlushEntryBackwards @ 0x140158C88 (MiCanMergeTbFlushEntryBackwards.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiCompareTbFlushTimeStamp @ 0x14009825C (MiCompareTbFlushTimeStamp.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiCompressTbFlushList @ 0x140113B10 (MiCompressTbFlushList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCanMergeTbFlushEntryBackwards @ 0x140158D88 (MiCanMergeTbFlushEntryBackwards.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall MiFlushTbAsNeeded(__int64 BugCheckParameter2, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -92,15 +92,15 @@ void __fastcall MiFlushTbAsNeeded(__int64 BugCheckParameter2, __int64 a2, unsign
           KeBugCheckEx(0x1Au, 0x5100uLL, v5, v4 - v8, BugCheckParameter4);
         goto LABEL_14;
       }
-      if ( qword_14043A0C0 && (BugCheckParameter4 & 0x10) == 0 )
-        BugCheckParameter4 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (BugCheckParameter4 & 0x10) == 0 )
+        BugCheckParameter4 &= ~qword_14043B180;
       a2 = ZeroPte;
       v12 = HIDWORD(BugCheckParameter4);
       if ( v5 < a3 || v5 > v9 )
         goto LABEL_11;
       if ( !(unsigned int)MiPteHasShadow(BugCheckParameter2, ZeroPte) )
         break;
-      if ( !HIBYTE(word_14043A1AC) && (a2 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (a2 & 1) != 0 )
         a2 |= 0x8000000000000000uLL;
       *(_QWORD *)v5 = a2;
       MiWritePteShadow(v5);

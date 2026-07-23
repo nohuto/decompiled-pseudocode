@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlResetNtUserPfn @ 0x180096AB0
+ * XREFs of RtlResetNtUserPfn @ 0x180096AA0
  * Callers:
  *     <none>
  * Callees:
- *     LdrProtectMrdata @ 0x1800190A8 (LdrProtectMrdata.c)
- *     RtlDllShutdownInProgress @ 0x18002A640 (RtlDllShutdownInProgress.c)
+ *     LdrProtectMrdata @ 0x180019098 (LdrProtectMrdata.c)
+ *     RtlDllShutdownInProgress @ 0x18002A630 (RtlDllShutdownInProgress.c)
  */
 
 __int64 RtlResetNtUserPfn()

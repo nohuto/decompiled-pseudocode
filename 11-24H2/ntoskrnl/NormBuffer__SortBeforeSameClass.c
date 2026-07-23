@@ -1,11 +1,11 @@
 /*
- * XREFs of NormBuffer__SortBeforeSameClass @ 0x1405EFC18
+ * XREFs of NormBuffer__SortBeforeSameClass @ 0x1405ED1F8
  * Callers:
- *     NormBuffer__AppendAndSortDecomposed @ 0x1405EF61C (NormBuffer__AppendAndSortDecomposed.c)
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1405ECBFC (NormBuffer__AppendAndSortDecomposed.c)
  * Callees:
- *     NormBuffer__GetCurrentOutputChar @ 0x1405EF6C0 (NormBuffer__GetCurrentOutputChar.c)
- *     Normalization__PageLookup @ 0x140786D20 (Normalization__PageLookup.c)
- *     Normalization__TableLookup @ 0x140786D38 (Normalization__TableLookup.c)
+ *     NormBuffer__GetCurrentOutputChar @ 0x1405ECCA0 (NormBuffer__GetCurrentOutputChar.c)
+ *     Normalization__PageLookup @ 0x140786C50 (Normalization__PageLookup.c)
+ *     Normalization__TableLookup @ 0x140786C68 (Normalization__TableLookup.c)
  */
 
 char __fastcall NormBuffer__SortBeforeSameClass(_QWORD *a1, unsigned __int8 a2)

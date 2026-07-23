@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwValidateCreateData @ 0x140A7BF28
+ * XREFs of PiSwValidateCreateData @ 0x140A8D068
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x140A7B9C8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x140A8CB08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PnpValidateMultiSz @ 0x140991718 (PnpValidateMultiSz.c)
- *     PiSwValidatePropertyArray @ 0x1409DC350 (PiSwValidatePropertyArray.c)
- *     SeValidSecurityDescriptor @ 0x140A7C990 (SeValidSecurityDescriptor.c)
+ *     PnpValidateMultiSz @ 0x140952178 (PnpValidateMultiSz.c)
+ *     PiSwValidatePropertyArray @ 0x140A195A0 (PiSwValidatePropertyArray.c)
+ *     SeValidSecurityDescriptor @ 0x140A8DAC0 (SeValidSecurityDescriptor.c)
  */
 
 __int64 __fastcall PiSwValidateCreateData(__int64 a1)
@@ -24,9 +24,9 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
   __int64 v13; // rax
   unsigned int v14; // eax
   __int64 v15; // rcx
-  _WORD *i; // rcx
-  __int16 v17; // ax
-  _WORD *v18; // rdx
+  _WORD *i; // rdx
+  __int16 v17; // cx
+  _WORD *v18; // r8
   __int64 v19; // rax
   __int64 v20; // rcx
   __int64 v21; // rax
@@ -35,9 +35,9 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
   unsigned __int64 v25; // rax
   unsigned int v26; // eax
   __int64 v27; // rcx
-  _WORD *j; // rcx
-  __int16 v29; // ax
-  _WORD *v30; // rdx
+  _WORD *j; // rdx
+  __int16 v29; // cx
+  _WORD *v30; // r8
   __int64 v31; // rax
   __int64 v32; // rcx
   unsigned int v33; // edx
@@ -109,7 +109,7 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
                           v18 = i;
                           while ( v17 )
                           {
-                            if ( (unsigned __int16)(*v18 - 33) > 0x5Eu || *v18 == 44 )
+                            if ( (unsigned __int16)(v17 - 33) > 0x5Eu || v17 == 44 )
                               return v2;
                             v17 = *++v18;
                           }
@@ -139,7 +139,7 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
                             v30 = j;
                             while ( v29 )
                             {
-                              if ( (unsigned __int16)(*v30 - 33) > 0x5Eu || *v30 == 44 )
+                              if ( (unsigned __int16)(v29 - 33) > 0x5Eu || v29 == 44 )
                                 return v2;
                               v29 = *++v30;
                             }

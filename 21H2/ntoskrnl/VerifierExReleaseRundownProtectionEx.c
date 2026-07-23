@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExReleaseRundownProtectionEx @ 0x1409D1DD0
+ * XREFs of VerifierExReleaseRundownProtectionEx @ 0x1409D2DD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExReleaseRundownProtectionEx()

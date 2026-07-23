@@ -16,7 +16,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall PpmCheckCustomRun(unsigned int a1, __int64 a2, __int64 a3)
+__int64 __fastcall PpmCheckCustomRun(int a1)
 {
   unsigned __int8 CurrentIrql; // bl
   struct _KPRCB *CurrentPrcb; // rcx
@@ -26,7 +26,7 @@ __int64 __fastcall PpmCheckCustomRun(unsigned int a1, __int64 a2, __int64 a3)
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
     _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
-  PpmCheckStart(a1, a1, a3);
+  PpmCheckStart(a1);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

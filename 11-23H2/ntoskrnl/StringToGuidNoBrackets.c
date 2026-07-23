@@ -1,7 +1,7 @@
 /*
- * XREFs of StringToGuidNoBrackets @ 0x1403990A4
+ * XREFs of StringToGuidNoBrackets @ 0x140399284
  * Callers:
- *     EtwpQueryPartitionRegistryInformation @ 0x140398E64 (EtwpQueryPartitionRegistryInformation.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x140399044 (EtwpQueryPartitionRegistryInformation.c)
  * Callees:
  *     <none>
  */

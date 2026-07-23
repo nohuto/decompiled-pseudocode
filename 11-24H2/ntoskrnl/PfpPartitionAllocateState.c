@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPartitionAllocateState @ 0x14074736C
+ * XREFs of PfpPartitionAllocateState @ 0x14074565C
  * Callers:
- *     PfpPartitionCreate @ 0x1405CC80C (PfpPartitionCreate.c)
+ *     PfpPartitionCreate @ 0x1405C9F7C (PfpPartitionCreate.c)
  * Callees:
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14045AE50 (ExWaitForRundownProtectionReleaseCacheAware.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x1409A4220 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1404501F0 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1408ACFB0 (ExAllocateCacheAwareRundownProtection.c)
  */
 
 __int64 __fastcall PfpPartitionAllocateState(__int64 a1)

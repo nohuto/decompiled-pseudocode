@@ -1,8 +1,8 @@
 /*
- * XREFs of LZ4HC_countPattern @ 0x1800F83EC
+ * XREFs of LZ4HC_countPattern @ 0x1800F2F5C
  * Callers:
- *     LZ4HC_compress_generic @ 0x1800FBC4C (LZ4HC_compress_generic.c)
- *     LZ4HC_compress_generic_dictCtx @ 0x1800FE5EC (LZ4HC_compress_generic_dictCtx.c)
+ *     LZ4HC_compress_generic @ 0x1800F6B7C (LZ4HC_compress_generic.c)
+ *     LZ4HC_compress_generic_dictCtx @ 0x1800F951C (LZ4HC_compress_generic_dictCtx.c)
  * Callees:
  *     <none>
  */

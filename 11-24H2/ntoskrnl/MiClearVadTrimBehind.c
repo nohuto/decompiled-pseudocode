@@ -1,11 +1,11 @@
 /*
- * XREFs of MiClearVadTrimBehind @ 0x1403FD3E0
+ * XREFs of MiClearVadTrimBehind @ 0x1403DAD00
  * Callers:
- *     MiDeprioritizeVad @ 0x1403FD204 (MiDeprioritizeVad.c)
- *     MiInitializePartialVad @ 0x140A246FC (MiInitializePartialVad.c)
+ *     MiDeprioritizeVad @ 0x1403DAB20 (MiDeprioritizeVad.c)
+ *     MiInitializePartialVad @ 0x14091A104 (MiInitializePartialVad.c)
  * Callees:
- *     MiLockVadCore @ 0x1403FD500 (MiLockVadCore.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockVadCore @ 0x1403DAE20 (MiLockVadCore.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiClearVadTrimBehind(__int64 a1, int a2)

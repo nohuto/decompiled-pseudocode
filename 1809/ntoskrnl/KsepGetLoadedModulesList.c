@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepGetLoadedModulesList @ 0x14072876C
+ * XREFs of KsepGetLoadedModulesList @ 0x14072995C
  * Callers:
- *     KseRegisterShimEx @ 0x140728420 (KseRegisterShimEx.c)
- *     KsepResolveApplicableShimsForDriver @ 0x140848564 (KsepResolveApplicableShimsForDriver.c)
+ *     KseRegisterShimEx @ 0x140729610 (KseRegisterShimEx.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1408497C4 (KsepResolveApplicableShimsForDriver.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     KsepPoolFreePaged @ 0x1400F4D34 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4D5C (KsepPoolAllocatePaged.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
  */
 
 __int64 __fastcall KsepGetLoadedModulesList(int **a1)

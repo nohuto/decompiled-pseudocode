@@ -1,7 +1,7 @@
 /*
- * XREFs of slide_hash @ 0x180155AEC
+ * XREFs of slide_hash @ 0x1801559BC
  * Callers:
- *     fill_window @ 0x18010B76C (fill_window.c)
+ *     fill_window @ 0x18010B0DC (fill_window.c)
  * Callees:
  *     <none>
  */

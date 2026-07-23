@@ -10,10 +10,7 @@
 
 NTSTATUS __stdcall ZwDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectAttributes, v1, v2);
+  return KiServiceInternal(ObjectAttributes);
 }

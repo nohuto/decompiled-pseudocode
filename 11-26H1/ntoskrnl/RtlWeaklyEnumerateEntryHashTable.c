@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWeaklyEnumerateEntryHashTable @ 0x1403DA910
+ * XREFs of RtlWeaklyEnumerateEntryHashTable @ 0x1403DDB00
  * Callers:
  *     <none>
  * Callees:
@@ -16,7 +16,7 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlWeaklyEnumerateEntryHashTable(
   unsigned int v6; // edi
   PRTL_DYNAMIC_HASH_TABLE_ENTRY ChainHead; // r9
   PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *Flink; // rcx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *Flink; // rcx
   struct _LIST_ENTRY *v10; // rcx
   struct _LIST_ENTRY *Blink; // r10
   _LIST_ENTRY *v12; // rcx
@@ -55,7 +55,7 @@ LABEL_2:
   }
   do
   {
-    Flink = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)result->Linkage.Flink;
+    Flink = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)result->Linkage.Flink;
     result = Flink;
     if ( Flink == ChainHead )
     {

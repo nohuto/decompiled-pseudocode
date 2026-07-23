@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpCleanMap @ 0x140610770
+ * XREFs of HvpCleanMap @ 0x140610824
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
- *     HvpBuildMapForLoaderHive @ 0x140563D50 (HvpBuildMapForLoaderHive.c)
- *     HvpBuildMap @ 0x140610554 (HvpBuildMap.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
+ *     HvpBuildMapForLoaderHive @ 0x140564290 (HvpBuildMapForLoaderHive.c)
+ *     HvpBuildMap @ 0x140610608 (HvpBuildMap.c)
  * Callees:
- *     HvpFreeMap @ 0x1404EA6E8 (HvpFreeMap.c)
+ *     HvpFreeMap @ 0x1404CC7DC (HvpFreeMap.c)
  */
 
 __int64 __fastcall HvpCleanMap(__int64 a1)

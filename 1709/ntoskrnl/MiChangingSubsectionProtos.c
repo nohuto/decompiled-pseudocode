@@ -24,9 +24,9 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
   bool v10; // zf
   int v11; // r12d
   __int64 **v12; // rsi
-  unsigned __int64 v13; // rbp
-  __int64 v14; // rax
-  __int64 v15; // rax
+  _RTL_BALANCED_NODE *v13; // rbp
+  PRTL_BALANCED_NODE v14; // rax
+  PRTL_BALANCED_NODE v15; // rax
   volatile LONG *SpinLock; // [rsp+20h] [rbp-48h]
   KIRQL v18; // [rsp+70h] [rbp+8h]
   int v20; // [rsp+88h] [rbp+20h]
@@ -85,7 +85,7 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
           v14 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
           v13 = v14;
           if ( v14 )
-            KeAbPreWait(v14);
+            KeAbPreWait((__int64)v14);
         }
       }
     }
@@ -118,13 +118,13 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
     if ( v13 )
     {
       KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, v13, 0);
-      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v13);
+      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, (unsigned __int64)v13);
       v9 = (volatile LONG *)(v3 + 72);
     }
   }
   v15 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
   if ( v15 )
-    *(_BYTE *)(v15 + 26) |= 1u;
+    BYTE2(v15[1].Left) |= 1u;
 LABEL_34:
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
   __writecr8(v18);

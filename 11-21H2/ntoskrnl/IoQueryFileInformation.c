@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopQueryXxxInformation @ 0x14071E6BC (IopQueryXxxInformation.c)
+ *     sub_14071E6BC @ 0x14071E6BC (sub_14071E6BC.c)
  */
 
 NTSTATUS __stdcall IoQueryFileInformation(
@@ -13,5 +13,5 @@ NTSTATUS __stdcall IoQueryFileInformation(
         PVOID FileInformation,
         PULONG ReturnedLength)
 {
-  return IopQueryXxxInformation(FileObject, (__int64)FileInformation, (__int64)ReturnedLength, 1);
+  return sub_14071E6BC(FileObject, (__int64)FileInformation, (__int64)ReturnedLength, 1);
 }

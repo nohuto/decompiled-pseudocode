@@ -1,8 +1,8 @@
 /*
- * XREFs of PpvUtilIsHardwareBeingVerified @ 0x140B82C58
+ * XREFs of PpvUtilIsHardwareBeingVerified @ 0x140B84C58
  * Callers:
- *     VfFailDeviceNode @ 0x1404AB270 (VfFailDeviceNode.c)
- *     VfIsVerificationEnabled @ 0x1404AE5A0 (VfIsVerificationEnabled.c)
+ *     VfFailDeviceNode @ 0x1404A5500 (VfFailDeviceNode.c)
+ *     VfIsVerificationEnabled @ 0x1404A8EB0 (VfIsVerificationEnabled.c)
  * Callees:
  *     <none>
  */

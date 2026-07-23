@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpIsNameInExpressionPrivate @ 0x14030C5A0
+ * XREFs of RtlpIsNameInExpressionPrivate @ 0x14030C830
  * Callers:
- *     RtlIsNameInExpression @ 0x14030C360 (RtlIsNameInExpression.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x14030C4E0 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlIsNameInExpression @ 0x14030C5F0 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x14030C770 (RtlIsNameInUnUpcasedExpression.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     RtlDoesNameContainWildCards @ 0x14033F2A0 (RtlDoesNameContainWildCards.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     RtlDoesNameContainWildCards @ 0x14033F530 (RtlDoesNameContainWildCards.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -208,7 +208,7 @@ LABEL_20:
           Pool2 = (_OWORD *)ExAllocatePool2(64LL, 8LL * ((v37 >> 1) + 1), 1852986182LL);
           v13 = Pool2;
           if ( !Pool2 )
-            RtlRaiseStatus(3221225495LL);
+            RtlRaiseStatus(-1073741801);
           v8 = v61;
           v12 = v67;
           v43 = (_OWORD *)((char *)Pool2 + 4 * v41 + 4);

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDiskFullWarningWorker @ 0x140854B60
+ * XREFs of CmpDiskFullWarningWorker @ 0x14085AE70
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseHardError @ 0x140B06D30 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExRaiseHardError @ 0x140B08E60 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpDiskFullWarningWorker(void *a1)

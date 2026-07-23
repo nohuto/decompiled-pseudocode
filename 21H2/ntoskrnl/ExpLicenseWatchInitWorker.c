@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpLicenseWatchInitWorker @ 0x140A42344
+ * XREFs of ExpLicenseWatchInitWorker @ 0x140A43344
  * Callers:
- *     ExpWatchProductTypeInitialization @ 0x140A41C04 (ExpWatchProductTypeInitialization.c)
+ *     ExpWatchProductTypeInitialization @ 0x140A42C04 (ExpWatchProductTypeInitialization.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KiSwInterruptPresent @ 0x140A423F0 (KiSwInterruptPresent.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KiSwInterruptPresent @ 0x140A433F0 (KiSwInterruptPresent.c)
  */
 
 __int64 ExpLicenseWatchInitWorker()
@@ -27,7 +27,7 @@ __int64 ExpLicenseWatchInitWorker()
   *(_QWORD *)(v0 + 112) = 0LL;
   v3 = MEMORY[0xFFFFF780000002D4] >> 1;
   v4 = MEMORY[0xFFFFF780000002D4] >> 1;
-  v5 = ((_DWORD)InitSafeBootMode != 0) & ((int)KiSwInterruptPresent() < 0) | v3;
+  v5 = (InitSafeBootMode != 0) & ((int)KiSwInterruptPresent() < 0) | v3;
   v6 = __rdtsc() >> 3;
   result = 100 * ((unsigned int)v6 / 0x64);
   if ( (unsigned int)v6 % 0x64 > 3 )

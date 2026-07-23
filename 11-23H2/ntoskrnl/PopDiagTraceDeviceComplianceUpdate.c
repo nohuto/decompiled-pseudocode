@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDeviceComplianceUpdate @ 0x1405928C8
+ * XREFs of PopDiagTraceDeviceComplianceUpdate @ 0x140592DB8
  * Callers:
- *     PopPdcUpdateDeviceCompliance @ 0x140998184 (PopPdcUpdateDeviceCompliance.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x140998384 (PopPdcUpdateDeviceCompliance.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDeviceComplianceUpdate(int a1, int a2)

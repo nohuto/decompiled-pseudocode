@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwSetInformationEnlistment()
+NTSTATUS __cdecl ZwSetInformationEnlistment(
+        HANDLE EnlistmentHandle,
+        ENLISTMENT_INFORMATION_CLASS EnlistmentInformationClass,
+        PVOID EnlistmentInformation,
+        ULONG EnlistmentInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 398LL;
+  result = 398;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

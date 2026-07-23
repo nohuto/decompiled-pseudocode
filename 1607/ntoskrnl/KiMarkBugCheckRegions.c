@@ -1,11 +1,11 @@
 /*
- * XREFs of KiMarkBugCheckRegions @ 0x140156FC4
+ * XREFs of KiMarkBugCheckRegions @ 0x140157534
  * Callers:
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
  * Callees:
- *     MmQueryApiSetSchema @ 0x1400B2E24 (MmQueryApiSetSchema.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     MmIsAddressValid @ 0x1401E6948 (MmIsAddressValid.c)
+ *     MmQueryApiSetSchema @ 0x1400B0D70 (MmQueryApiSetSchema.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     MmIsAddressValid @ 0x1401E6774 (MmIsAddressValid.c)
  */
 
 char __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, __int64 a3, int a4)

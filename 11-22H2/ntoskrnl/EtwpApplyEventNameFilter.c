@@ -152,9 +152,9 @@ char __fastcall EtwpApplyEventNameFilter(
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         LODWORD(v22) = 4;
@@ -196,10 +196,10 @@ char __fastcall EtwpApplyEventNameFilter(
             {
               if ( a6 < 2u )
               {
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v31 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
                   {
                     CurrentPrcb = KeGetCurrentPrcb();
                     v33 = CurrentPrcb->SchedulerAssist;
@@ -228,10 +228,10 @@ LABEL_66:
   }
   if ( a6 < 2u )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v36 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
       {
         v37 = KeGetCurrentPrcb();
         v38 = v37->SchedulerAssist;

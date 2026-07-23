@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpHandlePageFileOpenNotification @ 0x1407595E4
+ * XREFs of CmpHandlePageFileOpenNotification @ 0x14075A7D4
  * Callers:
- *     NtInitializeRegistry @ 0x14071DCD0 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14071EF70 (NtInitializeRegistry.c)
  * Callees:
  *     CmpRecheckHiveVolumePolicy @ 0x14000EDFC (CmpRecheckHiveVolumePolicy.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpVolumeContextSendDeviceUsageNotification @ 0x140759740 (CmpVolumeContextSendDeviceUsageNotification.c)
- *     CmpVolumeManagerGetContextForFilePath @ 0x140759810 (CmpVolumeManagerGetContextForFilePath.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A84 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmpGetNextActiveHive @ 0x1405B2474 (CmpGetNextActiveHive.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x14075A930 (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x14075AA00 (CmpVolumeManagerGetContextForFilePath.c)
  */
 
 __int64 CmpHandlePageFileOpenNotification()

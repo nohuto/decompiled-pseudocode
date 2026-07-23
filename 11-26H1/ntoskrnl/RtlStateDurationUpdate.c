@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStateDurationUpdate @ 0x1404CC008
+ * XREFs of RtlStateDurationUpdate @ 0x1404C5A38
  * Callers:
- *     PoEnergyContextUpdateComponentPower @ 0x1409505D0 (PoEnergyContextUpdateComponentPower.c)
- *     PopEtEnergyContextSetState @ 0x140950B44 (PopEtEnergyContextSetState.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1409CBF10 (PoEnergyContextUpdateComponentPower.c)
+ *     PopEtEnergyContextSetState @ 0x1409CC484 (PopEtEnergyContextSetState.c)
  * Callees:
  *     <none>
  */

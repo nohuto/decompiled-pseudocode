@@ -1,14 +1,14 @@
 /*
- * XREFs of BgkResumePrepare @ 0x140A99A74
+ * XREFs of BgkResumePrepare @ 0x140A998E4
  * Callers:
- *     PopAllocateHiberContext @ 0x140987D38 (PopAllocateHiberContext.c)
- *     PopMarkComponentsBootPhase @ 0x140AA360C (PopMarkComponentsBootPhase.c)
+ *     PopAllocateHiberContext @ 0x140987F38 (PopAllocateHiberContext.c)
+ *     PopMarkComponentsBootPhase @ 0x140AA347C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
  *     BgkpLockBgfxCodeSection @ 0x140AEEB60 (BgkpLockBgfxCodeSection.c)
  *     BgkpUnlockBgfxCodeSection @ 0x140AEF590 (BgkpUnlockBgfxCodeSection.c)
- *     BgGetContext @ 0x140AF126C (BgGetContext.c)
- *     BgMarkHiberPhase @ 0x140AF1344 (BgMarkHiberPhase.c)
+ *     BgGetContext @ 0x140AF127C (BgGetContext.c)
+ *     BgMarkHiberPhase @ 0x140AF1354 (BgMarkHiberPhase.c)
  */
 
 __int64 __fastcall BgkResumePrepare(PVOID MemoryMap)

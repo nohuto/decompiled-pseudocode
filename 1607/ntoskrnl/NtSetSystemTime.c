@@ -1,24 +1,24 @@
 /*
- * XREFs of NtSetSystemTime @ 0x1406AD104
+ * XREFs of NtSetSystemTime @ 0x1406AD23C
  * Callers:
- *     ExpSetTimeZoneInformation @ 0x1406AC2D0 (ExpSetTimeZoneInformation.c)
+ *     ExpSetTimeZoneInformation @ 0x1406AC408 (ExpSetTimeZoneInformation.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ExLocalTimeToSystemTime @ 0x1400A4D0C (ExLocalTimeToSystemTime.c)
- *     RtlTimeFieldsToTime @ 0x1400A4D20 (RtlTimeFieldsToTime.c)
- *     RtlTimeToTimeFields @ 0x1400AADE8 (RtlTimeToTimeFields.c)
- *     ExSystemTimeToLocalTime @ 0x1400B53D0 (ExSystemTimeToLocalTime.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
- *     KeSetSystemTime @ 0x140126824 (KeSetSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x140131E00 (PoNotifySystemTimeSet.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ExLocalTimeToSystemTime @ 0x1400A3284 (ExLocalTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x1400A3298 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x1400A9368 (RtlTimeToTimeFields.c)
+ *     ExSystemTimeToLocalTime @ 0x1400B3208 (ExSystemTimeToLocalTime.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
+ *     KeSetSystemTime @ 0x140126D94 (KeSetSystemTime.c)
+ *     PoNotifySystemTimeSet @ 0x140132370 (PoNotifySystemTimeSet.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExpSetSystemTime @ 0x1403D230C (ExpSetSystemTime.c)
- *     ExAcquireTimeRefreshLock @ 0x1403EA8B0 (ExAcquireTimeRefreshLock.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ExpRefreshTimeZoneInformation @ 0x14055EB0C (ExpRefreshTimeZoneInformation.c)
- *     SeAuditSystemTimeChange @ 0x14068E50C (SeAuditSystemTimeChange.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExAcquireTimeRefreshLock @ 0x1403EBEE0 (ExAcquireTimeRefreshLock.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14055F04C (ExpRefreshTimeZoneInformation.c)
+ *     SeAuditSystemTimeChange @ 0x14068E5F0 (SeAuditSystemTimeChange.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER NewSystemTime)
@@ -32,7 +32,7 @@ NTSTATUS __stdcall NtSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER New
   LARGE_INTEGER SystemTimea; // [rsp+30h] [rbp-38h] BYREF
   LARGE_INTEGER v12; // [rsp+38h] [rbp-30h] BYREF
   LARGE_INTEGER Time; // [rsp+40h] [rbp-28h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-20h] BYREF
 
   if ( !SystemTime )
   {

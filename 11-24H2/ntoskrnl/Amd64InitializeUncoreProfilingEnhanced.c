@@ -1,14 +1,14 @@
 /*
- * XREFs of Amd64InitializeUncoreProfilingEnhanced @ 0x14056BBD8
+ * XREFs of Amd64InitializeUncoreProfilingEnhanced @ 0x140569068
  * Callers:
- *     Amd64InitializeUncoreProfiling @ 0x14056BBB0 (Amd64InitializeUncoreProfiling.c)
+ *     Amd64InitializeUncoreProfiling @ 0x140569040 (Amd64InitializeUncoreProfiling.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     Amd64InitializeCacheStatusEnhanced @ 0x14056B484 (Amd64InitializeCacheStatusEnhanced.c)
- *     Amd64InitializeDataFabricStatusEnhanced @ 0x14056B8BC (Amd64InitializeDataFabricStatusEnhanced.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     Amd64InitializeCacheStatusEnhanced @ 0x140568914 (Amd64InitializeCacheStatusEnhanced.c)
+ *     Amd64InitializeDataFabricStatusEnhanced @ 0x140568D4C (Amd64InitializeDataFabricStatusEnhanced.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void Amd64InitializeUncoreProfilingEnhanced()
@@ -22,8 +22,8 @@ void Amd64InitializeUncoreProfilingEnhanced()
   __int64 v11; // rcx
   __int64 v12; // r8
   __int64 v13; // r9
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-40h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-20h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-40h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-20h] BYREF
 
   _RAX = 0x80000000LL;
   __asm { cpuid }

@@ -1,32 +1,32 @@
 /*
- * XREFs of IopFreeBackpocketIrp @ 0x1405CA874
+ * XREFs of IopFreeBackpocketIrp @ 0x1405CD144
  * Callers:
- *     IopFreeReserveIrp @ 0x14050D934 (IopFreeReserveIrp.c)
+ *     IopFreeReserveIrp @ 0x1405073A4 (IopFreeReserveIrp.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
-LONG __fastcall IopFreeBackpocketIrp(_QWORD *a1, char a2)
+unsigned int __fastcall IopFreeBackpocketIrp(_KPROCESS *a1, char a2)
 {
-  struct _KEVENT *p_InGlobalUpdateVpThreadPriorityList; // rcx
-  LONG result; // eax
+  struct _KEVENT *p_WaitBlockList; // rcx
+  unsigned int result; // eax
 
-  if ( a1 == (_QWORD *)IopSessionNotificationLock.KernelWaitTime )
+  if ( a1 == IopPerfIoTrackingLock.ApcState.Process )
   {
-    p_InGlobalUpdateVpThreadPriorityList = (struct _KEVENT *)&IopSessionNotificationLock.InGlobalUpdateVpThreadPriorityList;
-    IopSessionNotificationLock.GlobalUpdateVpThreadPriorityListEntry.Flink = 0LL;
-    _InterlockedExchange((volatile __int32 *)&IopSessionNotificationLock.UserWaitTime, 0);
-    return KeSetEvent(p_InGlobalUpdateVpThreadPriorityList, a2, 0);
+    p_WaitBlockList = (struct _KEVENT *)&IopPerfIoTrackingLock.WaitBlockList;
+    IopPerfIoTrackingLock.WaitStatus = 0LL;
+    _InterlockedExchange((volatile __int32 *)&IopPerfIoTrackingLock.ApcStateFill[40], 0);
+    return KeSetEvent(p_WaitBlockList, a2, 0);
   }
-  if ( a1 == IopSessionNotificationLock.KernelShadowStackInitial )
+  if ( a1 == (_KPROCESS *)IopPerfIoTrackingLock.Queue )
   {
-    p_InGlobalUpdateVpThreadPriorityList = (struct _KEVENT *)&IopSessionNotificationLock.ExtendedFeatureDisableMask;
-    IopSessionNotificationLock.KernelShadowStackLimit.AllFields = 0LL;
-    _InterlockedExchange((volatile __int32 *)&IopSessionNotificationLock.KernelShadowStackBase, 0);
-    return KeSetEvent(p_InGlobalUpdateVpThreadPriorityList, a2, 0);
+    p_WaitBlockList = (struct _KEVENT *)&IopPerfIoTrackingLock.Timer;
+    IopPerfIoTrackingLock.RelativeTimerBias = 0LL;
+    _InterlockedExchange((volatile __int32 *)&IopPerfIoTrackingLock.Teb, 0);
+    return KeSetEvent(p_WaitBlockList, a2, 0);
   }
-  result = IopSessionNotificationLock.Spare35[1];
-  *a1 = IopSessionNotificationLock.Spare35[1];
-  IopSessionNotificationLock.Spare35[1] = (unsigned __int64)a1;
+  result = IopPerfIoTrackingLock.Timer.DueTime.LowPart;
+  *(_QWORD *)&a1->Header.Lock = IopPerfIoTrackingLock.Timer.DueTime.QuadPart;
+  IopPerfIoTrackingLock.Timer.DueTime.QuadPart = (unsigned __int64)a1;
   return result;
 }

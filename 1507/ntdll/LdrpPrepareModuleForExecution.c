@@ -25,7 +25,7 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
   char v11; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0;
-  if ( (void *)qword_180143090 == NtCurrentTeb()->ClientId.UniqueThread )
+  if ( LdrpDllNotificationLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
     return (unsigned int)v2;
   v5 = *(_QWORD *)(a1 + 152);
   switch ( *(_DWORD *)(v5 + 56) )
@@ -70,7 +70,7 @@ LABEL_9:
         1687,
         (unsigned int)"LdrpPrepareModuleForExecution",
         1,
-        "Failed to load for appcompat reasons\n");
+        (__int64)"Failed to load for appcompat reasons\n");
       v10 = LdrpDebugFlags;
     }
     if ( (v10 & 0x40) != 0 )

@@ -2,7 +2,7 @@
  * XREFs of EtwpFinalizeLogFileHeader @ 0x18004C0E8
  * Callers:
  *     EtwpLogger @ 0x18004C5E0 (EtwpLogger.c)
- *     EtwpBufferingModeFlush @ 0x180110C60 (EtwpBufferingModeFlush.c)
+ *     EtwpBufferingModeFlush @ 0x180110C20 (EtwpBufferingModeFlush.c)
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
@@ -12,32 +12,32 @@
  *     EtwpFinalizeRelogFileHeaderStats @ 0x180087DA8 (EtwpFinalizeRelogFileHeaderStats.c)
  *     EtwpWriteRemainingCompressedData @ 0x1800882BC (EtwpWriteRemainingCompressedData.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtReadFile @ 0x18009D700 (NtReadFile.c)
- *     NtWriteFile @ 0x18009D740 (NtWriteFile.c)
- *     ZwSetInformationFile @ 0x18009DB20 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x18009DF60 (ZwQueryVolumeInformationFile.c)
+ *     NtReadFile @ 0x18009D6C0 (NtReadFile.c)
+ *     NtWriteFile @ 0x18009D700 (NtWriteFile.c)
+ *     ZwSetInformationFile @ 0x18009DAE0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x18009DF20 (ZwQueryVolumeInformationFile.c)
  */
 
 __int64 __fastcall EtwpFinalizeLogFileHeader(__int64 a1, char a2)
 {
   unsigned int v2; // edi
   bool v4; // zf
-  NTSTATUS VolumeInformationFile; // esi
-  unsigned int v7; // r15d
-  __int64 Heap; // r14
-  __int64 v9; // rcx
+  int v6; // esi
+  ULONG Length; // r15d
+  unsigned int *Buffer; // r14
+  void *v9; // rcx
   unsigned int v10; // esi
   int v11; // eax
-  int v12; // eax
+  NTSTATUS v12; // eax
   int v13; // ecx
   unsigned __int64 v14; // rdx
   int v16; // [rsp+50h] [rbp-29h] BYREF
   int v17; // [rsp+54h] [rbp-25h] BYREF
-  __int64 v18; // [rsp+58h] [rbp-21h] BYREF
-  unsigned __int64 v19; // [rsp+60h] [rbp-19h] BYREF
-  _BYTE v20[16]; // [rsp+68h] [rbp-11h] BYREF
-  _BYTE v21[16]; // [rsp+78h] [rbp-1h] BYREF
-  _BYTE v22[20]; // [rsp+88h] [rbp+Fh] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+58h] [rbp-21h] BYREF
+  unsigned __int64 FileInformation; // [rsp+60h] [rbp-19h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-11h] BYREF
+  _IO_STATUS_BLOCK v21; // [rsp+78h] [rbp-1h] BYREF
+  _BYTE FsInformation[20]; // [rsp+88h] [rbp+Fh] BYREF
   int v23; // [rsp+9Ch] [rbp+23h]
 
   v2 = 0;
@@ -52,51 +52,56 @@ LABEL_2:
       || *(_QWORD *)(a1 + 520)
       || (*(_DWORD *)(a1 + 324) & 0x1000) != 0 )
     {
-      v7 = *(_DWORD *)(a1 + 208);
+      Length = *(_DWORD *)(a1 + 208);
     }
     else
     {
-      VolumeInformationFile = ZwQueryVolumeInformationFile(*(_QWORD *)(a1 + 144), v20, v22, 24LL, 3);
-      if ( VolumeInformationFile < 0 )
+      v6 = ZwQueryVolumeInformationFile(
+             *(HANDLE *)(a1 + 144),
+             &IoStatusBlock,
+             FsInformation,
+             0x18u,
+             FileFsSizeInformation);
+      if ( v6 < 0 )
         goto LABEL_23;
-      v7 = -v23 & (v23 + 7);
+      Length = -v23 & (v23 + 7);
     }
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v7);
-    if ( !Heap )
+    Buffer = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
+    if ( !Buffer )
     {
-      VolumeInformationFile = -1073741801;
-      return RtlNtStatusToDosError(VolumeInformationFile);
+      v6 = -1073741801;
+      return RtlNtStatusToDosError(v6);
     }
-    v9 = *(_QWORD *)(a1 + 144);
-    v18 = 0LL;
-    VolumeInformationFile = NtReadFile(v9, 0LL, 0LL, 0LL, v20, Heap, v7, &v18, 0LL);
-    if ( VolumeInformationFile < 0 )
+    v9 = *(void **)(a1 + 144);
+    ByteOffset.QuadPart = 0LL;
+    v6 = NtReadFile(v9, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
+    if ( v6 < 0 )
       goto LABEL_22;
-    v10 = *(_DWORD *)Heap;
-    if ( v7 < *(_DWORD *)Heap )
-      v10 = v7;
+    v10 = *Buffer;
+    if ( Length < *Buffer )
+      v10 = Length;
     if ( !a2 )
     {
-      *(_DWORD *)(Heap + 116) = *(_DWORD *)(a1 + 204);
-      *(_DWORD *)(Heap + 140) = *(_DWORD *)(a1 + 392);
-      *(_DWORD *)(Heap + 152) += *(_DWORD *)(a1 + 384);
-      *(_DWORD *)(Heap + 380) += *(_DWORD *)(a1 + 388);
+      Buffer[29] = *(_DWORD *)(a1 + 204);
+      Buffer[35] = *(_DWORD *)(a1 + 392);
+      Buffer[38] += *(_DWORD *)(a1 + 384);
+      Buffer[95] += *(_DWORD *)(a1 + 388);
       v11 = *(_DWORD *)(a1 + 324);
       if ( (v11 & 0x10000) != 0 )
       {
         if ( (v11 & 0x1000) != 0 )
-          EtwpFinalizeRelogFileHeaderStats(a1, Heap, v10, v17, v16);
+          EtwpFinalizeRelogFileHeaderStats(a1, (_DWORD)Buffer, v10, v17, v16);
       }
       else
       {
-        *(_QWORD *)(Heap + 120) = MEMORY[0x7FFE0014];
+        *((_QWORD *)Buffer + 15) = MEMORY[0x7FFE0014];
       }
     }
-    *(_DWORD *)(Heap + 48) = *(_DWORD *)(Heap + 4);
-    EtwpAddReloggedHeaderExtensionEvents(a1, Heap, v10);
-    EtwpAddProviderTrackingInfo(a1, Heap, v10);
-    v12 = NtWriteFile(*(_QWORD *)(a1 + 144), 0LL, 0LL, 0LL, v20, Heap, v10, &v18, 0LL);
-    VolumeInformationFile = v12;
+    Buffer[12] = Buffer[1];
+    EtwpAddReloggedHeaderExtensionEvents(a1, Buffer, v10);
+    EtwpAddProviderTrackingInfo(a1, (__int64)Buffer, v10);
+    v12 = NtWriteFile(*(HANDLE *)(a1 + 144), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, v10, &ByteOffset, 0LL);
+    v6 = v12;
     if ( a2 )
       goto LABEL_22;
     if ( v12 < 0 )
@@ -115,24 +120,24 @@ LABEL_2:
                 * ((-(__int64)((*(_DWORD *)(a1 + 324) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
       {
 LABEL_22:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
         goto LABEL_23;
       }
     }
-    v19 = v14;
+    FileInformation = v14;
     if ( v14 )
-      VolumeInformationFile = ZwSetInformationFile(*(_QWORD *)(a1 + 144), v21, &v19, 8LL, 20);
+      v6 = ZwSetInformationFile(*(HANDLE *)(a1 + 144), &v21, &FileInformation, 8u, FileEndOfFileInformation);
     goto LABEL_22;
   }
-  VolumeInformationFile = EtwpWriteRemainingCompressedData(a1, &v17, &v16);
-  if ( VolumeInformationFile >= 0 )
+  v6 = EtwpWriteRemainingCompressedData(a1, &v17, &v16);
+  if ( v6 >= 0 )
   {
     *(_DWORD *)(a1 + 392) += v17;
     *(_DWORD *)(a1 + 388) += v16;
     goto LABEL_2;
   }
 LABEL_23:
-  if ( VolumeInformationFile )
-    return RtlNtStatusToDosError(VolumeInformationFile);
+  if ( v6 )
+    return RtlNtStatusToDosError(v6);
   return v2;
 }

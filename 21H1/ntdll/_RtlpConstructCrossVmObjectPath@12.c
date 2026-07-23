@@ -11,60 +11,56 @@
  *     _RtlStringFromGUIDEx@12 @ 0x4B2ED180 (_RtlStringFromGUIDEx@12.c)
  */
 
-int __fastcall RtlpConstructCrossVmObjectPath(int *a1, int a2, int a3)
+NTSTATUS __fastcall RtlpConstructCrossVmObjectPath(_UNICODE_STRING *a1, GUID *a2, PGUID Guid)
 {
-  int StringRoutine; // edi
-  int appended; // esi
-  int *v5; // ecx
-  UNICODE_STRING v7; // [esp+Ch] [ebp-20h] BYREF
-  UNICODE_STRING UnicodeString; // [esp+14h] [ebp-18h] BYREF
-  int v9; // [esp+1Ch] [ebp-10h] BYREF
-  int v10; // [esp+20h] [ebp-Ch]
-  int *v11; // [esp+24h] [ebp-8h]
-  int v12; // [esp+28h] [ebp-4h]
+  wchar_t *StringRoutine; // edi
+  NTSTATUS appended; // esi
+  _UNICODE_STRING Source; // [esp+Ch] [ebp-20h] BYREF
+  _UNICODE_STRING GuidString; // [esp+14h] [ebp-18h] BYREF
+  _UNICODE_STRING Destination; // [esp+1Ch] [ebp-10h] BYREF
+  _UNICODE_STRING *v9; // [esp+24h] [ebp-8h]
+  PGUID v10; // [esp+28h] [ebp-4h]
 
-  v11 = a1;
-  v9 = 7340032;
-  v12 = a2;
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0;
-  *(_DWORD *)&v7.Length = 0;
-  v7.Buffer = 0;
-  v10 = 0;
-  if ( a3 )
-    HIWORD(v9) = 190;
-  StringRoutine = NtdllpAllocateStringRoutine(a3 != 0 ? 190 : 112);
-  v10 = StringRoutine;
+  v9 = a1;
+  Destination.Length = 0;
+  v10 = a2;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0;
+  *(_DWORD *)&Source.Length = 0;
+  Source.Buffer = 0;
+  Destination.Buffer = 0;
+  Destination.MaximumLength = 112;
+  if ( Guid )
+    Destination.MaximumLength = 190;
+  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(Guid != 0 ? 190 : 112);
+  Destination.Buffer = StringRoutine;
   if ( StringRoutine )
   {
-    appended = RtlAppendUnicodeStringToString((unsigned __int16 *)&v9, (const void **)&dword_4B281C40);
+    appended = RtlAppendUnicodeStringToString(&Destination, &stru_4B281C40);
     if ( appended < 0
-      || (appended = RtlAppendUnicodeToString((unsigned __int16 *)&v9, L"\\"), appended < 0)
-      || a3
-      && ((appended = RtlStringFromGUIDEx(a3, (int)&UnicodeString, 1), appended < 0)
-       || (appended = RtlAppendUnicodeStringToString((unsigned __int16 *)&v9, (const void **)&UnicodeString),
-           appended < 0)
-       || (appended = RtlAppendUnicodeToString((unsigned __int16 *)&v9, L"\\"), appended < 0))
-      || (appended = RtlStringFromGUIDEx(v12, (int)&v7, 1), appended < 0)
-      || (appended = RtlAppendUnicodeStringToString((unsigned __int16 *)&v9, (const void **)&v7), appended < 0) )
+      || (appended = RtlAppendUnicodeToString(&Destination, L"\\"), appended < 0)
+      || Guid
+      && ((appended = RtlStringFromGUIDEx(Guid, &GuidString, 1u), appended < 0)
+       || (appended = RtlAppendUnicodeStringToString(&Destination, &GuidString), appended < 0)
+       || (appended = RtlAppendUnicodeToString(&Destination, L"\\"), appended < 0))
+      || (appended = RtlStringFromGUIDEx(v10, &Source, 1u), appended < 0)
+      || (appended = RtlAppendUnicodeStringToString(&Destination, &Source), appended < 0) )
     {
-      StringRoutine = v10;
+      StringRoutine = Destination.Buffer;
     }
     else
     {
-      v5 = v11;
       StringRoutine = 0;
-      *v11 = v9;
-      v5[1] = v10;
+      *v9 = Destination;
     }
   }
   else
   {
     appended = -1073741801;
   }
-  RtlFreeAnsiString(&UnicodeString);
-  RtlFreeAnsiString(&v7);
+  RtlFreeAnsiString(&GuidString);
+  RtlFreeAnsiString(&Source);
   if ( StringRoutine )
-    RtlDeleteBoundaryDescriptor(StringRoutine);
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)StringRoutine);
   return appended;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRebuildPageTableAges @ 0x14029E1F0
+ * XREFs of MiRebuildPageTableAges @ 0x14029D740
  * Callers:
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiRemoveWsleList @ 0x1402EA570 (MiRemoveWsleList.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1402EAE10 (MiUpdateWorkingSetAgeDistribution.c)
- *     MiAddWorkingSetEntries @ 0x1402EBAC0 (MiAddWorkingSetEntries.c)
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiRemoveWsleList @ 0x1402CC5B0 (MiRemoveWsleList.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1402CCE50 (MiUpdateWorkingSetAgeDistribution.c)
+ *     MiAddWorkingSetEntries @ 0x1402CDB00 (MiAddWorkingSetEntries.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
  * Callees:
- *     MiCountWslesInPageTableRange @ 0x14029E490 (MiCountWslesInPageTableRange.c)
- *     MiInsertActivePageTableLinksTail @ 0x1402EC620 (MiInsertActivePageTableLinksTail.c)
- *     MiRemoveActivePageTableLinks @ 0x1402EC880 (MiRemoveActivePageTableLinks.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiCountWslesInPageTableRange @ 0x14029D9E0 (MiCountWslesInPageTableRange.c)
+ *     MiInsertActivePageTableLinksTail @ 0x1402CE660 (MiInsertActivePageTableLinksTail.c)
+ *     MiRemoveActivePageTableLinks @ 0x1402CE8C0 (MiRemoveActivePageTableLinks.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiRebuildPageTableAges(__int64 a1, unsigned __int64 a2, char a3)
@@ -69,9 +69,9 @@ char __fastcall MiRebuildPageTableAges(__int64 a1, unsigned __int64 a2, char a3)
     {
       MiCountWslesInPageTableRange(
         a1,
-        v7 + 8 * (((unsigned __int64)qword_140E2DE40 >> 39) & 0x1FF),
-        ((__int64)(8 * (((unsigned __int64)qword_140E2DE50 >> 39) & 0x1FF)
-                 - 8 * (((unsigned __int64)qword_140E2DE40 >> 39) & 0x1FF)) >> 3)
+        v7 + 8 * (((unsigned __int64)qword_140E2DFC0 >> 39) & 0x1FF),
+        ((__int64)(8 * (((unsigned __int64)qword_140E2DFD0 >> 39) & 0x1FF)
+                 - 8 * (((unsigned __int64)qword_140E2DFC0 >> 39) & 0x1FF)) >> 3)
       + 1,
         (unsigned int)v22,
         a3);

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextLockUnlock @ 0x180122AC8
+ * XREFs of RtlpHpLfhContextLockUnlock @ 0x180122A98
  * Callers:
  *     RtlLockHeapManagerForCloning @ 0x1800FEBF0 (RtlLockHeapManagerForCloning.c)
- *     RtlpHpUnlockHeapForCloning @ 0x180123404 (RtlpHpUnlockHeapForCloning.c)
+ *     RtlpHpUnlockHeapForCloning @ 0x1801233D4 (RtlpHpUnlockHeapForCloning.c)
  * Callees:
- *     RtlpHpLfhOwnerLockUnlock @ 0x180122BB8 (RtlpHpLfhOwnerLockUnlock.c)
+ *     RtlpHpLfhOwnerLockUnlock @ 0x180122B88 (RtlpHpLfhOwnerLockUnlock.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextLockUnlock(__int64 a1, unsigned int a2)

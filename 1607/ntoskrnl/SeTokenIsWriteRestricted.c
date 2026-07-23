@@ -1,10 +1,10 @@
 /*
- * XREFs of SeTokenIsWriteRestricted @ 0x14007F750
+ * XREFs of SeTokenIsWriteRestricted @ 0x14007F7D0
  * Callers:
- *     NtCompareTokens @ 0x140475A20 (NtCompareTokens.c)
- *     NtImpersonateAnonymousToken @ 0x140475D5C (NtImpersonateAnonymousToken.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x14047600C (SepNewTokenAsRestrictedAsProcessToken.c)
- *     SeTokenCanImpersonate @ 0x14050F920 (SeTokenCanImpersonate.c)
+ *     NtCompareTokens @ 0x1404748F0 (NtCompareTokens.c)
+ *     NtImpersonateAnonymousToken @ 0x140474C2C (NtImpersonateAnonymousToken.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x140474EDC (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     SeTokenCanImpersonate @ 0x1404F28B0 (SeTokenCanImpersonate.c)
  * Callees:
  *     <none>
  */

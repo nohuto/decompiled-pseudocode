@@ -1,9 +1,9 @@
 /*
- * XREFs of SepDuplicateLogonSessionReference @ 0x140370C9C
+ * XREFs of SepDuplicateLogonSessionReference @ 0x140370E3C
  * Callers:
- *     SepFilterToken @ 0x1407F1C00 (SepFilterToken.c)
+ *     SepFilterToken @ 0x1407F1ED0 (SepFilterToken.c)
  * Callees:
- *     SepReferenceLogonSession @ 0x1407C3314 (SepReferenceLogonSession.c)
+ *     SepReferenceLogonSession @ 0x1407C35E4 (SepReferenceLogonSession.c)
  */
 
 __int64 __fastcall SepDuplicateLogonSessionReference(__int64 a1, __int64 a2)

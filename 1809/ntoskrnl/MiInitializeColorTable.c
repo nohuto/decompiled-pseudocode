@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeColorTable @ 0x14016A4CC
+ * XREFs of MiInitializeColorTable @ 0x14016A5CC
  * Callers:
- *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
- *     MiCreateZeroThreadContext @ 0x14017F66C (MiCreateZeroThreadContext.c)
- *     MiInitializeLargePageNodeLists @ 0x14072B33C (MiInitializeLargePageNodeLists.c)
+ *     MiZeroPageThread @ 0x140179300 (MiZeroPageThread.c)
+ *     MiCreateZeroThreadContext @ 0x14017F7AC (MiCreateZeroThreadContext.c)
+ *     MiInitializeLargePageNodeLists @ 0x14072C52C (MiInitializeLargePageNodeLists.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
  */
@@ -15,7 +15,7 @@ __int64 __fastcall MiInitializeColorTable(_DWORD *a1, int a2)
   __int64 result; // rax
 
   v2 = a1;
-  a1[3] = dword_14043A088 & ExGenRandom(1) | (a2 << byte_14043A049);
+  a1[3] = dword_14043B148 & ExGenRandom(1) | (a2 << byte_14043B109);
   v3 = 3LL;
   do
   {

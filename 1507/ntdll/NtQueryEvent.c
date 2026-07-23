@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryEvent()
+NTSTATUS __cdecl NtQueryEvent(
+        HANDLE EventHandle,
+        EVENT_INFORMATION_CLASS EventInformationClass,
+        PVOID EventInformation,
+        ULONG EventInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 86LL;
+  result = 86;
   __asm { syscall; Low latency system call }
   return result;
 }

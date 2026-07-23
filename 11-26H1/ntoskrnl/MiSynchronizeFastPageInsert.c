@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSynchronizeFastPageInsert @ 0x1402CE960
+ * XREFs of MiSynchronizeFastPageInsert @ 0x1402B0720
  * Callers:
- *     MiInsertPagesInList @ 0x1402CD600 (MiInsertPagesInList.c)
- *     MiInsertPageLockStandbyList @ 0x1402DEE20 (MiInsertPageLockStandbyList.c)
+ *     MiInsertPagesInList @ 0x1402AF3C0 (MiInsertPagesInList.c)
+ *     MiInsertPageLockStandbyList @ 0x1402C0C30 (MiInsertPageLockStandbyList.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiPageAlreadyLocked @ 0x14043C190 (MiPageAlreadyLocked.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPageAlreadyLocked @ 0x14042EA40 (MiPageAlreadyLocked.c)
  */
 
 void __fastcall MiSynchronizeFastPageInsert(
@@ -151,7 +151,7 @@ LABEL_4:
     v10 = HIBYTE(v9) & 7;
     goto LABEL_5;
   }
-  if ( a3 < 0xFFFFDE0000000000uLL || a3 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL || (unsigned int)MiIsDecayPfn(v8) )
+  if ( a3 < 0xFFFFDE0000000000uLL || a3 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL || (unsigned int)MiIsDecayPfn(v8) )
   {
 LABEL_175:
     v10 = 5;
@@ -214,7 +214,7 @@ LABEL_15:
   v95 = 0;
   v94 = 0;
   v21 = 48 * v8 - 0x220000000000LL;
-  v104 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v21 + 40) >> 43) & 0x3FFLL));
+  v104 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v21 + 40) >> 43) & 0x3FFLL));
   v22 = MiPageToNode(v8);
   v23 = a5;
   v24 = v22;
@@ -229,7 +229,7 @@ LABEL_15:
   if ( (*(_DWORD *)(v21 + 32) & 0x8000000) != 0 )
   {
     if ( v21 >= 0xFFFFDE0000000000uLL
-      && v21 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+      && v21 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
       && !(unsigned int)MiIsDecayPfn(v106 / 48) )
     {
       if ( (v25 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v21) == 9 )
@@ -246,7 +246,7 @@ LABEL_176:
 LABEL_21:
   v26 = HIBYTE(v25) & 7;
 LABEL_22:
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
   {
     v90 = MiSearchChannelTable(BugCheckParameter2);
     v23 = a5;
@@ -263,7 +263,7 @@ LABEL_22:
   if ( a4 < 9 )
   {
     if ( a4 == 8 )
-      v29 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)(v106 / 48) >> 9) + 1) & 0x7F;
+      v29 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)(v106 / 48) >> 9) + 1) & 0x7F;
     else
       v29 = 0;
     v30 = v26;
@@ -345,7 +345,7 @@ LABEL_36:
     if ( !v34 )
     {
       v47 = (_DWORD *)(a2 + 32);
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         _m_prefetchw(v47);
         v48 = *v47 & 0x7FFFFFFF;
@@ -534,11 +534,11 @@ LABEL_119:
     v102 = (unsigned int)v54;
     v60 = *(_QWORD *)(v57 + 8 * v58);
     *(_QWORD *)(v57 + 8 * v58) = v53;
-    if ( v60 == -1LL || v60 >= qword_140E347B0 && v60 < qword_140E347B0 + 2048 )
+    if ( v60 == -1LL || v60 >= qword_140E34930 && v60 < qword_140E34930 + 2048 )
     {
 LABEL_117:
       if ( BugCheckParameter2 != -1LL
-        && (BugCheckParameter2 < qword_140E347B0 || BugCheckParameter2 >= qword_140E347B0 + 2048) )
+        && (BugCheckParameter2 < qword_140E34930 || BugCheckParameter2 >= qword_140E34930 + 2048) )
       {
         v78 = 8LL;
         v79 = *(_QWORD *)(v106 - 0x21FFFFFFFFF0LL);
@@ -560,13 +560,13 @@ LABEL_117:
     if ( (v64 & 0x400) == 0 )
       v63 = -268435457LL;
     v65 = v64 & v63;
-    if ( v60 < qword_140E347B0 || v60 >= qword_140E347B0 + 2048 )
+    if ( v60 < qword_140E34930 || v60 >= qword_140E34930 + 2048 )
     {
-      if ( byte_140E3BD26 )
+      if ( byte_140E3BEA6 )
       {
         v66 = (unsigned __int64)(v61 / 48) >> 9;
-        if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v66) )
-          v67 = *(unsigned __int8 *)(qword_140E3D0C0 + 2 * v66) - 1;
+        if ( *(_BYTE *)(qword_140E3D240 + 2 * v66) )
+          v67 = *(unsigned __int8 *)(qword_140E3D240 + 2 * v66) - 1;
         else
           v67 = 9;
       }
@@ -579,7 +579,7 @@ LABEL_117:
     {
       v67 = 9;
     }
-    v68 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v62 + 40) >> 43) & 0x3FFLL));
+    v68 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v62 + 40) >> 43) & 0x3FFLL));
     v69 = MiPageToNode(v60);
     v70 = *(_DWORD *)(v62 + 32);
     v71 = v69;
@@ -588,7 +588,7 @@ LABEL_117:
       if ( (*(_DWORD *)(v62 + 32) & 0x8000000) == 0 )
         goto LABEL_98;
       if ( v62 >= 0xFFFFDE0000000000uLL
-        && v62 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+        && v62 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
         && !(unsigned int)MiIsDecayPfn(v61 / 48) )
       {
         if ( (v70 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(48 * v60 - 0x220000000000LL) == 9 )
@@ -599,14 +599,14 @@ LABEL_117:
 LABEL_98:
         v72 = HIBYTE(v70) & 7;
 LABEL_99:
-        if ( qword_140E2D6E8 )
+        if ( qword_140E2D868 )
           v73 = *((_BYTE *)MiSearchChannelTable(v60) + 12);
         else
           v73 = 0;
         if ( v67 < 9 )
         {
           if ( v67 == 8 )
-            v74 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)(v61 / 48) >> 9) + 1) & 0x7F;
+            v74 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)(v61 / 48) >> 9) + 1) & 0x7F;
           else
             v74 = 0;
         }
@@ -686,7 +686,7 @@ LABEL_116:
       *(_BYTE *)(v39 + 96) = 0;
     }
     v51 = (volatile signed __int32 *)(a2 + 32);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v51, 0xBFFFFFFF);
       _InterlockedDecrement(v51);

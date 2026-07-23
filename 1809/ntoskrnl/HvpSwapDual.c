@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpSwapDual @ 0x1407F82C4
+ * XREFs of HvpSwapDual @ 0x1407F94C4
  * Callers:
- *     HvSwapHiveStorage @ 0x1407F7424 (HvSwapHiveStorage.c)
+ *     HvSwapHiveStorage @ 0x1407F8624 (HvSwapHiveStorage.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 _QWORD *__fastcall HvpSwapDual(_QWORD *a1, _QWORD *a2)

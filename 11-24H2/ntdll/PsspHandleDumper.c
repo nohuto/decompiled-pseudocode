@@ -1,9 +1,9 @@
 /*
- * XREFs of PsspHandleDumper @ 0x1800F4CA0
+ * XREFs of PsspHandleDumper @ 0x1800EF8C0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x180167400 (memmove.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 char __fastcall PsspHandleDumper(

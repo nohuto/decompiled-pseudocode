@@ -6,26 +6,33 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180075B10 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall RtlZombifyActivationContext(__int64 a1)
+NTSTATUS __cdecl RtlZombifyActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
-  unsigned int v1; // edi
-  void (__fastcall *v3)(__int64, __int64, _QWORD, _QWORD, _QWORD, char *); // rsi
+  NTSTATUS v1; // edi
+  void (__fastcall *v3)(__int64, PACTIVATION_CONTEXT, PVOID, _QWORD, _QWORD, char *); // rsi
   char v5; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0;
-  if ( !a1 || ((a1 - 1) | 7) == 0xFFFFFFFFFFFFFFFFuLL )
+  if ( !ActivationContext
+    || (((unsigned __int64)&ActivationContext[-1].InlineStorageMapEntries[31] + 7) | 7) == 0xFFFFFFFFFFFFFFFFuLL )
   {
-    return (unsigned int)-1073741811;
+    return -1073741811;
   }
-  else if ( (*(_BYTE *)(a1 + 4) & 1) == 0 )
+  if ( (ActivationContext->Flags & 1) == 0 )
   {
-    v3 = *(void (__fastcall **)(__int64, __int64, _QWORD, _QWORD, _QWORD, char *))(a1 + 32);
+    v3 = *(void (__fastcall **)(__int64, PACTIVATION_CONTEXT, PVOID, _QWORD, _QWORD, char *))ActivationContext->SentNotifications;
     if ( v3 )
     {
       v5 = 0;
-      v3(2LL, a1, *(_QWORD *)(a1 + 24), *(_QWORD *)(a1 + 40), 0LL, &v5);
+      v3(
+        2LL,
+        ActivationContext,
+        ActivationContext->NotificationContext,
+        *(_QWORD *)&ActivationContext->SentNotifications[2],
+        0LL,
+        &v5);
     }
-    *(_DWORD *)(a1 + 4) |= 1u;
+    ActivationContext->Flags |= 1u;
   }
   return v1;
 }

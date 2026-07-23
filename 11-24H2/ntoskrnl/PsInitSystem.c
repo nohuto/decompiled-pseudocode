@@ -1,15 +1,15 @@
 /*
- * XREFs of PsInitSystem @ 0x140BDE7F8
+ * XREFs of PsInitSystem @ 0x140BE07F8
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140C5FB78 (Phase1InitializationIoReady.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140C61CC8 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PspInitPhase1 @ 0x140C34EC0 (PspInitPhase1.c)
- *     PspInitPhase2 @ 0x140C3516C (PspInitPhase2.c)
- *     PspInitPhase3 @ 0x140C35304 (PspInitPhase3.c)
- *     PspInitPhase0 @ 0x140C65530 (PspInitPhase0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PspInitPhase1 @ 0x140C37000 (PspInitPhase1.c)
+ *     PspInitPhase2 @ 0x140C372AC (PspInitPhase2.c)
+ *     PspInitPhase3 @ 0x140C37444 (PspInitPhase3.c)
+ *     PspInitPhase0 @ 0x140C676AC (PspInitPhase0.c)
  */
 
 __int64 __fastcall PsInitSystem(int a1, void *a2)

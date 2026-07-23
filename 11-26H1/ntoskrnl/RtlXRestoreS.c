@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlXRestoreS @ 0x1403D4E10
+ * XREFs of RtlXRestoreS @ 0x1403D7DE0
  * Callers:
- *     KeRestoreExtendedAndSupervisorState @ 0x1403D3108 (KeRestoreExtendedAndSupervisorState.c)
- *     KeRestoreSupervisorState @ 0x1405ECA50 (KeRestoreSupervisorState.c)
- *     PspSetContext @ 0x140A32610 (PspSetContext.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1403D60D8 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeRestoreSupervisorState @ 0x1405EF3C0 (KeRestoreSupervisorState.c)
+ *     PspSetContext @ 0x140A4D570 (PspSetContext.c)
  * Callees:
- *     RtlXRestore @ 0x1403D586C (RtlXRestore.c)
+ *     RtlXRestore @ 0x1403D883C (RtlXRestore.c)
  */
 
 __int64 __fastcall RtlXRestoreS(__int64 _RCX, __int64 a2)

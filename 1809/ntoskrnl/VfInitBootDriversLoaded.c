@@ -1,21 +1,21 @@
 /*
- * XREFs of VfInitBootDriversLoaded @ 0x1409B7610
+ * XREFs of VfInitBootDriversLoaded @ 0x1409B8610
  * Callers:
- *     MiInitializeDriverImages @ 0x1409B6BDC (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x1409B7BDC (MiInitializeDriverImages.c)
  * Callees:
- *     NtSetDebugFilterState @ 0x140740A10 (NtSetDebugFilterState.c)
- *     VfDriverLoadImage @ 0x140921264 (VfDriverLoadImage.c)
- *     VfAvlInitializeTreeEx @ 0x1409214B4 (VfAvlInitializeTreeEx.c)
- *     VfLookasideInitializeInternalNPagedList @ 0x1409215C8 (VfLookasideInitializeInternalNPagedList.c)
- *     IoVerifierInit @ 0x1409237D8 (IoVerifierInit.c)
- *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
- *     VfObjectContextInit @ 0x140927C70 (VfObjectContextInit.c)
- *     VfDriverLoadBootDrivers @ 0x1409B76F8 (VfDriverLoadBootDrivers.c)
- *     VfThunkFindExportAddressAllTables @ 0x1409B7754 (VfThunkFindExportAddressAllTables.c)
- *     VfThunkInit @ 0x1409B7A1C (VfThunkInit.c)
- *     VfTriageAddDrivers @ 0x1409F84EC (VfTriageAddDrivers.c)
- *     VfSuspectDriversParseRegistryString @ 0x1409F8948 (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x1409F8B04 (VfXdvExcludeParseRegistryString.c)
+ *     NtSetDebugFilterState @ 0x140741C00 (NtSetDebugFilterState.c)
+ *     VfDriverLoadImage @ 0x140922264 (VfDriverLoadImage.c)
+ *     VfAvlInitializeTreeEx @ 0x1409224B4 (VfAvlInitializeTreeEx.c)
+ *     VfLookasideInitializeInternalNPagedList @ 0x1409225C8 (VfLookasideInitializeInternalNPagedList.c)
+ *     IoVerifierInit @ 0x1409247D8 (IoVerifierInit.c)
+ *     VfInitVerifierComponents @ 0x1409276D0 (VfInitVerifierComponents.c)
+ *     VfObjectContextInit @ 0x140928C70 (VfObjectContextInit.c)
+ *     VfDriverLoadBootDrivers @ 0x1409B86F8 (VfDriverLoadBootDrivers.c)
+ *     VfThunkFindExportAddressAllTables @ 0x1409B8754 (VfThunkFindExportAddressAllTables.c)
+ *     VfThunkInit @ 0x1409B8A1C (VfThunkInit.c)
+ *     VfTriageAddDrivers @ 0x1409F94EC (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x1409F9948 (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x1409F9B04 (VfXdvExcludeParseRegistryString.c)
  */
 
 char __fastcall VfInitBootDriversLoaded(__int64 a1)
@@ -46,7 +46,7 @@ char __fastcall VfInitBootDriversLoaded(__int64 a1)
     }
     else
     {
-      dword_14040D708 = 0;
+      dword_14040E788 = 0;
       _InterlockedExchange(&ViTargetInitialized, 1);
     }
   }

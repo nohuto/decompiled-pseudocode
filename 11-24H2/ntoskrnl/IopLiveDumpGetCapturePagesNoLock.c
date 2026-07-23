@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpGetCapturePagesNoLock @ 0x14059B284
+ * XREFs of IopLiveDumpGetCapturePagesNoLock @ 0x140598204
  * Callers:
- *     IopLiveDumpGetCapturePages @ 0x14059B194 (IopLiveDumpGetCapturePages.c)
- *     IopLiveDumpGetNtMergePages @ 0x14059B75C (IopLiveDumpGetNtMergePages.c)
+ *     IopLiveDumpGetCapturePages @ 0x140598114 (IopLiveDumpGetCapturePages.c)
+ *     IopLiveDumpGetNtMergePages @ 0x1405986DC (IopLiveDumpGetNtMergePages.c)
  * Callees:
- *     IopLiveDumpTraceEventGeneric @ 0x1405A31E4 (IopLiveDumpTraceEventGeneric.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405A0124 (IopLiveDumpTraceEventGeneric.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall IopLiveDumpGetCapturePagesNoLock(

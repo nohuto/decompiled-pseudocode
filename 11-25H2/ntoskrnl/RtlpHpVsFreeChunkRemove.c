@@ -6,14 +6,14 @@
  *     RtlRbRemoveNode @ 0x1402E2A20 (RtlRbRemoveNode.c)
  */
 
-unsigned __int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, __int64 a2, int a3, __int64 a4)
+unsigned __int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, _RTL_RB_TREE *a2, int a3, __int64 a4)
 {
   __int64 v7; // r9
   __int64 v8; // r8
   unsigned __int64 result; // rax
   int v10; // edx
 
-  RtlRbRemoveNode(a2 + 16, (unsigned __int64 *)(a4 + 8));
+  RtlRbRemoveNode(a2 + 1, (PRTL_BALANCED_NODE)(a4 + 8));
   v7 = *(__int16 *)(a1 + 6);
   v8 = 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)a4 ^ *(_DWORD *)a4) >> 16));
   result = (unsigned __int64)(v8 + 4095) >> 12;

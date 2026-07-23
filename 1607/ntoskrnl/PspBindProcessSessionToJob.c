@@ -1,10 +1,10 @@
 /*
- * XREFs of PspBindProcessSessionToJob @ 0x1404F3628
+ * XREFs of PspBindProcessSessionToJob @ 0x1404D65B4
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspEstablishJobHierarchy @ 0x1404F2FFC (PspEstablishJobHierarchy.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspEstablishJobHierarchy @ 0x1404D5F88 (PspEstablishJobHierarchy.c)
  * Callees:
- *     MmGetSessionId @ 0x140014160 (MmGetSessionId.c)
+ *     MmGetSessionId @ 0x140013CE0 (MmGetSessionId.c)
  */
 
 __int64 __fastcall PspBindProcessSessionToJob(__int64 a1, struct _KPROCESS *a2)

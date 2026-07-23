@@ -1,19 +1,19 @@
 /*
- * XREFs of KeOrAffinityEx @ 0x14022B850
+ * XREFs of KeOrAffinityEx @ 0x1402D0100
  * Callers:
- *     KiForwardTick @ 0x140227FD0 (KiForwardTick.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1402AFA30 (KeQueryLogicalProcessorRelationship.c)
- *     PpmPerfApplyProcessorStates @ 0x140398950 (PpmPerfApplyProcessorStates.c)
- *     EmonAddProfileSource @ 0x1404D2DC0 (EmonAddProfileSource.c)
- *     Amd64AddProfileSource @ 0x1404DD4C0 (Amd64AddProfileSource.c)
- *     KiStartProfileTarget @ 0x14051C0A0 (KiStartProfileTarget.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x1405234B0 (KiForceIdleUpdateSchedulerParkState.c)
- *     PpmUpdateProcessorPolicy @ 0x14078C8D0 (PpmUpdateProcessorPolicy.c)
- *     PpmCheckInitProcessors @ 0x1407B9B18 (PpmCheckInitProcessors.c)
- *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x14022DD90 (KeQueryLogicalProcessorRelationship.c)
+ *     KiForwardTick @ 0x1402CC8D0 (KiForwardTick.c)
+ *     PpmPerfApplyProcessorStates @ 0x140398AA0 (PpmPerfApplyProcessorStates.c)
+ *     EmonAddProfileSource @ 0x1404D3000 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1404DD700 (Amd64AddProfileSource.c)
+ *     KiStartProfileTarget @ 0x14051C2E0 (KiStartProfileTarget.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x1405236F0 (KiForceIdleUpdateSchedulerParkState.c)
+ *     PpmUpdateProcessorPolicy @ 0x14078CA90 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2A8 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x1407BA470 (PpmRegisterPerfStates.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KeOrAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, _BYTE *a3)

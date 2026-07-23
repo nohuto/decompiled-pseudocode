@@ -1,13 +1,13 @@
 /*
- * XREFs of MinCryptParseRevocationList @ 0x140825AC0
+ * XREFs of MinCryptParseRevocationList @ 0x140826290
  * Callers:
- *     MinCrypK_ParseRevocationList @ 0x14069F218 (MinCrypK_ParseRevocationList.c)
+ *     MinCrypK_ParseRevocationList @ 0x1406A031C (MinCrypK_ParseRevocationList.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MinAsn1ParseSingleExtensionValue @ 0x140827360 (MinAsn1ParseSingleExtensionValue.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x140827B30 (MinAsn1ParseSingleExtensionValue.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MinCryptParseRevocationList(__int64 a1, int a2, _QWORD *a3)
@@ -19,26 +19,27 @@ __int64 __fastcall MinCryptParseRevocationList(__int64 a1, int a2, _QWORD *a3)
   unsigned int j; // r15d
   unsigned int v9; // eax
   char *v10; // rcx
+  ULONG_PTR v11; // rdx
   _DWORD *Pool2; // rax
   __int128 Size; // [rsp+40h] [rbp-48h] BYREF
-  __int128 v14; // [rsp+50h] [rbp-38h] BYREF
-  int v15; // [rsp+98h] [rbp+10h] BYREF
-  _QWORD *v16; // [rsp+A0h] [rbp+18h]
+  __int128 v15; // [rsp+50h] [rbp-38h] BYREF
+  int v16; // [rsp+98h] [rbp+10h] BYREF
+  _QWORD *v17; // [rsp+A0h] [rbp+18h]
 
-  v16 = a3;
-  v15 = a2;
+  v17 = a3;
+  v16 = a2;
   Size = 0LL;
-  LOBYTE(v15) = 0;
-  v14 = 0LL;
+  LOBYTE(v16) = 0;
+  v15 = 0LL;
   v4 = 0LL;
   v5 = 0;
-  if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140B3BE38, a1, &v15, &Size) >= 0
-    && (_BYTE)v15
+  if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140B3DC18, a1, &v16, &Size) >= 0
+    && (_BYTE)v16
     && (_DWORD)Size == 2
     && **((_WORD **)&Size + 1) == 0x8664 )
   {
-    if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140B3BE48, a1, &v15, &Size) >= 0
-      && (_BYTE)v15
+    if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140B3DC28, a1, &v16, &Size) >= 0
+      && (_BYTE)v16
       && (_DWORD)Size == 4
       && !**((_DWORD **)&Size + 1) )
     {
@@ -47,11 +48,11 @@ __int64 __fastcall MinCryptParseRevocationList(__int64 a1, int a2, _QWORD *a3)
         v7 = 0LL;
         for ( j = 0; j < 0xD; ++j )
         {
-          LODWORD(v14) = *((_DWORD *)&off_140B3E630 + 4 * j + 2);
-          *((_QWORD *)&v14 + 1) = *(&off_140B3E630 + 2 * j);
-          if ( (int)MinAsn1ParseSingleExtensionValue(&v14, a1, &v15, &Size) < 0 )
+          LODWORD(v15) = *((_DWORD *)&off_140B40430 + 4 * j + 2);
+          *((_QWORD *)&v15 + 1) = *(&off_140B40430 + 2 * j);
+          if ( (int)MinAsn1ParseSingleExtensionValue(&v15, a1, &v16, &Size) < 0 )
             goto LABEL_15;
-          if ( (_BYTE)v15 )
+          if ( (_BYTE)v16 )
           {
             if ( i )
             {
@@ -77,13 +78,19 @@ __int64 __fastcall MinCryptParseRevocationList(__int64 a1, int a2, _QWORD *a3)
         }
         if ( !i )
         {
+          v11 = v7 + 208;
           if ( v7 + 208 < v7 )
+          {
+            v11 = -1LL;
             v5 = -1073741675;
+          }
           else
+          {
             v5 = 0;
+          }
           if ( v5 < 0 )
             goto LABEL_38;
-          Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL);
+          Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL, v11, 0x72634943u);
           v4 = Pool2;
           if ( !Pool2 )
           {
@@ -104,7 +111,7 @@ LABEL_15:
       }
       else
       {
-        *v16 = v4;
+        *v17 = v4;
         v4 = 0LL;
       }
     }

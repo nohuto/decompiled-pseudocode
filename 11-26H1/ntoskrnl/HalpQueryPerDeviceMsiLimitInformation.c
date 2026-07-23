@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpQueryPerDeviceMsiLimitInformation @ 0x1407816A4
+ * XREFs of HalpQueryPerDeviceMsiLimitInformation @ 0x1407841A4
  * Callers:
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

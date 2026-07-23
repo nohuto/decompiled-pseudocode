@@ -15,16 +15,16 @@ void sub_18001A9B4()
 {
   _QWORD *v0; // rcx
   unsigned int v1; // edx
-  __int64 (__fastcall **v2)(); // r8
+  __int64 (__fastcall **v2)(int, int, int, int, ULONG, ULONG); // r8
   __int64 v3; // rax
   char v4; // al
-  int v5; // [rsp+40h] [rbp+8h] BYREF
+  int ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !byte_18015B260 )
   {
     v0 = &unk_18015C060;
     v1 = 0;
-    v2 = off_180111070;
+    v2 = &off_180111070;
     while ( 1 )
     {
       v3 = *v0 - *(_QWORD *)*v2;
@@ -47,26 +47,31 @@ void sub_18001A9B4()
         "!!! Detour detected, disable parallel loading\n");
     byte_18015B260 = 1;
 LABEL_7:
-    if ( (int)ZwQueryInformationThread(-2LL, 42LL, &v5, 4LL, 0LL) < 0 )
+    if ( ZwQueryInformationThread(
+           (HANDLE)0xFFFFFFFFFFFFFFFELL,
+           ThreadDynamicCodePolicyInfo,
+           &ThreadInformation,
+           4u,
+           0LL) < 0 )
     {
       v4 = byte_18015B260;
     }
     else
     {
       v4 = byte_18015B260;
-      if ( v5 == 1 )
+      if ( ThreadInformation == 1 )
         v4 = 1;
       byte_18015B260 = v4;
     }
     if ( v4 )
     {
-      if ( qword_18015B1D0 )
+      if ( Work )
       {
-        TpWaitForWork(qword_18015B1D0, 1u);
-        TpReleaseWork(qword_18015B1D0);
-        qword_18015B1D0 = 0LL;
-        TpReleasePool(qword_18015B208);
-        qword_18015B208 = 0LL;
+        TpWaitForWork(Work, 1u);
+        TpReleaseWork(Work);
+        Work = 0LL;
+        TpReleasePool(Pool);
+        Pool = 0LL;
       }
     }
   }

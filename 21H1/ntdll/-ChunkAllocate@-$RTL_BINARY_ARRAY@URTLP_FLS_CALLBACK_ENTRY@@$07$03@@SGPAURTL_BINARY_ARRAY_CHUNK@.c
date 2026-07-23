@@ -11,9 +11,11 @@ _DWORD *__fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::ChunkAllocate(
   int v3; // esi
   _DWORD *Heap; // ecx
   _DWORD *v5; // eax
+  SIZE_T v7; // [esp-4h] [ebp-10h]
 
   v3 = 1 << (a2 + 4);
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 8 * v3 + 4);
+  LODWORD(v7) = 8 * v3 + 4;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   if ( Heap )
   {
     *Heap = 0;

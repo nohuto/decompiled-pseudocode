@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpInitializeTimeZoneInformation @ 0x14083FCD0
+ * XREFs of ExpInitializeTimeZoneInformation @ 0x14083FFD0
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x14083EB98 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14083EE98 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
  */
 
 __int64 __fastcall ExpInitializeTimeZoneInformation(PVOID DeferredContext, __int64 a2)

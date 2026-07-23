@@ -30,9 +30,9 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
         _DWORD *a6,
         int a7,
         PHYSICAL_ADDRESS *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
-  void *v9; // r13
+  _RTL_BALANCED_NODE *v9; // r13
   PHYSICAL_ADDRESS v10; // r15
   int v15; // ebp
   __int64 v16; // rax
@@ -41,15 +41,15 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
   unsigned int v19; // edx
   __int64 v20; // r9
   unsigned int v21; // r12d
-  void *ContiguousNodeMemory; // rax
+  _RTL_BALANCED_NODE *ContiguousNodeMemory; // rax
   PHYSICAL_ADDRESS PhysicalAddress; // rbx
   int v24; // r8d
   int v25; // eax
-  _QWORD *PoolWithTag; // rax
-  unsigned __int64 v27; // rbx
+  _RTL_BALANCED_NODE *PoolWithTag; // rax
+  _RTL_BALANCED_NODE *v27; // rbx
   unsigned __int64 v28; // rdi
-  unsigned __int64 v29; // rdx
-  bool v30; // r8
+  ULONG_PTR v29; // rdx
+  BOOLEAN v30; // r8
   unsigned __int64 v31; // rax
   unsigned int v33; // ecx
   unsigned __int8 CurrentIrql; // al
@@ -116,7 +116,7 @@ LABEL_10:
     v20 = 1LL << v33;
   }
   v21 = a4;
-  ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(a4, v17, v18, v20, v19, a7);
+  ContiguousNodeMemory = (_RTL_BALANCED_NODE *)MmAllocateContiguousNodeMemory(a4, v17, v18, v20, v19, a7);
   v9 = ContiguousNodeMemory;
   if ( ContiguousNodeMemory )
   {
@@ -160,16 +160,16 @@ LABEL_54:
       v40 = PhysicalAddress;
       v10 = PhysicalAddress;
     }
-    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x206C6148u);
+    PoolWithTag = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x206C6148u);
     P = PoolWithTag;
-    v27 = (unsigned __int64)PoolWithTag;
+    v27 = PoolWithTag;
     if ( !PoolWithTag )
     {
       v15 = -1073741670;
       goto LABEL_53;
     }
-    PoolWithTag[3] = v9;
-    PoolWithTag[4] = BugCheckParameter3;
+    PoolWithTag[1].Children[0] = v9;
+    PoolWithTag[1].Children[1] = (_RTL_BALANCED_NODE *)BugCheckParameter3;
     v28 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(BugCheckParameter3 + 96));
     v29 = *(_QWORD *)(BugCheckParameter3 + 80);
     if ( (*(_BYTE *)(BugCheckParameter3 + 88) & 1) != 0 && v29 )
@@ -210,7 +210,7 @@ LABEL_25:
         v29 = v31;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)(BugCheckParameter3 + 80), v29, v30, v27);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(BugCheckParameter3 + 80), (PRTL_BALANCED_NODE)v29, v30, v27);
     KxReleaseSpinLock((PKSPIN_LOCK)(BugCheckParameter3 + 96));
     if ( KiIrqlFlags )
     {

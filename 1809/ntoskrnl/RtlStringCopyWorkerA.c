@@ -2,8 +2,8 @@
  * XREFs of RtlStringCopyWorkerA @ 0x140011F38
  * Callers:
  *     RtlStringCbCopyA @ 0x140011EF8 (RtlStringCbCopyA.c)
- *     RtlStringCbCopyExA @ 0x140192258 (RtlStringCbCopyExA.c)
- *     RtlStringCbCatExA @ 0x140268A30 (RtlStringCbCatExA.c)
+ *     RtlStringCbCopyExA @ 0x140192398 (RtlStringCbCopyExA.c)
+ *     RtlStringCbCatExA @ 0x140268C20 (RtlStringCbCatExA.c)
  * Callees:
  *     <none>
  */

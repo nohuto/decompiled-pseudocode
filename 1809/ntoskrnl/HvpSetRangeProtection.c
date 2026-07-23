@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpSetRangeProtection @ 0x1405FBD30
+ * XREFs of HvpSetRangeProtection @ 0x1405FCD30
  * Callers:
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
- *     HvpResetPageProtection @ 0x14068E7B0 (HvpResetPageProtection.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F77F4 (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     HvpMarkDirty @ 0x1405FBD2C (HvpMarkDirty.c)
+ *     HvpResetPageProtection @ 0x14068F970 (HvpResetPageProtection.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F89F4 (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F8D60 (HvpPerformLogFileRecovery.c)
  * Callees:
  *     ExProtectPoolEx @ 0x14000DED8 (ExProtectPoolEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     HvpViewMapSealRange @ 0x1405A592C (HvpViewMapSealRange.c)
- *     HvpViewMapCOWAndUnsealRange @ 0x1405A5A0C (HvpViewMapCOWAndUnsealRange.c)
- *     HvpMapEntryGetFreeBin @ 0x1405F9C1C (HvpMapEntryGetFreeBin.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     HvpViewMapSealRange @ 0x1405A692C (HvpViewMapSealRange.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x1405A6A0C (HvpViewMapCOWAndUnsealRange.c)
+ *     HvpMapEntryGetFreeBin @ 0x1405FAC1C (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpSetRangeProtection(

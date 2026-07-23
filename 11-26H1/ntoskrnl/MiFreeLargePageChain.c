@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreeLargePageChain @ 0x1403C971C
+ * XREFs of MiFreeLargePageChain @ 0x1403D35CC
  * Callers:
- *     MiReturnExcessPoolCommit @ 0x140365894 (MiReturnExcessPoolCommit.c)
- *     MiGetLargePageChain @ 0x1403C7E10 (MiGetLargePageChain.c)
+ *     MiReturnExcessPoolCommit @ 0x140367634 (MiReturnExcessPoolCommit.c)
+ *     MiGetLargePageChain @ 0x1403D1D00 (MiGetLargePageChain.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiInsertPossiblyBadPage @ 0x1403C65E0 (MiInsertPossiblyBadPage.c)
- *     MiConvertBaseLargePage @ 0x14047D5D0 (MiConvertBaseLargePage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiInsertPossiblyBadPage @ 0x1403D04D4 (MiInsertPossiblyBadPage.c)
+ *     MiConvertBaseLargePage @ 0x140476F40 (MiConvertBaseLargePage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 *__fastcall MiFreeLargePageChain(__int64 a1, unsigned __int8 a2)

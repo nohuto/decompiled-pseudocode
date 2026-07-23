@@ -1,5 +1,5 @@
 /*
- * XREFs of InbvEnableDisplayString @ 0x1403B6BE0
+ * XREFs of InbvEnableDisplayString @ 0x1403B6DC0
  * Callers:
  *     <none>
  * Callees:

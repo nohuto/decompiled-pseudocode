@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeWalkBounds @ 0x140235AFC
+ * XREFs of MiInitializeWalkBounds @ 0x14020FC8C
  * Callers:
- *     MiWalkPageTables @ 0x140235640 (MiWalkPageTables.c)
+ *     MiWalkPageTables @ 0x14020F7D0 (MiWalkPageTables.c)
  * Callees:
- *     MiSetExclusionWalkBounds @ 0x14023424C (MiSetExclusionWalkBounds.c)
- *     MiHyperSpaceSize @ 0x140235D2C (MiHyperSpaceSize.c)
+ *     MiHyperSpaceSize @ 0x14020FEBC (MiHyperSpaceSize.c)
+ *     MiSetExclusionWalkBounds @ 0x140450580 (MiSetExclusionWalkBounds.c)
  */
 
 __int64 __fastcall MiInitializeWalkBounds(__int64 a1, __int64 *a2)
@@ -36,9 +36,9 @@ __int64 __fastcall MiInitializeWalkBounds(__int64 a1, __int64 *a2)
     if ( (*(_DWORD *)a1 & 0x800) != 0 )
     {
       if ( (v4 & 0xF) != 0 )
-        v14 = qword_140E38B58;
+        v14 = qword_140E38C98;
       else
-        v14 = qword_140E38B58 + 0x8000000000LL;
+        v14 = qword_140E38C98 + 0x8000000000LL;
       v16 = 0xFFFFFFFFFLL;
     }
     else
@@ -62,15 +62,15 @@ __int64 __fastcall MiInitializeWalkBounds(__int64 a1, __int64 *a2)
           v12 = v11 - 1;
           if ( !v12 )
           {
-            v18 = qword_140E38BC0 + qword_140E38BB8;
-            if ( qword_140E2F058 >= (unsigned __int64)qword_140E38BB8 && (qword_140E2F058 < v18 || !v18) )
+            v18 = qword_140E38D00 + qword_140E38CF8;
+            if ( qword_140E2F198 >= (unsigned __int64)qword_140E38CF8 && (qword_140E2F198 < v18 || !v18) )
               return (unsigned int)MiSetExclusionWalkBounds(
-                                     qword_140E38BB8,
-                                     qword_140E38BC0,
-                                     qword_140E2F058,
-                                     qword_140E2F060,
-                                     a2);
-            *a2 = qword_140E38BB8;
+                                     qword_140E38CF8,
+                                     qword_140E38D00,
+                                     qword_140E2F198,
+                                     qword_140E2F1A0,
+                                     (__int64)a2);
+            *a2 = qword_140E38CF8;
             v17 = v18 - 1;
             goto LABEL_15;
           }
@@ -80,8 +80,8 @@ __int64 __fastcall MiInitializeWalkBounds(__int64 a1, __int64 *a2)
             v19 = v13 - 1;
             if ( !v19 )
             {
-              *a2 = qword_140E38AE8;
-              a2[1] = qword_140E38AF0 + qword_140E38AE8 - 1;
+              *a2 = qword_140E38C28;
+              a2[1] = qword_140E38C30 + qword_140E38C28 - 1;
               return v3;
             }
             v20 = v19 - 1;
@@ -92,40 +92,40 @@ __int64 __fastcall MiInitializeWalkBounds(__int64 a1, __int64 *a2)
               {
                 if ( v21 != 2 )
                   return v3;
-                *a2 = qword_140E38B98;
-                a2[1] = qword_140E38BA0 - 1 + qword_140E38B98;
-                a2[2] = qword_140E38B18;
-                v22 = qword_140E38B20 + qword_140E38B18 - 1;
+                *a2 = qword_140E38CD8;
+                a2[1] = qword_140E38CE0 - 1 + qword_140E38CD8;
+                a2[2] = qword_140E38C58;
+                v22 = qword_140E38C60 + qword_140E38C58 - 1;
               }
               else
               {
-                *a2 = qword_140E38AB8;
-                a2[1] = qword_140E38AC0 - 1 + qword_140E38AB8;
-                a2[2] = qword_140E38B88;
-                v22 = qword_140E38B90 + qword_140E38B88 - 1;
+                *a2 = qword_140E38BF8;
+                a2[1] = qword_140E38C00 - 1 + qword_140E38BF8;
+                a2[2] = qword_140E38CC8;
+                v22 = qword_140E38CD0 + qword_140E38CC8 - 1;
               }
               a2[3] = v22;
               return 2;
             }
-            v14 = qword_140E2EDF0;
-            v15 = qword_140E2EDD0;
+            v14 = qword_140E2EF30;
+            v15 = qword_140E2EF10;
           }
           else
           {
-            v14 = qword_140E2EFE8;
-            v15 = qword_140E2EFC8;
+            v14 = qword_140E2F128;
+            v15 = qword_140E2F108;
           }
         }
         else
         {
-          v14 = qword_140E2EF58;
-          v15 = qword_140E2EF38;
+          v14 = qword_140E2F098;
+          v15 = qword_140E2F078;
         }
       }
       else
       {
-        v14 = qword_140E2EFA0;
-        v15 = qword_140E2EF80;
+        v14 = qword_140E2F0E0;
+        v15 = qword_140E2F0C0;
       }
       v16 = (v15 << 21) - 1;
     }
@@ -135,5 +135,5 @@ LABEL_15:
     a2[1] = v17;
     return v3;
   }
-  return MiSetExclusionWalkBounds(0LL, 0LL, 0xFFFFF68000000000uLL, 0x8000000000LL, a2);
+  return MiSetExclusionWalkBounds(0, 0, 0, 0, (__int64)a2);
 }

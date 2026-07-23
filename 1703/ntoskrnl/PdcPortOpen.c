@@ -48,7 +48,7 @@ __int64 __fastcall PdcPortOpen(
     v16[0] = 50332376LL;
     LODWORD(InputBuffer[0]) = 1;
     InputBuffer[2] = v11;
-    v13 = ZwPowerInformation(VerifySystemPolicyDc|0x40, InputBuffer, 0x80u, 0LL, 0);
+    v13 = ZwPowerInformation(PdcInvocation, InputBuffer, 0x80u, 0LL, 0);
     if ( v13 >= 0 )
     {
       *a8 = v11;

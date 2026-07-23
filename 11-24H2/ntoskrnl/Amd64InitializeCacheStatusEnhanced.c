@@ -1,15 +1,15 @@
 /*
- * XREFs of Amd64InitializeCacheStatusEnhanced @ 0x14056B484
+ * XREFs of Amd64InitializeCacheStatusEnhanced @ 0x140568914
  * Callers:
- *     Amd64InitializeUncoreProfilingEnhanced @ 0x14056BBD8 (Amd64InitializeUncoreProfilingEnhanced.c)
+ *     Amd64InitializeUncoreProfilingEnhanced @ 0x140569068 (Amd64InitializeUncoreProfilingEnhanced.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     HalpInterruptGetIdentifiers @ 0x1404BACE0 (HalpInterruptGetIdentifiers.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     Amd64FreeCounter @ 0x14056B1A4 (Amd64FreeCounter.c)
- *     Amd64InitializeUncoreStatusEnhanced @ 0x14056BDF8 (Amd64InitializeUncoreStatusEnhanced.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     HalpInterruptGetIdentifiers @ 0x1404B5B80 (HalpInterruptGetIdentifiers.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     Amd64FreeCounter @ 0x140568634 (Amd64FreeCounter.c)
+ *     Amd64InitializeUncoreStatusEnhanced @ 0x140569288 (Amd64InitializeUncoreStatusEnhanced.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall Amd64InitializeCacheStatusEnhanced(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlInt64ToUnicodeString @ 0x1800E4FC0
+ * XREFs of RtlInt64ToUnicodeString @ 0x1800E5080
  * Callers:
  *     <none>
  * Callees:
  *     RtlLargeIntegerToChar @ 0x180001260 (RtlLargeIntegerToChar.c)
- *     RtlAnsiStringToUnicodeString @ 0x1800182E0 (RtlAnsiStringToUnicodeString.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1800182D0 (RtlAnsiStringToUnicodeString.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall RtlInt64ToUnicodeString(__int64 a1, unsigned int a2, UNICODE_STRING *a3)
+NTSTATUS __cdecl RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE_STRING String)
 {
   NTSTATUS result; // eax
   __int64 v5; // rax
-  STRING SourceString; // [rsp+20h] [rbp-78h] BYREF
-  char v7[80]; // [rsp+30h] [rbp-68h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-78h] BYREF
+  CHAR v7[80]; // [rsp+30h] [rbp-68h] BYREF
 
-  *(_QWORD *)&SourceString.Length = a1;
-  result = RtlLargeIntegerToChar((unsigned __int64 *)&SourceString.Length, a2, 65, v7);
+  *(_QWORD *)&SourceString.Length = Value;
+  result = RtlLargeIntegerToChar((PLARGE_INTEGER)&SourceString, Base, 65, v7);
   if ( result >= 0 )
   {
     SourceString.MaximumLength = 65;
@@ -26,7 +26,7 @@ NTSTATUS __fastcall RtlInt64ToUnicodeString(__int64 a1, unsigned int a2, UNICODE
       ++v5;
     while ( v7[v5] );
     SourceString.Length = v5;
-    return RtlAnsiStringToUnicodeString(a3, &SourceString, 0);
+    return RtlAnsiStringToUnicodeString(String, &SourceString, 0);
   }
   return result;
 }

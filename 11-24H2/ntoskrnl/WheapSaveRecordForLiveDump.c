@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapSaveRecordForLiveDump @ 0x140B61F6C
+ * XREFs of WheapSaveRecordForLiveDump @ 0x140B6403C
  * Callers:
- *     WheapCreateLiveDumpFromPreviousSession @ 0x140B61ED8 (WheapCreateLiveDumpFromPreviousSession.c)
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x140B63FA8 (WheapCreateLiveDumpFromPreviousSession.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WheapSaveRecordForLiveDump(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall WheapSaveRecordForLiveDump(__int64 a1)
   else
   {
     v3 = 0;
-    Pool2 = (struct _KDEVICE_QUEUE::$9FAF936D47973D5FBAA72DAF24011AE0::$18E3EACC1E717291AA7C720ECCD5C45C)ExAllocatePool2(0x42uLL);
+    Pool2 = (struct _KDEVICE_QUEUE::$9FAF936D47973D5FBAA72DAF24011AE0::$18E3EACC1E717291AA7C720ECCD5C45C)ExAllocatePool2(0x42uLL, (unsigned int)(v1 + 32), 0x61656857u);
     if ( Pool2 )
     {
       *(_DWORD *)(*(_QWORD *)&Pool2 + 16LL) = *(_DWORD *)(*(_QWORD *)(a1 + 32) + 40LL);

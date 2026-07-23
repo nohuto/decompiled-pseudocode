@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpQueryPsmKey @ 0x1407AA428
+ * XREFs of EtwpQueryPsmKey @ 0x1407AA568
  * Callers:
- *     EtwpGetPsmKeyExtendedHeaderItem @ 0x140922ACC (EtwpGetPsmKeyExtendedHeaderItem.c)
+ *     EtwpGetPsmKeyExtendedHeaderItem @ 0x140AA71D0 (EtwpGetPsmKeyExtendedHeaderItem.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140356698 (RtlStringCbPrintfExW.c)
- *     RtlpQueryPackageIdentityAttributes @ 0x14044CCC0 (RtlpQueryPackageIdentityAttributes.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlStringCbPrintfExW @ 0x140423038 (RtlStringCbPrintfExW.c)
+ *     RtlpQueryPackageIdentityAttributes @ 0x140443BC0 (RtlpQueryPackageIdentityAttributes.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpQueryPsmKey(int a1, wchar_t *a2, size_t *a3)

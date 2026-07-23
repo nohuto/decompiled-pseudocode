@@ -18,12 +18,12 @@
  *     sub_180047CBC @ 0x180047CBC (sub_180047CBC.c)
  */
 
-__int64 __fastcall sub_18004733C(__int64 a1, int a2)
+__int64 __fastcall sub_18004733C(_DWORD *a1, int a2)
 {
   __int64 result; // rax
 
-  result = (*(_DWORD *)(a1 + 112) & 0x40000) != 0 ? 64 : 4;
+  result = (a1[28] & 0x40000) != 0 ? 64 : 4;
   if ( a2 )
-    return sub_180047CBC(a1, (unsigned int)result);
+    return sub_180047CBC(a1);
   return result;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of IoRaiseHardError @ 0x140556A80
+ * XREFs of IoRaiseHardError @ 0x140557140
  * Callers:
- *     DifIoRaiseHardErrorWrapper @ 0x1405E0670 (DifIoRaiseHardErrorWrapper.c)
+ *     DifIoRaiseHardErrorWrapper @ 0x1405E0BE0 (DifIoRaiseHardErrorWrapper.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopGetThreadActiveConsoleId @ 0x140947AAC (IopGetThreadActiveConsoleId.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopGetThreadActiveConsoleId @ 0x140947CAC (IopGetThreadActiveConsoleId.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

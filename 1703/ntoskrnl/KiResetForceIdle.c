@@ -22,7 +22,7 @@ char __fastcall KiResetForceIdle(unsigned int a1, char a2)
   __int64 v6; // rax
   __int16 v7; // [rsp+30h] [rbp-8h]
   int v8; // [rsp+48h] [rbp+10h] BYREF
-  LARGE_INTEGER v9; // [rsp+50h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0;
   if ( !a2 )
@@ -52,7 +52,8 @@ char __fastcall KiResetForceIdle(unsigned int a1, char a2)
     }
     else
     {
-      v6 = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v9);
+      v6 = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+         + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
     }
     KiForceIdleStartTime = v6;
     if ( !KiForceIdleStopDpc.DpcData )

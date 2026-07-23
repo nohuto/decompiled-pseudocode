@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptEckeyWipe @ 0x14055BD7C
+ * XREFs of SymCryptEckeyWipe @ 0x14055E264
  * Callers:
- *     SymCryptEckeyFree @ 0x14055B790 (SymCryptEckeyFree.c)
+ *     SymCryptEckeyFree @ 0x14055DC74 (SymCryptEckeyFree.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptSizeofEckeyFromCurve @ 0x14055BDA8 (SymCryptSizeofEckeyFromCurve.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptSizeofEckeyFromCurve @ 0x14055E290 (SymCryptSizeofEckeyFromCurve.c)
  */
 
 __int64 __fastcall SymCryptEckeyWipe(__int64 a1)

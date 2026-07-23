@@ -1,14 +1,14 @@
 /*
- * XREFs of MiExtendDynamicBitMap @ 0x14018FA90
+ * XREFs of MiExtendDynamicBitMap @ 0x14018FBD0
  * Callers:
- *     MiObtainDynamicVa @ 0x1400F698C (MiObtainDynamicVa.c)
+ *     MiObtainDynamicVa @ 0x1400F6A0C (MiObtainDynamicVa.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiReclaimSystemVa @ 0x1400F7278 (MiReclaimSystemVa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiReclaimSystemVa @ 0x1400F72F8 (MiReclaimSystemVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, unsigned int a3)
@@ -91,7 +91,7 @@ LABEL_13:
     KiRemoveSystemWorkPriorityKick(v17);
   }
   __writecr8(v16);
-  if ( a1 == &qword_14043A3C8 )
+  if ( a1 == &qword_14043B488 )
     MiReclaimSystemVa(1);
   return 0LL;
 }

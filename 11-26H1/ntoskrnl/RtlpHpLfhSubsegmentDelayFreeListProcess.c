@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034BF30
+ * XREFs of RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034DFB0
  * Callers:
- *     RtlpHpLfhOwnerRunMaintenance @ 0x140346820 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x1403498B0 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x1403488A0 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x14034B930 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x14034BAC8 (RtlpHpLfhSubsegmentSetWitheldBlocks.c)
- *     RtlpHpLfhBlockBitmapInitialize @ 0x14034BB58 (RtlpHpLfhBlockBitmapInitialize.c)
- *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x14034BBC0 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
- *     RtlpHpReleaseLockShared @ 0x14034BE40 (RtlpHpReleaseLockShared.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x14034D710 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x14034DB48 (RtlpHpLfhSubsegmentSetWitheldBlocks.c)
+ *     RtlpHpLfhBlockBitmapInitialize @ 0x14034DBD8 (RtlpHpLfhBlockBitmapInitialize.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x14034DC40 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
+ *     RtlpHpReleaseLockShared @ 0x14034DEC0 (RtlpHpReleaseLockShared.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x14034F790 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentDelayFreeListProcess(_QWORD *a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -198,8 +198,8 @@ LABEL_4:
               {
                 *((_BYTE *)v5 + v55 + 92) = 1;
                 if ( !(BYTE1(**(_QWORD **)(*v5 + 56LL)) == 1
-                     ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-                     : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+                     ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+                     : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
                   RtlpHpEnvCompactionSchedule(*(_QWORD *)(*v5 + 56LL), (v53 >> 31) & 0xFFF, v20, v19);
               }
             }

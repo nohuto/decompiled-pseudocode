@@ -1,10 +1,10 @@
 /*
- * XREFs of NtWaitForMultipleObjects32 @ 0x14058A1A0
+ * XREFs of NtWaitForMultipleObjects32 @ 0x14058B1A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObWaitForMultipleObjects @ 0x14058A3E0 (ObWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObWaitForMultipleObjects @ 0x14058B3E0 (ObWaitForMultipleObjects.c)
  */
 
 NTSTATUS __stdcall NtWaitForMultipleObjects32(

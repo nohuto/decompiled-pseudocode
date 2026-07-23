@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlValidateReparsePointBuffer @ 0x14070C70C
+ * XREFs of VerifierFsRtlValidateReparsePointBuffer @ 0x14070C73C
  * Callers:
  *     <none>
  * Callees:

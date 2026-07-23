@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCallDriverReference @ 0x14022BD00
+ * XREFs of IopCallDriverReference @ 0x1402D0580
  * Callers:
- *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
- *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     NtSetInformationFile @ 0x14035CFC0 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x1406EA600 (NtQueryInformationFile.c)
  * Callees:
- *     ObpIncrPointerCount @ 0x14021BFC0 (ObpIncrPointerCount.c)
- *     PsGetBaseIoPriorityThread @ 0x14022C100 (PsGetBaseIoPriorityThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
+ *     ObpIncrPointerCount @ 0x1402C08C0 (ObpIncrPointerCount.c)
+ *     PsGetBaseIoPriorityThread @ 0x1402D0980 (PsGetBaseIoPriorityThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14034D0C0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3, _QWORD *a4, int a5)
@@ -48,7 +48,7 @@ __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp,
   }
   else
   {
-    BaseIoPriorityThread = PsGetBaseIoPriorityThread(KeGetCurrentThread());
+    BaseIoPriorityThread = PsGetBaseIoPriorityThread(KeGetCurrentThread(), 2LL);
     if ( BaseIoPriorityThread < v10 && (struct _KTHREAD *)v12 == KeGetCurrentThread() && *(_DWORD *)(v12 + 1360) )
       BaseIoPriorityThread = v10;
     v13 = Irp->Flags & 0xFFF1FFFF;

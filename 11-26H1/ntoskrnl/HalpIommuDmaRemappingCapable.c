@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuDmaRemappingCapable @ 0x14058D730
+ * XREFs of HalpIommuDmaRemappingCapable @ 0x14058FEB0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuQueryAcpiDeviceMapping @ 0x1404F3A80 (HalpIommuQueryAcpiDeviceMapping.c)
- *     HalpIommuGetAcpiDeviceMapCount @ 0x14058D9B4 (HalpIommuGetAcpiDeviceMapCount.c)
- *     IommupHvIsDmarStageCompatible @ 0x14059E6A4 (IommupHvIsDmarStageCompatible.c)
- *     HalpIommuLocateFromDevice @ 0x1407823E0 (HalpIommuLocateFromDevice.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1404ED060 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     HalpIommuGetAcpiDeviceMapCount @ 0x140590134 (HalpIommuGetAcpiDeviceMapCount.c)
+ *     IommupHvIsDmarStageCompatible @ 0x1405A0E84 (IommupHvIsDmarStageCompatible.c)
+ *     HalpIommuLocateFromDevice @ 0x140784EE0 (HalpIommuLocateFromDevice.c)
  */
 
 char __fastcall HalpIommuDmaRemappingCapable(__int128 *a1, unsigned int *a2)

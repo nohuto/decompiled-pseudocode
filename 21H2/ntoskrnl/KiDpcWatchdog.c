@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDpcWatchdog @ 0x1402940A0
+ * XREFs of KiDpcWatchdog @ 0x140212010
  * Callers:
  *     <none>
  * Callees:
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1402940C8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x140212038 (KiResetGlobalDpcWatchdogProfiler.c)
  */
 
 void __fastcall KiDpcWatchdog(struct _KDPC *Dpc, PVOID DeferredContext, PVOID SystemArgument1, PVOID SystemArgument2)
@@ -13,6 +13,6 @@ void __fastcall KiDpcWatchdog(struct _KDPC *Dpc, PVOID DeferredContext, PVOID Sy
   CurrentPrcb = KeGetCurrentPrcb();
   _disable();
   CurrentPrcb->DpcWatchdogCount = 0;
-  KiResetGlobalDpcWatchdogProfiler(CurrentPrcb);
+  KiResetGlobalDpcWatchdogProfiler(CurrentPrcb, DeferredContext, SystemArgument1, SystemArgument2);
   _enable();
 }

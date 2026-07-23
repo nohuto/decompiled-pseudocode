@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceJob @ 0x1408B749C
+ * XREFs of EtwTraceJob @ 0x1408B875C
  * Callers:
- *     NtCreateJobObject @ 0x140605F80 (NtCreateJobObject.c)
- *     NtTerminateJobObject @ 0x1406C6F10 (NtTerminateJobObject.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1406C6F84 (PspTerminateAllProcessesInJobHierarchy.c)
- *     NtOpenJobObject @ 0x140889530 (NtOpenJobObject.c)
+ *     NtCreateJobObject @ 0x140606F80 (NtCreateJobObject.c)
+ *     NtTerminateJobObject @ 0x1406C81B0 (NtTerminateJobObject.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x1406C8224 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     NtOpenJobObject @ 0x14088A790 (NtOpenJobObject.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwpCopyJobGuidSafe @ 0x1408B7FB0 (EtwpCopyJobGuidSafe.c)
- *     EtwpPsProvTraceJob @ 0x1408B88C8 (EtwpPsProvTraceJob.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x1408B9270 (EtwpCopyJobGuidSafe.c)
+ *     EtwpPsProvTraceJob @ 0x1408B9B88 (EtwpPsProvTraceJob.c)
  */
 
 void __fastcall EtwTraceJob(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)

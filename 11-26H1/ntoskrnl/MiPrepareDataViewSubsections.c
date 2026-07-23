@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPrepareDataViewSubsections @ 0x1409C4B70
+ * XREFs of MiPrepareDataViewSubsections @ 0x140995B50
  * Callers:
- *     MiMapViewOfDataSection @ 0x1409C47B0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfDataSection @ 0x140995790 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiAddViewsForSection @ 0x1402E31A0 (MiAddViewsForSection.c)
- *     MiGetControlAreaPtes @ 0x1402E3790 (MiGetControlAreaPtes.c)
- *     MiLocateSubsectionNode @ 0x1402E48B0 (MiLocateSubsectionNode.c)
- *     MiLocatePagefileSubsection @ 0x140340310 (MiLocatePagefileSubsection.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiGetCommittedPages @ 0x14045C518 (MiGetCommittedPages.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
+ *     MiAddViewsForSection @ 0x1402C51E0 (MiAddViewsForSection.c)
+ *     MiGetControlAreaPtes @ 0x1402C57D0 (MiGetControlAreaPtes.c)
+ *     MiLocateSubsectionNode @ 0x1402C68F0 (MiLocateSubsectionNode.c)
+ *     MiLocatePagefileSubsection @ 0x140342390 (MiLocatePagefileSubsection.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiGetCommittedPages @ 0x1404560C0 (MiGetCommittedPages.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
  */
 
 __int64 __fastcall MiPrepareDataViewSubsections(__int64 *a1)

@@ -13,7 +13,7 @@
 
 __int64 __fastcall DbgUnLoadImageSymbolsUnicode(PCUNICODE_STRING SourceString, __int64 a2, __int64 a3)
 {
-  STRING v6; // [rsp+20h] [rbp-38h] BYREF
+  _STRING v6; // [rsp+20h] [rbp-38h] BYREF
   _QWORD v7[2]; // [rsp+30h] [rbp-28h] BYREF
   int v8; // [rsp+40h] [rbp-18h]
   int v9; // [rsp+44h] [rbp-14h]

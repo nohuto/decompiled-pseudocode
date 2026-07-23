@@ -1,12 +1,12 @@
 /*
- * XREFs of PspNotificationPacketCallback @ 0x1408EA490
+ * XREFs of PspNotificationPacketCallback @ 0x14085BCC0
  * Callers:
  *     <none>
  * Callees:
- *     IoSetIoCompletionEx @ 0x14031C620 (IoSetIoCompletionEx.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PspLockJobExclusive @ 0x1408EB430 (PspLockJobExclusive.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
+ *     IoSetIoCompletionEx @ 0x1402C51B0 (IoSetIoCompletionEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PspLockJobExclusive @ 0x14085CC60 (PspLockJobExclusive.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
  */
 
 LONG_PTR __fastcall PspNotificationPacketCallback(__int64 a1, __int64 a2)

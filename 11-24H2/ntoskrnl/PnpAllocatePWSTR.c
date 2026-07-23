@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpAllocatePWSTR @ 0x1408D3DA4
+ * XREFs of PnpAllocatePWSTR @ 0x1408D1794
  * Callers:
- *     PiSwQueuedCreateInfoCreate @ 0x140730E8C (PiSwQueuedCreateInfoCreate.c)
- *     PiSwIrpPropertySet @ 0x1408B1E40 (PiSwIrpPropertySet.c)
- *     PiSwDeviceInterfaceSetState @ 0x1408B22B0 (PiSwDeviceInterfaceSetState.c)
- *     PiPnpRtlObjectEventWorker @ 0x1408B9D40 (PiPnpRtlObjectEventWorker.c)
- *     PiDqActionDataCreate @ 0x1408D3974 (PiDqActionDataCreate.c)
- *     PiSwInterfaceCreate @ 0x1409F82E4 (PiSwInterfaceCreate.c)
- *     PiSwCompleteCreate @ 0x1409F8538 (PiSwCompleteCreate.c)
- *     PiSwInstanceInfoInit @ 0x1409F9350 (PiSwInstanceInfoInit.c)
- *     PiSwPnPInfoInit @ 0x1409FA184 (PiSwPnPInfoInit.c)
- *     PnpCopyDevProperty @ 0x1409FA314 (PnpCopyDevProperty.c)
- *     PiSwBusRelationAdd @ 0x1409FA468 (PiSwBusRelationAdd.c)
- *     PiSwPdoPnPDispatch @ 0x1409FAA40 (PiSwPdoPnPDispatch.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x1409FB394 (PiSwDeviceInterfacesUpdateState.c)
- *     PiDmObjectCreate @ 0x140AC3894 (PiDmObjectCreate.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x14072EE9C (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwIrpPropertySet @ 0x1408AF734 (PiSwIrpPropertySet.c)
+ *     PiSwDeviceInterfaceSetState @ 0x1408AFBA4 (PiSwDeviceInterfaceSetState.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1408B76F0 (PiPnpRtlObjectEventWorker.c)
+ *     PiDqActionDataCreate @ 0x1408D1364 (PiDqActionDataCreate.c)
+ *     PiSwInterfaceCreate @ 0x1409F0C54 (PiSwInterfaceCreate.c)
+ *     PiSwCompleteCreate @ 0x1409F0EA8 (PiSwCompleteCreate.c)
+ *     PiSwInstanceInfoInit @ 0x1409F1CC0 (PiSwInstanceInfoInit.c)
+ *     PiSwPnPInfoInit @ 0x1409F2AF4 (PiSwPnPInfoInit.c)
+ *     PnpCopyDevProperty @ 0x1409F2C84 (PnpCopyDevProperty.c)
+ *     PiSwBusRelationAdd @ 0x1409F2DD8 (PiSwBusRelationAdd.c)
+ *     PiSwPdoPnPDispatch @ 0x1409F33B0 (PiSwPdoPnPDispatch.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x1409F3D04 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiDmObjectCreate @ 0x140ABF218 (PiDmObjectCreate.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpAllocatePWSTR(_WORD *a1, unsigned __int64 a2, ULONG a3, PVOID *a4)
@@ -71,7 +71,7 @@ LABEL_25:
     v7 = -1073741675;
     goto LABEL_25;
   }
-  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, 2 * v11, a3);
   *a4 = Pool2;
   v14 = Pool2;
   if ( !Pool2 )

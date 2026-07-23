@@ -1,27 +1,27 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectProperty @ 0x1409A47F0
+ * XREFs of PiDmObjectGetCachedObjectProperty @ 0x140965250
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1409A2FF0 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140963A50 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1409915EC (PiDmObjectGetCachedObjectReference.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     PiDmGetObject @ 0x1409A2D70 (PiDmGetObject.c)
- *     PiDmObjectGetCachedObjectPropertyData @ 0x1409A4440 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x14095204C (PiDmObjectGetCachedObjectReference.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     PiDmGetObject @ 0x1409637D0 (PiDmGetObject.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x140964EA0 (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectProperty(
@@ -52,74 +52,68 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
   unsigned __int64 v25; // r8
   __int64 *v26; // rax
   __int64 v27; // rdi
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  _QWORD *v30; // r10
-  unsigned int v31; // r14d
-  struct _KLOCK_ENTRIES *v32; // r9
-  char v33; // r12
-  signed __int64 *v34; // rsi
+  _QWORD *v28; // r10
+  unsigned int v29; // r14d
+  struct _KLOCK_ENTRIES *v30; // r9
+  char v31; // r12
+  signed __int64 *v32; // rsi
   int CachedObjectPropertyData; // r15d
-  DEVPROPKEY **v36; // r8
+  DEVPROPKEY **v34; // r8
   unsigned int i; // ebx
-  DEVPROPKEY *v38; // rdx
-  __int64 v39; // rdx
-  __int64 v40; // r8
-  signed __int64 v42; // rax
-  signed __int64 v43; // rdx
-  signed __int64 v44; // rtt
-  __int64 v45; // rdx
-  __int64 v46; // r8
-  signed __int64 *v47; // rcx
-  __int64 v48; // rcx
-  struct _KTHREAD *v49; // rax
-  void *v50; // rdx
-  LegacyAutoBoost *v51; // r14
-  signed __int64 *v52; // rdx
+  DEVPROPKEY *v36; // rdx
+  signed __int64 v38; // rax
+  signed __int64 v39; // rdx
+  signed __int64 v40; // rtt
+  signed __int64 *v41; // rcx
+  __int64 v42; // rcx
+  struct _KTHREAD *v43; // rax
+  void *v44; // rdx
+  LegacyAutoBoost *v45; // r14
+  signed __int64 *v46; // rdx
+  unsigned int v47; // ecx
+  int v48; // eax
+  __int64 v49; // rax
+  unsigned int v51; // eax
+  signed __int64 *v52; // rbx
   unsigned int v53; // ecx
-  int v54; // eax
-  __int64 v55; // rax
+  unsigned int v54; // ecx
+  unsigned int v55; // ecx
+  unsigned int v56; // eax
   unsigned int v57; // eax
-  signed __int64 *v58; // rbx
-  unsigned int v59; // ecx
-  unsigned int v60; // ecx
-  unsigned int v61; // ecx
-  unsigned int v62; // eax
-  unsigned int v63; // eax
-  int v64; // ecx
-  int v65; // ecx
-  int v66; // ecx
-  int v67; // ecx
-  unsigned int v68; // [rsp+40h] [rbp-C0h]
+  int v58; // ecx
+  int v59; // ecx
+  int v60; // ecx
+  int v61; // ecx
+  unsigned int v62; // [rsp+40h] [rbp-C0h]
   GUID *Guid; // [rsp+58h] [rbp-A8h]
-  signed __int64 *v70; // [rsp+60h] [rbp-A0h] BYREF
+  signed __int64 *v64; // [rsp+60h] [rbp-A0h] BYREF
   void *Buf1; // [rsp+68h] [rbp-98h]
-  unsigned int v72; // [rsp+70h] [rbp-90h]
+  unsigned int v66; // [rsp+70h] [rbp-90h]
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
   __int128 *Buffer; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v75; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v76; // [rsp+A0h] [rbp-60h]
-  __int128 v77; // [rsp+B0h] [rbp-50h]
-  __int128 v78; // [rsp+C0h] [rbp-40h]
-  __int128 v79; // [rsp+D0h] [rbp-30h]
-  __int128 v80; // [rsp+E0h] [rbp-20h]
-  __int128 v81; // [rsp+F0h] [rbp-10h]
+  __int128 v69; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v70; // [rsp+A0h] [rbp-60h]
+  __int128 v71; // [rsp+B0h] [rbp-50h]
+  __int128 v72; // [rsp+C0h] [rbp-40h]
+  __int128 v73; // [rsp+D0h] [rbp-30h]
+  __int128 v74; // [rsp+E0h] [rbp-20h]
+  __int128 v75; // [rsp+F0h] [rbp-10h]
 
   v9 = a7;
   Buf1 = a5;
-  v72 = a1;
+  v66 = a1;
   Guid = a7;
-  v70 = 0LL;
+  v64 = 0LL;
   if ( a7 )
   {
-    v68 = a8;
+    v62 = a8;
     if ( !a8 )
       v9 = 0LL;
     Guid = v9;
   }
   else
   {
-    v68 = 0;
+    v62 = 0;
   }
   if ( a1 >= 7 || a4 )
     return 3221225494LL;
@@ -130,19 +124,19 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
   }
   else
   {
-    v64 = a1 - 1;
-    if ( v64 )
+    v58 = a1 - 1;
+    if ( v58 )
     {
-      v65 = v64 - 1;
-      if ( v65 )
+      v59 = v58 - 1;
+      if ( v59 )
       {
-        v66 = v65 - 2;
-        if ( v66 )
+        v60 = v59 - 2;
+        if ( v60 )
         {
-          v67 = v66 - 1;
-          if ( v67 )
+          v61 = v60 - 1;
+          if ( v61 )
           {
-            if ( v67 == 1 )
+            if ( v61 == 1 )
               v12 = (struct _ERESOURCE *)&PiDmDevicePanelManager;
           }
           else
@@ -168,21 +162,21 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(v12, 1u);
-  Buffer = &v75;
+  Buffer = &v69;
+  v69 = 0LL;
+  v70 = 0LL;
+  v71 = 0LL;
+  v72 = 0LL;
+  v73 = 0LL;
+  v74 = 0LL;
   v75 = 0LL;
-  v76 = 0LL;
-  v77 = 0LL;
-  v78 = 0LL;
-  v79 = 0LL;
-  v80 = 0LL;
-  v81 = 0LL;
   if ( !a2 )
     goto LABEL_35;
   Flink = (int)v12[2].SystemResourcesList.Flink;
   v15 = 0x7FFFLL;
-  HIDWORD(v76) = Flink;
+  HIDWORD(v70) = Flink;
   v16 = a2;
-  *(_QWORD *)&v76 = a2;
+  *(_QWORD *)&v70 = a2;
   DestinationString = 0LL;
   do
   {
@@ -207,7 +201,7 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   v23 = v22 >> 1;
   v24 = CurrentServerSiloGlobals[75].Flink;
-  for ( DWORD2(v76) = 0; v23; v20 = (unsigned __int16)v25 + 65599 * v20 )
+  for ( DWORD2(v70) = 0; v23; v20 = (unsigned __int16)v25 + 65599 * v20 )
   {
     v25 = *v21++;
     --v23;
@@ -229,20 +223,20 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
       }
     }
   }
-  DWORD2(v76) = v20;
+  DWORD2(v70) = v20;
   v26 = (__int64 *)RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)&v12[1], &Buffer);
   if ( !v26 || (v27 = *v26) == 0 )
   {
 LABEL_35:
     ExReleaseResourceLite(v12);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v39, v40);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return 3221225524LL;
   }
   _InterlockedIncrement((volatile signed __int32 *)(v27 + 8));
   ExReleaseResourceLite(v12);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v28, v29);
-  v30 = Buf1;
-  v31 = 3;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  v28 = Buf1;
+  v29 = 3;
   if ( a1 == 3 && *((_DWORD *)Buf1 + 4) == 2 )
   {
     if ( !memcmp(Buf1, &DEVPKEY_Device_ContainerId, 0x10uLL)
@@ -251,149 +245,149 @@ LABEL_35:
                 (__int64)a2,
                 (struct _KTHREAD *)v27,
                 (__int64)&DEVPKEY_Device_InstanceId,
-                &v70) >= 0 )
+                &v64) >= 0 )
     {
-      v58 = v70;
+      v52 = v64;
       CachedObjectPropertyData = PiDmObjectGetCachedObjectPropertyData(
-                                   *((_DWORD *)v70 + 7),
-                                   (unsigned __int16 *)v70[2],
-                                   v70,
+                                   *((_DWORD *)v64 + 7),
+                                   (unsigned __int16 *)v64[2],
+                                   v64,
                                    (__int64)Buf1,
                                    a6,
                                    v9,
-                                   v68,
+                                   v62,
                                    a9);
-      v47 = v58;
+      v41 = v52;
 LABEL_43:
-      PiDmObjectRelease(v47);
+      PiDmObjectRelease(v41);
       goto LABEL_44;
     }
-    v30 = Buf1;
+    v28 = Buf1;
   }
-  v32 = (struct _KLOCK_ENTRIES *)v72;
-  v33 = 0;
-  v70 = (signed __int64 *)v27;
-  v34 = (signed __int64 *)v27;
+  v30 = (struct _KLOCK_ENTRIES *)v66;
+  v31 = 0;
+  v64 = (signed __int64 *)v27;
+  v32 = (signed __int64 *)v27;
   CachedObjectPropertyData = -1073741802;
-  switch ( v72 )
+  switch ( v66 )
   {
     case 1u:
-      v36 = &PiDmCachedDeviceKeys;
-      v31 = 10;
+      v34 = &PiDmCachedDeviceKeys;
+      v29 = 10;
 LABEL_25:
       for ( i = 0; ; ++i )
       {
-        if ( i >= v31 )
+        if ( i >= v29 )
           goto LABEL_44;
-        v38 = v36[3 * i];
-        if ( *((_DWORD *)v30 + 4) == v38->pid )
+        v36 = v34[3 * i];
+        if ( *((_DWORD *)v28 + 4) == v36->pid )
         {
-          v48 = *v30 - *(_QWORD *)&v38->fmtid.Data1;
-          if ( *v30 == *(_QWORD *)&v38->fmtid.Data1 )
-            v48 = v30[1] - *(_QWORD *)v38->fmtid.Data4;
-          if ( !v48 )
+          v42 = *v28 - *(_QWORD *)&v36->fmtid.Data1;
+          if ( *v28 == *(_QWORD *)&v36->fmtid.Data1 )
+            v42 = v28[1] - *(_QWORD *)v36->fmtid.Data4;
+          if ( !v42 )
             break;
         }
       }
       if ( !v27 )
       {
-        CachedObjectPropertyData = PiDmGetObject(v72, a2, &v70);
+        CachedObjectPropertyData = PiDmGetObject(v66, a2, &v64);
         if ( CachedObjectPropertyData < 0 )
           break;
-        v34 = v70;
-        v33 = 1;
+        v32 = v64;
+        v31 = 1;
       }
-      v49 = KeGetCurrentThread();
-      --v49->KernelApcDisable;
-      v51 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)v34, 0LL, 0LL, v32);
-      if ( _InterlockedCompareExchange64(v34, 17LL, 0LL) )
-        ExfAcquirePushLockSharedEx(v34, 0, v51, (struct _KTHREAD *)v34);
-      if ( v51 )
+      v43 = KeGetCurrentThread();
+      --v43->KernelApcDisable;
+      v45 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)v32, 0LL, 0LL, v30);
+      if ( _InterlockedCompareExchange64(v32, 17LL, 0LL) )
+        ExfAcquirePushLockSharedEx(v32, 0, v45, (struct _KTHREAD *)v32);
+      if ( v45 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
-          AutoBoost::KiAbpPostAcquire(v51, v50);
+          AutoBoost::KiAbpPostAcquire(v45, v44);
         else
-          *((_BYTE *)v51 + 10) = 1;
+          *((_BYTE *)v45 + 10) = 1;
       }
-      v52 = &v34[3 * i];
-      v53 = *((_DWORD *)v52 + 28);
-      if ( v53 <= 1 )
+      v46 = &v32[3 * i];
+      v47 = *((_DWORD *)v46 + 28);
+      if ( v47 <= 1 )
       {
         CachedObjectPropertyData = -1073741802;
         goto LABEL_37;
       }
       CachedObjectPropertyData = 0;
       DestinationString = 0LL;
-      if ( v53 == 6 )
+      if ( v47 == 6 )
       {
-        v54 = *((_DWORD *)v52 + 30);
-        if ( v54 == 18 )
+        v48 = *((_DWORD *)v46 + 30);
+        if ( v48 == 18 )
         {
           *a6 = 18;
-          v55 = -1LL;
-          while ( *(_WORD *)(*(_QWORD *)(v52[16] + 16) + 2 * v55++ + 2) != 0 )
+          v49 = -1LL;
+          while ( *(_WORD *)(*(_QWORD *)(v46[16] + 16) + 2 * v49++ + 2) != 0 )
             ;
-          v57 = 2 * v55 + 2;
-          *a9 = v57;
-          if ( v68 < v57 )
+          v51 = 2 * v49 + 2;
+          *a9 = v51;
+          if ( v62 < v51 )
             goto LABEL_61;
-          memmove(Guid, *(const void **)(v52[16] + 16), v57);
+          memmove(Guid, *(const void **)(v46[16] + 16), v51);
 LABEL_37:
-          _m_prefetchw(v34);
-          v42 = *v34;
-          v43 = *v34 - 16;
-          if ( (*v34 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-            v43 = 0LL;
-          if ( (v42 & 2) != 0 || (v44 = *v34, v44 != _InterlockedCompareExchange64(v34, v43, v42)) )
-            ExfReleasePushLock(v34);
-          KeAbPostRelease((unsigned __int64)v34);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v45, v46);
-          if ( v33 )
+          _m_prefetchw(v32);
+          v38 = *v32;
+          v39 = *v32 - 16;
+          if ( (*v32 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+            v39 = 0LL;
+          if ( (v38 & 2) != 0 || (v40 = *v32, v40 != _InterlockedCompareExchange64(v32, v39, v38)) )
+            ExfReleasePushLock(v32);
+          KeAbPostRelease((unsigned __int64)v32);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          if ( v31 )
           {
-            v47 = v34;
+            v41 = v32;
             goto LABEL_43;
           }
           break;
         }
-        if ( v54 != 13 )
+        if ( v48 != 13 )
         {
           CachedObjectPropertyData = -1073741595;
           goto LABEL_37;
         }
         *a6 = 13;
         *a9 = 16;
-        if ( v68 >= 0x10 )
+        if ( v62 >= 0x10 )
         {
-          RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(v52[16] + 16));
+          RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(v46[16] + 16));
           CachedObjectPropertyData = RtlGUIDFromString(&DestinationString, Guid);
           goto LABEL_37;
         }
       }
       else
       {
-        v59 = v53 - 2;
-        if ( !v59 )
+        v53 = v47 - 2;
+        if ( !v53 )
         {
           CachedObjectPropertyData = -1073741275;
           goto LABEL_37;
         }
-        v60 = v59 - 1;
-        if ( v60 )
+        v54 = v53 - 1;
+        if ( v54 )
         {
-          v61 = v60 - 1;
-          if ( v61 )
+          v55 = v54 - 1;
+          if ( v55 )
           {
-            if ( v61 != 1 )
+            if ( v55 != 1 )
             {
               CachedObjectPropertyData = -1073741595;
               goto LABEL_37;
             }
-            *a6 = *((_DWORD *)v52 + 30);
-            v62 = *((_DWORD *)v52 + 31);
-            *a9 = v62;
-            if ( v68 >= v62 )
+            *a6 = *((_DWORD *)v46 + 30);
+            v56 = *((_DWORD *)v46 + 31);
+            *a9 = v56;
+            if ( v62 >= v56 )
             {
-              memmove(Guid, (const void *)v52[16], v62);
+              memmove(Guid, (const void *)v46[16], v56);
               goto LABEL_37;
             }
           }
@@ -401,21 +395,21 @@ LABEL_37:
           {
             *a6 = 13;
             *a9 = 16;
-            if ( v68 >= 0x10 )
+            if ( v62 >= 0x10 )
             {
-              *Guid = *(GUID *)(v52 + 15);
+              *Guid = *(GUID *)(v46 + 15);
               goto LABEL_37;
             }
           }
         }
         else
         {
-          *a6 = *((_DWORD *)v52 + 30);
-          v63 = *((_DWORD *)v52 + 31);
-          *a9 = v63;
-          if ( v68 >= v63 )
+          *a6 = *((_DWORD *)v46 + 30);
+          v57 = *((_DWORD *)v46 + 31);
+          *a9 = v57;
+          if ( v62 >= v57 )
           {
-            memmove(Guid, v52 + 16, v63);
+            memmove(Guid, v46 + 16, v57);
             goto LABEL_37;
           }
         }
@@ -424,11 +418,11 @@ LABEL_61:
       CachedObjectPropertyData = -1073741789;
       goto LABEL_37;
     case 3u:
-      v36 = &PiDmCachedDeviceInterfaceKeys;
-      v31 = 1;
+      v34 = &PiDmCachedDeviceInterfaceKeys;
+      v29 = 1;
       goto LABEL_25;
     case 5u:
-      v36 = &PiDmCachedDeviceContainerKeys;
+      v34 = &PiDmCachedDeviceContainerKeys;
       goto LABEL_25;
   }
 LABEL_44:

@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmPdcNotifyMediaBufferingUpdate @ 0x1408F5E04
+ * XREFs of PpmPdcNotifyMediaBufferingUpdate @ 0x1408F5F64
  * Callers:
- *     PpmMediaBufferingWorker @ 0x14036C640 (PpmMediaBufferingWorker.c)
+ *     PpmMediaBufferingWorker @ 0x14036C7F0 (PpmMediaBufferingWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 (*PpmPdcNotifyMediaBufferingUpdate())(void)
 {
   __int64 (*result)(void); // rax
 
-  result = qword_140C543F8;
-  if ( qword_140C543F8 )
-    return (__int64 (*)(void))qword_140C543F8();
+  result = qword_140C54438;
+  if ( qword_140C54438 )
+    return (__int64 (*)(void))qword_140C54438();
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of XmAccumRegister @ 0x1403C4F10
+ * XREFs of XmAccumRegister @ 0x1403C5340
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140397058 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403970E8 (XmSetDestinationValue.c)
  */
 
 __int64 __fastcall XmAccumRegister(__int64 a1)

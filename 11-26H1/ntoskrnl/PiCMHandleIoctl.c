@@ -1,50 +1,50 @@
 /*
- * XREFs of PiCMHandleIoctl @ 0x140997F20
+ * XREFs of PiCMHandleIoctl @ 0x140958980
  * Callers:
- *     PiCMFastIoDeviceDispatch @ 0x140997EB0 (PiCMFastIoDeviceDispatch.c)
+ *     PiCMFastIoDeviceDispatch @ 0x140958910 (PiCMFastIoDeviceDispatch.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiCMDeleteDeviceInterfaceKey @ 0x140773764 (PiCMDeleteDeviceInterfaceKey.c)
- *     PiCMCreateObject @ 0x14077386C (PiCMCreateObject.c)
- *     PiCMDeleteDevice @ 0x140773A24 (PiCMDeleteDevice.c)
- *     PiCMOpenClassKey @ 0x140916DFC (PiCMOpenClassKey.c)
- *     _CmGetInstallerClassRegProp @ 0x140918E5C (_CmGetInstallerClassRegProp.c)
- *     PiCMEnumerateSubKeys @ 0x140919E14 (PiCMEnumerateSubKeys.c)
- *     PiCMRegisterDeviceInterface @ 0x14098C74C (PiCMRegisterDeviceInterface.c)
- *     PiCMDeviceAction @ 0x14098CC84 (PiCMDeviceAction.c)
- *     PiCMSetRegistryProperty @ 0x14098D258 (PiCMSetRegistryProperty.c)
- *     PiCMSetObjectProperty @ 0x14098DA68 (PiCMSetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     PiCMCaptureRegistryPropertyInputData @ 0x140997AF8 (PiCMCaptureRegistryPropertyInputData.c)
- *     PiCMGetRelatedDeviceInstance @ 0x140998C60 (PiCMGetRelatedDeviceInstance.c)
- *     PiCMReturnBufferResultData @ 0x1409993B0 (PiCMReturnBufferResultData.c)
- *     PiCMCapturePropertyInputData @ 0x140999760 (PiCMCapturePropertyInputData.c)
- *     PiCMGetDeviceInterfaceList @ 0x140999BB0 (PiCMGetDeviceInterfaceList.c)
- *     PiCMGetObjectList @ 0x140999DA8 (PiCMGetObjectList.c)
- *     PiCMValidateDeviceInstance @ 0x14099A028 (PiCMValidateDeviceInstance.c)
- *     _PnpGetObjectPropertyWorker @ 0x14099C0F0 (_PnpGetObjectPropertyWorker.c)
- *     PiCMGetDeviceInterfaceAlias @ 0x1409DA8FC (PiCMGetDeviceInterfaceAlias.c)
- *     PiCMOpenDeviceKey @ 0x1409FF7B4 (PiCMOpenDeviceKey.c)
- *     PiCMOpenObjectKey @ 0x1409FFA20 (PiCMOpenObjectKey.c)
- *     PiCMGetDeviceStatus @ 0x140A9F724 (PiCMGetDeviceStatus.c)
- *     PiCMGetDeviceIdList @ 0x140AA01F0 (PiCMGetDeviceIdList.c)
- *     PiCMGetObjectPropertyKeys @ 0x140AB3DA8 (PiCMGetObjectPropertyKeys.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x140ABE0C4 (PiCMOpenDeviceInterfaceKey.c)
- *     PiCMGetDeviceDepth @ 0x140AD6DD0 (PiCMGetDeviceDepth.c)
- *     PiCMQueryRemove @ 0x140B2D27C (PiCMQueryRemove.c)
- *     PiCMCreateDevice @ 0x140B5A67C (PiCMCreateDevice.c)
- *     PiCMDeleteDeviceKey @ 0x140B66CDC (PiCMDeleteDeviceKey.c)
- *     PiCMDeleteObject @ 0x140B6A43C (PiCMDeleteObject.c)
- *     PiCMUnregisterDeviceInterface @ 0x140B6B110 (PiCMUnregisterDeviceInterface.c)
- *     PiCMDeleteClassKey @ 0x140B6B2E8 (PiCMDeleteClassKey.c)
- *     PiCMSetDeviceProblem @ 0x140B6CA80 (PiCMSetDeviceProblem.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiCMDeleteDeviceInterfaceKey @ 0x140776764 (PiCMDeleteDeviceInterfaceKey.c)
+ *     PiCMCreateObject @ 0x14077686C (PiCMCreateObject.c)
+ *     PiCMDeleteDevice @ 0x140776A24 (PiCMDeleteDevice.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x14091B4B8 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceKey @ 0x14091C550 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenObjectKey @ 0x14091C7BC (PiCMOpenObjectKey.c)
+ *     PiCMGetDeviceDepth @ 0x14094D0A0 (PiCMGetDeviceDepth.c)
+ *     PiCMRegisterDeviceInterface @ 0x14094D1B4 (PiCMRegisterDeviceInterface.c)
+ *     PiCMDeviceAction @ 0x14094D6E4 (PiCMDeviceAction.c)
+ *     PiCMSetRegistryProperty @ 0x14094DCB8 (PiCMSetRegistryProperty.c)
+ *     PiCMSetObjectProperty @ 0x14094E4C8 (PiCMSetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     PiCMCaptureRegistryPropertyInputData @ 0x140958558 (PiCMCaptureRegistryPropertyInputData.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1409596C0 (PiCMGetRelatedDeviceInstance.c)
+ *     PiCMReturnBufferResultData @ 0x140959E10 (PiCMReturnBufferResultData.c)
+ *     PiCMCapturePropertyInputData @ 0x14095A1C0 (PiCMCapturePropertyInputData.c)
+ *     PiCMGetDeviceInterfaceList @ 0x14095A610 (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetObjectList @ 0x14095A808 (PiCMGetObjectList.c)
+ *     PiCMValidateDeviceInstance @ 0x14095AA88 (PiCMValidateDeviceInstance.c)
+ *     _PnpGetObjectPropertyWorker @ 0x14095CB50 (_PnpGetObjectPropertyWorker.c)
+ *     PiCMOpenClassKey @ 0x140971868 (PiCMOpenClassKey.c)
+ *     _CmGetInstallerClassRegProp @ 0x1409738BC (_CmGetInstallerClassRegProp.c)
+ *     PiCMEnumerateSubKeys @ 0x140974874 (PiCMEnumerateSubKeys.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x140A17B4C (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetDeviceStatus @ 0x140A9FA54 (PiCMGetDeviceStatus.c)
+ *     PiCMGetDeviceIdList @ 0x140AA1B80 (PiCMGetDeviceIdList.c)
+ *     PiCMGetObjectPropertyKeys @ 0x140AB5148 (PiCMGetObjectPropertyKeys.c)
+ *     PiCMQueryRemove @ 0x140B2F2FC (PiCMQueryRemove.c)
+ *     PiCMCreateDevice @ 0x140B5D998 (PiCMCreateDevice.c)
+ *     PiCMDeleteDeviceKey @ 0x140B69C68 (PiCMDeleteDeviceKey.c)
+ *     PiCMDeleteObject @ 0x140B6D64C (PiCMDeleteObject.c)
+ *     PiCMUnregisterDeviceInterface @ 0x140B6E20C (PiCMUnregisterDeviceInterface.c)
+ *     PiCMDeleteClassKey @ 0x140B6E3E4 (PiCMDeleteClassKey.c)
+ *     PiCMSetDeviceProblem @ 0x140B6FE50 (PiCMSetDeviceProblem.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiCMHandleIoctl(void *a1, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5, int a6, int a7)
+__int64 __fastcall PiCMHandleIoctl(void *a1, __int64 a2, void *a3, unsigned int a4, _DWORD *a5, int a6, int a7)
 {
   int v10; // ebx
   void *Pool2; // r12
@@ -268,92 +268,92 @@ LABEL_78:
   {
     if ( a6 == 4655139 )
     {
-      return (unsigned int)PiCMGetRelatedDeviceInstance((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+      return (unsigned int)PiCMGetRelatedDeviceInstance((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
     }
     else
     {
       switch ( a6 )
       {
         case 4655107:
-          v10 = PiCMGetDeviceIdList((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMGetDeviceIdList((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655111:
-          v10 = PiCMGetDeviceInterfaceList((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMGetDeviceInterfaceList((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655115:
-          v10 = PiCMEnumerateSubKeys(a1, a2, a3, a4, v31, a5);
+          v10 = PiCMEnumerateSubKeys((_DWORD)a1, a2, (_DWORD)a3, a4);
           break;
         case 4655119:
-          v10 = PiCMGetObjectPropertyKeys((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMGetObjectPropertyKeys((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655127:
-          v10 = PiCMSetObjectProperty(a1, a2, a3, a4, a7, a5);
+          v10 = PiCMSetObjectProperty(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655135:
-          v10 = PiCMSetRegistryProperty(a1, a2, a3, a4, a7, a5);
+          v10 = PiCMSetRegistryProperty(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655143:
           v10 = PiCMGetDeviceStatus(a1);
           break;
         case 4655147:
-          v10 = PiCMGetDeviceDepth((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMGetDeviceDepth(a1, a2, a3, a4, a7, a5);
           break;
         case 4655151:
           v10 = PiCMSetDeviceProblem(a1, v31, (__int64)a5);
           break;
         case 4655155:
-          v10 = PiCMQueryRemove((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMQueryRemove((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655159:
-          v10 = PiCMRegisterDeviceInterface(a1, a2, a3, a4, a7, a5);
+          v10 = PiCMRegisterDeviceInterface(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655163:
-          v10 = PiCMUnregisterDeviceInterface((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMUnregisterDeviceInterface((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655167:
-          v10 = PiCMGetDeviceInterfaceAlias((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMGetDeviceInterfaceAlias((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655171:
-          v10 = PiCMValidateDeviceInstance((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMValidateDeviceInstance((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655175:
-          v10 = PiCMCreateDevice((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMCreateDevice((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655179:
-          v10 = PiCMDeleteDevice(a1, a2, a3, a4, a7, a5);
+          v10 = PiCMDeleteDevice(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655183:
-          v10 = PiCMDeviceAction(a1, a2, a3, a4, a7, a5);
+          v10 = PiCMDeviceAction(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655187:
-          v10 = PiCMOpenDeviceInterfaceKey((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMOpenDeviceInterfaceKey(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655191:
-          v10 = PiCMDeleteDeviceInterfaceKey(a1, a2, a3, a4, a7, a5);
+          v10 = PiCMDeleteDeviceInterfaceKey(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655195:
-          v10 = PiCMOpenDeviceKey((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMOpenDeviceKey(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655199:
-          v10 = PiCMDeleteDeviceKey((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMDeleteDeviceKey((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655203:
-          v10 = PiCMOpenClassKey(a1, a2, a3, a4, a7, a5);
+          v10 = PiCMOpenClassKey((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655207:
-          v10 = PiCMDeleteClassKey((int)a1, a2, a3, a4, a7, a5);
+          v10 = PiCMDeleteClassKey((int)a1, a2, (int)a3, a4, a7, a5);
           break;
         case 4655211:
-          v10 = PiCMOpenObjectKey((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMOpenObjectKey(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655215:
-          v10 = PiCMCreateObject(a1, a2, a3, a4, a7, a5);
+          v10 = PiCMCreateObject(a1, a2, (__int64)a3, a4, a7, a5);
           break;
         case 4655219:
-          v10 = PiCMDeleteObject((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMDeleteObject((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         case 4655223:
-          v10 = PiCMGetObjectList((_DWORD)a1, a2, a3, a4, a7, (__int64)a5);
+          v10 = PiCMGetObjectList((_DWORD)a1, a2, (_DWORD)a3, a4, a7, (__int64)a5);
           break;
         default:
           v10 = -1073741637;
@@ -528,9 +528,9 @@ LABEL_64:
       if ( v15 == 2 )
       {
         DeviceRegProp = CmGetInstallerClassRegProp(
-                          *(__int64 *)&PiPnpRtlCtx,
-                          (__int64)v14,
-                          0LL,
+                          PiPnpRtlCtx,
+                          (_DWORD)v14,
+                          0,
                           v17,
                           (__int64)&v33,
                           (__int64)v13,

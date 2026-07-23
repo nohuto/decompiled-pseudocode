@@ -13,20 +13,27 @@
  *     sub_1800CB310 @ 0x1800CB310 (sub_1800CB310.c)
  */
 
-__int64 __fastcall LdrResolveDelayLoadedAPI(const void *a1, _BYTE *a2, __int64 a3, __int64 a4, __int64 *a5, int a6)
+PVOID __cdecl LdrResolveDelayLoadedAPI(
+        PVOID ParentModuleBase,
+        PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor,
+        PDELAYLOAD_FAILURE_DLL_CALLBACK FailureDllHook,
+        PDELAYLOAD_FAILURE_SYSTEM_ROUTINE FailureSystemHook,
+        PIMAGE_THUNK_DATA ThunkAddress,
+        ULONG Flags)
 {
-  __int64 v9; // rbx
+  void *ForwarderString; // rbx
   int v10; // ecx
-  unsigned __int64 v11; // rsi
+  char *v11; // rsi
   int v12; // eax
   char v13; // cl
   char v15; // al
-  unsigned __int64 v16; // [rsp+50h] [rbp-38h] BYREF
+  PVOID BaseAddress[2]; // [rsp+50h] [rbp-38h] BYREF
 
-  v9 = 0LL;
-  if ( ((a6 & 0xFFFFDFFF) == 8 || (~((dword_1801596D4 & 4 | 0x7B) << 8) & a6) == 0) && (*a2 & 1) != 0 )
+  ForwarderString = 0LL;
+  if ( ((Flags & 0xFFFFDFFF) == 8 || (~((dword_1801596D4 & 4 | 0x7B) << 8) & Flags) == 0)
+    && (DelayloadDescriptor->Attributes.AllAttributes & 1) != 0 )
   {
-    v10 = sub_18001FA3C((unsigned __int64)a1, (__int64 *)&v16, 0LL);
+    v10 = sub_18001FA3C((unsigned __int64)ParentModuleBase, (__int64 *)BaseAddress, 0LL);
     if ( v10 < 0 )
     {
       v15 = dword_180156A70;
@@ -38,7 +45,7 @@ __int64 __fastcall LdrResolveDelayLoadedAPI(const void *a1, _BYTE *a2, __int64 a
           (unsigned int)"LdrResolveDelayLoadedAPI",
           0,
           "LdrResolveDelayLoadedAPI:Unable to locate DLL based at 0x%p.Status = 0x%x\n",
-          a1,
+          ParentModuleBase,
           v10);
         v15 = dword_180156A70;
       }
@@ -47,22 +54,34 @@ __int64 __fastcall LdrResolveDelayLoadedAPI(const void *a1, _BYTE *a2, __int64 a
     }
     else
     {
-      v9 = *a5;
-      v11 = v16;
-      if ( *a5 - (__int64)a1 < (unsigned __int64)*(unsigned int *)(v16 + 64) )
+      ForwarderString = (void *)ThunkAddress->u1.ForwarderString;
+      v11 = (char *)BaseAddress[0];
+      if ( ThunkAddress->u1.ForwarderString - (unsigned __int64)ParentModuleBase < *((unsigned int *)BaseAddress[0] + 16) )
       {
-        if ( (*(_DWORD *)(v16 + 104) & 0x8000) != 0 )
+        if ( (*((_DWORD *)BaseAddress[0] + 26) & 0x8000) != 0 )
         {
-          v9 = sub_18000F300(v16, (__int64)a2, a3, a4, a5, a6);
+          ForwarderString = (void *)sub_18000F300(
+                                      (__int64)BaseAddress[0],
+                                      (__int64)DelayloadDescriptor,
+                                      (__int64)FailureDllHook,
+                                      (__int64)FailureSystemHook,
+                                      (__int64)ThunkAddress,
+                                      Flags);
         }
         else
         {
-          v9 = sub_1800CB310(v16, (_DWORD)a2, a3, a4, (__int64)a5, a6);
-          if ( v9 )
+          ForwarderString = (void *)sub_1800CB310(
+                                      (int)BaseAddress[0],
+                                      (int)DelayloadDescriptor,
+                                      (int)FailureDllHook,
+                                      (__int64)FailureSystemHook,
+                                      (__int64)ThunkAddress,
+                                      Flags);
+          if ( ForwarderString )
           {
             if ( (unsigned int)sub_18001F704() )
             {
-              v12 = sub_18004FEB8(a1, (unsigned int)((_DWORD)a5 - (_DWORD)a1), (unsigned int)((_DWORD)a5 - (_DWORD)a1));
+              v12 = sub_18004FEB8(ParentModuleBase);
               if ( v12 < 0 )
               {
                 v13 = dword_180156A70;
@@ -75,7 +94,7 @@ __int64 __fastcall LdrResolveDelayLoadedAPI(const void *a1, _BYTE *a2, __int64 a
                     0,
                     "LdrResolveDelayLoadedAPI:Unable to unsuppress the export suppressed functions that are imported in t"
                     "he DLL based at 0x%p.Status = 0x%x\n",
-                    a1,
+                    ParentModuleBase,
                     v12);
                   v13 = dword_180156A70;
                 }
@@ -89,5 +108,5 @@ __int64 __fastcall LdrResolveDelayLoadedAPI(const void *a1, _BYTE *a2, __int64 a
       sub_18001F5FC(v11);
     }
   }
-  return v9;
+  return ForwarderString;
 }

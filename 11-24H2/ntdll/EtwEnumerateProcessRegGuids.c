@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwEnumerateProcessRegGuids @ 0x18015BD50
+ * XREFs of EtwEnumerateProcessRegGuids @ 0x18015A110
  * Callers:
  *     <none>
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     EtwpGetNextRegistration @ 0x18008BFF0 (EtwpGetNextRegistration.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     EtwpGetNextRegistration @ 0x1800A7AB0 (EtwpGetNextRegistration.c)
  */
 
-__int64 __fastcall EtwEnumerateProcessRegGuids(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+ULONG __cdecl EtwEnumerateProcessRegGuids(PVOID OutBuffer, ULONG OutBufferSize, PULONG ReturnLength)
 {
-  _DWORD *v3; // r14
-  unsigned int v5; // edi
-  unsigned int v6; // ebx
-  __int64 result; // rax
-  unsigned __int64 NextRegistration; // rcx
-  unsigned int v9; // r9d
-  unsigned int i; // eax
+  ULONG v5; // edi
+  ULONG v6; // ebx
+  ULONG result; // eax
+  _RTL_SRWLOCK *NextRegistration; // rcx
+  ULONG v9; // r9d
+  ULONG i; // eax
+  __int64 v11; // r8
+  unsigned __int64 v12; // rdx
 
-  v3 = (_DWORD *)a3;
-  v5 = (unsigned int)a2 >> 4;
+  v5 = OutBufferSize >> 4;
   v6 = 0;
-  if ( !a1 && (_DWORD)a2 )
-    return 87LL;
+  if ( !OutBuffer && OutBufferSize )
+    return 87;
   NextRegistration = 0LL;
 LABEL_5:
   while ( 1 )
   {
-    NextRegistration = EtwpGetNextRegistration(NextRegistration, a2, a3);
+    NextRegistration = (_RTL_SRWLOCK *)EtwpGetNextRegistration(NextRegistration);
     if ( !NextRegistration )
       break;
     v9 = v6;
@@ -34,18 +34,18 @@ LABEL_5:
       v9 = v5;
     for ( i = 0; i < v9; ++i )
     {
-      a3 = 16LL * i;
-      a2 = (volatile signed __int32 **)(*(_QWORD *)(NextRegistration + 32) - *(_QWORD *)(a3 + a1));
-      if ( !a2 )
-        a2 = (volatile signed __int32 **)(*(_QWORD *)(NextRegistration + 40) - *(_QWORD *)(a3 + a1 + 8));
-      if ( !a2 )
+      v11 = 16LL * i;
+      v12 = NextRegistration[4].Value - *(_QWORD *)((char *)OutBuffer + v11);
+      if ( !v12 )
+        v12 = NextRegistration[5].Value - *(_QWORD *)((char *)OutBuffer + v11 + 8);
+      if ( !v12 )
         goto LABEL_5;
     }
     if ( v6 < v5 )
-      *(_OWORD *)(16LL * v6 + a1) = *(_OWORD *)(NextRegistration + 32);
+      *((_OWORD *)OutBuffer + v6) = *(_OWORD *)&NextRegistration[4].0;
     ++v6;
   }
   result = v5 < v6 ? 0x7A : 0;
-  *v3 = 16 * v6;
+  *ReturnLength = 16 * v6;
   return result;
 }

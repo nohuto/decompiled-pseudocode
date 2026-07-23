@@ -1,31 +1,31 @@
 /*
- * XREFs of HalpDmaSyncMapBuffers @ 0x14038FF20
+ * XREFs of HalpDmaSyncMapBuffers @ 0x140389860
  * Callers:
- *     HalpDmaMapContiguousTransferV2 @ 0x14038D984 (HalpDmaMapContiguousTransferV2.c)
- *     IopMapTransfer @ 0x14038DCD0 (IopMapTransfer.c)
- *     HalpAllocateAdapterCallbackV2 @ 0x14038ED80 (HalpAllocateAdapterCallbackV2.c)
- *     HalPutScatterGatherListV2 @ 0x14038F730 (HalPutScatterGatherListV2.c)
- *     IoMapTransferInternal @ 0x140390384 (IoMapTransferInternal.c)
- *     HalpDmaFlushContiguousTransferV2 @ 0x1403910E4 (HalpDmaFlushContiguousTransferV2.c)
- *     IoFlushAdapterBuffersV2 @ 0x1403911F0 (IoFlushAdapterBuffersV2.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x14039249C (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x1403934E8 (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaMapScatterTransferV3 @ 0x140493664 (HalpDmaMapScatterTransferV3.c)
- *     HalpDmaMapContiguousTransferV3 @ 0x140493844 (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x1403872C4 (HalpDmaMapContiguousTransferV2.c)
+ *     IopMapTransfer @ 0x140387610 (IopMapTransfer.c)
+ *     HalpAllocateAdapterCallbackV2 @ 0x1403886C0 (HalpAllocateAdapterCallbackV2.c)
+ *     HalPutScatterGatherListV2 @ 0x140389070 (HalPutScatterGatherListV2.c)
+ *     IoMapTransferInternal @ 0x140389CC4 (IoMapTransferInternal.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x14038AA14 (HalpDmaFlushContiguousTransferV2.c)
+ *     IoFlushAdapterBuffersV2 @ 0x14038AB20 (IoFlushAdapterBuffersV2.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x14038BDCC (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x14038CE18 (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x14048DF94 (HalpDmaMapScatterTransferV3.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x14048E174 (HalpDmaMapContiguousTransferV3.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     HalpDmaAcquireBufferMappings @ 0x1403902DC (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1403917D4 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     MmUnmapReservedMapping @ 0x14040F6F0 (MmUnmapReservedMapping.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpFlushMapBuffers @ 0x14054FA88 (HalpFlushMapBuffers.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     HalpDmaAcquireBufferMappings @ 0x140389C1C (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14038B104 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     MmUnmapReservedMapping @ 0x140433320 (MmUnmapReservedMapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpFlushMapBuffers @ 0x14054D3C8 (HalpFlushMapBuffers.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void __fastcall HalpDmaSyncMapBuffers(
@@ -138,7 +138,7 @@ void __fastcall HalpDmaSyncMapBuffers(
         if ( !v23 )
         {
           if ( a6 )
-            guard_dispatch_icall_no_overrides(v21 + (*(_QWORD *)(v8 + 48) & 0xFFFFFFFFFFFFF000uLL), v20, v24, a4);
+            guard_dispatch_icall_no_overrides(v21 + (*(_QWORD *)(v8 + 48) & 0xFFFFFFFFFFFFF000uLL), v20);
           else
             memmove(v20, (const void *)(v21 + (*(_QWORD *)(v8 + 48) & 0xFFFFFFFFFFFFF000uLL)), v24);
           v23 = a7;
@@ -162,14 +162,14 @@ void __fastcall HalpDmaSyncMapBuffers(
       if ( (_BYTE)v37 )
       {
         MmUnmapReservedMapping(MemoryDescriptorList[1], 0x446C6148u, MemoryDescriptorList[0]);
-        if ( !byte_140E3EB38 )
+        if ( !byte_140E3EC78 )
         {
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&ListEntry[1], v29);
           v30 = ListEntry[0];
           if ( _InterlockedExchangeAdd((volatile signed __int32 *)&ListEntry[0][1].Next + 2, 0xFFFFFFFF) == 1
             && !_InterlockedCompareExchange((volatile signed __int32 *)&v30[1].Next + 3, 1, 0) )
           {
-            RtlpInterlockedPushEntrySList(&stru_140E3EB40, v30);
+            RtlpInterlockedPushEntrySList(&stru_140E3EC80, v30);
           }
         }
       }

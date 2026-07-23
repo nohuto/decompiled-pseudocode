@@ -1,16 +1,16 @@
 /*
- * XREFs of IopSafebootDriverLoad @ 0x140945644
+ * XREFs of IopSafebootDriverLoad @ 0x140945844
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C8234 (PipCallDriverAddDevice.c)
- *     IopLoadDriver @ 0x1407945D8 (IopLoadDriver.c)
+ *     PipCallDriverAddDevice @ 0x1406C8264 (PipCallDriverAddDevice.c)
+ *     IopLoadDriver @ 0x1407947C8 (IopLoadDriver.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     IopOpenRegistryKey @ 0x1407CEF1C (IopOpenRegistryKey.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     IopOpenRegistryKey @ 0x1407CF1EC (IopOpenRegistryKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -36,16 +36,16 @@ char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
   DestinationString = 0LL;
   if ( a2 )
     *a2 = 0;
-  if ( (_DWORD)InitSafeBootMode == 1 )
+  if ( InitSafeBootMode == 1 )
   {
     v6 = L"MINIMAL";
   }
   else
   {
     result = InitSafeBootMode - 2;
-    if ( (_DWORD)InitSafeBootMode != 2 )
+    if ( InitSafeBootMode != 2 )
     {
-      if ( (_DWORD)InitSafeBootMode == 3 )
+      if ( InitSafeBootMode == 3 )
         return result;
       return 0;
     }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAllocateThreadFaultClusterContext @ 0x1404A582C
+ * XREFs of MiAllocateThreadFaultClusterContext @ 0x14049EEBC
  * Callers:
- *     MmCreateThread @ 0x140ADCF00 (MmCreateThread.c)
+ *     MmCreateThread @ 0x140ADA450 (MmCreateThread.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiAllocateClusterContextFromBlock @ 0x1404A5B1C (MiAllocateClusterContextFromBlock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiAllocateClusterContextFromBlock @ 0x14049F1AC (MiAllocateClusterContextFromBlock.c)
  */
 
 __int64 __fastcall MiAllocateThreadFaultClusterContext(
@@ -73,7 +73,7 @@ __int64 __fastcall MiAllocateThreadFaultClusterContext(
     ExfReleasePushLockShared((signed __int64 *)&a1->Header.Lock);
   KeAbPostRelease((unsigned __int64)a1);
   v12 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v12 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v12 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v11, v10);
   if ( ClusterContextFromBlock )
     goto LABEL_14;
@@ -131,7 +131,7 @@ __int64 __fastcall MiAllocateThreadFaultClusterContext(
       ExfTryToWakePushLock((volatile signed __int64 *)&a1->Header.Lock);
     KeAbPostRelease((unsigned __int64)a1);
     v12 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v12 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v12 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v27, v26);
 LABEL_14:
     *a2 = ClusterContextFromBlock;

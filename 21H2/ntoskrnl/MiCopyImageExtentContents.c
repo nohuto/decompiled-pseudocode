@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCopyImageExtentContents @ 0x140540134
+ * XREFs of MiCopyImageExtentContents @ 0x140540374
  * Callers:
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiInitializeTransitionPfn @ 0x14026E22C (MiInitializeTransitionPfn.c)
- *     MiAdvanceFaultList @ 0x14028E148 (MiAdvanceFaultList.c)
- *     MiFlowThroughInsertNode @ 0x1402D006C (MiFlowThroughInsertNode.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiObtainProtoReference @ 0x14031A00C (MiObtainProtoReference.c)
- *     MiEndingOffsetWithLock @ 0x14031C790 (MiEndingOffsetWithLock.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiFillPageWithImageExtentContents @ 0x140540B54 (MiFillPageWithImageExtentContents.c)
+ *     MiAdvanceFaultList @ 0x14020B2E8 (MiAdvanceFaultList.c)
+ *     MiFlowThroughInsertNode @ 0x14024E3EC (MiFlowThroughInsertNode.c)
+ *     MiInitializeTransitionPfn @ 0x14025C1CC (MiInitializeTransitionPfn.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiObtainProtoReference @ 0x140324D5C (MiObtainProtoReference.c)
+ *     MiEndingOffsetWithLock @ 0x1403274E0 (MiEndingOffsetWithLock.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MiFillPageWithImageExtentContents @ 0x140540D94 (MiFillPageWithImageExtentContents.c)
  */
 
 LONG __fastcall MiCopyImageExtentContents(
@@ -57,12 +57,12 @@ LONG __fastcall MiCopyImageExtentContents(
   }
   else
   {
-    if ( qword_140C4DF40 )
+    if ( qword_140C4DF80 )
     {
       if ( (v13 & 0x10) != 0 )
         v13 &= ~0x10uLL;
       else
-        v13 &= ~qword_140C4DF40;
+        v13 &= ~qword_140C4DF80;
     }
     v14 = (v13 >> 12) & 0xFFFFFFFFFLL;
   }
@@ -110,7 +110,7 @@ LONG __fastcall MiCopyImageExtentContents(
   *(_QWORD *)(a1 + 88) = 4096LL;
   *(_DWORD *)(a1 + 184) = 4096;
   if ( v14 != -1 )
-    MiFlowThroughInsertNode(a1, (_QWORD *)(48 * v14 - 0x58000000000LL));
+    MiFlowThroughInsertNode(a1, (_QWORD *)(48 * v14 - 0x58000000000LL), v19);
   v21 = a6;
   MiObtainProtoReference(a6, 0LL, v19, v20);
   *(_QWORD *)(a1 + 160) = v21;

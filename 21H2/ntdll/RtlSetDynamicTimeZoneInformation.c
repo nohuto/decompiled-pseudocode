@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlSetDynamicTimeZoneInformation @ 0x1800EE8F0
+ * XREFs of RtlSetDynamicTimeZoneInformation @ 0x1800EE8B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetDynamicTimeZoneInformation(__int64 a1)
+__int64 __fastcall RtlSetDynamicTimeZoneInformation(void *a1)
 {
-  return RtlpSetTimeZoneInformationWorker(a1, 432LL);
+  return RtlpSetTimeZoneInformationWorker(a1);
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReserveUserMemoryPrepare @ 0x14095B7EC
+ * XREFs of MiReserveUserMemoryPrepare @ 0x140A010AC
  * Callers:
- *     MiReserveUserMemory @ 0x14095B5DC (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x140A00E9C (MiReserveUserMemory.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiCreateUserPhysicalView @ 0x140878ADC (MiCreateUserPhysicalView.c)
- *     MiInitializeQuotaTracker @ 0x1409C4B54 (MiInitializeQuotaTracker.c)
- *     MiCreatePlaceholderStorage @ 0x1409C684C (MiCreatePlaceholderStorage.c)
- *     MiCreateWriteWatchView @ 0x1409CF818 (MiCreateWriteWatchView.c)
- *     MiCreateRotateView @ 0x1409CF99C (MiCreateRotateView.c)
- *     MiArbitraryCodeBlocked @ 0x140ABC228 (MiArbitraryCodeBlocked.c)
- *     MiCreateLargePageEvent @ 0x140B3C9EC (MiCreateLargePageEvent.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiCreateUserPhysicalView @ 0x14087EEBC (MiCreateUserPhysicalView.c)
+ *     MiInitializeQuotaTracker @ 0x140995B34 (MiInitializeQuotaTracker.c)
+ *     MiCreatePlaceholderStorage @ 0x14099782C (MiCreatePlaceholderStorage.c)
+ *     MiCreateWriteWatchView @ 0x1409A07F8 (MiCreateWriteWatchView.c)
+ *     MiCreateRotateView @ 0x1409A097C (MiCreateRotateView.c)
+ *     MiArbitraryCodeBlocked @ 0x140ABDF28 (MiArbitraryCodeBlocked.c)
+ *     MiCreateLargePageEvent @ 0x140B3EC6C (MiCreateLargePageEvent.c)
  */
 
 __int64 __fastcall MiReserveUserMemoryPrepare(__int64 *a1)
@@ -64,7 +64,7 @@ __int64 __fastcall MiReserveUserMemoryPrepare(__int64 *a1)
   v9 = PoolMm;
   if ( !PoolMm )
     return 3221225626LL;
-  v10 = MiInitializeQuotaTracker(PoolMm + 68, v5, 0LL);
+  MiInitializeQuotaTracker((_BYTE *)(PoolMm + 68), v5, 0);
   a1[4] = v10;
   v11 = *(_DWORD *)(v10 + 48) | 0x80000;
   *(_QWORD *)(v10 + 16) = -2LL;
@@ -120,7 +120,7 @@ __int64 __fastcall MiReserveUserMemoryPrepare(__int64 *a1)
     {
       if ( (v19 & 0x800000) != 0 )
       {
-        result = MiCreateRotateView(*(_QWORD *)(v3 + 88));
+        result = MiCreateRotateView(*(_QWORD *)(v3 + 88), v9);
         if ( (int)result < 0 )
           return result;
         *(_DWORD *)(v9 + 48) = *(_DWORD *)(v9 + 48) & 0xFFFFFFE3 | 0x10;
@@ -157,7 +157,7 @@ LABEL_23:
   *(_DWORD *)(v9 + 48) = v22;
   if ( (*(_DWORD *)(v3 + 40) & 0x200000) != 0 )
   {
-    result = MiCreateWriteWatchView(*(_QWORD *)(v3 + 88));
+    result = MiCreateWriteWatchView(*(_QWORD *)(v3 + 88), v9);
     if ( (int)result < 0 )
       return result;
     v22 = *(_DWORD *)(v9 + 48) | 0x100000;

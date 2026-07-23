@@ -1,10 +1,10 @@
 /*
- * XREFs of PiAuditDeviceEnableDisableAction @ 0x14064C6B4
+ * XREFs of PiAuditDeviceEnableDisableAction @ 0x14064C798
  * Callers:
- *     PipSetDevNodeProblem @ 0x1404C5BDC (PipSetDevNodeProblem.c)
- *     PipClearDevNodeProblem @ 0x1404C5E0C (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x140484270 (PipSetDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x1404844A0 (PipClearDevNodeProblem.c)
  * Callees:
- *     PiAuditDeviceOperation @ 0x14064C720 (PiAuditDeviceOperation.c)
+ *     PiAuditDeviceOperation @ 0x14064C804 (PiAuditDeviceOperation.c)
  */
 
 __int64 __fastcall PiAuditDeviceEnableDisableAction(__int64 a1, int a2, __int64 a3)

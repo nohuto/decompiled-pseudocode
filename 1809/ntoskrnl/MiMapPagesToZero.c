@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMapPagesToZero @ 0x1400F90E0
+ * XREFs of MiMapPagesToZero @ 0x1400F9160
  * Callers:
- *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
- *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
+ *     MiZeroPageThread @ 0x140179300 (MiZeroPageThread.c)
+ *     MiGetPagesToZero @ 0x1401853A0 (MiGetPagesToZero.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
- *     MiRemoveFaultNode @ 0x1400F96C4 (MiRemoveFaultNode.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiUserPdeOrAbove @ 0x1400F96CC (MiUserPdeOrAbove.c)
+ *     MiRemoveFaultNode @ 0x1400F9744 (MiRemoveFaultNode.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiMapPagesToZero(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
@@ -105,7 +105,7 @@ __int64 __fastcall MiMapPagesToZero(__int64 a1, unsigned __int64 a2, __int64 a3,
     v14 = *(unsigned __int8 *)(a3 + 34) >> 6;
     if ( !v14 || v14 == 2 )
     {
-      if ( dword_14043A11C[4 * v14] != 1 )
+      if ( dword_14043B1DC[4 * v14] != 1 )
         goto LABEL_10;
       MiChangePageAttribute(a3, 1u, 1);
     }
@@ -164,18 +164,18 @@ LABEL_13:
     LeafVa = MiGetLeafVa(LeafVa);
   if ( LeafVa < 0xFFFF800000000000uLL )
   {
-    v21 = HIBYTE(word_14043A1AC);
+    v21 = HIBYTE(word_14043B26C);
   }
   else
   {
-    if ( *(_BYTE *)(((LeafVa >> 39) & 0x1FF) - 256 + v4 + 4438352) == 1
+    if ( *(_BYTE *)(((LeafVa >> 39) & 0x1FF) - 256 + v4 + 4442640) == 1
       || LeafVa >= 0xFFFFF68000000000uLL && LeafVa <= v19 )
     {
       goto LABEL_28;
     }
-    v21 = LeafVa < qword_14043BAC0 || LeafVa > qword_14043A530
-        ? (unsigned __int8)word_14043A1AC
-        : HIBYTE(word_14043A1AC);
+    v21 = LeafVa < qword_14043CB80 || LeafVa > qword_14043B5F0
+        ? (unsigned __int8)word_14043B26C
+        : HIBYTE(word_14043B26C);
   }
   if ( v21 )
 LABEL_86:
@@ -183,9 +183,9 @@ LABEL_86:
 LABEL_28:
   if ( (v17 & 5) == 4 && v17 < 0 )
     v18 |= 0x42uLL;
-  v22 = v18 ^ ((unsigned __int16)v18 ^ (unsigned __int16)((unsigned __int8)word_14043A1AC << 8)) & 0x100 | 0x80;
+  v22 = v18 ^ ((unsigned __int16)v18 ^ (unsigned __int16)((unsigned __int8)word_14043B26C << 8)) & 0x100 | 0x80;
   if ( (v17 & 0x4000000) == 0 )
-    v22 = v18 ^ ((unsigned __int16)v18 ^ (unsigned __int16)((unsigned __int8)word_14043A1AC << 8)) & 0x100;
+    v22 = v18 ^ ((unsigned __int16)v18 ^ (unsigned __int16)((unsigned __int8)word_14043B26C << 8)) & 0x100;
   v23 = v22 & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
   for ( i = (__int64)(a2 << 25) >> 16; i >= 0xFFFFF68000000000uLL; i = (__int64)(i << 25) >> 16 )
   {
@@ -198,7 +198,7 @@ LABEL_28:
     {
       if ( (unsigned int)MiPteHasShadow(v32, v31) )
       {
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
           v33 |= 0x8000000000000000uLL;
         *(_QWORD *)a2 = v33;
         MiWritePteShadow(a2);
@@ -232,7 +232,7 @@ LABEL_37:
       *(_QWORD *)a2 = v28;
       goto LABEL_38;
     }
-    if ( !HIBYTE(word_14043A1AC) && (v23 & 1) != 0 )
+    if ( !HIBYTE(word_14043B26C) && (v23 & 1) != 0 )
       v28 |= 0x8000000000000000uLL;
     *(_QWORD *)a2 = v28;
     MiWritePteShadow(a2);

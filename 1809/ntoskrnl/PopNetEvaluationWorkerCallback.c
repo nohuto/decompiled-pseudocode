@@ -1,15 +1,15 @@
 /*
- * XREFs of PopNetEvaluationWorkerCallback @ 0x14075D9E0
+ * XREFs of PopNetEvaluationWorkerCallback @ 0x14075EBD0
  * Callers:
  *     <none>
  * Callees:
- *     PopOkayToQueueNextWorkItem @ 0x14013BA40 (PopOkayToQueueNextWorkItem.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopTraceStandbyConnectivityUpdate @ 0x14075DAF4 (PopTraceStandbyConnectivityUpdate.c)
- *     PopNetPublishWnfStateUpdate @ 0x14075DC24 (PopNetPublishWnfStateUpdate.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x14075DC84 (PopNetUpdateCsConsumptionFlags.c)
- *     PopNetSetResiliencyPhaseBias @ 0x140876F38 (PopNetSetResiliencyPhaseBias.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14013BB40 (PopOkayToQueueNextWorkItem.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x14075ECE4 (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetPublishWnfStateUpdate @ 0x14075EE14 (PopNetPublishWnfStateUpdate.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x14075EE74 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140878198 (PopNetSetResiliencyPhaseBias.c)
  */
 
 __int64 PopNetEvaluationWorkerCallback()
@@ -86,7 +86,7 @@ LABEL_6:
     if ( PopNetResiliencyEngaged )
     {
       LOBYTE(v0) = 1;
-      if ( qword_14043FFB8 )
+      if ( qword_140441078 )
       {
         LOBYTE(v6) = 1;
         v4 = 1;
@@ -120,6 +120,6 @@ LABEL_10:
     else
       PopNetDeferLogRequest = 1;
   }
-  PopOkayToQueueNextWorkItem((__int64)&unk_140410268);
+  PopOkayToQueueNextWorkItem((__int64)&unk_140411328);
   return PopReleasePolicyLock();
 }

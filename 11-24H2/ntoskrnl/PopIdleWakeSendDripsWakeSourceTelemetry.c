@@ -1,11 +1,11 @@
 /*
- * XREFs of PopIdleWakeSendDripsWakeSourceTelemetry @ 0x140A6C9CC
+ * XREFs of PopIdleWakeSendDripsWakeSourceTelemetry @ 0x140A66214
  * Callers:
- *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x140A6C904 (PopIdleWakeTraceWakeSourceDiagnostic.c)
+ *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x140A6614C (PopIdleWakeTraceWakeSourceDiagnostic.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopIdleWakeSendDripsWakeSourceTelemetry(__int64 a1, int *a2, char a3)
@@ -112,7 +112,7 @@ void __fastcall PopIdleWakeSendDripsWakeSourceTelemetry(__int64 a1, int *a2, cha
   v32 = 0LL;
   if ( !*(_DWORD *)v7 )
     return;
-  RtlInitUnicodeString(&DestinationString, &word_140AEA890);
+  RtlInitUnicodeString(&DestinationString, &word_140AEDAC0);
   v8 = *a2;
   v9 = 1;
   if ( *a2 != 128 )
@@ -150,9 +150,9 @@ LABEL_5:
   if ( v10 < 3 )
     goto LABEL_4;
 LABEL_6:
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
-    if ( (qword_140E07700 & 0x400000000000LL) == 0 || (qword_140E07708 & 0x400000000000LL) != qword_140E07708 )
+    if ( (qword_140E07690 & 0x400000000000LL) == 0 || (qword_140E07698 & 0x400000000000LL) != qword_140E07698 )
       v9 = 0;
     if ( v9 )
     {
@@ -242,8 +242,8 @@ LABEL_6:
       v95 = 12LL;
       v97 = 24LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E076F0,
-        (unsigned __int8 *)byte_14004D1C9,
+        (__int64)&dword_140E07680,
+        (unsigned __int8 *)word_14004DB92,
         0LL,
         0LL,
         0x21u,

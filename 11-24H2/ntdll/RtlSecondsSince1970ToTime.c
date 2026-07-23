@@ -1,16 +1,12 @@
 /*
- * XREFs of RtlSecondsSince1970ToTime @ 0x180110370
+ * XREFs of RtlSecondsSince1970ToTime @ 0x18010B630
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSecondsSince1970ToTime(unsigned int a1, __int64 *a2)
+void __cdecl RtlSecondsSince1970ToTime(ULONG ElapsedSeconds, PLARGE_INTEGER Time)
 {
-  __int64 result; // rax
-
-  result = 10000000 * (a1 + SecondsToStartOf1970);
-  *a2 = result;
-  return result;
+  Time->QuadPart = 10000000 * (ElapsedSeconds + SecondsToStartOf1970);
 }

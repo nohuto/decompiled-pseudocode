@@ -30,5 +30,5 @@ NTSTATUS __stdcall ZwNotifyChangeKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, Event, ApcRoutine);
+  return KiServiceInternal(KeyHandle);
 }

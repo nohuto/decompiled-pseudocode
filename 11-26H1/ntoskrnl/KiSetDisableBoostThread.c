@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetDisableBoostThread @ 0x1404A3DC0
+ * XREFs of KiSetDisableBoostThread @ 0x14049D8D0
  * Callers:
- *     KeSetDisableBoostProcess @ 0x1404A3C18 (KeSetDisableBoostProcess.c)
- *     KeSetDisableBoostThread @ 0x1404A3D1C (KeSetDisableBoostThread.c)
+ *     KeSetDisableBoostProcess @ 0x14049D728 (KeSetDisableBoostProcess.c)
+ *     KeSetDisableBoostThread @ 0x14049D82C (KeSetDisableBoostThread.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x140239AB4 (KiComputeThreadPriority.c)
- *     KiClearForegroundBoost @ 0x140239B00 (KiClearForegroundBoost.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KiSetForegroundBoost @ 0x140521FB0 (KiSetForegroundBoost.c)
+ *     KiComputeThreadPriority @ 0x14023B414 (KiComputeThreadPriority.c)
+ *     KiClearForegroundBoost @ 0x14023B460 (KiClearForegroundBoost.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     KiSetForegroundBoost @ 0x14052461C (KiSetForegroundBoost.c)
  */
 
 __int64 __fastcall KiSetDisableBoostThread(struct _KTHREAD *a1, __int64 a2, struct _SINGLE_LIST_ENTRY *a3)

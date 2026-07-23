@@ -4,7 +4,7 @@
  *     KeFreezeExecution @ 0x14020D540 (KeFreezeExecution.c)
  *     KiFreezeTargetExecution @ 0x14020E1D0 (KiFreezeTargetExecution.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x1402BACF8 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1402BAF88 (KiUpdateTotalCyclesCurrentThread.c)
  */
 
 __int64 __fastcall KiStartDebugAccumulation(__int64 a1)

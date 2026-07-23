@@ -14,21 +14,21 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-signed __int32 __thiscall TppCleanupGroupAddMember(_DWORD *this)
+void __thiscall TppCleanupGroupAddMember(_RTL_SRWLOCK *this)
 {
-  int v2; // esi
-  _DWORD *v3; // eax
-  _DWORD *v4; // edx
+  _RTL_SRWLOCK *Value; // esi
+  _RTL_SRWLOCK *v3; // eax
+  _RTL_SRWLOCK **v4; // edx
 
-  v2 = this[2];
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v2 + 8));
+  Value = (_RTL_SRWLOCK *)this[2].Value;
+  RtlAcquireSRWLockExclusive(Value + 2);
   v3 = this + 5;
-  v4 = *(_DWORD **)(v2 + 16);
-  if ( *v4 != v2 + 12 )
+  v4 = (_RTL_SRWLOCK **)Value[4].Value;
+  if ( *v4 != &Value[3] )
     __fastfail(3u);
-  *v3 = v2 + 12;
-  this[6] = v4;
+  v3->Value = (unsigned int)&Value[3];
+  this[6].Value = (unsigned int)v4;
   *v4 = v3;
-  *(_DWORD *)(v2 + 16) = v3;
-  return RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v2 + 8));
+  Value[4].Value = (unsigned int)v3;
+  RtlReleaseSRWLockExclusive(Value + 2);
 }

@@ -12,28 +12,28 @@
 
 __int64 __fastcall RtlpAddWnfUserSubToNameSub(__int64 a1, __int64 a2)
 {
-  __int64 ***v4; // r8
-  __int64 *****v5; // rcx
-  __int64 ****v6; // rax
+  __int64 **v4; // r8
+  __int64 ****v5; // rcx
+  __int64 ***v6; // rax
   _DWORD *v7; // r9
   unsigned int v8; // edx
   _DWORD *v9; // rcx
   int v10; // eax
-  unsigned int v11; // r10d
+  ULONG v11; // r10d
   unsigned int i; // ecx
-  __int64 v13; // rdx
-  int v14; // esi
+  WNF_CHANGE_STAMP v13; // edx
+  NTSTATUS v14; // esi
   __int64 v15; // rdx
-  __int64 **v17; // rcx
-  unsigned int v18; // eax
-  __int64 v19; // [rsp+50h] [rbp+8h] BYREF
+  __int64 *v17; // rcx
+  WNF_CHANGE_STAMP v18; // eax
+  unsigned __int64 SubscriptionId; // [rsp+50h] [rbp+8h] BYREF
 
-  RtlAcquireSRWLockExclusive(qword_180166090 + 8);
-  RtlAcquireSRWLockExclusive(a1 + 56);
-  v4 = (__int64 ***)(a1 + 64);
-  v5 = *(__int64 ******)(a1 + 72);
-  v6 = (__int64 ****)(a2 + 8);
-  if ( *v5 != (__int64 ****)(a1 + 64) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(qword_180166090 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 56));
+  v4 = (__int64 **)(a1 + 64);
+  v5 = *(__int64 *****)(a1 + 72);
+  v6 = (__int64 ***)(a2 + 8);
+  if ( *v5 != (__int64 ***)(a1 + 64) )
     __fastfail(3u);
   *v6 = v4;
   *(_QWORD *)(a2 + 16) = v5;
@@ -64,24 +64,24 @@ __int64 __fastcall RtlpAddWnfUserSubToNameSub(__int64 a1, __int64 a2)
   ++*(_DWORD *)(a1 + 80);
   if ( (*(_BYTE *)(a2 + 60) & 4) != 0 )
     ++*(_DWORD *)(a1 + 84);
-  v13 = *(unsigned int *)(a2 + 56);
-  if ( *(_DWORD *)(a1 + 24) < (unsigned int)v13 )
+  v13 = *(_DWORD *)(a2 + 56);
+  if ( *(_DWORD *)(a1 + 24) < v13 )
   {
     v17 = *v4;
-    while ( v17 != (__int64 **)v4 )
+    while ( v17 != (__int64 *)v4 )
     {
       v18 = v13;
-      v13 = *((unsigned int *)v17 + 12);
-      v17 = (__int64 **)*v17;
-      if ( v18 <= (unsigned int)v13 )
+      v13 = *((_DWORD *)v17 + 12);
+      v17 = (__int64 *)*v17;
+      if ( v18 <= v13 )
         v13 = v18;
     }
   }
   *(_DWORD *)(a1 + 24) = v13;
-  v14 = NtSubscribeWnfStateChange(a1 + 16, v13, v11, &v19);
+  v14 = NtSubscribeWnfStateChange((PCWNF_STATE_NAME)(a1 + 16), v13, v11, &SubscriptionId);
   if ( v14 >= 0 )
-    *(_QWORD *)(a1 + 8) = v19;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    *(_QWORD *)(a1 + 8) = SubscriptionId;
+  if ( RtlGetCurrentServiceSessionId() )
     v15 = (__int64)NtCurrentPeb()->SharedData + 564;
   else
     v15 = 2147353486LL;
@@ -93,7 +93,7 @@ __int64 __fastcall RtlpAddWnfUserSubToNameSub(__int64 a1, __int64 a2)
       *(_DWORD *)(a1 + 108),
       *(_QWORD *)(a2 + 32),
       *(_DWORD *)(a2 + 64));
-  RtlReleaseSRWLockExclusive(a1 + 56);
-  RtlReleaseSRWLockExclusive(qword_180166090 + 8);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 56));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_180166090 + 8));
   return (unsigned int)v14;
 }

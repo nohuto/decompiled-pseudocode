@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpReallocComputeSizes @ 0x180043A24
+ * XREFs of RtlpHpReallocComputeSizes @ 0x180043A14
  * Callers:
- *     RtlpHpReAllocateHeap @ 0x18004377C (RtlpHpReAllocateHeap.c)
+ *     RtlpHpReAllocateHeap @ 0x18004376C (RtlpHpReAllocateHeap.c)
  * Callees:
- *     RtlpHpSegDescriptorValidate @ 0x180043604 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpCalculateAllocSize @ 0x180043BA8 (RtlpHpCalculateAllocSize.c)
- *     RtlpHpSegAllocSizeInternal @ 0x18004460C (RtlpHpSegAllocSizeInternal.c)
- *     RtlpHpLargeAllocSize @ 0x18004F574 (RtlpHpLargeAllocSize.c)
- *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCB4 (RtlSparseBitmapCtxCheckBitsInternal.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1800435F4 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpCalculateAllocSize @ 0x180043B98 (RtlpHpCalculateAllocSize.c)
+ *     RtlpHpSegAllocSizeInternal @ 0x1800445FC (RtlpHpSegAllocSizeInternal.c)
+ *     RtlpHpLargeAllocSize @ 0x18004F564 (RtlpHpLargeAllocSize.c)
+ *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCA4 (RtlSparseBitmapCtxCheckBitsInternal.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 

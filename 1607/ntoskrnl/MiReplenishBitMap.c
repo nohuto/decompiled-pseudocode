@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReplenishBitMap @ 0x140089320
+ * XREFs of MiReplenishBitMap @ 0x140088A20
  * Callers:
- *     MiEmptyPteBins @ 0x140017B18 (MiEmptyPteBins.c)
- *     MiInsertCachedPte @ 0x1400525F0 (MiInsertCachedPte.c)
+ *     MiEmptyPteBins @ 0x140017698 (MiEmptyPteBins.c)
+ *     MiInsertCachedPte @ 0x140052170 (MiInsertCachedPte.c)
  * Callees:
- *     MiFlushTbListEarly @ 0x140089820 (MiFlushTbListEarly.c)
- *     MiReturnSystemPtes @ 0x1400C07D0 (MiReturnSystemPtes.c)
- *     RtlInterlockedSetClearRunEx @ 0x1400DF920 (RtlInterlockedSetClearRunEx.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
+ *     MiFlushTbListEarly @ 0x140088F20 (MiFlushTbListEarly.c)
+ *     MiReturnSystemPtes @ 0x1400BE660 (MiReturnSystemPtes.c)
+ *     RtlInterlockedSetClearRunEx @ 0x1400DD7C0 (RtlInterlockedSetClearRunEx.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
  */
 
 ULONG_PTR __fastcall MiReplenishBitMap(__int64 a1, ULONG_PTR a2, int a3)

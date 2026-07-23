@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpGetDeviceDependencyList @ 0x140A0DA98
+ * XREFs of PnpGetDeviceDependencyList @ 0x1409BBE9C
  * Callers:
- *     PiControlGetPropertyData @ 0x1408BD4B0 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x1408BAE00 (PiControlGetPropertyData.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     PiListEntryToDependencyEdge @ 0x1404F8618 (PiListEntryToDependencyEdge.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1409D52F0 (PnpUnicodeStringToWstr.c)
- *     PnpReleaseDependencyRelationsLock @ 0x140A0F814 (PnpReleaseDependencyRelationsLock.c)
- *     PiGetProviderList @ 0x140A0FB40 (PiGetProviderList.c)
- *     PiGetDependentList @ 0x140A0FEBC (PiGetDependentList.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     PiListEntryToDependencyEdge @ 0x1404F5EF8 (PiListEntryToDependencyEdge.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409BDC24 (PnpReleaseDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x1409BDF50 (PiGetProviderList.c)
+ *     PiGetDependentList @ 0x1409BE2CC (PiGetDependentList.c)
+ *     PnpUnicodeStringToWstr @ 0x1409C5120 (PnpUnicodeStringToWstr.c)
  */
 
 __int64 __fastcall PnpGetDeviceDependencyList(__int64 a1, int a2, wchar_t *a3, unsigned int a4, unsigned int *a5)
@@ -20,7 +20,7 @@ __int64 __fastcall PnpGetDeviceDependencyList(__int64 a1, int a2, wchar_t *a3, u
   int v6; // r15d
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v8; // edi
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // r8
@@ -43,7 +43,7 @@ __int64 __fastcall PnpGetDeviceDependencyList(__int64 a1, int a2, wchar_t *a3, u
   _QWORD *v30; // rax
   _QWORD *v31; // r13
   _QWORD *v32; // r12
-  unsigned __int16 *v33; // r12
+  __int64 v33; // r12
   wchar_t *v34; // r15
   __int64 v35; // rdx
   __int64 v36; // rcx
@@ -151,7 +151,7 @@ LABEL_5:
     }
     v32 = v31;
     v31 = (_QWORD *)*v31;
-    v33 = (unsigned __int16 *)(v32 + 2);
+    v33 = (__int64)(v32 + 2);
     v9 = PnpUnicodeStringToWstr(psz, 0LL, v33);
     if ( v9 < 0 )
       goto LABEL_5;
@@ -170,9 +170,9 @@ LABEL_5:
       ++pszDest;
       --cchDest;
     }
-    PnpUnicodeStringToWstrFree(v34, (__int64)v33);
+    PnpUnicodeStringToWstrFree(v34, v33);
   }
-  PnpUnicodeStringToWstrFree(v34, (__int64)v33);
+  PnpUnicodeStringToWstrFree(v34, v33);
   PnpReleaseDependencyRelationsLock(v36, v35, v37);
 LABEL_8:
   if ( v9 != -1073741789 )

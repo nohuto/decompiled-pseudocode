@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDiagInitialize @ 0x1409C8614
+ * XREFs of PnpDiagInitialize @ 0x1409C9614
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     McGenEventRegister @ 0x140181D1C (McGenEventRegister.c)
- *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
+ *     McGenEventRegister @ 0x140181E5C (McGenEventRegister.c)
+ *     EtwRegister @ 0x1406BF7E0 (EtwRegister.c)
  */
 
 __int64 __fastcall PnpDiagInitialize(__int64 a1, ETWENABLECALLBACK *a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopWnfFullscreenVideoCallback @ 0x140A3B590
+ * XREFs of PopWnfFullscreenVideoCallback @ 0x140A30D70
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x1403B5638 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExpWnfReadStateData @ 0x1408ABA3C (ExpWnfReadStateData.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A3BBFC (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1402AD9A8 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExpWnfReadStateData @ 0x140901C9C (ExpWnfReadStateData.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A313DC (ExpWnfAcquireSubscriptionNameInstance.c)
  */
 
 __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1)
@@ -44,13 +44,13 @@ __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1)
   {
     if ( v8 < 8 )
       return 0;
-    PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock, v5, v6);
-    if ( byte_140F0BA8E )
+    PpmAcquireLock(&PopFxSystemLatencyLock, v5, v6);
+    if ( byte_140F0B3CE )
     {
       if ( (v10 & 2) == 0 )
       {
 LABEL_12:
-        byte_140F0BA8E = (v10 & 2) != 0;
+        byte_140F0B3CE = (v10 & 2) != 0;
         PoFxSendSystemLatencyUpdate();
       }
     }
@@ -58,7 +58,7 @@ LABEL_12:
     {
       goto LABEL_12;
     }
-    PpmReleaseLock(&PopFxSystemLatencyLock);
+    PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
   }
   return (unsigned int)v3;
 }

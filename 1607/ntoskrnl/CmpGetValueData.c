@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpGetValueData @ 0x140442F60
+ * XREFs of CmpGetValueData @ 0x140441E30
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14000B4B0 (CmpGetSymbolicLinkTarget.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x1401B4234 (CmQueryMultipleValueForLayeredKey.c)
- *     CmQueryMultipleValueKey @ 0x140402254 (CmQueryMultipleValueKey.c)
- *     CmpGetValueDataFromCache @ 0x1404029F0 (CmpGetValueDataFromCache.c)
- *     CmpQueryKeyValueData @ 0x140440360 (CmpQueryKeyValueData.c)
- *     CmAddLogForAction @ 0x1404A1450 (CmAddLogForAction.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B080 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpValueToData @ 0x1405601A0 (CmpValueToData.c)
- *     CmpCopyValue @ 0x140608960 (CmpCopyValue.c)
- *     CmpPreserveSystemHiveData @ 0x140609150 (CmpPreserveSystemHiveData.c)
- *     CmpGetValueForAudit @ 0x14060B354 (CmpGetValueForAudit.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14000B030 (CmpGetSymbolicLinkTarget.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x1401B4118 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmQueryMultipleValueKey @ 0x140401114 (CmQueryMultipleValueKey.c)
+ *     CmpGetValueDataFromCache @ 0x1404018B0 (CmpGetValueDataFromCache.c)
+ *     CmpQueryKeyValueData @ 0x14043F230 (CmpQueryKeyValueData.c)
+ *     CmAddLogForAction @ 0x14051985C (CmAddLogForAction.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B5C0 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpValueToData @ 0x1405606E0 (CmpValueToData.c)
+ *     CmpCopyValue @ 0x140608A14 (CmpCopyValue.c)
+ *     CmpPreserveSystemHiveData @ 0x140609204 (CmpPreserveSystemHiveData.c)
+ *     CmpGetValueForAudit @ 0x14060B408 (CmpGetValueForAudit.c)
  *     CmpFindTagIndex @ 0x1407AFCE0 (CmpFindTagIndex.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

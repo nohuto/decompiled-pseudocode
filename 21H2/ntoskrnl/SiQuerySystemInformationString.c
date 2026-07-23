@@ -1,34 +1,38 @@
 /*
- * XREFs of SiQuerySystemInformationString @ 0x140786054
+ * XREFs of SiQuerySystemInformationString @ 0x140786214
  * Callers:
- *     SyspartGetFirmwarePartition @ 0x140785FF8 (SyspartGetFirmwarePartition.c)
- *     SyspartGetSystemPartition @ 0x1409735A0 (SyspartGetSystemPartition.c)
+ *     SyspartGetFirmwarePartition @ 0x1407861B8 (SyspartGetFirmwarePartition.c)
+ *     SyspartGetSystemPartition @ 0x140973780 (SyspartGetSystemPartition.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SiQuerySystemInformationString(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)
+__int64 __fastcall SiQuerySystemInformationString(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        void *a2,
+        unsigned int a3,
+        unsigned int *a4)
 {
-  unsigned int v7; // esi
-  int SystemInformation; // eax
-  int v9; // ebx
+  NTSTATUS SystemInformation; // eax
+  NTSTATUS v9; // ebx
   const void **PoolWithTag; // rax
   const void **v11; // rdi
   unsigned int v12; // eax
+  ULONG NumberOfBytes[10]; // [rsp+20h] [rbp-28h] BYREF
 
-  v7 = a1;
-  SystemInformation = ZwQuerySystemInformation(a1, 0LL);
+  NumberOfBytes[0] = 0;
+  SystemInformation = ZwQuerySystemInformation(SystemInformationClass, 0LL, 0, NumberOfBytes);
   v9 = SystemInformation;
   if ( SystemInformation == -1073741789 )
   {
-    PoolWithTag = (const void **)ExAllocatePoolWithTag(PagedPool, 0LL, 0x4B505953u);
+    PoolWithTag = (const void **)ExAllocatePoolWithTag(PagedPool, NumberOfBytes[0], 0x4B505953u);
     v11 = PoolWithTag;
     if ( PoolWithTag )
     {
-      v9 = ZwQuerySystemInformation(v7, (__int64)PoolWithTag);
+      v9 = ZwQuerySystemInformation(SystemInformationClass, PoolWithTag, NumberOfBytes[0], NumberOfBytes);
       if ( v9 >= 0 )
       {
         v12 = *(unsigned __int16 *)v11 + 2;

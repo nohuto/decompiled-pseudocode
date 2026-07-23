@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwStopProfile()
+NTSTATUS __cdecl ZwStopProfile(HANDLE ProfileHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 413LL;
+  result = 413;
   __asm { syscall; Low latency system call }
   return result;
 }

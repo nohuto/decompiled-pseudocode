@@ -126,7 +126,7 @@ LABEL_31:
     v51 = 1;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v37 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock);
+    v37 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL);
     if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
       ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock);
     if ( v37 )
@@ -163,7 +163,7 @@ LABEL_3:
     v51 = 1;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v40 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock);
+    v40 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL);
     if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
       ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock);
     if ( v40 )

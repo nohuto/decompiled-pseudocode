@@ -9,14 +9,14 @@
  *     RtlUpcaseUnicodeString @ 0x18003AFF0 (RtlUpcaseUnicodeString.c)
  *     RtlLCIDToCultureName @ 0x18003FEC0 (RtlLCIDToCultureName.c)
  *     RtlCopyUnicodeString @ 0x1800411E0 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
 __int64 __fastcall RtlpComputeLangListCheckSum(__int64 a1)
 {
   __int64 v2; // rbx
-  int inited; // edi
+  NTSTATUS inited; // edi
   __int64 v4; // r13
   unsigned int v5; // r12d
   __int64 v6; // r8
@@ -25,10 +25,10 @@ __int64 __fastcall RtlpComputeLangListCheckSum(__int64 a1)
   int v9; // ecx
   _QWORD *v10; // rcx
   __int16 v11; // ax
-  wchar_t *Buffer; // rsi
+  WCHAR *Buffer; // rsi
   wchar_t *v13; // r15
   unsigned __int8 v14; // al
-  __int64 v16; // rcx
+  LCID v16; // ecx
   __int64 Length; // r8
   unsigned __int8 *v18; // r9
   int v19; // r8d
@@ -40,8 +40,8 @@ __int64 __fastcall RtlpComputeLangListCheckSum(__int64 a1)
   __int64 v25; // rax
   int v26; // r8d
   int v27; // r8d
-  UNICODE_STRING v28; // [rsp+28h] [rbp-E0h] BYREF
-  _BYTE v29[16]; // [rsp+38h] [rbp-D0h] BYREF
+  _UNICODE_STRING String; // [rsp+28h] [rbp-E0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-D0h] BYREF
   _QWORD v30[3]; // [rsp+48h] [rbp-C0h] BYREF
   int v31; // [rsp+60h] [rbp-A8h]
   _BYTE v32[176]; // [rsp+68h] [rbp-A0h] BYREF
@@ -49,8 +49,8 @@ __int64 __fastcall RtlpComputeLangListCheckSum(__int64 a1)
   v2 = 0LL;
   memset(v32, 0, 0xAAuLL);
   inited = 0;
-  *(_QWORD *)&v28.Length = 0LL;
-  v28.Buffer = 0LL;
+  *(_QWORD *)&String.Length = 0LL;
+  String.Buffer = 0LL;
   if ( !a1 )
     return 3221225485LL;
   v4 = *(_QWORD *)(a1 + 16);
@@ -94,20 +94,20 @@ LABEL_8:
   if ( v11 > 0 )
   {
     inited = RtlInitUnicodeStringEx(
-               (__int64)v29,
-               *(_QWORD *)(*(_QWORD *)(v4 + 32) + 24LL)
-             + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(v4 + 32) + 16LL) + 2LL * v11));
+               &DestinationString,
+               (PCWSTR)(*(_QWORD *)(*(_QWORD *)(v4 + 32) + 24LL)
+                      + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(v4 + 32) + 16LL) + 2LL * v11)));
     if ( inited < 0 )
       return (unsigned int)inited;
-    *(_DWORD *)&v28.Length = 11141120;
-    v28.Buffer = (wchar_t *)v32;
-    RtlCopyUnicodeString(&v28, v29);
+    *(_DWORD *)&String.Length = 11141120;
+    String.Buffer = (wchar_t *)v32;
+    RtlCopyUnicodeString(&String, &DestinationString);
 LABEL_11:
     if ( !v2 )
     {
       LODWORD(v2) = 314159;
-      Buffer = v28.Buffer;
-      v13 = &v28.Buffer[(unsigned __int64)v28.Length >> 1];
+      Buffer = String.Buffer;
+      v13 = &String.Buffer[(unsigned __int64)String.Length >> 1];
       while ( Buffer < v13 )
       {
         v14 = RtlUpcaseUnicodeChar(*Buffer++);
@@ -115,13 +115,13 @@ LABEL_11:
       }
       goto LABEL_15;
     }
-    RtlUpcaseUnicodeString(&v28, &v28, 0LL);
-    Length = v28.Length;
-    v18 = (unsigned __int8 *)v28.Buffer;
-    if ( v28.Length >= 8uLL )
+    RtlUpcaseUnicodeString(&String, &String, 0);
+    Length = String.Length;
+    v18 = (unsigned __int8 *)String.Buffer;
+    if ( String.Length >= 8uLL )
     {
-      v23 = (unsigned __int64)v28.Length >> 3;
-      Length = v28.Length - 8 * v23;
+      v23 = (unsigned __int64)String.Length >> 3;
+      Length = String.Length - 8 * v23;
       do
       {
         v24 = v18[6]
@@ -173,16 +173,16 @@ LABEL_15:
     goto LABEL_16;
   }
   v16 = *((unsigned __int16 *)v10 + 2);
-  v28.Buffer = (wchar_t *)v32;
-  *(_DWORD *)&v28.Length = 11141120;
-  if ( (unsigned __int8)RtlLCIDToCultureName(v16, &v28) )
+  String.Buffer = (wchar_t *)v32;
+  *(_DWORD *)&String.Length = 11141120;
+  if ( RtlLCIDToCultureName(v16, &String) )
     goto LABEL_11;
   inited = -1073741595;
 LABEL_17:
   if ( inited < 0 )
     return (unsigned int)inited;
 LABEL_18:
-  *(_DWORD *)&v28.Length = 1310720;
-  v28.Buffer = (wchar_t *)(a1 + 44);
-  return (unsigned int)RtlIntegerToUnicodeString(v2, 0x10u, &v28);
+  *(_DWORD *)&String.Length = 1310720;
+  String.Buffer = (wchar_t *)(a1 + 44);
+  return (unsigned int)RtlIntegerToUnicodeString(v2, 0x10u, &String);
 }

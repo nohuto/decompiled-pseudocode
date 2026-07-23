@@ -1,18 +1,18 @@
 /*
- * XREFs of MxMapVa @ 0x140C53144
+ * XREFs of MxMapVa @ 0x140C552D4
  * Callers:
- *     MxMapPfnRange @ 0x140C52F48 (MxMapPfnRange.c)
+ *     MxMapPfnRange @ 0x140C550D8 (MxMapPfnRange.c)
  * Callees:
- *     MiFillPhysicalPages @ 0x14021EFA0 (MiFillPhysicalPages.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiWriteLargePte @ 0x1403090A0 (MiWriteLargePte.c)
- *     MiGetLargePteAddress @ 0x14036EE90 (MiGetLargePteAddress.c)
- *     MiFillPteHierarchy @ 0x1403A9BF0 (MiFillPteHierarchy.c)
- *     MxInstallMoreMemory @ 0x14066C6F0 (MxInstallMoreMemory.c)
- *     KeZeroPages @ 0x1406B3390 (KeZeroPages.c)
- *     MxGetNextPage @ 0x140C52A90 (MxGetNextPage.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiFillPhysicalPages @ 0x14024BCF0 (MiFillPhysicalPages.c)
+ *     MiGetLargePteAddress @ 0x14026AE10 (MiGetLargePteAddress.c)
+ *     MiWriteLargePte @ 0x140312F80 (MiWriteLargePte.c)
+ *     MiFillPteHierarchy @ 0x140398880 (MiFillPteHierarchy.c)
+ *     MxInstallMoreMemory @ 0x14066D8C0 (MxInstallMoreMemory.c)
+ *     KeZeroPages @ 0x1406B4330 (KeZeroPages.c)
+ *     MxGetNextPage @ 0x140C54C20 (MxGetNextPage.c)
  */
 
 unsigned __int64 __fastcall MxMapVa(__int64 a1)
@@ -77,7 +77,7 @@ LABEL_29:
         {
           v14 = MiWriteLargePte(*(_QWORD *)a1, NextPage, 1u, -1275068412);
           LeafVa = (__m128i *)MiGetLeafVa(v14);
-          _InterlockedAdd64(&qword_140E375F8, 0x200uLL);
+          _InterlockedAdd64(&qword_140E37738, 0x200uLL);
           if ( *(_DWORD *)(a1 + 12)
             || (v16 = *(_QWORD *)(a1 + 16)) != 0
             && (v17 = MiGetLeafVa(v16), v18 = MiGetLargePteAddress(v17, 1u), v19 <= v18)
@@ -103,10 +103,10 @@ LABEL_11:
       {
         result = 0xFFFFF6C000000000uLL;
         if ( (unsigned __int64)v4 >= 0xFFFFF6C000000000uLL )
-          result = MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v4, v13, 128);
+          result = MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v4, v13, 128LL);
       }
       *v4 = v13;
-      _InterlockedAdd64(&qword_140E375F8, 1uLL);
+      _InterlockedAdd64(&qword_140E37738, 1uLL);
     }
     if ( !i )
       break;

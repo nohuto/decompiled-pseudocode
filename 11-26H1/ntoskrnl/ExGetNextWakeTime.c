@@ -1,15 +1,15 @@
 /*
- * XREFs of ExGetNextWakeTime @ 0x140C0CCD0
+ * XREFs of ExGetNextWakeTime @ 0x140C12EE0
  * Callers:
- *     PopIsWakeTimerImminent @ 0x140B6C904 (PopIsWakeTimerImminent.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopIsWakeTimerImminent @ 0x140B6FA00 (PopIsWakeTimerImminent.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoStoreDiagnosticContext @ 0x1404372B0 (PoStoreDiagnosticContext.c)
- *     KeQueryTimerDueTime @ 0x140439548 (KeQueryTimerDueTime.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoStoreDiagnosticContext @ 0x140426240 (PoStoreDiagnosticContext.c)
+ *     KeQueryTimerDueTime @ 0x1404C2994 (KeQueryTimerDueTime.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall ExGetNextWakeTime(
@@ -22,7 +22,7 @@ bool __fastcall ExGetNextWakeTime(
   __int64 v6; // rbp
   unsigned __int64 *v7; // r15
   __int64 v8; // rbx
-  struct _KTHREAD *SchedulerAssist; // r12
+  struct _KTHREAD *v9; // r12
   __int64 p_ThreadTimerDelay; // r14
   unsigned __int64 v12; // rdi
   KIRQL v13; // al
@@ -39,15 +39,15 @@ bool __fastcall ExGetNextWakeTime(
   v6 = 0LL;
   v7 = 0LL;
   v8 = MEMORY[0xFFFFF78000000014];
-  SchedulerAssist = (struct _KTHREAD *)ExSaPageGroupDescriptorArrayLock.SchedulerAssist;
+  v9 = *(struct _KTHREAD **)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
   v21 = MEMORY[0xFFFFF78000000008];
-  if ( ExSaPageGroupDescriptorArrayLock.SchedulerAssist == &ExSaPageGroupDescriptorArrayLock.SchedulerAssist )
+  if ( *(struct _KTHREAD **)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor == (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor )
     goto LABEL_19;
   do
   {
-    p_ThreadTimerDelay = (__int64)&SchedulerAssist[-1].ThreadTimerDelay;
+    p_ThreadTimerDelay = (__int64)&v9[-1].ThreadTimerDelay;
     v12 = 0LL;
-    SchedulerAssist = *(struct _KTHREAD **)&SchedulerAssist->Header.Lock;
+    v9 = *(struct _KTHREAD **)&v9->Header.Lock;
     v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(p_ThreadTimerDelay + 64));
     v14 = *(_QWORD *)(p_ThreadTimerDelay + 256);
     v15 = (_BYTE *)(p_ThreadTimerDelay + 304);
@@ -83,7 +83,7 @@ LABEL_12:
       v6 = v14;
     }
   }
-  while ( SchedulerAssist != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssist );
+  while ( v9 != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor );
   v7 = 0LL;
   if ( v6 )
   {

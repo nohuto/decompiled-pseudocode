@@ -67,7 +67,7 @@ __int64 __fastcall IopCreateFile(
   _GENERAL_LOOKASIDE *v39; // rcx
   unsigned __int64 v40; // rax
   void *v41; // rax
-  NTSTATUS v42; // eax
+  int v42; // eax
   int v43; // ecx
   _KPROCESS *Process; // rcx
   __int16 v45; // dx

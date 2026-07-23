@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpInterlockedPushEntrySList @ 0x180165A40
+ * XREFs of RtlpInterlockedPushEntrySList @ 0x180163E00
  * Callers:
- *     EtwpFreeRegistration @ 0x18001D368 (EtwpFreeRegistration.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpHpTagFreeHeap @ 0x1800274C0 (RtlpHpTagFreeHeap.c)
- *     RtlpLowFragHeapAllocFromContext @ 0x180028AA0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18002A3E0 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpHpFreeHeap @ 0x18002B020 (RtlpHpFreeHeap.c)
- *     RtlpFreeUserBlock @ 0x18002B950 (RtlpFreeUserBlock.c)
- *     RtlpFreeNTHeapInternal @ 0x18002BD80 (RtlpFreeNTHeapInternal.c)
- *     RtlpHpSegFreeInternal @ 0x18004F7C0 (RtlpHpSegFreeInternal.c)
- *     RtlDeleteResource @ 0x18008FE30 (RtlDeleteResource.c)
- *     RtlpLowFragHeapFlushCaches @ 0x180095D9C (RtlpLowFragHeapFlushCaches.c)
- *     RtlStdReleaseStackTrace @ 0x18009CB10 (RtlStdReleaseStackTrace.c)
- *     RtlInterlockedPushEntrySList @ 0x1800EE170 (RtlInterlockedPushEntrySList.c)
- *     RtlpFreeDebugInfo @ 0x1800F6260 (RtlpFreeDebugInfo.c)
- *     RtlpRegisterStackTrace @ 0x1800F7CE0 (RtlpRegisterStackTrace.c)
- *     RtlFreeMemoryBlockLookaside @ 0x1801701A0 (RtlFreeMemoryBlockLookaside.c)
+ *     RtlDeleteResource @ 0x180027580 (RtlDeleteResource.c)
+ *     RtlStdReleaseStackTrace @ 0x1800310D0 (RtlStdReleaseStackTrace.c)
+ *     EtwpFreeRegistration @ 0x180049D68 (EtwpFreeRegistration.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpHpTagFreeHeap @ 0x180053EC0 (RtlpHpTagFreeHeap.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800554A0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180056DE0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpHpFreeHeap @ 0x180057A20 (RtlpHpFreeHeap.c)
+ *     RtlpFreeUserBlock @ 0x180058350 (RtlpFreeUserBlock.c)
+ *     RtlpFreeNTHeapInternal @ 0x180058780 (RtlpFreeNTHeapInternal.c)
+ *     RtlpHpSegFreeInternal @ 0x1800653A0 (RtlpHpSegFreeInternal.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x1800A0AC0 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlInterlockedPushEntrySList @ 0x1800E9350 (RtlInterlockedPushEntrySList.c)
+ *     RtlpFreeDebugInfo @ 0x1800F07C0 (RtlpFreeDebugInfo.c)
+ *     RtlpRegisterStackTrace @ 0x1800F2850 (RtlpRegisterStackTrace.c)
+ *     RtlFreeMemoryBlockLookaside @ 0x18016F1A0 (RtlFreeMemoryBlockLookaside.c)
  * Callees:
  *     <none>
  */

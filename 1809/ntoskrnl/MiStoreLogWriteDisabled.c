@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogWriteDisabled @ 0x1402C4040
+ * XREFs of MiStoreLogWriteDisabled @ 0x1402C4230
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CCA0 (MiStoreWriteModifiedPages.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void MiStoreLogWriteDisabled()
@@ -39,7 +39,7 @@ void MiStoreLogWriteDisabled()
       v8 = v3;
       v11 = v0 + 2;
       v14 = v0 + 2;
-      TlgWriteEx(v2, &unk_14036E7E0, v1, (ULONG)v2, v5, v6, v0 + 2, &pData);
+      TlgWriteEx(v2, &unk_14036F74E, v1, (ULONG)v2, v5, v6, v0 + 2, &pData);
     }
   }
 }

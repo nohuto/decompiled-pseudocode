@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetHotPatchSize @ 0x140720BB0
+ * XREFs of RtlGetHotPatchSize @ 0x1407257D0
  * Callers:
- *     RtlHotPatchSynchronizationRequired @ 0x140720C00 (RtlHotPatchSynchronizationRequired.c)
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
- *     MiPrepareDriverForHotPatch @ 0x1408734E8 (MiPrepareDriverForHotPatch.c)
- *     RtlCountRequiredHotPatchAddressTableEntries @ 0x1408AAD4C (RtlCountRequiredHotPatchAddressTableEntries.c)
- *     RtlEnumerateHotPatchPatches @ 0x1408AAF38 (RtlEnumerateHotPatchPatches.c)
- *     RtlValidateHotPatchBase @ 0x1408AB358 (RtlValidateHotPatchBase.c)
- *     RtlApplyHotPatch @ 0x140C0206C (RtlApplyHotPatch.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x140725820 (RtlHotPatchSynchronizationRequired.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
+ *     MiPrepareDriverForHotPatch @ 0x140879848 (MiPrepareDriverForHotPatch.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x1408B11BC (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlEnumerateHotPatchPatches @ 0x1408B13A8 (RtlEnumerateHotPatchPatches.c)
+ *     RtlValidateHotPatchBase @ 0x1408B17C8 (RtlValidateHotPatchBase.c)
+ *     RtlApplyHotPatch @ 0x140C0827C (RtlApplyHotPatch.c)
  * Callees:
  *     <none>
  */

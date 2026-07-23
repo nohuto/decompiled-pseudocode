@@ -67,7 +67,7 @@ LABEL_16:
   {
     v3 = KeMaximumIncrement;
     v10 = KeMaximumIncrement;
-    if ( ExpKernelResolutionCount && ExpKernelRequestedTimerResolution < (unsigned int)KeMaximumIncrement )
+    if ( ExpKernelResolutionCount && ExpKernelRequestedTimerResolution < KeMaximumIncrement )
     {
       v3 = ExpKernelRequestedTimerResolution;
       v10 = ExpKernelRequestedTimerResolution;

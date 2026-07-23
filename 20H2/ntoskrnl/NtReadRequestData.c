@@ -7,14 +7,27 @@
  *     LpcpCopyRequestData @ 0x1408C448C (LpcpCopyRequestData.c)
  */
 
-__int64 __fastcall NtReadRequestData(void *a1, unsigned __int64 a2, unsigned int a3, char *a4, SIZE_T a5, __int64 *a6)
+NTSTATUS __cdecl NtReadRequestData(
+        HANDLE PortHandle,
+        PPORT_MESSAGE Message,
+        ULONG DataEntryIndex,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v7; // ebx
+  NTSTATUS v7; // ebx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = LpcpCopyRequestData(0, a1, a2, a3, a4, a5, a6);
+  v7 = LpcpCopyRequestData(
+         0,
+         PortHandle,
+         (unsigned __int64)Message,
+         DataEntryIndex,
+         (char *)Buffer,
+         BufferSize,
+         (__int64 *)NumberOfBytesRead);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v7;
 }

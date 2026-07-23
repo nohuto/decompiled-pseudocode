@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchSharedStart @ 0x1404F48F8
+ * XREFs of PfpPrefetchSharedStart @ 0x1404D7884
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1403ECF84 (PfpPrefetchRequestPerform.c)
- *     PfSnAsyncPrefetchWorker @ 0x1404F4AF8 (PfSnAsyncPrefetchWorker.c)
- *     PfpQueryFileExtentsRequest @ 0x140669118 (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchRequestPerform @ 0x1403EE5B4 (PfpPrefetchRequestPerform.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1404D7A84 (PfSnAsyncPrefetchWorker.c)
+ *     PfpQueryFileExtentsRequest @ 0x1406691FC (PfpQueryFileExtentsRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     FsRtlAcquirePushLockExclusive @ 0x14007B188 (FsRtlAcquirePushLockExclusive.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     PsSetCurrentThreadPrefetching @ 0x14050AC5C (PsSetCurrentThreadPrefetching.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x14007B208 (FsRtlAcquirePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     PsSetCurrentThreadPrefetching @ 0x1404EDBEC (PsSetCurrentThreadPrefetching.c)
  */
 
 __int64 __fastcall PfpPrefetchSharedStart(ULONG_PTR BugCheckParameter2)
@@ -31,20 +31,20 @@ __int64 __fastcall PfpPrefetchSharedStart(ULONG_PTR BugCheckParameter2)
   if ( !ExAcquireRundownProtection(&RunRef) )
     return (unsigned int)-1073741127;
   *(_DWORD *)(BugCheckParameter2 + 68) |= 1u;
-  FsRtlAcquirePushLockExclusive((volatile signed __int32 *)&qword_140328690);
-  if ( (dword_1403286A8 & 1) == 0 )
+  FsRtlAcquirePushLockExclusive((volatile signed __int32 *)&qword_1403286D0);
+  if ( (dword_1403286E8 & 1) == 0 )
   {
-    v4 = qword_140328698;
-    if ( *(__int64 **)(qword_140328698 + 8) != &qword_140328698 )
+    v4 = qword_1403286D8;
+    if ( *(__int64 **)(qword_1403286D8 + 8) != &qword_1403286D8 )
       __fastfail(3u);
-    *(_QWORD *)BugCheckParameter2 = qword_140328698;
-    *(_QWORD *)(BugCheckParameter2 + 8) = &qword_140328698;
+    *(_QWORD *)BugCheckParameter2 = qword_1403286D8;
+    *(_QWORD *)(BugCheckParameter2 + 8) = &qword_1403286D8;
     *(_QWORD *)(v4 + 8) = BugCheckParameter2;
-    qword_140328698 = BugCheckParameter2;
+    qword_1403286D8 = BugCheckParameter2;
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328690, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328690);
-  KeAbPostRelease((ULONG_PTR)&qword_140328690);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403286D0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403286D0);
+  KeAbPostRelease((ULONG_PTR)&qword_1403286D0);
   KeLeaveCriticalRegion();
   if ( *(_QWORD *)BugCheckParameter2 )
   {

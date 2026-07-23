@@ -9,10 +9,10 @@
  *     RtlpHpVsChunkComputeCost @ 0x18001B248 (RtlpHpVsChunkComputeCost.c)
  */
 
-char __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, __int64 a3)
+BOOLEAN __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, __int64 a3)
 {
   __int16 v5; // ax
-  bool v6; // r8
+  BOOLEAN v6; // r8
   unsigned __int64 v7; // rcx
   __int64 v8; // rbx
   unsigned __int64 v9; // rdx
@@ -54,7 +54,7 @@ char __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, __int64 a3)
         {
 LABEL_16:
           v6 = 1;
-          return RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v6, a3 + 8);
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v6, (PRTL_BALANCED_NODE)(a3 + 8));
         }
       }
       else
@@ -63,14 +63,14 @@ LABEL_16:
         if ( (*(_BYTE *)(v8 + 8) & 1) != 0 )
         {
           if ( !v10 )
-            return RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v6, a3 + 8);
+            return RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v6, (PRTL_BALANCED_NODE)(a3 + 8));
           v10 ^= v9;
         }
         if ( !v10 )
-          return RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v6, a3 + 8);
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v6, (PRTL_BALANCED_NODE)(a3 + 8));
       }
       v9 = v10;
     }
   }
-  return RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v6, a3 + 8);
+  return RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v6, (PRTL_BALANCED_NODE)(a3 + 8));
 }

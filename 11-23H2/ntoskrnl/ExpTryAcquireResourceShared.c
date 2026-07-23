@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpTryAcquireResourceShared @ 0x1403C97EC
+ * XREFs of ExpTryAcquireResourceShared @ 0x1403C99CC
  * Callers:
- *     ExAcquireSharedWaitForExclusive @ 0x1403C8950 (ExAcquireSharedWaitForExclusive.c)
- *     ExAcquireFastResourceShared @ 0x1403C9180 (ExAcquireFastResourceShared.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403C8B30 (ExAcquireSharedWaitForExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x1403C9360 (ExAcquireFastResourceShared.c)
  * Callees:
  *     <none>
  */

@@ -7,11 +7,15 @@
  *     <none>
  */
 
-__int64 ZwSetTimer2()
+NTSTATUS __cdecl ZwSetTimer2(
+        HANDLE TimerHandle,
+        PLARGE_INTEGER DueTime,
+        PLARGE_INTEGER Period,
+        PT2_SET_PARAMETERS Parameters)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 402LL;
+  result = 402;
   __asm { syscall; Low latency system call }
   return result;
 }

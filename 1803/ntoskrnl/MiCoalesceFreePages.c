@@ -68,7 +68,7 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1)
   unsigned int v36; // r9d
   unsigned int v37; // eax
   unsigned __int64 v38; // r8
-  union _SLIST_HEADER *v39; // r15
+  _SLIST_HEADER *v39; // r15
   _QWORD *v40; // rsi
   unsigned __int64 v41; // rbp
   volatile signed __int64 *v42; // rdi
@@ -279,7 +279,7 @@ LABEL_88:
     v28 = dword_1403CB6D8 & (unsigned int)v3;
     v24 = v36 << byte_1403CB699;
     v26 = 16 * ((unsigned int)v24 | v28 | v38);
-    v39 = (union _SLIST_HEADER *)(v26 + *(_QWORD *)(v5 + 8 * v34 + 4136));
+    v39 = (_SLIST_HEADER *)(v26 + *(_QWORD *)(v5 + 8 * v34 + 4136));
     if ( !LOWORD(v39->Alignment) )
       goto LABEL_94;
     v40 = 0LL;

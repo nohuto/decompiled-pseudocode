@@ -1,9 +1,9 @@
 /*
- * XREFs of CcPrivateVolumeCacheMapTelemetryCallback @ 0x1408810E0
+ * XREFs of CcPrivateVolumeCacheMapTelemetryCallback @ 0x140881320
  * Callers:
  *     <none>
  * Callees:
- *     CcGetActiveWorkerCountInPartition @ 0x1403D3FC4 (CcGetActiveWorkerCountInPartition.c)
+ *     CcGetActiveWorkerCountInPartition @ 0x1403D41A4 (CcGetActiveWorkerCountInPartition.c)
  */
 
 char __fastcall CcPrivateVolumeCacheMapTelemetryCallback(__int64 a1, __int64 a2)

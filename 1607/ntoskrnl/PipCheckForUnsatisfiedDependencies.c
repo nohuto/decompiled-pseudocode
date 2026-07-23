@@ -1,12 +1,12 @@
 /*
- * XREFs of PipCheckForUnsatisfiedDependencies @ 0x1403F4C84
+ * XREFs of PipCheckForUnsatisfiedDependencies @ 0x1403F3B48
  * Callers:
- *     PnpCheckForActiveDependencies @ 0x1403F4858 (PnpCheckForActiveDependencies.c)
- *     PipAttemptDependentStart @ 0x14062AEC8 (PipAttemptDependentStart.c)
+ *     PnpCheckForActiveDependencies @ 0x1403F371C (PnpCheckForActiveDependencies.c)
+ *     PipAttemptDependentStart @ 0x14062AF7C (PipAttemptDependentStart.c)
  * Callees:
- *     PiGetProviderList @ 0x1403F4CC4 (PiGetProviderList.c)
- *     PiEnumerateProviderListEntry @ 0x14062AD48 (PiEnumerateProviderListEntry.c)
- *     PipIsProviderStarted @ 0x14062B344 (PipIsProviderStarted.c)
+ *     PiGetProviderList @ 0x1403F3B88 (PiGetProviderList.c)
+ *     PiEnumerateProviderListEntry @ 0x14062ADFC (PiEnumerateProviderListEntry.c)
+ *     PipIsProviderStarted @ 0x14062B3F8 (PipIsProviderStarted.c)
  */
 
 char __fastcall PipCheckForUnsatisfiedDependencies(__int64 a1, unsigned __int8 a2)

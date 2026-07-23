@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_WpsHybridToNoneZoneFix__private_IsEnabledFallback @ 0x14060A734
+ * XREFs of Feature_WpsHybridToNoneZoneFix__private_IsEnabledFallback @ 0x14060D3AC
  * Callers:
- *     Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline @ 0x14060A6F8 (Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline @ 0x14060D370 (Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_WpsHybridToNoneZoneFix__private_IsEnabledFallback(__int64 a1, unsigned int a2)

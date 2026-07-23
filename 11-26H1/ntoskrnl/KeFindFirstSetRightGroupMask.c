@@ -2,11 +2,11 @@
  * XREFs of KeFindFirstSetRightGroupMask @ 0x140200980
  * Callers:
  *     KeFindFirstSetLeftGroupMask @ 0x140200760 (KeFindFirstSetLeftGroupMask.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14050E130 (KeQueryNodeActiveAffinity2.c)
- *     EtwpExtractCompactedAffinity @ 0x1406C5550 (EtwpExtractCompactedAffinity.c)
- *     KeInitializeProcess @ 0x140963BE4 (KeInitializeProcess.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
- *     MmCreatePeb @ 0x140ACA4F0 (MmCreatePeb.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140507BA0 (KeQueryNodeActiveAffinity2.c)
+ *     EtwpExtractCompactedAffinity @ 0x1406C9190 (EtwpExtractCompactedAffinity.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
+ *     MmCreatePeb @ 0x140ACC600 (MmCreatePeb.c)
+ *     KeInitializeProcess @ 0x140B58704 (KeInitializeProcess.c)
  * Callees:
  *     <none>
  */

@@ -14,7 +14,7 @@ NTSTATUS __stdcall NtQueryInformationResourceManager(
         ULONG ResourceManagerInformationLength,
         PULONG ReturnLength)
 {
-  return __imp_NtQueryInformationResourceManager(
+  return NtQueryInformationResourceManager_0(
            ResourceManagerHandle,
            ResourceManagerInformationClass,
            ResourceManagerInformation,

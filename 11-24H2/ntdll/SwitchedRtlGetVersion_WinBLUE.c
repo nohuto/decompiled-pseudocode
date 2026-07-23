@@ -1,7 +1,7 @@
 /*
- * XREFs of SwitchedRtlGetVersion_WinBLUE @ 0x1800A9EE0
+ * XREFs of SwitchedRtlGetVersion_WinBLUE @ 0x18000B070
  * Callers:
- *     SwitchedRtlGetVersion @ 0x1800A9C70 (SwitchedRtlGetVersion.c)
+ *     SwitchedRtlGetVersion @ 0x18000AE00 (SwitchedRtlGetVersion.c)
  * Callees:
  *     <none>
  */

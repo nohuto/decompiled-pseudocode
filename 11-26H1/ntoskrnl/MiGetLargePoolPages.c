@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetLargePoolPages @ 0x1403C7CA8
+ * XREFs of MiGetLargePoolPages @ 0x1403D1B98
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
  * Callees:
- *     MiObtainPoolCharges @ 0x140366384 (MiObtainPoolCharges.c)
- *     MiGetLargePageChain @ 0x1403C7E10 (MiGetLargePageChain.c)
- *     MiReturnExcessPoolCharges @ 0x1403C7FB0 (MiReturnExcessPoolCharges.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiObtainPoolCharges @ 0x140368124 (MiObtainPoolCharges.c)
+ *     MiGetLargePageChain @ 0x1403D1D00 (MiGetLargePageChain.c)
+ *     MiReturnExcessPoolCharges @ 0x1403D1EA0 (MiReturnExcessPoolCharges.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetLargePoolPages(__int64 a1)

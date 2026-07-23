@@ -1,7 +1,7 @@
 /*
- * XREFs of IopPnPCompleteRequest @ 0x1400B0DF8
+ * XREFs of IopPnPCompleteRequest @ 0x1400AEE68
  * Callers:
- *     IopPnPDispatch @ 0x1404E7998 (IopPnPDispatch.c)
+ *     IopPnPDispatch @ 0x1404C9D24 (IopPnPDispatch.c)
  * Callees:
  *     <none>
  */

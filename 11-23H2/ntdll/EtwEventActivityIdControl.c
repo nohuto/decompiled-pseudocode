@@ -8,30 +8,30 @@
  *     NtTraceControl @ 0x1800A4900 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *p_ActivityId)
+ULONG __cdecl EtwEventActivityIdControl(ULONG ControlCode, LPGUID ActivityId)
 {
-  int v2; // ecx
-  int v3; // ecx
+  ULONG v2; // ecx
+  ULONG v3; // ecx
   ULONG v4; // ebx
-  int v6; // ecx
+  ULONG v6; // ecx
   NTSTATUS v7; // eax
-  int v8; // ecx
-  _GUID ActivityId; // xmm1
-  ULONG v10; // eax
-  char v11; // [rsp+48h] [rbp+10h] BYREF
+  ULONG v8; // ecx
+  _GUID v9; // xmm1
+  LONG v10; // eax
+  ULONG ReturnLength; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( p_ActivityId )
+  if ( ActivityId )
   {
-    v2 = a1 - 1;
+    v2 = ControlCode - 1;
     if ( !v2 )
     {
-      *p_ActivityId = NtCurrentTeb()->ActivityId;
+      *ActivityId = NtCurrentTeb()->ActivityId;
       return 0;
     }
     v3 = v2 - 1;
     if ( !v3 )
     {
-      NtCurrentTeb()->ActivityId = *p_ActivityId;
+      NtCurrentTeb()->ActivityId = *ActivityId;
       return 0;
     }
     v6 = v3 - 1;
@@ -40,9 +40,9 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *p_ActivityId)
       v8 = v6 - 1;
       if ( !v8 )
       {
-        ActivityId = NtCurrentTeb()->ActivityId;
-        NtCurrentTeb()->ActivityId = *p_ActivityId;
-        *p_ActivityId = ActivityId;
+        v9 = NtCurrentTeb()->ActivityId;
+        NtCurrentTeb()->ActivityId = *ActivityId;
+        *ActivityId = v9;
         return 0;
       }
       if ( v8 != 1 )
@@ -50,10 +50,10 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *p_ActivityId)
         v7 = -1073741811;
         goto LABEL_17;
       }
-      *p_ActivityId = NtCurrentTeb()->ActivityId;
-      p_ActivityId = &NtCurrentTeb()->ActivityId;
+      *ActivityId = NtCurrentTeb()->ActivityId;
+      ActivityId = &NtCurrentTeb()->ActivityId;
     }
-    v7 = NtTraceControl(12LL, 0LL, 0LL, p_ActivityId, 16, &v11);
+    v7 = NtTraceControl(EtwActivityIdCreate, 0LL, 0, ActivityId, 0x10u, &ReturnLength);
     if ( !v7 )
       return 0;
 LABEL_17:
@@ -63,5 +63,5 @@ LABEL_17:
       RtlSetLastWin32Error(v10);
     return v4;
   }
-  return 87LL;
+  return 87;
 }

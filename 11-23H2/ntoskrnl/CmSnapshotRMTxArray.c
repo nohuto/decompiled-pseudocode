@@ -4,11 +4,11 @@
  *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
  *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     CmpAddEnlistmentToRollbackPacket @ 0x140A1E2CC (CmpAddEnlistmentToRollbackPacket.c)
- *     CmpReserveRollbackPacketSpace @ 0x140A1E610 (CmpReserveRollbackPacketSpace.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     CmpAddEnlistmentToRollbackPacket @ 0x140A1E57C (CmpAddEnlistmentToRollbackPacket.c)
+ *     CmpReserveRollbackPacketSpace @ 0x140A1E8C0 (CmpReserveRollbackPacketSpace.c)
  *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
  */
 

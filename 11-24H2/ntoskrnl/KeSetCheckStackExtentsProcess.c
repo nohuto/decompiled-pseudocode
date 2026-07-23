@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSetCheckStackExtentsProcess @ 0x140A63458
+ * XREFs of KeSetCheckStackExtentsProcess @ 0x140A5BD58
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

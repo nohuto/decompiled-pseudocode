@@ -10,44 +10,47 @@
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 RtlRestoreBootStatusDefaults()
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
-  const __m128i *v0; // rax
-  __m128i v1; // xmm1
-  __int64 v2; // rcx
-  __m128i v3; // xmm0
-  __m128i v4; // xmm1
-  __m128i v5; // xmm1
+  const __m128i *p_Buffer; // rax
+  __m128i v3; // xmm1
+  __int64 v4; // rcx
+  __m128i v5; // xmm0
   __m128i v6; // xmm1
-  int v8; // [rsp+70h] [rbp-90h] BYREF
-  int v9; // [rsp+74h] [rbp-8Ch] BYREF
-  __int16 v10; // [rsp+79h] [rbp-87h]
-  char v11; // [rsp+7Bh] [rbp-85h]
-  char v12; // [rsp+A1h] [rbp-5Fh]
-  char v13; // [rsp+A2h] [rbp-5Eh]
-  int v14; // [rsp+128h] [rbp+28h]
+  __m128i v7; // xmm1
+  __m128i v8; // xmm1
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
+  int Buffer; // [rsp+70h] [rbp-90h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+74h] [rbp-8Ch] BYREF
+  __int16 v14; // [rsp+79h] [rbp-87h]
+  char v15; // [rsp+7Bh] [rbp-85h]
+  char v16; // [rsp+A1h] [rbp-5Fh]
+  char v17; // [rsp+A2h] [rbp-5Eh]
+  int v18; // [rsp+128h] [rbp+28h]
 
-  memset_thunk_772440563353939046(&v9, 0, 0xBCuLL);
-  v8 = 192;
-  RtlGetNtProductType(&v9);
-  v14 = 0;
-  v0 = (const __m128i *)&v8;
-  v1 = 0LL;
-  v10 = 286;
-  v2 = 12LL;
-  v12 = 1;
-  v11 = 0;
+  memset_thunk_772440563353939046(&NtProductType, 0, 0xBCuLL);
+  Buffer = 192;
+  RtlGetNtProductType(&NtProductType);
+  v18 = 0;
+  p_Buffer = (const __m128i *)&Buffer;
+  v3 = 0LL;
+  v14 = 286;
+  v4 = 12LL;
+  v16 = 1;
+  v15 = 0;
   do
   {
-    v3 = _mm_loadu_si128(v0++);
-    v1 = _mm_sub_epi8(v1, v3);
-    --v2;
+    v5 = _mm_loadu_si128(p_Buffer++);
+    v3 = _mm_sub_epi8(v3, v5);
+    --v4;
   }
-  while ( v2 );
-  v4 = _mm_add_epi8(v1, _mm_srli_si128(v1, 8));
-  v5 = _mm_add_epi8(v4, _mm_srli_si128(v4, 4));
-  v6 = _mm_add_epi8(v5, _mm_srli_si128(v5, 2));
-  v13 = _mm_cvtsi128_si32(_mm_add_epi8(v6, _mm_srli_si128(v6, 1)));
-  RtlpRecordBootStatusData(0LL, &v8, 0LL, 192LL);
-  return NtWriteFile();
+  while ( v4 );
+  ByteOffset.QuadPart = 0LL;
+  v6 = _mm_add_epi8(v3, _mm_srli_si128(v3, 8));
+  v7 = _mm_add_epi8(v6, _mm_srli_si128(v6, 4));
+  v8 = _mm_add_epi8(v7, _mm_srli_si128(v7, 2));
+  v17 = _mm_cvtsi128_si32(_mm_add_epi8(v8, _mm_srli_si128(v8, 1)));
+  RtlpRecordBootStatusData(0LL, &Buffer, 0LL, 192LL);
+  return NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 0xC0u, &ByteOffset, 0LL);
 }

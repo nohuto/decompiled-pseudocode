@@ -1,9 +1,9 @@
 /*
- * XREFs of MinCrypK_VerifySignedDataKMode @ 0x140826824
+ * XREFs of MinCrypK_VerifySignedDataKMode @ 0x140826FF4
  * Callers:
- *     MinCrypK_ParseRevocationList @ 0x14069F218 (MinCrypK_ParseRevocationList.c)
+ *     MinCrypK_ParseRevocationList @ 0x1406A031C (MinCrypK_ParseRevocationList.c)
  * Callees:
- *     MinCrypK_VerifySignedDataKModeEx @ 0x140826868 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x140827038 (MinCrypK_VerifySignedDataKModeEx.c)
  */
 
 __int64 __fastcall MinCrypK_VerifySignedDataKMode(

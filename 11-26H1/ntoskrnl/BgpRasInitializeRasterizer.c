@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpRasInitializeRasterizer @ 0x140D14E80
+ * XREFs of BgpRasInitializeRasterizer @ 0x140D1B048
  * Callers:
- *     FopInitializeFonts @ 0x140D13CF0 (FopInitializeFonts.c)
+ *     FopInitializeFonts @ 0x140D19EB8 (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x140355130 (FioFwReadBytesAtOffset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     FopGetTableOffsetAndSize @ 0x140D13BF0 (FopGetTableOffsetAndSize.c)
+ *     FioFwReadBytesAtOffset @ 0x140356ED0 (FioFwReadBytesAtOffset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     FopGetTableOffsetAndSize @ 0x140D19DB8 (FopGetTableOffsetAndSize.c)
  */
 
 __int64 __fastcall BgpRasInitializeRasterizer(__int64 a1)
@@ -75,7 +75,7 @@ __int64 __fastcall BgpRasInitializeRasterizer(__int64 a1)
                 v7 = __ROR2__(v6, 8);
                 *(_WORD *)(a1 + 84) = __ROR2__(WORD3(v13), 8);
                 v8 = __ROR2__(v14, 8);
-                v9 = gLoadedDiffHivesLock.ApcStateFill[0] == 0;
+                v9 = LOBYTE(gLoadedDiffHivesLock.CurrentRunTime) == 0;
                 *(_WORD *)(a1 + 82) = v7;
                 *(_WORD *)(a1 + 80) = v8;
                 *(_WORD *)(a1 + 86) = v7;
@@ -85,7 +85,7 @@ __int64 __fastcall BgpRasInitializeRasterizer(__int64 a1)
                   gLoadedDiffHivesLock.TrapFrame = (_KTRAP_FRAME *)100;
                   gLoadedDiffHivesLock.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)&gLoadedDiffHivesLock.StateSaveArea;
                   gLoadedDiffHivesLock.StateSaveArea = (_XSAVE_FORMAT *)&gLoadedDiffHivesLock.StateSaveArea;
-                  gLoadedDiffHivesLock.ApcStateFill[0] = 1;
+                  LOBYTE(gLoadedDiffHivesLock.CurrentRunTime) = 1;
                 }
               }
             }

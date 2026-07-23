@@ -1,13 +1,13 @@
 /*
- * XREFs of MxCreateFreePfns @ 0x140C5254C
+ * XREFs of MxCreateFreePfns @ 0x140C546DC
  * Callers:
- *     MiCreateDescriptorPfns @ 0x140C50FF4 (MiCreateDescriptorPfns.c)
- *     MiCreateFreePfns @ 0x140C5120C (MiCreateFreePfns.c)
- *     MxReleaseFreeDescriptor @ 0x140C53354 (MxReleaseFreeDescriptor.c)
+ *     MiCreateDescriptorPfns @ 0x140C53184 (MiCreateDescriptorPfns.c)
+ *     MiCreateFreePfns @ 0x140C5339C (MiCreateFreePfns.c)
+ *     MxReleaseFreeDescriptor @ 0x140C554E4 (MxReleaseFreeDescriptor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiFreeEmptyBootPageTable @ 0x140C515F0 (MiFreeEmptyBootPageTable.c)
- *     MxInsertFreePages @ 0x140C52D50 (MxInsertFreePages.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiFreeEmptyBootPageTable @ 0x140C53780 (MiFreeEmptyBootPageTable.c)
+ *     MxInsertFreePages @ 0x140C54EE0 (MxInsertFreePages.c)
  */
 
 void __fastcall MxCreateFreePfns(__int64 a1)

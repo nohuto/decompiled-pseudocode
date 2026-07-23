@@ -23,7 +23,7 @@
 __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, int *a2, unsigned int a3, HANDLE *a4)
 {
   int v5; // ecx
-  int AppContainerSidType; // ebx
+  NTSTATUS v7; // ebx
   PVOID v8; // r14
   unsigned int v9; // r15d
   void *v10; // r12
@@ -45,8 +45,8 @@ __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, int *a2, unsig
   PULONG v27; // rax
   void *v28; // rcx
   char v29; // [rsp+40h] [rbp-C0h]
-  PVOID Sid; // [rsp+48h] [rbp-B8h] BYREF
-  int v31; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID AppContainerSidParent; // [rsp+48h] [rbp-B8h] BYREF
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+50h] [rbp-B0h] BYREF
   unsigned int v32; // [rsp+54h] [rbp-ACh]
   unsigned int v33; // [rsp+58h] [rbp-A8h]
   PVOID P; // [rsp+60h] [rbp-A0h] BYREF
@@ -65,12 +65,12 @@ __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, int *a2, unsig
   v36 = a4;
   v33 = a3;
   v5 = *a2;
-  Sid = a2;
+  AppContainerSidParent = a2;
   v32 = 0;
-  AppContainerSidType = 0;
+  v7 = 0;
   v29 = 0;
   v8 = 0LL;
-  v31 = 0;
+  AppContainerSidType = NotAppContainerSidType;
   v9 = 0;
   P = 0LL;
   p_UnicodeString = 0LL;
@@ -81,13 +81,13 @@ __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, int *a2, unsig
       goto LABEL_9;
     v23 = *(unsigned int *)(a1 + 120);
     p_UnicodeString = (PCUNICODE_STRING)(a2 + 2);
-    AppContainerSidType = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v23);
-    if ( AppContainerSidType >= 0 )
+    v7 = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v23);
+    if ( v7 >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, pszDest);
       v41[0] = 1;
       v9 = 1;
-      if ( *(_DWORD *)(a1 + 120) != (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( *(_DWORD *)(a1 + 120) != RtlGetCurrentServiceSessionId() )
         goto LABEL_9;
       RtlInitUnicodeString(&v42, L"\\BaseNamedObjects");
       v43 = 1;
@@ -96,22 +96,23 @@ LABEL_8:
 LABEL_9:
       if ( !v33 )
         goto LABEL_33;
-      v12 = Sid;
+      v12 = AppContainerSidParent;
       do
       {
         if ( v8 )
           ObfDereferenceObject(v8);
-        Sid = 0LL;
-        v13 = ObReferenceObjectByHandle(*v36, 0, 0LL, 0, &Sid, 0LL);
-        v8 = Sid;
-        AppContainerSidType = v13;
+        AppContainerSidParent = 0LL;
+        v13 = ObReferenceObjectByHandle(*v36, 0, 0LL, 0, &AppContainerSidParent, 0LL);
+        v8 = AppContainerSidParent;
+        v7 = v13;
         if ( v13 >= 0 )
         {
-          v16 = (char *)Sid - 48;
-          v17 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Sid - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Sid - 48) >> 8)];
+          v16 = (char *)AppContainerSidParent - 48;
+          v17 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)AppContainerSidParent - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)AppContainerSidParent - 48) >> 8)];
           if ( v17 != ObpSymbolicLinkObjectType
             && v17 != ObpDirectoryObjectType
-            && (v17 != (struct _OBJECT_TYPE *)IoFileObjectType || *(_DWORD *)(*((_QWORD *)Sid + 1) + 72LL) != 17) )
+            && (v17 != (struct _OBJECT_TYPE *)IoFileObjectType
+             || *(_DWORD *)(*((_QWORD *)AppContainerSidParent + 1) + 72LL) != 17) )
           {
             goto LABEL_44;
           }
@@ -120,13 +121,13 @@ LABEL_9:
             ExFreePoolWithTag(P, 0);
             P = 0LL;
           }
-          AppContainerSidType = SepQueryNameString(v8, &P, v14, v15);
-          if ( AppContainerSidType < 0 )
+          v7 = SepQueryNameString(v8, &P, v14, v15);
+          if ( v7 < 0 )
             break;
           if ( !P || !*((_WORD *)P + 1) || (v18 = 0, String2 = *(UNICODE_STRING *)P, !v9) )
           {
 LABEL_44:
-            AppContainerSidType = -1073741811;
+            v7 = -1073741811;
             break;
           }
           while ( !RtlPrefixUnicodeString((UNICODE_STRING *)((char *)&DestinationString + 24 * v18), &String2, 1u) )
@@ -150,21 +151,21 @@ LABEL_44:
               {
                 if ( ++v21 >= 5 )
                 {
-                  if ( v31 != 1 )
+                  if ( AppContainerSidType != ChildAppContainerSidType )
                     goto LABEL_44;
                   v28 = (void *)v12[1];
-                  Sid = 0LL;
-                  if ( (int)RtlGetAppContainerParent(v28) < 0 )
+                  AppContainerSidParent = 0LL;
+                  if ( RtlGetAppContainerParent(v28, &AppContainerSidParent) < 0 )
                     goto LABEL_44;
                   String2 = 0LL;
-                  AppContainerSidType = RtlConvertSidToUnicodeString(&String2, Sid, 1u);
-                  if ( AppContainerSidType >= 0 )
+                  v7 = RtlConvertSidToUnicodeString(&String2, AppContainerSidParent, 1u);
+                  if ( v7 >= 0 )
                   {
                     if ( RtlEqualUnicodeString(&String1, &String2, 1u) )
                       v20 = 1;
                     RtlFreeUnicodeString(&String2);
                   }
-                  ExFreePoolWithTag(Sid, 0);
+                  ExFreePoolWithTag(AppContainerSidParent, 0);
                   if ( !v20 )
                     goto LABEL_44;
                   break;
@@ -181,14 +182,14 @@ LABEL_44:
   }
   else
   {
-    AppContainerSidType = RtlGetAppContainerSidType(*((char **)a2 + 1), &v31);
-    if ( AppContainerSidType < 0 )
+    v7 = RtlGetAppContainerSidType(*((PSID *)a2 + 1), &AppContainerSidType);
+    if ( v7 < 0 )
       goto LABEL_33;
     v10 = (void *)*((_QWORD *)a2 + 1);
-    if ( v31 == 2 )
+    if ( AppContainerSidType == ParentAppContainerSidType )
     {
-      AppContainerSidType = RtlConvertSidToUnicodeString(&UnicodeString, v10, 1u);
-      if ( AppContainerSidType < 0 )
+      v7 = RtlConvertSidToUnicodeString(&UnicodeString, v10, 1u);
+      if ( v7 < 0 )
         goto LABEL_33;
       v29 = 1;
       goto LABEL_6;
@@ -197,15 +198,15 @@ LABEL_44:
     v25 = RtlSubAuthoritySid(v10, 0xAu);
     v26 = RtlSubAuthoritySid(v10, 9u);
     v27 = RtlSubAuthoritySid(v10, 8u);
-    AppContainerSidType = RtlStringCchPrintfW(SourceString, 0x100uLL, L"%u-%u-%u-%u", *v27, *v26, *v25, *v24);
-    if ( AppContainerSidType >= 0 )
+    v7 = RtlStringCchPrintfW(SourceString, 0x100uLL, L"%u-%u-%u-%u", *v27, *v26, *v25, *v24);
+    if ( v7 >= 0 )
     {
       RtlInitUnicodeString(&UnicodeString, SourceString);
 LABEL_6:
       v11 = *(unsigned int *)(a1 + 120);
       p_UnicodeString = &UnicodeString;
-      AppContainerSidType = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v11);
-      if ( AppContainerSidType < 0 )
+      v7 = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v11);
+      if ( v7 < 0 )
         goto LABEL_33;
       RtlInitUnicodeString(&DestinationString, pszDest);
       v41[0] = 1;
@@ -221,5 +222,5 @@ LABEL_33:
     ObfDereferenceObject(v8);
   if ( v29 )
     RtlFreeUnicodeString(&UnicodeString);
-  return (unsigned int)AppContainerSidType;
+  return (unsigned int)v7;
 }

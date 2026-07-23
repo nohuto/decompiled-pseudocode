@@ -35,7 +35,7 @@ __int64 *__fastcall MiGetVadWakeList(__int64 a1, __int64 a2)
   unsigned int v12; // ebx
   signed __int32 v13; // eax
   __int64 *v14; // rcx
-  struct _SLIST_ENTRY *v15; // rsi
+  _SLIST_ENTRY *v15; // rsi
   int v16; // edi
   _KPROCESS *v17; // rcx
   struct _KPRCB *v18; // rcx
@@ -43,7 +43,7 @@ __int64 *__fastcall MiGetVadWakeList(__int64 a1, __int64 a2)
   __int64 *v21; // rdx
   signed __int32 v22; // ett
   int v23; // eax
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
   __int64 v25; // r8
   void *retaddr; // [rsp+58h] [rbp+0h]
   int v27; // [rsp+60h] [rbp+8h]

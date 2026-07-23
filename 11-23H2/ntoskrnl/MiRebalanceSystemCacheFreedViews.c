@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRebalanceSystemCacheFreedViews @ 0x1402A0310
+ * XREFs of MiRebalanceSystemCacheFreedViews @ 0x1402A05A0
  * Callers:
- *     MiObtainSystemCacheView @ 0x14029FE90 (MiObtainSystemCacheView.c)
- *     MiReleaseSystemCacheView @ 0x1402A0140 (MiReleaseSystemCacheView.c)
- *     MiConsumeSystemCacheTbFlushNeededView @ 0x140361250 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiObtainSystemCacheView @ 0x1402A0120 (MiObtainSystemCacheView.c)
+ *     MiReleaseSystemCacheView @ 0x1402A03D0 (MiReleaseSystemCacheView.c)
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1403613F0 (MiConsumeSystemCacheTbFlushNeededView.c)
  * Callees:
  *     <none>
  */

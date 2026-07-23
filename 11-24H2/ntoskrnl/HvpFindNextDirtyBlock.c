@@ -1,20 +1,20 @@
 /*
- * XREFs of HvpFindNextDirtyBlock @ 0x14097E864
+ * XREFs of HvpFindNextDirtyBlock @ 0x140967074
  * Callers:
- *     HvpGenerateLogEntryDirtyData @ 0x14042AFCC (HvpGenerateLogEntryDirtyData.c)
- *     HvStoreModifiedData @ 0x14097E3EC (HvStoreModifiedData.c)
- *     HvWriteHivePrimaryFile @ 0x140982C34 (HvWriteHivePrimaryFile.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x1403773D0 (HvpGenerateLogEntryDirtyData.c)
+ *     HvStoreModifiedData @ 0x140966BFC (HvStoreModifiedData.c)
+ *     HvWriteHivePrimaryFile @ 0x14096B444 (HvWriteHivePrimaryFile.c)
  * Callees:
- *     HvpFindNextDirtyRun @ 0x140430C20 (HvpFindNextDirtyRun.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     HvpMapEntryGetBlockAddress @ 0x140874580 (HvpMapEntryGetBlockAddress.c)
- *     HvpMapEntryGetFreeBin @ 0x140883424 (HvpMapEntryGetFreeBin.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140BB9770 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140BB9790 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140BB98D0 (HvpGetBinContextInitialize.c)
+ *     HvpFindNextDirtyRun @ 0x1404225D0 (HvpFindNextDirtyRun.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     HvpMapEntryGetBlockAddress @ 0x1408788B0 (HvpMapEntryGetBlockAddress.c)
+ *     HvpMapEntryGetFreeBin @ 0x1408872D4 (HvpMapEntryGetFreeBin.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140BBB770 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140BBB790 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140BBB8D0 (HvpGetBinContextInitialize.c)
  */
 
 char __fastcall HvpFindNextDirtyBlock(
@@ -78,7 +78,7 @@ char __fastcall HvpFindNextDirtyBlock(
   v13 = (v43 << 9) - (v42 << 9);
   v45 = v43;
   v44 = v43 << 9;
-  if ( a7 && (Pool2 = (char *)ExAllocatePool2(0x100uLL)) == 0LL )
+  if ( a7 && (Pool2 = (char *)ExAllocatePool2(0x100uLL, v13, 0x33354D43u)) == 0LL )
   {
     *a4 = 0LL;
   }

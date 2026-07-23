@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpInsertAssemblyStorageMapEntry @ 0x180082004
+ * XREFs of RtlpInsertAssemblyStorageMapEntry @ 0x180003E84
  * Callers:
- *     RtlpResolveAssemblyStorageMapEntry @ 0x180081558 (RtlpResolveAssemblyStorageMapEntry.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x1800033D8 (RtlpResolveAssemblyStorageMapEntry.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     DbgPrintEx @ 0x18005EA90 (DbgPrintEx.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     DbgPrintEx @ 0x180074670 (DbgPrintEx.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2, const void **a3, _QWORD *a4)
@@ -14,8 +14,8 @@ __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2
   unsigned int v4; // ebx
   __int64 v5; // r14
   __int64 v9; // r8
-  __int64 Heap; // rax
-  unsigned __int64 v11; // rsi
+  _WORD *Heap; // rax
+  signed __int64 v11; // rsi
   const void *v13; // rcx
   int v14; // eax
 
@@ -34,15 +34,15 @@ __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2
         }
         else
         {
-          Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9 + 34);
-          v11 = Heap;
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v9 + 34);
+          v11 = (signed __int64)Heap;
           if ( Heap )
           {
             *(_DWORD *)Heap = 0;
-            *(_WORD *)(Heap + 8) = *(_WORD *)a3;
-            *(_QWORD *)(Heap + 16) = Heap + 32;
-            *(_WORD *)(Heap + 10) = *(_WORD *)a3 + 2;
-            memmove((void *)(Heap + 32), a3[1], *(unsigned __int16 *)a3);
+            Heap[4] = *(_WORD *)a3;
+            *((_QWORD *)Heap + 2) = Heap + 16;
+            Heap[5] = *(_WORD *)a3 + 2;
+            memmove(Heap + 16, a3[1], *(unsigned __int16 *)a3);
             *(_WORD *)(*(_QWORD *)(v11 + 16) + 2 * ((unsigned __int64)*(unsigned __int16 *)(v11 + 8) >> 1)) = 0;
             *(_QWORD *)(v11 + 24) = *a4;
             if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)(a1 + 8) + 8 * v5), v11, 0LL) )
@@ -51,7 +51,7 @@ __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2
               *a4 = 0LL;
             }
             if ( v11 )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v11);
           }
           else
           {
@@ -76,7 +76,7 @@ LABEL_17:
   if ( a1 )
     v4 = *(_DWORD *)(a1 + 4);
   DbgPrintEx(
-    51,
+    0x33u,
     0,
     "SXS: %s() bad parameters\n"
     "SXS:  Map                    : %p\n"

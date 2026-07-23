@@ -1,10 +1,10 @@
 /*
- * XREFs of ViRlrsMmProbeAndLockProcessPages_Entry @ 0x140B9F7D0
+ * XREFs of ViRlrsMmProbeAndLockProcessPages_Entry @ 0x140BA17D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     VfFaultsInjectResourceFailure @ 0x140B96568 (VfFaultsInjectResourceFailure.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     VfFaultsInjectResourceFailure @ 0x140B98568 (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 ViRlrsMmProbeAndLockProcessPages_Entry()

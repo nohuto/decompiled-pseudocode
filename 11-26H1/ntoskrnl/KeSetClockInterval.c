@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetClockInterval @ 0x14041880C
+ * XREFs of KeSetClockInterval @ 0x14040CD44
  * Callers:
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x14051FE68 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x14052250C (KiSetVirtualHeteroClockIntervalRequest.c)
  * Callees:
- *     KiSendClockInterruptToTargetProcessor @ 0x1403793EC (KiSendClockInterruptToTargetProcessor.c)
- *     KiSetClockInterval @ 0x140418834 (KiSetClockInterval.c)
+ *     KiSendClockInterruptToTargetProcessor @ 0x14037B19C (KiSendClockInterruptToTargetProcessor.c)
+ *     KiSetClockInterval @ 0x14040CD6C (KiSetClockInterval.c)
  */
 
 __int64 KeSetClockInterval()

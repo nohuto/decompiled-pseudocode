@@ -1,12 +1,12 @@
 /*
- * XREFs of DifCcDeferWriteWrapper @ 0x1405D61B0
+ * XREFs of DifCcDeferWriteWrapper @ 0x1405D6720
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     CcDeferWrite @ 0x140537480 (CcDeferWrite.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     CcDeferWrite @ 0x1405379D0 (CcDeferWrite.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifCcDeferWriteWrapper(

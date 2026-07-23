@@ -11,7 +11,7 @@ void __stdcall KeSetTargetProcessorDpc(PRKDPC Dpc, CCHAR Number)
 {
   unsigned __int16 v4; // bx
   ULONG ProcessorIndexFromNumber; // eax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp+10h] BYREF
 
   if ( KeForceGroupAwareness )
     v4 = KiActiveGroups - 1;

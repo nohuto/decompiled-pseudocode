@@ -1,12 +1,12 @@
 /*
- * XREFs of PrExtLogLatencyTime @ 0x1406DCD44
+ * XREFs of PrExtLogLatencyTime @ 0x1406E0FE4
  * Callers:
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall PrExtLogLatencyTime(struct _KTHREAD *a1)
+void __fastcall PrExtLogLatencyTime(struct _LIST_ENTRY *a1)
 {
-  CmpCallbackListLock.WaitBlock[0].Thread = a1;
+  CmpContextListLock.WaitBlock[0].WaitListEntry.Blink = a1;
 }

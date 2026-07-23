@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlGetFullPathName_U @ 0x18006A930
+ * XREFs of RtlGetFullPathName_U @ 0x18006A920
  * Callers:
- *     RtlDosSearchPath_U @ 0x1800675C0 (RtlDosSearchPath_U.c)
- *     RtlGetFileMUIPath @ 0x180069AA0 (RtlGetFileMUIPath.c)
+ *     RtlDosSearchPath_U @ 0x1800675B0 (RtlDosSearchPath_U.c)
+ *     RtlGetFileMUIPath @ 0x180069A90 (RtlGetFileMUIPath.c)
  * Callees:
- *     RtlGetFullPathName_UEx @ 0x180011770 (RtlGetFullPathName_UEx.c)
+ *     RtlGetFullPathName_UEx @ 0x180011760 (RtlGetFullPathName_UEx.c)
  */
 
-__int64 __fastcall RtlGetFullPathName_U(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+ULONG __cdecl RtlGetFullPathName_U(PCWSTR FileName, ULONG BufferLength, PWSTR Buffer, PWSTR *FilePart)
 {
-  int FullPathName_UEx; // eax
-  unsigned int v5; // ecx
-  _DWORD v7[6]; // [rsp+30h] [rbp-18h] BYREF
+  NTSTATUS FullPathName_UEx; // eax
+  ULONG v5; // ecx
+  ULONG BytesRequired[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  FullPathName_UEx = RtlGetFullPathName_UEx(a1, a2, a3, a4, v7);
+  FullPathName_UEx = RtlGetFullPathName_UEx(FileName, BufferLength, Buffer, FilePart, BytesRequired);
   v5 = 0;
   if ( FullPathName_UEx >= 0 )
-    return v7[0];
+    return BytesRequired[0];
   return v5;
 }

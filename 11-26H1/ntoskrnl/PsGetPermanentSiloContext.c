@@ -1,17 +1,17 @@
 /*
- * XREFs of PsGetPermanentSiloContext @ 0x14040B340
+ * XREFs of PsGetPermanentSiloContext @ 0x140404430
  * Callers:
- *     ObInitServerSilo @ 0x1407C22F0 (ObInitServerSilo.c)
- *     VrpHandleIoctlModifyFlags @ 0x1408A5754 (VrpHandleIoctlModifyFlags.c)
- *     ObGetSiloRootDirectoryPath @ 0x1408A72EC (ObGetSiloRootDirectoryPath.c)
- *     CmpParseKey @ 0x1408CB3F0 (CmpParseKey.c)
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
- *     VRegEnabledInJob @ 0x14097834C (VRegEnabledInJob.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14097854C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140978E48 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140979150 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     CmpGetContextForSiloNoRef @ 0x140A30C60 (CmpGetContextForSiloNoRef.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140AFF5E4 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     ObInitServerSilo @ 0x1407C5350 (ObInitServerSilo.c)
+ *     VrpHandleIoctlModifyFlags @ 0x1408ABBC4 (VrpHandleIoctlModifyFlags.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1408AD75C (ObGetSiloRootDirectoryPath.c)
+ *     CmpParseKey @ 0x1408D19A0 (CmpParseKey.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
+ *     VRegEnabledInJob @ 0x14093A35C (VRegEnabledInJob.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x14093A55C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x14093AE58 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14093B160 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     CmpGetContextForSiloNoRef @ 0x140A4BBC0 (CmpGetContextForSiloNoRef.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140B01274 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
  * Callees:
  *     <none>
  */
@@ -24,7 +24,7 @@ __int64 __fastcall PsGetPermanentSiloContext(__int64 a1, unsigned int a2, unsign
   if ( a1 )
     v3 = *(_QWORD *)(a1 + 1536);
   else
-    v3 = qword_140FC8E30;
+    v3 = qword_140FC9E30;
   *a3 = 0LL;
   if ( a2 >= 0x20 )
   {

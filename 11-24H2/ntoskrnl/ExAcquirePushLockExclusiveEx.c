@@ -1,11 +1,11 @@
 /*
- * XREFs of ExAcquirePushLockExclusiveEx @ 0x14033FC80
+ * XREFs of ExAcquirePushLockExclusiveEx @ 0x14031F160
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall ExAcquirePushLockExclusiveEx(volatile signed __int32 *BugCheckParameter2, ULONG_PTR BugCheckParameter1)

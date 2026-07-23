@@ -1,13 +1,13 @@
 /*
  * XREFs of MiGetPfnProtection @ 0x1402160B4
  * Callers:
- *     MiSetProtectionOnSection @ 0x140277C80 (MiSetProtectionOnSection.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MiRevokeExecutePte @ 0x140358B90 (MiRevokeExecutePte.c)
+ *     MiSetProtectionOnSection @ 0x140277F10 (MiSetProtectionOnSection.c)
+ *     MiGetWorkingSetInfoList @ 0x1402F1BE4 (MiGetWorkingSetInfoList.c)
+ *     MiRevokeExecutePte @ 0x140358D30 (MiRevokeExecutePte.c)
  * Callees:
  *     MiGetWsleProtection @ 0x140216124 (MiGetWsleProtection.c)
  *     MiGetWsleContents @ 0x140216FB0 (MiGetWsleContents.c)
- *     MiLocateCloneAddress @ 0x140294598 (MiLocateCloneAddress.c)
+ *     MiLocateCloneAddress @ 0x140294828 (MiLocateCloneAddress.c)
  */
 
 __int64 __fastcall MiGetPfnProtection(__int64 a1, __int64 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbFindNextStringIndexedTag @ 0x140849EE4
+ * XREFs of SdbFindNextStringIndexedTag @ 0x14084A1E4
  * Callers:
- *     SdbpSearchDB @ 0x140752204 (SdbpSearchDB.c)
- *     SdbGetDatabaseMatchEx @ 0x140756CC0 (SdbGetDatabaseMatchEx.c)
+ *     SdbpSearchDB @ 0x1407523F4 (SdbpSearchDB.c)
+ *     SdbGetDatabaseMatchEx @ 0x140756EB0 (SdbGetDatabaseMatchEx.c)
  * Callees:
- *     SdbpFindMatchingName @ 0x140849F28 (SdbpFindMatchingName.c)
- *     SdbpGetNextIndexedRecord @ 0x140849FD4 (SdbpGetNextIndexedRecord.c)
+ *     SdbpFindMatchingName @ 0x14084A228 (SdbpFindMatchingName.c)
+ *     SdbpGetNextIndexedRecord @ 0x14084A2D4 (SdbpGetNextIndexedRecord.c)
  */
 
 __int64 __fastcall SdbFindNextStringIndexedTag(__int64 a1, unsigned int *a2)

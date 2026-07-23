@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDmaGuardDevicePolicy @ 0x140AB8AB4
+ * XREFs of PnpTraceDmaGuardDevicePolicy @ 0x140AB2F78
  * Callers:
- *     PipDmgSaveDeviceDmarPolicy @ 0x140732300 (PipDmgSaveDeviceDmarPolicy.c)
+ *     PipDmgSaveDeviceDmarPolicy @ 0x140730310 (PipDmgSaveDeviceDmarPolicy.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceDmaGuardDevicePolicy(__int64 a1, int a2)
@@ -44,6 +44,6 @@ void __fastcall PnpTraceDmaGuardDevicePolicy(__int64 a1, int a2)
     v16 = 4LL;
     v7 = 2048LL;
     v18 = 8LL;
-    tlgWriteAgg((__int64)&dword_140E06FA8, (unsigned __int8 *)byte_140046A6B, v2, v4 + 7, (__int64)v8);
+    tlgWriteAgg((__int64)&dword_140E06FA8, (unsigned __int8 *)word_140046E7A, v2, v4 + 7, (__int64)v8);
   }
 }

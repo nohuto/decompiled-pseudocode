@@ -1,7 +1,7 @@
 /*
- * XREFs of PopOkayToQueueNextWorkItem @ 0x140581AC8
+ * XREFs of PopOkayToQueueNextWorkItem @ 0x140581F78
  * Callers:
- *     PopThermalTelemetryWorker @ 0x14020724C (PopThermalTelemetryWorker.c)
+ *     PopThermalTelemetryWorker @ 0x140207078 (PopThermalTelemetryWorker.c)
  *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x1403DF42C (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
  * Callees:
  *     <none>

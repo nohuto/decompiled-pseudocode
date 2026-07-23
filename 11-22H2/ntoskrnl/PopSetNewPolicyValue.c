@@ -23,7 +23,7 @@ __int64 __fastcall PopSetNewPolicyValue(__int64 a1)
   v1 = (GUID *)(a1 + 20);
   v3 = 0;
   UnicodeString = 0LL;
-  if ( (int)RtlStringFromGUIDEx((unsigned int *)(a1 + 20), (__int64)&UnicodeString, 1) >= 0 )
+  if ( RtlStringFromGUIDEx((PGUID)(a1 + 20), &UnicodeString, 1u) >= 0 )
     RtlFreeUnicodeString(&UnicodeString);
   if ( !PopStateIsSessionSpecific(v1) )
   {

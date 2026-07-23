@@ -11,7 +11,7 @@
 __int64 __fastcall StLockTryAcquireExclusive(volatile signed __int32 *BugCheckParameter2, unsigned int *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v5; // rax
+  PRTL_BALANCED_NODE v5; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
@@ -19,14 +19,14 @@ __int64 __fastcall StLockTryAcquireExclusive(volatile signed __int32 *BugCheckPa
   if ( _interlockedbittestandset64(BugCheckParameter2, 0LL) )
   {
     if ( v5 )
-      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v5);
+      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, (unsigned __int64)v5);
     KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     return 0LL;
   }
   else
   {
     if ( v5 )
-      *(_BYTE *)(v5 + 26) |= 1u;
+      BYTE2(v5[1].Left) |= 1u;
     *a2 = 1;
     return 1LL;
   }

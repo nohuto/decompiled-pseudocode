@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpInitializeTeb @ 0x1800CF2D0
+ * XREFs of LdrpInitializeTeb @ 0x1800CCA40
  * Callers:
- *     _LdrpInitialize @ 0x1800CEF48 (_LdrpInitialize.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     _LdrpInitialize @ 0x1800CC6B8 (_LdrpInitialize.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlInitializeTRng @ 0x1800CE900 (RtlInitializeTRng.c)
+ *     RtlInitializeTRng @ 0x1800CC070 (RtlInitializeTRng.c)
  */
 
 struct _TEB *__fastcall LdrpInitializeTeb(__int64 a1)
@@ -19,7 +19,7 @@ struct _TEB *__fastcall LdrpInitializeTeb(__int64 a1)
   unsigned __int64 v8; // rdx
   unsigned __int64 v9; // [rsp+20h] [rbp-18h] BYREF
 
-  v9 = a1 ^ (unsigned __int64)&LdrSystemDllInitBlock ^ (unsigned int)dword_1801E34F8;
+  v9 = a1 ^ (unsigned __int64)&LdrSystemDllInitBlock ^ LdrSystemDllInitBlock.RngData;
   v1 = (unsigned __int64)&v9 ^ v9 ^ ((((unsigned __int64)MEMORY[0x7FFE0004] << 32)
                                     * (unsigned __int128)(unsigned __int64)(MEMORY[0x7FFE0320] << 8)) >> 64);
   if ( !v1 )

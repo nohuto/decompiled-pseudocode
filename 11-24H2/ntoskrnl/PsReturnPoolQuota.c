@@ -1,10 +1,10 @@
 /*
- * XREFs of PsReturnPoolQuota @ 0x14024B2D0
+ * XREFs of PsReturnPoolQuota @ 0x14027B8E0
  * Callers:
  *     <none>
  * Callees:
- *     PspReturnResourceQuota @ 0x14024B468 (PspReturnResourceQuota.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     PspReturnResourceQuota @ 0x14027BA78 (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
@@ -39,7 +39,7 @@ void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PT
     {
       if ( v11 > v10 )
       {
-        v12 = (ULONG_PTR *)&qword_140F05848[7 * v7];
+        v12 = (ULONG_PTR *)&qword_140F05B28[7 * v7];
         v13 = *v12;
         if ( v11 - v10 > *v12 )
         {

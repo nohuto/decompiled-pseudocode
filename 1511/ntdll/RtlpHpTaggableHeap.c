@@ -7,7 +7,7 @@
  *     <none>
  */
 
-_BOOL8 __fastcall RtlpHpTaggableHeap(__int64 a1)
+_BOOL8 __fastcall RtlpHpTaggableHeap(_DWORD *a1)
 {
-  return *(_DWORD *)(a1 + 16) == -571548178 && a1 != RtlpHpMetadataHeap;
+  return a1[4] == -571548178 && a1 != RtlpHpMetadataHeap;
 }

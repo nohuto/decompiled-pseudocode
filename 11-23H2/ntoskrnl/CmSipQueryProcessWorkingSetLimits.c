@@ -1,9 +1,9 @@
 /*
- * XREFs of CmSipQueryProcessWorkingSetLimits @ 0x140374370
+ * XREFs of CmSipQueryProcessWorkingSetLimits @ 0x140374510
  * Callers:
- *     CmSiProcessTupleStartFromHandle @ 0x1403742A0 (CmSiProcessTupleStartFromHandle.c)
+ *     CmSiProcessTupleStartFromHandle @ 0x140374440 (CmSiProcessTupleStartFromHandle.c)
  * Callees:
- *     MmQueryWorkingSetInformation @ 0x14034C258 (MmQueryWorkingSetInformation.c)
+ *     MmQueryWorkingSetInformation @ 0x14034C3F8 (MmQueryWorkingSetInformation.c)
  */
 
 __int64 __fastcall CmSipQueryProcessWorkingSetLimits(__int64 a1, _QWORD *a2, _QWORD *a3)

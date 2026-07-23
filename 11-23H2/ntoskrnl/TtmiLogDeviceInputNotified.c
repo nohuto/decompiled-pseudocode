@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceInputNotified @ 0x1409A7AC0
+ * XREFs of TtmiLogDeviceInputNotified @ 0x1409A7CC0
  * Callers:
- *     TtmNotifyDeviceInput @ 0x1409A2920 (TtmNotifyDeviceInput.c)
+ *     TtmNotifyDeviceInput @ 0x1409A2B20 (TtmNotifyDeviceInput.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceInputNotified(int a1, __int64 a2, int a3, char a4, char a5, char a6)
@@ -81,7 +81,7 @@ char __fastcall TtmiLogDeviceInputNotified(int a1, __int64 a2, int a3, char a4, 
       v40 = 1;
       LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140D53918,
-                     (unsigned __int8 *)&dword_140033BDC + 2,
+                     (unsigned __int8 *)qword_140034090,
                      0LL,
                      0LL,
                      9u,

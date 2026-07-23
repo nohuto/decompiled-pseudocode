@@ -10,23 +10,23 @@
  *     RtlpHeapTrkTrackRemoveHeap @ 0x1800F7C24 (RtlpHeapTrkTrackRemoveHeap.c)
  */
 
-__int64 __fastcall RtlpHeapTrkInterceptor(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpHeapTrkInterceptor(PVOID a1, unsigned __int64 a2, int a3)
 {
   int v4; // r8d
   int v5; // r8d
   int v6; // r8d
   int v7; // r8d
   unsigned __int64 v8; // rbx
-  unsigned int CurrentProcessorNumber; // eax
+  ULONG CurrentProcessorNumber; // eax
   __int64 v10; // rcx
   __int64 v11; // rsi
   signed __int32 v12; // eax
   unsigned __int64 v13; // r8
   __int64 v14; // rcx
-  __int64 v16; // [rsp+20h] [rbp-18h]
-  __int64 v17; // [rsp+40h] [rbp+8h]
+  LARGE_INTEGER PerformanceCounter; // [rsp+20h] [rbp-18h] BYREF
+  LARGE_INTEGER v17; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( a1 == qword_180160890 || dword_1801608C4 == 1 )
+  if ( a1 == HeapHandle || dword_1801608C4 == 1 )
     return 0LL;
   v4 = a3 - 2;
   if ( !v4 )
@@ -41,7 +41,7 @@ LABEL_11:
       }
       else if ( dword_1801607E0 == 2 )
       {
-        CurrentProcessorNumber = RtlGetCurrentProcessorNumber(a1);
+        CurrentProcessorNumber = RtlGetCurrentProcessorNumber();
         v10 = CurrentProcessorNumber < dword_180160880 ? CurrentProcessorNumber : 0;
         v11 = (unsigned int)v10;
         v12 = **(_DWORD **)(qword_1801604E8 + 8 * v10);
@@ -54,7 +54,7 @@ LABEL_11:
         {
           _InterlockedExchange64(
             (volatile __int64 *)(*(_QWORD *)(qword_1801604E8 + 8LL * (unsigned int)v10) + 8LL),
-            qword_1801604E0 / 100);
+            PerformanceFrequency.QuadPart / 100);
         }
         v14 = *(_QWORD *)(qword_1801604E8 + 8LL * (unsigned int)v10);
         if ( *(__int64 *)(v14 + 8) <= 0 )
@@ -63,12 +63,13 @@ LABEL_11:
         }
         else
         {
-          NtQueryPerformanceCounter();
+          NtQueryPerformanceCounter(&PerformanceCounter, 0LL);
           RtlpHeapTrkTrackAdd(a1, v8);
-          NtQueryPerformanceCounter();
+          NtQueryPerformanceCounter(&v17, 0LL);
+          v17.QuadPart -= PerformanceCounter.QuadPart;
           _InterlockedExchangeAdd64(
             (volatile signed __int64 *)(*(_QWORD *)(qword_1801604E8 + 8 * v11) + 8LL),
-            -1 - (v17 - v16));
+            -1 - v17.QuadPart);
           _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(qword_1801604E8 + 8 * v11) + 16LL));
         }
       }

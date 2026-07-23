@@ -1,10 +1,10 @@
 /*
- * XREFs of IopFetchConfigurationInformation @ 0x140CBD048
+ * XREFs of IopFetchConfigurationInformation @ 0x140CC30C0
  * Callers:
- *     IopCreateArcNamesCd @ 0x140CBC66C (IopCreateArcNamesCd.c)
- *     IopCreateArcNamesDisk @ 0x140CBCBA4 (IopCreateArcNamesDisk.c)
+ *     IopCreateArcNamesCd @ 0x140CC26E4 (IopCreateArcNamesCd.c)
+ *     IopCreateArcNamesDisk @ 0x140CC2C1C (IopCreateArcNamesDisk.c)
  * Callees:
- *     IoGetDeviceInterfaces @ 0x140908920 (IoGetDeviceInterfaces.c)
+ *     IoGetDeviceInterfaces @ 0x140A30A80 (IoGetDeviceInterfaces.c)
  */
 
 __int64 __fastcall IopFetchConfigurationInformation(

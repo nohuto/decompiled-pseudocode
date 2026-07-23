@@ -13,12 +13,12 @@ HANDLE __thiscall EtwpCreateEtwThread(void *this, int a2, int a3)
 {
   HANDLE v3; // esi
   int v4; // eax
-  HANDLE Handle; // [esp+8h] [ebp-4h] BYREF
+  HANDLE ThreadHandle; // [esp+8h] [ebp-4h] BYREF
 
-  if ( (int)RtlpCreateUserThreadEx(1, 0, 0, 0, this, a2, a3, &Handle, 0) < 0 )
+  if ( RtlpCreateUserThreadEx((HANDLE)0xFFFFFFFF, 1, 0LL, 0, (int)this, a2, a3, (int)&ThreadHandle, 0) < 0 )
     return 0;
-  v3 = Handle;
-  v4 = ZwResumeThread(Handle, 0);
+  v3 = ThreadHandle;
+  v4 = ZwResumeThread(ThreadHandle, 0);
   if ( v4 < 0 )
   {
     ZwTerminateThread(v3, v4);

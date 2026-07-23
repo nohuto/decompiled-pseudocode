@@ -6,7 +6,7 @@
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
  *     NtQuerySystemInformation @ 0x1800A1570 (NtQuerySystemInformation.c)
  *     RtlHpHeapManagerInitialize @ 0x1800B1A24 (RtlHpHeapManagerInitialize.c)
- *     RtlHpHeapManagerStart @ 0x180122874 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x180122844 (RtlHpHeapManagerStart.c)
  */
 
 NTSTATUS __fastcall RtlHpInitializeHeapManager(__int64 a1)

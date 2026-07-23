@@ -17,7 +17,7 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   __int64 *v7; // rdi
   ULONG_PTR v8; // rsi
   unsigned __int64 v9; // r15
-  union _SLIST_HEADER *v10; // r14
+  _SLIST_HEADER *v10; // r14
   _QWORD *v11; // rdi
   unsigned int v12; // r13d
   unsigned __int64 v13; // rbp
@@ -41,7 +41,7 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   }
   v8 = *v7;
   v9 = *v7 & 0xFFFFFFFFFFFFF000uLL;
-  v10 = *(union _SLIST_HEADER **)(v9 + 8);
+  v10 = *(_SLIST_HEADER **)(v9 + 8);
   if ( (VfRuleClasses & 1) != 0 )
   {
     if ( (v8 & 3) != 0 || !MmIsAddressValidEx(*v7) )

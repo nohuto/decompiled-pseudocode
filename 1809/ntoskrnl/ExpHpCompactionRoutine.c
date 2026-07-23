@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpHpCompactionRoutine @ 0x1401B7770
+ * XREFs of ExpHpCompactionRoutine @ 0x1401B78D0
  * Callers:
  *     <none>
  * Callees:
  *     RtlpHpFreeHeap @ 0x140007BC0 (RtlpHpFreeHeap.c)
  *     ExGetHeapFromVA @ 0x14000E644 (ExGetHeapFromVA.c)
- *     RtlpHpHeapCompact @ 0x1401B6244 (RtlpHpHeapCompact.c)
- *     ExpHpCompactSessionPools @ 0x1401B7628 (ExpHpCompactSessionPools.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     RtlpHpHeapCompact @ 0x1401B63AC (RtlpHpHeapCompact.c)
+ *     ExpHpCompactSessionPools @ 0x1401B7788 (ExpHpCompactSessionPools.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C55B0 (RtlpInterlockedFlushSList.c)
  */
 
 unsigned __int64 __fastcall ExpHpCompactionRoutine(int a1)
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall ExpHpCompactionRoutine(int a1)
   v5 = *((int *)v23 + 2 * v3 + 1);
   v25 = v4;
   v6 = v5;
-  if ( dword_140443408 )
+  if ( dword_1404444C8 )
   {
     v26 = v4;
     do
@@ -56,7 +56,7 @@ unsigned __int64 __fastcall ExpHpCompactionRoutine(int a1)
       {
         do
         {
-          v8 = *((_QWORD *)&unk_140443440 + 1048 * v1 + v7);
+          v8 = *((_QWORD *)&unk_140444500 + 1048 * v1 + v7);
           v9 = *(_QWORD **)(v8 + 40);
           if ( v9 )
           {
@@ -108,7 +108,7 @@ unsigned __int64 __fastcall ExpHpCompactionRoutine(int a1)
       }
       ++v1;
     }
-    while ( v1 < dword_140443408 );
+    while ( v1 < dword_1404444C8 );
     v2 = a1;
     LODWORD(v4) = v25;
   }
@@ -118,13 +118,13 @@ unsigned __int64 __fastcall ExpHpCompactionRoutine(int a1)
     LODWORD(v5) = 2;
   while ( v20 <= (int)v5 )
   {
-    v21 = qword_1404C6440[v20];
+    v21 = qword_1404C7500[v20];
     v22 = *(__int16 *)(v21 + 278);
     result = *(_QWORD *)(v22 + v21 + 264) >> *(_BYTE *)(v21 + 267);
     if ( result <= 8 )
       result = 8LL;
     if ( *(_QWORD *)(v22 + v21 + 272) + *(_QWORD *)(v22 + v21 + 280) > result )
-      result = RtlpHpHeapCompact(qword_1404C6440[v20]);
+      result = RtlpHpHeapCompact(qword_1404C7500[v20]);
     ++v20;
   }
   if ( !v2 )

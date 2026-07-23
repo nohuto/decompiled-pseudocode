@@ -13,73 +13,82 @@
  *     LdrpUnsuppressAddressTakenIat @ 0x1800E02B4 (LdrpUnsuppressAddressTakenIat.c)
  */
 
-__int64 __fastcall LdrResolveDelayLoadedAPI(
-        const void *a1,
-        _BYTE *a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 *a5,
-        unsigned int a6)
+PVOID __cdecl LdrResolveDelayLoadedAPI(
+        PVOID ParentModuleBase,
+        PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor,
+        PDELAYLOAD_FAILURE_DLL_CALLBACK FailureDllHook,
+        PDELAYLOAD_FAILURE_SYSTEM_ROUTINE FailureSystemHook,
+        PIMAGE_THUNK_DATA ThunkAddress,
+        ULONG Flags)
 {
   int v8; // ebx
-  __int64 v9; // rsi
+  void *ForwarderString; // rsi
   char v10; // al
   int LoadedDllByHandle; // ecx
-  __int64 v12; // rdi
+  char *v12; // rdi
   int v13; // eax
   int v14; // eax
-  __int64 v16; // [rsp+40h] [rbp-38h] BYREF
+  PVOID BaseAddress[2]; // [rsp+40h] [rbp-38h] BYREF
 
   v8 = 0;
-  v9 = 0LL;
-  if ( (a6 & 0xFFFFDFFF) == 8 || (v10 = 0, (~((LdrpPolicyBits & 4 | 0x7B) << 8) & a6) == 0) )
+  ForwarderString = 0LL;
+  if ( (Flags & 0xFFFFDFFF) == 8 || (v10 = 0, (~((LdrpPolicyBits & 4 | 0x7B) << 8) & Flags) == 0) )
     v10 = 1;
-  if ( v10 && (*a2 & 1) != 0 )
+  if ( v10 && (DelayloadDescriptor->Attributes.AllAttributes & 1) != 0 )
   {
-    LoadedDllByHandle = LdrpFindLoadedDllByHandle(a1, &v16, 0LL);
+    LoadedDllByHandle = LdrpFindLoadedDllByHandle(ParentModuleBase, BaseAddress, 0LL);
     if ( LoadedDllByHandle < 0 )
     {
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrdload.c",
-        1256LL,
+        1256,
         (__int64)"LdrResolveDelayLoadedAPI",
-        0LL,
+        0,
         "LdrResolveDelayLoadedAPI:Unable to locate DLL based at 0x%p.Status = 0x%x\n",
-        a1,
+        ParentModuleBase,
         LoadedDllByHandle);
     }
     else
     {
-      v9 = *a5;
-      v12 = v16;
-      if ( *a5 - (__int64)a1 < (unsigned __int64)*(unsigned int *)(v16 + 64) )
+      ForwarderString = (void *)ThunkAddress->u1.ForwarderString;
+      v12 = (char *)BaseAddress[0];
+      if ( ThunkAddress->u1.ForwarderString - (unsigned __int64)ParentModuleBase < *((unsigned int *)BaseAddress[0] + 16) )
       {
-        if ( (*(_DWORD *)(v16 + 104) & 0x8000) != 0 )
+        if ( (*((_DWORD *)BaseAddress[0] + 26) & 0x8000) != 0 )
         {
-          v9 = LdrpHandleProtectedDelayload(v16, (__int64)a2, a3, a4, a5, a6);
+          ForwarderString = (void *)LdrpHandleProtectedDelayload(
+                                      (__int64)BaseAddress[0],
+                                      (__int64)DelayloadDescriptor,
+                                      (__int64)FailureDllHook,
+                                      (__int64)FailureSystemHook,
+                                      (__int64)ThunkAddress,
+                                      Flags);
         }
         else
         {
-          v9 = LdrpHandleUnprotectedDelayLoad(v16, (_DWORD)a2, a3, a4, (__int64)a5, a6);
-          if ( v9 )
+          ForwarderString = (void *)LdrpHandleUnprotectedDelayLoad(
+                                      (int)BaseAddress[0],
+                                      (int)DelayloadDescriptor,
+                                      (int)FailureDllHook,
+                                      (__int64)FailureSystemHook,
+                                      (__int64)ThunkAddress,
+                                      Flags);
+          if ( ForwarderString )
           {
             LOBYTE(v13) = LdrControlFlowGuardEnforcedWithExportSuppression();
             if ( v13 )
             {
-              v14 = LdrpUnsuppressAddressTakenIat(
-                      a1,
-                      (unsigned int)((_DWORD)a5 - (_DWORD)a1),
-                      (unsigned int)((_DWORD)a5 - (_DWORD)a1));
+              v14 = LdrpUnsuppressAddressTakenIat(ParentModuleBase);
               LOBYTE(v8) = v14 >= 0;
               if ( v8 != 1 )
                 LdrpLogInternal(
                   (unsigned int)"minkernel\\ntdll\\ldrdload.c",
-                  1235LL,
+                  1235,
                   (__int64)"LdrResolveDelayLoadedAPI",
-                  0LL,
+                  0,
                   "LdrResolveDelayLoadedAPI:Unable to unsuppress the export suppressed functions that are imported in the"
                   " DLL based at 0x%p.Status = 0x%x\n",
-                  a1,
+                  ParentModuleBase,
                   v14);
             }
           }
@@ -88,5 +97,5 @@ __int64 __fastcall LdrResolveDelayLoadedAPI(
       LdrpDereferenceModule(v12);
     }
   }
-  return v9;
+  return ForwarderString;
 }

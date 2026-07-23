@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllScrollBarWndProcWorker @ 0x180161C80
+ * XREFs of NtdllScrollBarWndProcWorker @ 0x180160040
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllScrollBarWndProcWorker()
 {
-  off_1801E7308();
+  off_1801E6308();
 }

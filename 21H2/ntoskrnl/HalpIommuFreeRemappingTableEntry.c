@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuFreeRemappingTableEntry @ 0x1404C55B0
+ * XREFs of HalpIommuFreeRemappingTableEntry @ 0x1404C57F0
  * Callers:
- *     HalpIrtFreeIndex @ 0x140865E18 (HalpIrtFreeIndex.c)
+ *     HalpIrtFreeIndex @ 0x140865F78 (HalpIrtFreeIndex.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuFreeRemappingTableEntry(unsigned int a1, unsigned int a2)

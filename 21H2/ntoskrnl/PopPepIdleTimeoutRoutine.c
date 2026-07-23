@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPepIdleTimeoutRoutine @ 0x1405749F0
+ * XREFs of PopPepIdleTimeoutRoutine @ 0x140574C30
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     PopPepCountReadyActivities @ 0x140261BDC (PopPepCountReadyActivities.c)
- *     PopPepRequestWork @ 0x140261C9C (PopPepRequestWork.c)
- *     PopPepPromoteActivities @ 0x140261E28 (PopPepPromoteActivities.c)
- *     PopPepUpdateIdleState @ 0x140262538 (PopPepUpdateIdleState.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140262644 (PopPepComponentGetResidencyIdleState.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopPepCountReadyActivities @ 0x1402830AC (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x14028316C (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x1402832F8 (PopPepPromoteActivities.c)
+ *     PopPepUpdateIdleState @ 0x140283A08 (PopPepUpdateIdleState.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140283B14 (PopPepComponentGetResidencyIdleState.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPepArmIdleTimer @ 0x140573FD4 (PopPepArmIdleTimer.c)
+ *     PopPepArmIdleTimer @ 0x140574214 (PopPepArmIdleTimer.c)
  */
 
 void PopPepIdleTimeoutRoutine()
@@ -41,6 +41,9 @@ void PopPepIdleTimeoutRoutine()
   unsigned __int8 CurrentIrql; // al
   _DWORD *SchedulerAssist; // r9
   int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  __int64 v23; // r9
 
   v0 = MEMORY[0xFFFFF78000000008];
   CurrentThread = KeGetCurrentThread();
@@ -134,6 +137,6 @@ LABEL_29:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopPepDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopPepDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopPepDeviceListLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v21, v22, v23);
   PopPepArmIdleTimer(1);
 }

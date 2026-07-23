@@ -14,47 +14,52 @@
  *     _RtlImageNtHeaderEx@20 @ 0x4B2BE540 (_RtlImageNtHeaderEx@20.c)
  */
 
-int __fastcall RtlpImageDirectoryEntryToDataEx(unsigned int a1, char a2, unsigned __int16 a3, _DWORD *a4, int *a5)
+NTSTATUS __fastcall RtlpImageDirectoryEntryToDataEx(
+        unsigned int BaseOfImage,
+        char a2,
+        unsigned __int16 a3,
+        unsigned int *a4,
+        _DWORD *a5)
 {
-  unsigned int v5; // ebx
-  int result; // eax
-  int v7; // edx
-  __int16 v8; // ax
-  unsigned int v9; // edi
+  char *v5; // ebx
+  NTSTATUS result; // eax
+  PIMAGE_NT_HEADERS v7; // edx
+  WORD Magic; // ax
+  ULONG v9; // edi
   bool v10; // zf
-  int v11; // eax
-  int v12; // [esp+8h] [ebp-8h] BYREF
+  PVOID v11; // eax
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+8h] [ebp-8h] BYREF
   char v13; // [esp+Fh] [ebp-1h]
 
-  v5 = a1;
+  v5 = (char *)BaseOfImage;
   v13 = a2;
-  v12 = 0;
+  OutHeaders = 0;
   *a5 = 0;
-  if ( (a1 & 3) != 0 )
+  if ( (BaseOfImage & 3) != 0 )
   {
-    if ( (a1 & 1) != 0 )
+    if ( (BaseOfImage & 1) != 0 )
       v13 = 0;
-    v5 = a1 & 0xFFFFFFFC;
+    v5 = (char *)(BaseOfImage & 0xFFFFFFFC);
   }
-  result = RtlImageNtHeaderEx(1, v5, 0, 0, &v12);
-  v7 = v12;
-  if ( !v12 )
+  result = RtlImageNtHeaderEx(1u, v5, 0LL, &OutHeaders);
+  v7 = OutHeaders;
+  if ( !OutHeaders )
     return result;
-  v8 = *(_WORD *)(v12 + 24);
-  if ( v8 != 267 )
+  Magic = OutHeaders->OptionalHeader.Magic;
+  if ( Magic != 267 )
   {
-    if ( v8 == 523 )
-      return RtlpImageDirectoryEntryToData64(v5, v13, a3, a4, v12, a5);
+    if ( Magic == 523 )
+      return RtlpImageDirectoryEntryToData64(v5, v13, a3, a4, OutHeaders, a5);
     return -1073741811;
   }
-  if ( (unsigned int)a3 >= *(_DWORD *)(v12 + 116) )
+  if ( (unsigned int)a3 >= HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapReserve) )
     return -1073741811;
-  v9 = *(_DWORD *)(v12 + 8 * a3 + 120);
+  v9 = *((_DWORD *)&OutHeaders->OptionalHeader.SizeOfHeapCommit + 2 * a3);
   if ( !v9 )
     return -1073741822;
   v10 = v13 == 0;
-  *a4 = *(_DWORD *)(v12 + 8 * a3 + 124);
-  if ( v10 && v9 >= *(_DWORD *)(v7 + 84) )
+  *a4 = *((_DWORD *)&OutHeaders->OptionalHeader.SizeOfHeapCommit + 2 * a3 + 1);
+  if ( v10 && v9 >= v7->OptionalHeader.SizeOfHeaders )
   {
     v11 = RtlAddressInSectionTable(v7, v5, v9);
     *a5 = v11;
@@ -62,6 +67,6 @@ int __fastcall RtlpImageDirectoryEntryToDataEx(unsigned int a1, char a2, unsigne
       return 0;
     return -1073741811;
   }
-  *a5 = v9 + v5;
+  *a5 = &v5[v9];
   return 0;
 }

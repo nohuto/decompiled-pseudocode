@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     PsQueryThreadStartAddress @ 0x1405A3EF4 (PsQueryThreadStartAddress.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     PsQueryThreadStartAddress @ 0x1405A4458 (PsQueryThreadStartAddress.c)
  */
 
 __int64 __fastcall sub_140B34730(__int64 a1, void *a2, __int64 a3)

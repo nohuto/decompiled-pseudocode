@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDrvDbUnloadNode @ 0x1404FA260
+ * XREFs of PiDrvDbUnloadNode @ 0x1404DD1EC
  * Callers:
- *     PiDrvDbNodeActionCallback @ 0x1404FA75C (PiDrvDbNodeActionCallback.c)
+ *     PiDrvDbNodeActionCallback @ 0x1404DD6E8 (PiDrvDbNodeActionCallback.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
  */
 
 __int64 __fastcall PiDrvDbUnloadNode(__int64 a1, _QWORD *a2)

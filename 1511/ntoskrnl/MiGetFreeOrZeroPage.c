@@ -26,15 +26,15 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
 {
   __int64 v3; // rbx
   int v6; // edi
-  union _SLIST_HEADER *v7; // rcx
+  _SLIST_HEADER *v7; // rcx
   PSLIST_ENTRY v8; // rax
   _QWORD *v9; // r8
   ULONG_PTR FreePage; // rbx
   __int64 v12; // rdx
   ULONG_PTR v13; // rcx
-  union _SLIST_HEADER *v14; // rdx
+  _SLIST_HEADER *v14; // rdx
   PSLIST_ENTRY v15; // rax
-  union _SLIST_HEADER *v16; // rcx
+  _SLIST_HEADER *v16; // rcx
   PSLIST_ENTRY v17; // rax
   _QWORD *p_Next; // r8
   __int64 v19; // rdx
@@ -64,7 +64,7 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
   {
     v12 = *(_QWORD *)(a1 + 1624);
     v13 = 16 * v3;
-    v14 = (union _SLIST_HEADER *)(16 * v3 + v12);
+    v14 = (_SLIST_HEADER *)(16 * v3 + v12);
     BugCheckParameter1 = 16 * v3;
     if ( LOWORD(v14->Alignment) )
     {
@@ -79,7 +79,7 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
       }
       v13 = BugCheckParameter1;
     }
-    v16 = (union _SLIST_HEADER *)(*(_QWORD *)(a1 + 1616) + v13);
+    v16 = (_SLIST_HEADER *)(*(_QWORD *)(a1 + 1616) + v13);
     if ( LOWORD(v16->Alignment) )
     {
       v17 = RtlpInterlockedPopEntrySList(v16);
@@ -118,7 +118,7 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
     }
     goto LABEL_22;
   }
-  v7 = (union _SLIST_HEADER *)(16LL * a2 + *(_QWORD *)(a1 + 1616));
+  v7 = (_SLIST_HEADER *)(16LL * a2 + *(_QWORD *)(a1 + 1616));
   v29 = a2;
   if ( LOWORD(v7->Alignment) )
   {

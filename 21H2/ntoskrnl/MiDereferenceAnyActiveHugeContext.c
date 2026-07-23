@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDereferenceAnyActiveHugeContext @ 0x14054FC60
+ * XREFs of MiDereferenceAnyActiveHugeContext @ 0x14054FEA0
  * Callers:
- *     MiDeleteZeroThreadContext @ 0x14054FC14 (MiDeleteZeroThreadContext.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FE54 (MiDeleteZeroThreadContext.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiDecrementHugeContext @ 0x140397E18 (MiDecrementHugeContext.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDecrementHugeContext @ 0x140397F68 (MiDecrementHugeContext.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -29,7 +29,7 @@ void __fastcall MiDereferenceAnyActiveHugeContext(__int64 a1)
     if ( v2 )
     {
       KeAcquireInStackQueuedSpinLock(
-        (PKSPIN_LOCK)(qword_140C50D90 + 4544LL * *(unsigned int *)(v2 + 184) + 4304),
+        (PKSPIN_LOCK)(qword_140C50DD0 + 4544LL * *(unsigned int *)(v2 + 184) + 4304),
         &LockHandle);
       MiDecrementHugeContext((char *)v2, a1, v3, v4);
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwSaveMergedKeys(HANDLE HighPrecedenceKeyHandle, HANDLE LowPr
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(HighPrecedenceKeyHandle, LowPrecedenceKeyHandle, FileHandle);
+  return KiServiceInternal(HighPrecedenceKeyHandle);
 }

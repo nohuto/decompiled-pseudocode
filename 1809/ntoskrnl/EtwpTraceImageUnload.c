@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpTraceImageUnload @ 0x140089324
+ * XREFs of EtwpTraceImageUnload @ 0x140089314
  * Callers:
- *     EtwpTraceImageUnloadApc @ 0x14012B790 (EtwpTraceImageUnloadApc.c)
- *     EtwpCancelTraceImageUnloadApc @ 0x1403107F0 (EtwpCancelTraceImageUnloadApc.c)
- *     EtwpEnumerateAddressSpace @ 0x1405F5E18 (EtwpEnumerateAddressSpace.c)
- *     PerfLogImageUnload @ 0x14067750C (PerfLogImageUnload.c)
+ *     EtwpTraceImageUnloadApc @ 0x14012B860 (EtwpTraceImageUnloadApc.c)
+ *     EtwpCancelTraceImageUnloadApc @ 0x1403109E0 (EtwpCancelTraceImageUnloadApc.c)
+ *     EtwpEnumerateAddressSpace @ 0x1405F6E18 (EtwpEnumerateAddressSpace.c)
+ *     PerfLogImageUnload @ 0x1406786CC (PerfLogImageUnload.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x1405F6154 (EtwpPsProvTraceImage.c)
- *     EtwpCoverageSamplerUnloadImage @ 0x1408C90C4 (EtwpCoverageSamplerUnloadImage.c)
+ *     EtwTraceSiloKernelEvent @ 0x1400891D0 (EtwTraceSiloKernelEvent.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x1405F7154 (EtwpPsProvTraceImage.c)
+ *     EtwpCoverageSamplerUnloadImage @ 0x1408CA384 (EtwpCoverageSamplerUnloadImage.c)
  */
 
 void __fastcall EtwpTraceImageUnload(

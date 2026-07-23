@@ -14,32 +14,30 @@
  *     _RtlpHeapExceptionFilter@8 @ 0x4B375DFF (_RtlpHeapExceptionFilter@8.c)
  */
 
-int __fastcall RtlDebugZeroHeap(_DWORD *a1, int a2)
+int __fastcall RtlDebugZeroHeap(int a1, int a2)
 {
-  int v5; // edx
-  int v6; // esi
-  int v7; // ebx
-  char v9; // [esp+23h] [ebp-19h]
+  NTSTATUS v5; // esi
+  ULONG v6; // ebx
+  char v8; // [esp+23h] [ebp-19h]
 
-  v9 = 0;
-  if ( (a1[17] & 0x1000000) != 0 )
+  v8 = 0;
+  if ( (*(_DWORD *)(a1 + 68) & 0x1000000) != 0 )
     return dword_4B3A3790(dword_4B3A3790, a1, a2);
-  if ( !RtlpCheckHeapSignature(a1, "RtlZeroHeap") )
+  if ( !RtlpCheckHeapSignature((_DWORD *)a1, "RtlZeroHeap") )
     goto LABEL_4;
-  v7 = a1[17] | 0x10000000 | a2;
-  if ( (v7 & 1) == 0 )
+  v6 = *(_DWORD *)(a1 + 68) | 0x10000000 | a2;
+  if ( (v6 & 1) == 0 )
   {
-    RtlEnterCriticalSection(a1[50]);
-    v9 = 1;
-    v7 |= 1u;
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+    v8 = 1;
+    v6 |= 1u;
   }
-  LOBYTE(v5) = 0;
-  if ( (unsigned __int8)RtlpValidateHeap(a1, v5) )
-    v6 = RtlZeroHeap((unsigned int)a1, v7);
+  if ( (unsigned __int8)RtlpValidateHeap((PVOID)a1) )
+    v5 = RtlZeroHeap((PVOID)a1, v6);
   else
 LABEL_4:
-    v6 = -1073741811;
-  if ( v9 )
-    RtlLeaveCriticalSection(a1[50]);
-  return v6;
+    v5 = -1073741811;
+  if ( v8 )
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+  return v5;
 }

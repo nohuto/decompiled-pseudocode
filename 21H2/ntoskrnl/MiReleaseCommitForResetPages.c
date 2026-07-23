@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReleaseCommitForResetPages @ 0x14052C554
+ * XREFs of MiReleaseCommitForResetPages @ 0x14052C794
  * Callers:
- *     MmOutSwapProcess @ 0x14024A494 (MmOutSwapProcess.c)
+ *     MmOutSwapProcess @ 0x1402EECE4 (MmOutSwapProcess.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeForceAttachProcess @ 0x14025C278 (KeForceAttachProcess.c)
- *     KeForceDetachProcess @ 0x1402BA388 (KeForceDetachProcess.c)
- *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     MiIsVadEligibleForCommitRelease @ 0x14052B6A8 (MiIsVadEligibleForCommitRelease.c)
- *     MiLogResetPagesCommitRelease @ 0x14052B9A0 (MiLogResetPagesCommitRelease.c)
- *     MiWalkResetCommitPages @ 0x14052CAF8 (MiWalkResetCommitPages.c)
+ *     KeForceDetachProcess @ 0x140238598 (KeForceDetachProcess.c)
+ *     KeForceAttachProcess @ 0x14027D7E8 (KeForceAttachProcess.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockVad @ 0x14031F3A8 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x14052B8E8 (MiIsVadEligibleForCommitRelease.c)
+ *     MiLogResetPagesCommitRelease @ 0x14052BBE0 (MiLogResetPagesCommitRelease.c)
+ *     MiWalkResetCommitPages @ 0x14052CD38 (MiWalkResetCommitPages.c)
  */
 
 LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)
@@ -84,7 +84,7 @@ LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)
   }
   v11 = _InterlockedExchange64((volatile __int64 *)(a1 + 1872), 0LL);
   if ( v11 )
-    MiReturnCommit(*(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 1838)), v11);
+    MiReturnCommit(*(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a1 + 1838)), v11);
   v12 = MiGetSharedVm(a1 + 1664);
   v13 = ExAcquireSpinLockExclusive(v12);
   v12[1] = 0;

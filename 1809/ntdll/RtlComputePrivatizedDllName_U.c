@@ -7,53 +7,56 @@
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
-__int64 __fastcall RtlComputePrivatizedDllName_U(__int16 *a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlComputePrivatizedDllName_U(
+        PUNICODE_STRING DllName,
+        PUNICODE_STRING RealName,
+        PUNICODE_STRING LocalName)
 {
-  char *v3; // r9
-  unsigned __int16 v4; // r10
-  char *v6; // rdx
-  char *v7; // r8
-  char *i; // rcx
-  char *v9; // rax
-  wchar_t *Buffer; // rdi
+  wchar_t *Buffer; // r9
+  unsigned __int16 Length; // r10
+  wchar_t *v6; // rdx
+  wchar_t *v7; // r8
+  wchar_t *i; // rcx
+  wchar_t *v9; // rax
+  wchar_t *v10; // rdi
   int v11; // esi
   int v12; // r12d
-  unsigned __int64 Length; // r14
+  unsigned __int64 v13; // r14
   wchar_t *v14; // rdx
   wchar_t *j; // rcx
   __int64 v16; // rdx
   unsigned __int64 v17; // rbx
-  char *StringRoutine; // rax
-  char *v19; // rbp
-  char *v20; // r15
+  wchar_t *StringRoutine; // rax
+  wchar_t *v19; // rbp
+  wchar_t *v20; // r15
   unsigned __int64 v21; // rbx
   unsigned int v22; // ecx
-  __int16 v23; // bp
-  char *v24; // rax
-  char *v25; // r15
+  unsigned __int16 v23; // bp
+  wchar_t *v24; // rax
+  wchar_t *v25; // r15
   unsigned __int64 v26; // rbx
-  char *v27; // rdi
+  wchar_t *v27; // rdi
   _WORD *v28; // rdi
   char *v29; // rdi
   unsigned __int64 v30; // rbx
-  void *Src; // [rsp+20h] [rbp-58h]
-  char *v33; // [rsp+28h] [rbp-50h]
-  void *v34; // [rsp+30h] [rbp-48h]
+  wchar_t *Src; // [rsp+20h] [rbp-58h]
+  wchar_t *v33; // [rsp+28h] [rbp-50h]
+  wchar_t *v34; // [rsp+30h] [rbp-48h]
   unsigned int v35; // [rsp+80h] [rbp+8h]
   unsigned int Size; // [rsp+98h] [rbp+20h]
 
-  v3 = (char *)*((_QWORD *)a1 + 1);
-  v4 = *a1;
+  Buffer = DllName->Buffer;
+  Length = DllName->Length;
   v34 = 0LL;
   v6 = 0LL;
-  Src = v3;
-  v7 = v3;
+  Src = Buffer;
+  v7 = Buffer;
   v33 = 0LL;
-  if ( *a1 )
+  if ( DllName->Length )
   {
-    for ( i = &v3[2 * ((unsigned __int64)v4 >> 1) - 2]; i > v3; i -= 2 )
+    for ( i = &Buffer[((unsigned __int64)Length >> 1) - 1]; i > Buffer; --i )
     {
-      if ( *(_WORD *)i == 46 )
+      if ( *i == 46 )
       {
         v9 = i;
         if ( v6 )
@@ -61,42 +64,42 @@ __int64 __fastcall RtlComputePrivatizedDllName_U(__int16 *a1, __int64 a2, __int6
         v6 = v9;
         v33 = v9;
       }
-      else if ( *(_WORD *)i == 92 || *(_WORD *)i == 47 )
+      else if ( *i == 92 || *i == 47 )
       {
-        v7 = i + 2;
-        Src = i + 2;
+        v7 = i + 1;
+        Src = i + 1;
         break;
       }
     }
   }
-  Buffer = LdrpOriginalAppPackagesPath.Buffer;
+  v10 = LdrpOriginalAppPackagesPath.Buffer;
   Size = 0;
   v11 = 0;
   v12 = v6 == 0LL ? 8 : 0;
-  v35 = v4 + 2 * (1 - ((v7 - v3) >> 1));
+  v35 = Length + 2 * (1 - (v7 - Buffer));
   if ( LdrpOriginalAppPackagesPath.Buffer )
   {
-    LODWORD(Length) = 0;
+    LODWORD(v13) = 0;
     Size = 92;
     if ( LdrpOriginalAppPackagesPath.Length )
     {
       do
       {
-        if ( LdrpOriginalAppPackagesPath.Buffer[(unsigned __int64)(unsigned int)Length >> 1] == 59 )
+        if ( LdrpOriginalAppPackagesPath.Buffer[(unsigned __int64)(unsigned int)v13 >> 1] == 59 )
           break;
-        LODWORD(Length) = Length + 2;
+        LODWORD(v13) = v13 + 2;
       }
-      while ( (unsigned int)Length < LdrpOriginalAppPackagesPath.Length );
+      while ( (unsigned int)v13 < LdrpOriginalAppPackagesPath.Length );
     }
   }
   else
   {
-    Length = NtCurrentPeb()->ProcessParameters->ImagePathName.Length;
-    Buffer = NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer;
+    v13 = NtCurrentPeb()->ProcessParameters->ImagePathName.Length;
+    v10 = NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer;
     if ( (NtCurrentPeb()->ProcessParameters->Flags & 1) == 0 )
-      Buffer = (wchar_t *)((char *)Buffer + (unsigned __int64)NtCurrentPeb()->ProcessParameters);
-    v14 = Buffer;
-    for ( j = &Buffer[(Length >> 1) - 1]; j > Buffer; --j )
+      v10 = (wchar_t *)((char *)v10 + (unsigned __int64)NtCurrentPeb()->ProcessParameters);
+    v14 = v10;
+    for ( j = &v10[(v13 >> 1) - 1]; j > v10; --j )
     {
       if ( *j == 92 || *j == 47 )
       {
@@ -104,53 +107,53 @@ __int64 __fastcall RtlComputePrivatizedDllName_U(__int16 *a1, __int64 a2, __int6
         break;
       }
     }
-    v16 = v14 - Buffer;
+    v16 = v14 - v10;
     if ( (unsigned __int64)(2 * v16) > 0xFFFFFFFF )
-      return 3221225734LL;
+      return -1073741562;
     if ( (unsigned int)(2 * v16) > 0xFFFE )
-      return 3221225734LL;
+      return -1073741562;
     v17 = (unsigned __int16)(2 * v16);
-    if ( v4 > 0xFFFCu || v35 + v12 + (_DWORD)v17 > 0xFFFE )
-      return 3221225734LL;
+    if ( Length > 0xFFFCu || v35 + v12 + (_DWORD)v17 > 0xFFFE )
+      return -1073741562;
     v11 = (unsigned __int16)(v35 + v12 + v17);
-    StringRoutine = (char *)NtdllpAllocateStringRoutine((unsigned __int16)(v35 + v12 + v17));
+    StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine((unsigned __int16)(v35 + v12 + v17));
     v34 = StringRoutine;
     v19 = StringRoutine;
     if ( !StringRoutine )
-      return 3221225495LL;
-    memmove(StringRoutine, Buffer, (unsigned int)v17);
-    v20 = &v19[2 * (v17 >> 1)];
+      return -1073741801;
+    memmove(StringRoutine, v10, (unsigned int)v17);
+    v20 = &v19[v17 >> 1];
     memmove(v20, Src, v35 - 2LL);
     v21 = ((unsigned __int64)v35 - 2) >> 1;
     if ( v33 )
     {
-      *(_WORD *)&v20[2 * v21] = 0;
+      v20[v21] = 0;
     }
     else
     {
-      *(_QWORD *)&v20[2 * v21] = *(_QWORD *)L".DLL";
-      *(_WORD *)&v20[2 * v21 + 8] = aDll[4];
+      *(_QWORD *)&v20[v21] = *(_QWORD *)L".DLL";
+      v20[v21 + 4] = aDll[4];
     }
   }
-  v22 = Size + v12 + Length + v35 + 14;
+  v22 = Size + v12 + v13 + v35 + 14;
   if ( v22 > 0xFFFE )
-    return 3221225734LL;
-  v23 = Size + v12 + Length + v35 + 14;
-  v24 = (char *)NtdllpAllocateStringRoutine((unsigned __int16)v22);
+    return -1073741562;
+  v23 = Size + v12 + v13 + v35 + 14;
+  v24 = (wchar_t *)NtdllpAllocateStringRoutine((unsigned __int16)v22);
   v25 = v24;
   if ( !v24 )
-    return 3221225495LL;
-  memmove(v24, Buffer, (unsigned int)Length);
-  v26 = (unsigned __int64)(unsigned int)Length >> 1;
-  v27 = &v25[2 * v26];
+    return -1073741801;
+  memmove(v24, v10, (unsigned int)v13);
+  v26 = (unsigned __int64)(unsigned int)v13 >> 1;
+  v27 = &v25[v26];
   if ( Size )
   {
-    memmove(&v25[2 * v26], L"\\microsoft.system.package.metadata\\Application", Size);
-    v27 += 2 * ((unsigned __int64)Size >> 1);
+    memmove(&v25[v26], L"\\microsoft.system.package.metadata\\Application", Size);
+    v27 += (unsigned __int64)Size >> 1;
   }
   *(_QWORD *)v27 = *(_QWORD *)L".Local";
   *((_DWORD *)v27 + 2) = *(_DWORD *)L"al";
-  v28 = v27 + 12;
+  v28 = v27 + 6;
   *v28 = 92;
   v29 = (char *)(v28 + 1);
   memmove(v29, Src, v35 - 2LL);
@@ -164,13 +167,13 @@ __int64 __fastcall RtlComputePrivatizedDllName_U(__int16 *a1, __int64 a2, __int6
     *(_QWORD *)&v29[2 * v30] = *(_QWORD *)L".DLL";
     *(_WORD *)&v29[2 * v30 + 8] = aDll[4];
   }
-  *(_QWORD *)(a2 + 8) = v34;
-  *(_WORD *)(a2 + 2) = v11;
-  *(_WORD *)a2 = v11;
+  RealName->Buffer = v34;
+  RealName->MaximumLength = v11;
+  RealName->Length = v11;
   if ( v11 )
-    *(_WORD *)a2 = v11 - 2;
-  *(_WORD *)(a3 + 2) = v23;
-  *(_WORD *)a3 = v23 - 2;
-  *(_QWORD *)(a3 + 8) = v25;
-  return 0LL;
+    RealName->Length = v11 - 2;
+  LocalName->MaximumLength = v23;
+  LocalName->Length = v23 - 2;
+  LocalName->Buffer = v25;
+  return 0;
 }

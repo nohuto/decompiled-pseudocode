@@ -1,12 +1,12 @@
 /*
- * XREFs of ImportTablepHashCanonicalLists @ 0x1800383D4
+ * XREFs of ImportTablepHashCanonicalLists @ 0x180022944
  * Callers:
- *     RtlComputeImportTableHash @ 0x180121A80 (RtlComputeImportTableHash.c)
+ *     RtlComputeImportTableHash @ 0x180121820 (RtlComputeImportTableHash.c)
  * Callees:
- *     SymCryptMd5Result @ 0x1800384C0 (SymCryptMd5Result.c)
- *     SymCryptHashAppendInternal @ 0x18003898C (SymCryptHashAppendInternal.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     SymCryptMd5Result @ 0x180022A30 (SymCryptMd5Result.c)
+ *     SymCryptHashAppendInternal @ 0x180022EFC (SymCryptHashAppendInternal.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall ImportTablepHashCanonicalLists(_QWORD *a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall ImportTablepHashCanonicalLists(_QWORD *a1, __int64 a2)
   __int128 v11; // [rsp+80h] [rbp-28h]
 
   memset_thunk_772440563353939046(v10, 0, 0x70uLL);
-  v11 = xmmword_180178968;
+  v11 = xmmword_1801767C8;
   while ( a1 )
   {
     v4 = (_QWORD *)a1[2];

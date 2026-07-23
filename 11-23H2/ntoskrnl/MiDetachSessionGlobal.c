@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDetachSessionGlobal @ 0x14033EFBC
+ * XREFs of MiDetachSessionGlobal @ 0x14033F24C
  * Callers:
- *     MiDetachAndUnlockWorkingSet @ 0x14033EF28 (MiDetachAndUnlockWorkingSet.c)
- *     MiAttachToSessionForBaseImage @ 0x140641B94 (MiAttachToSessionForBaseImage.c)
- *     MiActOnPatchInAllSessions @ 0x140A34610 (MiActOnPatchInAllSessions.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x140A35068 (MiApplyHotPatchToLoadedDriver.c)
- *     MiUnapplyDriverHotPatch @ 0x140A3BD68 (MiUnapplyDriverHotPatch.c)
+ *     MiDetachAndUnlockWorkingSet @ 0x14033F1B8 (MiDetachAndUnlockWorkingSet.c)
+ *     MiAttachToSessionForBaseImage @ 0x1406420E4 (MiAttachToSessionForBaseImage.c)
+ *     MiActOnPatchInAllSessions @ 0x140A348C0 (MiActOnPatchInAllSessions.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A35318 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiUnapplyDriverHotPatch @ 0x140A3C018 (MiUnapplyDriverHotPatch.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiDetachProcessFromSession @ 0x14033F048 (MiDetachProcessFromSession.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiDetachProcessFromSession @ 0x14033F2D8 (MiDetachProcessFromSession.c)
  */
 
 char __fastcall MiDetachSessionGlobal(__int64 a1)

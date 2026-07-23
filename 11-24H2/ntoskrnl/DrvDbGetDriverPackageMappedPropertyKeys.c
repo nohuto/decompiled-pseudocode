@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetDriverPackageMappedPropertyKeys @ 0x140822214
+ * XREFs of DrvDbGetDriverPackageMappedPropertyKeys @ 0x140822954
  * Callers:
- *     DrvDbDispatchDriverPackage @ 0x1409240F0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverPackage @ 0x140926230 (DrvDbDispatchDriverPackage.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x1408219CC (DrvDbGetCompositeMappedPropertyKeys.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140923320 (DrvDbGetDriverPackageSignerScore.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14092430C (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x1409254A4 (DrvDbOpenDriverPackageRegKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x14082210C (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140925458 (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x14092644C (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x1409275E4 (DrvDbOpenDriverPackageRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
@@ -64,7 +64,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
   LODWORD(a6) = 0;
   v11 = a5;
   *v6 = 0;
-  CompositeMappedPropertyKeys = DrvDbGetCompositeMappedPropertyKeys(a1, (__int64)&off_140E0A400, 0x10u, a4, v7, v36);
+  CompositeMappedPropertyKeys = DrvDbGetCompositeMappedPropertyKeys(a1, (__int64)&off_140E0A470, 0x10u, a4, v7, v36);
   if ( CompositeMappedPropertyKeys < 0 )
     return (unsigned int)CompositeMappedPropertyKeys;
   v14 = *v6;
@@ -94,7 +94,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
                                     a1,
                                     a2,
                                     v17,
-                                    (int)off_14000CBD8[i],
+                                    (int)off_14000CEE8[i],
                                     (int)&v37 + 4,
                                     0LL,
                                     0,
@@ -106,7 +106,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
         break;
       if ( v9 && v10 < v11 )
       {
-        v19 = off_14000CBD8[i];
+        v19 = off_14000CEE8[i];
         v20 = v10++;
         v21 = 5 * v20;
         *(_OWORD *)(v9 + 4 * v21) = *(_OWORD *)v19;
@@ -128,7 +128,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
   {
     a5 = 0;
     v24 = Handle;
-    v25 = (&off_14000C580)[5 * j];
+    v25 = (&off_14000C890)[5 * j];
     if ( a3 )
       v24 = a3;
     v39 = 5 * j;
@@ -137,7 +137,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
     if ( v26 == -1073741772 )
     {
       v27 = v39;
-      v28 = (__int64)*(&off_14000C570 + v39);
+      v28 = (__int64)*(&off_14000C880 + v39);
       if ( *(_DWORD *)(v28 + 16) != 7 )
         goto LABEL_48;
       v29 = *(_QWORD *)v28 - *(_QWORD *)&DEVPKEY_DriverPackage_SignerName;
@@ -159,7 +159,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
     }
     if ( v9 && v10 < v11 )
     {
-      v31 = (__int64)*(&off_14000C570 + v27);
+      v31 = (__int64)*(&off_14000C880 + v27);
       v32 = v10++;
       v33 = 5 * v32;
       *(_OWORD *)(v9 + 4 * v33) = *(_OWORD *)v31;

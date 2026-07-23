@@ -1,15 +1,15 @@
 /*
- * XREFs of ExCleanTimerResolutionRequest @ 0x14036CDE4
+ * XREFs of ExCleanTimerResolutionRequest @ 0x14036CF94
  * Callers:
- *     PspExitProcess @ 0x1406CD37C (PspExitProcess.c)
+ *     PspExitProcess @ 0x14067C00C (PspExitProcess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwSetTimerResolution @ 0x1403FD9E0 (ZwSetTimerResolution.c)
- *     ExReleaseTimeRefreshLock @ 0x1406DBCF0 (ExReleaseTimeRefreshLock.c)
- *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
- *     PoDiagFreeUsermodeStack @ 0x140733434 (PoDiagFreeUsermodeStack.c)
+ *     ZwSetTimerResolution @ 0x1403FDBC0 (ZwSetTimerResolution.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406B2FD0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406B2FF4 (ExAcquireTimeRefreshLock.c)
+ *     PoDiagFreeUsermodeStack @ 0x1407335F4 (PoDiagFreeUsermodeStack.c)
  */
 
 __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
@@ -25,12 +25,12 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
   bool v11; // zf
-  int v12; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActualTime; // [rsp+30h] [rbp+8h] BYREF
 
-  v12 = 0;
+  ActualTime = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( (Process[1].DirectoryTableBase & 0x100000000000LL) != 0 )
-    ZwSetTimerResolution((unsigned int)KeMaximumIncrement, 0LL, &v12);
+    ZwSetTimerResolution(KeMaximumIncrement, 0, &ActualTime);
   LOBYTE(a1) = 1;
   ExAcquireTimeRefreshLock(a1);
   v2 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);

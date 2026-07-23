@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRemoveWsleList @ 0x14007AF50
+ * XREFs of MiRemoveWsleList @ 0x14007AF40
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
+ *     MmUnmapViewInSystemCache @ 0x140078700 (MmUnmapViewInSystemCache.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockExclusive @ 0x1400BC6A0 (ExpAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     MiWriteWsle @ 0x1400DB198 (MiWriteWsle.c)
- *     MiLogRemoveWsleEvent @ 0x1402A7DEC (MiLogRemoveWsleEvent.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400BC5E0 (ExpAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     MiWriteWsle @ 0x1400DB218 (MiWriteWsle.c)
+ *     MiLogRemoveWsleEvent @ 0x1402A7FDC (MiLogRemoveWsleEvent.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, char *a3, unsigned __int64 a4)
@@ -84,7 +84,7 @@ __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, char *a3, unsigned _
 
   v72 = a4;
   v5 = *(_BYTE *)(a1 + 184) & 7;
-  v6 = &dword_14043B780;
+  v6 = &dword_14043C840;
   v8 = v5 == 2;
   v61 = 0LL;
   result = 0LL;
@@ -131,7 +131,7 @@ __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, char *a3, unsigned _
         if ( (*(_BYTE *)(a1 + 184) & 7) == 4 )
         {
           if ( PsNtosImageBase
-            && (v19 < PsNtosImageEnd && v19 >= PsNtosImageBase
+            && (v19 < PsNtosImageEnd && v19 >= (unsigned __int64)PsNtosImageBase
              || v19 < PsHalImageEnd && v19 >= (unsigned __int64)PsHalImageBase) )
           {
             ++v17;
@@ -160,7 +160,7 @@ __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, char *a3, unsigned _
     {
       v24 = a1;
       if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
-        v25 = &dword_14043B728;
+        v25 = &dword_14043C7E8;
       else
         v25 = (LONG *)(a1 + 232);
       LOBYTE(v10) = -1;
@@ -175,9 +175,9 @@ __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, char *a3, unsigned _
           *(_QWORD *)(a1 + 128) -= v64;
       }
       if ( v60 )
-        LODWORD(xmmword_140438F20) = xmmword_140438F20 - v60;
+        LODWORD(xmmword_140439FE0) = xmmword_140439FE0 - v60;
       if ( v15 )
-        DWORD1(xmmword_140438F20) -= v15;
+        DWORD1(xmmword_140439FE0) -= v15;
       v26 = 0LL;
       *(_QWORD *)(a1 + 136) -= v61;
       v27 = a2 - (_QWORD)a3;
@@ -269,7 +269,7 @@ LABEL_28:
             --*(_QWORD *)(v24 + 8LL * v32 + 40);
             if ( v32 == 7 )
             {
-              v39 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v24 + 174));
+              v39 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v24 + 174));
               v40 = *(_QWORD *)(v39 + 7024);
               if ( *(_QWORD *)(v24 + 96) < *(_QWORD *)(v40 + 64) )
               {
@@ -277,7 +277,7 @@ LABEL_28:
                 if ( *v41 && *(__int64 **)(v39 + 7040) != v41 )
                 {
                   v67[0] = 0LL;
-                  v67[1] = &qword_14043AE80;
+                  v67[1] = &qword_14043BF40;
                   KxAcquireQueuedSpinLock(v67);
                   if ( *(_BYTE *)(v40 + 53) || (v48 = *v41) == 0 )
                   {
@@ -322,7 +322,7 @@ LABEL_42:
               *((_QWORD *)v59 + 2) -= v63;
           }
           if ( (*(_BYTE *)(v24 + 184) & 7) == 2 )
-            v42 = &dword_14043B728;
+            v42 = &dword_14043C7E8;
           else
             v42 = (volatile LONG *)(v24 + 232);
           ExReleaseSpinLockExclusiveFromDpcLevel(v42);

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64), __int64 a2)
+NTSTATUS __cdecl RtlEnumProcessHeaps(PRTL_ENUM_HEAPS_ROUTINE EnumRoutine, PVOID Parameter)
 {
-  return RtlpEnumProcessHeaps(a1, a2, 0);
+  return RtlpEnumProcessHeaps((PRTL_DYNAMIC_HASH_TABLE)EnumRoutine, (_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)Parameter, 0);
 }

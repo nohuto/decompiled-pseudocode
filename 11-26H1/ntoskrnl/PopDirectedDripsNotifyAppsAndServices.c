@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDirectedDripsNotifyAppsAndServices @ 0x1407CC0E0
+ * XREFs of PopDirectedDripsNotifyAppsAndServices @ 0x1407CF180
  * Callers:
- *     PopDirectedDripsEngage @ 0x1404C7D1C (PopDirectedDripsEngage.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x140A37138 (PopPowerAggregatorDisengageModernStandby.c)
- *     PopDirectedDripsNotify @ 0x140B08694 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsEngage @ 0x1404C1A5C (PopDirectedDripsEngage.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x1409F2CF8 (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopDirectedDripsNotify @ 0x140B0A610 (PopDirectedDripsNotify.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     PopDirectedDripsSendSuspendResumeNotification @ 0x1407CC494 (PopDirectedDripsSendSuspendResumeNotification.c)
- *     PopDiagTraceDirectedDripsNotifyAppsAndServices @ 0x1407D3554 (PopDiagTraceDirectedDripsNotifyAppsAndServices.c)
- *     PopDispatchStateCallout @ 0x140A39B10 (PopDispatchStateCallout.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     PoBlockConsoleSwitch @ 0x140B54220 (PoBlockConsoleSwitch.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x1407CF534 (PopDirectedDripsSendSuspendResumeNotification.c)
+ *     PopDiagTraceDirectedDripsNotifyAppsAndServices @ 0x1407D658C (PopDiagTraceDirectedDripsNotifyAppsAndServices.c)
+ *     PopDispatchStateCallout @ 0x1409F5718 (PopDispatchStateCallout.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     PoBlockConsoleSwitch @ 0x140B56AC0 (PoBlockConsoleSwitch.c)
  */
 
 __int64 __fastcall PopDirectedDripsNotifyAppsAndServices(__int64 a1, _DWORD *a2, char a3)

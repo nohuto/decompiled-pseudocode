@@ -1037,10 +1037,10 @@ LABEL_68:
   v40 = v151[0];
   if ( v151[0] != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v151[0] <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v151[0] <= 0xFu && CurrentIrql >= 2u )
       {
         v100 = KeGetCurrentPrcb();
         v101 = v100->SchedulerAssist;
@@ -1179,7 +1179,7 @@ LABEL_86:
     v180 = 0LL;
     v48 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v48 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v48 <= 0xFu )
     {
       v52 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v48 == 2 )
@@ -1258,10 +1258,10 @@ LABEL_86:
         else
           MiPfnReferenceCountIsZero(v31, v34);
         _InterlockedAnd64((volatile signed __int64 *)(v31 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v113 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v113 <= 0xFu && v48 <= 0xFu && v113 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v113 <= 0xFu && v48 <= 0xFu && v113 >= 2u )
           {
             v114 = KeGetCurrentPrcb();
             Flink = -1LL << (v48 + 1);
@@ -1304,10 +1304,13 @@ LABEL_107:
       MiReleasePageFileInfo(v46, v47, 1);
     if ( v151[0] != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         Flink = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)Flink <= 0xFu && v151[0] <= 0xFu && (unsigned __int8)Flink >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && (unsigned __int8)Flink <= 0xFu
+          && v151[0] <= 0xFu
+          && (unsigned __int8)Flink >= 2u )
         {
           v117 = KeGetCurrentPrcb();
           v15 = v117->SchedulerAssist;
@@ -1352,7 +1355,7 @@ LABEL_116:
   if ( (unsigned int)MiRemoveLockedPageCharge(v31) )
     MiPfnReferenceCountIsZero(v31, v34);
   _InterlockedAnd64((volatile signed __int64 *)(v31 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags && (v140 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v140 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v140 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v140 <= 0xFu )
   {
     v141 = v151[0];
     if ( v151[0] <= 0xFu && v140 >= 2u )

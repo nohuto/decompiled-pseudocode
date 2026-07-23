@@ -1,50 +1,56 @@
 /*
- * XREFs of RtlExpandEnvironmentStrings_U @ 0x18009C8A0
+ * XREFs of RtlExpandEnvironmentStrings_U @ 0x18009B9D0
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x18005A26C (RtlpCallQueryRegistryRoutine.c)
- *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x18009AD18 (sxsisol_ExpandEnvironmentStrings_UEx.c)
- *     RtlpLookupSafeCurDirList @ 0x180106064 (RtlpLookupSafeCurDirList.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x1800447EC (RtlpCallQueryRegistryRoutine.c)
+ *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x180099E48 (sxsisol_ExpandEnvironmentStrings_UEx.c)
+ *     RtlpLookupSafeCurDirList @ 0x180105A64 (RtlpLookupSafeCurDirList.c)
  * Callees:
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
  */
 
-__int64 __fastcall RtlExpandEnvironmentStrings_U(__int64 a1, unsigned __int16 *a2, __int64 a3, _DWORD *a4)
+NTSTATUS __cdecl RtlExpandEnvironmentStrings_U(
+        PVOID Environment,
+        PUNICODE_STRING Source,
+        PUNICODE_STRING Destination,
+        PULONG ReturnedLength)
 {
-  _WORD *v4; // rdi
-  int v5; // r14d
-  __int64 v6; // rbp
-  unsigned __int64 v7; // r12
+  wchar_t *Buffer; // rdi
+  NTSTATUS v5; // r14d
+  ULONG_PTR v6; // rbp
+  SIZE_T ValueLength; // r12
   unsigned __int64 v8; // rbx
-  _WORD *v9; // r13
-  _WORD *v10; // rsi
+  wchar_t *v9; // r13
+  wchar_t *v10; // rsi
   unsigned __int64 v11; // rbp
-  __int64 result; // rax
-  unsigned __int64 v13; // r15
-  int v14; // r8d
-  __int64 v15; // rcx
-  __int64 v16; // [rsp+90h] [rbp+8h]
-  __int64 v17; // [rsp+98h] [rbp+10h] BYREF
-  _WORD *v18; // [rsp+A0h] [rbp+18h]
-  _DWORD *v19; // [rsp+A8h] [rbp+20h]
+  NTSTATUS result; // eax
+  SIZE_T v13; // rax
+  SIZE_T v14; // r15
+  NTSTATUS v15; // r8d
+  ULONG_PTR v16; // rcx
+  PVOID v17; // [rsp+90h] [rbp+8h]
+  ULONG_PTR ReturnLength; // [rsp+98h] [rbp+10h] BYREF
+  PUNICODE_STRING v19; // [rsp+A0h] [rbp+18h]
+  PULONG v20; // [rsp+A8h] [rbp+20h]
 
-  v19 = a4;
-  v18 = (_WORD *)a3;
-  v16 = a1;
-  v4 = (_WORD *)*((_QWORD *)a2 + 1);
+  v20 = ReturnedLength;
+  v19 = Destination;
+  v17 = Environment;
+  Buffer = Source->Buffer;
   v5 = 0;
   v6 = 0LL;
-  v7 = (unsigned __int64)*(unsigned __int16 *)(a3 + 2) >> 1;
-  v8 = (unsigned __int64)*a2 >> 1;
-  v9 = *(_WORD **)(a3 + 8);
-  v17 = 0LL;
+  ValueLength = (unsigned __int64)Destination->MaximumLength >> 1;
+  v8 = (unsigned __int64)Source->Length >> 1;
+  v9 = Destination->Buffer;
+  ReturnLength = 0LL;
   if ( !v8 )
     goto LABEL_26;
   do
   {
-    if ( *v4 != 37 )
+    if ( *Buffer != 37 )
       goto LABEL_3;
-    v13 = 0LL;
-    v10 = v4 + 1;
+    v13 = v8 - 1;
+    v14 = 0LL;
+    v10 = Buffer + 1;
     if ( v8 == 1 )
       goto LABEL_3;
     do
@@ -52,27 +58,28 @@ __int64 __fastcall RtlExpandEnvironmentStrings_U(__int64 a1, unsigned __int16 *a
       if ( *v10 == 37 )
         break;
       ++v10;
-      ++v13;
+      ++v14;
     }
-    while ( v13 < v8 - 1 );
-    if ( v13
-      && v13 < v8 - 1
-      && ((v14 = RtlQueryEnvironmentVariable(a1, v4 + 1, v13, v9, v7, &v17), (int)(v14 + 0x80000000) < 0)
-       || v14 == -1073741789) )
+    while ( v14 < v13 );
+    if ( v14
+      && v14 < v13
+      && ((v15 = RtlQueryEnvironmentVariable(Environment, Buffer + 1, v14, v9, ValueLength, &ReturnLength),
+           (int)(v15 + 0x80000000) < 0)
+       || v15 == -1073741789) )
     {
-      v15 = v17 + v6;
-      v6 = v17 + v6 - 1;
-      if ( v14 != -1073741789 )
-        v6 = v15;
-      v8 += -2LL - v13;
-      if ( v14 < 0 )
+      v16 = ReturnLength + v6;
+      v6 = ReturnLength + v6 - 1;
+      if ( v15 != -1073741789 )
+        v6 = v16;
+      v8 += -2LL - v14;
+      if ( v15 < 0 )
       {
-        v5 = v14;
+        v5 = v15;
       }
       else
       {
-        v7 -= v17;
-        v9 += v17;
+        ValueLength -= ReturnLength;
+        v9 += ReturnLength;
       }
     }
     else
@@ -80,28 +87,28 @@ __int64 __fastcall RtlExpandEnvironmentStrings_U(__int64 a1, unsigned __int16 *a
 LABEL_3:
       if ( v5 >= 0 )
       {
-        if ( v7 <= 1 )
+        if ( ValueLength <= 1 )
         {
           v5 = -1073741789;
         }
         else
         {
-          --v7;
-          *v9++ = *v4;
+          --ValueLength;
+          *v9++ = *Buffer;
         }
       }
       ++v6;
-      v10 = v4;
+      v10 = Buffer;
       --v8;
     }
-    a1 = v16;
-    v4 = v10 + 1;
+    Environment = v17;
+    Buffer = v10 + 1;
   }
   while ( v8 );
   if ( v5 >= 0 )
   {
 LABEL_26:
-    if ( v7 )
+    if ( ValueLength )
       *v9 = 0;
     else
       v5 = -1073741789;
@@ -109,17 +116,17 @@ LABEL_26:
   v11 = v6 + 1;
   if ( v11 > 0x7FFF )
   {
-    result = 3221225473LL;
-    if ( v19 )
-      *v19 = 0;
+    result = -1073741823;
+    if ( v20 )
+      *v20 = 0;
   }
   else
   {
     if ( v5 >= 0 )
-      *v18 = 2 * v11 - 2;
-    if ( v19 )
-      *v19 = 2 * v11;
-    return (unsigned int)v5;
+      v19->Length = 2 * v11 - 2;
+    if ( v20 )
+      *v20 = 2 * v11;
+    return v5;
   }
   return result;
 }

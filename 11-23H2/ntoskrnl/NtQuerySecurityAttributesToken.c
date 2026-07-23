@@ -1,31 +1,31 @@
 /*
- * XREFs of NtQuerySecurityAttributesToken @ 0x1407264E0
+ * XREFs of NtQuerySecurityAttributesToken @ 0x1407266E0
  * Callers:
  *     <none>
  * Callees:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C928 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     SepReferenceTokenByHandle @ 0x1402B02C0 (SepReferenceTokenByHandle.c)
- *     SepCaptureUnicodeStringArray @ 0x1406D4C50 (SepCaptureUnicodeStringArray.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022CA38 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     SepReferenceTokenByHandle @ 0x1402B0550 (SepReferenceTokenByHandle.c)
+ *     SepCaptureUnicodeStringArray @ 0x1406D4C80 (SepCaptureUnicodeStringArray.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQuerySecurityAttributesToken(
-        void *a1,
-        __int64 a2,
-        unsigned int a3,
-        volatile void *a4,
-        SIZE_T Length,
-        volatile void *Address)
+NTSTATUS __cdecl NtQuerySecurityAttributesToken(
+        HANDLE TokenHandle,
+        PUNICODE_STRING Attributes,
+        ULONG NumberOfAttributes,
+        PVOID Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   char v9; // r14
   unsigned __int8 PreviousMode; // bl
-  unsigned int v11; // r15d
-  int SecurityAttributesToken; // esi
+  ULONG v11; // r15d
+  NTSTATUS SecurityAttributesToken; // esi
   __int64 v13; // r9
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v15; // rdi
@@ -40,9 +40,9 @@ __int64 __fastcall NtQuerySecurityAttributesToken(
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v11 = Length;
-  if ( (_DWORD)Length )
+  if ( Length )
   {
-    if ( a4 )
+    if ( Buffer )
       goto LABEL_3;
 LABEL_17:
     SecurityAttributesToken = -1073741811;
@@ -51,19 +51,19 @@ LABEL_18:
     v15 = (PERESOURCE *)Object;
     goto LABEL_8;
   }
-  if ( a4 )
+  if ( Buffer )
     goto LABEL_17;
 LABEL_3:
   if ( PreviousMode )
   {
-    ProbeForWrite(a4, (unsigned int)Length, 4u);
-    ProbeForWrite(Address, 4uLL, 4u);
+    ProbeForWrite(Buffer, Length, 4u);
+    ProbeForWrite(ReturnLength, 4uLL, 4u);
   }
-  SecurityAttributesToken = SepCaptureUnicodeStringArray(a2, a3, PreviousMode, &P);
+  SecurityAttributesToken = SepCaptureUnicodeStringArray((__int64)Attributes, NumberOfAttributes, PreviousMode, &P);
   v18 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_18;
-  SecurityAttributesToken = SepReferenceTokenByHandle(a1, 8u, PreviousMode, v13, &Object, &Length, &v21);
+  SecurityAttributesToken = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, v13, &Object, &Length, &v21);
   v18 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_18;
@@ -77,11 +77,11 @@ LABEL_3:
                               (__int64)v15,
                               v16,
                               (__int64)P,
-                              a3,
+                              NumberOfAttributes,
                               0,
-                              (__int64)a4,
+                              (__int64)Buffer,
                               v11,
-                              (__int64)Address);
+                              (__int64)ReturnLength);
   v18 = SecurityAttributesToken;
 LABEL_8:
   if ( PreviousMode == 1 && P )
@@ -95,5 +95,5 @@ LABEL_8:
   }
   if ( v15 )
     ObfDereferenceObjectWithTag(v15, 0x74726853u);
-  return (unsigned int)SecurityAttributesToken;
+  return SecurityAttributesToken;
 }

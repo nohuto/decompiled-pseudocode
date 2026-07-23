@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPickClusterForMappedFileFault @ 0x140097890
+ * XREFs of MiPickClusterForMappedFileFault @ 0x140097090
  * Callers:
- *     MiResolveMappedFileFault @ 0x1400E68A0 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1400E4740 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiObtainFaultCharges @ 0x14002B530 (MiObtainFaultCharges.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiObtainFaultCharges @ 0x14002B0B0 (MiObtainFaultCharges.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiPickClusterForMappedFileFault(
@@ -62,9 +62,9 @@ __int64 __fastcall MiPickClusterForMappedFileFault(
     goto LABEL_12;
   if ( *(__int64 *)(v18 + 6528) < 160 )
     goto LABEL_12;
-  if ( dword_140327664 )
+  if ( dword_1403276A4 )
   {
-    --dword_140327664;
+    --dword_1403276A4;
     goto LABEL_12;
   }
   if ( *(_QWORD *)(v18 + 6464) <= 0x140uLL )
@@ -95,16 +95,16 @@ LABEL_12:
   if ( !a3 && (v20 & 0x20000000) != 0 )
   {
     v31 = MiStartingOffset(v8, v12, a5);
-    v24 = dword_14032766C;
+    v24 = dword_1403276AC;
     v25 = v31;
     v23 = v36;
-    v32 = v31 & (dword_14032766C - 1);
-    if ( v21 > v12 + 8 * (((unsigned int)(dword_14032766C - v32) >> 12) - 1LL) )
-      v21 = v12 + 8 * (((unsigned int)(dword_14032766C - v32) >> 12) - 1LL);
+    v32 = v31 & (dword_1403276AC - 1);
+    if ( v21 > v12 + 8 * (((unsigned int)(dword_1403276AC - v32) >> 12) - 1LL) )
+      v21 = v12 + 8 * (((unsigned int)(dword_1403276AC - v32) >> 12) - 1LL);
   }
   else
   {
-    v24 = dword_14032766C;
+    v24 = dword_1403276AC;
     v25 = 0;
   }
   if ( v21 > (v12 & 0xFFFFFFFFFFFFF000uLL | 0xFF8) )

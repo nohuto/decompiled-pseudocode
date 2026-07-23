@@ -1,16 +1,16 @@
 /*
- * XREFs of MmSetGraphicsPtes @ 0x1408C6EB0
+ * XREFs of MmSetGraphicsPtes @ 0x1408C7010
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiSetGraphicsPtes @ 0x14053463C (MiSetGraphicsPtes.c)
- *     MiGetAwePageSizeFromVa @ 0x14054C45C (MiGetAwePageSizeFromVa.c)
- *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
- *     MiGetVadPageSize @ 0x14055BDB0 (MiGetVadPageSize.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiSetGraphicsPtes @ 0x14053487C (MiSetGraphicsPtes.c)
+ *     MiGetAwePageSizeFromVa @ 0x14054C69C (MiGetAwePageSizeFromVa.c)
+ *     MiLockAweVadsExclusive @ 0x14054D240 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054E238 (MiUnlockAweVadsExclusive.c)
+ *     MiGetVadPageSize @ 0x14055BFF0 (MiGetVadPageSize.c)
  */
 
 __int64 __fastcall MmSetGraphicsPtes(
@@ -25,7 +25,7 @@ __int64 __fastcall MmSetGraphicsPtes(
   struct _KTHREAD *CurrentThread; // r12
   unsigned __int64 v12; // rbp
   int v13; // r15d
-  volatile signed __int32 *v14; // rax
+  __int64 v14; // rax
   char *v15; // rsi
   int v17; // edx
   unsigned int v18; // ebx
@@ -51,10 +51,10 @@ __int64 __fastcall MmSetGraphicsPtes(
   v15 = (char *)v14;
   if ( !v14 )
     return v25;
-  v17 = *((_DWORD *)v14 + 12);
+  v17 = *(_DWORD *)(v14 + 48);
   if ( (v17 & 0x1100000) == 0x1100000 )
   {
-    if ( v12 > (((*((unsigned int *)v14 + 7) | ((unsigned __int64)*((unsigned __int8 *)v14 + 33) << 32)) << 12) | 0xFFF) )
+    if ( v12 > (((*(unsigned int *)(v14 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 33) << 32)) << 12) | 0xFFF) )
     {
       v18 = -1073741584;
       goto LABEL_35;
@@ -74,7 +74,7 @@ __int64 __fastcall MmSetGraphicsPtes(
     {
       if ( (v17 & 0x500000) != 0x500000 )
         goto LABEL_32;
-      AwePageSizeFromVa = MiGetVadPageSize((__int64)v14);
+      AwePageSizeFromVa = MiGetVadPageSize(v14);
     }
     if ( (a6 & 0xFFFFFFFE) != 0 )
     {

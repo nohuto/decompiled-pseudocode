@@ -1,11 +1,11 @@
 /*
- * XREFs of MmStoreLogRegionInPageError @ 0x14068CB80
+ * XREFs of MmStoreLogRegionInPageError @ 0x14068DCB0
  * Callers:
- *     ?StRegionAccessExceptionFilter@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAJ@Z @ 0x14060C7F8 (-StRegionAccessExceptionFilter@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA.c)
+ *     ?StRegionAccessExceptionFilter@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAJ@Z @ 0x14060ADB8 (-StRegionAccessExceptionFilter@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void MmStoreLogRegionInPageError()
@@ -28,9 +28,9 @@ void MmStoreLogRegionInPageError()
   __int64 *v15; // [rsp+B0h] [rbp+37h]
   __int64 v16; // [rsp+B8h] [rbp+3Fh]
 
-  if ( *(_QWORD *)&qword_140E37518
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000002LL) )
+  if ( *(_QWORD *)&qword_140E37658
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000002LL) )
   {
     v4 = *(_DWORD *)(v1 + 48);
     v10 = 4LL;
@@ -44,6 +44,6 @@ void MmStoreLogRegionInPageError()
     v14 = 8LL;
     v7 = 0x1000000LL;
     v16 = 8LL;
-    tlgWriteEx_EtwWriteEx(v0, (unsigned __int8 *)&dword_14005808C, v0, 1u, v2, v3, 6u, &v8);
+    tlgWriteEx_EtwWriteEx(v0, (unsigned __int8 *)&byte_140058DCB, v0, 1u, v2, v3, 6u, &v8);
   }
 }

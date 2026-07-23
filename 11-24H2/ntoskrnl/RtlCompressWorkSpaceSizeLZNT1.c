@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCompressWorkSpaceSizeLZNT1 @ 0x140B69790
+ * XREFs of RtlCompressWorkSpaceSizeLZNT1 @ 0x140B6AEA0
  * Callers:
- *     RtlGetCompressionWorkSpaceSize @ 0x14044A580 (RtlGetCompressionWorkSpaceSize.c)
- *     SmDecompressBuffer @ 0x140481BC0 (SmDecompressBuffer.c)
- *     EtwpInitializeCompression @ 0x1404B6884 (EtwpInitializeCompression.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x140376230 (RtlGetCompressionWorkSpaceSize.c)
+ *     SmDecompressBuffer @ 0x1403BB16C (SmDecompressBuffer.c)
+ *     EtwpInitializeCompression @ 0x1404B1064 (EtwpInitializeCompression.c)
  * Callees:
  *     <none>
  */

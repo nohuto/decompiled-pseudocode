@@ -24,34 +24,34 @@ __int64 __fastcall sub_18004C234(__int64 a1)
   int v4; // r14d
   int v5; // eax
   __int64 v6; // rdx
-  __int64 *v7; // r15
+  PWSTR *v7; // r15
   int v8; // eax
   int v9; // ebx
-  __int64 v10; // r8
-  __int128 v11; // xmm1
-  bool v13; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v14; // [rsp+54h] [rbp-ACh] BYREF
-  __int128 v15; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v16; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v17; // [rsp+70h] [rbp-90h] BYREF
-  __int16 *v18[2]; // [rsp+80h] [rbp-80h] BYREF
-  __m128i v19; // [rsp+90h] [rbp-70h] BYREF
-  _WORD v20[128]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v21[15]; // [rsp+1A0h] [rbp+A0h] BYREF
-  char v22; // [rsp+21Ch] [rbp+11Ch]
+  _UNICODE_STRING v10; // xmm1
+  bool v12; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v13; // [rsp+54h] [rbp-ACh] BYREF
+  _UNICODE_STRING v14; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v15; // [rsp+68h] [rbp-98h]
+  _UNICODE_STRING String1; // [rsp+70h] [rbp-90h] BYREF
+  WCHAR *v17[2]; // [rsp+80h] [rbp-80h] BYREF
+  __m128i v18; // [rsp+90h] [rbp-70h] BYREF
+  _WORD v19[128]; // [rsp+A0h] [rbp-60h] BYREF
+  PWSTR Path[15]; // [rsp+1A0h] [rbp+A0h] BYREF
+  char v21; // [rsp+21Ch] [rbp+11Ch]
 
   v1 = *(_QWORD *)(a1 + 40);
   v2 = *(_QWORD *)(a1 + 48);
-  v18[0] = 0LL;
-  v18[1] = 0LL;
+  v17[0] = 0LL;
+  v17[1] = 0LL;
   v4 = 0;
-  v16 = 0LL;
-  v19.m128i_i64[1] = (__int64)v20;
+  v15 = 0LL;
+  v18.m128i_i64[1] = (__int64)v19;
+  v12 = 0;
+  v18.m128i_i32[0] = 0x1000000;
+  v19[0] = 0;
+  *(_QWORD *)&v14.Length = 0LL;
+  v14.Buffer = 0LL;
   v13 = 0;
-  v19.m128i_i32[0] = 0x1000000;
-  v20[0] = 0;
-  v15 = 0uLL;
-  v14 = 0;
   if ( !v1 )
     goto LABEL_5;
   v5 = 32512;
@@ -60,29 +60,29 @@ __int64 __fastcall sub_18004C234(__int64 a1)
     v5 = 31488;
   if ( ((unsigned int)v6 & v5) != 0 )
   {
-    sub_18003BE90(*(_QWORD *)(v1 + 80), ((dword_180158674 & 4) != 0 ? 32512LL : 31488LL) & v6 | 1, v21);
-    v7 = v21;
+    sub_18003BE90(*(_QWORD *)(v1 + 80), ((dword_180158674 & 4) != 0 ? 32512LL : 31488LL) & v6 | 1, (__int64 *)Path);
+    v7 = Path;
   }
   else
   {
 LABEL_5:
-    sub_18003BE90(0LL, 0LL, v21);
-    v7 = *(__int64 **)(a1 + 16);
+    sub_18003BE90(0LL, 0LL, (__int64 *)Path);
+    v7 = *(PWSTR **)(a1 + 16);
   }
   while ( 1 )
   {
     v8 = sub_18004BD40(
-           (__int16 *)a1,
+           (const UNICODE_STRING *)a1,
            (__int64)v7,
            (*(_BYTE *)(a1 + 24) & 8) != 0,
-           v18,
-           &v19,
-           (__int64)&v17,
-           (unsigned __int16 *)&v15,
-           &v13,
-           (__int64)&v14);
+           v17,
+           &v18,
+           &String1,
+           &v14,
+           &v12,
+           (__int64)&v13);
     v9 = v8;
-    if ( v13 )
+    if ( v12 )
       *(_DWORD *)(v2 + 104) |= 1u;
     if ( v8 == -1073741515 )
       break;
@@ -90,48 +90,48 @@ LABEL_5:
       goto LABEL_15;
 LABEL_10:
     v4 = 1;
-    v9 = sub_18004C564(a1, (unsigned int)&v15, (unsigned int)&v17, (unsigned int)&v19, 0LL, v8);
+    v9 = sub_18004C564(a1, (unsigned int)&v14, (unsigned int)&String1, (unsigned int)&v18, 0LL, v8);
     if ( v9 < 0 )
       goto LABEL_15;
-    v10 = *(unsigned int *)(a1 + 24);
-    if ( (v10 & 0x10000) != 0 )
-      v14 |= 1u;
-    v9 = sub_18004C728(&v17, &v15, v10, &v16);
+    if ( (*(_DWORD *)(a1 + 24) & 0x10000) != 0 )
+      v13 |= 1u;
+    v9 = sub_18004C728(&String1, &v14);
     if ( v9 != -1073741515 )
       goto LABEL_15;
     sub_18004C4D8(v2 + 72);
-    v11 = v17;
-    *(_OWORD *)(v2 + 72) = v15;
-    *(_OWORD *)(v2 + 88) = v11;
-    v15 = 0uLL;
-    v9 = sub_18004C7E0(a1, &v19);
+    v10 = String1;
+    *(_UNICODE_STRING *)(v2 + 72) = v14;
+    *(_UNICODE_STRING *)(v2 + 88) = v10;
+    *(_QWORD *)&v14.Length = 0LL;
+    v14.Buffer = 0LL;
+    v9 = sub_18004C7E0(a1, &v18);
     if ( v9 != 1073741838 )
       goto LABEL_15;
-    if ( v20 != (_WORD *)v19.m128i_i64[1] )
-      RtlDeleteBoundaryDescriptor();
-    v19.m128i_i32[0] = 0x1000000;
-    v19.m128i_i64[1] = (__int64)v20;
-    v20[0] = 0;
+    if ( v19 != (_WORD *)v18.m128i_i64[1] )
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v18.m128i_i64[1]);
+    v18.m128i_i32[0] = 0x1000000;
+    v18.m128i_i64[1] = (__int64)v19;
+    v19[0] = 0;
   }
   if ( !v4 )
     goto LABEL_10;
   v9 = -1073741701;
 LABEL_15:
-  if ( v16 )
+  if ( v15 )
   {
     sub_180050570(a1);
   }
   else if ( (unsigned __int8)sub_18004C508() )
   {
-    sub_1800D6040(v14, a1);
+    sub_1800D6040(v13, a1);
   }
-  if ( v20 != (_WORD *)v19.m128i_i64[1] )
-    RtlDeleteBoundaryDescriptor();
-  v19.m128i_i32[0] = 0x1000000;
-  v19.m128i_i64[1] = (__int64)v20;
-  v20[0] = 0;
-  sub_18004C4D8(&v15);
-  if ( v22 )
-    RtlReleasePath(v21[0]);
+  if ( v19 != (_WORD *)v18.m128i_i64[1] )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v18.m128i_i64[1]);
+  v18.m128i_i32[0] = 0x1000000;
+  v18.m128i_i64[1] = (__int64)v19;
+  v19[0] = 0;
+  sub_18004C4D8(&v14);
+  if ( v21 )
+    RtlReleasePath(Path[0]);
   return (unsigned int)v9;
 }

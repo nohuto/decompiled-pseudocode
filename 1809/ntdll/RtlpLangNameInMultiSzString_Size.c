@@ -2,10 +2,10 @@
  * XREFs of RtlpLangNameInMultiSzString_Size @ 0x18004230C
  * Callers:
  *     RtlpMuiRegTryToAppendLangId @ 0x18003F998 (RtlpMuiRegTryToAppendLangId.c)
- *     RtlpMuiRegTryToAppendLanguageName @ 0x180077640 (RtlpMuiRegTryToAppendLanguageName.c)
+ *     RtlpMuiRegTryToAppendLanguageName @ 0x180077650 (RtlpMuiRegTryToAppendLanguageName.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x180040694 (RtlStringCchLengthW.c)
- *     _wcsicmp @ 0x1800918E0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1800918F0 (_wcsicmp.c)
  */
 
 char __fastcall RtlpLangNameInMultiSzString_Size(wchar_t *String1, wchar_t *String2, unsigned int a3)

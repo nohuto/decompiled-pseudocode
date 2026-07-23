@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepDbFreeDriverShims @ 0x140758F30
+ * XREFs of KsepDbFreeDriverShims @ 0x1407590F0
  * Callers:
- *     KsepGetShimsForDriver @ 0x140758B78 (KsepGetShimsForDriver.c)
- *     KsepDbGetDriverShims @ 0x140758C60 (KsepDbGetDriverShims.c)
- *     KsepDbGetDriverShimsInternal @ 0x140758E8C (KsepDbGetDriverShimsInternal.c)
- *     KseDriverUnloadImage @ 0x140772EF4 (KseDriverUnloadImage.c)
- *     KsepDbGetShimInfo @ 0x1408BF81C (KsepDbGetShimInfo.c)
+ *     KsepGetShimsForDriver @ 0x140758D38 (KsepGetShimsForDriver.c)
+ *     KsepDbGetDriverShims @ 0x140758E20 (KsepDbGetDriverShims.c)
+ *     KsepDbGetDriverShimsInternal @ 0x14075904C (KsepDbGetDriverShimsInternal.c)
+ *     KseDriverUnloadImage @ 0x1407730B4 (KseDriverUnloadImage.c)
+ *     KsepDbGetShimInfo @ 0x1408BF97C (KsepDbGetShimInfo.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140371724 (KsepPoolFreePaged.c)
- *     KsepStringFree @ 0x14075B800 (KsepStringFree.c)
+ *     KsepPoolFreePaged @ 0x140371274 (KsepPoolFreePaged.c)
+ *     KsepStringFree @ 0x14075B9C0 (KsepStringFree.c)
  */
 
 void __fastcall KsepDbFreeDriverShims(_QWORD *a1, unsigned int a2)

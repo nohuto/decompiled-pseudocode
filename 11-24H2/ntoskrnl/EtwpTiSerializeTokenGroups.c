@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTiSerializeTokenGroups @ 0x140A70B58
+ * XREFs of EtwpTiSerializeTokenGroups @ 0x140A69FE8
  * Callers:
- *     EtwpTiQueryTokenIdentity @ 0x140A70AB4 (EtwpTiQueryTokenIdentity.c)
+ *     EtwpTiQueryTokenIdentity @ 0x140A69F44 (EtwpTiQueryTokenIdentity.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall EtwpTiSerializeTokenGroups(PSID *a1, unsigned int a2, _DWORD *a3, __int64 *a4)
+__int64 __fastcall EtwpTiSerializeTokenGroups(PSID *a1, unsigned int a2, unsigned int *a3, __int64 *a4)
 {
   unsigned int v4; // edi
   __int64 *v6; // r15
-  int v8; // ebp
+  unsigned int v8; // ebp
   __int64 v9; // rsi
   PSID *v10; // r14
   __int64 v11; // r13
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpTiSerializeTokenGroups(PSID *a1, unsigned int a2, _DWORD 
     }
     while ( v11 );
     v13 = a1;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v8, 0x6E734954u);
     v15 = Pool2;
     if ( Pool2 )
     {

@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGetSessionSchedulingGroupByProcess @ 0x14046EE54
+ * XREFs of MmGetSessionSchedulingGroupByProcess @ 0x14046DD24
  * Callers:
- *     PsQueryCpuQuotaInformation @ 0x14014C8AC (PsQueryCpuQuotaInformation.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspEstablishDfssHierarchy @ 0x14054C034 (PspEstablishDfssHierarchy.c)
+ *     PsQueryCpuQuotaInformation @ 0x14014CE1C (PsQueryCpuQuotaInformation.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PspEstablishDfssHierarchy @ 0x14054C574 (PspEstablishDfssHierarchy.c)
  * Callees:
  *     <none>
  */

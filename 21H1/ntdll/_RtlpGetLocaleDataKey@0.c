@@ -10,26 +10,26 @@
 
 int __stdcall RtlpGetLocaleDataKey()
 {
-  _DWORD v1[6]; // [esp+8h] [ebp-20h] BYREF
-  HANDLE v2; // [esp+20h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+24h] [ebp-4h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+8h] [ebp-20h] BYREF
+  HANDLE Handle; // [esp+20h] [ebp-8h] BYREF
+  HANDLE KeyHandle; // [esp+24h] [ebp-4h] BYREF
 
+  KeyHandle = 0;
   Handle = 0;
-  v2 = 0;
-  if ( !gLocaleDataRegKey && OpenGlobalizationUserSettingsKey((void *)0x20019, (int)&v2) >= 0 )
+  if ( !gLocaleDataRegKey && OpenGlobalizationUserSettingsKey(0x20019u, &Handle) >= 0 )
   {
-    v1[1] = v2;
-    v1[0] = 24;
-    v1[3] = 64;
-    v1[2] = &`RtlpGetLocaleDataKey'::`2'::KeyPath;
-    v1[4] = 0;
-    v1[5] = 0;
-    if ( ZwOpenKey((int)&Handle, 0x80000000, (int)v1) >= 0
-      && _InterlockedCompareExchange(&gLocaleDataRegKey, (signed __int32)Handle, 0) )
+    ObjectAttributes.RootDirectory = Handle;
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&`RtlpGetLocaleDataKey'::`2'::KeyPath;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    if ( ZwOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes) >= 0
+      && _InterlockedCompareExchange(&gLocaleDataRegKey, (signed __int32)KeyHandle, 0) )
     {
-      NtClose(Handle);
+      NtClose(KeyHandle);
     }
-    NtClose(v2);
+    NtClose(Handle);
   }
   return gLocaleDataRegKey;
 }

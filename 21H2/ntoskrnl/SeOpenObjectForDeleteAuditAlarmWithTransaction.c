@@ -1,20 +1,20 @@
 /*
- * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140921810
+ * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140921970
  * Callers:
- *     SeOpenObjectForDeleteAuditAlarm @ 0x1409217B0 (SeOpenObjectForDeleteAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarm @ 0x140921910 (SeOpenObjectForDeleteAuditAlarm.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140627514 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1406279F0 (SepAdtAuditPrivilegeUseWithContext.c)
- *     SepQueryNameString @ 0x14071869C (SepQueryNameString.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14091F498 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x14091FD20 (SepAdtOpenObjectForDeleteAuditAlarm.c)
- *     SepQueryTypeString @ 0x140920704 (SepQueryTypeString.c)
- *     SeExamineSacl @ 0x140921420 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x140924A18 (SeExamineGlobalSacl.c)
- *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x140693624 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140693B00 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepQueryNameString @ 0x1406C6CEC (SepQueryNameString.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F5F8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x14091FE80 (SepAdtOpenObjectForDeleteAuditAlarm.c)
+ *     SepQueryTypeString @ 0x140920864 (SepQueryTypeString.c)
+ *     SeExamineSacl @ 0x140921580 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x140924B78 (SeExamineGlobalSacl.c)
+ *     SepAuditFailed @ 0x140925A60 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(

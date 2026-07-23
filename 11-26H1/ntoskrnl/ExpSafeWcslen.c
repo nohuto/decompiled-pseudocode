@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpSafeWcslen @ 0x140A94B34
+ * XREFs of ExpSafeWcslen @ 0x140A2D384
  * Callers:
- *     ExpSetBootEntry @ 0x14083BEC0 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x14083C5DC (ExpSetDriverEntry.c)
- *     NtEnumerateDriverEntries @ 0x14083D430 (NtEnumerateDriverEntries.c)
- *     NtEnumerateBootEntries @ 0x140A94460 (NtEnumerateBootEntries.c)
- *     ExpVerifyWindowsOsOptions @ 0x140A94AC0 (ExpVerifyWindowsOsOptions.c)
- *     ExpVerifyFilePath @ 0x140A94FDC (ExpVerifyFilePath.c)
+ *     ExpSetBootEntry @ 0x140842100 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x14084281C (ExpSetDriverEntry.c)
+ *     NtEnumerateDriverEntries @ 0x140843670 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateBootEntries @ 0x140A2CCB0 (NtEnumerateBootEntries.c)
+ *     ExpVerifyWindowsOsOptions @ 0x140A2D310 (ExpVerifyWindowsOsOptions.c)
+ *     ExpVerifyFilePath @ 0x140A2D82C (ExpVerifyFilePath.c)
  * Callees:
  *     <none>
  */

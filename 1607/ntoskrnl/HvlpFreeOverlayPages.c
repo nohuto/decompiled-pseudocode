@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlpFreeOverlayPages @ 0x140112194
+ * XREFs of HvlpFreeOverlayPages @ 0x1401126F8
  * Callers:
- *     HvlInitializeProcessor @ 0x14054E4D8 (HvlInitializeProcessor.c)
- *     HvlDeleteProcessor @ 0x1406203EC (HvlDeleteProcessor.c)
+ *     HvlInitializeProcessor @ 0x14054E878 (HvlInitializeProcessor.c)
+ *     HvlDeleteProcessor @ 0x1406204A0 (HvlDeleteProcessor.c)
  * Callees:
  *     <none>
  */

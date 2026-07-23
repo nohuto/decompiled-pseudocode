@@ -1,15 +1,15 @@
 /*
- * XREFs of BCryptGetProperty @ 0x140761EE0
+ * XREFs of BCryptGetProperty @ 0x1407620D0
  * Callers:
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055DBB4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_SymmetricEncryptionSetup @ 0x14055E694 (SecureDump_SymmetricEncryptionSetup.c)
- *     WbHashData @ 0x140761DC0 (WbHashData.c)
- *     RtlGenerateClass5Guid @ 0x1408107E0 (RtlGenerateClass5Guid.c)
- *     SmCrEncStart @ 0x1409DA82C (SmCrEncStart.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055E274 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x14055ED54 (SecureDump_SymmetricEncryptionSetup.c)
+ *     WbHashData @ 0x140761FB0 (WbHashData.c)
+ *     RtlGenerateClass5Guid @ 0x140810AB0 (RtlGenerateClass5Guid.c)
+ *     SmCrEncStart @ 0x1409DAA2C (SmCrEncStart.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x1402FA6D0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402FA700 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptGetProperty(

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTscCompatibilitySynchronization @ 0x140583ACC
+ * XREFs of HalpTscCompatibilitySynchronization @ 0x140585FEC
  * Callers:
- *     HalpTscSynchronizationWorker @ 0x140584040 (HalpTscSynchronizationWorker.c)
+ *     HalpTscSynchronizationWorker @ 0x140586560 (HalpTscSynchronizationWorker.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
  */
 
 char HalpTscCompatibilitySynchronization()

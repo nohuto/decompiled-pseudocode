@@ -1,16 +1,16 @@
 /*
- * XREFs of SymCryptHashAppendInternal @ 0x18003898C
+ * XREFs of SymCryptHashAppendInternal @ 0x180022EFC
  * Callers:
- *     ImportTablepHashCanonicalLists @ 0x1800383D4 (ImportTablepHashCanonicalLists.c)
- *     SymCryptMd5Append @ 0x180038720 (SymCryptMd5Append.c)
- *     MD5Update_0 @ 0x1800387B0 (MD5Update_0.c)
- *     SymCryptSha1Append @ 0x180039CF0 (SymCryptSha1Append.c)
- *     MD4Update @ 0x1801589C0 (MD4Update.c)
- *     SymCryptMd4Append @ 0x18015E2C0 (SymCryptMd4Append.c)
+ *     ImportTablepHashCanonicalLists @ 0x180022944 (ImportTablepHashCanonicalLists.c)
+ *     SymCryptMd5Append @ 0x180022C90 (SymCryptMd5Append.c)
+ *     MD5Update_0 @ 0x180022D20 (MD5Update_0.c)
+ *     SymCryptSha1Append @ 0x180024260 (SymCryptSha1Append.c)
+ *     MD4Update @ 0x180158890 (MD4Update.c)
+ *     SymCryptMd4Append @ 0x18015E1C0 (SymCryptMd4Append.c)
  * Callees:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 size_t __fastcall SymCryptHashAppendInternal(__int64 a1, unsigned int *a2, char *a3, size_t a4)

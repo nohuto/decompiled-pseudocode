@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCreateInterrupt @ 0x14037D2A8
+ * XREFs of HalpCreateInterrupt @ 0x14037D448
  * Callers:
- *     HalpInterruptSetIdtEntry @ 0x14037D270 (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptSetIdtEntry @ 0x14037D410 (HalpInterruptSetIdtEntry.c)
  * Callees:
- *     HalpAllocateKInterrupt @ 0x14037D358 (HalpAllocateKInterrupt.c)
- *     KeConnectInterruptForHal @ 0x14037D440 (KeConnectInterruptForHal.c)
- *     KeInitializeInterrupt @ 0x14037D4B0 (KeInitializeInterrupt.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     HalpAllocateKInterrupt @ 0x14037D4F8 (HalpAllocateKInterrupt.c)
+ *     KeConnectInterruptForHal @ 0x14037D5E0 (KeConnectInterruptForHal.c)
+ *     KeInitializeInterrupt @ 0x14037D650 (KeInitializeInterrupt.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpCreateInterrupt(int a1, int a2, char a3, __int64 a4, __int64 a5)

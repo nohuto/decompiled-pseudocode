@@ -54,30 +54,29 @@ __int64 __fastcall CmpDeleteKeyObject(__int64 a1)
   __int64 v18; // rdx
   struct _KTHREAD *v19; // rcx
   char v20; // r13
-  __int64 v21; // rax
-  __int64 v22; // r8
-  __int64 v23; // r15
+  PRTL_BALANCED_NODE v21; // rax
+  PRTL_BALANCED_NODE v22; // r15
   unsigned __int8 CurrentIrql; // cl
-  _QWORD *v25; // rdi
-  _QWORD *v26; // rax
-  bool v27; // zf
-  unsigned __int8 v28; // di
-  signed __int32 v29; // eax
-  __int64 v30; // rcx
-  __int64 v31; // rdi
-  __int64 v32; // rax
-  struct _WORK_QUEUE_ITEM *v33; // rcx
-  struct _KEVENT *v34; // rcx
-  __int64 v35[2]; // [rsp+40h] [rbp-59h] BYREF
-  _QWORD v36[4]; // [rsp+50h] [rbp-49h] BYREF
-  _QWORD v37[4]; // [rsp+70h] [rbp-29h] BYREF
-  _QWORD v38[8]; // [rsp+90h] [rbp-9h] BYREF
-  unsigned __int8 v39; // [rsp+100h] [rbp+67h]
+  _QWORD *v24; // rdi
+  _QWORD *v25; // rax
+  bool v26; // zf
+  unsigned __int8 v27; // di
+  signed __int32 v28; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rdi
+  __int64 v31; // rax
+  struct _WORK_QUEUE_ITEM *v32; // rcx
+  struct _KEVENT *v33; // rcx
+  __int64 v34[2]; // [rsp+40h] [rbp-59h] BYREF
+  _QWORD v35[4]; // [rsp+50h] [rbp-49h] BYREF
+  _QWORD v36[4]; // [rsp+70h] [rbp-29h] BYREF
+  _QWORD v37[8]; // [rsp+90h] [rbp-9h] BYREF
+  unsigned __int8 v38; // [rsp+100h] [rbp+67h]
 
   v2 = 0;
-  memset(v37, 0, sizeof(v37));
-  v36[1] = v36;
-  v36[0] = v36;
+  memset(v36, 0, sizeof(v36));
+  v35[1] = v35;
+  v35[0] = v35;
   result = *(unsigned int *)(a1 + 48);
   if ( (result & 4) != 0 )
     return result;
@@ -87,9 +86,9 @@ __int64 __fastcall CmpDeleteKeyObject(__int64 a1)
   {
     if ( !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) )
     {
-      v37[0] = a1;
+      v36[0] = a1;
       LOBYTE(v5) = 1;
-      CmpCallCallBacksEx(14, (unsigned int)v37, 0, v5, 25, a1, (__int64)v36);
+      CmpCallCallBacksEx(14, (unsigned int)v36, 0, v5, 25, a1, (__int64)v35);
       if ( *(_DWORD *)a1 == 1803104306 && *(_QWORD *)(a1 + 72) != a1 + 72 )
       {
         CmpFireCleanupNotifications(a1);
@@ -99,16 +98,16 @@ __int64 __fastcall CmpDeleteKeyObject(__int64 a1)
   }
   if ( *(_QWORD *)(a1 + 56) )
     CmpTransDereferenceTransaction(*(_QWORD *)(a1 + 56));
-  v35[1] = (__int64)v35;
-  v6 = v35;
-  v35[0] = (__int64)v35;
+  v34[1] = (__int64)v34;
+  v6 = v34;
+  v34[0] = (__int64)v34;
   if ( !CmpPuntBoot )
   {
     PsBoostThreadIo((__int64)KeGetCurrentThread(), 0LL);
     v7 = KeGetCurrentThread();
     --v7->KernelApcDisable;
     ExAcquireResourceSharedLite((PERESOURCE)&CmpRegistryLock, 1u);
-    v6 = (__int64 *)v35[0];
+    v6 = (__int64 *)v34[0];
   }
   v8 = *(_QWORD *)(a1 + 8);
   if ( *(_DWORD *)a1 == 1803104306 )
@@ -118,7 +117,7 @@ __int64 __fastcall CmpDeleteKeyObject(__int64 a1)
       if ( *(_QWORD *)(a1 + 16) )
       {
         CmpLockKcbExclusive(v8);
-        CmpFlushNotify(a1, 0LL, v35);
+        CmpFlushNotify(a1, 0LL, v34);
         CmpUnlockKcb(v8);
       }
       v9 = 0;
@@ -166,41 +165,41 @@ LABEL_28:
         {
 LABEL_51:
           v20 = 0;
-          v21 = KeAbPreAcquire((ULONG_PTR)&CmpDelayDerefKCBLock, 0LL, 0LL);
-          v23 = v21;
+          v21 = KeAbPreAcquire((ULONG_PTR)&CmpDelayDerefKCBLock, 0LL, 0);
+          v22 = v21;
           CurrentIrql = KeGetCurrentIrql();
-          v39 = CurrentIrql;
+          v38 = CurrentIrql;
           __writecr8(1uLL);
           if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayDerefKCBLock, 0) )
           {
-            ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayDerefKCBLock, v21, v22);
-            CurrentIrql = v39;
+            ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayDerefKCBLock, (__int64)v21);
+            CurrentIrql = v38;
           }
-          if ( v23 )
-            *(_BYTE *)(v23 + 26) |= 1u;
+          if ( v22 )
+            BYTE2(v22[1].Left) |= 1u;
           *(&CmpDelayDerefKCBLock + 1) = (ULONG_PTR)KeGetCurrentThread();
           *((_DWORD *)&CmpDelayDerefKCBLock + 12) = CurrentIrql;
           *(_BYTE *)(v8 + 56) |= 1u;
-          v25 = (_QWORD *)(v8 + 216);
-          v26 = (_QWORD *)qword_14036B0B8;
+          v24 = (_QWORD *)(v8 + 216);
+          v25 = (_QWORD *)qword_14036B0B8;
           if ( *(__int64 **)qword_14036B0B8 != &CmpDelayDerefKCBListHead )
             __fastfail(3u);
-          v27 = CmpDelayDerefKCBWorkItemActive == 0;
-          *v25 = &CmpDelayDerefKCBListHead;
-          v25[1] = v26;
-          *v26 = v25;
-          qword_14036B0B8 = (__int64)v25;
-          if ( v27 )
+          v26 = CmpDelayDerefKCBWorkItemActive == 0;
+          *v24 = &CmpDelayDerefKCBListHead;
+          v24[1] = v25;
+          *v25 = v24;
+          qword_14036B0B8 = (__int64)v24;
+          if ( v26 )
           {
             CmpDelayDerefKCBWorkItemActive = 1;
             v20 = 1;
           }
-          v28 = *((_BYTE *)&CmpDelayDerefKCBLock + 48);
+          v27 = *((_BYTE *)&CmpDelayDerefKCBLock + 48);
           *(&CmpDelayDerefKCBLock + 1) = 0LL;
-          v29 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpDelayDerefKCBLock, 1, 0);
-          if ( v29 )
-            ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpDelayDerefKCBLock, v29);
-          __writecr8(v28);
+          v28 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpDelayDerefKCBLock, 1, 0);
+          if ( v28 )
+            ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpDelayDerefKCBLock, v28);
+          __writecr8(v27);
           KeAbPostRelease((ULONG_PTR)&CmpDelayDerefKCBLock);
           if ( v20 )
             CmpArmDelayDerefKCBWorker();
@@ -227,7 +226,7 @@ LABEL_36:
         *(_DWORD *)(v15 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(v15 + 5500), 1u) & 0x7F) + 5504) = 18;
         CmpDoQueueLateUnloadWorker(v15);
       }
-      v6 = (__int64 *)v35[0];
+      v6 = (__int64 *)v34[0];
     }
   }
   else if ( v8 )
@@ -248,44 +247,44 @@ LABEL_36:
   PsBoostThreadIo((__int64)KeGetCurrentThread(), v18);
   while ( 1 )
   {
-    v6 = (__int64 *)v35[0];
+    v6 = (__int64 *)v34[0];
 LABEL_42:
-    if ( v6 == v35 )
+    if ( v6 == v34 )
       break;
-    v30 = *v6;
-    if ( (__int64 *)v6[1] != v35 || *(__int64 **)(v30 + 8) != v6 )
+    v29 = *v6;
+    if ( (__int64 *)v6[1] != v34 || *(__int64 **)(v29 + 8) != v6 )
       __fastfail(3u);
-    v35[0] = *v6;
-    v31 = (__int64)(v6 - 2);
-    *(_QWORD *)(v30 + 8) = v35;
+    v34[0] = *v6;
+    v30 = (__int64)(v6 - 2);
+    *(_QWORD *)(v29 + 8) = v34;
     if ( (unsigned __int16)*((_DWORD *)v6 + 10) != 3 )
     {
-      v34 = **(struct _KEVENT ***)(v31 + 64);
+      v33 = **(struct _KEVENT ***)(v30 + 64);
 LABEL_85:
-      KeSetEvent(v34, 0, 0);
-      ObfDereferenceObject(**(PVOID **)(v31 + 64));
+      KeSetEvent(v33, 0, 0);
+      ObfDereferenceObject(**(PVOID **)(v30 + 64));
       goto LABEL_86;
     }
-    v32 = *(_QWORD *)(v31 + 64);
-    v33 = *(struct _WORK_QUEUE_ITEM **)(v32 + 8);
+    v31 = *(_QWORD *)(v30 + 64);
+    v32 = *(struct _WORK_QUEUE_ITEM **)(v31 + 8);
+    if ( v32 )
+      ExQueueWorkItem(v32, *(WORK_QUEUE_TYPE *)(v31 + 16));
+    v33 = **(struct _KEVENT ***)(v30 + 64);
     if ( v33 )
-      ExQueueWorkItem(v33, *(WORK_QUEUE_TYPE *)(v32 + 16));
-    v34 = **(struct _KEVENT ***)(v31 + 64);
-    if ( v34 )
       goto LABEL_85;
 LABEL_86:
-    CmpFreePostBlock(v31);
+    CmpFreePostBlock(v30);
   }
-  if ( CmpCallBackCount && !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) && (_QWORD *)v36[0] != v36 )
+  if ( CmpCallBackCount && !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) && (_QWORD *)v35[0] != v35 )
   {
-    memset(&v38[1], 0, 0x30uLL);
-    v38[0] = 0LL;
-    v38[2] = v37;
-    LODWORD(v38[1]) = 0;
-    v36[2] = v38;
-    LODWORD(v38[3]) = 0;
-    v36[3] = 0LL;
-    CmpCallCallBacksEx(25, (unsigned int)v38, 0, 0, 25, 0LL, (__int64)v36);
+    memset(&v37[1], 0, 0x30uLL);
+    v37[0] = 0LL;
+    v37[2] = v36;
+    LODWORD(v37[1]) = 0;
+    v35[2] = v37;
+    LODWORD(v37[3]) = 0;
+    v35[3] = 0LL;
+    CmpCallCallBacksEx(25, (unsigned int)v37, 0, 0, 25, 0LL, (__int64)v35);
   }
   if ( v2 && *(char *)(a1 - 21) < 0 )
     CmpWaitForLateUnloadWorker();

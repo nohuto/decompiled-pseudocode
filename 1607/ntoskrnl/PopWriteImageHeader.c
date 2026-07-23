@@ -3,9 +3,9 @@
  * Callers:
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  * Callees:
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     tcpxsum @ 0x140166AC0 (tcpxsum.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x140167030 (tcpxsum.c)
  *     PopWriteHiberPages @ 0x1403CBF00 (PopWriteHiberPages.c)
  */
 
@@ -36,40 +36,40 @@ __int64 __fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, 
     KeBugCheckEx(0xA0u, 0x109uLL, 0xAuLL, *(unsigned int *)(a2 + 80), BugCheckParameter4);
   }
   v8 = __rdtsc();
-  qword_1403038D0 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
-  dword_140303A84 = ((unsigned int)dword_1403035A0 >> 4) - 1;
+  qword_140303810 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
+  dword_1403039C4 = ((unsigned int)dword_1403034E0 >> 4) - 1;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   v10 = 0;
-  qword_140303900 = PerformanceCounter.QuadPart;
+  qword_140303840 = PerformanceCounter.QuadPart;
   if ( *(_DWORD *)(a1 + 264) )
   {
-    v11 = qword_140303A50;
-    v12 = qword_1403038E0;
-    v13 = qword_1403038D8;
+    v11 = qword_140303990;
+    v12 = qword_140303820;
+    v13 = qword_140303818;
     do
     {
       v14 = v10++;
       v14 <<= 7;
       v11 += *(_QWORD *)(*(_QWORD *)(a1 + 272) + v14 + 56);
-      qword_140303A50 = v11;
+      qword_140303990 = v11;
       v13 += *(_QWORD *)(*(_QWORD *)(a1 + 272) + v14 + 40);
-      qword_1403038D8 = v13;
+      qword_140303818 = v13;
       v12 += *(_QWORD *)(*(_QWORD *)(a1 + 272) + v14 + 80);
-      qword_1403038E0 = v12;
+      qword_140303820 = v12;
     }
     while ( v10 < *(_DWORD *)(a1 + 264) );
   }
-  qword_140303A60 = qword_140303A78;
-  qword_140303A70 = (unsigned int)dword_140303A80;
-  qword_140303A78 += qword_140303A58;
-  v15 = qword_140303A48;
-  dword_140303A80 += qword_140303A68;
-  *(_QWORD *)(a2 + 88) = qword_140303A48;
-  if ( byte_1403035C1 )
-    *(_QWORD *)(a2 + 88) = qword_140303A50 + v15;
+  qword_1403039A0 = qword_1403039B8;
+  qword_1403039B0 = (unsigned int)dword_1403039C0;
+  qword_1403039B8 += qword_140303998;
+  v15 = qword_140303988;
+  dword_1403039C0 += qword_1403039A8;
+  *(_QWORD *)(a2 + 88) = qword_140303988;
+  if ( byte_140303501 )
+    *(_QWORD *)(a2 + 88) = qword_140303990 + v15;
   v16 = 3LL;
   v17 = (_OWORD *)(a2 + 136);
-  v18 = &qword_1403038B8;
+  v18 = &qword_1403037F8;
   do
   {
     *v17 = *(_OWORD *)v18;

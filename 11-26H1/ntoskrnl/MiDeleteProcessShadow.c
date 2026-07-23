@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDeleteProcessShadow @ 0x140483DCC
+ * XREFs of MiDeleteProcessShadow @ 0x14047D73C
  * Callers:
- *     MiDeleteFinalPageTables @ 0x1404CE05C (MiDeleteFinalPageTables.c)
- *     MmCreateProcessAddressSpace @ 0x140ABD3B0 (MmCreateProcessAddressSpace.c)
- *     MmSynchronizeAddressPolicy @ 0x140B256A0 (MmSynchronizeAddressPolicy.c)
+ *     MiDeleteFinalPageTables @ 0x1404C7A8C (MiDeleteFinalPageTables.c)
+ *     MmCreateProcessAddressSpace @ 0x140ABF9A0 (MmCreateProcessAddressSpace.c)
+ *     MmSynchronizeAddressPolicy @ 0x140B27900 (MmSynchronizeAddressPolicy.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     KeFlushProcessTb @ 0x1404840AC (KeFlushProcessTb.c)
- *     MiDeleteTopLevelPage @ 0x1404840DC (MiDeleteTopLevelPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     KeFlushProcessTb @ 0x14047DA1C (KeFlushProcessTb.c)
+ *     MiDeleteTopLevelPage @ 0x14047DA4C (MiDeleteTopLevelPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiDeleteProcessShadow(__int64 a1, __int64 a2)
@@ -47,7 +47,7 @@ void __fastcall MiDeleteProcessShadow(__int64 a1, __int64 a2)
   {
     v4 = *(unsigned __int16 *)(a1 + 1198);
     v5 = a1 + 1024;
-    v6 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v4);
+    v6 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v4);
     if ( (_DWORD)a2 )
     {
       v7 = MiLockWorkingSetExclusive(a1 + 1024, a2, v4);
@@ -116,14 +116,14 @@ LABEL_8:
         KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
       }
 LABEL_15:
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36080);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36200);
       v13 = (__int64 *)(((*(_QWORD *)(v3 + 1288) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
       PteShadow = *v13;
       if ( (unsigned __int64)v13 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v13 <= 0xFFFFF6FB7DBED7F8uLL )
         PteShadow = MiReadPteShadow(((*(_QWORD *)(v3 + 1288) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, *v13);
       *(_QWORD *)(v3 + 1288) = 0LL;
       v15 = (PteShadow >> 12) & 0xFFFFFFFFFFLL;
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36080);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36200);
       *(_QWORD *)(v3 + 344) = KiFlushPcid != 0;
       if ( v2 )
       {
@@ -135,7 +135,7 @@ LABEL_15:
           KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
         __writecr8(CurrentIrql);
       }
-      MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v13, 1u);
+      MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v13, 1u);
       KeFlushProcessTb(v15 << 12);
       if ( (unsigned int)MiDeleteTopLevelPage(v16, v15) != 3 )
         MiReleaseNonPagedResources(v6, 1LL);

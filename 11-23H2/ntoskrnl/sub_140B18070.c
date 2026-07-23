@@ -1,18 +1,18 @@
 /*
  * XREFs of sub_140B18070 @ 0x140B18070
  * Callers:
- *     sub_1403E5840 @ 0x1403E5840 (sub_1403E5840.c)
+ *     sub_1403E5A20 @ 0x1403E5A20 (sub_1403E5A20.c)
  *     FsRtlMdlReadCompleteDevEx @ 0x140AFA010 (FsRtlMdlReadCompleteDevEx.c)
  *     sub_140B0D7A8 @ 0x140B0D7A8 (sub_140B0D7A8.c)
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  * Callees:
- *     KeInitializeGate @ 0x140293234 (KeInitializeGate.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     sub_1403F1B8C @ 0x1403F1B8C (sub_1403F1B8C.c)
- *     sub_1403F1BE8 @ 0x1403F1BE8 (sub_1403F1BE8.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MmImageSectionPagable @ 0x140703A90 (MmImageSectionPagable.c)
+ *     KeInitializeGate @ 0x1402934C4 (KeInitializeGate.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     sub_1403F1D6C @ 0x1403F1D6C (sub_1403F1D6C.c)
+ *     sub_1403F1DC8 @ 0x1403F1DC8 (sub_1403F1DC8.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MmImageSectionPagable @ 0x140703CA0 (MmImageSectionPagable.c)
  *     sub_140B11020 @ 0x140B11020 (sub_140B11020.c)
  *     $$ba @ 0x140B11898 ($$ba.c)
  *     KeGuardDispatchICall @ 0x140B137A0 (KeGuardDispatchICall.c)
@@ -891,7 +891,7 @@ LABEL_159:
                 while ( v121 < (unsigned int)v120 );
                 v136 = v210;
                 v119 = v225;
-                sub_1403F1BE8((__int64)v22, v225, v120);
+                sub_1403F1DC8((__int64)v22, v225, v120);
                 v137 = v233;
                 v205 = (unsigned int)v120;
                 v138 = v136 + 16;
@@ -1244,7 +1244,7 @@ LABEL_235:
       if ( (*(_DWORD *)(v173 + 2448) & 0x40000000) != 0 )
       {
         if ( (_DWORD)v168 )
-          sub_1403F1B8C(v173, v39, v168, v181 + 28);
+          sub_1403F1D6C(v173, v39, v168, v181 + 28);
       }
       *(_DWORD *)(v181 + 24) = 1;
       *(_QWORD *)a1 = v173;

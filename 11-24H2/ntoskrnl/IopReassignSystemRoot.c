@@ -1,40 +1,35 @@
 /*
- * XREFs of IopReassignSystemRoot @ 0x140C1CFA0
+ * XREFs of IopReassignSystemRoot @ 0x140C1EFE0
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     RtlUnicodeStringToAnsiString @ 0x1408AEF80 (RtlUnicodeStringToAnsiString.c)
- *     NtOpenSymbolicLinkObject @ 0x1409DF9A0 (NtOpenSymbolicLinkObject.c)
- *     NtQuerySymbolicLinkObject @ 0x1409E41F0 (NtQuerySymbolicLinkObject.c)
- *     NtCreateSymbolicLinkObject @ 0x140A299C0 (NtCreateSymbolicLinkObject.c)
- *     NtMakeTemporaryObject @ 0x140A682C0 (NtMakeTemporaryObject.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1409051E0 (RtlUnicodeStringToAnsiString.c)
+ *     NtMakeTemporaryObject @ 0x1409B92A0 (NtMakeTemporaryObject.c)
+ *     NtOpenSymbolicLinkObject @ 0x1409D9750 (NtOpenSymbolicLinkObject.c)
+ *     NtQuerySymbolicLinkObject @ 0x1409DEC50 (NtQuerySymbolicLinkObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x140A1E380 (NtCreateSymbolicLinkObject.c)
  */
 
-char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)
+char __fastcall IopReassignSystemRoot(__int64 a1, _STRING *a2)
 {
   __int64 v2; // r9
-  int v4; // eax
-  int SymbolicLinkObject; // ebx
-  HANDLE Handle; // [rsp+20h] [rbp-E0h] BYREF
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // ebx
+  HANDLE LinkHandle; // [rsp+20h] [rbp-E0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+28h] [rbp-D8h] BYREF
-  _DWORD v9[2]; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v10; // [rsp+40h] [rbp-C0h]
-  UNICODE_STRING *p_DestinationString; // [rsp+48h] [rbp-B8h]
-  int v12; // [rsp+50h] [rbp-B0h]
-  int v13; // [rsp+54h] [rbp-ACh]
-  __int128 v14; // [rsp+58h] [rbp-A8h]
-  UNICODE_STRING v15; // [rsp+68h] [rbp-98h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-C8h] BYREF
+  UNICODE_STRING v10; // [rsp+68h] [rbp-98h] BYREF
   wchar_t pszDest[256]; // [rsp+80h] [rbp-80h] BYREF
 
   v2 = *(_QWORD *)(a1 + 184);
-  v9[1] = 0;
-  v13 = 0;
-  Handle = 0LL;
-  v15 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  LinkHandle = 0LL;
+  v10 = 0LL;
   DestinationString = 0LL;
   if ( RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\ArcName\\%S", v2) < 0 )
     return 0;
@@ -42,42 +37,42 @@ char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)
   DestinationString.MaximumLength = 512;
   while ( 1 )
   {
-    v9[0] = 48;
-    p_DestinationString = &DestinationString;
-    v10 = 0LL;
-    v12 = 576;
-    v14 = 0LL;
-    v4 = NtOpenSymbolicLinkObject(&Handle, 983041, (__int64)v9);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v4 = NtOpenSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes);
     if ( v4 == -1073741788 )
       break;
     if ( v4 >= 0 )
     {
       DestinationString.Length = 0;
-      SymbolicLinkObject = NtQuerySymbolicLinkObject(Handle, (unsigned __int64)&DestinationString, 0LL);
-      ObCloseHandle(Handle, 0);
-      if ( SymbolicLinkObject >= 0 )
+      v5 = NtQuerySymbolicLinkObject(LinkHandle, &DestinationString, 0LL);
+      ObCloseHandle(LinkHandle, 0);
+      if ( v5 >= 0 )
         continue;
     }
     return 0;
   }
   if ( RtlUnicodeStringToAnsiString(a2, &DestinationString, 0) < 0 )
     return 0;
-  RtlInitUnicodeString(&v15, L"\\Device\\BootDevice");
-  v9[0] = 48;
-  p_DestinationString = &v15;
-  v10 = 0LL;
-  v12 = 576;
-  v14 = 0LL;
-  if ( (int)NtOpenSymbolicLinkObject(&Handle, 983041, (__int64)v9) < 0 )
+  RtlInitUnicodeString(&v10, L"\\Device\\BootDevice");
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &v10;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtOpenSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes) < 0 )
     return 0;
-  NtMakeTemporaryObject(Handle);
-  ObCloseHandle(Handle, 0);
-  v9[0] = 48;
-  p_DestinationString = &v15;
-  v10 = 0LL;
-  v12 = 592;
-  v14 = 0LL;
-  NtCreateSymbolicLinkObject((unsigned __int64)&Handle, 983041, (__int64)v9, &DestinationString);
-  ObCloseHandle(Handle, 0);
+  NtMakeTemporaryObject(LinkHandle);
+  ObCloseHandle(LinkHandle, 0);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &v10;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 592;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  NtCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &DestinationString);
+  ObCloseHandle(LinkHandle, 0);
   return 1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409237CC
+ * XREFs of SepDeleteUnreferencedLogonSessionsInSilo @ 0x14092392C
  * Callers:
- *     SeShutdownServerSilo @ 0x14091C1C4 (SeShutdownServerSilo.c)
+ *     SeShutdownServerSilo @ 0x14091C324 (SeShutdownServerSilo.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     SepDeleteLogonSessionTrack @ 0x14077A670 (SepDeleteLogonSessionTrack.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     SepDeleteLogonSessionTrack @ 0x14077A830 (SepDeleteLogonSessionTrack.c)
  */
 
 struct _KTHREAD *__fastcall SepDeleteUnreferencedLogonSessionsInSilo(struct _LIST_ENTRY *a1)
@@ -22,8 +22,14 @@ struct _KTHREAD *__fastcall SepDeleteUnreferencedLogonSessionsInSilo(struct _LIS
   struct _ERESOURCE *v8; // r15
   __int64 i; // rcx
   __int64 v10; // rdx
-  struct _KTHREAD *v11; // rax
-  __int64 v13; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  struct _KTHREAD *v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v19; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0LL;
   v3 = PsAttachSiloToCurrentThread(a1);
@@ -43,19 +49,19 @@ struct _KTHREAD *__fastcall SepDeleteUnreferencedLogonSessionsInSilo(struct _LIS
         v10 = *(_QWORD *)(i + 24);
         if ( !v10 || (*(_DWORD *)(i + 32) & 8) == 0 && v10 == 1 )
         {
-          v13 = *(_QWORD *)(i + 8);
+          v19 = *(_QWORD *)(i + 8);
           ExReleaseResourceLite(v8);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-          SepDeleteLogonSessionTrack(&v13, 0);
-          v11 = KeGetCurrentThread();
-          --v11->KernelApcDisable;
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v12, v13);
+          SepDeleteLogonSessionTrack(&v19, 0);
+          v14 = KeGetCurrentThread();
+          --v14->KernelApcDisable;
           ExAcquireResourceExclusiveLite(v8, 1u);
           i = SepLogonSessions + 8 * v2;
         }
       }
     }
     ExReleaseResourceLite(v8);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v15, v16, v17);
     ++v2;
     v4 += 8LL;
     --v5;

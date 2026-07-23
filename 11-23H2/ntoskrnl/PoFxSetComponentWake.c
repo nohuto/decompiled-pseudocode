@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxSetComponentWake @ 0x140588890
+ * XREFs of PoFxSetComponentWake @ 0x140588D80
  * Callers:
- *     DifPoFxSetComponentWakeWrapper @ 0x1405E9DC0 (DifPoFxSetComponentWakeWrapper.c)
+ *     DifPoFxSetComponentWakeWrapper @ 0x1405EA330 (DifPoFxSetComponentWakeWrapper.c)
  * Callees:
- *     PopDiagTraceFxComponentWake @ 0x140593058 (PopDiagTraceFxComponentWake.c)
- *     PopPepComponentSetWakeHint @ 0x14059ECB0 (PopPepComponentSetWakeHint.c)
+ *     PopDiagTraceFxComponentWake @ 0x140593548 (PopDiagTraceFxComponentWake.c)
+ *     PopPepComponentSetWakeHint @ 0x14059F1A0 (PopPepComponentSetWakeHint.c)
  */
 
 __int64 __fastcall PoFxSetComponentWake(__int64 a1, unsigned int a2, char a3)

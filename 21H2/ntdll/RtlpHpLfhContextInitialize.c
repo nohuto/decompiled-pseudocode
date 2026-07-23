@@ -4,7 +4,7 @@
  *     RtlpHpHeapCreate @ 0x18000821C (RtlpHpHeapCreate.c)
  * Callees:
  *     RtlQueryResourcePolicy @ 0x180044700 (RtlQueryResourcePolicy.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextInitialize(

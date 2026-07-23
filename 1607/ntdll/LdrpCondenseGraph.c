@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpCondenseGraph @ 0x180074624
+ * XREFs of LdrpCondenseGraph @ 0x180074614
  * Callers:
- *     LdrpLoadDllInternal @ 0x180018D30 (LdrpLoadDllInternal.c)
- *     LdrpPrepareModuleForExecution @ 0x18002DA88 (LdrpPrepareModuleForExecution.c)
+ *     LdrpLoadDllInternal @ 0x180018D20 (LdrpLoadDllInternal.c)
+ *     LdrpPrepareModuleForExecution @ 0x18002DA78 (LdrpPrepareModuleForExecution.c)
  * Callees:
- *     LdrpCondenseGraphRecurse @ 0x180074658 (LdrpCondenseGraphRecurse.c)
+ *     LdrpCondenseGraphRecurse @ 0x180074648 (LdrpCondenseGraphRecurse.c)
  */
 
 _UNKNOWN **__fastcall LdrpCondenseGraph(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopCalculateIdleInformation @ 0x1402DEFA8
+ * XREFs of PopCalculateIdleInformation @ 0x1402DF198
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1402DE260 (PdcPoCurrentPdcPhase.c)
- *     PopCalculateCsSummary @ 0x1402DEB58 (PopCalculateCsSummary.c)
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14086DFF0 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x14086E420 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogStartWatchdog @ 0x14086E92C (PopDripsWatchdogStartWatchdog.c)
- *     PopDripsWatchdogWorkerRoutine @ 0x140879C20 (PopDripsWatchdogWorkerRoutine.c)
- *     PopSetDripsWatchdog @ 0x14087A050 (PopSetDripsWatchdog.c)
+ *     PdcPoCurrentPdcPhase @ 0x1402DE450 (PdcPoCurrentPdcPhase.c)
+ *     PopCalculateCsSummary @ 0x1402DED48 (PopCalculateCsSummary.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14086F250 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14086F680 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x14086FB8C (PopDripsWatchdogStartWatchdog.c)
+ *     PopDripsWatchdogWorkerRoutine @ 0x14087AE80 (PopDripsWatchdogWorkerRoutine.c)
+ *     PopSetDripsWatchdog @ 0x14087B2B0 (PopSetDripsWatchdog.c)
  * Callees:
- *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
- *     PpmQueryPlatformStateResidency @ 0x1402D56DC (PpmQueryPlatformStateResidency.c)
+ *     PpmConvertTime @ 0x1400A7C54 (PpmConvertTime.c)
+ *     PpmQueryPlatformStateResidency @ 0x1402D58CC (PpmQueryPlatformStateResidency.c)
  */
 
 unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
     v5 = 0;
   }
   v15 = 0LL;
-  PlatformStateResidency = PpmQueryPlatformStateResidency(dword_14043C4C0);
+  PlatformStateResidency = PpmQueryPlatformStateResidency(dword_14043D580);
   if ( PlatformStateResidency != -1LL )
     PlatformStateResidency /= 0xAuLL;
   v7 = 0;
@@ -54,7 +54,7 @@ unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
   if ( v4 )
   {
     v9 = (unsigned __int64 *)(v3 + 56);
-    v10 = dword_14043C4C0;
+    v10 = dword_14043D580;
     do
     {
       v14 = PopQpcFrequency;

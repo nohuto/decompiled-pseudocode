@@ -1,33 +1,33 @@
 /*
- * XREFs of MiUnlockAndDereferenceVadShared @ 0x1402BB330
+ * XREFs of MiUnlockAndDereferenceVadShared @ 0x140362A70
  * Callers:
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiReturnLockedVadOrNextVa @ 0x1402FC120 (MiReturnLockedVadOrNextVa.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiQueryImageExtensionInformation @ 0x140474954 (MiQueryImageExtensionInformation.c)
- *     MiCleanCfg @ 0x14048643C (MiCleanCfg.c)
- *     MiWaitForRotateToComplete @ 0x14049A424 (MiWaitForRotateToComplete.c)
- *     MiPrefetchPreallocatePages @ 0x1404D5620 (MiPrefetchPreallocatePages.c)
- *     MmGetEnclaveModuleList @ 0x140680BD8 (MmGetEnclaveModuleList.c)
- *     MiProcessVaContiguityInformation @ 0x14068D0DC (MiProcessVaContiguityInformation.c)
- *     MiHandleEnclaveFault @ 0x1406F95A8 (MiHandleEnclaveFault.c)
- *     MiHotPatchProcess @ 0x1407F2D08 (MiHotPatchProcess.c)
- *     MmGetImageInformation @ 0x140837878 (MmGetImageInformation.c)
- *     MmGetFileNameForAddress @ 0x140838768 (MmGetFileNameForAddress.c)
- *     NtAreMappedFilesTheSame @ 0x1408E8130 (NtAreMappedFilesTheSame.c)
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140987B34 (MiQueryMemoryPhysicalContiguity.c)
- *     MiCopyVirtualMemory @ 0x1409A9D80 (MiCopyVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x1409D1A4C (MmFlushVirtualMemory.c)
- *     MiCheckShadowStackOverflow @ 0x140A28288 (MiCheckShadowStackOverflow.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140A7084C (MiFinishPlaceholderVadReplacement.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiReturnLockedVadOrNextVa @ 0x140345020 (MiReturnLockedVadOrNextVa.c)
+ *     MiQueryImageExtensionInformation @ 0x140470764 (MiQueryImageExtensionInformation.c)
+ *     MiCleanCfg @ 0x140481A2C (MiCleanCfg.c)
+ *     MiWaitForRotateToComplete @ 0x140494E48 (MiWaitForRotateToComplete.c)
+ *     MiPrefetchPreallocatePages @ 0x1404CEA68 (MiPrefetchPreallocatePages.c)
+ *     MmGetEnclaveModuleList @ 0x140681DD8 (MmGetEnclaveModuleList.c)
+ *     MiProcessVaContiguityInformation @ 0x14068E20C (MiProcessVaContiguityInformation.c)
+ *     MiHandleEnclaveFault @ 0x1406F71E8 (MiHandleEnclaveFault.c)
+ *     MiHotPatchProcess @ 0x1407F32D8 (MiHotPatchProcess.c)
+ *     NtAreMappedFilesTheSame @ 0x1408D8910 (NtAreMappedFilesTheSame.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140970318 (MiQueryMemoryPhysicalContiguity.c)
+ *     MiCopyVirtualMemory @ 0x140993190 (MiCopyVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x1409C187C (MmFlushVirtualMemory.c)
+ *     MmGetImageInformation @ 0x1409F9444 (MmGetImageInformation.c)
+ *     MmGetFileNameForAddress @ 0x140A15B1C (MmGetFileNameForAddress.c)
+ *     MiCheckShadowStackOverflow @ 0x140A1CD08 (MiCheckShadowStackOverflow.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140A69CDC (MiFinishPlaceholderVadReplacement.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiUnlockAndDereferenceVadShared(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -65,7 +65,7 @@ void __fastcall MiUnlockAndDereferenceVadShared(__int64 a1, __int64 a2, __int64 
       && (a4 & 1) == 0 )
     {
       *(_BYTE *)(v6 + 10) = 0;
-      KiAbEntryFreeAndEnableInterrupts(v6, (ULONG_PTR)v15, a1 + 40, 1, 0LL);
+      KiAbEntryFreeAndEnableInterrupts(v6, (ULONG_PTR)v15, a1 + 40, 1LL, 0LL);
       goto LABEL_13;
     }
   }
@@ -91,7 +91,7 @@ void __fastcall MiUnlockAndDereferenceVadShared(__int64 a1, __int64 a2, __int64 
   _enable();
 LABEL_13:
   v10 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v10 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v10 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(CurrentPrcb, i, SchedulerAssist, a4);
   if ( v14 )
     ExFreePoolWithTag((PVOID)a1, 0);

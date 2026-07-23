@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpInitializeCallbacks @ 0x140C42828
+ * XREFs of ExpInitializeCallbacks @ 0x140C44978
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     NtCreateDirectoryObject @ 0x140A456D0 (NtCreateDirectoryObject.c)
- *     ExCreateCallback @ 0x140A64310 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     NtCreateDirectoryObject @ 0x140A3B280 (NtCreateDirectoryObject.c)
+ *     ExCreateCallback @ 0x140A5CC10 (ExCreateCallback.c)
  */
 
 char ExpInitializeCallbacks()
@@ -17,7 +17,7 @@ char ExpInitializeCallbacks()
   unsigned int v0; // ebx
   PCALLBACK_OBJECT *v1; // rcx
   _QWORD DestinationString[3]; // [rsp+20h] [rbp-91h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-79h] BYREF
+  HANDLE DirectoryHandle; // [rsp+38h] [rbp-79h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-71h] BYREF
   __int16 v6; // [rsp+78h] [rbp-39h] BYREF
   char v7; // [rsp+7Ah] [rbp-37h]
@@ -28,10 +28,10 @@ char ExpInitializeCallbacks()
   _QWORD *(__fastcall *v12)(__int64); // [rsp+C0h] [rbp+Fh]
 
   *(&ObjectAttributes.Attributes + 1) = 0;
-  Handle = 0LL;
+  DirectoryHandle = 0LL;
   ExpCallbackListLock = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
-  qword_140EFA788 = (__int64)&ExpCallbackListHead;
+  qword_140EFAAB8 = (__int64)&ExpCallbackListHead;
   ExpCallbackListHead = (__int64)&ExpCallbackListHead;
   *(_OWORD *)&DestinationString[1] = 0LL;
   RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"Callback");
@@ -52,9 +52,9 @@ char ExpInitializeCallbacks()
   ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultSd;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 80;
-  if ( (int)NtCreateDirectoryObject((__int64)&Handle, 983055LL, (__int64)&ObjectAttributes) < 0 )
+  if ( NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes) < 0 )
     return 0;
-  NtClose(Handle);
+  NtClose(DirectoryHandle);
   LOWORD(ExpCallbackEvent.Header.Lock) = 0;
   ExpCallbackEvent.Header.SignalState = 0;
   ExpCallbackEvent.Header.WaitListHead.Blink = &ExpCallbackEvent.Header.WaitListHead;

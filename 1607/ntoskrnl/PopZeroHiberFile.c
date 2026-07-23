@@ -1,12 +1,12 @@
 /*
- * XREFs of PopZeroHiberFile @ 0x14066E7DC
+ * XREFs of PopZeroHiberFile @ 0x14066E8C0
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
- *     PopEnableHiberFile @ 0x14056C7F8 (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x14056CD38 (PopEnableHiberFile.c)
  * Callees:
- *     MmZeroPageWrite @ 0x14006B26C (MmZeroPageWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
+ *     MmZeroPageWrite @ 0x14006ADEC (MmZeroPageWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
  *     PopDiagTraceZeroHiberFile @ 0x1403DF948 (PopDiagTraceZeroHiberFile.c)
  *     PopDiagTraceZeroHiberFileEnd @ 0x1403DF954 (PopDiagTraceZeroHiberFileEnd.c)
  */

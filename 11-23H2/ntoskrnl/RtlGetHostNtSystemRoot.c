@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetHostNtSystemRoot @ 0x1407EACB0
+ * XREFs of RtlGetHostNtSystemRoot @ 0x1407EAF80
  * Callers:
- *     IoConfigureCrashDump @ 0x14054F964 (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x140550024 (IoConfigureCrashDump.c)
  *     IopStoreBootDriveLetter @ 0x140B39740 (IopStoreBootDriveLetter.c)
  * Callees:
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
  */
 
 char *RtlGetHostNtSystemRoot()

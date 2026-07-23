@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeDriverPtes @ 0x140A66EF8
+ * XREFs of MiInitializeDriverPtes @ 0x140A67EF8
  * Callers:
- *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x140A4F6F4 (MiInitializeDriverImages.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     MiReserveBootDriverPtes @ 0x140A67334 (MiReserveBootDriverPtes.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     MiReserveBootDriverPtes @ 0x140A68334 (MiReserveBootDriverPtes.c)
  */
 
 __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
@@ -149,7 +149,7 @@ __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
       }
     }
   }
-  for ( i = qword_140C4CD30; i; i = *(PVOID *)i )
+  for ( i = qword_140C4CD70; i; i = *(PVOID *)i )
   {
     v16 = 0;
     do
@@ -255,9 +255,9 @@ LABEL_60:
     while ( v16 < *((_DWORD *)i + 4) );
   }
   if ( (KiSpeculationFeatures & 0x40000000000LL) != 0 )
-    qword_140C4E0F8 = (unsigned __int64)(((__int64)((*((_QWORD *)qword_140C4CD30 + 1) << 25)
-                                                  + ((unsigned __int64)*((unsigned int *)qword_140C4CD30 + 4) << 28)) >> 16)
-                                       - qword_140C4E100) >> 21;
+    qword_140C4E138 = (unsigned __int64)(((__int64)((*((_QWORD *)qword_140C4CD70 + 1) << 25)
+                                                  + ((unsigned __int64)*((unsigned int *)qword_140C4CD70 + 4) << 28)) >> 16)
+                                       - qword_140C4E140) >> 21;
   v44 = v52;
   m = 0LL;
   while ( v44 )

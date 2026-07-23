@@ -1,9 +1,9 @@
 /*
- * XREFs of HvUnlockHiveFilePages @ 0x140B31A00
+ * XREFs of HvUnlockHiveFilePages @ 0x140B33C00
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x14046EB90 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140468310 (CmpRecheckHiveVolumePolicy.c)
  * Callees:
- *     HvpViewMapAdjustFlag @ 0x140B0A110 (HvpViewMapAdjustFlag.c)
+ *     HvpViewMapAdjustFlag @ 0x140B0BED0 (HvpViewMapAdjustFlag.c)
  */
 
 __int64 __fastcall HvUnlockHiveFilePages(__int64 a1)

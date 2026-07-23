@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlpComputeLargeRatio @ 0x140580C7C
+ * XREFs of FsRtlpComputeLargeRatio @ 0x14057E098
  * Callers:
- *     FsRtlpOplockPerfInitializeLatencyInfo @ 0x14070BC34 (FsRtlpOplockPerfInitializeLatencyInfo.c)
- *     FsRtlpOplockPerfSummarizeData @ 0x14070C164 (FsRtlpOplockPerfSummarizeData.c)
+ *     FsRtlpOplockPerfInitializeLatencyInfo @ 0x1407097C8 (FsRtlpOplockPerfInitializeLatencyInfo.c)
+ *     FsRtlpOplockPerfSummarizeData @ 0x140709CF8 (FsRtlpOplockPerfSummarizeData.c)
  * Callees:
  *     <none>
  */

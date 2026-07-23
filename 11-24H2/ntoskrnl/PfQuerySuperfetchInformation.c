@@ -1,25 +1,25 @@
 /*
- * XREFs of PfQuerySuperfetchInformation @ 0x140933148
+ * XREFs of PfQuerySuperfetchInformation @ 0x1408F5C60
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     PfpMemoryListQuery @ 0x1403D4358 (PfpMemoryListQuery.c)
- *     PfLockSharedAcquire @ 0x14047FC44 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
- *     PfpMemoryRangesQuery @ 0x1404C7DA4 (PfpMemoryRangesQuery.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PfpQueryFileExtentsRequest @ 0x140745C48 (PfpQueryFileExtentsRequest.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     PfpPrivSourceEnum @ 0x1408EE170 (PfpPrivSourceEnum.c)
- *     PfpVirtualQuery @ 0x140932690 (PfpVirtualQuery.c)
- *     MmLogQueryCombineStats @ 0x140932778 (MmLogQueryCombineStats.c)
- *     PfpPfnPrioRequest @ 0x1409334C4 (PfpPfnPrioRequest.c)
- *     PfGetCompletedTrace @ 0x140933980 (PfGetCompletedTrace.c)
- *     EtwTiLogSyscallUsage @ 0x140934948 (EtwTiLogSyscallUsage.c)
- *     PfpQueryGpuUtilization @ 0x140934A2C (PfpQueryGpuUtilization.c)
- *     PfpQueryScenarioInformation @ 0x140ABC5D8 (PfpQueryScenarioInformation.c)
+ *     PfpMemoryListQuery @ 0x1402622D8 (PfpMemoryListQuery.c)
+ *     PfLockSharedAcquire @ 0x14047A884 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
+ *     PfpMemoryRangesQuery @ 0x1404C14D8 (PfpMemoryRangesQuery.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PfpQueryFileExtentsRequest @ 0x140743F38 (PfpQueryFileExtentsRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     PfpPrivSourceEnum @ 0x14085F9A0 (PfpPrivSourceEnum.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     PfpQueryGpuUtilization @ 0x1408F4FC8 (PfpQueryGpuUtilization.c)
+ *     PfpPfnPrioRequest @ 0x1408F5FDC (PfpPfnPrioRequest.c)
+ *     PfGetCompletedTrace @ 0x1408F64A0 (PfGetCompletedTrace.c)
+ *     EtwTiLogSyscallUsage @ 0x1408F7468 (EtwTiLogSyscallUsage.c)
+ *     MmLogQueryCombineStats @ 0x1408F78D4 (MmLogQueryCombineStats.c)
+ *     PfpVirtualQuery @ 0x1408F79F8 (PfpVirtualQuery.c)
+ *     PfpQueryScenarioInformation @ 0x140AB75F8 (PfpQueryScenarioInformation.c)
  */
 
 __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, __int64 a3, KPROCESSOR_MODE a4, _DWORD *a5)
@@ -93,7 +93,7 @@ __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, __int6
         v22 = *(_OWORD *)Address[0];
         if ( (_DWORD)v22 == 1 )
         {
-          *((_QWORD *)&v22 + 1) = qword_140E66FD0;
+          *((_QWORD *)&v22 + 1) = qword_140E67120;
           *(_OWORD *)Address[0] = v22;
           *a5 = 16;
         }
@@ -103,7 +103,8 @@ __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, __int6
         }
         return v6;
       case 0x17:
-        return (unsigned int)PfpVirtualQuery((__int64)&v20, a4, a5);
+        LOBYTE(a2) = a4;
+        return (unsigned int)PfpVirtualQuery(&v20, a2, a5);
       case 0x18:
         if ( LODWORD(Address[1]) != 16 )
           return (unsigned int)-1073741306;
@@ -124,8 +125,7 @@ __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, __int6
       case 0x1B:
         return (unsigned int)PfpQueryFileExtentsRequest((__int64)&v20, a4, a5);
       case 0x1C:
-        LOBYTE(a2) = a4;
-        return (unsigned int)PfpQueryGpuUtilization(&v20, a2, a5);
+        return (unsigned int)PfpQueryGpuUtilization((__int64)&v20, a4, a5);
       default:
         return (unsigned int)-1073741821;
     }
@@ -176,7 +176,7 @@ LABEL_11:
         *(_BYTE *)(v14 + 3) = *(_BYTE *)(v14 + 3);
         v6 = 0;
       }
-      *(_DWORD *)Address[0] = xmmword_140F0E408;
+      *(_DWORD *)Address[0] = xmmword_140F0E6E8;
       *a5 = 4;
       return v6;
     }
@@ -185,14 +185,14 @@ LABEL_11:
   if ( LODWORD(Address[1]) != 28 )
     return (unsigned int)-1073741306;
   v6 = 0;
-  PfLockSharedAcquire((volatile signed __int64 *)qword_140E66E58);
-  v15 = xmmword_140E66CA4;
-  v23 = xmmword_140E66CA4;
-  v16 = qword_140E66CB4;
-  v24 = qword_140E66CB4;
-  v17 = dword_140E66CBC;
-  v25 = dword_140E66CBC;
-  PfLockSharedRelease((signed __int64 *)qword_140E66E58);
+  PfLockSharedAcquire((volatile signed __int64 *)qword_140E66FA8);
+  v15 = xmmword_140E66DF4;
+  v23 = xmmword_140E66DF4;
+  v16 = qword_140E66E04;
+  v24 = qword_140E66E04;
+  v17 = dword_140E66E0C;
+  v25 = dword_140E66E0C;
+  PfLockSharedRelease((signed __int64 *)qword_140E66FA8);
   if ( a4 )
   {
     v18 = (__int64)Address[0];

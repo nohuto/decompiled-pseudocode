@@ -1,12 +1,14 @@
 /*
- * XREFs of LdrUnloadAlternateResourceModule @ 0x1404B272C
+ * XREFs of LdrUnloadAlternateResourceModule @ 0x1404ABC3C
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     LdrUnloadAlternateResourceModuleEx @ 0x1404B2744 (LdrUnloadAlternateResourceModuleEx.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x1404ABC54 (LdrUnloadAlternateResourceModuleEx.c)
  */
 
-__int64 __fastcall LdrUnloadAlternateResourceModule(__int64 a1)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModule(PVOID DllHandle)
 {
-  return LdrUnloadAlternateResourceModuleEx(a1);
+  ULONG v1; // edx
+
+  return LdrUnloadAlternateResourceModuleEx(DllHandle, v1);
 }

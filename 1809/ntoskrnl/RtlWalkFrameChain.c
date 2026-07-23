@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlWalkFrameChain @ 0x1400CCBD0
+ * XREFs of RtlWalkFrameChain @ 0x1400CCC50
  * Callers:
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
- *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
- *     CmpThreadInfoLogStack @ 0x1401B3054 (CmpThreadInfoLogStack.c)
- *     KiDpcWatchdogCaptureStack @ 0x14028D15C (KiDpcWatchdogCaptureStack.c)
- *     SepGetStackTraceHash @ 0x1402FEAFC (SepGetStackTraceHash.c)
- *     EtwpGetStackExtendedHeaderItem @ 0x14030E4D4 (EtwpGetStackExtendedHeaderItem.c)
- *     EtwpTraceStackWalk @ 0x14030F744 (EtwpTraceStackWalk.c)
- *     EtwpCovSampCaptureKernelStack @ 0x140316A68 (EtwpCovSampCaptureKernelStack.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x140582AF0 (EtwTimLogRedirectionTrustPolicy.c)
- *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
- *     PoDiagCaptureUsermodeStack @ 0x1406D02C4 (PoDiagCaptureUsermodeStack.c)
- *     EtwpCovSampCaptureUserStack @ 0x1408C4460 (EtwpCovSampCaptureUserStack.c)
- *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCD30 (RtlCaptureStackBackTrace.c)
+ *     CmpThreadInfoLogStack @ 0x1401B3194 (CmpThreadInfoLogStack.c)
+ *     KiDpcWatchdogCaptureStack @ 0x14028D34C (KiDpcWatchdogCaptureStack.c)
+ *     SepGetStackTraceHash @ 0x1402FECEC (SepGetStackTraceHash.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x14030E6C4 (EtwpGetStackExtendedHeaderItem.c)
+ *     EtwpTraceStackWalk @ 0x14030F934 (EtwpTraceStackWalk.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x140316C58 (EtwpCovSampCaptureKernelStack.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x140583AF0 (EtwTimLogRedirectionTrustPolicy.c)
+ *     SepDuplicateToken @ 0x14064A640 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x140658E8C (SepFilterToken.c)
+ *     PoDiagCaptureUsermodeStack @ 0x1406D1564 (PoDiagCaptureUsermodeStack.c)
+ *     EtwpCovSampCaptureUserStack @ 0x1408C5720 (EtwpCovSampCaptureUserStack.c)
+ *     ExpUpdateDebugInfo @ 0x1408CF6A8 (ExpUpdateDebugInfo.c)
  * Callees:
- *     RtlpWalkFrameChain @ 0x14009EB90 (RtlpWalkFrameChain.c)
- *     MmCanThreadFault @ 0x1400CC1F4 (MmCanThreadFault.c)
- *     RtlEnoughStackSpaceForStackCapture @ 0x1400CCC70 (RtlEnoughStackSpaceForStackCapture.c)
+ *     RtlpWalkFrameChain @ 0x14009EAD0 (RtlpWalkFrameChain.c)
+ *     MmCanThreadFault @ 0x1400CC2D4 (MmCanThreadFault.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x1400CCCF0 (RtlEnoughStackSpaceForStackCapture.c)
  */
 
 ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpPgContextAllocate @ 0x14063A000
+ * XREFs of RtlpHpPgContextAllocate @ 0x14063D010
  * Callers:
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlHeapZero @ 0x1407322C0 (RtlHeapZero.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlHeapZero @ 0x140736E90 (RtlHeapZero.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall RtlpHpPgContextAllocate(_QWORD *a1, unsigned int a2, unsigned int a3, char a4)

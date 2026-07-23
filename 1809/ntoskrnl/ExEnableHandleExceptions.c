@@ -1,13 +1,13 @@
 /*
- * XREFs of ExEnableHandleExceptions @ 0x1406C4B88
+ * XREFs of ExEnableHandleExceptions @ 0x1406C5E28
  * Callers:
- *     PspApplyMitigationOptions @ 0x14064DD90 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x14064EF50 (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 bool __fastcall ExEnableHandleExceptions(__int64 a1, char a2)

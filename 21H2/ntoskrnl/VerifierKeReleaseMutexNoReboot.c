@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeReleaseMutexNoReboot @ 0x1409DB370
+ * XREFs of VerifierKeReleaseMutexNoReboot @ 0x1409DC370
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C758C (VfUtilCheckKernelAddress.c)
  */
 
 __int64 __fastcall VerifierKeReleaseMutexNoReboot(ULONG_PTR a1, char a2)

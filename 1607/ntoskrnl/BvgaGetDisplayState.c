@@ -1,5 +1,5 @@
 /*
- * XREFs of BvgaGetDisplayState @ 0x140171780
+ * XREFs of BvgaGetDisplayState @ 0x140171C80
  * Callers:
  *     <none>
  * Callees:

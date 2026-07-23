@@ -1,31 +1,31 @@
 /*
- * XREFs of VfTargetDriversRemove @ 0x1403B7C48
+ * XREFs of VfTargetDriversRemove @ 0x1403C1B48
  * Callers:
- *     VfDriverUnloadImage @ 0x140C46D88 (VfDriverUnloadImage.c)
+ *     VfDriverUnloadImage @ 0x140C4CD98 (VfDriverUnloadImage.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     VfUtilFreePoolCheckIRQL @ 0x1403B7740 (VfUtilFreePoolCheckIRQL.c)
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1403B83D0 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     ViAvlRaiseIrqlSafe @ 0x1403B8438 (ViAvlRaiseIrqlSafe.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403B8560 (ViAvlReleaseTableLockFromDpcLevel.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     ViTargetDriversFreeVerifiedData @ 0x140641790 (ViTargetDriversFreeVerifiedData.c)
- *     DifRemovePerDriverDataForPlugins @ 0x14064ACD0 (DifRemovePerDriverDataForPlugins.c)
- *     CarDeleteDriverRuleViolations @ 0x14064C3B0 (CarDeleteDriverRuleViolations.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViTargetRemovingCheckContiguousMemory @ 0x140C297E4 (ViTargetRemovingCheckContiguousMemory.c)
- *     ViTargetRemovingCheckEtwWmi @ 0x140C29870 (ViTargetRemovingCheckEtwWmi.c)
- *     VfPoolCheckForLeaks @ 0x140C3855C (VfPoolCheckForLeaks.c)
- *     VfThunkRemoveTargetNotify @ 0x140C47B1C (VfThunkRemoveTargetNotify.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x1403C1640 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1403C22D0 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     ViAvlRaiseIrqlSafe @ 0x1403C2338 (ViAvlRaiseIrqlSafe.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403C2460 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     ViTargetDriversFreeVerifiedData @ 0x140645370 (ViTargetDriversFreeVerifiedData.c)
+ *     DifRemovePerDriverDataForPlugins @ 0x14064E8B0 (DifRemovePerDriverDataForPlugins.c)
+ *     CarDeleteDriverRuleViolations @ 0x14064FF90 (CarDeleteDriverRuleViolations.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViTargetRemovingCheckContiguousMemory @ 0x140C2F7F4 (ViTargetRemovingCheckContiguousMemory.c)
+ *     ViTargetRemovingCheckEtwWmi @ 0x140C2F880 (ViTargetRemovingCheckEtwWmi.c)
+ *     VfPoolCheckForLeaks @ 0x140C3E56C (VfPoolCheckForLeaks.c)
+ *     VfThunkRemoveTargetNotify @ 0x140C4DB2C (VfThunkRemoveTargetNotify.c)
  */
 
 void __fastcall VfTargetDriversRemove(__int64 a1)
 {
   unsigned __int64 v2; // rdi
-  struct _SLIST_ENTRY *v3; // rsi
+  _SLIST_ENTRY *v3; // rsi
   __int64 v4; // rax
   __int64 v5; // rbx
   ULONG_PTR v6; // rsi
@@ -84,21 +84,21 @@ void __fastcall VfTargetDriversRemove(__int64 a1)
       v18 = *(_QWORD *)(v5 + 64);
       v17[3] = v10;
       if ( v18 )
-        --dword_140F08DA0;
+        --dword_140F09120;
       Buffer = v2;
       v14 = 1LL;
-      if ( dword_140F08D98 == 1 )
+      if ( dword_140F09118 == 1 )
         v11 = 0LL;
       else
-        v11 = (v2 >> 12) % (unsigned int)dword_140F08D98;
+        v11 = (v2 >> 12) % (unsigned int)dword_140F09118;
       ViAvlRaiseIrqlSafe(&v15);
       v12 = 192 * v11;
-      ViAvlAcquireTableLockAtDpcLevelSafe(v12 + qword_140F08D90, &v15);
-      RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(v12 + qword_140F08D90), &Buffer);
-      _InterlockedDecrement64(&qword_140F08D88);
-      v3 = *(struct _SLIST_ENTRY **)(v12 + qword_140F08D90 + 112);
-      *(_QWORD *)(v12 + qword_140F08D90 + 112) = 0LL;
-      ViAvlReleaseTableLockFromDpcLevel(v12 + qword_140F08D90, &v15);
+      ViAvlAcquireTableLockAtDpcLevelSafe(v12 + qword_140F09110, &v15);
+      RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(v12 + qword_140F09110), &Buffer);
+      _InterlockedDecrement64(&qword_140F09108);
+      v3 = *(_SLIST_ENTRY **)(v12 + qword_140F09110 + 112);
+      *(_QWORD *)(v12 + qword_140F09110 + 112) = 0LL;
+      ViAvlReleaseTableLockFromDpcLevel(v12 + qword_140F09110, &v15);
     }
     VfAvlCleanupLockContext(&v15);
     if ( v3 )
@@ -106,8 +106,8 @@ void __fastcall VfTargetDriversRemove(__int64 a1)
       VfThunkRemoveTargetNotify(v17);
       if ( v18 )
         ViTargetDriversFreeVerifiedData(v18);
-      if ( dword_140F08D9C == 1 )
-        ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27B08.ApcStateFill[32], v3);
+      if ( dword_140F0911C == 1 )
+        ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27C48.ApcStateFill[32], v3);
       else
         VfUtilFreePoolCheckIRQL(v3);
     }

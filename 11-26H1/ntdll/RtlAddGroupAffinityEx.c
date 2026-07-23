@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAddGroupAffinityEx @ 0x18013F6C0
+ * XREFs of RtlAddGroupAffinityEx @ 0x18013F5C0
  * Callers:
  *     <none>
  * Callees:

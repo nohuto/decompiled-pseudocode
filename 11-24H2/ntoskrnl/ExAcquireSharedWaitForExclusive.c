@@ -1,23 +1,23 @@
 /*
- * XREFs of ExAcquireSharedWaitForExclusive @ 0x1403E8C80
+ * XREFs of ExAcquireSharedWaitForExclusive @ 0x1403D6820
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x140372ABC (FsRtlAcquireFileForModWriteEx.c)
- *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x1403E8C40 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
- *     DifExAcquireSharedWaitForExclusiveWrapper @ 0x14061C020 (DifExAcquireSharedWaitForExclusiveWrapper.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14025B37C (FsRtlAcquireFileForModWriteEx.c)
+ *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x1403D67E0 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     DifExAcquireSharedWaitForExclusiveWrapper @ 0x14061A5E0 (DifExAcquireSharedWaitForExclusiveWrapper.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpWaitForResource @ 0x140277840 (ExpWaitForResource.c)
- *     ExpApplyPrewaitBoost @ 0x140277950 (ExpApplyPrewaitBoost.c)
- *     ExpBoostIoAfterAcquire @ 0x140278960 (ExpBoostIoAfterAcquire.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpGetThreadResourceHint @ 0x140343720 (ExpGetThreadResourceHint.c)
- *     ExpTryAcquireResourceShared @ 0x1403E8F50 (ExpTryAcquireResourceShared.c)
- *     ExpFindCurrentThread @ 0x1403E8F80 (ExpFindCurrentThread.c)
- *     ExpFindEmptyEntry @ 0x1403E90D0 (ExpFindEmptyEntry.c)
- *     RtlInsertHeadCircularList @ 0x1404296B0 (RtlInsertHeadCircularList.c)
- *     PerfLogExecutiveResourceAcquire @ 0x14046E140 (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceWait @ 0x1404AF714 (PerfLogExecutiveResourceWait.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpWaitForResource @ 0x14022CDD0 (ExpWaitForResource.c)
+ *     ExpApplyPrewaitBoost @ 0x14022CEE0 (ExpApplyPrewaitBoost.c)
+ *     ExpBoostIoAfterAcquire @ 0x14022DEF0 (ExpBoostIoAfterAcquire.c)
+ *     ExpGetThreadResourceHint @ 0x140322C00 (ExpGetThreadResourceHint.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpTryAcquireResourceShared @ 0x1403D6AF0 (ExpTryAcquireResourceShared.c)
+ *     ExpFindCurrentThread @ 0x1403D6B20 (ExpFindCurrentThread.c)
+ *     ExpFindEmptyEntry @ 0x1403D6C70 (ExpFindEmptyEntry.c)
+ *     RtlInsertHeadCircularList @ 0x14041D800 (RtlInsertHeadCircularList.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x14046891C (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x1404AA110 (PerfLogExecutiveResourceWait.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 BOOLEAN __stdcall ExAcquireSharedWaitForExclusive(PERESOURCE Resource, BOOLEAN Wait)

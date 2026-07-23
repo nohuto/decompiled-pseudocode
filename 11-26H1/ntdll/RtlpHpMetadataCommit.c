@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpMetadataCommit @ 0x18008DCD8
+ * XREFs of RtlpHpMetadataCommit @ 0x1800E7268
  * Callers:
- *     RtlpHpHeapAllocate @ 0x18008D814 (RtlpHpHeapAllocate.c)
- *     RtlpHpHeapExtendContext @ 0x18008E320 (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapExtendContext @ 0x1800E6C10 (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapAllocate @ 0x1800E6ECC (RtlpHpHeapAllocate.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegPageRangeCommit @ 0x180069850 (RtlpHpSegPageRangeCommit.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegPageRangeCommit @ 0x180089CA0 (RtlpHpSegPageRangeCommit.c)
  */
 
 __int64 __fastcall RtlpHpMetadataCommit(__int64 a1, int a2, unsigned __int64 a3, _QWORD *a4, int a5)
@@ -21,20 +21,20 @@ __int64 __fastcall RtlpHpMetadataCommit(__int64 a1, int a2, unsigned __int64 a3,
   unsigned __int64 v16; // rsi
   int v17; // r9d
 
-  v8 = 2LL * (unsigned int)dword_18017C068[(unsigned __int8)BYTE1(*a4)];
+  v8 = 2LL * (unsigned int)dword_18017B028[(unsigned __int8)BYTE1(*a4)];
   if ( (_WORD)a1 )
   {
     v9 = 0;
   }
   else
   {
-    v10 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801C78C0, 2 * ((unsigned __int64)(a1 - qword_1801C78B8) >> 20));
+    v10 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((unsigned __int64)(a1 - qword_1801C6908) >> 20));
     if ( v10 )
       v9 = v10 - 1;
     else
       v9 = 2;
   }
-  v11 = 192LL * v9 + qword_1801CB148[v8] + 320;
+  v11 = 192LL * v9 + qword_1801CA198[v8] + 320;
   v12 = *(_QWORD *)v11 & a1;
   if ( (RtlpHpHeapGlobals ^ *(_QWORD *)(v12 + 0x10) ^ v12) != v11
     || (v13 = *(_BYTE *)(v11 + 8),

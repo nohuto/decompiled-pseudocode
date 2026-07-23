@@ -1,59 +1,59 @@
 /*
- * XREFs of KeBugCheck2 @ 0x1405B1780
+ * XREFs of KeBugCheck2 @ 0x1405AE6F0
  * Callers:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x140259B80 (KeQueryCurrentStackInformation.c)
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KiSendThawExecution @ 0x1404D8230 (KiSendThawExecution.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSetDebuggerOwner @ 0x1404FB2A4 (KiSetDebuggerOwner.c)
- *     KiFilterBugCheckInfo @ 0x1405081EC (KiFilterBugCheckInfo.c)
- *     HalReturnToFirmware @ 0x140544920 (HalReturnToFirmware.c)
- *     HvlLogGuestCrashInformation @ 0x140582964 (HvlLogGuestCrashInformation.c)
- *     HvlNotifyRootCrashdump @ 0x140587BA8 (HvlNotifyRootCrashdump.c)
- *     HvlPrepareForRootCrashdump @ 0x140587C34 (HvlPrepareForRootCrashdump.c)
- *     HvlResumeFromRootCrashdump @ 0x140588088 (HvlResumeFromRootCrashdump.c)
- *     IoNotifyDumpEx @ 0x140591C78 (IoNotifyDumpEx.c)
- *     IoRetryAsMiniDump @ 0x140591DA0 (IoRetryAsMiniDump.c)
- *     IoSaveBugCheckProgress @ 0x140591F10 (IoSaveBugCheckProgress.c)
- *     IoSaveInitialBugCheckProgress @ 0x140592120 (IoSaveInitialBugCheckProgress.c)
- *     IoSetBugCheckProgressFlag @ 0x1405922C0 (IoSetBugCheckProgressFlag.c)
- *     KdDecodeDataBlock @ 0x1405AF5A8 (KdDecodeDataBlock.c)
- *     KdEnableDebuggerWithLock @ 0x1405AFA7C (KdEnableDebuggerWithLock.c)
- *     KiBugCheckDebugBreak @ 0x1405B2D70 (KiBugCheckDebugBreak.c)
- *     KiBugCheckProgressCpusFrozen @ 0x1405B2F94 (KiBugCheckProgressCpusFrozen.c)
- *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x1405B3050 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
- *     KiBugCheckUnicodeToAnsi @ 0x1405B30B4 (KiBugCheckUnicodeToAnsi.c)
- *     KiBugCheckWriteCrashDump @ 0x1405B30F8 (KiBugCheckWriteCrashDump.c)
- *     KiBugcheckUnloadDebugSymbols @ 0x1405B3164 (KiBugcheckUnloadDebugSymbols.c)
- *     KiCollectTriageDumpDataBlocks @ 0x1405B33A8 (KiCollectTriageDumpDataBlocks.c)
- *     KiDisplayBlueScreen @ 0x1405B38C0 (KiDisplayBlueScreen.c)
- *     KiDumpParameterImages @ 0x1405B3C54 (KiDumpParameterImages.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405B3EF8 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x1405B4110 (KiInvokeBugCheckEntryCallbacks.c)
- *     KiPcToFileHeader @ 0x1405B41D8 (KiPcToFileHeader.c)
- *     KiScanBugCheckCallbackList @ 0x1405B43D0 (KiScanBugCheckCallbackList.c)
- *     KiYieldWaitForDebugger @ 0x1405B4640 (KiYieldWaitForDebugger.c)
- *     KeSaveSupervisorState @ 0x1405B8864 (KeSaveSupervisorState.c)
- *     KiSendFreeze @ 0x1405C1F30 (KiSendFreeze.c)
- *     KiAttemptBugcheckRecovery @ 0x1405C5784 (KiAttemptBugcheckRecovery.c)
- *     KiHandleMultipleBugchecksDuringRecovery @ 0x1405C62C0 (KiHandleMultipleBugchecksDuringRecovery.c)
- *     PpmHvSetVirtualProcessorQos @ 0x1405DC000 (PpmHvSetVirtualProcessorQos.c)
- *     WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x14065B6E4 (WheapSelLogSetNtSchedulerAvailabilityNoLock.c)
- *     MmLocateUnloadedDriver @ 0x14066C3F8 (MmLocateUnloadedDriver.c)
- *     IpmiHwContextInitialized @ 0x14069F66C (IpmiHwContextInitialized.c)
- *     IpmiLibAddSelBugcheckRecord @ 0x14069FBD0 (IpmiLibAddSelBugcheckRecord.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     VfNotifyVerifierOfEvent @ 0x140B82EA0 (VfNotifyVerifierOfEvent.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeQueryCurrentStackInformation @ 0x14028A190 (KeQueryCurrentStackInformation.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KiSendThawExecution @ 0x1404D1680 (KiSendThawExecution.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSetDebuggerOwner @ 0x1404F8B84 (KiSetDebuggerOwner.c)
+ *     KiFilterBugCheckInfo @ 0x140505AAC (KiFilterBugCheckInfo.c)
+ *     HalReturnToFirmware @ 0x1405421E0 (HalReturnToFirmware.c)
+ *     HvlLogGuestCrashInformation @ 0x14057FCE4 (HvlLogGuestCrashInformation.c)
+ *     HvlNotifyRootCrashdump @ 0x140584F08 (HvlNotifyRootCrashdump.c)
+ *     HvlPrepareForRootCrashdump @ 0x140584F94 (HvlPrepareForRootCrashdump.c)
+ *     HvlResumeFromRootCrashdump @ 0x1405853A8 (HvlResumeFromRootCrashdump.c)
+ *     IoNotifyDumpEx @ 0x14058EC98 (IoNotifyDumpEx.c)
+ *     IoRetryAsMiniDump @ 0x14058EDC0 (IoRetryAsMiniDump.c)
+ *     IoSaveBugCheckProgress @ 0x14058EF30 (IoSaveBugCheckProgress.c)
+ *     IoSaveInitialBugCheckProgress @ 0x14058F140 (IoSaveInitialBugCheckProgress.c)
+ *     IoSetBugCheckProgressFlag @ 0x14058F2E0 (IoSetBugCheckProgressFlag.c)
+ *     KdDecodeDataBlock @ 0x1405AC518 (KdDecodeDataBlock.c)
+ *     KdEnableDebuggerWithLock @ 0x1405AC9EC (KdEnableDebuggerWithLock.c)
+ *     KiBugCheckDebugBreak @ 0x1405AFCE0 (KiBugCheckDebugBreak.c)
+ *     KiBugCheckProgressCpusFrozen @ 0x1405AFF04 (KiBugCheckProgressCpusFrozen.c)
+ *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x1405AFFC0 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
+ *     KiBugCheckUnicodeToAnsi @ 0x1405B0024 (KiBugCheckUnicodeToAnsi.c)
+ *     KiBugCheckWriteCrashDump @ 0x1405B0068 (KiBugCheckWriteCrashDump.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x1405B00D4 (KiBugcheckUnloadDebugSymbols.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x1405B0318 (KiCollectTriageDumpDataBlocks.c)
+ *     KiDisplayBlueScreen @ 0x1405B0834 (KiDisplayBlueScreen.c)
+ *     KiDumpParameterImages @ 0x1405B0BC8 (KiDumpParameterImages.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405B0E70 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1405B1088 (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiPcToFileHeader @ 0x1405B1150 (KiPcToFileHeader.c)
+ *     KiScanBugCheckCallbackList @ 0x1405B134C (KiScanBugCheckCallbackList.c)
+ *     KiYieldWaitForDebugger @ 0x1405B15C4 (KiYieldWaitForDebugger.c)
+ *     KeSaveSupervisorState @ 0x1405B5EA4 (KeSaveSupervisorState.c)
+ *     KiSendFreeze @ 0x1405BF500 (KiSendFreeze.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405C2EB4 (KiAttemptBugcheckRecovery.c)
+ *     KiHandleMultipleBugchecksDuringRecovery @ 0x1405C39F0 (KiHandleMultipleBugchecksDuringRecovery.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x1405D8ED0 (PpmHvSetVirtualProcessorQos.c)
+ *     WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x140659E04 (WheapSelLogSetNtSchedulerAvailabilityNoLock.c)
+ *     MmLocateUnloadedDriver @ 0x14066D5C8 (MmLocateUnloadedDriver.c)
+ *     IpmiHwContextInitialized @ 0x1406A0770 (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelBugcheckRecord @ 0x1406A0CD4 (IpmiLibAddSelBugcheckRecord.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     VfNotifyVerifierOfEvent @ 0x140B84EA0 (VfNotifyVerifierOfEvent.c)
  */
 
 void __fastcall __noreturn KeBugCheck2(
@@ -66,267 +66,243 @@ void __fastcall __noreturn KeBugCheck2(
 {
   unsigned __int64 v6; // rdi
   const CHAR *v7; // r13
-  __int64 v10; // rdx
-  __int64 v11; // rax
-  int v12; // edx
+  __int64 v10; // rax
+  int v11; // edx
   unsigned __int8 CurrentIrql; // cl
-  signed __int32 v14; // eax
-  unsigned int v15; // edx
-  signed __int32 v16; // ecx
-  unsigned __int8 v17; // si
+  signed __int32 v13; // eax
+  unsigned int v14; // edx
+  signed __int32 v15; // ecx
+  unsigned __int8 v16; // si
   char CurrentStackInformation; // bl
-  signed __int32 v19; // eax
-  __int64 v20; // rdx
-  signed __int32 v21; // ecx
-  __int64 v22; // rdx
-  int v23; // ecx
-  __int64 v24; // rdi
-  char *v25; // rbx
-  unsigned __int8 v26; // r14
-  signed __int64 v27; // rsi
-  unsigned __int64 v28; // rdi
-  struct _KTHREAD *v29; // rax
-  unsigned __int64 v31; // rcx
-  const void *v32; // rdx
-  size_t v33; // r8
+  signed __int32 v18; // eax
+  unsigned int v19; // edx
+  signed __int32 v20; // ecx
+  int v21; // ecx
+  __int64 v22; // rdi
+  char *v23; // rbx
+  signed __int64 v24; // rsi
+  unsigned __int64 v25; // rdi
+  struct _KTHREAD *v26; // rax
+  unsigned __int64 v28; // rcx
+  const void *v29; // rdx
+  size_t v30; // r8
   struct _KPRCB *CurrentPrcb; // r14
   _XSAVE_AREA_HEADER *ExtendedSupervisorState; // rcx
-  __int64 v36; // r9
-  unsigned int v37; // ebx
-  char v38; // si
+  unsigned int v33; // ebx
+  char v34; // si
   _CONTEXT *Context; // rax
-  char *v40; // rcx
-  __int64 v41; // rdx
-  __int64 v42; // r8
-  __int128 v43; // xmm1
-  __int64 v44; // rdx
-  __int64 v45; // r8
-  __int64 v46; // r9
-  _QWORD *v47; // rdi
-  bool v48; // bl
-  bool v49; // r15
-  __int64 v50; // rax
-  __int64 v51; // rax
-  __int64 *v52; // rcx
-  unsigned __int64 v53; // rdi
-  __int64 v54; // rax
-  __int64 v55; // rax
+  char *v36; // rcx
+  __int64 v37; // rdx
+  __int64 v38; // r8
+  __int128 v39; // xmm1
+  __int64 v40; // rdx
+  _QWORD *v41; // rdi
+  bool v42; // bl
+  bool v43; // r15
+  __int64 v44; // rax
+  __int64 v45; // rax
+  __int64 *v46; // rcx
+  unsigned __int64 v47; // rdi
+  __int64 v48; // rax
+  __int64 v49; // rax
   __int64 UnloadedDriver; // rax
-  bool v57; // zf
-  struct _KTHREAD *v58; // rcx
-  __int64 v59; // rcx
-  struct _KTHREAD *v60; // r12
+  bool v51; // zf
+  struct _KTHREAD *v52; // rcx
+  __int64 v53; // rcx
+  struct _KTHREAD *v54; // r12
   int IsEmptyAffinity; // eax
-  __int64 v62; // rdx
-  __int64 v63; // r8
-  __int64 v64; // r9
-  bool v65; // bl
-  unsigned __int8 v66; // cl
-  unsigned int v67; // ebx
-  __int64 v68; // rdx
-  __int64 v69; // r8
-  __int64 v70; // r9
-  bool v71; // di
+  __int64 v56; // rdx
+  bool v57; // bl
+  unsigned __int8 v58; // cl
+  unsigned int v59; // ebx
+  bool v60; // di
+  __int64 v61; // rdx
+  __int64 v62; // rcx
+  __int64 v63; // rcx
+  _PROC_PERF_DOMAIN *Domain; // rax
+  int v65; // ecx
+  unsigned int v66; // eax
+  __int64 v67; // rcx
+  __int64 v68; // rbx
+  _CONTEXT *v69; // rax
+  char *v70; // rcx
+  __int128 v71; // xmm1
   __int64 v72; // rdx
   __int64 v73; // rcx
-  __int64 v74; // r8
-  __int64 v75; // r9
-  __int64 v76; // rcx
-  __int64 v77; // rdx
-  __int64 v78; // rcx
-  __int64 v79; // r8
-  __int64 v80; // r9
-  _PROC_PERF_DOMAIN *Domain; // rax
-  int v82; // ecx
-  unsigned int v83; // eax
-  __int64 v84; // rcx
-  __int64 v85; // rbx
-  _CONTEXT *v86; // rax
-  char *v87; // rcx
-  __int128 v88; // xmm1
-  __int64 v89; // rdx
-  __int64 v90; // rcx
-  __int64 v91; // r8
-  __int64 v92; // r9
-  __int64 v93; // rdx
-  __int64 v94; // r8
-  __int64 v95; // r9
-  int v96; // ecx
-  char v97; // [rsp+54h] [rbp-ACh]
-  char v98; // [rsp+58h] [rbp-A8h]
-  bool v99; // [rsp+59h] [rbp-A7h]
-  _BYTE v100[6]; // [rsp+5Ah] [rbp-A6h] BYREF
-  _QWORD *v101; // [rsp+60h] [rbp-A0h]
-  bool v102; // [rsp+68h] [rbp-98h]
-  PCSTR v103; // [rsp+70h] [rbp-90h]
-  char v104; // [rsp+78h] [rbp-88h]
-  bool v105; // [rsp+79h] [rbp-87h]
-  char v106; // [rsp+7Ah] [rbp-86h]
-  unsigned int v107; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v108; // [rsp+88h] [rbp-78h]
-  int v109; // [rsp+90h] [rbp-70h]
-  __int64 v110; // [rsp+98h] [rbp-68h] BYREF
+  __int64 v74; // rdx
+  int v75; // ecx
+  char v76; // [rsp+54h] [rbp-ACh]
+  char v77; // [rsp+58h] [rbp-A8h]
+  bool v78; // [rsp+59h] [rbp-A7h]
+  _BYTE v79[6]; // [rsp+5Ah] [rbp-A6h] BYREF
+  _QWORD *v80; // [rsp+60h] [rbp-A0h]
+  bool v81; // [rsp+68h] [rbp-98h]
+  PCSTR v82; // [rsp+70h] [rbp-90h]
+  char v83; // [rsp+78h] [rbp-88h]
+  bool v84; // [rsp+79h] [rbp-87h]
+  char v85; // [rsp+7Ah] [rbp-86h]
+  unsigned int v86; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v87; // [rsp+88h] [rbp-78h]
+  int v88; // [rsp+90h] [rbp-70h]
+  __int64 v89; // [rsp+98h] [rbp-68h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+A0h] [rbp-60h]
-  unsigned int v112; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 (__fastcall *v113)(); // [rsp+B0h] [rbp-50h]
-  unsigned __int64 v114; // [rsp+B8h] [rbp-48h]
-  _BYTE *v115; // [rsp+C0h] [rbp-40h] BYREF
+  unsigned int v91; // [rsp+A8h] [rbp-58h] BYREF
+  __int64 (__fastcall *v92)(); // [rsp+B0h] [rbp-50h]
+  unsigned __int64 v93; // [rsp+B8h] [rbp-48h]
+  _BYTE *v94; // [rsp+C0h] [rbp-40h] BYREF
   void *Src; // [rsp+C8h] [rbp-38h] BYREF
   PCSTR Format; // [rsp+D0h] [rbp-30h]
-  struct _KAFFINITY_EX v118; // [rsp+E0h] [rbp-20h] BYREF
-  char v119[1232]; // [rsp+1F0h] [rbp+F0h] BYREF
+  struct _KAFFINITY_EX v97; // [rsp+E0h] [rbp-20h] BYREF
+  char v98[1232]; // [rsp+1F0h] [rbp+F0h] BYREF
   char pszDest[192]; // [rsp+6C0h] [rbp+5C0h] BYREF
 
   v6 = a3;
   v7 = (const CHAR *)a5;
-  v114 = a3;
-  v107 = a1;
-  v101 = a6;
-  memset_0(&v118, 0, sizeof(v118));
-  v99 = 1;
+  v93 = a3;
+  v86 = a1;
+  v80 = a6;
+  memset_0(&v97, 0, sizeof(v97));
+  v78 = 1;
   pszDest[0] = 0;
   CurrentThread = KeGetCurrentThread();
-  v113 = KiBugCheckProgress;
-  v102 = IopAutoReboot != 0;
-  v110 = 0LL;
-  v100[0] = 0;
-  v108 = 0LL;
-  v97 = 0;
-  v104 = 0;
-  v106 = 0;
+  v92 = KiBugCheckProgress;
+  v81 = IopAutoReboot != 0;
+  v89 = 0LL;
+  v79[0] = 0;
+  v87 = 0LL;
+  v76 = 0;
+  v83 = 0;
+  v85 = 0;
   Format = 0LL;
-  v103 = 0LL;
-  v105 = 0;
-  v109 = 0;
+  v82 = 0LL;
+  v84 = 0;
+  v88 = 0;
   if ( !_InterlockedExchange(&KiBugCheckDataInitialized, 1) )
   {
-    v11 = v107;
-    if ( v107 == -1073741103 )
+    v10 = v86;
+    if ( v86 == -1073741103 )
     {
-      v11 = 195LL;
-      v107 = 195;
+      v10 = 195LL;
+      v86 = 195;
     }
-    KiBugCheckData = v11;
-    qword_140F22748 = a2;
-    qword_140F22750 = v6;
-    qword_140F22758 = (__int64)a4;
-    qword_140F22760 = a5;
+    KiBugCheckData = v10;
+    qword_140F22A08 = a2;
+    qword_140F22A10 = v6;
+    qword_140F22A18 = (__int64)a4;
+    qword_140F22A20 = a5;
   }
-  IoNotifyDumpEx(4, v10, 0LL);
+  IoNotifyDumpEx(4);
   if ( (HvlpFlags & 2) != 0 )
     HvlNotifyRootCrashdump(4);
-  v115 = 0LL;
+  v94 = 0LL;
   Src = 0LL;
-  v112 = 0;
+  v91 = 0;
   if ( KeGetCurrentIrql() < 2u )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v12) = 2;
-      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v12);
+      LOBYTE(v11) = 2;
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v11);
     }
   }
   if ( KeGetCurrentThread()->InitialStack )
   {
-    CurrentStackInformation = KeQueryCurrentStackInformation((__int64)&v112, (__int64)&Src, (__int64)&v115);
-    v19 = KiBugCheckActive;
-    v20 = (16 * KeGetCurrentPrcb()->Number) | 3;
+    CurrentStackInformation = KeQueryCurrentStackInformation((__int64)&v91, (__int64)&Src, (__int64)&v94);
+    v18 = KiBugCheckActive;
+    v19 = (16 * KeGetCurrentPrcb()->Number) | 3;
     do
     {
-      if ( (v19 & 3) == 3 )
+      if ( (v18 & 3) == 3 )
       {
-        v17 = 0;
-        v98 = 0;
-        goto LABEL_41;
+        v16 = 0;
+        v77 = 0;
+        goto LABEL_40;
       }
-      v21 = v19;
-      v19 = _InterlockedCompareExchange(&KiBugCheckActive, v20, v19);
+      v20 = v18;
+      v18 = _InterlockedCompareExchange(&KiBugCheckActive, v19, v18);
     }
-    while ( v19 != v21 );
-    IoNotifyDumpEx(6, v20, 0LL);
+    while ( v18 != v20 );
+    IoNotifyDumpEx(6);
     if ( CurrentStackInformation )
     {
-      if ( v112 > 9 || (v23 = 929, !_bittest(&v23, v112)) )
+      if ( v91 > 9 || (v21 = 929, !_bittest(&v21, v91)) )
       {
-        v24 = 147456LL;
-        v25 = (char *)Src;
-        v26 = 1;
-        if ( (unsigned __int64)(v115 - (_BYTE *)Src) > 0x24000 || (v24 = v115 - (_BYTE *)Src, v115 != Src) )
+        v22 = 147456LL;
+        v23 = (char *)Src;
+        if ( (unsigned __int64)(v94 - (_BYTE *)Src) > 0x24000 || (v22 = v94 - (_BYTE *)Src, v94 != Src) )
         {
-          v27 = &KiPreBugcheckStackSaveArea - (_UNKNOWN *)Src;
-          v28 = ((unsigned __int64)(v24 - 1) >> 12) + 1;
+          v24 = &KiPreBugcheckStackSaveArea - (_UNKNOWN *)Src;
+          v25 = ((unsigned __int64)(v22 - 1) >> 12) + 1;
           do
           {
-            if ( MmIsAddressValidEx((__int64)v25) )
-              memmove(&v25[v27], v25, 0x1000uLL);
-            else
-              v26 = 0;
-            v25 += 4096;
-            --v28;
+            if ( MmIsAddressValidEx((__int64)v23) )
+              memmove(&v23[v24], v23, 0x1000uLL);
+            v23 += 4096;
+            --v25;
           }
-          while ( v28 );
+          while ( v25 );
         }
-        IoNotifyDumpEx(7, v22, v26);
-        v6 = v114;
+        IoNotifyDumpEx(7);
+        v6 = v93;
       }
     }
     if ( (_BYTE)KiKernelCetEnabled )
     {
-      v29 = KeGetCurrentThread();
+      v26 = KeGetCurrentThread();
       __asm { rdsspq  r8 }
-      v31 = (v29->KernelShadowStackLimit.AllFields & 0xFFFFFFFFFFFFF000uLL) + 4096;
-      if ( _R8 > v31 && (void *)_R8 < (char *)v29->KernelShadowStackBase - 4096 )
+      v28 = (v26->KernelShadowStackLimit.AllFields & 0xFFFFFFFFFFFFF000uLL) + 4096;
+      if ( _R8 > v28 && (void *)_R8 < (char *)v26->KernelShadowStackBase - 4096 )
       {
-        v32 = (const void *)(_R8 - 256);
-        if ( _R8 - 256 < v31 )
-          v32 = (const void *)((v29->KernelShadowStackLimit.AllFields & 0xFFFFFFFFFFFFF000uLL) + 4096);
-        v33 = _R8 - (_QWORD)v32;
-        if ( v33 > 0x100 )
-          v33 = 256LL;
-        memmove(&unk_140FC70A0, v32, v33);
+        v29 = (const void *)(_R8 - 256);
+        if ( _R8 - 256 < v28 )
+          v29 = (const void *)((v26->KernelShadowStackLimit.AllFields & 0xFFFFFFFFFFFFF000uLL) + 4096);
+        v30 = _R8 - (_QWORD)v29;
+        if ( v30 > 0x100 )
+          v30 = 256LL;
+        memmove(&unk_140FC8100, v29, v30);
       }
     }
-    v17 = 1;
-    v98 = 1;
+    v16 = 1;
+    v77 = 1;
   }
   else
   {
-    v14 = KiBugCheckActive;
-    v15 = (16 * KeGetCurrentPrcb()->Number) | 3;
-    while ( (v14 & 3) != 3 )
+    v13 = KiBugCheckActive;
+    v14 = (16 * KeGetCurrentPrcb()->Number) | 3;
+    while ( (v13 & 3) != 3 )
     {
-      v16 = v14;
-      v14 = _InterlockedCompareExchange(&KiBugCheckActive, v15, v14);
-      if ( v14 == v16 )
+      v15 = v13;
+      v13 = _InterlockedCompareExchange(&KiBugCheckActive, v14, v13);
+      if ( v13 == v15 )
       {
-        v98 = 1;
+        v77 = 1;
         goto LABEL_16;
       }
     }
-    v98 = 0;
+    v77 = 0;
 LABEL_16:
-    v17 = v98;
+    v16 = v77;
   }
-LABEL_41:
-  DbgPrintEx(5u, 2u, "KeBugCheck2(): KiSavePreBugcheckStack() -> ActiveBugCheck: 0x%02x\n", v17);
-  if ( v17 && KiRecoveryCallbackCount <= 0 )
+LABEL_40:
+  DbgPrintEx(5u, 2u, "KeBugCheck2(): KiSavePreBugcheckStack() -> ActiveBugCheck: 0x%02x\n", v16);
+  if ( v16 && KiRecoveryCallbackCount <= 0 )
     KiBugcheckOwnerKeepsOthersFrozen = 1;
   if ( KeSmapEnabled )
     __asm { stac }
   CurrentPrcb = KeGetCurrentPrcb();
   ExtendedSupervisorState = CurrentPrcb->ExtendedSupervisorState;
-  LODWORD(v114) = CurrentPrcb->Number;
+  LODWORD(v93) = CurrentPrcb->Number;
   KeSaveSupervisorState(ExtendedSupervisorState, KeEnabledSupervisorXStateFeatures | 0x100);
-  v37 = v107;
+  v33 = v86;
   if ( !BugCheckParameter4 )
-    goto LABEL_47;
+    goto LABEL_46;
   if ( PopSimulateHiberBugcheck )
     PoPowerDownActionInProgress = 0;
   if ( *(_BYTE *)(BugCheckParameter4 + 2) )
   {
-    if ( v17 )
+    if ( v16 )
     {
       DbgPrintEx(
         0x65u,
@@ -336,7 +312,7 @@ LABEL_41:
         "Due to verification temporarily enabled by Po during this time,\n"
         "regular bugcheck processing may not work.\n"
         "\n");
-      if ( v107 == 10 )
+      if ( v86 == 10 )
         DbgPrintEx(
           0x65u,
           0,
@@ -344,304 +320,304 @@ LABEL_41:
           "for the boot phase of hibernate! Check the callstack and parameters\n"
           "to find the pages that need to be marked.\n"
           "\n");
-      v37 = v107;
+      v33 = v86;
     }
-    v113 = 0LL;
-    v38 = 1;
+    v92 = 0LL;
+    v34 = 1;
   }
   else
   {
-LABEL_47:
-    v38 = 0;
+LABEL_46:
+    v34 = 0;
   }
   Context = CurrentPrcb->Context;
-  v40 = v119;
-  v41 = 9LL;
-  v42 = 128LL;
+  v36 = v98;
+  v37 = 9LL;
+  v38 = 128LL;
   do
   {
-    *(_OWORD *)v40 = *(_OWORD *)&Context->P1Home;
-    *((_OWORD *)v40 + 1) = *(_OWORD *)&Context->P3Home;
-    *((_OWORD *)v40 + 2) = *(_OWORD *)&Context->P5Home;
-    *((_OWORD *)v40 + 3) = *(_OWORD *)&Context->ContextFlags;
-    *((_OWORD *)v40 + 4) = *(_OWORD *)&Context->SegGs;
-    *((_OWORD *)v40 + 5) = *(_OWORD *)&Context->Dr1;
-    *((_OWORD *)v40 + 6) = *(_OWORD *)&Context->Dr3;
-    v40 += 128;
-    v43 = *(_OWORD *)&Context->Dr7;
+    *(_OWORD *)v36 = *(_OWORD *)&Context->P1Home;
+    *((_OWORD *)v36 + 1) = *(_OWORD *)&Context->P3Home;
+    *((_OWORD *)v36 + 2) = *(_OWORD *)&Context->P5Home;
+    *((_OWORD *)v36 + 3) = *(_OWORD *)&Context->ContextFlags;
+    *((_OWORD *)v36 + 4) = *(_OWORD *)&Context->SegGs;
+    *((_OWORD *)v36 + 5) = *(_OWORD *)&Context->Dr1;
+    *((_OWORD *)v36 + 6) = *(_OWORD *)&Context->Dr3;
+    v36 += 128;
+    v39 = *(_OWORD *)&Context->Dr7;
     Context = (_CONTEXT *)((char *)Context + 128);
-    *((_OWORD *)v40 - 1) = v43;
-    --v41;
+    *((_OWORD *)v36 - 1) = v39;
+    --v37;
   }
-  while ( v41 );
-  *(_OWORD *)v40 = *(_OWORD *)&Context->P1Home;
-  *((_OWORD *)v40 + 1) = *(_OWORD *)&Context->P3Home;
-  *((_OWORD *)v40 + 2) = *(_OWORD *)&Context->P5Home;
-  *((_OWORD *)v40 + 3) = *(_OWORD *)&Context->ContextFlags;
-  *((_OWORD *)v40 + 4) = *(_OWORD *)&Context->SegGs;
-  if ( !v98 )
+  while ( v37 );
+  *(_OWORD *)v36 = *(_OWORD *)&Context->P1Home;
+  *((_OWORD *)v36 + 1) = *(_OWORD *)&Context->P3Home;
+  *((_OWORD *)v36 + 2) = *(_OWORD *)&Context->P5Home;
+  *((_OWORD *)v36 + 3) = *(_OWORD *)&Context->ContextFlags;
+  *((_OWORD *)v36 + 4) = *(_OWORD *)&Context->SegGs;
+  if ( !v77 )
   {
-    v49 = 1;
-    v60 = CurrentThread;
-    v65 = v105;
-    goto LABEL_173;
+    v43 = 1;
+    v54 = CurrentThread;
+    v57 = v84;
+    goto LABEL_172;
   }
   if ( ViVerifierEnabled )
   {
     VfNotifyVerifierOfEvent(2LL);
-    v37 = v107;
+    v33 = v86;
   }
-  if ( v37 == 229 )
+  if ( v33 == 229 )
   {
-    KiScanBugCheckCallbackList(v40, v41, v42);
-    guard_dispatch_icall_no_overrides(0LL, v44, v45, v46);
+    KiScanBugCheckCallbackList(v36, v37, v38);
+    guard_dispatch_icall_no_overrides(0LL, v40);
     HalReturnToFirmware(3);
   }
-  if ( v37 > 0xD1 )
+  if ( v33 > 0xD1 )
   {
-    switch ( v37 )
+    switch ( v33 )
     {
       case 0xD8u:
         *(_QWORD *)&KiBugCheckDriver = a2 + 88;
-        goto LABEL_75;
+        goto LABEL_74;
       case 0xE6u:
         if ( (_DWORD)a2 == 39 )
           IoAddTriageDumpDataBlock(v6, (PVOID)8);
-        goto LABEL_75;
+        goto LABEL_74;
       case 0xEAu:
         *(_QWORD *)&KiBugCheckDriver = a4;
-        goto LABEL_75;
+        goto LABEL_74;
       case 0xEFu:
-        v48 = 1;
+        v42 = 1;
         break;
       case 0xFCu:
-        goto LABEL_134;
+        goto LABEL_133;
       case 0x139u:
-        v48 = 0;
-        if ( v101 )
+        v42 = 0;
+        if ( v80 )
         {
-          v47 = v101;
-          v108 = v101[45];
-          goto LABEL_77;
+          v41 = v80;
+          v87 = v80[45];
+          goto LABEL_76;
         }
         if ( a2 == 10 )
           v6 = a5;
-        v108 = v6;
-        goto LABEL_127;
+        v87 = v6;
+        goto LABEL_126;
       case 0x13Du:
-        v109 = 8;
-        goto LABEL_75;
+        v88 = 8;
+        goto LABEL_74;
       case 0x14Fu:
         if ( v6 < 0x100 && a5 )
         {
-          v58 = CurrentThread;
+          v52 = CurrentThread;
           if ( *(_QWORD *)(a5 + 8) )
-            v58 = *(struct _KTHREAD **)(a5 + 8);
-          CurrentThread = v58;
+            v52 = *(struct _KTHREAD **)(a5 + 8);
+          CurrentThread = v52;
         }
-        v48 = (KeGetCurrentThread()->ApcState.Process[3].ActiveGroupsMask.Masks[1] & 0x100000000000LL) == 0;
+        v42 = (KeGetCurrentThread()->ApcState.Process[3].ActiveGroupsMask.Masks[1] & 0x100000000000LL) == 0;
         break;
       case 0x1C8u:
-        v106 = 1;
-        goto LABEL_75;
+        v85 = 1;
+        goto LABEL_74;
       default:
-LABEL_116:
-        v47 = v101;
-        v57 = v101 == 0LL;
-        goto LABEL_117;
+LABEL_115:
+        v41 = v80;
+        v51 = v80 == 0LL;
+        goto LABEL_116;
     }
-    v97 = v48;
-LABEL_127:
-    v47 = v101;
-    goto LABEL_77;
+    v76 = v42;
+LABEL_126:
+    v41 = v80;
+    goto LABEL_76;
   }
-  switch ( v37 )
+  switch ( v33 )
   {
     case 0xD1u:
     case 0xAu:
-      v108 = a5;
+      v87 = a5;
       if ( a5 >= ExPoolCodeStart && a5 < ExPoolCodeEnd )
       {
         KiBugCheckData = 197LL;
-        goto LABEL_75;
+        goto LABEL_74;
       }
-      v54 = KiPcToFileHeader(a5, &v110, 0LL, v100);
-      if ( v100[0] != 1 )
+      v48 = KiPcToFileHeader(a5, &v89, 0LL, v79);
+      if ( v79[0] != 1 )
       {
-        v47 = v101;
-        v48 = 0;
-        v49 = 1;
+        v41 = v80;
+        v42 = 0;
+        v43 = 1;
         KiBugCheckData = 209LL;
-        if ( v54 )
+        if ( v48 )
         {
-          KiBugCheckDriverOffset = a5 - v54;
-          *(_QWORD *)&KiBugCheckDriver = v110 + 88;
+          KiBugCheckDriverOffset = a5 - v48;
+          *(_QWORD *)&KiBugCheckDriver = v89 + 88;
         }
-        goto LABEL_78;
+        goto LABEL_77;
       }
-      KiBugCheckDriverOffset = a5 - v54;
-      *(_QWORD *)&KiBugCheckDriver = v110 + 88;
-      v55 = KiPcToFileHeader(a2, &v110, 1LL, v100);
-      if ( v55 )
+      KiBugCheckDriverOffset = a5 - v48;
+      *(_QWORD *)&KiBugCheckDriver = v89 + 88;
+      v49 = KiPcToFileHeader(a2, &v89, 1LL, v79);
+      if ( v49 )
       {
         KiBugCheckData = 211LL;
-        KiBugCheckDriverOffset = a2 - v55;
-        *(_QWORD *)&KiBugCheckDriver = v110 + 88;
-        goto LABEL_75;
+        KiBugCheckDriverOffset = a2 - v49;
+        *(_QWORD *)&KiBugCheckDriver = v89 + 88;
+        goto LABEL_74;
       }
       UnloadedDriver = MmLocateUnloadedDriver(a2);
-      v47 = v101;
-      v48 = 0;
-      v7 = v103;
+      v41 = v80;
+      v42 = 0;
+      v7 = v82;
       if ( UnloadedDriver )
       {
         KiBugCheckDriverOffset = a2 - *(_DWORD *)(UnloadedDriver + 16);
         *(_QWORD *)&KiBugCheckDriver = UnloadedDriver;
         KiBugCheckData = 212LL;
       }
-LABEL_95:
-      v49 = 1;
-      goto LABEL_79;
+LABEL_94:
+      v43 = 1;
+      goto LABEL_78;
     case 0x3Bu:
-      v108 = a5;
-      goto LABEL_75;
+      v87 = a5;
+      goto LABEL_74;
     case 0x4Cu:
-      v48 = 1;
-      v52 = &qword_140F22748;
-      v97 = 1;
-      v104 = 1;
-      v41 = (__int64)qword_140F22768;
+      v42 = 1;
+      v46 = &qword_140F22A08;
+      v76 = 1;
+      v83 = 1;
+      v37 = (__int64)&KiBugCheckActive;
       KiBugCheckData = (unsigned int)a2;
-      v53 = v6 - (_QWORD)&qword_140F22748;
+      v47 = v6 - (_QWORD)&qword_140F22A08;
       Format = a4;
       do
       {
-        *v52 = *(__int64 *)((char *)v52 + v53);
-        ++v52;
+        *v46 = *(__int64 *)((char *)v46 + v47);
+        ++v46;
       }
-      while ( (__int64)v52 < (__int64)qword_140F22768 );
-      v47 = v101;
-      goto LABEL_95;
+      while ( (__int64)v46 < (__int64)&KiBugCheckActive );
+      v41 = v80;
+      goto LABEL_94;
     case 0x50u:
-      v47 = v101;
-      if ( !v101 )
+      v41 = v80;
+      if ( !v80 )
       {
         if ( !a4 || ((unsigned __int8)a4 & 3) != 0 )
-          goto LABEL_90;
-        v47 = a4;
+          goto LABEL_89;
+        v41 = a4;
       }
-      v108 = v47[45];
-      qword_140F22758 = v108;
-      v50 = KiPcToFileHeader(v108, &v110, 0LL, v100);
-      v101 = v47;
-      if ( v50 )
-        goto LABEL_76;
-LABEL_90:
-      v51 = MmLocateUnloadedDriver(a2);
-      if ( v51 )
+      v87 = v41[45];
+      qword_140F22A18 = v87;
+      v44 = KiPcToFileHeader(v87, &v89, 0LL, v79);
+      v80 = v41;
+      if ( v44 )
+        goto LABEL_75;
+LABEL_89:
+      v45 = MmLocateUnloadedDriver(a2);
+      if ( v45 )
       {
-        KiBugCheckDriverOffset = a2 - *(_DWORD *)(v51 + 16);
-        *(_QWORD *)&KiBugCheckDriver = v51;
+        KiBugCheckDriverOffset = a2 - *(_DWORD *)(v45 + 16);
+        *(_QWORD *)&KiBugCheckDriver = v45;
         KiBugCheckData = 206LL;
       }
-      goto LABEL_76;
+      goto LABEL_75;
     case 0x7Bu:
-      v47 = v101;
-      v48 = 0;
-      v99 = ((unsigned __int8)a4 & 1) == 0;
-      v49 = ((unsigned __int8)a4 & 2) == 0;
-      goto LABEL_78;
+      v41 = v80;
+      v42 = 0;
+      v78 = ((unsigned __int8)a4 & 1) == 0;
+      v43 = ((unsigned __int8)a4 & 2) == 0;
+      goto LABEL_77;
     case 0x8Eu:
-      goto LABEL_134;
+      goto LABEL_133;
   }
-  if ( v37 != 160 )
+  if ( v33 != 160 )
   {
-    if ( v37 != 190 )
+    if ( v33 != 190 )
     {
-      if ( v37 == 203 )
+      if ( v33 == 203 )
       {
-        v108 = a2;
-LABEL_75:
-        v47 = v101;
-        goto LABEL_76;
+        v87 = a2;
+LABEL_74:
+        v41 = v80;
+        goto LABEL_75;
       }
-      goto LABEL_116;
+      goto LABEL_115;
     }
-LABEL_134:
-    v47 = v101;
-    if ( !v101 )
+LABEL_133:
+    v41 = v80;
+    if ( !v80 )
     {
       if ( !a4 || ((unsigned __int8)a4 & 3) != 0 )
-        goto LABEL_76;
-      v47 = a4;
-      v101 = a4;
+        goto LABEL_75;
+      v41 = a4;
+      v80 = a4;
     }
-    v57 = v37 == 142;
-LABEL_117:
-    if ( !v57 )
-      v108 = v47[45];
-    goto LABEL_76;
+    v51 = v33 == 142;
+LABEL_116:
+    if ( !v51 )
+      v87 = v41[45];
+    goto LABEL_75;
   }
   if ( (KeGetCurrentThread()->ApcState.Process[3].ActiveGroupsMask.Masks[1] & 0x100000000000LL) != 0 )
-    goto LABEL_75;
-  v47 = v101;
+    goto LABEL_74;
+  v41 = v80;
   if ( (unsigned __int64)(a2 - 240) <= 1 )
   {
-    v48 = 1;
-    v97 = 1;
-    goto LABEL_77;
+    v42 = 1;
+    v76 = 1;
+    goto LABEL_76;
   }
+LABEL_75:
+  v42 = 0;
 LABEL_76:
-  v48 = 0;
+  v43 = 1;
 LABEL_77:
-  v49 = 1;
+  v7 = v82;
 LABEL_78:
-  v7 = v103;
-LABEL_79:
   if ( *(_QWORD *)&KiBugCheckDriver )
   {
-    KiBugCheckUnicodeToAnsi(*(_QWORD *)&KiBugCheckDriver, pszDest, v42);
+    KiBugCheckUnicodeToAnsi(*(_QWORD *)&KiBugCheckDriver, pszDest, v38);
   }
-  else if ( v108 )
+  else if ( v87 )
   {
     KiDumpParameterImages(pszDest);
   }
-  if ( !(_DWORD)WheapHighIrqlLogSelHandler )
+  if ( !WheapDispatchPtr.DeviceLock.Header.LockNV )
   {
     WheapSelLogSetNtSchedulerAvailabilityNoLock();
     if ( (unsigned __int8)IpmiHwContextInitialized(&WheaIpmiContext) )
       IpmiLibAddSelBugcheckRecord();
   }
-  v59 = KiBugCheckData;
+  v53 = KiBugCheckData;
   BugCheckProgressEfiSafeToCall = KiBugCheckData != 265;
-  if ( v49 )
+  if ( v43 )
   {
-    LOBYTE(v41) = v38;
-    KiCollectTriageDumpDataBlocks(KiBugCheckData, v41);
+    LOBYTE(v37) = v34;
+    KiCollectTriageDumpDataBlocks(KiBugCheckData, v37);
   }
-  v60 = CurrentThread;
-  if ( v102 && (PartialDumpControl & 4) != 0 )
+  v54 = CurrentThread;
+  if ( v81 && (PartialDumpControl & 4) != 0 )
   {
-    qword_140F22788 = (__int64)CurrentThread;
-    KiCrashDumpContext = (__int64)v119;
-    qword_140F22790 = (__int64)v113;
-    qword_140F22798 = (__int64)v47;
-    byte_140F227A0 = v48;
-    byte_140F227A1 = v38;
+    qword_140F46A48 = (__int64)CurrentThread;
+    KiCrashDumpContext = (__int64)v98;
+    qword_140F46A50 = (__int64)v92;
+    qword_140F46A58 = (__int64)v41;
+    byte_140F46A60 = v42;
+    byte_140F46A61 = v34;
     KiAttemptBugcheckRecovery();
   }
   KiBugcheckOwnerKeepsOthersFrozen = 1;
-  guard_dispatch_icall_no_overrides(v59, v41, v42, v36);
+  guard_dispatch_icall_no_overrides(v53, v37);
   HvlEnlightenments &= 0x2000u;
   IoSaveBugCheckProgress(96);
   IsEmptyAffinity = KeIsEmptyAffinityEx(KiNmiInProgress);
-  guard_dispatch_icall_no_overrides(IsEmptyAffinity == 0, v62, v63, v64);
-  KiFilterBugCheckInfo(&v107, (__int64)&KiBugCheckData);
-  v65 = !CrashdmpDumpBlock || !v49;
-  HvlLogGuestCrashInformation(KiBugCheckData, qword_140F22748, qword_140F22750, qword_140F22758, qword_140F22760, v65);
+  guard_dispatch_icall_no_overrides(IsEmptyAffinity == 0, v56);
+  KiFilterBugCheckInfo(&v86, (__int64)&KiBugCheckData);
+  v57 = !CrashdmpDumpBlock || !v43;
+  HvlLogGuestCrashInformation(KiBugCheckData, qword_140F22A08, qword_140F22A10, qword_140F22A18, qword_140F22A20, v57);
   if ( !KdPitchDebugger )
-    qword_140E01068 = (__int64)v119;
-  if ( (unsigned __int8)KiBugCheckShouldEnterPostBugCheckDebugger(v107, 0LL) )
+    qword_140E01068 = (__int64)v98;
+  if ( (unsigned __int8)KiBugCheckShouldEnterPostBugCheckDebugger(v86, 0LL) )
   {
     if ( !CurrentPrcb->NmiActive )
     {
@@ -650,13 +626,13 @@ LABEL_79:
         0,
         "\n*** Fatal System Error: 0x%08lx\n                       (0x%p,0x%p,0x%p,0x%p)\n\n",
         KiBugCheckData,
-        (const void *)qword_140F22748,
-        (const void *)qword_140F22750,
-        (const void *)qword_140F22758,
-        (const void *)qword_140F22760);
+        (const void *)qword_140F22A08,
+        (const void *)qword_140F22A10,
+        (const void *)qword_140F22A18,
+        (const void *)qword_140F22A20);
       if ( *(_QWORD *)&KiBugCheckDriver )
         DbgPrintEx(0x65u, 0, "Driver at fault: %s.\n", pszDest);
-      if ( v104 )
+      if ( v83 )
       {
         if ( Format )
           DbgPrintEx(0x65u, 0, Format);
@@ -667,32 +643,32 @@ LABEL_79:
     if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
       KiBugCheckDebugBreak(3u);
   }
-LABEL_173:
+LABEL_172:
   _disable();
-  v66 = KeGetCurrentIrql();
+  v58 = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags )
-    KiRaiseIrqlProcessIrqlFlags(v66, 15);
-  if ( v98 )
-    goto LABEL_188;
+    KiRaiseIrqlProcessIrqlFlags(v58, 15);
+  if ( v77 )
+    goto LABEL_187;
   if ( (unsigned __int8)KiHandleMultipleBugchecksDuringRecovery((unsigned int)KiBugCheckActive) )
   {
     KiBugcheckOwnerKeepsOthersFrozen = 1;
-LABEL_188:
+LABEL_187:
     if ( (unsigned int)KeNumberProcessors_0 > 1 && !KiHypervisorInitiatedCrashDump )
     {
       KiSetDebuggerOwner((__int64)CurrentPrcb);
-      *(_QWORD *)&v118.Count = 2097153LL;
-      memset_0(&v118.8, 0, sizeof(v118.8));
-      KiCopyAffinityEx(&v118, v118.Size, &KeActiveProcessors);
-      KeRemoveProcessorAffinityEx(&v118.Count, CurrentPrcb->Number);
-      KiSendFreeze(&v118, 0LL);
+      *(_QWORD *)&v97.Count = 2097153LL;
+      memset_0(&v97.8, 0, sizeof(v97.8));
+      KiCopyAffinityEx(&v97, v97.Size, &KeActiveProcessors);
+      KeRemoveProcessorAffinityEx(&v97.Count, CurrentPrcb->Number);
+      KiSendFreeze(&v97, 0LL);
       KeStallExecutionProcessor(0xF4240u);
     }
-    IoSaveInitialBugCheckProgress(KiBugCheckData, qword_140F22748);
+    IoSaveInitialBugCheckProgress(KiBugCheckData);
     IoSaveBugCheckProgress(1);
-    LOBYTE(v76) = v65;
-    KiBugCheckProgressCpusFrozen(v76);
+    LOBYTE(v63) = v57;
+    KiBugCheckProgressCpusFrozen(v63);
     if ( CurrentPrcb->PowerState.ResolvedQosClass )
     {
       if ( PpmPerfVmQosSupported )
@@ -703,159 +679,151 @@ LABEL_188:
       {
         Domain = CurrentPrcb->PowerState.CheckContext.Domain;
         if ( Domain )
-        {
-          LOBYTE(v80) = 1;
-          LOBYTE(v79) = 1;
           guard_dispatch_icall_no_overrides(
             CurrentPrcb->PowerState.CheckContext.Constraint->PerfContext,
-            Domain->QosSelection,
-            v79,
-            v80);
-        }
+            Domain->QosSelection);
       }
     }
-    if ( v38 )
+    if ( v34 )
     {
-      v71 = v99;
+      v60 = v78;
     }
     else
     {
-      v82 = v109;
-      if ( v65 )
-        v82 = v109 | 4;
-      v83 = v82 | 2;
-      v71 = v99;
-      if ( v102 )
-        v83 = v82;
-      v84 = v83 | 1;
-      if ( v99 )
-        v84 = v83;
-      KiDisplayBlueScreen(v84);
+      v65 = v88;
+      if ( v57 )
+        v65 = v88 | 4;
+      v66 = v65 | 2;
+      v60 = v78;
+      if ( v81 )
+        v66 = v65;
+      v67 = v66 | 1;
+      if ( v78 )
+        v67 = v66;
+      KiDisplayBlueScreen(v67);
     }
-    LOBYTE(v78) = 1;
-    HvlPrepareForRootCrashdump(v78, v77, v79, v80);
-    if ( v38 )
+    HvlPrepareForRootCrashdump(1);
+    if ( v34 )
     {
-      v85 = 9LL;
+      v68 = 9LL;
     }
     else
     {
       IoSaveBugCheckProgress(2);
       KiInvokeBugCheckEntryCallbacks(1LL, 0LL, 0LL);
       KiInvokeBugCheckEntryCallbacks(8LL, 0LL, 0LL);
-      v85 = 9LL;
+      v68 = 9LL;
       KiInvokeBugCheckEntryCallbacks(9LL, 0LL, 0LL);
       IoSaveBugCheckProgress(5);
       KiInvokeBugCheckAddTriageDumpDataCallbacks();
     }
     if ( !(_BYTE)KdDebuggerEnabled && !KdPitchDebugger )
       KdEnableDebuggerWithLock(0);
-    v86 = CurrentPrcb->Context;
-    v87 = v119;
-    v68 = 128LL;
+    v69 = CurrentPrcb->Context;
+    v70 = v98;
     do
     {
-      *(_OWORD *)&v86->P1Home = *(_OWORD *)v87;
-      *(_OWORD *)&v86->P3Home = *((_OWORD *)v87 + 1);
-      *(_OWORD *)&v86->P5Home = *((_OWORD *)v87 + 2);
-      *(_OWORD *)&v86->ContextFlags = *((_OWORD *)v87 + 3);
-      *(_OWORD *)&v86->SegGs = *((_OWORD *)v87 + 4);
-      *(_OWORD *)&v86->Dr1 = *((_OWORD *)v87 + 5);
-      *(_OWORD *)&v86->Dr3 = *((_OWORD *)v87 + 6);
-      v86 = (_CONTEXT *)((char *)v86 + 128);
-      v88 = *((_OWORD *)v87 + 7);
-      v87 += 128;
-      *(_OWORD *)&v86[-1].LastExceptionToRip = v88;
-      --v85;
+      *(_OWORD *)&v69->P1Home = *(_OWORD *)v70;
+      *(_OWORD *)&v69->P3Home = *((_OWORD *)v70 + 1);
+      *(_OWORD *)&v69->P5Home = *((_OWORD *)v70 + 2);
+      *(_OWORD *)&v69->ContextFlags = *((_OWORD *)v70 + 3);
+      *(_OWORD *)&v69->SegGs = *((_OWORD *)v70 + 4);
+      *(_OWORD *)&v69->Dr1 = *((_OWORD *)v70 + 5);
+      *(_OWORD *)&v69->Dr3 = *((_OWORD *)v70 + 6);
+      v69 = (_CONTEXT *)((char *)v69 + 128);
+      v71 = *((_OWORD *)v70 + 7);
+      v70 += 128;
+      *(_OWORD *)&v69[-1].LastExceptionToRip = v71;
+      --v68;
     }
-    while ( v85 );
-    *(_OWORD *)&v86->P1Home = *(_OWORD *)v87;
-    *(_OWORD *)&v86->P3Home = *((_OWORD *)v87 + 1);
-    *(_OWORD *)&v86->P5Home = *((_OWORD *)v87 + 2);
-    *(_OWORD *)&v86->ContextFlags = *((_OWORD *)v87 + 3);
-    *(_OWORD *)&v86->SegGs = *((_OWORD *)v87 + 4);
-    if ( v49 )
+    while ( v68 );
+    *(_OWORD *)&v69->P1Home = *(_OWORD *)v70;
+    *(_OWORD *)&v69->P3Home = *((_OWORD *)v70 + 1);
+    *(_OWORD *)&v69->P5Home = *((_OWORD *)v70 + 2);
+    *(_OWORD *)&v69->ContextFlags = *((_OWORD *)v70 + 3);
+    *(_OWORD *)&v69->SegGs = *((_OWORD *)v70 + 4);
+    if ( v43 )
     {
       KdDecodeDataBlock();
-      qword_140F22790 = (__int64)v113;
-      byte_140F227A0 = v97;
-      qword_140F22798 = (__int64)v101;
-      KiCrashDumpContext = (__int64)v119;
-      qword_140F22788 = (__int64)v60;
-      byte_140F227A1 = v38;
+      qword_140F46A50 = (__int64)v92;
+      byte_140F46A60 = v76;
+      qword_140F46A58 = (__int64)v80;
+      KiCrashDumpContext = (__int64)v98;
+      qword_140F46A48 = (__int64)v54;
+      byte_140F46A61 = v34;
       KiBugCheckWriteCrashDump(&KiCrashDumpContext);
     }
-    goto LABEL_216;
+    goto LABEL_215;
   }
-  if ( (_DWORD)v114 != (unsigned int)KiBugCheckActive >> 4 )
+  if ( (_DWORD)v93 != (unsigned int)KiBugCheckActive >> 4 )
   {
     KiYieldWaitForDebugger();
     __debugbreak();
   }
-  if ( KiHypervisorInitiatedCrashDump || (v67 = ((unsigned int)KiBugCheckActive >> 2) & 3, v67 >= 2) )
+  if ( KiHypervisorInitiatedCrashDump || (v59 = ((unsigned int)KiBugCheckActive >> 2) & 3, v59 >= 2) )
   {
     DbgPrintEx(5u, 1u, "Initiating HalHaltSystem()!\n");
     while ( 1 )
-      guard_dispatch_icall_no_overrides(v73, v72, v74, v75);
+      guard_dispatch_icall_no_overrides(v62, v61);
   }
   DbgPrintEx(
     5u,
     2u,
     "DoubleFault detected!  CurrentProcessor: 0x%x, PreviousState: { BugCheckState: 0x%08lx, RecursionCount: 0x%08lx, Bug"
     "CheckOwner: 0x%08lx }\n",
-    v114,
+    v93,
     KiBugCheckActive & 3,
     ((unsigned int)KiBugCheckActive >> 2) & 3,
     (unsigned int)KiBugCheckActive >> 4);
   IoSetBugCheckProgressFlag(0x20000);
   _InterlockedAdd(&KiBugCheckActive, 4u);
-  if ( v67 )
+  if ( v59 )
   {
     DbgPrintEx(5u, 1u, "Initiating KiBugCheckDebugBreak(DBG_STATUS_BUGCHECK_SECOND)\n");
     KiBugCheckDebugBreak(4u);
   }
   else
   {
-    KiCrashDumpContext = (__int64)v119;
-    qword_140F22798 = (__int64)v101;
-    qword_140F22790 = (__int64)v113;
-    byte_140F227A0 = v97;
-    qword_140F22788 = (__int64)v60;
-    byte_140F227A1 = v38;
+    KiCrashDumpContext = (__int64)v98;
+    qword_140F46A58 = (__int64)v80;
+    qword_140F46A50 = (__int64)v92;
+    byte_140F46A60 = v76;
+    qword_140F46A48 = (__int64)v54;
+    byte_140F46A61 = v34;
     IoRetryAsMiniDump(
       KiBugCheckData,
-      qword_140F22748,
-      qword_140F22750,
-      qword_140F22758,
-      qword_140F22760,
-      v119,
-      v60,
-      v113,
-      v97,
-      v101);
+      qword_140F22A08,
+      qword_140F22A10,
+      qword_140F22A18,
+      qword_140F22A20,
+      v98,
+      v54,
+      v92,
+      v76,
+      v80);
   }
-  v71 = v99;
-LABEL_216:
-  HvlResumeFromRootCrashdump(0LL, v68, v69, v70);
+  v60 = v78;
+LABEL_215:
+  HvlResumeFromRootCrashdump(0);
   IoSaveBugCheckProgress(99);
-  if ( !v38 )
+  if ( !v34 )
     ((void (*)(void))KiScanBugCheckCallbackList)();
-  guard_dispatch_icall_no_overrides(v90, v89, v91, v92);
+  guard_dispatch_icall_no_overrides(v73, v72);
   IoSaveBugCheckProgress(4);
-  if ( v102 )
+  if ( v81 )
   {
     KiResumeForReboot = 1;
     KiSendThawExecution(0);
     KiBugcheckUnloadDebugSymbols();
-    guard_dispatch_icall_no_overrides(0LL, v93, v94, v95);
+    guard_dispatch_icall_no_overrides(0LL, v74);
     if ( PoPowerDownActionInProgress && !PoPowerResetActionInProgress
       || PoModernStandbyActionInProgress
-      || v106
-      || (v96 = 3, !v71) )
+      || v85
+      || (v75 = 3, !v60) )
     {
-      v96 = 1;
+      v75 = 1;
     }
-    HalReturnToFirmware(v96);
+    HalReturnToFirmware(v75);
   }
   KiBugCheckDebugBreak(4u);
 }

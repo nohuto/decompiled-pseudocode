@@ -1,15 +1,15 @@
 /*
- * XREFs of PspApplyJobChainLimitsToProcess @ 0x140603EB0
+ * XREFs of PspApplyJobChainLimitsToProcess @ 0x140604EB0
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x1406047A0 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406057A0 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x140606664 (PspAssignProcessToJob.c)
  * Callees:
- *     RtlInterlockedSetClearBits @ 0x14008F8E0 (RtlInterlockedSetClearBits.c)
- *     PsUpdateComponentPower @ 0x14008F910 (PsUpdateComponentPower.c)
- *     PspNotifyProcessBackgroundTransition @ 0x1401314C8 (PspNotifyProcessBackgroundTransition.c)
- *     PspRequestProcessExecutionState @ 0x140604508 (PspRequestProcessExecutionState.c)
- *     PspApplyJobLimitsToProcess @ 0x140604550 (PspApplyJobLimitsToProcess.c)
- *     PspSetProcessSchedulingGroup @ 0x14068D598 (PspSetProcessSchedulingGroup.c)
+ *     RtlInterlockedSetClearBits @ 0x14008F800 (RtlInterlockedSetClearBits.c)
+ *     PsUpdateComponentPower @ 0x14008F830 (PsUpdateComponentPower.c)
+ *     PspNotifyProcessBackgroundTransition @ 0x140131598 (PspNotifyProcessBackgroundTransition.c)
+ *     PspRequestProcessExecutionState @ 0x140605508 (PspRequestProcessExecutionState.c)
+ *     PspApplyJobLimitsToProcess @ 0x140605550 (PspApplyJobLimitsToProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x14068E758 (PspSetProcessSchedulingGroup.c)
  */
 
 __int64 __fastcall PspApplyJobChainLimitsToProcess(__int64 a1, __int64 a2, volatile signed __int32 *a3)

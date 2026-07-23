@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x1402ED4BC
+ * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x1402ED6AC
  * Callers:
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     ExpInitializeResource @ 0x14016BCB0 (ExpInitializeResource.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     ExpInitializeResource @ 0x14016BDB0 (ExpInitializeResource.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpStdExtendUpperWatermark @ 0x1402ED398 (RtlpStdExtendUpperWatermark.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpStdExtendUpperWatermark @ 0x1402ED588 (RtlpStdExtendUpperWatermark.c)
  */
 
 __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(KSPIN_LOCK *SpinLock, unsigned __int16 *a2)

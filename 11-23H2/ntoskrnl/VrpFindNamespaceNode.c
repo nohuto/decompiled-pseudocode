@@ -2,8 +2,8 @@
  * XREFs of VrpFindNamespaceNode @ 0x14068D8C0
  * Callers:
  *     VrpTranslatePath @ 0x14068D49C (VrpTranslatePath.c)
- *     VrpFindExactNamespaceNode @ 0x14077B7F4 (VrpFindExactNamespaceNode.c)
- *     VrpFindBestMatchNamespaceNode @ 0x14077BA78 (VrpFindBestMatchNamespaceNode.c)
+ *     VrpFindExactNamespaceNode @ 0x14077B9E4 (VrpFindExactNamespaceNode.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x14077BC68 (VrpFindBestMatchNamespaceNode.c)
  * Callees:
  *     VrpComparePath @ 0x14068D9A4 (VrpComparePath.c)
  */

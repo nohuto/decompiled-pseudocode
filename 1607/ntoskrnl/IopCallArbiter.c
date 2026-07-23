@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCallArbiter @ 0x140557474
+ * XREFs of IopCallArbiter @ 0x1405579B4
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1401CE0DC (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     PnpReleaseResourcesInternal @ 0x1405559CC (PnpReleaseResourcesInternal.c)
- *     IopSetupArbiterAndTranslators @ 0x140556FA8 (IopSetupArbiterAndTranslators.c)
- *     IopQueryConflictListInternal @ 0x14064E5F8 (IopQueryConflictListInternal.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1401CDF28 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PnpReleaseResourcesInternal @ 0x140555F0C (PnpReleaseResourcesInternal.c)
+ *     IopSetupArbiterAndTranslators @ 0x1405574E8 (IopSetupArbiterAndTranslators.c)
+ *     IopQueryConflictListInternal @ 0x14064E6DC (IopQueryConflictListInternal.c)
  * Callees:
  *     <none>
  */

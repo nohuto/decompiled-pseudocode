@@ -1,15 +1,15 @@
 /*
- * XREFs of PoFxAbandonDevice @ 0x1404C61AC
+ * XREFs of PoFxAbandonDevice @ 0x1404849B4
  * Callers:
- *     PopFxAcpiUnregisterDevice @ 0x14020E838 (PopFxAcpiUnregisterDevice.c)
- *     IopRemoveDevice @ 0x1404C6038 (IopRemoveDevice.c)
- *     PnpDriverLoadingFailed @ 0x14057F858 (PnpDriverLoadingFailed.c)
+ *     PopFxAcpiUnregisterDevice @ 0x14020E664 (PopFxAcpiUnregisterDevice.c)
+ *     IopRemoveDevice @ 0x140484840 (IopRemoveDevice.c)
+ *     PnpDriverLoadingFailed @ 0x14057FD04 (PnpDriverLoadingFailed.c)
  * Callees:
- *     PopFxReleaseAcpiRefDevice @ 0x140203878 (PopFxReleaseAcpiRefDevice.c)
- *     PopPluginAbandonDevice @ 0x140204530 (PopPluginAbandonDevice.c)
+ *     PopFxReleaseAcpiRefDevice @ 0x1402036A4 (PopFxReleaseAcpiRefDevice.c)
+ *     PopPluginAbandonDevice @ 0x14020435C (PopPluginAbandonDevice.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PopDiagTraceFxDevicePreparation @ 0x1404C7B14 (PopDiagTraceFxDevicePreparation.c)
- *     PopFxUnregisterDeviceOrWait @ 0x1404C7B8C (PopFxUnregisterDeviceOrWait.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140483F08 (PopFxUnregisterDeviceOrWait.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x140483F5C (PopDiagTraceFxDevicePreparation.c)
  */
 
 void __fastcall PoFxAbandonDevice(__int64 a1)
@@ -23,11 +23,11 @@ void __fastcall PoFxAbandonDevice(__int64 a1)
   if ( (*(_DWORD *)(a1 + 296) & 1) != 0 )
   {
     v2 = *(_QWORD *)(a1 + 80);
-    PopFxUnregisterDeviceOrWait();
+    PopFxUnregisterDeviceOrWait((struct _KEVENT *)a1);
     v4 = *(_QWORD *)(a1 + 128);
     if ( v4 )
       PopPluginAbandonDevice(v4, a1 + 280);
-    PopDiagTraceFxDevicePreparation(a1, *(_QWORD *)(a1 + 128), a1 + 280, 0LL);
+    PopDiagTraceFxDevicePreparation(a1, *(_QWORD *)(a1 + 128), (unsigned __int16 *)(a1 + 280), 0);
     *(_DWORD *)(a1 + 296) &= ~1u;
     *(_QWORD *)(a1 + 128) = 0LL;
   }

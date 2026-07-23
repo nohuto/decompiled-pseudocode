@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptBuildStartupStub @ 0x1403A91C8
+ * XREFs of HalpInterruptBuildStartupStub @ 0x1403A93A8
  * Callers:
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403A90E0 (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpInterruptBuildGlobalStartupStub @ 0x1403A92C0 (HalpInterruptBuildGlobalStartupStub.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     HalpInterruptCreateGdtEntry32 @ 0x1403A93CC (HalpInterruptCreateGdtEntry32.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     HalpInterruptCreateGdtEntry32 @ 0x1403A95AC (HalpInterruptCreateGdtEntry32.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 PVOID HalpInterruptBuildStartupStub()
@@ -29,10 +29,10 @@ PVOID HalpInterruptBuildStartupStub()
   v1 = (_OWORD *)((char *)v1 + 1660);
   v3 = (int)v1;
   *v1 = HalpPMStub;
-  v1[1] = xmmword_140020B10;
-  v1[2] = xmmword_140020B20;
-  v1[3] = xmmword_140020B30;
-  v1[4] = xmmword_140020B40;
+  v1[1] = xmmword_140020B90;
+  v1[2] = xmmword_140020BA0;
+  v1[3] = xmmword_140020BB0;
+  v1[4] = xmmword_140020BC0;
   *((_QWORD *)v1 + 10) = 0x90878B300FLL;
   *((_DWORD *)v1 + 22) = -4185585;
   *((_WORD *)v1 + 46) = 26223;

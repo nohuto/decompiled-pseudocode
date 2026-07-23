@@ -95,7 +95,9 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
   v59 = CurrentIrql;
   __writecr8(2uLL);
   v4 = v58 + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v4) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v4) != 0
+    && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -289,7 +291,7 @@ LABEL_81:
     KeAddProcessorAffinityEx((unsigned __int16 *)v65, v37 & 0x7FFFFFFF);
     v38 = KeGetCurrentIrql();
     __writecr8(0xCuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v38 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu )
     {
       v39 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v38 == 12 )
@@ -300,10 +302,10 @@ LABEL_81:
     }
     KiIpiSendPacket(0, (int)v65, (__int64)KiIpiUpdateThreadTag, a1, (__int64)&v66, 0LL);
     KiIpiStallOnPacketTargetsPrcb(v41, (__int64)KeGetCurrentPrcb());
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v42 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v42 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v42 - 2) <= 0xDu )
       {
         v43 = KeGetCurrentPrcb();
         v44 = v43->SchedulerAssist;
@@ -408,7 +410,7 @@ LABEL_121:
 LABEL_42:
   LOBYTE(CurrentIrql) = v59;
 LABEL_43:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v4) != 0

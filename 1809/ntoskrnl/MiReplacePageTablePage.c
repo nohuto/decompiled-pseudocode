@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReplacePageTablePage @ 0x14011BE8C
+ * XREFs of MiReplacePageTablePage @ 0x14011BEFC
  * Callers:
- *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
- *     MmStealTopLevelPage @ 0x14015DE84 (MmStealTopLevelPage.c)
+ *     MiStealPage @ 0x1400EBFC4 (MiStealPage.c)
+ *     MmStealTopLevelPage @ 0x14015DF84 (MmStealTopLevelPage.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiReplacePageTablePage(unsigned __int64 a1)
@@ -127,7 +127,7 @@ unsigned __int64 __fastcall MiReplacePageTablePage(unsigned __int64 a1)
     v53 = 0;
     LeafVa = MiGetLeafVa(v3);
     if ( LeafVa > 0x7FFFFFFEFFFFLL
-      && (LeafVa < qword_14043BAC0 || LeafVa > qword_14043A530)
+      && (LeafVa < qword_14043CB80 || LeafVa > qword_14043B5F0)
       && (LeafVa < 0xFFFFF68000000000uLL || LeafVa > 0xFFFFF6FFFFFFFFFFuLL) )
     {
       SystemRegionType = MiGetSystemRegionType(LeafVa);
@@ -160,7 +160,7 @@ unsigned __int64 __fastcall MiReplacePageTablePage(unsigned __int64 a1)
       if ( (v18 & 0x80u) == 0LL )
         v30 = v51;
       v51 = v30;
-      if ( (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v52) >> 12) & 0xFFFFFFFFFLL) == qword_14043ADC8 )
+      if ( (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v52) >> 12) & 0xFFFFFFFFFLL) == qword_14043BE88 )
         ++v50;
       if ( v5 != v55 )
       {
@@ -235,8 +235,8 @@ LABEL_8:
         v38 = MI_READ_PTE_LOCK_FREE(v26);
         if ( ((unsigned __int8)v38 & v41) == 0 && (v38 & 0x400) == 0 && (v38 & 0x800) != 0 )
         {
-          if ( qword_14043A0C0 && (v38 & 0x10) == 0 )
-            v38 &= ~qword_14043A0C0;
+          if ( qword_14043B180 && (v38 & 0x10) == 0 )
+            v38 &= ~qword_14043B180;
           v42 = 48 * ((v38 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
           v23 = *(_QWORD *)(v42 + 40);
           if ( (v23 & 0xFFFFFFFFFLL) == v5 && v5 == v55 )
@@ -306,8 +306,8 @@ LABEL_75:
       v47 = MI_READ_PTE_LOCK_FREE(v13);
       if ( ((unsigned __int8)v47 & v48) == 0 && (v47 & 0x400) == 0 && (v47 & 0x800) != 0 )
       {
-        if ( qword_14043A0C0 && (v47 & 0x10) == 0 )
-          v47 &= ~qword_14043A0C0;
+        if ( qword_14043B180 && (v47 & 0x10) == 0 )
+          v47 &= ~qword_14043B180;
         --v4;
         _InterlockedAnd64(
           (volatile signed __int64 *)(48 * ((v47 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFE8LL),

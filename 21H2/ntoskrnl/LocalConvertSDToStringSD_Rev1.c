@@ -1,22 +1,22 @@
 /*
- * XREFs of LocalConvertSDToStringSD_Rev1 @ 0x140676E30
+ * XREFs of LocalConvertSDToStringSD_Rev1 @ 0x14066A500
  * Callers:
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x14027F790 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x14026DA40 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140252E50 (RtlGetDaclSecurityDescriptor.c)
- *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
- *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
- *     RtlGetSaclSecurityDescriptor @ 0x140610D70 (RtlGetSaclSecurityDescriptor.c)
- *     LocalConvertAclToString @ 0x140673794 (LocalConvertAclToString.c)
- *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
- *     LocalGetStringForControl @ 0x1406771A0 (LocalGetStringForControl.c)
- *     RtlGetControlSecurityDescriptor @ 0x1406772D0 (RtlGetControlSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x14067FD40 (RtlGetOwnerSecurityDescriptor.c)
- *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
- *     RtlGetGroupSecurityDescriptor @ 0x14073C7B0 (RtlGetGroupSecurityDescriptor.c)
- *     LocalGetStringForSid @ 0x1409260E0 (LocalGetStringForSid.c)
- *     SddlFilterSacl @ 0x140926808 (SddlFilterSacl.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140285CC0 (RtlGetDaclSecurityDescriptor.c)
+ *     swprintf_s @ 0x1403D6A60 (swprintf_s.c)
+ *     wcscpy_s @ 0x1403D83E0 (wcscpy_s.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1405DA7E0 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlNtStatusToDosError @ 0x1405E9950 (RtlNtStatusToDosError.c)
+ *     LocalConvertAclToString @ 0x1406689C4 (LocalConvertAclToString.c)
+ *     SddlpAlloc @ 0x140669778 (SddlpAlloc.c)
+ *     LocalGetStringForControl @ 0x14066A870 (LocalGetStringForControl.c)
+ *     RtlGetControlSecurityDescriptor @ 0x14066A9A0 (RtlGetControlSecurityDescriptor.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1406A0820 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x14073C970 (RtlGetGroupSecurityDescriptor.c)
+ *     LocalGetStringForSid @ 0x140926240 (LocalGetStringForSid.c)
+ *     SddlFilterSacl @ 0x140926968 (SddlFilterSacl.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 ULONG __fastcall LocalConvertSDToStringSD_Rev1(
@@ -37,7 +37,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   __int16 v14; // bx
   unsigned int v15; // ebx
   int SaclSecurityDescriptor; // eax
-  unsigned __int16 v17; // bx
+  WORD v17; // bx
   char v18; // r14
   BOOLEAN v19; // cl
   PVOID v20; // rbx
@@ -76,10 +76,10 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   PSID Owner; // [rsp+98h] [rbp-19h] BYREF
   PSID Group; // [rsp+A0h] [rbp-11h] BYREF
   PACL Dacl; // [rsp+A8h] [rbp-9h] BYREF
-  BOOLEAN DaclDefaulted; // [rsp+100h] [rbp+4Fh] BYREF
+  ULONG DaclDefaulted; // [rsp+100h] [rbp+4Fh] BYREF
   __int64 SaclPresent; // [rsp+108h] [rbp+57h] BYREF
   BOOLEAN DaclPresent; // [rsp+110h] [rbp+5Fh] BYREF
-  unsigned __int16 v60; // [rsp+118h] [rbp+67h] BYREF
+  WORD Control; // [rsp+118h] [rbp+67h] BYREF
 
   SaclPresent = a2;
   LODWORD(Size) = 0;
@@ -100,7 +100,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   v46 = 0LL;
   v52 = 0LL;
   Src = 0LL;
-  v60 = 0;
+  Control = 0;
   P = 0LL;
   v47 = 0LL;
   if ( !a4 || !a6 )
@@ -108,26 +108,26 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   v14 = a5;
   if ( (a5 & 1) != 0 )
   {
-    OwnerSecurityDescriptor = RtlGetOwnerSecurityDescriptor(a4, &Owner, &DaclDefaulted);
+    OwnerSecurityDescriptor = RtlGetOwnerSecurityDescriptor(a4, &Owner, (PBOOLEAN)&DaclDefaulted);
     if ( OwnerSecurityDescriptor < 0 )
       goto LABEL_68;
     v11 = Owner;
   }
   if ( (v14 & 2) != 0 )
   {
-    OwnerSecurityDescriptor = RtlGetGroupSecurityDescriptor(a4, &Group, &DaclDefaulted);
+    OwnerSecurityDescriptor = RtlGetGroupSecurityDescriptor(a4, &Group, (PBOOLEAN)&DaclDefaulted);
     v12 = Group;
   }
   if ( OwnerSecurityDescriptor < 0 )
     goto LABEL_68;
   if ( (v14 & 4) != 0 )
-    OwnerSecurityDescriptor = RtlGetDaclSecurityDescriptor(a4, &DaclPresent, &Dacl, &DaclDefaulted);
+    OwnerSecurityDescriptor = RtlGetDaclSecurityDescriptor(a4, &DaclPresent, &Dacl, (PBOOLEAN)&DaclDefaulted);
   if ( OwnerSecurityDescriptor < 0 )
     goto LABEL_68;
   v15 = v14 & 0x1F8;
   if ( v15 )
   {
-    SaclSecurityDescriptor = RtlGetSaclSecurityDescriptor(a4, (PBOOLEAN)&SaclPresent, &Sacl, &DaclDefaulted);
+    SaclSecurityDescriptor = RtlGetSaclSecurityDescriptor(a4, (PBOOLEAN)&SaclPresent, &Sacl, (PBOOLEAN)&DaclDefaulted);
     if ( SaclSecurityDescriptor < 0 )
       return RtlNtStatusToDosError(SaclSecurityDescriptor);
     v13 = Sacl;
@@ -148,7 +148,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
       }
     }
   }
-  OwnerSecurityDescriptor = RtlGetControlSecurityDescriptor(a4, &v60, &DaclDefaulted);
+  OwnerSecurityDescriptor = RtlGetControlSecurityDescriptor(a4, &Control, &DaclDefaulted);
   if ( OwnerSecurityDescriptor < 0 )
   {
 LABEL_68:
@@ -171,10 +171,10 @@ LABEL_68:
     if ( v36 )
       goto LABEL_46;
   }
-  v17 = v60;
-  if ( v60 )
+  v17 = Control;
+  if ( Control )
   {
-    StringForSid = LocalGetStringForControl(v60, 1LL, &P);
+    StringForSid = LocalGetStringForControl(Control, 1LL, &P);
     if ( StringForSid )
       goto LABEL_46;
     StringForSid = LocalGetStringForControl(v17, 2LL, &v47);

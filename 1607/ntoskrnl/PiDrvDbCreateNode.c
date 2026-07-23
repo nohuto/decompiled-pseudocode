@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbCreateNode @ 0x140551BDC
+ * XREFs of PiDrvDbCreateNode @ 0x14055211C
  * Callers:
- *     PiDrvDbRegisterNode @ 0x140551AE8 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x140552028 (PiDrvDbRegisterNode.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     ZwCreateEvent @ 0x14015A580 (ZwCreateEvent.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     ZwCreateEvent @ 0x14015AAF0 (ZwCreateEvent.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateUnicodeString @ 0x1403F75E4 (RtlCreateUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1403F80BC (ExpAllocateStringRoutine.c)
- *     PiDrvDbDestroyNode @ 0x14064CD84 (PiDrvDbDestroyNode.c)
+ *     RtlCreateUnicodeString @ 0x1403F64A4 (RtlCreateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1403F6F7C (ExpAllocateStringRoutine.c)
+ *     PiDrvDbDestroyNode @ 0x14064CE68 (PiDrvDbDestroyNode.c)
  */
 
 __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, __int64 a3, __int64 a4, __int64 *a5)
@@ -70,13 +70,13 @@ LABEL_19:
       if ( (*(_DWORD *)(v8 + 64) & 4) == 0 )
       {
 LABEL_13:
-        v15 = (__int64 *)qword_14031E128;
-        if ( *(__int64 **)qword_14031E128 != &PiDrvDbNodeList )
+        v15 = (__int64 *)qword_14031E168;
+        if ( *(__int64 **)qword_14031E168 != &PiDrvDbNodeList )
           __fastfail(3u);
-        *(_QWORD *)(v8 + 8) = qword_14031E128;
+        *(_QWORD *)(v8 + 8) = qword_14031E168;
         *(_QWORD *)v8 = &PiDrvDbNodeList;
         *v15 = v8;
-        qword_14031E128 = v8;
+        qword_14031E168 = v8;
         *a5 = v8;
         v8 = 0LL;
         goto LABEL_15;

@@ -11,10 +11,10 @@
 __int64 __fastcall SC_GPT::CreatePartitionTable(SC_GPT *this, struct _CREATE_DISK *a2)
 {
   __int128 v4; // xmm0
-  ULONG MaxPartitionCount; // eax
+  DWORD MaxPartitionCount; // eax
   _DWORD v7[2]; // [rsp+20h] [rbp-D8h] BYREF
   __int128 v8; // [rsp+28h] [rbp-D0h]
-  ULONG v9; // [rsp+48h] [rbp-B0h]
+  DWORD v9; // [rsp+48h] [rbp-B0h]
 
   memset_0(v7, 0, 0xC0uLL);
   v4 = *(_OWORD *)&a2->Mbr.Signature;

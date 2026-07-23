@@ -11,27 +11,19 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, unsigned int *a3)
 {
-  char v3; // al
   char *i; // rbx
-  unsigned int v7; // ebx
-  char *Pool2; // rax
-  char *v9; // rsi
-  int v10; // eax
-  char *v11; // rdi
-  unsigned int v12; // ebx
-  unsigned int v14; // ebp
-  _DWORD *v15; // rax
-  _DWORD *v16; // r14
-  _QWORD *v17; // rax
-  PVOID P; // [rsp+60h] [rbp+8h] BYREF
-  _QWORD *v19; // [rsp+68h] [rbp+10h]
+  unsigned int v6; // ebx
+  _FILE_PATH *Pool2; // rax
+  _FILE_PATH *v8; // rsi
+  int v9; // ebx
+  unsigned int v11; // ebp
+  unsigned int v12; // r15d
+  _DWORD *v13; // rax
+  _DWORD *v14; // r14
 
-  v19 = a2;
-  v3 = *Src;
-  P = 0LL;
-  if ( (v3 & 0x7F) == 0x7F )
+  if ( (*Src & 0x7F) == 0x7F )
   {
     return (unsigned int)-1073741766;
   }
@@ -43,46 +35,42 @@ __int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, _DWORD *a3)
     {
       ;
     }
-    v7 = (_DWORD)i - (_DWORD)Src;
-    Pool2 = (char *)ExAllocatePool2(258LL, v7 + 16, 1262764866LL);
-    v9 = Pool2;
+    v6 = (_DWORD)i - (_DWORD)Src;
+    Pool2 = (_FILE_PATH *)ExAllocatePool2(258LL, v6 + 16, 1262764866LL);
+    v8 = Pool2;
     if ( Pool2 )
     {
-      *(_DWORD *)Pool2 = 1;
-      *((_DWORD *)Pool2 + 1) = v7 + 16;
-      *((_DWORD *)Pool2 + 2) = 4;
-      memmove(Pool2 + 12, Src, v7);
-      *(_DWORD *)&v9[v7 + 12] = 327551;
-      v10 = BiTranslateFilePath(v9, 3LL, &P);
-      v11 = (char *)P;
-      v12 = v10;
-      if ( v10 >= 0 )
+      Pool2->Version = 1;
+      Pool2->Length = v6 + 16;
+      Pool2->Type = 4;
+      memmove(Pool2->FilePath, Src, v6);
+      *(_DWORD *)&v8->FilePath[v6] = 327551;
+      v9 = BiTranslateFilePath(v8, 3u);
+      if ( v9 >= 0 )
       {
-        v14 = *((_DWORD *)P + 1) - 12;
-        v15 = (_DWORD *)ExAllocatePool2(258LL, v14 + 20, 1262764866LL);
-        v16 = v15;
-        if ( v15 )
+        v11 = MEMORY[4] - 12;
+        v12 = MEMORY[4] - 12 + 20;
+        v13 = (_DWORD *)ExAllocatePool2(258LL, v12, 1262764866LL);
+        v14 = v13;
+        if ( v13 )
         {
-          memset(v15, 0, v14 + 20);
-          *v16 = 2;
-          memmove(v16 + 5, v11 + 12, v14);
-          v17 = v19;
-          *a3 = v14 + 20;
-          *v17 = v16;
+          memset(v13, 0, v12);
+          *v14 = 2;
+          memmove(v14 + 5, (const void *)0xC, v11);
+          *a3 = v12;
+          *a2 = v14;
         }
         else
         {
-          v12 = -1073741670;
+          v9 = -1073741670;
         }
       }
-      if ( v11 )
-        ExFreePoolWithTag(v11, 0x4B444342u);
-      ExFreePoolWithTag(v9, 0x4B444342u);
+      ExFreePoolWithTag(v8, 0x4B444342u);
     }
     else
     {
       return (unsigned int)-1073741670;
     }
   }
-  return v12;
+  return (unsigned int)v9;
 }

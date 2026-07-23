@@ -227,7 +227,7 @@ LABEL_10:
       {
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -237,10 +237,10 @@ LABEL_10:
           SchedulerAssist[5] |= v36;
         }
         MiIoSpaceGetBounds((__int64)&v105, v20);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v37 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v39 = CurrentPrcb->SchedulerAssist;
@@ -344,7 +344,7 @@ LABEL_18:
           {
             v84 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v84 <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v84 <= 0xFu )
             {
               v85 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v84 == 2 )
@@ -361,10 +361,10 @@ LABEL_18:
           MiIoSpaceGetBounds((__int64)&v105, v26);
           if ( v84 != 17 )
           {
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v88 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v88 <= 0xFu && v84 <= 0xFu && v88 >= v87 )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v88 <= 0xFu && v84 <= 0xFu && v88 >= v87 )
               {
                 v89 = KeGetCurrentPrcb();
                 v90 = v89->SchedulerAssist;
@@ -543,7 +543,7 @@ LABEL_95:
         {
           v69 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v69 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v69 <= 0xFu )
           {
             v70 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v69 == 2 )
@@ -560,10 +560,10 @@ LABEL_95:
         MiIoSpaceGetBounds((__int64)&v105, v66);
         if ( v69 != 17 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v73 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v73 <= 0xFu && v69 <= 0xFu && v73 >= v72 )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v73 <= 0xFu && v69 <= 0xFu && v73 >= v72 )
             {
               v74 = KeGetCurrentPrcb();
               v75 = v74->SchedulerAssist;
@@ -629,10 +629,10 @@ LABEL_147:
   *v49 = qword_140C685D0;
   qword_140C685D0 = v48;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C685C0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v80 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v80 <= 0xFu && (unsigned __int8)v79 <= 0xFu && v80 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v80 <= 0xFu && (unsigned __int8)v79 <= 0xFu && v80 >= 2u )
     {
       v81 = KeGetCurrentPrcb();
       v82 = v81->SchedulerAssist;

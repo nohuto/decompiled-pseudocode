@@ -1,17 +1,17 @@
 /*
- * XREFs of VfFlushAdapterBuffers @ 0x140AC5E00
+ * XREFs of VfFlushAdapterBuffers @ 0x140AC5DF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     VF_ASSERT_MAX_IRQL @ 0x140AC475C (VF_ASSERT_MAX_IRQL.c)
- *     ViFlushDoubleBuffer @ 0x140AC8904 (ViFlushDoubleBuffer.c)
- *     ViGetAdapterInformationInternal @ 0x140AC8E74 (ViGetAdapterInformationInternal.c)
- *     ViGetMapRegisterFile @ 0x140AC904C (ViGetMapRegisterFile.c)
- *     ViGetRealDmaAdapter @ 0x140AC9188 (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140AC9324 (ViHalPreprocessOptions.c)
- *     ViSwap @ 0x140ACA134 (ViSwap.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140AC474C (VF_ASSERT_MAX_IRQL.c)
+ *     ViFlushDoubleBuffer @ 0x140AC88F4 (ViFlushDoubleBuffer.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC8E64 (ViGetAdapterInformationInternal.c)
+ *     ViGetMapRegisterFile @ 0x140AC903C (ViGetMapRegisterFile.c)
+ *     ViGetRealDmaAdapter @ 0x140AC9178 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140AC9314 (ViHalPreprocessOptions.c)
+ *     ViSwap @ 0x140ACA124 (ViSwap.c)
  */
 
 char __fastcall VfFlushAdapterBuffers(int a1, ULONG_PTR a2, const void *a3, const void *a4, int a5, char a6)
@@ -77,12 +77,12 @@ LABEL_4:
     if ( a5 )
     {
       ViHalPreprocessOptions(
-        byte_140C0DE3C,
+        byte_140C0DE24,
         "Cannot flush map register that isn't mapped! (Map register base %p, flushing address %p, MDL %p)",
         (const void *)0x20,
         a3,
         a4);
-      VfReportIssueWithOptions(0xE6u, 0x20uLL, (ULONG_PTR)a3, (ULONG_PTR)a4, a2, byte_140C0DE3C);
+      VfReportIssueWithOptions(0xE6u, 0x20uLL, (ULONG_PTR)a3, (ULONG_PTR)a4, a2, byte_140C0DE24);
     }
     return 0;
   }

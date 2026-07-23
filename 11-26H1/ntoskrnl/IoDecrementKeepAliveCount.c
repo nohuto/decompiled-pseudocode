@@ -1,19 +1,19 @@
 /*
- * XREFs of IoDecrementKeepAliveCount @ 0x1404C7930
+ * XREFs of IoDecrementKeepAliveCount @ 0x1404C1670
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAlertThread @ 0x1402C5C40 (KeAlertThread.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAlertThread @ 0x1403108E0 (KeAlertThread.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 __int64 __fastcall IoDecrementKeepAliveCount(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax
   int v3; // ebp
-  unsigned __int64 v4; // rdi
+  __int64 v4; // rdi
   int v5; // ebx
   __int64 v7; // rsi
   KSPIN_LOCK *v8; // r15
@@ -22,7 +22,7 @@ __int64 __fastcall IoDecrementKeepAliveCount(__int64 a1, __int64 a2)
   KIRQL v11; // si
   __int64 v12; // r8
   __int64 v13; // rdx
-  unsigned __int64 *v14; // rax
+  struct _LIST_ENTRY *Flink; // rax
 
   v2 = *(_QWORD *)(a1 + 208);
   v3 = 0;
@@ -51,7 +51,7 @@ LABEL_7:
     KeReleaseSpinLock(v8, v9);
     if ( v5 >= 0 && !v3 )
     {
-      v11 = KeAcquireSpinLockRaiseToDpc(&IopSessionNotificationLock.Padding[4]);
+      v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink);
       v12 = MEMORY[0xFFFFF78000000014];
       *(_QWORD *)(v4 + 48) = MEMORY[0xFFFFF78000000014];
       v13 = (unsigned int)(10000 * IopKeepAliveTimeMs);
@@ -59,26 +59,26 @@ LABEL_7:
       *(_QWORD *)(v4 + 48) = v12 + v13;
       if ( *(_BYTE *)(v4 + 16) )
       {
-        if ( qword_140F85360 )
-          KeAlertThread(qword_140F85360, 0LL, v12);
+        if ( IopPerfIoTrackingLock.SchedulerSharedSystemSlot )
+          KeAlertThread((__int64)IopPerfIoTrackingLock.SchedulerSharedSystemSlot, 0LL, v12);
       }
       else
       {
-        v14 = (unsigned __int64 *)IopSessionNotificationLock.Padding[3];
-        if ( *(struct _KTHREAD **)IopSessionNotificationLock.Padding[3] != (struct _KTHREAD *)&IopSessionNotificationLock.Padding[2] )
+        Flink = IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Flink;
+        if ( IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Flink->Flink != (struct _LIST_ENTRY *)&IopPerfIoTrackingLock.SuspendEvent )
           __fastfail(3u);
-        *(_QWORD *)v4 = &IopSessionNotificationLock.Padding[2];
-        *(_QWORD *)(v4 + 8) = v14;
-        *v14 = v4;
-        IopSessionNotificationLock.Padding[3] = v4;
+        *(_QWORD *)v4 = &IopPerfIoTrackingLock.SuspendEvent;
+        *(_QWORD *)(v4 + 8) = Flink;
+        Flink->Flink = (struct _LIST_ENTRY *)v4;
+        IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v4;
         *(_BYTE *)(v4 + 16) = 1;
-        if ( !byte_140F85358 )
+        if ( !IopPerfIoTrackingLock.AbWaitEntryCount )
         {
-          byte_140F85358 = 1;
-          ExQueueWorkItem((PWORK_QUEUE_ITEM)&IopSessionNotificationLock.SchedulerAssistYieldCounter, DelayedWorkQueue);
+          IopPerfIoTrackingLock.AbWaitEntryCount = 1;
+          ExQueueWorkItem((PWORK_QUEUE_ITEM)&IopPerfIoTrackingLock.SchedulerApcFill5[56], DelayedWorkQueue);
         }
       }
-      KeReleaseSpinLock(&IopSessionNotificationLock.Padding[4], v11);
+      KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink, v11);
     }
   }
   else

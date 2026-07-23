@@ -9,39 +9,38 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall RtlpMergeSecurityAttributeInformation(__int64 a1, __int64 a2, __int64 *a3, char a4)
+__int64 __fastcall RtlpMergeSecurityAttributeInformation(__int64 a1, __int64 a2, unsigned __int16 **a3, char a4)
 {
-  __int64 Heap; // rbx
+  unsigned __int16 *Heap; // rbx
   char v5; // di
   int v9; // eax
   int v10; // ecx
   unsigned int v11; // r12d
-  __int64 v12; // r9
-  _BYTE *v13; // rbp
-  unsigned int v14; // r14d
+  _BYTE *v12; // rbp
+  unsigned int v13; // r14d
   _BYTE *i; // rdi
-  __int64 v16; // r8
-  unsigned int v17; // r14d
-  _BYTE *v18; // rdi
-  unsigned int v19; // r14d
-  _BYTE *v20; // rdi
-  __int64 v21; // r8
-  unsigned int v22; // r12d
-  _WORD *v23; // r14
-  unsigned int v24; // r15d
-  _WORD *v25; // r14
-  unsigned int v27; // edi
-  unsigned int v28; // [rsp+20h] [rbp-48h]
-  char v29; // [rsp+80h] [rbp+18h] BYREF
-  char v30; // [rsp+88h] [rbp+20h]
+  __int64 v15; // r8
+  unsigned int v16; // r14d
+  _BYTE *v17; // rdi
+  unsigned int v18; // r14d
+  _BYTE *v19; // rdi
+  __int64 v20; // r8
+  unsigned int v21; // r12d
+  _WORD *v22; // r14
+  unsigned int v23; // r15d
+  _WORD *v24; // r14
+  unsigned int v26; // edi
+  unsigned int v27; // [rsp+20h] [rbp-48h]
+  char v28; // [rsp+80h] [rbp+18h] BYREF
+  char v29; // [rsp+88h] [rbp+20h]
 
-  v30 = a4;
+  v29 = a4;
   Heap = 0LL;
   v5 = a4;
-  v29 = 0;
+  v28 = 0;
   if ( !a3 )
   {
-    v27 = -1073741811;
+    v26 = -1073741811;
     goto LABEL_69;
   }
   if ( a1 )
@@ -66,151 +65,151 @@ LABEL_65:
   v10 = *(unsigned __int16 *)(a2 + 2);
 LABEL_5:
   v11 = v10 + v9;
-  v28 = v10 + v9;
+  v27 = v10 + v9;
   if ( (unsigned int)(v10 + v9) < 8 )
   {
-    v27 = -1073741705;
+    v26 = -1073741705;
   }
   else
   {
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v11);
+    Heap = (unsigned __int16 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v11);
     if ( Heap )
     {
-      v13 = (_BYTE *)(Heap + 8);
+      v12 = Heap + 4;
       *(_QWORD *)Heap = 0LL;
       *(_BYTE *)Heap = 2;
-      *(_WORD *)(Heap + 2) = 8;
+      Heap[1] = 8;
       if ( a1 )
       {
-        v14 = 0;
+        v13 = 0;
         for ( i = (_BYTE *)(a1 + 8); ; i += *((unsigned __int16 *)i + 1) )
         {
-          if ( v14 >= *(unsigned __int16 *)(a1 + 4) )
+          if ( v13 >= *(unsigned __int16 *)(a1 + 4) )
           {
-            v5 = v30;
+            v5 = v29;
             break;
           }
-          if ( *i == 18 && (i[1] & 0x10) == 0 && !(unsigned __int8)RtlpIsAttributeAceInSacl(i, Heap, 0LL, &v29) )
+          if ( *i == 18 && (i[1] & 0x10) == 0 && !(unsigned __int8)RtlpIsAttributeAceInSacl(i, Heap, 0LL, &v28) )
           {
-            if ( a2 && !v30 && (LOBYTE(v16) = 1, (unsigned __int8)RtlpIsAttributeAceInSacl(i, a2, v16, &v29)) && v29 )
+            if ( a2 && !v29 && (LOBYTE(v15) = 1, (unsigned __int8)RtlpIsAttributeAceInSacl(i, a2, v15, &v28)) && v28 )
             {
-              *(_WORD *)(Heap + 2) += *((_WORD *)i + 1);
-              if ( *(unsigned __int16 *)(Heap + 2) > v11 )
+              Heap[1] += *((_WORD *)i + 1);
+              if ( Heap[1] > v11 )
               {
 LABEL_68:
-                v27 = -1073741705;
-                RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v12);
+                v26 = -1073741705;
+                RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
                 goto LABEL_69;
               }
-              memmove(v13, i, *((unsigned __int16 *)i + 1));
-              ++*(_WORD *)(Heap + 4);
-              v13[1] |= 0x10u;
+              memmove(v12, i, *((unsigned __int16 *)i + 1));
+              ++Heap[2];
+              v12[1] |= 0x10u;
             }
             else
             {
-              *(_WORD *)(Heap + 2) += *((_WORD *)i + 1);
-              if ( *(unsigned __int16 *)(Heap + 2) > v11 )
+              Heap[1] += *((_WORD *)i + 1);
+              if ( Heap[1] > v11 )
                 goto LABEL_68;
-              memmove(v13, i, *((unsigned __int16 *)i + 1));
-              ++*(_WORD *)(Heap + 4);
+              memmove(v12, i, *((unsigned __int16 *)i + 1));
+              ++Heap[2];
             }
-            v13 += *((unsigned __int16 *)i + 1);
+            v12 += *((unsigned __int16 *)i + 1);
           }
-          ++v14;
+          ++v13;
         }
       }
       if ( a2 && v5 )
       {
-        v17 = 0;
-        v18 = (_BYTE *)(a2 + 8);
-        while ( v17 < *(unsigned __int16 *)(a2 + 4) )
+        v16 = 0;
+        v17 = (_BYTE *)(a2 + 8);
+        while ( v16 < *(unsigned __int16 *)(a2 + 4) )
         {
-          if ( *v18 == 18 && (v18[1] & 0x10) == 0 && !(unsigned __int8)RtlpIsAttributeAceInSacl(v18, Heap, 0LL, &v29) )
+          if ( *v17 == 18 && (v17[1] & 0x10) == 0 && !(unsigned __int8)RtlpIsAttributeAceInSacl(v17, Heap, 0LL, &v28) )
           {
-            *(_WORD *)(Heap + 2) += *((_WORD *)v18 + 1);
-            if ( *(unsigned __int16 *)(Heap + 2) > v11 )
+            Heap[1] += *((_WORD *)v17 + 1);
+            if ( Heap[1] > v11 )
               goto LABEL_68;
-            memmove(v13, v18, *((unsigned __int16 *)v18 + 1));
-            ++*(_WORD *)(Heap + 4);
-            v13 += *((unsigned __int16 *)v18 + 1);
+            memmove(v12, v17, *((unsigned __int16 *)v17 + 1));
+            ++Heap[2];
+            v12 += *((unsigned __int16 *)v17 + 1);
           }
-          ++v17;
-          v18 += *((unsigned __int16 *)v18 + 1);
+          ++v16;
+          v17 += *((unsigned __int16 *)v17 + 1);
         }
       }
       if ( a1 )
       {
-        v19 = 0;
-        v20 = (_BYTE *)(a1 + 8);
-        while ( v19 < *(unsigned __int16 *)(a1 + 4) )
+        v18 = 0;
+        v19 = (_BYTE *)(a1 + 8);
+        while ( v18 < *(unsigned __int16 *)(a1 + 4) )
         {
-          if ( *v20 == 18 && (v20[1] & 0x10) != 0 && !(unsigned __int8)RtlpIsAttributeAceInSacl(v20, Heap, 0LL, &v29) )
+          if ( *v19 == 18 && (v19[1] & 0x10) != 0 && !(unsigned __int8)RtlpIsAttributeAceInSacl(v19, Heap, 0LL, &v28) )
           {
-            if ( a2 && (LOBYTE(v21) = 1, (unsigned __int8)RtlpIsAttributeAceInSacl(v20, a2, v21, &v29)) && v29 )
+            if ( a2 && (LOBYTE(v20) = 1, (unsigned __int8)RtlpIsAttributeAceInSacl(v19, a2, v20, &v28)) && v28 )
             {
-              *(_WORD *)(Heap + 2) += *((_WORD *)v20 + 1);
-              if ( *(unsigned __int16 *)(Heap + 2) > v11 )
+              Heap[1] += *((_WORD *)v19 + 1);
+              if ( Heap[1] > v11 )
                 goto LABEL_68;
-              memmove(v13, v20, *((unsigned __int16 *)v20 + 1));
-              ++*(_WORD *)(Heap + 4);
-              v13[1] |= 0x10u;
+              memmove(v12, v19, *((unsigned __int16 *)v19 + 1));
+              ++Heap[2];
+              v12[1] |= 0x10u;
             }
             else
             {
-              *(_WORD *)(Heap + 2) += *((_WORD *)v20 + 1);
-              if ( *(unsigned __int16 *)(Heap + 2) > v11 )
+              Heap[1] += *((_WORD *)v19 + 1);
+              if ( Heap[1] > v11 )
                 goto LABEL_68;
-              memmove(v13, v20, *((unsigned __int16 *)v20 + 1));
-              ++*(_WORD *)(Heap + 4);
-              v13[1] &= ~0x10u;
+              memmove(v12, v19, *((unsigned __int16 *)v19 + 1));
+              ++Heap[2];
+              v12[1] &= ~0x10u;
             }
-            v13 += *((unsigned __int16 *)v20 + 1);
+            v12 += *((unsigned __int16 *)v19 + 1);
           }
-          ++v19;
-          v20 += *((unsigned __int16 *)v20 + 1);
+          ++v18;
+          v19 += *((unsigned __int16 *)v19 + 1);
         }
-        v22 = 0;
-        v23 = (_WORD *)(a1 + 8);
-        while ( v22 < *(unsigned __int16 *)(a1 + 4) )
+        v21 = 0;
+        v22 = (_WORD *)(a1 + 8);
+        while ( v21 < *(unsigned __int16 *)(a1 + 4) )
         {
-          if ( *(_BYTE *)v23 != 18 )
+          if ( *(_BYTE *)v22 != 18 )
           {
-            *(_WORD *)(Heap + 2) += v23[1];
-            if ( *(unsigned __int16 *)(Heap + 2) > v28 )
+            Heap[1] += v22[1];
+            if ( Heap[1] > v27 )
               goto LABEL_68;
-            memmove(v13, v23, (unsigned __int16)v23[1]);
-            ++*(_WORD *)(Heap + 4);
-            v13 += (unsigned __int16)v23[1];
+            memmove(v12, v22, (unsigned __int16)v22[1]);
+            ++Heap[2];
+            v12 += (unsigned __int16)v22[1];
           }
-          ++v22;
-          v23 = (_WORD *)((char *)v23 + (unsigned __int16)v23[1]);
+          ++v21;
+          v22 = (_WORD *)((char *)v22 + (unsigned __int16)v22[1]);
         }
-        v11 = v28;
+        v11 = v27;
       }
-      if ( a2 && v30 )
+      if ( a2 && v29 )
       {
-        v24 = 0;
-        v25 = (_WORD *)(a2 + 8);
-        while ( v24 < *(unsigned __int16 *)(a2 + 4) )
+        v23 = 0;
+        v24 = (_WORD *)(a2 + 8);
+        while ( v23 < *(unsigned __int16 *)(a2 + 4) )
         {
-          if ( *(_BYTE *)v25 != 18 )
+          if ( *(_BYTE *)v24 != 18 )
           {
-            *(_WORD *)(Heap + 2) += v25[1];
-            if ( *(unsigned __int16 *)(Heap + 2) > v11 )
+            Heap[1] += v24[1];
+            if ( Heap[1] > v11 )
               goto LABEL_68;
-            memmove(v13, v25, (unsigned __int16)v25[1]);
-            ++*(_WORD *)(Heap + 4);
-            v13 += (unsigned __int16)v25[1];
+            memmove(v12, v24, (unsigned __int16)v24[1]);
+            ++Heap[2];
+            v12 += (unsigned __int16)v24[1];
           }
-          ++v24;
-          v25 = (_WORD *)((char *)v25 + (unsigned __int16)v25[1]);
+          ++v23;
+          v24 = (_WORD *)((char *)v24 + (unsigned __int16)v24[1]);
         }
       }
       goto LABEL_65;
     }
-    v27 = -1073741801;
+    v26 = -1073741801;
   }
 LABEL_69:
   *a3 = 0LL;
-  return v27;
+  return v26;
 }

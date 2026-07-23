@@ -288,7 +288,7 @@ LABEL_39:
       if ( LOWORD(CmpBounceBufferLookaside.Alignment) >= (unsigned __int16)word_1404F2D90 )
       {
         ++dword_1404F2DA0;
-        ((void (__fastcall *)(void *, union _SLIST_HEADER *))qword_1404F2DB8)(Src, &CmpBounceBufferLookaside);
+        ((void (__fastcall *)(void *, _SLIST_HEADER *))qword_1404F2DB8)(Src, &CmpBounceBufferLookaside);
       }
       else
       {

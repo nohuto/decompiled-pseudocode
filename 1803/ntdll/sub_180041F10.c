@@ -13,44 +13,44 @@
  *     sub_1800CA554 @ 0x1800CA554 (sub_1800CA554.c)
  */
 
-__int64 __fastcall sub_180041F10(unsigned __int16 *a1, __int64 a2, unsigned __int16 *a3, _DWORD *a4, unsigned int a5)
+__int64 __fastcall sub_180041F10(UNICODE_STRING *a1, __int64 a2, _QWORD *a3, _DWORD *a4, __int16 a5)
 {
   unsigned int v7; // ebx
   int v9; // eax
-  __int128 v10; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int16 v11[8]; // [rsp+60h] [rbp-A0h] BYREF
-  int v12; // [rsp+70h] [rbp-90h] BYREF
-  _WORD *v13; // [rsp+78h] [rbp-88h]
-  _WORD v14[128]; // [rsp+80h] [rbp-80h] BYREF
+  _UNICODE_STRING v10; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING String1; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING v12; // [rsp+70h] [rbp-90h] BYREF
+  _WORD v13[128]; // [rsp+80h] [rbp-80h] BYREF
 
-  *(_QWORD *)a3 = 0LL;
+  *a3 = 0LL;
   if ( (a5 & 0x20) != 0 )
   {
-    v7 = sub_1800385D0(a1, 0LL, (unsigned __int64 *)a5, a3, a4);
+    v7 = sub_1800385D0(a1, 0LL, a5, (__int64)a3, a4);
   }
   else
   {
-    v12 = 0x1000000;
-    v13 = v14;
-    v14[0] = 0;
-    v10 = 0uLL;
+    *(_DWORD *)&v12.Length = 0x1000000;
+    v12.Buffer = v13;
+    v13[0] = 0;
+    *(_QWORD *)&v10.Length = 0LL;
+    v10.Buffer = 0LL;
     if ( (a5 & 0x200) != 0 )
-      v9 = sub_18003FCF8(a1, (__int64)&v12, (__int64)v11, &v10, a5);
+      v9 = sub_18003FCF8(&a1->Length, &v12, &String1, &v10, a5);
     else
-      v9 = sub_1800410D4((__int16 *)a1, a2, 0, 0LL, &v12, (__int64)v11, (unsigned __int16 *)&v10, 0LL, 0LL);
+      v9 = sub_1800410D4(a1, a2, 0, 0LL, &v12, &String1, &v10, 0LL, 0LL);
     v7 = v9;
     if ( v9 >= 0 )
     {
-      v7 = sub_1800385D0(v11, (unsigned __int64)&v10, (unsigned __int64 *)a5, a3, a4);
+      v7 = sub_1800385D0(&String1, &v10, a5, (__int64)a3, a4);
       if ( v7 == -1073741515 )
         v7 = sub_18007AFDC(&v12, a3, a4);
     }
     sub_180042420(&v10);
-    if ( v14 != v13 )
-      RtlDeleteBoundaryDescriptor((__int64)v13);
-    v12 = 0x1000000;
-    v13 = v14;
-    v14[0] = 0;
+    if ( v13 != v12.Buffer )
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v12.Buffer);
+    *(_DWORD *)&v12.Length = 0x1000000;
+    v12.Buffer = v13;
+    v13[0] = 0;
   }
   if ( (dword_180156A70 & 9) != 0 )
     sub_1800CA554(

@@ -11,7 +11,7 @@ PRTL_SPLAY_LINKS __fastcall FsRtlPrivateInsertExclusiveLock(__int64 a1, _RTL_SPL
 {
   PRTL_SPLAY_LINKS result; // rax
   char v5; // [rsp+40h] [rbp+8h] BYREF
-  struct _RTL_SPLAY_LINKS *v6; // [rsp+48h] [rbp+10h] BYREF
+  _RTL_SPLAY_LINKS *v6; // [rsp+48h] [rbp+10h] BYREF
 
   result = (PRTL_SPLAY_LINKS)FsRtlFindFirstOverlappingExclusiveNode(
                                *(_QWORD *)(a1 + 16),

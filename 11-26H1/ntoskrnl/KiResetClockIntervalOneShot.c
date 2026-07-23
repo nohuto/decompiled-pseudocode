@@ -1,11 +1,11 @@
 /*
- * XREFs of KiResetClockIntervalOneShot @ 0x140418B34
+ * XREFs of KiResetClockIntervalOneShot @ 0x14040D06C
  * Callers:
- *     KiCheckForTimerExpiration @ 0x14021EEA0 (KiCheckForTimerExpiration.c)
+ *     KiCheckForTimerExpiration @ 0x140220830 (KiCheckForTimerExpiration.c)
  * Callees:
- *     PoTraceSystemTimerResolutionKernel @ 0x140418DA0 (PoTraceSystemTimerResolutionKernel.c)
- *     KiCancelClockTimer @ 0x140419334 (KiCancelClockTimer.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x140419438 (KiSetClockIntervalToMinimumRequested.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x14040D2D0 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiCancelClockTimer @ 0x14040D864 (KiCancelClockTimer.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14040D968 (KiSetClockIntervalToMinimumRequested.c)
  */
 
 __int64 __fastcall KiResetClockIntervalOneShot(__int64 a1, __int64 a2, __int64 a3)

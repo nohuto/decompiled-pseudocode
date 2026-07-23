@@ -1,19 +1,19 @@
 /*
- * XREFs of SepSetProcessUniqueAttribute @ 0x140A2B8AC
+ * XREFs of SepSetProcessUniqueAttribute @ 0x140AB7A4C
  * Callers:
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x1403CB2B8 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     SepDereferenceLuidToIndexEntry @ 0x1404F8D10 (SepDereferenceLuidToIndexEntry.c)
- *     SepAddLuidToIndexEntry @ 0x140A2B9A4 (SepAddLuidToIndexEntry.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403AFD64 (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     SepDereferenceLuidToIndexEntry @ 0x1404F2320 (SepDereferenceLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x140AB7B44 (SepAddLuidToIndexEntry.c)
  */
 
 __int64 __fastcall SepSetProcessUniqueAttribute(__int64 a1)
 {
   __int64 result; // rax
   __int64 v3; // rcx
-  __int64 v4; // rcx
+  _DWORD *v4; // rcx
   _BYTE v5[8]; // [rsp+20h] [rbp-50h] BYREF
   __int64 v6; // [rsp+28h] [rbp-48h] BYREF
   _DWORD v7[2]; // [rsp+30h] [rbp-40h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall SepSetProcessUniqueAttribute(__int64 a1)
       SepDereferenceLuidToIndexEntry(v3);
     *(_QWORD *)(a1 + 1136) = v12;
     RtlInitUnicodeString(&DestinationString, L"TSA://ProcUnique");
-    v4 = *(_QWORD *)(a1 + 776);
+    v4 = *(_DWORD **)(a1 + 776);
     LODWORD(v10) = 2;
     *(_QWORD *)((char *)&v10 + 4) = 0x200000041LL;
     v11 = v5;

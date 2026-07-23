@@ -16,7 +16,7 @@ char __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rbp
   char v4; // bl
-  __int64 InterruptTimePrecise; // r15
+  LARGE_INTEGER InterruptTimePrecise; // r15
   unsigned __int64 v6; // kr00_8
   unsigned __int64 v7; // r14
   unsigned __int64 v8; // r13
@@ -33,7 +33,7 @@ char __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   unsigned __int64 v19; // rcx
   unsigned __int64 v20; // rdx
   unsigned __int64 v21; // rcx
-  __int64 v22; // r15
+  LONGLONG v22; // r15
   unsigned __int64 v23; // r15
   unsigned __int64 v24; // rax
   unsigned int v25; // ecx
@@ -49,14 +49,14 @@ char __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   v2 = (unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFC0uLL;
   v4 = 0;
   PopCalculateIdleInformation(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFC0uLL) + 64);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise((LARGE_INTEGER *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFC0uLL)
-                                                                    + 88));
-  v6 = InterruptTimePrecise - qword_140353788;
-  v7 = (InterruptTimePrecise - qword_140353788) / 0xAuLL;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise((PLARGE_INTEGER)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFC0uLL)
+                                                                   + 88));
+  v6 = InterruptTimePrecise.QuadPart - qword_140353788;
+  v7 = (InterruptTimePrecise.QuadPart - qword_140353788) / 0xAuLL;
   if ( PopPdcLastCsExitTime <= (unsigned __int64)qword_140353788 )
     v8 = 0LL;
   else
-    v8 = (InterruptTimePrecise - PopPdcLastCsExitTime) / 0xAuLL;
+    v8 = (InterruptTimePrecise.QuadPart - PopPdcLastCsExitTime) / 0xAuLL;
   v9 = DWORD1(xmmword_14032E9C0);
   v10 = 0x40000000;
   v11 = xmmword_14032E9D4;
@@ -113,9 +113,9 @@ char __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   if ( qword_1403537D8 )
   {
     if ( qword_140353788 <= (unsigned __int64)qword_1403537D8 )
-      v22 = InterruptTimePrecise - qword_1403537D8;
+      v22 = InterruptTimePrecise.QuadPart - qword_1403537D8;
     else
-      v22 = InterruptTimePrecise - qword_140353788;
+      v22 = InterruptTimePrecise.QuadPart - qword_140353788;
     v21 = v22 + qword_1403537E0;
   }
   v23 = v21 / 0xA;

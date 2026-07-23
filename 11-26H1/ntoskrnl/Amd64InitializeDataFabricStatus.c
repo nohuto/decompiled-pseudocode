@@ -1,10 +1,10 @@
 /*
- * XREFs of Amd64InitializeDataFabricStatus @ 0x1405A40E8
+ * XREFs of Amd64InitializeDataFabricStatus @ 0x1405A68F8
  * Callers:
- *     Amd64InitializeUncoreProfiling @ 0x1405A4210 (Amd64InitializeUncoreProfiling.c)
+ *     Amd64InitializeUncoreProfiling @ 0x1405A6A20 (Amd64InitializeUncoreProfiling.c)
  * Callees:
- *     Amd64FreeCounter @ 0x1405A3CF4 (Amd64FreeCounter.c)
- *     Amd64InitializeUncoreStatus @ 0x1405A4318 (Amd64InitializeUncoreStatus.c)
+ *     Amd64FreeCounter @ 0x1405A6504 (Amd64FreeCounter.c)
+ *     Amd64InitializeUncoreStatus @ 0x1405A6B28 (Amd64InitializeUncoreStatus.c)
  */
 
 __int64 __fastcall Amd64InitializeDataFabricStatus()
@@ -29,7 +29,7 @@ __int64 __fastcall Amd64InitializeDataFabricStatus()
     _RAX = 2147483678LL;
     __asm { cpuid }
     v10 = 0LL;
-    result = *(_QWORD *)(Amd64InitializeUncoreStatus(1LL, &qword_140F87590, (unsigned __int8)_RCX, v4) + 24);
+    result = *(_QWORD *)(Amd64InitializeUncoreStatus(1LL, &qword_140F87960, (unsigned __int8)_RCX, v4) + 24);
     *(_QWORD *)(v3 + 64) = result;
     if ( *(_DWORD *)(v3 + 52) )
     {
@@ -44,7 +44,7 @@ __int64 __fastcall Amd64InitializeDataFabricStatus()
         if ( *(_DWORD *)(v3 + 48) == 101 )
           break;
 LABEL_14:
-        __writemsr(*((_DWORD *)&xmmword_140F87600 + (unsigned int)(v11 + v10)), 0LL);
+        __writemsr(*((_DWORD *)&xmmword_140F879E0 + (unsigned int)(v11 + v10)), 0LL);
         result = Amd64FreeCounter(v10, *(_DWORD *)(v3 + 48));
         v10 = (unsigned int)(v10 + 1);
         if ( (unsigned int)v10 >= *(_DWORD *)(v3 + 52) )

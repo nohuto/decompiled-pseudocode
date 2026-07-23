@@ -1,23 +1,23 @@
 /*
- * XREFs of SepDereferenceLowBoxNumberEntry @ 0x1405DF038
+ * XREFs of SepDereferenceLowBoxNumberEntry @ 0x1405E0038
  * Callers:
- *     SeSetSessionIdToken @ 0x1405BC45C (SeSetSessionIdToken.c)
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
- *     SepTokenDeleteMethod @ 0x1405DEE70 (SepTokenDeleteMethod.c)
- *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
- *     SeExchangePrimaryToken @ 0x140748B98 (SeExchangePrimaryToken.c)
+ *     SeSetSessionIdToken @ 0x1405BD45C (SeSetSessionIdToken.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
+ *     SepTokenDeleteMethod @ 0x1405DFE70 (SepTokenDeleteMethod.c)
+ *     SeSubProcessToken @ 0x14064FC0C (SeSubProcessToken.c)
+ *     SeExchangePrimaryToken @ 0x140749D88 (SeExchangePrimaryToken.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlRemoveEntryHashTable @ 0x1400D9C60 (RtlRemoveEntryHashTable.c)
- *     ExRemoveLowBoxAtomReferences @ 0x140126624 (ExRemoveLowBoxAtomReferences.c)
- *     RtlDereferenceAtomTable @ 0x140126638 (RtlDereferenceAtomTable.c)
- *     SepGetTokenSessionMapEntry @ 0x1403008A8 (SepGetTokenSessionMapEntry.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlRemoveEntryHashTable @ 0x1400D9CE0 (RtlRemoveEntryHashTable.c)
+ *     ExRemoveLowBoxAtomReferences @ 0x1401266F4 (ExRemoveLowBoxAtomReferences.c)
+ *     RtlDereferenceAtomTable @ 0x140126708 (RtlDereferenceAtomTable.c)
+ *     SepGetTokenSessionMapEntry @ 0x140300A98 (SepGetTokenSessionMapEntry.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDereferenceLowBoxNumberEntry(unsigned int a1, __int64 a2)

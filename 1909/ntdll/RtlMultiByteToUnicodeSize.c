@@ -6,46 +6,49 @@
  *     RtlUTF8ToUnicodeN @ 0x18005F440 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlMultiByteToUnicodeSize(int *a1, unsigned __int8 *a2, int a3)
+NTSTATUS __cdecl RtlMultiByteToUnicodeSize(
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  int v3; // r9d
+  ULONG v3; // r9d
   __int64 v5; // rax
 
   v3 = 0;
   if ( NlsActiveCodePageIsUTF8 )
   {
-    if ( a3 )
-      RtlUTF8ToUnicodeN(0, 0, (_DWORD)a1, (_DWORD)a2, a3);
+    if ( BytesInMultiByteString )
+      RtlUTF8ToUnicodeN(0LL, 0, BytesInUnicodeString, MultiByteString, BytesInMultiByteString);
     else
-      *a1 = 0;
+      *BytesInUnicodeString = 0;
   }
   else
   {
     if ( NlsMbCodePageTag )
     {
-      while ( a3 )
+      while ( BytesInMultiByteString )
       {
-        v5 = *a2;
-        --a3;
-        ++a2;
+        v5 = *(unsigned __int8 *)MultiByteString;
+        --BytesInMultiByteString;
+        ++MultiByteString;
         if ( NlsLeadByteInfoTable[v5] )
         {
-          if ( !a3 )
+          if ( !BytesInMultiByteString )
           {
             v3 += 2;
             break;
           }
-          --a3;
-          ++a2;
+          --BytesInMultiByteString;
+          ++MultiByteString;
         }
         v3 += 2;
       }
     }
     else
     {
-      v3 = 2 * a3;
+      v3 = 2 * BytesInMultiByteString;
     }
-    *a1 = v3;
+    *BytesInUnicodeString = v3;
   }
-  return 0LL;
+  return 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindReductionContendingThread @ 0x140471410
+ * XREFs of MiFindReductionContendingThread @ 0x14046BFE0
  * Callers:
- *     MiReduceZeroingThreads @ 0x1403C7FBC (MiReduceZeroingThreads.c)
+ *     MiReduceZeroingThreads @ 0x140413BFC (MiReduceZeroingThreads.c)
  * Callees:
- *     MiZeroThreadContending @ 0x14047160C (MiZeroThreadContending.c)
+ *     MiZeroThreadContending @ 0x14046C1DC (MiZeroThreadContending.c)
  */
 
 _QWORD *__fastcall MiFindReductionContendingThread(__int64 a1, int a2)
@@ -22,7 +22,7 @@ _QWORD *__fastcall MiFindReductionContendingThread(__int64 a1, int a2)
   if ( *(_BYTE *)(a1 + 36) )
     v4 = &Src;
   else
-    v4 = *(void ***)(384LL * *(unsigned int *)(*(_QWORD *)(a1 + 176) + 56LL) + qword_140E2DAF8 + 376);
+    v4 = *(void ***)(384LL * *(unsigned int *)(*(_QWORD *)(a1 + 176) + 56LL) + qword_140E2DC38 + 376);
   v5 = *((unsigned int *)v4 + 2);
   if ( (_DWORD)v5 )
   {

@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x140588CF4
+ * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x1405891E4
  * Callers:
- *     PopDripsWatchdogCallbackHandler @ 0x14099BFF0 (PopDripsWatchdogCallbackHandler.c)
- *     PopDripsWatchdogTakeAction @ 0x1409A11AC (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x14099C1F0 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogTakeAction @ 0x1409A13AC (PopDripsWatchdogTakeAction.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopFxIsDripsBlockingDevice @ 0x14058A9EC (PopFxIsDripsBlockingDevice.c)
- *     RtlPrefixUnicodeString @ 0x1406D9E20 (RtlPrefixUnicodeString.c)
- *     IoGetDevicePropertyData @ 0x140790FE0 (IoGetDevicePropertyData.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140954C10 (IoLockUnlockPnpDeviceTree.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140984B94 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopFxAddRefDevice @ 0x140312734 (PopFxAddRefDevice.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopFxIsDripsBlockingDevice @ 0x14058AEDC (PopFxIsDripsBlockingDevice.c)
+ *     RtlPrefixUnicodeString @ 0x1406D9E50 (RtlPrefixUnicodeString.c)
+ *     IoGetDevicePropertyData @ 0x1407911D0 (IoGetDevicePropertyData.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x140954E10 (IoLockUnlockPnpDeviceTree.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x140984D94 (PopFxDestroyDripsBlockingDeviceList.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -277,7 +277,7 @@ LABEL_68:
               v49 = 8;
               tlgWriteTransfer_EtwWriteTransfer(
                 (__int64)&dword_140C03950,
-                (unsigned __int8 *)byte_14002DB3D,
+                (unsigned __int8 *)&word_14002DC8E,
                 0LL,
                 0LL,
                 5u,
@@ -303,7 +303,7 @@ LABEL_58:
                 v59 = 8;
                 tlgWriteTransfer_EtwWriteTransfer(
                   (__int64)&dword_140C03950,
-                  (unsigned __int8 *)&word_14002DADE,
+                  (unsigned __int8 *)&byte_14002DC2F,
                   0LL,
                   0LL,
                   5u,

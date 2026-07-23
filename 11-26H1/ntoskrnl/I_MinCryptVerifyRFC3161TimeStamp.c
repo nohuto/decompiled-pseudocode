@@ -1,15 +1,15 @@
 /*
- * XREFs of I_MinCryptVerifyRFC3161TimeStamp @ 0x1408A27C4
+ * XREFs of I_MinCryptVerifyRFC3161TimeStamp @ 0x1408A8BD4
  * Callers:
- *     I_MinCryptGetSigningTime @ 0x1408A23A4 (I_MinCryptGetSigningTime.c)
+ *     I_MinCryptGetSigningTime @ 0x1408A87B4 (I_MinCryptGetSigningTime.c)
  * Callees:
- *     MinCryptHashMemory @ 0x14071C940 (MinCryptHashMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A03B0 (MinCryptDecodeHashAlgorithmIdentifier.c)
- *     MinCrypK_VerifySignedDataKMode @ 0x1408A2A70 (MinCrypK_VerifySignedDataKMode.c)
- *     MinAsn1DecodeGeneralizedTime @ 0x1408A42CC (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1ExtractValues @ 0x1408A4838 (MinAsn1ExtractValues.c)
+ *     MinCryptHashMemory @ 0x1407215D0 (MinCryptHashMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A67C0 (MinCryptDecodeHashAlgorithmIdentifier.c)
+ *     MinCrypK_VerifySignedDataKMode @ 0x1408A8E80 (MinCrypK_VerifySignedDataKMode.c)
+ *     MinAsn1DecodeGeneralizedTime @ 0x1408AA6DC (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1ExtractValues @ 0x1408AAC48 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall I_MinCryptVerifyRFC3161TimeStamp(
@@ -42,17 +42,17 @@ __int64 __fastcall I_MinCryptVerifyRFC3161TimeStamp(
               *(_DWORD *)a1,
               0,
               0,
-              (__int64)qword_140BDB400,
+              (__int64)qword_140BE22B0,
               a4,
               (__int64)&v12) < 0 )
   {
     *a5 |= 0x40000u;
     return (unsigned int)-1073740760;
   }
-  if ( v12 != 11 || RtlCompareMemory(qword_140BD9650, Source2, 0xBuLL) != 11 )
+  if ( v12 != 11 || RtlCompareMemory(qword_140BE04E0, Source2, 0xBuLL) != 11 )
     goto LABEL_15;
   HIDWORD(Length) = 14;
-  Values = MinAsn1ExtractValues(v15, v14, (unsigned int)&Length + 4, (unsigned int)&qword_14000FF00, 6, (__int64)v16);
+  Values = MinAsn1ExtractValues(v15, v14, (unsigned int)&Length + 4, (unsigned int)&qword_140010480, 6, (__int64)v16);
   if ( Values > 0 )
     Values = v17;
   if ( Values < 0 )

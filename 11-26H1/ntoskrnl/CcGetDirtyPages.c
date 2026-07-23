@@ -1,14 +1,14 @@
 /*
- * XREFs of CcGetDirtyPages @ 0x140258290
+ * XREFs of CcGetDirtyPages @ 0x140259A70
  * Callers:
  *     <none>
  * Callees:
- *     PsGetNextPartitionUnsafe @ 0x14025839C (PsGetNextPartitionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x1403843F0 (CcDereferencePartition.c)
- *     CcGetDirtyPagesHelper @ 0x14039B880 (CcGetDirtyPagesHelper.c)
+ *     PsGetNextPartitionUnsafe @ 0x140259B7C (PsGetNextPartitionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDereferencePartition @ 0x1403861A0 (CcDereferencePartition.c)
+ *     CcGetDirtyPagesHelper @ 0x14039D5E0 (CcGetDirtyPagesHelper.c)
  */
 
 LARGE_INTEGER __stdcall CcGetDirtyPages(
@@ -43,7 +43,7 @@ LARGE_INTEGER __stdcall CcGetDirtyPages(
     NextPartitionUnsafe = (_QWORD *)PsGetNextPartitionUnsafe(v6);
     if ( !NextPartitionUnsafe )
       return v16;
-    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount);
+    v8 = KeAcquireSpinLockRaiseToDpc(&EmpParseLock.InGlobalUpdateVpThreadPriorityList);
     v9 = NextPartitionUnsafe[1];
     v10 = v8;
     if ( v9 )
@@ -72,7 +72,7 @@ LABEL_6:
         v5 = 1;
       }
     }
-    KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount, v10);
+    KeReleaseSpinLock(&EmpParseLock.InGlobalUpdateVpThreadPriorityList, v10);
     if ( v5 )
     {
       DirtyPagesHelper = CcGetDirtyPagesHelper(v4, 0LL, v15);

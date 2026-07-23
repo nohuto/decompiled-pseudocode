@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpApplyIncrementalLogFile @ 0x1407FDF28
+ * XREFs of HvpApplyIncrementalLogFile @ 0x1407FE1F8
  * Callers:
- *     HvApplyLogFiles @ 0x1407FDA34 (HvApplyLogFiles.c)
+ *     HvApplyLogFiles @ 0x1407FDD04 (HvApplyLogFiles.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvpIncrementalLogFileEnumeratorAdvance @ 0x1407FE078 (HvpIncrementalLogFileEnumeratorAdvance.c)
- *     HvpUpdateRecoveryVector @ 0x1407FE3D8 (HvpUpdateRecoveryVector.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407FE5CC (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvpIncrementalLogFileEnumeratorAdvance @ 0x1407FE348 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ *     HvpUpdateRecoveryVector @ 0x1407FE6A8 (HvpUpdateRecoveryVector.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407FE89C (HvpApplyLogEntryDataToFileBackedHive.c)
  */
 
 __int64 __fastcall HvpApplyIncrementalLogFile(

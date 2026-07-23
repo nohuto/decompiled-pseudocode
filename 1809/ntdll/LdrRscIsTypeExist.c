@@ -3,7 +3,7 @@
  * Callers:
  *     LdrIsResItemExist @ 0x18003E044 (LdrIsResItemExist.c)
  * Callees:
- *     _wcsicmp @ 0x1800918E0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1800918F0 (_wcsicmp.c)
  */
 
 __int64 __fastcall LdrRscIsTypeExist(unsigned int *a1, const wchar_t *a2, __int64 a3, _DWORD *a4)

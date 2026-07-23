@@ -1,15 +1,15 @@
 /*
- * XREFs of MmChangeSectionBackingFile @ 0x1402C3114
+ * XREFs of MmChangeSectionBackingFile @ 0x140241634
  * Callers:
- *     FsRtlChangeBackingFileObject @ 0x140394E90 (FsRtlChangeBackingFileObject.c)
- *     MiShareExistingControlArea @ 0x140707DEC (MiShareExistingControlArea.c)
+ *     FsRtlChangeBackingFileObject @ 0x140394FE0 (FsRtlChangeBackingFileObject.c)
+ *     MiShareExistingControlArea @ 0x14071F1CC (MiShareExistingControlArea.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ObFastReplaceObject @ 0x1402F6E80 (ObFastReplaceObject.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ObFastReplaceObject @ 0x140301BD0 (ObFastReplaceObject.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14034D0C0 (ObDereferenceObjectDeferDeleteWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -42,7 +42,7 @@ __int64 __fastcall MmChangeSectionBackingFile(_QWORD *a1, _QWORD *a2, int a3)
   v5 = a3 & 1;
   while ( 1 )
   {
-    v6 = ExAcquireSpinLockExclusive(&dword_140C4C980);
+    v6 = ExAcquireSpinLockExclusive(&dword_140C4C9C0);
     v7 = (__int64 *)a2[5];
     v8 = v6;
     if ( v5 )
@@ -51,12 +51,12 @@ __int64 __fastcall MmChangeSectionBackingFile(_QWORD *a1, _QWORD *a2, int a3)
       v9 = v7[2];
     if ( !v9 )
     {
-      v14 = &dword_140C4C980;
+      v14 = &dword_140C4C9C0;
       goto LABEL_18;
     }
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v9 + 72)) )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v9 + 72) )
       break;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -76,7 +76,7 @@ __int64 __fastcall MmChangeSectionBackingFile(_QWORD *a1, _QWORD *a2, int a3)
     }
     __writecr8(v8);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
   if ( (*(_DWORD *)(v9 + 56) & 1) == 0 )
   {
     v10 = (_QWORD *)(v9 + 64);

@@ -92,10 +92,13 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
     if ( !a1[4] )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -113,10 +116,10 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v12);
   v13 = v9;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
     {
       v13 = v10;
       if ( v22 <= 0xFu )

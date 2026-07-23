@@ -8,20 +8,25 @@
  *     __allmul @ 0x4B2F6490 (__allmul.c)
  */
 
-int __fastcall RtlpQueryDiskSpacePolicyByHandle(int a1, _DWORD *a2)
+int __fastcall RtlpQueryDiskSpacePolicyByHandle(HANDLE FileHandle, _DWORD *a2)
 {
   unsigned __int64 v3; // rax
   int v4; // ecx
-  _BYTE v6[8]; // [esp+8h] [ebp-30h] BYREF
-  _QWORD v7[3]; // [esp+10h] [ebp-28h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+8h] [ebp-30h] BYREF
+  _QWORD FsInformation[3]; // [esp+10h] [ebp-28h] BYREF
   unsigned int v8; // [esp+28h] [ebp-10h]
   unsigned int v9; // [esp+2Ch] [ebp-Ch]
 
-  LODWORD(v3) = NtQueryVolumeInformationFile(a1, (int)v6, (int)v7, 32, 7);
+  LODWORD(v3) = NtQueryVolumeInformationFile(
+                  FileHandle,
+                  &IoStatusBlock,
+                  FsInformation,
+                  0x20u,
+                  FileFsFullSizeInformation);
   if ( (v3 & 0x80000000) == 0LL )
   {
-    v3 = v8 * (unsigned __int64)v9 * v7[0];
-    v4 = v8 * v9 * LODWORD(v7[0]);
+    v3 = v8 * (unsigned __int64)v9 * FsInformation[0];
+    v4 = v8 * v9 * LODWORD(FsInformation[0]);
     LODWORD(v3) = 0;
     if ( HIDWORD(v3) > 2 || HIDWORD(v3) >= 2 && v4 )
     {

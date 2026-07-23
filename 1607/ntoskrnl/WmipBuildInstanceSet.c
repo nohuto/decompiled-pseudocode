@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipBuildInstanceSet @ 0x140537360
+ * XREFs of WmipBuildInstanceSet @ 0x1405378A0
  * Callers:
- *     WmipAddDataSource @ 0x140537074 (WmipAddDataSource.c)
- *     WmipUpdateAddGuid @ 0x14069F298 (WmipUpdateAddGuid.c)
- *     WmipUpdateModifyGuid @ 0x14069F6C0 (WmipUpdateModifyGuid.c)
+ *     WmipAddDataSource @ 0x1405375B4 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x14069F3D0 (WmipUpdateAddGuid.c)
+ *     WmipUpdateModifyGuid @ 0x14069F7F8 (WmipUpdateModifyGuid.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x140084FB0 (RtlStringCchCopyNW.c)
+ *     RtlStringCchCopyNW @ 0x14010B264 (RtlStringCchCopyNW.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     WmipValidateWmiRegInfoString @ 0x140537658 (WmipValidateWmiRegInfoString.c)
- *     WmipDetermineInstanceBaseIndex @ 0x140537690 (WmipDetermineInstanceBaseIndex.c)
- *     WmipMangleInstanceName @ 0x140537EB8 (WmipMangleInstanceName.c)
+ *     WmipValidateWmiRegInfoString @ 0x140537B98 (WmipValidateWmiRegInfoString.c)
+ *     WmipDetermineInstanceBaseIndex @ 0x140537BD0 (WmipDetermineInstanceBaseIndex.c)
+ *     WmipMangleInstanceName @ 0x1405383F8 (WmipMangleInstanceName.c)
  */
 
 __int64 __fastcall WmipBuildInstanceSet(_DWORD *a1, __int64 a2, unsigned int a3, __int64 a4, int a5)

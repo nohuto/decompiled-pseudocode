@@ -1,16 +1,16 @@
 /*
- * XREFs of ObInitServerSilo @ 0x140579FFC
+ * XREFs of ObInitServerSilo @ 0x14057A53C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x14067E960 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x14067EA44 (PspInitializeServerSiloDeferred.c)
  *     ObInitSystem @ 0x1407A0370 (ObInitSystem.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     ObReferenceObjectByNameEx @ 0x140499E04 (ObReferenceObjectByNameEx.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ObReferenceObjectByNameEx @ 0x1403E4434 (ObReferenceObjectByNameEx.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
  */
 
 int __fastcall ObInitServerSilo(__int64 a1)
@@ -56,7 +56,7 @@ int __fastcall ObInitServerSilo(__int64 a1)
       v11 = &ObpGlobalDirectoryName;
       v12 = 576;
       v13 = 0LL;
-      v7 = ObReferenceObjectByNameEx((__int64)&v9, v6, 2u, ObpDirectoryObjectType, 0, 0LL, &Object);
+      v7 = ObReferenceObjectByNameEx((__int64)&v9, v6, 2u, (__int64)ObpDirectoryObjectType, 0, 0LL, &Object);
       ZwClose(Handle);
       if ( v7 < 0 )
         return v7;

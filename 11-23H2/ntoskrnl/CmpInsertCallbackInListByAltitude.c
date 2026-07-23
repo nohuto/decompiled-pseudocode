@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpInsertCallbackInListByAltitude @ 0x140850E2C
+ * XREFs of CmpInsertCallbackInListByAltitude @ 0x14085112C
  * Callers:
- *     CmpRegisterCallbackInternal @ 0x140850D1C (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x14085101C (CmpRegisterCallbackInternal.c)
  * Callees:
- *     RtlCompareAltitudes @ 0x14034FA00 (RtlCompareAltitudes.c)
+ *     RtlCompareAltitudes @ 0x14034FBA0 (RtlCompareAltitudes.c)
  *     CmpUnlockCallbackList @ 0x14068F274 (CmpUnlockCallbackList.c)
- *     CmpLockCallbackListExclusive @ 0x140850EF8 (CmpLockCallbackListExclusive.c)
+ *     CmpLockCallbackListExclusive @ 0x1408511F8 (CmpLockCallbackListExclusive.c)
  */
 
 __int64 __fastcall CmpInsertCallbackInListByAltitude(__int64 a1, char a2)

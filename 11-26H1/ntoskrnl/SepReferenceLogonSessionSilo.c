@@ -1,17 +1,17 @@
 /*
- * XREFs of SepReferenceLogonSessionSilo @ 0x140AB6FE8
+ * XREFs of SepReferenceLogonSessionSilo @ 0x140AB8628
  * Callers:
- *     SeInitServerSilo @ 0x1408100DC (SeInitServerSilo.c)
- *     SeSetSessionIdTokenWithLinked @ 0x140812090 (SeSetSessionIdTokenWithLinked.c)
- *     SepSetServerSiloToken @ 0x14081221C (SepSetServerSiloToken.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     SeGetLinkedToken @ 0x140AB6E90 (SeGetLinkedToken.c)
- *     SepReferenceLogonSession @ 0x140AB6FB0 (SepReferenceLogonSession.c)
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
+ *     SeInitServerSilo @ 0x140815B6C (SeInitServerSilo.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x140817E20 (SeSetSessionIdTokenWithLinked.c)
+ *     SepSetServerSiloToken @ 0x140818078 (SepSetServerSiloToken.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     SeGetLinkedToken @ 0x140AB84D0 (SeGetLinkedToken.c)
+ *     SepReferenceLogonSession @ 0x140AB85F0 (SepReferenceLogonSession.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall SepReferenceLogonSessionSilo(_DWORD *a1, __int64 a2, __int64 *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall SepReferenceLogonSessionSilo(_DWORD *a1, __int64 a2, __int64 
   v7 = SepLogonSessions + 8 * v6;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v9 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v6 & 3));
+  v9 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v6 & 3));
   ExAcquireResourceExclusiveLite(v9, 1u);
   do
   {

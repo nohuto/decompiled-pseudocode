@@ -1,50 +1,50 @@
 /*
- * XREFs of MiApplyImageHotPatchRequest @ 0x1407F191C
+ * XREFs of MiApplyImageHotPatchRequest @ 0x1407F1EEC
  * Callers:
- *     NtManageHotPatch @ 0x140AE7000 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x140AE9BD0 (NtManageHotPatch.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiSetVadFlags @ 0x1402B8D5C (MiSetVadFlags.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     MiDereferenceControlAreaBySection @ 0x140451548 (MiDereferenceControlAreaBySection.c)
- *     MiInsertVadEvent @ 0x1404F1B48 (MiInsertVadEvent.c)
- *     MiReferenceMappedControlArea @ 0x14067304C (MiReferenceMappedControlArea.c)
- *     Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledDeviceUsageNoInline @ 0x14067CE40 (Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledDeviceUsageNoInline.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiApplyImageHotPatch @ 0x1407F16A0 (MiApplyImageHotPatch.c)
- *     MiCaptureHotPatchInfo @ 0x1407F2308 (MiCaptureHotPatchInfo.c)
- *     MiDeleteHotPatchEntry @ 0x1407F2550 (MiDeleteHotPatchEntry.c)
- *     MiGetAllRegisteredPatches @ 0x1407F280C (MiGetAllRegisteredPatches.c)
- *     MiGetProcessHotPatchContext @ 0x1407F2AD8 (MiGetProcessHotPatchContext.c)
- *     MiGetVadForHotPatchInProgress @ 0x1407F2B54 (MiGetVadForHotPatchInProgress.c)
- *     MiLogHotPatchOperation @ 0x1407F3824 (MiLogHotPatchOperation.c)
- *     MiLogHotPatchOperationStatus @ 0x1407F3CA4 (MiLogHotPatchOperationStatus.c)
- *     MiPrepareToHotPatchVad @ 0x1407F5B90 (MiPrepareToHotPatchVad.c)
- *     MiProcessPatchImageCfg @ 0x1407F5CBC (MiProcessPatchImageCfg.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     MiUnmapImageInSystemSpace @ 0x1408F560C (MiUnmapImageInSystemSpace.c)
- *     PsWow64GetProcessNtdllType @ 0x140908828 (PsWow64GetProcessNtdllType.c)
- *     SeCompareSigningLevels @ 0x1409354F0 (SeCompareSigningLevels.c)
- *     MiOpenHotPatchFile @ 0x140A9FE3C (MiOpenHotPatchFile.c)
- *     MiReleaseHotPatchResources @ 0x140AB45B8 (MiReleaseHotPatchResources.c)
- *     MiInitializeImageHotPatchContext @ 0x140AC0C7C (MiInitializeImageHotPatchContext.c)
- *     RtlApplyHotPatch @ 0x140B63AD0 (RtlApplyHotPatch.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiSetVadFlags @ 0x14036049C (MiSetVadFlags.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     MiDereferenceControlAreaBySection @ 0x1404468F8 (MiDereferenceControlAreaBySection.c)
+ *     MiInsertVadEvent @ 0x1404EF5E8 (MiInsertVadEvent.c)
+ *     MiReferenceMappedControlArea @ 0x14067421C (MiReferenceMappedControlArea.c)
+ *     Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledDeviceUsageNoInline @ 0x14067DFCC (Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledDeviceUsageNoInline.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiApplyImageHotPatch @ 0x1407F1C70 (MiApplyImageHotPatch.c)
+ *     MiCaptureHotPatchInfo @ 0x1407F28D8 (MiCaptureHotPatchInfo.c)
+ *     MiDeleteHotPatchEntry @ 0x1407F2B20 (MiDeleteHotPatchEntry.c)
+ *     MiGetAllRegisteredPatches @ 0x1407F2DDC (MiGetAllRegisteredPatches.c)
+ *     MiGetProcessHotPatchContext @ 0x1407F30A8 (MiGetProcessHotPatchContext.c)
+ *     MiGetVadForHotPatchInProgress @ 0x1407F3124 (MiGetVadForHotPatchInProgress.c)
+ *     MiLogHotPatchOperation @ 0x1407F3E18 (MiLogHotPatchOperation.c)
+ *     MiLogHotPatchOperationStatus @ 0x1407F4298 (MiLogHotPatchOperationStatus.c)
+ *     MiPrepareToHotPatchVad @ 0x1407F6280 (MiPrepareToHotPatchVad.c)
+ *     MiProcessPatchImageCfg @ 0x1407F63AC (MiProcessPatchImageCfg.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     PsWow64GetProcessNtdllType @ 0x1408DFF44 (PsWow64GetProcessNtdllType.c)
+ *     MiUnmapImageInSystemSpace @ 0x14093E4B4 (MiUnmapImageInSystemSpace.c)
+ *     SeCompareSigningLevels @ 0x1409FA8D0 (SeCompareSigningLevels.c)
+ *     MiOpenHotPatchFile @ 0x140A9B20C (MiOpenHotPatchFile.c)
+ *     MiReleaseHotPatchResources @ 0x140AAF528 (MiReleaseHotPatchResources.c)
+ *     MiInitializeImageHotPatchContext @ 0x140ABBDDC (MiInitializeImageHotPatchContext.c)
+ *     RtlApplyHotPatch @ 0x140B65BA0 (RtlApplyHotPatch.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiApplyImageHotPatchRequest(__int64 a1)
@@ -79,24 +79,24 @@ __int64 __fastcall MiApplyImageHotPatchRequest(__int64 a1)
   PVOID v29; // r15
   __int64 v30; // r12
   PVOID v31; // r15
-  PVOID v32; // r15
-  PVOID v33; // rbx
-  PVOID v34; // rdi
-  UNICODE_STRING *v35; // rcx
-  bool v37; // zf
-  int v38; // r13d
-  __int16 v39; // r15
+  __int64 v32; // r9
+  PVOID v33; // r15
+  __int64 v34; // r9
+  PVOID v35; // rbx
+  PVOID v36; // rdi
+  UNICODE_STRING *v37; // rcx
+  bool v39; // zf
+  int v40; // r13d
+  __int16 v41; // r15
   __int64 ProcessHotPatchContext; // rax
-  int v41; // r9d
-  __int64 v42; // r13
-  PVOID v43; // r15
-  int v44; // r9d
-  __int64 v45; // r15
-  _QWORD *v46; // rax
-  UNICODE_STRING v47; // xmm1
-  __int64 *v48; // rax
-  __int64 v49; // rdx
-  __int64 v50; // rcx
+  int v43; // r9d
+  __int64 v44; // r13
+  PVOID v45; // r15
+  int v46; // r9d
+  __int64 v47; // r15
+  char *v48; // rax
+  UNICODE_STRING v49; // xmm1
+  __int64 *v50; // rax
   int v51; // [rsp+20h] [rbp-150h]
   int v52; // [rsp+20h] [rbp-150h]
   __int16 v53; // [rsp+28h] [rbp-148h]
@@ -108,10 +108,10 @@ __int64 __fastcall MiApplyImageHotPatchRequest(__int64 a1)
   __int64 v59; // [rsp+D8h] [rbp-98h]
   int v60; // [rsp+E0h] [rbp-90h]
   struct _KTHREAD *v61; // [rsp+F0h] [rbp-80h]
-  int v62; // [rsp+F8h] [rbp-78h] BYREF
+  unsigned int v62; // [rsp+F8h] [rbp-78h] BYREF
   PVOID v63; // [rsp+100h] [rbp-70h] BYREF
   PVOID P; // [rsp+108h] [rbp-68h] BYREF
-  int v65; // [rsp+110h] [rbp-60h] BYREF
+  unsigned int v65; // [rsp+110h] [rbp-60h] BYREF
   __int64 v66; // [rsp+118h] [rbp-58h]
   PVOID v67; // [rsp+120h] [rbp-50h] BYREF
   __int64 v68; // [rsp+128h] [rbp-48h]
@@ -139,7 +139,7 @@ __int64 __fastcall MiApplyImageHotPatchRequest(__int64 a1)
   unsigned int v91; // [rsp+370h] [rbp+200h]
   char v92; // [rsp+378h] [rbp+208h]
   char v93; // [rsp+378h] [rbp+208h]
-  _QWORD *v94; // [rsp+378h] [rbp+208h]
+  char *v94; // [rsp+378h] [rbp+208h]
   __int16 v95; // [rsp+380h] [rbp+210h]
   __int64 v96; // [rsp+388h] [rbp+218h]
   __int16 v97; // [rsp+388h] [rbp+218h]
@@ -165,12 +165,12 @@ __int64 __fastcall MiApplyImageHotPatchRequest(__int64 a1)
   v66 = 0LL;
   v65 = 0;
   v62 = 0;
-  v37 = *(_DWORD *)a1 == 2;
+  v39 = *(_DWORD *)a1 == 2;
   Process = CurrentThread->ApcState.Process;
   v61 = CurrentThread;
   v75 = (struct _EX_RUNDOWN_REF *)Process;
   v95 = WORD2(Process[3].PerProcessorCycleTimes);
-  if ( !v37
+  if ( !v39
     || *(_QWORD *)(a1 + 8) != -1LL
     || (v6 = *(_DWORD *)(a1 + 4), (v6 & 0x7FFFFFFC) != 0)
     || (v6 & 3) == 0
@@ -188,7 +188,7 @@ LABEL_48:
     VadForHotPatchInProgress = -1073741637;
     goto LABEL_48;
   }
-  v3 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&Process[1].ProfileListHead.Blink) & 1;
+  v3 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&Process[1].ProfileListHead.Blink) & 1;
   if ( !v3 )
   {
     VadForHotPatchInProgress = -1073741558;
@@ -323,16 +323,16 @@ LABEL_44:
       DestinationString = *(UNICODE_STRING *)(v26 + 40);
       RtlInitUnicodeString((PUNICODE_STRING)(v26 + 40), 0LL);
       if ( (*(_DWORD *)(a1 + 4) & 1) != 0 )
-        v37 = v62 == 0;
+        v39 = v62 == 0;
       else
-        v37 = v62 == 3;
-      if ( !v37 )
+        v39 = v62 == 3;
+      if ( !v39 )
       {
         VadForHotPatchInProgress = -1073700861;
         goto LABEL_44;
       }
-      v38 = v77;
-      v39 = v95;
+      v40 = v77;
+      v41 = v95;
       VadForHotPatchInProgress = MiCaptureHotPatchInfo(
                                    (unsigned int)v79,
                                    v77,
@@ -357,27 +357,27 @@ LABEL_44:
           VadForHotPatchInProgress = -1073741799;
           goto LABEL_44;
         }
-        v39 = v95;
+        v41 = v95;
       }
-      if ( v38 == -1 || (_DWORD)v78 == -1 )
+      if ( v40 == -1 || (_DWORD)v78 == -1 )
       {
         VadForHotPatchInProgress = -1073739516;
         goto LABEL_44;
       }
       ProcessHotPatchContext = MiGetProcessHotPatchContext(v75, 1LL);
-      v42 = ProcessHotPatchContext;
+      v44 = ProcessHotPatchContext;
       if ( !ProcessHotPatchContext )
       {
         VadForHotPatchInProgress = -1073741670;
         goto LABEL_44;
       }
-      v53 = v39;
-      v43 = v67;
+      v53 = v41;
+      v45 = v67;
       VadForHotPatchInProgress = MiPrepareToHotPatchVad(
                                    ProcessHotPatchContext,
                                    (_DWORD)v67,
                                    (unsigned int)v80,
-                                   v41,
+                                   v43,
                                    v51,
                                    v53,
                                    (__int64)P,
@@ -386,10 +386,10 @@ LABEL_44:
       if ( VadForHotPatchInProgress < 0 )
         goto LABEL_44;
       VadForHotPatchInProgress = MiPrepareToHotPatchVad(
-                                   v42,
+                                   v44,
                                    (_DWORD)v63,
                                    (unsigned int)v87,
-                                   v44,
+                                   v46,
                                    v52,
                                    v95,
                                    (__int64)P,
@@ -399,10 +399,10 @@ LABEL_44:
         goto LABEL_44;
       if ( (*(_DWORD *)(v30 + 4) & 1) != 0 )
       {
-        VadForHotPatchInProgress = MiProcessPatchImageCfg(v43, P, v70);
+        VadForHotPatchInProgress = MiProcessPatchImageCfg(v45, P, v70);
         if ( VadForHotPatchInProgress < 0 )
           goto LABEL_44;
-        v45 = v70;
+        v47 = v70;
         LODWORD(v73) = 0;
         VadForHotPatchInProgress = RtlApplyHotPatch(
                                      v89[0],
@@ -440,24 +440,24 @@ LABEL_44:
       }
       else
       {
-        v45 = v70;
+        v47 = v70;
       }
       if ( (*(_DWORD *)(v30 + 4) & 2) != 0 )
       {
-        VadForHotPatchInProgress = MiApplyImageHotPatch((__int64)v87, (__int64)v80, v2, (__int64)P, v45);
+        VadForHotPatchInProgress = MiApplyImageHotPatch((__int64)v87, (__int64)v80, v2, (__int64)P, v47);
         if ( VadForHotPatchInProgress < 0 )
           goto LABEL_44;
       }
       --v61->SpecialApcDisable;
-      v46 = KeAbPreAcquire(v42 + 16, 0LL);
-      v94 = v46;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)(v42 + 16), 0LL) )
+      v48 = (char *)KeAbPreAcquire(v44 + 16, 0LL);
+      v94 = v48;
+      if ( _interlockedbittestandset64((volatile signed __int32 *)(v44 + 16), 0LL) )
       {
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v42 + 16), (__int64)v46, v42 + 16);
-        v46 = v94;
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v44 + 16), v48, v44 + 16);
+        v48 = v94;
       }
-      if ( v46 )
-        *((_BYTE *)v46 + 10) = 1;
+      if ( v48 )
+        v48[10] = 1;
       MiLogHotPatchOperation(
         v2,
         *(_DWORD *)(v2 + 32),
@@ -469,29 +469,29 @@ LABEL_44:
         ((*(_DWORD *)(v30 + 4) >> 1) & 1) == 0);
       if ( (*(_DWORD *)(v30 + 4) & 2) != 0 )
       {
-        v47 = *(UNICODE_STRING *)(v2 + 40);
+        v49 = *(UNICODE_STRING *)(v2 + 40);
         *(_QWORD *)(v2 + 56) = v74;
         *(_DWORD *)(v2 + 64) = v91;
         *(UNICODE_STRING *)(v2 + 40) = DestinationString;
-        DestinationString = v47;
+        DestinationString = v49;
         if ( !*(_QWORD *)v2 )
         {
-          v48 = *(__int64 **)(v42 + 8);
-          if ( *v48 != v42 )
+          v50 = *(__int64 **)(v44 + 8);
+          if ( *v50 != v44 )
             __fastfail(3u);
-          *(_QWORD *)v2 = v42;
-          *(_QWORD *)(v2 + 8) = v48;
-          *v48 = v2;
-          *(_QWORD *)(v42 + 8) = v2;
+          *(_QWORD *)v2 = v44;
+          *(_QWORD *)(v2 + 8) = v50;
+          *v50 = v2;
+          *(_QWORD *)(v44 + 8) = v2;
         }
       }
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v42 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(v42 + 16));
-      KeAbPostRelease(v42 + 16);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v44 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)(v44 + 16));
+      KeAbPostRelease(v44 + 16);
       CurrentThread = v61;
-      v37 = v61->SpecialApcDisable++ == -1;
-      if ( v37 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)v61->ApcState.ApcListHead[0].Flink != &v61->152 )
-        KiCheckForKernelApcDelivery(v50, v49);
+      v39 = v61->SpecialApcDisable++ == -1;
+      if ( v39 && ($727077A9B6E167EAE1398C74674DC5A5 *)v61->ApcState.ApcListHead[0].Flink != &v61->152 )
+        KiCheckForKernelApcDelivery();
       VadForHotPatchInProgress = 0;
     }
   }
@@ -505,7 +505,7 @@ LABEL_49:
   if ( v63 )
   {
     MiLockVad((__int64)CurrentThread, (__int64)v63);
-    MiSetVadFlags((__int64)v31, 4LL, v65);
+    MiSetVadFlags((__int64)v31, 4LL, v65, v32);
     if ( v2 )
     {
       *(_DWORD *)(v2 + 68) &= ~1u;
@@ -513,12 +513,12 @@ LABEL_49:
     }
     MiUnlockAndDereferenceVad(v63);
   }
-  v32 = v67;
+  v33 = v67;
   if ( v67 )
   {
     MiLockVad((__int64)CurrentThread, (__int64)v67);
-    MiSetVadFlags((__int64)v32, 4LL, v62);
-    MiUnlockAndDereferenceVad(v32);
+    MiSetVadFlags((__int64)v33, 4LL, v62, v34);
+    MiUnlockAndDereferenceVad(v33);
   }
   if ( v2 )
     MiDeleteHotPatchEntry((PVOID)v2);
@@ -540,14 +540,14 @@ LABEL_49:
   {
     do
     {
-      v33 = v69;
-      v35 = (UNICODE_STRING *)((char *)v69 + 40);
+      v35 = v69;
+      v37 = (UNICODE_STRING *)((char *)v69 + 40);
       v69 = *(PVOID *)v69;
-      v34 = v69;
-      RtlFreeAnsiString(v35);
-      ExFreePoolWithTag(v33, 0);
+      v36 = v69;
+      RtlFreeAnsiString(v37);
+      ExFreePoolWithTag(v35, 0);
     }
-    while ( v34 );
+    while ( v36 );
   }
   RtlFreeAnsiString(&DestinationString);
   return (unsigned int)VadForHotPatchInProgress;

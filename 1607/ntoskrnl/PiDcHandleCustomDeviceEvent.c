@@ -1,29 +1,29 @@
 /*
- * XREFs of PiDcHandleCustomDeviceEvent @ 0x1403F0DB0
+ * XREFs of PiDcHandleCustomDeviceEvent @ 0x140489514
  * Callers:
- *     PnpProcessCustomDeviceEvent @ 0x1403EF2C8 (PnpProcessCustomDeviceEvent.c)
+ *     PnpProcessCustomDeviceEvent @ 0x1404895A4 (PnpProcessCustomDeviceEvent.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     PnpQueryDeviceRelations @ 0x1403F1B44 (PnpQueryDeviceRelations.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x140486454 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmIsLocalMachineContainer @ 0x1404F077C (_CmIsLocalMachineContainer.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
- *     PiDcContainerRequiresConfiguration @ 0x14063077C (PiDcContainerRequiresConfiguration.c)
- *     _CmMoveBaseContainer @ 0x1406DA7B0 (_CmMoveBaseContainer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     PnpQueryDeviceRelations @ 0x1403F0A08 (PnpQueryDeviceRelations.c)
+ *     _CmIsLocalMachineContainer @ 0x1404D2870 (_CmIsLocalMachineContainer.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x140513264 (_CmGetDeviceContainerIdFromBase.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140630830 (PiDcContainerRequiresConfiguration.c)
+ *     _CmMoveBaseContainer @ 0x1406DA8E8 (_CmMoveBaseContainer.c)
  */
 
 __int64 __fastcall PiDcHandleCustomDeviceEvent(__int64 a1)
 {
   __int64 v1; // rdx
-  NTSTATUS DeviceContainerIdFromBase; // ebx
+  int DeviceRelations; // ebx
   __int64 v4; // rax
   _DWORD *v6; // rax
   struct _KTHREAD *CurrentThread; // rax
@@ -51,7 +51,7 @@ __int64 __fastcall PiDcHandleCustomDeviceEvent(__int64 a1)
   _BYTE v29[80]; // [rsp+150h] [rbp+50h] BYREF
 
   v1 = *(_QWORD *)(a1 + 152);
-  DeviceContainerIdFromBase = 0;
+  DeviceRelations = 0;
   v24 = 0LL;
   P[0] = 0LL;
   v4 = *(_QWORD *)(v1 + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED.Data1;
@@ -59,11 +59,11 @@ __int64 __fastcall PiDcHandleCustomDeviceEvent(__int64 a1)
     v4 = *(_QWORD *)(v1 + 12) - *(_QWORD *)GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED.Data4;
   if ( !v4 )
   {
-    DeviceContainerIdFromBase = PiPnpRtlBeginOperation(P);
-    if ( DeviceContainerIdFromBase >= 0 )
+    DeviceRelations = PiPnpRtlBeginOperation(P);
+    if ( DeviceRelations >= 0 )
     {
-      DeviceContainerIdFromBase = PnpQueryDeviceRelations(*(_QWORD *)(a1 + 144), 6LL, 0LL, &v24);
-      if ( DeviceContainerIdFromBase >= 0 )
+      DeviceRelations = PnpQueryDeviceRelations(*(_QWORD *)(a1 + 144), 6, 0LL, (__int64)&v24);
+      if ( DeviceRelations >= 0 )
       {
         v6 = v24;
         if ( !v24 )
@@ -71,7 +71,7 @@ __int64 __fastcall PiDcHandleCustomDeviceEvent(__int64 a1)
 LABEL_40:
           if ( P[0] )
             PiPnpRtlEndOperation(P[0]);
-          return (unsigned int)DeviceContainerIdFromBase;
+          return (unsigned int)DeviceRelations;
         }
         if ( !*v24 )
         {
@@ -100,8 +100,8 @@ LABEL_37:
           && v23 == 1
           && v22 == 78 )
         {
-          DeviceContainerIdFromBase = CmGetDeviceContainerIdFromBase(*(_QWORD *)&PiPnpRtlCtx, a1 + 160, Str1, Str2);
-          if ( DeviceContainerIdFromBase >= 0 )
+          DeviceRelations = CmGetDeviceContainerIdFromBase(*(_QWORD *)&PiPnpRtlCtx, a1 + 160, Str1, Str2);
+          if ( DeviceRelations >= 0 )
           {
             v8 = wcsicmp(Str1, Str2);
             v9 = v24;
@@ -128,26 +128,22 @@ LABEL_37:
                                     (__int64)v29,
                                     (__int64)&v22,
                                     0);
-                  DeviceContainerIdFromBase = DeviceRegProp;
+                  DeviceRelations = DeviceRegProp;
                   if ( DeviceRegProp != -1073741275 )
                   {
                     if ( DeviceRegProp < 0 || v23 != 1 || v22 != 78 )
                       goto LABEL_34;
-                    DeviceContainerIdFromBase = CmGetDeviceContainerIdFromBase(
-                                                  *(_QWORD *)&PiPnpRtlCtx,
-                                                  v14,
-                                                  v29,
-                                                  pszSrc);
-                    if ( DeviceContainerIdFromBase < 0 )
+                    DeviceRelations = CmGetDeviceContainerIdFromBase(*(_QWORD *)&PiPnpRtlCtx, v14, v29, pszSrc);
+                    if ( DeviceRelations < 0 )
                       break;
                     if ( !v10 )
                     {
-                      DeviceContainerIdFromBase = CmMoveBaseContainer(v16, Str1, Str2, pszSrc);
+                      DeviceRelations = CmMoveBaseContainer(v16, Str1, Str2, pszSrc);
                       PiDcContainerRequiresConfiguration(pszSrc);
-                      if ( DeviceContainerIdFromBase < 0 )
+                      if ( DeviceRelations < 0 )
                         break;
-                      DeviceContainerIdFromBase = RtlStringCbCopyW(Str2, 0x4EuLL, pszSrc);
-                      if ( DeviceContainerIdFromBase < 0 )
+                      DeviceRelations = RtlStringCbCopyW(Str2, 0x4EuLL, pszSrc);
+                      if ( DeviceRelations < 0 )
                         break;
                       v10 = 1;
                     }
@@ -155,9 +151,9 @@ LABEL_37:
                     {
                       if ( !(unsigned __int8)CmIsLocalMachineContainer(*(_QWORD *)&PiPnpRtlCtx, pszSrc) )
                       {
-                        DeviceContainerIdFromBase = CmMoveBaseContainer(v17, v29, pszSrc, Str2);
+                        DeviceRelations = CmMoveBaseContainer(v17, v29, pszSrc, Str2);
                         PiDcContainerRequiresConfiguration(Str2);
-                        if ( DeviceContainerIdFromBase < 0 )
+                        if ( DeviceRelations < 0 )
                           break;
                       }
                     }
@@ -171,7 +167,7 @@ LABEL_37:
         else
         {
 LABEL_34:
-          DeviceContainerIdFromBase = -1073739509;
+          DeviceRelations = -1073739509;
         }
         ExReleaseResourceLite(&PnpRegistryDeviceResource);
         KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v18, v19, v20);
@@ -180,5 +176,5 @@ LABEL_34:
     v6 = v24;
     goto LABEL_37;
   }
-  return (unsigned int)DeviceContainerIdFromBase;
+  return (unsigned int)DeviceRelations;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpInterruptInitializeGlobals @ 0x14036F100
+ * XREFs of HalpInterruptInitializeGlobals @ 0x14036F2A0
  * Callers:
  *     HalpInterruptInitSystem @ 0x140A89A80 (HalpInterruptInitSystem.c)
  * Callees:

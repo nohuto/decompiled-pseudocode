@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdateAwePageTable @ 0x140340414
+ * XREFs of MiUpdateAwePageTable @ 0x140342494
  * Callers:
- *     MiDeleteEnclavePage @ 0x140340600 (MiDeleteEnclavePage.c)
- *     MiWriteEnclavePte @ 0x140340C78 (MiWriteEnclavePte.c)
- *     MiFinishPteChangesInPageTable @ 0x140527D9C (MiFinishPteChangesInPageTable.c)
- *     MiUnmapLegacyAwePage @ 0x140702C2C (MiUnmapLegacyAwePage.c)
+ *     MiDeleteEnclavePage @ 0x140342680 (MiDeleteEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x140342CF8 (MiWriteEnclavePte.c)
+ *     MiFinishPteChangesInPageTable @ 0x14052A40C (MiFinishPteChangesInPageTable.c)
+ *     MiUnmapLegacyAwePage @ 0x1407078FC (MiUnmapLegacyAwePage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiDecreaseUsedPtes @ 0x14033F020 (MiDecreaseUsedPtes.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiDecreaseUsedPtes @ 0x1403410A0 (MiDecreaseUsedPtes.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
  */
 
 __int64 __fastcall MiUpdateAwePageTable(__int64 *a1, __int64 a2, int a3)

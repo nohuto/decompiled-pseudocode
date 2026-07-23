@@ -81,10 +81,10 @@
  *     RtlLookupFunctionEntry @ 0x180032BE0 (RtlLookupFunctionEntry.c)
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     RtlCaptureContext @ 0x1800A17A0 (RtlCaptureContext.c)
+ *     RtlCaptureContext @ 0x1800A1760 (RtlCaptureContext.c)
  */
 
-__int64 invalid_parameter()
+ULONG invalid_parameter()
 {
   ULONG64 Rip; // rbx
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v1; // rax

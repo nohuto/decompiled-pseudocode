@@ -1,5 +1,5 @@
 /*
- * XREFs of WinSqmCommonDatapointSetStreamEx @ 0x1800894E0
+ * XREFs of WinSqmCommonDatapointSetStreamEx @ 0x1800894F0
  * Callers:
  *     <none>
  * Callees:

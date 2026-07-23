@@ -1,26 +1,31 @@
 /*
- * XREFs of ZwQueryLicenseValue @ 0x1401BAB10
+ * XREFs of ZwQueryLicenseValue @ 0x1401BAC70
  * Callers:
- *     RtlGetProductInfo @ 0x14018D620 (RtlGetProductInfo.c)
- *     ExpGenuinePolicyPostProcess @ 0x1406A77A0 (ExpGenuinePolicyPostProcess.c)
- *     ExpGetVMActivationStatus @ 0x140704068 (ExpGetVMActivationStatus.c)
- *     ExGetExpirationDate @ 0x1407353FC (ExGetExpirationDate.c)
- *     RtlpGetWindowsPolicy @ 0x14073EFC4 (RtlpGetWindowsPolicy.c)
- *     MmCreateMirror @ 0x14084E470 (MmCreateMirror.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x140894B90 (RtlpGetPolicyValueForSystemCapability.c)
- *     SepIsLockedDown @ 0x14089B6DC (SepIsLockedDown.c)
- *     KIsSideloadingEnabled @ 0x1408DDB94 (KIsSideloadingEnabled.c)
- *     WheapLoadPolicy @ 0x1409AEBE8 (WheapLoadPolicy.c)
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
- *     PpmInitIdlePolicy @ 0x1409D82DC (PpmInitIdlePolicy.c)
- *     InitializeDynamicPartitioningPolicy @ 0x1409DEB48 (InitializeDynamicPartitioningPolicy.c)
+ *     RtlGetProductInfo @ 0x14018D760 (RtlGetProductInfo.c)
+ *     ExpGenuinePolicyPostProcess @ 0x1406A8A40 (ExpGenuinePolicyPostProcess.c)
+ *     ExpGetVMActivationStatus @ 0x140705308 (ExpGetVMActivationStatus.c)
+ *     ExGetExpirationDate @ 0x1407365EC (ExGetExpirationDate.c)
+ *     RtlpGetWindowsPolicy @ 0x1407401B4 (RtlpGetWindowsPolicy.c)
+ *     MmCreateMirror @ 0x14084F6D0 (MmCreateMirror.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x140895DF0 (RtlpGetPolicyValueForSystemCapability.c)
+ *     SepIsLockedDown @ 0x14089C93C (SepIsLockedDown.c)
+ *     KIsSideloadingEnabled @ 0x1408DEE54 (KIsSideloadingEnabled.c)
+ *     WheapLoadPolicy @ 0x1409AFBE8 (WheapLoadPolicy.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
+ *     PpmInitIdlePolicy @ 0x1409D92DC (PpmInitIdlePolicy.c)
+ *     InitializeDynamicPartitioningPolicy @ 0x1409DFB48 (InitializeDynamicPartitioningPolicy.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryLicenseValue(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ValueName);
 }

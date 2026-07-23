@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFindContiguousPagesNode @ 0x1402904F0
+ * XREFs of MiFindContiguousPagesNode @ 0x14028FA50
  * Callers:
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiDeleteCachedKernelStack @ 0x14028FE5C (MiDeleteCachedKernelStack.c)
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiPruneCachedStackList @ 0x140292358 (MiPruneCachedStackList.c)
- *     MiDeleteCachedKernelShadowStack @ 0x1402A97A0 (MiDeleteCachedKernelShadowStack.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiDeleteCachedKernelStack @ 0x14028F3BC (MiDeleteCachedKernelStack.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiPruneCachedStackList @ 0x1402918B8 (MiPruneCachedStackList.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x1402A8BB0 (MiDeleteCachedKernelShadowStack.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiFindContiguousPagesNode(_QWORD *a1, unsigned __int64 *a2)
@@ -258,8 +258,8 @@ LABEL_2:
       goto LABEL_25;
     if ( (v55 & 1) != 0 )
     {
-      _InterlockedIncrement(dword_140EF8E78);
-      if ( (byte_140E2D689 & 1) == 0 )
+      _InterlockedIncrement(dword_140EF91D8);
+      if ( (byte_140E2D809 & 1) == 0 )
       {
         if ( v5 == &MiSystemPartition )
         {
@@ -338,7 +338,7 @@ LABEL_2:
       v68 -= v41;
       if ( !v68 )
       {
-        _InterlockedIncrement(&dword_140EF8D88);
+        _InterlockedIncrement(&dword_140EF90E8);
         v25 = 0LL;
         goto LABEL_77;
       }
@@ -380,10 +380,10 @@ LABEL_77:
       v48 = v60;
       goto LABEL_78;
     }
-    _InterlockedIncrement(&dword_140EF8E6C);
+    _InterlockedIncrement(&dword_140EF91CC);
     v50 = v56 - v43;
     v48 = v60;
-    _InterlockedExchange64(&qword_140EF8E70, (__int64)(v40 + 0x220000000000LL) / 48);
+    _InterlockedExchange64(&qword_140EF91D0, (__int64)(v40 + 0x220000000000LL) / 48);
     if ( v60 )
       *(_DWORD *)(v60 + 40) += -4096 * v50;
     if ( v50 )

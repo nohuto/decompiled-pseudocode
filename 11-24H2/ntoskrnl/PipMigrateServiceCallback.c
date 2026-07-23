@@ -1,12 +1,12 @@
 /*
- * XREFs of PipMigrateServiceCallback @ 0x140C21C40
+ * XREFs of PipMigrateServiceCallback @ 0x140C23C80
  * Callers:
  *     <none>
  * Callees:
- *     PnpRegCopyKeySecurityTree @ 0x14072375C (PnpRegCopyKeySecurityTree.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegCloseKey @ 0x140A16E6C (_PnpCtxRegCloseKey.c)
- *     PipMigrateCleanService @ 0x140C21454 (PipMigrateCleanService.c)
+ *     PnpRegCopyKeySecurityTree @ 0x1407212EC (PnpRegCopyKeySecurityTree.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegCloseKey @ 0x140A1004C (_PnpCtxRegCloseKey.c)
+ *     PipMigrateCleanService @ 0x140C23494 (PipMigrateCleanService.c)
  */
 
 __int64 __fastcall PipMigrateServiceCallback(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -40,7 +40,7 @@ __int64 __fastcall PipMigrateServiceCallback(__int64 a1, __int64 a2, __int64 a3,
     if ( v10 )
     {
       v11 = (int)v16;
-      v12 = (__int64 *)off_140009D78;
+      v12 = (__int64 *)off_140009F18;
       v13 = 2LL;
       do
       {

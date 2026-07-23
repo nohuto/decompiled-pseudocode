@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPowerAggregatorNotifyDisplayPoweredOn @ 0x1406F7384
+ * XREFs of PopPowerAggregatorNotifyDisplayPoweredOn @ 0x1406F5384
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorScheduleWorker @ 0x1409BA5AC (PopPowerAggregatorScheduleWorker.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x1409A0BFC (PopPowerAggregatorScheduleWorker.c)
  */
 
 __int64 PopPowerAggregatorNotifyDisplayPoweredOn()
 {
-  PopAcquireRwLockExclusive(&PopPowerAggregatorLock);
-  if ( (_DWORD)xmmword_140F08938 == 2 )
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
+  if ( (_DWORD)xmmword_140F08C98 == 2 )
   {
-    LOBYTE(xmmword_140F08948) = 1;
+    LOBYTE(xmmword_140F08CA8) = 1;
     PopPowerAggregatorScheduleWorker(&PopPowerAggregatorContext);
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPowerAggregatorLock);
+  return PopReleaseRwLock(&PopPowerAggregatorLock);
 }

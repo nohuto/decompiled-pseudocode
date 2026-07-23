@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x1406CF300
+ * XREFs of ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x1406D05A0
  * Callers:
- *     ?ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ @ 0x14032B538 (-ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ.c)
+ *     ?ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ @ 0x14032B728 (-ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */

@@ -4,10 +4,10 @@
  *     RtlpMuiRegAddLanguageByName @ 0x1800F40E4 (RtlpMuiRegAddLanguageByName.c)
  *     _RtlpMuiRegAddBaseLanguage @ 0x1800F5AA0 (_RtlpMuiRegAddBaseLanguage.c)
  * Callees:
- *     RtlpMuiRegGetOrAddString @ 0x180040D0C (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x180043F70 (RtlCultureNameToLCID.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     _RtlpMuiRegAddNeutralLanguage @ 0x180071D80 (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlpMuiRegGetOrAddString @ 0x180040CFC (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x180043F60 (RtlCultureNameToLCID.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x180071D70 (_RtlpMuiRegAddNeutralLanguage.c)
  */
 
 __int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, WCHAR *a3, __int16 a4)
@@ -15,18 +15,18 @@ __int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, WCHAR *a3, 
   __int64 v8; // r8
   int v9; // edi
   __int16 v11[2]; // [rsp+20h] [rbp-38h] BYREF
-  int v12; // [rsp+24h] [rbp-34h] BYREF
-  UNICODE_STRING v13[3]; // [rsp+28h] [rbp-30h] BYREF
+  DWORD Lcid; // [rsp+24h] [rbp-34h] BYREF
+  _UNICODE_STRING String; // [rsp+28h] [rbp-30h] BYREF
 
   v11[0] = -1;
-  RtlInitUnicodeString(v13, a3);
-  if ( RtlCultureNameToLCID(&v13[0].Length, &v12) )
+  RtlInitUnicodeString(&String, a3);
+  if ( RtlCultureNameToLCID(&String, &Lcid) )
   {
     LOBYTE(v8) = 1;
     v9 = RtlpMuiRegGetOrAddString(a1, a3, v8, v11);
     if ( v9 >= 0 )
     {
-      *(_WORD *)(a2 + 4) = v12;
+      *(_WORD *)(a2 + 4) = Lcid;
       *(_WORD *)(a2 + 6) = v11[0];
       *(_WORD *)a2 = a4;
       *(_WORD *)(a2 + 2) = 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCchCatExW @ 0x14028AF30
+ * XREFs of RtlStringCchCatExW @ 0x14028B120
  * Callers:
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x14059B86C (_CmGetDeviceInterfaceRegKeyPath.c)
- *     PiCMGenerateDeviceInstance @ 0x140837E04 (PiCMGenerateDeviceInstance.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x14059C86C (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     PiCMGenerateDeviceInstance @ 0x140839064 (PiCMGenerateDeviceInstance.c)
  * Callees:
  *     RtlStringCopyWorkerW @ 0x14000764C (RtlStringCopyWorkerW.c)
- *     RtlStringLengthWorkerW @ 0x14028B004 (RtlStringLengthWorkerW.c)
+ *     RtlStringLengthWorkerW @ 0x14028B1F4 (RtlStringLengthWorkerW.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCatExW(

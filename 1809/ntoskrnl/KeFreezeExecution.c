@@ -1,20 +1,20 @@
 /*
- * XREFs of KeFreezeExecution @ 0x140296FC8
+ * XREFs of KeFreezeExecution @ 0x1402971B8
  * Callers:
- *     ExpWaitForBootDevices @ 0x14031A1E0 (ExpWaitForBootDevices.c)
- *     KdEnterDebugger @ 0x140915D40 (KdEnterDebugger.c)
+ *     ExpWaitForBootDevices @ 0x14031A3D0 (ExpWaitForBootDevices.c)
+ *     KdEnterDebugger @ 0x140916D40 (KdEnterDebugger.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     KxTryToAcquireSpinLock @ 0x14011BAD4 (KxTryToAcquireSpinLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KiSendFreeze @ 0x1402979B0 (KiSendFreeze.c)
- *     KiSetDebuggerOwner @ 0x140297C00 (KiSetDebuggerOwner.c)
- *     KiStartDebugAccumulation @ 0x140297C58 (KiStartDebugAccumulation.c)
- *     RtlWriteTryAcquireTickLock @ 0x1402F631C (RtlWriteTryAcquireTickLock.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDAF0 (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     KxTryToAcquireSpinLock @ 0x14011BB44 (KxTryToAcquireSpinLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KiSendFreeze @ 0x140297BA0 (KiSendFreeze.c)
+ *     KiSetDebuggerOwner @ 0x140297DF0 (KiSetDebuggerOwner.c)
+ *     KiStartDebugAccumulation @ 0x140297E48 (KiStartDebugAccumulation.c)
+ *     RtlWriteTryAcquireTickLock @ 0x1402F650C (RtlWriteTryAcquireTickLock.c)
  */
 
 bool KeFreezeExecution()
@@ -74,7 +74,7 @@ LABEL_6:
     CurrentPrcb = KeGetCurrentPrcb();
     KiStartDebugAccumulation(CurrentPrcb);
     LOBYTE(v7) = 1;
-    ((void (__fastcall *)(__int64, _QWORD))off_1403FE478[0])(v7, 0LL);
+    ((void (__fastcall *)(__int64, _QWORD))off_1403FF478[0])(v7, 0LL);
     KiClockLatencyMeasurementEnabled = 0;
     if ( (unsigned int)KeNumberProcessors_0 > 1 && !PoAllProcIntrDisabled )
     {

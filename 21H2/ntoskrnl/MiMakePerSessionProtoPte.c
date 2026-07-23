@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMakePerSessionProtoPte @ 0x14055B4A0
+ * XREFs of MiMakePerSessionProtoPte @ 0x14055B6E0
  * Callers:
- *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1405584FC (MiBuildForkPte.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiGetSharedProtos @ 0x1403A6358 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiMakePerSessionProtoPte(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

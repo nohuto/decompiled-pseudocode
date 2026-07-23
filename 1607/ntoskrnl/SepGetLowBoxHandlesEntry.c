@@ -1,18 +1,18 @@
 /*
- * XREFs of SepGetLowBoxHandlesEntry @ 0x140475930
+ * XREFs of SepGetLowBoxHandlesEntry @ 0x140474800
  * Callers:
- *     SepSetTokenLowboxHandles @ 0x14007F580 (SepSetTokenLowboxHandles.c)
+ *     SepSetTokenLowboxHandles @ 0x14007F600 (SepSetTokenLowboxHandles.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x14007CFAC (RtlInsertEntryHashTable.c)
- *     SepFindMatchingLowBoxHandlesEntry @ 0x14007FA58 (SepFindMatchingLowBoxHandlesEntry.c)
+ *     RtlInsertEntryHashTable @ 0x14007D02C (RtlInsertEntryHashTable.c)
+ *     SepFindMatchingLowBoxHandlesEntry @ 0x14007FAD8 (SepFindMatchingLowBoxHandlesEntry.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCopySid @ 0x14041268C (RtlCopySid.c)
+ *     RtlCopySid @ 0x14041154C (RtlCopySid.c)
  */
 
 __int64 __fastcall SepGetLowBoxHandlesEntry(__int64 a1, unsigned __int8 *a2, _QWORD *a3)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v3; // r12
+  _RTL_DYNAMIC_HASH_TABLE *v3; // r12
   unsigned int v6; // edi
   unsigned int v7; // ebp
   _QWORD *PoolWithTag; // rax
@@ -21,7 +21,7 @@ __int64 __fastcall SepGetLowBoxHandlesEntry(__int64 a1, unsigned __int8 *a2, _QW
   ULONG_PTR v11; // r8
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v13; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
+  v3 = *(_RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
   SepFindMatchingLowBoxHandlesEntry(v3, a2, &v13);
   v6 = 0;
   if ( v13 )

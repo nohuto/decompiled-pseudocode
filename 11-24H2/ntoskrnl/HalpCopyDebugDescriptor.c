@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCopyDebugDescriptor @ 0x140C145E0
+ * XREFs of HalpCopyDebugDescriptor @ 0x140C165E0
  * Callers:
- *     HalpDbgInitSystem @ 0x140B4D480 (HalpDbgInitSystem.c)
+ *     HalpDbgInitSystem @ 0x140B4F4D0 (HalpDbgInitSystem.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char *__fastcall HalpCopyDebugDescriptor(__int64 a1)

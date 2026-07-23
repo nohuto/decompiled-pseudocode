@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvSetSleepStateProperty @ 0x1404C2C58
+ * XREFs of HalpHvSetSleepStateProperty @ 0x1404C2E98
  * Callers:
- *     HaliAcpiMachineStateInit @ 0x1407CEB50 (HaliAcpiMachineStateInit.c)
+ *     HaliAcpiMachineStateInit @ 0x1407CECC0 (HaliAcpiMachineStateInit.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpHvSetSleepStateProperty()
@@ -11,7 +11,7 @@ __int64 HalpHvSetSleepStateProperty()
   __int64 result; // rax
 
   result = 0LL;
-  if ( qword_140C4A190 )
-    return ((__int64 (*)(void))qword_140C4A190)();
+  if ( qword_140C4A1D0 )
+    return ((__int64 (*)(void))qword_140C4A1D0)();
   return result;
 }

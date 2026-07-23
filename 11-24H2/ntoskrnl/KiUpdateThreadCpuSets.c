@@ -1,14 +1,14 @@
 /*
- * XREFs of KiUpdateThreadCpuSets @ 0x1403C6418
+ * XREFs of KiUpdateThreadCpuSets @ 0x14048B9CC
  * Callers:
- *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C63A0 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
- *     KeSetSelectedCpuSetsThread @ 0x1403C6670 (KeSetSelectedCpuSetsThread.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14048B570 (KeSetSelectedCpuSetsThread.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14048B954 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
  * Callees:
- *     KiComputeThreadAffinity @ 0x14029AC34 (KiComputeThreadAffinity.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403B1E60 (KiAcquireThreadStateLockForWrite.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x1403B21E0 (KiRescheduleThreadAfterAffinityChange.c)
- *     EtwTraceThreadAffinity @ 0x1403B3E48 (EtwTraceThreadAffinity.c)
- *     EtwTraceIdealProcessor @ 0x1404B1DCC (EtwTraceIdealProcessor.c)
+ *     KiComputeThreadAffinity @ 0x1402A9724 (KiComputeThreadAffinity.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403A0670 (KiAcquireThreadStateLockForWrite.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1403A09F0 (KiRescheduleThreadAfterAffinityChange.c)
+ *     EtwTraceThreadAffinity @ 0x1403A2658 (EtwTraceThreadAffinity.c)
+ *     EtwTraceIdealProcessor @ 0x1404AC65C (EtwTraceIdealProcessor.c)
  */
 
 void __fastcall KiUpdateThreadCpuSets(__int64 a1, struct _SINGLE_LIST_ENTRY *a2)
@@ -60,6 +60,6 @@ void __fastcall KiUpdateThreadCpuSets(__int64 a1, struct _SINGLE_LIST_ENTRY *a2)
       0,
       *(unsigned __int16 **)(a1 + 576),
       1334);
-  if ( v6 != v7 && (xmmword_140FC5B10 & 0x8000000) != 0 )
+  if ( v6 != v7 && (xmmword_140FC6B50 & 0x8000000) != 0 )
     EtwTraceIdealProcessor(a1, 1350LL);
 }

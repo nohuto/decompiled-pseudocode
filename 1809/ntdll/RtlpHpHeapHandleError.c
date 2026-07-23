@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpHpHeapHandleError @ 0x180103FC0
  * Callers:
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  * Callees:
  *     RtlCaptureStackBackTrace @ 0x180003790 (RtlCaptureStackBackTrace.c)
  *     memset @ 0x1800A7100 (memset.c)

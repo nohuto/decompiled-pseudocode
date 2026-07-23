@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryRegistryRoutine @ 0x140655AC0
+ * XREFs of ExpQueryRegistryRoutine @ 0x1406541C0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall ExpQueryRegistryRoutine(__int64 a1, int a2, const void *a3, unsigned int a4, __int64 a5, void **a6)

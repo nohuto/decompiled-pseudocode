@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerClockInterrupt @ 0x14022A590
+ * XREFs of HalpTimerClockInterrupt @ 0x1402CEE40
  * Callers:
  *     <none>
  * Callees:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     HalpMcaQueueDpc @ 0x1402D06F8 (HalpMcaQueueDpc.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C2760 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     HalpMcaQueueDpc @ 0x14024EA78 (HalpMcaQueueDpc.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C29A0 (HalpTimerWatchdogTriggerSystemReset.c)
  */
 
 char __fastcall HalpTimerClockInterrupt(__int64 a1)
@@ -19,10 +19,10 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
   __int64 v4; // rdx
   char *v5; // rdi
   int v6; // eax
-  unsigned int v7; // eax
+  __int16 v7; // ax
   __int64 CurrentPrcb; // rax
   _QWORD *v9; // rbx
-  char v11; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 136);
   v2 = *(_BYTE *)(v1 + 41);
@@ -30,7 +30,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
   (*(void (__fastcall **)(__int64))(v4 + 120))(InternalData);
   v5 = (char *)&HalpClockTickLog
      + 24 * (((unsigned __int8)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u) + 1) & 0xF);
-  *(_QWORD *)v5 = RtlGetInterruptTimePrecise(&v11);
+  *(LARGE_INTEGER *)v5 = RtlGetInterruptTimePrecise(&PerformanceCounter);
   *((_DWORD *)v5 + 2) = KeGetPcr()->Prcb.Number;
   v5[12] = KeGetCurrentPrcb()->PendingTickFlags & 1;
   v5[13] = BYTE2(KeGetPcr()->HalReserved[5]);
@@ -55,7 +55,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
       if ( HalpClockWorkUnion && (_WORD)HalpClockWorkUnion )
       {
         LOWORD(HalpClockWorkUnion) = 0;
-        HalpMcaQueueDpc((unsigned __int8)v7, v7 >> 8);
+        HalpMcaQueueDpc(v7, SHIBYTE(v7));
       }
       CurrentPrcb = (__int64)KeGetCurrentPrcb();
       if ( *(_BYTE *)(CurrentPrcb + 33) && HalpWatchdogTimer )

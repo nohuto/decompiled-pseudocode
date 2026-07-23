@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmCheckComputeMultiClassHeteroResponse @ 0x140422A90
+ * XREFs of PpmCheckComputeMultiClassHeteroResponse @ 0x140416940
  * Callers:
- *     PpmCheckComputeHeteroResponse @ 0x1404EC390 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x1404E3AD0 (PpmCheckComputeHeteroResponse.c)
  * Callees:
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x140422584 (PpmHeteroComputeMultiClassUnparkCount.c)
- *     PpmHeteroComputeCoreParkingUtilities @ 0x14042303C (PpmHeteroComputeCoreParkingUtilities.c)
- *     PpmEventTraceHeteroResponse @ 0x14042382C (PpmEventTraceHeteroResponse.c)
- *     PpmEventTraceMultiClassHeteroResponse @ 0x140423A2C (PpmEventTraceMultiClassHeteroResponse.c)
- *     PpmParkCalculateUnparkCount @ 0x140423BD0 (PpmParkCalculateUnparkCount.c)
- *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x140423FEC (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404ED1C8 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140416434 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmHeteroComputeCoreParkingUtilities @ 0x140416EEC (PpmHeteroComputeCoreParkingUtilities.c)
+ *     PpmEventTraceHeteroResponse @ 0x1404176DC (PpmEventTraceHeteroResponse.c)
+ *     PpmEventTraceMultiClassHeteroResponse @ 0x1404178DC (PpmEventTraceMultiClassHeteroResponse.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417A80 (PpmParkCalculateUnparkCount.c)
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x140417E9C (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404E49EC (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char PpmCheckComputeMultiClassHeteroResponse()
@@ -77,7 +77,7 @@ char PpmCheckComputeMultiClassHeteroResponse()
   v0 = 0;
   v55 = 0LL;
   v52 = 0LL;
-  v1 = &PpmCurrentProfile[0][61 * dword_140F0BA4C + 5];
+  v1 = &PpmCurrentProfile[0][61 * dword_140F0B38C + 5];
   v53 = 0LL;
   v2 = 0LL;
   v50 = (__int64)v1;
@@ -87,7 +87,7 @@ char PpmCheckComputeMultiClassHeteroResponse()
     while ( 1 )
     {
       v3 = 0;
-      v4 = PpmParkNodes + 1288LL * (unsigned int)v2;
+      v4 = PpmParkNodes + 1296LL * (unsigned int)v2;
       v54 = v4;
       if ( PpmHeteroHgsParkingEnabled || *(_BYTE *)(v4 + 1185) )
         break;
@@ -109,7 +109,7 @@ LABEL_48:
     v7 = *(unsigned __int8 *)(v4 + 12);
     if ( (unsigned __int8)v7 > 1u )
     {
-      v8 = *(_QWORD *)(v4 + 1280) + 640LL;
+      v8 = *(_QWORD *)(v4 + 1288) + 640LL;
       v9 = (unsigned int)(v7 - 1);
       do
       {
@@ -124,7 +124,7 @@ LABEL_48:
     if ( PpmHeteroHgsParkingEnabled )
     {
       v6 = *(_BYTE *)(v4 + 10);
-      v5 = *(unsigned __int16 *)(*(_QWORD *)(v4 + 1280) + 648LL);
+      v5 = *(unsigned __int16 *)(*(_QWORD *)(v4 + 1288) + 648LL);
       v49 = v5;
     }
     PpmHeteroComputeCoreParkingUtilities(0LL, &v55, v57, v56, &v53, &v52);
@@ -246,8 +246,8 @@ LABEL_43:
         if ( !v32 )
         {
           v3 |= 0x80u;
-          *(_WORD *)(*(_QWORD *)(v4 + 1280) + 648LL) = *(_WORD *)(*(_QWORD *)(v4 + 1280) + 646LL);
-          *(_WORD *)(v4 + 1256) = *(_WORD *)(*(_QWORD *)(v4 + 1280) + 646LL);
+          *(_WORD *)(*(_QWORD *)(v4 + 1288) + 648LL) = *(_WORD *)(*(_QWORD *)(v4 + 1288) + 646LL);
+          *(_WORD *)(v4 + 1264) = *(_WORD *)(*(_QWORD *)(v4 + 1288) + 646LL);
         }
         v33 = v3 | 1;
         PpmEventTraceMultiClassHeteroResponse(
@@ -276,7 +276,7 @@ LABEL_43:
       v3 |= 0x40u;
     }
     v31 = 1;
-    *(_WORD *)(*(_QWORD *)(v4 + 1280) + 646LL) = (unsigned __int8)v21;
+    *(_WORD *)(*(_QWORD *)(v4 + 1288) + 646LL) = (unsigned __int8)v21;
     goto LABEL_43;
   }
 LABEL_50:
@@ -294,7 +294,7 @@ LABEL_50:
         if ( v36 > 1 )
         {
           v38 = v36 - 1;
-          v39 = (unsigned __int16 *)(*((_QWORD *)v35 + 13) + 646LL);
+          v39 = (unsigned __int16 *)(*((_QWORD *)v35 + 14) + 646LL);
           do
           {
             v40 = *v39;
@@ -305,7 +305,7 @@ LABEL_50:
           while ( v38 );
         }
         v41 = *v35;
-        v42 = (unsigned __int16 *)*((_QWORD *)v35 + 13);
+        v42 = (unsigned __int16 *)*((_QWORD *)v35 + 14);
         if ( v37 < *v35 )
           v41 = v37;
         v43 = (unsigned __int8)(*(_BYTE *)v35 - v41);
@@ -317,7 +317,7 @@ LABEL_50:
         {
           for ( i = 0; i < *((unsigned __int8 *)v35 - 1164); ++i )
           {
-            v45 = (unsigned __int16 *)(*((_QWORD *)v35 + 13) + 640LL * i);
+            v45 = (unsigned __int16 *)(*((_QWORD *)v35 + 14) + 640LL * i);
             v46 = v45[3];
             if ( v46 < *v45 )
             {
@@ -327,7 +327,7 @@ LABEL_50:
           }
         }
       }
-      v35 += 644;
+      v35 += 648;
       --v34;
     }
     while ( v34 );
@@ -338,8 +338,8 @@ LABEL_50:
     {
       PpmEventTraceMultiClassHeteroResponseUpdate(
         0LL,
-        *(_QWORD *)(PpmParkNodes + 1288LL * v0 + 1280),
-        *(_QWORD *)(PpmParkNodes + 1288LL * v0 + 1192));
+        *(_QWORD *)(PpmParkNodes + 1296LL * v0 + 1288),
+        *(_QWORD *)(PpmParkNodes + 1296LL * v0 + 1192));
       ++v0;
     }
     while ( v0 < PpmParkNumNodes );

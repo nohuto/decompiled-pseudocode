@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpApplyScopeFilters @ 0x14040DC88
+ * XREFs of EtwpApplyScopeFilters @ 0x14040CB48
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x14040C87C (EtwpAddRegEntryToGroup.c)
- *     EtwpRegisterUMGuid @ 0x14040E5E0 (EtwpRegisterUMGuid.c)
- *     EtwpUpdateRegEntryEnableMask @ 0x140491198 (EtwpUpdateRegEntryEnableMask.c)
+ *     EtwpAddRegEntryToGroup @ 0x14040B73C (EtwpAddRegEntryToGroup.c)
+ *     EtwpRegisterUMGuid @ 0x14040D4A0 (EtwpRegisterUMGuid.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x140491C28 (EtwpUpdateRegEntryEnableMask.c)
  * Callees:
- *     EtwpApplyExeFilter @ 0x1406A8A9C (EtwpApplyExeFilter.c)
- *     EtwpApplyPackageIdFilter @ 0x1406A8B50 (EtwpApplyPackageIdFilter.c)
+ *     EtwpApplyExeFilter @ 0x1406A8BD4 (EtwpApplyExeFilter.c)
+ *     EtwpApplyPackageIdFilter @ 0x1406A8C88 (EtwpApplyPackageIdFilter.c)
  */
 
 __int64 __fastcall EtwpApplyScopeFilters(__int64 a1, char a2, char a3, _BYTE *a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiStoreSetPageFileRunEvicted @ 0x140156E48
+ * XREFs of MiStoreSetPageFileRunEvicted @ 0x140156F48
  * Callers:
- *     MiStoreEvictPageFile @ 0x140137E68 (MiStoreEvictPageFile.c)
+ *     MiStoreEvictPageFile @ 0x140137F68 (MiStoreEvictPageFile.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiStoreSetPageFileRunEvicted(__int64 a1, ULONG a2, unsigned int a3)

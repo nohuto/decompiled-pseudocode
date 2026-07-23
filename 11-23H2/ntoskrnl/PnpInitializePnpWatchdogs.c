@@ -3,8 +3,8 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PnpGetRegistryDword @ 0x1403A09FC (PnpGetRegistryDword.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     PnpGetRegistryDword @ 0x1403A0BDC (PnpGetRegistryDword.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     PnpQueryWatchdogTimeoutConfiguration @ 0x140B610B8 (PnpQueryWatchdogTimeoutConfiguration.c)
  *     PnpOpenCCSPnpRegKey @ 0x140B6111C (PnpOpenCCSPnpRegKey.c)
  */

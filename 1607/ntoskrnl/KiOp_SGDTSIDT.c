@@ -1,10 +1,10 @@
 /*
- * XREFs of KiOp_SGDTSIDT @ 0x1401DB884
+ * XREFs of KiOp_SGDTSIDT @ 0x1401DB6B0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     KiOpRetrieveRegMemAddress @ 0x1401DB500 (KiOpRetrieveRegMemAddress.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     KiOpRetrieveRegMemAddress @ 0x1401DB32C (KiOpRetrieveRegMemAddress.c)
  */
 
 __int64 __fastcall KiOp_SGDTSIDT(__int64 a1)

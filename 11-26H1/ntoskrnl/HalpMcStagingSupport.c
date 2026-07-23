@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpMcStagingSupport @ 0x140593C48
+ * XREFs of HalpMcStagingSupport @ 0x1405963C8
  * Callers:
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
  * Callees:
  *     <none>
  */

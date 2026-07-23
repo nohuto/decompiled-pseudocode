@@ -1,13 +1,13 @@
 /*
- * XREFs of HvCheckHive @ 0x14070A0A0
+ * XREFs of HvCheckHive @ 0x14070A2B0
  * Callers:
- *     CmCheckRegistry @ 0x140705210 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x140705420 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     HvpMapEntryGetFreeBin @ 0x14070A930 (HvpMapEntryGetFreeBin.c)
- *     HvCheckBin @ 0x140745770 (HvCheckBin.c)
- *     HvMoveLayoutStats @ 0x1407459B4 (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x1407459D0 (HvAddToLayoutStats.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     HvpMapEntryGetFreeBin @ 0x14070AB40 (HvpMapEntryGetFreeBin.c)
+ *     HvCheckBin @ 0x140745960 (HvCheckBin.c)
+ *     HvMoveLayoutStats @ 0x140745BA4 (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x140745BC0 (HvAddToLayoutStats.c)
  *     HvpGetBinContextInitialize @ 0x140AF5200 (HvpGetBinContextInitialize.c)
  *     HvpMapEntryGetBinAddress @ 0x140AF5210 (HvpMapEntryGetBinAddress.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)
@@ -30,7 +30,7 @@ __int64 HvCheckHive(__int64 a1, int a2, ...)
   __int64 v13; // rcx
   _DWORD *BinAddress; // rbp
   int v15; // r8d
-  RTL_BITMAP *BitMapHeader; // r10
+  _RTL_BITMAP *BitMapHeader; // r10
   unsigned int v17; // eax
   int v18; // eax
   __int64 v19; // rdx

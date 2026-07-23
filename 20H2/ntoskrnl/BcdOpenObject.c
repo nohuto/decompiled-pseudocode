@@ -29,46 +29,46 @@
  *     BiGetDefaultBootEntryIdentifier @ 0x140971AB0 (BiGetDefaultBootEntryIdentifier.c)
  */
 
-__int64 __fastcall BcdOpenObject(__int64 a1, unsigned int *a2, _QWORD *a3)
+NTSTATUS __cdecl BcdOpenObject(HANDLE BcdStoreHandle, const GUID *Identifier, PHANDLE BcdObjectHandle)
 {
   __int64 v6; // rcx
   char v7; // r12
-  __int64 result; // rax
-  int v9; // eax
-  int v10; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v9; // eax
+  NTSTATUS v10; // ebx
   wchar_t *Buffer; // rdi
   int v12; // eax
   __int64 v13; // rcx
-  int CurrentBootEntryIdentifier; // eax
-  int v15; // eax
+  NTSTATUS CurrentBootEntryIdentifier; // eax
+  NTSTATUS v15; // eax
   const wchar_t *v16; // rdx
   __int64 v17; // rcx
   __int64 v18; // [rsp+20h] [rbp-30h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+28h] [rbp-28h] BYREF
-  unsigned int v20[6]; // [rsp+38h] [rbp-18h] BYREF
+  UNICODE_STRING GuidString; // [rsp+28h] [rbp-28h] BYREF
+  GUID Guid; // [rsp+38h] [rbp-18h] BYREF
   int v21; // [rsp+98h] [rbp+48h] BYREF
 
-  *(_QWORD *)&UnicodeString.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   v21 = 0;
-  *(_OWORD *)v20 = 0LL;
-  LOBYTE(v6) = BiIsOfflineHandle(a1);
+  Guid = 0LL;
+  LOBYTE(v6) = BiIsOfflineHandle((char)BcdStoreHandle);
   v7 = v6;
   result = BiAcquireBcdSyncMutant(v6);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
-  *a3 = 0LL;
+  *BcdObjectHandle = 0LL;
   v18 = 0LL;
-  UnicodeString.Buffer = 0LL;
-  v9 = RtlStringFromGUIDEx(a2, (__int64)&UnicodeString, 1);
+  GuidString.Buffer = 0LL;
+  v9 = RtlStringFromGUIDEx((PGUID)Identifier, &GuidString, 1u);
   v10 = v9;
   if ( v9 < 0 )
   {
     BiLogMessage(4LL, L"Failed to get object identifier. Status: %x", (unsigned int)v9);
     goto LABEL_20;
   }
-  Buffer = UnicodeString.Buffer;
-  BiLogMessage(2LL, L"Opening object %s", UnicodeString.Buffer);
-  v12 = BiOpenKey(a1, L"Objects", 131097LL, &v18);
+  Buffer = GuidString.Buffer;
+  BiLogMessage(2LL, L"Opening object %s", GuidString.Buffer);
+  v12 = BiOpenKey(BcdStoreHandle, L"Objects", 131097LL, &v18);
   v10 = v12;
   if ( v12 < 0 )
   {
@@ -78,11 +78,11 @@ LABEL_28:
     BiLogMessage(v17, v16, (unsigned int)v12);
     goto LABEL_6;
   }
-  if ( (unsigned __int8)BiIsObjectAliased(a2, &v21) )
+  if ( (unsigned __int8)BiIsObjectAliased(Identifier, &v21) )
   {
     if ( v21 == 1 )
     {
-      CurrentBootEntryIdentifier = BiGetCurrentBootEntryIdentifier(v20);
+      CurrentBootEntryIdentifier = BiGetCurrentBootEntryIdentifier(&Guid);
     }
     else
     {
@@ -91,7 +91,7 @@ LABEL_28:
         v10 = -1073741811;
         goto LABEL_15;
       }
-      CurrentBootEntryIdentifier = BiGetDefaultBootEntryIdentifier(a1, v20);
+      CurrentBootEntryIdentifier = BiGetDefaultBootEntryIdentifier(BcdStoreHandle, &Guid);
     }
     v10 = CurrentBootEntryIdentifier;
 LABEL_15:
@@ -100,23 +100,23 @@ LABEL_15:
       BiLogMessage(4LL, L"Failed to get aliased identifier. Status: %x", (unsigned int)v10);
       goto LABEL_6;
     }
-    RtlFreeAnsiString(&UnicodeString);
-    UnicodeString.Buffer = 0LL;
-    v15 = RtlStringFromGUIDEx(v20, (__int64)&UnicodeString, 1);
+    RtlFreeAnsiString(&GuidString);
+    GuidString.Buffer = 0LL;
+    v15 = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
     v10 = v15;
     if ( v15 >= 0 )
     {
-      Buffer = UnicodeString.Buffer;
-      BiLogMessage(2LL, L"Object alias resolves to %s", UnicodeString.Buffer);
+      Buffer = GuidString.Buffer;
+      BiLogMessage(2LL, L"Object alias resolves to %s", GuidString.Buffer);
       goto LABEL_5;
     }
     BiLogMessage(4LL, L"Failed to update object GUID string. Status: %x", (unsigned int)v15);
 LABEL_20:
-    Buffer = UnicodeString.Buffer;
+    Buffer = GuidString.Buffer;
     goto LABEL_6;
   }
 LABEL_5:
-  v12 = BiOpenKey(v18, Buffer, 983103LL, a3);
+  v12 = BiOpenKey(v18, Buffer, 983103LL, BcdObjectHandle);
   v10 = v12;
   if ( v12 < 0 )
   {
@@ -128,11 +128,11 @@ LABEL_5:
   }
 LABEL_6:
   if ( Buffer )
-    RtlFreeAnsiString(&UnicodeString);
+    RtlFreeAnsiString(&GuidString);
   v13 = v18;
   if ( v18 )
     BiCloseKey(v18);
   LOBYTE(v13) = v7;
   BiReleaseBcdSyncMutant(v13);
-  return (unsigned int)v10;
+  return v10;
 }

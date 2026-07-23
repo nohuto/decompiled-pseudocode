@@ -1,5 +1,5 @@
 /*
- * XREFs of NtReplaceKey @ 0x1407EA070
+ * XREFs of NtReplaceKey @ 0x1407EB270
  * Callers:
  *     <none>
  * Callees:
@@ -8,20 +8,20 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpNameFromAttributes @ 0x1405B7860 (CmpNameFromAttributes.c)
- *     CmCheckNoTxContext @ 0x1405B7B6C (CmCheckNoTxContext.c)
- *     CmObReferenceObjectByHandle @ 0x1405CD4CC (CmObReferenceObjectByHandle.c)
- *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
- *     CmReplaceKey @ 0x1407EF13C (CmReplaceKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B30F8 (CmpIsRegistryLockAcquired.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpNameFromAttributes @ 0x1405B8860 (CmpNameFromAttributes.c)
+ *     CmCheckNoTxContext @ 0x1405B8B6C (CmCheckNoTxContext.c)
+ *     CmObReferenceObjectByHandle @ 0x1405CE4CC (CmObReferenceObjectByHandle.c)
+ *     CmpCallCallBacksEx @ 0x1405E6AE0 (CmpCallCallBacksEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     CmPostCallbackNotificationEx @ 0x140640AC0 (CmPostCallbackNotificationEx.c)
+ *     CmReplaceKey @ 0x1407F033C (CmReplaceKey.c)
  */
 
 NTSTATUS __stdcall NtReplaceKey(
@@ -146,15 +146,15 @@ NTSTATUS __stdcall NtReplaceKey(
   CmCleanupThreadInfo(v26);
   if ( v10 >= 0 )
   {
-    if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
-      TlgWrite(&stru_1403FFAA0, &unk_14036BB17, 0LL, 0LL, 2u, &v31);
+    if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
+      TlgWrite(&stru_140400AA0, &unk_14036CAA7, 0LL, 0LL, 2u, &v31);
   }
-  else if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+  else if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
   {
     v21 = v10;
     v29 = &v21;
     v30 = 4LL;
-    TlgWrite(&stru_1403FFAA0, &unk_14036BB3D, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_140400AA0, &unk_14036CACD, 0LL, 0LL, 3u, &pData);
   }
   return v10;
 }

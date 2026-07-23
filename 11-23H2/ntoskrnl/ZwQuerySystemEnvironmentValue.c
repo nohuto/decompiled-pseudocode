@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwQuerySystemEnvironmentValue @ 0x14041DAA0
+ * XREFs of ZwQuerySystemEnvironmentValue @ 0x14041DE30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySystemEnvironmentValue(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQuerySystemEnvironmentValue(
+        PUNICODE_STRING VariableName,
+        PWSTR VariableValue,
+        USHORT ValueLength,
+        PUSHORT ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(VariableName);
 }

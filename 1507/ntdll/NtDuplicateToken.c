@@ -12,11 +12,17 @@
  *     <none>
  */
 
-__int64 NtDuplicateToken()
+NTSTATUS __cdecl NtDuplicateToken(
+        HANDLE ExistingTokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN EffectiveOnly,
+        TOKEN_TYPE Type,
+        PHANDLE NewTokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 66LL;
+  result = 66;
   __asm { syscall; Low latency system call }
   return result;
 }

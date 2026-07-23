@@ -16,18 +16,19 @@
 __int64 __fastcall EtwWriteStartScenario(
         ULONG_PTR *RegHandle,
         PCEVENT_DESCRIPTOR EventDescriptor,
-        LPCGUID ActivityId,
+        GUID *ActivityId,
         ULONG UserDataCount,
         PEVENT_DATA_DESCRIPTOR UserData)
 {
   int ProviderIdFromHandle; // edi
-  __int128 v11; // [rsp+38h] [rbp-50h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v12; // [rsp+38h] [rbp-50h] BYREF
 
   if ( EventDescriptor && ActivityId )
   {
     if ( EtwEventEnabled((REGHANDLE)RegHandle, EventDescriptor) )
     {
-      ProviderIdFromHandle = EtwGetProviderIdFromHandle(RegHandle, 0, &v11);
+      ProviderIdFromHandle = EtwGetProviderIdFromHandle(RegHandle, 0, &v12);
       if ( ProviderIdFromHandle >= 0 )
       {
         if ( ActivityId->Data1
@@ -41,10 +42,11 @@ __int64 __fastcall EtwWriteStartScenario(
           || ActivityId->Data4[5]
           || ActivityId->Data4[6]
           || ActivityId->Data4[7]
-          || (ProviderIdFromHandle = ZwTraceControl(12LL, 0LL, 0LL), ProviderIdFromHandle >= 0) )
+          || (ProviderIdFromHandle = ZwTraceControl(EtwActivityIdCreate, 0LL, 0, ActivityId, 0x10u, &ReturnLength),
+              ProviderIdFromHandle >= 0) )
         {
           ProviderIdFromHandle = EtwWrite((REGHANDLE)RegHandle, EventDescriptor, ActivityId, UserDataCount, UserData);
-          WdipStartEndScenario((__int64)&v11, (__int64)ActivityId, &EventDescriptor->Id, 10);
+          WdipStartEndScenario((__int64)&v12, (__int64)ActivityId, &EventDescriptor->Id, 10);
         }
       }
     }

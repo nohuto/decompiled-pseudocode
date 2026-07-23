@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpTimerDpcRoutine @ 0x1402CDD60
+ * XREFs of ExpTimerDpcRoutine @ 0x14024C260
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
- *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     _local_unwind @ 0x1403D1B90 (_local_unwind.c)
- *     RtlpComputeEpilogueOffset @ 0x1403EBB64 (RtlpComputeEpilogueOffset.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine0 @ 0x14040A250 (KiCustomAccessRoutine0.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     KeSetCoalescableTimer @ 0x1402813E0 (KeSetCoalescableTimer.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     _local_unwind @ 0x1403D1D00 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403EBCD4 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine0 @ 0x14040A430 (KiCustomAccessRoutine0.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall ExpTimerDpcRoutine(
@@ -46,7 +46,11 @@ void __fastcall ExpTimerDpcRoutine(
   KxAcquireSpinLock((PKSPIN_LOCK)(DeferredContext + 64));
   if ( (*(_BYTE *)(DeferredContext + 304) & 1) != 0 )
   {
-    v8 = KeInsertQueueApc(DeferredContext + 72, MEMORY[0xFFFFF78000000014], HIDWORD(MEMORY[0xFFFFF78000000014]), 0) == 0;
+    v8 = (unsigned __int8)KeInsertQueueApc(
+                            DeferredContext + 72,
+                            MEMORY[0xFFFFF78000000014],
+                            HIDWORD(MEMORY[0xFFFFF78000000014]),
+                            0LL) == 0;
     if ( *(_DWORD *)(DeferredContext + 240) )
     {
       if ( --v8 < 0 )

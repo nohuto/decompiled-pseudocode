@@ -48,7 +48,7 @@ __int64 __fastcall PspBuildCreateProcessContext(_QWORD *a1, char a2, int a3, __i
   int v33; // eax
   int v34; // eax
   int v35; // eax
-  struct _PROCESSOR_NUMBER *v36; // rcx
+  _PROCESSOR_NUMBER *v36; // rcx
   ULONG ProcessorIndexFromNumber; // eax
   bool v38; // zf
   _DWORD *v39; // rcx
@@ -86,9 +86,9 @@ __int64 __fastcall PspBuildCreateProcessContext(_QWORD *a1, char a2, int a3, __i
   ULONG64 v72; // [rsp+40h] [rbp-F8h]
   ULONG64 v73; // [rsp+40h] [rbp-F8h]
   ULONG64 v74; // [rsp+40h] [rbp-F8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp-E8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp-E8h] BYREF
   _WORD *v76; // [rsp+58h] [rbp-E0h]
-  struct _PROCESSOR_NUMBER *v77; // [rsp+60h] [rbp-D8h]
+  _PROCESSOR_NUMBER *v77; // [rsp+60h] [rbp-D8h]
   int v78; // [rsp+68h] [rbp-D0h]
   _OWORD *v79; // [rsp+70h] [rbp-C8h]
   ULONG64 v80; // [rsp+78h] [rbp-C0h]
@@ -243,7 +243,7 @@ LABEL_182:
         {
           if ( v35 != 2 || !v5 || v7[1] != 4 )
             goto LABEL_169;
-          v36 = (struct _PROCESSOR_NUMBER *)v7[2];
+          v36 = (_PROCESSOR_NUMBER *)v7[2];
           v77 = v36;
           if ( a2 )
           {

@@ -1,15 +1,15 @@
 /*
- * XREFs of IvtHandleInterrupt @ 0x14056EB80
+ * XREFs of IvtHandleInterrupt @ 0x14056C010
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x1404633C8 (KxTryToAcquireSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxTryToAcquireSpinLock @ 0x140459EB8 (KxTryToAcquireSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall IvtHandleInterrupt(ULONG_PTR BugCheckParameter2)
@@ -83,7 +83,7 @@ LABEL_32:
               __writecr8(0xFuLL);
               if ( KiIrqlFlags )
                 KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
-              if ( !v12 && (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+              if ( !v12 && (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(&HalpIommuDeviceCreatedListSpinLock) )
               {
                 for ( j = (__int64 *)HalpIommuDeviceCreatedList; ; j = (__int64 *)*j )
                 {

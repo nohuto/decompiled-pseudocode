@@ -1,9 +1,9 @@
 /*
- * XREFs of ExGetSharedWaiterCount @ 0x1404FF060
+ * XREFs of ExGetSharedWaiterCount @ 0x1404F8850
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG __stdcall ExGetSharedWaiterCount(PERESOURCE Resource)

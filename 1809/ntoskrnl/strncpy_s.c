@@ -1,11 +1,11 @@
 /*
- * XREFs of strncpy_s @ 0x14019B960
+ * XREFs of strncpy_s @ 0x14019BAA0
  * Callers:
- *     _splitpath_s @ 0x14019AD80 (_splitpath_s.c)
- *     PspLatchCriticalProcessName @ 0x140582780 (PspLatchCriticalProcessName.c)
- *     CmpGetToken @ 0x1409CEE3C (CmpGetToken.c)
+ *     _splitpath_s @ 0x14019AEC0 (_splitpath_s.c)
+ *     PspLatchCriticalProcessName @ 0x140583780 (PspLatchCriticalProcessName.c)
+ *     CmpGetToken @ 0x1409CFE3C (CmpGetToken.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strncpy_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)

@@ -1,8 +1,8 @@
 /*
- * XREFs of IopParentToRawTranslation @ 0x1405569E4
+ * XREFs of IopParentToRawTranslation @ 0x140556F24
  * Callers:
- *     PnpBuildCmResourceList @ 0x1405563CC (PnpBuildCmResourceList.c)
- *     IopParentToRawTranslation @ 0x1405569E4 (IopParentToRawTranslation.c)
+ *     PnpBuildCmResourceList @ 0x14055690C (PnpBuildCmResourceList.c)
+ *     IopParentToRawTranslation @ 0x140556F24 (IopParentToRawTranslation.c)
  * Callees:
  *     <none>
  */

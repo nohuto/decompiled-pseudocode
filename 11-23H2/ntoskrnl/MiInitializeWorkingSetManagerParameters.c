@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeWorkingSetManagerParameters @ 0x1403AF01C
+ * XREFs of MiInitializeWorkingSetManagerParameters @ 0x1403AF1FC
  * Callers:
  *     MiProcessWorkingSets @ 0x14021FA10 (MiProcessWorkingSets.c)
- *     MmCreatePartition @ 0x1403AC6AC (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x1403AC88C (MmCreatePartition.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiSetTrimWhileAgingState @ 0x14036ADC4 (MiSetTrimWhileAgingState.c)
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiSetTrimWhileAgingState @ 0x14036AF64 (MiSetTrimWhileAgingState.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
@@ -71,10 +71,13 @@ __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
   v9 = v6;
   *(_BYTE *)(a1 + 12) = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 224));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

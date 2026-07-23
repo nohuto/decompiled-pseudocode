@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmPerfGetCurrentState @ 0x1404438A0
+ * XREFs of PpmPerfGetCurrentState @ 0x140439344
  * Callers:
- *     PpmWmiGetAllData @ 0x1409CE8E0 (PpmWmiGetAllData.c)
- *     PopProcessorInformation @ 0x1409FFDC0 (PopProcessorInformation.c)
+ *     PpmWmiGetAllData @ 0x1409B38B0 (PpmWmiGetAllData.c)
+ *     PopProcessorInformation @ 0x1409F8FB0 (PopProcessorInformation.c)
  * Callees:
  *     <none>
  */

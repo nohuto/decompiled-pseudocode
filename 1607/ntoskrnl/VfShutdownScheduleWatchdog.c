@@ -1,5 +1,5 @@
 /*
- * XREFs of VfShutdownScheduleWatchdog @ 0x140223914
+ * XREFs of VfShutdownScheduleWatchdog @ 0x140223740
  * Callers:
  *     PopGracefulShutdown @ 0x1403DEE20 (PopGracefulShutdown.c)
  * Callees:

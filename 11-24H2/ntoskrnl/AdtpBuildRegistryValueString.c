@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpBuildRegistryValueString @ 0x140810B1C
+ * XREFs of AdtpBuildRegistryValueString @ 0x14081125C
  * Callers:
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140790124 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x1407900F4 (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AdtpBuildHexInt64String @ 0x1408109A0 (AdtpBuildHexInt64String.c)
- *     AdtpBuildReplacementString @ 0x14081120C (AdtpBuildReplacementString.c)
- *     AdtpBuildUlongString @ 0x140A9D224 (AdtpBuildUlongString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AdtpBuildHexInt64String @ 0x1408110E0 (AdtpBuildHexInt64String.c)
+ *     AdtpBuildReplacementString @ 0x14081194C (AdtpBuildReplacementString.c)
+ *     AdtpBuildUlongString @ 0x140A98794 (AdtpBuildUlongString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildRegistryValueString(
@@ -89,7 +89,7 @@ LABEL_11:
   {
     if ( a2 >= 2 && (v28 = (unsigned __int64)a2 >> 1, *((_WORD *)a3 + v28 - 1)) )
     {
-      Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
+      Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, a2 + 2LL, 0x6B416553u);
       v30 = Pool2;
       if ( !Pool2 )
         goto LABEL_43;
@@ -119,7 +119,7 @@ LABEL_11:
     if ( a1 != 7 )
     {
 LABEL_36:
-      v27 = ExAllocatePool2(0x100uLL);
+      v27 = ExAllocatePool2(0x100uLL, 0x1AuLL, 0x6B416553u);
       a4->Buffer = (wchar_t *)v27;
       if ( v27 )
       {
@@ -176,7 +176,7 @@ LABEL_44:
       }
       while ( v19 );
       v22 = v21 + v15;
-      v10 = (const WCHAR *)ExAllocatePool2(0x100uLL);
+      v10 = (const WCHAR *)ExAllocatePool2(0x100uLL, 2LL * (v21 + v15 + 1), 0x6B416553u);
       if ( !v10 )
         goto LABEL_43;
       v23 = 0;

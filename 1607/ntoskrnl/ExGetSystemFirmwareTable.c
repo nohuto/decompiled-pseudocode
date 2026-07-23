@@ -1,12 +1,12 @@
 /*
- * XREFs of ExGetSystemFirmwareTable @ 0x14057E9A0
+ * XREFs of ExGetSystemFirmwareTable @ 0x14057EE4C
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x1404BE634 (ExpGetSystemFirmwareTableInformation.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1404AA364 (ExpGetSystemFirmwareTableInformation.c)
  */
 
 __int64 __fastcall ExGetSystemFirmwareTable(unsigned int a1, unsigned int a2, void *a3, unsigned int a4, _DWORD *a5)

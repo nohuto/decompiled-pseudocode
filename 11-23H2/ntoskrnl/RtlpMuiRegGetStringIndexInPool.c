@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegGetStringIndexInPool @ 0x140845A0C
+ * XREFs of RtlpMuiRegGetStringIndexInPool @ 0x140845D0C
  * Callers:
- *     RtlpMuiRegGetOrAddStringToPool @ 0x140845908 (RtlpMuiRegGetOrAddStringToPool.c)
+ *     RtlpMuiRegGetOrAddStringToPool @ 0x140845C08 (RtlpMuiRegGetOrAddStringToPool.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetStringIndexInPool(__int64 a1, const wchar_t *a2)

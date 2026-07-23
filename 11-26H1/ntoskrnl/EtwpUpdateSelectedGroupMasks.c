@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpUpdateSelectedGroupMasks @ 0x1404CCCE8
+ * XREFs of EtwpUpdateSelectedGroupMasks @ 0x1404C6488
  * Callers:
- *     EtwpEnableMetaProviderGuid @ 0x1404575EC (EtwpEnableMetaProviderGuid.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x140A6D418 (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpUpdateGroupMasks @ 0x140B07D2C (EtwpUpdateGroupMasks.c)
+ *     EtwpEnableMetaProviderGuid @ 0x14044EE5C (EtwpEnableMetaProviderGuid.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x140AB0CE0 (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpUpdateGroupMasks @ 0x140B09E5C (EtwpUpdateGroupMasks.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpEventWriteTemplateInvalidGroupMask @ 0x14082572C (EtwpEventWriteTemplateInvalidGroupMask.c)
- *     EtwpCCSwapStop @ 0x140831FA4 (EtwpCCSwapStop.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x140959E60 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpKernelTraceRundown @ 0x140A70518 (EtwpKernelTraceRundown.c)
- *     EtwpLogAlwaysPresentRundown @ 0x140A708A8 (EtwpLogAlwaysPresentRundown.c)
- *     EtwpLogGroupMask @ 0x140A70914 (EtwpLogGroupMask.c)
- *     EtwpEventWriteTemplateAdmin @ 0x140B35598 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpCCSwapStart @ 0x140B63B50 (EtwpCCSwapStart.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpEventWriteTemplateInvalidGroupMask @ 0x14082B96C (EtwpEventWriteTemplateInvalidGroupMask.c)
+ *     EtwpCCSwapStop @ 0x1408381E4 (EtwpCCSwapStop.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1409FF720 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpKernelTraceRundown @ 0x140A99DCC (EtwpKernelTraceRundown.c)
+ *     EtwpLogAlwaysPresentRundown @ 0x140A9A15C (EtwpLogAlwaysPresentRundown.c)
+ *     EtwpLogGroupMask @ 0x140A9A1C8 (EtwpLogGroupMask.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140B377A8 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpCCSwapStart @ 0x140B66BF0 (EtwpCCSwapStart.c)
  */
 
 __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3, struct _KLOCK_ENTRIES *a4)
@@ -88,8 +88,12 @@ __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3,
     {
       if ( (~EtwpSiloAllowedGroupMask[i] & a3[i]) != 0 )
       {
-        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_INVALID_GROUP_MASK) )
+        if ( EtwEventEnabled(
+               (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+               &ETW_EVENT_INVALID_GROUP_MASK) )
+        {
           EtwpEventWriteTemplateInvalidGroupMask(v32, v31, a1 + 34, a3);
+        }
         return (unsigned int)updated;
       }
     }
@@ -99,7 +103,10 @@ __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3,
     && a1[204] >= 0
     && !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, KeGetCurrentThread()->PreviousMode) )
   {
-    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LACKS_PROFILING_PRIVILEGE) )
+    if ( EtwEventEnabled(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_LACKS_PROFILING_PRIVILEGE) )
+    {
       EtwpEventWriteTemplateAdmin(
         a1[3],
         (unsigned int)&ETW_EVENT_LACKS_PROFILING_PRIVILEGE,
@@ -108,6 +115,7 @@ __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3,
         (__int64)(a1 + 38),
         97,
         a1[3]);
+    }
     return (unsigned int)updated;
   }
   v10 = (AutoBoost *)KeAbPreAcquire((__int64)(a1 + 172), 0LL, 0LL, a4);
@@ -158,7 +166,7 @@ LABEL_10:
       while ( v20 );
       EtwpLogGroupMask(v5, v4, 32 * v13 + *((_QWORD *)a1 + 170) + 4556LL, 32LL);
       v26 = a1[3] & 0x400;
-      if ( EtwpBootPhase && !v26 )
+      if ( LOBYTE(stru_140F03830.CycleTime) && !v26 )
         EtwpKernelTraceRundown((unsigned int)v46, v5, v4, 0, 0LL, 0);
       v27 = *((_QWORD *)a1 + 170);
       v28 = 32 * v13;
@@ -169,7 +177,7 @@ LABEL_10:
       if ( updated >= 0 )
       {
         EtwpLogGroupMask(v5, v4, &v44, 5LL);
-        if ( EtwpBootPhase )
+        if ( LOBYTE(stru_140F03830.CycleTime) )
         {
           if ( !v26 || (a1[204] & 2) != 0 )
           {

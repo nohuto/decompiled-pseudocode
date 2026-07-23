@@ -26,15 +26,13 @@ __int64 __fastcall sub_1800793D0(
   unsigned int v16; // eax
   unsigned int v17; // r9d
   unsigned int v18; // edi
-  const char *v20; // r8
-  const char *v21; // r8
+  const CHAR *v20; // r8
+  const CHAR *v21; // r8
   int v22; // [rsp+20h] [rbp-28h]
   unsigned __int64 v23; // [rsp+28h] [rbp-20h]
   int v24; // [rsp+28h] [rbp-20h]
   int v25; // [rsp+28h] [rbp-20h]
-  int v26; // [rsp+28h] [rbp-20h]
-  int v27; // [rsp+30h] [rbp-18h]
-  int v28; // [rsp+30h] [rbp-18h]
+  int v26; // [rsp+30h] [rbp-18h]
 
   v11 = 0;
   if ( a4 )
@@ -49,7 +47,7 @@ __int64 __fastcall sub_1800793D0(
     v20 = "SXS: %s() passed string section at %p only %Iu bytes long; that's not even enough for the 4-byte magic and 4-b"
           "yte header length!\n";
 LABEL_29:
-    DbgPrintEx(51, 0, (int)v20, "RtlpCrackActivationContextStringSectionHeader", a1, v23);
+    DbgPrintEx(0x33u, 0, v20, "RtlpCrackActivationContextStringSectionHeader", a1, v23);
     return (unsigned int)-1072365565;
   }
   if ( *a1 != 1682469715 )
@@ -57,9 +55,9 @@ LABEL_29:
     v24 = *a1;
     v22 = 1682469715;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS: %s() found assembly information section with wrong magic value\n   Expected %lu; got %lu\n",
+      "SXS: %s() found assembly information section with wrong magic value\n   Expected %lu; got %lu\n",
       "RtlpCrackActivationContextStringSectionHeader",
       v22,
       v24);
@@ -74,18 +72,18 @@ LABEL_29:
   }
   if ( a1 + 11 > (int *)((char *)a1 + v14) )
   {
-    v28 = 44;
+    v26 = 44;
     v21 = "SXS: %s() passed string section at %p with too small of a header\n   HeaderSize: %lu\n   Required: %lu\n";
 LABEL_36:
-    v26 = v14;
+    v25 = v14;
 LABEL_38:
-    DbgPrintEx(51, 0, (int)v21, "RtlpCrackActivationContextStringSectionHeader", a1, v26, v28);
+    DbgPrintEx(0x33u, 0, v21, "RtlpCrackActivationContextStringSectionHeader", a1, v25, v26);
     return (unsigned int)-1072365565;
   }
   v15 = a1[6];
   if ( v15 && v15 < (unsigned int)v14 )
   {
-    v28 = a1[6];
+    v26 = a1[6];
     v21 = "SXS: %s() found assembly information section with element list overlapping section header\n"
           "   Section header: %p\n"
           "   Header Size: %lu\n"
@@ -95,7 +93,7 @@ LABEL_38:
   v16 = a1[8];
   if ( v16 && v16 < (unsigned int)v14 )
   {
-    v28 = a1[8];
+    v26 = a1[8];
     v21 = "SXS: %s() found assembly information section with search structure overlapping section header\n"
           "   Section header: %p\n"
           "   Header Size: %lu\n"
@@ -105,7 +103,7 @@ LABEL_38:
   v17 = a1[9];
   if ( v17 && v17 < (unsigned int)v14 )
   {
-    v28 = a1[9];
+    v26 = a1[9];
     v21 = "SXS: %s() found assembly information section with user data overlapping section header\n"
           "   Section header: %p\n"
           "   Header Size: %lu\n"
@@ -115,29 +113,27 @@ LABEL_38:
   v18 = a1[10];
   if ( v18 < 0x38 )
   {
-    v28 = 56;
+    v26 = 56;
     v21 = "SXS: %s() found assembly information section with user data too small\n"
           "   Section header: %p\n"
           "   UserDataSize: %lu; needed: %lu\n";
-    v26 = a1[10];
+    v25 = a1[10];
     goto LABEL_38;
   }
   if ( v18 + v17 > a2 )
   {
-    v27 = a1[9];
-    v25 = a1[10];
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS: %s() found assembly information section with user data extending beyond section data\n"
-           "   Section header: %p\n"
-           "   UserDataSize: %lu\n"
-           "   UserDataOffset: %lu\n"
-           "   Section size: %Iu\n",
+      "SXS: %s() found assembly information section with user data extending beyond section data\n"
+      "   Section header: %p\n"
+      "   UserDataSize: %lu\n"
+      "   UserDataOffset: %lu\n"
+      "   Section size: %Iu\n",
       "RtlpCrackActivationContextStringSectionHeader",
       a1,
-      v25,
-      v27,
+      v18,
+      v17,
       a2);
     return (unsigned int)-1072365565;
   }

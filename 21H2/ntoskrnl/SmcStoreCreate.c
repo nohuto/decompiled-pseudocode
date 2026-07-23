@@ -1,19 +1,19 @@
 /*
- * XREFs of SmcStoreCreate @ 0x14092DB50
+ * XREFs of SmcStoreCreate @ 0x14092DCB0
  * Callers:
- *     SmcProcessStoreCreateRequest @ 0x14092AD7C (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x14092AEDC (SmcProcessStoreCreateRequest.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
- *     memset @ 0x140414200 (memset.c)
- *     SmStoreCreate @ 0x14092A384 (SmStoreCreate.c)
- *     SmKmKeyGenGenerate @ 0x14092B700 (SmKmKeyGenGenerate.c)
- *     SmKmRegParamsLoad @ 0x14092BD48 (SmKmRegParamsLoad.c)
- *     SmcCacheReference @ 0x14092D704 (SmcCacheReference.c)
- *     SmcStoreSlotAbort @ 0x14092E324 (SmcStoreSlotAbort.c)
- *     SmcStoreSlotCommit @ 0x14092E3B8 (SmcStoreSlotCommit.c)
- *     SmcStoreSlotReserve @ 0x14092E460 (SmcStoreSlotReserve.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402483BC (SSHSupportAllocateNonPaged.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SmStoreCreate @ 0x14092A4E4 (SmStoreCreate.c)
+ *     SmKmKeyGenGenerate @ 0x14092B860 (SmKmKeyGenGenerate.c)
+ *     SmKmRegParamsLoad @ 0x14092BEA8 (SmKmRegParamsLoad.c)
+ *     SmcCacheReference @ 0x14092D864 (SmcCacheReference.c)
+ *     SmcStoreSlotAbort @ 0x14092E484 (SmcStoreSlotAbort.c)
+ *     SmcStoreSlotCommit @ 0x14092E518 (SmcStoreSlotCommit.c)
+ *     SmcStoreSlotReserve @ 0x14092E5C0 (SmcStoreSlotReserve.c)
  */
 
 __int64 __fastcall SmcStoreCreate(__int64 a1, unsigned int a2, _DWORD *a3, unsigned int a4, unsigned int *a5)
@@ -141,7 +141,7 @@ LABEL_19:
   }
   v11 = -1073741697;
 LABEL_23:
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(32LL * (v39 & 0xF) + a1 + 8));
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)(32LL * (v39 & 0xF) + a1 + 8));
   if ( v9 )
     CmSiFreeMemory(v9);
   return (unsigned int)v11;

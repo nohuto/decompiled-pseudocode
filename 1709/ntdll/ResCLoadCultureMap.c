@@ -11,10 +11,10 @@
  *     ResCFreeCultureMap @ 0x180111554 (ResCFreeCultureMap.c)
  */
 
-unsigned __int64 __fastcall ResCLoadCultureMap(_WORD *Src)
+__int64 __fastcall ResCLoadCultureMap(WCHAR *Src)
 {
   __int64 v2; // rdx
-  unsigned __int64 v3; // rbx
+  __int64 v3; // rbx
   unsigned int v4; // eax
   char *v5; // rax
   _BYTE v7[20]; // [rsp+28h] [rbp-40h] BYREF
@@ -22,10 +22,10 @@ unsigned __int64 __fastcall ResCLoadCultureMap(_WORD *Src)
   unsigned int v9; // [rsp+40h] [rbp-28h]
   int v10; // [rsp+48h] [rbp-20h]
 
-  v3 = ResCLoadFixedSize((__int64)Src);
+  v3 = ResCLoadFixedSize(Src);
   if ( v3 )
   {
-    if ( (unsigned int)ResGetFileAttributesEx((int)Src, v2, (__int64)v7) )
+    if ( (unsigned int)ResGetFileAttributesEx(Src, v2, (__int64)v7) )
     {
       v4 = v8;
       *(_DWORD *)(v3 + 48) = v10;
@@ -34,7 +34,7 @@ unsigned __int64 __fastcall ResCLoadCultureMap(_WORD *Src)
       *(_QWORD *)(v3 + 40) = v5;
       if ( !v5 )
       {
-        ResCFreeCultureMap(v3);
+        ResCFreeCultureMap((_QWORD *)v3);
         return 0LL;
       }
     }

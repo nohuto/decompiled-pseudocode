@@ -1,7 +1,7 @@
 /*
- * XREFs of PspAllocStorage @ 0x1405794F0
+ * XREFs of PspAllocStorage @ 0x140579A30
  * Callers:
- *     PspCreateSilo @ 0x14067E65C (PspCreateSilo.c)
+ *     PspCreateSilo @ 0x14067E740 (PspCreateSilo.c)
  *     PspInitializeSiloStructures @ 0x14079DE5C (PspInitializeSiloStructures.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)

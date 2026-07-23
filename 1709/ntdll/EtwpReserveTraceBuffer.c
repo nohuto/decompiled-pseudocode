@@ -10,19 +10,14 @@
  *     EtwpSwitchBuffer @ 0x1800863E4 (EtwpSwitchBuffer.c)
  */
 
-__int64 __fastcall EtwpReserveTraceBuffer(
-        __int64 a1,
-        unsigned int a2,
-        unsigned int a3,
-        unsigned __int64 *a4,
-        _QWORD *a5)
+__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned int a3, LARGE_INTEGER *a4, _QWORD *a5)
 {
   unsigned int v6; // esi
   unsigned int v8; // r14d
   unsigned int v9; // ecx
   unsigned int v10; // ebp
   __int64 v11; // rcx
-  __int64 v12; // rdx
+  unsigned __int32 v12; // edx
   __int64 v13; // rsi
 
   v6 = a3;
@@ -41,29 +36,29 @@ __int64 __fastcall EtwpReserveTraceBuffer(
         _InterlockedIncrement((volatile signed __int32 *)(v11 + 12));
         if ( *(_DWORD *)(v11 + 44) == 1 && *(_DWORD *)(v11 + 8) <= v8 )
         {
-          v12 = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 8), v10);
-          if ( (unsigned int)v12 + v10 <= v8 )
+          v12 = _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 8), v10);
+          if ( v12 + v10 <= v8 )
           {
-            v13 = v11 + (unsigned int)v12;
+            v13 = v11 + v12;
             *a5 = v11;
             if ( a4 )
             {
               if ( *(_DWORD *)(a1 + 16) == 2 )
               {
-                *a4 = MEMORY[0x7FFE0014];
+                a4->QuadPart = MEMORY[0x7FFE0014];
               }
               else if ( *(_DWORD *)(a1 + 16) == 3 )
               {
-                *a4 = __rdtsc();
+                a4->QuadPart = __rdtsc();
               }
               else
               {
-                RtlQueryPerformanceCounter(a4, v12);
+                RtlQueryPerformanceCounter(a4);
               }
             }
             return v13;
           }
-          if ( (unsigned int)v12 <= v8 )
+          if ( v12 <= v8 )
             *(_DWORD *)(v11 + 4) = v12;
         }
       }

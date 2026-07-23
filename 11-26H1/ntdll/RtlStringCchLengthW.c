@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCchLengthW @ 0x1800C41B0
+ * XREFs of RtlStringCchLengthW @ 0x1800C1970
  * Callers:
- *     RtlpValidAttribute @ 0x18013F178 (RtlpValidAttribute.c)
+ *     RtlpValidAttribute @ 0x18013F028 (RtlpValidAttribute.c)
  * Callees:
  *     <none>
  */

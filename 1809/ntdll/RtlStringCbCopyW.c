@@ -6,7 +6,7 @@
  *     RtlCreateTagHeap @ 0x180059E70 (RtlCreateTagHeap.c)
  *     SwitchedRtlGetVersion @ 0x180062B5C (SwitchedRtlGetVersion.c)
  *     RtlInstallFunctionTableCallback @ 0x18006F2B0 (RtlInstallFunctionTableCallback.c)
- *     RtlpGetNameFromLangInfoNode @ 0x1800859F0 (RtlpGetNameFromLangInfoNode.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x180085A00 (RtlpGetNameFromLangInfoNode.c)
  *     RtlQueryProcessHeapInformation @ 0x1800D9600 (RtlQueryProcessHeapInformation.c)
  * Callees:
  *     <none>

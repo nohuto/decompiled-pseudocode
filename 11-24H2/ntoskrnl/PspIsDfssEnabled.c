@@ -1,12 +1,12 @@
 /*
- * XREFs of PspIsDfssEnabled @ 0x140771D94
+ * XREFs of PspIsDfssEnabled @ 0x140771FB4
  * Callers:
- *     PsBootPhaseComplete @ 0x1407717B8 (PsBootPhaseComplete.c)
+ *     PsBootPhaseComplete @ 0x1407719D8 (PsBootPhaseComplete.c)
  * Callees:
- *     PspReadDfssConfigurationValues @ 0x1405E4BB8 (PspReadDfssConfigurationValues.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     RtlQueryImageFileKeyOption @ 0x140A22FB0 (RtlQueryImageFileKeyOption.c)
+ *     PspReadDfssConfigurationValues @ 0x1405E20E0 (PspReadDfssConfigurationValues.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x140A173C0 (RtlQueryImageFileKeyOption.c)
  */
 
 char PspIsDfssEnabled()

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfQueryCurrentUserSID @ 0x140610354
+ * XREFs of ExpWnfQueryCurrentUserSID @ 0x14069FE04
  * Callers:
- *     ExpWnfGetCurrentScopeInstance @ 0x14060FC5C (ExpWnfGetCurrentScopeInstance.c)
+ *     ExpWnfGetCurrentScopeInstance @ 0x14069F70C (ExpWnfGetCurrentScopeInstance.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x14071E204 (SeQueryUserSidToken.c)
  */
 
 __int64 __fastcall ExpWnfQueryCurrentUserSID(
@@ -23,13 +23,13 @@ __int64 __fastcall ExpWnfQueryCurrentUserSID(
   int UserSidToken; // esi
   struct _DMA_ADAPTER *v13; // rax
   int v14; // [rsp+30h] [rbp-28h] BYREF
-  int v15; // [rsp+34h] [rbp-24h] BYREF
-  char v16; // [rsp+68h] [rbp+10h] BYREF
+  int v15[9]; // [rsp+34h] [rbp-24h] BYREF
+  bool v16; // [rsp+68h] [rbp+10h] BYREF
 
   v5 = 0;
   v14 = 0;
   v16 = 0;
-  v15 = 0;
+  v15[0] = 0;
   if ( !a2 )
   {
     v9 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(a1);
@@ -51,15 +51,10 @@ LABEL_3:
     }
     return (unsigned int)UserSidToken;
   }
-  v13 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken(
-                                 a2,
-                                 (unsigned int)&v14,
-                                 (unsigned int)&v16,
-                                 (unsigned int)&v15,
-                                 0LL);
+  v13 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken(a2, &v14, &v16, v15, 0LL);
   v10 = v14;
   v9 = v13;
-  if ( v14 != 2 || v15 >= 2 )
+  if ( v14 != 2 || v15[0] >= 2 )
     goto LABEL_3;
   if ( v13 )
     HalPutDmaAdapter(v13);

@@ -1,70 +1,67 @@
 /*
- * XREFs of PspApplyIFEOPerfOptions @ 0x1406BEDD4
+ * XREFs of PspApplyIFEOPerfOptions @ 0x14061DEC4
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     MmGetDefaultPagePriority @ 0x1402D47AC (MmGetDefaultPagePriority.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     PspSetProcessPriorityClass @ 0x1406B3F80 (PspSetProcessPriorityClass.c)
+ *     MmGetDefaultPagePriority @ 0x14027348C (MmGetDefaultPagePriority.c)
+ *     PspSetProcessPriorityClass @ 0x140613150 (PspSetProcessPriorityClass.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 __fastcall PspApplyIFEOPerfOptions(__int64 a1, unsigned int *a2, KPROCESSOR_MODE a3, __int64 a4)
+__int64 __fastcall PspApplyIFEOPerfOptions(__int64 a1, unsigned int *a2, KPROCESSOR_MODE a3)
 {
   __int64 result; // rax
-  int v8; // ecx
+  int v7; // ecx
+  unsigned int v8; // r8d
   unsigned int v9; // r8d
-  unsigned int v10; // r8d
-  int v11; // edx
+  int v10; // edx
+  unsigned int v11; // edi
   unsigned int v12; // edi
-  unsigned int v13; // edi
-  int v14; // edx
+  int v13; // edx
 
   result = *a2;
   if ( (result & 1) != 0 )
   {
-    v12 = a2[2];
-    if ( v12 < 4 )
+    v11 = a2[2];
+    if ( v11 < 4 )
     {
-      if ( v12 <= 2 || (result = SeSinglePrivilegeCheck(SeIncreaseBasePriorityPrivilege, a3) & 1, (_DWORD)result) )
+      if ( v11 <= 2 || (result = SeSinglePrivilegeCheck(SeIncreaseBasePriorityPrivilege, a3) & 1, (_DWORD)result) )
       {
         LODWORD(result) = *(_DWORD *)(a1 + 1124);
-        v13 = v12 << 27;
+        v12 = v11 << 27;
         do
         {
-          v14 = result;
+          v13 = result;
           result = (unsigned int)_InterlockedCompareExchange(
                                    (volatile signed __int32 *)(a1 + 1124),
-                                   v13 | result & 0xC7FFFFFF,
+                                   v12 | result & 0xC7FFFFFF,
                                    result);
         }
-        while ( (_DWORD)result != v14 );
+        while ( (_DWORD)result != v13 );
       }
     }
   }
-  v8 = *a2;
+  v7 = *a2;
   if ( (*a2 & 2) != 0 )
   {
     result = MmGetDefaultPagePriority();
-    if ( v9 < (unsigned int)result )
+    if ( v8 < (unsigned int)result )
     {
       LODWORD(result) = *(_DWORD *)(a1 + 1120);
-      v10 = v9 << 12;
+      v9 = v8 << 12;
       do
       {
-        v11 = result;
+        v10 = result;
         result = (unsigned int)_InterlockedCompareExchange(
                                  (volatile signed __int32 *)(a1 + 1120),
-                                 v10 | result & 0xFFFF8FFF,
+                                 v9 | result & 0xFFFF8FFF,
                                  result);
       }
-      while ( (_DWORD)result != v11 );
-      v8 = *a2;
+      while ( (_DWORD)result != v10 );
+      v7 = *a2;
     }
   }
-  if ( (v8 & 4) != 0 && a2[4] <= 0xFF )
-  {
-    LOBYTE(a4) = a3;
-    return PspSetProcessPriorityClass(a1, *((_BYTE *)a2 + 16), 0LL, a4);
-  }
+  if ( (v7 & 4) != 0 && a2[4] <= 0xFF )
+    return PspSetProcessPriorityClass(a1, *((_BYTE *)a2 + 16), 0LL, a3);
   return result;
 }

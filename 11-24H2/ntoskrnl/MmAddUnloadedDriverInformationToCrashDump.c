@@ -1,9 +1,9 @@
 /*
- * XREFs of MmAddUnloadedDriverInformationToCrashDump @ 0x140677AB8
+ * XREFs of MmAddUnloadedDriverInformationToCrashDump @ 0x140678C98
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405A0708 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14059D638 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddUnloadedDriverInformationToCrashDump(__int64 a1)

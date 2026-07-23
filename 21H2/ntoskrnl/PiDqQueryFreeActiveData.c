@@ -1,30 +1,30 @@
 /*
- * XREFs of PiDqQueryFreeActiveData @ 0x14062E710
+ * XREFs of PiDqQueryFreeActiveData @ 0x140623798
  * Callers:
- *     PiDqIrpQueryGetResult @ 0x14062E070 (PiDqIrpQueryGetResult.c)
- *     PiDqQueryRelease @ 0x14062E694 (PiDqQueryRelease.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
- *     PiDqQueryAppendActionEntry @ 0x14062FC34 (PiDqQueryAppendActionEntry.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqQueryApplyObjectEvent @ 0x1407634C4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqIrpQueryGetResult @ 0x1406230F8 (PiDqIrpQueryGetResult.c)
+ *     PiDqQueryRelease @ 0x14062371C (PiDqQueryRelease.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140623900 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqIrpQueryCreate @ 0x14062413C (PiDqIrpQueryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x140624CB4 (PiDqQueryAppendActionEntry.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1407632E0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140763684 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     RtlIsGenericTableEmptyAvl @ 0x1402643F0 (RtlIsGenericTableEmptyAvl.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x14062E5EC (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqQueryActionQueueEntryFree @ 0x14062F968 (PiDqQueryActionQueueEntryFree.c)
- *     PiDqActionDataFree @ 0x14062FB54 (PiDqActionDataFree.c)
+ *     RtlIsGenericTableEmptyAvl @ 0x1402524B0 (RtlIsGenericTableEmptyAvl.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x140623674 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x1406249E8 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataFree @ 0x140624BD4 (PiDqActionDataFree.c)
  */
 
 BOOLEAN __fastcall PiDqQueryFreeActiveData(__int64 a1)
 {
-  RTL_AVL_TABLE *i; // rcx
+  _RTL_AVL_TABLE *i; // rcx
   BOOLEAN result; // al
   _QWORD **v4; // rdi
   _QWORD *v5; // rcx
   void *v6; // rcx
   _QWORD *v7; // rax
 
-  for ( i = (RTL_AVL_TABLE *)(a1 + 72); ; i = (RTL_AVL_TABLE *)(a1 + 72) )
+  for ( i = (_RTL_AVL_TABLE *)(a1 + 72); ; i = (_RTL_AVL_TABLE *)(a1 + 72) )
   {
     result = RtlIsGenericTableEmptyAvl(i);
     if ( result )

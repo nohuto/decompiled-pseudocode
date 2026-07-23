@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCompressRelocations @ 0x1408F7520
+ * XREFs of MiCompressRelocations @ 0x14094CB50
  * Callers:
- *     MiRelocateImage @ 0x1408F5784 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x140AEA57C (MiRelocateImage.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiCompressRelocations(__int64 a1, int a2)

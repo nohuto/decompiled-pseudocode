@@ -8,35 +8,44 @@
  *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
  */
 
-__int64 __fastcall NtDuplicateObject(ULONG_PTR a1, int a2, ULONG_PTR a3, _QWORD *a4, int a5, int a6, int a7)
+NTSTATUS __cdecl NtDuplicateObject(
+        HANDLE SourceProcessHandle,
+        HANDLE SourceHandle,
+        HANDLE TargetProcessHandle,
+        PHANDLE TargetHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Options)
 {
+  int v9; // r15d
   PVOID v10; // rdi
   char PreviousMode; // bl
-  __int64 result; // rax
-  int v13; // r14d
+  NTSTATUS result; // eax
+  NTSTATUS v13; // r14d
   int v14; // edx
   PVOID v15; // r15
-  unsigned int v16; // ebx
+  NTSTATUS v16; // ebx
   __int64 v17; // rdx
   PVOID v18; // [rsp+48h] [rbp-40h] BYREF
   PVOID Object; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-30h] BYREF
+  void *v20; // [rsp+58h] [rbp-30h] BYREF
 
+  v9 = (int)SourceHandle;
   v10 = 0LL;
   v20 = 0LL;
   Object = 0LL;
   v18 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a4 && PreviousMode )
+  if ( TargetHandle && PreviousMode )
   {
-    v17 = (__int64)a4;
-    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v17 = (__int64)TargetHandle;
+    if ( (unsigned __int64)TargetHandle >= 0x7FFFFFFF0000LL )
       v17 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v17 = *(_QWORD *)v17;
-    *a4 = 0LL;
+    *TargetHandle = 0LL;
   }
   result = ObpReferenceObjectByHandleWithTag(
-             a1,
+             (ULONG_PTR)SourceProcessHandle,
              64,
              (__int64)PsProcessType,
              PreviousMode,
@@ -44,11 +53,19 @@ __int64 __fastcall NtDuplicateObject(ULONG_PTR a1, int a2, ULONG_PTR a3, _QWORD 
              &Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    if ( a3 )
+    if ( TargetProcessHandle )
     {
-      v13 = ObpReferenceObjectByHandleWithTag(a3, 64, (__int64)PsProcessType, PreviousMode, 0x7544624Fu, &v18, 0LL, 0LL);
+      v13 = ObpReferenceObjectByHandleWithTag(
+              (ULONG_PTR)TargetProcessHandle,
+              64,
+              (__int64)PsProcessType,
+              PreviousMode,
+              0x7544624Fu,
+              &v18,
+              0LL,
+              0LL);
       if ( v13 < 0 )
       {
         v18 = 0LL;
@@ -61,16 +78,24 @@ __int64 __fastcall NtDuplicateObject(ULONG_PTR a1, int a2, ULONG_PTR a3, _QWORD 
     }
     v10 = v18;
 LABEL_7:
-    v14 = a2;
+    v14 = v9;
     v15 = Object;
-    v16 = ObDuplicateObject((_DWORD)Object, v14, (_DWORD)v10, (unsigned int)&v20, a5, a6, a7, PreviousMode);
-    if ( a4 )
-      *a4 = v20;
+    v16 = ObDuplicateObject(
+            (_DWORD)Object,
+            v14,
+            (_DWORD)v10,
+            (unsigned int)&v20,
+            DesiredAccess,
+            HandleAttributes,
+            Options,
+            PreviousMode);
+    if ( TargetHandle )
+      *TargetHandle = v20;
     ObfDereferenceObjectWithTag(v15, 0x7544624Fu);
     if ( v10 )
       ObfDereferenceObjectWithTag(v10, 0x7544624Fu);
     if ( v13 < 0 )
-      return (unsigned int)v13;
+      return v13;
     return v16;
   }
   return result;

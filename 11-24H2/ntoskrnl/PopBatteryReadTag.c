@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBatteryReadTag @ 0x140AADDAC
+ * XREFs of PopBatteryReadTag @ 0x140AA8E2C
  * Callers:
- *     PopBatteryWorker @ 0x140AC7D70 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x140AC5DB0 (PopBatteryWorker.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     IoSynchronousCallDriver @ 0x140374C50 (IoSynchronousCallDriver.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     IoSynchronousCallDriver @ 0x14025D510 (IoSynchronousCallDriver.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
  */
 
 __int64 __fastcall PopBatteryReadTag(__int64 a1)

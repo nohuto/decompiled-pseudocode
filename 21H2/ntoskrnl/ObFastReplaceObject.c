@@ -1,20 +1,20 @@
 /*
- * XREFs of ObFastReplaceObject @ 0x1402F6E80
+ * XREFs of ObFastReplaceObject @ 0x140301BD0
  * Callers:
- *     MmChangeSectionBackingFile @ 0x1402C3114 (MmChangeSectionBackingFile.c)
- *     CcDeleteSharedCacheMap @ 0x1402F3DDC (CcDeleteSharedCacheMap.c)
- *     CcChangeBackingFileObject @ 0x1404E8AE8 (CcChangeBackingFileObject.c)
- *     SeDeassignPrimaryToken @ 0x140613F74 (SeDeassignPrimaryToken.c)
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
- *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
- *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
- *     SeExchangePrimaryToken @ 0x1407BBC44 (SeExchangePrimaryToken.c)
- *     PsShutdownSystem @ 0x14090A9F4 (PsShutdownSystem.c)
+ *     MmChangeSectionBackingFile @ 0x140241634 (MmChangeSectionBackingFile.c)
+ *     CcDeleteSharedCacheMap @ 0x1402FEB2C (CcDeleteSharedCacheMap.c)
+ *     CcChangeBackingFileObject @ 0x1404E8D28 (CcChangeBackingFileObject.c)
+ *     SeDeassignPrimaryToken @ 0x14067DBD4 (SeDeassignPrimaryToken.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
+ *     MiSegmentDelete @ 0x1406FF4F0 (MiSegmentDelete.c)
+ *     MiCreateImageOrDataSection @ 0x14071E2F0 (MiCreateImageOrDataSection.c)
+ *     SeExchangePrimaryToken @ 0x1407BC3D4 (SeExchangePrimaryToken.c)
+ *     PsShutdownSystem @ 0x14090AB54 (PsShutdownSystem.c)
  * Callees:
- *     ObpTraceObjectDereferenceIfActive @ 0x14024A170 (ObpTraceObjectDereferenceIfActive.c)
- *     ObReferenceObjectExWithTag @ 0x14029E140 (ObReferenceObjectExWithTag.c)
- *     ObpDeferObjectDeletion @ 0x1402BC2D0 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ObReferenceObjectExWithTag @ 0x14021B6A0 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x14023A834 (ObpDeferObjectDeletion.c)
+ *     ObpTraceObjectDereferenceIfActive @ 0x1402EE9C0 (ObpTraceObjectDereferenceIfActive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ObFastReplaceObject(volatile __int64 *a1, ULONG_PTR a2)

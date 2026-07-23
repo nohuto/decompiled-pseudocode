@@ -76,7 +76,7 @@ __int64 __fastcall MiDecommitHardwareEnclavePages(__int64 a1, __int64 a2, __int6
   __int64 v35; // rdx
   unsigned int SessionId; // r10d
   unsigned __int8 v37; // r12
-  __int64 v38; // r14
+  _KLOCK_ENTRY *v38; // r14
   unsigned int v39; // r8d
   __int64 v40; // rcx
   bool v41; // zf
@@ -357,22 +357,22 @@ LABEL_47:
           *(_BYTE *)(v35 + 26) &= ~1u;
           if ( *(_QWORD *)(v35 + 32) )
           {
-            v38 = (__int64)&v34->LockEntries[v40];
+            v38 = &v34->LockEntries[v40];
             break;
           }
         }
       }
       if ( v38 )
       {
-        *(_BYTE *)(v38 + 32) |= 2u;
-        if ( *(__int64 *)(v38 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v38, v35);
+        v38->CrossThreadReleasableAndBusyByte |= 2u;
+        if ( (__int64)v38->LockState.LockState < 0 )
+          KiAbEntryRemoveFromTree(&v38->TreeNode, v35);
         v52 = 0;
-        v52 = *(_DWORD *)(v38 + 88) & 0x1FFFF;
-        *(_DWORD *)(v38 + 88) &= 0xFFFE0000;
-        *(_BYTE *)(v38 + 25) &= ~1u;
-        *(_QWORD *)(v38 + 32) = 0LL;
-        v43 = (v38 - (__int64)v34 - 800) / 96;
+        v52 = v38->BoostBitmap.AllFields & 0x1FFFF;
+        v38->BoostBitmap.AllFields &= 0xFFFE0000;
+        v38->ThreadLocalFlags &= ~1u;
+        v38->LockState.0 = 0LL;
+        v43 = ((char *)v38 - (char *)v34 - 800) / 96;
         if ( v37 == 1 )
           v34->AbEntrySummary |= 1 << v43;
         else

@@ -1,34 +1,34 @@
 /*
- * XREFs of vDbgPrintExWithPrefixInternal @ 0x1402841E0
+ * XREFs of vDbgPrintExWithPrefixInternal @ 0x140272800
  * Callers:
- *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     vDbgPrintEx @ 0x1402841B0 (vDbgPrintEx.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     IopDebugPrint @ 0x14050D794 (IopDebugPrint.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     DbgPrintReturnControlC @ 0x140585520 (DbgPrintReturnControlC.c)
- *     vDbgPrintExWithPrefix @ 0x1405859A0 (vDbgPrintExWithPrefix.c)
- *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
+ *     PopPrintEx @ 0x140272730 (PopPrintEx.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     vDbgPrintEx @ 0x1402727D0 (vDbgPrintEx.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     IopDebugPrint @ 0x14050D9D4 (IopDebugPrint.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     DbgPrintReturnControlC @ 0x140585750 (DbgPrintReturnControlC.c)
+ *     vDbgPrintExWithPrefix @ 0x140585BD0 (vDbgPrintExWithPrefix.c)
+ *     VfUtilDbgPrint @ 0x1405A0924 (VfUtilDbgPrint.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     NtQueryDebugFilterState @ 0x140284340 (NtQueryDebugFilterState.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     RtlStringCbVPrintfA @ 0x1403718CC (RtlStringCbVPrintfA.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     NtQueryDebugFilterState @ 0x140272960 (NtQueryDebugFilterState.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140327620 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     RtlStringCbVPrintfA @ 0x14037141C (RtlStringCbVPrintfA.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     DbgBreakPointWithStatus @ 0x1404078B0 (DbgBreakPointWithStatus.c)
- *     DebugPrint @ 0x1404078C0 (DebugPrint.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     DbgBreakPointWithStatus @ 0x140407A90 (DbgBreakPointWithStatus.c)
+ *     DebugPrint @ 0x140407AA0 (DebugPrint.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall vDbgPrintExWithPrefixInternal(
         _BYTE *Src,
-        unsigned int a2,
-        unsigned int a3,
+        ULONG ComponentId,
+        ULONG Level,
         const char *a4,
         va_list argList,
         char a6)
@@ -59,7 +59,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
 
   pszFormat = a4;
   v29 = 0LL;
-  if ( !(unsigned int)NtQueryDebugFilterState(a2, a3) )
+  if ( !NtQueryDebugFilterState(ComponentId, Level) )
     return 0LL;
   v10 = 0LL;
   v11 = 0;
@@ -125,14 +125,14 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
       do
       {
         v21 = v20 - 3;
-        if ( ExAcquireRundownProtection_0(v20 - 2) )
+        if ( ExAcquireRundownProtection(v20 - 2) )
         {
           ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
           Count = (void (__fastcall *)(__int128 *, _QWORD, _QWORD))v21[2].Count;
           if ( v16 )
-            ExReleaseRundownProtection_0(v16 + 1);
+            ExReleaseRundownProtection(v16 + 1);
           v16 = v21;
-          Count(&v29, a2, a3);
+          Count(&v29, ComponentId, Level);
           ExAcquireSpinLockSharedAtDpcLevel(&RtlpDebugPrintCallbackLock);
           v20 = (struct _EX_RUNDOWN_REF *)v21[3].Count;
         }
@@ -145,7 +145,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
     }
     ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
     if ( v16 )
-      ExReleaseRundownProtection_0(v16 + 1);
+      ExReleaseRundownProtection(v16 + 1);
     if ( CurrentIrql < 0xCu )
     {
       if ( KiIrqlFlags )
@@ -164,7 +164,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
       __writecr8(CurrentIrql);
     }
   }
-  result = DebugPrint(&v29, a2, a3);
+  result = DebugPrint(&v29, ComponentId, Level);
   if ( (_DWORD)result == -2147483645 && a6 == 1 )
   {
     DbgBreakPointWithStatus(1u);

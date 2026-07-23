@@ -7,7 +7,7 @@
  *     _RtlpGetTargetRvaFlag@8 @ 0x4B363B9B (_RtlpGetTargetRvaFlag@8.c)
  */
 
-char __fastcall RtlpGuardIsSuppressedAddress(unsigned int a1)
+char __fastcall RtlpGuardIsSuppressedAddress(char *a1)
 {
   char v2; // [esp+1h] [ebp-1h] BYREF
 

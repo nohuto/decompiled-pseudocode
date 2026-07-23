@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlWideCharArrayCopyStringWorker_0 @ 0x18011D7FC
+ * XREFs of RtlWideCharArrayCopyStringWorker_0 @ 0x18011D5AC
  * Callers:
- *     RtlpEnsureTailingSlashAndAddToList @ 0x18011D730 (RtlpEnsureTailingSlashAndAddToList.c)
+ *     RtlpEnsureTailingSlashAndAddToList @ 0x18011D4E0 (RtlpEnsureTailingSlashAndAddToList.c)
  * Callees:
  *     <none>
  */

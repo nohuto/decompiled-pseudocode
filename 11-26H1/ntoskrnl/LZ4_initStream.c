@@ -1,9 +1,9 @@
 /*
- * XREFs of LZ4_initStream @ 0x1404703F0
+ * XREFs of LZ4_initStream @ 0x140469B70
  * Callers:
- *     LZ4_compress_fast_extState_progress @ 0x1406298E8 (LZ4_compress_fast_extState_progress.c)
+ *     LZ4_compress_fast_extState_progress @ 0x14062C938 (LZ4_compress_fast_extState_progress.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall LZ4_initStream(void *a1)

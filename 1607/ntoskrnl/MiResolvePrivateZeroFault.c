@@ -1,18 +1,18 @@
 /*
- * XREFs of MiResolvePrivateZeroFault @ 0x14003B240
+ * XREFs of MiResolvePrivateZeroFault @ 0x14003ADC0
  * Callers:
- *     MiResolveDemandZeroFault @ 0x14003AA90 (MiResolveDemandZeroFault.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
+ *     MiResolveDemandZeroFault @ 0x14003A610 (MiResolveDemandZeroFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
  * Callees:
  *     MiWaitForForkToComplete @ 0x1400018F0 (MiWaitForForkToComplete.c)
- *     MiCompletePrivateZeroFault @ 0x14003B6F0 (MiCompletePrivateZeroFault.c)
- *     MiGetPageChain @ 0x14003D480 (MiGetPageChain.c)
- *     MiComputeZeroClusterMaximum @ 0x1400B76A4 (MiComputeZeroClusterMaximum.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BDED4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiAdvanceFaultList @ 0x1400C01B0 (MiAdvanceFaultList.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetClusterPage @ 0x1401F6318 (MiGetClusterPage.c)
- *     MiGet64KPage @ 0x1401FB7C4 (MiGet64KPage.c)
+ *     MiCompletePrivateZeroFault @ 0x14003B270 (MiCompletePrivateZeroFault.c)
+ *     MiGetPageChain @ 0x14003D000 (MiGetPageChain.c)
+ *     MiComputeZeroClusterMaximum @ 0x1400B553C (MiComputeZeroClusterMaximum.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BBD64 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiAdvanceFaultList @ 0x1400BE040 (MiAdvanceFaultList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetClusterPage @ 0x1401F6144 (MiGetClusterPage.c)
+ *     MiGet64KPage @ 0x1401FB5F0 (MiGet64KPage.c)
  */
 
 __int64 __fastcall MiResolvePrivateZeroFault(int *a1)
@@ -83,7 +83,7 @@ __int64 __fastcall MiResolvePrivateZeroFault(int *a1)
   if ( v8 == 1023 )
     v9 = MiSystemPartition;
   else
-    v9 = *(int **)(qword_140326FF8 + 8LL * v8);
+    v9 = *(int **)(qword_140327038 + 8LL * v8);
   v50 = v9;
   if ( (v1 & 0x20) != 0
     && Process[1].Affinity.Bitmap[10]

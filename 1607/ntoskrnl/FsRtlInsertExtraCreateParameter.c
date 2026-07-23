@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlInsertExtraCreateParameter @ 0x14045C940
+ * XREFs of FsRtlInsertExtraCreateParameter @ 0x14045B810
  * Callers:
- *     PspCreateUserProcessEcp @ 0x14045C848 (PspCreateUserProcessEcp.c)
- *     IopSymlinkAllocateAndAddECP @ 0x140540F84 (IopSymlinkAllocateAndAddECP.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x140580310 (IopSymlinkEnforceEnabledTypes.c)
+ *     PspCreateUserProcessEcp @ 0x14045B718 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405414C4 (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x1405807BC (IopSymlinkEnforceEnabledTypes.c)
  * Callees:
  *     <none>
  */

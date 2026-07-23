@@ -1,10 +1,10 @@
 /*
- * XREFs of PopMirrorPhysicalMemory @ 0x140B68280
+ * XREFs of PopMirrorPhysicalMemory @ 0x140B6A3C0
  * Callers:
- *     MiMirrorPerformBlackWrites @ 0x140428BB0 (MiMirrorPerformBlackWrites.c)
- *     MiMirrorPerformBrownWrites @ 0x140455840 (MiMirrorPerformBrownWrites.c)
+ *     MiMirrorPerformBlackWrites @ 0x14041CD00 (MiMirrorPerformBlackWrites.c)
+ *     MiMirrorPerformBrownWrites @ 0x14044A580 (MiMirrorPerformBrownWrites.c)
  * Callees:
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
  */
 
 __int64 __fastcall PopMirrorPhysicalMemory(unsigned __int64 a1, __int64 a2)

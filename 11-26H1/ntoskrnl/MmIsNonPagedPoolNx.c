@@ -1,7 +1,7 @@
 /*
- * XREFs of MmIsNonPagedPoolNx @ 0x1406FBEE8
+ * XREFs of MmIsNonPagedPoolNx @ 0x140700BB8
  * Callers:
- *     EtwTracePool @ 0x1403C0B34 (EtwTracePool.c)
+ *     EtwTracePool @ 0x1403CAA34 (EtwTracePool.c)
  * Callees:
  *     <none>
  */

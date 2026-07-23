@@ -1,30 +1,30 @@
 /*
- * XREFs of DifRegisterPlugin @ 0x140618BD0
+ * XREFs of DifRegisterPlugin @ 0x140617190
  * Callers:
- *     VfPoolTrackingEntry @ 0x140611370 (VfPoolTrackingEntry.c)
- *     VfIoPendingEntry @ 0x140612330 (VfIoPendingEntry.c)
- *     VfSecurityEntry @ 0x1406127D0 (VfSecurityEntry.c)
- *     VfDmaPluginEntry @ 0x140614580 (VfDmaPluginEntry.c)
- *     VfBelow4gbPluginEntry @ 0x140614670 (VfBelow4gbPluginEntry.c)
- *     VfIrqlPluginEntry @ 0x140614D90 (VfIrqlPluginEntry.c)
- *     VfRlrsEntry @ 0x140615080 (VfRlrsEntry.c)
- *     VfLwSPEntry @ 0x14064A0D0 (VfLwSPEntry.c)
- *     VfSpecialPoolEntry @ 0x1406A3780 (VfSpecialPoolEntry.c)
- *     VfIovPluginEntry @ 0x1406A3D60 (VfIovPluginEntry.c)
- *     VfIrpTrackingPluginEntry @ 0x1406A4140 (VfIrpTrackingPluginEntry.c)
- *     VfDeadlockPluginEntry @ 0x140B98240 (VfDeadlockPluginEntry.c)
- *     VfMiscPluginEntry @ 0x140B9E670 (VfMiscPluginEntry.c)
+ *     VfPoolTrackingEntry @ 0x14060F930 (VfPoolTrackingEntry.c)
+ *     VfIoPendingEntry @ 0x1406108F0 (VfIoPendingEntry.c)
+ *     VfSecurityEntry @ 0x140610D90 (VfSecurityEntry.c)
+ *     VfDmaPluginEntry @ 0x140612B40 (VfDmaPluginEntry.c)
+ *     VfBelow4gbPluginEntry @ 0x140612C30 (VfBelow4gbPluginEntry.c)
+ *     VfIrqlPluginEntry @ 0x140613350 (VfIrqlPluginEntry.c)
+ *     VfRlrsEntry @ 0x140613640 (VfRlrsEntry.c)
+ *     VfLwSPEntry @ 0x140648690 (VfLwSPEntry.c)
+ *     VfSpecialPoolEntry @ 0x1406A4780 (VfSpecialPoolEntry.c)
+ *     VfIovPluginEntry @ 0x1406A4D60 (VfIovPluginEntry.c)
+ *     VfIrpTrackingPluginEntry @ 0x1406A5140 (VfIrpTrackingPluginEntry.c)
+ *     VfDeadlockPluginEntry @ 0x140B9A240 (VfDeadlockPluginEntry.c)
+ *     VfMiscPluginEntry @ 0x140BA0670 (VfMiscPluginEntry.c)
  * Callees:
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifCreateAPIThunkContext @ 0x14061864C (DifCreateAPIThunkContext.c)
- *     DifDeregisterPlugin @ 0x1406186B8 (DifDeregisterPlugin.c)
- *     DifiDbgPrint @ 0x1406197A4 (DifiDbgPrint.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfBindDifCallbackWrappers @ 0x140B89F40 (VfBindDifCallbackWrappers.c)
- *     VfBindDifDDIWrappers @ 0x140B89F80 (VfBindDifDDIWrappers.c)
- *     VfCheckDifDdiExist @ 0x140B89FE0 (VfCheckDifDdiExist.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifCreateAPIThunkContext @ 0x140616C0C (DifCreateAPIThunkContext.c)
+ *     DifDeregisterPlugin @ 0x140616C78 (DifDeregisterPlugin.c)
+ *     DifiDbgPrint @ 0x140617D64 (DifiDbgPrint.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfBindDifCallbackWrappers @ 0x140B8BF40 (VfBindDifCallbackWrappers.c)
+ *     VfBindDifDDIWrappers @ 0x140B8BF80 (VfBindDifDDIWrappers.c)
+ *     VfCheckDifDdiExist @ 0x140B8BFE0 (VfCheckDifDdiExist.c)
  */
 
 __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a3, _OWORD *a4)
@@ -61,15 +61,12 @@ __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a
   __int64 *v33; // rax
   __int64 v34; // rdx
   _OWORD *v35; // rax
-  __int64 v36; // rdx
-  __int64 v37; // r8
-  __int64 v38; // r9
-  __int64 v40; // [rsp+70h] [rbp+8h]
-  unsigned int v41; // [rsp+78h] [rbp+10h]
-  unsigned int v42; // [rsp+80h] [rbp+18h]
+  __int64 v37; // [rsp+70h] [rbp+8h]
+  unsigned int v38; // [rsp+78h] [rbp+10h]
+  unsigned int v39; // [rsp+80h] [rbp+18h]
 
-  v41 = a2;
-  v40 = a1;
+  v38 = a2;
+  v37 = a1;
   v4 = 0;
   v5 = a3;
   if ( a3 >= 0x40 || (v6 = *((_DWORD *)&VfRuleClasses + ((unsigned __int64)a3 >> 5)), !_bittest(&v6, a3 & 0x1F)) )
@@ -77,7 +74,7 @@ __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a
     v4 = -1073738636;
 LABEL_48:
     DifiDbgPrint("Loading plugin %d failed!!!\n", a2);
-    DifDeregisterPlugin((_DWORD *)(unsigned int)v5, v36, v37, v38);
+    DifDeregisterPlugin((_DWORD *)(unsigned int)v5);
     return v4;
   }
   if ( DifPluginStates[a3] )
@@ -85,7 +82,7 @@ LABEL_48:
   v7 = 0;
   while ( 1 )
   {
-    v42 = v7;
+    v39 = v7;
     if ( v7 >= a2 )
       break;
     v8 = a1 + 32LL * v7;
@@ -135,12 +132,12 @@ LABEL_41:
       do
         ++v11;
       while ( *(_BYTE *)(*(_QWORD *)v8 + v11) );
-      Pool2 = (void *)ExAllocatePool2(0x40uLL);
+      Pool2 = (void *)ExAllocatePool2(0x40uLL, v11 + 1, 0x70416644u);
       v13 = Pool2;
       if ( !Pool2 )
         goto LABEL_38;
       memmove(Pool2, *(const void **)v8, v11 + 1);
-      v14 = ExAllocatePool2(0x40uLL);
+      v14 = ExAllocatePool2(0x40uLL, 0x40uLL, 0x70416644u);
       v15 = v14;
       if ( !v14 )
       {
@@ -191,14 +188,14 @@ LABEL_38:
         *(_QWORD *)(v22 + 8) = v23;
         *(_QWORD *)v17 = v23;
       }
-      v24 = (_QWORD *)qword_140F03958;
+      v24 = (_QWORD *)qword_140F03C38;
       v25 = (_QWORD *)(v15 + 16);
-      if ( *(__int64 **)qword_140F03958 != &DifAPIThunkContextHead )
+      if ( *(__int64 **)qword_140F03C38 != &DifAPIThunkContextHead )
         goto LABEL_41;
       *v25 = &DifAPIThunkContextHead;
       *(_QWORD *)(v15 + 24) = v24;
       *v24 = v25;
-      qword_140F03958 = v15 + 16;
+      qword_140F03C38 = v15 + 16;
       v26 = *(unsigned int *)(v15 + 8);
       if ( (unsigned int)v26 >= 0x10000000 )
       {
@@ -218,13 +215,13 @@ LABEL_38:
       }
     }
 LABEL_28:
-    a2 = v41;
-    v7 = v42 + 1;
-    a1 = v40;
+    a2 = v38;
+    v7 = v39 + 1;
+    a1 = v37;
   }
   if ( a4 )
   {
-    v35 = (_OWORD *)ExAllocatePool2(0x40uLL);
+    v35 = (_OWORD *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x70416644u);
     if ( !v35 )
       goto LABEL_38;
     *v35 = *a4;

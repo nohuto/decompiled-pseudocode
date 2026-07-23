@@ -1,13 +1,13 @@
 /*
- * XREFs of VmFlushTb @ 0x14041D644
+ * XREFs of VmFlushTb @ 0x140414E94
  * Callers:
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     KeFlushSingleCurrentTb @ 0x1405F0C70 (KeFlushSingleCurrentTb.c)
- *     KeFlushSingleTb @ 0x1405F0DF4 (KeFlushSingleTb.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     KeFlushSingleCurrentTb @ 0x1405F35E0 (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1405F3764 (KeFlushSingleTb.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     VmpFlushTb @ 0x1402519C4 (VmpFlushTb.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     VmpFlushTb @ 0x140253324 (VmpFlushTb.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall VmFlushTb(__int64 a1, unsigned __int64 *a2, int a3)

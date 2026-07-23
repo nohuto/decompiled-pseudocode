@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwQueryOpenSubKeys()
+NTSTATUS __cdecl ZwQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 329LL;
+  result = 329;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

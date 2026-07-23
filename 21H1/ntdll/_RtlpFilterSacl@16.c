@@ -20,16 +20,17 @@ unsigned int *__fastcall RtlpFilterSacl(int a1, int a2, unsigned int *a3, unsign
   unsigned int v14; // eax
   char v15; // al
   unsigned __int16 v16; // ax
-  unsigned __int16 *v17; // [esp+Ch] [ebp-10h]
-  unsigned int *v19; // [esp+14h] [ebp-8h]
-  char *v20; // [esp+18h] [ebp-4h]
+  size_t v17; // [esp-4h] [ebp-20h]
+  unsigned __int16 *v18; // [esp+Ch] [ebp-10h]
+  unsigned int *v20; // [esp+14h] [ebp-8h]
+  char *v21; // [esp+18h] [ebp-4h]
 
   v5 = 8;
   v6 = *(unsigned __int16 *)(a1 + 4);
   v7 = (unsigned __int16 *)(a1 + 8);
-  v19 = (unsigned int *)a1;
+  v20 = (unsigned int *)a1;
   v8 = a1 + 8;
-  v17 = (unsigned __int16 *)(a1 + 8);
+  v18 = (unsigned __int16 *)(a1 + 8);
   if ( v6 )
   {
     while ( 2 )
@@ -72,14 +73,14 @@ LABEL_12:
   if ( *a3 >= v11 )
   {
     v12 = 0;
-    *(_DWORD *)a2 = *v19;
+    *(_DWORD *)a2 = *v20;
     v13 = (void *)(a2 + 8);
-    *(_DWORD *)(a2 + 4) = v19[1];
+    *(_DWORD *)(a2 + 4) = v20[1];
     *(_WORD *)(a2 + 4) = 0;
     *(_WORD *)(a2 + 2) = 8;
-    result = v19;
-    v20 = (char *)(a2 + 8);
-    if ( *((_WORD *)v19 + 2) )
+    result = v20;
+    v21 = (char *)(a2 + 8);
+    if ( *((_WORD *)v20 + 2) )
     {
       while ( 2 )
       {
@@ -119,13 +120,14 @@ LABEL_18:
 LABEL_26:
             if ( v15 )
             {
-              memcpy(v13, v7, v7[1]);
-              v7 = v17;
+              LODWORD(v17) = v7[1];
+              memcpy(v13, v7, v17);
+              v7 = v18;
               ++*(_WORD *)(a2 + 4);
-              *(_WORD *)(a2 + 2) += v17[1];
-              v20 += v17[1];
-              v16 = v17[1];
-              v13 = v20;
+              *(_WORD *)(a2 + 2) += v18[1];
+              v21 += v18[1];
+              v16 = v18[1];
+              v13 = v21;
             }
             else
             {
@@ -134,8 +136,8 @@ LABEL_28:
             }
             ++v12;
             v7 = (unsigned __int16 *)((char *)v7 + v16);
-            v17 = v7;
-            result = (unsigned int *)*((unsigned __int16 *)v19 + 2);
+            v18 = v7;
+            result = (unsigned int *)*((unsigned __int16 *)v20 + 2);
             if ( v12 >= (unsigned int)result )
               return result;
             continue;

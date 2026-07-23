@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcLowerBounds @ 0x14091A1CC
+ * XREFs of RtlpFcLowerBounds @ 0x14091A32C
  * Callers:
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14091A2C0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14091A420 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 unsigned __int64 __fastcall RtlpFcLowerBounds(

@@ -6,7 +6,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtDeleteBootEntry(int a1)
+NTSTATUS __cdecl NtDeleteBootEntry(ULONG Id)
 {
   return Wow64SystemServiceCall();
 }

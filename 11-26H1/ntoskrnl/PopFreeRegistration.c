@@ -1,30 +1,30 @@
 /*
- * XREFs of PopFreeRegistration @ 0x1407CF698
+ * XREFs of PopFreeRegistration @ 0x1407D2738
  * Callers:
- *     PopFreeSessionState @ 0x140A3BAAC (PopFreeSessionState.c)
- *     PopDispatchNotificationsToList @ 0x140A3C908 (PopDispatchNotificationsToList.c)
+ *     PopFreeSessionState @ 0x1409F74CC (PopFreeSessionState.c)
+ *     PopDispatchNotificationsToList @ 0x1409F8328 (PopDispatchNotificationsToList.c)
  * Callees:
- *     ZwDeleteWnfStateName @ 0x140725010 (ZwDeleteWnfStateName.c)
- *     PopUnreferencePowerSetting @ 0x140A4045C (PopUnreferencePowerSetting.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwDeleteWnfStateName @ 0x140729BE0 (ZwDeleteWnfStateName.c)
+ *     PopUnreferencePowerSetting @ 0x1409FBE7C (PopUnreferencePowerSetting.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PopFreeRegistration(_DWORD *P, __int64 a2)
+void __fastcall PopFreeRegistration(WNF_STATE_NAME *P)
 {
-  _QWORD *v3; // rbx
-  __int64 v4; // rsi
+  WNF_STATE_NAME *v2; // rbx
+  __int64 v3; // rsi
 
-  v3 = P + 16;
-  v4 = 3LL;
+  v2 = P + 8;
+  v3 = 3LL;
   do
   {
-    if ( *v3 )
+    if ( *v2 )
       PopUnreferencePowerSetting();
-    ++v3;
-    --v4;
+    ++v2;
+    --v3;
   }
-  while ( v4 );
-  if ( P[14] || P[15] )
-    ZwDeleteWnfStateName((__int64)(P + 14), a2);
+  while ( v3 );
+  if ( P[7].Data[0] || P[7].Data[1] )
+    ZwDeleteWnfStateName(P + 7);
   ExFreePoolWithTag(P, 0x74655350u);
 }

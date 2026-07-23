@@ -3,8 +3,8 @@
  * Callers:
  *     IoStartPacket @ 0x1402576D0 (IoStartPacket.c)
  *     IoAllocateController @ 0x1402578A0 (IoAllocateController.c)
- *     HalAllocateAdapterChannelV2 @ 0x140457ED8 (HalAllocateAdapterChannelV2.c)
- *     DifKeInsertDeviceQueueWrapper @ 0x1406137A0 (DifKeInsertDeviceQueueWrapper.c)
+ *     sub_140457ED8 @ 0x140457ED8 (sub_140457ED8.c)
+ *     sub_1406137A0 @ 0x1406137A0 (sub_1406137A0.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140257B30 (KeAcquireInStackQueuedSpinLockForDpc.c)
  *     KeReleaseInStackQueuedSpinLockForDpc @ 0x140257B80 (KeReleaseInStackQueuedSpinLockForDpc.c)

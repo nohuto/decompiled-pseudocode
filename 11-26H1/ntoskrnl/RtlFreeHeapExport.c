@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFreeHeapExport @ 0x140619740
+ * XREFs of RtlFreeHeapExport @ 0x14061C79C
  * Callers:
- *     RtlFreeHeap @ 0x14051C3A0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x140518F90 (RtlFreeHeap.c)
  * Callees:
- *     RtlFreeHeapFull @ 0x140619770 (RtlFreeHeapFull.c)
+ *     RtlFreeHeapFull @ 0x14061C7CC (RtlFreeHeapFull.c)
  */
 
 __int64 __fastcall RtlFreeHeapExport(__int64 a1, __int64 a2, __int64 a3)

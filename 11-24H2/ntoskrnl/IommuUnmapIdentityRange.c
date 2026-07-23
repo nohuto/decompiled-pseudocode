@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuUnmapIdentityRange @ 0x140567200
+ * XREFs of IommuUnmapIdentityRange @ 0x140564D90
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainUnmapIdentityRange @ 0x1403AC118 (HalpIommuDomainUnmapIdentityRange.c)
- *     IommupValidateMdl @ 0x140567674 (IommupValidateMdl.c)
+ *     HalpIommuDomainUnmapIdentityRange @ 0x14039A828 (HalpIommuDomainUnmapIdentityRange.c)
+ *     IommupValidateMdl @ 0x140565100 (IommupValidateMdl.c)
  */
 
 __int64 __fastcall IommuUnmapIdentityRange(__int64 a1, __int64 a2)
@@ -22,7 +22,6 @@ __int64 __fastcall IommuUnmapIdentityRange(__int64 a1, __int64 a2)
     return HalpIommuDomainUnmapIdentityRange(
              v5,
              v4 + 48 + 8 * ((unsigned __int64)*(unsigned int *)(v4 + 44) >> 12),
-             (unsigned __int64)*(unsigned int *)(v4 + 40) >> 12,
-             v4 + 48);
+             (unsigned __int64)*(unsigned int *)(v4 + 40) >> 12);
   return 3221225712LL;
 }

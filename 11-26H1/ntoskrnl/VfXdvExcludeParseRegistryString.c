@@ -1,11 +1,11 @@
 /*
- * XREFs of VfXdvExcludeParseRegistryString @ 0x140CDF5B8
+ * XREFs of VfXdvExcludeParseRegistryString @ 0x140CE5950
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140CDE91C (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140CE4CB4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfSuspectExcludedDriversAllocateEntry @ 0x140C38FF4 (VfSuspectExcludedDriversAllocateEntry.c)
- *     VfDriverLock @ 0x140C46804 (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140C47ED0 (VfDriverUnlock.c)
+ *     VfSuspectExcludedDriversAllocateEntry @ 0x140C3F004 (VfSuspectExcludedDriversAllocateEntry.c)
+ *     VfDriverLock @ 0x140C4C814 (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x140C4DEE0 (VfDriverUnlock.c)
  */
 
 int VfXdvExcludeParseRegistryString()
@@ -80,13 +80,13 @@ LABEL_21:
           if ( Entry )
           {
             VfDriverLock();
-            v9 = (_QWORD *)qword_140F089B8;
-            if ( *(__int64 **)qword_140F089B8 != &VfXdvExcludedDriversList )
+            v9 = (_QWORD *)qword_140F08DC8;
+            if ( *(__int64 **)qword_140F08DC8 != &VfXdvExcludedDriversList )
               __fastfail(3u);
             *v8 = &VfXdvExcludedDriversList;
             v8[1] = v9;
             *v9 = v8;
-            qword_140F089B8 = (__int64)v8;
+            qword_140F08DC8 = (__int64)v8;
             LODWORD(Entry) = VfDriverUnlock();
           }
         }

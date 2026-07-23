@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRcuProcessorInitialize @ 0x1404D5904
+ * XREFs of KiRcuProcessorInitialize @ 0x1404CED4C
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSrcuProcessorInitialize @ 0x1404F9238 (KiSrcuProcessorInitialize.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSrcuProcessorInitialize @ 0x1404F6B18 (KiSrcuProcessorInitialize.c)
  */
 
 __int64 __fastcall KiRcuProcessorInitialize(__int64 a1, unsigned int a2)
@@ -29,12 +29,12 @@ __int64 __fastcall KiRcuProcessorInitialize(__int64 a1, unsigned int a2)
   bool v19; // zf
   KIRQL v20; // al
 
-  v3 = *(_DWORD *)(a1 + 36) / (unsigned int)(unsigned __int8)byte_140F20C21;
+  v3 = *(_DWORD *)(a1 + 36) / (unsigned int)(unsigned __int8)byte_140F205A1;
   v5 = 0;
   v6 = (char *)&KiRcuData + 32 * *(unsigned int *)(a1 + 36);
-  v7 = *(_DWORD *)(a1 + 36) % (unsigned int)(unsigned __int8)byte_140F20C21;
+  v7 = *(_DWORD *)(a1 + 36) % (unsigned int)(unsigned __int8)byte_140F205A1;
   v8 = 9 * v3;
-  v9 = qword_140F20C30;
+  v9 = qword_140F205B0;
   *((_QWORD *)v6 + 2) = a1;
   v10 = (_QWORD *)(v9 + 8 * v8);
   *((_QWORD *)v6 + 1) = v10;

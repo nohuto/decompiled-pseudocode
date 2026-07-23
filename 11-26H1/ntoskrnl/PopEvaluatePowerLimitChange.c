@@ -1,19 +1,19 @@
 /*
- * XREFs of PopEvaluatePowerLimitChange @ 0x1407CAB64
+ * XREFs of PopEvaluatePowerLimitChange @ 0x1407CDC04
  * Callers:
- *     PoSetPowerLimitValue @ 0x1407CA570 (PoSetPowerLimitValue.c)
- *     PopDisablePowerLimitExtension @ 0x1407CAA88 (PopDisablePowerLimitExtension.c)
- *     PopFreePowerLimitRequest @ 0x1407CADDC (PopFreePowerLimitRequest.c)
- *     PopPowerLimitPnpNotification @ 0x1407CB110 (PopPowerLimitPnpNotification.c)
+ *     PoSetPowerLimitValue @ 0x1407CD610 (PoSetPowerLimitValue.c)
+ *     PopDisablePowerLimitExtension @ 0x1407CDB28 (PopDisablePowerLimitExtension.c)
+ *     PopFreePowerLimitRequest @ 0x1407CDE7C (PopFreePowerLimitRequest.c)
+ *     PopPowerLimitPnpNotification @ 0x1407CE1B0 (PopPowerLimitPnpNotification.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopPowerLimitUpdatePendingEvents @ 0x1407CB224 (PopPowerLimitUpdatePendingEvents.c)
- *     PopDiagTracePowerLimitExtensionValueUpdate @ 0x1407D41E4 (PopDiagTracePowerLimitExtensionValueUpdate.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopPowerLimitUpdatePendingEvents @ 0x1407CE2C4 (PopPowerLimitUpdatePendingEvents.c)
+ *     PopDiagTracePowerLimitExtensionValueUpdate @ 0x1407D7364 (PopDiagTracePowerLimitExtensionValueUpdate.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopEvaluatePowerLimitChange(__int64 a1)

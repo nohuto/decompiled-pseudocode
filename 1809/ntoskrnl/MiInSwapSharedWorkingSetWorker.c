@@ -1,5 +1,5 @@
 /*
- * XREFs of MiInSwapSharedWorkingSetWorker @ 0x14085EA70
+ * XREFs of MiInSwapSharedWorkingSetWorker @ 0x14085FCD0
  * Callers:
  *     <none>
  * Callees:
@@ -7,10 +7,10 @@
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiProcessWsInSwapSupport @ 0x1400E5A94 (MiProcessWsInSwapSupport.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwTraceWorkingSetSwap @ 0x14066B7C8 (EtwTraceWorkingSetSwap.c)
- *     MiFreeWorkingSetSwapContext @ 0x1406B8DE4 (MiFreeWorkingSetSwapContext.c)
+ *     MiProcessWsInSwapSupport @ 0x1400E5B14 (MiProcessWsInSwapSupport.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwTraceWorkingSetSwap @ 0x14066C988 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeWorkingSetSwapContext @ 0x1406BA084 (MiFreeWorkingSetSwapContext.c)
  */
 
 LONG_PTR __fastcall MiInSwapSharedWorkingSetWorker(__int64 a1)

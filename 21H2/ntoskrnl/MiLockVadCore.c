@@ -1,52 +1,51 @@
 /*
- * XREFs of MiLockVadCore @ 0x1402AF9B8
+ * XREFs of MiLockVadCore @ 0x14022DD18
  * Callers:
- *     MiCaptureWriteWatchDirtyBit @ 0x14025B15C (MiCaptureWriteWatchDirtyBit.c)
- *     NtGetWriteWatch @ 0x14032C650 (NtGetWriteWatch.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14027C6CC (MiCaptureWriteWatchDirtyBit.c)
+ *     NtGetWriteWatch @ 0x1403373A0 (NtGetWriteWatch.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  */
 
-unsigned __int8 __fastcall MiLockVadCore(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
+unsigned __int8 __fastcall MiLockVadCore(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // di
-  signed __int32 v6; // eax
-  signed __int32 v7; // ett
-  int v9; // [rsp+38h] [rbp+10h] BYREF
+  signed __int32 v3; // eax
+  signed __int32 v4; // ett
+  _DWORD *SchedulerAssist; // r9
+  int v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v9 = 0;
+  v7 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    a2 = (-1LL << (CurrentIrql + 1)) & 4;
-    a3 = (unsigned int)a2 | SchedulerAssist[5];
-    SchedulerAssist[5] = a3;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  v6 = *(_DWORD *)(a1 + 48);
+  v3 = *(_DWORD *)(a1 + 48);
   do
   {
-    while ( (v6 & 1) != 0 )
+    while ( (v3 & 1) != 0 )
     {
-      if ( (v6 & 2) != 0 )
+      if ( (v3 & 2) != 0 )
       {
-        v9 = 0;
+        v7 = 0;
         do
         {
-          KeYieldProcessorEx(&v9, a2, a3, (__int64)SchedulerAssist);
-          v6 = *(_DWORD *)(a1 + 48);
+          KeYieldProcessorEx(&v7);
+          v3 = *(_DWORD *)(a1 + 48);
         }
-        while ( (v6 & 1) != 0 );
+        while ( (v3 & 1) != 0 );
       }
       else
       {
-        v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v6 | 2, v6);
+        v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v3 | 2, v3);
       }
     }
-    v7 = v6;
-    v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v6 & 0xFFFFFFFC | 1, v6);
+    v4 = v3;
+    v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v3 & 0xFFFFFFFC | 1, v3);
   }
-  while ( v7 != v6 );
+  while ( v4 != v3 );
   return CurrentIrql;
 }

@@ -8,7 +8,7 @@
  *     <none>
  */
 
-__int64 __fastcall sub_1800D0728(__int64 a1, int a2)
+PVOID __fastcall sub_1800D0728(SIZE_T a1, void *a2)
 {
-  return RtlReAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a2, a1);
+  return RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a2, a1);
 }

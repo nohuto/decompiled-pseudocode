@@ -1,7 +1,7 @@
 /*
- * XREFs of ExQueryPoolUsage @ 0x14008C300
+ * XREFs of ExQueryPoolUsage @ 0x14008BA60
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140414000 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140412EC0 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */
@@ -52,16 +52,16 @@ __int64 *__fastcall ExQueryPoolUsage(
     }
     while ( v10 < ExpNumberOfPagedPools + 1 );
   }
-  v13 = dword_14033B900 + dword_14033CA40;
-  v14 = qword_14033B910
-      + qword_14033B908
-      + qword_14033CA50
-      + qword_14033CA48
-      - qword_14033CA88
-      - qword_14033CA90
-      - qword_14033B948
-      - qword_14033B950;
-  v15 = dword_14033B940 + dword_14033CA80;
+  v13 = dword_14033B940 + dword_14033CA80;
+  v14 = qword_14033B950
+      + qword_14033B948
+      + qword_14033CA90
+      + qword_14033CA88
+      - qword_14033CAC8
+      - qword_14033CAD0
+      - qword_14033B988
+      - qword_14033B990;
+  v15 = dword_14033B980 + dword_14033CAC0;
   if ( (unsigned int)ExpNumberOfNonPagedPools > 1 )
   {
     v18 = 0;

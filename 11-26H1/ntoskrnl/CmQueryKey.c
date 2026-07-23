@@ -1,124 +1,127 @@
 /*
- * XREFs of CmQueryKey @ 0x1408C5660
+ * XREFs of CmQueryKey @ 0x1408CBC30
  * Callers:
- *     NtQueryKey @ 0x1408F4C30 (NtQueryKey.c)
+ *     NtQueryKey @ 0x140924BC0 (NtQueryKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     CmpDrainDelayDerefContext @ 0x140446E30 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x14044EE20 (CmpInitializeDelayDerefContext.c)
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     CmQueryLayeredKey @ 0x1404922D0 (CmQueryLayeredKey.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpQueryKeyData @ 0x1408C0840 (CmpQueryKeyData.c)
- *     CmpQueryKeyDataFromCache @ 0x1408C0940 (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x1408C27F0 (CmpQueryKeyDataFromNode.c)
- *     CmpConstructName @ 0x1408C53A0 (CmpConstructName.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpTransSearchAddTrans @ 0x1408EC150 (CmpTransSearchAddTrans.c)
- *     CmpTransReferenceTransaction @ 0x1408EE304 (CmpTransReferenceTransaction.c)
- *     CmpIsKcbInsideVirtualizedHive @ 0x1408F40F0 (CmpIsKcbInsideVirtualizedHive.c)
- *     CmpIsSystemEntity @ 0x1408F4110 (CmpIsSystemEntity.c)
- *     SeCaptureSubjectContextEx @ 0x140920670 (SeCaptureSubjectContextEx.c)
- *     CmpUnlockTwoKcbs @ 0x14097E9E0 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x14097EA80 (CmpLockTwoKcbsShared.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     CmGetKeyFlags @ 0x140AEB1EC (CmGetKeyFlags.c)
- *     CmVirtualKCBToRealPath @ 0x140AF49A0 (CmVirtualKCBToRealPath.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140AFF7BC (CmEnumerateValueKeyFromMergedView.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140B40958 (CmpFindSubKeyByNumberFromMergedView.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140C583F0 (CmpLockKcbShared.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     CmpDrainDelayDerefContext @ 0x14043F920 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140446F50 (CmpInitializeDelayDerefContext.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     CmQueryLayeredKey @ 0x14048BE20 (CmQueryLayeredKey.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpQueryKeyData @ 0x1408C6E10 (CmpQueryKeyData.c)
+ *     CmpQueryKeyDataFromCache @ 0x1408C6F10 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1408C8DC0 (CmpQueryKeyDataFromNode.c)
+ *     CmpConstructName @ 0x1408CB970 (CmpConstructName.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpTransSearchAddTrans @ 0x1408F2710 (CmpTransSearchAddTrans.c)
+ *     CmpTransReferenceTransaction @ 0x1408F48C4 (CmpTransReferenceTransaction.c)
+ *     CmpIsKcbInsideVirtualizedHive @ 0x1408FA6B0 (CmpIsKcbInsideVirtualizedHive.c)
+ *     CmpIsSystemEntity @ 0x1408FA6D0 (CmpIsSystemEntity.c)
+ *     SeCaptureSubjectContextEx @ 0x1408FBAB0 (SeCaptureSubjectContextEx.c)
+ *     CmpUnlockTwoKcbs @ 0x1409409F0 (CmpUnlockTwoKcbs.c)
+ *     CmpLockTwoKcbsShared @ 0x140940A90 (CmpLockTwoKcbsShared.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     CmGetKeyFlags @ 0x140AEE0F8 (CmGetKeyFlags.c)
+ *     CmVirtualKCBToRealPath @ 0x140AF7040 (CmVirtualKCBToRealPath.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x140B0144C (CmEnumerateValueKeyFromMergedView.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x140B42968 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140C5E3F0 (CmpLockKcbShared.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
  */
 
 __int64 __fastcall CmQueryKey(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4, unsigned int a5, __int64 a6)
 {
   __int64 v10; // r13
-  __int64 v11; // rcx
-  ULONG_PTR v12; // r15
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  ULONG_PTR v15; // r15
   int KeyData; // edi
-  __int64 v14; // rcx
-  ULONG_PTR v15; // rcx
-  __int64 CellFlat; // rax
   __int64 v17; // rcx
-  int v18; // eax
+  ULONG_PTR v18; // rcx
+  __int64 CellFlat; // rax
+  __int64 v20; // rcx
+  int v21; // eax
   unsigned int KeyFlags; // eax
-  unsigned int *v20; // rcx
-  int v21; // edx
+  unsigned int *v23; // rcx
+  int v24; // edx
   struct _KTHREAD *CurrentThread; // rdi
   struct _KPROCESS *CurrentThreadProcess; // rax
-  int v24; // edi
-  bool v25; // r9
-  unsigned int *v26; // rdx
-  unsigned int v27; // ecx
-  unsigned int v28; // ecx
-  int v29; // r8d
-  unsigned int v30; // r8d
+  int v27; // edi
+  bool v28; // r9
+  unsigned int *v29; // rdx
+  unsigned int v30; // ecx
   unsigned int v31; // ecx
-  unsigned int v32; // r8d
+  int v32; // r8d
   unsigned int v33; // r8d
-  unsigned int *v34; // r15
-  int v35; // r8d
-  __int64 v36; // rcx
-  __int64 v37; // r15
-  __int64 v38; // rdx
-  const void **v39; // rax
-  unsigned int v40; // ecx
-  unsigned int *v41; // r15
-  __int64 v42; // rcx
-  __int64 v44; // rcx
-  __int64 v45; // r8
-  __int64 v46; // rcx
-  __int64 v47; // r9
-  __int64 v48; // rcx
-  __int64 v49; // r8
-  unsigned int LayeredKey; // ebx
+  unsigned int v34; // ecx
+  unsigned int v35; // r8d
+  unsigned int v36; // r8d
+  unsigned int *v37; // r15
+  int v38; // r8d
+  __int64 v39; // rcx
+  __int64 v40; // r15
+  __int64 v41; // rdx
+  const void **v42; // rax
+  unsigned int v43; // ecx
+  unsigned int *v44; // r15
+  __int64 v45; // rcx
+  __int64 v47; // rcx
+  __int64 v48; // r8
+  __int64 v49; // rcx
+  __int64 v50; // r9
   __int64 v51; // rcx
-  __int64 v52; // rcx
-  unsigned int *v53; // [rsp+58h] [rbp-120h] BYREF
-  __int64 v54; // [rsp+60h] [rbp-118h] BYREF
-  __int64 v55; // [rsp+68h] [rbp-110h] BYREF
-  __int64 v56[2]; // [rsp+70h] [rbp-108h] BYREF
-  unsigned int *v57; // [rsp+80h] [rbp-F8h] BYREF
-  const void **v58; // [rsp+88h] [rbp-F0h]
-  __int64 v59; // [rsp+90h] [rbp-E8h]
-  __int64 v60; // [rsp+98h] [rbp-E0h]
-  __int128 v61; // [rsp+A0h] [rbp-D8h] BYREF
+  __int64 v52; // r8
+  unsigned int LayeredKey; // ebx
+  __int64 v54; // rcx
+  __int64 v55; // rcx
+  unsigned int *v56; // [rsp+58h] [rbp-120h] BYREF
+  __int64 v57; // [rsp+60h] [rbp-118h] BYREF
+  __int64 v58; // [rsp+68h] [rbp-110h] BYREF
+  __int64 v59[2]; // [rsp+70h] [rbp-108h] BYREF
+  unsigned int *v60; // [rsp+80h] [rbp-F8h] BYREF
+  const void **v61; // [rsp+88h] [rbp-F0h]
+  __int64 v62; // [rsp+90h] [rbp-E8h]
+  __int64 v63; // [rsp+98h] [rbp-E0h]
+  __int128 v64; // [rsp+A0h] [rbp-D8h] BYREF
   PVOID P[2]; // [rsp+B0h] [rbp-C8h] BYREF
-  __int64 v63; // [rsp+C0h] [rbp-B8h] BYREF
-  __int64 v64; // [rsp+C8h] [rbp-B0h] BYREF
+  __int64 v66; // [rsp+C0h] [rbp-B8h] BYREF
+  __int64 v67; // [rsp+C8h] [rbp-B0h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+D0h] [rbp-A8h] BYREF
-  __int128 v66; // [rsp+F0h] [rbp-88h]
+  __int128 v69; // [rsp+F0h] [rbp-88h]
   struct _KAPC_STATE ApcState; // [rsp+100h] [rbp-78h] BYREF
 
-  v53 = a4;
-  v59 = a1;
-  v60 = a1;
-  v56[1] = a2;
-  v57 = a4;
-  v55 = a6;
-  v58 = 0LL;
+  v56 = a4;
+  v62 = a1;
+  v63 = a1;
+  v59[1] = a2;
+  v60 = a4;
+  v58 = a6;
+  v61 = 0LL;
   v10 = 0LL;
-  v54 = 0LL;
+  v57 = 0LL;
   *(_OWORD *)P = 0LL;
   memset(&ApcState, 0, sizeof(ApcState));
-  v61 = 0LL;
-  CmpInitializeDelayDerefContext(&v61);
+  v64 = 0LL;
+  CmpInitializeDelayDerefContext(&v64);
   CmpAttachToRegistryProcess(&ApcState);
-  CmpLockRegistry(v11);
-  v12 = *(_QWORD *)(a1 + 8);
-  if ( !*(_WORD *)(v12 + 66) )
+  CmpLockRegistry(v12, v11, v13, v14);
+  v15 = *(_QWORD *)(a1 + 8);
+  if ( !*(_WORD *)(v15 + 66) )
   {
     if ( !*(_QWORD *)(a1 + 56) && !*(_QWORD *)(a1 + 64) )
       goto LABEL_4;
@@ -128,71 +131,71 @@ __int64 __fastcall CmQueryKey(__int64 a1, __int64 a2, unsigned int a3, unsigned 
       KeyData = -1073740763;
       if ( (*(_BYTE *)(a1 + 48) & 1) == 0 )
         KeyData = -1073741444;
-      CmpUnlockKcb(v12);
-      CmpUnlockRegistry(v52);
+      CmpUnlockKcb(v15);
+      CmpUnlockRegistry(v55);
       CmpDetachFromRegistryProcess(&ApcState);
       return (unsigned int)KeyData;
     }
-    CmpUnlockKcb(v12);
-    v56[0] = 0LL;
-    v45 = *(_QWORD *)(a1 + 56);
-    v54 = v45;
-    if ( !v45 && !*(_QWORD *)(a1 + 64) )
+    CmpUnlockKcb(v15);
+    v59[0] = 0LL;
+    v48 = *(_QWORD *)(a1 + 56);
+    v57 = v48;
+    if ( !v48 && !*(_QWORD *)(a1 + 64) )
     {
       KeyData = -1072103422;
-      CmpUnlockRegistry(v44);
+      CmpUnlockRegistry(v47);
       CmpDetachFromRegistryProcess(&ApcState);
       return (unsigned int)KeyData;
     }
-    v46 = *(_QWORD *)(a1 + 8) ^ 1LL;
+    v49 = *(_QWORD *)(a1 + 8) ^ 1LL;
     if ( (*(_QWORD *)(a1 + 8) & 1) == 0 )
-      v46 = *(_QWORD *)(a1 + 8);
-    v47 = *(_QWORD *)(v46 + 32);
-    if ( (v45 & 1) != 0 )
+      v49 = *(_QWORD *)(a1 + 8);
+    v50 = *(_QWORD *)(v49 + 32);
+    if ( (v48 & 1) != 0 )
     {
-      v56[0] = v45 & 0xFFFFFFFFFFFFFFFEuLL;
-      KeyData = CmpTransReferenceTransaction(v45);
+      v59[0] = v48 & 0xFFFFFFFFFFFFFFFEuLL;
+      KeyData = CmpTransReferenceTransaction(v48);
       if ( KeyData < 0 )
       {
-        v48 = 0LL;
+        v51 = 0LL;
       }
       else
       {
-        if ( *(_QWORD *)(v56[0] + 16) )
+        if ( *(_QWORD *)(v59[0] + 16) )
         {
-          v10 = *(_QWORD *)(v56[0] + 16);
+          v10 = *(_QWORD *)(v59[0] + 16);
           KeyData = 0;
         }
         else
         {
           KeyData = -1072103422;
         }
-        v48 = v54;
+        v51 = v57;
       }
-      if ( v48 )
-        ObfDereferenceObject((PVOID)(v48 & 0xFFFFFFFFFFFFFFFEuLL));
+      if ( v51 )
+        ObfDereferenceObject((PVOID)(v51 & 0xFFFFFFFFFFFFFFFEuLL));
     }
     else
     {
-      v49 = *(_QWORD *)(v47 + 4160);
-      if ( !v49 )
+      v52 = *(_QWORD *)(v50 + 4160);
+      if ( !v52 )
       {
         KeyData = -1072103419;
-        CmpUnlockRegistry(v46);
+        CmpUnlockRegistry(v49);
         CmpDetachFromRegistryProcess(&ApcState);
         return (unsigned int)KeyData;
       }
-      KeyData = CmpTransSearchAddTrans(*(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 64), v49, v47, 0, (__int64)v56);
-      v10 = v56[0];
+      KeyData = CmpTransSearchAddTrans(*(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 64), v52, v50, 0, (__int64)v59);
+      v10 = v59[0];
     }
     if ( KeyData >= 0 )
     {
-      v54 = v10;
+      v57 = v10;
 LABEL_4:
       if ( a2 )
       {
-        v12 = *(_QWORD *)(a2 + 8);
-        CmpLockTwoKcbsShared(v12, *(_QWORD *)(a1 + 8));
+        v15 = *(_QWORD *)(a2 + 8);
+        CmpLockTwoKcbsShared(v15, *(_QWORD *)(a1 + 8));
       }
       else
       {
@@ -203,35 +206,35 @@ LABEL_4:
         if ( a2 && (unsigned __int8)CmpIsKeyDeletedForKeyBody(a2, v10)
           || (unsigned __int8)CmpIsKeyDeletedForKeyBody(a1, v10) )
         {
-          v18 = -1073741444;
+          v21 = -1073741444;
           if ( (*(_BYTE *)(a1 + 48) & 1) != 0 )
-            v18 = -1073740763;
-          KeyData = v18;
+            v21 = -1073740763;
+          KeyData = v21;
           goto LABEL_115;
         }
         switch ( a3 )
         {
           case 5u:
-            *(_DWORD *)v55 = 12;
+            *(_DWORD *)v58 = 12;
             if ( a5 < 0xC )
             {
               KeyData = -1073741789;
             }
             else
             {
-              KeyFlags = CmGetKeyFlags(v12, v10);
-              v20 = v53;
-              *v53 = KeyFlags;
-              v20[1] = 0;
-              v21 = 0;
-              if ( *(int *)(v12 + 40) < 0 )
+              KeyFlags = CmGetKeyFlags(v15, v10);
+              v23 = v56;
+              *v56 = KeyFlags;
+              v23[1] = 0;
+              v24 = 0;
+              if ( *(int *)(v15 + 40) < 0 )
               {
-                v21 = 1;
-                v20[1] = 1;
+                v24 = 1;
+                v23[1] = 1;
               }
-              if ( (*(_DWORD *)(v12 + 184) & 0x100000) != 0 )
-                v20[1] = v21 | 2;
-              v20[2] = (*(_DWORD *)(v12 + 184) >> 4) & 0xF;
+              if ( (*(_DWORD *)(v15 + 184) & 0x100000) != 0 )
+                v23[1] = v24 | 2;
+              v23[2] = (*(_DWORD *)(v15 + 184) >> 4) & 0xF;
               KeyData = 0;
             }
             break;
@@ -240,32 +243,32 @@ LABEL_4:
             CurrentThread = KeGetCurrentThread();
             CurrentThreadProcess = PsGetCurrentThreadProcess();
             SeCaptureSubjectContextEx(CurrentThread, CurrentThreadProcess, &SubjectContext);
-            v24 = 4;
-            *(_DWORD *)v55 = 4;
+            v27 = 4;
+            *(_DWORD *)v58 = 4;
             if ( a5 >= 4 )
             {
-              v25 = CmpVEEnabled
-                 && (*(_DWORD *)(v12 + 184) & 0x2000000) == 0
-                 && (unsigned __int8)CmpIsKcbInsideVirtualizedHive(v12)
+              v28 = CmpVEEnabled
+                 && (*(_DWORD *)(v15 + 184) & 0x2000000) == 0
+                 && (unsigned __int8)CmpIsKcbInsideVirtualizedHive(v15)
                  && (unsigned __int8)CmpIsSystemEntity((unsigned __int8)KeGetCurrentThread()->PreviousMode) == 0;
-              v26 = v53;
-              v27 = v25 | *v53 & 0xFFFFFFFE;
-              *v53 = v27;
-              v28 = v27 & 0xFFFFFFFD;
-              *v26 = v28;
-              v29 = v28;
-              if ( v25 && (*(_DWORD *)(v12 + 184) & 0x20) == 0 )
+              v29 = v56;
+              v30 = v28 | *v56 & 0xFFFFFFFE;
+              *v56 = v30;
+              v31 = v30 & 0xFFFFFFFD;
+              *v29 = v31;
+              v32 = v31;
+              if ( v28 && (*(_DWORD *)(v15 + 184) & 0x20) == 0 )
               {
-                v29 = v28 | 2;
-                *v26 = v28 | 2;
+                v32 = v31 | 2;
+                *v29 = v31 | 2;
               }
-              if ( !CmpVEEnabled || (*(_DWORD *)(v12 + 184) & 0x1000000) == 0 )
-                v24 = 0;
-              v30 = v24 | v29 & 0xFFFFFFFB;
-              *v26 = v30;
-              v31 = v30 & 0xFFFFFFF7 | (*(_DWORD *)(v12 + 184) >> 22) & 8;
-              *v26 = v31;
-              *v26 = v31 & 0xFFFFFFEF | (*(_DWORD *)(v12 + 184) >> 19) & 0x10;
+              if ( !CmpVEEnabled || (*(_DWORD *)(v15 + 184) & 0x1000000) == 0 )
+                v27 = 0;
+              v33 = v27 | v32 & 0xFFFFFFFB;
+              *v29 = v33;
+              v34 = v33 & 0xFFFFFFF7 | (*(_DWORD *)(v15 + 184) >> 22) & 8;
+              *v29 = v34;
+              *v29 = v34 & 0xFFFFFFEF | (*(_DWORD *)(v15 + 184) >> 19) & 0x10;
               KeyData = 0;
             }
             else
@@ -275,108 +278,108 @@ LABEL_4:
             SeReleaseSubjectContext(&SubjectContext);
             break;
           case 8u:
-            *(_DWORD *)v55 = 4;
+            *(_DWORD *)v58 = 4;
             if ( a5 >= 4 )
             {
-              v32 = *v53;
-              if ( (*(_DWORD *)(*(_QWORD *)(v12 + 32) + 4120LL) & 1) != 0 )
-                v33 = v32 & 0xFFFFFFFE;
+              v35 = *v56;
+              if ( (*(_DWORD *)(*(_QWORD *)(v15 + 32) + 4120LL) & 1) != 0 )
+                v36 = v35 & 0xFFFFFFFE;
               else
-                v33 = v32 | 1;
-              *v53 = v33;
+                v36 = v35 | 1;
+              *v56 = v36;
               KeyData = 0;
 LABEL_16:
               if ( a2 )
               {
                 if ( (((a3 - 3) & 0xFFFFFFFC) != 0 || a3 == 4)
-                  && (v36 = *(_QWORD *)(*(_QWORD *)(a2 + 8) + 168LL), *(_QWORD *)(*(_QWORD *)(a1 + 8) + 168LL) < v36) )
+                  && (v39 = *(_QWORD *)(*(_QWORD *)(a2 + 8) + 168LL), *(_QWORD *)(*(_QWORD *)(a1 + 8) + 168LL) < v39) )
                 {
-                  v34 = v53;
-                  *(_QWORD *)v53 = v36;
+                  v37 = v56;
+                  *(_QWORD *)v56 = v39;
                 }
                 else
                 {
-                  v34 = v53;
+                  v37 = v56;
                 }
                 if ( ((a3 - 2) & 0xFFFFFFFD) == 0 )
                 {
-                  LODWORD(v56[0]) = 0;
-                  v63 = 0LL;
-                  LODWORD(v53) = 0;
-                  memset(&SubjectContext, 0, sizeof(SubjectContext));
+                  LODWORD(v59[0]) = 0;
                   v66 = 0LL;
+                  LODWORD(v56) = 0;
+                  memset(&SubjectContext, 0, sizeof(SubjectContext));
+                  v69 = 0LL;
                   if ( (unsigned int)CmpFindSubKeyByNumberFromMergedView(
                                        *(_QWORD *)(a2 + 8),
                                        *(_QWORD *)(a1 + 8),
                                        -1,
                                        v10,
-                                       (__int64)&v61,
-                                       (__int64)&v63,
-                                       (__int64)&v53,
+                                       (__int64)&v64,
+                                       (__int64)&v66,
+                                       (__int64)&v56,
                                        0LL,
-                                       (__int64)v56) == -2147483622 )
+                                       (__int64)v59) == -2147483622 )
                   {
                     if ( a3 == 2 )
-                      v34[5] = v56[0];
+                      v37[5] = v59[0];
                     else
-                      v34[3] = v56[0];
+                      v37[3] = v59[0];
                   }
-                  LOBYTE(v35) = 1;
-                  if ( (unsigned int)CmEnumerateValueKeyFromMergedView(a1, a2, v35, -1, 0, 0LL, 0, 0LL, (__int64)v56) == -2147483622 )
+                  LOBYTE(v38) = 1;
+                  if ( (unsigned int)CmEnumerateValueKeyFromMergedView(a1, a2, v38, -1, 0, 0LL, 0, 0LL, (__int64)v59) == -2147483622 )
                   {
                     if ( a3 == 2 )
-                      v34[8] = v56[0];
+                      v37[8] = v59[0];
                     else
-                      v34[5] = v56[0];
+                      v37[5] = v59[0];
                   }
-                  KeyData = CmpQueryKeyData(*(_QWORD *)(a1 + 8), a3, (int)&SubjectContext, 48, v55, v10);
+                  KeyData = CmpQueryKeyData(*(_QWORD *)(a1 + 8), a3, (int)&SubjectContext, 48, v58, v10);
                   if ( (int)(KeyData + 0x80000000) < 0 || KeyData == -2147483643 )
                   {
                     if ( a3 == 2 )
                     {
-                      if ( LODWORD(SubjectContext.ProcessAuditId) > v34[6] )
-                        v34[6] = (unsigned int)SubjectContext.ProcessAuditId;
-                      if ( DWORD1(v66) > v34[9] )
-                        v34[9] = DWORD1(v66);
-                      if ( DWORD2(v66) > v34[10] )
-                        v34[10] = DWORD2(v66);
+                      if ( LODWORD(SubjectContext.ProcessAuditId) > v37[6] )
+                        v37[6] = (unsigned int)SubjectContext.ProcessAuditId;
+                      if ( DWORD1(v69) > v37[9] )
+                        v37[9] = DWORD1(v69);
+                      if ( DWORD2(v69) > v37[10] )
+                        v37[10] = DWORD2(v69);
                     }
                     else
                     {
-                      if ( LODWORD(SubjectContext.PrimaryToken) > v34[4] )
-                        v34[4] = (unsigned int)SubjectContext.PrimaryToken;
-                      if ( LODWORD(SubjectContext.ProcessAuditId) > v34[6] )
-                        v34[6] = (unsigned int)SubjectContext.ProcessAuditId;
-                      if ( HIDWORD(SubjectContext.ProcessAuditId) > v34[7] )
-                        v34[7] = HIDWORD(SubjectContext.ProcessAuditId);
+                      if ( LODWORD(SubjectContext.PrimaryToken) > v37[4] )
+                        v37[4] = (unsigned int)SubjectContext.PrimaryToken;
+                      if ( LODWORD(SubjectContext.ProcessAuditId) > v37[6] )
+                        v37[6] = (unsigned int)SubjectContext.ProcessAuditId;
+                      if ( HIDWORD(SubjectContext.ProcessAuditId) > v37[7] )
+                        v37[7] = HIDWORD(SubjectContext.ProcessAuditId);
                     }
                   }
                 }
               }
               else if ( CmpVEEnabled )
               {
-                v14 = *(_QWORD *)(a1 + 8);
-                if ( (*(_DWORD *)(v14 + 184) & 0x1000000) != 0 && ((a3 - 2) & 0xFFFFFFFD) == 0 )
+                v17 = *(_QWORD *)(a1 + 8);
+                if ( (*(_DWORD *)(v17 + 184) & 0x1000000) != 0 && ((a3 - 2) & 0xFFFFFFFD) == 0 )
                 {
-                  LODWORD(v57) = 0;
-                  v64 = 0LL;
-                  LODWORD(v55) = 0;
+                  LODWORD(v60) = 0;
+                  v67 = 0LL;
+                  LODWORD(v58) = 0;
                   KeyData = CmpFindSubKeyByNumberFromMergedView(
-                              v14,
+                              v17,
                               0,
                               -1,
                               v10,
-                              (__int64)&v61,
                               (__int64)&v64,
-                              (__int64)&v55,
+                              (__int64)&v67,
+                              (__int64)&v58,
                               0LL,
-                              (__int64)&v57);
+                              (__int64)&v60);
                   if ( KeyData == -2147483622 )
                   {
                     if ( a3 == 2 )
-                      v53[5] = (unsigned int)v57;
+                      v56[5] = (unsigned int)v60;
                     else
-                      v53[3] = (unsigned int)v57;
+                      v56[3] = (unsigned int)v60;
                     KeyData = 0;
                   }
                 }
@@ -386,50 +389,50 @@ LABEL_16:
             KeyData = -1073741789;
 LABEL_115:
             if ( a2 )
-              CmpUnlockTwoKcbs(*(_QWORD *)(a2 + 8), *(_QWORD *)(v60 + 8));
+              CmpUnlockTwoKcbs(*(_QWORD *)(a2 + 8), *(_QWORD *)(v63 + 8));
             else
-              CmpUnlockKcb(*(_QWORD *)(v60 + 8));
-            CmpDrainDelayDerefContext((_QWORD **)&v61);
-            CmpUnlockRegistry(v42);
+              CmpUnlockKcb(*(_QWORD *)(v63 + 8));
+            CmpDrainDelayDerefContext((_QWORD **)&v64);
+            CmpUnlockRegistry(v45);
             CmpDetachFromRegistryProcess(&ApcState);
             if ( P[1] )
             {
               ExFreePool(P[1]);
             }
-            else if ( v58 )
+            else if ( v61 )
             {
-              CmpFreeTransientPoolWithTag(v58, 0x624E4D43u);
+              CmpFreeTransientPoolWithTag(v61, 0x624E4D43u);
             }
             return (unsigned int)KeyData;
           default:
-            v54 = 0xFFFFFFFFLL;
+            v57 = 0xFFFFFFFFLL;
             if ( a3 == 4 )
             {
-              KeyData = CmpQueryKeyDataFromCache(v12, 4, (__int64)v53, a5, (_DWORD *)v55, v10);
+              KeyData = CmpQueryKeyDataFromCache(v15, 4, (__int64)v56, a5, (_DWORD *)v58, v10);
             }
             else
             {
-              v15 = *(_QWORD *)(v12 + 32);
-              if ( (*(_BYTE *)(v15 + 140) & 1) != 0 )
-                CellFlat = HvpGetCellFlat(v15, *(_DWORD *)(v12 + 40), (unsigned int *)&v54);
+              v18 = *(_QWORD *)(v15 + 32);
+              if ( (*(_BYTE *)(v18 + 140) & 1) != 0 )
+                CellFlat = HvpGetCellFlat(v18, *(_DWORD *)(v15 + 40), (unsigned int *)&v57);
               else
-                CellFlat = HvpGetCellPaged(v15);
+                CellFlat = HvpGetCellPaged(v18);
               if ( CellFlat )
               {
                 KeyData = CmpQueryKeyDataFromNode(
-                            *(_QWORD *)(v12 + 32),
+                            *(_QWORD *)(v15 + 32),
                             CellFlat,
                             a3,
-                            (__int64)v53,
+                            (__int64)v56,
                             a5,
-                            (_DWORD *)v55,
-                            v12,
+                            (_DWORD *)v58,
+                            v15,
                             v10);
-                v17 = *(_QWORD *)(v12 + 32);
-                if ( (*(_BYTE *)(v17 + 140) & 1) != 0 )
-                  HvpReleaseCellFlat(v17, &v54);
+                v20 = *(_QWORD *)(v15 + 32);
+                if ( (*(_BYTE *)(v20 + 140) & 1) != 0 )
+                  HvpReleaseCellFlat(v20, &v57);
                 else
-                  HvpReleaseCellPaged(v17, &v54);
+                  HvpReleaseCellPaged(v20, &v57);
               }
               else
               {
@@ -443,7 +446,7 @@ LABEL_15:
           goto LABEL_16;
         goto LABEL_115;
       }
-      v37 = *(_QWORD *)(a1 + 8);
+      v40 = *(_QWORD *)(a1 + 8);
       if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a1, v10) )
       {
         if ( (*(_BYTE *)(a1 + 48) & 1) != 0 )
@@ -457,55 +460,55 @@ LABEL_15:
       {
         KeyData = 0;
       }
-      if ( !*(_QWORD *)(v37 + 80) )
+      if ( !*(_QWORD *)(v40 + 80) )
       {
 LABEL_90:
         KeyData = -1073741670;
         goto LABEL_115;
       }
-      if ( CmpVEEnabled && (*(_DWORD *)(v37 + 184) & 0x1000000) != 0 )
+      if ( CmpVEEnabled && (*(_DWORD *)(v40 + 184) & 0x1000000) != 0 )
       {
-        if ( (int)CmVirtualKCBToRealPath(v37, P) < 0 )
+        if ( (int)CmVirtualKCBToRealPath(v40, P) < 0 )
         {
 LABEL_104:
-          if ( v58 )
+          if ( v61 )
           {
-            v40 = *(unsigned __int16 *)v58;
-            *(_DWORD *)v55 = v40 + 4;
+            v43 = *(unsigned __int16 *)v61;
+            *(_DWORD *)v58 = v43 + 4;
             if ( a5 < 4 )
             {
               KeyData = -1073741789;
             }
             else
             {
-              v41 = v53;
-              *v53 = v40;
-              if ( a5 - 4 < v40 )
+              v44 = v56;
+              *v56 = v43;
+              if ( a5 - 4 < v43 )
               {
-                v40 = a5 - 4;
+                v43 = a5 - 4;
                 KeyData = -2147483643;
               }
-              memmove(v41 + 1, v58[1], v40);
+              memmove(v44 + 1, v61[1], v43);
             }
             goto LABEL_15;
           }
           goto LABEL_90;
         }
-        v39 = (const void **)P;
+        v42 = (const void **)P;
       }
       else
       {
-        v39 = (const void **)CmpConstructName(v37, v38);
+        v42 = (const void **)CmpConstructName(v40, v41);
       }
-      v58 = v39;
+      v61 = v42;
       goto LABEL_104;
     }
-    CmpUnlockRegistry(v48);
+    CmpUnlockRegistry(v51);
     CmpDetachFromRegistryProcess(&ApcState);
     return (unsigned int)KeyData;
   }
-  LayeredKey = CmQueryLayeredKey(a1, a3, a4, a5, (unsigned int *)v55);
-  CmpUnlockRegistry(v51);
+  LayeredKey = CmQueryLayeredKey(a1, a3, a4, a5, (unsigned int *)v58);
+  CmpUnlockRegistry(v54);
   CmpDetachFromRegistryProcess(&ApcState);
   return LayeredKey;
 }

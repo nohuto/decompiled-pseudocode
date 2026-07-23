@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwOpenKeyedEvent()
+NTSTATUS __cdecl ZwOpenKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 284LL;
+  result = 284;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

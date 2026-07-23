@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProcessDereferenceList @ 0x140387B6C
+ * XREFs of MiProcessDereferenceList @ 0x140387CBC
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403BD430 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x14052A6FC (MiRemoveUnusedSegments.c)
+ *     MiDereferenceSegmentThread @ 0x1403BD5A0 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x14052A93C (MiRemoveUnusedSegments.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiProcessingPageExtendComplete @ 0x14052A23C (MiProcessingPageExtendComplete.c)
- *     MiRemoveUnusedSegments @ 0x14052A6FC (MiRemoveUnusedSegments.c)
- *     MiAttemptPageFileReduction @ 0x140542908 (MiAttemptPageFileReduction.c)
- *     MiFreeClonePool @ 0x14055A8C0 (MiFreeClonePool.c)
- *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
- *     MiExtendPagingFiles @ 0x1408D0630 (MiExtendPagingFiles.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiProcessingPageExtendComplete @ 0x14052A47C (MiProcessingPageExtendComplete.c)
+ *     MiRemoveUnusedSegments @ 0x14052A93C (MiRemoveUnusedSegments.c)
+ *     MiAttemptPageFileReduction @ 0x140542B48 (MiAttemptPageFileReduction.c)
+ *     MiFreeClonePool @ 0x14055AB00 (MiFreeClonePool.c)
+ *     MiSegmentDelete @ 0x1406FF4F0 (MiSegmentDelete.c)
+ *     MiExtendPagingFiles @ 0x1408D0790 (MiExtendPagingFiles.c)
  */
 
 __int64 __fastcall MiProcessDereferenceList(__int64 a1, int a2)
@@ -165,7 +165,7 @@ LABEL_77:
       *(_QWORD *)(v25 + 8) = v9;
       if ( v26[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)-1LL )
       {
-        if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 952)) )
+        if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 952)) )
         {
           ExReleaseSpinLockExclusiveFromDpcLevel(v3);
           if ( KiIrqlFlags )
@@ -187,7 +187,7 @@ LABEL_77:
           }
           __writecr8(v6);
           MiAttemptPageFileReduction(v26);
-          ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 952));
+          ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 952));
           v6 = ExAcquireSpinLockExclusive(v3);
         }
         if ( (v26[3].Header.SignalState & 0x10000000) == 0 )
@@ -222,10 +222,10 @@ LABEL_77:
           }
         }
         __writecr8(v6);
-        if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 952)) )
+        if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 952)) )
         {
           MiExtendPagingFiles(v51);
-          ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 952));
+          ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 952));
         }
         v36 = MiProcessingPageExtendComplete(v51, v26, a1);
         --*(_DWORD *)(a1 + 1868);

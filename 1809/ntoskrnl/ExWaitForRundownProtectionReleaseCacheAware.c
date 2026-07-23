@@ -1,10 +1,10 @@
 /*
  * XREFs of ExWaitForRundownProtectionReleaseCacheAware @ 0x14000E780
  * Callers:
- *     MiDrainCrossPartitionUsage @ 0x1402D1724 (MiDrainCrossPartitionUsage.c)
- *     RawVerifyVolume @ 0x1402EC294 (RawVerifyVolume.c)
- *     EtwpFreeLoggerContext @ 0x1406C08A0 (EtwpFreeLoggerContext.c)
- *     RawUserFsCtrl @ 0x1407004A0 (RawUserFsCtrl.c)
+ *     MiDrainCrossPartitionUsage @ 0x1402D1914 (MiDrainCrossPartitionUsage.c)
+ *     RawVerifyVolume @ 0x1402EC484 (RawVerifyVolume.c)
+ *     EtwpFreeLoggerContext @ 0x1406C1B40 (EtwpFreeLoggerContext.c)
+ *     RawUserFsCtrl @ 0x140701740 (RawUserFsCtrl.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  */

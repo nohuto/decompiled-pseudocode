@@ -1,7 +1,7 @@
 /*
- * XREFs of MiProtectAweRegion @ 0x1402B15BC
+ * XREFs of MiProtectAweRegion @ 0x1402B17AC
  * Callers:
- *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1405EEFD0 (MmProtectVirtualMemory.c)
  * Callees:
  *     MiMakeTransitionPteValid @ 0x14002CF4C (MiMakeTransitionPteValid.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -9,21 +9,21 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiGetAweNode @ 0x1402B0D18 (MiGetAweNode.c)
- *     MiLockAweVadsShared @ 0x1402B1314 (MiLockAweVadsShared.c)
- *     MiUnlockAweVadsShared @ 0x1402B20E0 (MiUnlockAweVadsShared.c)
- *     MiRewritePteWithLockBit @ 0x1402BF67C (MiRewritePteWithLockBit.c)
- *     MiGetVadCacheAttribute @ 0x1402CB0E4 (MiGetVadCacheAttribute.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121554 (MiInsertLargeTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiGetAweNode @ 0x1402B0F08 (MiGetAweNode.c)
+ *     MiLockAweVadsShared @ 0x1402B1504 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x1402B22D0 (MiUnlockAweVadsShared.c)
+ *     MiRewritePteWithLockBit @ 0x1402BF86C (MiRewritePteWithLockBit.c)
+ *     MiGetVadCacheAttribute @ 0x1402CB2D4 (MiGetVadCacheAttribute.c)
  */
 
 __int64 __fastcall MiProtectAweRegion(unsigned __int64 a1, unsigned __int64 a2, int a3, _DWORD *a4)
@@ -196,7 +196,7 @@ LABEL_79:
             if ( (unsigned int)MiPteHasShadow() )
             {
               v33 = 1;
-              if ( !HIBYTE(word_14043A1AC) )
+              if ( !HIBYTE(word_14043B26C) )
               {
                 v36 = (v34 & 1) == 0;
                 goto LABEL_43;
@@ -246,7 +246,7 @@ LABEL_78:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v38 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_62;
         v44 = (v42 & 1) == 0;
       }
@@ -278,7 +278,7 @@ LABEL_62:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v46 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
         v47 = (v25 & 1) == 0;
         goto LABEL_72;

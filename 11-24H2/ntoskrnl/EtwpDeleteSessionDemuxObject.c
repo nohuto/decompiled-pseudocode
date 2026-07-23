@@ -1,54 +1,54 @@
 /*
- * XREFs of EtwpDeleteSessionDemuxObject @ 0x1407ACF80
+ * XREFs of EtwpDeleteSessionDemuxObject @ 0x1407AD450
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
 {
-  unsigned __int64 *v1; // rsi
+  _RTL_BALANCED_NODE *v1; // rsi
   struct _LIST_ENTRY *Flink; // r14
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v5; // rbx
-  _QWORD *v6; // rax
-  _QWORD *v7; // rbp
+  char *v6; // rax
+  char *v7; // rbp
   __int64 v8; // rcx
   _QWORD *v9; // rax
   signed __int64 v10; // rax
   signed __int64 v11; // rdx
   signed __int64 v12; // rtt
 
-  v1 = (unsigned __int64 *)a1[3];
+  v1 = (_RTL_BALANCED_NODE *)a1[3];
   if ( v1 )
   {
     Flink = PsGetCurrentServerSiloGlobals()[52].Flink;
     CurrentThread = KeGetCurrentThread();
     v5 = (signed __int64 *)&Flink[273];
     --CurrentThread->KernelApcDisable;
-    v6 = KeAbPreAcquire((__int64)&Flink[273], 0LL);
+    v6 = (char *)KeAbPreAcquire((__int64)&Flink[273], 0LL);
     v7 = v6;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&Flink[273], 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Flink[273], (__int64)v6, (__int64)&Flink[273]);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Flink[273], v6, (__int64)&Flink[273]);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     v8 = *a1;
     if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v9 = (_QWORD *)a1[1], (_QWORD *)*v9 != a1) )
       __fastfail(3u);
     *v9 = v8;
     *(_QWORD *)(v8 + 8) = v9;
     a1[3] = 0LL;
-    if ( (unsigned __int64 *)v1[4] == v1 + 4 )
+    if ( v1[1].Children[1] == (_RTL_BALANCED_NODE *)&v1[1].Right )
     {
-      RtlRbRemoveNode((unsigned __int64 *)&Flink[272], v1);
+      RtlRbRemoveNode((PRTL_RB_TREE)&Flink[272], v1);
       ExFreePoolWithTag(v1, 0);
     }
     _m_prefetchw(v5);

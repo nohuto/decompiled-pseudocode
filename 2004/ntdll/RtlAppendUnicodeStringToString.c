@@ -23,24 +23,24 @@
  *     memmove @ 0x1800A3C00 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendUnicodeStringToString(unsigned __int16 *a1, const void **a2)
+NTSTATUS __cdecl RtlAppendUnicodeStringToString(PUNICODE_STRING Destination, PCUNICODE_STRING Source)
 {
-  unsigned int v2; // esi
+  unsigned int Length; // esi
   unsigned __int64 v4; // rcx
-  void *v5; // r14
+  wchar_t *v5; // r14
 
-  v2 = *(unsigned __int16 *)a2;
-  if ( !(_WORD)v2 )
-    return 0LL;
-  v4 = *a1;
-  if ( (unsigned int)v4 + v2 <= a1[1] )
+  Length = Source->Length;
+  if ( !(_WORD)Length )
+    return 0;
+  v4 = Destination->Length;
+  if ( (unsigned int)v4 + Length <= Destination->MaximumLength )
   {
-    v5 = (void *)(*((_QWORD *)a1 + 1) + 2 * (v4 >> 1));
-    memmove(v5, a2[1], *(unsigned __int16 *)a2);
-    *a1 += v2;
-    if ( (unsigned int)*a1 + 1 < a1[1] )
-      *((_WORD *)v5 + ((unsigned __int64)v2 >> 1)) = 0;
-    return 0LL;
+    v5 = &Destination->Buffer[v4 >> 1];
+    memmove(v5, Source->Buffer, Source->Length);
+    Destination->Length += Length;
+    if ( (unsigned int)Destination->Length + 1 < Destination->MaximumLength )
+      v5[(unsigned __int64)Length >> 1] = 0;
+    return 0;
   }
-  return 3221225507LL;
+  return -1073741789;
 }

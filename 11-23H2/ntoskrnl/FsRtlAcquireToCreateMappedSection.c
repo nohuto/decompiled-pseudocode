@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlAcquireToCreateMappedSection @ 0x14072380C
+ * XREFs of FsRtlAcquireToCreateMappedSection @ 0x140723A0C
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x140305100 (FsRtlCreateSectionForDataScan.c)
- *     MiCallCreateSectionFilters @ 0x140723750 (MiCallCreateSectionFilters.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140305390 (FsRtlCreateSectionForDataScan.c)
+ *     MiCallCreateSectionFilters @ 0x140723950 (MiCallCreateSectionFilters.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x140723B20 (FsRtlAcquireFileExclusiveCommon.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x140723D20 (FsRtlAcquireFileExclusiveCommon.c)
  */
 
 __int64 __fastcall FsRtlAcquireToCreateMappedSection(

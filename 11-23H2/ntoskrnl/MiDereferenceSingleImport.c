@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDereferenceSingleImport @ 0x1407E96A8
+ * XREFs of MiDereferenceSingleImport @ 0x1407E9978
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x1406AE074 (MiResolveImageReferences.c)
  * Callees:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiUnloadApproved @ 0x1407E96DC (MiUnloadApproved.c)
+ *     MiUnloadApproved @ 0x1407E99AC (MiUnloadApproved.c)
  */
 
 __int64 __fastcall MiDereferenceSingleImport(ULONG_PTR BugCheckParameter2)

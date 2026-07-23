@@ -16,7 +16,7 @@ int __thiscall LdrpLogRelativePathWithAlteredSearchError(void *this)
   int *Buffer; // esi
   int result; // eax
   int v6; // ecx
-  _BYTE v7[32]; // [esp+8h] [ebp-48h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+8h] [ebp-48h] BYREF
   _BYTE v8[16]; // [esp+28h] [ebp-28h] BYREF
   _BYTE v9[20]; // [esp+38h] [ebp-18h] BYREF
 
@@ -32,7 +32,7 @@ int __thiscall LdrpLogRelativePathWithAlteredSearchError(void *this)
     {
       _tlgCreate1Sz_wchar_t(v8, this);
       _tlgCreate1Sz_wchar_t(v9, Buffer);
-      return _tlgWriteTransfer_EtwEventWriteTransfer(v6, v6, 4, v7);
+      return _tlgWriteTransfer_EtwEventWriteTransfer(v6, v6, 4u, &UserData);
     }
   }
   return result;

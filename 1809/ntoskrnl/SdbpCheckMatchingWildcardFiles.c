@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpCheckMatchingWildcardFiles @ 0x1408E69E0
+ * XREFs of SdbpCheckMatchingWildcardFiles @ 0x1408E7CA0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
- *     AslFileMappingCreate @ 0x14067E47C (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x14067E964 (AslFileMappingDelete.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbpCheckAllAttributes @ 0x140720344 (SdbpCheckAllAttributes.c)
- *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
- *     SdbpResolveMatchingFile @ 0x140721A74 (SdbpResolveMatchingFile.c)
- *     SdbpInitializeSearchDBContext @ 0x140722578 (SdbpInitializeSearchDBContext.c)
- *     AslPathWildcardFindClose @ 0x1408EA4A8 (AslPathWildcardFindClose.c)
- *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x1408EAAC4 (AslPathWildcardFindNext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SdbFindFirstTag @ 0x14067E340 (SdbFindFirstTag.c)
+ *     AslFileMappingCreate @ 0x14067F63C (AslFileMappingCreate.c)
+ *     AslFileMappingDelete @ 0x14067FB24 (AslFileMappingDelete.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbpCheckAllAttributes @ 0x1407215E4 (SdbpCheckAllAttributes.c)
+ *     SdbGetStringTagPtr @ 0x1407229B0 (SdbGetStringTagPtr.c)
+ *     SdbpResolveMatchingFile @ 0x140722D14 (SdbpResolveMatchingFile.c)
+ *     SdbpInitializeSearchDBContext @ 0x140723818 (SdbpInitializeSearchDBContext.c)
+ *     AslPathWildcardFindClose @ 0x1408EB768 (AslPathWildcardFindClose.c)
+ *     AslPathWildcardFindFirst @ 0x1408EB7A8 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1408EBD84 (AslPathWildcardFindNext.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingWildcardFiles(

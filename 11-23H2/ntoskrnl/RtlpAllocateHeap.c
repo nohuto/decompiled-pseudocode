@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpAllocateHeap @ 0x1405AB248
+ * XREFs of RtlpAllocateHeap @ 0x1405AB7B8
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x14034CB38 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x14034CCD8 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     RtlpHpHeapCheckCommitLimit @ 0x1403246B8 (RtlpHpHeapCheckCommitLimit.c)
- *     DbgPrint @ 0x14032A6F0 (DbgPrint.c)
- *     RtlCompareMemoryUlong @ 0x1404298A0 (RtlCompareMemoryUlong.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpCreateSplitBlock @ 0x1405ABFC8 (RtlpCreateSplitBlock.c)
- *     RtlpExtendHeap @ 0x1405ACDF8 (RtlpExtendHeap.c)
- *     RtlpHpAllocVirtBlockCommitFirst @ 0x1405AD820 (RtlpHpAllocVirtBlockCommitFirst.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405B4CF8 (RtlpAnalyzeHeapFailure.c)
- *     RtlpFindEntry @ 0x1405B53D0 (RtlpFindEntry.c)
- *     RtlpHeapRemoveListEntry @ 0x1405B57C0 (RtlpHeapRemoveListEntry.c)
- *     RtlGetNtGlobalFlags @ 0x1409BD740 (RtlGetNtGlobalFlags.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x140324948 (RtlpHpHeapCheckCommitLimit.c)
+ *     DbgPrint @ 0x14032A980 (DbgPrint.c)
+ *     RtlCompareMemoryUlong @ 0x140429C30 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpCreateSplitBlock @ 0x1405AC538 (RtlpCreateSplitBlock.c)
+ *     RtlpExtendHeap @ 0x1405AD368 (RtlpExtendHeap.c)
+ *     RtlpHpAllocVirtBlockCommitFirst @ 0x1405ADD90 (RtlpHpAllocVirtBlockCommitFirst.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405B5268 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpFindEntry @ 0x1405B5940 (RtlpFindEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x1405B5D30 (RtlpHeapRemoveListEntry.c)
+ *     RtlGetNtGlobalFlags @ 0x1409BD940 (RtlGetNtGlobalFlags.c)
  */
 
 _DWORD *__fastcall RtlpAllocateHeap(

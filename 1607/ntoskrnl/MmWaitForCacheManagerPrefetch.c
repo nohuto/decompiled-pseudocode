@@ -1,14 +1,14 @@
 /*
- * XREFs of MmWaitForCacheManagerPrefetch @ 0x1400224D0
+ * XREFs of MmWaitForCacheManagerPrefetch @ 0x140022050
  * Callers:
- *     CcFetchDataForRead @ 0x140032F50 (CcFetchDataForRead.c)
- *     CcPerformReadAhead @ 0x140072334 (CcPerformReadAhead.c)
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x1400A97EC (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     CcFetchDataForRead @ 0x140032AD0 (CcFetchDataForRead.c)
+ *     CcPerformReadAhead @ 0x140071EB4 (CcPerformReadAhead.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x1400A7D6C (MmWaitMultipleForCacheManagerPrefetch.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiPfCompletePrefetchIos @ 0x140023914 (MiPfCompletePrefetchIos.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiPfCompletePrefetchIos @ 0x140023494 (MiPfCompletePrefetchIos.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiReleaseReadListResources @ 0x14042C750 (MiReleaseReadListResources.c)
+ *     MiReleaseReadListResources @ 0x14042B620 (MiReleaseReadListResources.c)
  */
 
 __int64 __fastcall MmWaitForCacheManagerPrefetch(_BYTE *P)

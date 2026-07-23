@@ -1,14 +1,14 @@
 /*
- * XREFs of VfPtProcessFreePoolInfo @ 0x140C2A308
+ * XREFs of VfPtProcessFreePoolInfo @ 0x140C30318
  * Callers:
- *     ViPtProcessApt @ 0x140C2A7C0 (ViPtProcessApt.c)
+ *     ViPtProcessApt @ 0x140C307D0 (ViPtProcessApt.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x140641CBC (ViPtAcquireTreeLockAtDpcLevelSafe.c)
- *     ViPtCleanupLockContext @ 0x140641D2C (ViPtCleanupLockContext.c)
- *     ViPtInitializeLockContext @ 0x140641D88 (ViPtInitializeLockContext.c)
- *     ViPtRaiseIrqlSafe @ 0x140641D9C (ViPtRaiseIrqlSafe.c)
- *     ViPtReleaseTreeLockFromDpcLevel @ 0x140641DF4 (ViPtReleaseTreeLockFromDpcLevel.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x14064589C (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x14064590C (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x140645968 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x14064597C (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x1406459D4 (ViPtReleaseTreeLockFromDpcLevel.c)
  */
 
 BOOLEAN __fastcall VfPtProcessFreePoolInfo(_QWORD *a1)

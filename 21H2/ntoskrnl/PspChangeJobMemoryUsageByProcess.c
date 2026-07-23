@@ -1,18 +1,18 @@
 /*
- * XREFs of PspChangeJobMemoryUsageByProcess @ 0x140680630
+ * XREFs of PspChangeJobMemoryUsageByProcess @ 0x1405DB0D0
  * Callers:
- *     MiReturnFullProcessCharges @ 0x140318370 (MiReturnFullProcessCharges.c)
- *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
- *     MmAssignProcessToJob @ 0x140605C30 (MmAssignProcessToJob.c)
- *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
+ *     MiReturnFullProcessCharges @ 0x1403230C0 (MiReturnFullProcessCharges.c)
+ *     MmDeleteProcessAddressSpace @ 0x14067C848 (MmDeleteProcessAddressSpace.c)
+ *     MiChargeFullProcessCommitment @ 0x1406E8830 (MiChargeFullProcessCommitment.c)
+ *     MmAssignProcessToJob @ 0x1406F55A0 (MmAssignProcessToJob.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     PspSendJobNotification @ 0x1402C3DCC (PspSendJobNotification.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     PspUnlockJobMemoryLimitsExclusive @ 0x1406140A8 (PspUnlockJobMemoryLimitsExclusive.c)
- *     PspScheduleEnforcementWorker @ 0x1406809A0 (PspScheduleEnforcementWorker.c)
+ *     PspSendJobNotification @ 0x14024234C (PspSendJobNotification.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     PspScheduleEnforcementWorker @ 0x1405DB440 (PspScheduleEnforcementWorker.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x14067DD08 (PspUnlockJobMemoryLimitsExclusive.c)
  */
 
 char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3, __int64 a4)
@@ -34,47 +34,46 @@ char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3
   unsigned __int64 v22; // rax
   unsigned __int64 v23; // rax
   unsigned __int64 v24; // rcx
-  $C459BD0D405E8E46662177FB3D0A143F *v25; // rcx
+  __int64 v25; // rax
   __int64 v26; // rax
-  __int64 v27; // rax
   __int64 i; // rdi
-  int v29; // [rsp+20h] [rbp-68h]
-  __int64 v30; // [rsp+28h] [rbp-60h]
+  int v28; // [rsp+20h] [rbp-68h]
+  __int64 v29; // [rsp+28h] [rbp-60h]
+  __int64 v30; // [rsp+30h] [rbp-58h]
   __int64 v31; // [rsp+30h] [rbp-58h]
-  __int64 v32; // [rsp+30h] [rbp-58h]
-  unsigned __int64 v33; // [rsp+38h] [rbp-50h]
-  __int64 v35; // [rsp+A0h] [rbp+18h]
-  __int64 v36; // [rsp+A8h] [rbp+20h]
+  unsigned __int64 v32; // [rsp+38h] [rbp-50h]
+  __int64 v34; // [rsp+A0h] [rbp+18h]
+  __int64 v35; // [rsp+A8h] [rbp+20h]
 
-  v36 = a4;
-  v35 = a3;
+  v35 = a4;
+  v34 = a3;
   if ( (a1 & 2) == 0 || !*(_QWORD *)(a3 + 1296) )
     return 1;
   v6 = 1;
   CurrentThread = KeGetCurrentThread();
-  v29 = 0;
-  v30 = 0LL;
-  v31 = *(_QWORD *)(*(_QWORD *)(a3 + 1256) + 1080LL);
+  v28 = 0;
+  v29 = 0LL;
+  v30 = *(_QWORD *)(*(_QWORD *)(a3 + 1256) + 1080LL);
   if ( CurrentThread )
     --CurrentThread->SpecialApcDisable;
-  if ( v31 )
+  if ( v30 )
   {
-    ExAcquirePushLockExclusiveEx(v31 + 1032, 0LL);
-    a4 = v36;
-    a3 = v35;
+    ExAcquirePushLockExclusiveEx(v30 + 1032, 0LL);
+    a4 = v35;
+    a3 = v34;
   }
-  v8 = v31;
+  v8 = v30;
   if ( (a1 & 4) != 0 )
   {
     v9 = a4;
     a4 = 0LL;
-    v36 = 0LL;
+    v35 = 0LL;
   }
   else
   {
     v9 = *(_QWORD *)(a3 + 1256);
   }
-  v32 = v9;
+  v31 = v9;
   v10 = v9;
   if ( v9 != a4 )
   {
@@ -90,28 +89,28 @@ char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3
         if ( v13 > v12 )
         {
           PspUnlockJobMemoryLimitsExclusive(v10, v8, 0LL);
-          v27 = v10;
+          v26 = v10;
           if ( !v6 )
-            v27 = v30;
+            v26 = v29;
           v6 = 0;
-          v30 = v27;
+          v29 = v26;
           goto LABEL_28;
         }
       }
       else if ( v13 < v12 )
       {
         PspUnlockJobMemoryLimitsExclusive(v10, v8, 0LL);
-        v26 = v10;
+        v25 = v10;
         if ( !v6 )
-          v26 = v30;
+          v25 = v29;
         v6 = 0;
-        v30 = v26;
+        v29 = v25;
         goto LABEL_28;
       }
       v14 = 0;
       v15 = *(_DWORD *)(v10 + 256);
       v16 = v13 + *(_QWORD *)(v10 + 1336);
-      v33 = v16;
+      v32 = v16;
       if ( (v15 & 0x200000) != 0 && v16 > *(_QWORD *)(v10 + 592) )
         v14 = a2 > 0;
       if ( (v15 & 0x200) != 0 && v13 > *(_QWORD *)(v10 + 584) && a2 > 0 || v14 )
@@ -134,7 +133,7 @@ LABEL_19:
             v22 = *(_QWORD *)(v17 + 32);
             if ( v22 && a2 <= 0 && v16 < v22 )
               v21 |= 0x8000u;
-            v29 |= v21;
+            v28 |= v21;
           }
         }
       }
@@ -142,7 +141,7 @@ LABEL_19:
       {
         if ( v13 > *(_QWORD *)(v10 + 608) )
           *(_QWORD *)(v10 + 608) = v13;
-        v11 = *(_QWORD *)(v35 + 1608);
+        v11 = *(_QWORD *)(v34 + 1608);
       }
       if ( v10 != v8 )
       {
@@ -163,16 +162,16 @@ LABEL_19:
       }
 LABEL_28:
       v10 = *(_QWORD *)(v10 + 1072);
-      if ( v10 == v36 )
+      if ( v10 == v35 )
       {
         if ( v6 )
         {
-          if ( v29 )
-            PspScheduleEnforcementWorker(v8);
+          if ( v28 )
+            PspScheduleEnforcementWorker(v8, 1LL);
         }
         else
         {
-          for ( i = v32; i != v30; i = *(_QWORD *)(i + 1072) )
+          for ( i = v31; i != v29; i = *(_QWORD *)(i + 1072) )
           {
             if ( i != v8 )
               ExAcquirePushLockExclusiveEx(i + 1032, 0LL);
@@ -189,14 +188,14 @@ LABEL_28:
     }
     else if ( v6 )
     {
-      v30 = v10;
+      v29 = v10;
       v6 = 0;
     }
-    if ( *(_QWORD *)(v10 + 456) && (*(_DWORD *)(v10 + 876) & 0x200) != 0 && (*(_DWORD *)(v35 + 1120) & 0x24) == 4 )
+    if ( *(_QWORD *)(v10 + 456) && (*(_DWORD *)(v10 + 876) & 0x200) != 0 && (*(_DWORD *)(v34 + 1120) & 0x24) == 4 )
     {
-      _InterlockedOr((volatile signed __int32 *)(v35 + 1120), 0x20u);
-      PspSendJobNotification(v10, 10LL, *(_QWORD *)(v35 + 1088), 1);
-      v16 = v33;
+      _InterlockedOr((volatile signed __int32 *)(v34 + 1120), 0x20u);
+      PspSendJobNotification(v10, 10LL, *(_QWORD *)(v34 + 1088), 1);
+      v16 = v32;
     }
     goto LABEL_19;
   }
@@ -209,11 +208,10 @@ LABEL_32:
   }
   if ( CurrentThread )
   {
-    if ( CurrentThread->SpecialApcDisable++ == -1 )
+    if ( CurrentThread->SpecialApcDisable++ == -1
+      && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     {
-      v25 = &CurrentThread->152;
-      if ( ($C459BD0D405E8E46662177FB3D0A143F *)v25->ApcState.ApcListHead[0].Flink != v25 )
-        KiCheckForKernelApcDelivery((__int64)v25);
+      KiCheckForKernelApcDelivery();
     }
   }
   return v6;

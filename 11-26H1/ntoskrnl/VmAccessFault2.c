@@ -1,9 +1,9 @@
 /*
- * XREFs of VmAccessFault2 @ 0x14081BDA0
+ * XREFs of VmAccessFault2 @ 0x140821FB0
  * Callers:
  *     <none>
  * Callees:
- *     VmpAccessFault @ 0x14081C2B4 (VmpAccessFault.c)
+ *     VmpAccessFault @ 0x1408224C4 (VmpAccessFault.c)
  */
 
 __int64 __fastcall VmAccessFault2(int a1, int a2, int a3, int a4, int a5, int a6, int a7, __int64 a8)

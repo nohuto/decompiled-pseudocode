@@ -14,7 +14,7 @@ __int64 MiInitializeZeroingAttributes()
   _DWORD *v3; // rcx
 
   LODWORD(result) = 0;
-  v1 = (unsigned int *)&unk_140326A20;
+  v1 = (unsigned int *)&unk_140326A60;
   for ( i = 0; i < 3; ++i )
   {
     *v1 = i;
@@ -23,7 +23,7 @@ __int64 MiInitializeZeroingAttributes()
     v1[3] = i;
     v1 += 4;
   }
-  v3 = &unk_140326A50;
+  v3 = &unk_140326A90;
   do
   {
     *v3 = result;
@@ -31,6 +31,6 @@ __int64 MiInitializeZeroingAttributes()
     ++v3;
   }
   while ( (unsigned int)result <= 3 );
-  dword_140326A5C = 1;
+  dword_140326A9C = 1;
   return result;
 }

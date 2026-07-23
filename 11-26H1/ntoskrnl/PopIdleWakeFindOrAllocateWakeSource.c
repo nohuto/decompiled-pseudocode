@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIdleWakeFindOrAllocateWakeSource @ 0x1406107E8
+ * XREFs of PopIdleWakeFindOrAllocateWakeSource @ 0x140613A48
  * Callers:
- *     PopIdleWakeNotifyWakeSource @ 0x140610904 (PopIdleWakeNotifyWakeSource.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x140613B64 (PopIdleWakeNotifyWakeSource.c)
  * Callees:
- *     PopIdleWakeAreIdenticalWakeSources @ 0x1406105F8 (PopIdleWakeAreIdenticalWakeSources.c)
- *     PopIdleWakeAssignAccountingToSource @ 0x140610698 (PopIdleWakeAssignAccountingToSource.c)
+ *     PopIdleWakeAreIdenticalWakeSources @ 0x14061385C (PopIdleWakeAreIdenticalWakeSources.c)
+ *     PopIdleWakeAssignAccountingToSource @ 0x1406138FC (PopIdleWakeAssignAccountingToSource.c)
  */
 
 __int64 __fastcall PopIdleWakeFindOrAllocateWakeSource(__int64 a1, int a2, __int64 a3)

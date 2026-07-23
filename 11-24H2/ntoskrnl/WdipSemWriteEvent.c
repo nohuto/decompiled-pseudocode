@@ -1,18 +1,18 @@
 /*
- * XREFs of WdipSemWriteEvent @ 0x140A833D4
+ * XREFs of WdipSemWriteEvent @ 0x140A7DEF4
  * Callers:
- *     WdipSemUpdateProviderTableWithEvent @ 0x1407A2228 (WdipSemUpdateProviderTableWithEvent.c)
- *     WdipSemWriteInflightLimitExceededEvent @ 0x1407A2C64 (WdipSemWriteInflightLimitExceededEvent.c)
- *     WdipSemWriteMisconfigEvent @ 0x1407A2D4C (WdipSemWriteMisconfigEvent.c)
- *     WdipSemWriteScenarioLimitExceededEvent @ 0x1407A2DDC (WdipSemWriteScenarioLimitExceededEvent.c)
- *     WdipSemWriteSemFailureEvent @ 0x1407A2E64 (WdipSemWriteSemFailureEvent.c)
- *     WdipSemSqmAddToStream @ 0x1407A34C4 (WdipSemSqmAddToStream.c)
- *     WdipSemSqmIncrementDword @ 0x1407A3628 (WdipSemSqmIncrementDword.c)
- *     WdipSemSqmInit @ 0x1407A36C8 (WdipSemSqmInit.c)
- *     WdipSemWriteSemActionsEvent @ 0x140AA4368 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemUpdateProviderTableWithEvent @ 0x1407A2338 (WdipSemUpdateProviderTableWithEvent.c)
+ *     WdipSemWriteInflightLimitExceededEvent @ 0x1407A2D74 (WdipSemWriteInflightLimitExceededEvent.c)
+ *     WdipSemWriteMisconfigEvent @ 0x1407A2E5C (WdipSemWriteMisconfigEvent.c)
+ *     WdipSemWriteScenarioLimitExceededEvent @ 0x1407A2EEC (WdipSemWriteScenarioLimitExceededEvent.c)
+ *     WdipSemWriteSemFailureEvent @ 0x1407A2F74 (WdipSemWriteSemFailureEvent.c)
+ *     WdipSemSqmAddToStream @ 0x1407A35D4 (WdipSemSqmAddToStream.c)
+ *     WdipSemSqmIncrementDword @ 0x1407A3738 (WdipSemSqmIncrementDword.c)
+ *     WdipSemSqmInit @ 0x1407A37D8 (WdipSemSqmInit.c)
+ *     WdipSemWriteSemActionsEvent @ 0x140A9F6F8 (WdipSemWriteSemActionsEvent.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
  */
 
 NTSTATUS __fastcall WdipSemWriteEvent(

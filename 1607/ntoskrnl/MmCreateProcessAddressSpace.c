@@ -1,42 +1,42 @@
 /*
- * XREFs of MmCreateProcessAddressSpace @ 0x1405261BC
+ * XREFs of MmCreateProcessAddressSpace @ 0x14050921C
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
- *     MiMarkPageActive @ 0x1400214D4 (MiMarkPageActive.c)
- *     MiInitializePfnForOtherProcess @ 0x140021708 (MiInitializePfnForOtherProcess.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     PsReturnProcessQuota @ 0x1400750A4 (PsReturnProcessQuota.c)
- *     MiCheckWsLimits @ 0x1400AD810 (MiCheckWsLimits.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiSyncSystemPdes @ 0x14010164C (MiSyncSystemPdes.c)
- *     MiCopyTopLevelMappings @ 0x140101694 (MiCopyTopLevelMappings.c)
- *     MiInsertNewProcess @ 0x140101794 (MiInsertNewProcess.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     PsChargeProcessQuota @ 0x1401035B8 (PsChargeProcessQuota.c)
- *     PsGetDefaultWsMaximum @ 0x1401035DC (PsGetDefaultWsMaximum.c)
- *     MiJoinPartition @ 0x1401035E4 (MiJoinPartition.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiReturnPartitionResidentAvailable @ 0x1401718E8 (MiReturnPartitionResidentAvailable.c)
- *     KeMakeKernelDirectoryTableBase @ 0x1401DBB88 (KeMakeKernelDirectoryTableBase.c)
- *     MiDeleteProcessShadow @ 0x1401EF1E4 (MiDeleteProcessShadow.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MiWaitForFreePage @ 0x1401F41DC (MiWaitForFreePage.c)
- *     RtlRandomEx @ 0x1404E91F8 (RtlRandomEx.c)
- *     MiJoinSession @ 0x140526748 (MiJoinSession.c)
- *     MiAllocateTopLevelPage @ 0x140656D60 (MiAllocateTopLevelPage.c)
- *     MiAllocateProcessShadow @ 0x14065B8D0 (MiAllocateProcessShadow.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
+ *     MiMarkPageActive @ 0x140021054 (MiMarkPageActive.c)
+ *     MiInitializePfnForOtherProcess @ 0x140021288 (MiInitializePfnForOtherProcess.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     PsReturnProcessQuota @ 0x140075124 (PsReturnProcessQuota.c)
+ *     MiCheckWsLimits @ 0x1400ABD78 (MiCheckWsLimits.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiSyncSystemPdes @ 0x1400FF3CC (MiSyncSystemPdes.c)
+ *     MiCopyTopLevelMappings @ 0x1400FF414 (MiCopyTopLevelMappings.c)
+ *     MiInsertNewProcess @ 0x1400FF514 (MiInsertNewProcess.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     PsChargeProcessQuota @ 0x140101338 (PsChargeProcessQuota.c)
+ *     PsGetDefaultWsMaximum @ 0x14010135C (PsGetDefaultWsMaximum.c)
+ *     MiJoinPartition @ 0x140101364 (MiJoinPartition.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiReturnPartitionResidentAvailable @ 0x140171DE4 (MiReturnPartitionResidentAvailable.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x1401DB9B4 (KeMakeKernelDirectoryTableBase.c)
+ *     MiDeleteProcessShadow @ 0x1401EF010 (MiDeleteProcessShadow.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiWaitForFreePage @ 0x1401F4008 (MiWaitForFreePage.c)
+ *     RtlRandomEx @ 0x1404CB2E8 (RtlRandomEx.c)
+ *     MiJoinSession @ 0x1405097A8 (MiJoinSession.c)
+ *     MiAllocateTopLevelPage @ 0x140656E44 (MiAllocateTopLevelPage.c)
+ *     MiAllocateProcessShadow @ 0x14065B9B4 (MiAllocateProcessShadow.c)
  */
 
 char __fastcall MmCreateProcessAddressSpace(__int64 a1, __int64 a2, unsigned __int64 a3, char a4, ULONG_PTR a5)
@@ -143,7 +143,7 @@ LABEL_41:
     PsReturnProcessQuota(a5, v10, v8);
     goto LABEL_42;
   }
-  v47 = MiReservePtes((__int64)&qword_140327870, 4uLL, v11);
+  v47 = MiReservePtes((__int64)&qword_1403278B0, 4uLL, v11);
   if ( !v47 )
   {
 LABEL_14:
@@ -156,7 +156,7 @@ LABEL_14:
   if ( (int)MiAllocateProcessShadow(a5) < 0 )
   {
 LABEL_13:
-    MiReleasePtes((__int64)&qword_140327870, v47, 4u);
+    MiReleasePtes((__int64)&qword_1403278B0, v47, 4u);
     goto LABEL_14;
   }
   if ( !(unsigned int)MiJoinSession(&v56) )
@@ -164,7 +164,7 @@ LABEL_13:
     MiDeleteProcessShadow(a5);
     goto LABEL_13;
   }
-  _InterlockedExchangeAdd64(&qword_140327910, 5uLL);
+  _InterlockedExchangeAdd64(&qword_140327950, 5uLL);
   TopLevelPage = MiAllocateTopLevelPage(a5, v47);
   v55 = ~qword_1403A9350 & (MiMakeValidKernelPte(TopLevelPage, 6, 0LL) & 0xFFFFFFFFFFFFFEBDuLL | 0x42);
   v57 = v55;
@@ -191,7 +191,7 @@ LABEL_13:
     --v14;
   }
   while ( v14 );
-  PteAddress = MiGetPteAddress(qword_140327F90 + 276840816);
+  PteAddress = MiGetPteAddress(qword_140327FD0 + 276840816);
   v21 = v47;
   for ( i = 0; i < 4; i = v25 + v24 )
   {
@@ -218,7 +218,7 @@ LABEL_13:
       if ( MiPteInShadowRange(v30) )
         MiWritePteShadow(v32, v31);
       if ( (_DWORD)v27 == 3 )
-        v29 = ~qword_1403A9350 & (v29 | 0x8000000000000100uLL) ^ ((unsigned __int16)~(_WORD)qword_1403A9350 ^ (unsigned __int16)(HIBYTE(word_140326AA8) << 8)) & 0x100;
+        v29 = ~qword_1403A9350 & (v29 | 0x8000000000000100uLL) ^ ((unsigned __int16)~(_WORD)qword_1403A9350 ^ (unsigned __int16)(HIBYTE(word_140326AE8) << 8)) & 0x100;
     }
     else
     {
@@ -261,6 +261,6 @@ LABEL_13:
   v45 = MI_GET_PAGE_FRAME_FROM_PTE((__int64)&v57);
   *(_QWORD *)(v35 + 40) = KeMakeKernelDirectoryTableBase(v45 << 12);
   MiSyncSystemPdes(v35);
-  MiReleasePtes((__int64)&qword_140327870, v21, 4u);
+  MiReleasePtes((__int64)&qword_1403278B0, v21, 4u);
   return 1;
 }

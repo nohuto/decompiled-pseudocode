@@ -11,13 +11,19 @@
  *     AlpcpDeleteBlob @ 0x14047CE68 (AlpcpDeleteBlob.c)
  */
 
-__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __int64 a4, _QWORD *a5, _QWORD *a6)
+NTSTATUS __cdecl NtAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   _QWORD *v10; // rcx
   _QWORD *v11; // rcx
-  NTSTATUS Section; // ebx
+  int Section; // ebx
   PVOID v13; // rsi
   ULONG_PTR v14; // rdi
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-18h] BYREF
@@ -26,7 +32,7 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a2 & 0xFFFBFFFF) != 0 || (a2 & 0x40000) != 0 && a3 )
+  if ( (Flags & 0xFFFBFFFF) != 0 || (Flags & 0x40000) != 0 && SectionHandle )
   {
     Section = -1073741811;
   }
@@ -34,17 +40,17 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __
   {
     if ( PreviousMode )
     {
-      v10 = a5;
-      if ( (unsigned __int64)a5 >= MmUserProbeAddress )
+      v10 = AlpcSectionHandle;
+      if ( (unsigned __int64)AlpcSectionHandle >= MmUserProbeAddress )
         v10 = (_QWORD *)MmUserProbeAddress;
       *v10 = *v10;
-      v11 = a6;
-      if ( (unsigned __int64)a6 >= MmUserProbeAddress )
+      v11 = ActualSectionSize;
+      if ( (unsigned __int64)ActualSectionSize >= MmUserProbeAddress )
         v11 = (_QWORD *)MmUserProbeAddress;
       *v11 = *v11;
     }
     Section = ObReferenceObjectByHandle(
-                Handle,
+                PortHandle,
                 1u,
                 AlpcPortObjectType,
                 KeGetCurrentThread()->PreviousMode,
@@ -53,17 +59,17 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __
     if ( Section >= 0 )
     {
       v13 = Object;
-      Section = AlpcpCreateSection(Object, a4, (__int64)&BugCheckParameter2);
+      Section = AlpcpCreateSection(Object, SectionSize, (__int64)&BugCheckParameter2);
       if ( Section >= 0 )
       {
         v14 = BugCheckParameter2;
-        *a5 = *(_QWORD *)(BugCheckParameter2 + 24);
-        *a6 = *(_QWORD *)(v14 + 8);
+        *AlpcSectionHandle = *(HANDLE *)(BugCheckParameter2 + 24);
+        *ActualSectionSize = *(_QWORD *)(v14 + 8);
         AlpcpDereferenceBlobEx(v14, 1);
       }
       ObfDereferenceObject(v13);
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)Section;
+  return Section;
 }

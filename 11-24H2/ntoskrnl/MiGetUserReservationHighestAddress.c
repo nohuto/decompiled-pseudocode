@@ -1,10 +1,9 @@
 /*
- * XREFs of MiGetUserReservationHighestAddress @ 0x1409C3960
+ * XREFs of MiGetUserReservationHighestAddress @ 0x1408DC990
  * Callers:
- *     MiMapImageInSystemProcess @ 0x1407ED868 (MiMapImageInSystemProcess.c)
- *     MiAllocateEnclaveVad @ 0x1407F6D40 (MiAllocateEnclaveVad.c)
- *     MiMapExParametersInitialize @ 0x14099F5A8 (MiMapExParametersInitialize.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409C3660 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapImageInSystemProcess @ 0x1407EDE38 (MiMapImageInSystemProcess.c)
+ *     MiAllocateEnclaveVad @ 0x1407F74B4 (MiAllocateEnclaveVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1408DD544 (MiAllocateNewSubAllocatedRegion.c)
  * Callees:
  *     <none>
  */

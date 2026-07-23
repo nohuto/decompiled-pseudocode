@@ -1,11 +1,11 @@
 /*
- * XREFs of PspCloseSilo @ 0x140582738
+ * XREFs of PspCloseSilo @ 0x140583738
  * Callers:
- *     PspJobClose @ 0x1406065F0 (PspJobClose.c)
+ *     PspJobClose @ 0x1406075F0 (PspJobClose.c)
  * Callees:
- *     PsIsServerSilo @ 0x14008FD60 (PsIsServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     PsIsServerSilo @ 0x14008FCA0 (PsIsServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PspCloseSilo(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MmLockPagableDataSection @ 0x140651660
+ * XREFs of MmLockPagableDataSection @ 0x140652820
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
- *     BgkpLockBgfxCodeSection @ 0x140950680 (BgkpLockBgfxCodeSection.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
- *     MiLockPagableSections @ 0x1409BCE2C (MiLockPagableSections.c)
- *     HeadlessInit @ 0x1409DF5DC (HeadlessInit.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409275A0 (VfInitSystemNoRebootNeeded.c)
+ *     BgkpLockBgfxCodeSection @ 0x140951680 (BgkpLockBgfxCodeSection.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
+ *     MiLockPagableSections @ 0x1409BDE2C (MiLockPagableSections.c)
+ *     HeadlessInit @ 0x1409E05DC (HeadlessInit.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiLockPagableImageSection @ 0x14009AAF0 (MiLockPagableImageSection.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmLockPagableDataSection(PVOID AddressWithinSection)

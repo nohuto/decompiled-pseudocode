@@ -1,9 +1,9 @@
 /*
- * XREFs of IoReleaseIoRateControl @ 0x1400B47BC
+ * XREFs of IoReleaseIoRateControl @ 0x1400B263C
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
  */
 
 void __fastcall IoReleaseIoRateControl(struct _EX_RUNDOWN_REF **a1)

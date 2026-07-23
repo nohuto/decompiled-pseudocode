@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestStatsIsDetailedRequestReason @ 0x140ACB3EC
+ * XREFs of PopPowerRequestStatsIsDetailedRequestReason @ 0x140AC8FFC
  * Callers:
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A24BE4 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A18BD4 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
- *     strncmp @ 0x1406BFB20 (strncmp.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
  */
 
 char __fastcall PopPowerRequestStatsIsDetailedRequestReason(__int64 a1)
@@ -24,7 +24,7 @@ char __fastcall PopPowerRequestStatsIsDetailedRequestReason(__int64 a1)
       v2 = *(_DWORD *)((a1 + 63) & 0xFFFFFFFFFFFFFFF8uLL);
       if ( (v2 & 1) == 0 && (v2 & 2) != 0 )
       {
-        v3 = (const char **)PopPowerRequestStatsVerboseProcessList;
+        v3 = (const char **)&PopPowerRequestStatsVerboseProcessList;
         v4 = 0;
         Process = KeGetCurrentThread()->ApcState.Process;
         while ( 1 )

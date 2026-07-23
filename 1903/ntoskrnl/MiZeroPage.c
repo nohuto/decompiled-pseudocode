@@ -282,7 +282,7 @@ LABEL_10:
           break;
       }
       v7 = qword_140466738;
-      v23 = (!qword_140466738 || v21 < qword_140466738 || v21 >= qword_140466738 + (qword_140466748 << 30))
+      v23 = (!qword_140466738 || v21 < qword_140466738 || v21 >= qword_140466738 + (BitMapHeader.SizeOfBitMap << 30))
          && (unsigned int)v15 <= 1;
       v60 = v23;
       if ( !v20 )

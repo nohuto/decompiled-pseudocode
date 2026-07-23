@@ -1,11 +1,11 @@
 /*
- * XREFs of DECREMENT_COMMON_BUFFERS @ 0x140C22AFC
+ * XREFs of DECREMENT_COMMON_BUFFERS @ 0x140C28B0C
  * Callers:
- *     VfFreeCommonBuffer @ 0x140C24600 (VfFreeCommonBuffer.c)
- *     ViSpecialFreeCommonBuffer @ 0x140C27E70 (ViSpecialFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x140C2A610 (VfFreeCommonBuffer.c)
+ *     ViSpecialFreeCommonBuffer @ 0x140C2DE80 (ViSpecialFreeCommonBuffer.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140645558 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140C2731C (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140649138 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140C2D32C (ViHalPreprocessOptions.c)
  */
 
 void __fastcall DECREMENT_COMMON_BUFFERS(__int64 a1)
@@ -19,7 +19,7 @@ void __fastcall DECREMENT_COMMON_BUFFERS(__int64 a1)
   v4 = v2 + 1;
   if ( v4 > v3 )
   {
-    ViHalPreprocessOptions(byte_140E0EA58, "Freed too many common buffers.", 3LL, v4 - v3, 0LL, 0LL);
-    VfReportIssueWithOptions(0xE6u, 3uLL, v4 - *(_DWORD *)(a1 + 204), 0LL, 0LL, byte_140E0EA58);
+    ViHalPreprocessOptions(byte_140E0EAAC, "Freed too many common buffers.", 3LL, v4 - v3, 0LL, 0LL);
+    VfReportIssueWithOptions(0xE6u, 3uLL, v4 - *(_DWORD *)(a1 + 204), 0LL, 0LL, byte_140E0EAAC);
   }
 }

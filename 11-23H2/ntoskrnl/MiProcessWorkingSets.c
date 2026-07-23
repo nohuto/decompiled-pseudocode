@@ -8,26 +8,26 @@
  *     MiLogProcessWorkingSetsStop @ 0x140220530 (MiLogProcessWorkingSetsStop.c)
  *     MiComputeAgingPercent @ 0x140220594 (MiComputeAgingPercent.c)
  *     MiReturnWsToExpansionList @ 0x14022245C (MiReturnWsToExpansionList.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiTrimOrAgeWorkingSet @ 0x14025B4A0 (MiTrimOrAgeWorkingSet.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1403AF01C (MiInitializeWorkingSetManagerParameters.c)
- *     MiDrainZeroLookasides @ 0x1403BC1A8 (MiDrainZeroLookasides.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     MiOrderTrimList @ 0x14046BCEE (MiOrderTrimList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRetryOutswapProcess @ 0x14056F5C0 (KeRetryOutswapProcess.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
- *     MiCheckSystemTrimEndCriteria @ 0x14063426C (MiCheckSystemTrimEndCriteria.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14025B730 (MiTrimOrAgeWorkingSet.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403AF1FC (MiInitializeWorkingSetManagerParameters.c)
+ *     MiDrainZeroLookasides @ 0x1403BC388 (MiDrainZeroLookasides.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MiOrderTrimList @ 0x14046C0EE (MiOrderTrimList.c)
+ *     KeRetryOutswapProcess @ 0x14056FB00 (KeRetryOutswapProcess.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x1406347BC (MiCheckSystemTrimEndCriteria.c)
  */
 
 __int64 __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
@@ -189,10 +189,13 @@ LABEL_7:
       v63 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v4 + 224));
       *(_BYTE *)(v4 + 12) = 1;
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 224));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v63 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v63 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -243,7 +246,7 @@ LABEL_7:
     v106[15] = 8LL;
     v106[17] = 8LL;
     v106[19] = 8LL;
-    tlgWriteEx_EtwWriteEx(v20, (int)&unk_140038750, v18, v17, v87[8], v87[10], 0xAu, (__int64)v106);
+    tlgWriteEx_EtwWriteEx(v20, (int)&unk_140038838, v18, v17, v87[8], v87[10], 0xAu, (__int64)v106);
   }
   if ( (v16 & 5) != 0 )
   {
@@ -391,10 +394,10 @@ LABEL_128:
           }
 LABEL_40:
           OldIrql = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v75 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v75 <= 0xFu && LockHandle.OldIrql <= 0xFu && v75 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v75 <= 0xFu && LockHandle.OldIrql <= 0xFu && v75 >= 2u )
             {
               v76 = KeGetCurrentPrcb();
               v24 = v76->SchedulerAssist;
@@ -419,7 +422,7 @@ LABEL_40:
           LockHandle.LockQueue.Next = 0LL;
           v35 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v35 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu )
           {
             v41 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v35 == 2 )
@@ -504,10 +507,10 @@ LABEL_51:
           *(_WORD *)v31 = v88;
           KxReleaseQueuedSpinLock(&LockHandle);
           v70 = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v71 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v71 <= 0xFu && LockHandle.OldIrql <= 0xFu && v71 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v71 <= 0xFu && LockHandle.OldIrql <= 0xFu && v71 >= 2u )
             {
               v72 = KeGetCurrentPrcb();
               v73 = v72->SchedulerAssist;
@@ -581,10 +584,10 @@ LABEL_64:
         LOBYTE(v83[2].Header.SignalState) = 0;
       KxReleaseQueuedSpinLock(&LockHandle);
       v49 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v84 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v84 <= 0xFu && LockHandle.OldIrql <= 0xFu && v84 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v84 <= 0xFu && LockHandle.OldIrql <= 0xFu && v84 >= 2u )
         {
           v80 = KeGetCurrentPrcb();
           v85 = v80->SchedulerAssist;
@@ -637,10 +640,10 @@ LABEL_64:
       }
       KxReleaseQueuedSpinLock(&LockHandle);
       v49 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v79 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v79 <= 0xFu && LockHandle.OldIrql <= 0xFu && v79 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v79 <= 0xFu && LockHandle.OldIrql <= 0xFu && v79 >= 2u )
         {
           v80 = KeGetCurrentPrcb();
           v81 = v80->SchedulerAssist;

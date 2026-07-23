@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpPrepareDriverLoading @ 0x140A266A4
+ * XREFs of PnpPrepareDriverLoading @ 0x140A39744
  * Callers:
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140D08E68 (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140D0F138 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     PnpSetBlockedDriverEvent @ 0x1407AD974 (PnpSetBlockedDriverEvent.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     PpCheckInDriverDatabase @ 0x140A26144 (PpCheckInDriverDatabase.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     PnpSetBlockedDriverEvent @ 0x1407B09D4 (PnpSetBlockedDriverEvent.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     PpCheckInDriverDatabase @ 0x140A391E4 (PpCheckInDriverDatabase.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PnpPrepareDriverLoading(__int64 a1, void *a2, unsigned __int64 a3, int a4, _DWORD *a5, bool *a6)
+__int64 __fastcall PnpPrepareDriverLoading(__int64 a1, void *a2, void *a3, int a4, _DWORD *a5, bool *a6)
 {
-  _DWORD *v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   unsigned int v11; // edi
   PVOID v13; // rcx
   PVOID v14; // rcx
@@ -35,7 +35,7 @@ __int64 __fastcall PnpPrepareDriverLoading(__int64 a1, void *a2, unsigned __int6
   if ( !v10 )
     return 3221225473LL;
   v19 = 0LL;
-  v11 = PpCheckInDriverDatabase(a1, (__int64)a2, a3, v10[20], a4, &v19);
+  v11 = PpCheckInDriverDatabase(a1, (__int64)a2, a3, v10->OptionalHeader.SizeOfImage, a4, &v19);
   if ( v11 + 1073740949 <= 1 )
     PnpSetBlockedDriverEvent(&v19);
   if ( IopGetRegistryValue(a2, L"PnpFlags", 0, &P) >= 0 )

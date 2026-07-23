@@ -1,17 +1,17 @@
 /*
- * XREFs of PiLookupInDDB @ 0x1409C7A08
+ * XREFs of PiLookupInDDB @ 0x1409B8CAC
  * Callers:
- *     PpCheckInDriverDatabase @ 0x1409C7E2C (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x1409B89D4 (PpCheckInDriverDatabase.c)
  * Callees:
- *     PiIsDriverBlocked @ 0x1409C6E6C (PiIsDriverBlocked.c)
- *     PiInitializeDDB @ 0x1409C7B30 (PiInitializeDDB.c)
- *     PiReleaseDDB @ 0x140A9687C (PiReleaseDDB.c)
+ *     PiInitializeDDB @ 0x1409B8DD4 (PiInitializeDDB.c)
+ *     PiIsDriverBlocked @ 0x1409BA914 (PiIsDriverBlocked.c)
+ *     PiReleaseDDB @ 0x140A930AC (PiReleaseDDB.c)
  */
 
-__int64 __fastcall PiLookupInDDB(__int64 a1, __int64 a2, unsigned int a3, __int128 *a4)
+__int64 __fastcall PiLookupInDDB(int a1, int a2, int a3, __int64 a4)
 {
   __int64 v4; // rdi
-  __int64 v6; // rcx
+  int v6; // ecx
   int IsDriverBlocked; // ebx
   _OWORD v12[2]; // [rsp+30h] [rbp-40h] BYREF
   _OWORD v13[2]; // [rsp+50h] [rbp-20h] BYREF
@@ -25,7 +25,7 @@ __int64 __fastcall PiLookupInDDB(__int64 a1, __int64 a2, unsigned int a3, __int1
     IsDriverBlocked = PiInitializeDDB(L"\\SystemRoot\\AppPatch\\drvmain.sdb");
     if ( IsDriverBlocked < 0 )
       goto LABEL_3;
-    v6 = *(_QWORD *)&v12[0];
+    v6 = v12[0];
   }
   IsDriverBlocked = PiIsDriverBlocked(v6, a1, a2, a3, a4);
   if ( IsDriverBlocked >= 0 )

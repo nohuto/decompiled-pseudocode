@@ -1,7 +1,7 @@
 /*
- * XREFs of ArbpUpdatePriority @ 0x140AACE84
+ * XREFs of ArbpUpdatePriority @ 0x140AA7F00
  * Callers:
- *     ArbGetNextAllocationRange @ 0x140705430 (ArbGetNextAllocationRange.c)
+ *     ArbGetNextAllocationRange @ 0x140702FF0 (ArbGetNextAllocationRange.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsInitializeQuotaSystem @ 0x1409D7580
+ * XREFs of PsInitializeQuotaSystem @ 0x1409D8580
  * Callers:
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
- *     PspRegisterResource @ 0x14018F874 (PspRegisterResource.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PspSanitizeResourceLimits @ 0x140757EAC (PspSanitizeResourceLimits.c)
+ *     PspRegisterResource @ 0x14018F9B4 (PspRegisterResource.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PspSanitizeResourceLimits @ 0x14075909C (PspSanitizeResourceLimits.c)
  */
 
 char __fastcall PsInitializeQuotaSystem(int a1)
@@ -26,27 +26,27 @@ char __fastcall PsInitializeQuotaSystem(int a1)
     PspRegisterResource(1, v6, v7);
     PspRegisterResource(2, 0, -1073741524);
     PspRegisterResource(v8 + 3, v8, -1073741663);
-    qword_14040E3D0 = 0LL;
-    dword_14040E3F8 = 0;
-    qword_14040E408 = 0LL;
-    qword_14040E3F0 = (__int64)&qword_14040E3E8;
-    qword_14040E3E8 = (__int64)&qword_14040E3E8;
-    qword_14040E428 = (__int64)&qword_14040E420;
-    qword_14040E420 = (__int64)&qword_14040E420;
-    qword_14040E3C8[0] = 0x10000LL;
-    qword_14040E3D8 = (__int64)MmRaisePoolQuota;
-    qword_14040E3E0 = (__int64)MmReturnPoolQuota;
+    qword_14040F430 = 0LL;
+    dword_14040F458 = 0;
+    qword_14040F468 = 0LL;
+    qword_14040F450 = (__int64)&qword_14040F448;
+    qword_14040F448 = (__int64)&qword_14040F448;
+    qword_14040F488 = (__int64)&qword_14040F480;
+    qword_14040F480 = (__int64)&qword_14040F480;
+    qword_14040F428[0] = 0x10000LL;
+    qword_14040F438 = (__int64)MmRaisePoolQuota;
+    qword_14040F440 = (__int64)MmReturnPoolQuota;
     PspQuotaExpansionDescriptors[0] = 1;
-    qword_14040E400 = 0x80000LL;
-    qword_14040E410 = (__int64)MmRaisePoolQuota;
-    qword_14040E418 = (__int64)MmReturnPoolQuota;
+    qword_14040F460 = 0x80000LL;
+    qword_14040F470 = (__int64)MmRaisePoolQuota;
+    qword_14040F478 = (__int64)MmReturnPoolQuota;
 LABEL_9:
     LOBYTE(PoolWithTag) = 1;
     return (char)PoolWithTag;
   }
-  dword_14043F900 = 1;
-  v1 = &unk_14043F740;
-  dword_14043F904 = 1;
+  dword_1404409C0 = 1;
+  v1 = &unk_140440800;
+  dword_1404409C4 = 1;
   v2 = PspResourceFlags;
   do
   {

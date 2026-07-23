@@ -1,20 +1,20 @@
 /*
- * XREFs of PopDirectedDripsProcessWork @ 0x140868438
+ * XREFs of PopDirectedDripsProcessWork @ 0x140869698
  * Callers:
- *     PopDirectedDripsWorkerRoutine @ 0x1408687F0 (PopDirectedDripsWorkerRoutine.c)
+ *     PopDirectedDripsWorkerRoutine @ 0x140869A50 (PopDirectedDripsWorkerRoutine.c)
  * Callees:
  *     PopDeepSleepSetDisengageReason @ 0x140004DF8 (PopDeepSleepSetDisengageReason.c)
  *     PopDeepSleepClearDisengageReason @ 0x140004E80 (PopDeepSleepClearDisengageReason.c)
- *     PopDirectedDripsEngageDfx @ 0x140867B34 (PopDirectedDripsEngageDfx.c)
- *     PopDirectedDripsHandleResiliencyNotification @ 0x140867BF8 (PopDirectedDripsHandleResiliencyNotification.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x140867FBC (PopDirectedDripsNotifyAppsAndServices.c)
- *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
- *     PopDirectedDripsRefreshDeviceState @ 0x1408685BC (PopDirectedDripsRefreshDeviceState.c)
- *     PopDirectedDripsRefreshDisengageState @ 0x140868620 (PopDirectedDripsRefreshDisengageState.c)
- *     PopDirectedDripsStartDebounceInterval @ 0x14086871C (PopDirectedDripsStartDebounceInterval.c)
- *     PopDisengageDirectedDrips @ 0x140868874 (PopDisengageDirectedDrips.c)
- *     PopTriggerMonitorPowerEvent @ 0x140876254 (PopTriggerMonitorPowerEvent.c)
- *     PdcNotificationClientAcknowledge @ 0x14089A7FC (PdcNotificationClientAcknowledge.c)
+ *     PopDirectedDripsEngageDfx @ 0x140868D94 (PopDirectedDripsEngageDfx.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x140868E58 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x14086921C (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x1408693B8 (PopDirectedDripsNotifyDrivers.c)
+ *     PopDirectedDripsRefreshDeviceState @ 0x14086981C (PopDirectedDripsRefreshDeviceState.c)
+ *     PopDirectedDripsRefreshDisengageState @ 0x140869880 (PopDirectedDripsRefreshDisengageState.c)
+ *     PopDirectedDripsStartDebounceInterval @ 0x14086997C (PopDirectedDripsStartDebounceInterval.c)
+ *     PopDisengageDirectedDrips @ 0x140869AD4 (PopDisengageDirectedDrips.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1408774B4 (PopTriggerMonitorPowerEvent.c)
+ *     PdcNotificationClientAcknowledge @ 0x14089BA5C (PdcNotificationClientAcknowledge.c)
  */
 
 void __fastcall PopDirectedDripsProcessWork(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

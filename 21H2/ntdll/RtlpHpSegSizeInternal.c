@@ -2,7 +2,7 @@
  * XREFs of RtlpHpSegSizeInternal @ 0x1800022C4
  * Callers:
  *     RtlpHpSizeHeapInternal @ 0x180002210 (RtlpHpSizeHeapInternal.c)
- *     RtlpHpSegReportPageRange @ 0x18010F6A4 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpSegReportPageRange @ 0x18010F664 (RtlpHpSegReportPageRange.c)
  * Callees:
  *     RtlpHpLfhSubsegmentSizeBlock @ 0x180002354 (RtlpHpLfhSubsegmentSizeBlock.c)
  *     RtlpHpVsChunkSize @ 0x180021698 (RtlpHpVsChunkSize.c)

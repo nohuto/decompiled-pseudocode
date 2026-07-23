@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbpFindMatchingName @ 0x140A79168
+ * XREFs of SdbpFindMatchingName @ 0x140A73468
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x14095D42C (SdbGetDatabaseMatchEx.c)
- *     SdbFindFirstStringIndexedTag @ 0x14095D844 (SdbFindFirstStringIndexedTag.c)
- *     SdbFindNextStringIndexedTag @ 0x140A79128 (SdbFindNextStringIndexedTag.c)
+ *     SdbGetDatabaseMatchEx @ 0x140944EEC (SdbGetDatabaseMatchEx.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140945304 (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindNextStringIndexedTag @ 0x140A73428 (SdbFindNextStringIndexedTag.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     SdbpGetNextIndexedRecord @ 0x140A79268 (SdbpGetNextIndexedRecord.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     SdbpGetNextIndexedRecord @ 0x140A73568 (SdbpGetNextIndexedRecord.c)
  */
 
 __int64 __fastcall SdbpFindMatchingName(void *a1, unsigned int NextIndexedRecord, unsigned int *a3)
@@ -30,10 +30,7 @@ __int64 __fastcall SdbpFindMatchingName(void *a1, unsigned int NextIndexedRecord
       break;
     StringTagPtr = (const wchar_t *)SdbGetStringTagPtr(a1, FirstTag, v7, v8);
     if ( !StringTagPtr )
-    {
-      AslLogCallPrintf(1LL, (__int64)"SdbpFindMatchingName", 632LL, (__int64)"Can't get the name string for tagid 0x%x");
-      return 0LL;
-    }
+      break;
     if ( (a3[5] & 1) != 0 )
     {
       v12 = wcsicmp(*((const wchar_t **)a3 + 4), StringTagPtr);
@@ -49,6 +46,6 @@ __int64 __fastcall SdbpFindMatchingName(void *a1, unsigned int NextIndexedRecord
       return NextIndexedRecord;
     NextIndexedRecord = SdbpGetNextIndexedRecord(a1, *a3, a3);
   }
-  AslLogCallPrintf(1LL, (__int64)"SdbpFindMatchingName", 622LL, (__int64)"The tag 0x%x was not found under tag 0x%x");
+  AslLogCallPrintf(1LL, (__int64)"SdbpFindMatchingName");
   return 0LL;
 }

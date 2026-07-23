@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbLibraryInitialize @ 0x140788ED0
+ * XREFs of ArbLibraryInitialize @ 0x14078BA00
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ArbRegReadMmConfigRanges @ 0x140789500 (ArbRegReadMmConfigRanges.c)
+ *     ArbRegReadMmConfigRanges @ 0x14078C030 (ArbRegReadMmConfigRanges.c)
  */
 
 __int64 ArbLibraryInitialize()

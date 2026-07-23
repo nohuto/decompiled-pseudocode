@@ -1,51 +1,49 @@
 /*
- * XREFs of PpmMediaBufferingWorker @ 0x1403B5760
+ * XREFs of PpmMediaBufferingWorker @ 0x1402ADB70
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmEventMediaBufferingNotify @ 0x1403B6618 (PpmEventMediaBufferingNotify.c)
- *     PpmPdcNotifyMediaBufferingUpdate @ 0x140A581F0 (PpmPdcNotifyMediaBufferingUpdate.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmEventMediaBufferingNotify @ 0x1402ADAC4 (PpmEventMediaBufferingNotify.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PpmPdcNotifyMediaBufferingUpdate @ 0x140A4F9A0 (PpmPdcNotifyMediaBufferingUpdate.c)
  */
 
 void PpmMediaBufferingWorker()
 {
   KIRQL v0; // al
   char v1; // bl
-  __int64 v2; // rcx
-  bool v3; // di
-  __int64 v4; // rcx
+  bool v2; // di
+  __int64 v3; // rcx
 
   while ( 1 )
   {
     v0 = KeAcquireSpinLockRaiseToDpc(&PpmMediaBufferingWork);
-    v1 = byte_140F0D429;
-    if ( byte_140F0D429 == byte_140F0BA8C )
+    v1 = byte_140F0D749;
+    if ( byte_140F0D749 == byte_140F0B3CC )
       break;
-    byte_140F0BA8C = byte_140F0D429;
+    byte_140F0B3CC = byte_140F0D749;
     KeReleaseSpinLock(&PpmMediaBufferingWork, v0);
-    LOBYTE(v2) = v1;
-    PpmEventMediaBufferingNotify(v2);
+    PpmEventMediaBufferingNotify(v1);
     PpmAcquireLock(&PpmPerfPolicyLock);
-    v3 = 1;
+    v2 = 1;
     if ( !PpmLowPowerProfile )
     {
       if ( v1 )
-        v3 = 0;
+        v2 = 0;
       else
-        v3 = PpmPdcMediaEngaged != 0;
+        v2 = PpmPdcMediaEngaged != 0;
     }
     PpmReleaseLock(&PpmPerfPolicyLock);
-    if ( v3 )
+    if ( v2 )
     {
-      LOBYTE(v4) = v1;
+      LOBYTE(v3) = v1;
       PpmPdcMediaEngaged = v1;
-      PpmPdcNotifyMediaBufferingUpdate(v4);
+      PpmPdcNotifyMediaBufferingUpdate(v3);
     }
   }
-  byte_140F0D428 = 0;
+  byte_140F0D748 = 0;
   KeReleaseSpinLock(&PpmMediaBufferingWork, v0);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosReadCmosPort @ 0x140580D98
+ * XREFs of x86BiosReadCmosPort @ 0x1405832B8
  * Callers:
- *     x86BiosReadIoSpace @ 0x1404A8C90 (x86BiosReadIoSpace.c)
+ *     x86BiosReadIoSpace @ 0x1404A2320 (x86BiosReadIoSpace.c)
  * Callees:
- *     x86BiosReadCmosPortByte @ 0x140580E18 (x86BiosReadCmosPortByte.c)
+ *     x86BiosReadCmosPortByte @ 0x140583338 (x86BiosReadCmosPortByte.c)
  */
 
 __int64 __fastcall x86BiosReadCmosPort(int a1, unsigned __int16 a2)

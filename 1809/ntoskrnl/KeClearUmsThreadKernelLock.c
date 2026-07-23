@@ -1,9 +1,9 @@
 /*
- * XREFs of KeClearUmsThreadKernelLock @ 0x1408452B8
+ * XREFs of KeClearUmsThreadKernelLock @ 0x140846518
  * Callers:
- *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
- *     KiResumeUmsThread @ 0x1408456BC (KiResumeUmsThread.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x14088F14C (PspRundownUmsThreadForApcDelivery.c)
+ *     PspGetSetContextInternal @ 0x140620940 (PspGetSetContextInternal.c)
+ *     KiResumeUmsThread @ 0x14084691C (KiResumeUmsThread.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x1408903AC (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
  *     <none>
  */

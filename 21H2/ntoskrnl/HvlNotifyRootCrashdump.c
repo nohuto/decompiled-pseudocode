@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlNotifyRootCrashdump @ 0x1404F5E94
+ * XREFs of HvlNotifyRootCrashdump @ 0x1404F5E14
  * Callers:
- *     HvlPrepareForRootCrashdump @ 0x1404F5F5C (HvlPrepareForRootCrashdump.c)
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     HvlPrepareForRootCrashdump @ 0x1404F5EDC (HvlPrepareForRootCrashdump.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
  */
 
 char __fastcall HvlNotifyRootCrashdump(int a1)

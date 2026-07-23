@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetOwnerSecurityDescriptor @ 0x140A15750
+ * XREFs of RtlGetOwnerSecurityDescriptor @ 0x140A0E930
  * Callers:
- *     RtlReplaceSidInSd @ 0x140780E60 (RtlReplaceSidInSd.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x140783AD4 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     CmpCopySaclToVirtualKey @ 0x1407DCB7C (CmpCopySaclToVirtualKey.c)
+ *     RtlReplaceSidInSd @ 0x140780D90 (RtlReplaceSidInSd.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140783A04 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407DD0CC (CmpCopySaclToVirtualKey.c)
  * Callees:
  *     <none>
  */

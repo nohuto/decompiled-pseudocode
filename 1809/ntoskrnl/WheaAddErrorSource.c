@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaAddErrorSource @ 0x1408DB880
+ * XREFs of WheaAddErrorSource @ 0x1408DCB40
  * Callers:
  *     <none>
  * Callees:
- *     WheapAddErrorSource @ 0x14017D1DC (WheapAddErrorSource.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WheapInitializeErrorSource @ 0x140727D98 (WheapInitializeErrorSource.c)
+ *     WheapAddErrorSource @ 0x14017D31C (WheapAddErrorSource.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WheapInitializeErrorSource @ 0x140729038 (WheapInitializeErrorSource.c)
  */
 
 __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
@@ -74,7 +74,7 @@ __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
     v14 = 0;
     if ( WheapInitializationComplete )
     {
-      v14 = (*((__int64 (__fastcall **)(__int64, __int64, __int64))&unk_1404DC0B8 + 6 * *(int *)(v7 + 97)))(
+      v14 = (*((__int64 (__fastcall **)(__int64, __int64, __int64))&unk_1404DD178 + 6 * *(int *)(v7 + 97)))(
               1LL,
               v7 + 89,
               a2);

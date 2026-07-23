@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIsPteDecommittedPage @ 0x1402E4D04
+ * XREFs of MiIsPteDecommittedPage @ 0x1402E4F94
  * Callers:
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiComputePageCommitment @ 0x1402E4AB0 (MiComputePageCommitment.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiComputePageCommitment @ 0x1402E4D40 (MiComputePageCommitment.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CF00 (MiIsPrototypePteVadLookup.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiIsPrototypePteVadLookup @ 0x14027D190 (MiIsPrototypePteVadLookup.c)
  */
 
 __int64 __fastcall MiIsPteDecommittedPage(unsigned __int64 a1)

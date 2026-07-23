@@ -1,27 +1,27 @@
 /*
- * XREFs of MiAllocatePagesForMdl @ 0x14041225C
+ * XREFs of MiAllocatePagesForMdl @ 0x14039469C
  * Callers:
- *     MmAllocatePagesForMdl @ 0x140411EB0 (MmAllocatePagesForMdl.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140411FD0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x140693034 (MiAllocateZeroCalibrationBuffer.c)
- *     MmAllocateNonCachedMemory @ 0x1407EABD0 (MmAllocateNonCachedMemory.c)
- *     MiAllocateUserPhysicalPages @ 0x1407F84C8 (MiAllocateUserPhysicalPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140394410 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocatePagesForMdl @ 0x140395650 (MmAllocatePagesForMdl.c)
+ *     MiAllocateZeroCalibrationBuffer @ 0x140694104 (MiAllocateZeroCalibrationBuffer.c)
+ *     MmAllocateNonCachedMemory @ 0x1407EB1A0 (MmAllocateNonCachedMemory.c)
+ *     MiAllocateUserPhysicalPages @ 0x1407F8C38 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     VfPtMiscPoolNotification @ 0x140400260 (VfPtMiscPoolNotification.c)
- *     EtwTraceMdlAllocationEvent @ 0x1404124A0 (EtwTraceMdlAllocationEvent.c)
- *     MiValidateMdlAllocationRequest @ 0x140412584 (MiValidateMdlAllocationRequest.c)
- *     VfPtIsAptEnabledOnKernel @ 0x1404128C0 (VfPtIsAptEnabledOnKernel.c)
- *     MiObtainMdlCharges @ 0x1404128E0 (MiObtainMdlCharges.c)
- *     MiFindPagesForMdl @ 0x140412AB4 (MiFindPagesForMdl.c)
- *     MiInitializeMdlBatchPages @ 0x140413004 (MiInitializeMdlBatchPages.c)
- *     MiLogMdlRangeEvent @ 0x140671DA8 (MiLogMdlRangeEvent.c)
- *     MiReturnMdlExcess @ 0x140671F10 (MiReturnMdlExcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiRemoveMdlPages @ 0x1407EB5D8 (MiRemoveMdlPages.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     MiInitializeMdlBatchPages @ 0x140393678 (MiInitializeMdlBatchPages.c)
+ *     EtwTraceMdlAllocationEvent @ 0x1403948E0 (EtwTraceMdlAllocationEvent.c)
+ *     MiValidateMdlAllocationRequest @ 0x1403949C4 (MiValidateMdlAllocationRequest.c)
+ *     VfPtIsAptEnabledOnKernel @ 0x140394D00 (VfPtIsAptEnabledOnKernel.c)
+ *     MiObtainMdlCharges @ 0x140394D20 (MiObtainMdlCharges.c)
+ *     MiFindPagesForMdl @ 0x140394EF4 (MiFindPagesForMdl.c)
+ *     VfPtMiscPoolNotification @ 0x1403FA750 (VfPtMiscPoolNotification.c)
+ *     MiLogMdlRangeEvent @ 0x140672F78 (MiLogMdlRangeEvent.c)
+ *     MiReturnMdlExcess @ 0x1406730E0 (MiReturnMdlExcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiRemoveMdlPages @ 0x1407EBBA8 (MiRemoveMdlPages.c)
  */
 
 PVOID __fastcall MiAllocatePagesForMdl(
@@ -113,7 +113,7 @@ LABEL_6:
       if ( P )
       {
         if ( (a8 & 0x40) == 0 )
-          MiInitializeMdlBatchPages(v24);
+          MiInitializeMdlBatchPages((__int64)v24, v18);
         if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
           MiLogMdlRangeEvent(a9, (_DWORD)v20 + 48, 632, v20[10] >> 12, v26);
         if ( (v27 & 0x100) != 0 )
@@ -122,7 +122,7 @@ LABEL_6:
     }
   }
   if ( (unsigned __int8)VfPtIsAptEnabledOnKernel() )
-    VfPtMiscPoolNotification((__int64)P, a5, 0x69646D4Du, 0);
+    VfPtMiscPoolNotification(P, a5, 1768189261LL, 0LL);
   EtwTraceMdlAllocationEvent((_DWORD)P, a2, a3, a4, a5, a7, v27, PerformanceCounter.QuadPart);
   return P;
 }

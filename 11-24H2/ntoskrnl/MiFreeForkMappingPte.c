@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeForkMappingPte @ 0x1406FBF5C
+ * XREFs of MiFreeForkMappingPte @ 0x1406F9B9C
  * Callers:
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     MiUnmapSinglePage @ 0x1404CA48C (MiUnmapSinglePage.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     MiUnmapSinglePage @ 0x1404C39B0 (MiUnmapSinglePage.c)
  */
 
 unsigned __int64 __fastcall MiFreeForkMappingPte(__int64 a1)

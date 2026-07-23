@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxClearDirectedDripsCandidateDeviceList @ 0x1405894DC
+ * XREFs of PopFxClearDirectedDripsCandidateDeviceList @ 0x1405899CC
  * Callers:
- *     PopDirectedDripsEngage @ 0x140586F34 (PopDirectedDripsEngage.c)
- *     PopDirectedDripsResumeDevices @ 0x140983BC4 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsEngage @ 0x140587424 (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsResumeDevices @ 0x140983DC4 (PopDirectedDripsResumeDevices.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 void PopFxClearDirectedDripsCandidateDeviceList()

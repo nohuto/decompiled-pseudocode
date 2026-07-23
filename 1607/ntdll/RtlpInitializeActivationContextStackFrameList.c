@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpInitializeActivationContextStackFrameList @ 0x180069660
+ * XREFs of RtlpInitializeActivationContextStackFrameList @ 0x180069650
  * Callers:
- *     LdrShutdownProcess @ 0x180006F30 (LdrShutdownProcess.c)
- *     RtlpAllocateActivationContextStackFrame @ 0x180068D68 (RtlpAllocateActivationContextStackFrame.c)
+ *     LdrShutdownProcess @ 0x180006F20 (LdrShutdownProcess.c)
+ *     RtlpAllocateActivationContextStackFrame @ 0x180068D58 (RtlpAllocateActivationContextStackFrame.c)
  * Callees:
  *     <none>
  */

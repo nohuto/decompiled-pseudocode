@@ -57,7 +57,7 @@ __int64 __fastcall SepCopyAnonymousTokenAndSetSilo(__int64 a1, PADAPTER_OBJECT *
   if ( (unsigned int)Feature_Servicing_HardenTokenPPLRestrictions__private_IsEnabled() )
     SepFinalizeTokenAcls(v5);
   else
-    SepAppendAceToTokenObjectAcl((__int64)v5, 8, SeAliasAdminsSid);
+    SepAppendAceToTokenObjectAcl((__int64)v5, 8u, SeAliasAdminsSid);
   *a2 = v5;
   ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId(a1);
   if ( ServerSiloServiceSessionId != -1 )

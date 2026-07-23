@@ -17,9 +17,9 @@ __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN 
   bool v7; // zf
   unsigned int CurrentThread; // ecx
   void *v9; // rax
-  __int64 v10; // rax
+  void *v10; // rax
   void *v11; // r9
-  __int64 v12; // r10
+  void *v12; // r10
   __int64 v14; // r11
   __int64 v15; // r10
   int v16; // [rsp+30h] [rbp-38h] BYREF
@@ -66,12 +66,12 @@ __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN 
 LABEL_4:
     *a3 = 0;
     *a4 = 0LL;
-    v10 = SepSidFromProcessProtection(&v17);
-    if ( v10 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v10) )
+    v10 = (void *)SepSidFromProcessProtection(&v17);
+    if ( v10 && !RtlIsValidProcessTrustLabelSid(v10) )
       goto LABEL_19;
     if ( v12 )
     {
-      if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v12) )
+      if ( !RtlIsValidProcessTrustLabelSid(v12) )
         goto LABEL_19;
       if ( v14 )
       {

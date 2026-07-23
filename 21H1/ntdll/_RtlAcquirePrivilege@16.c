@@ -14,50 +14,53 @@
  *     _RtlpOpenThreadToken@8 @ 0x4B349188 (_RtlpOpenThreadToken@8.c)
  */
 
-int __stdcall RtlAcquirePrivilege(int a1, unsigned int a2, int a3, int *a4)
+NTSTATUS __cdecl RtlAcquirePrivilege(PULONG Privilege, ULONG NumPriv, ULONG Flags, PVOID *ReturnedState)
 {
   char v4; // bl
-  int Heap; // esi
+  char *Heap; // esi
   struct _TEB *v7; // eax
   int v8; // edi
-  unsigned int v9; // edi
+  ULONG v9; // edi
   int v10; // edx
   int v11; // ecx
-  int v12; // eax
-  int v13; // eax
-  int v14; // [esp+10h] [ebp-8h] BYREF
-  int v15; // [esp+14h] [ebp-4h] BYREF
+  _TOKEN_PRIVILEGES *v12; // eax
+  char *v13; // eax
+  SIZE_T v14; // [esp-4h] [ebp-1Ch]
+  SIZE_T v15; // [esp-4h] [ebp-1Ch]
+  int ThreadInformation; // [esp+10h] [ebp-8h] BYREF
+  ULONG ReturnLength; // [esp+14h] [ebp-4h] BYREF
 
-  v4 = a3;
-  if ( (a3 & 0xFFFFFFFC) != 0 )
+  v4 = Flags;
+  if ( (Flags & 0xFFFFFFFC) != 0 )
     return -1073741811;
-  if ( (a3 & 2) != 0 )
-    v4 = a3 | 1;
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, 12 * (a2 - 1) + 1060);
+  if ( (Flags & 2) != 0 )
+    v4 = Flags | 1;
+  LODWORD(v14) = 12 * (NumPriv - 1) + 1060;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v14);
   if ( !Heap )
     return -1073741801;
   v7 = NtCurrentTeb();
   *(_DWORD *)Heap = 0;
-  *(_DWORD *)(Heap + 4) = 0;
-  *(_DWORD *)(Heap + 16) = 0;
+  *((_DWORD *)Heap + 1) = 0;
+  *((_DWORD *)Heap + 4) = 0;
   if ( !v7->IsImpersonating )
     goto LABEL_14;
   if ( (v4 & 1) != 0 )
   {
-    v8 = RtlpOpenThreadToken(4, Heap + 4);
+    v8 = RtlpOpenThreadToken(4u, (PHANDLE)Heap + 1);
     if ( v8 < 0 )
     {
 LABEL_10:
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       return v8;
     }
-    *(_DWORD *)(Heap + 16) |= 1u;
-    v14 = 0;
-    ZwSetInformationThread(-2, 5, (int)&v14, 4);
+    *((_DWORD *)Heap + 4) |= 1u;
+    ThreadInformation = 0;
+    ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, &ThreadInformation, 4u);
   }
   else
   {
-    v8 = RtlpOpenThreadToken(40, Heap);
+    v8 = RtlpOpenThreadToken(0x28u, (PHANDLE)Heap);
     if ( v8 < 0 )
       goto LABEL_10;
   }
@@ -66,67 +69,80 @@ LABEL_10:
 LABEL_14:
     if ( (v4 & 2) == 0 )
     {
-      v8 = RtlImpersonateSelfEx(3, 40, (HANDLE *)Heap);
+      v8 = RtlImpersonateSelfEx(SecurityDelegation, 0x28u, (PHANDLE)Heap);
       if ( v8 >= 0 )
       {
-        *(_DWORD *)(Heap + 16) |= 1u;
+        *((_DWORD *)Heap + 4) |= 1u;
         goto LABEL_19;
       }
 LABEL_34:
-      if ( (*(_BYTE *)(Heap + 16) & 1) != 0 )
+      if ( (Heap[16] & 1) != 0 )
       {
-        ZwSetInformationThread(-2, 5, Heap + 4, 4);
-        if ( *(_DWORD *)(Heap + 4) )
-          NtClose(*(HANDLE *)(Heap + 4));
+        ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, Heap + 4, 4u);
+        if ( *((_DWORD *)Heap + 1) )
+          NtClose(*((HANDLE *)Heap + 1));
       }
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       return v8;
     }
-    v8 = ZwOpenProcessTokenEx(-1, 40, 512, Heap);
+    v8 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFF, 0x28u, 0x200u, (PHANDLE)Heap);
     if ( v8 < 0 )
       goto LABEL_34;
-    *(_DWORD *)(Heap + 16) |= 2u;
+    *((_DWORD *)Heap + 4) |= 2u;
   }
 LABEL_19:
-  *(_DWORD *)(Heap + 12) = Heap + 1044;
+  *((_DWORD *)Heap + 3) = Heap + 1044;
   v9 = 0;
-  *(_DWORD *)(Heap + 8) = Heap + 20;
-  *(_DWORD *)(Heap + 1044) = a2;
-  if ( a2 )
+  *((_DWORD *)Heap + 2) = Heap + 20;
+  *((_DWORD *)Heap + 261) = NumPriv;
+  if ( NumPriv )
   {
     v10 = 0;
     do
     {
-      v11 = *(_DWORD *)(Heap + 12);
+      v11 = *((_DWORD *)Heap + 3);
       v10 += 12;
-      *(_DWORD *)(v10 + v11 - 8) = *(_DWORD *)(a1 + 4 * v9);
+      *(_DWORD *)(v10 + v11 - 8) = Privilege[v9];
       *(_DWORD *)(v10 + v11 - 4) = 0;
       ++v9;
-      *(_DWORD *)(v10 + *(_DWORD *)(Heap + 12)) = 2;
+      *(_DWORD *)(v10 + *((_DWORD *)Heap + 3)) = 2;
     }
-    while ( v9 < a2 );
+    while ( v9 < NumPriv );
   }
-  v15 = 1024;
-  v8 = ZwAdjustPrivilegesToken(*(_DWORD *)Heap, 0, *(_DWORD *)(Heap + 12), 1024, *(_DWORD *)(Heap + 8), (int)&v15);
+  ReturnLength = 1024;
+  v8 = ZwAdjustPrivilegesToken(
+         *(HANDLE *)Heap,
+         0,
+         *((PTOKEN_PRIVILEGES *)Heap + 3),
+         0x400u,
+         *((PTOKEN_PRIVILEGES *)Heap + 2),
+         &ReturnLength);
   if ( v8 == -1073741789 )
   {
     while ( 1 )
     {
-      v12 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v15);
-      *(_DWORD *)(Heap + 8) = v12;
+      LODWORD(v15) = ReturnLength;
+      v12 = (_TOKEN_PRIVILEGES *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v15);
+      *((_DWORD *)Heap + 2) = v12;
       if ( !v12 )
         break;
-      v8 = ZwAdjustPrivilegesToken(*(_DWORD *)Heap, 0, *(_DWORD *)(Heap + 12), v15, v12, (int)&v15);
+      v8 = ZwAdjustPrivilegesToken(
+             *(HANDLE *)Heap,
+             0,
+             *((PTOKEN_PRIVILEGES *)Heap + 3),
+             ReturnLength,
+             v12,
+             &ReturnLength);
       if ( v8 != -1073741789 )
         goto LABEL_27;
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(Heap + 8));
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)Heap + 2));
     }
     v8 = -1073741801;
   }
 LABEL_27:
   if ( v8 == 262 )
   {
-    if ( a2 == 1 )
+    if ( NumPriv == 1 )
     {
       v8 = -1073741727;
       goto LABEL_30;
@@ -136,12 +152,12 @@ LABEL_27:
   if ( v8 < 0 )
   {
 LABEL_30:
-    v13 = *(_DWORD *)(Heap + 8);
+    v13 = (char *)*((_DWORD *)Heap + 2);
     if ( v13 && v13 != Heap + 20 )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(Heap + 8));
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)Heap + 2));
     NtClose(*(HANDLE *)Heap);
     goto LABEL_34;
   }
-  *a4 = Heap;
+  *ReturnedState = Heap;
   return 0;
 }

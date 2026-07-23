@@ -1,9 +1,9 @@
 /*
- * XREFs of KiBugCheckRecoveryFreezeProcessorDpc @ 0x14057A9F0
+ * XREFs of KiBugCheckRecoveryFreezeProcessorDpc @ 0x14057AEE0
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiBugCheckRecoveryFreezeProcessorDpc()
@@ -29,7 +29,7 @@ __int64 KiBugCheckRecoveryFreezeProcessorDpc()
     _InterlockedOr(SchedulerAssist, 0x200000u);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v2 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -41,10 +41,10 @@ __int64 KiBugCheckRecoveryFreezeProcessorDpc()
   _InterlockedIncrement(&KiFreezeInDpcCount);
   while ( KiFreezeInDpc )
     _mm_pause();
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v4 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v6 = CurrentPrcb->SchedulerAssist;

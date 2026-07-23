@@ -16,72 +16,77 @@
  *     memmove @ 0x1800A7A40 (memmove.c)
  */
 
-__int64 __fastcall RtlSetProtectedPolicy(_OWORD *Key, __int64 a2, _QWORD *a3)
+NTSTATUS __cdecl RtlSetProtectedPolicy(PGUID PolicyGuid, ULONG_PTR PolicyValue, PULONG_PTR OldPolicyValue)
 {
   char v6; // di
   int v7; // ebx
-  int v8; // ebx
-  void *v9; // rax
-  unsigned int v10; // edi
-  void *ProcessHeap; // rcx
+  int v8; // eax
+  int v9; // ebx
+  PVOID v10; // rax
+  unsigned int v11; // edi
+  int v12; // eax
+  PVOID ProcessHeap; // rcx
   char *Heap; // rbx
-  void *v13; // rsi
-  char *v14; // rbx
-  __int64 v15; // rax
-  int v16; // edx
-  void *v18; // rcx
+  PVOID v15; // rsi
+  char *v16; // rbx
+  unsigned __int64 v17; // rax
+  int v18; // eax
+  int v19; // edx
+  int v21; // eax
+  PVOID v22; // rcx
 
   v6 = 0;
   v7 = LdrEnsureMrdataHeapExists();
   if ( v7 >= 0 )
   {
     RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
-    if ( LdrControlFlowGuardEnforced() )
+    LOBYTE(v8) = LdrControlFlowGuardEnforced();
+    if ( v8 )
     {
       RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-      v8 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+      v9 = *(_DWORD *)LdrpMrdataHeapUnprotected;
       if ( *(_DWORD *)LdrpMrdataHeapUnprotected )
       {
-        if ( v8 == -1 )
+        if ( v9 == -1 )
           goto LABEL_42;
       }
       else
       {
-        RtlProtectHeap((__m128i *)LdrpMrdataHeap, 0);
+        RtlProtectHeap(LdrpMrdataHeap, 0);
       }
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v8 + 1;
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v9 + 1;
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     }
-    v9 = RtlpProtectedPolicies;
+    v10 = RtlpProtectedPolicies;
     if ( RtlpProtectedPolicies )
     {
-      v14 = (char *)bsearch(
-                      Key,
+      v16 = (char *)bsearch(
+                      PolicyGuid,
                       RtlpProtectedPolicies,
                       (unsigned int)RtlpProtectedPoliciesActiveCount,
                       0x18uLL,
                       (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareActivationContextGuidSectionEntryByGuid);
-      if ( v14 )
+      if ( v16 )
         goto LABEL_18;
-      v9 = RtlpProtectedPolicies;
+      v10 = RtlpProtectedPolicies;
     }
-    if ( v9 && (_DWORD)RtlpProtectedPoliciesActiveCount + 1 != RtlpProtectedPoliciesTotalCount )
+    if ( v10 && (_DWORD)RtlpProtectedPoliciesActiveCount + 1 != RtlpProtectedPoliciesTotalCount )
     {
       LdrProtectMrdata(0);
       Heap = (char *)RtlpProtectedPolicies;
 LABEL_17:
-      v14 = &Heap[24 * (unsigned int)RtlpProtectedPoliciesActiveCount];
+      v16 = &Heap[24 * (unsigned int)RtlpProtectedPoliciesActiveCount];
       LODWORD(RtlpProtectedPoliciesActiveCount) = RtlpProtectedPoliciesActiveCount + 1;
-      *(_OWORD *)v14 = 0LL;
-      *((_QWORD *)v14 + 2) = 0LL;
-      *(_OWORD *)v14 = *Key;
+      *(_OWORD *)v16 = 0LL;
+      *((_QWORD *)v16 + 2) = 0LL;
+      *(GUID *)v16 = *PolicyGuid;
       LdrProtectMrdata(1);
       v6 = 1;
 LABEL_18:
-      v15 = *((_QWORD *)v14 + 2);
-      *((_QWORD *)v14 + 2) = a2;
-      if ( a3 )
-        *a3 = v15;
+      v17 = *((_QWORD *)v16 + 2);
+      *((_QWORD *)v16 + 2) = PolicyValue;
+      if ( OldPolicyValue )
+        *OldPolicyValue = v17;
       if ( v6 )
         qsort(
           RtlpProtectedPolicies,
@@ -93,58 +98,61 @@ LABEL_18:
     }
     if ( RtlpProtectedPoliciesTotalCount )
     {
-      v10 = 2 * RtlpProtectedPoliciesTotalCount;
-      if ( 2 * RtlpProtectedPoliciesTotalCount < (unsigned int)RtlpProtectedPoliciesTotalCount || v10 >= 0xAAAAAAA )
+      v11 = 2 * RtlpProtectedPoliciesTotalCount;
+      if ( 2 * RtlpProtectedPoliciesTotalCount < (unsigned int)RtlpProtectedPoliciesTotalCount || v11 >= 0xAAAAAAA )
         goto LABEL_35;
     }
     else
     {
-      v10 = 16;
+      v11 = 16;
     }
-    if ( LdrControlFlowGuardEnforced() )
+    LOBYTE(v12) = LdrControlFlowGuardEnforced();
+    if ( v12 )
     {
-      if ( 24 * (unsigned __int64)v10 >= 0xFF000 )
+      if ( 24 * (unsigned __int64)v11 >= 0xFF000 )
         goto LABEL_35;
-      ProcessHeap = (void *)LdrpMrdataHeap;
+      ProcessHeap = LdrpMrdataHeap;
     }
     else
     {
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
     }
-    Heap = (char *)RtlAllocateHeap((__int64)ProcessHeap, 0, 24LL * v10);
+    Heap = (char *)RtlAllocateHeap(ProcessHeap, 0, 24LL * v11);
     if ( Heap )
     {
       LdrProtectMrdata(0);
-      v13 = RtlpProtectedPolicies;
+      v15 = RtlpProtectedPolicies;
       if ( RtlpProtectedPolicies )
       {
         memmove(Heap, RtlpProtectedPolicies, 24LL * (unsigned int)RtlpProtectedPoliciesActiveCount);
-        if ( LdrControlFlowGuardEnforced() )
-          v18 = (void *)LdrpMrdataHeap;
+        LOBYTE(v21) = LdrControlFlowGuardEnforced();
+        if ( v21 )
+          v22 = LdrpMrdataHeap;
         else
-          v18 = NtCurrentPeb()->ProcessHeap;
-        RtlFreeHeap((__int64)v18, 0, (__int64)v13);
+          v22 = NtCurrentPeb()->ProcessHeap;
+        RtlFreeHeap(v22, 0, v15);
       }
       RtlpProtectedPolicies = Heap;
-      RtlpProtectedPoliciesTotalCount = v10;
+      RtlpProtectedPoliciesTotalCount = v11;
       goto LABEL_17;
     }
 LABEL_35:
     v7 = -1073741801;
 LABEL_23:
-    if ( !LdrControlFlowGuardEnforced() )
+    LOBYTE(v18) = LdrControlFlowGuardEnforced();
+    if ( !v18 )
     {
 LABEL_28:
       RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
-      return (unsigned int)v7;
+      return v7;
     }
     RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-    v16 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    v19 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( *(_DWORD *)LdrpMrdataHeapUnprotected )
     {
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v16 - 1;
-      if ( v16 == 1 )
-        RtlProtectHeap((__m128i *)LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v19 - 1;
+      if ( v19 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       goto LABEL_28;
     }
@@ -152,5 +160,5 @@ LABEL_42:
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     __fastfail(0xEu);
   }
-  return (unsigned int)v7;
+  return v7;
 }

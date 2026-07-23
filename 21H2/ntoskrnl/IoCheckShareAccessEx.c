@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCheckShareAccessEx @ 0x14077D4A0
+ * XREFs of IoCheckShareAccessEx @ 0x14077D660
  * Callers:
  *     <none>
  * Callees:
- *     IoCheckLinkShareAccess @ 0x14064F220 (IoCheckLinkShareAccess.c)
+ *     IoCheckLinkShareAccess @ 0x140644040 (IoCheckLinkShareAccess.c)
  */
 
 NTSTATUS __stdcall IoCheckShareAccessEx(

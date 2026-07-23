@@ -20,36 +20,33 @@ __int64 __fastcall sub_1800429E8(__int64 a1)
   int v2; // eax
   int v4; // eax
   int v5; // ebx
-  int v6; // eax
-  __int64 v8; // [rsp+30h] [rbp-D0h] BYREF
-  int v9; // [rsp+40h] [rbp-C0h] BYREF
-  _WORD *v10; // [rsp+48h] [rbp-B8h]
-  _WORD v11[128]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v7; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING v8; // [rsp+40h] [rbp-C0h] BYREF
+  _WORD v9[128]; // [rsp+50h] [rbp-B0h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
-  v10 = v11;
+  v8.Buffer = v9;
   v2 = *(_DWORD *)(a1 + 32);
-  v8 = 0LL;
-  v9 = 0x1000000;
-  v11[0] = 0;
-  v4 = sub_18003FCF8((unsigned __int16 *)a1, (__int64)&v9, v1 + 88, (_OWORD *)(v1 + 72), v2);
+  v7 = 0LL;
+  *(_DWORD *)&v8.Length = 0x1000000;
+  v9[0] = 0;
+  v4 = sub_18003FCF8((unsigned __int16 *)a1, &v8, (_UNICODE_STRING *)(v1 + 88), (_UNICODE_STRING *)(v1 + 72), v2);
   v5 = v4;
   if ( !*(_QWORD *)(a1 + 168)
-    && (v5 = sub_180042934(a1, (_OWORD *)(v1 + 72), v1 + 88, (__int64)&v9, v4), v5 >= 0)
-    && (v6 = sub_1800404E8((unsigned __int16 *)(v1 + 88)),
-        *(_DWORD *)(v1 + 264) = v6,
-        sub_180043094(v1 + 88, v1 + 72, *(_DWORD *)(a1 + 32), v6, (__int64)&v8),
-        v8) )
+    && (v5 = sub_180042934(a1, (_UNICODE_STRING *)(v1 + 72), (_UNICODE_STRING *)(v1 + 88), &v8, v4), v5 >= 0)
+    && (*(_DWORD *)(v1 + 264) = sub_1800404E8((_UNICODE_STRING *)(v1 + 88)),
+        sub_180043094((PUNICODE_STRING)(v1 + 88), (PUNICODE_STRING)(v1 + 72), (__int64)&v7),
+        v7) )
   {
-    sub_180070738(a1, v8);
+    sub_180070738(a1, v7);
   }
   else if ( v5 >= 0 )
   {
-    v5 = sub_180043144(a1, &v9);
+    v5 = sub_180043144(a1, &v8);
     if ( v5 == 1073741838 )
       v5 = -1073741701;
   }
-  if ( v11 != v10 )
-    RtlDeleteBoundaryDescriptor((__int64)v10);
+  if ( v9 != v8.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v8.Buffer);
   return (unsigned int)v5;
 }

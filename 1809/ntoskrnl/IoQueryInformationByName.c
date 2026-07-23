@@ -1,18 +1,18 @@
 /*
- * XREFs of IoQueryInformationByName @ 0x14081C540
+ * XREFs of IoQueryInformationByName @ 0x14081D740
  * Callers:
- *     NtQueryInformationByName @ 0x14081D470 (NtQueryInformationByName.c)
+ *     NtQueryInformationByName @ 0x14081E670 (NtQueryInformationByName.c)
  * Callees:
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     IopVerifierExAllocatePoolWithQuota_3 @ 0x14028439C (IopVerifierExAllocatePoolWithQuota_3.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14058194C (FsRtlpPrepareExtraCreateParametersForCreate.c)
- *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
- *     IopValidateQueryInformationParameters @ 0x14063B290 (IopValidateQueryInformationParameters.c)
- *     IopCleanupExtraCreateParameters @ 0x14070F23C (IopCleanupExtraCreateParameters.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IopVerifierExAllocatePoolWithQuota_3 @ 0x14028458C (IopVerifierExAllocatePoolWithQuota_3.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14058294C (FsRtlpPrepareExtraCreateParametersForCreate.c)
+ *     ObOpenObjectByNameEx @ 0x1405E3E30 (ObOpenObjectByNameEx.c)
+ *     IopValidateQueryInformationParameters @ 0x14063C2B0 (IopValidateQueryInformationParameters.c)
+ *     IopCleanupExtraCreateParameters @ 0x1407104DC (IopCleanupExtraCreateParameters.c)
  */
 
 __int64 __fastcall IoQueryInformationByName(

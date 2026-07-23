@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTradeBootImagePage @ 0x140D00E4C
+ * XREFs of MiTradeBootImagePage @ 0x140D071EC
  * Callers:
- *     MiHandleBootImage @ 0x140CFFFDC (MiHandleBootImage.c)
+ *     MiHandleBootImage @ 0x140D0637C (MiHandleBootImage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiTransformValidPteUsingAccessedBit @ 0x140342588 (MiTransformValidPteUsingAccessedBit.c)
- *     MiClearPfnImageVerified @ 0x14046FA64 (MiClearPfnImageVerified.c)
- *     KeCopyPrivilegedPage @ 0x1404CA384 (KeCopyPrivilegedPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiTransformValidPteUsingAccessedBit @ 0x140344608 (MiTransformValidPteUsingAccessedBit.c)
+ *     MiClearPfnImageVerified @ 0x1404691E4 (MiClearPfnImageVerified.c)
+ *     KeCopyPrivilegedPage @ 0x1404C3DB4 (KeCopyPrivilegedPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiTradeBootImagePage(volatile unsigned __int64 *a1, ULONG_PTR a2)

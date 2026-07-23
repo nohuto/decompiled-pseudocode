@@ -34,7 +34,7 @@ void __fastcall ObpFreeObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   ULONG v18; // edx
   __int64 v19; // rcx
   struct _KPRCB *CurrentPrcb; // r8
-  struct _SLIST_ENTRY *v21; // rdx
+  _SLIST_ENTRY *v21; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
   void *v23; // rcx
   struct _KTHREAD *CurrentThread; // rax
@@ -112,7 +112,7 @@ void __fastcall ObpFreeObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
       *(_QWORD *)(*(_QWORD *)(a1 + 32) + 32LL) = 0LL;
     }
     CurrentPrcb = KeGetCurrentPrcb();
-    v21 = *(struct _SLIST_ENTRY **)(a1 + 32);
+    v21 = *(_SLIST_ENTRY **)(a1 + 32);
     P = CurrentPrcb->PPLookasideList[4].P;
     ++P->TotalFrees;
     if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -126,7 +126,7 @@ void __fastcall ObpFreeObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v21);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v21);
     }
     goto LABEL_24;
   }

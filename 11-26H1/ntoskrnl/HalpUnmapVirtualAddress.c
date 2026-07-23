@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpUnmapVirtualAddress @ 0x140509DE0
+ * XREFs of HalpUnmapVirtualAddress @ 0x140503890
  * Callers:
- *     HalpAcpiGetTableWork @ 0x140342B6C (HalpAcpiGetTableWork.c)
- *     HalpMcStagePayload @ 0x1405938EC (HalpMcStagePayload.c)
- *     HalpHpetDiscover @ 0x140598928 (HalpHpetDiscover.c)
- *     HalUnmapIoSpace @ 0x14059A210 (HalUnmapIoSpace.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x14059A588 (HalpUsbLegacyStopOhciInterrupt.c)
- *     WdHwDestroyHardwareRegister @ 0x1405A4FCC (WdHwDestroyHardwareRegister.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405AEAE8 (HalpIvtProcessDrhdEntry.c)
- *     HalpCheckLowMemoryPreSleep @ 0x140BECDA8 (HalpCheckLowMemoryPreSleep.c)
- *     HalpCheckLowMemoryPostSleep @ 0x140C09D9C (HalpCheckLowMemoryPostSleep.c)
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140CB2FF8 (HalpBlkInitializeVirtualAddressSpace.c)
- *     HalpMiscInitializeAmdSfs @ 0x140CB4660 (HalpMiscInitializeAmdSfs.c)
- *     HalpAcpiTableCacheInit @ 0x140D0A55C (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiGetTableWork @ 0x140344BEC (HalpAcpiGetTableWork.c)
+ *     HalpMcStagePayload @ 0x14059606C (HalpMcStagePayload.c)
+ *     HalpHpetDiscover @ 0x14059B0A8 (HalpHpetDiscover.c)
+ *     HalUnmapIoSpace @ 0x14059C990 (HalUnmapIoSpace.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x14059CD08 (HalpUsbLegacyStopOhciInterrupt.c)
+ *     WdHwDestroyHardwareRegister @ 0x1405A77DC (WdHwDestroyHardwareRegister.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1405B12F8 (HalpIvtProcessDrhdEntry.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x140BF2DA8 (HalpCheckLowMemoryPreSleep.c)
+ *     HalpCheckLowMemoryPostSleep @ 0x140C0FFAC (HalpCheckLowMemoryPostSleep.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140CB9038 (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpMiscInitializeAmdSfs @ 0x140CBA6A0 (HalpMiscInitializeAmdSfs.c)
+ *     HalpAcpiTableCacheInit @ 0x140D1082C (HalpAcpiTableCacheInit.c)
  * Callees:
- *     HalpFlushTLB @ 0x140522658 (HalpFlushTLB.c)
+ *     HalpFlushTLB @ 0x140524CC4 (HalpFlushTLB.c)
  */
 
 char *__fastcall HalpUnmapVirtualAddress(unsigned __int64 a1, __int64 a2, char a3)

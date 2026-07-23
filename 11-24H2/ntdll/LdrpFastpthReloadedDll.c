@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrpFastpthReloadedDll @ 0x180019870
+ * XREFs of LdrpFastpthReloadedDll @ 0x180046270
  * Callers:
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
  * Callees:
- *     LdrpDropLastInProgressCount @ 0x180001F40 (LdrpDropLastInProgressCount.c)
- *     LdrpDrainWorkQueue @ 0x180003E20 (LdrpDrainWorkQueue.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     LdrpFindLoadedDllByName @ 0x180018180 (LdrpFindLoadedDllByName.c)
- *     LdrpIncrementModuleLoadCount @ 0x180019B00 (LdrpIncrementModuleLoadCount.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
- *     LdrpDecrementModuleLoadCountEx @ 0x18001C830 (LdrpDecrementModuleLoadCountEx.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     LdrpLogEtwHotPatchStatus @ 0x180074798 (LdrpLogEtwHotPatchStatus.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     LdrpFindLoadedDllByName @ 0x180044B80 (LdrpFindLoadedDllByName.c)
+ *     LdrpIncrementModuleLoadCount @ 0x180046500 (LdrpIncrementModuleLoadCount.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
+ *     LdrpDecrementModuleLoadCountEx @ 0x180049230 (LdrpDecrementModuleLoadCountEx.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     LdrpLogEtwHotPatchStatus @ 0x180091078 (LdrpLogEtwHotPatchStatus.c)
+ *     LdrpDrainWorkQueue @ 0x1800AB680 (LdrpDrainWorkQueue.c)
+ *     LdrpDropLastInProgressCount @ 0x1800ACA84 (LdrpDropLastInProgressCount.c)
  */
 
 __int64 __fastcall LdrpFastpthReloadedDll(unsigned __int64 a1, __int16 a2, __int64 a3, _QWORD *a4)
@@ -27,8 +27,8 @@ __int64 __fastcall LdrpFastpthReloadedDll(unsigned __int64 a1, __int16 a2, __int
   int v13; // edx
   _QWORD *v14; // rcx
   _QWORD *v15; // rax
-  __int64 Heap; // rax
-  __int64 *v17; // rdx
+  char *Heap; // rax
+  _QWORD *v17; // rdx
   _QWORD *v18; // rdx
   _QWORD *v19; // r8
   int v20; // edx
@@ -75,12 +75,12 @@ LABEL_16:
       }
       else
       {
-        LdrpDrainWorkQueue(0);
+        LdrpDrainWorkQueue(0LL);
         LdrpDecrementModuleLoadCountEx(*a4, 0LL);
         LdrpDropLastInProgressCount();
       }
 LABEL_19:
-      LdrpDereferenceModule(*a4);
+      LdrpDereferenceModule((PVOID)*a4);
       *a4 = 0LL;
       return (unsigned int)Count;
     }
@@ -96,11 +96,11 @@ LABEL_19:
         if ( !v14 )
         {
 LABEL_28:
-          Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
+          Heap = (char *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
           if ( Heap )
           {
-            *(_DWORD *)(Heap + 24) |= 1u;
-            v17 = *(__int64 **)(v11 + 40);
+            *((_DWORD *)Heap + 6) |= 1u;
+            v17 = *(_QWORD **)(v11 + 40);
             if ( v17 )
             {
               *(_QWORD *)Heap = *v17;
@@ -111,8 +111,8 @@ LABEL_28:
               *(_QWORD *)Heap = Heap;
             }
             *(_QWORD *)(v11 + 40) = Heap;
-            v18 = (_QWORD *)(Heap + 16);
-            *(_QWORD *)(Heap + 8) = v12;
+            v18 = Heap + 16;
+            *((_QWORD *)Heap + 1) = v12;
             v19 = *(_QWORD **)(v12 + 48);
             if ( v19 )
             {
@@ -124,10 +124,10 @@ LABEL_28:
               *v18 = v18;
             }
             *(_QWORD *)(v12 + 48) = v18;
-            v20 = *(_DWORD *)(Heap + 24);
-            *(_QWORD *)(Heap + 24) = v11;
+            v20 = *((_DWORD *)Heap + 6);
+            *((_QWORD *)Heap + 3) = v11;
             if ( (v20 & 1) != 0 )
-              *(_DWORD *)(Heap + 24) = v11 ^ ((unsigned __int8)v20 ^ (unsigned __int8)v11) & 1;
+              *((_DWORD *)Heap + 6) = v11 ^ ((unsigned __int8)v20 ^ (unsigned __int8)v11) & 1;
           }
           else
           {

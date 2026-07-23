@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpQueryIdFdo @ 0x1406FED94
+ * XREFs of HalpQueryIdFdo @ 0x1406FC9D4
  * Callers:
- *     HalpDispatchPnp @ 0x140A78F20 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140A73220 (HalpDispatchPnp.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpQueryIdFdo(__int64 a1, int a2, _QWORD *a3)
@@ -35,7 +35,7 @@ __int64 __fastcall HalpQueryIdFdo(__int64 a1, int a2, _QWORD *a3)
     v7 = (_DWORD)v8 - (unsigned int)L"acpiapic" + 2;
   }
   v9 = v7;
-  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v7 + 2LL, 0x706C6148u);
   v11 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

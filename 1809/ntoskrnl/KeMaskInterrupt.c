@@ -1,20 +1,20 @@
 /*
- * XREFs of KeMaskInterrupt @ 0x14016D548
+ * XREFs of KeMaskInterrupt @ 0x14016D648
  * Callers:
- *     IopMaskInterrupt @ 0x1401592D4 (IopMaskInterrupt.c)
- *     KeDisconnectInterrupt @ 0x14016D2C0 (KeDisconnectInterrupt.c)
+ *     IopMaskInterrupt @ 0x1401593D4 (IopMaskInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14016D3C0 (KeDisconnectInterrupt.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KeGetProcessorNumberFromIndex @ 0x1400897F0 (KeGetProcessorNumberFromIndex.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
- *     KeSetTargetProcessorDpcEx @ 0x14013A0B0 (KeSetTargetProcessorDpcEx.c)
- *     KiMaskInterruptInternal @ 0x14016D3B0 (KiMaskInterruptInternal.c)
- *     KiAcquireInterruptConnectLock @ 0x14016DE38 (KiAcquireInterruptConnectLock.c)
- *     KiIsInterruptTypeSecondary @ 0x14016E418 (KiIsInterruptTypeSecondary.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiMaskSecondaryInterruptInternal @ 0x140293880 (KiMaskSecondaryInterruptInternal.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1400897E0 (KeGetProcessorNumberFromIndex.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     KeRemoveQueueDpcEx @ 0x140132AD0 (KeRemoveQueueDpcEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14013A1B0 (KeSetTargetProcessorDpcEx.c)
+ *     KiMaskInterruptInternal @ 0x14016D4B0 (KiMaskInterruptInternal.c)
+ *     KiAcquireInterruptConnectLock @ 0x14016DF38 (KiAcquireInterruptConnectLock.c)
+ *     KiIsInterruptTypeSecondary @ 0x14016E518 (KiIsInterruptTypeSecondary.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x140293A70 (KiMaskSecondaryInterruptInternal.c)
  */
 
 __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, struct _KDPC *a4)
@@ -33,7 +33,7 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   struct _KPRCB *v20; // rcx
   unsigned __int8 v21[4]; // [rsp+30h] [rbp-68h] BYREF
   unsigned int v22; // [rsp+34h] [rbp-64h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-60h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-60h] BYREF
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
 
   IsInterruptTypeSecondary = KiIsInterruptTypeSecondary(a3);

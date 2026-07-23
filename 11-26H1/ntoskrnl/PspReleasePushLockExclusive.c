@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReleasePushLockExclusive @ 0x140616130
+ * XREFs of PspReleasePushLockExclusive @ 0x140619120
  * Callers:
- *     PsStartSiloMonitor @ 0x1407FBC40 (PsStartSiloMonitor.c)
- *     PsUnregisterSiloMonitor @ 0x1407FBE80 (PsUnregisterSiloMonitor.c)
+ *     PsStartSiloMonitor @ 0x140801670 (PsStartSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x1408018B0 (PsUnregisterSiloMonitor.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void PspReleasePushLockExclusive()

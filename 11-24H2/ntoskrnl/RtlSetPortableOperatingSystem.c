@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlSetPortableOperatingSystem @ 0x1405E9470
+ * XREFs of RtlSetPortableOperatingSystem @ 0x1405E69C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlWriteRegistryValue @ 0x140A54360 (RtlWriteRegistryValue.c)
+ *     RtlWriteRegistryValue @ 0x1409B6290 (RtlWriteRegistryValue.c)
  */
 
-NTSTATUS __fastcall RtlSetPortableOperatingSystem(char a1)
+NTSTATUS __cdecl RtlSetPortableOperatingSystem(BOOLEAN IsPortable)
 {
   BOOL ValueData; // [rsp+40h] [rbp+8h] BYREF
 
-  ValueData = a1 != 0;
+  ValueData = IsPortable != 0;
   return RtlWriteRegistryValue(2u, 0LL, L"PortableOperatingSystem", 4u, &ValueData, 4u);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpFindAdapterByRequestLine @ 0x1405170E0
+ * XREFs of HalpFindAdapterByRequestLine @ 0x140517630
  * Callers:
- *     HalGetAdapterV3 @ 0x140827530 (HalGetAdapterV3.c)
+ *     HalGetAdapterV3 @ 0x140827830 (HalGetAdapterV3.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall HalpFindAdapterByRequestLine(__int64 a1, int a2)
@@ -26,7 +26,10 @@ _QWORD *__fastcall HalpFindAdapterByRequestLine(__int64 a1, int a2)
   v5 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(v2);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v2 - 2) <= 0xDu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && CurrentIrql <= 0xFu
+    && (unsigned __int8)(v2 - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == (_BYTE)v2 )
@@ -45,10 +48,10 @@ _QWORD *__fastcall HalpFindAdapterByRequestLine(__int64 a1, int a2)
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)(a1 + 168));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v12 = CurrentPrcb->SchedulerAssist;
@@ -56,7 +59,7 @@ _QWORD *__fastcall HalpFindAdapterByRequestLine(__int64 a1, int a2)
       v14 = (v13 & v12[5]) == 0;
       v12[5] &= v13;
       if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

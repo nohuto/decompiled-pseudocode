@@ -15,7 +15,7 @@
 void __fastcall PopInitializePowerButtonHold(int a1)
 {
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v2; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG BufferLengthOut; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   WCHAR SourceString[264]; // [rsp+90h] [rbp-70h] BYREF
@@ -27,14 +27,14 @@ void __fastcall PopInitializePowerButtonHold(int a1)
   if ( a1 )
   {
     if ( a1 == 1
-      && (int)RtlGetPersistedStateLocation(
-                L"PowerButtonBugcheckSettings",
-                0LL,
-                L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER",
-                0,
-                SourceString,
-                0x208u,
-                (unsigned int *)&v2) >= 0 )
+      && RtlGetPersistedStateLocation(
+           L"PowerButtonBugcheckSettings",
+           0LL,
+           L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER",
+           LocationTypeRegistry,
+           SourceString,
+           0x208u,
+           &BufferLengthOut) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
       ObjectAttributes.RootDirectory = 0LL;

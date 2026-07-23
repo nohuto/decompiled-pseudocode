@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIpiInterruptSubDispatch @ 0x14072FE70
+ * XREFs of KiIpiInterruptSubDispatch @ 0x140734A40
  * Callers:
- *     KiIpiInterrupt @ 0x14072F700 (KiIpiInterrupt.c)
+ *     KiIpiInterrupt @ 0x1407342D0 (KiIpiInterrupt.c)
  * Callees:
- *     KiStartInterruptCycleAccumulation @ 0x140228150 (KiStartInterruptCycleAccumulation.c)
- *     KiIpiProcessRequests @ 0x140481AA0 (KiIpiProcessRequests.c)
- *     KzSetIrqlUnsafe @ 0x1405EBBF0 (KzSetIrqlUnsafe.c)
+ *     KiStartInterruptCycleAccumulation @ 0x140229AE0 (KiStartInterruptCycleAccumulation.c)
+ *     KiIpiProcessRequests @ 0x14047B410 (KiIpiProcessRequests.c)
+ *     KzSetIrqlUnsafe @ 0x1405EE560 (KzSetIrqlUnsafe.c)
  */
 
 char __fastcall KiIpiInterruptSubDispatch()

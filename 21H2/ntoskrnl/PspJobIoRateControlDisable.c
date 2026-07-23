@@ -1,12 +1,12 @@
 /*
- * XREFs of PspJobIoRateControlDisable @ 0x14067F400
+ * XREFs of PspJobIoRateControlDisable @ 0x1405D9EA0
  * Callers:
- *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
+ *     PspJobDelete @ 0x1402046D0 (PspJobDelete.c)
  *     PspSetJobIoRateControl @ 0x1405D7F68 (PspSetJobIoRateControl.c)
  * Callees:
- *     PspJobIoRateVolumeEntryRemoveAll @ 0x140287874 (PspJobIoRateVolumeEntryRemoveAll.c)
+ *     PspJobIoRateVolumeEntryRemoveAll @ 0x140204A14 (PspJobIoRateVolumeEntryRemoveAll.c)
  *     PspIoRateEntryDeactivate @ 0x1405D82B8 (PspIoRateEntryDeactivate.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspJobIoRateControlDisable(struct _EX_RUNDOWN_REF *a1)

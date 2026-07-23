@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x1401B6D2C
+ * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x1401B6C10
  * Callers:
- *     CmQueryLayeredKey @ 0x1401B3DE4 (CmQueryLayeredKey.c)
- *     CmpEnumerateLayeredKey @ 0x1405FED24 (CmpEnumerateLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x1401B3CC8 (CmQueryLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405FEDD8 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpGetValueCountForKeyNodeStack @ 0x1401B5B98 (CmpGetValueCountForKeyNodeStack.c)
- *     CmpPopulateCachedInformation @ 0x1401B6CEC (CmpPopulateCachedInformation.c)
- *     CmpPopulateBasicInformation @ 0x140438430 (CmpPopulateBasicInformation.c)
- *     CmpPopulateNodeInformation @ 0x1404D2694 (CmpPopulateNodeInformation.c)
- *     CmpPopulateFullInformation @ 0x1404DE4BC (CmpPopulateFullInformation.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x14060A060 (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x14060BC6C (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BCE4 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1401B5A7C (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpPopulateCachedInformation @ 0x1401B6BD0 (CmpPopulateCachedInformation.c)
+ *     CmpPopulateBasicInformation @ 0x140437300 (CmpPopulateBasicInformation.c)
+ *     CmpPopulateNodeInformation @ 0x1404B6134 (CmpPopulateNodeInformation.c)
+ *     CmpPopulateFullInformation @ 0x1404C1AC0 (CmpPopulateFullInformation.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x14060A114 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14060BD20 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BD98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromKeyNodeStack(

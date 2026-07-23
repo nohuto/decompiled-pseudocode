@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhContextSlotAllocate @ 0x140346D68
+ * XREFs of RtlpHpLfhContextSlotAllocate @ 0x140348DE8
  * Callers:
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14035402C (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x140519814 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x140513284 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x140519218 (RtlpHpLfhBucketUpdateAffinityMapping.c)
  * Callees:
- *     RtlpHpLfhSlotInitialize @ 0x140346430 (RtlpHpLfhSlotInitialize.c)
- *     RtlpHpLfhContextMetadataAllocate @ 0x140346DC4 (RtlpHpLfhContextMetadataAllocate.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x140347D20 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpLfhSlotInitialize @ 0x1403484B0 (RtlpHpLfhSlotInitialize.c)
+ *     RtlpHpLfhContextMetadataAllocate @ 0x140348E44 (RtlpHpLfhContextMetadataAllocate.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x140349DA0 (RtlpHpLfhContextSlotStandbyProcess.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextSlotAllocate(__int64 a1, unsigned __int8 *a2)

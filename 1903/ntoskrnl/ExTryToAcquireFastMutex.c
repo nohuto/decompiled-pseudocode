@@ -13,8 +13,8 @@
 
 BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
 {
-  __int64 v2; // rax
-  __int64 v3; // rbx
+  PRTL_BALANCED_NODE v2; // rax
+  PRTL_BALANCED_NODE v3; // rbx
   unsigned __int8 CurrentIrql; // si
   BOOLEAN result; // al
   struct _KPRCB *CurrentPrcb; // rcx
@@ -26,7 +26,7 @@ BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
   if ( _interlockedbittestandreset(&FastMutex->Count, 0) )
   {
     if ( v2 )
-      *(_BYTE *)(v2 + 26) |= 1u;
+      BYTE2(v2[1].Left) |= 1u;
     result = 1;
     FastMutex->Owner = KeGetCurrentThread();
     FastMutex->OldIrql = CurrentIrql;

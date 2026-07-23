@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAttachProcess @ 0x14012F560
+ * XREFs of KeAttachProcess @ 0x14012F630
  * Callers:
- *     KiCompleteKernelInit @ 0x140571B50 (KiCompleteKernelInit.c)
- *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
+ *     KiCompleteKernelInit @ 0x140572B50 (KiCompleteKernelInit.c)
+ *     PopGracefulShutdown @ 0x14057D9C0 (PopGracefulShutdown.c)
  * Callees:
  *     KiAttachProcess @ 0x140016BD0 (KiAttachProcess.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __stdcall KeAttachProcess(PRKPROCESS Process)

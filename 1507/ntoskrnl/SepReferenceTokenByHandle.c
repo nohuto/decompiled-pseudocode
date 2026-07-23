@@ -28,7 +28,7 @@ __int64 __fastcall SepReferenceTokenByHandle(
   unsigned int CurrentThread; // ecx
   _QWORD *v13; // rax
   _QWORD *v14; // r9
-  __int64 v15; // r10
+  void *v15; // r10
   int v16; // ecx
   int v17; // ecx
   int v18; // ecx
@@ -91,7 +91,7 @@ __int64 __fastcall SepReferenceTokenByHandle(
     if ( v24 != 2 || v23 )
     {
 LABEL_9:
-      v15 = v14[138];
+      v15 = (void *)v14[138];
       v16 = (unsigned __int8)a5;
       *v6 = 0;
       *v7 = 0LL;
@@ -148,7 +148,7 @@ LABEL_31:
       {
         v20 = SeProcTrustLiteWinSid;
       }
-      if ( v20 && !RtlIsValidProcessTrustLabelSid((__int64)v20) )
+      if ( v20 && !RtlIsValidProcessTrustLabelSid(v20) )
         goto LABEL_31;
       goto LABEL_10;
     }

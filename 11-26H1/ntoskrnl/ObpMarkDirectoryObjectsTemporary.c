@@ -1,18 +1,18 @@
 /*
- * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x1409E1F80
+ * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x1409DEF90
  * Callers:
- *     ObpDeleteDirectoryName @ 0x1409E22D8 (ObpDeleteDirectoryName.c)
+ *     ObpDeleteDirectoryName @ 0x1409DF2E8 (ObpDeleteDirectoryName.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ObpLockDirectoryExclusive @ 0x1409E21B8 (ObpLockDirectoryExclusive.c)
- *     ObpUnlockDirectory @ 0x1409E2240 (ObpUnlockDirectory.c)
- *     ObpDeleteSymbolicLinkName @ 0x140B008CC (ObpDeleteSymbolicLinkName.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ObpLockDirectoryExclusive @ 0x1409DF1C8 (ObpLockDirectoryExclusive.c)
+ *     ObpUnlockDirectory @ 0x1409DF250 (ObpUnlockDirectory.c)
+ *     ObpDeleteSymbolicLinkName @ 0x140B025FC (ObpDeleteSymbolicLinkName.c)
  */
 
 _QWORD *__fastcall ObpMarkDirectoryObjectsTemporary(_QWORD **a1, _QWORD *a2, __int64 a3, __int64 a4)

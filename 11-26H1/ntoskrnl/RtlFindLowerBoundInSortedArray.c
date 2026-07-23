@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlFindLowerBoundInSortedArray @ 0x140A49220
+ * XREFs of RtlFindLowerBoundInSortedArray @ 0x140A52510
  * Callers:
- *     CmpFindSecurityCellCacheIndex @ 0x140472390 (CmpFindSecurityCellCacheIndex.c)
- *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x140809FE8 (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x140A49030 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
- *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x140A4911C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
- *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x140A492D0 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14046BB10 (CmpFindSecurityCellCacheIndex.c)
+ *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14080FA78 (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x140A52320 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x140A5240C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x140A525C0 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 unsigned __int64 __fastcall RtlFindLowerBoundInSortedArray(

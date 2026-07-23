@@ -7,13 +7,13 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-char __fastcall RtlpDereferenceAtom(int a1, int a2, int a3)
+char __fastcall RtlpDereferenceAtom(int a1, _BYTE *a2, int a3)
 {
-  if ( (*(_BYTE *)(a2 + 2) & 1) != 0 )
+  if ( (a2[2] & 1) != 0 )
     return 0;
   if ( (*(_WORD *)a2)-- != 1 )
     return 0;
-  if ( a2 != a1 + 8 )
+  if ( a2 != (_BYTE *)(a1 + 8) )
     RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a2);
   RtlpFreeAllAtom();
   return 1;

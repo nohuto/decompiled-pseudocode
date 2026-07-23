@@ -1,13 +1,13 @@
 /*
- * XREFs of PipCheckDependencies @ 0x140C67CF0
+ * XREFs of PipCheckDependencies @ 0x140C69E6C
  * Callers:
- *     IopInitializeBootDrivers @ 0x140C1E4C4 (IopInitializeBootDrivers.c)
- *     IopInitializeSystemDrivers @ 0x140C629DC (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140C20504 (IopInitializeBootDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140C64B58 (IopInitializeSystemDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PipLookupGroupName @ 0x140C21358 (PipLookupGroupName.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PipLookupGroupName @ 0x140C23398 (PipLookupGroupName.c)
  */
 
 __int64 __fastcall PipCheckDependencies(void *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall PipCheckDependencies(void *a1)
   int v4; // ebp
   const WCHAR *v5; // rdi
   __int64 MaximumLength; // r14
-  ULONG_PTR v7; // rax
+  __int64 v7; // rax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
   PVOID P; // [rsp+58h] [rbp+10h] BYREF
 

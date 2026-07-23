@@ -12,7 +12,7 @@
 
 __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, __int64 a2, _BYTE *a3, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a4)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v4; // rbp
+  _RTL_DYNAMIC_HASH_TABLE *v4; // rbp
   unsigned int v5; // ebx
   __int64 v9; // rax
   ULONG_PTR v10; // r15
@@ -20,7 +20,7 @@ __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, __int64 a2, _BYTE *a3, P
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v12; // rdi
   PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry; // [rsp+60h] [rbp+18h] BYREF
 
-  v4 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
+  v4 = *(_RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
   v5 = 0;
   Entry = 0LL;
   v9 = SepComputeCachedHandlesEntrySignature(a2);

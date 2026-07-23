@@ -1,9 +1,9 @@
 /*
- * XREFs of CcAdjustThrottleForVolume @ 0x14038A264
+ * XREFs of CcAdjustThrottleForVolume @ 0x14038C014
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
  * Callees:
- *     CcAdjustThrottleForExternalCache @ 0x14038A35C (CcAdjustThrottleForExternalCache.c)
+ *     CcAdjustThrottleForExternalCache @ 0x14038C10C (CcAdjustThrottleForExternalCache.c)
  */
 
 __int64 __fastcall CcAdjustThrottleForVolume(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall CcAdjustThrottleForVolume(__int64 a1, __int64 a2)
   unsigned __int64 v13; // rax
   __int64 result; // rax
 
-  v3 = dword_140FBE22C;
+  v3 = dword_140FBF22C;
   if ( (*(_DWORD *)(a1 + 1616) & 0x10) != 0 )
     return CcAdjustThrottleForExternalCache(a1, a2, a1);
   v4 = *(_DWORD *)(a1 + 1288);

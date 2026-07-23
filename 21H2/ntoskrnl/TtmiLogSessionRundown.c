@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionRundown @ 0x140904298
+ * XREFs of TtmiLogSessionRundown @ 0x1409043F8
  * Callers:
- *     TtmiSessionsRundown @ 0x1408FF178 (TtmiSessionsRundown.c)
+ *     TtmiSessionsRundown @ 0x1408FF2D8 (TtmiSessionsRundown.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionRundown()
@@ -79,7 +79,7 @@ void TtmiLogSessionRundown()
       v31 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D2D8C8,
-        (unsigned __int8 *)byte_14002BA35,
+        (unsigned __int8 *)&dword_14002C039 + 2,
         0LL,
         0LL,
         0xCu,

@@ -1,18 +1,18 @@
 /*
- * XREFs of FlushLookUpTableBucket @ 0x1404CAE68
+ * XREFs of FlushLookUpTableBucket @ 0x1404C4898
  * Callers:
- *     LookUpTableFlushPartial @ 0x140AED298 (LookUpTableFlushPartial.c)
- *     LookUpTableFlushComplete @ 0x140AED3DC (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x140AEFFE8 (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x140AF012C (LookUpTableFlushComplete.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     FlattenEventEntryTree @ 0x1404CAF8C (FlattenEventEntryTree.c)
- *     FlushEventEntryList @ 0x140AE0550 (FlushEventEntryList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     FlattenEventEntryTree @ 0x1404C49BC (FlattenEventEntryTree.c)
+ *     FlushEventEntryList @ 0x140ADDD90 (FlushEventEntryList.c)
  */
 
 __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

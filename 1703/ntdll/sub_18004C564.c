@@ -9,7 +9,7 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall sub_18004C564(__int64 a1, _OWORD *a2, __int64 a3, __m128i *a4, __int64 a5, int a6)
+__int64 __fastcall sub_18004C564(__int64 a1, _OWORD *a2, _UNICODE_STRING *a3, __m128i *a4, __int64 a5, int a6)
 {
   unsigned int v6; // ebx
   _OWORD *v12; // r8

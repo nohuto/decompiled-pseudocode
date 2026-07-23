@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmHeteroHgsProcessorInit @ 0x1405D72FC
+ * XREFs of PpmHeteroHgsProcessorInit @ 0x1405D48A0
  * Callers:
- *     PpmCheckProcessorInit @ 0x1405D6B90 (PpmCheckProcessorInit.c)
- *     PoInitializePrcb @ 0x140B5FE98 (PoInitializePrcb.c)
+ *     PpmCheckProcessorInit @ 0x1405D41B0 (PpmCheckProcessorInit.c)
+ *     PoInitializePrcb @ 0x140B61F64 (PoInitializePrcb.c)
  * Callees:
- *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x1404FAD08 (PpmHeteroHgsProcessorThreadFeedbackInit.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PpmHeteroInitializeFeedbackClass @ 0x1405D76BC (PpmHeteroInitializeFeedbackClass.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PpmHeteroAmdProcessorInit @ 0x140B60108 (PpmHeteroAmdProcessorInit.c)
- *     PpmHeteroIntelProcessorInit @ 0x140B60194 (PpmHeteroIntelProcessorInit.c)
+ *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x1404F85E8 (PpmHeteroHgsProcessorThreadFeedbackInit.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PpmHeteroInitializeFeedbackClass @ 0x1405D4BFC (PpmHeteroInitializeFeedbackClass.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PpmHeteroAmdProcessorInit @ 0x140B621D4 (PpmHeteroAmdProcessorInit.c)
+ *     PpmHeteroIntelProcessorInit @ 0x140B62260 (PpmHeteroIntelProcessorInit.c)
  */
 
 void __fastcall PpmHeteroHgsProcessorInit(__int64 a1, char a2)

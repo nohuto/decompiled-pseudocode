@@ -132,7 +132,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
   _KWAIT_STATUS_REGISTER v22; // al
   int v23; // ebx
   unsigned __int64 v24; // rdi
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 ThreadTimerDelay; // rdx
   NTSTATUS v27; // eax
   unsigned int v28; // esi
@@ -174,7 +174,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
   __int64 v64; // [rsp+38h] [rbp-60h] BYREF
   LONGLONG v65; // [rsp+40h] [rbp-58h]
   __int64 v66; // [rsp+48h] [rbp-50h] BYREF
-  __int64 v67; // [rsp+50h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-48h] BYREF
   unsigned __int8 i; // [rsp+B0h] [rbp+18h]
   int v69; // [rsp+B8h] [rbp+20h]
 
@@ -185,7 +185,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
   if ( !Interval->QuadPart && WaitMode && !Alertable && (CurrentThread->ApcState.UserApcPendingAll & 2) == 0 )
     return KeYieldExecution(0LL);
   v8 = 0;
-  v67 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v63 = 0;
   v9 = 2LL;
   if ( _bittestandreset((signed __int32 *)&CurrentThread->116, 2u) )
@@ -388,11 +388,11 @@ LABEL_12:
 LABEL_14:
   if ( v4->HighPart < 0 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v67);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     Interval = (PLARGE_INTEGER)0xFFFFF780000003B0LL;
     v69 = 2;
     v9 = v4->QuadPart + CurrentThread->RelativeTimerBias;
-    v12 = InterruptTimePrecise - MEMORY[0xFFFFF780000003B0] - v9;
+    v12 = InterruptTimePrecise.QuadPart - MEMORY[0xFFFFF780000003B0] - v9;
   }
   else
   {

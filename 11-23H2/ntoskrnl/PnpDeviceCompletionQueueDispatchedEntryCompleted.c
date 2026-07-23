@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140322AB4
+ * XREFs of PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140322D44
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x140322940 (PnpDeviceCompletionRoutine.c)
- *     PipEnumerateDevice @ 0x140794D7C (PipEnumerateDevice.c)
- *     PiProcessNewDeviceNodeWorker @ 0x140959490 (PiProcessNewDeviceNodeWorker.c)
+ *     PnpDeviceCompletionRoutine @ 0x140322BD0 (PnpDeviceCompletionRoutine.c)
+ *     PipEnumerateDevice @ 0x140794F6C (PipEnumerateDevice.c)
+ *     PiProcessNewDeviceNodeWorker @ 0x140959690 (PiProcessNewDeviceNodeWorker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionQueueDispatchedEntryCompleted(__int64 a1, _QWORD *a2)
@@ -43,10 +43,10 @@ __int64 __fastcall PnpDeviceCompletionQueueDispatchedEntryCompleted(__int64 a1, 
   qword_140C5CA20 = (__int64)a2;
   KeReleaseSemaphoreEx((__int64)&byte_140C5CA28, 0, 1);
   result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5CA48);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

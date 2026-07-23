@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryAuxiliaryCounterFrequency @ 0x1401D2A78
+ * XREFs of KeQueryAuxiliaryCounterFrequency @ 0x1401D28A4
  * Callers:
  *     <none>
  * Callees:

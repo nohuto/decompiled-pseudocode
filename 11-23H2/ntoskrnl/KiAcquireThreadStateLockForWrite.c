@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAcquireThreadStateLockForWrite @ 0x1402B1730
+ * XREFs of KiAcquireThreadStateLockForWrite @ 0x1402B19C0
  * Callers:
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
  */
 
 char __fastcall KiAcquireThreadStateLockForWrite(__int64 a1, __int64 *a2, __int64 *a3, volatile signed __int32 **a4)

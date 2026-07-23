@@ -120,8 +120,8 @@ LABEL_14:
         {
           *(_DWORD *)(v20 + 52) = v21 + *(_DWORD *)(v14 + 52);
           *(_DWORD *)(v14 + 52) = 0;
-          RtlRbRemoveNode((unsigned __int64 *)(a1 + 144), v10 - 24);
-          RtlRbRemoveNode((unsigned __int64 *)(a1 + 160), v10);
+          RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)(v10 - 24));
+          RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)v10);
           v34 = *(unsigned __int64 **)(a1 + 184);
           if ( *v34 != a1 + 176 )
             __fastfail(3u);
@@ -209,7 +209,7 @@ LABEL_14:
       }
       else
       {
-        MiRescanPageFileBitmapPortion(a1, v6, a3 - v25, v26, (unsigned __int64 *)&v36);
+        MiRescanPageFileBitmapPortion(a1, v6, a3 - v25, v26, &v36);
       }
     }
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierPortExAllocatePoolWithQuotaTag @ 0x140C39630
+ * XREFs of VerifierPortExAllocatePoolWithQuotaTag @ 0x140C3F640
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1404CD760 (ExAllocatePoolWithQuotaTag.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1404C7190 (ExAllocatePoolWithQuotaTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 PVOID __fastcall VerifierPortExAllocatePoolWithQuotaTag(

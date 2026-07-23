@@ -7,7 +7,7 @@
  *     RtlpGetTargetRvaFlag @ 0x18002B0A4 (RtlpGetTargetRvaFlag.c)
  */
 
-bool __fastcall RtlGuardIsExportSuppressedAddress(unsigned __int64 a1)
+bool __fastcall RtlGuardIsExportSuppressedAddress(void *a1)
 {
   char v2; // [rsp+38h] [rbp+10h] BYREF
 

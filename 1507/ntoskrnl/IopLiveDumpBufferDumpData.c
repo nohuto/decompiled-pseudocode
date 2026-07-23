@@ -8,86 +8,86 @@
  *     IopLiveDumpGetCapturePages @ 0x1403FF334 (IopLiveDumpGetCapturePages.c)
  */
 
-__int64 __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2, __int64 a3, int a4)
+__int64 __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2)
 {
   __int64 result; // rax
-  unsigned int v5; // ecx
-  __int64 v6; // rdi
-  __int64 v7; // r14
-  __int64 v8; // rax
-  __int64 v9; // r13
-  unsigned int v10; // r15d
-  _QWORD *v11; // r12
-  unsigned int v12; // ebp
-  unsigned int v13; // edx
-  __int64 v14; // rcx
-  __int64 v15; // rcx
-  __int64 v16; // rdx
-  __int64 v17; // rbx
-  _DWORD *v18; // rsi
-  unsigned __int64 v19; // rcx
-  _DWORD *v20; // rdi
-  _DWORD *v21; // r8
-  unsigned int v22; // [rsp+30h] [rbp-278h] BYREF
-  __int64 v23; // [rsp+38h] [rbp-270h]
-  _DWORD *v24; // [rsp+40h] [rbp-268h]
-  __int64 v25; // [rsp+48h] [rbp-260h] BYREF
-  __int64 v26; // [rsp+50h] [rbp-258h]
-  _BYTE v27[512]; // [rsp+60h] [rbp-248h] BYREF
+  unsigned int v3; // ecx
+  __int64 v4; // rdi
+  __int64 v5; // r14
+  _RTL_BITMAP_EX *v6; // rax
+  __int64 v7; // r13
+  unsigned int v8; // r15d
+  char *v9; // r12
+  unsigned int v10; // ebp
+  unsigned int v11; // edx
+  __int64 v12; // rcx
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rbx
+  _DWORD *v16; // rsi
+  unsigned __int64 v17; // rcx
+  _DWORD *v18; // rdi
+  _DWORD *v19; // r8
+  __int64 v20; // [rsp+30h] [rbp-278h] BYREF
+  _RTL_BITMAP_EX *v21; // [rsp+38h] [rbp-270h]
+  _DWORD *v22; // [rsp+40h] [rbp-268h]
+  __int64 v23; // [rsp+48h] [rbp-260h] BYREF
+  __int64 v24; // [rsp+50h] [rbp-258h]
+  char v25; // [rsp+60h] [rbp-248h] BYREF
 
   result = *a1;
-  v5 = *a2;
-  v6 = result + 472;
-  v26 = result + 472;
-  if ( v5 < *(_DWORD *)(result + 544) )
+  v3 = *a2;
+  v4 = result + 472;
+  v24 = result + 472;
+  if ( v3 < *(_DWORD *)(result + 544) )
   {
-    v7 = *(_QWORD *)(result + 552) + 16LL * v5;
-    v8 = result + 368;
-    v23 = v8;
-    v9 = *(_QWORD *)(v7 + 8);
+    v5 = *(_QWORD *)(result + 552) + 16LL * v3;
+    v6 = (_RTL_BITMAP_EX *)(result + 368);
+    v21 = v6;
+    v7 = *(_QWORD *)(v5 + 8);
     while ( 1 )
     {
-      result = IopLiveDumpGetCapturePages(v8, v6, (unsigned int)v27, a4, (__int64)&v22, (__int64)&v25);
-      v10 = v22;
-      if ( !v22 )
+      result = IopLiveDumpGetCapturePages(v6, (__int64)&v20, (__int64)&v23);
+      v8 = v20;
+      if ( !(_DWORD)v20 )
         break;
-      v11 = v27;
-      v12 = 0;
-      v24 = *(_DWORD **)(*(_QWORD *)(v6 + 64) + 8 * v25);
-      v13 = 0;
+      v9 = &v25;
+      v10 = 0;
+      v22 = *(_DWORD **)(*(_QWORD *)(v4 + 64) + 8 * v23);
+      v11 = 0;
       do
       {
-        v14 = v13++;
-        *(_QWORD *)(v9 + 8 * v14 + 48) = *v11;
-        if ( v13 == 16 || v13 && v12 == v10 - 1 )
+        v12 = v11++;
+        *(_QWORD *)(v7 + 8 * v12 + 48) = *(_QWORD *)v9;
+        if ( v11 == 16 || v11 && v10 == v8 - 1 )
         {
-          v15 = *(_QWORD *)(v7 + 8);
-          v16 = v13 << 12;
-          v17 = (unsigned int)v16;
-          *(_QWORD *)v15 = 0LL;
-          *(_WORD *)(v15 + 10) = 0;
-          *(_QWORD *)(v15 + 32) = 0LL;
-          *(_QWORD *)(v15 + 40) = (unsigned int)v16;
-          *(_WORD *)(v15 + 8) = 8 * (((unsigned __int64)(v16 + 4095) >> 12) + 6);
-          MmMapMemoryDumpMdlEx(*(_QWORD *)v7, v16, *(_QWORD *)(v7 + 8), 0);
-          v18 = *(_DWORD **)(*(_QWORD *)(v7 + 8) + 24LL);
-          v19 = (unsigned __int64)(unsigned int)v17 >> 2;
-          v20 = v24;
-          v21 = (_DWORD *)((char *)v24 + v17);
-          while ( v19 )
+          v13 = *(_QWORD *)(v5 + 8);
+          v14 = v11 << 12;
+          v15 = (unsigned int)v14;
+          *(_QWORD *)v13 = 0LL;
+          *(_WORD *)(v13 + 10) = 0;
+          *(_QWORD *)(v13 + 32) = 0LL;
+          *(_QWORD *)(v13 + 40) = (unsigned int)v14;
+          *(_WORD *)(v13 + 8) = 8 * (((unsigned __int64)(v14 + 4095) >> 12) + 6);
+          MmMapMemoryDumpMdlEx(*(_QWORD *)v5, v14, *(_QWORD *)(v5 + 8), 0);
+          v16 = *(_DWORD **)(*(_QWORD *)(v5 + 8) + 24LL);
+          v17 = (unsigned __int64)(unsigned int)v15 >> 2;
+          v18 = v22;
+          v19 = (_DWORD *)((char *)v22 + v15);
+          while ( v17 )
           {
-            *v20++ = *v18++;
-            --v19;
+            *v18++ = *v16++;
+            --v17;
           }
-          v24 = v21;
-          v13 = 0;
+          v22 = v19;
+          v11 = 0;
         }
-        ++v12;
-        ++v11;
+        ++v10;
+        v9 += 8;
       }
-      while ( v12 < v10 );
-      v6 = v26;
-      LODWORD(v8) = v23;
+      while ( v10 < v8 );
+      v4 = v24;
+      v6 = v21;
     }
   }
   return result;

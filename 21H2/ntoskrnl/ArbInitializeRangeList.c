@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbInitializeRangeList @ 0x1408670B0
+ * XREFs of ArbInitializeRangeList @ 0x140867210
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlFreeRangeList @ 0x140761590 (RtlFreeRangeList.c)
- *     RtlAddRange @ 0x140764410 (RtlAddRange.c)
- *     RtlInvertRangeListEx @ 0x1407B7960 (RtlInvertRangeListEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlFreeRangeList @ 0x140761750 (RtlFreeRangeList.c)
+ *     RtlAddRange @ 0x1407645D0 (RtlAddRange.c)
+ *     RtlInvertRangeListEx @ 0x1407B7E80 (RtlInvertRangeListEx.c)
  */
 
 __int64 __fastcall ArbInitializeRangeList(__int64 a1, int a2, unsigned __int8 *a3, __int64 a4)

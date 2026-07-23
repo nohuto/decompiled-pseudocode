@@ -4,11 +4,11 @@
  *     <none>
  * Callees:
  *     PsIsServerSilo @ 0x14020C020 (PsIsServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
  *     PspGetNextJobProcess @ 0x1406A0D90 (PspGetNextJobProcess.c)
  *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     PspCompleteServerSiloShutdown @ 0x1409ACA98 (PspCompleteServerSiloShutdown.c)
- *     PspMarkServerSiloAsTerminating @ 0x1409B4268 (PspMarkServerSiloAsTerminating.c)
+ *     PspCompleteServerSiloShutdown @ 0x1409ACC98 (PspCompleteServerSiloShutdown.c)
+ *     PspMarkServerSiloAsTerminating @ 0x1409B4468 (PspMarkServerSiloAsTerminating.c)
  */
 
 __int64 __fastcall PspTerminateProcessesJobCallback(__int64 a1, __int64 a2)

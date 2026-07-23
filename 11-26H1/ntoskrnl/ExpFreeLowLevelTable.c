@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpFreeLowLevelTable @ 0x140958A10
+ * XREFs of ExpFreeLowLevelTable @ 0x1409BE498
  * Callers:
- *     ExpFreeHandleTable @ 0x1409588DC (ExpFreeHandleTable.c)
+ *     ExpFreeHandleTable @ 0x1409BE364 (ExpFreeHandleTable.c)
  * Callees:
- *     ExpFreeTablePagedPool @ 0x14092CA10 (ExpFreeTablePagedPool.c)
+ *     ExpFreeTablePagedPool @ 0x140908540 (ExpFreeTablePagedPool.c)
  */
 
 void __fastcall ExpFreeLowLevelTable(ULONG_PTR BugCheckParameter1, void **P)

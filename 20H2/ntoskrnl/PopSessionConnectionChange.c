@@ -27,7 +27,7 @@ __int64 __fastcall PopSessionConnectionChange(unsigned int a1, char *a2, _DWORD 
   v8 = "Console";
   if ( !v5 )
     v8 = "Remote";
-  PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>>%s session %u is %s\n", v8, a1, v7);
+  PopPrintEx(3u, (__int64)"PopAdaptive:>>>>>%s session %u is %s\n", v8, a1, v7);
   if ( v3 )
   {
     LOBYTE(v9) = v5;

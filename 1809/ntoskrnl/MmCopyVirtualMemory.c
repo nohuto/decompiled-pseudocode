@@ -1,26 +1,26 @@
 /*
- * XREFs of MmCopyVirtualMemory @ 0x140644790
+ * XREFs of MmCopyVirtualMemory @ 0x1406457B0
  * Callers:
- *     PsQueryProcessCommandLine @ 0x14012A260 (PsQueryProcessCommandLine.c)
- *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
- *     MiReadWriteVirtualMemory @ 0x140676A10 (MiReadWriteVirtualMemory.c)
- *     AlpcpCopyRequestData @ 0x14084A8B0 (AlpcpCopyRequestData.c)
+ *     PsQueryProcessCommandLine @ 0x14012A330 (PsQueryProcessCommandLine.c)
+ *     NtQueryInformationThread @ 0x14064B720 (NtQueryInformationThread.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
+ *     MiReadWriteVirtualMemory @ 0x140677BD0 (MiReadWriteVirtualMemory.c)
+ *     AlpcpCopyRequestData @ 0x14084BB10 (AlpcpCopyRequestData.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     LOCK_ADDRESS_SPACE @ 0x1400767B8 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiGetExceptionInfo @ 0x1402AA754 (MiGetExceptionInfo.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VslDebugReadWriteSecureProcess @ 0x140818364 (VslDebugReadWriteSecureProcess.c)
- *     MiDbgReadWriteEnclave @ 0x140859EBC (MiDbgReadWriteEnclave.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1400767A8 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140078284 (UNLOCK_ADDRESS_SPACE.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiGetExceptionInfo @ 0x1402AA944 (MiGetExceptionInfo.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VslDebugReadWriteSecureProcess @ 0x140819564 (VslDebugReadWriteSecureProcess.c)
+ *     MiDbgReadWriteEnclave @ 0x14085B11C (MiDbgReadWriteEnclave.c)
  */
 
 __int64 __fastcall MmCopyVirtualMemory(

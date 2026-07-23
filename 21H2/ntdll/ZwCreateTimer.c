@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwCreateTimer @ 0x18009EE90
+ * XREFs of ZwCreateTimer @ 0x18009EE50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateTimer()
+NTSTATUS __cdecl ZwCreateTimer(
+        PHANDLE TimerHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        TIMER_TYPE TimerType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 195LL;
+  result = 195;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

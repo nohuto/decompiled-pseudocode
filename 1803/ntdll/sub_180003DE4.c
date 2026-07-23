@@ -8,21 +8,21 @@
  *     ZwAllocateVirtualMemory @ 0x18009ADC0 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall sub_180003DE4(__int64 a1)
+NTSTATUS __fastcall sub_180003DE4(__int64 a1)
 {
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   int v3; // eax
-  unsigned int v5; // [rsp+40h] [rbp+8h] BYREF
-  char v6; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v7; // [rsp+50h] [rbp+18h] BYREF
+  ULONG CompressBufferWorkSpaceSize; // [rsp+40h] [rbp+8h] BYREF
+  ULONG CompressFragmentWorkSpaceSize; // [rsp+48h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+18h] BYREF
 
-  RtlGetCompressionWorkSpaceSize(3LL, &v5, &v6);
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, v5);
+  RtlGetCompressionWorkSpaceSize(3u, &CompressBufferWorkSpaceSize, &CompressFragmentWorkSpaceSize);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, CompressBufferWorkSpaceSize);
   *(_QWORD *)(a1 + 432) = Heap;
   if ( !Heap )
-    return 3221225495LL;
+    return -1073741801;
   v3 = *(_DWORD *)(a1 + 208);
   *(_DWORD *)(a1 + 448) = 2 * v3;
-  v7 = (unsigned int)(2 * v3);
-  return ZwAllocateVirtualMemory(-1LL, a1 + 440, 0LL, &v7, 4096, 4);
+  RegionSize = (unsigned int)(2 * v3);
+  return ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(a1 + 440), 0LL, &RegionSize, 0x1000u, 4u);
 }

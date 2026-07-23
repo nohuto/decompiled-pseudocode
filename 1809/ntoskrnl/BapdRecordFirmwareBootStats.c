@@ -1,21 +1,21 @@
 /*
- * XREFs of BapdRecordFirmwareBootStats @ 0x14056F2A0
+ * XREFs of BapdRecordFirmwareBootStats @ 0x1405702A0
  * Callers:
- *     PopBootLoaderTraceProcess @ 0x1406DCF68 (PopBootLoaderTraceProcess.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     PopBootLoaderTraceProcess @ 0x1406DE208 (PopBootLoaderTraceProcess.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     BapdRegisterEtwProvider @ 0x140178AD4 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BapdpWriteEventDataToRegistry @ 0x14056F4B0 (BapdpWriteEventDataToRegistry.c)
- *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
- *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     BapdRegisterEtwProvider @ 0x140178BD4 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BapdpWriteEventDataToRegistry @ 0x1405704B0 (BapdpWriteEventDataToRegistry.c)
+ *     EtwUnregister @ 0x140708610 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx @ 0x14071EED8 (TraceLoggingRegisterEx.c)
  */
 
 void BapdRecordFirmwareBootStats()
@@ -66,7 +66,7 @@ void BapdRecordFirmwareBootStats()
 
   LODWORD(NumberOfBytes) = 0;
   if ( BapdRegisterEtwProvider((const GUID *)&BOOTENV_ETW_PROVIDER, 1, &RegHandle) >= 0
-    && ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140400458[0])(
+    && ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140401458[0])(
          34LL,
          0LL,
          0LL,
@@ -77,7 +77,7 @@ void BapdRecordFirmwareBootStats()
       PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x73627746u);
       if ( PoolWithTag )
       {
-        if ( ((int (__fastcall *)(__int64, _QWORD, _QWORD *, SIZE_T *))off_140400458[0])(
+        if ( ((int (__fastcall *)(__int64, _QWORD, _QWORD *, SIZE_T *))off_140401458[0])(
                34LL,
                (unsigned int)NumberOfBytes,
                PoolWithTag,
@@ -106,10 +106,10 @@ void BapdRecordFirmwareBootStats()
           v22 = 8;
           v25 = 8;
           EtwWrite(RegHandle, &BOOT_FW_BOOT_PERF_DATA, 0LL, 5u, &UserData);
-          TraceLoggingRegisterEx(&stru_140400410, 0LL, 0LL);
-          if ( stru_140400410.LevelPlus1 > 4 )
+          TraceLoggingRegisterEx(&stru_140401410, 0LL, 0LL);
+          if ( stru_140401410.LevelPlus1 > 4 )
           {
-            if ( TlgKeywordOn(&stru_140400410, 0x400000000000uLL) )
+            if ( TlgKeywordOn(&stru_140401410, 0x400000000000uLL) )
             {
               v30 = 0;
               v33 = 0;
@@ -131,7 +131,7 @@ void BapdRecordFirmwareBootStats()
               v35 = 8;
               v38 = 8;
               v41 = 8;
-              TlgWrite(&stru_140400410, &unk_140373ED8, 0LL, 0LL, 7u, &pData);
+              TlgWrite(&stru_140401410, &unk_140374E68, 0LL, 0LL, 7u, &pData);
             }
           }
         }

@@ -9,9 +9,17 @@
 
 bool __thiscall RtlpNeedCurrentDirectoryForExePath(wchar_t *Str)
 {
-  int v2; // [esp+0h] [ebp-4h] BYREF
+  bool result; // al
+  SIZE_T v2; // [esp-4h] [ebp-8h] BYREF
+  PSIZE_T ValueLength_4; // [esp+4h] [ebp+0h]
 
-  v2 = (int)Str;
-  return wcschr(Str, 0x5Cu)
-      || RtlQueryEnvironmentVariable(0, (wchar_t *)L"NoDefaultCurrentDirectoryInExePath", 0x22u, 0, 0, (int)&v2) == -1073741568;
+  HIDWORD(v2) = Str;
+  result = 1;
+  if ( !wcschr(Str, 0x5Cu) )
+  {
+    LODWORD(v2) = (char *)&v2 + 4;
+    if ( RtlQueryEnvironmentVariable(0, L"NoDefaultCurrentDirectoryInExePath", 0x22uLL, 0, v2, ValueLength_4) != -1073741568 )
+      return 0;
+  }
+  return result;
 }

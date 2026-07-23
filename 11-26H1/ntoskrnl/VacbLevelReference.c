@@ -1,9 +1,9 @@
 /*
- * XREFs of VacbLevelReference @ 0x1403B76DC
+ * XREFs of VacbLevelReference @ 0x1403C15DC
  * Callers:
- *     CcSetVacbLargeOffset @ 0x1402E1620 (CcSetVacbLargeOffset.c)
- *     CcExtendVacbArray @ 0x1403B68EC (CcExtendVacbArray.c)
- *     CcCalculateVacbLevelLockCount @ 0x1403B9270 (CcCalculateVacbLevelLockCount.c)
+ *     CcSetVacbLargeOffset @ 0x1402C3430 (CcSetVacbLargeOffset.c)
+ *     CcExtendVacbArray @ 0x1403C07EC (CcExtendVacbArray.c)
+ *     CcCalculateVacbLevelLockCount @ 0x1403C3170 (CcCalculateVacbLevelLockCount.c)
  * Callees:
  *     <none>
  */

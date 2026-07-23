@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogAddPhysicalMemory @ 0x14066DE94
+ * XREFs of MiLogAddPhysicalMemory @ 0x14066F068
  * Callers:
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
- *     MiValidateAddPhysicalMemoryParameters @ 0x1407EA20C (MiValidateAddPhysicalMemoryParameters.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
+ *     MiValidateAddPhysicalMemoryParameters @ 0x1407EA7DC (MiValidateAddPhysicalMemoryParameters.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)
@@ -46,11 +46,11 @@ void __fastcall MiLogAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, __int6
   int v39; // [rsp+C8h] [rbp+37h]
   int v40; // [rsp+CCh] [rbp+3Bh]
 
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     if ( a5 )
     {
-      if ( **(_DWORD **)&qword_140E37518 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37518, 256LL) )
+      if ( **(_DWORD **)&qword_140E37658 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37658, 256LL) )
       {
         v16 = *a1;
         v12 = 4;
@@ -67,14 +67,14 @@ void __fastcall MiLogAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, __int6
         v38 = &v22;
         v30 = 8;
         v33 = 8;
-        v13 = (unsigned __int8 *)&byte_14005630D;
+        v13 = (unsigned __int8 *)&byte_140056E07;
         v19 = 7;
         v20 = v14;
         v39 = 4;
         goto LABEL_9;
       }
     }
-    else if ( **(_DWORD **)&qword_140E37518 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37518, 256LL) )
+    else if ( **(_DWORD **)&qword_140E37658 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37658, 256LL) )
     {
       v11 = *a1;
       v12 = v10 + 4;
@@ -88,7 +88,7 @@ void __fastcall MiLogAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, __int6
       v35 = &v21;
       v30 = v10 + 8;
       v33 = v10 + 8;
-      v13 = (unsigned __int8 *)byte_1400562B5;
+      v13 = (unsigned __int8 *)&byte_140056DAF;
       v19 = 6;
       v21 = v8;
 LABEL_9:

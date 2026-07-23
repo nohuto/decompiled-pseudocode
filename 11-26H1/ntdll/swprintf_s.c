@@ -1,15 +1,15 @@
 /*
- * XREFs of swprintf_s @ 0x180134190
+ * XREFs of swprintf_s @ 0x180133F00
  * Callers:
- *     RtlIpv6AddressToStringExW @ 0x1800ABA50 (RtlIpv6AddressToStringExW.c)
- *     RtlIpv6AddressToStringW @ 0x1800ABCF0 (RtlIpv6AddressToStringW.c)
- *     RtlCanonicalizeDomainName @ 0x1800AC4D0 (RtlCanonicalizeDomainName.c)
- *     RtlStringFromGUIDEx @ 0x1800D5C80 (RtlStringFromGUIDEx.c)
- *     RtlIpv4AddressToStringExW @ 0x1800DCEB0 (RtlIpv4AddressToStringExW.c)
- *     RtlIpv4AddressToStringW @ 0x1800E20F0 (RtlIpv4AddressToStringW.c)
- *     RtlEthernetAddressToStringW @ 0x18010C700 (RtlEthernetAddressToStringW.c)
+ *     RtlIpv6AddressToStringExW @ 0x1800AAB80 (RtlIpv6AddressToStringExW.c)
+ *     RtlIpv6AddressToStringW @ 0x1800AAE20 (RtlIpv6AddressToStringW.c)
+ *     RtlCanonicalizeDomainName @ 0x1800AB600 (RtlCanonicalizeDomainName.c)
+ *     RtlStringFromGUIDEx @ 0x1800D2C40 (RtlStringFromGUIDEx.c)
+ *     RtlIpv4AddressToStringExW @ 0x1800D9E20 (RtlIpv4AddressToStringExW.c)
+ *     RtlIpv4AddressToStringW @ 0x1800DF990 (RtlIpv4AddressToStringW.c)
+ *     RtlEthernetAddressToStringW @ 0x18010C250 (RtlEthernetAddressToStringW.c)
  * Callees:
- *     vswprintf_s @ 0x1801341C0 (vswprintf_s.c)
+ *     vswprintf_s @ 0x180133F30 (vswprintf_s.c)
  */
 
 int swprintf_s(wchar_t *const Buffer, const size_t BufferCount, const wchar_t *const Format, ...)

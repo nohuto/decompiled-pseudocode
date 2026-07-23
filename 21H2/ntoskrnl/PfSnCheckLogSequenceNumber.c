@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnCheckLogSequenceNumber @ 0x14031B174
+ * XREFs of PfSnCheckLogSequenceNumber @ 0x140325EC4
  * Callers:
- *     PfSnLogPageFaultCommon @ 0x14031B04C (PfSnLogPageFaultCommon.c)
+ *     PfSnLogPageFaultCommon @ 0x140325D9C (PfSnLogPageFaultCommon.c)
  * Callees:
- *     PfSnTraceGetLogEntry @ 0x14031A890 (PfSnTraceGetLogEntry.c)
+ *     PfSnTraceGetLogEntry @ 0x1403255E0 (PfSnTraceGetLogEntry.c)
  */
 
 __int64 __fastcall PfSnCheckLogSequenceNumber(__int64 a1)
@@ -14,8 +14,8 @@ __int64 __fastcall PfSnCheckLogSequenceNumber(__int64 a1)
   unsigned __int64 *v5; // [rsp+30h] [rbp+8h] BYREF
 
   v5 = 0LL;
-  v2 = dword_140CEC350;
-  if ( dword_140CEC350 == *(_DWORD *)(a1 + 404) )
+  v2 = dword_140CEC390;
+  if ( dword_140CEC390 == *(_DWORD *)(a1 + 404) )
     return 1075380276LL;
   result = PfSnTraceGetLogEntry(a1, 1u, &v5);
   if ( (int)result >= 0 )

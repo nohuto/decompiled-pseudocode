@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReplaceSystemProtoPtesNode @ 0x140557EB0
+ * XREFs of MiReplaceSystemProtoPtesNode @ 0x1405580F0
  * Callers:
- *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x1408CF670 (MiAllocateFileExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiObtainProtoBaseFromNode @ 0x1402F8350 (MiObtainProtoBaseFromNode.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     MiObtainProtoBaseFromNode @ 0x1403030A0 (MiObtainProtoBaseFromNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -27,12 +27,12 @@ __int64 __fastcall MiReplaceSystemProtoPtesNode(unsigned __int64 *a1, _QWORD *a2
 
   v13 = 0LL;
   v4 = MiObtainProtoBaseFromNode(a1, &v13);
-  v5 = ExAcquireSpinLockExclusive(&dword_140C4CB40);
-  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4CB38, a1);
+  v5 = ExAcquireSpinLockExclusive(&dword_140C4CB80);
+  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4CB78, a1);
   a1[3] &= ~8uLL;
   v6 = 0;
-  v7 = (_QWORD *)qword_140C4CB38;
-  if ( qword_140C4CB38 )
+  v7 = (_QWORD *)qword_140C4CB78;
+  if ( qword_140C4CB78 )
   {
     while ( 1 )
     {
@@ -58,9 +58,9 @@ __int64 __fastcall MiReplaceSystemProtoPtesNode(unsigned __int64 *a1, _QWORD *a2
       v7 = v8;
     }
   }
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4CB38, (unsigned __int64)v7, v6, a2);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4CB78, (unsigned __int64)v7, v6, a2);
   a2[3] |= 8uLL;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CB40);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CB80);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

@@ -1,25 +1,25 @@
 /*
- * XREFs of KiAttemptToStealStandbyThread @ 0x14022B800
+ * XREFs of KiAttemptToStealStandbyThread @ 0x14022D190
  * Callers:
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022DEE0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     Feature_CrossProcessorClassThreadStealing__private_IsEnabledNoReportingNoInline @ 0x140230678 (Feature_CrossProcessorClassThreadStealing__private_IsEnabledNoReportingNoInline.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiIsThreadStateControlledByProcessor @ 0x140237AEC (KiIsThreadStateControlledByProcessor.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiIsPrcbThread @ 0x1402BCC10 (KiIsPrcbThread.c)
- *     KiInsertDeferredReadyList @ 0x1402BCC40 (KiInsertDeferredReadyList.c)
- *     KiStartRescheduleContext @ 0x14032F5E0 (KiStartRescheduleContext.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1403C0220 (KiUpdateVPBackingThreadPriority.c)
- *     KeIsForceParkingEnabled @ 0x14043DBE0 (KeIsForceParkingEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022F870 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiIsThreadStateControlledByProcessor @ 0x14023944C (KiIsThreadStateControlledByProcessor.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiIsPrcbThread @ 0x1403078D0 (KiIsPrcbThread.c)
+ *     KiInsertDeferredReadyList @ 0x140307900 (KiInsertDeferredReadyList.c)
+ *     KiStartRescheduleContext @ 0x140331610 (KiStartRescheduleContext.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1403CA120 (KiUpdateVPBackingThreadPriority.c)
+ *     KeIsForceParkingEnabled @ 0x1404366F0 (KeIsForceParkingEnabled.c)
+ *     Feature_CrossProcessorClassThreadStealing__private_IsEnabledDeviceUsageNoInline @ 0x1405FDBFC (Feature_CrossProcessorClassThreadStealing__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiAttemptToStealStandbyThread(struct _KPRCB *a1, _KPRCB *a2, _KPRCB *a3)
@@ -54,7 +54,7 @@ __int64 __fastcall KiAttemptToStealStandbyThread(struct _KPRCB *a1, _KPRCB *a2, 
   unsigned __int64 QpcToTscIncrement; // rax
   __int64 TargetIdleState; // r8
   unsigned __int64 Latency; // rdx
-  int IsEnabledNoReportingNoInline; // eax
+  int IsEnabledDeviceUsageNoInline; // eax
   _KPRCB *v35; // r9
   unsigned __int64 AllFields; // rdx
   int v37; // r8d
@@ -113,7 +113,7 @@ __int64 __fastcall KiAttemptToStealStandbyThread(struct _KPRCB *a1, _KPRCB *a2, 
   unsigned __int8 v90; // al
   int v91; // r11d
   _KTHREAD *v92; // r15
-  $1C339FAD347E81252AEBA02E635FC616 *v93; // r12
+  $8EBF9F2B27741A17C5BF2EE4B27176E1 *v93; // r12
   struct _KPRCB *v94; // r11
   _KSHARED_READY_QUEUE *v95; // rcx
   _KTHREAD *v96; // r10
@@ -351,11 +351,11 @@ LABEL_24:
     if ( (unsigned __int64)v18 <= NextThread->ExpectedRunTime )
       goto LABEL_28;
   }
-  IsEnabledNoReportingNoInline = Feature_CrossProcessorClassThreadStealing__private_IsEnabledNoReportingNoInline(
+  IsEnabledDeviceUsageNoInline = Feature_CrossProcessorClassThreadStealing__private_IsEnabledDeviceUsageNoInline(
                                    QpcToTscIncrementShift,
                                    v18);
   v35 = v176;
-  if ( !IsEnabledNoReportingNoInline )
+  if ( !IsEnabledDeviceUsageNoInline )
   {
     v41 = v177;
     if ( v176->PowerState.PerformanceSchedulingClass != v177->PowerState.PerformanceSchedulingClass )
@@ -569,7 +569,7 @@ LABEL_82:
               KiSearchForNewThreadsForRescheduleContext(v179, &v173);
               v74 = 0;
               LOBYTE(v168) = 0;
-              if ( (WORD2(xmmword_140FBFC10) & 0x400) != 0 )
+              if ( (WORD2(xmmword_140FC0C10) & 0x400) != 0 )
                 v74 = 2;
               v75 = 0;
               if ( v73->ProcessorCount )
@@ -694,7 +694,7 @@ LABEL_110:
               {
                 n = *(_QWORD *)(v81 + 24);
                 v118 = *(_QWORD *)v81;
-                if ( n && n <= 0xFFFFFFFFFFFFFFFDuLL && *(_UNKNOWN **)(n + 544) != &unk_140FC8F40 )
+                if ( n && n <= 0xFFFFFFFFFFFFFFFDuLL && *(_UNKNOWN **)(n + 544) != &unk_140FC9F40 )
                 {
                   if ( (*(_BYTE *)(v81 + 33) & 1) != 0 )
                     *(_DWORD *)(n + 116) |= 2u;
@@ -708,7 +708,7 @@ LABEL_110:
                 *(_BYTE *)(v81 + 33) &= ~1u;
                 *(_QWORD *)(v81 + 24) = v169;
                 *(_BYTE *)(v81 + 32) = (v119 & 0xFD ^ (2 * ((v120 & 2) != 0))) & 0xC3 | 4;
-                if ( v169->Process != (_KPROCESS *)&unk_140FC8F40 )
+                if ( v169->Process != (_KPROCESS *)&unk_140FC9F40 )
                   v169->NextProcessor = *(_DWORD *)(v118 + 36);
               }
             }
@@ -765,7 +765,7 @@ LABEL_110:
               KiSearchForNewThreadsForRescheduleContext(v72, &v173);
             v121 = 0;
             v122 = 0;
-            if ( (WORD2(xmmword_140FBFC10) & 0x400) != 0 )
+            if ( (WORD2(xmmword_140FC0C10) & 0x400) != 0 )
               v122 = 2;
             v123 = 0;
             for ( kk = v183; v123 < v72->ProcessorCount; ++v123 )

@@ -1,45 +1,45 @@
 /*
- * XREFs of RtlUnicodeToMultiByteN @ 0x180018A30
+ * XREFs of RtlUnicodeToMultiByteN @ 0x180018A20
  * Callers:
  *     EtwpAddDebugInfoEvents @ 0x180002994 (EtwpAddDebugInfoEvents.c)
- *     RtlUnicodeStringToAnsiString @ 0x180018950 (RtlUnicodeStringToAnsiString.c)
- *     wcstombs @ 0x18009CB80 (wcstombs.c)
- *     _wctomb_s_l @ 0x1800A092C (_wctomb_s_l.c)
+ *     RtlUnicodeStringToAnsiString @ 0x180018940 (RtlUnicodeStringToAnsiString.c)
+ *     wcstombs @ 0x18009CB70 (wcstombs.c)
+ *     _wctomb_s_l @ 0x1800A091C (_wctomb_s_l.c)
  *     _safecrt_wctomb_s @ 0x1800A3140 (_safecrt_wctomb_s.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlUnicodeToMultiByteN(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int *a3,
-        unsigned __int16 *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToMultiByteN(
+        PCHAR MultiByteString,
+        ULONG MaxBytesInMultiByteString,
+        PULONG BytesInMultiByteString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v7; // edx
+  ULONG v7; // edx
   __int64 v8; // r9
   __int64 v9; // r11
-  _BYTE *v10; // rdx
-  unsigned __int16 *v11; // r8
+  CHAR *v10; // rdx
+  const WCHAR *v11; // r8
   __int64 v12; // rax
   int v14; // r11d
   __int64 v15; // rsi
   __int64 v16; // rax
   __int16 v17; // di
-  unsigned int v18; // eax
+  ULONG v18; // eax
 
-  v7 = a5 >> 1;
+  v7 = BytesInUnicodeString >> 1;
   if ( !NlsMbCodePageTag )
   {
-    if ( v7 < a2 )
-      a2 = a5 >> 1;
-    if ( a3 )
-      *a3 = a2;
+    if ( v7 < MaxBytesInMultiByteString )
+      MaxBytesInMultiByteString = BytesInUnicodeString >> 1;
+    if ( BytesInMultiByteString )
+      *BytesInMultiByteString = MaxBytesInMultiByteString;
     v8 = NlsUnicodeToAnsiData;
-    v9 = a2 & 0xF;
-    v10 = &a1[v9 - 15];
-    v11 = &a4[v9 - 15];
+    v9 = MaxBytesInMultiByteString & 0xF;
+    v10 = &MultiByteString[v9 - 15];
+    v11 = &UnicodeString[v9 - 15];
     while ( (unsigned int)v9 <= 8 )
     {
       if ( (_DWORD)v9 == 8 )
@@ -71,10 +71,10 @@ LABEL_26:
       }
       v10[14] = *(_BYTE *)(v11[14] + v8);
 LABEL_31:
-      a2 -= v9;
+      MaxBytesInMultiByteString -= v9;
       LODWORD(v9) = 16;
-      if ( !a2 )
-        return 0LL;
+      if ( !MaxBytesInMultiByteString )
+        return 0;
     }
     if ( (_DWORD)v9 != 9 )
     {
@@ -116,31 +116,31 @@ LABEL_25:
     v10[9] = *(_BYTE *)(v11[9] + v8);
     goto LABEL_26;
   }
-  v14 = (int)a1;
+  v14 = (int)MultiByteString;
   if ( v7 )
   {
     v15 = NlsUnicodeToMbAnsiData;
     do
     {
-      if ( !a2 )
+      if ( !MaxBytesInMultiByteString )
         break;
-      v16 = *a4++;
+      v16 = *UnicodeString++;
       v17 = *(_WORD *)(v15 + 2 * v16);
       if ( HIBYTE(v17) )
       {
-        v18 = a2--;
+        v18 = MaxBytesInMultiByteString--;
         if ( v18 < 2 )
           break;
-        *a1++ = HIBYTE(v17);
+        *MultiByteString++ = HIBYTE(v17);
       }
-      *a1 = v17;
-      --a2;
-      ++a1;
+      *MultiByteString = v17;
+      --MaxBytesInMultiByteString;
+      ++MultiByteString;
       --v7;
     }
     while ( v7 );
   }
-  if ( a3 )
-    *a3 = (_DWORD)a1 - v14;
-  return 0LL;
+  if ( BytesInMultiByteString )
+    *BytesInMultiByteString = (_DWORD)MultiByteString - v14;
+  return 0;
 }

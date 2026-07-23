@@ -13,47 +13,44 @@
  *     ExRaiseDatatypeMisalignment @ 0x140767450 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, __int64 a2, unsigned __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, PALPC_DATA_VIEW_ATTR ViewAttributes)
 {
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   __int64 v8; // rcx
   KPROCESSOR_MODE v9; // r9
-  NTSTATUS SectionView; // ebx
+  int SectionView; // ebx
   struct _DMA_ADAPTER *v11; // r13
   void *v12; // r15
   ULONG_PTR v13; // r14
-  PVOID Object[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v16; // [rsp+40h] [rbp-38h]
-  __int128 v17; // [rsp+50h] [rbp-28h]
+  PVOID Object[6]; // [rsp+30h] [rbp-48h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp+20h] BYREF
 
-  v16 = 0LL;
-  v17 = 0LL;
+  memset(&Object[2], 0, 32);
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( (_DWORD)a2 )
+  if ( Flags )
     goto LABEL_22;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)ViewAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v8 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v8 = a3;
+    if ( (unsigned __int64)ViewAttributes < 0x7FFFFFFF0000LL )
+      v8 = (__int64)ViewAttributes;
     *(_BYTE *)v8 = *(_BYTE *)v8;
     *(_BYTE *)(v8 + 31) = *(_BYTE *)(v8 + 31);
-    v16 = *(_OWORD *)a3;
-    v17 = *(_OWORD *)(a3 + 16);
+    *(_ALPC_DATA_VIEW_ATTR *)&Object[2] = *ViewAttributes;
   }
   else
   {
-    v16 = *(_OWORD *)a3;
-    v17 = *(_OWORD *)(a3 + 16);
+    *(_ALPC_DATA_VIEW_ATTR *)&Object[2] = *ViewAttributes;
   }
-  if ( (_DWORD)v16 || !*((_QWORD *)&v17 + 1) || (_QWORD)v17 )
+  if ( LODWORD(Object[2]) || !Object[5] || Object[4] )
   {
 LABEL_22:
     SectionView = -1073741811;
@@ -62,11 +59,11 @@ LABEL_22:
   {
     v9 = KeGetCurrentThread()->PreviousMode;
     Object[0] = 0LL;
-    SectionView = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, v9, Object, 0LL);
+    SectionView = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, v9, Object, 0LL);
     if ( SectionView >= 0 )
     {
       v11 = (struct _DMA_ADAPTER *)Object[0];
-      v12 = (void *)AlpcReferenceBlobByHandle(*((_QWORD *)Object[0] + 2) + 40LL, SDWORD2(v16), AlpcSectionType);
+      v12 = (void *)AlpcReferenceBlobByHandle(*((_QWORD *)Object[0] + 2) + 40LL, (int)Object[3], AlpcSectionType);
       Object[1] = v12;
       if ( v12 )
       {
@@ -76,16 +73,16 @@ LABEL_22:
           if ( PreviousMode )
           {
             v13 = BugCheckParameter2;
-            *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 40);
-            *(_QWORD *)(a3 + 24) = *(_QWORD *)(v13 + 48);
+            ViewAttributes->ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
+            ViewAttributes->ViewSize = *(_QWORD *)(v13 + 48);
             if ( SectionView < 0 )
               AlpcpDeleteView(v13);
           }
           else
           {
             v13 = BugCheckParameter2;
-            *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 40);
-            *(_QWORD *)(a3 + 24) = *(_QWORD *)(v13 + 48);
+            ViewAttributes->ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
+            ViewAttributes->ViewSize = *(_QWORD *)(v13 + 48);
           }
           AlpcpDereferenceBlobEx(v13, 1);
         }
@@ -98,6 +95,6 @@ LABEL_22:
       HalPutDmaAdapter(v11);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3, a4);
-  return (unsigned int)SectionView;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, (__int64)ViewAttributes, v3);
+  return SectionView;
 }

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockAtDpcLevel @ 0x140211E00 (KeAcquireSpinLockAtDpcLevel.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
  *     KeQueryPriorityThread @ 0x14035D5C0 (KeQueryPriorityThread.c)
  */
@@ -15,14 +15,14 @@ void __fastcall PoNotifyMediaBuffering(char a1)
   KPRIORITY PriorityThread; // eax
 
   v2 = 0;
-  KxAcquireSpinLock(&PpmMediaBufferingWork);
+  KeAcquireSpinLockAtDpcLevel(&qword_140C23AE0);
   if ( !byte_140C23AE8 )
   {
     v2 = 1;
     byte_140C23AE8 = 1;
   }
   byte_140C23AE9 = a1;
-  KxReleaseSpinLock(&PpmMediaBufferingWork);
+  KeReleaseSpinLockFromDpcLevel(&qword_140C23AE0);
   if ( v2 )
   {
     PriorityThread = KeQueryPriorityThread(KeGetCurrentThread());

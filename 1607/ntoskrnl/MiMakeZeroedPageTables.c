@@ -1,30 +1,30 @@
 /*
- * XREFs of MiMakeZeroedPageTables @ 0x1401022B4
+ * XREFs of MiMakeZeroedPageTables @ 0x140100034
  * Callers:
- *     MiExpandPagedPool @ 0x1400A296C (MiExpandPagedPool.c)
- *     MiExpandSystemCache @ 0x1400A2B00 (MiExpandSystemCache.c)
- *     MiExpandPtes @ 0x1400A2C68 (MiExpandPtes.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
- *     MiSplitBitmapPages @ 0x140101E54 (MiSplitBitmapPages.c)
- *     MiMapNewWorkingSetPage @ 0x140102E50 (MiMapNewWorkingSetPage.c)
- *     MiMapWithLargePages @ 0x14012E28C (MiMapWithLargePages.c)
- *     MiGetLargePageWorkMapping @ 0x14013ADC0 (MiGetLargePageWorkMapping.c)
- *     MiInitializePageZeroing @ 0x14013AE70 (MiInitializePageZeroing.c)
- *     MiExpandSpecialPool @ 0x1401EB618 (MiExpandSpecialPool.c)
- *     MiMapSystemImage @ 0x140484528 (MiMapSystemImage.c)
- *     MiReserveDriverPtes @ 0x1404CD0DC (MiReserveDriverPtes.c)
- *     MiSessionCreate @ 0x140535604 (MiSessionCreate.c)
- *     MiInitializeDynamicBitmap @ 0x140535E80 (MiInitializeDynamicBitmap.c)
- *     MiMapNewPfns @ 0x140658128 (MiMapNewPfns.c)
- *     MiExpandPartitionIds @ 0x1406603B4 (MiExpandPartitionIds.c)
+ *     MiExpandPagedPool @ 0x1400A1294 (MiExpandPagedPool.c)
+ *     MiExpandSystemCache @ 0x1400A1428 (MiExpandSystemCache.c)
+ *     MiExpandPtes @ 0x1400A1590 (MiExpandPtes.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
+ *     MiSplitBitmapPages @ 0x1400FFBD4 (MiSplitBitmapPages.c)
+ *     MiMapNewWorkingSetPage @ 0x140100BD0 (MiMapNewWorkingSetPage.c)
+ *     MiMapWithLargePages @ 0x14012E7FC (MiMapWithLargePages.c)
+ *     MiGetLargePageWorkMapping @ 0x14013B330 (MiGetLargePageWorkMapping.c)
+ *     MiInitializePageZeroing @ 0x14013B3E0 (MiInitializePageZeroing.c)
+ *     MiExpandSpecialPool @ 0x1401EB444 (MiExpandSpecialPool.c)
+ *     MiMapSystemImage @ 0x14048327C (MiMapSystemImage.c)
+ *     MiReserveDriverPtes @ 0x1404B2B08 (MiReserveDriverPtes.c)
+ *     MiSessionCreate @ 0x140535B44 (MiSessionCreate.c)
+ *     MiInitializeDynamicBitmap @ 0x1405363C0 (MiInitializeDynamicBitmap.c)
+ *     MiMapNewPfns @ 0x14065820C (MiMapNewPfns.c)
+ *     MiExpandPartitionIds @ 0x140660498 (MiExpandPartitionIds.c)
  *     MiMapBBTMemory @ 0x1407A6948 (MiMapBBTMemory.c)
  * Callees:
- *     MiMakeZeroedPageTableRange @ 0x140020CC8 (MiMakeZeroedPageTableRange.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiPageTablesNeeded @ 0x140102518 (MiPageTablesNeeded.c)
- *     MiCleanupPageTablePages @ 0x140102760 (MiCleanupPageTablePages.c)
- *     MiGetPageTablePages @ 0x140102808 (MiGetPageTablePages.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiMakeZeroedPageTableRange @ 0x140020848 (MiMakeZeroedPageTableRange.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiPageTablesNeeded @ 0x140100298 (MiPageTablesNeeded.c)
+ *     MiCleanupPageTablePages @ 0x1401004E0 (MiCleanupPageTablePages.c)
+ *     MiGetPageTablePages @ 0x140100588 (MiGetPageTablePages.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiMakeZeroedPageTables(unsigned __int64 a1, __int64 a2, int a3, unsigned int a4)
@@ -74,9 +74,9 @@ __int64 __fastcall MiMakeZeroedPageTables(unsigned __int64 a1, __int64 a2, int a
     return 1LL;
   while ( v6 >= 0xFFFFF68000000000uLL && v6 <= 0xFFFFF6FFFFFFFFFFuLL )
     v6 = (__int64)(v6 << 25) >> 16;
-  if ( v6 > 0x7FFFFFFEFFFFLL && (v6 < qword_140327F90 || v6 > qword_140326CF8) )
+  if ( v6 > 0x7FFFFFFEFFFFLL && (v6 < qword_140327FD0 || v6 > qword_140326D38) )
   {
-    if ( v6 < qword_140326910 || (v18 = 1, v6 >= qword_140326910 + 0x8000000000LL) )
+    if ( v6 < qword_140326950 || (v18 = 1, v6 >= qword_140326950 + 0x8000000000LL) )
       v18 = 2;
     v14 = MiSystemPartition;
   }

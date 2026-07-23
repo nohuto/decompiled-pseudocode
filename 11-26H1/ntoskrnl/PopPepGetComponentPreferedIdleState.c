@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepGetComponentPreferedIdleState @ 0x1403B1B10
+ * XREFs of PopPepGetComponentPreferedIdleState @ 0x1403BB820
  * Callers:
- *     PopPepComponentSetLatency @ 0x1403B1784 (PopPepComponentSetLatency.c)
- *     PopPepUpdateIdleState @ 0x1403B19D8 (PopPepUpdateIdleState.c)
- *     PopPepTriggerComponentActivatingActivity @ 0x1403B1A40 (PopPepTriggerComponentActivatingActivity.c)
- *     PopPepCompleteComponentActiveActivity @ 0x1403B1C40 (PopPepCompleteComponentActiveActivity.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403B20A0 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepComponentSetLatency @ 0x1403BB494 (PopPepComponentSetLatency.c)
+ *     PopPepUpdateIdleState @ 0x1403BB6E8 (PopPepUpdateIdleState.c)
+ *     PopPepTriggerComponentActivatingActivity @ 0x1403BB750 (PopPepTriggerComponentActivatingActivity.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x1403BB950 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403BBDB0 (PopPepCompleteComponentIdleStateChangeActivity.c)
  * Callees:
- *     PopPepArmIdleTimer @ 0x14021A6DC (PopPepArmIdleTimer.c)
+ *     PopPepArmIdleTimer @ 0x14021C06C (PopPepArmIdleTimer.c)
  */
 
 __int64 __fastcall PopPepGetComponentPreferedIdleState(_DWORD *a1)
@@ -91,13 +91,13 @@ __int64 __fastcall PopPepGetComponentPreferedIdleState(_DWORD *a1)
       if ( !v21 )
       {
         a1[1] = v23 & 0xFFFFFFFB;
-        _InterlockedDecrement(dword_140F0AFE0);
+        _InterlockedDecrement((volatile signed __int32 *)&PopDirectedDripsDiagLock.SchedulerApcFill5[52]);
       }
     }
     else if ( v21 )
     {
       a1[1] = v23 | 4;
-      if ( _InterlockedIncrement(dword_140F0AFE0) == 1 )
+      if ( _InterlockedIncrement((volatile signed __int32 *)&PopDirectedDripsDiagLock.SchedulerApcFill5[52]) == 1 )
       {
         PopPepArmIdleTimer(0);
         return v19;

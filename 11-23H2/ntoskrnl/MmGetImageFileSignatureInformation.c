@@ -5,9 +5,9 @@
  * Callees:
  *     MiLockSectionControlArea @ 0x1402100C8 (MiLockSectionControlArea.c)
  *     MiRemoveUnusedSegment @ 0x140219970 (MiRemoveUnusedSegment.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDereferenceControlAreaBySection @ 0x14029F8AC (MiDereferenceControlAreaBySection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDereferenceControlAreaBySection @ 0x14029FB3C (MiDereferenceControlAreaBySection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmGetImageFileSignatureInformation(__int64 a1)
@@ -41,7 +41,9 @@ char __fastcall MmGetImageFileSignatureInformation(__int64 a1)
   if ( (*(_DWORD *)(v3 + 56) & 3) != 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v7 = v17;
       if ( v17 <= 0xFu && CurrentIrql >= 2u )
@@ -68,7 +70,7 @@ char __fastcall MmGetImageFileSignatureInformation(__int64 a1)
     MiRemoveUnusedSegment(v3);
     ++*(_QWORD *)(v4 + 48);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 72));
-    if ( KiIrqlFlags && (v8 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v8 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && (v8 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v8 <= 0xFu )
     {
       v6 = v17;
       if ( v17 <= 0xFu && v8 >= 2u )

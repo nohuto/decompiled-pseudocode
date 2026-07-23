@@ -9,36 +9,32 @@
  *     ZwOpenKey @ 0x1800A5540 (ZwOpenKey.c)
  */
 
-__int64 __fastcall RtlOpenCurrentUser(unsigned int a1, __int64 a2)
+NTSTATUS __cdecl RtlOpenCurrentUser(ACCESS_MASK DesiredAccess, PHANDLE CurrentUserKey)
 {
   int v4; // ebx
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-40h] BYREF
-  int v7; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-28h]
-  UNICODE_STRING *p_UnicodeString; // [rsp+40h] [rbp-20h]
-  int v10; // [rsp+48h] [rbp-18h]
-  __int128 v11; // [rsp+50h] [rbp-10h]
+  _UNICODE_STRING CurrentUserKeyPath; // [rsp+20h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
 
-  v4 = RtlFormatCurrentUserKeyPath(&UnicodeString);
+  v4 = RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath);
   if ( v4 >= 0 )
   {
-    v8 = 0LL;
-    p_UnicodeString = &UnicodeString;
-    v7 = 48;
-    v10 = 1600;
-    v11 = 0LL;
-    v4 = ZwOpenKey(a2, a1, &v7);
-    RtlFreeUnicodeString(&UnicodeString);
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &CurrentUserKeyPath;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 1600;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v4 = ZwOpenKey(CurrentUserKey, DesiredAccess, &ObjectAttributes);
+    RtlFreeUnicodeString(&CurrentUserKeyPath);
   }
   if ( v4 == -1073741772 )
   {
-    RtlInitUnicodeString(&UnicodeString, L"\\Registry\\User\\.Default");
-    v8 = 0LL;
-    p_UnicodeString = &UnicodeString;
-    v7 = 48;
-    v10 = 1600;
-    v11 = 0LL;
-    return (unsigned int)ZwOpenKey(a2, a1, &v7);
+    RtlInitUnicodeString(&CurrentUserKeyPath, L"\\Registry\\User\\.Default");
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &CurrentUserKeyPath;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 1600;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    return ZwOpenKey(CurrentUserKey, DesiredAccess, &ObjectAttributes);
   }
-  return (unsigned int)v4;
+  return v4;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDereferenceVad @ 0x14041D560
+ * XREFs of MiDereferenceVad @ 0x140414DB0
  * Callers:
- *     MiUnlockAndDereferenceNestedVad @ 0x14041D518 (MiUnlockAndDereferenceNestedVad.c)
- *     NtAreMappedFilesTheSame @ 0x140961230 (NtAreMappedFilesTheSame.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x140414D68 (MiUnlockAndDereferenceNestedVad.c)
+ *     NtAreMappedFilesTheSame @ 0x140A06AE0 (NtAreMappedFilesTheSame.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDereferenceVad(ULONG_PTR BugCheckParameter2)

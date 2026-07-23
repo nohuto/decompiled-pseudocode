@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipOpenBlock @ 0x140A0E050
+ * XREFs of WmipOpenBlock @ 0x140A0D540
  * Callers:
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
- *     IoWMIOpenBlock @ 0x140A0DEA0 (IoWMIOpenBlock.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
+ *     IoWMIOpenBlock @ 0x140A0D390 (IoWMIOpenBlock.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipAllocGuidEntry @ 0x140A0B548 (WmipAllocGuidEntry.c)
- *     WmipIsQuerySetGuid @ 0x140A0D758 (WmipIsQuerySetGuid.c)
- *     WmipEnableCollectOrEvent @ 0x140A0D830 (WmipEnableCollectOrEvent.c)
- *     WmipOpenGuidObject @ 0x140A0E274 (WmipOpenGuidObject.c)
- *     WmipFindGEByGuid @ 0x140A0E624 (WmipFindGEByGuid.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipAllocGuidEntry @ 0x140A0A774 (WmipAllocGuidEntry.c)
+ *     WmipIsQuerySetGuid @ 0x140A0D1A8 (WmipIsQuerySetGuid.c)
+ *     WmipEnableCollectOrEvent @ 0x140A0D280 (WmipEnableCollectOrEvent.c)
+ *     WmipOpenGuidObject @ 0x140A0D764 (WmipOpenGuidObject.c)
+ *     WmipFindGEByGuid @ 0x140A0D800 (WmipFindGEByGuid.c)
  */
 
 __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4, _QWORD *a5)
@@ -25,7 +25,7 @@ __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4
   _QWORD *v12; // rdx
   _QWORD *v13; // rax
   _QWORD *v15; // rax
-  _QWORD *KernelShadowStackInitial; // rax
+  __int64 *v16; // rax
   __int64 v17; // rcx
   _QWORD *v18; // rax
   _QWORD *v19; // rdx
@@ -50,7 +50,7 @@ __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4
       goto LABEL_9;
     }
     GEByGuid = WmipFindGEByGuid(v10 + 24, 0LL);
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     if ( GEByGuid )
     {
       v12 = *(_QWORD **)(GEByGuid + 48);
@@ -63,7 +63,7 @@ __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4
       *(_QWORD *)(GEByGuid + 48) = v13;
     }
     *(_QWORD *)(v10 + 56) = GEByGuid;
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     if ( a1 == 2244924 )
     {
       if ( !GEByGuid || *(_DWORD *)(GEByGuid + 36) == a1 - 2244924 || !WmipIsQuerySetGuid(GEByGuid) )
@@ -80,19 +80,19 @@ __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4
       *(_DWORD *)(v10 + 164) |= 2u;
     if ( GEByGuid )
       goto LABEL_18;
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     v15 = WmipAllocGuidEntry();
     GEByGuid = (__int64)v15;
     if ( v15 )
     {
       *(_OWORD *)(v15 + 9) = *(_OWORD *)(v10 + 24);
-      KernelShadowStackInitial = EtwpSecurityLock.KernelShadowStackInitial;
-      v17 = *(_QWORD *)EtwpSecurityLock.KernelShadowStackInitial;
-      if ( *(void **)(*(_QWORD *)EtwpSecurityLock.KernelShadowStackInitial + 8LL) != EtwpSecurityLock.KernelShadowStackInitial
+      v16 = (__int64 *)WmipGEHeadPtr;
+      v17 = *(_QWORD *)WmipGEHeadPtr;
+      if ( *(_QWORD *)(*(_QWORD *)WmipGEHeadPtr + 8LL) != WmipGEHeadPtr
         || (*(_QWORD *)GEByGuid = v17,
-            *(_QWORD *)(GEByGuid + 8) = KernelShadowStackInitial,
+            *(_QWORD *)(GEByGuid + 8) = v16,
             *(_QWORD *)(v17 + 8) = GEByGuid,
-            *KernelShadowStackInitial = GEByGuid,
+            *v16 = GEByGuid,
             v18 = (_QWORD *)(v10 + 40),
             v19 = *(_QWORD **)(GEByGuid + 48),
             *v19 != GEByGuid + 40) )
@@ -105,7 +105,7 @@ LABEL_7:
       *v19 = v18;
       *(_QWORD *)(GEByGuid + 48) = v18;
       *(_QWORD *)(v10 + 56) = GEByGuid;
-      KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+      KeReleaseMutex(&WmipSMMutex, 0);
 LABEL_18:
       v9 = WmipEnableCollectOrEvent(GEByGuid, a1, (_BYTE *)(v10 + 160));
       if ( v9 < 0 )
@@ -116,7 +116,7 @@ LABEL_9:
       v9 = 0;
       goto LABEL_19;
     }
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     v9 = -1073741670;
 LABEL_19:
     if ( v10 )

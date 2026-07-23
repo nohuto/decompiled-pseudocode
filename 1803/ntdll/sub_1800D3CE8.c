@@ -11,16 +11,16 @@
  *     sub_1800D51CC @ 0x1800D51CC (sub_1800D51CC.c)
  */
 
-struct _PEB *__fastcall sub_1800D3CE8(__int64 a1)
+int __fastcall sub_1800D3CE8(__int64 a1)
 {
-  struct _PEB *result; // rax
+  struct _PEB *v1; // rax
   __int64 *v3; // rdi
   void (__fastcall *v4)(_QWORD, _QWORD, _QWORD, __int64); // rax
 
-  result = NtCurrentPeb();
-  if ( (result->NtGlobalFlag & 0x100) != 0 && byte_18016F298 )
+  v1 = NtCurrentPeb();
+  if ( (v1->NtGlobalFlag & 0x100) != 0 && byte_18016F298 )
   {
-    RtlEnterCriticalSection((__int64)&unk_18015B560);
+    RtlEnterCriticalSection(&stru_18015B560);
     if ( (unsigned __int8)sub_1800D51CC(*(_QWORD *)(a1 + 48)) )
     {
       DbgPrint("AVRF: AVrfDllUnloadNotification called for a provider (%p) \n", (const void *)a1);
@@ -37,7 +37,7 @@ struct _PEB *__fastcall sub_1800D3CE8(__int64 a1)
           v4(*(_QWORD *)(a1 + 96), *(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64), a1);
       }
     }
-    return (struct _PEB *)RtlLeaveCriticalSection((__int64)&unk_18015B560);
+    LODWORD(v1) = RtlLeaveCriticalSection(&stru_18015B560);
   }
-  return result;
+  return (int)v1;
 }

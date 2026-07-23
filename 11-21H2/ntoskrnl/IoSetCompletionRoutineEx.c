@@ -1,7 +1,7 @@
 /*
  * XREFs of IoSetCompletionRoutineEx @ 0x14024F350
  * Callers:
- *     DifIoSetCompletionRoutineExWrapper @ 0x140610C50 (DifIoSetCompletionRoutineExWrapper.c)
+ *     sub_140610C50 @ 0x140610C50 (sub_140610C50.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -32,7 +32,7 @@ NTSTATUS __stdcall IoSetCompletionRoutineEx(
   *(_BYTE *)(Pool2 + 25) = InvokeOnSuccess;
   *(_BYTE *)(Pool2 + 26) = InvokeOnCancel;
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  CurrentStackLocation[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&IopUnloadSafeCompletion;
+  CurrentStackLocation[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&sub_1402510D0;
   CurrentStackLocation[-1].Context = v12;
   CurrentStackLocation[-1].Control = -32;
   return 0;

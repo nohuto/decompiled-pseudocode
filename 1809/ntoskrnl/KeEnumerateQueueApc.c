@@ -1,12 +1,12 @@
 /*
- * XREFs of KeEnumerateQueueApc @ 0x140294A80
+ * XREFs of KeEnumerateQueueApc @ 0x140294C70
  * Callers:
- *     DbgkpLkmdSnapThread @ 0x14026DE34 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSnapThread @ 0x14026E024 (DbgkpLkmdSnapThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeEnumerateQueueApc(

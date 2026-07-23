@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpFindInterruptController @ 0x140556094
+ * XREFs of HalpFindInterruptController @ 0x1405539D4
  * Callers:
- *     HalpInterruptSelectController @ 0x140557368 (HalpInterruptSelectController.c)
+ *     HalpInterruptSelectController @ 0x140554CA8 (HalpInterruptSelectController.c)
  * Callees:
  *     <none>
  */

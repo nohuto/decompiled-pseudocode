@@ -1,20 +1,20 @@
 /*
- * XREFs of ExCreateHandleEx @ 0x14050DBE0
+ * XREFs of ExCreateHandleEx @ 0x1404F0B70
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     NtCreateJobObject @ 0x1404A20AC (NtCreateJobObject.c)
- *     AlpcpAllocateMessageFunction @ 0x1404B62CC (AlpcpAllocateMessageFunction.c)
- *     ObCompleteObjectDuplication @ 0x1404CBC54 (ObCompleteObjectDuplication.c)
- *     RtlpInsertStringAtom @ 0x1404D5B38 (RtlpInsertStringAtom.c)
- *     ObDuplicateObject @ 0x14050CBB0 (ObDuplicateObject.c)
- *     PspAllocateThread @ 0x1405154A0 (PspAllocateThread.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x1406550F4 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     AlpcpAllocateMessageFunction @ 0x1404A06AC (AlpcpAllocateMessageFunction.c)
+ *     ObCompleteObjectDuplication @ 0x1404B1680 (ObCompleteObjectDuplication.c)
+ *     RtlpInsertStringAtom @ 0x1404B913C (RtlpInsertStringAtom.c)
+ *     ObDuplicateObject @ 0x1404EFB40 (ObDuplicateObject.c)
+ *     PspAllocateThread @ 0x1404F8890 (PspAllocateThread.c)
+ *     NtCreateJobObject @ 0x14051A4B8 (NtCreateJobObject.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x1406551D8 (AlpcpAllocateMessageFromExtendedTables.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ExpFreeHandleTableEntry @ 0x1404A3C94 (ExpFreeHandleTableEntry.c)
- *     ExpAllocateHandleTableEntry @ 0x14050DCD0 (ExpAllocateHandleTableEntry.c)
- *     ExpSetHandleExtraInfo @ 0x1406AD594 (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1406AD814 (ExpUpdateDebugInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ExpAllocateHandleTableEntry @ 0x1404F0C60 (ExpAllocateHandleTableEntry.c)
+ *     ExpFreeHandleTableEntry @ 0x14051C094 (ExpFreeHandleTableEntry.c)
+ *     ExpSetHandleExtraInfo @ 0x1406AD6CC (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1406AD94C (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ExCreateHandleEx(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5)
@@ -48,7 +48,7 @@ __int64 __fastcall ExCreateHandleEx(__int64 a1, __int64 a2, int a3, int a4, _DWO
   {
     if ( a5 && (*a5 || a5[1]) && (unsigned int)ExpSetHandleExtraInfo(a1, v16, a5) )
     {
-      ExpFreeHandleTableEntry(a1, v12, (__int64)v13);
+      ExpFreeHandleTableEntry(a1, v12, v13);
       v12 = 0LL;
     }
     else

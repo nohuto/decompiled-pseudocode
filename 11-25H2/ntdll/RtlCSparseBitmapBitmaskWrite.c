@@ -20,7 +20,7 @@ __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2,
   signed __int64 v13; // rdx
   __int64 v14; // rcx
   signed __int64 i; // rax
-  volatile signed __int64 *v16; // rcx
+  _RTL_SRWLOCK *v16; // rcx
   __int64 v18; // [rsp+20h] [rbp-28h] BYREF
   char v19; // [rsp+28h] [rbp-20h]
   __int128 v20; // [rsp+30h] [rbp-18h] BYREF
@@ -52,7 +52,7 @@ __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2,
         v13 = i;
       }
       v7 = 0;
-      v16 = (volatile signed __int64 *)(*((_QWORD *)&v20 + 1) + 24LL);
+      v16 = (_RTL_SRWLOCK *)(*((_QWORD *)&v20 + 1) + 24LL);
       if ( (_DWORD)v20 == 1 )
         RtlReleaseSRWLockExclusive(v16);
       else

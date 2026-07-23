@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaCrashDumpInitializationComplete @ 0x1407C878C
+ * XREFs of WheaCrashDumpInitializationComplete @ 0x1407C8C7C
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     WheapReportDeferredLiveDumps @ 0x1407C87F0 (WheapReportDeferredLiveDumps.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     WheapReportDeferredLiveDumps @ 0x1407C8CE0 (WheapReportDeferredLiveDumps.c)
  */
 
 __int64 WheaCrashDumpInitializationComplete()

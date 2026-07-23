@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnPrefetchSectionsCleanup @ 0x140507260
+ * XREFs of PfSnPrefetchSectionsCleanup @ 0x1404EA1F0
  * Callers:
- *     PfSnPrefetchSections @ 0x140506F14 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchSections @ 0x1404E9EA4 (PfSnPrefetchSections.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     KeQueryPriorityThread @ 0x1400C73C0 (KeQueryPriorityThread.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     KeQueryPriorityThread @ 0x1400C5260 (KeQueryPriorityThread.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall PfSnPrefetchSectionsCleanup(unsigned __int64 a1, int a2, unsigned int a3, unsigned __int64 a4)

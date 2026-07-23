@@ -1,8 +1,8 @@
 /*
- * XREFs of XdvIoAllocateMdl @ 0x140223418
+ * XREFs of XdvIoAllocateMdl @ 0x140223244
  * Callers:
- *     VerifierIoAllocateMdl @ 0x140705538 (VerifierIoAllocateMdl.c)
- *     VerifierPortIoAllocateMdl @ 0x140705888 (VerifierPortIoAllocateMdl.c)
+ *     VerifierIoAllocateMdl @ 0x140705568 (VerifierIoAllocateMdl.c)
+ *     VerifierPortIoAllocateMdl @ 0x1407058B8 (VerifierPortIoAllocateMdl.c)
  * Callees:
  *     <none>
  */

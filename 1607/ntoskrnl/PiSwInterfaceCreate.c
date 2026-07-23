@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwInterfaceCreate @ 0x1404C6888
+ * XREFs of PiSwInterfaceCreate @ 0x140486FEC
  * Callers:
- *     PiSwIrpInterfaceRegister @ 0x1404C648C (PiSwIrpInterfaceRegister.c)
- *     PiSwCompleteCreate @ 0x1404C6A1C (PiSwCompleteCreate.c)
+ *     PiSwIrpInterfaceRegister @ 0x140487098 (PiSwIrpInterfaceRegister.c)
+ *     PiSwCompleteCreate @ 0x140487650 (PiSwCompleteCreate.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpCopyDevPropertyArray @ 0x1404C70A4 (PnpCopyDevPropertyArray.c)
- *     PnpAllocatePWSTR @ 0x140501D70 (PnpAllocatePWSTR.c)
- *     PiSwInterfaceFree @ 0x140645718 (PiSwInterfaceFree.c)
+ *     PnpCopyDevPropertyArray @ 0x140487E24 (PnpCopyDevPropertyArray.c)
+ *     PnpAllocatePWSTR @ 0x1404E4D00 (PnpAllocatePWSTR.c)
+ *     PiSwInterfaceFree @ 0x1406457FC (PiSwInterfaceFree.c)
  */
 
 __int64 __fastcall PiSwInterfaceCreate(NTSTRSAFE_PCWSTR pszSrc, int a2, int a3, _QWORD *a4)
@@ -36,7 +36,7 @@ __int64 __fastcall PiSwInterfaceCreate(NTSTRSAFE_PCWSTR pszSrc, int a2, int a3, 
   }
   if ( *a4 )
   {
-    PiSwInterfaceFree(*a4);
+    PiSwInterfaceFree();
     *a4 = 0LL;
   }
   return (unsigned int)PWSTR;

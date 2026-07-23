@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpDereferenceStackEntry @ 0x1405ADAB8
+ * XREFs of EtwpDereferenceStackEntry @ 0x1405ADCE8
  * Callers:
- *     EtwpStackRundown @ 0x1405ADB28 (EtwpStackRundown.c)
- *     EtwpTraceStackKey @ 0x1405ADDAC (EtwpTraceStackKey.c)
+ *     EtwpStackRundown @ 0x1405ADD58 (EtwpStackRundown.c)
+ *     EtwpTraceStackKey @ 0x1405ADFDC (EtwpTraceStackKey.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     EtwpTraceCachedStack @ 0x1405ADCD4 (EtwpTraceCachedStack.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpTraceCachedStack @ 0x1405ADF04 (EtwpTraceCachedStack.c)
  */
 
 PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, unsigned int **a2)
 {
   PSLIST_ENTRY v3; // rdi
   PSLIST_ENTRY result; // rax
-  union _SLIST_HEADER *v5; // rsi
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_HEADER *v5; // rsi
+  _SLIST_ENTRY *Next; // rbx
 
   v3 = ListEntry;
   result = (PSLIST_ENTRY)(unsigned int)_InterlockedExchangeAdd(
@@ -22,7 +22,7 @@ PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, unsign
   if ( (_DWORD)result == 1 )
   {
     EtwpTraceCachedStack(*((_QWORD *)*a2 + 135), **a2, 6179LL, ListEntry);
-    v5 = (union _SLIST_HEADER *)(a2 + 2);
+    v5 = (_SLIST_HEADER *)(a2 + 2);
     do
     {
       Next = v3[1].Next;

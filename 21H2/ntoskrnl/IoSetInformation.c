@@ -1,27 +1,27 @@
 /*
- * XREFs of IoSetInformation @ 0x14077C0D0
+ * XREFs of IoSetInformation @ 0x14077C290
  * Callers:
- *     MiAttemptPageFileReduction @ 0x140542908 (MiAttemptPageFileReduction.c)
- *     MiAttemptPageFileExtension @ 0x1408D0304 (MiAttemptPageFileExtension.c)
+ *     MiAttemptPageFileReduction @ 0x140542B48 (MiAttemptPageFileReduction.c)
+ *     MiAttemptPageFileExtension @ 0x1408D0464 (MiAttemptPageFileExtension.c)
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
- *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopOpenLinkOrRenameTarget @ 0x1406089A8 (IopOpenLinkOrRenameTarget.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140890E54 (IopAllocateIrpCleanup.c)
- *     IopCancelAlertedRequest @ 0x14089108C (IopCancelAlertedRequest.c)
- *     IopSetFileMemoryPartitionInformation @ 0x1408942EC (IopSetFileMemoryPartitionInformation.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x140355FE0 (IopQueueThreadIrp.c)
+ *     IopReleaseFileObjectLock @ 0x1403584A0 (IopReleaseFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     IopOpenLinkOrRenameTarget @ 0x140698458 (IopOpenLinkOrRenameTarget.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140890FB4 (IopAllocateIrpCleanup.c)
+ *     IopCancelAlertedRequest @ 0x1408911EC (IopCancelAlertedRequest.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14089444C (IopSetFileMemoryPartitionInformation.c)
  */
 
 NTSTATUS __stdcall IoSetInformation(
@@ -34,7 +34,7 @@ NTSTATUS __stdcall IoSetInformation(
   char v5; // r13
   struct _KTHREAD *CurrentThread; // rax
   char v10; // bl
-  __int64 v11; // rax
+  PRTL_BALANCED_NODE v11; // rax
   PDEVICE_OBJECT RelatedDeviceObject; // rax
   __int64 v13; // rdx
   __int64 v14; // r8
@@ -90,7 +90,7 @@ NTSTATUS __stdcall IoSetInformation(
     else
     {
       if ( v11 )
-        *(_BYTE *)(v11 + 26) |= 1u;
+        BYTE2(v11[1].Left) |= 1u;
       ObfReferenceObject(FileObject);
     }
     KeResetEvent(&FileObject->Event);

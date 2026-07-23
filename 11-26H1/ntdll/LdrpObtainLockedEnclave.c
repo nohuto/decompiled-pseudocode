@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpObtainLockedEnclave @ 0x18004BF20
+ * XREFs of LdrpObtainLockedEnclave @ 0x1800364A0
  * Callers:
- *     LdrInitializeEnclave @ 0x180070B80 (LdrInitializeEnclave.c)
- *     LdrpIssueEnclaveCall @ 0x180070CC0 (LdrpIssueEnclaveCall.c)
- *     LdrIsEnclaveAddress @ 0x180110A04 (LdrIsEnclaveAddress.c)
- *     LdrDeleteEnclave @ 0x1801265D0 (LdrDeleteEnclave.c)
- *     LdrLoadEnclaveModule @ 0x1801394E0 (LdrLoadEnclaveModule.c)
+ *     LdrInitializeEnclave @ 0x180090FD0 (LdrInitializeEnclave.c)
+ *     LdrpIssueEnclaveCall @ 0x180091110 (LdrpIssueEnclaveCall.c)
+ *     LdrIsEnclaveAddress @ 0x180110594 (LdrIsEnclaveAddress.c)
+ *     LdrDeleteEnclave @ 0x180126340 (LdrDeleteEnclave.c)
+ *     LdrLoadEnclaveModule @ 0x180139250 (LdrLoadEnclaveModule.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
  */
 
 __int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
@@ -21,7 +21,7 @@ __int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
   v4 = 0LL;
   while ( 1 )
   {
-    RtlEnterCriticalSection((__int64)&LdrpEnclaveListLock);
+    RtlEnterCriticalSection(&LdrpEnclaveListLock);
     for ( i = (__int64 *)LdrpEnclaveList; i != &LdrpEnclaveList; v4 = 0LL )
     {
       v6 = i[9];
@@ -40,17 +40,17 @@ __int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
     if ( !v4 )
       break;
     _InterlockedIncrement((volatile signed __int32 *)v4 + 15);
-    RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock);
-    RtlEnterCriticalSection((__int64)(v4 + 2));
+    RtlLeaveCriticalSection(&LdrpEnclaveListLock);
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(v4 + 2));
     if ( v4[9] )
       return v4;
-    RtlLeaveCriticalSection((__int64)(v4 + 2));
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v4 + 2));
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)v4 + 15, 0xFFFFFFFF) == 1 )
     {
-      RtlFreeHeap_0();
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(LdrpHeap, 0, (PVOID)v4[14]);
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v4);
     }
   }
-  RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock);
+  RtlLeaveCriticalSection(&LdrpEnclaveListLock);
   return 0LL;
 }

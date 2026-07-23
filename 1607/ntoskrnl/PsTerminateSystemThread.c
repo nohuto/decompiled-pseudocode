@@ -1,12 +1,12 @@
 /*
- * XREFs of PsTerminateSystemThread @ 0x1404EDAF8
+ * XREFs of PsTerminateSystemThread @ 0x1404CFC1C
  * Callers:
- *     PopIrpWorker @ 0x14012BB74 (PopIrpWorker.c)
- *     InbvRotateGuiBootDisplay @ 0x1401C3864 (InbvRotateGuiBootDisplay.c)
- *     EtwpLogger @ 0x14048FBA8 (EtwpLogger.c)
- *     IopThreadStart @ 0x14054CD14 (IopThreadStart.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     ExpExpirationThread @ 0x1406AD040 (ExpExpirationThread.c)
+ *     PopIrpWorker @ 0x14012C0E4 (PopIrpWorker.c)
+ *     InbvRotateGuiBootDisplay @ 0x1401C3748 (InbvRotateGuiBootDisplay.c)
+ *     EtwpLogger @ 0x140490638 (EtwpLogger.c)
+ *     IopThreadStart @ 0x14054D254 (IopThreadStart.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     ExpExpirationThread @ 0x1406AD178 (ExpExpirationThread.c)
  * Callees:
  *     <none>
  */

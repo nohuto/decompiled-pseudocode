@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPicDiscover @ 0x1405A2174
+ * XREFs of HalpPicDiscover @ 0x1405A4984
  * Callers:
- *     HalpInitializeInterrupts @ 0x140CADD98 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140CB3DD8 (HalpInitializeInterrupts.c)
  * Callees:
- *     HalSocGetAcpiTable @ 0x140598054 (HalSocGetAcpiTable.c)
- *     HalpInterruptRegisterController @ 0x14059AC04 (HalpInterruptRegisterController.c)
- *     HalpInterruptRegisterLine @ 0x14059B0C4 (HalpInterruptRegisterLine.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalSocGetAcpiTable @ 0x14059A7D4 (HalSocGetAcpiTable.c)
+ *     HalpInterruptRegisterController @ 0x14059D384 (HalpInterruptRegisterController.c)
+ *     HalpInterruptRegisterLine @ 0x14059D844 (HalpInterruptRegisterLine.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 HalpPicDiscover()

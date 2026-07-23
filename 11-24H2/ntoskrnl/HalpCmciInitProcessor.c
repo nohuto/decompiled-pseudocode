@@ -1,19 +1,18 @@
 /*
- * XREFs of HalpCmciInitProcessor @ 0x14047D1E4
+ * XREFs of HalpCmciInitProcessor @ 0x140478374
  * Callers:
- *     HalpInitializeCmc @ 0x140B4BAE8 (HalpInitializeCmc.c)
- *     HalpPostSleepMP @ 0x140B6886C (HalpPostSleepMP.c)
- *     HalpMcaResumeProcessorConfig @ 0x140B68E20 (HalpMcaResumeProcessorConfig.c)
- *     HalpCmciInit @ 0x140B6C938 (HalpCmciInit.c)
+ *     HalpInitializeCmc @ 0x140B4DB28 (HalpInitializeCmc.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140B6D4AC (HalpMcaResumeProcessorConfig.c)
+ *     HalpCmciInit @ 0x140B6E1D8 (HalpCmciInit.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     HalpGetCpuVendor @ 0x14047D5E4 (HalpGetCpuVendor.c)
- *     HalpCmciSetProcessorConfig @ 0x14047D604 (HalpCmciSetProcessorConfig.c)
- *     HalpGetMcaPcrContext @ 0x14047D638 (HalpGetMcaPcrContext.c)
- *     HalpCmciPollProcessor @ 0x14047D688 (HalpCmciPollProcessor.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpIsCmciImplementedAMD @ 0x140B4C35C (HalpIsCmciImplementedAMD.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     HalpGetCpuVendor @ 0x140478774 (HalpGetCpuVendor.c)
+ *     HalpCmciSetProcessorConfig @ 0x140478794 (HalpCmciSetProcessorConfig.c)
+ *     HalpGetMcaPcrContext @ 0x1404787C8 (HalpGetMcaPcrContext.c)
+ *     HalpCmciPollProcessor @ 0x140478818 (HalpCmciPollProcessor.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpIsCmciImplementedAMD @ 0x140B4E39C (HalpIsCmciImplementedAMD.c)
  */
 
 BOOLEAN __fastcall HalpCmciInitProcessor(__int64 a1, __int64 a2)

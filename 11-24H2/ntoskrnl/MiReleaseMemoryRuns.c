@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReleaseMemoryRuns @ 0x1406716B4
+ * XREFs of MiReleaseMemoryRuns @ 0x140672884
  * Callers:
- *     MmAllocateMemoryRanges @ 0x1407EB130 (MmAllocateMemoryRanges.c)
- *     MmFreeMemoryRanges @ 0x1407EB390 (MmFreeMemoryRanges.c)
+ *     MmAllocateMemoryRanges @ 0x1407EB700 (MmAllocateMemoryRanges.c)
+ *     MmFreeMemoryRanges @ 0x1407EB960 (MmFreeMemoryRanges.c)
  * Callees:
- *     MiUnlockHugePfn @ 0x1404CF53C (MiUnlockHugePfn.c)
- *     MiHugePfnPartition @ 0x1404D91E4 (MiHugePfnPartition.c)
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiLockHugePfn @ 0x140670D7C (MiLockHugePfn.c)
+ *     MiUnlockHugePfn @ 0x1404C8804 (MiUnlockHugePfn.c)
+ *     MiHugePfnPartition @ 0x1404D2634 (MiHugePfnPartition.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiLockHugePfn @ 0x140671F4C (MiLockHugePfn.c)
  */
 
 void __fastcall MiReleaseMemoryRuns(ULONG_PTR a1, __int64 *a2, int a3)
@@ -34,7 +34,7 @@ void __fastcall MiReleaseMemoryRuns(ULONG_PTR a1, __int64 *a2, int a3)
   {
     v4 = (*v3 / *(_QWORD *)(v8 + 24)) ^ ((*v3 / *(_QWORD *)(v8 + 24)) ^ v4) & 0xFFFFFFFFFFC00000uLL;
     v9 = *v3 % *(_QWORD *)(v8 + 24) + 1LL;
-    v10 = (_QWORD *)(qword_140E2FFC0 + 8 * ((*v3 / *(_QWORD *)(v8 + 24)) & 0x3FFFFFLL));
+    v10 = (_QWORD *)(qword_140E30100 + 8 * ((*v3 / *(_QWORD *)(v8 + 24)) & 0x3FFFFFLL));
     do
     {
       --v9;
@@ -47,7 +47,7 @@ void __fastcall MiReleaseMemoryRuns(ULONG_PTR a1, __int64 *a2, int a3)
       else
       {
         MiHugePfnPartition(v10);
-        if ( (*(_QWORD *)(qword_140E2FFC0 + 8 * (v4 & 0x3FFFFF)) & 0x10000LL) == 0 )
+        if ( (*(_QWORD *)(qword_140E30100 + 8 * (v4 & 0x3FFFFF)) & 0x10000LL) == 0 )
           v11 = v12;
       }
       v13 = MiLockHugePfn((__int64)v10);

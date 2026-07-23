@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlHashUnicodeString @ 0x1406D9430
+ * XREFs of RtlHashUnicodeString @ 0x1406D9460
  * Callers:
- *     PiUEventHashStringIntoBucket @ 0x14031CEB8 (PiUEventHashStringIntoBucket.c)
- *     KsepCacheHwIdHash @ 0x14036A0D0 (KsepCacheHwIdHash.c)
- *     CarLiveDumpCallBack @ 0x1405D5BA0 (CarLiveDumpCallBack.c)
- *     PnpGenerateDeviceIdsHash @ 0x14079C558 (PnpGenerateDeviceIdsHash.c)
- *     PipFindDeviceOverrideEntry @ 0x1407C1484 (PipFindDeviceOverrideEntry.c)
- *     SepGetCachedHandlesEntry @ 0x1407F465C (SepGetCachedHandlesEntry.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14081A5F0 (PiCreateDriverSwDeviceCallback.c)
- *     KsepCacheDeviceHash @ 0x140855940 (KsepCacheDeviceHash.c)
- *     PiDmObjectCreate @ 0x14086B75C (PiDmObjectCreate.c)
- *     PiDevCfgBuildDriverNodeStrongName @ 0x14087C92C (PiDevCfgBuildDriverNodeStrongName.c)
- *     PiDevCfgResolveVariable @ 0x14087EC00 (PiDevCfgResolveVariable.c)
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x140984C30 (PopFxInitializeSocSubsystemStaticInfo.c)
- *     PopPluginQuerySocSubsystemBlockingTime @ 0x140986478 (PopPluginQuerySocSubsystemBlockingTime.c)
- *     PopPluginQuerySocSubsystemMetadata @ 0x1409865B4 (PopPluginQuerySocSubsystemMetadata.c)
+ *     PiUEventHashStringIntoBucket @ 0x14031D148 (PiUEventHashStringIntoBucket.c)
+ *     KsepCacheHwIdHash @ 0x14036A270 (KsepCacheHwIdHash.c)
+ *     CarLiveDumpCallBack @ 0x1405D6110 (CarLiveDumpCallBack.c)
+ *     PnpGenerateDeviceIdsHash @ 0x14079C748 (PnpGenerateDeviceIdsHash.c)
+ *     PipFindDeviceOverrideEntry @ 0x1407C1754 (PipFindDeviceOverrideEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x1407F492C (SepGetCachedHandlesEntry.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x14081A8C0 (PiCreateDriverSwDeviceCallback.c)
+ *     KsepCacheDeviceHash @ 0x140855C40 (KsepCacheDeviceHash.c)
+ *     PiDmObjectCreate @ 0x14086B99C (PiDmObjectCreate.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x14087CB6C (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PiDevCfgResolveVariable @ 0x14087EE40 (PiDevCfgResolveVariable.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x140984E30 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemBlockingTime @ 0x140986678 (PopPluginQuerySocSubsystemBlockingTime.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1409867B4 (PopPluginQuerySocSubsystemMetadata.c)
  *     PipInitDeviceOverrideCache @ 0x140B3C2C8 (PipInitDeviceOverrideCache.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
  */
 
 NTSTATUS __stdcall RtlHashUnicodeString(

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpReferenceKeyControlBlockLockNotHeld @ 0x1407E251C
+ * XREFs of CmpReferenceKeyControlBlockLockNotHeld @ 0x1407E27EC
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
- *     CmpWalkOneLevel @ 0x1406DD820 (CmpWalkOneLevel.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
+ *     CmpWalkOneLevel @ 0x1406DD850 (CmpWalkOneLevel.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CmpReferenceKeyControlBlock @ 0x14076A6F0 (CmpReferenceKeyControlBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CmpReferenceKeyControlBlock @ 0x14076A8E0 (CmpReferenceKeyControlBlock.c)
  *     CmpLockKcbShared @ 0x140AF5530 (CmpLockKcbShared.c)
  *     CmpUnlockKcb @ 0x140AF55A0 (CmpUnlockKcb.c)
  */

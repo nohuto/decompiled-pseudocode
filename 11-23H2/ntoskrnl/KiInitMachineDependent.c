@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitMachineDependent @ 0x14039A818
+ * XREFs of KiInitMachineDependent @ 0x14039A9F8
  * Callers:
  *     KeInitSystem @ 0x140B4DED4 (KeInitSystem.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x14039AAC0 (KiSetSystemAffinityThreadToProcessor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x14039ACA0 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     KiInitializeMTRR @ 0x140B5F650 (KiInitializeMTRR.c)
  *     KiInitializeCacheErrataSupport @ 0x140B9623C (KiInitializeCacheErrataSupport.c)
  */
@@ -19,7 +19,7 @@ char KiInitMachineDependent()
   __int64 v3; // rcx
   char result; // al
   int v5; // eax
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   PreviousAffinity = 0LL;
   if ( (KiCacheErrataMonitor & 3) != 0 )
@@ -92,18 +92,18 @@ LABEL_12:
     KiUserCodePatchMutex.Event.Header.WaitListHead.Flink = &KiUserCodePatchMutex.Event.Header.WaitListHead;
     memset(&KiAltContextWorkQueue, 0, 0x80uLL);
     KiAltContextWorkQueue.Blink = &KiAltContextWorkQueue;
-    *(&stru_140C40D18 + 3) = (ULONG_PTR)KiAltReturnDpcRoutine;
+    *(&stru_140C40C98 + 3) = (ULONG_PTR)KiAltReturnDpcRoutine;
     result = 1;
     KiAltContextWorkQueue.Flink = &KiAltContextWorkQueue;
-    stru_140C40D58.WorkerRoutine = (void (__fastcall *)(void *))KiAltReturnWorkerRoutine;
-    qword_140C40D78 = (__int64)KiAltContextProcessMcheckAltReturn;
+    stru_140C40CD8.WorkerRoutine = (void (__fastcall *)(void *))KiAltReturnWorkerRoutine;
+    qword_140C40CF8 = (__int64)KiAltContextProcessMcheckAltReturn;
     Lock = 0LL;
-    LODWORD(stru_140C40D18) = 275;
-    *(&stru_140C40D18 + 4) = (ULONG_PTR)&KiAltContextWorkQueue;
-    *(&stru_140C40D18 + 7) = 0LL;
-    *(&stru_140C40D18 + 2) = 0LL;
-    stru_140C40D58.Parameter = &KiAltContextWorkQueue;
-    stru_140C40D58.List.Flink = 0LL;
+    LODWORD(stru_140C40C98) = 275;
+    *(&stru_140C40C98 + 4) = (ULONG_PTR)&KiAltContextWorkQueue;
+    *(&stru_140C40C98 + 7) = 0LL;
+    *(&stru_140C40C98 + 2) = 0LL;
+    stru_140C40CD8.Parameter = &KiAltContextWorkQueue;
+    stru_140C40CD8.List.Flink = 0LL;
     KiAltReturnInitialized = 1;
   }
   return result;

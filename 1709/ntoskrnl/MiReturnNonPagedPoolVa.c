@@ -38,12 +38,12 @@ void __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
   __int64 PteShadow; // rax
   unsigned __int64 v11; // rax
   unsigned __int64 v12; // rcx
-  union _SLIST_HEADER *v13; // r14
+  _SLIST_HEADER *v13; // r14
   __int64 v14; // rdi
   unsigned __int64 v15; // rcx
   unsigned __int64 v16; // r9
   unsigned __int64 v17; // r8
-  union _SLIST_HEADER *v18; // rcx
+  _SLIST_HEADER *v18; // rcx
   unsigned __int64 v19; // r11
   unsigned __int64 v20; // rsi
   unsigned __int64 v21; // rdi
@@ -66,15 +66,15 @@ void __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
   unsigned __int64 v38; // rdi
   _QWORD *v39; // rbx
   unsigned __int64 v40; // [rsp+20h] [rbp-E0h]
-  union _SLIST_HEADER *v41; // [rsp+28h] [rbp-D8h]
+  _SLIST_HEADER *v41; // [rsp+28h] [rbp-D8h]
   unsigned __int64 v42; // [rsp+30h] [rbp-D0h]
   unsigned __int64 v43; // [rsp+38h] [rbp-C8h]
   __int64 v44; // [rsp+40h] [rbp-C0h] BYREF
-  union _SLIST_HEADER *v45; // [rsp+48h] [rbp-B8h]
+  _SLIST_HEADER *v45; // [rsp+48h] [rbp-B8h]
   unsigned __int8 v46; // [rsp+50h] [rbp-B0h]
   int v47; // [rsp+58h] [rbp-A8h] BYREF
   ULONG_PTR v48; // [rsp+60h] [rbp-A0h]
-  union _SLIST_HEADER *v49; // [rsp+68h] [rbp-98h]
+  _SLIST_HEADER *v49; // [rsp+68h] [rbp-98h]
   unsigned __int64 v50; // [rsp+70h] [rbp-90h]
   _QWORD *v51; // [rsp+78h] [rbp-88h]
   unsigned __int64 v52; // [rsp+80h] [rbp-80h]

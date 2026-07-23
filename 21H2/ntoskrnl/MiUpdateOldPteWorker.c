@@ -1,33 +1,32 @@
 /*
- * XREFs of MiUpdateOldPteWorker @ 0x14053C728
+ * XREFs of MiUpdateOldPteWorker @ 0x14053C968
  * Callers:
- *     MiUpdateOldPagesEPTCallback @ 0x14053C480 (MiUpdateOldPagesEPTCallback.c)
- *     MiUpdateOldPte @ 0x14053C5B0 (MiUpdateOldPte.c)
+ *     MiUpdateOldPagesEPTCallback @ 0x14053C6C0 (MiUpdateOldPagesEPTCallback.c)
+ *     MiUpdateOldPte @ 0x14053C7F0 (MiUpdateOldPte.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
- *     MiLockSetPfnPriority @ 0x14028BE6C (MiLockSetPfnPriority.c)
- *     MiEmptyWorkingSetHelper @ 0x140306534 (MiEmptyWorkingSetHelper.c)
+ *     MiLockSetPfnPriority @ 0x14020900C (MiLockSetPfnPriority.c)
+ *     MiGetPfnPriority @ 0x1402BCED0 (MiGetPfnPriority.c)
+ *     MiEmptyWorkingSetHelper @ 0x140311284 (MiEmptyWorkingSetHelper.c)
  */
 
 __int64 __fastcall MiUpdateOldPteWorker(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
   __int64 v5; // rcx
-  __int64 v6; // r8
-  _DWORD *v7; // r9
-  __int64 v8; // r11
-  __int64 v9; // rdx
+  _DWORD *v6; // r9
+  __int64 v7; // r11
+  unsigned int v8; // edx
 
   result = MiGetPfnPriority(a3);
-  v9 = (unsigned int)v7[1];
-  if ( (*v7 & 2) != 0 )
+  v8 = v6[1];
+  if ( (*v6 & 2) != 0 )
   {
-    if ( (_DWORD)v9 == 8 || (_DWORD)result == (_DWORD)v9 )
-      return MiEmptyWorkingSetHelper(a1, v8, (__int64)(v7 + 6), 0);
+    if ( v8 == 8 || (_DWORD)result == v8 )
+      return MiEmptyWorkingSetHelper(a1, v7, (__int64)(v6 + 6), 0);
   }
-  else if ( (unsigned int)result > (unsigned int)v9 )
+  else if ( (unsigned int)result > v8 )
   {
-    return MiLockSetPfnPriority(v5, v9, v6, (__int64)v7);
+    return MiLockSetPfnPriority(v5, v8);
   }
   return result;
 }

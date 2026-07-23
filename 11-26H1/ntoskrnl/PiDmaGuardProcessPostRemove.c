@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDmaGuardProcessPostRemove @ 0x140B29F90
+ * XREFs of PiDmaGuardProcessPostRemove @ 0x140B2C010
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1404D23F4 (PnpRemoveLockedDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x1404CBC6C (PnpRemoveLockedDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     PiDmaGuardQueueRemoveEntry @ 0x1404F29E4 (PiDmaGuardQueueRemoveEntry.c)
- *     PiIommuUninitializeDeviceAts @ 0x1404FF4C0 (PiIommuUninitializeDeviceAts.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PipDmgReevaluateQueue @ 0x140770D50 (PipDmgReevaluateQueue.c)
- *     PiDmaGuardQueueInsertEntry @ 0x140775870 (PiDmaGuardQueueInsertEntry.c)
- *     PiIommuBlockDevice @ 0x1407B4984 (PiIommuBlockDevice.c)
- *     PipDmgDestroyIommuExtension @ 0x140AA7CBC (PipDmgDestroyIommuExtension.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     PiDmaGuardQueueRemoveEntry @ 0x1404EBFC4 (PiDmaGuardQueueRemoveEntry.c)
+ *     PiIommuUninitializeDeviceAts @ 0x1404F8CB0 (PiIommuUninitializeDeviceAts.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PipDmgReevaluateQueue @ 0x140773D50 (PipDmgReevaluateQueue.c)
+ *     PiDmaGuardQueueInsertEntry @ 0x140778870 (PiDmaGuardQueueInsertEntry.c)
+ *     PiIommuBlockDevice @ 0x1407B79E4 (PiIommuBlockDevice.c)
+ *     PipDmgDestroyIommuExtension @ 0x1409DB1F0 (PipDmgDestroyIommuExtension.c)
  */
 
 void __fastcall PiDmaGuardProcessPostRemove(ULONG_PTR MaxDataSize, int a2, char a3)

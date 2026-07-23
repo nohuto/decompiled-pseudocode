@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsPteInStore @ 0x14028BE40
+ * XREFs of MiIsPteInStore @ 0x140208FE0
  * Callers:
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiUpdatePfnPriority @ 0x140270DA4 (MiUpdatePfnPriority.c)
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiComputeFaultCluster @ 0x14028DF24 (MiComputeFaultCluster.c)
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
- *     MiUpdatePfnPriorityByPte @ 0x14032BF10 (MiUpdatePfnPriorityByPte.c)
- *     MiResolveProtoCombine @ 0x14036AB34 (MiResolveProtoCombine.c)
- *     MiCheckCommitReleaseFromVad @ 0x14052B10C (MiCheckCommitReleaseFromVad.c)
- *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiComputeFaultCluster @ 0x14020B0C4 (MiComputeFaultCluster.c)
+ *     MiUpdatePfnPriority @ 0x14025ED44 (MiUpdatePfnPriority.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
+ *     MiUpdatePfnPriorityByPte @ 0x140336C60 (MiUpdatePfnPriorityByPte.c)
+ *     MiResolveProtoCombine @ 0x14036ACE4 (MiResolveProtoCombine.c)
+ *     MiCheckCommitReleaseFromVad @ 0x14052B34C (MiCheckCommitReleaseFromVad.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BD00 (MiMakeOutswappedPageResident.c)
  * Callees:
  *     <none>
  */

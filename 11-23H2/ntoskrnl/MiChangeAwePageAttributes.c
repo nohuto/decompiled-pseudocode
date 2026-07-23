@@ -1,11 +1,11 @@
 /*
- * XREFs of MiChangeAwePageAttributes @ 0x140649440
+ * XREFs of MiChangeAwePageAttributes @ 0x140649990
  * Callers:
- *     MiIncrementAweMapCount @ 0x14064AAD0 (MiIncrementAweMapCount.c)
+ *     MiIncrementAweMapCount @ 0x14064B020 (MiIncrementAweMapCount.c)
  * Callees:
  *     MiChangePageAttributeBatch @ 0x14021C9B4 (MiChangePageAttributeBatch.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiChangeAwePageAttributes(__int64 a1, __int64 a2, int a3)
@@ -35,10 +35,13 @@ __int64 __fastcall MiChangeAwePageAttributes(__int64 a1, __int64 a2, int a3)
     || (*(_QWORD *)(a2 + 24) & 0x4000000000000000LL) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)v6, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -54,10 +57,10 @@ __int64 __fastcall MiChangeAwePageAttributes(__int64 a1, __int64 a2, int a3)
   }
   v14 = *(_QWORD *)(a2 + 16);
   _InterlockedAnd64((volatile signed __int64 *)v6, 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v15 >= 2u )
     {
       v16 = KeGetCurrentPrcb();
       v17 = v16->SchedulerAssist;

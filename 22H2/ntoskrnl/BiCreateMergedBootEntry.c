@@ -19,7 +19,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _W
   _WORD *v7; // rbx
   _DWORD *v9; // rdi
   _WORD *v10; // r15
-  char *v11; // r14
+  _FILE_PATH *v11; // r14
   int DeviceFromEfiPath; // ebx
   int FilePathFromEfiPath; // eax
   __int64 v15; // rax
@@ -27,7 +27,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _W
   __int64 v17; // rax
   unsigned int v18; // eax
   unsigned int v19; // ebx
-  char *PoolWithTag; // rax
+  _FILE_PATH *PoolWithTag; // rax
   void *v21; // rdx
   __int64 v22; // rbx
   size_t v23; // r8
@@ -44,7 +44,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _W
   char v34; // [rsp+20h] [rbp-30h]
   unsigned int Size; // [rsp+24h] [rbp-2Ch]
   unsigned int Size_4; // [rsp+28h] [rbp-28h] BYREF
-  size_t v37; // [rsp+30h] [rbp-20h] BYREF
+  size_t v37; // [rsp+30h] [rbp-20h]
   void *Src; // [rsp+38h] [rbp-18h]
   _DWORD *v39; // [rsp+40h] [rbp-10h] BYREF
   char v41; // [rsp+A0h] [rbp+50h]
@@ -112,7 +112,7 @@ LABEL_14:
     v19 = v18 + 12;
     if ( v18 + 12 < v18 )
       goto LABEL_31;
-    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v19, 0x4B444342u);
+    PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v19, 0x4B444342u);
     v11 = PoolWithTag;
     if ( !PoolWithTag )
     {
@@ -121,14 +121,14 @@ LABEL_21:
       goto LABEL_32;
     }
     v21 = Src;
-    *((_DWORD *)PoolWithTag + 1) = v19;
+    PoolWithTag->Length = v19;
     v22 = Size_4;
     v23 = Size_4;
-    *(_DWORD *)PoolWithTag = 1;
-    *((_DWORD *)PoolWithTag + 2) = 3;
-    memmove(PoolWithTag + 12, v21, v23);
-    memmove(&v11[v22 + 12], v10, Size);
-    v24 = BiTranslateFilePath(v11, 4LL, &v37);
+    PoolWithTag->Version = 1;
+    PoolWithTag->Type = 3;
+    memmove(PoolWithTag->FilePath, v21, v23);
+    memmove(&v11->FilePath[v22], v10, Size);
+    v24 = BiTranslateFilePath(v11, 4u);
     v9 = (_DWORD *)v37;
     DeviceFromEfiPath = v24;
     if ( v24 < 0 )

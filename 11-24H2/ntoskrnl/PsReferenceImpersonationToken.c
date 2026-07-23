@@ -1,14 +1,14 @@
 /*
- * XREFs of PsReferenceImpersonationToken @ 0x140946AD0
+ * XREFs of PsReferenceImpersonationToken @ 0x140940A30
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
@@ -19,7 +19,7 @@ PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
 {
   signed __int64 *p_WaitBlockList; // rbp
   struct _KTHREAD *CurrentThread; // r12
-  _QWORD *v11; // rdi
+  char *v11; // rdi
   void *v12; // rdi
   BOOLEAN v13; // al
 
@@ -28,11 +28,11 @@ PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
   p_WaitBlockList = (signed __int64 *)&Thread[1].WaitBlockList;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v11 = KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL);
+  v11 = (char *)KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL);
   if ( _InterlockedCompareExchange64(p_WaitBlockList, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(p_WaitBlockList, 0, v11, (__int64)p_WaitBlockList);
   if ( v11 )
-    *((_BYTE *)v11 + 10) = 1;
+    v11[10] = 1;
   if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
   {
     v12 = Thread[1].WaitBlock[1].Thread;

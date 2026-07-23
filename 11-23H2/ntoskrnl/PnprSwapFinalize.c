@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprSwapFinalize @ 0x140563700
+ * XREFs of PnprSwapFinalize @ 0x140563DC0
  * Callers:
- *     PnprSwap @ 0x1405634DC (PnprSwap.c)
+ *     PnprSwap @ 0x140563B9C (PnprSwap.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PnprRecopyMirrorPages @ 0x14056335C (PnprRecopyMirrorPages.c)
- *     PnprGetMillisecondCounter @ 0x140A9C8B4 (PnprGetMillisecondCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PnprRecopyMirrorPages @ 0x140563A1C (PnprRecopyMirrorPages.c)
+ *     PnprGetMillisecondCounter @ 0x140A9C724 (PnprGetMillisecondCounter.c)
  */
 
 __int64 PnprSwapFinalize()

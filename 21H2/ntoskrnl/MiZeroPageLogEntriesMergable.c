@@ -1,7 +1,7 @@
 /*
- * XREFs of MiZeroPageLogEntriesMergable @ 0x140399228
+ * XREFs of MiZeroPageLogEntriesMergable @ 0x140399378
  * Callers:
- *     MiLogZeroPageDecision @ 0x140399128 (MiLogZeroPageDecision.c)
+ *     MiLogZeroPageDecision @ 0x140399278 (MiLogZeroPageDecision.c)
  * Callees:
  *     <none>
  */

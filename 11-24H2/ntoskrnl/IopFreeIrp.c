@@ -1,20 +1,20 @@
 /*
- * XREFs of IopFreeIrp @ 0x14031AC50
+ * XREFs of IopFreeIrp @ 0x1402C37E0
  * Callers:
- *     IovFreeIrpPrivate @ 0x140BA6F30 (IovFreeIrpPrivate.c)
+ *     IovFreeIrpPrivate @ 0x140BA8F30 (IovFreeIrpPrivate.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     PspReturnResourceQuota @ 0x14024B468 (PspReturnResourceQuota.c)
- *     ExIsSpecialPoolAddress @ 0x1402B4928 (ExIsSpecialPoolAddress.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     IopFreeIrpExtension @ 0x14031B360 (IopFreeIrpExtension.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     IopFreeReserveIrp @ 0x1404D420C (IopFreeReserveIrp.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     PspReturnResourceQuota @ 0x14027BA78 (PspReturnResourceQuota.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     IopFreeIrpExtension @ 0x1402C3EF0 (IopFreeIrpExtension.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     ExIsSpecialPoolAddress @ 0x14048BD64 (ExIsSpecialPoolAddress.c)
+ *     IopFreeReserveIrp @ 0x1404CD41C (IopFreeReserveIrp.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeIrp(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
@@ -64,7 +64,7 @@ void __fastcall IopFreeIrp(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 
   v3 = 0;
   if ( *(_WORD *)BugCheckParameter2 != 6 )
-    KeBugCheckEx(0x44u, BugCheckParameter2, 0x2817uLL, 0LL, 0LL);
+    KeBugCheckEx(0x44u, BugCheckParameter2, 0x27C1uLL, 0LL, 0LL);
   v5 = (*(_BYTE *)(BugCheckParameter2 + 71) & 0x40) == 0;
   *(_WORD *)BugCheckParameter2 = 0;
   if ( !v5 )
@@ -141,7 +141,7 @@ void __fastcall IopFreeIrp(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
       if ( !ExpSpecialAllocations || !(unsigned int)ExIsSpecialPoolAddress(BugCheckParameter2) )
       {
         if ( BugCheckParameter2 >= 0xFFFF800000000000uLL
-          && byte_140E389A8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 5 )
+          && byte_140E38AE8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 5 )
         {
           v16 = 256LL;
         }
@@ -235,7 +235,7 @@ LABEL_63:
             {
               if ( v24 > v23 )
               {
-                v25 = (unsigned __int64 *)&qword_140F05848[7 * v21];
+                v25 = (unsigned __int64 *)&qword_140F05B28[7 * v21];
                 v26 = *v25;
                 if ( v24 - v23 > *v25 )
                 {

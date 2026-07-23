@@ -83,7 +83,7 @@ LABEL_9:
     a3[1] = v20 | 0x200;
     if ( (a5 & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int32 **)(a6 + 4));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a6 + 4));
       *(_DWORD *)(a6 + 4) = 0;
       v14 = v26;
     }
@@ -110,7 +110,7 @@ LABEL_9:
       *(_DWORD *)(a6 + 4) = 0;
       *(_DWORD *)(a6 + 8) = 0;
       *(_DWORD *)(a6 + 4) = a1;
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)a1);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)a1);
     }
     v6 = a3;
     v8 = a4;

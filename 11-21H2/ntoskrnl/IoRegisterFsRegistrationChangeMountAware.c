@@ -8,13 +8,13 @@
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
  *     IoGetActivityIdThread @ 0x1402E0960 (IoGetActivityIdThread.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IopGetFsRegistrationInProgress @ 0x140557FF8 (IopGetFsRegistrationInProgress.c)
- *     IopIsKnownGoodLegacyFsFilter @ 0x140558320 (IopIsKnownGoodLegacyFsFilter.c)
- *     McTemplateK0hzr0_EtwWriteTransfer @ 0x140558450 (McTemplateK0hzr0_EtwWriteTransfer.c)
+ *     sub_140557FF8 @ 0x140557FF8 (sub_140557FF8.c)
+ *     sub_140558320 @ 0x140558320 (sub_140558320.c)
+ *     sub_140558450 @ 0x140558450 (sub_140558450.c)
  *     FsRtlSetDriverBacking @ 0x14080F640 (FsRtlSetDriverBacking.c)
- *     IopNotifyAlreadyRegisteredFileSystems @ 0x14085A0CC (IopNotifyAlreadyRegisteredFileSystems.c)
+ *     sub_14085A0CC @ 0x14085A0CC (sub_14085A0CC.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
@@ -32,22 +32,17 @@ NTSTATUS __stdcall IoRegisterFsRegistrationChangeMountAware(
   __int64 v12; // r8
   __int64 v13; // r8
   __int64 v14; // rbx
-  struct _LIST_ENTRY *ActivityIdThread; // rax
+  const GUID *ActivityIdThread; // rax
   __int64 v16; // rdx
   __int64 v17; // rcx
 
-  if ( IopBlockLegacyFsFilters && !IopIsKnownGoodLegacyFsFilter((const void **)&DriverObject->DriverName) )
+  if ( dword_140D011B0 && !sub_140558320((const void **)&DriverObject->DriverName) )
   {
-    if ( (Microsoft_Windows_Kernel_IOEnableBits & 4) != 0 )
+    if ( (byte_140C474F8 & 4) != 0 )
     {
       v14 = DriverObject->DriverName.Length >> 1;
-      ActivityIdThread = IoGetActivityIdThread();
-      McTemplateK0hzr0_EtwWriteTransfer(
-        v17,
-        v16,
-        (const GUID *)ActivityIdThread,
-        v14,
-        (__int64)DriverObject->DriverName.Buffer);
+      ActivityIdThread = (const GUID *)IoGetActivityIdThread();
+      sub_140558450(v17, v16, ActivityIdThread, v14, (__int64)DriverObject->DriverName.Buffer);
     }
     return -1073741637;
   }
@@ -55,16 +50,16 @@ NTSTATUS __stdcall IoRegisterFsRegistrationChangeMountAware(
   if ( result < 0 )
     return result;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   if ( !SynchronizeWithMounts )
   {
 LABEL_22:
-    ExAcquireResourceExclusiveLite(&IopDatabaseResource, 1u);
+    ExAcquireResourceExclusiveLite(&stru_140C46E20, 1u);
     goto LABEL_5;
   }
-  if ( !ExAcquireResourceExclusiveLite(&IopDatabaseResource, 0) )
+  if ( !ExAcquireResourceExclusiveLite(&stru_140C46E20, 0) )
   {
-    if ( IopGetFsRegistrationInProgress() )
+    if ( sub_140557FF8() )
     {
       v8 = -1073741267;
       goto LABEL_9;
@@ -72,57 +67,57 @@ LABEL_22:
     goto LABEL_22;
   }
 LABEL_5:
-  if ( (__int64 *)IopFsNotifyChangeQueueHead != &IopFsNotifyChangeQueueHead
+  if ( (__int64 *)qword_140C46FA0 != &qword_140C46FA0
     && *(PDRIVER_OBJECT *)(qword_140C46FA8 + 16) == DriverObject
     && *(PDRIVER_FS_NOTIFICATION *)(qword_140C46FA8 + 24) == DriverNotificationRoutine )
   {
-    ExReleaseResourceLite(&IopDatabaseResource);
+    ExReleaseResourceLite(&stru_140C46E20);
     v8 = -1073741768;
 LABEL_9:
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    sub_1402F9540((__int64)KeGetCurrentThread());
     return v8;
   }
   Pool2 = (_QWORD *)ExAllocatePool2(256LL, 32LL, 1933995849LL);
   if ( !Pool2 )
   {
-    ExReleaseResourceLite(&IopDatabaseResource);
+    ExReleaseResourceLite(&stru_140C46E20);
     v8 = -1073741670;
     goto LABEL_9;
   }
   Pool2[2] = DriverObject;
   Pool2[3] = DriverNotificationRoutine;
   v10 = (_QWORD *)qword_140C46FA8;
-  if ( *(__int64 **)qword_140C46FA8 != &IopFsNotifyChangeQueueHead )
+  if ( *(__int64 **)qword_140C46FA8 != &qword_140C46FA0 )
     __fastfail(3u);
-  *Pool2 = &IopFsNotifyChangeQueueHead;
+  *Pool2 = &qword_140C46FA0;
   Pool2[1] = v10;
   *v10 = Pool2;
   qword_140C46FA8 = (__int64)Pool2;
   if ( SynchronizeWithMounts == 1 )
   {
-    while ( IopMountsInProgress )
+    while ( dword_140CE2000 )
     {
-      ++IopMountCompletionWaiters;
-      ExReleaseResourceLite(&IopDatabaseResource);
-      KeWaitForSingleObject(&IopMountCompletionEvent, Executive, 0, 0, 0LL);
-      ExAcquireResourceExclusiveLite(&IopDatabaseResource, 1u);
-      if ( --IopMountCompletionWaiters )
+      ++dword_140D0111C;
+      ExReleaseResourceLite(&stru_140C46E20);
+      KeWaitForSingleObject(&stru_140C472E0, Executive, 0, 0, 0LL);
+      ExAcquireResourceExclusiveLite(&stru_140C46E20, 1u);
+      if ( --dword_140D0111C )
       {
-        if ( !IopMountsInProgress )
+        if ( !dword_140CE2000 )
           break;
       }
-      KeResetEvent(&IopMountCompletionEvent);
+      KeResetEvent(&stru_140C472E0);
     }
   }
-  IopNotifyAlreadyRegisteredFileSystems(&IopNetworkFileSystemQueueHead, DriverNotificationRoutine, 0LL);
+  sub_14085A0CC(&qword_140C46F20, DriverNotificationRoutine, 0LL);
   LOBYTE(v11) = 1;
-  IopNotifyAlreadyRegisteredFileSystems(&IopCdRomFileSystemQueueHead, DriverNotificationRoutine, v11);
+  sub_14085A0CC(&qword_140C46F40, DriverNotificationRoutine, v11);
   LOBYTE(v12) = 1;
-  IopNotifyAlreadyRegisteredFileSystems(&IopDiskFileSystemQueueHead, DriverNotificationRoutine, v12);
+  sub_14085A0CC(&qword_140C46F30, DriverNotificationRoutine, v12);
   LOBYTE(v13) = 1;
-  IopNotifyAlreadyRegisteredFileSystems(&IopTapeFileSystemQueueHead, DriverNotificationRoutine, v13);
-  ExReleaseResourceLite(&IopDatabaseResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  sub_14085A0CC(&qword_140C46F10, DriverNotificationRoutine, v13);
+  ExReleaseResourceLite(&stru_140C46E20);
+  sub_1402F9540((__int64)KeGetCurrentThread());
   ObfReferenceObject(DriverObject);
   return 0;
 }

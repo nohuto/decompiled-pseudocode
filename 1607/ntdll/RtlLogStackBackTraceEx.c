@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlLogStackBackTraceEx @ 0x18002B208
+ * XREFs of RtlLogStackBackTraceEx @ 0x18002B1F8
  * Callers:
- *     RtlpAllocateHeap @ 0x180025060 (RtlpAllocateHeap.c)
- *     RtlInitializeResource @ 0x18002B050 (RtlInitializeResource.c)
- *     RtlpAddDebugInfoToCriticalSection @ 0x18002B140 (RtlpAddDebugInfoToCriticalSection.c)
- *     RtlpFreeHeap @ 0x180049370 (RtlpFreeHeap.c)
- *     RtlpInitializeHeapSegment @ 0x18004CCCC (RtlpInitializeHeapSegment.c)
- *     RtlDebugAllocateHeap @ 0x1800917D4 (RtlDebugAllocateHeap.c)
- *     RtlpAllocateTags @ 0x1800E9A34 (RtlpAllocateTags.c)
+ *     RtlpAllocateHeap @ 0x180025050 (RtlpAllocateHeap.c)
+ *     RtlInitializeResource @ 0x18002B040 (RtlInitializeResource.c)
+ *     RtlpAddDebugInfoToCriticalSection @ 0x18002B130 (RtlpAddDebugInfoToCriticalSection.c)
+ *     RtlpFreeHeap @ 0x180049360 (RtlpFreeHeap.c)
+ *     RtlpInitializeHeapSegment @ 0x18004CCBC (RtlpInitializeHeapSegment.c)
+ *     RtlDebugAllocateHeap @ 0x1800917C4 (RtlDebugAllocateHeap.c)
+ *     RtlpAllocateTags @ 0x1800E9AF4 (RtlpAllocateTags.c)
  *     RtlLogStackBackTrace @ 0x1800F2570 (RtlLogStackBackTrace.c)
  *     RtlDebugCreateHeap @ 0x1800FA2A0 (RtlDebugCreateHeap.c)
  *     RtlDebugReAllocateHeap @ 0x1800FAA84 (RtlDebugReAllocateHeap.c)

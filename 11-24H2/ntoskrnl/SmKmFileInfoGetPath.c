@@ -1,14 +1,14 @@
 /*
- * XREFs of SmKmFileInfoGetPath @ 0x140799BE0
+ * XREFs of SmKmFileInfoGetPath @ 0x140799CF0
  * Callers:
- *     SmProcessListRequestExtended @ 0x140798258 (SmProcessListRequestExtended.c)
- *     SmcGetCacheStats @ 0x14079D63C (SmcGetCacheStats.c)
+ *     SmProcessListRequestExtended @ 0x140798368 (SmProcessListRequestExtended.c)
+ *     SmcGetCacheStats @ 0x14079D74C (SmcGetCacheStats.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x14045D2F0 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
+ *     IoSetThreadHardErrorMode @ 0x1404523B0 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
  */
 
 __int64 __fastcall SmKmFileInfoGetPath(__int64 a1, void *a2, unsigned int a3)

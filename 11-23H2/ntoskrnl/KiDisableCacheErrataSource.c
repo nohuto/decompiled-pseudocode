@@ -1,11 +1,11 @@
 /*
- * XREFs of KiDisableCacheErrataSource @ 0x1405791F0
+ * XREFs of KiDisableCacheErrataSource @ 0x1405796E0
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x14056BF44 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x14056C604 (KeRestoreProcessorSpecificFeatures.c)
  *     KiInitializeCacheErrataSupport @ 0x140B9623C (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     ReadAMDMsr @ 0x140428AB0 (ReadAMDMsr.c)
- *     WriteAMDMsr @ 0x140428AD0 (WriteAMDMsr.c)
+ *     ReadAMDMsr @ 0x140428E40 (ReadAMDMsr.c)
+ *     WriteAMDMsr @ 0x140428E60 (WriteAMDMsr.c)
  */
 
 __int64 KiDisableCacheErrataSource()

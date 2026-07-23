@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeInPageSupport @ 0x140397270
+ * XREFs of MiInitializeInPageSupport @ 0x140398FF0
  * Callers:
- *     MiAllocateInPageSupport @ 0x140371500 (MiAllocateInPageSupport.c)
- *     MiGetInPageSupportBlock @ 0x140396FF0 (MiGetInPageSupportBlock.c)
- *     MiPfIssueCoalescedSupport @ 0x1404CB7F0 (MiPfIssueCoalescedSupport.c)
- *     MiReadPagefilePage @ 0x1406E4AA0 (MiReadPagefilePage.c)
- *     MiGetReadyInPageBlock @ 0x140B3C89C (MiGetReadyInPageBlock.c)
+ *     MiAllocateInPageSupport @ 0x1403732B0 (MiAllocateInPageSupport.c)
+ *     MiGetInPageSupportBlock @ 0x140398D70 (MiGetInPageSupportBlock.c)
+ *     MiPfIssueCoalescedSupport @ 0x1404C5220 (MiPfIssueCoalescedSupport.c)
+ *     MiReadPagefilePage @ 0x1406E9750 (MiReadPagefilePage.c)
+ *     MiGetReadyInPageBlock @ 0x140B3EB1C (MiGetReadyInPageBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 int __fastcall MiInitializeInPageSupport(struct _LIST_ENTRY *a1, char a2, volatile signed __int64 *a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlLpGetMachineCheckContext @ 0x140587550
+ * XREFs of HvlLpGetMachineCheckContext @ 0x1405848D0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetLogicalProcessorProperty @ 0x140584434 (HvlpGetLogicalProcessorProperty.c)
+ *     HvlpGetLogicalProcessorProperty @ 0x1405817B4 (HvlpGetLogicalProcessorProperty.c)
  */
 
 __int64 __fastcall HvlLpGetMachineCheckContext(int a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)

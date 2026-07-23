@@ -1,21 +1,21 @@
 /*
- * XREFs of KeInvalidateAllCaches @ 0x14024FCE0
+ * XREFs of KeInvalidateAllCaches @ 0x140251640
  * Callers:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x14024FA80 (KeInvalidateRangeAllCachesNoIpi.c)
- *     MiFlushCacheForAttributeChange @ 0x14024FAF0 (MiFlushCacheForAttributeChange.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiChangePageAttributeBatch @ 0x140368E1C (MiChangePageAttributeBatch.c)
- *     KeFlushIoBuffers @ 0x140441180 (KeFlushIoBuffers.c)
- *     KeInvalidateRangeAllCaches @ 0x1404B8E20 (KeInvalidateRangeAllCaches.c)
- *     MiFlushCacheMdl @ 0x140516770 (MiFlushCacheMdl.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x1406EA148 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiFlushCacheRange @ 0x14070D474 (MiFlushCacheRange.c)
- *     MiInitializeCacheFlushing @ 0x140CFF38C (MiInitializeCacheFlushing.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1402513E0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     MiFlushCacheForAttributeChange @ 0x140251450 (MiFlushCacheForAttributeChange.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiChangePageAttributeBatch @ 0x14036ABBC (MiChangePageAttributeBatch.c)
+ *     KeFlushIoBuffers @ 0x140439C90 (KeFlushIoBuffers.c)
+ *     KeInvalidateRangeAllCaches @ 0x1404B2650 (KeInvalidateRangeAllCaches.c)
+ *     MiFlushCacheMdl @ 0x1405101E0 (MiFlushCacheMdl.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x1406EEDE8 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiFlushCacheRange @ 0x140712124 (MiFlushCacheRange.c)
+ *     MiInitializeCacheFlushing @ 0x140D0572C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxSetTimeStampBusy @ 0x140251194 (KxSetTimeStampBusy.c)
- *     KiIpiSendRequestEx @ 0x140329D60 (KiIpiSendRequestEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxSetTimeStampBusy @ 0x140252AF4 (KxSetTimeStampBusy.c)
+ *     KiIpiSendRequestEx @ 0x14032BD90 (KiIpiSendRequestEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 BOOLEAN KeInvalidateAllCaches(void)

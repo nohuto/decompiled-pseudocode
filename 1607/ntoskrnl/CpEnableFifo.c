@@ -1,5 +1,5 @@
 /*
- * XREFs of CpEnableFifo @ 0x14023DB04
+ * XREFs of CpEnableFifo @ 0x14023D9E8
  * Callers:
  *     <none>
  * Callees:

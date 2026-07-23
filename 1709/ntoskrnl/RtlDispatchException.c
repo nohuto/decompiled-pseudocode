@@ -111,7 +111,7 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
   unsigned __int64 EstablisherFrame; // [rsp+50h] [rbp-B0h] BYREF
   struct _UNWIND_HISTORY_TABLE *v89; // [rsp+58h] [rbp-A8h]
   unsigned int v90; // [rsp+60h] [rbp-A0h]
-  EXCEPTION_ROUTINE *v91; // [rsp+68h] [rbp-98h]
+  EXCEPTION_DISPOSITION (__cdecl *v91)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+68h] [rbp-98h]
   PVOID HandlerData; // [rsp+70h] [rbp-90h] BYREF
   unsigned __int64 v93; // [rsp+78h] [rbp-88h]
   PEXCEPTION_RECORD v94; // [rsp+80h] [rbp-80h]
@@ -123,7 +123,7 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+B0h] [rbp-50h]
   unsigned __int64 v101; // [rsp+B8h] [rbp-48h]
   struct _CONTEXT *p_ContextRecord; // [rsp+C8h] [rbp-38h]
-  EXCEPTION_ROUTINE *v103; // [rsp+D0h] [rbp-30h]
+  EXCEPTION_DISPOSITION (__cdecl *v103)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+D0h] [rbp-30h]
   PVOID v104; // [rsp+D8h] [rbp-28h]
   struct _UNWIND_HISTORY_TABLE *v105; // [rsp+E0h] [rbp-20h]
   int v106; // [rsp+E8h] [rbp-18h]

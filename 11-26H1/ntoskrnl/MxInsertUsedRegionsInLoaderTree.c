@@ -1,33 +1,33 @@
 /*
- * XREFs of MxInsertUsedRegionsInLoaderTree @ 0x140CF7908
+ * XREFs of MxInsertUsedRegionsInLoaderTree @ 0x140CFDC88
  * Callers:
- *     MxInsertAllUsedRegionsInLoaderTree @ 0x140CF71D0 (MxInsertAllUsedRegionsInLoaderTree.c)
+ *     MxInsertAllUsedRegionsInLoaderTree @ 0x140CFD550 (MxInsertAllUsedRegionsInLoaderTree.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MxExtractUnusedRegions @ 0x140CF6818 (MxExtractUnusedRegions.c)
- *     MxGetUsedSplitDescriptor @ 0x140CF703C (MxGetUsedSplitDescriptor.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MxExtractUnusedRegions @ 0x140CFCB98 (MxExtractUnusedRegions.c)
+ *     MxGetUsedSplitDescriptor @ 0x140CFD3BC (MxGetUsedSplitDescriptor.c)
  */
 
 char __fastcall MxInsertUsedRegionsInLoaderTree(__int64 a1, _QWORD *a2)
 {
   int v4; // r14d
-  bool v5; // bl
+  BOOLEAN v5; // bl
   _OWORD *v6; // r12
   __int64 v7; // rax
   __int64 v8; // rcx
   __int64 *v9; // rdi
-  unsigned __int64 v10; // rbp
-  _OWORD *UsedSplitDescriptor; // r9
+  _RTL_BALANCED_NODE *v10; // rbp
+  _RTL_BALANCED_NODE *UsedSplitDescriptor; // r9
   unsigned __int64 v12; // rdx
-  bool v13; // r8
+  BOOLEAN v13; // r8
   unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rdi
-  __int64 v16; // rax
-  _OWORD *v17; // rax
+  _RTL_BALANCED_NODE *v15; // rdi
+  _RTL_BALANCED_NODE *v16; // rax
+  _RTL_BALANCED_NODE *v17; // rax
   unsigned __int64 *v18; // r10
-  unsigned __int64 v19; // r9
+  _RTL_BALANCED_NODE *v19; // r9
   unsigned __int64 v20; // rdx
   unsigned __int64 v21; // rax
   int v23[10]; // [rsp+20h] [rbp-1C8h] BYREF
@@ -46,16 +46,16 @@ char __fastcall MxInsertUsedRegionsInLoaderTree(__int64 a1, _QWORD *a2)
     v9 = (__int64 *)&v24;
     do
     {
-      v10 = v7 + v8;
+      v10 = (_RTL_BALANCED_NODE *)(v7 + v8);
       if ( v7 + v8 == *v9 )
       {
         v7 += v9[1];
       }
       else
       {
-        UsedSplitDescriptor = MxGetUsedSplitDescriptor((__int64)a2, v6);
-        *((_QWORD *)UsedSplitDescriptor + 4) = v10;
-        *((_QWORD *)UsedSplitDescriptor + 5) = *v9 - v10;
+        UsedSplitDescriptor = (_RTL_BALANCED_NODE *)MxGetUsedSplitDescriptor((__int64)a2, v6);
+        UsedSplitDescriptor[1].Children[1] = v10;
+        UsedSplitDescriptor[1].ParentValue = *v9 - (_QWORD)v10;
         v12 = *(_QWORD *)(a1 + 352);
         if ( (*(_BYTE *)(a1 + 360) & 1) != 0 && v12 )
           v12 ^= a1 + 352;
@@ -64,7 +64,7 @@ char __fastcall MxInsertUsedRegionsInLoaderTree(__int64 a1, _QWORD *a2)
         {
           while ( 1 )
           {
-            if ( v10 < *(_QWORD *)(v12 + 32) )
+            if ( (unsigned __int64)v10 < *(_QWORD *)(v12 + 32) )
             {
               v14 = *(_QWORD *)v12;
               if ( (*(_BYTE *)(a1 + 360) & 1) != 0 )
@@ -95,7 +95,7 @@ LABEL_14:
             v12 = v14;
           }
         }
-        RtlRbInsertNodeEx(a1 + 352, v12, v13, (unsigned __int64)UsedSplitDescriptor);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 352), (PRTL_BALANCED_NODE)v12, v13, UsedSplitDescriptor);
         v8 = *v9;
         v7 = v9[1];
       }
@@ -104,15 +104,15 @@ LABEL_14:
     }
     while ( v4 );
   }
-  v15 = v7 + v8;
-  v16 = a2[18] + a2[17];
+  v15 = (_RTL_BALANCED_NODE *)(v7 + v8);
+  v16 = (_RTL_BALANCED_NODE *)(a2[18] + a2[17]);
   if ( v15 != v16 )
   {
-    v17 = MxGetUsedSplitDescriptor((__int64)a2, v6);
+    v17 = (_RTL_BALANCED_NODE *)MxGetUsedSplitDescriptor((__int64)a2, v6);
     v18 = (unsigned __int64 *)(a1 + 352);
-    v19 = (unsigned __int64)v17;
-    *((_QWORD *)v17 + 4) = v15;
-    *((_QWORD *)v17 + 5) = a2[18] + a2[17] - v15;
+    v19 = v17;
+    v17[1].Children[1] = v15;
+    v17[1].ParentValue = a2[18] + a2[17] - (_QWORD)v15;
     if ( (*(_BYTE *)(a1 + 360) & 1) != 0 )
     {
       if ( *v18 )
@@ -128,7 +128,7 @@ LABEL_14:
     {
       while ( 1 )
       {
-        if ( v15 < *(_QWORD *)(v20 + 32) )
+        if ( (unsigned __int64)v15 < *(_QWORD *)(v20 + 32) )
         {
           v21 = *(_QWORD *)v20;
           if ( (*(_BYTE *)(a1 + 360) & 1) != 0 )
@@ -159,7 +159,7 @@ LABEL_34:
         v20 = v21;
       }
     }
-    LOBYTE(v16) = RtlRbInsertNodeEx(a1 + 352, v20, v5, v19);
+    LOBYTE(v16) = RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 352), (PRTL_BALANCED_NODE)v20, v5, v19);
   }
-  return v16;
+  return (char)v16;
 }

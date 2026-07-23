@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpPostStackOverflow @ 0x140270A94
+ * XREFs of FsRtlpPostStackOverflow @ 0x140270C84
  * Callers:
- *     FsRtlPostPagingFileStackOverflow @ 0x1402709E0 (FsRtlPostPagingFileStackOverflow.c)
- *     FsRtlPostStackOverflow @ 0x140270A00 (FsRtlPostStackOverflow.c)
+ *     FsRtlPostPagingFileStackOverflow @ 0x140270BD0 (FsRtlPostPagingFileStackOverflow.c)
+ *     FsRtlPostStackOverflow @ 0x140270BF0 (FsRtlPostStackOverflow.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInsertQueue @ 0x1400DD000 (KeInsertQueue.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeInsertQueue @ 0x1400DD080 (KeInsertQueue.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 LONG __fastcall FsRtlpPostStackOverflow(
@@ -16,15 +16,15 @@ LONG __fastcall FsRtlpPostStackOverflow(
         struct _LIST_ENTRY *a3,
         unsigned __int8 a4)
 {
-  struct _LIST_ENTRY *PoolWithTag; // rax
+  _LIST_ENTRY *PoolWithTag; // rax
 
-  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x73725346u);
+  PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x73725346u);
   if ( !PoolWithTag )
   {
     if ( !a4 )
       RtlRaiseStatus(-1073741670);
     KeWaitForSingleObject(&StackOverflowFallbackSerialEvent, Executive, 0, 0, 0LL);
-    PoolWithTag = (struct _LIST_ENTRY *)&StackOverflowFallback;
+    PoolWithTag = (_LIST_ENTRY *)&StackOverflowFallback;
   }
   PoolWithTag[2].Blink = a1;
   PoolWithTag[3].Flink = a2;

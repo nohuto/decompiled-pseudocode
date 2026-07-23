@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopFastQueryNetworkAttributes @ 0x140936A54 (IopFastQueryNetworkAttributes.c)
+ *     sub_140936A54 @ 0x140936A54 (sub_140936A54.c)
  */
 
 BOOLEAN __stdcall IoFastQueryNetworkAttributes(
@@ -16,6 +16,6 @@ BOOLEAN __stdcall IoFastQueryNetworkAttributes(
   ULONG v5; // r10d
 
   v5 = OpenOptions;
-  LOBYTE(OpenOptions) = KeGetCurrentThread()->PreviousMode;
-  return IopFastQueryNetworkAttributes(ObjectAttributes, DesiredAccess, OpenOptions, v5, IoStatus, Buffer);
+  LOBYTE(OpenOptions) = *((_BYTE *)KeGetCurrentThread() + 562);
+  return sub_140936A54(ObjectAttributes, DesiredAccess, OpenOptions, v5, IoStatus, Buffer);
 }

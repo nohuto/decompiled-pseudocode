@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMarkSharedImageCfgBits @ 0x1406E9604
+ * XREFs of MiMarkSharedImageCfgBits @ 0x1407009E4
  * Callers:
- *     MiMarkProcessCfgBits @ 0x14061BF08 (MiMarkProcessCfgBits.c)
+ *     MiMarkProcessCfgBits @ 0x140685B78 (MiMarkProcessCfgBits.c)
  * Callees:
- *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiIsCfgBitMapPageShared @ 0x14030D66C (MiIsCfgBitMapPageShared.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     MiGetControlAreaLoadConfig @ 0x14035F2D8 (MiGetControlAreaLoadConfig.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiCopyToCfgBitMap @ 0x1406E9880 (MiCopyToCfgBitMap.c)
+ *     MiVadDeleted @ 0x14027C8A0 (MiVadDeleted.c)
+ *     MiGetControlAreaLoadConfig @ 0x1402A4208 (MiGetControlAreaLoadConfig.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiIsCfgBitMapPageShared @ 0x1403183BC (MiIsCfgBitMapPageShared.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiCopyToCfgBitMap @ 0x140700C60 (MiCopyToCfgBitMap.c)
  */
 
 __int64 __fastcall MiMarkSharedImageCfgBits(_QWORD *a1, __int64 a2, __int64 a3)

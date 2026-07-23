@@ -23,7 +23,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
   HANDLE KeyHandle; // [rsp+30h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-48h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-38h] BYREF
-  int v13; // [rsp+B0h] [rbp+30h] BYREF
+  DWORD Lcid; // [rsp+B0h] [rbp+30h] BYREF
   __int64 v14; // [rsp+C8h] [rbp+48h] BYREF
 
   KeyHandle = 0LL;
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
     {
       memset(v6, 0, 0x158uLL);
       *a2 = 0;
-      v13 = 0;
+      Lcid = 0;
       *a3 = 0;
       RtlInitUnicodeString(
         &DestinationString,
@@ -52,10 +52,10 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
       {
         RtlInitUnicodeString(&DestinationString, L"InstallLanguageFallback");
         LODWORD(v14) = 8;
-        v7 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v13, v5, (ULONG *)&v14);
+        v7 = LdrpQueryValueKey(KeyHandle, &DestinationString, &Lcid, v5, (ULONG *)&v14);
         if ( v7 >= 0 )
         {
-          if ( v13 != 1 )
+          if ( Lcid != 1 )
             goto LABEL_18;
           for ( i = (const WCHAR *)v5; *i; ++i )
           {
@@ -69,15 +69,15 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
 LABEL_20:
             ++i;
           RtlInitUnicodeString(&DestinationString, (PCWSTR)v5);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v13) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *a2 = v13;
+            *a2 = Lcid;
             if ( *i )
             {
               RtlInitUnicodeString(&DestinationString, i);
-              if ( RtlCultureNameToLCID(&DestinationString.Length, &v13) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v13;
+                *a3 = Lcid;
               }
               else
               {

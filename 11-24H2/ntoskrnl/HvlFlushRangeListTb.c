@@ -1,25 +1,25 @@
 /*
- * XREFs of HvlFlushRangeListTb @ 0x1403AEEF0
+ * XREFs of HvlFlushRangeListTb @ 0x14039D700
  * Callers:
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     KeFlushSingleCurrentTb @ 0x1405BC8EC (KeFlushSingleCurrentTb.c)
- *     KeFlushSingleTb @ 0x1405BCAD4 (KeFlushSingleTb.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     KeFlushSingleCurrentTb @ 0x1405B9F1C (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1405BA104 (KeFlushSingleTb.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     HvcallFastExtended @ 0x1403AF3C0 (HvcallFastExtended.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpCopyFlushVaList @ 0x1403AF7F0 (HvlpCopyFlushVaList.c)
- *     VslSlowFlushSecureRangeList @ 0x1403AF848 (VslSlowFlushSecureRangeList.c)
- *     VslFastFlushSecureRangeList @ 0x1403AF954 (VslFastFlushSecureRangeList.c)
- *     HvlpFlushRangeListTbEx @ 0x1403C9A40 (HvlpFlushRangeListTbEx.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     VslFlushSecureAddressSpace @ 0x1404B2398 (VslFlushSecureAddressSpace.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HvlpSecureFlushLargeRangeList @ 0x1406A0EC0 (HvlpSecureFlushLargeRangeList.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     HvcallFastExtended @ 0x14039DBD0 (HvcallFastExtended.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpCopyFlushVaList @ 0x14039E000 (HvlpCopyFlushVaList.c)
+ *     VslSlowFlushSecureRangeList @ 0x14039E058 (VslSlowFlushSecureRangeList.c)
+ *     VslFastFlushSecureRangeList @ 0x14039E164 (VslFastFlushSecureRangeList.c)
+ *     HvlpFlushRangeListTbEx @ 0x1403A45E0 (HvlpFlushRangeListTbEx.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     VslFlushSecureAddressSpace @ 0x1404ACC28 (VslFlushSecureAddressSpace.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlpSecureFlushLargeRangeList @ 0x1406A1F18 (HvlpSecureFlushLargeRangeList.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall HvlFlushRangeListTb(
@@ -107,7 +107,7 @@ __int64 __fastcall HvlFlushRangeListTb(
         if ( !HvlpVirtualProcessorsIdentityMapped )
         {
           v31 = 0LL;
-          for ( i = byte_140FCC221; ; i += 4 )
+          for ( i = byte_140FCD2A1; ; i += 4 )
           {
             if ( (v26 & 1) != 0 )
               v31 |= 1LL << *i;

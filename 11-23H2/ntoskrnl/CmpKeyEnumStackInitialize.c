@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpKeyEnumStackInitialize @ 0x140A240D4
+ * XREFs of CmpKeyEnumStackInitialize @ 0x140A24384
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x140A16414 (CmpEnumerateLayeredKey.c)
- *     CmpSubtreeEnumeratorStart @ 0x140A20730 (CmpSubtreeEnumeratorStart.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x140A235B4 (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpPartialPromoteSubkeys @ 0x140A263A0 (CmpPartialPromoteSubkeys.c)
+ *     CmpEnumerateLayeredKey @ 0x140A166C4 (CmpEnumerateLayeredKey.c)
+ *     CmpSubtreeEnumeratorStart @ 0x140A209E0 (CmpSubtreeEnumeratorStart.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x140A23864 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x140A26650 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     CmpInitializeKeyNodeStack @ 0x1407D1C5C (CmpInitializeKeyNodeStack.c)
- *     CmpKeyEnumStackEntryInitialize @ 0x140A23E4C (CmpKeyEnumStackEntryInitialize.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CmpInitializeKeyNodeStack @ 0x1407D1F2C (CmpInitializeKeyNodeStack.c)
+ *     CmpKeyEnumStackEntryInitialize @ 0x140A240FC (CmpKeyEnumStackEntryInitialize.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackInitialize(_QWORD *a1)

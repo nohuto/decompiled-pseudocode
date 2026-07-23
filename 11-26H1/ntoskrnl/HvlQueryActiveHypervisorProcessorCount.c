@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryActiveHypervisorProcessorCount @ 0x1405B9520
+ * XREFs of HvlQueryActiveHypervisorProcessorCount @ 0x1405BBD90
  * Callers:
- *     HalpMcStagingHypervisor @ 0x140593A60 (HalpMcStagingHypervisor.c)
+ *     HalpMcStagingHypervisor @ 0x1405961E0 (HalpMcStagingHypervisor.c)
  * Callees:
  *     <none>
  */

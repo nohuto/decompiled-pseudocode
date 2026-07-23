@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpIsDuplicateDevice @ 0x14071DAD8
+ * XREFs of PnpIsDuplicateDevice @ 0x14071B668
  * Callers:
- *     IopIsReportedAlready @ 0x14071D7EC (IopIsReportedAlready.c)
+ *     IopIsReportedAlready @ 0x14071B37C (IopIsReportedAlready.c)
  * Callees:
  *     <none>
  */

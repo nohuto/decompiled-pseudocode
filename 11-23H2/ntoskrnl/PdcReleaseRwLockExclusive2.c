@@ -1,10 +1,10 @@
 /*
- * XREFs of PdcReleaseRwLockExclusive2 @ 0x14085AC20
+ * XREFs of PdcReleaseRwLockExclusive2 @ 0x14085AE60
  * Callers:
- *     Pdcv2ActivationClientRegister @ 0x14085AA64 (Pdcv2ActivationClientRegister.c)
- *     Pdcv2pActivationClientCallback @ 0x1409C8A40 (Pdcv2pActivationClientCallback.c)
+ *     Pdcv2ActivationClientRegister @ 0x14085ACA4 (Pdcv2ActivationClientRegister.c)
+ *     Pdcv2pActivationClientCallback @ 0x1409C8C40 (Pdcv2pActivationClientCallback.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
  */
 
 LONG __fastcall PdcReleaseRwLockExclusive2(__int64 a1, _BYTE *a2)

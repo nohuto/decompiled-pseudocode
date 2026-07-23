@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpIommuInitializeAll @ 0x14099B3D4
+ * XREFs of HalpIommuInitializeAll @ 0x14099C3D4
  * Callers:
- *     HalpInterruptReinitialize @ 0x140995D78 (HalpInterruptReinitialize.c)
- *     HalpIommuInitSystem @ 0x14099B9D0 (HalpIommuInitSystem.c)
+ *     HalpInterruptReinitialize @ 0x140996D78 (HalpInterruptReinitialize.c)
+ *     HalpIommuInitSystem @ 0x14099C9D0 (HalpIommuInitSystem.c)
  * Callees:
- *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
- *     HalpInterruptIsRemappingRequired @ 0x14037903C (HalpInterruptIsRemappingRequired.c)
- *     HalpIommuUpdatePageTableLevel @ 0x1403A72C4 (HalpIommuUpdatePageTableLevel.c)
- *     HalpIommuUpdatePageWalkCapability @ 0x1403A72F4 (HalpIommuUpdatePageWalkCapability.c)
- *     HalpMmAllocateMemory @ 0x1403BB1F0 (HalpMmAllocateMemory.c)
- *     HalpIommuPopulateExceptionList @ 0x1403CF8B0 (HalpIommuPopulateExceptionList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpIommuConfigureInterrupt @ 0x1404CBC80 (HalpIommuConfigureInterrupt.c)
- *     HalpGetIrtEntryCount @ 0x1404D1568 (HalpGetIrtEntryCount.c)
- *     HalpIommuConstructReservedPageTables @ 0x1409A75C0 (HalpIommuConstructReservedPageTables.c)
+ *     RtlClearAllBits @ 0x1402F70D0 (RtlClearAllBits.c)
+ *     HalpInterruptIsRemappingRequired @ 0x140378B8C (HalpInterruptIsRemappingRequired.c)
+ *     HalpIommuUpdatePageTableLevel @ 0x1403A7414 (HalpIommuUpdatePageTableLevel.c)
+ *     HalpIommuUpdatePageWalkCapability @ 0x1403A7444 (HalpIommuUpdatePageWalkCapability.c)
+ *     HalpMmAllocateMemory @ 0x1403BB360 (HalpMmAllocateMemory.c)
+ *     HalpIommuPopulateExceptionList @ 0x1403CFA20 (HalpIommuPopulateExceptionList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpIommuConfigureInterrupt @ 0x1404CBEC0 (HalpIommuConfigureInterrupt.c)
+ *     HalpGetIrtEntryCount @ 0x1404D17A8 (HalpGetIrtEntryCount.c)
+ *     HalpIommuConstructReservedPageTables @ 0x1409A84F0 (HalpIommuConstructReservedPageTables.c)
  */
 
 __int64 __fastcall HalpIommuInitializeAll(char a1, __int64 a2, __int64 a3)

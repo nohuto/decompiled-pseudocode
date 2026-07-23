@@ -11,7 +11,7 @@
 __int64 __fastcall sub_1800F5100(__int64 a1, unsigned __int16 *a2)
 {
   unsigned int v4; // eax
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v6; // r8d
   unsigned int v8; // r10d
   __int64 v9; // rsi
@@ -19,7 +19,7 @@ __int64 __fastcall sub_1800F5100(__int64 a1, unsigned __int16 *a2)
 
   v4 = *a2;
   *(_WORD *)(a1 + 2) = v4;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   *(_QWORD *)(a1 + 8) = Heap;
   v6 = 0;
   if ( !Heap )

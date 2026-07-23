@@ -92,7 +92,7 @@ __int64 __fastcall EtwpEventWriteFull(
   _WORD *v50; // r15
   unsigned int v51; // esi
   PSLIST_ENTRY v52; // rax
-  struct _SLIST_ENTRY *v53; // rax
+  _SLIST_ENTRY *v53; // rax
   __int64 v54; // rcx
   void *v55; // rsp
   __int64 v56; // rdx
@@ -154,7 +154,7 @@ __int64 __fastcall EtwpEventWriteFull(
   signed __int64 v112; // rtt
   struct _KTHREAD *v113; // rcx
   __int16 v114; // ax
-  struct _SLIST_ENTRY *v115; // rcx
+  _SLIST_ENTRY *v115; // rcx
   struct _KPRCB *v116; // rdx
   _GENERAL_LOOKASIDE *v117; // r8
   int BugCheckParameter4; // [rsp+0h] [rbp-640h]
@@ -942,7 +942,7 @@ LABEL_226:
       KiCheckForKernelApcDelivery(v113, v30, v25);
     }
   }
-  v115 = (struct _SLIST_ENTRY *)Src;
+  v115 = (_SLIST_ENTRY *)Src;
   if ( Src )
   {
     v116 = KeGetCurrentPrcb();
@@ -959,7 +959,7 @@ LABEL_226:
     else
     {
       ++v117->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *, struct _KPRCB *, _GENERAL_LOOKASIDE *, __int64))v117->FreeEx)(
+      ((void (__fastcall *)(_SLIST_ENTRY *, struct _KPRCB *, _GENERAL_LOOKASIDE *, __int64))v117->FreeEx)(
         v115,
         v116,
         v117,

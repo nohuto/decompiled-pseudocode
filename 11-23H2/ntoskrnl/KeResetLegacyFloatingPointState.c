@@ -1,5 +1,5 @@
 /*
- * XREFs of KeResetLegacyFloatingPointState @ 0x14041F140
+ * XREFs of KeResetLegacyFloatingPointState @ 0x14041F4D0
  * Callers:
  *     <none>
  * Callees:

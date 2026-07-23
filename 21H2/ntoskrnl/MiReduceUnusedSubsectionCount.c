@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReduceUnusedSubsectionCount @ 0x1402F8B90
+ * XREFs of MiReduceUnusedSubsectionCount @ 0x1403038E0
  * Callers:
- *     MiDeleteEmptySubsections @ 0x1402BD5BC (MiDeleteEmptySubsections.c)
- *     MiRemoveUnusedSubsection @ 0x1402F8B04 (MiRemoveUnusedSubsection.c)
- *     MiDeleteCachedSubsection @ 0x140528DAC (MiDeleteCachedSubsection.c)
+ *     MiDeleteEmptySubsections @ 0x14023BC6C (MiDeleteEmptySubsections.c)
+ *     MiRemoveUnusedSubsection @ 0x140303854 (MiRemoveUnusedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x140528FEC (MiDeleteCachedSubsection.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ signed __int64 __fastcall MiReduceUnusedSubsectionCount(_DWORD *a1)
   signed __int64 result; // rax
   unsigned int v7; // eax
 
-  v1 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
+  v1 = *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
   v2 = a1[11];
   v3 = 8LL * v2;
   if ( v3 > 0xFE0 )
@@ -37,7 +37,7 @@ signed __int64 __fastcall MiReduceUnusedSubsectionCount(_DWORD *a1)
   }
   v5 = v4 & 0xFFFFFFFFFFFFFFF0uLL;
 LABEL_4:
-  result = _InterlockedExchangeAdd64(&qword_140C4C998, -(__int64)v5);
+  result = _InterlockedExchangeAdd64(&qword_140C4C9D8, -(__int64)v5);
   *(_QWORD *)(v1 + 1696) -= v5;
   return result;
 }

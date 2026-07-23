@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventPlatformVetoRequest @ 0x14042D18C
+ * XREFs of PpmEventPlatformVetoRequest @ 0x14042185C
  * Callers:
- *     PpmUpdatePlatformIdleVeto @ 0x14042CC80 (PpmUpdatePlatformIdleVeto.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x140421350 (PpmUpdatePlatformIdleVeto.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventPlatformVetoRequest(int a1, int a2, char a3)
@@ -21,27 +21,19 @@ char __fastcall PpmEventPlatformVetoRequest(int a1, int a2, char a3)
   v10 = a2;
   v9 = a1;
   v3 = &PPM_ETW_PLATFORM_IDLE_VETO_INCREMENT;
-  v4 = (const EVENT_DESCRIPTOR *)PPM_ETW_PLATFORM_IDLE_VETO_DECREMENT;
+  v4 = (const EVENT_DESCRIPTOR *)L"T";
   if ( a3 )
     v4 = &PPM_ETW_PLATFORM_IDLE_VETO_INCREMENT;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v4);
+    LOBYTE(v3) = EtwEventEnabled(PpmEtwHandle, v4);
     if ( (_BYTE)v3 )
     {
       UserData.Ptr = (ULONGLONG)&v9;
       *(_QWORD *)&UserData.Size = 4LL;
       v7 = &v10;
       v8 = 4LL;
-      LOBYTE(v3) = EtwWriteEx(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v4,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     2u,
-                     &UserData);
+      LOBYTE(v3) = EtwWriteEx(PpmEtwHandle, v4, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
   return (char)v3;

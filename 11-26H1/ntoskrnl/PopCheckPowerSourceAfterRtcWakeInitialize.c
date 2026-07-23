@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCheckPowerSourceAfterRtcWakeInitialize @ 0x140607DF4
+ * XREFs of PopCheckPowerSourceAfterRtcWakeInitialize @ 0x14060A9A4
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PopInitializeTimer @ 0x1407C8C18 (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x1407CBCB8 (PopInitializeTimer.c)
  */
 
 __int64 PopCheckPowerSourceAfterRtcWakeInitialize()
@@ -11,16 +11,16 @@ __int64 PopCheckPowerSourceAfterRtcWakeInitialize()
   __int64 result; // rax
 
   PopInitializeTimer(
-    (unsigned int)&stru_140F0F620.WaitBlockFill11[96],
+    (unsigned int)&PopCheckPowerSourceAfterRtcWakeTimer,
     (unsigned int)PopCheckPowerSourceAfterRtcWakeTimerCallback,
     0,
     (unsigned int)PopCheckPowerSourceAfterRtcWakeTimerWorker,
     0LL);
-  *(_WORD *)&stru_140F0F620.WaitBlockFill11[64] = 0;
-  stru_140F0F620.WaitBlock[1].Object = &stru_140F0F620.WaitBlockFill11[72];
-  stru_140F0F620.WaitBlock[1].Thread = (struct _KTHREAD *)&stru_140F0F620.WaitBlockFill11[72];
+  LOWORD(PopCheckPowerSourceAfterRtcWakeCompleted.Header.Lock) = 0;
+  PopCheckPowerSourceAfterRtcWakeCompleted.Header.WaitListHead.Blink = &PopCheckPowerSourceAfterRtcWakeCompleted.Header.WaitListHead;
+  PopCheckPowerSourceAfterRtcWakeCompleted.Header.WaitListHead.Flink = &PopCheckPowerSourceAfterRtcWakeCompleted.Header.WaitListHead;
   result = 0LL;
-  stru_140F0F620.WaitBlockFill5[66] = 6;
-  stru_140F0F620.WaitBlock[1].SpareLong = 1;
+  PopCheckPowerSourceAfterRtcWakeCompleted.Header.Size = 6;
+  PopCheckPowerSourceAfterRtcWakeCompleted.Header.SignalState = 1;
   return result;
 }

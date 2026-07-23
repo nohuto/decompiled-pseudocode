@@ -88,7 +88,7 @@ __int64 __fastcall MiInitializeSystemImageRegion(__int64 a1)
     return 0LL;
   }
   MiFreeKernelPadSections(
-    *(_QWORD *)(qword_140E2D600[0] + 48),
+    *(_QWORD **)(qword_140E2D600[0] + 48),
     *(_QWORD *)(qword_140E2D600[0] + 48) + *(_DWORD *)(qword_140E2D600[0] + 64));
   return 1LL;
 }

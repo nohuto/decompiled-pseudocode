@@ -17,7 +17,7 @@ __int64 __fastcall PpmPerfRegisterHvPerfStateCounters(__int64 a1)
   __int64 v2; // rdi
   __int64 v3; // r14
   unsigned int v4; // r12d
-  struct _PROCESSOR_NUMBER *v5; // rbp
+  _PROCESSOR_NUMBER *v5; // rbp
   unsigned int v6; // r15d
   ULONG ProcessorIndexFromNumber; // eax
   ULONG v8; // esi
@@ -27,7 +27,7 @@ __int64 __fastcall PpmPerfRegisterHvPerfStateCounters(__int64 a1)
     v2 = *(_QWORD *)(a1 + 16);
     v3 = *(_QWORD *)(a1 + 8);
     v4 = *(_DWORD *)(v2 + 12);
-    v5 = *(struct _PROCESSOR_NUMBER **)(v2 + 392);
+    v5 = *(_PROCESSOR_NUMBER **)(v2 + 392);
     PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
     v6 = 0;
     if ( v4 )

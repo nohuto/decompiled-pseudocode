@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierRtlDeleteRegistryValue @ 0x14070CCD4
+ * XREFs of VerifierRtlDeleteRegistryValue @ 0x14070CD04
  * Callers:
  *     <none>
  * Callees:

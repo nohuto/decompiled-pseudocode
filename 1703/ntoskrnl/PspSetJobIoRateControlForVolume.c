@@ -13,11 +13,11 @@
  *     PspIoRateEntryInitialize @ 0x14054C92C (PspIoRateEntryInitialize.c)
  */
 
-__int64 __fastcall PspSetJobIoRateControlForVolume(__int64 a1, _QWORD *a2, _BYTE *a3, _BYTE *a4, unsigned __int64 *a5)
+__int64 __fastcall PspSetJobIoRateControlForVolume(__int64 a1, _QWORD *a2, _BYTE *a3, _BYTE *a4, _QWORD *a5)
 {
   char v9; // si
   struct _EX_RUNDOWN_REF *PoolWithTag; // rax
-  struct _EX_RUNDOWN_REF *v11; // rbx
+  __int64 v11; // rbx
   int v12; // edi
   struct _EX_RUNDOWN_REF *v13; // rax
   struct _EX_RUNDOWN_REF *v14; // rdi
@@ -27,15 +27,15 @@ __int64 __fastcall PspSetJobIoRateControlForVolume(__int64 a1, _QWORD *a2, _BYTE
   *a5 = 0LL;
   v9 = 0;
   PoolWithTag = (struct _EX_RUNDOWN_REF *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x694A7350u);
-  v11 = PoolWithTag;
+  v11 = (__int64)PoolWithTag;
   if ( PoolWithTag )
   {
     PspIoRateEntryInitialize(PoolWithTag);
-    v12 = PspIoRateEntryActivate((__int64)v11, a1, (__int64)a2, 0LL);
+    v12 = PspIoRateEntryActivate(v11, a1, (__int64)a2, 0LL);
     if ( v12 >= 0 )
     {
       v9 = 1;
-      v13 = (struct _EX_RUNDOWN_REF *)PspJobIoRateVolumeEntryRemove(a1, v11[3].Count);
+      v13 = (struct _EX_RUNDOWN_REF *)PspJobIoRateVolumeEntryRemove(a1, *(_QWORD *)(v11 + 24));
       v14 = v13;
       if ( v13 )
       {
@@ -45,8 +45,8 @@ __int64 __fastcall PspSetJobIoRateControlForVolume(__int64 a1, _QWORD *a2, _BYTE
       }
       if ( (unsigned __int8)PspIoRateControlInfoIsAnySet(a2) )
       {
-        *a5 = v11[5].Count;
-        PspJobIoRateVolumeEntryInsert(a1, (unsigned __int64)v11);
+        *a5 = *(_QWORD *)(v11 + 40);
+        PspJobIoRateVolumeEntryInsert(a1, (_RTL_BALANCED_NODE *)v11);
         v11 = 0LL;
         *a4 = 1;
       }
@@ -55,8 +55,8 @@ __int64 __fastcall PspSetJobIoRateControlForVolume(__int64 a1, _QWORD *a2, _BYTE
     if ( v11 )
     {
       if ( v9 )
-        PspIoRateEntryDeactivate(v11);
-      ExFreePoolWithTag(v11, 0);
+        PspIoRateEntryDeactivate((struct _EX_RUNDOWN_REF *)v11);
+      ExFreePoolWithTag((PVOID)v11, 0);
     }
   }
   else

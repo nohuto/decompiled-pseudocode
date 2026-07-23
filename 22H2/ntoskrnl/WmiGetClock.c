@@ -8,11 +8,11 @@
  *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 __fastcall WmiGetClock(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall WmiGetClock(__int64 a1, __int64 a2)
 {
   int v2; // ebx
   __int64 v3; // rcx
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   int v5; // ecx
 
   v2 = a1;
@@ -29,7 +29,7 @@ __int64 __fastcall WmiGetClock(__int64 a1, __int64 a2)
         if ( v2 == 5 )
           return __rdtsc();
       }
-      return RtlGetSystemTimePrecise();
+      return RtlGetSystemTimePrecise().QuadPart;
     }
     return KeQueryPerformanceCounter(0LL).QuadPart;
   }
@@ -40,5 +40,5 @@ __int64 __fastcall WmiGetClock(__int64 a1, __int64 a2)
       return __rdtsc();
     return KeQueryPerformanceCounter(0LL).QuadPart;
   }
-  return RtlGetSystemTimePrecise();
+  return RtlGetSystemTimePrecise().QuadPart;
 }

@@ -1,36 +1,31 @@
 /*
- * XREFs of RtlpGetVolumeHandle @ 0x1801115B4
+ * XREFs of RtlpGetVolumeHandle @ 0x18010C9C4
  * Callers:
- *     RtlpDiskSpeedInitialize @ 0x180111540 (RtlpDiskSpeedInitialize.c)
- *     RtlpQueryDiskWriteConstraintPolicy @ 0x18015D46C (RtlpQueryDiskWriteConstraintPolicy.c)
+ *     RtlpDiskSpeedInitialize @ 0x18010C950 (RtlpDiskSpeedInitialize.c)
+ *     RtlpQueryDiskWriteConstraintPolicy @ 0x18015B82C (RtlpQueryDiskWriteConstraintPolicy.c)
  * Callees:
- *     StringCbPrintfW @ 0x1800B4B18 (StringCbPrintfW.c)
- *     ZwCreateFile @ 0x180162730 (ZwCreateFile.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     StringCbPrintfW @ 0x1800813B8 (StringCbPrintfW.c)
+ *     ZwCreateFile @ 0x180160AF0 (ZwCreateFile.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, _QWORD *a2)
+NTSTATUS __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, HANDLE *a2)
 {
   __int64 v2; // r9
   wchar_t *v4; // rcx
   __int64 v5; // rdx
-  __int64 result; // rax
-  __int64 v7; // [rsp+60h] [rbp-29h] BYREF
+  NTSTATUS result; // eax
+  HANDLE FileHandle; // [rsp+60h] [rbp-29h] BYREF
   __int128 v8; // [rsp+68h] [rbp-21h] BYREF
-  _DWORD v9[2]; // [rsp+78h] [rbp-11h] BYREF
-  __int64 v10; // [rsp+80h] [rbp-9h]
-  __int128 *v11; // [rsp+88h] [rbp-1h]
-  int v12; // [rsp+90h] [rbp+7h]
-  int v13; // [rsp+94h] [rbp+Bh]
-  __int128 v14; // [rsp+98h] [rbp+Fh]
-  __int128 v15; // [rsp+A8h] [rbp+1Fh] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-11h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp+1Fh] BYREF
   wchar_t pszDest[12]; // [rsp+B8h] [rbp+2Fh] BYREF
 
   v2 = *a1;
-  v9[1] = 0;
-  v13 = 0;
-  v15 = 0LL;
-  v7 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  IoStatusBlock = 0LL;
+  FileHandle = 0LL;
   StringCbPrintfW(pszDest, 0x14uLL, L"\\??\\%C:", v2);
   v4 = pszDest;
   v8 = 0LL;
@@ -45,16 +40,16 @@ __int64 __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, _QWORD *a2)
   WORD1(v8) = v8 + 2;
   *((_QWORD *)&v8 + 1) = pszDest;
 LABEL_6:
-  v9[0] = 48;
-  v10 = 0LL;
-  v12 = 64;
-  v11 = &v8;
-  v14 = 0LL;
-  result = ZwCreateFile(&v7, 1048704LL, v9, &v15, 0LL, 0, 7, 1, 32, 0LL);
-  if ( (int)result >= 0 )
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v8;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = ZwCreateFile(&FileHandle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x20u, 0LL, 0);
+  if ( result >= 0 )
   {
-    *a2 = v7;
-    return 0LL;
+    *a2 = FileHandle;
+    return 0;
   }
   return result;
 }

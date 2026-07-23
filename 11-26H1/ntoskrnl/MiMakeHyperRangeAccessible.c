@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMakeHyperRangeAccessible @ 0x140316870
+ * XREFs of MiMakeHyperRangeAccessible @ 0x1403188A0
  * Callers:
- *     MiExpandVadBitMap @ 0x140963274 (MiExpandVadBitMap.c)
- *     MiExpandVadBitMapDown @ 0x140963530 (MiExpandVadBitMapDown.c)
- *     MiMapPageTableCommit @ 0x1409C7B90 (MiMapPageTableCommit.c)
+ *     MiMapPageTableCommit @ 0x140998B70 (MiMapPageTableCommit.c)
+ *     MiExpandVadBitMap @ 0x140A090FC (MiExpandVadBitMap.c)
+ *     MiExpandVadBitMapDown @ 0x140A093B8 (MiExpandVadBitMapDown.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiFillHyperPtes @ 0x140315640 (MiFillHyperPtes.c)
- *     MiFastReadLeafPte @ 0x140316D70 (MiFastReadLeafPte.c)
- *     MiGetNextPageTable @ 0x140318050 (MiGetNextPageTable.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiFillHyperPtes @ 0x140317670 (MiFillHyperPtes.c)
+ *     MiFastReadLeafPte @ 0x140318DA0 (MiFastReadLeafPte.c)
+ *     MiGetNextPageTable @ 0x14031A080 (MiGetNextPageTable.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __int64 a2, __int64 *a3)
@@ -102,7 +102,7 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
     else
     {
       if ( (Process[2].ContextSwitches & 0xF) == 1 )
-        p_SchedulingGroup = &qword_140E37800;
+        p_SchedulingGroup = &qword_140E37980;
       else
         p_SchedulingGroup = (__int64 *)&Process[2].SchedulingGroup;
       v50 = (KeGetPcr()->Prcb.Number >> 1) & 3;
@@ -115,7 +115,7 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
         LOBYTE(a2) = 2;
         KiRaiseIrqlProcessIrqlFlags(v13, a2);
       }
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         _m_prefetchw(v12);
         v14 = *v12 & 0x7FFFFFFF;
@@ -159,7 +159,7 @@ LABEL_25:
         if ( *((_QWORD *)&v20 + 1) )
         {
           if ( (*(_DWORD *)(p_Blink + 184) & 0xF) == 1 )
-            v29 = (volatile signed __int64 *)&unk_140E37830;
+            v29 = (volatile signed __int64 *)&unk_140E379B0;
           else
             v29 = (volatile signed __int64 *)(p_Blink + 240);
           _InterlockedAdd64(v29, *((unsigned __int64 *)&v20 + 1));

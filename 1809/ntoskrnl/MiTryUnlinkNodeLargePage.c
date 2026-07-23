@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTryUnlinkNodeLargePage @ 0x14012BBB0
+ * XREFs of MiTryUnlinkNodeLargePage @ 0x14012BC80
  * Callers:
- *     MiLargeFreePageToMdl @ 0x14012B8E8 (MiLargeFreePageToMdl.c)
- *     MiDemoteLargeFreePage @ 0x14012BAA4 (MiDemoteLargeFreePage.c)
- *     MiMoveLargeFreePage @ 0x1402CC944 (MiMoveLargeFreePage.c)
+ *     MiLargeFreePageToMdl @ 0x14012B9B8 (MiLargeFreePageToMdl.c)
+ *     MiDemoteLargeFreePage @ 0x14012BB74 (MiDemoteLargeFreePage.c)
+ *     MiMoveLargeFreePage @ 0x1402CCB34 (MiMoveLargeFreePage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiUnlinkNodeLargePageHelper @ 0x140064700 (MiUnlinkNodeLargePageHelper.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1400646F0 (MiUnlinkNodeLargePageHelper.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTryUnlinkNodeLargePage(__int64 a1, unsigned __int64 a2, unsigned int a3, char a4)
@@ -42,7 +42,7 @@ __int64 __fastcall MiTryUnlinkNodeLargePage(__int64 a1, unsigned __int64 a2, uns
   v24 = MiLargePageContainingFrames[v5];
   v11 = (*(_QWORD *)(v9 + 40) >> 36) & 3LL;
   v12 = MiLockPageInline(v9);
-  v13 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL));
+  v13 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL));
   if ( v13 == a1 )
   {
     v14 = *(_QWORD *)(v13 + 16) + 1984 * v8;
@@ -67,7 +67,7 @@ __int64 __fastcall MiTryUnlinkNodeLargePage(__int64 a1, unsigned __int64 a2, uns
         }
         _mm_lfence();
         v20 = *(_QWORD *)(v14 + 272 * v25 + 8 * (v11 + 4 * (v15 + (unsigned __int64)(a2 < 0x100000 ? 2 : 0))) + 144)
-            + 24 * (a2 / MiLargePageSizes[v25] % (unsigned int)dword_14043A100[v25]);
+            + 24 * (a2 / MiLargePageSizes[v25] % (unsigned int)dword_14043B1C0[v25]);
         v21 = *(__int64 **)(v20 + 8);
         if ( *v21 != v20 )
 LABEL_11:

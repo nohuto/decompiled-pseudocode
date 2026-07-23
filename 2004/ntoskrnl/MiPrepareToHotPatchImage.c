@@ -25,11 +25,11 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
 {
   _BYTE *v3; // r14
   unsigned __int8 v6; // r15
-  RTL_BITMAP *Pool; // rax
-  RTL_BITMAP *v8; // rdx
+  _RTL_BITMAP *Pool; // rax
+  _RTL_BITMAP *v8; // rdx
   int v9; // esi
   unsigned int *v10; // r13
-  RTL_BITMAP *v11; // rdx
+  _RTL_BITMAP *v11; // rdx
   int v12; // esi
   int v13; // r12d
   int v14; // r9d
@@ -39,8 +39,8 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   unsigned int v18; // r9d
   _BYTE *v19; // rax
   const void *v20; // rdx
-  RTL_BITMAP *v21; // rax
-  RTL_BITMAP *v22; // rcx
+  _RTL_BITMAP *v21; // rax
+  _RTL_BITMAP *v22; // rcx
   int v23; // r9d
   ULONG i; // edx
   int v25; // r15d
@@ -72,17 +72,17 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
     v6 = 1;
   }
   v39 = v6;
-  Pool = (RTL_BITMAP *)MiAllocatePool(
-                         256,
-                         8 * ((unsigned int)((*(_DWORD *)(a1 + 32) & 0x3F000) != 0) + 2 + (*(_DWORD *)(a1 + 32) >> 18)),
-                         0x20206D4Du);
+  Pool = (_RTL_BITMAP *)MiAllocatePool(
+                          256,
+                          8 * ((unsigned int)((*(_DWORD *)(a1 + 32) & 0x3F000) != 0) + 2 + (*(_DWORD *)(a1 + 32) >> 18)),
+                          0x20206D4Du);
   v8 = Pool;
   *(_QWORD *)(a1 + 48) = Pool;
   if ( Pool )
   {
     Pool->SizeOfBitMap = *(_DWORD *)(a1 + 32) >> 12;
     Pool->Buffer = &Pool[1].SizeOfBitMap;
-    v8 = *(RTL_BITMAP **)(a1 + 48);
+    v8 = *(_RTL_BITMAP **)(a1 + 48);
   }
   if ( !v8 )
     return (unsigned int)-1073741670;
@@ -92,13 +92,13 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   *(_DWORD *)(a1 + 36) = 8 * *((_DWORD *)v3 + 8);
   if ( !a2 )
   {
-    v11 = (RTL_BITMAP *)MiAllocatePool(64, 8 * (((*v10 & 0x3F) != 0) + 2 + (*v10 >> 6)), 0x20206D4Du);
+    v11 = (_RTL_BITMAP *)MiAllocatePool(64, 8 * (((*v10 & 0x3F) != 0) + 2 + (*v10 >> 6)), 0x20206D4Du);
     *(_QWORD *)(a1 + 40) = v11;
     if ( v11 )
     {
       v11->SizeOfBitMap = *v10;
       v11->Buffer = &v11[1].SizeOfBitMap;
-      v11 = *(RTL_BITMAP **)(a1 + 40);
+      v11 = *(_RTL_BITMAP **)(a1 + 40);
     }
     if ( !v11 )
       return (unsigned int)-1073741670;
@@ -162,14 +162,14 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
       }
       *((_QWORD *)v3 + 5) = v19;
     }
-    v21 = (RTL_BITMAP *)MiAllocatePool(64, 8 * ((v17 >> 6) + ((v17 & 0x3F) != 0) + 2), 0x20206D4Du);
+    v21 = (_RTL_BITMAP *)MiAllocatePool(64, 8 * ((v17 >> 6) + ((v17 & 0x3F) != 0) + 2), 0x20206D4Du);
     v22 = v21;
     *(_QWORD *)(a1 + 40) = v21;
     if ( v21 )
     {
       v21->SizeOfBitMap = v17;
       v21->Buffer = &v21[1].SizeOfBitMap;
-      v22 = *(RTL_BITMAP **)(a1 + 40);
+      v22 = *(_RTL_BITMAP **)(a1 + 40);
     }
     if ( !v22 )
       return (unsigned int)-1073741670;

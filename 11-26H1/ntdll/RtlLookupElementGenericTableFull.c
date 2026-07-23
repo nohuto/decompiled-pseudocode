@@ -1,55 +1,62 @@
 /*
- * XREFs of RtlLookupElementGenericTableFull @ 0x1800B7E10
+ * XREFs of RtlLookupElementGenericTableFull @ 0x1800B5330
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1800B7F60 (RtlSplay.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlSplay @ 0x1800B5480 (RtlSplay.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFull(__int64 *a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFull(
+        PRTL_GENERIC_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  __int64 v4; // rbx
+  PRTL_SPLAY_LINKS TableRoot; // rbx
   int v9; // eax
-  __int64 result; // rax
+  PVOID result; // rax
 
-  v4 = *a1;
-  if ( *a1 )
+  TableRoot = Table->TableRoot;
+  if ( Table->TableRoot )
   {
     while ( 1 )
     {
       while ( 1 )
       {
-        v9 = ((__int64 (__fastcall *)(__int64 *, __int64, __int64))a1[5])(a1, a2, v4 + 40);
+        v9 = ((__int64 (__fastcall *)(PRTL_GENERIC_TABLE, PVOID, _RTL_SPLAY_LINKS **))Table->CompareRoutine)(
+               Table,
+               Buffer,
+               &TableRoot[1].RightChild);
         if ( v9 )
           break;
-        if ( !*(_QWORD *)(v4 + 8) )
+        if ( !TableRoot->LeftChild )
         {
-          *a3 = v4;
+          *NodeOrParent = TableRoot;
           result = 0LL;
-          *a4 = 2;
+          *SearchResult = TableInsertAsLeft;
           return result;
         }
-        v4 = *(_QWORD *)(v4 + 8);
+        TableRoot = TableRoot->LeftChild;
       }
       if ( v9 != 1 )
       {
-        *a3 = v4;
-        *a4 = 1;
-        *a1 = RtlSplay(*a3);
-        return *a3 + 40LL;
+        *NodeOrParent = TableRoot;
+        *SearchResult = TableFoundNode;
+        Table->TableRoot = RtlSplay((PRTL_SPLAY_LINKS)*NodeOrParent);
+        return (char *)*NodeOrParent + 40;
       }
-      if ( !*(_QWORD *)(v4 + 16) )
+      if ( !TableRoot->RightChild )
         break;
-      v4 = *(_QWORD *)(v4 + 16);
+      TableRoot = TableRoot->RightChild;
     }
-    *a3 = v4;
+    *NodeOrParent = TableRoot;
     result = 0LL;
-    *a4 = 3;
+    *SearchResult = TableInsertAsRight;
   }
   else
   {
-    *a4 = 0;
+    *SearchResult = TableEmptyTree;
     return 0LL;
   }
   return result;

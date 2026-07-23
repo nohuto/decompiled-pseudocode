@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlMinimalBarrier @ 0x14034ACFC
+ * XREFs of RtlMinimalBarrier @ 0x14034BCFC
  * Callers:
- *     sub_14034A0A0 @ 0x14034A0A0 (sub_14034A0A0.c)
+ *     sub_14034B0A0 @ 0x14034B0A0 (sub_14034B0A0.c)
  * Callees:
  *     <none>
  */

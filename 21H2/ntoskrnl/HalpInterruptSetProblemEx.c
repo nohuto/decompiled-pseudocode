@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInterruptSetProblemEx @ 0x1404D1A88
+ * XREFs of HalpInterruptSetProblemEx @ 0x1404D1CC8
  * Callers:
- *     HalpInterruptGetHighestPriorityInterrupt @ 0x1402B4840 (HalpInterruptGetHighestPriorityInterrupt.c)
- *     HalpInterruptSetLineState @ 0x1403A3AF8 (HalpInterruptSetLineState.c)
- *     HalpInterruptInitializeLocalUnit @ 0x1403A3D0C (HalpInterruptInitializeLocalUnit.c)
- *     HalpConnectThermalInterrupt @ 0x1404D15B0 (HalpConnectThermalInterrupt.c)
- *     HalpInterruptUnmap @ 0x140761838 (HalpInterruptUnmap.c)
- *     HalpInterruptMaskAcpi @ 0x14099823C (HalpInterruptMaskAcpi.c)
- *     HalpInterruptStartProcessor @ 0x140999F74 (HalpInterruptStartProcessor.c)
- *     HalpDpReplayInterrupts @ 0x1409A89F0 (HalpDpReplayInterrupts.c)
- *     HalpInterruptSaveReplayState @ 0x1409A8BF0 (HalpInterruptSaveReplayState.c)
- *     HalpInterruptUpdateLocalUnitIdentifier @ 0x1409A8F7C (HalpInterruptUpdateLocalUnitIdentifier.c)
+ *     HalpInterruptGetHighestPriorityInterrupt @ 0x1402329F0 (HalpInterruptGetHighestPriorityInterrupt.c)
+ *     HalpInterruptSetLineState @ 0x1403A3C48 (HalpInterruptSetLineState.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A3E5C (HalpInterruptInitializeLocalUnit.c)
+ *     HalpConnectThermalInterrupt @ 0x1404D17F0 (HalpConnectThermalInterrupt.c)
+ *     HalpInterruptUnmap @ 0x1407619F8 (HalpInterruptUnmap.c)
+ *     HalpInterruptMaskAcpi @ 0x14099923C (HalpInterruptMaskAcpi.c)
+ *     HalpInterruptStartProcessor @ 0x14099AF74 (HalpInterruptStartProcessor.c)
+ *     HalpDpReplayInterrupts @ 0x1409A9920 (HalpDpReplayInterrupts.c)
+ *     HalpInterruptSaveReplayState @ 0x1409A9B20 (HalpInterruptSaveReplayState.c)
+ *     HalpInterruptUpdateLocalUnitIdentifier @ 0x1409A9EAC (HalpInterruptUpdateLocalUnitIdentifier.c)
  * Callees:
  *     <none>
  */

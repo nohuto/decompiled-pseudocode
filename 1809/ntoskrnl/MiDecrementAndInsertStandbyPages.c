@@ -1,7 +1,7 @@
 /*
  * XREFs of MiDecrementAndInsertStandbyPages @ 0x14003D440
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
+ *     MmUnmapViewInSystemCache @ 0x140078700 (MmUnmapViewInSystemCache.c)
  * Callees:
  *     MiInsertAndUnlockStandbyPages @ 0x140036060 (MiInsertAndUnlockStandbyPages.c)
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
@@ -10,9 +10,9 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiSetNonResidentPteHeat @ 0x140081E40 (MiSetNonResidentPteHeat.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiDecrementAndInsertStandbyPages(__int64 *a1, unsigned int a2, __int64 a3)
@@ -123,7 +123,7 @@ __int64 __fastcall MiDecrementAndInsertStandbyPages(__int64 *a1, unsigned int a2
         goto LABEL_11;
       if ( !(unsigned int)MiPteHasShadow(v22, v21) )
         break;
-      if ( !HIBYTE(word_14043A1AC) && (v24 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v24 & 1) != 0 )
         v24 |= 0x8000000000000000uLL;
       *v27 = v24;
       MiWritePteShadow(v27);
@@ -157,7 +157,7 @@ LABEL_12:
         if ( (unsigned int)MiPteHasShadow(v30, v29) )
         {
           v40 = v29;
-          if ( !HIBYTE(word_14043A1AC) && (v29 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v29 & 1) != 0 )
             v40 = v29 | 0x8000000000000000uLL;
           *v31 = v40;
           MiWritePteShadow(v31);

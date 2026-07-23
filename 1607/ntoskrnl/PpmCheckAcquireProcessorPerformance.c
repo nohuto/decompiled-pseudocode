@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmCheckAcquireProcessorPerformance @ 0x1400D47C0
+ * XREFs of PpmCheckAcquireProcessorPerformance @ 0x1400D2660
  * Callers:
  *     <none>
  * Callees:

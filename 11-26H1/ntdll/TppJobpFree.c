@@ -1,16 +1,16 @@
 /*
- * XREFs of TppJobpFree @ 0x180104710
+ * XREFs of TppJobpFree @ 0x180103A90
  * Callers:
  *     <none>
  * Callees:
- *     TppCleanupGroupMemberDestroy @ 0x18004D650 (TppCleanupGroupMemberDestroy.c)
- *     TpAdjustBindingCount @ 0x180065570 (TpAdjustBindingCount.c)
+ *     TppCleanupGroupMemberDestroy @ 0x180037BD0 (TppCleanupGroupMemberDestroy.c)
+ *     TpAdjustBindingCount @ 0x1800859C0 (TpAdjustBindingCount.c)
  */
 
-__int64 __fastcall TppJobpFree(__int64 a1)
+LOGICAL __fastcall TppJobpFree(_QWORD *a1)
 {
-  TpAdjustBindingCount(*(_QWORD *)(a1 + 144), 0xFFFFFFFF);
-  *(_QWORD *)(a1 - 16) = 0LL;
+  TpAdjustBindingCount(a1[18], 0xFFFFFFFF);
+  *(a1 - 2) = 0LL;
   TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap_0();
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3407872, a1 - 9);
 }

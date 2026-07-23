@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpLoadInstallLanguageFallback @ 0x140794774
+ * XREFs of RtlpLoadInstallLanguageFallback @ 0x140790514
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x1407940E4 (_RtlpMuiRegLoadInstalled.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098233C (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14078FE84 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098251C (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x1403AD474 (_MuiRegAllocArray.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlCultureNameToLCID @ 0x140793140 (RtlCultureNameToLCID.c)
- *     LdrpQueryValueKey @ 0x14079370C (LdrpQueryValueKey.c)
- *     LdrpOpenKey @ 0x140793BA8 (LdrpOpenKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1403A8AE8 (_MuiRegAllocArray.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlCultureNameToLCID @ 0x14078EEE0 (RtlCultureNameToLCID.c)
+ *     LdrpQueryValueKey @ 0x14078F4AC (LdrpQueryValueKey.c)
+ *     LdrpOpenKey @ 0x14078F948 (LdrpOpenKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD *a3)
@@ -27,11 +27,11 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
   __int64 v14; // [rsp+30h] [rbp-20h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  int v17; // [rsp+80h] [rbp+30h] BYREF
+  DWORD Lcid; // [rsp+80h] [rbp+30h] BYREF
   int v18; // [rsp+98h] [rbp+48h] BYREF
 
   Handle = 0LL;
-  v17 = 0;
+  Lcid = 0;
   v5 = 0LL;
   DestinationString = 0LL;
   if ( a1 && a2 && a3 )
@@ -73,15 +73,15 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
             ++v11;
           }
           RtlInitUnicodeString(&DestinationString, v5);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *a2 = v17;
+            *a2 = Lcid;
             if ( *v11 )
             {
               RtlInitUnicodeString(&DestinationString, v11);
-              if ( RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v17;
+                *a3 = Lcid;
               }
               else
               {

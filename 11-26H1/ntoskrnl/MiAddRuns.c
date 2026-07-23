@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddRuns @ 0x140867A50
+ * XREFs of MiAddRuns @ 0x14086DE30
  * Callers:
  *     <none>
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiAddRun @ 0x140867920 (MiAddRun.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiAddRun @ 0x14086DD00 (MiAddRun.c)
  */
 
 __int64 __fastcall MiAddRuns(__int64 a1, int a2, unsigned __int64 a3)
@@ -25,7 +25,7 @@ __int64 __fastcall MiAddRuns(__int64 a1, int a2, unsigned __int64 a3)
   v4 = a2 & 0x3FFFFF;
   v5 = *(unsigned __int16 *)(a1 + 32);
   v6 = 0LL;
-  v8 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v4);
+  v8 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v4);
   while ( v6 < a3 )
   {
     v9 = *v8;

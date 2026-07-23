@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlOemToUnicodeN @ 0x14096E4D0
+ * XREFs of RtlOemToUnicodeN @ 0x14097E070
  * Callers:
- *     RtlOemStringToCountedUnicodeString @ 0x14096F2D0 (RtlOemStringToCountedUnicodeString.c)
- *     FsRtlNotifyUpdateBuffer @ 0x140B0EDBC (FsRtlNotifyUpdateBuffer.c)
- *     RtlOemStringToUnicodeString @ 0x140B1D890 (RtlOemStringToUnicodeString.c)
+ *     RtlOemStringToCountedUnicodeString @ 0x14097E170 (RtlOemStringToCountedUnicodeString.c)
+ *     RtlOemStringToUnicodeString @ 0x14097E860 (RtlOemStringToUnicodeString.c)
+ *     FsRtlNotifyUpdateBuffer @ 0x140B105EC (FsRtlNotifyUpdateBuffer.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
- *     RtlCustomCPToUnicodeN @ 0x14096D090 (RtlCustomCPToUnicodeN.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
+ *     RtlCustomCPToUnicodeN @ 0x14097D9D0 (RtlCustomCPToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlOemToUnicodeN(
@@ -18,7 +18,7 @@ NTSTATUS __stdcall RtlOemToUnicodeN(
         ULONG BytesInOemString)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
-  struct _CPTABLEINFO *p_Blink; // rcx
+  _CPTABLEINFO *p_Blink; // rcx
   signed __int32 v12[8]; // [rsp+0h] [rbp-38h] BYREF
 
   if ( RtlpIsUtf8Process() )
@@ -29,9 +29,9 @@ NTSTATUS __stdcall RtlOemToUnicodeN(
   {
     _InterlockedOr(v12, 0);
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    p_Blink = (struct _CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
     if ( LOWORD(CurrentServerSiloGlobals[64].Blink) != 1 )
-      p_Blink = (struct _CPTABLEINFO *)&CurrentServerSiloGlobals[68].Blink;
+      p_Blink = (_CPTABLEINFO *)&CurrentServerSiloGlobals[68].Blink;
   }
   return RtlCustomCPToUnicodeN(
            p_Blink,

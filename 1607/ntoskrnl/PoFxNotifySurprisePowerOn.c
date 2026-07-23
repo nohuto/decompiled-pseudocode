@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxNotifySurprisePowerOn @ 0x1401259A0
+ * XREFs of PoFxNotifySurprisePowerOn @ 0x140125F10
  * Callers:
  *     <none>
  * Callees:
- *     PopFxLockDevice @ 0x14009EDE0 (PopFxLockDevice.c)
- *     PopPepSurprisePowerOn @ 0x1401259F0 (PopPepSurprisePowerOn.c)
+ *     PopFxLockDevice @ 0x140085838 (PopFxLockDevice.c)
+ *     PopPepSurprisePowerOn @ 0x140125F60 (PopPepSurprisePowerOn.c)
  */
 
 void __fastcall PoFxNotifySurprisePowerOn(__int64 a1)

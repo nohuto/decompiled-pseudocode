@@ -1,29 +1,29 @@
 /*
- * XREFs of HalpPowerWriteResetCommand @ 0x140544B14
+ * XREFs of HalpPowerWriteResetCommand @ 0x1405423D4
  * Callers:
- *     HalpInterruptResetThisProcessor @ 0x140541D10 (HalpInterruptResetThisProcessor.c)
- *     HalpReboot @ 0x140544C40 (HalpReboot.c)
+ *     HalpInterruptResetThisProcessor @ 0x14053F610 (HalpInterruptResetThisProcessor.c)
+ *     HalpReboot @ 0x140542500 (HalpReboot.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     HalpAcpiPmRegisterWrite @ 0x14041C1F0 (HalpAcpiPmRegisterWrite.c)
- *     HalpMap @ 0x140478C5C (HalpMap.c)
- *     HalpMiscIsLegacyPcType @ 0x14054A8AC (HalpMiscIsLegacyPcType.c)
- *     HalEfiResetSystem @ 0x14054C6B8 (HalEfiResetSystem.c)
- *     VslTerminateSecureServices @ 0x14058E92C (VslTerminateSecureServices.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14040FFF0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpMap @ 0x140460358 (HalpMap.c)
+ *     HalpMiscIsLegacyPcType @ 0x14054816C (HalpMiscIsLegacyPcType.c)
+ *     HalEfiResetSystem @ 0x140549F78 (HalEfiResetSystem.c)
+ *     VslTerminateSecureServices @ 0x14058B95C (VslTerminateSecureServices.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall __noreturn HalpPowerWriteResetCommand(__int64 a1, volatile signed __int32 *a2, __int64 a3, __int64 a4)
+void __fastcall __noreturn HalpPowerWriteResetCommand(__int64 a1, volatile signed __int32 *a2)
 {
-  int v5; // esi
-  unsigned __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rdx
+  int v3; // esi
+  unsigned __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rdx
 
-  v5 = a1;
+  v3 = a1;
   if ( HalpRebootHandler )
-    guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
-  if ( !v5 )
+    guard_dispatch_icall_no_overrides(a1, a2);
+  if ( !v3 )
   {
     if ( (unsigned __int8)HalpMiscIsLegacyPcType() )
     {
@@ -33,9 +33,9 @@ void __fastcall __noreturn HalpPowerWriteResetCommand(__int64 a1, volatile signe
     }
     if ( !HalFirmwareTypeEfi )
     {
-      v6 = HalpMap(0LL, 1LL, 1uLL, 0, 4u, 0LL);
-      if ( v6 )
-        *(_WORD *)(v6 + 1138) = 4660;
+      v4 = HalpMap(0LL, 1LL, 1uLL, 0, 4u, 0LL);
+      if ( v4 )
+        *(_WORD *)(v4 + 1138) = 4660;
     }
     if ( (HalpPlatformFlags & 4) != 0 )
     {
@@ -45,12 +45,12 @@ void __fastcall __noreturn HalpPowerWriteResetCommand(__int64 a1, volatile signe
     VslTerminateSecureServices();
     if ( HalpHvUsedForReboot )
     {
-      v7 = 0LL;
+      v5 = 0LL;
       __writemsr(0x40000003u, 1uLL);
     }
-    if ( byte_140F8F200 )
+    if ( byte_140F8F400 )
     {
-      HalpAcpiPmRegisterWrite(8, 0, byte_140FC0D60, 1u, 0LL);
+      HalpAcpiPmRegisterWrite(8, 0, byte_140FC1000, 1u, 0LL);
       KeStallExecutionProcessor(0x1F4u);
     }
     if ( (HalpPlatformFlags & 2) != 0 )
@@ -60,8 +60,8 @@ void __fastcall __noreturn HalpPowerWriteResetCommand(__int64 a1, volatile signe
     }
     if ( HalFirmwareTypeEfi )
     {
-      HalEfiResetSystem(1LL, v7);
-      HalEfiResetSystem(0LL, v8);
+      HalEfiResetSystem(1LL, v5);
+      HalEfiResetSystem(0LL, v6);
       __debugbreak();
     }
   }

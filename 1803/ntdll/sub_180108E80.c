@@ -21,18 +21,18 @@ void __fastcall sub_180108E80(__int64 a1, __int64 a2, __int64 a3, unsigned int *
   v4 = *(void **)(a2 + 152);
   if ( v4 )
     RtlSetThreadSubProcessTag(v4);
-  NtCurrentTeb()->ActivityId = *(struct _GUID *)(a2 + 160);
+  NtCurrentTeb()->ActivityId = *(GUID *)(a2 + 160);
   v8 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   else
     v9 = 2147353478LL;
   if ( *(_BYTE *)v9 )
     sub_180001FD0(*(_QWORD *)(a2 + 72), a2, *(_QWORD *)(a2 - 8), a3, *(_QWORD *)(a2 + 152));
   sub_18002567C(&v10, *(_QWORD *)(a2 - 8), a3, (__int64)NtCurrentTeb()->SubProcessTag);
   (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(a2 - 8))(*a4, *((_QWORD *)a4 + 1), a3);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   if ( *(_BYTE *)v8 )
     sub_180002050(*(_QWORD *)(a2 + 72), a2, *(_QWORD *)(a2 - 8), a3, *(_QWORD *)(a2 + 152));
   if ( *(_QWORD *)(a2 + 152) )

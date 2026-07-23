@@ -2,15 +2,15 @@
  * XREFs of CmpBlockTwoHiveWrites @ 0x1403E16A4
  * Callers:
  *     CmpVirtualBranchIsReplicated @ 0x1403E14A8 (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x140601D0C (CmpVirtualPathPresent.c)
- *     CmSaveMergedKeys @ 0x14060CE74 (CmSaveMergedKeys.c)
+ *     CmpVirtualPathPresent @ 0x140601DC0 (CmpVirtualPathPresent.c)
+ *     CmSaveMergedKeys @ 0x14060CF28 (CmSaveMergedKeys.c)
  * Callees:
- *     CmpReferenceHive @ 0x14002D220 (CmpReferenceHive.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     CmpGetNextActiveHive @ 0x1403FB6D0 (CmpGetNextActiveHive.c)
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
+ *     CmpReferenceHive @ 0x14002CDA0 (CmpReferenceHive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     CmpGetNextActiveHive @ 0x1403FA590 (CmpGetNextActiveHive.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
  */
 
 __int64 __fastcall CmpBlockTwoHiveWrites(__int64 a1, __int64 a2, char a3)

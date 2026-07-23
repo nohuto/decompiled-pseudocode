@@ -1,12 +1,12 @@
 /*
- * XREFs of IoQueueWorkItemEx @ 0x1403819A0
+ * XREFs of IoQueueWorkItemEx @ 0x140383750
  * Callers:
- *     PnpDeviceCompletionRequestDestroy @ 0x1404939D8 (PnpDeviceCompletionRequestDestroy.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x14048D528 (PnpDeviceCompletionRequestDestroy.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExQueueWorkItemFromIo @ 0x140381B60 (ExQueueWorkItemFromIo.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExQueueWorkItemFromIo @ 0x140383910 (ExQueueWorkItemFromIo.c)
  */
 
 void __stdcall IoQueueWorkItemEx(
@@ -41,7 +41,7 @@ void __stdcall IoQueueWorkItemEx(
     WorkOnBehalfThread = (_ETHREAD *)CurrentThread->WorkOnBehalfThread;
     if ( WorkOnBehalfThread && CurrentThread != (_ETHREAD *)KeGetCurrentThread() )
     {
-      v11 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime);
+      v11 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument);
       WorkOnBehalfThread = (_ETHREAD *)CurrentThread->WorkOnBehalfThread;
       v12 = v11;
       if ( WorkOnBehalfThread )
@@ -49,7 +49,7 @@ void __stdcall IoQueueWorkItemEx(
         ObfReferenceObjectWithTag(CurrentThread->WorkOnBehalfThread, 0x746C6644u);
         v9 = 1;
       }
-      ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime, v12);
+      ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument, v12);
     }
     IoWorkItem->WorkOnBehalfThread = WorkOnBehalfThread;
     if ( WorkOnBehalfThread )
@@ -57,7 +57,8 @@ void __stdcall IoQueueWorkItemEx(
       if ( !v9 )
         ObfReferenceObjectWithTag(WorkOnBehalfThread, 0x746C6644u);
     }
-    else if ( KeGetCurrentThread()->ApcState.Process[1].Padding[3] || stru_140F12D20.SchedulerApcFill3[40] )
+    else if ( KeGetCurrentThread()->ApcState.Process[1].Padding[3]
+           || BYTE4(stru_140F12EA0.SystemAffinityTokenListHead.Next) )
     {
       ObfReferenceObjectWithTag(CurrentThread, 0x746C6644u);
       IoWorkItem->WorkOnBehalfThread = CurrentThread;

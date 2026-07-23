@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteDynamicPfns @ 0x1406E81E0
+ * XREFs of MiDeleteDynamicPfns @ 0x1406ECE7C
  * Callers:
- *     MiUnmapPfns @ 0x1408670AC (MiUnmapPfns.c)
+ *     MiUnmapPfns @ 0x14086D48C (MiUnmapPfns.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageCombiningActive @ 0x1402A96B0 (MiPageCombiningActive.c)
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiSetPfnRemovalRequested @ 0x1406F1D98 (MiSetPfnRemovalRequested.c)
- *     MiUpdatePartitionChildPageCounts @ 0x140709E5C (MiUpdatePartitionChildPageCounts.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageCombiningActive @ 0x1402A8AC0 (MiPageCombiningActive.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiSetPfnRemovalRequested @ 0x1406F6A08 (MiSetPfnRemovalRequested.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14070EB10 (MiUpdatePartitionChildPageCounts.c)
  */
 
 __int64 __fastcall MiDeleteDynamicPfns(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -46,7 +46,7 @@ __int64 __fastcall MiDeleteDynamicPfns(unsigned __int64 a1, unsigned __int64 a2,
   v6 = 48 * a1 - 0x220000000000LL;
   if ( (a3 & 2) == 0 )
     MiUpdateLargePageBitMap((__int64)&MiSystemPartition, a1, a2, 0);
-  v7 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
+  v7 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
   v23.m128i_i64[1] = 0x8000000000000000uLL;
   v20.m128i_i64[1] = 0x8000000000000000uLL;
   v8 = (unsigned __int64)*(unsigned __int16 *)v7 << 43;

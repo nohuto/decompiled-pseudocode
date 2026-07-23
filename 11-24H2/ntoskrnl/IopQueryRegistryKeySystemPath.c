@@ -1,20 +1,20 @@
 /*
- * XREFs of IopQueryRegistryKeySystemPath @ 0x1409C8568
+ * XREFs of IopQueryRegistryKeySystemPath @ 0x1409B81B0
  * Callers:
- *     PiDrvDbResolveKeyFilePaths @ 0x14073901C (PiDrvDbResolveKeyFilePaths.c)
- *     IopBuildFullDriverPath @ 0x1409C8E18 (IopBuildFullDriverPath.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x140736F4C (PiDrvDbResolveKeyFilePaths.c)
+ *     IopBuildFullDriverPath @ 0x1409B78C8 (IopBuildFullDriverPath.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x1406A8B10 (ZwOpenSymbolicLinkObject.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     NtQueryObject @ 0x140968970 (NtQueryObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1406A9AB0 (ZwOpenSymbolicLinkObject.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     NtQueryObject @ 0x140951400 (NtQueryObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryRegistryKeySystemPath(HANDLE Handle, PUNICODE_STRING DestinationString)
@@ -25,10 +25,11 @@ __int64 __fastcall IopQueryRegistryKeySystemPath(HANDLE Handle, PUNICODE_STRING 
   unsigned __int64 v7; // rdx
   unsigned __int16 v8; // cx
   unsigned __int16 v9; // di
+  unsigned int v11; // edx
   UNICODE_STRING DestinationStringa; // [rsp+30h] [rbp-49h] BYREF
   UNICODE_STRING String1; // [rsp+40h] [rbp-39h] BYREF
   UNICODE_STRING String2; // [rsp+50h] [rbp-29h] BYREF
-  UNICODE_STRING v14; // [rsp+60h] [rbp-19h] BYREF
+  UNICODE_STRING v15; // [rsp+60h] [rbp-19h] BYREF
   UNICODE_STRING SourceString; // [rsp+70h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp+7h] BYREF
   ULONG ReturnLength; // [rsp+F0h] [rbp+77h] BYREF
@@ -37,9 +38,9 @@ __int64 __fastcall IopQueryRegistryKeySystemPath(HANDLE Handle, PUNICODE_STRING 
   *(_QWORD *)&String2.Length = 917516LL;
   *(_QWORD *)&SourceString.Length = 1703960LL;
   String2.Buffer = L"System";
-  *(_QWORD *)&v14.Length = 2621478LL;
+  *(_QWORD *)&v15.Length = 2621478LL;
   SourceString.Buffer = (wchar_t *)L"\\SystemRoot\\";
-  v14.Buffer = L"\\DriverStore\\Nodes\\";
+  v15.Buffer = L"\\DriverStore\\Nodes\\";
   LinkHandle = 0LL;
   String1 = 0LL;
   ReturnLength = 0;
@@ -48,7 +49,7 @@ __int64 __fastcall IopQueryRegistryKeySystemPath(HANDLE Handle, PUNICODE_STRING 
   RtlInitUnicodeString(DestinationString, 0LL);
   RtlInitUnicodeString(&DestinationStringa, 0LL);
   RtlInitUnicodeString(&String1, 0LL);
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL);
+  Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL, 0x1000uLL, 0x20206F49u);
   if ( Pool2 )
   {
     appended = NtQueryObject(Handle, ObjectNameInformation, Pool2, 0x1000u, &ReturnLength);
@@ -84,17 +85,18 @@ LABEL_17:
     }
     if ( !RtlEqualUnicodeString(&String1, &String2, 1u) )
     {
-      if ( (unsigned int)v9 + 42 > 0xFFFF )
+      v11 = v9 + 42;
+      if ( v11 > 0xFFFF )
       {
         appended = -2147483643;
         goto LABEL_17;
       }
       DestinationStringa.MaximumLength = v9 + 42;
       DestinationStringa.Length = 0;
-      DestinationStringa.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+      DestinationStringa.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned __int16)v11, 0x20206F49u);
       if ( !DestinationStringa.Buffer )
         goto LABEL_16;
-      RtlCopyUnicodeString(&DestinationStringa, &v14);
+      RtlCopyUnicodeString(&DestinationStringa, &v15);
       appended = RtlAppendUnicodeStringToString(&DestinationStringa, &String1);
       if ( appended < 0 )
         goto LABEL_17;
@@ -123,7 +125,7 @@ LABEL_17:
         if ( DestinationStringa.Buffer )
           ExFreePoolWithTag(DestinationStringa.Buffer, 0);
         DestinationStringa.MaximumLength = 26;
-        DestinationStringa.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+        DestinationStringa.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, 0x1AuLL, 0x20206F49u);
         if ( !DestinationStringa.Buffer )
         {
 LABEL_16:

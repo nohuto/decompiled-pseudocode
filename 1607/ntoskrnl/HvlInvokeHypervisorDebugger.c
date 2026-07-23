@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlInvokeHypervisorDebugger @ 0x1401BAACC
+ * XREFs of HvlInvokeHypervisorDebugger @ 0x1401BA9B0
  * Callers:
- *     KeAccumulateTicks @ 0x1400DC3C0 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1400DA260 (KeAccumulateTicks.c)
  * Callees:
  *     <none>
  */

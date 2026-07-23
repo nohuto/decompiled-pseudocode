@@ -1,12 +1,12 @@
 /*
- * XREFs of PsQuerySystemAvailableCpusCount @ 0x1406155C0
+ * XREFs of PsQuerySystemAvailableCpusCount @ 0x140618530
  * Callers:
  *     <none>
  * Callees:
- *     KeQuerySystemAvailableCpus @ 0x1405E5860 (KeQuerySystemAvailableCpus.c)
+ *     KeQuerySystemAvailableCpus @ 0x1405E81D0 (KeQuerySystemAvailableCpus.c)
  */
 
-__int64 __fastcall PsQuerySystemAvailableCpusCount(_DWORD *a1, unsigned __int64 *a2)
+__int64 __fastcall PsQuerySystemAvailableCpusCount(_DWORD *a1, struct _LIST_ENTRY **a2)
 {
   if ( a1 && a2 )
     return KeQuerySystemAvailableCpus(0LL, 0LL, a2, a1);

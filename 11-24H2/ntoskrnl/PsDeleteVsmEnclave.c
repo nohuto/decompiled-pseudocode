@@ -1,20 +1,20 @@
 /*
- * XREFs of PsDeleteVsmEnclave @ 0x14077B1C0
+ * XREFs of PsDeleteVsmEnclave @ 0x14077B070
  * Callers:
- *     MiDeleteEnclavePages @ 0x140B6E178 (MiDeleteEnclavePages.c)
+ *     MiDeleteEnclavePages @ 0x140B6FC18 (MiDeleteEnclavePages.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsDereferenceVsmEnclave @ 0x140A2C23C (PsDereferenceVsmEnclave.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsDereferenceVsmEnclave @ 0x140A20164 (PsDereferenceVsmEnclave.c)
  */
 
 __int64 __fastcall PsDeleteVsmEnclave(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 *v4; // rbx
-  _QWORD *v5; // rax
-  _QWORD *v6; // rsi
+  char *v5; // rax
+  char *v6; // rsi
   __int64 v7; // r11
   _QWORD *i; // r8
   __int64 v10; // [rsp+48h] [rbp+10h]
@@ -22,12 +22,12 @@ __int64 __fastcall PsDeleteVsmEnclave(__int64 a1, _QWORD *a2)
   if ( !*((_BYTE *)a2 + 76) )
   {
     v4 = (unsigned __int64 *)(a1 + 1624);
-    v5 = KeAbPreAcquire(a1 + 1624, 0LL);
+    v5 = (char *)KeAbPreAcquire(a1 + 1624, 0LL);
     v6 = v5;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v4, (__int64)v5, (__int64)v4);
+      ExfAcquirePushLockExclusiveEx(v4, v5, (__int64)v4);
     if ( v6 )
-      *((_BYTE *)v6 + 10) = 1;
+      v6[10] = 1;
     v7 = *(_QWORD *)(a1 + 1608);
     v10 = a2[1] & (-1LL << (*(_DWORD *)(v7 + 4) & 0x1F));
     for ( i = (_QWORD *)(*(_QWORD *)(v7 + 8)

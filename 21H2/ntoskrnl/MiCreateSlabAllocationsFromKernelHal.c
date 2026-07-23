@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreateSlabAllocationsFromKernelHal @ 0x140A504E4
+ * XREFs of MiCreateSlabAllocationsFromKernelHal @ 0x140A514E4
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiActOnLargeKernelHalPages @ 0x1407A19EC (MiActOnLargeKernelHalPages.c)
+ *     MiActOnLargeKernelHalPages @ 0x1407A1BEC (MiActOnLargeKernelHalPages.c)
  */
 
 __int64 MiCreateSlabAllocationsFromKernelHal()
@@ -14,19 +14,19 @@ __int64 MiCreateSlabAllocationsFromKernelHal()
   int v3; // ecx
 
   v0 = 0;
-  for ( i = &qword_140C4CD18; ; ++i )
+  for ( i = &qword_140C4CD58; ; ++i )
   {
     result = MiActOnLargeKernelHalPages(
-               *(_QWORD *)(*i + 48),
-               (__int64 (__fastcall *)(unsigned __int64, __int64))MiCreateKernelHalSlabRange);
+               *(char **)(*i + 48),
+               (__int64 (__fastcall *)(char *, char *))MiCreateKernelHalSlabRange);
     if ( (int)result < 0 )
       break;
     if ( ++v0 )
     {
-      v3 = dword_140C50D84 | 0x10;
-      dword_140C50D84 |= 0x10u;
+      v3 = dword_140C50DC4 | 0x10;
+      dword_140C50DC4 |= 0x10u;
       if ( (MiFlags & 0x8000) != 0 )
-        dword_140C50D84 = v3 | 8;
+        dword_140C50DC4 = v3 | 8;
       return 0LL;
     }
   }

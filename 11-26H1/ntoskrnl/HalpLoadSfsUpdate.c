@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpLoadSfsUpdate @ 0x140786170
+ * XREFs of HalpLoadSfsUpdate @ 0x140788CA0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
  */
 
 __int64 __fastcall HalpLoadSfsUpdate(__int64 a1)

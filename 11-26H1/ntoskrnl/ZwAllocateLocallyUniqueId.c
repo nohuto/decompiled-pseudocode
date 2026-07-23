@@ -1,16 +1,14 @@
 /*
- * XREFs of ZwAllocateLocallyUniqueId @ 0x140724250
+ * XREFs of ZwAllocateLocallyUniqueId @ 0x140728E20
  * Callers:
- *     DifZwAllocateLocallyUniqueIdWrapper @ 0x140699590 (DifZwAllocateLocallyUniqueIdWrapper.c)
+ *     DifZwAllocateLocallyUniqueIdWrapper @ 0x14069D170 (DifZwAllocateLocallyUniqueIdWrapper.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwAllocateLocallyUniqueId(PLUID Luid)
 {
-  __int64 v1; // rdx
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Luid, v1);
+  return KiServiceInternal(Luid);
 }

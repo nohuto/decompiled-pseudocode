@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMaximumCommitmentAvailable @ 0x1400EF594
+ * XREFs of MiMaximumCommitmentAvailable @ 0x1400EF614
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066E19C (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */

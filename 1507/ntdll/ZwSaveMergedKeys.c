@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSaveMergedKeys()
+NTSTATUS __cdecl ZwSaveMergedKeys(HANDLE HighPrecedenceKeyHandle, HANDLE LowPrecedenceKeyHandle, HANDLE FileHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 361LL;
+  result = 361;
   __asm { syscall; Low latency system call }
   return result;
 }

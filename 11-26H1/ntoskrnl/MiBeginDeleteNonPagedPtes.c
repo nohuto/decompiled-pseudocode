@@ -1,12 +1,12 @@
 /*
- * XREFs of MiBeginDeleteNonPagedPtes @ 0x140363C8C
+ * XREFs of MiBeginDeleteNonPagedPtes @ 0x140365A2C
  * Callers:
- *     MiClearNonPagedPtes @ 0x1403633B8 (MiClearNonPagedPtes.c)
- *     MiClearNonPagedPtesSlow @ 0x140363BD0 (MiClearNonPagedPtesSlow.c)
+ *     MiClearNonPagedPtes @ 0x140365158 (MiClearNonPagedPtes.c)
+ *     MiClearNonPagedPtesSlow @ 0x140365970 (MiClearNonPagedPtesSlow.c)
  * Callees:
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 *__fastcall MiBeginDeleteNonPagedPtes(__int64 *a1, __int64 a2, __int64 a3, char a4, __int64 a5, __int64 a6)

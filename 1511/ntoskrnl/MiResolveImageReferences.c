@@ -43,7 +43,7 @@ __int64 __fastcall MiResolveImageReferences(
   int ImportDll; // edi
   __int64 v14; // rax
   unsigned int v15; // eax
-  const char *v16; // rsi
+  const CHAR *v16; // rsi
   ULONG v17; // esi
   PVOID *v18; // rdi
   BOOLEAN v19; // al
@@ -66,7 +66,7 @@ __int64 __fastcall MiResolveImageReferences(
   int v37; // [rsp+A8h] [rbp-21h] BYREF
   const wchar_t *v38; // [rsp+B0h] [rbp-19h]
   char v39; // [rsp+B8h] [rbp-11h] BYREF
-  STRING DestinationString; // [rsp+C0h] [rbp-9h] BYREF
+  _STRING DestinationString; // [rsp+C0h] [rbp-9h] BYREF
 
   v5 = a5;
   *(_QWORD *)&UnicodeString.MaximumLength = 0LL;

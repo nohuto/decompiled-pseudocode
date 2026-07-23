@@ -9,7 +9,7 @@
  *     MiPhysicalPoolCheck @ 0x1401673E8 (MiPhysicalPoolCheck.c)
  */
 
-struct _SLIST_ENTRY *__fastcall MiFindContiguousMemoryInPool(
+_SLIST_ENTRY *__fastcall MiFindContiguousMemoryInPool(
         unsigned __int64 a1,
         unsigned __int64 a2,
         __int64 a3,
@@ -18,12 +18,12 @@ struct _SLIST_ENTRY *__fastcall MiFindContiguousMemoryInPool(
 {
   unsigned __int64 v7; // rbx
   unsigned int v8; // ebp
-  union _SLIST_HEADER *v9; // rdi
+  _SLIST_HEADER *v9; // rdi
   unsigned __int64 Region; // rax
   unsigned __int64 v12; // rcx
   __int64 v13; // rax
   __int64 v14; // rax
-  struct _SLIST_ENTRY *v15; // rsi
+  _SLIST_ENTRY *v15; // rsi
   int v16; // [rsp+40h] [rbp-48h] BYREF
   unsigned __int64 v17; // [rsp+48h] [rbp-40h]
   unsigned __int64 v18; // [rsp+50h] [rbp-38h]
@@ -61,11 +61,11 @@ struct _SLIST_ENTRY *__fastcall MiFindContiguousMemoryInPool(
   v20 = 0;
   v13 = MiScanNonPagedPoolVa(v7, a5, 0LL, (__int64)&v16);
   if ( v13 != -1 )
-    return (struct _SLIST_ENTRY *)(v9[20].Region + (v13 << 12));
+    return (_SLIST_ENTRY *)(v9[20].Region + (v13 << 12));
   v14 = MiExpandNonPagedPool(512, v7, v8, 0xFFFFFFFFFFFFFFFFuLL, 1, &v21);
   if ( v14 == -1 )
     return 0LL;
-  v15 = (struct _SLIST_ENTRY *)(v9[20].Region + (v14 << 12));
+  v15 = (_SLIST_ENTRY *)(v9[20].Region + (v14 << 12));
   if ( MiPhysicalPoolCheck(0, v14, v7, v7, v17, v18, v19, v8) == -1 )
   {
     MiFreePoolPages(v15, v7 << 12, 0);

@@ -8,5 +8,5 @@
 
 BOOLEAN __stdcall PsIsSystemThread(PETHREAD Thread)
 {
-  return (Thread->MiscFlags & 0x400) != 0;
+  return (*((_DWORD *)Thread + 29) & 0x400) != 0;
 }

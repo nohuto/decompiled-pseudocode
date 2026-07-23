@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRunMaximumIrpWorkers @ 0x1403B7600
+ * XREFs of PopRunMaximumIrpWorkers @ 0x1403C1500
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PopCreateDynamicIrpWorker @ 0x1403B64AC (PopCreateDynamicIrpWorker.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PopCreateDynamicIrpWorker @ 0x1403C03AC (PopCreateDynamicIrpWorker.c)
  */
 
 int PopRunMaximumIrpWorkers()
@@ -25,13 +25,11 @@ int PopRunMaximumIrpWorkers()
   Object[1] = 0;
   Object[3] = 0;
   v10 = 0;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
-  PopWeakChargerLock.WaitBlockFill6[72] = 0;
-  v0 = (unsigned int)(15
-                    - *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[84]
-                    - *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[80]);
-  *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[84] += v0;
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
+  ExAcquireFastMutex(&PopIrpWorkerMutex);
+  PopCreateIrpWorkerAllowed = 0;
+  v0 = (unsigned int)(15 - PopIrpWorkerPendingCount - PopIrpWorkerCount);
+  PopIrpWorkerPendingCount += v0;
+  KeReleaseGuardedMutex(&PopIrpWorkerMutex);
   Object[0] = 5;
   v8[1] = v8;
   v1 = 0;

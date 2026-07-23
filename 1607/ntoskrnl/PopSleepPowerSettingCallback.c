@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSleepPowerSettingCallback @ 0x14056D878
+ * XREFs of PopSleepPowerSettingCallback @ 0x14056DDB8
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopInitSIdle @ 0x140544AF4 (PopInitSIdle.c)
- *     PopApplyPolicy @ 0x14056DFD8 (PopApplyPolicy.c)
+ *     PopInitSIdle @ 0x140545034 (PopInitSIdle.c)
+ *     PopApplyPolicy @ 0x14056E518 (PopApplyPolicy.c)
  */
 
 __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
@@ -84,7 +84,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
   {
     v21 = *a2;
     HIDWORD(v30) = *a2;
-    if ( HIBYTE(word_140303F64) || byte_140303F63 || (_BYTE)word_140303F64 )
+    if ( HIBYTE(word_140303EA4) || byte_140303EA3 || (_BYTE)word_140303EA4 )
       LODWORD(v30) = 2;
     v6 = 0;
   }
@@ -99,11 +99,11 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
   {
     v27 = *a2;
     DWORD2(v32) = *a2;
-    if ( !v21 && v27 && byte_140303F66 )
+    if ( !v21 && v27 && byte_140303EA6 )
     {
       v28 = v30;
       v22 = 3LL;
-      if ( byte_140303F67 )
+      if ( byte_140303EA7 )
         v28 = 3;
       LODWORD(v30) = v28;
     }
@@ -119,7 +119,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
     v23 = *(_QWORD *)GUID_HIBERNATE_FASTS4_POLICY.Data4 - a1[1];
   if ( !v23 && a3 == 4 && a2 )
   {
-    byte_140303E1C = *a2 == 0;
+    byte_140303D5C = *a2 == 0;
     v6 = 0;
   }
   v24 = *(_QWORD *)&GUID_ALLOW_STANDBY_STATES.Data1 - *a1;
@@ -127,7 +127,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
     v24 = *(_QWORD *)GUID_ALLOW_STANDBY_STATES.Data4 - a1[1];
   if ( !v24 && a3 == 4 && a2 )
   {
-    byte_140303E1D = *a2 == 0;
+    byte_140303D5D = *a2 == 0;
     v6 = 0;
   }
   v25 = *(_QWORD *)&GUID_UNATTEND_SLEEP_TIMEOUT.Data1 - *a1;
@@ -135,7 +135,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
     v25 = *(_QWORD *)GUID_UNATTEND_SLEEP_TIMEOUT.Data4 - a1[1];
   if ( !v25 && a3 == 4 && a2 )
   {
-    dword_140303E20 = *a2;
+    dword_140303D60 = *a2;
     PopInitSIdle();
     v6 = 0;
   }

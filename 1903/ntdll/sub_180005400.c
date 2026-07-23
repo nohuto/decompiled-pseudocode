@@ -16,12 +16,12 @@ __int64 __fastcall sub_180005400(__int64 a1)
   unsigned int v5; // r8d
   unsigned int v6; // ebx
   unsigned int v8; // edx
-  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = *(_DWORD *)(a1 + 204);
   v3 = *(_DWORD *)(a1 + 216);
-  v10 = 0LL;
+  BaseAddress = 0LL;
   if ( v3 < 2 * v1 )
     v3 = 2 * v1 + 22;
   v4 = *(_DWORD *)(a1 + 220);
@@ -51,15 +51,15 @@ __int64 __fastcall sub_180005400(__int64 a1)
     *(_DWORD *)(a1 + 216) = v4;
     v3 = v4;
   }
-  v9 = v3 * *(_DWORD *)(a1 + 208);
-  if ( (int)ZwAllocateVirtualMemory(-1LL, &v10, 0LL, &v9, 0x2000, 4) >= 0 )
+  RegionSize = v3 * *(_DWORD *)(a1 + 208);
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, 4u) >= 0 )
   {
     v6 = *(_DWORD *)(a1 + 220);
-    *(_QWORD *)(a1 + 424) = v10;
+    *(_QWORD *)(a1 + 424) = BaseAddress;
     if ( (unsigned int)sub_18000550C(a1, v6) == v6 )
       return 0LL;
-    v9 = 0LL;
-    ZwFreeVirtualMemory(-1LL, a1 + 424, &v9, 0x8000LL);
+    RegionSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(a1 + 424), &RegionSize, 0x8000u);
     *(_QWORD *)(a1 + 424) = 0LL;
   }
   return 8LL;

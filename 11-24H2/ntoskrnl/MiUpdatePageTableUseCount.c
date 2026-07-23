@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdatePageTableUseCount @ 0x1403E3650
+ * XREFs of MiUpdatePageTableUseCount @ 0x1403D1B50
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x14021D340 (MiCompletePrivateZeroFault.c)
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiExpandSharedZeroCluster @ 0x1402E548C (MiExpandSharedZeroCluster.c)
- *     MiZeroFault @ 0x1402FEA50 (MiZeroFault.c)
+ *     MiCompletePrivateZeroFault @ 0x14024A090 (MiCompletePrivateZeroFault.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiZeroFault @ 0x1403091D0 (MiZeroFault.c)
+ *     MiExpandSharedZeroCluster @ 0x14034162C (MiExpandSharedZeroCluster.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 unsigned __int64 __fastcall MiUpdatePageTableUseCount(unsigned __int64 a1, int a2)

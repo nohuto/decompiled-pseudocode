@@ -76,11 +76,11 @@ __int64 IopXxxControlFile(
   int v21; // ebx
   ULONG_PTR v22; // rdi
   struct _DMA_ADAPTER *v23; // r13
-  unsigned __int8 v24; // al
+  char v24; // al
   struct _KPROCESS *v25; // rax
   int v26; // eax
   _DWORD *v27; // rbx
-  bool v28; // si
+  char v28; // si
   struct _KTHREAD *CurrentThread; // rax
   __int64 v30; // rbx
   __int64 v31; // rax
@@ -110,7 +110,7 @@ __int64 IopXxxControlFile(
   struct _IRP *PoolWithQuota_0; // rax
   struct _DMA_ADAPTER *v56; // r8
   _DWORD *p_ThreadListEntry; // rax
-  unsigned __int8 v58; // [rsp+50h] [rbp-F8h]
+  char v58; // [rsp+50h] [rbp-F8h]
   char v59; // [rsp+51h] [rbp-F7h]
   char IsSandboxedToken; // [rsp+52h] [rbp-F6h]
   char v61; // [rsp+53h] [rbp-F5h]
@@ -312,7 +312,7 @@ LABEL_57:
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     v30 = *(_QWORD *)&DmaAdapter[1];
-    v31 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[1] + 128LL, 0LL, 0LL);
+    v31 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[1] + 128LL, 0LL, 0);
     LOBYTE(DmaAdapter[0]) = 0;
     if ( _InterlockedExchange((volatile __int32 *)(v30 + 116), 1) )
     {
@@ -546,7 +546,7 @@ LABEL_57:
         Mdl = IoAllocateMdl(Address, v18, 0, 1u, v47);
         v47->MdlAddress = Mdl;
         if ( !Mdl )
-          RtlRaiseStatus(0xC000009A);
+          RtlRaiseStatus(-1073741670);
         LOBYTE(v9) = v63 != 1;
         IopProbeAndLockPages(
           (__int64)Mdl,

@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 NtQuerySymbolicLinkObject()
+NTSTATUS __cdecl NtQuerySymbolicLinkObject(HANDLE LinkHandle, PUNICODE_STRING LinkTarget, PULONG ReturnedLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 324LL;
+  result = 324;
   __asm { syscall; Low latency system call }
   return result;
 }

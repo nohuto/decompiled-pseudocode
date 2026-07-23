@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInternHashBucketsAllocate @ 0x140762A04
+ * XREFs of RtlpInternHashBucketsAllocate @ 0x140763BF4
  * Callers:
- *     RtlInternTableIntern @ 0x14069EE5C (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x1406A011C (RtlInternTableIntern.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpInternHashBucketsAllocate(__int64 a1, __int64 a2)

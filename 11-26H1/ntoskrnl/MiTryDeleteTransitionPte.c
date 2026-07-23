@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTryDeleteTransitionPte @ 0x14033E48C
+ * XREFs of MiTryDeleteTransitionPte @ 0x14034050C
  * Callers:
- *     MiDeleteMergedPte @ 0x14033C800 (MiDeleteMergedPte.c)
- *     MiSectionProtectTransitionPte @ 0x14033EF60 (MiSectionProtectTransitionPte.c)
+ *     MiDeleteMergedPte @ 0x14033E880 (MiDeleteMergedPte.c)
+ *     MiSectionProtectTransitionPte @ 0x140340FE0 (MiSectionProtectTransitionPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402AA2EC (MiLockSpecialPurposeMemoryCachedPage.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiDeleteTransitionPte @ 0x14033E7F0 (MiDeleteTransitionPte.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402A96FC (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiDeleteTransitionPte @ 0x140340870 (MiDeleteTransitionPte.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiTryDeleteTransitionPte(ULONG_PTR BugCheckParameter2, int a2)
@@ -82,14 +82,14 @@ __int64 __fastcall MiTryDeleteTransitionPte(ULONG_PTR BugCheckParameter2, int a2
       }
       if ( (v4 & 0x800) == 0 )
         break;
-      if ( (v4 & 1) == 0 && (!v4 || !qword_140E2D740 || (qword_140E2D740 & v4) != 0) )
+      if ( (v4 & 1) == 0 && (!v4 || !qword_140E2D8C0 || (qword_140E2D8C0 & v4) != 0) )
       {
         v5 = v4;
-        if ( qword_140E2D740 && (v4 & 0x10) == 0 )
-          v5 = qword_140E2D748 & v4;
+        if ( qword_140E2D8C0 && (v4 & 0x10) == 0 )
+          v5 = qword_140E2D8C8 & v4;
         v6 = (v5 >> 12) & 0xFFFFFFFFFFLL;
         v7 = 48 * v6 - 0x220000000000LL;
-        if ( v6 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v6 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+        if ( v6 <= qword_140E2D920 && ((*(_QWORD *)(48 * v6 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
         {
           v22 = 0;
           while ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 24), 0x3FuLL) )
@@ -121,7 +121,7 @@ __int64 __fastcall MiTryDeleteTransitionPte(ULONG_PTR BugCheckParameter2, int a2
           }
           if ( v8 == v4 )
           {
-            if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) == 0
+            if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) == 0
               || (v7 = MiLockSpecialPurposeMemoryCachedPage(v7, 0)) != 0 )
             {
               if ( (*(_QWORD *)(v7 + 8) | 0x8000000000000000uLL) != BugCheckParameter2

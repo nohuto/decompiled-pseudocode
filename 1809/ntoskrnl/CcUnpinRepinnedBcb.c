@@ -1,5 +1,5 @@
 /*
- * XREFs of CcUnpinRepinnedBcb @ 0x140269DD0
+ * XREFs of CcUnpinRepinnedBcb @ 0x140269FC0
  * Callers:
  *     <none>
  * Callees:
@@ -8,13 +8,13 @@
  *     CcDereferenceSharedCacheMapFileObject @ 0x140022EF8 (CcDereferenceSharedCacheMapFileObject.c)
  *     CcSetDirtyPinnedData @ 0x1400231C0 (CcSetDirtyPinnedData.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14007DF6C (CcReferenceSharedCacheMapFileObject.c)
- *     MmSetAddressRangeModifiedEx @ 0x140086780 (MmSetAddressRangeModifiedEx.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     CcIsFatalWriteError @ 0x14012D9B0 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushSection @ 0x1401874C0 (CcPerfLogFlushSection.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x14007DF5C (CcReferenceSharedCacheMapFileObject.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140086770 (MmSetAddressRangeModifiedEx.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     CcIsFatalWriteError @ 0x14012DA80 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushSection @ 0x140187600 (CcPerfLogFlushSection.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x140269BA0 (CcPostDeferredWrites.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -43,7 +43,7 @@ void __stdcall CcUnpinRepinnedBcb(PVOID Bcb, BOOLEAN WriteThrough, PIO_STATUS_BL
       LOBYTE(v10) = 1;
       CcUnpinFileDataEx((char *)Bcb, v10, 2);
       v11 = CcReferenceSharedCacheMapFileObject(v6);
-      if ( (xmmword_140541350 & 0x20000) != 0 )
+      if ( (xmmword_140542350 & 0x20000) != 0 )
         CcPerfLogFlushSection(0LL, v6, (__int64 *)Bcb + 1, *((_DWORD *)Bcb + 1), 1);
       MmFlushSection(*(_QWORD *)(v11 + 40), (va_list)Bcb + 8, *((unsigned int *)Bcb + 1));
       CcDereferenceSharedCacheMapFileObject(v6, v11);

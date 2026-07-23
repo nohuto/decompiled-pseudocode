@@ -1,25 +1,24 @@
 /*
- * XREFs of IoReuseIrp @ 0x140268650
+ * XREFs of IoReuseIrp @ 0x140267BC0
  * Callers:
- *     PopAllocateIrp @ 0x14026F82C (PopAllocateIrp.c)
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
- *     PopPrepareIoctl @ 0x140AFBC84 (PopPrepareIoctl.c)
- *     PopBatteryQueryStatus @ 0x140AFEBC0 (PopBatteryQueryStatus.c)
- *     PopBatteryInitialize @ 0x140B0831C (PopBatteryInitialize.c)
- *     PopBatteryQueryEstimatedTime @ 0x140B22040 (PopBatteryQueryEstimatedTime.c)
- *     PopFanWorker @ 0x140B348C0 (PopFanWorker.c)
- *     PopBatteryReadTag @ 0x140B3D420 (PopBatteryReadTag.c)
- *     PopBatteryWaitTag @ 0x140B625D0 (PopBatteryWaitTag.c)
+ *     PopAllocateIrp @ 0x14026ED9C (PopAllocateIrp.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
+ *     PopPrepareIoctl @ 0x140AFD904 (PopPrepareIoctl.c)
+ *     PopBatteryQueryStatus @ 0x140B00C30 (PopBatteryQueryStatus.c)
+ *     PopBatteryQueryEstimatedTime @ 0x140B24440 (PopBatteryQueryEstimatedTime.c)
+ *     PopFanWorker @ 0x140B36AD0 (PopFanWorker.c)
+ *     PopBatteryReadTag @ 0x140B3F4F0 (PopBatteryReadTag.c)
+ *     PopBatteryWaitTag @ 0x140B65670 (PopBatteryWaitTag.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     IopFreeIrpExtension @ 0x140268930 (IopFreeIrpExtension.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     IoSetActivityIdIrp @ 0x140482190 (IoSetActivityIdIrp.c)
- *     IopIsActivityTracingEventEnabled @ 0x1404EBB28 (IopIsActivityTracingEventEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VfIoInitializeIrp @ 0x140C45954 (VfIoInitializeIrp.c)
- *     IovpLogStackTrace @ 0x140C45DF4 (IovpLogStackTrace.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     IopFreeIrpExtension @ 0x140267EA0 (IopFreeIrpExtension.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     IoSetActivityIdIrp @ 0x14047BB00 (IoSetActivityIdIrp.c)
+ *     IopIsActivityTracingEventEnabled @ 0x1404E5108 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VfIoInitializeIrp @ 0x140C4B964 (VfIoInitializeIrp.c)
+ *     IovpLogStackTrace @ 0x140C4BE04 (IovpLogStackTrace.c)
  */
 
 void __stdcall IoReuseIrp(PIRP Irp, NTSTATUS Iostatus)
@@ -89,7 +88,15 @@ void __stdcall IoReuseIrp(PIRP Irp, NTSTATUS Iostatus)
         ActivityId = 0LL;
         EtwActivityIdControl(3u, &ActivityId);
         if ( (unsigned __int8)IopIsActivityTracingEventEnabled(&IoTrace_KernelIo_ReuseIrp) )
-          EtwWriteEx(IoTraceHandle, &IoTrace_KernelIo_ReuseIrp, 0LL, 0, (LPCGUID)(v9 + 24), &ActivityId, 0, 0LL);
+          EtwWriteEx(
+            IopPerfIoTrackingLock.NpxState,
+            &IoTrace_KernelIo_ReuseIrp,
+            0LL,
+            0,
+            (LPCGUID)(v9 + 24),
+            &ActivityId,
+            0,
+            0LL);
         IoSetActivityIdIrp(Irp, &ActivityId);
       }
     }

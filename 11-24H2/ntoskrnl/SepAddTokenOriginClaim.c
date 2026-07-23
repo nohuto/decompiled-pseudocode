@@ -1,17 +1,17 @@
 /*
- * XREFs of SepAddTokenOriginClaim @ 0x140A97DE0
+ * XREFs of SepAddTokenOriginClaim @ 0x140A94630
  * Callers:
- *     SeDuplicateTokenWithPredictedClaims @ 0x140792B0C (SeDuplicateTokenWithPredictedClaims.c)
- *     SeSubProcessToken @ 0x140A30C24 (SeSubProcessToken.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x140AAF038 (SeDuplicateTokenAndAddOriginClaim.c)
+ *     SeDuplicateTokenWithPredictedClaims @ 0x140792ADC (SeDuplicateTokenWithPredictedClaims.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x140AA9F14 (SeDuplicateTokenAndAddOriginClaim.c)
+ *     SeSubProcessToken @ 0x140AD660C (SeSubProcessToken.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140357454 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlUShortAdd @ 0x14046B240 (RtlUShortAdd.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403B8BCC (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlUShortAdd @ 0x140463CC0 (RtlUShortAdd.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepAddTokenOriginClaim(_DWORD *a1, int a2, __int64 a3, __int64 a4)
@@ -22,7 +22,7 @@ __int64 __fastcall SepAddTokenOriginClaim(_DWORD *a1, int a2, __int64 a3, __int6
   __int64 v8; // rcx
   const UNICODE_STRING *v9; // rdi
   __int16 v10; // cx
-  USHORT v11; // bx
+  ULONG_PTR v11; // rbx
   wchar_t *Pool2; // rax
   __int64 v13; // r9
   __int64 v14; // rcx
@@ -108,7 +108,7 @@ LABEL_12:
           if ( DestinationString.Buffer )
             ExFreePoolWithTag(DestinationString.Buffer, 0x434F6553u);
           DestinationString.MaximumLength = v11;
-          Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL);
+          Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL, v11, 0x434F6553u);
           DestinationString.Buffer = Pool2;
           if ( !Pool2 )
           {

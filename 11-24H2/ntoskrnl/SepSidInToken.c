@@ -1,18 +1,18 @@
 /*
- * XREFs of SepSidInToken @ 0x1403624E0
+ * XREFs of SepSidInToken @ 0x1403CB430
  * Callers:
- *     SepNormalAccessCheck @ 0x140344500 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x140362354 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x14036292C (SepNormalAccessCheckEx.c)
- *     SepMaximumAccessCheck @ 0x140363250 (SepMaximumAccessCheck.c)
- *     SeMaximumAuditMask @ 0x14049EEA8 (SeMaximumAuditMask.c)
- *     AuthzBasepMemberOf @ 0x1404D8F04 (AuthzBasepMemberOf.c)
- *     SeExamineSacl @ 0x140889B70 (SeExamineSacl.c)
- *     SeTokenIsAdmin @ 0x1408E91E0 (SeTokenIsAdmin.c)
- *     SeTokenCanImpersonate @ 0x140910A30 (SeTokenCanImpersonate.c)
- *     SepExamineSaclEx @ 0x14091FD68 (SepExamineSaclEx.c)
+ *     SeMaximumAuditMask @ 0x140499CD8 (SeMaximumAuditMask.c)
+ *     AuthzBasepMemberOf @ 0x1404D2354 (AuthzBasepMemberOf.c)
+ *     SepMaximumAccessCheck @ 0x1404E8A30 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1404E9F90 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x1404EA720 (SepNormalAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x1404EB6BC (SepNormalAccessCheckEx.c)
+ *     SeTokenIsAdmin @ 0x14085AA10 (SeTokenIsAdmin.c)
+ *     SeExamineSacl @ 0x14088DA20 (SeExamineSacl.c)
+ *     SeTokenCanImpersonate @ 0x1408E8180 (SeTokenCanImpersonate.c)
+ *     SepExamineSaclEx @ 0x140A19D34 (SepExamineSaclEx.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 bool __fastcall SepSidInToken(__int64 a1, unsigned __int8 *a2, unsigned __int8 *a3, char a4, char a5, char a6)

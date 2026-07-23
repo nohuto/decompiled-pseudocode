@@ -173,7 +173,7 @@ LABEL_35:
       }
       byte_140C23EF6 = v19[0];
       BYTE8(PopCapabilities) = 1;
-      if ( !(_DWORD)InitSafeBootMode )
+      if ( !InitSafeBootMode )
         byte_140C23EF2 = 1;
       if ( (BYTE8(PopBsdPowerTransitionAtBoot) & 1) == 0 )
         PopClearHiberFileSignature();

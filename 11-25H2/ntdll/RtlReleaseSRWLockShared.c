@@ -89,14 +89,14 @@
  *     ZwAlertThreadByThreadIdEx @ 0x180164050 (ZwAlertThreadByThreadIdEx.c)
  */
 
-__int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
   signed __int64 v2; // rax
   signed __int64 v3; // rcx
-  __int64 result; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rdi
-  _BYTE *v7; // rbx
+  char *SchedulerSharedDataSlot; // rdx
+  unsigned int v5; // eax
+  unsigned __int64 v6; // rdi
+  char *v7; // rbx
   signed __int64 v8; // r8
   bool v9; // zf
   signed __int64 v10; // rax
@@ -106,7 +106,7 @@ __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
   __int64 v14; // rax
   signed __int64 v15; // rdx
   signed __int64 v16; // rax
-  volatile signed __int64 *v17; // rsi
+  PRTL_SRWLOCK v17; // rsi
   _QWORD *v18; // r9
   __int64 v19; // r8
   __int64 v20; // rax
@@ -115,20 +115,20 @@ __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
   __int64 v23; // rcx
   signed __int64 v24; // rax
   _QWORD *v25; // rax
-  _QWORD v26[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD ThreadInformation[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = _InterlockedCompareExchange64(a1, 0LL, 17LL);
+  v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 17LL);
   v3 = v2;
   if ( v2 == 17 )
     goto LABEL_2;
   if ( (v2 & 1) == 0 )
-    RtlRaiseStatus(3221226084LL);
+    RtlRaiseStatus(-1073741212);
   while ( (v3 & 2) == 0 )
   {
     v8 = 0LL;
     if ( (v3 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
       v8 = v3 - 16;
-    v10 = _InterlockedCompareExchange64(a1, v8, v3);
+    v10 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v8, v3);
     v9 = v3 == v10;
     v3 = v10;
     if ( v9 )
@@ -152,19 +152,19 @@ __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
     if ( (v3 & 4) != 0 || (v14 = v13 + 4, (v3 & 2) == 0) )
       v14 = v13;
     v15 = v14 + v3;
-    v16 = _InterlockedCompareExchange64(a1, v14 + v3, v3);
+    v16 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v14 + v3, v3);
     if ( v3 == v16 )
       break;
     v3 = v16;
   }
   if ( (v3 & 6) == 2 )
   {
-    v17 = a1;
+    v17 = SRWLock;
     while ( 1 )
     {
       while ( (v15 & 1) != 0 )
       {
-        v24 = _InterlockedCompareExchange64(a1, v15 - 4, v15);
+        v24 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v15 - 4, v15);
         v9 = v15 == v24;
         v15 = v24;
         if ( v9 )
@@ -192,7 +192,7 @@ __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
           break;
       }
       v17 = 0LL;
-      v21 = _InterlockedCompareExchange64(a1, 0LL, v15);
+      v21 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, v15);
       v9 = v15 == v21;
       v15 = v21;
       if ( v9 )
@@ -200,7 +200,7 @@ __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
     }
     *(_QWORD *)((v15 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v20;
     *(_QWORD *)(v19 + 16) = 0LL;
-    _InterlockedAnd64(a1, 0xFFFFFFFFFFFFFFFBuLL);
+    _InterlockedAnd64((volatile signed __int64 *)SRWLock, 0xFFFFFFFFFFFFFFFBuLL);
     do
     {
 LABEL_35:
@@ -214,32 +214,30 @@ LABEL_35:
     while ( v22 );
   }
 LABEL_2:
-  result = (__int64)NtCurrentTeb();
-  v5 = *(_QWORD *)(result + 6224);
-  if ( v5 )
+  SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
+  if ( SchedulerSharedDataSlot )
   {
-    result = 0LL;
-    v6 = (unsigned __int64)a1 & 0x7FFFFFFFFFFFFFFCLL;
-    while ( (unsigned int)result < 8 )
+    v5 = 0;
+    v6 = (unsigned __int64)SRWLock & 0x7FFFFFFFFFFFFFFCLL;
+    while ( v5 < 8 )
     {
-      v7 = (_BYTE *)(v5 + 8LL * (unsigned int)result);
+      v7 = &SchedulerSharedDataSlot[8 * v5];
       if ( (*(_QWORD *)v7 & 0x7FFFFFFFFFFFFFFCLL) == v6 )
       {
         if ( v7 )
         {
           *v7 |= 2u;
-          if ( (char)v7[7] < 0 )
+          if ( v7[7] < 0 )
           {
-            v26[1] = 0LL;
-            v26[0] = (v7 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-            result = NtSetInformationThread(-2LL, 56LL, v26);
+            ThreadInformation[1] = 0LL;
+            ThreadInformation[0] = (v7 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+            NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, ThreadInformation, 0x10u);
           }
           *(_QWORD *)v7 = 0LL;
         }
-        return result;
+        return;
       }
-      result = (unsigned int)(result + 1);
+      ++v5;
     }
   }
-  return result;
 }

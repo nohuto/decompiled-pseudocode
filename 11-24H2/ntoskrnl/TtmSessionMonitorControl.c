@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmSessionMonitorControl @ 0x140903874
+ * XREFs of TtmSessionMonitorControl @ 0x14099DE24
  * Callers:
- *     PopControlMonitor @ 0x1409B7F80 (PopControlMonitor.c)
+ *     PopControlMonitor @ 0x14099E5D0 (PopControlMonitor.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     TtmiTerminalMonitorControl @ 0x14076FEC8 (TtmiTerminalMonitorControl.c)
- *     TtmiLogSessionMonitorControl @ 0x140903924 (TtmiLogSessionMonitorControl.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
- *     TtmpAcquireSessionById @ 0x140903BF4 (TtmpAcquireSessionById.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     TtmiTerminalMonitorControl @ 0x1407700E8 (TtmiTerminalMonitorControl.c)
+ *     TtmiLogSessionMonitorControl @ 0x14099DED4 (TtmiLogSessionMonitorControl.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
+ *     TtmpAcquireSessionById @ 0x14099E1A4 (TtmpAcquireSessionById.c)
  */
 
 __int64 __fastcall TtmSessionMonitorControl(unsigned int a1, unsigned int a2, unsigned int a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeterminePoolType @ 0x140243C10
+ * XREFs of MiDeterminePoolType @ 0x14020C710
  * Callers:
- *     MmFreePoolMemory @ 0x140243A40 (MmFreePoolMemory.c)
- *     MiGenerateAccessViolation @ 0x140246254 (MiGenerateAccessViolation.c)
+ *     MmFreePoolMemory @ 0x14020C540 (MmFreePoolMemory.c)
+ *     MiGenerateAccessViolation @ 0x1402FB178 (MiGenerateAccessViolation.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall MiDeterminePoolType(unsigned __int64 a1)
 
   if ( a1 < 0xFFFF800000000000uLL )
     return 0LL;
-  v1 = byte_140E389A8[((a1 >> 39) & 0x1FF) - 256];
+  v1 = byte_140E38AE8[((a1 >> 39) & 0x1FF) - 256];
   if ( v1 == 4 )
     return 64LL;
   result = 0LL;

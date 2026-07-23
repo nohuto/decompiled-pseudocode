@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpLookupFunctionEntryForStackWalks @ 0x1400A0410
+ * XREFs of RtlpLookupFunctionEntryForStackWalks @ 0x1400A0350
  * Callers:
- *     RtlpWalkFrameChain @ 0x14009EB90 (RtlpWalkFrameChain.c)
- *     RtlpSameFunction @ 0x140184F84 (RtlpSameFunction.c)
- *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
+ *     RtlpWalkFrameChain @ 0x14009EAD0 (RtlpWalkFrameChain.c)
+ *     RtlpSameFunction @ 0x1401850C4 (RtlpSameFunction.c)
+ *     PspGetSetContextInternal @ 0x140620940 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
- *     RtlpLookupUserFunctionTable @ 0x140133C98 (RtlpLookupUserFunctionTable.c)
- *     HvlQueryConnection @ 0x14017D060 (HvlQueryConnection.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpxLookupFunctionTable @ 0x1400A17F0 (RtlpxLookupFunctionTable.c)
+ *     RtlpLookupUserFunctionTable @ 0x140133D68 (RtlpLookupUserFunctionTable.c)
+ *     HvlQueryConnection @ 0x14017D1A0 (HvlQueryConnection.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(ULONG_PTR a1, __int64 a2)
@@ -33,10 +33,10 @@ unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(ULONG_PTR a1, __in
     {
       v5 = RtlpLookupUserFunctionTable(a1);
     }
-    else if ( a1 >= *(&xmmword_140558020 + 1) && a1 < *(&xmmword_140558020 + 1) + (unsigned int)qword_140558030 )
+    else if ( a1 >= *(&xmmword_140559020 + 1) && a1 < *(&xmmword_140559020 + 1) + (unsigned int)qword_140559030 )
     {
-      *(_OWORD *)a2 = *(_OWORD *)&xmmword_140558020;
-      *(_QWORD *)(a2 + 16) = qword_140558030;
+      *(_OWORD *)a2 = *(_OWORD *)&xmmword_140559020;
+      *(_QWORD *)(a2 + 16) = qword_140559030;
       v5 = *(_QWORD *)a2;
     }
     else

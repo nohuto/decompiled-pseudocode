@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryProcessorTopologyCount @ 0x140271630
+ * XREFs of HvlQueryProcessorTopologyCount @ 0x140271820
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

@@ -18,22 +18,22 @@
  *     wcslen @ 0x1801292B0 (wcslen.c)
  */
 
-__int64 __fastcall RtlInitUnicodeStringEx(__int64 a1, const wchar_t *a2)
+NTSTATUS __cdecl RtlInitUnicodeStringEx(PUNICODE_STRING DestinationString, PCWSTR SourceString)
 {
   size_t v3; // rax
-  __int16 v4; // ax
+  unsigned __int16 v4; // ax
 
-  *(_QWORD *)a1 = 0LL;
-  *(_QWORD *)(a1 + 8) = a2;
-  if ( !a2 )
-    return 0LL;
-  v3 = wcslen(a2);
+  *(_QWORD *)&DestinationString->Length = 0LL;
+  DestinationString->Buffer = (wchar_t *)SourceString;
+  if ( !SourceString )
+    return 0;
+  v3 = wcslen(SourceString);
   if ( v3 <= 0x7FFE )
   {
     v4 = 2 * v3;
-    *(_WORD *)a1 = v4;
-    *(_WORD *)(a1 + 2) = v4 + 2;
-    return 0LL;
+    DestinationString->Length = v4;
+    DestinationString->MaximumLength = v4 + 2;
+    return 0;
   }
-  return 3221225734LL;
+  return -1073741562;
 }

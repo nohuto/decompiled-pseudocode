@@ -1,9 +1,9 @@
 /*
- * XREFs of _ultoa_s @ 0x140151A58
+ * XREFs of _ultoa_s @ 0x140152018
  * Callers:
  *     <none>
  * Callees:
- *     xtoa_s @ 0x140151B78 (xtoa_s.c)
+ *     xtoa_s @ 0x140152138 (xtoa_s.c)
  */
 
 errno_t __cdecl ultoa_s(unsigned int Val, char *DstBuf, size_t Size, int Radix)

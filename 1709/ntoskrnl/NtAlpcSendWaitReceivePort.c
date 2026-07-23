@@ -14,20 +14,20 @@
  *     AlpcpTrackPortReferences @ 0x140596220 (AlpcpTrackPortReferences.c)
  */
 
-__int64 __fastcall NtAlpcSendWaitReceivePort(
-        HANDLE Handle,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        volatile void *Address,
-        __int64 a8)
+NTSTATUS __cdecl NtAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v13; // edi
+  ULONG v13; // edi
   unsigned __int8 v14; // r14
-  NTSTATUS v15; // esi
+  int v15; // esi
   PVOID v16; // rbx
   struct _KTHREAD *v18; // rax
   $B476B70DB57F76B110DA5B9238C3E934 *v20; // rcx
@@ -39,9 +39,9 @@ __int64 __fastcall NtAlpcSendWaitReceivePort(
   memset(v25, 0, sizeof(v25));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v13 = a2 & 0xFFFF0000;
+  v13 = Flags & 0xFFFF0000;
   v14 = KeGetCurrentThread()->gap0[10];
-  v15 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, v14, &Object, 0LL);
+  v15 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, v14, &Object, 0LL);
   if ( v15 >= 0 )
   {
     v16 = Object;
@@ -49,7 +49,7 @@ __int64 __fastcall NtAlpcSendWaitReceivePort(
       AlpcpTrackPortReferences(Object);
     if ( (v13 & 0x20000) != 0 )
     {
-      if ( a3 )
+      if ( SendMessageA )
       {
         if ( (v13 & 0x10000) != 0 )
         {
@@ -59,14 +59,21 @@ __int64 __fastcall NtAlpcSendWaitReceivePort(
         {
           v15 = -1073741584;
         }
-        else if ( a5 )
+        else if ( ReceiveMessage )
         {
           if ( (v13 & 0x100000) != 0 )
             v22 = 1;
           else
             v22 = v14;
           LOBYTE(v23) = v14;
-          v15 = AlpcpProcessSynchronousRequest((int)v16, a5, a6, Address, a8, v23, v22);
+          v15 = AlpcpProcessSynchronousRequest(
+                  (int)v16,
+                  (__int64)ReceiveMessage,
+                  (__int64)BufferLength,
+                  ReceiveMessageAttributes,
+                  (__int64)Timeout,
+                  v23,
+                  v22);
         }
         else
         {
@@ -82,11 +89,11 @@ __int64 __fastcall NtAlpcSendWaitReceivePort(
     {
       v25[0] = v16;
       LODWORD(v25[6]) = v13;
-      if ( !a3 )
+      if ( !SendMessageA )
       {
 LABEL_6:
-        if ( a5 )
-          v15 = AlpcpReceiveMessage(v25, a5, a6, Address, a8);
+        if ( ReceiveMessage )
+          v15 = AlpcpReceiveMessage(v25, ReceiveMessage, BufferLength, ReceiveMessageAttributes, Timeout);
         if ( _bittestandreset((signed __int32 *)&v25[6], 2u) )
         {
           AlpcpSignal((__int64)v25, 0);
@@ -103,7 +110,7 @@ LABEL_6:
       {
         LODWORD(v25[6]) = v13 | 4;
         memset(&v25[3], 0, 24);
-        v15 = AlpcpSendMessage(v25, a3, a4, v14);
+        v15 = AlpcpSendMessage(v25, SendMessageA, SendMessageAttributes, v14);
         if ( v15 >= 0 )
           goto LABEL_6;
       }
@@ -118,5 +125,5 @@ LABEL_9:
     if ( ($B476B70DB57F76B110DA5B9238C3E934 *)v20->ApcState.ApcListHead[0].Flink != v20 && !v18->SpecialApcDisable )
       KiCheckForKernelApcDelivery((__int64)v20);
   }
-  return (unsigned int)v15;
+  return v15;
 }

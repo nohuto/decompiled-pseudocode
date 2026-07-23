@@ -23,154 +23,150 @@
  *     sub_1800ED770 @ 0x1800ED770 (sub_1800ED770.c)
  */
 
-__int64 __fastcall RtlGetFileMUIPath(
-        unsigned int a1,
-        __int64 a2,
-        const WCHAR *a3,
-        int *a4,
-        void *a5,
-        __int64 a6,
-        unsigned __int64 *a7)
+NTSTATUS __cdecl RtlGetFileMUIPath(
+        ULONG Flags,
+        PCWSTR FilePath,
+        PWSTR Language,
+        PULONG LanguageLength,
+        PWSTR FileMUIPath,
+        PULONG FileMUIPathLength,
+        PULONGLONG Enumerator)
 {
   wchar_t *v8; // r9
-  unsigned __int64 v9; // rsi
-  __int64 v10; // rdi
-  __int64 v11; // r13
+  ULONGLONG v9; // rsi
+  ULONGLONG v10; // rdi
+  ULONGLONG v11; // r13
   const WCHAR *v12; // r14
-  int v13; // ebx
-  unsigned __int64 v14; // r14
-  int FullPathName_UEx; // eax
-  int v16; // ecx
-  unsigned __int64 v17; // rax
+  NTSTATUS ProcessRegistryInfo; // ebx
+  WCHAR *v14; // r14
+  NTSTATUS FullPathName_UEx; // eax
+  ULONG v16; // ecx
+  ULONGLONG v17; // rax
   __int16 v19; // r13
   int v20; // edi
-  __int64 v21; // rax
-  WCHAR *v22; // rax
-  int v23; // eax
-  unsigned __int64 v24; // r15
-  unsigned __int64 v25; // rcx
+  SIZE_T v21; // rax
+  PVOID v22; // rax
+  NTSTATUS v23; // eax
+  ULONGLONG v24; // r15
+  ULONGLONG v25; // rcx
   const WCHAR *k; // rbx
-  int v27; // r13d
+  const WCHAR *v27; // r13
   char v28; // al
   WCHAR *v29; // r13
   int *v30; // rdi
   unsigned __int64 Length; // rbx
   __int64 v32; // rax
   bool v33; // al
-  unsigned __int64 v34; // rcx
+  ULONGLONG v34; // rcx
   const WCHAR *j; // rbx
   __int64 v36; // rax
-  int v37; // r13d
+  const WCHAR *v37; // r13
   char v38; // al
   char v39; // r13
-  int v40; // eax
+  ULONG v40; // eax
   PCWSTR v41; // rcx
-  int v42; // eax
-  wchar_t *Heap; // rax
-  char v44; // al
+  NTSTATUS v42; // eax
+  PVOID v43; // rax
+  BOOLEAN v44; // al
   wchar_t *v45; // rbx
-  unsigned __int64 i; // rcx
+  ULONGLONG i; // rcx
   __int64 v47; // rax
-  int v48; // r12d
+  const WCHAR *v48; // r12
   int v49; // eax
   __int64 v50; // rax
-  __int64 v51; // rax
-  WCHAR *v52; // rax
-  int ThreadPreferredUILanguages; // eax
+  SIZE_T v51; // rax
+  PVOID v52; // rax
+  NTSTATUS ThreadPreferredUILanguages; // eax
   char v54; // bl
-  __int64 v55; // r11
+  ULONGLONG v55; // r11
   unsigned __int16 v56; // r8
-  unsigned __int64 v57; // rax
+  ULONGLONG v57; // rax
   __int64 v58; // rax
   char v59; // al
   char v60; // al
-  char v61; // al
+  BOOLEAN v61; // al
   __int64 v62; // rax
   bool v63; // [rsp+40h] [rbp-C0h]
   char v64; // [rsp+41h] [rbp-BFh]
-  _WORD v65[7]; // [rsp+42h] [rbp-BEh] BYREF
-  unsigned __int64 v66; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v67; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
-  int v69[2]; // [rsp+70h] [rbp-90h]
+  _BYTE v65[2]; // [rsp+42h] [rbp-BEh] BYREF
+  ULONG ReturnLength; // [rsp+44h] [rbp-BCh] BYREF
+  PVOID v67; // [rsp+48h] [rbp-B8h] BYREF
+  ULONGLONG v68; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG NumberOfLanguages; // [rsp+58h] [rbp-A8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
+  PCWSTR Heap; // [rsp+70h] [rbp-90h]
   wchar_t *String1; // [rsp+78h] [rbp-88h] BYREF
-  unsigned int v71; // [rsp+80h] [rbp-80h] BYREF
-  int v72[2]; // [rsp+88h] [rbp-78h] BYREF
-  void *v73; // [rsp+90h] [rbp-70h]
-  int v74; // [rsp+98h] [rbp-68h] BYREF
-  int v75; // [rsp+9Ch] [rbp-64h] BYREF
-  __int64 v76; // [rsp+A0h] [rbp-60h] BYREF
-  int v77[2]; // [rsp+A8h] [rbp-58h]
-  int *v78; // [rsp+B0h] [rbp-50h]
-  __int64 v79; // [rsp+B8h] [rbp-48h]
-  __int64 v80; // [rsp+C0h] [rbp-40h]
+  ULONG Value; // [rsp+80h] [rbp-80h] BYREF
+  PWSTR FilePart; // [rsp+88h] [rbp-78h] BYREF
+  void *v75; // [rsp+90h] [rbp-70h]
+  ULONG BytesRequired; // [rsp+98h] [rbp-68h] BYREF
+  DWORD Lcid; // [rsp+9Ch] [rbp-64h] BYREF
+  _QWORD v78[2]; // [rsp+A0h] [rbp-60h] BYREF
+  PULONG v79; // [rsp+B0h] [rbp-50h]
+  ULONGLONG v80; // [rsp+B8h] [rbp-48h]
+  __int64 v81; // [rsp+C0h] [rbp-40h]
   PCWSTR SourceString; // [rsp+C8h] [rbp-38h]
-  wchar_t *v82; // [rsp+D0h] [rbp-30h]
-  unsigned __int64 *v83; // [rsp+D8h] [rbp-28h]
-  char v84[8]; // [rsp+E0h] [rbp-20h] BYREF
-  char v85[8]; // [rsp+E8h] [rbp-18h] BYREF
-  int v86[4]; // [rsp+F0h] [rbp-10h] BYREF
-  int v87[4]; // [rsp+100h] [rbp+0h] BYREF
-  UNICODE_STRING v88; // [rsp+110h] [rbp+10h] BYREF
-  int v89[4]; // [rsp+120h] [rbp+20h] BYREF
-  WCHAR v90[4]; // [rsp+130h] [rbp+30h] BYREF
-  __int16 v91; // [rsp+138h] [rbp+38h]
+  PVOID BaseAddress; // [rsp+D0h] [rbp-30h]
+  PULONGLONG v84; // [rsp+D8h] [rbp-28h]
+  char v85[8]; // [rsp+E0h] [rbp-20h] BYREF
+  char v86[8]; // [rsp+E8h] [rbp-18h] BYREF
+  UNICODE_STRING Source; // [rsp+F0h] [rbp-10h] BYREF
+  UNICODE_STRING v88; // [rsp+100h] [rbp+0h] BYREF
+  _UNICODE_STRING String; // [rsp+110h] [rbp+10h] BYREF
+  UNICODE_STRING v90; // [rsp+120h] [rbp+20h] BYREF
+  WCHAR v91[4]; // [rsp+130h] [rbp+30h] BYREF
+  __int16 v92; // [rsp+138h] [rbp+38h]
 
-  v73 = a5;
-  *(_QWORD *)v77 = a6;
-  v78 = a4;
+  v75 = FileMUIPath;
+  v78[1] = FileMUIPathLength;
+  v79 = LanguageLength;
   v8 = 0LL;
-  SourceString = a3;
+  SourceString = Language;
   v9 = 0LL;
-  v10 = a1;
+  v10 = Flags;
   v11 = 0LL;
-  v83 = a7;
+  v84 = Enumerator;
   v12 = 0LL;
-  v66 = 0LL;
+  v68 = 0LL;
+  v81 = 0LL;
   v80 = 0LL;
-  v79 = 0LL;
-  LOBYTE(v65[0]) = 0;
-  *(_QWORD *)v90 = 0LL;
-  v91 = 0;
-  *(_QWORD *)&v65[3] = 0LL;
+  v65[0] = 0;
+  *(_QWORD *)v91 = 0LL;
+  v92 = 0;
+  v67 = 0LL;
   String1 = 0LL;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
-  v82 = 0LL;
-  *(_QWORD *)v69 = 0LL;
-  *(_QWORD *)v72 = 0LL;
-  v76 = 0LL;
-  if ( !a2 || !a7 )
+  BaseAddress = 0LL;
+  Heap = 0LL;
+  FilePart = 0LL;
+  v78[0] = 0LL;
+  if ( !FilePath || !Enumerator )
   {
-    v13 = -1073741811;
+    ProcessRegistryInfo = -1073741811;
     goto LABEL_63;
   }
-  v13 = RtlpCreateProcessRegistryInfo(&v76);
-  if ( v13 < 0 )
-    return (unsigned int)v13;
-  *(_QWORD *)v69 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 522LL);
-  v14 = *(_QWORD *)v69;
-  if ( !*(_QWORD *)v69 )
-    return (unsigned int)-1073741801;
-  FullPathName_UEx = RtlGetFullPathName_UEx(a2, 0x208u, *(__int64 *)v69, (__int64)v72, &v74);
+  ProcessRegistryInfo = RtlpCreateProcessRegistryInfo(v78);
+  if ( ProcessRegistryInfo < 0 )
+    return ProcessRegistryInfo;
+  Heap = (PCWSTR)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x20AuLL);
+  v14 = (WCHAR *)Heap;
+  if ( !Heap )
+    return -1073741801;
+  FullPathName_UEx = RtlGetFullPathName_UEx(FilePath, 0x208u, (PWSTR)Heap, &FilePart, &BytesRequired);
   v8 = 0LL;
   v16 = 0;
   if ( FullPathName_UEx >= 0 )
-    v16 = v74;
-  if ( (unsigned int)(v16 - 1) > 0x206
-    || !*(_QWORD *)v72
-    || *(_QWORD *)v72 <= *(_QWORD *)v69
-    || *(_QWORD *)v72 >= (unsigned __int64)(*(_QWORD *)v69 + 520LL) )
-  {
+    v16 = BytesRequired;
+  if ( v16 - 1 > 0x206 || !FilePart || FilePart <= Heap || FilePart >= Heap + 260 )
     goto LABEL_13;
-  }
-  *(_WORD *)(*(_QWORD *)v72 - 2LL) = 0;
-  v17 = *a7;
-  if ( *a7 )
+  *(FilePart - 1) = 0;
+  v17 = *Enumerator;
+  if ( *Enumerator )
   {
-    v24 = v66;
-    v55 = *a7 & 0xF;
-    v80 = v55;
+    v24 = v68;
+    v55 = *Enumerator & 0xF;
+    v81 = v55;
     v56 = v17 & 0xF;
     v57 = v17 >> 4;
     do
@@ -181,7 +177,7 @@ __int64 __fastcall RtlGetFileMUIPath(
         if ( v8 == (wchar_t *)2 )
         {
           v24 = v57 & 0xFFF;
-          v66 = v24;
+          v68 = v24;
         }
         else if ( v8 == (wchar_t *)3 )
         {
@@ -196,10 +192,10 @@ __int64 __fastcall RtlGetFileMUIPath(
       v8 = (wchar_t *)((char *)v8 + 1);
     }
     while ( (unsigned __int64)v8 < 4 );
-    v79 = v11;
+    v80 = v11;
     if ( (((unsigned __int16)v57 ^ v56) & 0xFFF) != 0 )
     {
-      v13 = -1073741776;
+      ProcessRegistryInfo = -1073741776;
     }
     else
     {
@@ -208,8 +204,8 @@ __int64 __fastcall RtlGetFileMUIPath(
         if ( (v11 & 0x20) != 0 )
           v20 = 2;
         else
-          v20 = (unsigned __int64)(v11 & 0x40 | 0x20) >> 5;
-        v12 = *(const WCHAR **)&v65[3];
+          v20 = (v11 & 0x40 | 0x20) >> 5;
+        v12 = (const WCHAR *)v67;
         v64 = v55 & 1;
         v63 = (v11 & 4) == 0;
         v8 = 0LL;
@@ -220,7 +216,7 @@ LABEL_32:
           {
             if ( !String1 )
             {
-              v59 = sub_1800ED3D0(*(_QWORD *)v69, v85, &String1);
+              v59 = sub_1800ED3D0(Heap, v86, &String1);
               v8 = 0LL;
               if ( !v59 )
                 v9 = v24;
@@ -228,8 +224,8 @@ LABEL_32:
             v39 = 0;
             if ( !v9 )
             {
-              v40 = *v78;
-              if ( *v78 )
+              v40 = *v79;
+              if ( *v79 )
               {
                 if ( SourceString )
                 {
@@ -247,33 +243,33 @@ LABEL_32:
                     if ( v63 )
                     {
                       RtlInitUnicodeString(&DestinationString, SourceString);
-                      v44 = RtlCultureNameToLCID(&DestinationString.Length, &v71);
+                      v44 = RtlCultureNameToLCID(&DestinationString, &Value);
                       v8 = 0LL;
                       if ( v44 )
                         v39 = 1;
                     }
                     else
                     {
-                      RtlInitUnicodeString(&v88, SourceString);
-                      v42 = RtlUnicodeStringToInteger(&v88, 16LL, &v71);
+                      RtlInitUnicodeString(&String, SourceString);
+                      v42 = RtlUnicodeStringToInteger(&String, 0x10u, &Value);
                       v8 = 0LL;
                       if ( v42 >= 0 )
                       {
-                        Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+                        v43 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
                         v8 = 0LL;
-                        v82 = Heap;
-                        if ( !Heap )
+                        BaseAddress = v43;
+                        if ( !v43 )
                         {
 LABEL_93:
-                          v12 = *(const WCHAR **)&v65[3];
+                          v12 = (const WCHAR *)v67;
                           goto LABEL_94;
                         }
-                        DestinationString.Buffer = Heap;
+                        DestinationString.Buffer = (PWCH)v43;
                         *(_DWORD *)&DestinationString.Length = 11141120;
-                        v61 = RtlLCIDToCultureName(v71, (__int64)&DestinationString);
-                        v24 = v66;
+                        v61 = RtlLCIDToCultureName(Value, &DestinationString);
+                        v24 = v68;
                         v8 = 0LL;
-                        v12 = *(const WCHAR **)&v65[3];
+                        v12 = (const WCHAR *)v67;
                         if ( v61 )
                           v39 = 1;
                       }
@@ -297,7 +293,7 @@ LABEL_93:
             }
             if ( v9 < v24 )
             {
-              v48 = v72[0];
+              v48 = FilePart;
               while ( 1 )
               {
                 if ( v39 && (v49 = wcsicmp(v45, DestinationString.Buffer), v8 = 0LL, v49) )
@@ -310,13 +306,13 @@ LABEL_93:
                 else
                 {
                   RtlInitUnicodeString(&DestinationString, v45);
-                  *(UNICODE_STRING *)v89 = DestinationString;
-                  v60 = sub_180057888((int)v89, v69[0], v48, v77[0], v64, v73, (__int64)v65);
+                  v90 = DestinationString;
+                  v60 = sub_180057888(&v90, Heap, v48, v64, v75, v65);
                   v8 = 0LL;
                   if ( v60 )
                   {
 LABEL_114:
-                    v12 = *(const WCHAR **)&v65[3];
+                    v12 = (const WCHAR *)v67;
                     goto LABEL_39;
                   }
                   v50 = -1LL;
@@ -333,8 +329,8 @@ LABEL_114:
           }
           if ( !v12 )
           {
-            sub_1800ED770(v76, &v65[3], v84);
-            v12 = *(const WCHAR **)&v65[3];
+            sub_1800ED770(v78[0], &v67, v85);
+            v12 = (const WCHAR *)v67;
             v8 = 0LL;
           }
           v34 = 0LL;
@@ -353,10 +349,10 @@ LABEL_114:
           if ( v9 >= v24 )
           {
 LABEL_58:
-            v13 = -2147483642;
+            ProcessRegistryInfo = -2147483642;
             goto LABEL_50;
           }
-          v37 = v72[0];
+          v37 = FilePart;
           do
           {
             if ( !j )
@@ -364,8 +360,8 @@ LABEL_58:
             if ( !*j )
               break;
             RtlInitUnicodeString(&DestinationString, j);
-            *(UNICODE_STRING *)v87 = DestinationString;
-            v38 = sub_180057888((int)v87, v69[0], v37, v77[0], v64, v73, (__int64)v65);
+            v88 = DestinationString;
+            v38 = sub_180057888(&v88, Heap, v37, v64, v75, v65);
             v8 = 0LL;
             if ( v38 )
               break;
@@ -381,15 +377,15 @@ LABEL_39:
           if ( v9 < v24 )
           {
             v29 = (WCHAR *)SourceString;
-            v30 = v78;
-            if ( SourceString || v78 )
+            v30 = (int *)v79;
+            if ( SourceString || v79 )
             {
               if ( v63 )
                 goto LABEL_42;
-              v54 = RtlCultureNameToLCID(&DestinationString.Length, &v75);
+              v54 = RtlCultureNameToLCID(&DestinationString, &Lcid);
               if ( v54 )
-                v54 = (int)sub_180044560((unsigned __int16)v75, 0x10u, -4, (char *)v90) >= 0;
-              RtlInitUnicodeString(&DestinationString, v90);
+                v54 = (int)sub_180044560((unsigned __int16)Lcid, 0x10u, -4, (char *)v91) >= 0;
+              RtlInitUnicodeString(&DestinationString, v91);
               v8 = 0LL;
               if ( v54 )
               {
@@ -400,7 +396,7 @@ LABEL_42:
                   {
                     if ( *v30 <= (unsigned int)(DestinationString.Length >> 1) )
                     {
-                      LOBYTE(v65[0]) = 1;
+                      v65[0] = 1;
                     }
                     else
                     {
@@ -417,24 +413,24 @@ LABEL_42:
                 }
               }
             }
-            if ( !v73 || !v29 && v30 )
+            if ( !v75 || !v29 && v30 )
             {
-              v13 = 0;
+              ProcessRegistryInfo = 0;
               goto LABEL_63;
             }
-            if ( LOBYTE(v65[0]) )
+            if ( v65[0] )
             {
-              v13 = -1073741789;
+              ProcessRegistryInfo = -1073741789;
               goto LABEL_63;
             }
-            v13 = 0;
+            ProcessRegistryInfo = 0;
 LABEL_50:
-            *v83 = v80 | (((v9 + 1) ^ v24 ^ v80 ^ v79) << 52) ^ 0xCB7000000CB70000uLL | (16
-                                                                                       * (v79 | ((v24 | ((v9 + 1) << 12)) << 24) | 0xCB7000));
+            *v84 = v81 | (((v9 + 1) ^ v24 ^ v81 ^ v80) << 52) ^ 0xCB7000000CB70000uLL | (16
+                                                                                       * (v80 | ((v24 | ((v9 + 1) << 12)) << 24) | 0xCB7000));
 LABEL_63:
-            if ( !v82 )
+            if ( !BaseAddress )
               goto LABEL_94;
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v82);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
             v8 = 0LL;
             goto LABEL_93;
           }
@@ -458,14 +454,14 @@ LABEL_34:
           }
           if ( v9 >= v24 )
             goto LABEL_58;
-          v27 = v72[0];
+          v27 = FilePart;
           do
           {
             if ( !*k )
               break;
             RtlInitUnicodeString(&DestinationString, k);
-            *(UNICODE_STRING *)v86 = DestinationString;
-            v28 = sub_180057888((int)v86, v69[0], v27, v77[0], v64, v73, (__int64)v65);
+            Source = DestinationString;
+            v28 = sub_180057888(&Source, Heap, v27, v64, v75, v65);
             v8 = 0LL;
             if ( v28 )
               break;
@@ -479,40 +475,44 @@ LABEL_34:
           while ( v9 < v24 );
           goto LABEL_39;
         }
-        *(_DWORD *)&v65[1] = 0;
-        RtlGetThreadPreferredUILanguages(48, (struct _TEB *)&v67, 0LL, &v65[1]);
+        ReturnLength = 0;
+        RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, 0LL, &ReturnLength);
         v8 = 0LL;
-        if ( *(_DWORD *)&v65[1] )
+        if ( ReturnLength )
         {
-          v51 = sub_1800584C8(*(unsigned int *)&v65[1], 2LL);
+          v51 = sub_1800584C8(ReturnLength, 2LL);
           if ( !v51 )
           {
-            v13 = -1073741675;
+            ProcessRegistryInfo = -1073741675;
 LABEL_96:
             if ( String1 != v8 )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)String1);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, String1);
             goto LABEL_98;
           }
-          v52 = (WCHAR *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (int)v8 + 8, v51);
+          v52 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (int)v8 + 8, v51);
           v8 = 0LL;
-          *(_QWORD *)&v65[3] = v52;
-          v12 = v52;
+          v67 = v52;
+          v12 = (const WCHAR *)v52;
           if ( v52 )
           {
-            ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(48, (struct _TEB *)&v67, v52, &v65[1]);
+            ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(
+                                           0x30u,
+                                           &NumberOfLanguages,
+                                           (PZZWSTR)v52,
+                                           &ReturnLength);
             v8 = 0LL;
             if ( ThreadPreferredUILanguages >= 0 )
             {
-              v24 = v66;
+              v24 = v68;
               goto LABEL_34;
             }
           }
-          v24 = v66;
+          v24 = v68;
         }
         v9 = v24;
         goto LABEL_34;
       }
-      v13 = -2147483642;
+      ProcessRegistryInfo = -2147483642;
     }
     goto LABEL_14;
   }
@@ -524,20 +524,20 @@ LABEL_96:
     || (v10 & 0x300) == 768 )
   {
 LABEL_13:
-    v13 = -1073741811;
+    ProcessRegistryInfo = -1073741811;
     goto LABEL_14;
   }
-  v79 = v10;
+  v80 = v10;
   v19 = v10;
   if ( (v10 & 0x20) != 0 )
     v20 = 2;
   else
-    v20 = (unsigned __int64)(v10 & 0x40 | 0x20) >> 5;
+    v20 = (v10 & 0x40 | 0x20) >> 5;
   v63 = (v19 & 4) == 0;
-  if ( (v19 & 0x200) == 0 && ((v19 & 0x100) != 0 || (v33 = sub_1800546DC(a2), v8 = 0LL, v33)) )
+  if ( (v19 & 0x200) == 0 && ((v19 & 0x100) != 0 || (v33 = sub_1800546DC(FilePath), v8 = 0LL, v33)) )
   {
     v64 = 1;
-    v80 = 1LL;
+    v81 = 1LL;
   }
   else
   {
@@ -547,64 +547,64 @@ LABEL_13:
   {
     if ( v20 == 2 )
     {
-      v66 = 0LL;
-      sub_1800ED770(v76, &v65[3], &v66);
+      v68 = 0LL;
+      sub_1800ED770(v78[0], &v67, &v68);
     }
     else
     {
       if ( v20 != 3 )
       {
-        v24 = v66;
-        v12 = *(const WCHAR **)&v65[3];
+        v24 = v68;
+        v12 = (const WCHAR *)v67;
 LABEL_31:
         v9 = 0LL;
         goto LABEL_32;
       }
-      v66 = 0LL;
-      sub_1800ED3D0(v14, &v66, &String1);
+      v68 = 0LL;
+      sub_1800ED3D0(v14, &v68, &String1);
     }
-    v24 = v66;
+    v24 = v68;
     v8 = 0LL;
-    v12 = *(const WCHAR **)&v65[3];
+    v12 = (const WCHAR *)v67;
     goto LABEL_31;
   }
-  *(_DWORD *)&v65[1] = 0;
-  RtlGetThreadPreferredUILanguages(48, (struct _TEB *)&v67, 0LL, &v65[1]);
-  if ( !*(_DWORD *)&v65[1] )
+  ReturnLength = 0;
+  RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, 0LL, &ReturnLength);
+  if ( !ReturnLength )
     goto LABEL_14;
-  v21 = sub_1800584C8(*(unsigned int *)&v65[1], 2LL);
+  v21 = sub_1800584C8(ReturnLength, 2LL);
   if ( v21 )
   {
-    v22 = (WCHAR *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v21);
-    *(_QWORD *)&v65[3] = v22;
-    v12 = v22;
+    v22 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v21);
+    v67 = v22;
+    v12 = (const WCHAR *)v22;
     if ( !v22 )
     {
-      v13 = -1073741801;
+      ProcessRegistryInfo = -1073741801;
 LABEL_98:
-      v14 = *(_QWORD *)v69;
+      v14 = (WCHAR *)Heap;
       goto LABEL_14;
     }
-    v23 = RtlGetThreadPreferredUILanguages(48, (struct _TEB *)&v67, v22, &v65[1]);
+    v23 = RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, (PZZWSTR)v22, &ReturnLength);
     v8 = 0LL;
     if ( v23 < 0 )
     {
-      v13 = v23;
+      ProcessRegistryInfo = v23;
 LABEL_94:
       if ( v12 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(unsigned __int64 *)&v65[3]);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v67);
         v8 = 0LL;
       }
       goto LABEL_96;
     }
-    v24 = v67;
-    v66 = v67;
+    v24 = NumberOfLanguages;
+    v68 = NumberOfLanguages;
     goto LABEL_31;
   }
-  v13 = -1073741675;
+  ProcessRegistryInfo = -1073741675;
 LABEL_14:
   if ( v14 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v14);
-  return (unsigned int)v13;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
+  return ProcessRegistryInfo;
 }

@@ -37,7 +37,7 @@ __int64 __fastcall HvpRecoverData(ULONG_PTR a1, int a2, int a3, char a4, int *a5
   int v25; // ecx
   int v27; // [rsp+50h] [rbp-29h] BYREF
   void *v28; // [rsp+58h] [rbp-21h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+60h] [rbp-19h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+60h] [rbp-19h] BYREF
   PVOID P; // [rsp+70h] [rbp-9h] BYREF
   int v31; // [rsp+78h] [rbp-1h]
   int v32; // [rsp+7Ch] [rbp+3h]

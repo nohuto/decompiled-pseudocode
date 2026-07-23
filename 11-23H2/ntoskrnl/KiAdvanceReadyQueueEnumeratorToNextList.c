@@ -1,13 +1,13 @@
 /*
  * XREFs of KiAdvanceReadyQueueEnumeratorToNextList @ 0x140206900
  * Callers:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402425A0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x1402435C0 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140242670 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x140243690 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
  * Callees:
  *     KiAdvanceReadyQueueEnumeratorToNextProcessor @ 0x140200B80 (KiAdvanceReadyQueueEnumeratorToNextProcessor.c)
  *     KiAdvanceReadyQueueEnumeratorToNextScb @ 0x140206A00 (KiAdvanceReadyQueueEnumeratorToNextScb.c)
- *     KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x140242B30 (KiAdvanceReadyQueueEnumeratorToNextPhase.c)
+ *     KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x140242C00 (KiAdvanceReadyQueueEnumeratorToNextPhase.c)
  */
 
 __int64 __fastcall KiAdvanceReadyQueueEnumeratorToNextList(__int64 a1)

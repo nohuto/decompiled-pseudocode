@@ -7,11 +7,11 @@
  */
 
 // positive sp value has been detected, the output may be wrong!
-__int64 __fastcall sub_18007CB28()
+void __fastcall sub_18007CB28(PRTL_BITMAP BitMapHeader)
 {
-  char v0; // of
+  char v1; // of
 
-  if ( !v0 )
+  if ( !v1 )
     JUMPOUT(0x18007CB9CLL);
-  return RtlSetAllBits();
+  RtlSetAllBits(BitMapHeader);
 }

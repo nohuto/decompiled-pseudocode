@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetPfnPidSafe @ 0x140309854
+ * XREFs of MiGetPfnPidSafe @ 0x140313734
  * Callers:
- *     MiIdentifyPfn @ 0x140307510 (MiIdentifyPfn.c)
- *     MiLogMdlRangeEvent @ 0x140671DA8 (MiLogMdlRangeEvent.c)
+ *     MiIdentifyPfn @ 0x1403113F0 (MiIdentifyPfn.c)
+ *     MiLogMdlRangeEvent @ 0x140672F78 (MiLogMdlRangeEvent.c)
  * Callees:
- *     MiGetLeafPfnBuddy @ 0x14043A990 (MiGetLeafPfnBuddy.c)
+ *     MiGetLeafPfnBuddy @ 0x14042D1D0 (MiGetLeafPfnBuddy.c)
  */
 
 __int64 __fastcall MiGetPfnPidSafe(__int64 a1, unsigned int a2)
 {
-  char v2; // r9
+  __int64 v2; // r9
   __int64 v4; // rdx
   __int64 v5; // rcx
   __int64 v6; // rdx
@@ -21,7 +21,7 @@ __int64 __fastcall MiGetPfnPidSafe(__int64 a1, unsigned int a2)
   {
     if ( (v2 & 1) != 0 )
     {
-      LeafPfnBuddy = MiGetLeafPfnBuddy(a1, v4);
+      LeafPfnBuddy = MiGetLeafPfnBuddy(a1, v4, a1, v2);
     }
     else
     {
@@ -40,7 +40,7 @@ __int64 __fastcall MiGetPfnPidSafe(__int64 a1, unsigned int a2)
         }
         else
         {
-          v6 = qword_140E38AB8 + 16 * (v6 - 1);
+          v6 = qword_140E38BF8 + 16 * (v6 - 1);
         }
         return *(unsigned int *)(v6 + 464);
       }

@@ -1,8 +1,8 @@
 /*
- * XREFs of SepRmCapPoolExpand @ 0x1405B9884
+ * XREFs of SepRmCapPoolExpand @ 0x1405B9DF4
  * Callers:
- *     SepReadAndPopulateCapes @ 0x14085D01C (SepReadAndPopulateCapes.c)
- *     SepReadAndInsertCaps @ 0x1409D1D0C (SepReadAndInsertCaps.c)
+ *     SepReadAndPopulateCapes @ 0x14085D25C (SepReadAndPopulateCapes.c)
+ *     SepReadAndInsertCaps @ 0x1409D1F0C (SepReadAndInsertCaps.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

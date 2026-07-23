@@ -10,7 +10,7 @@ __int64 __fastcall ResCHitsPopulate(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v3; // eax
   __int64 result; // rax
-  unsigned int v5; // ecx
+  LONG v5; // ecx
 
   if ( a3 - 1 > 0x26
     && a2

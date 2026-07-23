@@ -1,18 +1,18 @@
 /*
- * XREFs of MinAsn1ExtractValues @ 0x140A71804
+ * XREFs of MinAsn1ExtractValues @ 0x140A71AB4
  * Callers:
  *     MincryptValidateBasicConstraints @ 0x1406812AC (MincryptValidateBasicConstraints.c)
- *     MinAsn1ParseAlgorithmIdentifier @ 0x140A70314 (MinAsn1ParseAlgorithmIdentifier.c)
- *     MinAsn1ParseAndDecodeRDNComponent @ 0x140A7035C (MinAsn1ParseAndDecodeRDNComponent.c)
- *     MinAsn1ParseCertificate @ 0x140A70470 (MinAsn1ParseCertificate.c)
- *     MinAsn1ParseOIDSequence @ 0x140A704E8 (MinAsn1ParseOIDSequence.c)
- *     MinAsn1ParsePublicKeyInfo @ 0x140A705C8 (MinAsn1ParsePublicKeyInfo.c)
- *     MinAsn1ParseRSAPublicKey @ 0x140A70610 (MinAsn1ParseRSAPublicKey.c)
- *     MinAsn1ParseSingleExtensionValue @ 0x140A70748 (MinAsn1ParseSingleExtensionValue.c)
- *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140A71760 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
+ *     MinAsn1ParseAlgorithmIdentifier @ 0x140A705C4 (MinAsn1ParseAlgorithmIdentifier.c)
+ *     MinAsn1ParseAndDecodeRDNComponent @ 0x140A7060C (MinAsn1ParseAndDecodeRDNComponent.c)
+ *     MinAsn1ParseCertificate @ 0x140A70720 (MinAsn1ParseCertificate.c)
+ *     MinAsn1ParseOIDSequence @ 0x140A70798 (MinAsn1ParseOIDSequence.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x140A70878 (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x140A708C0 (MinAsn1ParseRSAPublicKey.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x140A709F8 (MinAsn1ParseSingleExtensionValue.c)
+ *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140A71A10 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MinAsn1ExtractContent @ 0x140A716B8 (MinAsn1ExtractContent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MinAsn1ExtractContent @ 0x140A71968 (MinAsn1ExtractContent.c)
  */
 
 __int64 __fastcall MinAsn1ExtractValues(

@@ -1,9 +1,9 @@
 /*
- * XREFs of DifpExFreePoolWithTag_LwSP_Enter @ 0x140AE7BC0
+ * XREFs of DifpExFreePoolWithTag_LwSP_Enter @ 0x140AE7BB0
  * Callers:
  *     <none>
  * Callees:
- *     ExIsSpecialPoolAddress @ 0x14060F088 (ExIsSpecialPoolAddress.c)
+ *     ExIsSpecialPoolAddress @ 0x14060F5D8 (ExIsSpecialPoolAddress.c)
  */
 
 __int64 __fastcall DifpExFreePoolWithTag_LwSP_Enter(__int64 a1)

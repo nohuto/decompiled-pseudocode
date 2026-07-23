@@ -19,64 +19,64 @@
  */
 
 __int64 __fastcall LdrpInitializeNtdllDataTableEntry(
-        unsigned __int64 a1,
+        PVOID BaseOfImage,
         __int64 *a2,
         __int64 a3,
-        unsigned __int16 *a4,
+        const UNICODE_STRING *a4,
         _OWORD *a5)
 {
-  __int64 ModuleEntry; // rax
+  char *ModuleEntry; // rax
   __int64 v10; // rbx
   __int64 v11; // rdi
-  unsigned __int16 *v12; // rcx
+  _UNICODE_STRING *v12; // rcx
   int UnicodeString; // esi
-  int v15[10]; // [rsp+30h] [rbp-28h] BYREF
+  PIMAGE_NT_HEADERS v15[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  RtlImageNtHeaderEx(3, a1, 0LL, v15);
+  RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, v15);
   ModuleEntry = LdrpAllocateModuleEntry(0LL);
-  v10 = ModuleEntry;
+  v10 = (__int64)ModuleEntry;
   if ( !ModuleEntry )
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      4543LL,
+      4543,
       (__int64)"LdrpInitializeNtdllDataTableEntry",
-      0LL,
+      0,
       "Allocating a data table entry for the system DLL failed\n");
     UnicodeString = -1073741801;
     v11 = 72LL;
     goto LABEL_14;
   }
-  *(_DWORD *)(*(_QWORD *)(ModuleEntry + 152) + 24LL) = -1;
-  *(_WORD *)(**(_QWORD **)(ModuleEntry + 152) - 52LL) = -1;
-  *(_DWORD *)(ModuleEntry + 104) |= 0x204u;
+  *(_DWORD *)(*((_QWORD *)ModuleEntry + 19) + 24LL) = -1;
+  *(_WORD *)(**((_QWORD **)ModuleEntry + 19) - 52LL) = -1;
+  *((_DWORD *)ModuleEntry + 26) |= 0x204u;
   if ( !a3 )
-    *(_QWORD *)(ModuleEntry + 248) -= qword_18019C320;
-  v11 = ModuleEntry + 72;
-  v12 = (unsigned __int16 *)(ModuleEntry + 72);
+    *((_QWORD *)ModuleEntry + 31) -= LdrSystemDllInitBlock.SystemDllNativeRelocation;
+  v11 = (__int64)(ModuleEntry + 72);
+  v12 = (_UNICODE_STRING *)(ModuleEntry + 72);
   if ( a4 )
   {
-    UnicodeString = LdrpAllocateUnicodeString((__int64)v12, *a4);
+    UnicodeString = LdrpAllocateUnicodeString((__int64)v12, a4->Length);
     if ( UnicodeString < 0 )
       goto LABEL_11;
-    RtlCopyUnicodeString((unsigned __int16 *)(v10 + 72), a4);
+    RtlCopyUnicodeString((PUNICODE_STRING)(v10 + 72), a4);
     LdrpGetBaseNameFromFullName(v10 + 72, v10 + 88);
   }
   else
   {
     *(_OWORD *)v11 = *a5;
     RtlAppendUnicodeStringToString(v12, &NtDllName);
-    *(_OWORD *)(v10 + 88) = *(_OWORD *)&NtDllName;
+    *(UNICODE_STRING *)(v10 + 88) = NtDllName;
   }
-  *(_QWORD *)(v10 + 48) = a1;
+  *(_QWORD *)(v10 + 48) = BaseOfImage;
   if ( a3 )
     *(_DWORD *)(v10 + 268) = 9;
   LdrpInsertDataTableEntry(v10);
   LdrpLogDllState(*(_QWORD *)(v10 + 48), v10 + 72, 0x14A5u);
-  LdrpInsertModuleToIndex(v10, *(_QWORD *)v15);
-  v15[0] = LdrpProcessMappedModule(v10, 0, 1);
-  UnicodeString = v15[0];
-  if ( v15[0] < 0 )
+  LdrpInsertModuleToIndex(v10, v15[0]);
+  LODWORD(v15[0]) = LdrpProcessMappedModule(v10, 0, 1);
+  UnicodeString = (int)v15[0];
+  if ( SLODWORD(v15[0]) < 0 )
   {
 LABEL_11:
     if ( UnicodeString >= 0 )
@@ -92,8 +92,8 @@ LABEL_10:
     goto LABEL_11;
   }
   LdrpRecordModuleDependency(LdrpNtDllDataTableEntry, v10, 0LL, v15);
-  UnicodeString = v15[0];
-  if ( v15[0] >= 0 )
+  UnicodeString = (int)v15[0];
+  if ( SLODWORD(v15[0]) >= 0 )
   {
     *(_QWORD *)(v10 + 184) = *(_QWORD *)(a3 + 48);
     *(_DWORD *)(a3 + 304) = 3;

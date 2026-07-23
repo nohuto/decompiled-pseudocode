@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpLogPin @ 0x1407A00D0
+ * XREFs of VmpLogPin @ 0x1407A01E0
  * Callers:
- *     VmPinMemoryRange @ 0x14079EC80 (VmPinMemoryRange.c)
- *     VmUnpinMemoryRange @ 0x14079EF60 (VmUnpinMemoryRange.c)
+ *     VmPinMemoryRange @ 0x14079ED90 (VmPinMemoryRange.c)
+ *     VmUnpinMemoryRange @ 0x14079F070 (VmUnpinMemoryRange.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall VmpLogPin(
@@ -80,7 +80,7 @@ char __fastcall VmpLogPin(
         v34 = 4LL;
         v36 = 8LL;
         v38 = 4LL;
-        LOBYTE(v8) = tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)qword_1400520E0, v12, 0, v15, v16, 9u, v24);
+        LOBYTE(v8) = tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)qword_1400524B0, v12, 0, v15, v16, 9u, v24);
       }
     }
   }
@@ -107,7 +107,7 @@ char __fastcall VmpLogPin(
       v32 = 8LL;
       v34 = 8LL;
       v36 = 4LL;
-      LOBYTE(v8) = tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&dword_140051E1C, v13, 0, v15, v16, 8u, v24);
+      LOBYTE(v8) = tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&word_140052BDA, v13, 0, v15, v16, 8u, v24);
     }
   }
   return (char)v8;

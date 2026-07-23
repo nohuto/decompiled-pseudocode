@@ -1,22 +1,22 @@
 /*
- * XREFs of MiSwitchToPfns @ 0x1409BA954
+ * XREFs of MiSwitchToPfns @ 0x1409BB954
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInitializeUnusablePfns @ 0x14017F04C (MiInitializeUnusablePfns.c)
- *     MiRestrictRangeToNode @ 0x14017F2AC (MiRestrictRangeToNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlCompareMemoryUlong @ 0x1401C5C50 (RtlCompareMemoryUlong.c)
- *     MiCreateFreePfns @ 0x1409BABA8 (MiCreateFreePfns.c)
- *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     MiPageToChannel @ 0x14009CF2C (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInitializeUnusablePfns @ 0x14017F18C (MiInitializeUnusablePfns.c)
+ *     MiRestrictRangeToNode @ 0x14017F3EC (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlCompareMemoryUlong @ 0x1401C5DB0 (RtlCompareMemoryUlong.c)
+ *     MiCreateFreePfns @ 0x1409BBBA8 (MiCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x1409BBD10 (MxCreateFreePfns.c)
  */
 
 __int64 __fastcall MiSwitchToPfns(__int64 a1)
@@ -49,10 +49,10 @@ __int64 __fastcall MiSwitchToPfns(__int64 a1)
   unsigned __int64 v27; // [rsp+60h] [rbp-38h]
   __int64 *v28; // [rsp+A0h] [rbp+8h]
 
-  v2 = MmPfnDatabase + 48 * qword_14043E500;
-  if ( !qword_14043E500 && !*(_WORD *)(v2 + 32) )
+  v2 = MmPfnDatabase + 48 * qword_14043F5C0;
+  if ( !qword_14043F5C0 && !*(_WORD *)(v2 + 32) )
   {
-    v17 = MiLockPageInline(MmPfnDatabase + 48 * qword_14043E500);
+    v17 = MiLockPageInline(MmPfnDatabase + 48 * qword_14043F5C0);
     *(_QWORD *)(v2 + 40) &= 0xFFFFFFF000000000uLL;
     v18 = *(_QWORD *)(v2 + 24);
     *(_QWORD *)(v2 + 8) = 0xFFFFF68000000000uLL;
@@ -172,8 +172,8 @@ LABEL_19:
       if ( (_DWORD)v5 == 3 )
       {
 LABEL_54:
-        if ( v8 <= qword_14043E508 && v6 + v8 > qword_14043E508 + 1 )
-          i[4] = (unsigned int)(qword_14043E508 - v8 + 1);
+        if ( v8 <= qword_14043F5C8 && v6 + v8 > qword_14043F5C8 + 1 )
+          i[4] = (unsigned int)(qword_14043F5C8 - v8 + 1);
       }
     }
   }

@@ -39,72 +39,64 @@
  *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, __int64 a2, __int64 a3, __int64 a4)
+LARGE_INTEGER __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
 {
-  __int64 v4; // r8
-  unsigned __int64 v5; // r11
-  LARGE_INTEGER *v6; // rdi
-  int v7; // ebx
+  int v3; // ebx
+  unsigned int v4; // r9d
   bool i; // zf
-  __int64 v9; // r10
-  __int64 v10; // rcx
+  unsigned int v6; // ecx
+  __int64 v7; // r10
+  __int64 v8; // rcx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 result; // rax
-  __int64 v13; // [rsp+48h] [rbp+20h] BYREF
+  LARGE_INTEGER result; // rax
+  LARGE_INTEGER v11; // [rsp+48h] [rbp+20h] BYREF
 
-  v4 = qword_140D248A0;
-  v5 = (unsigned int)a2;
-  v6 = a1;
-  v7 = 0;
+  v3 = 0;
   if ( qword_140D248A0 )
   {
-    a4 = *(unsigned int *)(qword_140D248A0 + 4224);
-    for ( i = !_BitScanForward((unsigned int *)&a1, a4); !i; i = !_BitScanForward((unsigned int *)&a1, a4) )
+    v4 = *(_DWORD *)(qword_140D248A0 + 4224);
+    for ( i = !_BitScanForward(&v6, v4); !i; i = !_BitScanForward(&v6, v4) )
     {
-      v9 = (unsigned int)a1;
-      a4 = ((_DWORD)a4 - 1) & (unsigned int)a4;
-      v10 = 32LL * (unsigned int)a1 + qword_140D248A0 + 4260;
-      if ( v10 )
-      {
-        a2 = (unsigned int)v5 & *(_DWORD *)(v10 + 4 * (v5 >> 29));
-        if ( (a2 & 0x1FFFFFFF) != 0 )
-          v7 |= 1 << *(_BYTE *)(qword_140D248A0 + 2 * v9 + 4209);
-      }
+      v7 = v6;
+      v4 &= v4 - 1;
+      v8 = 32LL * v6 + qword_140D248A0 + 4260;
+      if ( v8 && (a2 & *(_DWORD *)(v8 + 4 * ((unsigned __int64)a2 >> 29)) & 0x1FFFFFFF) != 0 )
+        v3 |= 1 << *(_BYTE *)(qword_140D248A0 + 2 * v7 + 4209);
     }
   }
   else
   {
-    LOBYTE(v7) = 30;
+    LOBYTE(v3) = 30;
   }
-  if ( (v7 & 2) != 0 )
+  if ( (v3 & 2) != 0 )
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
   else
     PerformanceCounter.QuadPart = 0LL;
-  *v6 = PerformanceCounter;
-  if ( (v7 & 4) != 0 )
-    result = RtlGetSystemTimePrecise(a1, a2, v4, a4);
+  *a1 = PerformanceCounter;
+  if ( (v3 & 4) != 0 )
+    result = RtlGetSystemTimePrecise();
   else
-    result = 0LL;
-  v6[1].QuadPart = result;
-  if ( (v7 & 8) != 0 )
+    result.QuadPart = 0LL;
+  a1[1] = result;
+  if ( (v3 & 8) != 0 )
   {
-    result = __rdtsc();
-    v6[2].QuadPart = result;
+    result.QuadPart = __rdtsc();
+    a1[2] = result;
   }
   else
   {
-    v6[2].QuadPart = 0LL;
+    a1[2].QuadPart = 0LL;
   }
-  if ( (v7 & 0x10) != 0 )
+  if ( (v3 & 0x10) != 0 )
   {
-    v13 = 0LL;
-    ((void (__fastcall *)(__int64 *))off_140C009E0[0])(&v13);
-    result = v13;
-    v6[3].QuadPart = v13;
+    v11.QuadPart = 0LL;
+    ((void (__fastcall *)(LARGE_INTEGER *))off_140C009E0[0])(&v11);
+    result = v11;
+    a1[3] = v11;
   }
   else
   {
-    v6[3].QuadPart = 0LL;
+    a1[3].QuadPart = 0LL;
   }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MinAsn1DecodeTime @ 0x140A713EC
+ * XREFs of MinAsn1DecodeTime @ 0x140A7169C
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6F858 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6FB08 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     MinAsn1DecodeGeneralizedTime @ 0x140A70F9C (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1DecodeUtcTime @ 0x140A71464 (MinAsn1DecodeUtcTime.c)
- *     MinAsn1ExtractContent @ 0x140A716B8 (MinAsn1ExtractContent.c)
+ *     MinAsn1DecodeGeneralizedTime @ 0x140A7124C (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x140A71714 (MinAsn1DecodeUtcTime.c)
+ *     MinAsn1ExtractContent @ 0x140A71968 (MinAsn1ExtractContent.c)
  */
 
 char __fastcall MinAsn1DecodeTime(unsigned int *a1, LARGE_INTEGER *a2)

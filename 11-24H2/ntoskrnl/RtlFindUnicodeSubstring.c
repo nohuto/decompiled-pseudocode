@@ -1,112 +1,115 @@
 /*
- * XREFs of RtlFindUnicodeSubstring @ 0x1409A0970
+ * XREFs of RtlFindUnicodeSubstring @ 0x1408318B0
  * Callers:
- *     PiDrvDbFindSystemFilePathToken @ 0x140736E38 (PiDrvDbFindSystemFilePathToken.c)
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
- *     CmpTraceSecurityChanging @ 0x1409A08BC (CmpTraceSecurityChanging.c)
+ *     PiDrvDbFindSystemFilePathToken @ 0x140734D68 (PiDrvDbFindSystemFilePathToken.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
+ *     CmpTraceSecurityChanging @ 0x1408317FC (CmpTraceSecurityChanging.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
-char *__fastcall RtlFindUnicodeSubstring(unsigned __int16 *a1, __int64 a2)
+PWCHAR __cdecl RtlFindUnicodeSubstring(
+        PUNICODE_STRING FullString,
+        PUNICODE_STRING SearchString,
+        BOOLEAN CaseInSensitive)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
-  unsigned __int16 *v5; // rdx
-  char v6; // r8
-  size_t v7; // rdi
+  unsigned __int16 *v6; // rdx
+  char v7; // r8
+  size_t v8; // rdi
   struct _LIST_ENTRY *Flink; // r11
-  __int64 v9; // rax
-  char *v11; // rbx
-  char *v12; // rsi
-  unsigned __int16 *v13; // rbp
-  unsigned __int16 *v14; // r10
-  bool v15; // zf
-  signed __int64 v16; // rdi
-  unsigned __int64 v17; // r8
-  unsigned __int64 v18; // r9
+  __int64 Length; // rax
+  wchar_t *Buffer; // rbx
+  wchar_t *v13; // rsi
+  wchar_t *v14; // rbp
+  wchar_t *v15; // r10
+  bool v16; // zf
+  signed __int64 v17; // rdi
+  unsigned __int64 v18; // r8
+  unsigned __int64 v19; // r9
 
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v7 = *v5;
+  v8 = *v6;
   Flink = CurrentServerSiloGlobals[75].Flink;
-  v9 = *a1;
-  if ( (unsigned __int16)v9 >= (unsigned __int16)v7 )
+  Length = FullString->Length;
+  if ( (unsigned __int16)Length >= (unsigned __int16)v8 )
   {
-    v11 = (char *)*((_QWORD *)a1 + 1);
-    v12 = &v11[v9 - v7];
-    if ( v6 )
+    Buffer = FullString->Buffer;
+    v13 = (wchar_t *)((char *)Buffer + Length - v8);
+    if ( v7 )
     {
-      v13 = (unsigned __int16 *)(v7 + *((_QWORD *)v5 + 1));
-      while ( v11 <= v12 )
+      v14 = (wchar_t *)(v8 + *((_QWORD *)v6 + 1));
+      while ( Buffer <= v13 )
       {
-        v14 = *(unsigned __int16 **)(a2 + 8);
-        v15 = v14 == v13;
-        if ( v14 < v13 )
+        v15 = SearchString->Buffer;
+        v16 = v15 == v14;
+        if ( v15 < v14 )
         {
-          v16 = v11 - (char *)v14;
+          v17 = (char *)Buffer - (char *)v15;
           do
           {
-            v17 = *(unsigned __int16 *)((char *)v14 + v16);
-            v18 = *v14;
-            if ( (_WORD)v17 != (_WORD)v18 )
+            v18 = *(wchar_t *)((char *)v15 + v17);
+            v19 = *v15;
+            if ( (_WORD)v18 != (_WORD)v19 )
             {
-              if ( (unsigned int)v17 >= 0x61 )
-              {
-                if ( (unsigned int)v17 > 0x7A )
-                {
-                  if ( Flink && (unsigned __int16)v17 >= 0xC0u )
-                    LOWORD(v17) = *((_WORD *)&Flink->Flink
-                                  + (v17 & 0xF)
-                                  + *((unsigned __int16 *)&Flink->Flink
-                                    + ((unsigned __int8)v17 >> 4)
-                                    + (unsigned int)*((unsigned __int16 *)&Flink->Flink + (v17 >> 8))))
-                                + v17;
-                }
-                else
-                {
-                  LOWORD(v17) = v17 - 32;
-                }
-              }
               if ( (unsigned int)v18 >= 0x61 )
               {
                 if ( (unsigned int)v18 > 0x7A )
                 {
-                  if ( Flink )
-                  {
-                    if ( (unsigned __int16)v18 >= 0xC0u )
-                      LOWORD(v18) = *((_WORD *)&Flink->Flink
-                                    + (v18 & 0xF)
-                                    + *((unsigned __int16 *)&Flink->Flink
-                                      + ((unsigned __int8)v18 >> 4)
-                                      + (unsigned int)*((unsigned __int16 *)&Flink->Flink + (v18 >> 8))))
-                                  + v18;
-                  }
+                  if ( Flink && (unsigned __int16)v18 >= 0xC0u )
+                    LOWORD(v18) = *((_WORD *)&Flink->Flink
+                                  + (v18 & 0xF)
+                                  + *((unsigned __int16 *)&Flink->Flink
+                                    + ((unsigned __int8)v18 >> 4)
+                                    + (unsigned int)*((unsigned __int16 *)&Flink->Flink + (v18 >> 8))))
+                                + v18;
                 }
                 else
                 {
                   LOWORD(v18) = v18 - 32;
                 }
               }
-              if ( (_WORD)v17 != (_WORD)v18 )
+              if ( (unsigned int)v19 >= 0x61 )
+              {
+                if ( (unsigned int)v19 > 0x7A )
+                {
+                  if ( Flink )
+                  {
+                    if ( (unsigned __int16)v19 >= 0xC0u )
+                      LOWORD(v19) = *((_WORD *)&Flink->Flink
+                                    + (v19 & 0xF)
+                                    + *((unsigned __int16 *)&Flink->Flink
+                                      + ((unsigned __int8)v19 >> 4)
+                                      + (unsigned int)*((unsigned __int16 *)&Flink->Flink + (v19 >> 8))))
+                                  + v19;
+                  }
+                }
+                else
+                {
+                  LOWORD(v19) = v19 - 32;
+                }
+              }
+              if ( (_WORD)v18 != (_WORD)v19 )
                 break;
             }
-            ++v14;
+            ++v15;
           }
-          while ( v14 < v13 );
-          v15 = v14 == v13;
+          while ( v15 < v14 );
+          v16 = v15 == v14;
         }
-        if ( v15 )
-          return v11;
-        v11 += 2;
+        if ( v16 )
+          return Buffer;
+        ++Buffer;
       }
     }
     else
     {
-      while ( v11 <= v12 )
+      while ( Buffer <= v13 )
       {
-        if ( !memcmp(v11, *(const void **)(a2 + 8), v7) )
-          return v11;
-        v11 += 2;
+        if ( !memcmp(Buffer, SearchString->Buffer, v8) )
+          return Buffer;
+        ++Buffer;
       }
     }
   }

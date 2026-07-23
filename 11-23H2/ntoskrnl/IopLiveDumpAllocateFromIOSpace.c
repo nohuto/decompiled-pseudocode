@@ -1,15 +1,15 @@
 /*
- * XREFs of IopLiveDumpAllocateFromIOSpace @ 0x14094D4E4
+ * XREFs of IopLiveDumpAllocateFromIOSpace @ 0x14094D6E4
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x14094CBF4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x14094CDF4 (IopLiveDumpAllocateDumpBuffers.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     IopLiveDumpAllocateIoSpaceRanges @ 0x14094DA20 (IopLiveDumpAllocateIoSpaceRanges.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094DF14 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpFreeIoSpaceRanges @ 0x14094E264 (IopLiveDumpFreeIoSpaceRanges.c)
- *     IopLiveDumpQueryIOSpaceRanges @ 0x14094ED70 (IopLiveDumpQueryIOSpaceRanges.c)
- *     IopLiveDumpUnpackMemoryRun @ 0x14094F174 (IopLiveDumpUnpackMemoryRun.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     IopLiveDumpAllocateIoSpaceRanges @ 0x14094DC20 (IopLiveDumpAllocateIoSpaceRanges.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094E114 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x14094E464 (IopLiveDumpFreeIoSpaceRanges.c)
+ *     IopLiveDumpQueryIOSpaceRanges @ 0x14094EF70 (IopLiveDumpQueryIOSpaceRanges.c)
+ *     IopLiveDumpUnpackMemoryRun @ 0x14094F374 (IopLiveDumpUnpackMemoryRun.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

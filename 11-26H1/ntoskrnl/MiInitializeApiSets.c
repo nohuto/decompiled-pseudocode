@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeApiSets @ 0x140D001B0
+ * XREFs of MiInitializeApiSets @ 0x140D06550
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MmMapViewInSessionSpace @ 0x1409B7230 (MmMapViewInSessionSpace.c)
- *     MmCreateSection @ 0x1409B8FA0 (MmCreateSection.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MmMapViewInSessionSpace @ 0x140988210 (MmMapViewInSessionSpace.c)
+ *     MmCreateSection @ 0x140989F80 (MmCreateSection.c)
  */
 
 __int64 __fastcall MiInitializeApiSets(__int64 a1)
@@ -35,10 +35,10 @@ __int64 __fastcall MiInitializeApiSets(__int64 a1)
         MappedBase,
         *(const void **)(*(_QWORD *)(a1 + 240) + 2720LL),
         *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2728LL));
-      stru_140E2D150.Timer.TimerListEntry.Blink = v3;
-      stru_140E2D150.Timer.Dpc = v5;
+      stru_140E2D2D0.Timer.TimerListEntry.Blink = v3;
+      stru_140E2D2D0.Timer.Dpc = v5;
       result = 0LL;
-      *(_QWORD *)&stru_140E2D150.Timer.Processor = *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2728LL);
+      *(_QWORD *)&stru_140E2D2D0.Timer.Processor = *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2728LL);
     }
     else
     {

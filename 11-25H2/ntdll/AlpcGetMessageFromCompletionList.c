@@ -7,28 +7,31 @@
  *     RtlpAcquireSRWLockExclusiveContended @ 0x18009E150 (RtlpAcquireSRWLockExclusiveContended.c)
  */
 
-__int64 __fastcall AlpcGetMessageFromCompletionList(__int64 a1, _QWORD *a2, unsigned __int64 i)
+PPORT_MESSAGE __cdecl AlpcGetMessageFromCompletionList(
+        PVOID CompletionList,
+        PALPC_MESSAGE_ATTRIBUTES *MessageAttributes)
 {
+  char *i; // r8
   volatile signed __int32 *v3; // rdi
   unsigned int v4; // ebp
   char *SchedulerSharedDataSlot; // r9
   volatile signed __int32 **v8; // rcx
   unsigned __int64 v9; // r8
   unsigned __int64 v10; // r9
-  __int64 v11; // r10
+  char *v11; // r10
   unsigned __int64 v12; // r11
   unsigned __int64 v13; // rcx
   unsigned __int64 v14; // rdx
   __int64 v15; // rsi
   signed __int64 v16; // rcx
-  __int64 v17; // rsi
+  _PORT_MESSAGE *v17; // rsi
 
-  v3 = (volatile signed __int32 *)(a1 + 320);
+  v3 = (volatile signed __int32 *)((char *)CompletionList + 320);
   v4 = 0;
   SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
   {
-    for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < 8; i = (char *)(unsigned int)((_DWORD)i + 1) )
     {
       v8 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * (unsigned int)i];
       if ( !*v8 )
@@ -42,12 +45,12 @@ __int64 __fastcall AlpcGetMessageFromCompletionList(__int64 a1, _QWORD *a2, unsi
   if ( _interlockedbittestandset64(v3, 0LL) )
     RtlpAcquireSRWLockExclusiveContended(
       (unsigned __int64)v3,
-      (unsigned __int64)a2,
-      (_QWORD *)i,
-      (unsigned __int64)SchedulerSharedDataSlot);
-  v9 = *(_QWORD *)(a1 + 64);
-  v10 = (unsigned __int64)*(unsigned int *)(a1 + 16) >> 2;
-  v11 = a1 + *(unsigned int *)(a1 + 12);
+      (unsigned __int64)MessageAttributes,
+      i,
+      SchedulerSharedDataSlot);
+  v9 = *((_QWORD *)CompletionList + 8);
+  v10 = (unsigned __int64)*((unsigned int *)CompletionList + 4) >> 2;
+  v11 = (char *)CompletionList + *((unsigned int *)CompletionList + 3);
   do
   {
     v12 = v9;
@@ -57,29 +60,29 @@ __int64 __fastcall AlpcGetMessageFromCompletionList(__int64 a1, _QWORD *a2, unsi
       v17 = 0LL;
       goto LABEL_21;
     }
-    v15 = *(unsigned int *)(v11 + 4 * (v9 & 0xFFFFFF));
+    v15 = *(unsigned int *)&v11[4 * (v9 & 0xFFFFFF)];
     if ( v13 == v14 )
       v16 = v9 | 0xFFFFFFFFFFFFLL;
     else
       v16 = ((v13 + 1) % v10) ^ (v9 ^ ((v13 + 1) % v10)) & 0xFFFFFFFFFF000000uLL;
-    v9 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 64), v16, v9);
+    v9 = _InterlockedCompareExchange64((volatile signed __int64 *)CompletionList + 8, v16, v9);
   }
   while ( v9 != v12 );
-  v17 = a1 + *(unsigned int *)(a1 + 28) + v15;
-  if ( a2 )
+  v17 = (_PORT_MESSAGE *)((char *)CompletionList + *((unsigned int *)CompletionList + 7) + v15);
+  if ( MessageAttributes )
   {
-    if ( *(_DWORD *)(a1 + 36) )
+    if ( *((_DWORD *)CompletionList + 9) )
     {
-      if ( (((_BYTE)v17 + (unsigned __int8)*(_WORD *)(v17 + 2)) & 7) != 0 )
-        v4 = 8 - (((_BYTE)v17 + (unsigned __int8)*(_WORD *)(v17 + 2)) & 7);
-      *a2 = v17 + *(unsigned __int16 *)(v17 + 2) + v4;
+      if ( (((_BYTE)v17 + (unsigned __int8)v17->u1.s1.TotalLength) & 7) != 0 )
+        v4 = 8 - (((_BYTE)v17 + (unsigned __int8)v17->u1.s1.TotalLength) & 7);
+      *MessageAttributes = (PALPC_MESSAGE_ATTRIBUTES)((char *)v17 + (unsigned __int16)v17->u1.s1.TotalLength + v4);
     }
     else
     {
-      *a2 = 0LL;
+      *MessageAttributes = 0LL;
     }
   }
 LABEL_21:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)v3);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v3);
   return v17;
 }

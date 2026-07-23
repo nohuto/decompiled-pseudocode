@@ -1,9 +1,9 @@
 /*
- * XREFs of MinAsn1ParseCTL @ 0x1408A3378
+ * XREFs of MinAsn1ParseCTL @ 0x1408A9788
  * Callers:
- *     MinCrypK_ParseRevocationList @ 0x14071CA68 (MinCrypK_ParseRevocationList.c)
+ *     MinCrypK_ParseRevocationList @ 0x1407216F8 (MinCrypK_ParseRevocationList.c)
  * Callees:
- *     MinAsn1ExtractValues @ 0x1408A4838 (MinAsn1ExtractValues.c)
+ *     MinAsn1ExtractValues @ 0x1408AAC48 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall MinAsn1ParseCTL(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall MinAsn1ParseCTL(__int64 a1, __int64 a2)
              *(_QWORD *)(a1 + 8),
              *(_DWORD *)a1,
              (unsigned int)&v4,
-             (unsigned int)&qword_140010280,
+             (unsigned int)&qword_1400102F0,
              11,
              a2);
   if ( (int)result > 0 )

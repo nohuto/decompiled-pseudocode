@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDisassociateThreadIrp @ 0x1401C4AD8
+ * XREFs of IopDisassociateThreadIrp @ 0x1401C49BC
  * Callers:
- *     IoCancelThreadIo @ 0x1404CC524 (IoCancelThreadIo.c)
+ *     IoCancelThreadIo @ 0x1404B1F50 (IoCancelThreadIo.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     IoAllocateErrorLogEntry @ 0x140130D68 (IoAllocateErrorLogEntry.c)
- *     IoWriteErrorLogEntry @ 0x1401310F8 (IoWriteErrorLogEntry.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     IoAllocateErrorLogEntry @ 0x1401312D8 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x140131668 (IoWriteErrorLogEntry.c)
  */
 
 LONG_PTR IopDisassociateThreadIrp()
@@ -52,13 +52,13 @@ LABEL_2:
   v7[1] = p_FirstArgument;
   v4[1] = v4;
   *v4 = v4;
-  v8 = (_QWORD *)qword_140320B88;
-  if ( *(__int64 **)qword_140320B88 != &IopDeadIrps )
+  v8 = (_QWORD *)qword_140320BA8;
+  if ( *(__int64 **)qword_140320BA8 != &IopDeadIrps )
     __fastfail(3u);
   *v6 = &IopDeadIrps;
   v6[1] = v8;
   *v8 = v6;
-  qword_140320B88 = (__int64)v6;
+  qword_140320BA8 = (__int64)v6;
   if ( *((_BYTE *)v4 + 35) <= *((_BYTE *)v4 + 34)
     && (v10 = v4[20]) != 0
     && (v9 = v4[19], v11 = *(void **)(v9 + 40), *(void **)(v10 + 8) == v11) )

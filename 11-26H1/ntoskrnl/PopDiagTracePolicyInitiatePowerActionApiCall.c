@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePolicyInitiatePowerActionApiCall @ 0x140A386F8
+ * XREFs of PopDiagTracePolicyInitiatePowerActionApiCall @ 0x1409F42B8
  * Callers:
- *     NtInitiatePowerAction @ 0x140A37400 (NtInitiatePowerAction.c)
+ *     NtInitiatePowerAction @ 0x1409F2FC0 (NtInitiatePowerAction.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int16 __fastcall PopDiagTracePolicyInitiatePowerActionApiCall(int a1, int a2)
@@ -30,7 +30,7 @@ __int16 __fastcall PopDiagTracePolicyInitiatePowerActionApiCall(int a1, int a2)
   LastRebalanceQpc = (unsigned __int16 *)PsGetCurrentThreadProcess()[1].LastRebalanceQpc;
   result = *LastRebalanceQpc >> 1;
   v5 = result;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
     *(_QWORD *)&UserData.Size = 2LL;
     UserData.Ptr = (ULONGLONG)&v5;
@@ -42,12 +42,7 @@ __int16 __fastcall PopDiagTracePolicyInitiatePowerActionApiCall(int a1, int a2)
     v9 = 0;
     v11 = 4LL;
     v13 = 4LL;
-    return EtwWrite(
-             *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-             &POP_ETW_EVENT_NTINITIATEPOWERACTION_API_CALL,
-             0LL,
-             4u,
-             &UserData);
+    return EtwWrite(PopDiagHandle, &POP_ETW_EVENT_NTINITIATEPOWERACTION_API_CALL, 0LL, 4u, &UserData);
   }
   return result;
 }

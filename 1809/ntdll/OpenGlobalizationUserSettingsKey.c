@@ -13,45 +13,45 @@
  * Callees:
  *     RtlOpenCurrentUser @ 0x1800297E0 (RtlOpenCurrentUser.c)
  *     RtlIsMultiSessionSku @ 0x18004AA60 (RtlIsMultiSessionSku.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180116C88 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180116C24 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey(
-        unsigned int a1,
-        unsigned int a2,
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(
+        ACCESS_MASK DesiredAccess,
+        __int64 a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5)
+        PHANDLE CurrentUserKey)
 {
-  int v7; // ecx
-  char IsMultiSessionSku; // al
+  int v6; // ecx
+  BOOLEAN IsMultiSessionSku; // al
+  int v9; // ecx
   int v10; // ecx
-  int v11; // ecx
 
-  if ( !a5 )
-    return 3221225485LL;
+  if ( !CurrentUserKey )
+    return -1073741811;
   if ( dword_1801660CC )
   {
-    v7 = dword_180166538;
+    v6 = dword_180166538;
   }
   else
   {
     IsMultiSessionSku = RtlIsMultiSessionSku();
-    v7 = dword_180166538;
+    v6 = dword_180166538;
     dword_1801660CC = 1;
     if ( !IsMultiSessionSku )
-      v7 = 1;
-    dword_180166538 = v7;
+      v6 = 1;
+    dword_180166538 = v6;
   }
-  if ( !v7 )
-    return RtlOpenCurrentUser(a1, a5);
-  v10 = v7 - 1;
+  if ( !v6 )
+    return RtlOpenCurrentUser(DesiredAccess, CurrentUserKey);
+  v9 = v6 - 1;
+  if ( !v9 )
+    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess);
+  v10 = v9 - 1;
   if ( !v10 )
-    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(a1, a2, a3, a5);
-  v11 = v10 - 1;
-  if ( !v11 )
-    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(a1, a2, a3, a5);
-  if ( v11 == 1 )
-    return 3221225474LL;
-  return 3221225701LL;
+    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess);
+  if ( v10 == 1 )
+    return -1073741822;
+  return -1073741595;
 }

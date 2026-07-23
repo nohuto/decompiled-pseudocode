@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlSetSystemBootStatusEx @ 0x1801203B0
+ * XREFs of RtlSetSystemBootStatusEx @ 0x18011E5E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetSystemBootStatusEx(__int64 a1, unsigned int a2, __int64 a3)
+NTSTATUS __fastcall RtlSetSystemBootStatusEx(__int64 a1, unsigned int a2, void *a3)
 {
   return RtlpSystemBootStatusRequest(32, a1, a2, a3);
 }

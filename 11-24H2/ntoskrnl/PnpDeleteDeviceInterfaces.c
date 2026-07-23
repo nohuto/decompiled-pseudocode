@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpDeleteDeviceInterfaces @ 0x140AA7668
+ * XREFs of PnpDeleteDeviceInterfaces @ 0x140AA2768
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     _CmDeleteDeviceInterface @ 0x1409B3840 (_CmDeleteDeviceInterface.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _CmDeleteDeviceInterface @ 0x1409AABD0 (_CmDeleteDeviceInterface.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpDeleteDeviceInterfaces(unsigned __int16 *a1)
@@ -30,7 +30,7 @@ __int64 __fastcall PnpDeleteDeviceInterfaces(unsigned __int16 *a1)
   unsigned int i; // r15d
   const WCHAR *v13; // rdi
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-38h] BYREF
-  int v16; // [rsp+98h] [rbp+10h] BYREF
+  unsigned int v16; // [rsp+98h] [rbp+10h] BYREF
 
   v16 = 0;
   DestinationString = 0LL;
@@ -62,7 +62,7 @@ LABEL_32:
     {
       goto LABEL_12;
     }
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v7 + 2, 0x75737050u);
     v9 = Pool2;
     if ( Pool2 )
     {
@@ -81,7 +81,7 @@ LABEL_12:
     v3 = (void *)*((_QWORD *)a1 + 1);
     goto LABEL_18;
   }
-  v10 = (_WORD *)ExAllocatePool2(0x100uLL);
+  v10 = (_WORD *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
   if ( !v10 )
     goto LABEL_25;
   *v10 = 0;
@@ -98,7 +98,7 @@ LABEL_18:
       goto LABEL_33;
     if ( v4 )
       ExFreePoolWithTag(v4, 0);
-    v4 = (WCHAR *)ExAllocatePool2(0x100uLL);
+    v4 = (WCHAR *)ExAllocatePool2(0x100uLL, 2LL * v16, 0x20207050u);
     if ( !v4 )
       goto LABEL_25;
     MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(

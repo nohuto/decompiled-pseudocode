@@ -1,11 +1,11 @@
 /*
- * XREFs of FindNodeOrParent @ 0x140328100
+ * XREFs of FindNodeOrParent @ 0x140328390
  * Callers:
- *     RtlDeleteElementGenericTable @ 0x140327C30 (RtlDeleteElementGenericTable.c)
- *     RtlInsertElementGenericTable @ 0x140327D60 (RtlInsertElementGenericTable.c)
- *     RtlLookupElementGenericTableFull @ 0x1405AE4F0 (RtlLookupElementGenericTableFull.c)
+ *     RtlDeleteElementGenericTable @ 0x140327EC0 (RtlDeleteElementGenericTable.c)
+ *     RtlInsertElementGenericTable @ 0x140327FF0 (RtlInsertElementGenericTable.c)
+ *     RtlLookupElementGenericTableFull @ 0x1405AEA60 (RtlLookupElementGenericTableFull.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FindNodeOrParent(__int64 *a1, __int64 a2, _QWORD *a3)

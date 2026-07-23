@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x14067C43C
+ * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x14067C520
  * Callers:
- *     TtmiTerminalSetDisplayTimeouts @ 0x140677E60 (TtmiTerminalSetDisplayTimeouts.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x140677F44 (TtmiTerminalSetDisplayTimeouts.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -55,7 +55,7 @@ void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, _
       v24 = 4LL;
       v26 = 8LL;
       v28 = 8LL;
-      TlgWrite(&stru_1407478B0, &unk_14027E39A, 0LL, 0LL, 8u, &pData);
+      TlgWrite(&stru_1407478B0, &unk_14027E49A, 0LL, 0LL, 8u, &pData);
     }
   }
 }

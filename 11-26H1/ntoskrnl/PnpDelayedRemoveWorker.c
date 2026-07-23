@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpDelayedRemoveWorker @ 0x140913AC0
+ * XREFs of PnpDelayedRemoveWorker @ 0x1409B5BA0
  * Callers:
- *     PnpChainDereferenceComplete @ 0x140914380 (PnpChainDereferenceComplete.c)
+ *     PnpChainDereferenceComplete @ 0x1409B69F0 (PnpChainDereferenceComplete.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PipRemoveDevicesInRelationList @ 0x140913948 (PipRemoveDevicesInRelationList.c)
- *     PnpDequeuePendingSurpriseRemoval @ 0x140913C88 (PnpDequeuePendingSurpriseRemoval.c)
- *     PnpEnableWatchdog @ 0x1409DC9D0 (PnpEnableWatchdog.c)
- *     PnpDisableWatchdog @ 0x1409DDFA8 (PnpDisableWatchdog.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PipRemoveDevicesInRelationList @ 0x1409B5A28 (PipRemoveDevicesInRelationList.c)
+ *     PnpDequeuePendingSurpriseRemoval @ 0x1409B5D68 (PnpDequeuePendingSurpriseRemoval.c)
+ *     PnpEnableWatchdog @ 0x140A19C80 (PnpEnableWatchdog.c)
+ *     PnpDisableWatchdog @ 0x140A1B0D4 (PnpDisableWatchdog.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDelayedRemoveWorker(_QWORD *P)
@@ -24,8 +24,9 @@ void __fastcall PnpDelayedRemoveWorker(_QWORD *P)
   __int64 v5; // rax
   __int64 v6; // rcx
   __int64 v7; // rax
-  void *v8; // rcx
+  __int64 v8; // rcx
   void *v9; // rcx
+  void *v10; // rcx
   PVOID Pa[3]; // [rsp+20h] [rbp-18h] BYREF
 
   Pa[1] = Pa;
@@ -59,21 +60,22 @@ void __fastcall PnpDelayedRemoveWorker(_QWORD *P)
       P[3] = v7;
       if ( v7 )
       {
-        v9 = (void *)P[1];
-        if ( v9 )
-          ObfReferenceObjectWithTag(v9, 0x56706E50u);
+        v10 = (void *)P[1];
+        if ( v10 )
+          ObfReferenceObjectWithTag(v10, 0x56706E50u);
       }
     }
     PipRemoveDevicesInRelationList(v3);
     if ( P )
     {
-      if ( P[3] )
+      v8 = P[3];
+      if ( v8 )
       {
-        PnpDisableWatchdog();
-        v8 = (void *)P[1];
+        PnpDisableWatchdog(v8);
+        v9 = (void *)P[1];
         P[3] = 0LL;
-        if ( v8 )
-          ObfDereferenceObjectWithTag(v8, 0x56706E50u);
+        if ( v9 )
+          ObfDereferenceObjectWithTag(v9, 0x56706E50u);
       }
     }
   }

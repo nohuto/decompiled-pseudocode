@@ -1,12 +1,12 @@
 /*
- * XREFs of KeExpandKernelStackAndCalloutEx @ 0x1400C99D0
+ * XREFs of KeExpandKernelStackAndCalloutEx @ 0x1400C9AB0
  * Callers:
- *     sub_1406AAF24 @ 0x1406AAF24 (sub_1406AAF24.c)
- *     IopIssueSystemEnvironmentRequest @ 0x140822174 (IopIssueSystemEnvironmentRequest.c)
- *     ViPoolLogStackTrace @ 0x140938198 (ViPoolLogStackTrace.c)
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
+ *     sub_1406AC1C4 @ 0x1406AC1C4 (sub_1406AC1C4.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x140823374 (IopIssueSystemEnvironmentRequest.c)
+ *     ViPoolLogStackTrace @ 0x140939198 (ViPoolLogStackTrace.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutInternal @ 0x1400C9A00 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1400C9AE0 (KeExpandKernelStackAndCalloutInternal.c)
  */
 
 NTSTATUS __stdcall KeExpandKernelStackAndCalloutEx(

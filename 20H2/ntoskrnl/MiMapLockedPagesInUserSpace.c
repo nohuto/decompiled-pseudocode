@@ -48,7 +48,7 @@ unsigned __int64 __fastcall MiMapLockedPagesInUserSpace(
   unsigned __int64 v15; // rbx
   int v16; // eax
   unsigned __int64 v17; // r10
-  signed int inserted; // esi
+  NTSTATUS inserted; // esi
   unsigned __int64 v19; // rbp
   unsigned __int64 v20; // rcx
   unsigned __int64 *v21; // rax
@@ -79,7 +79,7 @@ unsigned __int64 __fastcall MiMapLockedPagesInUserSpace(
 
   v47 = a4;
   if ( (a4 & 0xFFF) != 0 )
-    RtlRaiseStatus(0xC0000141);
+    RtlRaiseStatus(-1073741503);
   v7 = (unsigned __int64 *)(a1 + 48);
   v39 = a1 + 48;
   v8 = ((a2 & 0xFFF) + 4095LL + (unsigned __int64)*(unsigned int *)(a1 + 40)) >> 12;
@@ -87,7 +87,7 @@ unsigned __int64 __fastcall MiMapLockedPagesInUserSpace(
   v45 = (__int64)Pool;
   v10 = (__int64)Pool;
   if ( !Pool )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   Pool[5] = 0LL;
   v11 = 0LL;
   Pool[2] = -2LL;
@@ -217,7 +217,7 @@ LABEL_29:
   if ( !MiAddSecureEntry(v10, v15, v44, v28, 0) )
   {
     MiDeleteVad((_DWORD *)v10, 0LL, 0);
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   }
   MiUnlockAndDereferenceVad((PVOID)v10);
   return v15 + *(unsigned int *)(a1 + 44);

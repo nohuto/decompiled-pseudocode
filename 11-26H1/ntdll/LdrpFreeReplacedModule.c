@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrpFreeReplacedModule @ 0x1800C750C
+ * XREFs of LdrpFreeReplacedModule @ 0x1800C4CCC
  * Callers:
- *     LdrpLoadDependentModuleInternal @ 0x18003AF90 (LdrpLoadDependentModuleInternal.c)
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpFreeLoadContext @ 0x1800C7460 (LdrpFreeLoadContext.c)
- *     LdrpHandlePendingModuleReplaced @ 0x1800C7548 (LdrpHandlePendingModuleReplaced.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180025500 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpFreeLoadContext @ 0x1800C4C20 (LdrpFreeLoadContext.c)
+ *     LdrpHandlePendingModuleReplaced @ 0x1800C4D08 (LdrpHandlePendingModuleReplaced.c)
  * Callees:
- *     LdrpFreeLoadContext @ 0x1800C7460 (LdrpFreeLoadContext.c)
+ *     LdrpFreeLoadContext @ 0x1800C4C20 (LdrpFreeLoadContext.c)
  */
 
-__int64 __fastcall LdrpFreeReplacedModule(__int64 a1)
+int __fastcall LdrpFreeReplacedModule(PVOID *BaseAddress)
 {
-  LdrpFreeLoadContext(*(_QWORD *)(a1 + 176));
-  *(_DWORD *)(a1 + 276) = 1;
-  *(_DWORD *)(a1 + 104) &= ~0x20u;
-  return LdrpDereferenceModule(a1);
+  LdrpFreeLoadContext(BaseAddress[22]);
+  *((_DWORD *)BaseAddress + 69) = 1;
+  *((_DWORD *)BaseAddress + 26) &= ~0x20u;
+  return LdrpDereferenceModule((char *)BaseAddress);
 }

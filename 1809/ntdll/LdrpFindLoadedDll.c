@@ -9,36 +9,35 @@
  *     LdrpFindLoadedDllInternal @ 0x180022ADC (LdrpFindLoadedDllInternal.c)
  *     LdrpPreprocessDllName @ 0x180025FA8 (LdrpPreprocessDllName.c)
  *     LdrpDrainWorkQueue @ 0x180028298 (LdrpDrainWorkQueue.c)
- *     LdrpDropLastInProgressCount @ 0x180079EDC (LdrpDropLastInProgressCount.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     LdrpDropLastInProgressCount @ 0x180079EEC (LdrpDropLastInProgressCount.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDll(__int64 a1, int a2, __int64 *a3)
+__int64 __fastcall LdrpFindLoadedDll(__int64 a1, __int64 a2, char **a3)
 {
   int LoadedDllInternal; // ebx
-  int v7; // [rsp+30h] [rbp-D0h] BYREF
-  _DWORD v8[3]; // [rsp+34h] [rbp-CCh] BYREF
-  int v9; // [rsp+40h] [rbp-C0h] BYREF
-  _WORD *v10; // [rsp+48h] [rbp-B8h]
-  _WORD v11[128]; // [rsp+50h] [rbp-B0h] BYREF
+  int v6; // [rsp+30h] [rbp-D0h] BYREF
+  int v7; // [rsp+34h] [rbp-CCh]
+  _UNICODE_STRING v8; // [rsp+40h] [rbp-C0h] BYREF
+  _WORD v9[128]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v9 = 0x1000000;
+  *(_DWORD *)&v8.Length = 0x1000000;
   *a3 = 0LL;
-  v7 = 0;
-  v10 = v11;
-  v11[0] = 0;
-  LoadedDllInternal = LdrpPreprocessDllName(a1, &v9, 0LL, &v7);
+  v6 = 0;
+  v8.Buffer = v9;
+  v9[0] = 0;
+  LoadedDllInternal = LdrpPreprocessDllName(a1, &v8, 0LL, &v6);
   if ( LoadedDllInternal >= 0 )
   {
-    LoadedDllInternal = LdrpFindLoadedDllInternal((unsigned int)&v9, a2, (_DWORD)a3, (unsigned int)v8, v7);
-    if ( LoadedDllInternal >= 0 && v8[0] < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
+    LoadedDllInternal = LdrpFindLoadedDllInternal(&v8, v6);
+    if ( LoadedDllInternal >= 0 && v7 < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
     {
       LdrpDereferenceModule(*a3);
       *a3 = 0LL;
       LdrpDrainWorkQueue(0LL);
-      LoadedDllInternal = LdrpFindLoadedDllInternal((unsigned int)&v9, a2, (_DWORD)a3, (unsigned int)v8, v7);
+      LoadedDllInternal = LdrpFindLoadedDllInternal(&v8, v6);
       LdrpDropLastInProgressCount();
-      if ( LoadedDllInternal >= 0 && v8[0] != 9 )
+      if ( LoadedDllInternal >= 0 && v7 != 9 )
       {
         LdrpDereferenceModule(*a3);
         *a3 = 0LL;
@@ -46,7 +45,7 @@ __int64 __fastcall LdrpFindLoadedDll(__int64 a1, int a2, __int64 *a3)
       }
     }
   }
-  if ( v11 != v10 )
-    NtdllpFreeStringRoutine((__int64)v10);
+  if ( v9 != v8.Buffer )
+    NtdllpFreeStringRoutine(v8.Buffer);
   return (unsigned int)LoadedDllInternal;
 }

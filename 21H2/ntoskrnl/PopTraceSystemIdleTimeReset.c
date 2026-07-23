@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSystemIdleTimeReset @ 0x140283DBC
+ * XREFs of PopTraceSystemIdleTimeReset @ 0x14024EB34
  * Callers:
- *     PopResetIdleTime @ 0x140283D78 (PopResetIdleTime.c)
+ *     PopResetIdleTime @ 0x14024EAF0 (PopResetIdleTime.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceSystemIdleTimeReset(int a1)

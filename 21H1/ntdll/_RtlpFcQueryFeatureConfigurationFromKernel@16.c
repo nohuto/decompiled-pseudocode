@@ -7,35 +7,35 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlpFcQueryFeatureConfigurationFromKernel(int a1, int a2, _DWORD *a3, _DWORD *a4)
+NTSTATUS __fastcall RtlpFcQueryFeatureConfigurationFromKernel(int a1, int a2, _DWORD *a3, _DWORD *a4)
 {
-  int SystemInformation; // eax
-  int v5; // ecx
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // ecx
   _DWORD *v7; // edi
-  _DWORD v8[2]; // [esp+Ch] [ebp-2Ch] BYREF
+  _DWORD InputBuffer[2]; // [esp+Ch] [ebp-2Ch] BYREF
   _DWORD *v9; // [esp+14h] [ebp-24h]
-  _DWORD v10[7]; // [esp+18h] [ebp-20h] BYREF
+  _DWORD SystemInformation[7]; // [esp+18h] [ebp-20h] BYREF
 
   v9 = a4;
-  v8[0] = a2;
-  v8[1] = a1;
-  memset(v10, 0, 0x18u);
-  SystemInformation = ZwQuerySystemInformationEx(210, v8, 8, v10, 24, 0);
-  v5 = SystemInformation;
-  if ( SystemInformation >= 0 )
+  InputBuffer[0] = a2;
+  InputBuffer[1] = a1;
+  memset(SystemInformation, 0, 0x18u);
+  v4 = ZwQuerySystemInformationEx(SystemFeatureConfigurationInformation, InputBuffer, 8u, SystemInformation, 0x18u, 0);
+  v5 = v4;
+  if ( v4 >= 0 )
   {
     v7 = v9;
     v5 = 0;
-    *a3 = v10[0];
-    a3[1] = v10[1];
-    *v7++ = v10[2];
-    *v7 = v10[3];
-    v7[1] = v10[4];
+    *a3 = SystemInformation[0];
+    a3[1] = SystemInformation[1];
+    *v7++ = SystemInformation[2];
+    *v7 = SystemInformation[3];
+    v7[1] = SystemInformation[4];
   }
-  else if ( SystemInformation == -2147483614 || SystemInformation == -1073741275 )
+  else if ( v4 == -2147483614 || v4 == -1073741275 )
   {
-    *a3 = v10[0];
-    a3[1] = v10[1];
+    *a3 = SystemInformation[0];
+    a3[1] = SystemInformation[1];
   }
   return v5;
 }

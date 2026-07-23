@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRemoveQueueEntry @ 0x140428720
+ * XREFs of KeRemoveQueueEntry @ 0x14041B3A0
  * Callers:
- *     IopCancelWaitCompletionPacket @ 0x1404285C4 (IopCancelWaitCompletionPacket.c)
- *     IoCancelMiniCompletionPacket @ 0x140597100 (IoCancelMiniCompletionPacket.c)
+ *     IopCancelWaitCompletionPacket @ 0x14041B244 (IopCancelWaitCompletionPacket.c)
+ *     IoCancelMiniCompletionPacket @ 0x140594080 (IoCancelMiniCompletionPacket.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KeRemoveQueueEntry(__int64 a1, _QWORD *a2)

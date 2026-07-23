@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtAttachDeviceDomain @ 0x1404DF5B0
+ * XREFs of IvtAttachDeviceDomain @ 0x1404DF7F0
  * Callers:
  *     <none>
  * Callees:
- *     IvtAttachDeviceDomainInternal @ 0x1404DF5C8 (IvtAttachDeviceDomainInternal.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF808 (IvtAttachDeviceDomainInternal.c)
  */
 
 __int64 IvtAttachDeviceDomain()

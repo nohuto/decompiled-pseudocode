@@ -9,19 +9,19 @@
 __int64 __fastcall sub_18010DF30(unsigned __int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
 {
   int v6; // ebx
-  int v8; // eax
+  NTSTATUS v8; // eax
   _DWORD *v9; // r8
-  unsigned int v10; // r9d
+  DWORD v10; // r9d
   _DWORD *v11; // rcx
-  __int64 v13[3]; // [rsp+30h] [rbp-18h] BYREF
-  unsigned int v14; // [rsp+58h] [rbp+10h] BYREF
+  _DWORD *v13; // [rsp+30h] [rbp-18h] BYREF
+  DWORD v14; // [rsp+58h] [rbp+10h] BYREF
   int v15; // [rsp+5Ch] [rbp+14h]
 
   v15 = HIDWORD(a2);
   v6 = 0;
   v14 = 0;
-  v8 = sub_18001C4DC(a1, 1, 6u, &v14, v13);
-  v9 = (_DWORD *)v13[0];
+  v8 = sub_18001C4DC(a1, 1, 6u, &v14, &v13);
+  v9 = v13;
   if ( v8 < 0 )
     v9 = 0LL;
   if ( !v9 || v14 < 0x1C )

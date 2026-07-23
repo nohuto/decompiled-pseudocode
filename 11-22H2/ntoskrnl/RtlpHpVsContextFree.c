@@ -17,7 +17,7 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   __int64 v6; // rbx
   PSLIST_ENTRY v9; // rsi
   unsigned int v10; // ecx
-  union _SLIST_HEADER *v11; // rcx
+  _SLIST_HEADER *v11; // rcx
   __int64 v13; // rdx
   __int64 v14; // r9
   int v15; // ecx
@@ -92,7 +92,7 @@ LABEL_24:
   *a5 = v10;
   if ( (v5 & 4) != 0 && v10 < 0x1000 )
   {
-    v11 = (union _SLIST_HEADER *)(a1 + 64);
+    v11 = (_SLIST_HEADER *)(a1 + 64);
     if ( *(_WORD *)(a1 + 64) < 0x20u )
     {
       RtlpInterlockedPushEntrySList(v11, (PSLIST_ENTRY)(v6 + 16));

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAccessCheckFromStateEx @ 0x140266540
+ * XREFs of SeAccessCheckFromStateEx @ 0x1402544E0
  * Callers:
- *     SeAccessCheckFromState @ 0x140266430 (SeAccessCheckFromState.c)
+ *     SeAccessCheckFromState @ 0x1402543D0 (SeAccessCheckFromState.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x14034DC70 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckWithHint @ 0x1403589C0 (SeAccessCheckWithHint.c)
  */
 
 __int64 __fastcall SeAccessCheckFromStateEx(

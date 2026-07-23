@@ -9,7 +9,7 @@
  *     memmove @ 0x1800A7A40 (memmove.c)
  */
 
-unsigned __int64 __fastcall RtlpHpReallocMove(__m128i *a1, const void *a2, __int64 a3, unsigned int a4)
+unsigned __int64 __fastcall RtlpHpReallocMove(char *a1, const void *a2, __int64 a3, unsigned int a4)
 {
   void *v8; // rax
   unsigned __int64 v9; // rsi

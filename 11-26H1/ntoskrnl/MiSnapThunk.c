@@ -1,20 +1,20 @@
 /*
- * XREFs of MiSnapThunk @ 0x140ADD2D8
+ * XREFs of MiSnapThunk @ 0x14097ECD8
  * Callers:
- *     MmGetModuleRoutineAddress @ 0x140864A10 (MmGetModuleRoutineAddress.c)
- *     MiResolveImageReferences @ 0x140ADCF50 (MiResolveImageReferences.c)
- *     MiSnapThunk @ 0x140ADD2D8 (MiSnapThunk.c)
+ *     MmGetModuleRoutineAddress @ 0x14086ADF0 (MmGetModuleRoutineAddress.c)
+ *     MiResolveImageReferences @ 0x14097E950 (MiResolveImageReferences.c)
+ *     MiSnapThunk @ 0x14097ECD8 (MiSnapThunk.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     strchr @ 0x140537A00 (strchr.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlUpperChar @ 0x14096C840 (RtlUpperChar.c)
- *     MiSnapThunk @ 0x140ADD2D8 (MiSnapThunk.c)
- *     MiFindExport @ 0x140ADD4A0 (MiFindExport.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     strchr @ 0x140539E80 (strchr.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     RtlUpperChar @ 0x14097D180 (RtlUpperChar.c)
+ *     MiSnapThunk @ 0x14097ECD8 (MiSnapThunk.c)
+ *     MiFindExport @ 0x14097EEA0 (MiFindExport.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiSnapThunk(int a1, int a2, int a3, char **a4, __int64 a5)
@@ -37,7 +37,7 @@ __int64 __fastcall MiSnapThunk(int a1, int a2, int a3, char **a4, __int64 a5)
   CHAR Character; // [rsp+30h] [rbp-30h]
   char *v22; // [rsp+38h] [rbp-28h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-20h] BYREF
-  STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
+  ANSI_STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
 
   SourceString = 0LL;
   DestinationString = 0LL;

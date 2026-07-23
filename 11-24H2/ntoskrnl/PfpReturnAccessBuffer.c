@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpReturnAccessBuffer @ 0x14047E840
+ * XREFs of PfpReturnAccessBuffer @ 0x140479740
  * Callers:
- *     PfpFlushBuffers @ 0x14094F8D0 (PfpFlushBuffers.c)
+ *     PfpFlushBuffers @ 0x140971DE0 (PfpFlushBuffers.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline @ 0x140245E80 (Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     MmFreeAccessPfnBuffer @ 0x14046B30C (MmFreeAccessPfnBuffer.c)
- *     PfIsProcessExitingInNonSystemPartition @ 0x14047EBF4 (PfIsProcessExitingInNonSystemPartition.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline @ 0x14020EFA8 (Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     MmFreeAccessPfnBuffer @ 0x140463F10 (MmFreeAccessPfnBuffer.c)
+ *     PfIsProcessExitingInNonSystemPartition @ 0x140479AF4 (PfIsProcessExitingInNonSystemPartition.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall PfpReturnAccessBuffer(__int64 a1, __int64 a2)
@@ -22,7 +22,7 @@ void __fastcall PfpReturnAccessBuffer(__int64 a1, __int64 a2)
   bool v8; // zf
 
   v2 = *(_QWORD *)(a1 + 32);
-  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v2 + 728)) )
+  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v2 + 728)) )
     goto LABEL_23;
   v4 = *(unsigned __int16 *)(v2 + 768);
   if ( v4 >= *(_DWORD *)(v2 + 760) )

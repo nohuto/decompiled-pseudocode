@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExpPcwDisabledStatus @ 0x140A029F8 (ExpPcwDisabledStatus.c)
+ *     sub_1403614E0 @ 0x1403614E0 (sub_1403614E0.c)
+ *     sub_1403614FC @ 0x1403614FC (sub_1403614FC.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_140A029F8 @ 0x140A029F8 (sub_140A029F8.c)
  */
 
 NTSTATUS __stdcall PcwCreateInstance(
@@ -16,24 +16,17 @@ NTSTATUS __stdcall PcwCreateInstance(
         ULONG Count,
         PPCW_DATA Data)
 {
-  unsigned __int64 ExtensionTable; // rax
-  NTSTATUS v10; // ebx
+  NTSTATUS v7; // ebx
 
-  ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost);
-  if ( ExtensionTable )
+  if ( sub_1403614FC((struct _EX_RUNDOWN_REF *)qword_140D3B080) )
   {
-    v10 = (*(__int64 (__fastcall **)(PPCW_INSTANCE *, PPCW_REGISTRATION, PCUNICODE_STRING, _QWORD, PPCW_DATA))(ExtensionTable + 16))(
-            Instance,
-            Registration,
-            Name,
-            Count,
-            Data);
-    ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost);
+    v7 = sub_14042A5E0(Instance, Registration);
+    sub_1403614E0((struct _EX_RUNDOWN_REF *)qword_140D3B080);
   }
   else
   {
     *Instance = 0LL;
-    return ExpPcwDisabledStatus();
+    return sub_140A029F8();
   }
-  return v10;
+  return v7;
 }

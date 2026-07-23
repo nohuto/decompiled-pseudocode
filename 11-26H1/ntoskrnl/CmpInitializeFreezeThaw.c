@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpInitializeFreezeThaw @ 0x14085739C
+ * XREFs of CmpInitializeFreezeThaw @ 0x14085D72C
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
  *     <none>
  */

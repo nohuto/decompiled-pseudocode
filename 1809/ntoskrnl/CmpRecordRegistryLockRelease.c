@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpRecordRegistryLockRelease @ 0x1401B3024
+ * XREFs of CmpRecordRegistryLockRelease @ 0x1401B3164
  * Callers:
- *     CmEnumerateKey @ 0x1405D2A20 (CmEnumerateKey.c)
- *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
- *     CmpDeleteKeyObject @ 0x14063F500 (CmpDeleteKeyObject.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
+ *     CmEnumerateKey @ 0x1405D3A20 (CmEnumerateKey.c)
+ *     CmQueryKey @ 0x1405D7900 (CmQueryKey.c)
+ *     CmpDeleteKeyObject @ 0x140640520 (CmpDeleteKeyObject.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmQueryValueKey @ 0x1406461B0 (CmQueryValueKey.c)
  * Callees:
- *     CmpThreadInfoLogStack @ 0x1401B3054 (CmpThreadInfoLogStack.c)
+ *     CmpThreadInfoLogStack @ 0x1401B3194 (CmpThreadInfoLogStack.c)
  */
 
 struct _KTHREAD *CmpRecordRegistryLockRelease()

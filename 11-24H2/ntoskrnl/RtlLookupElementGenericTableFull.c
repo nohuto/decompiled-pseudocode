@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLookupElementGenericTableFull @ 0x140249550
+ * XREFs of RtlLookupElementGenericTableFull @ 0x1402E3790
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTableFull(
@@ -22,7 +22,7 @@ PVOID __stdcall RtlLookupElementGenericTableFull(
   {
     while ( 1 )
     {
-      v9 = guard_dispatch_icall_no_overrides(Table, Buffer, p_Parent + 5, SearchResult);
+      v9 = guard_dispatch_icall_no_overrides(Table, Buffer);
       if ( v9 )
       {
         if ( v9 != 1 )

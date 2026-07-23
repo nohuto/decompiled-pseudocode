@@ -14,54 +14,50 @@
 
 __int64 __fastcall sub_18006C31C(__int64 a1, __int64 a2, _BYTE *a3, __int64 *a4)
 {
-  const WCHAR *Heap; // rsi
+  WCHAR *Heap; // rsi
   int v8; // ebx
   int v9; // ecx
-  int v11; // r8d
-  __int64 v12; // [rsp+40h] [rbp-19h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-11h] BYREF
-  int v14; // [rsp+58h] [rbp-1h] BYREF
-  __int64 v15; // [rsp+60h] [rbp+7h]
-  UNICODE_STRING *p_DestinationString; // [rsp+68h] [rbp+Fh]
-  int v17; // [rsp+70h] [rbp+17h]
-  __int128 v18; // [rsp+78h] [rbp+1Fh]
-  unsigned int v19; // [rsp+C0h] [rbp+67h] BYREF
-  int v20; // [rsp+C8h] [rbp+6Fh] BYREF
+  unsigned int v11; // r8d
+  HANDLE KeyHandle; // [rsp+40h] [rbp-19h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-1h] BYREF
+  __int64 v15; // [rsp+C0h] [rbp+67h] BYREF
+  int v16; // [rsp+C8h] [rbp+6Fh]
 
-  v12 = 0LL;
+  KeyHandle = 0LL;
   Heap = 0LL;
-  v19 = 0;
-  v20 = 7;
+  LODWORD(v15) = 0;
+  v16 = 7;
   if ( a1 && a3 && a4 )
   {
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-    v12 = 0LL;
-    v15 = 0LL;
-    p_DestinationString = &DestinationString;
-    v14 = 48;
-    v17 = 64;
-    v18 = 0LL;
-    if ( (int)ZwOpenKey(&v12, 131097LL, &v14) < 0 )
+    KeyHandle = 0LL;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
       goto LABEL_6;
     RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
     v8 = -1073741772;
-    v9 = sub_18006E1E4(v12, &DestinationString, &v20, 0LL, &v19);
-    if ( v9 == -1073741772 || !v19 )
+    v9 = sub_18006E1E4(KeyHandle, &DestinationString, (__int64)&v15);
+    if ( v9 == -1073741772 || !(_DWORD)v15 )
       goto LABEL_6;
     if ( v9 != -2147483643 )
       goto LABEL_7;
-    Heap = (const WCHAR *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v19 + 2);
+    Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v15 + 2));
     if ( !Heap )
     {
       v8 = -1073741801;
       goto LABEL_7;
     }
-    v8 = sub_18006E1E4(v12, &DestinationString, &v20, Heap, &v19);
+    v8 = sub_18006E1E4(KeyHandle, &DestinationString, (__int64)&v15);
     if ( v8 >= 0 )
     {
-      if ( v20 == 7 || v20 == 1 )
+      if ( v16 == 7 || v16 == 1 )
       {
-        v11 = v19 >> 1;
+        v11 = (unsigned int)v15 >> 1;
         *a3 = 0;
         v8 = sub_180045810(a1, Heap, v11, 8, 3, 1u, a4);
         goto LABEL_7;
@@ -76,9 +72,9 @@ LABEL_6:
     v8 = -1073741811;
   }
 LABEL_7:
-  if ( v12 )
-    ZwClose(v12);
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return (unsigned int)v8;
 }

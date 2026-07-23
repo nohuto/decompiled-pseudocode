@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetRedirectionTrustPolicy @ 0x140B023AC
+ * XREFs of PspSetRedirectionTrustPolicy @ 0x140B040DC
  * Callers:
- *     PspApplyMitigationOptions @ 0x140964120 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x140B4F59C (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     SeTokenSetRedirectionTrustPolicy @ 0x1404D6408 (SeTokenSetRedirectionTrustPolicy.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     SeTokenSetRedirectionTrustPolicy @ 0x1404CFBD8 (SeTokenSetRedirectionTrustPolicy.c)
  */
 
 signed __int64 __fastcall PspSetRedirectionTrustPolicy(__int64 a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

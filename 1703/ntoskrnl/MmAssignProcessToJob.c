@@ -29,7 +29,7 @@ __int64 __fastcall MmAssignProcessToJob(__int64 a1)
   __int64 v5; // rdx
   struct _KTHREAD *v6; // rbx
   __int64 SessionId; // rdx
-  __int64 v8; // r8
+  unsigned int v8; // r8d
   bool v9; // zf
   __int64 v10; // rcx
   int v11; // eax
@@ -71,7 +71,7 @@ __int64 __fastcall MmAssignProcessToJob(__int64 a1)
       SessionId = 0xFFFFFFFFLL;
     --v6->SpecialApcDisable;
     ++v6->AbAllocationRegionCount;
-    LODWORD(v8) = ((char)v6->AbEntrySummary | (char)v6->AbOrphanedEntrySummary) ^ 0x3F;
+    v8 = ((char)v6->AbEntrySummary | (char)v6->AbOrphanedEntrySummary) ^ 0x3F;
     AbAllocationRegionCount = v6->AbAllocationRegionCount;
     v9 = !_BitScanReverse((unsigned int *)&v10, v8);
     v22 = v10;
@@ -82,7 +82,7 @@ __int64 __fastcall MmAssignProcessToJob(__int64 a1)
       v11 = 1 << v10;
       v12 = v10;
       v13 = &v6->LockEntries[v12];
-      v8 = ~v11 & (unsigned int)v8;
+      v8 &= ~v11;
       if ( (v13->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v13->LockState.0 & 1) == 0
         && (*(_QWORD *)&v13->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 880) & 0x7FFFFFFFFFFFFFFCLL)
@@ -107,7 +107,7 @@ LABEL_28:
     {
       v13->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v13->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v6->LockEntries[v12], SessionId, v8);
+        KiAbEntryRemoveFromTree(&v6->LockEntries[v12].TreeNode, SessionId);
       v21 = 0;
       v21 = v13->BoostBitmap.AllFields & 0x1FFFF;
       v13->BoostBitmap.AllFields &= 0xFFFE0000;

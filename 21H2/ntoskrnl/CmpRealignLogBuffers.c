@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRealignLogBuffers @ 0x1408754F8
+ * XREFs of CmpRealignLogBuffers @ 0x140875658
  * Callers:
- *     CmpRmReDoPhase @ 0x140875820 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x140875980 (CmpRmReDoPhase.c)
  * Callees:
  *     <none>
  */

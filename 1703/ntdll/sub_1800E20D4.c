@@ -10,6 +10,6 @@
 
 bool __fastcall sub_1800E20D4(__int64 a1)
 {
-  return (unsigned __int64)(qword_18015A258 - 1) <= 0xFFFFFFFFFFFFFFFDuLL
+  return (char *)qword_18015A258 - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL
       && (unsigned int)sub_180109410(a1, (unsigned int)a1) != 0;
 }

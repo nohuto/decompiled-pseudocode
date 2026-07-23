@@ -1,10 +1,10 @@
 /*
- * XREFs of KiYieldWaitForDebugger @ 0x1405E8CBC
+ * XREFs of KiYieldWaitForDebugger @ 0x1405EB62C
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     KiAttemptBugcheckRecovery @ 0x1405F9734 (KiAttemptBugcheckRecovery.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405FC154 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     KiCheckForFreezeExecution @ 0x1405E79B0 (KiCheckForFreezeExecution.c)
+ *     KiCheckForFreezeExecution @ 0x1405EA320 (KiCheckForFreezeExecution.c)
  */
 
 void __noreturn KiYieldWaitForDebugger()

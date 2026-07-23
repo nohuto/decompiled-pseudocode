@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorSetPep @ 0x140606320
+ * XREFs of PopProcessorSetPep @ 0x140608E20
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PopProcessorSetPep(unsigned int a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall PopProcessorSetPep(unsigned int a1, __int64 a2)
   v3 = 0;
   if ( v2 && *(_QWORD *)(v2 + 104) )
   {
-    stru_140E66FF0.Padding[0] = *(_QWORD *)(a2 + 64);
+    qword_140E676E8 = *(_QWORD *)(a2 + 64);
     *(_QWORD *)(KeGetPrcb(a1) + 35384) = a2;
   }
   else

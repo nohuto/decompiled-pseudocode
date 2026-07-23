@@ -6,30 +6,30 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A2AD0 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableAvl(__int64 a1, __int64 a2)
+PVOID __cdecl RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
-  __int64 v2; // rdi
-  __int64 i; // rbx
-  int v6; // eax
-  __int64 v7; // rax
+  void *v2; // rdi
+  _RTL_BALANCED_LINKS *i; // rbx
+  _RTL_GENERIC_COMPARE_RESULTS v6; // eax
+  _RTL_BALANCED_LINKS *RightChild; // rax
   int v8; // eax
-  __int64 v10; // [rsp+30h] [rbp+8h]
+  _RTL_BALANCED_LINKS *v10; // [rsp+30h] [rbp+8h]
 
   v2 = 0LL;
-  if ( *(_DWORD *)(a1 + 44) )
+  if ( Table->NumberGenericTableElements )
   {
-    for ( i = *(_QWORD *)(a1 + 16); ; i = v7 )
+    for ( i = Table->BalancedRoot.RightChild; ; i = RightChild )
     {
-      v6 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 72))(a1, a2, i + 32);
+      v6 = Table->CompareRoutine(Table, Buffer, &i[1]);
       if ( v6 )
       {
-        if ( v6 != 1 )
+        if ( v6 != GenericGreaterThan )
         {
           v8 = 1;
           goto LABEL_10;
         }
-        v7 = *(_QWORD *)(i + 16);
-        if ( !v7 )
+        RightChild = i->RightChild;
+        if ( !RightChild )
         {
           v8 = 3;
           goto LABEL_10;
@@ -37,8 +37,8 @@ __int64 __fastcall RtlLookupElementGenericTableAvl(__int64 a1, __int64 a2)
       }
       else
       {
-        v7 = *(_QWORD *)(i + 8);
-        if ( !v7 )
+        RightChild = i->LeftChild;
+        if ( !RightChild )
         {
           v8 = 2;
           goto LABEL_10;
@@ -50,6 +50,6 @@ __int64 __fastcall RtlLookupElementGenericTableAvl(__int64 a1, __int64 a2)
   v8 = 0;
 LABEL_10:
   if ( v8 == 1 )
-    return i + 32;
+    return &i[1];
   return v2;
 }

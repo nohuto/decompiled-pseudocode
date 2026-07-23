@@ -1,17 +1,17 @@
 /*
- * XREFs of MiLockAddressSpaceToo @ 0x140315064
+ * XREFs of MiLockAddressSpaceToo @ 0x140317094
  * Callers:
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiPrepareVadDelete @ 0x140A8F52C (MiPrepareVadDelete.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiPrepareVadDelete @ 0x140A941FC (MiPrepareVadDelete.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     MiUnlockNestedVad @ 0x140A9F610 (MiUnlockNestedVad.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     MiUnlockNestedVad @ 0x140A9F940 (MiUnlockNestedVad.c)
  */
 
 __int64 __fastcall MiLockAddressSpaceToo(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -82,7 +82,7 @@ __int64 __fastcall MiLockAddressSpaceToo(__int64 a1, __int64 a2, __int64 a3, str
       }
     }
     v20 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v20 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v20 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v17, (__int64)v16);
     return 0LL;
   }

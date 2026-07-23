@@ -1,19 +1,19 @@
 /*
- * XREFs of PsGetEffectiveServerSilo @ 0x1403621B0
+ * XREFs of PsGetEffectiveServerSilo @ 0x1402F7010
  * Callers:
  *     PsGetJobServerSilo @ 0x140201820 (PsGetJobServerSilo.c)
- *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     PspIsSiloInServerSilo @ 0x140580FC0 (PspIsSiloInServerSilo.c)
- *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
- *     PspEstimateNewProcessServerSilo @ 0x14060D348 (PspEstimateNewProcessServerSilo.c)
- *     PspGetMemoryPartitionImplicit @ 0x140613FA4 (PspGetMemoryPartitionImplicit.c)
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
- *     PspValidateJobAssignmentSiloPolicy @ 0x140720064 (PspValidateJobAssignmentSiloPolicy.c)
- *     ObpSetSiloDeviceMap @ 0x1407A102C (ObpSetSiloDeviceMap.c)
+ *     PsGetThreadServerSilo @ 0x1402AAE70 (PsGetThreadServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     PspIsSiloInServerSilo @ 0x140581200 (PspIsSiloInServerSilo.c)
+ *     PspGetMemoryPartitionImplicit @ 0x14067DC04 (PspGetMemoryPartitionImplicit.c)
+ *     PspEstimateNewProcessServerSilo @ 0x14069CDF8 (PspEstimateNewProcessServerSilo.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406F519C (PspImplicitAssignProcessToJob.c)
+ *     PspValidateJobAssignmentSiloPolicy @ 0x1406F6508 (PspValidateJobAssignmentSiloPolicy.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
+ *     ObpSetSiloDeviceMap @ 0x1407A122C (ObpSetSiloDeviceMap.c)
  * Callees:
- *     PsIsServerSilo @ 0x140362250 (PsIsServerSilo.c)
+ *     PsIsServerSilo @ 0x1402F70B0 (PsIsServerSilo.c)
  */
 
 __int64 __fastcall PsGetEffectiveServerSilo(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCloseLogger @ 0x140347D90
+ * XREFs of EtwpCloseLogger @ 0x140326790
  * Callers:
- *     NtTraceEvent @ 0x140325D10 (NtTraceEvent.c)
- *     EtwTraceEvent @ 0x140346CD0 (EtwTraceEvent.c)
- *     EtwSendTraceBuffer @ 0x14064F090 (EtwSendTraceBuffer.c)
- *     EtwTraceRaw @ 0x14064F1FC (EtwTraceRaw.c)
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     NtTraceEvent @ 0x1402CE8A0 (NtTraceEvent.c)
+ *     EtwTraceEvent @ 0x140325740 (EtwTraceEvent.c)
+ *     EtwSendTraceBuffer @ 0x14064D790 (EtwSendTraceBuffer.c)
+ *     EtwTraceRaw @ 0x14064D8FC (EtwTraceRaw.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
  */
 
 __int64 __fastcall EtwpCloseLogger(unsigned int a1, __int64 a2, char a3)

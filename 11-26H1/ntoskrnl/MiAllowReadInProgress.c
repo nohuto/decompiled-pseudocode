@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllowReadInProgress @ 0x14038B388
+ * XREFs of MiAllowReadInProgress @ 0x14038D138
  * Callers:
- *     MiHandleCollidedFault @ 0x14038B418 (MiHandleCollidedFault.c)
+ *     MiHandleCollidedFault @ 0x14038D1C8 (MiHandleCollidedFault.c)
  * Callees:
- *     MiIsVirtualizationFaultPrimaryPage @ 0x1404F650C (MiIsVirtualizationFaultPrimaryPage.c)
- *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F9184 (MiMarkVirtualizationFaultPageInfoFailed.c)
+ *     MiIsVirtualizationFaultPrimaryPage @ 0x1404EFB1C (MiIsVirtualizationFaultPrimaryPage.c)
+ *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F2794 (MiMarkVirtualizationFaultPageInfoFailed.c)
  */
 
 __int64 __fastcall MiAllowReadInProgress(__int64 *a1)

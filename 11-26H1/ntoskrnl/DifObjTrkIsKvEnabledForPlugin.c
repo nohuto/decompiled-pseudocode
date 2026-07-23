@@ -1,21 +1,21 @@
 /*
- * XREFs of DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60
+ * XREFs of DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970
  * Callers:
- *     MiProbeAndLockComplete @ 0x1403A0050 (MiProbeAndLockComplete.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     ExDeleteTimer @ 0x1403AABC0 (ExDeleteTimer.c)
- *     KeSetTimer @ 0x1403AC590 (KeSetTimer.c)
- *     KiObjTrkTimerPend @ 0x1403ADE18 (KiObjTrkTimerPend.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     ExAllocateTimerInternal2 @ 0x140456D20 (ExAllocateTimerInternal2.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
- *     ExInitializePagedLookasideListInternal @ 0x140498DA0 (ExInitializePagedLookasideListInternal.c)
- *     ExInitializeLookasideListExInternal @ 0x140498FD0 (ExInitializeLookasideListExInternal.c)
- *     ExDeletePagedLookasideList @ 0x1404BCAF0 (ExDeletePagedLookasideList.c)
- *     ExDeleteNPagedLookasideList @ 0x1404BCB50 (ExDeleteNPagedLookasideList.c)
- *     ExDeleteLookasideListEx @ 0x1404BCBF0 (ExDeleteLookasideListEx.c)
+ *     MiProbeAndLockComplete @ 0x1403A1DB0 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     ExDeleteTimer @ 0x1403B48D0 (ExDeleteTimer.c)
+ *     KeSetTimer @ 0x1403B62A0 (KeSetTimer.c)
+ *     KiObjTrkTimerPend @ 0x1403B7B28 (KiObjTrkTimerPend.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     ExAllocateTimerInternal2 @ 0x14044E590 (ExAllocateTimerInternal2.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializePagedLookasideListInternal @ 0x1404928F0 (ExInitializePagedLookasideListInternal.c)
+ *     ExInitializeLookasideListExInternal @ 0x140492B20 (ExInitializeLookasideListExInternal.c)
+ *     ExDeletePagedLookasideList @ 0x1404B62D0 (ExDeletePagedLookasideList.c)
+ *     ExDeleteNPagedLookasideList @ 0x1404B6330 (ExDeleteNPagedLookasideList.c)
+ *     ExDeleteLookasideListEx @ 0x1404B63D0 (ExDeleteLookasideListEx.c)
  * Callees:
- *     DifIsPluginEnabled @ 0x14064C7D0 (DifIsPluginEnabled.c)
+ *     DifIsPluginEnabled @ 0x1406503B0 (DifIsPluginEnabled.c)
  */
 
 bool __fastcall DifObjTrkIsKvEnabledForPlugin(__int64 a1)

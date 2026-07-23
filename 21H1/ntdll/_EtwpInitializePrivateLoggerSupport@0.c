@@ -9,18 +9,20 @@
 
 int __stdcall EtwpInitializePrivateLoggerSupport()
 {
-  int Heap; // edx
+  _DWORD *Heap; // edx
   unsigned int i; // eax
+  SIZE_T v3; // [esp-4h] [ebp-8h]
 
   if ( EtwpLoggerArray )
     return 0;
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 512);
+  LODWORD(v3) = 512;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v3);
   if ( Heap )
   {
     for ( i = 0; i < 0x40; ++i )
-      *(_DWORD *)(Heap + 8 * i) = 1;
-    if ( _InterlockedCompareExchange(&EtwpLoggerArray, Heap, 0) )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      Heap[2 * i] = 1;
+    if ( _InterlockedCompareExchange(&EtwpLoggerArray, (signed __int32)Heap, 0) )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     return 0;
   }
   return 1450;

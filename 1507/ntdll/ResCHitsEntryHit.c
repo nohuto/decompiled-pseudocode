@@ -17,7 +17,7 @@ __int64 __fastcall ResCHitsEntryHit(__int64 a1, unsigned int a2)
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
 }

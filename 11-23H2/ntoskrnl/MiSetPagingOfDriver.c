@@ -1,31 +1,31 @@
 /*
- * XREFs of MiSetPagingOfDriver @ 0x140290D84
+ * XREFs of MiSetPagingOfDriver @ 0x140291014
  * Callers:
- *     MmPageEntireDriver @ 0x140700F50 (MmPageEntireDriver.c)
+ *     MmPageEntireDriver @ 0x140701160 (MmPageEntireDriver.c)
  *     MiEnablePagingTheExecutive @ 0x140B5EC88 (MiEnablePagingTheExecutive.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
  *     MiWriteWsle @ 0x140216174 (MiWriteWsle.c)
  *     MiGetWsleContents @ 0x140216FB0 (MiGetWsleContents.c)
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiDriverPageMustStayResident @ 0x1402910A4 (MiDriverPageMustStayResident.c)
- *     MiTrimSystemImagePages @ 0x1402910F4 (MiTrimSystemImagePages.c)
- *     MiUnlockLoaderEntry @ 0x1402920D8 (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x140292164 (MiLockLoaderEntry.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiDriverPageMustStayResident @ 0x140291334 (MiDriverPageMustStayResident.c)
+ *     MiTrimSystemImagePages @ 0x140291384 (MiTrimSystemImagePages.c)
+ *     MiUnlockLoaderEntry @ 0x140292368 (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1402923F4 (MiLockLoaderEntry.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
-__int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+PVOID __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // r15
   __int64 v5; // r14
@@ -45,7 +45,7 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned
   __int64 v19; // rcx
   __int64 v20; // r8
   __int64 v21; // r11
-  __int64 result; // rax
+  PVOID result; // rax
   int HasShadow; // eax
   unsigned __int8 v24; // [rsp+20h] [rbp-128h]
   unsigned __int64 v26; // [rsp+30h] [rbp-118h] BYREF
@@ -143,10 +143,10 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned
     v11 = v24;
   }
   MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v11);
-  result = MiUnlockLoaderEntry(v5 + 160, 2LL);
+  result = (PVOID)MiUnlockLoaderEntry(v5 + 160, 2LL);
   if ( v8 )
   {
-    result = *(_QWORD *)(v5 + 48);
+    result = *(PVOID *)(v5 + 48);
     if ( result == PsHalImageBase || result == PsNtosImageBase )
       _InterlockedExchangeAdd((_DWORD *)&xmmword_140C65950 + 2, v8);
     else

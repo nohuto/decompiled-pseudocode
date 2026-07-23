@@ -1,17 +1,17 @@
 /*
- * XREFs of HdlspAddLogEntry @ 0x1409EEAE0
+ * XREFs of HdlspAddLogEntry @ 0x1409EFAE0
  * Callers:
- *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x1409EFE80 (HdlspDispatch.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcscmp @ 0x1403D3F40 (wcscmp.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcscmp @ 0x1403D40B0 (wcscmp.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall HdlspAddLogEntry(_WORD *Src)
@@ -35,13 +35,13 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
   _DWORD *SchedulerAssist; // r8
   int v19; // eax
   bool v20; // zf
-  __int128 v21; // [rsp+20h] [rbp-68h] BYREF
+  __int128 SystemInformation; // [rsp+20h] [rbp-68h] BYREF
   __int128 v22; // [rsp+30h] [rbp-58h]
   __int128 v23; // [rsp+40h] [rbp-48h]
 
   v2 = -1LL;
   v3 = 0LL;
-  v21 = 0LL;
+  SystemInformation = 0LL;
   v22 = 0LL;
   v23 = 0LL;
   do
@@ -50,9 +50,9 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
   v4 = 2 * v2 + 2;
   if ( KeGetCurrentIrql() < 2u )
   {
-    if ( (int)ZwQuerySystemInformation(3LL, (__int64)&v21) < 0 )
+    if ( ZwQuerySystemInformation(SystemTimeOfDayInformation, &SystemInformation, 0x30u, 0LL) < 0 )
     {
-      v21 = 0LL;
+      SystemInformation = 0LL;
       v22 = 0LL;
       v23 = 0LL;
     }
@@ -83,7 +83,7 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
     }
     v14 = 56LL * v11;
     v15 = v8[2];
-    *(_OWORD *)(v14 + v15) = v21;
+    *(_OWORD *)(v14 + v15) = SystemInformation;
     *(_OWORD *)(v14 + v15 + 16) = v22;
     *(_OWORD *)(v14 + v15 + 32) = v23;
     if ( v6 )

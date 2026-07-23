@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpSegPageRangeComputeLargePageCost @ 0x18010F48C
+ * XREFs of RtlpHpSegPageRangeComputeLargePageCost @ 0x18010F44C
  * Callers:
  *     RtlpHpSegFreeRangeInsert @ 0x180006CD0 (RtlpHpSegFreeRangeInsert.c)
  *     RtlpHpSegFree @ 0x1800279F0 (RtlpHpSegFree.c)

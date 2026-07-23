@@ -34,7 +34,7 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 v11; // rcx
   unsigned __int64 v12; // rbx
-  signed int v13; // eax
+  NTSTATUS v13; // eax
   int v14; // r15d
   unsigned __int64 v15; // rdi
   unsigned __int64 v16; // rdi
@@ -61,11 +61,11 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   __int64 v40; // [rsp+D2h] [rbp-106h]
   unsigned __int64 v41; // [rsp+E0h] [rbp-F8h]
   __int64 UnbiasedInterruptTime; // [rsp+E8h] [rbp-F0h]
-  _QWORD v43[19]; // [rsp+100h] [rbp-D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+100h] [rbp-D8h] BYREF
 
   v7 = a4;
   v8 = a3;
-  memset(v43, 0, sizeof(v43));
+  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   CurrentThread = KeGetCurrentThread();
   v35 = CurrentThread;
   if ( a1 )

@@ -9,22 +9,22 @@
  *     RtlDeleteAtomFromAtomTable @ 0x14091E690 (RtlDeleteAtomFromAtomTable.c)
  */
 
-__int64 __fastcall NtDeleteAtom(unsigned __int16 a1)
+NTSTATUS __cdecl NtDeleteAtom(RTL_ATOM Atom)
 {
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   unsigned int v3; // r10d
   __int128 v5; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+40h] [rbp-18h]
+  PVOID AtomTableHandle; // [rsp+40h] [rbp-18h]
 
   v5 = 0LL;
-  v6 = 0LL;
+  AtomTableHandle = 0LL;
   if ( (unsigned int)PspUpdateCalloutParameters(2, (__int64)&v5, 0, 0LL) )
   {
     Win32Callouts = PsSessionGetWin32Callouts();
     ExCallCallBack(Win32Callouts, v3, &v5);
   }
-  if ( v6 )
-    return RtlDeleteAtomFromAtomTable(v6, a1);
+  if ( AtomTableHandle )
+    return RtlDeleteAtomFromAtomTable(AtomTableHandle, Atom);
   else
-    return 3221225506LL;
+    return -1073741790;
 }

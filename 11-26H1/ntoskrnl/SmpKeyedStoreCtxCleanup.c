@@ -1,9 +1,9 @@
 /*
- * XREFs of SmpKeyedStoreCtxCleanup @ 0x14063E8E8
+ * XREFs of SmpKeyedStoreCtxCleanup @ 0x1406424C8
  * Callers:
- *     SmPartitionCleanup @ 0x140818F90 (SmPartitionCleanup.c)
+ *     SmPartitionCleanup @ 0x14081F1A0 (SmPartitionCleanup.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SmpKeyedStoreCtxCleanup(__int64 a1)

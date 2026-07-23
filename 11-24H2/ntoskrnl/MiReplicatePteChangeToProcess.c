@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReplicatePteChangeToProcess @ 0x14068D440
+ * XREFs of MiReplicatePteChangeToProcess @ 0x14068E570
  * Callers:
- *     MiReplicatePteChange @ 0x1404F761C (MiReplicatePteChange.c)
+ *     MiReplicatePteChange @ 0x1404F4EFC (MiReplicatePteChange.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140266854 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiShadowTopLevelPxes @ 0x140393EB0 (MiShadowTopLevelPxes.c)
- *     MiTransformValidPteInPlace @ 0x14039404C (MiTransformValidPteInPlace.c)
- *     MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE @ 0x14068394C (MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402EEA94 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiShadowTopLevelPxes @ 0x14038D4CC (MiShadowTopLevelPxes.c)
+ *     MiTransformValidPteInPlace @ 0x14038D668 (MiTransformValidPteInPlace.c)
+ *     MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE @ 0x140684AA8 (MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE.c)
  */
 
 char __fastcall MiReplicatePteChangeToProcess(__int64 a1, unsigned __int64 a2)
@@ -21,7 +21,7 @@ char __fastcall MiReplicatePteChangeToProcess(__int64 a1, unsigned __int64 a2)
   __int64 v8; // rbx
 
   v4 = MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE(a1, a2);
-  v5 = MiMapPageInHyperSpaceWorker(v4, 0LL, 0x80000000LL);
+  v5 = MiMapPageInHyperSpaceWorker(v4, 0LL, 0x80000000);
   v6 = (__int64 *)(v5 + 8 * ((a2 >> 3) & 0x1FF));
   v7 = MI_READ_PTE_LOCK_FREE(a2);
   v8 = v7;
@@ -35,7 +35,7 @@ char __fastcall MiReplicatePteChangeToProcess(__int64 a1, unsigned __int64 a2)
         goto LABEL_10;
       }
       if ( _bittest64(&MiFlags, 0x24u) && (v7 & 0x20) == 0 && (unsigned __int64)v6 >= 0xFFFFF6C000000000uLL )
-        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v6, v7, 128);
+        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v6, v7, 128LL);
     }
     *v6 = v8;
   }

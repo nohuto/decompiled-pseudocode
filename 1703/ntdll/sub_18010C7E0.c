@@ -17,136 +17,133 @@
  *     RtlAbsoluteToSelfRelativeSD @ 0x1800765E0 (RtlAbsoluteToSelfRelativeSD.c)
  */
 
-_BOOL8 __fastcall sub_18010C7E0(int a1, __int64 a2, __int64 a3)
+_BOOL8 __fastcall sub_18010C7E0(int a1, void *a2, ULONG *a3)
 {
-  unsigned __int64 v3; // rdi
-  unsigned __int64 Src; // r14
-  int SecurityDescriptor; // ebx
-  __int64 Heap; // rax
-  unsigned __int64 v8; // r15
-  __int64 v9; // rax
-  __int64 v10; // rax
-  int v11; // ecx
-  unsigned int v12; // ebx
-  __int64 v13; // rax
-  char *v14; // rsi
-  NTSTATUS v15; // eax
-  ULONG v16; // eax
-  int v17; // [rsp+30h] [rbp-40h] BYREF
-  __int16 v18; // [rsp+34h] [rbp-3Ch]
-  int v19; // [rsp+38h] [rbp-38h] BYREF
-  __int16 v20; // [rsp+3Ch] [rbp-34h]
-  _BYTE v21[48]; // [rsp+40h] [rbp-30h] BYREF
-  int v22; // [rsp+B8h] [rbp+48h] BYREF
-  __int16 v23; // [rsp+BCh] [rbp+4Ch]
+  unsigned __int8 *v5; // rdi
+  unsigned __int8 *Sid; // r14
+  int Acl; // ebx
+  unsigned __int8 *Heap; // rax
+  unsigned __int8 *v10; // r15
+  unsigned __int8 *v11; // rax
+  unsigned __int8 *v12; // rax
+  int v13; // ecx
+  ULONG v14; // ebx
+  ACL *v15; // rax
+  ACL *v16; // rsi
+  int v17; // eax
+  LONG v18; // eax
+  _SID_IDENTIFIER_AUTHORITY v19; // [rsp+30h] [rbp-40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v20; // [rsp+38h] [rbp-38h] BYREF
+  _BYTE SecurityDescriptor[48]; // [rsp+40h] [rbp-30h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B8h] [rbp+48h] BYREF
 
-  v23 = 256;
-  v22 = 0;
-  v19 = 0;
-  v20 = 1280;
-  v3 = 0LL;
-  v17 = 0;
-  Src = 0LL;
-  v18 = 1280;
-  SecurityDescriptor = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 256;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  *(_DWORD *)v20.Value = 0;
+  *(_WORD *)&v20.Value[4] = 1280;
+  v5 = 0LL;
+  *(_DWORD *)v19.Value = 0;
+  Sid = 0LL;
+  *(_WORD *)&v19.Value[4] = 1280;
+  Acl = 0;
   if ( a1 != 2 )
   {
-    RtlSetLastWin32Error(0x32u);
-    return SecurityDescriptor >= 0;
+    RtlSetLastWin32Error(50);
+    return Acl >= 0;
   }
   if ( !a3 )
     return 0LL;
-  SecurityDescriptor = RtlCreateSecurityDescriptor(v21, 1);
-  if ( SecurityDescriptor >= 0 )
+  Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+  if ( Acl >= 0 )
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 12LL);
-    v8 = Heap;
+    Heap = (unsigned __int8 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xCuLL);
+    v10 = Heap;
     if ( !Heap )
     {
-      SecurityDescriptor = -1073741801;
-      return SecurityDescriptor >= 0;
+      Acl = -1073741801;
+      return Acl >= 0;
     }
-    SecurityDescriptor = RtlInitializeSid(Heap, (__int64)&v22, 1u);
-    if ( SecurityDescriptor >= 0 )
+    Acl = RtlInitializeSid(Heap, &IdentifierAuthority, 1u);
+    if ( Acl >= 0 )
     {
-      *(_DWORD *)(v8 + 8) = 0;
-      v9 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 16LL);
-      v3 = v9;
-      if ( v9 )
+      *((_DWORD *)v10 + 2) = 0;
+      v11 = (unsigned __int8 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x10uLL);
+      v5 = v11;
+      if ( v11 )
       {
-        SecurityDescriptor = RtlInitializeSid(v9, (__int64)&v17, 2u);
-        if ( SecurityDescriptor < 0 )
+        Acl = RtlInitializeSid(v11, &v19, 2u);
+        if ( Acl < 0 )
           goto LABEL_27;
-        *(_DWORD *)(v3 + 8) = 32;
-        *(_DWORD *)(v3 + 12) = 544;
-        v10 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 12LL);
-        Src = v10;
-        if ( v10 )
+        *((_DWORD *)v5 + 2) = 32;
+        *((_DWORD *)v5 + 3) = 544;
+        v12 = (unsigned __int8 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xCuLL);
+        Sid = v12;
+        if ( v12 )
         {
-          SecurityDescriptor = RtlInitializeSid(v10, (__int64)&v19, 1u);
-          if ( SecurityDescriptor < 0 )
+          Acl = RtlInitializeSid(v12, &v20, 1u);
+          if ( Acl < 0 )
             goto LABEL_27;
-          v11 = *(unsigned __int8 *)(Src + 1);
-          *(_DWORD *)(Src + 8) = 19;
-          v12 = 4 * (*(unsigned __int8 *)(v8 + 1) + *(unsigned __int8 *)(v3 + 1) + v11) + 68;
-          v13 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v12);
-          v14 = (char *)v13;
-          if ( v13 )
+          v13 = Sid[1];
+          *((_DWORD *)Sid + 2) = 19;
+          v14 = 4 * (v10[1] + v5[1] + v13) + 68;
+          v15 = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
+          v16 = v15;
+          if ( v15 )
           {
-            SecurityDescriptor = RtlCreateAcl(v13, v12, 2);
-            if ( SecurityDescriptor >= 0 )
+            Acl = RtlCreateAcl(v15, v14, 2u);
+            if ( Acl >= 0 )
             {
-              SecurityDescriptor = sub_180044698(v14, 2u, 3, 0x10000000, (unsigned __int8 *)Src, 0);
-              if ( SecurityDescriptor >= 0 )
+              Acl = sub_180044698(v16, 2u, 3, 0x10000000, Sid, 0);
+              if ( Acl >= 0 )
               {
-                SecurityDescriptor = sub_180044698(v14, 2u, 3, 0x10000000, (unsigned __int8 *)v3, 0);
-                if ( SecurityDescriptor >= 0 )
+                Acl = sub_180044698(v16, 2u, 3, 0x10000000, v5, 0);
+                if ( Acl >= 0 )
                 {
-                  SecurityDescriptor = sub_180044698(v14, 2u, 3, 0x80000000, (unsigned __int8 *)v8, 0);
-                  if ( SecurityDescriptor >= 0 )
+                  Acl = sub_180044698(v16, 2u, 3, 0x80000000, v10, 0);
+                  if ( Acl >= 0 )
                   {
-                    if ( RtlValidAcl((__int64)v14) )
+                    if ( RtlValidAcl(v16) )
                     {
-                      SecurityDescriptor = RtlSetDaclSecurityDescriptor((__int64)v21, 1, (__int64)v14, 0);
-                      if ( SecurityDescriptor >= 0 )
+                      Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v16, 0);
+                      if ( Acl >= 0 )
                       {
-                        if ( RtlValidSecurityDescriptor((__int64)v21) )
+                        if ( RtlValidSecurityDescriptor(SecurityDescriptor) )
                         {
-                          v15 = RtlAbsoluteToSelfRelativeSD((__int64)v21);
-                          SecurityDescriptor = v15;
-                          if ( v15 < 0 )
+                          v17 = RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, a2, a3);
+                          Acl = v17;
+                          if ( v17 < 0 )
                           {
-                            v16 = RtlNtStatusToDosError(v15);
-                            RtlSetLastWin32Error(v16);
+                            v18 = RtlNtStatusToDosError(v17);
+                            RtlSetLastWin32Error(v18);
                           }
                         }
                         else
                         {
-                          SecurityDescriptor = -1073741703;
+                          Acl = -1073741703;
                         }
                       }
                     }
                     else
                     {
-                      SecurityDescriptor = -1073741705;
+                      Acl = -1073741705;
                     }
                   }
                 }
               }
             }
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v14);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v16);
             goto LABEL_27;
           }
         }
       }
-      SecurityDescriptor = -1073741801;
+      Acl = -1073741801;
     }
 LABEL_27:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
-    if ( Src )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Src);
-    if ( v3 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
+    if ( Sid )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Sid);
+    if ( v5 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   }
-  return SecurityDescriptor >= 0;
+  return Acl >= 0;
 }

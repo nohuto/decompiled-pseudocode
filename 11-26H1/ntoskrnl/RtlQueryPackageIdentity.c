@@ -1,23 +1,30 @@
 /*
- * XREFs of RtlQueryPackageIdentity @ 0x140460890
+ * XREFs of RtlQueryPackageIdentity @ 0x140459DD0
  * Callers:
- *     EtwpApplyPackageIdFilter @ 0x140937B60 (EtwpApplyPackageIdFilter.c)
- *     PopEtGetProcessSidAndPackageIdentity @ 0x14094E20C (PopEtGetProcessSidAndPackageIdentity.c)
- *     ExpGetProcessInformation @ 0x14096767C (ExpGetProcessInformation.c)
- *     EtwpQueryTokenPackageInfo @ 0x14096DBF8 (EtwpQueryTokenPackageInfo.c)
- *     PfSnCheckModernApp @ 0x1409E923C (PfSnCheckModernApp.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1408FBFFC (EtwpQueryTokenPackageInfo.c)
+ *     EtwpApplyPackageIdFilter @ 0x140913700 (EtwpApplyPackageIdFilter.c)
+ *     PopEtGetProcessSidAndPackageIdentity @ 0x1409C9B4C (PopEtGetProcessSidAndPackageIdentity.c)
+ *     PfSnCheckModernApp @ 0x1409D34B4 (PfSnCheckModernApp.c)
+ *     ExpGetProcessInformation @ 0x1409DC1B8 (ExpGetProcessInformation.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140460AA8 (RtlStringCbPrintfExW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeQuerySecurityAttributesToken @ 0x140A7CEC0 (SeQuerySecurityAttributesToken.c)
+ *     RtlStringCbPrintfExW @ 0x140459FE8 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeQuerySecurityAttributesToken @ 0x140A82D30 (SeQuerySecurityAttributesToken.c)
  */
 
-__int64 __fastcall RtlQueryPackageIdentity(int a1, wchar_t *a2, size_t *a3, wchar_t *a4, size_t *a5, bool *a6)
+NTSTATUS __cdecl RtlQueryPackageIdentity(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PBOOLEAN Packaged)
 {
+  int v8; // r13d
   char v10; // bl
   int SecurityAttributesToken; // eax
-  NTSTATUS v12; // r9d
+  int v12; // r9d
   __int64 v14; // rax
   __int64 v15; // rbx
   size_t pcbRemaining; // [rsp+40h] [rbp-C0h] BYREF
@@ -27,14 +34,15 @@ __int64 __fastcall RtlQueryPackageIdentity(int a1, wchar_t *a2, size_t *a3, wcha
   int v20; // [rsp+5Ch] [rbp-A4h]
   __int64 v21; // [rsp+60h] [rbp-A0h]
 
+  v8 = (int)TokenHandle;
   v18 = 0LL;
   memset_0(v19, 0, 0x330uLL);
   LODWORD(pcbRemaining) = 0;
   ppszDestEnd = 0LL;
   v10 = 1;
   SecurityAttributesToken = SeQuerySecurityAttributesToken(
-                              a1,
-                              (unsigned int)&qword_140004620,
+                              v8,
+                              (unsigned int)&qword_140004640,
                               2,
                               (unsigned int)v19,
                               816,
@@ -43,50 +51,57 @@ __int64 __fastcall RtlQueryPackageIdentity(int a1, wchar_t *a2, size_t *a3, wcha
   if ( SecurityAttributesToken < 0 )
   {
     if ( SecurityAttributesToken != -1073741275 )
-      return (unsigned int)v12;
+      return v12;
     v12 = SeQuerySecurityAttributesToken(
-            a1,
-            (unsigned int)&qword_140004620,
+            v8,
+            (unsigned int)&qword_140004640,
             1,
             (unsigned int)v19,
             816,
             (__int64)&pcbRemaining);
     if ( v12 < 0 )
-      return (unsigned int)v12;
+      return v12;
     v10 = 0;
   }
   if ( !v20 )
-    return (unsigned int)-1073741275;
+    return -1073741275;
   v14 = v21;
   if ( v10 )
     v15 = **(_QWORD **)(v21 + 72);
   else
     LODWORD(v15) = 0;
   v12 = 0;
-  if ( a2 )
+  if ( PackageFullName )
   {
-    if ( a3 )
+    if ( PackageSize )
     {
-      v12 = RtlStringCbPrintfExW(a2, *a3, &ppszDestEnd, &pcbRemaining, 0x800u, L"%wZ", *(_QWORD *)(v21 + 32));
+      v12 = RtlStringCbPrintfExW(
+              PackageFullName,
+              *PackageSize,
+              &ppszDestEnd,
+              &pcbRemaining,
+              0x800u,
+              L"%wZ",
+              *(_QWORD *)(v21 + 32));
       if ( v12 < 0 )
-        return (unsigned int)v12;
-      *a3 = (char *)ppszDestEnd - (char *)a2 + 2;
+        return v12;
+      *PackageSize = (char *)ppszDestEnd - (char *)PackageFullName + 2;
       v14 = v21;
       goto LABEL_13;
     }
-    return (unsigned int)-1073741811;
+    return -1073741811;
   }
-  if ( a3 )
-    return (unsigned int)-1073741811;
+  if ( PackageSize )
+    return -1073741811;
 LABEL_13:
-  if ( a4 )
+  if ( AppId )
   {
-    v12 = RtlStringCbPrintfExW(a4, *a5, &v18, 0LL, 0x800u, L"%wZ", *(_QWORD *)(v14 + 32) + 16LL);
+    v12 = RtlStringCbPrintfExW(AppId, *AppIdSize, &v18, 0LL, 0x800u, L"%wZ", *(_QWORD *)(v14 + 32) + 16LL);
     if ( v12 < 0 )
-      return (unsigned int)v12;
-    *a5 = (char *)v18 - (char *)a4 + 2;
+      return v12;
+    *AppIdSize = (char *)v18 - (char *)AppId + 2;
   }
-  if ( a6 )
-    *a6 = (_DWORD)v15 != 0;
-  return (unsigned int)v12;
+  if ( Packaged )
+    *Packaged = (_DWORD)v15 != 0;
+  return v12;
 }

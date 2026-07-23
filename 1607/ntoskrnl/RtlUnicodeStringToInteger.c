@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlUnicodeStringToInteger @ 0x1404B8E10
+ * XREFs of RtlUnicodeStringToInteger @ 0x1404A31F0
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x140140150 (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140140324 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     RtlGetIntegerAtom @ 0x1404294DC (RtlGetIntegerAtom.c)
- *     RtlQueryImageFileKeyOption @ 0x1404732C4 (RtlQueryImageFileKeyOption.c)
- *     _PnpParseIndirectResourceString @ 0x1404B8CA8 (_PnpParseIndirectResourceString.c)
- *     ExpSetCurrentUserUILanguage @ 0x140548E70 (ExpSetCurrentUserUILanguage.c)
- *     ExpGetCurrentUserUILanguage @ 0x140549424 (ExpGetCurrentUserUILanguage.c)
- *     ExpGetUILanguagePolicy @ 0x14054954C (ExpGetUILanguagePolicy.c)
- *     CmpGetAcpiProfileInformation @ 0x14055C098 (CmpGetAcpiProfileInformation.c)
- *     WdipSemLoadNextEndEvent @ 0x140564B18 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextScenario @ 0x140565368 (WdipSemLoadNextScenario.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x14056A904 (PopDetectSimulatedHeteroProcessors.c)
- *     PiDcInitUpdateProperties @ 0x1405777B8 (PiDcInitUpdateProperties.c)
- *     PiCMDeleteDeviceKey @ 0x140646FBC (PiCMDeleteDeviceKey.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1406DC208 (_PnpGetGenericStorePropertyKeys.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1401406C0 (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140140894 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlGetIntegerAtom @ 0x1404283AC (RtlGetIntegerAtom.c)
+ *     RtlQueryImageFileKeyOption @ 0x140472194 (RtlQueryImageFileKeyOption.c)
+ *     _PnpParseIndirectResourceString @ 0x1404A3088 (_PnpParseIndirectResourceString.c)
+ *     ExpSetCurrentUserUILanguage @ 0x1405493B0 (ExpSetCurrentUserUILanguage.c)
+ *     ExpGetCurrentUserUILanguage @ 0x140549964 (ExpGetCurrentUserUILanguage.c)
+ *     ExpGetUILanguagePolicy @ 0x140549A8C (ExpGetUILanguagePolicy.c)
+ *     CmpGetAcpiProfileInformation @ 0x14055C5D8 (CmpGetAcpiProfileInformation.c)
+ *     WdipSemLoadNextEndEvent @ 0x140565058 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextScenario @ 0x1405658A8 (WdipSemLoadNextScenario.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x14056AE44 (PopDetectSimulatedHeteroProcessors.c)
+ *     PiDcInitUpdateProperties @ 0x140577CF8 (PiDcInitUpdateProperties.c)
+ *     PiCMDeleteDeviceKey @ 0x1406470A0 (PiCMDeleteDeviceKey.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1406DC340 (_PnpGetGenericStorePropertyKeys.c)
  * Callees:
  *     <none>
  */

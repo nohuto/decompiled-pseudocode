@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeSchedulerAssist @ 0x140A4C0AC
+ * XREFs of KeInitializeSchedulerAssist @ 0x140A4D0AC
  * Callers:
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
  *     <none>
  */

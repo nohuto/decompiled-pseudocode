@@ -16,7 +16,7 @@ struct _KTHREAD *__fastcall PdcAcquireRwLockExclusive(unsigned __int64 *a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire((ULONG_PTR)a1, 0LL, 0LL);
+  v3 = KeAbPreAcquire((ULONG_PTR)a1, 0LL, 0);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1, 0LL) )
     ExfAcquirePushLockExclusiveEx(a1, v3, (ULONG_PTR)a1);

@@ -24,7 +24,7 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3, uns
   __int64 v14; // rax
   __int64 v15; // rbx
   __int64 v16; // r9
-  struct _SLIST_ENTRY *v17; // rsi
+  _SLIST_ENTRY *v17; // rsi
   char v18; // al
   unsigned __int64 v19; // rdi
   unsigned __int64 v20; // rcx
@@ -43,7 +43,7 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3, uns
   volatile signed __int64 *v34; // [rsp+20h] [rbp-78h]
   __int64 v35; // [rsp+28h] [rbp-70h]
   _QWORD *v36; // [rsp+30h] [rbp-68h]
-  struct _SLIST_ENTRY *List; // [rsp+40h] [rbp-58h]
+  _SLIST_ENTRY *List; // [rsp+40h] [rbp-58h]
   unsigned int v40; // [rsp+B0h] [rbp+18h]
 
   v5 = a4;
@@ -94,16 +94,16 @@ LABEL_10:
   v15 = 0LL;
   v16 = 48 * v14 - 0x58000000000LL;
   v17 = 0LL;
-  List = (struct _SLIST_ENTRY *)v16;
+  List = (_SLIST_ENTRY *)v16;
   while ( !_interlockedbittestandset64((volatile signed __int32 *)(v16 + 24), 0x3FuLL) )
   {
-    v17 = (struct _SLIST_ENTRY *)v16;
+    v17 = (_SLIST_ENTRY *)v16;
     if ( dword_14034F150 == 1 )
     {
       v25 = (unsigned __int128)((v16 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
       LOBYTE(v26) = 1;
       v27 = (v16 + 0x58000000000LL) / 48;
-      v28 = (volatile signed __int32 *)(*(_QWORD *)(qword_14034F160 + 8) + 4 * (v27 >> 5));
+      v28 = (volatile signed __int32 *)qword_14034F160->Buffer + (v27 >> 5);
       v29 = ((v25 < 0) + (unsigned __int8)(v25 >> 3)) & 0x1F;
       if ( (unsigned __int64)(v29 + 1) > 0x20 )
       {

@@ -43,7 +43,7 @@ __int64 __fastcall sub_1800FF6D0(__int64 a1, _WORD *a2, unsigned int a3, __int64
   signed int v35; // [rsp+54h] [rbp-3Dh]
   __int64 v36; // [rsp+58h] [rbp-39h]
   _WORD *v37; // [rsp+60h] [rbp-31h]
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-29h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-29h] BYREF
   _WORD v39[2]; // [rsp+78h] [rbp-19h] BYREF
   __int16 v40; // [rsp+7Ch] [rbp-15h]
   __int16 v41; // [rsp+7Eh] [rbp-13h]

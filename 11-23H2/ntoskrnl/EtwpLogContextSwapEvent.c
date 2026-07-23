@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpLogContextSwapEvent @ 0x14038A430
+ * XREFs of EtwpLogContextSwapEvent @ 0x14038A610
  * Callers:
- *     EtwTraceContextSwap @ 0x14038A320 (EtwTraceContextSwap.c)
+ *     EtwTraceContextSwap @ 0x14038A500 (EtwTraceContextSwap.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E10 (RtlGetSystemTimePrecise.c)
- *     EtwpReleaseTraceBuffer @ 0x140227698 (EtwpReleaseTraceBuffer.c)
- *     EtwpReserveTraceBuffer @ 0x140234100 (EtwpReserveTraceBuffer.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     EtwpCCSwapTrace @ 0x14038A680 (EtwpCCSwapTrace.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     EtwpReserveWithPmcCounters @ 0x140467EB8 (EtwpReserveWithPmcCounters.c)
- *     EtwpStackTraceDispatcher @ 0x140468CB0 (EtwpStackTraceDispatcher.c)
- *     EtwpTraceLastBranchRecord @ 0x140469AA6 (EtwpTraceLastBranchRecord.c)
- *     EtwpTraceLostSystemEvent @ 0x1405FC6F0 (EtwpTraceLostSystemEvent.c)
- *     EtwpReserveWithPebsIndex @ 0x1405FE260 (EtwpReserveWithPebsIndex.c)
- *     EtwpTraceProcessorTrace @ 0x140602C14 (EtwpTraceProcessorTrace.c)
+ *     RtlGetSystemTimePrecise @ 0x140226F20 (RtlGetSystemTimePrecise.c)
+ *     EtwpReleaseTraceBuffer @ 0x1402277A8 (EtwpReleaseTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1402341D0 (EtwpReserveTraceBuffer.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     EtwpCCSwapTrace @ 0x14038A860 (EtwpCCSwapTrace.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     EtwpReserveWithPmcCounters @ 0x1404682B8 (EtwpReserveWithPmcCounters.c)
+ *     EtwpStackTraceDispatcher @ 0x1404690B0 (EtwpStackTraceDispatcher.c)
+ *     EtwpTraceLastBranchRecord @ 0x140469EA6 (EtwpTraceLastBranchRecord.c)
+ *     EtwpTraceLostSystemEvent @ 0x1405FCC60 (EtwpTraceLostSystemEvent.c)
+ *     EtwpReserveWithPebsIndex @ 0x1405FE7D0 (EtwpReserveWithPebsIndex.c)
+ *     EtwpTraceProcessorTrace @ 0x140603164 (EtwpTraceProcessorTrace.c)
  */
 
 char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
@@ -39,7 +39,7 @@ char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
   __int64 v19; // rcx
   __int64 v20; // rax
   __int64 v21; // r11
-  __int64 SystemTimePrecise; // rcx
+  __int64 QuadPart; // rcx
   __int64 v23; // r8
   int v24; // eax
   __int64 InternalData; // rax
@@ -77,7 +77,7 @@ char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
   __int64 v57; // rdx
   __int64 v58; // rdx
   __int64 v59; // rcx
-  __int64 v60; // rax
+  LARGE_INTEGER *v60; // rax
   struct _KPRCB *CurrentPrcb; // rax
   _PPM_IDLE_STATES *IdleStates; // rax
   __int64 v63; // rcx
@@ -85,7 +85,7 @@ char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
   __int64 v65; // rcx
   __int64 v66; // rcx
   signed __int32 v68[8]; // [rsp+0h] [rbp-A8h] BYREF
-  __int64 v69[2]; // [rsp+30h] [rbp-78h] BYREF
+  LARGE_INTEGER v69[2]; // [rsp+30h] [rbp-78h] BYREF
   __int64 v70; // [rsp+40h] [rbp-68h] BYREF
   __int128 v71; // [rsp+48h] [rbp-60h] BYREF
   __int64 v72; // [rsp+58h] [rbp-50h]
@@ -97,7 +97,7 @@ char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
   v3 = *(_DWORD *)(a1 + 4248);
   LOBYTE(v4) = 0;
   v5 = 0;
-  v69[0] = 0LL;
+  v69[0].QuadPart = 0LL;
   v6 = !_BitScanForward((unsigned int *)&v7, v3);
   v73 = 0;
   v71 = 0LL;
@@ -155,18 +155,18 @@ LABEL_4:
             if ( v24 != 1 )
 LABEL_117:
               __fastfail(0x3Du);
-            SystemTimePrecise = __rdtsc();
+            QuadPart = __rdtsc();
           }
           else
           {
             v70 = 0LL;
             ((void (__fastcall *)(__int64 *, __int64, __int64))off_140C01DF0[0])(&v70, a2, 10000000LL);
-            SystemTimePrecise = v70;
+            QuadPart = v70;
           }
         }
         else
         {
-          SystemTimePrecise = RtlGetSystemTimePrecise();
+          QuadPart = RtlGetSystemTimePrecise().QuadPart;
         }
         goto LABEL_20;
       }
@@ -186,22 +186,21 @@ LABEL_117:
                   a2,
                   10000000LL);
           v21 = 10000000LL;
-          SystemTimePrecise = MEMORY[0xFFFFF780000003B8]
-                            + (((unsigned __int64)v20
-                              * (unsigned __int128)*((unsigned __int64 *)HalpTimerReferencePage + 1)) >> 64);
+          QuadPart = MEMORY[0xFFFFF780000003B8]
+                   + (((unsigned __int64)v20 * (unsigned __int128)*((unsigned __int64 *)HalpTimerReferencePage + 1)) >> 64);
 LABEL_18:
           if ( v17 != HalpOriginalPerformanceCounter && HalpOriginalPerformanceCounter )
           {
             v55 = *(_QWORD *)(HalpOriginalPerformanceCounter + 192);
             if ( *(_DWORD *)(HalpOriginalPerformanceCounter + 228) == 5 )
               v55 = v21;
-            SystemTimePrecise = HalpTimerScaleCounter(SystemTimePrecise, v18, v55);
+            QuadPart = HalpTimerScaleCounter(QuadPart, v18, v55);
           }
           v8 = a3;
           v9 = v74;
 LABEL_20:
           v23 = *(unsigned int *)(v12 + 200);
-          v69[0] = SystemTimePrecise;
+          v69[0].QuadPart = QuadPart;
           LOBYTE(v4) = EtwpCCSwapTrace(v9, v8, v23, v69);
           v5 |= v14;
           v73 = v5;
@@ -309,7 +308,7 @@ LABEL_25:
             v28 = v31 | v39;
           }
         }
-        SystemTimePrecise = HalpTimerScaleCounter(v28 + v27, *(_QWORD *)(v17 + 192), 10000000LL);
+        QuadPart = HalpTimerScaleCounter(v28 + v27, *(_QWORD *)(v17 + 192), 10000000LL);
       }
       else
       {
@@ -366,7 +365,7 @@ LABEL_25:
             v43 = v46 | v54;
           }
         }
-        SystemTimePrecise = v43 + v42;
+        QuadPart = v43 + v42;
         v21 = 10000000LL;
       }
       v5 = v73;
@@ -397,7 +396,7 @@ LABEL_25:
     else
     {
 LABEL_83:
-      v60 = EtwpReserveTraceBuffer(v12, 0x28u, (__int64)&v71, v69, 23044);
+      v60 = (LARGE_INTEGER *)EtwpReserveTraceBuffer(v12, 0x28u, (__int64)&v71, v69, 23044);
       if ( !v60 )
       {
 LABEL_114:
@@ -406,10 +405,10 @@ LABEL_114:
           LOBYTE(v4) = EtwpTraceLostSystemEvent(1316LL, v12 + 136, 4217348LL, 3221225495LL);
         goto LABEL_4;
       }
-      v57 = v60 + 16;
-      *(_QWORD *)(v60 + 8) = v69[0];
-      *(_DWORD *)v60 = -1072627708;
-      *(_DWORD *)(v60 + 4) = 86245416;
+      v57 = (__int64)&v60[2];
+      v60[1] = v69[0];
+      v60->LowPart = -1072627708;
+      v60->HighPart = 86245416;
     }
 LABEL_85:
     if ( v57 )

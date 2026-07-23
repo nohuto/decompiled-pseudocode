@@ -6,14 +6,18 @@
  *     FindNodeOrParent_0 @ 0x180069A44 (FindNodeOrParent_0.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFullAvl(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  int NodeOrParent_0; // eax
+  TABLE_SEARCH_RESULT NodeOrParent_0; // eax
 
-  NodeOrParent_0 = FindNodeOrParent_0(a1, a2, a3);
-  *a4 = NodeOrParent_0;
-  if ( NodeOrParent_0 == 1 )
-    return *a3 + 32LL;
+  NodeOrParent_0 = (unsigned int)FindNodeOrParent_0(Table, Buffer, NodeOrParent);
+  *SearchResult = NodeOrParent_0;
+  if ( NodeOrParent_0 == TableFoundNode )
+    return (char *)*NodeOrParent + 32;
   else
     return 0LL;
 }

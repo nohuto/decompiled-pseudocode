@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x1403572E0
+ * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x140359080
  * Callers:
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x140357080 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
- *     HalpDmaAllocateMapRegisters @ 0x14035A8E0 (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x140358E20 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14035C680 (HalpDmaAllocateMapRegisters.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV2(
@@ -27,7 +27,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV2(
   __int64 v15; // rax
   unsigned int v16; // ecx
   __int64 result; // rax
-  RTL_BITMAP *v18; // rbx
+  _RTL_BITMAP *v18; // rbx
   unsigned int v19; // ecx
   unsigned int v20; // eax
   ULONG v21; // eax
@@ -55,7 +55,7 @@ LABEL_15:
   }
   if ( a4 )
   {
-    v18 = *(RTL_BITMAP **)(a2 + 24);
+    v18 = *(_RTL_BITMAP **)(a2 + 24);
     if ( v18->SizeOfBitMap - RtlNumberOfSetBits(v18) < a3 )
       goto LABEL_20;
   }

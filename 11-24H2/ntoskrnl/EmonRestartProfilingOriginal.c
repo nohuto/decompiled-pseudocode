@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonRestartProfilingOriginal @ 0x140B4F660
+ * XREFs of EmonRestartProfilingOriginal @ 0x140B516B0
  * Callers:
  *     <none>
  * Callees:
- *     EmonRestartProfilingInternalOriginal @ 0x14055E1FC (EmonRestartProfilingInternalOriginal.c)
+ *     EmonRestartProfilingInternalOriginal @ 0x14055BE2C (EmonRestartProfilingInternalOriginal.c)
  */
 
 void __fastcall EmonRestartProfilingOriginal()

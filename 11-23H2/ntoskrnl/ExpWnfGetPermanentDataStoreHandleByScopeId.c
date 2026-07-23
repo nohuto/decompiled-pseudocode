@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140854B2C
+ * XREFs of ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140854E2C
  * Callers:
- *     ExpWnfGetPermanentDataStore @ 0x1407E4040 (ExpWnfGetPermanentDataStore.c)
- *     ExpWnfEnumeratePermanentDataStoreHandles @ 0x140A07644 (ExpWnfEnumeratePermanentDataStoreHandles.c)
+ *     ExpWnfGetPermanentDataStore @ 0x1407E4310 (ExpWnfGetPermanentDataStore.c)
+ *     ExpWnfEnumeratePermanentDataStoreHandles @ 0x140A078D4 (ExpWnfEnumeratePermanentDataStoreHandles.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x140710B4C (ExpWnfGetNameStoreRegistryRoot.c)
- *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x1407E2958 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x140710D5C (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x1407E2C28 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
  */
 
-NTSTATUS __fastcall ExpWnfGetPermanentDataStoreHandleByScopeId(
+int __fastcall ExpWnfGetPermanentDataStoreHandleByScopeId(
         int a1,
         int a2,
         void *a3,
@@ -20,7 +20,7 @@ NTSTATUS __fastcall ExpWnfGetPermanentDataStoreHandleByScopeId(
         HANDLE *KeyHandle)
 {
   int v7; // ebx
-  NTSTATUS result; // eax
+  int result; // eax
   NTSTATUS v9; // eax
   void *v10; // [rsp+40h] [rbp-11h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-9h] BYREF

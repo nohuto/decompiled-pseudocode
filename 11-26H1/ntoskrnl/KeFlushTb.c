@@ -1,28 +1,28 @@
 /*
- * XREFs of KeFlushTb @ 0x1402507D0
+ * XREFs of KeFlushTb @ 0x140252130
  * Callers:
- *     MI_FLUSH_ENTIRE_TB @ 0x140250014 (MI_FLUSH_ENTIRE_TB.c)
- *     MiDecommitAddToList @ 0x140323520 (MiDecommitAddToList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiManageUltraSpacePageTable @ 0x14049504C (MiManageUltraSpacePageTable.c)
+ *     MI_FLUSH_ENTIRE_TB @ 0x140251974 (MI_FLUSH_ENTIRE_TB.c)
+ *     MiDecommitAddToList @ 0x140325550 (MiDecommitAddToList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiManageUltraSpacePageTable @ 0x14048EB9C (MiManageUltraSpacePageTable.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlpFastFlushAddressSpaceTb @ 0x140250E04 (HvlpFastFlushAddressSpaceTb.c)
- *     KxFlushNonGlobalTb @ 0x140250FF0 (KxFlushNonGlobalTb.c)
- *     KxSetTimeStampBusy @ 0x140251194 (KxSetTimeStampBusy.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x140251218 (HvlpUseExtendedProcessorSetHypercalls.c)
- *     KxFlushEntireTb @ 0x14025128C (KxFlushEntireTb.c)
- *     VmpFlushTb @ 0x1402519C4 (VmpFlushTb.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x1403E65B8 (HvlpSlowFlushAddressSpaceTbEx.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1403E6A1C (HvlpFastFlushAddressSpaceTbEx.c)
- *     KiIsFlushEntire @ 0x140430D04 (KiIsFlushEntire.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140469420 (HvlpSlowFlushAddressSpaceTb.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1407284C0 (KiSetUserTbFlushPending.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x140252764 (HvlpFastFlushAddressSpaceTb.c)
+ *     KxFlushNonGlobalTb @ 0x140252950 (KxFlushNonGlobalTb.c)
+ *     KxSetTimeStampBusy @ 0x140252AF4 (KxSetTimeStampBusy.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x140252B78 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     KxFlushEntireTb @ 0x140252BEC (KxFlushEntireTb.c)
+ *     VmpFlushTb @ 0x140253324 (VmpFlushTb.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1402F3498 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1402F38FC (HvlpFastFlushAddressSpaceTbEx.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     KiIsFlushEntire @ 0x14041DD34 (KiIsFlushEntire.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404629F0 (HvlpSlowFlushAddressSpaceTb.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x14072D090 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KeFlushTb(_KPROCESS *i, volatile _KAFFINITY_EX *ActiveProcessors, unsigned __int64 a3)
@@ -36,12 +36,12 @@ __int64 __fastcall KeFlushTb(_KPROCESS *i, volatile _KAFFINITY_EX *ActiveProcess
   __int64 result; // rax
   unsigned __int8 v10; // bl
   _KPROCESS *v11; // rcx
-  _KDPC *v12; // rdi
+  _ULARGE_INTEGER v12; // rdi
   unsigned __int64 v13; // rax
   unsigned __int64 v14; // r9
   unsigned __int8 v15; // r14
   unsigned __int8 v16; // bl
-  _KDPC *Dpc; // rcx
+  _ULARGE_INTEGER DueTime; // rcx
   __int64 v18; // rsi
   volatile LONG *v19; // rcx
   unsigned __int8 v20; // bl
@@ -290,22 +290,25 @@ LABEL_28:
     v11 = KeGetCurrentThread()->ApcState.Process;
     if ( v3 != 1 )
     {
-      Dpc = ExSaPageGroupDescriptorArrayLock.Timer.Dpc;
+      DueTime = ExSaPageGroupDescriptorArrayLock.Timer.DueTime;
       goto LABEL_72;
     }
-    v12 = (_KDPC *)v11[4].Padding[1];
+    v12 = (_ULARGE_INTEGER)v11[4].Padding[1];
     if ( v11[3].ActiveGroupPadding[1] )
     {
       guard_dispatch_icall_no_overrides(v11[3].ActiveGroupPadding[1], 0LL, 0LL);
-      if ( v12 )
+      if ( v12.QuadPart )
         goto LABEL_71;
     }
-    else if ( v12 )
+    else if ( v12.QuadPart )
     {
 LABEL_71:
-      Dpc = v12;
+      DueTime = v12;
 LABEL_72:
-      guard_dispatch_icall_no_overrides(Dpc, 0LL, 0LL);
+      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))guard_dispatch_icall_no_overrides)(
+        (_ULARGE_INTEGER)DueTime.QuadPart,
+        0LL,
+        0LL);
     }
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v10);

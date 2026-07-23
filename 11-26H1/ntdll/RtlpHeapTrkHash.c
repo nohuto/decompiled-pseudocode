@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHeapTrkHash @ 0x180011B90
+ * XREFs of RtlpHeapTrkHash @ 0x18005D2C0
  * Callers:
- *     RtlpHeapTrkTrackAdd @ 0x1800116E0 (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkInterceptor @ 0x1800117C0 (RtlpHeapTrkInterceptor.c)
- *     RtlpHeapTrkFindStack @ 0x180012C10 (RtlpHeapTrkFindStack.c)
+ *     RtlpHeapTrkTrackAdd @ 0x18005CE10 (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkInterceptor @ 0x18005CEF0 (RtlpHeapTrkInterceptor.c)
+ *     RtlpHeapTrkFindStack @ 0x18005E340 (RtlpHeapTrkFindStack.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall RtlpHeapTrkHash(__int64 a1)
   v8 = a1;
   v2 = (unsigned __int8 *)&v8;
   v3 = 8LL;
-  v4 = (__int16 *)&unk_1801C77B8;
+  v4 = (__int16 *)&unk_1801C6818;
   do
   {
     v5 = *v4++;

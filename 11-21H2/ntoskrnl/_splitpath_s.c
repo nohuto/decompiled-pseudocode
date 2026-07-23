@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  *     strncpy_s @ 0x1403E7340 (strncpy_s.c)
  */
 
@@ -176,6 +176,6 @@ LABEL_58:
     *Ext = 0;
   if ( FullPath && !v13 )
     return 34;
-  xHalTimerWatchdogStop();
+  _misaligned_access();
   return 22;
 }

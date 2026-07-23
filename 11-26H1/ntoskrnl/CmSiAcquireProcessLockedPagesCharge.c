@@ -1,14 +1,14 @@
 /*
- * XREFs of CmSiAcquireProcessLockedPagesCharge @ 0x1403BC228
+ * XREFs of CmSiAcquireProcessLockedPagesCharge @ 0x1403C6098
  * Callers:
- *     HvpViewMapAcquireChargesAndLockViewPages @ 0x1408B7E5C (HvpViewMapAcquireChargesAndLockViewPages.c)
+ *     HvpViewMapAcquireChargesAndLockViewPages @ 0x1408BE42C (HvpViewMapAcquireChargesAndLockViewPages.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403BC3E8 (MmAdjustWorkingSetSizeEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmSiRWLockReleaseExclusive @ 0x140905AA4 (CmSiRWLockReleaseExclusive.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140905BD0 (CmpVolumeManagerLockContextListExclusive.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x1403C6258 (MmAdjustWorkingSetSizeEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x140A2E304 (CmpVolumeManagerLockContextListExclusive.c)
+ *     CmSiRWLockReleaseExclusive @ 0x140A8992C (CmSiRWLockReleaseExclusive.c)
  */
 
 __int64 __fastcall CmSiAcquireProcessLockedPagesCharge(__int64 a1, __int64 a2)

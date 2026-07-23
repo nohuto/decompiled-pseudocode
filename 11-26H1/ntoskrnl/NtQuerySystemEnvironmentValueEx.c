@@ -1,171 +1,179 @@
 /*
- * XREFs of NtQuerySystemEnvironmentValueEx @ 0x140907320
+ * XREFs of NtQuerySystemEnvironmentValueEx @ 0x140A2F580
  * Callers:
- *     DifNtQuerySystemEnvironmentValueExWrapper @ 0x140685B90 (DifNtQuerySystemEnvironmentValueExWrapper.c)
+ *     DifNtQuerySystemEnvironmentValueExWrapper @ 0x140689770 (DifNtQuerySystemEnvironmentValueExWrapper.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     ExUnlockUserBuffer @ 0x14040FE00 (ExUnlockUserBuffer.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     RtlCheckTokenMembershipEx @ 0x140499FF0 (RtlCheckTokenMembershipEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x140907830 (ExGetFirmwareEnvironmentVariable.c)
- *     ExLockUserBuffer @ 0x140907E40 (ExLockUserBuffer.c)
- *     IoGetEnvironmentVariableEx @ 0x140908318 (IoGetEnvironmentVariableEx.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PsIsProcessAppContainer @ 0x1409D6220 (PsIsProcessAppContainer.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x140B46CC8 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x14040F520 (ExUnlockUserBuffer.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlCheckTokenMembershipEx @ 0x140493B40 (RtlCheckTokenMembershipEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PsIsProcessAppContainer @ 0x1409A7110 (PsIsProcessAppContainer.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x140A2F990 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExLockUserBuffer @ 0x140A2FFA0 (ExLockUserBuffer.c)
+ *     IoGetEnvironmentVariableEx @ 0x140A30478 (IoGetEnvironmentVariableEx.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140B48CF8 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQuerySystemEnvironmentValueEx(
-        unsigned int *a1,
-        volatile void *a2,
-        volatile void *a3,
-        unsigned int *a4,
-        unsigned int *a5)
+NTSTATUS __cdecl NtQuerySystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        PULONG ValueLength,
+        PULONG Attributes)
 {
   int v5; // edi
   _WORD *v9; // rsi
-  BOOLEAN v10; // di
+  __int64 v10; // rdx
+  BOOLEAN v11; // di
+  __int64 v12; // r8
+  struct _KLOCK_ENTRIES *v13; // r9
   int ULongFromUser; // eax
-  unsigned __int16 v12; // di
+  unsigned __int16 v15; // di
   void *ULong64FromUser; // rax
-  void *v14; // r15
-  unsigned int *v15; // rsi
-  int v16; // eax
-  unsigned int v17; // eax
-  int v18; // eax
+  void *v17; // r15
+  unsigned int *v18; // rsi
+  int v19; // eax
+  unsigned int v20; // eax
+  int v21; // eax
   _WORD *Pool2; // rax
-  int EnvironmentVariable; // edi
-  __int64 v21; // r8
+  NTSTATUS EnvironmentVariable; // edi
+  __int64 v24; // r8
   struct _KTHREAD *CurrentThread; // rax
-  int v24; // eax
-  char v25; // cl
-  char v26[4]; // [rsp+30h] [rbp-A8h] BYREF
-  unsigned int v27; // [rsp+34h] [rbp-A4h] BYREF
-  int v28; // [rsp+38h] [rbp-A0h] BYREF
-  int v29; // [rsp+3Ch] [rbp-9Ch]
-  void *v30; // [rsp+48h] [rbp-90h]
+  NTSTATUS v27; // eax
+  BOOLEAN v28; // cl
+  BOOLEAN IsMember[4]; // [rsp+30h] [rbp-A8h] BYREF
+  unsigned int v30; // [rsp+34h] [rbp-A4h] BYREF
+  int v31; // [rsp+38h] [rbp-A0h] BYREF
+  int v32; // [rsp+3Ch] [rbp-9Ch]
+  void *v33; // [rsp+48h] [rbp-90h]
   PVOID P[2]; // [rsp+50h] [rbp-88h] BYREF
-  unsigned int *v32; // [rsp+60h] [rbp-78h]
-  __int128 v33; // [rsp+70h] [rbp-68h] BYREF
-  __int64 v34; // [rsp+80h] [rbp-58h]
-  __int128 v35; // [rsp+88h] [rbp-50h] BYREF
+  unsigned int *v35; // [rsp+60h] [rbp-78h]
+  __int128 v36; // [rsp+70h] [rbp-68h] BYREF
+  __int64 v37; // [rsp+80h] [rbp-58h]
+  __int128 v38; // [rsp+88h] [rbp-50h] BYREF
 
-  v5 = (int)a4;
-  v32 = a4;
+  v5 = (int)ValueLength;
+  v35 = ValueLength;
   v9 = 0LL;
-  v30 = 0LL;
-  v35 = 0LL;
-  v27 = 0;
-  v28 = 0;
+  v33 = 0LL;
+  v38 = 0LL;
+  v30 = 0;
+  v31 = 0;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   if ( !KeGetCurrentThread()->PreviousMode )
-    return ExGetFirmwareEnvironmentVariable((_DWORD)a1, (_DWORD)a2, (_DWORD)a3, v5, (__int64)a5);
-  v10 = SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, 1);
-  if ( v10 )
+    return ExGetFirmwareEnvironmentVariable(
+             (_DWORD)VariableName,
+             (_DWORD)VendorGuid,
+             (_DWORD)Value,
+             v5,
+             (__int64)Attributes);
+  v11 = SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, 1);
+  if ( v11 )
     goto LABEL_4;
-  if ( (unsigned __int8)PsIsProcessAppContainer(KeGetCurrentThread()->ApcState.Process) )
-    v10 = ExpFirmwareAccessAppContainerCheck(1LL);
-  if ( v10 )
+  if ( PsIsProcessAppContainer((__int64)KeGetCurrentThread()->ApcState.Process, v10, v12, v13) )
+    v11 = ExpFirmwareAccessAppContainerCheck(1LL);
+  if ( v11 )
     goto LABEL_4;
-  v26[0] = 0;
-  v24 = RtlCheckTokenMembershipEx(0LL, SeExports->SeUserModeDriversSid, 0, v26);
-  v25 = v26[0];
-  if ( v24 < 0 )
-    v25 = 0;
-  if ( v25 )
+  IsMember[0] = 0;
+  v27 = RtlCheckTokenMembershipEx(0LL, SeExports->SeUserModeDriversSid, 0, IsMember);
+  v28 = IsMember[0];
+  if ( v27 < 0 )
+    v28 = 0;
+  if ( v28 )
   {
 LABEL_4:
-    if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 2 )
+    if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 2 )
     {
-      if ( ((unsigned __int8)a1 & 3) != 0 )
+      if ( ((unsigned __int8)VariableName & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       *(_OWORD *)P = 0LL;
-      ULongFromUser = RtlReadULongFromUser(a1);
-      v12 = ULongFromUser;
+      ULongFromUser = RtlReadULongFromUser((unsigned int *)&VariableName->Length);
+      v15 = ULongFromUser;
       LODWORD(P[0]) = ULongFromUser;
-      ULong64FromUser = (void *)RtlReadULong64FromUser(a1 + 2);
-      v14 = ULong64FromUser;
+      ULong64FromUser = (void *)RtlReadULong64FromUser(&VariableName->Buffer);
+      v17 = ULong64FromUser;
       P[1] = ULong64FromUser;
-      v33 = *(_OWORD *)P;
-      if ( v12 )
+      v36 = *(_OWORD *)P;
+      if ( v15 )
       {
-        ProbeForRead(ULong64FromUser, v12, 2u);
-        v34 = 1LL;
-        ProbeForRead(a2, 1uLL, 4u);
-        v15 = v32;
-        v16 = RtlReadULongFromUser(v32);
-        RtlWriteULongToUser(v15, v16);
-        v17 = RtlReadULongFromUser(v15);
-        v27 = v17;
-        if ( !a3 )
+        ProbeForRead(ULong64FromUser, v15, 2u);
+        v37 = 1LL;
+        ProbeForRead((volatile void *)VendorGuid, 1uLL, 4u);
+        v18 = v35;
+        v19 = RtlReadULongFromUser(v35);
+        RtlWriteULongToUser(v18, v19);
+        v20 = RtlReadULongFromUser(v18);
+        v30 = v20;
+        if ( !Value )
         {
-          v27 = 0;
-          v17 = 0;
+          v30 = 0;
+          v20 = 0;
         }
-        if ( v17 )
-          ProbeForWrite(a3, v17, 1u);
-        if ( a5 )
+        if ( v20 )
+          ProbeForWrite(Value, v20, 1u);
+        if ( Attributes )
         {
-          v18 = RtlReadULongFromUser(a5);
-          RtlWriteULongToUser(a5, v18);
+          v21 = RtlReadULongFromUser(Attributes);
+          RtlWriteULongToUser(Attributes, v21);
         }
-        RtlCopyFromUser(&v35, (void *)a2, 0x10uLL);
+        RtlCopyFromUser(&v38, (void *)VendorGuid, 0x10uLL);
         Pool2 = (_WORD *)ExAllocatePool2(0x40uLL);
         v9 = Pool2;
-        v30 = Pool2;
+        v33 = Pool2;
         if ( Pool2 )
         {
-          RtlCopyFromUser(Pool2, v14, v12);
-          v9[(unsigned __int64)v12 >> 1] = 0;
+          RtlCopyFromUser(Pool2, v17, v15);
+          v9[(unsigned __int64)v15 >> 1] = 0;
           P[0] = 0LL;
-          *(_QWORD *)&v33 = 0LL;
-          if ( !v27
-            || (LOBYTE(v21) = 1,
-                EnvironmentVariable = ExLockUserBuffer(a3, v27, v21, 1LL, &v33, P),
+          *(_QWORD *)&v36 = 0LL;
+          if ( !v30
+            || (LOBYTE(v24) = 1,
+                EnvironmentVariable = ExLockUserBuffer(Value, v30, v24, 1LL, &v36, P),
                 EnvironmentVariable >= 0) )
           {
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
-            ExAcquireFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
+            ExAcquireFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.QueuedScb);
             EnvironmentVariable = IoGetEnvironmentVariableEx(
                                     (_DWORD)v9,
-                                    (unsigned int)&v35,
-                                    v33,
-                                    (unsigned int)&v27,
-                                    (__int64)&v28);
-            ExReleaseFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
+                                    (unsigned int)&v38,
+                                    v36,
+                                    (unsigned int)&v30,
+                                    (__int64)&v31);
+            ExReleaseFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.QueuedScb);
             KeLeaveCriticalRegion();
             if ( P[0] )
               ExUnlockUserBuffer((struct _MDL *)P[0]);
           }
           if ( (int)(EnvironmentVariable + 0x80000000) < 0 || EnvironmentVariable == -1073741789 )
-            RtlWriteULongToUser(v32, v27);
-          if ( a5 && EnvironmentVariable >= 0 )
-            RtlWriteULongToUser(a5, v28);
+            RtlWriteULongToUser(v35, v30);
+          if ( Attributes && EnvironmentVariable >= 0 )
+            RtlWriteULongToUser(Attributes, v31);
         }
         else
         {
           EnvironmentVariable = -1073741670;
-          v29 = -1073741670;
+          v32 = -1073741670;
         }
       }
       else
       {
         EnvironmentVariable = -1073741819;
-        v29 = -1073741819;
+        v32 = -1073741819;
       }
     }
     else
@@ -179,5 +187,5 @@ LABEL_4:
   }
   if ( v9 )
     ExFreePoolWithTag(v9, 0);
-  return (unsigned int)EnvironmentVariable;
+  return EnvironmentVariable;
 }

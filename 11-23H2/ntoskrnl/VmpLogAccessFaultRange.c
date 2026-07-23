@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogAccessFaultRange @ 0x1405F9A7C
+ * XREFs of VmpLogAccessFaultRange @ 0x1405F9FEC
  * Callers:
- *     VmAccessFault @ 0x1409DBFF0 (VmAccessFault.c)
+ *     VmAccessFault @ 0x1409DC1F0 (VmAccessFault.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall VmpLogAccessFaultRange(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6, int a7, int a8)
@@ -70,7 +70,7 @@ void __fastcall VmpLogAccessFaultRange(__int64 a1, __int64 a2, __int64 a3, __int
       v35 = 4LL;
       v37 = 4LL;
       v39 = 4LL;
-      tlgWriteEx_EtwWriteEx(v11, (unsigned __int8 *)&byte_140034791, v9, 0, v13, v14, 0xAu, &v23);
+      tlgWriteEx_EtwWriteEx(v11, (unsigned __int8 *)&word_14003494E, v9, 0, v13, v14, 0xAu, &v23);
     }
   }
 }

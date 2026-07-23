@@ -17,10 +17,10 @@ __int64 __fastcall AlpcMessageCleanupProcedure(__int64 a1)
   void *v2; // rcx
   __int64 v3; // rcx
   int v4; // ebp
-  signed int v5; // r8d
+  unsigned int v5; // r8d
   int v6; // edx
   __int64 v7; // rcx
-  signed int v8; // r8d
+  unsigned int v8; // r8d
   __int64 result; // rax
 
   *(_DWORD *)(a1 + 264) |= 0x80000000;

@@ -13,33 +13,39 @@
  *     sub_1800F546C @ 0x1800F546C (sub_1800F546C.c)
  */
 
-__int64 __fastcall RtlGetParentLocaleName(unsigned __int16 *SourceString, __int64 a2, int a3, char a4)
+NTSTATUS __cdecl RtlGetParentLocaleName(
+        PCWSTR LocaleName,
+        PUNICODE_STRING ParentLocaleName,
+        ULONG Flags,
+        BOOLEAN AllocateDestinationString)
 {
   unsigned __int8 v5; // si
-  int v8; // ebp
+  ULONG v8; // ebp
   int v9; // eax
   _WORD *v10; // r11
-  const void *v11; // r11
-  __int64 result; // rax
+  const WCHAR *v11; // r11
+  NTSTATUS result; // eax
   __int64 v13; // r8
   __int64 v14; // r8
   __int64 v15; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = a3;
-  if ( !SourceString )
-    return 3221225711LL;
-  if ( !a2 || !*(_QWORD *)(a2 + 8) )
-    return 3221225712LL;
-  if ( (a3 & 0xFFFFFFF9) != 0 )
-    return 3221225713LL;
-  v8 = a3 & 4;
-  if ( (a3 & 4) != 0
-    || !(unsigned __int8)sub_1800F546C(SourceString)
-    || (LOBYTE(v13) = a4, result = sub_1800F5104(SourceString, (v5 >> 1) & 1, v13, a2), (int)result < 0) )
+  v5 = Flags;
+  if ( !LocaleName )
+    return -1073741585;
+  if ( !ParentLocaleName || !ParentLocaleName->Buffer )
+    return -1073741584;
+  if ( (Flags & 0xFFFFFFF9) != 0 )
+    return -1073741583;
+  v8 = Flags & 4;
+  if ( (Flags & 4) != 0
+    || !(unsigned __int8)sub_1800F546C(LocaleName)
+    || (LOBYTE(v13) = AllocateDestinationString,
+        result = sub_1800F5104(LocaleName, (v5 >> 1) & 1, v13, ParentLocaleName),
+        result < 0) )
   {
     if ( !qword_18015C278 && !(unsigned __int8)sub_180080990() )
-      return 3221225473LL;
-    v9 = sub_1800462C0(SourceString);
+      return -1073741823;
+    v9 = sub_1800462C0((unsigned __int16 *)LocaleName);
     if ( v9 >= 0 )
     {
       if ( (v5 & 2) == 0 )
@@ -49,7 +55,7 @@ __int64 __fastcall RtlGetParentLocaleName(unsigned __int16 *SourceString, __int6
                        * *(unsigned __int16 *)(*(_QWORD *)(qword_18015C278 + 32) + 8LL * v9 + 2)
                        + *(_QWORD *)(qword_18015C278 + 16)
                        + 24LL) & 1) == 0 )
-          return 3221225711LL;
+          return -1073741585;
       }
       _mm_lfence();
       v10 = (_WORD *)(*(_QWORD *)(qword_18015C278 + 40)
@@ -62,16 +68,16 @@ __int64 __fastcall RtlGetParentLocaleName(unsigned __int16 *SourceString, __int6
       if ( v10 )
       {
         if ( (int)sub_180045280(v10, 0x55uLL, &v15) < 0 )
-          return 3221225473LL;
-        return sub_180045634(a4, v11, v15, a2);
+          return -1073741823;
+        return sub_180045634(AllocateDestinationString, v11, v15, ParentLocaleName);
       }
     }
-    if ( v8 && (unsigned __int8)sub_1800F546C(SourceString) )
+    if ( v8 && (unsigned __int8)sub_1800F546C(LocaleName) )
     {
-      LOBYTE(v14) = a4;
-      return sub_1800F5104(SourceString, (v5 >> 1) & 1, v14, a2);
+      LOBYTE(v14) = AllocateDestinationString;
+      return sub_1800F5104(LocaleName, (v5 >> 1) & 1, v14, ParentLocaleName);
     }
-    return 3221225711LL;
+    return -1073741585;
   }
   return result;
 }

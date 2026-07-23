@@ -12,14 +12,14 @@
  *     RtlRaiseStatus @ 0x18010F220 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlUserThreadStart(__int64 a1, __int64 a2)
+void __cdecl RtlUserThreadStart(PTHREAD_START_ROUTINE Function, PVOID Parameter)
 {
-  unsigned int started; // eax
+  NTSTATUS started; // eax
 
   if ( !Kernel32ThreadInitThunkFunction )
   {
-    started = UserThreadStartXfgThunk(a2, a1);
+    started = UserThreadStartXfgThunk(Parameter, Function);
     RtlExitUserThread(started);
   }
-  return Kernel32ThreadInitThunkFunction(0LL, a1, a2);
+  ((void (__fastcall *)(_QWORD, PTHREAD_START_ROUTINE, PVOID))Kernel32ThreadInitThunkFunction)(0LL, Function, Parameter);
 }

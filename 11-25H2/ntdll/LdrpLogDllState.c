@@ -22,35 +22,35 @@
  *     RtlGetCurrentServiceSessionId @ 0x180011660 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 __fastcall LdrpLogDllState(__int64 a1, unsigned __int16 *a2, __int16 a3)
+int __fastcall LdrpLogDllState(__int64 a1, unsigned __int16 *a2, __int16 a3)
 {
   _DWORD *SharedData; // r9
-  __int64 result; // rax
+  __int64 v7; // rax
   __int64 v8; // rcx
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    result = (__int64)NtCurrentPeb()->SharedData + 554;
+    v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    result = 2147353476LL;
-  if ( *(_BYTE *)result )
+    v7 = 2147353476LL;
+  if ( *(_BYTE *)v7 )
   {
-    result = (__int64)NtCurrentPeb();
-    if ( (*(_BYTE *)(result + 888) & 4) != 0 )
+    v7 = (__int64)NtCurrentPeb();
+    if ( (*(_BYTE *)(v7 + 888) & 4) != 0 )
     {
-      result = (__int64)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v7) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v7 )
       {
-        result = (__int64)NtCurrentPeb();
-        v8 = *(_QWORD *)(result + 144) + 555LL;
+        v7 = (__int64)NtCurrentPeb();
+        v8 = *(_QWORD *)(v7 + 144) + 555LL;
       }
       else
       {
         v8 = 2147353477LL;
       }
       if ( (*(_BYTE *)v8 & 0x20) != 0 )
-        return (__int64)LdrpLogEtwEvent(a3, a1, 0, 0, a2, 0LL);
+        LODWORD(v7) = LdrpLogEtwEvent(a3, a1, 0, 0, a2, 0LL);
     }
   }
-  return result;
+  return v7;
 }

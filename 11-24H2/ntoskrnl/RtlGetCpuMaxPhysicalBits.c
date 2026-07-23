@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetCpuMaxPhysicalBits @ 0x140B608E0
+ * XREFs of RtlGetCpuMaxPhysicalBits @ 0x140B629AC
  * Callers:
- *     SpcDetectKvaLeakage @ 0x140B638D8 (SpcDetectKvaLeakage.c)
+ *     SpcDetectKvaLeakage @ 0x140B659A8 (SpcDetectKvaLeakage.c)
  * Callees:
- *     HviGetImplementedPhysicalBits @ 0x140663BD0 (HviGetImplementedPhysicalBits.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlGetProcessorSignature @ 0x140B60A90 (RtlGetProcessorSignature.c)
+ *     HviGetImplementedPhysicalBits @ 0x1406624C0 (HviGetImplementedPhysicalBits.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlGetProcessorSignature @ 0x140B62B5C (RtlGetProcessorSignature.c)
  */
 
 __int64 RtlGetCpuMaxPhysicalBits()

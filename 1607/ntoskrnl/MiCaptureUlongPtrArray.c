@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCaptureUlongPtrArray @ 0x14065C1E0
+ * XREFs of MiCaptureUlongPtrArray @ 0x14065C2C4
  * Callers:
- *     NtFreeUserPhysicalPages @ 0x14065D220 (NtFreeUserPhysicalPages.c)
- *     NtMapUserPhysicalPages @ 0x14065D72C (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x14065DBA8 (NtMapUserPhysicalPagesScatter.c)
+ *     NtFreeUserPhysicalPages @ 0x14065D304 (NtFreeUserPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x14065D810 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14065DC8C (NtMapUserPhysicalPagesScatter.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCaptureUlongPtrArray(_QWORD *a1, char *a2, unsigned __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PdcPortOpenCommon @ 0x140856118
+ * XREFs of PdcPortOpenCommon @ 0x140856418
  * Callers:
- *     PdcTaskClientRegister @ 0x140822050 (PdcTaskClientRegister.c)
- *     Pdcv2ActivationClientRegister @ 0x14085AA64 (Pdcv2ActivationClientRegister.c)
+ *     PdcTaskClientRegister @ 0x140822350 (PdcTaskClientRegister.c)
+ *     Pdcv2ActivationClientRegister @ 0x14085ACA4 (Pdcv2ActivationClientRegister.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     ZwPowerInformation @ 0x14041B940 (ZwPowerInformation.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PdcpPortReleaseResources @ 0x1409C89C4 (PdcpPortReleaseResources.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     ZwPowerInformation @ 0x14041BCD0 (ZwPowerInformation.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PdcpPortReleaseResources @ 0x1409C8BC4 (PdcpPortReleaseResources.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

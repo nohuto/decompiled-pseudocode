@@ -1,13 +1,13 @@
 /*
- * XREFs of EmonSetIntervalEnhanced @ 0x14055E730
+ * XREFs of EmonSetIntervalEnhanced @ 0x14055C360
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     HalpGetProfileDescriptor @ 0x1404B0FE4 (HalpGetProfileDescriptor.c)
- *     HalpTimerSetProfilingTarget @ 0x1404BF240 (HalpTimerSetProfilingTarget.c)
- *     EmonSetIntervalInternalEnhanced @ 0x14055E824 (EmonSetIntervalInternalEnhanced.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     HalpGetProfileDescriptor @ 0x1404AB874 (HalpGetProfileDescriptor.c)
+ *     HalpTimerSetProfilingTarget @ 0x1404BA774 (HalpTimerSetProfilingTarget.c)
+ *     EmonSetIntervalInternalEnhanced @ 0x14055C454 (EmonSetIntervalInternalEnhanced.c)
  */
 
 __int64 __fastcall EmonSetIntervalEnhanced(unsigned int a1, unsigned int *a2)

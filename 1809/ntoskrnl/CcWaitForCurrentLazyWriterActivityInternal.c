@@ -1,16 +1,16 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivityInternal @ 0x140160C5C
+ * XREFs of CcWaitForCurrentLazyWriterActivityInternal @ 0x140160D5C
  * Callers:
- *     CcWaitForCurrentLazyWriterActivityHelper @ 0x140160C30 (CcWaitForCurrentLazyWriterActivityHelper.c)
- *     CcExitPartition @ 0x14026B5B0 (CcExitPartition.c)
+ *     CcWaitForCurrentLazyWriterActivityHelper @ 0x140160D30 (CcWaitForCurrentLazyWriterActivityHelper.c)
+ *     CcExitPartition @ 0x14026B7A0 (CcExitPartition.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcAllocateWorkQueueEntry @ 0x1400D632C (CcAllocateWorkQueueEntry.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140187B58 (CcPerfLogWorkItemEnqueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x14007EEB8 (CcScheduleLazyWriteScan.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcAllocateWorkQueueEntry @ 0x1400D63AC (CcAllocateWorkQueueEntry.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140187C98 (CcPerfLogWorkItemEnqueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall CcWaitForCurrentLazyWriterActivityInternal(__int64 a1)
@@ -38,7 +38,7 @@ int __fastcall CcWaitForCurrentLazyWriterActivityInternal(__int64 a1)
     v10[0] = v10;
     v8 = 6;
     v3[1].Next = (_SLIST_ENTRY *)&Object;
-    if ( (xmmword_140541350 & 0x20000) != 0 )
+    if ( (xmmword_140542350 & 0x20000) != 0 )
       CcPerfLogWorkItemEnqueue(a1 + 272, v3, 0LL, 0LL);
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 128), &LockHandle);
     v4 = *(PSLIST_ENTRY **)(a1 + 280);

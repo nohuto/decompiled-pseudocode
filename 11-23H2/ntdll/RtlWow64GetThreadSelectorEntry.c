@@ -6,14 +6,16 @@
  *     ZwQueryInformationThread @ 0x1800A1350 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall RtlWow64GetThreadSelectorEntry(__int64 a1, __int64 a2, int a3, _DWORD *a4)
+__int64 __fastcall RtlWow64GetThreadSelectorEntry(void *a1, __int64 a2, int a3, _DWORD *a4)
 {
-  int InformationThread; // r8d
+  NTSTATUS InformationThread; // r8d
   unsigned int v8; // eax
-  unsigned int v9; // eax
+  int v9; // edx
   unsigned int v10; // eax
-  int v11; // eax
-  int v12; // [rsp+48h] [rbp-30h]
+  unsigned int v11; // eax
+  int v12; // eax
+  _BYTE ThreadInformation[8]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v14; // [rsp+48h] [rbp-30h]
 
   if ( a3 != 12 )
     return 3221225476LL;
@@ -25,7 +27,7 @@ __int64 __fastcall RtlWow64GetThreadSelectorEntry(__int64 a1, __int64 a2, int a3
     {
       *(_BYTE *)(a2 + 11) = 0;
       *(_BYTE *)(a2 + 8) = 0;
-      v10 = *(_DWORD *)(a2 + 8) & 0xFFFFE0FF | 0x1B00;
+      v11 = *(_DWORD *)(a2 + 8) & 0xFFFFE0FF | 0x1B00;
     }
     else
     {
@@ -33,28 +35,29 @@ __int64 __fastcall RtlWow64GetThreadSelectorEntry(__int64 a1, __int64 a2, int a3
       {
         if ( v8 == 80 )
         {
-          InformationThread = ZwQueryInformationThread();
+          InformationThread = ZwQueryInformationThread(a1, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
           if ( InformationThread >= 0 )
           {
+            v9 = v14 + 0x2000;
             *(_WORD *)(a2 + 4) = 4095;
-            *(_WORD *)(a2 + 6) = v12 + 0x2000;
-            *(_BYTE *)(a2 + 11) = (unsigned int)(v12 + 0x2000) >> 24;
-            *(_BYTE *)(a2 + 8) = (unsigned int)(v12 + 0x2000) >> 16;
-            v9 = *(_DWORD *)(a2 + 8) & 0xFFFFE0FF | 0x1300;
-            *(_DWORD *)(a2 + 8) = v9;
-            v9 |= 0x6000u;
-            *(_DWORD *)(a2 + 8) = v9;
-            v9 |= 0x8000u;
-            *(_DWORD *)(a2 + 8) = v9;
-            v9 &= 0xFFF0FFFF;
-            *(_DWORD *)(a2 + 8) = v9;
-            v9 &= ~0x100000u;
-            *(_DWORD *)(a2 + 8) = v9;
-            v9 &= ~0x200000u;
-            *(_DWORD *)(a2 + 8) = v9;
-            v9 |= 0x400000u;
-            *(_DWORD *)(a2 + 8) = v9;
-            *(_DWORD *)(a2 + 8) = v9 & 0xFF7FFFFF;
+            *(_WORD *)(a2 + 6) = v9;
+            *(_BYTE *)(a2 + 11) = HIBYTE(v9);
+            *(_BYTE *)(a2 + 8) = BYTE2(v9);
+            v10 = *(_DWORD *)(a2 + 8) & 0xFFFFE0FF | 0x1300;
+            *(_DWORD *)(a2 + 8) = v10;
+            v10 |= 0x6000u;
+            *(_DWORD *)(a2 + 8) = v10;
+            v10 |= 0x8000u;
+            *(_DWORD *)(a2 + 8) = v10;
+            v10 &= 0xFFF0FFFF;
+            *(_DWORD *)(a2 + 8) = v10;
+            v10 &= ~0x100000u;
+            *(_DWORD *)(a2 + 8) = v10;
+            v10 &= ~0x200000u;
+            *(_DWORD *)(a2 + 8) = v10;
+            v10 |= 0x400000u;
+            *(_DWORD *)(a2 + 8) = v10;
+            *(_DWORD *)(a2 + 8) = v10 & 0xFF7FFFFF;
           }
         }
         else
@@ -65,23 +68,23 @@ __int64 __fastcall RtlWow64GetThreadSelectorEntry(__int64 a1, __int64 a2, int a3
       }
       *(_BYTE *)(a2 + 11) = 0;
       *(_BYTE *)(a2 + 8) = 0;
-      v10 = *(_DWORD *)(a2 + 8) & 0xFFFFE0FF | 0x1300;
+      v11 = *(_DWORD *)(a2 + 8) & 0xFFFFE0FF | 0x1300;
     }
     *(_DWORD *)(a2 + 4) = 0xFFFF;
-    *(_DWORD *)(a2 + 8) = v10;
-    v11 = v10 | 0x6000;
     *(_DWORD *)(a2 + 8) = v11;
-    v11 |= 0x8000u;
-    *(_DWORD *)(a2 + 8) = v11;
-    v11 |= 0xF0000u;
-    *(_DWORD *)(a2 + 8) = v11;
-    v11 &= ~0x100000u;
-    *(_DWORD *)(a2 + 8) = v11;
-    v11 &= ~0x200000u;
-    *(_DWORD *)(a2 + 8) = v11;
-    v11 |= 0x400000u;
-    *(_DWORD *)(a2 + 8) = v11;
-    *(_DWORD *)(a2 + 8) = v11 | 0x800000;
+    v12 = v11 | 0x6000;
+    *(_DWORD *)(a2 + 8) = v12;
+    v12 |= 0x8000u;
+    *(_DWORD *)(a2 + 8) = v12;
+    v12 |= 0xF0000u;
+    *(_DWORD *)(a2 + 8) = v12;
+    v12 &= ~0x100000u;
+    *(_DWORD *)(a2 + 8) = v12;
+    v12 &= ~0x200000u;
+    *(_DWORD *)(a2 + 8) = v12;
+    v12 |= 0x400000u;
+    *(_DWORD *)(a2 + 8) = v12;
+    *(_DWORD *)(a2 + 8) = v12 | 0x800000;
   }
   else
   {

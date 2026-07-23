@@ -43,7 +43,7 @@ void __fastcall EtwpStackRundown(__int64 a1, unsigned int a2)
         do
         {
           EtwpTraceCachedStack(a2, 6180LL, *v9);
-          EtwpDereferenceStackEntry(*v9++, (union _SLIST_HEADER *)a1);
+          EtwpDereferenceStackEntry(*v9++, (_SLIST_HEADER *)a1);
           --v6;
         }
         while ( v6 );

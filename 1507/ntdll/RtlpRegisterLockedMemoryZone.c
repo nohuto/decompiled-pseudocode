@@ -9,39 +9,39 @@
  *     RtlUnlockModuleSection @ 0x1800757D0 (RtlUnlockModuleSection.c)
  */
 
-__int64 __fastcall RtlpRegisterLockedMemoryZone(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 RtlpRegisterLockedMemoryZone()
 {
-  int v4; // esi
-  int v5; // eax
-  int v7; // ebx
-  __int64 (__fastcall **v8)(); // rdi
+  NTSTATUS v0; // esi
+  int v1; // eax
+  int v3; // ebx
+  PVOID *v4; // rdi
 
-  v4 = 0;
-  RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock, a2, a3, a4);
-  v5 = RtlpLockedMemoryZoneCount;
+  v0 = 0;
+  RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
+  v1 = RtlpLockedMemoryZoneCount;
   if ( RtlpLockedMemoryZoneCount )
   {
 LABEL_2:
-    RtlpLockedMemoryZoneCount = v5 + 1;
+    RtlpLockedMemoryZoneCount = v1 + 1;
   }
   else
   {
-    v7 = 0;
-    v8 = &RtlpMemoryZoneCriticalRoutines;
+    v3 = 0;
+    v4 = (PVOID *)&RtlpMemoryZoneCriticalRoutines;
     while ( 1 )
     {
-      v4 = RtlLockModuleSection(*v8);
-      if ( v4 < 0 )
+      v0 = RtlLockModuleSection(*v4);
+      if ( v0 < 0 )
         break;
-      ++v7;
-      ++v8;
-      if ( v7 )
+      ++v3;
+      ++v4;
+      if ( v3 )
       {
-        v5 = RtlpLockedMemoryZoneCount;
+        v1 = RtlpLockedMemoryZoneCount;
         goto LABEL_2;
       }
     }
   }
   RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
-  return (unsigned int)v4;
+  return (unsigned int)v0;
 }

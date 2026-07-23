@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFinishUnlinkBatch @ 0x1402990A0
+ * XREFs of MiFinishUnlinkBatch @ 0x140298600
  * Callers:
- *     MiUnlinkProtoPages @ 0x140297A00 (MiUnlinkProtoPages.c)
+ *     MiUnlinkProtoPages @ 0x140296F60 (MiUnlinkProtoPages.c)
  * Callees:
- *     MiUnlockAllBatchPages @ 0x140299000 (MiUnlockAllBatchPages.c)
- *     MiUnlinkPageListUpdateCounts @ 0x1402991A0 (MiUnlinkPageListUpdateCounts.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiUnlinkPagesUpdateCounts @ 0x1402F8E80 (MiUnlinkPagesUpdateCounts.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiUnlockAllBatchPages @ 0x140298560 (MiUnlockAllBatchPages.c)
+ *     MiUnlinkPageListUpdateCounts @ 0x140298700 (MiUnlinkPageListUpdateCounts.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiUnlinkPagesUpdateCounts @ 0x1402DAF00 (MiUnlinkPagesUpdateCounts.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiFinishUnlinkBatch(__int64 a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCompareObjects @ 0x1406A77F0
+ * XREFs of ZwCompareObjects @ 0x1406A8790
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCompareObjects(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCompareObjects(HANDLE FirstObjectHandle, HANDLE SecondObjectHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FirstObjectHandle);
 }

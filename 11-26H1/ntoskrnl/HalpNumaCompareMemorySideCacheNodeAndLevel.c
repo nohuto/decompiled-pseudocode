@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpNumaCompareMemorySideCacheNodeAndLevel @ 0x140784D14
+ * XREFs of HalpNumaCompareMemorySideCacheNodeAndLevel @ 0x140787848
  * Callers:
- *     HalpNumaQueryMemorySideCacheInfo @ 0x140784D40 (HalpNumaQueryMemorySideCacheInfo.c)
- *     HalpNumaCompareMemorySideCacheEntries @ 0x140CB1950 (HalpNumaCompareMemorySideCacheEntries.c)
+ *     HalpNumaQueryMemorySideCacheInfo @ 0x140787870 (HalpNumaQueryMemorySideCacheInfo.c)
+ *     HalpNumaCompareMemorySideCacheEntries @ 0x140CB7990 (HalpNumaCompareMemorySideCacheEntries.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRebaseDynamicRelocationRegions @ 0x140CF9848
+ * XREFs of MiRebaseDynamicRelocationRegions @ 0x140CFFBC8
  * Callers:
- *     MiInitializeSystemVa @ 0x140D0AC28 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140D10EF8 (MiInitializeSystemVa.c)
  * Callees:
- *     KeFlushEntireTb @ 0x1405F0BC0 (KeFlushEntireTb.c)
- *     MiPrepareScpFixupsForNtAndHal @ 0x140CFADB4 (MiPrepareScpFixupsForNtAndHal.c)
- *     MiApplyDynamicRelocations @ 0x140CFDC00 (MiApplyDynamicRelocations.c)
+ *     KeFlushEntireTb @ 0x1405F3530 (KeFlushEntireTb.c)
+ *     MiPrepareScpFixupsForNtAndHal @ 0x140D01134 (MiPrepareScpFixupsForNtAndHal.c)
+ *     MiApplyDynamicRelocations @ 0x140D03FA8 (MiApplyDynamicRelocations.c)
  */
 
 __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
@@ -24,11 +24,11 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
   v1 = a1;
   v2 = *(_QWORD *)(a1 + 16);
   v3 = 0xFFFFF68000000000uLL;
-  v4 = qword_140E37C40;
-  v5 = qword_140E37B70[0];
-  if ( (MiFlags & 0x10000) != 0 || qword_140E37C40 != 0xFFFFF68000000000uLL )
+  v4 = qword_140E37DC0;
+  v5 = qword_140E37CF0[0];
+  if ( (MiFlags & 0x10000) != 0 || qword_140E37DC0 != 0xFFFFF68000000000uLL )
   {
-    v6 = ((unsigned __int64)qword_140E37C40 >> 39) & 0x1FF;
+    v6 = ((unsigned __int64)qword_140E37DC0 >> 39) & 0x1FF;
     if ( 8 * v6 != 3944 )
     {
       *(_QWORD *)(8 * v6 - 0x90482413000LL) = MEMORY[0xFFFFF6FB7DBEDF68];
@@ -40,13 +40,9 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
     v8 = v4;
     for ( i = 39LL; ; i -= 9LL )
     {
-      MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), v3, v8);
+      MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
       if ( i >= 0xC )
-        MiApplyDynamicRelocations(
-          *(_QWORD *)(v2 + 48),
-          *(unsigned int *)(v2 + 64),
-          v3 + (1LL << i) - 1,
-          v8 + (1LL << i) - 1);
+        MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
       if ( (unsigned int)++v7 > 4 )
         break;
       v3 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -55,7 +51,7 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
     v1 = a1;
   }
   if ( (MiFlags & 0x10000) != 0 || v5 != 0xFFFFDE0000000000uLL )
-    MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), 0xFFFFDE0000000000uLL, v5);
+    MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
   result = MiPrepareScpFixupsForNtAndHal(v1);
   MmPteBase = v4;
   qword_140E013D0 = v4;

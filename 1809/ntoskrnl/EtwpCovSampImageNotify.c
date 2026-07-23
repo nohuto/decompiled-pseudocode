@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampImageNotify @ 0x1408C6AB0
+ * XREFs of EtwpCovSampImageNotify @ 0x1408C7D70
  * Callers:
- *     EtwpCovSampEnumerateDriver @ 0x1408C64A0 (EtwpCovSampEnumerateDriver.c)
- *     EtwpCovSampEnumerateProcess @ 0x1408C6500 (EtwpCovSampEnumerateProcess.c)
+ *     EtwpCovSampEnumerateDriver @ 0x1408C7760 (EtwpCovSampEnumerateDriver.c)
+ *     EtwpCovSampEnumerateProcess @ 0x1408C77C0 (EtwpCovSampEnumerateProcess.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408C396C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampContextGetModule @ 0x1408C4E84 (EtwpCovSampContextGetModule.c)
- *     EtwpCovSampModuleDereference @ 0x1408C6D14 (EtwpCovSampModuleDereference.c)
- *     EtwpCovSampProcessAddModule @ 0x1408C6EBC (EtwpCovSampProcessAddModule.c)
- *     EtwpCovSampProcessEnsureContext @ 0x1408C71B8 (EtwpCovSampProcessEnsureContext.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408C4C2C (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampContextGetModule @ 0x1408C6144 (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampModuleDereference @ 0x1408C7FD4 (EtwpCovSampModuleDereference.c)
+ *     EtwpCovSampProcessAddModule @ 0x1408C817C (EtwpCovSampProcessAddModule.c)
+ *     EtwpCovSampProcessEnsureContext @ 0x1408C8478 (EtwpCovSampProcessEnsureContext.c)
  */
 
 void __fastcall EtwpCovSampImageNotify(__int64 FullImageName, struct _LIST_ENTRY *ProcessId, PIMAGE_INFO ImageInfo)
@@ -31,7 +31,7 @@ void __fastcall EtwpCovSampImageNotify(__int64 FullImageName, struct _LIST_ENTRY
     if ( (int)EtwpCovSampAcquireSamplerRundown(&v13) >= 0 )
     {
       CurrentThread = KeGetCurrentThread();
-      v7 = qword_140409DD8 + 16;
+      v7 = qword_14040AE38 + 16;
       Process = CurrentThread->ApcState.Process;
       if ( ProcessId )
       {
@@ -50,13 +50,13 @@ LABEL_9:
       }
       else if ( (ImageInfo->Properties & 0x100) != 0 )
       {
-        v9 = qword_140409DD8 + 752;
+        v9 = qword_14040AE38 + 752;
         goto LABEL_9;
       }
     }
     if ( v13 )
     {
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140409DE0);
+      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_14040AE40);
       KeLeaveCriticalRegion();
     }
   }

@@ -1,37 +1,37 @@
 /*
- * XREFs of ExpSetPendingUILanguage @ 0x14078C070
+ * XREFs of ExpSetPendingUILanguage @ 0x14078C230
  * Callers:
- *     NtSetDefaultUILanguage @ 0x14078BE30 (NtSetDefaultUILanguage.c)
+ *     NtSetDefaultUILanguage @ 0x14078BFF0 (NtSetDefaultUILanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     DownLevelLangIDToLanguageName @ 0x1402A99BC (DownLevelLangIDToLanguageName.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     OpenGlobalizationUserSettingsKey @ 0x1403A484C (OpenGlobalizationUserSettingsKey.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     NtQueryInstallUILanguage @ 0x1406B3620 (NtQueryInstallUILanguage.c)
+ *     DownLevelLangIDToLanguageName @ 0x140227AFC (DownLevelLangIDToLanguageName.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1403A499C (OpenGlobalizationUserSettingsKey.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403FA7E0 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1403FC000 (ZwDeleteKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     NtQueryInstallUILanguage @ 0x1406127F0 (NtQueryInstallUILanguage.c)
  */
 
-__int64 ExpSetPendingUILanguage()
+NTSTATUS ExpSetPendingUILanguage()
 {
   unsigned __int64 v0; // rbp
   char v1; // r12
   char v2; // si
   __int64 v3; // rdx
   int v4; // ecx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   NTSTATUS Key; // ebx
-  int InstallUILanguage; // ebx
+  NTSTATUS InstallUILanguage; // ebx
   int v8; // eax
   ULONG v9; // r12d
   ULONG v10; // esi
@@ -74,7 +74,7 @@ __int64 ExpSetPendingUILanguage()
   v2 = 0;
   *(_BYTE *)v0 = 0;
   result = OpenGlobalizationUserSettingsKey(v4, v3, (HANDLE *)(((unsigned __int64)&v29 & 0xFFFFFFFFFFFFFFE0uLL) + 128));
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   RtlInitUnicodeString((PUNICODE_STRING)(v0 + 48), L"Control Panel\\Desktop");
   *(_DWORD *)(((unsigned __int64)&v29 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 48;
@@ -206,7 +206,7 @@ __int64 ExpSetPendingUILanguage()
   {
     *(_WORD *)(((unsigned __int64)&v29 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18) = 0;
     *(_DWORD *)(((unsigned __int64)&v29 & 0xFFFFFFFFFFFFFFE0uLL) + 0xC8) = 0;
-    InstallUILanguage = NtQueryInstallUILanguage((_WORD *)(v0 + 24));
+    InstallUILanguage = NtQueryInstallUILanguage((LANGID *)(v0 + 24));
     if ( InstallUILanguage >= 0 )
     {
       v8 = DownLevelLangIDToLanguageName(
@@ -425,5 +425,5 @@ LABEL_23:
     if ( Teb )
       Teb[1530] = 0;
   }
-  return (unsigned int)Key;
+  return Key;
 }

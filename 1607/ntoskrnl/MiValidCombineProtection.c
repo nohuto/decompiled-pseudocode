@@ -1,8 +1,8 @@
 /*
- * XREFs of MiValidCombineProtection @ 0x1401FB5F0
+ * XREFs of MiValidCombineProtection @ 0x1401FB41C
  * Callers:
- *     MiCombineCandidate @ 0x1401F7E78 (MiCombineCandidate.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiCombineCandidate @ 0x1401F7CA4 (MiCombineCandidate.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  * Callees:
  *     <none>
  */

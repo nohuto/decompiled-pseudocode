@@ -48,7 +48,7 @@ __int64 __fastcall UcOnUnexpectedCodePath(int *a1)
   {
     ++*(_DWORD *)(v7 + 16);
     ++*(_DWORD *)(v7 + 20);
-    v9 = MEMORY[0xFFFFF78000000320] * (unsigned int)KeMaximumIncrement / 10000LL;
+    v9 = MEMORY[0xFFFFF78000000320] * KeMaximumIncrement / 10000LL;
     if ( (unsigned __int64)(v9 - *(_QWORD *)(v7 + 8)) > 0xEA60 )
     {
       UcpLockOwningThread = 0LL;

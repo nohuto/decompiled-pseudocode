@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceSetInputWakeCapability @ 0x14076CBF8
+ * XREFs of TtmiLogDeviceSetInputWakeCapability @ 0x14076CE18
  * Callers:
- *     TtmiSetInputWakeCapability @ 0x140768C24 (TtmiSetInputWakeCapability.c)
+ *     TtmiSetInputWakeCapability @ 0x140768E44 (TtmiSetInputWakeCapability.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceSetInputWakeCapability(int a1, int a2, int a3)
@@ -33,9 +33,9 @@ char __fastcall TtmiLogDeviceSetInputWakeCapability(int a1, int a2, int a3)
   _UNKNOWN *retaddr; // [rsp+C0h] [rbp+5Fh] BYREF
 
   v3 = &retaddr;
-  if ( (unsigned int)dword_140FD78B8 > 5 )
+  if ( (unsigned int)dword_140FD88C8 > 5 )
   {
-    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140FD78B8, 1LL);
+    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140FD88C8, 1LL);
     if ( (_BYTE)v3 )
     {
       SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -56,8 +56,8 @@ char __fastcall TtmiLogDeviceSetInputWakeCapability(int a1, int a2, int a3)
       v11 = a2;
       v12 = a3;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD78B8,
-                     (unsigned __int8 *)word_14004FA92,
+                     (__int64)&dword_140FD88C8,
+                     (unsigned __int8 *)byte_140050C4F,
                      0LL,
                      0LL,
                      6u,

@@ -1,21 +1,21 @@
 /*
- * XREFs of PsRegisterSiloMonitor @ 0x140779150
+ * XREFs of PsRegisterSiloMonitor @ 0x140779250
  * Callers:
  *     <none>
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     PspStorageAllocSlot @ 0x14077C3E8 (PspStorageAllocSlot.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     PspStorageAllocSlot @ 0x14077C298 (PspStorageAllocSlot.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsRegisterSiloMonitor(__int64 a1, _QWORD *a2)
 {
   _WORD *v4; // rax
   struct _LIST_ENTRY *CurrentSilo; // rax
-  __int16 v7; // bp
+  __int64 v7; // rbp
   __int64 Pool2; // rax
   char *v9; // rdi
   int v10; // ebx
@@ -28,8 +28,8 @@ __int64 __fastcall PsRegisterSiloMonitor(__int64 a1, _QWORD *a2)
   CurrentSilo = PsGetCurrentSilo();
   if ( !PsIsHostSilo((__int64)CurrentSilo) )
     return 3221225569LL;
-  v7 = **(_WORD **)(a1 + 8);
-  Pool2 = ExAllocatePool2(0x100uLL);
+  v7 = **(unsigned __int16 **)(a1 + 8);
+  Pool2 = ExAllocatePool2(0x100uLL, v7 + 56, 0x4D6C6953u);
   v9 = (char *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;

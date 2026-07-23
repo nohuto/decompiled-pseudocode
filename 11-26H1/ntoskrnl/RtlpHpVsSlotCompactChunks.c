@@ -1,20 +1,24 @@
 /*
- * XREFs of RtlpHpVsSlotCompactChunks @ 0x14041BD80
+ * XREFs of RtlpHpVsSlotCompactChunks @ 0x1404135D0
  * Callers:
- *     RtlpHpVsContextCompact @ 0x140347BE4 (RtlpHpVsContextCompact.c)
+ *     RtlpHpVsContextCompact @ 0x140349C64 (RtlpHpVsContextCompact.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14027D330 (RtlpHpReleaseQueuedLockExclusive.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlpHpVsChunkFree @ 0x1403532B0 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsSubsegmentFree @ 0x140353CE8 (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpVsFreeChunkRemove @ 0x140378D40 (RtlpHpVsFreeChunkRemove.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x14027C8A0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlpHpVsChunkFree @ 0x140355330 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsSubsegmentFree @ 0x140355D68 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x14037AAF0 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
  */
 
-ULONG_PTR *__fastcall RtlpHpVsSlotCompactChunks(unsigned __int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+ULONG_PTR *__fastcall RtlpHpVsSlotCompactChunks(
+        unsigned __int64 a1,
+        _RTL_RB_TREE *a2,
+        __int64 a3,
+        struct _KLOCK_ENTRIES *a4)
 {
   unsigned __int64 *v6; // rbx
   volatile LONG *v7; // rcx
@@ -22,8 +26,8 @@ ULONG_PTR *__fastcall RtlpHpVsSlotCompactChunks(unsigned __int64 a1, __int64 a2,
   AutoBoost *v9; // rax
   void *v10; // rdx
   AutoBoost *v11; // rdi
-  __int64 v12; // rdx
-  unsigned __int64 *v13; // r12
+  _RTL_BALANCED_NODE *Min; // rdx
+  unsigned __int64 v13; // r12
   unsigned __int64 v14; // rbx
   unsigned __int64 v15; // rax
   char v16; // dl
@@ -42,13 +46,13 @@ ULONG_PTR *__fastcall RtlpHpVsSlotCompactChunks(unsigned __int64 a1, __int64 a2,
   ULONG_PTR *v29; // rcx
   __int64 v30; // rax
   __int64 v31; // rcx
-  __int64 v32; // rcx
+  _RTL_BALANCED_NODE *v32; // rcx
   unsigned int v33; // r8d
   unsigned __int64 v34; // r9
   int v35; // edx
   unsigned int v36; // ecx
   unsigned __int64 v37; // rax
-  __int64 v38; // rdx
+  _RTL_BALANCED_NODE *v38; // rdx
   unsigned __int64 v39; // rax
   char v40; // dl
   __int64 v41; // rcx
@@ -75,9 +79,9 @@ ULONG_PTR *__fastcall RtlpHpVsSlotCompactChunks(unsigned __int64 a1, __int64 a2,
   if ( v46 )
   {
     v46 = *(_BYTE *)(a1 + 3) == 0;
-    v6 = (unsigned __int64 *)(a2 + 8);
-    *((_QWORD *)&v54 + 1) = a2 + 8;
-    v7 = (volatile LONG *)(a2 + 8);
+    v6 = (unsigned __int64 *)&a2->8;
+    *((_QWORD *)&v54 + 1) = &a2->8;
+    v7 = (volatile LONG *)&a2->8;
     if ( v46 )
     {
       CurrentThread = KeGetCurrentThread();
@@ -99,22 +103,22 @@ ULONG_PTR *__fastcall RtlpHpVsSlotCompactChunks(unsigned __int64 a1, __int64 a2,
       v55 = ExAcquireSpinLockExclusive(v7);
     }
   }
-  v12 = *(_QWORD *)(a2 + 24);
-  v13 = (unsigned __int64 *)(a2 + 16);
+  Min = a2[1].Min;
+  v13 = (unsigned __int64)&a2[1];
   v14 = 0LL;
-  if ( (v12 & 1) != 0 )
+  if ( ((unsigned __int8)Min & 1) != 0 )
   {
-    if ( !*v13 )
+    if ( !*(_QWORD *)v13 )
       goto LABEL_100;
-    v15 = *v13 ^ (unsigned __int64)v13;
+    v15 = *(_QWORD *)v13 ^ v13;
   }
   else
   {
-    v15 = *v13;
+    v15 = *(_QWORD *)v13;
   }
   if ( v15 )
   {
-    v16 = v12 & 1;
+    v16 = (unsigned __int8)Min & 1;
     do
     {
       v17 = *(_QWORD *)(v15 + 8);
@@ -224,7 +228,7 @@ LABEL_30:
       RtlpHpVsFreeChunkRemove(a1, a2, v21, v14 - 8);
       *(_BYTE *)(v18 + 6) = BYTE2(PspTlsContext.Timer.Period) ^ BYTE6(v18) ^ 1;
       *(_DWORD *)v14 = (unsigned __int8)(LOBYTE(PspTlsContext.Timer.Processor) ^ v18 ^ ((unsigned int)(v18 - v21) >> 12));
-      v28 = (ULONG_PTR *)RtlpHpVsChunkFree(a1, a2, v21, v14 - 8, 1, (__int64)&v54);
+      v28 = (ULONG_PTR *)RtlpHpVsChunkFree(a1, (__int64)a2, v21, v14 - 8, 1, (__int64)&v54);
       if ( v28 )
       {
         v29 = v53;
@@ -242,14 +246,14 @@ LABEL_30:
         v31 = *(_QWORD *)(a1 + 96);
       if ( !v31 )
         break;
-      v32 = *(_QWORD *)(a2 + 24);
+      v32 = a2[1].Min;
       v33 = v27 + 1;
-      if ( (v32 & 1) == 0 )
+      if ( ((unsigned __int8)v32 & 1) == 0 )
       {
-        v14 = *v13;
+        v14 = *(_QWORD *)v13;
 LABEL_48:
         v34 = 0LL;
-        v35 = v32 & 1;
+        v35 = (unsigned __int8)v32 & 1;
         while ( v14 )
         {
           v36 = *(_DWORD *)&PspTlsContext.Timer.Processor ^ (v14 - 8) ^ *(_QWORD *)(v14 - 8);
@@ -271,9 +275,9 @@ LABEL_48:
         }
         goto LABEL_58;
       }
-      if ( *v13 )
+      if ( *(_QWORD *)v13 )
       {
-        v14 = *v13 ^ (unsigned __int64)v13;
+        v14 = *(_QWORD *)v13 ^ v13;
         goto LABEL_48;
       }
       v34 = 0LL;
@@ -282,15 +286,15 @@ LABEL_58:
 LABEL_59:
       if ( !v14 )
       {
-        v38 = *(_QWORD *)(a2 + 24);
+        v38 = a2[1].Min;
         v14 = 0LL;
-        if ( (v38 & 1) == 0 )
+        if ( ((unsigned __int8)v38 & 1) == 0 )
         {
-          v39 = *v13;
+          v39 = *(_QWORD *)v13;
 LABEL_64:
           if ( v39 )
           {
-            v40 = v38 & 1;
+            v40 = (unsigned __int8)v38 & 1;
             do
             {
               v41 = *(_QWORD *)(v39 + 8);
@@ -304,9 +308,9 @@ LABEL_64:
           }
           goto LABEL_96;
         }
-        if ( *v13 )
+        if ( *(_QWORD *)v13 )
         {
-          v39 = *v13 ^ (unsigned __int64)v13;
+          v39 = *(_QWORD *)v13 ^ v13;
           goto LABEL_64;
         }
 LABEL_96:

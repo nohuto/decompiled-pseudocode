@@ -1,26 +1,26 @@
 /*
- * XREFs of MmPrefetchPagesEx @ 0x14073E6D8
+ * XREFs of MmPrefetchPagesEx @ 0x14073E8C8
  * Callers:
- *     MmPrefetchPages @ 0x14073E6C0 (MmPrefetchPages.c)
- *     PfSnPrefetchSections @ 0x14074CB78 (PfSnPrefetchSections.c)
- *     PfpPrefetchFilesTrickle @ 0x14075D490 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchFiles @ 0x14097DEE4 (PfpPrefetchFiles.c)
+ *     MmPrefetchPages @ 0x14073E8B0 (MmPrefetchPages.c)
+ *     PfSnPrefetchSections @ 0x14074CD68 (PfSnPrefetchSections.c)
+ *     PfpPrefetchFilesTrickle @ 0x14075D680 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchFiles @ 0x14097E0E4 (PfpPrefetchFiles.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     MiPfCompletePrefetchIos @ 0x1402A3A40 (MiPfCompletePrefetchIos.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     MiDereferenceInPageAutoBoostLock @ 0x1402BD418 (MiDereferenceInPageAutoBoostLock.c)
- *     MiGetInPageAutoBoostLock @ 0x1402BD448 (MiGetInPageAutoBoostLock.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLockDynamicMemoryShared @ 0x1403463D4 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x140346780 (MiUnlockDynamicMemoryShared.c)
- *     MiNotifyPageHeat @ 0x1406545FC (MiNotifyPageHeat.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiReleaseReadListResources @ 0x140721350 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x1407240F4 (MiPfExecuteReadList.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     MiPfCompletePrefetchIos @ 0x1402A3CD0 (MiPfCompletePrefetchIos.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     MiDereferenceInPageAutoBoostLock @ 0x1402BD6A8 (MiDereferenceInPageAutoBoostLock.c)
+ *     MiGetInPageAutoBoostLock @ 0x1402BD6D8 (MiGetInPageAutoBoostLock.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiLockDynamicMemoryShared @ 0x140346664 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140346A10 (MiUnlockDynamicMemoryShared.c)
+ *     MiNotifyPageHeat @ 0x140654B4C (MiNotifyPageHeat.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiReleaseReadListResources @ 0x140721550 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x1407242F4 (MiPfExecuteReadList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -49,8 +49,8 @@ __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, _QWORD *a3)
   __int64 *v24; // r14
   __int64 v25; // rax
   unsigned int *v26; // rax
-  struct _SLIST_ENTRY **v27; // rax
-  struct _SLIST_ENTRY *v28; // rcx
+  _SLIST_ENTRY **v27; // rax
+  _SLIST_ENTRY *v28; // rcx
   _SLIST_ENTRY *Next; // rdx
   __int64 v30; // [rsp+30h] [rbp-68h]
   __int64 *Pool; // [rsp+38h] [rbp-60h]
@@ -180,11 +180,11 @@ LABEL_41:
     {
       while ( 1 )
       {
-        v27 = (struct _SLIST_ENTRY **)(v7[v20] + 120);
+        v27 = (_SLIST_ENTRY **)(v7[v20] + 120);
         v28 = *v27;
-        if ( *v27 == (struct _SLIST_ENTRY *)v27 )
+        if ( *v27 == (_SLIST_ENTRY *)v27 )
           break;
-        if ( *((struct _SLIST_ENTRY ***)&v28->Next + 1) != v27 || (Next = v28->Next, *(&v28->Next->Next + 1) != v28) )
+        if ( *((_SLIST_ENTRY ***)&v28->Next + 1) != v27 || (Next = v28->Next, *(&v28->Next->Next + 1) != v28) )
           __fastfail(3u);
         *v27 = Next;
         *((_QWORD *)&Next->Next + 1) = v27;

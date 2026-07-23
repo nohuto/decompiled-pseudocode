@@ -1,18 +1,18 @@
 /*
- * XREFs of WbGetWowTrapFrame @ 0x140963ADC
+ * XREFs of WbGetWowTrapFrame @ 0x140963CBC
  * Callers:
- *     WbGetTrapFrame @ 0x14064D2E0 (WbGetTrapFrame.c)
+ *     WbGetTrapFrame @ 0x140642100 (WbGetTrapFrame.c)
  * Callees:
- *     PspWow64GetContextThread @ 0x1406960CC (PspWow64GetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1405F561C (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbGetWowTrapFrame(_DWORD *a1, __int64 a2)
+__int64 __fastcall WbGetWowTrapFrame(ULONG *a1, __int64 a2)
 {
   unsigned __int64 v4; // rax
   __int16 v5; // si
   int v6; // eax
   int v7; // r8d
-  int ContextThread; // edx
+  NTSTATUS ContextThread; // edx
 
   v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
   if ( !v4 )
@@ -37,14 +37,14 @@ LABEL_7:
   {
     if ( v5 == 332 )
     {
-      *(_QWORD *)(a2 + 8) = (unsigned int)a1[58];
-      *(_QWORD *)a2 = (unsigned int)a1[61];
+      *(_QWORD *)(a2 + 8) = a1[58];
+      *(_QWORD *)a2 = a1[61];
       *(_DWORD *)(a2 + 16) = a1[60];
     }
     else
     {
-      *(_QWORD *)(a2 + 8) = (unsigned int)a1[28];
-      *(_QWORD *)a2 = (unsigned int)a1[26];
+      *(_QWORD *)(a2 + 8) = a1[28];
+      *(_QWORD *)a2 = a1[26];
       *(_DWORD *)(a2 + 16) = a1[29];
     }
   }

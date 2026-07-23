@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpProcessorRundown @ 0x14093E88C
+ * XREFs of EtwpProcessorRundown @ 0x14093EA5C
  * Callers:
- *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079763C (EtwpKernelTraceRundown.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeQueryGroupAffinity @ 0x1402C95F0 (KeQueryGroupAffinity.c)
- *     KeQueryActiveGroupCount @ 0x1402E2F50 (KeQueryActiveGroupCount.c)
- *     KeQueryHighestNodeNumber @ 0x1402E2F60 (KeQueryHighestNodeNumber.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeQueryGroupAffinity @ 0x140247ED0 (KeQueryGroupAffinity.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140263490 (KeGetProcessorNumberFromIndex.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveGroupCount @ 0x1402942A0 (KeQueryActiveGroupCount.c)
+ *     KeQueryHighestNodeNumber @ 0x1402942B0 (KeQueryHighestNodeNumber.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpProcessorRundown(__int64 a1)
 {
-  struct _PROCESSOR_NUMBER *PoolWithTag; // rsi
+  _PROCESSOR_NUMBER *PoolWithTag; // rsi
   ULONG ActiveProcessorCount; // eax
   unsigned int v4; // ebx
   ULONG v5; // edi
@@ -42,18 +42,18 @@ void __fastcall EtwpProcessorRundown(__int64 a1)
   _OWORD P[64]; // [rsp+48h] [rbp-C0h] BYREF
   unsigned int *v24; // [rsp+448h] [rbp+340h] BYREF
   __int64 v25; // [rsp+450h] [rbp+348h]
-  struct _PROCESSOR_NUMBER *v26; // [rsp+458h] [rbp+350h]
+  _PROCESSOR_NUMBER *v26; // [rsp+458h] [rbp+350h]
   int v27; // [rsp+460h] [rbp+358h]
   int v28; // [rsp+464h] [rbp+35Ch]
 
   memset(P, 0, sizeof(P));
-  PoolWithTag = (struct _PROCESSOR_NUMBER *)P;
+  PoolWithTag = (_PROCESSOR_NUMBER *)P;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   v4 = 0;
   v20 = ActiveProcessorCount;
   if ( ActiveProcessorCount > 0x20 )
   {
-    PoolWithTag = (struct _PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, 4LL * ActiveProcessorCount, 0x74777445u);
+    PoolWithTag = (_PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, 4LL * ActiveProcessorCount, 0x74777445u);
     if ( !PoolWithTag )
       goto LABEL_8;
     ActiveProcessorCount = v20;
@@ -77,7 +77,7 @@ void __fastcall EtwpProcessorRundown(__int64 a1)
   v26 = PoolWithTag;
   v28 = 0;
   EtwpLogKernelEvent((__int64)&v24, v7, v6, 2u, 0xB1Bu, 0x401802u);
-  if ( PoolWithTag != (struct _PROCESSOR_NUMBER *)P )
+  if ( PoolWithTag != (_PROCESSOR_NUMBER *)P )
     ExFreePoolWithTag(PoolWithTag, 0);
 LABEL_8:
   ActiveGroupCount = KeQueryActiveGroupCount();
@@ -97,7 +97,7 @@ LABEL_8:
   v13 = *(_DWORD *)a1;
   v14 = *(_QWORD *)(a1 + 1080);
   v24 = (unsigned int *)&v22;
-  v26 = (struct _PROCESSOR_NUMBER *)P;
+  v26 = (_PROCESSOR_NUMBER *)P;
   v27 = 8 * v9;
   v25 = 4LL;
   v28 = 0;

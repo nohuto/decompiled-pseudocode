@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTracePlatformIdleAccounting @ 0x140A9E804
+ * XREFs of PpmEventTracePlatformIdleAccounting @ 0x140A99D74
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmTranslatePlatformIdleAccounting @ 0x14032D708 (PpmTranslatePlatformIdleAccounting.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     PpmTranslatePlatformIdleAccounting @ 0x1404A7454 (PpmTranslatePlatformIdleAccounting.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PpmEventTracePlatformIdleAccounting()
@@ -54,7 +54,7 @@ void PpmEventTracePlatformIdleAccounting()
         v0 = *(_QWORD *)(PpmPlatformStates + 48);
         v12 = *(_DWORD *)(v0 + 4);
         v1 = 80 * v12;
-        Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+        Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 80 * v12, 0x654D5050u);
         if ( Pool2 )
         {
           v3 = v12;
@@ -75,7 +75,7 @@ void PpmEventTracePlatformIdleAccounting()
             Pool2[v6 + 6] = *(_QWORD *)(v5 + v0 + 176);
           }
           v7 = 664 * v3 + 32;
-          v8 = ExAllocatePool2(0x40uLL);
+          v8 = ExAllocatePool2(0x40uLL, v7, 0x654D5050u);
           v9 = (void *)v8;
           if ( v8 )
           {

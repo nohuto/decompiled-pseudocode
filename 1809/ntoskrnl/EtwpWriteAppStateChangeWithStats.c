@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpWriteAppStateChangeWithStats @ 0x1405B170C
+ * XREFs of EtwpWriteAppStateChangeWithStats @ 0x1405B270C
  * Callers:
- *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
+ *     EtwTraceAppStateChange @ 0x1405B3C80 (EtwTraceAppStateChange.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     PsGetProcessStartKey @ 0x1400CCBB0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PsGetProcessStartKey @ 0x1400CCC30 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void EtwpWriteAppStateChangeWithStats()
@@ -62,9 +62,9 @@ void EtwpWriteAppStateChangeWithStats()
   int v48; // [rsp+118h] [rbp+18h]
   int v49; // [rsp+11Ch] [rbp+1Ch]
 
-  if ( stru_140400308.LevelPlus1 > 5 )
+  if ( stru_1404012D0.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_140400308, 0x200000000003uLL) )
+    if ( TlgKeywordOn(&stru_1404012D0, 0x200000000003uLL) )
     {
       v11 = *(_DWORD *)(v0 + 736);
       ProcessStartKey = PsGetProcessStartKey(v0);
@@ -111,7 +111,7 @@ void EtwpWriteAppStateChangeWithStats()
       v42 = 44;
       v45 = 4;
       v48 = 8;
-      TlgWrite(&stru_140400308, &unk_1403735DA, 0LL, 0LL, 0xDu, &pData);
+      TlgWrite(&stru_1404012D0, &unk_1403746B5, 0LL, 0LL, 0xDu, &pData);
     }
   }
 }

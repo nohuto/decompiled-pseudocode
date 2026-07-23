@@ -1,30 +1,30 @@
 /*
- * XREFs of PiDmObjectCreate @ 0x140987A90
+ * XREFs of PiDmObjectCreate @ 0x1409AB728
  * Callers:
- *     PiDmObjectManagerPopulate @ 0x1407A77A8 (PiDmObjectManagerPopulate.c)
- *     PiDmAddCacheReferenceForObject @ 0x1409D8F40 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerPopulate @ 0x1407AA358 (PiDmObjectManagerPopulate.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1409A9E30 (PiDmAddCacheReferenceForObject.c)
  * Callees:
- *     RtlHashUnicodeString @ 0x1409893C0 (RtlHashUnicodeString.c)
- *     PnpAllocatePWSTR @ 0x140990AC0 (PnpAllocatePWSTR.c)
- *     PiDmGetCachedKeyIndex @ 0x140991590 (PiDmGetCachedKeyIndex.c)
- *     _PnpValidateObjectName @ 0x14099247C (_PnpValidateObjectName.c)
- *     _CmValidateDeviceInterfaceName @ 0x1409A0350 (_CmValidateDeviceInterfaceName.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PnpAllocatePWSTR @ 0x140951520 (PnpAllocatePWSTR.c)
+ *     PiDmGetCachedKeyIndex @ 0x140951FF0 (PiDmGetCachedKeyIndex.c)
+ *     _PnpValidateObjectName @ 0x140952EDC (_PnpValidateObjectName.c)
+ *     _CmValidateDeviceInterfaceName @ 0x140960DB0 (_CmValidateDeviceInterfaceName.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     RtlHashUnicodeString @ 0x140A43AE0 (RtlHashUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PiDmObjectCreate(unsigned int a1, __int64 a2, __int64 *a3)
+__int64 __fastcall PiDmObjectCreate(unsigned int a1, _WORD *a2, __int64 *a3)
 {
   DEVPROPKEY **v6; // r12
   unsigned int v7; // esi
   __int64 Pool2; // rax
   __int64 v9; // rdi
-  wchar_t **v10; // r15
+  const WCHAR **v10; // r15
   __int64 v11; // rcx
-  NTSTATUS PWSTR; // ebx
-  wchar_t *v13; // r14
-  wchar_t *v14; // rdx
-  wchar_t *v15; // rdx
+  signed int PWSTR; // ebx
+  WCHAR *v13; // r14
+  const WCHAR *v14; // rdx
+  const WCHAR *v15; // rdx
   wchar_t *v16; // rdx
   __int64 v17; // rcx
   wchar_t *v18; // rax
@@ -62,14 +62,14 @@ __int64 __fastcall PiDmObjectCreate(unsigned int a1, __int64 a2, __int64 *a3)
   v9 = Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741670;
-  v10 = (wchar_t **)(Pool2 + 16);
+  v10 = (const WCHAR **)(Pool2 + 16);
   *(_QWORD *)Pool2 = 0LL;
   *(_DWORD *)(Pool2 + 8) = 1;
   *(_DWORD *)(Pool2 + 28) = a1;
-  PWSTR = PnpAllocatePWSTR(a2, 0x7FFFFFFFLL, 1517317712LL, Pool2 + 16);
+  PWSTR = PnpAllocatePWSTR(a2, 0x7FFFFFFFuLL, 0x5A706E50u, (PVOID *)(Pool2 + 16));
   if ( PWSTR < 0 )
     goto LABEL_14;
-  v13 = *v10;
+  v13 = (WCHAR *)*v10;
   v14 = *v10;
   if ( a1 == 3 )
   {
@@ -77,14 +77,14 @@ __int64 __fastcall PiDmObjectCreate(unsigned int a1, __int64 a2, __int64 *a3)
     if ( PWSTR < 0 )
     {
 LABEL_14:
-      PiDmObjectRelease((PVOID)v9);
+      PiDmObjectRelease((unsigned int *)v9);
       return (unsigned int)PWSTR;
     }
     *(_QWORD *)v13 = *(_QWORD *)L"\\\\?\\";
     v15 = *v10;
     PWSTR = 0;
     String = 0LL;
-    v16 = v15 + 4;
+    v16 = (wchar_t *)(v15 + 4);
     if ( v16 )
     {
       v17 = 0x7FFFLL;
@@ -102,10 +102,10 @@ LABEL_14:
   }
   else
   {
-    PWSTR = PnpValidateObjectName(v11, v14, a1);
+    PWSTR = PnpValidateObjectName(v11, (__int64)v14, a1);
     if ( PWSTR < 0 )
       goto LABEL_14;
-    v16 = *v10;
+    v16 = (wchar_t *)*v10;
     PWSTR = 0;
     String = 0LL;
     if ( v16 )
@@ -171,7 +171,7 @@ LABEL_34:
     v25 = 7LL * i;
     if ( a1 == LODWORD(PiDmAggregatedBooleanDefs[v25]) )
     {
-      CachedKeyIndex = PiDmGetCachedKeyIndex(v6, v7, PiDmAggregatedBooleanDefs[v25 + 1]);
+      CachedKeyIndex = PiDmGetCachedKeyIndex((__int64)v6, v7, PiDmAggregatedBooleanDefs[v25 + 1]);
       if ( CachedKeyIndex >= v7 )
       {
         PWSTR = -1073741595;

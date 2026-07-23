@@ -1,9 +1,9 @@
 /*
- * XREFs of PsspDumpObject_Process @ 0x180115F50
+ * XREFs of PsspDumpObject_Process @ 0x180115F10
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryInformationProcess @ 0x18009D960 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x18009D920 (NtQueryInformationProcess.c)
  */
 
 NTSTATUS __fastcall PsspDumpObject_Process(void *a1, _QWORD *a2, unsigned int a3, ULONG *ReturnLength)

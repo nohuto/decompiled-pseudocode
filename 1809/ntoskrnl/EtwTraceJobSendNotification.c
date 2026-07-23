@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceJobSendNotification @ 0x1408B76AC
+ * XREFs of EtwTraceJobSendNotification @ 0x1408B896C
  * Callers:
- *     PspSendReliableJobNotification @ 0x1406B96B8 (PspSendReliableJobNotification.c)
+ *     PspSendReliableJobNotification @ 0x1406BA958 (PspSendReliableJobNotification.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwpCopyJobGuidSafe @ 0x1408B7FB0 (EtwpCopyJobGuidSafe.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x1408B9270 (EtwpCopyJobGuidSafe.c)
  */
 
 void __fastcall EtwTraceJobSendNotification(__int64 a1)

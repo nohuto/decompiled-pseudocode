@@ -1,15 +1,15 @@
 /*
- * XREFs of AuthzBasepCopyoutSecurityAttributes @ 0x140358BA0
+ * XREFs of AuthzBasepCopyoutSecurityAttributes @ 0x1403B7FB0
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140358240 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x140358820 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1403B7C30 (AuthzBasepQuerySecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x140357D50 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140357F14 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     AuthzBasepCopyoutSecurityAttributeValues @ 0x140359060 (AuthzBasepCopyoutSecurityAttributeValues.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     AuthzBasepCopyoutSecurityAttributeValues @ 0x1403B8470 (AuthzBasepCopyoutSecurityAttributeValues.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B88F4 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B8930 (AuthzBasepEqualUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutSecurityAttributes(int *a1, __int64 a2, unsigned int a3, _OWORD *a4, size_t Size)
@@ -32,14 +32,14 @@ __int64 __fastcall AuthzBasepCopyoutSecurityAttributes(int *a1, __int64 a2, unsi
   const UNICODE_STRING *v21; // rbp
   _QWORD *v22; // r14
   _QWORD *i; // rdi
-  const UNICODE_STRING *j; // r14
+  int *j; // r14
   char v25; // al
   __int64 *v26; // rbp
   char *v27; // rcx
   size_t v28; // r8
   char *v29; // rsi
-  const void **v30; // rcx
-  char v31; // al
+  const UNICODE_STRING *v30; // rcx
+  BOOLEAN v31; // al
   __int64 *v32; // [rsp+30h] [rbp-58h]
   size_t v36; // [rsp+A8h] [rbp+20h] BYREF
 
@@ -95,11 +95,11 @@ LABEL_33:
       for ( i = (_QWORD *)*((_QWORD *)v8 + 1); i != v22; i = (_QWORD *)*i )
       {
         v32 = i;
-        v30 = (const void **)(i + 4);
+        v30 = (const UNICODE_STRING *)(i + 4);
         if ( KeGetCurrentIrql() >= 2u )
-          v31 = AuthzBasepEqualUnicodeStringCaseSensitive(v30, (__int64)v21);
+          v31 = AuthzBasepEqualUnicodeStringCaseSensitive(v30, v21);
         else
-          v31 = RtlEqualUnicodeString((PCUNICODE_STRING)v30, v21, 1u);
+          v31 = RtlEqualUnicodeString(v30, v21, 1u);
         if ( v31 )
         {
 LABEL_32:
@@ -107,12 +107,10 @@ LABEL_32:
           goto LABEL_22;
         }
       }
-      for ( j = (const UNICODE_STRING *)*((_QWORD *)a1 + 4);
-            j != (const UNICODE_STRING *)(a1 + 8);
-            j = *(const UNICODE_STRING **)&j->Length )
+      for ( j = (int *)*((_QWORD *)a1 + 4); j != a1 + 8; j = *(int **)j )
       {
-        v32 = (__int64 *)&j[-1];
-        if ( ((__int64)j[2].Buffer & 1) == 0 && AuthzBasepEqualUnicodeString(j + 1, v21) )
+        v32 = (__int64 *)(j - 4);
+        if ( (j[10] & 1) == 0 && (unsigned __int8)AuthzBasepEqualUnicodeString(j + 4, v21) )
           goto LABEL_32;
       }
       v25 = v36;

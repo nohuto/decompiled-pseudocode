@@ -1,11 +1,11 @@
 /*
- * XREFs of ExEnterCriticalRegionAndAcquireResourceShared @ 0x1403380F0
+ * XREFs of ExEnterCriticalRegionAndAcquireResourceShared @ 0x140338380
  * Callers:
- *     DifExEnterCriticalRegionAndAcquireResourceSharedWrapper @ 0x1405D8780 (DifExEnterCriticalRegionAndAcquireResourceSharedWrapper.c)
+ *     DifExEnterCriticalRegionAndAcquireResourceSharedWrapper @ 0x1405D8CF0 (DifExEnterCriticalRegionAndAcquireResourceSharedWrapper.c)
  * Callees:
- *     ExpAcquireResourceSharedLite @ 0x14023DDC0 (ExpAcquireResourceSharedLite.c)
- *     ExpFastResourceLegacyAcquireShared @ 0x1403C88E4 (ExpFastResourceLegacyAcquireShared.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExpAcquireResourceSharedLite @ 0x14023DE90 (ExpAcquireResourceSharedLite.c)
+ *     ExpFastResourceLegacyAcquireShared @ 0x1403C8AC4 (ExpFastResourceLegacyAcquireShared.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceShared(PERESOURCE Resource)

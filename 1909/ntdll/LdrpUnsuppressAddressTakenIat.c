@@ -14,9 +14,9 @@
  *     bsearch_s @ 0x18008F9C0 (bsearch_s.c)
  */
 
-__int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall LdrpUnsuppressAddressTakenIat(char *a1, unsigned int a2, unsigned int a3)
 {
-  unsigned __int64 v5; // r12
+  char *v5; // r12
   unsigned int v6; // esi
   _DWORD *Config; // rax
   unsigned int v8; // r14d
@@ -29,8 +29,8 @@ __int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned i
   __int64 v16; // r12
   char v17[8]; // [rsp+30h] [rbp-40h] BYREF
   unsigned int *Context; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+40h] [rbp-30h] BYREF
-  unsigned __int64 v20; // [rsp+48h] [rbp-28h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp-30h] BYREF
+  char *v20; // [rsp+48h] [rbp-28h]
   _QWORD Key[2]; // [rsp+50h] [rbp-20h] BYREF
 
   v20 = a1;
@@ -39,7 +39,7 @@ __int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned i
   Key[1] = 0LL;
   v5 = a1;
   v6 = 0;
-  RtlImageNtHeaderEx(3, a1, 0LL, &v19);
+  RtlImageNtHeaderEx(3u, a1, 0LL, &OutHeaders);
   Config = LdrImageDirectoryEntryToLoadConfig(v5);
   if ( Config )
   {
@@ -47,7 +47,7 @@ __int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned i
     {
       if ( *((_QWORD *)Config + 21) )
       {
-        if ( (*(_WORD *)(v19 + 94) & 0x4000) != 0 )
+        if ( (OutHeaders->OptionalHeader.DllCharacteristics & 0x4000) != 0 )
         {
           v8 = Config[36];
           if ( (v8 & 0x4000) != 0 )
@@ -77,10 +77,10 @@ LABEL_15:
                   v14 = *v9;
                   if ( v15 >= (unsigned int)v14 )
                     return (unsigned int)-1073741701;
-                  v16 = *(_QWORD *)(v14 + v5);
+                  v16 = *(_QWORD *)&v5[v14];
                   if ( (unsigned int)RtlValidateUserCallTarget(v16, v17) != 1 && (v17[0] & 0x10) != 0 )
                   {
-                    v6 = RtlGuardGrantSuppressedCallAccess(v16, 4u, &v19);
+                    v6 = RtlGuardGrantSuppressedCallAccess(v16, 4u, &OutHeaders);
                     if ( (v6 & 0x80000000) != 0 )
                       return v6;
                   }

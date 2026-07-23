@@ -1,7 +1,7 @@
 /*
- * XREFs of _fclrf @ 0x1403DE3A0
+ * XREFs of _fclrf @ 0x1403DE580
  * Callers:
- *     _clrfp @ 0x1403DE288 (_clrfp.c)
+ *     _clrfp @ 0x1403DE468 (_clrfp.c)
  * Callees:
  *     <none>
  */

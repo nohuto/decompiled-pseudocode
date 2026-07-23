@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptTwistedEdwardsAddDiffNonZero @ 0x140565080
+ * XREFs of SymCryptTwistedEdwardsAddDiffNonZero @ 0x140575F50
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptTwistedEdwardsAdd @ 0x140564CB0 (SymCryptTwistedEdwardsAdd.c)
+ *     SymCryptTwistedEdwardsAdd @ 0x140575B80 (SymCryptTwistedEdwardsAdd.c)
  */
 
 __int64 __fastcall SymCryptTwistedEdwardsAddDiffNonZero(

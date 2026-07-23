@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpIsStackWalkingEnabled @ 0x140A16464
+ * XREFs of EtwpIsStackWalkingEnabled @ 0x140A0F644
  * Callers:
- *     EtwpProcessThreadImageRundown @ 0x140A1632C (EtwpProcessThreadImageRundown.c)
+ *     EtwpProcessThreadImageRundown @ 0x140A0F50C (EtwpProcessThreadImageRundown.c)
  * Callees:
  *     <none>
  */

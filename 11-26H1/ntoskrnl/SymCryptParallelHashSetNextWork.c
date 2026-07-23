@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptParallelHashSetNextWork @ 0x140558B74
+ * XREFs of SymCryptParallelHashSetNextWork @ 0x14055B008
  * Callers:
- *     SymCryptParallelHashProcess @ 0x140558734 (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess @ 0x14055ABC4 (SymCryptParallelHashProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x140722950 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x140727520 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 char __fastcall SymCryptParallelHashSetNextWork(__int64 *a1, unsigned int **a2)

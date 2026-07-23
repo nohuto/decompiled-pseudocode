@@ -2,11 +2,11 @@
  * XREFs of MiProcessCommitIntact @ 0x140001C74
  * Callers:
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
- *     MiSplitReducedCommitClonePage @ 0x1402A8490 (MiSplitReducedCommitClonePage.c)
+ *     MiSplitReducedCommitClonePage @ 0x1402A8680 (MiSplitReducedCommitClonePage.c)
  * Callees:
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiIsVadEligibleForCommitRelease @ 0x1402A3F30 (MiIsVadEligibleForCommitRelease.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x1402A4120 (MiIsVadEligibleForCommitRelease.c)
  */
 
 _BOOL8 __fastcall MiProcessCommitIntact(__int64 a1)

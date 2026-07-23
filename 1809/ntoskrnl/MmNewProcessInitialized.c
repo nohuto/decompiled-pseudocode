@@ -1,12 +1,12 @@
 /*
- * XREFs of MmNewProcessInitialized @ 0x140582398
+ * XREFs of MmNewProcessInitialized @ 0x140583398
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
  *     KeStackAttachProcess @ 0x140016610 (KeStackAttachProcess.c)
- *     KeUnstackDetachProcess @ 0x1400F1090 (KeUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiSetProcessPebHotPatchState @ 0x14058235C (MiSetProcessPebHotPatchState.c)
+ *     KeUnstackDetachProcess @ 0x1400F1110 (KeUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiSetProcessPebHotPatchState @ 0x14058335C (MiSetProcessPebHotPatchState.c)
  */
 
 __int64 __fastcall MmNewProcessInitialized(__int64 a1)

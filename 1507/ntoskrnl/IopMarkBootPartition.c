@@ -32,7 +32,7 @@ __int64 __fastcall IopMarkBootPartition(__int64 a1, __int64 a2, UNICODE_STRING *
   int v13; // eax
   int v14; // edx
   HANDLE FileHandle; // [rsp+30h] [rbp-D0h] BYREF
-  STRING SourceString; // [rsp+38h] [rbp-C8h] BYREF
+  _STRING SourceString; // [rsp+38h] [rbp-C8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-78h] BYREF

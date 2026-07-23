@@ -1,9 +1,9 @@
 /*
- * XREFs of InbvPortTerminate @ 0x14032C4B4
+ * XREFs of InbvPortTerminate @ 0x14032C6A4
  * Callers:
- *     HdlspEnableTerminal @ 0x14094C4BC (HdlspEnableTerminal.c)
+ *     HdlspEnableTerminal @ 0x14094D4BC (HdlspEnableTerminal.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 char __fastcall InbvPortTerminate(unsigned int a1)

@@ -8,10 +8,10 @@
  *     RtlpHpVirtAllocateHeap @ 0x1800EAA94 (RtlpHpVirtAllocateHeap.c)
  */
 
-unsigned __int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, unsigned __int64 a2, __int64 a3)
+unsigned __int64 __fastcall RtlpHpAllocWithExceptionProtection(_DWORD *a1, unsigned __int64 a2, int a3)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpVirtAllocateHeap(a1, a2, a3);
+    return RtlpHpVirtAllocateHeap(a1);
   else
     return RtlpAllocateHeapInternal(a1, a2, a3);
 }

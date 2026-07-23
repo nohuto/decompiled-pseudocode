@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAllocateTablePagedPoolNoZero @ 0x1407B09C4
+ * XREFs of ExpAllocateTablePagedPoolNoZero @ 0x1407B0BB4
  * Callers:
- *     ExpAllocateLowLevelTable @ 0x1407B0990 (ExpAllocateLowLevelTable.c)
- *     ExpAllocateTablePagedPool @ 0x1407B0A68 (ExpAllocateTablePagedPool.c)
+ *     ExpAllocateLowLevelTable @ 0x1407B0B80 (ExpAllocateLowLevelTable.c)
+ *     ExpAllocateTablePagedPool @ 0x1407B0C58 (ExpAllocateTablePagedPool.c)
  * Callees:
- *     PsChargeProcessPagedPoolQuota @ 0x1407B0A30 (PsChargeProcessPagedPoolQuota.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x1407B0C20 (PsChargeProcessPagedPoolQuota.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,46 +1,46 @@
 /*
- * XREFs of PipCallDriverAddDevice @ 0x140741988
+ * XREFs of PipCallDriverAddDevice @ 0x140741B48
  * Callers:
- *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
- *     PiProcessAddBootDevices @ 0x1407C6BAC (PiProcessAddBootDevices.c)
+ *     PipProcessDevNodeTree @ 0x1407413C4 (PipProcessDevNodeTree.c)
+ *     PiProcessAddBootDevices @ 0x1407C6ECC (PiProcessAddBootDevices.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140362020 (IoGetAttachedDeviceReferenceWithTag.c)
- *     IovUtilMarkStack @ 0x14036F5A8 (IovUtilMarkStack.c)
- *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
- *     PnpRequestDeviceRemoval @ 0x140736688 (PnpRequestDeviceRemoval.c)
- *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
- *     PipClearDevNodeProblem @ 0x140739754 (PipClearDevNodeProblem.c)
- *     IopQueryLegacyBusInformation @ 0x14073E4E8 (IopQueryLegacyBusInformation.c)
- *     PiDmaGuardProcessPreAddDevice @ 0x14073E5A0 (PiDmaGuardProcessPreAddDevice.c)
- *     PnpUnloadAttachedDriver @ 0x14073E608 (PnpUnloadAttachedDriver.c)
- *     PnpCallAddDevice @ 0x14073E92C (PnpCallAddDevice.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x14073EA0C (PipChangeDeviceObjectFromRegistryProperties.c)
- *     PnpCallDriverQueryServiceHelper @ 0x14074230C (PnpCallDriverQueryServiceHelper.c)
- *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
- *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746040 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     IopBootLog @ 0x140771A20 (IopBootLog.c)
- *     IopInsertLegacyBusDeviceNode @ 0x1407C6AC8 (IopInsertLegacyBusDeviceNode.c)
- *     IopSafebootDriverLoad @ 0x140891F24 (IopSafebootDriverLoad.c)
- *     PnpGetStableSystemBootTime @ 0x1408A1E80 (PnpGetStableSystemBootTime.c)
- *     PipDmgEnforceEnumerationPolicy @ 0x1408B13E4 (PipDmgEnforceEnumerationPolicy.c)
- *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5424 (PiProcessDriversLoadedOnSecureDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x1402F76F0 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     IovUtilMarkStack @ 0x14036F758 (IovUtilMarkStack.c)
+ *     PipSetDevNodeState @ 0x14036FB98 (PipSetDevNodeState.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
+ *     PnpRequestDeviceRemoval @ 0x140736848 (PnpRequestDeviceRemoval.c)
+ *     PipSetDevNodeProblem @ 0x1407396AC (PipSetDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x140739914 (PipClearDevNodeProblem.c)
+ *     IopQueryLegacyBusInformation @ 0x14073E6A8 (IopQueryLegacyBusInformation.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x14073E760 (PiDmaGuardProcessPreAddDevice.c)
+ *     PnpUnloadAttachedDriver @ 0x14073E7C8 (PnpUnloadAttachedDriver.c)
+ *     PnpCallAddDevice @ 0x14073EAEC (PnpCallAddDevice.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14073EBCC (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x1407424CC (PnpCallDriverQueryServiceHelper.c)
+ *     _CmSetDeviceRegProp @ 0x1407441D0 (_CmSetDeviceRegProp.c)
+ *     PipSetDevNodeFlags @ 0x1407457DC (PipSetDevNodeFlags.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746200 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     IopBootLog @ 0x140771BE0 (IopBootLog.c)
+ *     IopInsertLegacyBusDeviceNode @ 0x1407C6DE8 (IopInsertLegacyBusDeviceNode.c)
+ *     IopSafebootDriverLoad @ 0x140892084 (IopSafebootDriverLoad.c)
+ *     PnpGetStableSystemBootTime @ 0x1408A1FE0 (PnpGetStableSystemBootTime.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x1408B1544 (PipDmgEnforceEnumerationPolicy.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5584 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipCallDriverAddDevice(__int64 BugCheckParameter2, __int64 a2)
@@ -85,7 +85,7 @@ __int64 __fastcall PipCallDriverAddDevice(__int64 BugCheckParameter2, __int64 a2
   int v42; // eax
   __int64 v43; // rdx
   __int64 v44; // rdx
-  char *v45; // rbx
+  const WNF_STATE_NAME *v45; // rbx
   int v46; // esi
   __int64 v47; // rdx
   int v48; // eax
@@ -273,7 +273,7 @@ LABEL_112:
     && (_DWORD)NumberOfBytes )
   {
     RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)SourceString);
-    if ( (_DWORD)InitSafeBootMode )
+    if ( InitSafeBootMode )
     {
       if ( !(unsigned __int8)IopSafebootDriverLoad(&DestinationString) )
       {
@@ -308,7 +308,15 @@ LABEL_112:
       }
       v4 = v51;
     }
-    CmOpenInstallerClassRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)SourceString, v12, v13, 131097, 0, (__int64)&v59, 0LL);
+    CmOpenInstallerClassRegKey(
+      *(__int64 *)&PiPnpRtlCtx,
+      (const WCHAR *)SourceString,
+      v12,
+      v13,
+      131097,
+      0,
+      (__int64)&v59,
+      0LL);
   }
   v14 = *(_QWORD *)(BugCheckParameter2 + 48);
   LODWORD(NumberOfBytes) = 4;
@@ -386,12 +394,11 @@ LABEL_112:
         {
           if ( v60 == 4099 && (NumberOfBytes & 0x700000000LL) == 0 && HIDWORD(NumberOfBytes) )
           {
-            v45 = (char *)P;
+            v45 = (const WNF_STATE_NAME *)P;
             v46 = HIDWORD(NumberOfBytes) >> 3;
             do
             {
-              ZwUpdateWnfStateData((__int64)v45, 0LL);
-              v45 += 8;
+              ZwUpdateWnfStateData(v45++, 0LL, 0, 0LL, 0LL, 0, 0);
               --v46;
             }
             while ( v46 );

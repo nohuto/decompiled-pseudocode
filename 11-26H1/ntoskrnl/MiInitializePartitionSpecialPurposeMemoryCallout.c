@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializePartitionSpecialPurposeMemoryCallout @ 0x14070CC10
+ * XREFs of MiInitializePartitionSpecialPurposeMemoryCallout @ 0x1407118C0
  * Callers:
  *     <none>
  * Callees:
- *     MiInitializePartitionSpecialPurposeMemory @ 0x140B65CA0 (MiInitializePartitionSpecialPurposeMemory.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x140B68D40 (MiInitializePartitionSpecialPurposeMemory.c)
  */
 
 void __fastcall MiInitializePartitionSpecialPurposeMemoryCallout(_DWORD *Parameter)

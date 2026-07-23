@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuDomainMapLogicalRange @ 0x140517D84
+ * XREFs of HalpIommuDomainMapLogicalRange @ 0x1405182D4
  * Callers:
- *     HalpIommuAllocateDmaDomain @ 0x1403A98AC (HalpIommuAllocateDmaDomain.c)
- *     IommuMapIdentityRangeEx @ 0x140525F50 (IommuMapIdentityRangeEx.c)
- *     IommuMapLogicalRangeEx @ 0x140526170 (IommuMapLogicalRangeEx.c)
- *     IommuMapReservedLogicalRange @ 0x140526290 (IommuMapReservedLogicalRange.c)
- *     IommuReserveLogicalAddressRange @ 0x1405264F0 (IommuReserveLogicalAddressRange.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403A9A8C (HalpIommuAllocateDmaDomain.c)
+ *     IommuMapIdentityRangeEx @ 0x1405264A0 (IommuMapIdentityRangeEx.c)
+ *     IommuMapLogicalRangeEx @ 0x1405266C0 (IommuMapLogicalRangeEx.c)
+ *     IommuMapReservedLogicalRange @ 0x1405267E0 (IommuMapReservedLogicalRange.c)
+ *     IommuReserveLogicalAddressRange @ 0x140526A40 (IommuReserveLogicalAddressRange.c)
  * Callees:
- *     HalpIommuMapLogicalRange @ 0x14037D7D8 (HalpIommuMapLogicalRange.c)
- *     IommupHvMapDeviceLogicalRange @ 0x140525320 (IommupHvMapDeviceLogicalRange.c)
+ *     HalpIommuMapLogicalRange @ 0x14037D978 (HalpIommuMapLogicalRange.c)
+ *     IommupHvMapDeviceLogicalRange @ 0x140525870 (IommupHvMapDeviceLogicalRange.c)
  */
 
 __int64 __fastcall HalpIommuDomainMapLogicalRange(ULONG_PTR a1, unsigned int a2, __int64 a3, __int64 a4, ULONG_PTR a5)

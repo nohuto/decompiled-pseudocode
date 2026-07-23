@@ -1,20 +1,20 @@
 /*
- * XREFs of IopFreeIrpExtension @ 0x1402ED7A0
+ * XREFs of IopFreeIrpExtension @ 0x14020D178
  * Callers:
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
- *     IopFreeIrp @ 0x140353570 (IopFreeIrp.c)
- *     IoSetActivityIdIrp @ 0x140379200 (IoSetActivityIdIrp.c)
- *     IoCleanupIrp @ 0x140392310 (IoCleanupIrp.c)
- *     IopCopyCompleteReadIrp @ 0x1403F16B0 (IopCopyCompleteReadIrp.c)
- *     IopFreeCopyObjectsFromDataBuffer @ 0x1403F1B00 (IopFreeCopyObjectsFromDataBuffer.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140507AF0 (IoClearAdapterCryptoEngineExtension.c)
- *     IoClearFsTrackOffsetState @ 0x140507B40 (IoClearFsTrackOffsetState.c)
- *     IopPerfCompleteRequest @ 0x140508094 (IopPerfCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x14034D870 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x14035E2C0 (IopFreeIrp.c)
+ *     IoSetActivityIdIrp @ 0x140378D50 (IoSetActivityIdIrp.c)
+ *     IoCleanupIrp @ 0x140392460 (IoCleanupIrp.c)
+ *     IopCopyCompleteReadIrp @ 0x1403F1580 (IopCopyCompleteReadIrp.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x1403F19D0 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140507A70 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x140507AC0 (IoClearFsTrackOffsetState.c)
+ *     IopPerfCompleteRequest @ 0x140508014 (IopPerfCompleteRequest.c)
  * Callees:
- *     IopIrpHasExtensionType @ 0x1402EDEC0 (IopIrpHasExtensionType.c)
- *     IopFreeCopyObjectsFromIrp @ 0x1403F1B94 (IopFreeCopyObjectsFromIrp.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopIrpHasExtensionType @ 0x14020D890 (IopIrpHasExtensionType.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x1403F1A64 (IopFreeCopyObjectsFromIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 (__fastcall *__fastcall IopFreeIrpExtension(__int64 a1, int a2, char a3))()
@@ -33,11 +33,11 @@ __int64 (__fastcall *__fastcall IopFreeIrpExtension(__int64 a1, int a2, char a3)
   {
     if ( v4 )
     {
-      if ( (a2 == 5 || a2 == -1) && (unsigned __int8)IopIrpHasExtensionType(a1, 5LL) )
+      if ( (a2 == 5 || a2 == -1) && (unsigned __int8)IopIrpHasExtensionType() )
         *(_QWORD *)(v4 + 40) = 0LL;
       if ( a2 != 9 && a2 != -1 )
         goto LABEL_16;
-      if ( (unsigned __int8)IopIrpHasExtensionType(a1, 9LL) )
+      if ( (unsigned __int8)IopIrpHasExtensionType() )
       {
         v10 = *(_DWORD *)(v9 + 16);
         if ( (v10 & 0x200) != 0 )

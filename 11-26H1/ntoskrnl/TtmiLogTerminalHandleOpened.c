@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalHandleOpened @ 0x1407EB284
+ * XREFs of TtmiLogTerminalHandleOpened @ 0x1407F0DE4
  * Callers:
- *     TtmpOpenTerminalHandle @ 0x1407EC790 (TtmpOpenTerminalHandle.c)
+ *     TtmpOpenTerminalHandle @ 0x1407F22F0 (TtmpOpenTerminalHandle.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void TtmiLogTerminalHandleOpened()
@@ -28,7 +28,7 @@ void TtmiLogTerminalHandleOpened()
   int *v15; // [rsp+A0h] [rbp+37h]
   __int64 v16; // [rsp+A8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140FD58A8 > 5 && tlgKeywordOn((__int64)&dword_140FD58A8, 1LL) )
+  if ( (unsigned int)dword_140FD68B8 > 5 && tlgKeywordOn((__int64)&dword_140FD68B8, 1LL) )
   {
     v7 = v0;
     v9 = &v4;
@@ -42,6 +42,6 @@ void TtmiLogTerminalHandleOpened()
     v12 = 4LL;
     v14 = 8LL;
     v16 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD58A8, (unsigned __int8 *)byte_140051D47, 0LL, 0LL, 6u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD68B8, (unsigned __int8 *)&dword_14005285C, 0LL, 0LL, 6u, &v8);
   }
 }

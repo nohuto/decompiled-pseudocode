@@ -116,7 +116,7 @@ __int64 PpmParkRegisterParking()
   PVOID v92; // [rsp+60h] [rbp-A8h]
   PVOID v93[2]; // [rsp+68h] [rbp-A0h] BYREF
   __int64 Affinity; // [rsp+78h] [rbp-90h]
-  struct _GROUP_AFFINITY Affinity_8; // [rsp+80h] [rbp-88h] BYREF
+  _GROUP_AFFINITY Affinity_8; // [rsp+80h] [rbp-88h] BYREF
   _QWORD v96[22]; // [rsp+98h] [rbp-70h] BYREF
 
   memset(v96, 0, 0xA8uLL);

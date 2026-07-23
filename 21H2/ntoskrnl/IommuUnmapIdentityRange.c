@@ -1,13 +1,13 @@
 /*
- * XREFs of IommuUnmapIdentityRange @ 0x1404DAC60
+ * XREFs of IommuUnmapIdentityRange @ 0x1404DAEA0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpIommuFlushDmaDomain @ 0x1404C9488 (HalpIommuFlushDmaDomain.c)
- *     IommupHvUnmapDeviceIdentityRange @ 0x1404DA378 (IommupHvUnmapDeviceIdentityRange.c)
- *     IommupValidateMdl @ 0x1404DADE4 (IommupValidateMdl.c)
- *     HalpIommuUnmapLogicalRange @ 0x1404DC62C (HalpIommuUnmapLogicalRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpIommuFlushDmaDomain @ 0x1404C96C8 (HalpIommuFlushDmaDomain.c)
+ *     IommupHvUnmapDeviceIdentityRange @ 0x1404DA5B8 (IommupHvUnmapDeviceIdentityRange.c)
+ *     IommupValidateMdl @ 0x1404DB024 (IommupValidateMdl.c)
+ *     HalpIommuUnmapLogicalRange @ 0x1404DC86C (HalpIommuUnmapLogicalRange.c)
  */
 
 __int64 __fastcall IommuUnmapIdentityRange(ULONG_PTR BugCheckParameter3, __int64 a2)

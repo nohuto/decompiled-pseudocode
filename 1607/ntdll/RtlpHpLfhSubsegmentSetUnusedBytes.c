@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSetUnusedBytes @ 0x18003F77C
+ * XREFs of RtlpHpLfhSubsegmentSetUnusedBytes @ 0x18003F76C
  * Callers:
- *     RtlpHpLfhSubsegmentAllocateBlock @ 0x180041C48 (RtlpHpLfhSubsegmentAllocateBlock.c)
+ *     RtlpHpLfhSubsegmentAllocateBlock @ 0x180041C38 (RtlpHpLfhSubsegmentAllocateBlock.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpInterlockedPushEntrySList @ 0x1800A1250
+ * XREFs of RtlpInterlockedPushEntrySList @ 0x1800A1210
  * Callers:
  *     RtlpLowFragHeapFlushCaches @ 0x180003888 (RtlpLowFragHeapFlushCaches.c)
  *     RtlpLocalInfoAllocFromCache @ 0x180003FA4 (RtlpLocalInfoAllocFromCache.c)
@@ -11,8 +11,8 @@
  *     RtlpLowFragHeapAllocFromContext @ 0x18002B650 (RtlpLowFragHeapAllocFromContext.c)
  *     EtwpFreeRegistration @ 0x1800515F8 (EtwpFreeRegistration.c)
  *     RtlInterlockedPushEntrySList @ 0x18006B450 (RtlInterlockedPushEntrySList.c)
- *     RtlStdReleaseStackTrace @ 0x180101460 (RtlStdReleaseStackTrace.c)
- *     RtlpRegisterStackTrace @ 0x18010AE18 (RtlpRegisterStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x180101420 (RtlStdReleaseStackTrace.c)
+ *     RtlpRegisterStackTrace @ 0x18010ADD8 (RtlpRegisterStackTrace.c)
  *     RtlFreeMemoryBlockLookaside @ 0x18011C190 (RtlFreeMemoryBlockLookaside.c)
  * Callees:
  *     <none>

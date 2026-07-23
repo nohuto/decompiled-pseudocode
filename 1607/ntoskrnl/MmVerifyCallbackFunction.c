@@ -1,7 +1,7 @@
 /*
- * XREFs of MmVerifyCallbackFunction @ 0x1406597F4
+ * XREFs of MmVerifyCallbackFunction @ 0x1406598D8
  * Callers:
- *     KeRegisterBoundCallback @ 0x1401D2A80 (KeRegisterBoundCallback.c)
+ *     KeRegisterBoundCallback @ 0x1401D28AC (KeRegisterBoundCallback.c)
  * Callees:
  *     <none>
  */

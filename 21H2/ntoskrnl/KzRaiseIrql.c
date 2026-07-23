@@ -1,7 +1,7 @@
 /*
- * XREFs of KzRaiseIrql @ 0x14021FAA0
+ * XREFs of KzRaiseIrql @ 0x1402C43A0
  * Callers:
- *     KiVirtualizationException @ 0x14040FC00 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x14040FD00 (KiVirtualizationException.c)
  * Callees:
  *     <none>
  */

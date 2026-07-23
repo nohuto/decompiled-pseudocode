@@ -1,13 +1,13 @@
 /*
- * XREFs of RaspInitializeCompositeGlyphData @ 0x1405C5E14
+ * XREFs of RaspInitializeCompositeGlyphData @ 0x1405C6044
  * Callers:
- *     RaspLoadCompositeGlyphData @ 0x1405C6190 (RaspLoadCompositeGlyphData.c)
+ *     RaspLoadCompositeGlyphData @ 0x1405C63C0 (RaspLoadCompositeGlyphData.c)
  * Callees:
- *     RaspFreeMemory @ 0x1403B2508 (RaspFreeMemory.c)
- *     FioFwReadBytesAtOffset @ 0x1403B35FC (FioFwReadBytesAtOffset.c)
- *     RaspAllocateMemory @ 0x1403B3A08 (RaspAllocateMemory.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RaspFreeMemory @ 0x1403B2678 (RaspFreeMemory.c)
+ *     FioFwReadBytesAtOffset @ 0x1403B376C (FioFwReadBytesAtOffset.c)
+ *     RaspAllocateMemory @ 0x1403B3B78 (RaspAllocateMemory.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall RaspInitializeCompositeGlyphData(
@@ -45,25 +45,24 @@ __int64 __fastcall RaspInitializeCompositeGlyphData(
   unsigned __int16 v31; // r8
   __int64 v32; // rcx
   size_t v33; // r8
-  signed __int64 v34; // r9
+  __int64 v34; // r9
   __int16 v35; // cx
   __int16 v36; // dx
   __int16 v37; // ax
-  __int64 v38; // r8
+  unsigned __int16 v38; // r8
   __int16 v39; // r13
   __int16 v40; // r12
-  __int64 v41; // r10
-  __int64 v42; // rax
-  __int16 v43; // cx
-  __int16 v44; // ax
-  __int64 v45; // r8
-  _DWORD *v46; // r9
-  _WORD *v47; // [rsp+20h] [rbp-68h]
-  _DWORD *v48; // [rsp+28h] [rbp-60h]
-  char *v49; // [rsp+38h] [rbp-50h]
-  __int16 v53; // [rsp+A8h] [rbp+20h]
-  __int16 v54; // [rsp+B0h] [rbp+28h]
-  __int16 v55; // [rsp+B8h] [rbp+30h]
+  __int64 v41; // r9
+  __int64 v42; // r10
+  __int64 v43; // rax
+  __int16 v44; // cx
+  __int16 v45; // ax
+  _WORD *v46; // [rsp+20h] [rbp-68h]
+  _DWORD *v47; // [rsp+28h] [rbp-60h]
+  char *v48; // [rsp+38h] [rbp-50h]
+  __int16 v52; // [rsp+A8h] [rbp+20h]
+  __int16 v53; // [rsp+B0h] [rbp+28h]
+  __int16 v54; // [rsp+B8h] [rbp+30h]
 
   v10 = a2;
   v11 = a4;
@@ -75,7 +74,7 @@ __int64 __fastcall RaspInitializeCompositeGlyphData(
   memset(Memory, 0, v12);
   v16 = v14 + 2;
   v17 = 4LL;
-  v49 = v14;
+  v48 = v14;
   v18 = v14;
   *(_WORD *)v14 = a5;
   v19 = (__int16 *)(a3 + 2);
@@ -91,9 +90,9 @@ __int64 __fastcall RaspInitializeCompositeGlyphData(
   *((_WORD *)v14 + 11) = a6;
   *((_WORD *)v14 + 12) = v11;
   v23 = v14 + 66;
-  v48 = v22;
+  v47 = v22;
   *v22 = v21;
-  v47 = v23;
+  v46 = v23;
   *(_QWORD *)(v18 + 26) = v23;
   v24 = (char *)&v23[a5];
   if ( a6 )
@@ -101,18 +100,18 @@ __int64 __fastcall RaspInitializeCompositeGlyphData(
     *(_QWORD *)(v18 + 34) = v24;
     v24 += a6;
     FioFwReadBytesAtOffset(a1, a7, a6, &v23[a5]);
-    v22 = v48;
+    v22 = v47;
     v23 = *(_WORD **)(v18 + 26);
-    v47 = v23;
+    v46 = v23;
   }
   v25 = &v24[v11];
   *(_QWORD *)(v18 + 42) = v24;
   *(_QWORD *)(v18 + 50) = &v24[v11];
   v26 = &v24[4 * (unsigned int)(v11 + 2) + v11];
-  v55 = 0;
+  v54 = 0;
   *(_QWORD *)(v18 + 58) = v26;
   v27 = 0;
-  v54 = 0;
+  v53 = 0;
   while ( 1 )
   {
     v28 = *v10;
@@ -137,10 +136,10 @@ __int64 __fastcall RaspInitializeCompositeGlyphData(
         *v23++ = v27 + *(_WORD *)(*(_QWORD *)(v30 + 13) + 2 * v32);
       }
       while ( v31 < (__int16)*v30 );
-      v47 = v23;
+      v46 = v23;
     }
     v33 = v30[12];
-    v53 = v33 + v27;
+    v52 = v33 + v27;
     memmove(v24, *(const void **)(v30 + 21), v33);
     v34 = v30[12];
     v35 = 0x4000;
@@ -157,59 +156,59 @@ __int64 __fastcall RaspInitializeCompositeGlyphData(
       v37 = *(_WORD *)(v28 + 32);
       v35 = *(_WORD *)(v28 + 34);
     }
-    v38 = 0LL;
+    v38 = 0;
     if ( (_WORD)v34 )
     {
-      v39 = v55;
-      v40 = v54;
-      v34 = v37;
-      v41 = v35;
+      v39 = v54;
+      v40 = v53;
+      v41 = v37;
+      v42 = v35;
       do
       {
-        *(_WORD *)v25 = *(_WORD *)(*(_QWORD *)(v30 + 25) + 4LL * (unsigned __int16)v38);
-        *(_WORD *)v26 = *(_WORD *)(*(_QWORD *)(v30 + 29) + 4LL * (unsigned __int16)v38);
-        *(_WORD *)v25 = v34 * *(__int16 *)v25 / 0x4000;
-        v42 = v41 * *(__int16 *)v26 / 0x4000;
-        *(_WORD *)v26 = v42;
-        if ( !(_WORD)v38 )
+        *(_WORD *)v25 = *(_WORD *)(*(_QWORD *)(v30 + 25) + 4LL * v38);
+        *(_WORD *)v26 = *(_WORD *)(*(_QWORD *)(v30 + 29) + 4LL * v38);
+        *(_WORD *)v25 = v41 * *(__int16 *)v25 / 0x4000;
+        v43 = v42 * *(__int16 *)v26 / 0x4000;
+        *(_WORD *)v26 = v43;
+        if ( !v38 )
         {
           *(_WORD *)v25 -= v39;
           *(_WORD *)v26 -= v40;
-          v43 = *(_WORD *)(v28 + 24);
-          LOWORD(v42) = *(_WORD *)v26;
-          if ( (v43 & 2) != 0 )
+          v44 = *(_WORD *)(v28 + 24);
+          LOWORD(v43) = *(_WORD *)v26;
+          if ( (v44 & 2) != 0 )
           {
-            if ( (v43 & 1) != 0 )
+            if ( (v44 & 1) != 0 )
             {
               *(_WORD *)v25 += *(_WORD *)(v28 + 28);
-              v44 = *(_WORD *)(v28 + 30);
+              v45 = *(_WORD *)(v28 + 30);
             }
             else
             {
               *(_WORD *)v25 += *(char *)(v28 + 28);
-              v44 = *(char *)(v28 + 29);
+              v45 = *(char *)(v28 + 29);
             }
-            *(_WORD *)v26 += v44;
-            LOWORD(v42) = *(_WORD *)v26;
+            *(_WORD *)v26 += v45;
+            LOWORD(v43) = *(_WORD *)v26;
           }
         }
         v39 += *(_WORD *)v25;
-        v40 += v42;
+        v40 += v43;
         v25 += 4;
         v26 += 4;
-        LOWORD(v38) = v38 + 1;
+        ++v38;
       }
-      while ( (unsigned __int16)v38 < v30[12] );
-      v23 = v47;
-      v54 = v40;
+      while ( v38 < v30[12] );
+      v23 = v46;
+      v53 = v40;
       v10 = a2;
-      v55 = v39;
-      v18 = v49;
+      v54 = v39;
+      v18 = v48;
     }
-    RaspFreeMemory((__int64)v30, a10, v38, (_DWORD *)v34);
-    RaspFreeMemory(v28, a10, v45, v46);
-    v27 = v53;
-    v22 = v48;
+    RaspFreeMemory((__int64)v30, a10);
+    RaspFreeMemory(v28, a10);
+    v27 = v52;
+    v22 = v47;
   }
   *a9 = v18;
   return 0LL;

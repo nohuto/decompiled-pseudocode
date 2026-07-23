@@ -1,7 +1,7 @@
 /*
- * XREFs of ViLookupThunkArray @ 0x140ACAA0C
+ * XREFs of ViLookupThunkArray @ 0x140ACA9FC
  * Callers:
- *     VfGetHookAddressForOriginal @ 0x140ACA8BC (VfGetHookAddressForOriginal.c)
+ *     VfGetHookAddressForOriginal @ 0x140ACA8AC (VfGetHookAddressForOriginal.c)
  * Callees:
  *     <none>
  */

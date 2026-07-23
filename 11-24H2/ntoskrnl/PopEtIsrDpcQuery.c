@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtIsrDpcQuery @ 0x140A2FD40
+ * XREFs of PopEtIsrDpcQuery @ 0x140A24780
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1408EEF10 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140860740 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
@@ -36,7 +36,7 @@ void *__fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
       v8 = 4LL;
       v5 &= ~(1LL << v7);
       v9 = v15;
-      v10 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v6 + (unsigned __int8)v7)]
+      v10 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * (unsigned __int16)v6 + (unsigned __int8)v7)]
           - (_QWORD)v15;
       do
       {

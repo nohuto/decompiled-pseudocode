@@ -5,12 +5,12 @@
  *     LdrResolveDelayLoadsFromDll @ 0x1800D0840 (LdrResolveDelayLoadsFromDll.c)
  * Callees:
  *     RtlpImageDirectoryEntryToDataEx @ 0x180007188 (RtlpImageDirectoryEntryToDataEx.c)
- *     _stricmp @ 0x180091260 (_stricmp.c)
+ *     _stricmp @ 0x180091270 (_stricmp.c)
  */
 
 __int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
 {
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 v5; // rbp
   __int64 v6; // rdi
   unsigned int v7; // ebx

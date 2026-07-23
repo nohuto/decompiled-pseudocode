@@ -3,14 +3,14 @@
  * Callers:
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
  *     MiProbeLockFrame @ 0x140041950 (MiProbeLockFrame.c)
- *     MiLockPageTableRange @ 0x140155EEC (MiLockPageTableRange.c)
- *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiLockPageTableRange @ 0x140155FEC (MiLockPageTableRange.c)
+ *     MiBuildForkPte @ 0x1402C7DE0 (MiBuildForkPte.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargePartitionResidentAvailable @ 0x140022F3C (MiChargePartitionResidentAvailable.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
  */
 
 __int64 __fastcall MiLockPageTablePage(__int64 a1, int a2)
@@ -84,7 +84,7 @@ LABEL_8:
       if ( !a2 )
         v7 = 4LL;
     }
-    v8 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v3 + 40) >> 40) & 0x3FFLL));
+    v8 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v3 + 40) >> 40) & 0x3FFLL));
     v22 = v8;
     if ( v8 == (struct _KEVENT *)&MiSystemPartition )
     {

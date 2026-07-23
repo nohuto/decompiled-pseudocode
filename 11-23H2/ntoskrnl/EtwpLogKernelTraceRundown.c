@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLogKernelTraceRundown @ 0x1409EEC84
+ * XREFs of EtwpLogKernelTraceRundown @ 0x1409EEF14
  * Callers:
- *     EtwpCheckGuidAccessAndDoRundown @ 0x1409EE7EC (EtwpCheckGuidAccessAndDoRundown.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EE934 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x1409EEA7C (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EEBC4 (EtwpCheckLoggerAccessAndDoRundown.c)
  * Callees:
- *     EtwpLogGroupMask @ 0x140820040 (EtwpLogGroupMask.c)
- *     EtwpKernelTraceRundown @ 0x1408200C8 (EtwpKernelTraceRundown.c)
- *     EtwpLogAlwaysPresentRundown @ 0x140820A18 (EtwpLogAlwaysPresentRundown.c)
+ *     EtwpLogGroupMask @ 0x140820340 (EtwpLogGroupMask.c)
+ *     EtwpKernelTraceRundown @ 0x1408203C8 (EtwpKernelTraceRundown.c)
+ *     EtwpLogAlwaysPresentRundown @ 0x140820D18 (EtwpLogAlwaysPresentRundown.c)
  */
 
 void __fastcall EtwpLogKernelTraceRundown(

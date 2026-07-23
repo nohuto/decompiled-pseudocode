@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDeleteProtectedProcessParameters @ 0x1409059D0
+ * XREFs of PspDeleteProtectedProcessParameters @ 0x140905B30
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1409062AC (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x14090640C (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspDeleteProtectedProcessParameters(__int64 a1)

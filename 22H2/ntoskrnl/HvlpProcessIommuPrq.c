@@ -12,7 +12,7 @@ __int64 __fastcall HvlpProcessIommuPrq(_DWORD *a1)
   _DWORD v3[6]; // [rsp+30h] [rbp-18h] BYREF
 
   v3[0] = *a1;
-  result = HvcallFastExtended(65731LL, (__int64)v3, 8LL, 0LL, 0);
+  result = HvcallFastExtended(65731LL, (__int64)v3, 8u, 0, 0);
   a1[1] = 1;
   return result;
 }

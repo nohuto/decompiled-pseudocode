@@ -1,10 +1,10 @@
 /*
- * XREFs of DrvDbSuspendDatabase @ 0x14081151C
+ * XREFs of DrvDbSuspendDatabase @ 0x1408117EC
  * Callers:
- *     PiDrvDbSuspendNodes @ 0x1408114BC (PiDrvDbSuspendNodes.c)
+ *     PiDrvDbSuspendNodes @ 0x14081178C (PiDrvDbSuspendNodes.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     DrvDbFindDatabaseNode @ 0x140877714 (DrvDbFindDatabaseNode.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     DrvDbFindDatabaseNode @ 0x140877954 (DrvDbFindDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbSuspendDatabase(__int64 a1, const wchar_t *a2, char a3)

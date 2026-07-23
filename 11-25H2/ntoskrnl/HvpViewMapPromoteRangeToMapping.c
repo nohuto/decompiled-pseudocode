@@ -15,109 +15,109 @@
  *     HvpViewMapFreeView @ 0x140A46244 (HvpViewMapFreeView.c)
  */
 
-__int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned int a3, __int64 *a4)
+__int64 __fastcall HvpViewMapPromoteRangeToMapping(ULONG_PTR a1, int a2, unsigned int a3, __int64 *a4)
 {
   __int64 v4; // r13
-  __int64 v6; // r15
-  unsigned __int64 *ViewForFileOffset; // rax
+  _RTL_BALANCED_NODE *v6; // r15
+  _RTL_BALANCED_NODE *ViewForFileOffset; // rax
   _QWORD *v8; // r9
-  unsigned __int64 *v9; // rdi
+  _RTL_BALANCED_NODE *v9; // rdi
   int ViewRangeValid; // ebx
   __int64 MemoryAllocationGranularity; // rax
   int v13; // eax
-  _QWORD *v14; // rsi
+  PRTL_BALANCED_NODE v14; // rsi
   __int64 i; // rdx
-  unsigned __int64 *v16; // rbx
+  _RTL_BALANCED_NODE *v16; // rbx
   __int64 j; // rax
-  unsigned __int64 **v18; // rax
-  unsigned __int64 **v19; // rax
-  __int64 *v20; // rcx
+  _RTL_BALANCED_NODE **v18; // rax
+  _RTL_BALANCED_NODE **v19; // rax
+  _RTL_RB_TREE *v20; // rcx
   unsigned __int64 v21; // rdx
-  bool v22; // r8
+  BOOLEAN v22; // r8
   unsigned __int64 v23; // rax
   __int64 **v24; // rax
   __int64 *v25; // rcx
   __int64 v26; // rcx
   _QWORD *v27; // r12
-  unsigned __int64 *v28; // r12
-  unsigned __int64 v29; // r9
-  unsigned __int64 **v30; // rax
-  _QWORD *v31; // [rsp+30h] [rbp-20h] BYREF
+  _RTL_BALANCED_NODE *v28; // r12
+  PRTL_RB_TREE v29; // r9
+  _RTL_BALANCED_NODE **v30; // rax
+  PRTL_BALANCED_NODE Node; // [rsp+30h] [rbp-20h] BYREF
   __int64 **v32; // [rsp+38h] [rbp-18h] BYREF
-  unsigned __int64 *v33; // [rsp+40h] [rbp-10h]
+  _RTL_BALANCED_NODE *v33; // [rsp+40h] [rbp-10h]
 
-  v31 = 0LL;
+  Node = 0LL;
   v4 = (unsigned int)(a2 + 4096);
-  v33 = (unsigned __int64 *)&v32;
+  v33 = (_RTL_BALANCED_NODE *)&v32;
   v32 = (__int64 **)&v32;
-  v6 = v4 + a3;
-  ViewForFileOffset = (unsigned __int64 *)HvpViewMapFindViewForFileOffset(a1, v4);
+  v6 = (_RTL_BALANCED_NODE *)(v4 + a3);
+  ViewForFileOffset = (_RTL_BALANCED_NODE *)HvpViewMapFindViewForFileOffset(a1, v4);
   v9 = ViewForFileOffset;
-  if ( (__int64)ViewForFileOffset[6] >= v6 )
+  if ( (__int64)ViewForFileOffset[2].Children[0] >= (__int64)v6 )
   {
-    *v8 = v4 + ViewForFileOffset[7] - ViewForFileOffset[3];
+    *v8 = v4 + (char *)ViewForFileOffset[2].Children[1] - (char *)ViewForFileOffset[1].Children[0];
     return 0;
   }
   MemoryAllocationGranularity = CmSiGetMemoryAllocationGranularity();
-  v13 = HvpViewMapCreateView(a1, v4 & -MemoryAllocationGranularity, v6, &v31);
-  v14 = v31;
+  v13 = HvpViewMapCreateView(a1, v4 & -MemoryAllocationGranularity, v6, &Node);
+  v14 = Node;
   ViewRangeValid = v13;
   if ( v13 >= 0 )
   {
-    ViewRangeValid = HvpViewMapMakeViewRangeValid(a1, (_DWORD)v31, v4, v6, 0);
+    ViewRangeValid = HvpViewMapMakeViewRangeValid(a1, (_DWORD)Node, v4, (_DWORD)v6, 0);
     if ( ViewRangeValid >= 0 )
     {
-      for ( i = v4; i < v6; i = v27[6] )
+      for ( i = v4; i < (__int64)v6; i = v27[6] )
       {
         v27 = (_QWORD *)HvpViewMapFindViewForFileOffset(a1, i);
         ViewRangeValid = HvpViewMapMigrateCOWData(a1, v14, v27);
         if ( ViewRangeValid < 0 )
           goto LABEL_28;
       }
-      v16 = (unsigned __int64 *)HvpViewMapFindViewForFileOffset(a1, v6 - 1);
-      for ( j = v9[6]; j < (__int64)v16[5]; j = v28[6] )
+      v16 = (_RTL_BALANCED_NODE *)HvpViewMapFindViewForFileOffset(a1, (__int64)&v6[-1].ParentValue + 7);
+      for ( j = (__int64)v9[2].Children[0]; j < (signed __int64)v16[1].ParentValue; j = (__int64)v28[2].Children[0] )
       {
-        v28 = (unsigned __int64 *)HvpViewMapFindViewForFileOffset(a1, j);
+        v28 = (_RTL_BALANCED_NODE *)HvpViewMapFindViewForFileOffset(a1, j);
         RtlRbRemoveNode(v29, v28);
-        v30 = (unsigned __int64 **)v33;
-        if ( (__int64 ***)*v33 != &v32 )
+        v30 = (_RTL_BALANCED_NODE **)v33;
+        if ( (__int64 ***)v33->Children[0] != &v32 )
           goto LABEL_12;
-        v28[1] = (unsigned __int64)v33;
-        *v28 = (unsigned __int64)&v32;
+        v28->Children[1] = v33;
+        v28->Children[0] = (_RTL_BALANCED_NODE *)&v32;
         *v30 = v28;
         v33 = v28;
       }
-      if ( v9[5] == v4 )
+      if ( v9[1].ParentValue == v4 )
       {
-        RtlRbRemoveNode(a1 + 40, v9);
-        v18 = (unsigned __int64 **)v33;
-        if ( (__int64 ***)*v33 != &v32 )
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 40), v9);
+        v18 = (_RTL_BALANCED_NODE **)v33;
+        if ( (__int64 ***)v33->Children[0] != &v32 )
           goto LABEL_12;
-        v9[1] = (unsigned __int64)v33;
-        *v9 = (unsigned __int64)&v32;
+        v9->Children[1] = v33;
+        v9->Children[0] = (_RTL_BALANCED_NODE *)&v32;
         *v18 = v9;
         v33 = v9;
       }
       else
       {
-        HvpViewMapMakeViewRangeInvalid(a1, v9, v4, v9[6]);
+        HvpViewMapMakeViewRangeInvalid(a1, v9, v4, v9[2].Children[0]);
       }
-      if ( v16[6] == v6 )
+      if ( v16[2].Children[0] == v6 )
       {
-        RtlRbRemoveNode(a1 + 40, v16);
-        v19 = (unsigned __int64 **)v33;
-        if ( (__int64 ***)*v33 != &v32 )
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 40), v16);
+        v19 = (_RTL_BALANCED_NODE **)v33;
+        if ( (__int64 ***)v33->Children[0] != &v32 )
           goto LABEL_12;
-        v16[1] = (unsigned __int64)v33;
-        *v16 = (unsigned __int64)&v32;
+        v16->Children[1] = v33;
+        v16->Children[0] = (_RTL_BALANCED_NODE *)&v32;
         *v19 = v16;
         v33 = v16;
       }
       else
       {
-        HvpViewMapMakeViewRangeInvalid(a1, v16, v16[5], v6);
+        HvpViewMapMakeViewRangeInvalid(a1, v16, v16[1].ParentValue, v6);
       }
-      v20 = (__int64 *)(a1 + 40);
+      v20 = (_RTL_RB_TREE *)(a1 + 40);
       v21 = *(_QWORD *)(a1 + 40);
       if ( (*(_BYTE *)(a1 + 48) & 1) != 0 && v21 )
         v21 ^= (unsigned __int64)v20;
@@ -126,7 +126,7 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
       {
         while ( 1 )
         {
-          if ( v14[5] < *(_QWORD *)(v21 + 40) )
+          if ( (signed __int64)v14[1].ParentValue < *(_QWORD *)(v21 + 40) )
           {
             v23 = *(_QWORD *)v21;
             if ( (*(_BYTE *)(a1 + 48) & 1) != 0 )
@@ -161,7 +161,7 @@ LABEL_23:
           v21 = v23;
         }
       }
-      RtlRbInsertNodeEx(v20, v21, v22, (unsigned __int64)v14);
+      RtlRbInsertNodeEx(v20, (PRTL_BALANCED_NODE)v21, v22, v14);
       v24 = v32;
       v25 = *v32;
       if ( v32[1] == (__int64 *)&v32 )
@@ -181,7 +181,7 @@ LABEL_23:
           v25 = *v32;
         }
         ViewRangeValid = 0;
-        v26 = v4 + v14[7] - v14[3];
+        v26 = v4 + (char *)v14[2].Children[1] - (char *)v14[1].Children[0];
         v14 = 0LL;
         *a4 = v26;
         goto LABEL_28;

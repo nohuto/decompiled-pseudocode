@@ -1,24 +1,24 @@
 /*
- * XREFs of MiGetVirtualAddressState @ 0x14024D274
+ * XREFs of MiGetVirtualAddressState @ 0x14024EBD4
  * Callers:
- *     MiGetPhysicalAddress @ 0x14024D084 (MiGetPhysicalAddress.c)
- *     HalpAcpiAccessSecureAddress @ 0x14024D0F0 (HalpAcpiAccessSecureAddress.c)
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MiInitializePfn @ 0x1402D7680 (MiInitializePfn.c)
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiAllocateProtoPool @ 0x140396B20 (MiAllocateProtoPool.c)
- *     MiOkToDeleteProtos @ 0x14045884C (MiOkToDeleteProtos.c)
- *     MmGetPhysicalAddressEx @ 0x1404AFF24 (MmGetPhysicalAddressEx.c)
- *     MmStoreGetPhysicalAddress @ 0x14052FCB8 (MmStoreGetPhysicalAddress.c)
- *     MiDbgCopyMemoryInternal @ 0x1406FD8F0 (MiDbgCopyMemoryInternal.c)
+ *     MiGetPhysicalAddress @ 0x14024E9E4 (MiGetPhysicalAddress.c)
+ *     HalpAcpiAccessSecureAddress @ 0x14024EA50 (HalpAcpiAccessSecureAddress.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MiInitializePfn @ 0x1402B9440 (MiInitializePfn.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiAllocateProtoPool @ 0x1403988A0 (MiAllocateProtoPool.c)
+ *     MiOkToDeleteProtos @ 0x1404500BC (MiOkToDeleteProtos.c)
+ *     MmGetPhysicalAddressEx @ 0x1404A95C0 (MmGetPhysicalAddressEx.c)
+ *     MmStoreGetPhysicalAddress @ 0x1405321B8 (MmStoreGetPhysicalAddress.c)
+ *     MiDbgCopyMemoryInternal @ 0x1407025C0 (MiDbgCopyMemoryInternal.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiQueuePinDriverAddressLog @ 0x14024CA14 (MiQueuePinDriverAddressLog.c)
- *     MiVaToPfnEx @ 0x14024DF10 (MiVaToPfnEx.c)
- *     MiUpdateNonPagedPoolNoSteal @ 0x14024E3BC (MiUpdateNonPagedPoolNoSteal.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiQueuePinDriverAddressLog @ 0x14024E374 (MiQueuePinDriverAddressLog.c)
+ *     MiVaToPfnEx @ 0x14024F870 (MiVaToPfnEx.c)
+ *     MiUpdateNonPagedPoolNoSteal @ 0x14024FD1C (MiUpdateNonPagedPoolNoSteal.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiGetVirtualAddressState(__int64 a1, unsigned __int64 a2, char a3)

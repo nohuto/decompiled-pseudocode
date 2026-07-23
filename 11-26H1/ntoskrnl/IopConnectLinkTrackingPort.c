@@ -1,48 +1,51 @@
 /*
- * XREFs of IopConnectLinkTrackingPort @ 0x1407945D0
+ * XREFs of IopConnectLinkTrackingPort @ 0x140797100
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwAlpcConnectPort @ 0x140724350 (ZwAlpcConnectPort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwAlpcConnectPort @ 0x140728F20 (ZwAlpcConnectPort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 LONG __fastcall IopConnectLinkTrackingPort(__int64 a1)
 {
-  int v1; // ebx
+  NTSTATUS v1; // ebx
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-49h] BYREF
-  __int64 v5; // [rsp+70h] [rbp-39h]
-  __int64 v6; // [rsp+78h] [rbp-31h]
-  __int64 v7; // [rsp+80h] [rbp-29h]
-  __int64 v8; // [rsp+88h] [rbp-21h]
-  __int128 v9; // [rsp+90h] [rbp-19h]
-  _BYTE v10[4]; // [rsp+A0h] [rbp-9h] BYREF
-  int v11; // [rsp+A4h] [rbp-5h]
-  int v12; // [rsp+A8h] [rbp-1h]
-  __int16 v13; // [rsp+ACh] [rbp+3h]
-  __int64 v14; // [rsp+B0h] [rbp+7h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-39h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+A0h] [rbp-9h] BYREF
 
   v1 = 0;
   if ( !PspSiloMonitorLock.Queue )
   {
     if ( *(_DWORD *)(PspSiloMonitorLock.ExtendedFeatureDisableMask + 4) )
     {
-      v5 = 48LL;
-      v8 = 512LL;
+      *(_QWORD *)&ObjectAttributes.Length = 48LL;
+      *(_QWORD *)&ObjectAttributes.Attributes = 512LL;
       DestinationString = 0LL;
-      memset_0(v10, 0, 0x48uLL);
-      v14 = 256LL;
-      v11 = 12;
-      v12 = 2;
-      v9 = 0LL;
-      v13 = 257;
-      v6 = 0LL;
-      v7 = 0LL;
+      memset_0(&PortAttributes, 0, sizeof(PortAttributes));
+      PortAttributes.MaxMessageLength = 256LL;
+      PortAttributes.SecurityQos.Length = 12;
+      PortAttributes.SecurityQos.ImpersonationLevel = SecurityImpersonation;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      *(_WORD *)&PortAttributes.SecurityQos.ContextTrackingMode = 257;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.ObjectName = 0LL;
       RtlInitUnicodeString(&DestinationString, L"\\Security\\TRKWKS_PORT");
-      v1 = ZwAlpcConnectPort((__int64)&PspSiloMonitorLock.Queue, (__int64)&DestinationString);
+      v1 = ZwAlpcConnectPort(
+             (PHANDLE)&PspSiloMonitorLock.Queue,
+             &DestinationString,
+             &ObjectAttributes,
+             &PortAttributes,
+             0x20000u,
+             0LL,
+             0LL,
+             0LL,
+             0LL,
+             0LL,
+             0LL);
     }
     else
     {

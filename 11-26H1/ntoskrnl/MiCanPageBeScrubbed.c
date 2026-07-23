@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCanPageBeScrubbed @ 0x14070BE30
+ * XREFs of MiCanPageBeScrubbed @ 0x140710AE0
  * Callers:
- *     MiScrubLargePage @ 0x14070C4BC (MiScrubLargePage.c)
+ *     MiScrubLargePage @ 0x14071116C (MiScrubLargePage.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiHugeRangeFreeToZero @ 0x14048DD70 (MiHugeRangeFreeToZero.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiMovePageToFreeList @ 0x14070D210 (MiMovePageToFreeList.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiHugeRangeFreeToZero @ 0x1404878B0 (MiHugeRangeFreeToZero.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiMovePageToFreeList @ 0x140711EC0 (MiMovePageToFreeList.c)
  */
 
 __int64 __fastcall MiCanPageBeScrubbed(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MiCanPageBeScrubbed(__int64 a1)
   if ( *(_DWORD *)(a1 + 8) == 1 )
   {
     v3 = v2 >> 18;
-    v4 = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v3 & 0x3FFFFF));
+    v4 = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v3 & 0x3FFFFF));
     if ( ((v4 >> 4) & 0x7FF) == *v1 )
     {
       v5 = v4 & 7;

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeWaitForSingleObject_Entry @ 0x140B9E070
+ * XREFs of VfMiscKeWaitForSingleObject_Entry @ 0x140BA0070
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscValidateKeWaitUsage @ 0x140B9F564 (ViMiscValidateKeWaitUsage.c)
+ *     ViMiscValidateKeWaitUsage @ 0x140BA1564 (ViMiscValidateKeWaitUsage.c)
  */
 
 __int64 __fastcall VfMiscKeWaitForSingleObject_Entry(__int64 a1, __int64 a2, __int64 a3)

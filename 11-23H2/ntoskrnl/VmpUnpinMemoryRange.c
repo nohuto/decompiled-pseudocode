@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpUnpinMemoryRange @ 0x1405FB554
+ * XREFs of VmpUnpinMemoryRange @ 0x1405FBAC4
  * Callers:
- *     VmUnpinMemoryRange @ 0x1409DCC20 (VmUnpinMemoryRange.c)
+ *     VmUnpinMemoryRange @ 0x1409DCE20 (VmUnpinMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VmpProcessContextLockExclusive @ 0x140466D1E (VmpProcessContextLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpInvalidateSlatBatched @ 0x1405F9818 (VmpInvalidateSlatBatched.c)
- *     VmpVaRangeCheckPinnedGpaRanges @ 0x1405FB794 (VmpVaRangeCheckPinnedGpaRanges.c)
- *     VmpUnlockMemoryForPin @ 0x1409DD7E0 (VmpUnlockMemoryForPin.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x14046711E (VmpProcessContextLockExclusive.c)
+ *     VmpInvalidateSlatBatched @ 0x1405F9D88 (VmpInvalidateSlatBatched.c)
+ *     VmpVaRangeCheckPinnedGpaRanges @ 0x1405FBD04 (VmpVaRangeCheckPinnedGpaRanges.c)
+ *     VmpUnlockMemoryForPin @ 0x1409DD9E0 (VmpUnlockMemoryForPin.c)
  */
 
 __int64 __fastcall VmpUnpinMemoryRange(
@@ -77,7 +77,9 @@ __int64 __fastcall VmpUnpinMemoryRange(
   v15 = v14;
   VmpInvalidateSlatBatched(SpinLock, a2, a3, a4, &v23, 2);
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v17 = v23;
     if ( (unsigned __int8)v23 <= 0xFu && CurrentIrql >= 2u )

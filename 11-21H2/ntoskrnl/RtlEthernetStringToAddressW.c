@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     iswctype @ 0x1403E3CE0 (iswctype.c)
+ *     sub_1403E3CE0 @ 0x1403E3CE0 (sub_1403E3CE0.c)
  */
 
 NTSTATUS __stdcall RtlEthernetStringToAddressW(PCWSTR S, LPCWSTR *Terminator, DL_EUI48 *Addr)
@@ -27,15 +27,15 @@ NTSTATUS __stdcall RtlEthernetStringToAddressW(PCWSTR S, LPCWSTR *Terminator, DL
       v9 = *S;
       if ( !*S || v9 >= 0x80u )
         break;
-      if ( iswctype(v9, 4u) )
+      if ( (unsigned int)sub_1403E3CE0(v9, 4) )
       {
         v8 = v9 + 16 * (v8 + 13);
       }
       else
       {
-        if ( !iswctype(v9, 0x80u) )
+        if ( !(unsigned int)sub_1403E3CE0(v9, 128) )
           break;
-        v8 = v9 + 16 * v8 - (iswctype(v9, 2u) != 0 ? 97 : 65) + 10;
+        v8 = v9 + 16 * v8 - ((unsigned int)sub_1403E3CE0(v9, 2) != 0 ? 97 : 65) + 10;
       }
       if ( v7 == 2 )
         goto LABEL_15;

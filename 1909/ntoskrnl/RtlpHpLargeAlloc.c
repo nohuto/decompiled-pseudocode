@@ -30,7 +30,7 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int64 a2, size_t a3, unsigned in
   __int128 v4; // xmm0
   void *v5; // rbx
   void *v8; // rax
-  unsigned __int64 v9; // r15
+  __int64 v9; // r15
   BOOL v10; // edi
   __int64 v11; // r13
   unsigned __int64 v12; // rcx
@@ -44,10 +44,10 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int64 a2, size_t a3, unsigned in
   unsigned __int64 v20; // rdx
   unsigned __int64 v21; // rax
   unsigned __int8 v22; // al
-  unsigned __int64 *v23; // rcx
+  _RTL_RB_TREE *v23; // rcx
   unsigned __int8 v24; // bl
   unsigned __int64 v25; // rdx
-  bool v26; // r8
+  BOOLEAN v26; // r8
   unsigned __int64 v27; // rax
   volatile signed __int64 *v28; // r14
   unsigned int v30; // ecx
@@ -88,7 +88,7 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int64 a2, size_t a3, unsigned in
   v44 = 0LL;
   *(_OWORD *)&v49[1] = v4;
   v8 = (void *)RtlpHpMetadataAlloc(0x28uLL);
-  v9 = (unsigned __int64)v8;
+  v9 = (__int64)v8;
   if ( v8 )
   {
     memset(v8, 0, 0x28uLL);
@@ -177,7 +177,7 @@ LABEL_81:
     *(_QWORD *)(v9 + 32) = v20 ^ (unsigned __int8)(v20 ^ (4 * v21)) & 0xFC;
     *(_WORD *)(v9 + 24) = ((_WORD)v19 << 12) - v57;
     v22 = RtlpHpLargeLockAcquire(a1, v18);
-    v23 = (unsigned __int64 *)(a1 + 72);
+    v23 = (_RTL_RB_TREE *)(a1 + 72);
     v24 = v22;
     v25 = *(_QWORD *)(a1 + 72);
     if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v25 )
@@ -222,7 +222,7 @@ LABEL_32:
         v25 = v27;
       }
     }
-    RtlRbInsertNodeEx(v23, v25, v26, v9);
+    RtlRbInsertNodeEx(v23, (PRTL_BALANCED_NODE)v25, v26, (PRTL_BALANCED_NODE)v9);
     if ( (v18 & 1) == 0 )
     {
       v28 = (volatile signed __int64 *)(a1 + 64);
@@ -272,7 +272,7 @@ LABEL_32:
               {
                 v38->CrossThreadReleasableAndBusyByte |= 2u;
                 if ( (__int64)v38->LockState.LockState < 0 )
-                  KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v37]);
+                  KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v37].TreeNode);
                 v56 = v38->BoostBitmap.AllFields & 0x1FFFF;
                 v38->BoostBitmap.AllFields &= 0xFFFE0000;
                 v38->ThreadLocalFlags &= ~1u;

@@ -1,56 +1,60 @@
 /*
- * XREFs of NtSetTimerEx @ 0x1400EFE6C
+ * XREFs of NtSetTimerEx @ 0x1400EDCEC
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetTimer @ 0x1400EF85C (ExpSetTimer.c)
- *     PoDestroyReasonContext @ 0x1400FB8C8 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x1400FC0BC (PoCaptureReasonContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExpSetTimer @ 0x1400ED6DC (ExpSetTimer.c)
+ *     PoDestroyReasonContext @ 0x1400F9654 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1400F9E3C (PoCaptureReasonContext.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetTimerEx(void *a1, int a2, LARGE_INTEGER *a3, unsigned int a4)
+NTSTATUS __cdecl NtSetTimerEx(
+        HANDLE TimerHandle,
+        TIMER_SET_INFORMATION_CLASS TimerSetInformationClass,
+        PVOID TimerSetInformation,
+        ULONG TimerSetInformationLength)
 {
   LARGE_INTEGER *v4; // rbx
   KPROCESSOR_MODE PreviousMode; // di
-  unsigned __int64 v7; // rcx
+  char *v7; // rcx
   LARGE_INTEGER v8; // rcx
   NTSTATUS v9; // eax
-  unsigned int v10; // ebx
-  __int64 result; // rax
+  NTSTATUS v10; // ebx
+  NTSTATUS result; // eax
   char v12[8]; // [rsp+50h] [rbp-48h] BYREF
   __int64 v13; // [rsp+58h] [rbp-40h] BYREF
   _OWORD v14[3]; // [rsp+60h] [rbp-38h] BYREF
 
-  v4 = a3;
+  v4 = (LARGE_INTEGER *)TimerSetInformation;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && a4 )
+  if ( PreviousMode && TimerSetInformationLength )
   {
-    if ( ((unsigned __int8)a3 & 3) != 0 )
+    if ( ((unsigned __int8)TimerSetInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v7 = (unsigned __int64)a3 + a4;
-    if ( v7 > 0x7FFFFFFF0000LL || v7 < (unsigned __int64)a3 )
+    v7 = (char *)TimerSetInformation + TimerSetInformationLength;
+    if ( (unsigned __int64)v7 > 0x7FFFFFFF0000LL || v7 < TimerSetInformation )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 48 )
-    return 3221225476LL;
+  if ( TimerSetInformationClass )
+    return -1073741821;
+  if ( TimerSetInformationLength != 48 )
+    return -1073741820;
   if ( PreviousMode )
   {
-    v14[0] = *(_OWORD *)&a3->LowPart;
-    v14[1] = *(_OWORD *)&a3[2].LowPart;
-    v14[2] = *(_OWORD *)&a3[4].LowPart;
+    v14[0] = *(_OWORD *)TimerSetInformation;
+    v14[1] = *((_OWORD *)TimerSetInformation + 1);
+    v14[2] = *((_OWORD *)TimerSetInformation + 2);
     v4 = (LARGE_INTEGER *)v14;
   }
   if ( v4[4].LowPart > 0x7FFFFFFF )
-    return 3221225713LL;
+    return -1073741583;
   v8 = v4[3];
   if ( v8.QuadPart )
   {
-    LOBYTE(a2) = PreviousMode;
-    result = PoCaptureReasonContext(v8.LowPart, a2, 0, 0, (__int64)v12, (__int64)&v13);
-    if ( (int)result < 0 )
+    LOBYTE(TimerSetInformationClass) = PreviousMode;
+    result = PoCaptureReasonContext(v8.LowPart, TimerSetInformationClass, 0, 0, (__int64)v12, (__int64)&v13);
+    if ( result < 0 )
       return result;
   }
   else
@@ -59,7 +63,7 @@ __int64 __fastcall NtSetTimerEx(void *a1, int a2, LARGE_INTEGER *a3, unsigned in
     v12[0] = 0;
   }
   v9 = ExpSetTimer(
-         a1,
+         TimerHandle,
          PreviousMode,
          v4,
          v4[1].QuadPart,

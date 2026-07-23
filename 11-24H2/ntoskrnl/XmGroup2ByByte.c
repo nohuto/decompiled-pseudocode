@@ -1,12 +1,12 @@
 /*
- * XREFs of XmGroup2ByByte @ 0x1404681C0
+ * XREFs of XmGroup2ByByte @ 0x140460B70
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x140468DC4 (XmEvaluateAddressSpecifier.c)
- *     XmSetDataType @ 0x140469060 (XmSetDataType.c)
- *     XmSetDestinationValue @ 0x14046908C (XmSetDestinationValue.c)
- *     XmGetCodeByte @ 0x140469218 (XmGetCodeByte.c)
+ *     XmEvaluateAddressSpecifier @ 0x140461774 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDataType @ 0x140461A10 (XmSetDataType.c)
+ *     XmSetDestinationValue @ 0x140461A3C (XmSetDestinationValue.c)
+ *     XmGetCodeByte @ 0x140461BC8 (XmGetCodeByte.c)
  */
 
 __int64 __fastcall XmGroup2ByByte(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorNotifyResiliencyReached @ 0x1407D6D8C
+ * XREFs of PopPowerAggregatorNotifyResiliencyReached @ 0x1407D9EBC
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x14060D4E0 (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x1406105F0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopPowerAggregatorNotifyResiliencyReached(
@@ -14,7 +14,7 @@ __int64 __fastcall PopPowerAggregatorNotifyResiliencyReached(
         struct _KLOCK_ENTRIES *a4)
 {
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, a2, a3, a4);
-  if ( LODWORD(PopPowerAggregatorLock.QuantumTarget) == 1 )
-    BYTE1(PopPowerAggregatorLock.StackBase) = 0;
-  return PopReleaseRwLock(&PopPowerAggregatorLock);
+  if ( (_DWORD)xmmword_140F0D8D0 == 1 )
+    BYTE9(xmmword_140F0D8E0) = 0;
+  return PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
 }

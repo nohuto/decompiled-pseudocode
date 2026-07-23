@@ -1,16 +1,16 @@
 /*
- * XREFs of NtMapUserPhysicalPages @ 0x18009F8B0
+ * XREFs of NtMapUserPhysicalPages @ 0x18009F870
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtMapUserPhysicalPages()
+NTSTATUS __cdecl NtMapUserPhysicalPages(PVOID VirtualAddress, ULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 276LL;
+  result = 276;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

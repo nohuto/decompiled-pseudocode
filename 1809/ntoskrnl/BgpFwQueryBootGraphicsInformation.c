@@ -1,14 +1,14 @@
 /*
- * XREFs of BgpFwQueryBootGraphicsInformation @ 0x14016F2C0
+ * XREFs of BgpFwQueryBootGraphicsInformation @ 0x14016F3C0
  * Callers:
- *     BgQueryBootGraphicsInformation @ 0x14016EDA8 (BgQueryBootGraphicsInformation.c)
+ *     BgQueryBootGraphicsInformation @ 0x14016EEA8 (BgQueryBootGraphicsInformation.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
- *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
- *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     BgpFwFreeMemory @ 0x14016EDEC (BgpFwFreeMemory.c)
+ *     BgpFwReleaseLock @ 0x14016F308 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F358 (BgpFwAcquireLock.c)
+ *     BgpFwAllocateMemory @ 0x14016F5D8 (BgpFwAllocateMemory.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BgpFwQueryBootGraphicsInformation(int a1, __int64 a2)
@@ -36,27 +36,27 @@ __int64 __fastcall BgpFwQueryBootGraphicsInformation(int a1, __int64 a2)
     }
     else if ( a1 == 3 )
     {
-      *(_OWORD *)a2 = xmmword_140405BB0;
-      *(_OWORD *)(a2 + 16) = xmmword_140405BC0;
-      *(_OWORD *)(a2 + 32) = xmmword_140405BD0;
-      *(_OWORD *)(a2 + 48) = xmmword_140405BE0;
-      *(_OWORD *)(a2 + 64) = xmmword_140405BF0;
-      *(_OWORD *)(a2 + 80) = xmmword_140405C00;
-      *(_OWORD *)(a2 + 96) = xmmword_140405C10;
-      *(_OWORD *)(a2 + 112) = xmmword_140405C20;
+      *(_OWORD *)a2 = xmmword_140406BB0;
+      *(_OWORD *)(a2 + 16) = xmmword_140406BC0;
+      *(_OWORD *)(a2 + 32) = xmmword_140406BD0;
+      *(_OWORD *)(a2 + 48) = xmmword_140406BE0;
+      *(_OWORD *)(a2 + 64) = xmmword_140406BF0;
+      *(_OWORD *)(a2 + 80) = xmmword_140406C00;
+      *(_OWORD *)(a2 + 96) = xmmword_140406C10;
+      *(_OWORD *)(a2 + 112) = xmmword_140406C20;
     }
-    else if ( qword_140405B18 || qword_140405B20 )
+    else if ( qword_140406B18 || qword_140406B20 )
     {
-      v8 = qword_140405B20;
+      v8 = qword_140406B20;
       v9 = (unsigned int)Size;
-      if ( !qword_140405B20 )
+      if ( !qword_140406B20 )
       {
         Memory = (void *)BgpFwAllocateMemory((unsigned int)Size);
         v3 = (__int64)Memory;
         if ( !Memory )
           return (unsigned int)-1073741801;
         v8 = Memory;
-        memmove(Memory, qword_140405B18, v9);
+        memmove(Memory, qword_140406B18, v9);
       }
       v11 = v9 + 8;
       v12 = -1;
@@ -70,7 +70,7 @@ __int64 __fastcall BgpFwQueryBootGraphicsInformation(int a1, __int64 a2)
         v14 = PoolWithTag;
         if ( PoolWithTag )
         {
-          *PoolWithTag = ((unsigned int)dword_140405AD0 >> 23) & 1;
+          *PoolWithTag = ((unsigned int)dword_140406AD0 >> 23) & 1;
           PoolWithTag[1] = 8;
           memmove(PoolWithTag + 2, v8, v9);
           BgpFwAcquireLock();
@@ -92,11 +92,11 @@ __int64 __fastcall BgpFwQueryBootGraphicsInformation(int a1, __int64 a2)
   }
   else
   {
-    *(_OWORD *)a2 = xmmword_140405AB0;
-    *(_OWORD *)(a2 + 16) = xmmword_140405AC0;
+    *(_OWORD *)a2 = xmmword_140406AB0;
+    *(_OWORD *)(a2 + 16) = xmmword_140406AC0;
     *(_DWORD *)(a2 + 20) = 0;
     v5 = *(_DWORD *)(a2 + 20);
-    if ( (dword_140405AD0 & 2) != 0 )
+    if ( (dword_140406AD0 & 2) != 0 )
       v5 = 1;
     *(_DWORD *)(a2 + 20) = v5;
     if ( ((BYTE2(BgInternal) - 1) & 0xFD) == 0 )

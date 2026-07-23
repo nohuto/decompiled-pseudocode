@@ -11,7 +11,7 @@ __int64 __fastcall RtlpGetCustomCultureDataFromFile(
         unsigned __int64 a2,
         char a3,
         char a4,
-        __int64 a5)
+        _UNICODE_STRING *a5)
 {
   __int64 v8; // r10
   char *v9; // r8
@@ -59,7 +59,11 @@ __int64 __fastcall RtlpGetCustomCultureDataFromFile(
                       {
                         v16 = *(unsigned __int16 *)&v13[2 * v14];
                         if ( v16 + (unsigned int)v14 + 2 <= v15 && !*(_WORD *)&v13[2 * v16 + 2 + 2 * (unsigned int)v14] )
-                          return RtlpInitUnicodeStringUsingBuffer(a4, &v13[2 * (unsigned int)(v14 + 1)], v16, a5);
+                          return RtlpInitUnicodeStringUsingBuffer(
+                                   a4,
+                                   (const WCHAR *)&v13[2 * (unsigned int)(v14 + 1)],
+                                   v16,
+                                   a5);
                       }
                     }
                   }

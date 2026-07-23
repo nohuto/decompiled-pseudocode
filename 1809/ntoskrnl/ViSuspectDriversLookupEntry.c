@@ -1,12 +1,12 @@
 /*
- * XREFs of ViSuspectDriversLookupEntry @ 0x140937D80
+ * XREFs of ViSuspectDriversLookupEntry @ 0x140938D80
  * Callers:
- *     VfIsDriverSuspect @ 0x140920ED4 (VfIsDriverSuspect.c)
- *     VfDriverEnableVerifier @ 0x140927E78 (VfDriverEnableVerifier.c)
- *     VfSuspectDriversRemove @ 0x140937B30 (VfSuspectDriversRemove.c)
- *     VfSuspectDriversIsLoaded @ 0x1409F891C (VfSuspectDriversIsLoaded.c)
+ *     VfIsDriverSuspect @ 0x140921ED4 (VfIsDriverSuspect.c)
+ *     VfDriverEnableVerifier @ 0x140928E78 (VfDriverEnableVerifier.c)
+ *     VfSuspectDriversRemove @ 0x140938B30 (VfSuspectDriversRemove.c)
+ *     VfSuspectDriversIsLoaded @ 0x1409F991C (VfSuspectDriversIsLoaded.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall ViSuspectDriversLookupEntry(PCUNICODE_STRING String2)

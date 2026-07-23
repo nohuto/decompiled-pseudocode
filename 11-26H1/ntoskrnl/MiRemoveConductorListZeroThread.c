@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRemoveConductorListZeroThread @ 0x14077C894
+ * XREFs of MiRemoveConductorListZeroThread @ 0x14077F388
  * Callers:
- *     MiDeleteThreadContext @ 0x1404F8410 (MiDeleteThreadContext.c)
+ *     MiDeleteThreadContext @ 0x1404F1A20 (MiDeleteThreadContext.c)
  * Callees:
  *     <none>
  */

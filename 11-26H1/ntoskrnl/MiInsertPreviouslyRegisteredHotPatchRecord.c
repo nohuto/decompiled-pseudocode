@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140870AAC
+ * XREFs of MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140876E0C
  * Callers:
- *     MiInsertHotPatchRecord @ 0x1408708FC (MiInsertHotPatchRecord.c)
+ *     MiInsertHotPatchRecord @ 0x140876C5C (MiInsertHotPatchRecord.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiCompareHotPatchNodes @ 0x14086F6BC (MiCompareHotPatchNodes.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MiCompareHotPatchNodes @ 0x140875A8C (MiCompareHotPatchNodes.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 _BOOL8 __fastcall MiInsertPreviouslyRegisteredHotPatchRecord(__int64 a1)
@@ -20,7 +20,7 @@ _BOOL8 __fastcall MiInsertPreviouslyRegisteredHotPatchRecord(__int64 a1)
   _QWORD *v9; // rdi
   _QWORD *v10; // rax
 
-  v1 = (_QWORD *)*((_QWORD *)&xmmword_140E36540 + 1);
+  v1 = (_QWORD *)*((_QWORD *)&xmmword_140E366C0 + 1);
   v2 = 0;
   v3 = 0LL;
   while ( v1 )
@@ -65,8 +65,8 @@ LABEL_6:
       }
     }
   }
-  v9 = (_QWORD *)*((_QWORD *)&xmmword_140E36540 + 1);
-  if ( !*((_QWORD *)&xmmword_140E36540 + 1) )
+  v9 = (_QWORD *)*((_QWORD *)&xmmword_140E366C0 + 1);
+  if ( !*((_QWORD *)&xmmword_140E366C0 + 1) )
     goto LABEL_24;
   while ( 2 )
   {
@@ -88,6 +88,6 @@ LABEL_27:
   }
   LOBYTE(v2) = 1;
 LABEL_24:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E36540 + 1, (unsigned __int64)v9, v2, (_QWORD *)a1);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E366C0 + 1, (unsigned __int64)v9, v2, (_QWORD *)a1);
   return 1;
 }

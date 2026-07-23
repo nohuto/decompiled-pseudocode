@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpGCTimerSchedule @ 0x1800961E4
+ * XREFs of RtlpHpGCTimerSchedule @ 0x180063B84
  * Callers:
- *     RtlpHpAllocateHeapInternal @ 0x1800DF844 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1800DC7B4 (RtlpHpAllocateHeapInternal.c)
  * Callees:
- *     TpSetTimerEx @ 0x180069020 (TpSetTimerEx.c)
- *     RtlpHpTlLogGCScheduled @ 0x180096B64 (RtlpHpTlLogGCScheduled.c)
+ *     RtlpHpTlLogGCScheduled @ 0x180064504 (RtlpHpTlLogGCScheduled.c)
+ *     TpSetTimerEx @ 0x180089470 (TpSetTimerEx.c)
  */
 
 __int64 RtlpHpGCTimerSchedule()
@@ -12,19 +12,19 @@ __int64 RtlpHpGCTimerSchedule()
   unsigned int v0; // ebx
 
   v0 = 0;
-  if ( qword_1801C7268 )
+  if ( Timer )
   {
-    if ( byte_1801CB8C8 )
+    if ( byte_1801CA908 )
     {
       return (unsigned int)-1073741558;
     }
-    else if ( _InterlockedCompareExchange((volatile signed __int32 *)&qword_1801C7278, 1, 0) )
+    else if ( _InterlockedCompareExchange((volatile signed __int32 *)&qword_1801C6278, 1, 0) )
     {
       return 259;
     }
     else
     {
-      TpSetTimerEx(qword_1801C7268, (__int64)&qword_1801C7270, 0, 1000);
+      TpSetTimerEx(Timer, &DueTime, 0, 0x3E8u);
       if ( (RtlpHpHeapFeatures & 0x10) != 0 )
         RtlpHpTlLogGCScheduled();
     }

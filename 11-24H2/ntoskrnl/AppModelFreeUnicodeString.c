@@ -1,9 +1,9 @@
 /*
- * XREFs of AppModelFreeUnicodeString @ 0x1404ABDC0
+ * XREFs of AppModelFreeUnicodeString @ 0x1404A62AC
  * Callers:
- *     KIsSideloadingEnabled @ 0x1407C9DF8 (KIsSideloadingEnabled.c)
+ *     KIsSideloadingEnabled @ 0x1407CA2E8 (KIsSideloadingEnabled.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AppModelFreeUnicodeString(__int64 a1)

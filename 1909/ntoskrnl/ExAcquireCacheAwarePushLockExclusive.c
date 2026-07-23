@@ -9,12 +9,12 @@
 
 __int64 __fastcall ExAcquireCacheAwarePushLockExclusive(ULONG_PTR a1)
 {
-  __int64 v2; // rdi
+  PRTL_BALANCED_NODE v2; // rdi
   __int64 result; // rax
 
   v2 = KeAbPreAcquire(a1, 0LL, 0);
   result = ExfAcquireCacheAwarePushLockExclusiveEx(a1, v2, a1);
   if ( v2 )
-    *(_BYTE *)(v2 + 26) |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   return result;
 }

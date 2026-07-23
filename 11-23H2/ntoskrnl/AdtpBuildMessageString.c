@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpBuildMessageString @ 0x14083D340
+ * XREFs of AdtpBuildMessageString @ 0x14083D640
  * Callers:
- *     AdtpPackageParameters @ 0x140399604 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403997E4 (AdtpPackageParameters.c)
  * Callees:
- *     StringCchPrintfW @ 0x1403662E8 (StringCchPrintfW.c)
+ *     StringCchPrintfW @ 0x140366488 (StringCchPrintfW.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

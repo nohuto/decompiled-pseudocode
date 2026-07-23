@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeProcessTopDownEntropy @ 0x140711A28
+ * XREFs of MiInitializeProcessTopDownEntropy @ 0x1406C0078
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406BFB24 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
  */
 
 _QWORD *__fastcall MiInitializeProcessTopDownEntropy(__int64 a1, __int64 a2)

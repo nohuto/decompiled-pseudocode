@@ -3,8 +3,8 @@
  * Callers:
  *     SeRmInitPhase1 @ 0x1407B2DB0 (SeRmInitPhase1.c)
  * Callees:
- *     RtlCreateHashTable @ 0x1400A955C (RtlCreateHashTable.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlCreateHashTable @ 0x1400A7ADC (RtlCreateHashTable.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

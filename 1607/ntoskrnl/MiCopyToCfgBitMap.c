@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCopyToCfgBitMap @ 0x14042F1E0
+ * XREFs of MiCopyToCfgBitMap @ 0x14042E0B0
  * Callers:
- *     MiMarkSharedImageCfgBits @ 0x1400E9AA0 (MiMarkSharedImageCfgBits.c)
- *     MiPopulateCfgBitMap @ 0x1404F4488 (MiPopulateCfgBitMap.c)
+ *     MiMarkSharedImageCfgBits @ 0x1400E7910 (MiMarkSharedImageCfgBits.c)
+ *     MiPopulateCfgBitMap @ 0x1404D7414 (MiPopulateCfgBitMap.c)
  * Callees:
- *     MiCopyToUserVa @ 0x140014B50 (MiCopyToUserVa.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     MiSplitPrivatePage @ 0x1400988C0 (MiSplitPrivatePage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     MiCopyToUserVa @ 0x1400146D0 (MiCopyToUserVa.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     MiSplitPrivatePage @ 0x1400980C0 (MiSplitPrivatePage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiCfgEliminateZeroPages @ 0x1404B8B60 (MiCfgEliminateZeroPages.c)
- *     MiQueryImageRvaList @ 0x1404D7874 (MiQueryImageRvaList.c)
+ *     MiCfgEliminateZeroPages @ 0x1404A2F40 (MiCfgEliminateZeroPages.c)
+ *     MiQueryImageRvaList @ 0x1404BAE78 (MiQueryImageRvaList.c)
  */
 
 __int64 __fastcall MiCopyToCfgBitMap(
@@ -68,7 +68,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   unsigned __int64 v49; // [rsp+130h] [rbp+30h]
   char *v50; // [rsp+138h] [rbp+38h]
   unsigned __int64 v51; // [rsp+140h] [rbp+40h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+148h] [rbp+48h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+148h] [rbp+48h] BYREF
   __int64 v53; // [rsp+158h] [rbp+58h]
   _DWORD *v54; // [rsp+160h] [rbp+60h] BYREF
 
@@ -98,9 +98,9 @@ __int64 __fastcall MiCopyToCfgBitMap(
   }
   else
   {
-    PoolWithTag = (char *)qword_1403276A8;
+    PoolWithTag = (char *)qword_1403276E8;
     if ( !a3 )
-      PoolWithTag = (char *)qword_1403276B0;
+      PoolWithTag = (char *)qword_1403276F0;
   }
   v50 = PoolWithTag;
   P = PoolWithTag;

@@ -6,8 +6,8 @@
  *     RtlUnicodeToOemN @ 0x180062560 (RtlUnicodeToOemN.c)
  *     RtlOemToUnicodeN @ 0x180062600 (RtlOemToUnicodeN.c)
  *     RtlUpcaseUnicodeToMultiByteN @ 0x1800626B0 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlConsoleMultiByteToUnicodeN @ 0x1800E5110 (RtlConsoleMultiByteToUnicodeN.c)
- *     RtlIsValidOemCharacter @ 0x1800FCE7C (RtlIsValidOemCharacter.c)
+ *     RtlConsoleMultiByteToUnicodeN @ 0x1800E50D0 (RtlConsoleMultiByteToUnicodeN.c)
+ *     RtlIsValidOemCharacter @ 0x1800FCE3C (RtlIsValidOemCharacter.c)
  * Callees:
  *     <none>
  */

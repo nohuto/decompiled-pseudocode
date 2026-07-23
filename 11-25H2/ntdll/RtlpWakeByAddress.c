@@ -15,14 +15,14 @@
  *     ZwAlertThreadByThreadIdEx @ 0x180164050 (ZwAlertThreadByThreadIdEx.c)
  */
 
-signed __int64 __fastcall RtlpWakeByAddress(unsigned __int64 a1, char a2, __int64 a3)
+int __fastcall RtlpWakeByAddress(unsigned __int64 a1, char a2, __int64 a3)
 {
   bool v3; // bp
   __int64 v4; // rdi
   unsigned __int64 v7; // r9
   _PEB *ProcessEnvironmentBlock; // rbx
   __int64 v9; // r8
-  signed __int64 result; // rax
+  signed __int64 v10; // rax
   signed __int64 v11; // rdx
   signed __int64 v12; // rtt
   signed __int64 v13; // rtt
@@ -45,28 +45,28 @@ signed __int64 __fastcall RtlpWakeByAddress(unsigned __int64 a1, char a2, __int6
   v7 = a1;
   ProcessEnvironmentBlock = NtCurrentTeb()->ProcessEnvironmentBlock;
   v9 = 0LL;
-  result = (signed __int64)ProcessEnvironmentBlock->WaitOnAddressHashTable[v4];
-  while ( result && (result & 1) == 0 )
+  v10 = (signed __int64)ProcessEnvironmentBlock->WaitOnAddressHashTable[v4];
+  while ( v10 && (v10 & 1) == 0 )
   {
-    if ( (result & 2) != 0 )
+    if ( (v10 & 2) != 0 )
     {
-      v13 = result;
-      result = _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)&ProcessEnvironmentBlock->WaitOnAddressHashTable[v4],
-                 result | 1,
-                 result);
-      if ( v13 == result )
-        return result;
+      v13 = v10;
+      v10 = _InterlockedCompareExchange64(
+              (volatile signed __int64 *)&ProcessEnvironmentBlock->WaitOnAddressHashTable[v4],
+              v10 | 1,
+              v10);
+      if ( v13 == v10 )
+        return v10;
     }
     else
     {
-      v11 = result | 2;
-      v12 = result;
-      result = _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)&ProcessEnvironmentBlock->WaitOnAddressHashTable[v4],
-                 result | 2,
-                 result);
-      if ( v12 == result )
+      v11 = v10 | 2;
+      v12 = v10;
+      v10 = _InterlockedCompareExchange64(
+              (volatile signed __int64 *)&ProcessEnvironmentBlock->WaitOnAddressHashTable[v4],
+              v10 | 2,
+              v10);
+      if ( v12 == v10 )
       {
 LABEL_38:
         v25 = v11 & 0xFFFFFFFFFFFFFFFCuLL;
@@ -75,9 +75,9 @@ LABEL_38:
         {
           do
           {
-            result = (signed __int64)v26;
+            v10 = (signed __int64)v26;
             v26 = (_QWORD *)v26[2];
-            v26[3] = result;
+            v26[3] = v10;
           }
           while ( !v26[4] );
         }
@@ -93,13 +93,13 @@ LABEL_38:
             {
               if ( v16 )
                 v16 = v11 ^ (v11 ^ v16) & 0xFFFFFFFFFFFFFFFCuLL;
-              result = _InterlockedCompareExchange64(
-                         (volatile signed __int64 *)&ProcessEnvironmentBlock->WaitOnAddressHashTable[v4],
-                         v16,
-                         v11);
-              if ( v11 != result )
+              v10 = _InterlockedCompareExchange64(
+                      (volatile signed __int64 *)&ProcessEnvironmentBlock->WaitOnAddressHashTable[v4],
+                      v16,
+                      v11);
+              if ( v11 != v10 )
               {
-                v11 = result;
+                v11 = v10;
                 goto LABEL_38;
               }
               v17 = *(_QWORD *)(v14 + 16);
@@ -125,10 +125,10 @@ LABEL_38:
                 *(_QWORD *)(*(_QWORD *)(v14 + 24) + 32LL) = *(_QWORD *)(v14 + 24);
               }
             }
-            result = (unsigned int)_InterlockedExchange((volatile __int32 *)(v14 + 40), 2);
-            if ( (_DWORD)result != 2 )
+            LODWORD(v10) = _InterlockedExchange((volatile __int32 *)(v14 + 40), 2);
+            if ( (_DWORD)v10 != 2 )
             {
-              if ( !(_DWORD)result )
+              if ( !(_DWORD)v10 )
               {
                 *(_QWORD *)(v14 + 16) = v9;
                 v9 = v14;
@@ -147,33 +147,33 @@ LABEL_38:
           do
           {
             v19 = *(_QWORD *)(v9 + 16);
-            result = ZwAlertThreadByThreadIdEx(*(_QWORD *)(v9 + 8), v18, v9, v7);
+            LODWORD(v10) = ZwAlertThreadByThreadIdEx(*(_QWORD *)(v9 + 8), v18, v9, v7);
             v9 = v19;
           }
           while ( v19 );
         }
         if ( !v3 )
         {
-          result = (signed __int64)ProcessEnvironmentBlock->WaitOnAddressHashTable[v4];
+          v10 = (signed __int64)ProcessEnvironmentBlock->WaitOnAddressHashTable[v4];
           do
           {
             v20 = 0LL;
-            v21 = result & 1;
-            if ( (result & 1) == 0 )
-              v20 = result & 0xFFFFFFFFFFFFFFFCuLL;
-            v22 = result;
-            result = _InterlockedCompareExchange64(
-                       (volatile signed __int64 *)&ProcessEnvironmentBlock->WaitOnAddressHashTable[v4],
-                       v20,
-                       result);
+            v21 = v10 & 1;
+            if ( (v10 & 1) == 0 )
+              v20 = v10 & 0xFFFFFFFFFFFFFFFCuLL;
+            v22 = v10;
+            v10 = _InterlockedCompareExchange64(
+                    (volatile signed __int64 *)&ProcessEnvironmentBlock->WaitOnAddressHashTable[v4],
+                    v20,
+                    v10);
           }
-          while ( v22 != result );
+          while ( v22 != v10 );
           if ( v21 )
-            return RtlpWaitOnAddressWakeEntireList(result);
+            LODWORD(v10) = RtlpWaitOnAddressWakeEntireList(v10);
         }
-        return result;
+        return v10;
       }
     }
   }
-  return result;
+  return v10;
 }

@@ -1,18 +1,26 @@
 /*
- * XREFs of ZwAccessCheck @ 0x18015EF40
+ * XREFs of ZwAccessCheck @ 0x18015EE40
  * Callers:
- *     RtlCheckTokenCapability @ 0x18000DB10 (RtlCheckTokenCapability.c)
- *     RtlCheckTokenMembershipEx @ 0x18000E6E0 (RtlCheckTokenMembershipEx.c)
- *     RtlpNewSecurityObject @ 0x18005E6A0 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x180048C20 (RtlpNewSecurityObject.c)
+ *     RtlCheckTokenCapability @ 0x180059240 (RtlCheckTokenCapability.c)
+ *     RtlCheckTokenMembershipEx @ 0x180059E10 (RtlCheckTokenMembershipEx.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAccessCheck()
+NTSTATUS __cdecl ZwAccessCheck(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PGENERIC_MAPPING GenericMapping,
+        PPRIVILEGE_SET PrivilegeSet,
+        PULONG PrivilegeSetLength,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 0LL;
+  result = 0;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

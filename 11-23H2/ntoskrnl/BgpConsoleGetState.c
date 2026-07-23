@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpConsoleGetState @ 0x140AF1A50
+ * XREFs of BgpConsoleGetState @ 0x140AF1A60
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
  */
 
 __int64 __fastcall BgpConsoleGetState(_DWORD *a1)
@@ -13,11 +13,11 @@ __int64 __fastcall BgpConsoleGetState(_DWORD *a1)
   unsigned int v3; // ebx
 
   BgpFwAcquireLock();
-  v2 = (_DWORD *)qword_140CF7AE8;
+  v2 = (_DWORD *)qword_140CF7AE0;
   v3 = 0;
-  if ( qword_140CF7AE8 )
+  if ( qword_140CF7AE0 )
   {
-    *a1 = *(_DWORD *)(qword_140CF7AE8 + 20);
+    *a1 = *(_DWORD *)(qword_140CF7AE0 + 20);
     a1[1] = v2[6];
     a1[2] = *v2;
     a1[3] = v2[1];

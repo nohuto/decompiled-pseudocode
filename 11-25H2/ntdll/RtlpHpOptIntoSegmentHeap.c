@@ -16,9 +16,9 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(__int64 a1, unsigned int *a2)
   struct _PEB *v4; // rsi
   _BYTE *pShimData; // rax
   unsigned int v6; // ebx
-  __int64 v8; // [rsp+40h] [rbp-C0h] BYREF
+  _PS_PKG_CLAIM PkgClaim; // [rsp+40h] [rbp-C0h] BYREF
   _QWORD v9[24]; // [rsp+50h] [rbp-B0h] BYREF
-  wchar_t String1[16]; // [rsp+110h] [rbp+10h] BYREF
+  WCHAR String1[16]; // [rsp+110h] [rbp+10h] BYREF
 
   if ( (RtlpLowFragHeapGlobalFlags & 8) != 0 )
     return 0LL;
@@ -26,7 +26,7 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(__int64 a1, unsigned int *a2)
   {
     v4 = NtCurrentPeb();
     *a2 = 0;
-    v8 = 0LL;
+    PkgClaim = 0LL;
     v9[0] = L"svchost.exe";
     v9[1] = L"runtimebroker.exe";
     v9[2] = L"csrss.exe";
@@ -64,14 +64,14 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(__int64 a1, unsigned int *a2)
     }
     if ( (RtlGetSuiteMask() & 0x10000) == 0 )
     {
-      if ( (int)RtlQueryActivationContextApplicationSettings(
-                  0LL,
-                  0LL,
-                  L"http://schemas.microsoft.com/SMI/2020/WindowsSettings",
-                  L"heapType",
-                  String1,
-                  15LL,
-                  0LL) >= 0
+      if ( RtlQueryActivationContextApplicationSettings(
+             0,
+             0LL,
+             (PWSTR)L"http://schemas.microsoft.com/SMI/2020/WindowsSettings",
+             (PWSTR)L"heapType",
+             String1,
+             0xFuLL,
+             0LL) >= 0
         && !wcsnicmp(String1, L"SegmentHeap", 0xFuLL) )
       {
         v6 = 1;
@@ -81,8 +81,11 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(__int64 a1, unsigned int *a2)
       if ( (v4->BitField & 0x10) != 0 )
       {
         v6 = 1;
-        if ( (int)RtlQueryPackageClaims(-4LL, 0LL, 0LL, 0LL, 0LL, 0LL, &v8, 0LL) < 0 || (v8 & 0x88000) == 0 )
+        if ( RtlQueryPackageClaims((HANDLE)0xFFFFFFFFFFFFFFFCLL, 0LL, 0LL, 0LL, 0LL, 0LL, &PkgClaim, 0LL) < 0
+          || (PkgClaim.Flags & 0x88000) == 0 )
+        {
           return v6;
+        }
         return 0;
       }
       if ( !v4->ProcessParameters->HeapPartitionName.Buffer && (!a1 || !(unsigned int)RtlpHpFindImageNameInList(a1, v9)) )

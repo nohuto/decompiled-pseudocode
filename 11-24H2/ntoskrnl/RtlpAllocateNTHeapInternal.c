@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpAllocateNTHeapInternal @ 0x14047A23C
+ * XREFs of RtlpAllocateNTHeapInternal @ 0x14036876C
  * Callers:
- *     RtlAllocateHeap @ 0x14047A1B0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x1403686E0 (RtlAllocateHeap.c)
  * Callees:
- *     RtlpHpVsContextAllocate @ 0x1402B7840 (RtlpHpVsContextAllocate.c)
- *     RtlpCallInterceptRoutine @ 0x14046E0EC (RtlpCallInterceptRoutine.c)
- *     RtlFreeHeap @ 0x14047DE70 (RtlFreeHeap.c)
- *     RtlpAllocateHeap @ 0x1405EA9AC (RtlpAllocateHeap.c)
- *     RtlpAllocateHeapRaiseException @ 0x1405EB314 (RtlpAllocateHeapRaiseException.c)
- *     RtlpSetupExtendedBlock @ 0x1405ED758 (RtlpSetupExtendedBlock.c)
+ *     RtlpHpVsContextAllocate @ 0x14036781C (RtlpHpVsContextAllocate.c)
+ *     RtlpCallInterceptRoutine @ 0x1404688C8 (RtlpCallInterceptRoutine.c)
+ *     RtlFreeHeap @ 0x140479100 (RtlFreeHeap.c)
+ *     RtlpAllocateHeap @ 0x1405E7EFC (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeapRaiseException @ 0x1405E8884 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpSetupExtendedBlock @ 0x1405EAD40 (RtlpSetupExtendedBlock.c)
  */
 
 void *__fastcall RtlpAllocateNTHeapInternal(_DWORD *HeapHandle, unsigned __int64 a2, unsigned int a3)
@@ -55,7 +55,7 @@ void *__fastcall RtlpAllocateNTHeapInternal(_DWORD *HeapHandle, unsigned __int64
         }
         else
         {
-          if ( (int)RtlpCallInterceptRoutine(v14, (__int64)HeapHandle, 0LL, 1u, (__int64)&v24) < 0 )
+          if ( (int)RtlpCallInterceptRoutine(v14, (_DWORD)HeapHandle, 0, 1, (__int64)&v24) < 0 )
             goto LABEL_30;
           v16 = (v24 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
           v5 += v16 + 16;
@@ -75,7 +75,7 @@ void *__fastcall RtlpAllocateNTHeapInternal(_DWORD *HeapHandle, unsigned __int64
       v5 -= v24;
       v20 = Heap;
       v19 = (void *)RtlpSetupExtendedBlock((_DWORD)HeapHandle, v12, Heap, v18, v24, v14);
-      if ( (int)RtlpCallInterceptRoutine(v14, (__int64)HeapHandle, (__int64)v19, 2u, v20) >= 0 )
+      if ( (int)RtlpCallInterceptRoutine(v14, (_DWORD)HeapHandle, (_DWORD)v19, 2, v20) >= 0 )
         return v19;
       RtlFreeHeap(HeapHandle, 0, v19);
       v13 = v22;

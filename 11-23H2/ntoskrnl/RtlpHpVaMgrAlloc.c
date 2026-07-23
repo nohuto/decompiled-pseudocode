@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpHpVaMgrAlloc @ 0x14030FECC
+ * XREFs of RtlpHpVaMgrAlloc @ 0x14031015C
  * Callers:
- *     RtlpHpVaMgrCtxAlloc @ 0x14030FE5C (RtlpHpVaMgrCtxAlloc.c)
+ *     RtlpHpVaMgrCtxAlloc @ 0x1403100EC (RtlpHpVaMgrCtxAlloc.c)
  * Callees:
  *     RtlpHpEnvFreeVA @ 0x1402121E0 (RtlpHpEnvFreeVA.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpVaMgrAllocAligned @ 0x1403102C4 (RtlpHpVaMgrAllocAligned.c)
- *     RtlpHpVaMgrRangeCreate @ 0x140310394 (RtlpHpVaMgrRangeCreate.c)
- *     RtlpHpAcquireLockExclusive @ 0x140316CC4 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpVaMgrFree @ 0x14035DA5C (RtlpHpVaMgrFree.c)
- *     RtlpHpVaMgrRangeFind @ 0x14036069C (RtlpHpVaMgrRangeFind.c)
- *     RtlpHpVaMgrRangeSplit @ 0x140364D2C (RtlpHpVaMgrRangeSplit.c)
- *     RtlpHpVaMgrRegionAllocate @ 0x140365028 (RtlpHpVaMgrRegionAllocate.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpVaMgrAllocAligned @ 0x140310554 (RtlpHpVaMgrAllocAligned.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x140310624 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140316F54 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpVaMgrFree @ 0x14035DBFC (RtlpHpVaMgrFree.c)
+ *     RtlpHpVaMgrRangeFind @ 0x14036083C (RtlpHpVaMgrRangeFind.c)
+ *     RtlpHpVaMgrRangeSplit @ 0x140364ECC (RtlpHpVaMgrRangeSplit.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x1403651C8 (RtlpHpVaMgrRegionAllocate.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int64 *a2, unsigned __int64 a3)
@@ -31,7 +31,7 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
   unsigned __int64 v12; // r12
   unsigned __int64 v13; // rbx
   unsigned __int64 v14; // r13
-  unsigned __int64 v15; // rax
+  _RTL_BALANCED_NODE *v15; // rax
   __int64 v16; // r15
   unsigned __int64 v17; // rsi
   struct _KTHREAD *v18; // rcx
@@ -67,11 +67,15 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
     v12 = v3 >> 20;
     v13 = a3 >> 20;
     v14 = (unsigned __int8)RtlpHpAcquireLockExclusive(BugCheckParameter2, v7 & 1);
-    v15 = RtlpHpVaMgrRangeFind(BugCheckParameter2, (unsigned __int16)v12, (unsigned __int16)v13, &v31);
-    v16 = v15;
+    v15 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(
+                                  BugCheckParameter2,
+                                  (unsigned __int16)v12,
+                                  (unsigned __int16)v13,
+                                  &v31);
+    v16 = (__int64)v15;
     if ( v15 )
     {
-      RtlRbRemoveNode((unsigned __int64 *)(BugCheckParameter2 + 8), v15);
+      RtlRbRemoveNode((PRTL_RB_TREE)(BugCheckParameter2 + 8), v15);
       v17 = v31;
       if ( v31 != v16 )
       {
@@ -89,10 +93,13 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
       if ( (*(_BYTE *)(BugCheckParameter2 + 46) & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)BugCheckParameter2);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v14 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -138,10 +145,10 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
     if ( (*(_BYTE *)(BugCheckParameter2 + 46) & 1) != 0 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)BugCheckParameter2);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v21 >= 2u )
         {
           v22 = KeGetCurrentPrcb();
           v23 = v22->SchedulerAssist;

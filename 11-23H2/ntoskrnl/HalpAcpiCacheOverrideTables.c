@@ -3,8 +3,8 @@
  * Callers:
  *     HalpAcpiTableCacheInit @ 0x140B48D28 (HalpAcpiTableCacheInit.c)
  * Callees:
- *     HalpAcpiCacheTable @ 0x14037DFA0 (HalpAcpiCacheTable.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     HalpAcpiCacheTable @ 0x14037E140 (HalpAcpiCacheTable.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 unsigned __int64 __fastcall HalpAcpiCacheOverrideTables(

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerSwitchToNormalClock @ 0x1405089E4
+ * XREFs of HalpTimerSwitchToNormalClock @ 0x140508F34
  * Callers:
- *     HalpTimerClockArm @ 0x140337760 (HalpTimerClockArm.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x14051E850 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerClockArm @ 0x1403379F0 (HalpTimerClockArm.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14051EDA0 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpTimerClockArm @ 0x140337760 (HalpTimerClockArm.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeGetClockTimerResolution @ 0x14056F890 (KeGetClockTimerResolution.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpTimerClockArm @ 0x1403379F0 (HalpTimerClockArm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KeGetClockTimerResolution @ 0x14056FDD0 (KeGetClockTimerResolution.c)
  */
 
 __int64 __fastcall HalpTimerSwitchToNormalClock(char a1)
@@ -37,7 +37,7 @@ __int64 __fastcall HalpTimerSwitchToNormalClock(char a1)
   v15 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -56,10 +56,10 @@ __int64 __fastcall HalpTimerSwitchToNormalClock(char a1)
     if ( !v15 )
       HalpTimerClockArm(0, v16, &v18, v8);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;
@@ -67,7 +67,7 @@ __int64 __fastcall HalpTimerSwitchToNormalClock(char a1)
       v13 = (v12 & v11[5]) == 0;
       v11[5] &= v12;
       if ( v13 )
-        KiRemoveSystemWorkPriorityKick(v10);
+        KiRemoveSystemWorkPriorityKick((__int64)v10);
     }
   }
   result = CurrentIrql;

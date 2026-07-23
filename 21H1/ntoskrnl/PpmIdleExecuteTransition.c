@@ -522,9 +522,9 @@ LABEL_53:
     if ( *(_BYTE *)(v191 + 6) )
     {
       v45 = *(_QWORD *)(v191 + 520);
-      if ( v45 <= (unsigned int)KeMaximumIncrement )
-        v45 = (unsigned int)KeMaximumIncrement;
-      v44 = a7 + (unsigned int)KeMaximumIncrement + v45;
+      if ( v45 <= KeMaximumIncrement )
+        v45 = KeMaximumIncrement;
+      v44 = a7 + KeMaximumIncrement + v45;
     }
     if ( *(_BYTE *)(v191 + 7) )
     {

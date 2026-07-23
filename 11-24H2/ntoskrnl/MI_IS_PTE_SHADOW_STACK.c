@@ -1,8 +1,8 @@
 /*
- * XREFs of MI_IS_PTE_SHADOW_STACK @ 0x140444870
+ * XREFs of MI_IS_PTE_SHADOW_STACK @ 0x14043CB30
  * Callers:
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
- *     MiInitializeShadowPageTable @ 0x1407F6428 (MiInitializeShadowPageTable.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
+ *     MiInitializeShadowPageTable @ 0x1407F6B9C (MiInitializeShadowPageTable.c)
  * Callees:
  *     <none>
  */

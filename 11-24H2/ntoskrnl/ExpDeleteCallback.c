@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpDeleteCallback @ 0x1407BB280
+ * XREFs of ExpDeleteCallback @ 0x1407BB6D0
  * Callers:
  *     <none>
  * Callees:
- *     ExpUnlockCallbackListExclusive @ 0x1404CC00C (ExpUnlockCallbackListExclusive.c)
- *     ExpLockCallbackListExclusive @ 0x1404CD1C0 (ExpLockCallbackListExclusive.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1404C547C (ExpUnlockCallbackListExclusive.c)
+ *     ExpLockCallbackListExclusive @ 0x1404C6590 (ExpLockCallbackListExclusive.c)
  */
 
 _QWORD *__fastcall ExpDeleteCallback(__int64 a1)

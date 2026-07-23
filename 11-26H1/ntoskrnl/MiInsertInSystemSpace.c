@@ -1,47 +1,47 @@
 /*
- * XREFs of MiInsertInSystemSpace @ 0x1404EDA44
+ * XREFs of MiInsertInSystemSpace @ 0x1404E7024
  * Callers:
- *     MiMapViewInSystemSpace @ 0x1409B7280 (MiMapViewInSystemSpace.c)
- *     AlpcpCreateView @ 0x1409C2150 (AlpcpCreateView.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1409C9790 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiMapImageInSystemSpace @ 0x1409CC82C (MiMapImageInSystemSpace.c)
- *     KsepSdbMapToMemory @ 0x1409E6578 (KsepSdbMapToMemory.c)
- *     NtGetNlsSectionPtr @ 0x140A97650 (NtGetNlsSectionPtr.c)
+ *     MiMapViewInSystemSpace @ 0x140988260 (MiMapViewInSystemSpace.c)
+ *     AlpcpCreateView @ 0x140993130 (AlpcpCreateView.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14099A770 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiMapImageInSystemSpace @ 0x14099D80C (MiMapImageInSystemSpace.c)
+ *     KsepSdbMapToMemory @ 0x1409D65BC (KsepSdbMapToMemory.c)
+ *     NtGetNlsSectionPtr @ 0x140A9B7D0 (NtGetNlsSectionPtr.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiManageSubsectionView @ 0x14027DC70 (MiManageSubsectionView.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiMapWithLargePages @ 0x1402A2694 (MiMapWithLargePages.c)
- *     MiGetPageTablesForLargeMap @ 0x1402A30D4 (MiGetPageTablesForLargeMap.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiReferenceDataSubsections @ 0x14033F1DC (MiReferenceDataSubsections.c)
- *     MiAddMappedPtes @ 0x14033FE10 (MiAddMappedPtes.c)
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiReferenceActiveSubsection @ 0x14045AE40 (MiReferenceActiveSubsection.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     MiUnmapLargePages @ 0x14050B984 (MiUnmapLargePages.c)
- *     MiDereferenceDataSubsections @ 0x14070A1D8 (MiDereferenceDataSubsections.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCreatePerSessionProtos @ 0x1409CFA34 (MiCreatePerSessionProtos.c)
- *     MiReferenceFileObjectForMap @ 0x140A66F20 (MiReferenceFileObjectForMap.c)
- *     MiDereferencePerSessionProtos @ 0x140A96D34 (MiDereferencePerSessionProtos.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiManageSubsectionView @ 0x14027D1E0 (MiManageSubsectionView.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiMapWithLargePages @ 0x1402A1BE4 (MiMapWithLargePages.c)
+ *     MiGetPageTablesForLargeMap @ 0x1402A2624 (MiGetPageTablesForLargeMap.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiReferenceDataSubsections @ 0x14034125C (MiReferenceDataSubsections.c)
+ *     MiAddMappedPtes @ 0x140341E90 (MiAddMappedPtes.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiReferenceActiveSubsection @ 0x140454670 (MiReferenceActiveSubsection.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     MiUnmapLargePages @ 0x1405053F4 (MiUnmapLargePages.c)
+ *     MiDereferenceDataSubsections @ 0x14070EE8C (MiDereferenceDataSubsections.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCreatePerSessionProtos @ 0x1409A0A14 (MiCreatePerSessionProtos.c)
+ *     MiReferenceFileObjectForMap @ 0x140A73EF0 (MiReferenceFileObjectForMap.c)
+ *     MiDereferencePerSessionProtos @ 0x140A9AEB4 (MiDereferencePerSessionProtos.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInsertInSystemSpace(unsigned __int64 a1, __int64 a2, __int64 *a3, char a4, ULONG_PTR *a5)
@@ -131,7 +131,7 @@ __int64 __fastcall MiInsertInSystemSpace(unsigned __int64 a1, __int64 a2, __int6
     goto LABEL_2;
   v7 = 16 * v64;
   v63 = (a1 >> 12) + ((a1 & 0xFFF) != 0);
-  v65 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (unsigned __int16)word_140E36FEE);
+  v65 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (unsigned __int16)word_140E3716E);
   v18 = *((_DWORD *)v13 + 14);
   v64 *= 16LL;
   if ( (v18 & 0x20) != 0 )
@@ -145,7 +145,7 @@ __int64 __fastcall MiInsertInSystemSpace(unsigned __int64 a1, __int64 a2, __int6
   if ( (unsigned int)v60 >= 3 )
   {
 LABEL_9:
-    v21 = MiReservePtes((__int64)&unk_140E349E0, v7, v15, v16);
+    v21 = MiReservePtes((__int64)&unk_140E34B60, v7, v15, v16);
     v11 = (unsigned __int64 *)v21;
     if ( !v21 )
       goto LABEL_7;
@@ -193,11 +193,11 @@ LABEL_7:
 LABEL_2:
         active = -1073741801;
 LABEL_25:
-        _InterlockedIncrement(&dword_140E34A10);
+        _InterlockedIncrement(&dword_140E34B90);
         if ( v11 )
         {
           if ( v12 >= 3 )
-            MiReleasePtes((__int64)&unk_140E349E0, v11, v7);
+            MiReleasePtes((__int64)&unk_140E34B60, v11, v7);
           else
             MiUnmapLargePages(v8, v7 << 12, 8LL);
         }
@@ -237,10 +237,10 @@ LABEL_25:
   if ( v12 )
   {
     --CurrentThread->SpecialApcDisable;
-    v34 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E34C08, 0LL, 0LL, v24);
+    v34 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E34D88, 0LL, 0LL, v24);
     v37 = v34;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E34C08, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E34C08, v34, (__int64)&stru_140E34C08);
+    if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E34D88, 0LL) )
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E34D88, v34, (__int64)&stru_140E34D88);
     if ( v37 )
     {
       v35 = 1LL;
@@ -255,11 +255,11 @@ LABEL_25:
       }
     }
     v38 = MiLockVadTree(6u, v35, v36);
-    Flink = stru_140E34C08.Header.WaitListHead.Flink;
-    ++LODWORD(stru_140E34C08.Header.WaitListHead.Blink);
+    Flink = stru_140E34D88.Header.WaitListHead.Flink;
+    ++LODWORD(stru_140E34D88.Header.WaitListHead.Blink);
     v40 = 0;
     v41 = v38;
-    if ( stru_140E34C08.Header.WaitListHead.Flink )
+    if ( stru_140E34D88.Header.WaitListHead.Flink )
     {
       while ( 1 )
       {
@@ -286,23 +286,23 @@ LABEL_25:
       }
     }
     RtlAvlInsertNodeEx(
-      (unsigned __int64 *)&stru_140E34C08.Header.WaitListHead,
+      (unsigned __int64 *)&stru_140E34D88.Header.WaitListHead,
       (unsigned __int64)Flink,
       v40,
       (_QWORD *)v9);
     MiUnlockVadTree(6, v41);
     v68[0] = v13;
     MiManageSubsectionView(v68, (_QWORD *)(v9 + 72), 3, v44);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E34C08, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E34C08.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E34C08);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E34D88, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E34D88.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E34D88);
     v47 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v47 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v47 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v46, v45);
   }
   else
   {
-    v26 = &stru_140E34C08.AffinityVersion + 2 * (unsigned __int8)(v8 >> 30);
+    v26 = &stru_140E34D88.AffinityVersion + 2 * (unsigned __int8)(v8 >> 30);
     v27 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)v26 + 3);
     v28 = 0;
     ++*((_DWORD *)v26 + 2);
@@ -358,10 +358,10 @@ LABEL_25:
       }
       while ( v57 < v56 );
     }
-    active = MiAddMappedPtes((__int64)&unk_140E36F40, (__int64 *)v11, v56, v13, a3, 0);
+    active = MiAddMappedPtes((__int64)&unk_140E370C0, (__int64 *)v11, v56, v13, a3, 0);
     if ( active < 0 )
     {
-      _InterlockedAdd(&dword_140E34A10, 1u);
+      _InterlockedAdd(&dword_140E34B90, 1u);
       MiRemoveFromSystemSpace(v8);
       return (unsigned int)active;
     }

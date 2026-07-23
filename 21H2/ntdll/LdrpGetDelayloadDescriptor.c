@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrpGetDelayloadDescriptor @ 0x1800CEC1C
+ * XREFs of LdrpGetDelayloadDescriptor @ 0x1800CEBDC
  * Callers:
- *     LdrQueryOptionalDelayLoadedAPI @ 0x1800CE9D0 (LdrQueryOptionalDelayLoadedAPI.c)
- *     LdrResolveDelayLoadsFromDll @ 0x1800CEA90 (LdrResolveDelayLoadsFromDll.c)
+ *     LdrQueryOptionalDelayLoadedAPI @ 0x1800CE990 (LdrQueryOptionalDelayLoadedAPI.c)
+ *     LdrResolveDelayLoadsFromDll @ 0x1800CEA50 (LdrResolveDelayLoadsFromDll.c)
  * Callees:
  *     RtlpImageDirectoryEntryToDataEx @ 0x180032920 (RtlpImageDirectoryEntryToDataEx.c)
  *     _stricmp @ 0x18008DCF0 (_stricmp.c)
  */
 
-__int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
+char *__fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
 {
-  int v4; // eax
-  __int64 v5; // rbp
+  NTSTATUS v4; // eax
+  char *v5; // rbp
   __int64 v6; // rdi
   unsigned int v7; // ebx
   unsigned int v8; // esi
   unsigned int v10; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v11; // [rsp+88h] [rbp+20h] BYREF
+  char *v11; // [rsp+88h] [rbp+20h] BYREF
 
   v4 = RtlpImageDirectoryEntryToDataEx(a1, 1, 0xDu, &v10, &v11);
   v5 = v11;
@@ -27,16 +27,16 @@ __int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a
   {
     v7 = 0;
     v8 = v10 >> 5;
-    if ( *(_DWORD *)(v5 + 4) )
+    if ( *((_DWORD *)v5 + 1) )
     {
       while ( v7 < v8 )
       {
-        if ( !stricmp((const char *)(a1 + *(unsigned int *)(v5 + 32LL * v7 + 4)), a2) )
-          return v5 + 32LL * v7;
-        if ( !*(_DWORD *)(32LL * ++v7 + v5 + 4) )
-          return v6;
+        if ( !stricmp((const char *)(a1 + *(unsigned int *)&v5[32 * v7 + 4]), a2) )
+          return &v5[32 * v7];
+        if ( !*(_DWORD *)&v5[32 * ++v7 + 4] )
+          return (char *)v6;
       }
     }
   }
-  return v6;
+  return (char *)v6;
 }

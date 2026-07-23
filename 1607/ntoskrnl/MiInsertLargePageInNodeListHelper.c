@@ -1,24 +1,24 @@
 /*
- * XREFs of MiInsertLargePageInNodeListHelper @ 0x14001B760
+ * XREFs of MiInsertLargePageInNodeListHelper @ 0x14001B2E0
  * Callers:
- *     MiInsertLargePageInFreeOrZeroList @ 0x140064EF0 (MiInsertLargePageInFreeOrZeroList.c)
- *     MiCoalesceFreePages @ 0x140067870 (MiCoalesceFreePages.c)
- *     MiFreeLargePageChain @ 0x1401FB72C (MiFreeLargePageChain.c)
- *     MiInsertLargePageInNodeList @ 0x1401FBB4C (MiInsertLargePageInNodeList.c)
- *     MiScrubNodeLargePageList @ 0x1401FBCA8 (MiScrubNodeLargePageList.c)
- *     MiConstructNewLargeFreePage @ 0x1401FD0F0 (MiConstructNewLargeFreePage.c)
+ *     MiInsertLargePageInFreeOrZeroList @ 0x140064A70 (MiInsertLargePageInFreeOrZeroList.c)
+ *     MiCoalesceFreePages @ 0x1400673F0 (MiCoalesceFreePages.c)
+ *     MiFreeLargePageChain @ 0x1401FB558 (MiFreeLargePageChain.c)
+ *     MiInsertLargePageInNodeList @ 0x1401FB978 (MiInsertLargePageInNodeList.c)
+ *     MiScrubNodeLargePageList @ 0x1401FBAD4 (MiScrubNodeLargePageList.c)
+ *     MiConstructNewLargeFreePage @ 0x1401FCF1C (MiConstructNewLargeFreePage.c)
  *     MxCreateFreePfns @ 0x140796AA8 (MxCreateFreePfns.c)
  * Callees:
- *     MiPageToChannel @ 0x14001BA40 (MiPageToChannel.c)
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiIncreaseAvailablePages @ 0x14001BB80 (MiIncreaseAvailablePages.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1400671B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MiQueueLargeFreeZeroRebuild @ 0x1401FD69C (MiQueueLargeFreeZeroRebuild.c)
+ *     MiPageToChannel @ 0x14001B5C0 (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiIncreaseAvailablePages @ 0x14001B700 (MiIncreaseAvailablePages.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140066D30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MiQueueLargeFreeZeroRebuild @ 0x1401FD4C8 (MiQueueLargeFreeZeroRebuild.c)
  */
 
 void __fastcall MiInsertLargePageInNodeListHelper(unsigned __int64 a1, unsigned __int64 a2, int a3, char a4)
@@ -54,7 +54,7 @@ void __fastcall MiInsertLargePageInNodeListHelper(unsigned __int64 a1, unsigned 
   if ( v8 == 1023 )
     v9 = &MiSystemPartition;
   else
-    v9 = *(int **)(qword_140326FF8 + 8LL * v8);
+    v9 = *(int **)(qword_140327038 + 8LL * v8);
   v10 = (unsigned int)MiFreeZeroPageSizeIndex(v6);
   v11 = MiLargePageSizes[v10];
   v24 = a2 / v11;

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoAllocateController @ 0x140ACEAE0
+ * XREFs of VerifierIoAllocateController @ 0x140ACEAD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoAllocateController()

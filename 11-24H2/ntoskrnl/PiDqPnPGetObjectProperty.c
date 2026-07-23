@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDqPnPGetObjectProperty @ 0x1408D4AF0
+ * XREFs of PiDqPnPGetObjectProperty @ 0x1408D24E0
  * Callers:
- *     PiDqActionDataGetRequestedProperties @ 0x1408D4180 (PiDqActionDataGetRequestedProperties.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D43AC (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqPropertyCallback @ 0x1408D4890 (PiDqPropertyCallback.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140994DB8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetChangedProperties @ 0x140A499C4 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x1408D1B70 (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D1D9C (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqPropertyCallback @ 0x1408D2280 (PiDqPropertyCallback.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14097FDF8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140A406E4 (PiDqActionDataGetChangedProperties.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpGetGenericStoreProperty @ 0x1408C7EF0 (_PnpGetGenericStoreProperty.c)
- *     _PnpGetObjectPropertyWorker @ 0x1408CD660 (_PnpGetObjectPropertyWorker.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpGetGenericStoreProperty @ 0x1408C5920 (_PnpGetGenericStoreProperty.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1408CB050 (_PnpGetObjectPropertyWorker.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqPnPGetObjectProperty(
@@ -27,7 +27,7 @@ __int64 __fastcall PiDqPnPGetObjectProperty(
   __int128 v7; // xmm0
   const WCHAR *v8; // rdi
   void *v10; // r15
-  unsigned int v11; // r12d
+  ULONG_PTR v11; // r12
   int GenericStoreProperty; // esi
   const WCHAR *v13; // rax
   __int64 v14; // rcx
@@ -63,7 +63,7 @@ __int64 __fastcall PiDqPnPGetObjectProperty(
   v30 = 512;
   v10 = 0LL;
   v31[0] = 0;
-  v11 = 0;
+  LODWORD(v11) = 0;
   GenericStoreProperty = 0;
   *(_OWORD *)a7 = v7;
   *(_DWORD *)(a7 + 16) = *(_DWORD *)(a4 + 16);
@@ -93,7 +93,7 @@ __int64 __fastcall PiDqPnPGetObjectProperty(
       v16 = 2 * (v15 + 1);
       if ( is_mul_ok(v15 + 1, 2uLL) )
       {
-        Pool2 = (char *)ExAllocatePool2(0x100uLL);
+        Pool2 = (char *)ExAllocatePool2(0x100uLL, 2 * (v15 + 1), 0x58706E50u);
         *(_QWORD *)(a7 + 24) = Pool2;
         if ( Pool2 )
         {
@@ -155,12 +155,12 @@ LABEL_18:
     goto LABEL_37;
   do
   {
-    if ( v30 > v11 )
+    if ( v30 > (unsigned int)v11 )
     {
       v11 = v30;
       if ( v10 )
         ExFreePoolWithTag(v10, 0x58706E50u);
-      v10 = (void *)ExAllocatePool2(0x100uLL);
+      v10 = (void *)ExAllocatePool2(0x100uLL, v11, 0x58706E50u);
       if ( !v10 )
       {
         GenericStoreProperty = -1073741670;
@@ -189,7 +189,7 @@ LABEL_18:
         if ( v23 == PiPnpRtlObjectActionCallback )
           v24 = PiPnpRtlObjectActionCallback(*(PVOID *)&PiPnpRtlCtx, a1, a2, 8, 1, (__int64)v32);
         else
-          v24 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, a1, a2, 8LL);
+          v24 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, a1);
         if ( v24 == -1073741822 )
         {
           v23 = 0LL;
@@ -216,7 +216,7 @@ LABEL_46:
       LODWORD(v32[0]) = ObjectPropertyWorker;
       v27 = v23 == PiPnpRtlObjectActionCallback
           ? PiPnpRtlObjectActionCallback(v22, a1, a2, 8, 2, (__int64)v32)
-          : guard_dispatch_icall_no_overrides(v22, a1, a2, 8LL);
+          : guard_dispatch_icall_no_overrides(v22, a1);
       switch ( v27 )
       {
         case -1073741822:

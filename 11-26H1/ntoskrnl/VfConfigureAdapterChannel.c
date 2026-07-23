@@ -1,10 +1,10 @@
 /*
- * XREFs of VfConfigureAdapterChannel @ 0x140C24090
+ * XREFs of VfConfigureAdapterChannel @ 0x140C2A0A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViGetRealDmaAdapter @ 0x140C271E4 (ViGetRealDmaAdapter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViGetRealDmaAdapter @ 0x140C2D1F4 (ViGetRealDmaAdapter.c)
  */
 
 __int64 __fastcall VfConfigureAdapterChannel(int a1, unsigned int a2)

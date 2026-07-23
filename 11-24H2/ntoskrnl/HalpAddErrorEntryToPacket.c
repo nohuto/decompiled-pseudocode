@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAddErrorEntryToPacket @ 0x1405545CC
+ * XREFs of HalpAddErrorEntryToPacket @ 0x140551F0C
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x14053F058 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x14053C958 (HalpCreateMcaMemoryErrorRecord.c)
  * Callees:
  *     <none>
  */

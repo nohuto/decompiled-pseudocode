@@ -126,7 +126,7 @@ LABEL_17:
       }
       else
       {
-        v6 = BiBindEfiNamespaceObjects(v2);
+        v6 = BiBindEfiNamespaceObjects((HANDLE)v2);
       }
     }
     else

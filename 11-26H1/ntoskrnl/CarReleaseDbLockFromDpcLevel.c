@@ -1,15 +1,15 @@
 /*
- * XREFs of CarReleaseDbLockFromDpcLevel @ 0x14064C5FC
+ * XREFs of CarReleaseDbLockFromDpcLevel @ 0x1406501DC
  * Callers:
- *     CarAddUniqueViolation @ 0x14064C0BC (CarAddUniqueViolation.c)
- *     CarCleanDbLockContext @ 0x14064C304 (CarCleanDbLockContext.c)
- *     CarDeleteDriverRuleViolations @ 0x14064C3B0 (CarDeleteDriverRuleViolations.c)
- *     CarDeletePluginRuleViolations @ 0x14064C460 (CarDeletePluginRuleViolations.c)
- *     CarDeleteRuleViolationDB @ 0x14064C4F0 (CarDeleteRuleViolationDB.c)
- *     CarWriteEarlyRuleViolationEvents @ 0x14064C650 (CarWriteEarlyRuleViolationEvents.c)
+ *     CarAddUniqueViolation @ 0x14064FC9C (CarAddUniqueViolation.c)
+ *     CarCleanDbLockContext @ 0x14064FEE4 (CarCleanDbLockContext.c)
+ *     CarDeleteDriverRuleViolations @ 0x14064FF90 (CarDeleteDriverRuleViolations.c)
+ *     CarDeletePluginRuleViolations @ 0x140650040 (CarDeletePluginRuleViolations.c)
+ *     CarDeleteRuleViolationDB @ 0x1406500D0 (CarDeleteRuleViolationDB.c)
+ *     CarWriteEarlyRuleViolationEvents @ 0x140650230 (CarWriteEarlyRuleViolationEvents.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall CarReleaseDbLockFromDpcLevel(__int64 a1)

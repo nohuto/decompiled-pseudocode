@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryNodeMaximumProcessorCount @ 0x14014BBD8
+ * XREFs of KeQueryNodeMaximumProcessorCount @ 0x14014C148
  * Callers:
  *     <none>
  * Callees:

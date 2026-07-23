@@ -14,78 +14,73 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-__int64 __fastcall sub_18007B250(unsigned __int16 *a1, unsigned int a2, unsigned __int64 *a3)
+__int64 __fastcall sub_18007B250(_UNICODE_STRING *a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v3; // rsi
   __int64 result; // rax
   int v7; // r15d
-  int VolumeInformationFile; // ebx
-  __int64 Heap; // rax
-  unsigned __int64 v10; // rbx
+  NTSTATUS v8; // ebx
+  _QWORD *Heap; // rax
+  _QWORD *v10; // rbx
   int v11; // edx
   unsigned __int64 v12; // rdx
-  _BYTE v13[4]; // [rsp+40h] [rbp-29h] BYREF
+  char FsInformation[4]; // [rsp+40h] [rbp-29h] BYREF
   int v14; // [rsp+44h] [rbp-25h]
-  unsigned __int16 v15; // [rsp+48h] [rbp-21h] BYREF
-  unsigned __int64 v16; // [rsp+50h] [rbp-19h]
-  _BYTE v17[16]; // [rsp+58h] [rbp-11h] BYREF
-  int v18; // [rsp+68h] [rbp-1h] BYREF
-  __int64 v19; // [rsp+70h] [rbp+7h]
-  unsigned __int16 *v20; // [rsp+78h] [rbp+Fh]
-  int v21; // [rsp+80h] [rbp+17h]
-  __int128 v22; // [rsp+88h] [rbp+1Fh]
-  __int64 v23; // [rsp+E8h] [rbp+7Fh] BYREF
+  _UNICODE_STRING v15; // [rsp+48h] [rbp-21h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-1h] BYREF
+  HANDLE FileHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
   v3 = a2;
-  result = sub_18003E060(0, 0, (__m128i *)a1, 0LL, &v15, 0LL, 0LL, 0LL);
+  result = sub_18003E060(0, 0, a1, 0LL, &v15, 0LL, 0LL, 0LL);
   if ( (int)result < 0 )
     return result;
   v7 = MEMORY[0x7FFE02DC];
-  v18 = 48;
-  v20 = &v15;
-  v19 = 0LL;
-  v21 = 64;
-  v22 = 0LL;
-  VolumeInformationFile = ZwOpenFile(&v23, 1048608LL, &v18, v17, 3, 33);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v16);
-  if ( VolumeInformationFile < 0 )
-    return (unsigned int)VolumeInformationFile;
-  VolumeInformationFile = ZwQueryVolumeInformationFile(v23, v17, v13, 8LL, 4);
-  if ( VolumeInformationFile < 0 )
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &v15;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v8 = ZwOpenFile(&FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15.Buffer);
+  if ( v8 < 0 )
+    return (unsigned int)v8;
+  v8 = ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, FsInformation, 8u, FileFsDeviceInformation);
+  if ( v8 < 0 )
   {
 LABEL_12:
-    ZwClose(v23);
-    return (unsigned int)VolumeInformationFile;
+    ZwClose(FileHandle);
+    return (unsigned int)v8;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3 + 48);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v3 + 48);
   v10 = Heap;
   if ( !Heap )
   {
-    VolumeInformationFile = -1073741801;
+    v8 = -1073741801;
     goto LABEL_12;
   }
   v11 = v14;
-  *(_QWORD *)(Heap + 8) = v23;
-  *(_QWORD *)(Heap + 32) = Heap + 48;
+  Heap[1] = FileHandle;
+  Heap[4] = Heap + 6;
   *(_DWORD *)Heap = 1;
-  *(_WORD *)(Heap + 26) = v3;
-  *(_DWORD *)(Heap + 16) = v7;
-  *(_DWORD *)(Heap + 40) = v11;
-  memmove((void *)(Heap + 48), *((const void **)a1 + 1), *a1);
-  *(_WORD *)(*(_QWORD *)(v10 + 32) + 2 * ((unsigned __int64)*a1 >> 1)) = 0;
-  *(_WORD *)(v10 + 24) = *a1;
-  v12 = (unsigned __int64)*a1 >> 1;
-  if ( *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * v12 - 2) != 92 )
+  *((_WORD *)Heap + 13) = v3;
+  *((_DWORD *)Heap + 4) = v7;
+  *((_DWORD *)Heap + 10) = v11;
+  memmove(Heap + 6, a1->Buffer, a1->Length);
+  *(_WORD *)(v10[4] + 2 * ((unsigned __int64)a1->Length >> 1)) = 0;
+  *((_WORD *)v10 + 12) = a1->Length;
+  v12 = (unsigned __int64)a1->Length >> 1;
+  if ( a1->Buffer[v12 - 1] != 92 )
   {
-    if ( (unsigned __int64)*a1 + 4 > *(unsigned __int16 *)(v10 + 26) )
+    if ( (unsigned __int64)a1->Length + 4 > *((unsigned __int16 *)v10 + 13) )
     {
-      ZwClose(v23);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+      ZwClose(FileHandle);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
       return 3221225734LL;
     }
-    *(_WORD *)(*(_QWORD *)(v10 + 32) + 2 * v12) = 92;
-    *(_WORD *)(*(_QWORD *)(v10 + 32) + 2 * ((unsigned __int64)*a1 >> 1) + 2) = 0;
-    *(_WORD *)(v10 + 24) += 2;
+    *(_WORD *)(v10[4] + 2 * v12) = 92;
+    *(_WORD *)(v10[4] + 2 * ((unsigned __int64)a1->Length >> 1) + 2) = 0;
+    *((_WORD *)v10 + 12) += 2;
   }
   *a3 = v10;
   return 0LL;

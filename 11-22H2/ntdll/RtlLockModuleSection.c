@@ -12,21 +12,21 @@
  *     RtlpLocateModuleSectionInLockedSectionList @ 0x180052200 (RtlpLocateModuleSectionInLockedSectionList.c)
  */
 
-__int64 __fastcall RtlLockModuleSection(__int64 a1)
+NTSTATUS __cdecl RtlLockModuleSection(PVOID Address)
 {
   __int64 ModuleSectionInLockedSectionList; // rax
-  __int64 v3; // rbx
-  __int64 Heap; // rax
+  _OWORD *v3; // rbx
+  _OWORD *Heap; // rax
   int v5; // edi
-  __int64 *v6; // rax
-  __int64 v8; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD *v6; // rax
+  PVOID Context; // [rsp+20h] [rbp-28h] BYREF
   int v9; // [rsp+28h] [rbp-20h]
   __int64 v10; // [rsp+30h] [rbp-18h]
   __int64 v11; // [rsp+38h] [rbp-10h]
 
   RtlAcquireSRWLockExclusive(&RtlpLockedSectionListLock);
-  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(a1);
-  v3 = ModuleSectionInLockedSectionList;
+  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(Address);
+  v3 = (_OWORD *)ModuleSectionInLockedSectionList;
   if ( ModuleSectionInLockedSectionList )
   {
     ++*(_DWORD *)(ModuleSectionInLockedSectionList + 32);
@@ -34,32 +34,29 @@ __int64 __fastcall RtlLockModuleSection(__int64 a1)
   }
   else
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 40LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x28uLL);
     v3 = Heap;
     if ( Heap )
     {
-      *(_OWORD *)Heap = 0LL;
-      *(_OWORD *)(Heap + 16) = 0LL;
-      *(_QWORD *)(Heap + 32) = 0LL;
-      v8 = a1;
+      *Heap = 0LL;
+      Heap[1] = 0LL;
+      *((_QWORD *)Heap + 4) = 0LL;
+      Context = Address;
       v9 = -1073741275;
-      v5 = LdrEnumerateLoadedModules(
-             0,
-             (void (__fastcall *)(__int64 *, __int64, char *))RtlpModuleEnumeratorCallback,
-             (__int64)&v8);
+      v5 = LdrEnumerateLoadedModules(0, RtlpModuleEnumeratorCallback, &Context);
       if ( v5 >= 0 )
       {
         v5 = v9;
         if ( v9 >= 0 )
         {
-          *(_QWORD *)(v3 + 16) = v10;
-          *(_QWORD *)(v3 + 24) = v11;
-          *(_DWORD *)(v3 + 32) = 1;
-          v6 = (__int64 *)off_18017E318;
+          *((_QWORD *)v3 + 2) = v10;
+          *((_QWORD *)v3 + 3) = v11;
+          *((_DWORD *)v3 + 8) = 1;
+          v6 = off_18017E318;
           if ( *off_18017E318 != (_UNKNOWN *)&RtlpLockedSectionList )
             __fastfail(3u);
           *(_QWORD *)v3 = &RtlpLockedSectionList;
-          *(_QWORD *)(v3 + 8) = v6;
+          *((_QWORD *)v3 + 1) = v6;
           *v6 = v3;
           off_18017E318 = (_UNKNOWN **)v3;
         }
@@ -72,6 +69,6 @@ __int64 __fastcall RtlLockModuleSection(__int64 a1)
   }
   RtlReleaseSRWLockExclusive(&RtlpLockedSectionListLock);
   if ( v5 < 0 && v3 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
-  return (unsigned int)v5;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+  return v5;
 }

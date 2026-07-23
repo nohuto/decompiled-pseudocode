@@ -1,19 +1,19 @@
 /*
  * XREFs of VfTargetDriversRemove @ 0x14020A7DC
  * Callers:
- *     VfDriverUnloadImage @ 0x140ABCED4 (VfDriverUnloadImage.c)
+ *     VfDriverUnloadImage @ 0x140ABCEC4 (VfDriverUnloadImage.c)
  * Callees:
  *     VfAvlLookupTreeNode @ 0x140209FDC (VfAvlLookupTreeNode.c)
  *     VfAvlCleanupLockContext @ 0x14020A34C (VfAvlCleanupLockContext.c)
  *     VfAvlDeleteTreeNode @ 0x14020A720 (VfAvlDeleteTreeNode.c)
  *     VfUtilFreePoolCheckIRQL @ 0x14020A910 (VfUtilFreePoolCheckIRQL.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfThunkRemoveTargetNotify @ 0x140ABCE78 (VfThunkRemoveTargetNotify.c)
- *     ViTargetRemovingCheckContiguousMemory @ 0x140ACBC80 (ViTargetRemovingCheckContiguousMemory.c)
- *     ViTargetRemovingCheckEtwWmi @ 0x140ACBCFC (ViTargetRemovingCheckEtwWmi.c)
- *     VfPoolCheckForLeaks @ 0x140ADA0BC (VfPoolCheckForLeaks.c)
+ *     VfThunkRemoveTargetNotify @ 0x140ABCE68 (VfThunkRemoveTargetNotify.c)
+ *     ViTargetRemovingCheckContiguousMemory @ 0x140ACBC70 (ViTargetRemovingCheckContiguousMemory.c)
+ *     ViTargetRemovingCheckEtwWmi @ 0x140ACBCEC (ViTargetRemovingCheckEtwWmi.c)
+ *     VfPoolCheckForLeaks @ 0x140ADA0AC (VfPoolCheckForLeaks.c)
  */
 
 void __fastcall VfTargetDriversRemove(__int64 a1)
@@ -57,7 +57,7 @@ void __fastcall VfTargetDriversRemove(__int64 a1)
       v11[3] = v8;
       v11[2] = v9;
       if ( _mm_srli_si128(v8, 8).m128i_u64[0] )
-        --dword_140C37328;
+        --dword_140C370A8;
       v3 = (void *)VfAvlDeleteTreeNode((__int64)&ViTargetDriversAvl, (__int64)&v10, v2, 1LL);
     }
     VfAvlCleanupLockContext((__int64)&v10);
@@ -66,7 +66,7 @@ void __fastcall VfTargetDriversRemove(__int64 a1)
       VfThunkRemoveTargetNotify(v11);
       if ( *((_QWORD *)&v11[3] + 1) )
         ExFreePoolWithTag(*((PVOID *)&v11[3] + 1), 0x44566656u);
-      if ( dword_140C37320 == 1 )
+      if ( dword_140C370A0 == 1 )
         ExFreeToNPagedLookasideList(&ViAvlNodeLookaside, v3);
       else
         VfUtilFreePoolCheckIRQL(v3);

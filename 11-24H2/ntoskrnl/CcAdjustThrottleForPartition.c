@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAdjustThrottleForPartition @ 0x14057A1CC
+ * XREFs of CcAdjustThrottleForPartition @ 0x14057765C
  * Callers:
- *     CcLazyWriteScan @ 0x14043BAE8 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x1402654C8 (CcLazyWriteScan.c)
  * Callees:
  *     <none>
  */
@@ -103,7 +103,7 @@ LABEL_31:
   if ( v22 > 0xFFFFFFFF )
     LODWORD(v22) = -1;
   *(_DWORD *)(a3 + 24) = v22;
-  v23 = (unsigned __int8)dword_140FC421C;
+  v23 = (unsigned __int8)dword_140FC521C;
   result = (a1[143] + a1[144]) >> 1;
   *(_QWORD *)(a3 + 8) = result;
   v25 = result >> 2;

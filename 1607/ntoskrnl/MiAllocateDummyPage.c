@@ -4,13 +4,13 @@
  *     MiInitializeDummyPages @ 0x140796198 (MiInitializeDummyPages.c)
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 MiAllocateDummyPage()
@@ -23,7 +23,7 @@ __int64 MiAllocateDummyPage()
   MiChargeCommit((__int64)MiSystemPartition, 1uLL, 1);
   Page = MiGetPage((__int64)MiSystemPartition, 0, 8u);
   if ( Page == -1 )
-    KeBugCheckEx(0x7Du, qword_140324DD0, qword_140324DC0, BugCheckParameter3, 0x102uLL);
+    KeBugCheckEx(0x7Du, qword_140324E10, qword_140324E00, BugCheckParameter3, 0x102uLL);
   v1 = 48 * Page - 0x58000000000LL;
   *(_QWORD *)v1 = 0LL;
   MiFinalizePageAttribute(v1, 1u, 0);

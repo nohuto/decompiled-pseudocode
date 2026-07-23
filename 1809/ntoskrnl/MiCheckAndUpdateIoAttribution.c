@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckAndUpdateIoAttribution @ 0x1400DF0F4
+ * XREFs of MiCheckAndUpdateIoAttribution @ 0x1400DF174
  * Callers:
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
- *     MiValidFault @ 0x1400B6DF0 (MiValidFault.c)
+ *     MiValidFault @ 0x1400B6D30 (MiValidFault.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     IoReferenceIoAttributionFromThread @ 0x1400DF1DC (IoReferenceIoAttributionFromThread.c)
- *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     IoReferenceIoAttributionFromThread @ 0x1400DF25C (IoReferenceIoAttributionFromThread.c)
+ *     IoDiskIoAttributionDereference @ 0x1401058D4 (IoDiskIoAttributionDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckAndUpdateIoAttribution(__int64 a1)
@@ -25,8 +25,8 @@ __int64 __fastcall MiCheckAndUpdateIoAttribution(__int64 a1)
 
   CurrentThread = KeGetCurrentThread();
   v2 = *(_QWORD *)(a1 + 16);
-  if ( qword_14043A0C0 && (v2 & 0x10) == 0 )
-    v2 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v2 & 0x10) == 0 )
+    v2 &= ~qword_14043B180;
   v3 = *(_QWORD *)(v2 >> 16);
   result = *(unsigned int *)(v3 + 56);
   if ( (result & 0x20) == 0 )

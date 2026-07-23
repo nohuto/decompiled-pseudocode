@@ -9,21 +9,33 @@
  *     _RtlQueryPackageClaims@32 @ 0x4B2E4E70 (_RtlQueryPackageClaims@32.c)
  */
 
-int __stdcall RtlQueryPackageIdentityEx(int a1, int a2, int a3, int a4, int a5, int a6, _DWORD *a7)
+NTSTATUS __cdecl RtlQueryPackageIdentityEx(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PGUID DynamicId,
+        PULONG64 Flags)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   _DWORD v8[3]; // [esp+8h] [ebp-Ch] BYREF
 
   v8[0] = 0;
   v8[1] = 0;
-  result = RtlQueryPackageClaims(a1, a2, a3, a4, a5, a6, a7 != 0 ? v8 : 0, 0);
+  result = RtlQueryPackageClaims(
+             TokenHandle,
+             PackageFullName,
+             PackageSize,
+             AppId,
+             AppIdSize,
+             DynamicId,
+             Flags != 0 ? (PPS_PKG_CLAIM)v8 : 0,
+             0);
   if ( result >= 0 )
   {
-    if ( a7 )
-    {
-      *a7 = v8[0];
-      a7[1] = 0;
-    }
+    if ( Flags )
+      *Flags = v8[0];
   }
   return result;
 }

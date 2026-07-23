@@ -1,10 +1,10 @@
 /*
- * XREFs of IopSetDriverFlagsExtension @ 0x1402EDF88
+ * XREFs of IopSetDriverFlagsExtension @ 0x14020D958
  * Callers:
- *     IoMakeAssociatedIrpPriv @ 0x1402ED8C8 (IoMakeAssociatedIrpPriv.c)
- *     IoPageReadEx @ 0x14031C130 (IoPageReadEx.c)
+ *     IoMakeAssociatedIrpPriv @ 0x14020D298 (IoMakeAssociatedIrpPriv.c)
+ *     IoPageReadEx @ 0x140326E80 (IoPageReadEx.c)
  * Callees:
- *     IopAllocateIrpExtension @ 0x1402EE1B0 (IopAllocateIrpExtension.c)
+ *     IopAllocateIrpExtension @ 0x14020DB80 (IopAllocateIrpExtension.c)
  */
 
 __int64 __fastcall IopSetDriverFlagsExtension(__int64 a1, __int64 a2)

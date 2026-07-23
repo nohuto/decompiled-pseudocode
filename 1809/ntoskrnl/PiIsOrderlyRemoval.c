@@ -1,7 +1,7 @@
 /*
- * XREFs of PiIsOrderlyRemoval @ 0x1406EF780
+ * XREFs of PiIsOrderlyRemoval @ 0x1406F0A20
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     <none>
  */

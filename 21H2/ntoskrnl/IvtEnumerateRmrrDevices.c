@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtEnumerateRmrrDevices @ 0x1404E7E30
+ * XREFs of IvtEnumerateRmrrDevices @ 0x1404E8070
  * Callers:
  *     <none>
  * Callees:
- *     HalpIvtCreateReservedDevice @ 0x1404E7CE0 (HalpIvtCreateReservedDevice.c)
+ *     HalpIvtCreateReservedDevice @ 0x1404E7F20 (HalpIvtCreateReservedDevice.c)
  */
 
 __int64 __fastcall IvtEnumerateRmrrDevices(_QWORD *ReservedDevice, _DWORD *a2, __int64 a3)

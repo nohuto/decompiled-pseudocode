@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLdwPopupWorker @ 0x1408C7A50
+ * XREFs of MiLdwPopupWorker @ 0x1408C7BB0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     CcMmLogLostDelayedWriteError @ 0x1404EA5C8 (CcMmLogLostDelayedWriteError.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     CcMmLogLostDelayedWriteError @ 0x1404EA808 (CcMmLogLostDelayedWriteError.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiLdwPopupWorker(__int64 a1)

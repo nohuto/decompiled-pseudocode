@@ -1,31 +1,35 @@
 /*
- * XREFs of RtlpHeapTrkDereferenceStack @ 0x180011C20
+ * XREFs of RtlpHeapTrkDereferenceStack @ 0x18005D350
  * Callers:
- *     RtlpHeapTrkInterceptor @ 0x1800117C0 (RtlpHeapTrkInterceptor.c)
- *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FC1E8 (RtlpHeapTrkTrackRemoveHeap.c)
+ *     RtlpHeapTrkInterceptor @ 0x18005CEF0 (RtlpHeapTrkInterceptor.c)
+ *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FB938 (RtlpHeapTrkTrackRemoveHeap.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
  */
 
-__int64 __fastcall RtlpHeapTrkDereferenceStack(__int64 *a1)
+void __fastcall RtlpHeapTrkDereferenceStack(PVOID **BaseAddress)
 {
   __int64 v2; // rdi
-  __int64 v3; // rdx
-  __int64 *v5; // rdx
-  __int64 **v6; // rax
+  PVOID *v4; // rdx
+  PVOID *v5; // rax
 
-  v2 = 8LL * (*((_WORD *)a1 + 9) & 0xF);
-  RtlAcquireSRWLockExclusive(*(_QWORD *)(v2 + qword_1801C77A0));
-  if ( (*((_DWORD *)a1 + 5))-- != 1 )
-    return RtlReleaseSRWLockExclusive(*(_QWORD *)(v2 + qword_1801C77A0), v3);
-  v5 = (__int64 *)*a1;
-  if ( *(__int64 **)(*a1 + 8) != a1 || (v6 = (__int64 **)a1[1], *v6 != a1) )
-    __fastfail(3u);
-  *v6 = v5;
-  v5[1] = (__int64)v6;
-  _InterlockedDecrement(&dword_1801C720C);
-  RtlReleaseSRWLockExclusive(*(_QWORD *)(v2 + qword_1801C77A0), v5);
-  return RtlFreeHeap_0(qword_1801C7798, 0LL, a1);
+  v2 = 8LL * (*((_WORD *)BaseAddress + 9) & 0xF);
+  RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(v2 + qword_1801C67E8));
+  if ( (*((_DWORD *)BaseAddress + 5))-- == 1 )
+  {
+    v4 = *BaseAddress;
+    if ( (*BaseAddress)[1] != BaseAddress || (v5 = BaseAddress[1], *v5 != BaseAddress) )
+      __fastfail(3u);
+    *v5 = v4;
+    v4[1] = v5;
+    _InterlockedDecrement(&dword_1801C620C);
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(v2 + qword_1801C67E8));
+    RtlFreeHeap_0(HeapHandle, 0, BaseAddress);
+  }
+  else
+  {
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(v2 + qword_1801C67E8));
+  }
 }

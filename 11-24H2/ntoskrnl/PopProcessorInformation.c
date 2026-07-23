@@ -1,13 +1,13 @@
 /*
- * XREFs of PopProcessorInformation @ 0x1409FFDC0
+ * XREFs of PopProcessorInformation @ 0x1409F8FB0
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PpmPerfGetCurrentState @ 0x1404438A0 (PpmPerfGetCurrentState.c)
- *     KeQueryGroupAffinity @ 0x140467A20 (KeQueryGroupAffinity.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     PpmPerfGetCurrentState @ 0x140439344 (PpmPerfGetCurrentState.c)
+ *     KeQueryGroupAffinity @ 0x14045F4C0 (KeQueryGroupAffinity.c)
  */
 
 __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, int *a4)
@@ -63,7 +63,7 @@ __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, in
         GroupAffinity &= ~(1LL << v14);
         if ( v11 >= v12 )
           break;
-        Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v6 + (unsigned __int8)v14));
+        Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v6 + (unsigned __int8)v14));
         *(_DWORD *)(a1 + 24LL * v11) = *(unsigned __int8 *)(Prcb + 209);
         PpmPerfGetCurrentState(
           Prcb,

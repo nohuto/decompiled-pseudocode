@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpAllocateDiffHiveEntry @ 0x140843410
+ * XREFs of VrpAllocateDiffHiveEntry @ 0x14083F6D0
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14092A8CC (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14092CA0C (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
  * Callees:
- *     KeInitializeWaitChain @ 0x140432660 (KeInitializeWaitChain.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeInitializeWaitChain @ 0x140424EF0 (KeInitializeWaitChain.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VrpAllocateDiffHiveEntry(unsigned __int16 *a1, const void **a2)
@@ -19,7 +19,7 @@ __int64 __fastcall VrpAllocateDiffHiveEntry(unsigned __int16 *a1, const void **a
   unsigned int v9; // eax
   WCHAR v11; // [rsp+40h] [rbp+8h]
 
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, *a1 + *(unsigned __int16 *)a2 + 68LL, 0x67655256u);
   if ( Pool2 )
   {
     v5 = 314159LL;

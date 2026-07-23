@@ -8,11 +8,8 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-signed __int32 __fastcall RtlpHpLargeLockRelease(int a1, char a2, int a3)
+void __fastcall RtlpHpLargeLockRelease(_RTL_SRWLOCK *a1, char a2, int a3)
 {
-  signed __int32 result; // eax
-
   if ( (a2 & 1) == 0 )
-    return RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
-  return result;
+    RtlReleaseSRWLockExclusive(a1 + 16);
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of ObReferenceObjectExWithTag @ 0x14029E140
+ * XREFs of ObReferenceObjectExWithTag @ 0x14021B6A0
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
- *     MiEmptyPageAccessLog @ 0x14025BC70 (MiEmptyPageAccessLog.c)
- *     ObFastReferenceObject @ 0x14027C6E0 (ObFastReferenceObject.c)
- *     ObFastReplaceObject @ 0x1402F6E80 (ObFastReplaceObject.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
- *     ObInitializeFastReference @ 0x1406D65FC (ObInitializeFastReference.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
- *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
+ *     ObFastReferenceObject @ 0x14026A680 (ObFastReferenceObject.c)
+ *     MiEmptyPageAccessLog @ 0x14027D1E0 (MiEmptyPageAccessLog.c)
+ *     MiCompleteProtoPteFault @ 0x1402B8690 (MiCompleteProtoPteFault.c)
+ *     ObFastReplaceObject @ 0x140301BD0 (ObFastReplaceObject.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     PspInsertThread @ 0x14063DE48 (PspInsertThread.c)
+ *     ObInitializeFastReference @ 0x1406AD8DC (ObInitializeFastReference.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
+ *     MiCreateImageOrDataSection @ 0x14071E2F0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
  */
 
 unsigned __int64 __fastcall ObReferenceObjectExWithTag(ULONG_PTR BugCheckParameter2, int a2)

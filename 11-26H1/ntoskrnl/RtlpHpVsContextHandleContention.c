@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVsContextHandleContention @ 0x140354304
+ * XREFs of RtlpHpVsContextHandleContention @ 0x1403560AC
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x140249DB0 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x14024B710 (RtlpHpVsContextAllocate.c)
  * Callees:
- *     RtlpHpVsContextGetSlotInfo @ 0x140354454 (RtlpHpVsContextGetSlotInfo.c)
- *     RtlpHpAffinityMgrUpdateProcess @ 0x1403544CC (RtlpHpAffinityMgrUpdateProcess.c)
- *     RtlpHpAffinityMgrUpdateComplete @ 0x140354684 (RtlpHpAffinityMgrUpdateComplete.c)
- *     RtlpHpVsSlotCreate @ 0x140504EA8 (RtlpHpVsSlotCreate.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlpHpVsContextGetSlotInfo @ 0x1403561FC (RtlpHpVsContextGetSlotInfo.c)
+ *     RtlpHpAffinityMgrUpdateProcess @ 0x140356274 (RtlpHpAffinityMgrUpdateProcess.c)
+ *     RtlpHpAffinityMgrUpdateComplete @ 0x14035642C (RtlpHpAffinityMgrUpdateComplete.c)
+ *     RtlpHpVsSlotCreate @ 0x1404FE7E8 (RtlpHpVsSlotCreate.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpVsContextHandleContention(volatile signed __int8 *a1, unsigned int a2)

@@ -13,20 +13,20 @@
  *     _wcschr @ 0x4B2FA680 (_wcschr.c)
  */
 
-int __stdcall LdrSetDllDirectory(int a1)
+NTSTATUS __cdecl LdrSetDllDirectory(PUNICODE_STRING DllDirectory)
 {
-  int v1; // edi
-  int v2; // esi
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-10h] BYREF
-  UNICODE_STRING UnicodeString; // [esp+18h] [ebp-8h] BYREF
+  void *v1; // edi
+  void *v2; // esi
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-10h] BYREF
+  _UNICODE_STRING UnicodeString; // [esp+18h] [ebp-8h] BYREF
 
   if ( (LdrpPolicyBits & 4) == 0 )
     return -1073741811;
-  if ( *(_DWORD *)(a1 + 4) )
+  if ( DllDirectory->Buffer )
   {
-    if ( !wcschr(*(const wchar_t **)(a1 + 4), 0x3Bu) )
+    if ( !wcschr(DllDirectory->Buffer, 0x3Bu) )
     {
-      if ( !RtlCreateUnicodeString((int)&DestinationString, *(const unsigned __int16 **)(a1 + 4)) )
+      if ( !RtlCreateUnicodeString(&DestinationString, (PCWSTR)DllDirectory->Buffer) )
         return -1073741801;
       goto LABEL_5;
     }
@@ -35,17 +35,17 @@ int __stdcall LdrSetDllDirectory(int a1)
   RtlInitUnicodeString(&DestinationString, 0);
 LABEL_5:
   RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
-  UnicodeString = (UNICODE_STRING)LdrpDllDirectory;
-  LdrpDllDirectory = (__int64)DestinationString;
+  UnicodeString = LdrpDllDirectory;
+  LdrpDllDirectory = DestinationString;
   RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
   RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
-  v1 = RtlpInvalidatePathCache(&RtlpDllSearchPath);
-  v2 = RtlpInvalidatePathCache(&RtlpDllSearchPathWithOptions);
+  v1 = (void *)RtlpInvalidatePathCache(&RtlpDllSearchPath);
+  v2 = (void *)RtlpInvalidatePathCache(&RtlpDllSearchPathWithOptions);
   RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   RtlFreeAnsiString(&UnicodeString);
   if ( v1 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   if ( v2 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v2);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
   return 1;
 }

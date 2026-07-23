@@ -1,46 +1,46 @@
 /*
- * XREFs of NtSetInformationFile @ 0x1402A6BF0
+ * XREFs of NtSetInformationFile @ 0x1402A6E80
  * Callers:
- *     DifNtSetInformationFileWrapper @ 0x1405E8220 (DifNtSetInformationFileWrapper.c)
+ *     DifNtSetInformationFileWrapper @ 0x1405E8790 (DifNtSetInformationFileWrapper.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     IopReleaseFileObjectLock @ 0x1402314E0 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     IopAllocateFileObjectExtension @ 0x140250D50 (IopAllocateFileObjectExtension.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     IopCallDriverReference @ 0x1402A7940 (IopCallDriverReference.c)
- *     KeSetKernelStackSwapEnable @ 0x1402A8CB0 (KeSetKernelStackSwapEnable.c)
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopWaitForSynchronousIo @ 0x1402F86F4 (IopWaitForSynchronousIo.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IopReplaceCompletionPort @ 0x140557E90 (IopReplaceCompletionPort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140571848 (KiReleaseSpinLockInstrumented.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140765200 (IopWaitAndAcquireFileObjectLock.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsIsProcessAppContainer @ 0x14077F08C (PsIsProcessAppContainer.c)
- *     IopOpenLinkOrRenameTarget @ 0x1407D2FE4 (IopOpenLinkOrRenameTarget.c)
- *     IopTrackLink @ 0x1407E4318 (IopTrackLink.c)
- *     RtlIsSandboxedToken @ 0x1407F3790 (RtlIsSandboxedToken.c)
- *     IopAllocateIrpCleanup @ 0x140944144 (IopAllocateIrpCleanup.c)
- *     IopCancelAlertedRequest @ 0x14094437C (IopCancelAlertedRequest.c)
- *     IopExceptionCleanupEx @ 0x140944978 (IopExceptionCleanupEx.c)
- *     IopSetFileObjectIosbRange @ 0x140945F38 (IopSetFileObjectIosbRange.c)
- *     IopSetFileMemoryPartitionInformation @ 0x140947ACC (IopSetFileMemoryPartitionInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     IopReleaseFileObjectLock @ 0x1402315D0 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     IopAllocateFileObjectExtension @ 0x140250E10 (IopAllocateFileObjectExtension.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     IopCallDriverReference @ 0x1402A7BD0 (IopCallDriverReference.c)
+ *     KeSetKernelStackSwapEnable @ 0x1402A8F40 (KeSetKernelStackSwapEnable.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopWaitForSynchronousIo @ 0x1402F8984 (IopWaitForSynchronousIo.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopReplaceCompletionPort @ 0x140558550 (IopReplaceCompletionPort.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140571D88 (KiReleaseSpinLockInstrumented.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1407653F0 (IopWaitAndAcquireFileObjectLock.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsIsProcessAppContainer @ 0x14077F27C (PsIsProcessAppContainer.c)
+ *     IopOpenLinkOrRenameTarget @ 0x1407D32B4 (IopOpenLinkOrRenameTarget.c)
+ *     IopTrackLink @ 0x1407E45E8 (IopTrackLink.c)
+ *     RtlIsSandboxedToken @ 0x1407F3A60 (RtlIsSandboxedToken.c)
+ *     IopAllocateIrpCleanup @ 0x140944344 (IopAllocateIrpCleanup.c)
+ *     IopCancelAlertedRequest @ 0x14094457C (IopCancelAlertedRequest.c)
+ *     IopExceptionCleanupEx @ 0x140944B78 (IopExceptionCleanupEx.c)
+ *     IopSetFileObjectIosbRange @ 0x140946138 (IopSetFileObjectIosbRange.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x140947CCC (IopSetFileMemoryPartitionInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -402,7 +402,7 @@ LABEL_46:
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v54 = SchedulerAssist[5];
@@ -431,10 +431,10 @@ LABEL_46:
     }
     v18->Event.Header.SignalState = 0;
     _InterlockedAnd(&v18->Event.Header.Lock, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v78 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v78 <= 0xFu && CurrentIrql <= 0xFu && v78 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v78 <= 0xFu && CurrentIrql <= 0xFu && v78 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v80 = CurrentPrcb->SchedulerAssist;
@@ -517,7 +517,7 @@ LABEL_46:
       v36->AssociatedIrp.MasterIrp = (struct _IRP *)Pool2;
       memmove(Pool2, FileInformation, v5);
       if ( ((unsigned int)(v10 - 19) <= 1 || v10 == FilePositionInformation) && Pool2[1] < 0 )
-        RtlRaiseStatus(3221225485LL);
+        RtlRaiseStatus(-1073741811);
       v36->Flags |= 0x830u;
       v42 = v115;
       *(_DWORD *)(v115 + 8) = v5;
@@ -530,7 +530,7 @@ LABEL_46:
       v46 = (struct _KTHREAD *)KeGetCurrentIrql();
       v118 = v46;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v46 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v46 <= 0xFu )
       {
         v51 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)v46 == 2 )
@@ -552,10 +552,10 @@ LABEL_46:
       else
         _InterlockedAnd64((volatile signed __int64 *)&Thread[1].WaitBlock[0].Thread, 0LL);
       v48 = (unsigned __int8)v118;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v82 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v82 <= 0xFu && (unsigned __int8)v118 <= 0xFu && v82 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v82 <= 0xFu && (unsigned __int8)v118 <= 0xFu && v82 >= 2u )
         {
           v83 = KeGetCurrentPrcb();
           v84 = v83->SchedulerAssist;
@@ -696,10 +696,13 @@ LABEL_59:
                     if ( v60[22] )
                     {
                       KxReleaseSpinLock((volatile signed __int64 *)v60 + 23);
-                      if ( KiIrqlFlags )
+                      if ( (_DWORD)KiIrqlFlags )
                       {
                         v97 = KeGetCurrentIrql();
-                        if ( (KiIrqlFlags & 1) != 0 && v97 <= 0xFu && (unsigned __int8)v63 <= 0xFu && v97 >= 2u )
+                        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                          && v97 <= 0xFu
+                          && (unsigned __int8)v63 <= 0xFu
+                          && v97 >= 2u )
                         {
                           v98 = KeGetCurrentPrcb();
                           v99 = v98->SchedulerAssist;
@@ -723,10 +726,13 @@ LABEL_59:
                       v60[22] = (KSPIN_LOCK)v62;
                       v17 = 0;
                       KxReleaseSpinLock((volatile signed __int64 *)v60 + 23);
-                      if ( KiIrqlFlags )
+                      if ( (_DWORD)KiIrqlFlags )
                       {
                         v93 = KeGetCurrentIrql();
-                        if ( (KiIrqlFlags & 1) != 0 && v93 <= 0xFu && (unsigned __int8)v63 <= 0xFu && v93 >= 2u )
+                        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                          && v93 <= 0xFu
+                          && (unsigned __int8)v63 <= 0xFu
+                          && v93 >= 2u )
                         {
                           v94 = KeGetCurrentPrcb();
                           v95 = v94->SchedulerAssist;
@@ -877,10 +883,10 @@ LABEL_60:
                   (unsigned int)&v125,
                   (unsigned int)&v130,
                   (__int64)&v125);
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v104 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v104 <= 0xFu && v30 <= 0xFu && v104 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v104 <= 0xFu && v30 <= 0xFu && v104 >= 2u )
                   {
                     v105 = KeGetCurrentPrcb();
                     v106 = v105->SchedulerAssist;

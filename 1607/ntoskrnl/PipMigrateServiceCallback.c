@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     _PnpCtxRegOpenKey @ 0x1404FCD1C (_PnpCtxRegOpenKey.c)
- *     PiDevCfgMigrateService @ 0x14063AE30 (PiDevCfgMigrateService.c)
- *     _PnpCtxRegCloseKey @ 0x1406D7018 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1404DFCAC (_PnpCtxRegOpenKey.c)
+ *     PiDevCfgMigrateService @ 0x14063AEE4 (PiDevCfgMigrateService.c)
+ *     _PnpCtxRegCloseKey @ 0x1406D7150 (_PnpCtxRegCloseKey.c)
  */
 
 __int64 __fastcall PipMigrateServiceCallback(_QWORD *a1, int a2, __int64 a3)

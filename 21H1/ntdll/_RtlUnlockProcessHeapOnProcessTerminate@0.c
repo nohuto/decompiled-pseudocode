@@ -8,18 +8,20 @@
  *     _RtlpHpHeapUnlock@12 @ 0x4B379185 (_RtlpHpHeapUnlock@12.c)
  */
 
-struct _PEB *__thiscall RtlUnlockProcessHeapOnProcessTerminate(void *this)
+char __thiscall RtlUnlockProcessHeapOnProcessTerminate(void *this)
 {
-  struct _PEB *result; // eax
+  struct _PEB *v1; // eax
   _DWORD *ProcessHeap; // esi
   _DWORD *v3; // ecx
   void *UniqueThread; // eax
 
-  result = NtCurrentPeb();
-  ProcessHeap = result->ProcessHeap;
+  v1 = NtCurrentPeb();
+  ProcessHeap = v1->ProcessHeap;
   if ( ProcessHeap[2] == -571548178 )
-    return (struct _PEB *)RtlpHpHeapUnlock(this);
-  if ( (ProcessHeap[17] & 0x1000000) == 0 )
+  {
+    LOBYTE(v1) = RtlpHpHeapUnlock(this);
+  }
+  else if ( (ProcessHeap[17] & 0x1000000) == 0 )
   {
     v3 = (_DWORD *)ProcessHeap[50];
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
@@ -27,7 +29,7 @@ struct _PEB *__thiscall RtlUnlockProcessHeapOnProcessTerminate(void *this)
     v3[3] = UniqueThread;
     v3[1] = -2;
     v3[2] = 1;
-    return (struct _PEB *)RtlUnlockHeap(ProcessHeap);
+    LOBYTE(v1) = RtlUnlockHeap(ProcessHeap);
   }
-  return result;
+  return (char)v1;
 }

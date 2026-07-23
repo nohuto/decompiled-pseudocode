@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryVolumeInformation @ 0x1409B7DE0
+ * XREFs of IoQueryVolumeInformation @ 0x140988DC0
  * Callers:
- *     MiPageFileVolumeFreeSpace @ 0x1404E7680 (MiPageFileVolumeFreeSpace.c)
+ *     MiPageFileVolumeFreeSpace @ 0x1404E0A3C (MiPageFileVolumeFreeSpace.c)
  * Callees:
- *     IopQueryXxxInformation @ 0x1409B8C10 (IopQueryXxxInformation.c)
+ *     IopQueryXxxInformation @ 0x140989BF0 (IopQueryXxxInformation.c)
  */
 
 NTSTATUS __stdcall IoQueryVolumeInformation(

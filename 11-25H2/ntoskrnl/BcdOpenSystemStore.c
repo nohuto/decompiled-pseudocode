@@ -9,16 +9,16 @@
  *     BiOpenSystemStore @ 0x140A26AF8 (BiOpenSystemStore.c)
  */
 
-__int64 __fastcall BcdOpenSystemStore(__int64 a1)
+NTSTATUS __cdecl BcdOpenSystemStore(PHANDLE BcdStoreHandle)
 {
   int v2; // eax
-  unsigned int v3; // r8d
-  unsigned int v5; // ebx
+  NTSTATUS v3; // r8d
+  NTSTATUS v5; // ebx
 
   v2 = BiAcquireBcdSyncMutant(0LL);
   if ( v2 >= 0 )
   {
-    v5 = BiOpenSystemStore(a1, 0LL, (unsigned int)v2);
+    v5 = BiOpenSystemStore(BcdStoreHandle, 0LL, (unsigned int)v2);
     BiReleaseBcdSyncMutant(0LL);
     return v5;
   }

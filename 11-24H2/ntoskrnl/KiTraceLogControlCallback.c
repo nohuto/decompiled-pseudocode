@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTraceLogControlCallback @ 0x1406F6980
+ * XREFs of KiTraceLogControlCallback @ 0x1406F4980
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KiTraceLogHeteroRundown @ 0x140438E68 (KiTraceLogHeteroRundown.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiTraceLogHeteroRundown @ 0x14042BA28 (KiTraceLogHeteroRundown.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall KiTraceLogControlCallback(__int64 a1, int a2, __int64 a3, __int64 a4, int a5, int a6, _DWORD *a7)
@@ -73,28 +73,28 @@ int __fastcall KiTraceLogControlCallback(__int64 a1, int a2, __int64 a3, __int64
       v14 = KiHgsPlusConfiguration;
       v24 = 4LL;
       v23 = &v14;
-      v15 = dword_140FC43D4;
+      v15 = dword_140FC53E4;
       v25 = &v15;
-      v20 = qword_140FC43D8;
+      v20 = qword_140FC53E8;
       v27 = &v20;
-      v16 = dword_140FC43E0;
+      v16 = dword_140FC53F0;
       v29 = &v16;
-      v21 = qword_140FC43E8;
+      v21 = qword_140FC53F8;
       v31 = &v21;
-      v17 = dword_140FC43F0;
+      v17 = dword_140FC5400;
       v33 = &v17;
-      v18 = dword_140FC43F4;
+      v18 = dword_140FC5404;
       v35 = &v18;
-      v9 = dword_140FC43F8;
+      v9 = dword_140FC5408;
       v37 = &v9;
-      v10 = byte_140FC443C;
+      v10 = byte_140FC544C;
       v39 = &v10;
-      v19 = qword_140FC43FC;
+      v19 = qword_140FC540C;
       v41 = &v19;
       v43 = (char *)&v19 + 4;
-      v12 = dword_140FC4404;
+      v12 = dword_140FC5414;
       v45 = &v12;
-      v13 = dword_140FC4408;
+      v13 = dword_140FC5418;
       v47 = &v13;
       v26 = 4LL;
       v28 = 8LL;
@@ -110,7 +110,7 @@ int __fastcall KiTraceLogControlCallback(__int64 a1, int a2, __int64 a3, __int64
       v48 = 4LL;
       LODWORD(v7) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)a7,
-                      (unsigned __int8 *)byte_1400475F8,
+                      (unsigned __int8 *)byte_140047948,
                       0LL,
                       0LL,
                       0xFu,
@@ -120,13 +120,13 @@ int __fastcall KiTraceLogControlCallback(__int64 a1, int a2, __int64 a3, __int64
         v10 = KiForceParkingConfiguration;
         v51 = 1LL;
         v50 = &v10;
-        v9 = dword_140FC42DC;
+        v9 = dword_140FC52E4;
         v52 = &v9;
-        v11 = dword_140FC42E0;
+        v11 = dword_140FC52E8;
         v54 = &v11;
-        v13 = dword_140FC42E4;
+        v13 = dword_140FC52EC;
         v56 = &v13;
-        v12 = dword_140FC42E8;
+        v12 = dword_140FC52F0;
         v58 = &v12;
         v53 = 1LL;
         v55 = 1LL;
@@ -134,7 +134,7 @@ int __fastcall KiTraceLogControlCallback(__int64 a1, int a2, __int64 a3, __int64
         v59 = 4LL;
         LODWORD(v7) = tlgWriteTransfer_EtwWriteTransfer(
                         (__int64)a7,
-                        (unsigned __int8 *)byte_140047548,
+                        (unsigned __int8 *)&dword_140047AFC,
                         0LL,
                         0LL,
                         7u,

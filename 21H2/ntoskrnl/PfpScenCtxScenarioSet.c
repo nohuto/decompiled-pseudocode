@@ -1,20 +1,20 @@
 /*
- * XREFs of PfpScenCtxScenarioSet @ 0x14099AB98
+ * XREFs of PfpScenCtxScenarioSet @ 0x14099BB98
  * Callers:
- *     PfpProcessScenarioPhase @ 0x14078CF98 (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
+ *     PfpProcessScenarioPhase @ 0x14078D158 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x1409919B4 (PfPowerActionNotify.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     PfpServiceMainThreadBoost @ 0x14038CF48 (PfpServiceMainThreadBoost.c)
- *     PfpScenCtxWaiterTimedOut @ 0x14038DC70 (PfpScenCtxWaiterTimedOut.c)
- *     PfpServiceMainThreadBoostPrep @ 0x140779EF8 (PfpServiceMainThreadBoostPrep.c)
- *     PfpScenCtxPrefetchStateSet @ 0x140998C20 (PfpScenCtxPrefetchStateSet.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     PfpServiceMainThreadBoost @ 0x14038D098 (PfpServiceMainThreadBoost.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x14038DDC0 (PfpScenCtxWaiterTimedOut.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x14077A0B8 (PfpServiceMainThreadBoostPrep.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140999C20 (PfpScenCtxPrefetchStateSet.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpScenCtxScenarioSet(ULONG_PTR BugCheckParameter2, int a2, int a3, __int64 a4)

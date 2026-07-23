@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpAddNodeServiceTag @ 0x18008017C
+ * XREFs of LdrpAddNodeServiceTag @ 0x18008016C
  * Callers:
- *     LdrpPrepareModuleForExecution @ 0x18002DA88 (LdrpPrepareModuleForExecution.c)
- *     LdrpAddNodeServiceTag @ 0x18008017C (LdrpAddNodeServiceTag.c)
+ *     LdrpPrepareModuleForExecution @ 0x18002DA78 (LdrpPrepareModuleForExecution.c)
+ *     LdrpAddNodeServiceTag @ 0x18008016C (LdrpAddNodeServiceTag.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     LdrpAddNodeServiceTag @ 0x18008017C (LdrpAddNodeServiceTag.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     LdrpAddNodeServiceTag @ 0x18008016C (LdrpAddNodeServiceTag.c)
  */
 
 void __fastcall LdrpAddNodeServiceTag(__int64 a1, int a2)
 {
   __int64 *i; // rax
-  __int64 Heap; // rax
+  _DWORD *Heap; // rax
   _QWORD *v6; // rdi
   _QWORD *v7; // rbx
 
@@ -25,7 +25,7 @@ void __fastcall LdrpAddNodeServiceTag(__int64 a1, int a2)
     Heap = RtlAllocateHeap(LdrpHeap, 0, 0x10uLL);
     if ( Heap )
     {
-      *(_DWORD *)(Heap + 8) = a2;
+      Heap[2] = a2;
       *(_QWORD *)Heap = *(_QWORD *)(a1 + 16);
       v6 = *(_QWORD **)(a1 + 40);
       *(_QWORD *)(a1 + 16) = Heap;

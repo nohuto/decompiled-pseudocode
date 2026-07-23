@@ -1,10 +1,10 @@
 /*
- * XREFs of MiComputeZeroClusterMaximum @ 0x1403D9D60
+ * XREFs of MiComputeZeroClusterMaximum @ 0x1403DCF50
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x1402D5420 (MiResolvePrivateZeroFault.c)
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
- *     MiExpandSharedZeroCluster @ 0x1403D9910 (MiExpandSharedZeroCluster.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B71E0 (MiResolvePrivateZeroFault.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
+ *     MiExpandSharedZeroCluster @ 0x1403DCAFC (MiExpandSharedZeroCluster.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
  * Callees:
  *     <none>
  */
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall MiComputeZeroClusterMaximum(__int64 a1, unsigned __i
     if ( v8 > (v9 | ((unsigned __int64)*(unsigned __int8 *)(a4 + 33) << 32)) - (a2 >> 12) + 1 )
       v8 = (v9 | ((unsigned __int64)*(unsigned __int8 *)(a4 + 33) << 32)) - (a2 >> 12) + 1;
   }
-  v10 = *(_QWORD **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a3 + 174));
+  v10 = *(_QWORD **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a3 + 174));
   v11 = 20000LL;
   if ( v10[2300] <= 0x4E20uLL || (v10[2300] & 0xFFFFFFFFFFFFFFFEuLL) <= 0x4E20 )
   {
@@ -63,7 +63,7 @@ unsigned __int64 __fastcall MiComputeZeroClusterMaximum(__int64 a1, unsigned __i
       v18 = (_QWORD *)v16;
       while ( v17 <= 1 )
       {
-        for ( i = 0; i < dword_140E2D78C; ++i )
+        for ( i = 0; i < dword_140E2D90C; ++i )
         {
           v13 += *(unsigned __int16 *)(*v18 + 16LL * i);
           if ( v13 >= v12 )

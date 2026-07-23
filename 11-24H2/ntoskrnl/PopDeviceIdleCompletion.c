@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDeviceIdleCompletion @ 0x1405CFD30
+ * XREFs of PopDeviceIdleCompletion @ 0x1405CD4A0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void PopDeviceIdleCompletion()
@@ -15,7 +15,7 @@ void PopDeviceIdleCompletion()
   KIRQL v2; // bl
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  v1 = dword_140E67438-- == 1;
+  v1 = dword_140E67598-- == 1;
   v2 = v0;
   if ( v1 && PopDeviceIdleSync )
   {

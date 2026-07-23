@@ -1,10 +1,10 @@
 /*
- * XREFs of PiEventRemovalCheckOpenHandles @ 0x14064D36C
+ * XREFs of PiEventRemovalCheckOpenHandles @ 0x14064D450
  * Callers:
- *     PiEventQueryRemoveDevices @ 0x14064CFD0 (PiEventQueryRemoveDevices.c)
+ *     PiEventQueryRemoveDevices @ 0x14064D0B4 (PiEventQueryRemoveDevices.c)
  * Callees:
- *     PnpIsChainDereferenced @ 0x14009E780 (PnpIsChainDereferenced.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
+ *     PnpIsChainDereferenced @ 0x1400858E0 (PnpIsChainDereferenced.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
  */
 
 __int64 __fastcall PiEventRemovalCheckOpenHandles(_QWORD *a1, int a2, _QWORD *a3)

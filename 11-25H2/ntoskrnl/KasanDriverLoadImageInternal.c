@@ -34,7 +34,7 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   unsigned __int64 v14; // rdx
   unsigned __int64 v15; // rcx
   __int64 Pool2; // rax
-  void *v18; // r13
+  _RTL_BALANCED_NODE *v18; // r13
   unsigned __int64 v19; // r12
   __int64 *j; // rbx
   int v21; // edx
@@ -51,8 +51,8 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   ULONG_PTR v32; // r9
   _BYTE *v33; // rdi
   KIRQL v34; // al
-  _BOOL8 v35; // r8
-  unsigned __int64 v36; // rcx
+  __int64 v35; // r8
+  unsigned __int64 Root; // rcx
   KIRQL v37; // di
   int v38; // ebx
   unsigned __int64 v39; // rsi
@@ -117,7 +117,7 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   if ( !is_mul_ok(v13, 0x10uLL) || 16 * v13 + 40 < 16 * v13 )
     return 3221225621LL;
   Pool2 = ExAllocatePool2(0x40uLL);
-  v18 = (void *)Pool2;
+  v18 = (_RTL_BALANCED_NODE *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;
   *(_QWORD *)(Pool2 + 24) = a1;
@@ -129,22 +129,22 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
     if ( v19 >= v13 )
     {
       v34 = KeAcquireSpinLockRaiseToDpc(&KasanDriverUnloadInfosLock);
-      v36 = KasanDriverUnloadInfos;
+      Root = (unsigned __int64)KasanDriverUnloadInfos.Root;
       v37 = v34;
-      if ( (qword_140E65FF8 & 1) != 0 )
+      if ( (*(_BYTE *)&KasanDriverUnloadInfos.0 & 1) != 0 )
       {
-        if ( !KasanDriverUnloadInfos )
+        if ( !KasanDriverUnloadInfos.Root )
         {
           LOBYTE(v35) = 0;
           v39 = 0LL;
           goto LABEL_86;
         }
-        v36 = (unsigned __int64)&KasanDriverUnloadInfos ^ KasanDriverUnloadInfos;
+        Root = (unsigned __int64)&KasanDriverUnloadInfos ^ (unsigned __int64)KasanDriverUnloadInfos.Root;
       }
       LOBYTE(v35) = 0;
-      v38 = qword_140E65FF8 & 1;
-      v39 = v36;
-      if ( !v36 )
+      v38 = *(_BYTE *)&KasanDriverUnloadInfos.0 & 1;
+      v39 = Root;
+      if ( !Root )
         goto LABEL_86;
       while ( 1 )
       {
@@ -162,7 +162,7 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
 LABEL_85:
             LOBYTE(v35) = 0;
 LABEL_86:
-            RtlRbInsertNodeEx(&KasanDriverUnloadInfos, v39, v35, (unsigned __int64)v18);
+            RtlRbInsertNodeEx(&KasanDriverUnloadInfos, (PRTL_BALANCED_NODE)v39, v35, v18);
             if ( byte_140FCDC6B )
               KasaniSendTelemetryDriver(a1);
             KeReleaseSpinLock(&KasanDriverUnloadInfosLock, v37);

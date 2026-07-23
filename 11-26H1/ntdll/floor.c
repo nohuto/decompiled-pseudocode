@@ -1,9 +1,9 @@
 /*
- * XREFs of floor @ 0x18012AC10
+ * XREFs of floor @ 0x18012A980
  * Callers:
  *     <none>
  * Callees:
- *     _handle_error @ 0x1801303D0 (_handle_error.c)
+ *     _handle_error @ 0x180130140 (_handle_error.c)
  */
 
 double __cdecl floor(double X)

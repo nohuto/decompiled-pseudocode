@@ -16,24 +16,24 @@ char LdrpTryAcquireLoaderLock()
   char *v4; // rcx
 
   v0 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v1 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v1 = 2147353476LL;
   v2 = 2147353477LL;
   if ( *(_BYTE *)v1 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v4 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    v4 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( (*v4 & 0x20) != 0 )
       LdrpLogEtwEvent(5248, -1LL, -1, -1, 0LL, 0LL);
   }
-  if ( (unsigned int)RtlTryEnterCriticalSection((__int64)&LdrpLoaderLock) )
+  if ( RtlTryEnterCriticalSection(&LdrpLoaderLock) )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v0 = (__int64)NtCurrentPeb()->SharedData + 554;
     if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v2 = (__int64)NtCurrentPeb()->SharedData + 555;
       if ( (*(_BYTE *)v2 & 0x20) != 0 )
         LdrpLogEtwEvent(5249, -1LL, -1, -1, 0LL, 0LL);
@@ -42,11 +42,11 @@ char LdrpTryAcquireLoaderLock()
   }
   else
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v0 = (__int64)NtCurrentPeb()->SharedData + 554;
     if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v2 = (__int64)NtCurrentPeb()->SharedData + 555;
       if ( (*(_BYTE *)v2 & 0x20) != 0 )
         LdrpLogEtwEvent(5250, -1LL, -1, -1, 0LL, 0LL);

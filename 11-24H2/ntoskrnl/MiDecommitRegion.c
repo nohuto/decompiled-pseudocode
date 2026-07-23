@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDecommitRegion @ 0x1408DC180
+ * XREFs of MiDecommitRegion @ 0x1408DA3B0
  * Callers:
- *     MiLoadSectionIntoVsmEnclave @ 0x1408DA8E0 (MiLoadSectionIntoVsmEnclave.c)
- *     MiLoadDataIntoVsmEnclave @ 0x1408DABA0 (MiLoadDataIntoVsmEnclave.c)
- *     MiFreeToSubAllocatedRegion @ 0x1408DB54C (MiFreeToSubAllocatedRegion.c)
- *     MiFreeVirtualMemory @ 0x1408DBC38 (MiFreeVirtualMemory.c)
+ *     MiFreeToSubAllocatedRegion @ 0x1408D9778 (MiFreeToSubAllocatedRegion.c)
+ *     MiFreeVirtualMemory @ 0x1408D9E68 (MiFreeVirtualMemory.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x140A2A370 (MiLoadSectionIntoVsmEnclave.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x140A2A630 (MiLoadDataIntoVsmEnclave.c)
  * Callees:
- *     MiDecommitPages @ 0x140288300 (MiDecommitPages.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
- *     MiFreeLargePages @ 0x1403CC4F0 (MiFreeLargePages.c)
- *     MiReturnFullProcessCharges @ 0x140430F60 (MiReturnFullProcessCharges.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     MiFillCommitReturnInfo @ 0x140440D10 (MiFillCommitReturnInfo.c)
+ *     MiFreeLargePages @ 0x1402666C0 (MiFreeLargePages.c)
+ *     MiDecommitPages @ 0x140297F00 (MiDecommitPages.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiReturnFullProcessCharges @ 0x1404234A0 (MiReturnFullProcessCharges.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     MiFillCommitReturnInfo @ 0x1404377E0 (MiFillCommitReturnInfo.c)
  */
 
 __int64 __fastcall MiDecommitRegion(__int64 a1, unsigned __int64 a2)
@@ -30,7 +30,7 @@ __int64 __fastcall MiDecommitRegion(__int64 a1, unsigned __int64 a2)
   __int64 v13; // rax
   __int64 v14; // r9
   __int64 ProcessPartition; // rax
-  __int64 v17; // r10
+  unsigned __int64 v17; // r10
   __int128 v18; // [rsp+40h] [rbp-68h] BYREF
   __int128 v19; // [rsp+50h] [rbp-58h] BYREF
   __int128 v20; // [rsp+60h] [rbp-48h]

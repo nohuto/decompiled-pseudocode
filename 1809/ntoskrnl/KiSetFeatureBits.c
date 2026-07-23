@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSetFeatureBits @ 0x1405707EC
+ * XREFs of KiSetFeatureBits @ 0x1405717EC
  * Callers:
- *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140570E10 (KiInitializeBootStructures.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiApplyProcessorErrata @ 0x1401B48E8 (KiApplyProcessorErrata.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     HvlSetHardwareMbecAvailable @ 0x14027118C (HvlSetHardwareMbecAvailable.c)
- *     KiGetProcessorSignature @ 0x14056F62C (KiGetProcessorSignature.c)
- *     KiSetProcessorSignature @ 0x14056F7A8 (KiSetProcessorSignature.c)
- *     KiDetectKvaLeakage @ 0x1405710E4 (KiDetectKvaLeakage.c)
- *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiApplyProcessorErrata @ 0x1401B4A28 (KiApplyProcessorErrata.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     HvlSetHardwareMbecAvailable @ 0x14027137C (HvlSetHardwareMbecAvailable.c)
+ *     KiGetProcessorSignature @ 0x14057062C (KiGetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x1405707A8 (KiSetProcessorSignature.c)
+ *     KiDetectKvaLeakage @ 0x1405720E4 (KiDetectKvaLeakage.c)
+ *     KdInitSystem @ 0x140916140 (KdInitSystem.c)
  */
 
 void __fastcall KiSetFeatureBits(unsigned __int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ViHasBufferBeenTouched @ 0x140AC94D8
+ * XREFs of ViHasBufferBeenTouched @ 0x140AC94C8
  * Callers:
- *     ViCheckPadding @ 0x140AC8394 (ViCheckPadding.c)
+ *     ViCheckPadding @ 0x140AC8384 (ViCheckPadding.c)
  * Callees:
  *     <none>
  */

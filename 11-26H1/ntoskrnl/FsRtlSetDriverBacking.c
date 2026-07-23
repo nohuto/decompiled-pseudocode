@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlSetDriverBacking @ 0x14078FF20
+ * XREFs of FsRtlSetDriverBacking @ 0x140792A50
  * Callers:
- *     IoRegisterFileSystem @ 0x140796630 (IoRegisterFileSystem.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x140796800 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoRegisterFileSystem @ 0x140799160 (IoRegisterFileSystem.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x140799330 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
- *     MmReleaseLoadLockShared @ 0x1404A4BD8 (MmReleaseLoadLockShared.c)
- *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404ABD44 (MiLockLoadedDataTableEntryIfNecessary.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiBackSystemImageWithPagefile @ 0x140864164 (MiBackSystemImageWithPagefile.c)
+ *     MmReleaseLoadLockShared @ 0x14049E268 (MmReleaseLoadLockShared.c)
+ *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404A53D4 (MiLockLoadedDataTableEntryIfNecessary.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiBackSystemImageWithPagefile @ 0x14086A544 (MiBackSystemImageWithPagefile.c)
  */
 
 __int64 __fastcall FsRtlSetDriverBacking(__int64 a1, char a2)

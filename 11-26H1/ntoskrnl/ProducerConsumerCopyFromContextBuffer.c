@@ -1,10 +1,10 @@
 /*
- * XREFs of ProducerConsumerCopyFromContextBuffer @ 0x140BFE4A8
+ * XREFs of ProducerConsumerCopyFromContextBuffer @ 0x140C046B0
  * Callers:
- *     PopDecompressHiberBlocks @ 0x140BFA2A4 (PopDecompressHiberBlocks.c)
- *     PopReadProducerConsumerBuffer @ 0x140BFB27C (PopReadProducerConsumerBuffer.c)
+ *     PopDecompressHiberBlocks @ 0x140C002A4 (PopDecompressHiberBlocks.c)
+ *     PopReadProducerConsumerBuffer @ 0x140C0127C (PopReadProducerConsumerBuffer.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void *__fastcall ProducerConsumerCopyFromContextBuffer(char *a1, size_t Size, __int64 a3, char *a4)

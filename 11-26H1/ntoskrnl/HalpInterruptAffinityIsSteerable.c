@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptAffinityIsSteerable @ 0x1404259F4
+ * XREFs of HalpInterruptAffinityIsSteerable @ 0x140432AF8
  * Callers:
- *     KeIntSteerGetSteeringMode @ 0x1404251C0 (KeIntSteerGetSteeringMode.c)
- *     HalGetMessageRoutingInfo @ 0x1404254A0 (HalGetMessageRoutingInfo.c)
+ *     KeIntSteerGetSteeringMode @ 0x1404322B0 (KeIntSteerGetSteeringMode.c)
+ *     HalGetMessageRoutingInfo @ 0x140432590 (HalGetMessageRoutingInfo.c)
  * Callees:
- *     KeQueryInterruptPartitionInformation @ 0x140425AC0 (KeQueryInterruptPartitionInformation.c)
+ *     KeQueryInterruptPartitionInformation @ 0x140432BD0 (KeQueryInterruptPartitionInformation.c)
  */
 
 __int64 __fastcall HalpInterruptAffinityIsSteerable(__int64 a1, bool *a2)
@@ -24,8 +24,8 @@ __int64 __fastcall HalpInterruptAffinityIsSteerable(__int64 a1, bool *a2)
   if ( !KiIntPartInitialized )
   {
     v7 = 259;
-    if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
-      v2 = *(__int64 *)((char *)&stru_140FC01F0.116 + 8 * v3 + 4);
+    if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
+      v2 = *(__int64 *)((char *)&stru_140FC11F0.116 + 8 * v3 + 4);
     *a2 = v2 == *(_QWORD *)a1;
     return (unsigned int)v7;
   }

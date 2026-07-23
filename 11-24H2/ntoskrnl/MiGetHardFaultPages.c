@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetHardFaultPages @ 0x1402D0AC8
+ * XREFs of MiGetHardFaultPages @ 0x1402F4630
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x1402E604C (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x140347688 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     MiInitializePageChainPacket @ 0x1402D0D10 (MiInitializePageChainPacket.c)
- *     MiGetAvailablePagesBelowPriority @ 0x1402D15D0 (MiGetAvailablePagesBelowPriority.c)
- *     MiUseSlabAllocator @ 0x1402E84B8 (MiUseSlabAllocator.c)
- *     MiProtectionToCacheAttribute @ 0x1402EF870 (MiProtectionToCacheAttribute.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     MiProtectionToCacheAttribute @ 0x140253A30 (MiProtectionToCacheAttribute.c)
+ *     MiInitializePageChainPacket @ 0x1402F4870 (MiInitializePageChainPacket.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1402F51E0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
+ *     MiUseSlabAllocator @ 0x140349AF8 (MiUseSlabAllocator.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall MiGetHardFaultPages(
@@ -82,7 +82,7 @@ char __fastcall MiGetHardFaultPages(
       break;
     memset_0(v24, 0, 0x70uLL);
     v23[0] = 0LL;
-    v18 = MiProtectionToCacheAttribute((unsigned int)a6);
+    v18 = MiProtectionToCacheAttribute(a6);
     MiInitializePageChainPacket(
       (_DWORD)a3,
       *(_QWORD *)(v15 + 56),
@@ -127,7 +127,7 @@ char __fastcall MiGetHardFaultPages(
         *(_QWORD *)(v15 + 128) = v23[0];
         *(_QWORD *)(v15 + 144) = a2 - *(_QWORD *)(a1 + 16);
         *(_QWORD *)(v15 + 136) = a3;
-        LOBYTE(AvailablePagesBelowPriority) = ExAcquireRundownProtection(a3 + 2297);
+        LOBYTE(AvailablePagesBelowPriority) = ExAcquireRundownProtection_0(a3 + 2297);
         return AvailablePagesBelowPriority;
       }
     }

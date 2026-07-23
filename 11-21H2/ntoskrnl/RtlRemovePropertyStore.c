@@ -5,57 +5,57 @@
  * Callees:
  *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     bsearch @ 0x1403E1840 (bsearch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpAcquirePropStoreLockExclusive @ 0x1405E7AF0 (RtlpAcquirePropStoreLockExclusive.c)
+ *     sub_1405E7AF0 @ 0x1405E7AF0 (sub_1405E7AF0.c)
  */
 
-__int64 __fastcall RtlRemovePropertyStore(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlRemovePropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
   unsigned __int64 v4; // rdi
-  _QWORD *v5; // rax
+  unsigned __int64 *v5; // rax
   unsigned int v6; // ebx
-  unsigned int v7; // ebx
+  NTSTATUS v7; // ebx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v10; // r9
   int v11; // edx
   bool v12; // zf
 
-  v4 = (unsigned __int8)RtlpAcquirePropStoreLockExclusive(&RtlpPropStoreLock);
-  if ( RtlpPropStoreEntries
-    && (v5 = bsearch(
-               Key,
-               RtlpPropStoreEntries,
-               (unsigned int)RtlpPropStoreEntriesActiveCount,
-               0x18uLL,
-               RtlpComparePropertyEntry)) != 0LL )
+  v4 = (unsigned __int8)sub_1405E7AF0(&dword_140D04908);
+  if ( qword_140C1BC18
+    && (v5 = (unsigned __int64 *)bsearch(
+                                   (const void *)Key,
+                                   qword_140C1BC18,
+                                   (unsigned int)dword_140C1BC20,
+                                   0x18uLL,
+                                   sub_1405E7BE0)) != 0LL )
   {
-    v6 = RtlpPropStoreEntriesActiveCount;
-    *a2 = v5[2];
-    memmove(v5, v5 + 3, 24 * (v6 - 0xAAAAAAAAAAAAAAABuLL * (((char *)v5 - (_BYTE *)RtlpPropStoreEntries) >> 3)) - 24);
-    LODWORD(RtlpPropStoreEntriesActiveCount) = v6 - 1;
+    v6 = dword_140C1BC20;
+    *Context = v5[2];
+    memmove(v5, v5 + 3, 24 * (v6 - 0xAAAAAAAAAAAAAAABuLL * (((char *)v5 - (_BYTE *)qword_140C1BC18) >> 3)) - 24);
+    LODWORD(dword_140C1BC20) = v6 - 1;
     v7 = 0;
   }
   else
   {
     v7 = -1073741275;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPropStoreLock);
-  if ( KiIrqlFlags )
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140D04908);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = *((_QWORD *)CurrentPrcb + 4375);
         v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v12 = (v11 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v11;
+        v12 = (v11 & *(_DWORD *)(v10 + 20)) == 0;
+        *(_DWORD *)(v10 + 20) &= v11;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          sub_140418E4C((__int64)CurrentPrcb);
       }
     }
   }

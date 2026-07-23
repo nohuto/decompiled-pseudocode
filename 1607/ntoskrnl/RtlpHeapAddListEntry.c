@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHeapAddListEntry @ 0x140093EE8
+ * XREFs of RtlpHeapAddListEntry @ 0x1400936E8
  * Callers:
- *     RtlpInsertFreeBlock @ 0x1400930CC (RtlpInsertFreeBlock.c)
- *     RtlpCreateSplitBlock @ 0x1400932DC (RtlpCreateSplitBlock.c)
- *     RtlpFreeHeap @ 0x1400936CC (RtlpFreeHeap.c)
- *     RtlpPopulateListIndex @ 0x14012E690 (RtlpPopulateListIndex.c)
- *     RtlZeroHeap @ 0x14068889C (RtlZeroHeap.c)
+ *     RtlpInsertFreeBlock @ 0x1400928CC (RtlpInsertFreeBlock.c)
+ *     RtlpCreateSplitBlock @ 0x140092ADC (RtlpCreateSplitBlock.c)
+ *     RtlpFreeHeap @ 0x140092ECC (RtlpFreeHeap.c)
+ *     RtlpPopulateListIndex @ 0x14012EC00 (RtlpPopulateListIndex.c)
+ *     RtlZeroHeap @ 0x140688980 (RtlZeroHeap.c)
  * Callees:
- *     RtlpHeapListCompare @ 0x140094D20 (RtlpHeapListCompare.c)
+ *     RtlpHeapListCompare @ 0x140094520 (RtlpHeapListCompare.c)
  */
 
 __int64 __fastcall RtlpHeapAddListEntry(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)

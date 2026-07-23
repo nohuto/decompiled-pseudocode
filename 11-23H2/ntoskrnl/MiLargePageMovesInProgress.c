@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLargePageMovesInProgress @ 0x14064F314
+ * XREFs of MiLargePageMovesInProgress @ 0x14064F864
  * Callers:
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
  */
 
 _BOOL8 __fastcall MiLargePageMovesInProgress(__int64 a1)

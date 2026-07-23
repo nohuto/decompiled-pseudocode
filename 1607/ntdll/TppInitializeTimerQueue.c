@@ -1,10 +1,10 @@
 /*
- * XREFs of TppInitializeTimerQueue @ 0x1800732E0
+ * XREFs of TppInitializeTimerQueue @ 0x1800732D0
  * Callers:
- *     TpAllocPoolInternal @ 0x180072E74 (TpAllocPoolInternal.c)
+ *     TpAllocPoolInternal @ 0x180072E64 (TpAllocPoolInternal.c)
  * Callees:
- *     TppInitializeTimerSubQueue @ 0x180073350 (TppInitializeTimerSubQueue.c)
- *     TppDestroyTimerSubQueue @ 0x180083CC8 (TppDestroyTimerSubQueue.c)
+ *     TppInitializeTimerSubQueue @ 0x180073340 (TppInitializeTimerSubQueue.c)
+ *     TppDestroyTimerSubQueue @ 0x180083CB8 (TppDestroyTimerSubQueue.c)
  */
 
 __int64 __fastcall TppInitializeTimerQueue(__int64 a1, __int64 a2, __int64 a3)

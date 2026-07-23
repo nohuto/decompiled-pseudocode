@@ -77,7 +77,9 @@ __int64 __fastcall VmpUnpinMemoryRange(
   v15 = v14;
   VmpInvalidateSlatBatched(SpinLock, a2, a3, a4, &v23, 2);
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v17 = v23;
     if ( (unsigned __int8)v23 <= 0xFu && CurrentIrql >= 2u )

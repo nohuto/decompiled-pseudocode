@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbSetRegValueMappedProperty @ 0x14077B9CC
+ * XREFs of DrvDbSetRegValueMappedProperty @ 0x14077E60C
  * Callers:
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x14089E93C (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbSetDriverFileMappedProperty @ 0x14089EF08 (DrvDbSetDriverFileMappedProperty.c)
- *     DrvDbSetDriverInfFileMappedProperty @ 0x14089F03C (DrvDbSetDriverInfFileMappedProperty.c)
- *     DrvDbSetDeviceIdMappedProperty @ 0x140ACF33C (DrvDbSetDeviceIdMappedProperty.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x140B7F3A8 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408A4D3C (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbSetDriverFileMappedProperty @ 0x1408A5308 (DrvDbSetDriverFileMappedProperty.c)
+ *     DrvDbSetDriverInfFileMappedProperty @ 0x1408A543C (DrvDbSetDriverInfFileMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x140ADFA38 (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x140B88288 (DrvDbSetDriverPackageMappedProperty.c)
  * Callees:
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     _PnpCtxRegDeleteValue @ 0x14090B324 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
+ *     _PnpCtxRegDeleteValue @ 0x1409AD448 (_PnpCtxRegDeleteValue.c)
  */
 
 __int64 __fastcall DrvDbSetRegValueMappedProperty(__int64 a1, __int64 a2, __int64 a3, int a4, int *a5, int a6)

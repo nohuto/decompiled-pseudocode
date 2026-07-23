@@ -1,9 +1,9 @@
 /*
- * XREFs of Normalization__TableLookup @ 0x140918DC0
+ * XREFs of Normalization__TableLookup @ 0x140918F20
  * Callers:
- *     NormBuffer__GetLastChar @ 0x14058DB98 (NormBuffer__GetLastChar.c)
- *     NormBuffer__IsBlocked @ 0x14058DCE8 (NormBuffer__IsBlocked.c)
- *     NormBuffer__SortBeforeSameClass @ 0x14058E074 (NormBuffer__SortBeforeSameClass.c)
+ *     NormBuffer__GetLastChar @ 0x14058DDC8 (NormBuffer__GetLastChar.c)
+ *     NormBuffer__IsBlocked @ 0x14058DF18 (NormBuffer__IsBlocked.c)
+ *     NormBuffer__SortBeforeSameClass @ 0x14058E2A4 (NormBuffer__SortBeforeSameClass.c)
  * Callees:
  *     <none>
  */

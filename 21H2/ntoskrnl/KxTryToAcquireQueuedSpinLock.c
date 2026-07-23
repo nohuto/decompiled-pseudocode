@@ -1,15 +1,15 @@
 /*
- * XREFs of KxTryToAcquireQueuedSpinLock @ 0x14029976C
+ * XREFs of KxTryToAcquireQueuedSpinLock @ 0x14021614C
  * Callers:
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiTryToAcquireExpansionLockAtDpc @ 0x140299518 (MiTryToAcquireExpansionLockAtDpc.c)
- *     MiGetPerfectColorHeadPage @ 0x140299548 (MiGetPerfectColorHeadPage.c)
- *     KeTryToAcquireQueuedSpinLock @ 0x1405161C0 (KeTryToAcquireQueuedSpinLock.c)
- *     KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1405162D0 (KeTryToAcquireQueuedSpinLockRaiseToSynch.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x140215EF8 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MiGetPerfectColorHeadPage @ 0x140215F28 (MiGetPerfectColorHeadPage.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     KeTryToAcquireQueuedSpinLock @ 0x140516400 (KeTryToAcquireQueuedSpinLock.c)
+ *     KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x140516510 (KeTryToAcquireQueuedSpinLockRaiseToSynch.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x140516508 (KiTryToAcquireQueuedSpinLockInstrumented.c)
+ *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x140516748 (KiTryToAcquireQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall KxTryToAcquireQueuedSpinLock(signed __int64 a1, _DWORD *a2)

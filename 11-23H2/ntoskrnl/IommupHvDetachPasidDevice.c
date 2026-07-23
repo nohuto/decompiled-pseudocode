@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvDetachPasidDevice @ 0x140524880
+ * XREFs of IommupHvDetachPasidDevice @ 0x140524DD0
  * Callers:
- *     IommupDeviceDisableSvm @ 0x140933C1C (IommupDeviceDisableSvm.c)
- *     IommupDeviceEnableSvm @ 0x140933D34 (IommupDeviceEnableSvm.c)
+ *     IommupDeviceDisableSvm @ 0x140933E1C (IommupDeviceDisableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x140933F34 (IommupDeviceEnableSvm.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvDetachPasidDevice(__int64 a1)

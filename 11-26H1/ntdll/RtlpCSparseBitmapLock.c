@@ -1,26 +1,22 @@
 /*
- * XREFs of RtlpCSparseBitmapLock @ 0x1800E8F60
+ * XREFs of RtlpCSparseBitmapLock @ 0x1800E8170
  * Callers:
- *     RtlLockHeapManagerForCloning @ 0x180144390 (RtlLockHeapManagerForCloning.c)
+ *     RtlLockHeapManagerForCloning @ 0x180144290 (RtlLockHeapManagerForCloning.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
  */
 
-unsigned __int64 __fastcall RtlpCSparseBitmapLock(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall RtlpCSparseBitmapLock(_RTL_SRWLOCK *a1, int a2, __int64 a3)
 {
-  volatile signed __int64 *v5; // rcx
-  int v6; // edi
-  unsigned __int64 result; // rax
+  _RTL_SRWLOCK *v5; // rcx
 
-  v5 = (volatile signed __int64 *)(a1 + 24);
-  v6 = a2;
-  if ( (_DWORD)a2 == 1 )
-    result = RtlAcquireSRWLockExclusive(v5, a2);
+  v5 = a1 + 3;
+  if ( a2 == 1 )
+    RtlAcquireSRWLockExclusive(v5);
   else
-    result = RtlAcquireSRWLockShared(v5);
+    RtlAcquireSRWLockShared(v5);
   *(_QWORD *)(a3 + 8) = a1;
   *(_BYTE *)(a3 + 4) = -1;
-  *(_DWORD *)a3 = v6;
-  return result;
+  *(_DWORD *)a3 = a2;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeSecExtensionHost @ 0x140A47DAC
+ * XREFs of PspInitializeSecExtensionHost @ 0x140A48DAC
  * Callers:
- *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140A4C338 (PspInitPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x14079DA20 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x14079DC20 (ExRegisterHost.c)
  */
 
 __int64 __fastcall PspInitializeSecExtensionHost(__int64 a1, __int64 a2)

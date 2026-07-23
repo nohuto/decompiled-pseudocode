@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpSetDeviceMap @ 0x140A79B78
+ * XREFs of ObpSetDeviceMap @ 0x140A73E78
  * Callers:
- *     ObpCreateDosDevicesDirectory @ 0x14074375C (ObpCreateDosDevicesDirectory.c)
- *     ObSetProcessDeviceMap @ 0x140744600 (ObSetProcessDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x14098519C (SeGetTokenDeviceMap.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14074168C (ObpCreateDosDevicesDirectory.c)
+ *     ObSetProcessDeviceMap @ 0x1407428F0 (ObSetProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x14096D9AC (SeGetTokenDeviceMap.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     ObpDeleteDeviceMap @ 0x140744654 (ObpDeleteDeviceMap.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ObDereferenceDeviceMap @ 0x1409855D4 (ObDereferenceDeviceMap.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     ObpDeleteDeviceMap @ 0x140742944 (ObpDeleteDeviceMap.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ObDereferenceDeviceMap @ 0x14096DDE4 (ObDereferenceDeviceMap.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ObpSetDeviceMap(PVOID Object, __int64 a2, void *a3, KPROCESSOR_MODE a4, char a5, __int64 *a6)
@@ -35,8 +35,8 @@ NTSTATUS __fastcall ObpSetDeviceMap(PVOID Object, __int64 a2, void *a3, KPROCESS
   struct _KTHREAD *CurrentThread; // rcx
   _QWORD *v18; // r12
   volatile signed __int32 *v19; // rsi
-  _QWORD *v20; // rax
-  _QWORD *v21; // rbp
+  char *v20; // rax
+  char *v21; // rbp
   PVOID v22; // rax
   __int64 *v23; // rdx
   __int64 v24; // rcx
@@ -54,7 +54,7 @@ NTSTATUS __fastcall ObpSetDeviceMap(PVOID Object, __int64 a2, void *a3, KPROCESS
       v14 = -1073741811;
       goto LABEL_8;
     }
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x128uLL, 0x6D44624Fu);
     v12 = Pool2;
     if ( !Pool2 )
     {
@@ -79,12 +79,12 @@ LABEL_8:
       v18 = ServerSiloGlobals;
       --CurrentThread->SpecialApcDisable;
       v19 = (volatile signed __int32 *)(ServerSiloGlobals + 120);
-      v20 = KeAbPreAcquire((__int64)(ServerSiloGlobals + 120), 0LL);
+      v20 = (char *)KeAbPreAcquire((__int64)(ServerSiloGlobals + 120), 0LL);
       v21 = v20;
       if ( _interlockedbittestandset64(v19, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v18 + 15, (__int64)v20, (__int64)(v18 + 15));
+        ExfAcquirePushLockExclusiveEx(v18 + 15, v20, (__int64)(v18 + 15));
       if ( v21 )
-        *((_BYTE *)v21 + 10) = 1;
+        v21[10] = 1;
       v22 = Objecta;
       v23 = (__int64 *)((char *)Objecta + 304);
       v24 = *((_QWORD *)Objecta + 38);

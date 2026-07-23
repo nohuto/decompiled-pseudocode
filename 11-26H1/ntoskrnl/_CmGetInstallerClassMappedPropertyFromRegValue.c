@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromRegValue @ 0x140919488
+ * XREFs of _CmGetInstallerClassMappedPropertyFromRegValue @ 0x140973EE8
  * Callers:
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x14089BAD4 (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmGetInstallerClassMappedProperty @ 0x14091855C (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x1408A1ED4 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x140972FBC (_CmGetInstallerClassMappedProperty.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     _PnpOpenPropertiesKey @ 0x140995B20 (_PnpOpenPropertiesKey.c)
- *     _CmOpenCommonClassRegKey @ 0x14099F0C4 (_CmOpenCommonClassRegKey.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x140A8133C (_PnpCtxRegQueryValueIndirect.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpOpenPropertiesKey @ 0x140956580 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenCommonClassRegKey @ 0x14095FB24 (_CmOpenCommonClassRegKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x140A871AC (_PnpCtxRegQueryValueIndirect.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegValue(
@@ -55,7 +55,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegValue(
   int v38; // edx
   int ValueIndirect; // eax
   __int64 v40; // rax
-  int v41; // edx
+  HANDLE v41; // rdx
   const WCHAR *v42; // rdi
   int v43; // eax
   __int64 v44; // rcx
@@ -77,7 +77,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegValue(
   v55 = a2;
   v11 = 0;
   v54 = a3;
-  v12 = &off_140BDB120;
+  v12 = &off_140BE1FD0;
   v13 = *(_DWORD *)(a4 + 16);
   v14 = 0;
   v51 = a1;
@@ -168,7 +168,7 @@ LABEL_14:
                   {
                     if ( i )
                     {
-                      v37 = &word_140B814F0;
+                      v37 = &word_140B8A320;
                     }
                     else
                     {
@@ -213,12 +213,12 @@ LABEL_90:
                   v40 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceClass_DHPRebalanceOptOut.fmtid.Data4;
                 if ( !v40 )
                 {
-                  v41 = (int)Handle;
+                  v41 = Handle;
                   v42 = (const WCHAR *)v17[2];
                   if ( v10 )
-                    v41 = (int)v10;
+                    v41 = v10;
                   v47 = 4;
-                  v43 = PnpOpenPropertiesKey(v51, v41, 0, 1, 0, v45, (__int64)&v53);
+                  v43 = PnpOpenPropertiesKey(v51, (__int64)v41, 0LL, 1LL, 0, v45, &v53);
                   v11 = v43;
                   if ( v43 != -1073741772 )
                   {

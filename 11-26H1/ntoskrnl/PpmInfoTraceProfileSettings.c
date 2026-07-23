@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmInfoTraceProfileSettings @ 0x140ADECB4
+ * XREFs of PpmInfoTraceProfileSettings @ 0x140ADBEA4
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char PpmInfoTraceProfileSettings()
 {
-  __int64 *v0; // rdi
-  __int64 *v1; // r15
+  unsigned int *p_ReservedPreviousReadyTimeValue; // rdi
+  unsigned int *v1; // r15
   char **v2; // rbx
   unsigned int v3; // esi
   unsigned int v4; // r14d
@@ -67,11 +67,11 @@ char PpmInfoTraceProfileSettings()
   int v55; // [rsp+180h] [rbp+78h]
   int v56; // [rsp+184h] [rbp+7Ch]
 
-  v0 = qword_140F0B0E0;
+  p_ReservedPreviousReadyTimeValue = &PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue;
   v26 = 0LL;
   for ( i = 0; ; ++i )
   {
-    v1 = v0 + 5;
+    v1 = p_ReservedPreviousReadyTimeValue + 10;
     v24 = 75LL;
     v2 = &PpmPolicyConfigTable;
     do
@@ -81,20 +81,18 @@ char PpmInfoTraceProfileSettings()
       v26 = *(_OWORD *)v2[1];
       do
       {
-        v5 = v1[2 * v3 + ((unsigned __int64)*((unsigned __int8 *)v2 + 36) >> 6)];
+        v5 = *(_QWORD *)&v1[4 * v3 + 2 * ((unsigned __int64)*((unsigned __int8 *)v2 + 36) >> 6)];
         v6 = &v2[3][v3 * *((_DWORD *)v2 + 8) + (_QWORD)v1];
         if ( _bittest64(&v5, *((_BYTE *)v2 + 36) & 0x3F) )
         {
           v7 = *v2;
           v21 = *((_DWORD *)v2 + 8);
           v17 = v3;
-          v16 = *((_BYTE *)v0 + 8);
+          v16 = *((_BYTE *)p_ReservedPreviousReadyTimeValue + 8);
           v20 = 0;
           if ( PpmEtwRegistered )
           {
-            if ( EtwEventEnabled(
-                   (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                   &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN) )
+            if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN) )
             {
               v20 = 0;
               UserData.Ptr = (ULONGLONG)&v16;
@@ -117,32 +115,25 @@ char PpmInfoTraceProfileSettings()
               v36 = 16LL;
               v38 = 4LL;
               v39 = v6;
-              EtwWrite(
-                (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN,
-                0LL,
-                7u,
-                &UserData);
+              EtwWrite(PpmEtwHandle, &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN, 0LL, 7u, &UserData);
             }
           }
         }
         v9 = *((unsigned __int8 *)v2 + 36);
         v10 = *((_DWORD *)v2 + 8);
-        v25 = &v2[3][v3 * v10 + 752 + (_QWORD)v0];
-        v11 = v0[2 * v3 + 94 + ((unsigned __int64)v9 >> 6)];
+        v25 = &v2[3][v3 * v10 + 752 + (_QWORD)p_ReservedPreviousReadyTimeValue];
+        v11 = *(_QWORD *)&p_ReservedPreviousReadyTimeValue[4 * v3 + 188 + 2 * ((unsigned __int64)v9 >> 6)];
         if ( _bittest64(&v11, v9 & 0x3F) )
         {
           v12 = *v2;
           LODWORD(v23) = v10;
           LOBYTE(v19) = v3;
-          LOBYTE(v11) = *((_BYTE *)v0 + 8);
+          LOBYTE(v11) = *((_BYTE *)p_ReservedPreviousReadyTimeValue + 8);
           v18 = v11;
           v22 = 0;
           if ( PpmEtwRegistered )
           {
-            LOBYTE(v11) = EtwEventEnabled(
-                            (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                            &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN);
+            LOBYTE(v11) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN);
             if ( (_BYTE)v11 )
             {
               v22 = 1;
@@ -166,12 +157,7 @@ char PpmInfoTraceProfileSettings()
               v49 = 1LL;
               v51 = 16LL;
               v53 = 4LL;
-              LOBYTE(v11) = EtwWrite(
-                              (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                              &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN,
-                              0LL,
-                              7u,
-                              &v42);
+              LOBYTE(v11) = EtwWrite(PpmEtwHandle, &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN, 0LL, 7u, &v42);
             }
           }
         }
@@ -185,7 +171,7 @@ char PpmInfoTraceProfileSettings()
     while ( v24 );
     if ( i == PpmProfileCount )
       break;
-    v0 = (__int64 *)(PpmProfiles + 1504LL * i);
+    p_ReservedPreviousReadyTimeValue = (unsigned int *)(PpmProfiles + 1504LL * i);
   }
   return v11;
 }

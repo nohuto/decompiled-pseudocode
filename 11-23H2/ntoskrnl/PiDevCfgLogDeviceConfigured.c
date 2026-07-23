@@ -1,27 +1,27 @@
 /*
- * XREFs of PiDevCfgLogDeviceConfigured @ 0x140879C70
+ * XREFs of PiDevCfgLogDeviceConfigured @ 0x140879EB0
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x140879C70 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgProcessDevice @ 0x14087A1F0 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140879EB0 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgProcessDevice @ 0x14087A430 (PiDevCfgProcessDevice.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlTimeToTimeFields @ 0x14033B6B0 (RtlTimeToTimeFields.c)
- *     PnpDuplicateUnicodeString @ 0x1403CDE80 (PnpDuplicateUnicodeString.c)
- *     PnpGetLogString @ 0x1403CE0A8 (PnpGetLogString.c)
- *     RtlUnicodeStringPrintfEx @ 0x1403CE0C8 (RtlUnicodeStringPrintfEx.c)
- *     McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer @ 0x1403CE294 (McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlUnicodeStringExHandleOtherFlags @ 0x14055F898 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlTimeToTimeFields @ 0x14033B940 (RtlTimeToTimeFields.c)
+ *     PnpDuplicateUnicodeString @ 0x1403CE060 (PnpDuplicateUnicodeString.c)
+ *     PnpGetLogString @ 0x1403CE288 (PnpGetLogString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403CE2A8 (RtlUnicodeStringPrintfEx.c)
+ *     McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer @ 0x1403CE474 (McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x14055FF58 (RtlUnicodeStringExHandleOtherFlags.c)
  *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     PiDevCfgQueryObjectProperties @ 0x14086CC64 (PiDevCfgQueryObjectProperties.c)
- *     PnpTraceDeviceConfig @ 0x140878EE0 (PnpTraceDeviceConfig.c)
- *     PiDevCfgLogDeviceConfigured @ 0x140879C70 (PiDevCfgLogDeviceConfigured.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1407C7260 (ExpAllocateStringRoutine.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086CEA4 (PiDevCfgQueryObjectProperties.c)
+ *     PnpTraceDeviceConfig @ 0x140879120 (PnpTraceDeviceConfig.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140879EB0 (PiDevCfgLogDeviceConfigured.c)
  */
 
 void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, __int64 a6, int *a7)
@@ -133,7 +133,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   size_t *pcchRemaininga; // [rsp+28h] [rbp-E8h]
   ULONG dwFlags[2]; // [rsp+30h] [rbp-E0h]
   BOOL v113; // [rsp+90h] [rbp-80h]
-  TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
   int v115; // [rsp+B0h] [rbp-60h]
   UNICODE_STRING UnicodeString; // [rsp+B8h] [rbp-58h] BYREF
   __int64 v117; // [rsp+C8h] [rbp-48h]
@@ -145,7 +145,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   int v123; // [rsp+120h] [rbp+10h]
   int v124; // [rsp+124h] [rbp+14h]
   __int64 v125; // [rsp+128h] [rbp+18h]
-  UNICODE_STRING v126; // [rsp+130h] [rbp+20h] BYREF
+  UNICODE_STRING GuidString; // [rsp+130h] [rbp+20h] BYREF
   UNICODE_STRING v127; // [rsp+140h] [rbp+30h] BYREF
   wchar_t *v128; // [rsp+150h] [rbp+40h] BYREF
   size_t v129; // [rsp+158h] [rbp+48h] BYREF
@@ -155,7 +155,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   UNICODE_STRING v133; // [rsp+178h] [rbp+68h] BYREF
   UNICODE_STRING v134; // [rsp+188h] [rbp+78h] BYREF
   size_t pcchNewDestLength; // [rsp+198h] [rbp+88h] BYREF
-  __int128 v136; // [rsp+1A0h] [rbp+90h] BYREF
+  GUID Guid; // [rsp+1A0h] [rbp+90h] BYREF
   _QWORD v137[20]; // [rsp+1B0h] [rbp+A0h] BYREF
   size_t pszDest[3]; // [rsp+250h] [rbp+140h] BYREF
   size_t v139[6]; // [rsp+268h] [rbp+158h] BYREF
@@ -178,14 +178,14 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   v131 = 0LL;
   *(_QWORD *)&v120.Length = 0LL;
   v120.Buffer = 0LL;
-  *(_QWORD *)&v126.Length = 0LL;
-  v126.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   v124 = 0;
   *(_QWORD *)&v118.Length = 0LL;
   v118.Buffer = 0LL;
   TimeFields = 0LL;
   v133 = 0LL;
-  v136 = 0LL;
+  Guid = 0LL;
   v119 = 0LL;
   v134 = 0LL;
   if ( (byte_140C0E20A & 0x18) != 0x18 )
@@ -300,7 +300,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
       v45 = v120;
       *StringRoutine = 0;
       v46 = *v13;
-      TimeFields = (TIME_FIELDS)v45;
+      TimeFields = (_TIME_FIELDS)v45;
       if ( v46 != (__int64 *)v13 )
       {
         do
@@ -605,7 +605,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
     memset(v91, 0, v90);
     v118.MaximumLength = v90 - 2;
     v92 = *v27;
-    TimeFields = (TIME_FIELDS)v118;
+    TimeFields = (_TIME_FIELDS)v118;
     if ( v92 == (__int64 *)v27 )
       goto LABEL_32;
     v93 = v115 & 1;
@@ -621,7 +621,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
       LODWORD(v137[1]) = 18;
       v137[2] = &v133;
       v137[5] = DEVPKEY_DriverPackage_ExtensionId;
-      v137[7] = &v136;
+      v137[7] = &Guid;
       LODWORD(v137[16]) = 18;
       v137[10] = DEVPKEY_DriverPackage_DriverFlightIds;
       HIDWORD(v137[3]) = 6;
@@ -638,8 +638,8 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
       {
         if ( SLODWORD(v137[4]) < 0 && !RtlCreateUnicodeString(&v133, (PCWSTR)v92[6]) )
           RtlInitUnicodeString(&v133, 0LL);
-        if ( SLODWORD(v137[9]) < 0 || (int)RtlStringFromGUIDEx((unsigned int *)&v136, (__int64)&v126, 1) < 0 )
-          RtlInitUnicodeString(&v126, 0LL);
+        if ( SLODWORD(v137[9]) < 0 || RtlStringFromGUIDEx(&Guid, &GuidString, 1u) < 0 )
+          RtlInitUnicodeString(&GuidString, 0LL);
         if ( SLODWORD(v137[14]) < 0 )
           RtlInitUnicodeString(&v119, 0LL);
         if ( v119.Buffer && (v97 = v119.Length, v119.Length > 4u) )
@@ -677,7 +677,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
         if ( !v119.Buffer )
           v101 = (UNICODE_STRING *)&PiDevCfgEmptyString;
         if ( v92 == *v27 )
-          v102 = &word_140887DD0;
+          v102 = &word_140888010;
         v103 = RtlUnicodeStringPrintfEx(
                  (PUNICODE_STRING)&TimeFields,
                  (PUNICODE_STRING)&TimeFields,
@@ -685,10 +685,10 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
                  L"%ws%wZ:%wZ:%wZ:%wZ",
                  v102,
                  &v133,
-                 &v126,
+                 &GuidString,
                  v101,
                  v100);
-        RtlFreeUnicodeString(&v126);
+        RtlFreeUnicodeString(&GuidString);
         RtlFreeUnicodeString(&v119);
         RtlFreeUnicodeString(&v133);
         RtlFreeUnicodeString(&v134);

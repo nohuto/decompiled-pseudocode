@@ -1,17 +1,17 @@
 /*
- * XREFs of WheapPredictiveFailureAnalysis @ 0x140A45940
+ * XREFs of WheapPredictiveFailureAnalysis @ 0x140A3B4F0
  * Callers:
- *     WheapProcessWorkQueueItem @ 0x140477F90 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWorkQueueItem @ 0x140474590 (WheapProcessWorkQueueItem.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     WheaAttemptPhysicalPageOffline @ 0x1407C72F0 (WheaAttemptPhysicalPageOffline.c)
- *     WheapPfaMemoryCheck @ 0x1407C9224 (WheapPfaMemoryCheck.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x1407C7790 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapPfaMemoryCheck @ 0x1407C9714 (WheapPfaMemoryCheck.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
@@ -27,13 +27,13 @@ void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
   int v10; // eax
   __int64 v11; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v13; // rax
+  char *v13; // rax
   unsigned __int64 v14; // rcx
   signed __int8 v15; // cf
-  _QWORD *v16; // rsi
+  char *v16; // rsi
 
   v1 = a1 + 40;
-  if ( (unsigned int)PshedDoPfa(a1 + 40) != 1 && !*(_BYTE *)off_140E09538 )
+  if ( (unsigned int)PshedDoPfa(a1 + 40) != 1 && !*(_BYTE *)off_140E095A8 )
   {
     if ( WheapPfaInitialized )
     {
@@ -56,7 +56,7 @@ void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
           v7 = (unsigned int *)(v1 + 128);
           if ( v5 )
             v7 = v4;
-          Pool2 = (void *)ExAllocatePool2(0x100uLL);
+          Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x1828uLL, 0x61656857u);
           if ( Pool2 )
           {
             v9 = *((_QWORD *)v7 + 2) - *(_QWORD *)&MEMORY_ERROR_SECTION_GUID.Data1;
@@ -75,13 +75,13 @@ void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
               {
                 CurrentThread = KeGetCurrentThread();
                 --CurrentThread->KernelApcDisable;
-                v13 = KeAbPreAcquire((__int64)&WheapPfaLock, 0LL);
+                v13 = (char *)KeAbPreAcquire((__int64)&WheapPfaLock, 0LL);
                 v15 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
                 v16 = v13;
                 if ( v15 )
-                  ExfAcquirePushLockExclusiveEx(&WheapPfaLock, (__int64)v13, (__int64)&WheapPfaLock);
+                  ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v13, (__int64)&WheapPfaLock);
                 if ( v16 )
-                  *((_BYTE *)v16 + 10) = 1;
+                  v16[10] = 1;
                 WheapPfaMemoryCheck(v14, v11, (__int64)Pool2);
                 if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapPfaLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
                   ExfTryToWakePushLock((volatile signed __int64 *)&WheapPfaLock);

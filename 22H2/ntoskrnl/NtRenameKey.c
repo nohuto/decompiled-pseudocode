@@ -27,17 +27,17 @@
  *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
  */
 
-__int64 __fastcall NtRenameKey(void *a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtRenameKey(HANDLE KeyHandle, PUNICODE_STRING NewName)
 {
   char v3; // r13
   int PreviousMode; // r12d
   char v5; // r15
   char v6; // r14
   struct _KTHREAD *CurrentThread; // rax
-  signed int v8; // ebx
+  int v8; // ebx
   char v9; // si
   int v10; // eax
-  unsigned __int64 v11; // rcx
+  wchar_t *Buffer; // rcx
   unsigned __int64 v12; // rdx
   unsigned __int16 v13; // bx
   PPRIVILEGE_SET v14; // rsi
@@ -52,14 +52,14 @@ __int64 __fastcall NtRenameKey(void *a1, unsigned __int64 a2)
   struct _KTHREAD *v23; // rax
   int v24; // eax
   __int64 v25; // r8
-  unsigned int v27; // [rsp+44h] [rbp-134h]
+  NTSTATUS v27; // [rsp+44h] [rbp-134h]
   BOOLEAN v28; // [rsp+4Ah] [rbp-12Eh]
   PADAPTER_OBJECT DmaAdapter[2]; // [rsp+50h] [rbp-128h] BYREF
   void *Src[2]; // [rsp+60h] [rbp-118h] BYREF
   int v31; // [rsp+70h] [rbp-108h]
   PPRIVILEGE_SET Privileges; // [rsp+78h] [rbp-100h]
   _QWORD v33[2]; // [rsp+80h] [rbp-F8h] BYREF
-  void *v34; // [rsp+90h] [rbp-E8h]
+  HANDLE v34; // [rsp+90h] [rbp-E8h]
   __int128 v35; // [rsp+A0h] [rbp-D8h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+B0h] [rbp-C8h] BYREF
   _OWORD v37[2]; // [rsp+D0h] [rbp-A8h] BYREF
@@ -67,7 +67,7 @@ __int64 __fastcall NtRenameKey(void *a1, unsigned __int64 a2)
   __int128 v39; // [rsp+100h] [rbp-78h] BYREF
   _BYTE v40[48]; // [rsp+110h] [rbp-68h] BYREF
 
-  v34 = a1;
+  v34 = KeyHandle;
   *(_OWORD *)Src = 0LL;
   memset(v40, 0, sizeof(v40));
   v3 = 0;
@@ -96,25 +96,25 @@ __int64 __fastcall NtRenameKey(void *a1, unsigned __int64 a2)
   if ( (_BYTE)PreviousMode == 1 )
   {
     v35 = 0LL;
-    if ( a2 >= 0x7FFFFFFF0000LL )
-      a2 = 0x7FFFFFFF0000LL;
-    v10 = *(_DWORD *)a2;
+    if ( (unsigned __int64)NewName >= 0x7FFFFFFF0000LL )
+      NewName = (PUNICODE_STRING)0x7FFFFFFF0000LL;
+    v10 = *(_DWORD *)&NewName->Length;
     LODWORD(v35) = v10;
-    v11 = *(_QWORD *)(a2 + 8);
-    *((_QWORD *)&v35 + 1) = v11;
+    Buffer = NewName->Buffer;
+    *((_QWORD *)&v35 + 1) = Buffer;
     *(_OWORD *)Src = v35;
     if ( (_WORD)v10 )
     {
-      if ( (v11 & 1) != 0 )
+      if ( ((unsigned __int8)Buffer & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      v12 = v11 + (unsigned __int16)v10;
-      if ( v12 > 0x7FFFFFFF0000LL || v12 < v11 )
+      v12 = (unsigned __int64)Buffer + (unsigned __int16)v10;
+      if ( v12 > 0x7FFFFFFF0000LL || v12 < (unsigned __int64)Buffer )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
   else
   {
-    *(_OWORD *)Src = *(_OWORD *)a2;
+    *(UNICODE_STRING *)Src = *NewName;
   }
   v13 = (unsigned __int16)Src[0];
   if ( (unsigned __int16)(LOWORD(Src[0]) - 1) > 0x1FFu
@@ -236,5 +236,5 @@ LABEL_43:
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return v27;
   }
-  return (unsigned int)v8;
+  return v8;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSynchronizeSecurityDomain @ 0x14013843C
+ * XREFs of KeSynchronizeSecurityDomain @ 0x14013853C
  * Callers:
- *     PspCombineSecurityDomains @ 0x14061104C (PspCombineSecurityDomains.c)
+ *     PspCombineSecurityDomains @ 0x14061204C (PspCombineSecurityDomains.c)
  * Callees:
- *     KiIpiSendPacket @ 0x1400ED104 (KiIpiSendPacket.c)
- *     KeCountSetBitsAffinityEx @ 0x1400ED940 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     KiSynchronizeSecurityDomainTarget @ 0x14013B4A0 (KiSynchronizeSecurityDomainTarget.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIpiSendPacket @ 0x1400ED184 (KiIpiSendPacket.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400ED9C0 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDAF0 (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     KiSynchronizeSecurityDomainTarget @ 0x14013B5A0 (KiSynchronizeSecurityDomainTarget.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSynchronizeSecurityDomain(_KPROCESS *a1)

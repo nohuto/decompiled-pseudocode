@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAllocateBackpocketIrp @ 0x1405549E0
+ * XREFs of IopAllocateBackpocketIrp @ 0x1405550A0
  * Callers:
- *     IoSynchronousPageWriteEx @ 0x140250F80 (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x1402A6810 (IoPageReadEx.c)
- *     IoAsynchronousPageWrite @ 0x140369A0C (IoAsynchronousPageWrite.c)
+ *     IoSynchronousPageWriteEx @ 0x140251040 (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x1402A6AA0 (IoPageReadEx.c)
+ *     IoAsynchronousPageWrite @ 0x140369BAC (IoAsynchronousPageWrite.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IopIsActivityTracingEnabled @ 0x1402902B0 (IopIsActivityTracingEnabled.c)
- *     IoInitializeIrp @ 0x140334820 (IoInitializeIrp.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     IopInitActivityIdIrp @ 0x140555724 (IopInitActivityIdIrp.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IopIsActivityTracingEnabled @ 0x140290540 (IopIsActivityTracingEnabled.c)
+ *     IoInitializeIrp @ 0x140334AB0 (IoInitializeIrp.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     IopInitActivityIdIrp @ 0x140555DE4 (IopInitActivityIdIrp.c)
  */
 
 __int64 __fastcall IopAllocateBackpocketIrp(__int64 a1, char a2, char a3)

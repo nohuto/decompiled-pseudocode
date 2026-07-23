@@ -1,13 +1,13 @@
 /*
- * XREFs of EmonReleaseProfileResources @ 0x14051E050
+ * XREFs of EmonReleaseProfileResources @ 0x14051E5A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     EmonReleaseProfileResourcesInternal @ 0x14051E130 (EmonReleaseProfileResourcesInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x14051E680 (EmonReleaseProfileResourcesInternal.c)
  */
 
 __int64 __fastcall EmonReleaseProfileResources(_QWORD *a1)
@@ -37,10 +37,13 @@ __int64 __fastcall EmonReleaseProfileResources(_QWORD *a1)
     *(_QWORD *)(v6 + 8) = v4;
     KxReleaseSpinLock((volatile signed __int64 *)&EmonReservedResourcesLock);
     v7 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v7 = (unsigned int)(v5 + 1);
@@ -49,7 +52,7 @@ __int64 __fastcall EmonReleaseProfileResources(_QWORD *a1)
         v12 = (v11 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v11;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v5);

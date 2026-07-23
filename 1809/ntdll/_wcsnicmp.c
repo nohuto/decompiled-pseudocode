@@ -1,13 +1,13 @@
 /*
- * XREFs of _wcsnicmp @ 0x180091A20
+ * XREFs of _wcsnicmp @ 0x180091A30
  * Callers:
  *     IsOverlaySupportedPath @ 0x180032CD8 (IsOverlaySupportedPath.c)
  *     punycode_decode @ 0x1800476F8 (punycode_decode.c)
  *     IsProgramFilesPath @ 0x18005483C (IsProgramFilesPath.c)
  *     RtlpCheckPseudoEnvironmentVariable @ 0x180056F98 (RtlpCheckPseudoEnvironmentVariable.c)
  *     LdrpGetModuleName @ 0x18006A6E8 (LdrpGetModuleName.c)
- *     LdrpGetFileDriverStoreRoot @ 0x18007FA78 (LdrpGetFileDriverStoreRoot.c)
- *     punycode_encode @ 0x180085738 (punycode_encode.c)
+ *     LdrpGetFileDriverStoreRoot @ 0x18007FA88 (LdrpGetFileDriverStoreRoot.c)
+ *     punycode_encode @ 0x180085748 (punycode_encode.c)
  *     RtlpHpOptIntoSegmentHeap @ 0x18010C8E4 (RtlpHpOptIntoSegmentHeap.c)
  * Callees:
  *     <none>

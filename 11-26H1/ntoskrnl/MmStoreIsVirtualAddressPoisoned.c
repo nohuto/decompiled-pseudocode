@@ -1,14 +1,14 @@
 /*
- * XREFs of MmStoreIsVirtualAddressPoisoned @ 0x14070AEB0
+ * XREFs of MmStoreIsVirtualAddressPoisoned @ 0x14070FB60
  * Callers:
- *     MmStoreProbeAndLockPages @ 0x1402F0670 (MmStoreProbeAndLockPages.c)
- *     ?StRegionAccessExceptionFilter@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAJ@Z @ 0x14063E680 (-StRegionAccessExceptionFilter@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA.c)
+ *     MmStoreProbeAndLockPages @ 0x1402D26F0 (MmStoreProbeAndLockPages.c)
+ *     ?StRegionAccessExceptionFilter@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAJ@Z @ 0x140642260 (-StRegionAccessExceptionFilter@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiStoreGetVadForAddress @ 0x140394C1C (MiStoreGetVadForAddress.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiStoreGetVadForAddress @ 0x14039699C (MiStoreGetVadForAddress.c)
  */
 
 __int64 __fastcall MmStoreIsVirtualAddressPoisoned(unsigned __int64 a1, __int64 a2, __int64 a3)
@@ -34,12 +34,12 @@ __int64 __fastcall MmStoreIsVirtualAddressPoisoned(unsigned __int64 a1, __int64 
   if ( (*(_QWORD *)v6 & 1) == 0 )
   {
     v12 = *(_QWORD *)v6;
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
       if ( (v10 & 0x10) != 0 )
         LOWORD(v12) = v10 & 0xFFEF;
       else
-        LOWORD(v12) = v10 & qword_140E2D748;
+        LOWORD(v12) = v10 & qword_140E2D8C8;
     }
     if ( (v12 & 0x400) == 0 && (v12 & 0x800) == 0 && (v12 & 8) == 0 )
       LOBYTE(v11) = ((v10 >> 5) & 0x1F) == 24;

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D43AC
+ * XREFs of PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D1D9C
  * Callers:
- *     PiDqActionDataGetRequestedProperties @ 0x1408D4180 (PiDqActionDataGetRequestedProperties.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x140908E70 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
- *     PiDqActionDataGetChangedProperties @ 0x140A499C4 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x1408D1B70 (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408E0590 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140A406E4 (PiDqActionDataGetChangedProperties.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpGetGenericStoreProperty @ 0x1408C7EF0 (_PnpGetGenericStoreProperty.c)
- *     _PnpGetObjectPropertyWorker @ 0x1408CD660 (_PnpGetObjectPropertyWorker.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiDqPnPGetObjectProperty @ 0x1408D4AF0 (PiDqPnPGetObjectProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpGetGenericStoreProperty @ 0x1408C5920 (_PnpGetGenericStoreProperty.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1408CB050 (_PnpGetObjectPropertyWorker.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiDqPnPGetObjectProperty @ 0x1408D24E0 (PiDqPnPGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PiDqPnPGetObjectPropertyInBestLocale(unsigned __int16 *a1, unsigned int a2, void *a3, __int64 a4, int a5, ...)
@@ -21,7 +21,7 @@ __int64 PiDqPnPGetObjectPropertyInBestLocale(unsigned __int16 *a1, unsigned int 
   __int64 v7; // r14
   __int128 v8; // xmm0
   void *v9; // r15
-  unsigned int v10; // r13d
+  ULONG_PTR v10; // r13
   int v11; // eax
   __int64 v12; // rdx
   const WCHAR *v13; // rax
@@ -78,7 +78,7 @@ __int64 PiDqPnPGetObjectPropertyInBestLocale(unsigned __int16 *a1, unsigned int 
     v8 = *(_OWORD *)v7;
     v9 = 0LL;
     LODWORD(v50) = 512;
-    v10 = 0;
+    LODWORD(v10) = 0;
     v35[0] = 0;
     *(_OWORD *)v5 = v8;
     v11 = *(_DWORD *)(v7 + 16);
@@ -109,7 +109,7 @@ __int64 PiDqPnPGetObjectPropertyInBestLocale(unsigned __int16 *a1, unsigned int 
       GenericStoreProperty = -1073741675;
       goto LABEL_63;
     }
-    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, 2 * (v15 + 1), 0x58706E50u);
     *(_QWORD *)(v5 + 24) = Pool2;
     v18 = Pool2;
     if ( !Pool2 )
@@ -159,12 +159,12 @@ LABEL_19:
       goto LABEL_46;
     do
     {
-      if ( (unsigned int)v50 > v10 )
+      if ( (unsigned int)v50 > (unsigned int)v10 )
       {
         v10 = (unsigned int)v50;
         if ( v9 )
           ExFreePoolWithTag(v9, 0x58706E50u);
-        v9 = (void *)ExAllocatePool2(0x100uLL);
+        v9 = (void *)ExAllocatePool2(0x100uLL, v10, 0x58706E50u);
         if ( !v9 )
         {
           GenericStoreProperty = -1073741670;
@@ -193,7 +193,7 @@ LABEL_19:
           if ( v25 == PiPnpRtlObjectActionCallback )
             v26 = PiPnpRtlObjectActionCallback(*(PVOID *)&PiPnpRtlCtx, a1, a2, 8, 1, (__int64)v36);
           else
-            v26 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, a1, a2, 8LL);
+            v26 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, a1);
           if ( v26 == -1073741822 )
           {
             v25 = 0LL;
@@ -222,7 +222,7 @@ LABEL_31:
         LODWORD(v36[0]) = ObjectPropertyWorker;
         v31 = v25 == PiPnpRtlObjectActionCallback
             ? PiPnpRtlObjectActionCallback(v24, a1, a2, 8, 2, (__int64)v36)
-            : guard_dispatch_icall_no_overrides(v24, a1, a2, 8LL);
+            : guard_dispatch_icall_no_overrides(v24, a1);
         if ( v31 == -1073741822 )
           goto LABEL_31;
         if ( v31 != -1073741536 )

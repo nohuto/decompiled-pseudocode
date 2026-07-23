@@ -1,5 +1,5 @@
 /*
- * XREFs of KiDpcInterruptShadow @ 0x140C59F40
+ * XREFs of KiDpcInterruptShadow @ 0x140C5FF40
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetSystemTimePrecise @ 0x18005BE20
+ * XREFs of RtlGetSystemTimePrecise @ 0x18005BE10
  * Callers:
  *     <none>
  * Callees:
- *     RtlQueryPerformanceCounter @ 0x18005BEE0 (RtlQueryPerformanceCounter.c)
- *     RtlBeginReadTickLock @ 0x18005BFA0 (RtlBeginReadTickLock.c)
+ *     RtlQueryPerformanceCounter @ 0x18005BED0 (RtlQueryPerformanceCounter.c)
+ *     RtlBeginReadTickLock @ 0x18005BF90 (RtlBeginReadTickLock.c)
  */
 
-__int64 RtlGetSystemTimePrecise()
+LARGE_INTEGER RtlGetSystemTimePrecise(void)
 {
   __int64 TickLock; // rax
   unsigned __int64 v1; // rbp
@@ -19,7 +19,7 @@ __int64 RtlGetSystemTimePrecise()
   __int64 v7; // r14
   __int64 v8; // rdi
   __int64 v9; // rdx
-  unsigned __int64 v11; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+8h] BYREF
 
   while ( 1 )
   {
@@ -29,18 +29,18 @@ __int64 RtlGetSystemTimePrecise()
     v3 = TickLock;
     v5 = *v4;
     v7 = *v6;
-    RtlQueryPerformanceCounter(&v11);
+    RtlQueryPerformanceCounter(&PerformanceCounter);
     if ( MEMORY[0x7FFE0340] == v3 )
       break;
     _mm_pause();
   }
   v8 = 0LL;
-  if ( v11 > v1 )
+  if ( PerformanceCounter.QuadPart > v1 )
   {
-    v9 = v11 - v1 - 1;
+    v9 = PerformanceCounter.QuadPart - v1 - 1;
     if ( v5 )
       v9 <<= v5;
     v8 = ((unsigned __int64)v9 * (unsigned __int128)v2) >> 64;
   }
-  return v7 + v8;
+  return (LARGE_INTEGER)(v7 + v8);
 }

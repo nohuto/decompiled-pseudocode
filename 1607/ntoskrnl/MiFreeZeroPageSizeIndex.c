@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreeZeroPageSizeIndex @ 0x14001BB40
+ * XREFs of MiFreeZeroPageSizeIndex @ 0x14001B6C0
  * Callers:
- *     MiSetPfnOwnedAndActive @ 0x14001B640 (MiSetPfnOwnedAndActive.c)
- *     MiInsertLargePageInNodeListHelper @ 0x14001B760 (MiInsertLargePageInNodeListHelper.c)
- *     MiPfnsWorthTrying @ 0x140104C30 (MiPfnsWorthTrying.c)
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiPurgeZeroList @ 0x140120600 (MiPurgeZeroList.c)
- *     MiFindLargeNodePage @ 0x1401E3320 (MiFindLargeNodePage.c)
- *     MiTransferPartitionPageRun @ 0x1401F2058 (MiTransferPartitionPageRun.c)
- *     MiCreatePagingFileMap @ 0x1404B8370 (MiCreatePagingFileMap.c)
- *     MiFreeLargeZeroPages @ 0x140662930 (MiFreeLargeZeroPages.c)
- *     MiGetFastLargePage @ 0x1406629F0 (MiGetFastLargePage.c)
- *     MiCombineAllPhysicalMemory @ 0x140663718 (MiCombineAllPhysicalMemory.c)
+ *     MiSetPfnOwnedAndActive @ 0x14001B1C0 (MiSetPfnOwnedAndActive.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14001B2E0 (MiInsertLargePageInNodeListHelper.c)
+ *     MiPfnsWorthTrying @ 0x1401029B0 (MiPfnsWorthTrying.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiPurgeZeroList @ 0x140120B70 (MiPurgeZeroList.c)
+ *     MiFindLargeNodePage @ 0x1401E314C (MiFindLargeNodePage.c)
+ *     MiTransferPartitionPageRun @ 0x1401F1E84 (MiTransferPartitionPageRun.c)
+ *     MiCreatePagingFileMap @ 0x1404A2750 (MiCreatePagingFileMap.c)
+ *     MiFreeLargeZeroPages @ 0x140662A14 (MiFreeLargeZeroPages.c)
+ *     MiGetFastLargePage @ 0x140662AD4 (MiGetFastLargePage.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406637FC (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     <none>
  */

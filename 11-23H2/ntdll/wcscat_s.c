@@ -2,8 +2,8 @@
  * XREFs of wcscat_s @ 0x18009B080
  * Callers:
  *     RtlConvertSidToUnicodeString @ 0x18001AD70 (RtlConvertSidToUnicodeString.c)
- *     _AppendCumulativeOverlayFilePath @ 0x18012EE60 (_AppendCumulativeOverlayFilePath.c)
- *     _AppendStandardOverlayFilePath @ 0x18012EF30 (_AppendStandardOverlayFilePath.c)
+ *     _AppendCumulativeOverlayFilePath @ 0x18012EE8C (_AppendCumulativeOverlayFilePath.c)
+ *     _AppendStandardOverlayFilePath @ 0x18012EF5C (_AppendStandardOverlayFilePath.c)
  * Callees:
  *     _invalid_parameter @ 0x18008EEB8 (_invalid_parameter.c)
  */

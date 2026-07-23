@@ -15,7 +15,7 @@ unsigned __int64 __fastcall ExpWorkQueueManagerInitialize(__int64 a1, __int64 a2
 {
   __int16 v6; // cx
   unsigned __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   memset((void *)(a1 + 16), 0, 0x108uLL);

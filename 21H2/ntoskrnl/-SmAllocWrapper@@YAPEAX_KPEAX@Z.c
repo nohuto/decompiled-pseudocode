@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x1402D3DD0
+ * XREFs of ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x140252040
  * Callers:
- *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
+ *     SmpKeyedStoreEntryGet @ 0x140287698 (SmpKeyedStoreEntryGet.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall SmAllocWrapper(SIZE_T NumberOfBytes, ULONG *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiIsPdeOrAboveAccessible @ 0x1404892CC
+ * XREFs of MiIsPdeOrAboveAccessible @ 0x140482E0C
  * Callers:
- *     MiResolvePageTablePage @ 0x1402ECA70 (MiResolvePageTablePage.c)
- *     MiGetNextPageTablePte @ 0x140328700 (MiGetNextPageTablePte.c)
- *     MiCopyPageTablePageContents @ 0x14033CFD0 (MiCopyPageTablePageContents.c)
+ *     MiResolvePageTablePage @ 0x1402CEAB0 (MiResolvePageTablePage.c)
+ *     MiGetNextPageTablePte @ 0x14032A730 (MiGetNextPageTablePte.c)
+ *     MiCopyPageTablePageContents @ 0x14033F050 (MiCopyPageTablePageContents.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiIsLazyStampedPte @ 0x1404893A8 (MiIsLazyStampedPte.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiIsLazyStampedPte @ 0x140482EE8 (MiIsLazyStampedPte.c)
  */
 
 __int64 __fastcall MiIsPdeOrAboveAccessible(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3)

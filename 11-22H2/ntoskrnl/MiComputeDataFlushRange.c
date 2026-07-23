@@ -58,10 +58,10 @@ __int64 __fastcall MiComputeDataFlushRange(__int64 a1, unsigned __int8 a2, _QWOR
   if ( !*(_QWORD *)(a1 + 32) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_22;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v8 > 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v8 > 0xFu )
       goto LABEL_22;
     v28 = CurrentIrql < 2u;
     goto LABEL_44;
@@ -83,10 +83,10 @@ LABEL_20:
   {
 LABEL_31:
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_22;
     v33 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || v33 > 0xFu || (unsigned __int8)v8 > 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v33 > 0xFu || (unsigned __int8)v8 > 0xFu )
       goto LABEL_22;
     v28 = v33 < 2u;
 LABEL_44:
@@ -123,10 +123,10 @@ LABEL_7:
     {
 LABEL_52:
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_22;
       v34 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
         goto LABEL_22;
       if ( v34 > 0xFu )
         goto LABEL_22;
@@ -195,10 +195,10 @@ LABEL_24:
   if ( a5 )
     *(_DWORD *)(v9 + 56) |= 4u;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v37 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v37 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v37 >= 2u )
     {
       v38 = KeGetCurrentPrcb();
       v39 = v38->SchedulerAssist;

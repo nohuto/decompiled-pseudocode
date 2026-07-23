@@ -1,13 +1,13 @@
 /*
- * XREFs of PopThermalCsExit @ 0x14056F7F0
+ * XREFs of PopThermalCsExit @ 0x14056FA30
  * Callers:
- *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x1408EE120 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x1408EE280 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
- *     PopThermalStandbyEndTracking @ 0x14038AE70 (PopThermalStandbyEndTracking.c)
- *     PopThermalStandbyNotify @ 0x14056F86C (PopThermalStandbyNotify.c)
+ *     PopQueueWorkItem @ 0x140251CA4 (PopQueueWorkItem.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopThermalStandbyEndTracking @ 0x14038AFC0 (PopThermalStandbyEndTracking.c)
+ *     PopThermalStandbyNotify @ 0x14056FAAC (PopThermalStandbyNotify.c)
  */
 
 char PopThermalCsExit()
@@ -18,18 +18,18 @@ char PopThermalCsExit()
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemThermalInfo);
   PopThermalStandbyEndTracking(1LL, v0, v1);
-  LOBYTE(word_140C22E10) = 1;
-  if ( dword_140C22E14 )
+  LOBYTE(word_140C22E90) = 1;
+  if ( dword_140C22E94 )
   {
     LOBYTE(v2) = 1;
     PopThermalStandbyNotify(v2);
-    word_140C22E10 = 256;
+    word_140C22E90 = 256;
   }
-  else if ( HIBYTE(word_140C22E10) )
+  else if ( HIBYTE(word_140C22E90) )
   {
     PopThermalStandbyNotify(0LL);
-    HIBYTE(word_140C22E10) = 0;
+    HIBYTE(word_140C22E90) = 0;
   }
   PopReleaseRwLock((ULONG_PTR)&PopSystemThermalInfo);
-  return PopQueueWorkItem((__int64)&unk_140C22EC8, DelayedWorkQueue);
+  return PopQueueWorkItem((__int64)&unk_140C22F48, DelayedWorkQueue);
 }

@@ -12,24 +12,24 @@
  */
 
 __int64 __fastcall LdrpFindOrPrepareLoadingModule(
-        unsigned __int16 *a1,
+        PUNICODE_STRING a1,
         int a2,
         int a3,
         int a4,
         __int64 a5,
-        __int64 *a6,
+        char **a6,
         __int64 a7)
 {
-  __int64 *v7; // rbx
-  unsigned __int16 *v11; // rbp
-  __int64 v12; // rdx
+  char **v7; // rbx
+  PUNICODE_STRING v11; // rbp
+  _UNICODE_STRING *v12; // rdx
   int LoadedDllByName; // edi
-  __int64 v15; // rcx
+  char *v15; // rcx
   __int128 v16; // [rsp+40h] [rbp-28h] BYREF
-  int v17; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v17; // [rsp+80h] [rbp+18h] BYREF
 
   v7 = a6;
-  v17 = 0;
+  LODWORD(v17) = 0;
   v11 = a1;
   *a6 = 0LL;
   if ( (a3 & 0x20) != 0 )
@@ -41,20 +41,20 @@ __int64 __fastcall LdrpFindOrPrepareLoadingModule(
     if ( (a3 & 0x200) == 0 )
       goto LABEL_5;
     a1 = 0LL;
-    v12 = (__int64)v11;
+    v12 = v11;
   }
   LoadedDllByName = LdrpFindLoadedDllByName(a1, v12, a3, (__int64)v7, &v17);
   if ( LoadedDllByName != -1073741515 )
   {
     v15 = *v7;
-    if ( v17 < 0 )
+    if ( (int)v17 < 0 )
     {
       v16 = *(_OWORD *)(v15 + 72);
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrmap.c",
-        3132LL,
+        3132,
         (__int64)"LdrpFindOrPrepareLoadingModule",
-        0LL,
+        0,
         "Found circular dependent DLL: \"%wZ\" that failed to load previously, ModuleState: %d\n",
         &v16,
         v17);
@@ -64,13 +64,13 @@ __int64 __fastcall LdrpFindOrPrepareLoadingModule(
     }
     else
     {
-      LdrpIncrementModuleLoadCount(v15);
+      LdrpIncrementModuleLoadCount((__int64)v15);
     }
     return (unsigned int)LoadedDllByName;
   }
 LABEL_5:
   LoadedDllByName = LdrpAllocatePlaceHolder((_DWORD)v11, a2, a3, a4, a5, (__int64)v7, a7);
   if ( LoadedDllByName >= 0 )
-    return (unsigned int)LdrpLoadKnownDll(*(_BYTE **)(*v7 + 176));
+    return (unsigned int)LdrpLoadKnownDll(*((UNICODE_STRING **)*v7 + 22));
   return (unsigned int)LoadedDllByName;
 }

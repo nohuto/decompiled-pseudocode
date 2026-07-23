@@ -1,20 +1,20 @@
 /*
- * XREFs of PiCMGetDeviceIdList @ 0x1406BB674
+ * XREFs of PiCMGetDeviceIdList @ 0x1406BC914
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
- *     McTemplateK0d @ 0x14028AC80 (McTemplateK0d.c)
- *     McTemplateK0zzt @ 0x14028AE4C (McTemplateK0zzt.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiCMReturnBufferResultData @ 0x140599DD4 (PiCMReturnBufferResultData.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1406BB8AC (_CmGetMatchingFilteredDeviceList.c)
- *     PiCMConvertDeviceListFilters @ 0x1406BB9B0 (PiCMConvertDeviceListFilters.c)
- *     PiCMCaptureDeviceListInputData @ 0x1406BBA58 (PiCMCaptureDeviceListInputData.c)
- *     _CmGetDeviceRelationsList @ 0x1408FA81C (_CmGetDeviceRelationsList.c)
+ *     McTemplateK0d @ 0x14028AE70 (McTemplateK0d.c)
+ *     McTemplateK0zzt @ 0x14028B03C (McTemplateK0zzt.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiCMReturnBufferResultData @ 0x14059ADD4 (PiCMReturnBufferResultData.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x1406BCB4C (_CmGetMatchingFilteredDeviceList.c)
+ *     PiCMConvertDeviceListFilters @ 0x1406BCC50 (PiCMConvertDeviceListFilters.c)
+ *     PiCMCaptureDeviceListInputData @ 0x1406BCCF8 (PiCMCaptureDeviceListInputData.c)
+ *     _CmGetDeviceRelationsList @ 0x1408FBADC (_CmGetDeviceRelationsList.c)
  */
 
 __int64 __fastcall PiCMGetDeviceIdList(
@@ -57,7 +57,7 @@ __int64 __fastcall PiCMGetDeviceIdList(
   if ( v12 < 0 )
     goto LABEL_22;
   v14 = v27;
-  if ( (byte_140405847 & 2) != 0 )
+  if ( (byte_140406847 & 2) != 0 )
   {
     if ( (_WORD)v27 )
     {
@@ -187,7 +187,7 @@ LABEL_20:
 LABEL_22:
   if ( v28 )
     PiControlFreeUserModeCallersBuffer(KeGetCurrentThread()->PreviousMode, v28);
-  if ( (byte_140405847 & 2) != 0 )
+  if ( (byte_140406847 & 2) != 0 )
     McTemplateK0d(v11, &KMPnPEvt_CfgMgr_DeviceList_Stop, v13, v12);
   return (unsigned int)v12;
 }

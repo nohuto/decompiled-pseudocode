@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxNotifyPreDIrpIssue @ 0x1403765BC
+ * XREFs of PopFxNotifyPreDIrpIssue @ 0x1403A7CC8
  * Callers:
- *     PopRequestPowerIrp @ 0x140377360 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x1403A7FD0 (PopRequestPowerIrp.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxNextParentRelationSafe @ 0x140375C20 (PopFxNextParentRelationSafe.c)
- *     PopFxActivateComponent @ 0x1403B61EC (PopFxActivateComponent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponent @ 0x1402AE4EC (PopFxActivateComponent.c)
+ *     PopFxNextParentRelationSafe @ 0x1403A6340 (PopFxNextParentRelationSafe.c)
  */
 
 bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)
@@ -32,7 +32,7 @@ bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)
       if ( (*(_DWORD *)(v10 + 16) & 2) == 0 )
       {
         v9 = *(_QWORD *)(v10 + 24);
-        PopFxActivateComponent(*(_QWORD *)(v9 + 80));
+        PopFxActivateComponent(*(_QWORD *)(v9 + 80), v9, 10LL, 0);
         v8 = v10;
         if ( *(int *)(v9 + 88) < 0 )
         {

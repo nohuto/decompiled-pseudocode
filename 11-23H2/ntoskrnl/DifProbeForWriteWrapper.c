@@ -1,12 +1,12 @@
 /*
- * XREFs of DifProbeForWriteWrapper @ 0x1405EA4D0
+ * XREFs of DifProbeForWriteWrapper @ 0x1405EAA40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
 void __fastcall DifProbeForWriteWrapper(volatile void *Address, SIZE_T Length, ULONG Alignment)

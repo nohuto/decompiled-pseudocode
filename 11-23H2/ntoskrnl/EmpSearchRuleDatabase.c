@@ -1,7 +1,7 @@
 /*
- * XREFs of EmpSearchRuleDatabase @ 0x14032D8EC
+ * XREFs of EmpSearchRuleDatabase @ 0x14032DB7C
  * Callers:
- *     EmpClientRuleRegisterNotification @ 0x14093C464 (EmpClientRuleRegisterNotification.c)
+ *     EmpClientRuleRegisterNotification @ 0x14093C664 (EmpClientRuleRegisterNotification.c)
  *     EmClientQueryRuleState @ 0x140A87C40 (EmClientQueryRuleState.c)
  *     EmClientRuleEvaluate @ 0x140A87D30 (EmClientRuleEvaluate.c)
  *     EmpParseRuleTerm @ 0x140B55ED8 (EmpParseRuleTerm.c)

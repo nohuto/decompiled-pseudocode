@@ -19,59 +19,59 @@
  */
 
 __int64 __fastcall LdrpInitializeNtdllDataTableEntry(
-        unsigned __int64 a1,
+        PVOID BaseOfImage,
         __int64 *a2,
         __int64 a3,
-        unsigned __int16 *a4,
+        const UNICODE_STRING *a4,
         _OWORD *a5)
 {
-  __int64 ModuleEntry; // rax
+  char *ModuleEntry; // rax
   __int64 v10; // rbx
   int UnicodeString; // edi
-  unsigned __int16 *v12; // rcx
-  int v14[10]; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING *v12; // rcx
+  PIMAGE_NT_HEADERS v14[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  RtlImageNtHeaderEx(3, a1, 0LL, v14);
+  RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, v14);
   ModuleEntry = LdrpAllocateModuleEntry(0LL);
-  v10 = ModuleEntry;
+  v10 = (__int64)ModuleEntry;
   if ( ModuleEntry )
   {
-    *(_DWORD *)(*(_QWORD *)(ModuleEntry + 152) + 24LL) = -1;
-    *(_WORD *)(**(_QWORD **)(ModuleEntry + 152) - 52LL) = -1;
-    *(_DWORD *)(ModuleEntry + 104) |= 0x204u;
+    *(_DWORD *)(*((_QWORD *)ModuleEntry + 19) + 24LL) = -1;
+    *(_WORD *)(**((_QWORD **)ModuleEntry + 19) - 52LL) = -1;
+    *((_DWORD *)ModuleEntry + 26) |= 0x204u;
     if ( !a3 )
-      *(_QWORD *)(ModuleEntry + 248) -= qword_18018F300;
-    v12 = (unsigned __int16 *)(ModuleEntry + 72);
+      *((_QWORD *)ModuleEntry + 31) -= LdrSystemDllInitBlock.SystemDllNativeRelocation;
+    v12 = (_UNICODE_STRING *)(ModuleEntry + 72);
     if ( a4 )
     {
-      UnicodeString = LdrpAllocateUnicodeString((__int64)v12, *a4);
+      UnicodeString = LdrpAllocateUnicodeString((__int64)v12, a4->Length);
       if ( UnicodeString < 0 )
         goto LABEL_16;
-      RtlCopyUnicodeString((unsigned __int16 *)(v10 + 72), a4);
+      RtlCopyUnicodeString((PUNICODE_STRING)(v10 + 72), a4);
       LdrpGetBaseNameFromFullName((unsigned __int16 *)(v10 + 72), v10 + 88);
     }
     else
     {
       *(_OWORD *)(ModuleEntry + 72) = *a5;
       RtlAppendUnicodeStringToString(v12, &NtDllName);
-      *(_OWORD *)(v10 + 88) = *(_OWORD *)&NtDllName;
+      *(UNICODE_STRING *)(v10 + 88) = NtDllName;
     }
-    *(_QWORD *)(v10 + 48) = a1;
+    *(_QWORD *)(v10 + 48) = BaseOfImage;
     if ( a3 )
       *(_DWORD *)(v10 + 268) = 9;
     LdrpInsertDataTableEntry(v10);
     LdrpLogDllState(*(_QWORD *)(v10 + 48), v10 + 72, 0x14A5u);
-    LdrpInsertModuleToIndex(v10, *(_QWORD *)v14);
-    v14[0] = LdrpProcessMappedModule(v10, 0, 1);
-    UnicodeString = v14[0];
-    if ( v14[0] >= 0 )
+    LdrpInsertModuleToIndex(v10, v14[0]);
+    LODWORD(v14[0]) = LdrpProcessMappedModule(v10, 0, 1);
+    UnicodeString = (int)v14[0];
+    if ( SLODWORD(v14[0]) >= 0 )
     {
       LdrpLogDllState(*(_QWORD *)(v10 + 48), v10 + 72, 0x14AEu);
       if ( a3 )
       {
         LdrpRecordModuleDependency(LdrpNtDllDataTableEntry, v10, 0LL, v14);
-        UnicodeString = v14[0];
-        if ( v14[0] < 0 )
+        UnicodeString = (int)v14[0];
+        if ( SLODWORD(v14[0]) < 0 )
           goto LABEL_17;
         *(_QWORD *)(v10 + 184) = *(_QWORD *)(a3 + 48);
         *(_DWORD *)(a3 + 304) = 3;

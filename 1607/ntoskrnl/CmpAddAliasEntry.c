@@ -3,14 +3,14 @@
  * Callers:
  *     CmpCreateControlSet @ 0x1407AC02C (CmpCreateControlSet.c)
  * Callees:
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     sprintf_s @ 0x140152AEC (sprintf_s.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     NtOpenKey @ 0x140415458 (NtOpenKey.c)
- *     NtCreateKey @ 0x1404640C8 (NtCreateKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1401530AC (sprintf_s.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     NtOpenKey @ 0x140414318 (NtOpenKey.c)
+ *     NtCreateKey @ 0x140462F98 (NtCreateKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  *     CmpAddDockingInfo @ 0x1407AC56C (CmpAddDockingInfo.c)
  */
 
@@ -24,7 +24,7 @@ __int64 __fastcall CmpAddAliasEntry(void *a1, __int64 a2, int a3)
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
   ULONG Disposition; // [rsp+48h] [rbp-B8h] BYREF
   int Data; // [rsp+4Ch] [rbp-B4h] BYREF
-  STRING KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
+  _STRING KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
   char DstBuf[128]; // [rsp+A0h] [rbp-60h] BYREF

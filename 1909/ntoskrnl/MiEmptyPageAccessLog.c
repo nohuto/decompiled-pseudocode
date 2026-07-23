@@ -28,11 +28,11 @@
  *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiEmptyPageAccessLog(struct _SLIST_ENTRY *P)
+void __fastcall MiEmptyPageAccessLog(_SLIST_ENTRY *P)
 {
   unsigned __int64 v1; // r13
   unsigned __int16 v2; // r8
-  struct _SLIST_ENTRY *v3; // r9
+  _SLIST_ENTRY *v3; // r9
   unsigned int v4; // edi
   __int64 v5; // rax
   __int64 v6; // rdx
@@ -76,11 +76,11 @@ void __fastcall MiEmptyPageAccessLog(struct _SLIST_ENTRY *P)
   signed __int64 BugCheckParameter4; // rax
   KIRQL v45; // r13
   struct _KPRCB *CurrentPrcb; // rcx
-  struct _SLIST_ENTRY *v47; // rbx
-  struct _SLIST_ENTRY *i; // rcx
-  struct _SLIST_ENTRY *Pa; // [rsp+30h] [rbp-58h]
+  _SLIST_ENTRY *v47; // rbx
+  _SLIST_ENTRY *i; // rcx
+  _SLIST_ENTRY *Pa; // [rsp+30h] [rbp-58h]
   unsigned __int64 v50; // [rsp+38h] [rbp-50h]
-  struct _SLIST_ENTRY *ListEntry; // [rsp+90h] [rbp+8h]
+  _SLIST_ENTRY *ListEntry; // [rsp+90h] [rbp+8h]
   unsigned int v52; // [rsp+98h] [rbp+10h]
   int v53; // [rsp+A0h] [rbp+18h]
   int v54; // [rsp+A4h] [rbp+1Ch]

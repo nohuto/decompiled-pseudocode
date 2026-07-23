@@ -9,16 +9,16 @@
  *     MiLockTrackerCompare @ 0x14024E650 (MiLockTrackerCompare.c)
  */
 
-unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
+signed __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // rbp
   __int64 v4; // r14
-  unsigned __int64 v5; // rdi
+  signed __int64 v5; // rdi
   KIRQL v6; // r15
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   int v8; // esi
   int v9; // eax
-  unsigned __int64 v10; // rax
+  signed __int64 v10; // rax
 
   v2 = (volatile LONG *)(a1 + 1440);
   v4 = a1 + 1448;
@@ -49,7 +49,7 @@ unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned _
     while ( v7 );
     if ( v7 )
     {
-      RtlRbRemoveNode(v4, v7);
+      RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7);
       *(_QWORD *)(v7 + 16) = -1LL;
       v5 = v7;
     }

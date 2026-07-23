@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 NtAllocateReserveObject()
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 112LL;
+  result = 112;
   __asm { syscall; Low latency system call }
   return result;
 }

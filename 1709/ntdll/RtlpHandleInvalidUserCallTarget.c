@@ -11,15 +11,15 @@
  *     RtlpUnsuppressForwardReferencingCallTarget @ 0x1800F6A00 (RtlpUnsuppressForwardReferencingCallTarget.c)
  */
 
-__int64 __fastcall RtlpHandleInvalidUserCallTarget(unsigned __int64 a1)
+NTSTATUS __fastcall RtlpHandleInvalidUserCallTarget(void *a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( RtlGuardAllowSuppressedCalls && RtlpGuardIsSuppressedAddress(a1) )
-    return RtlpGuardGrantSuppressedCallAccess(a1, 1u);
+    return RtlpGuardGrantSuppressedCallAccess((__int64)a1, 1u);
   if ( !(unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression()
     || !RtlGuardIsExportSuppressedAddress(a1)
-    || (result = RtlpUnsuppressForwardReferencingCallTarget(a1), (int)result < 0) )
+    || (result = RtlpUnsuppressForwardReferencingCallTarget(a1), result < 0) )
   {
     RtlFailFast2(0xAu);
   }

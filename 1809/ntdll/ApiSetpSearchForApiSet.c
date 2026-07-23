@@ -7,20 +7,18 @@
  *     RtlCompareUnicodeStrings @ 0x1800571D0 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, unsigned __int16 *a2, unsigned __int16 a3)
+__int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, const WCHAR *a2, unsigned __int16 a3)
 {
-  int v4; // ebp
   unsigned int v6; // edi
-  unsigned __int16 *v7; // r8
+  const WCHAR *v7; // r8
   __int64 v8; // r9
-  unsigned __int16 v9; // cx
+  WCHAR v9; // cx
   __int64 v10; // rbx
   int v11; // ecx
   int v12; // r8d
   int v13; // edx
   __int64 v14; // r9
 
-  v4 = (int)a2;
   v6 = 0;
   v7 = a2;
   if ( a3 )
@@ -60,7 +58,12 @@ LABEL_10:
   }
   v10 = (__int64)&a1[6 * *(_DWORD *)((char *)a1 + v14 + 4)] + (unsigned int)a1[4];
   if ( !v10
-    || !(unsigned int)RtlCompareUnicodeStrings(v4, a3, (int)a1 + *(_DWORD *)(v10 + 4), *(_DWORD *)(v10 + 12) >> 1, 1) )
+    || !RtlCompareUnicodeStrings(
+          a2,
+          a3,
+          (PCWCH)((char *)a1 + *(unsigned int *)(v10 + 4)),
+          (unsigned __int64)*(unsigned int *)(v10 + 12) >> 1,
+          1u) )
   {
     return v10;
   }

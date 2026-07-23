@@ -1,14 +1,14 @@
 /*
- * XREFs of PspNotifyServerSiloCreation @ 0x140779708
+ * XREFs of PspNotifyServerSiloCreation @ 0x140779808
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140772C80 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x140772EA0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PspAcquirePushLockShared @ 0x1404F541C (PspAcquirePushLockShared.c)
- *     PspReleasePushLockShared @ 0x1404F7900 (PspReleasePushLockShared.c)
- *     PspGetServerSiloStatePointer @ 0x1404FB1C0 (PspGetServerSiloStatePointer.c)
- *     PspGetNextMonitor @ 0x14077961C (PspGetNextMonitor.c)
- *     PspInvokeCreateCallback @ 0x140779644 (PspInvokeCreateCallback.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1407A95D8 (EtwTraceJobServerSiloStateChange.c)
+ *     PspAcquirePushLockShared @ 0x1404F2D1C (PspAcquirePushLockShared.c)
+ *     PspReleasePushLockShared @ 0x1404F51E0 (PspReleasePushLockShared.c)
+ *     PspGetServerSiloStatePointer @ 0x1404F8AA0 (PspGetServerSiloStatePointer.c)
+ *     PspGetNextMonitor @ 0x14077971C (PspGetNextMonitor.c)
+ *     PspInvokeCreateCallback @ 0x140779744 (PspInvokeCreateCallback.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1407A9718 (EtwTraceJobServerSiloStateChange.c)
  */
 
 __int64 __fastcall PspNotifyServerSiloCreation(__int64 a1)

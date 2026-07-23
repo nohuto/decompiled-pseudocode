@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnMdlCharges @ 0x1403A8ECC
+ * XREFs of MiReturnMdlCharges @ 0x140397B54
  * Callers:
- *     MiReturnMdlExcess @ 0x140671F10 (MiReturnMdlExcess.c)
- *     MiFreeBootPageTable @ 0x140C4F170 (MiFreeBootPageTable.c)
+ *     MiReturnMdlExcess @ 0x1406730E0 (MiReturnMdlExcess.c)
+ *     MiFreeBootPageTable @ 0x140C51300 (MiFreeBootPageTable.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiReleaseNonPagedResourcesNotExposed @ 0x1403A9CCC (MiReleaseNonPagedResourcesNotExposed.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiReleaseNonPagedResourcesNotExposed @ 0x14039895C (MiReleaseNonPagedResourcesNotExposed.c)
  */
 
 void __fastcall MiReturnMdlCharges(__int64 a1, unsigned __int64 a2, char a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfSetVerifierInformationEx @ 0x140B9C634
+ * XREFs of VfSetVerifierInformationEx @ 0x140B9E634
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     VfFreeCapturedUnicodeString @ 0x140B82E64 (VfFreeCapturedUnicodeString.c)
- *     VfProbeAndCaptureUnicodeString @ 0x140B82FCC (VfProbeAndCaptureUnicodeString.c)
- *     VfDriverLock @ 0x140B8A4B4 (VfDriverLock.c)
- *     VfSetVerifierRunningMode @ 0x140B9B1F8 (VfSetVerifierRunningMode.c)
- *     VfWdSetCancelTimeout @ 0x140B9C9B8 (VfWdSetCancelTimeout.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     VfFreeCapturedUnicodeString @ 0x140B84E64 (VfFreeCapturedUnicodeString.c)
+ *     VfProbeAndCaptureUnicodeString @ 0x140B84FCC (VfProbeAndCaptureUnicodeString.c)
+ *     VfDriverLock @ 0x140B8C4B4 (VfDriverLock.c)
+ *     VfSetVerifierRunningMode @ 0x140B9D1F8 (VfSetVerifierRunningMode.c)
+ *     VfWdSetCancelTimeout @ 0x140B9E9B8 (VfWdSetCancelTimeout.c)
  */
 
 __int64 __fastcall VfSetVerifierInformationEx(int *a1)
@@ -32,13 +32,13 @@ __int64 __fastcall VfSetVerifierInformationEx(int *a1)
     if ( v4 >= 0 )
     {
 LABEL_7:
-      ++dword_140F03F00;
+      ++dword_140F04860;
       v4 = VfProbeAndCaptureUnicodeString((__int64)&v6, (unsigned __int64)(a1 + 2), 64LL);
       if ( v4 >= 0 )
       {
         VfDriverLock();
-        v7 = xmmword_140F03F08;
-        xmmword_140F03F08 = v6;
+        v7 = xmmword_140F04868;
+        xmmword_140F04868 = v6;
         ViDriversLoadLockOwner = 0LL;
         KeReleaseMutex(&ViDriversLoadLock, 0);
         VfFreeCapturedUnicodeString((__int64)&v7);

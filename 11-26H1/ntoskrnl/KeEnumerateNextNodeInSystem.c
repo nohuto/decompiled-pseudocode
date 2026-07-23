@@ -1,14 +1,14 @@
 /*
- * XREFs of KeEnumerateNextNodeInSystem @ 0x1403EE250
+ * XREFs of KeEnumerateNextNodeInSystem @ 0x140452D80
  * Callers:
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
- *     KeConfigureHeteroProcessors @ 0x1403ED9F4 (KeConfigureHeteroProcessors.c)
- *     KiGetNumberOfActiveSubNodes @ 0x1403EDDC0 (KiGetNumberOfActiveSubNodes.c)
- *     KeInitializeSystemSubNodeEnumerationContext @ 0x1403EDE78 (KeInitializeSystemSubNodeEnumerationContext.c)
- *     KeEnumerateNextSchedulerSubNodeInSystem @ 0x1403EDEC0 (KeEnumerateNextSchedulerSubNodeInSystem.c)
- *     PoCopyDeepIdleMask @ 0x1403EDFE0 (PoCopyDeepIdleMask.c)
- *     KiRemoveForceParkedProcessorsFromAffinity @ 0x1403EE15C (KiRemoveForceParkedProcessorsFromAffinity.c)
- *     PpmGetIdleConstrainedMask @ 0x140523230 (PpmGetIdleConstrainedMask.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
+ *     KeConfigureHeteroProcessors @ 0x140452524 (KeConfigureHeteroProcessors.c)
+ *     KiGetNumberOfActiveSubNodes @ 0x1404528F0 (KiGetNumberOfActiveSubNodes.c)
+ *     KeInitializeSystemSubNodeEnumerationContext @ 0x1404529A8 (KeInitializeSystemSubNodeEnumerationContext.c)
+ *     KeEnumerateNextSchedulerSubNodeInSystem @ 0x1404529F0 (KeEnumerateNextSchedulerSubNodeInSystem.c)
+ *     PoCopyDeepIdleMask @ 0x140452B10 (PoCopyDeepIdleMask.c)
+ *     KiRemoveForceParkedProcessorsFromAffinity @ 0x140452C8C (KiRemoveForceParkedProcessorsFromAffinity.c)
+ *     PpmGetIdleConstrainedMask @ 0x1405258A0 (PpmGetIdleConstrainedMask.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ __int64 __fastcall KeEnumerateNextNodeInSystem(unsigned __int16 *a1, __int64 *a2
       v7 = (unsigned __int16)KeNumberNodes;
       v8 = *((_DWORD *)a1 + 1) + 1;
       *((_DWORD *)a1 + 1) = v8;
-      v4 = v8 == v7 ? 0xFFFFFFFFLL : *(unsigned int *)(qword_140E2D690 + 4LL * (unsigned int)(v7 * v3 + v8));
+      v4 = v8 == v7 ? 0xFFFFFFFFLL : *(unsigned int *)(qword_140E2D810 + 4LL * (unsigned int)(v7 * v3 + v8));
     }
     else
     {

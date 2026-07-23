@@ -19,11 +19,7 @@ __int64 __fastcall RtlpQueryDiskSpeedPolicy(_DWORD *a1)
   }
   else
   {
-    RtlRunOnceExecuteOnce(
-      &RtlpDiskSpeedInit,
-      (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, __int64 *))RtlpDiskSpeedInitialize,
-      0LL,
-      0LL);
+    RtlRunOnceExecuteOnce(&RtlpDiskSpeedInit, (PRTL_RUN_ONCE_INIT_FN)RtlpDiskSpeedInitialize, 0LL, 0LL);
     *a1 = RtlpDiskSpeedPolicy;
   }
   return 0LL;

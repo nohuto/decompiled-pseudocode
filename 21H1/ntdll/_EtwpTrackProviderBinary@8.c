@@ -11,37 +11,37 @@
  *     _EtwpTrackRegBinaryInfo@4 @ 0x4B381980 (_EtwpTrackRegBinaryInfo@4.c)
  */
 
-ULONG __stdcall EtwpTrackProviderBinary(int a1, __int16 a2)
+LONG __stdcall EtwpTrackProviderBinary(int a1, __int16 a2)
 {
   NTSTATUS v2; // eax
-  ULONG v3; // edi
-  _DWORD v5[3]; // [esp+10h] [ebp-10h] BYREF
-  _BYTE v6[4]; // [esp+1Ch] [ebp-4h] BYREF
+  LONG v3; // edi
+  _DWORD InputBuffer[3]; // [esp+10h] [ebp-10h] BYREF
+  ULONG ReturnLength; // [esp+1Ch] [ebp-4h] BYREF
 
   if ( !a2 || (a1 & 1) != 0 || a2 != *(_WORD *)(a1 + 52) )
   {
     v3 = 6;
     goto LABEL_9;
   }
-  v5[0] = *(_DWORD *)(a1 + 48);
-  v5[1] = 0;
-  v2 = ZwTraceControl(26, (int)v5, 8, 0, 0, (int)v6);
+  InputBuffer[0] = *(_DWORD *)(a1 + 48);
+  InputBuffer[1] = 0;
+  v2 = ZwTraceControl(EtwTrackBinaryCode, InputBuffer, 8u, 0, 0, &ReturnLength);
   if ( v2 )
   {
     v3 = RtlNtStatusToDosError(v2);
     if ( !v3 )
       goto LABEL_7;
 LABEL_9:
-    RtlSetLastWin32Error((struct _TEB *)v3);
+    RtlSetLastWin32Error(v3);
     return v3;
   }
   v3 = 0;
 LABEL_7:
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 36));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 36));
   *(_DWORD *)(a1 + 44) = NtCurrentTeb()->ClientId.UniqueThread;
   *(_WORD *)(a1 + 54) |= 0x8000u;
   EtwpTrackRegBinaryInfo(a1);
   *(_DWORD *)(a1 + 44) = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 36));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 36));
   return v3;
 }

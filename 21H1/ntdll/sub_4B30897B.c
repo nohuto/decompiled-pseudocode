@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-void __stdcall __noreturn sub_4B30897B(int a1)
+void __stdcall __noreturn sub_4B30897B(NTSTATUS Status)
 {
-  RtlRaiseStatus(a1);
+  RtlRaiseStatus(Status);
 }

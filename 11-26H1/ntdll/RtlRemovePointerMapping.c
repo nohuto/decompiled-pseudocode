@@ -1,46 +1,46 @@
 /*
- * XREFs of RtlRemovePointerMapping @ 0x180145DE0
+ * XREFs of RtlRemovePointerMapping @ 0x180145C90
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlRbRemoveNode @ 0x18006B8B0 (RtlRbRemoveNode.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlRbRemoveNode @ 0x18008BD00 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall RtlRemovePointerMapping(__int64 a1, _QWORD *a2)
 {
-  unsigned __int64 v4; // rbx
+  unsigned __int64 Root; // rbx
   unsigned __int64 v5; // rax
 
-  RtlAcquireSRWLockExclusive(&RtlpPtrTreeLock, (__int64)a2);
-  v4 = RtlpPtrTree;
-  if ( (qword_1801C60A8 & 1) != 0 && RtlpPtrTree )
-    v4 = (unsigned __int64)&RtlpPtrTree ^ RtlpPtrTree;
-  while ( v4 )
+  RtlAcquireSRWLockExclusive(&RtlpPtrTreeLock);
+  Root = (unsigned __int64)RtlpPtrTree.Root;
+  if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 && RtlpPtrTree.Root )
+    Root = (unsigned __int64)&RtlpPtrTree ^ (unsigned __int64)RtlpPtrTree.Root;
+  while ( Root )
   {
-    if ( a1 - *(_QWORD *)(v4 + 24) < 0 )
+    if ( a1 - *(_QWORD *)(Root + 24) < 0 )
     {
-      v5 = *(_QWORD *)v4;
+      v5 = *(_QWORD *)Root;
     }
     else
     {
-      if ( a1 - *(_QWORD *)(v4 + 24) <= 0 )
+      if ( a1 - *(_QWORD *)(Root + 24) <= 0 )
         break;
-      v5 = *(_QWORD *)(v4 + 8);
+      v5 = *(_QWORD *)(Root + 8);
     }
-    if ( (qword_1801C60A8 & 1) != 0 && v5 )
-      v4 ^= v5;
+    if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 && v5 )
+      Root ^= v5;
     else
-      v4 = v5;
+      Root = v5;
   }
-  if ( v4 )
-    RtlRbRemoveNode((__int64)&RtlpPtrTree, v4);
+  if ( Root )
+    RtlRbRemoveNode(&RtlpPtrTree, (PRTL_BALANCED_NODE)Root);
   RtlReleaseSRWLockExclusive(&RtlpPtrTreeLock);
-  if ( !v4 )
+  if ( !Root )
     return 3221226021LL;
-  *a2 = *(_QWORD *)(v4 + 32);
-  RtlFreeHeap_0();
+  *a2 = *(_QWORD *)(Root + 32);
+  RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, (PVOID)Root);
   return 0LL;
 }

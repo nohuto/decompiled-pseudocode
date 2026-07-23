@@ -8,12 +8,12 @@
 
 ULONG __stdcall RtlFindClearBits(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
-  unsigned int SizeOfBitMap; // ebp
-  unsigned int *Buffer; // r15
+  ULONG SizeOfBitMap; // ebp
+  PULONG Buffer; // r15
   ULONG v6; // r11d
-  unsigned int v8; // edx
+  ULONG v8; // edx
   int v9; // r9d
-  unsigned int v10; // edx
+  ULONG v10; // edx
   ULONG v11; // r8d
   char *v12; // rsi
   ULONG v13; // r12d

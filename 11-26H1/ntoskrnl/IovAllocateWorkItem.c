@@ -1,10 +1,10 @@
 /*
- * XREFs of IovAllocateWorkItem @ 0x140C20BA0
+ * XREFs of IovAllocateWorkItem @ 0x140C26BB0
  * Callers:
  *     <none>
  * Callees:
- *     IoInitializeWorkItem @ 0x1404854B0 (IoInitializeWorkItem.c)
- *     VfHandlePoolAlloc @ 0x140C44300 (VfHandlePoolAlloc.c)
+ *     IoInitializeWorkItem @ 0x14047EE20 (IoInitializeWorkItem.c)
+ *     VfHandlePoolAlloc @ 0x140C4A310 (VfHandlePoolAlloc.c)
  */
 
 struct _IO_WORKITEM *__fastcall IovAllocateWorkItem(PVOID IoObject, __int64 a2)

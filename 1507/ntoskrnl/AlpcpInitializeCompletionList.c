@@ -22,7 +22,7 @@
  *     AlpcpUnregisterCompletionListDatabase @ 0x14052D33C (AlpcpUnregisterCompletionListDatabase.c)
  */
 
-__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int a5, int a6)
+__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int Flags, int a6)
 {
   size_t v6; // r13
   char v9; // r15
@@ -60,7 +60,7 @@ __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned 
   if ( ((unsigned __int16)a2 & 0xFFF) != 0LL
     || (a3 & 0xFFF) != 0
     || a3 - 0x4000 > 0x3FFFC000
-    || (a5 & 0x57FFFFFF) != 0
+    || (Flags & 0x57FFFFFF) != 0
     || !a4 )
   {
     v31 = 0;
@@ -127,25 +127,25 @@ LABEL_36:
       *((_QWORD *)v10 + 5) = a2;
       *((_QWORD *)v10 + 6) = &a2[v6];
       *((_QWORD *)v10 + 7) = &a2[v17 + 4096 + v16];
-      *((_DWORD *)v10 + 37) = a5;
+      *((_DWORD *)v10 + 37) = Flags;
       if ( a6 )
       {
         v33 = 8;
-        if ( a5 < 0 )
+        if ( Flags < 0 )
           v33 = 20;
-        if ( (a5 & 0x40000000) != 0 )
+        if ( (Flags & 0x40000000) != 0 )
           v33 += 16;
-        if ( (a5 & 0x20000000) != 0 )
+        if ( (Flags & 0x20000000) != 0 )
           v33 += 20;
-        if ( (a5 & 0x10000000) != 0 )
+        if ( (Flags & 0x10000000) != 0 )
           v33 += 16;
-        if ( (a5 & 0x8000000) != 0 )
+        if ( (Flags & 0x8000000) != 0 )
           v33 += 24;
         *((_DWORD *)v10 + 38) = v33;
       }
       else
       {
-        *((_DWORD *)v10 + 38) = AlpcGetHeaderSize(a5);
+        *((_DWORD *)v10 + 38) = AlpcGetHeaderSize(Flags);
         v16 = v35;
         LODWORD(v17) = v36;
         v18 = P;

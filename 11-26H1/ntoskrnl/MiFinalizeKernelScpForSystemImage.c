@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFinalizeKernelScpForSystemImage @ 0x140B1F2AC
+ * XREFs of MiFinalizeKernelScpForSystemImage @ 0x140B2132C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiMapKernelScp @ 0x1404F3160 (MiMapKernelScp.c)
- *     MiMarkKernelImageRetpolineBits @ 0x140B1F2FC (MiMarkKernelImageRetpolineBits.c)
- *     MiLogRetpolineImageLoadEvents @ 0x140B1F474 (MiLogRetpolineImageLoadEvents.c)
+ *     MiMapKernelScp @ 0x1404EC740 (MiMapKernelScp.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x140B2137C (MiMarkKernelImageRetpolineBits.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x140B214F4 (MiLogRetpolineImageLoadEvents.c)
  */
 
 __int64 __fastcall MiFinalizeKernelScpForSystemImage(__int64 a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of AslpFileLargeMapCreate @ 0x140810410
+ * XREFs of AslpFileLargeMapCreate @ 0x140810B50
  * Callers:
- *     AslpFileLargeEnsureLargeFileMapping @ 0x14080FEC0 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x140810600 (AslpFileLargeEnsureLargeFileMapping.c)
  * Callees:
- *     ZwMapViewOfSection @ 0x1406A6910 (ZwMapViewOfSection.c)
- *     ZwCreateSection @ 0x1406A6D50 (ZwCreateSection.c)
- *     AslpFileLargeMapDelete @ 0x140810678 (AslpFileLargeMapDelete.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     MmSecureVirtualMemory @ 0x1409EA760 (MmSecureVirtualMemory.c)
+ *     ZwMapViewOfSection @ 0x1406A78B0 (ZwMapViewOfSection.c)
+ *     ZwCreateSection @ 0x1406A7CF0 (ZwCreateSection.c)
+ *     AslpFileLargeMapDelete @ 0x140810DB8 (AslpFileLargeMapDelete.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     MmSecureVirtualMemory @ 0x1409E5050 (MmSecureVirtualMemory.c)
  */
 
 __int64 __fastcall AslpFileLargeMapCreate(__int64 *a1, __int64 a2)

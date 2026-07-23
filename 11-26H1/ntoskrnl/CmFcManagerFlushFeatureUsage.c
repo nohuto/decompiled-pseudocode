@@ -1,12 +1,12 @@
 /*
- * XREFs of CmFcManagerFlushFeatureUsage @ 0x140B33E0C
+ * XREFs of CmFcManagerFlushFeatureUsage @ 0x140B3625C
  * Callers:
- *     RtlFlushFeatureUsage @ 0x1408010B0 (RtlFlushFeatureUsage.c)
- *     CmFcManagerUnregisterFeatureUsageProvider @ 0x140B33CF8 (CmFcManagerUnregisterFeatureUsageProvider.c)
+ *     RtlFlushFeatureUsage @ 0x140806B50 (RtlFlushFeatureUsage.c)
+ *     CmFcManagerUnregisterFeatureUsageProvider @ 0x140B36148 (CmFcManagerUnregisterFeatureUsageProvider.c)
  * Callees:
- *     CmpWorkItemQueueWork @ 0x140356AAC (CmpWorkItemQueueWork.c)
- *     ExBlockOnAddressPushLock @ 0x14047EBC0 (ExBlockOnAddressPushLock.c)
- *     CmFcpManagerComputeMinimumFeatureUsageFlushTimestampIncrement @ 0x140B33EEC (CmFcpManagerComputeMinimumFeatureUsageFlushTimestampIncrement.c)
+ *     CmpWorkItemQueueWork @ 0x14035884C (CmpWorkItemQueueWork.c)
+ *     ExBlockOnAddressPushLock @ 0x140478530 (ExBlockOnAddressPushLock.c)
+ *     CmFcpManagerComputeMinimumFeatureUsageFlushTimestampIncrement @ 0x140B3633C (CmFcpManagerComputeMinimumFeatureUsageFlushTimestampIncrement.c)
  */
 
 void __fastcall CmFcManagerFlushFeatureUsage(__int64 a1, char a2, __int64 a3)
@@ -24,7 +24,7 @@ void __fastcall CmFcManagerFlushFeatureUsage(__int64 a1, char a2, __int64 a3)
   __int64 v15; // [rsp+50h] [rbp+8h] BYREF
 
   v15 = a1;
-  v3 = dword_140EFBC90;
+  v3 = dword_140EFBFF8;
   if ( a3 )
   {
     v6 = (volatile signed __int32 *)(a3 + 100);
@@ -36,8 +36,8 @@ void __fastcall CmFcManagerFlushFeatureUsage(__int64 a1, char a2, __int64 a3)
     if ( v9 >= 2 )
     {
       _InterlockedOr(v6, 2u);
-      _InterlockedOr(&dword_140EFBC90, 8u);
-      CmpWorkItemQueueWork(&stru_140EFBBD0);
+      _InterlockedOr(&dword_140EFBFF8, 8u);
+      CmpWorkItemQueueWork(&stru_140EFBF38);
     }
     if ( (a2 & 1) != 0 && v9 )
     {
@@ -53,24 +53,24 @@ void __fastcall CmFcManagerFlushFeatureUsage(__int64 a1, char a2, __int64 a3)
   }
   else
   {
-    v11 = (unsigned int)dword_140EFBC90 >> 5;
-    LOBYTE(a1) = dword_140EFBC90 & 1;
-    LOBYTE(v11) = (dword_140EFBC90 & 0x20) != 0;
+    v11 = (unsigned int)dword_140EFBFF8 >> 5;
+    LOBYTE(a1) = dword_140EFBFF8 & 1;
+    LOBYTE(v11) = (dword_140EFBFF8 & 0x20) != 0;
     v12 = CmFcpManagerComputeMinimumFeatureUsageFlushTimestampIncrement(a1, v11);
     if ( v12 >= 2 )
     {
-      _InterlockedOr(&dword_140EFBC90, 0x10u);
-      CmpWorkItemQueueWork(&stru_140EFBBD0);
+      _InterlockedOr(&dword_140EFBFF8, 0x10u);
+      CmpWorkItemQueueWork(&stru_140EFBF38);
     }
-    if ( (a2 & 2) != 0 && byte_140EFBCB8 )
+    if ( (a2 & 2) != 0 && byte_140EFC020 )
     {
       v13 = (v12 + (v3 >> 5)) & 0x7FFFFFF;
       while ( 1 )
       {
-        LODWORD(v15) = dword_140EFBC94;
-        if ( ((dword_140EFBC94 - v13) & 0x7FFFFFFu) < 0x4000000 )
+        LODWORD(v15) = dword_140EFBFFC[0];
+        if ( ((dword_140EFBFFC[0] - v13) & 0x7FFFFFFu) < 0x4000000 )
           break;
-        ExBlockOnAddressPushLock(&qword_140EFBB30, &dword_140EFBC94, &v15, 4LL, 0LL);
+        ExBlockOnAddressPushLock(&qword_140EFBE98, dword_140EFBFFC, &v15, 4LL, 0LL);
       }
     }
     else if ( (a2 & 1) != 0 && v12 )
@@ -78,10 +78,10 @@ void __fastcall CmFcManagerFlushFeatureUsage(__int64 a1, char a2, __int64 a3)
       v14 = v3 >> 5;
       while ( 1 )
       {
-        LODWORD(v15) = dword_140EFBC90;
-        if ( ((((unsigned int)dword_140EFBC90 >> 5) - v14) & 0x7FFFFFF) >= v12 )
+        LODWORD(v15) = dword_140EFBFF8;
+        if ( ((((unsigned int)dword_140EFBFF8 >> 5) - v14) & 0x7FFFFFF) >= v12 )
           break;
-        ExBlockOnAddressPushLock((signed __int64 *)&xmmword_140EFBB20 + 1, &dword_140EFBC90, &v15, 4LL, 0LL);
+        ExBlockOnAddressPushLock((signed __int64 *)&xmmword_140EFBE88 + 1, &dword_140EFBFF8, &v15, 4LL, 0LL);
       }
     }
   }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWorkerFactoryManagerThread @ 0x14065AA40
+ * XREFs of ExpWorkerFactoryManagerThread @ 0x140659160
  * Callers:
  *     <none>
  * Callees:
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x140205A00 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     KeRegisterObjectNotification @ 0x140205AB0 (KeRegisterObjectNotification.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeRemoveQueueEx @ 0x1402A49D0 (KeRemoveQueueEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1403BEB10 (ExpWorkerFactoryCheckCreate.c)
- *     KeTimeOutQueueWaiters @ 0x1403D7DA0 (KeTimeOutQueueWaiters.c)
- *     ExpWorkerFactoryDeferredThreadCreation @ 0x140493E00 (ExpWorkerFactoryDeferredThreadCreation.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeRemoveQueueEx @ 0x1402D4100 (KeRemoveQueueEx.c)
+ *     KeTimeOutQueueWaiters @ 0x1402F1880 (KeTimeOutQueueWaiters.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x14032CFE0 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     KeRegisterObjectNotification @ 0x14032D090 (KeRegisterObjectNotification.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1403AD7A0 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpWorkerFactoryDeferredThreadCreation @ 0x14048E88C (ExpWorkerFactoryDeferredThreadCreation.c)
  */
 
 void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)

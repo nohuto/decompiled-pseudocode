@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteTrimViewInfoList @ 0x14085FB74
+ * XREFs of MiDeleteTrimViewInfoList @ 0x14085FDB4
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MiLocateSharedPageViews @ 0x1406364E0 (MiLocateSharedPageViews.c)
- *     MmQueryBadAddresses @ 0x140A2FDD8 (MmQueryBadAddresses.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFEEC (MiTrimSharedPageFromViews.c)
+ *     MiLocateSharedPageViews @ 0x140636A30 (MiLocateSharedPageViews.c)
+ *     MmQueryBadAddresses @ 0x140A30088 (MmQueryBadAddresses.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

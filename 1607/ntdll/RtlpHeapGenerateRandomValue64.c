@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHeapGenerateRandomValue64 @ 0x180041770
+ * XREFs of RtlpHeapGenerateRandomValue64 @ 0x180041760
  * Callers:
- *     RtlpCreateHeapEncoding @ 0x18002B974 (RtlpCreateHeapEncoding.c)
- *     RtlCreateHeap @ 0x18002BA20 (RtlCreateHeap.c)
- *     RtlpInitializeLfhRandomDataArray @ 0x18003F31C (RtlpInitializeLfhRandomDataArray.c)
- *     RtlpInitializeLowFragHeapManager @ 0x18005D598 (RtlpInitializeLowFragHeapManager.c)
- *     RtlInitializeHeapManager @ 0x18005D72C (RtlInitializeHeapManager.c)
- *     RtlpHpSegHeapAllocate @ 0x18007F928 (RtlpHpSegHeapAllocate.c)
+ *     RtlpCreateHeapEncoding @ 0x18002B964 (RtlpCreateHeapEncoding.c)
+ *     RtlCreateHeap @ 0x18002BA10 (RtlCreateHeap.c)
+ *     RtlpInitializeLfhRandomDataArray @ 0x18003F30C (RtlpInitializeLfhRandomDataArray.c)
+ *     RtlpInitializeLowFragHeapManager @ 0x18005D588 (RtlpInitializeLowFragHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x18005D71C (RtlInitializeHeapManager.c)
+ *     RtlpHpSegHeapAllocate @ 0x18007F918 (RtlpHpSegHeapAllocate.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue32 @ 0x180042348 (RtlpHeapGenerateRandomValue32.c)
+ *     RtlpHeapGenerateRandomValue32 @ 0x180042338 (RtlpHeapGenerateRandomValue32.c)
  */
 
 unsigned __int64 RtlpHeapGenerateRandomValue64()

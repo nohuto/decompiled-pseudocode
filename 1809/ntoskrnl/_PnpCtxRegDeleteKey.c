@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpCtxRegDeleteKey @ 0x1408F5E7C
+ * XREFs of _PnpCtxRegDeleteKey @ 0x1408F713C
  * Callers:
- *     PipCommitPendingOsExtensionResource @ 0x1409F5A70 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x1409F5C80 (PipCommitPendingService.c)
+ *     PipCommitPendingOsExtensionResource @ 0x1409F6A70 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x1409F6C80 (PipCommitPendingService.c)
  * Callees:
- *     _RegRtlDeleteKeyTransacted @ 0x140762140 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140763330 (_RegRtlDeleteKeyTransacted.c)
  */
 
 __int64 __fastcall PnpCtxRegDeleteKey(__int64 a1, char *a2, const WCHAR *a3)

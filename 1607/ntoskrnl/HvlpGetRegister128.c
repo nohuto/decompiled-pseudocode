@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlpGetRegister128 @ 0x1401C1340
+ * XREFs of HvlpGetRegister128 @ 0x1401C1224
  * Callers:
- *     HvlSvmGetSystemCapabilities @ 0x1401BE474 (HvlSvmGetSystemCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x1401BF9E0 (HvlpDetermineEnlightenments.c)
+ *     HvlSvmGetSystemCapabilities @ 0x1401BE358 (HvlSvmGetSystemCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x1401BF8C4 (HvlpDetermineEnlightenments.c)
  * Callees:
  *     <none>
  */

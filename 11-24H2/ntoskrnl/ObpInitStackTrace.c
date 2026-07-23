@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpInitStackTrace @ 0x140C2C6BC
+ * XREFs of ObpInitStackTrace @ 0x140C2E7DC
  * Callers:
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObpInitStackAndObjectTables @ 0x140745058 (ObpInitStackAndObjectTables.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObpInitStackAndObjectTables @ 0x140743348 (ObpInitStackAndObjectTables.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 int ObpInitStackTrace()
 {
   int v0; // ebx
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   __int64 v2; // rdi
   __int64 v3; // rbx
   unsigned __int16 v4; // bx
@@ -98,7 +98,7 @@ LABEL_16:
     if ( ObpTracePermanent )
       v0 |= 0x40u;
     LODWORD(Pool2) = ObpInitStackAndObjectTables();
-    if ( (Pool2 & 0x80000000) != 0LL )
+    if ( (int)Pool2 < 0 )
     {
       if ( (v0 & 0x10) != 0 )
         LODWORD(Pool2) = (unsigned int)memset_0(&ObpRegTracePoolTags, 0, 0x40uLL);

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetThreadWin32Thread @ 0x1406BD840
+ * XREFs of PsSetThreadWin32Thread @ 0x1406BEAE0
  * Callers:
  *     <none>
  * Callees:

@@ -250,29 +250,26 @@
  *     RtlpAcquireSRWLockExclusiveContended @ 0x18009E150 (RtlpAcquireSRWLockExclusiveContended.c)
  */
 
-struct _TEB *__fastcall RtlAcquireSRWLockExclusive(volatile signed __int32 *a1)
+void __cdecl RtlAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  struct _TEB *result; // rax
   char *SchedulerSharedDataSlot; // r9
   __int64 i; // r8
-  volatile signed __int32 **v4; // rdx
+  PRTL_SRWLOCK *v3; // rdx
 
-  result = NtCurrentTeb();
-  SchedulerSharedDataSlot = (char *)result->SchedulerSharedDataSlot;
+  SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
   {
     for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
     {
-      v4 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * i];
-      if ( !*v4 )
+      v3 = (PRTL_SRWLOCK *)&SchedulerSharedDataSlot[8 * i];
+      if ( !*v3 )
       {
-        if ( v4 )
-          *v4 = a1;
+        if ( v3 )
+          *v3 = SRWLock;
         break;
       }
     }
   }
-  if ( _interlockedbittestandset64(a1, 0LL) )
-    return (struct _TEB *)RtlpAcquireSRWLockExclusiveContended(a1);
-  return result;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)SRWLock, 0LL) )
+    RtlpAcquireSRWLockExclusiveContended(SRWLock);
 }

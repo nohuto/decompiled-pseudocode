@@ -2,11 +2,11 @@
  * XREFs of ViKeReleaseSpinLockCommon @ 0x140713194
  * Callers:
  *     VerifierKeReleaseSpinLock @ 0x1407124FC (VerifierKeReleaseSpinLock.c)
- *     VerifierPortKeReleaseSpinLock @ 0x14071263C (VerifierPortKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLock @ 0x140712B24 (VerifierPortKeReleaseSpinLock.c)
  *     VerifierPortKeReleaseSpinLockNoXdv @ 0x140712B6C (VerifierPortKeReleaseSpinLockNoXdv.c)
  * Callees:
- *     VfUtilCheckKernelAddress @ 0x140702C44 (VfUtilCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VfUtilCheckKernelAddress @ 0x140702C74 (VfUtilCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 char *__fastcall ViKeReleaseSpinLockCommon(unsigned __int64 a1, unsigned __int8 a2)

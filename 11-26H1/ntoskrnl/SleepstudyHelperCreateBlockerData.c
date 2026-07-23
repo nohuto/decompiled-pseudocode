@@ -1,15 +1,15 @@
 /*
- * XREFs of SleepstudyHelperCreateBlockerData @ 0x140B63EF0
+ * XREFs of SleepstudyHelperCreateBlockerData @ 0x140B66F90
  * Callers:
- *     PopSleepstudyInitialize @ 0x140D09A38 (PopSleepstudyInitialize.c)
+ *     PopSleepstudyInitialize @ 0x140D0FD08 (PopSleepstudyInitialize.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
- *     SSHSupportAllocateNonPaged @ 0x1404C1F88 (SSHSupportAllocateNonPaged.c)
- *     SshpCopyDataEntry @ 0x140613F50 (SshpCopyDataEntry.c)
- *     SshpFreeDataEntry @ 0x1407E3AD8 (SshpFreeDataEntry.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportAllocateNonPaged @ 0x1404BB7D8 (SSHSupportAllocateNonPaged.c)
+ *     SshpCopyDataEntry @ 0x140616E10 (SshpCopyDataEntry.c)
+ *     SshpFreeDataEntry @ 0x1407E8E24 (SshpFreeDataEntry.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateBlockerData(

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCompressBufferDeflateInternal @ 0x140624B28
+ * XREFs of RtlCompressBufferDeflateInternal @ 0x140627B78
  * Callers:
- *     RtlCompressBufferDeflateRaw @ 0x140624C30 (RtlCompressBufferDeflateRaw.c)
- *     RtlCompressBufferDeflateZlib @ 0x140624C80 (RtlCompressBufferDeflateZlib.c)
+ *     RtlCompressBufferDeflateRaw @ 0x140627C80 (RtlCompressBufferDeflateRaw.c)
+ *     RtlCompressBufferDeflateZlib @ 0x140627CD0 (RtlCompressBufferDeflateZlib.c)
  * Callees:
- *     RtlCompressDeflateInitCompressionStream @ 0x1406264E4 (RtlCompressDeflateInitCompressionStream.c)
- *     deflate @ 0x14062789C (deflate.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlCompressDeflateInitCompressionStream @ 0x140629534 (RtlCompressDeflateInitCompressionStream.c)
+ *     deflate @ 0x14062A8EC (deflate.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlCompressBufferDeflateInternal(

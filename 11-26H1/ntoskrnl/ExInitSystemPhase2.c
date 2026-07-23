@@ -1,11 +1,11 @@
 /*
- * XREFs of ExInitSystemPhase2 @ 0x140CE4044
+ * XREFs of ExInitSystemPhase2 @ 0x140CEA3E4
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExpGetOriginalImageVersionRegistryValue @ 0x140846708 (ExpGetOriginalImageVersionRegistryValue.c)
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
- *     ExpWatchProductTypeInitialization @ 0x140CE4EEC (ExpWatchProductTypeInitialization.c)
+ *     ExpGetOriginalImageVersionRegistryValue @ 0x14084C968 (ExpGetOriginalImageVersionRegistryValue.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
+ *     ExpWatchProductTypeInitialization @ 0x140CEB28C (ExpWatchProductTypeInitialization.c)
  */
 
 __int64 ExInitSystemPhase2()

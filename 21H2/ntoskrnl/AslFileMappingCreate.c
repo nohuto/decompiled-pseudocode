@@ -1,24 +1,24 @@
 /*
- * XREFs of AslFileMappingCreate @ 0x1407589F8
+ * XREFs of AslFileMappingCreate @ 0x140758BB8
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x1407544C0 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckKObject @ 0x140754D5C (SdbpCheckKObject.c)
- *     SdbGetDatabaseMatch @ 0x14077E648 (SdbGetDatabaseMatch.c)
- *     SdbOpenDatabaseEx @ 0x14096408C (SdbOpenDatabaseEx.c)
- *     SdbpCheckMatchingTextEntry @ 0x140964C94 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140965080 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x140754680 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckKObject @ 0x140754F1C (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x14077E808 (SdbGetDatabaseMatch.c)
+ *     SdbOpenDatabaseEx @ 0x14096426C (SdbOpenDatabaseEx.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140964E74 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140965260 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlFileMapInitializeByNtPath @ 0x1403715CC (RtlFileMapInitializeByNtPath.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslFileNotFound @ 0x14075633C (AslFileNotFound.c)
- *     AslFileMappingDelete @ 0x140756368 (AslFileMappingDelete.c)
- *     AslStringDuplicate @ 0x14075A8A4 (AslStringDuplicate.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     AslpFileMappingGetFileKind @ 0x1407B3894 (AslpFileMappingGetFileKind.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlFileMapInitializeByNtPath @ 0x14037111C (RtlFileMapInitializeByNtPath.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1403FA7A0 (ZwQueryInformationFile.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslFileNotFound @ 0x1407564FC (AslFileNotFound.c)
+ *     AslFileMappingDelete @ 0x140756528 (AslFileMappingDelete.c)
+ *     AslStringDuplicate @ 0x14075AA64 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     AslpFileMappingGetFileKind @ 0x1407B3A34 (AslpFileMappingGetFileKind.c)
  */
 
 __int64 __fastcall AslFileMappingCreate(__int64 *a1, const WCHAR *a2, void *a3, __int64 a4, __int64 a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopQueuePowerRequestCallbacks @ 0x1402824F8
+ * XREFs of PopQueuePowerRequestCallbacks @ 0x140270738
  * Callers:
- *     PopQueuePowerRequestCallback @ 0x1402824B8 (PopQueuePowerRequestCallback.c)
- *     PopProcessPowerRequestOverrideQueryResponse @ 0x140282C34 (PopProcessPowerRequestOverrideQueryResponse.c)
+ *     PopQueuePowerRequestCallback @ 0x1402706F8 (PopQueuePowerRequestCallback.c)
+ *     PopProcessPowerRequestOverrideQueryResponse @ 0x140270EE0 (PopProcessPowerRequestOverrideQueryResponse.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PopQueuePowerRequestCallbacks(__int64 a1, char a2)

@@ -6,16 +6,16 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlWow64EnableFsRedirection(char a1)
+NTSTATUS __cdecl RtlWow64EnableFsRedirection(BOOLEAN Wow64FsEnableRedirection)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   struct _TEB *v2; // ecx
   int WowTebOffset; // edx
 
   result = 0;
   v2 = NtCurrentTeb();
   WowTebOffset = v2->WowTebOffset;
-  if ( a1 )
+  if ( Wow64FsEnableRedirection )
   {
     if ( WowTebOffset < 0 )
       v2 = (struct _TEB *)((char *)v2 + WowTebOffset);

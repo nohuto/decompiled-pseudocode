@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpRegisterUncProvider @ 0x14070ADD0
+ * XREFs of FsRtlpRegisterUncProvider @ 0x140708990
  * Callers:
- *     FsRtlRegisterUncProvider @ 0x14070AB60 (FsRtlRegisterUncProvider.c)
- *     FsRtlRegisterUncProviderEx @ 0x14070ABA0 (FsRtlRegisterUncProviderEx.c)
- *     FsRtlRegisterUncProviderEx2 @ 0x14070ABE0 (FsRtlRegisterUncProviderEx2.c)
+ *     FsRtlRegisterUncProvider @ 0x140708720 (FsRtlRegisterUncProvider.c)
+ *     FsRtlRegisterUncProviderEx @ 0x140708760 (FsRtlRegisterUncProviderEx.c)
+ *     FsRtlRegisterUncProviderEx2 @ 0x1407087A0 (FsRtlRegisterUncProviderEx2.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x1403D91C0 (KeReleaseSemaphore.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     FsRtlpOpenDev @ 0x14070AC0C (FsRtlpOpenDev.c)
- *     FsRtlpRegisterProviderWithMUP @ 0x14070ACD4 (FsRtlpRegisterProviderWithMUP.c)
+ *     KeReleaseSemaphore @ 0x1402F2490 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     FsRtlpOpenDev @ 0x1407087CC (FsRtlpOpenDev.c)
+ *     FsRtlpRegisterProviderWithMUP @ 0x140708894 (FsRtlpRegisterProviderWithMUP.c)
  */
 
 __int64 __fastcall FsRtlpRegisterUncProvider(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4)

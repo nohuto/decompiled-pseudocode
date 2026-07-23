@@ -38,10 +38,10 @@ __int64 HalpProcessSecondarySignalList()
     SecondarySignalList = *(_QWORD *)SecondarySignalList;
     *(_QWORD *)(v3 + 8) = &SecondarySignalList;
     KxReleaseSpinLock((volatile signed __int64 *)&SecondarySignalListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -57,10 +57,10 @@ __int64 HalpProcessSecondarySignalList()
   }
   SecondarySignalDpcRunning = 0;
   KxReleaseSpinLock((volatile signed __int64 *)&SecondarySignalListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v2 <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v2 <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;

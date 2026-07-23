@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeGlobalState @ 0x1405B70E4
+ * XREFs of KiInitializeGlobalState @ 0x1405B4444
  * Callers:
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ void *KiInitializeGlobalState()
   void *result; // rax
 
   KiGlobalState = &KiInitState;
-  result = &unk_140F225E4;
-  qword_140F21E78 = &unk_140F225E4;
+  result = &unk_140F227C4;
+  qword_140F22998 = &unk_140F227C4;
   return result;
 }

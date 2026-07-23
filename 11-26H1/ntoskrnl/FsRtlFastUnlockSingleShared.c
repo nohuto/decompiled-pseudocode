@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlFastUnlockSingleShared @ 0x1402BF550
+ * XREFs of FsRtlFastUnlockSingleShared @ 0x14030A210
  * Callers:
- *     FsRtlPrivateRemoveLock @ 0x1405174BC (FsRtlPrivateRemoveLock.c)
+ *     FsRtlPrivateRemoveLock @ 0x140510F2C (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     RtlDelete @ 0x1402BF430 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x1402BF4D4 (FsRtlPrivateResetLowestLockOffset.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x1402BFAE8 (FsRtlPrivateCheckWaitingLocks.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRealSuccessor @ 0x1402C1830 (RtlRealSuccessor.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     RtlDelete @ 0x14030A0F0 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x14030A194 (FsRtlPrivateResetLowestLockOffset.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14030A7AC (FsRtlPrivateCheckWaitingLocks.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x14030C4F0 (RtlRealSuccessor.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleShared(
@@ -32,39 +32,39 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   KSPIN_LOCK *v10; // r13
   KIRQL v13; // al
   KSPIN_LOCK v14; // r8
-  KIRQL v15; // si
+  KIRQL v15; // bp
   unsigned __int64 v16; // rcx
-  RTL_SPLAY_LINKS *v17; // rdx
-  RTL_SPLAY_LINKS *v18; // r9
+  _RTL_SPLAY_LINKS *v17; // rdx
+  _RTL_SPLAY_LINKS *v18; // r9
   _QWORD *v19; // r11
   unsigned __int64 v20; // rax
   _RTL_SPLAY_LINKS *v21; // r10
-  RTL_SPLAY_LINKS *v22; // rcx
-  _RTL_SPLAY_LINKS *v23; // rsi
+  _RTL_SPLAY_LINKS *v22; // rcx
+  _RTL_SPLAY_LINKS *v23; // rbp
   __int64 v24; // rdx
   __int64 v25; // r8
-  RTL_SPLAY_LINKS *v26; // r14
-  RTL_SPLAY_LINKS *v27; // r15
+  _RTL_SPLAY_LINKS *v26; // r14
+  _RTL_SPLAY_LINKS *v27; // r15
   _RTL_SPLAY_LINKS *Parent; // r12
   __int64 v29; // rdx
   __int64 v30; // r8
   _RTL_SPLAY_LINKS *v31; // rbx
-  _RTL_SPLAY_LINKS *LeftChild; // rbp
+  _RTL_SPLAY_LINKS *LeftChild; // rsi
   _RTL_SPLAY_LINKS *RightChild; // rdi
   _RTL_SPLAY_LINKS *v34; // rcx
-  RTL_SPLAY_LINKS *v35; // rsi
+  _RTL_SPLAY_LINKS *v35; // rbp
   _RTL_SPLAY_LINKS *v36; // rax
   _RTL_SPLAY_LINKS *v37; // rax
   KIRQL v38; // bl
   _RTL_SPLAY_LINKS *v40; // rax
-  RTL_SPLAY_LINKS *v41; // rcx
+  _RTL_SPLAY_LINKS *v41; // rcx
   int v42; // eax
-  _RTL_SPLAY_LINKS *v43; // rsi
+  _RTL_SPLAY_LINKS *v43; // rbp
   PRTL_SPLAY_LINKS v44; // rax
   _RTL_SPLAY_LINKS *v45; // rax
   int v46; // [rsp+20h] [rbp-58h]
   _RTL_SPLAY_LINKS *i; // [rsp+28h] [rbp-50h]
-  RTL_SPLAY_LINKS *v48; // [rsp+30h] [rbp-48h]
+  _RTL_SPLAY_LINKS *v48; // [rsp+30h] [rbp-48h]
   __int64 retaddr; // [rsp+78h] [rbp+0h]
   unsigned __int8 v51; // [rsp+90h] [rbp+18h]
 
@@ -80,7 +80,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   v17 = 0LL;
   while ( 1 )
   {
-    v18 = (RTL_SPLAY_LINKS *)(v14 - 24);
+    v18 = (_RTL_SPLAY_LINKS *)(v14 - 24);
     v19 = *(_QWORD **)(v14 - 24);
     if ( *(_QWORD *)(v14 - 24 + 16) < (unsigned __int64)v9 )
       break;
@@ -94,7 +94,7 @@ LABEL_6:
       {
         if ( v20 <= (unsigned __int64)v9 )
           goto LABEL_12;
-        v17 = (RTL_SPLAY_LINKS *)(v14 - 24);
+        v17 = (_RTL_SPLAY_LINKS *)(v14 - 24);
       }
       goto LABEL_10;
     }
@@ -161,14 +161,14 @@ LABEL_68:
       if ( !v26->Parent )
       {
         v10[1] = (KSPIN_LOCK)RtlDelete(v22);
-        ++dword_140E1139C;
-        if ( LOWORD(FsRtlLockTreeNodeLookasideList.Alignment) < (unsigned __int16)word_140E11390 )
+        ++dword_140E1175C;
+        if ( LOWORD(FsRtlLockTreeNodeLookasideList.Alignment) < (unsigned __int16)word_140E11750 )
         {
           RtlpInterlockedPushEntrySList(&FsRtlLockTreeNodeLookasideList, (PSLIST_ENTRY)v26);
         }
         else
         {
-          ++dword_140E113A0;
+          ++dword_140E11760;
           guard_dispatch_icall_no_overrides(v26, v29, v30);
         }
         v21 = 0LL;
@@ -288,7 +288,7 @@ LABEL_47:
     }
     else
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         _InterlockedAnd64((volatile signed __int64 *)v10, 0LL);
       else
         KiReleaseSpinLockInstrumented((volatile signed __int64 *)v10, retaddr);
@@ -298,19 +298,19 @@ LABEL_47:
       guard_dispatch_icall_no_overrides(a7, &Parent->LeftChild, v25);
       v38 = KeAcquireSpinLockRaiseToDpc(v10);
     }
-    ++dword_140E1151C;
-    if ( LOWORD(FsRtlSharedLockLookasideList.Alignment) < (unsigned __int16)word_140E11510 )
+    ++dword_140E115DC;
+    if ( LOWORD(FsRtlSharedLockLookasideList.Alignment) < (unsigned __int16)word_140E115D0 )
     {
       RtlpInterlockedPushEntrySList(&FsRtlSharedLockLookasideList, (PSLIST_ENTRY)Parent);
     }
     else
     {
-      ++dword_140E11520;
+      ++dword_140E115E0;
       guard_dispatch_icall_no_overrides(Parent, v24, v25);
     }
     if ( a9 && v10[3] )
       FsRtlPrivateCheckWaitingLocks(a1, v10, v38);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       _InterlockedAnd64((volatile signed __int64 *)v10, 0LL);
     else
       KiReleaseSpinLockInstrumented((volatile signed __int64 *)v10, retaddr);

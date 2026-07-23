@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqPnPGetObjectPropertyLocales @ 0x140995028
+ * XREFs of PiDqPnPGetObjectPropertyLocales @ 0x140980068
  * Callers:
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140994DB8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14097FDF8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
  * Callees:
- *     _PnpGetGenericStorePropertyLocales @ 0x1409944D8 (_PnpGetGenericStorePropertyLocales.c)
- *     _PnpGetObjectPropertyLocales @ 0x140995138 (_PnpGetObjectPropertyLocales.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x14097F518 (_PnpGetGenericStorePropertyLocales.c)
+ *     _PnpGetObjectPropertyLocales @ 0x140980178 (_PnpGetObjectPropertyLocales.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqPnPGetObjectPropertyLocales(int a1, int a2, __int64 a3, __int64 a4, PVOID *a5)
@@ -22,7 +22,7 @@ __int64 __fastcall PiDqPnPGetObjectPropertyLocales(int a1, int a2, __int64 a3, _
   {
     if ( *a5 )
       ExFreePoolWithTag(*a5, 0x58706E50u);
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v13[0], 0x58706E50u);
     *a5 = Pool2;
     if ( !Pool2 )
     {

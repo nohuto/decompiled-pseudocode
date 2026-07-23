@@ -1,17 +1,17 @@
 /*
- * XREFs of PopTraceThermalZoneActiveActivity @ 0x140595D4C
+ * XREFs of PopTraceThermalZoneActiveActivity @ 0x14059623C
  * Callers:
- *     PopThermalSxEntry @ 0x14058FC48 (PopThermalSxEntry.c)
- *     PopThermalTelemetryWorker @ 0x14058FF90 (PopThermalTelemetryWorker.c)
- *     PopThermalZoneRemove @ 0x14098B010 (PopThermalZoneRemove.c)
+ *     PopThermalSxEntry @ 0x140590138 (PopThermalSxEntry.c)
+ *     PopThermalTelemetryWorker @ 0x140590480 (PopThermalTelemetryWorker.c)
+ *     PopThermalZoneRemove @ 0x14098B210 (PopThermalZoneRemove.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopDiagSnapActiveActivity @ 0x14059190C (PopDiagSnapActiveActivity.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopDiagSnapActiveActivity @ 0x140591DFC (PopDiagSnapActiveActivity.c)
  */
 
 void *__fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
@@ -89,7 +89,7 @@ void *__fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
             v30 = 8;
             tlgWriteTransfer_EtwWriteTransfer(
               (__int64)&dword_140C03950,
-              (unsigned __int8 *)byte_14002EF90,
+              (unsigned __int8 *)byte_14002EF23,
               0LL,
               0LL,
               9u,

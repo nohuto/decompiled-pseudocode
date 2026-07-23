@@ -18,13 +18,13 @@
  *     _TppETWTimerCancelled@8 @ 0x4B384D6D (_TppETWTimerCancelled@8.c)
  */
 
-char __fastcall TppCancelTimer(int a1, int a2, char a3)
+char __fastcall TppCancelTimer(int a1, _RTL_SRWLOCK *a2, char a3)
 {
   char v5; // bl
   int v7; // eax
   char v8; // bl
-  int v9; // esi
-  int v10; // edi
+  void *v9; // esi
+  _RTL_SRWLOCK *v10; // edi
   int v11; // [esp+0h] [ebp-1Ch]
   int v12; // [esp+4h] [ebp-18h]
   int v13; // [esp+8h] [ebp-14h]
@@ -35,7 +35,7 @@ char __fastcall TppCancelTimer(int a1, int a2, char a3)
   v5 = (*(_BYTE *)(a1 + 222) & 2) != 0;
   if ( (*(_BYTE *)(a1 + 222) & 1) != 0 )
   {
-    v16 = (unsigned int *)(a2 + ((*(_BYTE *)(a1 + 222) & 2) != 0 ? 8 : 80));
+    v16 = (unsigned int *)((char *)a2 + ((*(_BYTE *)(a1 + 222) & 2) != 0 ? 8 : 80));
     if ( RtlGetCurrentServiceSessionId() )
       v7 = (int)NtCurrentPeb()->SharedData + 556;
     else
@@ -55,16 +55,16 @@ char __fastcall TppCancelTimer(int a1, int a2, char a3)
       *(_DWORD *)(a1 + 204) = 0;
       *(_BYTE *)(a1 + 222) = 0;
       if ( !a3 )
-        RtlReleaseSRWLockExclusive(a1 + 144);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 144));
       return 1;
     }
     else
     {
       RtlReleaseSRWLockExclusive(a2);
       *(_BYTE *)(a1 + 222) |= 4u;
-      v9 = a1 + 208;
+      v9 = (void *)(a1 + 208);
       TppItePush(a1 + 208, v15);
-      v10 = a1 + 144;
+      v10 = (_RTL_SRWLOCK *)(a1 + 144);
       RtlReleaseSRWLockExclusive(v10);
       v8 = 0;
       ZwWaitForAlertByThreadId(v9, 0);
@@ -78,7 +78,7 @@ char __fastcall TppCancelTimer(int a1, int a2, char a3)
     *(_DWORD *)(a1 + 200) = 0;
     *(_DWORD *)(a1 + 204) = 0;
     if ( !a3 )
-      RtlReleaseSRWLockExclusive(a1 + 144);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 144));
     return 0;
   }
 }

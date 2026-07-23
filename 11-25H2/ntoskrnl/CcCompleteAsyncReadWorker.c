@@ -18,7 +18,7 @@ void __fastcall CcCompleteAsyncReadWorker(__int64 a1)
 {
   __int64 v1; // r14
   __int64 v2; // rbp
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rsi
+  _SLIST_ENTRY *NextWorkQueueEntry; // rsi
   unsigned __int64 *v4; // rdi
   __int64 v5; // r13
   char v6; // bl
@@ -35,7 +35,7 @@ void __fastcall CcCompleteAsyncReadWorker(__int64 a1)
   {
     v1 = *(_QWORD *)(a1 + 56);
     v2 = *(_QWORD *)(a1 + 72);
-    NextWorkQueueEntry = *(struct _SLIST_ENTRY **)(a1 + 48);
+    NextWorkQueueEntry = *(_SLIST_ENTRY **)(a1 + 48);
     v4 = (unsigned __int64 *)(*(_QWORD *)(a1 + 64) + 1160LL);
     v15 = *(_QWORD *)(a1 + 64);
     if ( !CcEnablePerVolumeLazyWriter )
@@ -61,7 +61,7 @@ void __fastcall CcCompleteAsyncReadWorker(__int64 a1)
       }
       else
       {
-        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v8, v2, v10);
+        NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry(v8, v2, v10);
       }
       _m_prefetchw(v4);
       v11 = *v4;

@@ -1,19 +1,19 @@
 /*
- * XREFs of KeFindFirstSetRightGroupMask @ 0x140208F44
+ * XREFs of KeFindFirstSetRightGroupMask @ 0x140330524
  * Callers:
- *     PoCopyDeepIdleMask @ 0x140205068 (PoCopyDeepIdleMask.c)
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402088E0 (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140208AA0 (KeQueryNodeActiveAffinityEx.c)
- *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140208D20 (KiEnumerateNextSchedulerSubNodeInSystem.c)
- *     EtwTraceThreadAffinity @ 0x1403B3E48 (EtwTraceThreadAffinity.c)
- *     KeQueryNodeActiveAffinity2 @ 0x140417E90 (KeQueryNodeActiveAffinity2.c)
- *     KeFindFirstSetLeftGroupMask @ 0x140417FA4 (KeFindFirstSetLeftGroupMask.c)
- *     PpmEventTraceHeteroSets @ 0x140439268 (PpmEventTraceHeteroSets.c)
- *     PpmGetIdleConstrainedMask @ 0x1404B2AEC (PpmGetIdleConstrainedMask.c)
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     KeInitializeProcess @ 0x140A4EB18 (KeInitializeProcess.c)
- *     MmCreatePeb @ 0x140AE79AC (MmCreatePeb.c)
+ *     PoCopyDeepIdleMask @ 0x14032C648 (PoCopyDeepIdleMask.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x14032FEC0 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140330080 (KeQueryNodeActiveAffinityEx.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140330300 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     EtwTraceThreadAffinity @ 0x1403A2658 (EtwTraceThreadAffinity.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140407C40 (KeQueryNodeActiveAffinity2.c)
+ *     KeFindFirstSetLeftGroupMask @ 0x140407D54 (KeFindFirstSetLeftGroupMask.c)
+ *     PpmEventTraceHeteroSets @ 0x14042BE28 (PpmEventTraceHeteroSets.c)
+ *     PpmGetIdleConstrainedMask @ 0x1404AD2F4 (PpmGetIdleConstrainedMask.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
+ *     MmCreatePeb @ 0x1408DDBA4 (MmCreatePeb.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     KeInitializeProcess @ 0x140A45798 (KeInitializeProcess.c)
  * Callees:
  *     <none>
  */

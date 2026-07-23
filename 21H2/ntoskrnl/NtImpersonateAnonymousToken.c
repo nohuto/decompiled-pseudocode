@@ -1,24 +1,24 @@
 /*
- * XREFs of NtImpersonateAnonymousToken @ 0x140716D30
+ * XREFs of NtImpersonateAnonymousToken @ 0x1406C5380
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     SeTokenIsRestricted @ 0x14035FFF0 (SeTokenIsRestricted.c)
- *     SeTokenIsWriteRestricted @ 0x140360010 (SeTokenIsWriteRestricted.c)
- *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
- *     SepGetAnonymousToken @ 0x14036016C (SepGetAnonymousToken.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SepRegQueryDwordValue @ 0x14071701C (SepRegQueryDwordValue.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C640 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     SeTokenIsRestricted @ 0x1402A4F20 (SeTokenIsRestricted.c)
+ *     SeTokenIsWriteRestricted @ 0x1402A4F40 (SeTokenIsWriteRestricted.c)
+ *     ObReferenceObjectByPointer @ 0x1402A5010 (ObReferenceObjectByPointer.c)
+ *     SepGetAnonymousToken @ 0x1402A509C (SepGetAnonymousToken.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     PsImpersonateClient @ 0x14064FCC0 (PsImpersonateClient.c)
+ *     SepRegQueryDwordValue @ 0x1406C566C (SepRegQueryDwordValue.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C7A0 (SepCopyAnonymousTokenAndSetSilo.c)
  */
 
 NTSTATUS __stdcall NtImpersonateAnonymousToken(HANDLE ThreadHandle)
@@ -32,31 +32,30 @@ NTSTATUS __stdcall NtImpersonateAnonymousToken(HANDLE ThreadHandle)
   __int64 v7; // rdx
   __int64 v8; // rcx
   struct _DMA_ADAPTER *v9; // rsi
-  __int64 v10; // rdx
-  __int64 v11; // rcx
+  int v10; // r8d
   __int64 CurrentServerSilo; // rax
   _KPROCESS *Process; // rdi
-  struct _DMA_ADAPTER *v14; // rax
-  struct _DMA_ADAPTER *v15; // rbx
+  struct _DMA_ADAPTER *v13; // rax
+  struct _DMA_ADAPTER *v14; // rbx
   PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-29h] BYREF
-  PACCESS_TOKEN v17; // [rsp+48h] [rbp-21h] BYREF
+  PACCESS_TOKEN v16; // [rsp+48h] [rbp-21h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+50h] [rbp-19h] BYREF
-  __int128 v19; // [rsp+70h] [rbp+7h] BYREF
-  __int128 v20; // [rsp+80h] [rbp+17h]
-  __int128 v21; // [rsp+90h] [rbp+27h]
-  int v22; // [rsp+D8h] [rbp+6Fh] BYREF
+  __int128 v18; // [rsp+70h] [rbp+7h] BYREF
+  __int128 v19; // [rsp+80h] [rbp+17h]
+  __int128 v20; // [rsp+90h] [rbp+27h]
+  int v21; // [rsp+D8h] [rbp+6Fh] BYREF
   PVOID Object; // [rsp+E0h] [rbp+77h] BYREF
   PVOID Token; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v19 = 0LL;
+  v18 = 0LL;
   DmaAdapter = 0LL;
+  v19 = 0LL;
   v20 = 0LL;
-  v21 = 0LL;
   Token = 0LL;
-  v22 = 0;
+  v21 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  v17 = 0LL;
+  v16 = 0LL;
   Object = 0LL;
   result = ObReferenceObjectByHandle(ThreadHandle, 0x100u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( result < 0 )
@@ -66,29 +65,29 @@ NTSTATUS __stdcall NtImpersonateAnonymousToken(HANDLE ThreadHandle)
   ClientToken = SubjectContext.PrimaryToken;
   if ( SubjectContext.ClientToken )
     ClientToken = SubjectContext.ClientToken;
-  if ( (int)SepRegQueryDwordValue(v3, L"AnonymousAppContainerImpersonationLevelCheck", &v22) >= 0 && v22
+  if ( (int)SepRegQueryDwordValue(v3, L"AnonymousAppContainerImpersonationLevelCheck", &v21) >= 0 && v21
     || ClientToken[48] == 1
     || (PrimaryToken[50] & 0x4000) == 0
     || (int)ClientToken[49] >= 2 )
   {
     if ( (ClientToken[50] & 0x4000) != 0 )
     {
-      AnonymousToken = SepGetAnonymousToken((__int64)ClientToken, (PADAPTER_OBJECT *)&v17);
+      AnonymousToken = SepGetAnonymousToken((__int64)ClientToken, (PADAPTER_OBJECT *)&v16);
       if ( AnonymousToken >= 0 )
       {
-        AnonymousToken = PsImpersonateClient((PETHREAD)Object, v17, 1u, 0, SecurityImpersonation);
-        HalPutDmaAdapter((PADAPTER_OBJECT)v17);
+        AnonymousToken = PsImpersonateClient((PETHREAD)Object, v16, 1u, 0, SecurityImpersonation);
+        HalPutDmaAdapter((PADAPTER_OBJECT)v16);
       }
       goto LABEL_29;
     }
-    if ( (int)SepRegQueryDwordValue(0x4000LL, L"EveryoneIncludesAnonymous", &v22) < 0
-      || (v9 = (struct _DMA_ADAPTER *)SeAnonymousLogonToken, v22 != 1) )
+    if ( (int)SepRegQueryDwordValue(0x4000LL, L"EveryoneIncludesAnonymous", &v21) < 0
+      || (v9 = (struct _DMA_ADAPTER *)SeAnonymousLogonToken, v21 != 1) )
     {
       v9 = (struct _DMA_ADAPTER *)SeAnonymousLogonTokenNoEveryone;
     }
     if ( PsIsCurrentThreadInServerSilo(v8, v7) )
     {
-      CurrentServerSilo = PsGetCurrentServerSilo(v11, v10);
+      CurrentServerSilo = PsGetCurrentServerSilo();
       AnonymousToken = SepCopyAnonymousTokenAndSetSilo(CurrentServerSilo, &Token);
       if ( AnonymousToken < 0 )
         goto LABEL_29;
@@ -96,12 +95,13 @@ NTSTATUS __stdcall NtImpersonateAnonymousToken(HANDLE ThreadHandle)
     }
     else if ( (ClientToken[50] & 0x380000) != 0 )
     {
-      LODWORD(v19) = 48;
-      *((_QWORD *)&v19 + 1) = 0LL;
-      DWORD2(v20) = 0;
-      *(_QWORD *)&v20 = 0LL;
-      v21 = 0LL;
-      AnonymousToken = SepDuplicateToken((__int64)v9, (int)&v19, 1, 2, 2u, 0, 1, &DmaAdapter);
+      LODWORD(v18) = 48;
+      LOBYTE(v10) = 1;
+      *((_QWORD *)&v18 + 1) = 0LL;
+      DWORD2(v19) = 0;
+      *(_QWORD *)&v19 = 0LL;
+      v20 = 0LL;
+      AnonymousToken = SepDuplicateToken((_DWORD)v9, (unsigned int)&v18, v10, 2, 2, 0, 1, (__int64)&DmaAdapter);
       if ( AnonymousToken < 0 )
         goto LABEL_29;
       LODWORD(DmaAdapter[12].DmaOperations) |= ClientToken[50] & 0x380000;
@@ -116,18 +116,18 @@ NTSTATUS __stdcall NtImpersonateAnonymousToken(HANDLE ThreadHandle)
     {
       HalPutDmaAdapter(v9);
       Process = KeGetCurrentThread()->ApcState.Process;
-      v14 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
-      v15 = v14;
-      if ( v14 )
+      v13 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
+      v14 = v13;
+      if ( v13 )
       {
-        if ( !SeTokenIsRestricted(v14) || SeTokenIsWriteRestricted(v15) )
+        if ( !SeTokenIsRestricted(v13) || SeTokenIsWriteRestricted(v14) )
         {
-          ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], v15);
+          ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], v14);
           AnonymousToken = PsImpersonateClient((PETHREAD)Object, v9, Token == 0LL, 0, SecurityImpersonation);
         }
         else
         {
-          HalPutDmaAdapter(v15);
+          HalPutDmaAdapter(v14);
           AnonymousToken = -1073741790;
         }
       }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlNumberGenericTableElementsAvl @ 0x14048DA40
+ * XREFs of RtlNumberGenericTableElementsAvl @ 0x140487580
  * Callers:
- *     PiDqQueryAppendActionEntry @ 0x1409A8588 (PiDqQueryAppendActionEntry.c)
- *     PiUpdateDriverDBCache @ 0x140A24D48 (PiUpdateDriverDBCache.c)
- *     VfPtGenerateTraceInformation @ 0x140C29C5C (VfPtGenerateTraceInformation.c)
+ *     PiDqQueryAppendActionEntry @ 0x140968F98 (PiDqQueryAppendActionEntry.c)
+ *     PiUpdateDriverDBCache @ 0x140A37858 (PiUpdateDriverDBCache.c)
+ *     VfPtGenerateTraceInformation @ 0x140C2FC6C (VfPtGenerateTraceInformation.c)
  * Callees:
  *     <none>
  */

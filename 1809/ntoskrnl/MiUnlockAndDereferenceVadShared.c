@@ -1,25 +1,25 @@
 /*
- * XREFs of MiUnlockAndDereferenceVadShared @ 0x1400754A0
+ * XREFs of MiUnlockAndDereferenceVadShared @ 0x140075490
  * Callers:
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     MiCleanCfg @ 0x14012F4D4 (MiCleanCfg.c)
- *     MiWaitForRotateToComplete @ 0x140139C0C (MiWaitForRotateToComplete.c)
- *     MmGetEnclaveModuleList @ 0x1402BEBC0 (MmGetEnclaveModuleList.c)
- *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
- *     MiCheckForUserStackOverflow @ 0x1406A3A0C (MiCheckForUserStackOverflow.c)
- *     MmFlushVirtualMemory @ 0x1406B6C1C (MmFlushVirtualMemory.c)
- *     NtAreMappedFilesTheSame @ 0x140704CA0 (NtAreMappedFilesTheSame.c)
- *     MmGetFileNameForAddress @ 0x14084BC50 (MmGetFileNameForAddress.c)
- *     MiHotPatchProcess @ 0x140855604 (MiHotPatchProcess.c)
- *     MiSetImageHotPatchAllowed @ 0x140857FC4 (MiSetImageHotPatchAllowed.c)
- *     MiHandleEnclaveFault @ 0x14085901C (MiHandleEnclaveFault.c)
- *     MiFinishPlaceholderVadReplacement @ 0x14085C76C (MiFinishPlaceholderVadReplacement.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiGetWorkingSetInfoList @ 0x140096530 (MiGetWorkingSetInfoList.c)
+ *     MiCleanCfg @ 0x14012F5A4 (MiCleanCfg.c)
+ *     MiWaitForRotateToComplete @ 0x140139D0C (MiWaitForRotateToComplete.c)
+ *     MmGetEnclaveModuleList @ 0x1402BEDB0 (MmGetEnclaveModuleList.c)
+ *     MmQueryVirtualMemory @ 0x1405EF910 (MmQueryVirtualMemory.c)
+ *     MiCheckForUserStackOverflow @ 0x1406A4CAC (MiCheckForUserStackOverflow.c)
+ *     MmFlushVirtualMemory @ 0x1406B7EBC (MmFlushVirtualMemory.c)
+ *     NtAreMappedFilesTheSame @ 0x140705F40 (NtAreMappedFilesTheSame.c)
+ *     MmGetFileNameForAddress @ 0x14084CEB0 (MmGetFileNameForAddress.c)
+ *     MiHotPatchProcess @ 0x140856864 (MiHotPatchProcess.c)
+ *     MiSetImageHotPatchAllowed @ 0x140859224 (MiSetImageHotPatchAllowed.c)
+ *     MiHandleEnclaveFault @ 0x14085A27C (MiHandleEnclaveFault.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x14085D9CC (MiFinishPlaceholderVadReplacement.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiUnlockAndDereferenceVadShared(char *P)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHvMapDeviceMsiRange @ 0x1409A7248
+ * XREFs of HalpHvMapDeviceMsiRange @ 0x1409A8178
  * Callers:
- *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
+ *     HalpInterruptRemap @ 0x140378130 (HalpInterruptRemap.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpHvBuildDeviceId @ 0x1409A70C8 (HalpHvBuildDeviceId.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpHvBuildDeviceId @ 0x1409A7FF8 (HalpHvBuildDeviceId.c)
  */
 
 __int64 __fastcall HalpHvMapDeviceMsiRange(__int64 a1, __int64 a2, int *a3, char a4, __int64 a5, unsigned int a6)
@@ -36,7 +36,7 @@ __int64 __fastcall HalpHvMapDeviceMsiRange(__int64 a1, __int64 a2, int *a3, char
   v20 = 0;
   v15 = 0LL;
   v16 = a6;
-  v8 = ((__int64 (__fastcall *)(__int64, __int64 *, __int64, __int128 *))qword_140C4A1A8)(v13, &v15, a5 + 24, &v14);
+  v8 = ((__int64 (__fastcall *)(__int64, __int64 *, __int64, __int128 *))qword_140C4A1E8)(v13, &v15, a5 + 24, &v14);
   if ( v8 >= 0 && a6 )
   {
     v9 = DWORD2(v14);

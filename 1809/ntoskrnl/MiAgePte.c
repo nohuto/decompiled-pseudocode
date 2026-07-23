@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAgePte @ 0x14006ADD0
+ * XREFs of MiAgePte @ 0x14006ADC0
  * Callers:
  *     <none>
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAgePteWorker @ 0x14006B2C0 (MiAgePteWorker.c)
- *     MiDemoteCombinedPte @ 0x14006C200 (MiDemoteCombinedPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiAgeWorkingSetTail @ 0x140075A50 (MiAgeWorkingSetTail.c)
- *     MiIsPageTableLocked @ 0x14012DA1C (MiIsPageTableLocked.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertVmAccessedEntry @ 0x1402B315C (MiInsertVmAccessedEntry.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiAgePteWorker @ 0x14006B2B0 (MiAgePteWorker.c)
+ *     MiDemoteCombinedPte @ 0x14006C1F0 (MiDemoteCombinedPte.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiAgeWorkingSetTail @ 0x140075A40 (MiAgeWorkingSetTail.c)
+ *     MiIsPageTableLocked @ 0x14012DAEC (MiIsPageTableLocked.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertVmAccessedEntry @ 0x1402B334C (MiInsertVmAccessedEntry.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
@@ -89,9 +89,9 @@ __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
     v24 = 0LL;
     goto LABEL_41;
   }
-  v22 = &dword_14043B728;
+  v22 = &dword_14043C7E8;
   if ( (*(_BYTE *)(v5 + 184) & 7) == 2 )
-    v23 = &dword_14043B728;
+    v23 = &dword_14043C7E8;
   else
     v23 = (volatile signed __int32 *)(v5 + 232);
   v24 = 0LL;
@@ -116,7 +116,7 @@ __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
         {
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           CurrentPrcb = v51;
-          v22 = &dword_14043B728;
+          v22 = &dword_14043C7E8;
           v20 = v53;
           v24 = 0LL;
         }
@@ -137,7 +137,7 @@ __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
       }
       v35 = ExpWaitForSpinLockExclusiveAndAcquire(v23, 0xFFu);
       v20 = v53;
-      v22 = &dword_14043B728;
+      v22 = &dword_14043C7E8;
       v54 = v35;
       v24 = 0LL;
     }
@@ -160,7 +160,7 @@ __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
     while ( (v27 & 0xBFFFFFFF) != 0x80000000 );
   }
   v20 = v53;
-  v22 = &dword_14043B728;
+  v22 = &dword_14043C7E8;
   v24 = 0LL;
 LABEL_30:
   if ( (v48 & 2) != 0 )

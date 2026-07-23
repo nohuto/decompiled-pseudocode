@@ -1,24 +1,24 @@
 /*
- * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x140B49C1C
+ * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x140B4B9AC
  * Callers:
- *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1407700C0 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1407730C0 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
  * Callees:
- *     RtlQueryFeatureConfiguration @ 0x1404CC190 (RtlQueryFeatureConfiguration.c)
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404FE2F8 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlQueryFeatureConfiguration @ 0x1404C5BC0 (RtlQueryFeatureConfiguration.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404F78A8 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 *wil_details_UpdateFeatureConfiguredStates()
 {
   __int64 *i; // rcx
-  unsigned int v1; // ecx
-  int v2; // eax
+  RTL_FEATURE_ID v1; // ecx
+  NTSTATUS v2; // eax
   __int16 v3; // dx
   __int16 v4; // dx
   __int64 *result; // rax
   volatile signed __int32 **v6; // rbx
-  __int64 v7; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-20h] BYREF
+  ULONGLONG ChangeStamp; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_FEATURE_CONFIGURATION FeatureConfiguration; // [rsp+28h] [rbp-20h] BYREF
 
   for ( i = (__int64 *)&wil_details_featureDescriptors_a; ; i = (__int64 *)(v6 + 7) )
   {
@@ -29,15 +29,15 @@ __int64 *wil_details_UpdateFeatureConfiguredStates()
     if ( !*((_BYTE *)result + 29) && !*((_BYTE *)result + 30) && !*((_BYTE *)result + 28) )
     {
       v1 = *((_DWORD *)result + 6);
-      v8 = 0LL;
-      v2 = RtlQueryFeatureConfiguration(v1, 1u, &v7, (__int64)&v8);
+      *(_QWORD *)&FeatureConfiguration.FeatureId = 0LL;
+      v2 = RtlQueryFeatureConfiguration(v1, RtlFeatureConfigurationRuntime, &ChangeStamp, &FeatureConfiguration);
       if ( v2 == -2147483614 || v2 == -1073741275 )
         goto LABEL_12;
       if ( v2 )
       {
         if ( v2 == 279 )
         {
-          v3 = BYTE4(v8) & 0x80;
+          v3 = *((_BYTE *)&FeatureConfiguration + 4) & 0x80;
           goto LABEL_11;
         }
 LABEL_12:
@@ -45,7 +45,7 @@ LABEL_12:
       }
       else
       {
-        v3 = BYTE4(v8) & 0xB0 | (4 * (BYTE4(v8) & 0x40));
+        v3 = *((_BYTE *)&FeatureConfiguration + 4) & 0xB0 | (4 * (*((_BYTE *)&FeatureConfiguration + 4) & 0x40));
 LABEL_11:
         v4 = (8 * v3) | 0x206;
       }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPmTimerQueryCounterMemory @ 0x140560620
+ * XREFs of HalpPmTimerQueryCounterMemory @ 0x14055E250
  * Callers:
  *     <none>
  * Callees:

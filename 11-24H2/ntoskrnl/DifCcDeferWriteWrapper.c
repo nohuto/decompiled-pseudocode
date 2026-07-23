@@ -1,14 +1,14 @@
 /*
- * XREFs of DifCcDeferWriteWrapper @ 0x14061A440
+ * XREFs of DifCcDeferWriteWrapper @ 0x140618A00
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     CcDeferWrite @ 0x14057B140 (CcDeferWrite.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     CcDeferWrite @ 0x1405785D0 (CcDeferWrite.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall DifCcDeferWriteWrapper(
@@ -21,71 +21,67 @@ void __fastcall DifCcDeferWriteWrapper(
 {
   __int64 *APIThunkContextById; // rax
   __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 *v13; // rsi
-  int v14; // eax
-  BOOLEAN v15; // r14
+  __int64 *v11; // rsi
+  int v12; // eax
+  BOOLEAN v13; // r14
   __int64 *i; // rbx
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  BOOLEAN v20; // di
-  _QWORD **v21; // rsi
+  __int64 v15; // rdx
+  BOOLEAN v16; // di
+  _QWORD **v17; // rsi
   _QWORD *j; // rbx
-  __int128 v23; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v24; // [rsp+40h] [rbp-20h]
-  __int128 v25; // [rsp+50h] [rbp-10h]
+  __int128 v19; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v20; // [rsp+40h] [rbp-20h]
+  __int128 v21; // [rsp+50h] [rbp-10h]
   _UNKNOWN *retaddr; // [rsp+88h] [rbp+28h]
 
-  v23 = 0LL;
-  v24 = 0LL;
-  v25 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(432);
-  v13 = APIThunkContextById;
+  v11 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v14 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v14 & 0x18) != 0 )
+    v12 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v12 & 0x18) != 0 )
     {
-      *(_QWORD *)&v23 = retaddr;
+      *(_QWORD *)&v19 = retaddr;
     }
-    else if ( (v14 & 4) != 0 )
+    else if ( (v12 & 4) != 0 )
     {
-      *(_QWORD *)&v23 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v19 = DifGetReturnAddressForWrappers();
     }
-    v15 = 0;
-    *((_QWORD *)&v25 + 1) = a1;
-    HIDWORD(v23) = BytesToWrite;
-    BYTE8(v23) = Retrying;
-    *(_QWORD *)&v25 = a2;
-    *((_QWORD *)&v24 + 1) = a3;
-    *(_QWORD *)&v24 = a4;
+    v13 = 0;
+    *((_QWORD *)&v21 + 1) = a1;
+    HIDWORD(v19) = BytesToWrite;
+    BYTE8(v19) = Retrying;
+    *(_QWORD *)&v21 = a2;
+    *((_QWORD *)&v20 + 1) = a3;
+    *(_QWORD *)&v20 = a4;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v15 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v13 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v13[4]; i != v13 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v11[4]; i != v11 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v23, v10, v11, v12);
+          guard_dispatch_icall_no_overrides(&v19, v10);
       }
-      if ( v15 )
+      if ( v13 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
   CcDeferWrite(a1, a2, a3, a4, BytesToWrite, Retrying);
-  if ( v13 )
+  if ( v11 )
   {
-    if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v20 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v16 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v16 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v21 = (_QWORD **)(v13 + 6);
-      for ( j = *v21; j != v21; j = (_QWORD *)*j )
+      v17 = (_QWORD **)(v11 + 6);
+      for ( j = *v17; j != v17; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v23, v17, v18, v19);
+          guard_dispatch_icall_no_overrides(&v19, v15);
       }
-      if ( v20 )
+      if ( v16 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }

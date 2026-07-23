@@ -1,19 +1,19 @@
 /*
- * XREFs of PopDiagTraceThermalRequest @ 0x140A73644
+ * XREFs of PopDiagTraceThermalRequest @ 0x140A6CC64
  * Callers:
- *     PopAssociateThermalRequest @ 0x14074C028 (PopAssociateThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x14074C3B8 (PopOrphanCoolingExtension.c)
- *     PopRundownThermalRequests @ 0x140A38850 (PopRundownThermalRequests.c)
- *     PopDeactiveThermalRequest @ 0x140AB88D4 (PopDeactiveThermalRequest.c)
+ *     PopAssociateThermalRequest @ 0x14074A358 (PopAssociateThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x14074A6E8 (PopOrphanCoolingExtension.c)
+ *     PopRundownThermalRequests @ 0x140A2D910 (PopRundownThermalRequests.c)
+ *     PopDeactiveThermalRequest @ 0x140AB2D98 (PopDeactiveThermalRequest.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PoStoreDiagnosticContext @ 0x1403312F4 (PoStoreDiagnosticContext.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PoStoreDiagnosticContext @ 0x1402BA9FC (PoStoreDiagnosticContext.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTraceThermalRequest(__int64 a1, const EVENT_DESCRIPTOR *a2)
@@ -37,7 +37,7 @@ void __fastcall PopDiagTraceThermalRequest(__int64 a1, const EVENT_DESCRIPTOR *a
   __int16 v20; // [rsp+3Ch] [rbp-C4h] BYREF
   unsigned __int16 v21; // [rsp+40h] [rbp-C0h] BYREF
   BOOL v22; // [rsp+44h] [rbp-BCh] BYREF
-  unsigned __int64 v23; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG_PTR v23; // [rsp+48h] [rbp-B8h] BYREF
   __int64 v24; // [rsp+50h] [rbp-B0h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-A0h] BYREF
   BOOL *v26; // [rsp+70h] [rbp-90h]
@@ -88,7 +88,7 @@ void __fastcall PopDiagTraceThermalRequest(__int64 a1, const EVENT_DESCRIPTOR *a
         if ( v7 )
         {
           PoStoreDiagnosticContext(*(_QWORD *)(a1 + 24), 0LL, &v23);
-          Pool2 = (unsigned __int64 *)ExAllocatePool2(0x100uLL);
+          Pool2 = (unsigned __int64 *)ExAllocatePool2(0x100uLL, v23, 0x50455654u);
           v4 = Pool2;
           if ( Pool2 )
           {

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopExecutionRequiredPowerRequest @ 0x140520970
+ * XREFs of PopExecutionRequiredPowerRequest @ 0x1405039D8
  * Callers:
- *     PopSystemRequiredCallback @ 0x1405206C0 (PopSystemRequiredCallback.c)
- *     PopExecutionRequiredCallback @ 0x140520920 (PopExecutionRequiredCallback.c)
+ *     PopSystemRequiredCallback @ 0x140503728 (PopSystemRequiredCallback.c)
+ *     PopExecutionRequiredCallback @ 0x140503988 (PopExecutionRequiredCallback.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x1400C3B20 (RtlLookupElementGenericTableAvl.c)
- *     PopEnablePowerExecutionRequest @ 0x14051E148 (PopEnablePowerExecutionRequest.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1400C19B0 (RtlLookupElementGenericTableAvl.c)
+ *     PopEnablePowerExecutionRequest @ 0x1405011B0 (PopEnablePowerExecutionRequest.c)
  */
 
 __int64 *__fastcall PopExecutionRequiredPowerRequest(char a1, int a2)

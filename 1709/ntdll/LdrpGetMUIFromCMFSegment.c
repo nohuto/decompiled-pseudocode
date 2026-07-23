@@ -17,39 +17,35 @@
  *     ResCRuntimeGetCultureID @ 0x18010C014 (ResCRuntimeGetCultureID.c)
  */
 
-__int64 __fastcall LdrpGetMUIFromCMFSegment(__int64 a1, __int16 a2, int a3, char a4, _DWORD *a5, _QWORD *a6)
+__int64 __fastcall LdrpGetMUIFromCMFSegment(PVOID BaseOfImage, __int16 a2, int a3, char a4, _DWORD *a5, _QWORD *a6)
 {
   __int64 ResourceData; // rbx
   int CultureID; // edi
   int v10; // r15d
-  __int64 v11; // rdx
-  __int64 v12; // r9
-  __int64 v13; // rax
+  _QWORD *v11; // rax
   __int64 inited; // rax
-  __int64 v16; // rcx
-  __int64 v17; // rax
+  __int64 v14; // rcx
+  __int64 v15; // rax
   __int64 RcConfig; // rax
+  int v17; // ecx
+  __int128 v18; // xmm6
   int v19; // ecx
-  __int128 v20; // xmm6
-  int v21; // ecx
-  __int64 v22; // rcx
+  __int64 v20; // rcx
   unsigned int i; // ebx
-  unsigned int v24; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int LastErrorValue; // [rsp+44h] [rbp-BCh]
-  char v26[2]; // [rsp+48h] [rbp-B8h] BYREF
-  __int16 v27; // [rsp+4Ah] [rbp-B6h]
-  char *v28; // [rsp+50h] [rbp-B0h]
-  __int128 v29; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v30; // [rsp+70h] [rbp-90h] BYREF
-  char v31; // [rsp+80h] [rbp-80h] BYREF
+  unsigned int v22; // [rsp+40h] [rbp-C0h] BYREF
+  LONG Win32Error; // [rsp+44h] [rbp-BCh]
+  _UNICODE_STRING LocaleName; // [rsp+48h] [rbp-B8h] BYREF
+  __int128 v25; // [rsp+60h] [rbp-A0h] BYREF
+  __int128 v26; // [rsp+70h] [rbp-90h] BYREF
+  char v27; // [rsp+80h] [rbp-80h] BYREF
 
   ResourceData = 0LL;
-  v24 = 0;
+  v22 = 0;
   LOWORD(CultureID) = a2;
   v10 = a4 & 0x80;
-  LastErrorValue = NtCurrentTeb()->LastErrorValue;
+  Win32Error = NtCurrentTeb()->LastErrorValue;
   LdrpInitMuiCrits(&MuiLockInitCount, &MuiCriticalSection);
-  v13 = ResRuntimeView;
+  v11 = ResRuntimeView;
   if ( !ResRuntimeView )
   {
     RtlEnterCriticalSection(&MuiCriticalSection);
@@ -58,24 +54,21 @@ __int64 __fastcall LdrpGetMUIFromCMFSegment(__int64 a1, __int16 a2, int a3, char
       inited = ResCKeInitRuntimeViewEx();
       if ( !inited )
         inited = -1LL;
-      ResRuntimeView = inited;
+      ResRuntimeView = (PVOID)inited;
     }
     RtlLeaveCriticalSection(&MuiCriticalSection);
-    v13 = ResRuntimeView;
+    v11 = ResRuntimeView;
   }
-  if ( v13 != -1
-    && (!v13
-     || (v16 = *(_QWORD *)(v13 + 16)) != 0
-     && (v17 = *(_QWORD *)(v16 + 24)) != 0
-     && (*(_DWORD *)(v17 + 48) & 0x100000) == 0) )
+  if ( v11 != (_QWORD *)-1LL
+    && (!v11 || (v14 = v11[2]) != 0 && (v15 = *(_QWORD *)(v14 + 24)) != 0 && (*(_DWORD *)(v15 + 48) & 0x100000) == 0) )
   {
     if ( (_WORD)CultureID == 1024 || (_WORD)CultureID == 2048 || (_WORD)CultureID == 3072 || (_WORD)CultureID == 5120 )
     {
-      v28 = &v31;
-      v27 = 170;
-      if ( (int)RtlLcidToLocaleName((unsigned __int16)CultureID, v26, 2LL) < 0 )
+      LocaleName.Buffer = (wchar_t *)&v27;
+      LocaleName.MaximumLength = 170;
+      if ( RtlLcidToLocaleName((unsigned __int16)CultureID, &LocaleName, 2u, 0) < 0 )
         goto LABEL_8;
-      CultureID = ResCRuntimeGetCultureID(v22, v28);
+      CultureID = ResCRuntimeGetCultureID(v20, LocaleName.Buffer);
       if ( !CultureID )
         goto LABEL_8;
     }
@@ -83,32 +76,31 @@ __int64 __fastcall LdrpGetMUIFromCMFSegment(__int64 a1, __int16 a2, int a3, char
     {
       CultureID = (unsigned __int16)CultureID;
     }
-    LOBYTE(v12) = 1;
-    RcConfig = LdrpGetRcConfig(a1, v11, 0LL, v12);
+    RcConfig = LdrpGetRcConfig(BaseOfImage);
     if ( RcConfig && *(_DWORD *)RcConfig == -20054323 )
     {
-      v20 = *(_OWORD *)(RcConfig + 28);
-      v29 = v20;
+      v18 = *(_OWORD *)(RcConfig + 28);
+      v25 = v18;
       ResourceData = ResCRuntimeGetResourceDataEx(
-                       v19,
-                       (unsigned int)&v29,
+                       v17,
+                       (unsigned int)&v25,
                        CultureID,
                        a3,
                        16,
-                       (__int64)&v24,
+                       (__int64)&v22,
                        (__int64)a5);
       if ( ResourceData == -2 )
       {
         if ( v10
           || (RtlEnterCriticalSection(&MuiCriticalSection),
-              v30 = v20,
+              v26 = v18,
               ResourceData = ResCRuntimeGetResourceDataEx(
-                               v21,
-                               (unsigned int)&v30,
+                               v19,
+                               (unsigned int)&v26,
                                CultureID,
                                a3,
                                0,
-                               (__int64)&v24,
+                               (__int64)&v22,
                                (__int64)a5),
               RtlLeaveCriticalSection(&MuiCriticalSection),
               ResourceData == -2) )
@@ -131,11 +123,11 @@ __int64 __fastcall LdrpGetMUIFromCMFSegment(__int64 a1, __int16 a2, int a3, char
     }
   }
 LABEL_8:
-  RtlSetLastWin32Error(LastErrorValue);
+  RtlSetLastWin32Error(Win32Error);
   if ( ResourceData )
   {
     if ( a6 )
-      *a6 = v24;
+      *a6 = v22;
   }
   else if ( a5 )
   {

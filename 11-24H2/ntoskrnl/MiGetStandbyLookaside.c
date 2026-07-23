@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetStandbyLookaside @ 0x14022E630
+ * XREFs of MiGetStandbyLookaside @ 0x140301F40
  * Callers:
- *     MiSynchronizeFastPageInsert @ 0x14022D9F0 (MiSynchronizeFastPageInsert.c)
- *     MiRebuildStandbyLookasideList @ 0x1403F43F0 (MiRebuildStandbyLookasideList.c)
+ *     MiSynchronizeFastPageInsert @ 0x140301300 (MiSynchronizeFastPageInsert.c)
+ *     MiRebuildStandbyLookasideList @ 0x1403E73E0 (MiRebuildStandbyLookasideList.c)
  * Callees:
  *     <none>
  */

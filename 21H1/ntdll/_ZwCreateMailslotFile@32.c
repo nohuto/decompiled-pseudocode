@@ -6,7 +6,15 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwCreateMailslotFile(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
+NTSTATUS __cdecl ZwCreateMailslotFile(
+        PHANDLE FileHandle,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CreateOptions,
+        ULONG MailslotQuota,
+        ULONG MaximumMessageSize,
+        PLARGE_INTEGER ReadTimeout)
 {
   return Wow64SystemServiceCall();
 }

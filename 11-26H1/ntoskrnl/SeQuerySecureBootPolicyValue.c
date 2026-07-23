@@ -1,10 +1,10 @@
 /*
- * XREFs of SeQuerySecureBootPolicyValue @ 0x140815EC0
+ * XREFs of SeQuerySecureBootPolicyValue @ 0x14081C0D0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     SepSecureBootFindMatchingRegistryRule @ 0x140816030 (SepSecureBootFindMatchingRegistryRule.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SepSecureBootFindMatchingRegistryRule @ 0x14081C240 (SepSecureBootFindMatchingRegistryRule.c)
  */
 
 __int64 __fastcall SeQuerySecureBootPolicyValue(
@@ -26,13 +26,13 @@ __int64 __fastcall SeQuerySecureBootPolicyValue(
   char *v16; // r9
   unsigned int v17; // ecx
 
-  if ( !*(_QWORD *)&RtlpBootStatHandleLock.SavedApcStateFill[40] )
+  if ( !RtlpBootStatHandleLock.SchedulerApc.Reserved[1] )
     return (unsigned int)-2143092730;
   MatchingRegistryRule = SepSecureBootFindMatchingRegistryRule(a1, a1, a2);
   if ( !MatchingRegistryRule )
     return (unsigned int)-1073741772;
   v10 = *(unsigned int *)(MatchingRegistryRule + 12);
-  v11 = *(unsigned __int16 *)((char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink + v10);
+  v11 = *(unsigned __int16 *)((char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v10);
   if ( a3 != v11 )
     return (unsigned int)-1073741772;
   v12 = v11 & 0x1F;
@@ -41,29 +41,29 @@ __int64 __fastcall SeQuerySecureBootPolicyValue(
     v13 = v12 - 2;
     if ( !v13 )
     {
-      v16 = (char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink + v10 + 2;
+      v16 = (char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v10 + 2;
       v17 = 4;
       goto LABEL_16;
     }
     v14 = v13 - 2;
     if ( !v14 )
     {
-      v16 = (char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Blink + v10;
-      v17 = 4 * *(unsigned __int16 *)((char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink + v10 + 6);
+      v16 = (char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v10 + 8;
+      v17 = 4 * *(unsigned __int16 *)((char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v10 + 6);
       goto LABEL_16;
     }
     v15 = v14 - 1;
     if ( !v15 )
     {
-      v16 = (char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink + v10 + 2;
+      v16 = (char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v10 + 2;
       v17 = 8;
       goto LABEL_16;
     }
     if ( v15 != 5 )
       return (unsigned int)-1073741822;
   }
-  v16 = (char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink + v10 + 4;
-  v17 = *(unsigned __int16 *)((char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink + v10 + 2);
+  v16 = (char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v10 + 4;
+  v17 = *(unsigned __int16 *)((char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v10 + 2);
 LABEL_16:
   v8 = 0;
   *a6 = v17;

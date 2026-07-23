@@ -32,8 +32,8 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void
   ULONG v5; // r13d
   int v7; // r14d
   PVOID *v8; // rsi
-  int v9; // ebx
-  ULONG Length; // r12d
+  NTSTATUS v9; // ebx
+  ULONG v10; // r12d
   WCHAR *v11; // r15
   const UNICODE_STRING *v12; // rcx
   ULONG i; // edx
@@ -103,7 +103,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void
   _QWORD v79[10]; // [rsp+F0h] [rbp-10h] BYREF
   PVOID **v80; // [rsp+140h] [rbp+40h]
   GUID Guid; // [rsp+148h] [rbp+48h] BYREF
-  __int128 v82; // [rsp+158h] [rbp+58h] BYREF
+  __int128 KeyInformation; // [rsp+158h] [rbp+58h] BYREF
   __int128 v83; // [rsp+168h] [rbp+68h]
   __int64 v84; // [rsp+178h] [rbp+78h]
 
@@ -121,7 +121,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void
   v65 = 0;
   v8 = 0LL;
   v64 = 0;
-  v82 = 0LL;
+  KeyInformation = 0LL;
   *(_QWORD *)&String2.Length = 0LL;
   v83 = 0LL;
   String2.Buffer = 0LL;
@@ -137,14 +137,14 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void
   ValueName = 0LL;
   Data = 0;
   ResultLength = 0;
-  v9 = NtQueryKey(a3, 4u, (unsigned __int64)&v82, 0x28u, &ResultLength);
+  v9 = NtQueryKey(a3, KeyCachedInformation, &KeyInformation, 0x28u, &ResultLength);
   if ( v9 >= 0 )
   {
     if ( !DWORD1(v83) )
       goto LABEL_145;
-    Length = HIDWORD(v83) + 2 * (DWORD2(v83) + 13);
-    v66 = Length;
-    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, Length, 0x63647050u);
+    v10 = HIDWORD(v83) + 2 * (DWORD2(v83) + 13);
+    v66 = v10;
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v10, 0x63647050u);
     v11 = PoolWithTag;
     if ( !PoolWithTag )
     {
@@ -158,7 +158,7 @@ LABEL_4:
       for ( i = 0; ; i = v5 )
       {
         v67 = v5;
-        ObjectProperties = ZwEnumerateValueKey(KeyHandle, i, KeyValueFullInformation, v11, Length, &ResultLength);
+        ObjectProperties = ZwEnumerateValueKey(KeyHandle, i, KeyValueFullInformation, v11, v10, &ResultLength);
         v9 = ObjectProperties;
         if ( ObjectProperties == -2147483622 )
         {
@@ -246,7 +246,7 @@ LABEL_145:
         if ( ObjectProperties == -2147483643 )
         {
           ExFreePoolWithTag(v11, 0);
-          Length = ResultLength + 2;
+          v10 = ResultLength + 2;
           v66 = ResultLength + 2;
           PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, ResultLength + 2, 0x63647050u);
           v11 = PoolWithTag;
@@ -515,7 +515,7 @@ LABEL_116:
         v11 = PoolWithTag;
         v47 = (v20 & 1) == 0;
         v7 = a4;
-        Length = v66;
+        v10 = v66;
         v5 = v67;
         if ( v47 )
           *(_QWORD *)(v27 + 184) = v46 | 1;

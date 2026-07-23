@@ -1,22 +1,22 @@
 /*
- * XREFs of MiLogNonStealNonPagedPoolEntries @ 0x1404594E0
+ * XREFs of MiLogNonStealNonPagedPoolEntries @ 0x140450D60
  * Callers:
- *     MiLogNonStealNonPagedPoolWorker @ 0x1404591C0 (MiLogNonStealNonPagedPoolWorker.c)
+ *     MiLogNonStealNonPagedPoolWorker @ 0x140450A40 (MiLogNonStealNonPagedPoolWorker.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiNonStealTagsTreeFind @ 0x1404596D4 (MiNonStealTagsTreeFind.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiNonStealTagsTreeFind @ 0x140450F54 (MiNonStealTagsTreeFind.c)
  */
 
-void __fastcall MiLogNonStealNonPagedPoolEntries(unsigned __int64 a1, __int64 *a2, unsigned __int64 a3)
+void __fastcall MiLogNonStealNonPagedPoolEntries(PRTL_RB_TREE Tree, __int64 *a2, unsigned __int64 a3)
 {
   __int64 *i; // r14
-  unsigned __int64 v6; // rdi
+  unsigned __int64 Root; // rdi
   unsigned __int64 v7; // rax
   unsigned __int64 v8; // rcx
   __int64 v9; // rax
   __int64 PoolMm; // rax
-  _BOOL8 v11; // r8
+  __int64 v11; // r8
   unsigned __int64 v12; // rbx
   int v13; // ebp
   unsigned __int64 v14; // rax
@@ -30,47 +30,47 @@ void __fastcall MiLogNonStealNonPagedPoolEntries(unsigned __int64 a1, __int64 *a
       *i = 0LL;
       if ( v15 < 0 )
       {
-        v6 = *(_QWORD *)a1;
-        if ( (*(_BYTE *)(a1 + 8) & 1) != 0 && v6 )
-          v6 ^= a1;
-        while ( v6 )
+        Root = (unsigned __int64)Tree->Root;
+        if ( (*(_BYTE *)&Tree->0 & 1) != 0 && Root )
+          Root ^= (unsigned __int64)Tree;
+        while ( Root )
         {
-          if ( (unsigned int)v15 > *(_DWORD *)(v6 + 24) )
+          if ( (unsigned int)v15 > *(_DWORD *)(Root + 24) )
           {
-            v7 = *(_QWORD *)(v6 + 8);
+            v7 = *(_QWORD *)(Root + 8);
           }
           else
           {
-            if ( (unsigned int)v15 >= *(_DWORD *)(v6 + 24) )
+            if ( (unsigned int)v15 >= *(_DWORD *)(Root + 24) )
               break;
-            v7 = *(_QWORD *)v6;
+            v7 = *(_QWORD *)Root;
           }
-          if ( (*(_BYTE *)(a1 + 8) & 1) != 0 && v7 )
-            v6 ^= v7;
+          if ( (*(_BYTE *)&Tree->0 & 1) != 0 && v7 )
+            Root ^= v7;
           else
-            v6 = v7;
+            Root = v7;
         }
-        if ( v6 )
+        if ( Root )
           goto LABEL_14;
         PoolMm = ExAllocatePoolMm(
                    64LL,
                    0x38uLL,
                    1951295821,
                    KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000);
-        v6 = PoolMm;
+        Root = PoolMm;
         if ( PoolMm )
         {
           *(_DWORD *)(PoolMm + 24) = v15;
-          v12 = *(_QWORD *)a1;
-          if ( (*(_BYTE *)(a1 + 8) & 1) != 0 && v12 )
-            v12 ^= a1;
+          v12 = (unsigned __int64)Tree->Root;
+          if ( (*(_BYTE *)&Tree->0 & 1) != 0 && v12 )
+            v12 ^= (unsigned __int64)Tree;
           LOBYTE(v11) = 0;
-          v13 = *(_BYTE *)(a1 + 8) & 1;
+          v13 = *(_BYTE *)&Tree->0 & 1;
           if ( v12 )
           {
             while ( 1 )
             {
-              if ( (int)MiNonStealTagsTreeFind(v6 + 24, v12, v11) >= 0 )
+              if ( (int)MiNonStealTagsTreeFind(Root + 24, v12, v11) >= 0 )
               {
                 v14 = *(_QWORD *)(v12 + 8);
                 if ( v13 )
@@ -105,7 +105,7 @@ LABEL_47:
               v12 = v14;
             }
           }
-          RtlRbInsertNodeEx(a1, v12, v11, v6);
+          RtlRbInsertNodeEx(Tree, (PRTL_BALANCED_NODE)v12, v11, (PRTL_BALANCED_NODE)Root);
 LABEL_14:
           v8 = HIDWORD(v15) & 0x7FFFFFFF;
           if ( (v15 & 0x7FFFFFFF00000000LL) != 0 )
@@ -133,10 +133,10 @@ LABEL_14:
           {
             v9 = 28LL;
           }
-          ++*(_DWORD *)(v9 + v6);
+          ++*(_DWORD *)(v9 + Root);
           continue;
         }
-        _InterlockedIncrement(&dword_140E2C754);
+        _InterlockedIncrement(&dword_140E2C8D4);
       }
     }
   }

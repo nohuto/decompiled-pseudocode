@@ -1,57 +1,54 @@
 /*
- * XREFs of PspCallThreadNotifyRoutines @ 0x1408A66B0
+ * XREFs of PspCallThreadNotifyRoutines @ 0x1408FCCC0
  * Callers:
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char a3)
+void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // r15
-  union _RTL_RUN_ONCE *v6; // rbx
+  __int64 v4; // r15
+  _RTL_RUN_ONCE *v6; // rbx
   __int64 v7; // rdi
   struct _EX_RUNDOWN_REF *v8; // rax
-  __int64 v9; // r9
-  struct _EX_RUNDOWN_REF *v10; // rsi
+  struct _EX_RUNDOWN_REF *v9; // rsi
   int Count; // eax
-  union _RTL_RUN_ONCE *v12; // rbx
-  __int64 v13; // rdi
-  struct _EX_RUNDOWN_REF *v14; // rax
-  __int64 v15; // r9
-  struct _EX_RUNDOWN_REF *v16; // rsi
-  union _RTL_RUN_ONCE *v17; // rbx
-  __int64 v18; // rdi
-  struct _EX_RUNDOWN_REF *v19; // rax
-  __int64 v20; // r9
-  struct _EX_RUNDOWN_REF *v21; // rsi
+  _RTL_RUN_ONCE *v11; // rbx
+  __int64 v12; // rdi
+  struct _EX_RUNDOWN_REF *v13; // rax
+  struct _EX_RUNDOWN_REF *v14; // rsi
+  _RTL_RUN_ONCE *v15; // rbx
+  __int64 v16; // rdi
+  struct _EX_RUNDOWN_REF *v17; // rax
+  struct _EX_RUNDOWN_REF *v18; // rsi
 
-  v3 = a1[206];
-  if ( a2 )
+  v4 = a1[206];
+  if ( (_BYTE)a2 )
   {
-    if ( a3 )
+    if ( (_BYTE)a3 )
     {
       if ( (PspNotifyEnableMask & 0x10) != 0 )
       {
-        v17 = &PspCreateThreadNotifyRoutine;
-        v18 = 64LL;
+        v15 = &PspCreateThreadNotifyRoutine;
+        v16 = 64LL;
         do
         {
-          v19 = ExReferenceCallBackBlock((signed __int64 *)v17);
-          v21 = v19;
-          if ( v19 )
+          v17 = ExReferenceCallBackBlock((signed __int64 *)v15, a2, a3, a4);
+          v18 = v17;
+          if ( v17 )
           {
-            if ( (v19[2].Count & 1) != 0 )
-              guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162], a2, v20);
-            ExDereferenceCallBackBlock((signed __int64 *)v17, v21);
+            if ( (v17[2].Count & 1) != 0 )
+              guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162]);
+            ExDereferenceCallBackBlock((signed __int64 *)v15, v18);
           }
-          ++v17;
-          --v18;
+          ++v15;
+          --v16;
         }
-        while ( v18 );
+        while ( v16 );
       }
     }
     else if ( (PspNotifyEnableMask & 8) != 0 )
@@ -60,14 +57,14 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
       v7 = 64LL;
       do
       {
-        v8 = ExReferenceCallBackBlock((signed __int64 *)v6);
-        v10 = v8;
+        v8 = ExReferenceCallBackBlock((signed __int64 *)v6, a2, a3, a4);
+        v9 = v8;
         if ( v8 )
         {
           Count = v8[2].Count;
-          if ( (Count & 1) == 0 && (!v3 || (Count & 2) != 0) )
-            guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162], a2, v9);
-          ExDereferenceCallBackBlock((signed __int64 *)v6, v10);
+          if ( (Count & 1) == 0 && (!v4 || (Count & 2) != 0) )
+            guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162]);
+          ExDereferenceCallBackBlock((signed __int64 *)v6, v9);
         }
         ++v6;
         --v7;
@@ -77,21 +74,21 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
   }
   else if ( (PspNotifyEnableMask & 0x10) != 0 || (PspNotifyEnableMask & 8) != 0 )
   {
-    v12 = &PspCreateThreadNotifyRoutine;
-    v13 = 64LL;
+    v11 = &PspCreateThreadNotifyRoutine;
+    v12 = 64LL;
     do
     {
-      v14 = ExReferenceCallBackBlock((signed __int64 *)v12);
-      v16 = v14;
-      if ( v14 )
+      v13 = ExReferenceCallBackBlock((signed __int64 *)v11, a2, a3, a4);
+      v14 = v13;
+      if ( v13 )
       {
-        if ( !v3 || (v14[2].Count & 2) != 0 )
-          guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162], 0LL, v15);
-        ExDereferenceCallBackBlock((signed __int64 *)v12, v16);
+        if ( !v4 || (v13[2].Count & 2) != 0 )
+          guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162]);
+        ExDereferenceCallBackBlock((signed __int64 *)v11, v14);
       }
-      ++v12;
-      --v13;
+      ++v11;
+      --v12;
     }
-    while ( v13 );
+    while ( v12 );
   }
 }

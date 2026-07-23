@@ -1,15 +1,15 @@
 /*
- * XREFs of HvSnapshotHiveToOffsetArray @ 0x140C5846C
+ * XREFs of HvSnapshotHiveToOffsetArray @ 0x140C5E46C
  * Callers:
- *     CmDumpKeyToFile @ 0x14084D1E8 (CmDumpKeyToFile.c)
- *     CmpFlushBackupHive @ 0x14085A45C (CmpFlushBackupHive.c)
- *     CmpDumpKeyToBuffer @ 0x140C5812C (CmpDumpKeyToBuffer.c)
+ *     CmDumpKeyToFile @ 0x1408534F4 (CmDumpKeyToFile.c)
+ *     CmpFlushBackupHive @ 0x140860750 (CmpFlushBackupHive.c)
+ *     CmpDumpKeyToBuffer @ 0x140C5E12C (CmpDumpKeyToBuffer.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140C58710 (HvpMapEntryReleaseBinAddress.c)
- *     HvpHeaderCheckSum @ 0x140C58720 (HvpHeaderCheckSum.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140C5E710 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpHeaderCheckSum @ 0x140C5E720 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvSnapshotHiveToOffsetArray(__int64 a1, int a2, __int64 a3)

@@ -1,23 +1,29 @@
 /*
- * XREFs of NtDuplicateToken @ 0x1801624D0
+ * XREFs of NtDuplicateToken @ 0x180160890
  * Callers:
- *     RtlCheckTokenMembershipEx @ 0x180039A70 (RtlCheckTokenMembershipEx.c)
- *     RtlCheckTokenCapability @ 0x18003BE90 (RtlCheckTokenCapability.c)
- *     RtlRegisterWait @ 0x18006DF00 (RtlRegisterWait.c)
- *     RtlpTpInitializeData @ 0x18006ECC0 (RtlpTpInitializeData.c)
- *     RtlpNewSecurityObject @ 0x1800C9280 (RtlpNewSecurityObject.c)
- *     RtlImpersonateSelfEx @ 0x1800E93A0 (RtlImpersonateSelfEx.c)
- *     TppCritSetThread @ 0x1800EEED0 (TppCritSetThread.c)
- *     RtlpIsAppContainer @ 0x180118224 (RtlpIsAppContainer.c)
+ *     RtlCheckTokenMembershipEx @ 0x180019CF0 (RtlCheckTokenMembershipEx.c)
+ *     RtlCheckTokenCapability @ 0x18001C110 (RtlCheckTokenCapability.c)
+ *     RtlRegisterWait @ 0x18008A7E0 (RtlRegisterWait.c)
+ *     RtlpTpInitializeData @ 0x18008B5A0 (RtlpTpInitializeData.c)
+ *     RtlpNewSecurityObject @ 0x1800C0E40 (RtlpNewSecurityObject.c)
+ *     RtlImpersonateSelfEx @ 0x1800E4A90 (RtlImpersonateSelfEx.c)
+ *     TppCritSetThread @ 0x1800EA0B0 (TppCritSetThread.c)
+ *     RtlpIsAppContainer @ 0x180113198 (RtlpIsAppContainer.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtDuplicateToken()
+NTSTATUS __cdecl NtDuplicateToken(
+        HANDLE ExistingTokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN EffectiveOnly,
+        TOKEN_TYPE Type,
+        PHANDLE NewTokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 66LL;
+  result = 66;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

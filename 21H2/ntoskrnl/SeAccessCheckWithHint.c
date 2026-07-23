@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAccessCheckWithHint @ 0x14034DC70
+ * XREFs of SeAccessCheckWithHint @ 0x1403589C0
  * Callers:
- *     SeAccessCheckFromStateEx @ 0x140266540 (SeAccessCheckFromStateEx.c)
- *     RtlCheckTokenMembershipEx @ 0x14027F450 (RtlCheckTokenMembershipEx.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1402BD264 (ExCpuSetResourceManagerAccessCheck.c)
- *     RtlpAllowsLowBoxAccess @ 0x1402C7068 (RtlpAllowsLowBoxAccess.c)
- *     RtlCheckTokenCapability @ 0x140586730 (RtlCheckTokenCapability.c)
- *     ObpVerifyAccessToBoundaryEntry @ 0x1405DAB30 (ObpVerifyAccessToBoundaryEntry.c)
- *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
- *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
- *     ExpCheckWakeTimerAccess @ 0x14078E5D8 (ExpCheckWakeTimerAccess.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x14023B914 (ExCpuSetResourceManagerAccessCheck.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1402457A8 (RtlpAllowsLowBoxAccess.c)
+ *     SeAccessCheckFromStateEx @ 0x1402544E0 (SeAccessCheckFromStateEx.c)
+ *     RtlCheckTokenMembershipEx @ 0x14026D700 (RtlCheckTokenMembershipEx.c)
+ *     RtlCheckTokenCapability @ 0x140586960 (RtlCheckTokenCapability.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x1406CA2B0 (ObpVerifyAccessToBoundaryEntry.c)
+ *     ObpLookupObjectName @ 0x14070B300 (ObpLookupObjectName.c)
+ *     RtlIsSandboxedToken @ 0x14071C8A0 (RtlIsSandboxedToken.c)
+ *     ExpCheckWakeTimerAccess @ 0x14078E798 (ExpCheckWakeTimerAccess.c)
  * Callees:
- *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x140358A30 (SeAccessCheckWithHintWithAdminlessChecks.c)
  */
 
 __int64 __fastcall SeAccessCheckWithHint(

@@ -1,14 +1,11 @@
 /*
- * XREFs of RtlpHpAllocateHeapBackend @ 0x1402C15F0
+ * XREFs of RtlpHpAllocateHeapBackend @ 0x14035DC90
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     RtlpHpAllocateHeap @ 0x1402B7A40 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapSlow @ 0x1402B819C (RtlpHpAllocateHeapSlow.c)
- *     ExAllocateContiguousHeapPool @ 0x1402C2E9C (ExAllocateContiguousHeapPool.c)
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
- *     ExAllocateHeapPages @ 0x140440774 (ExAllocateHeapPages.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140396AFC (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapPages @ 0x1403E9344 (ExAllocateHeapPages.c)
  * Callees:
- *     RtlpHpSegAlloc @ 0x1402C162C (RtlpHpSegAlloc.c)
+ *     RtlpHpSegAlloc @ 0x14035DCCC (RtlpHpSegAlloc.c)
  */
 
 __int64 __fastcall RtlpHpAllocateHeapBackend(__int64 a1, int a2, unsigned __int64 a3, int a4)

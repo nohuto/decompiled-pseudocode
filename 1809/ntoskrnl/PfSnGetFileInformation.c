@@ -1,29 +1,29 @@
 /*
- * XREFs of PfSnGetFileInformation @ 0x1400D4DA0
+ * XREFs of PfSnGetFileInformation @ 0x1400D4E20
  * Callers:
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
- *     PfSnLogPageFaultCommon @ 0x1400D4C04 (PfSnLogPageFaultCommon.c)
+ *     PfSnLogPageFaultCommon @ 0x1400D4C84 (PfSnLogPageFaultCommon.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // r15d
-  unsigned __int64 v3; // rsi
-  _QWORD *v7; // rax
+  _RTL_BALANCED_NODE *v3; // rsi
+  _RTL_BALANCED_NODE **v7; // rax
   unsigned __int64 v8; // rcx
   unsigned __int64 *v9; // r12
   KIRQL v10; // bp
@@ -33,7 +33,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rax
   struct _KPRCB *CurrentPrcb; // rcx
-  _QWORD *PoolWithTag; // rbx
+  _RTL_BALANCED_NODE *PoolWithTag; // rbx
   KIRQL v18; // al
   __int64 v19; // rcx
   KIRQL v20; // bp
@@ -45,18 +45,18 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   struct _KPRCB *v26; // rcx
   __int64 v27; // rax
   unsigned __int64 v28; // rdx
-  bool v29; // r8
+  BOOLEAN v29; // r8
   int v30; // ecx
   unsigned __int64 v31; // rax
   struct _KPRCB *v32; // rcx
   int v33; // [rsp+58h] [rbp+10h]
 
   v2 = 0;
-  v3 = a2[3];
+  v3 = (_RTL_BALANCED_NODE *)a2[3];
   v33 = 0;
   if ( (*(_DWORD *)(a2[1] + 52LL) & 0x10) != 0 )
     return 3221225659LL;
-  v7 = (_QWORD *)(a1 + 488);
+  v7 = (_RTL_BALANCED_NODE **)(a1 + 488);
   v8 = a1 + 520;
   if ( (unsigned __int64)v7 >= v8 )
   {
@@ -76,13 +76,13 @@ LABEL_6:
     while ( v12 )
     {
       v14 = *(_QWORD *)(v12 + 24);
-      if ( v14 > v3 )
+      if ( v14 > (unsigned __int64)v3 )
       {
         v15 = *(_QWORD *)v12;
       }
       else
       {
-        if ( v14 >= v3 )
+        if ( v14 >= (unsigned __int64)v3 )
           break;
         v15 = *(_QWORD *)(v12 + 8);
       }
@@ -105,22 +105,22 @@ LABEL_6:
     }
     else
     {
-      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x6E506343u);
+      PoolWithTag = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x6E506343u);
       if ( !PoolWithTag )
       {
         if ( (*(_BYTE *)(a1 + 484) & 2) == 0 )
           _InterlockedOr16((volatile signed __int16 *)(a1 + 484), 2u);
         return 3221225626LL;
       }
-      *PoolWithTag = 0LL;
-      PoolWithTag[1] = 0LL;
-      PoolWithTag[2] = 0LL;
-      PoolWithTag[3] = 0LL;
-      PoolWithTag[4] = 0LL;
-      PoolWithTag[5] = 0LL;
+      PoolWithTag->Children[0] = 0LL;
+      PoolWithTag->Children[1] = 0LL;
+      PoolWithTag->ParentValue = 0LL;
+      PoolWithTag[1].Children[0] = 0LL;
+      PoolWithTag[1].Children[1] = 0LL;
+      PoolWithTag[1].ParentValue = 0LL;
       ObfReferenceObjectWithTag(a2, 0x746C6644u);
-      PoolWithTag[5] = a2;
-      PoolWithTag[3] = v3;
+      PoolWithTag[1].ParentValue = (unsigned __int64)a2;
+      PoolWithTag[1].Children[0] = v3;
       v18 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
       v19 = *(_QWORD *)(a1 + 528);
       v20 = v18;
@@ -136,13 +136,13 @@ LABEL_6:
       while ( v21 )
       {
         v23 = *(_QWORD *)(v21 + 24);
-        if ( v23 > v3 )
+        if ( v23 > (unsigned __int64)v3 )
         {
           v24 = *(_QWORD *)v21;
         }
         else
         {
-          if ( v23 >= v3 )
+          if ( v23 >= (unsigned __int64)v3 )
             goto LABEL_49;
           v24 = *(_QWORD *)(v21 + 8);
         }
@@ -170,7 +170,7 @@ LABEL_49:
             KiRemoveSystemWorkPriorityKick(v26);
           }
           __writecr8(v20);
-          ObfDereferenceObject((PVOID)PoolWithTag[5]);
+          ObfDereferenceObject((PVOID)PoolWithTag[1].ParentValue);
           ExFreePoolWithTag(PoolWithTag, 0);
           return v2;
         }
@@ -179,8 +179,8 @@ LABEL_49:
         *(_QWORD *)(a1 + 568) = a1;
         *(_QWORD *)(a1 + 544) = 0LL;
       }
-      PoolWithTag[4] = *(_QWORD *)(a1 + 536);
-      *(_QWORD *)(a1 + 536) = PoolWithTag + 4;
+      PoolWithTag[1].Children[1] = *(_RTL_BALANCED_NODE **)(a1 + 536);
+      *(_QWORD *)(a1 + 536) = (char *)PoolWithTag + 32;
       v27 = *(_QWORD *)(a1 + 528);
       v28 = *v9;
       if ( (v27 & 1) != 0 )
@@ -196,7 +196,7 @@ LABEL_49:
       {
         while ( 1 )
         {
-          if ( *(_QWORD *)(v28 + 24) > v3 )
+          if ( *(_QWORD *)(v28 + 24) > (unsigned __int64)v3 )
           {
             v31 = *(_QWORD *)v28;
             if ( v30 )
@@ -231,7 +231,7 @@ LABEL_67:
           v28 = v31;
         }
       }
-      RtlRbInsertNodeEx(a1 + 520, v28, v29, PoolWithTag);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 520), (PRTL_BALANCED_NODE)v28, v29, PoolWithTag);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v20 < 2u )
       {

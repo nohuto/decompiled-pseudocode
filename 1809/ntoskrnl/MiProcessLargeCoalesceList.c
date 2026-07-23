@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProcessLargeCoalesceList @ 0x14009069C
+ * XREFs of MiProcessLargeCoalesceList @ 0x1400905DC
  * Callers:
- *     MiRebuildLargeZeroPage @ 0x1400904D0 (MiRebuildLargeZeroPage.c)
+ *     MiRebuildLargeZeroPage @ 0x140090410 (MiRebuildLargeZeroPage.c)
  * Callees:
- *     MiCoalesceFreeLargePages @ 0x140090810 (MiCoalesceFreeLargePages.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCoalesceFreeLargePages @ 0x140090750 (MiCoalesceFreeLargePages.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiProcessLargeCoalesceList(__int64 a1, unsigned __int16 *a2, __int64 a3, unsigned int a4)

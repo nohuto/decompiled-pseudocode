@@ -22,7 +22,7 @@
 __int64 __fastcall PiDevCfgQueryDriverConfiguration(__int64 a1)
 {
   int v1; // eax
-  int ObjectProperties; // edi
+  NTSTATUS ObjectProperties; // edi
   const WCHAR *v4; // rdi
   int RegistryValues; // eax
   const WCHAR *v6; // rcx
@@ -192,7 +192,7 @@ LABEL_37:
         }
         else
         {
-          ObjectProperties = RtlStringFromGUIDEx((unsigned int *)(a1 + 224), a1 + 240, 1);
+          ObjectProperties = RtlStringFromGUIDEx((PGUID)(a1 + 224), (PUNICODE_STRING)(a1 + 240), 1u);
           if ( ObjectProperties < 0 )
             return (unsigned int)ObjectProperties;
         }

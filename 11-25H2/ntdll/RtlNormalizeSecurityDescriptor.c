@@ -12,176 +12,180 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-char __fastcall RtlNormalizeSecurityDescriptor(__int64 *a1, unsigned int a2, __int64 *a3, unsigned int *a4, char a5)
+BOOLEAN __cdecl RtlNormalizeSecurityDescriptor(
+        PSECURITY_DESCRIPTOR *SecurityDescriptor,
+        ULONG SecurityDescriptorLength,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor,
+        PULONG NewSecurityDescriptorLength,
+        BOOLEAN CheckOnly)
 {
-  __int64 v5; // rbp
-  unsigned __int64 v6; // rbx
-  __int64 Heap; // rdi
-  char v9; // r14
-  __int64 v10; // r9
-  __int64 v11; // rcx
-  unsigned int v12; // ebx
-  __int64 v13; // r13
-  unsigned int v14; // r12d
-  __int64 v16; // r15
-  unsigned __int16 v17; // ax
-  __int64 v18; // rcx
-  __int64 v19; // r12
-  __int64 v20; // r15
-  int v21; // eax
-  unsigned __int8 *v22; // r15
-  unsigned int v23; // eax
-  unsigned int v24; // r12d
-  unsigned __int8 *v25; // r15
-  unsigned int v26; // eax
-  unsigned int v27; // r12d
-  __int64 *v28; // rax
-  char v30; // [rsp+78h] [rbp+10h]
+  _DWORD *v5; // rbp
+  SIZE_T v6; // rbx
+  _DWORD *Heap; // rdi
+  BOOLEAN v9; // r14
+  __int64 v10; // rcx
+  ULONG v11; // ebx
+  char *v12; // r13
+  unsigned int v13; // r12d
+  __int64 v15; // r15
+  unsigned __int16 v16; // ax
+  __int64 v17; // rcx
+  char *v18; // r12
+  __int64 v19; // r15
+  int v20; // eax
+  unsigned __int8 *v21; // r15
+  ULONG v22; // eax
+  ULONG v23; // r12d
+  unsigned __int8 *v24; // r15
+  ULONG v25; // eax
+  ULONG v26; // r12d
+  PSECURITY_DESCRIPTOR *v27; // rax
+  char v29; // [rsp+78h] [rbp+10h]
 
-  v5 = *a1;
-  v6 = a2;
-  v30 = 0;
+  v5 = *SecurityDescriptor;
+  v6 = SecurityDescriptorLength;
+  v29 = 0;
   Heap = 0LL;
   v9 = 0;
-  if ( RtlValidSecurityDescriptor(*a1) && (unsigned int)v6 >= (unsigned int)RtlLengthSecurityDescriptor(v5) )
+  if ( RtlValidSecurityDescriptor(*SecurityDescriptor) && (unsigned int)v6 >= RtlLengthSecurityDescriptor(v5) )
   {
-    if ( a5 )
+    if ( CheckOnly )
       goto LABEL_9;
-    if ( a3 )
+    if ( NewSecurityDescriptor )
     {
-      Heap = *a3;
-      if ( *a3 )
+      Heap = *NewSecurityDescriptor;
+      if ( *NewSecurityDescriptor )
       {
 LABEL_8:
         *(_OWORD *)Heap = *(_OWORD *)v5;
-        *(_DWORD *)(Heap + 16) = *(_DWORD *)(v5 + 16);
+        Heap[4] = v5[4];
 LABEL_9:
-        v11 = *(unsigned int *)(v5 + 12);
-        v12 = 20;
-        if ( (_DWORD)v11 )
+        v10 = (unsigned int)v5[3];
+        v11 = 20;
+        if ( (_DWORD)v10 )
         {
-          v13 = v11 + v5;
-          v14 = *(_WORD *)(v11 + v5 + 4) != 0 ? 0x14 : 0;
-          v9 = v14 != (_DWORD)v11;
-          if ( v14 != (_DWORD)v11 && a5 )
+          v12 = (char *)v5 + v10;
+          v13 = *(_WORD *)((char *)v5 + v10 + 4) != 0 ? 0x14 : 0;
+          v9 = v13 != (_DWORD)v10;
+          if ( v13 != (_DWORD)v10 && CheckOnly )
           {
 LABEL_12:
             if ( !v9 )
               goto LABEL_13;
 LABEL_52:
-            if ( !a5 )
+            if ( !CheckOnly )
             {
-              v28 = a3;
-              if ( a3 )
+              v27 = NewSecurityDescriptor;
+              if ( NewSecurityDescriptor )
               {
-                if ( !v30 )
+                if ( !v29 )
                   goto LABEL_58;
               }
               else
               {
-                RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5, v10);
-                v28 = a1;
+                RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+                v27 = SecurityDescriptor;
               }
-              *v28 = Heap;
+              *v27 = Heap;
 LABEL_58:
-              if ( a4 )
-                *a4 = v12;
+              if ( NewSecurityDescriptorLength )
+                *NewSecurityDescriptorLength = v11;
               return v9;
             }
 LABEL_13:
-            if ( v30 )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v10);
+            if ( v29 )
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
             return v9;
           }
-          if ( *(_WORD *)(v13 + 4) )
+          if ( *((_WORD *)v12 + 2) )
           {
-            if ( a5 )
-              v16 = 0LL;
+            if ( CheckOnly )
+              v15 = 0LL;
             else
-              v16 = Heap + v14;
-            v9 |= RtlpNormalizeAcl(v16, v11 + v5, 0LL);
-            if ( v9 && a5 )
+              v15 = (__int64)Heap + v13;
+            v9 |= RtlpNormalizeAcl(v15, (__int64)v5 + v10, 0LL);
+            if ( v9 && CheckOnly )
               goto LABEL_52;
-            if ( a5 )
+            if ( CheckOnly )
             {
-              v17 = *(_WORD *)(v13 + 2);
+              v16 = *((_WORD *)v12 + 1);
             }
             else
             {
-              *(_DWORD *)(Heap + 12) = v14;
-              v17 = *(_WORD *)(v16 + 2);
+              Heap[3] = v13;
+              v16 = *(_WORD *)(v15 + 2);
             }
-            v12 = v17 + 20;
+            v11 = v16 + 20;
           }
           else
           {
             v9 = 1;
-            if ( a5 )
+            if ( CheckOnly )
               goto LABEL_13;
-            *(_DWORD *)(Heap + 12) = 0;
+            Heap[3] = 0;
           }
         }
-        v18 = *(unsigned int *)(v5 + 16);
-        if ( (_DWORD)v18 )
+        v17 = (unsigned int)v5[4];
+        if ( (_DWORD)v17 )
         {
-          v9 |= v12 != (_DWORD)v18;
-          if ( v9 && a5 )
+          v9 |= v11 != (_DWORD)v17;
+          if ( v9 && CheckOnly )
             goto LABEL_13;
-          v19 = v18 + v5;
-          v20 = a5 ? 0LL : Heap + v12;
-          v9 |= RtlpNormalizeAcl(v20, v18 + v5, 0LL);
+          v18 = (char *)v5 + v17;
+          v19 = CheckOnly ? 0LL : (__int64)Heap + v11;
+          v9 |= RtlpNormalizeAcl(v19, (__int64)v5 + v17, 0LL);
           if ( v9 )
           {
-            if ( a5 )
+            if ( CheckOnly )
               goto LABEL_13;
           }
-          if ( a5 )
+          if ( CheckOnly )
           {
-            v21 = *(unsigned __int16 *)(v19 + 2);
+            v20 = *((unsigned __int16 *)v18 + 1);
           }
           else
           {
-            *(_DWORD *)(Heap + 16) = v12;
-            v21 = *(unsigned __int16 *)(v20 + 2);
+            Heap[4] = v11;
+            v20 = *(unsigned __int16 *)(v19 + 2);
           }
-          v12 += v21;
+          v11 += v20;
         }
-        if ( v12 != *(_DWORD *)(v5 + 4) )
+        if ( v11 != v5[1] )
         {
           v9 = 1;
-          if ( a5 )
+          if ( CheckOnly )
             goto LABEL_13;
-          *(_DWORD *)(Heap + 4) = v12;
+          Heap[1] = v11;
         }
-        v22 = (unsigned __int8 *)(v5 + *(unsigned int *)(v5 + 4));
-        v23 = RtlLengthRequiredSid(v22[1]);
-        v24 = v23;
-        if ( !a5 )
-          memmove((void *)(Heap + *(unsigned int *)(Heap + 4)), v22, v23);
-        v12 += v24;
-        if ( *(_DWORD *)(v5 + 8) )
+        v21 = (unsigned __int8 *)v5 + (unsigned int)v5[1];
+        v22 = RtlLengthRequiredSid(v21[1]);
+        v23 = v22;
+        if ( !CheckOnly )
+          memmove((char *)Heap + (unsigned int)Heap[1], v21, v22);
+        v11 += v23;
+        if ( v5[2] )
         {
-          if ( v12 != *(_DWORD *)(v5 + 8) )
+          if ( v11 != v5[2] )
           {
             v9 = 1;
-            if ( a5 )
+            if ( CheckOnly )
               goto LABEL_13;
-            *(_DWORD *)(Heap + 8) = v12;
+            Heap[2] = v11;
           }
-          v25 = (unsigned __int8 *)(v5 + *(unsigned int *)(v5 + 8));
-          v26 = RtlLengthRequiredSid(v25[1]);
-          v27 = v26;
-          if ( !a5 )
-            memmove((void *)(Heap + *(unsigned int *)(Heap + 8)), v25, v26);
-          v12 += v27;
+          v24 = (unsigned __int8 *)v5 + (unsigned int)v5[2];
+          v25 = RtlLengthRequiredSid(v24[1]);
+          v26 = v25;
+          if ( !CheckOnly )
+            memmove((char *)Heap + (unsigned int)Heap[2], v24, v25);
+          v11 += v26;
         }
         goto LABEL_12;
       }
     }
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v6);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v6);
     if ( Heap )
     {
-      v30 = 1;
+      v29 = 1;
       goto LABEL_8;
     }
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PoReenableSleepStates @ 0x140868A90
+ * XREFs of PoReenableSleepStates @ 0x140869CF0
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PoReenableSleepStates(_QWORD *P)

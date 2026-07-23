@@ -7,7 +7,11 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwOpenKeyEx(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl ZwOpenKeyEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions)
 {
   return Wow64SystemServiceCall();
 }

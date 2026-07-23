@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyKeys @ 0x140AE2F14
+ * XREFs of _CmGetDeviceMappedPropertyKeys @ 0x140AE0A94
  * Callers:
- *     _PnpDispatchDevice @ 0x1409956A0 (_PnpDispatchDevice.c)
- *     _CmDeleteDeviceWorker @ 0x140A8A2C4 (_CmDeleteDeviceWorker.c)
+ *     _PnpDispatchDevice @ 0x140956100 (_PnpDispatchDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x1409B70E4 (_CmDeleteDeviceWorker.c)
  * Callees:
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140992C9C (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x140992EEC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x140994750 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1409536FC (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14095394C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409551B0 (_CmGetDeviceMappedPropertyFromRegProp.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyKeys(
-        _QWORD *a1,
+        __int64 a1,
         const wchar_t *a2,
         void *a3,
         char a4,
@@ -19,7 +19,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyKeys(
         unsigned int *a7)
 {
   unsigned int *v7; // rbx
-  _QWORD *v11; // r11
+  __int64 v11; // r11
   unsigned int i; // edi
   __int64 v13; // rsi
   unsigned int DeviceMappedPropertyFromRegProp; // eax
@@ -54,7 +54,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyKeys(
     {
       if ( a4
         || (DeviceMappedPropertyFromRegProp = CmGetDeviceMappedPropertyFromRegProp(
-                                                (__int64)v11,
+                                                v11,
                                                 (__int64)a2,
                                                 (__int64)a3,
                                                 v13,
@@ -98,15 +98,15 @@ LABEL_11:
   for ( j = 0; j < 2; ++j )
   {
     v21 = 32LL * j;
-    v22 = *(__int64 *)((char *)&off_140BD9560 + v21);
+    v22 = *(__int64 *)((char *)&off_140BE03F0 + v21);
     if ( v22 )
     {
       if ( a4
         || (DeviceMappedPropertyFromInstanceKeyRegValue = CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
-                                                            (__int64)v11,
+                                                            v11,
                                                             (int)a2,
                                                             a3,
-                                                            *(__int64 *)((char *)&off_140BD9560 + v21),
+                                                            *(__int64 *)((char *)&off_140BE03F0 + v21),
                                                             v33,
                                                             0LL,
                                                             0,
@@ -139,7 +139,7 @@ LABEL_11:
   }
   for ( k = 0; k < 0x1C; ++k )
   {
-    v25 = (__int64)*(&off_140BDB9A0 + 2 * k);
+    v25 = (__int64)*(&off_140BE2850 + 2 * k);
     if ( a4
       || (DeviceMappedPropertyFromComposite = CmGetDeviceMappedPropertyFromComposite(
                                                 v11,

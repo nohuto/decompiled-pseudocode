@@ -1,19 +1,19 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403BFE80
+ * XREFs of KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403C9D80
  * Callers:
- *     KeSetThreadSchedulerAssist @ 0x1403BFAB8 (KeSetThreadSchedulerAssist.c)
- *     KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x1403BFD40 (KiUpdateVpBackingThreadPriorityDpcRoutine.c)
- *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404F9024 (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ *     KeSetThreadSchedulerAssist @ 0x1403C99B8 (KeSetThreadSchedulerAssist.c)
+ *     KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x1403C9C40 (KiUpdateVpBackingThreadPriorityDpcRoutine.c)
+ *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404F2634 (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x140239AB4 (KiComputeThreadPriority.c)
- *     KiReleaseThreadStateLock @ 0x1402BA4C0 (KiReleaseThreadStateLock.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403322B0 (KiAcquireThreadStateLockForWrite.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x14037EEC0 (KiUpdateThreadQosGroupingSummaries.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1403C0494 (KiReadGuestSchedulerAssistPriority.c)
- *     EtwTraceXSchedulerPriorityUpdate @ 0x1403C05C0 (EtwTraceXSchedulerPriorityUpdate.c)
- *     KiPrcbArrayForIsolationWidth @ 0x14042FE00 (KiPrcbArrayForIsolationWidth.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiComputeThreadPriority @ 0x14023B414 (KiComputeThreadPriority.c)
+ *     KiReleaseThreadStateLock @ 0x140305180 (KiReleaseThreadStateLock.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403342E0 (KiAcquireThreadStateLockForWrite.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x140380C70 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1403CA394 (KiReadGuestSchedulerAssistPriority.c)
+ *     EtwTraceXSchedulerPriorityUpdate @ 0x1403CA4C0 (EtwTraceXSchedulerPriorityUpdate.c)
+ *     KiPrcbArrayForIsolationWidth @ 0x14041CE30 (KiPrcbArrayForIsolationWidth.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KiUpdateVpBackingThreadPriorityFromTopLevel(
@@ -158,6 +158,6 @@ void __fastcall KiUpdateVpBackingThreadPriorityFromTopLevel(
   }
   if ( (*((_DWORD *)&a1->0 + 1) & 0x400000) != 0 )
     _InterlockedAnd((volatile signed __int32 *)a1->SchedulerAssist, 0xFFEFFFFF);
-  if ( Priority != v15 && (BYTE4(xmmword_140FBFC10) & 0x20) != 0 )
+  if ( Priority != v15 && (BYTE4(xmmword_140FC0C10) & 0x20) != 0 )
     EtwTraceXSchedulerPriorityUpdate((_DWORD)a1, Priority, v9, v15, (__int64)&v31);
 }

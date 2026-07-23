@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptRestoreController @ 0x1404DE24C
+ * XREFs of HalpInterruptRestoreController @ 0x1404D792C
  * Callers:
- *     HalpInterruptInitializeLocalUnit @ 0x1405902E8 (HalpInterruptInitializeLocalUnit.c)
- *     HalpInterruptPowerChange @ 0x14059101C (HalpInterruptPowerChange.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140C09970 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x140592A68 (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptPowerChange @ 0x14059379C (HalpInterruptPowerChange.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140C0FB80 (HalpInterruptRestoreAllControllerState.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
  */
 
 __int64 __fastcall HalpInterruptRestoreController(__int64 a1, char a2)

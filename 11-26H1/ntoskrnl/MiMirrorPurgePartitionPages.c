@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMirrorPurgePartitionPages @ 0x1406EFE60
+ * XREFs of MiMirrorPurgePartitionPages @ 0x1406F4AD0
  * Callers:
  *     <none>
  * Callees:
- *     MiWalkAllFreeZeroLists @ 0x14042F800 (MiWalkAllFreeZeroLists.c)
- *     MiPurgePartitionStandby @ 0x14046886C (MiPurgePartitionStandby.c)
- *     MiHugePurgeZeroList @ 0x1405190A8 (MiHugePurgeZeroList.c)
+ *     MiWalkAllFreeZeroLists @ 0x14041C710 (MiWalkAllFreeZeroLists.c)
+ *     MiPurgePartitionStandby @ 0x140461F1C (MiPurgePartitionStandby.c)
+ *     MiHugePurgeZeroList @ 0x140512B18 (MiHugePurgeZeroList.c)
  */
 
 char __fastcall MiMirrorPurgePartitionPages(__int64 a1, unsigned int a2)
@@ -14,7 +14,7 @@ char __fastcall MiMirrorPurgePartitionPages(__int64 a1, unsigned int a2)
   char result; // al
   __int64 v6; // rdx
 
-  Flink = (int)stru_140E2EB88.Timer.TimerListEntry.Flink;
+  Flink = (int)stru_140E2ED08.Timer.TimerListEntry.Flink;
   result = *(_BYTE *)(a1 + 16485);
   if ( result )
   {

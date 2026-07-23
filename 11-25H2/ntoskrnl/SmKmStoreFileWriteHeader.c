@@ -67,7 +67,7 @@ __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)
   Buffer->PrivilegeCount = 1164135783;
   Buffer->Control = 3;
   Buffer[2].PrivilegeCount = 1;
-  Buffer->Privilege[0].Luid.LowPart = RtlComputeCrc32(0LL, (__int64)Buffer, 48LL);
+  Buffer->Privilege[0].Luid.LowPart = RtlComputeCrc32(0, Buffer, 0x30u);
   v10 = *(void **)a1;
   if ( a2 )
   {

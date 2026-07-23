@@ -222,10 +222,15 @@ LABEL_43:
                   else
                     *MEMORY[0x28] = v13;
                   *(_QWORD *)(MEMORY[0x28] + 8LL) = v25;
-                  v5 = ZwFlushInstructionCache(-1LL, MEMORY[0x18]);
+                  v5 = ZwFlushInstructionCache((HANDLE)0xFFFFFFFFFFFFFFFFLL, MEMORY[0x18], *(unsigned int *)(a2 + 284));
                   if ( v5 >= 0 )
                   {
-                    if ( !*(_QWORD *)(a2 + 296) || (v5 = ZwFlushInstructionCache(-1LL, MEMORY[0x20]), v5 >= 0) )
+                    if ( !*(_QWORD *)(a2 + 296)
+                      || (v5 = ZwFlushInstructionCache(
+                                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                                 MEMORY[0x20],
+                                 *(unsigned int *)(a2 + 308)),
+                          v5 >= 0) )
                     {
                       if ( a3 )
                         *a3 = 0LL;

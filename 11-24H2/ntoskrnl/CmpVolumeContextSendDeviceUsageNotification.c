@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpVolumeContextSendDeviceUsageNotification @ 0x1407D88F8
+ * XREFs of CmpVolumeContextSendDeviceUsageNotification @ 0x1407D8E48
  * Callers:
- *     CmpHandlePageFileOpenNotification @ 0x1407CF660 (CmpHandlePageFileOpenNotification.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407CFB50 (CmpHandlePageFileOpenNotification.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     PiPagePathSetState @ 0x140722960 (PiPagePathSetState.c)
- *     CmpVolumeContextLockExclusive @ 0x1407D88A8 (CmpVolumeContextLockExclusive.c)
- *     CmpVolumeContextUnlockExclusive @ 0x1407D8B50 (CmpVolumeContextUnlockExclusive.c)
- *     CmpVolumeContextLockShared @ 0x140A46300 (CmpVolumeContextLockShared.c)
- *     CmpVolumeContextUnlockShared @ 0x140A46358 (CmpVolumeContextUnlockShared.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     PiPagePathSetState @ 0x1407204F0 (PiPagePathSetState.c)
+ *     CmpVolumeContextLockExclusive @ 0x1407D8DF8 (CmpVolumeContextLockExclusive.c)
+ *     CmpVolumeContextUnlockExclusive @ 0x1407D90A0 (CmpVolumeContextUnlockExclusive.c)
+ *     CmpVolumeContextLockShared @ 0x140A3BFC0 (CmpVolumeContextLockShared.c)
+ *     CmpVolumeContextUnlockShared @ 0x140A3C018 (CmpVolumeContextUnlockShared.c)
  */
 
 __int64 __fastcall CmpVolumeContextSendDeviceUsageNotification(__int64 a1)

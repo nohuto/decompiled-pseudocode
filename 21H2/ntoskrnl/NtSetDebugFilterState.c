@@ -1,23 +1,23 @@
 /*
- * XREFs of NtSetDebugFilterState @ 0x1407A54C0
+ * XREFs of NtSetDebugFilterState @ 0x1407A56C0
  * Callers:
- *     DbgSetDebugFilterState @ 0x1403B7440 (DbgSetDebugFilterState.c)
- *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
- *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
+ *     DbgSetDebugFilterState @ 0x1403B75B0 (DbgSetDebugFilterState.c)
+ *     VfInitBootDriversLoaded @ 0x140A4FD74 (VfInitBootDriversLoaded.c)
+ *     MiInitializeLoadedModuleList @ 0x140A56E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 __fastcall NtSetDebugFilterState(unsigned int a1, unsigned int a2, char a3)
+NTSTATUS __cdecl NtSetDebugFilterState(ULONG ComponentId, ULONG Level, BOOLEAN State)
 {
   __int64 v5; // rdi
   KPROCESSOR_MODE PreviousMode; // dl
   int *v7; // rdx
 
-  v5 = a1;
+  v5 = ComponentId;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-    return 3221225506LL;
+    return -1073741790;
   v7 = &Kd_WIN2000_Mask;
   if ( (unsigned int)v5 >= 0x9C )
   {
@@ -29,8 +29,8 @@ __int64 __fastcall NtSetDebugFilterState(unsigned int a1, unsigned int a2, char 
     _mm_lfence();
     v7 = (int *)*(&KdComponentTable + v5);
   }
-  if ( a2 <= 0x1F )
-    a2 = 1 << a2;
-  *v7 = (a3 != 0 ? a2 : 0) | *v7 & ~a2;
-  return 0LL;
+  if ( Level <= 0x1F )
+    Level = 1 << Level;
+  *v7 = (State != 0 ? Level : 0) | *v7 & ~Level;
+  return 0;
 }

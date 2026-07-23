@@ -8,24 +8,27 @@
  *     _TppTerminateProcess@4 @ 0x4B38492C (_TppTerminateProcess@4.c)
  */
 
-int __thiscall TppWorkerpInnerExceptionFilter(int this, _DWORD *a2)
+int __thiscall TppWorkerpInnerExceptionFilter(_EXCEPTION_POINTERS *this, _DWORD *a2)
 {
-  int v3; // esi
-  int *v4; // eax
+  LONG v3; // esi
+  EXCEPTION_RECORD *ExceptionRecord; // eax
 
-  v3 = TppExceptionFilter((const void **)this);
+  v3 = TppExceptionFilter(this);
   if ( !v3 )
     *a2 = 1;
   if ( v3 == 1 )
   {
-    v4 = *(int **)this;
-    if ( **(_DWORD **)this != -1073741571 )
+    ExceptionRecord = this->ExceptionRecord;
+    if ( this->ExceptionRecord->ExceptionCode != -1073741571 )
     {
-      if ( *v4 > -1073740022 && (*v4 <= -1073740018 || *v4 == -1073740016) )
+      if ( ExceptionRecord->ExceptionCode > -1073740022
+        && (ExceptionRecord->ExceptionCode <= -1073740018 || ExceptionRecord->ExceptionCode == -1073740016) )
+      {
         return -1;
-      v4 = (int *)TppTerminateProcess((int **)this);
+      }
+      ExceptionRecord = (EXCEPTION_RECORD *)TppTerminateProcess((NTSTATUS **)this);
     }
-    RtlReportException((int)v4, *(_DWORD *)(this + 4), 3);
+    RtlReportException(ExceptionRecord, this->ContextRecord, 3u);
   }
   return v3;
 }

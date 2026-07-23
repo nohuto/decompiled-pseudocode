@@ -2,7 +2,7 @@
  * XREFs of KeFreeXStateContext @ 0x14020E184
  * Callers:
  *     KeRestoreExtendedAndSupervisorState @ 0x14020E028 (KeRestoreExtendedAndSupervisorState.c)
- *     VfCtxInit @ 0x140AE49E4 (VfCtxInit.c)
+ *     VfCtxInit @ 0x140AE49D4 (VfCtxInit.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

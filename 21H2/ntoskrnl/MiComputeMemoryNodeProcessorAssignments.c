@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeMemoryNodeProcessorAssignments @ 0x140A6E2CC
+ * XREFs of MiComputeMemoryNodeProcessorAssignments @ 0x140A6F2CC
  * Callers:
- *     MiZeroBootLargePages @ 0x1403CABF4 (MiZeroBootLargePages.c)
+ *     MiZeroBootLargePages @ 0x1403CAD94 (MiZeroBootLargePages.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
  */
 
 __int64 __fastcall MiComputeMemoryNodeProcessorAssignments(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall MiComputeMemoryNodeProcessorAssignments(__int64 a1)
   unsigned __int64 v22; // rdx
   __int16 v23; // ax
 
-  v1 = dword_140C4DEE4;
+  v1 = dword_140C4DF24;
   v2 = 0;
   v3 = a1;
   v4 = 0;
@@ -63,7 +63,7 @@ __int64 __fastcall MiComputeMemoryNodeProcessorAssignments(__int64 a1)
     v14 = v13 + 4544LL * v12;
     if ( !*(_WORD *)(v14 + 4488) )
     {
-      v15 = (unsigned int *)(qword_140C4DE98 + 4LL * v12 * v10);
+      v15 = (unsigned int *)(qword_140C4DED8 + 4LL * v12 * v10);
       v16 = &v15[(unsigned __int16)KeNumberNodes];
       while ( ++v15 < v16 )
       {

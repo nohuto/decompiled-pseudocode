@@ -13,7 +13,7 @@
 
 void __fastcall ViDevObjRemove(unsigned __int64 a1)
 {
-  struct _SLIST_ENTRY *v2; // rbx
+  _SLIST_ENTRY *v2; // rbx
   _DWORD *v3; // rax
   _BYTE v4[24]; // [rsp+30h] [rbp-18h] BYREF
 
@@ -26,7 +26,7 @@ void __fastcall ViDevObjRemove(unsigned __int64 a1)
     {
       if ( (v3[4] & 1) != 0 && (MmVerifierData & 0x800) != 0 )
         VerifierBugCheckIfAppropriate(0xC4u, 0xDBuLL, a1, 0LL, 0LL);
-      v2 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(ViDevObjAvl, (__int64)v4, a1, 0LL);
+      v2 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(ViDevObjAvl, (__int64)v4, a1, 0LL);
     }
     VfAvlCleanupLockContext((__int64)v4);
     if ( v2 )

@@ -1,26 +1,26 @@
 /*
- * XREFs of HalpTimerQueryCounterSafe @ 0x1402085F0
+ * XREFs of HalpTimerQueryCounterSafe @ 0x1402086D0
  * Callers:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KiStartThreadCycleAccumulationContextSwap @ 0x140209460 (KiStartThreadCycleAccumulationContextSwap.c)
- *     EtwpGetLoggerTimeStamp @ 0x14021BEC0 (EtwpGetLoggerTimeStamp.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiEndIdleCycleAccumulation @ 0x140224900 (KiEndIdleCycleAccumulation.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x140225340 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiEndThreadCycleAccumulation @ 0x1402261A0 (KiEndThreadCycleAccumulation.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x140226F90 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     EtwpGetPerfCounter @ 0x14032D3B0 (EtwpGetPerfCounter.c)
- *     KiStartThreadCycleAccumulation @ 0x140334EB0 (KiStartThreadCycleAccumulation.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x1404E57D4 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpTimerDpcRoutine @ 0x1404E9D90 (HalpTimerDpcRoutine.c)
- *     HalpTimerSavePerformanceCounter @ 0x1404EB7B0 (HalpTimerSavePerformanceCounter.c)
- *     HalpTimerDelayedQueryCounter @ 0x140581E60 (HalpTimerDelayedQueryCounter.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x140582648 (HalpTimerPerformanceCounterPowerChange.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KiStartThreadCycleAccumulationContextSwap @ 0x140209540 (KiStartThreadCycleAccumulationContextSwap.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14021D850 (EtwpGetLoggerTimeStamp.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiEndIdleCycleAccumulation @ 0x140226290 (KiEndIdleCycleAccumulation.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x140226CD0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiEndThreadCycleAccumulation @ 0x140227B30 (KiEndThreadCycleAccumulation.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x140228920 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     EtwpGetPerfCounter @ 0x14032F3E0 (EtwpGetPerfCounter.c)
+ *     KiStartThreadCycleAccumulation @ 0x140336EE0 (KiStartThreadCycleAccumulation.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1404DED74 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerDpcRoutine @ 0x1404E3140 (HalpTimerDpcRoutine.c)
+ *     HalpTimerSavePerformanceCounter @ 0x1404E4D90 (HalpTimerSavePerformanceCounter.c)
+ *     HalpTimerDelayedQueryCounter @ 0x140584380 (HalpTimerDelayedQueryCounter.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x140584B68 (HalpTimerPerformanceCounterPowerChange.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpTimerQueryCounterSafe(ULONG_PTR BugCheckParameter3)
@@ -38,7 +38,7 @@ __int64 __fastcall HalpTimerQueryCounterSafe(ULONG_PTR BugCheckParameter3)
     v4 = 0;
     if ( HalpTimerQueryCounterHandlerCount )
     {
-      v5 = &unk_140FBB448;
+      v5 = &unk_140FBB7E8;
       do
       {
         if ( BugCheckParameter3 == *v5 )

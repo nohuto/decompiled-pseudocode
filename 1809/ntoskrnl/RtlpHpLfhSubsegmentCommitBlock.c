@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD318
+ * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD508
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BADE0 (RtlpHpLfhSlotAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -9,13 +9,13 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD630 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402FDC00 (RtlpHpLfhSubsegmentIncBlockCounts.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD820 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402FDDF0 (RtlpHpLfhSubsegmentIncBlockCounts.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, __int64 a2, unsigned int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, __int64 a2, unsign
   int v29; // [rsp+A8h] [rbp+58h] BYREF
 
   v28 = -1;
-  v6 = (unsigned __int16)qword_14040E088 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)((unsigned int)a2 >> 12);
+  v6 = (unsigned __int16)qword_14040F0E8 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)((unsigned int)a2 >> 12);
   SessionId = -1;
   v8 = RtlpHpLfhSubsegmentIncBlockCounts(a1, a2, a3, v6, (__int64)&v25, 0, (__int64)&v28);
   if ( v8 == -1 )
@@ -115,7 +115,7 @@ LABEL_17:
     }
     v19->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v19->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v18], v16);
+      KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v18].TreeNode, v16);
     v29 = 0;
     v29 = v19->BoostBitmap.AllFields & 0x1FFFF;
     v19->BoostBitmap.AllFields &= 0xFFFE0000;

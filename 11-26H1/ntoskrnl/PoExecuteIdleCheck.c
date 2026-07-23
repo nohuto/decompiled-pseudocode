@@ -1,16 +1,16 @@
 /*
- * XREFs of PoExecuteIdleCheck @ 0x1404F04E4
+ * XREFs of PoExecuteIdleCheck @ 0x1404E9AC4
  * Callers:
- *     KiUpdateTime @ 0x14021D690 (KiUpdateTime.c)
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
+ *     KiUpdateTime @ 0x14021F020 (KiUpdateTime.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     HalRequestIpi @ 0x1403EC520 (HalRequestIpi.c)
- *     PpmGetIdleConstrainedMask @ 0x140523230 (PpmGetIdleConstrainedMask.c)
- *     PpmEventAffinityMask @ 0x14060DE10 (PpmEventAffinityMask.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     HalRequestIpi @ 0x1402F9560 (HalRequestIpi.c)
+ *     PpmGetIdleConstrainedMask @ 0x1405258A0 (PpmGetIdleConstrainedMask.c)
+ *     PpmEventAffinityMask @ 0x140610F10 (PpmEventAffinityMask.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PoExecuteIdleCheck(_KAFFINITY_EX *a1)
@@ -33,12 +33,12 @@ __int64 __fastcall PoExecuteIdleCheck(_KAFFINITY_EX *a1)
   result = (__int64)memset_0(v12, 0, 0x100uLL);
   if ( PpmIdleDurationExpirationTimeout )
   {
-    if ( (char *)stru_140FC01F0.Affinity + PpmIdleDurationExpirationTimeout < (char *)a1 )
+    if ( (char *)stru_140FC11F0.Affinity + PpmIdleDurationExpirationTimeout < (char *)a1 )
     {
       result = PpmGetIdleConstrainedMask(&v11);
       if ( (_BYTE)result )
       {
-        stru_140FC01F0.Affinity = a1;
+        stru_140FC11F0.Affinity = a1;
         v9 = 2097153LL;
         memset_0(v10, 0, 0x100uLL);
         v3 = v12[0];
@@ -48,8 +48,7 @@ __int64 __fastcall PoExecuteIdleCheck(_KAFFINITY_EX *a1)
           {
             _BitScanForward64(&v5, v3);
             v3 &= ~(1LL << v5);
-            v6 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                 + 64 * i
+            v6 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * i].Flink
                  + (unsigned __int8)v5);
             Prcb = (struct _KPRCB *)KeGetPrcb(v6);
             if ( Prcb != KeGetCurrentPrcb() && Prcb->PowerState.IdleTimeExpiration <= (unsigned __int64)a1 )

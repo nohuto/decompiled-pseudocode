@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefDivisorFromModulus @ 0x140403E3C
+ * XREFs of SymCryptFdefDivisorFromModulus @ 0x14040401C
  * Callers:
- *     SymCryptDivisorFromModulus @ 0x1403F9270 (SymCryptDivisorFromModulus.c)
+ *     SymCryptDivisorFromModulus @ 0x1403F9450 (SymCryptDivisorFromModulus.c)
  * Callees:
  *     <none>
  */

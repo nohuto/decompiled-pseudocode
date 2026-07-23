@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMcStagingHypervisor @ 0x140593A60
+ * XREFs of HalpMcStagingHypervisor @ 0x1405961E0
  * Callers:
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
  * Callees:
- *     HalpHvLpReadMultipleMsr @ 0x140453AA4 (HalpHvLpReadMultipleMsr.c)
- *     HvlQueryProcessorTopologyCount @ 0x140532990 (HvlQueryProcessorTopologyCount.c)
- *     HalpMcStagePayload @ 0x1405938EC (HalpMcStagePayload.c)
- *     HvlQueryActiveHypervisorProcessorCount @ 0x1405B9520 (HvlQueryActiveHypervisorProcessorCount.c)
- *     HvlQueryProcessorTopologyEx @ 0x1405B96B0 (HvlQueryProcessorTopologyEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HalpHvLpReadMultipleMsr @ 0x14044BBD4 (HalpHvLpReadMultipleMsr.c)
+ *     HvlQueryProcessorTopologyCount @ 0x140534E30 (HvlQueryProcessorTopologyCount.c)
+ *     HalpMcStagePayload @ 0x14059606C (HalpMcStagePayload.c)
+ *     HvlQueryActiveHypervisorProcessorCount @ 0x1405BBD90 (HvlQueryActiveHypervisorProcessorCount.c)
+ *     HvlQueryProcessorTopologyEx @ 0x1405BBF20 (HvlQueryProcessorTopologyEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 HalpMcStagingHypervisor()

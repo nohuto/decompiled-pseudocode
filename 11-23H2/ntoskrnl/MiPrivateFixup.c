@@ -1,39 +1,39 @@
 /*
- * XREFs of MiPrivateFixup @ 0x1402ED678
+ * XREFs of MiPrivateFixup @ 0x1402ED908
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
  *     MiDereferenceControlAreaProbe @ 0x140219894 (MiDereferenceControlAreaProbe.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiObtainFaultCharges @ 0x140274BB0 (MiObtainFaultCharges.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiRelockFaultState @ 0x140286E98 (MiRelockFaultState.c)
- *     MiGetPfnChannel @ 0x1402871D0 (MiGetPfnChannel.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiInitializeReadInProgressPfn @ 0x1402DEB40 (MiInitializeReadInProgressPfn.c)
- *     MiGetInPageSupportBlock @ 0x1402E12E4 (MiGetInPageSupportBlock.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiReleaseFaultState @ 0x1402EF2A0 (MiReleaseFaultState.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiIsFaultPteIntact @ 0x1402EF3C8 (MiIsFaultPteIntact.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiReturnFaultCharges @ 0x14035FEC0 (MiReturnFaultCharges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
- *     MiRelocateImagePfn @ 0x1407442C0 (MiRelocateImagePfn.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiObtainFaultCharges @ 0x140274E40 (MiObtainFaultCharges.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiRelockFaultState @ 0x140287128 (MiRelockFaultState.c)
+ *     MiGetPfnChannel @ 0x140287460 (MiGetPfnChannel.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiInitializeReadInProgressPfn @ 0x1402DEDD0 (MiInitializeReadInProgressPfn.c)
+ *     MiGetInPageSupportBlock @ 0x1402E1574 (MiGetInPageSupportBlock.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1402E1780 (MiGetEffectivePagePriorityThread.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiReleaseFaultState @ 0x1402EF530 (MiReleaseFaultState.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiIsFaultPteIntact @ 0x1402EF658 (MiIsFaultPteIntact.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiReturnFaultCharges @ 0x140360060 (MiReturnFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
+ *     MiRelocateImagePfn @ 0x1407444B0 (MiRelocateImagePfn.c)
  */
 
 __int64 __fastcall MiPrivateFixup(unsigned __int64 *a1, __int64 *a2, int a3, __int64 a4, __int64 a5, int a6)
@@ -168,7 +168,9 @@ LABEL_7:
     {
       LOBYTE(v18) = 1;
       v65 = (volatile signed __int64 *)MiReleaseFaultState(a1 + 7, v18, &v73);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v51 = v73;
         if ( v73 <= 0xFu && CurrentIrql >= 2u )
@@ -233,7 +235,7 @@ LABEL_56:
       v31 = MiReleaseFaultState(a1 + 7, v30, &v73);
       CurrentThread->SpecialApcDisable -= v28;
       v68 = v31;
-      if ( KiIrqlFlags
+      if ( (_DWORD)KiIrqlFlags
         && (v55 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v28) != 0)
         && v55 <= 0xFu )
       {
@@ -294,10 +296,10 @@ LABEL_24:
         }
         MiRemoveLockedPageChargeAndDecRef(v23);
         _InterlockedAnd64((volatile signed __int64 *)(v23 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v59 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v59 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v59 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v59 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v59 >= 2u )
           {
             v60 = KeGetCurrentPrcb();
             v61 = v60->SchedulerAssist;

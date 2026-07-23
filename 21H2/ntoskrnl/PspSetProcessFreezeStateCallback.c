@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSetProcessFreezeStateCallback @ 0x1402C5460
+ * XREFs of PspSetProcessFreezeStateCallback @ 0x140243CC0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExpTimerResume @ 0x1402C55BC (ExpTimerResume.c)
- *     ExpTimerPause @ 0x1402C7A34 (ExpTimerPause.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExpTimerResume @ 0x140243E1C (ExpTimerResume.c)
+ *     ExpTimerPause @ 0x140246288 (ExpTimerPause.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PspRequestProcessExecutionState @ 0x140605920 (PspRequestProcessExecutionState.c)
+ *     PspRequestProcessExecutionState @ 0x1406F5050 (PspRequestProcessExecutionState.c)
  */
 
 __int64 __fastcall PspSetProcessFreezeStateCallback(__int64 a1, unsigned int *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x140666120
+ * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x1406672E0
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x140665E98 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140667058 (PfSnSetPrefetcherInformation.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     PfSnPrefetchCacheEntryGet @ 0x140668138 (PfSnPrefetchCacheEntryGet.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1406692F8 (PfSnPrefetchCacheEntryGet.c)
  */
 
 _QWORD *__fastcall PfSnPrefetchCacheEntryUpdate(_DWORD *a1)
@@ -38,14 +38,14 @@ _QWORD *__fastcall PfSnPrefetchCacheEntryUpdate(_DWORD *a1)
   while ( v5 );
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(&stru_14043C2A0, 1u);
-  v8 = qword_14043C290 - 16;
-  if ( !memcmp((const void *)(qword_14043C290 - 16 + 32), v1, 0x40uLL)
-    || (v8 = PfSnPrefetchCacheEntryGet(&unk_14043C278, v1, v4, 0LL)) != 0 )
+  ExAcquireResourceExclusiveLite(&stru_14043D360, 1u);
+  v8 = qword_14043D350 - 16;
+  if ( !memcmp((const void *)(qword_14043D350 - 16 + 32), v1, 0x40uLL)
+    || (v8 = PfSnPrefetchCacheEntryGet(&unk_14043D338, v1, v4, 0LL)) != 0 )
   {
     *(_DWORD *)(v8 + 112) = a1[17];
     *(_DWORD *)(v8 + 116) = a1[18];
   }
-  ExReleaseResourceLite(&stru_14043C2A0);
+  ExReleaseResourceLite(&stru_14043D360);
   return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
 }

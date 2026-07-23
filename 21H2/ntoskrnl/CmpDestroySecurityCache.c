@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDestroySecurityCache @ 0x14071D074
+ * XREFs of CmpDestroySecurityCache @ 0x1405E07A8
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x14066D478 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
- *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x140662298 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpDestroyHive @ 0x1407293E8 (CmpDestroyHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpDestroySecurityCache(__int64 a1)

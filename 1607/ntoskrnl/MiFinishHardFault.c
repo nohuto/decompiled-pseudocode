@@ -1,49 +1,49 @@
 /*
- * XREFs of MiFinishHardFault @ 0x14004D6A0
+ * XREFs of MiFinishHardFault @ 0x14004D220
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiLockOwnedProtoPage @ 0x140022970 (MiLockOwnedProtoPage.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsFaultPteIntact @ 0x140025C60 (MiIsFaultPteIntact.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAreChargesNeededToLockPage @ 0x14004ED00 (MiAreChargesNeededToLockPage.c)
- *     MiIsPfnCommitNotCharged @ 0x14004F140 (MiIsPfnCommitNotCharged.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     MiInsertAndUnlockStandbyPages @ 0x14006FEF0 (MiInsertAndUnlockStandbyPages.c)
- *     MiDecayPfnFullyInitialized @ 0x140096A10 (MiDecayPfnFullyInitialized.c)
- *     MiCreateDecayPfn @ 0x1400976F0 (MiCreateDecayPfn.c)
- *     MiImagePageOk @ 0x14009D4E8 (MiImagePageOk.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiInvalidateCollidedIos @ 0x1400B27C4 (MiInvalidateCollidedIos.c)
- *     MiFreeInPageSupportBlock @ 0x1400C63A0 (MiFreeInPageSupportBlock.c)
- *     MiChargeForLockedPage @ 0x140103380 (MiChargeForLockedPage.c)
- *     MiIsPteInStore @ 0x140122330 (MiIsPteInStore.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeTransitionPteValid @ 0x1401F27C4 (MiMakeTransitionPteValid.c)
- *     MiMakeImagePageOk @ 0x1401F6F38 (MiMakeImagePageOk.c)
- *     MiSwapHardFaultPage @ 0x1401FE040 (MiSwapHardFaultPage.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiLockOwnedProtoPage @ 0x1400224F0 (MiLockOwnedProtoPage.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsFaultPteIntact @ 0x1400257E0 (MiIsFaultPteIntact.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAreChargesNeededToLockPage @ 0x14004E880 (MiAreChargesNeededToLockPage.c)
+ *     MiIsPfnCommitNotCharged @ 0x14004ECC0 (MiIsPfnCommitNotCharged.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     MiInsertAndUnlockStandbyPages @ 0x14006FA70 (MiInsertAndUnlockStandbyPages.c)
+ *     MiDecayPfnFullyInitialized @ 0x140096210 (MiDecayPfnFullyInitialized.c)
+ *     MiCreateDecayPfn @ 0x140096EF0 (MiCreateDecayPfn.c)
+ *     MiImagePageOk @ 0x14009CCE8 (MiImagePageOk.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiInvalidateCollidedIos @ 0x1400B0704 (MiInvalidateCollidedIos.c)
+ *     MiFreeInPageSupportBlock @ 0x1400C4240 (MiFreeInPageSupportBlock.c)
+ *     MiChargeForLockedPage @ 0x140101100 (MiChargeForLockedPage.c)
+ *     MiIsPteInStore @ 0x1401228A0 (MiIsPteInStore.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeTransitionPteValid @ 0x1401F25F0 (MiMakeTransitionPteValid.c)
+ *     MiMakeImagePageOk @ 0x1401F6D64 (MiMakeImagePageOk.c)
+ *     MiSwapHardFaultPage @ 0x1401FDE6C (MiSwapHardFaultPage.c)
  */
 
 __int64 __fastcall MiFinishHardFault(unsigned int *P, _QWORD *a2, __int64 a3, __int64 a4, __int64 a5)
@@ -287,7 +287,7 @@ __int64 __fastcall MiFinishHardFault(unsigned int *P, _QWORD *a2, __int64 a3, __
   while ( 1 )
   {
     v32 = 48LL * *v12 - 0x58000000000LL;
-    if ( v32 == qword_140327690 )
+    if ( v32 == qword_1403276D0 )
       goto LABEL_62;
     if ( v29 )
     {
@@ -457,7 +457,7 @@ LABEL_72:
         if ( v46 == 1023 )
           v47 = (struct _KEVENT *)MiSystemPartition;
         else
-          v47 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v46);
+          v47 = *(struct _KEVENT **)(qword_140327038 + 8LL * v46);
         v48 = *(_DWORD *)(v32 + 16);
         v100 = v47;
         if ( (v48 & 0x400) == 0 && (unsigned int)MiIsPteInStore(v47, *(_QWORD *)(v32 + 16)) )
@@ -566,7 +566,7 @@ LABEL_149:
       if ( v63 == 1023 )
         v64 = MiSystemPartition;
       else
-        v64 = *(int **)(qword_140326FF8 + 8LL * v63);
+        v64 = *(int **)(qword_140327038 + 8LL * v63);
       if ( v61 == 1 )
         MiReturnCommit(v64, 1LL);
       if ( v64 == MiSystemPartition )
@@ -606,7 +606,7 @@ LABEL_172:
             v31 = (int)CachedResidentAvailable - 192 + 1LL;
           }
         }
-        v31 = _InterlockedExchangeAdd64(&qword_140324EC0, v31);
+        v31 = _InterlockedExchangeAdd64(&qword_140324F00, v31);
         goto LABEL_177;
       }
       _InterlockedExchangeAdd64((volatile signed __int64 *)v64 + 816, 1uLL);

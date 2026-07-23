@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogPinDriverAddress @ 0x140A351F4
+ * XREFs of MiLogPinDriverAddress @ 0x140A29204
  * Callers:
- *     MiLogPinDriverAddressesWorker @ 0x140A350F0 (MiLogPinDriverAddressesWorker.c)
+ *     MiLogPinDriverAddressesWorker @ 0x140A29100 (MiLogPinDriverAddressesWorker.c)
  * Callees:
- *     MmLockLoadedDataTableEntry @ 0x1402C6E88 (MmLockLoadedDataTableEntry.c)
- *     MmUnlockLoadedDataTableEntry @ 0x1402C72D8 (MmUnlockLoadedDataTableEntry.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     MmLockLoadedDataTableEntry @ 0x1402BBA08 (MmLockLoadedDataTableEntry.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1402BBE58 (MmUnlockLoadedDataTableEntry.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogPinDriverAddress(_QWORD *a1)
@@ -79,11 +79,11 @@ void __fastcall MiLogPinDriverAddress(_QWORD *a1)
     p_DestinationString = &DestinationString;
     RtlInitUnicodeString(&DestinationString, L"Image not found");
   }
-  if ( **(_DWORD **)&qword_140E37518 > 5u )
+  if ( **(_DWORD **)&qword_140E37658 > 5u )
   {
-    if ( (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 16LL) & 0x400000000000LL) == 0
+    if ( (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 16LL) & 0x400000000000LL) == 0
       || (v8 = 1,
-          (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 0x400000000000LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37518
+          (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 0x400000000000LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37658
                                                                                             + 24LL)) )
     {
       v8 = 0;
@@ -133,9 +133,9 @@ void __fastcall MiLogPinDriverAddress(_QWORD *a1)
       v48 = 4LL;
       v50 = 8LL;
       tlgWriteAgg(
-        *(__int64 *)&qword_140E37518,
-        (unsigned __int8 *)word_140058542,
-        *(__int64 *)&qword_140E37518,
+        *(__int64 *)&qword_140E37658,
+        (unsigned __int8 *)&dword_140059314,
+        *(__int64 *)&qword_140E37658,
         0x10u,
         (__int64)v22);
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptIntShr1 @ 0x14055C3FC
+ * XREFs of SymCryptIntShr1 @ 0x14055E8E4
  * Callers:
- *     SymCryptIntExtendedGcd @ 0x140562838 (SymCryptIntExtendedGcd.c)
+ *     SymCryptIntExtendedGcd @ 0x140564D48 (SymCryptIntExtendedGcd.c)
  * Callees:
- *     SymCryptFdefIntShr1 @ 0x140568910 (SymCryptFdefIntShr1.c)
+ *     SymCryptFdefIntShr1 @ 0x140567AF0 (SymCryptFdefIntShr1.c)
  */
 
 __int64 SymCryptIntShr1()

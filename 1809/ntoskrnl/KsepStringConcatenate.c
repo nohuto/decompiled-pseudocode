@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepStringConcatenate @ 0x14067DD14
+ * XREFs of KsepStringConcatenate @ 0x14067EED4
  * Callers:
- *     KsepLoadShimProvider @ 0x14029FA5C (KsepLoadShimProvider.c)
- *     KsepRegistryOpenKey @ 0x14067DE58 (KsepRegistryOpenKey.c)
+ *     KsepLoadShimProvider @ 0x14029FC4C (KsepLoadShimProvider.c)
+ *     KsepRegistryOpenKey @ 0x14067F018 (KsepRegistryOpenKey.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4D5C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlAssert @ 0x1402EFA50 (RtlAssert.c)
  */
 
 __int64 __fastcall KsepStringConcatenate(__int64 a1, _WORD *a2, _WORD *a3, int a4)

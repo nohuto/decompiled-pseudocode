@@ -13,7 +13,7 @@
  *     _RtlpCalculateSubsegmentSizeIndex@8 @ 0x4B379AE0 (_RtlpCalculateSubsegmentSizeIndex@8.c)
  */
 
-int __fastcall RtlpHpLfhSubsegmentCreate(int a1, int a2, int a3)
+int __fastcall RtlpHpLfhSubsegmentCreate(_RTL_SRWLOCK *a1, int a2, int a3)
 {
   int v5; // edx
   int v6; // esi
@@ -33,7 +33,7 @@ int __fastcall RtlpHpLfhSubsegmentCreate(int a1, int a2, int a3)
   int v20; // esi
   int v21; // eax
   int v22; // eax
-  int v24; // [esp-Ch] [ebp-38h]
+  unsigned int Value; // [esp-Ch] [ebp-38h]
   char v25[4]; // [esp+10h] [ebp-1Ch] BYREF
   int v26; // [esp+14h] [ebp-18h]
   int v27; // [esp+18h] [ebp-14h]
@@ -46,7 +46,7 @@ int __fastcall RtlpHpLfhSubsegmentCreate(int a1, int a2, int a3)
   v5 = *(unsigned __int8 *)(a2 + 1);
   v6 = (unsigned __int16)RtlpBucketBlockSizes[v5];
   v29 = v6;
-  v7 = (RtlpHpLfhPerfFlags & 1) != 0 && RtlpHpLfhBucketSubsegmentStatsUpdate((volatile signed __int32 *)(a1 + 64), v5);
+  v7 = (RtlpHpLfhPerfFlags & 1) != 0 && RtlpHpLfhBucketSubsegmentStatsUpdate((volatile signed __int32 *)&a1[16], v5);
   v30 = v7;
   v8 = RtlpHpLfhBucketComputeNewSubsegmentBlockCount(a2);
   v9 = v6 * v8;
@@ -67,10 +67,10 @@ int __fastcall RtlpHpLfhSubsegmentCreate(int a1, int a2, int a3)
   }
   v26 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int32 *)(a1 + 68));
-  v17 = ((int (__thiscall *)(int, _DWORD, unsigned int, int, char *, char *))(a1 ^ RtlpHpHeapGlobals ^ *(_DWORD *)(a1 + 4)))(
-          a1 ^ RtlpHpHeapGlobals ^ *(_DWORD *)(a1 + 4),
-          *(_DWORD *)a1,
+    RtlAcquireSRWLockShared(a1 + 17);
+  v17 = ((int (__thiscall *)(unsigned int, unsigned int, unsigned int, int, char *, char *))((unsigned int)a1 ^ RtlpHpHeapGlobals ^ a1[1].Value))(
+          (unsigned int)a1 ^ RtlpHpHeapGlobals ^ a1[1].Value,
+          a1->Value,
           v14,
           a3,
           v28,
@@ -87,10 +87,14 @@ int __fastcall RtlpHpLfhSubsegmentCreate(int a1, int a2, int a3)
       v19 = RtlpHpLfhSubsegmentComputeCommitUnit(v14, v29);
       v17 = v31;
     }
-    v20 = RtlpHpHeapGlobals ^ *(_DWORD *)(a1 + 12);
-    v24 = *(_DWORD *)a1;
+    v20 = RtlpHpHeapGlobals ^ a1[3].Value;
+    Value = a1->Value;
     v30 = v19;
-    if ( ((int (__thiscall *)(int, int, int, unsigned int))(a1 ^ v20))(a1 ^ v20, v24, v17, v19) >= 0 )
+    if ( ((int (__thiscall *)(unsigned int, unsigned int, int, unsigned int))((unsigned int)a1 ^ v20))(
+           (unsigned int)a1 ^ v20,
+           Value,
+           v17,
+           v19) >= 0 )
     {
       v18 = v31;
       RtlpHpLfhSubsegmentInitialize(v30, v29, a1);
@@ -107,9 +111,9 @@ int __fastcall RtlpHpLfhSubsegmentCreate(int a1, int a2, int a3)
     v29 = v18;
     if ( v21 )
     {
-      ((void (__thiscall *)(int, _DWORD, int, unsigned int, int))(a1 ^ RtlpHpHeapGlobals ^ *(_DWORD *)(a1 + 8)))(
-        a1 ^ RtlpHpHeapGlobals ^ *(_DWORD *)(a1 + 8),
-        *(_DWORD *)a1,
+      ((void (__thiscall *)(unsigned int, unsigned int, int, unsigned int, int))((unsigned int)a1 ^ RtlpHpHeapGlobals ^ a1[2].Value))(
+        (unsigned int)a1 ^ RtlpHpHeapGlobals ^ a1[2].Value,
+        a1->Value,
         v21,
         v14,
         a3);
@@ -121,6 +125,6 @@ int __fastcall RtlpHpLfhSubsegmentCreate(int a1, int a2, int a3)
     v18 = 0;
   }
   if ( !v26 )
-    RtlReleaseSRWLockShared((volatile signed __int32 *)(a1 + 68));
+    RtlReleaseSRWLockShared(a1 + 17);
   return v18;
 }

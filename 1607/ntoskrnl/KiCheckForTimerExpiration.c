@@ -1,14 +1,14 @@
 /*
- * XREFs of KiCheckForTimerExpiration @ 0x1400DC7F0
+ * XREFs of KiCheckForTimerExpiration @ 0x1400DA690
  * Callers:
- *     KeAccumulateTicks @ 0x1400DC3C0 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1400DA260 (KeAccumulateTicks.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     RtlRbRemoveNode @ 0x140031320 (RtlRbRemoveNode.c)
- *     KiSetClockInterval @ 0x14009DEE4 (KiSetClockInterval.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x14009DF80 (KiSetClockIntervalToMinimumRequested.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x1400AB040 (PoTraceSystemTimerResolutionKernel.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     RtlRbRemoveNode @ 0x140030EA0 (RtlRbRemoveNode.c)
+ *     KiSetClockInterval @ 0x14009D6E4 (KiSetClockInterval.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14009D780 (KiSetClockIntervalToMinimumRequested.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1400A95C0 (PoTraceSystemTimerResolutionKernel.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall KiCheckForTimerExpiration(__int64 a1)
@@ -83,7 +83,7 @@ LABEL_19:
       if ( KiNextTimer2DueTime > v2 )
         goto LABEL_6;
     }
-    else if ( qword_14030E308 > v2 )
+    else if ( qword_14030E348 > v2 )
     {
       goto LABEL_6;
     }
@@ -117,10 +117,10 @@ LABEL_6:
     v7 = KiHRTimerClockActive;
     if ( KiHRTimerClockActive )
     {
-      if ( v6 > qword_14030E308 )
+      if ( v6 > qword_14030E348 )
         goto LABEL_7;
     }
-    else if ( v6 <= qword_14030E308 )
+    else if ( v6 <= qword_14030E348 )
     {
       goto LABEL_7;
     }
@@ -132,14 +132,14 @@ LABEL_6:
     {
       if ( v7 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)&KiClockIntervalRequests, KiHRTimerClockRequest);
-        byte_14030E378 = 0;
+        RtlRbRemoveNode(&KiClockIntervalRequests, &KiHRTimerClockRequest);
+        byte_14030E3B8 = 0;
         KiSetClockIntervalToMinimumRequested();
         v11 = 0;
       }
       else
       {
-        KiSetClockInterval(KeMinimumIncrement, 0, (__int64)KiHRTimerClockRequest);
+        KiSetClockInterval(KeMinimumIncrement, 0, (__int64)&KiHRTimerClockRequest);
         v9 = KeMinimumIncrement;
         v11 = 1;
       }

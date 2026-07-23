@@ -1,10 +1,10 @@
 /*
- * XREFs of DifClearCallerContext @ 0x14064A670
+ * XREFs of DifClearCallerContext @ 0x14064E250
  * Callers:
  *     <none>
  * Callees:
- *     DifIsSupportedDomain @ 0x140640170 (DifIsSupportedDomain.c)
- *     DifPushSegment @ 0x14064D11C (DifPushSegment.c)
+ *     DifIsSupportedDomain @ 0x140643D50 (DifIsSupportedDomain.c)
+ *     DifPushSegment @ 0x140650CFC (DifPushSegment.c)
  */
 
 void DifClearCallerContext()
@@ -22,11 +22,11 @@ void DifClearCallerContext()
         if ( *(_QWORD *)v0 )
         {
           *(_QWORD *)v0 = **(_QWORD **)v0;
-          DifPushSegment(&stru_140E27B08.InGlobalForegroundList);
+          DifPushSegment(&stru_140E27C48.SchedulerApcFill5[48]);
         }
         if ( !*(_QWORD *)v0 && !*(_QWORD *)(v0 + 8) )
         {
-          DifPushSegment(&stru_140E27B08.792);
+          DifPushSegment(&stru_140E27C48.792);
           *(_QWORD *)&KeGetCurrentThread()[1].WaitBlockFill11[64] = 0LL;
         }
       }

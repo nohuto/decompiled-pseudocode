@@ -1,35 +1,35 @@
 /*
- * XREFs of NtRenameKey @ 0x14084F890
+ * XREFs of NtRenameKey @ 0x140855BA0
  * Callers:
- *     DifNtRenameKeyWrapper @ 0x140688CF0 (DifNtRenameKeyWrapper.c)
+ *     DifNtRenameKeyWrapper @ 0x14068C8D0 (DifNtRenameKeyWrapper.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404869D8 (CmpAllocateTransientPoolWithQuota.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmDoVirtualTest @ 0x1404D4AF4 (CmDoVirtualTest.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmPostCallbackNotificationEx @ 0x1408C9D50 (CmPostCallbackNotificationEx.c)
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     CmpCaptureUnicodeStringBuffer @ 0x1408F2650 (CmpCaptureUnicodeStringBuffer.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     CmpDoesBufferRequireCapturing @ 0x14097DDF0 (CmpDoesBufferRequireCapturing.c)
- *     CmpCaptureUnicodeString @ 0x14097E720 (CmpCaptureUnicodeString.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x140AB2878 (CmKeyBodyNeedsVirtualImage.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140B3181C (CmKeyBodyReplicateToVirtual.c)
- *     CmObReferenceObjectByHandle @ 0x140C58340 (CmObReferenceObjectByHandle.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     CmpIsRegistryLockAcquired @ 0x140261E00 (CmpIsRegistryLockAcquired.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x140480350 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmDoVirtualTest @ 0x1404CE364 (CmDoVirtualTest.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmPostCallbackNotificationEx @ 0x1408D0300 (CmPostCallbackNotificationEx.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     CmpCaptureUnicodeStringBuffer @ 0x1408F8C10 (CmpCaptureUnicodeStringBuffer.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     CmpDoesBufferRequireCapturing @ 0x14093FE00 (CmpDoesBufferRequireCapturing.c)
+ *     CmpCaptureUnicodeString @ 0x140940730 (CmpCaptureUnicodeString.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x140AB0548 (CmKeyBodyNeedsVirtualImage.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140B33A1C (CmKeyBodyReplicateToVirtual.c)
+ *     CmObReferenceObjectByHandle @ 0x140C5E340 (CmObReferenceObjectByHandle.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall NtRenameKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtRenameKey(HANDLE KeyHandle, PUNICODE_STRING NewName)
 {
   char v3; // r13
   struct _PRIVILEGE_SET *v4; // r12
@@ -39,7 +39,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, __int64 a2)
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // r8
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   unsigned __int16 v12; // bx
   _WORD *v13; // r13
   int v14; // r8d
@@ -70,7 +70,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, __int64 a2)
   __int64 v40; // [rsp+F8h] [rbp-70h]
   struct _KAPC_STATE ApcState; // [rsp+100h] [rbp-68h] BYREF
 
-  *(_QWORD *)&v35 = a1;
+  *(_QWORD *)&v35 = KeyHandle;
   v39 = 0LL;
   v40 = 0LL;
   v32 = 0LL;
@@ -96,7 +96,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, __int64 a2)
     goto LABEL_38;
   }
   LOBYTE(v10) = PreviousMode;
-  v11 = CmpCaptureUnicodeString(&v32, a2, v10);
+  v11 = CmpCaptureUnicodeString(&v32, NewName, v10);
   if ( v11 < 0 )
   {
     v6 = 0;
@@ -176,7 +176,7 @@ LABEL_20:
     goto LABEL_17;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( !WheapPfaLock.ExpectedRunTime || (unsigned int)CmpIsRegistryLockAcquired() )
+  if ( !HIDWORD(WheapPfaLock.StateSaveArea) || (unsigned int)CmpIsRegistryLockAcquired() )
   {
     v3 = 0;
     goto LABEL_33;
@@ -223,5 +223,5 @@ LABEL_38:
   if ( v29 )
     CmpReleaseShutdownRundown(v27);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v39);
-  return (unsigned int)v11;
+  return v11;
 }

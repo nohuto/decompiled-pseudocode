@@ -1,16 +1,16 @@
 /*
- * XREFs of ObReferenceFileObjectForWrite @ 0x140749DE4
+ * XREFs of ObReferenceFileObjectForWrite @ 0x140749FD4
  * Callers:
- *     NtCopyFileChunk @ 0x140749890 (NtCopyFileChunk.c)
- *     IopIoRingReferenceFileObject @ 0x140949F04 (IopIoRingReferenceFileObject.c)
+ *     NtCopyFileChunk @ 0x140749A80 (NtCopyFileChunk.c)
+ *     IopIoRingReferenceFileObject @ 0x14094A104 (IopIoRingReferenceFileObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     PsDereferenceSiloContext @ 0x14036A270 (PsDereferenceSiloContext.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
- *     ObpHandlesToObjectAreRevoked @ 0x140749508 (ObpHandlesToObjectAreRevoked.c)
- *     ObpReferenceObjectByHandle @ 0x140749F3C (ObpReferenceObjectByHandle.c)
- *     IoComputeDesiredAccessFileObject @ 0x140749FC4 (IoComputeDesiredAccessFileObject.c)
- *     ObpAuditObjectAccess @ 0x14097C114 (ObpAuditObjectAccess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     PsDereferenceSiloContext @ 0x14036A410 (PsDereferenceSiloContext.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
+ *     ObpHandlesToObjectAreRevoked @ 0x1407496F8 (ObpHandlesToObjectAreRevoked.c)
+ *     ObpReferenceObjectByHandle @ 0x14074A12C (ObpReferenceObjectByHandle.c)
+ *     IoComputeDesiredAccessFileObject @ 0x14074A1B4 (IoComputeDesiredAccessFileObject.c)
+ *     ObpAuditObjectAccess @ 0x14097C314 (ObpAuditObjectAccess.c)
  */
 
 __int64 __fastcall ObReferenceFileObjectForWrite(ULONG_PTR BugCheckParameter1, char a2, _QWORD *a3, _DWORD *a4)

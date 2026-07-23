@@ -1,10 +1,10 @@
 /*
- * XREFs of ExFreePool2 @ 0x140606E80
+ * XREFs of ExFreePool2 @ 0x1406073D0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     VslSecurePoolFree @ 0x14054C714 (VslSecurePoolFree.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     VslSecurePoolFree @ 0x14054CDD4 (VslSecurePoolFree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

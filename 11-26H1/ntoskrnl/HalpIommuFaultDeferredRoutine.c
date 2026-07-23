@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuFaultDeferredRoutine @ 0x1405A0000
+ * XREFs of HalpIommuFaultDeferredRoutine @ 0x1405A27F0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall HalpIommuFaultDeferredRoutine(__int64 a1, __int64 a2)

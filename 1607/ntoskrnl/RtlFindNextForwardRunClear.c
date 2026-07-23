@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFindNextForwardRunClear @ 0x140084724
+ * XREFs of RtlFindNextForwardRunClear @ 0x140082884
  * Callers:
  *     PnprMirrorMarkedPages @ 0x1403DC208 (PnprMirrorMarkedPages.c)
  *     PopGetRemainingHibernateRangeDataSize @ 0x1403DF0DC (PopGetRemainingHibernateRangeDataSize.c)
- *     MiFindDriverNonPagedSections @ 0x14047EC4C (MiFindDriverNonPagedSections.c)
- *     HvpGenerateLogMetadata @ 0x1404818B8 (HvpGenerateLogMetadata.c)
- *     HvpCountSetRangesInVector @ 0x140481974 (HvpCountSetRangesInVector.c)
- *     MiDeleteLeakedSessionPool @ 0x140531EB8 (MiDeleteLeakedSessionPool.c)
+ *     MiFindDriverNonPagedSections @ 0x14047D9A0 (MiFindDriverNonPagedSections.c)
+ *     HvpGenerateLogMetadata @ 0x14048060C (HvpGenerateLogMetadata.c)
+ *     HvpCountSetRangesInVector @ 0x1404806C8 (HvpCountSetRangesInVector.c)
+ *     MiDeleteLeakedSessionPool @ 0x1405323F8 (MiDeleteLeakedSessionPool.c)
  *     ViThunkSnapSharedExports @ 0x1406FDF64 (ViThunkSnapSharedExports.c)
  * Callees:
  *     <none>

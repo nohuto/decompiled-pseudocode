@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSkNmiCallbackRoutine @ 0x1401C05B0
+ * XREFs of HvlSkNmiCallbackRoutine @ 0x1401C0494
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     CmpMarkLockTryAcquired @ 0x1405281C8 (CmpMarkLockTryAcquired.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     CmpMarkLockTryAcquired @ 0x140528708 (CmpMarkLockTryAcquired.c)
  */
 
 BOOLEAN __fastcall HvlSkNmiCallbackRoutine(PVOID *Context, BOOLEAN Handled)
@@ -17,8 +17,8 @@ BOOLEAN __fastcall HvlSkNmiCallbackRoutine(PVOID *Context, BOOLEAN Handled)
   ULONG v6; // ecx
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-18h]
 
-  v2 = qword_1403221C8;
-  if ( qword_1403221C8 && (*((_DWORD *)qword_1403221C8 + 1) & 1) != 0 )
+  v2 = qword_1403221E8;
+  if ( qword_1403221E8 && (*((_DWORD *)qword_1403221E8 + 1) & 1) != 0 )
   {
     HvlEnlightenments &= 0x2000u;
     off_1402F24B0(Context);

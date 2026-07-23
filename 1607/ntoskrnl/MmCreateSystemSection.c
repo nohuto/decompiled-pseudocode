@@ -1,14 +1,14 @@
 /*
- * XREFs of MmCreateSystemSection @ 0x1400821E0
+ * XREFs of MmCreateSystemSection @ 0x140082E5C
  * Callers:
- *     MiCreateSectionForDriver @ 0x14047D2C8 (MiCreateSectionForDriver.c)
+ *     MiCreateSectionForDriver @ 0x14048338C (MiCreateSectionForDriver.c)
  * Callees:
- *     CcZeroEndOfLastPage @ 0x140024850 (CcZeroEndOfLastPage.c)
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     CcZeroEndOfLastPage @ 0x1400243D0 (CcZeroEndOfLastPage.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  */
 
 __int64 __fastcall MmCreateSystemSection(

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x1408F3B68
+ * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x1408F3CC8
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D5560 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     KeQueryGroupAffinity @ 0x1402C95F0 (KeQueryGroupAffinity.c)
- *     KeAndGroupAffinityEx @ 0x1403746A0 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeQueryGroupAffinity @ 0x140247ED0 (KeQueryGroupAffinity.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KeAndGroupAffinityEx @ 0x1403741F0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)

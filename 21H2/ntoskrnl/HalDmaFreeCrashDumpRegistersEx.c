@@ -1,11 +1,11 @@
 /*
- * XREFs of HalDmaFreeCrashDumpRegistersEx @ 0x1403A7070
+ * XREFs of HalDmaFreeCrashDumpRegistersEx @ 0x1403A71C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
- *     HalpDmaFreeMapRegisters @ 0x1404C7AB8 (HalpDmaFreeMapRegisters.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C7CF8 (HalpDmaFreeMapRegisters.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
 __int64 __fastcall HalDmaFreeCrashDumpRegistersEx(__int64 a1, signed int a2)

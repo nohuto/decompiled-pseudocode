@@ -1,23 +1,23 @@
 /*
- * XREFs of MiUnlockDynamicMemoryExclusive @ 0x1402AC034
+ * XREFs of MiUnlockDynamicMemoryExclusive @ 0x1402745E0
  * Callers:
  *     MiMarkHugePfnBad @ 0x1403F39F4 (MiMarkHugePfnBad.c)
  *     MiMarkHugePfnGood @ 0x1403F3DA8 (MiMarkHugePfnGood.c)
- *     MiGetChannelInformation @ 0x14069256C (MiGetChannelInformation.c)
- *     MiGetPhysicalMemoryRanges @ 0x14076F768 (MiGetPhysicalMemoryRanges.c)
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x1408DB778 (MiUpdatePartitionLargePfnBitMap.c)
- *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
+ *     MiGetChannelInformation @ 0x14067D1AC (MiGetChannelInformation.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14076F928 (MiGetPhysicalMemoryRanges.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x1408DB8D8 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MmDuplicateMemory @ 0x14099625C (MmDuplicateMemory.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
@@ -31,7 +31,6 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
   __int64 v9; // rcx
   __int64 v10; // rdi
   __int64 v11; // rdx
-  __int64 v12; // rcx
 
   v2 = a1 + 192;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 192), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -63,7 +62,7 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
         {
           *(_BYTE *)(v10 + 32) |= 2u;
           if ( *(__int64 *)(v10 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v10);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
           *(_DWORD *)(v10 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v10 + 25) &= ~1u;
           *(_QWORD *)(v10 + 32) = 0LL;
@@ -85,6 +84,6 @@ LABEL_17:
   KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
   v8 = CurrentThread->SpecialApcDisable++ == -1;
   if ( v8 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery(v12);
+    KiCheckForKernelApcDelivery();
   return KiLeaveGuardedRegionUnsafe(a2);
 }

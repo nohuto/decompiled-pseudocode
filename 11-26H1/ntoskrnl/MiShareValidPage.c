@@ -1,23 +1,23 @@
 /*
- * XREFs of MiShareValidPage @ 0x140704A2C
+ * XREFs of MiShareValidPage @ 0x1407096FC
  * Callers:
- *     MiSharePagesLockPageTable @ 0x1403072AC (MiSharePagesLockPageTable.c)
+ *     MiSharePagesLockPageTable @ 0x1402E932C (MiSharePagesLockPageTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiActivePageCombineCandidate @ 0x140295F90 (MiActivePageCombineCandidate.c)
- *     MiVadSupportsCombine @ 0x140307A0C (MiVadSupportsCombine.c)
- *     MiSharePageGetFlushList @ 0x140307C58 (MiSharePageGetFlushList.c)
- *     MiMakeCombineCandidateClean @ 0x1403193BC (MiMakeCombineCandidateClean.c)
- *     MiConfirmPageIsZero @ 0x14031A160 (MiConfirmPageIsZero.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiPageMightBeZero @ 0x14046A5C0 (MiPageMightBeZero.c)
- *     MiCheckProcessCombineSequence @ 0x140497E80 (MiCheckProcessCombineSequence.c)
- *     MiGetCombineDomain @ 0x1404A2F70 (MiGetCombineDomain.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiActivePageCombineCandidate @ 0x1402954F0 (MiActivePageCombineCandidate.c)
+ *     MiVadSupportsCombine @ 0x1402E9A8C (MiVadSupportsCombine.c)
+ *     MiSharePageGetFlushList @ 0x1402E9CD8 (MiSharePageGetFlushList.c)
+ *     MiMakeCombineCandidateClean @ 0x14031B3EC (MiMakeCombineCandidateClean.c)
+ *     MiConfirmPageIsZero @ 0x14031C190 (MiConfirmPageIsZero.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiPageMightBeZero @ 0x140463D40 (MiPageMightBeZero.c)
+ *     MiCheckProcessCombineSequence @ 0x1404919D0 (MiCheckProcessCombineSequence.c)
+ *     MiGetCombineDomain @ 0x14049C990 (MiGetCombineDomain.c)
  */
 
 __int64 __fastcall MiShareValidPage(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -90,7 +90,7 @@ __int64 __fastcall MiShareValidPage(__int64 a1, __int64 a2, unsigned __int64 a3)
   }
   else
   {
-    if ( v18 != qword_140E36028 )
+    if ( v18 != qword_140E361A8 )
       goto LABEL_30;
     if ( (v17 & 0x18) == 0 && (v6 & 0x20) != 0 && *(_DWORD *)(a1 + 28) < 3u )
     {
@@ -103,7 +103,7 @@ LABEL_14:
       return 0LL;
     }
   }
-  if ( v18 == qword_140E36028 && MiPageMightBeZero(v9, v12, (__int64)v32) )
+  if ( v18 == qword_140E361A8 && MiPageMightBeZero(v9, v12, (__int64)v32) )
   {
     LODWORD(v32) = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 24), 0x3FuLL) )
@@ -144,7 +144,7 @@ LABEL_14:
     }
   }
 LABEL_30:
-  if ( *(_QWORD *)(a2 + 24) != qword_140E2EA50 && v11 == 1 )
+  if ( *(_QWORD *)(a2 + 24) != qword_140E2EBD0 && v11 == 1 )
   {
     CombineDomain = MiGetCombineDomain(1, v9);
     if ( v30 != CombineDomain

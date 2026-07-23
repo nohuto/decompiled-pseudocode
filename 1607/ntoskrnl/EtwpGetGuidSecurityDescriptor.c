@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpGetGuidSecurityDescriptor @ 0x140407F0C
+ * XREFs of EtwpGetGuidSecurityDescriptor @ 0x140406DCC
  * Callers:
- *     EtwpGetSecurityDescriptorByGuid @ 0x140407E08 (EtwpGetSecurityDescriptorByGuid.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x140406CC8 (EtwpGetSecurityDescriptorByGuid.c)
  *     EtwpInitializeSecurity @ 0x1407BC7EC (EtwpInitializeSecurity.c)
  * Callees:
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeValidSecurityDescriptor @ 0x1404C7814 (SeValidSecurityDescriptor.c)
+ *     SeValidSecurityDescriptor @ 0x140486C5C (SeValidSecurityDescriptor.c)
  */
 
 __int64 __fastcall EtwpGetGuidSecurityDescriptor(PUNICODE_STRING ValueName, _QWORD *a2)

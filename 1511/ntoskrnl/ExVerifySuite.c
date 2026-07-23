@@ -13,7 +13,7 @@ BOOLEAN __stdcall ExVerifySuite(SUITE_TYPE SuiteType)
 {
   int v1; // eax
 
-  if ( SuiteType > MultiUserTS )
+  if ( SuiteType > MaxSuiteType )
     return 0;
   v1 = dword_140306608;
   return _bittest(&v1, SuiteType);

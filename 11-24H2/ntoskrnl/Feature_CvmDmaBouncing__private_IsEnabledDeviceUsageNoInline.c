@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline @ 0x14054B23C
+ * XREFs of Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline @ 0x140548AFC
  * Callers:
- *     HalpEnlightenmentInitialize @ 0x14054B290 (HalpEnlightenmentInitialize.c)
- *     HalpDmaInit @ 0x140C10654 (HalpDmaInit.c)
+ *     HalpEnlightenmentInitialize @ 0x140548B50 (HalpEnlightenmentInitialize.c)
+ *     HalpDmaInit @ 0x140C12654 (HalpDmaInit.c)
  * Callees:
- *     Feature_CvmDmaBouncing__private_IsEnabledFallback @ 0x14054B274 (Feature_CvmDmaBouncing__private_IsEnabledFallback.c)
+ *     Feature_CvmDmaBouncing__private_IsEnabledFallback @ 0x140548B34 (Feature_CvmDmaBouncing__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline()

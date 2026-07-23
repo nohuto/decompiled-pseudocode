@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckStart @ 0x14032C0C4
+ * XREFs of PpmCheckStart @ 0x14032C354
  * Callers:
- *     PpmCheckCustomRun @ 0x14032B63C (PpmCheckCustomRun.c)
- *     PpmCheckPeriodicStart @ 0x14032C020 (PpmCheckPeriodicStart.c)
+ *     PpmCheckCustomRun @ 0x14032B8CC (PpmCheckCustomRun.c)
+ *     PpmCheckPeriodicStart @ 0x14032C2B0 (PpmCheckPeriodicStart.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x14032B1B0 (PpmPerfSetAllDomainsToUpdate.c)
- *     PpmCheckRun @ 0x14032C1F0 (PpmCheckRun.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x14032B440 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmCheckRun @ 0x14032C480 (PpmCheckRun.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmCheckStart(int a1)
@@ -19,18 +19,18 @@ __int64 __fastcall PpmCheckStart(int a1)
   REGHANDLE v3; // rsi
   int v5; // edx
   int v6; // [rsp+30h] [rbp-50h] BYREF
-  LARGE_INTEGER v7; // [rsp+38h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp-48h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-40h] BYREF
-  LARGE_INTEGER *v9; // [rsp+50h] [rbp-30h]
+  LARGE_INTEGER *p_PerformanceCounter; // [rsp+50h] [rbp-30h]
   __int64 v10; // [rsp+58h] [rbp-28h]
   int *v11; // [rsp+60h] [rbp-20h]
   __int64 v12; // [rsp+68h] [rbp-18h]
 
   v1 = a1;
   PpmCheckCurrentPipelineId = a1;
-  PpmCheckTime = RtlGetInterruptTimePrecise(&v7);
+  PpmCheckTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   v2 = 0;
-  v7.QuadPart = PpmCheckLastEffectiveExecutionTime;
+  PerformanceCounter.QuadPart = PpmCheckLastEffectiveExecutionTime;
   v6 = v1;
   if ( PpmEtwRegistered )
   {
@@ -40,7 +40,7 @@ __int64 __fastcall PpmCheckStart(int a1)
       *(_QWORD *)&UserData.Size = 8LL;
       UserData.Ptr = (ULONGLONG)&PpmCheckTime;
       v10 = 8LL;
-      v9 = &v7;
+      p_PerformanceCounter = &PerformanceCounter;
       v12 = 4LL;
       v11 = &v6;
       EtwWrite(v3, &PPM_ETW_PERF_CHECK_START, 0LL, 3u, &UserData);

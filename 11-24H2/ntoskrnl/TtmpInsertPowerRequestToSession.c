@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmpInsertPowerRequestToSession @ 0x14076A838
+ * XREFs of TtmpInsertPowerRequestToSession @ 0x14076AA58
  * Callers:
- *     TtmNotifySessionPowerRequestCreated @ 0x140769B78 (TtmNotifySessionPowerRequestCreated.c)
- *     TtmNotifySessionPowerRequestPresent @ 0x140769D28 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestCreated @ 0x140769D98 (TtmNotifySessionPowerRequestCreated.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x140769F48 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     TtmpPowerRequestHashAllocator @ 0x14076AB74 (TtmpPowerRequestHashAllocator.c)
- *     TtmpPowerRequestHashDeallocator @ 0x14076AB98 (TtmpPowerRequestHashDeallocator.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
- *     TtmpAcquireSessionById @ 0x140903BF4 (TtmpAcquireSessionById.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     TtmpPowerRequestHashAllocator @ 0x14076AD94 (TtmpPowerRequestHashAllocator.c)
+ *     TtmpPowerRequestHashDeallocator @ 0x14076ADB8 (TtmpPowerRequestHashDeallocator.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
+ *     TtmpAcquireSessionById @ 0x14099E1A4 (TtmpAcquireSessionById.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall TtmpInsertPowerRequestToSession(unsigned int a1, int a2, int a3, __int64 a4, __int64 a5)
@@ -53,7 +53,7 @@ LABEL_3:
     TtmiLogError("TtmpInsertPowerRequestToSession", v12, v11, -1LL);
     goto LABEL_28;
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x40uLL, 0x52507454u);
   v14 = (_QWORD *)Pool2;
   if ( !Pool2 )
   {

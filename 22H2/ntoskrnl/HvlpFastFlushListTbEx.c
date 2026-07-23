@@ -40,7 +40,7 @@ void __fastcall HvlpFastFlushListTbEx(
     HIDWORD(v12) = a7 & 0xFFF;
     HvlpCopyFlushVaList(a5, a6, (HvlpFlags & 0x2000) != 0, (__int64 *)((char *)&v13 + (unsigned int)(v10 + 32)));
     LODWORD(v12) = v12 | 0x10000;
-    HvcallFastExtended(v12, (__int64)&v13, (unsigned int)(v11 + 8 * a7), 0LL, 0);
+    HvcallFastExtended(v12, (__int64)&v13, v11 + 8 * a7, 0, 0);
   }
   if ( a3 )
     VslFastFlushSecureRangeList(a6, a5);

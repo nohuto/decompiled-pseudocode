@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x140586ED0
+ * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x1405893F0
  * Callers:
  *     <none>
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
  */
 
 void __fastcall HalpEfiBugCheckAddPagesCallback(
@@ -20,15 +20,15 @@ void __fastcall HalpEfiBugCheckAddPagesCallback(
   __int64 v10; // r9
   int v11; // eax
 
-  v4 = HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104] == 0;
+  v4 = HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72] == 0;
   ReasonSpecificData[3] = 0LL;
   *((_DWORD *)ReasonSpecificData + 2) = 0;
-  if ( !v4 && HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink )
+  if ( !v4 && HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink )
   {
     if ( !*ReasonSpecificData )
     {
-      *ReasonSpecificData = (unsigned int *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[108];
-      *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[108] = 0;
+      *ReasonSpecificData = (unsigned int *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[76];
+      *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[76] = 0;
     }
     v6 = *ReasonSpecificData;
     v7 = **ReasonSpecificData;
@@ -44,7 +44,7 @@ LABEL_6:
           ++v7;
           goto LABEL_6;
         }
-        v10 = *((_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink->Flink + i);
+        v10 = *((_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink->Flink + i);
         if ( v10 )
         {
           if ( v10 != -192 )

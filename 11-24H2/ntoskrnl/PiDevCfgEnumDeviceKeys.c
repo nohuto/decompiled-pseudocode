@@ -1,30 +1,23 @@
 /*
- * XREFs of PiDevCfgEnumDeviceKeys @ 0x140964374
+ * XREFs of PiDevCfgEnumDeviceKeys @ 0x14094C14C
  * Callers:
- *     PiDevCfgResetDeviceKeys @ 0x14072B5E4 (PiDevCfgResetDeviceKeys.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x140964604 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgResetDeviceKeys @ 0x1407295D4 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14094C3DC (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpCtxOpenContextNodeBaseKey @ 0x1408175F4 (_PnpCtxOpenContextNodeBaseKey.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxOpenContextBaseKey @ 0x1409642EC (_PnpCtxOpenContextBaseKey.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpCtxOpenContextNodeBaseKey @ 0x140817D34 (_PnpCtxOpenContextNodeBaseKey.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14094C0C4 (_PnpCtxOpenContextBaseKey.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
  */
 
-__int64 __fastcall PiDevCfgEnumDeviceKeys(
-        __int64 a1,
-        __int64 a2,
-        void *a3,
-        unsigned int a4,
-        char a5,
-        __int64 a6,
-        __int64 a7)
+__int64 __fastcall PiDevCfgEnumDeviceKeys(__int64 a1, __int64 a2, void *a3, int a4, char a5, __int64 a6, __int64 a7)
 {
   unsigned int v10; // edi
   unsigned int v11; // esi
@@ -64,7 +57,7 @@ __int64 __fastcall PiDevCfgEnumDeviceKeys(
   v27 = 0;
   while ( v11 < 7 )
   {
-    v12 = &(&off_140B3DA10)[4 * v11];
+    v12 = &(&off_140B3F810)[4 * v11];
     if ( (a4 & (_DWORD)v12[1]) == 0 )
       goto LABEL_14;
     RtlInitUnicodeString(&DestinationString, *v12);
@@ -155,7 +148,7 @@ LABEL_10:
 LABEL_11:
     v23 = v15;
     v22 = (int)KeyHandle;
-    DeviceRegProp = guard_dispatch_icall_no_overrides(a1, a2, &(&off_140B3DA10)[4 * v11], a4);
+    DeviceRegProp = guard_dispatch_icall_no_overrides(a1, a2);
     if ( DeviceRegProp == -1073741248 )
       break;
     if ( DeviceRegProp < 0 )

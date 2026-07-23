@@ -1,38 +1,42 @@
 /*
- * XREFs of NtCreateMutant @ 0x1406DDC40
+ * XREFs of NtCreateMutant @ 0x1406B4F20
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeMutantEx @ 0x1402ED1C0 (KeInitializeMutantEx.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     KeInitializeMutantEx @ 0x14029E510 (KeInitializeMutantEx.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateMutant(__int64 a1, __int64 a2, int a3)
+NTSTATUS __cdecl NtCreateMutant(
+        PHANDLE MutantHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN InitialOwner)
 {
-  _QWORD *v3; // rbx
+  HANDLE *v4; // rbx
   char PreviousMode; // di
-  int Object; // ecx
-  __int64 v7; // [rsp+58h] [rbp-10h] BYREF
+  NTSTATUS Object; // ecx
+  __int64 v8; // [rsp+58h] [rbp-10h] BYREF
 
-  v3 = (_QWORD *)a1;
-  v7 = 0LL;
+  v4 = MutantHandle;
+  v8 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    a1 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)v3 < 0x7FFFFFFF0000LL )
-      a1 = (__int64)v3;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+    MutantHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)v4 < 0x7FFFFFFF0000LL )
+      MutantHandle = v4;
+    *MutantHandle = *MutantHandle;
   }
-  LOBYTE(a1) = PreviousMode;
-  Object = ObCreateObjectEx(a1, (_DWORD)ExMutantObjectType, a3, PreviousMode);
+  LOBYTE(MutantHandle) = PreviousMode;
+  Object = ObCreateObjectEx((_DWORD)MutantHandle, (_DWORD)ExMutantObjectType, (_DWORD)ObjectAttributes, PreviousMode);
   if ( Object >= 0 )
   {
     KeInitializeMutantEx(0LL);
-    Object = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v7);
+    Object = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v8);
     if ( Object >= 0 )
-      *v3 = v7;
+      *v4 = (HANDLE)v8;
   }
-  return (unsigned int)Object;
+  return Object;
 }

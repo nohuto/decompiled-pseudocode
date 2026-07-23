@@ -1,20 +1,20 @@
 /*
- * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x140995624
+ * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x140980664
  * Callers:
- *     DrvDbSetDeviceIdMappedProperty @ 0x140922C0C (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x140924D44 (DrvDbSetDeviceIdMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     wcsncmp @ 0x1404FFFD0 (wcsncmp.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     _PnpCtxRegDeleteValue @ 0x14098FA7C (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegEnumValue @ 0x14099359C (_PnpCtxRegEnumValue.c)
- *     _RegRtlEnumValue @ 0x1409935EC (_RegRtlEnumValue.c)
- *     _PnpCtxRegSetValue @ 0x140993B14 (_PnpCtxRegSetValue.c)
- *     _RegRtlQueryInfoKey @ 0x140993F98 (_RegRtlQueryInfoKey.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x140995910 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     wcsncmp @ 0x1404FD890 (wcsncmp.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x14097AAB4 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegEnumValue @ 0x14097E5DC (_PnpCtxRegEnumValue.c)
+ *     _RegRtlEnumValue @ 0x14097E62C (_RegRtlEnumValue.c)
+ *     _PnpCtxRegSetValue @ 0x14097EB54 (_PnpCtxRegSetValue.c)
+ *     _RegRtlQueryInfoKey @ 0x14097EFD8 (_RegRtlQueryInfoKey.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x140980950 (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbSetDeviceIdDriverInfMatches(__int64 a1, void *a2, const wchar_t *a3)
@@ -97,7 +97,7 @@ __int64 __fastcall DrvDbSetDeviceIdDriverInfMatches(__int64 a1, void *a2, const 
         while ( *v7 );
         v3 = v34;
       }
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, 2LL * v6, 0x42444450u);
       if ( Pool2 )
       {
         for ( i = 0; i < v29; ++i )
@@ -191,7 +191,7 @@ LABEL_34:
     v24 = v29;
     if ( !v29 )
       return 0;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, 2LL * v6, 0x42444450u);
     if ( !Pool2 )
       return (unsigned int)-1073741801;
     for ( j = 0; ; ++j )

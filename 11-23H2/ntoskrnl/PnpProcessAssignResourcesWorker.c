@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpProcessAssignResourcesWorker @ 0x140790C60
+ * XREFs of PnpProcessAssignResourcesWorker @ 0x140790E50
  * Callers:
- *     PnpProcessAssignResources @ 0x140790A9C (PnpProcessAssignResources.c)
+ *     PnpProcessAssignResources @ 0x140790C8C (PnpProcessAssignResources.c)
  * Callees:
- *     PipClearDevNodeProblem @ 0x14086919C (PipClearDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x1408693DC (PipClearDevNodeProblem.c)
  */
 
 __int64 __fastcall PnpProcessAssignResourcesWorker(__int64 *a1, _DWORD *a2)

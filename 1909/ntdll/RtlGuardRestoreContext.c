@@ -14,35 +14,45 @@
 
 void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
 {
-  unsigned __int64 v4; // rdi
-  BOOL v5; // eax
-  unsigned __int64 v6; // rcx
+  int v4; // eax
+  unsigned __int64 v5; // rdi
+  int v6; // eax
+  int v7; // eax
+  BOOL v8; // eax
+  unsigned __int64 v9; // rcx
 
   if ( !ExceptionRecord )
     goto LABEL_4;
   if ( ExceptionRecord->ExceptionCode != -2147483610 )
   {
-    if ( ExceptionRecord->ExceptionCode == -2147483607
-      && ExceptionRecord->NumberParameters
-      && (unsigned int)LdrControlFlowGuardEnforced() )
+    if ( ExceptionRecord->ExceptionCode == -2147483607 )
     {
-      v5 = LdrControlFlowGuardEnforcedWithExportSuppression();
-      v6 = ExceptionRecord->ExceptionInformation[0];
-      if ( v5 )
-        LdrpValidateUserCallTargetES(v6);
-      else
-        LdrpValidateUserCallTarget(v6);
+      if ( ExceptionRecord->NumberParameters )
+      {
+        LOBYTE(v7) = LdrControlFlowGuardEnforced();
+        if ( v7 )
+        {
+          v8 = LdrControlFlowGuardEnforcedWithExportSuppression();
+          v9 = ExceptionRecord->ExceptionInformation[0];
+          if ( v8 )
+            LdrpValidateUserCallTargetES(v9);
+          else
+            LdrpValidateUserCallTarget(v9);
+        }
+      }
     }
 LABEL_4:
-    if ( (unsigned int)LdrControlFlowGuardEnforced() && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+    LOBYTE(v4) = LdrControlFlowGuardEnforced();
+    if ( v4 && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
       goto LABEL_6;
     goto LABEL_10;
   }
-  v4 = ExceptionRecord->ExceptionInformation[0];
-  if ( (unsigned int)LdrControlFlowGuardEnforced() && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v4 + 16)) )
+  v5 = ExceptionRecord->ExceptionInformation[0];
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( v6 && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v5 + 16)) )
 LABEL_6:
     __fastfail(0xDu);
-  RtlGuardCheckLongJumpTarget(*(_QWORD *)(v4 + 80), 0LL, 0LL);
+  RtlGuardCheckLongJumpTarget(*(PVOID *)(v5 + 80), 0, 0LL);
 LABEL_10:
   RtlRestoreContext(ContextRecord, ExceptionRecord);
 }

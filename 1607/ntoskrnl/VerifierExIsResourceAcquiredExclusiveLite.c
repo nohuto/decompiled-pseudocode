@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierExIsResourceAcquiredExclusiveLite @ 0x14070C438
+ * XREFs of VerifierExIsResourceAcquiredExclusiveLite @ 0x14070C468
  * Callers:
  *     <none>
  * Callees:

@@ -34,10 +34,10 @@ NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
   __writecr8(1uLL);
   if ( Object[1] )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -54,10 +54,10 @@ NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
   else
   {
     v4 = IoCancelIrp(Irp);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v5 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
       {
         v6 = KeGetCurrentPrcb();
         v7 = v6->SchedulerAssist;

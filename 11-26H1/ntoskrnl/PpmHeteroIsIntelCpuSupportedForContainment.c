@@ -1,34 +1,41 @@
 /*
- * XREFs of PpmHeteroIsIntelCpuSupportedForContainment @ 0x1406130EC
+ * XREFs of PpmHeteroIsIntelCpuSupportedForContainment @ 0x140615F88
  * Callers:
- *     PpmHeteroHgsCpuSupportedForContainment @ 0x14060AC14 (PpmHeteroHgsCpuSupportedForContainment.c)
+ *     PpmHeteroHgsCpuSupportedForContainment @ 0x14060D87C (PpmHeteroHgsCpuSupportedForContainment.c)
  * Callees:
- *     Feature_WclContainmentOptIn__private_IsEnabledDeviceUsageNoInline @ 0x140613090 (Feature_WclContainmentOptIn__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_WclContainmentOptIn__private_IsEnabledDeviceUsageNoInline @ 0x140615ED0 (Feature_WclContainmentOptIn__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_WpsExtendedFamilyContainment__private_IsEnabledDeviceUsageNoInline @ 0x140615F2C (Feature_WpsExtendedFamilyContainment__private_IsEnabledDeviceUsageNoInline.c)
  */
 
-char __fastcall PpmHeteroIsIntelCpuSupportedForContainment(_BYTE *a1)
+char __fastcall PpmHeteroIsIntelCpuSupportedForContainment(char *a1)
 {
-  _BYTE *v2; // rdi
+  _BYTE *v2; // rbx
+  char v3; // di
   unsigned __int64 IsEnabledDeviceUsageNoInline; // rax
-  char v4; // dl
   char v6; // al
   __int64 v7; // rcx
 
   v2 = a1 + 141;
+  v3 = 0;
+  if ( (unsigned int)Feature_WpsExtendedFamilyContainment__private_IsEnabledDeviceUsageNoInline()
+    && *v2 == 2
+    && a1[64] > 15 )
+  {
+    return 1;
+  }
   IsEnabledDeviceUsageNoInline = Feature_WclContainmentOptIn__private_IsEnabledDeviceUsageNoInline();
-  v4 = 0;
   if ( (_DWORD)IsEnabledDeviceUsageNoInline )
   {
     if ( *v2 == 2 && a1[64] == 6 )
     {
-      if ( a1[67] == 0xD5 )
+      if ( a1[67] == -43 )
         return 1;
-      goto LABEL_8;
+      goto LABEL_11;
     }
   }
   else if ( *v2 == 2 && a1[64] == 6 )
   {
-LABEL_8:
+LABEL_11:
     v6 = a1[67];
     if ( v6 == -86 )
       return 1;
@@ -40,5 +47,5 @@ LABEL_8:
         return 1;
     }
   }
-  return v4;
+  return v3;
 }

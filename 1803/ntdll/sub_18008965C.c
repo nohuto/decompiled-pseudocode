@@ -10,13 +10,13 @@
  *     sub_1800CA554 @ 0x1800CA554 (sub_1800CA554.c)
  */
 
-__int64 __fastcall sub_18008965C(int a1)
+NTSTATUS __fastcall sub_18008965C(int a1)
 {
   char v1; // al
-  __int64 v2; // rbx
-  __int64 result; // rax
-  char v4; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v5; // [rsp+50h] [rbp+18h] BYREF
+  unsigned __int64 v2; // rbx
+  NTSTATUS result; // eax
+  ULONG Response; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 Parameters; // [rsp+50h] [rbp+18h] BYREF
 
   v1 = dword_180156A70;
   v2 = a1;
@@ -36,8 +36,8 @@ __int64 __fastcall sub_18008965C(int a1)
   result = sub_1800896AC(&NtCurrentPeb()->ProcessParameters->ImagePathName, "\a");
   if ( !dword_18015BEE8 )
   {
-    v5 = v2;
-    return ZwRaiseHardError(3221225797LL, 1LL, 0LL, &v5, 1, &v4);
+    Parameters = v2;
+    return ZwRaiseHardError(-1073741499, 1u, 0, &Parameters, 1u, &Response);
   }
   return result;
 }

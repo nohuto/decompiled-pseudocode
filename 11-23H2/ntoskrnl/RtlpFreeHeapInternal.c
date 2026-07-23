@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFreeHeapInternal @ 0x14034CA64
+ * XREFs of RtlpFreeHeapInternal @ 0x14034CC04
  * Callers:
- *     RtlFreeHeap @ 0x14034CA00 (RtlFreeHeap.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x1405A9E00 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlFreeHeap @ 0x14034CBA0 (RtlFreeHeap.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x1405AA370 (RtlpHpFreeWithExceptionProtection.c)
  * Callees:
- *     RtlpHpVsContextFree @ 0x140323630 (RtlpHpVsContextFree.c)
- *     RtlpHpConvertFlagsToSegmentFlags @ 0x14034CC1C (RtlpHpConvertFlagsToSegmentFlags.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlpFreeHeap @ 0x1405AD2A8 (RtlpFreeHeap.c)
- *     RtlpProbeUserBufferSafe @ 0x1405ADFBC (RtlpProbeUserBufferSafe.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     RtlpHpVsContextFree @ 0x1403238C0 (RtlpHpVsContextFree.c)
+ *     RtlpHpConvertFlagsToSegmentFlags @ 0x14034CDBC (RtlpHpConvertFlagsToSegmentFlags.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlpFreeHeap @ 0x1405AD818 (RtlpFreeHeap.c)
+ *     RtlpProbeUserBufferSafe @ 0x1405AE52C (RtlpProbeUserBufferSafe.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 __int64 RtlpFreeHeapInternal(_DWORD *a1, unsigned __int64 a2, unsigned int a3, ...)

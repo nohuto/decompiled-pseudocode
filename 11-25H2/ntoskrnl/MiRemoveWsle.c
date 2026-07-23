@@ -39,7 +39,7 @@ volatile signed __int32 *__fastcall MiRemoveWsle(__int64 a1, unsigned __int64 a2
   if ( v11 == 3 )
   {
     v18 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-    if ( v18 && (a2 >= v18 && a2 < PsNtosImageEnd || a2 >= PsHalImageBase && a2 < PsHalImageEnd) )
+    if ( v18 && (a2 >= v18 && a2 < PsNtosImageEnd || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
     {
       _InterlockedDecrement((volatile signed __int32 *)&xmmword_140E2D628);
     }

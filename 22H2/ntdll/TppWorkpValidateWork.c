@@ -19,7 +19,7 @@ __int64 __fastcall TppWorkpValidateWork(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 
   {
     if ( (unsigned int)TppValidateCleanupGroupMember(Ldr, a2, a3, Ldr) )
     {
-      if ( v4->SsHandle == TppWorkpCleanupGroupMemberVFuncs )
+      if ( v4->SsHandle == &TppWorkpCleanupGroupMemberVFuncs )
       {
         Ldr = NtCurrentPeb()->Ldr;
         if ( !Ldr->ShutdownInProgress )

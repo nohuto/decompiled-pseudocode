@@ -10,18 +10,18 @@
 
 __int64 __fastcall PnpTraceStartDevice(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int16 v3; // cx
-  unsigned __int64 v5; // rdx
-  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int16 MinorImageVersion; // cx
+  void *v5; // rdx
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp+8h] BYREF
 
-  LOBYTE(v3) = 0;
+  LOBYTE(MinorImageVersion) = 0;
   if ( a3 )
   {
-    v5 = *(_QWORD *)(a3 + 24);
-    v6 = 0LL;
-    RtlImageNtHeaderEx(1, v5, 0LL, &v6);
-    v3 = *(_WORD *)(v6 + 70);
+    v5 = *(void **)(a3 + 24);
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, v5, 0LL, &OutHeaders);
+    MinorImageVersion = OutHeaders->OptionalHeader.MinorImageVersion;
   }
-  PnpDiagnosticTraceDeviceOperation(&KMPnPEvt_DeviceStart_Stop, v3);
+  PnpDiagnosticTraceDeviceOperation(&KMPnPEvt_DeviceStart_Stop, MinorImageVersion);
   return 0LL;
 }

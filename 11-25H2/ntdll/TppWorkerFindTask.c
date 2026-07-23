@@ -35,10 +35,10 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v18; // r13
   _QWORD *k; // rdx
   volatile signed __int64 *v20; // rbx
-  volatile signed __int32 *v21; // rcx
+  void *v21; // rcx
   char *SchedulerSharedDataSlot; // r8
   unsigned int m; // r9d
-  volatile signed __int32 **v24; // rdx
+  char *v24; // rdx
   __int64 v25; // rdi
   volatile signed __int64 v26; // rax
   volatile signed __int64 *v27; // rsi
@@ -83,7 +83,7 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v67; // [rsp+50h] [rbp-88h]
   _QWORD *v68; // [rsp+58h] [rbp-80h]
   _QWORD v69[2]; // [rsp+60h] [rbp-78h] BYREF
-  __int128 v70; // [rsp+70h] [rbp-68h] BYREF
+  __int128 ThreadInformation; // [rsp+70h] [rbp-68h] BYREF
   __int128 v71; // [rsp+80h] [rbp-58h] BYREF
 
   v3 = a2;
@@ -96,9 +96,9 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
     v8 = MEMORY[0x7FFE03C0];
   if ( *(_DWORD *)(a1 + 424) != v8 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 72));
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     TppAdjustRunningThreadGoalWithLock(a1);
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   }
   v9 = 0;
   for ( i = 0; i < TppNumberNodes; ++i )
@@ -120,7 +120,7 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   v15 = -1;
   v16 = *(_DWORD *)(a1 + 428);
   v63 = 0;
-  v70 = 0LL;
+  ThreadInformation = 0LL;
   if ( v6 == (_DWORD)v13 )
   {
     if ( v16 == -1 && !*(_BYTE *)(v3 + 360) )
@@ -157,16 +157,16 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
     }
     *(_DWORD *)(v3 + 352) = v6;
     *(_WORD *)(v3 + 362) = v15;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v51 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v51 = 2147353478LL;
     if ( *(_BYTE *)v51 )
       TppETWWorkerNodeSwitch(a1, v13, v6, (unsigned __int16)v14, v15);
-    NtSetInformationThread(-2LL, 30LL, &v70);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, &ThreadInformation, 0x10u);
     LOWORD(v63) = v15;
     BYTE2(v63) = Number;
-    NtSetInformationThread(-2LL, 33LL, &v63);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessorEx, &v63, 4u);
   }
   v17 = v6;
   if ( *(_DWORD *)(a1 + 428) == -1 && *(_DWORD *)(v3 + 356) >= 0x10u && !(unsigned int)TppAreNodeWorkersSteadyState(a1) )
@@ -211,22 +211,22 @@ LABEL_110:
         goto LABEL_44;
       }
       v20 = (volatile signed __int64 *)(*k + 24LL * v6);
-      v21 = (volatile signed __int32 *)(v20 + 2);
+      v21 = (void *)(v20 + 2);
       SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
       if ( SchedulerSharedDataSlot )
       {
         for ( m = 0; m < 8; ++m )
         {
-          v24 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * m];
-          if ( !*v24 )
+          v24 = &SchedulerSharedDataSlot[8 * m];
+          if ( !*(_QWORD *)v24 )
           {
             if ( v24 )
-              *v24 = v21;
+              *(_QWORD *)v24 = v21;
             break;
           }
         }
       }
-      if ( _interlockedbittestandset64(v21, 0LL) )
+      if ( _interlockedbittestandset64((volatile signed __int32 *)v21, 0LL) )
         RtlpAcquireSRWLockExclusiveContended(v21);
       v25 = *v20;
       if ( *(volatile signed __int64 **)(*v20 + 8) != v20
@@ -330,7 +330,7 @@ LABEL_27:
               {
                 v69[1] = 0LL;
                 v69[0] = (v32 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-                NtSetInformationThread(-2LL, 56LL, v69);
+                NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, v69, 0x10u);
               }
               *(_QWORD *)v32 = 0LL;
             }
@@ -388,16 +388,16 @@ LABEL_80:
     }
     *(_DWORD *)(v3 + 352) = v17;
     *(_WORD *)(v3 + 362) = ii;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v56 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v56 = 2147353478LL;
     if ( *(_BYTE *)v56 )
       TppETWWorkerNodeSwitch(a1, v33, v17, (unsigned __int16)v35, v62);
-    NtSetInformationThread(-2LL, 30LL, &v71);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, &v71, 0x10u);
     LOWORD(v64) = v62;
     BYTE2(v64) = v34;
-    NtSetInformationThread(-2LL, 33LL, &v64);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessorEx, &v64, 4u);
   }
   if ( v17 == v6 )
   {

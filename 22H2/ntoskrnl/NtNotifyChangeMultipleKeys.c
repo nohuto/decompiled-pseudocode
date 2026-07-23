@@ -34,26 +34,26 @@
  *     CmpFreePostBlock @ 0x1406E0850 (CmpFreePostBlock.c)
  */
 
-__int64 __fastcall NtNotifyChangeMultipleKeys(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        void *a4,
-        void (__stdcall *a5)(POPLOCK Oplock),
-        __int64 a6,
-        int *Address,
-        unsigned int a8,
-        char a9,
-        volatile void *a10,
-        SIZE_T Length,
-        char a12)
+NTSTATUS __cdecl NtNotifyChangeMultipleKeys(
+        HANDLE MasterKeyHandle,
+        ULONG Count,
+        OBJECT_ATTRIBUTES SubordinateObjects[],
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        PVOID Buffer,
+        ULONG BufferSize,
+        BOOLEAN Asynchronous)
 {
   _QWORD *v13; // r12
   unsigned int v14; // esi
   int v15; // r9d
   int v16; // r8d
   char PreviousMode; // cl
-  int v18; // edi
+  NTSTATUS v18; // edi
   PADAPTER_OBJECT v19; // r14
   __int64 PostBlock; // rax
   __int64 v21; // rsi
@@ -69,7 +69,7 @@ __int64 __fastcall NtNotifyChangeMultipleKeys(
   unsigned __int64 v32; // rax
   bool v33; // r14
   struct _KTHREAD *CurrentThread; // rdx
-  void (__stdcall *v35)(POPLOCK); // r8
+  void *v35; // r8
   __int64 v36; // r9
   int (__fastcall *AllocateAdapterChannel)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *); // rcx
   _DMA_OPERATIONS *v38; // rax
@@ -82,7 +82,7 @@ __int64 __fastcall NtNotifyChangeMultipleKeys(
   ULONG_PTR v45; // rcx
   __int64 v46; // rcx
   _QWORD *v47; // rax
-  __int64 CurrentIrql; // r11
+  OBJECT_ATTRIBUTES *CurrentIrql; // r11
   __int64 v49; // rdx
   _QWORD *v50; // rcx
   unsigned __int8 v51; // al
@@ -104,7 +104,7 @@ __int64 __fastcall NtNotifyChangeMultipleKeys(
   struct _KPRCB *v67; // r9
   _DWORD *v68; // r8
   int v69; // eax
-  int *v70; // rax
+  PIO_STATUS_BLOCK v70; // rax
   unsigned __int8 v71; // r15
   __int64 v72; // rax
   _QWORD *v73; // rcx
@@ -129,16 +129,16 @@ __int64 __fastcall NtNotifyChangeMultipleKeys(
   PADAPTER_OBJECT v93; // [rsp+68h] [rbp-1C0h] BYREF
   PADAPTER_OBJECT v94; // [rsp+70h] [rbp-1B8h]
   __int64 v95; // [rsp+78h] [rbp-1B0h]
-  __int64 v96; // [rsp+80h] [rbp-1A8h]
+  OBJECT_ATTRIBUTES *__attribute__((__org_arrdim(0,0))) v96; // [rsp+80h] [rbp-1A8h]
   PVOID Object; // [rsp+88h] [rbp-1A0h] BYREF
-  int *v98; // [rsp+90h] [rbp-198h]
+  PIO_STATUS_BLOCK v98; // [rsp+90h] [rbp-198h]
   _QWORD *v99; // [rsp+98h] [rbp-190h]
   int v100; // [rsp+A0h] [rbp-188h]
   _OWORD v101[19]; // [rsp+B0h] [rbp-178h] BYREF
 
-  v96 = a3;
-  v95 = a1;
-  v98 = Address;
+  v96 = SubordinateObjects;
+  v95 = (__int64)MasterKeyHandle;
+  v98 = IoStatusBlock;
   DmaAdapter = 0LL;
   v94 = 0LL;
   v13 = 0LL;
@@ -151,17 +151,17 @@ __int64 __fastcall NtNotifyChangeMultipleKeys(
   v100 = 0;
   v84 = CmpAcquireShutdownRundown();
   if ( !v84 )
-    return 3221225865LL;
+    return -1073741431;
   v16 = 1;
-  if ( a2 <= 1 )
+  if ( Count <= 1 )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     AccessMode = PreviousMode;
     if ( PreviousMode )
     {
-      if ( (a8 & 0x10000000) != 0 )
+      if ( (CompletionFilter & 0x10000000) != 0 )
       {
-        if ( a12 && !a5 && a4 )
+        if ( Asynchronous && !ApcRoutine && Event )
         {
           v14 = 4;
 LABEL_9:
@@ -179,25 +179,25 @@ LABEL_9:
           v33 = 1;
       }
       v87 = v33;
-      ProbeForWrite(Address, 8 * !v33 + 8LL, 4u);
-      ProbeForWrite(a10, (unsigned int)Length, 4u);
+      ProbeForWrite(IoStatusBlock, 8 * !v33 + 8LL, 4u);
+      ProbeForWrite(Buffer, BufferSize, 4u);
       if ( v33 )
       {
-        *(_QWORD *)Address = 259LL;
+        IoStatusBlock->Pointer = (PVOID)259;
       }
       else
       {
-        *Address = 259;
-        *((_QWORD *)Address + 1) = 0LL;
+        IoStatusBlock->Status = 259;
+        IoStatusBlock->Information = 0LL;
       }
       PreviousMode = AccessMode;
-      if ( a12 )
+      if ( Asynchronous )
       {
         v14 = 2;
         goto LABEL_9;
       }
 LABEL_10:
-      if ( a8 != (a8 & 0x1000000F) )
+      if ( CompletionFilter != (CompletionFilter & 0x1000000F) )
       {
         v18 = -1073741811;
         goto LABEL_39;
@@ -208,17 +208,17 @@ LABEL_10:
       {
 LABEL_39:
         CmpReleaseShutdownRundown();
-        return (unsigned int)v18;
+        return v18;
       }
       v19 = 0LL;
       v93 = 0LL;
-      if ( a2 == 1 )
+      if ( Count == 1 )
       {
         LODWORD(v101[6]) = -1;
         *((_QWORD *)&v101[9] + 1) = &v101[9];
         *(_QWORD *)&v101[9] = &v101[9];
         memset((char *)&v101[13] + 8, 0, 0x50uLL);
-        v18 = CmObReferenceObjectByName(v96, 0, 16, v36, AccessMode, (__int64)v101, &v93);
+        v18 = CmObReferenceObjectByName((int)v96, 0, 16, v36, AccessMode, (__int64)v101, &v93);
         CmpCleanupParseContext((__int64)v101, 0);
         if ( v18 < 0 )
           goto LABEL_37;
@@ -235,11 +235,11 @@ LABEL_39:
       v95 = PostBlock;
       if ( !PostBlock )
       {
-        if ( a2 == 1 )
+        if ( Count == 1 )
           HalPutDmaAdapter(v19);
         goto LABEL_90;
       }
-      if ( a2 == 1 )
+      if ( Count == 1 )
       {
         v13 = (_QWORD *)CmpAllocatePostBlock(v88, 0LL, v19, PostBlock);
         v99 = v13;
@@ -255,14 +255,14 @@ LABEL_90:
       v22 = v88;
       if ( v88 != 1 )
       {
-        if ( a4 )
+        if ( Event )
         {
           Object = 0LL;
-          v18 = ObReferenceObjectByHandle(a4, 2u, (POBJECT_TYPE)ExEventObjectType, AccessMode, &Object, 0LL);
+          v18 = ObReferenceObjectByHandle(Event, 2u, (POBJECT_TYPE)ExEventObjectType, AccessMode, &Object, 0LL);
           v94 = (PADAPTER_OBJECT)Object;
           if ( v18 < 0 )
           {
-            if ( a2 != 1 )
+            if ( Count != 1 )
             {
 LABEL_93:
               v43 = (void *)v21;
@@ -281,12 +281,12 @@ LABEL_92:
         v24 = *(PADAPTER_OBJECT **)(v21 + 64);
         if ( v22 == 2 )
         {
-          v24[13] = (PADAPTER_OBJECT)Address;
+          v24[13] = (PADAPTER_OBJECT)IoStatusBlock;
           *(_QWORD *)(*(_QWORD *)(v21 + 64) + 8LL) = v23;
           CurrentThread = KeGetCurrentThread();
           v35 = AlpcMessageDeleteProcedure;
-          if ( a5 )
-            v35 = a5;
+          if ( ApcRoutine )
+            v35 = ApcRoutine;
           KeInitializeApc(
             *(_QWORD *)(v21 + 64) + 16LL,
             (__int64)CurrentThread,
@@ -294,8 +294,8 @@ LABEL_92:
             (__int64)CmpPostApc,
             (__int64)CmpPostApcRunDown,
             (__int64)v35,
-            a5 != 0LL ? AccessMode : 0,
-            a6);
+            ApcRoutine != 0LL ? AccessMode : 0,
+            (__int64)ApcContext);
           v19 = v93;
         }
         else
@@ -303,21 +303,21 @@ LABEL_92:
           *v24 = v94;
           if ( v22 != 4 )
           {
-            *(_QWORD *)(*(_QWORD *)(v21 + 64) + 8LL) = a5;
-            *(_DWORD *)(*(_QWORD *)(v21 + 64) + 16LL) = a6;
+            *(_QWORD *)(*(_QWORD *)(v21 + 64) + 8LL) = ApcRoutine;
+            *(_DWORD *)(*(_QWORD *)(v21 + 64) + 16LL) = (_DWORD)ApcContext;
           }
         }
       }
       CmpLockRegistry();
       p_DmaOperations = &DmaAdapter->DmaOperations;
       DmaOperations = DmaAdapter->DmaOperations;
-      if ( a2 == 1 )
+      if ( Count == 1 )
         CmpLockTwoKcbsShared((__int64)DmaOperations, (__int64)v19->DmaOperations);
       else
         CmpLockKcbShared((__int64)DmaOperations);
       if ( !CmpIsKeyDeletedForKeyBody((__int64)DmaAdapter, 0LL) )
       {
-        if ( a2 != 1 )
+        if ( Count != 1 )
         {
 LABEL_26:
           CmLockHive((*p_DmaOperations)->AllocateAdapterChannel);
@@ -346,19 +346,19 @@ LABEL_26:
           v92 = v19->DmaOperations->AllocateAdapterChannel;
 LABEL_27:
           LOCK_POST_LIST();
-          LOBYTE(v27) = a9;
-          v18 = CmpNotifyChangeKey(DmaAdapter, v21, a8, v27);
+          LOBYTE(v27) = WatchTree;
+          v18 = CmpNotifyChangeKey(DmaAdapter, v21, CompletionFilter, v27);
           if ( v18 >= 0 )
           {
-            v86 = a2 == 1;
-            if ( a2 == 1 )
+            v86 = Count == 1;
+            if ( Count == 1 )
             {
               ObfReferenceObject(v19);
               if ( v18 )
               {
-                LOBYTE(v40) = a9;
-                v18 = CmpNotifyChangeKey(v19, v13, a8, v40);
-                v86 = a2 == 1;
+                LOBYTE(v40) = WatchTree;
+                v18 = CmpNotifyChangeKey(v19, v13, CompletionFilter, v40);
+                v86 = Count == 1;
                 if ( v18 < 0 )
                 {
                   v46 = *(_QWORD *)v21;
@@ -369,7 +369,7 @@ LABEL_27:
                     goto LABEL_173;
                   *v47 = v46;
                   *(_QWORD *)(v46 + 8) = v47;
-                  CurrentIrql = KeGetCurrentIrql();
+                  CurrentIrql = (OBJECT_ATTRIBUTES *)KeGetCurrentIrql();
                   v96 = CurrentIrql;
                   __writecr8(1uLL);
                   v49 = *(_QWORD *)(v21 + 16);
@@ -393,14 +393,14 @@ LABEL_27:
                         if ( v55 )
                         {
                           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-                          LOBYTE(CurrentIrql) = v96;
+                          LOBYTE(CurrentIrql) = (_BYTE)v96;
                         }
                         v19 = v93;
                       }
                     }
                   }
                   __writecr8((unsigned __int8)CurrentIrql);
-                  v86 = a2 == 1;
+                  v86 = Count == 1;
                 }
               }
               else
@@ -419,7 +419,7 @@ LABEL_27:
 LABEL_31:
                 CmUnlockHive(v28);
                 v29 = (ULONG_PTR)*p_DmaOperations;
-                if ( a2 == 1 )
+                if ( Count == 1 )
                   CmpUnlockTwoKcbs(v29, (ULONG_PTR)v19->DmaOperations);
                 else
                   CmpUnlockKcb(v29);
@@ -504,11 +504,11 @@ LABEL_37:
                     CmpUnlockRegistry();
                     v18 = *(_DWORD *)(*(_QWORD *)(v21 + 64) + 24LL);
                     v70 = v98;
-                    *v98 = v18;
+                    v98->Status = v18;
                     if ( v87 )
-                      v70[1] = 0;
+                      HIDWORD(v70->Pointer) = 0;
                     else
-                      *((_QWORD *)v70 + 1) = 0LL;
+                      v70->Information = 0LL;
                     v30 = 0;
                     if ( v86 )
                       CmpFreePostBlock(v13);
@@ -516,7 +516,7 @@ LABEL_37:
 LABEL_38:
                     HalPutDmaAdapter(DmaAdapter);
                     if ( !v30 )
-                      return (unsigned int)v18;
+                      return v18;
                     goto LABEL_39;
                   }
 LABEL_173:
@@ -603,41 +603,41 @@ LABEL_173:
 LABEL_100:
           CmUnlockHive(v44);
           v45 = (ULONG_PTR)*p_DmaOperations;
-          if ( a2 == 1 )
+          if ( Count == 1 )
             CmpUnlockTwoKcbs(v45, (ULONG_PTR)v19->DmaOperations);
           else
             CmpUnlockKcb(v45);
           CmpUnlockRegistry();
           if ( v94 )
             HalPutDmaAdapter(v94);
-          if ( a2 != 1 )
+          if ( Count != 1 )
             goto LABEL_37;
           v43 = v13;
           goto LABEL_94;
         }
       }
       v42 = (ULONG_PTR)*p_DmaOperations;
-      if ( a2 == 1 )
+      if ( Count == 1 )
         CmpUnlockTwoKcbs(v42, (ULONG_PTR)v19->DmaOperations);
       else
         CmpUnlockKcb(v42);
       CmpUnlockRegistry();
       if ( v94 )
         HalPutDmaAdapter(v94);
-      if ( a2 == 1 )
+      if ( Count == 1 )
         CmpFreePostBlock(v13);
       CmpFreePostBlock((PVOID)v21);
       v18 = -1073741444;
       goto LABEL_37;
     }
-    if ( !a12 )
+    if ( !Asynchronous )
       goto LABEL_10;
     v14 = 3;
     v88 = 3;
-    if ( !a2 )
+    if ( !Count )
       goto LABEL_10;
   }
 LABEL_83:
   CmpReleaseShutdownRundown();
-  return 3221225485LL;
+  return -1073741811;
 }

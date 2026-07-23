@@ -2,8 +2,8 @@
  * XREFs of PspJobHasChildren @ 0x1405D91D4
  * Callers:
  *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
- *     PsInsertPermanentSiloContextEx @ 0x140715D5C (PsInsertPermanentSiloContextEx.c)
- *     PspConvertSiloToServerSilo @ 0x140906054 (PspConvertSiloToServerSilo.c)
+ *     PsInsertPermanentSiloContextEx @ 0x1406C43AC (PsInsertPermanentSiloContextEx.c)
+ *     PspConvertSiloToServerSilo @ 0x1409061B4 (PspConvertSiloToServerSilo.c)
  * Callees:
  *     <none>
  */

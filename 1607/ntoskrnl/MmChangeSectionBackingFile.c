@@ -1,16 +1,16 @@
 /*
- * XREFs of MmChangeSectionBackingFile @ 0x1400FCFC0
+ * XREFs of MmChangeSectionBackingFile @ 0x1400FAD40
  * Callers:
- *     FsRtlChangeBackingFileObject @ 0x140132E54 (FsRtlChangeBackingFileObject.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     FsRtlChangeBackingFileObject @ 0x1401333C4 (FsRtlChangeBackingFileObject.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ObFastReplaceObject @ 0x1400CCF54 (ObFastReplaceObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D3F30 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ObFastReplaceObject @ 0x1400CADF4 (ObFastReplaceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D1DD0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall MmChangeSectionBackingFile(_QWORD *a1, _QWORD *a2, int a3)
@@ -31,21 +31,21 @@ __int64 __fastcall MmChangeSectionBackingFile(_QWORD *a1, _QWORD *a2, int a3)
   v5 = a3 & 1;
   while ( 1 )
   {
-    v6 = ExAcquireSpinLockExclusive(&dword_140326540);
+    v6 = ExAcquireSpinLockExclusive(&dword_140326580);
     if ( v5 )
       v7 = *(_QWORD *)a2[5];
     else
       v7 = *(_QWORD *)(a2[5] + 16LL);
     if ( !v7 )
     {
-      v12 = &dword_140326540;
+      v12 = &dword_140326580;
       goto LABEL_18;
     }
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v7 + 72)) )
       break;
-    ExReleaseSpinLockExclusive(&dword_140326540, v6);
+    ExReleaseSpinLockExclusive(&dword_140326580, v6);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326540);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326580);
   if ( (*(_DWORD *)(v7 + 56) & 1) == 0 )
   {
     v8 = (volatile __int64 *)(v7 + 64);

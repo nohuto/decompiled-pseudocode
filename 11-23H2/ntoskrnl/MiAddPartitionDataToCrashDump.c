@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddPartitionDataToCrashDump @ 0x14062F400
+ * XREFs of MiAddPartitionDataToCrashDump @ 0x14062F950
  * Callers:
- *     MmAddPrivateDataToCrashDump @ 0x14062FFF0 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x140630540 (MmAddPrivateDataToCrashDump.c)
  * Callees:
- *     MiAddPartitionToCrashDump @ 0x14062F60C (MiAddPartitionToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     MiAddPartitionToCrashDump @ 0x14062FB5C (MiAddPartitionToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MiAddPartitionDataToCrashDump(__int64 a1)
@@ -88,11 +88,11 @@ LABEL_18:
   while ( v15 >= 0 );
   if ( (int)v3 >= 0 )
   {
-    if ( !qword_140C67DE8
+    if ( !stru_140C67DE0.Buffer
       || (LODWORD(v3) = MmAddRangeToCrashDump(
                           a1,
-                          qword_140C67DE8,
-                          8 * (((unsigned __int64)qword_140C67DE0 >> 6) + ((qword_140C67DE0 & 0x3F) != 0))),
+                          stru_140C67DE0.Buffer,
+                          8 * ((stru_140C67DE0.SizeOfBitMap >> 6) + ((stru_140C67DE0.SizeOfBitMap & 0x3F) != 0))),
           (int)v3 >= 0) )
     {
       if ( qword_140C67DF0 )

@@ -3,7 +3,7 @@
  * Callers:
  *     SeInitSystem @ 0x1407A39CC (SeInitSystem.c)
  * Callees:
- *     ObInitializeFastReference @ 0x1404724AC (ObInitializeFastReference.c)
+ *     ObInitializeFastReference @ 0x14047137C (ObInitializeFastReference.c)
  *     SepVariableInitialization @ 0x14078FC70 (SepVariableInitialization.c)
  *     SepTokenInitialization @ 0x1407A240C (SepTokenInitialization.c)
  *     SeMakeSystemToken @ 0x1407A2B10 (SeMakeSystemToken.c)
@@ -30,6 +30,6 @@ bool SepInitializationPhase0()
   SystemToken = SeMakeSystemToken();
   ObInitializeFastReference(&Process[1].Affinity.Bitmap[5], SystemToken);
   SepMandatoryObjectTypePolicyLock = 0LL;
-  SepDefaultMandatorySid = *(PSID *)&SeMediumMandatorySid;
+  SepDefaultMandatorySid = SeMediumMandatorySid;
   return KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5] != 0;
 }

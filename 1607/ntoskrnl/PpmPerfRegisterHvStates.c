@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfRegisterHvStates @ 0x14067659C
+ * XREFs of PpmPerfRegisterHvStates @ 0x140676680
  * Callers:
  *     <none>
  * Callees:
- *     HvlGetLpIndexFromApicId @ 0x1401BAE40 (HvlGetLpIndexFromApicId.c)
- *     HvlConfigurePcc @ 0x1401BED5C (HvlConfigurePcc.c)
- *     HvlConfigurePerfStates @ 0x1401BEDD8 (HvlConfigurePerfStates.c)
- *     HvlConfigureThrottleStates @ 0x1401BEE6C (HvlConfigureThrottleStates.c)
+ *     HvlGetLpIndexFromApicId @ 0x1401BAD24 (HvlGetLpIndexFromApicId.c)
+ *     HvlConfigurePcc @ 0x1401BEC40 (HvlConfigurePcc.c)
+ *     HvlConfigurePerfStates @ 0x1401BECBC (HvlConfigurePerfStates.c)
+ *     HvlConfigureThrottleStates @ 0x1401BED50 (HvlConfigureThrottleStates.c)
  */
 
 __int64 __fastcall PpmPerfRegisterHvStates(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

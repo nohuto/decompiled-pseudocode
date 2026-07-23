@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerConvertAuxiliaryCounterToPerformanceCounter @ 0x140482D00
+ * XREFs of HalpTimerConvertAuxiliaryCounterToPerformanceCounter @ 0x14047DEF0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x140482E74 (HalpTimerCaptureCurrentAuxiliaryQpcPair.c)
+ *     HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x14047E064 (HalpTimerCaptureCurrentAuxiliaryQpcPair.c)
  */
 
 __int64 __fastcall HalpTimerConvertAuxiliaryCounterToPerformanceCounter(unsigned __int64 a1, __int64 *a2, _QWORD *a3)

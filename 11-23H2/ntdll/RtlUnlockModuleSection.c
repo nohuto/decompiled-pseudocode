@@ -13,16 +13,16 @@
  *     ZwUnlockVirtualMemory @ 0x1800A4A00 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 __fastcall RtlUnlockModuleSection(__int64 a1)
+NTSTATUS __cdecl RtlUnlockModuleSection(PVOID Address)
 {
   __int64 ModuleSectionInLockedSectionList; // rax
-  unsigned int v3; // edi
+  NTSTATUS v3; // edi
   __int64 v4; // rbx
   __int64 v6; // rcx
   _QWORD *v7; // rax
 
   RtlAcquireSRWLockExclusive(&RtlpLockedSectionListLock);
-  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(a1);
+  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(Address);
   v3 = 0;
   v4 = ModuleSectionInLockedSectionList;
   if ( ModuleSectionInLockedSectionList )
@@ -37,8 +37,8 @@ __int64 __fastcall RtlUnlockModuleSection(__int64 a1)
       }
       *v7 = v6;
       *(_QWORD *)(v6 + 8) = v7;
-      v3 = ZwUnlockVirtualMemory(-1LL, v4 + 16, v4 + 24, 1LL);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+      v3 = ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(v4 + 16), (PSIZE_T)(v4 + 24), 1u);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v4);
     }
   }
   else

@@ -6,13 +6,12 @@
  *     ZwOpenThreadTokenEx @ 0x18009B0A0 (ZwOpenThreadTokenEx.c)
  */
 
-__int64 __fastcall sub_180078DB0(unsigned int a1, __int64 a2, __int64 a3)
+int __fastcall sub_180078DB0(ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  int result; // eax
 
-  LOBYTE(a3) = 1;
-  result = ZwOpenThreadTokenEx(-2LL, a1, a3);
-  if ( (int)result < 0 )
-    return ZwOpenThreadTokenEx(-2LL, a1, 0LL);
+  result = ZwOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, DesiredAccess, 1u, 0x200u, TokenHandle);
+  if ( result < 0 )
+    return ZwOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, DesiredAccess, 0, 0x200u, TokenHandle);
   return result;
 }

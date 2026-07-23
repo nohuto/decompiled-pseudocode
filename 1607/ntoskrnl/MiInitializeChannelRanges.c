@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
  */
 
 __int64 MiInitializeChannelRanges()
@@ -55,17 +55,17 @@ __int64 MiInitializeChannelRanges()
   v36 = 0;
   if ( !dword_1403A914C )
     return result;
-  if ( byte_140327799 == 1 )
+  if ( byte_1403277D9 == 1 )
     return result;
   if ( !dword_1403A9160 )
     return result;
   result = off_1402F37E8();
-  v1 = qword_1403269D0;
-  if ( !qword_1403269D0 )
+  v1 = qword_140326A10;
+  if ( !qword_140326A10 )
     return result;
   v2 = 0;
   v3 = 0;
-  if ( *(_QWORD *)qword_1403269D0 == -1LL )
+  if ( *(_QWORD *)qword_140326A10 == -1LL )
     goto LABEL_16;
   do
   {
@@ -89,7 +89,7 @@ __int64 MiInitializeChannelRanges()
     v1 += 16LL;
   }
   while ( *(_QWORD *)v1 != -1LL );
-  v1 = qword_1403269D0;
+  v1 = qword_140326A10;
   if ( !v3 )
 LABEL_16:
     v2 = 0;
@@ -97,7 +97,7 @@ LABEL_16:
   MmNumberOfChannels = v6;
   if ( v6 == 1 )
   {
-    qword_1403269D0 = 0LL;
+    qword_140326A10 = 0LL;
     return result;
   }
   if ( v6 > 4 )
@@ -223,7 +223,7 @@ LABEL_54:
 LABEL_64:
     if ( v27 != -1 && v27 >= v19 )
     {
-      v29 = qword_1403269D0;
+      v29 = qword_140326A10;
       v19 = v27 + 1;
       v30 = v27 >> 2;
       v31 = v27 & 3;

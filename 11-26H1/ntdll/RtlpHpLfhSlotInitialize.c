@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSlotInitialize @ 0x1800BF428
+ * XREFs of RtlpHpLfhSlotInitialize @ 0x180071FD8
  * Callers:
- *     RtlpHpLfhContextSlotAllocate @ 0x180092EAC (RtlpHpLfhContextSlotAllocate.c)
- *     RtlpHpLfhBucketActivate @ 0x1800BF28C (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpLfhBucketActivate @ 0x180071E3C (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpLfhContextSlotAllocate @ 0x180072140 (RtlpHpLfhContextSlotAllocate.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 _BYTE *__fastcall RtlpHpLfhSlotInitialize(_BYTE *a1, _BYTE *a2, __int64 a3)

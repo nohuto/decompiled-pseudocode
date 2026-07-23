@@ -22,7 +22,7 @@ __int64 __fastcall ExpNodeCreateSystemThread(
 {
   USHORT v10; // cx
   int v13; // [rsp+50h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-40h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-40h] BYREF
 
   v10 = *(_WORD *)(a1 + 146);
   Affinity = 0LL;

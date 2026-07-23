@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTimeZoneWork @ 0x1406AD074
+ * XREFs of ExpTimeZoneWork @ 0x1406AD1AC
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetSystemTime @ 0x14015CFA0 (ZwSetSystemTime.c)
+ *     ZwSetSystemTime @ 0x14015D510 (ZwSetSystemTime.c)
  */
 
 __int64 ExpTimeZoneWork()

@@ -2,12 +2,12 @@
  * XREFs of CmpVirtualBranchIsReplicated @ 0x1403E14A8
  * Callers:
  *     CmpVEExecuteRealStoreParseLogic @ 0x1403E1228 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140601A60 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140601B14 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
  *     CmpUnblockTwoHiveWrites @ 0x1403E164C (CmpUnblockTwoHiveWrites.c)
  *     CmpBlockTwoHiveWrites @ 0x1403E16A4 (CmpBlockTwoHiveWrites.c)
  *     CmpGetCmHiveFromVirtualPath @ 0x1403E176C (CmpGetCmHiveFromVirtualPath.c)
- *     CmpFindPathByNameEx @ 0x140601014 (CmpFindPathByNameEx.c)
+ *     CmpFindPathByNameEx @ 0x1406010C8 (CmpFindPathByNameEx.c)
  */
 
 char __fastcall CmpVirtualBranchIsReplicated(__int64 a1, _WORD *a2, char *a3)

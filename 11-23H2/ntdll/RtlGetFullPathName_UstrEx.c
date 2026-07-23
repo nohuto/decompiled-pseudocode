@@ -9,26 +9,26 @@
  *     NtdllpAllocateStringRoutine @ 0x180039660 (NtdllpAllocateStringRoutine.c)
  */
 
-__int64 __fastcall RtlGetFullPathName_UstrEx(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        _QWORD *a4,
-        __int64 *a5,
-        __int64 a6,
-        _DWORD *a7,
-        _QWORD *a8)
+NTSTATUS __cdecl RtlGetFullPathName_UstrEx(
+        PUNICODE_STRING FileName,
+        PUNICODE_STRING StaticString,
+        PUNICODE_STRING DynamicString,
+        PUNICODE_STRING *StringUsed,
+        SIZE_T *FilePartPrefixCch,
+        PBOOLEAN NameInvalid,
+        RTL_PATH_TYPE *InputPathType,
+        SIZE_T *BytesRequired)
 {
-  __int64 v11; // r12
-  _QWORD *v12; // r13
-  __int64 *v13; // r15
-  __int64 StringRoutine; // rsi
-  unsigned __int16 v15; // bx
-  __int64 v16; // r8
+  wchar_t *v11; // r12
+  SIZE_T *v12; // r13
+  SIZE_T *v13; // r15
+  wchar_t *StringRoutine; // rsi
+  unsigned __int16 MaximumLength; // bx
+  wchar_t *Buffer; // r8
   unsigned int FullPathName_Ustr; // eax
   __int64 v18; // rdx
   __int64 v19; // rbx
-  unsigned int v20; // ebx
+  NTSTATUS v20; // ebx
   unsigned __int16 v22; // bx
   __int64 v23; // r13
   unsigned int v24; // eax
@@ -41,65 +41,65 @@ __int64 __fastcall RtlGetFullPathName_UstrEx(
 
   v30 = 0LL;
   v11 = 0LL;
-  if ( a4 )
-    *a4 = 0LL;
-  v12 = a8;
-  if ( a8 )
-    *a8 = 0LL;
-  v13 = a5;
-  if ( a5 )
-    *a5 = 0LL;
+  if ( StringUsed )
+    *StringUsed = 0LL;
+  v12 = BytesRequired;
+  if ( BytesRequired )
+    *BytesRequired = 0LL;
+  v13 = FilePartPrefixCch;
+  if ( FilePartPrefixCch )
+    *FilePartPrefixCch = 0LL;
   StringRoutine = 0LL;
-  LODWORD(a5) = *a7;
-  if ( a2 )
+  SLODWORD(FilePartPrefixCch) = *InputPathType;
+  if ( StaticString )
   {
-    if ( a3 && !a4 )
+    if ( DynamicString && !StringUsed )
     {
       v20 = -1073741811;
       goto LABEL_22;
     }
-    v15 = *(_WORD *)(a2 + 2);
-    v16 = *(_QWORD *)(a2 + 8);
-    v31 = v15;
+    MaximumLength = StaticString->MaximumLength;
+    Buffer = StaticString->Buffer;
+    v31 = MaximumLength;
 LABEL_11:
-    LODWORD(a8) = v15;
-    FullPathName_Ustr = RtlGetFullPathName_Ustr(a1, v15, v16, &v30, a6, &a5);
+    LODWORD(BytesRequired) = MaximumLength;
+    FullPathName_Ustr = RtlGetFullPathName_Ustr(FileName, MaximumLength, Buffer, &v30, NameInvalid, &FilePartPrefixCch);
     LOWORD(v19) = FullPathName_Ustr;
     if ( FullPathName_Ustr )
     {
-      if ( a2 && FullPathName_Ustr < (unsigned int)a8 )
+      if ( StaticString && FullPathName_Ustr < (unsigned int)BytesRequired )
       {
-        *(_WORD *)a2 = FullPathName_Ustr;
+        StaticString->Length = FullPathName_Ustr;
         if ( v13 )
         {
           if ( v30 )
-            v25 = (v30 - *(_QWORD *)(a2 + 8)) >> 1;
+            v25 = (signed __int64)(v30 - (unsigned __int64)StaticString->Buffer) >> 1;
           else
             v25 = 0LL;
           *v13 = v25;
         }
-        if ( a4 )
-          *a4 = a2;
+        if ( StringUsed )
+          *StringUsed = StaticString;
         v20 = 0;
       }
-      else if ( a3 )
+      else if ( DynamicString )
       {
-        if ( v11 && FullPathName_Ustr < (unsigned int)a8 )
+        if ( v11 && FullPathName_Ustr < (unsigned int)BytesRequired )
         {
-          *(_WORD *)(a3 + 2) = v31;
-          *(_WORD *)a3 = FullPathName_Ustr;
-          *(_WORD *)(v11 + 2 * ((unsigned __int64)FullPathName_Ustr >> 1)) = 0;
+          DynamicString->MaximumLength = v31;
+          DynamicString->Length = FullPathName_Ustr;
+          v11[(unsigned __int64)FullPathName_Ustr >> 1] = 0;
           if ( v13 )
           {
             if ( v30 )
-              v27 = (v30 - v11) >> 1;
+              v27 = (v30 - (__int64)v11) >> 1;
             else
               v27 = 0LL;
             *v13 = v27;
           }
-          if ( a4 )
-            *a4 = a3;
-          *(_QWORD *)(a3 + 8) = v11;
+          if ( StringUsed )
+            *StringUsed = DynamicString;
+          DynamicString->Buffer = v11;
           v20 = 0;
           goto LABEL_22;
         }
@@ -114,13 +114,19 @@ LABEL_56:
           {
             v22 = v19 + 2;
             v23 = v22;
-            StringRoutine = NtdllpAllocateStringRoutine(v22, v18);
+            StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v22, v18);
             if ( !StringRoutine )
             {
               v20 = -1073741801;
               goto LABEL_18;
             }
-            v24 = RtlGetFullPathName_Ustr(a1, (unsigned int)v22 - 2, StringRoutine, &v30, a6, &a5);
+            v24 = RtlGetFullPathName_Ustr(
+                    FileName,
+                    (unsigned int)v22 - 2,
+                    StringRoutine,
+                    &v30,
+                    NameInvalid,
+                    &FilePartPrefixCch);
             v19 = v24;
             if ( !v24 )
               goto LABEL_47;
@@ -133,17 +139,17 @@ LABEL_56:
           if ( v13 )
           {
             if ( v30 )
-              v28 = (v30 - StringRoutine) >> 1;
+              v28 = (v30 - (__int64)StringRoutine) >> 1;
             else
               v28 = 0LL;
             *v13 = v28;
           }
-          *(_WORD *)(StringRoutine + 2 * ((unsigned __int64)(unsigned int)v19 >> 1)) = 0;
-          *(_QWORD *)(a3 + 8) = StringRoutine;
-          *(_WORD *)a3 = v19;
-          *(_WORD *)(a3 + 2) = v23;
-          if ( a4 )
-            *a4 = a3;
+          StringRoutine[(unsigned __int64)(unsigned int)v19 >> 1] = 0;
+          DynamicString->Buffer = StringRoutine;
+          DynamicString->Length = v19;
+          DynamicString->MaximumLength = v23;
+          if ( StringUsed )
+            *StringUsed = DynamicString;
           v20 = 0;
         }
         StringRoutine = 0LL;
@@ -166,17 +172,17 @@ LABEL_18:
     if ( StringRoutine )
       NtdllpFreeStringRoutine(StringRoutine);
 LABEL_22:
-    *a7 = (_DWORD)a5;
+    *InputPathType = (int)FilePartPrefixCch;
     return v20;
   }
-  v15 = 520;
+  MaximumLength = 520;
   v31 = 520LL;
   v26 = NtdllpAllocateStringRoutine(520LL, 0LL);
-  v11 = v26;
+  v11 = (wchar_t *)v26;
   if ( v26 )
   {
-    v16 = v26;
+    Buffer = (wchar_t *)v26;
     goto LABEL_11;
   }
-  return 3221225495LL;
+  return -1073741801;
 }

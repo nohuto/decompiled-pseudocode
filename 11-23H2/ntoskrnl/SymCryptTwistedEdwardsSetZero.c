@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptTwistedEdwardsSetZero @ 0x1404007F0
+ * XREFs of SymCryptTwistedEdwardsSetZero @ 0x1404009D0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementSetValueUint32 @ 0x1403F978C (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModElementSetValueUint32 @ 0x1403F996C (SymCryptModElementSetValueUint32.c)
  */
 
 __int64 __fastcall SymCryptTwistedEdwardsSetZero(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

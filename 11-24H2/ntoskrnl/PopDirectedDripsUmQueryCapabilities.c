@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsUmQueryCapabilities @ 0x140764A10
+ * XREFs of PopDirectedDripsUmQueryCapabilities @ 0x1407643E0
  * Callers:
- *     PopDirectedDripsUmPowerInformationInternal @ 0x1406F8004 (PopDirectedDripsUmPowerInformationInternal.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x1406F6004 (PopDirectedDripsUmPowerInformationInternal.c)
  * Callees:
- *     PopDirectedDripsQueryMitigationStatus @ 0x140A829E8 (PopDirectedDripsQueryMitigationStatus.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x140A7D508 (PopDirectedDripsQueryMitigationStatus.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmQueryCapabilities(_DWORD *a1, _QWORD *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall PopDirectedDripsUmQueryCapabilities(_DWORD *a1, _QWORD *a2)
 
   v2 = 0;
   v7 = 0;
-  Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL, 2uLL, 0x206D654Du);
   if ( Pool2 )
   {
     PopDirectedDripsQueryMitigationStatus(&v7, 0LL, 0LL);

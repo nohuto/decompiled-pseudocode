@@ -1,18 +1,18 @@
 /*
- * XREFs of ZwReleaseSemaphore @ 0x1800A0420
+ * XREFs of ZwReleaseSemaphore @ 0x1800A0440
  * Callers:
  *     TppCallbackEpilog @ 0x180016F10 (TppCallbackEpilog.c)
  *     RtlReleaseResource @ 0x18006DF10 (RtlReleaseResource.c)
- *     RtlConvertExclusiveToShared @ 0x18008DD70 (RtlConvertExclusiveToShared.c)
+ *     RtlConvertExclusiveToShared @ 0x18008DD80 (RtlConvertExclusiveToShared.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwReleaseSemaphore()
+NTSTATUS __cdecl ZwReleaseSemaphore(HANDLE SemaphoreHandle, LONG ReleaseCount, PLONG PreviousCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 10LL;
+  result = 10;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

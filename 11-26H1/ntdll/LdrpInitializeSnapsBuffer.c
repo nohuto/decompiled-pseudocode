@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpInitializeSnapsBuffer @ 0x1800FC320
+ * XREFs of LdrpInitializeSnapsBuffer @ 0x1800FBA70
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
  */
 
 __int64 LdrpInitializeSnapsBuffer()
 {
-  void *Heap_0; // rax
+  PVOID Heap_0; // rax
   __int64 result; // rax
 
-  Heap_0 = (void *)RtlAllocateHeap_0();
+  Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, 0x1000uLL);
   if ( !Heap_0 )
     return 3221225495LL;
-  qword_1801CB808 = Heap_0;
-  qword_1801CB7F8 = (__int64)Heap_0;
+  qword_1801CA848 = Heap_0;
+  qword_1801CA838 = (__int64)Heap_0;
   result = 0LL;
   LdrpSnapsUnicodeString = 0x10000000;
   LdrpSnapsUnicodeString2 = 0x10000000;

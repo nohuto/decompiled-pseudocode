@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSendSuspendResumeServiceNotification @ 0x14098A724
+ * XREFs of PopSendSuspendResumeServiceNotification @ 0x14098A924
  * Callers:
- *     PopSendSuspendResumeNotifications @ 0x14098A648 (PopSendSuspendResumeNotifications.c)
+ *     PopSendSuspendResumeNotifications @ 0x14098A848 (PopSendSuspendResumeNotifications.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopDiagTraceSuspendResumeNotification @ 0x140991C68 (PopDiagTraceSuspendResumeNotification.c)
- *     PopUmpoSendLegacyEvent @ 0x1409978A0 (PopUmpoSendLegacyEvent.c)
- *     PopSuspendResumeInvocation @ 0x1409982D0 (PopSuspendResumeInvocation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopDiagTraceSuspendResumeNotification @ 0x140991E68 (PopDiagTraceSuspendResumeNotification.c)
+ *     PopUmpoSendLegacyEvent @ 0x140997AA0 (PopUmpoSendLegacyEvent.c)
+ *     PopSuspendResumeInvocation @ 0x1409984D0 (PopSuspendResumeInvocation.c)
  */
 
 __int64 __fastcall PopSendSuspendResumeServiceNotification(__int64 a1)

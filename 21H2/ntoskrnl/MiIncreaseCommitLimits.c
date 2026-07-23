@@ -1,20 +1,20 @@
 /*
- * XREFs of MiIncreaseCommitLimits @ 0x1403BF7AC
+ * XREFs of MiIncreaseCommitLimits @ 0x1403BFBD8
  * Callers:
- *     MiInitializeCommitment @ 0x1403BF628 (MiInitializeCommitment.c)
- *     MiInsertPartitionPages @ 0x140562540 (MiInsertPartitionPages.c)
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
- *     MiInsertPageFileInList @ 0x1407B6FD0 (MiInsertPageFileInList.c)
- *     MiMapNewPfns @ 0x1408C5CD4 (MiMapNewPfns.c)
- *     MiExtendPagingFiles @ 0x1408D0630 (MiExtendPagingFiles.c)
- *     MiFreePartitionPhysicalPages @ 0x1408DB0F0 (MiFreePartitionPhysicalPages.c)
+ *     MiInitializeCommitment @ 0x1403BFA54 (MiInitializeCommitment.c)
+ *     MiInsertPartitionPages @ 0x140562780 (MiInsertPartitionPages.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
+ *     MiInsertPageFileInList @ 0x1407B74F0 (MiInsertPageFileInList.c)
+ *     MiMapNewPfns @ 0x1408C5E34 (MiMapNewPfns.c)
+ *     MiExtendPagingFiles @ 0x1408D0790 (MiExtendPagingFiles.c)
+ *     MiFreePartitionPhysicalPages @ 0x1408DB250 (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiComputeCommitThresholds @ 0x1403BF8C0 (MiComputeCommitThresholds.c)
- *     MiUpdatePageFileList @ 0x1403BFAAC (MiUpdatePageFileList.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiComputeCommitThresholds @ 0x1403BFCEC (MiComputeCommitThresholds.c)
+ *     MiUpdatePageFileList @ 0x1403BFED8 (MiUpdatePageFileList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRestockOverCommit @ 0x140550714 (MiRestockOverCommit.c)
+ *     MiRestockOverCommit @ 0x140550954 (MiRestockOverCommit.c)
  */
 
 __int64 __fastcall MiIncreaseCommitLimits(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)

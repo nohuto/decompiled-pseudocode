@@ -1,130 +1,149 @@
 /*
- * XREFs of MiInitializeBootShadowStackPage @ 0x140C5712C
+ * XREFs of MiInitializeBootShadowStackPage @ 0x140C592BC
  * Callers:
- *     MiInitializeBootKernelShadowStack @ 0x14067FE68 (MiInitializeBootKernelShadowStack.c)
- *     MiInitializeBootKernelShadowStacks @ 0x140C57048 (MiInitializeBootKernelShadowStacks.c)
+ *     MiInitializeBootKernelShadowStack @ 0x140681068 (MiInitializeBootKernelShadowStack.c)
+ *     MiInitializeBootKernelShadowStacks @ 0x140C591D8 (MiInitializeBootKernelShadowStacks.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockPageAndSetDirty @ 0x14021D080 (MiLockPageAndSetDirty.c)
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiSanitizeShadowPxe @ 0x140233C54 (MiSanitizeShadowPxe.c)
- *     MiWritePteShadow @ 0x140233CD4 (MiWritePteShadow.c)
- *     MiUnlockWorkingSetOptimal @ 0x14024231C (MiUnlockWorkingSetOptimal.c)
- *     MiLockWorkingSetOptimal @ 0x1402424F0 (MiLockWorkingSetOptimal.c)
- *     MiPteInShadowRange @ 0x1402863E0 (MiPteInShadowRange.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiLockAndDecrementShareCount @ 0x14039EFA4 (MiLockAndDecrementShareCount.c)
- *     MiIsPfnFromChargedSlabAllocation @ 0x14039F0B8 (MiIsPfnFromChargedSlabAllocation.c)
- *     MiDecreaseUsedPtes @ 0x1403A4830 (MiDecreaseUsedPtes.c)
- *     MiMarkPfnVerified @ 0x140436D24 (MiMarkPfnVerified.c)
+ *     MiPteInShadowRange @ 0x140202630 (MiPteInShadowRange.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiSanitizeShadowPxe @ 0x140203820 (MiSanitizeShadowPxe.c)
+ *     MiWritePteShadow @ 0x1402038A0 (MiWritePteShadow.c)
+ *     MiUnlockWorkingSetOptimal @ 0x14020A46C (MiUnlockWorkingSetOptimal.c)
+ *     MiLockWorkingSetOptimal @ 0x14020A640 (MiLockWorkingSetOptimal.c)
+ *     MiDecreaseUsedPtes @ 0x14021C060 (MiDecreaseUsedPtes.c)
+ *     MiLockAndDecrementShareCount @ 0x14021D444 (MiLockAndDecrementShareCount.c)
+ *     MiIsPfnFromChargedSlabAllocation @ 0x14021D558 (MiIsPfnFromChargedSlabAllocation.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageAndSetDirty @ 0x140249DD0 (MiLockPageAndSetDirty.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiMarkPfnVerified @ 0x1404297A4 (MiMarkPfnVerified.c)
  */
 
-void __fastcall MiInitializeBootShadowStackPage(ULONG_PTR BugCheckParameter2, int a2)
+void __fastcall MiInitializeBootShadowStackPage(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // r15
-  int v5; // ebx
-  unsigned __int8 v6; // si
-  __int64 v7; // rcx
-  void *v8; // rsi
-  unsigned __int64 v9; // rdi
-  __int64 v10; // rbx
-  void *v11; // rsi
-  unsigned __int64 v12; // r13
-  __int64 v13; // rax
-  __int64 v14; // r8
+  int v5; // edi
+  __int64 v6; // r15
+  int v7; // ebx
+  unsigned __int8 v8; // si
+  __int64 v9; // r8
+  __int64 v10; // r9
+  unsigned __int64 v11; // rcx
+  void *v12; // rsi
+  __int64 v13; // r9
+  ULONG_PTR v14; // rdi
   __int64 v15; // rbx
-  ULONG_PTR v16; // rbx
-  int v17; // edi
-  int v18; // eax
-  ULONG_PTR v19; // rbx
-  int v20; // edi
-  unsigned __int64 v21; // [rsp+20h] [rbp-10h]
-  char v22; // [rsp+70h] [rbp+40h] BYREF
-  char v23; // [rsp+80h] [rbp+50h] BYREF
-  ULONG_PTR v24; // [rsp+88h] [rbp+58h]
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // r8
+  __int64 v19; // r9
+  void *v20; // rsi
+  __int64 v21; // r9
+  ULONG_PTR v22; // r13
+  __int64 v23; // rax
+  __int64 v24; // r8
+  __int64 v25; // r9
+  __int64 v26; // rbx
+  unsigned __int64 v27; // rbx
+  int v28; // edi
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // r9
+  int v32; // eax
+  unsigned __int64 v33; // rbx
+  int v34; // edi
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // r9
+  int v38; // eax
+  unsigned __int64 v39; // [rsp+20h] [rbp-10h] BYREF
+  char v40; // [rsp+70h] [rbp+40h] BYREF
+  char v41; // [rsp+80h] [rbp+50h] BYREF
+  unsigned __int64 v42; // [rsp+88h] [rbp+58h] BYREF
 
-  v4 = 48 * ((*(_QWORD *)BugCheckParameter2 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-  v5 = 0;
-  v6 = MiLockPageInline(v4);
-  if ( ((*(_QWORD *)(v4 + 40) >> 60) & 7) != 3 && _bittest64(&MiFlags, 0x29u) )
-    MiMarkPfnVerified(v4, 4);
-  if ( (unsigned int)MiGetPfnSlabType(v4) != 9 && !(unsigned int)MiIsPfnFromChargedSlabAllocation(v4) )
-    v5 = 1;
-  MiUnlockPage(v4, v6);
-  if ( v5 )
+  v5 = a2;
+  v6 = 48 * ((*(_QWORD *)BugCheckParameter2 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
+  v7 = 0;
+  v8 = MiLockPageInline(v6, a2, a3, a4);
+  if ( ((*(_QWORD *)(v6 + 40) >> 60) & 7) != 3 && _bittest64(&MiFlags, 0x29u) )
+    MiMarkPfnVerified(v6, 4LL, v9, v10);
+  if ( (unsigned int)MiGetPfnSlabType(v6) != 9 && !(unsigned int)MiIsPfnFromChargedSlabAllocation(v6) )
+    v7 = 1;
+  MiUnlockPage(v6, v8);
+  if ( v7 )
   {
-    MiAcquireNonPagedResources(&MiSystemPartition, 1uLL, 0LL, 0);
-    _InterlockedAdd64(&qword_140E375D8, 1uLL);
+    MiAcquireNonPagedResources(&MiSystemPartition, 1uLL, 0LL, 0LL);
+    _InterlockedAdd64(&qword_140E37718, 1uLL);
   }
-  v7 = (__int64)(BugCheckParameter2 << 25) >> 16;
+  v11 = (__int64)(BugCheckParameter2 << 25) >> 16;
   if ( _bittest64(&MiFlags, 0x29u) )
   {
-    v23 = 0;
-    v11 = MiVaToFlushVm(v7);
-    v12 = MiLockWorkingSetOptimal((__int64)v11, BugCheckParameter2, (unsigned __int8 *)&v23);
-    v13 = MI_READ_PTE_LOCK_FREE(BugCheckParameter2);
-    v15 = v13;
-    if ( a2 )
+    v41 = 0;
+    v20 = MiVaToFlushVm(v11);
+    v22 = MiLockWorkingSetOptimal((__int64)v20, BugCheckParameter2, (unsigned __int8 *)&v41, v21);
+    v23 = MI_READ_PTE_LOCK_FREE(BugCheckParameter2);
+    v26 = v23;
+    if ( v5 )
     {
-      if ( a2 == 1 )
+      if ( v5 == 1 )
       {
-        MiLockPageAndSetDirty(v4, 1LL, v14);
-        v16 = v15 & 0xFFFFFFFFFFFFF7BDuLL;
-        v24 = v16;
-        v17 = 0;
+        MiLockPageAndSetDirty(v6, 1LL, v24, v25);
+        v27 = v26 & 0xFFFFFFFFFFFFF7BDuLL;
+        v42 = v27;
+        v28 = 0;
         if ( MiPteInShadowRange(BugCheckParameter2) )
         {
-          v18 = MiSanitizeShadowPxe();
-          v16 = v24;
-          v17 = v18;
+          v32 = MiSanitizeShadowPxe(v29, (__int64)&v42, v30);
+          v27 = v42;
+          v28 = v32;
         }
-        if ( _bittest64(&MiFlags, 0x24u) && (v16 & 0x20) == 0 && BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
-          MiCheckLinearProtectedPteAccessedBit(BugCheckParameter2, v16, 128);
-        *(_QWORD *)BugCheckParameter2 = v16;
-        if ( v17 )
-          MiWritePteShadow();
+        if ( _bittest64(&MiFlags, 0x24u) && (v27 & 0x20) == 0 && BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
+          MiCheckLinearProtectedPteAccessedBit(BugCheckParameter2, v27, 128LL);
+        *(_QWORD *)BugCheckParameter2 = v27;
+        if ( v28 )
+          MiWritePteShadow(BugCheckParameter2, v27, v30, v31);
         MiFlushSingleTbEntry((__int64)(BugCheckParameter2 << 25) >> 16, 2, 32);
       }
     }
     else
     {
-      v19 = v13 & 0xFFFFFFFFFFFFF7FFuLL;
-      v21 = v13 & 0xFFFFFFFFFFFFF7FFuLL;
-      v20 = 0;
+      v33 = v23 & 0xFFFFFFFFFFFFF7FFuLL;
+      v39 = v23 & 0xFFFFFFFFFFFFF7FFuLL;
+      v34 = 0;
       if ( MiPteInShadowRange(BugCheckParameter2) )
       {
-        v19 = v21;
-        v20 = MiSanitizeShadowPxe();
+        v38 = MiSanitizeShadowPxe(v35, (__int64)&v39, v36);
+        v33 = v39;
+        v34 = v38;
       }
-      if ( _bittest64(&MiFlags, 0x24u) && (v19 & 0x20) == 0 && BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
-        MiCheckLinearProtectedPteAccessedBit(BugCheckParameter2, v19, 128);
-      *(_QWORD *)BugCheckParameter2 = v19;
-      if ( v20 )
-        MiWritePteShadow();
+      if ( _bittest64(&MiFlags, 0x24u) && (v33 & 0x20) == 0 && BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
+        MiCheckLinearProtectedPteAccessedBit(BugCheckParameter2, v33, 128LL);
+      *(_QWORD *)BugCheckParameter2 = v33;
+      if ( v34 )
+        MiWritePteShadow(BugCheckParameter2, v33, v36, v37);
     }
-    MiUnlockWorkingSetOptimal((__int64)v11, v12, v23);
+    MiUnlockWorkingSetOptimal((__int64)v20, v22, v41);
   }
   else
   {
-    v22 = 0;
-    v8 = MiVaToFlushVm(v7);
-    v9 = MiLockWorkingSetOptimal((__int64)v8, BugCheckParameter2, (unsigned __int8 *)&v22);
-    v10 = 48 * (*(_QWORD *)(v4 + 40) & 0xFFFFFFFFFFLL);
+    v40 = 0;
+    v12 = MiVaToFlushVm(v11);
+    v14 = MiLockWorkingSetOptimal((__int64)v12, BugCheckParameter2, (unsigned __int8 *)&v40, v13);
+    v15 = 48 * (*(_QWORD *)(v6 + 40) & 0xFFFFFFFFFFLL);
     *(_QWORD *)BugCheckParameter2 = CLFS_LSN_NULL_EXT;
-    MiDecreaseUsedPtes(0xFFFFDE0000000000uLL, v9, 1u);
+    MiDecreaseUsedPtes(0xFFFFDE0000000000uLL, v14, 1LL);
     MiFlushSingleTbEntry((__int64)(BugCheckParameter2 << 25) >> 16, 2, 1);
-    MiLockAndDecrementShareCount(v4, 1);
-    MiLockAndDecrementShareCount(v10 - 0x220000000000LL, 0);
-    MiUnlockWorkingSetOptimal((__int64)v8, v9, v22);
+    MiLockAndDecrementShareCount(v6, 1LL, v16, v17);
+    MiLockAndDecrementShareCount(v15 - 0x220000000000LL, 0LL, v18, v19);
+    MiUnlockWorkingSetOptimal((__int64)v12, v14, v40);
     MiReturnResident((__int64)&MiSystemPartition, 1uLL);
     MiReturnCommit((__int64)&MiSystemPartition, 1LL, 0);
-    _InterlockedDecrement64(&qword_140E375D8);
+    _InterlockedDecrement64(&qword_140E37718);
   }
 }

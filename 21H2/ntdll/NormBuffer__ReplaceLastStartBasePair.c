@@ -1,9 +1,9 @@
 /*
- * XREFs of NormBuffer__ReplaceLastStartBasePair @ 0x1800FFBEC
+ * XREFs of NormBuffer__ReplaceLastStartBasePair @ 0x1800FFBAC
  * Callers:
  *     Normalization__NormalizeCharacter @ 0x180080D8C (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__AppendAndSortDecomposed @ 0x1800FF684 (NormBuffer__AppendAndSortDecomposed.c)
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1800FF644 (NormBuffer__AppendAndSortDecomposed.c)
  */
 
 char __fastcall NormBuffer__ReplaceLastStartBasePair(__int64 a1, int a2, char a3, char a4)

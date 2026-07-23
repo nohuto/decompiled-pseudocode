@@ -30,7 +30,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
   unsigned int v13; // r15d
   wchar_t *Buffer; // rsi
   int v15; // eax
-  int v16; // edi
+  NTSTATUS v16; // edi
   unsigned int *v17; // rbx
   wchar_t *v18; // rax
   char v19; // bl
@@ -158,7 +158,7 @@ LABEL_20:
           do
           {
             RtlInitUnicodeString(&DestinationString, 0LL);
-            v16 = RtlStringFromGUIDEx((unsigned int *)&a2[2 * v26], (__int64)&DestinationString, 1);
+            v16 = RtlStringFromGUIDEx((PGUID)&a2[2 * v26], &DestinationString, 1u);
             if ( v16 < 0 )
               goto LABEL_21;
             v25 += DestinationString.Length + 2;
@@ -178,7 +178,7 @@ LABEL_20:
           {
             while ( 1 )
             {
-              v16 = RtlStringFromGUIDEx((unsigned int *)&a2[2 * v29], (__int64)&DestinationString, 1);
+              v16 = RtlStringFromGUIDEx((PGUID)&a2[2 * v29], &DestinationString, 1u);
               if ( v16 < 0 )
                 break;
               v30 = (unsigned int)DestinationString.Length + 2;
@@ -204,7 +204,7 @@ LABEL_46:
     }
     if ( a3 != 16 )
       return (unsigned int)-1073741788;
-    v16 = RtlStringFromGUIDEx((unsigned int *)a2, (__int64)&DestinationString, 1);
+    v16 = RtlStringFromGUIDEx((PGUID)a2, &DestinationString, 1u);
     if ( v16 >= 0 )
     {
       Buffer = DestinationString.Buffer;

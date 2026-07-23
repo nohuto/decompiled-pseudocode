@@ -1,20 +1,20 @@
 /*
- * XREFs of MiExpandSystemCache @ 0x1402A36A0
+ * XREFs of MiExpandSystemCache @ 0x1402A2BF0
  * Callers:
- *     MiObtainSystemCacheView @ 0x1402E4B60 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1402C6BA0 (MiObtainSystemCacheView.c)
  * Callees:
- *     MiSetSystemCacheReverseMap @ 0x1402A39F0 (MiSetSystemCacheReverseMap.c)
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiObtainSystemVa @ 0x1402A4D3C (MiObtainSystemVa.c)
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiSetSystemCacheReverseMap @ 0x1402A2F40 (MiSetSystemCacheReverseMap.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiObtainSystemVa @ 0x1402A428C (MiObtainSystemVa.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 *__fastcall MiExpandSystemCache(volatile signed __int32 *a1)
@@ -35,7 +35,7 @@ unsigned __int64 *__fastcall MiExpandSystemCache(volatile signed __int32 *a1)
   __int64 v16; // rdx
   char v17; // [rsp+68h] [rbp+10h]
 
-  if ( stru_140E2D930.KernelStack <= (void *)0x4000000 )
+  if ( stru_140E2DAB0.KernelStack <= (void *)0x4000000 )
     return 0LL;
   v2 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
   LODWORD(v2) = v2 | 0x80000000;

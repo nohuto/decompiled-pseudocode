@@ -1,28 +1,28 @@
 /*
- * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x140B37850
+ * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x140B39A60
  * Callers:
  *     <none>
  * Callees:
- *     PnpValidateRegistryString @ 0x1404ED020 (PnpValidateRegistryString.c)
- *     PnpValidateStringData @ 0x1404ED05C (PnpValidateStringData.c)
- *     PnpValidateMultiSzData @ 0x1404F5374 (PnpValidateMultiSzData.c)
- *     PnpValidateRegistryDword @ 0x1404FCFB8 (PnpValidateRegistryDword.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpGetObjectProperty @ 0x14099D8E0 (PnpGetObjectProperty.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     RtlStringFromGUIDEx @ 0x140A3EB50 (RtlStringFromGUIDEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PnpValidateRegistryString @ 0x1404E6600 (PnpValidateRegistryString.c)
+ *     PnpValidateStringData @ 0x1404E663C (PnpValidateStringData.c)
+ *     PnpValidateMultiSzData @ 0x1404EE954 (PnpValidateMultiSzData.c)
+ *     PnpValidateRegistryDword @ 0x1404F64F8 (PnpValidateRegistryDword.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpGetObjectProperty @ 0x14095E340 (PnpGetObjectProperty.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     RtlStringFromGUIDEx @ 0x1409FA570 (RtlStringFromGUIDEx.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, __int64 a3)
 {
   unsigned int v3; // r14d
-  void *v7; // r12
-  int RegistryValue; // ebx
+  wchar_t *Buffer; // r12
+  NTSTATUS RegistryValue; // ebx
   unsigned int *v9; // r15
   wchar_t *v10; // rdx
   wchar_t *v11; // rcx
@@ -31,18 +31,17 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
   __int64 v14; // r8
   int v15; // esi
   int ObjectProperty; // eax
-  _DWORD *v17; // rdi
-  int v18; // ecx
-  _DWORD *Pool2; // rax
+  PGUID v17; // rdi
+  unsigned int Data1_low; // ecx
+  GUID *Pool2; // rax
   __int64 v21; // [rsp+60h] [rbp-39h] BYREF
-  PVOID v22; // [rsp+68h] [rbp-31h] BYREF
+  PGUID v22; // [rsp+68h] [rbp-31h] BYREF
   PVOID P; // [rsp+70h] [rbp-29h] BYREF
   __int64 v24; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v25; // [rsp+80h] [rbp-19h] BYREF
-  void *Src; // [rsp+88h] [rbp-11h]
+  UNICODE_STRING v25; // [rsp+80h] [rbp-19h] BYREF
   UNICODE_STRING GuidString; // [rsp+90h] [rbp-9h] BYREF
   GUID Guid; // [rsp+A0h] [rbp+7h] BYREF
-  int v29; // [rsp+B0h] [rbp+17h]
+  int v28; // [rsp+B0h] [rbp+17h]
 
   v3 = 0;
   P = 0LL;
@@ -50,11 +49,11 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
   LODWORD(v24) = 0;
   LODWORD(v21) = 0;
   v22 = 0LL;
-  v29 = 0;
-  v25 = 0LL;
-  Src = 0LL;
+  v28 = 0;
+  *(_QWORD *)&v25.Length = 0LL;
+  v25.Buffer = 0LL;
   Guid = 0LL;
-  v7 = 0LL;
+  Buffer = 0LL;
   RegistryValue = IopGetRegistryValue(a2, L"PropertyGuid", 0, &P);
   if ( RegistryValue < 0 )
     goto LABEL_65;
@@ -95,7 +94,7 @@ LABEL_3:
         goto LABEL_3;
       v14 = *a1;
       v15 = 1;
-      v29 = *(unsigned int *)((char *)v9 + v9[2]);
+      v28 = *(unsigned int *)((char *)v9 + v9[2]);
       ObjectProperty = PnpGetObjectProperty(
                          0x47706E50u,
                          0,
@@ -105,7 +104,7 @@ LABEL_3:
                          0LL,
                          (__int64)&Guid,
                          &v24,
-                         &v22,
+                         (PVOID *)&v22,
                          (unsigned int *)&v21,
                          0);
       RegistryValue = ObjectProperty;
@@ -128,28 +127,28 @@ LABEL_63:
         {
           if ( (_DWORD)v21 != 16 )
             goto LABEL_22;
-          RegistryValue = RtlStringFromGUIDEx((unsigned int *)v22, (__int64)&v25, 1);
+          RegistryValue = RtlStringFromGUIDEx(v22, &v25, 1u);
           if ( RegistryValue >= 0 )
           {
-            v3 = (unsigned __int16)v25 + 2;
-            Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+            v3 = v25.Length + 2;
+            Pool2 = (GUID *)ExAllocatePool2(0x100uLL);
             v17 = Pool2;
             if ( Pool2 )
             {
-              v7 = Src;
-              memmove(Pool2, Src, v3);
+              Buffer = v25.Buffer;
+              memmove(Pool2, v25.Buffer, v3);
 LABEL_60:
               *(_DWORD *)(a3 + 32) = v15;
               *(_DWORD *)(a3 + 36) = v3;
               *(_QWORD *)(a3 + 40) = v17;
 LABEL_61:
-              if ( v7 )
-                ExFreePool(v7);
+              if ( Buffer )
+                ExFreePool(Buffer);
               goto LABEL_63;
             }
             RegistryValue = -1073741670;
           }
-          v7 = Src;
+          Buffer = v25.Buffer;
           goto LABEL_61;
         }
         if ( (unsigned int)v24 <= 5 )
@@ -161,12 +160,12 @@ LABEL_18:
             {
               v15 = 4;
               v3 = 4;
-              v17 = (_DWORD *)ExAllocatePool2(0x100uLL);
+              v17 = (PGUID)ExAllocatePool2(0x100uLL);
               if ( v17 )
               {
-                v18 = *(unsigned __int16 *)v22;
+                Data1_low = LOWORD(v22->Data1);
 LABEL_56:
-                *v17 = v18;
+                v17->Data1 = Data1_low;
                 goto LABEL_60;
               }
               goto LABEL_24;
@@ -181,10 +180,10 @@ LABEL_56:
               {
                 v15 = 4;
                 v3 = 4;
-                v17 = (_DWORD *)ExAllocatePool2(0x100uLL);
+                v17 = (PGUID)ExAllocatePool2(0x100uLL);
                 if ( v17 )
                 {
-                  v18 = *(unsigned __int8 *)v22;
+                  Data1_low = LOBYTE(v22->Data1);
                   goto LABEL_56;
                 }
                 goto LABEL_24;
@@ -229,10 +228,10 @@ LABEL_49:
         {
           v15 = 4;
           v3 = 4;
-          v17 = (_DWORD *)ExAllocatePool2(0x100uLL);
+          v17 = (PGUID)ExAllocatePool2(0x100uLL);
           if ( v17 )
           {
-            v18 = *(_BYTE *)v22 == 0xFF;
+            Data1_low = LOBYTE(v22->Data1) == 0xFF;
             goto LABEL_56;
           }
 LABEL_24:

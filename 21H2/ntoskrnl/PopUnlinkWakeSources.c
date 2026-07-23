@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUnlinkWakeSources @ 0x1408E6CD8
+ * XREFs of PopUnlinkWakeSources @ 0x1408E6E38
  * Callers:
- *     PopFreeWakeInfo @ 0x1408E6A70 (PopFreeWakeInfo.c)
- *     PopHandleWakeSources @ 0x140998410 (PopHandleWakeSources.c)
+ *     PopFreeWakeInfo @ 0x1408E6BD0 (PopFreeWakeInfo.c)
+ *     PopHandleWakeSources @ 0x140999410 (PopHandleWakeSources.c)
  * Callees:
- *     PopFreeWakeSource @ 0x1408E6A98 (PopFreeWakeSource.c)
+ *     PopFreeWakeSource @ 0x1408E6BF8 (PopFreeWakeSource.c)
  */
 
 void __fastcall PopUnlinkWakeSources(__int64 a1)

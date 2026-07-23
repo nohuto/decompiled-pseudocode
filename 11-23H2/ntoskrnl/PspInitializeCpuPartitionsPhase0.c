@@ -3,8 +3,8 @@
  * Callers:
  *     PspInitPhase0 @ 0x140B4A894 (PspInitPhase0.c)
  * Callees:
- *     KeInitializeCpuPartition @ 0x1403ABBC4 (KeInitializeCpuPartition.c)
- *     PsCreateCpuPartition @ 0x140857304 (PsCreateCpuPartition.c)
+ *     KeInitializeCpuPartition @ 0x1403ABDA4 (KeInitializeCpuPartition.c)
+ *     PsCreateCpuPartition @ 0x140857544 (PsCreateCpuPartition.c)
  *     PspInitializeCpuPartitionsDefaultSd @ 0x140B6B05C (PspInitializeCpuPartitionsDefaultSd.c)
  */
 

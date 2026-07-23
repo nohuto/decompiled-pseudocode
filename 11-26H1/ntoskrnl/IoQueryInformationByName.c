@@ -1,21 +1,21 @@
 /*
- * XREFs of IoQueryInformationByName @ 0x1409B46E0
+ * XREFs of IoQueryInformationByName @ 0x1409857A0
  * Callers:
- *     NtQueryInformationByName @ 0x1409B46B0 (NtQueryInformationByName.c)
+ *     NtQueryInformationByName @ 0x140985770 (NtQueryInformationByName.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
- *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x1409B4620 (FsRtlpPrepareExtraCreateParametersForCreate.c)
- *     IopValidateQueryInformationParameters @ 0x1409B55BC (IopValidateQueryInformationParameters.c)
- *     FsRtlpCleanupEcps @ 0x1409B5D30 (FsRtlpCleanupEcps.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
+ *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x1409856E0 (FsRtlpPrepareExtraCreateParametersForCreate.c)
+ *     IopValidateQueryInformationParameters @ 0x14098667C (IopValidateQueryInformationParameters.c)
+ *     FsRtlpCleanupEcps @ 0x140986DF0 (FsRtlpCleanupEcps.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoQueryInformationByName(__int64 a1, void *a2, PVOID a3, int a4, int a5, int a6, _QWORD *a7)

@@ -16,5 +16,5 @@ void __fastcall KiTriggerForegroundBoostDpc(
 
   v4[0] = 0LL;
   v4[1] = -1LL;
-  KeSetTimer2((__int64)&KiForegroundState, -150000LL, 0LL, (__int64)v4);
+  KeSetTimer2((__int64)&KiForegroundState, (LARGE_INTEGER)-150000LL, 0LL, (__int64)v4);
 }

@@ -154,7 +154,7 @@ void __stdcall MmUnlockPages(PMDL MemoryDescriptorList)
   CurrentIrql = KeGetCurrentIrql();
   v47 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -225,10 +225,10 @@ LABEL_13:
       v6 = v55;
       if ( ShouldYieldProcessor )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v40 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v40 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v40 - 2) <= 0xDu )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v1 = (__int64)CurrentPrcb->SchedulerAssist;
@@ -243,7 +243,7 @@ LABEL_13:
         v34 = KeGetCurrentIrql();
         __writecr8(2uLL);
         v6 = v55;
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v34 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu )
         {
           v1 = (__int64)KeGetCurrentPrcb()->SchedulerAssist;
           if ( v34 == 2 )
@@ -370,10 +370,10 @@ LABEL_35:
     if ( v22 )
       MiReturnCommit(v26, v22);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v43 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v47 <= 0xFu && v43 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v47 <= 0xFu && v43 >= 2u )
     {
       v44 = KeGetCurrentPrcb();
       v45 = v44->SchedulerAssist;

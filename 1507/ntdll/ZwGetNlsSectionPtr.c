@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwGetNlsSectionPtr()
+NTSTATUS __cdecl ZwGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 234LL;
+  result = 234;
   __asm { syscall; Low latency system call }
   return result;
 }

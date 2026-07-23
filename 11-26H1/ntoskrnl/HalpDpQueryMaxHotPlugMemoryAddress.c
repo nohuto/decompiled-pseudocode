@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpDpQueryMaxHotPlugMemoryAddress @ 0x14057EEF8
+ * XREFs of HalpDpQueryMaxHotPlugMemoryAddress @ 0x140581418
  * Callers:
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

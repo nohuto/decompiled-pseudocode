@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeMaximumFaultCluster @ 0x1403A5A20
+ * XREFs of MiComputeMaximumFaultCluster @ 0x1403A7780
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KiRspInIstStack @ 0x1403A6E58 (KiRspInIstStack.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiRspInIstStack @ 0x1403A8BB8 (KiRspInIstStack.c)
  */
 
 __int64 __fastcall MiComputeMaximumFaultCluster(__int64 *a1, unsigned __int64 a2)
@@ -76,8 +76,8 @@ __int64 __fastcall MiComputeMaximumFaultCluster(__int64 *a1, unsigned __int64 a2
 LABEL_25:
               v14 = &ExpInterlockedPopEntrySListFault;
               v13 = KiDynamicTraceEnabled
-                 && (v19 = *(_QWORD *)(v2 + 360), v19 >= stru_140FC01F0.ReadTransferCount)
-                 && v19 < stru_140FC01F0.WriteTransferCount
+                 && (v19 = *(_QWORD *)(v2 + 360), v19 >= stru_140FC11F0.ReadTransferCount)
+                 && v19 < stru_140FC11F0.WriteTransferCount
                  && KeGetCurrentIrql() == 15;
 LABEL_30:
               if ( *(void **)(v2 + 360) == v14 || v13 )
@@ -88,7 +88,7 @@ LABEL_30:
       }
       else if ( v12 == 51 )
       {
-        v14 = *(void **)&stru_140FC01F0.SchedulerAssistPriorityFloor;
+        v14 = *(void **)&stru_140FC11F0.SchedulerAssistPriorityFloor;
         goto LABEL_30;
       }
     }
@@ -131,7 +131,7 @@ LABEL_35:
     MiLockVadTree(1u, 0xFFFFF68000000000uLL, v10);
     Address = MiLocateAddress(v5);
     v28 = (volatile signed __int32 *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v28, 0xBFFFFFFF);
       _InterlockedDecrement(v28);
@@ -150,11 +150,11 @@ LABEL_63:
   if ( v9 )
     goto LABEL_64;
   v21 = 1LL;
-  if ( (_UNKNOWN *)a1[7] != &unk_140E36F40 )
+  if ( (_UNKNOWN *)a1[7] != &unk_140E370C0 )
     goto LABEL_64;
   MiLockVadTree(5u, 0xFFFFF68000000000uLL, v10);
-  Flink = stru_140E34C08.Header.WaitListHead.Flink;
-  if ( !stru_140E34C08.Header.WaitListHead.Flink )
+  Flink = stru_140E34D88.Header.WaitListHead.Flink;
+  if ( !stru_140E34D88.Header.WaitListHead.Flink )
     goto LABEL_52;
   while ( 1 )
   {

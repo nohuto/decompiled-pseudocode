@@ -1,9 +1,9 @@
 /*
- * XREFs of LZ4HC_init_internal @ 0x140634E9C
+ * XREFs of LZ4HC_init_internal @ 0x140637EA4
  * Callers:
- *     LZ4_compress_HC_extStateHC_fastReset @ 0x140635084 (LZ4_compress_HC_extStateHC_fastReset.c)
+ *     LZ4_compress_HC_extStateHC_fastReset @ 0x14063808C (LZ4_compress_HC_extStateHC_fastReset.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall LZ4HC_init_internal(__int64 a1, __int64 a2)

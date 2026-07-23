@@ -1,18 +1,18 @@
 /*
- * XREFs of KiInitializeMTRR @ 0x140A4CEC4
+ * XREFs of KiInitializeMTRR @ 0x140A4DEC4
  * Callers:
- *     KiInitMachineDependent @ 0x1403B588C (KiInitMachineDependent.c)
+ *     KiInitMachineDependent @ 0x1403B59FC (KiInitMachineDependent.c)
  * Callees:
- *     MiLockPagableImageSection @ 0x14031C4F0 (MiLockPagableImageSection.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     MmLockPagableSectionByHandle @ 0x1406EF0C0 (MmLockPagableSectionByHandle.c)
- *     KiReadFixedMtrr @ 0x140999A98 (KiReadFixedMtrr.c)
- *     KiMaskToLength @ 0x14099F3E8 (KiMaskToLength.c)
- *     KeRestoreMtrrBroadcast @ 0x14099F414 (KeRestoreMtrrBroadcast.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MiLockPagableImageSection @ 0x140327240 (MiLockPagableImageSection.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MmLockPagableSectionByHandle @ 0x1407064A0 (MmLockPagableSectionByHandle.c)
+ *     KiReadFixedMtrr @ 0x14099AA98 (KiReadFixedMtrr.c)
+ *     KiMaskToLength @ 0x1409A0318 (KiMaskToLength.c)
+ *     KeRestoreMtrrBroadcast @ 0x1409A0344 (KeRestoreMtrrBroadcast.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall KiInitializeMTRR(char a1)

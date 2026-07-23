@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDemoteLargeFreePage @ 0x1402917AC
+ * XREFs of MiDemoteLargeFreePage @ 0x14020F71C
  * Callers:
- *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
+ *     MiTradePage @ 0x14030B930 (MiTradePage.c)
  * Callees:
- *     MiInsertDemotedPages @ 0x1402918D0 (MiInsertDemotedPages.c)
- *     MiTryUnlinkNodeLargePage @ 0x14029195C (MiTryUnlinkNodeLargePage.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiInsertDemotedPages @ 0x14020F840 (MiInsertDemotedPages.c)
+ *     MiTryUnlinkNodeLargePage @ 0x14020F8CC (MiTryUnlinkNodeLargePage.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

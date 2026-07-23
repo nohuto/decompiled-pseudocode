@@ -27,29 +27,32 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   unsigned int v9; // ebx
   int v10; // eax
   __int64 v11; // rdx
-  _DWORD v12[2]; // [rsp+20h] [rbp-248h] BYREF
-  wchar_t *p_Destination; // [rsp+28h] [rbp-240h]
+  UNICODE_STRING SourceString; // [rsp+20h] [rbp-248h] BYREF
   wchar_t Destination; // [rsp+30h] [rbp-238h] BYREF
-  _BYTE v15[4]; // [rsp+38h] [rbp-230h] BYREF
-  _BYTE v16[496]; // [rsp+3Ch] [rbp-22Ch] BYREF
-  _BYTE v17[2]; // [rsp+22Ch] [rbp-3Ch] BYREF
-  _BYTE v18[2]; // [rsp+22Eh] [rbp-3Ah] BYREF
+  _BYTE v14[4]; // [rsp+38h] [rbp-230h] BYREF
+  _BYTE v15[496]; // [rsp+3Ch] [rbp-22Ch] BYREF
+  _BYTE v16[2]; // [rsp+22Ch] [rbp-3Ch] BYREF
+  _BYTE v17[2]; // [rsp+22Eh] [rbp-3Ah] BYREF
 
-  if ( (unsigned __int8)RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
+  if ( RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
     return -1073741704;
   wcscpy_s(&Destination, 0x100uLL, L"S-1-");
-  v6 = v15;
+  v6 = v14;
   if ( *((_BYTE *)Sid + 2) || *((_BYTE *)Sid + 3) )
   {
     wcscat_s(&Destination, 0x100uLL, L"0x");
-    v6 = v16;
+    v6 = v15;
     v10 = *((unsigned __int8 *)Sid + 5);
-    v12[1] = *((unsigned __int8 *)Sid + 3) + (*((unsigned __int8 *)Sid + 2) << 8);
-    v12[0] = *((unsigned __int8 *)Sid + 7)
-           + (*((unsigned __int8 *)Sid + 6) << 8)
-           + (v10 << 16)
-           + (*((unsigned __int8 *)Sid + 4) << 24);
-    result = ((__int64 (__fastcall *)(_DWORD *, __int64, __int64, _BYTE *))sub_1800EB208)(v12, v11, 250LL, v16);
+    *(_DWORD *)(&SourceString.MaximumLength + 1) = *((unsigned __int8 *)Sid + 3) + (*((unsigned __int8 *)Sid + 2) << 8);
+    *(_DWORD *)&SourceString.Length = *((unsigned __int8 *)Sid + 7)
+                                    + (*((unsigned __int8 *)Sid + 6) << 8)
+                                    + (v10 << 16)
+                                    + (*((unsigned __int8 *)Sid + 4) << 24);
+    result = ((__int64 (__fastcall *)(UNICODE_STRING *, __int64, __int64, _BYTE *))sub_1800EB208)(
+               &SourceString,
+               v11,
+               250LL,
+               v15);
   }
   else
   {
@@ -60,7 +63,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
              + (*((unsigned __int8 *)Sid + 4) << 24),
                10LL,
                252LL,
-               v15);
+               v14);
   }
   if ( result >= 0 )
   {
@@ -69,7 +72,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
     {
       while ( 1 )
       {
-        for ( ; v6 < v17; v6 += 2 )
+        for ( ; v6 < v16; v6 += 2 )
         {
           if ( !*(_WORD *)v6 )
             break;
@@ -92,12 +95,12 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
 LABEL_13:
       if ( AllocateDestinationString )
       {
-        if ( !(unsigned __int8)RtlCreateUnicodeString(UnicodeString, &Destination) )
+        if ( !RtlCreateUnicodeString(UnicodeString, &Destination) )
           return -1073741801;
       }
       else
       {
-        for ( ; v6 < v18; v6 += 2 )
+        for ( ; v6 < v17; v6 += 2 )
         {
           if ( !*(_WORD *)v6 )
             break;
@@ -105,10 +108,10 @@ LABEL_13:
         v9 = 2 * ((v6 - (_BYTE *)&Destination) >> 1);
         if ( v9 >= UnicodeString->MaximumLength )
           return -2147483643;
-        LOWORD(v12[0]) = v9;
-        p_Destination = &Destination;
-        HIWORD(v12[0]) = v9 + 2;
-        RtlCopyUnicodeString(UnicodeString, v12);
+        SourceString.Length = v9;
+        SourceString.Buffer = &Destination;
+        SourceString.MaximumLength = v9 + 2;
+        RtlCopyUnicodeString(UnicodeString, &SourceString);
       }
       return 0;
     }

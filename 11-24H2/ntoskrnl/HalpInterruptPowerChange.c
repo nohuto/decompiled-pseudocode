@@ -1,41 +1,39 @@
 /*
- * XREFs of HalpInterruptPowerChange @ 0x140557250
+ * XREFs of HalpInterruptPowerChange @ 0x140554B90
  * Callers:
- *     HalpInterruptPowerComponentActiveCallback @ 0x1405572F0 (HalpInterruptPowerComponentActiveCallback.c)
- *     HalpInterruptPowerComponentIdleCallback @ 0x140557310 (HalpInterruptPowerComponentIdleCallback.c)
- *     HalpInterruptPowerCriticalTransitionCallback @ 0x140557350 (HalpInterruptPowerCriticalTransitionCallback.c)
+ *     HalpInterruptPowerComponentActiveCallback @ 0x140554C30 (HalpInterruptPowerComponentActiveCallback.c)
+ *     HalpInterruptPowerComponentIdleCallback @ 0x140554C50 (HalpInterruptPowerComponentIdleCallback.c)
+ *     HalpInterruptPowerCriticalTransitionCallback @ 0x140554C90 (HalpInterruptPowerCriticalTransitionCallback.c)
  * Callees:
- *     HalpInterruptRestoreController @ 0x14049CA1C (HalpInterruptRestoreController.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpInterruptInitializeController @ 0x1405564D4 (HalpInterruptInitializeController.c)
+ *     HalpInterruptRestoreController @ 0x1404976C4 (HalpInterruptRestoreController.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpInterruptInitializeController @ 0x140553E14 (HalpInterruptInitializeController.c)
  */
 
-__int64 __fastcall HalpInterruptPowerChange(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HalpInterruptPowerChange(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
-  int v4; // eax
+  int v2; // eax
   __int64 result; // rax
-  int v7; // eax
-  __int64 v8; // r8
-  __int64 v9; // r9
+  int v5; // eax
 
-  v4 = *(_DWORD *)(BugCheckParameter3 + 248);
+  v2 = *(_DWORD *)(BugCheckParameter3 + 248);
   if ( (_BYTE)a2 )
   {
-    result = v4 & 0xFFFFFFFB;
+    result = v2 & 0xFFFFFFFB;
     *(_DWORD *)(BugCheckParameter3 + 248) = result;
     if ( (result & 2) == 0 )
     {
-      v7 = HalpInterruptInitializeController(BugCheckParameter3, a2, a3, a4);
-      if ( v7 < 0 )
-        KeBugCheckEx(0x5Cu, 0x204uLL, HalpInterruptLastProblem, BugCheckParameter3, v7);
-      result = HalpInterruptRestoreController(BugCheckParameter3, 0, v8, v9);
+      v5 = HalpInterruptInitializeController(BugCheckParameter3, a2);
+      if ( v5 < 0 )
+        KeBugCheckEx(0x5Cu, 0x204uLL, HalpInterruptLastProblem, BugCheckParameter3, v5);
+      result = HalpInterruptRestoreController(BugCheckParameter3, 0);
       if ( (int)result < 0 )
         KeBugCheckEx(0x5Cu, 0x204uLL, HalpInterruptLastProblem, BugCheckParameter3, (int)result);
     }
   }
   else
   {
-    result = v4 & 0xFFFFFFFA | 4;
+    result = v2 & 0xFFFFFFFA | 4;
     *(_DWORD *)(BugCheckParameter3 + 248) = result;
   }
   return result;

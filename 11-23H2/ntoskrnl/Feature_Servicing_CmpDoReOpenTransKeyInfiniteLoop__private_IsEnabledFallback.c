@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_CmpDoReOpenTransKeyInfiniteLoop__private_IsEnabledFallback @ 0x140419EF4
+ * XREFs of Feature_Servicing_CmpDoReOpenTransKeyInfiniteLoop__private_IsEnabledFallback @ 0x14041A284
  * Callers:
- *     Feature_Servicing_CmpDoReOpenTransKeyInfiniteLoop__private_IsEnabledDeviceUsage @ 0x140419EBC (Feature_Servicing_CmpDoReOpenTransKeyInfiniteLoop__private_IsEnabledDeviceUsage.c)
+ *     Feature_Servicing_CmpDoReOpenTransKeyInfiniteLoop__private_IsEnabledDeviceUsage @ 0x14041A24C (Feature_Servicing_CmpDoReOpenTransKeyInfiniteLoop__private_IsEnabledDeviceUsage.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x14040F8CC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x14040FAAC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_CmpDoReOpenTransKeyInfiniteLoop__private_IsEnabledFallback(__int64 a1, int a2)

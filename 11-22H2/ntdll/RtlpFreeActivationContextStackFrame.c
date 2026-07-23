@@ -85,7 +85,7 @@ void __fastcall RtlpFreeActivationContextStackFrame(__int64 a1, unsigned __int64
                       __fastfail(3u);
                     *v11 = v12;
                     *(_QWORD *)(v12 + 8) = v11;
-                    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)(v7 - 1));
+                    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7 - 1);
                   }
                   v7 = v11;
                 }

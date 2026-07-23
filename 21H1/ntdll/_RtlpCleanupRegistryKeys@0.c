@@ -29,92 +29,94 @@
 
 int __stdcall RtlpCleanupRegistryKeys()
 {
-  _DWORD *v0; // ebx
-  size_t v1; // edi
-  int ProcessRegistryInfo; // esi
+  ULONG *v0; // ebx
+  unsigned int v1; // edi
+  int SystemDefaultUILanguage; // esi
   int v3; // ecx
-  int v4; // esi
-  int Heap; // ecx
-  int v6; // esi
+  ULONG v4; // esi
+  PVOID Heap; // ecx
+  NTSTATUS v6; // esi
   unsigned int v7; // edx
   wchar_t *v8; // esi
   int InstalledLanguageIndexByName; // eax
   int v10; // eax
   int inited; // eax
-  int v12; // eax
-  size_t v14; // esi
+  NTSTATUS v12; // eax
+  unsigned int v14; // esi
   void *v15; // eax
   HANDLE v16; // eax
-  int v17; // [esp-4h] [ebp-134h]
-  char v18; // [esp+Fh] [ebp-121h]
-  int v19; // [esp+10h] [ebp-120h]
-  int v20; // [esp+14h] [ebp-11Ch]
+  SIZE_T v17; // [esp-4h] [ebp-134h]
+  size_t v18; // [esp-4h] [ebp-134h]
+  ULONG *v19; // [esp-4h] [ebp-134h]
+  char v20; // [esp+Fh] [ebp-121h]
+  int v21; // [esp+10h] [ebp-120h]
+  ULONG v22; // [esp+14h] [ebp-11Ch]
   HANDLE Handle; // [esp+18h] [ebp-118h] BYREF
-  int v22; // [esp+1Ch] [ebp-114h] BYREF
-  HANDLE v23; // [esp+20h] [ebp-110h] BYREF
-  size_t Size; // [esp+24h] [ebp-10Ch]
-  _WORD *v25; // [esp+28h] [ebp-108h] BYREF
-  int v26; // [esp+2Ch] [ebp-104h] BYREF
-  wchar_t *String2; // [esp+30h] [ebp-100h]
-  __int16 v28; // [esp+34h] [ebp-FCh] BYREF
-  size_t v29; // [esp+38h] [ebp-F8h]
-  _BYTE v30[8]; // [esp+3Ch] [ebp-F4h] BYREF
-  _DWORD v31[6]; // [esp+44h] [ebp-ECh] BYREF
-  _DWORD v32[6]; // [esp+5Ch] [ebp-D4h] BYREF
-  _BYTE v33[4]; // [esp+74h] [ebp-BCh] BYREF
-  char v34; // [esp+78h] [ebp-B8h] BYREF
+  LANGID DefaultUILanguageId[2]; // [esp+1Ch] [ebp-114h] BYREF
+  HANDLE KeyHandle; // [esp+20h] [ebp-110h] BYREF
+  unsigned int Size; // [esp+24h] [ebp-10Ch]
+  PLCID Size_4; // [esp+28h] [ebp-108h] BYREF
+  _UNICODE_STRING String; // [esp+2Ch] [ebp-104h] BYREF
+  __int16 v29; // [esp+34h] [ebp-FCh] BYREF
+  unsigned int v30; // [esp+38h] [ebp-F8h]
+  _BYTE v31[8]; // [esp+3Ch] [ebp-F4h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+44h] [ebp-ECh] BYREF
+  _OBJECT_ATTRIBUTES v33; // [esp+5Ch] [ebp-D4h] BYREF
+  ULONG ResultLength; // [esp+74h] [ebp-BCh] BYREF
+  char v35; // [esp+78h] [ebp-B8h] BYREF
 
   v0 = 0;
   v1 = 0;
-  v18 = 0;
-  v23 = 0;
+  v20 = 0;
+  KeyHandle = 0;
   ZwIsUILanguageComitted();
-  ProcessRegistryInfo = RtlpCreateProcessRegistryInfo((int *)&v25);
-  if ( ProcessRegistryInfo < 0 )
+  SystemDefaultUILanguage = RtlpCreateProcessRegistryInfo(&Size_4);
+  if ( SystemDefaultUILanguage < 0 )
     goto LABEL_31;
-  ProcessRegistryInfo = RtlpGetSystemDefaultUILanguage(&v22, v25);
-  if ( ProcessRegistryInfo < 0 )
+  SystemDefaultUILanguage = RtlpGetSystemDefaultUILanguage((LANGID)DefaultUILanguageId, Size_4);
+  if ( SystemDefaultUILanguage < 0 )
     goto LABEL_31;
-  v26 = 11272192;
-  String2 = (wchar_t *)&v34;
-  if ( !RtlLCIDToCultureName((unsigned __int16)v22, (unsigned __int16 *)&v26) || !v25 )
+  *(_DWORD *)&String.Length = 11272192;
+  String.Buffer = (wchar_t *)&v35;
+  if ( !RtlLCIDToCultureName(DefaultUILanguageId[0], &String) || !Size_4 )
   {
-    ProcessRegistryInfo = -1073741823;
+    SystemDefaultUILanguage = -1073741823;
     goto LABEL_31;
   }
-  ProcessRegistryInfo = RtlUnicodeStringInitWorker(
-                          (int)v30,
-                          L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages",
-                          v3,
-                          v3);
-  if ( ProcessRegistryInfo < 0 )
+  SystemDefaultUILanguage = RtlUnicodeStringInitWorker(
+                              (int)v31,
+                              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages",
+                              v3,
+                              v3);
+  if ( SystemDefaultUILanguage < 0 )
   {
 LABEL_31:
-    if ( v23 )
-      NtClose(v23);
+    if ( KeyHandle )
+      NtClose(KeyHandle);
     if ( v1 )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, (int)v0, v1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (ULONG)v0, (PVOID)v1);
   }
   else
   {
-    v31[0] = 24;
-    v31[2] = v30;
-    v31[1] = 0;
-    v31[3] = 64;
-    v31[4] = 0;
-    v31[5] = 0;
-    ProcessRegistryInfo = ZwOpenKey((int)&v23, 983103, (int)v31);
-    if ( ProcessRegistryInfo >= 0 )
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)v31;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    SystemDefaultUILanguage = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+    if ( SystemDefaultUILanguage >= 0 )
     {
       Handle = 0;
       Size = 0;
       v4 = 0;
-      v20 = 0;
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 512);
-      v19 = Heap;
+      LODWORD(v17) = 512;
+      v22 = 0;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v17);
+      v21 = (int)Heap;
       if ( !Heap )
       {
-        ProcessRegistryInfo = -1073741801;
+        SystemDefaultUILanguage = -1073741801;
         v1 = 0;
         v0 = 0;
         goto LABEL_31;
@@ -125,14 +127,14 @@ LABEL_31:
         {
           do
           {
-            v6 = ZwEnumerateKey((int)v23, v4, 0, Heap, 512, (int)v33);
-            v22 = v6;
+            v6 = ZwEnumerateKey(KeyHandle, v4, KeyBasicInformation, Heap, 0x200u, &ResultLength);
+            *(_DWORD *)DefaultUILanguageId = v6;
             if ( v6 < 0 )
             {
 LABEL_20:
               if ( Handle )
                 NtClose(Handle);
-              ProcessRegistryInfo = v6 != -2147483622 ? v22 : 0;
+              SystemDefaultUILanguage = v6 != -2147483622 ? *(_DWORD *)DefaultUILanguageId : 0;
               if ( v0 )
               {
                 while ( v1 )
@@ -141,74 +143,74 @@ LABEL_20:
                   Handle = v16;
                   if ( v16 )
                   {
-                    if ( ProcessRegistryInfo >= 0 )
+                    if ( SystemDefaultUILanguage >= 0 )
                     {
-                      v18 = 1;
-                      ZwDeleteKey((int)v16);
+                      v20 = 1;
+                      ZwDeleteKey(v16);
                       v16 = Handle;
                     }
                     NtClose(v16);
                   }
                 }
-                v17 = (int)v0;
+                v19 = v0;
                 v0 = 0;
-                RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v17);
+                RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
               }
-              if ( ProcessRegistryInfo >= 0 && v18 )
+              if ( SystemDefaultUILanguage >= 0 && v20 )
               {
-                NtGetMUIRegistryInfo(2, (int)v0, (int)v0);
+                NtGetMUIRegistryInfo(2u, v0, v0);
                 RtlCleanUpTEBLangLists();
                 RtlpInitMuiCriticalSection();
-                RtlEnterCriticalSection((int)&RegistryInfoCritSect);
-                ProcessRegistryInfo = RtlpMuiRegFreeRegistryInfo(g_RegInfo, 4095);
-                if ( ProcessRegistryInfo >= 0 )
+                RtlEnterCriticalSection(&RegistryInfoCritSect);
+                SystemDefaultUILanguage = RtlpMuiRegFreeRegistryInfo((int)g_RegInfo, 4095);
+                if ( SystemDefaultUILanguage >= 0 )
                 {
                   if ( g_RegInfo )
-                    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, (int)v0, g_RegInfo);
-                  g_RegInfo = (int)v0;
+                    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (ULONG)v0, g_RegInfo);
+                  g_RegInfo = v0;
                 }
-                RtlLeaveCriticalSection((int)&RegistryInfoCritSect);
+                RtlLeaveCriticalSection(&RegistryInfoCritSect);
               }
-              v1 = v19;
+              v1 = v21;
               goto LABEL_31;
             }
-            Heap = v19;
-            v4 = ++v20;
-            v7 = *(_DWORD *)(v19 + 12);
+            Heap = (PVOID)v21;
+            v4 = ++v22;
+            v7 = *(_DWORD *)(v21 + 12);
           }
           while ( v7 + 24 > 0x200 );
-          v8 = (wchar_t *)(v19 + 16);
-          *(_WORD *)(v19 + 2 * (v7 >> 1) + 16) = 0;
+          v8 = (wchar_t *)(v21 + 16);
+          *(_WORD *)(v21 + 2 * (v7 >> 1) + 16) = 0;
           InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(
-                                           (int)v25,
-                                           (const WCHAR *)(v19 + 16),
+                                           (int)Size_4,
+                                           (const WCHAR *)(v21 + 16),
                                            0,
-                                           &v28);
-          Heap = v19;
+                                           &v29);
+          Heap = (PVOID)v21;
           if ( InstalledLanguageIndexByName < 0 )
           {
-            v10 = _wcsicmp(v8, String2);
-            Heap = v19;
+            v10 = _wcsicmp(v8, String.Buffer);
+            Heap = (PVOID)v21;
             if ( v10 )
               break;
           }
 LABEL_10:
-          v4 = v20;
+          v4 = v22;
         }
-        inited = RtlUnicodeStringInitWorker((int)v30, v8, v19, v19);
-        Heap = v19;
-        v4 = v20;
+        inited = RtlUnicodeStringInitWorker((int)v31, v8, v21, v21);
+        Heap = (PVOID)v21;
+        v4 = v22;
         if ( inited >= 0 )
         {
-          v32[1] = v23;
-          v32[2] = v30;
+          v33.RootDirectory = KeyHandle;
+          v33.ObjectName = (PUNICODE_STRING)v31;
           Handle = 0;
-          v32[0] = 24;
-          v32[3] = 64;
-          v32[4] = 0;
-          v32[5] = 0;
-          v12 = ZwOpenKey((int)&Handle, 983103, (int)v32);
-          Heap = v19;
+          v33.Length = 24;
+          v33.Attributes = 64;
+          v33.SecurityDescriptor = 0;
+          v33.SecurityQualityOfService = 0;
+          v12 = ZwOpenKey(&Handle, 0xF003Fu, &v33);
+          Heap = (PVOID)v21;
           if ( v12 >= 0 )
           {
             if ( v0 )
@@ -216,31 +218,32 @@ LABEL_10:
               v14 = Size;
               if ( v1 >= Size )
               {
-                v29 = Size + 10;
-                v15 = (void *)MuiRegAllocArray_0(v19, Size + 10);
-                Size = (size_t)v15;
+                v30 = Size + 10;
+                v15 = (void *)MuiRegAllocArray_0(v21, Size + 10);
+                Size = (unsigned int)v15;
                 if ( !v15 )
                 {
 LABEL_19:
                   v6 = -1073741801;
-                  v22 = -1073741801;
+                  *(_DWORD *)DefaultUILanguageId = -1073741801;
                   goto LABEL_20;
                 }
-                memcpy(v15, v0, v14);
-                RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v0);
-                v0 = (_DWORD *)Size;
-                Size = v29;
+                LODWORD(v18) = v14;
+                memcpy(v15, v0, v18);
+                RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v0);
+                v0 = (ULONG *)Size;
+                Size = v30;
               }
             }
             else
             {
               Size = 10;
-              v0 = (_DWORD *)MuiRegAllocArray_0(v19, 10);
+              v0 = (ULONG *)MuiRegAllocArray_0(v21, 10);
               if ( !v0 )
                 goto LABEL_19;
             }
-            Heap = v19;
-            v0[v1++] = Handle;
+            Heap = (PVOID)v21;
+            v0[v1++] = (ULONG)Handle;
             Handle = 0;
             goto LABEL_10;
           }
@@ -248,5 +251,5 @@ LABEL_19:
       }
     }
   }
-  return ProcessRegistryInfo;
+  return SystemDefaultUILanguage;
 }

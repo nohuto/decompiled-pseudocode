@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpLogMemNodeInfo @ 0x1403D3EBC
+ * XREFs of EtwpLogMemNodeInfo @ 0x140261E3C
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x1403D3DF0 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x140261D70 (EtwpLogMemInfoTimerCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     MmFillEtwNodeInformation @ 0x1403D4214 (MmFillEtwNodeInformation.c)
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
- *     EtwProviderEnabled @ 0x1403D47F0 (EtwProviderEnabled.c)
- *     MmFillEtwHugeIoSpaceInformation @ 0x14066905C (MmFillEtwHugeIoSpaceInformation.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmFillEtwNodeInformation @ 0x140262194 (MmFillEtwNodeInformation.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     EtwProviderEnabled @ 0x140262770 (EtwProviderEnabled.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     MmFillEtwHugeIoSpaceInformation @ 0x14066A234 (MmFillEtwHugeIoSpaceInformation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void EtwpLogMemNodeInfo()
@@ -40,7 +40,7 @@ void EtwpLogMemNodeInfo()
   {
     if ( (unsigned __int16)KeNumberNodes > 8u )
     {
-      Pool2 = (_BYTE *)ExAllocatePool2(0x40uLL);
+      Pool2 = (_BYTE *)ExAllocatePool2(0x40uLL, 76LL * (unsigned __int16)KeNumberNodes, 0x74777445u);
       if ( !Pool2 )
         return;
     }
@@ -63,7 +63,7 @@ void EtwpLogMemNodeInfo()
       v11 = Pool2;
       v13 = 0;
       EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO_NODE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
-      if ( qword_140E2FFC0 )
+      if ( qword_140E30100 )
       {
         v4 = MmFillEtwHugeIoSpaceInformation(
                v3,

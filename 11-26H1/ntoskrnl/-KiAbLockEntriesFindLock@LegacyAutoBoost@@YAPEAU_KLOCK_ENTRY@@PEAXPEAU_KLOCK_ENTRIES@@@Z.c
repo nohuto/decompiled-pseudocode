@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiAbLockEntriesFindLock@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAXPEAU_KLOCK_ENTRIES@@@Z @ 0x140457E90
+ * XREFs of ?KiAbLockEntriesFindLock@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAXPEAU_KLOCK_ENTRIES@@@Z @ 0x14044F700
  * Callers:
- *     ?KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z @ 0x140457E30 (-KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z.c)
+ *     ?KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z @ 0x14044F6A0 (-KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpApplyIncrementalLogFile @ 0x140A88650
+ * XREFs of HvpApplyIncrementalLogFile @ 0x140A84B40
  * Callers:
- *     HvApplyLogFiles @ 0x1407E5F88 (HvApplyLogFiles.c)
+ *     HvApplyLogFiles @ 0x1407E6558 (HvApplyLogFiles.c)
  * Callees:
- *     CmpTraceHiveMountLogEntryApplied @ 0x1407D6634 (CmpTraceHiveMountLogEntryApplied.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x140A6E9D0 (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpIncrementalLogFileEnumeratorAdvance @ 0x140A88758 (HvpIncrementalLogFileEnumeratorAdvance.c)
- *     HvpUpdateRecoveryVector @ 0x140A9E570 (HvpUpdateRecoveryVector.c)
+ *     CmpTraceHiveMountLogEntryApplied @ 0x1407D6BA8 (CmpTraceHiveMountLogEntryApplied.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x140A67E54 (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpIncrementalLogFileEnumeratorAdvance @ 0x140A84C48 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ *     HvpUpdateRecoveryVector @ 0x140A99AE0 (HvpUpdateRecoveryVector.c)
  */
 
 __int64 __fastcall HvpApplyIncrementalLogFile(

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpFindFreeCellInBin @ 0x140708DB0
+ * XREFs of HvpFindFreeCellInBin @ 0x140720190
  * Callers:
- *     HvpFindFreeCell @ 0x140707F4C (HvpFindFreeCell.c)
+ *     HvpFindFreeCell @ 0x14071F32C (HvpFindFreeCell.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvpMarkCellDirty @ 0x14071F800 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall HvpFindFreeCellInBin(

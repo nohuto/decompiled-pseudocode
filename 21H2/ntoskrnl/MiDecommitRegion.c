@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDecommitRegion @ 0x1406EE5F0
+ * XREFs of MiDecommitRegion @ 0x1407059D0
  * Callers:
- *     MiFreeToSubAllocatedRegion @ 0x1406E9484 (MiFreeToSubAllocatedRegion.c)
- *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
- *     MiLoadDataIntoVsmEnclave @ 0x1408D31C4 (MiLoadDataIntoVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x1408D3570 (MiLoadSectionIntoVsmEnclave.c)
+ *     MiFreeToSubAllocatedRegion @ 0x140700864 (MiFreeToSubAllocatedRegion.c)
+ *     MmFreeVirtualMemory @ 0x1407049E0 (MmFreeVirtualMemory.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x1408D3324 (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x1408D36D0 (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
- *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiFillCommitReturnInfo @ 0x140318224 (MiFillCommitReturnInfo.c)
- *     MiVadCommitCrossPartition @ 0x14031823C (MiVadCommitCrossPartition.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiReturnFullProcessCharges @ 0x140318370 (MiReturnFullProcessCharges.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
- *     MiFreeLargePages @ 0x14055E498 (MiFreeLargePages.c)
+ *     MiGetProcessPartition @ 0x1402BF640 (MiGetProcessPartition.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiFillCommitReturnInfo @ 0x140322F74 (MiFillCommitReturnInfo.c)
+ *     MiVadCommitCrossPartition @ 0x140322F8C (MiVadCommitCrossPartition.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiReturnFullProcessCharges @ 0x1403230C0 (MiReturnFullProcessCharges.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
+ *     MiFreeLargePages @ 0x14055E6D8 (MiFreeLargePages.c)
  */
 
 __int64 __fastcall MiDecommitRegion(__int64 a1, __int64 a2, unsigned __int64 a3)

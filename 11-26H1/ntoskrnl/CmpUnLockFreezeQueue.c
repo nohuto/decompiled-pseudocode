@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpUnLockFreezeQueue @ 0x140770C7C
+ * XREFs of CmpUnLockFreezeQueue @ 0x140773C7C
  * Callers:
- *     CmThawRegistry @ 0x1408571F0 (CmThawRegistry.c)
- *     CmpLockRegistryFreezeAware @ 0x1408B3FA0 (CmpLockRegistryFreezeAware.c)
+ *     CmThawRegistry @ 0x14085D580 (CmThawRegistry.c)
+ *     CmpLockRegistryFreezeAware @ 0x1408BA574 (CmpLockRegistryFreezeAware.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
  */
 
 void CmpUnLockFreezeQueue()

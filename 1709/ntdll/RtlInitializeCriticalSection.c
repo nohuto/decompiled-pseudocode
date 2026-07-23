@@ -9,32 +9,32 @@
  *     NtTraceEvent @ 0x1800A0C70 (NtTraceEvent.c)
  */
 
-__int64 __fastcall RtlInitializeCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlInitializeCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   bool v2; // zf
   __int64 v3; // rdi
   _DWORD *SharedData; // rcx
   __int64 v5; // rcx
-  _BYTE v7[6]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-48h] BYREF
   __int16 v8; // [rsp+26h] [rbp-42h]
-  __int64 v9; // [rsp+40h] [rbp-28h]
-  __int64 v10; // [rsp+48h] [rbp-20h]
+  unsigned __int64 SpinCount; // [rsp+40h] [rbp-28h]
+  PRTL_CRITICAL_SECTION v10; // [rsp+48h] [rbp-20h]
 
-  *(_DWORD *)(a1 + 12) = 0;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  *(_QWORD *)(a1 + 24) = 0LL;
-  *(_DWORD *)(a1 + 8) = -1;
+  CriticalSection->RecursionCount = 0;
+  CriticalSection->OwningThread = 0LL;
+  CriticalSection->LockSemaphore = 0LL;
+  CriticalSection->LockCount = -1;
   if ( NtCurrentPeb()->NumberOfProcessors <= 1 )
-    *(_QWORD *)(a1 + 32) = 0LL;
+    CriticalSection->SpinCount = 0LL;
   else
-    *(_QWORD *)(a1 + 32) = 33556432LL;
+    CriticalSection->SpinCount = 33556432LL;
   v2 = RtlpForceCSDebugInfoCreation == 0;
-  *(_QWORD *)a1 = -1LL;
+  CriticalSection->DebugInfo = (_RTL_CRITICAL_SECTION_DEBUG *)-1LL;
   if ( !v2 )
   {
-    RtlpAddDebugInfoToCriticalSection(a1);
-    if ( *(_QWORD *)a1 == -1LL )
-      *(_QWORD *)(a1 + 32) |= 0x1000000uLL;
+    RtlpAddDebugInfoToCriticalSection((__int64)CriticalSection);
+    if ( CriticalSection->DebugInfo == (_RTL_CRITICAL_SECTION_DEBUG *)-1LL )
+      CriticalSection->SpinCount |= 0x1000000uLL;
   }
   v3 = 2147353474LL;
   SharedData = NtCurrentPeb()->SharedData;
@@ -44,12 +44,12 @@ __int64 __fastcall RtlInitializeCriticalSection(__int64 a1)
     v5 = 2147353474LL;
   if ( *(_BYTE *)v5 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
   {
-    v10 = a1;
+    v10 = CriticalSection;
     v8 = 5923;
-    v9 = *(_QWORD *)(a1 + 32);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    SpinCount = CriticalSection->SpinCount;
+    if ( RtlGetCurrentServiceSessionId() )
       v3 = (__int64)NtCurrentPeb()->SharedData + 552;
-    NtTraceEvent(*(unsigned __int8 *)v3, 66562LL, 16LL, v7);
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v3, 0x10402u, 0x10u, Fields);
   }
-  return 0LL;
+  return 0;
 }

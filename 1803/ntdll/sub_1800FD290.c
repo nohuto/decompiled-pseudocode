@@ -9,14 +9,17 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-void __fastcall sub_1800FD290(__int64 a1, int a2)
+void __fastcall sub_1800FD290(LPCGUID a1, int a2)
 {
   signed __int32 *v2; // rax
   signed __int32 *v3; // rdi
   signed __int32 v4; // ebx
   __int128 v5; // [rsp+30h] [rbp-48h] BYREF
   __int128 v6; // [rsp+40h] [rbp-38h] BYREF
-  _QWORD v7[4]; // [rsp+50h] [rbp-28h] BYREF
+  int HeapInformation; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+58h] [rbp-20h]
+  __int64 (__fastcall *v9)(void *, size_t); // [rsp+60h] [rbp-18h]
+  signed __int32 *v10; // [rsp+68h] [rbp-10h]
 
   if ( a2 == 2 )
   {
@@ -28,11 +31,11 @@ void __fastcall sub_1800FD290(__int64 a1, int a2)
       v4 = _InterlockedIncrement(&dword_18015D820);
       memset(v2, 0, 0x4010uLL);
       *v3 = v4;
-      v7[1] = -1LL;
-      LODWORD(v7[0]) = 1;
-      v7[3] = v3;
-      v7[2] = sub_1800FD360;
-      RtlQueryHeapInformation(0LL, 5, v7, 0x20uLL, 0LL);
+      v8 = -1LL;
+      HeapInformation = 1;
+      v10 = v3;
+      v9 = sub_1800FD360;
+      RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)5, &HeapInformation, 0x20uLL, 0LL);
       v6 = xmmword_18015A790;
       sub_18005F840((__int64)v3, &v6);
     }

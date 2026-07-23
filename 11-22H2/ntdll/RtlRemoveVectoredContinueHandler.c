@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlRemoveVectoredContinueHandler(__int64 a1)
+ULONG __cdecl RtlRemoveVectoredContinueHandler(PVOID Handle)
 {
-  return RtlpRemoveVectoredHandler(a1, 1u);
+  return RtlpRemoveVectoredHandler((void **)Handle, 1u);
 }

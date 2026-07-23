@@ -1,9 +1,9 @@
 /*
- * XREFs of lm_init @ 0x140629570
+ * XREFs of lm_init @ 0x14062C5C0
  * Callers:
- *     deflateReset @ 0x140627BEC (deflateReset.c)
+ *     deflateReset @ 0x14062AC3C (deflateReset.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall lm_init(__int64 a1)

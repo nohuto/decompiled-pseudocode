@@ -1,12 +1,12 @@
 /*
- * XREFs of HvCheckBin @ 0x140745770
+ * XREFs of HvCheckBin @ 0x140745960
  * Callers:
- *     HvCheckHive @ 0x14070A0A0 (HvCheckHive.c)
+ *     HvCheckHive @ 0x14070A2B0 (HvCheckHive.c)
  * Callees:
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     HvMoveLayoutStats @ 0x1407459B4 (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x1407459D0 (HvAddToLayoutStats.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     HvMoveLayoutStats @ 0x140745BA4 (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x140745BC0 (HvAddToLayoutStats.c)
  */
 
 __int64 __fastcall HvCheckBin(

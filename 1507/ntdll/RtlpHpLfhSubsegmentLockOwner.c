@@ -7,40 +7,40 @@
  *     RtlReleaseSRWLockExclusive @ 0x180033470 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHpLfhSubsegmentLockOwner(__int64 a1, char *a2, __int64 a3, __int64 a4)
+_RTL_SRWLOCK *__fastcall RtlpHpLfhSubsegmentLockOwner(__int64 a1)
 {
-  signed __int64 v4; // rbx
-  unsigned __int64 v6; // rcx
-  signed __int64 v7; // rax
-  volatile signed __int64 *v8; // rbp
-  signed __int64 v9; // rdi
+  signed __int64 v1; // rbx
+  unsigned __int64 v3; // rcx
+  signed __int64 v4; // rax
+  _RTL_SRWLOCK *v5; // rbp
+  _RTL_SRWLOCK *v6; // rdi
 
-  v4 = *(_QWORD *)(a1 + 16);
+  v1 = *(_QWORD *)(a1 + 16);
   do
   {
     while ( 1 )
     {
-      if ( !v4 )
+      if ( !v1 )
       {
-        v6 = 3LL;
-        v7 = 0LL;
+        v3 = 3LL;
+        v4 = 0LL;
         goto LABEL_8;
       }
-      if ( (v4 & 1) != 0 )
+      if ( (v1 & 1) != 0 )
         break;
-      v8 = (volatile signed __int64 *)(v4 + 16);
-      v9 = v4;
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)(v4 + 16), a2, a3, a4);
-      v4 = *(_QWORD *)(a1 + 16);
-      if ( v9 == v4 )
-        return v9;
-      RtlReleaseSRWLockExclusive(v8);
+      v5 = (_RTL_SRWLOCK *)(v1 + 16);
+      v6 = (_RTL_SRWLOCK *)v1;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v1 + 16));
+      v1 = *(_QWORD *)(a1 + 16);
+      if ( v6 == (_RTL_SRWLOCK *)v1 )
+        return v6;
+      RtlReleaseSRWLockExclusive(v5);
     }
-    v6 = v4 & 1 | ((v4 & 0xFFFFFFFFFFFFFFFEuLL) + 2) & 0xFFFFFFFFFFFFFFFEuLL;
-    v7 = v4;
+    v3 = v1 & 1 | ((v1 & 0xFFFFFFFFFFFFFFFEuLL) + 2) & 0xFFFFFFFFFFFFFFFEuLL;
+    v4 = v1;
 LABEL_8:
-    v4 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 16), v6, v7);
+    v1 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 16), v3, v4);
   }
-  while ( v7 != v4 );
+  while ( v4 != v1 );
   return 0LL;
 }

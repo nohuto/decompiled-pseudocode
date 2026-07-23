@@ -9,20 +9,20 @@
 __int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, __int64 a2, _QWORD *a3, unsigned int *a4)
 {
   int v6; // ebx
-  int v8; // eax
+  NTSTATUS v8; // eax
   _DWORD *v9; // r8
   unsigned int v10; // ecx
   _DWORD *v11; // rax
   unsigned int v13; // eax
-  __int64 v14[3]; // [rsp+30h] [rbp-18h] BYREF
+  _DWORD *v14; // [rsp+30h] [rbp-18h] BYREF
   unsigned int v15; // [rsp+58h] [rbp+10h] BYREF
   int v16; // [rsp+5Ch] [rbp+14h]
 
   v16 = HIDWORD(a2);
   v6 = 0;
   v15 = 0;
-  v8 = RtlpImageDirectoryEntryToDataEx(a1, 1, 6u, &v15, v14);
-  v9 = (_DWORD *)v14[0];
+  v8 = RtlpImageDirectoryEntryToDataEx(a1, 1, 6u, &v15, &v14);
+  v9 = v14;
   if ( v8 < 0 )
     v9 = 0LL;
   if ( !v9 || v15 < 0x1C )

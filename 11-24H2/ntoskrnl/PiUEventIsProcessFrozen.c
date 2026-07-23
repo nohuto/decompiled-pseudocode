@@ -1,10 +1,10 @@
 /*
- * XREFs of PiUEventIsProcessFrozen @ 0x140724BE4
+ * XREFs of PiUEventIsProcessFrozen @ 0x140722774
  * Callers:
- *     PiUEventIsClientStuck @ 0x140AC381C (PiUEventIsClientStuck.c)
+ *     PiUEventIsClientStuck @ 0x140ABF1A0 (PiUEventIsClientStuck.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
  */
 
 bool __fastcall PiUEventIsProcessFrozen(void *a1)

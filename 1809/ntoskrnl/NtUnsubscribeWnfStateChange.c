@@ -1,43 +1,42 @@
 /*
- * XREFs of NtUnsubscribeWnfStateChange @ 0x140606BC0
+ * XREFs of NtUnsubscribeWnfStateChange @ 0x140607BC0
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpWnfAcquireSubscriptionByName @ 0x140606C70 (ExpWnfAcquireSubscriptionByName.c)
- *     ExpWnfDeleteSubscription @ 0x140607CA4 (ExpWnfDeleteSubscription.c)
- *     ExpCaptureWnfStateName @ 0x14060F868 (ExpCaptureWnfStateName.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpWnfAcquireSubscriptionByName @ 0x140607C70 (ExpWnfAcquireSubscriptionByName.c)
+ *     ExpWnfDeleteSubscription @ 0x140608CA4 (ExpWnfDeleteSubscription.c)
+ *     ExpCaptureWnfStateName @ 0x140610868 (ExpCaptureWnfStateName.c)
  */
 
-__int64 __fastcall NtUnsubscribeWnfStateChange(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtUnsubscribeWnfStateChange(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _SINGLE_LIST_ENTRY *Next; // rdx
-  int v6; // [rsp+24h] [rbp-14h]
-  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS v4; // [rsp+24h] [rbp-14h]
+  __int64 v5; // [rsp+48h] [rbp+10h] BYREF
   PVOID P; // [rsp+50h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  LOBYTE(a3) = KeGetCurrentThread()->PreviousMode;
-  v6 = ExpCaptureWnfStateName(a1, &v7, a3);
-  if ( v6 >= 0 )
+  v4 = ExpCaptureWnfStateName(StateName, &v5, KeGetCurrentThread()->PreviousMode);
+  if ( v4 >= 0 )
   {
     Next = KeGetCurrentThread()->ApcState.Process[2].SwapListEntry.Next;
     if ( Next )
     {
-      v6 = ExpWnfAcquireSubscriptionByName(v7, Next, &P);
-      if ( v6 >= 0 )
+      v4 = ExpWnfAcquireSubscriptionByName(v5, Next, &P);
+      if ( v4 >= 0 )
       {
         ExpWnfDeleteSubscription(P);
-        v6 = 0;
+        v4 = 0;
       }
     }
     else
     {
-      v6 = -1073741772;
+      v4 = -1073741772;
     }
   }
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v6;
+  return v4;
 }

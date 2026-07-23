@@ -83,7 +83,7 @@ __int64 __fastcall MiCopyDataPageToImagePage(
   __int64 v39; // r8
   __int64 v40; // rax
   PEX_SPIN_LOCK v41; // rcx
-  struct _SLIST_ENTRY *DecayPfn; // r14
+  _SLIST_ENTRY *DecayPfn; // r14
   __int64 v43; // r13
   __int64 v44; // rcx
   __int64 v45; // rdx

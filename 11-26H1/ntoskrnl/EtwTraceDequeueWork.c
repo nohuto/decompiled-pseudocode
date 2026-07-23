@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDequeueWork @ 0x1404F48C8
+ * XREFs of EtwTraceDequeueWork @ 0x1404EDEA8
  * Callers:
- *     KeRemoveQueueEx @ 0x140220B60 (KeRemoveQueueEx.c)
+ *     KeRemoveQueueEx @ 0x1402224F0 (KeRemoveQueueEx.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
  */
 
 __int64 __fastcall EtwTraceDequeueWork(__int64 a1, __int64 a2, int a3)

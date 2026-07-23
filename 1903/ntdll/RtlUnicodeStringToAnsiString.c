@@ -17,11 +17,11 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   NTSTATUS v6; // esi
   __int64 v7; // rdx
   ULONG v8; // eax
-  unsigned __int16 v9; // cx
-  unsigned __int16 MaximumLength; // ax
-  NTSTATUS v11; // edi
+  USHORT v9; // cx
+  USHORT MaximumLength; // ax
+  int v11; // edi
   bool v12; // sf
-  char *v14; // rax
+  CHAR *v14; // rax
   ULONG BytesInMultiByteString; // [rsp+78h] [rbp+10h] BYREF
   BOOLEAN v16; // [rsp+80h] [rbp+18h]
 
@@ -36,7 +36,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   if ( AllocateDestinationString )
   {
     DestinationString->MaximumLength = v8;
-    v14 = (char *)sub_18006D6B8(v8, v7);
+    v14 = (CHAR *)sub_18006D6B8(v8, v7);
     DestinationString->Buffer = v14;
     if ( !v14 )
       return -1073741801;
@@ -55,7 +55,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   v11 = RtlUnicodeToMultiByteN(
           DestinationString->Buffer,
           DestinationString->Length,
-          (unsigned int)&BytesInMultiByteString,
+          &BytesInMultiByteString,
           SourceString->Buffer,
           SourceString->Length);
   if ( v11 >= 0 )
@@ -65,7 +65,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   {
     if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor(DestinationString->Buffer);
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
       DestinationString->Buffer = 0LL;
     }
     v12 = v11 < 0;

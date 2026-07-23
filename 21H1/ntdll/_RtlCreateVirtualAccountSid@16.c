@@ -12,36 +12,36 @@
  *     _A_SHAInit@4 @ 0x4B308A40 (_A_SHAInit@4.c)
  */
 
-signed int __stdcall RtlCreateVirtualAccountSid(unsigned __int16 *a1, int a2, _DWORD *a3, unsigned int *a4)
+NTSTATUS __cdecl RtlCreateVirtualAccountSid(PUNICODE_STRING Name, ULONG BaseSubAuthority, PSID Sid, PULONG SidLength)
 {
-  unsigned int v4; // eax
-  signed int result; // eax
+  ULONG v4; // eax
+  NTSTATUS result; // eax
   int v6; // eax
-  UNICODE_STRING UnicodeString; // [esp+8h] [ebp-7Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+8h] [ebp-7Ch] BYREF
   int v8[23]; // [esp+10h] [ebp-74h] BYREF
   int v9[5]; // [esp+6Ch] [ebp-18h] BYREF
 
-  if ( !a1 || !a4 || (unsigned int)(a2 - 80) > 0x1F )
+  if ( !Name || !SidLength || BaseSubAuthority - 80 > 0x1F )
     return -1073741811;
-  v4 = *a4;
-  *a4 = 32;
+  v4 = *SidLength;
+  *SidLength = 32;
   if ( v4 < 0x20 )
     return -1073741789;
-  result = RtlUpcaseUnicodeString((int)&UnicodeString, a1, 1);
+  result = RtlUpcaseUnicodeString(&DestinationString, Name, 1u);
   if ( result >= 0 )
   {
     A_SHAInit(v8);
-    A_SHAUpdate(v8, (char *)UnicodeString.Buffer, UnicodeString.Length);
+    A_SHAUpdate((int)Sid, v8, (char *)DestinationString.Buffer, DestinationString.Length);
     A_SHAFinal(v8, (int)v9);
-    RtlFreeAnsiString(&UnicodeString);
-    RtlInitializeSid((int)a3, (int)&RtlpNtAuthority, 6u);
+    RtlFreeAnsiString(&DestinationString);
+    RtlInitializeSid(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
     v6 = v9[0];
-    a3[2] = a2;
-    a3[3] = v6;
-    a3[4] = v9[1];
-    a3[5] = v9[2];
-    a3[6] = v9[3];
-    a3[7] = v9[4];
+    *((_DWORD *)Sid + 2) = BaseSubAuthority;
+    *((_DWORD *)Sid + 3) = v6;
+    *((_DWORD *)Sid + 4) = v9[1];
+    *((_DWORD *)Sid + 5) = v9[2];
+    *((_DWORD *)Sid + 6) = v9[3];
+    *((_DWORD *)Sid + 7) = v9[4];
     return 0;
   }
   return result;

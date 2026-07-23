@@ -1,13 +1,13 @@
 /*
- * XREFs of PsQueryProcessAttributesByToken @ 0x14040D154
+ * XREFs of PsQueryProcessAttributesByToken @ 0x14040C014
  * Callers:
- *     SeQuerySigningPolicyWorker @ 0x14045D1FC (SeQuerySigningPolicyWorker.c)
- *     EtwpQueryTokenPackageInfo @ 0x14045DB40 (EtwpQueryTokenPackageInfo.c)
- *     PsQueryProcessAttributes @ 0x140471DC0 (PsQueryProcessAttributes.c)
- *     EtwpGetPsmKeyExtendedHeaderItem @ 0x14069F938 (EtwpGetPsmKeyExtendedHeaderItem.c)
- *     EtwpApplyPackageIdFilter @ 0x1406A8B50 (EtwpApplyPackageIdFilter.c)
+ *     SeQuerySigningPolicyWorker @ 0x14045C0CC (SeQuerySigningPolicyWorker.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14045CA10 (EtwpQueryTokenPackageInfo.c)
+ *     PsQueryProcessAttributes @ 0x140470C90 (PsQueryProcessAttributes.c)
+ *     EtwpGetPsmKeyExtendedHeaderItem @ 0x14069FA70 (EtwpGetPsmKeyExtendedHeaderItem.c)
+ *     EtwpApplyPackageIdFilter @ 0x1406A8C88 (EtwpApplyPackageIdFilter.c)
  * Callees:
- *     SeSecurityAttributePresent @ 0x14000E300 (SeSecurityAttributePresent.c)
+ *     SeSecurityAttributePresent @ 0x14000DE80 (SeSecurityAttributePresent.c)
  */
 
 void __fastcall PsQueryProcessAttributesByToken(__int64 a1, _BYTE *a2, _BYTE *a3)

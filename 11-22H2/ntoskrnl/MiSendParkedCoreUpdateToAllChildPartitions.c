@@ -93,10 +93,13 @@ void __fastcall MiSendParkedCoreUpdateToAllChildPartitions(__int64 a1)
     stru_140C66DD0.Parameter = (void *)1;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C66CC0);
     a1 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v13 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         a1 = (unsigned int)(v13 + 1);
@@ -112,10 +115,10 @@ void __fastcall MiSendParkedCoreUpdateToAllChildPartitions(__int64 a1)
   }
   stru_140C66DD0.Parameter = 0LL;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C66CC0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v18 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v18 >= 2u )
     {
       v19 = KeGetCurrentPrcb();
       v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));

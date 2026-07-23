@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceUmMessage @ 0x1800D723C
+ * XREFs of EtwpTraceUmMessage @ 0x1800D25AC
  * Callers:
- *     EtwTraceMessage @ 0x1800D7060 (EtwTraceMessage.c)
- *     EtwTraceMessageVa @ 0x1800D7150 (EtwTraceMessageVa.c)
+ *     EtwTraceMessage @ 0x1800D23D0 (EtwTraceMessage.c)
+ *     EtwTraceMessageVa @ 0x1800D24C0 (EtwTraceMessageVa.c)
  * Callees:
- *     EtwpDemuxUmTraceHandle @ 0x18003D4D0 (EtwpDemuxUmTraceHandle.c)
- *     EtwpReserveTraceBuffer @ 0x18003D5F0 (EtwpReserveTraceBuffer.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18001D750 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpReserveTraceBuffer @ 0x18001D870 (EtwpReserveTraceBuffer.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall EtwpTraceUmMessage(unsigned __int16 a1, char a2, signed __int32 *a3, __int16 a4, _QWORD *a5)
@@ -93,7 +93,7 @@ LABEL_5:
             v7,
             v13,
             v36->CurrentIdealProcessor.Reserved,
-            (_QWORD *)((unsigned __int64)&v31 & -(__int64)(v10 != 0)),
+            (LARGE_INTEGER *)((unsigned __int64)&v31 & -(__int64)(v10 != 0)),
             &v30);
     v35 = v16;
     v17 = 0;

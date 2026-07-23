@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPrepareAttachThread @ 0x140474DE0
+ * XREFs of MiPrepareAttachThread @ 0x14046E560
  * Callers:
- *     MmQueryCommitReleaseState @ 0x1404C804C (MmQueryCommitReleaseState.c)
- *     MiEmptyThisWorkingSet @ 0x1405009C4 (MiEmptyThisWorkingSet.c)
- *     MmReleaseCommitForMemResetPages @ 0x1406E54FC (MmReleaseCommitForMemResetPages.c)
+ *     MmQueryCommitReleaseState @ 0x1404C1D8C (MmQueryCommitReleaseState.c)
+ *     MiEmptyThisWorkingSet @ 0x1404FA1B4 (MiEmptyThisWorkingSet.c)
+ *     MmReleaseCommitForMemResetPages @ 0x1406EA1AC (MmReleaseCommitForMemResetPages.c)
  * Callees:
  *     <none>
  */

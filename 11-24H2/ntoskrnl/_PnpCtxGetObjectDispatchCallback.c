@@ -1,8 +1,8 @@
 /*
- * XREFs of _PnpCtxGetObjectDispatchCallback @ 0x1409FBFCC
+ * XREFs of _PnpCtxGetObjectDispatchCallback @ 0x1409F4D0C
  * Callers:
- *     _PnpCreateObjectDispatch @ 0x14081AACC (_PnpCreateObjectDispatch.c)
- *     _PnpDeleteObjectDispatch @ 0x14081ACF8 (_PnpDeleteObjectDispatch.c)
+ *     _PnpCreateObjectDispatch @ 0x14081B20C (_PnpCreateObjectDispatch.c)
+ *     _PnpDeleteObjectDispatch @ 0x14081B438 (_PnpDeleteObjectDispatch.c)
  * Callees:
  *     <none>
  */

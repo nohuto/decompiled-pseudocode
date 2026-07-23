@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpPowerActionStartScenarioTracingCallback @ 0x140B5AEA0
+ * XREFs of PfpPowerActionStartScenarioTracingCallback @ 0x140B5CF10
  * Callers:
  *     <none>
  * Callees:
- *     PfLogEvent @ 0x140245398 (PfLogEvent.c)
- *     PfpPartitionToParent @ 0x1404BCA40 (PfpPartitionToParent.c)
- *     PfTAccessTracingCleanup @ 0x140B5B46C (PfTAccessTracingCleanup.c)
- *     PfTAccessTracingStart @ 0x140B5B5B0 (PfTAccessTracingStart.c)
- *     MmPerformMemoryListCommand @ 0x140B6DB74 (MmPerformMemoryListCommand.c)
+ *     PfLogEvent @ 0x14020DB78 (PfLogEvent.c)
+ *     PfpPartitionToParent @ 0x1404B7BB0 (PfpPartitionToParent.c)
+ *     PfTAccessTracingCleanup @ 0x140B5D4DC (PfTAccessTracingCleanup.c)
+ *     PfTAccessTracingStart @ 0x140B5D620 (PfTAccessTracingStart.c)
+ *     MmPerformMemoryListCommand @ 0x140B6F414 (MmPerformMemoryListCommand.c)
  */
 
 __int64 __fastcall PfpPowerActionStartScenarioTracingCallback(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ __int64 __fastcall PfpPowerActionStartScenarioTracingCallback(__int64 a1, __int6
   return PfLogEvent(
            a1,
            27,
-           dword_140E66E7C
+           dword_140E66FCC
          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                          + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
            v7,

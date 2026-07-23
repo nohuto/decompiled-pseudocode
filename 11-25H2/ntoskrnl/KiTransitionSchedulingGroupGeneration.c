@@ -35,7 +35,7 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
   __int64 v10; // rbx
   bool v11; // zf
   unsigned __int8 CurrentIrql; // di
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   _KTHREAD *NextThread; // r11
   __int64 result; // rax
   __int64 v16; // r10
@@ -80,14 +80,14 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
   unsigned int v55; // [rsp+50h] [rbp-78h]
   __int64 v56; // [rsp+58h] [rbp-70h]
   __int64 v57; // [rsp+60h] [rbp-68h]
-  __int64 v58; // [rsp+68h] [rbp-60h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+68h] [rbp-60h] BYREF
   _LIST_ENTRY *v59; // [rsp+70h] [rbp-58h]
   __int64 v60; // [rsp+78h] [rbp-50h]
   char v62; // [rsp+D8h] [rbp+10h]
 
   GenerationTarget = a1->GenerationTarget;
   v6 = 1;
-  v58 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v7 = a4;
   v57 = 1LL;
   v8 = a1;
@@ -97,7 +97,7 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
     v57 = v6;
   }
   v9 = KiGenerationEndTick;
-  v10 = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+  v10 = KiGenerationEndTick * KeMaximumIncrement;
   v11 = KiClockTimerPerCpuTickScheduling == 0;
   v8->GenerationTarget = KiGenerationEndTick;
   if ( !v11 )
@@ -107,9 +107,9 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql);
     if ( KiClockTimerReducePreciseTimeQueries )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v58);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     else
-      InterruptTimePrecise = 0LL;
+      InterruptTimePrecise.QuadPart = 0LL;
     KiSetClockTimer((__int64)v8, InterruptTimePrecise, v10, KeMaximumIncrement, 4, 1, 0);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

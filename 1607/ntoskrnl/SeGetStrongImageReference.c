@@ -1,9 +1,9 @@
 /*
- * XREFs of SeGetStrongImageReference @ 0x14068C978
+ * XREFs of SeGetStrongImageReference @ 0x14068CA5C
  * Callers:
- *     MiValidateInPage @ 0x1400267B0 (MiValidateInPage.c)
- *     MiValidateImagePfn @ 0x14052685C (MiValidateImagePfn.c)
- *     MmGetSectionStrongImageReference @ 0x140662F9C (MmGetSectionStrongImageReference.c)
+ *     MiValidateInPage @ 0x140026330 (MiValidateInPage.c)
+ *     MiValidateImagePfn @ 0x1405098BC (MiValidateImagePfn.c)
+ *     MmGetSectionStrongImageReference @ 0x140663080 (MmGetSectionStrongImageReference.c)
  * Callees:
  *     <none>
  */

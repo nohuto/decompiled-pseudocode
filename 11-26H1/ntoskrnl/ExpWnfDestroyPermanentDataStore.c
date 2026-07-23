@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfDestroyPermanentDataStore @ 0x140847248
+ * XREFs of ExpWnfDestroyPermanentDataStore @ 0x14084D4A8
  * Callers:
- *     ExpWnfFreeScopeInstance @ 0x140948664 (ExpWnfFreeScopeInstance.c)
- *     ExpWnfGetPermanentDataStore @ 0x140B32E7C (ExpWnfGetPermanentDataStore.c)
+ *     ExpWnfFreeScopeInstance @ 0x1409C3FD4 (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfGetPermanentDataStore @ 0x140B352CC (ExpWnfGetPermanentDataStore.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpWnfDestroyPermanentDataStore(_QWORD *P, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

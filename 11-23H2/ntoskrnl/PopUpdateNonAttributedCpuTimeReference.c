@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x1405998E8
+ * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x140599DD8
  * Callers:
- *     PpmUpdateIdleVeto @ 0x140586430 (PpmUpdateIdleVeto.c)
- *     PopFxPlatformStateAvailable @ 0x14058B35C (PopFxPlatformStateAvailable.c)
- *     PopPdcIdleResiliencyCallback @ 0x14099807C (PopPdcIdleResiliencyCallback.c)
+ *     PpmUpdateIdleVeto @ 0x140586920 (PpmUpdateIdleVeto.c)
+ *     PopFxPlatformStateAvailable @ 0x14058B84C (PopFxPlatformStateAvailable.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099827C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x140599880 (PopAccumulateNonActivatedCpuTime.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x140599D70 (PopAccumulateNonActivatedCpuTime.c)
  */
 
 __int64 __fastcall PopUpdateNonAttributedCpuTimeReference(char a1)
@@ -36,10 +36,10 @@ LABEL_6:
     goto LABEL_6;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140CF7D88);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

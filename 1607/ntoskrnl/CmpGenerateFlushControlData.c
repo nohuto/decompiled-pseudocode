@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGenerateFlushControlData @ 0x140480AF4
+ * XREFs of CmpGenerateFlushControlData @ 0x14047F848
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
  * Callees:
- *     HvIsCurrentLogSwappable @ 0x14047E890 (HvIsCurrentLogSwappable.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x140480D88 (HvGetEffectiveLogSizeCapForHive.c)
- *     HvGetHiveLogFileStatus @ 0x140480E08 (HvGetHiveLogFileStatus.c)
+ *     HvIsCurrentLogSwappable @ 0x14047D5E4 (HvIsCurrentLogSwappable.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x14047FADC (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvGetHiveLogFileStatus @ 0x14047FB5C (HvGetHiveLogFileStatus.c)
  */
 
 char __fastcall CmpGenerateFlushControlData(__int64 a1, __int64 a2, int *a3)

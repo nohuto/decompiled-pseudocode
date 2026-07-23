@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGetCurrentProcessorNumber @ 0x140B1C500
+ * XREFs of NtGetCurrentProcessorNumber @ 0x140B1E710
  * Callers:
  *     <none>
  * Callees:
- *     KeFindBiasedSetMember @ 0x14041CC10 (KeFindBiasedSetMember.c)
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     KeQueryPrimaryGroupAffinityThread @ 0x1404E6E10 (KeQueryPrimaryGroupAffinityThread.c)
+ *     KeFindBiasedSetMember @ 0x140414460 (KeFindBiasedSetMember.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     KeQueryPrimaryGroupAffinityThread @ 0x1404E02B0 (KeQueryPrimaryGroupAffinityThread.c)
  */
 
-__int64 NtGetCurrentProcessorNumber()
+ULONG NtGetCurrentProcessorNumber(void)
 {
   struct _KTHREAD *CurrentThread; // rdi
   unsigned __int64 GroupIndex; // rbx
@@ -31,5 +31,5 @@ __int64 NtGetCurrentProcessorNumber()
     if ( v5 == 332 || v5 == 452 )
       LODWORD(GroupIndex) = GroupIndex & 0x1F;
   }
-  return (unsigned int)GroupIndex;
+  return GroupIndex;
 }

@@ -10,15 +10,15 @@
  *     LdrImageDirectoryEntryToLoadConfig @ 0x14070ED5C (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
-__int64 __fastcall RtlGuardCheckLongJumpTarget(PVOID PcValue, char a2, void *a3)
+NTSTATUS __cdecl RtlGuardCheckLongJumpTarget(PVOID PcValue, BOOL IsFastFail, PBOOL IsLongJumpTarget)
 {
   __int64 Config; // rax
   rsize_t v5; // r8
   int Key; // [rsp+48h] [rbp+10h] BYREF
   PVOID BaseOfImage; // [rsp+50h] [rbp+18h] BYREF
 
-  BaseOfImage = a3;
-  LOBYTE(Key) = a2;
+  BaseOfImage = IsLongJumpTarget;
+  LOBYTE(Key) = IsFastFail;
   if ( (VslGetNestedPageProtectionFlags() & 0x80u) != 0LL )
   {
     RtlPcToFileHeader(PcValue, &BaseOfImage);
@@ -38,5 +38,5 @@ __int64 __fastcall RtlGuardCheckLongJumpTarget(PVOID PcValue, char a2, void *a3)
       RtlFailFast2(0x26u);
     }
   }
-  return 0LL;
+  return 0;
 }

@@ -9,13 +9,9 @@
 
 __int64 RtlInitializeHeapLogging()
 {
-  unsigned int v0; // ebx
+  unsigned __int32 v0; // ebx
 
-  v0 = EtwEventRegister(
-         (int)&WindowsHeapSnapshotProvider,
-         (__int64)RtlpHpStackTraceEtwCallback,
-         0LL,
-         (__int64)&RtlpHpStackTraceProviderHandle);
+  v0 = EtwEventRegister(&WindowsHeapSnapshotProvider, RtlpHpStackTraceEtwCallback, 0LL, &RtlpHpStackTraceProviderHandle);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801CE670);
   return v0;

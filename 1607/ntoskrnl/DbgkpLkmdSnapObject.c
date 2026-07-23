@@ -1,7 +1,7 @@
 /*
- * XREFs of DbgkpLkmdSnapObject @ 0x1401B7888
+ * XREFs of DbgkpLkmdSnapObject @ 0x1401B776C
  * Callers:
- *     DbgkpLkmdSnapPendingIrps @ 0x14061B50C (DbgkpLkmdSnapPendingIrps.c)
+ *     DbgkpLkmdSnapPendingIrps @ 0x14061B5C0 (DbgkpLkmdSnapPendingIrps.c)
  * Callees:
  *     <none>
  */

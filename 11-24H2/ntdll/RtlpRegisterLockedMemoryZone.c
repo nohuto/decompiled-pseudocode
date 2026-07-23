@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpRegisterLockedMemoryZone @ 0x180001BB8
+ * XREFs of RtlpRegisterLockedMemoryZone @ 0x1800AA8C8
  * Callers:
- *     RtlLockMemoryZone @ 0x180001AA0 (RtlLockMemoryZone.c)
+ *     RtlLockMemoryZone @ 0x1800AA7B0 (RtlLockMemoryZone.c)
  * Callees:
- *     RtlLockModuleSection @ 0x180001DD0 (RtlLockModuleSection.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlLockModuleSection @ 0x1800AAAE0 (RtlLockModuleSection.c)
  */
 
 __int64 RtlpRegisterLockedMemoryZone()
 {
-  int v0; // edi
+  NTSTATUS v0; // edi
   int v1; // eax
   __int64 i; // rbx
 

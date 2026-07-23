@@ -9,7 +9,7 @@
  *     MiUnlockDriverPages @ 0x1408C7600 (MiUnlockDriverPages.c)
  */
 
-void __fastcall MiUnlockEntireDriver(unsigned __int64 *a1, __int64 a2)
+void __fastcall MiUnlockEntireDriver(__int64 *a1, __int64 a2)
 {
   _QWORD *PteAddress; // rax
   unsigned int v5; // r8d

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepCompareSidAndAttributeArrays @ 0x140A238EC
+ * XREFs of SepCompareSidAndAttributeArrays @ 0x140A17CFC
  * Callers:
- *     SeCompareTokens @ 0x140A235A8 (SeCompareTokens.c)
- *     SepCompareClaimAttributes @ 0x140A23800 (SepCompareClaimAttributes.c)
+ *     SeCompareTokens @ 0x140A179B8 (SeCompareTokens.c)
+ *     SepCompareClaimAttributes @ 0x140A17C10 (SepCompareClaimAttributes.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
  */
 
 char __fastcall SepCompareSidAndAttributeArrays(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmNotifyDeviceInput @ 0x1407E4EE0
+ * XREFs of TtmNotifyDeviceInput @ 0x1407EAA40
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmpFindDeviceByToken @ 0x1407E5B80 (TtmpFindDeviceByToken.c)
- *     TtmiAcquireCurrentSession @ 0x1407E6640 (TtmiAcquireCurrentSession.c)
- *     TtmiLogDeviceInputNotified @ 0x1407E90F8 (TtmiLogDeviceInputNotified.c)
- *     TtmiGetTerminalById @ 0x1407EBD10 (TtmiGetTerminalById.c)
- *     TtmiResetTerminalTimeouts @ 0x1407EC080 (TtmiResetTerminalTimeouts.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmpFindDeviceByToken @ 0x1407EB6E0 (TtmpFindDeviceByToken.c)
+ *     TtmiAcquireCurrentSession @ 0x1407EC1A0 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogDeviceInputNotified @ 0x1407EEC58 (TtmiLogDeviceInputNotified.c)
+ *     TtmiGetTerminalById @ 0x1407F1870 (TtmiGetTerminalById.c)
+ *     TtmiResetTerminalTimeouts @ 0x1407F1BE4 (TtmiResetTerminalTimeouts.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 void __fastcall TtmNotifyDeviceInput(unsigned int a1, __int64 a2, int a3)
@@ -78,7 +78,7 @@ LABEL_15:
   TtmiLogDeviceInputNotified(a1, a2, a3, v13, v8, v6);
   if ( v10 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
 }

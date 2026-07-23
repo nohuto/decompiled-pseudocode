@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetUserPresencePredictionNotify @ 0x1406737B4
+ * XREFs of PopNetUserPresencePredictionNotify @ 0x140673898
  * Callers:
- *     PopUpdateSmartUserPresencePredictions @ 0x140675020 (PopUpdateSmartUserPresencePredictions.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140675104 (PopUpdateSmartUserPresencePredictions.c)
  * Callees:
- *     PopNetClearConnectivityConstraint @ 0x1405805C0 (PopNetClearConnectivityConstraint.c)
+ *     PopNetClearConnectivityConstraint @ 0x140580A6C (PopNetClearConnectivityConstraint.c)
  */
 
 char __fastcall PopNetUserPresencePredictionNotify(__int64 a1)

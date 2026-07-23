@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSymlinkRegistryInitCallback @ 0x1405CBD50
+ * XREFs of IopSymlinkRegistryInitCallback @ 0x1405CE5C0
  * Callers:
  *     <none>
  * Callees:
- *     IopSymlinkRegistryCallback @ 0x140797B10 (IopSymlinkRegistryCallback.c)
+ *     IopSymlinkRegistryCallback @ 0x14079A640 (IopSymlinkRegistryCallback.c)
  */
 
 __int64 IopSymlinkRegistryInitCallback()

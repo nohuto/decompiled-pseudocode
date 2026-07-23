@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertPageLockBadList @ 0x1404E5A90
+ * XREFs of MiInsertPageLockBadList @ 0x1404DF030
  * Callers:
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiClearPfnImageVerified @ 0x14046FA64 (MiClearPfnImageVerified.c)
- *     MiBadPageInserted @ 0x1404E248C (MiBadPageInserted.c)
- *     MiSetPfnRemovalRequested @ 0x1406F1D98 (MiSetPfnRemovalRequested.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiClearPfnImageVerified @ 0x1404691E4 (MiClearPfnImageVerified.c)
+ *     MiBadPageInserted @ 0x1404DBB6C (MiBadPageInserted.c)
+ *     MiSetPfnRemovalRequested @ 0x1406F6A08 (MiSetPfnRemovalRequested.c)
  */
 
 void __fastcall MiInsertPageLockBadList(__int64 a1, __int64 a2)

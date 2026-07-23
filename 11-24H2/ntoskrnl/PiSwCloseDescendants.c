@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwCloseDescendants @ 0x140A86B50
+ * XREFs of PiSwCloseDescendants @ 0x140A81628
  * Callers:
- *     PiSwIrpCleanup @ 0x1407308E0 (PiSwIrpCleanup.c)
- *     PiSwProcessParentRemoveIrp @ 0x140A105F8 (PiSwProcessParentRemoveIrp.c)
- *     PiSwCloseDescendants @ 0x140A86B50 (PiSwCloseDescendants.c)
+ *     PiSwIrpCleanup @ 0x14072E8F0 (PiSwIrpCleanup.c)
+ *     PiSwProcessParentRemoveIrp @ 0x1409BEA08 (PiSwProcessParentRemoveIrp.c)
+ *     PiSwCloseDescendants @ 0x140A81628 (PiSwCloseDescendants.c)
  * Callees:
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404D4ED8 (McTemplateK0z_EtwWriteTransfer.c)
- *     PiSwFindBusRelations @ 0x1408BAF68 (PiSwFindBusRelations.c)
- *     PiSwCloseDescendants @ 0x140A86B50 (PiSwCloseDescendants.c)
- *     PiSwCloseDevice @ 0x140A93D94 (PiSwCloseDevice.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x1404CE1B0 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PiSwFindBusRelations @ 0x1408B8918 (PiSwFindBusRelations.c)
+ *     PiSwCloseDescendants @ 0x140A81628 (PiSwCloseDescendants.c)
+ *     PiSwCloseDevice @ 0x140A90544 (PiSwCloseDevice.c)
  */
 
 int __fastcall PiSwCloseDescendants(__int64 a1, char a2)
@@ -26,7 +26,7 @@ int __fastcall PiSwCloseDescendants(__int64 a1, char a2)
   v8 = BusRelations;
   if ( BusRelations )
   {
-    if ( (byte_140EEFD24 & 0x40) != 0 )
+    if ( (byte_140EEFF64 & 0x40) != 0 )
       LODWORD(BusRelations) = McTemplateK0z_EtwWriteTransfer(
                                 v6,
                                 (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_CloseDescendants,

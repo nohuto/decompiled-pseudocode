@@ -1,15 +1,15 @@
 /*
- * XREFs of PspLockRootJobExclusive @ 0x14048AB04
+ * XREFs of PspLockRootJobExclusive @ 0x1404D4E7C
  * Callers:
- *     PspJobDelete @ 0x1400888BC (PspJobDelete.c)
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspFreezeJobTree @ 0x140489E4C (PspFreezeJobTree.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14048A7F4 (PspAllocateAndQueryNotificationChannel.c)
- *     PspSetJobIoRateControl @ 0x1404F1E7C (PspSetJobIoRateControl.c)
- *     PspSetNetRateControl @ 0x140680BE0 (PspSetNetRateControl.c)
+ *     PspJobDelete @ 0x14010CAAC (PspJobDelete.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspSetJobIoRateControl @ 0x1404D4610 (PspSetJobIoRateControl.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1404D4B6C (PspAllocateAndQueryNotificationChannel.c)
+ *     PspFreezeJobTree @ 0x1404D4EDC (PspFreezeJobTree.c)
+ *     PspSetNetRateControl @ 0x140680CC4 (PspSetNetRateControl.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  */
 
 __int64 __fastcall PspLockRootJobExclusive(__int64 a1, __int64 a2, _QWORD *a3)

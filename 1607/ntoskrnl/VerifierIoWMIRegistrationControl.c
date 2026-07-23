@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14012F004 (VfAvlLookupTreeNode.c)
- *     ViTargetWMIDeregister @ 0x140710804 (ViTargetWMIDeregister.c)
- *     ViTargetWMIRegister @ 0x14071089C (ViTargetWMIRegister.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14012F574 (VfAvlLookupTreeNode.c)
+ *     ViTargetWMIDeregister @ 0x140710834 (ViTargetWMIDeregister.c)
+ *     ViTargetWMIRegister @ 0x1407108CC (ViTargetWMIRegister.c)
  */
 
 __int64 __fastcall VerifierIoWMIRegistrationControl(unsigned __int64 a1, int a2)

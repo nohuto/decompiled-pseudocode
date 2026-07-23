@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpWdatDiscover @ 0x1403AC0B0
+ * XREFs of HalpWdatDiscover @ 0x1403ACE40
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403AA588 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403AB318 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     HalpTimerRegister @ 0x1403ABC00 (HalpTimerRegister.c)
- *     HalSocGetAcpiTable @ 0x1403AC144 (HalSocGetAcpiTable.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpWdatExecuteActionBeforeInitialize @ 0x1404D4C34 (HalpWdatExecuteActionBeforeInitialize.c)
- *     HalpWdatProcessWdatInternalData @ 0x1404D4FA8 (HalpWdatProcessWdatInternalData.c)
- *     HalpWdatProcessWdrtInternalData @ 0x1404D5004 (HalpWdatProcessWdrtInternalData.c)
+ *     HalpTimerRegister @ 0x1403AC990 (HalpTimerRegister.c)
+ *     HalSocGetAcpiTable @ 0x1403ACED4 (HalSocGetAcpiTable.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpWdatExecuteActionBeforeInitialize @ 0x1404D4E74 (HalpWdatExecuteActionBeforeInitialize.c)
+ *     HalpWdatProcessWdatInternalData @ 0x1404D51E8 (HalpWdatProcessWdatInternalData.c)
+ *     HalpWdatProcessWdrtInternalData @ 0x1404D5244 (HalpWdatProcessWdrtInternalData.c)
  */
 
 __int64 HalpWdatDiscover()

@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwPrivilegedServiceAuditAlarm @ 0x1403FCAE0
+ * XREFs of ZwPrivilegedServiceAuditAlarm @ 0x1403FCCC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwPrivilegedServiceAuditAlarm(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwPrivilegedServiceAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PUNICODE_STRING ServiceName,
+        HANDLE ClientToken,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN AccessGranted)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SubsystemName);
 }

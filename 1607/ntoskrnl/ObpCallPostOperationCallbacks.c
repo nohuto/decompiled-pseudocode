@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpCallPostOperationCallbacks @ 0x140666F08
+ * XREFs of ObpCallPostOperationCallbacks @ 0x140666FEC
  * Callers:
- *     ObpCallPreOperationCallbacks @ 0x140511820 (ObpCallPreOperationCallbacks.c)
- *     ObpPostInterceptHandleCreate @ 0x140666FA0 (ObpPostInterceptHandleCreate.c)
- *     ObpPostInterceptHandleDuplicate @ 0x14066705C (ObpPostInterceptHandleDuplicate.c)
+ *     ObpCallPreOperationCallbacks @ 0x1404F4C10 (ObpCallPreOperationCallbacks.c)
+ *     ObpPostInterceptHandleCreate @ 0x140667084 (ObpPostInterceptHandleCreate.c)
+ *     ObpPostInterceptHandleDuplicate @ 0x140667140 (ObpPostInterceptHandleDuplicate.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

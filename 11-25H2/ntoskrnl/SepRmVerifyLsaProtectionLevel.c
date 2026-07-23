@@ -11,16 +11,42 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-__int64 SepRmVerifyLsaProtectionLevel()
+int __fastcall SepRmVerifyLsaProtectionLevel(void **a1)
 {
+  int result; // eax
+  void *v3; // rcx
+  NTSTATUS v4; // eax
+  char v5; // bl
+  int Value; // [rsp+30h] [rbp-40h] BYREF
+  ULONG ValueLength; // [rsp+34h] [rbp-3Ch] BYREF
+  PVOID Object; // [rsp+38h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-30h] BYREF
-  _DWORD v2[4]; // [rsp+50h] [rbp-20h] BYREF
+  GUID VendorGuid; // [rsp+50h] [rbp-20h] BYREF
 
-  v2[0] = 2012912317;
-  v2[1] = 1295123289;
+  Value = 0;
+  ValueLength = 4;
+  VendorGuid.Data1 = 2012912317;
+  *(_DWORD *)&VendorGuid.Data2 = 1295123289;
   DestinationString = 0LL;
-  v2[2] = -198680387;
-  v2[3] = 1266192359;
+  *(_DWORD *)VendorGuid.Data4 = -198680387;
+  *(_DWORD *)&VendorGuid.Data4[4] = 1266192359;
   RtlInitUnicodeString(&DestinationString, L"Kernel_Lsa_Ppl_Config");
-  return ZwQuerySystemEnvironmentValueEx((__int64)&DestinationString, (__int64)v2);
+  result = ZwQuerySystemEnvironmentValueEx(&DestinationString, &VendorGuid, &Value, &ValueLength, 0LL);
+  if ( Value == 4 )
+  {
+    v3 = *a1;
+    Object = 0LL;
+    v4 = ObReferenceObjectByHandle(v3, 0x2000000u, 0LL, 0, &Object, 0LL);
+    if ( v4 < 0 )
+      goto LABEL_5;
+    v5 = *((_BYTE *)Object + 1530);
+    result = ObfDereferenceObject(Object);
+    if ( v5 != 65 )
+    {
+      v4 = -1073741790;
+LABEL_5:
+      KeBugCheckEx(0x29u, v4, (ULONG_PTR)"minkernel\\ntos\\se\\rmmain.c", 0x292uLL, 0LL);
+    }
+  }
+  return result;
 }

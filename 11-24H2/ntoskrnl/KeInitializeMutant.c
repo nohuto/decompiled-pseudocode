@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeMutant @ 0x1405BD200
+ * XREFs of KeInitializeMutant @ 0x1405BA830
  * Callers:
  *     <none>
  * Callees:
- *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x14044FEB0 (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
+ *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x140445120 (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

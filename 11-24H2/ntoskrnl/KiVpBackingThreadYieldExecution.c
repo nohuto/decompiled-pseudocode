@@ -1,14 +1,14 @@
 /*
- * XREFs of KiVpBackingThreadYieldExecution @ 0x1404D5000
+ * XREFs of KiVpBackingThreadYieldExecution @ 0x1404CE2D8
  * Callers:
- *     KeYieldExecution @ 0x14033C510 (KeYieldExecution.c)
+ *     KeYieldExecution @ 0x14031B9F0 (KeYieldExecution.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiSetPriorityBoost @ 0x140338930 (KiSetPriorityBoost.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiSetPriorityBoost @ 0x1402DFE70 (KiSetPriorityBoost.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
 char __fastcall KiVpBackingThreadYieldExecution(__int64 a1)
@@ -87,7 +87,7 @@ char __fastcall KiVpBackingThreadYieldExecution(__int64 a1)
         KiProcessDeferredReadyList(KeGetCurrentPrcb(), &v14, 2u);
         ++*(_DWORD *)(v2 + 244);
         _InterlockedAdd(&KiSchedulerAssistYieldBoostStats, 1u);
-        _InterlockedAdd(&dword_140FC6304, v1);
+        _InterlockedAdd(&dword_140FC734C, v1);
       }
       return 0;
     }

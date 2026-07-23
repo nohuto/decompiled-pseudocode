@@ -9,7 +9,7 @@
  *     sub_1800588D4 @ 0x1800588D4 (sub_1800588D4.c)
  */
 
-__int64 __fastcall sub_1800072C4(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall sub_1800072C4(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // ebp
   int v8; // eax
@@ -18,7 +18,7 @@ __int64 __fastcall sub_1800072C4(__int64 a1, unsigned __int64 a2, __int64 a3, __
   if ( (_WORD)a2 )
     v8 = 0;
   else
-    v8 = sub_1800588D4(&qword_180159600, a2 >> 16, 1LL);
+    v8 = sub_1800588D4(&stru_180159600);
   if ( v8 )
     return sub_180008F9C(a1, a2, v5, a4);
   else

@@ -1,66 +1,61 @@
 /*
- * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x18013E774
+ * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x18013C964
  * Callers:
- *     RtlCreateBootStatusDataFile @ 0x18013E260 (RtlCreateBootStatusDataFile.c)
+ *     RtlCreateBootStatusDataFile @ 0x18013C450 (RtlCreateBootStatusDataFile.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x180161F70 (NtQueryValueKey.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x180160330 (NtQueryValueKey.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
 {
-  int v2; // ebx
-  int v3; // eax
-  unsigned __int64 Heap; // rdi
-  void *v5; // rax
-  void *v6; // rsi
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
-  _DWORD v9[2]; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v10; // [rsp+48h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+50h] [rbp-20h]
-  int v12; // [rsp+58h] [rbp-18h]
-  int v13; // [rsp+5Ch] [rbp-14h]
-  __int128 v14; // [rsp+60h] [rbp-10h]
-  unsigned int v15; // [rsp+A8h] [rbp+38h] BYREF
-  int v16; // [rsp+B0h] [rbp+40h] BYREF
-  HANDLE Handle; // [rsp+B8h] [rbp+48h] BYREF
+  NTSTATUS v2; // ebx
+  NTSTATUS v3; // eax
+  unsigned int *Heap; // rdi
+  PVOID v5; // rax
+  PVOID v6; // rsi
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
+  ULONG ResultLength; // [rsp+A8h] [rbp+38h] BYREF
+  ULONG v11; // [rsp+B0h] [rbp+40h] BYREF
+  HANDLE KeyHandle; // [rsp+B8h] [rbp+48h] BYREF
 
-  v16 = 0;
-  v15 = 0;
-  v13 = 0;
-  Handle = 0LL;
-  v9[1] = 0;
+  v11 = 0;
+  ResultLength = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  KeyHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
-  v10 = 0LL;
-  p_DestinationString = &DestinationString;
-  v9[0] = 48;
-  v12 = 64;
-  v14 = 0LL;
-  v2 = NtOpenKey(&Handle, 131097LL, v9);
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v2 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v2 >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"OsBootstatPath");
-    v3 = NtQueryValueKey(Handle, &DestinationString, 2LL, 0LL, 0, &v15);
+    v3 = NtQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength);
     v2 = v3;
     if ( v3 == -1073741789 )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v15);
+      Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, ResultLength);
       if ( Heap )
       {
-        v2 = NtQueryValueKey(Handle, &DestinationString, 2LL, Heap, v15, &v16);
+        v2 = NtQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Heap, ResultLength, &v11);
         if ( v2 >= 0 )
         {
-          v5 = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(unsigned int *)(Heap + 8));
+          v5 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, Heap[2]);
           v6 = v5;
           if ( v5 )
           {
-            memmove(v5, (const void *)(Heap + 12), *(unsigned int *)(Heap + 8));
+            memmove(v5, Heap + 3, Heap[2]);
             *a1 = v6;
           }
           else
@@ -68,7 +63,7 @@ __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
             v2 = -1073741801;
           }
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {
@@ -80,7 +75,7 @@ __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
       v2 = -1073741823;
     }
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return (unsigned int)v2;
 }

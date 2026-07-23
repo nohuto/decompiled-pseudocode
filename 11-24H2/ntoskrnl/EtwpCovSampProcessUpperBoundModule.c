@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCovSampProcessUpperBoundModule @ 0x1408FFB10
+ * XREFs of EtwpCovSampProcessUpperBoundModule @ 0x1409223F0
  * Callers:
- *     EtwpCovSampProcessRemoveModule @ 0x1408FFA68 (EtwpCovSampProcessRemoveModule.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x140922348 (EtwpCovSampProcessRemoveModule.c)
  * Callees:
  *     <none>
  */

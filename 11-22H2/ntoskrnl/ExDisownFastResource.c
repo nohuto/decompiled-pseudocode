@@ -99,7 +99,7 @@ LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR
     KeBugCheckEx(0x1C6u, 0xAuLL, a2, 0LL, 0LL);
   v11 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v11 == 2 )
@@ -316,10 +316,10 @@ LABEL_78:
 LABEL_53:
   v25 = Object;
 LABEL_54:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v40 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && v11 <= 0xFu && v40 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && v11 <= 0xFu && v40 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v42 = CurrentPrcb->SchedulerAssist;

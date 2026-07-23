@@ -1,120 +1,123 @@
 /*
- * XREFs of TpReleasePool @ 0x1800DEB80
+ * XREFs of TpReleasePool @ 0x1800D9CF0
  * Callers:
- *     TppPoolpReferenceGlobalPool @ 0x18001B460 (TppPoolpReferenceGlobalPool.c)
- *     TppPoolpDereferenceGlobalPool @ 0x18006D7D0 (TppPoolpDereferenceGlobalPool.c)
+ *     TppPoolpReferenceGlobalPool @ 0x180047E60 (TppPoolpReferenceGlobalPool.c)
+ *     TppPoolpDereferenceGlobalPool @ 0x18008A0B0 (TppPoolpDereferenceGlobalPool.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
- *     TppPoolpDereferenceGlobalPool @ 0x18006D7D0 (TppPoolpDereferenceGlobalPool.c)
- *     TppETWPoolClose @ 0x1800DEDBC (TppETWPoolClose.c)
- *     TppPoolpFree @ 0x1800DEE44 (TppPoolpFree.c)
- *     TppQueueRemoveHead @ 0x1800DEFA0 (TppQueueRemoveHead.c)
- *     ZwShutdownWorkerFactory @ 0x180165560 (ZwShutdownWorkerFactory.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
+ *     TppPoolpDereferenceGlobalPool @ 0x18008A0B0 (TppPoolpDereferenceGlobalPool.c)
+ *     TppETWPoolClose @ 0x1800D9F2C (TppETWPoolClose.c)
+ *     TppPoolpFree @ 0x1800D9FB4 (TppPoolpFree.c)
+ *     TppQueueRemoveHead @ 0x1800DA110 (TppQueueRemoveHead.c)
+ *     ZwShutdownWorkerFactory @ 0x180163920 (ZwShutdownWorkerFactory.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall TpReleasePool(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __cdecl TpReleasePool(PTP_POOL Pool)
 {
-  signed __int64 v4; // rax
-  __int64 v5; // rax
+  signed __int64 Exchange; // rax
+  __int64 v3; // rax
   int i; // edi
-  signed __int64 v7; // rdx
+  signed __int64 v5; // rdx
   __int64 j; // rsi
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  volatile signed __int32 *v11; // rdx
-  __int64 *v12; // rcx
-  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
-  char v14; // [rsp+68h] [rbp+10h]
-  signed __int64 v15; // [rsp+70h] [rbp+18h]
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  _RTL_SRWLOCK *v9; // rdx
+  const void **v10; // rcx
+  void *retaddr; // [rsp+58h] [rbp+0h]
+  char v12; // [rsp+68h] [rbp+10h]
+  signed __int64 v13; // [rsp+70h] [rbp+18h]
 
-  v14 = 0;
-  if ( !a1 || a1 == TppPoolpGlobalPool || a1 == TppPoolpSerializedPool || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  v12 = 0;
+  if ( !Pool
+    || Pool == (PTP_POOL)TppPoolpGlobalPool
+    || Pool == TppPoolpSerializedPool
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
       TppRaiseInvalidParameter();
   }
   else
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 368), a2, a3);
-    if ( *(_BYTE *)(a1 + 377) )
+    RtlAcquireSRWLockExclusive(&Pool->ShutdownLock);
+    if ( Pool->Released )
     {
       TppRaiseInvalidParameter();
     }
     else
     {
-      if ( !*(_BYTE *)(a1 + 376) )
+      if ( !Pool->ShutdownInitiated )
       {
-        *(_BYTE *)(a1 + 376) = 1;
-        ZwShutdownWorkerFactory(*(_QWORD *)(a1 + 56), a1);
+        Pool->ShutdownInitiated = 1;
+        ZwShutdownWorkerFactory(Pool->WorkerFactory, (LONG *)&Pool->Refcount.Refcount);
       }
       while ( 1 )
       {
-        _m_prefetchw((const void *)(a1 + 8));
-        v4 = *(_QWORD *)(a1 + 8);
-        LODWORD(v15) = v4;
+        _m_prefetchw((const void *)&Pool->QueueState);
+        Exchange = Pool->QueueState.Exchange;
+        LODWORD(v13) = Exchange;
         do
         {
-          if ( !HIDWORD(v4) )
+          if ( !HIDWORD(Exchange) )
             break;
-          v7 = v4;
-          HIDWORD(v15) = HIDWORD(v4) - 1;
-          v4 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v15, v4);
-          LODWORD(v15) = v4;
+          v5 = Exchange;
+          HIDWORD(v13) = HIDWORD(Exchange) - 1;
+          Exchange = _InterlockedCompareExchange64(&Pool->QueueState.Exchange, v13, Exchange);
+          LODWORD(v13) = Exchange;
         }
-        while ( v4 != v7 );
-        if ( !HIDWORD(v4) )
+        while ( Exchange != v5 );
+        if ( !HIDWORD(Exchange) )
           break;
-        v5 = 0LL;
+        v3 = 0LL;
         for ( i = 0; i < 3; ++i )
         {
-          if ( v5 )
+          if ( v3 )
             goto LABEL_15;
-          for ( j = 0LL; (unsigned int)j < TppNumberNodes && !v5; j = (unsigned int)(j + 1) )
+          for ( j = 0LL; (unsigned int)j < TppNumberNodes && !v3; j = (unsigned int)(j + 1) )
           {
-            v9 = TppQueueRemoveHead(*(_QWORD *)(a1 + 8LL * i + 16) + 24 * j);
-            v5 = (v9 - 16) & -(__int64)(v9 != 0);
+            v7 = TppQueueRemoveHead(&Pool->TaskQueue[i][j]);
+            v3 = (v7 - 16) & -(__int64)(v7 != 0);
           }
         }
-        if ( !v5 )
+        if ( !v3 )
           continue;
 LABEL_15:
-        if ( *(_QWORD *)v5 && *(_QWORD *)(*(_QWORD *)v5 + 8LL) )
-          (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v5 + 8LL))(v5, a1);
+        if ( *(_QWORD *)v3 && *(_QWORD *)(*(_QWORD *)v3 + 8LL) )
+          (*(void (__fastcall **)(__int64, PTP_POOL))(*(_QWORD *)v3 + 8LL))(v3, Pool);
       }
-      *(_QWORD *)(a1 + 408) = retaddr;
-      *(_BYTE *)(a1 + 377) = 1;
-      v14 = 1;
+      Pool->ReleaseCaller.ReturnAddress = retaddr;
+      Pool->Released = 1;
+      v12 = 1;
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 368));
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v10 = (__int64)NtCurrentPeb()->SharedData + 556;
+    RtlReleaseSRWLockExclusive(&Pool->ShutdownLock);
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v10 = 2147353478LL;
-    if ( *(_BYTE *)v10 )
-      TppETWPoolClose(a1);
-    if ( v14 )
+      v8 = 2147353478LL;
+    if ( *(_BYTE *)v8 )
+      TppETWPoolClose(Pool);
+    if ( v12 )
     {
-      if ( a1 == TppPoolpGlobalPool )
+      if ( Pool == (PTP_POOL)TppPoolpGlobalPool )
       {
-        v11 = (volatile signed __int32 *)&TppPoolpGlobalPoolLock;
-        v12 = &TppPoolpGlobalPool;
+        v9 = &TppPoolpGlobalPoolLock;
+        v10 = (const void **)&TppPoolpGlobalPool;
       }
       else
       {
-        if ( a1 != TppPoolpSerializedPool )
+        if ( Pool != TppPoolpSerializedPool )
         {
-          if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
-            TppPoolpFree(a1);
+          if ( _InterlockedExchangeAdd(&Pool->Refcount.Refcount, 0xFFFFFFFF) == 1 )
+            TppPoolpFree(Pool);
           return;
         }
-        v11 = (volatile signed __int32 *)&TppPoolpSerializedPoolLock;
-        v12 = &TppPoolpSerializedPool;
+        v9 = &TppPoolpSerializedPoolLock;
+        v10 = (const void **)&TppPoolpSerializedPool;
       }
-      TppPoolpDereferenceGlobalPool((const void **)v12, v11);
+      TppPoolpDereferenceGlobalPool(v10, v9);
     }
   }
 }

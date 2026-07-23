@@ -6,8 +6,8 @@
  *     MiInitializeMdlPfn @ 0x1400113B8 (MiInitializeMdlPfn.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogMdlRangeEvent @ 0x1402AA198 (MiLogMdlRangeEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogMdlRangeEvent @ 0x1402AA388 (MiLogMdlRangeEvent.c)
  */
 
 __int64 __fastcall MiInitializeMdlPages(__int64 a1, unsigned int a2)

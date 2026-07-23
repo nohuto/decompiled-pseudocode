@@ -1,79 +1,78 @@
 /*
- * XREFs of _RtlpMuiRegAddNeutralLanguage @ 0x1800D24B4
+ * XREFs of _RtlpMuiRegAddNeutralLanguage @ 0x180098E48
  * Callers:
- *     _RtlpMuiRegAddNeutralToInstalled @ 0x1800D237C (_RtlpMuiRegAddNeutralToInstalled.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x18014A1D8 (_RtlpMuiRegInitAnyLanguage.c)
- *     _RtlpMuiRegValidateInstalled @ 0x18014AC60 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegAddNeutralToInstalled @ 0x180098D10 (_RtlpMuiRegAddNeutralToInstalled.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x180148588 (_RtlpMuiRegInitAnyLanguage.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180149010 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlCultureNameToLCID @ 0x1800330E0 (RtlCultureNameToLCID.c)
- *     RtlGetParentLocaleName @ 0x180033970 (RtlGetParentLocaleName.c)
- *     _MuiRegAllocArray @ 0x1800D2690 (_MuiRegAllocArray.c)
- *     RtlpMuiRegGetOrAddString @ 0x1800D2A40 (RtlpMuiRegGetOrAddString.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
+ *     RtlGetParentLocaleName @ 0x180012850 (RtlGetParentLocaleName.c)
+ *     RtlCultureNameToLCID @ 0x1800141A0 (RtlCultureNameToLCID.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     _MuiRegAllocArray @ 0x180099020 (_MuiRegAllocArray.c)
+ *     RtlpMuiRegGetOrAddString @ 0x1800993D0 (RtlpMuiRegGetOrAddString.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
  */
 
-__int64 __fastcall RtlpMuiRegAddNeutralLanguage(__int64 a1, __int64 a2, wchar_t *a3)
+__int64 __fastcall RtlpMuiRegAddNeutralLanguage(__int64 a1, __int64 a2, const WCHAR *a3)
 {
   unsigned __int8 v3; // r12
   wchar_t *v7; // rax
-  unsigned __int64 v8; // r13
-  int ParentLocaleName; // eax
+  wchar_t *v8; // r13
+  NTSTATUS v9; // eax
   int v10; // ebx
   unsigned __int8 v11; // r14
-  wchar_t *v12; // rbx
+  wchar_t *Buffer; // rbx
   __int16 v13; // di
   size_t v14; // rax
   __int64 v15; // r8
   int v16; // r15d
-  _DWORD v18[2]; // [rsp+20h] [rbp-20h] BYREF
-  wchar_t *String; // [rsp+28h] [rbp-18h]
-  _QWORD v20[2]; // [rsp+30h] [rbp-10h] BYREF
-  __int16 v21; // [rsp+80h] [rbp+40h] BYREF
-  int v22; // [rsp+98h] [rbp+58h] BYREF
+  _UNICODE_STRING ParentLocaleName; // [rsp+20h] [rbp-20h] BYREF
+  _UNICODE_STRING String; // [rsp+30h] [rbp-10h] BYREF
+  __int16 v20; // [rsp+80h] [rbp+40h] BYREF
+  DWORD Lcid; // [rsp+98h] [rbp+58h] BYREF
 
   v3 = 0;
-  v18[1] = 0;
+  *(_DWORD *)(&ParentLocaleName.MaximumLength + 1) = 0;
   if ( !a1 || !a2 )
   {
     v10 = -1073741811;
     goto LABEL_19;
   }
   v7 = (wchar_t *)MuiRegAllocArray(a1, 85LL);
-  v8 = (unsigned __int64)v7;
+  v8 = v7;
   if ( !v7 )
   {
     v10 = -1073741801;
     goto LABEL_19;
   }
-  String = v7;
-  v18[0] = 11141120;
-  ParentLocaleName = RtlGetParentLocaleName(a3, (__int64)v18, 6, 0);
-  v10 = ParentLocaleName;
+  ParentLocaleName.Buffer = v7;
+  *(_DWORD *)&ParentLocaleName.Length = 11141120;
+  v9 = RtlGetParentLocaleName(a3, &ParentLocaleName, 6u, 0);
+  v10 = v9;
   v11 = 0;
-  if ( ParentLocaleName < 0 )
+  if ( v9 < 0 )
   {
-    v16 = ParentLocaleName;
+    v16 = v9;
     goto LABEL_15;
   }
-  v12 = String;
+  Buffer = ParentLocaleName.Buffer;
   v13 = 0;
-  v22 = 0;
-  v21 = 0;
-  v20[0] = 0LL;
-  v20[1] = String;
-  if ( String )
+  Lcid = 0;
+  v20 = 0;
+  *(_QWORD *)&String.Length = 0LL;
+  String.Buffer = ParentLocaleName.Buffer;
+  if ( ParentLocaleName.Buffer )
   {
-    v14 = 2 * wcslen(String);
+    v14 = 2 * wcslen(ParentLocaleName.Buffer);
     if ( v14 >= 0xFFFE )
       LOWORD(v14) = -4;
-    LOWORD(v20[0]) = v14;
-    WORD1(v20[0]) = v14 + 2;
+    String.Length = v14;
+    String.MaximumLength = v14 + 2;
   }
-  if ( RtlCultureNameToLCID((unsigned __int16 *)v20, &v22) )
+  if ( RtlCultureNameToLCID(&String, &Lcid) )
   {
-    v13 = v22;
-    if ( ((v22 - 4096) & 0xFFFFFBFF) != 0 )
+    v13 = Lcid;
+    if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
     {
       v11 = 1;
 LABEL_12:
@@ -81,10 +80,10 @@ LABEL_12:
       goto LABEL_13;
     }
     LOBYTE(v15) = 1;
-    v10 = RtlpMuiRegGetOrAddString(a1, v12, v15, &v21);
+    v10 = RtlpMuiRegGetOrAddString(a1, Buffer, v15, &v20);
     if ( v10 >= 0 )
     {
-      v13 = v21;
+      v13 = v20;
       v11 = 3;
       goto LABEL_12;
     }
@@ -105,7 +104,7 @@ LABEL_15:
   }
   v3 = v11;
 LABEL_16:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
   if ( v16 >= 0 )
   {
     if ( v3 )

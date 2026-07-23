@@ -1,14 +1,14 @@
 /*
- * XREFs of PsChargeSharedPoolQuota @ 0x140660338
+ * XREFs of PsChargeSharedPoolQuota @ 0x140655158
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     RtlpAllocateAtom @ 0x14062D000 (RtlpAllocateAtom.c)
- *     ObAdjustSecurityQuota @ 0x14065FB48 (ObAdjustSecurityQuota.c)
- *     ObpChargeQuotaForObject @ 0x140660238 (ObpChargeQuotaForObject.c)
- *     PspAllocateRateControl @ 0x14067F56C (PspAllocateRateControl.c)
+ *     PspAllocateRateControl @ 0x1405DA00C (PspAllocateRateControl.c)
+ *     RtlpAllocateAtom @ 0x140622F24 (RtlpAllocateAtom.c)
+ *     ObAdjustSecurityQuota @ 0x140654968 (ObAdjustSecurityQuota.c)
+ *     ObpChargeQuotaForObject @ 0x140655058 (ObpChargeQuotaForObject.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
  * Callees:
- *     PspChargeQuota @ 0x14021ADE0 (PspChargeQuota.c)
- *     PspReturnQuota @ 0x140341980 (PspReturnQuota.c)
+ *     PspChargeQuota @ 0x1402BF6E0 (PspChargeQuota.c)
+ *     PspReturnQuota @ 0x14034C6D0 (PspReturnQuota.c)
  */
 
 __int64 __fastcall PsChargeSharedPoolQuota(struct _KPROCESS *a1, ULONG_PTR a2, unsigned __int64 a3)

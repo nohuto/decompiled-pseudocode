@@ -9,13 +9,13 @@
 
 NTSTATUS __stdcall TpInitializePackage()
 {
-  int TagHeap; // eax
+  ULONG TagHeap; // eax
   NTSTATUS result; // eax
   struct _PEB *v2; // eax
   ULONG ReturnLength; // [esp+4h] [ebp-40Ch] BYREF
   _DWORD SystemInformation[258]; // [esp+8h] [ebp-408h] BYREF
 
-  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap, 0, L"Threadpool!", L"Cleanup Group");
+  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap, 0, (PWSTR)L"Threadpool!", (PWSTR)L"Cleanup Group");
   ReturnLength = 0;
   TppHeapTag = TagHeap;
   result = NtQuerySystemInformation(SystemNumaProcessorMap, SystemInformation, 0x408u, &ReturnLength);

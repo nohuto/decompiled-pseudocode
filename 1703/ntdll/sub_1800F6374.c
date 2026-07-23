@@ -23,11 +23,11 @@ char sub_1800F6374()
   if ( !qword_18015C7A8 )
     return 0;
   v1 = 0LL;
-  for ( *(_DWORD *)(qword_18015C7A8 + 64) = dword_18015C0D0;
+  for ( *((_DWORD *)qword_18015C7A8 + 16) = dword_18015C0D0;
         (unsigned int)v1 < dword_18015C470;
-        *(_QWORD *)(qword_18015C7A8 + 80) += *(_QWORD *)(v2 + 24) )
+        *((_QWORD *)qword_18015C7A8 + 10) += *(_QWORD *)(v2 + 24) )
   {
-    *(_QWORD *)(qword_18015C7A8 + 72) += *(_QWORD *)(*(_QWORD *)(qword_18015C458 + 8 * v1) + 16LL);
+    *((_QWORD *)qword_18015C7A8 + 9) += *(_QWORD *)(*(_QWORD *)(qword_18015C458 + 8 * v1) + 16LL);
     v2 = *(_QWORD *)(qword_18015C458 + 8 * v1);
     v1 = (unsigned int)(v1 + 1);
   }
@@ -47,12 +47,12 @@ char sub_1800F6374()
       *((_DWORD *)v6 + 5) = v0;
       if ( !(unsigned __int8)sub_1800F679C(v7, v6 + 3, v9) )
       {
-        RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_18015C3F0 + 8LL * (v3 & 0xF)));
+        RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_18015C3F0 + 8LL * (v3 & 0xF)));
         return 0;
       }
       v6 = (__int64 *)*v6;
     }
-    RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_18015C3F0 + 8 * v5));
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_18015C3F0 + 8 * v5));
     ++v3;
     v4 += 16LL;
     if ( v3 < 0x1EEF )

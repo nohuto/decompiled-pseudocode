@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcCancelMessage()
+NTSTATUS __cdecl NtAlpcCancelMessage(HANDLE PortHandle, ULONG Flags, PALPC_CONTEXT_ATTR MessageContext)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 116LL;
+  result = 116;
   __asm { syscall; Low latency system call }
   return result;
 }

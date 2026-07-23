@@ -1,15 +1,15 @@
 /*
- * XREFs of PspChargeJobWakeCounter @ 0x140AAE650
+ * XREFs of PspChargeJobWakeCounter @ 0x140AAC2B0
  * Callers:
- *     PspChargeProcessWakeCounter @ 0x1409BE2C0 (PspChargeProcessWakeCounter.c)
- *     PspAssignProcessToJob @ 0x140AC5D48 (PspAssignProcessToJob.c)
+ *     PspChargeProcessWakeCounter @ 0x14098F2A0 (PspChargeProcessWakeCounter.c)
+ *     PspAssignProcessToJob @ 0x140AC79B8 (PspAssignProcessToJob.c)
  * Callees:
- *     RtlIsZeroMemory @ 0x1404D9FD0 (RtlIsZeroMemory.c)
- *     RtlLongLongAdd @ 0x14053230C (RtlLongLongAdd.c)
- *     PspSendWakeNotification @ 0x140A82598 (PspSendWakeNotification.c)
- *     PspLockJobChain @ 0x140AAEBB4 (PspLockJobChain.c)
- *     PspUnlockJobChain @ 0x140AAEE38 (PspUnlockJobChain.c)
- *     EtwTraceWakeCounter @ 0x140B4816C (EtwTraceWakeCounter.c)
+ *     RtlIsZeroMemory @ 0x1404D36B0 (RtlIsZeroMemory.c)
+ *     RtlLongLongAdd @ 0x1405347AC (RtlLongLongAdd.c)
+ *     PspSendWakeNotification @ 0x140A88408 (PspSendWakeNotification.c)
+ *     PspLockJobChain @ 0x140AAC814 (PspLockJobChain.c)
+ *     PspUnlockJobChain @ 0x140AACA94 (PspUnlockJobChain.c)
+ *     EtwTraceWakeCounter @ 0x140B49EFC (EtwTraceWakeCounter.c)
  */
 
 char __fastcall PspChargeJobWakeCounter(
@@ -51,7 +51,7 @@ char __fastcall PspChargeJobWakeCounter(
     {
       v18 = v10[148];
       v16 = 1 << v9;
-      result = RtlIsZeroMemory((_BYTE *)v10 + 1108, 8uLL);
+      result = RtlIsZeroMemory((char *)v10 + 1108, 8uLL);
       if ( !result )
       {
         if ( v14 || (v16 & HIDWORD(v18)) != 0 )
@@ -83,18 +83,18 @@ LABEL_20:
     Use 'gh' to continue.
 ");
     v15 = a7;
-    if ( (xmmword_140FBFC10 & 0x200) != 0 )
+    if ( (xmmword_140FC0C10 & 0x200) != 0 )
     {
       EtwTraceWakeCounter((_DWORD)Object, 0, v9, 0, v14, a6, a7);
       result = EtwTraceWakeCounter((_DWORD)Object, 1, v9, 0, v14, a6, a7);
     }
 LABEL_21:
-    if ( (xmmword_140FBFC10 & 0x2000) != 0 )
+    if ( (xmmword_140FC0C10 & 0x2000) != 0 )
       result = EtwTraceWakeCounter((_DWORD)v10, (a5 & 4) != 0, v9, a4, v14, a6, v15);
     v10 = (_QWORD *)v10[163];
   }
   while ( v10 != a2 && (v10[194] & 0x1000) != 0 );
   if ( (a5 & 8) == 0 )
-    return PspUnlockJobChain(Object, v19, 0LL);
+    return PspUnlockJobChain(Object, v19);
   return result;
 }

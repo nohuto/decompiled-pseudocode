@@ -1,19 +1,19 @@
 /*
- * XREFs of VfVolatileSetDifRuleClass @ 0x140647B64
+ * XREFs of VfVolatileSetDifRuleClass @ 0x14064B744
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     VfRlrsVolatileConfigUpdate @ 0x140648604 (VfRlrsVolatileConfigUpdate.c)
- *     CarCleanup @ 0x1406495F0 (CarCleanup.c)
- *     CarInit @ 0x140649ADC (CarInit.c)
- *     DifInit @ 0x14064B8C0 (DifInit.c)
- *     DifRegisterKernelPlugins @ 0x14064BA0C (DifRegisterKernelPlugins.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfClearDifWithoutReboot @ 0x140C21DBC (VfClearDifWithoutReboot.c)
- *     VfInitDifWithoutReboot @ 0x140C21E44 (VfInitDifWithoutReboot.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     VfRlrsVolatileConfigUpdate @ 0x14064C1E4 (VfRlrsVolatileConfigUpdate.c)
+ *     CarCleanup @ 0x14064D1D0 (CarCleanup.c)
+ *     CarInit @ 0x14064D6BC (CarInit.c)
+ *     DifInit @ 0x14064F4A0 (DifInit.c)
+ *     DifRegisterKernelPlugins @ 0x14064F5EC (DifRegisterKernelPlugins.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfClearDifWithoutReboot @ 0x140C27DCC (VfClearDifWithoutReboot.c)
+ *     VfInitDifWithoutReboot @ 0x140C27E54 (VfInitDifWithoutReboot.c)
  */
 
 __int64 __fastcall VfVolatileSetDifRuleClass(void *Src, size_t Size)
@@ -40,7 +40,7 @@ __int64 __fastcall VfVolatileSetDifRuleClass(void *Src, size_t Size)
   v4 = 0LL;
   v5 = 0;
   v6 = 0;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return 3221228554LL;
   if ( (_DWORD)VfRuleClasses )
     return 3221228669LL;
@@ -87,8 +87,8 @@ LABEL_37:
     VfAllowedVolatileRC = 0LL;
     VfRuleClasses = 0LL;
     DifpPoolTags = 0LL;
-    xmmword_140E67FD8 = 0LL;
-    qword_140E67FE8 = 0LL;
+    xmmword_140E68298 = 0LL;
+    qword_140E682A8 = 0LL;
     MmVerifierData = 0;
     VfClearDifWithoutReboot();
     VfDifRunningWithoutReboot = 0;

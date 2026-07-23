@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateFileOnlyImageFixupList @ 0x140AB861C
+ * XREFs of MiCreateFileOnlyImageFixupList @ 0x140AB2AE0
  * Callers:
- *     MiRelocateImage @ 0x1408F5784 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x140AEA57C (MiRelocateImage.c)
  * Callees:
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiUpdateControlAreaCommitCount @ 0x14036F1FC (MiUpdateControlAreaCommitCount.c)
- *     MiGetSubsectionFromPte @ 0x14041B6A0 (MiGetSubsectionFromPte.c)
- *     MiGetControlAreaPartition @ 0x1404378D0 (MiGetControlAreaPartition.c)
- *     MiPageHasRelocations @ 0x140957920 (MiPageHasRelocations.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiUpdateControlAreaCommitCount @ 0x14026B17C (MiUpdateControlAreaCommitCount.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiGetSubsectionFromPte @ 0x14040F1E0 (MiGetSubsectionFromPte.c)
+ *     MiGetControlAreaPartition @ 0x14042A350 (MiGetControlAreaPartition.c)
+ *     MiPageHasRelocations @ 0x14093B310 (MiPageHasRelocations.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateFileOnlyImageFixupList(__int64 a1, __int64 a2, _QWORD *a3)
@@ -36,14 +36,12 @@ __int64 __fastcall MiCreateFileOnlyImageFixupList(__int64 a1, __int64 a2, _QWORD
   __int64 v19; // rax
   struct _KTHREAD *CurrentThread; // rsi
   unsigned __int64 *v21; // rdi
-  _QWORD *v22; // rax
-  _QWORD *v23; // rbp
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  bool v26; // zf
+  char *v22; // rax
+  char *v23; // rbp
+  bool v24; // zf
   __int64 ControlAreaPartition; // [rsp+20h] [rbp-48h]
-  __int64 v28; // [rsp+78h] [rbp+10h]
-  __int64 v30; // [rsp+88h] [rbp+20h]
+  __int64 v26; // [rsp+78h] [rbp+10h]
+  __int64 v28; // [rsp+88h] [rbp+20h]
 
   v3 = 0;
   *a3 = 0LL;
@@ -75,14 +73,14 @@ __int64 __fastcall MiCreateFileOnlyImageFixupList(__int64 a1, __int64 a2, _QWORD
         return 3221225626LL;
       }
       v14 = 0;
-      v30 = *(_QWORD *)a1;
+      v28 = *(_QWORD *)a1;
       v15 = 0;
-      v28 = *(_QWORD *)(*(_QWORD *)a1 + 64LL);
+      v26 = *(_QWORD *)(*(_QWORD *)a1 + 64LL);
       while ( v15 < v6 )
       {
         if ( (unsigned int)MiPageHasRelocations((__int64 *)a2, v15, 1) )
         {
-          v16 = (unsigned __int64 *)(v28 + 8LL * v15);
+          v16 = (unsigned __int64 *)(v26 + 8LL * v15);
           v17 = *v16;
           if ( (*v16 & 0x400) != 0 )
           {
@@ -94,12 +92,12 @@ LABEL_24:
           }
           if ( (v17 & 0x800) != 0 )
           {
-            if ( qword_140E2DB80 )
+            if ( qword_140E2DCC0 )
             {
               if ( (v17 & 0x10) != 0 )
                 v17 &= ~0x10uLL;
               else
-                v17 &= ~qword_140E2DB80;
+                v17 &= ~qword_140E2DCC0;
             }
             v18 = 48 * ((v17 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
             if ( (*(_DWORD *)(v18 + 16) & 0x400LL) == 0
@@ -115,23 +113,23 @@ LABEL_24:
       if ( !v14 )
         goto LABEL_24;
       CurrentThread = KeGetCurrentThread();
-      v21 = (unsigned __int64 *)(v30 + 40);
+      v21 = (unsigned __int64 *)(v28 + 40);
       --CurrentThread->SpecialApcDisable;
-      v22 = KeAbPreAcquire(v30 + 40, 0LL);
+      v22 = (char *)KeAbPreAcquire(v28 + 40, 0LL);
       v23 = v22;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)(v30 + 40), 0LL) )
-        ExfAcquirePushLockExclusiveEx(v21, (__int64)v22, (__int64)v21);
+      if ( _interlockedbittestandset64((volatile signed __int32 *)(v28 + 40), 0LL) )
+        ExfAcquirePushLockExclusiveEx(v21, v22, (__int64)v21);
       if ( v23 )
-        *((_BYTE *)v23 + 10) = 1;
+        v23[10] = 1;
       MiUpdateControlAreaCommitCount(a1, v13);
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v21, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)v21);
       KeAbPostRelease((ULONG_PTR)v21);
-      v26 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v26
-        && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      v24 = CurrentThread->SpecialApcDisable++ == -1;
+      if ( v24
+        && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(v25, v24);
+        KiCheckForKernelApcDelivery();
       }
       *a3 = Pool;
     }

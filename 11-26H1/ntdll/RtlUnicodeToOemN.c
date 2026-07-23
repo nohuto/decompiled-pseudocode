@@ -1,29 +1,34 @@
 /*
- * XREFs of RtlUnicodeToOemN @ 0x180036620
+ * XREFs of RtlUnicodeToOemN @ 0x180021780
  * Callers:
- *     RtlUnicodeStringToCountedOemString @ 0x180140590 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x180140490 (RtlUnicodeStringToCountedOemString.c)
  * Callees:
- *     RtlUnicodeToCustomCPN @ 0x180034800 (RtlUnicodeToCustomCPN.c)
- *     RtlpIsUtf8Process @ 0x1800832B0 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToCustomCPN @ 0x18001F960 (RtlUnicodeToCustomCPN.c)
+ *     RtlpIsUtf8Process @ 0x18007A650 (RtlpIsUtf8Process.c)
  */
 
-__int64 __fastcall RtlUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v5; // edx
-  unsigned int *v6; // r8
-  unsigned __int16 *v7; // r9
-  _BYTE *v8; // r10
-  __int16 *v9; // rcx
+  ULONG v5; // edx
+  ULONG *v6; // r8
+  WCHAR *v7; // r9
+  CHAR *v8; // r10
+  _CPTABLEINFO *v9; // rcx
   signed __int32 v11[8]; // [rsp+0h] [rbp-38h] BYREF
 
-  if ( (unsigned __int8)RtlpIsUtf8Process(a1, a2, a3) )
+  if ( (unsigned __int8)RtlpIsUtf8Process(OemString, MaxBytesInOemString, BytesInOemString) )
   {
-    v9 = (__int16 *)&Utf8TableInfo;
+    v9 = (_CPTABLEINFO *)&Utf8TableInfo;
   }
   else
   {
     _InterlockedOr(v11, 0);
     v9 = &GlobalRtlNlsState;
   }
-  return RtlUnicodeToCustomCPN((__int64)v9, v8, v5, v6, v7, a5);
+  return RtlUnicodeToCustomCPN(v9, v8, v5, v6, v7, BytesInUnicodeString);
 }

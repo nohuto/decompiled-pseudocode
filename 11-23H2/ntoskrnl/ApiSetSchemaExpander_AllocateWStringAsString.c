@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetSchemaExpander_AllocateWStringAsString @ 0x140418564
+ * XREFs of ApiSetSchemaExpander_AllocateWStringAsString @ 0x1404188F4
  * Callers:
- *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140418BE0 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
+ *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140418F70 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
  * Callees:
  *     <none>
  */

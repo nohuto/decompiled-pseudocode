@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeReleaseInStackQueuedSpinLockForDpc @ 0x1409DB070
+ * XREFs of VerifierKeReleaseInStackQueuedSpinLockForDpc @ 0x1409DC070
  * Callers:
  *     <none>
  * Callees:
- *     VerifierKeReleaseInStackQueuedSpinLockForDpcCommon @ 0x1409DB0B0 (VerifierKeReleaseInStackQueuedSpinLockForDpcCommon.c)
- *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockForDpcCommon @ 0x1409DC0B0 (VerifierKeReleaseInStackQueuedSpinLockForDpcCommon.c)
+ *     VfDeadlockReleaseResource @ 0x1409DF338 (VfDeadlockReleaseResource.c)
  */
 
 __int64 __fastcall VerifierKeReleaseInStackQueuedSpinLockForDpc(ULONG_PTR BugCheckParameter3)

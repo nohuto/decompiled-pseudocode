@@ -11,21 +11,26 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-int __stdcall RtlFindActivationContextSectionString(int a1, int a2, int a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl RtlFindActivationContextSectionString(
+        ULONG Flags,
+        PGUID ExtensionGuid,
+        ULONG SectionId,
+        PUNICODE_STRING StringToFind,
+        PACTCTX_SECTION_KEYED_DATA ReturnedData)
 {
   struct _TEB *v5; // ecx
   _PEB *ProcessEnvironmentBlock; // eax
-  _DWORD *v7; // eax
+  PACTCTX_SECTION_KEYED_DATA v7; // eax
   const char *SystemDefaultActivationContextData; // edi
   struct _TEB *v9; // edx
   int v10; // ebx
   _PEB *v11; // ecx
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // eax
   _RTL_ACTIVATION_CONTEXT_STACK_FRAME *ActiveFrame; // eax
-  int result; // eax
-  volatile signed __int32 *v15; // esi
+  NTSTATUS result; // eax
+  _ACTIVATION_CONTEXT *v15; // esi
   int v16; // ebx
-  _DWORD *v17; // eax
+  int v17; // eax
   struct _TEB *v18; // edx
   const char *ActivationContextData; // eax
   unsigned int v20; // ebx
@@ -40,14 +45,14 @@ int __stdcall RtlFindActivationContextSectionString(int a1, int a2, int a3, int 
   int v29; // [esp+6h] [ebp-4Ch]
   char v30; // [esp+19h] [ebp-39h] BYREF
   int v31; // [esp+1Ah] [ebp-38h]
-  _DWORD *v32; // [esp+1Eh] [ebp-34h] BYREF
+  int v32; // [esp+1Eh] [ebp-34h] BYREF
   int v33; // [esp+22h] [ebp-30h]
-  unsigned int v34; // [esp+26h] [ebp-2Ch] BYREF
+  int v34; // [esp+26h] [ebp-2Ch] BYREF
   _PEB *v35; // [esp+2Ah] [ebp-28h]
   int v36; // [esp+2Eh] [ebp-24h] BYREF
   int v37; // [esp+32h] [ebp-20h] BYREF
   struct _TEB *v38; // [esp+36h] [ebp-1Ch]
-  _DWORD v39[4]; // [esp+3Ah] [ebp-18h] BYREF
+  int v39[4]; // [esp+3Ah] [ebp-18h] BYREF
   int v40; // [esp+4Ah] [ebp-8h]
   int v41; // [esp+4Eh] [ebp-4h]
 
@@ -62,55 +67,54 @@ int __stdcall RtlFindActivationContextSectionString(int a1, int a2, int a3, int 
   v34 = 0;
   v37 = -1;
   v36 = 0;
-  if ( !a4 || (a1 & 0xFFFFFFF8) != 0 )
+  if ( !StringToFind || (Flags & 0xFFFFFFF8) != 0 )
     return -1073741811;
-  v7 = a5;
-  if ( (a1 & 7) != 0 )
+  v7 = ReturnedData;
+  if ( (Flags & 7) != 0 )
   {
-    if ( !a5 )
+    if ( !ReturnedData )
       return -1073741811;
   }
-  else if ( !a5 )
+  else if ( !ReturnedData )
   {
     goto LABEL_7;
   }
-  if ( *a5 < 0x24u )
+  if ( ReturnedData->cbSize < 0x24 )
     return -1073741811;
 LABEL_7:
-  if ( (a1 & 2) != 0 )
+  if ( (Flags & 2) != 0 )
   {
-    if ( a5 + 11 > (_DWORD *)((char *)a5 + *a5) )
+    if ( &ReturnedData->AssemblyMetadata > (ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA *)((char *)ReturnedData
+                                                                                         + ReturnedData->cbSize) )
     {
       DbgPrintEx(
         51,
         0,
-        "SXS: %s() flags contains return_flags but they don't fit in size, return invalid_parameter 0x%08lx.\n",
-        "RtlpFindActivationContextSection_CheckParameters",
-        -1073741811);
+        (int)"SXS: %s() flags contains return_flags but they don't fit in size, return invalid_parameter 0x%08lx.\n",
+        (int)"RtlpFindActivationContextSection_CheckParameters");
       return -1073741811;
     }
-    v7 = a5;
+    v7 = ReturnedData;
   }
-  if ( (a1 & 4) != 0 && v7 + 16 > (_DWORD *)((char *)v7 + *v7) )
+  if ( (Flags & 4) != 0 && &v7[1] > (PACTCTX_SECTION_KEYED_DATA)((char *)v7 + v7->cbSize) )
   {
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() flags contains return_assembly_metadata but they don't fit in size, return invalid_parameter 0x%08lx.\n",
-      "RtlpFindActivationContextSection_CheckParameters",
-      -1073741811);
+      (int)"SXS: %s() flags contains return_assembly_metadata but they don't fit in size, return invalid_parameter 0x%08lx.\n",
+      (int)"RtlpFindActivationContextSection_CheckParameters");
     return -1073741811;
   }
   SystemDefaultActivationContextData = 0;
-  v39[1] = a1;
+  v39[1] = Flags;
   v9 = NtCurrentTeb();
-  v39[3] = a3;
+  v39[3] = SectionId;
   v40 = 0;
   v10 = 0;
   v11 = v9->ProcessEnvironmentBlock;
   v39[0] = 24;
   v41 = 0;
-  v39[2] = a2;
+  v39[2] = (int)ExtensionGuid;
   v31 = 0;
   v33 = (int)v9;
   v35 = v11;
@@ -173,7 +177,11 @@ LABEL_34:
 LABEL_17:
     if ( !SystemDefaultActivationContextData )
       return -1072365567;
-    result = RtlpLocateActivationContextSection(a3, &v32, &v34);
+    result = RtlpLocateActivationContextSection(
+               (int)SystemDefaultActivationContextData,
+               SectionId,
+               (int)&v32,
+               (int)&v34);
     if ( result >= 0 )
       break;
     v15 = 0;
@@ -183,55 +191,55 @@ LABEL_17:
     v9 = (struct _TEB *)v33;
   }
   v41 = (v31 == 0) | (v31 != -4 ? 0 : 2);
-  v15 = v31 != -4 ? (volatile signed __int32 *)v31 : 0;
+  v15 = v31 != -4 ? (_ACTIVATION_CONTEXT *)v31 : 0;
   result = 0;
 LABEL_20:
   if ( result < 0 )
     return result;
   v16 = v34;
-  if ( v34 < 0x2C )
+  if ( (unsigned int)v34 < 0x2C )
     goto LABEL_101;
   while ( 2 )
   {
     v17 = v32;
-    if ( *v32 != 1682469715 )
+    if ( *(_DWORD *)v32 != 1682469715 )
       goto LABEL_102;
-    result = RtlpFindUnicodeStringInSection(a4, a5, &v37, &v36, v28, v29);
+    result = RtlpFindUnicodeStringInSection(v32, v16, StringToFind, ReturnedData, &v37, &v36, v28, v29);
     if ( result >= 0 )
     {
-      if ( (((unsigned int)v15 - 1) | 7) != 0xFFFFFFFF )
+      if ( (((unsigned int)&v15[-1].InlineStorageMapEntries[31] + 3) | 7) != 0xFFFFFFFF )
       {
-        v23 = (struct _TEB *)*((_DWORD *)v15 + 5);
+        v23 = (struct _TEB *)v15->SentNotifications[0];
         v38 = v23;
         if ( v23 )
         {
-          if ( (v15[7] & 8) == 0 || (v15[15] & 8) == 0 )
+          if ( (v15->SentNotifications[2] & 8) == 0 || (v15->DisabledNotifications[2] & 8) == 0 )
           {
             v30 = 0;
-            ((void (__thiscall *)(struct _TEB *, int, volatile signed __int32 *, _DWORD, _DWORD, _DWORD, char *))v38)(
+            ((void (__thiscall *)(struct _TEB *, int, _ACTIVATION_CONTEXT *, PVOID, ULONG, _DWORD, char *))v38)(
               v23,
               3,
               v15,
-              *((_DWORD *)v15 + 4),
-              *((_DWORD *)v15 + 6),
+              v15->NotificationContext,
+              v15->SentNotifications[1],
               0,
               &v30);
-            *((_DWORD *)v15 + 7) |= 8u;
+            v15->SentNotifications[2] |= 8u;
             if ( v30 )
-              *((_DWORD *)v15 + 15) |= 8u;
+              v15->DisabledNotifications[2] |= 8u;
           }
         }
       }
-      if ( !a5 )
+      if ( !ReturnedData )
         return 0;
       result = RtlpFindActivationContextSection_FillOutReturnedData(
-                 a1,
-                 a5,
-                 (int)v15,
+                 Flags,
+                 ReturnedData,
+                 v15,
                  (int)v39,
-                 (int)v32,
-                 v32[9],
-                 v32[10],
+                 v32,
+                 *(_DWORD *)(v32 + 36),
+                 *(_DWORD *)(v32 + 40),
                  v16);
       if ( result >= 0 )
         return 0;
@@ -325,7 +333,7 @@ LABEL_28:
         result = -1072365567;
         goto LABEL_30;
       }
-      result = RtlpLocateActivationContextSection(a3, &v32, &v34);
+      result = RtlpLocateActivationContextSection((int)ActivationContextData, SectionId, (int)&v32, (int)&v34);
       if ( result < 0 )
       {
         v21 = 0;
@@ -353,9 +361,9 @@ LABEL_45:
       }
       while ( _InterlockedCompareExchange(v21, v27 + 1, v27) != v27 );
     }
-    v15 = v21;
+    v15 = (_ACTIVATION_CONTEXT *)v21;
     v16 = v34;
-    if ( v34 >= 0x2C )
+    if ( (unsigned int)v34 >= 0x2C )
       continue;
     break;
   }
@@ -365,8 +373,7 @@ LABEL_102:
   DbgPrintEx(
     51,
     0,
-    "RtlFindActivationContextSectionString() found section at %p (length %lu) which is not a string section\n",
-    v17,
-    v16);
+    (int)"RtlFindActivationContextSectionString() found section at %p (length %lu) which is not a string section\n",
+    v17);
   return -1072365565;
 }

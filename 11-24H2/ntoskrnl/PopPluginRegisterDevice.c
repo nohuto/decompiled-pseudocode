@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginRegisterDevice @ 0x1404C3828
+ * XREFs of PopPluginRegisterDevice @ 0x1404BED60
  * Callers:
- *     PopFxRegisterDeviceWithPep @ 0x1404C36C0 (PopFxRegisterDeviceWithPep.c)
+ *     PopFxRegisterDeviceWithPep @ 0x1404BEBF8 (PopFxRegisterDeviceWithPep.c)
  * Callees:
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPluginRegisterDevice(
@@ -33,7 +33,7 @@ __int64 __fastcall PopPluginRegisterDevice(
     v10[2] = a4;
     v11 = 0LL;
     v12 = 0;
-    if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(3LL, v10, a3, a4) )
+    if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(3LL, v10) )
       PopFxBugCheck(0x605uLL, 3uLL, BugCheckParameter3, 0LL);
     if ( v12 )
     {

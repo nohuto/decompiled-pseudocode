@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCaptureSecureImageBaseAddress @ 0x14066167C
+ * XREFs of MiCaptureSecureImageBaseAddress @ 0x140661760
  * Callers:
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
  * Callees:
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1400215A8 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14002161C (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     SeSetImageBaseAddress @ 0x14068C9A0 (SeSetImageBaseAddress.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x140021128 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14002119C (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     SeSetImageBaseAddress @ 0x14068CA84 (SeSetImageBaseAddress.c)
  */
 
 __int64 __fastcall MiCaptureSecureImageBaseAddress(_QWORD *a1)

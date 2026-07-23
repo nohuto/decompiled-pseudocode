@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIsRetryIoStatus @ 0x1402558E4
+ * XREFs of MiIsRetryIoStatus @ 0x140276E54
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
- *     MiZeroPageWrite @ 0x1402BFD18 (MiZeroPageWrite.c)
- *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
- *     MiReadImageHeaders @ 0x1406D195C (MiReadImageHeaders.c)
- *     MiLogFailedDriverLoad @ 0x1408C7DA0 (MiLogFailedDriverLoad.c)
+ *     MiZeroPageWrite @ 0x14023E168 (MiZeroPageWrite.c)
+ *     MiWriteComplete @ 0x1402766E0 (MiWriteComplete.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     MiWaitForInPageComplete @ 0x140325F40 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BD00 (MiMakeOutswappedPageResident.c)
+ *     MiReadImageHeaders @ 0x1406A8C3C (MiReadImageHeaders.c)
+ *     MiLogFailedDriverLoad @ 0x1408C7F00 (MiLogFailedDriverLoad.c)
  * Callees:
- *     FsRtlIsTotalDeviceFailure @ 0x1402559A0 (FsRtlIsTotalDeviceFailure.c)
+ *     FsRtlIsTotalDeviceFailure @ 0x140276F10 (FsRtlIsTotalDeviceFailure.c)
  */
 
 _BOOL8 __fastcall MiIsRetryIoStatus(NTSTATUS a1, unsigned __int64 a2)

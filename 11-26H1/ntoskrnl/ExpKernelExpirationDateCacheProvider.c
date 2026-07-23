@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpKernelExpirationDateCacheProvider @ 0x1408389A0
+ * XREFs of ExpKernelExpirationDateCacheProvider @ 0x14083EBE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlTimeToTimeFields @ 0x140451D20 (RtlTimeToTimeFields.c)
- *     SeCodeIntegrityGetBuildExpiryTime @ 0x140B4D810 (SeCodeIntegrityGetBuildExpiryTime.c)
+ *     RtlTimeToTimeFields @ 0x140449E50 (RtlTimeToTimeFields.c)
+ *     SeCodeIntegrityGetBuildExpiryTime @ 0x140B500A0 (SeCodeIntegrityGetBuildExpiryTime.c)
  */
 
 __int64 __fastcall ExpKernelExpirationDateCacheProvider(
@@ -17,7 +17,7 @@ __int64 __fastcall ExpKernelExpirationDateCacheProvider(
 {
   int BuildExpiryTime; // ebx
   __int128 v9; // [rsp+20h] [rbp-30h]
-  TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
   LARGE_INTEGER Time; // [rsp+40h] [rbp-10h] BYREF
 
   HIDWORD(v9) = 0;

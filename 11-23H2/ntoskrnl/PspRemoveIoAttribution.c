@@ -1,17 +1,17 @@
 /*
- * XREFs of PspRemoveIoAttribution @ 0x1407D85E0
+ * XREFs of PspRemoveIoAttribution @ 0x1407D88B0
  * Callers:
  *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     PspSetJobIoAttribution @ 0x1407D82E4 (PspSetJobIoAttribution.c)
+ *     PspSetJobIoAttribution @ 0x1407D85B4 (PspSetJobIoAttribution.c)
  * Callees:
  *     IoDiskIoAttributionDereference @ 0x14020C878 (IoDiskIoAttributionDereference.c)
- *     IoStopDiskIoAttributionForContext @ 0x1403625C8 (IoStopDiskIoAttributionForContext.c)
+ *     IoStopDiskIoAttributionForContext @ 0x140362768 (IoStopDiskIoAttributionForContext.c)
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
-__int64 __fastcall PspRemoveIoAttribution(struct _EX_RUNDOWN_REF **Object)
+__int64 __fastcall PspRemoveIoAttribution(PRTL_BALANCED_NODE *Object)
 {
-  struct _EX_RUNDOWN_REF **v1; // rdi
+  PRTL_BALANCED_NODE *v1; // rdi
   __int64 v4[2]; // [rsp+30h] [rbp-28h] BYREF
   __int64 v5; // [rsp+40h] [rbp-18h]
 

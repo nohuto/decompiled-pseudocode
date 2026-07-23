@@ -1,9 +1,9 @@
 /*
- * XREFs of ceil @ 0x180123F50
+ * XREFs of ceil @ 0x180122180
  * Callers:
  *     <none>
  * Callees:
- *     _handle_error @ 0x18012A070 (_handle_error.c)
+ *     _handle_error @ 0x1801282A0 (_handle_error.c)
  */
 
 double __cdecl ceil(double X)

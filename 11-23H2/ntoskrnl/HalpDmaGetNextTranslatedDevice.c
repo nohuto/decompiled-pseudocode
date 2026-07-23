@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaGetNextTranslatedDevice @ 0x1404FFE24
+ * XREFs of HalpDmaGetNextTranslatedDevice @ 0x140500374
  * Callers:
- *     HalpIommuGetNextTranslatedDevice @ 0x14040F9BC (HalpIommuGetNextTranslatedDevice.c)
+ *     HalpIommuGetNextTranslatedDevice @ 0x14040FB9C (HalpIommuGetNextTranslatedDevice.c)
  * Callees:
  *     KxTryToAcquireSpinLock @ 0x14020D8E4 (KxTryToAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
  */
 
 __int64 __fastcall HalpDmaGetNextTranslatedDevice(__int64 ***a1, _QWORD *a2, _QWORD *a3, char a4)

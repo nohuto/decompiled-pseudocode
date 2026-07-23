@@ -1,12 +1,12 @@
 /*
- * XREFs of VfAllocateCommonBufferWithBounds @ 0x140C236F0
+ * XREFs of VfAllocateCommonBufferWithBounds @ 0x140C29700
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViGetAdapterInformationInternal @ 0x140C26F80 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140C271E4 (ViGetRealDmaAdapter.c)
- *     Below4gb_AllocateCommonBuffer_Entry @ 0x140C39904 (Below4gb_AllocateCommonBuffer_Entry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViGetAdapterInformationInternal @ 0x140C2CF90 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140C2D1F4 (ViGetRealDmaAdapter.c)
+ *     Below4gb_AllocateCommonBuffer_Entry @ 0x140C3F914 (Below4gb_AllocateCommonBuffer_Entry.c)
  */
 
 __int64 __fastcall VfAllocateCommonBufferWithBounds(int a1, __int64 a2)

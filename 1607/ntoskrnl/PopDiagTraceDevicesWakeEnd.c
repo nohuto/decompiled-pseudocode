@@ -1,5 +1,5 @@
 /*
- * XREFs of PopDiagTraceDevicesWakeEnd @ 0x1405349C0
+ * XREFs of PopDiagTraceDevicesWakeEnd @ 0x140534F00
  * Callers:
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  * Callees:

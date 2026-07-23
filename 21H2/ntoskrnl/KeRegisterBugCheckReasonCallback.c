@@ -1,20 +1,20 @@
 /*
- * XREFs of KeRegisterBugCheckReasonCallback @ 0x14039E660
+ * XREFs of KeRegisterBugCheckReasonCallback @ 0x14039E7B0
  * Callers:
- *     HvlPhase1Initialize @ 0x1403CFB58 (HvlPhase1Initialize.c)
- *     HvlpInitializeHvCrashdump @ 0x1404F939C (HvlpInitializeHvCrashdump.c)
- *     SmPrepareForFatalHeapCorruption @ 0x14059FCA0 (SmPrepareForFatalHeapCorruption.c)
- *     SmPrepareForFatalPageError @ 0x14059FDA8 (SmPrepareForFatalPageError.c)
- *     IopInitializeTriageDumpData @ 0x1407C9158 (IopInitializeTriageDumpData.c)
- *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
- *     HalpMiscInitDiscard @ 0x140A6D378 (HalpMiscInitDiscard.c)
- *     PopRecorderInit @ 0x140A6DBE0 (PopRecorderInit.c)
- *     HalpFirmwareInitDiscard @ 0x140A6EB60 (HalpFirmwareInitDiscard.c)
+ *     HvlPhase1Initialize @ 0x1403CFCC8 (HvlPhase1Initialize.c)
+ *     HvlpInitializeHvCrashdump @ 0x1404F931C (HvlpInitializeHvCrashdump.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x14059FED0 (SmPrepareForFatalHeapCorruption.c)
+ *     SmPrepareForFatalPageError @ 0x14059FFD8 (SmPrepareForFatalPageError.c)
+ *     IopInitializeTriageDumpData @ 0x1407C9478 (IopInitializeTriageDumpData.c)
+ *     PspInitPhase0 @ 0x140A3EC68 (PspInitPhase0.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
+ *     HalpMiscInitDiscard @ 0x140A6E378 (HalpMiscInitDiscard.c)
+ *     PopRecorderInit @ 0x140A6EBE0 (PopRecorderInit.c)
+ *     HalpFirmwareInitDiscard @ 0x140A6FB60 (HalpFirmwareInitDiscard.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x14039E7A8 (KiCheckForDuplicateBugCheckCallback.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KiCheckForDuplicateBugCheckCallback @ 0x14039E8F8 (KiCheckForDuplicateBugCheckCallback.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopFreeIrpExtension @ 0x1400B38E4
+ * XREFs of IopFreeIrpExtension @ 0x1400B1764
  * Callers:
- *     IopfCompleteRequest @ 0x140053570 (IopfCompleteRequest.c)
- *     IopFreeIrp @ 0x140055DE0 (IopFreeIrp.c)
- *     IoSetActivityIdIrp @ 0x140111FD8 (IoSetActivityIdIrp.c)
- *     IoCleanupIrp @ 0x1401C8A3C (IoCleanupIrp.c)
- *     IoClearFsTrackOffsetState @ 0x1401CA458 (IoClearFsTrackOffsetState.c)
- *     IopPerfCompleteRequest @ 0x1401CA7DC (IopPerfCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1400530F0 (IopfCompleteRequest.c)
+ *     IopFreeIrp @ 0x140055960 (IopFreeIrp.c)
+ *     IoSetActivityIdIrp @ 0x14011253C (IoSetActivityIdIrp.c)
+ *     IoCleanupIrp @ 0x1401C88DC (IoCleanupIrp.c)
+ *     IoClearFsTrackOffsetState @ 0x1401CA2F8 (IoClearFsTrackOffsetState.c)
+ *     IopPerfCompleteRequest @ 0x1401CA67C (IopPerfCompleteRequest.c)
  * Callees:
- *     IopIrpHasExtensionType @ 0x1400D13D8 (IopIrpHasExtensionType.c)
+ *     IopIrpHasExtensionType @ 0x1400CF278 (IopIrpHasExtensionType.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

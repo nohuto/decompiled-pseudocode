@@ -1,39 +1,43 @@
 /*
- * XREFs of PiGetStateRootPath @ 0x14070E140
+ * XREFs of PiGetStateRootPath @ 0x14070F3E0
  * Callers:
- *     PiOpenDriverRedirectedStateKey @ 0x14070542C (PiOpenDriverRedirectedStateKey.c)
- *     PiCreateDriverRedirectedStateKey @ 0x1407571F8 (PiCreateDriverRedirectedStateKey.c)
- *     IoGetDeviceDirectory @ 0x1408249F0 (IoGetDeviceDirectory.c)
- *     PiGetDriverMutableStateDirectory @ 0x140825654 (PiGetDriverMutableStateDirectory.c)
- *     PiOpenDriverRedirectedStateRootKey @ 0x140825928 (PiOpenDriverRedirectedStateRootKey.c)
- *     PiCreateDriverDataDirectoryRoot @ 0x1409D9820 (PiCreateDriverDataDirectoryRoot.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x1407066CC (PiOpenDriverRedirectedStateKey.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1407583E8 (PiCreateDriverRedirectedStateKey.c)
+ *     IoGetDeviceDirectory @ 0x140825BF0 (IoGetDeviceDirectory.c)
+ *     PiGetDriverMutableStateDirectory @ 0x140826854 (PiGetDriverMutableStateDirectory.c)
+ *     PiOpenDriverRedirectedStateRootKey @ 0x140826B28 (PiOpenDriverRedirectedStateRootKey.c)
+ *     PiCreateDriverDataDirectoryRoot @ 0x1409DA820 (PiCreateDriverDataDirectoryRoot.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGetPersistedStateLocation @ 0x140613450 (RtlGetPersistedStateLocation.c)
  */
 
-__int64 __fastcall PiGetStateRootPath(PCWSTR SourceString, _WORD *a2, unsigned int a3, UNICODE_STRING *a4)
+__int64 __fastcall PiGetStateRootPath(
+        PCWSTR SourceID,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PUNICODE_STRING DestinationString)
 {
-  int PersistedStateLocation; // eax
+  NTSTATUS PersistedStateLocation; // eax
   NTSTATUS inited; // ebx
-  unsigned int v11; // ebx
-  PVOID PoolWithTag; // rdi
-  int v13; // eax
+  ULONG BufferLengthIn; // ebx
+  WCHAR *TargetPath; // rdi
+  NTSTATUS v13; // eax
   SIZE_T NumberOfBytes; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( a4 )
+  if ( DestinationString )
   {
     LODWORD(NumberOfBytes) = 0;
     PersistedStateLocation = RtlGetPersistedStateLocation(
-                               SourceString,
+                               SourceID,
                                0LL,
-                               a2,
-                               a3,
+                               DefaultPath,
+                               StateLocationType,
                                0LL,
                                0,
-                               (unsigned int *)&NumberOfBytes);
+                               (PULONG)&NumberOfBytes);
     inited = PersistedStateLocation;
     if ( PersistedStateLocation >= 0 )
     {
@@ -41,11 +45,18 @@ __int64 __fastcall PiGetStateRootPath(PCWSTR SourceString, _WORD *a2, unsigned i
     }
     else if ( PersistedStateLocation == -2147483643 )
     {
-      v11 = NumberOfBytes;
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6F697050u);
-      if ( PoolWithTag )
+      BufferLengthIn = NumberOfBytes;
+      TargetPath = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6F697050u);
+      if ( TargetPath )
       {
-        v13 = RtlGetPersistedStateLocation(SourceString, 0LL, a2, a3, PoolWithTag, v11, (unsigned int *)&NumberOfBytes);
+        v13 = RtlGetPersistedStateLocation(
+                SourceID,
+                0LL,
+                DefaultPath,
+                StateLocationType,
+                TargetPath,
+                BufferLengthIn,
+                (PULONG)&NumberOfBytes);
         inited = v13;
         if ( v13 == -1073741772 )
         {
@@ -53,12 +64,12 @@ __int64 __fastcall PiGetStateRootPath(PCWSTR SourceString, _WORD *a2, unsigned i
         }
         else if ( v13 >= 0 )
         {
-          inited = RtlInitUnicodeStringEx(a4, (PCWSTR)PoolWithTag);
+          inited = RtlInitUnicodeStringEx(DestinationString, TargetPath);
           if ( inited >= 0 )
-            PoolWithTag = 0LL;
+            TargetPath = 0LL;
         }
-        if ( PoolWithTag )
-          ExFreePoolWithTag(PoolWithTag, 0);
+        if ( TargetPath )
+          ExFreePoolWithTag(TargetPath, 0);
       }
       else
       {

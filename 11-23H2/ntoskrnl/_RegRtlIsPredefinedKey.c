@@ -1,9 +1,9 @@
 /*
- * XREFs of _RegRtlIsPredefinedKey @ 0x1406CEE8C
+ * XREFs of _RegRtlIsPredefinedKey @ 0x1406CEEBC
  * Callers:
- *     _RegRtlOpenKeyTransacted @ 0x1406CED70 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlCreateKeyTransacted @ 0x140797F3C (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlQueryKeyPathName @ 0x14086216C (_RegRtlQueryKeyPathName.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406CEDA0 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x14079812C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlQueryKeyPathName @ 0x1408623AC (_RegRtlQueryKeyPathName.c)
  * Callees:
  *     <none>
  */

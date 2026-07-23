@@ -1,17 +1,17 @@
 /*
- * XREFs of KiPreprocessFault @ 0x1403FB220
+ * XREFs of KiPreprocessFault @ 0x1403F4D80
  * Callers:
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
  * Callees:
- *     KiOpDecode @ 0x1403FB5A0 (KiOpDecode.c)
- *     KiOp_Mov @ 0x1403FB970 (KiOp_Mov.c)
- *     KiOp_Priv @ 0x1403FBB10 (KiOp_Priv.c)
- *     KiCheckForAtlThunk @ 0x1403FBB98 (KiCheckForAtlThunk.c)
- *     KiOpPreprocessSecureFault @ 0x1403FBEB0 (KiOpPreprocessSecureFault.c)
- *     KiEnableOptionalXStateFeatures @ 0x1403FBF98 (KiEnableOptionalXStateFeatures.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x1405C5164 (KiOpCheckUnhandledSecurePciAccessViolation.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiOpDecode @ 0x1403F5100 (KiOpDecode.c)
+ *     KiOp_Mov @ 0x1403F54D0 (KiOp_Mov.c)
+ *     KiOp_Priv @ 0x1403F5670 (KiOp_Priv.c)
+ *     KiCheckForAtlThunk @ 0x1403F56F8 (KiCheckForAtlThunk.c)
+ *     KiOpPreprocessSecureFault @ 0x1403F5A10 (KiOpPreprocessSecureFault.c)
+ *     KiEnableOptionalXStateFeatures @ 0x1403F5AF8 (KiEnableOptionalXStateFeatures.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x1405C2898 (KiOpCheckUnhandledSecurePciAccessViolation.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall KiPreprocessFault(int *BugCheckParameter2, ULONG_PTR BugCheckParameter3, unsigned __int8 a3)
@@ -25,28 +25,26 @@ char __fastcall KiPreprocessFault(int *BugCheckParameter2, ULONG_PTR BugCheckPar
   unsigned int v12; // r14d
   int v13; // eax
   __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rsi
-  __int64 (__fastcall *v18)(_QWORD); // rax
-  char v19; // di
+  __int64 v15; // rsi
+  __int64 (__fastcall *v16)(_QWORD); // rax
+  char v17; // di
   struct _KTHREAD *CurrentThread; // rcx
-  void *v22; // rax
+  void *v20; // rax
   unsigned __int16 SListFaultCount; // ax
-  unsigned __int16 v24; // ax
-  _OWORD v25[3]; // [rsp+30h] [rbp-39h] BYREF
-  __int128 v26; // [rsp+60h] [rbp-9h]
-  __int128 v27; // [rsp+70h] [rbp+7h]
-  __int128 v28; // [rsp+80h] [rbp+17h]
-  __int128 v29; // [rsp+90h] [rbp+27h]
+  unsigned __int16 v22; // ax
+  _OWORD v23[3]; // [rsp+30h] [rbp-39h] BYREF
+  __int128 v24; // [rsp+60h] [rbp-9h]
+  __int128 v25; // [rsp+70h] [rbp+7h]
+  __int128 v26; // [rsp+80h] [rbp+17h]
+  __int128 v27; // [rsp+90h] [rbp+27h]
 
   v3 = *BugCheckParameter2;
   v4 = 0;
-  memset(v25, 0, sizeof(v25));
+  memset(v23, 0, sizeof(v23));
+  v24 = 0LL;
+  v25 = 0LL;
   v26 = 0LL;
   v27 = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
   if ( v3 != 268435460 )
   {
     switch ( v3 )
@@ -80,49 +78,49 @@ char __fastcall KiPreprocessFault(int *BugCheckParameter2, ULONG_PTR BugCheckPar
     v12 = 0x40000000;
     *BugCheckParameter2 = -1073741795;
 LABEL_8:
-    v13 = KiOpDecode((_DWORD)BugCheckParameter2, BugCheckParameter3, a3, v12, (__int64)v25);
+    v13 = KiOpDecode((_DWORD)BugCheckParameter2, BugCheckParameter3, a3, v12, (__int64)v23);
     if ( v13 < 0 )
     {
-      v19 = 0;
+      v17 = 0;
     }
     else
     {
       if ( v4 )
       {
-        HIDWORD(v26) |= 0x2000000u;
-        *((_QWORD *)&v29 + 1) = -1LL;
+        HIDWORD(v24) |= 0x2000000u;
+        *((_QWORD *)&v27 + 1) = -1LL;
       }
-      v17 = *((_QWORD *)&v28 + 1);
-      if ( *((_QWORD *)&v28 + 1) )
+      v15 = *((_QWORD *)&v26 + 1);
+      if ( *((_QWORD *)&v26 + 1) )
       {
-        v18 = *(__int64 (__fastcall **)(_QWORD))(*((_QWORD *)&v28 + 1) + 16LL);
-        if ( v18 == KiOp_Mov )
+        v16 = *(__int64 (__fastcall **)(_QWORD))(*((_QWORD *)&v26 + 1) + 16LL);
+        if ( v16 == KiOp_Mov )
         {
-          v13 = KiOp_Mov(v25);
+          v13 = KiOp_Mov(v23);
         }
-        else if ( v18 == KiOp_Priv )
+        else if ( v16 == KiOp_Priv )
         {
-          v13 = KiOp_Priv(v25);
+          v13 = KiOp_Priv(v23);
         }
         else
         {
-          v13 = guard_dispatch_icall_no_overrides(v25, v14, v15, v16);
+          v13 = guard_dispatch_icall_no_overrides(v23, v14);
         }
       }
-      v19 = 0;
+      v17 = 0;
       if ( v13 >= 0 )
       {
-        if ( v17 )
+        if ( v15 )
         {
-          v19 = v29;
-          if ( (_BYTE)v29 )
-            return v19;
+          v17 = v27;
+          if ( (_BYTE)v27 )
+            return v17;
         }
       }
     }
     if ( v12 == 0x80000000 )
     {
-      if ( *BugCheckParameter2 == -1073741819 && !BYTE1(v29) )
+      if ( *BugCheckParameter2 == -1073741819 && !BYTE1(v27) )
       {
         BugCheckParameter2[6] = 2;
         *((_QWORD *)BugCheckParameter2 + 4) = 0LL;
@@ -131,12 +129,12 @@ LABEL_8:
     }
     else if ( v12 == 0x8000000 )
     {
-      if ( (int)KiCheckForAtlThunk(v25) >= 0 )
-        return v29;
+      if ( (int)KiCheckForAtlThunk(v23) >= 0 )
+        return v27;
     }
-    else if ( v12 == 0x10000000 && (HIDWORD(v26) & 0x2000000) != 0 )
+    else if ( v12 == 0x10000000 && (HIDWORD(v24) & 0x2000000) != 0 )
     {
-      KiOpCheckUnhandledSecurePciAccessViolation(v25, BugCheckParameter2);
+      KiOpCheckUnhandledSecurePciAccessViolation(v23, BugCheckParameter2);
       if ( *BugCheckParameter2 == 268435465 )
         KeBugCheckEx(
           0x1EAu,
@@ -145,7 +143,7 @@ LABEL_8:
           *((_QWORD *)BugCheckParameter2 + 6),
           *((_QWORD *)BugCheckParameter2 + 7));
     }
-    return v19;
+    return v17;
   }
 LABEL_2:
   v8 = *(_WORD *)(BugCheckParameter3 + 56);
@@ -158,8 +156,8 @@ LABEL_2:
   {
     if ( v8 != 51 )
       goto LABEL_6;
-    v9 = (void *)qword_140FC6480;
-    v10 = (void *)qword_140FC6488;
+    v9 = (void *)qword_140FC7500;
+    v10 = (void *)qword_140FC7508;
   }
   if ( *(void **)(BugCheckParameter3 + 248) == v9 )
   {
@@ -172,8 +170,8 @@ LABEL_2:
     else
     {
       CurrentThread = KeGetCurrentThread();
-      v22 = (void *)*((_QWORD *)BugCheckParameter2 + 5);
-      if ( v22 == CurrentThread->SListFaultAddress )
+      v20 = (void *)*((_QWORD *)BugCheckParameter2 + 5);
+      if ( v20 == CurrentThread->SListFaultAddress )
       {
         SListFaultCount = CurrentThread->SListFaultCount;
         if ( SListFaultCount > 0x400u )
@@ -181,14 +179,14 @@ LABEL_2:
           CurrentThread->SListFaultCount = 0;
           goto LABEL_6;
         }
-        v24 = SListFaultCount + 1;
+        v22 = SListFaultCount + 1;
       }
       else
       {
-        CurrentThread->SListFaultAddress = v22;
-        v24 = 0;
+        CurrentThread->SListFaultAddress = v20;
+        v22 = 0;
       }
-      CurrentThread->SListFaultCount = v24;
+      CurrentThread->SListFaultCount = v22;
       *(_QWORD *)(BugCheckParameter3 + 248) = v10;
     }
     return 1;

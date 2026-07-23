@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMakeIoRangePermanent @ 0x140676394
+ * XREFs of MiMakeIoRangePermanent @ 0x140677564
  * Callers:
- *     MiMakeIoRangePermanentDpc @ 0x140676640 (MiMakeIoRangePermanentDpc.c)
+ *     MiMakeIoRangePermanentDpc @ 0x140677810 (MiMakeIoRangePermanentDpc.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1403AE894 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiUnlockIoPfnTree @ 0x1403D0468 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x1403D0514 (MiLockIoPfnTree.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     MiUnlockIoPfnTree @ 0x14038F980 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14038FA2C (MiLockIoPfnTree.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14039D0A4 (MiFlushEntireTbDueToAttributeChange.c)
  */
 
 __int64 __fastcall MiMakeIoRangePermanent(__int64 a1, __int64 a2)
@@ -42,8 +42,8 @@ __int64 __fastcall MiMakeIoRangePermanent(__int64 a1, __int64 a2)
   v5 = 0;
   v6 = 0;
   MiLockIoPfnTree(6LL, a2);
-  v7 = (_QWORD *)*((_QWORD *)&xmmword_140E37200 + 1);
-  if ( !*((_QWORD *)&xmmword_140E37200 + 1) )
+  v7 = (_QWORD *)*((_QWORD *)&xmmword_140E37340 + 1);
+  if ( !*((_QWORD *)&xmmword_140E37340 + 1) )
     goto LABEL_9;
   while ( 1 )
   {
@@ -63,8 +63,8 @@ LABEL_6:
   if ( v7 )
     goto LABEL_54;
 LABEL_9:
-  v9 = (_QWORD *)qword_140E371C0;
-  if ( qword_140E371C0 )
+  v9 = (_QWORD *)qword_140E37300;
+  if ( qword_140E37300 )
   {
     i = 0LL;
     while ( 1 )
@@ -103,17 +103,17 @@ LABEL_16:
               {
                 v18 = (*((_DWORD *)i
                        + ((unsigned __int64)(2
-                                           * (((unsigned int)v3 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2DB38
+                                           * (((unsigned int)v3 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2DC78
                                                                                         - 12))
                                                                  - 1))
                                             - *((_DWORD *)i + 6))) >> 5)
                        + 11) >> ((2
-                                * ((v3 & ((1LL << ((unsigned __int8)dword_140E2DB38 - 12)) - 1)) - *((_BYTE *)i + 24))) & 0x1F)) & 3;
+                                * ((v3 & ((1LL << ((unsigned __int8)dword_140E2DC78 - 12)) - 1)) - *((_BYTE *)i + 24))) & 0x1F)) & 3;
                 if ( v18 != v12 )
                 {
                   if ( *v17 )
                   {
-                    ++dword_140E37240;
+                    ++dword_140E37380;
                     goto LABEL_54;
                   }
                   if ( v18 != 3 && !v6 )
@@ -121,9 +121,9 @@ LABEL_16:
                     MiFlushEntireTbDueToAttributeChange();
                     v6 = 1;
                   }
-                  v19 = (2 * ((v3 & ((1LL << ((unsigned __int8)dword_140E2DB38 - 12)) - 1)) - *((_BYTE *)i + 24))) & 0x1F;
+                  v19 = (2 * ((v3 & ((1LL << ((unsigned __int8)dword_140E2DC78 - 12)) - 1)) - *((_BYTE *)i + 24))) & 0x1F;
                   v20 = (unsigned __int64)(2
-                                         * (((unsigned int)v3 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2DB38
+                                         * (((unsigned int)v3 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2DC78
                                                                                       - 12))
                                                                - 1))
                                           - *((_DWORD *)i + 6))) >> 5;
@@ -167,11 +167,11 @@ LABEL_15:
     goto LABEL_16;
   }
 LABEL_43:
-  v24 = (_QWORD *)xmmword_140E37200;
-  if ( !(_QWORD)xmmword_140E37200 )
+  v24 = (_QWORD *)xmmword_140E37340;
+  if ( !(_QWORD)xmmword_140E37340 )
   {
 LABEL_46:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E37200, (unsigned __int64)v24, v2, (_QWORD *)a1);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E37340, (unsigned __int64)v24, v2, (_QWORD *)a1);
     goto LABEL_47;
   }
   while ( 1 )
@@ -194,7 +194,7 @@ LABEL_46:
 LABEL_51:
     v24 = v25;
   }
-  ++dword_140E37244;
+  ++dword_140E37384;
 LABEL_54:
   v5 = -1073741800;
 LABEL_47:

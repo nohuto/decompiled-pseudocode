@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAdjustGroupsToken @ 0x140A46440
+ * XREFs of NtAdjustGroupsToken @ 0x1409E0F30
  * Callers:
- *     DifNtAdjustGroupsTokenWrapper @ 0x14066A670 (DifNtAdjustGroupsTokenWrapper.c)
+ *     DifNtAdjustGroupsTokenWrapper @ 0x14066E250 (DifNtAdjustGroupsTokenWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SeReleaseLuidAndAttributesArray @ 0x140A43238 (SeReleaseLuidAndAttributesArray.c)
- *     SeCaptureSidAndAttributesArray @ 0x140A44CF8 (SeCaptureSidAndAttributesArray.c)
- *     SepAdjustGroups @ 0x140A467D0 (SepAdjustGroups.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SepAdjustGroups @ 0x1409E12C0 (SepAdjustGroups.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1409E21E8 (SeReleaseLuidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1409E2E88 (SeCaptureSidAndAttributesArray.c)
  */
 
 NTSTATUS __stdcall NtAdjustGroupsToken(
@@ -23,162 +23,174 @@ NTSTATUS __stdcall NtAdjustGroupsToken(
         PTOKEN_GROUPS PreviousState,
         PULONG ReturnLength)
 {
+  PTOKEN_GROUPS v6; // rsi
   unsigned int ULongFromUser; // r15d
-  PVOID v9; // rbx
+  __int64 v9; // rbx
   void *v10; // r13
-  char PreviousMode; // di
+  KPROCESSOR_MODE PreviousMode; // di
   NTSTATUS result; // eax
-  int v13; // esi
+  __int64 v13; // rdx
+  int v14; // esi
   struct _KTHREAD *CurrentThread; // rax
-  PERESOURCE *v15; // rsi
-  int v16; // r8d
-  int v17; // edx
-  int v18; // r8d
-  NTSTATUS v19; // r12d
-  NTSTATUS v20; // r15d
-  signed __int32 v21[8]; // [rsp+0h] [rbp-C8h] BYREF
-  POBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+28h] [rbp-A0h]
-  void *v23; // [rsp+30h] [rbp-98h]
-  _BYTE v24[4]; // [rsp+60h] [rbp-68h] BYREF
-  ULONG v25; // [rsp+64h] [rbp-64h] BYREF
-  __int64 v26; // [rsp+68h] [rbp-60h] BYREF
+  PERESOURCE *v16; // rsi
+  int v17; // r8d
+  int v18; // edx
+  int v19; // r8d
+  NTSTATUS v20; // r12d
+  NTSTATUS v21; // r15d
+  __int64 v22; // rdx
+  __int64 v23; // rdx
+  __int64 v24; // rdx
+  signed __int32 v25[8]; // [rsp+0h] [rbp-C8h] BYREF
+  __int64 v26; // [rsp+38h] [rbp-90h]
+  __int64 p_Object; // [rsp+40h] [rbp-88h]
+  _BYTE v28[4]; // [rsp+60h] [rbp-68h] BYREF
+  ULONG v29; // [rsp+64h] [rbp-64h] BYREF
+  __int64 v30; // [rsp+68h] [rbp-60h] BYREF
   PVOID Object; // [rsp+70h] [rbp-58h] BYREF
-  PVOID v28; // [rsp+78h] [rbp-50h] BYREF
-  unsigned int v29; // [rsp+80h] [rbp-48h]
-  NTSTATUS v30; // [rsp+84h] [rbp-44h]
+  __int64 v32; // [rsp+78h] [rbp-50h] BYREF
+  unsigned int v33; // [rsp+80h] [rbp-48h]
+  NTSTATUS v34; // [rsp+84h] [rbp-44h]
 
+  v6 = NewState;
   ULongFromUser = 0;
-  v29 = 0;
+  v33 = 0;
   v9 = 0LL;
-  v28 = 0LL;
-  v25 = 0;
-  LODWORD(v26) = 0;
-  v24[0] = 0;
+  v32 = 0LL;
+  v29 = 0;
+  LODWORD(v30) = 0;
+  v28[0] = 0;
   v10 = 0LL;
   if ( !ResetToDefault && !NewState )
     return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v24[1] = PreviousMode;
+  v28[1] = PreviousMode;
   if ( !ResetToDefault )
   {
     if ( PreviousMode )
       ULongFromUser = RtlReadULongFromUser(&NewState->GroupCount);
     else
       ULongFromUser = NewState->GroupCount;
-    v29 = ULongFromUser;
-    result = SeCaptureSidAndAttributesArray(
-               (char *)NewState->Groups,
-               ULongFromUser,
-               PreviousMode,
-               0LL,
-               0,
-               (__int64)HandleInformation,
-               (size_t)v23,
-               &v28,
-               (unsigned int *)&Object);
+    v33 = ULongFromUser;
+    p_Object = (__int64)&Object;
+    v26 = (__int64)&v32;
+    LOBYTE(NewState) = PreviousMode;
+    result = SeCaptureSidAndAttributesArray(v6->Groups, ULongFromUser, NewState, 0LL, 0);
     if ( result < 0 )
       return result;
-    v9 = v28;
+    v9 = v32;
   }
   Object = 0LL;
-  v13 = ObReferenceObjectByHandle(
+  v14 = ObReferenceObjectByHandle(
           TokenHandle,
           PreviousState != 0LL ? 72 : 64,
           (POBJECT_TYPE)SeTokenObjectType,
           PreviousMode,
           &Object,
           0LL);
-  if ( v13 < 0 )
+  if ( v14 < 0 )
   {
     if ( v9 )
-      SeReleaseLuidAndAttributesArray(v9, PreviousMode);
-    return v13;
+    {
+      LOBYTE(v13) = PreviousMode;
+      SeReleaseLuidAndAttributesArray(v9, v13);
+    }
+    return v14;
   }
   else
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v15 = (PERESOURCE *)Object;
+    v16 = (PERESOURCE *)Object;
     ExAcquireResourceExclusiveLite(*((PERESOURCE *)Object + 6), 1u);
-    _InterlockedOr(v21, 0);
-    LOBYTE(v16) = ResetToDefault;
-    v19 = SepAdjustGroups(
-            (int)v15,
+    _InterlockedOr(v25, 0);
+    LOBYTE(v17) = ResetToDefault;
+    v20 = SepAdjustGroups(
+            (int)v16,
             0,
-            v16,
+            v17,
             ULongFromUser,
-            (__int64)v9,
+            v9,
             (__int64)PreviousState,
             0LL,
-            (__int64)&v25,
-            (__int64)&v26,
-            (__int64)v24,
+            (__int64)&v29,
+            (__int64)&v30,
+            (__int64)v28,
             PreviousMode);
     if ( PreviousState )
     {
       if ( PreviousMode )
-        RtlWriteULongToUser(ReturnLength, v25);
+        RtlWriteULongToUser(ReturnLength, v29);
       else
-        *ReturnLength = v25;
+        *ReturnLength = v29;
     }
-    if ( v19 < 0 )
+    if ( v20 < 0 )
     {
-      _InterlockedOr(v21, 0);
-      ExReleaseResourceLite(v15[6]);
+      _InterlockedOr(v25, 0);
+      ExReleaseResourceLite(v16[6]);
       KeLeaveCriticalRegion();
-      ObfDereferenceObject(v15);
+      ObfDereferenceObject(v16);
       if ( v9 )
-        SeReleaseLuidAndAttributesArray(v9, PreviousMode);
-      return v19;
+      {
+        LOBYTE(v23) = PreviousMode;
+        SeReleaseLuidAndAttributesArray(v9, v23);
+      }
+      return v20;
     }
     else
     {
       if ( !PreviousState )
       {
 LABEL_13:
-        LOBYTE(v18) = ResetToDefault;
-        LOBYTE(v17) = 1;
-        v20 = SepAdjustGroups(
-                (int)v15,
-                v17,
+        LOBYTE(v19) = ResetToDefault;
+        LOBYTE(v18) = 1;
+        v21 = SepAdjustGroups(
+                (int)v16,
                 v18,
+                v19,
                 ULongFromUser,
-                (__int64)v9,
+                v9,
                 (__int64)PreviousState,
                 v10,
-                (__int64)&v25,
-                (__int64)&v26,
-                (__int64)v24,
+                (__int64)&v29,
+                (__int64)&v30,
+                (__int64)v28,
                 PreviousMode);
-        v30 = v20;
+        v34 = v21;
         if ( PreviousState )
         {
           if ( PreviousMode )
-            RtlWriteULongToUser(PreviousState, v26);
+            RtlWriteULongToUser(PreviousState, v30);
           else
-            PreviousState->GroupCount = v26;
+            PreviousState->GroupCount = v30;
         }
-        if ( v24[0] )
-          v15[7] = (PERESOURCE)(ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement));
-        _InterlockedOr(v21, 0);
-        ExReleaseResourceLite(v15[6]);
+        if ( v28[0] )
+          v16[7] = (PERESOURCE)(ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement));
+        _InterlockedOr(v25, 0);
+        ExReleaseResourceLite(v16[6]);
         KeLeaveCriticalRegion();
-        ObfDereferenceObject(v15);
+        ObfDereferenceObject(v16);
         if ( v9 )
-          SeReleaseLuidAndAttributesArray(v9, PreviousMode);
-        return v20;
+        {
+          LOBYTE(v22) = PreviousMode;
+          SeReleaseLuidAndAttributesArray(v9, v22);
+        }
+        return v21;
       }
-      if ( v25 <= BufferLength )
+      if ( v29 <= BufferLength )
       {
-        v10 = (void *)(((unsigned __int64)&PreviousState->Groups[0].Sid + (unsigned int)(16 * v26) + 3) & 0xFFFFFFFFFFFFFFFCuLL);
+        v10 = (void *)(((unsigned __int64)&PreviousState->Groups[0].Sid + (unsigned int)(16 * v30) + 3) & 0xFFFFFFFFFFFFFFFCuLL);
         goto LABEL_13;
       }
-      _InterlockedOr(v21, 0);
-      ExReleaseResourceLite(v15[6]);
+      _InterlockedOr(v25, 0);
+      ExReleaseResourceLite(v16[6]);
       KeLeaveCriticalRegion();
-      ObfDereferenceObject(v15);
+      ObfDereferenceObject(v16);
       if ( v9 )
-        SeReleaseLuidAndAttributesArray(v9, PreviousMode);
+      {
+        LOBYTE(v24) = PreviousMode;
+        SeReleaseLuidAndAttributesArray(v9, v24);
+      }
       return -1073741789;
     }
   }

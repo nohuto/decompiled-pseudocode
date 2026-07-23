@@ -1,19 +1,19 @@
 /*
- * XREFs of ExMapHandleToPointer @ 0x14050DF14
+ * XREFs of ExMapHandleToPointer @ 0x1404F0EA4
  * Callers:
- *     PspJobDelete @ 0x1400888BC (PspJobDelete.c)
- *     ObQueryObjectAuditingByHandle @ 0x14045E358 (ObQueryObjectAuditingByHandle.c)
- *     ObSetHandleAttributes @ 0x14045E6E8 (ObSetHandleAttributes.c)
- *     PspClearProcessThreadCidRefs @ 0x14045ED5C (PspClearProcessThreadCidRefs.c)
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
- *     RtlpFreeHandleForAtom @ 0x1404A3624 (RtlpFreeHandleForAtom.c)
- *     PspThreadDelete @ 0x1404A37B8 (PspThreadDelete.c)
- *     ExMapHandleToPointerEx @ 0x1404A3D90 (ExMapHandleToPointerEx.c)
- *     RtlpInsertStringAtom @ 0x1404D5B38 (RtlpInsertStringAtom.c)
- *     ObpCloseHandle @ 0x14050C774 (ObpCloseHandle.c)
+ *     PspJobDelete @ 0x14010CAAC (PspJobDelete.c)
+ *     ObQueryObjectAuditingByHandle @ 0x14045D228 (ObQueryObjectAuditingByHandle.c)
+ *     ObSetHandleAttributes @ 0x14045D5B8 (ObSetHandleAttributes.c)
+ *     PspClearProcessThreadCidRefs @ 0x14045DC2C (PspClearProcessThreadCidRefs.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
+ *     RtlpInsertStringAtom @ 0x1404B913C (RtlpInsertStringAtom.c)
+ *     ObpCloseHandle @ 0x1404EF704 (ObpCloseHandle.c)
+ *     RtlpFreeHandleForAtom @ 0x14051BA24 (RtlpFreeHandleForAtom.c)
+ *     PspThreadDelete @ 0x14051BBB8 (PspThreadDelete.c)
+ *     ExMapHandleToPointerEx @ 0x14051C190 (ExMapHandleToPointerEx.c)
  * Callees:
- *     ExLockHandleTableEntry @ 0x1400D1730 (ExLockHandleTableEntry.c)
- *     ExpLookupHandleTableEntry @ 0x140451390 (ExpLookupHandleTableEntry.c)
+ *     ExLockHandleTableEntry @ 0x1400CF5D0 (ExLockHandleTableEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x140450260 (ExpLookupHandleTableEntry.c)
  */
 
 _QWORD *__fastcall ExMapHandleToPointer(unsigned int *a1, __int64 a2)

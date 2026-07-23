@@ -1,7 +1,7 @@
 /*
  * XREFs of ClipSpUninitialize_0 @ 0x140001338
  * Callers:
- *     sub_1406BF0FC @ 0x1406BF0FC (sub_1406BF0FC.c)
+ *     sub_1406BF234 @ 0x1406BF234 (sub_1406BF234.c)
  * Callees:
  *     <none>
  */

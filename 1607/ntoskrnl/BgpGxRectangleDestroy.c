@@ -1,11 +1,11 @@
 /*
  * XREFs of BgpGxRectangleDestroy @ 0x1407276C0
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140127284 (BgpTxtDisplayCharacter.c)
- *     BgpGxDrawRectangle @ 0x140127524 (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x140127598 (GxpWriteFrameBufferPixels.c)
- *     BgpGxConvertRectangle @ 0x140127DB4 (BgpGxConvertRectangle.c)
- *     BgpGxProcessQrCodeBitmap @ 0x14014BEC4 (BgpGxProcessQrCodeBitmap.c)
+ *     BgpTxtDisplayCharacter @ 0x1401277F4 (BgpTxtDisplayCharacter.c)
+ *     BgpGxDrawRectangle @ 0x140127A94 (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x140127B08 (GxpWriteFrameBufferPixels.c)
+ *     BgpGxConvertRectangle @ 0x140128324 (BgpGxConvertRectangle.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x14014C434 (BgpGxProcessQrCodeBitmap.c)
  *     BgpGxParseBitmap @ 0x140725B84 (BgpGxParseBitmap.c)
  *     BgpGxReadRectangle @ 0x140725CE0 (BgpGxReadRectangle.c)
  *     AnFwDisplayFade @ 0x14072664C (AnFwDisplayFade.c)
@@ -17,7 +17,7 @@
  *     BgpGxDrawBitmapImage @ 0x14072B044 (BgpGxDrawBitmapImage.c)
  *     BgpTxtDisplayString @ 0x14072B0B0 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
  */
 
 __int64 __fastcall BgpGxRectangleDestroy(__int64 a1)

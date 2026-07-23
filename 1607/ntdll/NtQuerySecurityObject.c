@@ -1,18 +1,23 @@
 /*
  * XREFs of NtQuerySecurityObject @ 0x1800A8D10
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008C544 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008C534 (RtlpSysVolCheckOwnerAndSecurity.c)
  *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x1800CF4F0 (RtlAppxIsFileOwnedByTrustedInstaller.c)
- *     RtlIsUntrustedObject @ 0x1800DF7C0 (RtlIsUntrustedObject.c)
+ *     RtlIsUntrustedObject @ 0x1800DF880 (RtlIsUntrustedObject.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQuerySecurityObject()
+NTSTATUS __cdecl NtQuerySecurityObject(
+        HANDLE Handle,
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        ULONG Length,
+        PULONG LengthNeeded)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 328LL;
+  result = 328;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

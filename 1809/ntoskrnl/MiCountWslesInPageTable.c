@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCountWslesInPageTable @ 0x1400F8230
+ * XREFs of MiCountWslesInPageTable @ 0x1400F82B0
  * Callers:
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
  *     MiAddWorkingSetEntries @ 0x140048CE0 (MiAddWorkingSetEntries.c)
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiRebuildPageTableLeafAges @ 0x14007AE10 (MiRebuildPageTableLeafAges.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiDeleteVa @ 0x1400696F0 (MiDeleteVa.c)
+ *     MiRebuildPageTableLeafAges @ 0x14007AE00 (MiRebuildPageTableLeafAges.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int64 __fastcall MiCountWslesInPageTable(__int64 a1, unsigned __int64 a2, void *a3)

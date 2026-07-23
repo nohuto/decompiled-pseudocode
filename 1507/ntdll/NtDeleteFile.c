@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDeleteFile()
+NTSTATUS __cdecl NtDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 196LL;
+  result = 196;
   __asm { syscall; Low latency system call }
   return result;
 }

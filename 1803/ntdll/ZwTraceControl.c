@@ -5,7 +5,7 @@
  *     sub_180005610 @ 0x180005610 (sub_180005610.c)
  *     EtwSendNotification @ 0x1800081C0 (EtwSendNotification.c)
  *     sub_180029538 @ 0x180029538 (sub_180029538.c)
- *     sub_1800571C0 @ 0x1800571C0 (sub_1800571C0.c)
+ *     InitFn @ 0x1800571C0 (InitFn.c)
  *     EtwEventActivityIdControl @ 0x18006B380 (EtwEventActivityIdControl.c)
  *     sub_18007278C @ 0x18007278C (sub_18007278C.c)
  *     sub_1800728E0 @ 0x1800728E0 (sub_1800728E0.c)
@@ -21,11 +21,17 @@
  *     <none>
  */
 
-__int64 ZwTraceControl()
+NTSTATUS __cdecl ZwTraceControl(
+        ETWTRACECONTROLCODE TraceControlCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 443LL;
+  result = 443;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

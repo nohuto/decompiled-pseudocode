@@ -1,17 +1,17 @@
 /*
- * XREFs of MiApplyRetpolineToBootDrivers @ 0x1409B88C4
+ * XREFs of MiApplyRetpolineToBootDrivers @ 0x1409B98C4
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlIsImageFullyRetpolined @ 0x1401B5FD8 (RtlIsImageFullyRetpolined.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F70A4 (RtlPerformRetpolineRelocationsOnImageEx.c)
- *     MiMapRetpolineStubs @ 0x140853C7C (MiMapRetpolineStubs.c)
- *     MiMarkRetpolineBits @ 0x140853D50 (MiMarkRetpolineBits.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlIsImageFullyRetpolined @ 0x1401B6140 (RtlIsImageFullyRetpolined.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F7294 (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     MiMapRetpolineStubs @ 0x140854EDC (MiMapRetpolineStubs.c)
+ *     MiMarkRetpolineBits @ 0x140854FB0 (MiMarkRetpolineBits.c)
  */
 
 __int64 __fastcall MiApplyRetpolineToBootDrivers(__int64 a1)
@@ -39,7 +39,7 @@ __int64 __fastcall MiApplyRetpolineToBootDrivers(__int64 a1)
         v4 = *(PVOID *)(v3 + 48);
         v5 = ((unsigned __int64)*(unsigned int *)(v3 + 64) + 4095) >> 12;
         v6 = RtlImageNtHeader(v4);
-        if ( v4 != (PVOID)PsNtosImageBase
+        if ( v4 != PsNtosImageBase
           && v4 != PsHalImageBase
           && (v6->FileHeader.Characteristics & 1) == 0
           && v6->OptionalHeader.NumberOfRvaAndSizes > 5 )
@@ -60,7 +60,7 @@ __int64 __fastcall MiApplyRetpolineToBootDrivers(__int64 a1)
                      (__int64)v4,
                      *(_DWORD *)(v3 + 64),
                      v7,
-                     (__int64)qword_140438E50,
+                     (__int64)qword_140439F10,
                      1,
                      0,
                      0);

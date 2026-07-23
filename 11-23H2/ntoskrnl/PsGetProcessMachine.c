@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetProcessMachine @ 0x1406B6990
+ * XREFs of PsGetProcessMachine @ 0x1406B6B40
  * Callers:
- *     PspSelectMachineForProcess @ 0x1406B7B58 (PspSelectMachineForProcess.c)
+ *     PspSelectMachineForProcess @ 0x1406B7B88 (PspSelectMachineForProcess.c)
  * Callees:
  *     <none>
  */

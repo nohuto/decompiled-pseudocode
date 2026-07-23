@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetpSearchForApiSetA @ 0x180135514
+ * XREFs of ApiSetpSearchForApiSetA @ 0x180133744
  * Callers:
- *     ApiSetQuerySchemaInfo2 @ 0x180135140 (ApiSetQuerySchemaInfo2.c)
+ *     ApiSetQuerySchemaInfo2 @ 0x180133370 (ApiSetQuerySchemaInfo2.c)
  * Callees:
  *     <none>
  */

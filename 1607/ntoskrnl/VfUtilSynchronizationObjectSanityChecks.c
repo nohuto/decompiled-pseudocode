@@ -1,5 +1,5 @@
 /*
- * XREFs of VfUtilSynchronizationObjectSanityChecks @ 0x140703048
+ * XREFs of VfUtilSynchronizationObjectSanityChecks @ 0x140703078
  * Callers:
  *     VerifierKeInitializeEvent @ 0x140711F90 (VerifierKeInitializeEvent.c)
  *     VerifierKeInitializeSemaphore @ 0x140712054 (VerifierKeInitializeSemaphore.c)
@@ -12,10 +12,10 @@
  *     VerifierExInitializePagedLookasideList @ 0x14071749C (VerifierExInitializePagedLookasideList.c)
  *     VerifierExInitializeResourceLite @ 0x140717FE8 (VerifierExInitializeResourceLite.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     MmIsNonPagedSystemAddressValid @ 0x1401E6950 (MmIsNonPagedSystemAddressValid.c)
- *     VfUtilCheckKernelAddress @ 0x140702C44 (VfUtilCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1401E677C (MmIsNonPagedSystemAddressValid.c)
+ *     VfUtilCheckKernelAddress @ 0x140702C74 (VfUtilCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 BOOLEAN __fastcall VfUtilSynchronizationObjectSanityChecks(void *a1, __int64 a2)

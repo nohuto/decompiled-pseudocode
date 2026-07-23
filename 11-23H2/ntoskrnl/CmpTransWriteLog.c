@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpTransWriteLog @ 0x140708070
+ * XREFs of CmpTransWriteLog @ 0x140708280
  * Callers:
  *     CmLogTmRmAction @ 0x14069824C (CmLogTmRmAction.c)
- *     CmAddLogForAction @ 0x140707948 (CmAddLogForAction.c)
+ *     CmAddLogForAction @ 0x140707B58 (CmAddLogForAction.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     CmpLogCheckpoint @ 0x1406989A4 (CmpLogCheckpoint.c)
- *     CmpDoTransWriteLogRecord @ 0x14070816C (CmpDoTransWriteLogRecord.c)
- *     CmpComputeLogFillLevel @ 0x14070820C (CmpComputeLogFillLevel.c)
- *     CmpAddRemoveRMLogContainer @ 0x140A1E850 (CmpAddRemoveRMLogContainer.c)
+ *     CmpDoTransWriteLogRecord @ 0x14070837C (CmpDoTransWriteLogRecord.c)
+ *     CmpComputeLogFillLevel @ 0x14070841C (CmpComputeLogFillLevel.c)
+ *     CmpAddRemoveRMLogContainer @ 0x140A1EB00 (CmpAddRemoveRMLogContainer.c)
  */
 
 __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, int a4, PCLFS_LSN plsnFinish)
@@ -67,7 +67,7 @@ __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, int
 LABEL_11:
       v19 = ++v10;
       v16 = CmpAddRemoveRMLogContainer(a1);
-      if ( (unsigned int)dword_140C043C8 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 1LL) )
+      if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
       {
         v26 = 0;
         v29 = 0;
@@ -78,8 +78,8 @@ LABEL_11:
         v28 = v15 + 3;
         v20 = v16;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C043C8,
-          (unsigned __int8 *)qword_140037BB0,
+          (__int64)&dword_140C04390,
+          (unsigned __int8 *)byte_140037C65,
           0LL,
           0LL,
           v15 + 3,
@@ -109,9 +109,9 @@ LABEL_11:
     && v19 >= 0x50 )
   {
     CmpAddRemoveRMLogContainer(a1);
-    if ( (unsigned int)dword_140C043C8 > 5 )
+    if ( (unsigned int)dword_140C04390 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C043C8, 1LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
       {
         v33 = 0;
         v36 = 0;
@@ -122,8 +122,8 @@ LABEL_11:
         v35 = v17 + 3;
         v21 = 2;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C043C8,
-          (unsigned __int8 *)byte_140037B7D,
+          (__int64)&dword_140C04390,
+          (unsigned __int8 *)qword_140037C98,
           0LL,
           0LL,
           v17 + 3,

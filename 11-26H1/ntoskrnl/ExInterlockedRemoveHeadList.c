@@ -1,20 +1,20 @@
 /*
- * XREFs of ExInterlockedRemoveHeadList @ 0x14045D770
+ * XREFs of ExInterlockedRemoveHeadList @ 0x140457310
  * Callers:
- *     PopFxProcessWorkPool @ 0x140396268 (PopFxProcessWorkPool.c)
- *     WheapWorkQueueWorkerRoutine @ 0x14045D720 (WheapWorkQueueWorkerRoutine.c)
- *     KiAltReturnWorkerRoutine @ 0x1405FCD20 (KiAltReturnWorkerRoutine.c)
- *     WmipEventNotification @ 0x140A0D110 (WmipEventNotification.c)
+ *     PopFxProcessWorkPool @ 0x140397FE8 (PopFxProcessWorkPool.c)
+ *     WheapWorkQueueWorkerRoutine @ 0x1404572C0 (WheapWorkQueueWorkerRoutine.c)
+ *     KiAltReturnWorkerRoutine @ 0x1405FF770 (KiAltReturnWorkerRoutine.c)
+ *     WmipEventNotification @ 0x140A0CB60 (WmipEventNotification.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
-  struct _LIST_ENTRY *v2; // rsi
+  _LIST_ENTRY *v2; // rsi
   unsigned int v4; // ebp
   __int64 v6; // r9
   bool v7; // r14

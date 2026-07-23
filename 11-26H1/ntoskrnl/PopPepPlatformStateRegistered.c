@@ -1,31 +1,31 @@
 /*
- * XREFs of PopPepPlatformStateRegistered @ 0x140611864
+ * XREFs of PopPepPlatformStateRegistered @ 0x1406146A4
  * Callers:
- *     PopFxEnablePlatformStates @ 0x140604EB4 (PopFxEnablePlatformStates.c)
+ *     PopFxEnablePlatformStates @ 0x1406079B4 (PopFxEnablePlatformStates.c)
  * Callees:
- *     PopFxTryReferenceDevice @ 0x140218E68 (PopFxTryReferenceDevice.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     PopPepUpdateIdleStateRefCount @ 0x1403B2278 (PopPepUpdateIdleStateRefCount.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     PoFxIdleDevice @ 0x1404B2604 (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x1404D5290 (PopFxActivateDevice.c)
- *     PopPepInitializeVetoMasks @ 0x1404E1A2C (PopPepInitializeVetoMasks.c)
- *     PopPepInitializeDebuggerMasks @ 0x140611620 (PopPepInitializeDebuggerMasks.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     PopPepInitializeConstraintOverrides @ 0x1407E1CF4 (PopPepInitializeConstraintOverrides.c)
+ *     PopFxTryReferenceDevice @ 0x14021B7B8 (PopFxTryReferenceDevice.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403BBF88 (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     PoFxIdleDevice @ 0x1404ABB10 (PoFxIdleDevice.c)
+ *     PopFxActivateDevice @ 0x1404CEB00 (PopFxActivateDevice.c)
+ *     PopPepInitializeVetoMasks @ 0x1404DB10C (PopPepInitializeVetoMasks.c)
+ *     PopPepInitializeDebuggerMasks @ 0x140614460 (PopPepInitializeDebuggerMasks.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     PopPepInitializeConstraintOverrides @ 0x1407E6D84 (PopPepInitializeConstraintOverrides.c)
  */
 
-__int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+int __fastcall PopPepPlatformStateRegistered(unsigned int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   __int64 v4; // rbp
-  __int64 result; // rax
+  signed __int64 v5; // rax
   struct _KTHREAD *CurrentThread; // rax
   volatile unsigned __int8 *v7; // rdx
   _BYTE *v8; // rbx
@@ -38,21 +38,26 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1, __int64 a2, __
   struct _KLOCK_ENTRIES *v15; // r9
   volatile unsigned __int8 *v16; // rdx
   _BYTE *v17; // rdi
-  char v18; // [rsp+78h] [rbp+10h] BYREF
+  char Buffer; // [rsp+78h] [rbp+10h] BYREF
 
   v4 = a1;
-  result = _InterlockedCompareExchange64(&PopPepPlatformState, PpmPlatformStates + 64, 0LL);
-  if ( !result )
+  v5 = _InterlockedCompareExchange64(&PopPepPlatformState, PpmPlatformStates + 64, 0LL);
+  if ( !v5 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v8 = (_BYTE *)KeAbPreAcquire((__int64)&qword_140F0AFD0, 0LL, 0LL, a4);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F0AFD0, 17LL, 0LL) )
+    v8 = (_BYTE *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock.PriorityFloorSummary, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64(
+           (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+           17LL,
+           0LL) )
+    {
       ExfAcquirePushLockSharedEx(
-        (signed __int64 *)&qword_140F0AFD0.Header.Lock,
+        (signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
         0,
         (LegacyAutoBoost *)v8,
-        &qword_140F0AFD0);
+        (struct _KTHREAD *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+    }
     if ( v8 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -78,8 +83,8 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1, __int64 a2, __
       }
       while ( v10 );
     }
-    for ( i = PopDirectedDripsUmLock.Padding[3];
-          (unsigned __int64 *)i != &PopDirectedDripsUmLock.Padding[3];
+    for ( i = *(_QWORD *)&PopDirectedDripsDiagLock.ForegroundLossTime;
+          (unsigned int *)i != &PopDirectedDripsDiagLock.ForegroundLossTime;
           i = *(_QWORD *)i )
     {
       v12 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(i + 64));
@@ -92,19 +97,27 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1, __int64 a2, __
         {
           if ( (int)PopFxTryReferenceDevice(*(_QWORD *)(i + 32), 2) >= 0 )
           {
-            if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F0AFD0, 0LL, 17LL) != 17 )
-              ExfReleasePushLockShared((signed __int64 *)&qword_140F0AFD0.Header.Lock);
-            KeAbPostRelease((unsigned __int64)&qword_140F0AFD0);
+            if ( _InterlockedCompareExchange64(
+                   (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+                   0LL,
+                   17LL) != 17 )
+              ExfReleasePushLockShared((signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+            KeAbPostRelease((unsigned __int64)&PopDirectedDripsDiagLock.PriorityFloorSummary);
             PopFxActivateDevice(*(_QWORD *)(*(_QWORD *)(v14 + 48) + 32LL), 0, 0);
             PopPepInitializeVetoMasks(i, v4);
             PoFxIdleDevice(*(_QWORD *)(*(_QWORD *)(v14 + 48) + 32LL));
-            v17 = (_BYTE *)KeAbPreAcquire((__int64)&qword_140F0AFD0, 0LL, 0LL, v15);
-            if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F0AFD0, 17LL, 0LL) )
+            v17 = (_BYTE *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock.PriorityFloorSummary, 0LL, 0LL, v15);
+            if ( _InterlockedCompareExchange64(
+                   (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+                   17LL,
+                   0LL) )
+            {
               ExfAcquirePushLockSharedEx(
-                (signed __int64 *)&qword_140F0AFD0.Header.Lock,
+                (signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
                 0,
                 (LegacyAutoBoost *)v17,
-                &qword_140F0AFD0);
+                (struct _KTHREAD *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+            }
             if ( v17 )
             {
               if ( (KiAbpGlobalState & 1) != 0 )
@@ -126,13 +139,16 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1, __int64 a2, __
         }
       }
     }
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F0AFD0, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&qword_140F0AFD0.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&qword_140F0AFD0);
+    if ( _InterlockedCompareExchange64(
+           (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+           0LL,
+           17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+    KeAbPostRelease((unsigned __int64)&PopDirectedDripsDiagLock.PriorityFloorSummary);
     KeLeaveCriticalRegion();
     PopPepUpdateIdleStateRefCount((1 << v4) - 1, 0, 0, 0LL, 0xFFFFFFFF);
-    v18 = 1;
-    return ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, &v18, 1LL, 0LL, 0LL, 0, 0);
+    Buffer = 1;
+    LODWORD(v5) = ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, &Buffer, 1u, 0LL, 0LL, 0, 0);
   }
-  return result;
+  return v5;
 }

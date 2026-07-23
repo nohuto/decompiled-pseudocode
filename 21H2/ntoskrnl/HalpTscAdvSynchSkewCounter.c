@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTscAdvSynchSkewCounter @ 0x1404C1114
+ * XREFs of HalpTscAdvSynchSkewCounter @ 0x1404C1354
  * Callers:
- *     HalpTscAdvSynchTarget @ 0x14039D1EC (HalpTscAdvSynchTarget.c)
- *     HalpTscAdvSynchToTarget @ 0x1404C1368 (HalpTscAdvSynchToTarget.c)
+ *     HalpTscAdvSynchTarget @ 0x14039D33C (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchToTarget @ 0x1404C15A8 (HalpTscAdvSynchToTarget.c)
  * Callees:
- *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
+ *     HalpProcessorFence @ 0x1403F9EA0 (HalpProcessorFence.c)
  */
 
 unsigned __int64 __fastcall HalpTscAdvSynchSkewCounter(__int64 a1)

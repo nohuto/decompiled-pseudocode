@@ -21,8 +21,8 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
   _WORD *InputBuffer; // rdi
   int v10; // [rsp+50h] [rbp-19h] BYREF
   const wchar_t *v11; // [rsp+58h] [rbp-11h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-9h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
   NTSTATUS OutputBuffer; // [rsp+E0h] [rbp+77h] BYREF
   HANDLE FileHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
@@ -44,7 +44,7 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
   else
   {
     InputBufferLength = *(unsigned __int16 *)a2 + 10;
-    Heap = (_WORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, InputBufferLength);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, InputBufferLength);
     InputBuffer = Heap;
     if ( Heap )
     {
@@ -69,7 +69,7 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
              4u);
       if ( v5 >= 0 )
         v5 = OutputBuffer;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)InputBuffer);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, InputBuffer);
     }
     else
     {

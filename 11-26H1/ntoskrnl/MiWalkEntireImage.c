@@ -1,20 +1,20 @@
 /*
- * XREFs of MiWalkEntireImage @ 0x140AC8434
+ * XREFs of MiWalkEntireImage @ 0x140ACA024
  * Callers:
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiMakeRestOfImageHot @ 0x14087B2B4 (MiMakeRestOfImageHot.c)
- *     MiRelocateFinish @ 0x1409CB614 (MiRelocateFinish.c)
- *     MiValidateSectionNewSecurity @ 0x140AC8074 (MiValidateSectionNewSecurity.c)
- *     MiFreeRetpolineImportInfo @ 0x140AC817C (MiFreeRetpolineImportInfo.c)
- *     MiSwitchBaseAddress @ 0x140AC82D0 (MiSwitchBaseAddress.c)
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3C35C (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiMakeRestOfImageHot @ 0x1408816B4 (MiMakeRestOfImageHot.c)
+ *     MiRelocateFinish @ 0x14099C5F4 (MiRelocateFinish.c)
+ *     MiValidateSectionNewSecurity @ 0x140AC9C64 (MiValidateSectionNewSecurity.c)
+ *     MiFreeRetpolineImportInfo @ 0x140AC9D6C (MiFreeRetpolineImportInfo.c)
+ *     MiSwitchBaseAddress @ 0x140AC9EC0 (MiSwitchBaseAddress.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3E5DC (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
- *     MiGetControlAreaPartition @ 0x140457F60 (MiGetControlAreaPartition.c)
- *     MiDecayPfnFullyInitialized @ 0x140498358 (MiDecayPfnFullyInitialized.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiGetImageSubsectionBounds @ 0x140AB8908 (MiGetImageSubsectionBounds.c)
- *     MiGetSectionStrongImageReference @ 0x140B4D7C0 (MiGetSectionStrongImageReference.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
+ *     MiGetControlAreaPartition @ 0x14044F7D0 (MiGetControlAreaPartition.c)
+ *     MiDecayPfnFullyInitialized @ 0x140491EA8 (MiDecayPfnFullyInitialized.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiGetImageSubsectionBounds @ 0x140AB9F48 (MiGetImageSubsectionBounds.c)
+ *     MiGetSectionStrongImageReference @ 0x140B4F550 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MiWalkEntireImage(__int64 a1)
@@ -45,7 +45,7 @@ __int64 __fastcall MiWalkEntireImage(__int64 a1)
     || *(_QWORD *)(v3 + 64)
     || (result = MiGetSectionStrongImageReference(*(_QWORD *)(v2 + 96) & 0xFFFFFFFFFFFFFFF8uLL), (int)result >= 0) )
   {
-    if ( (stru_140E36558.WaitRegister.Flags & 1) != 0 )
+    if ( (stru_140E366D8.WaitRegister.Flags & 1) != 0 )
       v11 |= 0x10u;
     ControlAreaPartition = MiGetControlAreaPartition(v2);
     if ( (*(_DWORD *)(a1 + 24) & 1) == 0 && (*(_DWORD *)(v2 + 56) & 0x800) != 0 )

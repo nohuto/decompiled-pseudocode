@@ -1,11 +1,11 @@
 /*
  * XREFs of MiLogProcessWorkingSetsStop @ 0x140012974
  * Callers:
- *     MiProcessWorkingSets @ 0x14006CED0 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x14006CEC0 (MiProcessWorkingSets.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void MiLogProcessWorkingSetsStop()
@@ -39,7 +39,7 @@ void MiLogProcessWorkingSetsStop()
       v10 = 8LL;
       v12 = 8LL;
       v14 = 8LL;
-      TlgWriteEx(v1, &unk_14036E0DF, v0, (ULONG)v1, v3, v4, 5u, &pData);
+      TlgWriteEx(v1, &unk_14036F06F, v0, (ULONG)v1, v3, v4, 5u, &pData);
     }
   }
 }

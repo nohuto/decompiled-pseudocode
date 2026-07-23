@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlUpcaseUnicodeString @ 0x140514D50
+ * XREFs of RtlUpcaseUnicodeString @ 0x1404F8140
  * Callers:
- *     RtlDeriveCapabilitySidsFromName @ 0x140136740 (RtlDeriveCapabilitySidsFromName.c)
- *     PfCalculateProcessHash @ 0x1403E67F0 (PfCalculateProcessHash.c)
- *     SdbMakeIndexKeyFromStringEx @ 0x140484E1C (SdbMakeIndexKeyFromStringEx.c)
- *     AslStringUpcaseToMultiByteN @ 0x1404851EC (AslStringUpcaseToMultiByteN.c)
- *     PfSnLogVolumeCreate @ 0x1404DCF20 (PfSnLogVolumeCreate.c)
- *     PiCMOpenClassKey @ 0x1404E6B44 (PiCMOpenClassKey.c)
- *     PfSnLogStreamCreate @ 0x140514BF4 (PfSnLogStreamCreate.c)
- *     IoReportDetectedDevice @ 0x140554CFC (IoReportDetectedDevice.c)
- *     PipMakeGloballyUniqueId @ 0x14056F5C4 (PipMakeGloballyUniqueId.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x140640250 (PiDevCfgResolveVariableGenerateGuid.c)
- *     PiCMGenerateDeviceInstance @ 0x1406477EC (PiCMGenerateDeviceInstance.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x140136CB0 (RtlDeriveCapabilitySidsFromName.c)
+ *     PfCalculateProcessHash @ 0x1403E7E20 (PfCalculateProcessHash.c)
+ *     PfSnLogVolumeCreate @ 0x1404C0524 (PfSnLogVolumeCreate.c)
+ *     PiCMOpenClassKey @ 0x1404C94B4 (PiCMOpenClassKey.c)
+ *     PfSnLogStreamCreate @ 0x1404F7FE4 (PfSnLogStreamCreate.c)
+ *     SdbMakeIndexKeyFromStringEx @ 0x1405141A4 (SdbMakeIndexKeyFromStringEx.c)
+ *     AslStringUpcaseToMultiByteN @ 0x140514574 (AslStringUpcaseToMultiByteN.c)
+ *     IoReportDetectedDevice @ 0x14055523C (IoReportDetectedDevice.c)
+ *     PipMakeGloballyUniqueId @ 0x14056FB04 (PipMakeGloballyUniqueId.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x140640334 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     PiCMGenerateDeviceInstance @ 0x1406478D0 (PiCMGenerateDeviceInstance.c)
  *     ViCreateProcessCallbackInternal @ 0x140711044 (ViCreateProcessCallbackInternal.c)
  *     ViFaultsAddAppNoDuplicates @ 0x140711268 (ViFaultsAddAppNoDuplicates.c)
  *     PipInitComputerIds @ 0x140799740 (PipInitComputerIds.c)
  * Callees:
  *     ExFreePool @ 0x140255B30 (ExFreePool.c)
- *     ExpAllocateStringRoutine @ 0x1403F80BC (ExpAllocateStringRoutine.c)
+ *     ExpAllocateStringRoutine @ 0x1403F6F7C (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeString(

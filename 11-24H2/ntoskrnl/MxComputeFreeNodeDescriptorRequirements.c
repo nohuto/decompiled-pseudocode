@@ -1,12 +1,12 @@
 /*
- * XREFs of MxComputeFreeNodeDescriptorRequirements @ 0x140C521F8
+ * XREFs of MxComputeFreeNodeDescriptorRequirements @ 0x140C54388
  * Callers:
- *     MiInitializeLoaderDescriptors @ 0x140C51834 (MiInitializeLoaderDescriptors.c)
+ *     MiInitializeLoaderDescriptors @ 0x140C539C4 (MiInitializeLoaderDescriptors.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x140401E10 (MiRestrictRangeToNode.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MxComputePfnPagesNeeded @ 0x140C523C0 (MxComputePfnPagesNeeded.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x1403FC38C (MiRestrictRangeToNode.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MxComputePfnPagesNeeded @ 0x140C54550 (MxComputePfnPagesNeeded.c)
  */
 
 __int64 __fastcall MxComputeFreeNodeDescriptorRequirements(__int64 a1, void *a2)

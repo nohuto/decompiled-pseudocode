@@ -20,7 +20,7 @@
 
 __int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, char a2, int a3)
 {
-  unsigned int v5; // esi
+  unsigned __int32 v5; // esi
   int v6; // r8d
   int v7; // r9d
 

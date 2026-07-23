@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     CmpDoQueryKeyName @ 0x140208F88 (CmpDoQueryKeyName.c)
- *     CmpFatalFilter @ 0x140A172E0 (CmpFatalFilter.c)
+ *     CmpFatalFilter @ 0x140A17590 (CmpFatalFilter.c)
  */
 
 __int64 __fastcall CmpQueryKeyName(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)

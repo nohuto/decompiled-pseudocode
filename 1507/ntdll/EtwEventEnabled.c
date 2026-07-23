@@ -7,40 +7,40 @@
  *     <none>
  */
 
-char __fastcall EtwEventEnabled(unsigned __int64 a1, __int64 a2)
+BOOLEAN __cdecl EtwEventEnabled(REGHANDLE RegHandle, PCEVENT_DESCRIPTOR EventDescriptor)
 {
-  unsigned __int64 v3; // rax
-  char v4; // r9
-  __int64 v5; // rcx
-  __int64 v6; // rdx
+  REGHANDLE v3; // rax
+  BOOLEAN v4; // r9
+  REGHANDLE v5; // rcx
+  unsigned __int64 Keyword; // rdx
   unsigned __int8 v8; // al
   unsigned __int8 v9; // al
 
-  if ( !a2 )
+  if ( !EventDescriptor )
     return 0;
-  v3 = HIWORD(a1);
-  if ( !HIWORD(a1) )
+  v3 = HIWORD(RegHandle);
+  if ( !HIWORD(RegHandle) )
     return 0;
   v4 = 1;
-  v5 = a1 & 0xFFFFFFFFFFFFLL;
+  v5 = RegHandle & 0xFFFFFFFFFFFFLL;
   if ( (v5 & 1) != 0 || (_WORD)v3 != *(_WORD *)(v5 + 96) )
     return 0;
-  v6 = *(_QWORD *)(a2 + 8);
+  Keyword = EventDescriptor->Keyword;
   if ( !*(_BYTE *)(v5 + 124)
-    || (v8 = *(_BYTE *)(v5 + 125), *(_BYTE *)(a2 + 4) > v8) && v8
-    || ((*(_BYTE *)(v5 + 120) & 0x40) == 0 || v6)
-    && ((v6 & *(_QWORD *)(v5 + 112)) == 0 || (v6 & *(_QWORD *)(v5 + 104)) != *(_QWORD *)(v5 + 104)) )
+    || (v8 = *(_BYTE *)(v5 + 125), EventDescriptor->Level > v8) && v8
+    || ((*(_BYTE *)(v5 + 120) & 0x40) == 0 || Keyword)
+    && ((Keyword & *(_QWORD *)(v5 + 112)) == 0 || (Keyword & *(_QWORD *)(v5 + 104)) != *(_QWORD *)(v5 + 104)) )
   {
     if ( !*(_BYTE *)(v5 + 244) )
       return 0;
     v9 = *(_BYTE *)(v5 + 245);
-    if ( *(_BYTE *)(a2 + 4) > v9 )
+    if ( EventDescriptor->Level > v9 )
     {
       if ( v9 )
         return 0;
     }
-    if ( ((*(_BYTE *)(v5 + 240) & 0x40) == 0 || v6)
-      && ((v6 & *(_QWORD *)(v5 + 232)) == 0 || (v6 & *(_QWORD *)(v5 + 224)) != *(_QWORD *)(v5 + 224)) )
+    if ( ((*(_BYTE *)(v5 + 240) & 0x40) == 0 || Keyword)
+      && ((Keyword & *(_QWORD *)(v5 + 232)) == 0 || (Keyword & *(_QWORD *)(v5 + 224)) != *(_QWORD *)(v5 + 224)) )
     {
       return 0;
     }

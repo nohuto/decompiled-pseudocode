@@ -1,9 +1,9 @@
 /*
- * XREFs of IovpBuildDriverObjectList @ 0x140AC18F8
+ * XREFs of IovpBuildDriverObjectList @ 0x140AC18E8
  * Callers:
- *     ObEnumerateObjectsByType @ 0x14097B854 (ObEnumerateObjectsByType.c)
+ *     ObEnumerateObjectsByType @ 0x14097BA54 (ObEnumerateObjectsByType.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x140337710 (ObReferenceObjectSafe.c)
+ *     ObReferenceObjectSafe @ 0x1403379A0 (ObReferenceObjectSafe.c)
  *     PnpIsLegacyDriver @ 0x14068F830 (PnpIsLegacyDriver.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpQueryDiskSpacePolicy @ 0x180086C84
+ * XREFs of RtlpQueryDiskSpacePolicy @ 0x180086C74
  * Callers:
- *     RtlQueryResourcePolicy @ 0x180029F60 (RtlQueryResourcePolicy.c)
+ *     RtlQueryResourcePolicy @ 0x180029F50 (RtlQueryResourcePolicy.c)
  * Callees:
- *     RtlpQueryDiskSpacePolicyByHandle @ 0x180086DE0 (RtlpQueryDiskSpacePolicyByHandle.c)
- *     StringCbPrintfW @ 0x180086E90 (StringCbPrintfW.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpQueryDiskSpacePolicyByHandle @ 0x180086DD0 (RtlpQueryDiskSpacePolicyByHandle.c)
+ *     StringCbPrintfW @ 0x180086E80 (StringCbPrintfW.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     ZwCreateFile @ 0x1800A6EC0 (ZwCreateFile.c)
  */
@@ -14,19 +14,15 @@ __int64 __fastcall RtlpQueryDiskSpacePolicy(__int64 a1, _DWORD *a2)
 {
   __int64 v3; // rax
   wchar_t *v4; // rcx
-  int DiskSpacePolicyByHandle; // ebx
-  HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
+  NTSTATUS DiskSpacePolicyByHandle; // ebx
+  HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
   int v8; // [rsp+68h] [rbp-98h] BYREF
   wchar_t *v9; // [rsp+70h] [rbp-90h]
-  int v10; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v11; // [rsp+80h] [rbp-80h]
-  int *v12; // [rsp+88h] [rbp-78h]
-  int v13; // [rsp+90h] [rbp-70h]
-  __int128 v14; // [rsp+98h] [rbp-68h]
-  _BYTE v15[24]; // [rsp+A8h] [rbp-58h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-58h] BYREF
   wchar_t pszDest[264]; // [rsp+C0h] [rbp-40h] BYREF
 
-  Handle = 0LL;
+  FileHandle = 0LL;
   if ( BYTE2(RtlpUserPolicies) )
   {
     DiskSpacePolicyByHandle = 0;
@@ -53,20 +49,31 @@ __int64 __fastcall RtlpQueryDiskSpacePolicy(__int64 a1, _DWORD *a2)
       HIWORD(v8) = v8 + 2;
       v9 = pszDest;
     }
-    v10 = 48;
-    v11 = 0LL;
-    v13 = 64;
-    v12 = &v8;
-    v14 = 0LL;
-    DiskSpacePolicyByHandle = ZwCreateFile(&Handle, 1048704LL, &v10, v15, 0LL, 0, 7, 1, 32, 0LL, 0);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v8;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    DiskSpacePolicyByHandle = ZwCreateFile(
+                                &FileHandle,
+                                0x100080u,
+                                &ObjectAttributes,
+                                &IoStatusBlock,
+                                0LL,
+                                0,
+                                7u,
+                                1u,
+                                0x20u,
+                                0LL,
+                                0);
     if ( DiskSpacePolicyByHandle >= 0 )
     {
-      DiskSpacePolicyByHandle = RtlpQueryDiskSpacePolicyByHandle(Handle, a2);
+      DiskSpacePolicyByHandle = RtlpQueryDiskSpacePolicyByHandle(FileHandle, a2);
       if ( DiskSpacePolicyByHandle >= 0 )
         DiskSpacePolicyByHandle = 0;
     }
-    if ( Handle )
-      NtClose(Handle);
+    if ( FileHandle )
+      NtClose(FileHandle);
   }
   return (unsigned int)DiskSpacePolicyByHandle;
 }

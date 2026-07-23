@@ -1,15 +1,15 @@
 /*
- * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x140914F6C
+ * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x14096F9D8
  * Callers:
- *     PipCallDriverAddDevice @ 0x1409156CC (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x140970138 (PipCallDriverAddDevice.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140486620 (RtlGetDaclSecurityDescriptor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObSetSecurityObjectByPointer @ 0x1408EC3B0 (ObSetSecurityObjectByPointer.c)
- *     PipGetRegistryDwordWithFallback @ 0x1409152F8 (PipGetRegistryDwordWithFallback.c)
- *     PipGetRegistrySecurityWithFallback @ 0x1409153D4 (PipGetRegistrySecurityWithFallback.c)
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1409FEA80 (IopCreateDefaultDeviceSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x14047FDF0 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObSetSecurityObjectByPointer @ 0x1408F2970 (ObSetSecurityObjectByPointer.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14091B880 (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     PipGetRegistryDwordWithFallback @ 0x14096FD64 (PipGetRegistryDwordWithFallback.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14096FE40 (PipGetRegistrySecurityWithFallback.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, int a2, ACL *a3, __int64 a4, char a5)
@@ -29,7 +29,7 @@ __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, int a
   int v19; // r15d
   __int64 v20; // rcx
   __int64 v21; // rdx
-  unsigned int v22; // r15d
+  int v22; // r15d
   _WORD *RegistrySecurityWithFallback; // rax
   unsigned int v24; // r12d
   void *v25; // rdi
@@ -137,7 +137,7 @@ LABEL_31:
   {
     v43 = 0LL;
     memset(v42, 0, sizeof(v42));
-    v25 = (void *)IopCreateDefaultDeviceSecurityDescriptor(v37, v22, 0LL, v42, &P, &v38, &v34);
+    v25 = IopCreateDefaultDeviceSecurityDescriptor(v37, v22, 0, v42, (ACL **)&P, (__int64)&v38, &v34);
     if ( !v25 )
     {
       v11 = v38;

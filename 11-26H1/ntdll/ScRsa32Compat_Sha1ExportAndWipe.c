@@ -1,9 +1,9 @@
 /*
- * XREFs of ScRsa32Compat_Sha1ExportAndWipe @ 0x180158B08
+ * XREFs of ScRsa32Compat_Sha1ExportAndWipe @ 0x1801589D8
  * Callers:
- *     RtlpA_SHAInit @ 0x18013B440 (RtlpA_SHAInit.c)
- *     RtlpA_SHAUpdate @ 0x18013B4C0 (RtlpA_SHAUpdate.c)
- *     A_SHAFinal @ 0x1801587A8 (A_SHAFinal.c)
+ *     RtlpA_SHAInit @ 0x18013B1B0 (RtlpA_SHAInit.c)
+ *     RtlpA_SHAUpdate @ 0x18013B230 (RtlpA_SHAUpdate.c)
+ *     A_SHAFinal @ 0x180158678 (A_SHAFinal.c)
  * Callees:
  *     <none>
  */

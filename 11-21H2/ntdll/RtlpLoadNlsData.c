@@ -11,26 +11,26 @@
  *     RtlGetLocaleFileMappingAddress @ 0x180083E50 (RtlGetLocaleFileMappingAddress.c)
  */
 
-char RtlpLoadNlsData()
+char __fastcall RtlpLoadNlsData(__int64 a1, __int64 a2, __int64 a3, ULONG *a4)
 {
-  unsigned int *v0; // rdx
-  char *v1; // rcx
-  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int *v4; // rdx
+  char *v5; // rcx
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
 
   if ( pTblPtrs )
     return 1;
-  if ( (int)RtlGetLocaleFileMappingAddress(&v3, &gSystemLocale, 0LL) >= 0 )
+  if ( RtlGetLocaleFileMappingAddress(&BaseAddress, &gSystemLocale, 0LL, a4) >= 0 )
   {
-    v0 = (unsigned int *)(v3 + *(unsigned int *)(v3 + 16));
-    v1 = (char *)v0 + *v0;
-    gLocaleTables = *((_WORD *)v1 + 12);
-    word_18017AA7C = *((_WORD *)v1 + 11);
-    word_18017AA7A = *((_WORD *)v1 + 16);
-    word_18017AAA8 = *((_WORD *)v1 + 13);
-    qword_18017AA80 = (__int64)v0 + *((unsigned int *)v1 + 7);
-    qword_18017AA88 = (__int64)v0 + *((unsigned int *)v1 + 9);
-    qword_18017AA90 = (__int64)v0 + *((unsigned int *)v1 + 10);
-    qword_18017AA98 = (__int64)v0 + *((unsigned int *)v1 + 14);
+    v4 = (unsigned int *)((char *)BaseAddress + *((unsigned int *)BaseAddress + 4));
+    v5 = (char *)v4 + *v4;
+    gLocaleTables = *((_WORD *)v5 + 12);
+    word_18017AA7C = *((_WORD *)v5 + 11);
+    word_18017AA7A = *((_WORD *)v5 + 16);
+    word_18017AAA8 = *((_WORD *)v5 + 13);
+    qword_18017AA80 = (__int64)v4 + *((unsigned int *)v5 + 7);
+    qword_18017AA88 = (__int64)v4 + *((unsigned int *)v5 + 9);
+    qword_18017AA90 = (__int64)v4 + *((unsigned int *)v5 + 10);
+    qword_18017AA98 = (__int64)v4 + *((unsigned int *)v5 + 14);
     pTblPtrs = (__int64)&gLocaleTables;
     return 1;
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpFlushPasidAddressSpace @ 0x1404973D0
+ * XREFs of HvlpFlushPasidAddressSpace @ 0x140491D60
  * Callers:
- *     HvlFlushPasid @ 0x1404972A0 (HvlFlushPasid.c)
- *     HvlpSlowFlushPasidAddressList @ 0x140588C54 (HvlpSlowFlushPasidAddressList.c)
+ *     HvlFlushPasid @ 0x140491C30 (HvlFlushPasid.c)
+ *     HvlpSlowFlushPasidAddressList @ 0x140585F34 (HvlpSlowFlushPasidAddressList.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403AF3C0 (HvcallFastExtended.c)
+ *     HvcallFastExtended @ 0x14039DBD0 (HvcallFastExtended.c)
  */
 
 __int64 __fastcall HvlpFlushPasidAddressSpace(int a1, int a2)

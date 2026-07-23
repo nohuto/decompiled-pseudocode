@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmGetRegKeySecurityDescriptor @ 0x140B09878
+ * XREFs of _CmGetRegKeySecurityDescriptor @ 0x140B0B638
  * Callers:
- *     _CmGetDeviceRegKeySecurityDescriptor @ 0x140B097C0 (_CmGetDeviceRegKeySecurityDescriptor.c)
- *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140B23E1C (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
+ *     _CmGetDeviceRegKeySecurityDescriptor @ 0x140B0B580 (_CmGetDeviceRegKeySecurityDescriptor.c)
+ *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140B2621C (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14047F970 (RtlSubAuthoritySid.c)
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlMakeSelfRelativeSD @ 0x140A623DC (RtlMakeSelfRelativeSD.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x1404792E0 (RtlSubAuthoritySid.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlMakeSelfRelativeSD @ 0x140A6F3AC (RtlMakeSelfRelativeSD.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, char **a2)
+__int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
 {
   _DWORD *v4; // r14
   ULONG v5; // ebx
@@ -26,9 +26,9 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, char **a2)
   ACL *Pool2; // rax
   char *v9; // rsi
   int Acl; // ebx
-  char *v11; // rax
-  char *v12; // rdi
-  ULONG v14; // [rsp+38h] [rbp-39h] BYREF
+  void *v11; // rax
+  void *v12; // rdi
+  ULONG BufferLength; // [rsp+38h] [rbp-39h] BYREF
   char SecurityDescriptor; // [rsp+40h] [rbp-31h] BYREF
   int v16; // [rsp+41h] [rbp-30h]
   __int16 v17; // [rsp+45h] [rbp-2Ch]
@@ -106,13 +106,13 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, char **a2)
               Acl = -1073741595;
               goto LABEL_18;
             }
-            v14 = RtlLengthSecurityDescriptor(&SecurityDescriptor);
-            if ( v14 < 0x28 )
+            BufferLength = RtlLengthSecurityDescriptor(&SecurityDescriptor);
+            if ( BufferLength < 0x28 )
             {
               Acl = -1073741762;
               goto LABEL_18;
             }
-            v11 = (char *)ExAllocatePool2(0x100uLL);
+            v11 = (void *)ExAllocatePool2(0x100uLL);
             v12 = v11;
             if ( v11 )
             {
@@ -122,7 +122,7 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, char **a2)
               }
               else
               {
-                Acl = RtlMakeSelfRelativeSD((__int64)&SecurityDescriptor, v11, &v14);
+                Acl = RtlMakeSelfRelativeSD(&SecurityDescriptor, v11, &BufferLength);
                 if ( Acl >= 0 )
                 {
                   *a2 = v12;

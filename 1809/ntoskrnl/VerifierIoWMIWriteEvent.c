@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierIoWMIWriteEvent @ 0x140945EB0
+ * XREFs of VerifierIoWMIWriteEvent @ 0x140946EB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     WmiVerifierCopyEvent @ 0x14030DF88 (WmiVerifierCopyEvent.c)
- *     WmiVerifierTakeEventOwnership @ 0x14030DFE0 (WmiVerifierTakeEventOwnership.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     WmiVerifierCopyEvent @ 0x14030E178 (WmiVerifierCopyEvent.c)
+ *     WmiVerifierTakeEventOwnership @ 0x14030E1D0 (WmiVerifierTakeEventOwnership.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VerifierIoWMIWriteEvent(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpGetEncryptedDataFromHypervisor @ 0x1401C0618
+ * XREFs of HvlpGetEncryptedDataFromHypervisor @ 0x1401C04FC
  * Callers:
- *     HvlGetEncryptedData @ 0x1401C04A8 (HvlGetEncryptedData.c)
+ *     HvlGetEncryptedData @ 0x1401C038C (HvlGetEncryptedData.c)
  * Callees:
- *     HvlpGetPageList @ 0x1401C1EC4 (HvlpGetPageList.c)
- *     HvlpGetPageListIterator @ 0x1401C1F80 (HvlpGetPageListIterator.c)
- *     HvlpStartPageListIteration @ 0x1401C2194 (HvlpStartPageListIteration.c)
- *     KeFlushCurrentTbImmediately @ 0x1401D60A0 (KeFlushCurrentTbImmediately.c)
+ *     HvlpGetPageList @ 0x1401C1DA8 (HvlpGetPageList.c)
+ *     HvlpGetPageListIterator @ 0x1401C1E64 (HvlpGetPageListIterator.c)
+ *     HvlpStartPageListIteration @ 0x1401C2078 (HvlpStartPageListIteration.c)
+ *     KeFlushCurrentTbImmediately @ 0x1401D5ECC (KeFlushCurrentTbImmediately.c)
  */
 
 __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, _OWORD *a2, unsigned int a3, _DWORD *a4, __int64 *a5)
@@ -37,15 +37,15 @@ __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, _OWORD *a2, un
     return 3221226021LL;
   if ( HvlpCrashdumpIterationState )
   {
-    v10 = dword_140322210;
-    v11 = qword_140322208;
+    v10 = dword_140322230;
+    v11 = qword_140322228;
   }
   else
   {
     HvlpStartPageListIteration(1LL);
     v10 = 0;
-    qword_140322208 = -1LL;
-    dword_140322210 = 0;
+    qword_140322228 = -1LL;
+    dword_140322230 = 0;
     v11 = -1LL;
     HvlpCrashdumpIterationState = 1;
   }
@@ -62,8 +62,8 @@ __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, _OWORD *a2, un
       *(_QWORD *)(PageListIterator + 8) = 0LL;
       *(_DWORD *)PageListIterator = 0;
       HvlpCrashdumpIterationState = 0;
-      qword_140322208 = -1LL;
-      dword_140322210 = 0;
+      qword_140322228 = -1LL;
+      dword_140322230 = 0;
       return 3221226021LL;
     }
     v10 = v24;
@@ -89,9 +89,9 @@ __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, _OWORD *a2, un
       }
       while ( v19 );
       v25 = ((v17 | 0x8000000000000000uLL) ^ v16) & 0xFFFFFFFFF000LL ^ (v17 | 0x8000000000000000uLL);
-      *(_QWORD *)(8 * (((unsigned __int64)qword_1403221E0 >> 12) & 0xFFFFFFFFFLL) - 0x98000000000LL) = v25;
+      *(_QWORD *)(8 * (((unsigned __int64)qword_140322200 >> 12) & 0xFFFFFFFFFLL) - 0x98000000000LL) = v25;
       KeFlushCurrentTbImmediately();
-      v20 = (_OWORD *)qword_1403221E0;
+      v20 = (_OWORD *)qword_140322200;
       v21 = 32LL;
       v22 = a2;
       do
@@ -118,7 +118,7 @@ __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, _OWORD *a2, un
   }
   *v5 = v11;
   *a4 = v14 << 12;
-  dword_140322210 = v10 - v14;
-  qword_140322208 = v11 + v14;
+  dword_140322230 = v10 - v14;
+  qword_140322228 = v11 + v14;
   return 0LL;
 }

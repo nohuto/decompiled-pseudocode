@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpStub @ 0x1403D074C
+ * XREFs of KdpStub @ 0x1403D092C
  * Callers:
- *     KdTrap @ 0x14030DF3C (KdTrap.c)
+ *     KdTrap @ 0x14030E1CC (KdTrap.c)
  * Callees:
- *     KdEnableDebugger @ 0x140567740 (KdEnableDebugger.c)
+ *     KdEnableDebugger @ 0x140567E00 (KdEnableDebugger.c)
  *     KdpTrap @ 0x140AB037C (KdpTrap.c)
  */
 

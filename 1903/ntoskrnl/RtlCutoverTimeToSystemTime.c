@@ -21,8 +21,8 @@ BOOLEAN __stdcall RtlCutoverTimeToSystemTime(
   __int16 Milliseconds; // ax
   __int16 v11; // si
   __int16 v12; // r15
-  struct _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-20h] BYREF
-  struct _TIME_FIELDS v15; // [rsp+30h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-20h] BYREF
+  _TIME_FIELDS v15; // [rsp+30h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+70h] [rbp+30h] BYREF
 
   *(_QWORD *)&TimeFields.Year = 0LL;

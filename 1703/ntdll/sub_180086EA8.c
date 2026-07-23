@@ -10,10 +10,10 @@
  *     sub_18001A8B4 @ 0x18001A8B4 (sub_18001A8B4.c)
  */
 
-__int64 __fastcall sub_180086EA8(unsigned __int64 a1)
+int __fastcall sub_180086EA8(PVOID *BaseAddress)
 {
-  sub_18001A8B4(*(_QWORD *)(a1 + 176));
-  *(_DWORD *)(a1 + 104) &= ~0x20u;
-  *(_DWORD *)(a1 + 276) = 1;
-  return sub_18003015C(a1);
+  sub_18001A8B4(BaseAddress[22]);
+  *((_DWORD *)BaseAddress + 26) &= ~0x20u;
+  *((_DWORD *)BaseAddress + 69) = 1;
+  return sub_18003015C((char *)BaseAddress);
 }

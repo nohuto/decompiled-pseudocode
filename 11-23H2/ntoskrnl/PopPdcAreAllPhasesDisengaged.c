@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPdcAreAllPhasesDisengaged @ 0x140883998
+ * XREFs of PopPdcAreAllPhasesDisengaged @ 0x140883BD8
  * Callers:
- *     PopArmIdlePhaseWatchdog @ 0x140883874 (PopArmIdlePhaseWatchdog.c)
- *     PopPowerAggregatorScreenOffExitStateHandler @ 0x140993EA0 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ *     PopArmIdlePhaseWatchdog @ 0x140883AB4 (PopArmIdlePhaseWatchdog.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x1409940A0 (PopPowerAggregatorScreenOffExitStateHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char PopPdcAreAllPhasesDisengaged()

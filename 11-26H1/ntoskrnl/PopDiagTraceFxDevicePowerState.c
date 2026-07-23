@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFxDevicePowerState @ 0x140218B90
+ * XREFs of PopDiagTraceFxDevicePowerState @ 0x1404BE634
  * Callers:
- *     PopHandleDevicePowerIrpCompletion @ 0x1403B46F0 (PopHandleDevicePowerIrpCompletion.c)
- *     PopFxHandleReportDevicePoweredOn @ 0x1404DAFA0 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403BE5F0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x1404D4680 (PopFxHandleReportDevicePoweredOn.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceFxDevicePowerState(__int64 a1, int a2)
@@ -22,12 +22,10 @@ BOOLEAN __fastcall PopDiagTraceFxDevicePowerState(__int64 a1, int a2)
 
   v2 = a2;
   v5 = a1;
-  result = PopFxAddLogEntry(a1, 0LL, 6LL, a2);
-  if ( byte_140E67628 )
+  result = (unsigned __int8)PopFxAddLogEntry(a1, 0, 6, a2);
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_DEVICE_POWER_STATE);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_POWER_STATE);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v5;
@@ -35,15 +33,7 @@ BOOLEAN __fastcall PopDiagTraceFxDevicePowerState(__int64 a1, int a2)
       v8 = 1LL;
       v7 = &v4;
       v4 = v2 - 1;
-      return EtwWriteEx(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_DEVICE_POWER_STATE,
-               0LL,
-               1u,
-               0LL,
-               0LL,
-               2u,
-               &UserData);
+      return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_DEVICE_POWER_STATE, 0LL, 1u, 0LL, 0LL, 2u, &UserData);
     }
   }
   return result;

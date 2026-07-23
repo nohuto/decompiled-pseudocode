@@ -8,35 +8,35 @@
  *     wcslen @ 0x1801292B0 (wcslen.c)
  */
 
-__int64 __fastcall RtlpMuiRegGetLanguageSpec(__int64 a1, const wchar_t *a2, char *a3, __int64 a4, _WORD *a5)
+__int64 __fastcall RtlpMuiRegGetLanguageSpec(__int64 a1, wchar_t *a2, char *a3, __int64 a4, _WORD *a5)
 {
   __int16 v5; // bx
   char v9; // di
   size_t v10; // rax
   __int64 v11; // r8
   __int64 result; // rax
-  _QWORD v13[7]; // [rsp+20h] [rbp-38h] BYREF
-  int v14; // [rsp+68h] [rbp+10h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+68h] [rbp+10h] BYREF
   __int16 v15; // [rsp+78h] [rbp+20h] BYREF
 
-  v13[1] = a2;
-  v14 = 0;
+  String.Buffer = a2;
+  Lcid = 0;
   v5 = 0;
   v15 = 0;
-  v13[0] = 0LL;
+  *(_QWORD *)&String.Length = 0LL;
   v9 = 0;
   if ( a2 )
   {
     v10 = 2 * wcslen(a2);
     if ( v10 >= 0xFFFE )
       LOWORD(v10) = -4;
-    LOWORD(v13[0]) = v10;
-    WORD1(v13[0]) = v10 + 2;
+    String.Length = v10;
+    String.MaximumLength = v10 + 2;
   }
-  if ( RtlCultureNameToLCID((unsigned __int16 *)v13, &v14) )
+  if ( RtlCultureNameToLCID(&String, &Lcid) )
   {
-    v5 = v14;
-    if ( ((v14 - 4096) & 0xFFFFFBFF) != 0 )
+    v5 = Lcid;
+    if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
     {
       v9 = 1;
 LABEL_8:

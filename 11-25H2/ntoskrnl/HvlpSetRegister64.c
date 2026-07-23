@@ -13,7 +13,7 @@
  *     RtlRaiseException @ 0x1405DC840 (RtlRaiseException.c)
  */
 
-__int64 __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
+void __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
 {
   int v3; // ecx
   int v4; // ecx
@@ -33,38 +33,37 @@ __int64 __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
   int v18; // ecx
   int v19; // ecx
   int v20; // ecx
-  __int64 result; // rax
+  int v21; // ecx
   int v22; // ecx
   int v23; // ecx
   int v24; // ecx
   int v25; // ecx
-  int v26; // ecx
 
   if ( a1 > 655362 )
   {
     if ( a1 > 655370 )
     {
-      v22 = a1 - 655371;
-      if ( v22 )
+      v21 = a1 - 655371;
+      if ( v21 )
       {
-        v23 = v22 - 1;
-        if ( v23 )
+        v22 = v21 - 1;
+        if ( v22 )
         {
-          v24 = v23 - 1;
-          if ( v24 )
+          v23 = v22 - 1;
+          if ( v23 )
           {
-            v25 = v24 - 1;
-            if ( v25 )
+            v24 = v23 - 1;
+            if ( v24 )
             {
-              v26 = v25 - 1;
-              if ( v26 )
+              v25 = v24 - 1;
+              if ( v25 )
               {
-                if ( v26 == 4 )
+                if ( v25 == 4 )
                 {
                   v9 = 1073741955;
                   goto LABEL_36;
                 }
-                return RtlRaiseException((ULONG_PTR)&qword_140E0A700);
+                goto LABEL_43;
               }
             }
           }
@@ -95,7 +94,7 @@ LABEL_35:
     v14 = v15 == 0;
 LABEL_33:
     if ( !v14 && v15 != 1 )
-      return RtlRaiseException((ULONG_PTR)&qword_140E0A700);
+      goto LABEL_43;
     goto LABEL_35;
   }
   if ( a1 == 655362 )
@@ -151,9 +150,9 @@ LABEL_33:
   {
     v9 = 1073742102;
 LABEL_36:
-    result = a2;
     __writemsr(v9, a2);
-    return result;
+    return;
   }
-  return RtlRaiseException((ULONG_PTR)&qword_140E0A700);
+LABEL_43:
+  RtlRaiseException(&ExceptionRecord);
 }

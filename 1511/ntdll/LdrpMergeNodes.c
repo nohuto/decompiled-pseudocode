@@ -7,7 +7,7 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-_QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
+int __fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
 {
   _QWORD *v4; // rdi
   _QWORD *v5; // rbp
@@ -18,7 +18,7 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
   _QWORD *v10; // rcx
   _QWORD *v11; // rax
   _QWORD *v12; // rcx
-  _QWORD *result; // rax
+  _QWORD *v13; // rax
   _QWORD *v14; // r8
   _QWORD *v15; // rdx
   _QWORD *i; // rcx
@@ -88,13 +88,13 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
     }
     while ( v11 != v10 );
     v12 = (_QWORD *)*(v4 - 2);
-    result = v12;
+    v13 = v12;
     do
     {
-      result = (_QWORD *)*result;
-      *(result - 1) = a1;
+      v13 = (_QWORD *)*v13;
+      *(v13 - 1) = a1;
     }
-    while ( result != v12 );
+    while ( v13 != v12 );
     v4 = (_QWORD *)*v4;
   }
   while ( v4 );
@@ -104,14 +104,14 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
   {
     if ( i[1] == a1 )
     {
-      result = (_QWORD *)*i;
+      v13 = (_QWORD *)*i;
       *v15 = *i;
       if ( *(_QWORD **)(a1 + 40) == i )
       {
-        result = v15;
+        v13 = v15;
         if ( v15 == i )
-          result = 0LL;
-        *(_QWORD *)(a1 + 40) = result;
+          v13 = 0LL;
+        *(_QWORD *)(a1 + 40) = v13;
       }
       *i = 0LL;
     }
@@ -137,7 +137,7 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
       }
       else
       {
-        result = (_QWORD *)*v18;
+        v13 = (_QWORD *)*v18;
         *v20 = (_QWORD *)*v18;
       }
       if ( !v18 )
@@ -160,7 +160,7 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
               break;
             if ( v34 == v33 )
             {
-              result = (_QWORD *)*v33;
+              v13 = (_QWORD *)*v33;
               *v18 = *v33;
               *v33 = v18;
               goto LABEL_69;
@@ -178,7 +178,7 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
             *(_QWORD *)(v19 + 48) = v35;
           }
           --*(_DWORD *)(v19 + 24);
-          result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (unsigned __int64)v18);
+          LODWORD(v13) = RtlFreeHeap(LdrpHeap, 0, v18);
         }
         else
         {
@@ -206,7 +206,7 @@ LABEL_69:
         *(_QWORD *)(a1 + 48) = v32;
       }
       --*(_DWORD *)(a1 + 24);
-      result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (unsigned __int64)(j - 2));
+      LODWORD(v13) = RtlFreeHeap(LdrpHeap, 0, j - 2);
     }
     else
     {
@@ -230,7 +230,7 @@ LABEL_69:
       }
       else
       {
-        result = (_QWORD *)*v26;
+        v13 = (_QWORD *)*v26;
         *v25 = *v26;
       }
       if ( !v26 )
@@ -242,13 +242,13 @@ LABEL_69:
       v29 = *(_QWORD **)(a1 + 48);
       if ( v29 )
       {
-        result = *(_QWORD **)(a1 + 48);
+        v13 = *(_QWORD **)(a1 + 48);
         while ( 1 )
         {
-          result = (_QWORD *)*result;
-          if ( result[1] == v28 )
+          v13 = (_QWORD *)*v13;
+          if ( v13[1] == v28 )
             break;
-          if ( result == v29 )
+          if ( v13 == v29 )
             goto LABEL_50;
         }
         for ( k = *(_QWORD **)(v28 + 40); (_QWORD *)*k != v27; k = (_QWORD *)*k )
@@ -262,7 +262,7 @@ LABEL_69:
         }
 LABEL_41:
         --*(_DWORD *)(a1 + 24);
-        result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (unsigned __int64)v27);
+        LODWORD(v13) = RtlFreeHeap(LdrpHeap, 0, v27);
       }
       else
       {
@@ -270,7 +270,7 @@ LABEL_50:
         v30 = v27 + 2;
         if ( v29 )
         {
-          result = (_QWORD *)*v29;
+          v13 = (_QWORD *)*v29;
           *v30 = *v29;
           *v29 = v30;
         }
@@ -284,5 +284,5 @@ LABEL_50:
     v24 = (_QWORD *)*v24;
   }
   while ( v24 );
-  return result;
+  return (int)v13;
 }

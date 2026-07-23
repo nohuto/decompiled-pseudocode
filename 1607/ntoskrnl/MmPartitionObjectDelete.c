@@ -1,9 +1,9 @@
 /*
- * XREFs of MmPartitionObjectDelete @ 0x140659C10
+ * XREFs of MmPartitionObjectDelete @ 0x140659CF4
  * Callers:
  *     <none>
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
  */
 
 void __fastcall MmPartitionObjectDelete(_DWORD **a1)

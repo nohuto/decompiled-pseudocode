@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepCancelActivities @ 0x1402622E4
+ * XREFs of PopPepCancelActivities @ 0x1402837B4
  * Callers:
- *     PopPepTriggerActivity @ 0x1402621F8 (PopPepTriggerActivity.c)
+ *     PopPepTriggerActivity @ 0x1402836C8 (PopPepTriggerActivity.c)
  * Callees:
- *     PopPepCancelActivityRange @ 0x140382250 (PopPepCancelActivityRange.c)
+ *     PopPepCancelActivityRange @ 0x140382978 (PopPepCancelActivityRange.c)
  */
 
 __int64 __fastcall PopPepCancelActivities(__int64 a1, __int64 a2, int a3)
@@ -11,7 +11,7 @@ __int64 __fastcall PopPepCancelActivities(__int64 a1, __int64 a2, int a3)
   __int64 result; // rax
   __int64 v7; // rbx
 
-  result = (unsigned int)dword_140001194[34 * a3];
+  result = (unsigned int)dword_140004FB4[34 * a3];
   if ( (_DWORD)result )
   {
     if ( (_DWORD)result == 1 )

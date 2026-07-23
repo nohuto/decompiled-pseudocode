@@ -1,16 +1,16 @@
 /*
- * XREFs of HaliPciInterfaceReadConfig @ 0x140439FA0
+ * XREFs of HaliPciInterfaceReadConfig @ 0x14042C850
  * Callers:
- *     HaliHandlePCIConfigSpaceAccess @ 0x140599B60 (HaliHandlePCIConfigSpaceAccess.c)
- *     HalpKdReadPCIConfig @ 0x1405A5880 (HalpKdReadPCIConfig.c)
+ *     HaliHandlePCIConfigSpaceAccess @ 0x14059C2E0 (HaliHandlePCIConfigSpaceAccess.c)
+ *     HalpKdReadPCIConfig @ 0x1405A8090 (HalpKdReadPCIConfig.c)
  * Callees:
- *     HalpPCIAcquireConfigSpaceLock @ 0x14043A2B4 (HalpPCIAcquireConfigSpaceLock.c)
- *     HalpPCIReleaseConfigSpaceLock @ 0x14043A8A0 (HalpPCIReleaseConfigSpaceLock.c)
- *     HalpPciMapMmConfigPhysicalAddress @ 0x14043A908 (HalpPciMapMmConfigPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpPciAccessIoConfigSpace @ 0x14058C0A8 (HalpPciAccessIoConfigSpace.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpPCIAcquireConfigSpaceLock @ 0x14042CB64 (HalpPCIAcquireConfigSpaceLock.c)
+ *     HalpPCIReleaseConfigSpaceLock @ 0x14042D150 (HalpPCIReleaseConfigSpaceLock.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x14042D1B8 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpPciAccessIoConfigSpace @ 0x14058E828 (HalpPciAccessIoConfigSpace.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HaliPciInterfaceReadConfig(
@@ -84,7 +84,7 @@ __int64 __fastcall HaliPciInterfaceReadConfig(
   }
   v13 = (unsigned int)Size;
   v14 = (unsigned int)BugCheckParameter3;
-  if ( qword_140FBB108 )
+  if ( qword_140FBB4A8 )
   {
     v40 = a4;
     v39 = Size;

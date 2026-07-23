@@ -1,19 +1,19 @@
 /*
- * XREFs of IommupDeviceDisablePasidTaggedDma @ 0x140782558
+ * XREFs of IommupDeviceDisablePasidTaggedDma @ 0x140785058
  * Callers:
- *     IommupDeviceDisableSvm @ 0x140B6494C (IommupDeviceDisableSvm.c)
+ *     IommupDeviceDisableSvm @ 0x140B679EC (IommupDeviceDisableSvm.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     HalpIommuFreeDomainId @ 0x1405334E8 (HalpIommuFreeDomainId.c)
- *     IommupDeviceGetPasidDevice @ 0x140587E80 (IommupDeviceGetPasidDevice.c)
- *     IommupPasidDeviceDelete @ 0x140588584 (IommupPasidDeviceDelete.c)
- *     IommuDisableDevicePasid @ 0x14059B9F0 (IommuDisableDevicePasid.c)
- *     IommupUnmapDeviceInternal @ 0x14059D414 (IommupUnmapDeviceInternal.c)
- *     IommupHvDetachPasidDevice @ 0x14059E048 (IommupHvDetachPasidDevice.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     HalpIommuFreeDomainId @ 0x140535968 (HalpIommuFreeDomainId.c)
+ *     IommupDeviceGetPasidDevice @ 0x14058A458 (IommupDeviceGetPasidDevice.c)
+ *     IommupPasidDeviceDelete @ 0x14058AC50 (IommupPasidDeviceDelete.c)
+ *     IommuDisableDevicePasid @ 0x14059E170 (IommuDisableDevicePasid.c)
+ *     IommupUnmapDeviceInternal @ 0x14059FB94 (IommupUnmapDeviceInternal.c)
+ *     IommupHvDetachPasidDevice @ 0x1405A07C8 (IommupHvDetachPasidDevice.c)
  */
 
 __int64 __fastcall IommupDeviceDisablePasidTaggedDma(__int64 a1, __int64 a2)

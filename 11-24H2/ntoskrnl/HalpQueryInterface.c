@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpQueryInterface @ 0x140AAEB24
+ * XREFs of HalpQueryInterface @ 0x140AA9A00
  * Callers:
- *     HalpDispatchPnp @ 0x140A78F20 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140A73220 (HalpDispatchPnp.c)
  * Callees:
  *     <none>
  */

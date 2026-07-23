@@ -1,35 +1,35 @@
 /*
- * XREFs of MiChargeWsles @ 0x1400E1B20
+ * XREFs of MiChargeWsles @ 0x1400DF9C0
  * Callers:
- *     MiReleaseSystemCacheView @ 0x140018374 (MiReleaseSystemCacheView.c)
- *     MiObtainSystemCacheView @ 0x140019B70 (MiObtainSystemCacheView.c)
- *     MiFreePagedPoolPages @ 0x14004BBA0 (MiFreePagedPoolPages.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1400AD44C (MmAdjustWorkingSetSizeEx.c)
- *     MiAllocatePagedPoolPages @ 0x1400DE970 (MiAllocatePagedPoolPages.c)
- *     MiInsertInSystemSpace @ 0x1400FF2A0 (MiInsertInSystemSpace.c)
- *     MiRemoveFromSystemSpace @ 0x140100090 (MiRemoveFromSystemSpace.c)
- *     MiCleanWorkingSet @ 0x14010159C (MiCleanWorkingSet.c)
- *     MmAllocateSpecialPool @ 0x1401EBAE0 (MmAllocateSpecialPool.c)
- *     MmFreeSpecialPool @ 0x1401EC0A4 (MmFreeSpecialPool.c)
- *     MiCleanEmbryonicProcess @ 0x14045F008 (MiCleanEmbryonicProcess.c)
- *     MiConstructLoaderEntry @ 0x140482408 (MiConstructLoaderEntry.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
- *     MmFreeBootRegistry @ 0x14054E110 (MmFreeBootRegistry.c)
+ *     MiReleaseSystemCacheView @ 0x140017EF4 (MiReleaseSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1400196F0 (MiObtainSystemCacheView.c)
+ *     MiFreePagedPoolPages @ 0x14004B720 (MiFreePagedPoolPages.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x1400AB9B4 (MmAdjustWorkingSetSizeEx.c)
+ *     MiAllocatePagedPoolPages @ 0x1400DC810 (MiAllocatePagedPoolPages.c)
+ *     MiInsertInSystemSpace @ 0x1400FD020 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x1400FDE10 (MiRemoveFromSystemSpace.c)
+ *     MiCleanWorkingSet @ 0x1400FF31C (MiCleanWorkingSet.c)
+ *     MmAllocateSpecialPool @ 0x1401EB90C (MmAllocateSpecialPool.c)
+ *     MmFreeSpecialPool @ 0x1401EBED0 (MmFreeSpecialPool.c)
+ *     MiCleanEmbryonicProcess @ 0x14045DED8 (MiCleanEmbryonicProcess.c)
+ *     MiConstructLoaderEntry @ 0x14048115C (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
+ *     MmFreeBootRegistry @ 0x14054E4B0 (MmFreeBootRegistry.c)
  *     MmFreeLoaderBlock @ 0x140791ED4 (MmFreeLoaderBlock.c)
  *     MiInitializeBootProcess @ 0x1407B7300 (MiInitializeBootProcess.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EF00 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiRemoveWorkingSetPages @ 0x1400FE750 (MiRemoveWorkingSetPages.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     MiPreUnlockWorkingSetExclusive @ 0x1401F2A6C (MiPreUnlockWorkingSetExclusive.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DE9C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EA80 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiRemoveWorkingSetPages @ 0x1400FC4D0 (MiRemoveWorkingSetPages.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     MiPreUnlockWorkingSetExclusive @ 0x1401F2898 (MiPreUnlockWorkingSetExclusive.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DCC8 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiChargeWsles(ULONG_PTR a1, __int64 a2, int a3)
@@ -72,8 +72,8 @@ __int64 __fastcall MiChargeWsles(ULONG_PTR a1, __int64 a2, int a3)
   if ( !v3 )
     return 1LL;
   v7 = *(_BYTE *)(a1 + 184) & 7;
-  v8 = &dword_140327C80;
-  v9 = &dword_140327C80;
+  v8 = &dword_140327CC0;
+  v9 = &dword_140327CC0;
   if ( v7 == 2 )
   {
     v38 = &BugCheckParameter2;
@@ -87,14 +87,14 @@ __int64 __fastcall MiChargeWsles(ULONG_PTR a1, __int64 a2, int a3)
   if ( v10 == 1023 )
     v11 = MiSystemPartition;
   else
-    v11 = *(int **)(qword_140326FF8 + 8LL * v10);
+    v11 = *(int **)(qword_140327038 + 8LL * v10);
   if ( a3 == 1 )
   {
     CurrentIrql = 17;
   }
   else
   {
-    v13 = &dword_140327C80;
+    v13 = &dword_140327CC0;
     if ( v7 != 2 )
       v13 = (LONG *)(a1 + 192);
     CurrentIrql = KeGetCurrentIrql();

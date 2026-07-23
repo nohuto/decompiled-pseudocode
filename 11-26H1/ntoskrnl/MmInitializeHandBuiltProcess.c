@@ -1,16 +1,16 @@
 /*
- * XREFs of MmInitializeHandBuiltProcess @ 0x140963A54
+ * XREFs of MmInitializeHandBuiltProcess @ 0x140ABF810
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiGetSharedVm @ 0x140449C60 (MiGetSharedVm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     ExInitializeAutoExpandPushLock @ 0x1404749C0 (ExInitializeAutoExpandPushLock.c)
- *     MiInsertNewProcess @ 0x1404D119C (MiInsertNewProcess.c)
- *     MiAllowWorkingSetExpansion @ 0x1404D8040 (MiAllowWorkingSetExpansion.c)
- *     MiCopyWorkingSetFields @ 0x1406E43D8 (MiCopyWorkingSetFields.c)
- *     MiAllocateProcessShadow @ 0x140ABD950 (MiAllocateProcessShadow.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiGetSharedVm @ 0x140441D90 (MiGetSharedVm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     ExInitializeAutoExpandPushLock @ 0x14046E140 (ExInitializeAutoExpandPushLock.c)
+ *     MiInsertNewProcess @ 0x1404CABCC (MiInsertNewProcess.c)
+ *     MiAllowWorkingSetExpansion @ 0x1404D1810 (MiAllowWorkingSetExpansion.c)
+ *     MiCopyWorkingSetFields @ 0x1406E9088 (MiCopyWorkingSetFields.c)
+ *     MiAllocateProcessShadow @ 0x140ABFF40 (MiAllocateProcessShadow.c)
  */
 
 __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)

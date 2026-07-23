@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInitializeLookasideListEx @ 0x14000292C
+ * XREFs of ExInitializeLookasideListEx @ 0x140002AA0
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x140002970 (ExInitializeLookasideListExInternal.c)
+ *     ExInitializeLookasideListExInternal @ 0x140002AE4 (ExInitializeLookasideListExInternal.c)
  */
 
 NTSTATUS __stdcall ExInitializeLookasideListEx(

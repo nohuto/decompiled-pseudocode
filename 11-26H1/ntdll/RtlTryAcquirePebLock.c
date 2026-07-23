@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlTryAcquirePebLock @ 0x180022CE0
+ * XREFs of RtlTryAcquirePebLock @ 0x18000DDB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlTryAcquirePebLock()
+LOGICAL RtlTryAcquirePebLock(void)
 {
-  return RtlTryEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlTryEnterCriticalSection(NtCurrentPeb()->FastPebLock);
 }

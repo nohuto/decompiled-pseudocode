@@ -1,8 +1,8 @@
 /*
- * XREFs of PiDmGetCacheKeys @ 0x1409ED06C
+ * XREFs of PiDmGetCacheKeys @ 0x1409E639C
  * Callers:
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectCreate @ 0x140AC3894 (PiDmObjectCreate.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectCreate @ 0x140ABF218 (PiDmObjectCreate.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPfnLargeBitSet @ 0x14009AB50
+ * XREFs of MiPfnLargeBitSet @ 0x14009AA90
  * Callers:
- *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
+ *     MiPfnsWorthTrying @ 0x14009A6F0 (MiPfnsWorthTrying.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
  * Callees:
  *     <none>
  */

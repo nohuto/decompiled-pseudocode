@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIdnToUnicode @ 0x1409BF3A0
+ * XREFs of RtlIdnToUnicode @ 0x1409BF5A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIdnToUnicodeWorker @ 0x1405AFC50 (RtlpIdnToUnicodeWorker.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1405B01C0 (RtlpIdnToUnicodeWorker.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

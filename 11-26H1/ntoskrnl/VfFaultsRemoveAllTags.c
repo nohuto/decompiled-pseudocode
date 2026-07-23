@@ -1,13 +1,13 @@
 /*
- * XREFs of VfFaultsRemoveAllTags @ 0x140C34A00
+ * XREFs of VfFaultsRemoveAllTags @ 0x140C3AA10
  * Callers:
- *     VfRlrsVolatileConfigUpdate @ 0x140648604 (VfRlrsVolatileConfigUpdate.c)
- *     ViRlrsUnload @ 0x1406486D0 (ViRlrsUnload.c)
- *     VfFaultsSetParameters @ 0x140C34AA4 (VfFaultsSetParameters.c)
+ *     VfRlrsVolatileConfigUpdate @ 0x14064C1E4 (VfRlrsVolatileConfigUpdate.c)
+ *     ViRlrsUnload @ 0x14064C2B0 (ViRlrsUnload.c)
+ *     VfFaultsSetParameters @ 0x140C3AAB4 (VfFaultsSetParameters.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void VfFaultsRemoveAllTags()
@@ -19,7 +19,7 @@ void VfFaultsRemoveAllTags()
 
   if ( !ViFaultTagsList || ViFaultTagsList == &ViFaultTagsList )
   {
-    qword_140F08A68 = (__int64)&ViFaultTagsList;
+    qword_140F08B18 = (__int64)&ViFaultTagsList;
     ViFaultTagsList = &ViFaultTagsList;
   }
   else
@@ -38,7 +38,7 @@ void VfFaultsRemoveAllTags()
       while ( v3 != &ViFaultTagsList );
     }
     ViHaveFaultTags = 0;
-    qword_140F08A68 = (__int64)&ViFaultTagsList;
+    qword_140F08B18 = (__int64)&ViFaultTagsList;
     ViFaultTagsList = &ViFaultTagsList;
     KeReleaseSpinLock(&ViFaultInjectionLock, v2);
   }

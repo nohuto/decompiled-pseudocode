@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUncommitNodeAssignment @ 0x1402902D0
+ * XREFs of KiUncommitNodeAssignment @ 0x1402904C0
  * Callers:
- *     KiRemoveProcessorFromGroupDatabase @ 0x14029025C (KiRemoveProcessorFromGroupDatabase.c)
+ *     KiRemoveProcessorFromGroupDatabase @ 0x14029044C (KiRemoveProcessorFromGroupDatabase.c)
  * Callees:
  *     <none>
  */
@@ -33,6 +33,6 @@ __int64 __fastcall KiUncommitNodeAssignment(__int64 a1)
     while ( v3 );
   }
   result = 0xFFFFLL;
-  --word_14043C8A4;
+  --word_14043D964;
   return result;
 }

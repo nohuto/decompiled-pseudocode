@@ -9,50 +9,50 @@
  *     RtlAcquireSRWLockExclusive @ 0x180046170 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDllByAddress(__int64 a1, __int64 *a2, _DWORD *a3)
+__int64 __fastcall LdrpFindLoadedDllByAddress(__int64 a1, volatile signed __int32 **a2, _DWORD *a3)
 {
-  __int64 v6; // rbx
+  unsigned __int64 Root; // rbx
   int v7; // edi
   int v8; // eax
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rax
+  unsigned __int64 v9; // rax
+  volatile signed __int32 *v10; // rdx
+  _RTL_BALANCED_NODE *v11; // rax
 
   RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-  v6 = LdrpModuleBaseAddressIndex;
-  v7 = byte_1801602C0 & 1;
-  if ( LdrpModuleBaseAddressIndex )
+  Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  v7 = *(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1;
+  if ( LdrpModuleBaseAddressIndex.Root )
   {
     do
     {
-      v8 = LdrpCompareModuleBaseAddressRange(a1, v6);
+      v8 = LdrpCompareModuleBaseAddressRange(a1, Root);
       if ( v8 < 0 )
       {
-        v9 = *(_QWORD *)v6;
+        v9 = *(_QWORD *)Root;
       }
       else
       {
         if ( v8 <= 0 )
           break;
-        v9 = *(_QWORD *)(v6 + 8);
+        v9 = *(_QWORD *)(Root + 8);
       }
       if ( v7 && v9 )
-        v6 ^= v9;
+        Root ^= v9;
       else
-        v6 = v9;
+        Root = v9;
     }
-    while ( v6 );
-    if ( v6 )
+    while ( Root );
+    if ( Root )
     {
-      v10 = v6 - 200;
-      v11 = *(_QWORD *)(v6 - 200 + 152);
-      if ( *(_DWORD *)(v11 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v11 - 56LL) & 0x20) == 0 )
-        _InterlockedIncrement((volatile signed __int32 *)(v10 + 276));
+      v10 = (volatile signed __int32 *)(Root - 200);
+      v11 = *(_RTL_BALANCED_NODE **)(Root - 200 + 152);
+      if ( LODWORD(v11[1].Children[0]) != -1 && (*(_BYTE *)&v11->Children[0][-3].0 & 0x20) == 0 )
+        _InterlockedIncrement(v10 + 69);
       *a2 = v10;
       if ( a3 )
-        *a3 = *(_DWORD *)(*(_QWORD *)(v10 + 152) + 56LL);
+        *a3 = *(_DWORD *)(*((_QWORD *)v10 + 19) + 56LL);
     }
   }
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-  return v6 == 0 ? 0xC0000135 : 0;
+  return Root == 0 ? 0xC0000135 : 0;
 }

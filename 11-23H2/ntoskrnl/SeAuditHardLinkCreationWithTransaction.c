@@ -1,13 +1,13 @@
 /*
- * XREFs of SeAuditHardLinkCreationWithTransaction @ 0x1409CA990
+ * XREFs of SeAuditHardLinkCreationWithTransaction @ 0x1409CAB90
  * Callers:
- *     SeAuditHardLinkCreation @ 0x1409CA970 (SeAuditHardLinkCreation.c)
+ *     SeAuditHardLinkCreation @ 0x1409CAB70 (SeAuditHardLinkCreation.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x14039B780 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
+ *     SepAdtLogAuditRecord @ 0x14039B960 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
  */
 
 void __stdcall SeAuditHardLinkCreationWithTransaction(

@@ -6,7 +6,7 @@
  *     NtQueryInstallUILanguage @ 0x1407021E0 (NtQueryInstallUILanguage.c)
  */
 
-__int64 __fastcall NtQueryDefaultUILanguage(_WORD *a1)
+NTSTATUS __cdecl NtQueryDefaultUILanguage(LANGID *DefaultUILanguageId)
 {
-  return NtQueryInstallUILanguage(a1);
+  return NtQueryInstallUILanguage(DefaultUILanguageId);
 }

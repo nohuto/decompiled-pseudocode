@@ -1,15 +1,15 @@
 /*
- * XREFs of PsGetThreadProperty @ 0x140292580
+ * XREFs of PsGetThreadProperty @ 0x1402104F0
  * Callers:
  *     <none>
  * Callees:
- *     ObpIncrPointerCount @ 0x14021BFC0 (ObpIncrPointerCount.c)
- *     PsGetJobProperty @ 0x140292780 (PsGetJobProperty.c)
- *     KxWaitForSpinLockAndAcquire @ 0x1403582C0 (KxWaitForSpinLockAndAcquire.c)
+ *     PsGetJobProperty @ 0x1402106F0 (PsGetJobProperty.c)
+ *     ObpIncrPointerCount @ 0x1402C08C0 (ObpIncrPointerCount.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140363010 (KxWaitForSpinLockAndAcquire.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSpinLockInstrumented @ 0x14051688C (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140516ACC (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516BD8 (KiReleaseSpinLockInstrumented.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
  */
 
 PVOID __stdcall PsGetThreadProperty(PETHREAD Thread, ULONG_PTR Key, ULONG Flags)
@@ -23,7 +23,7 @@ PVOID __stdcall PsGetThreadProperty(PETHREAD Thread, ULONG_PTR Key, ULONG Flags)
   _DWORD *v11; // rcx
   PVOID *v12; // rax
   PVOID *v13; // r14
-  volatile signed __int64 *v14; // rsi
+  char *v14; // rsi
   struct _KPRCB *v15; // rcx
   _DWORD *v16; // rdx
   struct _LIST_ENTRY *Blink; // rcx
@@ -105,10 +105,10 @@ PVOID __stdcall PsGetThreadProperty(PETHREAD Thread, ULONG_PTR Key, ULONG Flags)
     v13 = v12;
     if ( v12 )
     {
-      v14 = (volatile signed __int64 *)v12[3];
+      v14 = (char *)v12[3];
       if ( ObpTraceFlags )
         ObpPushStackInfo((_DWORD)v14 - 48);
-      ObpIncrPointerCount(v14 - 6);
+      ObpIncrPointerCount(v14 - 48);
     }
   }
 LABEL_17:

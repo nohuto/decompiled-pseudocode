@@ -10,7 +10,7 @@
 __int64 __fastcall LdrpFindDelayloadedMethod(unsigned __int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 DelayloadedMethodInDescriptor; // rsi
-  int v7; // eax
+  NTSTATUS v7; // eax
   __int64 v8; // r15
   unsigned int v9; // edi
   unsigned int v10; // ebx
@@ -19,7 +19,7 @@ __int64 __fastcall LdrpFindDelayloadedMethod(unsigned __int64 a1, __int64 a2, _Q
 
   *a3 = 0LL;
   DelayloadedMethodInDescriptor = 0LL;
-  v7 = RtlpImageDirectoryEntryToDataEx(a1, 1, 0xDu, &v12, (__int64)&v13);
+  v7 = RtlpImageDirectoryEntryToDataEx(a1, 1, 0xDu, &v12, (PIMAGE_NT_HEADERS)&v13);
   v8 = v13;
   if ( v7 < 0 )
     v8 = 0LL;

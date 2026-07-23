@@ -8,48 +8,46 @@
  *     RtlReleaseSRWLockExclusive @ 0x18001B320 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpFlsClonePrepare(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 RtlpFlsClonePrepare()
 {
-  unsigned int v4; // edi
-  unsigned int v5; // ebx
-  unsigned int v6; // esi
-  __int64 v7; // rbp
-  unsigned int v8; // ecx
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // rcx
+  unsigned int v0; // edi
+  unsigned int v1; // ebx
+  unsigned int v2; // esi
+  __int64 v3; // rbp
+  int v4; // ecx
+  __int64 v5; // r8
+  _RTL_SRWLOCK *v6; // rcx
   __int64 result; // rax
 
-  v4 = qword_18017ABE8;
-  v5 = 1;
+  v0 = qword_18017ABE8;
+  v1 = 1;
   while ( 1 )
   {
-    if ( v5 <= v4 )
+    if ( v1 <= v0 )
     {
-      v6 = v5 + 16;
-      v7 = v4 - v5 + 1;
-      v5 = v4 + 1;
+      v2 = v1 + 16;
+      v3 = v0 - v1 + 1;
+      v1 = v0 + 1;
       do
       {
-        _BitScanReverse(&v8, v6);
-        v9 = v6 ^ (1 << v8);
-        v10 = *((_QWORD *)&RtlpFlsContext + v8 - 3);
-        if ( v10 )
-          v11 = v10 + 8 * ((unsigned int)v9 + 2 * v9 + 1);
+        _BitScanReverse((unsigned int *)&v4, v2);
+        v5 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v4 - 4) + 1);
+        if ( v5 )
+          v6 = (_RTL_SRWLOCK *)(v5 + 8 * ((v2 ^ (1 << v4)) + 2LL * (v2 ^ (1 << v4)) + 1));
         else
-          v11 = 0LL;
-        RtlAcquireSRWLockExclusive(v11, v9, v10, a4);
-        ++v6;
-        --v7;
+          v6 = 0LL;
+        RtlAcquireSRWLockExclusive(v6);
+        ++v2;
+        --v3;
       }
-      while ( v7 );
+      while ( v3 );
     }
-    RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpFlsContext, a2, a3, a4);
+    RtlAcquireSRWLockExclusive(&RtlpFlsContext);
     result = qword_18017ABE8;
-    if ( (unsigned int)qword_18017ABE8 <= v4 )
+    if ( (unsigned int)qword_18017ABE8 <= v0 )
       break;
-    v4 = qword_18017ABE8;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    v0 = qword_18017ABE8;
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   }
   return result;
 }

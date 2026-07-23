@@ -1,9 +1,9 @@
 /*
- * XREFs of KiConfigureHeteroProcessorsTarget @ 0x1405120C0
+ * XREFs of KiConfigureHeteroProcessorsTarget @ 0x140512300
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KiConfigureHeteroProcessorsTarget(__int64 a1, _BYTE *a2, __int64 a3, __int64 i)

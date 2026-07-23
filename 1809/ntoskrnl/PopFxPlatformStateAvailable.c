@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxPlatformStateAvailable @ 0x1402D8D04
+ * XREFs of PopFxPlatformStateAvailable @ 0x1402D8EF4
  * Callers:
- *     PopPepUpdateIdleStateRefCount @ 0x1401724A8 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1401725A8 (PopPepUpdateIdleStateRefCount.c)
  * Callees:
  *     PopDeepSleepSetDisengageReason @ 0x140004DF8 (PopDeepSleepSetDisengageReason.c)
  *     PopDeepSleepClearDisengageReason @ 0x140004E80 (PopDeepSleepClearDisengageReason.c)
- *     PpmIdleCsVetoAccountingDeviceUpdate @ 0x1402D4A64 (PpmIdleCsVetoAccountingDeviceUpdate.c)
- *     PopFxSetDripsBlockedByDeviceActivity @ 0x1402D9968 (PopFxSetDripsBlockedByDeviceActivity.c)
- *     PopUpdateNonAttributedCpuTimeReference @ 0x1402DE50C (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PpmIdleCsVetoAccountingDeviceUpdate @ 0x1402D4C54 (PpmIdleCsVetoAccountingDeviceUpdate.c)
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x1402D9B58 (PopFxSetDripsBlockedByDeviceActivity.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x1402DE6FC (PopUpdateNonAttributedCpuTimeReference.c)
  */
 
 __int64 __fastcall PopFxPlatformStateAvailable(unsigned int a1, char a2)

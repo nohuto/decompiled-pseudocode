@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceFreezeThawProcess @ 0x140B11910
+ * XREFs of EtwTraceFreezeThawProcess @ 0x140B13690
  * Callers:
- *     PsThawMultiProcess @ 0x14051967C (PsThawMultiProcess.c)
- *     PsFreezeProcess @ 0x14077B540 (PsFreezeProcess.c)
+ *     PsThawMultiProcess @ 0x1405130EC (PsThawMultiProcess.c)
+ *     PsFreezeProcess @ 0x14077E180 (PsFreezeProcess.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceFreezeThawProcess(__int64 a1, char a2)
@@ -27,7 +27,7 @@ __int64 __fastcall EtwTraceFreezeThawProcess(__int64 a1, char a2)
     v4 = (const EVENT_DESCRIPTOR *)ProcessFreezeEvent;
     if ( !a2 )
       v4 = &ProcessThawEvent;
-    EtwWrite(EtwpPsProvRegHandle, v4, 0LL, 2u, &UserData);
+    EtwWrite((REGHANDLE)stru_140F03830.Affinity, v4, 0LL, 2u, &UserData);
   }
   return EtwTraceKernelEvent((int)&UserData, 1, 0x40000002u, 805 - (a2 != 0), 6297858);
 }

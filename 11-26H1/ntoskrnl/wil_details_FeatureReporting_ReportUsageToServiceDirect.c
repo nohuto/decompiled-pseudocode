@@ -1,14 +1,14 @@
 /*
- * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x140356CD0
+ * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x140358A70
  * Callers:
- *     wil_details_FeatureReporting_ReportVariantUsageToService @ 0x140356C30 (wil_details_FeatureReporting_ReportVariantUsageToService.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureReporting_ReportVariantUsageToService @ 0x1403589D0 (wil_details_FeatureReporting_ReportVariantUsageToService.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
  * Callees:
- *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x140356DC0 (wil_details_FeatureReporting_IncrementUsageInCache.c)
- *     CmFcManagerNotifyFeatureUsage @ 0x140356ED8 (CmFcManagerNotifyFeatureUsage.c)
- *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x140503E5C (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x140358B60 (wil_details_FeatureReporting_IncrementUsageInCache.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x140358C78 (CmFcManagerNotifyFeatureUsage.c)
+ *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x1404FD72C (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(

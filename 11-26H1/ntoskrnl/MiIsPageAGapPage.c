@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsPageAGapPage @ 0x140339B10
+ * XREFs of MiIsPageAGapPage @ 0x14033BB90
  * Callers:
- *     MiComputePxeWalkAction @ 0x1403283D0 (MiComputePxeWalkAction.c)
- *     MiCreateSystemPageTable @ 0x140339800 (MiCreateSystemPageTable.c)
- *     MiInitializeSystemPageTable @ 0x14033AB8C (MiInitializeSystemPageTable.c)
+ *     MiComputePxeWalkAction @ 0x14032A400 (MiComputePxeWalkAction.c)
+ *     MiCreateSystemPageTable @ 0x14033B880 (MiCreateSystemPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x14033CC0C (MiInitializeSystemPageTable.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ LABEL_6:
       ++v2;
       goto LABEL_6;
     }
-    if ( a1 == *(&qword_140E36000[7 * v2] + i) )
+    if ( a1 == *(&qword_140E36180[7 * v2] + i) )
       break;
   }
   return 1LL;

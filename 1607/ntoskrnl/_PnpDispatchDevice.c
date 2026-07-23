@@ -1,22 +1,22 @@
 /*
- * XREFs of _PnpDispatchDevice @ 0x140500604
+ * XREFs of _PnpDispatchDevice @ 0x1404E3594
  * Callers:
  *     <none>
  * Callees:
- *     _CmSetDeviceMappedProperty @ 0x1404CE608 (_CmSetDeviceMappedProperty.c)
- *     _CmCreateDevice @ 0x1404E6E44 (_CmCreateDevice.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     _CmValidateDeviceName @ 0x1404FD9C0 (_CmValidateDeviceName.c)
- *     _CmGetDeviceMappedProperty @ 0x140500790 (_CmGetDeviceMappedProperty.c)
- *     _CmGetMatchingDeviceList @ 0x140561984 (_CmGetMatchingDeviceList.c)
- *     _CmDeleteDevice @ 0x1406D7CC0 (_CmDeleteDevice.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x1406DD43C (_CmGetDeviceMappedPropertyKeys.c)
- *     _CmGetDeviceMappedPropertyLocales @ 0x1406DD720 (_CmGetDeviceMappedPropertyLocales.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     _CmValidateDeviceName @ 0x1404E0950 (_CmValidateDeviceName.c)
+ *     _CmGetDeviceMappedProperty @ 0x1404E3720 (_CmGetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x14050B6D4 (_CmSetDeviceMappedProperty.c)
+ *     _CmCreateDevice @ 0x14050D534 (_CmCreateDevice.c)
+ *     _CmGetMatchingDeviceList @ 0x140561EC4 (_CmGetMatchingDeviceList.c)
+ *     _CmDeleteDevice @ 0x1406D7DF8 (_CmDeleteDevice.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x1406DD574 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceMappedPropertyLocales @ 0x1406DD858 (_CmGetDeviceMappedPropertyLocales.c)
  */
 
 __int64 __fastcall PnpDispatchDevice(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)
 {
-  const WCHAR *v5; // r10
+  const wchar_t *v5; // r10
   _QWORD *v6; // r8
   int v7; // r9d
   int v8; // r9d
@@ -29,7 +29,7 @@ __int64 __fastcall PnpDispatchDevice(__int64 a1, __int64 (__fastcall *a2)(), __i
   unsigned int DeviceMappedProperty; // eax
   _QWORD v17[3]; // [rsp+50h] [rbp-18h] BYREF
 
-  v5 = (const WCHAR *)a2;
+  v5 = (const wchar_t *)a2;
   LODWORD(a2) = 0;
   LODWORD(v6) = 0;
   v7 = a4 - 1;
@@ -60,9 +60,7 @@ __int64 __fastcall PnpDispatchDevice(__int64 a1, __int64 (__fastcall *a2)(), __i
                     return PnpMapCmStatusToDispatchStatus(0xC000000D);
                   DeviceMappedProperty = CmSetDeviceMappedProperty(
                                            a1,
-                                           v5,
-                                           *(_QWORD *)a5,
-                                           *(_QWORD *)(a5 + 8),
+                                           (_DWORD)v5,
                                            *(_QWORD *)(a5 + 16),
                                            *(_DWORD *)(a5 + 24),
                                            *(PLARGE_INTEGER *)(a5 + 32),
@@ -135,10 +133,10 @@ __int64 __fastcall PnpDispatchDevice(__int64 a1, __int64 (__fastcall *a2)(), __i
       {
         DeviceMappedProperty = CmCreateDevice(
                                  a1,
-                                 (__int64)v5,
+                                 (_DWORD)v5,
                                  *(_DWORD *)a5,
-                                 (_QWORD *)(a5 + 8),
-                                 (_BYTE *)(a5 + 16),
+                                 (int)a5 + 8,
+                                 a5 + 16,
                                  *(_DWORD *)(a5 + 20) & 0xFFFF0000);
       }
     }

@@ -20,11 +20,8 @@
 __int64 __fastcall PopUpdateConsoleDisplayState(__int64 a1)
 {
   unsigned int v1; // ebx
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
   __int64 result; // rax
-  int v6; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = a1;
   if ( PopConsoleDisplayState != (_DWORD)a1 )
@@ -34,17 +31,17 @@ __int64 __fastcall PopUpdateConsoleDisplayState(__int64 a1)
       guard_dispatch_icall_no_overrides(a1);
     PopDiagTraceConsoleDisplayState(v1);
     PopCheckResiliencyScenarios();
-    v6 = PopConsoleDisplayState;
-    PopSetPowerSettingValue(&GUID_CONSOLE_DISPLAY_STATE, 0xFFFFFFFF, 0, 4u, &v6);
-    PopSetPowerSettingValue(&GUID_CONSOLE_DISPLAY_STATE, 0xFFFFFFFF, 1, 4u, &v6);
+    Buffer = PopConsoleDisplayState;
+    PopSetPowerSettingValue(&GUID_CONSOLE_DISPLAY_STATE, 0xFFFFFFFF, 0, 4u, &Buffer);
+    PopSetPowerSettingValue(&GUID_CONSOLE_DISPLAY_STATE, 0xFFFFFFFF, 1, 4u, &Buffer);
     PopRecordDisplayState(v1);
-    v6 = PopConsoleDisplayState != 0;
-    PopSetPowerSettingValue(&GUID_MONITOR_POWER_ON, 0xFFFFFFFF, 0, 4u, &v6);
-    PopSetPowerSettingValue(&GUID_MONITOR_POWER_ON, 0xFFFFFFFF, 1, 4u, &v6);
-    ZwUpdateWnfStateData((__int64)&WNF_UBPM_CONSOLE_MONITOR, (__int64)&v6);
+    Buffer = PopConsoleDisplayState != 0;
+    PopSetPowerSettingValue(&GUID_MONITOR_POWER_ON, 0xFFFFFFFF, 0, 4u, &Buffer);
+    PopSetPowerSettingValue(&GUID_MONITOR_POWER_ON, 0xFFFFFFFF, 1, 4u, &Buffer);
+    ZwUpdateWnfStateData(&WNF_UBPM_CONSOLE_MONITOR, &Buffer, 4u, 0LL, 0LL, 0, 0);
     PopSpoilBatteryEstimate(0LL);
     PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemIdleLock);
-    PopUpdateLastUserInputTime(v3, v2, v4);
+    PopUpdateLastUserInputTime();
     dword_140E0B514 = v1;
     return PopReleaseRwLock(&PopSystemIdleLock);
   }

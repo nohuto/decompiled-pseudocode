@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllComboListBoxProc_W @ 0x18015ECB0
+ * XREFs of NtdllComboListBoxProc_W @ 0x18015EBB0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllComboListBoxProc_W()
 {
-  off_1801E0248();
+  off_1801DF248();
 }

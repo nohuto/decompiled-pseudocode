@@ -1,30 +1,30 @@
 /*
- * XREFs of VfIoDeleteDevice @ 0x14070D810
+ * XREFs of VfIoDeleteDevice @ 0x14070D840
  * Callers:
  *     IovDeleteDevice @ 0x140700F88 (IovDeleteDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlStringCbPrintfA @ 0x140139A14 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     IovUtilMarkDeviceObject @ 0x14022352C (IovUtilMarkDeviceObject.c)
- *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140706058 (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
- *     VF_MARK_FOR_DEFERRED_REMOVE @ 0x140706164 (VF_MARK_FOR_DEFERRED_REMOVE.c)
- *     ViReleaseDmaAdapter @ 0x14070A24C (ViReleaseDmaAdapter.c)
- *     ViDevObjRemove @ 0x14070DA90 (ViDevObjRemove.c)
- *     IovUtilGetLowerDeviceObject @ 0x14070E014 (IovUtilGetLowerDeviceObject.c)
- *     IovUtilIsDeviceObjectMarked @ 0x14070E0AC (IovUtilIsDeviceObjectMarked.c)
- *     ViErrorDisplayDescription @ 0x14070EB74 (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x14070EBC4 (ViErrorFinishReport.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlStringCbPrintfA @ 0x140139F84 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     IovUtilMarkDeviceObject @ 0x140223358 (IovUtilMarkDeviceObject.c)
+ *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140706088 (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
+ *     VF_MARK_FOR_DEFERRED_REMOVE @ 0x140706194 (VF_MARK_FOR_DEFERRED_REMOVE.c)
+ *     ViReleaseDmaAdapter @ 0x14070A27C (ViReleaseDmaAdapter.c)
+ *     ViDevObjRemove @ 0x14070DAC0 (ViDevObjRemove.c)
+ *     IovUtilGetLowerDeviceObject @ 0x14070E044 (IovUtilGetLowerDeviceObject.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x14070E0DC (IovUtilIsDeviceObjectMarked.c)
+ *     ViErrorDisplayDescription @ 0x14070EBA4 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x14070EBF4 (ViErrorFinishReport.c)
  *     VfIrpLogDeleteDeviceLogs @ 0x140719390 (VfIrpLogDeleteDeviceLogs.c)
  */
 
-__int64 __fastcall VfIoDeleteDevice(__int64 a1, const void *a2)
+__int64 __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *a1, const void *a2)
 {
-  __int64 v3; // rbx
-  __int64 v4; // rax
-  __int64 v5; // rdx
-  ULONG_PTR *v6; // rax
+  struct _LIST_ENTRY *v3; // rbx
+  struct _LIST_ENTRY *Blink; // rax
+  struct _LIST_ENTRY *Flink; // rdx
+  _LIST_ENTRY *v6; // rax
   __int64 result; // rax
   __int64 v8; // rcx
   void *LowerDeviceObject; // rsi
@@ -34,18 +34,18 @@ __int64 __fastcall VfIoDeleteDevice(__int64 a1, const void *a2)
   v3 = a1;
   if ( ViVerifyDma )
   {
-    v4 = *(_QWORD *)(a1 + 312);
-    if ( !v4 )
+    Blink = a1[19].Blink;
+    if ( !Blink )
       goto LABEL_21;
     do
     {
-      v5 = *(_QWORD *)(v4 + 48);
-      if ( !v5 )
+      Flink = Blink[3].Flink;
+      if ( !Flink )
         break;
-      v4 = *(_QWORD *)(v5 + 312);
-      a1 = v5;
+      Blink = Flink[19].Blink;
+      a1 = Flink;
     }
-    while ( v4 );
+    while ( Blink );
     if ( a1 == v3 )
     {
 LABEL_21:
@@ -65,7 +65,7 @@ LABEL_21:
   result = (unsigned int)VfIoDisabled;
   if ( !VfIoDisabled )
   {
-    ViDevObjRemove(v3);
+    ViDevObjRemove((int)v3);
     if ( (unsigned int)IovUtilIsDeviceObjectMarked(v3, 0LL) )
     {
       ViErrorDisplayDescription(576LL);
@@ -73,7 +73,7 @@ LABEL_21:
         VfUtilDbgPrint(pszDest);
       ViErrorFinishReport(576LL, a2, 0LL, 0LL);
     }
-    IovUtilMarkDeviceObject(v3, 0LL);
+    IovUtilMarkDeviceObject((__int64)v3, 0LL);
     LowerDeviceObject = (void *)IovUtilGetLowerDeviceObject(v8);
     if ( LowerDeviceObject )
     {

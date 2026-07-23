@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpWorkQueueManagerThread @ 0x1407AF840
+ * XREFs of ExpWorkQueueManagerThread @ 0x1407AF9E0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     ExpNewThreadNecessary @ 0x140242890 (ExpNewThreadNecessary.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
- *     KeTimeOutQueueWaiters @ 0x1402871CC (KeTimeOutQueueWaiters.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     KeSetAffinityThread @ 0x1403993CC (KeSetAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KeSetMaximumCountPriQueue @ 0x14052452C (KeSetMaximumCountPriQueue.c)
- *     ExpCreateWorkerThread @ 0x1406CFF28 (ExpCreateWorkerThread.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140955DD8 (ExpPartitionCreatePoolDelayed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeTimeOutQueueWaiters @ 0x14020436C (KeTimeOutQueueWaiters.c)
+ *     KeSetCoalescableTimer @ 0x1402813E0 (KeSetCoalescableTimer.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     KeSetTimer2 @ 0x1402D0DD0 (KeSetTimer2.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ExpNewThreadNecessary @ 0x1402E70E0 (ExpNewThreadNecessary.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     KeSetAffinityThread @ 0x14039951C (KeSetAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KeSetMaximumCountPriQueue @ 0x14052476C (KeSetMaximumCountPriQueue.c)
+ *     ExpCreateWorkerThread @ 0x1406A7208 (ExpCreateWorkerThread.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x140955FA8 (ExpPartitionCreatePoolDelayed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
@@ -47,7 +47,7 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
   int v23; // eax
   __int64 i; // rbx
   __int64 v25; // rcx
-  __int64 v26; // r8
+  unsigned int v26; // r8d
   __int64 v27; // rbx
   __int64 v28; // rsi
   __int64 v29; // r8
@@ -57,7 +57,7 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
   struct _KTHREAD *v33; // [rsp+50h] [rbp-21h]
   unsigned __int64 v34; // [rsp+58h] [rbp-19h]
   _QWORD v35[2]; // [rsp+60h] [rbp-11h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+70h] [rbp-1h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+70h] [rbp-1h] BYREF
   PVOID Object[3]; // [rsp+80h] [rbp+Fh] BYREF
 
   v1 = 0;
@@ -115,10 +115,10 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
             {
               if ( (*(_DWORD *)(v25 + 712) & 0x4000) == 0 && !*(_DWORD *)(v25 + 4) )
               {
-                v26 = (*(_DWORD *)(v25 + 712) & 0x3FFFu) - ((2 * *(_DWORD *)(v25 + 716)) >> 1);
-                if ( (_DWORD)v26 )
+                v26 = (*(_DWORD *)(v25 + 712) & 0x3FFF) - ((2 * *(_DWORD *)(v25 + 716)) >> 1);
+                if ( v26 )
                 {
-                  KeTimeOutQueueWaiters(v25, v7, v26, 0LL);
+                  KeTimeOutQueueWaiters(v25, v7, v26);
                   v9 = 0LL;
                 }
               }

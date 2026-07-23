@@ -1,19 +1,19 @@
 /*
- * XREFs of MiScanLeafNonPagedPool @ 0x1401637F0
+ * XREFs of MiScanLeafNonPagedPool @ 0x1401638F0
  * Callers:
- *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
+ *     MiScanNonPagedPoolVa @ 0x1401636E0 (MiScanNonPagedPoolVa.c)
  * Callees:
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
- *     MiIncreaseNonPagedPoolUsage @ 0x140163E48 (MiIncreaseNonPagedPoolUsage.c)
- *     MiReplenishNonPagedSlists @ 0x140163EA4 (MiReplenishNonPagedSlists.c)
- *     MiAllocatingNonPagedPoolVa @ 0x140164060 (MiAllocatingNonPagedPoolVa.c)
- *     MiCheckPoolForContiguousPages @ 0x140164414 (MiCheckPoolForContiguousPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlFindClearBitsAndSetEx @ 0x14008AB40 (RtlFindClearBitsAndSetEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B220 (RtlFindNextForwardRunClearCappedEx.c)
+ *     MiIncreaseNonPagedPoolUsage @ 0x140163F48 (MiIncreaseNonPagedPoolUsage.c)
+ *     MiReplenishNonPagedSlists @ 0x140163FA4 (MiReplenishNonPagedSlists.c)
+ *     MiAllocatingNonPagedPoolVa @ 0x140164160 (MiAllocatingNonPagedPoolVa.c)
+ *     MiCheckPoolForContiguousPages @ 0x140164514 (MiCheckPoolForContiguousPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiScanLeafNonPagedPool(
@@ -28,7 +28,7 @@ __int64 __fastcall MiScanLeafNonPagedPool(
   __int64 v7; // rsi
   __int64 v8; // rbx
   int v9; // edi
-  union _SLIST_HEADER *v10; // r15
+  _SLIST_HEADER *v10; // r15
   unsigned __int64 v12; // rdx
   unsigned __int64 i; // rdi
   unsigned __int64 v14; // rbx
@@ -67,7 +67,7 @@ __int64 __fastcall MiScanLeafNonPagedPool(
   __int64 v48; // rax
   unsigned __int64 v49; // rcx
   __int64 v50; // r8
-  union _SLIST_HEADER *v51; // r12
+  _SLIST_HEADER *v51; // r12
   __int64 v52; // rsi
   unsigned __int64 v53; // rdi
   unsigned int v54; // esi
@@ -90,7 +90,7 @@ __int64 __fastcall MiScanLeafNonPagedPool(
   int v71; // [rsp+70h] [rbp-11h]
   int v72; // [rsp+74h] [rbp-Dh]
   int v73; // [rsp+78h] [rbp-9h]
-  union _SLIST_HEADER *v74; // [rsp+80h] [rbp-1h]
+  _SLIST_HEADER *v74; // [rsp+80h] [rbp-1h]
   unsigned int v76; // [rsp+E0h] [rbp+5Fh]
   unsigned __int64 v78; // [rsp+100h] [rbp+7Fh]
 
@@ -98,7 +98,7 @@ __int64 __fastcall MiScanLeafNonPagedPool(
   v7 = *(_QWORD *)(a4 + 32);
   v8 = a4;
   v9 = a3;
-  v10 = &qword_14043A058[25 * a2];
+  v10 = &qword_14043B118[25 * a2];
   v64 = a6;
   v74 = v10;
   v65 = v10[23].Region + 8 * (a5 >> 6);

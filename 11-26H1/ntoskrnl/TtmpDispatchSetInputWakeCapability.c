@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmpDispatchSetInputWakeCapability @ 0x1407E8470
+ * XREFs of TtmpDispatchSetInputWakeCapability @ 0x1407EDFD0
  * Callers:
- *     TtmDispatchApi @ 0x140A3A3D0 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409F5FD0 (TtmDispatchApi.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiSetInputWakeCapability @ 0x1407E5490 (TtmiSetInputWakeCapability.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1407E7B48 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiSetInputWakeCapability @ 0x1407EAFF0 (TtmiSetInputWakeCapability.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x1407ED6A8 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpDispatchSetInputWakeCapability(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall TtmpDispatchSetInputWakeCapability(__int64 a1)
     TtmiLogError("TtmpDispatchSetInputWakeCapability", 931LL, (unsigned int)v2, (unsigned int)v2);
   if ( v6 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
   if ( Object )

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTraceUncorralProcessorsDuration @ 0x14050A118
+ * XREFs of IopLiveDumpTraceUncorralProcessorsDuration @ 0x14050A354
  * Callers:
- *     IopLiveDumpUncorralProcessors @ 0x1409AD5E8 (IopLiveDumpUncorralProcessors.c)
+ *     IopLiveDumpUncorralProcessors @ 0x1409AE518 (IopLiveDumpUncorralProcessors.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508C5C (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceUncorralProcessorsDuration(const GUID *a1, ...)
@@ -111,7 +111,7 @@ char IopLiveDumpTraceUncorralProcessorsDuration(const GUID *a1, ...)
             v31 = 8;
             LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
                            (__int64)&dword_140C044D8,
-                           (unsigned __int8 *)&byte_140024B77,
+                           (unsigned __int8 *)byte_140024ED8,
                            a1 + 54,
                            a1 + 53,
                            6u,

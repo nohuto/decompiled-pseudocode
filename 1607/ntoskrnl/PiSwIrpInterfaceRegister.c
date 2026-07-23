@@ -1,67 +1,68 @@
 /*
- * XREFs of PiSwIrpInterfaceRegister @ 0x1404C648C
+ * XREFs of PiSwIrpInterfaceRegister @ 0x140487098
  * Callers:
- *     PiSwDispatch @ 0x140489CB0 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x140489090 (PiSwDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
- *     IopRegisterDeviceInterface @ 0x14048756C (IopRegisterDeviceInterface.c)
- *     PiSwPropertySet @ 0x140487AA0 (PiSwPropertySet.c)
- *     PiSwValidatePropertyArray @ 0x1404892A8 (PiSwValidatePropertyArray.c)
- *     PiSwDeviceInterfaceSetState @ 0x1404C67BC (PiSwDeviceInterfaceSetState.c)
- *     PiSwInterfaceCreate @ 0x1404C6888 (PiSwInterfaceCreate.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x1404C7740 (PiSwDeviceFindInterfaceEntry.c)
- *     PiSwUpdateArrayProperties @ 0x1405438D0 (PiSwUpdateArrayProperties.c)
- *     PiSwInterfaceFree @ 0x140645718 (PiSwInterfaceFree.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x140486EC4 (PiSwDeviceFindInterfaceEntry.c)
+ *     PiSwDeviceInterfaceSetState @ 0x140486F20 (PiSwDeviceInterfaceSetState.c)
+ *     PiSwInterfaceCreate @ 0x140486FEC (PiSwInterfaceCreate.c)
+ *     IopRegisterDeviceInterface @ 0x14050FDE8 (IopRegisterDeviceInterface.c)
+ *     PiSwPropertySet @ 0x140510214 (PiSwPropertySet.c)
+ *     PiSwValidatePropertyArray @ 0x140511A1C (PiSwValidatePropertyArray.c)
+ *     PiSwUpdateArrayProperties @ 0x140543E10 (PiSwUpdateArrayProperties.c)
+ *     PiSwInterfaceFree @ 0x1406457FC (PiSwInterfaceFree.c)
  */
 
 __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r15
-  char *FsContext2; // rsi
+  __int64 FsContext2; // rsi
   char v4; // r12
   struct _IRP *MasterIrp; // rcx
   NTSTATUS updated; // edi
   __int64 v7; // r8
-  unsigned int v8; // edx
-  const wchar_t *v9; // rcx
+  int v8; // r9d
+  __int64 v9; // rcx
   __int64 v10; // rcx
-  __int64 InterfaceEntry; // rax
-  PVOID *v12; // rdx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // r8
+  __int64 *InterfaceEntry; // rax
+  __int64 **v12; // rdx
+  __int64 *v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
   __int64 v17; // r8
   __int64 v18; // rdx
   __int64 v19; // r8
   __int64 v20; // r9
   NTSTRSAFE_PCWSTR v21; // rsi
   __int64 v22; // rax
-  __int64 v24; // rcx
-  _QWORD *v25; // rax
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  _QWORD *v29; // [rsp+30h] [rbp-68h]
+  __int64 *v24; // rsi
+  __int64 v25; // rcx
+  __int64 **v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // r8
+  __int64 v29; // r9
+  __int64 *v30; // [rsp+30h] [rbp-68h] BYREF
   NTSTRSAFE_PCWSTR pszSrc; // [rsp+38h] [rbp-60h] BYREF
-  _QWORD v31[11]; // [rsp+40h] [rbp-58h] BYREF
-  int v32; // [rsp+B0h] [rbp+18h] BYREF
+  _QWORD v32[11]; // [rsp+40h] [rbp-58h] BYREF
+  int v33; // [rsp+B0h] [rbp+18h] BYREF
   PVOID P; // [rsp+B8h] [rbp+20h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  v31[1] = CurrentStackLocation;
-  FsContext2 = (char *)CurrentStackLocation->FileObject->FsContext2;
-  v31[2] = FsContext2;
-  v31[0] = 0LL;
+  v32[1] = CurrentStackLocation;
+  FsContext2 = (__int64)CurrentStackLocation->FileObject->FsContext2;
+  v32[2] = FsContext2;
+  v32[0] = 0LL;
   P = 0LL;
-  v29 = 0LL;
+  v30 = 0LL;
   pszSrc = 0LL;
-  v32 = 0;
+  v33 = 0;
   v4 = 0;
   MasterIrp = Irp->AssociatedIrp.MasterIrp;
   if ( !MasterIrp )
@@ -69,72 +70,70 @@ __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp)
     updated = -1073741811;
     goto LABEL_46;
   }
-  updated = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, v31);
+  updated = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, v32);
   if ( updated < 0 )
     goto LABEL_29;
-  NdrMesTypeDecode3(v31[0], "TP 3\a", &off_1406E9AB0, &off_1402F32B0, 2, &P);
-  if ( !P
-    || !*(_QWORD *)P
-    || (v7 = *((_QWORD *)P + 3)) == 0 && *((_DWORD *)P + 4)
-    || (v8 = *((_DWORD *)P + 4)) == 0 && v7 )
+  NdrMesTypeDecode3(v32[0], "TP 3\a", &off_1406E9BE0, &off_1402F32B0, 2, &P);
+  if ( !P || !*(_QWORD *)P || (v7 = *((_QWORD *)P + 3)) == 0 && *((_DWORD *)P + 4) || !*((_DWORD *)P + 4) && v7 )
   {
     updated = -1073741811;
     goto LABEL_29;
   }
-  updated = PiSwValidatePropertyArray(*((_QWORD *)P + 3), v8);
+  updated = PiSwValidatePropertyArray(*((_QWORD *)P + 3));
   if ( updated < 0 )
     goto LABEL_29;
   PiSwLock();
   if ( !FsContext2
-    || (v9 = (const wchar_t *)*((_QWORD *)FsContext2 + 10)) == 0LL
-    || *((_QWORD *)FsContext2 + 11)
-    || (*((_DWORD *)FsContext2 + 16) & 8) != 0 )
+    || (v9 = *(_QWORD *)(FsContext2 + 80)) == 0
+    || *(_QWORD *)(FsContext2 + 88)
+    || (*(_DWORD *)(FsContext2 + 64) & 8) != 0 )
   {
     updated = -1073741637;
   }
   else
   {
-    updated = IopRegisterDeviceInterface(v9, *(_QWORD *)P, *((const wchar_t **)P + 1), 1, (PVOID *)&pszSrc, &v32);
+    LOBYTE(v8) = 1;
+    updated = IopRegisterDeviceInterface(v9, *(_QWORD *)P, *((_QWORD *)P + 1), v8, (__int64)&pszSrc, (__int64)&v33);
     if ( updated >= 0 )
     {
-      v10 = *((_QWORD *)FsContext2 + 15);
+      v10 = *(_QWORD *)(FsContext2 + 120);
       if ( v10 )
-        *(_DWORD *)(v10 + 48) |= v32;
+        *(_DWORD *)(v10 + 48) |= v33;
       InterfaceEntry = PiSwDeviceFindInterfaceEntry(FsContext2, pszSrc);
-      v29 = (_QWORD *)InterfaceEntry;
+      v30 = InterfaceEntry;
       if ( InterfaceEntry )
       {
         updated = PiSwUpdateArrayProperties(
-                    *(_QWORD *)(InterfaceEntry + 24),
-                    *(unsigned int *)(InterfaceEntry + 32),
+                    InterfaceEntry[3],
+                    *((unsigned int *)InterfaceEntry + 8),
                     *((_QWORD *)P + 3),
                     *((unsigned int *)P + 4));
 LABEL_19:
         ExReleaseResourceLite(&PiSwLockObj);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v13, v14, v15);
+        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v14, v15, v16);
         if ( updated < 0 )
           goto LABEL_46;
-        v16 = *((_QWORD *)P + 3);
-        if ( v16 )
-          updated = PiSwPropertySet(v29[2], 3u, v16, *((_DWORD *)P + 4));
+        v17 = *((_QWORD *)P + 3);
+        if ( v17 )
+          updated = PiSwPropertySet(v30[2], 3LL, v17, *((unsigned int *)P + 4));
         if ( updated < 0 )
           goto LABEL_46;
         PiSwLock();
-        LOBYTE(v17) = *((_BYTE *)P + 32);
-        updated = PiSwDeviceInterfaceSetState(FsContext2, v29, v17);
+        updated = PiSwDeviceInterfaceSetState(FsContext2, (__int64)v30, *((_BYTE *)P + 32));
         goto LABEL_24;
       }
-      updated = PiSwInterfaceCreate(pszSrc);
+      updated = PiSwInterfaceCreate(pszSrc, *((_QWORD *)P + 3), *((_DWORD *)P + 4), &v30);
       if ( updated >= 0 )
       {
         v4 = 1;
-        v12 = (PVOID *)*((_QWORD *)FsContext2 + 24);
-        if ( *v12 != FsContext2 + 184 )
+        v12 = *(__int64 ***)(FsContext2 + 192);
+        if ( *v12 != (__int64 *)(FsContext2 + 184) )
           __fastfail(3u);
-        MEMORY[0] = FsContext2 + 184;
-        MEMORY[8] = v12;
-        *v12 = 0LL;
-        *((_QWORD *)FsContext2 + 24) = 0LL;
+        v13 = v30;
+        *v30 = FsContext2 + 184;
+        v13[1] = (__int64)v12;
+        *v12 = v13;
+        *(_QWORD *)(FsContext2 + 192) = v13;
         goto LABEL_19;
       }
     }
@@ -162,25 +161,26 @@ LABEL_29:
       goto LABEL_30;
   }
 LABEL_46:
-  if ( v29 && v4 )
+  v24 = v30;
+  if ( v30 && v4 )
   {
     PiSwLock();
-    v24 = *v29;
-    v25 = (_QWORD *)v29[1];
-    if ( *(_QWORD **)(*v29 + 8LL) != v29 || (_QWORD *)*v25 != v29 )
+    v25 = *v24;
+    v26 = (__int64 **)v24[1];
+    if ( *(__int64 **)(*v24 + 8) != v24 || *v26 != v24 )
       __fastfail(3u);
-    *v25 = v24;
-    *(_QWORD *)(v24 + 8) = v25;
+    *v26 = (__int64 *)v25;
+    *(_QWORD *)(v25 + 8) = v26;
     ExReleaseResourceLite(&PiSwLockObj);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v26, v27, v28);
-    PiSwInterfaceFree(v29);
+    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v27, v28, v29);
+    PiSwInterfaceFree(v30);
   }
 LABEL_30:
   if ( P )
     ExFreePoolWithTag(P, 0x6370726Bu);
   if ( pszSrc )
     ExFreePoolWithTag((PVOID)pszSrc, 0);
-  if ( v31[0] )
+  if ( v32[0] )
     MesHandleFree();
   Irp->IoStatus.Status = updated;
   IofCompleteRequest(Irp, 0);

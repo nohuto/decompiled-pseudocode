@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwQueryVolumeInformationFile @ 0x1406A6D30
+ * XREFs of ZwQueryVolumeInformationFile @ 0x1406A7CD0
  * Callers:
- *     DifZwQueryVolumeInformationFileWrapper @ 0x140646BF0 (DifZwQueryVolumeInformationFileWrapper.c)
- *     PfpQueryFileExtentsRequest @ 0x140745C48 (PfpQueryFileExtentsRequest.c)
- *     SmKmIsVolumeIoPossible @ 0x140799CF0 (SmKmIsVolumeIoPossible.c)
- *     SmKmStoreFileCreate @ 0x14079A748 (SmKmStoreFileCreate.c)
- *     CmpGetVolumeClusterSize @ 0x140930B1C (CmpGetVolumeClusterSize.c)
- *     CmpGetVolumeLogFileSizeCap @ 0x140930E60 (CmpGetVolumeLogFileSizeCap.c)
- *     EtwpCreateLogFile @ 0x1409DA6AC (EtwpCreateLogFile.c)
- *     EtwpFinalizeHeader @ 0x1409DBD1C (EtwpFinalizeHeader.c)
- *     PopValidateHiberFileSize @ 0x140A782BC (PopValidateHiberFileSize.c)
+ *     DifZwQueryVolumeInformationFileWrapper @ 0x1406451B0 (DifZwQueryVolumeInformationFileWrapper.c)
+ *     PfpQueryFileExtentsRequest @ 0x140743F38 (PfpQueryFileExtentsRequest.c)
+ *     SmKmIsVolumeIoPossible @ 0x140799E00 (SmKmIsVolumeIoPossible.c)
+ *     SmKmStoreFileCreate @ 0x14079A858 (SmKmStoreFileCreate.c)
+ *     CmpGetVolumeClusterSize @ 0x140932C5C (CmpGetVolumeClusterSize.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x140932FA0 (CmpGetVolumeLogFileSizeCap.c)
+ *     EtwpCreateLogFile @ 0x1409D51BC (EtwpCreateLogFile.c)
+ *     EtwpFinalizeHeader @ 0x1409D652C (EtwpFinalizeHeader.c)
+ *     PopValidateHiberFileSize @ 0x140A725BC (PopValidateHiberFileSize.c)
  * Callees:
  *     <none>
  */
@@ -23,5 +23,5 @@ NTSTATUS __stdcall ZwQueryVolumeInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

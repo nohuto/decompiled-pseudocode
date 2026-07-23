@@ -1,12 +1,12 @@
 /*
- * XREFs of RawInitializeVcb @ 0x1409A40E8
+ * XREFs of RawInitializeVcb @ 0x1408ACE6C
  * Callers:
- *     RawMountVolume @ 0x1409A3134 (RawMountVolume.c)
+ *     RawMountVolume @ 0x1408ACB4C (RawMountVolume.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x1409A4220 (ExAllocateCacheAwareRundownProtection.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1408ACFB0 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RawInitializeVcb(_DWORD *a1, __int64 a2, __int64 a3)

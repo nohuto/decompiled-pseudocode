@@ -1,24 +1,24 @@
 /*
- * XREFs of SmcStoreResize @ 0x14069AAD8
+ * XREFs of SmcStoreResize @ 0x14069ABBC
  * Callers:
- *     SmcProcessResizeRequest @ 0x140697718 (SmcProcessResizeRequest.c)
+ *     SmcProcessResizeRequest @ 0x1406977FC (SmcProcessResizeRequest.c)
  * Callees:
- *     SmAlloc @ 0x14000215C (SmAlloc.c)
- *     RtlSetAllBits @ 0x1400055D0 (RtlSetAllBits.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     SmStoreResize @ 0x140697294 (SmStoreResize.c)
- *     SmcCacheDereference @ 0x140699F04 (SmcCacheDereference.c)
- *     SmcCacheReference @ 0x14069A108 (SmcCacheReference.c)
- *     SmcStoreEntryFind @ 0x14069A974 (SmcStoreEntryFind.c)
- *     SmcStorePlacementGet @ 0x14069A9AC (SmcStorePlacementGet.c)
+ *     SmAlloc @ 0x1400022D0 (SmAlloc.c)
+ *     RtlSetAllBits @ 0x140005744 (RtlSetAllBits.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     SmStoreResize @ 0x140697378 (SmStoreResize.c)
+ *     SmcCacheDereference @ 0x140699FE8 (SmcCacheDereference.c)
+ *     SmcCacheReference @ 0x14069A1EC (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x14069AA58 (SmcStoreEntryFind.c)
+ *     SmcStorePlacementGet @ 0x14069AA90 (SmcStorePlacementGet.c)
  */
 
 __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
@@ -47,7 +47,7 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
   unsigned __int64 v24; // r10
   _DWORD *v25; // r8
   unsigned __int64 v26; // rdx
-  struct _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-30h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-30h] BYREF
   _QWORD v29[4]; // [rsp+40h] [rbp-20h] BYREF
   int v31; // [rsp+A8h] [rbp+48h]
   struct _EX_RUNDOWN_REF *v32; // [rsp+B0h] [rbp+50h]

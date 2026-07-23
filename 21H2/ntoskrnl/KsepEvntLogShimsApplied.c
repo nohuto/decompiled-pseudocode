@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepEvntLogShimsApplied @ 0x140526F2C
+ * XREFs of KsepEvntLogShimsApplied @ 0x14052716C
  * Callers:
- *     KseDriverLoadImage @ 0x14075B560 (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x14075B720 (KseDriverLoadImage.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KsepPoolAllocatePaged @ 0x14037129C (KsepPoolAllocatePaged.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlStringFromGUIDEx @ 0x14066DF18 (RtlStringFromGUIDEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsigned int a3)
@@ -20,7 +20,7 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
   unsigned __int16 v7; // r14
   UNICODE_STRING *Paged; // rax
   UNICODE_STRING *v9; // rsi
-  char *v10; // rdi
+  wchar_t *p_Length; // rdi
   UNICODE_STRING *v11; // rbx
   unsigned __int16 *v12; // r15
   wchar_t *Buffer; // rcx
@@ -51,17 +51,17 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
     v9 = Paged;
     if ( Paged )
     {
-      v10 = (char *)&Paged[v17];
+      p_Length = &Paged[v17].Length;
       if ( v17 )
       {
         do
         {
           v11 = &v9[v3];
           *v11 = 0LL;
-          v11->Buffer = (wchar_t *)v10;
-          v10 += 78;
+          v11->Buffer = p_Length;
+          p_Length += 39;
           v11->MaximumLength = 78;
-          RtlStringFromGUIDEx(a2 + 80LL * v3++, v11, 0LL);
+          RtlStringFromGUIDEx((PGUID)(a2 + 80LL * v3++), v11, 0);
           v7 += v11->Length + 4;
         }
         while ( v3 < v17 );
@@ -112,12 +112,12 @@ LABEL_18:
         }
       }
       ExFreePoolWithTag(v9, 0x6145534Bu);
-      _InterlockedIncrement(&dword_140C2AA24);
+      _InterlockedIncrement(&dword_140C2AA64);
     }
     if ( Destination.Buffer )
     {
       ExFreePoolWithTag(Destination.Buffer, 0x6145534Bu);
-      _InterlockedIncrement(&dword_140C2AA24);
+      _InterlockedIncrement(&dword_140C2AA64);
     }
   }
 }

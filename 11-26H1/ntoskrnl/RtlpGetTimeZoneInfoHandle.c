@@ -1,44 +1,44 @@
 /*
- * XREFs of RtlpGetTimeZoneInfoHandle @ 0x140A13574
+ * XREFs of RtlpGetTimeZoneInfoHandle @ 0x140A12764
  * Callers:
- *     RtlSetActiveTimeBias @ 0x140804C34 (RtlSetActiveTimeBias.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1408051C8 (RtlpSetTimeZoneInformationWorker.c)
- *     RtlpQueryTimeZoneInformationWorker @ 0x140A13354 (RtlpQueryTimeZoneInformationWorker.c)
+ *     RtlSetActiveTimeBias @ 0x14080A6D4 (RtlSetActiveTimeBias.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14080AC68 (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x140A12544 (RtlpQueryTimeZoneInformationWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlGetPersistedStateLocation @ 0x140A10D20 (RtlGetPersistedStateLocation.c)
- *     RtlpGetRegistryHandle @ 0x140A11948 (RtlpGetRegistryHandle.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlGetPersistedStateLocation @ 0x140A0FF10 (RtlGetPersistedStateLocation.c)
+ *     RtlpGetRegistryHandle @ 0x140A10B38 (RtlpGetRegistryHandle.c)
  */
 
-__int64 __fastcall RtlpGetTimeZoneInfoHandle(char a1, HANDLE *a2)
+int __fastcall RtlpGetTimeZoneInfoHandle(char a1, HANDLE *a2)
 {
-  __int64 result; // rax
-  __int64 v5; // [rsp+40h] [rbp-238h] BYREF
-  WCHAR v6[264]; // [rsp+50h] [rbp-228h] BYREF
+  int result; // eax
+  ULONG BufferLengthOut[4]; // [rsp+40h] [rbp-238h] BYREF
+  WCHAR TargetPath[264]; // [rsp+50h] [rbp-228h] BYREF
 
-  if ( dword_140E67938 == 2 )
+  if ( dword_140E67BE0 == 2 )
     return RtlpGetRegistryHandle(2, L"TimeZoneInformation", a1, a2);
   result = RtlGetPersistedStateLocation(
              L"TimeZoneInformationSettings",
              L"TargetNtPath",
              0LL,
-             0,
-             v6,
+             LocationTypeRegistry,
+             TargetPath,
              0x208u,
-             (unsigned int *)&v5);
-  if ( (int)result < 0 )
+             BufferLengthOut);
+  if ( result < 0 )
   {
-    if ( (_DWORD)result == -1073741772 )
+    if ( result == -1073741772 )
     {
-      dword_140E67938 = 2;
+      dword_140E67BE0 = 2;
       return RtlpGetRegistryHandle(2, L"TimeZoneInformation", a1, a2);
     }
   }
   else
   {
-    dword_140E67938 = 1;
-    result = RtlpGetRegistryHandle(0, v6, a1, a2);
-    if ( (_DWORD)result == -1073741772 )
+    dword_140E67BE0 = 1;
+    result = RtlpGetRegistryHandle(0, TargetPath, a1, a2);
+    if ( result == -1073741772 )
       return RtlpGetRegistryHandle(2, L"TimeZoneInformation", a1, a2);
   }
   return result;

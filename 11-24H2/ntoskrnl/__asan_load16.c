@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_load16 @ 0x1405AB320
+ * XREFs of __asan_load16 @ 0x1405A8290
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 char __fastcall _asan_load16(ULONG_PTR BugCheckParameter1)
@@ -13,7 +13,7 @@ char __fastcall _asan_load16(ULONG_PTR BugCheckParameter1)
   ULONG_PTR v3; // rax
   signed __int8 v4; // cl
 
-  if ( !byte_140FCDC2A )
+  if ( !byte_140FCECAA )
     return v3;
   LOBYTE(v3) = 0;
   if ( BugCheckParameter1 < 0xFFFF800000000000uLL )

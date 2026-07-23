@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     HalpInitializeNMI @ 0x1403809F8 (HalpInitializeNMI.c)
+ *     HalpInitializeNMI @ 0x140380B98 (HalpInitializeNMI.c)
  *     HalpInitializeCmc @ 0x140A8AD2C (HalpInitializeCmc.c)
  *     HalpInitializeMce @ 0x140A8ADA0 (HalpInitializeMce.c)
  *     HalpInitializeGenericErrorSource @ 0x140A8AE9C (HalpInitializeGenericErrorSource.c)

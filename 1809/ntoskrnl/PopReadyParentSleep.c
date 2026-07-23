@@ -1,9 +1,9 @@
 /*
- * XREFs of PopReadyParentSleep @ 0x14056CC30
+ * XREFs of PopReadyParentSleep @ 0x14056DC30
  * Callers:
- *     PopSystemIrpCompletion @ 0x14056C720 (PopSystemIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x14056D720 (PopSystemIrpCompletion.c)
  * Callees:
- *     IoQueryDeviceNodeDirectedDripsFlags @ 0x14028B330 (IoQueryDeviceNodeDirectedDripsFlags.c)
+ *     IoQueryDeviceNodeDirectedDripsFlags @ 0x14028B520 (IoQueryDeviceNodeDirectedDripsFlags.c)
  */
 
 char __fastcall PopReadyParentSleep(__int64 *a1, __int64 a2, char a3, char a4)

@@ -24,14 +24,14 @@
 
 void __fastcall MiFreeInPageSupportBlock(PSLIST_ENTRY ListEntry)
 {
-  struct _SLIST_ENTRY *v2; // rcx
-  struct _SLIST_ENTRY *Next; // rcx
+  _SLIST_ENTRY *v2; // rcx
+  _SLIST_ENTRY *Next; // rcx
   volatile signed __int64 *v4; // rcx
   signed __int64 v5; // rdi
   bool v6; // cc
   signed __int64 v7; // rdi
 
-  v2 = (struct _SLIST_ENTRY *)*((_QWORD *)&ListEntry[13].Next + 1);
+  v2 = (_SLIST_ENTRY *)*((_QWORD *)&ListEntry[13].Next + 1);
   if ( v2 == ListEntry && *((struct _KTHREAD **)&ListEntry[9].Next + 1) == KeGetCurrentThread() )
     KeAbPostRelease((ULONG_PTR)v2);
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)&ListEntry[11], 0xFFFFFFFF) == 1 )

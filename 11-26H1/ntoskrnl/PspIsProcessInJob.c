@@ -1,9 +1,9 @@
 /*
- * XREFs of PspIsProcessInJob @ 0x140A9C650
+ * XREFs of PspIsProcessInJob @ 0x140A9F450
  * Callers:
- *     PspGetJobAssignmentDisposition @ 0x140774930 (PspGetJobAssignmentDisposition.c)
- *     PspCheckConditionalWakeCharge @ 0x140A9C4AC (PspCheckConditionalWakeCharge.c)
- *     NtIsProcessInJob @ 0x140A9C530 (NtIsProcessInJob.c)
+ *     PspGetJobAssignmentDisposition @ 0x140777930 (PspGetJobAssignmentDisposition.c)
+ *     PspCheckConditionalWakeCharge @ 0x140A9F2AC (PspCheckConditionalWakeCharge.c)
+ *     NtIsProcessInJob @ 0x140A9F330 (NtIsProcessInJob.c)
  * Callees:
  *     <none>
  */

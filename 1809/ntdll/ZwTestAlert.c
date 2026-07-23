@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwTestAlert @ 0x1800A39F0
+ * XREFs of ZwTestAlert @ 0x1800A3A10
  * Callers:
- *     _LdrpInitialize @ 0x18007874C (_LdrpInitialize.c)
- *     KiUserApcHandler @ 0x1800A3E90 (KiUserApcHandler.c)
+ *     _LdrpInitialize @ 0x18007875C (_LdrpInitialize.c)
+ *     KiUserApcHandler @ 0x1800A3EB0 (KiUserApcHandler.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwTestAlert()
+NTSTATUS ZwTestAlert(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 441LL;
+  result = 441;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,14 +1,14 @@
 /*
- * XREFs of IoInitializeLiveDump @ 0x1403AEC60
+ * XREFs of IoInitializeLiveDump @ 0x1403AEE40
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
- *     IopOpenRegistryKey @ 0x1407CEF1C (IopOpenRegistryKey.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     MmQueryMemoryRanges @ 0x14085D580 (MmQueryMemoryRanges.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
+ *     IopOpenRegistryKey @ 0x1407CF1EC (IopOpenRegistryKey.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     MmQueryMemoryRanges @ 0x14085D7C0 (MmQueryMemoryRanges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of NLS_DOWNCASE @ 0x1402B1FF0
+ * XREFs of NLS_DOWNCASE @ 0x1402301A0
  * Callers:
- *     RtlDowncaseUnicodeString @ 0x1406970E0 (RtlDowncaseUnicodeString.c)
- *     RtlDowncaseUnicodeChar @ 0x14090FAE0 (RtlDowncaseUnicodeChar.c)
+ *     RtlDowncaseUnicodeString @ 0x1405F6630 (RtlDowncaseUnicodeString.c)
+ *     RtlDowncaseUnicodeChar @ 0x14090FC40 (RtlDowncaseUnicodeChar.c)
  * Callees:
  *     <none>
  */

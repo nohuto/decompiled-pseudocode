@@ -12,21 +12,21 @@
  *     TpSetPoolMaxThreadsSoftLimit @ 0x18010B540 (TpSetPoolMaxThreadsSoftLimit.c)
  */
 
-__int64 __fastcall TpSetDefaultPoolMaxThreads(unsigned int a1)
+void __fastcall TpSetDefaultPoolMaxThreads(ULONG a1)
 {
   __int64 v2; // rax
   int v3; // ecx
-  __int64 v4; // rsi
+  _TP_POOL *v4; // rsi
   int v5; // ebp
   unsigned int v6; // ebp
   int v7; // r14d
   unsigned int v8; // r14d
-  __int64 result; // rax
-  int v10; // edi
+  ULONG v9; // eax
+  ULONG v10; // edi
 
   v2 = TpPoolReferenceExistingGlobalPool();
   v3 = TppPoolpGlobalPoolMaxThreadsOverride;
-  v4 = v2;
+  v4 = (_TP_POOL *)v2;
   if ( TppPoolpGlobalPoolMaxThreadsOverride )
   {
     v6 = TppPoolpGlobalPoolMaxThreadsOverride;
@@ -51,24 +51,23 @@ __int64 __fastcall TpSetDefaultPoolMaxThreads(unsigned int a1)
     if ( v8 < 0x180 )
       v8 = 384;
   }
-  result = (unsigned int)TppPoolpGlobalPoolMaxThreads;
   if ( TppPoolpGlobalPoolMaxThreads )
   {
     if ( a1 <= TppPoolpGlobalPoolMaxThreads )
-      return result;
+      return;
 LABEL_15:
-    result = a1;
+    v9 = a1;
     goto LABEL_16;
   }
   if ( a1 <= v8 )
-    return result;
-  result = v6;
+    return;
+  v9 = v6;
   if ( a1 > v6 )
     goto LABEL_15;
 LABEL_16:
-  if ( !(_DWORD)result )
-    return result;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&TppPoolpGlobalPoolLock);
+  if ( !v9 )
+    return;
+  RtlAcquireSRWLockExclusive(&TppPoolpGlobalPoolLock);
   v10 = 0;
   if ( TppPoolpGlobalPoolMaxThreads )
   {
@@ -90,17 +89,14 @@ LABEL_28:
     goto LABEL_29;
   }
 LABEL_31:
-  result = RtlReleaseSRWLockExclusive(&TppPoolpGlobalPoolLock);
+  RtlReleaseSRWLockExclusive(&TppPoolpGlobalPoolLock);
   if ( v10 )
   {
     if ( v4 )
     {
       TpSetPoolMaxThreads(v4, v10);
-      TpSetPoolMaxThreadsSoftLimit(v4, 0);
-      return TppPoolpDereferenceGlobalPool(
-               (const void **)&TppPoolpGlobalPool,
-               (volatile signed __int32 *)&TppPoolpGlobalPoolLock);
+      TpSetPoolMaxThreadsSoftLimit((__int64)v4, 0);
+      TppPoolpDereferenceGlobalPool((const void **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
     }
   }
-  return result;
 }

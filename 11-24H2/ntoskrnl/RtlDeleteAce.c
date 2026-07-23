@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDeleteAce @ 0x140A5E0A0
+ * XREFs of RtlDeleteAce @ 0x140A564C0
  * Callers:
- *     SepRemoveAceFromTokenDefaultDacl @ 0x1403658FC (SepRemoveAceFromTokenDefaultDacl.c)
+ *     SepRemoveAceFromTokenDefaultDacl @ 0x1403E9B40 (SepRemoveAceFromTokenDefaultDacl.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
  */
 
 NTSTATUS __stdcall RtlDeleteAce(PACL Acl, ULONG AceIndex)
@@ -24,7 +24,7 @@ NTSTATUS __stdcall RtlDeleteAce(PACL Acl, ULONG AceIndex)
   __int64 v16; // rcx
 
   v2 = AceIndex;
-  if ( !RtlValidAcl((__int64)Acl) )
+  if ( !RtlValidAcl(Acl) )
     return -1073741811;
   AceCount = Acl->AceCount;
   if ( (unsigned int)v2 >= AceCount )

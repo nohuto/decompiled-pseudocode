@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetRegistryKeyInformation @ 0x1407CED98
+ * XREFs of IopGetRegistryKeyInformation @ 0x1407CF068
  * Callers:
- *     pIoQueryDeviceDescription @ 0x1407CE584 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407CEA28 (pIoQueryBusDescription.c)
- *     PiDevCfgCopyDeviceKey @ 0x14087E424 (PiDevCfgCopyDeviceKey.c)
+ *     pIoQueryDeviceDescription @ 0x1407CE854 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x1407CECF8 (pIoQueryBusDescription.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14087E664 (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     ZwQueryKey @ 0x14041B020 (ZwQueryKey.c)
+ *     ZwQueryKey @ 0x14041B3B0 (ZwQueryKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

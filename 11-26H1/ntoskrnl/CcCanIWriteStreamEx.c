@@ -1,20 +1,20 @@
 /*
- * XREFs of CcCanIWriteStreamEx @ 0x140383E50
+ * XREFs of CcCanIWriteStreamEx @ 0x140385C00
  * Callers:
- *     CcScheduleReadAheadNuma @ 0x14021D0F8 (CcScheduleReadAheadNuma.c)
- *     CcForceWriteThrough @ 0x140222070 (CcForceWriteThrough.c)
- *     CcCanIWrite @ 0x140383700 (CcCanIWrite.c)
- *     CcShouldLazyWriteCacheMap @ 0x1403894B0 (CcShouldLazyWriteCacheMap.c)
- *     CcNotifyOfMappedWrite @ 0x14038984C (CcNotifyOfMappedWrite.c)
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
+ *     CcScheduleReadAheadNuma @ 0x14021EA88 (CcScheduleReadAheadNuma.c)
+ *     CcForceWriteThrough @ 0x140223A00 (CcForceWriteThrough.c)
+ *     CcCanIWrite @ 0x1403854B0 (CcCanIWrite.c)
+ *     CcShouldLazyWriteCacheMap @ 0x14038B260 (CcShouldLazyWriteCacheMap.c)
+ *     CcNotifyOfMappedWrite @ 0x14038B5FC (CcNotifyOfMappedWrite.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     MmEnoughMemoryForWrite @ 0x1403841D0 (MmEnoughMemoryForWrite.c)
- *     CcIsFileObjectDirectMapped @ 0x1403845D4 (CcIsFileObjectDirectMapped.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmEnoughMemoryForWrite @ 0x140385F80 (MmEnoughMemoryForWrite.c)
+ *     CcIsFileObjectDirectMapped @ 0x140386384 (CcIsFileObjectDirectMapped.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 bool __fastcall CcCanIWriteStreamEx(
@@ -88,7 +88,7 @@ bool __fastcall CcCanIWriteStreamEx(
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
     }
     LockHandle.OldIrql = CurrentIrql;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v18 = _InterlockedExchange64(v16, (__int64)&LockHandle);
       if ( v18 )

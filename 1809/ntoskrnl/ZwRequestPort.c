@@ -1,16 +1,14 @@
 /*
- * XREFs of ZwRequestPort @ 0x1401BAF90
+ * XREFs of ZwRequestPort @ 0x1401BB0F0
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x14012FD64 (SepRmDispatchDataToLsa.c)
+ *     SepRmDispatchDataToLsa @ 0x14012FE34 (SepRmDispatchDataToLsa.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwRequestPort(HANDLE PortHandle, PPORT_MESSAGE LpcMessage)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, LpcMessage, v2);
+  return KiServiceInternal(PortHandle);
 }

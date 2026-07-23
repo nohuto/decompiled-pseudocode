@@ -165,7 +165,7 @@ __int64 __fastcall KiQueueReadyThread(struct _KPRCB *a1, __int64 a2, __int64 a3)
           if ( KiCheckMaxOverQuotaTransition(v29, v9) )
           {
             if ( (*(_BYTE *)(v29 + 112) & 1) != 0 )
-              KiRemoveSchedulingGroupQueue((__int64)a1, v29, 1);
+              KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a1, v29, 1);
           }
           else if ( *(_QWORD *)v29 >= *(_QWORD *)(v29 + 24) && (*(_BYTE *)(v29 + 112) & 2) == 0 )
           {

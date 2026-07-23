@@ -3,13 +3,13 @@
  * Callers:
  *     FsRtlFindInTunnelCache @ 0x14092E170 (FsRtlFindInTunnelCache.c)
  * Callees:
- *     FsRtlCompareNodeAndKey @ 0x14021D7F0 (FsRtlCompareNodeAndKey.c)
- *     FsRtlEmptyFreePoolList @ 0x14021D85C (FsRtlEmptyFreePoolList.c)
+ *     sub_14021D7F0 @ 0x14021D7F0 (sub_14021D7F0.c)
+ *     sub_14021D85C @ 0x14021D85C (sub_14021D85C.c)
  *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
  *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
  *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     FsRtlPruneTunnelCache @ 0x140694FD0 (FsRtlPruneTunnelCache.c)
+ *     sub_140694FD0 @ 0x140694FD0 (sub_140694FD0.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
 
@@ -31,24 +31,24 @@ char __fastcall FsRtlFindInTunnelCacheEx(
   unsigned __int16 *v15; // rdi
   wchar_t *PoolWithTag; // rcx
   unsigned __int16 v17; // ax
-  _QWORD *v19[7]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 *v19[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v10 = Mutex;
   v11 = 0;
   v12 = 0LL;
   if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 1) )
     return 0;
-  v19[1] = v19;
-  v19[0] = v19;
+  v19[1] = (__int64 *)v19;
+  v19[0] = (__int64 *)v19;
   ExAcquireFastMutex(Mutex);
-  FsRtlPruneTunnelCache(v10, v19);
+  sub_140694FD0(v10, v19);
   v13 = *(_QWORD *)&v10[1].Count;
   if ( v13 )
   {
     do
     {
       v12 = v13;
-      v14 = FsRtlCompareNodeAndKey(v13, a2, a3, a6 & 1);
+      v14 = sub_14021D7F0(v13, a2, a3, a6 & 1);
       if ( v14 > 0 )
       {
         v13 = *(_QWORD *)(v13 + 8);
@@ -85,6 +85,6 @@ char __fastcall FsRtlFindInTunnelCacheEx(
     v11 = 1;
   }
   KeReleaseGuardedMutex(v10);
-  FsRtlEmptyFreePoolList(v19);
+  sub_14021D85C(v19);
   return v11;
 }

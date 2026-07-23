@@ -1,14 +1,14 @@
 /*
- * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x1402639D0
+ * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x140262F40
  * Callers:
- *     KeExpandKernelStackAndCalloutInternal @ 0x1402638C0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140262E30 (KeExpandKernelStackAndCalloutInternal.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x140263F70 (KeQueryCurrentStackInformationEx.c)
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140264300 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     MmGrowKernelStackEx @ 0x1403D1450 (MmGrowKernelStackEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x140727390 (KeGetCurrentStackPointer.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402634E0 (KeQueryCurrentStackInformationEx.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140263870 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     MmGrowKernelStackEx @ 0x1403D4420 (MmGrowKernelStackEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x14072BF60 (KeGetCurrentStackPointer.c)
  */
 
 __int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(int a1, int a2, unsigned __int64 a3, int a4, __int64 a5)
@@ -37,7 +37,7 @@ __int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(int a1, int a2, unsi
   v23 = 0;
   if ( a3 > (unsigned int)KeMaximumKernelStackExpansionSize )
     return 3221225713LL;
-  if ( byte_140FC7BE8 )
+  if ( byte_140FC8BD8 )
   {
     if ( a3 <= 0x11800 )
     {

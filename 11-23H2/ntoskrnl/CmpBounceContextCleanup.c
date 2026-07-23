@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpBounceContextCleanup @ 0x1406DBDC4
+ * XREFs of CmpBounceContextCleanup @ 0x1406DBDF4
  * Callers:
- *     NtEnumerateKey @ 0x1406DBE10 (NtEnumerateKey.c)
- *     NtQueryMultipleValueKey @ 0x14070DD60 (NtQueryMultipleValueKey.c)
- *     NtEnumerateValueKey @ 0x14070E330 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x1406DBE40 (NtEnumerateKey.c)
+ *     NtQueryMultipleValueKey @ 0x14070DF70 (NtQueryMultipleValueKey.c)
+ *     NtEnumerateValueKey @ 0x14070E540 (NtEnumerateValueKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     ExFreeToLookasideListEx @ 0x14020B9E0 (ExFreeToLookasideListEx.c)

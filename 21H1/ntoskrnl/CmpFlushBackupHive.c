@@ -43,19 +43,19 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
   __int64 v12; // r8
   _DWORD *v13; // r9
   int v14; // ecx
-  __int64 v15; // rcx
+  void *v15; // rcx
   __int64 v16; // rdx
   __int64 v17; // r8
   _DWORD *v18; // r9
   volatile signed __int32 *v19; // rbx
   __int64 v20; // r8
   _DWORD *v21; // r9
-  __int64 v22; // rcx
+  void *v22; // rcx
   char FileInformation; // [rsp+58h] [rbp-B0h] BYREF
   char FileInformation_1; // [rsp+59h] [rbp-AFh] BYREF
-  __int16 v26; // [rsp+5Ch] [rbp-ACh]
-  int v27; // [rsp+60h] [rbp-A8h]
-  int v28; // [rsp+64h] [rbp-A4h]
+  __int16 ObjectInformation; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v27; // [rsp+60h] [rbp-A8h] BYREF
+  int v28; // [rsp+64h] [rbp-A4h] BYREF
   int v29[2]; // [rsp+68h] [rbp-A0h] BYREF
   STRING Destination; // [rsp+70h] [rbp-98h] BYREF
   int v31[2]; // [rsp+80h] [rbp-88h] BYREF
@@ -123,9 +123,9 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
       inited = CmpWriteOffsetArrayToFile(v14, v2, v3, v4, *((HANDLE *)v6 + 195));
       CmpFreeOffsetArray(v2, v3);
       if ( inited < 0
-        || (v15 = *((_QWORD *)v6 + 195),
-            v26 = 0,
-            ZwSetInformationObject(v15, 4LL),
+        || (v15 = (void *)*((_QWORD *)v6 + 195),
+            ObjectInformation = 0,
+            ZwSetInformationObject(v15, ObjectHandleFlagInformation, &ObjectInformation, 2u),
             ZwClose(*((HANDLE *)v6 + 195)),
             *((_QWORD *)v6 + 195) = 0LL,
             FileInformation = 0,
@@ -142,11 +142,11 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
             inited < 0) )
       {
 LABEL_14:
-        v22 = *((_QWORD *)v6 + 195);
+        v22 = (void *)*((_QWORD *)v6 + 195);
         if ( v22 )
         {
           LOWORD(v28) = 0;
-          ZwSetInformationObject(v22, 4LL);
+          ZwSetInformationObject(v22, ObjectHandleFlagInformation, &v28, 2u);
           ZwClose(*((HANDLE *)v6 + 195));
           *((_QWORD *)v6 + 195) = 0LL;
         }
@@ -163,7 +163,7 @@ LABEL_14:
         KiUnstackDetachProcess((__int64)v35, 0LL, v20, v21);
         ZwSetInformationFile(v7, &IoStatusBlock, &FileInformation_1, 1u, FileDispositionInformation);
         LOWORD(v27) = 0;
-        ZwSetInformationObject((__int64)v7, 4LL);
+        ZwSetInformationObject(v7, ObjectHandleFlagInformation, &v27, 2u);
         ZwClose(v7);
       }
     }

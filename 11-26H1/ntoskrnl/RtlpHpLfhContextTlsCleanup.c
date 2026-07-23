@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextTlsCleanup @ 0x140639990
+ * XREFs of RtlpHpLfhContextTlsCleanup @ 0x14063C9A0
  * Callers:
- *     RtlpHpSegTlsCleanup @ 0x140639600 (RtlpHpSegTlsCleanup.c)
+ *     RtlpHpSegTlsCleanup @ 0x14063C610 (RtlpHpSegTlsCleanup.c)
  * Callees:
- *     RtlpHpLfhContextMetadataFree @ 0x140346750 (RtlpHpLfhContextMetadataFree.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x140347ECC (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhContextMetadataFree @ 0x1403487D0 (RtlpHpLfhContextMetadataFree.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x140349F4C (RtlpHpLfhPrivateSlotShutdown.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextTlsCleanup(__int64 a1, __int64 a2)

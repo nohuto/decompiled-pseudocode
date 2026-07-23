@@ -1,28 +1,28 @@
 /*
- * XREFs of VfInitVerifierComponents @ 0x1409C6E70
+ * XREFs of VfInitVerifierComponents @ 0x1409C7E70
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1409C6D40 (VfInitSystemNoRebootNeeded.c)
- *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C7D40 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitBootDriversLoaded @ 0x140A4FD74 (VfInitBootDriversLoaded.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     VfAvlInitializeTree @ 0x1405A25EC (VfAvlInitializeTree.c)
- *     ExSetPoolFlags @ 0x1405B3BD8 (ExSetPoolFlags.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     VfHalVerifierInitialize @ 0x1409CC708 (VfHalVerifierInitialize.c)
- *     VfPendingCheckForChanges @ 0x1409D56EC (VfPendingCheckForChanges.c)
- *     VfMajorRegisterHandlers @ 0x1409D7B5C (VfMajorRegisterHandlers.c)
- *     VfKeCheckForChanges @ 0x1409DBCF8 (VfKeCheckForChanges.c)
- *     ViFaultsInitializeAppsList @ 0x1409DCFD0 (ViFaultsInitializeAppsList.c)
- *     ViFaultsInitializeTagsList @ 0x1409DD0A4 (ViFaultsInitializeTagsList.c)
- *     VfDeadlockInitialize @ 0x1409DDEE0 (VfDeadlockInitialize.c)
- *     VfPoolInitPhase0 @ 0x1409E0190 (VfPoolInitPhase0.c)
- *     VfSettingsApplyMiscellaneousChecks @ 0x1409E0440 (VfSettingsApplyMiscellaneousChecks.c)
- *     ViSettingsIoCheckForChanges @ 0x1409E0600 (ViSettingsIoCheckForChanges.c)
- *     VfIrpDatabaseInit @ 0x1409E0AC4 (VfIrpDatabaseInit.c)
- *     VfWdInit @ 0x1409E0C28 (VfWdInit.c)
- *     VfCtxInit @ 0x1409E416C (VfCtxInit.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VfAvlInitializeTree @ 0x1405A281C (VfAvlInitializeTree.c)
+ *     ExSetPoolFlags @ 0x1405B3E08 (ExSetPoolFlags.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     VfHalVerifierInitialize @ 0x1409CD708 (VfHalVerifierInitialize.c)
+ *     VfPendingCheckForChanges @ 0x1409D66EC (VfPendingCheckForChanges.c)
+ *     VfMajorRegisterHandlers @ 0x1409D8B5C (VfMajorRegisterHandlers.c)
+ *     VfKeCheckForChanges @ 0x1409DCCF8 (VfKeCheckForChanges.c)
+ *     ViFaultsInitializeAppsList @ 0x1409DDFD0 (ViFaultsInitializeAppsList.c)
+ *     ViFaultsInitializeTagsList @ 0x1409DE0A4 (ViFaultsInitializeTagsList.c)
+ *     VfDeadlockInitialize @ 0x1409DEEE0 (VfDeadlockInitialize.c)
+ *     VfPoolInitPhase0 @ 0x1409E1190 (VfPoolInitPhase0.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x1409E1440 (VfSettingsApplyMiscellaneousChecks.c)
+ *     ViSettingsIoCheckForChanges @ 0x1409E1600 (ViSettingsIoCheckForChanges.c)
+ *     VfIrpDatabaseInit @ 0x1409E1AC4 (VfIrpDatabaseInit.c)
+ *     VfWdInit @ 0x1409E1C28 (VfWdInit.c)
+ *     VfCtxInit @ 0x1409E516C (VfCtxInit.c)
  */
 
 __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, unsigned int a3)
@@ -70,7 +70,11 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
   ViFaultsInitializeTagsList();
   ViFaultsInitializeAppsList();
   ViFaultsInitialized = 1;
-  v7 = (int)VfAvlInitializeTree(&ViLookasideAvl, 96LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v7 = (int)VfAvlInitializeTree(
+              &ViLookasideAvl,
+              96LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v8 = &ViLookasideInitialized;
   if ( v7 )
     v8 = &ViLookasideAllocationFailures;
@@ -98,7 +102,11 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
     v20,
     VfInitializedWithoutReboot,
     (__int64)ExInitializeNPagedLookasideListInternal);
-  v7 = (int)VfAvlInitializeTree(&ViResourceAvl, 104LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v7 = (int)VfAvlInitializeTree(
+              &ViResourceAvl,
+              104LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v9 = &ViResourceInitialized;
   if ( v7 )
     v9 = &ViResourceNotTracked;
@@ -187,12 +195,20 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
     *v15 = v15;
   }
   ViDdiInitialized = 1;
-  v7 = (int)VfAvlInitializeTree(&ViRemLockAvl, 32LL, 136LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v7 = (int)VfAvlInitializeTree(
+              &ViRemLockAvl,
+              32LL,
+              136LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v16 = &ViRemLockInitialized;
   if ( v7 )
     v16 = &ViRemLockAllocationFailures;
   _InterlockedExchange(v16, 1);
-  v7 = (int)VfAvlInitializeTree(&ViDevObjAvl, 336LL, 24LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v7 = (int)VfAvlInitializeTree(
+              &ViDevObjAvl,
+              336LL,
+              24LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v17 = &ViDevObjInitialized;
   if ( v7 )
     v17 = &ViDevObjAllocationFailures;

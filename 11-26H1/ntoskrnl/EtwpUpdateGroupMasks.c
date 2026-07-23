@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateGroupMasks @ 0x140B07D2C
+ * XREFs of EtwpUpdateGroupMasks @ 0x140B09E5C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpUpdateSelectedGroupMasks @ 0x1404CCCE8 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x1404C6488 (EtwpUpdateSelectedGroupMasks.c)
  */
 
 __int64 __fastcall EtwpUpdateGroupMasks(int *a1, _DWORD *a2)

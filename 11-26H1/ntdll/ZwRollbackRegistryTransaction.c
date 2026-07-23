@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRollbackRegistryTransaction @ 0x180162110
+ * XREFs of ZwRollbackRegistryTransaction @ 0x180162010
  * Callers:
  *     <none>
  * Callees:

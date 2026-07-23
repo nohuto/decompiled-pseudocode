@@ -1,10 +1,10 @@
 /*
  * XREFs of ObGetObjectSecurity @ 0x1406E5110
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x14041A13C (SepSetProcessTrustLabelAceForToken.c)
- *     DifObGetObjectSecurityWrapper @ 0x140618320 (DifObGetObjectSecurityWrapper.c)
+ *     sub_14041A13C @ 0x14041A13C (sub_14041A13C.c)
+ *     sub_140618320 @ 0x140618320 (sub_140618320.c)
  * Callees:
- *     ObpGetObjectSecurity @ 0x1407248C0 (ObpGetObjectSecurity.c)
+ *     sub_1407248C0 @ 0x1407248C0 (sub_1407248C0.c)
  */
 
 NTSTATUS __stdcall ObGetObjectSecurity(
@@ -12,5 +12,5 @@ NTSTATUS __stdcall ObGetObjectSecurity(
         PSECURITY_DESCRIPTOR *SecurityDescriptor,
         PBOOLEAN MemoryAllocated)
 {
-  return ObpGetObjectSecurity(Object, SecurityDescriptor, MemoryAllocated, 0LL);
+  return sub_1407248C0(Object, SecurityDescriptor, MemoryAllocated, 0LL);
 }

@@ -9,22 +9,24 @@
  *     RtlpInterlockedPushEntrySList @ 0x1800A10F0 (RtlpInterlockedPushEntrySList.c)
  */
 
-void *__fastcall RtlDeleteResource(HANDLE *a1)
+void __cdecl RtlDeleteResource(PRTL_RESOURCE Resource)
 {
-  int *v2; // rdx
+  __int64 v2; // r8
+  __int64 v3; // r9
+  PRTL_RESOURCE_DEBUG DebugInfo; // rdx
 
-  RtlDeleteCriticalSection(a1);
-  NtClose(a1[5]);
-  NtClose(a1[7]);
-  v2 = (int *)a1[11];
+  RtlDeleteCriticalSection(&Resource->CriticalSection);
+  NtClose(Resource->SharedSemaphore);
+  NtClose(Resource->ExclusiveSemaphore);
+  DebugInfo = Resource->DebugInfo;
   if ( LOWORD(RtlCriticalSectionDebugSList.Alignment) >= 0xAu
-    && (&RtlpStaticDebugInfo > (_UNKNOWN *)v2 || v2 >= &SRWLockSpinCycleCount) )
+    && (&RtlpStaticDebugInfo > (_UNKNOWN *)DebugInfo || DebugInfo >= (PRTL_RESOURCE_DEBUG)&SRWLockSpinCycleCount) )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1[11]);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Resource->DebugInfo);
   }
   else
   {
-    RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, v2);
+    RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, DebugInfo, v2, v3);
   }
-  return memset(a1, 0, 0x60uLL);
+  memset(Resource, 0, sizeof(_RTL_RESOURCE));
 }

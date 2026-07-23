@@ -13,7 +13,7 @@ __int64 __fastcall KiSatisfyThreadWait(__int64 a1, __int64 a2, char a3, __int64 
 {
   __int64 v9; // r12
   ULONG_PTR v10; // rcx
-  __int64 v11; // rax
+  PRTL_BALANCED_NODE v11; // rax
   __int64 *v12; // rdi
   volatile signed __int32 *v13; // rsi
   __int64 *v14; // rax
@@ -28,7 +28,7 @@ __int64 __fastcall KiSatisfyThreadWait(__int64 a1, __int64 a2, char a3, __int64 
     *(_QWORD *)(a2 + 1528) = 0LL;
     v11 = KeAbPreAcquire(v10, 0LL, 1);
     if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
   }
   if ( a5 )
   {

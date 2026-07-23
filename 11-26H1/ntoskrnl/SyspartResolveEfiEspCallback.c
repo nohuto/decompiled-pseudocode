@@ -1,13 +1,13 @@
 /*
- * XREFs of SyspartResolveEfiEspCallback @ 0x140895530
+ * XREFs of SyspartResolveEfiEspCallback @ 0x14089B930
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SiLogMessage @ 0x140771464 (SiLogMessage.c)
- *     SiGetDriveLayoutInformation @ 0x140894A64 (SiGetDriveLayoutInformation.c)
- *     SiIssueSynchronousIoctl @ 0x140894B6C (SiIssueSynchronousIoctl.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SiLogMessage @ 0x140774464 (SiLogMessage.c)
+ *     SiGetDriveLayoutInformation @ 0x14089AE64 (SiGetDriveLayoutInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x14089AF6C (SiIssueSynchronousIoctl.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall SyspartResolveEfiEspCallback(const WCHAR *a1, unsigned int a2, _DWORD *a3)

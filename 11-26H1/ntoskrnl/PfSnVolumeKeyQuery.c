@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnVolumeKeyQuery @ 0x140A8F6CC
+ * XREFs of PfSnVolumeKeyQuery @ 0x140A9439C
  * Callers:
- *     PfSnNameQueryWorker @ 0x14021A980 (PfSnNameQueryWorker.c)
+ *     PfSnNameQueryWorker @ 0x14021C310 (PfSnNameQueryWorker.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PfSnFailProcessTrace @ 0x1409E9C58 (PfSnFailProcessTrace.c)
- *     PfSnArrayGrow @ 0x140A8F794 (PfSnArrayGrow.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PfSnFailProcessTrace @ 0x1409D3078 (PfSnFailProcessTrace.c)
+ *     PfSnArrayGrow @ 0x140A94464 (PfSnArrayGrow.c)
  */
 
 __int64 __fastcall PfSnVolumeKeyQuery(__int64 a1, __int64 a2, __int64 a3)

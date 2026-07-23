@@ -11,7 +11,9 @@
 int __fastcall LdrpAllocateFileNameBufferIfNeeded(unsigned __int16 *a1, unsigned int a2)
 {
   unsigned int v4; // esi
-  void *StringRoutine; // ebx
+  PVOID StringRoutine; // ebx
+  SIZE_T v6; // [esp-8h] [ebp-14h]
+  size_t v7; // [esp-4h] [ebp-10h]
 
   if ( a2 <= a1[1] )
     return 0;
@@ -22,14 +24,19 @@ int __fastcall LdrpAllocateFileNameBufferIfNeeded(unsigned __int16 *a1, unsigned
     v4 = 65534;
   if ( *((unsigned __int16 **)a1 + 1) != a1 + 4 )
   {
-    StringRoutine = (void *)NtdllpReallocateStringRoutine(v4, *((_DWORD *)a1 + 1));
+    HIDWORD(v6) = *((_DWORD *)a1 + 1);
+    LODWORD(v6) = v4;
+    StringRoutine = (PVOID)NtdllpReallocateStringRoutine(v6);
     goto LABEL_12;
   }
-  StringRoutine = (void *)NtdllpAllocateStringRoutine(v4);
+  StringRoutine = NtdllpAllocateStringRoutine(v4);
   if ( StringRoutine )
   {
     if ( *a1 )
-      memcpy(StringRoutine, *((const void **)a1 + 1), *a1);
+    {
+      LODWORD(v7) = *a1;
+      memcpy(StringRoutine, *((const void **)a1 + 1), v7);
+    }
 LABEL_12:
     if ( StringRoutine )
     {

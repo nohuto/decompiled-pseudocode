@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckKeepAlive @ 0x14009F7D8
+ * XREFs of KiCheckKeepAlive @ 0x14009E100
  * Callers:
- *     KeAccumulateTicks @ 0x1400DC3C0 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1400DA260 (KeAccumulateTicks.c)
  * Callees:
- *     KeRemoveProcessorAffinityEx @ 0x140030FBC (KeRemoveProcessorAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140030B3C (KeRemoveProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
  */
 
 char __fastcall KiCheckKeepAlive(unsigned int a1)

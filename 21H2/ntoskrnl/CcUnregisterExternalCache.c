@@ -1,11 +1,11 @@
 /*
- * XREFs of CcUnregisterExternalCache @ 0x1404E9FA0
+ * XREFs of CcUnregisterExternalCache @ 0x1404EA1E0
  * Callers:
  *     <none>
  * Callees:
- *     CcDeductDirtyPagesFromExternalCache @ 0x140392340 (CcDeductDirtyPagesFromExternalCache.c)
- *     CcRemoveExternalCache @ 0x1404E9EA8 (CcRemoveExternalCache.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     CcDeductDirtyPagesFromExternalCache @ 0x140392490 (CcDeductDirtyPagesFromExternalCache.c)
+ *     CcRemoveExternalCache @ 0x1404EA0E8 (CcRemoveExternalCache.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcUnregisterExternalCache(_QWORD *P)

@@ -10,10 +10,10 @@
  *     RtlpGetTokenNamedObjectPath @ 0x18004AB60 (RtlpGetTokenNamedObjectPath.c)
  *     RtlpGetRegistryHandle @ 0x180053FCC (RtlpGetRegistryHandle.c)
  *     WerpGlobalFlagsForProcess @ 0x18006D8F0 (WerpGlobalFlagsForProcess.c)
- *     LdrpCodeAuthzInitialize @ 0x18007FC08 (LdrpCodeAuthzInitialize.c)
- *     LdrpInitializePerUserWindowsDirectory @ 0x180085AC4 (LdrpInitializePerUserWindowsDirectory.c)
- *     LdrpLoadWow64 @ 0x1800869A0 (LdrpLoadWow64.c)
- *     QueryFeatureOverride @ 0x18009F2B4 (QueryFeatureOverride.c)
+ *     LdrpCodeAuthzInitialize @ 0x18007FC18 (LdrpCodeAuthzInitialize.c)
+ *     LdrpInitializePerUserWindowsDirectory @ 0x180085AD4 (LdrpInitializePerUserWindowsDirectory.c)
+ *     LdrpLoadWow64 @ 0x1800869B0 (LdrpLoadWow64.c)
+ *     QueryFeatureOverride @ 0x18009F2C8 (QueryFeatureOverride.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800DB828 (AVrfOpenCurrentUserImageFileOptionsKey.c)
  *     AVrfpLoadAndInitializeProvider @ 0x1800DC17C (AVrfpLoadAndInitializeProvider.c)
@@ -23,30 +23,30 @@
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendUnicodeToString(unsigned __int16 *a1, _WORD *a2)
+NTSTATUS __cdecl RtlAppendUnicodeToString(PUNICODE_STRING Destination, PCWSTR Source)
 {
   unsigned __int64 v3; // rax
   unsigned int v4; // esi
-  void *v5; // r14
+  wchar_t *v5; // r14
 
-  if ( !a2 )
-    return 0LL;
+  if ( !Source )
+    return 0;
   v3 = -1LL;
   do
     ++v3;
-  while ( a2[v3] );
+  while ( Source[v3] );
   if ( v3 <= 0x7FFE )
   {
     v4 = (unsigned __int16)(2 * v3);
-    if ( *a1 + v4 <= a1[1] )
+    if ( Destination->Length + v4 <= Destination->MaximumLength )
     {
-      v5 = (void *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)*a1 >> 1));
-      memmove(v5, a2, (unsigned __int16)(2 * v3));
-      *a1 += v4;
-      if ( (unsigned int)*a1 + 1 < a1[1] )
-        *((_WORD *)v5 + ((unsigned __int64)v4 >> 1)) = 0;
-      return 0LL;
+      v5 = &Destination->Buffer[(unsigned __int64)Destination->Length >> 1];
+      memmove(v5, Source, (unsigned __int16)(2 * v3));
+      Destination->Length += v4;
+      if ( (unsigned int)Destination->Length + 1 < Destination->MaximumLength )
+        v5[(unsigned __int64)v4 >> 1] = 0;
+      return 0;
     }
   }
-  return 3221225507LL;
+  return -1073741789;
 }

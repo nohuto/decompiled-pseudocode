@@ -5,10 +5,10 @@
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x1403C45F0 (EmpQueueRuleUpdateState.c)
- *     EmpProviderDeregisterEntry @ 0x140540E10 (EmpProviderDeregisterEntry.c)
+ *     sub_1403C45F0 @ 0x1403C45F0 (sub_1403C45F0.c)
+ *     sub_140540E10 @ 0x140540E10 (sub_140540E10.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -28,7 +28,7 @@ void __fastcall EmProviderDeregister(char *P)
 
   if ( P )
   {
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpDatabaseLock, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C48C70, 0LL);
     if ( *((_QWORD *)P + 3) )
     {
       for ( i = 0; i < *((_DWORD *)P + 8); *(_QWORD *)(v4 + 8) = v5 )
@@ -49,7 +49,7 @@ void __fastcall EmProviderDeregister(char *P)
              0xFFFFFFFF) == 1 )
       {
         for ( k = *(_QWORD **)(*(_QWORD *)(*((_QWORD *)P + 1) + 8 * j) + 72LL); k; k = (_QWORD *)*k )
-          EmpQueueRuleUpdateState(*(k - 1), 0LL);
+          sub_1403C45F0(*(k - 1), 0LL);
       }
     }
     v8 = (char *)*((_QWORD *)P + 7);
@@ -57,7 +57,7 @@ void __fastcall EmProviderDeregister(char *P)
     {
       v9 = v8 - 40;
       v8 = *(char **)v8;
-      EmpProviderDeregisterEntry(v9);
+      sub_140540E10(v9);
     }
     for ( m = 0LL; (unsigned int)m < *((_DWORD *)P + 12); m = (unsigned int)(m + 1) )
     {
@@ -67,7 +67,7 @@ void __fastcall EmProviderDeregister(char *P)
       {
         *(_QWORD *)(*(_QWORD *)(*((_QWORD *)P + 5) + 8 * m) + 16LL) = 0LL;
         for ( n = *(_QWORD **)(*(_QWORD *)(*((_QWORD *)P + 5) + 8 * m) + 48LL); n; n = (_QWORD *)*n )
-          EmpQueueRuleUpdateState(*(n - 1), 0LL);
+          sub_1403C45F0(*(n - 1), 0LL);
       }
     }
     if ( *(_QWORD *)P )
@@ -76,8 +76,8 @@ void __fastcall EmProviderDeregister(char *P)
     if ( v12 )
       ExFreePoolWithTag(v12, 0x72704D45u);
     ExFreePoolWithTag(P, 0x72704D45u);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpDatabaseLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&EmpDatabaseLock);
-    KeAbPostRelease((ULONG_PTR)&EmpDatabaseLock);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C48C70, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&qword_140C48C70);
+    sub_1402AFC00((ULONG_PTR)&qword_140C48C70);
   }
 }

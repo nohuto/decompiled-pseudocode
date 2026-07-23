@@ -1,25 +1,25 @@
 /*
- * XREFs of MiLoadSectionIntoVsmEnclave @ 0x14085A37C
+ * XREFs of MiLoadSectionIntoVsmEnclave @ 0x14085B5DC
  * Callers:
- *     NtLoadEnclaveData @ 0x14085AFB0 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x14085C210 (NtLoadEnclaveData.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MiCommitExistingVad @ 0x140071470 (MiCommitExistingVad.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiCountCommittedPages @ 0x1402BD154 (MiCountCommittedPages.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MiDecommitRegion @ 0x1405EC220 (MiDecommitRegion.c)
- *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
- *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
- *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
- *     MiPrefetchControlArea @ 0x1406C7244 (MiPrefetchControlArea.c)
- *     VslLoadEnclaveModule @ 0x140818A74 (VslLoadEnclaveModule.c)
- *     MiGetSectionStrongImageReference @ 0x14085C2F8 (MiGetSectionStrongImageReference.c)
+ *     MiCommitExistingVad @ 0x140071460 (MiCommitExistingVad.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiCountCommittedPages @ 0x1402BD344 (MiCountCommittedPages.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     MiDecommitRegion @ 0x1405ED220 (MiDecommitRegion.c)
+ *     MiUnmapImageInSystemSpace @ 0x140651A4C (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140652000 (MiMapImageInSystemSpace.c)
+ *     MiValidateSectionCreate @ 0x140653FD0 (MiValidateSectionCreate.c)
+ *     MiPrefetchControlArea @ 0x1406C84E4 (MiPrefetchControlArea.c)
+ *     VslLoadEnclaveModule @ 0x140819C74 (VslLoadEnclaveModule.c)
+ *     MiGetSectionStrongImageReference @ 0x14085D558 (MiGetSectionStrongImageReference.c)
  */
 
 NTSTATUS __fastcall MiLoadSectionIntoVsmEnclave(

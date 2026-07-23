@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSetImportanceDpc @ 0x14036E460
+ * XREFs of KeSetImportanceDpc @ 0x14036E600
  * Callers:
  *     <none>
  * Callees:

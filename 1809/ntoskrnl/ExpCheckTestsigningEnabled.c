@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpCheckTestsigningEnabled @ 0x140706FD4
+ * XREFs of ExpCheckTestsigningEnabled @ 0x140708274
  * Callers:
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  * Callees:
- *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceExecuteOnce @ 0x14060E910 (RtlRunOnceExecuteOnce.c)
  */
 
 char ExpCheckTestsigningEnabled()

@@ -9,15 +9,15 @@
  *     RtlRbRemoveNode @ 0x1400E9770 (RtlRbRemoveNode.c)
  */
 
-__int64 __fastcall KiResetClockInterval(unsigned __int64 a1)
+__int64 __fastcall KiResetClockInterval(PRTL_BALANCED_NODE Node)
 {
   __int64 v2; // rcx
-  __int64 v3; // rdx
+  __int64 Right_low; // rdx
 
-  RtlRbRemoveNode((__int64)&KiClockIntervalRequests, a1);
-  v3 = *(unsigned int *)(a1 + 32);
-  *(_BYTE *)(a1 + 24) = 0;
-  if ( (_DWORD)v3 )
-    PoTraceSystemTimerResolutionKernel(0, v3);
-  return KiSetClockIntervalToMinimumRequested(v2, v3);
+  RtlRbRemoveNode(&KiClockIntervalRequests, Node);
+  Right_low = LODWORD(Node[1].Right);
+  LOBYTE(Node[1].Children[0]) = 0;
+  if ( (_DWORD)Right_low )
+    PoTraceSystemTimerResolutionKernel(0, Right_low);
+  return KiSetClockIntervalToMinimumRequested(v2, Right_low);
 }

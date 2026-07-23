@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhContextInitialize @ 0x140639730
+ * XREFs of RtlpHpLfhContextInitialize @ 0x14063C740
  * Callers:
- *     RtlpHpHeapCreate @ 0x140638298 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14063B29C (RtlpHpHeapCreate.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
@@ -71,7 +71,7 @@ unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
     v19 = a3;
   *(_BYTE *)(a1 + 72) = v19;
   if ( v19 > 1u )
-    *(_QWORD *)(a1 + 64) = (char *)qword_140038110
+    *(_QWORD *)(a1 + 64) = (char *)qword_140038690
                          + ((unsigned __int64)((64 - v19 + 61) * (62 - (64 - (unsigned int)v19))) >> 1);
   memset64((void *)(a1 + 448), 1uLL, 0x80uLL);
   *(_WORD *)(a1 + 76) = 0;

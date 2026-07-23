@@ -1,10 +1,10 @@
 /*
- * XREFs of KeIsForceIdleEngaged @ 0x1402935F4
+ * XREFs of KeIsForceIdleEngaged @ 0x140211564
  * Callers:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
- *     KePrepareClockTimerForIdle @ 0x140293310 (KePrepareClockTimerForIdle.c)
- *     KiResetForceIdle @ 0x140523620 (KiResetForceIdle.c)
+ *     KePrepareClockTimerForIdle @ 0x140211280 (KePrepareClockTimerForIdle.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     KeSetTimer2 @ 0x1402D0DD0 (KeSetTimer2.c)
+ *     KiResetForceIdle @ 0x140523860 (KiResetForceIdle.c)
  * Callees:
  *     <none>
  */

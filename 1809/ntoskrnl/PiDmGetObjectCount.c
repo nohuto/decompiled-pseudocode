@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmGetObjectCount @ 0x14082951C
+ * XREFs of PiDmGetObjectCount @ 0x14082A71C
  * Callers:
- *     PiDqQueryAppendActionEntry @ 0x1405917B8 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryAppendActionEntry @ 0x1405927B8 (PiDqQueryAppendActionEntry.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlNumberGenericTableElementsAvl @ 0x1400F51C0 (RtlNumberGenericTableElementsAvl.c)
- *     PiDmGetObjectManagerForObjectType @ 0x140598CD0 (PiDmGetObjectManagerForObjectType.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x1400F5240 (RtlNumberGenericTableElementsAvl.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x140599CD0 (PiDmGetObjectManagerForObjectType.c)
  */
 
 __int64 __fastcall PiDmGetObjectCount(int a1)

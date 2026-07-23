@@ -1,10 +1,10 @@
 /*
- * XREFs of KeGetAffinitizedInterruptsInfo @ 0x140579BF8
+ * XREFs of KeGetAffinitizedInterruptsInfo @ 0x14057A0E8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
  */
 
 __int64 __fastcall KeGetAffinitizedInterruptsInfo(unsigned __int16 *a1)

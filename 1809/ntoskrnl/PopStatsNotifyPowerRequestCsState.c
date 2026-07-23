@@ -1,14 +1,14 @@
 /*
- * XREFs of PopStatsNotifyPowerRequestCsState @ 0x14087B170
+ * XREFs of PopStatsNotifyPowerRequestCsState @ 0x14087C3D0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     RtlEnumerateGenericTableAvl @ 0x140134230 (RtlEnumerateGenericTableAvl.c)
- *     PopLogPowerRequestAction @ 0x140589C44 (PopLogPowerRequestAction.c)
- *     PopPublishAndPurgePowerRequestStats @ 0x14087AE1C (PopPublishAndPurgePowerRequestStats.c)
- *     PopPublishAndResetPowerRequestsCollectionStats @ 0x14087B05C (PopPublishAndResetPowerRequestsCollectionStats.c)
+ *     RtlEnumerateGenericTableAvl @ 0x140134300 (RtlEnumerateGenericTableAvl.c)
+ *     PopLogPowerRequestAction @ 0x14058AC44 (PopLogPowerRequestAction.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x14087C07C (PopPublishAndPurgePowerRequestStats.c)
+ *     PopPublishAndResetPowerRequestsCollectionStats @ 0x14087C2BC (PopPublishAndResetPowerRequestsCollectionStats.c)
  */
 
 void __fastcall PopStatsNotifyPowerRequestCsState(__int64 a1, char a2)

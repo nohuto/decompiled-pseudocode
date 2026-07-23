@@ -1,34 +1,34 @@
 /*
- * XREFs of ExAllocateHeapPool @ 0x14033C210
+ * XREFs of ExAllocateHeapPool @ 0x140346F60
  * Callers:
- *     ExpAllocatePoolWithTagFromNode @ 0x14033C180 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140346ED0 (ExpAllocatePoolWithTagFromNode.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     RtlpHpLargeAlloc @ 0x1402A56A0 (RtlpHpLargeAlloc.c)
- *     RtlpHpLfhContextAllocate @ 0x1402A6084 (RtlpHpLfhContextAllocate.c)
- *     RtlpHpLfhBucketUpdateStats @ 0x1402A6128 (RtlpHpLfhBucketUpdateStats.c)
- *     RtlpHpVsContextMultiAlloc @ 0x1402AB9F4 (RtlpHpVsContextMultiAlloc.c)
- *     RtlpHpSegAlloc @ 0x140309850 (RtlpHpSegAlloc.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14033BA80 (RtlpHpReleaseQueuedLockExclusive.c)
- *     ExpAddTagForBigPages @ 0x14033BDC0 (ExpAddTagForBigPages.c)
- *     RtlpHpLfhSlotAllocate @ 0x14033CE40 (RtlpHpLfhSlotAllocate.c)
- *     RtlpHpVsContextAllocateInternal @ 0x14033EDC0 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     RtlpHpLargeAlloc @ 0x140222AE0 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLfhContextAllocate @ 0x1402234C4 (RtlpHpLfhContextAllocate.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x140223568 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x140229B34 (RtlpHpVsContextMultiAlloc.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlpHpSegAlloc @ 0x1403145A0 (RtlpHpSegAlloc.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1403467D0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     ExpAddTagForBigPages @ 0x140346B10 (ExpAddTagForBigPages.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140347B90 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x140349B10 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     InterlockedPushListSList @ 0x1404079E0 (InterlockedPushListSList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
- *     RtlpHpExtrasAppend @ 0x1405948B8 (RtlpHpExtrasAppend.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
- *     ExCheckSingleFilter @ 0x1405B35FC (ExCheckSingleFilter.c)
- *     ExAllocateHeapSpecialPool @ 0x1405B9D7C (ExAllocateHeapSpecialPool.c)
- *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     InterlockedPushListSList @ 0x140407BC0 (InterlockedPushListSList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpLogHeapFailure @ 0x14059379C (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasAppend @ 0x140594AE8 (RtlpHpExtrasAppend.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
+ *     ExCheckSingleFilter @ 0x1405B382C (ExCheckSingleFilter.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405B9FAC (ExAllocateHeapSpecialPool.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D55D0 (VeAllocatePoolWithTagPriority.c)
  */
 
 __int64 __fastcall ExAllocateHeapPool(
@@ -118,7 +118,7 @@ __int64 __fastcall ExAllocateHeapPool(
   unsigned int v84; // r8d
   unsigned __int64 OldIrql; // r14
   int v86; // eax
-  struct _SLIST_ENTRY *v87; // rdx
+  _SLIST_ENTRY *v87; // rdx
   ULONG v88; // eax
   volatile signed __int32 v89; // r11d
   BOOL updated; // eax
@@ -156,7 +156,7 @@ __int64 __fastcall ExAllocateHeapPool(
   int v122; // [rsp+60h] [rbp-81h] BYREF
   int v123; // [rsp+64h] [rbp-7Dh] BYREF
   __int64 v124; // [rsp+68h] [rbp-79h] BYREF
-  struct _SLIST_ENTRY **v125; // [rsp+70h] [rbp-71h] BYREF
+  _SLIST_ENTRY **v125; // [rsp+70h] [rbp-71h] BYREF
   __int64 v126; // [rsp+78h] [rbp-69h] BYREF
   PSLIST_ENTRY ListEnd; // [rsp+80h] [rbp-61h] BYREF
   struct _KLOCK_QUEUE_HANDLE v128; // [rsp+88h] [rbp-59h] BYREF
@@ -212,7 +212,7 @@ LABEL_7:
         if ( HeapSpecialPool )
         {
           if ( _InterlockedIncrement(&ExpSpecialAllocations) == 1 )
-            _InterlockedIncrement(&dword_140C4EED8);
+            _InterlockedIncrement(&dword_140C4EF18);
           v5 = HeapSpecialPool;
           goto LABEL_67;
         }
@@ -227,9 +227,9 @@ LABEL_7:
       if ( (_DWORD)v6 == 0x80000000 )
 LABEL_201:
         LODWORD(v6) = KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0];
-      if ( (unsigned int)v6 >= dword_140C58090 )
+      if ( (unsigned int)v6 >= dword_140C580D0 )
         LODWORD(v6) = 0;
-      v15 = &qword_140C580C0[1048 * (unsigned int)v6];
+      v15 = &qword_140C58100[1048 * (unsigned int)v6];
       if ( v12 < NonPagedPool )
       {
         v17 = v15[3];
@@ -299,7 +299,7 @@ LABEL_201:
             {
               Internal = (__int64)v125;
               v87 = *v125;
-              v125 = (struct _SLIST_ENTRY **)*v125;
+              v125 = (_SLIST_ENTRY **)*v125;
               v88 = v86 - 1;
               if ( v88 )
                 InterlockedPushListSList((PSLIST_HEADER)v53, v87, ListEnd, v88);
@@ -324,7 +324,7 @@ LABEL_27:
             v20 = *(_QWORD *)(v17 + 48);
             v21 = v20;
             v22 = (v7 | *(_DWORD *)(v17 + 20)) & 0x93000F0B;
-            if ( (v20 || (v21 = qword_140C1DE28) != 0) && v19 > v21 )
+            if ( (v20 || (v21 = qword_140C1DE48) != 0) && v19 > v21 )
             {
               v103 = *(_QWORD *)(v17 + 56);
               if ( v103 )
@@ -560,7 +560,7 @@ LABEL_67:
                     return v5;
 LABEL_247:
                   if ( (v12 & 0x10) != 0 )
-                    RtlRaiseStatus(0xC000009A);
+                    RtlRaiseStatus(-1073741670);
                   return v5;
                 }
                 if ( !v45 )
@@ -649,7 +649,7 @@ LABEL_151:
       v61 = v7 | *(_DWORD *)(v17 + 20);
       v124 = 0LL;
       v62 = v61 & 0x93000F0B;
-      if ( (v58 || (v60 = qword_140C1DE28) != 0) && v57 > v60 )
+      if ( (v58 || (v60 = qword_140C1DE48) != 0) && v57 > v60 )
       {
         v96 = *(_QWORD *)(v17 + 56);
         if ( v96 )
@@ -677,7 +677,7 @@ LABEL_179:
 LABEL_114:
             if ( !v67 )
               goto LABEL_247;
-            if ( !(unsigned int)ExpAddTagForBigPages(v67, v14, v57, (_DWORD *)(unsigned int)v12, 0, 0) )
+            if ( !(unsigned int)ExpAddTagForBigPages(v67, v14, v57, v12, 0, 0) )
               goto LABEL_181;
             memset(&v128, 0, sizeof(v128));
             if ( v14 == PoolHitTag )

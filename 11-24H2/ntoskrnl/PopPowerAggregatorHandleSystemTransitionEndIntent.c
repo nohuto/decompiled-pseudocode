@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1407597F0
+ * XREFs of PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x140757C90
  * Callers:
  *     <none>
  * Callees:
- *     PopGetMostRecentWakeInfo @ 0x1404B409C (PopGetMostRecentWakeInfo.c)
- *     PopWakeInfoDereference @ 0x1404BC44C (PopWakeInfoDereference.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
- *     PopIsMostRecentWakeAttended @ 0x140B6DB08 (PopIsMostRecentWakeAttended.c)
+ *     PopGetMostRecentWakeInfo @ 0x1404AE8BC (PopGetMostRecentWakeInfo.c)
+ *     PopWakeInfoDereference @ 0x1404B735C (PopWakeInfoDereference.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
+ *     PopIsMostRecentWakeAttended @ 0x140B6F3A8 (PopIsMostRecentWakeAttended.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleSystemTransitionEndIntent(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -33,7 +33,7 @@ __int64 __fastcall PopPowerAggregatorHandleSystemTransitionEndIntent(__int64 a1,
         PopWakeInfoDereference(MostRecentWakeInfo);
         if ( v8 )
         {
-          if ( !(unsigned __int8)PopIsMostRecentWakeAttended() && !dword_140F0BA4C && *a4 == 5 )
+          if ( !(unsigned __int8)PopIsMostRecentWakeAttended() && !dword_140F0B38C && *a4 == 5 )
             goto LABEL_10;
         }
       }

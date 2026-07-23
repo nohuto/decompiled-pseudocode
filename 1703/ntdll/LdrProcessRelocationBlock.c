@@ -6,7 +6,11 @@
  *     LdrProcessRelocationBlockEx_0 @ 0x180086FC8 (LdrProcessRelocationBlockEx_0.c)
  */
 
-unsigned __int16 *__fastcall LdrProcessRelocationBlock(__int64 a1, int a2, unsigned __int16 *a3, __int64 a4)
+PIMAGE_BASE_RELOCATION __cdecl LdrProcessRelocationBlock(
+        ULONG_PTR VA,
+        ULONG SizeOfBlock,
+        PUSHORT NextOffset,
+        LONG_PTR Diff)
 {
-  return LdrProcessRelocationBlockEx_0(34404, a1, a2, a3, a4);
+  return LdrProcessRelocationBlockEx_0(0x8664u, VA, SizeOfBlock, NextOffset, Diff);
 }

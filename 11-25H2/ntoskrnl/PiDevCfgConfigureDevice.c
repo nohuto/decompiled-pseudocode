@@ -107,7 +107,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   int v66; // [rsp+94h] [rbp-6Ch]
   int v67; // [rsp+98h] [rbp-68h] BYREF
   int v68; // [rsp+9Ch] [rbp-64h]
-  __int64 v69; // [rsp+A0h] [rbp-60h]
+  int v69[2]; // [rsp+A0h] [rbp-60h]
   PVOID P[2]; // [rsp+A8h] [rbp-58h] BYREF
   PCWCH String2[2]; // [rsp+B8h] [rbp-48h] BYREF
   HANDLE Handle; // [rsp+C8h] [rbp-38h] BYREF
@@ -170,7 +170,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   PVOID *v129; // [rsp+300h] [rbp+200h]
   int v130; // [rsp+308h] [rbp+208h]
 
-  v69 = a1;
+  *(_QWORD *)v69 = a1;
   *a4 = 1024;
   v84 = a4;
   v83 = a5;
@@ -293,7 +293,7 @@ LABEL_152:
       if ( !v56 )
       {
 LABEL_154:
-        ObjectProperties = PiDevCfgEnforceDevicePolicy(v69, a2, *(_QWORD *)v82);
+        ObjectProperties = PiDevCfgEnforceDevicePolicy(*(_QWORD *)v69, a2, *(_QWORD *)v82);
         if ( ObjectProperties < 0 )
           goto LABEL_3;
       }
@@ -308,13 +308,13 @@ LABEL_154:
       {
         if ( v26 < 0 )
           goto LABEL_3;
-        ObjectProperties = PiDevCfgVerifyDeviceAllowed(v69, v88);
+        ObjectProperties = PiDevCfgVerifyDeviceAllowed(*(__int64 *)v69, v88);
         if ( ObjectProperties < 0 )
           goto LABEL_3;
       }
     }
-    v27 = v69;
-    if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v69 + 32) + 8LL) + 16LL) & 4) != 0
+    v27 = *(_QWORD *)v69;
+    if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v69 + 32LL) + 8LL) + 16LL) & 4) != 0
       && ((int)PnpGetObjectProperty(
                  *(_QWORD **)&PiPnpRtlCtx,
                  *(const WCHAR **)(v7 + 8),
@@ -367,7 +367,7 @@ LABEL_176:
           if ( v30 )
             CmDeleteDeviceRegKey(*(_QWORD *)&PiPnpRtlCtx, *(_QWORD *)(v7 + 8), 18LL);
         }
-        v27 = v69;
+        v27 = *(_QWORD *)v69;
       }
     }
     v28 = a3 + 40;
@@ -389,7 +389,7 @@ LABEL_187:
         a2,
         v32,
         (__int64)Handle,
-        (_QWORD *)((unsigned __int64)&Source2 & -(__int64)(v59 != 0)));
+        (PGUID)((unsigned __int64)&Source2 & -(__int64)(v59 != 0)));
       PnpCtxRegDeleteTree(*(__int64 *)&PiPnpRtlCtx, (__int64)v8, (__int64)L"Devices");
       PnpCtxRegDeleteTree(*(__int64 *)&PiPnpRtlCtx, (__int64)v8, (__int64)L"Filters");
     }
@@ -676,7 +676,7 @@ LABEL_251:
           if ( ObjectProperties < 0 )
             goto LABEL_3;
 LABEL_276:
-          if ( !v76[1] || (v67 & 8) != 0 || (*(_DWORD *)(v69 + 396) & 0x6000) != 0 )
+          if ( !v76[1] || (v67 & 8) != 0 || (*(_DWORD *)(*(_QWORD *)v69 + 396LL) & 0x6000) != 0 )
           {
             if ( (*(_DWORD *)a2 & 1) == 0 )
               PiDevCfgSetObjectProperty(PiPnpRtlCtx, a2, *(_QWORD *)(v7 + 8), 1, (__int64)v8);
@@ -772,7 +772,7 @@ LABEL_276:
             *v84 = v10;
             if ( (*(_BYTE *)(a3 + 184) & 8) != 0 && (PiDevCfgFlags & 2) != 0 )
               *v38 = v10 | 0x400;
-            ObjectProperties = PiDevCfgConfigureDeviceDriver(v69, a2, a3, &v60, &v65);
+            ObjectProperties = PiDevCfgConfigureDeviceDriver(*(__int64 *)v69, a2, a3, &v60, &v65);
             if ( ObjectProperties < 0 )
               goto LABEL_3;
             *v38 |= v60;
@@ -781,27 +781,27 @@ LABEL_276:
             {
               if ( (*(_DWORD *)(i + 184) & 1) != 0 )
               {
-                ObjectProperties = PiDevCfgConfigureDeviceDriver(v69, a2, i, &v60, &v65);
+                ObjectProperties = PiDevCfgConfigureDeviceDriver(*(__int64 *)v69, a2, i, &v60, &v65);
                 if ( ObjectProperties < 0 )
                   goto LABEL_3;
                 *v84 |= v60;
                 *v83 |= v65;
               }
             }
-            ObjectProperties = PiDevCfgConfigureDeviceLocation(v69, a2, &v60, &v65);
+            ObjectProperties = PiDevCfgConfigureDeviceLocation(*(_QWORD *)v69, a2, &v60, &v65);
             if ( ObjectProperties < 0 )
               goto LABEL_3;
             v40 = v84;
             v41 = v83;
-            v42 = v69;
+            v42 = *(_QWORD *)v69;
             *v84 |= v60;
             *v41 |= v65;
           }
           else
           {
-            v42 = v69;
+            v42 = *(_QWORD *)v69;
             v40 = v84;
-            if ( (*(_DWORD *)(v69 + 560) & 0x100) != 0 )
+            if ( (*(_DWORD *)(*(_QWORD *)v69 + 560LL) & 0x100) != 0 )
             {
               *v84 = 0;
             }

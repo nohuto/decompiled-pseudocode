@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpValidateUserModeLoggerInfo @ 0x1406DEFE0
+ * XREFs of EtwpValidateUserModeLoggerInfo @ 0x1406B62C0
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     EtwpValidateLoggerInfo @ 0x1406DF014 (EtwpValidateLoggerInfo.c)
+ *     EtwpValidateLoggerInfo @ 0x1406B62F4 (EtwpValidateLoggerInfo.c)
  */
 
 __int64 __fastcall EtwpValidateUserModeLoggerInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

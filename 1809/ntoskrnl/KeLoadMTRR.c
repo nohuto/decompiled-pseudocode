@@ -1,14 +1,14 @@
 /*
- * XREFs of KeLoadMTRR @ 0x14056E550
+ * XREFs of KeLoadMTRR @ 0x14056F550
  * Callers:
- *     KiLoadMTRRTarget @ 0x140573B20 (KiLoadMTRRTarget.c)
+ *     KiLoadMTRRTarget @ 0x140574B20 (KiLoadMTRRTarget.c)
  * Callees:
- *     KeFlushCurrentTbImmediately @ 0x140173B60 (KeFlushCurrentTbImmediately.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiLockStepExecution @ 0x14056E738 (KiLockStepExecution.c)
- *     KiWriteFixedMtrr @ 0x14056E77C (KiWriteFixedMtrr.c)
- *     KiReadFixedMtrr @ 0x14056E88C (KiReadFixedMtrr.c)
- *     KiCompareVarMtrr @ 0x14056E99C (KiCompareVarMtrr.c)
+ *     KeFlushCurrentTbImmediately @ 0x140173C60 (KeFlushCurrentTbImmediately.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiLockStepExecution @ 0x14056F738 (KiLockStepExecution.c)
+ *     KiWriteFixedMtrr @ 0x14056F77C (KiWriteFixedMtrr.c)
+ *     KiReadFixedMtrr @ 0x14056F88C (KiReadFixedMtrr.c)
+ *     KiCompareVarMtrr @ 0x14056F99C (KiCompareVarMtrr.c)
  */
 
 __int64 __fastcall KeLoadMTRR(__int64 a1)
@@ -31,18 +31,18 @@ __int64 __fastcall KeLoadMTRR(__int64 a1)
   _BYTE v18[96]; // [rsp+20h] [rbp-98h] BYREF
   int v19; // [rsp+B0h] [rbp-8h]
 
-  if ( byte_14041B430 )
+  if ( byte_14041C4D0 )
   {
     if ( !(unsigned __int8)KiCompareVarMtrr() )
       KeMtrrComparisonFailed = 1;
-    if ( qword_14041B440 )
+    if ( qword_14041C4E0 )
     {
       KiReadFixedMtrr(v18);
-      v3 = qword_14041B440;
+      v3 = qword_14041C4E0;
       if ( !KeGetCurrentPrcb()->Number )
       {
         v2 = 0LL;
-        v3 = (PVOID)((_BYTE *)qword_14041B440 - v18);
+        v3 = (PVOID)((_BYTE *)qword_14041C4E0 - v18);
         v4 = v18;
         while ( *(_QWORD *)((char *)v4 + (_QWORD)v3) == *v4 )
         {
@@ -70,24 +70,24 @@ LABEL_11:
     v9 = (KiMtrrInfo & 0xFFFFFFFFFFFFF7FFuLL) >> 32;
     __writemsr(0x2FFu, KiMtrrInfo & 0xFFFFFFFFFFFFF7FFuLL);
     v10 = 0;
-    if ( (_BYTE)qword_14041B428 )
+    if ( (_BYTE)qword_14041C4C8 )
     {
       v11 = 0LL;
       v12 = 513;
       do
       {
-        v13 = qword_14041B438;
+        v13 = qword_14041C4D8;
         v14 = 2 * v11;
-        __writemsr(v12 - 1, *((_QWORD *)qword_14041B438 + v14));
+        __writemsr(v12 - 1, *((_QWORD *)qword_14041C4D8 + v14));
         v9 = HIDWORD(v13[v14 + 1]);
         __writemsr(v12, v13[v14 + 1]);
         v11 = ++v10;
         v12 += 2;
       }
-      while ( v10 < (unsigned __int64)(unsigned __int8)qword_14041B428 );
+      while ( v10 < (unsigned __int64)(unsigned __int8)qword_14041C4C8 );
     }
-    if ( qword_14041B440 )
-      KiWriteFixedMtrr(qword_14041B440, v9);
+    if ( qword_14041C4E0 )
+      KiWriteFixedMtrr(qword_14041C4E0, v9);
     __writemsr(0x2FFu, v8 | 0x800);
     __wbinvd();
     KeFlushCurrentTbImmediately();

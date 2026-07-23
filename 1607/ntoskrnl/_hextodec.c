@@ -1,7 +1,7 @@
 /*
- * XREFs of _hextodec @ 0x140155980
+ * XREFs of _hextodec @ 0x140155EF0
  * Callers:
- *     _winput_s @ 0x140155A7C (_winput_s.c)
+ *     _winput_s @ 0x140155FEC (_winput_s.c)
  * Callees:
  *     <none>
  */

@@ -7,38 +7,36 @@
  *     <none>
  */
 
-bool __stdcall EtwEventEnabled(int a1, __int16 a2, int a3)
+BOOLEAN __cdecl EtwEventEnabled(REGHANDLE RegHandle, PCEVENT_DESCRIPTOR EventDescriptor)
 {
-  int v3; // ebx
-  int v4; // edi
-  bool result; // al
+  unsigned int Keyword_high; // ebx
+  unsigned int Keyword; // edi
+  BOOLEAN result; // al
+  unsigned __int8 v5; // al
   unsigned __int8 v6; // al
-  unsigned __int8 v7; // al
 
-  if ( !a3 || !a2 || (a1 & 1) != 0 || a2 != *(_WORD *)(a1 + 52) )
+  if ( !EventDescriptor || !WORD2(RegHandle) || (RegHandle & 1) != 0 || WORD2(RegHandle) != *(_WORD *)(RegHandle + 52) )
     return 0;
-  v3 = *(_DWORD *)(a3 + 12);
-  v4 = *(_DWORD *)(a3 + 8);
+  Keyword_high = HIDWORD(EventDescriptor->Keyword);
+  Keyword = EventDescriptor->Keyword;
   result = 1;
-  if ( !*(_BYTE *)(a1 + 76)
-    || (v6 = *(_BYTE *)(a1 + 77), *(_BYTE *)(a3 + 4) > v6) && v6
-    || ((*(_BYTE *)(a1 + 72) & 0x40) == 0 || v3 | v4)
-    && (!(v3 & *(_DWORD *)(a1 + 68) | v4 & *(_DWORD *)(a1 + 64))
-     || (v4 & *(_DWORD *)(a1 + 56)) != *(_DWORD *)(a1 + 56)
-     || (v3 & *(_DWORD *)(a1 + 60)) != *(_DWORD *)(a1 + 60)) )
+  if ( !*(_BYTE *)(RegHandle + 76)
+    || (v5 = *(_BYTE *)(RegHandle + 77), EventDescriptor->Level > v5) && v5
+    || ((*(_BYTE *)(RegHandle + 72) & 0x40) == 0 || Keyword_high | Keyword)
+    && (!(Keyword_high & *(_DWORD *)(RegHandle + 68) | Keyword & *(_DWORD *)(RegHandle + 64))
+     || __PAIR64__(Keyword_high & *(_DWORD *)(RegHandle + 60), Keyword & *(_DWORD *)(RegHandle + 56)) != *(_QWORD *)(RegHandle + 56)) )
   {
-    if ( !*(_BYTE *)(a1 + 196) )
+    if ( !*(_BYTE *)(RegHandle + 196) )
       return 0;
-    v7 = *(_BYTE *)(a1 + 197);
-    if ( *(_BYTE *)(a3 + 4) > v7 )
+    v6 = *(_BYTE *)(RegHandle + 197);
+    if ( EventDescriptor->Level > v6 )
     {
-      if ( v7 )
+      if ( v6 )
         return 0;
     }
-    if ( ((*(_BYTE *)(a1 + 192) & 0x40) == 0 || v3 | v4)
-      && (!(v3 & *(_DWORD *)(a1 + 188) | v4 & *(_DWORD *)(a1 + 184))
-       || (v4 & *(_DWORD *)(a1 + 176)) != *(_DWORD *)(a1 + 176)
-       || (v3 & *(_DWORD *)(a1 + 180)) != *(_DWORD *)(a1 + 180)) )
+    if ( ((*(_BYTE *)(RegHandle + 192) & 0x40) == 0 || Keyword_high | Keyword)
+      && (!(Keyword_high & *(_DWORD *)(RegHandle + 188) | Keyword & *(_DWORD *)(RegHandle + 184))
+       || __PAIR64__(Keyword_high & *(_DWORD *)(RegHandle + 180), Keyword & *(_DWORD *)(RegHandle + 176)) != *(_QWORD *)(RegHandle + 176)) )
     {
       return 0;
     }

@@ -1,19 +1,19 @@
 /*
- * XREFs of BcpDisplayCriticalCharacter @ 0x140716734
+ * XREFs of BcpDisplayCriticalCharacter @ 0x14071B424
  * Callers:
- *     BcpDisplayErrorInformation @ 0x140716F38 (BcpDisplayErrorInformation.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1407180B4 (BgpFwDisplayBugCheckScreen.c)
+ *     BcpDisplayErrorInformation @ 0x14071BC28 (BcpDisplayErrorInformation.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14071CDA4 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140715C90 (BgpDisplayCharacterEx.c)
- *     BcpSetCursorPosition @ 0x140717E1C (BcpSetCursorPosition.c)
+ *     BgpDisplayCharacterEx @ 0x14071A980 (BgpDisplayCharacterEx.c)
+ *     BcpSetCursorPosition @ 0x14071CB0C (BcpSetCursorPosition.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2, int a3)
 {
-  unsigned int v3; // esi
-  unsigned int v4; // edi
+  unsigned int Flink; // esi
+  unsigned int Flink_high; // edi
   unsigned int v5; // r9d
-  unsigned int v6; // ebx
+  unsigned int Blink; // ebx
   __int64 v7; // r8
   __int64 result; // rax
   unsigned __int64 v9; // [rsp+40h] [rbp-28h]
@@ -23,19 +23,19 @@ __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2, int a3)
 
   v12 = a3;
   LOWORD(v11) = a1;
-  v3 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[16];
-  v4 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[20];
-  v5 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[20];
-  v6 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[24];
-  v7 = *(_QWORD *)(*(_QWORD *)&stru_140E3E928.Timer.Processor + 24LL);
+  Flink = (unsigned int)WheapPfaLock.ThreadListEntry.Flink;
+  Flink_high = HIDWORD(WheapPfaLock.ThreadListEntry.Flink);
+  v5 = HIDWORD(WheapPfaLock.ThreadListEntry.Flink);
+  Blink = (unsigned int)WheapPfaLock.ThreadListEntry.Blink;
+  v7 = *(_QWORD *)(*(_QWORD *)&stru_140E3EAA8.Timer.Processor + 24LL);
   v12 = 0;
   v11 = 0;
   *(_DWORD *)(v7 + 56) = a2;
-  *(_DWORD *)(*(_QWORD *)&stru_140E3E928.Timer.Processor + 8LL) = a2;
+  *(_DWORD *)(*(_QWORD *)&stru_140E3EAA8.Timer.Processor + 8LL) = a2;
   result = BgpDisplayCharacterEx(
              0x20u,
-             *(__int64 **)&stru_140E3E928.Timer.Processor,
-             v3,
+             *(__int64 **)&stru_140E3EAA8.Timer.Processor,
+             Flink,
              v5,
              *(_DWORD *)(v7 + 40),
              -1,
@@ -44,10 +44,10 @@ __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2, int a3)
              v9);
   if ( (int)result >= 0 )
   {
-    if ( v6 < v4 + v11 )
-      v6 = v4 + v11;
-    v10 = v6;
-    return BcpSetCursorPosition(v3 + v12, v4, &v10);
+    if ( Blink < Flink_high + v11 )
+      Blink = Flink_high + v11;
+    v10 = Blink;
+    return BcpSetCursorPosition(Flink + v12, Flink_high, &v10);
   }
   return result;
 }

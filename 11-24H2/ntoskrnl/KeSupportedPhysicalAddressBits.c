@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSupportedPhysicalAddressBits @ 0x140C26B70
+ * XREFs of KeSupportedPhysicalAddressBits @ 0x140C28BC0
  * Callers:
- *     MmInitSystem @ 0x140BDE2E8 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140BE02E8 (MmInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char KeSupportedPhysicalAddressBits()

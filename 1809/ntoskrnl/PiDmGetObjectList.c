@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmGetObjectList @ 0x140700B90
+ * XREFs of PiDmGetObjectList @ 0x140701E30
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1405983A0 (PiPnpRtlObjectActionCallback.c)
- *     PiDmGetCmObjectListFromCache @ 0x140700B40 (PiDmGetCmObjectListFromCache.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1405993A0 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmGetCmObjectListFromCache @ 0x140701DE0 (PiDmGetCmObjectListFromCache.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     PiDmEnumObjectsWithCallback @ 0x140596F5C (PiDmEnumObjectsWithCallback.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140597F5C (PiDmEnumObjectsWithCallback.c)
  */
 
 __int64 __fastcall PiDmGetObjectList(unsigned int a1, __int64 a2, __int64 a3, _WORD *a4, unsigned int a5, _DWORD *a6)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ApiSetValidateSchemaElements_V7 @ 0x140416F90
+ * XREFs of ApiSetValidateSchemaElements_V7 @ 0x140417320
  * Callers:
- *     ApiSetValidateSchemaFormat_V7 @ 0x140417460 (ApiSetValidateSchemaFormat_V7.c)
- *     ApiSetComposeSchema_V7 @ 0x140417648 (ApiSetComposeSchema_V7.c)
+ *     ApiSetValidateSchemaFormat_V7 @ 0x1404177F0 (ApiSetValidateSchemaFormat_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x1404179D8 (ApiSetComposeSchema_V7.c)
  * Callees:
- *     ApiSetpSearchForSectionIndex_V7 @ 0x1404180EC (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x14041847C (ApiSetpSearchForSectionIndex_V7.c)
  */
 
 __int64 __fastcall ApiSetValidateSchemaElements_V7(__int64 a1)

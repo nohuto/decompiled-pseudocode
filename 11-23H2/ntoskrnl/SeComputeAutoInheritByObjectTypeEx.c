@@ -1,18 +1,18 @@
 /*
- * XREFs of SeComputeAutoInheritByObjectTypeEx @ 0x1402B3570
+ * XREFs of SeComputeAutoInheritByObjectTypeEx @ 0x1402B3800
  * Callers:
- *     SeComputeAutoInheritByObjectType @ 0x140356430 (SeComputeAutoInheritByObjectType.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ObpAssignSecurity @ 0x1407BC6F0 (ObpAssignSecurity.c)
+ *     SeComputeAutoInheritByObjectType @ 0x1403565D0 (SeComputeAutoInheritByObjectType.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ObpAssignSecurity @ 0x1407BC9C0 (ObpAssignSecurity.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     RtlFindAceByType @ 0x1402AD1F0 (RtlFindAceByType.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     RtlFindAceByType @ 0x1402AD480 (RtlFindAceByType.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
  */
 
-__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
+__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *Index)
 {
   _DWORD *v5; // rdi
   char v6; // r13
@@ -26,23 +26,23 @@ __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __
   int v18; // ebx
   _BYTE *v20; // rcx
   __int16 v21; // ax
-  __int64 v22; // rcx
-  unsigned __int8 *AceByType; // rax
+  ACL *v22; // rcx
+  _DWORD *AceByType; // rax
   __int64 v24; // rax
   __int16 v25; // ax
-  __int64 v26; // rcx
+  ACL *v26; // rcx
   __int64 v27; // rax
-  unsigned __int8 *v28; // rax
+  _BYTE *v28; // rax
 
-  v5 = a5;
+  v5 = Index;
   v6 = 0;
   v11 = 0;
   v12 = 0;
-  if ( a5 )
+  if ( Index )
   {
-    if ( *a5 != 8 )
+    if ( *Index != 8 )
       return 3221225485LL;
-    a5[1] = -1;
+    Index[1] = -1;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -94,22 +94,22 @@ LABEL_11:
     {
       if ( v21 >= 0 )
       {
-        v22 = *(_QWORD *)(a2 + 24);
+        v22 = *(ACL **)(a2 + 24);
       }
       else
       {
         v24 = *(unsigned int *)(a2 + 12);
-        v22 = (_DWORD)v24 ? v24 + a2 : 0LL;
+        v22 = (_DWORD)v24 ? (ACL *)(v24 + a2) : 0LL;
       }
     }
     else
     {
       v22 = 0LL;
     }
-    AceByType = RtlFindAceByType(v22, 17, 0LL);
+    AceByType = RtlFindAceByType(v22, 0x11u, 0LL);
     if ( AceByType )
     {
-      *((_DWORD *)AceByType + 1) |= v12;
+      AceByType[1] |= v12;
       v11 = 0;
     }
   }
@@ -117,7 +117,7 @@ LABEL_11:
   {
     if ( a2 )
     {
-      LODWORD(a5) = 0;
+      LODWORD(Index) = 0;
       while ( 1 )
       {
         v25 = *(_WORD *)(a2 + 2);
@@ -125,25 +125,25 @@ LABEL_11:
         {
           if ( v25 >= 0 )
           {
-            v26 = *(_QWORD *)(a2 + 24);
+            v26 = *(ACL **)(a2 + 24);
           }
           else
           {
             v27 = *(unsigned int *)(a2 + 12);
-            v26 = (_DWORD)v27 ? v27 + a2 : 0LL;
+            v26 = (_DWORD)v27 ? (ACL *)(v27 + a2) : 0LL;
           }
         }
         else
         {
           v26 = 0LL;
         }
-        v28 = RtlFindAceByType(v26, 17, (unsigned int *)&a5);
+        v28 = RtlFindAceByType(v26, 0x11u, (PULONG)&Index);
         if ( v28 )
         {
           if ( (v28[1] & 8) == 0 )
             break;
         }
-        LODWORD(a5) = (_DWORD)a5 + 1;
+        LODWORD(Index) = (_DWORD)Index + 1;
         if ( !v28 )
           goto LABEL_55;
       }

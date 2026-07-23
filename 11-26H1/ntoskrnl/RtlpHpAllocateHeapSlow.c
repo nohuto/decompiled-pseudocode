@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpAllocateHeapSlow @ 0x140352630
+ * XREFs of RtlpHpAllocateHeapSlow @ 0x1403546B4
  * Callers:
- *     RtlpHpAllocateHeap @ 0x140397A80 (RtlpHpAllocateHeap.c)
+ *     RtlpHpAllocateHeap @ 0x140399800 (RtlpHpAllocateHeap.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpCallInterceptRoutine @ 0x1403528A8 (RtlpCallInterceptRoutine.c)
- *     RtlpHpCalculateAllocSize @ 0x140352900 (RtlpHpCalculateAllocSize.c)
- *     RtlpHpExtrasAppend @ 0x140352934 (RtlpHpExtrasAppend.c)
- *     RtlpHpSegFreeInternal @ 0x140352AC8 (RtlpHpSegFreeInternal.c)
- *     RtlpHpLfhContextFree @ 0x140353D70 (RtlpHpLfhContextFree.c)
- *     RtlpHpLargeFree @ 0x1403546B4 (RtlpHpLargeFree.c)
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpLogHeapAllocateEvent @ 0x14052DB38 (RtlpLogHeapAllocateEvent.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpCallInterceptRoutine @ 0x14035492C (RtlpCallInterceptRoutine.c)
+ *     RtlpHpCalculateAllocSize @ 0x140354980 (RtlpHpCalculateAllocSize.c)
+ *     RtlpHpExtrasAppend @ 0x1403549B4 (RtlpHpExtrasAppend.c)
+ *     RtlpHpSegFreeInternal @ 0x140354B48 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpLfhContextFree @ 0x140355DF0 (RtlpHpLfhContextFree.c)
+ *     RtlpHpLargeFree @ 0x14035645C (RtlpHpLargeFree.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapAllocateEvent @ 0x140530058 (RtlpLogHeapAllocateEvent.c)
  */
 
 __int64 __fastcall RtlpHpAllocateHeapSlow(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -97,8 +97,8 @@ LABEL_9:
             return 0LL;
           }
           v23 = RtlCSparseBitmapBitmaskRead(
-                  (__int64)&ExpUuidLock.ThreadLock,
-                  2 * ((HeapInternal - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+                  (__int64)&ExpUuidLock.CycleTime,
+                  2 * ((HeapInternal - ExpUuidLock.ThreadLock) >> 20));
           if ( v23 )
           {
             v14 = v23 - 1;

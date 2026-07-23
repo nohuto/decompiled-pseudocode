@@ -28,19 +28,18 @@ NTSTATUS __fastcall SepReferenceTokenByHandle(
   PVOID *v10; // r14
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v12; // rax
-  unsigned __int64 v13; // rdx
-  _QWORD *v14; // r8
-  __int64 v15; // r10
-  int v16; // eax
-  __int64 v17; // r9
+  _QWORD *v13; // r8
+  void *v14; // r10
+  int v15; // eax
+  PSID v16; // r9
   NTSTATUS result; // eax
-  _QWORD *v19; // rax
-  __int64 v20; // r9
-  __int64 v21; // r10
-  int v22; // [rsp+60h] [rbp+8h] BYREF
-  int v23; // [rsp+78h] [rbp+20h] BYREF
+  _QWORD *v18; // rax
+  __int64 v19; // r9
+  __int64 v20; // r10
+  int v21; // [rsp+60h] [rbp+8h] BYREF
+  int v22; // [rsp+78h] [rbp+20h] BYREF
 
-  v23 = a4;
+  v22 = a4;
   v7 = a6;
   v8 = a7;
   v9 = 0;
@@ -61,13 +60,13 @@ NTSTATUS __fastcall SepReferenceTokenByHandle(
   {
     v10 = Object;
     LOBYTE(a6) = 0;
-    v22 = 0;
+    v21 = 0;
     LODWORD(a7) = 0;
     *Object = 0LL;
     *v7 = 0;
     *v8 = 0LL;
     CurrentThread = KeGetCurrentThread();
-    LOBYTE(v23) = 0;
+    LOBYTE(v22) = 0;
     if ( a1 == (void *)-4LL )
     {
       *v10 = (PVOID)PsReferencePrimaryTokenWithTag((__int64)CurrentThread->ApcState.Process, 0x74726853u);
@@ -77,84 +76,83 @@ NTSTATUS __fastcall SepReferenceTokenByHandle(
     {
       if ( a1 != (void *)-5LL )
       {
-        v12 = (_QWORD *)PsReferenceEffectiveToken(CurrentThread, 1953654867LL, &a7, &a6, &v22, &v23);
-        v14 = v12;
-        if ( (_DWORD)a7 == 2 && !v22 )
+        v12 = (_QWORD *)PsReferenceEffectiveToken(CurrentThread, 1953654867LL, &a7, &a6, &v21, &v22);
+        v13 = v12;
+        if ( (_DWORD)a7 == 2 && !v21 )
         {
           ObfDereferenceObjectWithTag(v12, 0x74726853u);
           return -1073741658;
         }
 LABEL_6:
-        v15 = v14[138];
-        v16 = (unsigned __int8)v23;
+        v14 = (void *)v13[138];
+        v15 = (unsigned __int8)v22;
         *v7 = 0;
         *v8 = 0LL;
-        if ( v16 != 98 )
+        if ( v15 != 98 )
         {
-          v13 = 0x140000000uLL;
-          switch ( v16 )
+          switch ( v15 )
           {
             case 18:
-              v17 = SeProcTrustAuthenticodeSid;
+              v16 = (PSID)SeProcTrustAuthenticodeSid;
               goto LABEL_8;
             case 49:
-              v17 = SeProcTrustLiteAntimalwareSid;
+              v16 = (PSID)SeProcTrustLiteAntimalwareSid;
               goto LABEL_8;
             case 81:
-              v17 = SeProcTrustLiteWinSid;
+              v16 = (PSID)SeProcTrustLiteWinSid;
               goto LABEL_8;
             case 82:
-              v17 = SeProcTrustWinSid;
+              v16 = (PSID)SeProcTrustWinSid;
               goto LABEL_8;
             case 97:
-              v17 = SeProcTrustLiteWinTcbSid;
+              v16 = (PSID)SeProcTrustLiteWinTcbSid;
               goto LABEL_8;
             case 114:
               break;
             case 129:
-              v17 = SeProcTrustLiteAppSid;
+              v16 = (PSID)SeProcTrustLiteAppSid;
               goto LABEL_8;
             default:
               goto LABEL_9;
           }
         }
-        v17 = SeProcTrustWinTcbSid;
+        v16 = SeProcTrustWinTcbSid;
 LABEL_8:
-        if ( !v17 || (unsigned __int8)RtlIsValidProcessTrustLabelSid(v17, v13, v14) )
+        if ( !v16 || RtlIsValidProcessTrustLabelSid(v16) )
         {
 LABEL_9:
-          if ( !v15 )
+          if ( !v14 )
             goto LABEL_10;
-          if ( (unsigned __int8)RtlIsValidProcessTrustLabelSid(v15, v13, v14) )
+          if ( RtlIsValidProcessTrustLabelSid(v14) )
           {
-            if ( !v20 )
+            if ( !v19 )
             {
-              if ( *(_DWORD *)(v21 + 8) )
+              if ( *(_DWORD *)(v20 + 8) )
               {
                 *v7 = 1;
                 *v8 = 0LL;
               }
               goto LABEL_10;
             }
-            if ( *(_DWORD *)(v20 + 8) >= *(_DWORD *)(v21 + 8) && *(_DWORD *)(v20 + 12) >= *(_DWORD *)(v21 + 12) )
+            if ( *(_DWORD *)(v19 + 8) >= *(_DWORD *)(v20 + 8) && *(_DWORD *)(v19 + 12) >= *(_DWORD *)(v20 + 12) )
             {
 LABEL_10:
-              *v10 = v14;
+              *v10 = v13;
               return v9;
             }
           }
         }
         *v7 = 1;
-        *v8 = v20;
+        *v8 = v19;
         goto LABEL_10;
       }
-      v19 = (_QWORD *)PsReferenceImpersonationTokenEx(CurrentThread, 0LL, 1953654867LL, &a7, &a6, &v22, &v23);
-      v14 = v19;
-      if ( v19 )
+      v18 = (_QWORD *)PsReferenceImpersonationTokenEx(CurrentThread, 0LL, 1953654867LL, &a7, &a6, &v21, &v22);
+      v13 = v18;
+      if ( v18 )
       {
-        if ( !v22 )
+        if ( !v21 )
         {
-          ObfDereferenceObjectWithTag(v19, 0x746C6644u);
+          ObfDereferenceObjectWithTag(v18, 0x746C6644u);
           return -1073741658;
         }
         goto LABEL_6;

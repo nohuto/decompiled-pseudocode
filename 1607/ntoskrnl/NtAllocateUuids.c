@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAllocateUuids @ 0x1404E5494
+ * XREFs of NtAllocateUuids @ 0x1404C80B0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1404E5644 (ExpUuidSaveSequenceNumberIf.c)
- *     ExpAllocateUuids @ 0x1404E566C (ExpAllocateUuids.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1404C8260 (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpAllocateUuids @ 0x1404C8288 (ExpAllocateUuids.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Sequence, PUCHAR Seed)
@@ -86,11 +86,11 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
       ExfTryToWakePushLock((volatile signed __int64 *)&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v16, v17, v18);
-    *v7 = (union _ULARGE_INTEGER)v25[0];
+    *v7 = (ULARGE_INTEGER)v25[0];
     *Range = v23;
     *Sequence = v24;
     *(_DWORD *)Seed = *(int *)((char *)&dword_140747294 + 2);
-    *((_WORD *)Seed + 2) = HIWORD(dword_140747298);
+    *((_WORD *)Seed + 2) = word_14074729A;
     return v15 == 0 ? 0x40020056 : 0;
   }
 }

@@ -16,8 +16,10 @@
 USHORT __stdcall RtlpHpHeapHandleError(int a1, int a2, int a3)
 {
   USHORT result; // ax
+  size_t v4; // [esp-4h] [ebp-2Ch]
 
-  memset(&BackTrace, 0, 0x80u);
+  LODWORD(v4) = 128;
+  memset(&BackTrace, 0, v4);
   result = RtlCaptureStackBackTrace(1u, 0x20u, &BackTrace, 0);
   switch ( a1 )
   {

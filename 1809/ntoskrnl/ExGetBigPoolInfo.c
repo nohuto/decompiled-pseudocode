@@ -1,16 +1,16 @@
 /*
- * XREFs of ExGetBigPoolInfo @ 0x14031A554
+ * XREFs of ExGetBigPoolInfo @ 0x14031A744
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     EtwpPoolRunDown @ 0x1408BF034 (EtwpPoolRunDown.c)
- *     ExGetSessionBigPoolInformation @ 0x1408CB33C (ExGetSessionBigPoolInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x1408C02F4 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x1408CC5FC (ExGetSessionBigPoolInformation.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExFreeHeapPages @ 0x14015B274 (ExFreeHeapPages.c)
- *     ExAllocateHeapPages @ 0x14015C890 (ExAllocateHeapPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExFreeHeapPages @ 0x14015B374 (ExFreeHeapPages.c)
+ *     ExAllocateHeapPages @ 0x14015C990 (ExAllocateHeapPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigned int *a4)
@@ -68,8 +68,8 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
     }
     else
     {
-      v14 = *(const void **)(qword_140439FC0 + 8248);
-      v15 = *(_QWORD *)(qword_140439FC0 + 8256);
+      v14 = *(const void **)(qword_14043B080 + 8248);
+      v15 = *(_QWORD *)(qword_14043B080 + 8256);
     }
     if ( !v14 )
     {

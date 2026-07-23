@@ -18,58 +18,56 @@ __int64 __fastcall PopBackgroundActivityPolicyCallback(
 {
   int PowerSettingValue; // edi
   __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  int v12; // ebp
-  __int64 v13; // rdx
-  int v14; // eax
-  int v15; // eax
-  unsigned int v16; // ebx
-  __int64 v18; // [rsp+20h] [rbp-38h]
-  int v19; // [rsp+40h] [rbp-18h] BYREF
-  unsigned int v20[5]; // [rsp+44h] [rbp-14h] BYREF
+  __int64 v9; // r9
+  int v10; // ebp
+  __int64 v11; // rdx
+  int v12; // eax
+  int v13; // eax
+  unsigned int v14; // ebx
+  __int64 v16; // [rsp+20h] [rbp-38h]
+  int v17; // [rsp+40h] [rbp-18h] BYREF
+  WNF_CHANGE_STAMP v18[5]; // [rsp+44h] [rbp-14h] BYREF
 
   PowerSettingValue = 0;
   PopAcquirePolicyLock(SettingGuid, Value);
-  v11 = *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 - *(_QWORD *)&SettingGuid->Data1;
+  v9 = *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 - *(_QWORD *)&SettingGuid->Data1;
   if ( *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 == *(_QWORD *)&SettingGuid->Data1 )
-    v11 = *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4 - *(_QWORD *)SettingGuid->Data4;
+    v9 = *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4 - *(_QWORD *)SettingGuid->Data4;
+  if ( !v9 && ValueLength == 4 && Value )
+  {
+    v10 = *Value;
+  }
+  else
+  {
+    PowerSettingValue = PopGetPowerSettingValue((__int64)&GUID_ACDC_POWER_SOURCE, v8, 3u, &v17, v16, v18);
+    if ( PowerSettingValue < 0 )
+      goto LABEL_22;
+    v10 = v17;
+  }
+  v11 = *(_QWORD *)&GUID_LOW_POWER_EPOCH.Data1 - *(_QWORD *)&SettingGuid->Data1;
+  if ( *(_QWORD *)&GUID_LOW_POWER_EPOCH.Data1 == *(_QWORD *)&SettingGuid->Data1 )
+    v11 = *(_QWORD *)GUID_LOW_POWER_EPOCH.Data4 - *(_QWORD *)SettingGuid->Data4;
   if ( !v11 && ValueLength == 4 && Value )
   {
     v12 = *Value;
   }
   else
   {
-    PowerSettingValue = PopGetPowerSettingValue((__int64)&GUID_ACDC_POWER_SOURCE, v8, 3u, &v19, v18, v20);
+    PowerSettingValue = PopGetPowerSettingValue((__int64)&GUID_LOW_POWER_EPOCH, v11, 3u, &v17, v16, v18);
     if ( PowerSettingValue < 0 )
       goto LABEL_22;
-    v12 = v19;
+    v12 = v17;
   }
-  v13 = *(_QWORD *)&GUID_LOW_POWER_EPOCH.Data1 - *(_QWORD *)&SettingGuid->Data1;
-  if ( *(_QWORD *)&GUID_LOW_POWER_EPOCH.Data1 == *(_QWORD *)&SettingGuid->Data1 )
-    v13 = *(_QWORD *)GUID_LOW_POWER_EPOCH.Data4 - *(_QWORD *)SettingGuid->Data4;
-  if ( !v13 && ValueLength == 4 && Value )
+  if ( !v12 || (v13 = 1, v10 != 1) )
+    v13 = 0;
+  v14 = PopBackgroundActivityPolicy;
+  if ( PopBackgroundActivityPolicy != v13 )
   {
-    v14 = *Value;
-  }
-  else
-  {
-    PowerSettingValue = PopGetPowerSettingValue((__int64)&GUID_LOW_POWER_EPOCH, v13, 3u, &v19, v18, v20);
-    if ( PowerSettingValue < 0 )
-      goto LABEL_22;
-    v14 = v19;
-  }
-  if ( !v14 || (v15 = 1, v12 != 1) )
-    v15 = 0;
-  v16 = PopBackgroundActivityPolicy;
-  if ( PopBackgroundActivityPolicy != v15 )
-  {
-    PopBackgroundActivityPolicy = v15;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BACKGROUND_ACTIVITY_POLICY, (__int64)&PopBackgroundActivityPolicy, 4LL);
-    PopTraceBackgroundActivityPolicyUpdate(v16);
+    PopBackgroundActivityPolicy = v13;
+    ZwUpdateWnfStateData(&WNF_PO_BACKGROUND_ACTIVITY_POLICY, &PopBackgroundActivityPolicy, 4u, 0LL, 0LL, 0, 0);
+    PopTraceBackgroundActivityPolicyUpdate(v14);
   }
 LABEL_22:
-  PopReleasePolicyLock(v9, v13, v10);
+  PopReleasePolicyLock();
   return (unsigned int)PowerSettingValue;
 }

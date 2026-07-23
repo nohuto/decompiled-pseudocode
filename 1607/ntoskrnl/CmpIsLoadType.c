@@ -3,10 +3,10 @@
  * Callers:
  *     CmpFindDrivers @ 0x1407B03C8 (CmpFindDrivers.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     CmpFindValueByName @ 0x140402A28 (CmpFindValueByName.c)
- *     CmpFindSubKeyByName @ 0x14055FE64 (CmpFindSubKeyByName.c)
- *     CmpValueToData @ 0x1405601A0 (CmpValueToData.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     CmpFindValueByName @ 0x1404018E8 (CmpFindValueByName.c)
+ *     CmpFindSubKeyByName @ 0x1405603A4 (CmpFindSubKeyByName.c)
+ *     CmpValueToData @ 0x1405606E0 (CmpValueToData.c)
  *     CmpGetNodeName @ 0x1407B060C (CmpGetNodeName.c)
  */
 

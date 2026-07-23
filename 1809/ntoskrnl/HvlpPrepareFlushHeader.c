@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpPrepareFlushHeader @ 0x140279CA8
+ * XREFs of HvlpPrepareFlushHeader @ 0x140279E98
  * Callers:
- *     HvlpFastFlushAddressSpaceTb @ 0x140279808 (HvlpFastFlushAddressSpaceTb.c)
- *     HvlpFlushRangeListTb @ 0x140279B24 (HvlpFlushRangeListTb.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140279D00 (HvlpSlowFlushAddressSpaceTb.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x1402799F8 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlpFlushRangeListTb @ 0x140279D14 (HvlpFlushRangeListTb.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x140279EF0 (HvlpSlowFlushAddressSpaceTb.c)
  * Callees:
- *     HvlpAffinityToVirtualAffinity @ 0x1402794A0 (HvlpAffinityToVirtualAffinity.c)
+ *     HvlpAffinityToVirtualAffinity @ 0x140279690 (HvlpAffinityToVirtualAffinity.c)
  */
 
 __int64 __fastcall HvlpPrepareFlushHeader(_QWORD *a1, __int64 a2, __int64 a3, char a4)

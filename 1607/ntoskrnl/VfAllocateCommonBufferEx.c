@@ -1,10 +1,10 @@
 /*
- * XREFs of VfAllocateCommonBufferEx @ 0x14070662C
+ * XREFs of VfAllocateCommonBufferEx @ 0x14070665C
  * Callers:
  *     <none>
  * Callees:
- *     ViGetAdapterInformationInternal @ 0x140709708 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetAdapterInformationInternal @ 0x140709738 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfAllocateCommonBufferEx(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, char a5, int a6)

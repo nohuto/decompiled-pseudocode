@@ -10,11 +10,11 @@
 
 __int64 __fastcall PnpTraceStartDevice(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int16 v3; // ax
+  unsigned __int16 MinorImageVersion; // ax
 
-  LOBYTE(v3) = 0;
+  LOBYTE(MinorImageVersion) = 0;
   if ( a3 )
-    v3 = *(_WORD *)(RtlImageNtHeader(*(_QWORD *)(a3 + 24)) + 70);
-  PnpDiagnosticTraceDeviceOperation(&KMPnPEvt_DeviceStart_Stop, v3);
+    MinorImageVersion = RtlImageNtHeader(*(PVOID *)(a3 + 24))->OptionalHeader.MinorImageVersion;
+  PnpDiagnosticTraceDeviceOperation(&KMPnPEvt_DeviceStart_Stop, MinorImageVersion);
   return 0LL;
 }

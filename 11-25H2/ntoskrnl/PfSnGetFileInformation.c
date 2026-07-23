@@ -28,42 +28,42 @@
 __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
 {
   BOOLEAN v2; // r12
-  unsigned __int64 v3; // rdi
+  _RTL_BALANCED_NODE *v3; // rdi
   int v4; // r13d
-  _QWORD *i; // rax
+  _RTL_BALANCED_NODE **i; // rax
   unsigned int v8; // edi
   unsigned __int64 v10; // rbp
   __int64 v11; // rax
   unsigned __int64 v12; // rbx
   int v13; // ecx
   unsigned __int64 v14; // rax
-  _OWORD *Pool2; // rax
-  _QWORD *v16; // rbp
-  unsigned __int64 *v17; // rsi
+  _RTL_BALANCED_NODE *Pool2; // rax
+  _RTL_BALANCED_NODE *v16; // rbp
+  _RTL_BALANCED_NODE **v17; // rsi
   unsigned __int64 v18; // rbx
   __int64 v19; // r8
   __int64 v20; // r9
   unsigned __int64 v21; // rax
   __int64 v22; // rdx
   _DWORD *v23; // rcx
-  ULONG_PTR v24; // rsi
+  ULONG_PTR ParentValue; // rsi
   signed __int64 v25; // rax
   bool v26; // cc
   signed __int64 BugCheckParameter4; // rax
   unsigned __int64 v28; // rcx
   __int64 v29; // rax
   unsigned __int64 v30; // rdx
-  bool v31; // r8
+  BOOLEAN v31; // r8
   int v32; // ecx
   unsigned __int64 v33; // rax
   void *retaddr; // [rsp+58h] [rbp+0h]
 
   v2 = 0;
-  v3 = a2[3];
+  v3 = (_RTL_BALANCED_NODE *)a2[3];
   v4 = 0;
   if ( (*(_DWORD *)(a2[1] + 52LL) & 0x10) != 0 )
     return (unsigned int)-1073741637;
-  for ( i = (_QWORD *)(a1 + 488); (unsigned __int64)i < a1 + 520; ++i )
+  for ( i = (_RTL_BALANCED_NODE **)(a1 + 488); (unsigned __int64)i < a1 + 520; ++i )
   {
     if ( *i == v3 )
       return 0;
@@ -80,7 +80,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   v13 = v11 & 1;
   while ( v12 )
   {
-    if ( *(_QWORD *)(v12 + 24) > v3 )
+    if ( *(_QWORD *)(v12 + 24) > (unsigned __int64)v3 )
     {
       v14 = *(_QWORD *)v12;
       if ( !v13 || !v14 )
@@ -88,7 +88,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
     }
     else
     {
-      if ( *(_QWORD *)(v12 + 24) >= v3 )
+      if ( *(_QWORD *)(v12 + 24) >= (unsigned __int64)v3 )
         break;
       v14 = *(_QWORD *)(v12 + 8);
       if ( !v13 || !v14 )
@@ -110,7 +110,7 @@ LABEL_20:
     *(_QWORD *)(a1 + 8LL * (++*(_BYTE *)(a1 + 580) & 3) + 488) = v3;
     return 0;
   }
-  Pool2 = (_OWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_RTL_BALANCED_NODE *)ExAllocatePool2(0x40uLL);
   v16 = Pool2;
   if ( !Pool2 )
   {
@@ -118,13 +118,13 @@ LABEL_20:
       _InterlockedOr16((volatile signed __int16 *)(a1 + 484), 2u);
     return (unsigned int)-1073741670;
   }
-  *Pool2 = 0LL;
-  Pool2[1] = 0LL;
-  Pool2[2] = 0LL;
+  Pool2->0 = 0LL;
+  *(_OWORD *)&Pool2->0 = 0LL;
+  *(_OWORD *)&Pool2[1].Right = 0LL;
   ObfReferenceObjectWithTag(a2, 0x746C6644u);
-  v16[5] = a2;
-  v16[3] = v3;
-  v17 = (unsigned __int64 *)(a1 + 520);
+  v16[1].ParentValue = (unsigned __int64)a2;
+  v16[1].Children[0] = v3;
+  v17 = (_RTL_BALANCED_NODE **)(a1 + 520);
   v18 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
   v21 = *(_QWORD *)(a1 + 520);
   if ( (*(_QWORD *)(a1 + 528) & 1) != 0 )
@@ -145,17 +145,17 @@ LABEL_47:
         v4 = 1;
         *(_QWORD *)(a1 + 544) = 0LL;
       }
-      v16[4] = *(_QWORD *)(a1 + 536);
-      *(_QWORD *)(a1 + 536) = v16 + 4;
+      v16[1].Children[1] = *(_RTL_BALANCED_NODE **)(a1 + 536);
+      *(_QWORD *)(a1 + 536) = (char *)v16 + 32;
       v29 = *(_QWORD *)(a1 + 528);
-      v30 = *v17;
+      v30 = (unsigned __int64)*v17;
       if ( (v29 & 1) != 0 )
       {
         if ( !v30 )
         {
           v31 = 0;
 LABEL_56:
-          RtlRbInsertNodeEx((__int64 *)(a1 + 520), v30, v31, (unsigned __int64)v16);
+          RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 520), (PRTL_BALANCED_NODE)v30, v31, v16);
           ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576), v18);
           if ( v4 )
           {
@@ -176,7 +176,7 @@ LABEL_56:
         goto LABEL_56;
       while ( 1 )
       {
-        if ( *(_QWORD *)(v30 + 24) > v3 )
+        if ( *(_QWORD *)(v30 + 24) > (unsigned __int64)v3 )
         {
           v33 = *(_QWORD *)v30;
           if ( v32 )
@@ -212,7 +212,7 @@ LABEL_55:
   v22 = *(_QWORD *)(a1 + 528) & 1LL;
   if ( !v21 )
     goto LABEL_47;
-  while ( *(_QWORD *)(v21 + 24) < v3 )
+  while ( *(_QWORD *)(v21 + 24) < (unsigned __int64)v3 )
   {
     v28 = *(_QWORD *)(v21 + 8);
     if ( !(_DWORD)v22 || !v28 )
@@ -227,7 +227,7 @@ LABEL_46:
     if ( !v21 )
       goto LABEL_47;
   }
-  if ( *(_QWORD *)(v21 + 24) > v3 )
+  if ( *(_QWORD *)(v21 + 24) > (unsigned __int64)v3 )
   {
     v28 = *(_QWORD *)v21;
     if ( !(_DWORD)v22 || !v28 )
@@ -244,36 +244,36 @@ LABEL_29:
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v18);
   __writecr8(v18);
-  v24 = v16[5];
+  ParentValue = v16[1].ParentValue;
   if ( ObpTraceFlags )
-    ObpPushStackInfo(v24 - 48, 0, 1u, 0x746C6644u);
-  v25 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v24 - 48), 0xFFFFFFFFFFFFFFFFuLL);
+    ObpPushStackInfo(ParentValue - 48, 0, 1u, 0x746C6644u);
+  v25 = _InterlockedExchangeAdd64((volatile signed __int64 *)(ParentValue - 48), 0xFFFFFFFFFFFFFFFFuLL);
   v26 = v25 <= 1;
   BugCheckParameter4 = v25 - 1;
   if ( v26 )
   {
-    if ( *(_QWORD *)(v24 - 40) )
+    if ( *(_QWORD *)(ParentValue - 40) )
       KeBugCheckEx(
         0x18u,
-        ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v24 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v24 - 48) >> 8)],
-        v24,
+        ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(ParentValue - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(ParentValue - 48) >> 8)],
+        ParentValue,
         1uLL,
-        *(_QWORD *)(v24 - 40));
+        *(_QWORD *)(ParentValue - 40));
     if ( BugCheckParameter4 < 0 )
-      KeBugCheckEx(0x18u, 0LL, v24, 2uLL, BugCheckParameter4);
+      KeBugCheckEx(0x18u, 0LL, ParentValue, 2uLL, BugCheckParameter4);
     if ( KeGetCurrentThread()->SpecialApcDisable || !KeAreInterruptsEnabled() || KeGetCurrentIrql() )
     {
-      ObpDeferObjectDeletion(v24 - 48, v22, v19, v20);
+      ObpDeferObjectDeletion(ParentValue - 48, v22, v19, v20);
       goto LABEL_36;
     }
-    if ( (*(_BYTE *)(v24 - 22) & 0x40) != 0
-      && *(_BYTE *)(*(_QWORD *)(v24 - 48 - ObpInfoMaskToOffset[*(_BYTE *)(v24 - 22) & 0x7F]) + 24LL) )
+    if ( (*(_BYTE *)(ParentValue - 22) & 0x40) != 0
+      && *(_BYTE *)(*(_QWORD *)(ParentValue - 48 - ObpInfoMaskToOffset[*(_BYTE *)(ParentValue - 22) & 0x7F]) + 24LL) )
     {
       ObpHandleRevocationBlockRemoveObject();
     }
     if ( ObpTraceFlags )
-      ObpDeregisterObject(v24 - 48);
-    ObpRemoveObjectRoutine(v24 - 48, 0LL);
+      ObpDeregisterObject(ParentValue - 48);
+    ObpRemoveObjectRoutine(ParentValue - 48, 0LL);
     ExFreePoolWithTag(v16, 0);
   }
   else

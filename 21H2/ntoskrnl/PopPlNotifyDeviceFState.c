@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPlNotifyDeviceFState @ 0x1403A4A78
+ * XREFs of PopPlNotifyDeviceFState @ 0x1403A4BC8
  * Callers:
- *     PopPepStartComponentIdleStateChangeActivity @ 0x1403A48B0 (PopPepStartComponentIdleStateChangeActivity.c)
- *     PopPepNotifyIdleState @ 0x1403A49E0 (PopPepNotifyIdleState.c)
- *     PopPepCompleteComponentIdleState @ 0x140574194 (PopPepCompleteComponentIdleState.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1403A4A00 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepNotifyIdleState @ 0x1403A4B30 (PopPepNotifyIdleState.c)
+ *     PopPepCompleteComponentIdleState @ 0x1405743D4 (PopPepCompleteComponentIdleState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlCalculateDevicePowerDraw @ 0x14057E364 (PopPlCalculateDevicePowerDraw.c)
- *     PopPlPublishSystemPowerChange @ 0x14057E778 (PopPlPublishSystemPowerChange.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14057E5A4 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E9B8 (PopPlPublishSystemPowerChange.c)
  */
 
 __int64 __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4, char a5)
@@ -125,7 +125,7 @@ __int64 __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned
         v54[1] = v19;
         tlgWriteEx_EtwWriteEx(
           (__int64)&dword_140C02228,
-          (unsigned __int8 *)&byte_14002A17D,
+          (unsigned __int8 *)&byte_14002A488,
           v19,
           v20,
           v25,

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCopyCountersWorker @ 0x140975228
+ * XREFs of KiCopyCountersWorker @ 0x140975428
  * Callers:
- *     KiCopyCounters @ 0x1405741A0 (KiCopyCounters.c)
+ *     KiCopyCounters @ 0x1405746E0 (KiCopyCounters.c)
  * Callees:
- *     KeGetCurrentProcessorNumberEx @ 0x1403264B0 (KeGetCurrentProcessorNumberEx.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140326740 (KeGetCurrentProcessorNumberEx.c)
  */
 
 __int64 __fastcall KiCopyCountersWorker(__int64 a1, __int64 a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnloadHotPatchForUserSid @ 0x140A3C080
+ * XREFs of MiUnloadHotPatchForUserSid @ 0x140A3C330
  * Callers:
- *     NtManageHotPatch @ 0x1407D3EF0 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1407D41C0 (NtManageHotPatch.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiDeleteHotPatchRecord @ 0x140A36864 (MiDeleteHotPatchRecord.c)
- *     MiFindUserSidHotPatchContext @ 0x140A36ECC (MiFindUserSidHotPatchContext.c)
- *     MiHotPatchAllProcesses @ 0x140A37408 (MiHotPatchAllProcesses.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiDeleteHotPatchRecord @ 0x140A36B14 (MiDeleteHotPatchRecord.c)
+ *     MiFindUserSidHotPatchContext @ 0x140A3717C (MiFindUserSidHotPatchContext.c)
+ *     MiHotPatchAllProcesses @ 0x140A376B8 (MiHotPatchAllProcesses.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

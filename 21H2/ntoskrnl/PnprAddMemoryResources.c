@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddMemoryResources @ 0x1408ACE64
+ * XREFs of PnprAddMemoryResources @ 0x1408ACFC4
  * Callers:
- *     PnprAddDeviceResources @ 0x1408ACDE0 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x1408ACF40 (PnprAddDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x1402D14F0 (RtlCmDecodeMemIoResource.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlCmDecodeMemIoResource @ 0x14024F980 (RtlCmDecodeMemIoResource.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAddMemoryResources(__int64 a1, void **a2)

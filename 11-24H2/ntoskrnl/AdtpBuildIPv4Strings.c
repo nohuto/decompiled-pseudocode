@@ -1,27 +1,27 @@
 /*
- * XREFs of AdtpBuildIPv4Strings @ 0x140A206AC
+ * XREFs of AdtpBuildIPv4Strings @ 0x140A157AC
  * Callers:
- *     AdtpBuildSockAddrString @ 0x140A20620 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x140A15720 (AdtpBuildSockAddrString.c)
  * Callees:
- *     RtlIpv4AddressToStringW @ 0x14045E960 (RtlIpv4AddressToStringW.c)
- *     StringCchPrintfW @ 0x14046FE5C (StringCchPrintfW.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlIpv4AddressToStringW @ 0x140453820 (RtlIpv4AddressToStringW.c)
+ *     StringCchPrintfW @ 0x14046A284 (StringCchPrintfW.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall AdtpBuildIPv4Strings(_WORD *a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
 {
   __int64 v9; // rax
   __int64 v10; // rax
   unsigned int v11; // ebx
   __int64 Pool2; // rax
 
-  if ( a1->S_un.S_un_w.s_w1 == 2 )
+  if ( *a1 == 2 )
   {
     if ( a2 && a3 )
     {
       *(_WORD *)(a2 + 2) = 32;
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x6B416553u);
       *(_QWORD *)(a2 + 8) = Pool2;
       if ( !Pool2 )
       {
@@ -30,21 +30,20 @@ __int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _B
       }
       *a3 = 1;
       *(_WORD *)a2 = 2
-                   * ((__int64)((unsigned int)RtlIpv4AddressToStringW(a1 + 1, *(PWSTR *)(a2 + 8)) - *(_DWORD *)(a2 + 8)) >> 1);
+                   * ((__int64)((unsigned int)RtlIpv4AddressToStringW(
+                                                (const struct in_addr *)(a1 + 2),
+                                                *(PWSTR *)(a2 + 8))
+                              - *(_DWORD *)(a2 + 8)) >> 1);
     }
     if ( !a4 || !a5 )
       return 0;
     *(_WORD *)(a4 + 2) = 16;
-    v9 = ExAllocatePool2(0x100uLL);
+    v9 = ExAllocatePool2(0x100uLL, 0x10uLL, 0x6B416553u);
     *(_QWORD *)(a4 + 8) = v9;
     if ( v9 )
     {
       *a5 = 1;
-      if ( StringCchPrintfW(
-             *(STRSAFE_LPWSTR *)(a4 + 8),
-             8uLL,
-             L"%d",
-             (unsigned __int16)(a1->S_un.S_un_w.s_w2 << 8) | HIBYTE(a1->S_un.S_un_w.s_w2)) >= 0 )
+      if ( StringCchPrintfW(*(STRSAFE_LPWSTR *)(a4 + 8), 8uLL, L"%d", (unsigned __int16)(a1[1] << 8) | HIBYTE(a1[1])) >= 0 )
       {
         v10 = -1LL;
         do

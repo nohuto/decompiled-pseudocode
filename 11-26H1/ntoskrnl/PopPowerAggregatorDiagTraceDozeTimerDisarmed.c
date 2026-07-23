@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceDozeTimerDisarmed @ 0x140B2BD58
+ * XREFs of PopPowerAggregatorDiagTraceDozeTimerDisarmed @ 0x140B2DDD8
  * Callers:
- *     PopPowerAggregatorDozeTimerDisarm @ 0x140B2BCBC (PopPowerAggregatorDozeTimerDisarm.c)
+ *     PopPowerAggregatorDozeTimerDisarm @ 0x140B2DD3C (PopPowerAggregatorDozeTimerDisarm.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopPowerAggregatorDiagTraceDozeTimerDisarmed(int a1)
@@ -18,18 +18,11 @@ char __fastcall PopPowerAggregatorDiagTraceDozeTimerDisarmed(int a1)
   v1 = &v4;
   UserData.Ptr = (ULONGLONG)&v4;
   *(_QWORD *)&UserData.Size = 4LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v1) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_POWER_AGGREGATOR_DOZE_TIMER_DISARMED);
+    LOBYTE(v1) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_DOZE_TIMER_DISARMED);
     if ( (_BYTE)v1 )
-      LOBYTE(v1) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_POWER_AGGREGATOR_DOZE_TIMER_DISARMED,
-                     0LL,
-                     1u,
-                     &UserData);
+      LOBYTE(v1) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_DOZE_TIMER_DISARMED, 0LL, 1u, &UserData);
   }
   return (char)v1;
 }

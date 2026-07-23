@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAddAccessDeniedAce @ 0x180113A10
+ * XREFs of RtlAddAccessDeniedAce @ 0x18010ED10
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAddKnownAce @ 0x180038CD0 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x180018F50 (RtlpAddKnownAce.c)
  */
 
-__int64 __fastcall RtlAddAccessDeniedAce(char *a1, unsigned int a2, int a3, unsigned __int8 *Src)
+NTSTATUS __cdecl RtlAddAccessDeniedAce(PACL Acl, ULONG AceRevision, ACCESS_MASK AccessMask, PSID Sid)
 {
-  return RtlpAddKnownAce(a1, a2, 0, a3, Src, 1);
+  return RtlpAddKnownAce(Acl, AceRevision, 0, AccessMask, (unsigned __int8 *)Sid, 1);
 }

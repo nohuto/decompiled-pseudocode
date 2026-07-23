@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRestoreIptState @ 0x1404F380C
+ * XREFs of KiRestoreIptState @ 0x1404ECDEC
  * Callers:
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1404F37CC (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeRestoreSupervisorState @ 0x1405ECA50 (KeRestoreSupervisorState.c)
- *     KiRestoreThreadIptState @ 0x1405ECF30 (KiRestoreThreadIptState.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1404ECDAC (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeRestoreSupervisorState @ 0x1405EF3C0 (KeRestoreSupervisorState.c)
+ *     KiRestoreThreadIptState @ 0x1405EF8A0 (KiRestoreThreadIptState.c)
  * Callees:
  *     <none>
  */

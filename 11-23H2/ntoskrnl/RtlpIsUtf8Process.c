@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpIsUtf8Process @ 0x1406DA530
+ * XREFs of RtlpIsUtf8Process @ 0x1406DA560
  * Callers:
- *     RtlUpperChar @ 0x1406D84E0 (RtlUpperChar.c)
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1406D9D80 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlUnicodeToMultiByteN @ 0x1406D9EE0 (RtlUnicodeToMultiByteN.c)
- *     RtlUpperString @ 0x1406DA0C0 (RtlUpperString.c)
- *     RtlAnsiCharToUnicodeChar @ 0x1406DA400 (RtlAnsiCharToUnicodeChar.c)
- *     RtlIsNameLegalDOS8Dot3 @ 0x140755290 (RtlIsNameLegalDOS8Dot3.c)
- *     RtlpDidUnicodeToOemWork @ 0x140755998 (RtlpDidUnicodeToOemWork.c)
- *     RtlUpcaseUnicodeToOemN @ 0x140755A50 (RtlUpcaseUnicodeToOemN.c)
- *     RtlUnicodeToMultiByteSize @ 0x140758770 (RtlUnicodeToMultiByteSize.c)
- *     RtlMultiByteToUnicodeSize @ 0x140773D00 (RtlMultiByteToUnicodeSize.c)
- *     RtlpGetCodePageData @ 0x140773DF4 (RtlpGetCodePageData.c)
- *     RtlGenerate8dot3Name @ 0x1407B92E0 (RtlGenerate8dot3Name.c)
- *     CompareNamesCaseSensitive @ 0x1409BA6D8 (CompareNamesCaseSensitive.c)
- *     ComputeNameLength @ 0x1409BA884 (ComputeNameLength.c)
- *     RtlIsValidOemCharacter @ 0x1409BF1B0 (RtlIsValidOemCharacter.c)
+ *     RtlUpperChar @ 0x1406D8510 (RtlUpperChar.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1406D9DB0 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUnicodeToMultiByteN @ 0x1406D9F10 (RtlUnicodeToMultiByteN.c)
+ *     RtlUpperString @ 0x1406DA0F0 (RtlUpperString.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x1406DA430 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlIsNameLegalDOS8Dot3 @ 0x140755480 (RtlIsNameLegalDOS8Dot3.c)
+ *     RtlpDidUnicodeToOemWork @ 0x140755B88 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x140755C40 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUnicodeToMultiByteSize @ 0x140758960 (RtlUnicodeToMultiByteSize.c)
+ *     RtlMultiByteToUnicodeSize @ 0x140773EF0 (RtlMultiByteToUnicodeSize.c)
+ *     RtlpGetCodePageData @ 0x140773FE4 (RtlpGetCodePageData.c)
+ *     RtlGenerate8dot3Name @ 0x1407B95C0 (RtlGenerate8dot3Name.c)
+ *     CompareNamesCaseSensitive @ 0x1409BA8D8 (CompareNamesCaseSensitive.c)
+ *     ComputeNameLength @ 0x1409BAA84 (ComputeNameLength.c)
+ *     RtlIsValidOemCharacter @ 0x1409BF3B0 (RtlIsValidOemCharacter.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
  */
 
 char RtlpIsUtf8Process()

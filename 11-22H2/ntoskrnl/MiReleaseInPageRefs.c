@@ -38,10 +38,13 @@ __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)
   if ( *(__int64 *)(BugCheckParameter2 + 40) < 0 && (*(_DWORD *)(BugCheckParameter2 + 16) & 0x400LL) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,10 +70,10 @@ __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)
     result = 0x7FFFFFFFFFFFFFFFLL;
     *(_QWORD *)(BugCheckParameter2 + 16) &= ~2uLL;
     _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v3 <= 0xFu
         && (unsigned __int8)result >= 2u )

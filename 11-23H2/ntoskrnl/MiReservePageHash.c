@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReservePageHash @ 0x140395D18
+ * XREFs of MiReservePageHash @ 0x140395EF8
  * Callers:
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     MiCreatePagefile @ 0x140833A94 (MiCreatePagefile.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     MiCreatePagefile @ 0x140833D94 (MiCreatePagefile.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
  */
 
 ULONG_PTR __fastcall MiReservePageHash(unsigned int a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpFlsDataCleanup @ 0x140A0B6C8
+ * XREFs of RtlpFlsDataCleanup @ 0x140A0A908
  * Callers:
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlpFlsHeapFree @ 0x140A0B8EC (RtlpFlsHeapFree.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpFlsHeapFree @ 0x140A0AB2C (RtlpFlsHeapFree.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall RtlpFlsDataCleanup(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -28,21 +28,20 @@ void __fastcall RtlpFlsDataCleanup(__int64 a1, unsigned __int64 a2, __int64 a3)
   int v12; // ecx
   __int64 v13; // r8
   signed __int64 *v14; // rbx
-  _QWORD *v15; // rdi
-  signed __int64 v16; // r8
-  __int64 v17; // rdx
-  _QWORD *v18; // rax
-  _QWORD *v19; // rdi
-  _QWORD *v20; // rax
-  __int64 v21; // rdx
-  _QWORD *v22; // rcx
+  char *v15; // rdi
+  __int64 v16; // rdx
+  char *v17; // rax
+  char *v18; // rdi
+  _QWORD *v19; // rax
+  __int64 v20; // rdx
+  _QWORD *v21; // rcx
 
   v3 = a3;
   v4 = (_DWORD *)a2;
   if ( (a3 & 1) != 0 )
   {
-    v5 = dword_140E280E8;
-    if ( dword_140E280E8 )
+    v5 = dword_140E28228;
+    if ( dword_140E28228 )
     {
       v6 = 17;
       do
@@ -61,41 +60,40 @@ void __fastcall RtlpFlsDataCleanup(__int64 a1, unsigned __int64 a2, __int64 a3)
               v14 = (signed __int64 *)(v13 + 8 * ((v6 ^ (1 << v12)) + 4LL * (v6 ^ (1 << v12)) + 1));
             else
               v14 = 0LL;
-            v15 = KeAbPreAcquire((__int64)v14, 0LL);
+            v15 = (char *)KeAbPreAcquire((__int64)v14, 0LL);
             if ( _InterlockedCompareExchange64(v14, 17LL, 0LL) )
               ExfAcquirePushLockSharedEx(v14, 0, v15, (__int64)v14);
             if ( v15 )
-              *((_BYTE *)v15 + 10) = 1;
-            v16 = v14[2];
-            v17 = *(_QWORD *)(v8 + 8 * v9 + 8);
-            if ( (unsigned __int64)(v14[1] - 1) <= 0xFFFFFFFFFFFFFFFDuLL && v17 )
+              v15[10] = 1;
+            v16 = *(_QWORD *)(v8 + 8 * v9 + 8);
+            if ( (unsigned __int64)(v14[1] - 1) <= 0xFFFFFFFFFFFFFFFDuLL && v16 )
             {
-              if ( v16 )
-                guard_dispatch_icall_no_overrides(v14[2], v17, v16, 0LL);
+              if ( v14[2] )
+                guard_dispatch_icall_no_overrides(v14[2], v16);
               else
-                guard_dispatch_icall_no_overrides(*(_QWORD *)(v8 + 8 * v9 + 8), v17, 0LL, 0LL);
+                guard_dispatch_icall_no_overrides(*(_QWORD *)(v8 + 8 * v9 + 8), v16);
               *(_QWORD *)(v8 + 8 * v9 + 8) = 0LL;
               v4[8] &= ~1u;
             }
             if ( _InterlockedCompareExchange64(v14, 0LL, 17LL) != 17 )
               ExfReleasePushLockShared(v14);
             KeAbPostRelease((ULONG_PTR)v14);
-            v18 = KeAbPreAcquire((__int64)v14, 0LL);
-            v19 = v18;
+            v17 = (char *)KeAbPreAcquire((__int64)v14, 0LL);
+            v18 = v17;
             if ( _interlockedbittestandset64((volatile signed __int32 *)v14, 0LL) )
-              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v14, (__int64)v18, (__int64)v14);
-            if ( v19 )
-              *((_BYTE *)v19 + 10) = 1;
+              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v14, v17, (__int64)v14);
+            if ( v18 )
+              v18[10] = 1;
             *(_QWORD *)(v8 + 8 * v9 + 8) = 0LL;
-            v20 = (_QWORD *)(v8 + 8 * (v9 + 2));
-            v21 = *v20;
-            v22 = (_QWORD *)v20[1];
-            if ( *(_QWORD **)(*v20 + 8LL) != v20 || (_QWORD *)*v22 != v20 )
+            v19 = (_QWORD *)(v8 + 8 * (v9 + 2));
+            v20 = *v19;
+            v21 = (_QWORD *)v19[1];
+            if ( *(_QWORD **)(*v19 + 8LL) != v19 || (_QWORD *)*v21 != v19 )
               __fastfail(3u);
-            *v22 = v21;
-            *(_QWORD *)(v21 + 8) = v22;
-            v20[1] = v20;
-            *v20 = v20;
+            *v21 = v20;
+            *(_QWORD *)(v20 + 8) = v21;
+            v19[1] = v19;
+            *v19 = v19;
             if ( (_InterlockedExchangeAdd64(v14, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
               ExfTryToWakePushLock(v14);
             KeAbPostRelease((ULONG_PTR)v14);

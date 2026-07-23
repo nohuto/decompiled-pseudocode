@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertExtentList @ 0x14067B39C
+ * XREFs of MiInsertExtentList @ 0x14067C57C
  * Callers:
- *     MiInsertCopyExtents @ 0x14067B2F0 (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x14067B6F4 (MiMergeCopyExtents.c)
+ *     MiInsertCopyExtents @ 0x14067C4D0 (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14067C8D4 (MiMergeCopyExtents.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall MiInsertExtentList(unsigned int *a1)
@@ -22,7 +22,7 @@ char __fastcall MiInsertExtentList(unsigned int *a1)
 
   v1 = (int)a1[1];
   v3 = 0;
-  v4 = (unsigned __int64 *)((char *)&unk_140E2D788 + 8 * v1);
+  v4 = (unsigned __int64 *)((char *)&unk_140E2D8C8 + 8 * v1);
   v5 = a1 + 2;
   while ( v3 < *a1 )
   {

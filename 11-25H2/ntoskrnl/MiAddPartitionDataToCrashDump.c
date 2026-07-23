@@ -88,11 +88,11 @@ LABEL_18:
   while ( v15 >= 0 );
   if ( (int)v3 >= 0 )
   {
-    if ( !qword_140E2FD78
+    if ( !stru_140E2FD70.Buffer
       || (LODWORD(v3) = MmAddRangeToCrashDump(
                           a1,
-                          qword_140E2FD78,
-                          8 * (((unsigned __int64)qword_140E2FD70 >> 6) + ((qword_140E2FD70 & 0x3F) != 0))),
+                          stru_140E2FD70.Buffer,
+                          8 * ((stru_140E2FD70.SizeOfBitMap >> 6) + ((stru_140E2FD70.SizeOfBitMap & 0x3F) != 0))),
           (int)v3 >= 0) )
     {
       if ( qword_140E2FD80 )

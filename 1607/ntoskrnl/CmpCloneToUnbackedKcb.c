@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCloneToUnbackedKcb @ 0x1401B484C
+ * XREFs of CmpCloneToUnbackedKcb @ 0x1401B4730
  * Callers:
- *     CmpPrepareDiscardReplacePost @ 0x14060BE10 (CmpPrepareDiscardReplacePost.c)
+ *     CmpPrepareDiscardReplacePost @ 0x14060BEC4 (CmpPrepareDiscardReplacePost.c)
  * Callees:
- *     CmpReferenceKeyControlBlockUnsafe @ 0x140404978 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x140436E10 (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpAllocateKeyControlBlock @ 0x140437410 (CmpAllocateKeyControlBlock.c)
- *     CmpFreeKeyControlBlock @ 0x1404375A0 (CmpFreeKeyControlBlock.c)
- *     CmpInitializeIXLock @ 0x140581878 (CmpInitializeIXLock.c)
- *     InitializeKCBKeyBodyList @ 0x1405FF9C8 (InitializeKCBKeyBodyList.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x140403838 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x140435CE0 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpAllocateKeyControlBlock @ 0x1404362E0 (CmpAllocateKeyControlBlock.c)
+ *     CmpFreeKeyControlBlock @ 0x140436470 (CmpFreeKeyControlBlock.c)
+ *     CmpInitializeIXLock @ 0x140581D28 (CmpInitializeIXLock.c)
+ *     InitializeKCBKeyBodyList @ 0x1405FFA7C (InitializeKCBKeyBodyList.c)
  */
 
 __int64 __fastcall CmpCloneToUnbackedKcb(__int64 a1, _QWORD *a2)

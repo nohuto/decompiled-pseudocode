@@ -1,18 +1,18 @@
 /*
- * XREFs of MiScrubNode @ 0x1402CF6C8
+ * XREFs of MiScrubNode @ 0x1402CF8B8
  * Callers:
- *     MiScrubMemoryWorker @ 0x14085FAF0 (MiScrubMemoryWorker.c)
+ *     MiScrubMemoryWorker @ 0x140860D50 (MiScrubMemoryWorker.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)
- *     MiClaimPhysicalRun @ 0x14009BF20 (MiClaimPhysicalRun.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiEmptyKernelStackCache @ 0x1402BB684 (MiEmptyKernelStackCache.c)
- *     MiMakePageBad @ 0x1402CF128 (MiMakePageBad.c)
- *     MiScrubPage @ 0x1402CF950 (MiScrubPage.c)
- *     MiScrubNonPagedPool @ 0x14084F0D8 (MiScrubNonPagedPool.c)
- *     MiScrubNodeLargePages @ 0x14085F6F4 (MiScrubNodeLargePages.c)
+ *     MiPfnsWorthTrying @ 0x14009A6F0 (MiPfnsWorthTrying.c)
+ *     MiClaimPhysicalRun @ 0x14009BE60 (MiClaimPhysicalRun.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiEmptyKernelStackCache @ 0x1402BB874 (MiEmptyKernelStackCache.c)
+ *     MiMakePageBad @ 0x1402CF318 (MiMakePageBad.c)
+ *     MiScrubPage @ 0x1402CFB40 (MiScrubPage.c)
+ *     MiScrubNonPagedPool @ 0x140850338 (MiScrubNonPagedPool.c)
+ *     MiScrubNodeLargePages @ 0x140860954 (MiScrubNodeLargePages.c)
  */
 
 unsigned __int64 __fastcall MiScrubNode(ULONG_PTR *a1, __int64 a2)

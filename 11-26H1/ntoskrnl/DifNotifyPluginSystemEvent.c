@@ -1,13 +1,13 @@
 /*
- * XREFs of DifNotifyPluginSystemEvent @ 0x1404D66B0
+ * XREFs of DifNotifyPluginSystemEvent @ 0x1404CFE80
  * Callers:
- *     IovLogIrpMdlEvent @ 0x140530E84 (IovLogIrpMdlEvent.c)
- *     IovLogNulledMdl @ 0x1406425B0 (IovLogNulledMdl.c)
- *     VfNotifyVerifierOfEvent @ 0x140C21340 (VfNotifyVerifierOfEvent.c)
- *     VfSuspectDriversLoadCallback @ 0x140C38A50 (VfSuspectDriversLoadCallback.c)
- *     VfPtFreePoolNotification @ 0x140C44F7C (VfPtFreePoolNotification.c)
+ *     IovLogIrpMdlEvent @ 0x140533384 (IovLogIrpMdlEvent.c)
+ *     IovLogNulledMdl @ 0x140646190 (IovLogNulledMdl.c)
+ *     VfNotifyVerifierOfEvent @ 0x140C27350 (VfNotifyVerifierOfEvent.c)
+ *     VfSuspectDriversLoadCallback @ 0x140C3EA60 (VfSuspectDriversLoadCallback.c)
+ *     VfPtFreePoolNotification @ 0x140C4AF8C (VfPtFreePoolNotification.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall DifNotifyPluginSystemEvent(int a1, __int128 *a2)

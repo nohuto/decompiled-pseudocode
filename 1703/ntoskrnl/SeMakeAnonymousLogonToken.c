@@ -35,18 +35,18 @@ __int64 SeMakeAnonymousLogonToken()
   int v14; // [rsp+30h] [rbp-F8h]
   int v15; // [rsp+A8h] [rbp-80h] BYREF
   int v16[2]; // [rsp+B0h] [rbp-78h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+B8h] [rbp-70h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+B8h] [rbp-70h] BYREF
   LARGE_INTEGER Time; // [rsp+C8h] [rbp-60h] BYREF
   _QWORD v19[3]; // [rsp+D0h] [rbp-58h] BYREF
   int v20; // [rsp+E8h] [rbp-40h]
   void *v21; // [rsp+F0h] [rbp-38h]
   __int64 v22; // [rsp+F8h] [rbp-30h]
-  struct _SID_AND_ATTRIBUTES v23; // [rsp+108h] [rbp-20h] BYREF
+  _SID_AND_ATTRIBUTES v23; // [rsp+108h] [rbp-20h] BYREF
   __int64 v24; // [rsp+118h] [rbp-10h]
   int v25; // [rsp+120h] [rbp-8h]
 
   v15 = 1;
-  TimeFields = (struct _TIME_FIELDS)_mm_load_si128((const __m128i *)&_xmm);
+  TimeFields = (_TIME_FIELDS)_mm_load_si128((const __m128i *)&_xmm);
   RtlTimeFieldsToTime(&TimeFields, &Time);
   v0 = SeAnonymousLogonSid;
   *(_DWORD *)&TimeFields.Minute = 0;
@@ -90,7 +90,7 @@ __int64 SeMakeAnonymousLogonToken()
         v14,
         (__int64)&SeAnonymousAuthenticationId,
         &Time,
-        (struct _SID_AND_ATTRIBUTES *)&TimeFields,
+        (_SID_AND_ATTRIBUTES *)&TimeFields,
         2u,
         &v23,
         v4,

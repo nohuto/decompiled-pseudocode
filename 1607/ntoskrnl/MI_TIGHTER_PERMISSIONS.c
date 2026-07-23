@@ -1,9 +1,9 @@
 /*
- * XREFs of MI_TIGHTER_PERMISSIONS @ 0x1400FE718
+ * XREFs of MI_TIGHTER_PERMISSIONS @ 0x1400FC498
  * Callers:
- *     MiProtectPool @ 0x1400EA400 (MiProtectPool.c)
- *     MiSetSystemCodeProtection @ 0x1400FE0F4 (MiSetSystemCodeProtection.c)
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
+ *     MiProtectPool @ 0x1400E8270 (MiProtectPool.c)
+ *     MiSetSystemCodeProtection @ 0x1400FBE74 (MiSetSystemCodeProtection.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
  * Callees:
  *     <none>
  */

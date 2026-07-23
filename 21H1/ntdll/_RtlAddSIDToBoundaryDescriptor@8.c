@@ -6,7 +6,7 @@
  *     _RtlAddSIDToBoundaryDescriptorEx@12 @ 0x4B2A9D06 (_RtlAddSIDToBoundaryDescriptorEx@12.c)
  */
 
-int __stdcall RtlAddSIDToBoundaryDescriptor(int a1, int a2)
+NTSTATUS __cdecl RtlAddSIDToBoundaryDescriptor(POBJECT_BOUNDARY_DESCRIPTOR *BoundaryDescriptor, PSID RequiredSid)
 {
-  return RtlAddSIDToBoundaryDescriptorEx(0);
+  return RtlAddSIDToBoundaryDescriptorEx(BoundaryDescriptor, RequiredSid, 0);
 }

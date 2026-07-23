@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroPageWorkMapping @ 0x14042FE70
+ * XREFs of MiZeroPageWorkMapping @ 0x140421920
  * Callers:
- *     MiPageListCollision @ 0x14042FDFC (MiPageListCollision.c)
- *     MiScrubLargePage @ 0x14068DA04 (MiScrubLargePage.c)
+ *     MiPageListCollision @ 0x1404218AC (MiPageListCollision.c)
+ *     MiScrubLargePage @ 0x14068EB34 (MiScrubLargePage.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x1403A4A2C (MiInsertLargeTbFlushEntry.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14021C25C (MiInsertLargeTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall MiZeroPageWorkMapping(unsigned int a1, unsigned __int64 a2, int a3)

@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwSetInformationThread @ 0x18009C880
  * Callers:
- *     sub_18002EA00 @ 0x18002EA00 (sub_18002EA00.c)
+ *     Callback @ 0x18002EA00 (Callback.c)
  *     sub_18002F4F0 @ 0x18002F4F0 (sub_18002F4F0.c)
  *     sub_1800300DC @ 0x1800300DC (sub_1800300DC.c)
  *     sub_1800305A0 @ 0x1800305A0 (sub_1800305A0.c)
@@ -29,11 +29,15 @@
  *     <none>
  */
 
-__int64 ZwSetInformationThread()
+NTSTATUS __cdecl ZwSetInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 13LL;
+  result = 13;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

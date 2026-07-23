@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHwPerfCntInitSystem @ 0x14099B540
+ * XREFs of HalpHwPerfCntInitSystem @ 0x14099C540
  * Callers:
  *     <none>
  * Callees:
- *     HalpCompleteInitializeProfiling @ 0x14099B5B4 (HalpCompleteInitializeProfiling.c)
- *     HalpInitializeProfiling @ 0x14099B5DC (HalpInitializeProfiling.c)
- *     HalpInitializePmcCounterSetInfo @ 0x140A39690 (HalpInitializePmcCounterSetInfo.c)
+ *     HalpCompleteInitializeProfiling @ 0x14099C5B4 (HalpCompleteInitializeProfiling.c)
+ *     HalpInitializeProfiling @ 0x14099C5DC (HalpInitializeProfiling.c)
+ *     HalpInitializePmcCounterSetInfo @ 0x140A3A690 (HalpInitializePmcCounterSetInfo.c)
  */
 
 __int64 __fastcall HalpHwPerfCntInitSystem(int a1, unsigned int a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCreateDriverSwDevices @ 0x14090988C
+ * XREFs of PiCreateDriverSwDevices @ 0x1409ABE44
  * Callers:
- *     PipProcessStartPhase3 @ 0x140908998 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase3 @ 0x1409AB9E8 (PipProcessStartPhase3.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x14090A260 (PnpDeviceObjectToDeviceInstance.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140B202B8 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x1409AC818 (PnpDeviceObjectToDeviceInstance.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140B226B8 (_PnpCtxRegEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall PiCreateDriverSwDevices(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall PiCreateDriverSwDevices(__int64 a1)
       v5 = *(_QWORD *)(v4 + 8);
     else
       v5 = 0LL;
-    v6 = RegRtlOpenKeyTransacted(Handle, L"Devices", 0LL, 131097LL, &v9, v5);
+    v6 = RegRtlOpenKeyTransacted((char *)Handle, L"Devices", 0, 0x20019u, &v9, v5);
     if ( v6 >= 0 )
     {
       *(_QWORD *)&v8 = a1;

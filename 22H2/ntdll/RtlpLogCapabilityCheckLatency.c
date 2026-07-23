@@ -21,7 +21,7 @@ __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3
   char v18; // [rsp+3Ah] [rbp-47h] BYREF
   char v19; // [rsp+3Bh] [rbp-46h] BYREF
   __int64 v20; // [rsp+40h] [rbp-41h] BYREF
-  _BYTE v21[32]; // [rsp+48h] [rbp-39h] BYREF
+  _EVENT_DATA_DESCRIPTOR v21; // [rsp+48h] [rbp-39h] BYREF
   __int64 *v22; // [rsp+68h] [rbp-19h]
   int v23; // [rsp+70h] [rbp-11h]
   int v24; // [rsp+74h] [rbp-Dh]
@@ -79,7 +79,7 @@ __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3
                   v29 = 1;
                   v32 = 1;
                   v35 = 1;
-                  tlgWriteTransfer_EtwEventWriteTransfer(v11, (unsigned int)&unk_180131E93, v12, v13, 7, (__int64)v21);
+                  tlgWriteTransfer_EtwEventWriteTransfer(v11, (int)&dword_180131E93, v12, v13, 7u, &v21);
                 }
                 LOWORD(v6) = TelemetryEventThrottle;
                 TelemetryEventThrottle = 100;

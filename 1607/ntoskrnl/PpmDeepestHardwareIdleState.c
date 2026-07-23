@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmDeepestHardwareIdleState @ 0x140145C1C
+ * XREFs of PpmDeepestHardwareIdleState @ 0x14014618C
  * Callers:
- *     PpmInstallNewIdleStates @ 0x1401456F8 (PpmInstallNewIdleStates.c)
+ *     PpmInstallNewIdleStates @ 0x140145C68 (PpmInstallNewIdleStates.c)
  * Callees:
  *     <none>
  */

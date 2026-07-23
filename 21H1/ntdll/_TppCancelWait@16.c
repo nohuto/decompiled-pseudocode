@@ -12,46 +12,46 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-char __thiscall TppCancelWait(int this, char a2, _DWORD *a3)
+char __fastcall TppCancelWait(int a1, int a2, char a3, _DWORD *a4)
 {
-  char v4; // bl
-  int v6; // eax
-  char v7; // al
-  char v8; // al
+  char v6; // bl
+  NTSTATUS v8; // eax
+  char v9; // al
+  char v10; // al
 
-  if ( !*(_DWORD *)(this + 224) )
+  if ( !*(_DWORD *)(a1 + 224) )
   {
-    v4 = 1;
+    v6 = 1;
 LABEL_3:
-    *a3 = 0;
+    *a4 = 0;
     goto LABEL_4;
   }
-  v6 = ZwCancelWaitCompletionPacket(*(_DWORD *)(this + 228), (a2 & 2) != 0);
-  if ( v6 )
+  v8 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 228), (a3 & 2) != 0);
+  if ( v8 )
   {
-    if ( v6 != 259 && v6 != -1073741536 )
+    if ( v8 != 259 && v8 != -1073741536 )
       TppRaiseInvalidParameter();
-    v8 = *(_BYTE *)(this + 292);
-    v4 = 0;
-    if ( (v8 & 4) == 0 )
+    v10 = *(_BYTE *)(a1 + 292);
+    v6 = 0;
+    if ( (v10 & 4) == 0 )
     {
-      *(_BYTE *)(this + 292) = v8 | 4;
+      *(_BYTE *)(a1 + 292) = v10 | 4;
       TppBarrierAdjust(0);
     }
     goto LABEL_3;
   }
-  *(_DWORD *)(this + 224) = 0;
-  v4 = 1;
-  v7 = TppCancelTimer(1);
-  *a3 = -1;
-  if ( v7 )
-    *a3 = -2;
-  if ( (*(_BYTE *)(this + 292) & 4) != 0 )
+  *(_DWORD *)(a1 + 224) = 0;
+  v6 = 1;
+  v9 = TppCancelTimer(a1, a2, 1);
+  *a4 = -1;
+  if ( v9 )
+    *a4 = -2;
+  if ( (*(_BYTE *)(a1 + 292) & 4) != 0 )
   {
     TppBarrierAdjust(0);
-    *(_BYTE *)(this + 292) &= ~4u;
+    *(_BYTE *)(a1 + 292) &= ~4u;
   }
 LABEL_4:
-  *(_BYTE *)(this + 292) &= 0xFCu;
-  return v4;
+  *(_BYTE *)(a1 + 292) &= 0xFCu;
+  return v6;
 }

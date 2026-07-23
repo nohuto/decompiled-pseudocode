@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilGetDriverImageSize @ 0x140B832C0
+ * XREFs of VfUtilGetDriverImageSize @ 0x140B852C0
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetDriversGetNode @ 0x1403F00E4 (VfTargetDriversGetNode.c)
+ *     VfTargetDriversGetNode @ 0x1403E3D54 (VfTargetDriversGetNode.c)
  */
 
 __int64 __fastcall VfUtilGetDriverImageSize(__int64 a1)

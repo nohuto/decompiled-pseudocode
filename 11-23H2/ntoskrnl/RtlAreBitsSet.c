@@ -2,7 +2,7 @@
  * XREFs of RtlAreBitsSet @ 0x140220810
  * Callers:
  *     MiReleaseDriverPtes @ 0x140697280 (MiReleaseDriverPtes.c)
- *     MiCheckUnsupportedSections @ 0x140A36580 (MiCheckUnsupportedSections.c)
+ *     MiCheckUnsupportedSections @ 0x140A36830 (MiCheckUnsupportedSections.c)
  * Callees:
  *     <none>
  */

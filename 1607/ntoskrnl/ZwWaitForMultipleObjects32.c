@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwWaitForMultipleObjects32 @ 0x140159FC0
+ * XREFs of ZwWaitForMultipleObjects32 @ 0x14015A530
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwWaitForMultipleObjects32(__int64 a1, __int64 a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwWaitForMultipleObjects32(
+        ULONG Count,
+        LONG Handles[],
+        WAIT_TYPE WaitType,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(*(_QWORD *)&Count);
 }

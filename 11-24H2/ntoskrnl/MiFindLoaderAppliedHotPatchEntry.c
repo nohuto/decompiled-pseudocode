@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFindLoaderAppliedHotPatchEntry @ 0x140C56784
+ * XREFs of MiFindLoaderAppliedHotPatchEntry @ 0x140C58914
  * Callers:
- *     MiUpdateBootHpatPagesInUse @ 0x140C568E8 (MiUpdateBootHpatPagesInUse.c)
+ *     MiUpdateBootHpatPagesInUse @ 0x140C58A78 (MiUpdateBootHpatPagesInUse.c)
  * Callees:
  *     <none>
  */

@@ -12,172 +12,183 @@
  *     RtlpMuiRegValidateConfigNode @ 0x180112E34 (RtlpMuiRegValidateConfigNode.c)
  */
 
-__int64 __fastcall RtlpPopulateLanguageConfigList(__int64 a1, __int64 *a2, __int64 a3)
+__int64 __fastcall RtlpPopulateLanguageConfigList(HANDLE KeyHandle, __int64 *a2, __int64 a3)
 {
   unsigned __int8 *v3; // rbp
   int v4; // r11d
   __int64 v6; // r15
-  __int64 v7; // rdi
-  int v8; // eax
-  __int64 v9; // r9
-  int v10; // ebx
-  unsigned int v11; // ecx
-  unsigned __int64 v12; // rsi
-  __int16 v13; // r12
+  HANDLE v7; // r10
+  __int64 v8; // rdi
+  ULONG v9; // eax
+  NTSTATUS v10; // eax
+  __int64 v11; // r9
+  int v12; // ebx
+  unsigned int v13; // ecx
+  unsigned __int64 v14; // rsi
+  __int16 v15; // r12
   int LanguageSpec; // eax
-  __int64 v15; // r9
-  __int16 v16; // ax
-  __int16 v17; // r13
-  __int16 v18; // r13
-  __int64 v19; // rax
-  WCHAR *v20; // rsi
-  int v21; // r15d
-  int v22; // r15d
-  unsigned __int16 v23; // r12
-  __int16 v24; // ax
-  __int64 v25; // rcx
-  int v26; // eax
-  __int64 LanguageConfigList; // rax
+  __int64 v17; // r9
+  __int16 v18; // ax
+  __int16 v19; // r13
+  __int16 v20; // r13
+  __int64 v21; // rax
+  WCHAR *v22; // rsi
+  int v23; // r15d
+  int v24; // r15d
+  unsigned __int16 v25; // r12
+  __int16 v26; // ax
+  __int64 v27; // rcx
   int v28; // eax
-  __int64 v29; // rax
-  char v31; // [rsp+50h] [rbp+0h] BYREF
+  __int64 LanguageConfigList; // rax
+  int v30; // eax
+  __int64 v31; // rax
+  char v33; // [rsp+50h] [rbp+0h] BYREF
 
-  v3 = (unsigned __int8 *)((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL);
+  v3 = (unsigned __int8 *)((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL);
   LOWORD(v4) = 0;
   *((_QWORD *)v3 + 3) = a3;
-  *((_QWORD *)v3 + 4) = a1;
+  *((_QWORD *)v3 + 4) = KeyHandle;
   v6 = a3;
-  v7 = 0LL;
-  if ( !a1 || !a2 || !a3 )
+  v7 = KeyHandle;
+  v8 = 0LL;
+  if ( !KeyHandle || !a2 || !a3 )
   {
-    v10 = -1073741811;
+    v12 = -1073741811;
     goto LABEL_33;
   }
-  v7 = *a2;
-  *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = *a2;
-  *(_DWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 0;
+  v8 = *a2;
+  v9 = 0;
+  *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = *a2;
+  *(_DWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 0;
   while ( 1 )
   {
-    v8 = ZwEnumerateValueKey();
-    v4 = 0;
-    v10 = v8;
-    if ( v8 < 0 )
+    while ( 1 )
     {
-      if ( v8 != -2147483622 )
-        goto LABEL_33;
-      goto LABEL_29;
-    }
-    if ( *(_DWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x64) == 7 )
-    {
-      v11 = *(_DWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x70);
-      if ( v11 + 24 <= 0x200 )
+      v10 = ZwEnumerateValueKey(v7, v9, KeyValueFullInformation, v3 + 96, 0x200u, (PULONG)v3 + 10);
+      v4 = 0;
+      v12 = v10;
+      if ( v10 < 0 )
       {
-        v12 = (unsigned __int64)v11 >> 1;
-        v13 = *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x74 + 2 * v12);
-        *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x74 + 2 * v12) = 0;
-        LanguageSpec = RtlpMuiRegGetLanguageSpec(
-                         v6,
-                         (const WCHAR *)v3 + 58,
-                         (char *)((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL),
-                         v9,
-                         (_WORD *)v3 + 4);
-        v4 = 0;
-        v10 = LanguageSpec;
-        if ( LanguageSpec < 0 )
-          goto LABEL_29;
-        v16 = *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
-        v17 = *v3;
-        *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x74 + 2 * v12) = v13;
-        v18 = v17 << 14;
-        *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = v16;
-        v19 = *(unsigned int *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x68);
-        *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3C) = 0LL;
-        *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3A) = v18;
-        v20 = (WCHAR *)&v3[v19 + 96];
-        if ( !v20 )
-          goto LABEL_27;
-        v21 = *(_DWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x6C);
-        if ( !v21 )
-        {
-          v6 = *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18);
-LABEL_27:
-          v10 = -1073741811;
-          goto LABEL_29;
-        }
-        v22 = 2 * v21;
-        v23 = 0;
-        do
-        {
-          if ( *v20 == (_WORD)v4 || v22 <= 0 || v23 >= 3u )
-            break;
-          if ( (int)RtlpMuiRegGetLanguageSpec(
-                      *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
-                      v20,
-                      (char *)v3 + 1,
-                      v15,
-                      (_WORD *)v3 + 6) >= 0 )
-          {
-            v24 = *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0xC);
-            *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3A) = ((*(_BYTE *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL)
-                                                                                             + 1) & 3) << (2 * v23)) | v18 & ~(3 << (2 * v23));
-            *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3E + 2LL * v23) = v24;
-            v18 = *(_WORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3A);
-          }
-          v10 = RtlStringCbLengthW(v20, v22, (_QWORD *)v3 + 6);
-          if ( v10 < 0 )
-          {
-            v6 = *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18);
-            goto LABEL_29;
-          }
-          v25 = *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30);
-          v22 += -2 - v25;
-          ++v23;
-          v20 = (WCHAR *)((char *)v20 + v25 + 2);
-        }
-        while ( v20 );
-        v6 = *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18);
-        v26 = RtlpMuiRegValidateConfigNode(v6, (__int64)(v3 + 56));
-        v4 = 0;
-        v10 = v26;
-        if ( v26 < 0 )
-          goto LABEL_29;
-        if ( !v7 )
-        {
-          LanguageConfigList = RtlpMuiRegCreateLanguageConfigList(-1);
-          *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = LanguageConfigList;
-          if ( !LanguageConfigList )
-          {
-            v10 = -1073741801;
-            goto LABEL_35;
-          }
-          *a2 = LanguageConfigList;
-        }
-        v28 = RtlpMuiRegConfigListAddLanguage((__int64 *)v3 + 2, (__int16 *)v3 + 28);
-        v7 = *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
-        v4 = 0;
-        v10 = v28;
-        if ( v28 >= 0 )
-          *a2 = v7;
-LABEL_29:
-        ++*(_DWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 4);
-        if ( v10 == -2147483622 )
+        if ( v10 != -2147483622 )
+          goto LABEL_33;
+        goto LABEL_29;
+      }
+      v9 = *(_DWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 4);
+      v7 = *(HANDLE *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20);
+      if ( *(_DWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x64) == 7 )
+      {
+        v13 = *(_DWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x70);
+        v9 = *(_DWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 4);
+        if ( v13 + 24 <= 0x200 )
           break;
       }
     }
+    v14 = (unsigned __int64)v13 >> 1;
+    v15 = *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x74 + 2 * v14);
+    *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x74 + 2 * v14) = 0;
+    LanguageSpec = RtlpMuiRegGetLanguageSpec(
+                     v6,
+                     (const WCHAR *)v3 + 58,
+                     (char *)((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL),
+                     v11,
+                     (_WORD *)v3 + 4);
+    v4 = 0;
+    v12 = LanguageSpec;
+    if ( LanguageSpec < 0 )
+      goto LABEL_29;
+    v18 = *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+    v19 = *v3;
+    *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x74 + 2 * v14) = v15;
+    v20 = v19 << 14;
+    *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = v18;
+    v21 = *(unsigned int *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x68);
+    *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3C) = 0LL;
+    *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3A) = v20;
+    v22 = (WCHAR *)&v3[v21 + 96];
+    if ( !v22 )
+      goto LABEL_27;
+    v23 = *(_DWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x6C);
+    if ( !v23 )
+    {
+      v6 = *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18);
+LABEL_27:
+      v12 = -1073741811;
+      goto LABEL_29;
+    }
+    v24 = 2 * v23;
+    v25 = 0;
+    do
+    {
+      if ( *v22 == (_WORD)v4 || v24 <= 0 || v25 >= 3u )
+        break;
+      if ( (int)RtlpMuiRegGetLanguageSpec(
+                  *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
+                  v22,
+                  (char *)v3 + 1,
+                  v17,
+                  (_WORD *)v3 + 6) >= 0 )
+      {
+        v26 = *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0xC);
+        *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3A) = ((*(_BYTE *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL)
+                                                                                         + 1) & 3) << (2 * v25)) | v20 & ~(3 << (2 * v25));
+        *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3E + 2LL * v25) = v26;
+        v20 = *(_WORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3A);
+      }
+      v12 = RtlStringCbLengthW(v22, v24, (_QWORD *)v3 + 6);
+      if ( v12 < 0 )
+      {
+        v6 = *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18);
+        goto LABEL_29;
+      }
+      v27 = *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30);
+      v24 += -2 - v27;
+      ++v25;
+      v22 = (WCHAR *)((char *)v22 + v27 + 2);
+    }
+    while ( v22 );
+    v6 = *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18);
+    v28 = RtlpMuiRegValidateConfigNode(v6, (__int64)(v3 + 56));
+    v4 = 0;
+    v12 = v28;
+    if ( v28 < 0 )
+      goto LABEL_29;
+    if ( !v8 )
+    {
+      LanguageConfigList = RtlpMuiRegCreateLanguageConfigList(-1);
+      *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = LanguageConfigList;
+      if ( !LanguageConfigList )
+      {
+        v12 = -1073741801;
+        goto LABEL_35;
+      }
+      *a2 = LanguageConfigList;
+    }
+    v30 = RtlpMuiRegConfigListAddLanguage((__int64 *)v3 + 2, (__int16 *)v3 + 28);
+    v8 = *(_QWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
+    v4 = 0;
+    v12 = v30;
+    if ( v30 >= 0 )
+      *a2 = v8;
+LABEL_29:
+    v9 = *(_DWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 4) + 1;
+    *(_DWORD *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = v9;
+    if ( v12 == -2147483622 )
+      break;
+    v7 = *(HANDLE *)(((unsigned __int64)&v33 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20);
   }
-  v10 = v4;
+  v12 = v4;
 LABEL_33:
-  if ( !v7 && v10 != -1073741811 )
+  if ( !v8 && v12 != -1073741811 )
   {
 LABEL_35:
-    v29 = RtlpMuiRegCreateLanguageConfigList(1);
+    v31 = RtlpMuiRegCreateLanguageConfigList(1);
     LOWORD(v4) = 0;
-    *a2 = v29;
-    v7 = v29;
-    if ( !v29 )
-      v10 = -1073741801;
+    *a2 = v31;
+    v8 = v31;
+    if ( !v31 )
+      v12 = -1073741801;
   }
-  if ( v10 < 0 && v7 )
-    *(_WORD *)(v7 + 4) = v4;
-  return (unsigned int)v10;
+  if ( v12 < 0 && v8 )
+    *(_WORD *)(v8 + 4) = v4;
+  return (unsigned int)v12;
 }

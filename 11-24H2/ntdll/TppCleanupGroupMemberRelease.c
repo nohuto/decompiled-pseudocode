@@ -1,11 +1,11 @@
 /*
- * XREFs of TppCleanupGroupMemberRelease @ 0x18006A160
+ * XREFs of TppCleanupGroupMemberRelease @ 0x180086850
  * Callers:
- *     TpReleaseJobNotification @ 0x180069BD0 (TpReleaseJobNotification.c)
- *     TpReleaseAlpcCompletion @ 0x180069EA0 (TpReleaseAlpcCompletion.c)
- *     TpReleaseIoCompletion @ 0x18006A010 (TpReleaseIoCompletion.c)
+ *     TpReleaseJobNotification @ 0x180085760 (TpReleaseJobNotification.c)
+ *     TpReleaseAlpcCompletion @ 0x180086590 (TpReleaseAlpcCompletion.c)
+ *     TpReleaseIoCompletion @ 0x180086700 (TpReleaseIoCompletion.c)
  * Callees:
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
 _BOOL8 __fastcall TppCleanupGroupMemberRelease(__int64 a1, int a2)

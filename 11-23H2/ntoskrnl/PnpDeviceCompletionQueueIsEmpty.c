@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionQueueIsEmpty @ 0x14022B06C
+ * XREFs of PnpDeviceCompletionQueueIsEmpty @ 0x14022B17C
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x1406CBC28 (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1406CBC58 (PnpDeviceCompletionProcessCompletedRequests.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 PnpDeviceCompletionQueueIsEmpty()
@@ -23,10 +23,13 @@ _BOOL8 PnpDeviceCompletionQueueIsEmpty()
   if ( *(ULONG **)&PnpDeviceCompletionQueue == &PnpDeviceCompletionQueue )
     v0 = qword_140C5CA18 == (_QWORD)&qword_140C5CA18;
   KxReleaseSpinLock(&qword_140C5CA48);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

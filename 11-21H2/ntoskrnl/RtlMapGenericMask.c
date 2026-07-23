@@ -1,20 +1,20 @@
 /*
  * XREFs of RtlMapGenericMask @ 0x140728CB0
  * Callers:
- *     SepCreateAccessStateFromSubjectContext @ 0x140347A20 (SepCreateAccessStateFromSubjectContext.c)
- *     AlpcpCheckConnectionSecurity @ 0x140668294 (AlpcpCheckConnectionSecurity.c)
- *     ObCaptureObjectStateForDuplication @ 0x14066B04C (ObCaptureObjectStateForDuplication.c)
- *     CmpVEPerformOpenAccessCheck @ 0x1406B6444 (CmpVEPerformOpenAccessCheck.c)
- *     ObpAdjustCreatorAccessState @ 0x1407227B0 (ObpAdjustCreatorAccessState.c)
- *     RtlpApplyAclToObject @ 0x140727F00 (RtlpApplyAclToObject.c)
- *     RtlpCopyAces @ 0x140728450 (RtlpCopyAces.c)
- *     RtlpCopyEffectiveAce @ 0x1407288D0 (RtlpCopyEffectiveAce.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
+ *     sub_140347A20 @ 0x140347A20 (sub_140347A20.c)
+ *     sub_140668294 @ 0x140668294 (sub_140668294.c)
+ *     sub_14066B04C @ 0x14066B04C (sub_14066B04C.c)
+ *     sub_1406B6444 @ 0x1406B6444 (sub_1406B6444.c)
+ *     sub_1407227B0 @ 0x1407227B0 (sub_1407227B0.c)
+ *     sub_140727F00 @ 0x140727F00 (sub_140727F00.c)
+ *     sub_140728450 @ 0x140728450 (sub_140728450.c)
+ *     sub_1407288D0 @ 0x1407288D0 (sub_1407288D0.c)
+ *     sub_140731DA0 @ 0x140731DA0 (sub_140731DA0.c)
  *     ObDuplicateObject @ 0x1407A1F80 (ObDuplicateObject.c)
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
+ *     sub_1407CE760 @ 0x1407CE760 (sub_1407CE760.c)
  *     IoCheckDesiredAccess @ 0x1409360B0 (IoCheckDesiredAccess.c)
- *     CMFCheckAccess @ 0x140A03FB4 (CMFCheckAccess.c)
- *     CMFCreateSecurityDescriptor @ 0x140A04204 (CMFCreateSecurityDescriptor.c)
+ *     sub_140A03FB4 @ 0x140A03FB4 (sub_140A03FB4.c)
+ *     sub_140A04204 @ 0x140A04204 (sub_140A04204.c)
  * Callees:
  *     <none>
  */

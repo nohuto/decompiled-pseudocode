@@ -19,7 +19,7 @@ __int64 __fastcall HvpApplyLegacyLogFile(
         ULONG_PTR a4,
         __int64 (__fastcall *a5)(_QWORD, _QWORD, __int64),
         void (__fastcall *a6)(_DWORD *, _QWORD),
-        RTL_BITMAP *a7)
+        _RTL_BITMAP *a7)
 {
   unsigned int v9; // eax
   __int64 v10; // rcx

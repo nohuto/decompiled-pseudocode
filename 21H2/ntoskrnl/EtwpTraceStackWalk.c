@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceStackWalk @ 0x1405A7134
+ * XREFs of EtwpTraceStackWalk @ 0x1405A7364
  * Callers:
- *     EtwpStackTraceDispatcher @ 0x1405A6F00 (EtwpStackTraceDispatcher.c)
- *     EtwpStackWalkApc @ 0x1405A7060 (EtwpStackWalkApc.c)
+ *     EtwpStackTraceDispatcher @ 0x1405A7130 (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkApc @ 0x1405A7290 (EtwpStackWalkApc.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14021CEB0 (RtlWalkFrameChain.c)
- *     KeQueryCurrentStackInformation @ 0x140277230 (KeQueryCurrentStackInformation.c)
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeGetCurrentStackPointer @ 0x1403FE5D0 (KeGetCurrentStackPointer.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     EtwpGetStackLookasideListEntry @ 0x1405A6C10 (EtwpGetStackLookasideListEntry.c)
- *     EtwpTraceStackKey @ 0x1405ADDAC (EtwpTraceStackKey.c)
- *     PsPicoWalkUserStack @ 0x14090B9EC (PsPicoWalkUserStack.c)
+ *     KeQueryCurrentStackInformation @ 0x1402651D0 (KeQueryCurrentStackInformation.c)
+ *     RtlWalkFrameChain @ 0x1402C17B0 (RtlWalkFrameChain.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x1403FE7B0 (KeGetCurrentStackPointer.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpGetStackLookasideListEntry @ 0x1405A6E40 (EtwpGetStackLookasideListEntry.c)
+ *     EtwpTraceStackKey @ 0x1405ADFDC (EtwpTraceStackKey.c)
+ *     PsPicoWalkUserStack @ 0x14090BB4C (PsPicoWalkUserStack.c)
  */
 
 void __fastcall EtwpTraceStackWalk(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)

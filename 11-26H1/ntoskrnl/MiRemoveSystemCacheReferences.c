@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveSystemCacheReferences @ 0x14036D470
+ * XREFs of MiRemoveSystemCacheReferences @ 0x14036F210
  * Callers:
- *     MmMapViewInSystemCache @ 0x1402E29A0 (MmMapViewInSystemCache.c)
+ *     MmMapViewInSystemCache @ 0x1402C4A60 (MmMapViewInSystemCache.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiRemoveViewsFromSection @ 0x14036D750 (MiRemoveViewsFromSection.c)
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiRemoveViewsFromSection @ 0x14036F4F0 (MiRemoveViewsFromSection.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiRemoveSystemCacheReferences(__int64 *BugCheckParameter2)
@@ -20,7 +20,7 @@ __int64 __fastcall MiRemoveSystemCacheReferences(__int64 *BugCheckParameter2)
   __int64 result; // rax
 
   v1 = *BugCheckParameter2;
-  v3 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*BugCheckParameter2 + 60) & 0x3FF));
+  v3 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*BugCheckParameter2 + 60) & 0x3FF));
   v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(*BugCheckParameter2 + 72));
   v5 = MiRemoveViewsFromSection((ULONG_PTR)BugCheckParameter2);
   --*(_QWORD *)(v1 + 40);

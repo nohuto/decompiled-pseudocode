@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeIoRangePermanentDpc @ 0x1401E6C90
+ * XREFs of MiMakeIoRangePermanentDpc @ 0x1401E6ABC
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiMakeIoRangePermanent @ 0x1401E6A18 (MiMakeIoRangePermanent.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiMakeIoRangePermanent @ 0x1401E6844 (MiMakeIoRangePermanent.c)
  */
 
 __int64 __fastcall MiMakeIoRangePermanentDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)

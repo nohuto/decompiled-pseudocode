@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfReApplyStates @ 0x140531814
+ * XREFs of PpmPerfReApplyStates @ 0x140531D54
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  * Callees:
- *     PpmAcquireLock @ 0x14000A528 (PpmAcquireLock.c)
- *     PpmUpdateProcessorPolicy @ 0x1405454EC (PpmUpdateProcessorPolicy.c)
+ *     PpmAcquireLock @ 0x14000A0A8 (PpmAcquireLock.c)
+ *     PpmUpdateProcessorPolicy @ 0x140545A2C (PpmUpdateProcessorPolicy.c)
  */
 
 __int64 PpmPerfReApplyStates()

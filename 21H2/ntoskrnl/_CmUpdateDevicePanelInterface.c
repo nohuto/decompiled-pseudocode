@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmUpdateDevicePanelInterface @ 0x140978E20
+ * XREFs of _CmUpdateDevicePanelInterface @ 0x140979000
  * Callers:
- *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074594C (PiPnpRtlSetObjectProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     _CmQueryDevicePanelPldProperty @ 0x140748120 (_CmQueryDevicePanelPldProperty.c)
- *     _CmGetParentDeviceContainerId @ 0x1407D0884 (_CmGetParentDeviceContainerId.c)
- *     _CmBuildDevicePanelId @ 0x1407D2B34 (_CmBuildDevicePanelId.c)
- *     _CmGetDevicePanelGroup @ 0x1407D40EC (_CmGetDevicePanelGroup.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x1407482E0 (_CmQueryDevicePanelPldProperty.c)
+ *     _CmGetParentDeviceContainerId @ 0x1407D09F4 (_CmGetParentDeviceContainerId.c)
+ *     _CmBuildDevicePanelId @ 0x1407D2CA4 (_CmBuildDevicePanelId.c)
+ *     _CmGetDevicePanelGroup @ 0x1407D425C (_CmGetDevicePanelGroup.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmUpdateDevicePanelInterface(__int64 a1, __int64 a2, __int64 a3)
@@ -98,7 +98,7 @@ __int64 __fastcall CmUpdateDevicePanelInterface(__int64 a1, __int64 a2, __int64 
             DevicePanelGroup = CmGetDevicePanelGroup(v3);
             v12 = 0;
             if ( ((*(_DWORD *)(v3 + 8) >> 3) & 7) != 7 )
-              v12 = dword_1400205B0[(*(_DWORD *)(v3 + 8) >> 3) & 7];
+              v12 = dword_140020660[(*(_DWORD *)(v3 + 8) >> 3) & 7];
             v17 = v12;
             v13 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x72uLL, 0x52504E50u);
             v8 = v13;

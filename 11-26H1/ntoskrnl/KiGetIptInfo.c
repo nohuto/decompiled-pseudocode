@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGetIptInfo @ 0x1405ECB58
+ * XREFs of KiGetIptInfo @ 0x1405EF4C8
  * Callers:
- *     KiInitializeXSaveConfiguration @ 0x140BF44A0 (KiInitializeXSaveConfiguration.c)
+ *     KiInitializeXSaveConfiguration @ 0x140BFA4A0 (KiInitializeXSaveConfiguration.c)
  * Callees:
- *     HviGetIptFeatures @ 0x1406DC8A8 (HviGetIptFeatures.c)
- *     KiGetCpuVendor @ 0x140C0A4F8 (KiGetCpuVendor.c)
+ *     HviGetIptFeatures @ 0x1406E0B48 (HviGetIptFeatures.c)
+ *     KiGetCpuVendor @ 0x140C10708 (KiGetCpuVendor.c)
  */
 
 __int64 __fastcall KiGetIptInfo(_DWORD *a1, int *a2)

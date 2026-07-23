@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbpGetNextIndexedRecord @ 0x140573E58
+ * XREFs of SdbpGetNextIndexedRecord @ 0x140574398
  * Callers:
- *     SdbpFindMatchingName @ 0x140573C7C (SdbpFindMatchingName.c)
- *     SdbFindNextStringIndexedTag @ 0x1406C4F78 (SdbFindNextStringIndexedTag.c)
+ *     SdbpFindMatchingName @ 0x1405741BC (SdbpFindMatchingName.c)
+ *     SdbFindNextStringIndexedTag @ 0x1406C50B0 (SdbFindNextStringIndexedTag.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     SdbpGetMappedTagData @ 0x140484DE0 (SdbpGetMappedTagData.c)
- *     SdbGetTagFromTagID @ 0x140501250 (SdbGetTagFromTagID.c)
- *     SdbGetTagDataSize @ 0x140503D74 (SdbGetTagDataSize.c)
- *     SdbpGetNextTagId @ 0x140503E20 (SdbpGetNextTagId.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SdbGetTagFromTagID @ 0x1404E41E0 (SdbGetTagFromTagID.c)
+ *     SdbGetTagDataSize @ 0x1404E6D04 (SdbGetTagDataSize.c)
+ *     SdbpGetNextTagId @ 0x1404E6DB0 (SdbpGetNextTagId.c)
+ *     SdbpGetMappedTagData @ 0x140514168 (SdbpGetMappedTagData.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetNextIndexedRecord(__int64 a1, unsigned int a2, _DWORD *a3)
@@ -31,7 +31,7 @@ __int64 __fastcall SdbpGetNextIndexedRecord(__int64 a1, unsigned int a2, _DWORD 
     v11 = "The tag 0x%lx is not an index tag";
     v12 = 490;
 LABEL_11:
-    AslLogCallPrintf(1, (unsigned int)"SdbpGetNextIndexedRecord", v12, (_DWORD)v11, a2);
+    AslLogCallPrintf(1, (unsigned int)"SdbpGetNextIndexedRecord", v12, (_DWORD)v11);
     return 0LL;
   }
   MappedTagData = SdbpGetMappedTagData(a1, a2);

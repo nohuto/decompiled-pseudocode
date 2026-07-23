@@ -8,53 +8,40 @@
  *     RtlRemoveInvertedFunctionTable @ 0x18006CB9C (RtlRemoveInvertedFunctionTable.c)
  */
 
-signed __int64 __fastcall RtlCreateInvertedFunctionTableCacheEntry(
-        unsigned __int64 a1,
-        char *a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall RtlCreateInvertedFunctionTableCacheEntry(PVOID BaseAddress, int a2)
 {
-  int v5; // edi
-  int v6; // r14d
-  __int64 v7; // rbp
-  __int64 v8; // rsi
-  char *v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  char *v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int128 v16; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v17; // [rsp+30h] [rbp-28h]
-  __int64 v18; // [rsp+60h] [rbp+8h]
+  int v3; // edi
+  __int64 v5; // rbp
+  ULONG_PTR v6; // rsi
+  PS_MITIGATION_OPTIONS_MAP MitigationOptionsMap; // [rsp+20h] [rbp-38h] BYREF
+  ULONG_PTR v8; // [rsp+60h] [rbp+8h]
 
-  v5 = 0;
-  v6 = (int)a2;
-  if ( a1 < *((_QWORD *)&xmmword_180157330 + 1)
-    || a1 >= *((_QWORD *)&xmmword_180157330 + 1) + (unsigned __int64)(unsigned int)qword_180157340 )
+  v3 = 0;
+  if ( (unsigned __int64)BaseAddress < LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+    || (unsigned __int64)BaseAddress >= LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+                                      + LODWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]) )
   {
-    v7 = RtlpxLookupFunctionTable(a1, (__int64 *)&v16);
+    v5 = RtlpxLookupFunctionTable(BaseAddress, (__int64)&MitigationOptionsMap);
   }
   else
   {
-    v7 = xmmword_180157330;
-    v16 = xmmword_180157330;
-    v17 = qword_180157340;
+    v5 = LdrSystemDllInitBlock.MitigationOptionsMap.Map[0];
+    MitigationOptionsMap = LdrSystemDllInitBlock.MitigationOptionsMap;
   }
-  if ( v7 )
+  if ( v5 )
   {
-    v8 = *((_QWORD *)&v16 + 1);
-    v5 = HIDWORD(v17);
+    v6 = MitigationOptionsMap.Map[1];
+    v3 = HIDWORD(MitigationOptionsMap.Map[2]);
   }
   else
   {
-    v8 = v18;
+    v6 = v8;
   }
-  LdrProtectMrdata(0, a2, a3, a4);
-  *(_QWORD *)&xmmword_180157330 = v7;
-  *((_QWORD *)&xmmword_180157330 + 1) = v8;
-  LODWORD(qword_180157340) = v6;
-  HIDWORD(qword_180157340) = v5;
-  RtlRemoveInvertedFunctionTable(a1, v9, v10, v11);
-  return LdrProtectMrdata(1, v12, v13, v14);
+  LdrProtectMrdata(0);
+  LdrSystemDllInitBlock.MitigationOptionsMap.Map[0] = v5;
+  LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] = v6;
+  LODWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]) = a2;
+  HIDWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]) = v3;
+  RtlRemoveInvertedFunctionTable((__int64)BaseAddress);
+  LdrProtectMrdata(1);
 }

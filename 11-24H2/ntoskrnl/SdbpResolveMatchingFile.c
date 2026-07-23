@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpResolveMatchingFile @ 0x140805590
+ * XREFs of SdbpResolveMatchingFile @ 0x140805CD0
  * Callers:
- *     SdbpCheckMatchingDir @ 0x140802BF0 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingFiles @ 0x140802D80 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingTextEntry @ 0x140803770 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140803B30 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingDir @ 0x140803330 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingFiles @ 0x1408034C0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140803EB0 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140804270 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     RtlULongLongMult @ 0x140437830 (RtlULongLongMult.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AslPathClean @ 0x14080970C (AslPathClean.c)
- *     AslPathToNetworkPathNt @ 0x140809E14 (AslPathToNetworkPathNt.c)
- *     AslEnvExpandStrings2 @ 0x14080BA3C (AslEnvExpandStrings2.c)
- *     AslEnvGetProcessWowInfo @ 0x14080BC18 (AslEnvGetProcessWowInfo.c)
- *     AslImageFileToArchitecture @ 0x14080C140 (AslImageFileToArchitecture.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlULongLongMult @ 0x14042A2B0 (RtlULongLongMult.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AslPathClean @ 0x140809E4C (AslPathClean.c)
+ *     AslPathToNetworkPathNt @ 0x14080A554 (AslPathToNetworkPathNt.c)
+ *     AslEnvExpandStrings2 @ 0x14080C17C (AslEnvExpandStrings2.c)
+ *     AslEnvGetProcessWowInfo @ 0x14080C358 (AslEnvGetProcessWowInfo.c)
+ *     AslImageFileToArchitecture @ 0x14080C880 (AslImageFileToArchitecture.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpResolveMatchingFile(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4, __int64 a5, _QWORD *a6)

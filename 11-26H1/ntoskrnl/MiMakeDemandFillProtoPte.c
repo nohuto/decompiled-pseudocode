@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMakeDemandFillProtoPte @ 0x1404C5B90
+ * XREFs of MiMakeDemandFillProtoPte @ 0x1404BF540
  * Callers:
- *     MiInitializePrototypePtes @ 0x1409B8000 (MiInitializePrototypePtes.c)
+ *     MiInitializePrototypePtes @ 0x140988FE0 (MiInitializePrototypePtes.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiMakeDemandFillProtoPte(unsigned __int64 a1)

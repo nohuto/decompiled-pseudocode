@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
  */
 
 unsigned __int8 __fastcall VfPnpDumpIrpStack(__int64 a1)

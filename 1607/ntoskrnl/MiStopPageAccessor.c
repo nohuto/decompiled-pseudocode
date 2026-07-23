@@ -1,7 +1,7 @@
 /*
- * XREFs of MiStopPageAccessor @ 0x14008B864
+ * XREFs of MiStopPageAccessor @ 0x14008AF64
  * Callers:
- *     MiDecrementHugeContext @ 0x140140E7C (MiDecrementHugeContext.c)
+ *     MiDecrementHugeContext @ 0x1401413EC (MiDecrementHugeContext.c)
  * Callees:
  *     <none>
  */

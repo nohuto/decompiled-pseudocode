@@ -1,13 +1,13 @@
 /*
- * XREFs of PopConfigureHeteroPolicies @ 0x14056A738
+ * XREFs of PopConfigureHeteroPolicies @ 0x14056AC78
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14056A584 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14056AAC4 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
  */
 
 int __fastcall PopConfigureHeteroPolicies(int a1)
@@ -42,7 +42,7 @@ int __fastcall PopConfigureHeteroPolicies(int a1)
   result = ZwOpenKey(&KeyHandle, 8u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    v2 = &off_1406EB0A8;
+    v2 = &off_1406EB1D8;
     ObjectAttributes.RootDirectory = KeyHandle;
     v3 = 7LL;
     do

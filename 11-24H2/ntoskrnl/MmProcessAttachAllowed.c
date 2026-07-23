@@ -1,7 +1,7 @@
 /*
- * XREFs of MmProcessAttachAllowed @ 0x140456E08
+ * XREFs of MmProcessAttachAllowed @ 0x14044C648
  * Callers:
- *     PspSelectSessionAttachProcess @ 0x140A19C04 (PspSelectSessionAttachProcess.c)
+ *     PspSelectSessionAttachProcess @ 0x140A12D74 (PspSelectSessionAttachProcess.c)
  * Callees:
  *     <none>
  */

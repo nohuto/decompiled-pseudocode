@@ -4,25 +4,25 @@
  *     <none>
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     RtlCaptureImageExceptionValues @ 0x140290984 (RtlCaptureImageExceptionValues.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1402F7190 (RtlSectionTableFromVirtualAddress.c)
- *     MmGetMinWsPagePriority @ 0x1402FBDA0 (MmGetMinWsPagePriority.c)
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     KeExpandKernelStackAndCallout @ 0x1403D68E0 (KeExpandKernelStackAndCallout.c)
- *     _local_unwind @ 0x1403D9510 (_local_unwind.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KdDisableDebugger @ 0x140567510 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x140567740 (KdEnableDebugger.c)
+ *     RtlCaptureImageExceptionValues @ 0x140290C14 (RtlCaptureImageExceptionValues.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1402F7420 (RtlSectionTableFromVirtualAddress.c)
+ *     MmGetMinWsPagePriority @ 0x1402FC030 (MmGetMinWsPagePriority.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     KeExpandKernelStackAndCallout @ 0x1403D6AC0 (KeExpandKernelStackAndCallout.c)
+ *     _local_unwind @ 0x1403D96F0 (_local_unwind.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KdDisableDebugger @ 0x140567BD0 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140567E00 (KdEnableDebugger.c)
  *     KiVerifyXcpt2 @ 0x140B5C490 (KiVerifyXcpt2.c)
  *     KiSwInterruptPresent @ 0x140B679C0 (KiSwInterruptPresent.c)
  *     MmStrongCodeGuaranteesEnforced @ 0x140B75E70 (MmStrongCodeGuaranteesEnforced.c)
  */
 
-__int64 KiVerifyXcpt15()
+void KiVerifyXcpt15()
 {
-  _QWORD v1[42]; // [rsp+0h] [rbp-198h] BYREF
+  _QWORD v0[42]; // [rsp+0h] [rbp-198h] BYREF
 
-  v1[21] = v1;
+  v0[21] = v0;
   KiVerifyXcpt2();
-  return local_unwind((ULONG_PTR)v1, (__int64)&loc_140B17345);
+  local_unwind(v0, &loc_140B17345);
 }

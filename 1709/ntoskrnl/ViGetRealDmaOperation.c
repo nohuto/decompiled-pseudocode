@@ -43,8 +43,8 @@
 __int64 __fastcall ViGetRealDmaOperation(ULONG_PTR a1, unsigned int a2)
 {
   __int64 v3; // rdi
-  ULONG_PTR AdapterInformationInternal; // rax
-  __int64 v5; // rax
+  struct _LIST_ENTRY *AdapterInformationInternal; // rax
+  struct _LIST_ENTRY *Flink; // rax
 
   v3 = a2;
   if ( ViVerifyDma && !a1 )
@@ -54,8 +54,8 @@ __int64 __fastcall ViGetRealDmaOperation(ULONG_PTR a1, unsigned int a2)
   }
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1, 1);
   if ( AdapterInformationInternal )
-    v5 = *(_QWORD *)(AdapterInformationInternal + 48);
+    Flink = AdapterInformationInternal[3].Flink;
   else
-    v5 = *(_QWORD *)(a1 + 8);
-  return *(_QWORD *)(v3 + v5);
+    Flink = *(struct _LIST_ENTRY **)(a1 + 8);
+  return *(__int64 *)((char *)&Flink->Flink + v3);
 }

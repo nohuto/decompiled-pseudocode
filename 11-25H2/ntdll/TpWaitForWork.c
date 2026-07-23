@@ -7,26 +7,23 @@
  *     TppWorkWait @ 0x180041190 (TppWorkWait.c)
  */
 
-struct _PEB *__fastcall TpWaitForWork(__int64 a1, __int64 a2)
+void __cdecl TpWaitForWork(PTP_WORK Work, LOGICAL CancelPendingCallbacks)
 {
-  int v3; // eax
-  struct _PEB *result; // rax
+  volatile int Flags; // eax
   _PEB_LDR_DATA *Ldr; // rcx
 
-  if ( a1 )
+  if ( !Work
+    || (Flags = Work->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)())Work->CleanupGroupMember.VFuncs != TppWorkpCleanupGroupMemberVFuncs
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    v3 = *(_DWORD *)(a1 + 168);
-    if ( (v3 & 0x10000) == 0
-      && (v3 & 0x20000) == 0
-      && *(__int64 (__fastcall ***)())(a1 + 8) == TppWorkpCleanupGroupMemberVFuncs
-      && !NtCurrentPeb()->Ldr->ShutdownInProgress )
-    {
-      return (struct _PEB *)TppWorkWait(a1);
-    }
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      TppRaiseInvalidParameter(Ldr, CancelPendingCallbacks, Work);
   }
-  result = NtCurrentPeb();
-  Ldr = result->Ldr;
-  if ( !Ldr->ShutdownInProgress )
-    return (struct _PEB *)TppRaiseInvalidParameter(Ldr, a2, a1);
-  return result;
+  else
+  {
+    TppWorkWait(Work, CancelPendingCallbacks);
+  }
 }

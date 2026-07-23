@@ -13,27 +13,25 @@
 
 __int64 __fastcall EtwpSendSessionNotification(__int64 a1, int a2, int a3)
 {
-  __int128 v6; // xmm1
+  GUID v6; // xmm1
   __int64 v8; // [rsp+20h] [rbp-39h]
-  _DWORD v9[10]; // [rsp+30h] [rbp-29h] BYREF
-  __int128 v10; // [rsp+58h] [rbp-1h]
-  __int128 v11; // [rsp+68h] [rbp+Fh]
-  int v12; // [rsp+78h] [rbp+1Fh]
-  int v13; // [rsp+7Ch] [rbp+23h]
-  __int64 v14; // [rsp+80h] [rbp+27h]
+  _ETW_NOTIFICATION_HEADER Notification; // [rsp+30h] [rbp-29h] BYREF
+  int v10; // [rsp+78h] [rbp+1Fh]
+  int v11; // [rsp+7Ch] [rbp+23h]
+  __int64 v12; // [rsp+80h] [rbp+27h]
 
   v8 = *(unsigned __int16 *)(a1 + 20);
   BYTE3(v8) = 1;
-  memset_thunk_772440563353939046(v9, 0, 0x60uLL);
-  v9[6] = -1;
-  v6 = *(_OWORD *)(a1 + 44);
-  v9[1] = 96;
-  v10 = SessionNotificationGuid;
-  v9[0] = 7;
-  v11 = v6;
-  v14 = v8;
-  v12 = a2;
-  v13 = a3;
-  v9[9] = NtCurrentTeb()->ClientId.UniqueProcess;
-  return EtwDeliverDataBlock(v9);
+  memset_thunk_772440563353939046(&Notification, 0, 0x60uLL);
+  LODWORD(Notification.Reserved2) = -1;
+  v6 = *(GUID *)(a1 + 44);
+  Notification.NotificationSize = 96;
+  Notification.DestinationGuid = SessionNotificationGuid;
+  Notification.NotificationType = EtwNotificationTypeSession;
+  Notification.SourceGuid = v6;
+  v12 = v8;
+  v10 = a2;
+  v11 = a3;
+  Notification.SourcePID = (ULONG)NtCurrentTeb()->ClientId.UniqueProcess;
+  return EtwDeliverDataBlock(&Notification);
 }

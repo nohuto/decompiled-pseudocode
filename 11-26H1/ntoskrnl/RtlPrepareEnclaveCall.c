@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlPrepareEnclaveCall @ 0x1404F19B4
+ * XREFs of RtlPrepareEnclaveCall @ 0x1404EAF94
  * Callers:
- *     PsCallEnclave @ 0x1407FE1F0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x140803C20 (PsCallEnclave.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
  */
 
 __int64 __fastcall RtlPrepareEnclaveCall(

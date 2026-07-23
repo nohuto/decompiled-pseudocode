@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpExtrasSetPresent(__int64 a1, __int64 a2, unsigned int a
   v3 = 0;
   if ( !(_WORD)a2 )
   {
-    v8 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC30, 2 * ((unsigned __int64)(a2 - qword_18016DC28) >> 20));
+    v8 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((unsigned __int64)(a2 - qword_18016DC28) >> 20));
     if ( !v8 )
       return RtlpHpLargeAllocSetExtraPresent(a1, a2, a3);
     v3 = v8 - 1;

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPfnRangeIsZero @ 0x14013E6D4
+ * XREFs of MiPfnRangeIsZero @ 0x14013EC44
  * Callers:
- *     MiFreeUnusedPfnPages @ 0x14013E234 (MiFreeUnusedPfnPages.c)
+ *     MiFreeUnusedPfnPages @ 0x14013E7A4 (MiFreeUnusedPfnPages.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
- *     MiReturnPfnList @ 0x14013EB5C (MiReturnPfnList.c)
- *     MiDemoteLargePage @ 0x14013EC14 (MiDemoteLargePage.c)
- *     MiReplicatePteChange @ 0x1401482F0 (MiReplicatePteChange.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1AF8 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
+ *     MiReturnPfnList @ 0x14013F0CC (MiReturnPfnList.c)
+ *     MiDemoteLargePage @ 0x14013F184 (MiDemoteLargePage.c)
+ *     MiReplicatePteChange @ 0x140148860 (MiReplicatePteChange.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1924 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiPfnRangeIsZero(unsigned __int64 a1, unsigned __int64 a2)
@@ -151,7 +151,7 @@ LABEL_13:
       {
         v24 = MiMakeValidKernelPte(*(__int64 *)((char *)&MiState[597] + v20), 4, 0LL) & 0xFFFFFFFFFFFFFEBDuLL | 0x42;
 LABEL_24:
-        if ( qword_1403276E8 == (PVOID)qword_1403276F0 )
+        if ( qword_140327728 == (PVOID)qword_140327730 )
           v24 = 0LL;
         *(_QWORD *)((char *)v43 + v20) = v24;
         MI_INTERLOCKED_EXCHANGE_PTE(v19, v24);
@@ -177,7 +177,7 @@ LABEL_24:
 LABEL_32:
     MiFlushTbList((__int64)&v38, (_KPROCESS *)v18, v12, v13);
     v13 = 0LL;
-    if ( *(_QWORD *)((char *)v43 + v14) || qword_1403276E8 == (PVOID)qword_1403276F0 )
+    if ( *(_QWORD *)((char *)v43 + v14) || qword_140327728 == (PVOID)qword_140327730 )
     {
       v14 += 8LL;
       ++v2;

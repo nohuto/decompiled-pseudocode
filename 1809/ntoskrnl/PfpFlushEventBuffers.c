@@ -1,30 +1,30 @@
 /*
- * XREFs of PfpFlushEventBuffers @ 0x140669B10
+ * XREFs of PfpFlushEventBuffers @ 0x14066ACD0
  * Callers:
- *     PfpFlushBuffers @ 0x140669E70 (PfpFlushBuffers.c)
+ *     PfpFlushBuffers @ 0x14066B030 (PfpFlushBuffers.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x1400E2680 (PfFbBufferListInsertInFree.c)
- *     PfFbBufferListFlushStandby @ 0x1400E2728 (PfFbBufferListFlushStandby.c)
- *     PfTFullEventListAdd @ 0x140122928 (PfTFullEventListAdd.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PfpCopyEvent @ 0x140669C20 (PfpCopyEvent.c)
+ *     PfFbBufferListInsertInFree @ 0x1400E2700 (PfFbBufferListInsertInFree.c)
+ *     PfFbBufferListFlushStandby @ 0x1400E27A8 (PfFbBufferListFlushStandby.c)
+ *     PfTFullEventListAdd @ 0x1401229F8 (PfTFullEventListAdd.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C55B0 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PfpCopyEvent @ 0x14066ADE0 (PfpCopyEvent.c)
  */
 
 __int64 PfpFlushEventBuffers()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   int v1; // esi
   PSLIST_ENTRY v2; // rcx
-  struct _SLIST_ENTRY *v3; // rax
-  struct _SLIST_ENTRY *v4; // rbp
-  struct _SLIST_ENTRY *v5; // rdi
-  struct _SLIST_ENTRY *v8; // rcx
+  _SLIST_ENTRY *v3; // rax
+  _SLIST_ENTRY *v4; // rbp
+  _SLIST_ENTRY *v5; // rdi
+  _SLIST_ENTRY *v8; // rcx
 
   v0 = 0LL;
   v1 = 0;
-  PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_14043BCA0);
-  v2 = RtlpInterlockedFlushSList(&stru_14043BD20);
+  PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_14043CD60);
+  v2 = RtlpInterlockedFlushSList(&stru_14043CDE0);
   if ( v2 )
   {
     do
@@ -46,7 +46,7 @@ LABEL_6:
       if ( v1 < 0 )
         goto LABEL_9;
       PfFbBufferListInsertInFree(
-        (_SLIST_ENTRY *)&stru_14043BCA0,
+        (_SLIST_ENTRY *)&stru_14043CD60,
         v4,
         LODWORD(v4[2].Next) - (_DWORD)v4,
         *((_DWORD *)&v4[2].Next + 3),

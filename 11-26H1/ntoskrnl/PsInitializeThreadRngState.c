@@ -1,11 +1,11 @@
 /*
- * XREFs of PsInitializeThreadRngState @ 0x1404936B8
+ * XREFs of PsInitializeThreadRngState @ 0x14048D204
  * Callers:
- *     KiAllocatePrcbThread @ 0x1405EC38C (KiAllocatePrcbThread.c)
- *     KiInitializeAndStartInitialThread @ 0x1405F685C (KiInitializeAndStartInitialThread.c)
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
+ *     KiAllocatePrcbThread @ 0x1405EECFC (KiAllocatePrcbThread.c)
+ *     KiInitializeAndStartInitialThread @ 0x1405F921C (KiInitializeAndStartInitialThread.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
  * Callees:
- *     RtlInitializeTRng @ 0x140493744 (RtlInitializeTRng.c)
+ *     RtlInitializeTRng @ 0x14048D290 (RtlInitializeTRng.c)
  */
 
 __int64 __fastcall PsInitializeThreadRngState(unsigned __int64 a1)

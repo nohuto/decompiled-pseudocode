@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromScatterPool @ 0x14035927C
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPool @ 0x14035B01C
  * Callers:
- *     HalpDmaAllocateNewTranslationBuffer @ 0x140356984 (HalpDmaAllocateNewTranslationBuffer.c)
- *     HalpDmaAllocateMapRegisters @ 0x14035A8E0 (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x140782CB0 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x140358724 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14035C680 (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1407857E4 (HalpDmaAllocateLocalScatterPool.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolV3 @ 0x140357448 (HalpDmaAllocateScatterPagesFromScatterPoolV3.c)
- *     HalpDmaGetMasterAdapterVersion @ 0x14035943C (HalpDmaGetMasterAdapterVersion.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolV3 @ 0x1403591E8 (HalpDmaAllocateScatterPagesFromScatterPoolV3.c)
+ *     HalpDmaGetMasterAdapterVersion @ 0x14035B1DC (HalpDmaGetMasterAdapterVersion.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPool(
@@ -54,7 +54,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPool(
       KiRaiseIrqlProcessIrqlFlags(v9, 2LL);
     }
     LockHandle.OldIrql = CurrentIrql;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v15 = _InterlockedExchange64((volatile __int64 *)(a2 + 128), (__int64)&LockHandle);
       if ( v15 )

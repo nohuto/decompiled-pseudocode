@@ -3,7 +3,7 @@
  * Callers:
  *     MiCheckForConflictingVadExistence @ 0x140214E20 (MiCheckForConflictingVadExistence.c)
  *     MiLocateLowestConflictingVad @ 0x140223334 (MiLocateLowestConflictingVad.c)
- *     MmGetImageInformation @ 0x14077E280 (MmGetImageInformation.c)
+ *     MmGetImageInformation @ 0x14077E470 (MmGetImageInformation.c)
  * Callees:
  *     <none>
  */

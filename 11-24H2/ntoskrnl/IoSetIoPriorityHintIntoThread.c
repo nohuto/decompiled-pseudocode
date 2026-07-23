@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetIoPriorityHintIntoThread @ 0x140207C60
+ * XREFs of IoSetIoPriorityHintIntoThread @ 0x14032F240
  * Callers:
  *     <none>
  * Callees:
- *     PsSetIoPriorityThread @ 0x14020973C (PsSetIoPriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x140330D1C (PsSetIoPriorityThread.c)
  */
 
 __int64 __fastcall IoSetIoPriorityHintIntoThread(__int64 a1, unsigned int a2)

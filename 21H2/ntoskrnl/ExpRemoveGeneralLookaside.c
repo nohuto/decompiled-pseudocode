@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpRemoveGeneralLookaside @ 0x1402BE8E4
+ * XREFs of ExpRemoveGeneralLookaside @ 0x14023CF24
  * Callers:
- *     ExDeletePagedLookasideList @ 0x1402BE7E0 (ExDeletePagedLookasideList.c)
- *     ExDeleteLookasideListEx @ 0x1402BE860 (ExDeleteLookasideListEx.c)
- *     ExDeleteNPagedLookasideList @ 0x14039AB20 (ExDeleteNPagedLookasideList.c)
+ *     ExDeletePagedLookasideList @ 0x14023CE20 (ExDeletePagedLookasideList.c)
+ *     ExDeleteLookasideListEx @ 0x14023CEA0 (ExDeleteLookasideListEx.c)
+ *     ExDeleteNPagedLookasideList @ 0x14039AC70 (ExDeleteNPagedLookasideList.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

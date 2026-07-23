@@ -1,27 +1,27 @@
 /*
- * XREFs of MmProbeAndLockSelectedPages @ 0x14039F2E0
+ * XREFs of MmProbeAndLockSelectedPages @ 0x1403A1040
  * Callers:
- *     IopWriteFileGather @ 0x140B01CE0 (IopWriteFileGather.c)
- *     IopReadFileScatter @ 0x140B0D3D8 (IopReadFileScatter.c)
+ *     IopWriteFileGather @ 0x140B03A10 (IopWriteFileGather.c)
+ *     IopReadFileScatter @ 0x140B0EB28 (IopReadFileScatter.c)
  * Callees:
- *     MiProbeAndLockPrepare @ 0x1402E5470 (MiProbeAndLockPrepare.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiProbeLockFrame @ 0x1402EE600 (MiProbeLockFrame.c)
- *     MiLockPageLeafPageTable @ 0x1402EEB90 (MiLockPageLeafPageTable.c)
- *     MiProbeLeafPteAccess @ 0x1402EF490 (MiProbeLeafPteAccess.c)
- *     MiSetProbePagesAhead @ 0x1402EFB10 (MiSetProbePagesAhead.c)
- *     MiProbePacketContended @ 0x140306770 (MiProbePacketContended.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiProbeAndLockComplete @ 0x1403A0050 (MiProbeAndLockComplete.c)
- *     MiUnlockProbePacketWorkingSet @ 0x1403A0340 (MiUnlockProbePacketWorkingSet.c)
- *     MiFaultInProbeAddress @ 0x1403A04D0 (MiFaultInProbeAddress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiProbeAndLockPrepare @ 0x1402C74B0 (MiProbeAndLockPrepare.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiProbeLockFrame @ 0x1402D0680 (MiProbeLockFrame.c)
+ *     MiLockPageLeafPageTable @ 0x1402D0C10 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafPteAccess @ 0x1402D1510 (MiProbeLeafPteAccess.c)
+ *     MiSetProbePagesAhead @ 0x1402D1B90 (MiSetProbePagesAhead.c)
+ *     MiProbePacketContended @ 0x1402E87F0 (MiProbePacketContended.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiProbeAndLockComplete @ 0x1403A1DB0 (MiProbeAndLockComplete.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1403A20A0 (MiUnlockProbePacketWorkingSet.c)
+ *     MiFaultInProbeAddress @ 0x1403A2230 (MiFaultInProbeAddress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall MmProbeAndLockSelectedPages(
@@ -36,11 +36,11 @@ void __stdcall MmProbeAndLockSelectedPages(
   ULONG_PTR v11; // rbx
   unsigned __int64 *v12; // r12
   unsigned int v13; // r15d
-  int v14; // ebx
+  NTSTATUS v14; // ebx
+  __int64 v15; // r8
   unsigned __int64 *i; // rsi
-  __int64 v16; // rax
-  unsigned int v17; // r14d
-  __int64 v18; // r8
+  __int64 v17; // rax
+  unsigned int v18; // r14d
   int v19; // eax
   __int64 v20; // rdx
   __int64 v21; // r8
@@ -95,7 +95,7 @@ void __stdcall MmProbeAndLockSelectedPages(
       *v31 = -1LL;
       if ( v26 >= 0x7FFFFFFF0000LL && AccessMode )
       {
-        ++LODWORD(stru_140E2EB88.LastXStateSaveDebugInfo);
+        ++LODWORD(stru_140E2ED08.LastXStateSaveDebugInfo);
         v14 = -1073741819;
         break;
       }
@@ -120,7 +120,7 @@ void __stdcall MmProbeAndLockSelectedPages(
             v35 = (v30 >> 12) & 0xFFFFFFFFFFLL;
             MiSetProbePagesAhead((__int64)v25);
 LABEL_22:
-            v17 = 16;
+            v18 = 16;
             goto LABEL_13;
           }
           if ( v23[0] != 1 )
@@ -130,7 +130,7 @@ LABEL_22:
               break;
           }
         }
-        ++HIDWORD(stru_140E2EB88.LastXStateSaveDebugInfo);
+        ++HIDWORD(stru_140E2ED08.LastXStateSaveDebugInfo);
         break;
       }
       if ( v38 == -1 )
@@ -138,21 +138,21 @@ LABEL_22:
         PteShadow = *v28;
         if ( (unsigned __int64)v28 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v28 <= 0xFFFFF6FB7DBED7F8uLL )
           PteShadow = MiReadPteShadow((unsigned __int64)v28, *v28);
-        v16 = (PteShadow >> 12) & 0xFFFFFFFFFFLL;
+        v17 = (PteShadow >> 12) & 0xFFFFFFFFFFLL;
       }
       else
       {
-        v16 = v38 + ((v26 - v36) >> 12);
+        v17 = v38 + ((v26 - v36) >> 12);
       }
-      v35 = v16;
-      v17 = 64;
+      v35 = v17;
+      v18 = 64;
 LABEL_13:
-      v14 = MiProbeLockFrame((__int64)v25, 1);
+      v14 = MiProbeLockFrame((__int64)v25, 1, v15);
       if ( v14 < 0 )
         break;
       ++v13;
       *v31++ = v35;
-      if ( !(v13 % v17) && (unsigned int)MiProbePacketContended((__int64)v25, 0LL, v18) )
+      if ( !(v13 % v18) && (unsigned int)MiProbePacketContended((__int64)v25, 0LL, v15) )
       {
         MiUnlockProbePacketWorkingSet(v25);
         v33 &= ~1u;

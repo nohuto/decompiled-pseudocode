@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWnfEnumeratePermanentDataStoreHandles @ 0x1407C6554
+ * XREFs of ExpWnfEnumeratePermanentDataStoreHandles @ 0x1407C69B4
  * Callers:
- *     ExpWnfDeletePermanentStateData @ 0x1407C61FC (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfDeletePermanentStateData @ 0x1407C665C (ExpWnfDeletePermanentStateData.c)
  * Callees:
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x1407C65A0 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x1407C6A00 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
  */
 
 __int64 __fastcall ExpWnfEnumeratePermanentDataStoreHandles(int a1, int a2, int a3, HANDLE *KeyHandle)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInPageGapPage @ 0x1403514A8
+ * XREFs of MiInPageGapPage @ 0x140351648
  * Callers:
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     MiInPageSkipPage @ 0x14046BBC4 (MiInPageSkipPage.c)
+ *     MiFinishHardFault @ 0x1402D9590 (MiFinishHardFault.c)
+ *     MiInPageSkipPage @ 0x14046BFC4 (MiInPageSkipPage.c)
  * Callees:
  *     <none>
  */

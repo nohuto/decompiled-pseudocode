@@ -75,7 +75,7 @@ LABEL_23:
       goto LABEL_47;
     *(_DWORD *)(&LinkTarget.MaximumLength + 1) = 0;
     *(&ObjectAttributes.Length + 1) = 0;
-    *(_OWORD *)SourceString = *(_OWORD *)L"\\??\\C:";
+    *(_OWORD *)SourceString = xmmword_1408683C0;
     *(&ObjectAttributes.Attributes + 1) = 0;
     LinkHandle = 0LL;
     RtlInitUnicodeString(&DestinationString, SourceString);

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoUpdateIrpIoAttributionHandle @ 0x140375350
+ * XREFs of IoUpdateIrpIoAttributionHandle @ 0x14025DC10
  * Callers:
  *     <none>
  * Callees:
- *     IopSetDiskIoAttributionExtension @ 0x1403743E4 (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14025CCA4 (IopSetDiskIoAttributionExtension.c)
  */
 
 __int64 __fastcall IoUpdateIrpIoAttributionHandle(__int64 a1, __int64 a2)

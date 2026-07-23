@@ -1,19 +1,19 @@
 /*
- * XREFs of ExSetLicenseTamperState @ 0x140837E90
+ * XREFs of ExSetLicenseTamperState @ 0x14083E0D0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExpGetLicenseTamperState @ 0x1406CD17C (ExpGetLicenseTamperState.c)
- *     ExpSetLicenseTamperState @ 0x1406CD4F4 (ExpSetLicenseTamperState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ntoskrnl_20 @ 0x140A7E0D0 (ntoskrnl_20.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExpGetLicenseTamperState @ 0x1406D11AC (ExpGetLicenseTamperState.c)
+ *     ExpSetLicenseTamperState @ 0x1406D1524 (ExpSetLicenseTamperState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ntoskrnl_20 @ 0x140A83F40 (ntoskrnl_20.c)
  */
 
 void __fastcall ExSetLicenseTamperState(int a1)
@@ -59,7 +59,7 @@ void __fastcall ExSetLicenseTamperState(int a1)
     if ( v8 )
     {
       v10 = PsGetCurrentServerSiloGlobals()[54].Blink;
-      if ( ExpPlatformBinaryLock.AbWaitObject )
+      if ( ExpPlatformBinaryLock.KernelWaitTime )
         guard_dispatch_icall_no_overrides((__int64)v10, v9);
     }
   }

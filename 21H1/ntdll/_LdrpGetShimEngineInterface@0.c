@@ -12,63 +12,63 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-int __stdcall LdrpGetShimEngineInterface()
+NTSTATUS __stdcall LdrpGetShimEngineInterface()
 {
-  int ProcedureAddress; // esi
+  NTSTATUS v0; // esi
   char v2; // al
-  STRING DestinationString; // [esp+Ch] [ebp-34h] BYREF
-  int v4; // [esp+14h] [ebp-2Ch] BYREF
-  int v5; // [esp+18h] [ebp-28h] BYREF
-  int v6; // [esp+1Ch] [ebp-24h] BYREF
-  int v7; // [esp+20h] [ebp-20h] BYREF
-  int v8; // [esp+24h] [ebp-1Ch] BYREF
-  int v9; // [esp+28h] [ebp-18h] BYREF
-  int v10; // [esp+2Ch] [ebp-14h] BYREF
-  int v11; // [esp+30h] [ebp-10h] BYREF
-  int v12; // [esp+34h] [ebp-Ch] BYREF
-  int v13; // [esp+38h] [ebp-8h] BYREF
-  int v14; // [esp+3Ch] [ebp-4h] BYREF
+  _STRING DestinationString; // [esp+Ch] [ebp-34h] BYREF
+  PVOID v4; // [esp+14h] [ebp-2Ch] BYREF
+  PVOID v5; // [esp+18h] [ebp-28h] BYREF
+  PVOID v6; // [esp+1Ch] [ebp-24h] BYREF
+  PVOID v7; // [esp+20h] [ebp-20h] BYREF
+  PVOID v8; // [esp+24h] [ebp-1Ch] BYREF
+  PVOID v9; // [esp+28h] [ebp-18h] BYREF
+  PVOID v10; // [esp+2Ch] [ebp-14h] BYREF
+  PVOID v11; // [esp+30h] [ebp-10h] BYREF
+  PVOID v12; // [esp+34h] [ebp-Ch] BYREF
+  PVOID v13; // [esp+38h] [ebp-8h] BYREF
+  PVOID ProcedureAddress; // [esp+3Ch] [ebp-4h] BYREF
 
   RtlInitString(&DestinationString, "SE_InitializeEngine");
-  ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v14, 0);
-  if ( ProcedureAddress < 0 )
+  v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &ProcedureAddress, 0);
+  if ( v0 < 0 )
     goto LABEL_14;
   RtlInitString(&DestinationString, "SE_ShimDllLoaded");
-  ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v13, 0);
-  if ( ProcedureAddress < 0 )
+  v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v13, 0);
+  if ( v0 < 0 )
     goto LABEL_14;
   RtlInitString(&DestinationString, "SE_InstallBeforeInit");
-  ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v12, 0);
-  if ( ProcedureAddress < 0 )
+  v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v12, 0);
+  if ( v0 < 0 )
     goto LABEL_14;
   RtlInitString(&DestinationString, "SE_InstallAfterInit");
-  ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v11, 0);
-  if ( ProcedureAddress < 0 )
+  v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v11, 0);
+  if ( v0 < 0 )
     goto LABEL_14;
   RtlInitString(&DestinationString, "SE_DllLoaded");
-  ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v10, 0);
-  if ( ProcedureAddress < 0 )
+  v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v10, 0);
+  if ( v0 < 0 )
     goto LABEL_14;
   RtlInitString(&DestinationString, "SE_DllUnloaded");
-  ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v9, 0);
-  if ( ProcedureAddress < 0 )
+  v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v9, 0);
+  if ( v0 < 0 )
     goto LABEL_14;
   RtlInitString(&DestinationString, "SE_LdrEntryRemoved");
-  ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v8, 0);
-  if ( ProcedureAddress < 0 )
+  v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v8, 0);
+  if ( v0 < 0 )
     goto LABEL_14;
   RtlInitString(&DestinationString, "SE_ProcessDying");
-  ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v7, 0);
-  if ( ProcedureAddress < 0
+  v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v7, 0);
+  if ( v0 < 0
     || (RtlInitString(&DestinationString, "SE_LdrResolveDllName"),
-        ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v5, 0),
-        ProcedureAddress < 0)
+        v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v5, 0),
+        v0 < 0)
     || (RtlInitString(&DestinationString, "SE_GetProcAddressForCaller"),
-        ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v6, 0),
-        ProcedureAddress < 0)
+        v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v6, 0),
+        v0 < 0)
     || (RtlInitString(&DestinationString, "ApphelpCheckModule"),
-        ProcedureAddress = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v4, 0),
-        ProcedureAddress < 0) )
+        v0 = LdrGetProcedureAddressEx(g_pShimEngineModule, &DestinationString, 0, &v4, 0),
+        v0 < 0) )
   {
 LABEL_14:
     v2 = ShowSnaps;
@@ -92,18 +92,18 @@ LABEL_14:
   else
   {
     LdrProtectMrdata(0);
-    g_pfnSE_InitializeEngine = __ROR4__(v14 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_ShimDllLoaded = __ROR4__(v13 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_InstallBeforeInit = __ROR4__(v12 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_InstallAfterInit = __ROR4__(v11 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_DllLoaded = __ROR4__(v10 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_DllUnloaded = __ROR4__(v9 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_LdrEntryRemoved = __ROR4__(v8 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_ProcessDying = __ROR4__(v7 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_GetProcAddressForCaller = __ROR4__(v6 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnSE_LdrResolveDllName = __ROR4__(v5 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-    g_pfnApphelpCheckModuleProc = __ROR4__(v4 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_InitializeEngine = __ROR4__((unsigned int)ProcedureAddress ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_ShimDllLoaded = __ROR4__((unsigned int)v13 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_InstallBeforeInit = __ROR4__((unsigned int)v12 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_InstallAfterInit = __ROR4__((unsigned int)v11 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_DllLoaded = __ROR4__((unsigned int)v10 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_DllUnloaded = __ROR4__((unsigned int)v9 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_LdrEntryRemoved = __ROR4__((unsigned int)v8 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_ProcessDying = __ROR4__((unsigned int)v7 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_GetProcAddressForCaller = __ROR4__((unsigned int)v6 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnSE_LdrResolveDllName = __ROR4__((unsigned int)v5 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+    g_pfnApphelpCheckModuleProc = __ROR4__((unsigned int)v4 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
     LdrProtectMrdata(1);
   }
-  return ProcedureAddress;
+  return v0;
 }

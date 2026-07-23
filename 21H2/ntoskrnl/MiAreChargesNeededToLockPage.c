@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAreChargesNeededToLockPage @ 0x140323430
+ * XREFs of MiAreChargesNeededToLockPage @ 0x14032E180
  * Callers:
- *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiCheckProtoPtePageState @ 0x14023B270 (MiCheckProtoPtePageState.c)
- *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
- *     MiReferenceDriverPage @ 0x140397B28 (MiReferenceDriverPage.c)
+ *     MiMigratePfn @ 0x1402BCEF0 (MiMigratePfn.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MiCheckProtoPtePageState @ 0x1402DFAC0 (MiCheckProtoPtePageState.c)
+ *     MiLockProtoPoolPage @ 0x140324E50 (MiLockProtoPoolPage.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MiLockCode @ 0x14032E300 (MiLockCode.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
+ *     MiReferenceDriverPage @ 0x140397C78 (MiReferenceDriverPage.c)
  * Callees:
  *     <none>
  */

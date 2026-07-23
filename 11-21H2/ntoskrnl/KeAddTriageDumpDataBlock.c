@@ -1,12 +1,12 @@
 /*
  * XREFs of KeAddTriageDumpDataBlock @ 0x1403D7DF0
  * Callers:
- *     RtlMarkHiberPhase @ 0x14038D4F0 (RtlMarkHiberPhase.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     IopInitializeTriageDumpData @ 0x1408555E0 (IopInitializeTriageDumpData.c)
+ *     sub_14038D4F0 @ 0x14038D4F0 (sub_14038D4F0.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
+ *     sub_1408555E0 @ 0x1408555E0 (sub_1408555E0.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403D7ED0 (KiValidateTriageDumpDataArray.c)
- *     KiIsAddressRangeValid @ 0x1403D7FD4 (KiIsAddressRangeValid.c)
+ *     sub_1403D7ED0 @ 0x1403D7ED0 (sub_1403D7ED0.c)
+ *     sub_1403D7FD4 @ 0x1403D7FD4 (sub_1403D7FD4.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -27,8 +27,8 @@ NTSTATUS __stdcall KeAddTriageDumpDataBlock(
   v4 = 0;
   v6 = *(char **)&MaxDataSize;
   if ( !KtriageDumpDataArray
-    || !(unsigned __int8)KiValidateTriageDumpDataArray(KtriageDumpDataArray, MaxDataSize, 0LL, Size)
-    || !(unsigned __int8)KiIsAddressRangeValid(v6, Address) )
+    || !(unsigned __int8)sub_1403D7ED0(KtriageDumpDataArray, MaxDataSize, 0LL, Size)
+    || !(unsigned __int8)sub_1403D7FD4(v6, Address) )
   {
     return -1073741811;
   }

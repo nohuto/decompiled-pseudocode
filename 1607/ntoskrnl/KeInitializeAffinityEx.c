@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeAffinityEx @ 0x1400D5490
+ * XREFs of KeInitializeAffinityEx @ 0x1400D3330
  * Callers:
- *     PpmUpdateProcessorPolicy @ 0x1405454EC (PpmUpdateProcessorPolicy.c)
+ *     PpmUpdateProcessorPolicy @ 0x140545A2C (PpmUpdateProcessorPolicy.c)
  * Callees:
  *     <none>
  */

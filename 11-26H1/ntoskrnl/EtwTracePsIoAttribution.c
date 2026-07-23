@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTracePsIoAttribution @ 0x140958300
+ * XREFs of EtwTracePsIoAttribution @ 0x140ABF0C0
  * Callers:
- *     PspSetJobIoAttribution @ 0x140958108 (PspSetJobIoAttribution.c)
+ *     PspSetJobIoAttribution @ 0x140ABEEC8 (PspSetJobIoAttribution.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTracePsIoAttribution(int a1, char a2, __int64 a3, int a4)
@@ -27,7 +27,7 @@ BOOLEAN __fastcall EtwTracePsIoAttribution(int a1, char a2, __int64 a3, int a4)
   v4 = (const EVENT_DESCRIPTOR *)PsDiskIoAttributionStart;
   if ( !a2 )
     v4 = &PsDiskIoAttributionStop;
-  result = EtwEventEnabled(EtwpPsProvRegHandle, v4);
+  result = EtwEventEnabled((REGHANDLE)stru_140F03830.Affinity, v4);
   if ( result )
   {
     UserData.Ptr = (ULONGLONG)&v11;
@@ -36,7 +36,7 @@ BOOLEAN __fastcall EtwTracePsIoAttribution(int a1, char a2, __int64 a3, int a4)
     v8 = 8LL;
     v9 = &v13;
     v10 = 4LL;
-    return EtwWrite(EtwpPsProvRegHandle, v4, 0LL, 3u, &UserData);
+    return EtwWrite((REGHANDLE)stru_140F03830.Affinity, v4, 0LL, 3u, &UserData);
   }
   return result;
 }

@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateEventPair(
         PHANDLE EventPairHandle,
         ACCESS_MASK DesiredAccess,
@@ -14,5 +13,5 @@ NTSTATUS __stdcall ZwCreateEventPair(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EventPairHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(EventPairHandle);
 }

@@ -1,61 +1,61 @@
 /*
- * XREFs of MiFreePagesFromMdl @ 0x1403454C0
+ * XREFs of MiFreePagesFromMdl @ 0x140347540
  * Callers:
- *     HalFreeCommonBufferVector @ 0x140343C00 (HalFreeCommonBufferVector.c)
- *     IopLiveDumpWriteDumpFile @ 0x140343D08 (IopLiveDumpWriteDumpFile.c)
- *     HalFreeCommonBufferDmarThin @ 0x1403441A0 (HalFreeCommonBufferDmarThin.c)
- *     HalFreeCommonBufferDmaThin @ 0x1403442A0 (HalFreeCommonBufferDmaThin.c)
- *     MmFreePagesFromMdlEx @ 0x140345450 (MmFreePagesFromMdlEx.c)
- *     MmFreePagesFromMdl @ 0x1403454A0 (MmFreePagesFromMdl.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x140348C34 (HalpAllocateCommonBufferDmaThin.c)
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     HalpDmaAllocateMapRegisters @ 0x14035A8E0 (HalpDmaAllocateMapRegisters.c)
- *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x140393D74 (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     MmFreeSecureKernelPages @ 0x1403C1E80 (MmFreeSecureKernelPages.c)
- *     MmFreeNonChargedSecurePages @ 0x1403C2E54 (MmFreeNonChargedSecurePages.c)
- *     MiFreeSecureKernelPage @ 0x1403C3010 (MiFreeSecureKernelPage.c)
- *     MiFreePhysicalPageChain @ 0x1403C73D4 (MiFreePhysicalPageChain.c)
- *     EtwpFreeTraceBuffer @ 0x140488B18 (EtwpFreeTraceBuffer.c)
- *     EtwpFreePartitionMemory @ 0x140488BA8 (EtwpFreePartitionMemory.c)
- *     EtwpAllocateTraceBuffer @ 0x1404BCFC4 (EtwpAllocateTraceBuffer.c)
- *     EtwpAllocatePartitionMemory @ 0x1404BD074 (EtwpAllocatePartitionMemory.c)
- *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x1404CC380 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x1404D18A4 (HalpAllocateCommonBufferVectorInternal.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x1404E4914 (IopLiveDumpFreeDumpBuffers.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x1404F1E84 (HalpAllocateCommonBufferDmarThin.c)
- *     HalpDmaFreeChildAdapter @ 0x14050FED0 (HalpDmaFreeChildAdapter.c)
- *     HalFreeCommonBufferV3 @ 0x140589E20 (HalFreeCommonBufferV3.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140589FC0 (HalpAllocateDomainCommonBufferInternal.c)
- *     HvlpWithdrawPages @ 0x1405BB614 (HvlpWithdrawPages.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x1405CD8A4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D304C (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     DifMmFreePagesFromMdlWrapper @ 0x140666E80 (DifMmFreePagesFromMdlWrapper.c)
- *     MiReturnMdlExcess @ 0x1406EEC54 (MiReturnMdlExcess.c)
- *     MiFreeAwePagesFromMdl @ 0x1407016C0 (MiFreeAwePagesFromMdl.c)
- *     MiFreeZeroCalibrationBuffer @ 0x140710730 (MiFreeZeroCalibrationBuffer.c)
- *     NtFreeUserPhysicalPages @ 0x1408793E0 (NtFreeUserPhysicalPages.c)
- *     MiPartitionTransferAllocateSmallPages @ 0x14087CBB4 (MiPartitionTransferAllocateSmallPages.c)
- *     KiComputeNumaCosts @ 0x140CC93EC (KiComputeNumaCosts.c)
- *     PpmHeteroInitializeIntelWpsSupport @ 0x140CD6EF4 (PpmHeteroInitializeIntelWpsSupport.c)
- *     MiMeasureDemandCoalesceTimeBounds @ 0x140CFEB84 (MiMeasureDemandCoalesceTimeBounds.c)
+ *     HalFreeCommonBufferVector @ 0x140345C80 (HalFreeCommonBufferVector.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140345D88 (IopLiveDumpWriteDumpFile.c)
+ *     HalFreeCommonBufferDmarThin @ 0x140346220 (HalFreeCommonBufferDmarThin.c)
+ *     HalFreeCommonBufferDmaThin @ 0x140346320 (HalFreeCommonBufferDmaThin.c)
+ *     MmFreePagesFromMdlEx @ 0x1403474D0 (MmFreePagesFromMdlEx.c)
+ *     MmFreePagesFromMdl @ 0x140347520 (MmFreePagesFromMdl.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x14034ACB4 (HalpAllocateCommonBufferDmaThin.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14035C680 (HalpDmaAllocateMapRegisters.c)
+ *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x140395AF4 (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     MmFreeSecureKernelPages @ 0x1403CBD80 (MmFreeSecureKernelPages.c)
+ *     MmFreeNonChargedSecurePages @ 0x1403CCD54 (MmFreeNonChargedSecurePages.c)
+ *     MiFreeSecureKernelPage @ 0x1403CCF10 (MiFreeSecureKernelPage.c)
+ *     MiFreePhysicalPageChain @ 0x1403D12C8 (MiFreePhysicalPageChain.c)
+ *     EtwpFreeTraceBuffer @ 0x140482658 (EtwpFreeTraceBuffer.c)
+ *     EtwpFreePartitionMemory @ 0x1404826E8 (EtwpFreePartitionMemory.c)
+ *     EtwpAllocateTraceBuffer @ 0x1404B67A4 (EtwpAllocateTraceBuffer.c)
+ *     EtwpAllocatePartitionMemory @ 0x1404B6854 (EtwpAllocatePartitionMemory.c)
+ *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x1404C6C64 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
+ *     HalpAllocateCommonBufferVectorInternal @ 0x1404CB450 (HalpAllocateCommonBufferVectorInternal.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x1404DDEB4 (IopLiveDumpFreeDumpBuffers.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1404EB464 (HalpAllocateCommonBufferDmarThin.c)
+ *     HalpDmaFreeChildAdapter @ 0x140509940 (HalpDmaFreeChildAdapter.c)
+ *     HalFreeCommonBufferV3 @ 0x14058C550 (HalFreeCommonBufferV3.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14058C6F0 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HvlpWithdrawPages @ 0x1405BDE84 (HvlpWithdrawPages.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x1405D00B4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D583C (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     DifMmFreePagesFromMdlWrapper @ 0x14066AA60 (DifMmFreePagesFromMdlWrapper.c)
+ *     MiReturnMdlExcess @ 0x1406F38F4 (MiReturnMdlExcess.c)
+ *     MiFreeAwePagesFromMdl @ 0x140706390 (MiFreeAwePagesFromMdl.c)
+ *     MiFreeZeroCalibrationBuffer @ 0x14071542C (MiFreeZeroCalibrationBuffer.c)
+ *     NtFreeUserPhysicalPages @ 0x14087F7C0 (NtFreeUserPhysicalPages.c)
+ *     MiPartitionTransferAllocateSmallPages @ 0x140882FB4 (MiPartitionTransferAllocateSmallPages.c)
+ *     KiComputeNumaCosts @ 0x140CCF47C (KiComputeNumaCosts.c)
+ *     PpmHeteroInitializeIntelWpsSupport @ 0x140CDD248 (PpmHeteroInitializeIntelWpsSupport.c)
+ *     MiMeasureDemandCoalesceTimeBounds @ 0x140D04F24 (MiMeasureDemandCoalesceTimeBounds.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiInitializeMdlPfnSecureState @ 0x14033BD48 (MiInitializeMdlPfnSecureState.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiZeroAndReleasePages @ 0x1403C3C14 (MiZeroAndReleasePages.c)
- *     MiFreeMdlPageRun @ 0x1403C4140 (MiFreeMdlPageRun.c)
- *     MiRetardMdl @ 0x140504688 (MiRetardMdl.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiGetSecurePageState @ 0x140531F30 (MiGetSecurePageState.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiLogMdlRangeEvent @ 0x1406EE848 (MiLogMdlRangeEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiInitializeMdlPfnSecureState @ 0x14033DDC8 (MiInitializeMdlPfnSecureState.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiZeroAndReleasePages @ 0x1403CDB20 (MiZeroAndReleasePages.c)
+ *     MiFreeMdlPageRun @ 0x1403CE04C (MiFreeMdlPageRun.c)
+ *     MiRetardMdl @ 0x1404FDE4C (MiRetardMdl.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiGetSecurePageState @ 0x1405343D0 (MiGetSecurePageState.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiLogMdlRangeEvent @ 0x1406F34E8 (MiLogMdlRangeEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiFreePagesFromMdl(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3, int a4)
@@ -150,14 +150,14 @@ unsigned __int64 __fastcall MiFreePagesFromMdl(ULONG_PTR BugCheckParameter2, uns
   v15 = 0LL;
   while ( v13 )
   {
-    if ( *v11 > qword_140E2D7A0 || ((*(_QWORD *)(48 * *v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+    if ( *v11 > qword_140E2D920 || ((*(_QWORD *)(48 * *v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
       KeBugCheckEx(0x1Au, 0x1237uLL, BugCheckParameter2, (ULONG_PTR)v11, *v11);
     v50 = 48 * *v11;
     v16 = v50 - 0x220000000000LL;
     if ( (*(_QWORD *)(v50 - 0x220000000000LL + 40) & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL )
       KeBugCheckEx(0x1Au, 0x1236uLL, BugCheckParameter2, (ULONG_PTR)v11, *v11);
     v17 = *v11;
-    v48 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v16 + 40) >> 43) & 0x3FFLL));
+    v48 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v16 + 40) >> 43) & 0x3FFLL));
     v19 = MiPageToNode(v17);
     v20 = *(_QWORD *)(v16 + 40) >> 60;
     if ( (v20 & 7) == 3 )
@@ -213,9 +213,9 @@ unsigned __int64 __fastcall MiFreePagesFromMdl(ULONG_PTR BugCheckParameter2, uns
       v26 = v24 == 0;
       v7 = v45;
       if ( v26 )
-        _InterlockedDecrement64(&qword_140E2D7A8);
+        _InterlockedDecrement64(&qword_140E2D928);
       else
-        _InterlockedDecrement64(&qword_140E2D7B0);
+        _InterlockedDecrement64(&qword_140E2D930);
     }
     if ( (*(_DWORD *)(v16 + 32) & 0xC00000) == 0xC00000 )
       MiChangePageAttribute(v16, 1u);
@@ -225,13 +225,13 @@ unsigned __int64 __fastcall MiFreePagesFromMdl(ULONG_PTR BugCheckParameter2, uns
       v27 = (*(_DWORD *)(v16 + 32) >> 22) & 3;
       v45 = v48;
       v42 = v27;
-      if ( !stru_140E36558.InitialStack )
+      if ( !stru_140E366D8.InitialStack )
         goto LABEL_52;
       if ( ((*(_QWORD *)(v16 + 40) >> 60) & 7) != 1 )
         goto LABEL_52;
-      InitialStack = stru_140E36558.InitialStack;
+      InitialStack = stru_140E366D8.InitialStack;
       v29 = v50 / 48;
-      if ( !stru_140E36558.InitialStack )
+      if ( !stru_140E366D8.InitialStack )
         goto LABEL_52;
       do
       {
@@ -262,13 +262,13 @@ LABEL_52:
       v14 = v32;
     if ( (v14 & 2) != 0 )
       goto LABEL_77;
-    if ( stru_140E36558.InitialStack )
+    if ( stru_140E366D8.InitialStack )
     {
       if ( ((*(_QWORD *)(v16 + 40) >> 60) & 7) == 1 )
       {
-        v33 = stru_140E36558.InitialStack;
+        v33 = stru_140E366D8.InitialStack;
         v34 = v50 / 48;
-        if ( stru_140E36558.InitialStack )
+        if ( stru_140E366D8.InitialStack )
         {
           do
           {

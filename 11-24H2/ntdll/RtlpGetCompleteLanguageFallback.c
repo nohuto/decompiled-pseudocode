@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGetCompleteLanguageFallback @ 0x18013FBF4
+ * XREFs of RtlpGetCompleteLanguageFallback @ 0x18013DDE4
  * Callers:
- *     RtlpAutoCompleteLanguageFallback @ 0x18013F3FC (RtlpAutoCompleteLanguageFallback.c)
- *     RtlpSetInstallLanguage @ 0x180140140 (RtlpSetInstallLanguage.c)
+ *     RtlpAutoCompleteLanguageFallback @ 0x18013D5EC (RtlpAutoCompleteLanguageFallback.c)
+ *     RtlpSetInstallLanguage @ 0x18013E330 (RtlpSetInstallLanguage.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1800DBBA0 (RtlStringCchCopyExW.c)
- *     RtlpGetDefaultLanguageBaseOrParent @ 0x18013FD58 (RtlpGetDefaultLanguageBaseOrParent.c)
+ *     RtlStringCchCopyExW @ 0x1800D6C80 (RtlStringCchCopyExW.c)
+ *     RtlpGetDefaultLanguageBaseOrParent @ 0x18013DF48 (RtlpGetDefaultLanguageBaseOrParent.c)
  */
 
 __int64 __fastcall RtlpGetCompleteLanguageFallback(__int64 a1, _BYTE *a2, __int64 a3, _WORD *a4, unsigned int a5)

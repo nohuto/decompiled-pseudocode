@@ -14,7 +14,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateSymbolicLinkObject(
         PHANDLE SymbolicLinkHandle,
         ACCESS_MASK DesiredAccess,
@@ -23,5 +22,5 @@ NTSTATUS __stdcall ZwCreateSymbolicLinkObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SymbolicLinkHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(SymbolicLinkHandle);
 }

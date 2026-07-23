@@ -1,14 +1,14 @@
 /*
- * XREFs of MiValidateSectionRevertRelocations @ 0x1409CD26C
+ * XREFs of MiValidateSectionRevertRelocations @ 0x14099E24C
  * Callers:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     KeZeroSinglePage @ 0x1407307A0 (KeZeroSinglePage.c)
- *     KeCopyPageNoOverride @ 0x140730860 (KeCopyPageNoOverride.c)
- *     MiRevertRelocations @ 0x1409CE770 (MiRevertRelocations.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     KeZeroSinglePage @ 0x140735370 (KeZeroSinglePage.c)
+ *     KeCopyPageNoOverride @ 0x140735430 (KeCopyPageNoOverride.c)
+ *     MiRevertRelocations @ 0x14099F750 (MiRevertRelocations.c)
  */
 
 __int64 __fastcall MiValidateSectionRevertRelocations(__int64 a1)

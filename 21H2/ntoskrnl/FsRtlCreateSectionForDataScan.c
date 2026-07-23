@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlCreateSectionForDataScan @ 0x1402E9010
+ * XREFs of FsRtlCreateSectionForDataScan @ 0x14029A360
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     CcZeroEndOfLastPage @ 0x1403570FC (CcZeroEndOfLastPage.c)
- *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
- *     MmGetFileObjectForSection @ 0x1406D41F0 (MmGetFileObjectForSection.c)
- *     MmCreateSectionEx @ 0x1406D4704 (MmCreateSectionEx.c)
- *     FsRtlGetFileSize @ 0x1406D4860 (FsRtlGetFileSize.c)
- *     FsRtlAcquireToCreateMappedSection @ 0x140707974 (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     CcZeroEndOfLastPage @ 0x140361E4C (CcZeroEndOfLastPage.c)
+ *     ObInsertObject @ 0x1406AB4A0 (ObInsertObject.c)
+ *     MmGetFileObjectForSection @ 0x1406AB4D0 (MmGetFileObjectForSection.c)
+ *     MmCreateSectionEx @ 0x1406AB9E4 (MmCreateSectionEx.c)
+ *     FsRtlGetFileSize @ 0x1406ABB40 (FsRtlGetFileSize.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x14071ED54 (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlReleaseFile @ 0x14071EE50 (FsRtlReleaseFile.c)
  */
 
 NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
@@ -69,7 +69,7 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
                     (__int64)&v25);
   if ( MappedSection < 0 )
   {
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread(KeGetCurrentThread());
     result = MappedSection;
     KeGetCurrentThread()[1].TrapFrame = 0LL;
   }
@@ -119,7 +119,7 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
       }
     }
     FsRtlReleaseFile(FileObject);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread(KeGetCurrentThread());
     KeGetCurrentThread()[1].TrapFrame = 0LL;
     if ( inserted >= 0 )
     {

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiEventQueryRemoveDevices @ 0x14064CFD0
+ * XREFs of PiEventQueryRemoveDevices @ 0x14064D0B4
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PnpDeleteLockedDeviceNodes @ 0x1404C55B8 (PnpDeleteLockedDeviceNodes.c)
- *     PnpCollectOpenHandles @ 0x1406428B8 (PnpCollectOpenHandles.c)
- *     PnpFreeVetoInformation @ 0x140642A48 (PnpFreeVetoInformation.c)
- *     PnpLogVetoInformation @ 0x140642AE0 (PnpLogVetoInformation.c)
- *     PiEventRemovalCheckOpenHandles @ 0x14064D36C (PiEventRemovalCheckOpenHandles.c)
- *     PiEventRemovalOpenHandleVeto @ 0x14064D3E8 (PiEventRemovalOpenHandleVeto.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1404859EC (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCollectOpenHandles @ 0x14064299C (PnpCollectOpenHandles.c)
+ *     PnpFreeVetoInformation @ 0x140642B2C (PnpFreeVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x140642BC4 (PnpLogVetoInformation.c)
+ *     PiEventRemovalCheckOpenHandles @ 0x14064D450 (PiEventRemovalCheckOpenHandles.c)
+ *     PiEventRemovalOpenHandleVeto @ 0x14064D4CC (PiEventRemovalOpenHandleVeto.c)
  */
 
 __int64 __fastcall PiEventQueryRemoveDevices(

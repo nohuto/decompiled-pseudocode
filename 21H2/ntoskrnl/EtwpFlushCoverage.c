@@ -1,19 +1,22 @@
 /*
- * XREFs of EtwpFlushCoverage @ 0x1407740D0
+ * XREFs of EtwpFlushCoverage @ 0x140774290
  * Callers:
- *     EtwShutdown @ 0x140773FC0 (EtwShutdown.c)
+ *     EtwShutdown @ 0x140774180 (EtwShutdown.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     EtwpCoverageFlushPending @ 0x1406C21D0 (EtwpCoverageFlushPending.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwpCoverageFlushPending @ 0x140620E90 (EtwpCoverageFlushPending.c)
  */
 
 _QWORD *EtwpFlushCoverage()
 {
   struct _KTHREAD *CurrentThread; // rax
   char v1; // bl
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -26,5 +29,5 @@ _QWORD *EtwpFlushCoverage()
   if ( (v1 & 2) != 0 && (v1 & 4) == 0 )
     ExfTryToWakePushLock(&EtwpCoverageLock);
   KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v2, v3, v4);
 }

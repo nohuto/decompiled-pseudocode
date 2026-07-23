@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlContractHashTable @ 0x1400DA2F0
+ * XREFs of RtlContractHashTable @ 0x1400DA370
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x1400D9DDC (RtlpGetChainHead.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlpGetChainHead @ 0x1400D9E5C (RtlpGetChainHead.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)

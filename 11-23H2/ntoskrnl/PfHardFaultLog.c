@@ -1,10 +1,10 @@
 /*
- * XREFs of PfHardFaultLog @ 0x1402A30A8
+ * XREFs of PfHardFaultLog @ 0x1402A3338
  * Callers:
- *     MiWaitForInPageComplete @ 0x1402A17A0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x1402A1A30 (MiWaitForInPageComplete.c)
  * Callees:
- *     PfLogEvent @ 0x14028C088 (PfLogEvent.c)
- *     EtwTraceSiloTimedEvent @ 0x14046759A (EtwTraceSiloTimedEvent.c)
+ *     PfLogEvent @ 0x14028C318 (PfLogEvent.c)
+ *     EtwTraceSiloTimedEvent @ 0x14046799A (EtwTraceSiloTimedEvent.c)
  */
 
 struct _KTHREAD *__fastcall PfHardFaultLog(_QWORD *a1, int a2, int a3)

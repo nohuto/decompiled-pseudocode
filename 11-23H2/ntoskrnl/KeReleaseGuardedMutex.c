@@ -1,12 +1,12 @@
 /*
- * XREFs of KeReleaseGuardedMutex @ 0x1402284C0
+ * XREFs of KeReleaseGuardedMutex @ 0x1402285D0
  * Callers:
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
- *     EtwpSetProviderTraitsCommon @ 0x1406BE544 (EtwpSetProviderTraitsCommon.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1406BE574 (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExpReleaseFastMutexContended @ 0x1402BBF60 (ExpReleaseFastMutexContended.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExpReleaseFastMutexContended @ 0x1402BC1F0 (ExpReleaseFastMutexContended.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KeReleaseGuardedMutex(PKGUARDED_MUTEX Mutex)
@@ -24,10 +24,13 @@ void __stdcall KeReleaseGuardedMutex(PKGUARDED_MUTEX Mutex)
   v3 = _InterlockedCompareExchange(&Mutex->Count, 1, 0);
   if ( v3 )
     ExpReleaseFastMutexContended(Mutex, v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)OldIrql_low <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)OldIrql_low <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

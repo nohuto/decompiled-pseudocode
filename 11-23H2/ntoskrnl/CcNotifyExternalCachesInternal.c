@@ -1,17 +1,17 @@
 /*
- * XREFs of CcNotifyExternalCachesInternal @ 0x1403D31F8
+ * XREFs of CcNotifyExternalCachesInternal @ 0x1403D33D8
  * Callers:
- *     CcQueueLazyWriteScanThreadForVolume @ 0x1403C0470 (CcQueueLazyWriteScanThreadForVolume.c)
- *     CcQueueLazyWriteScanThread @ 0x140536E40 (CcQueueLazyWriteScanThread.c)
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x1403C0650 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcQueueLazyWriteScanThread @ 0x140537390 (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     CcCalculatePagesToWrite @ 0x140299AD8 (CcCalculatePagesToWrite.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     CcCalculatePagesToWriteForVolume @ 0x140356094 (CcCalculatePagesToWriteForVolume.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     CcCalculatePagesToWrite @ 0x140299D68 (CcCalculatePagesToWrite.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     CcCalculatePagesToWriteForVolume @ 0x140356234 (CcCalculatePagesToWriteForVolume.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CcNotifyExternalCachesInternal(unsigned int a1, __int64 a2, __int64 a3)
@@ -70,10 +70,10 @@ __int64 __fastcall CcNotifyExternalCachesInternal(unsigned int a1, __int64 a2, _
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&CcExternalCacheListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v6 <= 0xFu
       && (unsigned __int8)result >= 2u )

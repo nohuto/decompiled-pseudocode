@@ -1,14 +1,14 @@
 /*
- * XREFs of ADD_MAP_REGISTERS @ 0x140705A88
+ * XREFs of ADD_MAP_REGISTERS @ 0x140705AB8
  * Callers:
- *     VfAllocateAdapterChannel @ 0x1407061E0 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x1407063A4 (VfAllocateAdapterChannelEx.c)
- *     VfAllocateCrashDumpRegisters @ 0x1407066B8 (VfAllocateCrashDumpRegisters.c)
- *     VfHalAllocateMapRegisters @ 0x140707AB4 (VfHalAllocateMapRegisters.c)
- *     ViScatterGatherCallback @ 0x14070A358 (ViScatterGatherCallback.c)
+ *     VfAllocateAdapterChannel @ 0x140706210 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x1407063D4 (VfAllocateAdapterChannelEx.c)
+ *     VfAllocateCrashDumpRegisters @ 0x1407066E8 (VfAllocateCrashDumpRegisters.c)
+ *     VfHalAllocateMapRegisters @ 0x140707AE4 (VfHalAllocateMapRegisters.c)
+ *     ViScatterGatherCallback @ 0x14070A388 (ViScatterGatherCallback.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ADD_MAP_REGISTERS(__int64 a1, unsigned int a2, char a3)

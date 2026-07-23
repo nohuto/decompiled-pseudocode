@@ -18,33 +18,31 @@
  *     _RtlpWakeSRWLock@12 @ 0x4B2E3BAB (_RtlpWakeSRWLock@12.c)
  */
 
-int __stdcall RtlReleasePath(int a1)
+void __cdecl RtlReleasePath(PWSTR Path)
 {
-  int v1; // edi
-  int result; // eax
-  signed __int32 v3; // edx
-  int v4; // ebx
-  signed __int32 v5; // ecx
+  PWSTR v1; // edi
+  signed __int32 v2; // edx
+  int v3; // ebx
+  signed __int32 v4; // ecx
+  signed __int32 v5; // eax
 
   RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
-  v1 = --*(_DWORD *)(a1 - 28) == 0 ? a1 - 80 : 0;
-  result = _InterlockedCompareExchange(&RtlpCachedPathLock, 0, 1);
-  v3 = result;
-  if ( result != 1 )
+  v1 = --*((_DWORD *)Path - 7) == 0 ? Path - 40 : 0;
+  v2 = _InterlockedCompareExchange((volatile signed __int32 *)&RtlpCachedPathLock, 0, 1);
+  if ( v2 != 1 )
   {
     while ( 1 )
     {
-      v4 = v3 & 6;
-      v5 = v3 + 4 * (v4 == 2) - 1;
-      result = _InterlockedCompareExchange(&RtlpCachedPathLock, v5, v3);
-      if ( result == v3 )
+      v3 = v2 & 6;
+      v4 = v2 + 4 * (v3 == 2) - 1;
+      v5 = _InterlockedCompareExchange((volatile signed __int32 *)&RtlpCachedPathLock, v4, v2);
+      if ( v5 == v2 )
         break;
-      v3 = result;
+      v2 = v5;
     }
-    if ( v4 == 2 )
-      result = RtlpWakeSRWLock(v5);
+    if ( v3 == 2 )
+      RtlpWakeSRWLock(v4);
   }
   if ( v1 )
-    return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v1);
-  return result;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
 }

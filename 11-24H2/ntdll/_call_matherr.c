@@ -1,11 +1,11 @@
 /*
- * XREFs of _call_matherr @ 0x180129F20
+ * XREFs of _call_matherr @ 0x180128150
  * Callers:
- *     _handle_error @ 0x18012A070 (_handle_error.c)
+ *     _handle_error @ 0x1801282A0 (_handle_error.c)
  * Callees:
- *     _set_errno_from_matherr @ 0x18012B000 (_set_errno_from_matherr.c)
- *     _ctrlfp @ 0x18012B390 (_ctrlfp.c)
- *     _matherr @ 0x18012C4D0 (_matherr.c)
+ *     _set_errno_from_matherr @ 0x180129230 (_set_errno_from_matherr.c)
+ *     _ctrlfp @ 0x1801295C0 (_ctrlfp.c)
+ *     _matherr @ 0x18012A700 (_matherr.c)
  */
 
 double __fastcall call_matherr(unsigned int a1, __int64 a2, char *a3, double a4, double a5, double a6, __int64 a7)

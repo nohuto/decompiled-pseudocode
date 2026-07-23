@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteEnclavePage @ 0x14054A440
+ * XREFs of MiDeleteEnclavePage @ 0x14054A680
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x140549A28 (MiDecommitHardwareEnclavePages.c)
- *     MiDeleteEnclavePages @ 0x1409B0B60 (MiDeleteEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549C68 (MiDecommitHardwareEnclavePages.c)
+ *     MiDeleteEnclavePages @ 0x1409B1A90 (MiDeleteEnclavePages.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUpdateAwePageTable @ 0x14054E034 (MiUpdateAwePageTable.c)
+ *     MiUpdateAwePageTable @ 0x14054E274 (MiUpdateAwePageTable.c)
  */
 
 __int64 __fastcall MiDeleteEnclavePage(unsigned __int64 a1, int a2)
@@ -68,7 +68,7 @@ __int64 __fastcall MiDeleteEnclavePage(unsigned __int64 a1, int a2)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v10 = 1;
-      if ( HIBYTE(word_140C4E008) )
+      if ( HIBYTE(word_140C4E048) )
         goto LABEL_21;
       v14 = (ZeroPte & 1) == 0;
     }
@@ -84,7 +84,7 @@ __int64 __fastcall MiDeleteEnclavePage(unsigned __int64 a1, int a2)
 LABEL_21:
   *(_QWORD *)a1 = v8;
   if ( v10 )
-    MiWritePteShadow(a1, v8, v12);
+    MiWritePteShadow(a1, v8);
   if ( a2 )
     MiUpdateAwePageTable(((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, -1LL, 0xFFFFFFFFLL);
   v15 = 48 * v9 - 0x58000000000LL;

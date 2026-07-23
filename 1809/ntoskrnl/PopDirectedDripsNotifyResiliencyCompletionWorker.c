@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsNotifyResiliencyCompletionWorker @ 0x1402D6A60
+ * XREFs of PopDirectedDripsNotifyResiliencyCompletionWorker @ 0x1402D6C50
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopPdcCompleteResiliencyCallback @ 0x14086EFF0 (PopPdcCompleteResiliencyCallback.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PopPdcCompleteResiliencyCallback @ 0x140870250 (PopPdcCompleteResiliencyCallback.c)
  */
 
 __int64 __fastcall PopDirectedDripsNotifyResiliencyCompletionWorker(__int64 a1)

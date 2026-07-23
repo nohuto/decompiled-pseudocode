@@ -93,7 +93,7 @@
  *     PsInitializeSyscallProviders @ 0x140B76D74 (PsInitializeSyscallProviders.c)
  */
 
-char __fastcall IoInitSystemPreDrivers(__int64 a1)
+char __fastcall IoInitSystemPreDrivers(_QWORD *Context)
 {
   __int64 v2; // rax
   int v3; // r14d
@@ -118,41 +118,39 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   __int64 v22; // rcx
   __int64 v23; // rdx
   __int64 v24; // rcx
-  __int64 v25; // rdx
-  int v26; // ebx
-  int v27; // eax
-  __int64 v28; // r8
-  int v29; // ebx
-  ULONG v30; // ebx
+  int v25; // ebx
+  int v26; // eax
+  __int64 v27; // r8
+  int v28; // ebx
+  ULONG v29; // ebx
   int SystemDlls; // eax
-  __int64 v32; // r8
+  __int64 v31; // r8
   int inited; // eax
-  __int64 v35; // r8
-  size_t Size; // [rsp+28h] [rbp-99h]
+  __int64 v34; // r8
   _BYTE OutputBuffer[8]; // [rsp+48h] [rbp-79h] BYREF
   HANDLE KeyHandle; // [rsp+50h] [rbp-71h] BYREF
-  __int64 v39; // [rsp+58h] [rbp-69h] BYREF
+  ULONG ResultLength; // [rsp+58h] [rbp-69h] BYREF
   PVOID Object; // [rsp+60h] [rbp-61h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-59h] BYREF
   UNICODE_STRING DestinationString; // [rsp+98h] [rbp-29h] BYREF
-  _QWORD v43[3]; // [rsp+A8h] [rbp-19h] BYREF
+  _QWORD v41[3]; // [rsp+A8h] [rbp-19h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+C0h] [rbp-1h] BYREF
-  __int128 v45; // [rsp+D0h] [rbp+Fh] BYREF
-  __int128 v46; // [rsp+E0h] [rbp+1Fh]
+  __int128 v43; // [rsp+D0h] [rbp+Fh] BYREF
+  __int128 v44; // [rsp+E0h] [rbp+1Fh]
 
-  v43[0] = 0x1000000LL;
-  v43[2] = 0LL;
+  v41[0] = 0x1000000LL;
+  v41[2] = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v43[1] = IoInitSystem_deviceNameBuffer;
-  v2 = *(_QWORD *)(a1 + 240);
+  v41[1] = IoInitSystem_deviceNameBuffer;
+  v2 = Context[30];
   DestinationString = 0LL;
   KeyHandle = 0LL;
   IoStatusBlock = 0LL;
   v3 = *(_DWORD *)(v2 + 132) & 0x80000;
   OutputBuffer[0] = 0;
-  v45 = 0LL;
-  v46 = 0LL;
+  v43 = 0LL;
+  v44 = 0LL;
   ExInitializeResourceLite(&IopDriverLoadResource);
   ExInitializeResourceLite(&IopDatabaseResource);
   ExInitializeResourceLite(&IopSecurityResource);
@@ -182,7 +180,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   IopPerfIoTrackingListHead = (__int64)&IopPerfIoTrackingListHead;
   IoStatisticsLock = 0LL;
   IopFunctionPointerLock = 0LL;
-  IopDiskIoAttributionTree = 0LL;
+  *(_OWORD *)&IopDiskIoAttributionTree = 0LL;
   IopUniqueDeviceObjectNumber = 0;
   IopIrpStackProfilerFlags = 0;
   v4 = __rdtsc() >> 4;
@@ -201,41 +199,41 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   }
   if ( (unsigned int)(IopIrpCompletionTimeoutInSeconds - 2) > 0x12A )
     IopIrpCompletionTimeoutInSeconds = 300;
-  IopQueryProcessorInitValues((__int64)&v45);
+  IopQueryProcessorInitValues((__int64)&v43);
   ExInitializeSystemLookasideList(
     (__int64)&IopCompletionLookasideList,
     512,
     56,
     544236361,
-    SWORD3(v45),
+    SWORD3(v43),
     (__int64)&ExSystemLookasideListHead);
   ExInitializeSystemLookasideList(
     (__int64)&IopLargeIrpLookasideList,
     512,
-    SDWORD1(v46),
+    SDWORD1(v44),
     1819308617,
-    SWORD2(v45),
+    SWORD2(v43),
     (__int64)&ExSystemLookasideListHead);
   ExInitializeSystemLookasideList(
     (__int64)&IopMediumIrpLookasideList,
     512,
-    v46,
+    v44,
     1836085833,
-    SWORD1(v45),
+    SWORD1(v43),
     (__int64)&ExSystemLookasideListHead);
   ExInitializeSystemLookasideList(
     (__int64)&IopSmallIrpLookasideList,
     512,
-    SHIDWORD(v45),
+    SHIDWORD(v43),
     1936749129,
-    v45,
+    v43,
     (__int64)&ExSystemLookasideListHead);
   ExInitializeSystemLookasideList(
     (__int64)&IopMdlLookasideList,
     512,
-    SDWORD2(v46),
+    SDWORD2(v44),
     543974477,
-    SWORD4(v45),
+    SWORD4(v43),
     (__int64)&ExSystemLookasideListHead);
   ExInitializeNPagedLookasideList(&IopSafeCompletionLookasideList, 0LL, 0LL, 0x200u, 0x20uLL, 0x73556F49u, 0);
   FsRtlInitExtraCreateParameterLookasideList(&IopSymlinkInfoLookasideList, 0, 0x11EuLL, 0x69536F49u);
@@ -247,16 +245,16 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     0x30uLL,
     0x7443704Fu,
     0);
-  LODWORD(v39) = 0;
+  ResultLength = 0;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   if ( ActiveProcessorCount )
   {
     v7 = 0LL;
     do
     {
-      IoInitializeProcessor(KiProcessorBlock[v7], &v45);
-      v7 = (unsigned int)(v39 + 1);
-      LODWORD(v39) = v7;
+      IoInitializeProcessor(KiProcessorBlock[v7], &v43);
+      v7 = ResultLength + 1;
+      ResultLength = v7;
     }
     while ( (unsigned int)v7 < ActiveProcessorCount );
   }
@@ -302,8 +300,13 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   else
   {
     RtlInitUnicodeString(&DestinationString, L"Start");
-    LODWORD(Size) = 32;
-    v10 = (int)NtQueryValueKey(KeyHandle, &DestinationString, 2, IoInitSystem_valueBuffer, Size, (unsigned int *)&v39) < 0
+    v10 = NtQueryValueKey(
+            KeyHandle,
+            &DestinationString,
+            KeyValuePartialInformation,
+            IoInitSystem_valueBuffer,
+            0x20u,
+            &ResultLength) < 0
        || dword_140D818BC != 4
        || dword_140D818C4 == 4;
     IopErrorLogDisabledThisBoot = v10;
@@ -352,7 +355,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 528;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  if ( (int)NtCreateEvent((unsigned __int64)&KeyHandle, 2031619, (__int64)&ObjectAttributes, NotificationEvent, 0) < 0 )
+  if ( NtCreateEvent(&KeyHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0) < 0 )
   {
     HeadlessKernelAddLogEntry();
     return 0;
@@ -387,7 +390,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     LODWORD(IopInitFailCode) = 15;
     return 0;
   }
-  if ( IopInitializePlugPlayServices(a1, 0LL) < 0 )
+  if ( IopInitializePlugPlayServices((__int64)Context, 0LL) < 0 )
   {
     HeadlessKernelAddLogEntry();
     LODWORD(IopInitFailCode) = 4;
@@ -395,11 +398,11 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   }
   if ( v3 )
     WheaSelLogCheckPoint();
-  KseInitialize(a1, 0);
+  KseInitialize((__int64)Context, 0);
   PoInitDriverServices();
   off_140C02140[0]();
   PnpMarkHalDeviceNode();
-  if ( !WMIInitialize(0, a1) )
+  if ( !WMIInitialize(0, (__int64)Context) )
     return 0;
   if ( v3 )
     WheaSelLogCheckPoint();
@@ -414,7 +417,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     LODWORD(IopInitFailCode) = 17;
     return 0;
   }
-  EtwInitialize(1u, a1);
+  EtwInitialize(1u, (__int64)Context);
   if ( EtwRegister(&IoTraceProvider, (PETWENABLECALLBACK)IopEtwEnableCallback, 0LL, &IoTraceHandle) < 0 )
   {
     LODWORD(IopInitFailCode) = 16;
@@ -434,7 +437,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C062A8, 0LL, 0LL);
   IopInitializeDumpPolicySettings(1);
   TlgRegisterAggregateProvider(&dword_140C03838);
-  SeAuditBootConfiguration(*(_QWORD *)(*(_QWORD *)(a1 + 240) + 2880LL));
+  SeAuditBootConfiguration(*(_QWORD *)(Context[30] + 2880LL));
   BootApplicationPersistentDataProcess(1);
   BapdRecordFirmwareBootStats();
   KdInitialize(2LL, 0LL, &KdpContext, v16);
@@ -459,14 +462,14 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     WheaSelLogCheckPoint();
   if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
     McTemplateK0q_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)WheaInitializeStart, v17, 0);
-  WheaInitialize(a1, 0);
+  WheaInitialize((__int64)Context, 0);
   if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
     McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)WheaInitializeStop);
   if ( v3 )
     WheaSelLogCheckPoint();
-  if ( (int)IopStoreArcInformation(a1) < 0 )
+  if ( (int)IopStoreArcInformation(Context) < 0 )
     return 0;
-  if ( IopInitializePlugPlayServices(a1, 1LL) < 0 )
+  if ( IopInitializePlugPlayServices((__int64)Context, 1LL) < 0 )
   {
     HeadlessKernelAddLogEntry();
     LODWORD(IopInitFailCode) = 5;
@@ -486,11 +489,11 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   LOWORD(IoStatusBlockRangeTableLock.Event.Header.Lock) = 1;
   IoStatusBlockRangeTableLock.Event.Header.Size = 6;
   IoStatusBlockRangeTableLock.Event.Header.SignalState = 0;
-  KitpInitAitSampleRate(a1);
+  KitpInitAitSampleRate(Context);
   if ( EtwRegister(&MS_Windows_AIT_Provider, 0LL, 0LL, &KitEtwHandle) < 0 )
     KitEtwHandle = 0LL;
-  KseInitialize(a1, 1);
-  if ( HvlPhase2Initialize(a1, v19, v20, v21) < 0 )
+  KseInitialize((__int64)Context, 1);
+  if ( HvlPhase2Initialize((__int64)Context, v19, v20, v21) < 0 )
     return 0;
   if ( v3 )
     WheaSelLogCheckPoint();
@@ -527,22 +530,21 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   PsAltSystemCallRegistrationLock = 0LL;
   PsAltSystemCallHandlers[0] = (__int64)PsPicoAltSystemCallDispatch;
   IopReportBugCheckProgress = (__int64)HalSetEnvironmentVariableEx;
-  if ( (*(_DWORD *)(a1 + 264) & 2) != 0 )
+  if ( (Context[33] & 2) != 0 )
     IopReportBugCheckProgress = (__int64)VslReportBugCheckProgress;
-  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 0x100000) != 0 )
+  if ( (*(_DWORD *)(Context[30] + 132LL) & 0x100000) != 0 )
   {
     if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
       McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)CrashDumpInitializeStart);
-    LOBYTE(v25) = 1;
-    inited = IopInitCrashDumpDuringSysInit(a1, v25);
+    inited = IopInitCrashDumpDuringSysInit(Context);
     if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
       McTemplateK0q_EtwWriteTransfer(
         IoMgrProvider_Context,
         (const EVENT_DESCRIPTOR *)CrashDumpInitializeStop,
-        v35,
+        v34,
         inited);
   }
-  if ( !(unsigned int)IopInitializeBootDrivers(a1) )
+  if ( !(unsigned int)IopInitializeBootDrivers((__int64)Context) )
   {
     HeadlessKernelAddLogEntry();
     LODWORD(IopInitFailCode) = 6;
@@ -550,20 +552,20 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   }
   if ( (Microsoft_Windows_Kernel_IOEnableBits & 8) != 0 )
     McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)LoadBootHotPatchesStart);
-  v26 = MmRegisterHotPatches(a1);
+  v25 = MmRegisterHotPatches(Context);
   if ( (Microsoft_Windows_Kernel_IOEnableBits & 8) != 0 )
     McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)LoadBootHotPatchesStop);
-  if ( v26 < 0 )
+  if ( v25 < 0 )
   {
     LODWORD(IopInitFailCode) = 21;
     return 0;
   }
-  if ( !(unsigned __int8)PoInitSystem(2LL, a1) )
+  if ( !(unsigned __int8)PoInitSystem(2LL, Context) )
     KeBugCheck(0xA0u);
   if ( v3 )
     WheaSelLogCheckPoint();
   SmInitSystem(1LL);
-  EtwInitialize(2u, a1);
+  EtwInitialize(2u, (__int64)Context);
   OutputBuffer[0] = 0;
   if ( VslVsmEnabled && NtPowerInformation(PlatformInformation, 0LL, 0, OutputBuffer, 1u) >= 0 && OutputBuffer[0] )
   {
@@ -599,13 +601,13 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   IopInitializeTriageDumpData();
   if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
     McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)CrashDumpInitializeStart);
-  v27 = IopInitCrashDumpDuringSysInit(a1, 0LL);
-  v29 = v27;
+  v26 = IopInitCrashDumpDuringSysInit(Context);
+  v28 = v26;
   if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
-    McTemplateK0q_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)CrashDumpInitializeStop, v28, v27);
+    McTemplateK0q_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)CrashDumpInitializeStop, v27, v26);
   if ( v3 )
     WheaSelLogCheckPoint();
-  if ( v29 < 0 )
+  if ( v28 < 0 )
   {
     if ( !AllowCrashDump )
       IopTraceCrashDumpDisabledOnBoot();
@@ -616,10 +618,10 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   }
   if ( !RtlIsStateSeparationEnabled() )
     PpLastGoodDoBootProcessing();
-  v30 = NtGlobalFlag;
+  v29 = NtGlobalFlag;
   NtGlobalFlag |= 0x40000u;
   SystemDlls = PsLocateSystemDlls();
-  NtGlobalFlag = v30;
+  NtGlobalFlag = v29;
   if ( SystemDlls < 0 )
   {
     HeadlessKernelAddLogEntry();
@@ -627,13 +629,13 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     return 0;
   }
   PfSnBeginBootPhase(0);
-  if ( !(unsigned __int8)IopReassignSystemRoot(a1, v43) )
+  if ( !(unsigned __int8)IopReassignSystemRoot(Context, v41) )
   {
     HeadlessKernelAddLogEntry();
     LODWORD(IopInitFailCode) = 9;
     return 0;
   }
-  if ( !(unsigned __int8)IopProtectSystemPartition(a1) )
+  if ( !(unsigned __int8)IopProtectSystemPartition(Context) )
   {
     HeadlessKernelAddLogEntry();
     LODWORD(IopInitFailCode) = 10;
@@ -659,8 +661,8 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   if ( v3 )
     WheaSelLogCheckPoint();
   if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
-    McTemplateK0q_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)WheaInitializeStart, v32, 1);
-  WheaInitialize(a1, 1u);
+    McTemplateK0q_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)WheaInitializeStart, v31, 1);
+  WheaInitialize((__int64)Context, 1u);
   if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
     McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)WheaInitializeStop);
   if ( v3 )

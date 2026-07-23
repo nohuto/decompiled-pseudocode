@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpGetSystemFirmwareTableInformation @ 0x14077E8E0
+ * XREFs of ExpGetSystemFirmwareTableInformation @ 0x14077EAD0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
- *     ExpGetSystemFlushInformation @ 0x14077D080 (ExpGetSystemFlushInformation.c)
- *     ExpGetSystemPlatformBinary @ 0x14085F998 (ExpGetSystemPlatformBinary.c)
- *     ExGetSystemFirmwareTable @ 0x140860C70 (ExGetSystemFirmwareTable.c)
- *     ExEnumerateSystemFirmwareTables @ 0x1409F5CE0 (ExEnumerateSystemFirmwareTables.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
+ *     ExpGetSystemFlushInformation @ 0x14077D270 (ExpGetSystemFlushInformation.c)
+ *     ExpGetSystemPlatformBinary @ 0x14085FBD8 (ExpGetSystemPlatformBinary.c)
+ *     ExGetSystemFirmwareTable @ 0x140860EB0 (ExGetSystemFirmwareTable.c)
+ *     ExEnumerateSystemFirmwareTables @ 0x1409F5F70 (ExEnumerateSystemFirmwareTables.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     PsIsProcessAppContainer @ 0x14077F08C (PsIsProcessAppContainer.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC7E4 (ExpFirmwareAccessAppContainerCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PsIsProcessAppContainer @ 0x14077F27C (PsIsProcessAppContainer.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1409FCA74 (ExpFirmwareAccessAppContainerCheck.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -120,7 +120,7 @@ LABEL_6:
       v23 = 0;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C038A8,
-        (unsigned __int8 *)byte_140035E5B,
+        (unsigned __int8 *)byte_140035F43,
         0LL,
         0LL,
         3u,

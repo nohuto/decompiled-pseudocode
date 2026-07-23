@@ -1,20 +1,20 @@
 /*
- * XREFs of ExEnumHandleTable @ 0x1407ADF70
+ * XREFs of ExEnumHandleTable @ 0x1407AE160
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1405582E0 (IoRevokeHandlesForProcess.c)
- *     ObInitProcess @ 0x1406B362C (ObInitProcess.c)
- *     NtQueryInformationProcess @ 0x1406FCA90 (NtQueryInformationProcess.c)
- *     ObFindHandleForObject @ 0x1407ADEC0 (ObFindHandleForObject.c)
- *     IopQueryProcessIdsUsingFile @ 0x14094B138 (IopQueryProcessIdsUsingFile.c)
- *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140958078 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
- *     ObShutdownSystem @ 0x14097AE00 (ObShutdownSystem.c)
- *     EtwpObjectHandleRundown @ 0x1409EF378 (EtwpObjectHandleRundown.c)
+ *     IoRevokeHandlesForProcess @ 0x1405589A0 (IoRevokeHandlesForProcess.c)
+ *     ObInitProcess @ 0x1406B365C (ObInitProcess.c)
+ *     NtQueryInformationProcess @ 0x1406FCCA0 (NtQueryInformationProcess.c)
+ *     ObFindHandleForObject @ 0x1407AE0B0 (ObFindHandleForObject.c)
+ *     IopQueryProcessIdsUsingFile @ 0x14094B338 (IopQueryProcessIdsUsingFile.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140958278 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     ObShutdownSystem @ 0x14097B000 (ObShutdownSystem.c)
+ *     EtwpObjectHandleRundown @ 0x1409EF608 (EtwpObjectHandleRundown.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ExpLookupHandleTableEntry @ 0x1406E6930 (ExpLookupHandleTableEntry.c)
- *     ExpGetNextHandleTableEntry @ 0x1407AE08C (ExpGetNextHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1407BA690 (ExpBlockOnLockedHandleEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ExpLookupHandleTableEntry @ 0x1406E6960 (ExpLookupHandleTableEntry.c)
+ *     ExpGetNextHandleTableEntry @ 0x1407AE27C (ExpGetNextHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1407BA970 (ExpBlockOnLockedHandleEntry.c)
  */
 
 __int64 __fastcall ExEnumHandleTable(

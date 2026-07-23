@@ -46,14 +46,14 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
   unsigned int v25; // r9d
   unsigned int v26; // esi
   void *v27; // rax
-  struct _SID_IDENTIFIER_AUTHORITY v29; // [rsp+30h] [rbp-50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v29; // [rsp+30h] [rbp-50h] BYREF
   void *v30; // [rsp+38h] [rbp-48h]
   PSID Sid; // [rsp+40h] [rbp-40h]
   __int64 v32; // [rsp+48h] [rbp-38h]
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-30h] BYREF
   __int64 v34; // [rsp+70h] [rbp-10h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+D0h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v37; // [rsp+D8h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+D0h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v37; // [rsp+D8h] [rbp+58h] BYREF
 
   v2 = a1;
   *(_WORD *)&v29.Value[4] = 1280;
@@ -194,7 +194,7 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
                             Acl = RtlpAddKnownAce((int)v18, 2, 3, v21, v7, 0);
                             if ( (Acl & 0xC0000000) != 0xC0000000 )
                             {
-                              if ( (unsigned __int8)RtlValidAcl(v18) )
+                              if ( RtlValidAcl(v18) )
                               {
                                 Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v18, 0);
                                 if ( (Acl & 0xC0000000) != 0xC0000000 )

@@ -28,26 +28,26 @@ errno_t __cdecl _wmakepath_s(
   wchar_t v17; // [esp+Ch] [ebp-4h]
 
   v6 = Buffer;
-  if ( !Buffer || !BufferCount )
+  if ( !Buffer || !(_DWORD)BufferCount )
   {
     v16 = 22;
     goto LABEL_34;
   }
   v7 = 0;
   v8 = Buffer;
-  if ( Drive && *Drive )
+  if ( HIDWORD(BufferCount) && *(_WORD *)HIDWORD(BufferCount) )
   {
     v7 = 2;
-    if ( BufferCount <= 2 )
+    if ( (unsigned int)BufferCount <= 2 )
       goto LABEL_31;
-    *Buffer = *Drive;
+    *Buffer = *(_WORD *)HIDWORD(BufferCount);
     Buffer[1] = 58;
     v8 = Buffer + 2;
   }
-  v9 = Dir;
-  if ( Dir && *Dir )
+  v9 = Drive;
+  if ( Drive && *Drive )
   {
-    while ( ++v7 < BufferCount )
+    while ( ++v7 < (unsigned int)BufferCount )
     {
       v10 = *v9++;
       *v8++ = v10;
@@ -56,7 +56,7 @@ errno_t __cdecl _wmakepath_s(
         v11 = *(v9 - 1);
         if ( v11 != 47 && (_WORD)v11 != 92 )
         {
-          if ( ++v7 >= BufferCount )
+          if ( ++v7 >= (unsigned int)BufferCount )
             goto LABEL_31;
           *v8++ = 92;
         }
@@ -66,10 +66,10 @@ errno_t __cdecl _wmakepath_s(
     goto LABEL_31;
   }
 LABEL_15:
-  if ( Filename && *Filename )
+  if ( Dir && *Dir )
   {
-    v12 = (char *)((char *)Filename - (char *)v8);
-    while ( ++v7 < BufferCount )
+    v12 = (char *)((char *)Dir - (char *)v8);
+    while ( ++v7 < (unsigned int)BufferCount )
     {
       *v8 = *(wchar_t *)((char *)v8 + (_DWORD)v12);
       if ( !*(wchar_t *)((char *)++v8 + (_DWORD)v12) )
@@ -78,18 +78,18 @@ LABEL_15:
     goto LABEL_31;
   }
 LABEL_20:
-  if ( !Ext )
+  if ( !Filename )
     goto LABEL_30;
-  v17 = *Ext;
+  v17 = *Filename;
   v6 = Buffer;
-  if ( !*Ext || (v17 = *Ext, v6 = Buffer, *Ext == 46) )
+  if ( !*Filename || (v17 = *Filename, v6 = Buffer, *Filename == 46) )
   {
     v13 = v17;
 LABEL_26:
     if ( v13 )
     {
-      v14 = (char *)((char *)Ext - (char *)v8);
-      while ( ++v7 < BufferCount )
+      v14 = (char *)((char *)Filename - (char *)v8);
+      while ( ++v7 < (unsigned int)BufferCount )
       {
         *v8 = *(wchar_t *)((char *)v8 + (_DWORD)v14);
         if ( !*(wchar_t *)((char *)++v8 + (_DWORD)v14) )
@@ -98,7 +98,7 @@ LABEL_26:
       goto LABEL_31;
     }
 LABEL_30:
-    if ( v7 + 1 <= BufferCount )
+    if ( v7 + 1 <= (unsigned int)BufferCount )
     {
       result = 0;
       *v8 = 0;
@@ -106,10 +106,10 @@ LABEL_30:
     }
     goto LABEL_31;
   }
-  if ( ++v7 < BufferCount )
+  if ( ++v7 < (unsigned int)BufferCount )
   {
     *v8++ = 46;
-    v13 = *Ext;
+    v13 = *Filename;
     goto LABEL_26;
   }
 LABEL_31:

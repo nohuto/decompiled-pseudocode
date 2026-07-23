@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwGetDevicePowerState()
+NTSTATUS __cdecl ZwGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE State)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 245LL;
+  result = 245;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

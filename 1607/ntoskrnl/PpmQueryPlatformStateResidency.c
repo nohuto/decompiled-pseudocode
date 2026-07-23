@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmQueryPlatformStateResidency @ 0x140200D10
+ * XREFs of PpmQueryPlatformStateResidency @ 0x140200B3C
  * Callers:
- *     PpmQueryDripsResidency @ 0x140200D04 (PpmQueryDripsResidency.c)
- *     PopQueryBootSessionStandbyActivationInfo @ 0x140202030 (PopQueryBootSessionStandbyActivationInfo.c)
- *     PopCalculateCsSummary @ 0x1402075E0 (PopCalculateCsSummary.c)
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PpmQueryDripsResidency @ 0x140200B30 (PpmQueryDripsResidency.c)
+ *     PopQueryBootSessionStandbyActivationInfo @ 0x140201E5C (PopQueryBootSessionStandbyActivationInfo.c)
+ *     PopCalculateCsSummary @ 0x14020740C (PopCalculateCsSummary.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockShared @ 0x14000E0B0 (PopAcquireRwLockShared.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x14000DC30 (PopAcquireRwLockShared.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

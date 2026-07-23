@@ -7,27 +7,29 @@
  *     LdrResolveDelayLoadedAPI @ 0x180029F10 (LdrResolveDelayLoadedAPI.c)
  */
 
-__int64 __fastcall LdrpResolveDelayLoadDescriptor(char *a1, __int64 a2)
+__int64 __fastcall LdrpResolveDelayLoadDescriptor(
+        char *ParentModuleBase,
+        PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor)
 {
   unsigned int v2; // ebx
   char *v3; // rdi
   __int64 v4; // r14
-  __int64 *v7; // rax
+  IMAGE_THUNK_DATA64 *ThunkAddress; // rax
 
   v2 = 0;
-  v3 = &a1[*(unsigned int *)(a2 + 12)];
+  v3 = &ParentModuleBase[DelayloadDescriptor->ImportAddressTableRVA];
   LODWORD(v4) = 0;
   if ( *(_QWORD *)v3 )
   {
-    v7 = (__int64 *)&a1[*(unsigned int *)(a2 + 12)];
+    ThunkAddress = (IMAGE_THUNK_DATA64 *)&ParentModuleBase[DelayloadDescriptor->ImportAddressTableRVA];
     do
     {
-      if ( !LdrResolveDelayLoadedAPI(a1, (_BYTE *)a2, 0LL, 0LL, v7, 0) )
+      if ( !LdrResolveDelayLoadedAPI(ParentModuleBase, DelayloadDescriptor, 0LL, 0LL, ThunkAddress, 0) )
         v2 = -1073740782;
       v4 = (unsigned int)(v4 + 1);
-      v7 = (__int64 *)&v3[8 * v4];
+      ThunkAddress = (IMAGE_THUNK_DATA64 *)&v3[8 * v4];
     }
-    while ( *v7 );
+    while ( ThunkAddress->u1.ForwarderString );
   }
   return v2;
 }

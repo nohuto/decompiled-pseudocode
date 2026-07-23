@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlIs32BitProcess @ 0x14078FED0
+ * XREFs of FsRtlIs32BitProcess @ 0x140792A00
  * Callers:
  *     <none>
  * Callees:

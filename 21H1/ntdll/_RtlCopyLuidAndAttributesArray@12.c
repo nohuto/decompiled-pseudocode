@@ -6,25 +6,25 @@
  *     <none>
  */
 
-void __stdcall RtlCopyLuidAndAttributesArray(int a1, int a2, _DWORD *a3)
+void __cdecl RtlCopyLuidAndAttributesArray(ULONG Count, PLUID_AND_ATTRIBUTES Src, PLUID_AND_ATTRIBUTES Dest)
 {
-  int v3; // ecx
-  _DWORD *v4; // eax
-  _DWORD *v5; // edi
+  ULONG v3; // ecx
+  PLUID_AND_ATTRIBUTES v4; // eax
+  _DWORD *p_LowPart; // edi
   _DWORD *v6; // esi
 
-  v3 = a1;
-  if ( a1 )
+  v3 = Count;
+  if ( Count )
   {
-    v4 = a3;
+    v4 = Dest;
     do
     {
-      v5 = v4;
-      v6 = (_DWORD *)((char *)v4 + a2 - (_DWORD)a3);
-      v4 += 3;
-      *v5 = *v6++;
-      *++v5 = *v6;
-      v5[1] = v6[1];
+      p_LowPart = &v4->Luid.LowPart;
+      v6 = (unsigned int *)((char *)&v4->Luid.LowPart + (char *)Src - (char *)Dest);
+      ++v4;
+      *p_LowPart = *v6++;
+      *++p_LowPart = *v6;
+      p_LowPart[1] = v6[1];
       --v3;
     }
     while ( v3 );

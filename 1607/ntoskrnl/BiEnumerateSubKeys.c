@@ -1,17 +1,17 @@
 /*
- * XREFs of BiEnumerateSubKeys @ 0x14053C2A0
+ * XREFs of BiEnumerateSubKeys @ 0x14053C7E0
  * Callers:
- *     BiDeleteKey @ 0x140532A4C (BiDeleteKey.c)
- *     BiOpenSystemStore @ 0x14053BF5C (BiOpenSystemStore.c)
- *     BiCleanupLoadedStores @ 0x14053C160 (BiCleanupLoadedStores.c)
- *     BcdEnumerateObjects @ 0x1406D2088 (BcdEnumerateObjects.c)
- *     BiBuildIdentifierList @ 0x1406D3A28 (BiBuildIdentifierList.c)
+ *     BiDeleteKey @ 0x140532F8C (BiDeleteKey.c)
+ *     BiOpenSystemStore @ 0x14053C49C (BiOpenSystemStore.c)
+ *     BiCleanupLoadedStores @ 0x14053C6A0 (BiCleanupLoadedStores.c)
+ *     BcdEnumerateObjects @ 0x1406D21C0 (BcdEnumerateObjects.c)
+ *     BiBuildIdentifierList @ 0x1406D3B60 (BiBuildIdentifierList.c)
  * Callees:
- *     BiSanitizeHandle @ 0x140124DA8 (BiSanitizeHandle.c)
- *     BiZwEnumerateKey @ 0x14012DF70 (BiZwEnumerateKey.c)
- *     BiZwQueryKey @ 0x14012DF78 (BiZwQueryKey.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     BiSanitizeHandle @ 0x140125318 (BiSanitizeHandle.c)
+ *     BiZwEnumerateKey @ 0x14012E4E0 (BiZwEnumerateKey.c)
+ *     BiZwQueryKey @ 0x14012E4E8 (BiZwQueryKey.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

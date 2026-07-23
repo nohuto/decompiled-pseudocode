@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpStringCheck @ 0x140CE4750
+ * XREFs of ExpStringCheck @ 0x140CEAAF0
  * Callers:
- *     ExInitSystem @ 0x140CE3E7C (ExInitSystem.c)
+ *     ExInitSystem @ 0x140CEA21C (ExInitSystem.c)
  * Callees:
- *     ExpSingleStringCheck @ 0x140CE4718 (ExpSingleStringCheck.c)
+ *     ExpSingleStringCheck @ 0x140CEAAB8 (ExpSingleStringCheck.c)
  */
 
 __int64 __fastcall ExpStringCheck(
@@ -72,9 +72,9 @@ __int64 __fastcall ExpStringCheck(
   v34[28] = ExpSingleStringCheck(a29);
   for ( i = 0LL; i < 29; ++i )
   {
-    result = *(unsigned int *)((char *)qword_140039F00 + i * 4);
+    result = *(unsigned int *)((char *)qword_14003A4A0 + i * 4);
     if ( v34[i] != (_DWORD)result )
-      ExpSysDbgLock.MiscFlags = 8;
+      LODWORD(ExpSysDbgLock.InitialStack) = 8;
   }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTiFillVadEventWrite @ 0x140460324
+ * XREFs of EtwpTiFillVadEventWrite @ 0x140455204
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x1409FBC80 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1409F49C0 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwpTiFillZeroVad @ 0x1404603E8 (EtwpTiFillZeroVad.c)
- *     EtwpTiFillVad @ 0x140460450 (EtwpTiFillVad.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwpTiFillZeroVad @ 0x1404552C8 (EtwpTiFillZeroVad.c)
+ *     EtwpTiFillVad @ 0x140455330 (EtwpTiFillVad.c)
  */
 
 NTSTATUS __fastcall EtwpTiFillVadEventWrite(

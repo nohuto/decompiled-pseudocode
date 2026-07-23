@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpConvertPortionVpnRangeToGpnRange @ 0x140251D40
+ * XREFs of VmpConvertPortionVpnRangeToGpnRange @ 0x1402536A0
  * Callers:
- *     VmpFlushTb @ 0x1402519C4 (VmpFlushTb.c)
- *     VmpFlushTbVaRange @ 0x14025248C (VmpFlushTbVaRange.c)
- *     VmpQueryAccessedState @ 0x140464934 (VmpQueryAccessedState.c)
- *     VmpFillGpnRanges @ 0x14049B408 (VmpFillGpnRanges.c)
- *     VmpUpdateCommitStateMemoryRange @ 0x1406C1C10 (VmpUpdateCommitStateMemoryRange.c)
+ *     VmpFlushTb @ 0x140253324 (VmpFlushTb.c)
+ *     VmpFlushTbVaRange @ 0x140253DEC (VmpFlushTbVaRange.c)
+ *     VmpQueryAccessedState @ 0x14045D8F4 (VmpQueryAccessedState.c)
+ *     VmpFillGpnRanges @ 0x140494F58 (VmpFillGpnRanges.c)
+ *     VmpUpdateCommitStateMemoryRange @ 0x1406C57F0 (VmpUpdateCommitStateMemoryRange.c)
  * Callees:
- *     VmpVaMemoryRangeGetNext @ 0x1404E55E4 (VmpVaMemoryRangeGetNext.c)
- *     VmpFindNextPinnedPageStateHelper @ 0x1406C11C8 (VmpFindNextPinnedPageStateHelper.c)
+ *     VmpVaMemoryRangeGetNext @ 0x1404DEB84 (VmpVaMemoryRangeGetNext.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x1406C4DA8 (VmpFindNextPinnedPageStateHelper.c)
  */
 
 unsigned __int64 __fastcall VmpConvertPortionVpnRangeToGpnRange(

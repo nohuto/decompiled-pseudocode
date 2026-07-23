@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlCancellableWaitForSingleObject @ 0x14070C4F0
+ * XREFs of VerifierFsRtlCancellableWaitForSingleObject @ 0x14070C520
  * Callers:
  *     <none>
  * Callees:

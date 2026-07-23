@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceForceParkTransition @ 0x14064D8C4
+ * XREFs of EtwTraceForceParkTransition @ 0x14064BED4
  * Callers:
- *     KeTraceParkingRundown @ 0x1405C8144 (KeTraceParkingRundown.c)
- *     KiForceParkDutyCycleDpcCallback @ 0x1405C8320 (KiForceParkDutyCycleDpcCallback.c)
+ *     KeTraceParkingRundown @ 0x1405C5874 (KeTraceParkingRundown.c)
+ *     KiForceParkDutyCycleDpcCallback @ 0x1405C5A50 (KiForceParkDutyCycleDpcCallback.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceForceParkTransition(__int64 a1, char a2, char a3)

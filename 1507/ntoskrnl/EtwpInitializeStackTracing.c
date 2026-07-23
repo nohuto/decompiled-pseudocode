@@ -13,14 +13,14 @@ __int64 __fastcall EtwpInitializeStackTracing(__int64 a1, unsigned int a2)
   unsigned __int64 v3; // rbx
   _DWORD *v4; // rsi
   __int64 v5; // r14
-  struct _SLIST_ENTRY *v6; // rbp
+  _SLIST_ENTRY *v6; // rbp
   __int64 result; // rax
 
   v3 = a2;
   InitializeSListHead((PSLIST_HEADER)(a1 + 80));
   v4 = (_DWORD *)(a1 + 192);
   v5 = 12LL;
-  v6 = (struct _SLIST_ENTRY *)(a1 + 96);
+  v6 = (_SLIST_ENTRY *)(a1 + 96);
   do
   {
     *v4 = v3;

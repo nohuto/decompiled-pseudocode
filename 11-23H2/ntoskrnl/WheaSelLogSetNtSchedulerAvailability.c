@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaSelLogSetNtSchedulerAvailability @ 0x14061019C
+ * XREFs of WheaSelLogSetNtSchedulerAvailability @ 0x1406106EC
  * Callers:
  *     WheaSelLogInitialize @ 0x140B5320C (WheaSelLogInitialize.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x1406102FC (WheapSelLogSetNtSchedulerAvailabilityNoLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x14061084C (WheapSelLogSetNtSchedulerAvailabilityNoLock.c)
  */
 
 _QWORD *__fastcall WheaSelLogSetNtSchedulerAvailability(__int64 a1)

@@ -19,7 +19,7 @@
  *     EtwTraceWakeEvent @ 0x14070B48C (EtwTraceWakeEvent.c)
  */
 
-__int64 __fastcall PspChargeProcessWakeCounter(
+unsigned __int64 __fastcall PspChargeProcessWakeCounter(
         __int64 a1,
         int a2,
         unsigned int a3,
@@ -162,7 +162,7 @@ LABEL_6:
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v10 )
   {
-    ZwUpdateWnfStateData(a1 + 2016, 0LL, 0LL);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)(a1 + 2016), 0LL, 0, 0LL, 0LL, 0, 0);
     v18 = a3;
     if ( (xmmword_1403E4010 & 0x400) != 0 && v17 == 1 )
       EtwTraceWakeEvent(a1, a3);

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpUpdatePhaseAccessBit @ 0x1407CEF3C
+ * XREFs of CmpUpdatePhaseAccessBit @ 0x1407CF0AC
  * Callers:
- *     CmpAcceptBoot @ 0x14078D570 (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x14078D730 (CmpAcceptBoot.c)
  * Callees:
- *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
- *     CmpTrimHive @ 0x14071D310 (CmpTrimHive.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x1407CEF8C (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpTrimHive @ 0x14061A5B8 (CmpTrimHive.c)
+ *     CmpGetNextActiveHive @ 0x140667750 (CmpGetNextActiveHive.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x1407CF0FC (CmpUpdateReorganizeRegistryValues.c)
  */
 
 void CmpUpdatePhaseAccessBit()

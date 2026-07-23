@@ -10,96 +10,95 @@
  *     NtOpenKeyEx @ 0x1800A6540 (NtOpenKeyEx.c)
  */
 
-__int64 __fastcall LdrpAppxGetRemediationRegistryKey(int a1, __int64 a2)
+NTSTATUS __fastcall LdrpAppxGetRemediationRegistryKey(int a1, __int64 a2, HANDLE *a3)
 {
-  __int64 result; // rax
-  __int64 v5; // r11
-  char *v6; // rcx
+  NTSTATUS result; // eax
   __int64 v7; // r11
-  __int64 v8; // rdx
-  signed __int64 v9; // rax
-  __int16 v10; // r8
+  WCHAR *v8; // rcx
+  __int64 v9; // r11
+  __int64 v10; // rdx
   char *v11; // rax
-  __int64 v12; // r11
-  __int16 v13; // ax
-  __int64 v14; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v15; // [rsp+48h] [rbp-B8h] BYREF
-  int v16; // [rsp+58h] [rbp-A8h]
-  __int64 v17; // [rsp+60h] [rbp-A0h]
-  __int128 *v18; // [rsp+68h] [rbp-98h]
-  int v19; // [rsp+70h] [rbp-90h]
-  __int128 v20; // [rsp+78h] [rbp-88h]
-  _WORD v21[264]; // [rsp+90h] [rbp-70h] BYREF
+  WCHAR v12; // r8
+  WCHAR *v13; // rax
+  __int64 v14; // r11
+  ACCESS_MASK v15; // edx
+  __int16 v16; // ax
+  ULONG BufferLengthOut[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int128 v18; // [rsp+48h] [rbp-B8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
+  WCHAR TargetPath[264]; // [rsp+90h] [rbp-70h] BYREF
 
   result = RtlGetPersistedStateLocation(
              L"AppxStateChange",
              L"TargetNtPath",
              L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AppModel\\StateChange",
-             0,
-             v21,
+             LocationTypeRegistry,
+             TargetPath,
              0x20Au,
-             (unsigned int *)&v14);
-  if ( (int)result >= 0 )
+             BufferLengthOut);
+  if ( result >= 0 )
   {
     if ( a1 != -1073740702 )
     {
-      v15 = 0LL;
-      result = RtlStringLengthWorkerW(v21, 0x7FFFLL, &v14);
-      if ( (int)result < 0 )
+      v18 = 0LL;
+      result = RtlStringLengthWorkerW(TargetPath, 0x7FFFLL, BufferLengthOut);
+      if ( result < 0 )
         return result;
-      LOWORD(v15) = 2 * v14;
-      v13 = 2 * v14 + 2;
+      v15 = 131097;
+      LOWORD(v18) = 2 * LOWORD(BufferLengthOut[0]);
+      v16 = 2 * LOWORD(BufferLengthOut[0]) + 2;
       goto LABEL_17;
     }
-    result = RtlStringLengthWorkerW(v21, 261LL, &v14);
-    if ( (int)result >= 0 )
+    result = RtlStringLengthWorkerW(TargetPath, 261LL, BufferLengthOut);
+    if ( result >= 0 )
     {
-      v6 = (char *)&v21[v14];
-      v7 = v5 - v14;
-      if ( v7 )
+      v8 = &TargetPath[*(_QWORD *)BufferLengthOut];
+      v9 = v7 - *(_QWORD *)BufferLengthOut;
+      if ( v9 )
       {
-        v8 = v7 + v14 + 2147483385;
-        v9 = (char *)L"\\PackageList\\" - v6;
+        v10 = v9 + *(_QWORD *)BufferLengthOut + 2147483385LL;
+        v11 = (char *)((char *)L"\\PackageList\\" - (char *)v8);
         do
         {
-          if ( !v8 )
-            break;
-          v10 = *(_WORD *)&v6[v9];
           if ( !v10 )
             break;
-          *(_WORD *)v6 = v10;
-          --v8;
-          v6 += 2;
-          --v7;
+          v12 = *(WCHAR *)((char *)v8 + (_QWORD)v11);
+          if ( !v12 )
+            break;
+          *v8 = v12;
+          --v10;
+          ++v8;
+          --v9;
         }
-        while ( v7 );
+        while ( v9 );
       }
-      v11 = v6 - 2;
-      if ( v7 )
-        v11 = v6;
-      v12 = -v7;
-      *(_WORD *)v11 = 0;
-      result = v12 == 0 ? 0x80000005 : 0;
-      if ( v12 )
+      v13 = v8 - 1;
+      if ( v9 )
+        v13 = v8;
+      v14 = -v9;
+      *v13 = 0;
+      result = v14 == 0 ? 0x80000005 : 0;
+      if ( v14 )
       {
-        result = RtlStringCbCatW((__int64)v21, 0x20AuLL, a2);
-        if ( (int)result >= 0 )
+        result = RtlStringCbCatW((__int64)TargetPath, 0x20AuLL, a2);
+        if ( result >= 0 )
         {
-          v15 = 0LL;
-          result = RtlStringLengthWorkerW(v21, 0x7FFFLL, &v14);
-          if ( (int)result >= 0 )
+          v18 = 0LL;
+          result = RtlStringLengthWorkerW(TargetPath, 0x7FFFLL, BufferLengthOut);
+          if ( result >= 0 )
           {
-            LOWORD(v15) = 2 * v14;
-            v13 = 2 * v14 + 2;
+            v15 = 131353;
+            LOWORD(v18) = 2 * LOWORD(BufferLengthOut[0]);
+            v16 = 2 * LOWORD(BufferLengthOut[0]) + 2;
 LABEL_17:
-            WORD1(v15) = v13;
-            v16 = 48;
-            *((_QWORD *)&v15 + 1) = v21;
-            v17 = 0LL;
-            v18 = &v15;
-            v19 = 64;
-            v20 = 0LL;
-            return NtOpenKeyEx();
+            WORD1(v18) = v16;
+            ObjectAttributes.Length = 48;
+            *((_QWORD *)&v18 + 1) = TargetPath;
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v18;
+            ObjectAttributes.Attributes = 64;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            return NtOpenKeyEx(a3, v15, &ObjectAttributes, 0);
           }
         }
       }

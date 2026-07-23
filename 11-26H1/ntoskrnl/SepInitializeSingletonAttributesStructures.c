@@ -1,12 +1,12 @@
 /*
- * XREFs of SepInitializeSingletonAttributesStructures @ 0x140CDE3D0
+ * XREFs of SepInitializeSingletonAttributesStructures @ 0x140CE4768
  * Callers:
- *     SepInitializationPhase1 @ 0x140810284 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140815D14 (SepInitializationPhase1.c)
  * Callees:
- *     RtlpCreateHashTable @ 0x1404B89D0 (RtlpCreateHashTable.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlpCreateHashTable @ 0x1404B2200 (RtlpCreateHashTable.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 SepInitializeSingletonAttributesStructures()
@@ -31,7 +31,7 @@ __int64 SepInitializeSingletonAttributesStructures()
   v2 = SeLuidToIndexMapping;
   *(_QWORD *)&SeLuidToIndexMapping->Header.Lock = 0LL;
   v2->Header.WaitListHead.Flink = 0LL;
-  if ( (RtlpBootStatHandleLock.SchedulerApcFill3[60] & 3) == 3 )
+  if ( (RtlpBootStatHandleLock.UserTime & 3) == 3 )
   {
     Pool2 = (_QWORD *)ExAllocatePool2(256LL, 8uLL, 0x74446553u);
     if ( Pool2 )

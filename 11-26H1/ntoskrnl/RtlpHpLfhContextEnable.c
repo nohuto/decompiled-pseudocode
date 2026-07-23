@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextEnable @ 0x1406396AC
+ * XREFs of RtlpHpLfhContextEnable @ 0x14063C6BC
  * Callers:
- *     RtlpHpHeapCreate @ 0x140638298 (RtlpHpHeapCreate.c)
- *     RtlpHpHeapEnableLFH @ 0x140638888 (RtlpHpHeapEnableLFH.c)
+ *     RtlpHpHeapCreate @ 0x14063B29C (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapEnableLFH @ 0x14063B88C (RtlpHpHeapEnableLFH.c)
  * Callees:
- *     RtlpHpEnvTlsAlloc @ 0x140639084 (RtlpHpEnvTlsAlloc.c)
+ *     RtlpHpEnvTlsAlloc @ 0x14063C094 (RtlpHpEnvTlsAlloc.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextEnable(__int64 a1, int *a2)

@@ -12,24 +12,24 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028090 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_180005D90(__int64 a1)
+LOGICAL __fastcall sub_180005D90(PVOID BaseAddress)
 {
-  __int64 result; // rax
-  __int64 v3; // r8
+  LOGICAL result; // eax
+  void *v3; // r8
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 52), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 13, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    sub_180005DCC(a1);
-    RtlAcquireSRWLockExclusive(&unk_18015D380);
-    RtlRbRemoveNode(&qword_18015D360, a1);
-    RtlReleaseSRWLockExclusive(&unk_18015D380);
-    *(_DWORD *)(a1 + 48) = 0;
-    RtlReleaseSRWLockExclusive(a1 + 40);
-    v3 = *(_QWORD *)(a1 + 168);
+    sub_180005DCC(BaseAddress);
+    RtlAcquireSRWLockExclusive(&stru_18015D380);
+    RtlRbRemoveNode(&Parent, (PRTL_BALANCED_NODE)BaseAddress);
+    RtlReleaseSRWLockExclusive(&stru_18015D380);
+    *((_DWORD *)BaseAddress + 12) = 0;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 5);
+    v3 = (void *)*((_QWORD *)BaseAddress + 21);
     if ( v3 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v3);
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateDomainCommonBuffer @ 0x1404C4540
+ * XREFs of HalAllocateDomainCommonBuffer @ 0x1404C4780
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateDomainCommonBufferInternal @ 0x1403A11F4 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A1344 (HalpAllocateDomainCommonBufferInternal.c)
  */
 
 __int64 __fastcall HalAllocateDomainCommonBuffer(
@@ -15,7 +15,7 @@ __int64 __fastcall HalAllocateDomainCommonBuffer(
         _DWORD *a6,
         int a7,
         PHYSICAL_ADDRESS *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
   return HalpAllocateDomainCommonBufferInternal(*(_QWORD *)(a1 + 504), 0LL, a3, a4, a5, a6, a7, a8, a9);
 }

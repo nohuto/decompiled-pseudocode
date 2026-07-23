@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpConnectThermalInterrupt @ 0x14037BEC0
+ * XREFs of HalpConnectThermalInterrupt @ 0x14037C060
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x14037C650 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037CA30 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptGetIdentifiers @ 0x14037CC60 (HalpInterruptGetIdentifiers.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D270 (HalpInterruptSetIdtEntry.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x14037C7F0 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037CBD0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptGetIdentifiers @ 0x14037CE00 (HalpInterruptGetIdentifiers.c)
+ *     HalpInterruptSetIdtEntry @ 0x14037D410 (HalpInterruptSetIdtEntry.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpConnectThermalInterrupt(ULONG_PTR BugCheckParameter4)

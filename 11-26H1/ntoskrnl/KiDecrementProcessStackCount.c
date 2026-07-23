@@ -1,15 +1,15 @@
 /*
- * XREFs of KiDecrementProcessStackCount @ 0x1404108F0
+ * XREFs of KiDecrementProcessStackCount @ 0x140410010
  * Callers:
- *     KiSuspendThread @ 0x14020909C (KiSuspendThread.c)
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     KiOutSwapKernelStacks @ 0x1404102F4 (KiOutSwapKernelStacks.c)
- *     KeDeleteThread @ 0x1404106F4 (KeDeleteThread.c)
+ *     KiSuspendThread @ 0x14020917C (KiSuspendThread.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     KiOutSwapKernelStacks @ 0x14040FA14 (KiOutSwapKernelStacks.c)
+ *     KeDeleteThread @ 0x14040FE14 (KeDeleteThread.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiDecrementProcessStackCount(__int64 a1, __int64 a2, __int64 a3)
@@ -18,9 +18,9 @@ __int64 __fastcall KiDecrementProcessStackCount(__int64 a1, __int64 a2, __int64 
   unsigned __int8 CurrentIrql; // di
   unsigned __int32 v6; // eax
   unsigned __int32 v7; // ett
-  _QWORD *v8; // rbx
-  void *SListFaultAddress; // rax
-  void *v10; // rcx
+  signed __int64 *v8; // rbx
+  signed __int64 QuadPart; // rax
+  signed __int64 v10; // rcx
 
   result = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 264), 0xFFFFFFF8) & 0xFFFFFFF8;
   if ( (_DWORD)result == 8 )
@@ -44,21 +44,21 @@ __int64 __fastcall KiDecrementProcessStackCount(__int64 a1, __int64 a2, __int64 
         if ( v7 == v6 )
         {
           _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-          v8 = (_QWORD *)(a1 + 120);
-          _m_prefetchw(&KiSupervisorXStateFeaturesLock.SListFaultAddress);
-          SListFaultAddress = KiSupervisorXStateFeaturesLock.SListFaultAddress;
+          v8 = (signed __int64 *)(a1 + 120);
+          _m_prefetchw(&KiSupervisorXStateFeaturesLock.Timer.DueTime);
+          QuadPart = KiSupervisorXStateFeaturesLock.Timer.DueTime.QuadPart;
           do
           {
-            *v8 = SListFaultAddress;
-            v10 = SListFaultAddress;
-            SListFaultAddress = (void *)_InterlockedCompareExchange64(
-                                          (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.SListFaultAddress,
-                                          (signed __int64)v8,
-                                          (signed __int64)SListFaultAddress);
+            *v8 = QuadPart;
+            v10 = QuadPart;
+            QuadPart = _InterlockedCompareExchange64(
+                         (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.Timer.DueTime.QuadPart,
+                         (signed __int64)v8,
+                         QuadPart);
           }
-          while ( SListFaultAddress != v10 );
-          if ( !SListFaultAddress )
-            KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.StackLimit, 10, 0);
+          while ( QuadPart != v10 );
+          if ( !QuadPart )
+            KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry, 10, 0);
           goto LABEL_14;
         }
       }

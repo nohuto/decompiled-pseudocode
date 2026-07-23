@@ -7,9 +7,9 @@
  */
 
 __int64 __fastcall LibLoaderTelemetryInitOnce(
-        __int64 a1,
-        void (__stdcall *a2)(LPCGUID SourceId, ULONG IsEnabled, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, PEVENT_FILTER_DESCRIPTOR FilterData, PVOID CallbackContext),
-        void *a3)
+        PRTL_RUN_ONCE a1,
+        void (__cdecl *a2)(LPCGUID, ULONG, UCHAR, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, PVOID),
+        PVOID *a3)
 {
   TraceLoggingRegisterEx((TraceLoggingHProvider)&dword_1801594C0, a2, a3);
   return 1LL;

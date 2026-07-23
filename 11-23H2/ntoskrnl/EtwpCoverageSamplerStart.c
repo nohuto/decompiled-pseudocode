@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpCoverageSamplerStart @ 0x1409F33D8
+ * XREFs of EtwpCoverageSamplerStart @ 0x1409F3668
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x1409F3BDC (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1409F3E6C (EtwpSetCoverageSamplerInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KeStartProfile @ 0x140573EDC (KeStartProfile.c)
- *     PsEnumProcesses @ 0x1407CF4CC (PsEnumProcesses.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1407D4E7C (EtwpUpdateGlobalGroupMasks.c)
- *     MmEnumerateSystemImages @ 0x140820BD0 (MmEnumerateSystemImages.c)
- *     PsSetLoadImageNotifyRoutineEx @ 0x140842DE0 (PsSetLoadImageNotifyRoutineEx.c)
- *     KeInitializeProfileCallback @ 0x140974F60 (KeInitializeProfileCallback.c)
- *     KeSetIntervalProfile @ 0x140975118 (KeSetIntervalProfile.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409F09FC (EtwpCovSampCaptureContextStart.c)
- *     EtwpCoverageSamplerAllocateTable @ 0x1409F2EBC (EtwpCoverageSamplerAllocateTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KeStartProfile @ 0x14057441C (KeStartProfile.c)
+ *     PsEnumProcesses @ 0x1407CF79C (PsEnumProcesses.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1407D514C (EtwpUpdateGlobalGroupMasks.c)
+ *     MmEnumerateSystemImages @ 0x140820ED0 (MmEnumerateSystemImages.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x1408430E0 (PsSetLoadImageNotifyRoutineEx.c)
+ *     KeInitializeProfileCallback @ 0x140975160 (KeInitializeProfileCallback.c)
+ *     KeSetIntervalProfile @ 0x140975318 (KeSetIntervalProfile.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409F0C8C (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCoverageSamplerAllocateTable @ 0x1409F314C (EtwpCoverageSamplerAllocateTable.c)
  */
 
 __int64 __fastcall EtwpCoverageSamplerStart(_DWORD *Object)
@@ -91,8 +91,8 @@ LABEL_16:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EtwpCovSampGlobals, 0LL);
-  qword_140C31CA8 = (__int64)KeGetCurrentThread();
-  if ( qword_140C31CB8 )
+  qword_140C31C48 = (__int64)KeGetCurrentThread();
+  if ( qword_140C31C58 )
   {
     ImageNotifyRoutine = -1073740008;
     goto LABEL_30;
@@ -100,10 +100,10 @@ LABEL_16:
   ImageNotifyRoutine = EtwpCovSampCaptureContextStart(Object + 6);
   if ( ImageNotifyRoutine >= 0 )
   {
-    v12 = qword_140C31CC8;
+    v12 = qword_140C31C68;
     ObfReferenceObject(Object);
-    qword_140C31CB8 = (__int64)Object;
-    _InterlockedExchange64((volatile __int64 *)&stru_140C31CC0, 0LL);
+    qword_140C31C58 = (__int64)Object;
+    _InterlockedExchange64((volatile __int64 *)&stru_140C31C60, 0LL);
     Object[415] |= 1u;
     ImageNotifyRoutine = PsSetLoadImageNotifyRoutineEx((__int64)EtwpCovSampImageNotify, 0LL);
     if ( ImageNotifyRoutine >= 0 )
@@ -137,9 +137,9 @@ LABEL_16:
     }
   }
 LABEL_30:
-  if ( (struct _KTHREAD *)qword_140C31CA8 == KeGetCurrentThread() )
+  if ( (struct _KTHREAD *)qword_140C31C48 == KeGetCurrentThread() )
   {
-    qword_140C31CA8 = 0LL;
+    qword_140C31C48 = 0LL;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCovSampGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCovSampGlobals);
     KeAbPostRelease((ULONG_PTR)&EtwpCovSampGlobals);

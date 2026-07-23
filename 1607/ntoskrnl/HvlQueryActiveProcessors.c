@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryActiveProcessors @ 0x1401BAEA8
+ * XREFs of HvlQueryActiveProcessors @ 0x1401BAD8C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

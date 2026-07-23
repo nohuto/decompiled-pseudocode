@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInitMemoryCachingRequirementsTable @ 0x140A90B78
+ * XREFs of HalpInitMemoryCachingRequirementsTable @ 0x140A909F8
  * Callers:
- *     HalpMmInitSystem @ 0x140A90A90 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x140A90910 (HalpMmInitSystem.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall HalpInitMemoryCachingRequirementsTable(__int64 a1)

@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwCreateSymbolicLinkObject()
+NTSTATUS __cdecl ZwCreateSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LinkTarget)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 178LL;
+  result = 178;
   __asm { syscall; Low latency system call }
   return result;
 }

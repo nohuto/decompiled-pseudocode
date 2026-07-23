@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpGetMappingFromCacheEntry @ 0x1403DC568
+ * XREFs of LdrpGetMappingFromCacheEntry @ 0x1403DF758
  * Callers:
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1403DC3A8 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1403DF598 (LdrpGetAlternateResourceModuleHandleEx.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
+ *     RtlImageNtHeaderEx @ 0x140463C90 (RtlImageNtHeaderEx.c)
  */
 
 char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)
@@ -12,33 +12,33 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
   __int64 v8; // rbx
   __int64 v9; // rdx
   char result; // al
-  __int16 v11; // cx
-  unsigned int v12; // ecx
-  __int64 v13; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int16 Magic; // cx
+  unsigned int SizeOfImage; // ecx
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !a2 )
     return 0;
   if ( !a3 )
     return 0;
-  if ( a1 >= NormalizationListLock.SystemCallNumber )
+  if ( a1 >= LODWORD(NormalizationListLock.WaitBlockList) )
     return 0;
   v7 = (unsigned __int64)a1 << 6;
-  v8 = *(_QWORD *)(v7 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 32);
-  v9 = *(_QWORD *)(v7 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 48);
+  v8 = *(_QWORD *)(v7 + NormalizationListLock.WaitStatus + 32);
+  v9 = *(_QWORD *)(v7 + NormalizationListLock.WaitStatus + 48);
   if ( !v8 || v8 == -1 )
     return 0;
   if ( !v9 )
   {
-    v13 = 0LL;
-    RtlImageNtHeaderEx(1LL, v8 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v13);
-    if ( !v13 )
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, (PVOID)(v8 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
+    if ( !OutHeaders )
       return 0;
-    v11 = *(_WORD *)(v13 + 24);
-    if ( v11 != 267 && v11 != 523 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic != 267 && Magic != 523 )
       return 0;
-    v12 = *(_DWORD *)(v13 + 80);
-    v9 = v12;
-    if ( !v12 )
+    SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
+    v9 = SizeOfImage;
+    if ( !SizeOfImage )
       return 0;
   }
   if ( a2 < (v8 & 0xFFFFFFFFFFFFFFFCuLL) || a2 >= v9 + (v8 & 0xFFFFFFFFFFFFFFFCuLL) )

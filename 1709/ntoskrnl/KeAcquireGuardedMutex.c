@@ -66,7 +66,7 @@ LABEL_7:
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset(&Mutex->Count, 0) )
-    ExpAcquireFastMutexContended((ULONG_PTR)Mutex);
+    ExpAcquireFastMutexContended((ULONG_PTR)Mutex, (PRTL_BALANCED_NODE)v1);
   if ( v1 )
     *(_BYTE *)(v1 + 26) |= 1u;
   Mutex->Owner = KeGetCurrentThread();

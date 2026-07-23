@@ -1,8 +1,8 @@
 /*
- * XREFs of ApiSetSchemaExpander_AddSpaceForSemverSearchKey @ 0x140418394
+ * XREFs of ApiSetSchemaExpander_AddSpaceForSemverSearchKey @ 0x140418724
  * Callers:
- *     ApiSetCompose_ProcessV7Extension_Phase0 @ 0x14041784C (ApiSetCompose_ProcessV7Extension_Phase0.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase0 @ 0x140418E6C (ApiSetCompose_V7_ProcessV6Extension_Phase0.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase0 @ 0x140417BDC (ApiSetCompose_ProcessV7Extension_Phase0.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase0 @ 0x1404191FC (ApiSetCompose_V7_ProcessV6Extension_Phase0.c)
  * Callees:
  *     <none>
  */

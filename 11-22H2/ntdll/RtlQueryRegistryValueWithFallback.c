@@ -9,53 +9,53 @@
  *     memmove @ 0x1800A5980 (memmove.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValueWithFallback(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        _DWORD *a5,
-        void *a6,
-        _DWORD *a7)
+NTSTATUS __cdecl RtlQueryRegistryValueWithFallback(
+        HANDLE PrimaryHandle,
+        HANDLE FallbackHandle,
+        PUNICODE_STRING ValueName,
+        ULONG ValueLength,
+        PULONG ValueType,
+        PVOID ValueData,
+        PULONG ResultLength)
 {
-  unsigned int v11; // r15d
-  _DWORD *Heap; // rdi
+  ULONG Length; // r15d
+  ULONG *Heap; // rdi
   int v13; // ebx
-  char v15; // [rsp+60h] [rbp+8h] BYREF
+  ULONG v15; // [rsp+60h] [rbp+8h] BYREF
 
-  if ( a1 || a2 )
+  if ( __PAIR128__((unsigned __int64)PrimaryHandle, (unsigned __int64)FallbackHandle) == 0 )
+    return -1073741811;
+  if ( ValueLength >= 0xFFFFFFF0 )
+    return -1073741675;
+  Length = ValueLength + 16;
+  Heap = (ULONG *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, ValueLength + 16);
+  if ( !Heap )
+    return -1073741801;
+  v13 = -1073741772;
+  if ( PrimaryHandle )
   {
-    if ( a4 >= 0xFFFFFFF0 )
-      return (unsigned int)-1073741675;
-    v11 = a4 + 16;
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a4 + 16);
-    if ( !Heap )
-      return (unsigned int)-1073741801;
-    v13 = -1073741772;
-    if ( !a1 || (v13 = NtQueryValueKey(a1, a3, 2LL, Heap, v11, &v15), v13 == -1073741772) )
-    {
-      if ( !a2 )
-      {
-LABEL_15:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
-        return (unsigned int)v13;
-      }
-      v13 = NtQueryValueKey(a2, a3, 2LL, Heap, v11, &v15);
-    }
+    v13 = NtQueryValueKey(PrimaryHandle, ValueName, KeyValuePartialInformation, Heap, Length, &v15);
+    if ( v13 != -1073741772 )
+      goto LABEL_8;
+  }
+  if ( FallbackHandle )
+  {
+    v13 = NtQueryValueKey(FallbackHandle, ValueName, KeyValuePartialInformation, Heap, Length, &v15);
+LABEL_8:
     if ( (int)(v13 + 0x80000000) < 0 || v13 == -2147483643 )
     {
-      if ( a5 )
-        *a5 = Heap[1];
+      if ( ValueType )
+        *ValueType = Heap[1];
       if ( v13 >= 0 )
       {
-        if ( a4 < Heap[2] )
+        if ( ValueLength < Heap[2] )
           v13 = -2147483643;
         else
-          memmove(a6, Heap + 3, (unsigned int)Heap[2]);
+          memmove(ValueData, Heap + 3, Heap[2]);
       }
-      *a7 = Heap[2];
+      *ResultLength = Heap[2];
     }
-    goto LABEL_15;
   }
-  return 3221225485LL;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v13;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLargePageFreeToZero @ 0x140286F40
+ * XREFs of MiLargePageFreeToZero @ 0x1402871D0
  * Callers:
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
+ *     MiZeroPage @ 0x1402D0C80 (MiZeroPage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiGetPfnChannel @ 0x1402871D0 (MiGetPfnChannel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiArePageContentsZero @ 0x14064D420 (MiArePageContentsZero.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiGetPfnChannel @ 0x140287460 (MiGetPfnChannel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiArePageContentsZero @ 0x14064D970 (MiArePageContentsZero.c)
  */
 
 void __fastcall MiLargePageFreeToZero(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3, char a4)
@@ -54,7 +54,7 @@ void __fastcall MiLargePageFreeToZero(ULONG_PTR BugCheckParameter2, unsigned int
   v6 = 48 * BugCheckParameter2;
   v7 = v6 - 0x220000000000LL;
   v38 = a2;
-  v34 = (unsigned __int64 *)(0x140000000LL + 8LL * a2 + 120080);
+  v34 = (unsigned __int64 *)(0x140000000LL + 8LL * a2 + 120208);
   v8 = *v34;
   v9 = *((unsigned int *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * (v6 >> 4)) + 2);
   PfnChannel = MiGetPfnChannel(v7);

@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpCopyEvent @ 0x140669C20
+ * XREFs of PfpCopyEvent @ 0x14066ADE0
  * Callers:
- *     PfpFlushEventBuffers @ 0x140669B10 (PfpFlushEventBuffers.c)
- *     PfpFlushBuffers @ 0x140669E70 (PfpFlushBuffers.c)
+ *     PfpFlushEventBuffers @ 0x14066ACD0 (PfpFlushEventBuffers.c)
+ *     PfpFlushBuffers @ 0x14066B030 (PfpFlushBuffers.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PfpIsProcessInfoPresent @ 0x1400E265C (PfpIsProcessInfoPresent.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
- *     PfpLogPageAccess @ 0x14066A170 (PfpLogPageAccess.c)
- *     PfTReplaceCurrentBuffer @ 0x14066A7BC (PfTReplaceCurrentBuffer.c)
+ *     PfpIsProcessInfoPresent @ 0x1400E26DC (PfpIsProcessInfoPresent.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PsLookupProcessByProcessId @ 0x140647C40 (PsLookupProcessByProcessId.c)
+ *     PfpLogPageAccess @ 0x14066B330 (PfpLogPageAccess.c)
+ *     PfTReplaceCurrentBuffer @ 0x14066B97C (PfTReplaceCurrentBuffer.c)
  */
 
 __int64 __fastcall PfpCopyEvent(_QWORD *Src)
@@ -53,8 +53,8 @@ __int64 __fastcall PfpCopyEvent(_QWORD *Src)
     v9 = PfpLogPageAccess(v7, (unsigned int)&Process, (unsigned int)&v17, (_DWORD)v4, 1);
     if ( v9 )
     {
-      v10 = ((qword_14043BB98 + 47) & 0xFFFFFFFFFFFFFFF8uLL)
-          + 40LL * (*(unsigned __int16 *)(v9 + 10) - (unsigned int)*(unsigned __int16 *)(qword_14043BB98 + 36));
+      v10 = ((qword_14043CC58 + 47) & 0xFFFFFFFFFFFFFFF8uLL)
+          + 40LL * (*(unsigned __int16 *)(v9 + 10) - (unsigned int)*(unsigned __int16 *)(qword_14043CC58 + 36));
       if ( (*(_BYTE *)(v10 + 8) & 4) != 0
         && PsLookupProcessByProcessId((HANDLE)*((unsigned int *)Src + 13), &Process) >= 0 )
       {
@@ -81,14 +81,14 @@ __int64 __fastcall PfpCopyEvent(_QWORD *Src)
   }
   else
   {
-    v12 = qword_14043BB70;
+    v12 = qword_14043CC30;
     v13 = (*Src >> 2) & 0x3FFLL;
-    if ( (unsigned int)(v13 + *(_DWORD *)(qword_14043BB70 + 16)) > *(_DWORD *)(qword_14043BB70 + 20) )
+    if ( (unsigned int)(v13 + *(_DWORD *)(qword_14043CC30 + 16)) > *(_DWORD *)(qword_14043CC30 + 20) )
     {
-      while ( (unsigned int)PfTReplaceCurrentBuffer(&unk_14043BB58, v12) != -1073741823 )
+      while ( (unsigned int)PfTReplaceCurrentBuffer(&unk_14043CC18, v12) != -1073741823 )
       {
-        v12 = qword_14043BB70;
-        if ( (unsigned int)(v13 + *(_DWORD *)(qword_14043BB70 + 16)) <= *(_DWORD *)(qword_14043BB70 + 20) )
+        v12 = qword_14043CC30;
+        if ( (unsigned int)(v13 + *(_DWORD *)(qword_14043CC30 + 16)) <= *(_DWORD *)(qword_14043CC30 + 20) )
           goto LABEL_10;
       }
       return 3221225626LL;

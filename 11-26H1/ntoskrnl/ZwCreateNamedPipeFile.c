@@ -1,14 +1,28 @@
 /*
- * XREFs of ZwCreateNamedPipeFile @ 0x140724B50
+ * XREFs of ZwCreateNamedPipeFile @ 0x140729720
  * Callers:
- *     DifZwCreateNamedPipeFileWrapper @ 0x1406A04B0 (DifZwCreateNamedPipeFileWrapper.c)
+ *     DifZwCreateNamedPipeFileWrapper @ 0x1406A4090 (DifZwCreateNamedPipeFileWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateNamedPipeFile(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateNamedPipeFile(
+        PHANDLE FileHandle,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG ShareAccess,
+        ULONG CreateDisposition,
+        ULONG CreateOptions,
+        ULONG NamedPipeType,
+        ULONG ReadMode,
+        ULONG CompletionMode,
+        ULONG MaximumInstances,
+        ULONG InboundQuota,
+        ULONG OutboundQuota,
+        PLARGE_INTEGER DefaultTimeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FileHandle);
 }

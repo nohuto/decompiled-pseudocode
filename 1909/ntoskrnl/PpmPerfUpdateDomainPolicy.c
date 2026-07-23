@@ -31,10 +31,8 @@ LONG __fastcall PpmPerfUpdateDomainPolicy(char a1)
   int v12; // eax
   unsigned int v13; // eax
   bool v14; // cl
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  int v18; // eax
-  int v20; // [rsp+68h] [rbp+10h] BYREF
+  int v16; // eax
+  int v18; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = PpmPerfDomainHead;
   v2 = a1;
@@ -45,19 +43,19 @@ LONG __fastcall PpmPerfUpdateDomainPolicy(char a1)
     if ( PpmPerfVmQosSupported )
     {
       v5 = 1;
-      v18 = 0;
+      v16 = 0;
     }
     else
     {
       v5 = 0;
-      v18 = 128;
+      v16 = 128;
     }
-    v20 = v18;
+    v18 = v16;
   }
   else
   {
     v5 = 0;
-    v20 = 0;
+    v18 = 0;
     v6 = 0;
     do
     {
@@ -95,9 +93,9 @@ LONG __fastcall PpmPerfUpdateDomainPolicy(char a1)
     v2 = a1;
     if ( v5 )
       v6 = 0;
-    v20 = v6;
+    v18 = v6;
   }
-  v14 = PpmPerfUpdateQosDisableReasons(&v20) != 0;
+  v14 = PpmPerfUpdateQosDisableReasons(&v18) != 0;
   if ( v5 != PpmPerfQosEnabled )
   {
     PpmPerfQosEnabled = v5;
@@ -110,5 +108,5 @@ LONG __fastcall PpmPerfUpdateDomainPolicy(char a1)
   if ( !v3 && !v2 )
     return PpmReleaseLock(&PpmPerfPolicyLock);
   PpmPerfSetAllDomainsToUpdate();
-  return PpmCheckCustomRun((unsigned int)(v2 != 0) + 1, v15, v16);
+  return PpmCheckCustomRun((unsigned int)(v2 != 0) + 1);
 }

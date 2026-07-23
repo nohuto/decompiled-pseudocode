@@ -19,12 +19,12 @@
  *     RtlRaiseStatus @ 0x18010F220 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlpUnWaitCriticalSectionEx(__int64 a1, __int64 a2)
+int __fastcall RtlpUnWaitCriticalSectionEx(__int64 a1, void *a2)
 {
-  __int64 result; // rax
+  int result; // eax
   signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  if ( a2 == -1 )
+  if ( a2 == (void *)-1LL )
   {
     _InterlockedOr(v3, 0);
     return RtlpWakeByAddress(a1 + 8, 0LL);
@@ -32,8 +32,8 @@ __int64 __fastcall RtlpUnWaitCriticalSectionEx(__int64 a1, __int64 a2)
   else
   {
     result = ZwSetEvent(a2, 0LL);
-    if ( (int)result < 0 )
-      RtlRaiseStatus((unsigned int)result);
+    if ( result < 0 )
+      RtlRaiseStatus(result);
   }
   return result;
 }

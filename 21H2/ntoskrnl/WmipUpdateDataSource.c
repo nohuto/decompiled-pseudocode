@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipUpdateDataSource @ 0x1407C3FC8
+ * XREFs of WmipUpdateDataSource @ 0x1407C44E8
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x140756F38 (WmipProcessWmiRegInfo.c)
+ *     WmipProcessWmiRegInfo @ 0x1407570F8 (WmipProcessWmiRegInfo.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
- *     WmipCachePtrs @ 0x140757A00 (WmipCachePtrs.c)
- *     WmipEnableCollectionForNewGuid @ 0x140757ACC (WmipEnableCollectionForNewGuid.c)
- *     WmipSendGuidUpdateNotifications @ 0x140757C1C (WmipSendGuidUpdateNotifications.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140758114 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14076CD4C (WmipUnlinkInstanceSetFromGuidEntry.c)
- *     WmipUpdateModifyGuid @ 0x1407C4120 (WmipUpdateModifyGuid.c)
- *     WmipFindISInDSByGuid @ 0x1407C4280 (WmipFindISInDSByGuid.c)
- *     WmipGenerateBinaryMofNotification @ 0x1407D116C (WmipGenerateBinaryMofNotification.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     WmipUnreferenceEntry @ 0x14062E428 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x1406339F4 (WmipReferenceEntry.c)
+ *     WmipCachePtrs @ 0x140757BC0 (WmipCachePtrs.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140757C8C (WmipEnableCollectionForNewGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140757DDC (WmipSendGuidUpdateNotifications.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x1407582D4 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14076CF0C (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipUpdateModifyGuid @ 0x1407C4640 (WmipUpdateModifyGuid.c)
+ *     WmipFindISInDSByGuid @ 0x1407C47A0 (WmipFindISInDSByGuid.c)
+ *     WmipGenerateBinaryMofNotification @ 0x1407D12DC (WmipGenerateBinaryMofNotification.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)

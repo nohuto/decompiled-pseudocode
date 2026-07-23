@@ -1,21 +1,21 @@
 /*
- * XREFs of PsQueryProcessEnergyValues @ 0x1405E92D0
+ * XREFs of PsQueryProcessEnergyValues @ 0x1406D8A30
  * Callers:
- *     PspQueryProcessAccountingInformationCallback @ 0x140616780 (PspQueryProcessAccountingInformationCallback.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x140618FC0 (PopEtProcessEnumSnapshotCallback.c)
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1406A742C (PopEtEnergyContextProcessStateUpdate.c)
- *     PspFoldProcessAccountingIntoJob @ 0x1406AD32C (PspFoldProcessAccountingIntoJob.c)
- *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x14060BA1C (PspFoldProcessAccountingIntoJob.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x1406803E0 (PspQueryProcessAccountingInformationCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140682C20 (PopEtProcessEnumSnapshotCallback.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1406F6E88 (PopEtEnergyContextProcessStateUpdate.c)
+ *     ExpGetProcessInformation @ 0x140708640 (ExpGetProcessInformation.c)
  * Callees:
- *     PoEnergyEstimationEnabled @ 0x140205710 (PoEnergyEstimationEnabled.c)
- *     KeQueryTimelineBitmapTime @ 0x140205720 (KeQueryTimelineBitmapTime.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlTimelineBitmapUpdateRange @ 0x1402ADF84 (RtlTimelineBitmapUpdateRange.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x14022C2E4 (RtlTimelineBitmapUpdateRange.c)
+ *     PoEnergyEstimationEnabled @ 0x1402AA040 (PoEnergyEstimationEnabled.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402AA050 (KeQueryTimelineBitmapTime.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)
@@ -52,13 +52,16 @@ char __fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)
   _QWORD *v33; // rax
   __int64 v34; // r9
   __int64 v35; // rdx
-  int v36; // edx
-  unsigned int v37; // ecx
-  unsigned int v38; // eax
-  int v39; // eax
+  __int64 v36; // rdx
+  __int64 v37; // r8
+  __int64 v38; // r9
+  int v39; // edx
   unsigned int v40; // ecx
   unsigned int v41; // eax
   int v42; // eax
+  unsigned int v43; // ecx
+  unsigned int v44; // eax
+  int v45; // eax
 
   memset(a2, 0, 0x1B0uLL);
   result = PoEnergyEstimationEnabled();
@@ -93,18 +96,18 @@ char __fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)
     v16 = HIDWORD(v14);
     if ( (v16 & 0x80000000) != 0LL )
     {
-      v37 = v16 & 0x7FFFFFFF;
-      *((_DWORD *)v12 + 1) = v37;
-      v38 = *(_DWORD *)&v12[v9];
-      if ( (unsigned int)v6 > v38 )
+      v40 = v16 & 0x7FFFFFFF;
+      *((_DWORD *)v12 + 1) = v40;
+      v41 = *(_DWORD *)&v12[v9];
+      if ( (unsigned int)v6 > v41 )
       {
         *(_DWORD *)v12 = v6;
-        v15 = v6 - v38;
-        if ( (_DWORD)v6 - v38 == -1 || ~v15 < v37 )
-          v39 = -1;
+        v15 = v6 - v41;
+        if ( (_DWORD)v6 - v41 == -1 || ~v15 < v40 )
+          v42 = -1;
         else
-          v39 = v15 + v37;
-        *((_DWORD *)v12 + 1) = v39 & 0x7FFFFFFF;
+          v42 = v15 + v40;
+        *((_DWORD *)v12 + 1) = v42 & 0x7FFFFFFF;
       }
     }
     if ( v12 == (char *)a2 + 104 )
@@ -134,18 +137,18 @@ LABEL_14:
     v22 = HIDWORD(v20);
     if ( (v22 & 0x80000000) != 0LL )
     {
-      v40 = v22 & 0x7FFFFFFF;
-      *((_DWORD *)v19 + 1) = v40;
-      v41 = *(_DWORD *)((char *)v19 + v9);
-      if ( (unsigned int)v6 > v41 )
+      v43 = v22 & 0x7FFFFFFF;
+      *((_DWORD *)v19 + 1) = v43;
+      v44 = *(_DWORD *)((char *)v19 + v9);
+      if ( (unsigned int)v6 > v44 )
       {
         *(_DWORD *)v19 = v6;
-        v21 = v6 - v41;
-        if ( (_DWORD)v6 - v41 == -1 || ~v21 < v40 )
-          v42 = -1;
+        v21 = v6 - v44;
+        if ( (_DWORD)v6 - v44 == -1 || ~v21 < v43 )
+          v45 = -1;
         else
-          v42 = v21 + v40;
-        *((_DWORD *)v19 + 1) = v42 & 0x7FFFFFFF;
+          v45 = v21 + v43;
+        *((_DWORD *)v19 + 1) = v45 & 0x7FFFFFFF;
       }
     }
     if ( v19 == (_OWORD *)((char *)a2 + 392) )
@@ -203,10 +206,10 @@ LABEL_25:
     {
       *((_DWORD *)a2 + 68) = v29;
       if ( (unsigned int)v29 - v30 >= 0x20 )
-        v36 = 0;
+        v39 = 0;
       else
-        v36 = *((_DWORD *)a2 + 69) << (v29 - v30);
-      *((_DWORD *)a2 + 69) = v36 | HIDWORD(v29);
+        v39 = *((_DWORD *)a2 + 69) << (v29 - v30);
+      *((_DWORD *)a2 + 69) = v39 | HIDWORD(v29);
     }
     else
     {
@@ -236,5 +239,5 @@ LABEL_25:
   if ( _InterlockedCompareExchange64(v25, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v25);
   KeAbPostRelease((ULONG_PTR)v25);
-  return (unsigned __int8)KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  return (unsigned __int8)KeLeaveCriticalRegionThread((__int64)CurrentThread, v36, v37, v38);
 }

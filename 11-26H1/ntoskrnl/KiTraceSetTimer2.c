@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTraceSetTimer2 @ 0x1403A9A14
+ * XREFs of KiTraceSetTimer2 @ 0x1403B3624
  * Callers:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     KiTraceCancelTimer2 @ 0x1403A9BE0 (KiTraceCancelTimer2.c)
- *     KiUpdateTimer2Flags @ 0x1403AA610 (KiUpdateTimer2Flags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KiTraceCancelTimer2 @ 0x1403B37F0 (KiTraceCancelTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x1403B4220 (KiUpdateTimer2Flags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiTraceSetTimer2(__int64 a1, char a2, unsigned int a3)
@@ -40,10 +40,10 @@ __int64 __fastcall KiTraceSetTimer2(__int64 a1, char a2, unsigned int a3)
   KiUpdateTimer2Flags(a1, a3, 0LL);
   if ( a3 == 1 )
     KxReleaseSpinLock(&KiTimer2CollectionLock);
-  v9 = (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(a1 ^ __ROL8__(
+  v9 = (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(a1 ^ __ROL8__(
                                                                                                    KiWaitNever ^ v4,
                                                                                                    KiWaitNever));
-  v10 = (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(a1 ^ __ROL8__(
+  v10 = (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(a1 ^ __ROL8__(
                                                                                                     KiWaitNever ^ v6,
                                                                                                     KiWaitNever));
   if ( a2 )
@@ -51,11 +51,11 @@ __int64 __fastcall KiTraceSetTimer2(__int64 a1, char a2, unsigned int a3)
   v21 = v9;
   v20 = 0x7E35C6C7F3DD7277LL
       * (KiWaitNever ^ __ROR8__(
-                         v9 ^ _byteswap_uint64((__int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ a1),
+                         v9 ^ _byteswap_uint64((__int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ a1),
                          KiWaitNever));
   v22 = 0x7E35C6C7F3DD7277LL
       * (KiWaitNever ^ __ROR8__(
-                         a1 ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ v10),
+                         a1 ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ v10),
                          KiWaitNever));
   v11 = (2 * (v7 & 0x20)) | 4;
   if ( (v7 & 2) == 0 )

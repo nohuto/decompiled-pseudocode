@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpGetRegistryHandle @ 0x140642460
+ * XREFs of RtlpGetRegistryHandle @ 0x140637270
  * Callers:
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
- *     RtlCheckRegistryKey @ 0x1406BBF70 (RtlCheckRegistryKey.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1406E0BD4 (RtlpGetTimeZoneInfoHandle.c)
- *     RtlDeleteRegistryValue @ 0x140781820 (RtlDeleteRegistryValue.c)
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
- *     RtlpUpdateDynamicTimeZones @ 0x1407AA15C (RtlpUpdateDynamicTimeZones.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA5E0 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlCreateRegistryKey @ 0x1407D0D00 (RtlCreateRegistryKey.c)
+ *     RtlWriteRegistryValue @ 0x140613DB0 (RtlWriteRegistryValue.c)
+ *     RtlCheckRegistryKey @ 0x14061AFF0 (RtlCheckRegistryKey.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1406B7EB4 (RtlpGetTimeZoneInfoHandle.c)
+ *     RtlDeleteRegistryValue @ 0x1407819E0 (RtlDeleteRegistryValue.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x1407AA35C (RtlpUpdateDynamicTimeZones.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA7E0 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlCreateRegistryKey @ 0x1407D0E70 (RtlCreateRegistryKey.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlFormatCurrentUserKeyPath @ 0x140676CD0 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x14066A3A0 (RtlFormatCurrentUserKeyPath.c)
  */
 
 __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDLE *a4)
@@ -39,12 +39,12 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
   __int64 Tag; // r8
   __int64 Type; // rcx
   UNICODE_STRING Destination; // [rsp+48h] [rbp-19h] BYREF
-  UNICODE_STRING Source; // [rsp+58h] [rbp-9h] BYREF
+  UNICODE_STRING CurrentUserKeyPath; // [rsp+58h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
 
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  Source = 0LL;
+  CurrentUserKeyPath = 0LL;
   if ( (a1 & 0x40000000) != 0 )
   {
     *a4 = (HANDLE)a2;
@@ -89,10 +89,10 @@ LABEL_6:
         *(_DWORD *)&Destination.Length = 34340864;
         if ( !(_DWORD)v7 )
           goto LABEL_13;
-        if ( (_DWORD)v7 == 5 && (int)RtlFormatCurrentUserKeyPath(&Source) >= 0 )
+        if ( (_DWORD)v7 == 5 && RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath) >= 0 )
         {
-          appended = RtlAppendUnicodeStringToString(&Destination, &Source);
-          RtlFreeAnsiString(&Source);
+          appended = RtlAppendUnicodeStringToString(&Destination, &CurrentUserKeyPath);
+          RtlFreeAnsiString(&CurrentUserKeyPath);
         }
         else
         {

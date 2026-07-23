@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBlkAllocatePageTablePage @ 0x140CB2D68
+ * XREFs of HalpBlkAllocatePageTablePage @ 0x140CB8DA8
  * Callers:
- *     HalpBlkAddVirtualMapping @ 0x140CB2B28 (HalpBlkAddVirtualMapping.c)
- *     HalpBlkInitializePageTables @ 0x140CB2F6C (HalpBlkInitializePageTables.c)
+ *     HalpBlkAddVirtualMapping @ 0x140CB8B68 (HalpBlkAddVirtualMapping.c)
+ *     HalpBlkInitializePageTables @ 0x140CB8FAC (HalpBlkInitializePageTables.c)
  * Callees:
- *     HalpMap @ 0x1403439AC (HalpMap.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140D08980 (HalpAllocPhysicalMemoryEx.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140D0EC50 (HalpAllocPhysicalMemoryEx.c)
  */
 
 __int64 __fastcall HalpBlkAllocatePageTablePage(char a1)

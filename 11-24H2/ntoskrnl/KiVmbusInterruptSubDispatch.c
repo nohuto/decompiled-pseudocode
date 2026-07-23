@@ -1,13 +1,13 @@
 /*
- * XREFs of KiVmbusInterruptSubDispatch @ 0x1406B12E0
+ * XREFs of KiVmbusInterruptSubDispatch @ 0x1406B2280
  * Callers:
- *     KiVmbusInterruptDispatch @ 0x1406B0E60 (KiVmbusInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x1406B1E00 (KiVmbusInterruptDispatch.c)
  * Callees:
- *     KiStartInterruptCycleAccumulation @ 0x14034C150 (KiStartInterruptCycleAccumulation.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     PerfInfoLogInterruptHv @ 0x140448870 (PerfInfoLogInterruptHv.c)
- *     KzSetIrqlUnsafe @ 0x1405B7800 (KzSetIrqlUnsafe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiStartInterruptCycleAccumulation @ 0x14036A630 (KiStartInterruptCycleAccumulation.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     PerfInfoLogInterruptHv @ 0x140440F90 (PerfInfoLogInterruptHv.c)
+ *     KzSetIrqlUnsafe @ 0x1405B4DD0 (KzSetIrqlUnsafe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 int __fastcall KiVmbusInterruptSubDispatch()
@@ -15,13 +15,11 @@ int __fastcall KiVmbusInterruptSubDispatch()
   __int64 v0; // rbp
   unsigned __int8 CurrentIrql; // al
   __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  bool v5; // zf
-  __int64 v6; // rcx
-  __int64 (__fastcall *v7)(); // rsi
+  bool v3; // zf
+  __int64 v4; // rcx
+  __int64 (__fastcall *v5)(); // rsi
   int result; // eax
-  LARGE_INTEGER v9[5]; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER v7[5]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( KiIrqlFlags )
   {
@@ -35,15 +33,15 @@ int __fastcall KiVmbusInterruptSubDispatch()
   *(_BYTE *)(v0 - 87) = CurrentIrql;
   KiStartInterruptCycleAccumulation((__int64)KeGetCurrentPrcb(), 1);
   _enable();
-  v5 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
+  v3 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
-  if ( !v5 )
-    EtwGetKernelTraceTimestamp(v9, 0x20004000u);
-  v6 = *(unsigned int *)(v0 + 224);
-  v7 = HvlpInterruptCallback[v6];
-  result = guard_dispatch_icall_no_overrides(v6, v2, v3, v4);
+  if ( !v3 )
+    EtwGetKernelTraceTimestamp(v7, 0x20004000u);
+  v4 = *(unsigned int *)(v0 + 224);
+  v5 = HvlpInterruptCallback[v4];
+  result = guard_dispatch_icall_no_overrides(v4, v2);
   if ( *(_BYTE *)(v0 + 243) )
-    result = PerfInfoLogInterruptHv((__int64)v7, ((*(_DWORD *)(v0 + 224) + 48) << 8) + 1, (__int64)v9);
+    result = PerfInfoLogInterruptHv((__int64)v5, ((*(_DWORD *)(v0 + 224) + 48) << 8) + 1, (__int64)v7);
   _disable();
   return result;
 }

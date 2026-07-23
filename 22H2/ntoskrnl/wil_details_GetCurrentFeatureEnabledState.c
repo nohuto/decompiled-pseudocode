@@ -8,12 +8,12 @@
  *     wil_StagingConfig_QueryFeatureState @ 0x1406A5C00 (wil_StagingConfig_QueryFeatureState.c)
  */
 
-__int64 __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD *a2)
+ULONGLONG __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD *a2)
 {
-  unsigned int v2; // esi
+  RTL_FEATURE_ID v2; // esi
   unsigned __int8 v3; // al
   BOOL v5; // ebx
-  int v6; // eax
+  NTSTATUS v6; // eax
   int v7; // r8d
   int v8; // r9d
   int v9; // edx
@@ -29,39 +29,38 @@ __int64 __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD 
   BOOL v19; // ecx
   unsigned int v20; // eax
   unsigned int v21; // ebx
-  __int64 v23; // [rsp+30h] [rbp-30h] BYREF
-  int v24; // [rsp+38h] [rbp-28h]
-  __int128 v25; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v26; // [rsp+50h] [rbp-10h]
-  __int64 v27; // [rsp+80h] [rbp+20h] BYREF
+  _RTL_FEATURE_CONFIGURATION FeatureConfiguration; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v24; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v25; // [rsp+50h] [rbp-10h]
+  ULONGLONG ChangeStamp; // [rsp+80h] [rbp+20h] BYREF
 
   v2 = *(_DWORD *)(a1 + 24);
   v3 = *(_BYTE *)(a1 + 28) - 2;
-  v25 = 0LL;
+  v24 = 0LL;
   *a2 = 1;
   v5 = v3 <= 1u;
-  v26 = 0LL;
-  v23 = 0LL;
-  v24 = 0;
-  v6 = RtlQueryFeatureConfiguration(v2, v3 > 1u, &v27, &v23);
+  v25 = 0LL;
+  *(_QWORD *)&FeatureConfiguration.FeatureId = 0LL;
+  FeatureConfiguration.VariantPayload = 0;
+  v6 = RtlQueryFeatureConfiguration(v2, (RTL_FEATURE_CONFIGURATION_TYPE)(v3 > 1u), &ChangeStamp, &FeatureConfiguration);
   if ( v6 )
   {
     if ( v6 == 279 )
-      LODWORD(v26) = (HIDWORD(v23) >> 7) & 1;
-    FeatureState = wil_StagingConfig_QueryFeatureState(0, (unsigned int)&v25, v2, v5, 0LL);
-    v9 = HIDWORD(v26);
+      LODWORD(v25) = (*((_DWORD *)&FeatureConfiguration + 1) >> 7) & 1;
+    FeatureState = wil_StagingConfig_QueryFeatureState(0, (unsigned int)&v24, v2, v5, 0LL);
+    v9 = HIDWORD(v25);
     v7 = FeatureState;
-    v10 = v26;
-    v8 = v25;
+    v10 = v25;
+    v8 = v24;
   }
   else
   {
     v7 = 1;
-    v8 = (HIDWORD(v23) >> 4) & 3;
-    v9 = (HIDWORD(v23) >> 6) & 1;
-    v10 = (HIDWORD(v23) >> 7) & 1;
+    v8 = (*((_DWORD *)&FeatureConfiguration + 1) >> 4) & 3;
+    v9 = (*((_DWORD *)&FeatureConfiguration + 1) >> 6) & 1;
+    v10 = (*((_DWORD *)&FeatureConfiguration + 1) >> 7) & 1;
   }
-  v27 = 0LL;
+  ChangeStamp = 0LL;
   v12 = (v10 != 0 ? 0x400 : 0) | (v9 != 0 ? 0x800 : 0) | (((unsigned __int8)v8 & (unsigned __int8)-(v7 != 0) & 3) << 7);
   if ( (v12 & 0x180) != 0 )
   {
@@ -75,7 +74,7 @@ __int64 __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD 
   }
   v14 = v13 | v12;
   v15 = v14 | (v14 >> 6) & 1;
-  LODWORD(v27) = v15;
+  LODWORD(ChangeStamp) = v15;
   if ( v14 & 1 | ((v14 & 0x40) != 0) )
   {
     v16 = *(__int64 **)(a1 + 32);
@@ -101,9 +100,9 @@ __int64 __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD 
         }
         v15 = v20 | v21;
         ++v16;
-        LODWORD(v27) = v15;
+        LODWORD(ChangeStamp) = v15;
       }
     }
   }
-  return v27;
+  return ChangeStamp;
 }

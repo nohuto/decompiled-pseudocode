@@ -13,7 +13,7 @@ PSLIST_ENTRY WdipSemFreeFrequentScenarioTable()
 
   for ( i = 0LL; (unsigned int)i < dword_140F01960; i = (unsigned int)(i + 1) )
   {
-    result = WdipSemFastFree(5, (struct _SLIST_ENTRY *)WdipSemFrequentScenarioTable[i]);
+    result = WdipSemFastFree(5, (_SLIST_ENTRY *)WdipSemFrequentScenarioTable[i]);
     WdipSemFrequentScenarioTable[i] = 0LL;
   }
   dword_140F01960 = 0;

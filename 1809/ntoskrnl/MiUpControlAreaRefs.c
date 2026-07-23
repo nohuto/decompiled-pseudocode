@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpControlAreaRefs @ 0x1402A3450
+ * XREFs of MiUpControlAreaRefs @ 0x1402A3640
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiInsertChildVads @ 0x14085E6F0 (MiInsertChildVads.c)
+ *     MiInsertChildVads @ 0x14085F950 (MiInsertChildVads.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,18 +12,18 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiReferenceActiveSubsection @ 0x140077950 (MiReferenceActiveSubsection.c)
- *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     MiControlAreaRequiresCharge @ 0x140079E68 (MiControlAreaRequiresCharge.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiLockNestedVad @ 0x14085E9E0 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x14085E9FC (MiUnlockNestedVad.c)
+ *     MiReferenceActiveSubsection @ 0x140077940 (MiReferenceActiveSubsection.c)
+ *     MiDecrementSubsections @ 0x140079400 (MiDecrementSubsections.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400794B0 (MiDecrementSubsectionViewCount.c)
+ *     MiControlAreaRequiresCharge @ 0x140079E58 (MiControlAreaRequiresCharge.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiLockNestedVad @ 0x14085FC40 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x14085FC5C (MiUnlockNestedVad.c)
  */
 
 __int64 __fastcall MiUpControlAreaRefs(__int64 a1, int a2)
@@ -193,7 +193,7 @@ LABEL_41:
   }
   __writecr8(v15);
   if ( v10 )
-    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v4 + 60) & 0x3FF)), v33, v10);
+    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v4 + 60) & 0x3FF)), v33, v10);
   if ( !*(_QWORD *)(v4 + 64) )
   {
     v21 = v36 + 40;
@@ -229,7 +229,7 @@ LABEL_41:
           {
             v29->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v29->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v22->LockEntries[v28], SessionId);
+              KiAbEntryRemoveFromTree(&v22->LockEntries[v28].TreeNode, SessionId);
             v38 = 0;
             v38 = v29->BoostBitmap.AllFields & 0x1FFFF;
             v29->BoostBitmap.AllFields &= 0xFFFE0000;

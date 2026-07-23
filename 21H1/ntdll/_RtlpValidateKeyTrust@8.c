@@ -6,18 +6,18 @@
  *     _ZwQueryKey@20 @ 0x4B2F2AC0 (_ZwQueryKey@20.c)
  */
 
-int __fastcall RtlpValidateKeyTrust(int a1, __int16 a2)
+NTSTATUS __fastcall RtlpValidateKeyTrust(HANDLE KeyHandle, __int16 a2)
 {
-  int result; // eax
-  _BYTE v3[4]; // [esp+0h] [ebp-8h] BYREF
-  _BYTE v4[4]; // [esp+4h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  ULONG ResultLength; // [esp+0h] [ebp-8h] BYREF
+  _BYTE KeyInformation[4]; // [esp+4h] [ebp-4h] BYREF
 
   if ( (a2 & 0x100) != 0 )
     return 0;
-  result = ZwQueryKey(a1, 8, v4, 4, v3);
+  result = ZwQueryKey(KeyHandle, KeyTrustInformation, KeyInformation, 4u, &ResultLength);
   if ( result >= 0 )
   {
-    if ( (v4[0] & 1) != 0 )
+    if ( (KeyInformation[0] & 1) != 0 )
       return 0;
     result = -1073741790;
   }

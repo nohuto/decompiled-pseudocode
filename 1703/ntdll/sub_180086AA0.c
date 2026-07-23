@@ -9,20 +9,25 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_180086AA0(unsigned __int64 a1)
+void __fastcall sub_180086AA0(__int64 a1)
 {
-  __int64 v3; // rdx
-  _QWORD *v4; // rcx
+  __int64 v2; // rdx
+  _QWORD *v3; // rcx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(qword_18015C008 + 48));
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 32), 0xFFFFFFFF) != 1 )
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(qword_18015C008 + 48));
-  v3 = *(_QWORD *)(a1 + 8);
-  v4 = *(_QWORD **)(a1 + 16);
-  if ( *(_QWORD *)(v3 + 8) != a1 + 8 || *v4 != a1 + 8 )
-    __fastfail(3u);
-  *v4 = v3;
-  *(_QWORD *)(v3 + 8) = v4;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(qword_18015C008 + 48));
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 48));
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 32), 0xFFFFFFFF) == 1 )
+  {
+    v2 = *(_QWORD *)(a1 + 8);
+    v3 = *(_QWORD **)(a1 + 16);
+    if ( *(_QWORD *)(v2 + 8) != a1 + 8 || *v3 != a1 + 8 )
+      __fastfail(3u);
+    *v3 = v2;
+    *(_QWORD *)(v2 + 8) = v3;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 48));
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
+  }
+  else
+  {
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 48));
+  }
 }

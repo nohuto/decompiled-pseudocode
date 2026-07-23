@@ -1,28 +1,32 @@
 /*
- * XREFs of RtlFindCharInUnicodeString @ 0x14080053C
+ * XREFs of RtlFindCharInUnicodeString @ 0x140805FDC
  * Callers:
- *     LdrpGetResourceFileName @ 0x1406182E8 (LdrpGetResourceFileName.c)
+ *     LdrpGetResourceFileName @ 0x14061B338 (LdrpGetResourceFileName.c)
  * Callees:
- *     RtlValidateUnicodeString @ 0x14047C1A0 (RtlValidateUnicodeString.c)
+ *     RtlValidateUnicodeString @ 0x140475B10 (RtlValidateUnicodeString.c)
  */
 
-NTSTATUS __fastcall RtlFindCharInUnicodeString(__int64 a1, const UNICODE_STRING *a2, __int64 a3, _WORD *a4)
+NTSTATUS __cdecl RtlFindCharInUnicodeString(
+        ULONG Flags,
+        PUNICODE_STRING StringToSearch,
+        PUNICODE_STRING CharSet,
+        PUSHORT NonInclusivePrefixLength)
 {
   NTSTATUS result; // eax
   unsigned __int16 v7; // r8
   wchar_t *v8; // r9
 
-  if ( !a4 )
+  if ( !NonInclusivePrefixLength )
     return -1073741811;
-  *a4 = 0;
-  result = RtlValidateUnicodeString(0, a2);
+  *NonInclusivePrefixLength = 0;
+  result = RtlValidateUnicodeString(0, StringToSearch);
   if ( result >= 0 )
   {
     result = RtlValidateUnicodeString(0, &RtlNtPathSeperatorString);
     if ( result >= 0 )
     {
-      v7 = a2->Length >> 1;
-      v8 = &a2->Buffer[v7 - 1];
+      v7 = StringToSearch->Length >> 1;
+      v8 = &StringToSearch->Buffer[v7 - 1];
       if ( v7 )
       {
         while ( *v8 != *RtlNtPathSeperatorString.Buffer )
@@ -32,7 +36,7 @@ NTSTATUS __fastcall RtlFindCharInUnicodeString(__int64 a1, const UNICODE_STRING 
             return -1073741275;
         }
         result = 0;
-        *a4 = 2 * v7 - 2;
+        *NonInclusivePrefixLength = 2 * v7 - 2;
       }
       else
       {

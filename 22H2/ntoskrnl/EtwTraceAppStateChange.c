@@ -51,7 +51,7 @@ void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)
   int v25; // [rsp+E8h] [rbp-18h]
   char v26[100]; // [rsp+ECh] [rbp-14h] BYREF
   _OWORD v27[3]; // [rsp+150h] [rbp+50h] BYREF
-  _BYTE v28[416]; // [rsp+180h] [rbp+80h] BYREF
+  WCHAR PackageSize[208]; // [rsp+180h] [rbp+80h] BYREF
 
   memset(v26, 0, 0x62uLL);
   memset(v23, 0, sizeof(v23));
@@ -107,7 +107,7 @@ void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)
     }
     if ( dword_140C02BB8 && tlgKeywordOn((__int64)&dword_140C02BB8, 0x400000000000LL) )
     {
-      memset(v28, 0, 0x198uLL);
+      memset(PackageSize, 0, 0x198uLL);
       v20 = 0LL;
       v19 = 0;
       *(_OWORD *)P = 0LL;
@@ -127,7 +127,7 @@ void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)
         }
       }
       v17 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
-      EtwpQueryTokenPackageInfo((__int64)v17, (__int64)v28, &v19);
+      EtwpQueryTokenPackageInfo(v17, PackageSize, &v19);
       ObFastDereferenceObject((signed __int64 *)(BugCheckParameter1 + 1208), v17);
       if ( v16 )
       {
@@ -140,7 +140,13 @@ void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)
         KiUnstackDetachProcess((__int64)v27, 0);
         ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
       }
-      EtwpWriteAppStateChangeSummary(BugCheckParameter1, v26, v14, (__int64)v28, (int *)&v20, (unsigned __int16 *)P);
+      EtwpWriteAppStateChangeSummary(
+        BugCheckParameter1,
+        v26,
+        v14,
+        (__int64)PackageSize,
+        (int *)&v20,
+        (unsigned __int16 *)P);
       if ( P[1] )
         ExFreePoolWithTag(P[1], 0);
     }

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllowImageMap @ 0x1406AF6A4
+ * XREFs of MiAllowImageMap @ 0x1406AF6D4
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
  * Callees:
  *     MiGetControlAreaLoadConfig @ 0x140214E04 (MiGetControlAreaLoadConfig.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A24E0 (MiDereferenceControlAreaFile.c)
- *     SeGetTrustLabelAce @ 0x1402B5C20 (SeGetTrustLabelAce.c)
- *     ObReleaseObjectSecurityEx @ 0x1406C30B0 (ObReleaseObjectSecurityEx.c)
- *     MiReferenceFileObjectForMap @ 0x140720E18 (MiReferenceFileObjectForMap.c)
- *     ObpGetObjectSecurity @ 0x140736220 (ObpGetObjectSecurity.c)
- *     SeQueryMandatoryLabel @ 0x1407DD3E0 (SeQueryMandatoryLabel.c)
- *     PsBlockNonCetBinaries @ 0x1409AE164 (PsBlockNonCetBinaries.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1409E9F94 (EtwTimLogProhibitLowILImageMap.c)
- *     EtwpTimLogMitigationForProcess @ 0x1409EB76C (EtwpTimLogMitigationForProcess.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A2770 (MiDereferenceControlAreaFile.c)
+ *     SeGetTrustLabelAce @ 0x1402B5EB0 (SeGetTrustLabelAce.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406C30E0 (ObReleaseObjectSecurityEx.c)
+ *     MiReferenceFileObjectForMap @ 0x140721018 (MiReferenceFileObjectForMap.c)
+ *     ObpGetObjectSecurity @ 0x140736410 (ObpGetObjectSecurity.c)
+ *     SeQueryMandatoryLabel @ 0x1407DD6B0 (SeQueryMandatoryLabel.c)
+ *     PsBlockNonCetBinaries @ 0x1409AE364 (PsBlockNonCetBinaries.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1409EA224 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwpTimLogMitigationForProcess @ 0x1409EB9FC (EtwpTimLogMitigationForProcess.c)
  */
 
 __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

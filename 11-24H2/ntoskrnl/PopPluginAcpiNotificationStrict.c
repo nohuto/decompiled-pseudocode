@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPluginAcpiNotificationStrict @ 0x1405E4454
+ * XREFs of PopPluginAcpiNotificationStrict @ 0x1405E19E0
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x1405DC3B0 (PopFxAcpiDispatchNotification.c)
- *     PopFxAcpiPrepareDevice @ 0x1405DC554 (PopFxAcpiPrepareDevice.c)
- *     PopFxAcpiRegisterDevice @ 0x1405DC684 (PopFxAcpiRegisterDevice.c)
- *     PopFxAcpiUnregisterDevice @ 0x1405DC790 (PopFxAcpiUnregisterDevice.c)
+ *     PopFxAcpiDispatchNotification @ 0x1405D9280 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiPrepareDevice @ 0x1405D9424 (PopFxAcpiPrepareDevice.c)
+ *     PopFxAcpiRegisterDevice @ 0x1405D9554 (PopFxAcpiRegisterDevice.c)
+ *     PopFxAcpiUnregisterDevice @ 0x1405D9660 (PopFxAcpiUnregisterDevice.c)
  * Callees:
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     PopPluginAcpiNotification @ 0x1404CFF48 (PopPluginAcpiNotification.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     PopPluginAcpiNotification @ 0x1404C9038 (PopPluginAcpiNotification.c)
  */
 
 __int64 __fastcall PopPluginAcpiNotificationStrict(

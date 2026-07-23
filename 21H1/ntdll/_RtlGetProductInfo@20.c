@@ -19,18 +19,18 @@ BOOLEAN __stdcall RtlGetProductInfo(
   char *v7; // ecx
   int v8; // edx
   _DWORD *v9; // ecx
-  DWORD v10; // [esp+1Ch] [ebp-DCh] BYREF
+  DWORD Data; // [esp+1Ch] [ebp-DCh] BYREF
   PDWORD v11; // [esp+20h] [ebp-D8h]
-  int v12; // [esp+24h] [ebp-D4h] BYREF
-  unsigned int v13; // [esp+28h] [ebp-D0h] BYREF
+  ULONG Type; // [esp+24h] [ebp-D4h] BYREF
+  ULONG ResultDataSize; // [esp+28h] [ebp-D0h] BYREF
   _BYTE v14[16]; // [esp+2Ch] [ebp-CCh] BYREF
   char v15; // [esp+3Ch] [ebp-BCh] BYREF
 
   v5 = 0;
   v11 = ReturnedProductType;
-  v12 = 0;
-  v13 = 0;
-  v10 = 0;
+  Type = 0;
+  ResultDataSize = 0;
+  Data = 0;
   if ( ReturnedProductType )
   {
     *ReturnedProductType = 0;
@@ -44,22 +44,24 @@ BOOLEAN __stdcall RtlGetProductInfo(
                 dword_4B2873B8[2],
                 dword_4B2873B8[3]) >= 0 )
     {
-      if ( (int)NtQueryLicenseValue(&dword_4B28143C, &v12, &v10, 4, &v13) < 0 || v12 != 4 || v13 != 4 )
+      if ( NtQueryLicenseValue((PUNICODE_STRING)&stru_4B28143C, &Type, &Data, 4u, &ResultDataSize) < 0
+        || Type != 4
+        || ResultDataSize != 4 )
       {
         *v11 = -1412584499;
         goto LABEL_8;
       }
-      if ( (int)NtQueryLicenseValue(&dword_4B281434, &v12, v14, 200, &v13) < 0 )
+      if ( NtQueryLicenseValue((PUNICODE_STRING)&stru_4B281434, &Type, v14, 0xC8u, &ResultDataSize) < 0 )
       {
 LABEL_7:
-        *v11 = v10;
+        *v11 = Data;
 LABEL_8:
         LOBYTE(v5) = 1;
         return v5;
       }
-      if ( v12 == 3 && v13 >= 0x14 && !(v13 % 0x14) )
+      if ( Type == 3 && ResultDataSize >= 0x14 && !(ResultDataSize % 0x14) )
       {
-        if ( v13 / 0x14 )
+        if ( ResultDataSize / 0x14 )
         {
           v7 = &v15;
           do

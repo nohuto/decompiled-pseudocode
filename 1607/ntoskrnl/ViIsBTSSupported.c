@@ -1,12 +1,12 @@
 /*
- * XREFs of ViIsBTSSupported @ 0x14070EF6C
+ * XREFs of ViIsBTSSupported @ 0x14070EF9C
  * Callers:
- *     VfInitializeBranchTracing @ 0x14070ECEC (VfInitializeBranchTracing.c)
+ *     VfInitializeBranchTracing @ 0x14070ED1C (VfInitializeBranchTracing.c)
  * Callees:
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 ViIsBTSSupported()

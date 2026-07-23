@@ -18,7 +18,7 @@
 
 PVOID __fastcall ExAllocatePool2(__int64 a1, SIZE_T a2, ULONG a3)
 {
-  signed int v5; // eax
+  NTSTATUS v5; // eax
   POOL_TYPE PoolType[6]; // [rsp+30h] [rbp-18h] BYREF
   char v8; // [rsp+60h] [rbp+18h] BYREF
   char v9; // [rsp+68h] [rbp+20h] BYREF

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnloadHotPatchForUserSid @ 0x1408582B0
+ * XREFs of MiUnloadHotPatchForUserSid @ 0x140859510
  * Callers:
- *     NtManageHotPatch @ 0x140858450 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1408596B0 (NtManageHotPatch.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiDeleteHotPatchRecord @ 0x140854BCC (MiDeleteHotPatchRecord.c)
- *     MiFindUserSidHotPatchContext @ 0x140854F60 (MiFindUserSidHotPatchContext.c)
- *     MiHotPatchAllProcesses @ 0x140855288 (MiHotPatchAllProcesses.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiDeleteHotPatchRecord @ 0x140855E2C (MiDeleteHotPatchRecord.c)
+ *     MiFindUserSidHotPatchContext @ 0x1408561C0 (MiFindUserSidHotPatchContext.c)
+ *     MiHotPatchAllProcesses @ 0x1408564E8 (MiHotPatchAllProcesses.c)
  */
 
 __int64 __fastcall MiUnloadHotPatchForUserSid(void *a1, int *a2)

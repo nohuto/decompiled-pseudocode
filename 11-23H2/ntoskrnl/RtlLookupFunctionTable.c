@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLookupFunctionTable @ 0x140411C78
+ * XREFs of RtlLookupFunctionTable @ 0x140411EB8
  * Callers:
  *     CcInitializeBcbProfiler @ 0x140B17354 (CcInitializeBcbProfiler.c)
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1402A3C80 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1402A3F10 (RtlpxLookupFunctionTable.c)
  */
 
 PVOID __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpMcParallelLoadSupported @ 0x14051BB3C
+ * XREFs of HalpMcParallelLoadSupported @ 0x14051C08C
  * Callers:
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
  * Callees:
  *     <none>
  */

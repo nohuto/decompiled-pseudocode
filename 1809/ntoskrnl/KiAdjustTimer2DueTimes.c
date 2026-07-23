@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAdjustTimer2DueTimes @ 0x14016FE34
+ * XREFs of KiAdjustTimer2DueTimes @ 0x14016FF34
  * Callers:
- *     KiAdjustTimerDueTimes @ 0x14016FBEC (KiAdjustTimerDueTimes.c)
+ *     KiAdjustTimerDueTimes @ 0x14016FCEC (KiAdjustTimerDueTimes.c)
  * Callees:
  *     KiRequestTimer2Expiration @ 0x140003A70 (KiRequestTimer2Expiration.c)
- *     KiRemoveTimer2 @ 0x1400FB730 (KiRemoveTimer2.c)
- *     KiShouldActivateHRTimerClock @ 0x1400FBDA8 (KiShouldActivateHRTimerClock.c)
- *     KiInsertTimer2 @ 0x1400FC800 (KiInsertTimer2.c)
- *     KiSendClockInterruptToClockOwner @ 0x1400FD168 (KiSendClockInterruptToClockOwner.c)
- *     RtlULongLongSub @ 0x1400FE064 (RtlULongLongSub.c)
+ *     KiRemoveTimer2 @ 0x1400FB7B0 (KiRemoveTimer2.c)
+ *     KiShouldActivateHRTimerClock @ 0x1400FBE28 (KiShouldActivateHRTimerClock.c)
+ *     KiInsertTimer2 @ 0x1400FC880 (KiInsertTimer2.c)
+ *     KiSendClockInterruptToClockOwner @ 0x1400FD1E8 (KiSendClockInterruptToClockOwner.c)
+ *     RtlULongLongSub @ 0x1400FE0E4 (RtlULongLongSub.c)
  */
 
 char __fastcall KiAdjustTimer2DueTimes(__int64 a1)
@@ -141,7 +141,7 @@ LABEL_34:
     if ( v23 )
       KiRequestTimer2Expiration();
   }
-  result = KiShouldActivateHRTimerClock(MEMORY[0xFFFFF78000000008], qword_140421D88);
+  result = KiShouldActivateHRTimerClock(MEMORY[0xFFFFF78000000008], qword_140422E68);
   if ( result )
     return KiSendClockInterruptToClockOwner();
   return result;

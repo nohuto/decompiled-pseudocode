@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetSystemStorePath @ 0x14053B764
+ * XREFs of BiGetSystemStorePath @ 0x14053BCA4
  * Callers:
- *     BiLoadSystemStore @ 0x14053B5E0 (BiLoadSystemStore.c)
+ *     BiLoadSystemStore @ 0x14053BB20 (BiLoadSystemStore.c)
  * Callees:
- *     wcscat_s @ 0x140152FF8 (wcscat_s.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
+ *     wcscat_s @ 0x1401535B8 (wcscat_s.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiGetSystemPartition @ 0x14053B84C (BiGetSystemPartition.c)
- *     BiGetFirmwareType @ 0x14053C0EC (BiGetFirmwareType.c)
+ *     BiGetSystemPartition @ 0x14053BD8C (BiGetSystemPartition.c)
+ *     BiGetFirmwareType @ 0x14053C62C (BiGetFirmwareType.c)
  */
 
 __int64 __fastcall BiGetSystemStorePath(wchar_t **a1)

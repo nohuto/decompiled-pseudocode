@@ -1,14 +1,14 @@
 /*
- * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x140821474
+ * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x140822674
  * Callers:
- *     NtQueryEnvironmentVariableInfoEx @ 0x1408D4ED0 (NtQueryEnvironmentVariableInfoEx.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x1408D6190 (NtQueryEnvironmentVariableInfoEx.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopOpenSystemVariableDevice @ 0x1408222B8 (IopOpenSystemVariableDevice.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x1408234B8 (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoQueryEnvironmentVariableInfoEx(
@@ -54,7 +54,7 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(
     if ( Object )
       ObfDereferenceObject(Object);
   }
-  if ( stru_140400AB0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AB0, 0x200000000000uLL) )
+  if ( stru_140401AB0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140401AB0, 0x200000000000uLL) )
   {
     v9 = *a2;
     v19 = 0;
@@ -77,7 +77,7 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(
     v24 = 8;
     v27 = 8;
     v30 = 4;
-    TlgWrite(&stru_140400AB0, &unk_14036D064, 0LL, 0LL, 7u, &pData);
+    TlgWrite(&stru_140401AB0, &unk_14036DFF4, 0LL, 0LL, 7u, &pData);
   }
   return (unsigned int)v8;
 }

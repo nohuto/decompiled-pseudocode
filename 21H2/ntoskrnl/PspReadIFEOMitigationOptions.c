@@ -1,11 +1,11 @@
 /*
- * XREFs of PspReadIFEOMitigationOptions @ 0x1406D97B4
+ * XREFs of PspReadIFEOMitigationOptions @ 0x1406B0A94
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PspValidateMitigationOptions @ 0x1406AF65C (PspValidateMitigationOptions.c)
- *     PspReadOptionsMapFromIFEO @ 0x1406D9898 (PspReadOptionsMapFromIFEO.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PspValidateMitigationOptions @ 0x14060DEFC (PspValidateMitigationOptions.c)
+ *     PspReadOptionsMapFromIFEO @ 0x1406B0B78 (PspReadOptionsMapFromIFEO.c)
  */
 
 __int64 __fastcall PspReadIFEOMitigationOptions(__int64 a1, __m128i *a2)

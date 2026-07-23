@@ -1,17 +1,17 @@
 /*
- * XREFs of MiWalkPagesOnLists @ 0x140489D48
+ * XREFs of MiWalkPagesOnLists @ 0x14026E7E0
  * Callers:
- *     MiCreatePfnBitMaps @ 0x1407FA7CC (MiCreatePfnBitMaps.c)
- *     MiMirrorBrownPhase @ 0x140B6CC0C (MiMirrorBrownPhase.c)
+ *     MiCreatePfnBitMaps @ 0x1407FAF3C (MiCreatePfnBitMaps.c)
+ *     MiMirrorBrownPhase @ 0x140B6E4AC (MiMirrorBrownPhase.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIsDecayPfn @ 0x14022EFD0 (MiIsDecayPfn.c)
- *     MiUpdateLargePageCandidateValue @ 0x140272210 (MiUpdateLargePageCandidateValue.c)
- *     MiMirrorAddPagesToBrownList @ 0x1403A451C (MiMirrorAddPagesToBrownList.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiMirrorNodeFreeZeroPages @ 0x1404FAC88 (MiMirrorNodeFreeZeroPages.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402277A0 (MiUpdateLargePageCandidateValue.c)
+ *     MiMirrorAddPagesToBrownList @ 0x14026E03C (MiMirrorAddPagesToBrownList.c)
+ *     MiIsDecayPfn @ 0x1403028E0 (MiIsDecayPfn.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiMirrorNodeFreeZeroPages @ 0x1404F8568 (MiMirrorNodeFreeZeroPages.c)
  */
 
 __int64 __fastcall MiWalkPagesOnLists(__int64 a1, __int64 a2, int a3, __int64 a4, unsigned int a5)
@@ -36,25 +36,27 @@ __int64 __fastcall MiWalkPagesOnLists(__int64 a1, __int64 a2, int a3, __int64 a4
   __int64 v22; // rdi
   unsigned __int8 CurrentIrql; // r12
   volatile LONG *v24; // r13
-  unsigned __int64 v25; // rdi
-  __int64 v26; // r8
-  __int64 v27; // rbp
-  unsigned __int64 v28; // rcx
-  unsigned int v29; // eax
+  __int64 v25; // rdx
+  __int64 v26; // r9
+  unsigned __int64 v27; // rdi
+  __int64 v28; // r8
+  __int64 v29; // rbp
   unsigned __int64 v30; // rcx
-  _QWORD *v31; // r14
-  __int64 v32; // [rsp+30h] [rbp-58h]
-  volatile LONG *v33; // [rsp+48h] [rbp-40h]
-  __int64 v34; // [rsp+90h] [rbp+8h]
-  __int64 v35; // [rsp+90h] [rbp+8h]
-  unsigned int v36; // [rsp+A8h] [rbp+20h]
+  unsigned int v31; // eax
+  unsigned __int64 v32; // rcx
+  _QWORD *v33; // r14
+  __int64 v34; // [rsp+30h] [rbp-58h]
+  volatile LONG *v35; // [rsp+48h] [rbp-40h]
+  __int64 v36; // [rsp+90h] [rbp+8h]
+  __int64 v37; // [rsp+90h] [rbp+8h]
+  unsigned int v38; // [rsp+A8h] [rbp+20h]
 
-  v34 = a1;
+  v36 = a1;
   v5 = a3;
   v6 = a2;
   v7 = a1;
   v8 = 16LL;
-  v32 = 16LL;
+  v34 = 16LL;
   if ( a3 <= 4LL )
   {
     v20 = a5;
@@ -87,53 +89,53 @@ LABEL_32:
         KiRaiseIrqlProcessIrqlFlags(a1, a2);
       }
       v24 = (volatile LONG *)(v21 + 32);
-      v33 = (volatile LONG *)(v21 + 32);
+      v35 = (volatile LONG *)(v21 + 32);
       ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v21 + 32));
-      v25 = *(_QWORD *)(v21 + 16);
-      v26 = 0x3FFFFFFFFFLL;
-      if ( v25 != 0x3FFFFFFFFFLL )
+      v27 = *(_QWORD *)(v21 + 16);
+      v28 = 0x3FFFFFFFFFLL;
+      if ( v27 != 0x3FFFFFFFFFLL )
       {
         while ( 1 )
         {
-          v27 = 48 * v25 - 0x220000000000LL;
-          if ( !_bittest64((const signed __int64 *)(v27 + 40), 0x35u) )
+          v29 = 48 * v27 - 0x220000000000LL;
+          if ( !_bittest64((const signed __int64 *)(v29 + 40), 0x35u) )
           {
-            if ( v5 == 2 && MiIsDecayPfn(v25) )
+            if ( v5 == 2 && (unsigned int)MiIsDecayPfn(v27, v25, v28, v26) )
             {
-              v28 = *(_QWORD *)(v27 + 16);
-              if ( qword_140E2DB80 && (v28 & 0x10) == 0 )
-                v28 &= ~qword_140E2DB80;
-              v30 = (v28 >> 12) & 0xFFFFFFFFFFLL;
-              if ( v30 == v25 )
+              v30 = *(_QWORD *)(v29 + 16);
+              if ( qword_140E2DCC0 && (v30 & 0x10) == 0 )
+                v30 &= ~qword_140E2DCC0;
+              v32 = (v30 >> 12) & 0xFFFFFFFFFFLL;
+              if ( v32 == v27 )
                 goto LABEL_36;
               do
               {
-                v31 = (_QWORD *)(48 * v30 - 0x220000000000LL);
-                if ( v34 )
-                  MiMirrorAddPagesToBrownList(v30, 1uLL);
+                v33 = (_QWORD *)(48 * v32 - 0x220000000000LL);
+                if ( v36 )
+                  MiMirrorAddPagesToBrownList(v32, 1uLL);
                 else
-                  MiUpdateLargePageCandidateValue(v6, v30, 3, 3, 0LL);
-                v30 = *v31 & 0xFFFFFFFFFFLL;
+                  MiUpdateLargePageCandidateValue(v6, v32, 3, 3, 0LL);
+                v32 = *v33 & 0xFFFFFFFFFFLL;
               }
-              while ( v30 != v25 );
+              while ( v32 != v27 );
               v8 = 16LL;
             }
-            else if ( v34 )
+            else if ( v36 )
             {
-              MiMirrorAddPagesToBrownList(v25, 1uLL);
+              MiMirrorAddPagesToBrownList(v27, 1uLL);
             }
             else
             {
-              MiUpdateLargePageCandidateValue(v6, v25, 3, 3, 0LL);
+              MiUpdateLargePageCandidateValue(v6, v27, 3, 3, 0LL);
             }
-            v26 = 0x3FFFFFFFFFLL;
+            v28 = 0x3FFFFFFFFFLL;
           }
 LABEL_36:
-          v25 = *(_QWORD *)v27 & 0xFFFFFFFFFFLL;
-          if ( v25 == v26 )
+          v27 = *(_QWORD *)v29 & 0xFFFFFFFFFFLL;
+          if ( v27 == v28 )
           {
             v20 = a5;
-            v24 = v33;
+            v24 = v35;
             break;
           }
         }
@@ -147,27 +149,27 @@ LABEL_36:
       __writecr8(CurrentIrql);
       if ( v5 == 2 )
       {
-        v29 = v20 + 1;
+        v31 = v20 + 1;
         a1 = 1LL;
         if ( v20 == 7 )
-          v29 = 0;
+          v31 = 0;
         else
           v5 = 1LL;
-        v20 = v29;
-        a5 = v29;
+        v20 = v31;
+        a5 = v31;
         goto LABEL_42;
       }
       if ( v5 != 3 || (++v20, a5 = v20, v20 == 16) )
       {
 LABEL_42:
-        v7 = v34;
+        v7 = v36;
 LABEL_43:
         if ( ++v5 > 4 )
           goto LABEL_2;
       }
       else
       {
-        v7 = v34;
+        v7 = v36;
         v5 = 3LL;
       }
     }
@@ -178,7 +180,7 @@ LABEL_31:
   }
 LABEL_2:
   v9 = v6 + 4240;
-  v35 = v6 + 4240;
+  v37 = v6 + 4240;
   do
   {
     v10 = KeGetCurrentIrql();
@@ -203,8 +205,8 @@ LABEL_2:
         v11 = *v12 & 0xFFFFFFFFFFLL;
       }
       while ( v11 != 0x3FFFFFFFFFLL );
-      v9 = v35;
-      v8 = v32;
+      v9 = v37;
+      v8 = v34;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 16));
     if ( KiIrqlFlags )
@@ -215,12 +217,12 @@ LABEL_2:
     __writecr8(v10);
     v9 += 88LL;
     --v8;
-    v35 = v9;
-    v32 = v8;
+    v37 = v9;
+    v34 = v8;
   }
   while ( v8 );
   v13 = 0;
-  v36 = 0;
+  v38 = 0;
   do
   {
     v14 = v13 != 0 ? 4096LL : 3968LL;
@@ -247,7 +249,7 @@ LABEL_2:
         v17 = *v18 & 0xFFFFFFFFFFLL;
       }
       while ( v17 != 0x3FFFFFFFFFLL );
-      v13 = v36;
+      v13 = v38;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v16);
     if ( KiIrqlFlags )
@@ -257,7 +259,7 @@ LABEL_2:
     }
     result = v15;
     __writecr8(v15);
-    v36 = ++v13;
+    v38 = ++v13;
   }
   while ( v13 < 2 );
   return result;

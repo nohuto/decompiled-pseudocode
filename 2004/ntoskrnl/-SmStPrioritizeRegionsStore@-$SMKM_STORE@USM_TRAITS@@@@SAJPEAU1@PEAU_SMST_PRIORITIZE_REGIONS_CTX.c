@@ -124,7 +124,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStPrioritizeRegionsStore(__int64 a1,
     if ( ZwQueryVirtualMemory(
            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
            v14,
-           (MEMORY_INFORMATION_CLASS)4,
+           MemoryWorkingSetExInformation,
            MemoryInformation,
            16LL * v37,
            0LL) < 0

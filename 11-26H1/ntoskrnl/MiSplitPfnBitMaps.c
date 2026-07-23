@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSplitPfnBitMaps @ 0x14087A440
+ * XREFs of MiSplitPfnBitMaps @ 0x14088083C
  * Callers:
- *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x140709A18 (MiSplitPfnBitMapsForPartitionHierarchy.c)
- *     MiCreatePfnBitMaps @ 0x140879CE0 (MiCreatePfnBitMaps.c)
+ *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x14070E6CC (MiSplitPfnBitMapsForPartitionHierarchy.c)
+ *     MiCreatePfnBitMaps @ 0x1408800DC (MiCreatePfnBitMaps.c)
  * Callees:
- *     MiSplitBitmapPages @ 0x1402A5028 (MiSplitBitmapPages.c)
+ *     MiSplitBitmapPages @ 0x1402A4578 (MiSplitBitmapPages.c)
  */
 
 __int64 __fastcall MiSplitPfnBitMaps(ULONG *a1, __int64 a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall MiSplitPfnBitMaps(ULONG *a1, __int64 a2, __int64 a3)
   unsigned __int64 v14; // [rsp+68h] [rbp+10h]
 
   v3 = a3;
-  if ( a2 + a3 > (unsigned __int64)(qword_140E2D7A0 + 1) )
+  if ( a2 + a3 > (unsigned __int64)(qword_140E2D920 + 1) )
     return 0LL;
   v6 = 0;
   for ( i = 0; i < 3; ++i )
@@ -29,7 +29,7 @@ __int64 __fastcall MiSplitPfnBitMaps(ULONG *a1, __int64 a2, __int64 a3)
     {
       if ( a1 != &MiSystemPartition )
         continue;
-      v8 = &qword_140E2D7B8;
+      v8 = &qword_140E2D938;
       v9 = 0x40000LL;
     }
     else

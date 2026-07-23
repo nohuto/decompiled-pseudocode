@@ -11,37 +11,41 @@
  *     _RtlpLogHeapExtendEvent@20 @ 0x4B36F013 (_RtlpLogHeapExtendEvent@20.c)
  */
 
-int __fastcall RtlpExtendLowFragHeapSegment(_DWORD *a1, int a2, _DWORD *a3)
+NTSTATUS __fastcall RtlpExtendLowFragHeapSegment(_DWORD *a1, int a2, _DWORD *a3)
 {
   int v4; // ecx
   _DWORD *v5; // ebx
-  int result; // eax
+  NTSTATUS result; // eax
   int v7; // eax
-  int v8; // ecx
-  int HeapProtection; // eax
+  void *v8; // ecx
+  ULONG HeapProtection; // eax
   int v10; // edi
   int v11; // eax
-  int v12; // [esp+Ch] [ebp-8h]
-  int v13; // [esp+10h] [ebp-4h] BYREF
+  ULONG_PTR v12; // [esp-10h] [ebp-24h]
+  ULONG v13; // [esp+0h] [ebp-14h]
+  int v14; // [esp+Ch] [ebp-8h]
+  int v15; // [esp+10h] [ebp-4h] BYREF
 
   v4 = a1[4];
   v5 = a1 + 5;
-  v12 = v4 + a2;
+  v14 = v4 + a2;
   if ( (unsigned int)(v4 + a2) <= a1[5] )
   {
 LABEL_2:
     *a3 = v4;
-    a1[4] = v12;
+    a1[4] = v14;
     return 0;
   }
   v7 = v4 + a2 - *v5;
-  v8 = a1[3];
-  v13 = v7;
-  HeapProtection = RtlpGetHeapProtection(v8, 1);
-  result = NtAllocateVirtualMemory(-1, a1 + 5, 0, &v13, 4096, HeapProtection);
+  v8 = (void *)a1[3];
+  v15 = v7;
+  HeapProtection = RtlpGetHeapProtection(v8);
+  HIDWORD(v12) = &v15;
+  LODWORD(v12) = 0;
+  result = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)a1 + 5, v12, (PSIZE_T)0x1000, HeapProtection, v13);
   if ( result >= 0 )
   {
-    *(_DWORD *)(a1[3] + 504) += v13;
+    *(_DWORD *)(a1[3] + 504) += v15;
     v10 = 2147353472;
     if ( RtlGetCurrentServiceSessionId() )
       v11 = (int)NtCurrentPeb()->SharedData + 550;
@@ -51,10 +55,10 @@ LABEL_2:
     {
       if ( RtlGetCurrentServiceSessionId() )
         v10 = (int)NtCurrentPeb()->SharedData + 550;
-      RtlpLogHeapExtendEvent(v13, 8 * *(_DWORD *)(a1[3] + 116), *(unsigned __int8 *)v10);
-      RtlpLogHeapCommit(v13, 9);
+      RtlpLogHeapExtendEvent(v15, 8 * *(_DWORD *)(a1[3] + 116), (HANDLE)*(unsigned __int8 *)v10);
+      RtlpLogHeapCommit(v15, 9);
     }
-    *v5 += v13;
+    *v5 += v15;
     v4 = a1[4];
     goto LABEL_2;
   }

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlGetLongestNtPathLength()
+ULONG RtlGetLongestNtPathLength(void)
 {
-  return 269LL;
+  return 269;
 }

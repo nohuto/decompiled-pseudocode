@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpCorrectGenericErrSrc @ 0x1403AED64
+ * XREFs of HalpCorrectGenericErrSrc @ 0x1403AEF44
  * Callers:
- *     HalpCorrectErrSrc @ 0x140A91DC0 (HalpCorrectErrSrc.c)
+ *     HalpCorrectErrSrc @ 0x140A91C40 (HalpCorrectErrSrc.c)
  * Callees:
  *     <none>
  */

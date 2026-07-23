@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnEnablePrefetcherTimerRoutine @ 0x1400B5554
+ * XREFs of PfSnEnablePrefetcherTimerRoutine @ 0x1400B337C
  * Callers:
  *     <none>
  * Callees:
- *     PfSnUpdatePrefetcherFlags @ 0x1400B557C (PfSnUpdatePrefetcherFlags.c)
+ *     PfSnUpdatePrefetcherFlags @ 0x1400B33A4 (PfSnUpdatePrefetcherFlags.c)
  */
 
 void __fastcall PfSnEnablePrefetcherTimerRoutine(

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationToken @ 0x1800A0700
+ * XREFs of NtQueryInformationToken @ 0x1800A0720
  * Callers:
  *     RtlDefaultNpAcl @ 0x180002040 (RtlDefaultNpAcl.c)
  *     RtlFormatCurrentUserKeyPath @ 0x18003F560 (RtlFormatCurrentUserKeyPath.c)
@@ -12,8 +12,8 @@
  *     EtwpWriteToPrivateBuffers @ 0x18004DFCC (EtwpWriteToPrivateBuffers.c)
  *     RtlpValidOwnerSubjectContext @ 0x18006E2FC (RtlpValidOwnerSubjectContext.c)
  *     RtlCheckSandboxedToken @ 0x180071FC0 (RtlCheckSandboxedToken.c)
- *     RtlpSetSecurityObject @ 0x18007C610 (RtlpSetSecurityObject.c)
- *     RtlRemovePrivileges @ 0x18008D8B0 (RtlRemovePrivileges.c)
+ *     RtlpSetSecurityObject @ 0x18007C620 (RtlpSetSecurityObject.c)
+ *     RtlRemovePrivileges @ 0x18008D8C0 (RtlRemovePrivileges.c)
  *     RtlNewInstanceSecurityObject @ 0x1800D8EE0 (RtlNewInstanceSecurityObject.c)
  *     RtlNewSecurityGrantedAccess @ 0x1800D9010 (RtlNewSecurityGrantedAccess.c)
  *     AVrfpAppendCurrentUserSid @ 0x1800DB92C (AVrfpAppendCurrentUserSid.c)
@@ -24,11 +24,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationToken()
+NTSTATUS __cdecl NtQueryInformationToken(
+        HANDLE TokenHandle,
+        ULONG TokenInformationClass,
+        PVOID TokenInformation,
+        ULONG TokenInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 33LL;
+  result = 33;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

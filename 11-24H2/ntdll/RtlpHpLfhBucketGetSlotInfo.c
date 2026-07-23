@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhBucketGetSlotInfo @ 0x18008F410
+ * XREFs of RtlpHpLfhBucketGetSlotInfo @ 0x180026DE0
  * Callers:
- *     RtlpHpLfhBucketCleanup @ 0x18008F37C (RtlpHpLfhBucketCleanup.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180119830 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpLfhBucketCleanup @ 0x180026D4C (RtlpHpLfhBucketCleanup.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180117A60 (RtlpHpLfhBucketUpdateAffinityMapping.c)
  * Callees:
  *     <none>
  */

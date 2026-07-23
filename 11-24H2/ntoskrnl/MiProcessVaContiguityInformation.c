@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProcessVaContiguityInformation @ 0x14068D0DC
+ * XREFs of MiProcessVaContiguityInformation @ 0x14068E20C
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1409E8FB0 (NtSetInformationVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x1409E3F70 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1402BB330 (MiUnlockAndDereferenceVadShared.c)
- *     MiGetLargePage @ 0x1402F35A0 (MiGetLargePage.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiConvertLargeActivePageToChain @ 0x1403083C0 (MiConvertLargeActivePageToChain.c)
- *     MiInitializeDemandCoalesceContext @ 0x14036EEE0 (MiInitializeDemandCoalesceContext.c)
- *     MiThreadIdealNode @ 0x14036F010 (MiThreadIdealNode.c)
- *     MiVadPagesTradable @ 0x1403FE990 (MiVadPagesTradable.c)
- *     MiGetVadCacheAttribute @ 0x1404A5498 (MiGetVadCacheAttribute.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiQueryVaPhysicalContiguity @ 0x140680DC0 (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14068CDFC (MiMakeVaRangePhysicallyContiguous.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiVadSupportsPhysicalContiguityQuery @ 0x1407F8070 (MiVadSupportsPhysicalContiguityQuery.c)
+ *     MiGetLargePage @ 0x1402517B0 (MiGetLargePage.c)
+ *     MiInitializeDemandCoalesceContext @ 0x14026AE60 (MiInitializeDemandCoalesceContext.c)
+ *     MiThreadIdealNode @ 0x14026AF90 (MiThreadIdealNode.c)
+ *     MiConvertLargeActivePageToChain @ 0x1403122A0 (MiConvertLargeActivePageToChain.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140362A70 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadPagesTradable @ 0x1403DD010 (MiVadPagesTradable.c)
+ *     MiGetVadCacheAttribute @ 0x1404A0228 (MiGetVadCacheAttribute.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140681F6C (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14068DF2C (MiMakeVaRangePhysicallyContiguous.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiVadSupportsPhysicalContiguityQuery @ 0x1407F87E0 (MiVadSupportsPhysicalContiguityQuery.c)
  */
 
 __int64 __fastcall MiProcessVaContiguityInformation(unsigned __int64 *a1, __int64 a2, unsigned int a3)
@@ -69,11 +69,11 @@ __int64 __fastcall MiProcessVaContiguityInformation(unsigned __int64 *a1, __int6
   p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
   v31 = p_Blink;
   v9 = MiPageSizes[a3];
-  v29 = (ULONG *)*((_QWORD *)qword_140E2FF88 + *((unsigned __int16 *)p_Blink + 87));
+  v29 = (ULONG *)*((_QWORD *)qword_140E300C8 + *((unsigned __int16 *)p_Blink + 87));
   v10 = v9 << 12;
   v30 = v9 << 12;
   MiInitializeDemandCoalesceContext(v35, v9, 1uLL, 1);
-  if ( (int)MiAcquireNonPagedResources(v29, MiPageSizes[v4], 1024LL, 6u) < 0 )
+  if ( (int)MiAcquireNonPagedResources(v29, MiPageSizes[v4], 1024LL, 6LL) < 0 )
     return (unsigned int)-1073741670;
   v14 = &a1[2 * a2];
   v33 = v14;
@@ -113,7 +113,7 @@ LABEL_15:
                   v10 = v30;
                   goto LABEL_3;
                 }
-                if ( !(unsigned int)MiQueryVaPhysicalContiguity((__int64)p_Blink, v18, v4, 1) )
+                if ( !(unsigned int)MiQueryVaPhysicalContiguity((__int64)p_Blink, v18, v4, 1LL) )
                 {
                   CurrentIrql = KeGetCurrentIrql();
                   __writecr8(2uLL);
@@ -145,7 +145,7 @@ LABEL_15:
           }
           MiUnlockAndDereferenceVadShared(v6, v11, v12, v13);
         }
-        v15 = MiObtainReferencedVadEx(*a1, 2LL, (int *)&VaRangePhysicallyContiguous);
+        v15 = MiObtainReferencedVadEx(*a1, 2LL, (int *)&VaRangePhysicallyContiguous, v13);
         v6 = v15;
         if ( v15 )
         {

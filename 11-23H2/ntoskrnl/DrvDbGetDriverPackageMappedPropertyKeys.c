@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetDriverPackageMappedPropertyKeys @ 0x140A6BEDC
+ * XREFs of DrvDbGetDriverPackageMappedPropertyKeys @ 0x140A6C18C
  * Callers:
- *     DrvDbDispatchDriverPackage @ 0x1408763A0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverPackage @ 0x1408765E0 (DrvDbDispatchDriverPackage.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1408764E8 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x14087692C (DrvDbOpenDriverPackageRegKey.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x140A6B474 (DrvDbGetCompositeMappedPropertyKeys.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140A6C218 (DrvDbGetDriverPackageSignerScore.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140876728 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x140876B6C (DrvDbOpenDriverPackageRegKey.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x140A6B724 (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140A6C4C8 (DrvDbGetDriverPackageSignerScore.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
@@ -61,7 +61,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
   *v6 = 0;
   CompositeMappedPropertyKeys = DrvDbGetCompositeMappedPropertyKeys(
                                   (__int64)a1,
-                                  (_OWORD **)&off_140C096A0,
+                                  (_OWORD **)&off_140C09680,
                                   0xFu,
                                   a4,
                                   a5,
@@ -83,7 +83,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedPropertyKeys(
           CompositeMappedPropertyKeys >= 0) )
     {
       v14 = 0;
-      v15 = (__int64 *)off_14000B2A0;
+      v15 = (__int64 *)off_14000B280;
       while ( 1 )
       {
         v16 = Handle[0];

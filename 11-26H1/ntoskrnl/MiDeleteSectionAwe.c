@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteSectionAwe @ 0x1407014B8
+ * XREFs of MiDeleteSectionAwe @ 0x140706188
  * Callers:
- *     MiCreatePagingFileCleanup @ 0x140868838 (MiCreatePagingFileCleanup.c)
- *     MiDeletePageFileSectionNodes @ 0x140A8186C (MiDeletePageFileSectionNodes.c)
- *     MiDereferenceFailedControlArea @ 0x140B25454 (MiDereferenceFailedControlArea.c)
+ *     MiCreatePagingFileCleanup @ 0x14086EC18 (MiCreatePagingFileCleanup.c)
+ *     MiDeletePageFileSectionNodes @ 0x140A876DC (MiDeletePageFileSectionNodes.c)
+ *     MiDereferenceFailedControlArea @ 0x140B275E4 (MiDereferenceFailedControlArea.c)
  * Callees:
- *     MiDeleteAweInfo @ 0x140878E84 (MiDeleteAweInfo.c)
- *     MiDeleteAweInfoPages @ 0x140878ECC (MiDeleteAweInfoPages.c)
+ *     MiDeleteAweInfo @ 0x14087F264 (MiDeleteAweInfo.c)
+ *     MiDeleteAweInfoPages @ 0x14087F2AC (MiDeleteAweInfoPages.c)
  */
 
 __int64 __fastcall MiDeleteSectionAwe(__int64 a1)

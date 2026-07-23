@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmApplyIdlePolicy @ 0x1403C48B4
+ * XREFs of PpmApplyIdlePolicy @ 0x1403C4CE4
  * Callers:
- *     PpmResetIdlePolicy @ 0x1403C4798 (PpmResetIdlePolicy.c)
+ *     PpmResetIdlePolicy @ 0x1403C4BC8 (PpmResetIdlePolicy.c)
  * Callees:
- *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14026A1CC (PpmConvertTime.c)
  */
 
 ULONGLONG __fastcall PpmApplyIdlePolicy(__int64 *a1)
@@ -17,7 +17,7 @@ ULONGLONG __fastcall PpmApplyIdlePolicy(__int64 *a1)
 
   v1 = PpmCurrentProfile;
   v2 = *a1;
-  v3 = 342LL * dword_140C23E8C;
+  v3 = 342LL * dword_140C2332C;
   *((_BYTE *)a1 + 60) = BYTE4(PpmCurrentProfile[v3 + 23]);
   v4 = BYTE4(v1[v3 + 24]);
   *((_BYTE *)a1 + 59) = v4;

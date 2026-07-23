@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeNumaRanges @ 0x14017EDC0
+ * XREFs of MiInitializeNumaRanges @ 0x14017EF00
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 MiInitializeNumaRanges()
@@ -42,7 +42,7 @@ __int64 MiInitializeNumaRanges()
   v3 = 0LL;
   while ( 1 )
   {
-    v4 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD **, unsigned int *))off_140400458[0])(30LL, v1, v2, v0);
+    v4 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD **, unsigned int *))off_140401458[0])(30LL, v1, v2, v0);
     if ( v4 < 0 )
       break;
     if ( !v0 )
@@ -68,12 +68,12 @@ __int64 MiInitializeNumaRanges()
       v14 = 0LL;
       v4 = 0;
 LABEL_11:
-      v5 = ExAcquireSpinLockExclusive(&dword_140438D78);
-      v3 = (void *)qword_14043A060;
+      v5 = ExAcquireSpinLockExclusive(&dword_140439E38);
+      v3 = (void *)qword_14043B120;
       v6 = v5;
-      if ( qword_14043A060 && !byte_14043A048 )
+      if ( qword_14043B120 && !byte_14043B108 )
       {
-        byte_14043A048 = 1;
+        byte_14043B108 = 1;
         v3 = 0LL;
       }
       v7 = (__int64)v14;
@@ -95,9 +95,9 @@ LABEL_11:
           while ( *(_QWORD *)(v11 + v7) != -1LL );
         }
       }
-      dword_14043A044 = 0;
-      qword_14043A060 = v7;
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438D78);
+      dword_14043B104 = 0;
+      qword_14043B120 = v7;
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439E38);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v6 < 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();

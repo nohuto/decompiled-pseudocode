@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetGuidList @ 0x1408A7296
+ * XREFs of EtwpGetGuidList @ 0x1408A74E6
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
- *     EtwpGetTraceGuidList @ 0x1409E7DA4 (EtwpGetTraceGuidList.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
+ *     EtwpGetTraceGuidList @ 0x1409E8034 (EtwpGetTraceGuidList.c)
  * Callees:
- *     EtwpGetNextGuidEntry @ 0x1406BF0E0 (EtwpGetNextGuidEntry.c)
+ *     EtwpGetNextGuidEntry @ 0x1406BF110 (EtwpGetNextGuidEntry.c)
  */
 
 __int64 __fastcall EtwpGetGuidList(__int64 a1, int a2, __int64 a3, unsigned int a4, unsigned int *a5)
@@ -27,9 +27,9 @@ __int64 __fastcall EtwpGetGuidList(__int64 a1, int a2, __int64 a3, unsigned int 
       v13 = v11;
       if ( a2 )
         goto LABEL_6;
-      v14 = NextGuidEntry[5] - PrivateLoggerNotificationGuid;
+      v14 = NextGuidEntry[5] - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
       if ( !v14 )
-        v14 = NextGuidEntry[6] - *((_QWORD *)&PrivateLoggerNotificationGuid + 1);
+        v14 = NextGuidEntry[6] - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
       if ( v14 )
       {
 LABEL_6:

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetProbePagesAhead @ 0x1402EFB10
+ * XREFs of MiSetProbePagesAhead @ 0x1402D1B90
  * Callers:
- *     MiProbeAndLockPacket @ 0x1402EE280 (MiProbeAndLockPacket.c)
- *     MmStoreProbeAndLockPages @ 0x1402F0670 (MmStoreProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x14039F2E0 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPacket @ 0x1402D0300 (MiProbeAndLockPacket.c)
+ *     MmStoreProbeAndLockPages @ 0x1402D26F0 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403A1040 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402F0BC0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140404850 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402D2C40 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1403FD950 (MiGetPageTablePfnBuddyRaw.c)
  */
 
 char __fastcall MiSetProbePagesAhead(__int64 a1)
@@ -41,7 +41,7 @@ char __fastcall MiSetProbePagesAhead(__int64 a1)
   {
     v3 = *(_QWORD *)(a1 + 48);
     InitialStack = (v3 >> 12) & 0xFFFFFFFFFFLL;
-    if ( InitialStack <= qword_140E2D7A0 )
+    if ( InitialStack <= qword_140E2D920 )
     {
       InitialStack = *(_QWORD *)(48 * InitialStack - 0x21FFFFFFFFD8LL);
       v4 = (InitialStack & 0x40000000000000LL) != 0;
@@ -91,7 +91,7 @@ char __fastcall MiSetProbePagesAhead(__int64 a1)
         if ( (v12 & 0xF0F0000000000FFFuLL) != v6 )
           break;
         v13 = (v12 >> 12) & 0xFFFFFFFFFFLL;
-        if ( v13 <= qword_140E2D7A0
+        if ( v13 <= qword_140E2D920
           && (v14 = 48 * v13,
               InitialStack = *(_QWORD *)(48 * v13 - 0x21FFFFFFFFD8LL),
               (InitialStack & 0x40000000000000LL) != 0) )
@@ -99,12 +99,12 @@ char __fastcall MiSetProbePagesAhead(__int64 a1)
           if ( !v4 )
             break;
           v20 = v14 + v10;
-          if ( stru_140E36558.InitialStack )
+          if ( stru_140E366D8.InitialStack )
           {
             if ( ((*(_QWORD *)(v20 + 40) >> 60) & 7) == 1 )
             {
               v13 = v14 / 48;
-              InitialStack = (unsigned __int64)stru_140E36558.InitialStack;
+              InitialStack = (unsigned __int64)stru_140E366D8.InitialStack;
               while ( InitialStack )
               {
                 v21 = *(_QWORD *)(InitialStack + 24);

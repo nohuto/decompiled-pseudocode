@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFillMemoryPtes @ 0x140483968
+ * XREFs of MiFillMemoryPtes @ 0x14047D2D0
  * Callers:
- *     MiInitializePrototypePtes @ 0x1409B8000 (MiInitializePrototypePtes.c)
+ *     MiInitializePrototypePtes @ 0x140988FE0 (MiInitializePrototypePtes.c)
  * Callees:
  *     <none>
  */

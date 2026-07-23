@@ -1,25 +1,25 @@
 /*
- * XREFs of BgpConsoleGetCursorState @ 0x140C50340
+ * XREFs of BgpConsoleGetCursorState @ 0x140C56340
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
  */
 
 __int64 __fastcall BgpConsoleGetCursorState(_DWORD *a1, _DWORD *a2, _DWORD *a3)
 {
-  struct _LIST_ENTRY *Flink; // rax
+  _DWORD *NormalContext; // rax
   unsigned int v7; // ebx
 
   BgpFwAcquireLock();
-  Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
+  NormalContext = WheapPfaLock.SchedulerApc.NormalContext;
   v7 = 0;
-  if ( WheapPfaLock.SavedApcState.ApcListHead[1].Flink )
+  if ( WheapPfaLock.SchedulerApc.NormalContext )
   {
-    *a1 = HIDWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink[4].Flink);
-    *a2 = Flink[4].Blink;
-    *a3 = HIDWORD(Flink[4].Blink);
+    *a1 = *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 17);
+    *a2 = NormalContext[18];
+    *a3 = NormalContext[19];
   }
   else
   {

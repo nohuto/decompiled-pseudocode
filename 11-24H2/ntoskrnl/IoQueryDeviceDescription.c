@@ -1,14 +1,14 @@
 /*
- * XREFs of IoQueryDeviceDescription @ 0x14099B730
+ * XREFs of IoQueryDeviceDescription @ 0x1409CDEA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     pIoQueryBusDescription @ 0x14099C1E4 (pIoQueryBusDescription.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     pIoQueryBusDescription @ 0x1409CE954 (pIoQueryBusDescription.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoQueryDeviceDescription(
@@ -43,7 +43,7 @@ NTSTATUS __stdcall IoQueryDeviceDescription(
   v13[7] = Context;
   v13[3] = ControllerNumber;
   *(_DWORD *)&Destination.Length = 0x8000000;
-  Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, 0x800uLL, 0x4E526F49u);
   if ( !Destination.Buffer )
     return -1073741670;
   RtlAppendUnicodeStringToString(&Destination, &CmRegistryMachineHardwareDescriptionSystemName);

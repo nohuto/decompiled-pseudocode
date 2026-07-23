@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDriverEntry @ 0x140781F00
+ * XREFs of HalpDriverEntry @ 0x140784A00
  * Callers:
  *     <none>
  * Callees:
- *     HalpAddDevice @ 0x140781BF0 (HalpAddDevice.c)
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
+ *     HalpAddDevice @ 0x1407846F0 (HalpAddDevice.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
  */
 
 NTSTATUS __fastcall HalpDriverEntry(PDRIVER_OBJECT DriverObject)
@@ -14,7 +14,7 @@ NTSTATUS __fastcall HalpDriverEntry(PDRIVER_OBJECT DriverObject)
   PDEVICE_OBJECT TargetDevice; // [rsp+50h] [rbp+8h] BYREF
 
   DriverExtension = DriverObject->DriverExtension;
-  HalpDeviceBlockUnblockPushLock.WriteTransferCount = (__int64)DriverObject;
+  HalpDeviceBlockUnblockPushLock.InGlobalForegroundList = (unsigned __int64)DriverObject;
   TargetDevice = 0LL;
   DriverExtension->AddDevice = (PDRIVER_ADD_DEVICE)HalpAddDevice;
   DriverObject->MajorFunction[27] = (PDRIVER_DISPATCH)&HalpDispatchPnp;

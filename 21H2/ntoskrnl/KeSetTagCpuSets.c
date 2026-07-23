@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetTagCpuSets @ 0x14051CFAC
+ * XREFs of KeSetTagCpuSets @ 0x14051D1EC
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlWriteAcquireTickLock @ 0x1402AB51C (RtlWriteAcquireTickLock.c)
- *     KiValidateCpuSetMasks @ 0x1402AB540 (KiValidateCpuSetMasks.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlWriteAcquireTickLock @ 0x14022965C (RtlWriteAcquireTickLock.c)
+ *     KiValidateCpuSetMasks @ 0x140229680 (KiValidateCpuSetMasks.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

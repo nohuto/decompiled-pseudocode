@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlULongLongAdd @ 0x180039194
+ * XREFs of RtlULongLongAdd @ 0x180039184
  * Callers:
- *     PsspCaptureVaSpaceInformation @ 0x180005CB4 (PsspCaptureVaSpaceInformation.c)
- *     LdrpResGetResourceDirectory @ 0x1800376C0 (LdrpResGetResourceDirectory.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x1800381DC (LdrpResSearchResourceInsideDirectory.c)
+ *     PsspCaptureVaSpaceInformation @ 0x180005CA4 (PsspCaptureVaSpaceInformation.c)
+ *     LdrpResGetResourceDirectory @ 0x1800376B0 (LdrpResGetResourceDirectory.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1800381CC (LdrpResSearchResourceInsideDirectory.c)
  * Callees:
  *     <none>
  */

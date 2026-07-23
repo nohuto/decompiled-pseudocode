@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetLoadedDriverInfo @ 0x1404ACCBC
+ * XREFs of IoGetLoadedDriverInfo @ 0x1404A6EC8
  * Callers:
- *     KeCapturePersistentThreadState @ 0x140262B20 (KeCapturePersistentThreadState.c)
- *     IoFillTriageDumpBuffer @ 0x1405912CC (IoFillTriageDumpBuffer.c)
+ *     KeCapturePersistentThreadState @ 0x140420EC0 (KeCapturePersistentThreadState.c)
+ *     IoFillTriageDumpBuffer @ 0x14058E2EC (IoFillTriageDumpBuffer.c)
  * Callees:
- *     IopIsAddressRangeValid @ 0x1404ACD58 (IopIsAddressRangeValid.c)
+ *     IopIsAddressRangeValid @ 0x1404A6F64 (IopIsAddressRangeValid.c)
  */
 
 __int64 __fastcall IoGetLoadedDriverInfo(__int64 a1, _DWORD *a2, _DWORD *a3)

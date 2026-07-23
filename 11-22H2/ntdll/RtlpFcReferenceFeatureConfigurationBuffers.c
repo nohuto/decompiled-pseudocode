@@ -11,32 +11,28 @@
  *     RtlpFcBufferManagerDereferenceBuffers @ 0x18007130C (RtlpFcBufferManagerDereferenceBuffers.c)
  */
 
-__int64 __fastcall RtlpFcReferenceFeatureConfigurationBuffers(__int64 a1, char a2, _QWORD *a3, _QWORD *a4)
+__int64 __fastcall RtlpFcReferenceFeatureConfigurationBuffers(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4)
 {
-  __int64 v7; // rsi
-  __int64 v8; // rax
+  __int64 v6; // rax
   __int64 result; // rax
-  __int64 v10; // r8
-  _QWORD v11[3]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  _QWORD v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v12 = 0LL;
-  RtlpFcBufferManagerReferenceBuffers(&unk_180182DE8, v11, &v12);
-  v7 = MEMORY[0x7FFE0720];
-  v8 = v11[0];
-  if ( v11[0] >= MEMORY[0x7FFE0720] )
+  v9 = 0LL;
+  RtlpFcBufferManagerReferenceBuffers(&unk_180182DE8, v8, &v9);
+  v6 = v8[0];
+  if ( v8[0] >= MEMORY[0x7FFE0720] )
     goto LABEL_2;
-  RtlpFcBufferManagerDereferenceBuffers(&unk_180182DE8, v12);
-  v12 = 0LL;
-  LOBYTE(v10) = a2;
-  result = RtlpFcUpdateLocalConfiguration(&RtlpFcProcessManager, v7, v10);
+  RtlpFcBufferManagerDereferenceBuffers(&unk_180182DE8, v9);
+  v9 = 0LL;
+  result = RtlpFcUpdateLocalConfiguration(&RtlpFcProcessManager);
   if ( (int)result >= 0 )
   {
-    RtlpFcBufferManagerReferenceBuffers(&unk_180182DE8, v11, &v12);
-    v8 = v11[0];
+    RtlpFcBufferManagerReferenceBuffers(&unk_180182DE8, v8, &v9);
+    v6 = v8[0];
 LABEL_2:
-    *a3 = v8;
-    *a4 = v12;
+    *a3 = v6;
+    *a4 = v9;
     return 0LL;
   }
   return result;

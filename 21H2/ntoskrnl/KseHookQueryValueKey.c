@@ -1,10 +1,10 @@
 /*
- * XREFs of KseHookQueryValueKey @ 0x1408C1AE0
+ * XREFs of KseHookQueryValueKey @ 0x1408C1C40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall KseHookQueryValueKey(__int64 a1, const UNICODE_STRING *a2, int a3, _DWORD *a4)

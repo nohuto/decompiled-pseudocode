@@ -10,8 +10,8 @@
  *     RtlQueryInformationActivationContext @ 0x18002DE20 (RtlQueryInformationActivationContext.c)
  *     LdrUnloadDll @ 0x1800425D0 (LdrUnloadDll.c)
  *     RtlExitUserProcess @ 0x18006CF90 (RtlExitUserProcess.c)
- *     LdrEnumerateLoadedModules @ 0x180079E20 (LdrEnumerateLoadedModules.c)
- *     LdrpInitializeImportRedirection @ 0x180084E3C (LdrpInitializeImportRedirection.c)
+ *     LdrEnumerateLoadedModules @ 0x180079E30 (LdrEnumerateLoadedModules.c)
+ *     LdrpInitializeImportRedirection @ 0x180084E4C (LdrpInitializeImportRedirection.c)
  *     LdrInitShimEngineDynamic @ 0x1800D2560 (LdrInitShimEngineDynamic.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     RtlCloneUserProcess @ 0x1800D8540 (RtlCloneUserProcess.c)
@@ -21,7 +21,7 @@
  *     RtlEnterCriticalSection @ 0x180014370 (RtlEnterCriticalSection.c)
  *     LdrpProcessWork @ 0x180070CEC (LdrpProcessWork.c)
  *     LdrpUpdateStatistics @ 0x180070EE4 (LdrpUpdateStatistics.c)
- *     NtWaitForSingleObject @ 0x1800A0360 (NtWaitForSingleObject.c)
+ *     NtWaitForSingleObject @ 0x1800A0380 (NtWaitForSingleObject.c)
  */
 
 struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
@@ -36,7 +36,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
   __int64 v9; // rax
   __int64 v10; // rax
 
-  v1 = (HANDLE)LdrpWorkCompleteEvent;
+  v1 = LdrpWorkCompleteEvent;
   v2 = 0;
   if ( !a1 )
     v1 = LdrpLoadCompleteEvent;
@@ -44,7 +44,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
   {
     while ( 1 )
     {
-      RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlEnterCriticalSection(&LdrpWorkQueueLock);
       v4 = LdrpDetourExist;
       if ( !LdrpDetourExist || a1 == 1 )
       {
@@ -80,7 +80,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
         }
         v5 = &LdrpWorkQueue;
       }
-      RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlLeaveCriticalSection(&LdrpWorkQueueLock);
       if ( v2 )
         break;
       if ( &LdrpWorkQueue == v5 )
@@ -95,7 +95,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
     }
     if ( !a1 || (__int64 *)LdrpRetryQueue == &LdrpRetryQueue )
       break;
-    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
     v9 = LdrpRetryQueue;
     *(_QWORD *)(LdrpRetryQueue + 8) = &LdrpWorkQueue;
     LdrpWorkQueue = v9;
@@ -105,7 +105,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
     qword_180165278 = (__int64)&LdrpRetryQueue;
     LdrpRetryQueue = (__int64)&LdrpRetryQueue;
     LdrpRetryingModuleIndex = 0LL;
-    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
     v2 = 0;
   }
   result = NtCurrentTeb();

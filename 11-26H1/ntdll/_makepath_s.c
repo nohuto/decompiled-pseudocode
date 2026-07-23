@@ -1,9 +1,9 @@
 /*
- * XREFs of _makepath_s @ 0x180132FC0
+ * XREFs of _makepath_s @ 0x180132D30
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
  */
 
 errno_t __cdecl makepath_s(

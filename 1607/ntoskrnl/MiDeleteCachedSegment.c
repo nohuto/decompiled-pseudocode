@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteCachedSegment @ 0x1401DE4D8
+ * XREFs of MiDeleteCachedSegment @ 0x1401DE304
  * Callers:
- *     MiDereferenceSegmentThread @ 0x140141554 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x1401417C8 (MiRemoveUnusedSegments.c)
+ *     MiDereferenceSegmentThread @ 0x140141AC4 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x140141D38 (MiRemoveUnusedSegments.c)
  * Callees:
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiInsertUnusedSegment @ 0x140026FEC (MiInsertUnusedSegment.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDestroySection @ 0x140111D20 (MiDestroySection.c)
- *     MiFlushControlArea @ 0x1401DEA98 (MiFlushControlArea.c)
- *     MiUnlinkUnusedControlArea @ 0x1401DF460 (MiUnlinkUnusedControlArea.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiInsertUnusedSegment @ 0x140026B6C (MiInsertUnusedSegment.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDestroySection @ 0x140112284 (MiDestroySection.c)
+ *     MiFlushControlArea @ 0x1401DE8C4 (MiFlushControlArea.c)
+ *     MiUnlinkUnusedControlArea @ 0x1401DF28C (MiUnlinkUnusedControlArea.c)
  */
 
 __int64 __fastcall MiDeleteCachedSegment(__int64 a1)

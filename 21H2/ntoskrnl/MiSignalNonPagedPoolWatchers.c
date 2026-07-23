@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSignalNonPagedPoolWatchers @ 0x1403B6178
+ * XREFs of MiSignalNonPagedPoolWatchers @ 0x1403B62E8
  * Callers:
- *     MiInitializeNonPagedPoolThresholds @ 0x1403B6100 (MiInitializeNonPagedPoolThresholds.c)
- *     MiInitializeMemoryEvents @ 0x1407A06D4 (MiInitializeMemoryEvents.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x1403B6270 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiInitializeMemoryEvents @ 0x1407A08D4 (MiInitializeMemoryEvents.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -25,28 +25,28 @@ __int64 MiSignalNonPagedPoolWatchers()
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C520C0, &LockHandle);
-  if ( qword_140C50E90 )
+  KeAcquireInStackQueuedSpinLock(&qword_140C52100, &LockHandle);
+  if ( qword_140C50ED0 )
   {
     v0 = MiState[0];
-    v1 = qword_140C4C8C8;
-    if ( qword_140C4C8C8 >= (unsigned __int64)(MiState[0] - 5120) )
+    v1 = qword_140C4C908;
+    if ( qword_140C4C908 >= (unsigned __int64)(MiState[0] - 5120) )
     {
-      if ( qword_140C50E90->Header.SignalState )
-        KeResetEvent(qword_140C50E90);
+      if ( qword_140C50ED0->Header.SignalState )
+        KeResetEvent(qword_140C50ED0);
     }
-    else if ( !qword_140C50E90->Header.SignalState )
+    else if ( !qword_140C50ED0->Header.SignalState )
     {
-      KeSetEvent(qword_140C50E90, 0, 0);
+      KeSetEvent(qword_140C50ED0, 0, 0);
     }
     if ( v1 >= v0 - 2048 )
     {
-      if ( !qword_140C50E88->Header.SignalState )
-        KeSetEvent(qword_140C50E88, 0, 0);
+      if ( !qword_140C50EC8->Header.SignalState )
+        KeSetEvent(qword_140C50EC8, 0, 0);
     }
-    else if ( qword_140C50E88->Header.SignalState )
+    else if ( qword_140C50EC8->Header.SignalState )
     {
-      KeResetEvent(qword_140C50E88);
+      KeResetEvent(qword_140C50EC8);
     }
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

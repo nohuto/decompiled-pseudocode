@@ -1,20 +1,21 @@
 /*
- * XREFs of ExpAllocatePoolWithQuotaTag @ 0x140B72670
+ * XREFs of ExpAllocatePoolWithQuotaTag @ 0x140B74210
  * Callers:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     PspExpandQuota @ 0x14024B688 (PspExpandQuota.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402ACCF0 (ExpAllocatePoolWithTagFromNode.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x1402B381C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpVaMgrCtxQuery @ 0x1402C27C8 (RtlpHpVaMgrCtxQuery.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402776D0 (ExpAllocatePoolWithTagFromNode.c)
+ *     PspExpandQuota @ 0x14027BC98 (PspExpandQuota.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14035C3DC (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x14035D9AC (RtlpHpVaMgrCtxQuery.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 ULONG_PTR __fastcall ExpAllocatePoolWithQuotaTag(ULONG_PTR BugCheckParameter3, size_t a2, ULONG_PTR a3, int a4)
@@ -87,17 +88,17 @@ ULONG_PTR __fastcall ExpAllocatePoolWithQuotaTag(ULONG_PTR BugCheckParameter3, s
     }
     else
     {
-      v37 = RtlCSparseBitmapBitmaskRead((__int64)&dword_140E68310, 2 * ((PoolWithTagFromNode - qword_140E68308) >> 20));
+      v37 = RtlCSparseBitmapBitmaskRead((__int64)&dword_140E68510, 2 * ((PoolWithTagFromNode - qword_140E68508) >> 20));
       if ( !v37 || (v25 = v37 - 1, v25 == 2) )
       {
         v51 = 0LL;
         v52 = 0LL;
-        RtlpHpVaMgrCtxQuery((__int64)&unk_140E68358, PoolWithTagFromNode, (__int64)&v51);
+        RtlpHpVaMgrCtxQuery((__int64)&unk_140E68558, PoolWithTagFromNode, (__int64)&v51);
         v27 = *(_QWORD *)v52;
 LABEL_29:
         if ( !v27 )
           KeBugCheckEx(0xC2u, 0LL, 0LL, PoolWithTagFromNode, 0LL);
-        for ( i = qword_140EEEC40; (__int64)i < (__int64)qword_140EEEC60; ++i )
+        for ( i = qword_140EEEE40; (__int64)i < (__int64)qword_140EEEE60; ++i )
         {
           if ( v27 == *i )
             return PoolWithTagFromNode;

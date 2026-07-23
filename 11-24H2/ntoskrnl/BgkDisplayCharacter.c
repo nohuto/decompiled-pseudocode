@@ -1,27 +1,27 @@
 /*
- * XREFs of BgkDisplayCharacter @ 0x140BB0240
+ * XREFs of BgkDisplayCharacter @ 0x140BB2240
  * Callers:
  *     <none>
  * Callees:
- *     BgkpAcquireConsole @ 0x1405902C8 (BgkpAcquireConsole.c)
- *     BgkpReleaseConsole @ 0x140590314 (BgkpReleaseConsole.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     BgDisplayFade @ 0x140BB36A4 (BgDisplayFade.c)
+ *     BgkpAcquireConsole @ 0x14058D2E8 (BgkpAcquireConsole.c)
+ *     BgkpReleaseConsole @ 0x14058D334 (BgkpReleaseConsole.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     BgDisplayFade @ 0x140BB56A4 (BgDisplayFade.c)
  */
 
-__int64 __fastcall BgkDisplayCharacter(unsigned __int16 a1, unsigned int a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall BgkDisplayCharacter(unsigned __int16 a1, unsigned int a2)
 {
-  unsigned int v9; // ebx
+  unsigned int v5; // ebx
 
   if ( !BgkpAcquireConsole() )
     return 3221225473LL;
-  if ( byte_140E65DA9 || byte_140E65D68 )
+  if ( byte_140E65EE1 || byte_140E65EA0 )
   {
-    byte_140E65DA9 = 0;
-    byte_140E65D68 = 0;
+    byte_140E65EE1 = 0;
+    byte_140E65EA0 = 0;
     BgDisplayFade(0LL);
   }
-  v9 = guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+  v5 = guard_dispatch_icall_no_overrides(a1, a2);
   BgkpReleaseConsole();
-  return v9;
+  return v5;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpScanEnvironment @ 0x18005FD00
+ * XREFs of RtlpScanEnvironment @ 0x18005FCF0
  * Callers:
- *     RtlQueryEnvironmentVariable @ 0x1800196D0 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x1800196C0 (RtlQueryEnvironmentVariable.c)
  * Callees:
  *     memmove @ 0x1800AC980 (memmove.c)
  */

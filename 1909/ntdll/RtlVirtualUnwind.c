@@ -17,7 +17,7 @@
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBase, ULONG64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
 {
-  EXCEPTION_ROUTINE *v8; // rsi
+  EXCEPTION_DISPOSITION (__cdecl *v8)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // rsi
   ULONG64 v9; // rbp
   ULONG64 v11; // r13
   int v13; // r12d
@@ -127,7 +127,7 @@ PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBa
         v78 = *v15 & 1;
         if ( (unsigned int)ImageBase > 0x20 )
 LABEL_163:
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
         v79 = v77 + 1;
         if ( !v78 )
           v79 = v77;
@@ -375,7 +375,7 @@ LABEL_64:
     v60 = (unsigned __int64)v23 + v58;
     if ( v60 < BeginAddress || v60 >= FunctionEntry->EndAddress )
     {
-      v80 = RtlpSameFunction((__int64)FunctionEntry, v11, v60 + v11);
+      v80 = RtlpSameFunction((__int64)FunctionEntry, v11, (void *)(v60 + v11));
       if ( !v80 )
         goto LABEL_60;
       v49 = v60 == *v80;

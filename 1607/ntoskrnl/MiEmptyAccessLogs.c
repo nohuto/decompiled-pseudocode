@@ -1,23 +1,23 @@
 /*
- * XREFs of MiEmptyAccessLogs @ 0x140086B20
+ * XREFs of MiEmptyAccessLogs @ 0x140088410
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MiGetNextSession @ 0x140086628 (MiGetNextSession.c)
- *     MiCheckAndProcessCcAccessLog @ 0x140086DB4 (MiCheckAndProcessCcAccessLog.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MiGetNextSession @ 0x140087F18 (MiGetNextSession.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1400886A4 (MiCheckAndProcessCcAccessLog.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PsGetNextProcess @ 0x140508FFC (PsGetNextProcess.c)
+ *     PsGetNextProcess @ 0x1404EBF8C (PsGetNextProcess.c)
  */
 
 void MiEmptyAccessLogs()
@@ -31,7 +31,7 @@ void MiEmptyAccessLogs()
   KIRQL v6; // al
   __int64 v7; // rdx
   KIRQL v8; // r14
-  struct _SLIST_ENTRY *v9; // rcx
+  _SLIST_ENTRY *v9; // rcx
   _QWORD *j; // rcx
   _QWORD *NextSession; // rax
   __int64 v12; // rdi
@@ -42,7 +42,7 @@ void MiEmptyAccessLogs()
   KIRQL v17; // al
   __int64 v18; // rdx
   KIRQL v19; // r14
-  struct _SLIST_ENTRY *v20; // rcx
+  _SLIST_ENTRY *v20; // rcx
   __int64 *v21; // rsi
   __int64 v22; // rbp
   __int64 v23; // rdi
@@ -52,13 +52,13 @@ void MiEmptyAccessLogs()
   KIRQL v27; // al
   __int64 v28; // rdx
   KIRQL v29; // r15
-  struct _SLIST_ENTRY *v30; // rcx
+  _SLIST_ENTRY *v30; // rcx
   PSLIST_ENTRY v31; // rbx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-68h] BYREF
   _BYTE v33[48]; // [rsp+38h] [rbp-50h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_1403271C0, &LockHandle);
-  if ( dword_140327188 )
+  KeAcquireInStackQueuedSpinLock(&qword_140327200, &LockHandle);
+  if ( dword_1403271C8 )
   {
     WorkItem.Parameter = 0LL;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
@@ -86,7 +86,7 @@ void MiEmptyAccessLogs()
             v6 = ExAcquireSpinLockExclusive(v5);
             v5[1] = 0;
             v8 = v6;
-            v9 = (struct _SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
+            v9 = (_SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
             if ( v9 )
             {
               MiEmptyPageAccessLog(v9);
@@ -114,7 +114,7 @@ void MiEmptyAccessLogs()
             v17 = ExAcquireSpinLockExclusive(v16);
             v16[1] = 0;
             v19 = v17;
-            v20 = (struct _SLIST_ENTRY *)*((_QWORD *)v15 + 5);
+            v20 = (_SLIST_ENTRY *)*((_QWORD *)v15 + 5);
             if ( v20 )
             {
               MiEmptyPageAccessLog(v20);
@@ -126,7 +126,7 @@ void MiEmptyAccessLogs()
           MmDetachSession(v12, (__int64)v33);
         }
       }
-      v21 = (__int64 *)&unk_140326DB8;
+      v21 = (__int64 *)&unk_140326DF8;
       v22 = 3LL;
       do
       {
@@ -142,7 +142,7 @@ void MiEmptyAccessLogs()
               v27 = ExAcquireSpinLockExclusive(v26);
               v26[1] = 0;
               v29 = v27;
-              v30 = (struct _SLIST_ENTRY *)*((_QWORD *)v25 + 5);
+              v30 = (_SLIST_ENTRY *)*((_QWORD *)v25 + 5);
               if ( v30 )
               {
                 MiEmptyPageAccessLog(v30);
@@ -159,10 +159,10 @@ void MiEmptyAccessLogs()
       while ( v22 );
       v31 = 0LL;
       MiCheckAndProcessCcAccessLog(0LL, 1LL);
-      KeAcquireInStackQueuedSpinLock(&qword_1403271C0, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_140327200, &LockHandle);
     }
     while ( WorkItem.Parameter != (void *)2 );
-    if ( !dword_140327188 )
+    if ( !dword_1403271C8 )
     {
       v31 = P;
       P = 0LL;

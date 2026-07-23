@@ -1,21 +1,21 @@
 /*
- * XREFs of NtQueryInstallUILanguage @ 0x140B27B70
+ * XREFs of NtQueryInstallUILanguage @ 0x140B29800
  * Callers:
- *     DifNtQueryInstallUILanguageWrapper @ 0x140683CE0 (DifNtQueryInstallUILanguageWrapper.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x1408A9D74 (_RtlpMuiRegPopulateBaseLanguages.c)
- *     _RtlpMuiRegValidateInstalled @ 0x1408AA5F8 (_RtlpMuiRegValidateInstalled.c)
- *     ExpSetPendingUILanguage @ 0x140B1E260 (ExpSetPendingUILanguage.c)
- *     NtQueryDefaultUILanguage @ 0x140B27B50 (NtQueryDefaultUILanguage.c)
+ *     DifNtQueryInstallUILanguageWrapper @ 0x1406878C0 (DifNtQueryInstallUILanguageWrapper.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x1408B01E4 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x1408B0A68 (_RtlpMuiRegValidateInstalled.c)
+ *     ExpSetPendingUILanguage @ 0x140B202E0 (ExpSetPendingUILanguage.c)
+ *     NtQueryDefaultUILanguage @ 0x140B297E0 (NtQueryDefaultUILanguage.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
  */
 
-__int64 __fastcall NtQueryInstallUILanguage(_WORD *a1)
+NTSTATUS __cdecl NtQueryInstallUILanguage(LANGID *InstallUILanguageId)
 {
   if ( KeGetCurrentThread()->PreviousMode )
-    RtlWriteUShortToUser(a1, PsInstallUILanguageId);
+    RtlWriteUShortToUser(InstallUILanguageId, PsInstallUILanguageId);
   else
-    RtlCopyVolatileMemory(a1, &PsInstallUILanguageId, 2uLL);
-  return 0LL;
+    RtlCopyVolatileMemory(InstallUILanguageId, &PsInstallUILanguageId, 2uLL);
+  return 0;
 }

@@ -13,48 +13,49 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-__int64 __fastcall RtlAddAtomToAtomTable_0(__int64 a1, _WORD *a2, _WORD *a3, int a4)
+NTSTATUS __cdecl RtlAddAtomToAtomTable_0(PVOID AtomTableHandle, PWSTR AtomName, PRTL_ATOM Atom)
 {
+  int v3; // r9d
   __int64 v7; // r8
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   __int64 v9; // rdx
   __int64 *v10; // r12
   __int64 v11; // rax
   __int64 v12; // rdi
   unsigned __int64 v13; // rbx
-  __int16 v14; // ax
-  __int16 v15; // ax
+  USHORT v14; // ax
+  USHORT v15; // ax
   _DWORD Size[3]; // [rsp+44h] [rbp-44h] BYREF
   _WORD *v18; // [rsp+50h] [rbp-38h] BYREF
   __int64 *v19; // [rsp+58h] [rbp-30h] BYREF
-  int v20; // [rsp+A8h] [rbp+20h] BYREF
+  int IntegerAtom; // [rsp+A8h] [rbp+20h] BYREF
 
-  v20 = a4;
+  IntegerAtom = v3;
   if ( (unsigned __int8)sub_1800729B0() )
   {
-    if ( (unsigned __int8)RtlGetIntegerAtom(a2, &v20) )
+    if ( RtlGetIntegerAtom(AtomName, (PUSHORT)&IntegerAtom) )
     {
-      v15 = v20;
-      if ( (unsigned __int16)v20 < 0xC000u )
+      v15 = IntegerAtom;
+      if ( (unsigned __int16)IntegerAtom < 0xC000u )
       {
         v8 = 0;
       }
       else
       {
         v15 = 0;
-        LOWORD(v20) = 0;
+        LOWORD(IntegerAtom) = 0;
         v8 = -1073741811;
       }
-      if ( a3 )
-        *a3 = v15;
+      if ( Atom )
+        *Atom = v15;
       goto LABEL_26;
     }
-    if ( !*a2 )
+    if ( !*AtomName )
     {
       v8 = -1073741773;
       goto LABEL_26;
     }
-    v8 = sub_1800727DC(a1, a2, v7, &v19, Size, &v18, &Size[1]);
+    v8 = sub_1800727DC(AtomTableHandle, AtomName, v7, &v19, Size, &v18, &Size[1]);
     if ( v8 >= 0 )
     {
       v9 = *(_QWORD *)&Size[1];
@@ -64,11 +65,11 @@ __int64 __fastcall RtlAddAtomToAtomTable_0(__int64 a1, _WORD *a2, _WORD *a3, int
           v18[1] |= 1u;
         else
           ++*v18;
-        if ( !a3 )
+        if ( !Atom )
           goto LABEL_12;
         v14 = *(_WORD *)(v9 + 10);
 LABEL_11:
-        *a3 = v14;
+        *Atom = v14;
 LABEL_12:
         v8 = 0;
         goto LABEL_26;
@@ -86,27 +87,27 @@ LABEL_12:
       if ( v11 )
       {
         v13 = Size[0];
-        memmove((void *)(v11 + 18), a2, Size[0]);
+        memmove((void *)(v11 + 18), AtomName, Size[0]);
         v13 >>= 1;
         *(_BYTE *)(v12 + 16) = v13;
         *(_WORD *)(v12 + 2LL * (unsigned __int8)v13 + 18) = 0;
-        if ( !(unsigned __int8)sub_180072A78(a1, v12) )
+        if ( !(unsigned __int8)sub_180072A78(AtomTableHandle, v12) )
         {
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(unsigned __int64 *)&Size[1]);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)&Size[1]);
           v8 = -1073741801;
           goto LABEL_26;
         }
         *(_WORD *)(v12 + 10) = *(_WORD *)(v12 + 8) | 0xC000;
         *v10 = v12;
-        if ( !a3 )
+        if ( !Atom )
           goto LABEL_12;
         v14 = *(_WORD *)(v12 + 10);
         goto LABEL_11;
       }
     }
 LABEL_26:
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-    return (unsigned int)v8;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
+    return v8;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

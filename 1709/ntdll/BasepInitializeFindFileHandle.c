@@ -8,23 +8,23 @@
  *     RtlAllocateHeap @ 0x180040DF0 (RtlAllocateHeap.c)
  */
 
-unsigned __int64 __fastcall BasepInitializeFindFileHandle(__int64 a1)
+_RTL_CRITICAL_SECTION *__fastcall BasepInitializeFindFileHandle(_RTL_CRITICAL_SECTION_DEBUG *a1)
 {
-  __int64 Heap; // rax
-  unsigned __int64 v3; // rbx
+  _RTL_CRITICAL_SECTION *Heap; // rax
+  _RTL_CRITICAL_SECTION *v3; // rbx
 
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, BaseDllTag + 786432, 80LL);
+  Heap = (_RTL_CRITICAL_SECTION *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, BaseDllTag + 786432, 0x50uLL);
   v3 = Heap;
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 8) = 0LL;
-    *(_QWORD *)(Heap + 16) = 0LL;
-    *(_DWORD *)(Heap + 24) = 0;
-    *(_DWORD *)(Heap + 28) = 0;
-    *(_QWORD *)Heap = a1;
-    if ( (int)RtlInitializeCriticalSectionEx(Heap + 40, 0LL, 0) < 0 )
+    *(_QWORD *)&Heap->LockCount = 0LL;
+    Heap->OwningThread = 0LL;
+    LODWORD(Heap->LockSemaphore) = 0;
+    HIDWORD(Heap->LockSemaphore) = 0;
+    Heap->DebugInfo = a1;
+    if ( RtlInitializeCriticalSectionEx(Heap + 1, 0, 0) < 0 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
       return 0LL;
     }
   }

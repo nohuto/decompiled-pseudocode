@@ -1,15 +1,15 @@
 /*
- * XREFs of SmProcessProcessStoreInfoRequest @ 0x140819CB4
+ * XREFs of SmProcessProcessStoreInfoRequest @ 0x14081FEC4
  * Callers:
- *     SmQueryStoreInformation @ 0x140B26304 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140B28564 (SmQueryStoreInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     SmStoreExistsForProcess @ 0x140513B48 (SmStoreExistsForProcess.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     SmStoreExistsForProcess @ 0x14050D5B8 (SmStoreExistsForProcess.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SmProcessProcessStoreInfoRequest(void *a1, unsigned int a2, KPROCESSOR_MODE a3)

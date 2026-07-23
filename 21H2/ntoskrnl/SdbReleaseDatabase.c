@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbReleaseDatabase @ 0x140755FC8
+ * XREFs of SdbReleaseDatabase @ 0x140756188
  * Callers:
- *     KsepSdbUnmapFromMemory @ 0x14075643C (KsepSdbUnmapFromMemory.c)
- *     PiReleaseDDB @ 0x14077EB38 (PiReleaseDDB.c)
- *     KsepSdbBootRelease @ 0x1407BCD08 (KsepSdbBootRelease.c)
- *     PpReleaseBootDDB @ 0x1407BCD44 (PpReleaseBootDDB.c)
+ *     KsepSdbUnmapFromMemory @ 0x1407565FC (KsepSdbUnmapFromMemory.c)
+ *     PiReleaseDDB @ 0x14077ECF8 (PiReleaseDDB.c)
+ *     KsepSdbBootRelease @ 0x1407BD498 (KsepSdbBootRelease.c)
+ *     PpReleaseBootDDB @ 0x1407BD4D4 (PpReleaseBootDDB.c)
  * Callees:
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbpCleanupLocalDatabaseSupport @ 0x140755F8C (SdbpCleanupLocalDatabaseSupport.c)
- *     SdbCloseDatabaseRead @ 0x14075620C (SdbCloseDatabaseRead.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbpCleanupLocalDatabaseSupport @ 0x14075614C (SdbpCleanupLocalDatabaseSupport.c)
+ *     SdbCloseDatabaseRead @ 0x1407563CC (SdbCloseDatabaseRead.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SdbReleaseDatabase(__int64 P)

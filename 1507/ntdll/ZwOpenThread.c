@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwOpenThread()
+NTSTATUS __cdecl ZwOpenThread(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PCLIENT_ID ClientId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 281LL;
+  result = 281;
   __asm { syscall; Low latency system call }
   return result;
 }

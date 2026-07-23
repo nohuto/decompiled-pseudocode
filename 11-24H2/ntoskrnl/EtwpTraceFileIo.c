@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTraceFileIo @ 0x1402A1C30
+ * XREFs of EtwpTraceFileIo @ 0x1402D1360
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsIsServerSilo @ 0x140349B68 (PsIsServerSilo.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsIsServerSilo @ 0x1403C35A8 (PsIsServerSilo.c)
  */
 
 int __fastcall EtwpTraceFileIo(

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoGetDriverDirectory @ 0x14089EC10
+ * XREFs of IoGetDriverDirectory @ 0x14089ED70
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PiGetDriverImageDirectory @ 0x14089F384 (PiGetDriverImageDirectory.c)
- *     PiGetDriverMutableStateDirectory @ 0x14089F4C8 (PiGetDriverMutableStateDirectory.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PiGetDriverImageDirectory @ 0x14089F4E4 (PiGetDriverImageDirectory.c)
+ *     PiGetDriverMutableStateDirectory @ 0x14089F628 (PiGetDriverMutableStateDirectory.c)
  */
 
 __int64 __fastcall IoGetDriverDirectory(__int64 a1, __int64 a2, int a3, _QWORD *a4)

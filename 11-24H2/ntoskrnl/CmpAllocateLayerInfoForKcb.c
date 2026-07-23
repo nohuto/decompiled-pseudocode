@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAllocateLayerInfoForKcb @ 0x140A00448
+ * XREFs of CmpAllocateLayerInfoForKcb @ 0x1409FD420
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
- *     CmpCreateLayerLink @ 0x140A003B8 (CmpCreateLayerLink.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpCreateKeyControlBlock @ 0x140875AF0 (CmpCreateKeyControlBlock.c)
+ *     CmpCreateLayerLink @ 0x1409FD390 (CmpCreateLayerLink.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmpAllocateLayerInfoForKcb(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall CmpAllocateLayerInfoForKcb(__int64 a1)
   v1 = 0;
   if ( !*(_QWORD *)(a1 + 192) )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x40uLL, 0x696C4D43u);
     v4 = Pool2;
     if ( Pool2 )
     {

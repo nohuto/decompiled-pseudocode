@@ -30,23 +30,23 @@
  *     RtlpCrackActivationContextStringSectionHeader @ 0x18007941C (RtlpCrackActivationContextStringSectionHeader.c)
  *     RtlQueryActivationContextApplicationSettings @ 0x18007AE00 (RtlQueryActivationContextApplicationSettings.c)
  *     UninitUser32Proc @ 0x18008C660 (UninitUser32Proc.c)
- *     AVrfInitializeVerifier @ 0x1800D9948 (AVrfInitializeVerifier.c)
- *     AvrfMiniLoadDll @ 0x1800DB6D0 (AvrfMiniLoadDll.c)
- *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DFBE8 (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1800DFE78 (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800E01C0 (RtlpGetAssemblyStorageMapRootLocation.c)
- *     RtlpNotOwnerCriticalSection @ 0x1800E9110 (RtlpNotOwnerCriticalSection.c)
- *     RtlAssert @ 0x1800ED830 (RtlAssert.c)
- *     RtlReportCriticalFailure @ 0x1800FF47C (RtlReportCriticalFailure.c)
- *     RtlUnhandledExceptionFilter2 @ 0x180100980 (RtlUnhandledExceptionFilter2.c)
+ *     AVrfInitializeVerifier @ 0x1800D9908 (AVrfInitializeVerifier.c)
+ *     AvrfMiniLoadDll @ 0x1800DB690 (AvrfMiniLoadDll.c)
+ *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DFBA8 (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1800DFE38 (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800E0180 (RtlpGetAssemblyStorageMapRootLocation.c)
+ *     RtlpNotOwnerCriticalSection @ 0x1800E90D0 (RtlpNotOwnerCriticalSection.c)
+ *     RtlAssert @ 0x1800ED7F0 (RtlAssert.c)
+ *     RtlReportCriticalFailure @ 0x1800FF43C (RtlReportCriticalFailure.c)
+ *     RtlUnhandledExceptionFilter2 @ 0x180100940 (RtlUnhandledExceptionFilter2.c)
  * Callees:
  *     vDbgPrintExWithPrefixInternal @ 0x180051B08 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrintEx(int a1, int a2, const char *a3, ...)
+ULONG DbgPrintEx(ULONG ComponentId, ULONG Level, PCSTR Format, ...)
 {
   va_list va; // [rsp+58h] [rbp+20h] BYREF
 
-  va_start(va, a3);
-  return vDbgPrintExWithPrefixInternal((unsigned int)&unk_18012277A, a1, a2, (_DWORD)a3, (__int64)va, 1);
+  va_start(va, Format);
+  return vDbgPrintExWithPrefixInternal(&Flags, ComponentId, Level, Format, (__int64 *)va, 1);
 }

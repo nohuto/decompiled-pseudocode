@@ -1,29 +1,29 @@
 /*
- * XREFs of MiAcquireCachedPageLocks @ 0x1403A17C0
+ * XREFs of MiAcquireCachedPageLocks @ 0x1403A3520
  * Callers:
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiResolveCachedPageHardFault @ 0x140339B7C (MiResolveCachedPageHardFault.c)
- *     MiCachedPagesMakeHot @ 0x1406F5980 (MiCachedPagesMakeHot.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiResolveCachedPageHardFault @ 0x14033BBFC (MiResolveCachedPageHardFault.c)
+ *     MiCachedPagesMakeHot @ 0x1406FA5F0 (MiCachedPagesMakeHot.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseCachedPageLocks @ 0x1402E9F30 (MiReleaseCachedPageLocks.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
- *     MiSpinForProtoPoolLock @ 0x1404168D0 (MiSpinForProtoPoolLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReleaseCachedPageLocks @ 0x1402CBF70 (MiReleaseCachedPageLocks.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
+ *     MiSpinForProtoPoolLock @ 0x14040AEE0 (MiSpinForProtoPoolLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
@@ -73,17 +73,17 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
   unsigned __int64 result; // rax
   BOOL v45; // r12d
   unsigned __int64 v46; // r14
-  unsigned __int64 v47; // rsi
-  unsigned __int64 *v48; // rdx
-  unsigned __int64 v49; // rdi
+  volatile signed __int64 *v47; // r8
+  unsigned __int64 v48; // rsi
+  unsigned __int64 *v49; // rdx
+  unsigned __int64 v50; // rdi
   unsigned __int64 ContainingPageTable; // rdi
-  __int64 v51; // rbx
-  unsigned __int64 v52; // rax
-  int v53; // eax
-  __int64 v54; // rcx
-  int v55; // edx
-  unsigned __int64 v56; // rax
-  volatile signed __int64 *v57; // r8
+  __int64 v52; // rbx
+  unsigned __int64 v53; // rax
+  int v54; // eax
+  __int64 v55; // rcx
+  int v56; // edx
+  unsigned __int64 v57; // rax
   signed __int64 i; // rcx
   char v59; // si
   __int64 v60; // rax
@@ -103,13 +103,13 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
   *(_QWORD *)(((unsigned __int64)&v70 & 0xFFFFFFFFFFFFFFC0uLL) + 8) = 0LL;
   while ( 1 )
   {
-    v4 = &unk_140E3D500;
+    v4 = &unk_140E3D680;
     v5 = 0x7FFFFFFFF8LL;
     v6 = (*(_QWORD *)v3 >> 9) & 0x7FFFFFFFF8LL;
-    *(_QWORD *)(v3 + 40) = &unk_140E3D500;
+    *(_QWORD *)(v3 + 40) = &unk_140E3D680;
     v7 = 0;
     v8 = v6 - 0x98000000000LL;
-    if ( (dword_140E3D5B8 & 0xFu) > 5 )
+    if ( (dword_140E3D738 & 0xFu) > 5 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql != 2 )
@@ -122,10 +122,10 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
     }
     else
     {
-      v9 = qword_140E3D5C0;
+      v9 = qword_140E3D740;
       Number = KeGetPcr()->Prcb.Number;
-      if ( (dword_140E3D5B8 & 0xF) == 1 )
-        v9 = qword_140E37800;
+      if ( (dword_140E3D738 & 0xF) == 1 )
+        v9 = qword_140E37980;
       v11 = (Number >> 1) & 3;
       v12 = (_DWORD *)(v9 + ((unsigned __int64)v11 << 6));
       v13 = v11;
@@ -137,7 +137,7 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
         LOBYTE(v9) = 2;
         KiRaiseIrqlProcessIrqlFlags(v14, v9);
       }
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         _m_prefetchw(v12);
         v15 = *v12 & 0x7FFFFFFF;
@@ -167,8 +167,8 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
     if ( v8 == 0xFFFFF6FB7DBEDF68uLL )
     {
       CurrentPrcb = KeGetCurrentPrcb();
-      v22 = dword_140E3D5B8 & 0xF;
-      if ( (dword_140E3D5B8 & 0xF) != 0 )
+      v22 = dword_140E3D738 & 0xF;
+      if ( (dword_140E3D738 & 0xF) != 0 )
       {
         if ( v22 == 7 )
         {
@@ -186,12 +186,12 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
       else
       {
         v23 = 2;
-        v24 = (ULONG *)&unk_140E3D5B0;
+        v24 = (ULONG *)&unk_140E3D730;
       }
       v25 = &CurrentPrcb->SelfmapLockHandle[0].LockQueue.Next + 2 * v23 + v23;
       *((_QWORD *)v25 + 1) = v24;
       *v25 = 0LL;
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         v26 = _InterlockedExchange64((volatile __int64 *)v24, (__int64)v25);
         if ( v26 )
@@ -202,12 +202,12 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
         KiAcquireQueuedSpinLockInstrumented((__int64)v25, (volatile __int64 *)v24);
       }
     }
-    else if ( (dword_140E3D5B8 & 0xF) != 0
+    else if ( (dword_140E3D738 & 0xF) != 0
            || v8 < 0xFFFFF6FB7DBED000uLL
            || v8 > 0xFFFFF6FB7DBEDFFFuLL
            || (v27 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[6].Count) == 0 )
     {
-      if ( (dword_140E3D5B8 & 0xF) != 0 && v8 >= 0xFFFFF6FB7DBED000uLL && v8 <= 0xFFFFF6FB7DBEDFFFuLL )
+      if ( (dword_140E3D738 & 0xF) != 0 && v8 >= 0xFFFFF6FB7DBED000uLL && v8 <= 0xFFFFF6FB7DBEDFFFuLL )
       {
         *v2 = 0;
         v32 = (2 * ((__int64)(v8 + 0x90482413000LL) >> 3)) & 0x1F;
@@ -332,7 +332,7 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
       }
       else
       {
-        v41 = qword_140E37B90 + 16 * (v41 - 1);
+        v41 = qword_140E37D10 + 16 * (v41 - 1);
       }
       if ( v41 )
         v41 += 40 * ((v39 >> 18) & 7);
@@ -345,20 +345,23 @@ unsigned __int64 __fastcall MiAcquireCachedPageLocks(__int64 a1, ULONG_PTR a2)
     v43 = v42 & 0xFFFFFFFFFFFFFFFEuLL;
     if ( (v42 & 1) == 0 )
       v43 = v42;
-    result = stru_140E2EB88.ThreadLock;
-    *(_QWORD *)(v3 + 40) = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)v43 + 60LL) & 0x3FF))
+    result = stru_140E2ED08.ThreadLock;
+    *(_QWORD *)(v3 + 40) = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)v43 + 60LL) & 0x3FF))
                          + 22592LL;
     if ( !a2 )
       return result;
     v45 = a2 >= 0xFFFF800000000000uLL && *((_BYTE *)&MiState + ((a2 >> 39) & 0x1FF) + 46064) == 4;
     v46 = a2 & 0xFFFFFFFFFFFFLL;
     if ( !v45 )
-      goto LABEL_71;
+    {
+      v47 = (volatile signed __int64 *)0xFFFFF68000000000LL;
+      goto LABEL_72;
+    }
     ContainingPageTable = MiGetContainingPageTable(a2);
-    v47 = v46 >> 9;
-LABEL_91:
-    v51 = 48 * ContainingPageTable - 0x220000000000LL;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v51 + 24), 0x3FuLL) )
+    v48 = v46 >> 9;
+LABEL_92:
+    v52 = 48 * ContainingPageTable - 0x220000000000LL;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v52 + 24), 0x3FuLL) )
     {
       do
       {
@@ -373,73 +376,74 @@ LABEL_91:
           _mm_pause();
         }
       }
-      while ( *(__int64 *)(v51 + 24) < 0 );
+      while ( *(__int64 *)(v52 + 24) < 0 );
     }
     if ( !v45 )
     {
-      v52 = *(_QWORD *)((v47 & 0x7FFFFFFFFFFFF8LL) - 0x98000000000LL);
-      if ( (v52 & 1) == 0 || (v52 & 0x200) != 0 )
+      v47 = (volatile signed __int64 *)0xFFFFF68000000000LL;
+      v53 = *(_QWORD *)((v48 & 0x7FFFFFFFFFFFF8LL) - 0x98000000000LL);
+      if ( (v53 & 1) == 0 || (v53 & 0x200) != 0 )
       {
-        _InterlockedAnd64((volatile signed __int64 *)(v51 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        _InterlockedAnd64((volatile signed __int64 *)(v52 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         *(_QWORD *)(v3 + 32) = 0LL;
-        goto LABEL_79;
+        goto LABEL_80;
       }
-      if ( ContainingPageTable != ((v52 >> 12) & 0xFFFFFFFFFFLL) )
+      if ( ContainingPageTable != ((v53 >> 12) & 0xFFFFFFFFFFLL) )
       {
-        _InterlockedAnd64((volatile signed __int64 *)(v51 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        _InterlockedAnd64((volatile signed __int64 *)(v52 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         v7 = 0;
-LABEL_71:
-        v47 = v46 >> 9;
-        v48 = (unsigned __int64 *)(((v46 >> 9) & 0x7FFFFFFFFFFFF8LL) - 0x98000000000LL);
+LABEL_72:
+        v48 = v46 >> 9;
+        v49 = (unsigned __int64 *)(((v46 >> 9) & 0x7FFFFFFFFFFFF8LL) - 0x98000000000LL);
         while ( 1 )
         {
-          v49 = *v48;
-          if ( (*v48 & 1) == 0 || (v49 & 0x200) != 0 )
+          v50 = *v49;
+          if ( (*v49 & 1) == 0 || (v50 & 0x200) != 0 )
             break;
-          ContainingPageTable = (v49 >> 12) & 0xFFFFFFFFFFLL;
-          if ( ContainingPageTable <= qword_140E2D7A0
+          ContainingPageTable = (v50 >> 12) & 0xFFFFFFFFFFLL;
+          if ( ContainingPageTable <= qword_140E2D920
             && (*(_QWORD *)(48 * ContainingPageTable - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
           {
-            goto LABEL_91;
+            goto LABEL_92;
           }
         }
         *(_QWORD *)(v3 + 32) = 0LL;
-        goto LABEL_79;
+        goto LABEL_80;
       }
-      if ( (*(_QWORD *)(v51 + 40) & 0x10000000000LL) != 0 || (*(_QWORD *)(v51 + 40) & 0x20000000000000LL) != 0 )
+      if ( (*(_QWORD *)(v52 + 40) & 0x10000000000LL) != 0 || (*(_QWORD *)(v52 + 40) & 0x20000000000000LL) != 0 )
       {
-LABEL_104:
-        *(_DWORD *)(v51 + 32) = (*(_DWORD *)(v51 + 32) + 1) ^ ((*(_DWORD *)(v51 + 32) + 1) ^ *(_DWORD *)(v51 + 32)) & 0xFFFF0000;
-        goto LABEL_105;
+LABEL_105:
+        *(_DWORD *)(v52 + 32) = (*(_DWORD *)(v52 + 32) + 1) ^ ((*(_DWORD *)(v52 + 32) + 1) ^ *(_DWORD *)(v52 + 32)) & 0xFFFF0000;
+        goto LABEL_106;
       }
-      v53 = *(_DWORD *)(v51 + 32);
-      v54 = *(_QWORD *)(v51 + 24) & 0x3FFFFFFFFFFFFFFFLL;
-      v55 = 0;
-      if ( (_WORD)v53 )
+      v54 = *(_DWORD *)(v52 + 32);
+      v55 = *(_QWORD *)(v52 + 24) & 0x3FFFFFFFFFFFFFFFLL;
+      v56 = 0;
+      if ( (_WORD)v54 )
       {
-        if ( (_WORD)v53 == 1 )
+        if ( (_WORD)v54 == 1 )
         {
-          if ( v54 || (*(_BYTE *)(v51 + 34) & 8) != 0 )
-            v55 = 1;
-          if ( !v55 )
-            goto LABEL_104;
+          if ( v55 || (*(_BYTE *)(v52 + 34) & 8) != 0 )
+            v56 = 1;
+          if ( !v56 )
+            goto LABEL_105;
         }
-        else if ( (_WORD)v53 != 2 || !v54 || (*(_BYTE *)(v51 + 34) & 8) == 0 )
+        else if ( (_WORD)v54 != 2 || !v55 || (*(_BYTE *)(v52 + 34) & 8) == 0 )
         {
-          goto LABEL_104;
+          goto LABEL_105;
         }
       }
       v59 = 0;
-      if ( *(__int64 *)(v51 + 40) < 0 && (*(_DWORD *)(v51 + 16) & 0x400LL) != 0
-        || (*(_QWORD *)(v51 + 8) | 0x8000000000000000uLL) <= 0xFFFFF6BFFFFFFF78uLL
-        && (*(_QWORD *)(v51 + 8) | 0x8000000000000000uLL) >= 0xFFFFF68000000000uLL
-        && (*(_BYTE *)(v51 + 35) & 0x20) != 0 )
+      if ( *(__int64 *)(v52 + 40) < 0 && (*(_DWORD *)(v52 + 16) & 0x400LL) != 0
+        || (*(_QWORD *)(v52 + 8) | 0x8000000000000000uLL) <= 0xFFFFF6BFFFFFFF78uLL
+        && (*(_QWORD *)(v52 + 8) | 0x8000000000000000uLL) >= 0xFFFFF68000000000uLL
+        && (*(_BYTE *)(v52 + 35) & 0x20) != 0 )
       {
         v59 = 1;
       }
-      v60 = (*(_QWORD *)(v51 + 40) >> 43) & 0x3FFLL;
-      v61 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8 * v60);
-      if ( !v59 || (unsigned int)MiChargeCommit(*(ULONG **)(stru_140E2EB88.ThreadLock + 8 * v60), 1uLL, 4u) )
+      v60 = (*(_QWORD *)(v52 + 40) >> 43) & 0x3FFLL;
+      v61 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8 * v60);
+      if ( !v59 || (unsigned int)MiChargeCommit(*(ULONG **)(stru_140E2ED08.ThreadLock + 8 * v60), 1uLL, 4u) )
       {
         if ( v61 == &MiSystemPartition )
         {
@@ -453,21 +457,21 @@ LABEL_104:
                                         CachedResidentAvailable - 1,
                                         CachedResidentAvailable);
             if ( v64 == CachedResidentAvailable )
-              goto LABEL_104;
+              goto LABEL_105;
           }
         }
         if ( (unsigned int)MiChargePartitionResidentAvailable((__int64)v61, 1uLL, 0xFFFFFFFFLL) )
-          goto LABEL_104;
+          goto LABEL_105;
         if ( v59 )
           MiReturnCommit((__int64)v61, 1LL, 0);
       }
     }
-LABEL_105:
+LABEL_106:
     memset_0(v2 + 16, 0, 0x40uLL);
-    if ( (*(_BYTE *)(v51 + 34) & 0x20) != 0 )
+    if ( (*(_BYTE *)(v52 + 34) & 0x20) != 0 )
     {
       *(_DWORD *)(((unsigned __int64)&v70 & 0xFFFFFFFFFFFFFFC0uLL) + 0x50) = 0;
-      LeafPfnBuddy = MiGetLeafPfnBuddy(v51, 1LL);
+      LeafPfnBuddy = MiGetLeafPfnBuddy(v52, 1LL);
       if ( LeafPfnBuddy )
       {
         v69 = *(_QWORD **)(LeafPfnBuddy + 8);
@@ -484,41 +488,42 @@ LABEL_105:
                                                                              + 64;
         *(_QWORD *)(((unsigned __int64)&v70 & 0xFFFFFFFFFFFFFFC0uLL) + 0x40) = ((unsigned __int64)&v70 & 0xFFFFFFFFFFFFFFC0uLL)
                                                                              + 64;
-        *(_QWORD *)v51 = ((unsigned __int64)(v2 + 16) >> 3) ^ (((unsigned __int64)(v2 + 16) >> 3) ^ *(_QWORD *)v51) & 0xFFFFF00000000001uLL;
+        *(_QWORD *)v52 = ((unsigned __int64)(v2 + 16) >> 3) ^ (((unsigned __int64)(v2 + 16) >> 3) ^ *(_QWORD *)v52) & 0xFFFFF00000000001uLL;
       }
-      _InterlockedAnd64((volatile signed __int64 *)(v51 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      _InterlockedAnd64((volatile signed __int64 *)(v52 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       MiSpinForProtoPoolLock(v2 + 16);
       *v2 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v51 + 24), 0x3FuLL) )
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v52 + 24), 0x3FuLL) )
       {
         do
           KeYieldProcessorEx((_DWORD *)((unsigned __int64)&v70 & 0xFFFFFFFFFFFFFFC0uLL));
-        while ( *(__int64 *)(v51 + 24) < 0 );
+        while ( *(__int64 *)(v52 + 24) < 0 );
       }
     }
     else
     {
-      *(_DWORD *)(v51 + 32) |= 0x200000u;
+      *(_DWORD *)(v52 + 32) |= 0x200000u;
     }
-    result = *(_QWORD *)(v51 + 24);
+    result = *(_QWORD *)(v52 + 24);
     if ( (result & 0x4000000000000000LL) == 0 )
     {
-      result = *(_QWORD *)(v51 + 40);
+      result = *(_QWORD *)(v52 + 40);
       if ( (result & 0x10000000000LL) == 0 )
       {
-        v56 = (__int64)((*(_QWORD *)(v51 + 8) << 25) - *(_QWORD *)(((unsigned __int64)&v70 & 0xFFFFFFFFFFFFFFC0uLL) + 8)) >> 16;
-        if ( v56 < 0xFFFF800000000000uLL
-          || (result = ((v56 >> 39) & 0x1FF) - 256, *((_BYTE *)&MiState + result + 46320) != 4) )
+        v57 = (__int64)((*(_QWORD *)(v52 + 8) << 25) - *(_QWORD *)(((unsigned __int64)&v70 & 0xFFFFFFFFFFFFFFC0uLL) + 8)) >> 16;
+        if ( v57 < 0xFFFF800000000000uLL
+          || (result = ((v57 >> 39) & 0x1FF) - 256, *((_BYTE *)&MiState + result + 46320) != 4) )
         {
-          v57 = (volatile signed __int64 *)(*(_QWORD *)(v51 + 8) | 0x8000000000000000uLL);
-          result = *v57;
-          if ( (*v57 & 0x20) == 0 )
+          v47 = (volatile signed __int64 *)(*(_QWORD *)(v52 + 8) | 0x8000000000000000uLL);
+          result = *v47;
+          if ( (*v47 & 0x20) == 0 )
           {
-            for ( i = *v57; ; i = result )
+            for ( i = *v47; ; i = result )
             {
+              v49 = (unsigned __int64 *)(i | 0x20);
               if ( (MiFlags & 0x8000000) != 0 )
                 _mm_lfence();
-              result = _InterlockedCompareExchange64(v57, i | 0x20, i);
+              result = _InterlockedCompareExchange64(v47, (signed __int64)v49, i);
               if ( i == result )
                 break;
             }
@@ -526,12 +531,12 @@ LABEL_105:
         }
       }
     }
-    _InterlockedAnd64((volatile signed __int64 *)(v51 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    *(_QWORD *)(v3 + 32) = v51;
-    if ( v51 )
+    _InterlockedAnd64((volatile signed __int64 *)(v52 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    *(_QWORD *)(v3 + 32) = v52;
+    if ( v52 )
       return result;
-LABEL_79:
-    MiReleaseCachedPageLocks(v3);
+LABEL_80:
+    MiReleaseCachedPageLocks(v3, (__int64)v49, (__int64)v47);
     MmAccessFault(2uLL, a2);
   }
 }

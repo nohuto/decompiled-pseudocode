@@ -1,14 +1,22 @@
 /*
- * XREFs of ZwCreateThread @ 0x14041B720
+ * XREFs of ZwCreateThread @ 0x14041BAB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateThread(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PCLIENT_ID ClientId,
+        PCONTEXT ThreadContext,
+        PINITIAL_TEB InitialTeb,
+        BOOLEAN CreateSuspended)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

@@ -6,11 +6,11 @@
  *     ZwPlugPlayControl @ 0x14069D8E0 (ZwPlugPlayControl.c)
  */
 
-__int64 __fastcall PiPnpRtlGetDeviceStatus(__int64 a1, __int128 *a2, _DWORD *a3, _DWORD *a4, _DWORD *a5, int a6)
+NTSTATUS __fastcall PiPnpRtlGetDeviceStatus(__int64 a1, __int128 *a2, _DWORD *a3, _DWORD *a4, _DWORD *a5, int a6)
 {
   __int128 v8; // xmm0
-  __int64 result; // rax
-  __int128 v10; // [rsp+20h] [rbp-30h] BYREF
+  NTSTATUS result; // eax
+  __int128 PnPControlData; // [rsp+20h] [rbp-30h] BYREF
   int v11; // [rsp+30h] [rbp-20h]
   int v12; // [rsp+34h] [rbp-1Ch]
   int v13; // [rsp+38h] [rbp-18h]
@@ -19,17 +19,17 @@ __int64 __fastcall PiPnpRtlGetDeviceStatus(__int64 a1, __int128 *a2, _DWORD *a3,
   int v16; // [rsp+44h] [rbp-Ch]
 
   if ( !a2 || !a3 || !a4 || !a5 )
-    return 3221225485LL;
+    return -1073741811;
   v8 = *a2;
   v16 = 0;
   v11 = 0;
   v12 = 0;
   v13 = 0;
   v15 = 0;
-  v10 = v8;
+  PnPControlData = v8;
   v14 = a6;
-  result = ZwPlugPlayControl(14LL, (__int64)&v10);
-  if ( (int)result >= 0 )
+  result = ZwPlugPlayControl(PlugPlayControlDeviceStatus, &PnPControlData, 0x28u);
+  if ( result >= 0 )
   {
     *a3 = v12;
     *a4 = v13;

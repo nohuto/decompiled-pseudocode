@@ -9,15 +9,23 @@
  *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x14086D530 (CmFcRegisterFeatureConfigurationChangeNotification.c)
  */
 
-__int64 __fastcall RtlRegisterFeatureConfigurationChangeNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlRegisterFeatureConfigurationChangeNotification(
+        PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK Callback,
+        PVOID Context,
+        PRTL_FEATURE_CHANGE_STAMP ObservedChangeStamp,
+        PRTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
   char v8; // cl
   ULONG_PTR v9; // r10
   ULONG_PTR BugCheckParameter4; // [rsp+38h] [rbp+0h]
 
   if ( ObGetCurrentIrql() <= 1u )
-    return CmFcRegisterFeatureConfigurationChangeNotification(a1, a2, a3, a4);
+    return CmFcRegisterFeatureConfigurationChangeNotification(
+             Callback,
+             Context,
+             ObservedChangeStamp,
+             RegistrationHandle);
   if ( !KeIsBugCheckActive(0LL) && PoPowerDownActionInProgress == v8 )
     KeBugCheckEx(0xAu, (ULONG_PTR)RtlQueryFeatureConfiguration, v9, 0LL, BugCheckParameter4);
-  return 3221225659LL;
+  return -1073741637;
 }

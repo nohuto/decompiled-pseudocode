@@ -10,9 +10,9 @@
  *     EtwpCovSampCaptureReleaseToLookaside @ 0x1405AD760 (EtwpCovSampCaptureReleaseToLookaside.c)
  */
 
-struct _SLIST_ENTRY *__fastcall EtwpCovSampLookasidePop(__int64 a1, __int64 a2)
+_SLIST_ENTRY *__fastcall EtwpCovSampLookasidePop(__int64 a1, __int64 a2)
 {
-  struct _SLIST_ENTRY *v4; // rdx
+  _SLIST_ENTRY *v4; // rdx
 
   if ( *(_WORD *)a2 )
     v4 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)a2);

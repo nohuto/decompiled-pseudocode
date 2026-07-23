@@ -1,14 +1,14 @@
 /*
- * XREFs of ViDeadlockRemoveResource @ 0x140C37FF8
+ * XREFs of ViDeadlockRemoveResource @ 0x140C3E008
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x1406470F8 (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockAddResource @ 0x140C36AF0 (ViDeadlockAddResource.c)
- *     ViDeadlockEmptyDatabase @ 0x140C374CC (ViDeadlockEmptyDatabase.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x14064ACD8 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockAddResource @ 0x140C3CB00 (ViDeadlockAddResource.c)
+ *     ViDeadlockEmptyDatabase @ 0x140C3D4DC (ViDeadlockEmptyDatabase.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140645558 (VfReportIssueWithOptions.c)
- *     VfUtilAddressRangeRemove @ 0x140C21684 (VfUtilAddressRangeRemove.c)
- *     ViDeadlockPreprocessOptions @ 0x140C37DC0 (ViDeadlockPreprocessOptions.c)
- *     ViDeadlockRemoveNode @ 0x140C37EC8 (ViDeadlockRemoveNode.c)
+ *     VfReportIssueWithOptions @ 0x140649138 (VfReportIssueWithOptions.c)
+ *     VfUtilAddressRangeRemove @ 0x140C27694 (VfUtilAddressRangeRemove.c)
+ *     ViDeadlockPreprocessOptions @ 0x140C3DDD0 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveNode @ 0x140C3DED8 (ViDeadlockRemoveNode.c)
  */
 
 __int64 __fastcall ViDeadlockRemoveResource(int *a1, int a2, int **a3)
@@ -37,7 +37,7 @@ __int64 __fastcall ViDeadlockRemoveResource(int *a1, int a2, int **a3)
       if ( v7 )
       {
         ViDeadlockPreprocessOptions(
-          byte_140E0EAFC,
+          byte_140E0EB6C,
           "Deleted lock 0x%p is still owned by the thread 0x%p.",
           4107LL,
           *((_QWORD *)a1 + 1),
@@ -49,7 +49,7 @@ __int64 __fastcall ViDeadlockRemoveResource(int *a1, int a2, int **a3)
           *((_QWORD *)a1 + 1),
           **((_QWORD **)a1 + 2),
           (ULONG_PTR)a1,
-          byte_140E0EAFC);
+          byte_140E0EB6C);
         v6 = a2;
       }
     }

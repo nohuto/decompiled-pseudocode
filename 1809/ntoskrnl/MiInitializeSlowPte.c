@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSlowPte @ 0x1402AF314
+ * XREFs of MiInitializeSlowPte @ 0x1402AF504
  * Callers:
- *     MiSlowRotateCopy @ 0x1402AF538 (MiSlowRotateCopy.c)
+ *     MiSlowRotateCopy @ 0x1402AF728 (MiSlowRotateCopy.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 char __fastcall MiInitializeSlowPte(__int64 *a1, unsigned __int64 a2, int a3)
@@ -42,7 +42,7 @@ char __fastcall MiInitializeSlowPte(__int64 *a1, unsigned __int64 a2, int a3)
     if ( (_DWORD)CurrentThread )
     {
       v9 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_16;
       v10 = (v8 & 1) == 0;
     }

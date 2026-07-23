@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpIsVerifierActivationFilterMatched @ 0x1800D2808
+ * XREFs of LdrpIsVerifierActivationFilterMatched @ 0x1800D28C8
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x180093C48 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x180093C38 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlQueryApplicationKeyOption @ 0x18007EFA0 (RtlQueryApplicationKeyOption.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
- *     LdrpIsSubstringFound @ 0x1800D2738 (LdrpIsSubstringFound.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlQueryApplicationKeyOption @ 0x18007EF90 (RtlQueryApplicationKeyOption.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
+ *     LdrpIsSubstringFound @ 0x1800D27F8 (LdrpIsSubstringFound.c)
  */
 
-__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, void *a2, void *a3)
 {
   unsigned int v4; // edi
   WCHAR *v5; // rbx
@@ -19,8 +19,8 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
   WCHAR v8; // ax
   const WCHAR *v9; // rdx
   const char *v10; // rax
-  int v12; // [rsp+30h] [rbp-258h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
+  __int64 v12; // [rsp+30h] [rbp-258h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
   WCHAR SourceString[256]; // [rsp+50h] [rbp-238h] BYREF
 
   SourceString[0] = 0;
@@ -28,7 +28,7 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
               a2,
               a3,
               (__int64)L"VerifierActivationFilter",
-              1u,
+              1LL,
               (__int64)SourceString,
               512,
               v12,
@@ -92,7 +92,7 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
     }
     if ( (LdrpDebugFlags & 5) != 0 )
     {
-      v10 = (const char *)&unk_18010C822;
+      v10 = (const char *)&Flags;
       if ( !v4 )
         v10 = "not ";
       LdrpLogDbgPrint(

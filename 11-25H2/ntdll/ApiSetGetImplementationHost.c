@@ -6,7 +6,7 @@
  *     <none>
  */
 
-NTSTATUS __fastcall ApiSetGetImplementationHost(const char *a1, char *a2, _OWORD *a3)
+NTSTATUS __fastcall ApiSetGetImplementationHost(const CHAR *a1, char *a2, _OWORD *a3)
 {
   return ApiSetResolveToHost2((__int64)NtCurrentPeb()->ApiSetMap, a1, a2, a3);
 }

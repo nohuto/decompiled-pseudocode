@@ -77,7 +77,7 @@ __int64 __fastcall RtlApplyHotPatch(
   __int64 v55; // rax
   __int64 v56; // r10
   _BYTE *v57; // rcx
-  RTL_BITMAP *v58; // rbx
+  _RTL_BITMAP *v58; // rbx
   ULONG ClearBitsAndSet; // r8d
   __int64 v60; // rdi
   unsigned int *v61; // rdx

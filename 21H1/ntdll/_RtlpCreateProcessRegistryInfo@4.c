@@ -23,9 +23,9 @@
  *     _RtlpInitMuiCriticalSection@8 @ 0x4B2D5E84 (_RtlpInitMuiCriticalSection@8.c)
  */
 
-int __stdcall RtlpCreateProcessRegistryInfo(int *a1)
+int __stdcall RtlpCreateProcessRegistryInfo(_DWORD *a1)
 {
-  int v1; // ecx
+  PVOID v1; // ecx
   int RegistryInfo; // esi
 
   v1 = g_RegInfo;
@@ -33,11 +33,11 @@ int __stdcall RtlpCreateProcessRegistryInfo(int *a1)
   if ( !g_RegInfo )
   {
     RtlpInitMuiCriticalSection();
-    RtlEnterCriticalSection((int)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     RegistryInfo = 0;
     if ( !g_RegInfo )
       RegistryInfo = RtlpMuiRegCreateAndLoadRegistryInfo(&g_RegInfo);
-    RtlLeaveCriticalSection((int)&RegistryInfoCritSect);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
     v1 = g_RegInfo;
   }
   if ( a1 )

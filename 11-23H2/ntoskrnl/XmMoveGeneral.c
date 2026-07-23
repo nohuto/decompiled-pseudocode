@@ -1,12 +1,12 @@
 /*
- * XREFs of XmMoveGeneral @ 0x1403B91C0
+ * XREFs of XmMoveGeneral @ 0x1403B93A0
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1403B922C (XmEvaluateAddressSpecifier.c)
- *     XmGetRegisterAddress @ 0x1403B9444 (XmGetRegisterAddress.c)
- *     XmSetSourceValue @ 0x1403B94C0 (XmSetSourceValue.c)
- *     XmSetDataType @ 0x1403B94E8 (XmSetDataType.c)
+ *     XmEvaluateAddressSpecifier @ 0x1403B940C (XmEvaluateAddressSpecifier.c)
+ *     XmGetRegisterAddress @ 0x1403B9624 (XmGetRegisterAddress.c)
+ *     XmSetSourceValue @ 0x1403B96A0 (XmSetSourceValue.c)
+ *     XmSetDataType @ 0x1403B96C8 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmMoveGeneral(__int64 a1)

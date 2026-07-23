@@ -201,7 +201,7 @@ LABEL_40:
         }
         else
         {
-          ObjectProperties = RtlStringFromGUIDEx((unsigned int *)(a1 + 224), a1 + 240, 1);
+          ObjectProperties = RtlStringFromGUIDEx((PGUID)(a1 + 224), (PUNICODE_STRING)(a1 + 240), 1u);
           if ( ObjectProperties < 0 )
             goto LABEL_41;
         }

@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgResolveVariableExpression @ 0x14082EF30
+ * XREFs of PiDevCfgResolveVariableExpression @ 0x140830190
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     PnpStringToDwordValue @ 0x14015D1EC (PnpStringToDwordValue.c)
- *     PnpValidateRegistryMultiSz @ 0x140169918 (PnpValidateRegistryMultiSz.c)
- *     PnpMultiSzContainsString @ 0x14016B784 (PnpMultiSzContainsString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
- *     RtlCompareUnicodeStrings @ 0x14069B150 (RtlCompareUnicodeStrings.c)
- *     PiDevCfgResolveVariable @ 0x1406F33FC (PiDevCfgResolveVariable.c)
- *     PiDevCfgCopyVariableData @ 0x14082C58C (PiDevCfgCopyVariableData.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     PnpStringToDwordValue @ 0x14015D2EC (PnpStringToDwordValue.c)
+ *     PnpValidateRegistryMultiSz @ 0x140169A18 (PnpValidateRegistryMultiSz.c)
+ *     PnpMultiSzContainsString @ 0x14016B884 (PnpMultiSzContainsString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlCompareUnicodeString @ 0x1405C0F20 (RtlCompareUnicodeString.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
+ *     RtlCompareUnicodeStrings @ 0x14069C310 (RtlCompareUnicodeStrings.c)
+ *     PiDevCfgResolveVariable @ 0x1406F469C (PiDevCfgResolveVariable.c)
+ *     PiDevCfgCopyVariableData @ 0x14082D7B8 (PiDevCfgCopyVariableData.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableExpression(__int64 a1, void *a2, __int64 a3)
@@ -274,7 +274,7 @@ LABEL_349:
     v3 = v161;
     goto LABEL_350;
   }
-  v16 = &off_14090D950;
+  v16 = &off_14090EC10;
   v17 = 1;
   while ( *(_DWORD *)&v9->Length != *(_DWORD *)*v16 )
   {
@@ -283,7 +283,7 @@ LABEL_349:
     if ( v17 >= 0x1B )
       goto LABEL_17;
   }
-  v15 = &qword_14090D930[3 * v17];
+  v15 = &qword_14090EBF0[3 * v17];
 LABEL_21:
   if ( !v15 )
     goto LABEL_17;
@@ -682,7 +682,7 @@ LABEL_99:
                     }
 LABEL_135:
                     LODWORD(v22) = 0;
-                    v21 = qword_140908C28;
+                    v21 = qword_140909EE8;
                     goto LABEL_97;
                   }
 LABEL_120:
@@ -796,7 +796,7 @@ LABEL_152:
                   goto LABEL_331;
                 }
               }
-              v21 = qword_140908C28;
+              v21 = qword_140909EE8;
               goto LABEL_98;
             }
             v73 = *(unsigned int *)(v168 + 36);
@@ -845,7 +845,7 @@ LABEL_152:
               }
               if ( *(_DWORD *)v15 != 9 )
               {
-                v21 = qword_140908C28;
+                v21 = qword_140909EE8;
 LABEL_164:
                 LODWORD(v22) = 0;
                 goto LABEL_119;
@@ -915,7 +915,7 @@ LABEL_252:
           }
           if ( *(_DWORD *)v15 != 9 )
           {
-            v21 = qword_140908C28;
+            v21 = qword_140909EE8;
             goto LABEL_252;
           }
           if ( PnpMultiSzContainsString(*(PCWSTR *)(v167 + 40), v106) )
@@ -1024,7 +1024,7 @@ LABEL_269:
                 {
                   if ( v125 != 1 )
                   {
-                    v21 = qword_140908C28;
+                    v21 = qword_140909EE8;
                     goto LABEL_266;
                   }
                   v126 = ~RtlCompareUnicodeString(&String1, &String2, 1u);
@@ -1157,7 +1157,7 @@ LABEL_77:
         if ( v42 == 1 )
           v21 = (__int64 *)v167;
         else
-          v21 = qword_140908C28;
+          v21 = qword_140909EE8;
       }
       else if ( PnpStringToDwordValue(*(_QWORD *)(v167 + 40), &v159) )
       {
@@ -1196,14 +1196,14 @@ LABEL_40:
       }
       if ( v29 != 1 )
       {
-        v21 = qword_140908C28;
+        v21 = qword_140909EE8;
         goto LABEL_307;
       }
       v30 = *v28 == 0;
       goto LABEL_40;
     }
 LABEL_51:
-    v21 = qword_140908C28;
+    v21 = qword_140909EE8;
     goto LABEL_307;
   }
   v32 = **(_DWORD **)(v167 + 40);

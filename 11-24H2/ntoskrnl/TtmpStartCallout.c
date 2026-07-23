@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmpStartCallout @ 0x140769844
+ * XREFs of TtmpStartCallout @ 0x140769A64
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x140768A40 (TtmiSessionDeviceListWorker.c)
- *     TtmpCallAssignedToTerminal @ 0x140768D10 (TtmpCallAssignedToTerminal.c)
- *     TtmpCallSetBuiltinPanelState @ 0x140768DAC (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x140768E2C (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x140768EDC (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x140769A8C (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x140768C60 (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x140768F30 (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x140768FCC (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x14076904C (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x1407690FC (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x140769CAC (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     TtmpCalloutArmWatchdog @ 0x140768F7C (TtmpCalloutArmWatchdog.c)
- *     TtmpGetCalloutTagFromCalloutType @ 0x140769340 (TtmpGetCalloutTagFromCalloutType.c)
- *     TtmpGetConfigOverride @ 0x140769398 (TtmpGetConfigOverride.c)
- *     TtmiLogCalloutStart @ 0x14076BC78 (TtmiLogCalloutStart.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     TtmpCalloutArmWatchdog @ 0x14076919C (TtmpCalloutArmWatchdog.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x140769560 (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmpGetConfigOverride @ 0x1407695B8 (TtmpGetConfigOverride.c)
+ *     TtmiLogCalloutStart @ 0x14076BE98 (TtmiLogCalloutStart.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  */
 
 __int64 __fastcall TtmpStartCallout(__int64 a1, int *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)
@@ -34,7 +34,7 @@ __int64 __fastcall TtmpStartCallout(__int64 a1, int *a2, __int64 a3, int a4, __i
   if ( !TtmpDeviceCalloutTimeoutsSet )
   {
     v18 = 0;
-    v10 = &unk_140E08540;
+    v10 = &unk_140E085B0;
     v19 = 0;
     v11 = 6LL;
     do

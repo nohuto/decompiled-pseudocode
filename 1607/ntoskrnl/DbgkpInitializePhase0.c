@@ -3,17 +3,17 @@
  * Callers:
  *     DbgkInitialize @ 0x1407A18C8 (DbgkInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlRunOnceInitialize @ 0x1405518C8 (RtlRunOnceInitialize.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlRunOnceInitialize @ 0x140551E08 (RtlRunOnceInitialize.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
  */
 
 void DbgkpInitializePhase0()
 {
   __int64 v0; // rbx
-  union _RTL_RUN_ONCE *v1; // rcx
-  union _RTL_RUN_ONCE *v2; // rcx
+  _RTL_RUN_ONCE *v1; // rcx
+  _RTL_RUN_ONCE *v2; // rcx
   __int128 v3; // [rsp+20h] [rbp-49h]
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF
   _QWORD v5[16]; // [rsp+40h] [rbp-29h] BYREF

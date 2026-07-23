@@ -1,17 +1,16 @@
 /*
- * XREFs of ZwTerminateProcess @ 0x14041B2E0
+ * XREFs of ZwTerminateProcess @ 0x14041B670
  * Callers:
- *     KiDispatchException @ 0x14030CCA0 (KiDispatchException.c)
- *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
- *     PsCallEnclave @ 0x1409B6800 (PsCallEnclave.c)
+ *     KiDispatchException @ 0x14030CF30 (KiDispatchException.c)
+ *     PsDispatchIumService @ 0x1405A53D4 (PsDispatchIumService.c)
+ *     PsCallEnclave @ 0x1409B6A00 (PsCallEnclave.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&ExitStatus);
+  return KiServiceInternal(ProcessHandle);
 }

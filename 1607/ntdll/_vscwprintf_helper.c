@@ -1,9 +1,9 @@
 /*
- * XREFs of _vscwprintf_helper @ 0x18009807C
+ * XREFs of _vscwprintf_helper @ 0x18009806C
  * Callers:
- *     _vscwprintf @ 0x180098060 (_vscwprintf.c)
+ *     _vscwprintf @ 0x180098050 (_vscwprintf.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 

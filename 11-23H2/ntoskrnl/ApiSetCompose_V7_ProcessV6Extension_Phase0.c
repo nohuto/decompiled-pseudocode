@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetCompose_V7_ProcessV6Extension_Phase0 @ 0x140418E6C
+ * XREFs of ApiSetCompose_V7_ProcessV6Extension_Phase0 @ 0x1404191FC
  * Callers:
- *     ApiSetComposeSchema_V7 @ 0x140417648 (ApiSetComposeSchema_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x1404179D8 (ApiSetComposeSchema_V7.c)
  * Callees:
- *     ApiSetpGetSearchKeyInfo_V7 @ 0x140417F64 (ApiSetpGetSearchKeyInfo_V7.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x1404180EC (ApiSetpSearchForSectionIndex_V7.c)
- *     ApiSetSchemaExpander_AddSpaceForSemverSearchKey @ 0x140418394 (ApiSetSchemaExpander_AddSpaceForSemverSearchKey.c)
+ *     ApiSetpGetSearchKeyInfo_V7 @ 0x1404182F4 (ApiSetpGetSearchKeyInfo_V7.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x14041847C (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetSchemaExpander_AddSpaceForSemverSearchKey @ 0x140418724 (ApiSetSchemaExpander_AddSpaceForSemverSearchKey.c)
  */
 
 __int64 __fastcall ApiSetCompose_V7_ProcessV6Extension_Phase0(__int64 a1, __int64 a2)

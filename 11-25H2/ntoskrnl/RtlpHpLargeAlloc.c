@@ -23,7 +23,7 @@ unsigned __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, unsigned __int64 a2, un
 {
   unsigned __int64 v4; // rsi
   unsigned __int64 v7; // rbx
-  unsigned __int64 v8; // r13
+  __int64 v8; // r13
   BOOL v9; // ebx
   int v10; // r12d
   __int64 v11; // r10
@@ -41,7 +41,7 @@ unsigned __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, unsigned __int64 a2, un
   unsigned __int64 v24; // rax
   char v25; // si
   unsigned __int64 v26; // rdx
-  bool v27; // r8
+  BOOLEAN v27; // r8
   unsigned __int64 v28; // rax
   __int64 v29; // rdx
   ULONG_PTR v30; // [rsp+28h] [rbp-99h]
@@ -202,7 +202,7 @@ LABEL_49:
       v26 = v28;
     }
   }
-  RtlRbInsertNodeEx((__int64 *)(a1 + 72), v26, v27, v8);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 72), (PRTL_BALANCED_NODE)v26, v27, (PRTL_BALANCED_NODE)v8);
   LOBYTE(v29) = v25;
   RtlpHpLargeLockRelease(a1, v29);
   _InterlockedAdd64((volatile signed __int64 *)(a1 + 88), v23 / 4096);

@@ -1,11 +1,11 @@
 /*
- * XREFs of KdpSetContextEx @ 0x1405AFD64
+ * XREFs of KdpSetContextEx @ 0x1405ACCD4
  * Callers:
- *     KdpSendWaitContinue @ 0x140B7A32C (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140B7C32C (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyContext @ 0x140B751E8 (KdpCopyContext.c)
- *     KdpQuickMoveMemory @ 0x140B75490 (KdpQuickMoveMemory.c)
- *     KdpSanitizeContextFlags @ 0x140B79498 (KdpSanitizeContextFlags.c)
+ *     KdpCopyContext @ 0x140B771E8 (KdpCopyContext.c)
+ *     KdpQuickMoveMemory @ 0x140B77490 (KdpQuickMoveMemory.c)
+ *     KdpSanitizeContextFlags @ 0x140B7B498 (KdpSanitizeContextFlags.c)
  */
 
 __int64 __fastcall KdpSetContextEx(__int64 a1, __int64 a2, __int64 a3)
@@ -32,14 +32,14 @@ __int64 __fastcall KdpSetContextEx(__int64 a1, __int64 a2, __int64 a3)
       && (v8 = *(unsigned int *)(a1 + 20), (_DWORD)v8)
       && v7 + v8 <= v6 )
     {
-      KdpQuickMoveMemory((char *)&unk_140E5ED40 + (unsigned int)v7, *(_QWORD *)(a2 + 8), (unsigned int)v8);
+      KdpQuickMoveMemory((char *)&unk_140E5EE88 + (unsigned int)v7, *(_QWORD *)(a2 + 8), (unsigned int)v8);
       if ( v10 == v9 )
       {
         v11 = *(unsigned __int16 *)(a1 + 6);
         if ( (_WORD)v11 != (unsigned __int16)KeGetPcr()->Prcb.Number )
           a3 = *(_QWORD *)(KiProcessorBlock[v11] + 36800);
-        KdpSanitizeContextFlags(&unk_140E5ED40, (unsigned int)v9, &v14);
-        KdpCopyContext(a3, v14, &unk_140E5ED40);
+        KdpSanitizeContextFlags(&unk_140E5EE88, (unsigned int)v9, &v14);
+        KdpCopyContext(a3, v14, &unk_140E5EE88);
       }
       *(_DWORD *)(a1 + 8) = 0;
       *(_DWORD *)(a1 + 24) = v8;

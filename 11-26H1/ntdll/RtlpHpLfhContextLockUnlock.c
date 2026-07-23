@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpLfhContextLockUnlock @ 0x180097204
+ * XREFs of RtlpHpLfhContextLockUnlock @ 0x180071B68
  * Callers:
- *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x180096BC0 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
- *     RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x18011E9F0 (RtlpHpUnlockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x1800714A4 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x18011E7A0 (RtlpHpUnlockHeapForProcessCloneOrTerminate.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpEnvTlsSetValue @ 0x18009345C (RtlpHpEnvTlsSetValue.c)
- *     RtlpHpLfhOwnerLockUnlock @ 0x1800972C4 (RtlpHpLfhOwnerLockUnlock.c)
- *     RtlpHpLfhContextLockExtension @ 0x1800973B4 (RtlpHpLfhContextLockExtension.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhContextLockExtension @ 0x180071B4C (RtlpHpLfhContextLockExtension.c)
+ *     RtlpHpLfhOwnerLockUnlock @ 0x180071C28 (RtlpHpLfhOwnerLockUnlock.c)
+ *     RtlpHpEnvTlsSetValue @ 0x1800723C0 (RtlpHpEnvTlsSetValue.c)
  */
 
-struct _TEB *__fastcall RtlpHpLfhContextLockUnlock(__int64 a1, int a2)
+void __fastcall RtlpHpLfhContextLockUnlock(__int64 a1, int a2)
 {
   __int64 *v3; // rsi
   __int64 v5; // rbp
   __int64 v6; // rdx
-  volatile signed __int64 *v7; // rcx
+  _RTL_SRWLOCK *v7; // rcx
 
   v3 = (__int64 *)(a1 + 448);
   v5 = 128LL;
@@ -32,18 +32,20 @@ struct _TEB *__fastcall RtlpHpLfhContextLockUnlock(__int64 a1, int a2)
   while ( v5 );
   if ( a2 == 3 )
   {
-    RtlpHpEnvTlsSetValue(*(_DWORD *)(a1 + 84), 196631LL);
-    v7 = (volatile signed __int64 *)(a1 + 128);
+    RtlpHpEnvTlsSetValue(*(unsigned int *)(a1 + 84), 196631LL);
+    v7 = (_RTL_SRWLOCK *)(a1 + 128);
 LABEL_9:
-    *v7 = 1LL;
-    return RtlReleaseSRWLockExclusive(v7);
+    v7->Value = 1LL;
+LABEL_10:
+    RtlReleaseSRWLockExclusive(v7);
+    return;
   }
   if ( a2 )
   {
-    v7 = (volatile signed __int64 *)(a1 + 128);
+    v7 = (_RTL_SRWLOCK *)(a1 + 128);
     if ( a2 < 2 )
-      return RtlReleaseSRWLockExclusive(v7);
+      goto LABEL_10;
     goto LABEL_9;
   }
-  return (struct _TEB *)RtlpHpLfhContextLockExtension(a1, v6);
+  RtlpHpLfhContextLockExtension((_RTL_SRWLOCK *)a1);
 }

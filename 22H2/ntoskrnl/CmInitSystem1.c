@@ -64,7 +64,7 @@
  *     CmpInitCmPrivateAlloc @ 0x140A8EB7C (CmpInitCmPrivateAlloc.c)
  */
 
-char __fastcall CmInitSystem1(__int64 *BugCheckParameter3)
+char __fastcall CmInitSystem1(ULONG_PTR BugCheckParameter3)
 {
   int *v2; // rdi
   __int64 v3; // rsi
@@ -289,7 +289,7 @@ char __fastcall CmInitSystem1(__int64 *BugCheckParameter3)
   }
   ZwClose(KeyHandle);
   CmpNoMasterCreates = 1;
-  CmpInitializeLoadOptions((ULONG_PTR)BugCheckParameter3);
+  CmpInitializeLoadOptions(BugCheckParameter3);
   v23 = CmpInitializePreloadedHives(BugCheckParameter3, 1LL);
   if ( v23 < 0 )
     KeBugCheckEx(0x67u, 1uLL, 0x14uLL, v23, 0LL);
@@ -326,20 +326,20 @@ char __fastcall CmInitSystem1(__int64 *BugCheckParameter3)
   CmpAddToHiveFileList(v42, v28, v29, v30);
   ExFreePoolWithTag(v14, 0);
   qword_140C00F18 = v42;
-  v31 = CmpInitializeHardwareConfiguration((__int64)BugCheckParameter3);
+  v31 = CmpInitializeHardwareConfiguration(BugCheckParameter3);
   if ( v31 < 0 )
     KeBugCheckEx(0x67u, 1uLL, 0x12uLL, v31, 0LL);
-  v32 = CmpInitializeDriverStores((__int64)BugCheckParameter3);
+  v32 = CmpInitializeDriverStores(BugCheckParameter3);
   if ( v32 < 0 )
     KeBugCheckEx(0x67u, 1uLL, 0x13uLL, v32, 0LL);
-  ExtendedControlSets = CmpCreateExtendedControlSets((__int64)BugCheckParameter3);
+  ExtendedControlSets = CmpCreateExtendedControlSets(BugCheckParameter3);
   if ( ExtendedControlSets < 0 )
     KeBugCheckEx(0x67u, 1uLL, 0x1BuLL, ExtendedControlSets, 0LL);
-  CmpCreateHardwareProfiles((__int64)BugCheckParameter3);
+  CmpCreateHardwareProfiles(BugCheckParameter3);
   CmSetInitMachineConfig(BugCheckParameter3);
   CmpUnlockRegistry();
   CmpMarkCurrentProfileDirty(v34);
-  v35 = CmpInitializeMachineDependentConfiguration((__int64)BugCheckParameter3);
+  v35 = CmpInitializeMachineDependentConfiguration(BugCheckParameter3);
   if ( v35 < 0 )
     KeBugCheckEx(0x67u, 1uLL, 0x15uLL, v35, 0LL);
   v36 = CmpSetSystemValues(BugCheckParameter3);
@@ -347,7 +347,7 @@ char __fastcall CmInitSystem1(__int64 *BugCheckParameter3)
     KeBugCheckEx(0x67u, 1uLL, 0x16uLL, v36, 0LL);
   CmpMigrateOOBELanguageToInstallationLanguage();
   ExFreePoolWithTag(CmpLoadOptions.Buffer, 0);
-  v37 = BugCheckParameter3[30];
+  v37 = *(_QWORD *)(BugCheckParameter3 + 240);
   if ( *(_DWORD *)v37 >= 0x68u )
   {
     if ( *(_QWORD *)(v37 + 96) )

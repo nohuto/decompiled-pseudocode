@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBatteryAlarmPowerSettingCallback @ 0x14074CE30
+ * XREFs of PopBatteryAlarmPowerSettingCallback @ 0x14074B160
  * Callers:
  *     <none>
  * Callees:
- *     PopBatteryUpdateAlarms @ 0x1409B7D30 (PopBatteryUpdateAlarms.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopBatteryUpdateAlarms @ 0x14099E388 (PopBatteryUpdateAlarms.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopBatteryAlarmPowerSettingCallback(

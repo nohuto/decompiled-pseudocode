@@ -1,23 +1,23 @@
 /*
- * XREFs of SymCryptRsakeySetValue @ 0x1403F7B0C
+ * XREFs of SymCryptRsakeySetValue @ 0x1403F7CEC
  * Callers:
- *     HashpVerifyPkcs1Signature @ 0x140A7730C (HashpVerifyPkcs1Signature.c)
+ *     HashpVerifyPkcs1Signature @ 0x140A775BC (HashpVerifyPkcs1Signature.c)
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
- *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F75C8 (SymCryptRsakeyCalculatePrivateFields.c)
- *     SymCryptRsakeyCreateAllObjects @ 0x1403F79EC (SymCryptRsakeyCreateAllObjects.c)
- *     SymCryptDigitsFromBits @ 0x1403F9240 (SymCryptDigitsFromBits.c)
- *     SymCryptDivisorCreate @ 0x1403F9258 (SymCryptDivisorCreate.c)
- *     SymCryptIntBitsizeOfValue @ 0x1403F92D0 (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntCreate @ 0x1403F9348 (SymCryptIntCreate.c)
- *     SymCryptIntFromModulus @ 0x1403F93BC (SymCryptIntFromModulus.c)
- *     SymCryptIntGetValueLsbits32 @ 0x1403F9404 (SymCryptIntGetValueLsbits32.c)
- *     SymCryptIntSetValue @ 0x1403F949C (SymCryptIntSetValue.c)
- *     SymCryptIntToModulus @ 0x1403F9590 (SymCryptIntToModulus.c)
- *     SymCryptSizeofDivisorFromDigits @ 0x1403F9A58 (SymCryptSizeofDivisorFromDigits.c)
- *     SymCryptSizeofIntFromDigits @ 0x1403F9A70 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptCallbackAlloc @ 0x14067D9E0 (SymCryptCallbackAlloc.c)
- *     SymCryptCallbackFree @ 0x14067DA18 (SymCryptCallbackFree.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F77A8 (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptRsakeyCreateAllObjects @ 0x1403F7BCC (SymCryptRsakeyCreateAllObjects.c)
+ *     SymCryptDigitsFromBits @ 0x1403F9420 (SymCryptDigitsFromBits.c)
+ *     SymCryptDivisorCreate @ 0x1403F9438 (SymCryptDivisorCreate.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1403F94B0 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x1403F9528 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1403F959C (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x1403F95E4 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntSetValue @ 0x1403F967C (SymCryptIntSetValue.c)
+ *     SymCryptIntToModulus @ 0x1403F9770 (SymCryptIntToModulus.c)
+ *     SymCryptSizeofDivisorFromDigits @ 0x1403F9C38 (SymCryptSizeofDivisorFromDigits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F9C50 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptCallbackAlloc @ 0x14067DF30 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x14067DF68 (SymCryptCallbackFree.c)
  */
 
 __int64 __fastcall SymCryptRsakeySetValue(

@@ -7,40 +7,40 @@
  *     sub_180111038 @ 0x180111038 (sub_180111038.c)
  */
 
-__int64 __fastcall sub_18011138C(__int64 a1, __int64 a2, char a3)
+NTSTATUS __fastcall sub_18011138C(_QWORD *a1, void *a2, char a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  *(_QWORD *)(a1 + 16) = 64LL;
-  result = ZwQueryInformationProcess();
-  if ( (int)result >= 0 )
+  a1[2] = 64LL;
+  result = ZwQueryInformationProcess(a2, ProcessBasicInformation, a1 + 2, 0x40u, 0LL);
+  if ( result >= 0 )
   {
-    result = ZwQueryInformationProcess();
-    if ( (int)result >= 0 )
+    result = ZwQueryInformationProcess(a2, ProcessTimes, a1 + 10, 0x20u, 0LL);
+    if ( result >= 0 )
     {
-      result = ZwQueryInformationProcess();
-      if ( (int)result >= 0 )
+      result = ZwQueryInformationProcess(a2, ProcessPriorityClass, a1 + 14, 2u, 0LL);
+      if ( result >= 0 )
       {
-        result = ZwQueryInformationProcess();
-        if ( (int)result >= 0 )
+        result = ZwQueryInformationProcess(a2, ProcessVmCounters, a1 + 15, 0x70u, 0LL);
+        if ( result >= 0 )
         {
-          if ( (int)ZwQueryInformationProcess() >= 0 )
-            *(_DWORD *)(a1 + 4) |= 8u;
-          if ( (int)ZwQueryInformationProcess() < 0 )
-            *(_DWORD *)(a1 + 272) = 0;
-          if ( (int)ZwQueryInformationProcess() < 0 )
-            *(_DWORD *)(a1 + 276) = 0;
+          if ( ZwQueryInformationProcess(a2, ProcessJobMemoryInformation, a1 + 29, 0x28u, 0LL) >= 0 )
+            *((_DWORD *)a1 + 1) |= 8u;
+          if ( ZwQueryInformationProcess(a2, ProcessExecuteFlags, a1 + 34, 4u, 0LL) < 0 )
+            *((_DWORD *)a1 + 68) = 0;
+          if ( ZwQueryInformationProcess(a2, ProcessCookie, (char *)a1 + 276, 4u, 0LL) < 0 )
+            *((_DWORD *)a1 + 69) = 0;
           if ( (a3 & 0x40) != 0 )
-            sub_180111038(a1);
-          *(_WORD *)(a1 + 282) = 256;
-          *(_WORD *)(a1 + 280) = 0;
-          *(_QWORD *)(a1 + 288) = a1 + 296;
-          if ( (int)ZwQueryInformationProcess() < 0 )
+            sub_180111038((__int64)a1, a2);
+          *((_WORD *)a1 + 141) = 256;
+          *((_WORD *)a1 + 140) = 0;
+          a1[36] = a1 + 37;
+          if ( ZwQueryInformationProcess(a2, ProcessImageFileNameWin32, a1 + 35, 0x110u, 0LL) < 0 )
           {
-            *(_QWORD *)(a1 + 280) = 0LL;
-            *(_QWORD *)(a1 + 288) = 0LL;
+            a1[35] = 0LL;
+            a1[36] = 0LL;
           }
-          return 0LL;
+          return 0;
         }
       }
     }

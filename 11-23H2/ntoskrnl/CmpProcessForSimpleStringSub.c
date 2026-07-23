@@ -3,7 +3,7 @@
  * Callers:
  *     CmpGetSectionLineIndex @ 0x140B56FA0 (CmpGetSectionLineIndex.c)
  * Callees:
- *     _strnicmp @ 0x1403D9800 (_strnicmp.c)
+ *     _strnicmp @ 0x1403D99E0 (_strnicmp.c)
  */
 
 _BYTE *__fastcall CmpProcessForSimpleStringSub(__int64 a1, _BYTE *a2)

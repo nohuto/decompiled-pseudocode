@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegSuballocatorFree @ 0x1404DC6E0
+ * XREFs of RtlpHpSegSuballocatorFree @ 0x1404D5DC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpSegLockAcquire @ 0x14027F770 (RtlpHpSegLockAcquire.c)
- *     RtlpHpSegLockRelease @ 0x14034BF04 (RtlpHpSegLockRelease.c)
- *     RtlpHpSegPageRangeShrink @ 0x14034DB40 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegLockAcquire @ 0x14027ECE0 (RtlpHpSegLockAcquire.c)
+ *     RtlpHpSegLockRelease @ 0x14034DF84 (RtlpHpSegLockRelease.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14034FBC0 (RtlpHpSegPageRangeShrink.c)
  */
 
 void __fastcall RtlpHpSegSuballocatorFree(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

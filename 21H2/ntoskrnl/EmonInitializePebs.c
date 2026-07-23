@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonInitializePebs @ 0x1409A09F8
+ * XREFs of EmonInitializePebs @ 0x1409A1928
  * Callers:
- *     EmonInitializeProfiling @ 0x1409A06C0 (EmonInitializeProfiling.c)
+ *     EmonInitializeProfiling @ 0x1409A15F0 (EmonInitializeProfiling.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void EmonInitializePebs()

@@ -10,12 +10,12 @@
  *     RtlpRecordBootStatusData @ 0x140741E68 (RtlpRecordBootStatusData.c)
  */
 
-__int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
   char v2; // cl
   _BYTE *v3; // rax
   __int64 v4; // rdx
-  unsigned int v5; // edx
+  NTSTATUS v5; // edx
   _OWORD *v6; // rcx
   _OWORD *v7; // rcx
   LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF

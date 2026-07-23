@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceIoCoalescingOn @ 0x140671740
+ * XREFs of PopDiagTraceIoCoalescingOn @ 0x140671824
  * Callers:
- *     PopCoalescingSetActiveState @ 0x140205554 (PopCoalescingSetActiveState.c)
+ *     PopCoalescingSetActiveState @ 0x140205380 (PopCoalescingSetActiveState.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     PopPrintEx @ 0x140081AE0 (PopPrintEx.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     PopPrintEx @ 0x140084C64 (PopPrintEx.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceIoCoalescingOn(__int64 a1, __int64 a2, __int64 a3, int a4)

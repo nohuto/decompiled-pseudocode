@@ -1,16 +1,16 @@
 /*
- * XREFs of VfBeforeCallDriver @ 0x140B8DC68
+ * XREFs of VfBeforeCallDriver @ 0x140B8FC68
  * Callers:
- *     IovpCallDriverNoIrpTracking @ 0x140B82908 (IovpCallDriverNoIrpTracking.c)
- *     IovpCallDriverWithStackBuffer @ 0x140B82950 (IovpCallDriverWithStackBuffer.c)
- *     IovCallDriver @ 0x140BA7D40 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x140B84908 (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140B84950 (IovpCallDriverWithStackBuffer.c)
+ *     IovCallDriver @ 0x140BA9D40 (IovCallDriver.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     VfBugCheckNoStackUsage @ 0x140611F88 (VfBugCheckNoStackUsage.c)
- *     IovpCallDriver1 @ 0x140B8CCB4 (IovpCallDriver1.c)
- *     VfGetPristineDispatchRoutine @ 0x140B8D88C (VfGetPristineDispatchRoutine.c)
- *     ViIrpCheckKernelAddressForIrp @ 0x140B8E228 (ViIrpCheckKernelAddressForIrp.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     VfBugCheckNoStackUsage @ 0x140610548 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriver1 @ 0x140B8ECB4 (IovpCallDriver1.c)
+ *     VfGetPristineDispatchRoutine @ 0x140B8F88C (VfGetPristineDispatchRoutine.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x140B90228 (ViIrpCheckKernelAddressForIrp.c)
  */
 
 __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
@@ -32,10 +32,10 @@ __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
     if ( !KeAreInterruptsEnabled() && (VfRuleClasses & 0x400000) == 0 )
     {
       *(_BYTE *)(a3 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-      *(_OWORD *)&xmmword_140FFCA48 = 0LL;
+      *(_OWORD *)&xmmword_140FFDA48 = 0LL;
       *(_QWORD *)&VfBugcheckTmpData = 196LL;
       BugCheckParameter1 = 192LL;
-      qword_140FFCA40 = a2;
+      qword_140FFDA40 = a2;
       VfBugCheckNoStackUsage();
     }
     *(_QWORD *)(a3 + 48) = VfGetPristineDispatchRoutine(

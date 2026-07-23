@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlConfigurePcc @ 0x1404F7AD4
+ * XREFs of HvlConfigurePcc @ 0x1404F7A54
  * Callers:
- *     PpmPerfRegisterHvStates @ 0x1408F6AA0 (PpmPerfRegisterHvStates.c)
+ *     PpmPerfRegisterHvStates @ 0x1408F6C00 (PpmPerfRegisterHvStates.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     HvlpSetLogicalProcessorProperty @ 0x1404F3F18 (HvlpSetLogicalProcessorProperty.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvlpSetLogicalProcessorProperty @ 0x1404F3E98 (HvlpSetLogicalProcessorProperty.c)
  */
 
 __int64 __fastcall HvlConfigurePcc(int a1, __int64 a2)

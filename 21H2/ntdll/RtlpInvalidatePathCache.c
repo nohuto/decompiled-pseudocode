@@ -5,7 +5,7 @@
  *     LdrSetDllDirectory @ 0x180080640 (LdrSetDllDirectory.c)
  *     LdrAddDllDirectory @ 0x18008BD10 (LdrAddDllDirectory.c)
  *     LdrRemoveDllDirectory @ 0x18008C420 (LdrRemoveDllDirectory.c)
- *     RtlpSignalSystemDirsModification @ 0x1800DF374 (RtlpSignalSystemDirsModification.c)
+ *     RtlpSignalSystemDirsModification @ 0x1800DF334 (RtlpSignalSystemDirsModification.c)
  * Callees:
  *     <none>
  */

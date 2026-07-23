@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteVadBitmap @ 0x140682EB0
+ * XREFs of MiDeleteVadBitmap @ 0x14067C9A4
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
+ *     MiDeleteFinalPageTables @ 0x14027404C (MiDeleteFinalPageTables.c)
  * Callees:
- *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     MiHyperSpaceSize @ 0x140311F38 (MiHyperSpaceSize.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiReturnFullProcessCharges @ 0x140318370 (MiReturnFullProcessCharges.c)
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiUpdateChargedWsles @ 0x14055C45C (MiUpdateChargedWsles.c)
- *     MiReturnFullProcessCommitment @ 0x1406EE838 (MiReturnFullProcessCommitment.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     MiGetProcessPartition @ 0x1402BF640 (MiGetProcessPartition.c)
+ *     MiHyperSpaceSize @ 0x14031CC88 (MiHyperSpaceSize.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiReturnFullProcessCharges @ 0x1403230C0 (MiReturnFullProcessCharges.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiUpdateChargedWsles @ 0x14055C69C (MiUpdateChargedWsles.c)
+ *     MiReturnFullProcessCommitment @ 0x140705C18 (MiReturnFullProcessCommitment.c)
  */
 
 _UNKNOWN **__fastcall MiDeleteVadBitmap(_QWORD *BugCheckParameter2)

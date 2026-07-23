@@ -1,25 +1,25 @@
 /*
- * XREFs of KiDetachProcess @ 0x140321440
+ * XREFs of KiDetachProcess @ 0x1402C9FD0
  * Callers:
- *     MiUnlockStealVm @ 0x1402E1FC0 (MiUnlockStealVm.c)
- *     KeForceDetachProcess @ 0x1402F9B70 (KeForceDetachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     KeUnstackDetachProcess @ 0x140322730 (KeUnstackDetachProcess.c)
- *     KeDetachProcess @ 0x1404892D0 (KeDetachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1402CB2C0 (KeUnstackDetachProcess.c)
+ *     MiUnlockStealVm @ 0x1402FE250 (MiUnlockStealVm.c)
+ *     KeForceDetachProcess @ 0x1403422E0 (KeForceDetachProcess.c)
+ *     KeDetachProcess @ 0x1404842F0 (KeDetachProcess.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402067B0 (KiReleaseThreadLockLowerIrql.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402A1A20 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     KiSetAddressPolicy @ 0x140321A30 (KiSetAddressPolicy.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1404D48A0 (HvlSwitchVirtualAddressSpace.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     KiSetAddressPolicy @ 0x1402CA5C0 (KiSetAddressPolicy.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1402D1150 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14032DD90 (KiReleaseThreadLockLowerIrql.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1403E20F0 (HvlSwitchVirtualAddressSpace.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
  */
 
 __int64 __fastcall KiDetachProcess(__int64 a1, char a2)
@@ -29,9 +29,9 @@ __int64 __fastcall KiDetachProcess(__int64 a1, char a2)
   int v6; // r15d
   unsigned __int8 CurrentIrql; // di
   unsigned int v8; // edi
-  unsigned __int8 v9; // dl
-  $81B80DCEA5A02D890AB7B2872B48AC01 *v10; // rdi
-  $5C03C5BEA33A63562AF6B003092C9991 *v11; // rcx
+  char v9; // dl
+  $727077A9B6E167EAE1398C74674DC5A5 *v10; // rdi
+  $D65F9090E290774A76330EBDFB7A4444 *v11; // rcx
   struct _LIST_ENTRY *Flink; // rdx
   struct _KTHREAD *v13; // rdx
   _LIST_ENTRY *v14; // rax
@@ -107,8 +107,8 @@ __int64 __fastcall KiDetachProcess(__int64 a1, char a2)
     {
       if ( v9 )
         break;
-      KiReleaseThreadLockLowerIrql((__int64)CurrentThread, 0);
-      KiAcquireThreadLockRaiseToDpc((__int64)CurrentThread, &v44);
+      KiReleaseThreadLockLowerIrql(CurrentThread);
+      KiAcquireThreadLockRaiseToDpc(CurrentThread, &v44);
       if ( !CurrentThread->ApcState.KernelApcPending )
         break;
       v9 = v44;
@@ -116,21 +116,21 @@ __int64 __fastcall KiDetachProcess(__int64 a1, char a2)
   }
   if ( !CurrentThread->ApcStateIndex
     || (CurrentThread->ApcState.InProgressFlags & 1) != 0
-    || (v10 = &CurrentThread->152, ($81B80DCEA5A02D890AB7B2872B48AC01 *)v10->ApcState.ApcListHead[0].Flink != v10)
+    || (v10 = &CurrentThread->152, ($727077A9B6E167EAE1398C74674DC5A5 *)v10->ApcState.ApcListHead[0].Flink != v10)
     || (unsigned __int8 *)CurrentThread->ApcState.ApcListHead[1].Flink != &CurrentThread->ApcStateFill[16] )
   {
     KeBugCheck(6u);
   }
   CurrentThread->MiscFlags |= 0x800u;
   v11 = &CurrentThread->600;
-  if ( ($5C03C5BEA33A63562AF6B003092C9991 *)a1 == &CurrentThread->600 )
+  if ( ($D65F9090E290774A76330EBDFB7A4444 *)a1 == &CurrentThread->600 )
   {
     CurrentThread->ApcState.Process = CurrentThread->SavedApcState.Process;
     CurrentThread->ApcState.InProgressFlags = CurrentThread->SavedApcState.InProgressFlags;
     CurrentThread->ApcState.KernelApcPending = CurrentThread->SavedApcState.KernelApcPending;
     CurrentThread->ApcState.UserApcPendingAll = CurrentThread->SavedApcState.UserApcPendingAll;
     Flink = v11->SavedApcState.ApcListHead[0].Flink;
-    if ( ($5C03C5BEA33A63562AF6B003092C9991 *)v11->SavedApcState.ApcListHead[0].Flink == v11 )
+    if ( ($D65F9090E290774A76330EBDFB7A4444 *)v11->SavedApcState.ApcListHead[0].Flink == v11 )
     {
       CurrentThread->ApcState.ApcListHead[0].Blink = CurrentThread->ApcState.ApcListHead;
       v10->ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)v10;
@@ -289,7 +289,7 @@ LABEL_64:
       __writecr8(v30);
     }
   }
-  if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)v10->ApcState.ApcListHead[0].Flink != v10 )
+  if ( ($727077A9B6E167EAE1398C74674DC5A5 *)v10->ApcState.ApcListHead[0].Flink != v10 )
   {
     CurrentThread->ApcState.KernelApcPending = 1;
     v43 = 0LL;

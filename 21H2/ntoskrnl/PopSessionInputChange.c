@@ -1,17 +1,17 @@
 /*
- * XREFs of PopSessionInputChange @ 0x14067DE74
+ * XREFs of PopSessionInputChange @ 0x140671C64
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
- *     PopSetSessionUserStatus @ 0x14067D980 (PopSetSessionUserStatus.c)
- *     PopDiagTraceSessionStates @ 0x14067DB94 (PopDiagTraceSessionStates.c)
- *     PopReleaseAdaptiveLock @ 0x14067DFA4 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x14067E094 (PopAcquireAdaptiveLock.c)
- *     PopConsoleSessionPassiveInput @ 0x14067E160 (PopConsoleSessionPassiveInput.c)
- *     PopConsoleSessionActiveInput @ 0x140772E14 (PopConsoleSessionActiveInput.c)
- *     PopRemoteSessionActiveInput @ 0x140772E88 (PopRemoteSessionActiveInput.c)
- *     PopGetDisplayTimeout @ 0x140772EC4 (PopGetDisplayTimeout.c)
+ *     PopPrintEx @ 0x140272730 (PopPrintEx.c)
+ *     PopSetSessionUserStatus @ 0x140671770 (PopSetSessionUserStatus.c)
+ *     PopDiagTraceSessionStates @ 0x140671984 (PopDiagTraceSessionStates.c)
+ *     PopReleaseAdaptiveLock @ 0x140671D94 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x140671E84 (PopAcquireAdaptiveLock.c)
+ *     PopConsoleSessionPassiveInput @ 0x140672010 (PopConsoleSessionPassiveInput.c)
+ *     PopConsoleSessionActiveInput @ 0x140772FD4 (PopConsoleSessionActiveInput.c)
+ *     PopRemoteSessionActiveInput @ 0x140773048 (PopRemoteSessionActiveInput.c)
+ *     PopGetDisplayTimeout @ 0x140773084 (PopGetDisplayTimeout.c)
  */
 
 __int64 __fastcall PopSessionInputChange(unsigned int a1, char *a2, _DWORD *a3)
@@ -32,7 +32,7 @@ __int64 __fastcall PopSessionInputChange(unsigned int a1, char *a2, _DWORD *a3)
     v4 = "Passive";
   if ( (_DWORD)PopConsoleContext != a1 || (v8 = "Console", a1 == -1) )
     v8 = "Remote";
-  PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>> %s session %u input is %s\n", v8, a1, v4);
+  PopPrintEx(3u, (__int64)"PopAdaptive:>>>>> %s session %u input is %s\n", v8, a1, v4);
   v9 = (_DWORD)PopConsoleContext == a1 && a1 != -1;
   v10 = (const EVENT_DESCRIPTOR *)POP_ETW_ADPM_ACTIVE_INPUT;
   if ( !v3 )

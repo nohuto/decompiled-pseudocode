@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcConnectionDestroyProcedure @ 0x1404CA684
+ * XREFs of AlpcConnectionDestroyProcedure @ 0x1404B0404
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcConnectionDestroyProcedure(__int64 a1)
@@ -62,7 +62,7 @@ __int64 __fastcall AlpcConnectionDestroyProcedure(__int64 a1)
   if ( v11 )
   {
     if ( *(_QWORD *)(a1 + 56) == 16LL )
-      ExFreeToNPagedLookasideList(&stru_14033B540, *(PVOID *)(a1 + 40));
+      ExFreeToNPagedLookasideList(&stru_14033B580, *(PVOID *)(a1 + 40));
     else
       ExFreePoolWithTag(v11, 0x61486C41u);
   }

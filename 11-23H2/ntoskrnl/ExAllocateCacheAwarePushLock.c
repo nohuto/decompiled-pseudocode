@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAllocateCacheAwarePushLock @ 0x1403A7FF0
+ * XREFs of ExAllocateCacheAwarePushLock @ 0x1403A81D0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeQueryNodeActiveAffinity @ 0x1403059B0 (KeQueryNodeActiveAffinity.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExFreeCacheAwarePushLock @ 0x140609910 (ExFreeCacheAwarePushLock.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeQueryNodeActiveAffinity @ 0x140305C40 (KeQueryNodeActiveAffinity.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExFreeCacheAwarePushLock @ 0x140609E60 (ExFreeCacheAwarePushLock.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -30,8 +30,8 @@ __int64 *__fastcall ExAllocateCacheAwarePushLock(char a1)
   __int64 Pool3; // rax
   unsigned int v15; // [rsp+30h] [rbp-58h]
   __int128 v16; // [rsp+38h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-40h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-40h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-30h] BYREF
 
   v1 = 0;
   Affinity = 0LL;

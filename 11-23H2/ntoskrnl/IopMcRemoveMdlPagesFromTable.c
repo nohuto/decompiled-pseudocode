@@ -1,15 +1,15 @@
 /*
- * XREFs of IopMcRemoveMdlPagesFromTable @ 0x14055F220
+ * XREFs of IopMcRemoveMdlPagesFromTable @ 0x14055F8E0
  * Callers:
- *     IopMcTryUnlockMdl @ 0x14055F40C (IopMcTryUnlockMdl.c)
- *     IopMcCreateBufferEntryMdl @ 0x140951640 (IopMcCreateBufferEntryMdl.c)
+ *     IopMcTryUnlockMdl @ 0x14055FACC (IopMcTryUnlockMdl.c)
+ *     IopMcCreateBufferEntryMdl @ 0x140951840 (IopMcCreateBufferEntryMdl.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     IopMcShouldYield @ 0x14055F3D0 (IopMcShouldYield.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopMcShouldYield @ 0x14055FA90 (IopMcShouldYield.c)
  */
 
 _DWORD *__fastcall IopMcRemoveMdlPagesFromTable(__int64 a1, __int64 a2)
@@ -49,10 +49,10 @@ _DWORD *__fastcall IopMcRemoveMdlPagesFromTable(__int64 a1, __int64 a2)
       if ( (unsigned __int8)IopMcShouldYield(v6, v7) )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C5D6A4);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -60,7 +60,7 @@ _DWORD *__fastcall IopMcRemoveMdlPagesFromTable(__int64 a1, __int64 a2)
             v14 = (v13 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v13;
             if ( v14 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8(v8);
@@ -74,10 +74,10 @@ _DWORD *__fastcall IopMcRemoveMdlPagesFromTable(__int64 a1, __int64 a2)
     while ( v6 < (unsigned int)v5 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C5D6A4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && v8 <= 0xFu && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && v8 <= 0xFu && v15 >= 2u )
     {
       v16 = KeGetCurrentPrcb();
       v17 = v16->SchedulerAssist;
@@ -85,7 +85,7 @@ _DWORD *__fastcall IopMcRemoveMdlPagesFromTable(__int64 a1, __int64 a2)
       v14 = (v18 & v17[5]) == 0;
       v17[5] &= v18;
       if ( v14 )
-        KiRemoveSystemWorkPriorityKick(v16);
+        KiRemoveSystemWorkPriorityKick((__int64)v16);
     }
   }
   result = (_DWORD *)v8;

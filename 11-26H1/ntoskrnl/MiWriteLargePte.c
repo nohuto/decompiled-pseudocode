@@ -1,21 +1,21 @@
 /*
- * XREFs of MiWriteLargePte @ 0x1402A10E0
+ * XREFs of MiWriteLargePte @ 0x1402A0630
  * Callers:
- *     MiZeroWithUltraSpace @ 0x1402A0EE0 (MiZeroWithUltraSpace.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiMapWithLargePages @ 0x1402A2694 (MiMapWithLargePages.c)
- *     MiInsertLargeUserMapping @ 0x14043A9B4 (MiInsertLargeUserMapping.c)
- *     MiInitializeNewUltraHugeContext @ 0x14048DA98 (MiInitializeNewUltraHugeContext.c)
- *     MiMapMdlWithLargePages @ 0x140502900 (MiMapMdlWithLargePages.c)
- *     MiMapBackgroundPageToZero @ 0x14051F110 (MiMapBackgroundPageToZero.c)
- *     MxMapLargeVa @ 0x1406E7444 (MxMapLargeVa.c)
- *     MiHugePageOperation @ 0x140705138 (MiHugePageOperation.c)
- *     MiReleaseProcessorHugeMappingAtDpc @ 0x140705328 (MiReleaseProcessorHugeMappingAtDpc.c)
- *     MiUseProcessorHugeMappingAtDpc @ 0x1407054FC (MiUseProcessorHugeMappingAtDpc.c)
- *     MiAcquireScrubProtection @ 0x14070BC8C (MiAcquireScrubProtection.c)
+ *     MiZeroWithUltraSpace @ 0x1402A0430 (MiZeroWithUltraSpace.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiMapWithLargePages @ 0x1402A1BE4 (MiMapWithLargePages.c)
+ *     MiInsertLargeUserMapping @ 0x14042D264 (MiInsertLargeUserMapping.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1404875D8 (MiInitializeNewUltraHugeContext.c)
+ *     MiMapMdlWithLargePages @ 0x1404FC1D0 (MiMapMdlWithLargePages.c)
+ *     MiMapBackgroundPageToZero @ 0x1405217B4 (MiMapBackgroundPageToZero.c)
+ *     MxMapLargeVa @ 0x1406EC0F4 (MxMapLargeVa.c)
+ *     MiHugePageOperation @ 0x140709E08 (MiHugePageOperation.c)
+ *     MiReleaseProcessorHugeMappingAtDpc @ 0x140709FF8 (MiReleaseProcessorHugeMappingAtDpc.c)
+ *     MiUseProcessorHugeMappingAtDpc @ 0x14070A1CC (MiUseProcessorHugeMappingAtDpc.c)
+ *     MiAcquireScrubProtection @ 0x14071093C (MiAcquireScrubProtection.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
  */
 
 unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, unsigned int a3, int a4)
@@ -96,14 +96,14 @@ unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, uns
       if ( v17 < 0xFFFF800000000000uLL )
       {
 LABEL_24:
-        v18 = BYTE5(stru_140E2D930.Header.WaitListHead.Blink);
+        v18 = BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink);
         goto LABEL_25;
       }
       if ( v17 < 0xFFFFF68000000000uLL || v17 > 0xFFFFF6FFFFFFFFFFuLL )
       {
-        if ( v17 < qword_140E2DE40 || v17 > qword_140E2DE50 )
+        if ( v17 < qword_140E2DFC0 || v17 > qword_140E2DFD0 )
         {
-          v18 = BYTE4(stru_140E2D930.Header.WaitListHead.Blink);
+          v18 = BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink);
 LABEL_25:
           if ( v18 )
             v8 |= 0x100uLL;
@@ -119,7 +119,7 @@ LABEL_5:
     if ( (a4 & 0x40000000) == 0 )
       v10 = v8;
     if ( (a4 & 0x20000000) != 0 )
-      v10 = ((unsigned __int64)BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) ^ (((unsigned __int64)BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) ^ v10) & 0xFFFFFFFFFFFFFEFFuLL;
+      v10 = ((unsigned __int64)BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) ^ (((unsigned __int64)BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) ^ v10) & 0xFFFFFFFFFFFFFEFFuLL;
     v11 = MiPtesToSupportLargePageSizes[v4];
     v12 = v10 & 0xFFFFFFFFFFFFFEFFuLL;
     if ( (a4 & 0x8000000) == 0 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpReferenceDeviceMapFastRef @ 0x1407AF708
+ * XREFs of ObpReferenceDeviceMapFastRef @ 0x1407AF8F8
  * Callers:
- *     ObpSetCurrentProcessDeviceMap @ 0x1407AF5B4 (ObpSetCurrentProcessDeviceMap.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x1407AF7A4 (ObpSetCurrentProcessDeviceMap.c)
  * Callees:
- *     ObpSlowReferenceDeviceMap @ 0x1407AF9A8 (ObpSlowReferenceDeviceMap.c)
+ *     ObpSlowReferenceDeviceMap @ 0x1407AFB98 (ObpSlowReferenceDeviceMap.c)
  */
 
 unsigned __int64 __fastcall ObpReferenceDeviceMapFastRef(signed __int64 *a1)

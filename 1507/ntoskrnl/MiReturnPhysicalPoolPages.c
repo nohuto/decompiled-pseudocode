@@ -26,7 +26,7 @@ __int64 __fastcall MiReturnPhysicalPoolPages(unsigned __int64 a1)
   unsigned __int8 CurrentIrql; // si
   unsigned int v11; // ebp
   char v12; // al
-  union _SLIST_HEADER *v13; // rbx
+  _SLIST_HEADER *v13; // rbx
   unsigned int v14; // [rsp+20h] [rbp-78h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+28h] [rbp-70h] BYREF
   _QWORD v16[3]; // [rsp+40h] [rbp-58h] BYREF

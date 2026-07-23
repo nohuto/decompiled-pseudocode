@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeTbFlush @ 0x140C5A5FC
+ * XREFs of MiInitializeTbFlush @ 0x140C5C78C
  * Callers:
- *     MiInitializeTbFlushing @ 0x140C5A77C (MiInitializeTbFlushing.c)
+ *     MiInitializeTbFlushing @ 0x140C5C90C (MiInitializeTbFlushing.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiCalibrateTbFlush @ 0x14068EDD8 (MiCalibrateTbFlush.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiCalibrateTbFlush @ 0x14068FEB4 (MiCalibrateTbFlush.c)
  */
 
 __int64 __fastcall MiInitializeTbFlush(unsigned int a1)
@@ -27,12 +27,12 @@ __int64 __fastcall MiInitializeTbFlush(unsigned int a1)
 
   v12 = 0LL;
   v13 = 0LL;
-  result = MiReservePtes((__int64)&qword_140E37568, a1);
+  result = MiReservePtes((__int64)&qword_140E376A8, a1);
   v3 = result;
   if ( result )
   {
     v4 = 1;
-    ValidPte = MiMakeValidPte(result, qword_140E37378, 1);
+    ValidPte = MiMakeValidPte(result, qword_140E374B8, 1);
     v6 = v3 << 25 >> 16;
     if ( a1 )
     {
@@ -41,7 +41,7 @@ __int64 __fastcall MiInitializeTbFlush(unsigned int a1)
       do
       {
         if ( _bittest64(&MiFlags, 0x24u) && (ValidPte & 0x20) == 0 && (unsigned __int64)v7 >= 0xFFFFF6C000000000uLL )
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v7, ValidPte, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v7, ValidPte, 128LL);
         *v7++ = ValidPte;
         v6 += 4096LL;
         --v8;
@@ -66,8 +66,8 @@ __int64 __fastcall MiInitializeTbFlush(unsigned int a1)
       }
       while ( v11 > v4 + 1 );
     }
-    qword_140E2DBD0 = v4;
-    return MiReleasePtes((__int64)&qword_140E37568, (_QWORD *)v3, a1);
+    qword_140E2DD10 = v4;
+    return MiReleasePtes((__int64)&qword_140E376A8, (_QWORD *)v3, a1);
   }
   return result;
 }

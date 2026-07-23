@@ -1,9 +1,9 @@
 /*
- * XREFs of MiNumberWsSwapPagefiles @ 0x1402D1B3C
+ * XREFs of MiNumberWsSwapPagefiles @ 0x140352DB4
  * Callers:
- *     MiCheckTrimUnusedPageFileRegions @ 0x1402D3414 (MiCheckTrimUnusedPageFileRegions.c)
- *     MiInsertPageFileInList @ 0x1407EF2F0 (MiInsertPageFileInList.c)
- *     MiContractWsSwapPageFile @ 0x140A07248 (MiContractWsSwapPageFile.c)
+ *     MiCheckTrimUnusedPageFileRegions @ 0x14035468C (MiCheckTrimUnusedPageFileRegions.c)
+ *     MiInsertPageFileInList @ 0x1407EF8C0 (MiInsertPageFileInList.c)
+ *     MiContractWsSwapPageFile @ 0x140A03778 (MiContractWsSwapPageFile.c)
  * Callees:
  *     <none>
  */

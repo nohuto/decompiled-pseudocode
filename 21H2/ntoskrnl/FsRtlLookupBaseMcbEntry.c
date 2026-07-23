@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlLookupBaseMcbEntry @ 0x140291520
+ * XREFs of FsRtlLookupBaseMcbEntry @ 0x14020F490
  * Callers:
- *     FsRtlLookupLargeMcbEntry @ 0x1404EF010 (FsRtlLookupLargeMcbEntry.c)
+ *     FsRtlLookupLargeMcbEntry @ 0x1404EF250 (FsRtlLookupLargeMcbEntry.c)
  * Callees:
  *     <none>
  */

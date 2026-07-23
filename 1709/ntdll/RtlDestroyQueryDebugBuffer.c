@@ -8,12 +8,10 @@
  *     NtUnmapViewOfSection @ 0x1800A0600 (NtUnmapViewOfSection.c)
  */
 
-__int64 __fastcall RtlDestroyQueryDebugBuffer(HANDLE *a1)
+NTSTATUS __cdecl RtlDestroyQueryDebugBuffer(PRTL_DEBUG_INFORMATION Buffer)
 {
-  __int64 v2; // r8
-
-  RtlpChangeQueryDebugBufferTarget(a1, 0LL, 0LL, 0LL);
-  NtClose(*a1);
-  NtUnmapViewOfSection(-1LL, a1, v2);
-  return 0LL;
+  RtlpChangeQueryDebugBufferTarget(Buffer, 0LL, 0LL, 0LL);
+  NtClose(Buffer->SectionHandleClient);
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, Buffer);
+  return 0;
 }

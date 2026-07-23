@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_1407E4934 @ 0x1407E4934
  * Callers:
- *     WbAllocateSlots @ 0x1407E4720 (WbAllocateSlots.c)
+ *     sub_1407E4720 @ 0x1407E4720 (sub_1407E4720.c)
  * Callees:
  *     <none>
  */

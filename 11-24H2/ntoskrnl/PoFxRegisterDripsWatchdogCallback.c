@@ -1,11 +1,11 @@
 /*
- * XREFs of PoFxRegisterDripsWatchdogCallback @ 0x1405D03D0
+ * XREFs of PoFxRegisterDripsWatchdogCallback @ 0x1405CDAF0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
  */
 
 void __fastcall PoFxRegisterDripsWatchdogCallback(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, __int64 a4)

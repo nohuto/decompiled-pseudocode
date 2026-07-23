@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerRequestInitialize @ 0x140C2DE8C
+ * XREFs of PopPowerRequestInitialize @ 0x140C2FFAC
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     PopInitializeTimer @ 0x140749388 (PopInitializeTimer.c)
- *     PopInitializeWorkItem @ 0x1407493D8 (PopInitializeWorkItem.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
- *     PopPowerRequestStatsInitialize @ 0x140C33884 (PopPowerRequestStatsInitialize.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     PopInitializeTimer @ 0x1407476B8 (PopInitializeTimer.c)
+ *     PopInitializeWorkItem @ 0x140747708 (PopInitializeWorkItem.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
+ *     PopPowerRequestStatsInitialize @ 0x140C359C4 (PopPowerRequestStatsInitialize.c)
  */
 
 __int64 PopPowerRequestInitialize()
@@ -46,16 +46,16 @@ __int64 PopPowerRequestInitialize()
   result = ObCreateObjectType(&DestinationString, &v6, 0LL, (__int64)&PopPowerRequestObjectType);
   if ( (int)result >= 0 )
   {
-    qword_140F0E058 = 0LL;
+    qword_140F0E4A8 = 0LL;
     PopPowerRequestLock = 0LL;
     PopPowerRequestSpinLock = 0LL;
     PopInitializeWorkItem(
       (__int64)&PopPowerRequestUpdateWorkItem,
       (__int64)PopPowerRequestCallbackWorker,
       (__int64)&PopPowerRequestUpdateQueue);
-    qword_140F0DFB8 = v1;
+    qword_140F0E478 = v1;
     PopPowerRequestUpdateQueue = v1;
-    qword_140F0E078 = (__int64)&PopPowerRequestObjectList;
+    qword_140F0E498 = (__int64)&PopPowerRequestObjectList;
     PopPowerRequestObjectList = &PopPowerRequestObjectList;
     memset_0(&PopPowerRequestTable, 0, sizeof(PopPowerRequestTable));
     PopPowerRequestTable.TableContext = 0LL;

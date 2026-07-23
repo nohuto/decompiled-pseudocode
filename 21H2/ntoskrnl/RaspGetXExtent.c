@@ -1,15 +1,15 @@
 /*
- * XREFs of RaspGetXExtent @ 0x1403B2104
+ * XREFs of RaspGetXExtent @ 0x1403B2274
  * Callers:
- *     BcpGetCharacterMaxResourceProfile @ 0x1403BCC80 (BcpGetCharacterMaxResourceProfile.c)
- *     BgpRasGetGlyphAdvanceWidth @ 0x1405C5A8C (BgpRasGetGlyphAdvanceWidth.c)
+ *     BcpGetCharacterMaxResourceProfile @ 0x1403BCDF0 (BcpGetCharacterMaxResourceProfile.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x1405C5CBC (BgpRasGetGlyphAdvanceWidth.c)
  * Callees:
- *     RaspGetCacheEntry @ 0x1403B22A8 (RaspGetCacheEntry.c)
- *     RaspRasterize @ 0x1403B233C (RaspRasterize.c)
- *     RaspFreeMemory @ 0x1403B2508 (RaspFreeMemory.c)
- *     RaspAllocateMemory @ 0x1403B3A08 (RaspAllocateMemory.c)
- *     memset @ 0x140414200 (memset.c)
- *     RaspAddCacheEntry @ 0x1409F46A4 (RaspAddCacheEntry.c)
+ *     RaspGetCacheEntry @ 0x1403B2418 (RaspGetCacheEntry.c)
+ *     RaspRasterize @ 0x1403B24AC (RaspRasterize.c)
+ *     RaspFreeMemory @ 0x1403B2678 (RaspFreeMemory.c)
+ *     RaspAllocateMemory @ 0x1403B3B78 (RaspAllocateMemory.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RaspAddCacheEntry @ 0x1409F56A4 (RaspAddCacheEntry.c)
  */
 
 __int64 __fastcall RaspGetXExtent(unsigned __int16 a1, __int64 a2, _DWORD *a3, __int64 a4, int a5, __int64 *a6)

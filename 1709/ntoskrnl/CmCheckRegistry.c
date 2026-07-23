@@ -17,7 +17,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter2, int a2, __int64
 {
   unsigned int v3; // ebx
   unsigned int *v6; // r13
-  struct _RTL_BITMAP *p_BitMapHeader; // r12
+  _RTL_BITMAP *p_BitMapHeader; // r12
   __int64 v8; // rdx
   __int64 v9; // r8
   char v10; // si
@@ -30,7 +30,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter2, int a2, __int64
   int v18; // r9d
   int v19; // [rsp+20h] [rbp-49h]
   __int64 v20; // [rsp+40h] [rbp-29h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+48h] [rbp-21h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+48h] [rbp-21h] BYREF
   _DWORD v22[26]; // [rsp+58h] [rbp-11h] BYREF
   int v24; // [rsp+E8h] [rbp+7Fh]
 

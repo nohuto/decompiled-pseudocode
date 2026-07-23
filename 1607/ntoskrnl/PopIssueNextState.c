@@ -3,7 +3,7 @@
  * Callers:
  *     PopInvokeSystemStateHandler @ 0x1403CC110 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  *     PopHandleNextState @ 0x1403CC8F0 (PopHandleNextState.c)
  */
 

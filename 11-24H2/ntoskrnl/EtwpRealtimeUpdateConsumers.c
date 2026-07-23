@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpRealtimeUpdateConsumers @ 0x1409D9550
+ * XREFs of EtwpRealtimeUpdateConsumers @ 0x1409D4060
  * Callers:
- *     EtwpLogger @ 0x1409D88E0 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1409D33F0 (EtwpLogger.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 LONG __fastcall EtwpRealtimeUpdateConsumers(__int64 a1)
 {
   unsigned __int64 *v1; // rdi
   LONG result; // eax
-  _QWORD *v4; // rax
-  _QWORD *v5; // rsi
+  char *v4; // rax
+  char *v5; // rsi
   __int64 v6; // rsi
   signed __int64 v7; // rax
   signed __int64 v8; // rdx
@@ -23,8 +23,8 @@ LONG __fastcall EtwpRealtimeUpdateConsumers(__int64 a1)
   __int64 v10; // rax
   _QWORD *v11; // rcx
   int v12; // ebp
-  _QWORD *v13; // rax
-  _QWORD *v14; // rsi
+  char *v13; // rax
+  char *v14; // rsi
   __int64 v15; // rsi
   signed __int64 v16; // rax
   signed __int64 v17; // rdx
@@ -34,12 +34,12 @@ LONG __fastcall EtwpRealtimeUpdateConsumers(__int64 a1)
   v1 = (unsigned __int64 *)(a1 + 688);
   if ( (*(_DWORD *)(a1 + 824) & 0x20) != 0 )
   {
-    v4 = KeAbPreAcquire(a1 + 688, 0LL);
+    v4 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
     v5 = v4;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v1, (__int64)v4, (__int64)v1);
+      ExfAcquirePushLockExclusiveEx(v1, v4, (__int64)v1);
     if ( v5 )
-      *((_BYTE *)v5 + 10) = 1;
+      v5[10] = 1;
     v6 = *(_QWORD *)(a1 + 352);
     *(_QWORD *)(a1 + 352) = 0LL;
     _m_prefetchw(v1);
@@ -71,12 +71,12 @@ LONG __fastcall EtwpRealtimeUpdateConsumers(__int64 a1)
   if ( (result & 0x10) != 0 )
   {
     v12 = -1073741162;
-    v13 = KeAbPreAcquire((__int64)v1, 0LL);
+    v13 = (char *)KeAbPreAcquire((__int64)v1, 0LL);
     v14 = v13;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v1, (__int64)v13, (__int64)v1);
+      ExfAcquirePushLockExclusiveEx(v1, v13, (__int64)v1);
     if ( v14 )
-      *((_BYTE *)v14 + 10) = 1;
+      v14[10] = 1;
     v15 = *(_QWORD *)(a1 + 352);
     *(_QWORD *)(a1 + 352) = 0LL;
     _m_prefetchw(v1);

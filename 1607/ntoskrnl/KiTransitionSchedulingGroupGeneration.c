@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTransitionSchedulingGroupGeneration @ 0x1400D3870
+ * XREFs of KiTransitionSchedulingGroupGeneration @ 0x1400D1710
  * Callers:
- *     KiGroupSchedulingGenerationEnd @ 0x1400D24A0 (KiGroupSchedulingGenerationEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D0340 (KiGroupSchedulingGenerationEnd.c)
  * Callees:
- *     KiInsertNonMaxOverQuotaScb @ 0x1400995B8 (KiInsertNonMaxOverQuotaScb.c)
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x1400D3B50 (KiMoveScbThreadsToNewReadylist.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x140098DB8 (KiInsertNonMaxOverQuotaScb.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x1400D19F0 (KiMoveScbThreadsToNewReadylist.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 unsigned __int64 __fastcall KiTransitionSchedulingGroupGeneration(__int64 a1, unsigned __int64 a2, char a3)

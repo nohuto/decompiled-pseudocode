@@ -1,22 +1,22 @@
 /*
- * XREFs of KeCapturePersistentThreadState @ 0x140262B20
+ * XREFs of KeCapturePersistentThreadState @ 0x140420EC0
  * Callers:
- *     DbgkpWerCaptureLiveTriageDump @ 0x140708900 (DbgkpWerCaptureLiveTriageDump.c)
- *     LkmdTelCreateReport @ 0x14082F62C (LkmdTelCreateReport.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x1407064C0 (DbgkpWerCaptureLiveTriageDump.c)
+ *     LkmdTelCreateReport @ 0x14082FE24 (LkmdTelCreateReport.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     RtlGetNtProductType @ 0x14042F1D0 (RtlGetNtProductType.c)
- *     IopWriteDriverList @ 0x1404ACB6C (IopWriteDriverList.c)
- *     IoGetLoadedDriverInfo @ 0x1404ACCBC (IoGetLoadedDriverInfo.c)
- *     IopValidateSectionSize @ 0x1404D81F4 (IopValidateSectionSize.c)
- *     IopAddCodeRegion @ 0x140593264 (IopAddCodeRegion.c)
- *     KdCopyDataBlock @ 0x1405AF4E4 (KdCopyDataBlock.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     RtlGetNtProductType @ 0x1404213A0 (RtlGetNtProductType.c)
+ *     IopWriteDriverList @ 0x1404A6D78 (IopWriteDriverList.c)
+ *     IoGetLoadedDriverInfo @ 0x1404A6EC8 (IoGetLoadedDriverInfo.c)
+ *     IopValidateSectionSize @ 0x1404D1640 (IopValidateSectionSize.c)
+ *     IopAddCodeRegion @ 0x140590288 (IopAddCodeRegion.c)
+ *     KdCopyDataBlock @ 0x1405AC454 (KdCopyDataBlock.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KeCapturePersistentThreadState(
@@ -44,9 +44,9 @@ __int64 __fastcall KeCapturePersistentThreadState(
   __int128 v23; // xmm1
   __int128 v24; // xmm0
   unsigned int v25; // r15d
-  char *StackLimit; // rax
-  char *StackBase; // rdi
-  char *v28; // rsi
+  const void *StackLimit; // rax
+  void *StackBase; // rdi
+  const void *v28; // rsi
   unsigned int v29; // edi
   unsigned int i; // r14d
   __int64 result; // rax
@@ -59,7 +59,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
   unsigned int v38; // r14d
   __int64 v39; // rdx
   int v40; // eax
-  int v41[8]; // [rsp+20h] [rbp-20h] BYREF
+  _DWORD v41[8]; // [rsp+20h] [rbp-20h] BYREF
 
   v8 = Size;
   CurrentThread = a2;
@@ -67,7 +67,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
     return 0LL;
   if ( !a2 )
     CurrentThread = KeGetCurrentThread();
-  if ( ForceDumpDisabled || !AllowCrashDump || byte_140E660E4 && SecureDmpEncryptionContext == 2 )
+  if ( ForceDumpDisabled || !AllowCrashDump || byte_140E661D4 && SecureDmpEncryptionContext == 2 )
     return 0LL;
   memset_0((void *)(Size + 4), 0, 0x3FFFCuLL);
   v13 = (char *)v8;
@@ -118,7 +118,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
   *(_DWORD *)(v8 + 3992) = 4;
   *(_DWORD *)(v8 + 4152) = 130;
   *(_DWORD *)(v8 + 4176) = 24;
-  RtlGetNtProductType(v8 + 4160);
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)(v8 + 4160));
   v19 = 9LL;
   *(_DWORD *)(v8 + 4164) = MEMORY[0xFFFFF780000002D0];
   v20 = (_OWORD *)a1;
@@ -171,9 +171,9 @@ __int64 __fastcall KeCapturePersistentThreadState(
   v25 = 66296;
   if ( CurrentThread == KeGetCurrentThread() && (*((_DWORD *)&CurrentThread->0 + 1) & 0x20000) != 0 )
   {
-    StackLimit = (char *)CurrentThread->StackLimit;
-    StackBase = (char *)CurrentThread->StackBase;
-    v28 = *(char **)(a1 + 152);
+    StackLimit = CurrentThread->StackLimit;
+    StackBase = CurrentThread->StackBase;
+    v28 = *(const void **)(a1 + 152);
     if ( StackLimit <= v28 && StackBase > v28 || (v28 = StackLimit, StackBase > StackLimit) )
       v29 = (_DWORD)StackBase - (_DWORD)v28;
     else
@@ -182,7 +182,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
       v29 = 0x7FFF;
     for ( i = 0; i < v29; ++i )
     {
-      if ( !(unsigned __int8)MmIsAddressValidEx(&v28[i]) )
+      if ( !MmIsAddressValidEx((__int64)v28 + i) )
         break;
     }
     LODWORD(Size) = i;

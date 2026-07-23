@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwIrpGetAttributes @ 0x1407B02D0
+ * XREFs of PiSwIrpGetAttributes @ 0x1407B3330
  * Callers:
- *     PiSwDispatch @ 0x140A7B430 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x140A8C570 (PiSwDispatch.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     PiSwLock @ 0x14090DC3C (PiSwLock.c)
- *     PiSwDeviceOperationsAllowed @ 0x14090E1D4 (PiSwDeviceOperationsAllowed.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     PiSwLock @ 0x1409AFD6C (PiSwLock.c)
+ *     PiSwDeviceOperationsAllowed @ 0x1409B0304 (PiSwDeviceOperationsAllowed.c)
  */
 
 __int64 __fastcall PiSwIrpGetAttributes(PIRP Irp)

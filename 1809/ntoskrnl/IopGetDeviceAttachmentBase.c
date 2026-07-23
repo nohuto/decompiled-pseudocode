@@ -3,9 +3,9 @@
  * Callers:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     IopGetDevicePDO @ 0x140019CF4 (IopGetDevicePDO.c)
- *     IopCompleteUnloadOrDelete @ 0x1400DA90C (IopCompleteUnloadOrDelete.c)
- *     IopAttachDeviceToDeviceStackSafe @ 0x140132740 (IopAttachDeviceToDeviceStackSafe.c)
- *     IopVerifyDriverObjectOnStack @ 0x14027F5A8 (IopVerifyDriverObjectOnStack.c)
+ *     IopCompleteUnloadOrDelete @ 0x1400DA98C (IopCompleteUnloadOrDelete.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x140132810 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopVerifyDriverObjectOnStack @ 0x14027F798 (IopVerifyDriverObjectOnStack.c)
  * Callees:
  *     <none>
  */

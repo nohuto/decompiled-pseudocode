@@ -1,11 +1,11 @@
 /*
- * XREFs of ExInitializeFastResourceAcquired @ 0x140490070
+ * XREFs of ExInitializeFastResourceAcquired @ 0x14048A6B0
  * Callers:
- *     DifExInitializeFastResourceAcquiredWrapper @ 0x14061E840 (DifExInitializeFastResourceAcquiredWrapper.c)
+ *     DifExInitializeFastResourceAcquiredWrapper @ 0x14061CE00 (DifExInitializeFastResourceAcquiredWrapper.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExInitializeFastResource2 @ 0x140490220 (ExInitializeFastResource2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExInitializeFastResource2 @ 0x14048A860 (ExInitializeFastResource2.c)
  */
 
 __int64 __fastcall ExInitializeFastResourceAcquired(ULONG_PTR a1, int a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of XmPopStack @ 0x140468128
+ * XREFs of XmPopStack @ 0x140460AD8
  * Callers:
- *     XmPopOp @ 0x140468100 (XmPopOp.c)
- *     XmIretOp @ 0x1405768A0 (XmIretOp.c)
- *     XmLeaveOp @ 0x140576910 (XmLeaveOp.c)
- *     XmRetOp @ 0x140576960 (XmRetOp.c)
+ *     XmPopOp @ 0x140460AB0 (XmPopOp.c)
+ *     XmIretOp @ 0x140573D30 (XmIretOp.c)
+ *     XmLeaveOp @ 0x140573DA0 (XmLeaveOp.c)
+ *     XmRetOp @ 0x140573DF0 (XmRetOp.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x140469260 (x86BiosTranslateAddress.c)
- *     XmSetSourceValue @ 0x140469348 (XmSetSourceValue.c)
- *     longjmp @ 0x1404FB920 (longjmp.c)
+ *     x86BiosTranslateAddress @ 0x140461C10 (x86BiosTranslateAddress.c)
+ *     XmSetSourceValue @ 0x140461CF8 (XmSetSourceValue.c)
+ *     longjmp @ 0x1404F91E0 (longjmp.c)
  */
 
 __int64 __fastcall XmPopStack(__int64 a1)

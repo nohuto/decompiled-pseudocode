@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalDpMaskLevelTriggeredInterrupts @ 0x140BF1420
+ * XREFs of xHalDpMaskLevelTriggeredInterrupts @ 0x140BF7420
  * Callers:
  *     <none>
  * Callees:

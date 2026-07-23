@@ -15,18 +15,10 @@ __int64 __fastcall LdrpEnableParallelLoading(unsigned int a1)
 {
   unsigned int v2; // ebx
   int v3; // edi
-  __int64 v4; // rdx
-  _DWORD v6[2]; // [rsp+20h] [rbp-50h] BYREF
-  __int64 v7; // [rsp+28h] [rbp-48h]
-  __int64 v8; // [rsp+30h] [rbp-40h]
-  __int64 v9; // [rsp+38h] [rbp-38h]
-  __int128 v10; // [rsp+40h] [rbp-30h]
-  __int64 v11; // [rsp+50h] [rbp-20h]
-  int v12; // [rsp+58h] [rbp-18h]
-  int v13; // [rsp+5Ch] [rbp-14h]
-  int v14; // [rsp+60h] [rbp-10h]
+  ULONG v4; // edx
+  TP_CALLBACK_ENVIRON_V3 CallbackEnviron; // [rsp+20h] [rbp-50h] BYREF
 
-  v6[1] = 0;
+  *(&CallbackEnviron.Version + 1) = 0;
   LdrpDetectDetour();
   if ( a1 )
   {
@@ -44,22 +36,18 @@ __int64 __fastcall LdrpEnableParallelLoading(unsigned int a1)
   if ( v3 >= 0 )
   {
     TpSetPoolWorkerThreadIdleTimeout(LdrpThreadPool, -300000000LL);
-    v4 = 1LL;
+    v4 = 1;
     if ( v2 > 1 )
       v4 = v2 - 1;
     TpSetPoolMaxThreads(LdrpThreadPool, v4);
     if ( !LdrpDetourExist && v2 > 1 )
     {
-      v8 = 0LL;
-      v9 = 0LL;
-      v11 = 0LL;
-      v12 = 0;
-      v10 = 0LL;
-      v7 = LdrpThreadPool;
-      v6[0] = 3;
-      v13 = 1;
-      v14 = 72;
-      return (unsigned int)TpAllocWork(&LdrpMapAndSnapWork, LdrpWorkCallback, 0LL, v6);
+      memset(&CallbackEnviron.CleanupGroup, 0, 44);
+      CallbackEnviron.Pool = LdrpThreadPool;
+      CallbackEnviron.Version = 3;
+      CallbackEnviron.CallbackPriority = TP_CALLBACK_PRIORITY_NORMAL;
+      CallbackEnviron.Size = 72;
+      return (unsigned int)TpAllocWork(&LdrpMapAndSnapWork, LdrpWorkCallback, 0LL, &CallbackEnviron);
     }
   }
   return (unsigned int)v3;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryVirtualMemory @ 0x18009DAA0
+ * XREFs of ZwQueryVirtualMemory @ 0x18009DA60
  * Callers:
  *     RtlCreateHeap @ 0x18000A8B0 (RtlCreateHeap.c)
  *     RtlpProtectHeap @ 0x18000E1C0 (RtlpProtectHeap.c)
@@ -16,30 +16,36 @@
  *     LdrpGetModuleInfoFromVirtualMemory @ 0x180084644 (LdrpGetModuleInfoFromVirtualMemory.c)
  *     RtlUnlockCurrentThread @ 0x1800872C0 (RtlUnlockCurrentThread.c)
  *     LdrpCheckPagesForTampering @ 0x180089FCC (LdrpCheckPagesForTampering.c)
- *     LdrIsEnclaveAddress @ 0x1800CCF20 (LdrIsEnclaveAddress.c)
- *     LdrpIsExecutableRelocatedImage @ 0x1800CDC08 (LdrpIsExecutableRelocatedImage.c)
- *     LdrpCaptureCriticalThunks @ 0x1800D4A94 (LdrpCaptureCriticalThunks.c)
- *     RtlResetStackOverflow @ 0x1800DE804 (RtlResetStackOverflow.c)
- *     RtlUnlockHeapManagerForCloning @ 0x1800F3218 (RtlUnlockHeapManagerForCloning.c)
- *     RtlFlushSecureMemoryCache @ 0x1800F7C70 (RtlFlushSecureMemoryCache.c)
- *     RtlpScanProcessVirtualMemory @ 0x1800F86F0 (RtlpScanProcessVirtualMemory.c)
- *     RtlDebugCreateHeap @ 0x1800F8EF0 (RtlDebugCreateHeap.c)
- *     RtlGetNonVolatileToken @ 0x1800FC510 (RtlGetNonVolatileToken.c)
- *     RtlpUnsuppressForwardReferencingCallTarget @ 0x1800FD9B4 (RtlpUnsuppressForwardReferencingCallTarget.c)
- *     RtlpHpHeapProtect @ 0x18010E444 (RtlpHpHeapProtect.c)
- *     RtlpHpLargeAllocationProtect @ 0x18010E900 (RtlpHpLargeAllocationProtect.c)
- *     RtlpHpSegProtect @ 0x18010F5C4 (RtlpHpSegProtect.c)
- *     PsspCaptureAuxiliaryPages @ 0x18011508C (PsspCaptureAuxiliaryPages.c)
- *     PsspQueryVmBulkMode @ 0x180115A20 (PsspQueryVmBulkMode.c)
+ *     LdrIsEnclaveAddress @ 0x1800CCEE0 (LdrIsEnclaveAddress.c)
+ *     LdrpIsExecutableRelocatedImage @ 0x1800CDBC8 (LdrpIsExecutableRelocatedImage.c)
+ *     LdrpCaptureCriticalThunks @ 0x1800D4A54 (LdrpCaptureCriticalThunks.c)
+ *     RtlResetStackOverflow @ 0x1800DE7C4 (RtlResetStackOverflow.c)
+ *     RtlUnlockHeapManagerForCloning @ 0x1800F31D8 (RtlUnlockHeapManagerForCloning.c)
+ *     RtlFlushSecureMemoryCache @ 0x1800F7C30 (RtlFlushSecureMemoryCache.c)
+ *     RtlpScanProcessVirtualMemory @ 0x1800F86B0 (RtlpScanProcessVirtualMemory.c)
+ *     RtlDebugCreateHeap @ 0x1800F8EB0 (RtlDebugCreateHeap.c)
+ *     RtlGetNonVolatileToken @ 0x1800FC4D0 (RtlGetNonVolatileToken.c)
+ *     RtlpUnsuppressForwardReferencingCallTarget @ 0x1800FD974 (RtlpUnsuppressForwardReferencingCallTarget.c)
+ *     RtlpHpHeapProtect @ 0x18010E404 (RtlpHpHeapProtect.c)
+ *     RtlpHpLargeAllocationProtect @ 0x18010E8C0 (RtlpHpLargeAllocationProtect.c)
+ *     RtlpHpSegProtect @ 0x18010F584 (RtlpHpSegProtect.c)
+ *     PsspCaptureAuxiliaryPages @ 0x18011504C (PsspCaptureAuxiliaryPages.c)
+ *     PsspQueryVmBulkMode @ 0x1801159E0 (PsspQueryVmBulkMode.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryVirtualMemory()
+NTSTATUS __cdecl ZwQueryVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        MEMORY_INFORMATION_CLASS MemoryInformationClass,
+        PVOID MemoryInformation,
+        SIZE_T MemoryInformationLength,
+        PSIZE_T ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 35LL;
+  result = 35;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

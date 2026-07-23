@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlWow64EnableFsRedirectionEx()
+NTSTATUS __cdecl RtlWow64EnableFsRedirectionEx(PVOID Wow64FsEnableRedirection, PVOID *OldFsRedirectionLevel)
 {
-  return 3221225474LL;
+  return -1073741822;
 }

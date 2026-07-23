@@ -1,11 +1,11 @@
 /*
- * XREFs of SmProcessSystemStoreTrimRequest @ 0x1408AB644
+ * XREFs of SmProcessSystemStoreTrimRequest @ 0x1408AC8A4
  * Callers:
- *     SmSetStoreInformation @ 0x1406CBC30 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406CCED0 (SmSetStoreInformation.c)
  * Callees:
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x14030362C (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E12A8 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x14030381C (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessSystemStoreTrimRequest(unsigned __int64 a1, int a2, char a3)
@@ -32,8 +32,8 @@ __int64 __fastcall SmProcessSystemStoreTrimRequest(unsigned __int64 a1, int a2, 
     return 3221225561LL;
   if ( (v8 & 0xFFFFFF00) != 0 || !*((_QWORD *)&v8 + 1) )
     return 3221225485LL;
-  if ( dword_14055B1B0 == -1 )
+  if ( dword_14055C1B0 == -1 )
     return 3221226021LL;
-  v6 = (_DWORD **)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, dword_14055B1B0 & 0x3FF);
+  v6 = (_DWORD **)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, dword_14055C1B0 & 0x3FF);
   return SMKM_STORE_MGR<SM_TRAITS>::SmTrimWsStore(v7, *v6, *((__int64 *)&v8 + 1));
 }

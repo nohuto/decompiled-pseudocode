@@ -3,17 +3,17 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     sprintf_s @ 0x140152AEC (sprintf_s.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     NtOpenKey @ 0x140415458 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     NtCreateKey @ 0x1404640C8 (NtCreateKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     CmSetAcpiHwProfile @ 0x14055B9E8 (CmSetAcpiHwProfile.c)
- *     CmpCloneHwProfile @ 0x1406071B0 (CmpCloneHwProfile.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1401530AC (sprintf_s.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     NtOpenKey @ 0x140414318 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     NtCreateKey @ 0x140462F98 (NtCreateKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     CmSetAcpiHwProfile @ 0x14055BF28 (CmSetAcpiHwProfile.c)
+ *     CmpCloneHwProfile @ 0x140607264 (CmpCloneHwProfile.c)
  *     CmpAddDockingInfo @ 0x1407AC56C (CmpAddDockingInfo.c)
  *     CmpAddAliasEntry @ 0x1407CD4E0 (CmpAddAliasEntry.c)
  */
@@ -41,7 +41,7 @@ NTSTATUS __fastcall CmpCreateControlSet(__int64 a1)
   HANDLE Handle; // [rsp+A8h] [rbp-60h] BYREF
   ULONG ResultLength; // [rsp+B0h] [rbp-58h] BYREF
   HANDLE v22; // [rsp+B8h] [rbp-50h] BYREF
-  STRING DestinationString; // [rsp+C0h] [rbp-48h] BYREF
+  _STRING DestinationString; // [rsp+C0h] [rbp-48h] BYREF
   ULONG Disposition; // [rsp+D0h] [rbp-38h] BYREF
   __int16 v25; // [rsp+D4h] [rbp-34h]
   _DWORD KeyValueInformation[2]; // [rsp+D8h] [rbp-30h] BYREF

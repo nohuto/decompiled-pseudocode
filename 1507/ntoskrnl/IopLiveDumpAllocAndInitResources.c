@@ -125,7 +125,7 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
   *(_QWORD *)(v20 + 8240) = v21;
   *(_QWORD *)(a1 + 368) = v21;
   *(_QWORD *)(a1 + 376) = v20 + 8248;
-  RtlClearAllBitsEx(a1 + 368);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 368));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 384), *(_QWORD *)(a1 + 392));
   v22 = ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x706D644Cu);
   *(_QWORD *)(a1 + 440) = v22;
@@ -138,7 +138,7 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
     goto LABEL_5;
   *(_QWORD *)(a1 + 424) = *(_QWORD *)(a1 + 88);
   *(_QWORD *)(a1 + 432) = v23;
-  RtlClearAllBitsEx(a1 + 424);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 424));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 440), v10);
   v26 = ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x706D644Cu);
   *(_QWORD *)(a1 + 464) = v26;
@@ -155,7 +155,7 @@ LABEL_7:
     goto LABEL_5;
   *(_QWORD *)(a1 + 448) = *(_QWORD *)(a1 + 88);
   *(_QWORD *)(a1 + 456) = v27;
-  RtlClearAllBitsEx(a1 + 448);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 448));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 464), v10);
   for ( i = *(_QWORD *)(a1 + 56); i; i = *(_QWORD *)(i + 32) )
     IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(i + 16), *(unsigned int *)(i + 24));

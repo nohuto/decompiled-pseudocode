@@ -10,29 +10,28 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-bool __fastcall sub_18004A1C4(unsigned __int8 *a1, unsigned __int8 *a2, __int64 a3, __int64 a4)
+bool __fastcall sub_18004A1C4(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v6; // rcx
   int v10; // ecx
-  __int64 v11; // rdx
-  int v12; // [rsp+20h] [rbp-68h] BYREF
-  __int16 v13; // [rsp+24h] [rbp-64h]
-  _DWORD v14[12]; // [rsp+28h] [rbp-60h] BYREF
+  void *v11; // rdx
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-68h] BYREF
+  _DWORD Sid[12]; // [rsp+28h] [rbp-60h] BYREF
 
   v6 = *a2;
   if ( byte_180120FA0[v6] != byte_180120FA0[*a1] || byte_180121000[v6] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
     return 0;
-  if ( !(unsigned __int8)RtlEqualSid(a2 + 8, a1 + 8) )
+  if ( !RtlEqualSid(a2 + 8, a1 + 8) )
   {
     if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !a3 && !a4 )
       return 0;
-    v12 = 0;
-    v13 = 768;
-    memset(v14, 0, sizeof(v14));
-    if ( (int)RtlInitializeSid((__int64)v14, (__int64)&v12, 1u) < 0 )
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+    memset(Sid, 0, sizeof(Sid));
+    if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) < 0 )
       return 0;
-    v14[2] = 0;
-    if ( !RtlEqualPrefixSid(a1 + 8, v14) )
+    Sid[2] = 0;
+    if ( !RtlEqualPrefixSid(a1 + 8, Sid) )
       return 0;
     v10 = *((_DWORD *)a1 + 4);
     if ( v10 )
@@ -47,7 +46,7 @@ bool __fastcall sub_18004A1C4(unsigned __int8 *a1, unsigned __int8 *a2, __int64 
         return 0;
       v11 = a3;
     }
-    return (unsigned __int8)RtlEqualSid(a2 + 8, v11) != 0;
+    return RtlEqualSid(a2 + 8, v11) != 0;
   }
   return 1;
 }

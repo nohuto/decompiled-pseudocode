@@ -1,14 +1,14 @@
 /*
- * XREFs of IommuMapLogicalRangeEx @ 0x14047B4F0
+ * XREFs of IommuMapLogicalRangeEx @ 0x140474E60
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x14047B014 (HalpIommuDomainFreeLogicalAddressRange.c)
- *     IommupHvMapDeviceLogical @ 0x14047B750 (IommupHvMapDeviceLogical.c)
- *     HalpIommuMapLogical @ 0x14047B810 (HalpIommuMapLogical.c)
- *     HalpIommuDomainMapLogicalRange @ 0x14047BE1C (HalpIommuDomainMapLogicalRange.c)
- *     IommupValidateMdl @ 0x140511904 (IommupValidateMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x140474984 (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     IommupHvMapDeviceLogical @ 0x1404750C0 (IommupHvMapDeviceLogical.c)
+ *     HalpIommuMapLogical @ 0x140475180 (HalpIommuMapLogical.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x14047578C (HalpIommuDomainMapLogicalRange.c)
+ *     IommupValidateMdl @ 0x14050B374 (IommupValidateMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuMapLogicalRangeEx(

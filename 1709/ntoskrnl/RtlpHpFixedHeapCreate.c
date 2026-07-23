@@ -48,7 +48,7 @@ _QWORD *__fastcall RtlpHpFixedHeapCreate(
     if ( ZwQueryVirtualMemory(
            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
            a1,
-           MemoryBasicVlmInformation,
+           MemoryRegionInformation,
            MemoryInformation,
            0x20uLL,
            0LL) < 0 )

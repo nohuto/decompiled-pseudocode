@@ -1,38 +1,42 @@
 /*
- * XREFs of PiDevCfgFreeDeviceContext @ 0x140997788
+ * XREFs of PiDevCfgFreeDeviceContext @ 0x1409C9EF4
  * Callers:
- *     PiDevCfgInitDeviceCallback @ 0x14072A1C0 (PiDevCfgInitDeviceCallback.c)
- *     PiDevCfgProcessDeviceCallback @ 0x14072A970 (PiDevCfgProcessDeviceCallback.c)
- *     PpDevCfgCheckDeviceNeedsUpdate @ 0x14072C480 (PpDevCfgCheckDeviceNeedsUpdate.c)
- *     PpDevCfgProcessDeviceClass @ 0x14072C4F4 (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14072C8FC (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgProcessDeviceOperations @ 0x140996D60 (PpDevCfgProcessDeviceOperations.c)
- *     PiDevCfgProcessDevice @ 0x140996E44 (PiDevCfgProcessDevice.c)
- *     PiDevCfgInitDeviceContext @ 0x140997624 (PiDevCfgInitDeviceContext.c)
- *     PpDevCfgProcessDeviceReset @ 0x140A84170 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgInitDeviceCallback @ 0x140727E10 (PiDevCfgInitDeviceCallback.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x140728690 (PiDevCfgProcessDeviceCallback.c)
+ *     PpDevCfgCheckDeviceNeedsUpdate @ 0x14072A490 (PpDevCfgCheckDeviceNeedsUpdate.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14072A508 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x14072A910 (PpDevCfgProcessDeviceExtensions.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x1409C94B4 (PpDevCfgProcessDeviceOperations.c)
+ *     PiDevCfgProcessDevice @ 0x1409C9598 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgInitDeviceContext @ 0x1409C9D7C (PiDevCfgInitDeviceContext.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140A7EC90 (PpDevCfgProcessDeviceReset.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
+ *     Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline @ 0x1405A3B64 (Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PiDevCfgClearDeviceDrivers @ 0x140726C00 (PiDevCfgClearDeviceDrivers.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall PiDevCfgFreeDeviceContext(__int64 a1)
 {
-  UNICODE_STRING *v2; // rbx
-  __int64 v3; // rdi
-  void *v4; // rcx
+  void *v2; // rcx
+  UNICODE_STRING *v3; // rbx
+  __int64 v4; // rdi
 
+  if ( (unsigned int)Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline() )
+    PiDevCfgClearDeviceDrivers(a1);
   if ( *(int *)a1 < 0 )
   {
-    v4 = *(void **)(a1 + 16);
-    if ( v4 )
-      ZwClose(v4);
+    v2 = *(void **)(a1 + 16);
+    if ( v2 )
+      ZwClose(v2);
   }
-  v2 = (UNICODE_STRING *)(a1 + 24);
-  v3 = 3LL;
+  v3 = (UNICODE_STRING *)(a1 + 40);
+  v4 = 3LL;
   do
   {
-    RtlFreeAnsiString(v2++);
-    --v3;
+    RtlFreeAnsiString(v3++);
+    --v4;
   }
-  while ( v3 );
+  while ( v4 );
 }

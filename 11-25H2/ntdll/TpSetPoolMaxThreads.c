@@ -11,24 +11,24 @@
  *     NtSetInformationWorkerFactory @ 0x180166830 (NtSetInformationWorkerFactory.c)
  */
 
-void __fastcall TpSetPoolMaxThreads(__int64 a1, int a2)
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
   __int64 v3; // rcx
-  unsigned int v4; // [rsp+38h] [rbp+10h] BYREF
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = a2;
-  if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  WorkerFactoryInformation = MaxThreads;
+  if ( !Pool || (MaxThreads & 0x80000000) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
   }
   else
   {
-    NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 5LL, &v4);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    NtSetInformationWorkerFactory(Pool->WorkerFactory, WorkerFactoryThreadMaximum, &WorkerFactoryInformation, 4u);
+    if ( RtlGetCurrentServiceSessionId() )
       v3 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v3 = 2147353478LL;
     if ( *(_BYTE *)v3 )
-      TppETWPoolThreadMax(a1, v4);
+      TppETWPoolThreadMax(Pool, WorkerFactoryInformation);
   }
 }

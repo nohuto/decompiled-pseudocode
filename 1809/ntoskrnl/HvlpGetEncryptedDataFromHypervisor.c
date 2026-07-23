@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpGetEncryptedDataFromHypervisor @ 0x140277BCC
+ * XREFs of HvlpGetEncryptedDataFromHypervisor @ 0x140277DBC
  * Callers:
- *     HvlGetEncryptedData @ 0x140277A60 (HvlGetEncryptedData.c)
+ *     HvlGetEncryptedData @ 0x140277C50 (HvlGetEncryptedData.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     HvlpGetPageList @ 0x14027A2D8 (HvlpGetPageList.c)
- *     HvlpStartPageListIteration @ 0x14027A5D8 (HvlpStartPageListIteration.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     HvlpGetPageList @ 0x14027A4C8 (HvlpGetPageList.c)
+ *     HvlpStartPageListIteration @ 0x14027A7C8 (HvlpStartPageListIteration.c)
  */
 
 __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, char *a2, unsigned int a3, _DWORD *a4, __int64 a5)
@@ -31,26 +31,26 @@ __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, char *a2, unsi
   if ( !HvlpCrashdumpIterationState )
   {
     HvlpStartPageListIteration(1LL);
-    qword_140437548 = -1LL;
-    dword_140437550 = 0;
+    qword_140438608 = -1LL;
+    dword_140438610 = 0;
     HvlpCrashdumpIterationState = 1;
   }
-  v10 = dword_140437550;
-  if ( dword_140437550 )
+  v10 = dword_140438610;
+  if ( dword_140438610 )
   {
-    v11 = qword_140437548;
-    a5 = qword_140437548;
-    LODWORD(v18) = dword_140437550;
+    v11 = qword_140438608;
+    a5 = qword_140438608;
+    LODWORD(v18) = dword_140438610;
   }
   else
   {
     if ( !(unsigned int)HvlpGetPageList(1LL, &a5, &v18) )
     {
-      qword_140437428 = 0LL;
+      qword_1404384E8 = 0LL;
       HvlpIteratorCrashdump = 0;
       HvlpCrashdumpIterationState = 0;
-      qword_140437548 = -1LL;
-      dword_140437550 = 0;
+      qword_140438608 = -1LL;
+      dword_140438610 = 0;
       return 3221226021LL;
     }
     v10 = v18;
@@ -67,7 +67,7 @@ __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, char *a2, unsi
     do
     {
       v19 = v15 & 0xFFFFFFFFF000LL | 0x8000000000000001uLL;
-      *(_QWORD *)(8 * (((unsigned __int64)qword_140437528 >> 12) & 0xFFFFFFFFFLL) - 0x98000000000LL) = v19;
+      *(_QWORD *)(8 * (((unsigned __int64)qword_1404385E8 >> 12) & 0xFFFFFFFFFLL) - 0x98000000000LL) = v19;
       v16 = __readcr4();
       if ( (v16 & 0x20080) != 0 )
       {
@@ -79,7 +79,7 @@ __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, char *a2, unsi
         v17 = __readcr3();
         __writecr3(v17);
       }
-      memmove(a2, qword_140437528, 0x1000uLL);
+      memmove(a2, qword_1404385E8, 0x1000uLL);
       a2 += 4096;
       v15 += 4096LL;
       --v14;
@@ -88,7 +88,7 @@ __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, char *a2, unsi
   }
   *v5 = v11;
   *a4 = v13 << 12;
-  dword_140437550 = v10 - v13;
-  qword_140437548 = v11 + v13;
+  dword_140438610 = v10 - v13;
+  qword_140438608 = v11 + v13;
   return 0LL;
 }

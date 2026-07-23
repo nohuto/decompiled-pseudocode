@@ -73,7 +73,7 @@ LABEL_15:
   *a4 = v11;
   *a5 = 1;
 LABEL_8:
-  result = sub_18001E548(*(_QWORD *)(v10 + 40), 0LL);
+  result = sub_18001E548(*(PVOID *)(v10 + 40));
   *a6 = result;
   return result;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiCheckRangeOverlap @ 0x1405E7AC8
+ * XREFs of KiCheckRangeOverlap @ 0x1405EA438
  * Callers:
- *     KiAddTriageDumpDataBlock @ 0x1405E72A8 (KiAddTriageDumpDataBlock.c)
- *     KiDeduplicateTriageDumpDataArrays @ 0x1405E7E88 (KiDeduplicateTriageDumpDataArrays.c)
+ *     KiAddTriageDumpDataBlock @ 0x1405E9C18 (KiAddTriageDumpDataBlock.c)
+ *     KiDeduplicateTriageDumpDataArrays @ 0x1405EA7F8 (KiDeduplicateTriageDumpDataArrays.c)
  * Callees:
  *     <none>
  */

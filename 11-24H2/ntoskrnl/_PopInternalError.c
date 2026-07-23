@@ -1,12 +1,12 @@
 /*
- * XREFs of _PopInternalError @ 0x1405CD440
+ * XREFs of _PopInternalError @ 0x1405CABB0
  * Callers:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     PopCreateDumpMdl @ 0x140B5C7EC (PopCreateDumpMdl.c)
- *     PopWriteHiberPages @ 0x140B5EA28 (PopWriteHiberPages.c)
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
+ *     PopCreateDumpMdl @ 0x140B5E85C (PopCreateDumpMdl.c)
+ *     PopWriteHiberPages @ 0x140B60AA8 (PopWriteHiberPages.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn PopInternalError(ULONG_PTR BugCheckParameter2)

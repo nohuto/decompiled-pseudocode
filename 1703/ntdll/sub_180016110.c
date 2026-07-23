@@ -19,20 +19,21 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-struct _PEB *__fastcall sub_180016110(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall sub_180016110(_DWORD *Instance, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rbx
-  signed __int32 v8; // eax
-  int v9; // edx
+  __int64 v3; // rbx
+  signed __int32 v7; // eax
+  int v8; // edx
+  signed __int32 v9; // r9d
   char v10; // r15
   signed __int64 v11; // rbx
   unsigned __int64 v12; // rdi
   signed __int64 v13; // rbx
   _QWORD *v14; // rdi
-  void *v15; // rcx
-  void **v16; // rbp
+  PVOID v15; // rcx
+  _QWORD *v16; // rbp
   __int64 v17; // rbx
-  _DWORD *v18; // rcx
+  PSILO_USER_SHARED_DATA v18; // rcx
   __int64 v19; // rcx
   __int64 v20; // rdx
   __int64 v21; // r9
@@ -41,46 +42,46 @@ struct _PEB *__fastcall sub_180016110(__int64 a1, __int64 a2, __int64 a3, __int6
   int v24; // eax
   unsigned int v25; // eax
   _QWORD *v26; // r8
-  struct _PEB *result; // rax
-  _DWORD *v28; // rcx
+  struct _PEB *v27; // rax
+  _DWORD *p_ServiceSessionId; // rcx
   __int64 v29; // rcx
   __int64 v30; // rbx
   struct _TEB *v31; // rax
-  void *SubProcessTag; // r8
-  _DWORD *HotpatchInformation; // rdx
+  PVOID SubProcessTag; // r8
+  PSILO_USER_SHARED_DATA SharedData; // rdx
   __int64 v34; // rdx
-  __int64 v35; // rcx
+  void *v35; // rcx
   __int64 v36; // rbx
-  int v37; // [rsp+30h] [rbp-78h] BYREF
-  _BYTE v38[6]; // [rsp+38h] [rbp-70h] BYREF
-  __int16 v39; // [rsp+3Eh] [rbp-6Ah]
-  int v40; // [rsp+58h] [rbp-50h]
-  int v41; // [rsp+5Ch] [rbp-4Ch]
+  signed __int32 PortInformation; // [rsp+30h] [rbp-78h] BYREF
+  char Fields[6]; // [rsp+38h] [rbp-70h] BYREF
+  __int16 v40; // [rsp+3Eh] [rbp-6Ah]
+  int v41; // [rsp+58h] [rbp-50h]
+  int v42; // [rsp+5Ch] [rbp-4Ch]
 
-  v4 = *(_QWORD *)(a2 + 208);
-  if ( v4 )
+  v3 = *(_QWORD *)(a2 + 208);
+  if ( v3 )
   {
-    result = (struct _PEB *)LdrAddRefDll(0LL);
-    if ( (int)result < 0 )
-      return result;
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v4;
+    LODWORD(v27) = LdrAddRefDll(0, *(PVOID *)(a2 + 208));
+    if ( (int)v27 < 0 )
+      return (int)v27;
+    Instance[36] |= 0x100u;
+    *((_QWORD *)Instance + 21) = v3;
   }
   _InterlockedIncrement((volatile signed __int32 *)(a2 + 72));
   if ( (*(_BYTE *)(a2 + 288) & 3) == 3 )
   {
     while ( 1 )
     {
-      v8 = *(_DWORD *)(a2 + 284);
-      v9 = MEMORY[0x7FFE03C0] + *(_DWORD *)(*(_QWORD *)(a2 + 216) + 420LL);
-      a4 = (unsigned int)(v9 + MEMORY[0x7FFE03C0]);
-      if ( v8 >= v9 && v8 <= (int)a4 + MEMORY[0x7FFE03C0] )
+      v7 = *(_DWORD *)(a2 + 284);
+      v8 = MEMORY[0x7FFE03C0] + *(_DWORD *)(*(_QWORD *)(a2 + 216) + 420LL);
+      v9 = v8 + MEMORY[0x7FFE03C0];
+      if ( v7 >= v8 && v7 <= v9 + MEMORY[0x7FFE03C0] )
         break;
-      if ( v8 == _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 284), a4, v8) )
+      if ( v7 == _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 284), v9, v7) )
       {
-        v35 = *(_QWORD *)(a2 + 272);
-        v37 = a4;
-        ZwAlpcSetInformation(v35, 8LL, &v37);
+        v35 = *(void **)(a2 + 272);
+        PortInformation = v9;
+        ZwAlpcSetInformation(v35, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
       }
     }
   }
@@ -91,7 +92,7 @@ struct _PEB *__fastcall sub_180016110(__int64 a1, __int64 a2, __int64 a3, __int6
   {
     if ( v10 )
     {
-      RtlReleaseSRWLockExclusive(a2 + 136);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 136));
       v10 = 0;
     }
     v12 = v11;
@@ -100,7 +101,7 @@ struct _PEB *__fastcall sub_180016110(__int64 a1, __int64 a2, __int64 a3, __int6
     {
       v13 &= ~0x8000000000000000uLL;
       v10 = 1;
-      RtlAcquireSRWLockExclusive(a2 + 136);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 136));
     }
     v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 128), v13, v12);
   }
@@ -110,51 +111,55 @@ struct _PEB *__fastcall sub_180016110(__int64 a1, __int64 a2, __int64 a3, __int6
   {
     v36 = *(_QWORD *)(a2 + 144);
     *(_QWORD *)(a2 + 144) = 0LL;
-    RtlReleaseSRWLockExclusive(a2 + 136);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 136));
     sub_180073700(v36);
   }
   if ( (unsigned __int64)(*(_QWORD *)(a2 + 168) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    *(_QWORD *)a1 = 72LL;
-    *(_DWORD *)(a1 + 8) = 1;
-    RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 + 168));
-    *(_BYTE *)(a1 + 76) |= 1u;
+    *(_QWORD *)Instance = 72LL;
+    Instance[2] = 1;
+    RtlActivateActivationContextUnsafeFast(Instance, *(_QWORD *)(a2 + 168));
+    *((_BYTE *)Instance + 76) |= 1u;
   }
-  *(_DWORD *)(a1 + 144) |= 0x240u;
-  *(_QWORD *)(a1 + 184) = a2 + 72;
+  Instance[36] |= 0x240u;
+  *((_QWORD *)Instance + 23) = a2 + 72;
   if ( (*(_DWORD *)(a2 + 240) & 3) == 1 )
-    TpCallbackMayRunLong(a1);
-  v15 = *(void **)(a2 + 176);
+    TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
+  v15 = *(PVOID *)(a2 + 176);
   if ( v15 )
   {
-    *(_QWORD *)(a1 + 80) = v15;
+    *((_QWORD *)Instance + 10) = v15;
     v30 = 2147353488LL;
     v31 = NtCurrentTeb();
     SubProcessTag = v31->SubProcessTag;
     v31->SubProcessTag = v15;
-    HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-    if ( HotpatchInformation && *HotpatchInformation )
-      v34 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
+    SharedData = NtCurrentPeb()->SharedData;
+    if ( SharedData && SharedData->ServiceSessionId )
+      v34 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
     else
       v34 = 2147353488LL;
     if ( *(_BYTE *)v34 && v15 != SubProcessTag )
     {
-      v40 = (int)SubProcessTag;
-      v39 = 1349;
-      v41 = (int)v15;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v15, v34, SubProcessTag, a4) )
-        v30 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
-      ZwTraceEvent(*(unsigned __int8 *)v30, 1026LL, 8LL, v38);
+      v41 = (int)SubProcessTag;
+      v40 = 1349;
+      v42 = (int)v15;
+      if ( RtlGetCurrentServiceSessionId() )
+        v30 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
+      ZwTraceEvent((HANDLE)*(unsigned __int8 *)v30, 0x402u, 8u, Fields);
     }
   }
-  NtCurrentTeb()->ActivityId = *(struct _GUID *)(a2 + 184);
-  v16 = (void **)(a2 + 200);
-  if ( a2 != -200 && NtCurrentTeb()->SystemReserved1[53] != *v16 && (int)ZwSetInformationThread(-2LL, 44LL, v16) >= 0 )
-    NtCurrentTeb()->SystemReserved1[53] = *v16;
+  NtCurrentTeb()->ActivityId = *(GUID *)(a2 + 184);
+  v16 = (_QWORD *)(a2 + 200);
+  if ( a2 != -200
+    && *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket != *v16
+    && ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v16, 8u) >= 0 )
+  {
+    *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v16;
+  }
   v17 = 2147353478LL;
-  v18 = NtCurrentPeb()->HotpatchInformation;
-  if ( v18 && *v18 )
-    v19 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  v18 = NtCurrentPeb()->SharedData;
+  if ( v18 && v18->ServiceSessionId )
+    v19 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   else
     v19 = 2147353478LL;
   if ( *(_BYTE *)v19 )
@@ -176,40 +181,40 @@ struct _PEB *__fastcall sub_180016110(__int64 a1, __int64 a2, __int64 a3, __int6
     v26[6] = v20;
     v26[7] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
   }
-  *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 152);
-  *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 160);
+  *((_QWORD *)Instance + 11) = *(_QWORD *)(a2 + 152);
+  *((_QWORD *)Instance + 12) = *(_QWORD *)(a2 + 160);
   if ( (*(_BYTE *)(a2 + 288) & 1) != 0 )
   {
-    *(_QWORD *)(a1 + 136) = a2;
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64))(a2 + 152))(a1, *(_QWORD *)(a2 + 160), a2, a3);
+    *((_QWORD *)Instance + 17) = a2;
+    (*(void (__fastcall **)(_DWORD *, _QWORD, __int64, __int64))(a2 + 152))(Instance, *(_QWORD *)(a2 + 160), a2, a3);
   }
   else
   {
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64))(a2 + 152))(a1, *(_QWORD *)(a2 + 160), a2, v21);
+    (*(void (__fastcall **)(_DWORD *, _QWORD, __int64, __int64))(a2 + 152))(Instance, *(_QWORD *)(a2 + 160), a2, v21);
   }
-  result = NtCurrentPeb();
-  v28 = result->HotpatchInformation;
-  if ( v28 && *v28 )
+  v27 = NtCurrentPeb();
+  p_ServiceSessionId = &v27->SharedData->ServiceSessionId;
+  if ( p_ServiceSessionId && *p_ServiceSessionId )
   {
-    result = NtCurrentPeb();
-    v17 = (__int64)result->HotpatchInformation + 556;
+    v27 = NtCurrentPeb();
+    v17 = (__int64)&v27->SharedData->UserModeGlobalLogger[3];
   }
   if ( *(_BYTE *)v17 )
-    result = (struct _PEB *)sub_180002F48(
-                              *(_QWORD *)(a2 + 216),
-                              a2,
-                              *(_QWORD *)(a2 + 152),
-                              *(_QWORD *)(a2 + 160),
-                              *(_QWORD *)(a2 + 176));
+    LODWORD(v27) = sub_180002F48(
+                     *(_QWORD *)(a2 + 216),
+                     a2,
+                     *(_QWORD *)(a2 + 152),
+                     *(_QWORD *)(a2 + 160),
+                     *(_QWORD *)(a2 + 176));
   if ( v14 )
   {
     v29 = v14[3];
-    result = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
+    v27 = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
     if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v29 )
     {
-      result = (struct _PEB *)((char *)result - v29);
-      v14[3] = result;
+      v27 = (struct _PEB *)((char *)v27 - v29);
+      v14[3] = v27;
     }
   }
-  return result;
+  return (int)v27;
 }

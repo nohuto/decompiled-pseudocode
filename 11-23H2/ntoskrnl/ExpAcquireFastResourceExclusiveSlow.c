@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpAcquireFastResourceExclusiveSlow @ 0x14041478C
+ * XREFs of ExpAcquireFastResourceExclusiveSlow @ 0x140414B20
  * Callers:
- *     ExAcquireFastResourceWithFlags @ 0x140412180 (ExAcquireFastResourceWithFlags.c)
- *     ExAcquireFastResourceExclusive2 @ 0x1404129E0 (ExAcquireFastResourceExclusive2.c)
+ *     ExAcquireFastResourceWithFlags @ 0x1404124C0 (ExAcquireFastResourceWithFlags.c)
+ *     ExAcquireFastResourceExclusive2 @ 0x140412D74 (ExAcquireFastResourceExclusive2.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A650 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeReleaseSpinLockFromDpcLevel @ 0x14032FB40 (KeReleaseSpinLockFromDpcLevel.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403CCA30 (KeAbMarkCrossThreadReleasable.c)
- *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415270 (ExpAddFastOwnerEntryToThreadList2.c)
- *     ExpWaitForFastResource2 @ 0x140416814 (ExpWaitForFastResource2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbPreWait @ 0x1402FD500 (KeAbPreWait.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A8E0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14032FDD0 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403CCC10 (KeAbMarkCrossThreadReleasable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415604 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     ExpWaitForFastResource2 @ 0x140416BA8 (ExpWaitForFastResource2.c)
  */
 
 void __fastcall ExpAcquireFastResourceExclusiveSlow(
@@ -75,7 +75,7 @@ void __fastcall ExpAcquireFastResourceExclusiveSlow(
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v9 = (unsigned int)(unsigned __int8)v46 + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(v46 + 1)) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(v46 + 1)) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -138,7 +138,7 @@ LABEL_15:
   if ( a4 )
     KeAbPreWait((__int64 *)a4);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v19 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v9) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
@@ -149,7 +149,7 @@ LABEL_15:
       v23 = (v22 & v21[5]) == 0;
       v21[5] &= v22;
       if ( v23 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);
@@ -204,7 +204,7 @@ LABEL_31:
       }
       while ( v37 != v36 );
       if ( (v36 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(v32);
+        KiRemoveSystemWorkPriorityKick((__int64)v32);
     }
     _enable();
   }
@@ -216,10 +216,10 @@ LABEL_31:
   }
   if ( v24 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v38 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
       {
         v39 = KeGetCurrentPrcb();
         v40 = v39->SchedulerAssist;
@@ -227,7 +227,7 @@ LABEL_31:
         v23 = (v41 & v40[5]) == 0;
         v40[5] &= v41;
         if ( v23 )
-          KiRemoveSystemWorkPriorityKick(v39);
+          KiRemoveSystemWorkPriorityKick((__int64)v39);
       }
     }
     __writecr8(CurrentIrql);

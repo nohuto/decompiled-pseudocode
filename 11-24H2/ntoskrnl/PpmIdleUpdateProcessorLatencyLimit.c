@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmIdleUpdateProcessorLatencyLimit @ 0x1403B5A90
+ * XREFs of PpmIdleUpdateProcessorLatencyLimit @ 0x1402AE9D0
  * Callers:
- *     PpmParkReportUnparkedCore @ 0x140351950 (PpmParkReportUnparkedCore.c)
- *     PpmParkReportParkedCore @ 0x1403519DC (PpmParkReportParkedCore.c)
- *     PpmIdleUpdateSystemLatencyLimit @ 0x1403B5810 (PpmIdleUpdateSystemLatencyLimit.c)
- *     PpmParkReportSoftParkChange @ 0x1403E9474 (PpmParkReportSoftParkChange.c)
+ *     PpmIdleUpdateSystemLatencyLimit @ 0x1402AEDA4 (PpmIdleUpdateSystemLatencyLimit.c)
+ *     PpmParkReportUnparkedCore @ 0x1402B0778 (PpmParkReportUnparkedCore.c)
+ *     PpmParkReportParkedCore @ 0x1402B0804 (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x1403D7120 (PpmParkReportSoftParkChange.c)
  * Callees:
- *     ?KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140206940 (-KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmEventTraceProcessorLatencyLimitChange @ 0x1403B5D60 (PpmEventTraceProcessorLatencyLimitChange.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     PpmEventTraceProcessorLatencyLimitChange @ 0x1402AECA0 (PpmEventTraceProcessorLatencyLimitChange.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     ?KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14032DF20 (-KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall PpmIdleUpdateProcessorLatencyLimit(struct _KPRCB *a1, struct _KAFFINITY_EX *a2)
@@ -120,7 +120,7 @@ __int64 __fastcall PpmIdleUpdateProcessorLatencyLimit(struct _KPRCB *a1, struct 
                         {
                           v18 = *(_DWORD *)(v17 + 72);
                           if ( (*(_BYTE *)(v17 + 123) || IdleWakeLatencyLimit < v10 + v18 || v5 < v10 + v18)
-                            && !(unsigned int)KiAndAffinityExNoResult(v19, a2) )
+                            && !KiAndAffinityExNoResult(v19, a2) )
                           {
                             KeAddProcessorAffinityEx(&a2->Count, a1->Number);
                             goto LABEL_17;

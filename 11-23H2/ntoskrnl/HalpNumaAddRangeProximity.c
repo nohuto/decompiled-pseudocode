@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpNumaAddRangeProximity @ 0x14051ADF0
+ * XREFs of HalpNumaAddRangeProximity @ 0x14051B340
  * Callers:
  *     <none>
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpNumaQueryProximityNode @ 0x1403B5E00 (HalpNumaQueryProximityNode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     HalpCheckSratMemoryRanges @ 0x14051ABF8 (HalpCheckSratMemoryRanges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     HalpNumaQueryProximityNode @ 0x1403B5FE0 (HalpNumaQueryProximityNode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HalpCheckSratMemoryRanges @ 0x14051B148 (HalpCheckSratMemoryRanges.c)
  */
 
 __int64 __fastcall HalpNumaAddRangeProximity(unsigned __int64 a1, __int64 a2, int a3)
@@ -59,12 +59,12 @@ __int64 __fastcall HalpNumaAddRangeProximity(unsigned __int64 a1, __int64 a2, in
   __int64 v43; // [rsp+A8h] [rbp+1Fh]
 
   LOWORD(v31) = 0;
-  if ( (unsigned int)dword_140C04BF0 > 5 && tlgKeywordOn((__int64)&dword_140C04BF0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C04BB0 > 5 && tlgKeywordOn((__int64)&dword_140C04BB0, 0x400000000000LL) )
   {
     v32 = 0x1000000LL;
     v36 = &v32;
     v37 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04BF0, (unsigned __int8 *)word_14002952A, 0LL, 0LL, 3u, v35);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04BB0, (unsigned __int8 *)word_1400295AA, 0LL, 0LL, 3u, v35);
   }
   HalpCheckSratMemoryRanges(a1);
   if ( a3 == -1 )
@@ -86,10 +86,13 @@ __int64 __fastcall HalpNumaAddRangeProximity(unsigned __int64 a1, __int64 a2, in
     }
     LOWORD(v31) = *((_WORD *)HalpNumaMemoryRanges + 8 * v8 + 4);
     ExReleaseSpinLockExclusiveFromDpcLevel(&HalpNumaMemoryRangeLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -97,7 +100,7 @@ __int64 __fastcall HalpNumaAddRangeProximity(unsigned __int64 a1, __int64 a2, in
         v16 = (v21 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v21;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v7);
@@ -117,10 +120,10 @@ LABEL_11:
     {
       HalpNumaMaxMemoryRangeCount -= 5;
       ExReleaseSpinLockExclusiveFromDpcLevel(&HalpNumaMemoryRangeLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v12 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v12 >= 2u )
         {
           v13 = KeGetCurrentPrcb();
           v14 = v13->SchedulerAssist;
@@ -128,13 +131,13 @@ LABEL_11:
           v16 = (v15 & v14[5]) == 0;
           v14[5] &= v15;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick(v13);
+            KiRemoveSystemWorkPriorityKick((__int64)v13);
         }
       }
       __writecr8(v7);
       ProximityNode = -1073741670;
 LABEL_21:
-      if ( (unsigned int)dword_140C04BF0 > 5 && tlgKeywordOn((__int64)&dword_140C04BF0, 0x400000000000LL) )
+      if ( (unsigned int)dword_140C04BB0 > 5 && tlgKeywordOn((__int64)&dword_140C04BB0, 0x400000000000LL) )
       {
         v31 = ProximityNode;
         v36 = (__int64 *)&v31;
@@ -149,8 +152,8 @@ LABEL_21:
         v34 = 0x1000000LL;
         v43 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C04BF0,
-          (unsigned __int8 *)word_1400294C2,
+          (__int64)&dword_140C04BB0,
+          (unsigned __int8 *)word_140029542,
           0LL,
           0LL,
           6u,
@@ -179,10 +182,10 @@ LABEL_21:
   *((_QWORD *)HalpNumaMemoryRanges + v26) = -1LL;
   *((_DWORD *)HalpNumaMemoryRanges + 2 * v26 + 2) = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(&HalpNumaMemoryRangeLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -190,7 +193,7 @@ LABEL_21:
       v16 = (v29 & v30[5]) == 0;
       v30[5] &= v29;
       if ( v16 )
-        KiRemoveSystemWorkPriorityKick(v28);
+        KiRemoveSystemWorkPriorityKick((__int64)v28);
     }
   }
   __writecr8(v7);

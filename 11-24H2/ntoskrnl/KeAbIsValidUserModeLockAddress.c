@@ -1,8 +1,8 @@
 /*
- * XREFs of KeAbIsValidUserModeLockAddress @ 0x140429550
+ * XREFs of KeAbIsValidUserModeLockAddress @ 0x14041D6A0
  * Callers:
- *     NtSetEventEx @ 0x14098A780 (NtSetEventEx.c)
- *     NtAlertThreadByThreadIdEx @ 0x1409A5CD0 (NtAlertThreadByThreadIdEx.c)
+ *     NtSetEventEx @ 0x140973E70 (NtSetEventEx.c)
+ *     NtAlertThreadByThreadIdEx @ 0x1409892F0 (NtAlertThreadByThreadIdEx.c)
  * Callees:
  *     <none>
  */

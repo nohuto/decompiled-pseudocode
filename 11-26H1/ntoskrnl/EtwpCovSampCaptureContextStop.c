@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampCaptureContextStop @ 0x1404FE56C
+ * XREFs of EtwpCovSampCaptureContextStop @ 0x1404F7B1C
  * Callers:
- *     EtwpCoverageSamplerStop @ 0x140A84B18 (EtwpCoverageSamplerStop.c)
+ *     EtwpCoverageSamplerStop @ 0x1409BDF40 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     EtwpCovSampCaptureCleanupLookasides @ 0x1404FE700 (EtwpCovSampCaptureCleanupLookasides.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1405250F8 (EtwpCovSampCaptureFlushSampleBuffers.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x1406C8598 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x140B5CF58 (EtwpCovSampCaptureFreeLookasides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x1404F7CB0 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140527768 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x1406CC578 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x140B600D8 (EtwpCovSampCaptureFreeLookasides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCovSampCaptureContextStop(__int64 a1)

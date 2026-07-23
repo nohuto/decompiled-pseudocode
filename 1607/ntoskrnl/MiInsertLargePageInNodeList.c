@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertLargePageInNodeList @ 0x1401FBB4C
+ * XREFs of MiInsertLargePageInNodeList @ 0x1401FB978
  * Callers:
- *     MiDeleteClusterSection @ 0x140021D60 (MiDeleteClusterSection.c)
- *     MiFreeLargePageMemory @ 0x140090970 (MiFreeLargePageMemory.c)
- *     MiDeleteClusterPage @ 0x1400922A0 (MiDeleteClusterPage.c)
- *     MiEnableNewPfns @ 0x1401E1B74 (MiEnableNewPfns.c)
- *     MiInsertUnusedLargePageInNodeList @ 0x1401F58D4 (MiInsertUnusedLargePageInNodeList.c)
- *     MiGet64KPage @ 0x1401FB7C4 (MiGet64KPage.c)
- *     MiMoveLargeFreePage @ 0x1401FBB54 (MiMoveLargeFreePage.c)
+ *     MiDeleteClusterSection @ 0x1400218E0 (MiDeleteClusterSection.c)
+ *     MiFreeLargePageMemory @ 0x1400900D0 (MiFreeLargePageMemory.c)
+ *     MiDeleteClusterPage @ 0x140091A00 (MiDeleteClusterPage.c)
+ *     MiEnableNewPfns @ 0x1401E19A0 (MiEnableNewPfns.c)
+ *     MiInsertUnusedLargePageInNodeList @ 0x1401F5700 (MiInsertUnusedLargePageInNodeList.c)
+ *     MiGet64KPage @ 0x1401FB5F0 (MiGet64KPage.c)
+ *     MiMoveLargeFreePage @ 0x1401FB980 (MiMoveLargeFreePage.c)
  * Callees:
  *     <none>
  */

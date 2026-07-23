@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFanUpdateStatistics @ 0x140B68ADC
+ * XREFs of PopFanUpdateStatistics @ 0x140B6BA6C
  * Callers:
- *     PopFanSxEntry @ 0x140435910 (PopFanSxEntry.c)
- *     PopFanUpdateSpeed @ 0x1407DB0F0 (PopFanUpdateSpeed.c)
- *     PopFanReadFanNoiseInfo @ 0x140B1A538 (PopFanReadFanNoiseInfo.c)
+ *     PopFanSxEntry @ 0x14042474C (PopFanSxEntry.c)
+ *     PopFanUpdateSpeed @ 0x1407DEFE0 (PopFanUpdateSpeed.c)
+ *     PopFanReadFanNoiseInfo @ 0x140B1C7E8 (PopFanReadFanNoiseInfo.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopFanFindBucketIndex @ 0x140B55BA8 (PopFanFindBucketIndex.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopFanFindBucketIndex @ 0x140B58448 (PopFanFindBucketIndex.c)
  */
 
 void __fastcall PopFanUpdateStatistics(__int64 a1)
@@ -39,7 +39,7 @@ void __fastcall PopFanUpdateStatistics(__int64 a1)
     {
       BucketIndex = PopFanFindBucketIndex(a1, *(_DWORD *)(a1 + 84), 0LL, 0LL);
       *(_QWORD *)(a1 + 8LL * BucketIndex + 216) += v2 - *(_QWORD *)(a1 + 208);
-      if ( (unsigned int)dword_140E07598 > 5 )
+      if ( (unsigned int)dword_140E07560 > 5 )
       {
         v6 = BucketIndex;
         v11 = &v7;
@@ -57,8 +57,8 @@ void __fastcall PopFanUpdateStatistics(__int64 a1)
         v18 = 4LL;
         v20 = 4LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E07598,
-          (unsigned __int8 *)byte_14004E595,
+          (__int64)&dword_140E07560,
+          (unsigned __int8 *)byte_14004F413,
           0LL,
           v4,
           7u,

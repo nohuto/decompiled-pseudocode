@@ -17,118 +17,106 @@
  *     LdrpCheckRedirection @ 0x1800E1248 (LdrpCheckRedirection.c)
  */
 
-__int64 __fastcall LdrpResolveProcedureAddress(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        char a5,
-        __int64 *a6)
+__int64 __fastcall LdrpResolveProcedureAddress(__int64 a1, _QWORD *a2, __int64 a3, int a4, char a5, __int64 *a6)
 {
-  __int64 v6; // rbx
+  WCHAR *v6; // rbx
   __int64 v7; // rsi
-  __int64 v9; // rdi
-  unsigned int v10; // r13d
-  unsigned int v11; // r12d
+  PVOID *v9; // rdi
+  unsigned int v10; // r12d
   char ShouldModuleImportBeRedirected; // al
   int ProcedureAddress; // eax
-  unsigned __int64 v14; // rdx
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // r9
-  int ForwardedDll; // ebx
-  unsigned __int64 v18; // rdi
-  unsigned int v20; // eax
-  __int64 v21; // rax
-  char v22; // [rsp+30h] [rbp-D0h]
-  unsigned int v23; // [rsp+34h] [rbp-CCh] BYREF
-  __int64 v24; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v25; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v26; // [rsp+48h] [rbp-B8h]
-  __int64 v27; // [rsp+50h] [rbp-B0h]
-  __int128 v28; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v29[16]; // [rsp+70h] [rbp-90h] BYREF
+  int v13; // ebx
+  PVOID v14; // rdi
+  unsigned int v16; // eax
+  __int64 v17; // rax
+  char v18; // [rsp+30h] [rbp-D0h]
+  int v19; // [rsp+34h] [rbp-CCh] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v21; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v22; // [rsp+48h] [rbp-B8h]
+  _QWORD *v23; // [rsp+50h] [rbp-B0h]
+  __int128 v24; // [rsp+58h] [rbp-A8h] BYREF
+  PWSTR Path[16]; // [rsp+70h] [rbp-90h] BYREF
 
-  v6 = *(_QWORD *)(a2 + 80);
+  v6 = (WCHAR *)a2[10];
   v7 = a3;
-  v27 = a2;
-  v9 = a2;
-  v26 = a1;
-  v10 = a4;
-  v25 = a3;
-  v24 = a2;
-  v23 = a4;
-  v11 = 0;
-  memset(v29, 0, sizeof(v29));
-  v29[4] = v6;
+  v23 = a2;
+  v9 = (PVOID *)a2;
+  v22 = a1;
+  v21 = a3;
+  BaseAddress = a2;
+  v19 = a4;
+  v10 = 0;
+  memset(Path, 0, sizeof(Path));
+  Path[4] = v6;
   ShouldModuleImportBeRedirected = LdrpShouldModuleImportBeRedirected(a1);
-  v22 = ShouldModuleImportBeRedirected;
+  v18 = ShouldModuleImportBeRedirected;
   while ( 1 )
   {
     if ( ShouldModuleImportBeRedirected )
     {
       if ( v7 )
       {
-        v21 = LdrpCheckRedirection(v26, v9, v7);
-        if ( v21 != -4530927 )
+        v17 = LdrpCheckRedirection(v22, v9, v7);
+        if ( v17 != -4530927 )
         {
-          *a6 = v21;
+          *a6 = v17;
           return 0LL;
         }
       }
     }
-    ProcedureAddress = LdrpGetProcedureAddress(*(_QWORD *)(v9 + 48), v7, v10, a6);
-    ForwardedDll = ProcedureAddress;
+    ProcedureAddress = LdrpGetProcedureAddress(v9[6]);
+    v13 = ProcedureAddress;
     if ( ProcedureAddress != -1073741267 )
       break;
-    v20 = v11++;
-    if ( v20 >= 0x20 || (a5 & 2) != 0 )
+    v16 = v10++;
+    if ( v16 >= 0x20 || (a5 & 2) != 0 )
     {
-      ForwardedDll = -1073741701;
+      v13 = -1073741701;
       goto LABEL_12;
     }
-    ForwardedDll = LdrpParseForwarderDescription(*a6, &v28, &v25, &v23);
-    if ( ForwardedDll < 0 )
+    v13 = LdrpParseForwarderDescription(*a6, &v24, &v21, &v19);
+    if ( v13 < 0 )
       goto LABEL_12;
-    LODWORD(v29[3]) = *(_DWORD *)(v9 + 272);
-    ForwardedDll = LdrpLoadForwardedDll((unsigned int)&v28, (unsigned int)v29, v27, v9, 2, (__int64)&v24);
-    if ( ForwardedDll < 0 )
+    LODWORD(Path[3]) = *((_DWORD *)v9 + 68);
+    v13 = LdrpLoadForwardedDll(&v24, Path, v23, v9, 2, &BaseAddress);
+    if ( v13 < 0 )
       goto LABEL_12;
-    v9 = v24;
-    LdrpDereferenceModule(v24, v14, v15, v16);
-    ShouldModuleImportBeRedirected = v22;
-    v7 = v25;
-    v10 = v23;
+    v9 = (PVOID *)BaseAddress;
+    LdrpDereferenceModule((char *)BaseAddress);
+    ShouldModuleImportBeRedirected = v18;
+    v7 = v21;
   }
   if ( (a5 & 1) != 0 && ProcedureAddress >= 0 )
   {
     if ( (a5 & 2) != 0 )
     {
-      LOBYTE(v14) = 1;
-      RtlGuardCheckImageBase(*(_QWORD *)(v9 + 184), v14);
+      RtlGuardCheckImageBase(v9[23]);
     }
     else
     {
-      v18 = *(_QWORD *)(v9 + 48);
-      if ( qword_18018F3A8 && (byte_18018F38C & 1) == 0 )
+      v14 = v9[6];
+      if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
       {
-        if ( v18 < *((_QWORD *)&xmmword_18018F510 + 1)
-          || v18 >= *((_QWORD *)&xmmword_18018F510 + 1) + (unsigned __int64)(unsigned int)qword_18018F520 )
+        if ( (unsigned __int64)v14 < *((_QWORD *)&xmmword_18018F510 + 1)
+          || (unsigned __int64)v14 >= *((_QWORD *)&xmmword_18018F510 + 1)
+                                    + (unsigned __int64)(unsigned int)qword_18018F520 )
         {
-          RtlpxLookupFunctionTable(v18, (__int64 *)&v28);
+          RtlpxLookupFunctionTable(v14, (__int64 *)&v24);
         }
         else
         {
-          v28 = xmmword_18018F510;
+          v24 = xmmword_18018F510;
         }
-        if ( *((_QWORD *)&v28 + 1) != v18 )
+        if ( *((PVOID *)&v24 + 1) != v14 )
           __fastfail(0x18u);
       }
     }
   }
 LABEL_12:
-  if ( BYTE4(v29[15]) )
-    RtlReleasePath(v29[0], v14, v15, v16);
-  if ( ForwardedDll < 0 )
+  if ( BYTE4(Path[15]) )
+    RtlReleasePath(Path[0]);
+  if ( v13 < 0 )
     *a6 = 0LL;
-  return (unsigned int)ForwardedDll;
+  return (unsigned int)v13;
 }

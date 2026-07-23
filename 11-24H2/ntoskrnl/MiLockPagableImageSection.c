@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockPagableImageSection @ 0x1402C70A0
+ * XREFs of MiLockPagableImageSection @ 0x1402BBC20
  * Callers:
- *     MmUnlockPagableImageSection @ 0x1402C7030 (MmUnlockPagableImageSection.c)
- *     MmLockPagableSectionByHandle @ 0x140A3FE90 (MmLockPagableSectionByHandle.c)
- *     MmLockPagableDataSection @ 0x140A5CF50 (MmLockPagableDataSection.c)
- *     MiLockPagableSections @ 0x140C5B998 (MiLockPagableSections.c)
+ *     MmUnlockPagableImageSection @ 0x1402BBBB0 (MmUnlockPagableImageSection.c)
+ *     MmLockPagableSectionByHandle @ 0x140A35770 (MmLockPagableSectionByHandle.c)
+ *     MmLockPagableDataSection @ 0x140A54770 (MmLockPagableDataSection.c)
+ *     MiLockPagableSections @ 0x140C5DB28 (MiLockPagableSections.c)
  * Callees:
- *     MiUnlockImageSection @ 0x1402C7130 (MiUnlockImageSection.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiLockImageSection @ 0x140A3C358 (MiLockImageSection.c)
+ *     MiUnlockImageSection @ 0x1402BBCB0 (MiUnlockImageSection.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiLockImageSection @ 0x140A31B38 (MiLockImageSection.c)
  */
 
 __int64 __fastcall MiLockPagableImageSection(__int64 a1, unsigned __int64 a2, unsigned int a3)

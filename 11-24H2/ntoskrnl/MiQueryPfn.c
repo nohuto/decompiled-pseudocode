@@ -1,9 +1,9 @@
 /*
- * XREFs of MiQueryPfn @ 0x140447088
+ * XREFs of MiQueryPfn @ 0x14043F858
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402141E0 (MiGetPfnPriority.c)
+ *     MiGetPfnPriority @ 0x140335630 (MiGetPfnPriority.c)
  */
 
 char __fastcall MiQueryPfn(__int64 a1, __int64 a2)

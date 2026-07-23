@@ -1,22 +1,22 @@
 /*
- * XREFs of IS_PTE_NOT_DEMAND_ZERO @ 0x1400BDED4
+ * XREFs of IS_PTE_NOT_DEMAND_ZERO @ 0x1400BBD64
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x14003B240 (MiResolvePrivateZeroFault.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiDeletePteRun @ 0x140065140 (MiDeletePteRun.c)
- *     MiDeletePagablePteRange @ 0x1400751A0 (MiDeletePagablePteRange.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MiPfPutPagesInTransition @ 0x1400E5100 (MiPfPutPagesInTransition.c)
- *     MiPrefetchJumpVad @ 0x1401E8798 (MiPrefetchJumpVad.c)
- *     MiGetClusterPage @ 0x1401F6318 (MiGetClusterPage.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
- *     MmHardFaultBytesRequired @ 0x140447550 (MmHardFaultBytesRequired.c)
- *     MiAllocatePerSessionProtos @ 0x140661818 (MiAllocatePerSessionProtos.c)
+ *     MiResolvePrivateZeroFault @ 0x14003ADC0 (MiResolvePrivateZeroFault.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiDeletePteRun @ 0x140064CC0 (MiDeletePteRun.c)
+ *     MiDeletePagablePteRange @ 0x140075220 (MiDeletePagablePteRange.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MiPfPutPagesInTransition @ 0x1400E2FA0 (MiPfPutPagesInTransition.c)
+ *     MiPrefetchJumpVad @ 0x1401E85C4 (MiPrefetchJumpVad.c)
+ *     MiGetClusterPage @ 0x1401F6144 (MiGetClusterPage.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
+ *     MmHardFaultBytesRequired @ 0x140446420 (MmHardFaultBytesRequired.c)
+ *     MiAllocatePerSessionProtos @ 0x1406618FC (MiAllocatePerSessionProtos.c)
  * Callees:
- *     MiReverseSwizzleInvalidPte @ 0x1401F2934 (MiReverseSwizzleInvalidPte.c)
+ *     MiReverseSwizzleInvalidPte @ 0x1401F2760 (MiReverseSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall IS_PTE_NOT_DEMAND_ZERO(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

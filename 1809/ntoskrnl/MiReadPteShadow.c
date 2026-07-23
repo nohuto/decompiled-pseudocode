@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReadPteShadow @ 0x14006C550
+ * XREFs of MiReadPteShadow @ 0x14006C540
  * Callers:
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiConvertHiberPhasePte @ 0x14056C080 (MiConvertHiberPhasePte.c)
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
- *     MiIsRangeFullyCommitted @ 0x140618858 (MiIsRangeFullyCommitted.c)
- *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
- *     MiPrefetchDriverPages @ 0x14061F120 (MiPrefetchDriverPages.c)
- *     MmHardFaultBytesRequired @ 0x140638920 (MmHardFaultBytesRequired.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiConvertHiberPhasePte @ 0x14056D080 (MiConvertHiberPhasePte.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
+ *     MmProtectVirtualMemory @ 0x1405EEFD0 (MmProtectVirtualMemory.c)
+ *     MiIsRangeFullyCommitted @ 0x140619858 (MiIsRangeFullyCommitted.c)
+ *     MiChargeSegmentCommit @ 0x14061F0D0 (MiChargeSegmentCommit.c)
+ *     MiPrefetchDriverPages @ 0x140620120 (MiPrefetchDriverPages.c)
+ *     MmHardFaultBytesRequired @ 0x140639940 (MmHardFaultBytesRequired.c)
  * Callees:
  *     <none>
  */

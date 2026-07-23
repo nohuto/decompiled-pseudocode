@@ -1,11 +1,11 @@
 /*
- * XREFs of HvcallpExtendedFastHypercall @ 0x1406B5160
+ * XREFs of HvcallpExtendedFastHypercall @ 0x1406B6100
  * Callers:
- *     HvcallFastExtended @ 0x1403AF3C0 (HvcallFastExtended.c)
- *     HvlpFastFlushAddressSpaceTb @ 0x1403B0AC4 (HvlpFastFlushAddressSpaceTb.c)
- *     HvcallpExtendedFastHypercallWithOutput @ 0x1406B51C0 (HvcallpExtendedFastHypercallWithOutput.c)
+ *     HvcallFastExtended @ 0x14039DBD0 (HvcallFastExtended.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x14039F2D4 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvcallpExtendedFastHypercallWithOutput @ 0x1406B6160 (HvcallpExtendedFastHypercallWithOutput.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x1404AD690 (HvcallpNoHypervisorPresent.c)
+ *     HvcallpNoHypervisorPresent @ 0x1404A7D70 (HvcallpNoHypervisorPresent.c)
  */
 
 __int64 __fastcall HvcallpExtendedFastHypercall(__int64 a1, __int64 a2, __int64 a3)

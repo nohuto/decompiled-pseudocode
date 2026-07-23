@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDestroyAtomTable @ 0x1404A2E30
+ * XREFs of RtlDestroyAtomTable @ 0x14051B230
  * Callers:
- *     RtlDereferenceAtomTable @ 0x1400B5AA0 (RtlDereferenceAtomTable.c)
+ *     RtlDereferenceAtomTable @ 0x1400B38C8 (RtlDereferenceAtomTable.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlpLockAtomTable @ 0x140421FD0 (RtlpLockAtomTable.c)
- *     RtlpUnlockAtomTable @ 0x14042B3F0 (RtlpUnlockAtomTable.c)
- *     ExDestroyHandleTable @ 0x14045F0FC (ExDestroyHandleTable.c)
- *     RtlpFreeAtom @ 0x1404A3DD8 (RtlpFreeAtom.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlpLockAtomTable @ 0x140420E90 (RtlpLockAtomTable.c)
+ *     RtlpUnlockAtomTable @ 0x14042A2C0 (RtlpUnlockAtomTable.c)
+ *     ExDestroyHandleTable @ 0x14045DFCC (ExDestroyHandleTable.c)
+ *     RtlpFreeAtom @ 0x14051C1D8 (RtlpFreeAtom.c)
  */
 
 NTSTATUS __stdcall RtlDestroyAtomTable(PRTL_ATOM_TABLE AtomTable)

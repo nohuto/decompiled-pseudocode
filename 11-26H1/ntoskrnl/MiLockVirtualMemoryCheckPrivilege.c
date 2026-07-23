@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockVirtualMemoryCheckPrivilege @ 0x140317300
+ * XREFs of MiLockVirtualMemoryCheckPrivilege @ 0x140319330
  * Callers:
- *     NtLockVirtualMemory @ 0x140318600 (NtLockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x14031A630 (NtLockVirtualMemory.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140920670 (SeCaptureSubjectContextEx.c)
- *     SePrivilegeCheck @ 0x140A48B30 (SePrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x1408FBAB0 (SeCaptureSubjectContextEx.c)
+ *     SePrivilegeCheck @ 0x140A51E20 (SePrivilegeCheck.c)
  */
 
 void __fastcall MiLockVirtualMemoryCheckPrivilege(__int64 a1, KPROCESSOR_MODE a2, struct _KTHREAD *a3)

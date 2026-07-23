@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMirrorPerformBrownWrites @ 0x140627628
+ * XREFs of MiMirrorPerformBrownWrites @ 0x140627B78
  * Callers:
- *     MiMirrorBrownPhase @ 0x140AAC62C (MiMirrorBrownPhase.c)
+ *     MiMirrorBrownPhase @ 0x140AAC49C (MiMirrorBrownPhase.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
  */
 
 __int64 __fastcall MiMirrorPerformBrownWrites(__int64 a1, char a2, _QWORD *a3)
@@ -281,10 +281,13 @@ LABEL_126:
           {
 LABEL_70:
             _InterlockedAnd64((volatile signed __int64 *)v38, 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v39 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                && CurrentIrql <= 0xFu
+                && (unsigned __int8)v39 <= 0xFu
+                && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -350,10 +353,10 @@ LABEL_70:
     _InterlockedAnd(v53, v54);
 LABEL_93:
     _InterlockedAnd64((volatile signed __int64 *)v38, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v56 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v56 <= 0xFu && (unsigned __int8)v39 <= 0xFu && v56 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu && (unsigned __int8)v39 <= 0xFu && v56 >= 2u )
       {
         v57 = KeGetCurrentPrcb();
         v58 = v57->SchedulerAssist;
@@ -380,10 +383,10 @@ LABEL_78:
   MiDiscardTransitionPteEx(v36, 0LL);
 LABEL_103:
   _InterlockedAnd64((volatile signed __int64 *)(v36 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v60 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v60 <= 0xFu && (unsigned __int8)v39 <= 0xFu && v60 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v60 <= 0xFu && (unsigned __int8)v39 <= 0xFu && v60 >= 2u )
     {
       v61 = KeGetCurrentPrcb();
       v62 = v61->SchedulerAssist;
@@ -420,10 +423,10 @@ LABEL_113:
       v66 = (unsigned __int8)MiLockPageInline(v64);
       MiRemoveLockedPageChargeAndDecRef(v64);
       _InterlockedAnd64((volatile signed __int64 *)(v64 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v67 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v67 <= 0xFu && (unsigned __int8)v66 <= 0xFu && v67 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v67 <= 0xFu && (unsigned __int8)v66 <= 0xFu && v67 >= 2u )
         {
           v68 = KeGetCurrentPrcb();
           v69 = v68->SchedulerAssist;

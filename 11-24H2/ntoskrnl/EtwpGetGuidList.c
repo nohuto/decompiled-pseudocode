@@ -1,17 +1,16 @@
 /*
- * XREFs of EtwpGetGuidList @ 0x14083D340
+ * XREFs of EtwpGetGuidList @ 0x1408399A0
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
- *     EtwpGetTraceGuidList @ 0x140836488 (EtwpGetTraceGuidList.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     EtwpGetNextGuidEntry @ 0x14083D5B0 (EtwpGetNextGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x14083D760 (EtwpUnreferenceGuidEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     EtwpGetNextGuidEntry @ 0x140839C10 (EtwpGetNextGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140839DC0 (EtwpUnreferenceGuidEntry.c)
  */
 
 __int64 __fastcall EtwpGetGuidList(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4, unsigned int *a5)
@@ -33,7 +32,7 @@ __int64 __fastcall EtwpGetGuidList(__int64 a1, unsigned int a2, __int64 a3, unsi
   _QWORD **v19; // r14
   signed __int64 *i; // rbp
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v22; // rbx
+  char *v22; // rbx
   _QWORD **v23; // rax
   _QWORD *v24; // r8
   signed __int64 j; // rdx
@@ -55,9 +54,9 @@ __int64 __fastcall EtwpGetGuidList(__int64 a1, unsigned int a2, __int64 a3, unsi
     v13 = NextGuidEntry + 40;
     if ( v6 )
       goto LABEL_7;
-    v14 = *(_QWORD *)v13 - PrivateLoggerNotificationGuid;
-    if ( *(_QWORD *)v13 == (_QWORD)PrivateLoggerNotificationGuid )
-      v14 = *(_QWORD *)(NextGuidEntry + 48) - *((_QWORD *)&PrivateLoggerNotificationGuid + 1);
+    v14 = *(_QWORD *)v13 - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
+    if ( *(_QWORD *)v13 == *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 )
+      v14 = *(_QWORD *)(NextGuidEntry + 48) - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
     if ( v14 )
     {
 LABEL_7:
@@ -84,11 +83,11 @@ LABEL_7:
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v22 = KeAbPreAcquire((__int64)i, 0LL);
+      v22 = (char *)KeAbPreAcquire((__int64)i, 0LL);
       if ( _InterlockedCompareExchange64(i, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(i, 0, v22, (__int64)i);
       if ( v22 )
-        *((_BYTE *)v22 + 10) = 1;
+        v22[10] = 1;
       v23 = v19;
       if ( v15 )
         v23 = (_QWORD **)v15;

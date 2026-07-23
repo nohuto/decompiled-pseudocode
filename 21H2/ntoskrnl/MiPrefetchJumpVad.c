@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPrefetchJumpVad @ 0x1405394CC
+ * XREFs of MiPrefetchJumpVad @ 0x14053970C
  * Callers:
- *     MiZeroFault @ 0x14034EE60 (MiZeroFault.c)
+ *     MiZeroFault @ 0x140359BB0 (MiZeroFault.c)
  * Callees:
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x14023C0AC (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiUpdatePrefetchPriority @ 0x14026E760 (MiUpdatePrefetchPriority.c)
- *     MiIsVadLargePrivate @ 0x1402AD514 (MiIsVadLargePrivate.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLeapPrefetch @ 0x14037BFAC (MiLeapPrefetch.c)
+ *     MiIsVadLargePrivate @ 0x14022B870 (MiIsVadLargePrivate.c)
+ *     MiUpdatePrefetchPriority @ 0x14025C700 (MiUpdatePrefetchPriority.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402E08FC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLeapPrefetch @ 0x14037BAFC (MiLeapPrefetch.c)
  */
 
 __int64 __fastcall MiPrefetchJumpVad(__int64 a1, __int64 a2, unsigned __int64 a3, _DWORD *a4)
@@ -27,7 +27,7 @@ __int64 __fastcall MiPrefetchJumpVad(__int64 a1, __int64 a2, unsigned __int64 a3
   {
     if ( (v7 & 0x100000) != 0 )
     {
-      if ( (((*(_DWORD *)(a2 + 48) & 0x70) - 16) & 0xFFFFFFDF) != 0 && !MiIsVadLargePrivate(a2) )
+      if ( (((*(_DWORD *)(a2 + 48) & 0x70) - 16) & 0xFFFFFFDF) != 0 && !(unsigned int)MiIsVadLargePrivate(a2) )
       {
         v9 = ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
         v10 = ((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

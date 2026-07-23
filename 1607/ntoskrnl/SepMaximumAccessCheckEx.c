@@ -1,19 +1,19 @@
 /*
- * XREFs of SepMaximumAccessCheckEx @ 0x140132FC4
+ * XREFs of SepMaximumAccessCheckEx @ 0x140133534
  * Callers:
- *     SepAccessCheckEx @ 0x140135DF0 (SepAccessCheckEx.c)
+ *     SepAccessCheckEx @ 0x140136360 (SepAccessCheckEx.c)
  * Callees:
- *     SepMatchPackage @ 0x14000E138 (SepMatchPackage.c)
- *     SepSidInTokenSidHash @ 0x1400611F0 (SepSidInTokenSidHash.c)
- *     AuthzBasepAddAccessTypeList @ 0x140092B20 (AuthzBasepAddAccessTypeList.c)
- *     AuthzBasepSetAccessReasons @ 0x140092C00 (AuthzBasepSetAccessReasons.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     SepIsPackageSid @ 0x1400A06E0 (SepIsPackageSid.c)
- *     SepIsCapabilitySid @ 0x1400A0DAC (SepIsCapabilitySid.c)
- *     SepMatchCapability @ 0x1400A7790 (SepMatchCapability.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepSidInToken @ 0x1400C45A4 (SepSidInToken.c)
- *     AuthzBasepObjectInTypeList @ 0x140234488 (AuthzBasepObjectInTypeList.c)
+ *     SepMatchPackage @ 0x14000DCB8 (SepMatchPackage.c)
+ *     SepSidInTokenSidHash @ 0x140060D70 (SepSidInTokenSidHash.c)
+ *     AuthzBasepAddAccessTypeList @ 0x140092320 (AuthzBasepAddAccessTypeList.c)
+ *     AuthzBasepSetAccessReasons @ 0x140092400 (AuthzBasepSetAccessReasons.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     SepIsPackageSid @ 0x14009F008 (SepIsPackageSid.c)
+ *     SepIsCapabilitySid @ 0x14009F6D4 (SepIsCapabilitySid.c)
+ *     SepMatchCapability @ 0x1400A5D08 (SepMatchCapability.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepSidInToken @ 0x1400C2444 (SepSidInToken.c)
+ *     AuthzBasepObjectInTypeList @ 0x1402342B4 (AuthzBasepObjectInTypeList.c)
  */
 
 __int64 __fastcall SepMaximumAccessCheckEx(
@@ -40,7 +40,7 @@ __int64 __fastcall SepMaximumAccessCheckEx(
   unsigned int v21; // r13d
   char *v22; // rdi
   char v23; // al
-  __int64 v24; // rcx
+  _SID_AND_ATTRIBUTES_HASH *v24; // rcx
   bool v25; // al
   unsigned int v26; // r8d
   _DWORD *v27; // r11
@@ -134,14 +134,14 @@ LABEL_24:
             goto LABEL_13;
           }
 LABEL_7:
-          v24 = a1 + 232;
+          v24 = (_SID_AND_ATTRIBUTES_HASH *)(a1 + 232);
         }
         else
         {
           if ( !v15 )
             goto LABEL_7;
 LABEL_26:
-          v24 = a1 + 504;
+          v24 = (_SID_AND_ATTRIBUTES_HASH *)(a1 + 504);
         }
         v25 = SepSidInTokenSidHash(v24, 0LL, v22 + 8, 0, v15, a12);
         goto LABEL_9;
@@ -281,7 +281,7 @@ LABEL_25:
       v38 = a12;
       if ( !SepSidInToken(a1, 0LL, &v22[4 * (unsigned __int8)v22[13] + 20], 0, v15, a12) )
         goto LABEL_13;
-      v25 = SepSidInTokenSidHash(v60 + 232, 0LL, v22 + 12, 0, 0, v38);
+      v25 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v60 + 232), 0LL, v22 + 12, 0, 0, v38);
 LABEL_9:
       if ( v25 )
       {

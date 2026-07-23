@@ -1,7 +1,7 @@
 /*
  * XREFs of NormBuffer__LastStartBasePair @ 0x1800F1390
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180058890 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180058880 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     NormBuffer__LastStartBase @ 0x1800F1360 (NormBuffer__LastStartBase.c)
  *     Normalization__CanCombinableCharactersCombine @ 0x1800F18B8 (Normalization__CanCombinableCharactersCombine.c)

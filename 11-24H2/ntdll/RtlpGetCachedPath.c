@@ -1,27 +1,25 @@
 /*
- * XREFs of RtlpGetCachedPath @ 0x1800842B0
+ * XREFs of RtlpGetCachedPath @ 0x180006160
  * Callers:
- *     RtlGetExePath @ 0x180082AD0 (RtlGetExePath.c)
- *     RtlGetSearchPath @ 0x180082FA0 (RtlGetSearchPath.c)
- *     LdrpGetDllPath @ 0x180083EF0 (LdrpGetDllPath.c)
+ *     RtlGetExePath @ 0x180004950 (RtlGetExePath.c)
+ *     RtlGetSearchPath @ 0x180004E20 (RtlGetSearchPath.c)
+ *     LdrpGetDllPath @ 0x180005DA0 (LdrpGetDllPath.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpComputeDllPath @ 0x180084520 (RtlpComputeDllPath.c)
- *     RtlpComputeDllPathWithOptions @ 0x180084610 (RtlpComputeDllPathWithOptions.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpComputeDllPath @ 0x1800063D0 (RtlpComputeDllPath.c)
+ *     RtlpComputeDllPathWithOptions @ 0x1800064C0 (RtlpComputeDllPathWithOptions.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpGetCachedPath(unsigned __int64 *a1, volatile signed __int32 **a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int64, __int64), __int64 a3, __int64 a4)
 {
   char v8; // r15
-  unsigned __int64 v9; // rbx
+  __int64 v9; // rbx
   __int64 result; // rax
-  volatile signed __int32 **v11; // rdx
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // rdi
-  bool v14; // zf
+  __int64 v11; // rdi
+  bool v12; // zf
 
   if ( a3 || a4 )
   {
@@ -31,7 +29,7 @@ __int64 __fastcall RtlpGetCachedPath(unsigned __int64 *a1, volatile signed __int
   else
   {
     v8 = 1;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpCachedPathLock, a2, 0LL);
+    RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
     v9 = *a1;
     if ( *a1
       && *(_QWORD *)(v9 + 96) == LdrpAppPackagesPathVersion
@@ -43,35 +41,35 @@ __int64 __fastcall RtlpGetCachedPath(unsigned __int64 *a1, volatile signed __int
     }
     RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   }
-  if ( a2 == (volatile signed __int32 **)RtlpComputeDllPath )
+  if ( a2 == RtlpComputeDllPath )
   {
     result = RtlpComputeDllPath(a3, a4);
   }
-  else if ( a2 == (volatile signed __int32 **)RtlpComputeDllPathWithOptions )
+  else if ( a2 == RtlpComputeDllPathWithOptions )
   {
     result = RtlpComputeDllPathWithOptions(a3, a4);
   }
   else
   {
-    result = ((__int64 (__fastcall *)(__int64, __int64))a2)(a3, a4);
+    result = a2(a3, a4);
   }
-  v13 = result;
+  v11 = result;
   if ( result )
   {
     *(_QWORD *)(result + 80) = 1LL;
     if ( !v8 )
-      return v13;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpCachedPathLock, v11, v12);
+      return v11;
+    RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
     if ( *a1 != v9
-      || (*a1 = v13, ++*(_QWORD *)(v13 + 80), !v9)
-      || (v14 = *(_QWORD *)(v9 + 80) == 1LL, --*(_QWORD *)(v9 + 80), !v14) )
+      || (*a1 = v11, ++*(_QWORD *)(v11 + 80), !v9)
+      || (v12 = *(_QWORD *)(v9 + 80) == 1LL, --*(_QWORD *)(v9 + 80), !v12) )
     {
       RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-      return v13;
+      return v11;
     }
     RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
-    return v13;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v9);
+    return v11;
   }
   return result;
 }

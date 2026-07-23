@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxPluginWork @ 0x140A03A70
+ * XREFs of PopFxPluginWork @ 0x1409FFFA0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxProcessWorkPool @ 0x1404EB530 (PopFxProcessWorkPool.c)
+ *     PopFxProcessWorkPool @ 0x1404E24A0 (PopFxProcessWorkPool.c)
  */
 
 NTSTATUS __fastcall PopFxPluginWork(char **a1)

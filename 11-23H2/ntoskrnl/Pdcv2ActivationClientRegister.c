@@ -1,13 +1,13 @@
 /*
- * XREFs of Pdcv2ActivationClientRegister @ 0x14085AA64
+ * XREFs of Pdcv2ActivationClientRegister @ 0x14085ACA4
  * Callers:
- *     PnpBootPhaseComplete @ 0x140811110 (PnpBootPhaseComplete.c)
+ *     PnpBootPhaseComplete @ 0x1408113E0 (PnpBootPhaseComplete.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     PdcPortOpenCommon @ 0x140856118 (PdcPortOpenCommon.c)
- *     PdcRwLockInitialize2 @ 0x14085ABB8 (PdcRwLockInitialize2.c)
- *     PdcReleaseRwLockExclusive2 @ 0x14085AC20 (PdcReleaseRwLockExclusive2.c)
- *     PdcAcquireRwLockExclusive2 @ 0x14085AC88 (PdcAcquireRwLockExclusive2.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     PdcPortOpenCommon @ 0x140856418 (PdcPortOpenCommon.c)
+ *     PdcRwLockInitialize2 @ 0x14085ADF8 (PdcRwLockInitialize2.c)
+ *     PdcReleaseRwLockExclusive2 @ 0x14085AE60 (PdcReleaseRwLockExclusive2.c)
+ *     PdcAcquireRwLockExclusive2 @ 0x14085AEC8 (PdcAcquireRwLockExclusive2.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

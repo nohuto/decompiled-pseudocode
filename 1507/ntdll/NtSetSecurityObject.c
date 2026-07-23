@@ -7,11 +7,14 @@
  *     <none>
  */
 
-__int64 NtSetSecurityObject()
+NTSTATUS __cdecl NtSetSecurityObject(
+        HANDLE Handle,
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 395LL;
+  result = 395;
   __asm { syscall; Low latency system call }
   return result;
 }

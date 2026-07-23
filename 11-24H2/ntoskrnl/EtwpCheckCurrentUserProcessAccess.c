@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpCheckCurrentUserProcessAccess @ 0x140AB5B80
+ * XREFs of EtwpCheckCurrentUserProcessAccess @ 0x1408331C0
  * Callers:
- *     EtwpGetPrivateSessionTraceHandle @ 0x1407AD0A8 (EtwpGetPrivateSessionTraceHandle.c)
- *     EtwpNotifyGuid @ 0x140836EE4 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x1407AD578 (EtwpGetPrivateSessionTraceHandle.c)
+ *     EtwpIsRegEntryAllowed @ 0x140832F04 (EtwpIsRegEntryAllowed.c)
+ *     EtwpNotifyGuid @ 0x140834644 (EtwpNotifyGuid.c)
  * Callees:
- *     EtwpAccessCheck @ 0x1408383D4 (EtwpAccessCheck.c)
- *     ObpGetObjectSecurity @ 0x140853850 (ObpGetObjectSecurity.c)
- *     ObReleaseObjectSecurityEx @ 0x140867FD0 (ObReleaseObjectSecurityEx.c)
+ *     EtwpAccessCheck @ 0x14083669C (EtwpAccessCheck.c)
+ *     ObpGetObjectSecurity @ 0x14084FB10 (ObpGetObjectSecurity.c)
+ *     ObReleaseObjectSecurityEx @ 0x14086C2C0 (ObReleaseObjectSecurityEx.c)
  */
 
-__int64 __fastcall EtwpCheckCurrentUserProcessAccess(ULONG_PTR *a1)
+__int64 __fastcall EtwpCheckCurrentUserProcessAccess(ULONG_PTR a1)
 {
-  unsigned int v2; // ebx
-  char v4; // [rsp+38h] [rbp+10h] BYREF
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+40h] [rbp+18h] BYREF
+  unsigned int v2; // eax
+  __int64 v3; // rdx
+  unsigned int v4; // ebx
 
-  SecurityDescriptor = 0LL;
-  v4 = 0;
-  ObpGetObjectSecurity(a1, &SecurityDescriptor, &v4, 0);
-  v2 = EtwpAccessCheck(SecurityDescriptor, 0x1FFFFFu, 0LL);
-  ObReleaseObjectSecurityEx((unsigned __int64)SecurityDescriptor, v4, (__int64)a1);
-  return v2;
+  ObpGetObjectSecurity(a1);
+  v2 = EtwpAccessCheck(0LL, 0x1FFFFFu);
+  LOBYTE(v3) = 0;
+  v4 = v2;
+  ObReleaseObjectSecurityEx(0LL, v3, a1);
+  return v4;
 }

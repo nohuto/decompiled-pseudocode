@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDecreaseUsedPtesCount @ 0x1400E681C
+ * XREFs of MiDecreaseUsedPtesCount @ 0x1400E46BC
  * Callers:
- *     MiResolvePageTablePage @ 0x14003FD10 (MiResolvePageTablePage.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiDeletePageTableHierarchy @ 0x1400E4D40 (MiDeletePageTableHierarchy.c)
- *     MiDeletePhysmemVad @ 0x1401115BC (MiDeletePhysmemVad.c)
- *     MiDeletePageTablesForPhysicalRange @ 0x1401EFF9C (MiDeletePageTablesForPhysicalRange.c)
- *     MiUnmapLargeUserPages @ 0x1401F5AE0 (MiUnmapLargeUserPages.c)
+ *     MiResolvePageTablePage @ 0x14003F890 (MiResolvePageTablePage.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiDeletePageTableHierarchy @ 0x1400E2BE0 (MiDeletePageTableHierarchy.c)
+ *     MiDeletePhysmemVad @ 0x140111B20 (MiDeletePhysmemVad.c)
+ *     MiDeletePageTablesForPhysicalRange @ 0x1401EFDC8 (MiDeletePageTablesForPhysicalRange.c)
+ *     MiUnmapLargeUserPages @ 0x1401F590C (MiUnmapLargeUserPages.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 unsigned __int16 __fastcall MiDecreaseUsedPtesCount(ULONG_PTR BugCheckParameter2, unsigned __int16 a2)

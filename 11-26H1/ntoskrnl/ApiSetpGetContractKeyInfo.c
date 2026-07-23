@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetpGetContractKeyInfo @ 0x14052953C
+ * XREFs of ApiSetpGetContractKeyInfo @ 0x14052B9D0
  * Callers:
- *     ApiSetpResolveHost @ 0x14051CD10 (ApiSetpResolveHost.c)
- *     ApiSetQuerySchemaInfo2_V7 @ 0x1406D9F5C (ApiSetQuerySchemaInfo2_V7.c)
- *     ApiSetCompose_ProcessV7Extension_Phase0 @ 0x1406DA838 (ApiSetCompose_ProcessV7Extension_Phase0.c)
- *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x1406DAAC4 (ApiSetCompose_ProcessV7Extension_Phase1.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase0 @ 0x1406DBD84 (ApiSetCompose_V7_ProcessV6Extension_Phase0.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406DBF60 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
+ *     ApiSetpResolveHost @ 0x14051F22C (ApiSetpResolveHost.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x1406DE0EC (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase0 @ 0x1406DE9D8 (ApiSetCompose_ProcessV7Extension_Phase0.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x1406DEC64 (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase0 @ 0x1406E001C (ApiSetCompose_V7_ProcessV6Extension_Phase0.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406E01F8 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
  * Callees:
  *     <none>
  */

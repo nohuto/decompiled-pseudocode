@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpQueryProfileSourceList @ 0x140507CD4
+ * XREFs of HalpQueryProfileSourceList @ 0x140508224
  * Callers:
- *     HalpQueryProfileInformation @ 0x140865438 (HalpQueryProfileInformation.c)
+ *     HalpQueryProfileInformation @ 0x140865678 (HalpQueryProfileInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpQueryProfileSourceList(unsigned int a1, __int64 a2, unsigned int *a3)
@@ -82,10 +82,10 @@ __int64 __fastcall HalpQueryProfileSourceList(unsigned int a1, __int64 a2, unsig
   }
   v17 = v4 < *a3 ? 0xC0000004 : 0;
   KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -93,7 +93,7 @@ __int64 __fastcall HalpQueryProfileSourceList(unsigned int a1, __int64 a2, unsig
       v22 = (v21 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v21;
       if ( v22 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v10);

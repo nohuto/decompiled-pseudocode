@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetLeafPfnBuddy @ 0x1402BFDD0
+ * XREFs of MiSetLeafPfnBuddy @ 0x1402BFFC0
  * Callers:
- *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x140651084 (MiRelocateImage.c)
  * Callees:
  *     <none>
  */

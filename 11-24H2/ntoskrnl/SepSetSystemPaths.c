@@ -1,16 +1,16 @@
 /*
- * XREFs of SepSetSystemPaths @ 0x14078EA40
+ * XREFs of SepSetSystemPaths @ 0x14078E970
  * Callers:
- *     SepIsMinTCB @ 0x140A1BD1C (SepIsMinTCB.c)
+ *     SepIsMinTCB @ 0x1409FA28C (SepIsMinTCB.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     SepLoadNgenLocations @ 0x14078E6CC (SepLoadNgenLocations.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     SepLoadNgenLocations @ 0x14078E5FC (SepLoadNgenLocations.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetSystemPaths(__int64 a1)
@@ -42,7 +42,7 @@ __int64 __fastcall SepSetSystemPaths(__int64 a1)
     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(v13, 3, (__int64)&Feature_ID51912085__private_descriptor);
   }
   v5 = LOWORD(CurrentServerSiloGlobals[77].Flink) + 34LL;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v5 + 2 * v4 + 64, 0x63734943u);
   v7 = Pool2;
   if ( Pool2 )
   {

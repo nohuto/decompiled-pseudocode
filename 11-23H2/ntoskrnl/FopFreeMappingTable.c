@@ -4,7 +4,7 @@
  *     FopFreeFontData @ 0x140AEC314 (FopFreeFontData.c)
  *     FopReadMappingTable @ 0x140B9CAAC (FopReadMappingTable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
  */
 
 void __fastcall FopFreeMappingTable(__int64 a1)

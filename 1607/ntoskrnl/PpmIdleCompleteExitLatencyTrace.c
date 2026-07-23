@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleCompleteExitLatencyTrace @ 0x1402003CC
+ * XREFs of PpmIdleCompleteExitLatencyTrace @ 0x1402001F8
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     PpmConvertTime @ 0x14000E064 (PpmConvertTime.c)
- *     PpmTraceExitLatency @ 0x1402013E4 (PpmTraceExitLatency.c)
+ *     PpmConvertTime @ 0x14000DBE4 (PpmConvertTime.c)
+ *     PpmTraceExitLatency @ 0x140201210 (PpmTraceExitLatency.c)
  */
 
 __int64 PpmIdleCompleteExitLatencyTrace(__int64 a1, int a2, char a3, ...)

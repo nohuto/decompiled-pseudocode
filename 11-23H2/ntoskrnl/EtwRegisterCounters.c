@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwRegisterCounters @ 0x140858B7C
+ * XREFs of EtwRegisterCounters @ 0x140858DBC
  * Callers:
- *     ExpPcwHostCallback @ 0x140858C50 (ExpPcwHostCallback.c)
+ *     ExpPcwHostCallback @ 0x140858E90 (ExpPcwHostCallback.c)
  * Callees:
- *     ExpRegisterCounterSet @ 0x140858E60 (ExpRegisterCounterSet.c)
+ *     ExpRegisterCounterSet @ 0x1408590A0 (ExpRegisterCounterSet.c)
  */
 
 __int64 EtwRegisterCounters()

@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetValidateSchemaExtensionFormat_V7 @ 0x1406DA310
+ * XREFs of ApiSetValidateSchemaExtensionFormat_V7 @ 0x1406DE4B0
  * Callers:
- *     ApiSetValidateSchemaFormat @ 0x1406D91E0 (ApiSetValidateSchemaFormat.c)
+ *     ApiSetValidateSchemaFormat @ 0x1406DD370 (ApiSetValidateSchemaFormat.c)
  * Callees:
  *     <none>
  */

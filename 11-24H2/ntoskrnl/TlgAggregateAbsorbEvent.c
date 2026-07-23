@@ -1,11 +1,11 @@
 /*
- * XREFs of TlgAggregateAbsorbEvent @ 0x1403D078C
+ * XREFs of TlgAggregateAbsorbEvent @ 0x140274154
  * Callers:
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     ExtractAggregateFieldTypes @ 0x1403D0E80 (ExtractAggregateFieldTypes.c)
- *     InsertEventEntryInLookUpTable @ 0x1403D0F14 (InsertEventEntryInLookUpTable.c)
+ *     ExtractAggregateFieldTypes @ 0x140274970 (ExtractAggregateFieldTypes.c)
+ *     InsertEventEntryInLookUpTable @ 0x140274A04 (InsertEventEntryInLookUpTable.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
  */
 
 NTSTATUS __fastcall TlgAggregateAbsorbEvent(

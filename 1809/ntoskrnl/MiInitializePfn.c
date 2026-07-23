@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializePfn @ 0x140109430
+ * XREFs of MiInitializePfn @ 0x1401094B0
  * Callers:
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
- *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
- *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
- *     MmAllocateSpecialPool @ 0x1402ACB64 (MmAllocateSpecialPool.c)
- *     MiInitializeProtoPfn @ 0x1402C4B5C (MiInitializeProtoPfn.c)
- *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
- *     MiInitializeSystemImagePage @ 0x1409B8190 (MiInitializeSystemImagePage.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
+ *     MmAllocateIndependentPagesEx @ 0x14010903C (MmAllocateIndependentPagesEx.c)
+ *     MiCreateSharedZeroPages @ 0x140109240 (MiCreateSharedZeroPages.c)
+ *     MmAllocateSpecialPool @ 0x1402ACD54 (MmAllocateSpecialPool.c)
+ *     MiInitializeProtoPfn @ 0x1402C4D4C (MiInitializeProtoPfn.c)
+ *     MiMapNewSession @ 0x1407171D8 (MiMapNewSession.c)
+ *     MiInitializeSystemImagePage @ 0x1409B9190 (MiInitializeSystemImagePage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiInitializePfn(__int64 a1, unsigned __int64 a2, unsigned int a3, char a4)

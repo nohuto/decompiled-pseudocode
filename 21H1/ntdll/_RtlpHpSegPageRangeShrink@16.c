@@ -12,7 +12,7 @@
  *     _RtlpHpSegSegmentFree@16 @ 0x4B37D796 (_RtlpHpSegSegmentFree@16.c)
  */
 
-signed __int32 __fastcall RtlpHpSegPageRangeShrink(int a1, int a2, int a3, char a4)
+void __fastcall RtlpHpSegPageRangeShrink(int a1, int a2, int a3, char a4)
 {
   int v6; // eax
   int v7; // edi
@@ -20,19 +20,18 @@ signed __int32 __fastcall RtlpHpSegPageRangeShrink(int a1, int a2, int a3, char 
   int v9; // edx
   int v10; // edx
   int v11; // eax
-  int v12; // eax
+  _RTL_BALANCED_NODE *v12; // eax
   _DWORD *v13; // eax
   _DWORD *v14; // ecx
   _DWORD *v15; // esi
   int v16; // eax
-  signed __int32 result; // eax
-  int v18; // [esp+Ch] [ebp-Ch]
-  int v19; // [esp+10h] [ebp-8h]
-  char v20; // [esp+17h] [ebp-1h] BYREF
+  int v17; // [esp+Ch] [ebp-Ch]
+  int v18; // [esp+10h] [ebp-8h]
+  char v19; // [esp+17h] [ebp-1h] BYREF
 
   v6 = *(unsigned __int8 *)(a2 + 15) - a3;
   v7 = a2 + 16 * a3;
-  v19 = v6;
+  v18 = v6;
   if ( (unsigned int)(v6 - 1) > 1 )
   {
     v8 = (_BYTE *)(v7 + 28);
@@ -45,9 +44,9 @@ signed __int32 __fastcall RtlpHpSegPageRangeShrink(int a1, int a2, int a3, char 
     }
     while ( v9 );
   }
-  v20 = RtlpHpSegLockAcquire(a1, a4);
-  v18 = ~(*(_DWORD *)(a2 + 12) >> 8);
-  if ( *(unsigned __int8 *)(a2 + 15) == v19 )
+  v19 = RtlpHpSegLockAcquire((_RTL_SRWLOCK *)a1, a4);
+  v17 = ~(*(_DWORD *)(a2 + 12) >> 8);
+  if ( *(unsigned __int8 *)(a2 + 15) == v18 )
   {
     v10 = 0;
   }
@@ -58,14 +57,14 @@ signed __int32 __fastcall RtlpHpSegPageRangeShrink(int a1, int a2, int a3, char 
     *(_DWORD *)(a2 + 12) ^= (*(_DWORD *)(a2 + 12) ^ (~v10 << 8)) & 0xFFFF00;
   }
   *(_BYTE *)(v7 + 12) |= 2u;
-  *(_BYTE *)(v7 + 16 * v19 - 1) = v19 - 1;
-  *(_BYTE *)(v7 + 15) = v19;
-  v11 = (*(_DWORD *)(v7 + 12) ^ (~(v18 - v10) << 8)) & 0xFFFF00;
+  *(_BYTE *)(v7 + 16 * v18 - 1) = v18 - 1;
+  *(_BYTE *)(v7 + 15) = v18;
+  v11 = (*(_DWORD *)(v7 + 12) ^ (~(v17 - v10) << 8)) & 0xFFFF00;
   *(_DWORD *)v7 = -857879331;
   *(_DWORD *)(v7 + 12) ^= v11;
   *(_BYTE *)(v7 + 12) &= 0xF3u;
-  v12 = RtlpHpSegPageRangeCoalesce(a1, v7, a4, 0, &v20);
-  v13 = (_DWORD *)RtlpHpSegFreeRangeInsert(a1, v12, 0);
+  v12 = RtlpHpSegPageRangeCoalesce(a1, (_RTL_BALANCED_NODE *)v7, a4, 0, &v19);
+  v13 = (_DWORD *)RtlpHpSegFreeRangeInsert(a1, (int)v12, 0);
   v15 = v13;
   if ( v13 )
   {
@@ -76,8 +75,7 @@ signed __int32 __fastcall RtlpHpSegPageRangeShrink(int a1, int a2, int a3, char 
     *(_DWORD *)(v16 + 4) = v14;
     --*(_DWORD *)(a1 + 76);
   }
-  result = RtlpHpLargeLockRelease(a1, a4, (int)v14);
+  RtlpHpLargeLockRelease((_RTL_SRWLOCK *)a1, a4, (int)v14);
   if ( v15 )
-    return RtlpHpSegSegmentFree(0x7FFFFFFF, 1);
-  return result;
+    RtlpHpSegSegmentFree(0x7FFFFFFF, 1);
 }

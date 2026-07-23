@@ -1,18 +1,18 @@
 /*
- * XREFs of PiSwDeviceFree @ 0x1406D8C08
+ * XREFs of PiSwDeviceFree @ 0x1406D9EA8
  * Callers:
- *     PiSwDeviceDereference @ 0x1406D8A10 (PiSwDeviceDereference.c)
+ *     PiSwDeviceDereference @ 0x1406D9CB0 (PiSwDeviceDereference.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpFreeDevPropertyArray @ 0x140595490 (PnpFreeDevPropertyArray.c)
- *     PiSwFreeInterfaceList @ 0x1406D8308 (PiSwFreeInterfaceList.c)
- *     PiSwPnPInfoFree @ 0x1406D8CA4 (PiSwPnPInfoFree.c)
- *     PiSwInstanceInfoFree @ 0x1406D8D10 (PiSwInstanceInfoFree.c)
- *     PiSwPdoAssociationFree @ 0x1406D8E64 (PiSwPdoAssociationFree.c)
- *     PiSwQueuedCreateInfoFree @ 0x140835EC0 (PiSwQueuedCreateInfoFree.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PnpFreeDevPropertyArray @ 0x140596490 (PnpFreeDevPropertyArray.c)
+ *     PiSwFreeInterfaceList @ 0x1406D95A8 (PiSwFreeInterfaceList.c)
+ *     PiSwPnPInfoFree @ 0x1406D9F44 (PiSwPnPInfoFree.c)
+ *     PiSwInstanceInfoFree @ 0x1406D9FB0 (PiSwInstanceInfoFree.c)
+ *     PiSwPdoAssociationFree @ 0x1406DA104 (PiSwPdoAssociationFree.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140837120 (PiSwQueuedCreateInfoFree.c)
  */
 
 void __fastcall PiSwDeviceFree(__int64 a1)

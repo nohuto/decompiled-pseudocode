@@ -17,9 +17,9 @@
 __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
 {
   char v3; // r12
-  unsigned int v5; // esi
-  void *Pool2; // rdi
-  int PersistedStateLocation; // eax
+  ULONG BufferLengthIn; // esi
+  WCHAR *TargetPath; // rdi
+  NTSTATUS PersistedStateLocation; // eax
   int v8; // ebx
   __int64 i; // rsi
   __int64 v10; // rcx
@@ -30,42 +30,47 @@ __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
   HANDLE Handle; // [rsp+68h] [rbp-18h] BYREF
   __int64 Source2; // [rsp+70h] [rbp-10h] BYREF
   __int64 Source1; // [rsp+78h] [rbp-8h] BYREF
-  __int64 v19; // [rsp+D0h] [rbp+50h] BYREF
+  ULONG BufferLengthOut; // [rsp+D0h] [rbp+50h] BYREF
   int v20; // [rsp+D8h] [rbp+58h] BYREF
 
   v3 = 0;
   Handle = 0LL;
   Source1 = 0LL;
   Source2 = 0LL;
-  v5 = 520;
+  BufferLengthIn = 520;
   v20 = 0;
   v14 = 0;
   v15 = 0;
-  LODWORD(v19) = 0;
-  while ( 1 )
+  for ( BufferLengthOut = 0; ; BufferLengthIn = BufferLengthOut )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
-    if ( !Pool2 )
+    TargetPath = (WCHAR *)ExAllocatePool2(0x100uLL);
+    if ( !TargetPath )
     {
       v8 = -1073741670;
       goto LABEL_28;
     }
-    PersistedStateLocation = RtlGetPersistedStateLocation(L"DriverDatabaseUpdates", Pool2, v5, (__int64)&v19);
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               L"DriverDatabaseUpdates",
+                               0LL,
+                               L"\\Registry\\Machine\\System\\DriverDatabase\\Updates",
+                               LocationTypeRegistry,
+                               TargetPath,
+                               BufferLengthIn,
+                               &BufferLengthOut);
     v8 = PersistedStateLocation;
     if ( PersistedStateLocation != -2147483643 )
       break;
-    ExFreePoolWithTag(Pool2, 0);
-    Pool2 = 0LL;
-    if ( (unsigned int)v19 <= v5 )
+    ExFreePoolWithTag(TargetPath, 0);
+    TargetPath = 0LL;
+    if ( BufferLengthOut <= BufferLengthIn )
     {
       v8 = -1073741595;
       goto LABEL_28;
     }
-    v5 = v19;
   }
   if ( PersistedStateLocation >= 0 )
   {
-    v8 = PnpCtxRegCreateTree(0LL, 0LL, Pool2, 0LL, 131103, 0LL, &Handle, 0LL);
+    v8 = PnpCtxRegCreateTree(0LL, 0LL, TargetPath, 0LL, 131103, 0LL, &Handle, 0LL);
     if ( v8 >= 0 )
     {
       for ( i = PiDrvDbNodeList; (__int64 *)i != &PiDrvDbNodeList; i = *(_QWORD *)i )
@@ -88,9 +93,9 @@ __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
             && v14 == 8 )
           {
             v11 = *(_QWORD *)(i + 24);
-            LODWORD(v19) = 8;
-            v8 = PnpCtxRegQueryValue(v10, Handle, v11, &v15, &Source2, &v19);
-            if ( v8 < 0 || v15 != 3 || (_DWORD)v19 != 8 )
+            BufferLengthOut = 8;
+            v8 = PnpCtxRegQueryValue(v10, Handle, v11, &v15, &Source2, &BufferLengthOut);
+            if ( v8 < 0 || v15 != 3 || BufferLengthOut != 8 )
             {
               v8 = 0;
               Source2 = 0LL;
@@ -118,7 +123,7 @@ __int64 __fastcall PiDrvDbQuerySyncNodesUpdated(char a1, char *a2)
 LABEL_28:
   if ( Handle )
     ZwClose(Handle);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( TargetPath )
+    ExFreePoolWithTag(TargetPath, 0);
   return (unsigned int)v8;
 }

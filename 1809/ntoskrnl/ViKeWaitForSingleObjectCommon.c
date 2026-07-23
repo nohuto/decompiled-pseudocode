@@ -1,12 +1,12 @@
 /*
- * XREFs of ViKeWaitForSingleObjectCommon @ 0x14093B318
+ * XREFs of ViKeWaitForSingleObjectCommon @ 0x14093C318
  * Callers:
- *     VerifierKeWaitForSingleObject @ 0x14093A820 (VerifierKeWaitForSingleObject.c)
- *     VerifierKeWaitForSingleObjectNoReboot @ 0x14093A890 (VerifierKeWaitForSingleObjectNoReboot.c)
+ *     VerifierKeWaitForSingleObject @ 0x14093B820 (VerifierKeWaitForSingleObject.c)
+ *     VerifierKeWaitForSingleObjectNoReboot @ 0x14093B890 (VerifierKeWaitForSingleObjectNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViKeInjectStatusAlerted @ 0x14093AE4C (ViKeInjectStatusAlerted.c)
- *     ViKeWaitSanityChecks @ 0x14093B3CC (ViKeWaitSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViKeInjectStatusAlerted @ 0x14093BE4C (ViKeInjectStatusAlerted.c)
+ *     ViKeWaitSanityChecks @ 0x14093C3CC (ViKeWaitSanityChecks.c)
  */
 
 __int64 __fastcall ViKeWaitForSingleObjectCommon(__int64 a1, unsigned int a2, __int64 a3, char a4, __int64 a5)

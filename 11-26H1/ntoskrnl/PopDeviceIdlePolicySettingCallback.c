@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDeviceIdlePolicySettingCallback @ 0x140B54100
+ * XREFs of PopDeviceIdlePolicySettingCallback @ 0x140B569A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PopDeviceIdlePolicySettingCallback(_QWORD *a1, int *a2, int a3)
+__int64 __fastcall PopDeviceIdlePolicySettingCallback(_QWORD *a1, _DWORD *a2, int a3)
 {
   __int64 v3; // r9
   unsigned int v4; // ecx
@@ -15,8 +15,8 @@ __int64 __fastcall PopDeviceIdlePolicySettingCallback(_QWORD *a1, int *a2, int a
   if ( *(_QWORD *)&GUID_DEVICE_IDLE_POLICY.Data1 == *a1 )
     v3 = *(_QWORD *)GUID_DEVICE_IDLE_POLICY.Data4 - a1[1];
   v4 = 0;
-  if ( !v3 && a3 == 4 && a2 && (unsigned int)*a2 <= 1 )
-    dword_140F106E8 = *a2;
+  if ( !v3 && a3 == 4 && a2 && *a2 <= 1u )
+    *(_DWORD *)&PpmIdlePolicyLock.PriorityFloorCounts[16] = *a2;
   else
     return (unsigned int)-1073741811;
   return v4;

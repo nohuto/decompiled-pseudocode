@@ -1,13 +1,13 @@
 /*
- * XREFs of VfIrpDatabaseCheckExFreePool @ 0x140C39BE8
+ * XREFs of VfIrpDatabaseCheckExFreePool @ 0x140C3FBF8
  * Callers:
- *     VfPoolCheckIncorrectFreeApi @ 0x140C385E4 (VfPoolCheckIncorrectFreeApi.c)
+ *     VfPoolCheckIncorrectFreeApi @ 0x140C3E5F4 (VfPoolCheckIncorrectFreeApi.c)
  * Callees:
- *     ViIrpDatabaseAcquireLockShared @ 0x140647E80 (ViIrpDatabaseAcquireLockShared.c)
- *     ViIrpDatabaseReleaseLockShared @ 0x140647EC4 (ViIrpDatabaseReleaseLockShared.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
- *     ViIrpDatabaseFindPointer @ 0x140C39EE8 (ViIrpDatabaseFindPointer.c)
- *     VfUtilAddressRangeFitNoLock @ 0x140C4600C (VfUtilAddressRangeFitNoLock.c)
+ *     ViIrpDatabaseAcquireLockShared @ 0x14064BA60 (ViIrpDatabaseAcquireLockShared.c)
+ *     ViIrpDatabaseReleaseLockShared @ 0x14064BAA4 (ViIrpDatabaseReleaseLockShared.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
+ *     ViIrpDatabaseFindPointer @ 0x140C3FEF8 (ViIrpDatabaseFindPointer.c)
+ *     VfUtilAddressRangeFitNoLock @ 0x140C4C01C (VfUtilAddressRangeFitNoLock.c)
  */
 
 void __fastcall VfIrpDatabaseCheckExFreePool(ULONG_PTR BugCheckParameter2)

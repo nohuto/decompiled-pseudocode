@@ -1,18 +1,18 @@
 /*
- * XREFs of KseUnregisterShim @ 0x140652CC8
+ * XREFs of KseUnregisterShim @ 0x140652DAC
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     KsepLogInfo @ 0x140084DC8 (KsepLogInfo.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     KsepLogError @ 0x1401DCEA4 (KsepLogError.c)
- *     KsepIsShimRegistered @ 0x14057060C (KsepIsShimRegistered.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     KsepLogInfo @ 0x14010B3D0 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1401DCCD0 (KsepLogError.c)
+ *     KsepIsShimRegistered @ 0x140570B4C (KsepIsShimRegistered.c)
  */
 
 __int64 __fastcall KseUnregisterShim(__int64 a1)
@@ -38,16 +38,16 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
   v19 = 0LL;
   if ( !a1 )
     return 3221225485LL;
-  if ( dword_140328EF4 != 2 )
+  if ( dword_140328F34 != 2 )
     return 3221225473LL;
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
   --CurrentThread->KernelApcDisable;
-  v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F20, 0LL, 0);
-  v7 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F20, 0LL);
+  v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F60, 0LL, 0);
+  v7 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F60, 0LL);
   v8 = v5;
   if ( v7 )
-    ExfAcquirePushLockExclusiveEx(&qword_140328F20, v5, (ULONG_PTR)&qword_140328F20);
+    ExfAcquirePushLockExclusiveEx(&qword_140328F60, v5, (ULONG_PTR)&qword_140328F60);
   if ( v8 )
     v8[26] |= 1u;
   if ( (unsigned int)KsepIsShimRegistered((__int64)&KseEngine, *(_QWORD **)(a1 + 8), v6, &v19) )
@@ -57,7 +57,7 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
       v9 = -1073741790;
       v10 = v19;
       v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140307424[2 * v11] = -1073741790;
+      dword_140307464[2 * v11] = -1073741790;
       KsepHistoryErrors[2 * v11] = 131464;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(
@@ -94,15 +94,15 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
   {
     v9 = -1073741772;
     v15 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140307424[2 * v15] = -1073741772;
+    dword_140307464[2 * v15] = -1073741772;
     KsepHistoryErrors[2 * v15] = 131493;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(3LL, "KSE: Failed shim [0x%08X] unregistration. Shim not found.\n", **(_DWORD **)(a1 + 8));
     KsepLogError(3, "KSE: Failed shim [0x%08X] unregistration. Shim not found.\n", **(_DWORD **)(a1 + 8));
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-  KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+  KeAbPostRelease((ULONG_PTR)&qword_140328F60);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v16, v17, v18);
   if ( v4 )
     KsepPoolFreePaged(v19);

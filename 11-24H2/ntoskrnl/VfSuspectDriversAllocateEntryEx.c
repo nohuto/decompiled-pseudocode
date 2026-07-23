@@ -1,23 +1,23 @@
 /*
- * XREFs of VfSuspectDriversAllocateEntryEx @ 0x140B9A73C
+ * XREFs of VfSuspectDriversAllocateEntryEx @ 0x140B9C73C
  * Callers:
- *     VfDriverEnableVerifierForAll @ 0x140B8A3B4 (VfDriverEnableVerifierForAll.c)
+ *     VfDriverEnableVerifierForAll @ 0x140B8C3B4 (VfDriverEnableVerifierForAll.c)
  * Callees:
- *     RtlUShortAdd @ 0x14046B240 (RtlUShortAdd.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlUShortAdd @ 0x140463CC0 (RtlUShortAdd.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-ULONG_PTR __fastcall VfSuspectDriversAllocateEntryEx(__int64 a1)
+__int64 __fastcall VfSuspectDriversAllocateEntryEx(__int64 a1)
 {
   USHORT v2; // si
   USHORT v3; // r10
   NTSTATUS v4; // ebp
   unsigned __int16 v5; // r9
   int v6; // r11d
-  ULONG_PTR Pool2; // rax
-  ULONG_PTR v8; // rbx
+  __int64 Pool2; // rax
+  __int64 v8; // rbx
   void *v9; // rax
   void *v10; // rcx
   USHORT v12; // [rsp+40h] [rbp+8h] BYREF

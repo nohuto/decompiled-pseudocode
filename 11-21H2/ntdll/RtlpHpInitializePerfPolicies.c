@@ -9,30 +9,30 @@
 
 char __fastcall RtlpHpInitializePerfPolicies(int a1)
 {
-  int v2; // eax
+  int ResourcePolicy; // eax
   int v3; // eax
-  int v5; // [rsp+38h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+38h] [rbp+10h] BYREF
 
   RtlpHpLfhPerfFlags |= 0x98u;
-  LOBYTE(v2) = RtlGetNtProductType(&v5);
-  if ( (_BYTE)v2 && v5 != 1 )
+  LOBYTE(ResourcePolicy) = RtlGetNtProductType(&NtProductType);
+  if ( (_BYTE)ResourcePolicy && NtProductType != NtProductWinNt )
   {
     RtlpHpLfhPerfFlags |= 0x67u;
 LABEL_11:
-    RtlpHpGCInterval = -10000000LL;
-    return v2;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
+    return ResourcePolicy;
   }
   if ( a1 )
     RtlpHpLfhPerfFlags |= 4u;
-  v2 = RtlQueryResourcePolicy(0, 0, &v5, 4LL);
-  if ( v2 >= 0 && v5 > 10 )
+  ResourcePolicy = RtlQueryResourcePolicy(0, 0, (int *)&NtProductType, 4LL);
+  if ( ResourcePolicy >= 0 && NtProductType > 10 )
   {
     v3 = RtlpHpLfhPerfFlags;
     if ( a1 )
       v3 = RtlpHpLfhPerfFlags | 3;
-    v2 = v3 | 0x60;
-    RtlpHpLfhPerfFlags = v2;
+    ResourcePolicy = v3 | 0x60;
+    RtlpHpLfhPerfFlags = ResourcePolicy;
     goto LABEL_11;
   }
-  return v2;
+  return ResourcePolicy;
 }

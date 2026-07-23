@@ -26,11 +26,10 @@ __int64 __fastcall LdrpFindLoadedDllInternal(unsigned __int16 *a1, int a2, _QWOR
   *a3 = 0LL;
   if ( (a5 & 0x20) != 0 )
   {
-    LoadedDllByName = LdrpFindLoadedDllByName(a1, 0LL, a5, (unsigned __int64)a3, a4);
+    LoadedDllByName = LdrpFindLoadedDllByName(a1, 0LL, a5, (__int64)a3, a4);
   }
   else if ( (a5 & 0x200) == 0
-         || (LoadedDllByName = LdrpFindLoadedDllByName(0LL, (unsigned __int64)a1, a5, (unsigned __int64)a3, a4),
-             LoadedDllByName < 0) )
+         || (LoadedDllByName = LdrpFindLoadedDllByName(0LL, (__int64)a1, a5, (__int64)a3, a4), LoadedDllByName < 0) )
   {
     v14 = 0x1000000;
     v15 = v16;
@@ -43,13 +42,13 @@ __int64 __fastcall LdrpFindLoadedDllInternal(unsigned __int16 *a1, int a2, _QWOR
     LoadedDllByName = v11;
     if ( v11 >= 0 )
     {
-      LoadedDllByName = LdrpFindLoadedDllByName(v13, (unsigned __int64)&v12, a5, (unsigned __int64)a3, a4);
+      LoadedDllByName = LdrpFindLoadedDllByName(v13, (__int64)&v12, a5, (__int64)a3, a4);
       if ( LoadedDllByName == -1073741515 )
         LoadedDllByName = LdrpFindLoadedDllByMappingFile(&v14, a3, a4);
     }
     LdrpFreeUnicodeString(&v12);
     if ( v16 != v15 )
-      NtdllpFreeStringRoutine((__int64)v15);
+      NtdllpFreeStringRoutine(v15);
     v14 = 0x1000000;
     v15 = v16;
     v16[0] = 0;

@@ -46,7 +46,7 @@ __int64 __fastcall sub_1800E07A8(_DWORD *a1, unsigned int *a2, _DWORD *a3, size_
   if ( v10 >= v11 - 1 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
       "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",
@@ -63,7 +63,7 @@ __int64 __fastcall sub_1800E07A8(_DWORD *a1, unsigned int *a2, _DWORD *a3, size_
   if ( v13 >= v14 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid file index (%u, max is %u) in Assembly (%u)\n",
       "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",

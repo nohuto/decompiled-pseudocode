@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFrozenProcessorCount @ 0x140576B24
+ * XREFs of KeFrozenProcessorCount @ 0x140577014
  * Callers:
- *     IopBugCheckProgressEfiVariableServicesAvailable @ 0x1405522A4 (IopBugCheckProgressEfiVariableServicesAvailable.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057A7BC (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     IopBugCheckProgressEfiVariableServicesAvailable @ 0x140552964 (IopBugCheckProgressEfiVariableServicesAvailable.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057ACAC (KiBugCheckRecoveryFreezeOtherProcessors.c)
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
  */
 
 __int64 KeFrozenProcessorCount()

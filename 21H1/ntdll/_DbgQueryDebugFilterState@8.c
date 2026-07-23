@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall DbgQueryDebugFilterState(int a1, int a2)
+NTSTATUS __cdecl DbgQueryDebugFilterState(ULONG ComponentId, ULONG Level)
 {
-  return NtQueryDebugFilterState(a1, a2);
+  return NtQueryDebugFilterState(ComponentId, Level);
 }

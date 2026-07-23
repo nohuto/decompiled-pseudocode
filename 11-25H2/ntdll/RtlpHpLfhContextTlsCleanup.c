@@ -7,34 +7,31 @@
  *     RtlpHpLfhPrivateSlotShutdown @ 0x1800334C4 (RtlpHpLfhPrivateSlotShutdown.c)
  */
 
-__int64 __fastcall RtlpHpLfhContextTlsCleanup(unsigned __int64 a1, __int64 a2)
+void __fastcall RtlpHpLfhContextTlsCleanup(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  __int64 result; // rax
-  _WORD *v5; // rdi
-  __int64 v6; // rbp
-  __int64 v7; // rdx
-  unsigned __int8 v8; // [rsp+4Ch] [rbp+14h]
+  _RTL_SRWLOCK *v4; // rdi
+  __int64 v5; // rbp
+  __int64 v6; // rdx
+  unsigned __int8 v7; // [rsp+4Ch] [rbp+14h]
 
-  v8 = BYTE4(a2);
-  RtlpHpLfhContextMetadataFree(a1, (_QWORD *)(a1 + ((unsigned __int64)WORD1(a2) << 6)), 1);
-  result = a1 + ((unsigned __int64)v8 << 8) + 1472;
-  if ( a1 + ((unsigned __int16)a2 << 6) != result )
+  v7 = BYTE4(a2);
+  RtlpHpLfhContextMetadataFree(a1, (unsigned __int64 *)&a1[8 * (unsigned __int64)WORD1(a2)], 1);
+  if ( &a1[8 * (unsigned __int16)a2] != &a1[32 * (unsigned __int64)v7 + 184] )
   {
-    v5 = (_WORD *)(a1 + ((unsigned __int16)a2 << 6));
-    v6 = 128LL;
+    v4 = &a1[8 * (unsigned __int16)a2];
+    v5 = 128LL;
     do
     {
-      if ( *v5 )
+      if ( v4->0 )
       {
-        v7 = a1 + ((unsigned __int64)(unsigned __int16)*v5 << 6);
-        if ( *(_WORD *)(v7 + 4) )
-          RtlpHpLfhPrivateSlotShutdown(a1, v7, a2, 0);
+        v6 = (__int64)&a1[8 * (unsigned __int64)LOWORD(v4->Value)];
+        if ( *(_WORD *)(v6 + 4) )
+          RtlpHpLfhPrivateSlotShutdown(a1, v6, a2, 0);
       }
-      ++v5;
-      --v6;
+      v4 = (_RTL_SRWLOCK *)((char *)v4 + 2);
+      --v5;
     }
-    while ( v6 );
-    return RtlpHpLfhContextMetadataFree(a1, (_QWORD *)(a1 + ((unsigned __int16)a2 << 6)), 0);
+    while ( v5 );
+    RtlpHpLfhContextMetadataFree(a1, (unsigned __int64 *)&a1[8 * (unsigned __int16)a2], 0);
   }
-  return result;
 }

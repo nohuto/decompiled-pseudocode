@@ -8,12 +8,12 @@
  *     _TpReleaseWork@4 @ 0x4B2EC490 (_TpReleaseWork@4.c)
  */
 
-int __thiscall RtlpFcFreeChangeRegistration(_DWORD *this)
+LOGICAL __thiscall RtlpFcFreeChangeRegistration(PTP_WORK *BaseAddress)
 {
-  if ( this[5] )
+  if ( BaseAddress[5] )
   {
-    TpWaitForWork(this[5], 1);
-    TpReleaseWork(this[5]);
+    TpWaitForWork(BaseAddress[5], 1u);
+    TpReleaseWork(BaseAddress[5]);
   }
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

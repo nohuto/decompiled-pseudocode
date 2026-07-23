@@ -1,16 +1,16 @@
 /*
- * XREFs of SmProcessSystemStoreTrimRequest @ 0x140B2EB04
+ * XREFs of SmProcessSystemStoreTrimRequest @ 0x140B308E0
  * Callers:
- *     SmSetStoreInformation @ 0x140B2E9E0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x140B307BC (SmSetStoreInformation.c)
  * Callees:
- *     SmKmStoreGet @ 0x140354B70 (SmKmStoreGet.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1404F5858 (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ *     SmKmStoreGet @ 0x140356910 (SmKmStoreGet.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1404EEE18 (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall SmProcessSystemStoreTrimRequest(char *Src, SIZE_T Length, char a3)
@@ -65,7 +65,7 @@ __int64 __fastcall SmProcessSystemStoreTrimRequest(char *Src, SIZE_T Length, cha
     }
     if ( v15[0] )
     {
-      v6 = PsReferencePartitionByHandle(v15[0], 2LL, a3, 0x52546D53u, &v16);
+      v6 = PsReferencePartitionByHandle(v15[0], 2, a3, 0x52546D53u, &v16);
       if ( v6 < 0 )
         goto LABEL_9;
       ProcessPartition = *(_QWORD *)(v16 + 24);

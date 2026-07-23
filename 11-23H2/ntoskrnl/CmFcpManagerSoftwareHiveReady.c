@@ -1,15 +1,15 @@
 /*
- * XREFs of CmFcpManagerSoftwareHiveReady @ 0x14080DBC0
+ * XREFs of CmFcpManagerSoftwareHiveReady @ 0x14080DE90
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmFcpSubscribeScmWnfStateChange @ 0x140419E1C (CmFcpSubscribeScmWnfStateChange.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x14080E008 (CmFcpManagerDrainUsageNotifications.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmFcpSubscribeScmWnfStateChange @ 0x14041A1AC (CmFcpSubscribeScmWnfStateChange.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x14080E2D8 (CmFcpManagerDrainUsageNotifications.c)
  */
 
 _QWORD *__fastcall CmFcpManagerSoftwareHiveReady(__int64 a1)

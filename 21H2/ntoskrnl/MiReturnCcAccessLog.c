@@ -1,27 +1,35 @@
 /*
- * XREFs of MiReturnCcAccessLog @ 0x1402C811C
+ * XREFs of MiReturnCcAccessLog @ 0x14024697C
  * Callers:
- *     MiCheckAndProcessCcAccessLog @ 0x1403A3614 (MiCheckAndProcessCcAccessLog.c)
- *     MmPrefetchForCacheManager @ 0x1406E898C (MmPrefetchForCacheManager.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1403A3764 (MiCheckAndProcessCcAccessLog.c)
+ *     MmPrefetchForCacheManager @ 0x1406FFD6C (MmPrefetchForCacheManager.c)
  * Callees:
- *     MiQueuePageAccessLog @ 0x14025C02C (MiQueuePageAccessLog.c)
- *     MmFreeAccessPfnBuffer @ 0x1402D4628 (MmFreeAccessPfnBuffer.c)
+ *     MmFreeAccessPfnBuffer @ 0x140273308 (MmFreeAccessPfnBuffer.c)
+ *     MiQueuePageAccessLog @ 0x14027D59C (MiQueuePageAccessLog.c)
  */
 
-void __fastcall MiReturnCcAccessLog(signed __int64 P, int a2)
+__int64 __fastcall MiReturnCcAccessLog(signed __int64 P, int a2)
 {
-  struct _SLIST_ENTRY *v2; // r8
+  _QWORD *v2; // r8
+  __int64 result; // rax
 
-  v2 = (struct _SLIST_ENTRY *)P;
+  v2 = (_QWORD *)P;
   if ( a2 )
-    *(_QWORD *)(P + 32) = *(_QWORD *)(P + 24);
-  if ( !qword_140C4E800 )
-    v2 = (struct _SLIST_ENTRY *)(-(__int64)(_InterlockedCompareExchange64(&qword_140C4E800, P, 0LL) != 0) & P);
+  {
+    result = *(_QWORD *)(P + 24);
+    *(_QWORD *)(P + 32) = result;
+  }
+  if ( !qword_140C4E840 )
+  {
+    result = -_InterlockedCompareExchange64(&qword_140C4E840, P, 0LL);
+    v2 = (_QWORD *)(-(__int64)(result != 0) & P);
+  }
   if ( v2 )
   {
-    if ( v2[2].Next == (_SLIST_ENTRY *)(&v2[4].Next + 1) )
-      MmFreeAccessPfnBuffer(v2);
+    if ( (_QWORD *)v2[4] == v2 + 9 )
+      return MmFreeAccessPfnBuffer(v2);
     else
-      MiQueuePageAccessLog(v2);
+      return MiQueuePageAccessLog(v2);
   }
+  return result;
 }

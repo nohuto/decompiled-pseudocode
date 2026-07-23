@@ -1,9 +1,9 @@
 /*
- * XREFs of VfWmiVerifyNewRequest @ 0x140AE7B30
+ * XREFs of VfWmiVerifyNewRequest @ 0x140AE7B20
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x1405CFE24 (ViErrorReport1.c)
+ *     ViErrorReport1 @ 0x1405D0394 (ViErrorReport1.c)
  */
 
 __int64 __fastcall VfWmiVerifyNewRequest(

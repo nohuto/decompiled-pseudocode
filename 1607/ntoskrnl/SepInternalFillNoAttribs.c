@@ -1,7 +1,7 @@
 /*
- * XREFs of SepInternalFillNoAttribs @ 0x14021AB20
+ * XREFs of SepInternalFillNoAttribs @ 0x14021A94C
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000E3E0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000DF60 (SepInternalQuerySecurityAttributesTokenEx.c)
  * Callees:
  *     <none>
  */

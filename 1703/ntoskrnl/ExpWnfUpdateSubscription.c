@@ -24,8 +24,8 @@ __int64 __fastcall ExpWnfUpdateSubscription(
   _QWORD *v9; // rax
   _QWORD *v13; // rbx
   unsigned __int64 *v15; // rsi
-  _BYTE *v16; // rax
-  _BYTE *v17; // rbp
+  PRTL_BALANCED_NODE v16; // rax
+  PRTL_BALANCED_NODE v17; // rbp
   int v18; // ecx
   int v19; // r9d
   int v20; // ecx
@@ -47,12 +47,12 @@ __int64 __fastcall ExpWnfUpdateSubscription(
   v15 = (unsigned __int64 *)(a2 + 104);
   *a7 = 0;
   *a8 = 0;
-  v16 = (_BYTE *)KeAbPreAcquire(a2 + 104, 0LL, 0LL);
+  v16 = KeAbPreAcquire(a2 + 104, 0LL, 0);
   v17 = v16;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v15, 0LL) )
     ExfAcquirePushLockExclusiveEx(v15, v16, (ULONG_PTR)v15);
   if ( v17 )
-    v17[26] |= 1u;
+    BYTE2(v17[1].Left) |= 1u;
   v18 = *((_DWORD *)v13 + 25);
   if ( (a5 & 1) != 0 )
   {

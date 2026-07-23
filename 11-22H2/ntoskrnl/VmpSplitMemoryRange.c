@@ -18,10 +18,10 @@
 
 __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 a2, __int64 a3)
 {
-  unsigned __int64 MemoryRanges; // rbp
+  __int64 MemoryRanges; // rbp
   __int64 v7; // r12
   int v8; // edi
-  unsigned __int64 *v9; // rsi
+  _RTL_BALANCED_NODE **v9; // rsi
   __int64 v10; // rbx
   __int64 v11; // rax
   __int64 v12; // rdi
@@ -37,19 +37,19 @@ __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 
   unsigned __int64 v22; // rdi
   __int64 v23; // rax
   unsigned __int64 v24; // rdx
-  bool v25; // r8
-  unsigned __int64 v26; // r8
+  BOOLEAN v25; // r8
+  _RTL_BALANCED_NODE *v26; // r8
   unsigned __int64 v27; // rax
   __int64 *v28; // rdi
   __int64 *v29; // r14
   __int64 *v30; // rsi
-  unsigned __int64 *v31; // rbx
+  _RTL_BALANCED_NODE **v31; // rbx
   __int64 v32; // rbp
   __int64 v33; // rcx
   __int64 v34; // rax
   unsigned __int64 v35; // rdx
-  bool v36; // r8
-  unsigned __int64 v37; // r8
+  BOOLEAN v36; // r8
+  _RTL_BALANCED_NODE *v37; // r8
   unsigned __int64 v38; // rax
   unsigned __int8 v39; // cl
   struct _KPRCB *v40; // r9
@@ -76,7 +76,7 @@ __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 
     v8 = -1073740007;
     goto LABEL_73;
   }
-  v9 = (unsigned __int64 *)(SpinLock + 6);
+  v9 = (_RTL_BALANCED_NODE **)(SpinLock + 6);
   v10 = *((_QWORD *)SpinLock + 3);
   if ( (SpinLock[8] & 1) != 0 && v10 )
     v10 ^= (unsigned __int64)v9;
@@ -109,10 +109,13 @@ __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 
   }
   v12 = VmpVaRangeNumberOfGpaRanges(v10);
   ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -159,17 +162,17 @@ __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 
   *(_QWORD *)(MemoryRanges + 56) = v23;
   *(_DWORD *)(MemoryRanges + 64) = v49 | *(_DWORD *)(MemoryRanges + 64) & 0xFFFFFFFE;
   v17 = (SpinLock[8] & 1) == 0;
-  v24 = *v9;
+  v24 = (unsigned __int64)*v9;
   v45 = *(_QWORD *)(v10 + 56);
   if ( !v17 && v24 )
     v24 ^= (unsigned __int64)v9;
   v25 = 0;
   if ( !v24 )
     goto LABEL_51;
-  v26 = *(_QWORD *)(MemoryRanges + 24);
+  v26 = *(_RTL_BALANCED_NODE **)(MemoryRanges + 24);
   while ( 1 )
   {
-    if ( v26 <= *(_QWORD *)(v24 + 32) && v26 < *(_QWORD *)(v24 + 24) )
+    if ( (unsigned __int64)v26 <= *(_QWORD *)(v24 + 32) && (unsigned __int64)v26 < *(_QWORD *)(v24 + 24) )
     {
       v27 = *(_QWORD *)v24;
       if ( (SpinLock[8] & 1) != 0 )
@@ -200,11 +203,11 @@ LABEL_49:
   }
   v25 = 1;
 LABEL_51:
-  RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 3, v24, v25, MemoryRanges);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(SpinLock + 6), (PRTL_BALANCED_NODE)v24, v25, (PRTL_BALANCED_NODE)MemoryRanges);
   v28 = *(__int64 **)(MemoryRanges + 40);
   v29 = (__int64 *)(v10 + 40);
   v30 = *(__int64 **)(v10 + 40);
-  v31 = (unsigned __int64 *)(SpinLock + 2);
+  v31 = (_RTL_BALANCED_NODE **)(SpinLock + 2);
   v32 = v48;
   while ( 1 )
   {
@@ -215,16 +218,16 @@ LABEL_51:
     LODWORD(v33) = *((_DWORD *)v30 + 16);
     v30[7] = v34;
     *((_DWORD *)v28 + 16) ^= (*((_DWORD *)v28 + 16) ^ v33) & 1;
-    v35 = *v31;
+    v35 = (unsigned __int64)*v31;
     if ( (SpinLock[4] & 1) != 0 && v35 )
       v35 ^= (unsigned __int64)v31;
     v36 = 0;
     if ( v35 )
     {
-      v37 = v28[6];
+      v37 = (_RTL_BALANCED_NODE *)v28[6];
       while ( 1 )
       {
-        if ( v37 > *(_QWORD *)(v35 + 32) || v37 >= *(_QWORD *)(v35 + 24) )
+        if ( (unsigned __int64)v37 > *(_QWORD *)(v35 + 32) || (unsigned __int64)v37 >= *(_QWORD *)(v35 + 24) )
         {
           v38 = *(_QWORD *)(v35 + 8);
           if ( (SpinLock[4] & 1) != 0 )
@@ -259,7 +262,7 @@ LABEL_63:
         v35 = v38;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 1, v35, v36, (unsigned __int64)(v28 + 3));
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(SpinLock + 2), (PRTL_BALANCED_NODE)v35, v36, (PRTL_BALANCED_NODE)v28 + 1);
     v30 = (__int64 *)*v30;
     if ( v30 == v29 )
       break;
@@ -275,10 +278,10 @@ LABEL_73:
       ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
     else
       ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v39 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v39 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v39 >= 2u )
       {
         v40 = KeGetCurrentPrcb();
         v41 = v40->SchedulerAssist;

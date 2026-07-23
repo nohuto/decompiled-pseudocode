@@ -1,13 +1,13 @@
 /*
- * XREFs of PipAddtoRebuildPowerRelationsQueue @ 0x14074B6C4
+ * XREFs of PipAddtoRebuildPowerRelationsQueue @ 0x14074B884
  * Callers:
- *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
- *     PipAddDependencyEdgeBetweenNodes @ 0x14050C510 (PipAddDependencyEdgeBetweenNodes.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x14074B494 (PnpNewDeviceNodeDependencyCheck.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1407B4B40 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     IoResolveDependency @ 0x1403BF8D0 (IoResolveDependency.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x14050C750 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x14074B654 (PnpNewDeviceNodeDependencyCheck.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1407B6460 (PipAddDependentsToRebuildPowerRelationsQueue.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x14074B750 (PipIsDeviceReadyForPowerRelations.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x14074B910 (PipIsDeviceReadyForPowerRelations.c)
  */
 
 _QWORD *__fastcall PipAddtoRebuildPowerRelationsQueue(__int64 a1)
@@ -40,13 +40,13 @@ _QWORD *__fastcall PipAddtoRebuildPowerRelationsQueue(__int64 a1)
         {
           ObfReferenceObjectWithTag(v4, 0x44706E50u);
           ++*(_DWORD *)(v3 + 88);
-          result = (_QWORD *)qword_140C456C8;
-          if ( *(__int64 **)qword_140C456C8 != &PiRebuildPowerRelationsQueue )
+          result = (_QWORD *)qword_140C456D8;
+          if ( *(__int64 **)qword_140C456D8 != &PiRebuildPowerRelationsQueue )
             __fastfail(3u);
           *v5 = &PiRebuildPowerRelationsQueue;
           *(_QWORD *)(v3 + 80) = result;
           *result = v5;
-          qword_140C456C8 = v3 + 72;
+          qword_140C456D8 = v3 + 72;
         }
       }
     }

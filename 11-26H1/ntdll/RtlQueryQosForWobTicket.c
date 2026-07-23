@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlQueryQosForWobTicket @ 0x180143F80
+ * XREFs of RtlQueryQosForWobTicket @ 0x180143E80
  * Callers:
  *     <none>
  * Callees:
- *     ZwManageWobTicket @ 0x1801612B0 (ZwManageWobTicket.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     ZwManageWobTicket @ 0x1801611B0 (ZwManageWobTicket.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlQueryQosForWobTicket(__int64 *a1, int a2, _DWORD *a3)

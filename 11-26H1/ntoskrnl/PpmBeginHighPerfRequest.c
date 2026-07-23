@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmBeginHighPerfRequest @ 0x1404A6170
+ * XREFs of PpmBeginHighPerfRequest @ 0x14049F800
  * Callers:
- *     PopSetupHighPerfPowerRequest @ 0x1407C8690 (PopSetupHighPerfPowerRequest.c)
- *     PopSwitchUpdateUserShutdownScenarioState @ 0x1407D1634 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
- *     PdcPoPerfOverride @ 0x140A390F8 (PdcPoPerfOverride.c)
- *     PoInitializeBroadcast @ 0x140AC58BC (PoInitializeBroadcast.c)
+ *     PopSetupHighPerfPowerRequest @ 0x1407CB6F0 (PopSetupHighPerfPowerRequest.c)
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x1407D46D4 (PopSwitchUpdateUserShutdownScenarioState.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
+ *     PdcPoPerfOverride @ 0x1409F4CB8 (PdcPoPerfOverride.c)
+ *     PoInitializeBroadcast @ 0x140AC752C (PoInitializeBroadcast.c)
  * Callees:
- *     PopPowerRequestReferenceAcquire @ 0x1404A6310 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14049F9A0 (PopPowerRequestReferenceAcquire.c)
  */
 
 __int64 PpmBeginHighPerfRequest()
 {
-  if ( stru_140F10828.WaitBlock[2].WaitListEntry.Blink )
-    return PopPowerRequestReferenceAcquire(stru_140F10828.WaitBlock[2].WaitListEntry.Blink);
+  if ( PpmHighPerfPowerRequest )
+    return PopPowerRequestReferenceAcquire(PpmHighPerfPowerRequest);
   else
     return 3221225473LL;
 }

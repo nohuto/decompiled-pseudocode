@@ -1,20 +1,20 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockShared @ 0x14008BE60
+ * XREFs of ExReleaseAutoExpandPushLockShared @ 0x14008B5C0
  * Callers:
- *     NtAllocateUserPhysicalPages @ 0x14065CA98 (NtAllocateUserPhysicalPages.c)
- *     NtMapUserPhysicalPages @ 0x14065D72C (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x14065DBA8 (NtMapUserPhysicalPagesScatter.c)
- *     MiCommitEnclavePages @ 0x14065E734 (MiCommitEnclavePages.c)
- *     MiCopyPagesIntoEnclave @ 0x14065E84C (MiCopyPagesIntoEnclave.c)
- *     MiCreateEnclave @ 0x14065EF30 (MiCreateEnclave.c)
- *     MiDeleteEnclavePages @ 0x14065F308 (MiDeleteEnclavePages.c)
- *     MiProtectEnclavePages @ 0x14065F614 (MiProtectEnclavePages.c)
+ *     NtAllocateUserPhysicalPages @ 0x14065CB7C (NtAllocateUserPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x14065D810 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14065DC8C (NtMapUserPhysicalPagesScatter.c)
+ *     MiCommitEnclavePages @ 0x14065E818 (MiCommitEnclavePages.c)
+ *     MiCopyPagesIntoEnclave @ 0x14065E930 (MiCopyPagesIntoEnclave.c)
+ *     MiCreateEnclave @ 0x14065F014 (MiCreateEnclave.c)
+ *     MiDeleteEnclavePages @ 0x14065F3EC (MiDeleteEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x14065F6F8 (MiProtectEnclavePages.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockSharedEx @ 0x14008BFE4 (ExfReleasePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExpTryExpandAutoExpandPushLock @ 0x140133370 (ExpTryExpandAutoExpandPushLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockSharedEx @ 0x14008B744 (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExpTryExpandAutoExpandPushLock @ 0x1401338E0 (ExpTryExpandAutoExpandPushLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall ExReleaseAutoExpandPushLockShared(

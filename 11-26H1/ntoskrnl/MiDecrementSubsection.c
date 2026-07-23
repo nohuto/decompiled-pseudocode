@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDecrementSubsection @ 0x140473D20
+ * XREFs of MiDecrementSubsection @ 0x14046D4A0
  * Callers:
- *     MiTrimSection @ 0x1404651E0 (MiTrimSection.c)
- *     MiTrimSharedPage @ 0x140478A54 (MiTrimSharedPage.c)
- *     MiLocateSharedPageViews @ 0x1406F8320 (MiLocateSharedPageViews.c)
+ *     MiTrimSection @ 0x14045E1A0 (MiTrimSection.c)
+ *     MiTrimSharedPage @ 0x1404723B4 (MiTrimSharedPage.c)
+ *     MiLocateSharedPageViews @ 0x1406FCFF0 (MiLocateSharedPageViews.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiInsertUnusedSubsectionInternal @ 0x14036E724 (MiInsertUnusedSubsectionInternal.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsectionInternal @ 0x1403704C4 (MiInsertUnusedSubsectionInternal.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 void __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
@@ -61,7 +61,7 @@ void __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
   {
     LOBYTE(v3) = *(_QWORD *)(v10 + 64) != 0LL;
     MiReturnCrossPartitionSectionCharges(
-      *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v10 + 60) & 0x3FF)),
+      *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v10 + 60) & 0x3FF)),
       v3,
       v6);
   }

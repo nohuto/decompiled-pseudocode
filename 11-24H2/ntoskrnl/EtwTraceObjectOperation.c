@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceObjectOperation @ 0x140401410
+ * XREFs of EtwTraceObjectOperation @ 0x1403FBD80
  * Callers:
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x140401588 (ExCheckSingleFilter.c)
- *     EtwpTraceKernelEventWithFilter @ 0x14048C9F0 (EtwpTraceKernelEventWithFilter.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x1403FBEF8 (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x140487710 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, unsigned int a3, unsigned int a4)

@@ -1,72 +1,71 @@
 /*
- * XREFs of KiAcquireReleaseThreadLock @ 0x14027A050
+ * XREFs of KiAcquireReleaseThreadLock @ 0x140267FF0
  * Callers:
- *     KeRundownApcQueues @ 0x14064AFA4 (KeRundownApcQueues.c)
+ *     KeRundownApcQueues @ 0x14063FDC4 (KeRundownApcQueues.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
+__int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // di
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rbx
-  _DWORD *v8; // rcx
-  _DWORD *v9; // rcx
-  int v10; // eax
-  int v11; // eax
-  unsigned __int8 v12; // al
-  struct _KPRCB *v13; // r9
-  _DWORD *v14; // r8
-  int v15; // eax
-  bool v16; // zf
-  signed __int32 v17[14]; // [rsp+0h] [rbp-38h] BYREF
-  int v18; // [rsp+40h] [rbp+8h] BYREF
+  _DWORD *v5; // rcx
+  _DWORD *v6; // rcx
+  int v7; // eax
+  int v8; // eax
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v10; // al
+  struct _KPRCB *v11; // r9
+  _DWORD *v12; // r8
+  int v13; // eax
+  bool v14; // zf
+  signed __int32 v15[14]; // [rsp+0h] [rbp-38h] BYREF
+  int v16; // [rsp+40h] [rbp+8h] BYREF
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    a2 = (-1LL << (CurrentIrql + 1)) & 4;
-    a3 = (unsigned int)a2 | SchedulerAssist[5];
-    SchedulerAssist[5] = a3;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  _InterlockedOr(v17, 0);
+  _InterlockedOr(v15, 0);
   if ( *(_QWORD *)(a1 + 64) )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v18 = 0;
+    v16 = 0;
     while ( 1 )
     {
-      v8 = CurrentPrcb->SchedulerAssist;
-      if ( v8 )
+      v5 = CurrentPrcb->SchedulerAssist;
+      if ( v5 )
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v10 = v8[6];
-          v8[6] = v10 + 1;
-          if ( v10 == -1 )
+          v7 = v5[6];
+          v5[6] = v7 + 1;
+          if ( v7 == -1 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
       if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
         break;
-      v9 = CurrentPrcb->SchedulerAssist;
-      if ( v9 )
+      v6 = CurrentPrcb->SchedulerAssist;
+      if ( v6 )
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v11 = v9[6] - 1;
-          v9[6] = v11;
-          if ( !v11 )
+          v8 = v6[6] - 1;
+          v6[6] = v8;
+          if ( !v8 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
       do
-        KeYieldProcessorEx(&v18, a2, a3, (__int64)SchedulerAssist);
+        KeYieldProcessorEx(&v16);
       while ( *(_QWORD *)(a1 + 64) );
     }
     KiReleaseThreadLockSafe(a1);
@@ -75,16 +74,16 @@ __int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1, __int64 a2, __int64 a3
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v12 = KeGetCurrentIrql();
-      if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      v10 = KeGetCurrentIrql();
+      if ( v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
-        v13 = KeGetCurrentPrcb();
-        v14 = v13->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v16 = (v15 & v14[5]) == 0;
-        v14[5] &= v15;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick(v13);
+        v11 = KeGetCurrentPrcb();
+        v12 = v11->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v14 = (v13 & v12[5]) == 0;
+        v12[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick(v11);
       }
     }
   }

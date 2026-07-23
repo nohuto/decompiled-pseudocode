@@ -2,8 +2,8 @@
  * XREFs of MiSetPfnKernelStack @ 0x14021B4D8
  * Callers:
  *     MiInPageSingleKernelStack @ 0x14021B0F0 (MiInPageSingleKernelStack.c)
- *     MmCreateKernelStack @ 0x1402716A0 (MmCreateKernelStack.c)
- *     MiMarkKernelStack @ 0x1403761C0 (MiMarkKernelStack.c)
+ *     MmCreateKernelStack @ 0x140271930 (MmCreateKernelStack.c)
+ *     MiMarkKernelStack @ 0x140376360 (MiMarkKernelStack.c)
  * Callees:
  *     MiMarkPfnTradable @ 0x14021B51C (MiMarkPfnTradable.c)
  */

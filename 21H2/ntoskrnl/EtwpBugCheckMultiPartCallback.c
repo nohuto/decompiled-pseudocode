@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpBugCheckMultiPartCallback @ 0x1405AA910
+ * XREFs of EtwpBugCheckMultiPartCallback @ 0x1405AAB40
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 void __fastcall EtwpBugCheckMultiPartCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,
-        _QWORD *ReasonSpecificData,
+        GUID *ReasonSpecificData,
         ULONG ReasonSpecificDataLength)
 {
   __int128 *v4; // rbx
@@ -27,14 +27,14 @@ void __fastcall EtwpBugCheckMultiPartCallback(
   __int64 v17; // rcx
   int v18; // edx
 
-  v4 = (__int128 *)ReasonSpecificData[6];
-  *((_DWORD *)ReasonSpecificData + 10) = 0;
-  *((_OWORD *)ReasonSpecificData + 1) = EtwSecondaryDumpDataGuid;
+  v4 = *(__int128 **)&ReasonSpecificData[3].Data1;
+  *(_DWORD *)ReasonSpecificData[2].Data4 = 0;
+  ReasonSpecificData[1] = EtwSecondaryDumpDataGuid;
   if ( !v4 )
   {
     v4 = &EtwpDumpCallbackContext;
     EtwpDumpCallbackContext = 0LL;
-    ReasonSpecificData[6] = &EtwpDumpCallbackContext;
+    *(_QWORD *)&ReasonSpecificData[3].Data1 = &EtwpDumpCallbackContext;
   }
   if ( *((_BYTE *)v4 + 2) )
   {
@@ -49,9 +49,9 @@ void __fastcall EtwpBugCheckMultiPartCallback(
       else
         v11 = v10[1];
       v10[12] = v11;
-      *((_DWORD *)ReasonSpecificData + 10) = v11;
-      if ( *((_DWORD *)ReasonSpecificData + 2) )
-        ReasonSpecificData[4] = v10;
+      *(_DWORD *)ReasonSpecificData[2].Data4 = v11;
+      if ( *(_DWORD *)ReasonSpecificData->Data4 )
+        *(_QWORD *)&ReasonSpecificData[2].Data1 = v10;
       v17 = **((_QWORD **)v4 + 1);
       v16 = v9 + 96;
 LABEL_26:
@@ -75,12 +75,12 @@ LABEL_26:
           else
           {
             v13 = 2 * *(unsigned __int16 *)(v12 + 152) + 48;
-            *((_DWORD *)ReasonSpecificData + 10) = v13;
-            if ( !*((_DWORD *)ReasonSpecificData + 2) )
+            *(_DWORD *)ReasonSpecificData[2].Data4 = v13;
+            if ( !*(_DWORD *)ReasonSpecificData->Data4 )
               goto LABEL_21;
-            if ( v13 <= *((_DWORD *)ReasonSpecificData + 3) )
+            if ( v13 <= *(_DWORD *)&ReasonSpecificData->Data4[4] )
             {
-              v15 = *ReasonSpecificData;
+              v15 = *(_QWORD *)&ReasonSpecificData->Data1;
               *(_DWORD *)v15 = 32223201;
               *(_DWORD *)(v15 + 4) = *(_DWORD *)v12;
               *(_DWORD *)(v15 + 16) = *(_DWORD *)(v12 + 4);
@@ -90,9 +90,9 @@ LABEL_26:
               *(_DWORD *)(v15 + 20) = *(unsigned __int16 *)(v12 + 152);
               *(_OWORD *)(v15 + 32) = *(_OWORD *)(v12 + 320);
               memmove((void *)(v15 + 48), *(const void **)(v12 + 160), 2LL * *(unsigned __int16 *)(v12 + 152));
-              ReasonSpecificData[4] = *ReasonSpecificData;
-              *((_DWORD *)ReasonSpecificData + 10) = v13;
-              *((_DWORD *)ReasonSpecificData + 2) = v13;
+              *(_QWORD *)&ReasonSpecificData[2].Data1 = *(_QWORD *)&ReasonSpecificData->Data1;
+              *(_DWORD *)ReasonSpecificData[2].Data4 = v13;
+              *(_DWORD *)ReasonSpecificData->Data4 = v13;
 LABEL_21:
               v16 = v12 + 96;
               v17 = *(_QWORD *)(v12 + 96);
@@ -108,31 +108,31 @@ LABEL_21:
   }
   else
   {
-    *((_DWORD *)ReasonSpecificData + 10) = 32;
-    if ( *((_DWORD *)ReasonSpecificData + 2) )
+    *(_DWORD *)ReasonSpecificData[2].Data4 = 32;
+    if ( *(_DWORD *)ReasonSpecificData->Data4 )
     {
-      v6 = (LARGE_INTEGER *)*ReasonSpecificData;
+      v6 = *(LARGE_INTEGER **)&ReasonSpecificData->Data1;
       v6[2].QuadPart = EtwpBootTime;
       v6[1].LowPart = EtwCPUSpeedInMHz;
       v6[3] = EtwPerfFreq;
       v6->LowPart = KeMaximumIncrement;
       v6->HighPart = NtBuildNumber;
-      ReasonSpecificData[4] = *ReasonSpecificData;
-      *((_DWORD *)ReasonSpecificData + 10) = 32;
-      *((_DWORD *)ReasonSpecificData + 2) = 32;
+      *(_QWORD *)&ReasonSpecificData[2].Data1 = *(_QWORD *)&ReasonSpecificData->Data1;
+      *(_DWORD *)ReasonSpecificData[2].Data4 = 32;
+      *(_DWORD *)ReasonSpecificData->Data4 = 32;
     }
     *((_BYTE *)v4 + 2) = 1;
   }
-  v18 = *((_DWORD *)ReasonSpecificData + 14);
+  v18 = *(_DWORD *)ReasonSpecificData[3].Data4;
   if ( (unsigned int)*(unsigned __int16 *)v4 >= *(_DWORD *)(EtwpHostSiloState + 16) )
   {
-    *((_DWORD *)ReasonSpecificData + 14) = v18 & 0xFFFFFFFE;
+    *(_DWORD *)ReasonSpecificData[3].Data4 = v18 & 0xFFFFFFFE;
     *((_QWORD *)v4 + 1) = 0LL;
     *((_BYTE *)v4 + 2) = 0;
     *(_WORD *)v4 = 0;
   }
   else
   {
-    *((_DWORD *)ReasonSpecificData + 14) = v18 | 1;
+    *(_DWORD *)ReasonSpecificData[3].Data4 = v18 | 1;
   }
 }

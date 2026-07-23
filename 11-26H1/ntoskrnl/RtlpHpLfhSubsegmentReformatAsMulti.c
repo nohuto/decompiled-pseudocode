@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentReformatAsMulti @ 0x1403499A0
+ * XREFs of RtlpHpLfhSubsegmentReformatAsMulti @ 0x14034BA20
  * Callers:
- *     RtlpHpLfhOwnerRunMaintenance @ 0x140346820 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x140349230 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x1403488A0 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14034B2B0 (RtlpHpLfhBucketAddSubsegment.c)
  * Callees:
- *     RtlpHpLfhSubsegmentConstructCommitState @ 0x140349B10 (RtlpHpLfhSubsegmentConstructCommitState.c)
- *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x140349CC0 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x140349D0C (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x140349E18 (RtlpHpLfhSubsegmentReformatCheck.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpHpLfhSubsegmentConstructCommitState @ 0x14034BB90 (RtlpHpLfhSubsegmentConstructCommitState.c)
+ *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x14034BD40 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x14034BD8C (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x14034BE98 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentReformatAsMulti(__int64 a1, unsigned __int64 a2, char a3)

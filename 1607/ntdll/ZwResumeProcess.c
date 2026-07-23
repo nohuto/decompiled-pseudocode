@@ -1,16 +1,16 @@
 /*
  * XREFs of ZwResumeProcess @ 0x1800A9110
  * Callers:
- *     RtlpProcessReflectionStartup @ 0x1800D34E0 (RtlpProcessReflectionStartup.c)
+ *     RtlpProcessReflectionStartup @ 0x1800D35A0 (RtlpProcessReflectionStartup.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwResumeProcess()
+NTSTATUS __cdecl ZwResumeProcess(HANDLE ProcessHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 360LL;
+  result = 360;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

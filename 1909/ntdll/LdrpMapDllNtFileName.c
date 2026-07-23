@@ -22,40 +22,39 @@
  *     LdrpLogEtwEvent @ 0x1800CFB08 (LdrpLogEtwEvent.c)
  */
 
-__int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
+__int64 __fastcall LdrpMapDllNtFileName(__int64 a1, _UNICODE_STRING *a2)
 {
   __int64 v3; // rbx
-  __int64 v5; // r12
+  unsigned __int64 v5; // r12
   ULONG v6; // eax
   __int64 v7; // r15
   __int64 v8; // rcx
   __int64 v9; // r14
   int i; // esi
   NTSTATUS v11; // eax
-  int v12; // r9d
+  __int64 v12; // r9
   int v13; // ebx
-  int v14; // eax
-  __int64 v15; // rcx
-  __int64 v16; // rcx
-  int v18; // r8d
-  int v19; // r9d
-  char *v20; // rcx
-  int v21; // r8d
-  int v22; // r9d
+  ULONG v14; // esi
+  NTSTATUS v15; // eax
+  int v17; // r8d
+  int v18; // r9d
+  char *v19; // rcx
+  int v20; // r8d
+  int v21; // r9d
   HANDLE FileHandle; // [rsp+40h] [rbp-59h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp-51h] BYREF
-  __int64 v25; // [rsp+50h] [rbp-49h]
-  _QWORD v26[2]; // [rsp+58h] [rbp-41h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-31h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-21h] BYREF
-  char v29; // [rsp+100h] [rbp+67h] BYREF
-  UNICODE_STRING *v30; // [rsp+108h] [rbp+6Fh]
-  char v31; // [rsp+110h] [rbp+77h] BYREF
-  char v32; // [rsp+118h] [rbp+7Fh] BYREF
+  HANDLE SectionHandle; // [rsp+48h] [rbp-51h] BYREF
+  __int64 v24; // [rsp+50h] [rbp-49h]
+  unsigned __int64 Parameters[2]; // [rsp+58h] [rbp-41h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-31h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-21h] BYREF
+  char v28; // [rsp+100h] [rbp+67h] BYREF
+  _UNICODE_STRING *v29; // [rsp+108h] [rbp+6Fh]
+  char v30; // [rsp+110h] [rbp+77h] BYREF
+  ULONG Response; // [rsp+118h] [rbp+7Fh] BYREF
 
-  v30 = a2;
+  v29 = a2;
   v3 = *(_QWORD *)(a1 + 56);
-  v25 = *(_QWORD *)(a1 + 168);
+  v24 = *(_QWORD *)(a1 + 168);
   if ( !(unsigned __int8)LdrpCheckForRetryLoading(a1, 0LL) )
   {
     v5 = v3 + 72;
@@ -69,21 +68,19 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
     ObjectAttributes.Attributes = v6;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v7 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(2112LL) )
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v8 = 2147353476LL;
     v9 = 2147353477LL;
     if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v20 = (unsigned int)RtlGetCurrentServiceSessionId(v8)
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
-      if ( (*v20 & 0x20) != 0 )
+      v19 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+      if ( (*v19 & 0x20) != 0 )
       {
-        LOBYTE(v19) = -1;
         LOBYTE(v18) = -1;
-        LdrpLogEtwEvent(5253, -1, v18, v19, 0LL, 0LL);
+        LOBYTE(v17) = -1;
+        LdrpLogEtwEvent(5253, -1, v17, v18, 0LL, 0LL);
       }
     }
     for ( i = 0; ; i = 1 )
@@ -110,76 +107,79 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
       if ( v13 < 0 )
       {
         if ( LdrpEnforceIntegrityContinuity )
-          goto LABEL_21;
+          goto LABEL_22;
       }
     }
+    v14 = 0x1000000;
     if ( (*(_DWORD *)(a1 + 32) & 0x1000000) != 0 && (NtCurrentPeb()->BitField & 0x10) == 0 )
     {
       LOBYTE(v12) = 8;
-      v13 = LdrpSetModuleSigningLevel((_DWORD)FileHandle, *(_QWORD *)(a1 + 56), (unsigned int)&v31, v12, (__int64)&v29);
+      v13 = LdrpSetModuleSigningLevel(FileHandle, *(_QWORD *)(a1 + 56), &v30, v12, &v28);
       if ( v13 < 0 )
-        goto LABEL_21;
+        goto LABEL_22;
     }
-    v14 = NtCreateSection(&Handle, 13LL, 0LL);
-    v13 = v14;
-    if ( v14 < 0 )
+    if ( UseWOW64 && (*(_DWORD *)(a1 + 32) & 0x800) == 0 )
+      v14 = 17825792;
+    v15 = NtCreateSection(&SectionHandle, 0xDu, 0LL, 0LL, 0x10u, v14, FileHandle);
+    v13 = v15;
+    if ( v15 < 0 )
     {
-      if ( v14 == -1073740702 || (unsigned int)(v14 + 1073740674) <= 1 )
+      if ( v15 == -1073740702 || (unsigned int)(v15 + 1073740674) <= 1 )
       {
-        v13 = LdrAppxHandleIntegrityFailure((unsigned int)v14);
+        v13 = LdrAppxHandleIntegrityFailure((unsigned int)v15);
       }
-      else if ( v14 != -1073741801 && v14 != -1073741670 && v14 != -1073741523 )
+      else if ( v15 != -1073741801 && v15 != -1073741670 && v15 != -1073741523 )
       {
-        v26[0] = v5;
-        v26[1] = v14;
-        if ( (int)NtRaiseHardError(3221225595LL, 2LL, 1LL, v26, 1, &v32) >= 0 && LdrInitState != 3 )
+        Parameters[0] = v5;
+        Parameters[1] = v15;
+        if ( NtRaiseHardError(-1073741701, 2u, 1u, Parameters, 1u, &Response) >= 0 && LdrInitState != 3 )
           ++LdrpFatalHardErrorCount;
       }
       LdrpLogError((unsigned int)v13, 5253LL, 0LL, v5);
-      goto LABEL_21;
+      goto LABEL_22;
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v15) )
+    if ( RtlGetCurrentServiceSessionId() )
       v7 = (__int64)NtCurrentPeb()->SharedData + 554;
     if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v16) )
+      if ( RtlGetCurrentServiceSessionId() )
         v9 = (__int64)NtCurrentPeb()->SharedData + 555;
       if ( (*(_BYTE *)v9 & 0x20) != 0 )
       {
-        LOBYTE(v22) = -1;
         LOBYTE(v21) = -1;
-        LdrpLogEtwEvent(5254, -1, v21, v22, 0LL, 0LL);
+        LOBYTE(v20) = -1;
+        LdrpLogEtwEvent(5254, -1, v20, v21, 0LL, 0LL);
       }
     }
     if ( !UseWOW64 && (*(_DWORD *)(a1 + 32) & 0x100) == 0 )
     {
       if ( !LdrpAdvapi32DllHandle )
-        goto LABEL_19;
-      v13 = ((__int64 (__fastcall *)(HANDLE, UNICODE_STRING *))(__ROR8__(
-                                                                  LdrpSaferIsDllAllowedRoutine,
-                                                                  64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+        goto LABEL_20;
+      v13 = ((__int64 (__fastcall *)(HANDLE, _UNICODE_STRING *))(__ROR8__(
+                                                                   LdrpSaferIsDllAllowedRoutine,
+                                                                   64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
               FileHandle,
-              v30);
+              v29);
       if ( v13 == -1073741275 )
         v13 = 0;
     }
     if ( v13 < 0 )
     {
-LABEL_20:
-      NtClose(Handle);
 LABEL_21:
+      NtClose(SectionHandle);
+LABEL_22:
       NtClose(FileHandle);
       return (unsigned int)v13;
     }
-LABEL_19:
+LABEL_20:
     v13 = LdrpMapDllWithSectionHandle(a1);
-    if ( v25 && v13 >= 0 )
+    if ( v24 && v13 >= 0 )
     {
       *(_QWORD *)(a1 + 176) = FileHandle;
-      *(_QWORD *)(a1 + 24) = Handle;
+      *(_QWORD *)(a1 + 24) = SectionHandle;
       return (unsigned int)v13;
     }
-    goto LABEL_20;
+    goto LABEL_21;
   }
   return 3221226029LL;
 }

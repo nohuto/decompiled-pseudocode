@@ -163,7 +163,7 @@ __int64 __fastcall SeSubProcessToken(
     if ( inserted >= 0 )
     {
       v14 = v32 & 2;
-      inserted = SepDesktopAppxSubProcessToken((__int64)v13, a1, *(_DWORD *)(a6 + 4), &v25, &v26);
+      inserted = SepDesktopAppxSubProcessToken(v13, a1, *(_DWORD *)(a6 + 4), &v25, &v26);
       if ( inserted >= 0 )
       {
         inserted = SepMandatorySubProcessToken((_DWORD *)(v34 & -(__int64)(v14 != 0)), (__int64)v13, a1, &v35);

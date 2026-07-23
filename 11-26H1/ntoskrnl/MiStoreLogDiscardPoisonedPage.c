@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogDiscardPoisonedPage @ 0x14070A9B4
+ * XREFs of MiStoreLogDiscardPoisonedPage @ 0x14070F668
  * Callers:
- *     MiStoreDiscardPoisonedPage @ 0x14070A464 (MiStoreDiscardPoisonedPage.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14070F118 (MiStoreDiscardPoisonedPage.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiStoreLogDiscardPoisonedPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6)
@@ -36,8 +36,8 @@ void __fastcall MiStoreLogDiscardPoisonedPage(__int64 a1, __int64 a2, __int64 a3
   __int64 *v29; // [rsp+E0h] [rbp+27h]
   __int64 v30; // [rsp+E8h] [rbp+2Fh]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000002LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000002LL) )
   {
     v12 = a6;
     v16 = v7;
@@ -57,6 +57,6 @@ void __fastcall MiStoreLogDiscardPoisonedPage(__int64 a1, __int64 a2, __int64 a3
     v15 = v6;
     v28 = 4LL;
     v17 = 0x1000000LL;
-    tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&dword_14005A2D4, v6, 1u, v10, v11, 8u, &v18);
+    tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&unk_14005B068, v6, 1u, v10, v11, 8u, &v18);
   }
 }

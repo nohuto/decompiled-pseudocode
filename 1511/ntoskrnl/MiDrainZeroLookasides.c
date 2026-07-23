@@ -23,7 +23,7 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   PSLIST_ENTRY v12; // rbx
   __int64 v13; // r8
   unsigned __int64 v14; // r12
-  struct _SLIST_ENTRY *Next; // r15
+  _SLIST_ENTRY *Next; // r15
   __int64 v16; // rdx
   unsigned __int8 CurrentIrql; // bp
   unsigned int v18; // [rsp+20h] [rbp-68h]

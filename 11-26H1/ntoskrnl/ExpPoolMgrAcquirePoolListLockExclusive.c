@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPoolMgrAcquirePoolListLockExclusive @ 0x1404D0CB0
+ * XREFs of ExpPoolMgrAcquirePoolListLockExclusive @ 0x1404CA6E0
  * Callers:
- *     ExpPoolMgrRegisterPool @ 0x1408474A0 (ExpPoolMgrRegisterPool.c)
- *     ExpPoolMgrUnregisterPool @ 0x1408475D0 (ExpPoolMgrUnregisterPool.c)
- *     ExpPoolMgrSetMaintenanceHint @ 0x140AC38B0 (ExpPoolMgrSetMaintenanceHint.c)
+ *     ExpPoolMgrRegisterPool @ 0x14084D700 (ExpPoolMgrRegisterPool.c)
+ *     ExpPoolMgrUnregisterPool @ 0x14084D830 (ExpPoolMgrUnregisterPool.c)
+ *     ExpPoolMgrSetMaintenanceHint @ 0x140AC5520 (ExpPoolMgrSetMaintenanceHint.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 unsigned __int64 __fastcall ExpPoolMgrAcquirePoolListLockExclusive(

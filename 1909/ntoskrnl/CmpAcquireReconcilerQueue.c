@@ -6,7 +6,7 @@
  *     CmpAcquireWriteQueue @ 0x140136BB8 (CmpAcquireWriteQueue.c)
  */
 
-__int64 __fastcall CmpAcquireReconcilerQueue(__int64 a1)
+PRTL_BALANCED_NODE __fastcall CmpAcquireReconcilerQueue(__int64 a1)
 {
   return CmpAcquireWriteQueue((_QWORD *)(a1 + 4248));
 }

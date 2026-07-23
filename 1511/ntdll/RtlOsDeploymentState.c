@@ -10,32 +10,39 @@
  *     NtQueryValueKey @ 0x1800A53A0 (NtQueryValueKey.c)
  */
 
-__int64 RtlOsDeploymentState()
+OS_DEPLOYEMENT_STATE_VALUES __cdecl RtlOsDeploymentState(DWORD Flags)
 {
-  unsigned int v0; // ebx
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-78h] BYREF
-  int v3; // [rsp+50h] [rbp-68h]
-  __int64 v4; // [rsp+58h] [rbp-60h]
-  UNICODE_STRING *p_DestinationString; // [rsp+60h] [rbp-58h]
-  int v6; // [rsp+68h] [rbp-50h]
-  __int128 v7; // [rsp+70h] [rbp-48h]
-  UNICODE_STRING v8; // [rsp+80h] [rbp-38h] BYREF
+  OS_DEPLOYEMENT_STATE_VALUES v1; // ebx
+  HANDLE KeyHandle; // [rsp+30h] [rbp-88h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-80h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-78h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-68h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+80h] [rbp-38h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp-28h] BYREF
   int v9; // [rsp+94h] [rbp-24h]
   int v10; // [rsp+98h] [rbp-20h]
   int v11; // [rsp+9Ch] [rbp-1Ch]
 
-  v0 = 1;
+  KeyHandle = 0LL;
+  v1 = OS_DEPLOYMENT_STANDARD;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\Setup");
-  v3 = 48;
-  v4 = 0LL;
-  v6 = 576;
-  p_DestinationString = &DestinationString;
-  v7 = 0LL;
-  if ( (int)NtOpenKey() >= 0 )
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.ObjectName = &DestinationString;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    RtlInitUnicodeString(&v8, L"Compact");
-    if ( (int)NtQueryValueKey() >= 0 && v9 == 4 && v10 == 4 && v11 )
-      return 2;
+    RtlInitUnicodeString(&ValueName, L"Compact");
+    if ( NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0
+      && v9 == 4
+      && v10 == 4
+      && v11 )
+    {
+      v1 = OS_DEPLOYMENT_COMPACT;
+    }
   }
-  return v0;
+  if ( KeyHandle )
+    NtClose(KeyHandle);
+  return v1;
 }

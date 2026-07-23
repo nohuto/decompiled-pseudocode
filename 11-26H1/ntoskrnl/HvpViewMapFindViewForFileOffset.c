@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpViewMapFindViewForFileOffset @ 0x1408B94FC
+ * XREFs of HvpViewMapFindViewForFileOffset @ 0x1408BFACC
  * Callers:
- *     HvpViewMapShrinkStorage @ 0x14085CBD8 (HvpViewMapShrinkStorage.c)
- *     HvpViewMapExtendStorage @ 0x1408B8788 (HvpViewMapExtendStorage.c)
- *     HvpViewMapUnCOWAndSealRange @ 0x1408B8844 (HvpViewMapUnCOWAndSealRange.c)
- *     HvpViewMapSealRange @ 0x1408B9288 (HvpViewMapSealRange.c)
- *     HvpViewMapCOWAndUnsealRange @ 0x1408B9378 (HvpViewMapCOWAndUnsealRange.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1408DD1F4 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140AD64C4 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
- *     HvpViewMapAdjustFlag @ 0x140B0A110 (HvpViewMapAdjustFlag.c)
- *     HvpMapHiveImageFromViewMap @ 0x140B7E9FC (HvpMapHiveImageFromViewMap.c)
+ *     HvpViewMapShrinkStorage @ 0x140862EC8 (HvpViewMapShrinkStorage.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x1408B7688 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     HvpViewMapExtendStorage @ 0x1408BED58 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x1408BEE14 (HvpViewMapUnCOWAndSealRange.c)
+ *     HvpViewMapSealRange @ 0x1408BF858 (HvpViewMapSealRange.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x1408BF948 (HvpViewMapCOWAndUnsealRange.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1408E37B4 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapAdjustFlag @ 0x140B0BED0 (HvpViewMapAdjustFlag.c)
+ *     HvpMapHiveImageFromViewMap @ 0x140B878DC (HvpMapHiveImageFromViewMap.c)
  * Callees:
  *     <none>
  */

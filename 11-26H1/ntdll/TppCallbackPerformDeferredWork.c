@@ -1,9 +1,9 @@
 /*
- * XREFs of TppCallbackPerformDeferredWork @ 0x18003C6B0
+ * XREFs of TppCallbackPerformDeferredWork @ 0x180026C20
  * Callers:
- *     TppWorkerThread @ 0x18003E5E0 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x180028B50 (TppWorkerThread.c)
  * Callees:
- *     TppCallbackSendAndDestroyAlpcMessage @ 0x18003C634 (TppCallbackSendAndDestroyAlpcMessage.c)
+ *     TppCallbackSendAndDestroyAlpcMessage @ 0x180026BA4 (TppCallbackSendAndDestroyAlpcMessage.c)
  */
 
 __int64 __fastcall TppCallbackPerformDeferredWork(__int64 a1)

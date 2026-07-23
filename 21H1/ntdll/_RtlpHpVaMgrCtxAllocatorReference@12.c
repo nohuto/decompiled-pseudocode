@@ -10,18 +10,18 @@
  *     _RtlpHpVaMgrStart@20 @ 0x4B37B3A5 (_RtlpHpVaMgrStart@20.c)
  */
 
-int __fastcall RtlpHpVaMgrCtxAllocatorReference(int a1, int a2, int a3)
+int __fastcall RtlpHpVaMgrCtxAllocatorReference(_RTL_SRWLOCK *a1, int a2, int a3)
 {
-  volatile signed __int32 *v5; // ebx
+  _RTL_SRWLOCK *v5; // ebx
   int v6; // eax
   int v7; // esi
   __int16 v8; // ax
   int v9; // ecx
   int v12; // [esp+10h] [ebp-4h] BYREF
 
-  v5 = (volatile signed __int32 *)(a1 + 52);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 52));
-  v6 = RtlpHpVaMgrCtxAllocatorFind(a1, a2, 2, &v12);
+  v5 = a1 + 13;
+  RtlAcquireSRWLockExclusive(a1 + 13);
+  v6 = RtlpHpVaMgrCtxAllocatorFind((int)a1, a2, 2, &v12);
   v7 = v6;
   if ( v6 )
   {
@@ -41,9 +41,9 @@ LABEL_3:
     {
       v7 = v12;
       v12 = 28;
-      if ( (int)RtlpHpVaMgrStart(a2, v9, (v9 - a1 - 60) / 28) < 0 )
+      if ( (int)RtlpHpVaMgrStart(a2, v9, (v9 - (int)a1 - 60) / 28) < 0 )
         goto LABEL_3;
-      ++*(_DWORD *)(a1 + 56);
+      ++a1[14].Value;
     }
   }
 LABEL_8:

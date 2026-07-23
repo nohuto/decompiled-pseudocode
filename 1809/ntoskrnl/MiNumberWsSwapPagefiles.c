@@ -1,10 +1,10 @@
 /*
- * XREFs of MiNumberWsSwapPagefiles @ 0x1400F0488
+ * XREFs of MiNumberWsSwapPagefiles @ 0x1400F0508
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
- *     MmAllocateSpecialPool @ 0x1402ACB64 (MmAllocateSpecialPool.c)
- *     MiContractWsSwapPageFile @ 0x14066B784 (MiContractWsSwapPageFile.c)
- *     MiInsertPageFileInList @ 0x14074C910 (MiInsertPageFileInList.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
+ *     MmAllocateSpecialPool @ 0x1402ACD54 (MmAllocateSpecialPool.c)
+ *     MiContractWsSwapPageFile @ 0x14066C944 (MiContractWsSwapPageFile.c)
+ *     MiInsertPageFileInList @ 0x14074DB00 (MiInsertPageFileInList.c)
  * Callees:
  *     <none>
  */

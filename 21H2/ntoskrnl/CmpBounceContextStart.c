@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpBounceContextStart @ 0x1405F47B0
+ * XREFs of CmpBounceContextStart @ 0x1406E3F10
  * Callers:
- *     NtEnumerateKey @ 0x1405F3E50 (NtEnumerateKey.c)
- *     NtEnumerateValueKey @ 0x1405F48F0 (NtEnumerateValueKey.c)
- *     NtQueryMultipleValueKey @ 0x1406A1E20 (NtQueryMultipleValueKey.c)
- *     NtQueryKey @ 0x1406F8570 (NtQueryKey.c)
+ *     NtQueryMultipleValueKey @ 0x140601D50 (NtQueryMultipleValueKey.c)
+ *     NtEnumerateKey @ 0x1406E35B0 (NtEnumerateKey.c)
+ *     NtEnumerateValueKey @ 0x1406E4050 (NtEnumerateValueKey.c)
+ *     NtQueryKey @ 0x14070F950 (NtQueryKey.c)
  * Callees:
- *     CmpAllocateTransientPoolWithQuotaTag @ 0x14027EF58 (CmpAllocateTransientPoolWithQuotaTag.c)
- *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpIsBufferGloballyVisible @ 0x140694360 (CmpIsBufferGloballyVisible.c)
+ *     CmpAllocateTransientPoolWithQuotaTag @ 0x14026CEF8 (CmpAllocateTransientPoolWithQuotaTag.c)
+ *     _tlgWriteAgg @ 0x1403759E4 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpIsBufferGloballyVisible @ 0x1405F38B0 (CmpIsBufferGloballyVisible.c)
  */
 
-__int64 __fastcall CmpBounceContextStart(__int64 a1, void *a2, size_t a3, int a4, char a5)
+__int64 __fastcall CmpBounceContextStart(__int64 a1, unsigned __int64 a2, size_t a3, int a4, char a5)
 {
   void *TransientPoolWithQuotaTag; // rdi
   unsigned int v9; // edx
@@ -32,13 +32,13 @@ __int64 __fastcall CmpBounceContextStart(__int64 a1, void *a2, size_t a3, int a4
   __int64 v20; // [rsp+98h] [rbp-30h]
 
   *(_QWORD *)a1 = a2;
-  TransientPoolWithQuotaTag = a2;
+  TransientPoolWithQuotaTag = (void *)a2;
   if ( !a3 )
   {
     *(_QWORD *)(a1 + 8) = 0LL;
     return 0LL;
   }
-  if ( !*((_QWORD *)&CmpRegistryProcess + 1) || !a4 && (unsigned __int8)CmpIsBufferGloballyVisible(a2) )
+  if ( !*((_QWORD *)&CmpRegistryProcess + 1) || !a4 && CmpIsBufferGloballyVisible(a2) )
   {
 LABEL_10:
     *(_QWORD *)(a1 + 8) = TransientPoolWithQuotaTag;
@@ -70,7 +70,7 @@ LABEL_10:
     v13 = v9;
     v20 = 8LL;
     v19 = &v13;
-    tlgWriteAgg((__int64)&dword_140C02130, (unsigned __int8 *)&byte_1400233EB, a3, 5u, &v14);
+    tlgWriteAgg((__int64)&dword_140C02130, (unsigned __int8 *)&byte_1400234AB, a3, 5u, &v14);
   }
   if ( a3 <= 0x40 )
   {
@@ -81,14 +81,14 @@ LABEL_13:
   }
   if ( a3 <= 0x1000 )
   {
-    ++dword_140CDB914;
+    ++dword_140CDB954;
     TransientPoolWithQuotaTag = RtlpInterlockedPopEntrySList(&CmpBounceBufferLookaside);
     if ( TransientPoolWithQuotaTag
-      || (++dword_140CDB918,
-          (TransientPoolWithQuotaTag = (void *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_140CDB930)(
-                                                 (unsigned int)dword_140CDB924,
-                                                 (unsigned int)dword_140CDB92C,
-                                                 (unsigned int)dword_140CDB928,
+      || (++dword_140CDB958,
+          (TransientPoolWithQuotaTag = (void *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _SLIST_HEADER *))qword_140CDB970)(
+                                                 (unsigned int)dword_140CDB964,
+                                                 (unsigned int)dword_140CDB96C,
+                                                 (unsigned int)dword_140CDB968,
                                                  &CmpBounceBufferLookaside)) != 0LL) )
     {
       memset(TransientPoolWithQuotaTag, 0, a3);

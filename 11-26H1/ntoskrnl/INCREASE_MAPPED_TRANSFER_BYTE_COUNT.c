@@ -1,11 +1,11 @@
 /*
- * XREFs of INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140C22C34
+ * XREFs of INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140C28C44
  * Callers:
- *     VfMapTransfer @ 0x140C252F0 (VfMapTransfer.c)
- *     VfMapTransferEx @ 0x140C254B0 (VfMapTransferEx.c)
+ *     VfMapTransfer @ 0x140C2B300 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x140C2B4C0 (VfMapTransferEx.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140645558 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140C2731C (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140649138 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140C2D32C (ViHalPreprocessOptions.c)
  */
 
 void __fastcall INCREASE_MAPPED_TRANSFER_BYTE_COUNT(__int64 a1, unsigned int a2, char a3)
@@ -21,7 +21,7 @@ void __fastcall INCREASE_MAPPED_TRANSFER_BYTE_COUNT(__int64 a1, unsigned int a2,
   {
     v5 = v3;
     v6 = v4;
-    ViHalPreprocessOptions(byte_140E0EA60, "Driver did not flush adapter buffers -- bytes mapped: %x (%x max).", 13, v4);
-    VfReportIssueWithOptions(0xE6u, 0xDuLL, v6, v5, 0LL, byte_140E0EA60);
+    ViHalPreprocessOptions(byte_140E0EAB0, "Driver did not flush adapter buffers -- bytes mapped: %x (%x max).", 13, v4);
+    VfReportIssueWithOptions(0xE6u, 0xDuLL, v6, v5, 0LL, byte_140E0EAB0);
   }
 }

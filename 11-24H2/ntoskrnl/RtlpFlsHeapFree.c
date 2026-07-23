@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFlsHeapFree @ 0x140A0B8EC
+ * XREFs of RtlpFlsHeapFree @ 0x140A0AB2C
  * Callers:
- *     RtlpFlsDataCleanup @ 0x140A0B6C8 (RtlpFlsDataCleanup.c)
+ *     RtlpFlsDataCleanup @ 0x140A0A908 (RtlpFlsDataCleanup.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall RtlpFlsHeapFree(void *a1)

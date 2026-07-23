@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReleaseLargeZeroingVa @ 0x14008B474
+ * XREFs of MiReleaseLargeZeroingVa @ 0x14008AB74
  * Callers:
- *     MiZeroLargePage @ 0x14008B1C0 (MiZeroLargePage.c)
- *     MiDecrementHugeContext @ 0x140140E7C (MiDecrementHugeContext.c)
+ *     MiZeroLargePage @ 0x14008A8C0 (MiZeroLargePage.c)
+ *     MiDecrementHugeContext @ 0x1401413EC (MiDecrementHugeContext.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiZeroPageWorkMapping @ 0x14008B8A0 (MiZeroPageWorkMapping.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiZeroPageWorkMapping @ 0x14008AFA0 (MiZeroPageWorkMapping.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiReleaseLargeZeroingVa(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmPrefetchForCacheManager @ 0x140A50CB0
+ * XREFs of MmPrefetchForCacheManager @ 0x140A59FA0
  * Callers:
- *     CcFetchDataForRead @ 0x1402E6510 (CcFetchDataForRead.c)
- *     CcPerformReadAhead @ 0x140386E18 (CcPerformReadAhead.c)
- *     CcAsyncReadPrefetch @ 0x140388A0C (CcAsyncReadPrefetch.c)
+ *     CcFetchDataForRead @ 0x1402C8550 (CcFetchDataForRead.c)
+ *     CcPerformReadAhead @ 0x140388BC8 (CcPerformReadAhead.c)
+ *     CcAsyncReadPrefetch @ 0x14038A7BC (CcAsyncReadPrefetch.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiReturnCcAccessLog @ 0x1403BA494 (MiReturnCcAccessLog.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfExecuteReadList @ 0x140A51868 (MiPfExecuteReadList.c)
- *     MiReleaseReadListResources @ 0x140A52550 (MiReleaseReadListResources.c)
- *     MiGetCcAccessLog @ 0x140A52AF4 (MiGetCcAccessLog.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiReturnCcAccessLog @ 0x1403C4304 (MiReturnCcAccessLog.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfExecuteReadList @ 0x140A5AB58 (MiPfExecuteReadList.c)
+ *     MiReleaseReadListResources @ 0x140A5B840 (MiReleaseReadListResources.c)
+ *     MiGetCcAccessLog @ 0x140A5BDE4 (MiGetCcAccessLog.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmPrefetchForCacheManager(
@@ -40,7 +40,7 @@ __int64 __fastcall MmPrefetchForCacheManager(
   CurrentThread = KeGetCurrentThread();
   CcAccessLog = 0LL;
   v14 = **(_QWORD **)(a1 + 40);
-  if ( dword_140E3C3AC && a5 >= dword_140E3C3B0 )
+  if ( dword_140E3C52C && a5 >= dword_140E3C530 )
     CcAccessLog = MiGetCcAccessLog(a1, a1, a4 >> 12);
   if ( (int)MiPfPrepareSequentialReadList(CcAccessLog, v14, a2, a3, a4, v8, -1, 0LL, (__int64)&P) >= 0 && P )
   {
@@ -60,7 +60,7 @@ __int64 __fastcall MmPrefetchForCacheManager(
     }
     if ( !*v15
       && CurrentThread->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     {
       KiCheckForKernelApcDelivery(v17, v16);
     }

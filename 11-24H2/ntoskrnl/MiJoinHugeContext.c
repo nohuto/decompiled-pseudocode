@@ -1,17 +1,17 @@
 /*
- * XREFs of MiJoinHugeContext @ 0x140487A9C
+ * XREFs of MiJoinHugeContext @ 0x140482B0C
  * Callers:
- *     MiGetUltraHugeAlreadyActive @ 0x1404879F0 (MiGetUltraHugeAlreadyActive.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x140482A60 (MiGetUltraHugeAlreadyActive.c)
  * Callees:
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     MiSafeLockPageAtDpc @ 0x1403072A0 (MiSafeLockPageAtDpc.c)
- *     MiLockHugePfnInternal @ 0x1403F9BD8 (MiLockHugePfnInternal.c)
- *     MiCompleteJoinHugeContext @ 0x140487C38 (MiCompleteJoinHugeContext.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     MiSafeLockPageAtDpc @ 0x140311180 (MiSafeLockPageAtDpc.c)
+ *     MiLockHugePfnInternal @ 0x1403EFAE4 (MiLockHugePfnInternal.c)
+ *     MiCompleteJoinHugeContext @ 0x140482CA8 (MiCompleteJoinHugeContext.c)
  */
 
 __int64 __fastcall MiJoinHugeContext(__int64 a1, __int64 a2, int a3)
 {
-  RTL_BITMAP *v3; // r12
+  _RTL_BITMAP *v3; // r12
   int v5; // r11d
   __int64 v7; // r14
   int v9; // ecx
@@ -26,7 +26,7 @@ __int64 __fastcall MiJoinHugeContext(__int64 a1, __int64 a2, int a3)
   __int128 v19; // [rsp+20h] [rbp-20h]
   __int128 v20; // [rsp+30h] [rbp-10h] BYREF
 
-  v3 = (RTL_BITMAP *)(a1 + 344);
+  v3 = (_RTL_BITMAP *)(a1 + 344);
   v5 = *(_DWORD *)(a1 + 344);
   v7 = *(_QWORD *)(a1 + 352);
   v19 = 0LL;
@@ -55,13 +55,13 @@ __int64 __fastcall MiJoinHugeContext(__int64 a1, __int64 a2, int a3)
   if ( *(_BYTE *)(a1 + 324) )
   {
     BYTE8(v19) = 0;
-    *(_QWORD *)&v19 = qword_140E2FFC0 + 8 * (v16 & 0x3FFFFF);
+    *(_QWORD *)&v19 = qword_140E30100 + 8 * (v16 & 0x3FFFFF);
     MiLockHugePfnInternal(v19);
     if ( (*(_QWORD *)(a1 + 24) & 1) == 0 )
       goto LABEL_11;
     _InterlockedAnd(
-      (volatile signed __int32 *)(qword_140E2FFC8 + 4 * (((((__int64)v19 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(1 << ((((__int64)v19 - qword_140E2FFC0) >> 3) & 0x1F)));
+      (volatile signed __int32 *)(qword_140E30108 + 4 * (((((__int64)v19 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(1 << ((((__int64)v19 - qword_140E30100) >> 3) & 0x1F)));
     return 0LL;
   }
   BYTE8(v19) = 1;

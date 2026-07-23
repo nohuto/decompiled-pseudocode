@@ -385,7 +385,7 @@ LABEL_60:
     }
   }
   if ( v17 )
-    KeSetTimer2(a1 + 296, v4 - v17, 0LL, v18);
+    KeSetTimer2(a1 + 296, v4 - v17, 0LL, (__int64)v18);
 LABEL_23:
   v1 = 92;
   v13 = a1 + 112;

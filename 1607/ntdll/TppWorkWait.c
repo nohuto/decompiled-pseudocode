@@ -1,11 +1,11 @@
 /*
- * XREFs of TppWorkWait @ 0x18003B878
+ * XREFs of TppWorkWait @ 0x18003B868
  * Callers:
- *     TpWaitForTimer @ 0x18003B8F0 (TpWaitForTimer.c)
- *     TpWaitForWait @ 0x180064F40 (TpWaitForWait.c)
- *     TpWaitForWork @ 0x180082090 (TpWaitForWork.c)
+ *     TpWaitForTimer @ 0x18003B8E0 (TpWaitForTimer.c)
+ *     TpWaitForWait @ 0x180064F30 (TpWaitForWait.c)
+ *     TpWaitForWork @ 0x180082080 (TpWaitForWork.c)
  * Callees:
- *     TppBarrierAdjust @ 0x180063E84 (TppBarrierAdjust.c)
+ *     TppBarrierAdjust @ 0x180063E74 (TppBarrierAdjust.c)
  *     TppETWCallbackCancel @ 0x1800FE67C (TppETWCallbackCancel.c)
  */
 

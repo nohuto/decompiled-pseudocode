@@ -30,35 +30,35 @@
  *     RtlpWriteExtendedContext @ 0x140909C2C (RtlpWriteExtendedContext.c)
  */
 
-__int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, char a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 result; // rax
-  __int64 v11; // r14
+  int result; // eax
+  PCONTEXT_EX v11; // r14
   bool v12; // zf
-  unsigned int v13; // r12d
+  ULONG v13; // r12d
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rcx
   void *v16; // rsp
   void *v17; // rsp
   __int64 v18; // rcx
   __int64 v19; // rax
-  int v20; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v21; // [rsp+44h] [rbp+4h] BYREF
-  __int64 v22; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextFlags; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+44h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _BYTE v23[64]; // [rsp+50h] [rbp+10h] BYREF
   _QWORD v24[3]; // [rsp+90h] [rbp+50h] BYREF
   char v25; // [rsp+A8h] [rbp+68h]
   _BYTE v26[3]; // [rsp+A9h] [rbp+69h] BYREF
   int v27; // [rsp+ACh] [rbp+6Ch]
   struct _KEVENT Event; // [rsp+B0h] [rbp+70h] BYREF
-  int *v29; // [rsp+C8h] [rbp+88h]
+  ULONG *p_ContextFlags; // [rsp+C8h] [rbp+88h]
   _OWORD v30[2]; // [rsp+1D0h] [rbp+190h] BYREF
 
-  v22 = 0LL;
+  ContextEx = 0LL;
   memset_0(v23, 0, 0x58uLL);
   memset_0(v26, 0, 0x127uLL);
-  v21 = 0;
+  ContextLength = 0;
   memset(v30, 0, sizeof(v30));
   CurrentThread = KeGetCurrentThread();
   if ( a3 )
@@ -66,45 +66,45 @@ __int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, 
     v19 = a2 + 48;
     if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
       v19 = 0x7FFFFFFF0000LL;
-    v20 = *(_DWORD *)v19;
+    ContextFlags = *(_DWORD *)v19;
   }
   else
   {
-    v20 = *(_DWORD *)(a2 + 48);
+    ContextFlags = *(_DWORD *)(a2 + 48);
   }
-  result = RtlpSanitizeContextFlags((unsigned int *)&v20, a3);
-  if ( (int)result >= 0 )
+  result = RtlpSanitizeContextFlags(&ContextFlags, a3);
+  if ( result >= 0 )
   {
     if ( a3 )
     {
-      v13 = v20;
-      result = RtlGetExtendedContextLength(v20, &v21);
-      if ( (int)result < 0 )
+      v13 = ContextFlags;
+      result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+      if ( result < 0 )
         return result;
-      v14 = v21 + 15LL;
-      if ( v14 <= v21 )
+      v14 = ContextLength + 15LL;
+      if ( v14 <= ContextLength )
         v14 = 0xFFFFFFFFFFFFFF0LL;
       v15 = v14 & 0xFFFFFFFFFFFFFFF0uLL;
       v16 = alloca(v15);
       v17 = alloca(v15);
-      v29 = &v20;
-      result = RtlInitializeExtendedContext((__int64)&v20, v13, &v22);
-      if ( (int)result < 0 )
+      p_ContextFlags = &ContextFlags;
+      result = RtlInitializeExtendedContext((PCONTEXT)&ContextFlags, v13, &ContextEx);
+      if ( result < 0 )
         return result;
-      v11 = v22;
-      v29 = (int *)(v22 - 1232);
-      result = RtlpReadExtendedContext(v18, 0, v22, v13, a2, v30);
-      if ( (int)result < 0 )
+      v11 = ContextEx;
+      p_ContextFlags = (ULONG *)&ContextEx[-39].XState;
+      result = RtlpReadExtendedContext(v18, 0, (__int64)ContextEx, v13, a2, v30);
+      if ( result < 0 )
         return result;
     }
     else
     {
-      v29 = (int *)a2;
-      v11 = a2 + 1232;
+      p_ContextFlags = (ULONG *)a2;
+      v11 = (PCONTEXT_EX)(a2 + 1232);
     }
     if ( a4 && (*(_DWORD *)(a1 + 116) & 0x400) != 0 )
     {
-      return 3221225520LL;
+      return -1073741776;
     }
     else
     {
@@ -129,12 +129,12 @@ __int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, 
         KeInitializeEvent(&Event, NotificationEvent, 0);
         KeInitializeApc((__int64)v23, a1, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
         if ( !(unsigned __int8)KeInsertQueueApc((__int64)v23, 0LL, a1, 2u) )
-          return 3221225473LL;
+          return -1073741823;
         KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
       }
-      result = (unsigned int)v27;
-      if ( v27 >= 0 && v29 != (int *)a2 )
-        return RtlpWriteExtendedContext(v27, (int)a2 + 1232, (unsigned int)v30, v29[12], v11);
+      result = v27;
+      if ( v27 >= 0 && p_ContextFlags != (ULONG *)a2 )
+        return RtlpWriteExtendedContext(v27, (int)a2 + 1232, (unsigned int)v30, p_ContextFlags[12], (__int64)v11);
     }
   }
   return result;

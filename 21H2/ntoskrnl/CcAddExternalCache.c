@@ -1,12 +1,12 @@
 /*
- * XREFs of CcAddExternalCache @ 0x1403951B4
+ * XREFs of CcAddExternalCache @ 0x140395304
  * Callers:
- *     CcRegisterExternalCache @ 0x140395130 (CcRegisterExternalCache.c)
+ *     CcRegisterExternalCache @ 0x140395280 (CcRegisterExternalCache.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcAddExternalCache(__int64 a1)
@@ -20,14 +20,14 @@ __int64 __fastcall CcAddExternalCache(__int64 a1)
   bool v8; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&CcExternalCacheListLock);
-  v3 = (_QWORD *)qword_140C488E8;
+  v3 = (_QWORD *)qword_140C48918;
   v4 = (_QWORD *)(a1 + 32);
-  if ( *(__int64 **)qword_140C488E8 != &CcExternalCacheList )
+  if ( *(__int64 **)qword_140C48918 != &CcExternalCacheList )
     __fastfail(3u);
-  v4[1] = qword_140C488E8;
+  v4[1] = qword_140C48918;
   *v4 = &CcExternalCacheList;
   *v3 = v4;
-  qword_140C488E8 = (__int64)v4;
+  qword_140C48918 = (__int64)v4;
   if ( CcNumberOfExternalCaches + 1 <= (unsigned int)CcNumberOfExternalCaches )
     KeBugCheckEx(0x34u, 0x137EuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   ++CcNumberOfExternalCaches;

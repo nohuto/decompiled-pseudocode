@@ -29,7 +29,7 @@ int KvfCommitFeatureStates()
     if ( (KvfFeatureStates & 2) != 0 )
     {
       KvfFeatureStates &= ~2u;
-      result = ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &KvfFeatureStates, 4u);
+      result = ZwSetValueKey(KeyHandle, &stru_140C06C48, 0, 4u, &KvfFeatureStates, 4u);
     }
     if ( v1 )
       return ZwClose(v1);

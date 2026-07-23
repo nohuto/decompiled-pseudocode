@@ -10,31 +10,33 @@
 
 int AVrfpParseVerifierDllsString()
 {
-  _DWORD *Heap; // edx
-  _DWORD *v1; // eax
+  UNICODE_STRING *Heap; // edx
+  UNICODE_STRING **v1; // eax
   wchar_t *v2; // esi
   wchar_t v3; // ax
   wchar_t v4; // cx
   const wchar_t *v5; // edx
-  UNICODE_STRING *v6; // ebx
-  UNICODE_STRING **v7; // eax
+  _UNICODE_STRING *v6; // ebx
+  _UNICODE_STRING **v7; // eax
+  SIZE_T v9; // [esp-4h] [ebp-18h]
+  SIZE_T v10; // [esp-4h] [ebp-18h]
   const WCHAR *SourceString; // [esp+Ch] [ebp-8h]
-  void *ProcessHeap; // [esp+10h] [ebp-4h]
+  PVOID HeapHandle; // [esp+10h] [ebp-4h]
 
-  ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  Heap = (_DWORD *)RtlAllocateHeap((int)ProcessHeap, 0, 36);
+  LODWORD(v9) = 36;
+  HeapHandle = NtCurrentPeb()->ProcessHeap;
+  Heap = (UNICODE_STRING *)RtlAllocateHeap(HeapHandle, 0, v9);
   if ( !Heap )
     return -1073741801;
   memset(Heap, 0, 0x24u);
-  Heap[2] = VerifierDllString;
-  Heap[3] = L"verifier.dll";
-  v1 = (_DWORD *)dword_4B3A5244;
+  Heap[1] = VerifierDllString;
+  v1 = (UNICODE_STRING **)dword_4B3A5244;
   if ( *(int **)dword_4B3A5244 != &AVrfpVerifierProvidersList )
 LABEL_18:
     __fastfail(3u);
-  *Heap = &AVrfpVerifierProvidersList;
+  *(_DWORD *)&Heap->Length = &AVrfpVerifierProvidersList;
   v2 = &AVrfpVerifierDllsString;
-  Heap[1] = v1;
+  Heap->Buffer = (wchar_t *)v1;
   *v1 = Heap;
   dword_4B3A5244 = (int)Heap;
   if ( AVrfpVerifierDllsString )
@@ -50,7 +52,7 @@ LABEL_18:
         ++v2;
       }
       v5 = v2;
-      SourceString = v2;
+      SourceString = (const WCHAR *)v2;
       if ( !v3 )
         break;
       do
@@ -67,12 +69,13 @@ LABEL_18:
       *v2 = 0;
       if ( _wcsicmp(v5, L"verifier.dll") )
       {
-        v6 = (UNICODE_STRING *)RtlAllocateHeap((int)ProcessHeap, 0, 36);
+        LODWORD(v10) = 36;
+        v6 = (_UNICODE_STRING *)RtlAllocateHeap(HeapHandle, 0, v10);
         if ( !v6 )
           return -1073741801;
         memset(v6, 0, 0x24u);
         RtlInitUnicodeString(v6 + 1, SourceString);
-        v7 = (UNICODE_STRING **)dword_4B3A5244;
+        v7 = (_UNICODE_STRING **)dword_4B3A5244;
         if ( *(int **)dword_4B3A5244 != &AVrfpVerifierProvidersList )
           goto LABEL_18;
         *(_DWORD *)&v6->Length = &AVrfpVerifierProvidersList;

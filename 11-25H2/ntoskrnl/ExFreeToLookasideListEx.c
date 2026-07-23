@@ -22,13 +22,13 @@
 
 void __stdcall ExFreeToLookasideListEx(PLOOKASIDE_LIST_EX Lookaside, PVOID Entry)
 {
-  struct _SLIST_ENTRY *v3; // rdi
+  _SLIST_ENTRY *v3; // rdi
   ULONG_PTR v4; // rcx
   void *v5; // rcx
   size_t v6; // r8
 
   ++Lookaside->L.TotalFrees;
-  v3 = (struct _SLIST_ENTRY *)Entry;
+  v3 = (_SLIST_ENTRY *)Entry;
   if ( LOWORD(Lookaside->L.ListHead.Alignment) >= Lookaside->L.Depth )
   {
     ++Lookaside->L.FreeMisses;

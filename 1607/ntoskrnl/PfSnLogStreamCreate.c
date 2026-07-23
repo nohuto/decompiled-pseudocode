@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogStreamCreate @ 0x140514BF4
+ * XREFs of PfSnLogStreamCreate @ 0x1404F7FE4
  * Callers:
- *     PfFileInfoNotify @ 0x1400EEAD0 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x1400EC950 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     PfSnLogHelper @ 0x140514B80 (PfSnLogHelper.c)
- *     RtlUpcaseUnicodeString @ 0x140514D50 (RtlUpcaseUnicodeString.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     PfSnLogHelper @ 0x1404F7F70 (PfSnLogHelper.c)
+ *     RtlUpcaseUnicodeString @ 0x1404F8140 (RtlUpcaseUnicodeString.c)
  */
 
 __int64 __fastcall PfSnLogStreamCreate(__int64 a1)

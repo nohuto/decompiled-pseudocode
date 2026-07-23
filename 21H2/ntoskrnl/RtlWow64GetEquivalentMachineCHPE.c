@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlWow64GetEquivalentMachineCHPE @ 0x14027B5F0
+ * XREFs of RtlWow64GetEquivalentMachineCHPE @ 0x140269590
  * Callers:
- *     PsWow64IsMachineSupported @ 0x14064E890 (PsWow64IsMachineSupported.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x14075CEDC (LdrImageDirectoryEntryToLoadConfig.c)
+ *     PsWow64IsMachineSupported @ 0x1406436B0 (PsWow64IsMachineSupported.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x14075D09C (LdrImageDirectoryEntryToLoadConfig.c)
  * Callees:
  *     <none>
  */

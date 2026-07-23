@@ -11,81 +11,71 @@
  *     TpSetPoolMaxThreadsSoftLimit @ 0x1800596F0 (TpSetPoolMaxThreadsSoftLimit.c)
  */
 
-__int64 __fastcall TpSetDefaultPoolMaxThreads(unsigned int a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall TpSetDefaultPoolMaxThreads(ULONG a1)
 {
-  unsigned int v5; // esi
-  unsigned int v6; // ebp
-  __int64 result; // rax
-  int v8; // eax
-  unsigned int v9; // edi
-  char *v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rbx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // r8
-  __int64 v20; // r9
+  unsigned int v2; // esi
+  unsigned int v3; // ebp
+  unsigned int v4; // eax
+  ULONG v5; // eax
+  ULONG v6; // edi
+  _TP_POOL *v7; // rax
+  __int64 v8; // rbx
+  __int64 v9; // r8
 
-  v5 = 8 * MEMORY[0x7FFE03C0];
+  v2 = 8 * MEMORY[0x7FFE03C0];
   if ( (unsigned int)(8 * MEMORY[0x7FFE03C0]) < 0x300 )
-    v5 = 768;
-  v6 = 4 * MEMORY[0x7FFE03C0];
+    v2 = 768;
+  v3 = 4 * MEMORY[0x7FFE03C0];
   if ( (unsigned int)(4 * MEMORY[0x7FFE03C0]) < 0x180 )
-    v6 = 384;
-  result = (unsigned int)dword_18015D460;
-  if ( dword_18015D460 )
+    v3 = 384;
+  if ( MaxThreads )
   {
-    if ( a1 <= dword_18015D460 )
-      return result;
+    if ( a1 <= MaxThreads )
+      return;
     goto LABEL_10;
   }
-  if ( a1 <= v6 )
-    return result;
-  result = v5;
-  if ( a1 > v5 )
+  if ( a1 <= v3 )
+    return;
+  v4 = v2;
+  if ( a1 > v2 )
 LABEL_10:
-    result = a1;
-  if ( !(_DWORD)result )
-    return result;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D3B0, a2, a3, a4);
-  v8 = dword_18015D460;
-  v9 = 0;
-  if ( dword_18015D460 )
+    v4 = a1;
+  if ( !v4 )
+    return;
+  RtlAcquireSRWLockExclusive(&stru_18015D3B0);
+  v5 = MaxThreads;
+  v6 = 0;
+  if ( MaxThreads )
   {
-    if ( a1 > dword_18015D460 )
+    if ( a1 > MaxThreads )
       goto LABEL_17;
   }
-  else if ( a1 > v6 )
+  else if ( a1 > v3 )
   {
-    v9 = v5;
-    if ( a1 <= v5 )
+    v6 = v2;
+    if ( a1 <= v2 )
     {
 LABEL_18:
-      if ( v9 )
-        v8 = v9;
-      dword_18015D460 = v8;
+      if ( v6 )
+        v5 = v6;
+      MaxThreads = v5;
       goto LABEL_21;
     }
 LABEL_17:
-    v9 = a1;
+    v6 = a1;
     goto LABEL_18;
   }
 LABEL_21:
-  result = RtlReleaseSRWLockExclusive(&qword_18015D3B0);
-  if ( v9 )
+  RtlReleaseSRWLockExclusive(&stru_18015D3B0);
+  if ( v6 )
   {
-    result = sub_18004865C(v11, v10, v12, v13);
-    v16 = result;
-    if ( result )
+    v7 = (_TP_POOL *)sub_18004865C();
+    v8 = (__int64)v7;
+    if ( v7 )
     {
-      TpSetPoolMaxThreads(result, (struct _PEB_LDR_DATA *)v9, v14, v15);
-      TpSetPoolMaxThreadsSoftLimit(v16, 0LL, v17, v18);
-      return sub_180047198((const void **)&qword_18015D3B8, (unsigned __int64)&qword_18015D3B0, v19, v20);
+      TpSetPoolMaxThreads(v7, v6);
+      TpSetPoolMaxThreadsSoftLimit(v8, 0LL, v9);
+      sub_180047198((const void **)&qword_18015D3B8, &stru_18015D3B0);
     }
   }
-  return result;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140520D7C
+ * XREFs of Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140523420
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwSetInformation @ 0x1408287B0 (EtwSetInformation.c)
- *     EtwpTrackProviderBinary @ 0x140828908 (EtwpTrackProviderBinary.c)
- *     EtwpTrackProviderRegistration @ 0x140936F80 (EtwpTrackProviderRegistration.c)
- *     EtwpAddRegEntryToGroup @ 0x14093B720 (EtwpAddRegEntryToGroup.c)
- *     EtwpProviderArrivalCallback @ 0x14093C304 (EtwpProviderArrivalCallback.c)
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
- *     EtwpSetProviderTraitsCommon @ 0x14093D5E4 (EtwpSetProviderTraitsCommon.c)
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwSetInformation @ 0x14082E9F0 (EtwSetInformation.c)
+ *     EtwpTrackProviderBinary @ 0x14082EB48 (EtwpTrackProviderBinary.c)
+ *     EtwpTrackProviderRegistration @ 0x140912B20 (EtwpTrackProviderRegistration.c)
+ *     EtwpAddRegEntryToGroup @ 0x1409172C0 (EtwpAddRegEntryToGroup.c)
+ *     EtwpProviderArrivalCallback @ 0x140917EA4 (EtwpProviderArrivalCallback.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
+ *     EtwpSetProviderTraitsCommon @ 0x140919184 (EtwpSetProviderTraitsCommon.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
- *     Feature_ModernWpp__private_IsEnabledFallback @ 0x1406C6548 (Feature_ModernWpp__private_IsEnabledFallback.c)
+ *     Feature_ModernWpp__private_IsEnabledFallback @ 0x1406CA244 (Feature_ModernWpp__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline()

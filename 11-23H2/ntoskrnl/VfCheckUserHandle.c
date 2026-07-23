@@ -1,22 +1,22 @@
 /*
- * XREFs of VfCheckUserHandle @ 0x140AD3D14
+ * XREFs of VfCheckUserHandle @ 0x140AD3D04
  * Callers:
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     ObDuplicateObject @ 0x1406FB8F0 (ObDuplicateObject.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObDuplicateObject @ 0x1406FBB00 (ObDuplicateObject.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObQueryTypeName @ 0x14097C37C (ObQueryTypeName.c)
- *     VfUtilIsLocalSystem @ 0x140AC2754 (VfUtilIsLocalSystem.c)
- *     VfDriverIsKernelImageAddress @ 0x140ACA744 (VfDriverIsKernelImageAddress.c)
- *     VfTargetDriversIsEnabled @ 0x140ACB644 (VfTargetDriversIsEnabled.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObQueryTypeName @ 0x14097C57C (ObQueryTypeName.c)
+ *     VfUtilIsLocalSystem @ 0x140AC2744 (VfUtilIsLocalSystem.c)
+ *     VfDriverIsKernelImageAddress @ 0x140ACA734 (VfDriverIsKernelImageAddress.c)
+ *     VfTargetDriversIsEnabled @ 0x140ACB634 (VfTargetDriversIsEnabled.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 char __fastcall VfCheckUserHandle(ULONG_PTR BugCheckParameter2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of IopGetRegistryValues @ 0x1407CF034
+ * XREFs of IopGetRegistryValues @ 0x1407CF304
  * Callers:
- *     pIoQueryDeviceDescription @ 0x1407CE584 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407CEA28 (pIoQueryBusDescription.c)
+ *     pIoQueryDeviceDescription @ 0x1407CE854 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x1407CECF8 (pIoQueryBusDescription.c)
  * Callees:
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
  */

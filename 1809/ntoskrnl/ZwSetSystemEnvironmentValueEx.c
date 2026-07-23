@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetSystemEnvironmentValueEx @ 0x1401BB5D0
+ * XREFs of ZwSetSystemEnvironmentValueEx @ 0x1401BB730
  * Callers:
- *     BiDeleteEfiVariable @ 0x1408F335C (BiDeleteEfiVariable.c)
+ *     BiDeleteEfiVariable @ 0x1408F461C (BiDeleteEfiVariable.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwSetSystemEnvironmentValueEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(VariableName, VendorGuid, Value);
+  return KiServiceInternal(VariableName);
 }

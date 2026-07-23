@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSystemIdleTimeoutInitialization @ 0x140544C84
+ * XREFs of PopTraceSystemIdleTimeoutInitialization @ 0x1405451C4
  * Callers:
- *     PopInitSIdle @ 0x140544AF4 (PopInitSIdle.c)
+ *     PopInitSIdle @ 0x140545034 (PopInitSIdle.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceSystemIdleTimeoutInitialization(unsigned __int8 a1, int a2, int a3, int a4, char a5, char a6)

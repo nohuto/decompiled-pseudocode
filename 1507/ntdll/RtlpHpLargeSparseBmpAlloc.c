@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpHpLargeSparseBmpAlloc(__int64 a1)
+__int64 __fastcall RtlpHpLargeSparseBmpAlloc(size_t a1)
 {
-  return RtlpHpMetadataAlloc(a1, 1LL);
+  return RtlpHpMetadataAlloc(a1);
 }

@@ -1,23 +1,27 @@
 /*
- * XREFs of NtOpenProcessTokenEx @ 0x18015F540
+ * XREFs of NtOpenProcessTokenEx @ 0x18015F440
  * Callers:
- *     RtlCheckTokenCapability @ 0x18000DB10 (RtlCheckTokenCapability.c)
- *     RtlCheckTokenMembershipEx @ 0x18000E6E0 (RtlCheckTokenMembershipEx.c)
- *     RtlpSysVolTakeOwnership @ 0x1800C7F18 (RtlpSysVolTakeOwnership.c)
- *     RtlAcquirePrivilege @ 0x1800D2850 (RtlAcquirePrivilege.c)
- *     RtlImpersonateSelfEx @ 0x1800D2C20 (RtlImpersonateSelfEx.c)
- *     TppCritSetThread @ 0x1800E1D30 (TppCritSetThread.c)
- *     AVrfpAppendCurrentUserSid @ 0x18010C5FC (AVrfpAppendCurrentUserSid.c)
- *     RtlpIsAppContainer @ 0x180115654 (RtlpIsAppContainer.c)
+ *     RtlCheckTokenCapability @ 0x180059240 (RtlCheckTokenCapability.c)
+ *     RtlCheckTokenMembershipEx @ 0x180059E10 (RtlCheckTokenMembershipEx.c)
+ *     RtlpSysVolTakeOwnership @ 0x1800C56D8 (RtlpSysVolTakeOwnership.c)
+ *     RtlAcquirePrivilege @ 0x1800D2720 (RtlAcquirePrivilege.c)
+ *     RtlImpersonateSelfEx @ 0x1800D2AF0 (RtlImpersonateSelfEx.c)
+ *     TppCritSetThread @ 0x1800DF5D0 (TppCritSetThread.c)
+ *     AVrfpAppendCurrentUserSid @ 0x18010C14C (AVrfpAppendCurrentUserSid.c)
+ *     RtlpIsAppContainer @ 0x180114E34 (RtlpIsAppContainer.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenProcessTokenEx()
+NTSTATUS __cdecl NtOpenProcessTokenEx(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 48LL;
+  result = 48;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

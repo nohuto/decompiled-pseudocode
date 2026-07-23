@@ -1,19 +1,19 @@
 /*
- * XREFs of MiRebuildLargePages @ 0x1402C8400
+ * XREFs of MiRebuildLargePages @ 0x1402AA1C0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     MiNodeFreeZeroPages @ 0x14028EFD0 (MiNodeFreeZeroPages.c)
- *     MiRebuildLargePage @ 0x14028FF24 (MiRebuildLargePage.c)
- *     MiGetNodeStandbyPageCount @ 0x1402C8CE8 (MiGetNodeStandbyPageCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     MiNodeFreeZeroPages @ 0x14028E530 (MiNodeFreeZeroPages.c)
+ *     MiRebuildLargePage @ 0x14028F484 (MiRebuildLargePage.c)
+ *     MiGetNodeStandbyPageCount @ 0x1402AAAA8 (MiGetNodeStandbyPageCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiRebuildLargePages(struct _KTHREAD *a1)
@@ -101,22 +101,22 @@ __int64 __fastcall MiRebuildLargePages(struct _KTHREAD *a1)
   while ( v12 );
   if ( v9 >= v8 )
     goto LABEL_22;
-  v17 = byte_140E2D718;
+  v17 = byte_140E2D898;
   v18 = v8 - v9;
   v19 = 0;
   v41 = 0LL;
-  if ( byte_140E2D718 )
+  if ( byte_140E2D898 )
   {
     v20 = 0LL;
     do
     {
       LOBYTE(v16) = v19;
       v21 = MiNodeFreeZeroPages((__int64)v3, v16, 0);
-      v17 = byte_140E2D718;
+      v17 = byte_140E2D898;
       v20 += v21;
       ++v19;
     }
-    while ( v19 < (unsigned __int8)byte_140E2D718 );
+    while ( v19 < (unsigned __int8)byte_140E2D898 );
     v41 = v20;
     CurrentIrql = v42;
   }

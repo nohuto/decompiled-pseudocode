@@ -14,7 +14,7 @@ NTSTATUS __stdcall PsAssignImpersonationToken(PETHREAD Thread, HANDLE Token)
   struct _KTHREAD *CurrentThread; // rcx
   NTSTATUS v4; // ebx
   NTSTATUS result; // eax
-  KPROCESSOR_MODE PreviousMode; // r9
+  KPROCESSOR_MODE v6; // r9
   PVOID v7; // rsi
   PVOID Tokena; // [rsp+48h] [rbp+10h] BYREF
 
@@ -24,9 +24,9 @@ NTSTATUS __stdcall PsAssignImpersonationToken(PETHREAD Thread, HANDLE Token)
     PsRevertThreadToSelf(Thread);
     return 0;
   }
-  PreviousMode = CurrentThread->PreviousMode;
+  v6 = *((_BYTE *)CurrentThread + 562);
   Tokena = 0LL;
-  result = ObReferenceObjectByHandle(Token, 4u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Tokena, 0LL);
+  result = ObReferenceObjectByHandle(Token, 4u, (POBJECT_TYPE)SeTokenObjectType, v6, &Tokena, 0LL);
   if ( result >= 0 )
   {
     v7 = Tokena;

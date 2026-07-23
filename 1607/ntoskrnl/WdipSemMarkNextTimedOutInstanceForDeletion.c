@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemMarkNextTimedOutInstanceForDeletion @ 0x14051C360
+ * XREFs of WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1404FF750
  * Callers:
- *     WdipTimeoutCheckRoutine @ 0x14051C244 (WdipTimeoutCheckRoutine.c)
+ *     WdipTimeoutCheckRoutine @ 0x1404FF634 (WdipTimeoutCheckRoutine.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 __int64 *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(__int64 **a1)
@@ -29,11 +29,11 @@ __int64 *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(__int64 **a1)
   v2 = 0LL;
   v4 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1402FDF18, 0LL, 0);
-  v6 = _interlockedbittestandset64((volatile signed __int32 *)&qword_1402FDF18, 0LL);
+  v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1402FDEF8, 0LL, 0);
+  v6 = _interlockedbittestandset64((volatile signed __int32 *)&qword_1402FDEF8, 0LL);
   v7 = v5;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(&qword_1402FDF18, v5, (ULONG_PTR)&qword_1402FDF18);
+    ExfAcquirePushLockExclusiveEx(&qword_1402FDEF8, v5, (ULONG_PTR)&qword_1402FDEF8);
   if ( v7 )
     v7[26] |= 1u;
   if ( a1 )
@@ -51,16 +51,16 @@ __int64 *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(__int64 **a1)
       }
     }
   }
-  _m_prefetchw(&qword_1402FDF18);
-  if ( (qword_1402FDF18 & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )
-    v2 = qword_1402FDF18 - 16;
-  if ( (qword_1402FDF18 & 2) != 0
-    || (v9 = qword_1402FDF18,
-        v9 != _InterlockedCompareExchange64((volatile signed __int64 *)&qword_1402FDF18, v2, qword_1402FDF18)) )
+  _m_prefetchw(&qword_1402FDEF8);
+  if ( (qword_1402FDEF8 & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )
+    v2 = qword_1402FDEF8 - 16;
+  if ( (qword_1402FDEF8 & 2) != 0
+    || (v9 = qword_1402FDEF8,
+        v9 != _InterlockedCompareExchange64((volatile signed __int64 *)&qword_1402FDEF8, v2, qword_1402FDEF8)) )
   {
-    ExfReleasePushLock(&qword_1402FDF18);
+    ExfReleasePushLock(&qword_1402FDEF8);
   }
-  KeAbPostRelease((ULONG_PTR)&qword_1402FDF18);
+  KeAbPostRelease((ULONG_PTR)&qword_1402FDEF8);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v10, v11, v12);
   return v4;
 }

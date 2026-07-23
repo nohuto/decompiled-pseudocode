@@ -8,5 +8,5 @@
 
 __int64 FsRtlGetCurrentProcessLoaderList()
 {
-  return *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[24] + 24) + 16LL;
+  return *(_QWORD *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentThread() + 23) + 1360LL) + 24LL) + 16LL;
 }

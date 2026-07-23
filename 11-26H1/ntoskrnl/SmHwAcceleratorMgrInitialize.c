@@ -1,9 +1,9 @@
 /*
- * XREFs of SmHwAcceleratorMgrInitialize @ 0x140B3653C
+ * XREFs of SmHwAcceleratorMgrInitialize @ 0x140B3874C
  * Callers:
- *     SmInitSystem @ 0x140C7F2E8 (SmInitSystem.c)
+ *     SmInitSystem @ 0x140C852E8 (SmInitSystem.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SmHwAcceleratorMgrInitialize(__int64 a1)

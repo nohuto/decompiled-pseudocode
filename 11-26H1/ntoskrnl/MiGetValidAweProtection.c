@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetValidAweProtection @ 0x1404E374C
+ * XREFs of MiGetValidAweProtection @ 0x1404DCCEC
  * Callers:
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
- *     MiQueryPteAddResidentAttributes @ 0x1404E9984 (MiQueryPteAddResidentAttributes.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
+ *     MiQueryPteAddResidentAttributes @ 0x1404E2D34 (MiQueryPteAddResidentAttributes.c)
  * Callees:
  *     <none>
  */

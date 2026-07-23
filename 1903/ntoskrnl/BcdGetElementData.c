@@ -8,7 +8,7 @@
  *     BcdGetElementDataWithFlags @ 0x14073D8EC (BcdGetElementDataWithFlags.c)
  */
 
-__int64 __fastcall BcdGetElementData(int a1, int a2, int a3, __int64 a4)
+NTSTATUS __cdecl BcdGetElementData(HANDLE BcdObjectHandle, ULONG BcdElement, PVOID Buffer, PULONG BufferSize)
 {
-  return BcdGetElementDataWithFlags(a1, a2, a3, a3, a4);
+  return BcdGetElementDataWithFlags(BcdObjectHandle, BcdElement, (BCD_FLAGS)Buffer, Buffer, BufferSize);
 }

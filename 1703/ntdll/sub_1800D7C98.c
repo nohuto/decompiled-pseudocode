@@ -11,24 +11,26 @@
  *     RtlUnhandledExceptionFilter2 @ 0x1800F8510 (RtlUnhandledExceptionFilter2.c)
  */
 
-__int64 __fastcall sub_1800D7C98(_DWORD **a1)
+__int64 __fastcall sub_1800D7C98(PEXCEPTION_POINTERS ExceptionPointers)
 {
   struct _TEB *v2; // rcx
-  void (__fastcall *v3)(_DWORD **); // rax
+  NTSTATUS ExceptionCode; // edi
+  void (__fastcall *v4)(PEXCEPTION_POINTERS); // rax
 
   v2 = NtCurrentTeb();
-  if ( **a1 == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
+  ExceptionCode = ExceptionPointers->ExceptionRecord->ExceptionCode;
+  if ( ExceptionCode == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
   {
-    RtlReportSilentProcessExit(-1LL, -1073741571);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741571);
   }
   else
   {
-    v3 = (void (__fastcall *)(_DWORD **))RtlDecodePointer(qword_18015B2C0);
-    if ( v3 )
-      v3(a1);
+    v4 = (void (__fastcall *)(PEXCEPTION_POINTERS))RtlDecodePointer(Ptr);
+    if ( v4 )
+      v4(ExceptionPointers);
     else
-      RtlUnhandledExceptionFilter2(a1, &unk_1801150C2);
+      RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&dword_1801150C2);
   }
-  ZwTerminateProcess();
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionCode);
   return 0LL;
 }

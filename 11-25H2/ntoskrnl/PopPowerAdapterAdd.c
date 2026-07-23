@@ -20,13 +20,13 @@
 void __fastcall PopPowerAdapterAdd(__int64 a1)
 {
   char v2; // al
-  int updated; // edx
+  NTSTATUS updated; // edx
   const CHAR *v4; // rdx
   int v5; // ecx
-  int v6; // [rsp+40h] [rbp-C0h] BYREF
+  int Buffer; // [rsp+40h] [rbp-C0h] BYREF
   char v7; // [rsp+44h] [rbp-BCh] BYREF
   __int16 v8; // [rsp+45h] [rbp-BBh] BYREF
-  int v9; // [rsp+48h] [rbp-B8h] BYREF
+  NTSTATUS v9; // [rsp+48h] [rbp-B8h] BYREF
   int v10; // [rsp+4Ch] [rbp-B4h] BYREF
   int v11; // [rsp+50h] [rbp-B0h] BYREF
   int v12; // [rsp+54h] [rbp-ACh] BYREF
@@ -37,9 +37,9 @@ void __fastcall PopPowerAdapterAdd(__int64 a1)
   int v17; // [rsp+68h] [rbp-98h] BYREF
   __int64 v18; // [rsp+70h] [rbp-90h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v19; // [rsp+80h] [rbp-80h] BYREF
-  int *v20; // [rsp+A0h] [rbp-60h]
+  NTSTATUS *v20; // [rsp+A0h] [rbp-60h]
   __int64 v21; // [rsp+A8h] [rbp-58h]
-  _BYTE v22[16]; // [rsp+B0h] [rbp-50h] BYREF
+  char v22[16]; // [rsp+B0h] [rbp-50h] BYREF
   int *v23; // [rsp+C0h] [rbp-40h]
   __int64 v24; // [rsp+C8h] [rbp-38h]
   int *v25; // [rsp+D0h] [rbp-30h]
@@ -65,10 +65,10 @@ void __fastcall PopPowerAdapterAdd(__int64 a1)
   __int64 v45; // [rsp+188h] [rbp+88h]
   char *v46; // [rsp+190h] [rbp+90h]
   __int64 v47; // [rsp+198h] [rbp+98h]
-  int *v48; // [rsp+1A0h] [rbp+A0h]
+  NTSTATUS *v48; // [rsp+1A0h] [rbp+A0h]
   __int64 v49; // [rsp+1A8h] [rbp+A8h]
 
-  v6 = 0;
+  Buffer = 0;
   if ( !qword_140F0AD50 )
   {
     KeInitializeEvent((PRKEVENT)(a1 + 104), SynchronizationEvent, 0);
@@ -81,22 +81,22 @@ void __fastcall PopPowerAdapterAdd(__int64 a1)
     {
       *(_DWORD *)(a1 + 128) = 1;
       PopAcquireRwLockExclusive((unsigned __int64 *)&PopCB);
-      v2 = BYTE2(v6);
+      v2 = BYTE2(Buffer);
       qword_140F0AD50 = a1;
       if ( (*(_BYTE *)(a1 + 140) & 1) != 0 )
         v2 = 1;
       *(_BYTE *)(a1 + 216) = 0;
-      BYTE2(v6) = v2;
-      LOWORD(v6) = 256;
-      updated = ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_ADAPTER_REC_CAPABILITIES, (__int64)&v6);
+      BYTE2(Buffer) = v2;
+      LOWORD(Buffer) = 256;
+      updated = ZwUpdateWnfStateData(&WNF_PO_POWER_ADAPTER_REC_CAPABILITIES, &Buffer, 4u, 0LL, 0LL, 0, 0);
       if ( (unsigned int)dword_140E07680 > 5 )
       {
         v42 = &v7;
-        v7 = v6;
+        v7 = Buffer;
         v44 = &v8;
         v46 = (char *)&v8 + 1;
         v48 = &v9;
-        v8 = *(_WORD *)((char *)&v6 + 1);
+        v8 = *(_WORD *)((char *)&Buffer + 1);
         v9 = updated;
         v43 = 1LL;
         v45 = 1LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0xxxqq_EtwWriteTransfer @ 0x1404F1288
+ * XREFs of McTemplateK0xxxqq_EtwWriteTransfer @ 0x1404F1208
  * Callers:
- *     FsRtlHeatLogIo @ 0x14088CF70 (FsRtlHeatLogIo.c)
+ *     FsRtlHeatLogIo @ 0x14088D0D0 (FsRtlHeatLogIo.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EFF4 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0xxxqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

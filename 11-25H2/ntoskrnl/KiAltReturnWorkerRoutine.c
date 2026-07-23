@@ -9,7 +9,7 @@
 
 PLIST_ENTRY __fastcall KiAltReturnWorkerRoutine(PLIST_ENTRY ListHead)
 {
-  struct _LIST_ENTRY *v1; // rbx
+  _LIST_ENTRY *v1; // rbx
   KSPIN_LOCK *v2; // rdx
   PLIST_ENTRY result; // rax
 

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiGetPageTablePages @ 0x140339E00
+ * XREFs of MiGetPageTablePages @ 0x14033BE80
  * Callers:
- *     MiCreateSystemPageTable @ 0x140339800 (MiCreateSystemPageTable.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1406F259C (MiDemoteValidLargePageOneLevel.c)
- *     MmCreateShadowMapping @ 0x140875970 (MmCreateShadowMapping.c)
+ *     MiCreateSystemPageTable @ 0x14033B880 (MiCreateSystemPageTable.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1406F720C (MiDemoteValidLargePageOneLevel.c)
+ *     MmCreateShadowMapping @ 0x14087BD54 (MmCreateShadowMapping.c)
  * Callees:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiFreePageChain @ 0x140292AA4 (MiFreePageChain.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiObtainSystemCharges @ 0x14033AAF0 (MiObtainSystemCharges.c)
- *     MiSetPfnTbFlushStamp @ 0x14036BAE0 (MiSetPfnTbFlushStamp.c)
- *     MiReturnSystemCharges @ 0x1404B3278 (MiReturnSystemCharges.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiFreePageChain @ 0x140292004 (MiFreePageChain.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiObtainSystemCharges @ 0x14033CB70 (MiObtainSystemCharges.c)
+ *     MiSetPfnTbFlushStamp @ 0x14036D880 (MiSetPfnTbFlushStamp.c)
+ *     MiReturnSystemCharges @ 0x1404AC8F8 (MiReturnSystemCharges.c)
  */
 
 __int64 __fastcall MiGetPageTablePages(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)

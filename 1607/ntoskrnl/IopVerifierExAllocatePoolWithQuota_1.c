@@ -1,12 +1,12 @@
 /*
- * XREFs of IopVerifierExAllocatePoolWithQuota_1 @ 0x1400B04A8
+ * XREFs of IopVerifierExAllocatePoolWithQuota_1 @ 0x1400AE584
  * Callers:
- *     NtLoadDriver @ 0x1404E648C (NtLoadDriver.c)
- *     IopUnloadDriver @ 0x140544E28 (IopUnloadDriver.c)
+ *     NtLoadDriver @ 0x1404C8DFC (NtLoadDriver.c)
+ *     IopUnloadDriver @ 0x140545368 (IopUnloadDriver.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePoolWithQuota_1(__int64 a1, SIZE_T a2)

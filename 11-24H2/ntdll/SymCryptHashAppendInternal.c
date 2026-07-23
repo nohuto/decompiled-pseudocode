@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptHashAppendInternal @ 0x18015B714
+ * XREFs of SymCryptHashAppendInternal @ 0x180159AD4
  * Callers:
- *     MD5Update @ 0x180119FB0 (MD5Update.c)
- *     SymCryptMd5Append @ 0x180158510 (SymCryptMd5Append.c)
- *     SymCryptSha1Append @ 0x180158ED0 (SymCryptSha1Append.c)
- *     MD4Update @ 0x18015BBD0 (MD4Update.c)
- *     SymCryptMd4Append @ 0x180161040 (SymCryptMd4Append.c)
+ *     MD5Update @ 0x1801181E0 (MD5Update.c)
+ *     SymCryptMd5Append @ 0x1801568D0 (SymCryptMd5Append.c)
+ *     SymCryptSha1Append @ 0x180157290 (SymCryptSha1Append.c)
+ *     MD4Update @ 0x180159F90 (MD4Update.c)
+ *     SymCryptMd4Append @ 0x18015F400 (SymCryptMd4Append.c)
  * Callees:
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 size_t __fastcall SymCryptHashAppendInternal(__int64 a1, unsigned int *a2, char *a3, size_t a4)

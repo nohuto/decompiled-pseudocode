@@ -15,15 +15,16 @@
  *     sub_180100D3C @ 0x180100D3C (sub_180100D3C.c)
  */
 
-char __fastcall RtlSetUserValueHeap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+BOOLEAN __cdecl RtlSetUserValueHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress, PVOID UserValue)
 {
-  char v6; // r15
+  BOOLEAN v6; // r15
   char v7; // r12
   __int64 v8; // r10
   int v9; // ecx
-  char v10; // si
+  BOOLEAN v10; // si
   __int64 v11; // rax
-  unsigned int v13; // r14d
+  ULONG v13; // r14d
   unsigned __int8 *v14; // rbx
   char v15; // al
   unsigned int v16; // edx
@@ -38,20 +39,20 @@ char __fastcall RtlSetUserValueHeap(__int64 a1, __int64 a2, __int64 a3, __int64 
   v6 = 0;
   v7 = 0;
   v22 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    v23 = sub_18001BD60(a2);
-    v9 = *(_DWORD *)(a1 + 64);
+    v23 = sub_18001BD60(Flags);
+    v9 = *((_DWORD *)HeapHandle + 16);
     v10 = 1;
     if ( v9 && v9 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
       v23 |= 1u;
     if ( (dword_180159760 & 2) != 0 && v8 )
       v8 -= *(_QWORD *)(v8 - 16);
-    v11 = sub_180063A64(a1, v8, v23 | *(_DWORD *)(a1 + 20), 0LL);
+    v11 = sub_180063A64(HeapHandle, v8, v23 | *((_DWORD *)HeapHandle + 5), 0LL);
     if ( (unsigned __int64)(v11 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
       v10 = 0;
     else
-      *(_QWORD *)(v11 + 8) = a4;
+      *(_QWORD *)(v11 + 8) = UserValue;
     if ( !v10 )
     {
       NtCurrentTeb()->LastStatusValue = -1073741811;
@@ -60,29 +61,29 @@ char __fastcall RtlSetUserValueHeap(__int64 a1, __int64 a2, __int64 a3, __int64 
     }
     return v10;
   }
-  v13 = *(_DWORD *)(a1 + 116) | a2;
+  v13 = *((_DWORD *)HeapHandle + 29) | Flags;
   if ( (v13 & 0x61000000) != 0 && (v13 & 0x10000000) == 0 )
-    return sub_180100D3C(a1, v13);
-  if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+    return sub_180100D3C(HeapHandle);
+  if ( (*((_BYTE *)HeapHandle + 120) & 1) != 0 )
   {
-    v14 = sub_18006377C(a1, a3);
+    v14 = sub_18006377C((int)HeapHandle, (__int64)BaseAddress);
     goto LABEL_17;
   }
-  if ( (a3 & 0xF) != 0 )
+  if ( ((unsigned __int8)BaseAddress & 0xF) != 0 )
   {
     v20 = 9;
     goto LABEL_43;
   }
-  v14 = (unsigned __int8 *)(a3 - 16);
-  _m_prefetchw((const void *)(a3 - 16));
-  if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+  v14 = (unsigned __int8 *)BaseAddress - 16;
+  _m_prefetchw((char *)BaseAddress - 16);
+  if ( *((char *)BaseAddress - 1) == 5 )
     v14 -= 16 * v14[14];
   if ( (v14[15] & 0x3F) == 0 )
   {
-    LODWORD(a3) = (_DWORD)v14;
+    LODWORD(BaseAddress) = (_DWORD)v14;
     v20 = 8;
 LABEL_43:
-    sub_18009A5F0(v20, a1, a3, 0, 0LL, 0LL);
+    sub_18009A5F0(v20, (_DWORD)HeapHandle, (_DWORD)BaseAddress, 0, 0LL, 0LL);
     v14 = 0LL;
   }
 LABEL_17:
@@ -95,7 +96,7 @@ LABEL_17:
   }
   if ( (v13 & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
     v7 = 1;
     v22 = 1;
   }
@@ -104,18 +105,18 @@ LABEL_17:
   {
     if ( v15 >= 0 )
     {
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( *((_DWORD *)HeapHandle + 31) )
       {
-        v16 = *((_DWORD *)v14 + 2) ^ *(_DWORD *)(a1 + 136);
+        v16 = *((_DWORD *)v14 + 2) ^ *((_DWORD *)HeapHandle + 34);
         *((_DWORD *)v14 + 2) = v16;
         v17 = v16 ^ BYTE1(v16) ^ BYTE2(v16);
-        a2 = HIBYTE(v16);
-        if ( (_BYTE)a2 != v17 )
-          sub_1800FC010(a1, v14);
+        *(_QWORD *)&Flags = HIBYTE(v16);
+        if ( (_BYTE)Flags != v17 )
+          sub_1800FC010(HeapHandle, v14);
       }
       if ( (v14[10] & 2) != 0 )
       {
-        *(_QWORD *)(sub_180063B6C(v14, a2) + 8) = a4;
+        *(_QWORD *)(sub_180063B6C(v14, *(_QWORD *)&Flags) + 8) = UserValue;
         v6 = 1;
       }
       goto LABEL_29;
@@ -131,12 +132,12 @@ LABEL_17:
   }
   v14 = 0LL;
 LABEL_29:
-  if ( v14 && *(_DWORD *)(a1 + 124) )
+  if ( v14 && *((_DWORD *)HeapHandle + 31) )
   {
     v14[11] = v14[8] ^ v14[9] ^ v14[10];
-    *((_DWORD *)v14 + 2) ^= *(_DWORD *)(a1 + 136);
+    *((_DWORD *)v14 + 2) ^= *((_DWORD *)HeapHandle + 34);
   }
   if ( v7 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
   return v6;
 }

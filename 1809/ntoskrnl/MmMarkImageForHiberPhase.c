@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMarkImageForHiberPhase @ 0x14057C5C8
+ * XREFs of MmMarkImageForHiberPhase @ 0x14057D5C8
  * Callers:
- *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401448D0 (PoSetHiberRange.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     MiMarkNonPagedHiberPhasePages @ 0x14057C1BC (MiMarkNonPagedHiberPhasePages.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x14057D1BC (MiMarkNonPagedHiberPhasePages.c)
  */
 
 __int64 __fastcall MmMarkImageForHiberPhase(unsigned __int64 a1)

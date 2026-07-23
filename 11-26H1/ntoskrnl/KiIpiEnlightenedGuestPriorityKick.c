@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIpiEnlightenedGuestPriorityKick @ 0x140467500
+ * XREFs of KiIpiEnlightenedGuestPriorityKick @ 0x140460C50
  * Callers:
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
  * Callees:
- *     KiHvEnlightenedGuestPriorityKick @ 0x1404675F0 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x140460D40 (KiHvEnlightenedGuestPriorityKick.c)
  */
 
 __int64 __fastcall KiIpiEnlightenedGuestPriorityKick(unsigned __int16 *a1)
@@ -44,8 +44,7 @@ __int64 __fastcall KiIpiEnlightenedGuestPriorityKick(unsigned __int16 *a1)
           }
           _BitScanForward64(&v9, v6);
           v6 &= ~(1LL << v9);
-          v10 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                 + 64 * v7
+          v10 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v7].Flink
                                  + (unsigned __int8)v9)];
           if ( (struct _KPRCB *)v10 != CurrentPrcb )
             KiHvEnlightenedGuestPriorityKick(CurrentPrcb, v10, (unsigned int)KiVpThreadSystemWorkPriority);

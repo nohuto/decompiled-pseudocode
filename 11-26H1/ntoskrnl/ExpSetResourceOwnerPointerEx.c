@@ -1,30 +1,30 @@
 /*
- * XREFs of ExpSetResourceOwnerPointerEx @ 0x14043B3BC
+ * XREFs of ExpSetResourceOwnerPointerEx @ 0x14042DC6C
  * Callers:
- *     ExSetResourceOwnerPointer @ 0x14043B340 (ExSetResourceOwnerPointer.c)
- *     ExSetResourceOwnerPointerEx @ 0x14043B380 (ExSetResourceOwnerPointerEx.c)
+ *     ExSetResourceOwnerPointer @ 0x14042DBF0 (ExSetResourceOwnerPointer.c)
+ *     ExSetResourceOwnerPointerEx @ 0x14042DC30 (ExSetResourceOwnerPointerEx.c)
  * Callees:
- *     PsBoostThreadIoQoS @ 0x140205500 (PsBoostThreadIoQoS.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x1402B6320 (ExpResourceEnforcesOwnershipTransfer.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
- *     ExpGetThreadResourceHint @ 0x14043B8E0 (ExpGetThreadResourceHint.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PerfLogExecutiveResourceSetOwnerPointer @ 0x1406C725C (PerfLogExecutiveResourceSetOwnerPointer.c)
+ *     PsBoostThreadIoQoS @ 0x1402055E0 (PsBoostThreadIoQoS.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x140300FE0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
+ *     ExpGetThreadResourceHint @ 0x14042E190 (ExpGetThreadResourceHint.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PerfLogExecutiveResourceSetOwnerPointer @ 0x1406CAF5C (PerfLogExecutiveResourceSetOwnerPointer.c)
  */
 
 void __fastcall ExpSetResourceOwnerPointerEx(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter4, char a3)
 {
   struct _KTHREAD *CurrentThread; // rbx
   int v7; // r12d
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // r9
-  __int64 v10; // r14
-  __int64 v11; // rax
-  __int64 *v12; // rdx
-  __int64 v13; // r14
+  __int64 v8; // r14
+  __int64 v9; // rax
+  __int64 *v10; // rdx
+  __int64 v11; // r14
+  unsigned __int64 v12; // r8
+  unsigned __int64 v13; // r9
   __int64 v14; // rax
   unsigned int ThreadResourceHint; // eax
   ULONG_PTR *v16; // rdx
@@ -107,35 +107,35 @@ void __fastcall ExpSetResourceOwnerPointerEx(ULONG_PTR BugCheckParameter1, ULONG
   }
   else
   {
-    v10 = BugCheckParameter1 + 48;
-    v11 = *(_QWORD *)(BugCheckParameter1 + 48);
-    v12 = (__int64 *)(BugCheckParameter1 + 16);
-    if ( v11 != BugCheckParameter4 )
+    v8 = BugCheckParameter1 + 48;
+    v9 = *(_QWORD *)(BugCheckParameter1 + 48);
+    v10 = (__int64 *)(BugCheckParameter1 + 16);
+    if ( v9 != BugCheckParameter4 )
     {
-      v13 = *v12;
-      v8 = v11 != 0;
-      v9 = *(unsigned int *)(BugCheckParameter1 + 64) + (unsigned __int64)*(unsigned int *)(BugCheckParameter1 + 72);
-      if ( *v12 && (v14 = v13 + 16LL * *(unsigned int *)(v13 + 8), v10 = v13 + 16, v8 < v9) )
+      v11 = *v10;
+      v12 = v9 != 0;
+      v13 = *(unsigned int *)(BugCheckParameter1 + 64) + (unsigned __int64)*(unsigned int *)(BugCheckParameter1 + 72);
+      if ( *v10 && (v14 = v11 + 16LL * *(unsigned int *)(v11 + 8), v8 = v11 + 16, v12 < v13) )
       {
-        while ( *(_QWORD *)v10 != BugCheckParameter4 )
+        while ( *(_QWORD *)v8 != BugCheckParameter4 )
         {
-          if ( !*(_QWORD *)v10 || (++v8, v8 != v9) )
+          if ( !*(_QWORD *)v8 || (++v12, v12 != v13) )
           {
-            v10 += 16LL;
-            if ( v10 != v14 )
+            v8 += 16LL;
+            if ( v8 != v14 )
               continue;
           }
           goto LABEL_5;
         }
-        KeGetCurrentThread()->ResourceIndex = (__int64)(unsigned int)(v10 - *(_DWORD *)v12) >> 4;
+        KeGetCurrentThread()->ResourceIndex = (__int64)(unsigned int)(v8 - *(_DWORD *)v10) >> 4;
       }
       else
       {
 LABEL_5:
-        v10 = 0LL;
+        v8 = 0LL;
       }
     }
-    ThreadResourceHint = ExpGetThreadResourceHint(CurrentThread, v12, v8, v9);
+    ThreadResourceHint = ExpGetThreadResourceHint(CurrentThread, v10);
     v19 = BugCheckParameter1 + 48;
     v20 = *(struct _KTHREAD **)(BugCheckParameter1 + 48);
     if ( v20 != CurrentThread )
@@ -169,16 +169,16 @@ LABEL_13:
       goto LABEL_13;
     v24 = *(_DWORD *)(v19 + 8);
     v25 = a3 & 1;
-    if ( v10 )
+    if ( v8 )
     {
       v40 = *(_DWORD *)(v19 + 8);
-      v43 = *(_DWORD *)(v10 + 8);
+      v43 = *(_DWORD *)(v8 + 8);
       if ( v25 )
       {
         if ( (struct _KTHREAD *)(BugCheckParameter4 & 0xFFFFFFFFFFFFFFFCuLL) != CurrentThread )
           KeBugCheckEx(0x132u, BugCheckParameter1, *v16, (ULONG_PTR)CurrentThread, BugCheckParameter4);
         v30 = *(_DWORD *)(v19 + 8);
-        v32 = *(_DWORD *)(v10 + 8);
+        v32 = *(_DWORD *)(v8 + 8);
         if ( (v24 & 1) != 0 )
         {
           if ( (v43 & 1) != 0 )
@@ -223,7 +223,7 @@ LABEL_13:
         }
         v32 = v43;
       }
-      *(_DWORD *)(v10 + 8) = v32 & 7 | (v30 + (v32 & 0xFFFFFFF8)) & 0xFFFFFFF8;
+      *(_DWORD *)(v8 + 8) = v32 & 7 | (v30 + (v32 & 0xFFFFFFF8)) & 0xFFFFFFF8;
       *(_DWORD *)(v19 + 8) = v30 & 7;
       *(_QWORD *)v19 = 0LL;
       --*(_DWORD *)(BugCheckParameter1 + 64);

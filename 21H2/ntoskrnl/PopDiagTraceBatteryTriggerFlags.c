@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceBatteryTriggerFlags @ 0x14077FECC
+ * XREFs of PopDiagTraceBatteryTriggerFlags @ 0x14078008C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
- *     PopResetCBTriggers @ 0x140792F68 (PopResetCBTriggers.c)
- *     PopRecalculateCBTriggerLevels @ 0x1408EDD20 (PopRecalculateCBTriggerLevels.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FDDC (PopBatteryApplyCompositeState.c)
+ *     PopResetCBTriggers @ 0x140794518 (PopResetCBTriggers.c)
+ *     PopRecalculateCBTriggerLevels @ 0x1408EDE80 (PopRecalculateCBTriggerLevels.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
@@ -39,7 +39,7 @@ int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
   __int64 v27; // [rsp+C0h] [rbp+3Fh]
 
   v2 = *a1;
-  v3 = dword_140C237AC;
+  v3 = dword_140C23DCC;
   if ( (unsigned int)v2 < 4 )
   {
     v4 = IndexToActionName[v2];
@@ -69,7 +69,7 @@ int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
           v27 = 4LL;
           LODWORD(v2) = tlgWriteTransfer_EtwWriteTransfer(
                           (__int64)&dword_140C02228,
-                          (unsigned __int8 *)byte_14002758B,
+                          (unsigned __int8 *)&byte_140027397,
                           0LL,
                           0LL,
                           8u,

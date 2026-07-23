@@ -1,13 +1,13 @@
 /*
- * XREFs of ExTryAcquirePushLockExclusiveEx @ 0x1400C6460
+ * XREFs of ExTryAcquirePushLockExclusiveEx @ 0x1400C4300
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char __fastcall ExTryAcquirePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -58,7 +58,7 @@ char __fastcall ExTryAcquirePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, UL
 LABEL_6:
   if ( v6 )
   {
-    if ( v2 < qword_140326910 || v2 >= qword_140326910 + 0x8000000000LL )
+    if ( v2 < qword_140326950 || v2 >= qword_140326950 + 0x8000000000LL )
       SessionId = -1;
     else
       SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeMdlPages @ 0x140106A8C
+ * XREFs of MiInitializeMdlPages @ 0x14010480C
  * Callers:
- *     MiAllocatePagesForMdl @ 0x140104224 (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140101FA4 (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiChangePageAttributeBatch @ 0x14001D640 (MiChangePageAttributeBatch.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     MiInitializeMdlPfn @ 0x140106F20 (MiInitializeMdlPfn.c)
- *     MiPageAttributeBatchChangeNeeded @ 0x140106FC8 (MiPageAttributeBatchChangeNeeded.c)
- *     MiPfnZeroingNeeded @ 0x1401071D8 (MiPfnZeroingNeeded.c)
- *     MiZeroInParallel @ 0x14010C2DC (MiZeroInParallel.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MiLogMdlRangeEvent @ 0x1401E4868 (MiLogMdlRangeEvent.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiChangePageAttributeBatch @ 0x14001D1C0 (MiChangePageAttributeBatch.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     MiInitializeMdlPfn @ 0x140104CA0 (MiInitializeMdlPfn.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x140104D48 (MiPageAttributeBatchChangeNeeded.c)
+ *     MiPfnZeroingNeeded @ 0x140104F58 (MiPfnZeroingNeeded.c)
+ *     MiZeroInParallel @ 0x14010A05C (MiZeroInParallel.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MiLogMdlRangeEvent @ 0x1401E4694 (MiLogMdlRangeEvent.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -61,7 +61,7 @@ ULONG_PTR __fastcall MiInitializeMdlPages(ULONG_PTR BugCheckParameter2, __int64 
   v44 = a3;
   v43 = a2;
   v5 = 0LL;
-  v6 = dword_1403269FC;
+  v6 = dword_140326A3C;
   v7 = a4;
   v8 = (unsigned __int64)*(unsigned int *)(BugCheckParameter2 + 40) >> 12;
   v9 = a2;
@@ -69,7 +69,7 @@ ULONG_PTR __fastcall MiInitializeMdlPages(ULONG_PTR BugCheckParameter2, __int64 
   v11 = 0LL;
   if ( a5 == 1 )
   {
-    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 24LL * (unsigned int)dword_1403269FC, 0x6C646D4Du);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 24LL * (unsigned int)dword_140326A3C, 0x6C646D4Du);
     v5 = 0LL;
     v11 = PoolWithTag;
     if ( !PoolWithTag )
@@ -121,7 +121,7 @@ ULONG_PTR __fastcall MiInitializeMdlPages(ULONG_PTR BugCheckParameter2, __int64 
         if ( v6 == 1 )
           v24 = v23;
         else
-          v24 = dword_1403269F8 & *v21 | (((*(_QWORD *)(v19 + 40) >> 36) & 3) << byte_1403269D8) | (((*(_QWORD *)(v19 + 40) >> 58) & 0x3F) << byte_1403269C9);
+          v24 = dword_140326A38 & *v21 | (((*(_QWORD *)(v19 + 40) >> 36) & 3) << byte_140326A18) | (((*(_QWORD *)(v19 + 40) >> 58) & 0x3F) << byte_140326A09);
         v25 = 3LL * v24;
         *(_QWORD *)v19 = *(_QWORD *)&v11[24 * v24 + 16];
         ++*(_QWORD *)&v11[8 * v25 + 8];
@@ -148,7 +148,7 @@ ULONG_PTR __fastcall MiInitializeMdlPages(ULONG_PTR BugCheckParameter2, __int64 
           if ( (unsigned int)MiPageAttributeBatchChangeNeeded(v19, (unsigned int)a3) != 1 )
             goto LABEL_33;
           if ( !v20
-            || *((_DWORD *)&unk_140326A20 + 4 * ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) >> 6) + (int)v44) == v44 )
+            || *((_DWORD *)&unk_140326A60 + 4 * ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) >> 6) + (int)v44) == v44 )
           {
             v27 = v34;
             v34 = v19;

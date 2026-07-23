@@ -1,31 +1,31 @@
 /*
- * XREFs of ObQueryNameStringMode @ 0x140660F50
+ * XREFs of ObQueryNameStringMode @ 0x140662110
  * Callers:
- *     sub_140586D3C @ 0x140586D3C (sub_140586D3C.c)
- *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
- *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
- *     EtwpEnumerateAddressSpace @ 0x1405F5E18 (EtwpEnumerateAddressSpace.c)
- *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
- *     PspInitializeFullProcessImageName @ 0x14065EB14 (PspInitializeFullProcessImageName.c)
- *     ObQueryNameString @ 0x14065F660 (ObQueryNameString.c)
- *     IopQueryNameInternal @ 0x1406605A4 (IopQueryNameInternal.c)
- *     NtQueryObject @ 0x140660AB0 (NtQueryObject.c)
- *     CmpQueryNameString @ 0x140683654 (CmpQueryNameString.c)
- *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
- *     IoRegisterDeviceInterface @ 0x140709980 (IoRegisterDeviceInterface.c)
- *     IopErrorLogThread @ 0x14070C390 (IopErrorLogThread.c)
- *     PnpBuildCmResourceList @ 0x14072E7C0 (PnpBuildCmResourceList.c)
- *     IopGetRelatedFileName @ 0x140819C0C (IopGetRelatedFileName.c)
- *     IopRaiseHardError @ 0x14081A4D0 (IopRaiseHardError.c)
- *     PiControlGetDeviceStack @ 0x14083B8B4 (PiControlGetDeviceStack.c)
- *     AlpcpGetPortNameInformation @ 0x14084AC10 (AlpcpGetPortNameInformation.c)
- *     MmGetFileNameForAddress @ 0x14084BC50 (MmGetFileNameForAddress.c)
- *     MmGetFileNameForSection @ 0x14084BD64 (MmGetFileNameForSection.c)
- *     ObGetObjectInformation @ 0x140861C60 (ObGetObjectInformation.c)
- *     SmKmFileInfoGetPath @ 0x1408ACB68 (SmKmFileInfoGetPath.c)
- *     SmKmStoreFileOpenVolume @ 0x1408AE2E0 (SmKmStoreFileOpenVolume.c)
- *     EtwpTraceHandle @ 0x1408B8C10 (EtwpTraceHandle.c)
- *     EtwpObjectHandleEnumCallback @ 0x1408BEC00 (EtwpObjectHandleEnumCallback.c)
+ *     sub_140587D3C @ 0x140587D3C (sub_140587D3C.c)
+ *     IoGetDeviceProperty @ 0x1405886E0 (IoGetDeviceProperty.c)
+ *     MmQueryVirtualMemory @ 0x1405EF910 (MmQueryVirtualMemory.c)
+ *     EtwpEnumerateAddressSpace @ 0x1405F6E18 (EtwpEnumerateAddressSpace.c)
+ *     SepQueryNameString @ 0x14065ED54 (SepQueryNameString.c)
+ *     PspInitializeFullProcessImageName @ 0x14065FCD4 (PspInitializeFullProcessImageName.c)
+ *     ObQueryNameString @ 0x140660820 (ObQueryNameString.c)
+ *     IopQueryNameInternal @ 0x140661764 (IopQueryNameInternal.c)
+ *     NtQueryObject @ 0x140661C70 (NtQueryObject.c)
+ *     CmpQueryNameString @ 0x140684814 (CmpQueryNameString.c)
+ *     IopGraftName @ 0x1406AD50C (IopGraftName.c)
+ *     IoRegisterDeviceInterface @ 0x14070AC20 (IoRegisterDeviceInterface.c)
+ *     IopErrorLogThread @ 0x14070D630 (IopErrorLogThread.c)
+ *     PnpBuildCmResourceList @ 0x14072F9B0 (PnpBuildCmResourceList.c)
+ *     IopGetRelatedFileName @ 0x14081AE0C (IopGetRelatedFileName.c)
+ *     IopRaiseHardError @ 0x14081B6D0 (IopRaiseHardError.c)
+ *     PiControlGetDeviceStack @ 0x14083CB14 (PiControlGetDeviceStack.c)
+ *     AlpcpGetPortNameInformation @ 0x14084BE70 (AlpcpGetPortNameInformation.c)
+ *     MmGetFileNameForAddress @ 0x14084CEB0 (MmGetFileNameForAddress.c)
+ *     MmGetFileNameForSection @ 0x14084CFC4 (MmGetFileNameForSection.c)
+ *     ObGetObjectInformation @ 0x140862EC0 (ObGetObjectInformation.c)
+ *     SmKmFileInfoGetPath @ 0x1408ADDC8 (SmKmFileInfoGetPath.c)
+ *     SmKmStoreFileOpenVolume @ 0x1408AF540 (SmKmStoreFileOpenVolume.c)
+ *     EtwpTraceHandle @ 0x1408B9ED0 (EtwpTraceHandle.c)
+ *     EtwpObjectHandleEnumCallback @ 0x1408BFEC0 (EtwpObjectHandleEnumCallback.c)
  * Callees:
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -33,10 +33,10 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1400DDB4C (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1400DDBCC (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall ObQueryNameStringMode(char *a1, __int64 a2, unsigned int a3, _DWORD *a4, char a5)
@@ -284,7 +284,7 @@ LABEL_39:
         v37 = (_WORD *)(a2 + 16);
       }
       *(_DWORD *)v24 = *(_DWORD *)L"...";
-      v24[2] = asc_14076A480[2];
+      v24[2] = asc_14076B670[2];
       if ( v36 == v23 )
         v24 = v37 + 1;
 LABEL_68:

@@ -1,8 +1,8 @@
 /*
- * XREFs of _PnpObjectRaiseCreateEvent @ 0x1406DC1AC
+ * XREFs of _PnpObjectRaiseCreateEvent @ 0x1406DC2E4
  * Callers:
- *     _PnpCreateObjectDispatch @ 0x1406DAD80 (_PnpCreateObjectDispatch.c)
- *     _CmRaiseCreateEvent @ 0x1406DBEF0 (_CmRaiseCreateEvent.c)
+ *     _PnpCreateObjectDispatch @ 0x1406DAEB8 (_PnpCreateObjectDispatch.c)
+ *     _CmRaiseCreateEvent @ 0x1406DC028 (_CmRaiseCreateEvent.c)
  * Callees:
  *     <none>
  */

@@ -11,7 +11,7 @@
  *     RtlpGetExtraStuffPointer @ 0x18005B1FC (RtlpGetExtraStuffPointer.c)
  *     RtlLogStackBackTraceEx @ 0x180061BC0 (RtlLogStackBackTraceEx.c)
  *     RtlpCheckHeapSignature @ 0x18006D6D0 (RtlpCheckHeapSignature.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     RtlpGetTagName @ 0x1800F3690 (RtlpGetTagName.c)
  *     RtlpAnalyzeHeapFailure @ 0x180103934 (RtlpAnalyzeHeapFailure.c)
  *     RtlpBreakPointHeap @ 0x180108DD8 (RtlpBreakPointHeap.c)
@@ -20,13 +20,13 @@
  *     RtlpHeapExceptionFilter @ 0x18010C5C8 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlDebugAllocateHeap(_DWORD *Src, int a2, unsigned __int64 a3)
+PVOID __fastcall RtlDebugAllocateHeap(_DWORD *Src, int a2, SIZE_T a3)
 {
-  unsigned int v7; // edi
+  ULONG v7; // edi
   __int64 v8; // rax
   unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rax
-  __int64 Heap; // rdi
+  SIZE_T v10; // rax
+  PVOID Heap; // rdi
   unsigned __int64 v12; // rdi
   int v13; // edx
   _WORD *ExtraStuffPointer; // rax
@@ -35,12 +35,12 @@ __int64 __fastcall RtlDebugAllocateHeap(_DWORD *Src, int a2, unsigned __int64 a3
   struct _PEB *v17; // rax
   wchar_t *TagName; // rax
   char v19; // [rsp+20h] [rbp-38h]
-  __int64 v20; // [rsp+28h] [rbp-30h]
+  PVOID v20; // [rsp+28h] [rbp-30h]
   unsigned __int16 v21; // [rsp+78h] [rbp+20h]
 
   v19 = 0;
   if ( (Src[29] & 0x1000000) != 0 )
-    return _guard_dispatch_icall_fptr();
+    return (PVOID)_guard_dispatch_icall_fptr();
   if ( !RtlpCheckHeapSignature(Src, "RtlAllocateHeap") )
     goto LABEL_46;
   v7 = Src[29] | 0x10000100 | a2;
@@ -64,17 +64,17 @@ LABEL_46:
   }
   if ( (v7 & 1) == 0 )
   {
-    RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+    RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
     v19 = 1;
     v7 |= 1u;
   }
-  RtlpValidateHeap(Src, 0LL);
-  Heap = RtlAllocateHeap((__int64)Src, v7, a3);
+  RtlpValidateHeap(Src);
+  Heap = RtlAllocateHeap(Src, v7, a3);
   v20 = Heap;
   RtlpValidateHeapHeaders(Src);
   if ( !Heap )
     goto LABEL_47;
-  v12 = Heap - 16;
+  v12 = (unsigned __int64)Heap - 16;
   _m_prefetchw((const void *)v12);
   if ( *(_BYTE *)(v12 + 15) == 5 )
     v12 -= 16LL * *(unsigned __int8 *)(v12 + 14);
@@ -106,10 +106,10 @@ LABEL_46:
     *(_DWORD *)(v12 + 8) ^= Src[34];
   }
   if ( (Src[28] & 0x20000000) != 0 )
-    RtlpValidateHeap(Src, 0LL);
+    RtlpValidateHeap(Src);
   v17 = NtCurrentPeb();
   Heap = v20;
-  if ( v20 == RtlpHeapStopOn )
+  if ( v20 == (PVOID)RtlpHeapStopOn )
   {
     if ( v17->Ldr )
     {
@@ -138,6 +138,6 @@ LABEL_33:
   }
 LABEL_47:
   if ( v19 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
   return Heap;
 }

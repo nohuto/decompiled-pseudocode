@@ -1,14 +1,14 @@
 /*
- * XREFs of CcReapPrivateVolumeCachemap @ 0x1402CA344
+ * XREFs of CcReapPrivateVolumeCachemap @ 0x14042FCA4
  * Callers:
- *     CcReapPrivateVolumeCachemapWorkerThread @ 0x1402C9E90 (CcReapPrivateVolumeCachemapWorkerThread.c)
+ *     CcReapPrivateVolumeCachemapWorkerThread @ 0x14042FBD0 (CcReapPrivateVolumeCachemapWorkerThread.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     CcPostDeferredWrites @ 0x1402AAB14 (CcPostDeferredWrites.c)
- *     CcIsDirtyCachemapListEmptyForVolume @ 0x1402CA31C (CcIsDirtyCachemapListEmptyForVolume.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x1402CB768 (CcDeletePrivateVolumeCacheMap.c)
- *     CcDeleteSectionsForPartition @ 0x14057C948 (CcDeleteSectionsForPartition.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcPostDeferredWrites @ 0x1402795B0 (CcPostDeferredWrites.c)
+ *     CcIsDirtyCachemapListEmptyForVolume @ 0x14042FDD8 (CcIsDirtyCachemapListEmptyForVolume.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1404309A4 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcDeleteSectionsForPartition @ 0x140579DD8 (CcDeleteSectionsForPartition.c)
  */
 
 __int64 __fastcall CcReapPrivateVolumeCachemap(struct _KEVENT *P)
@@ -29,7 +29,7 @@ __int64 __fastcall CcReapPrivateVolumeCachemap(struct _KEVENT *P)
   if ( BYTE5(P[48].Header.WaitListHead.Blink) && BYTE4(P[51].Header.WaitListHead.Flink) )
     KeSetEvent(P + 35, 0, 0);
   while ( P[25].Header.WaitListHead.Flink != &P[25].Header.WaitListHead
-       || !CcIsDirtyCachemapListEmptyForVolume((__int64)P) )
+       || !(unsigned __int8)CcIsDirtyCachemapListEmptyForVolume(P) )
   {
     CcDeleteSectionsForPartition(&P[26].Header.WaitListHead.Blink, Flink);
     CcDeleteSectionsForPartition(&P[25].Header.WaitListHead, Flink);

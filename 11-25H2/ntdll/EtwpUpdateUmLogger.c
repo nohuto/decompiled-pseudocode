@@ -24,7 +24,7 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
   int v15; // ecx
   __m128i v16; // xmm6
   NTSTATUS v17; // eax
-  __int64 v18; // rcx
+  void *v18; // rcx
   __int64 v19; // [rsp+78h] [rbp+10h] BYREF
 
   *a2 = 0;
@@ -87,7 +87,7 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
       if ( !v9 )
       {
 LABEL_20:
-        v18 = _mm_srli_si128(v16, 8).m128i_u64[0];
+        v18 = (void *)_mm_srli_si128(v16, 8).m128i_u64[0];
         if ( v18 )
           RtlpSysVolFree(v18);
 LABEL_22:

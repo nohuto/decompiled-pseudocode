@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDrvDbInit @ 0x1407370BC
+ * XREFs of PiDrvDbInit @ 0x140734FEC
  * Callers:
- *     PiPnpRtlInit @ 0x140726C44 (PiPnpRtlInit.c)
+ *     PiPnpRtlInit @ 0x1407247D4 (PiPnpRtlInit.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x140736CA8 (PiDrvDbEnumDriverStoreNodes.c)
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
- *     PiDrvDbSetupNodes @ 0x140739ABC (PiDrvDbSetupNodes.c)
- *     PiDrvDbSuspendNodes @ 0x140739C48 (PiDrvDbSuspendNodes.c)
- *     DrvDbOpenContext @ 0x140823650 (DrvDbOpenContext.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x140734BD8 (PiDrvDbEnumDriverStoreNodes.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbSetupNodes @ 0x1407379EC (PiDrvDbSetupNodes.c)
+ *     PiDrvDbSuspendNodes @ 0x140737B78 (PiDrvDbSuspendNodes.c)
+ *     DrvDbOpenContext @ 0x140823D90 (DrvDbOpenContext.c)
  */
 
 __int64 __fastcall PiDrvDbInit(int a1)
@@ -16,7 +16,7 @@ __int64 __fastcall PiDrvDbInit(int a1)
   int v1; // edx
   int v2; // edi
   __int64 *i; // rbx
-  int v4; // ecx
+  __int64 v4; // rcx
   __int64 v5; // rcx
   int v6; // eax
   int v8; // eax
@@ -34,16 +34,16 @@ __int64 __fastcall PiDrvDbInit(int a1)
   }
   else
   {
-    qword_140F89A98 = (__int64)&PiDrvDbNodeList;
+    qword_140F89D38 = (__int64)&PiDrvDbNodeList;
     PiDrvDbNodeList = (__int64)&PiDrvDbNodeList;
     v1 = DrvDbOpenContext();
     if ( v1 >= 0 )
     {
       v2 = 0;
-      for ( i = &qword_140009FA8; ; i += 4 )
+      for ( i = &qword_14000A178; ; i += 4 )
       {
-        v4 = *((_DWORD *)i - 4);
-        if ( ((v4 & 4) == 0 || !CmIsStateSeparationEnabled()) && ((v4 & 0x80u) == 0 || CmIsStateSeparationEnabled()) )
+        LODWORD(v4) = *((_DWORD *)i - 4);
+        if ( ((v4 & 4) == 0 || !CmIsStateSeparationEnabled()) && ((v4 & 0x80u) == 0LL || CmIsStateSeparationEnabled()) )
         {
           v1 = PiDrvDbRegisterNode((PCWSTR)*(i - 3), *i);
           if ( v1 < 0 )
@@ -53,7 +53,7 @@ __int64 __fastcall PiDrvDbInit(int a1)
         {
           if ( v1 >= 0 )
           {
-            v1 = PiDrvDbEnumDriverStoreNodes();
+            v1 = PiDrvDbEnumDriverStoreNodes(v4);
             if ( v1 >= 0 )
             {
               LOBYTE(v5) = 1;

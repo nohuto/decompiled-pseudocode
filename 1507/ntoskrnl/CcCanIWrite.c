@@ -29,7 +29,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   int v17; // [rsp+50h] [rbp-58h]
   PFILE_OBJECT v18; // [rsp+58h] [rbp-50h]
   ULONG v19; // [rsp+60h] [rbp-48h]
-  struct _LIST_ENTRY ListEntry; // [rsp+68h] [rbp-40h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+68h] [rbp-40h] BYREF
   __int16 *p_Object; // [rsp+78h] [rbp-30h]
 
   if ( FileObject )

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDemotePfnListChain @ 0x1406625FC
+ * XREFs of MiDemotePfnListChain @ 0x1406626E0
  * Callers:
- *     MiMapUserLargePages @ 0x140662B28 (MiMapUserLargePages.c)
+ *     MiMapUserLargePages @ 0x140662C0C (MiMapUserLargePages.c)
  * Callees:
- *     MiWriteNewContainingFrame @ 0x1401F60B4 (MiWriteNewContainingFrame.c)
+ *     MiWriteNewContainingFrame @ 0x1401F5EE0 (MiWriteNewContainingFrame.c)
  */
 
 unsigned __int64 __fastcall MiDemotePfnListChain(_QWORD *a1)

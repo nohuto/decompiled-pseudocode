@@ -1,11 +1,11 @@
 /*
- * XREFs of AslPathGetFileNamePart @ 0x140809DE4
+ * XREFs of AslPathGetFileNamePart @ 0x14080A524
  * Callers:
- *     SdbGetMergeRedirectPath @ 0x140800E0C (SdbGetMergeRedirectPath.c)
- *     SdbOpenDatabaseEx @ 0x140800F84 (SdbOpenDatabaseEx.c)
- *     SdbpGetMergeRedirectPathInternal @ 0x140801804 (SdbpGetMergeRedirectPathInternal.c)
+ *     SdbGetMergeRedirectPath @ 0x14080154C (SdbGetMergeRedirectPath.c)
+ *     SdbOpenDatabaseEx @ 0x1408016C4 (SdbOpenDatabaseEx.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140801F44 (SdbpGetMergeRedirectPathInternal.c)
  * Callees:
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
  */
 
 const wchar_t *__fastcall AslPathGetFileNamePart(const wchar_t *a1)

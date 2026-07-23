@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpWalkHeap @ 0x180048BA0
+ * XREFs of RtlpWalkHeap @ 0x18005E780
  * Callers:
- *     RtlWalkHeap @ 0x180047770 (RtlWalkHeap.c)
- *     RtlpWalkHeapInternal @ 0x180047BA0 (RtlpWalkHeapInternal.c)
- *     RtlpHpTagDestroyHeap @ 0x180047D9C (RtlpHpTagDestroyHeap.c)
- *     RtlpQueryExtendedInformationHeap @ 0x1800480F0 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlWalkHeap @ 0x18005E150 (RtlWalkHeap.c)
+ *     RtlpWalkHeapInternal @ 0x18005E1A0 (RtlpWalkHeapInternal.c)
+ *     RtlpHpTagDestroyHeap @ 0x18005E6D0 (RtlpHpTagDestroyHeap.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x180114970 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
- *     RtlpWalkLFHBlock @ 0x180049500 (RtlpWalkLFHBlock.c)
- *     RtlpSetHeapWalkEntryOverheadBytes @ 0x1800E09A0 (RtlpSetHeapWalkEntryOverheadBytes.c)
- *     RtlpWalkLowFragHeapSegment @ 0x18010D078 (RtlpWalkLowFragHeapSegment.c)
- *     RtlDebugWalkHeap @ 0x18011EFE0 (RtlDebugWalkHeap.c)
- *     RtlpLogHeapWalkEvent @ 0x18014C7F8 (RtlpLogHeapWalkEvent.c)
+ *     RtlpSetHeapWalkEntryOverheadBytes @ 0x18005E260 (RtlpSetHeapWalkEntryOverheadBytes.c)
+ *     RtlpWalkLFHBlock @ 0x18005F0E0 (RtlpWalkLFHBlock.c)
+ *     RtlpWalkLowFragHeapSegment @ 0x180108038 (RtlpWalkLowFragHeapSegment.c)
+ *     RtlDebugWalkHeap @ 0x18011D210 (RtlDebugWalkHeap.c)
+ *     RtlpLogHeapWalkEvent @ 0x18014ABC0 (RtlpLogHeapWalkEvent.c)
  */
 
 __int64 __fastcall RtlpWalkHeap(unsigned __int64 a1, __int64 a2, char a3)
@@ -70,7 +70,7 @@ __int64 __fastcall RtlpWalkHeap(unsigned __int64 a1, __int64 a2, char a3)
   unsigned int v59; // [rsp+50h] [rbp+8h] BYREF
 
   if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return ((__int64 (*)(void))qword_1801CC5C8)();
+    return ((__int64 (*)(void))qword_1801CB5C8)();
   if ( (((*(_DWORD *)(a1 + 112) & 0x61000000) != 0) & !_bittest((const signed __int32 *)(a1 + 112), 0x1Cu)) != 0
     && !(unsigned __int8)RtlDebugWalkHeap(a1) )
   {

@@ -1,5 +1,5 @@
 /*
- * XREFs of PfSnEndTraceWorkerThreadRoutine @ 0x1403E8F5C
+ * XREFs of PfSnEndTraceWorkerThreadRoutine @ 0x1403EA58C
  * Callers:
  *     <none>
  * Callees:

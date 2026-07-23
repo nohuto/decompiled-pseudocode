@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMirrorHugeRangeZeroFreeListsCallback @ 0x1406EFC20
+ * XREFs of MiMirrorHugeRangeZeroFreeListsCallback @ 0x1406F4890
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiMirrorAddPagesToBrownList @ 0x14048C10C (MiMirrorAddPagesToBrownList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiMirrorOmitPagesFromCopy @ 0x140C037CC (MiMirrorOmitPagesFromCopy.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiMirrorAddPagesToBrownList @ 0x140485C4C (MiMirrorAddPagesToBrownList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140C099DC (MiMirrorOmitPagesFromCopy.c)
  */
 
 __int64 __fastcall MiMirrorHugeRangeZeroFreeListsCallback(__int64 *a1, int a2, __int64 a3)
@@ -30,7 +30,7 @@ __int64 __fastcall MiMirrorHugeRangeZeroFreeListsCallback(__int64 *a1, int a2, _
   v6 = a3;
   v8 = *(unsigned __int16 *)a1[1];
   v15 = *(_WORD *)a1[1];
-  v9 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v4);
+  v9 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v4);
   if ( a3 )
   {
     while ( 1 )
@@ -61,10 +61,10 @@ __int64 __fastcall MiMirrorHugeRangeZeroFreeListsCallback(__int64 *a1, int a2, _
             MiMirrorAddPagesToBrownList(1, v4 & 0x3FFFFF, 1uLL);
         }
         _InterlockedAnd(
-          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                     + 4
-                                    * (((((__int64)v9 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-          ~(1 << (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                    * (((((__int64)v9 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+          ~(1 << (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
         if ( CurrentIrql != 17 )
         {
           if ( KiIrqlFlags )

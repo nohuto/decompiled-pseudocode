@@ -5,13 +5,13 @@
  * Callees:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiLockDriverPageRange @ 0x140619E30 (MiLockDriverPageRange.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiLockDriverPageRange @ 0x14061A380 (MiLockDriverPageRange.c)
  *     MiInitializeDriverPatchState @ 0x140697230 (MiInitializeDriverPatchState.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
- *     MiUnlockDriverPages @ 0x140875B2C (MiUnlockDriverPages.c)
- *     MiPrepareDriverPatchState @ 0x140A2B624 (MiPrepareDriverPatchState.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
+ *     MiUnlockDriverPages @ 0x140875D6C (MiUnlockDriverPages.c)
+ *     MiPrepareDriverPatchState @ 0x140A2B8D4 (MiPrepareDriverPatchState.c)
  *     VslReapplyBootIndirectPatches @ 0x140B93544 (VslReapplyBootIndirectPatches.c)
  */
 
@@ -22,8 +22,8 @@ __int64 __fastcall MmReapplyBootPatchImports(unsigned __int64 a1)
   int v4; // ebx
   __int64 v6; // rbx
   char *AnyMultiplexedVm; // r14
-  __int64 v8[14]; // [rsp+38h] [rbp-D0h] BYREF
-  __int64 v9[14]; // [rsp+A8h] [rbp-60h] BYREF
+  _RTL_BITMAP_EX v8[7]; // [rsp+38h] [rbp-D0h] BYREF
+  _RTL_BITMAP_EX v9[7]; // [rsp+A8h] [rbp-60h] BYREF
 
   memset(v8, 0, 0x68uLL);
   memset(v9, 0, 0x68uLL);
@@ -47,10 +47,10 @@ __int64 __fastcall MmReapplyBootPatchImports(unsigned __int64 a1)
       v4 = MiPrepareDriverPatchState((__int64)v9, (__int64)AnyMultiplexedVm);
       if ( v4 >= 0 )
       {
-        v4 = MiLockDriverPageRange(v8, 0, LODWORD(v8[3]) - 1, 3, 0LL);
+        v4 = MiLockDriverPageRange((__int64 *)v8, 0, LODWORD(v8[1].Buffer) - 1, 3, 0LL);
         if ( v4 >= 0 )
         {
-          v4 = MiLockDriverPageRange(v9, 0, LODWORD(v9[3]) - 1, 3, 0LL);
+          v4 = MiLockDriverPageRange((__int64 *)v9, 0, LODWORD(v9[1].Buffer) - 1, 3, 0LL);
           if ( v4 >= 0 )
           {
             v4 = VslReapplyBootIndirectPatches(v3[6]);

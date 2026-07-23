@@ -162,7 +162,7 @@ int __fastcall KiProcessExpiredTimerList(__int64 a1, _DWORD *a2, __int64 a3, uns
 LABEL_24:
           if ( (v18 & 4) != 0 )
           {
-            *((_QWORD *)&v42 + 1) = RtlGetSystemTimePrecise();
+            *((LARGE_INTEGER *)&v42 + 1) = RtlGetSystemTimePrecise();
             HostPerfCounter = 0LL;
           }
           else

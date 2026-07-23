@@ -1,0 +1,102 @@
+/*
+ * XREFs of sub_1409C8CBC @ 0x1409C8CBC
+ * Callers:
+ *     sub_1407225F4 @ 0x1407225F4 (sub_1407225F4.c)
+ * Callees:
+ *     sub_1403CD84C @ 0x1403CD84C (sub_1403CD84C.c)
+ *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     sub_140696CCC @ 0x140696CCC (sub_140696CCC.c)
+ *     sub_1409CA168 @ 0x1409CA168 (sub_1409CA168.c)
+ *     sub_1409CF1A0 @ 0x1409CF1A0 (sub_1409CF1A0.c)
+ *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall sub_1409C8CBC(__int64 a1, __int64 *a2, unsigned int a3, char a4)
+{
+  void *v4; // rdi
+  __int64 v5; // r14
+  __int64 v7; // rbx
+  __int64 *v10; // rax
+  __int64 v11; // r13
+  __int64 v12; // rbx
+  int v13; // esi
+  __int64 v14; // r8
+  __int64 v15; // r9
+  int v16; // eax
+  int v17; // eax
+  int v18; // eax
+  unsigned __int16 *v20; // [rsp+30h] [rbp-D8h] BYREF
+  PVOID P; // [rsp+38h] [rbp-D0h] BYREF
+  _QWORD Src[132]; // [rsp+48h] [rbp-C0h] BYREF
+
+  P = 0LL;
+  v4 = 0LL;
+  v5 = *a2;
+  v7 = a2[2];
+  v20 = 0LL;
+  if ( v5 )
+    v10 = *(__int64 **)(v5 + 152);
+  else
+    v10 = *(__int64 **)(v7 + 152);
+  v11 = *v10;
+  v12 = *(_QWORD *)(v7 + 24);
+  memset(Src, 0, 0x418uLL);
+  Src[0] = 0x125300000003LL;
+  LODWORD(Src[2]) = 524408;
+  if ( !a4 )
+    WORD1(Src[2]) = 16;
+  v13 = sub_140696CCC(a1, &P);
+  if ( v13 >= 0 )
+  {
+    v13 = sub_1409CA168(a1, &v20, v14, v15);
+    if ( v13 < 0 )
+    {
+      v4 = v20;
+    }
+    else
+    {
+      v16 = *(unsigned __int8 *)(v11 + 1);
+      LODWORD(Src[3]) = 4;
+      Src[6] = v11;
+      Src[11] = 0x800000005LL;
+      HIDWORD(Src[3]) = 4 * v16 + 8;
+      Src[10] = &qword_140001B08;
+      Src[7] = 0x2000000001LL;
+      if ( v5 )
+        Src[12] = *(_QWORD *)(v5 + 24);
+      else
+        Src[12] = v12;
+      v4 = v20;
+      if ( v20 )
+      {
+        v17 = *v20;
+        LODWORD(Src[15]) = 1;
+        HIDWORD(Src[15]) = v17 + 16;
+        Src[18] = v20;
+      }
+      if ( P )
+      {
+        v18 = *(unsigned __int16 *)P;
+        LODWORD(Src[19]) = 1;
+        HIDWORD(Src[19]) = v18 + 16;
+        Src[22] = P;
+      }
+      Src[24] = a3;
+      Src[28] = a3;
+      Src[32] = a2[3];
+      Src[23] = 0x400000007LL;
+      Src[25] = 3LL;
+      Src[27] = 0x40000000ALL;
+      Src[31] = 0x80000000BLL;
+      LODWORD(Src[1]) = 8;
+      sub_1403CD84C(Src);
+    }
+  }
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0);
+  if ( v13 < 0 )
+    sub_1409CF1A0((unsigned int)v13);
+}

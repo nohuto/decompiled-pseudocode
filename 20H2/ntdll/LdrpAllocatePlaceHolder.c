@@ -21,9 +21,9 @@ __int64 __fastcall LdrpAllocatePlaceHolder(
         __int64 *a6,
         __int64 a7)
 {
-  unsigned int v10; // edx
-  __int64 Heap; // rax
-  __int64 v13; // rbx
+  ULONG v10; // edx
+  _QWORD *Heap; // rax
+  _QWORD *v13; // rbx
   __int64 ModuleEntry; // rax
 
   v10 = (NtdllBaseTag + 0x40000) | 8;
@@ -32,22 +32,22 @@ __int64 __fastcall LdrpAllocatePlaceHolder(
   v13 = Heap;
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 176) = -1LL;
-    *(_QWORD *)(Heap + 40) = a7;
-    *(_QWORD *)(Heap + 48) = a5;
-    *(_QWORD *)(Heap + 8) = Heap + 192;
-    *(_DWORD *)(Heap + 32) = a3 | 0x8000;
-    *(_QWORD *)(Heap + 16) = a2;
+    Heap[22] = -1LL;
+    Heap[5] = a7;
+    Heap[6] = a5;
+    Heap[1] = Heap + 24;
+    *((_DWORD *)Heap + 8) = a3 | 0x8000;
+    Heap[2] = a2;
     *(_WORD *)Heap = *(_WORD *)a1;
-    *(_WORD *)(Heap + 2) = *(_WORD *)a1 + 2;
-    memmove((void *)(Heap + 192), a1[1], *(unsigned __int16 *)a1);
-    *(_WORD *)(*(_QWORD *)(v13 + 8) + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
+    *((_WORD *)Heap + 1) = *(_WORD *)a1 + 2;
+    memmove(Heap + 24, a1[1], *(unsigned __int16 *)a1);
+    *(_WORD *)(v13[1] + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
     ModuleEntry = LdrpAllocateModuleEntry(v13);
     *a6 = ModuleEntry;
     if ( ModuleEntry )
     {
       *(_DWORD *)(ModuleEntry + 268) = a4;
-      LdrpLogDllState(0LL, v13, 0x14ACu);
+      LdrpLogDllState(0, (__int64)v13, 0x14ACu);
     }
     else
     {

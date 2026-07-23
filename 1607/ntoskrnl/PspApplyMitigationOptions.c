@@ -1,11 +1,11 @@
 /*
- * XREFs of PspApplyMitigationOptions @ 0x140471E18
+ * XREFs of PspApplyMitigationOptions @ 0x140470CE8
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExEnableHandleExceptions @ 0x1404D41B4 (ExEnableHandleExceptions.c)
- *     ObReferenceProcessHandleTable @ 0x14050D150 (ObReferenceProcessHandleTable.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExEnableHandleExceptions @ 0x1404B7C54 (ExEnableHandleExceptions.c)
+ *     ObReferenceProcessHandleTable @ 0x1404F00E0 (ObReferenceProcessHandleTable.c)
  */
 
 __int64 __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, unsigned __int64 *a3, unsigned int a4)

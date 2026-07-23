@@ -9,52 +9,60 @@
  *     _CountUTF8ToUnicode@12 @ 0x4B2DD464 (_CountUTF8ToUnicode@12.c)
  */
 
-int __stdcall RtlUTF8StringToUnicodeString(__int16 *a1, char **a2, char a3)
+NTSTATUS __cdecl RtlUTF8StringToUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUTF8_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  int result; // eax
-  int v4; // eax
-  unsigned __int16 v5; // cx
-  int StringRoutine; // eax
+  NTSTATUS result; // eax
+  ULONG v4; // eax
+  unsigned __int16 Length; // cx
+  wchar_t *StringRoutine; // eax
   unsigned int v7; // edx
   int v8; // edi
-  unsigned int v9; // [esp+4h] [ebp-4h] BYREF
+  ULONG UnicodeStringActualByteCount; // [esp+4h] [ebp-4h] BYREF
 
-  result = CountUTF8ToUnicode(a2[1], *(unsigned __int16 *)a2 + 1, &v9);
+  result = CountUTF8ToUnicode(SourceString->Buffer, SourceString->Length + 1, &UnicodeStringActualByteCount);
   if ( result >= 0 )
   {
-    v4 = v9;
-    if ( v9 > 0xFFFE )
+    v4 = UnicodeStringActualByteCount;
+    if ( UnicodeStringActualByteCount > 0xFFFE )
       return -1073741584;
-    v5 = v9 - 2;
-    *a1 = v9 - 2;
-    if ( a3 )
+    Length = UnicodeStringActualByteCount - 2;
+    DestinationString->Length = UnicodeStringActualByteCount - 2;
+    if ( AllocateDestinationString )
     {
-      a1[1] = v4;
-      StringRoutine = NtdllpAllocateStringRoutine(v4);
-      *((_DWORD *)a1 + 1) = StringRoutine;
+      DestinationString->MaximumLength = v4;
+      StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v4);
+      DestinationString->Buffer = StringRoutine;
       if ( !StringRoutine )
         return -1073741801;
-      v5 = *a1;
+      Length = DestinationString->Length;
     }
     else
     {
-      v7 = v5 + 2;
-      if ( v7 > (unsigned __int16)a1[1] || v7 < 2 )
+      v7 = Length + 2;
+      if ( v7 > DestinationString->MaximumLength || v7 < 2 )
         return -2147483643;
     }
-    v8 = RtlUTF8ToUnicodeN(*((char **)a1 + 1), v5, &v9, a2[1], *(unsigned __int16 *)a2);
+    v8 = RtlUTF8ToUnicodeN(
+           (PWSTR)DestinationString->Buffer,
+           Length,
+           &UnicodeStringActualByteCount,
+           SourceString->Buffer,
+           SourceString->Length);
     if ( v8 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        RtlDeleteBoundaryDescriptor(*((_DWORD *)a1 + 1));
-        *((_DWORD *)a1 + 1) = 0;
+        RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
+        DestinationString->Buffer = 0;
       }
     }
     else
     {
       v8 = 0;
-      *(_WORD *)(*((_DWORD *)a1 + 1) + 2 * (v9 >> 1)) = 0;
+      DestinationString->Buffer[UnicodeStringActualByteCount >> 1] = 0;
     }
     return v8;
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPerfLogCallEvent @ 0x14049F7BC
+ * XREFs of IopPerfLogCallEvent @ 0x14049A604
  * Callers:
- *     IopPerfCallDriver @ 0x14049F664 (IopPerfCallDriver.c)
+ *     IopPerfCallDriver @ 0x14049A4AC (IopPerfCallDriver.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopPerfLogCallEvent(__int64 a1, __int64 a2, int a3)

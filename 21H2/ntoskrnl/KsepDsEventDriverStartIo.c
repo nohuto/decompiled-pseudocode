@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventDriverStartIo @ 0x140527F3C
+ * XREFs of KsepDsEventDriverStartIo @ 0x14052817C
  * Callers:
- *     KseDsCallbackHookDriverStartIo @ 0x140527360 (KseDsCallbackHookDriverStartIo.c)
+ *     KseDsCallbackHookDriverStartIo @ 0x1405275A0 (KseDsCallbackHookDriverStartIo.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventDriverStartIo(__int64 a1, __int64 a2, __int64 a3)

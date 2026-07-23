@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpEndSecurePageListIteration @ 0x14027A234
+ * XREFs of HvlpEndSecurePageListIteration @ 0x14027A424
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x14027699C (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x140276B38 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x14027761C (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x140277D98 (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x140276B8C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x140276D28 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x14027780C (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x140277F88 (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     VslEndSecurePageIteration @ 0x14027ADD4 (VslEndSecurePageIteration.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     VslEndSecurePageIteration @ 0x14027AFC4 (VslEndSecurePageIteration.c)
  */
 
 char __fastcall HvlpEndSecurePageListIteration(__int64 a1, void *a2, _DWORD *a3)
@@ -22,12 +22,12 @@ char __fastcall HvlpEndSecurePageListIteration(__int64 a1, void *a2, _DWORD *a3)
   if ( (_DWORD)a1 )
   {
     LOBYTE(v6) = BYTE2(HvlpIteratorCrashdump);
-    v7 = &qword_140437428;
+    v7 = &qword_1404384E8;
   }
   else
   {
     LOBYTE(v6) = BYTE2(HvlpIteratorHibernate);
-    v7 = &qword_140437408;
+    v7 = &qword_1404384C8;
   }
   if ( (_BYTE)v6 )
   {

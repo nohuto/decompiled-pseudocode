@@ -1,14 +1,16 @@
 /*
- * XREFs of ZwDisableLastKnownGood @ 0x1403FBF00
+ * XREFs of ZwDisableLastKnownGood @ 0x1403FC0E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDisableLastKnownGood(__int64 a1, __int64 a2)
+NTSTATUS ZwDisableLastKnownGood(void)
 {
+  __int64 v0; // rcx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(v0);
 }

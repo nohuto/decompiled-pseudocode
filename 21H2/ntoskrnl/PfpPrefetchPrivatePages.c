@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchPrivatePages @ 0x1407100D0
+ * XREFs of PfpPrefetchPrivatePages @ 0x1406BE720
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406C5978 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x140674268 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfpCheckPrefetchAbort @ 0x1402D4204 (PfpCheckPrefetchAbort.c)
- *     MmQueryMemoryListInformation @ 0x1402D4240 (MmQueryMemoryListInformation.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x1406C9C7C (PfpUpdateRepurposedByPrefetch.c)
- *     PfpGetPageListCount @ 0x1406C9D98 (PfpGetPageListCount.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     PfpSourceBuildVaArray @ 0x14070FE44 (PfpSourceBuildVaArray.c)
- *     PfpSourceGetPrefetchSupport @ 0x14070FF0C (PfpSourceGetPrefetchSupport.c)
- *     MmPrefetchVirtualMemory @ 0x1407108F8 (MmPrefetchVirtualMemory.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PfpCheckPrefetchAbort @ 0x140272EDC (PfpCheckPrefetchAbort.c)
+ *     MmQueryMemoryListInformation @ 0x140272F20 (MmQueryMemoryListInformation.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x14067856C (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x140678688 (PfpGetPageListCount.c)
+ *     PfpSourceBuildVaArray @ 0x1406BE494 (PfpSourceBuildVaArray.c)
+ *     PfpSourceGetPrefetchSupport @ 0x1406BE55C (PfpSourceGetPrefetchSupport.c)
+ *     MmPrefetchVirtualMemory @ 0x1406BEF48 (MmPrefetchVirtualMemory.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpPrefetchPrivatePages(__int64 *a1)
@@ -71,7 +71,7 @@ LABEL_25:
     if ( (*(_DWORD *)(v1 + 80) & 4) == 0 )
     {
       *(_DWORD *)(v1 + 104) += LODWORD(P[0]);
-      MmPrefetchVirtualMemory((ULONG_PTR)v7);
+      MmPrefetchVirtualMemory(v7);
 LABEL_15:
       ++*(_DWORD *)(v1 + 92);
       goto LABEL_16;
@@ -88,7 +88,7 @@ LABEL_15:
       v10 = v9;
       if ( v9 > 0x10 )
         v10 = 16;
-      if ( (int)MmPrefetchVirtualMemory((ULONG_PTR)v7) >= 0 )
+      if ( (int)MmPrefetchVirtualMemory(v7) >= 0 )
         *(_DWORD *)(v1 + 104) += v10;
       PfpUpdateRepurposedByPrefetch(v8, v10);
       Handle[0] = (char *)Handle[0] + 16 * v10;

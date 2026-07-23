@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlImpersonateSelf(__int64 a1)
+NTSTATUS __cdecl RtlImpersonateSelf(SECURITY_IMPERSONATION_LEVEL ImpersonationLevel)
 {
-  return RtlImpersonateSelfEx(a1, 0LL, 0LL);
+  return RtlImpersonateSelfEx(ImpersonationLevel, 0, 0LL);
 }

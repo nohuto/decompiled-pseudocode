@@ -1,13 +1,13 @@
 /*
- * XREFs of PiGetDeviceDepth @ 0x1403F3B10
+ * XREFs of PiGetDeviceDepth @ 0x1403F29D4
  * Callers:
- *     PiControlGetDeviceDepth @ 0x1403F3A7C (PiControlGetDeviceDepth.c)
- *     PiCMGetDeviceDepth @ 0x140647B14 (PiCMGetDeviceDepth.c)
+ *     PiControlGetDeviceDepth @ 0x1403F2940 (PiControlGetDeviceDepth.c)
+ *     PiCMGetDeviceDepth @ 0x140647BF8 (PiCMGetDeviceDepth.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PnpDeviceObjectFromDeviceInstance @ 0x1403F4A34 (PnpDeviceObjectFromDeviceInstance.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PnpDeviceObjectFromDeviceInstance @ 0x1403F38F8 (PnpDeviceObjectFromDeviceInstance.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
  */
 
 __int64 __fastcall PiGetDeviceDepth(__int64 a1, _DWORD *a2)

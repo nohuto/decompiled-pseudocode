@@ -29,23 +29,23 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
 {
   _RTL_SPLAY_LINKS *v9; // rbx
   KIRQL v13; // al
-  RTL_SPLAY_LINKS *v14; // rcx
+  _RTL_SPLAY_LINKS *v14; // rcx
   unsigned __int64 v15; // rbp
   unsigned __int64 v17; // rax
   PRTL_SPLAY_LINKS v18; // rsi
   _RTL_SPLAY_LINKS *RightChild; // r9
-  RTL_SPLAY_LINKS *v20; // r10
+  _RTL_SPLAY_LINKS *v20; // r10
   _RTL_SPLAY_LINKS *Parent; // rdx
   bool v22; // zf
   _RTL_SPLAY_LINKS *v23; // rcx
-  RTL_SPLAY_LINKS *v24; // r12
+  _RTL_SPLAY_LINKS *v24; // r12
   PRTL_SPLAY_LINKS v25; // rax
   __int64 retaddr; // [rsp+48h] [rbp+0h]
   _RTL_SPLAY_LINKS *v27; // [rsp+50h] [rbp+8h]
 
   v9 = *a3;
   v13 = KeAcquireSpinLockRaiseToDpc(a1 + 3);
-  v14 = (RTL_SPLAY_LINKS *)a1[5];
+  v14 = (_RTL_SPLAY_LINKS *)a1[5];
   v15 = v13;
   if ( v14 )
   {

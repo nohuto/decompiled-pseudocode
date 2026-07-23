@@ -32,6 +32,6 @@ void __fastcall EnableFlushTimer(ULONG_PTR BugCheckParameter1, unsigned int a2)
     if ( !(unsigned __int8)ExpTimerSetParametersAreValid(BugCheckParameter3) )
       KeBugCheckEx(0xC7u, 9uLL, 1uLL, (ULONG_PTR)BugCheckParameter3, BugCheckParameter4);
     ExpCheckForFreedEnhancedTimer(BugCheckParameter1);
-    KeSetTimer2(BugCheckParameter1, v3, 0LL, (__int64)BugCheckParameter3);
+    KeSetTimer2(BugCheckParameter1, (LARGE_INTEGER)v3, 0LL, (__int64)BugCheckParameter3);
   }
 }

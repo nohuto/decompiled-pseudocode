@@ -1,7 +1,7 @@
 /*
- * XREFs of KiComputeCpuSetAffinityMask @ 0x1404E7098
+ * XREFs of KiComputeCpuSetAffinityMask @ 0x1404E0454
  * Callers:
- *     KiIntSteerComputeCpuSet @ 0x1402554F4 (KiIntSteerComputeCpuSet.c)
+ *     KiIntSteerComputeCpuSet @ 0x140256E54 (KiIntSteerComputeCpuSet.c)
  * Callees:
  *     <none>
  */

@@ -3,19 +3,19 @@
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptIsRemappingRequired @ 0x14031FDCC (HalpInterruptIsRemappingRequired.c)
- *     HalpIommuGetRootIommuFaultPolicy @ 0x14036F1A4 (HalpIommuGetRootIommuFaultPolicy.c)
- *     HalpIommuProcessReservations @ 0x14039EC18 (HalpIommuProcessReservations.c)
- *     HalpIommuInitializeDmar @ 0x1403A959C (HalpIommuInitializeDmar.c)
- *     HalpIommuLogEarlyFault @ 0x1403B48A8 (HalpIommuLogEarlyFault.c)
- *     HalpIommuInitializeDmaGuardPolicy @ 0x1403B5424 (HalpIommuInitializeDmaGuardPolicy.c)
- *     HalpIommuEnableInterrupts @ 0x1403B57C4 (HalpIommuEnableInterrupts.c)
- *     IommuInitializeLibrary @ 0x1403B6268 (IommuInitializeLibrary.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IommupHvSetRootFaultReportingReady @ 0x140525430 (IommupHvSetRootFaultReportingReady.c)
- *     IommupHvUnblockDefaultDma @ 0x14052544C (IommupHvUnblockDefaultDma.c)
+ *     HalpInterruptIsRemappingRequired @ 0x14032005C (HalpInterruptIsRemappingRequired.c)
+ *     HalpIommuGetRootIommuFaultPolicy @ 0x14036F344 (HalpIommuGetRootIommuFaultPolicy.c)
+ *     HalpIommuProcessReservations @ 0x14039EDF8 (HalpIommuProcessReservations.c)
+ *     HalpIommuInitializeDmar @ 0x1403A977C (HalpIommuInitializeDmar.c)
+ *     HalpIommuLogEarlyFault @ 0x1403B4A88 (HalpIommuLogEarlyFault.c)
+ *     HalpIommuInitializeDmaGuardPolicy @ 0x1403B5604 (HalpIommuInitializeDmaGuardPolicy.c)
+ *     HalpIommuEnableInterrupts @ 0x1403B59A4 (HalpIommuEnableInterrupts.c)
+ *     IommuInitializeLibrary @ 0x1403B6448 (IommuInitializeLibrary.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IommupHvSetRootFaultReportingReady @ 0x140525980 (IommupHvSetRootFaultReportingReady.c)
+ *     IommupHvUnblockDefaultDma @ 0x14052599C (IommupHvUnblockDefaultDma.c)
  *     HalpIommuInitInterrupts @ 0x140A89DCC (HalpIommuInitInterrupts.c)
- *     HalpIommuInitializeAll @ 0x140A90F0C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x140A90D8C (HalpIommuInitializeAll.c)
  *     HalpIommuInitDiscard @ 0x140B65050 (HalpIommuInitDiscard.c)
  */
 

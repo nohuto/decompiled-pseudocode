@@ -1,9 +1,9 @@
 /*
- * XREFs of _flsbuf_s @ 0x180131450
+ * XREFs of _flsbuf_s @ 0x18012F680
  * Callers:
- *     _soutput_s @ 0x18012EC94 (_soutput_s.c)
- *     write_char_1 @ 0x18012ED88 (write_char_1.c)
- *     _swoutput_s @ 0x18012FB14 (_swoutput_s.c)
+ *     _soutput_s @ 0x18012CEC4 (_soutput_s.c)
+ *     write_char_1 @ 0x18012CFB8 (write_char_1.c)
+ *     _swoutput_s @ 0x18012DD44 (_swoutput_s.c)
  * Callees:
  *     <none>
  */

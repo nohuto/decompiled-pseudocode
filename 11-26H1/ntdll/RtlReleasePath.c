@@ -1,25 +1,23 @@
 /*
- * XREFs of RtlReleasePath @ 0x1800E03A0
+ * XREFs of RtlReleasePath @ 0x1800DDC40
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
  */
 
-struct _TEB *__fastcall RtlReleasePath(__int64 a1, __int64 a2)
+void __cdecl RtlReleasePath(PWSTR Path)
 {
-  __int64 v3; // rdi
-  struct _TEB *result; // rax
+  PWSTR v2; // rdi
 
-  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock, a2);
-  --*(_QWORD *)(a1 - 48);
-  v3 = a1 - 128;
-  if ( *(_QWORD *)(a1 - 48) )
-    v3 = 0LL;
-  result = RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-  if ( v3 )
-    return (struct _TEB *)RtlFreeHeap_0();
-  return result;
+  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
+  --*((_QWORD *)Path - 6);
+  v2 = Path - 64;
+  if ( *((_QWORD *)Path - 6) )
+    v2 = 0LL;
+  RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  if ( v2 )
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v2);
 }

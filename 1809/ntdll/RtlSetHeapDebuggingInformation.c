@@ -1,19 +1,19 @@
 /*
  * XREFs of RtlSetHeapDebuggingInformation @ 0x1800F25A8
  * Callers:
- *     RtlSetHeapInformation @ 0x18007E690 (RtlSetHeapInformation.c)
+ *     RtlSetHeapInformation @ 0x18007E6A0 (RtlSetHeapInformation.c)
  *     RtlHeapTrkInitialize @ 0x1800F9AC0 (RtlHeapTrkInitialize.c)
  * Callees:
  *     RtlLeaveCriticalSection @ 0x180014020 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x180014370 (RtlEnterCriticalSection.c)
- *     RtlpEnumProcessHeaps @ 0x18007B33C (RtlpEnumProcessHeaps.c)
+ *     RtlpEnumProcessHeaps @ 0x18007B34C (RtlpEnumProcessHeaps.c)
  *     RtlpSetHeapDebuggingInformation @ 0x1800F3DB0 (RtlpSetHeapDebuggingInformation.c)
  */
 
 __int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
 {
-  __int64 v5; // rax
-  unsigned int v6; // ebx
+  __int64 v4; // rax
+  unsigned int v5; // ebx
 
   if ( a1 )
   {
@@ -23,16 +23,16 @@ __int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
     }
     else
     {
-      RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-      v5 = 28LL;
+      RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+      v4 = 28LL;
       if ( *(_DWORD *)(a1 + 16) != -571548178 )
-        v5 = 208LL;
-      if ( *(_WORD *)(v5 + a1) == 0xFFFF )
-        v6 = -1073741811;
+        v4 = 208LL;
+      if ( *(_WORD *)(v4 + a1) == 0xFFFF )
+        v5 = -1073741811;
       else
-        v6 = RtlpSetHeapDebuggingInformation(a1, a2);
-      RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
-      return v6;
+        v5 = RtlpSetHeapDebuggingInformation(a1);
+      RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
+      return v5;
     }
   }
   else

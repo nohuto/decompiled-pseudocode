@@ -13,8 +13,10 @@ int __userpurge Normalization__LoadTables@<eax>(unsigned __int16 *a1@<edx>, char
   unsigned int v7; // edx
   unsigned __int16 *v8; // eax
   int result; // eax
+  size_t v10; // [esp-4h] [ebp-10h]
 
-  memset(a4, 0, 0x44u);
+  LODWORD(v10) = 68;
+  memset(a4, 0, v10);
   v6 = a3 >> 1;
   if ( a3 >> 1 < a1[26] )
     return -1073741672;

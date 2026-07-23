@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprIdentifyUnits @ 0x14096605C
+ * XREFs of PnprIdentifyUnits @ 0x14096625C
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964AF0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140964CF0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PnpQueryInterface @ 0x1407FD240 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PnpQueryInterface @ 0x1407FD510 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PnprIdentifyUnits(_QWORD *Object, _QWORD *a2, _QWORD *a3, __int64 a4)

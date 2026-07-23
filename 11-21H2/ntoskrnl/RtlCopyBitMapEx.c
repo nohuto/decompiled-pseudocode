@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlCopyBitMapEx @ 0x140230180
  * Callers:
- *     MiSelectRelocationStartHint @ 0x140709C0C (MiSelectRelocationStartHint.c)
- *     MiResizeAweBitMap @ 0x14097D688 (MiResizeAweBitMap.c)
+ *     sub_140709C0C @ 0x140709C0C (sub_140709C0C.c)
+ *     sub_14097D688 @ 0x14097D688 (sub_14097D688.c)
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpCopyBitMapTailToHeadEx @ 0x1405E6CC4 (RtlpCopyBitMapTailToHeadEx.c)
+ *     sub_1405E6CC4 @ 0x1405E6CC4 (sub_1405E6CC4.c)
  */
 
 unsigned __int64 __fastcall RtlCopyBitMapEx(unsigned __int64 *a1, _QWORD *a2, unsigned __int64 a3)
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall RtlCopyBitMapEx(unsigned __int64 *a1, _QWORD *a2, un
     v9 = v7 + 8 * (a3 >> 6);
     if ( (unsigned __int64)v8 <= v9 && (result = (unsigned __int64)&v8[(v3 - 1) >> 6], v9 <= result) )
     {
-      return RtlpCopyBitMapTailToHeadEx(a1, a2, a3, v3);
+      return sub_1405E6CC4(a1, a2, a3, v3);
     }
     else
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDockDeviceEnumeration @ 0x140732758
+ * XREFs of PnpTraceDockDeviceEnumeration @ 0x140730768
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PnpTraceDockDeviceEnumeration()
@@ -43,6 +43,6 @@ void PnpTraceDockDeviceEnumeration()
     v11[1] = 0;
     v13 = 4LL;
     v15 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06FA8, (unsigned __int8 *)byte_140046CF3, 0LL, 0LL, 7u, &v5);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06FA8, (unsigned __int8 *)byte_14004694D, 0LL, 0LL, 7u, &v5);
   }
 }

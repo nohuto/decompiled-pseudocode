@@ -1,12 +1,12 @@
 /*
- * XREFs of ExQueryPoolBlockSize @ 0x140607980
+ * XREFs of ExQueryPoolBlockSize @ 0x140607ED0
  * Callers:
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  * Callees:
  *     MiDeterminePoolType @ 0x1402123C0 (MiDeterminePoolType.c)
- *     ExGetHeapFromVA @ 0x1402AC3F0 (ExGetHeapFromVA.c)
- *     ExpRemoveTagForBigPages @ 0x140323810 (ExpRemoveTagForBigPages.c)
- *     ExpHpIsSpecialPoolHeap @ 0x14046B7DA (ExpHpIsSpecialPoolHeap.c)
+ *     ExGetHeapFromVA @ 0x1402AC680 (ExGetHeapFromVA.c)
+ *     ExpRemoveTagForBigPages @ 0x140323AA0 (ExpRemoveTagForBigPages.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x14046BBDA (ExpHpIsSpecialPoolHeap.c)
  */
 
 SIZE_T __stdcall ExQueryPoolBlockSize(PVOID PoolBlock, PBOOLEAN QuotaCharged)

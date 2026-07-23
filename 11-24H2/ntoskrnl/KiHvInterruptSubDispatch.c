@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHvInterruptSubDispatch @ 0x1406B1230
+ * XREFs of KiHvInterruptSubDispatch @ 0x1406B21D0
  * Callers:
- *     KiHvInterruptDispatch @ 0x1406B0A70 (KiHvInterruptDispatch.c)
+ *     KiHvInterruptDispatch @ 0x1406B1A10 (KiHvInterruptDispatch.c)
  * Callees:
- *     KiStartInterruptCycleAccumulation @ 0x14034C150 (KiStartInterruptCycleAccumulation.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     HvlSharedIsr @ 0x140444780 (HvlSharedIsr.c)
- *     PerfInfoLogInterruptHv @ 0x140448870 (PerfInfoLogInterruptHv.c)
- *     KzSetIrqlUnsafe @ 0x1405B7800 (KzSetIrqlUnsafe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiStartInterruptCycleAccumulation @ 0x14036A630 (KiStartInterruptCycleAccumulation.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     HvlSharedIsr @ 0x14043CA40 (HvlSharedIsr.c)
+ *     PerfInfoLogInterruptHv @ 0x140440F90 (PerfInfoLogInterruptHv.c)
+ *     KzSetIrqlUnsafe @ 0x1405B4DD0 (KzSetIrqlUnsafe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 int __fastcall KiHvInterruptSubDispatch()
@@ -17,10 +17,8 @@ int __fastcall KiHvInterruptSubDispatch()
   unsigned __int8 CurrentIrql; // al
   bool v2; // zf
   __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
   int result; // eax
-  LARGE_INTEGER v7[5]; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER v5[5]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( KiIrqlFlags )
   {
@@ -37,11 +35,11 @@ int __fastcall KiHvInterruptSubDispatch()
   v2 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
   if ( !v2 )
-    EtwGetKernelTraceTimestamp(v7, 0x20004000u);
+    EtwGetKernelTraceTimestamp(v5, 0x20004000u);
   HvlSharedIsr();
-  result = guard_dispatch_icall_no_overrides(*(unsigned int *)(v0 + 224), v3, v4, v5);
+  result = guard_dispatch_icall_no_overrides(*(unsigned int *)(v0 + 224), v3);
   if ( *(_BYTE *)(v0 + 243) )
-    result = PerfInfoLogInterruptHv((__int64)KiHvInterrupt, ((*(_DWORD *)(v0 + 224) + 48) << 8) + 1, (__int64)v7);
+    result = PerfInfoLogInterruptHv((__int64)KiHvInterrupt, ((*(_DWORD *)(v0 + 224) + 48) << 8) + 1, (__int64)v5);
   _disable();
   return result;
 }

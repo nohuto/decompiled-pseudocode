@@ -1,22 +1,22 @@
 /*
- * XREFs of DbgkSendSystemDllMessages @ 0x140617E98
+ * XREFs of DbgkSendSystemDllMessages @ 0x140617F4C
  * Callers:
- *     DbgkCreateThread @ 0x140459228 (DbgkCreateThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x14061874C (DbgkpPostFakeThreadMessages.c)
+ *     DbgkCreateThread @ 0x1404580F8 (DbgkCreateThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140618800 (DbgkpPostFakeThreadMessages.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PsQuerySystemDllInfo @ 0x14045A7D4 (PsQuerySystemDllInfo.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     PsWow64GetProcessMachine @ 0x14051AA00 (PsWow64GetProcessMachine.c)
- *     DbgkpQueueMessage @ 0x140618F9C (DbgkpQueueMessage.c)
- *     DbgkpSendApiMessage @ 0x14061A30C (DbgkpSendApiMessage.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsQuerySystemDllInfo @ 0x1404596A4 (PsQuerySystemDllInfo.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     PsWow64GetProcessMachine @ 0x1404FDDF0 (PsWow64GetProcessMachine.c)
+ *     DbgkpQueueMessage @ 0x140619050 (DbgkpQueueMessage.c)
+ *     DbgkpSendApiMessage @ 0x14061A3C0 (DbgkpSendApiMessage.c)
  */
 
 void __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD *a3)
@@ -100,7 +100,7 @@ void __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD
       }
       else
       {
-        DbgkpSendApiMessage((ULONG_PTR)Process);
+        DbgkpSendApiMessage(Process);
         if ( *v6 )
           ObCloseHandle(*v6, 0);
         if ( v14 )

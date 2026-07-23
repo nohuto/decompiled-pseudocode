@@ -1,19 +1,19 @@
 /*
- * XREFs of CcQueueLazyWriteScanThreadForVolume @ 0x14043C240
+ * XREFs of CcQueueLazyWriteScanThreadForVolume @ 0x140265C20
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x1402A7488 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x1402A7D3C (CcAllocateWorkQueueEntry.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     CcIsLazyWriteScanQueuedInternal @ 0x14043C504 (CcIsLazyWriteScanQueuedInternal.c)
- *     CcNotifyExternalCachesInternal @ 0x14043C550 (CcNotifyExternalCachesInternal.c)
- *     CcSetLazyWriteScanQueuedInternal @ 0x14043C6B0 (CcSetLazyWriteScanQueuedInternal.c)
- *     CcPostWorkQueueSpecial @ 0x1404B6678 (CcPostWorkQueueSpecial.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcIsLazyWriteScanQueuedInternal @ 0x140265EE4 (CcIsLazyWriteScanQueuedInternal.c)
+ *     CcNotifyExternalCachesInternal @ 0x140265F30 (CcNotifyExternalCachesInternal.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x140266090 (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcAllocateWorkQueueEntry @ 0x140279B34 (CcAllocateWorkQueueEntry.c)
+ *     CcPostWorkQueue @ 0x14027AE6C (CcPostWorkQueue.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostWorkQueueSpecial @ 0x1404B0E58 (CcPostWorkQueueSpecial.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall CcQueueLazyWriteScanThreadForVolume(char *StartContext)
@@ -113,7 +113,7 @@ LABEL_21:
       LOBYTE(v13) = 1;
       CcSetLazyWriteScanQueuedInternal(v12, v3, v13);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      if ( (int)CcAllocateWorkQueueEntry(v2, (__int64)StartContext, v11, &v18) < 0 )
+      if ( (int)CcAllocateWorkQueueEntry(v2, StartContext, v11, &v18) < 0 )
       {
         ++CcDbgNumberOfFailedWorkQueueEntryAllocations;
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v2 + 768), &LockHandle);

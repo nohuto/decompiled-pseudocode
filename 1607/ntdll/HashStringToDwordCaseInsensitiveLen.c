@@ -1,17 +1,17 @@
 /*
- * XREFs of HashStringToDwordCaseInsensitiveLen @ 0x1800D906C
+ * XREFs of HashStringToDwordCaseInsensitiveLen @ 0x1800D912C
  * Callers:
- *     WerEscalationLazyInit @ 0x1800D91C8 (WerEscalationLazyInit.c)
+ *     WerEscalationLazyInit @ 0x1800D9288 (WerEscalationLazyInit.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x180011C40 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x180011C30 (RtlUpcaseUnicodeChar.c)
  */
 
-__int64 __fastcall HashStringToDwordCaseInsensitiveLen(unsigned __int16 *a1, int a2)
+__int64 __fastcall HashStringToDwordCaseInsensitiveLen(WCHAR *a1, int a2)
 {
   unsigned int v2; // ebx
   int v3; // edi
   int i; // ebp
-  unsigned __int16 v6; // ax
+  WCHAR v6; // ax
   int v7; // ebx
 
   v2 = 0;

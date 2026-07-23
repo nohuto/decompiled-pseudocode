@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwTerminateProcess @ 0x1800A0860
+ * XREFs of ZwTerminateProcess @ 0x1800A0880
  * Callers:
  *     RtlpxLookupFunctionTable @ 0x180006E00 (RtlpxLookupFunctionTable.c)
  *     RtlAcquireSRWLockShared @ 0x180009F00 (RtlAcquireSRWLockShared.c)
@@ -11,10 +11,10 @@
  *     RtlExitUserProcess @ 0x18006CF90 (RtlExitUserProcess.c)
  *     LdrpLoadShimEngine @ 0x1800703EC (LdrpLoadShimEngine.c)
  *     LdrpInitializeShimDllDependencies @ 0x180070688 (LdrpInitializeShimDllDependencies.c)
- *     _LdrpInitialize @ 0x18007874C (_LdrpInitialize.c)
- *     UninitUser32Proc @ 0x18008FBE0 (UninitUser32Proc.c)
- *     __raise_securityfailure @ 0x18008FEE4 (__raise_securityfailure.c)
- *     __report_gsfailure @ 0x18008FF10 (__report_gsfailure.c)
+ *     _LdrpInitialize @ 0x18007875C (_LdrpInitialize.c)
+ *     UninitUser32Proc @ 0x18008FBF0 (UninitUser32Proc.c)
+ *     __raise_securityfailure @ 0x18008FEF4 (__raise_securityfailure.c)
+ *     __report_gsfailure @ 0x18008FF20 (__report_gsfailure.c)
  *     LdrAppxHandleIntegrityFailure @ 0x1800CD7D0 (LdrAppxHandleIntegrityFailure.c)
  *     LdrpCompleteProcessCloning @ 0x1800D7168 (LdrpCompleteProcessCloning.c)
  *     LdrpFatalExceptionFilter @ 0x1800D78AC (LdrpFatalExceptionFilter.c)
@@ -29,11 +29,11 @@
  *     <none>
  */
 
-__int64 ZwTerminateProcess()
+NTSTATUS __cdecl ZwTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 44LL;
+  result = 44;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

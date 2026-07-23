@@ -39,33 +39,33 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtCreateLowBoxToken(
-        HANDLE *a1,
-        void *a2,
-        ACCESS_MASK a3,
-        __int64 a4,
-        _BYTE *Src,
-        unsigned int a6,
-        char *a7,
-        unsigned int a8,
-        __int64 a9)
+NTSTATUS __cdecl NtCreateLowBoxToken(
+        PHANDLE TokenHandle,
+        HANDLE ExistingTokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PSID PackageSid,
+        ULONG CapabilityCount,
+        PSID_AND_ATTRIBUTES Capabilities,
+        ULONG HandleCount,
+        HANDLE *Handles)
 {
-  __int64 v9; // r14
-  HANDLE *v11; // rsi
-  char PreviousMode; // r12
+  POBJECT_ATTRIBUTES v9; // r14
+  PHANDLE v11; // rsi
+  KPROCESSOR_MODE PreviousMode; // r12
   __int64 v13; // rcx
   NTSTATUS result; // eax
   __int64 v15; // r8
   __int64 v16; // r9
-  int AppContainerSidType; // ebx
+  NTSTATUS appended; // ebx
   char v18; // di
   ACCESS_MASK GrantedAccess; // r13d
-  unsigned int v20; // ebx
-  __int64 *v21; // rdi
+  ULONG v20; // ebx
+  PSID *v21; // rdi
   unsigned int v22; // r14d
-  void *v23; // r15
+  PSID v23; // r15
   PSID *v24; // rdi
-  unsigned int v25; // ebx
+  ULONG v25; // ebx
   __int64 v26; // r9
   struct _KTHREAD *CurrentThread; // rax
   __int64 TokenIntegrity; // rax
@@ -83,7 +83,7 @@ NTSTATUS __fastcall NtCreateLowBoxToken(
   __int64 v40; // [rsp+60h] [rbp-88h] BYREF
   PSID Sid; // [rsp+68h] [rbp-80h] BYREF
   PSID *v42; // [rsp+70h] [rbp-78h] BYREF
-  int v43; // [rsp+78h] [rbp-70h] BYREF
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+78h] [rbp-70h] BYREF
   PVOID Token; // [rsp+80h] [rbp-68h] BYREF
   unsigned int v45; // [rsp+88h] [rbp-60h] BYREF
   int v46; // [rsp+8Ch] [rbp-5Ch] BYREF
@@ -93,8 +93,8 @@ NTSTATUS __fastcall NtCreateLowBoxToken(
   __int128 v50; // [rsp+A8h] [rbp-40h] BYREF
   __int64 v51; // [rsp+B8h] [rbp-30h]
 
-  v9 = a4;
-  v11 = a1;
+  v9 = ObjectAttributes;
+  v11 = TokenHandle;
   v42 = 0LL;
   v45 = 0;
   P = 0LL;
@@ -105,7 +105,7 @@ NTSTATUS __fastcall NtCreateLowBoxToken(
   v46 = 1;
   v38 = 0;
   v37 = 0;
-  v43 = 0;
+  AppContainerSidType = NotAppContainerSidType;
   LOBYTE(v40) = 0;
   v50 = 0LL;
   v51 = 0LL;
@@ -116,82 +116,88 @@ NTSTATUS __fastcall NtCreateLowBoxToken(
     if ( (unsigned __int64)v11 < 0x7FFFFFFF0000LL )
       v13 = (__int64)v11;
     *(_QWORD *)v13 = *(_QWORD *)v13;
-    if ( 8LL * a8 && (a9 & 7) != 0 )
+    if ( 8LL * HandleCount && ((unsigned __int8)Handles & 7) != 0 )
       ExRaiseDatatypeMisalignment();
   }
-  if ( !Src )
+  if ( !PackageSid )
     return -1073741811;
-  if ( a8 )
+  if ( HandleCount )
   {
-    if ( a9 )
+    if ( Handles )
       goto LABEL_13;
     return -1073741776;
   }
-  if ( a9 )
+  if ( Handles )
     return -1073741776;
 LABEL_13:
   Token = 0LL;
-  result = ObReferenceObjectByHandle(a2, 2u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Token, &v49);
+  result = ObReferenceObjectByHandle(
+             ExistingTokenHandle,
+             2u,
+             (POBJECT_TYPE)SeTokenObjectType,
+             PreviousMode,
+             &Token,
+             &v49);
   if ( result < 0 )
     return result;
-  AppContainerSidType = SeCaptureSid(Src, PreviousMode, v15, v16, (int)Object, 1, &Sid);
-  if ( AppContainerSidType < 0 )
+  appended = SeCaptureSid(PackageSid, PreviousMode, v15, v16, (int)Object, 1, &Sid);
+  if ( appended < 0 )
     goto LABEL_19;
-  AppContainerSidType = SepCheckCreateLowBox(Sid);
-  if ( AppContainerSidType < 0 )
+  appended = SepCheckCreateLowBox(Sid);
+  if ( appended < 0 )
     goto LABEL_19;
   if ( *((_DWORD *)Token + 48) == 1 || *((int *)Token + 49) >= 2 )
   {
     GrantedAccess = v49.GrantedAccess;
-    if ( a3 )
-      GrantedAccess = a3;
-    if ( a7 )
-      AppContainerSidType = SeCaptureSidAndAttributesArray(
-                              a7,
-                              a6,
-                              PreviousMode,
-                              0LL,
-                              0,
-                              (__int64)HandleInformation,
-                              v36,
-                              (PVOID *)&v42,
-                              &v45);
-    if ( AppContainerSidType < 0 )
+    if ( DesiredAccess )
+      GrantedAccess = DesiredAccess;
+    if ( Capabilities )
+      appended = SeCaptureSidAndAttributesArray(
+                   (char *)Capabilities,
+                   CapabilityCount,
+                   PreviousMode,
+                   0LL,
+                   0,
+                   (__int64)HandleInformation,
+                   v36,
+                   (PVOID *)&v42,
+                   &v45);
+    if ( appended < 0 )
       goto LABEL_70;
-    AppContainerSidType = SepCaptureHandles(a8, a9, (__int64 *)&P);
-    if ( AppContainerSidType < 0 )
+    appended = SepCaptureHandles(HandleCount, (__int64)Handles, (__int64 *)&P);
+    if ( appended < 0 )
       goto LABEL_70;
-    if ( RtlIsPackageSid((__int64)Sid) )
+    if ( RtlIsPackageSid(Sid) )
     {
       if ( ((*((_BYTE *)Sid + 1) - 8) & 0xFB) != 0 )
       {
-        AppContainerSidType = -1073700350;
+        appended = -1073700350;
         goto LABEL_70;
       }
       v20 = 0;
-      if ( a6 )
+      if ( CapabilityCount )
       {
-        v21 = (__int64 *)v42;
+        v21 = v42;
         while ( RtlIsCapabilitySid(*v21) )
         {
           v22 = 0;
           if ( v20 )
           {
-            v23 = (void *)*v21;
+            v23 = *v21;
             while ( !RtlEqualSid(v23, v42[2 * v22]) )
             {
               if ( ++v22 >= v20 )
                 goto LABEL_37;
             }
-            AppContainerSidType = -1073741811;
+            appended = -1073741811;
             goto LABEL_70;
           }
 LABEL_37:
           ++v20;
           v21 += 2;
-          if ( v20 >= a6 )
+          if ( v20 >= CapabilityCount )
           {
-            v9 = a4;
+            v9 = ObjectAttributes;
             goto LABEL_39;
           }
         }
@@ -200,24 +206,24 @@ LABEL_37:
       {
 LABEL_39:
         v24 = v42;
-        if ( SepCapabilitiesHasAppSiloBaseSID(a6, (__int64)v42) || (v25 = 0, !a6) )
+        if ( SepCapabilitiesHasAppSiloBaseSID(CapabilityCount, (__int64)v42) || (v25 = 0, !CapabilityCount) )
         {
 LABEL_43:
-          AppContainerSidType = RtlGetAppContainerSidType((char *)Sid, &v43);
-          if ( AppContainerSidType >= 0 )
+          appended = RtlGetAppContainerSidType(Sid, &AppContainerSidType);
+          if ( appended >= 0 )
           {
-            if ( v43 != 1
-              || (AppContainerSidType = SepCheckCapabilities(Token, a6, (__int64)v42, v26, (char *)&v40), (_BYTE)v40) )
+            if ( AppContainerSidType != ChildAppContainerSidType
+              || (appended = SepCheckCapabilities(Token, CapabilityCount, (__int64)v42, v26, (char *)&v40), (_BYTE)v40) )
             {
-              if ( AppContainerSidType < 0 )
+              if ( appended < 0 )
                 goto LABEL_70;
-              AppContainerSidType = SepDuplicateToken((__int128 *)Token, v9, 0, 1, 0, PreviousMode, 0, (__int64 *)&v39);
-              if ( AppContainerSidType < 0 )
+              appended = SepDuplicateToken((__int128 *)Token, (__int64)v9, 0, 1, 0, PreviousMode, 0, (__int64 *)&v39);
+              if ( appended < 0 )
                 goto LABEL_70;
               v18 = 1;
               v37 = 1;
-              AppContainerSidType = SeSetMandatoryPolicyToken((__int64)v39, &v46);
-              if ( AppContainerSidType < 0 )
+              appended = SeSetMandatoryPolicyToken((__int64)v39, &v46);
+              if ( appended < 0 )
                 goto LABEL_71;
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
@@ -239,26 +245,26 @@ LABEL_43:
               }
               else
               {
-                AppContainerSidType = -1073740730;
+                appended = -1073740730;
               }
-              if ( AppContainerSidType < 0 )
+              if ( appended < 0 )
                 goto LABEL_71;
               v31 = (unsigned __int8 *)Sid;
-              AppContainerSidType = SepSetTokenCapabilities((__int64)v39, Sid, (char *)v42, a6);
-              if ( AppContainerSidType < 0 )
+              appended = SepSetTokenCapabilities((__int64)v39, Sid, (char *)v42, CapabilityCount);
+              if ( appended < 0 )
                 goto LABEL_70;
-              AppContainerSidType = SepSetTokenLowboxNumber((__int64)v39, (__int64)v31);
-              if ( AppContainerSidType < 0 )
+              appended = SepSetTokenLowboxNumber((__int64)v39, (__int64)v31);
+              if ( appended < 0 )
                 goto LABEL_70;
               *((_QWORD *)&v50 + 1) = v31;
-              AppContainerSidType = SepSetTokenCachedHandles(v39, &v50, a8, (HANDLE *)P);
-              if ( AppContainerSidType < 0 )
+              appended = SepSetTokenCachedHandles(v39, &v50, HandleCount, (HANDLE *)P);
+              if ( appended < 0 )
                 goto LABEL_70;
-              AppContainerSidType = SepSetTokenPackage((__int64)v39, v31);
-              if ( AppContainerSidType < 0 )
+              appended = SepSetTokenPackage((__int64)v39, v31);
+              if ( appended < 0 )
                 goto LABEL_70;
-              AppContainerSidType = SepAppendAceToTokenDefaultDacl((__int64)v39, v31);
-              if ( AppContainerSidType < 0 )
+              appended = SepAppendAceToTokenDefaultDacl((__int64)v39, v31);
+              if ( appended < 0 )
                 goto LABEL_70;
               v32 = v39;
               if ( SepSidInTokenSidHash(
@@ -292,21 +298,21 @@ LABEL_43:
               ExReleaseResourceLite(*((PERESOURCE *)v39 + 6));
               KeLeaveCriticalRegion();
               v38 = 0;
-              AppContainerSidType = ObInsertObjectEx((char *)v39, 0LL, GrantedAccess, 1, 0, 0LL, (__int64)&Handle);
-              if ( AppContainerSidType >= 0 )
+              appended = ObInsertObjectEx((char *)v39, 0LL, GrantedAccess, 1, 0, 0LL, (__int64)&Handle);
+              if ( appended >= 0 )
               {
-                AppContainerSidType = SepAppendAceToTokenObjectAcl((ULONG_PTR *)v39, 0xF01FFu, Sid);
-                if ( AppContainerSidType < 0 )
+                appended = SepAppendAceToTokenObjectAcl((ULONG_PTR *)v39, 0xF01FFu, Sid);
+                if ( appended < 0 )
                   goto LABEL_70;
                 SepFinalizeTokenAcls(v39);
                 ObfDereferenceObject(v39);
               }
               v18 = 0;
 LABEL_71:
-              v11 = a1;
+              v11 = TokenHandle;
               goto LABEL_72;
             }
-            AppContainerSidType = -1073741790;
+            appended = -1073741790;
           }
 LABEL_70:
           v18 = v37;
@@ -316,27 +322,27 @@ LABEL_70:
         {
           ++v25;
           v24 += 2;
-          if ( v25 >= a6 )
+          if ( v25 >= CapabilityCount )
             goto LABEL_43;
         }
       }
     }
-    AppContainerSidType = -1073741811;
+    appended = -1073741811;
     goto LABEL_70;
   }
-  AppContainerSidType = -1073741659;
+  appended = -1073741659;
 LABEL_19:
   v18 = v37;
 LABEL_72:
   if ( v38 )
   {
-    if ( AppContainerSidType >= 0 )
+    if ( appended >= 0 )
       *((_QWORD *)v39 + 7) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
     _InterlockedOr(v33, 0);
     ExReleaseResourceLite(*((PERESOURCE *)v39 + 6));
     KeLeaveCriticalRegion();
   }
-  if ( AppContainerSidType < 0 )
+  if ( appended < 0 )
   {
     if ( v18 )
       ObfDereferenceObject(v39);
@@ -351,7 +357,7 @@ LABEL_72:
     ObfDereferenceObject(Token);
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( AppContainerSidType >= 0 )
+  if ( appended >= 0 )
     *v11 = Handle;
-  return AppContainerSidType;
+  return appended;
 }

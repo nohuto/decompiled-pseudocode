@@ -55,7 +55,7 @@ void __fastcall PopEsWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   __int64 v38; // rbx
   bool v39[12]; // [rsp+40h] [rbp-38h] BYREF
   int v40; // [rsp+4Ch] [rbp-2Ch]
-  int v41; // [rsp+90h] [rbp+18h] BYREF
+  int Buffer; // [rsp+90h] [rbp+18h] BYREF
   int v42; // [rsp+94h] [rbp+1Ch]
 
   do
@@ -139,8 +139,8 @@ LABEL_4:
     else
     {
       v42 = -1;
-      v41 = v41 & 0x800000 | 1 | (2 * (PopEsState == 1));
-      ZwUpdateWnfStateData((__int64)&WNF_PO_ENERGY_SAVER_STATE, (__int64)&v41, 8LL);
+      Buffer = Buffer & 0x800000 | 1 | (2 * (PopEsState == 1));
+      ZwUpdateWnfStateData(&WNF_PO_ENERGY_SAVER_STATE, &Buffer, 8u, 0LL, 0LL, 0, 0);
       PopSetPowerSettingValueAcDc(&GUID_POWER_SAVING_STATUS, 4u, &PopEsState);
       v23 = KeGetCurrentThread();
       --v23->KernelApcDisable;

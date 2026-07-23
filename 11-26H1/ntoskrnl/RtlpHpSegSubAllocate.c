@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegSubAllocate @ 0x1404DF8E4
+ * XREFs of RtlpHpSegSubAllocate @ 0x1404D8FC4
  * Callers:
- *     RtlpHpSegLfhAllocate @ 0x1404DF870 (RtlpHpSegLfhAllocate.c)
- *     RtlpHpSegVsAllocate @ 0x1404DF8B0 (RtlpHpSegVsAllocate.c)
- *     RtlpHpSegPgAllocate @ 0x1406393B0 (RtlpHpSegPgAllocate.c)
+ *     RtlpHpSegLfhAllocate @ 0x1404D8F50 (RtlpHpSegLfhAllocate.c)
+ *     RtlpHpSegVsAllocate @ 0x1404D8F90 (RtlpHpSegVsAllocate.c)
+ *     RtlpHpSegPgAllocate @ 0x14063C3C0 (RtlpHpSegPgAllocate.c)
  * Callees:
- *     RtlpHpSegAlloc @ 0x14034B0CC (RtlpHpSegAlloc.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14034F200 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlpHpSegAlloc @ 0x14034D14C (RtlpHpSegAlloc.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x140351280 (RtlpHpSegPageRangeComputeLargePageCost.c)
  */
 
 __int64 __fastcall RtlpHpSegSubAllocate(__int64 a1, unsigned int a2, unsigned int a3, _DWORD *a4, _DWORD *a5)

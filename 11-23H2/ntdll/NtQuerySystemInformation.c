@@ -19,7 +19,7 @@
  *     RtlQueryModuleInformation @ 0x1800EFE50 (RtlQueryModuleInformation.c)
  *     RtlLocalTimeToSystemTime @ 0x1800F18B0 (RtlLocalTimeToSystemTime.c)
  *     RtlRegisterSecureMemoryCacheCallback @ 0x180104580 (RtlRegisterSecureMemoryCacheCallback.c)
- *     RtlpHeapTrkAllocCacheAligned @ 0x18010C1B4 (RtlpHeapTrkAllocCacheAligned.c)
+ *     RtlpHeapTrkAllocCacheAligned @ 0x18010C184 (RtlpHeapTrkAllocCacheAligned.c)
  * Callees:
  *     <none>
  */

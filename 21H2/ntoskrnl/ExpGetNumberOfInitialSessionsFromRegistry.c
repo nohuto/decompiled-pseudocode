@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetNumberOfInitialSessionsFromRegistry @ 0x1407D1C18
+ * XREFs of ExpGetNumberOfInitialSessionsFromRegistry @ 0x1407D1D88
  * Callers:
- *     ExIsMultiSessionSku @ 0x1407D1BA8 (ExIsMultiSessionSku.c)
+ *     ExIsMultiSessionSku @ 0x1407D1D18 (ExIsMultiSessionSku.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall ExpGetNumberOfInitialSessionsFromRegistry(_DWORD *a1)

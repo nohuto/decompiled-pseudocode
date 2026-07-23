@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSignalNonPagedPoolWatchers @ 0x140676BB8
+ * XREFs of MiSignalNonPagedPoolWatchers @ 0x140677D88
  * Callers:
- *     MiInitializeNonPagedPoolThresholds @ 0x140676B54 (MiInitializeNonPagedPoolThresholds.c)
- *     MiInitializeMemoryEvents @ 0x1407FFF3C (MiInitializeMemoryEvents.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x140677D24 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiInitializeMemoryEvents @ 0x14080067C (MiInitializeMemoryEvents.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiSignalNonPagedPoolWatchers(int a1)
@@ -19,31 +19,31 @@ void __fastcall MiSignalNonPagedPoolWatchers(int a1)
 
   v2 = 17;
   if ( !a1 )
-    v2 = ExAcquireSpinLockExclusive(dword_140E3CB40);
-  if ( qword_140E38D10 )
+    v2 = ExAcquireSpinLockExclusive(dword_140E3CC80);
+  if ( qword_140E38E50 )
   {
     v3 = *(_QWORD *)&MiState;
-    v4 = qword_140E2CA48;
-    SignalState = qword_140E38D10->Header.SignalState;
-    if ( qword_140E2CA48 < (unsigned __int64)(*(_QWORD *)&MiState - 5120LL) )
+    v4 = qword_140E2CB88;
+    SignalState = qword_140E38E50->Header.SignalState;
+    if ( qword_140E2CB88 < (unsigned __int64)(*(_QWORD *)&MiState - 5120LL) )
     {
       if ( !SignalState )
-        KeSetEvent(qword_140E38D10, 0, 0);
+        KeSetEvent(qword_140E38E50, 0, 0);
     }
     else if ( SignalState )
     {
-      KeResetEvent(qword_140E38D10);
+      KeResetEvent(qword_140E38E50);
     }
     if ( v4 < v3 - 2048 )
     {
-      if ( qword_140E38D08->Header.SignalState )
-        KeResetEvent(qword_140E38D08);
+      if ( qword_140E38E48->Header.SignalState )
+        KeResetEvent(qword_140E38E48);
     }
-    else if ( !qword_140E38D08->Header.SignalState )
+    else if ( !qword_140E38E48->Header.SignalState )
     {
-      KeSetEvent(qword_140E38D08, 0, 0);
+      KeSetEvent(qword_140E38E48, 0, 0);
     }
   }
   if ( !a1 )
-    MiReleaseSpinLockExclusive(dword_140E3CB40, v2);
+    MiReleaseSpinLockExclusive(dword_140E3CC80, v2);
 }

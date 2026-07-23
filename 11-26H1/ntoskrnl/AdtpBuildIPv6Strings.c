@@ -1,22 +1,22 @@
 /*
- * XREFs of AdtpBuildIPv6Strings @ 0x140AAC454
+ * XREFs of AdtpBuildIPv6Strings @ 0x140AA9A04
  * Callers:
- *     AdtpBuildSockAddrString @ 0x140AAC264 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x140AA9814 (AdtpBuildSockAddrString.c)
  * Callees:
- *     StringCchPrintfW @ 0x1404AC750 (StringCchPrintfW.c)
- *     RtlIpv6AddressToStringW @ 0x1404B1800 (RtlIpv6AddressToStringW.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     StringCchPrintfW @ 0x1404A5DE0 (StringCchPrintfW.c)
+ *     RtlIpv6AddressToStringW @ 0x1404AAE90 (RtlIpv6AddressToStringW.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AdtpBuildIPv6Strings(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall AdtpBuildIPv6Strings(_WORD *a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
 {
   __int64 v9; // rax
   __int64 v10; // rax
   unsigned int v11; // ebx
   __int64 Pool2; // rax
 
-  if ( *(_WORD *)a1 == 23 )
+  if ( *a1 == 23 )
   {
     if ( a2 && a3 )
     {
@@ -31,7 +31,7 @@ __int64 __fastcall AdtpBuildIPv6Strings(__int64 a1, __int64 a2, _BYTE *a3, __int
       *a3 = 1;
       *(_WORD *)a2 = 2
                    * ((__int64)((unsigned int)RtlIpv6AddressToStringW(
-                                                (const struct in6_addr *)(a1 + 8),
+                                                (const struct in6_addr *)(a1 + 4),
                                                 *(PWSTR *)(a2 + 8))
                               - *(_DWORD *)(a2 + 8)) >> 1);
     }
@@ -43,11 +43,7 @@ __int64 __fastcall AdtpBuildIPv6Strings(__int64 a1, __int64 a2, _BYTE *a3, __int
     if ( v9 )
     {
       *a5 = 1;
-      if ( StringCchPrintfW(
-             *(STRSAFE_LPWSTR *)(a4 + 8),
-             8uLL,
-             L"%d",
-             (unsigned __int16)(*(_WORD *)(a1 + 2) << 8) | HIBYTE(*(unsigned __int16 *)(a1 + 2))) >= 0 )
+      if ( StringCchPrintfW(*(STRSAFE_LPWSTR *)(a4 + 8), 8uLL, L"%d", (unsigned __int16)(a1[1] << 8) | HIBYTE(a1[1])) >= 0 )
       {
         v10 = -1LL;
         do

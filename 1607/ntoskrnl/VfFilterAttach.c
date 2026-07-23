@@ -1,16 +1,16 @@
 /*
  * XREFs of VfFilterAttach @ 0x14071AB04
  * Callers:
- *     VfDevObjPostAddDevice @ 0x14070D778 (VfDevObjPostAddDevice.c)
- *     VfDevObjPreAddDevice @ 0x14070D7C8 (VfDevObjPreAddDevice.c)
+ *     VfDevObjPostAddDevice @ 0x14070D7A8 (VfDevObjPostAddDevice.c)
+ *     VfDevObjPreAddDevice @ 0x14070D7F8 (VfDevObjPreAddDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     IoGetAttachedDevice @ 0x14002DEC0 (IoGetAttachedDevice.c)
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     IoInitializeRemoveLockEx @ 0x1400B4044 (IoInitializeRemoveLockEx.c)
- *     IoAttachDeviceToDeviceStack @ 0x140131334 (IoAttachDeviceToDeviceStack.c)
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     IoCreateDriver @ 0x140551384 (IoCreateDriver.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     IoGetAttachedDevice @ 0x14002DA40 (IoGetAttachedDevice.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     IoInitializeRemoveLockEx @ 0x1400B1EC4 (IoInitializeRemoveLockEx.c)
+ *     IoAttachDeviceToDeviceStack @ 0x1401318A4 (IoAttachDeviceToDeviceStack.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     IoCreateDriver @ 0x1405518C4 (IoCreateDriver.c)
  *     ViFilterIsDeviceExcluded @ 0x14071B0D0 (ViFilterIsDeviceExcluded.c)
  */
 

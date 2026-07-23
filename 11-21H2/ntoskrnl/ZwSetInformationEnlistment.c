@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwSetInformationEnlistment @ 0x14041EB60
  * Callers:
- *     DifZwSetInformationEnlistmentWrapper @ 0x140627040 (DifZwSetInformationEnlistmentWrapper.c)
+ *     sub_140627040 @ 0x140627040 (sub_140627040.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwSetInformationEnlistment(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, *(_QWORD *)&EnlistmentInformationClass);
+  return sub_140433F80(EnlistmentHandle, *(_QWORD *)&EnlistmentInformationClass);
 }

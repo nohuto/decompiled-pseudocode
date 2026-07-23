@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCaptureContext2 @ 0x140534B00
+ * XREFs of RtlpCaptureContext2 @ 0x140536F80
  * Callers:
- *     RtlRaiseException @ 0x140619230 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x14061C280 (RtlRaiseException.c)
  * Callees:
  *     <none>
  */
 
 void RtlpCaptureContext2()
 {
-  JUMPOUT(0x140534B7FLL);
+  JUMPOUT(0x140536FFFLL);
 }

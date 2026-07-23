@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMakePartitionMemoryBlock @ 0x14086065C
+ * XREFs of MiMakePartitionMemoryBlock @ 0x1408618BC
  * Callers:
- *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
- *     MiInsertPartitionPages @ 0x1402D1BA4 (MiInsertPartitionPages.c)
+ *     MiDeletePartitionResources @ 0x1402D119C (MiDeletePartitionResources.c)
+ *     MiInsertPartitionPages @ 0x1402D1D94 (MiInsertPartitionPages.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
- *     MiUpdatePartitionMemory @ 0x1402D2BD0 (MiUpdatePartitionMemory.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiCreateNodeLists @ 0x14072B430 (MiCreateNodeLists.c)
- *     MiConvertInitialMemoryBlock @ 0x14075B7F8 (MiConvertInitialMemoryBlock.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0308 (MiActOnPartitionNodePages.c)
+ *     MiUpdatePartitionMemory @ 0x1402D2DC0 (MiUpdatePartitionMemory.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiCreateNodeLists @ 0x14072C620 (MiCreateNodeLists.c)
+ *     MiConvertInitialMemoryBlock @ 0x14075C9E8 (MiConvertInitialMemoryBlock.c)
  */
 
 void __fastcall MiMakePartitionMemoryBlock(__int64 a1)

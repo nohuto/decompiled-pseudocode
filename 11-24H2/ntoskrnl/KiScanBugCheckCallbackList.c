@@ -1,49 +1,47 @@
 /*
- * XREFs of KiScanBugCheckCallbackList @ 0x1405B43D0
+ * XREFs of KiScanBugCheckCallbackList @ 0x1405B134C
  * Callers:
- *     IopWriteTriageDumpToFirmware @ 0x140595A24 (IopWriteTriageDumpToFirmware.c)
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
+ *     IopWriteTriageDumpToFirmware @ 0x140592A54 (IopWriteTriageDumpToFirmware.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall KiScanBugCheckCallbackList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void KiScanBugCheckCallbackList()
 {
-  __int64 v4; // rbx
-  __int64 *v5; // r15
-  __int64 v6; // r14
+  __int64 v0; // rbx
+  __int64 *v1; // r15
+  __int64 v2; // r14
   unsigned int i; // esi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
+  __int64 v4; // rdx
+  __int64 v5; // rcx
 
-  v4 = KeBugCheckCallbackListHead;
-  if ( KeBugCheckCallbackListHead && qword_140F21E88 )
+  v0 = KeBugCheckCallbackListHead;
+  if ( KeBugCheckCallbackListHead && qword_140F229A8 )
   {
-    v5 = &KeBugCheckCallbackListHead;
-    while ( (__int64 *)v4 != &KeBugCheckCallbackListHead && (v4 & 7) == 0 )
+    v1 = &KeBugCheckCallbackListHead;
+    while ( (__int64 *)v0 != &KeBugCheckCallbackListHead && (v0 & 7) == 0 )
     {
-      v6 = v4;
+      v2 = v0;
       for ( i = 0; i < 0x40; ++i )
       {
-        if ( !MmIsAddressValidEx(v6) )
+        if ( !MmIsAddressValidEx(v2) )
           return;
-        ++v6;
+        ++v2;
       }
-      if ( *(__int64 **)(v4 + 8) != v5 )
+      if ( *(__int64 **)(v0 + 8) != v1 )
         break;
-      v8 = *(unsigned int *)(v4 + 32);
-      v9 = *(_QWORD *)(v4 + 24);
-      v10 = v9 + *(_QWORD *)(v4 + 16) + v8 + *(_QWORD *)(v4 + 40);
-      if ( *(_BYTE *)(v4 + 56) == 1 && *(_QWORD *)(v4 + 48) == v10 )
+      v4 = *(unsigned int *)(v0 + 32);
+      v5 = *(_QWORD *)(v0 + 24);
+      if ( *(_BYTE *)(v0 + 56) == 1 && *(_QWORD *)(v0 + 48) == v5 + *(_QWORD *)(v0 + 16) + v4 + *(_QWORD *)(v0 + 40) )
       {
-        *(_BYTE *)(v4 + 56) = 2;
-        guard_dispatch_icall_no_overrides(v9, v8, v10, a4);
-        *(_BYTE *)(v4 + 56) = 3;
+        *(_BYTE *)(v0 + 56) = 2;
+        guard_dispatch_icall_no_overrides(v5, v4);
+        *(_BYTE *)(v0 + 56) = 3;
       }
-      v5 = (__int64 *)v4;
-      v4 = *(_QWORD *)v4;
+      v1 = (__int64 *)v0;
+      v0 = *(_QWORD *)v0;
     }
   }
 }

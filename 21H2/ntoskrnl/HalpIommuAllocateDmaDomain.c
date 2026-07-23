@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuAllocateDmaDomain @ 0x1403AC688
+ * XREFs of HalpIommuAllocateDmaDomain @ 0x1403AD418
  * Callers:
- *     HalpIommuInitializeDmar @ 0x1403AC628 (HalpIommuInitializeDmar.c)
- *     HalpDmaAllocateDomain @ 0x1403C71E8 (HalpDmaAllocateDomain.c)
- *     IommuDomainCreate @ 0x1408667B0 (IommuDomainCreate.c)
+ *     HalpIommuInitializeDmar @ 0x1403AD3B8 (HalpIommuInitializeDmar.c)
+ *     HalpDmaAllocateDomain @ 0x1403C7388 (HalpDmaAllocateDomain.c)
+ *     IommuDomainCreate @ 0x140866910 (IommuDomainCreate.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpIommuGetPageTableType @ 0x1404C97BC (HalpIommuGetPageTableType.c)
- *     HalpIommuCreateDmarPageTable @ 0x1404DB9BC (HalpIommuCreateDmarPageTable.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpIommuGetPageTableType @ 0x1404C99FC (HalpIommuGetPageTableType.c)
+ *     HalpIommuCreateDmarPageTable @ 0x1404DBBFC (HalpIommuCreateDmarPageTable.c)
  */
 
 __int64 __fastcall HalpIommuAllocateDmaDomain(__int64 a1, char a2, __int64 *a3)
@@ -54,7 +54,7 @@ __int64 __fastcall HalpIommuAllocateDmaDomain(__int64 a1, char a2, __int64 *a3)
     *(_BYTE *)(v7 + 40) = a2 == 0;
     v13 = v12;
     LOBYTE(v14) = a2 == 0;
-    PageTableType = ((__int64 (__fastcall *)(signed __int32 *))qword_140C4A2F0)(&v13);
+    PageTableType = ((__int64 (__fastcall *)(signed __int32 *))qword_140C4A330)(&v13);
     goto LABEL_6;
   }
   if ( !a2 )

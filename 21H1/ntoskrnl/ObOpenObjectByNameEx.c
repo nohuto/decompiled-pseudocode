@@ -60,7 +60,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   _QWORD *v19; // r15
   ULONG_PTR v20; // rsi
   _SLIST_ENTRY *Next; // rsi
-  struct _SLIST_ENTRY *v22; // r14
+  _SLIST_ENTRY *v22; // r14
   unsigned int v23; // r15d
   struct _DMA_ADAPTER *v24; // rcx
   struct _DMA_ADAPTER *v25; // rcx
@@ -73,7 +73,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   struct _DMA_ADAPTER *v32; // r14
   struct _DMA_ADAPTER *v33; // rcx
   _SLIST_ENTRY *v34; // rcx
-  struct _SLIST_ENTRY *v35; // r8
+  _SLIST_ENTRY *v35; // r8
   struct _KPRCB *v36; // rdx
   _GENERAL_LOOKASIDE *v37; // rcx
   struct _KPRCB *v38; // rdx
@@ -294,7 +294,7 @@ LABEL_33:
             else
             {
               ++v37->FreeMisses;
-              ((void (__fastcall *)(struct _SLIST_ENTRY *))v37->FreeEx)(v35);
+              ((void (__fastcall *)(_SLIST_ENTRY *))v37->FreeEx)(v35);
             }
           }
           else

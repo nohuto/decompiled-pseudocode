@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveUnusedSegments @ 0x1403F734C
+ * XREFs of MiRemoveUnusedSegments @ 0x1403EDF30
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1403F7BB0 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x1403EDB20 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     MiWakeCommitRequest @ 0x1403F7558 (MiWakeCommitRequest.c)
- *     MiDeleteEmptyControlAreas @ 0x1403F7618 (MiDeleteEmptyControlAreas.c)
- *     MiFreeClonePool @ 0x1403F7F0C (MiFreeClonePool.c)
- *     MiDeleteEmptySubsections @ 0x1403F7FC0 (MiDeleteEmptySubsections.c)
- *     MiDeleteCachedEntry @ 0x1403F836C (MiDeleteCachedEntry.c)
- *     MiComputeProportionalSystemCacheVaReduction @ 0x1403F850C (MiComputeProportionalSystemCacheVaReduction.c)
- *     CcUnmapInactiveViews @ 0x1403F8634 (CcUnmapInactiveViews.c)
+ *     MiDeleteEmptySubsections @ 0x140292788 (MiDeleteEmptySubsections.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     MiFreeClonePool @ 0x1403EDE7C (MiFreeClonePool.c)
+ *     MiWakeCommitRequest @ 0x1403EE13C (MiWakeCommitRequest.c)
+ *     MiDeleteEmptyControlAreas @ 0x1403EE1FC (MiDeleteEmptyControlAreas.c)
+ *     MiDeleteCachedEntry @ 0x1403EE484 (MiDeleteCachedEntry.c)
+ *     MiComputeProportionalSystemCacheVaReduction @ 0x1403EE624 (MiComputeProportionalSystemCacheVaReduction.c)
+ *     CcUnmapInactiveViews @ 0x1403EE744 (CcUnmapInactiveViews.c)
  */
 
 unsigned __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, __int64 a2)
@@ -25,9 +25,7 @@ unsigned __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, __int64 a2)
   unsigned __int64 v11; // rcx
   unsigned __int64 v12; // rdx
   unsigned __int64 v13; // r8
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // rax
+  __int64 v14; // rax
 
   v2 = *(_DWORD *)(a2 + 56);
   v3 = (_QWORD *)(a1 + 1928);
@@ -43,7 +41,7 @@ unsigned __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, __int64 a2)
     if ( (_QWORD *)*v5 != v5 )
       result = MiDeleteEmptySubsections(a1);
     if ( *(_WORD *)(a1 + 2384) )
-      result = MiFreeClonePool(a1);
+      result = (unsigned __int64)MiFreeClonePool((_SLIST_HEADER *)a1);
     v11 = *(_QWORD *)(v4 + 8);
     if ( v11 )
     {
@@ -77,13 +75,13 @@ unsigned __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, __int64 a2)
       }
       if ( v9 >= 0x30 && v8 >= 0x80 && *(_QWORD *)(a2 + 16) == 1LL )
       {
-        v16 = MiComputeProportionalSystemCacheVaReduction(a1, v12, v13);
-        if ( v16 )
-          CcUnmapInactiveViews(*(_QWORD *)(a1 + 184), v16, 0LL, 0LL);
+        v14 = MiComputeProportionalSystemCacheVaReduction(a1);
+        if ( v14 )
+          CcUnmapInactiveViews(*(_QWORD *)(a1 + 184), v14, 0LL, 0LL);
       }
       v9 = 0;
     }
-    result = MiDeleteCachedEntry(a1, a2, v13);
+    result = MiDeleteCachedEntry(a1, a2);
     if ( (result & 0x80000000) == 0LL )
     {
       if ( v2 == 2 )
@@ -96,7 +94,7 @@ unsigned __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, __int64 a2)
       {
         if ( *(_DWORD *)(a1 + 92) )
           break;
-        result = MiComputeProportionalSystemCacheVaReduction(a1, v14, v15);
+        result = MiComputeProportionalSystemCacheVaReduction(a1);
         if ( !result )
           break;
         if ( *(_QWORD *)(a2 + 16) == 1LL )

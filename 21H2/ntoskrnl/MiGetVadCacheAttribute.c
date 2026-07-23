@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetVadCacheAttribute @ 0x14055BD80
+ * XREFs of MiGetVadCacheAttribute @ 0x14055BFC0
  * Callers:
- *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
- *     MiProcessVaContiguityInformation @ 0x1405522C0 (MiProcessVaContiguityInformation.c)
- *     MiReferenceIncomingPhysicalPages @ 0x1408D6104 (MiReferenceIncomingPhysicalPages.c)
+ *     MiProtectAweRegion @ 0x14054D5A4 (MiProtectAweRegion.c)
+ *     MiProcessVaContiguityInformation @ 0x140552500 (MiProcessVaContiguityInformation.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x1408D6264 (MiReferenceIncomingPhysicalPages.c)
  * Callees:
  *     <none>
  */

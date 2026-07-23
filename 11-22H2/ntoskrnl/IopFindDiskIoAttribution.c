@@ -10,14 +10,14 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall IopFindDiskIoAttribution(__int64 a1)
+unsigned __int64 __fastcall IopFindDiskIoAttribution(__int64 a1)
 {
-  __int64 v1; // rbp
+  unsigned __int64 v1; // rbp
   unsigned __int64 v2; // rsi
-  __int64 v3; // rbx
+  unsigned __int64 v3; // rbx
   int v4; // edi
   int v5; // eax
-  __int64 v6; // rax
+  unsigned __int64 v6; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -28,18 +28,18 @@ __int64 __fastcall IopFindDiskIoAttribution(__int64 a1)
   v13 = a1;
   v1 = 0LL;
   v2 = ExAcquireSpinLockShared(&IopDiskIoAttributionLock);
-  if ( (BYTE8(IopDiskIoAttributionTree) & 1) != 0 )
+  if ( (*(_BYTE *)(&IopDiskIoAttributionTree + 1) & 1) != 0 )
   {
-    if ( (_QWORD)IopDiskIoAttributionTree )
-      v3 = IopDiskIoAttributionTree ^ (unsigned __int64)&IopDiskIoAttributionTree;
+    if ( IopDiskIoAttributionTree )
+      v3 = (unsigned __int64)IopDiskIoAttributionTree ^ (unsigned __int64)&IopDiskIoAttributionTree;
     else
       v3 = 0LL;
   }
   else
   {
-    v3 = IopDiskIoAttributionTree;
+    v3 = (unsigned __int64)IopDiskIoAttributionTree;
   }
-  v4 = BYTE8(IopDiskIoAttributionTree) & 1;
+  v4 = *(_BYTE *)(&IopDiskIoAttributionTree + 1) & 1;
   while ( v3 )
   {
     v5 = IopDiskIoAttributionTreeCompare(&v13, v3);
@@ -65,10 +65,13 @@ __int64 __fastcall IopFindDiskIoAttribution(__int64 a1)
       __fastfail(0xEu);
   }
   ExReleaseSpinLockSharedFromDpcLevel(&IopDiskIoAttributionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,13 +1,13 @@
 /*
- * XREFs of SepRmDbInitialization @ 0x140A6E540
+ * XREFs of SepRmDbInitialization @ 0x140A6F540
  * Callers:
- *     SepInitializationPhase0 @ 0x140A47920 (SepInitializationPhase0.c)
+ *     SepInitializationPhase0 @ 0x140A48920 (SepInitializationPhase0.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     memset @ 0x140414200 (memset.c)
- *     SepCreateLogonSessionTrack @ 0x1406A07EC (SepCreateLogonSessionTrack.c)
- *     SepBuildDefaultCap @ 0x1407CCC84 (SepBuildDefaultCap.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SepCreateLogonSessionTrack @ 0x1405FFB2C (SepCreateLogonSessionTrack.c)
+ *     SepBuildDefaultCap @ 0x1407CCDF4 (SepBuildDefaultCap.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char SepRmDbInitialization()
@@ -44,7 +44,7 @@ char SepRmDbInitialization()
     return 0;
   SepRmAuditingEnabled = 0;
   memset(SeAuditingState, 0, 0x78uLL);
-  byte_140C1D5E4 = 1;
+  byte_140C1D604 = 1;
   SepRmCapTableLock = 0LL;
   SepRmEnforceCap = 0;
   if ( (int)SepBuildDefaultCap() < 0 )

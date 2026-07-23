@@ -1,14 +1,14 @@
 /*
- * XREFs of PiAuCheckClientInteractive @ 0x1408A3AA8
+ * XREFs of PiAuCheckClientInteractive @ 0x1408A3C08
  * Callers:
- *     PiCMQueryRemove @ 0x14072ED1C (PiCMQueryRemove.c)
+ *     PiCMQueryRemove @ 0x14072EEE8 (PiCMQueryRemove.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     PiAuCheckTokenMembership @ 0x1408A3B68 (PiAuCheckTokenMembership.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     PiAuCheckTokenMembership @ 0x1408A3CC8 (PiAuCheckTokenMembership.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuCheckClientInteractive(_BYTE *a1)
@@ -16,7 +16,7 @@ __int64 __fastcall PiAuCheckClientInteractive(_BYTE *a1)
   PVOID PoolWithTag; // rax
   void *v3; // rdi
   NTSTATUS v4; // ebx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp+10h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp+10h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *a1 = 0;

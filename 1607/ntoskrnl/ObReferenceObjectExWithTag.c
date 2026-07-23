@@ -1,20 +1,20 @@
 /*
- * XREFs of ObReferenceObjectExWithTag @ 0x140096540
+ * XREFs of ObReferenceObjectExWithTag @ 0x140095D40
  * Callers:
- *     ObFastReferenceObject @ 0x14000F760 (ObFastReferenceObject.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiMakeSystemCacheRangeValid @ 0x140031890 (MiMakeSystemCacheRangeValid.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiLogPageAccess @ 0x140048940 (MiLogPageAccess.c)
- *     ObFastReplaceObject @ 0x1400CCF54 (ObFastReplaceObject.c)
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     ObInitializeFastReference @ 0x1404724AC (ObInitializeFastReference.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ *     ObFastReferenceObject @ 0x14000F2E0 (ObFastReferenceObject.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140031410 (MiMakeSystemCacheRangeValid.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiLogPageAccess @ 0x1400484C0 (MiLogPageAccess.c)
+ *     ObFastReplaceObject @ 0x1400CADF4 (ObFastReplaceObject.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     ObInitializeFastReference @ 0x14047137C (ObInitializeFastReference.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
  */
 
 unsigned __int64 __fastcall ObReferenceObjectExWithTag(__int64 a1, int a2)

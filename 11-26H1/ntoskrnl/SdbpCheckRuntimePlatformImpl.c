@@ -1,8 +1,8 @@
 /*
- * XREFs of SdbpCheckRuntimePlatformImpl @ 0x140883D9C
+ * XREFs of SdbpCheckRuntimePlatformImpl @ 0x14088A19C
  * Callers:
- *     SdbpCheckRuntimePlatform @ 0x140883D30 (SdbpCheckRuntimePlatform.c)
- *     SdbpOpenLocalDatabaseEx @ 0x14088620C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpCheckRuntimePlatform @ 0x14088A130 (SdbpCheckRuntimePlatform.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x14088C60C (SdbpOpenLocalDatabaseEx.c)
  * Callees:
  *     <none>
  */

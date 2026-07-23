@@ -2,7 +2,7 @@
  * XREFs of MiGetBaseResidentPageForBugCheck @ 0x1403F688C
  * Callers:
  *     MiGetPagesRemainingInResidentPage @ 0x1403F69B8 (MiGetPagesRemainingInResidentPage.c)
- *     MiMirrorRemoveInactivePages @ 0x140534D74 (MiMirrorRemoveInactivePages.c)
+ *     MiMirrorRemoveInactivePages @ 0x140534FB4 (MiMirrorRemoveInactivePages.c)
  * Callees:
  *     <none>
  */

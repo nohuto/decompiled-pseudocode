@@ -1,20 +1,20 @@
 /*
- * XREFs of KiAcquireInterruptConnectLock @ 0x140320EA0
+ * XREFs of KiAcquireInterruptConnectLock @ 0x140321130
  * Callers:
- *     KeMaskInterrupt @ 0x14031F5B4 (KeMaskInterrupt.c)
- *     KiDisconnectInterruptCommon @ 0x14031F720 (KiDisconnectInterruptCommon.c)
- *     KiConnectInterrupt @ 0x140320C8C (KiConnectInterrupt.c)
+ *     KeMaskInterrupt @ 0x14031F844 (KeMaskInterrupt.c)
+ *     KiDisconnectInterruptCommon @ 0x14031F9B0 (KiDisconnectInterruptCommon.c)
+ *     KiConnectInterrupt @ 0x140320F1C (KiConnectInterrupt.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
  */
 
-struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, struct _GROUP_AFFINITY *a3)
+struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, _GROUP_AFFINITY *a3)
 {
   __int64 v5; // r9
   unsigned __int8 CurrentIrql; // r8
   struct _KPRCB *result; // rax
   __int64 v8; // rdx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   v5 = KiProcessorBlock[a1];
@@ -26,7 +26,7 @@ struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   result = (struct _KPRCB *)(unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     result = KeGetCurrentPrcb();
     if ( CurrentIrql == 15 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGenericInverseCouplingWorker @ 0x1403F5D48
+ * XREFs of RtlpGenericInverseCouplingWorker @ 0x1403EC188
  * Callers:
- *     RtlScrubMemory @ 0x1403F5B00 (RtlScrubMemory.c)
+ *     RtlScrubMemory @ 0x1403EBF40 (RtlScrubMemory.c)
  * Callees:
  *     <none>
  */

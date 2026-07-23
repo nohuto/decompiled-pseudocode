@@ -21,7 +21,7 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   _DWORD *v2; // r12
   int v3; // edi
   volatile signed __int32 *v4; // r14
-  struct _GROUP_AFFINITY *v6; // rdx
+  _GROUP_AFFINITY *v6; // rdx
   unsigned int v7; // ecx
   int v8; // edx
   __int64 *v9; // rcx
@@ -32,7 +32,7 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   __int64 v14; // [rsp+30h] [rbp-48h] BYREF
   __int64 v15; // [rsp+38h] [rbp-40h] BYREF
   volatile signed __int32 *v16; // [rsp+40h] [rbp-38h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-30h] BYREF
   unsigned __int16 *v18[2]; // [rsp+58h] [rbp-20h] BYREF
   __int16 v19; // [rsp+68h] [rbp-10h]
   int v20; // [rsp+6Ah] [rbp-Eh]
@@ -52,7 +52,7 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   Affinity = 0LL;
   v22 = 0;
   v23 = 0;
-  v6 = (struct _GROUP_AFFINITY *)(a1 + 12);
+  v6 = (_GROUP_AFFINITY *)(a1 + 12);
   v15 = 0LL;
   v14 = 0LL;
   v25 = 0LL;

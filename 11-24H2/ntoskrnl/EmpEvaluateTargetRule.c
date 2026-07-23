@@ -1,12 +1,12 @@
 /*
- * XREFs of EmpEvaluateTargetRule @ 0x14043D590
+ * XREFs of EmpEvaluateTargetRule @ 0x140431830
  * Callers:
- *     EmpEvaluateUpdateRuleEvalState @ 0x14057F618 (EmpEvaluateUpdateRuleEvalState.c)
- *     EmClientRuleEvaluate @ 0x140B68400 (EmClientRuleEvaluate.c)
+ *     EmpEvaluateUpdateRuleEvalState @ 0x14057CAA8 (EmpEvaluateUpdateRuleEvalState.c)
+ *     EmClientRuleEvaluate @ 0x140B6A540 (EmClientRuleEvaluate.c)
  * Callees:
- *     EmpEvaluateNodeLink @ 0x14043D87C (EmpEvaluateNodeLink.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EmpEvaluateNodeLink @ 0x140431B1C (EmpEvaluateNodeLink.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EmpEvaluateTargetRule(__int64 a1, __int64 a2, int a3)
@@ -18,7 +18,7 @@ __int64 __fastcall EmpEvaluateTargetRule(__int64 a1, __int64 a2, int a3)
   char *Pool2; // rbx
   __int64 v9; // r12
   unsigned int v10; // ebp
-  unsigned __int64 v11; // rdx
+  ULONG_PTR v11; // rdx
   int v12; // r8d
   unsigned __int64 v13; // rcx
   unsigned int v14; // r13d
@@ -48,7 +48,7 @@ __int64 __fastcall EmpEvaluateTargetRule(__int64 a1, __int64 a2, int a3)
   v7 = *(unsigned int *)(v30 + 40);
   v34 = *(_DWORD *)(v30 + 44);
   v29 = *(_QWORD *)(a1 + 16);
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
+  Pool2 = (char *)ExAllocatePool2(0x100uLL, 0x1000uLL, 0x76654D45u);
   v9 = (__int64)Pool2;
   v31 = Pool2 != 0LL ? 0x1000 : 0;
   v10 = v31;
@@ -103,7 +103,7 @@ LABEL_11:
     }
     else
     {
-      v4 = (char *)ExAllocatePool2(0x100uLL);
+      v4 = (char *)ExAllocatePool2(0x100uLL, v11, 0x76654D45u);
       if ( !v4 )
         goto LABEL_28;
     }
@@ -120,7 +120,7 @@ LABEL_11:
     }
     else
     {
-      v5 = (char *)ExAllocatePool2(0x100uLL);
+      v5 = (char *)ExAllocatePool2(0x100uLL, 4 * v6, 0x76654D45u);
       if ( !v5 )
         goto LABEL_35;
       v12 = v6;

@@ -1,13 +1,13 @@
 /*
- * XREFs of SepSecureBootSetRegistryKey @ 0x1409DC258
+ * XREFs of SepSecureBootSetRegistryKey @ 0x1409DD258
  * Callers:
- *     SeSecureBootRegisterPolicy @ 0x1409DC17C (SeSecureBootRegisterPolicy.c)
+ *     SeSecureBootRegisterPolicy @ 0x1409DD17C (SeSecureBootRegisterPolicy.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     RtlStringFromGUID @ 0x14058B220 (RtlStringFromGUID.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     RtlStringFromGUID @ 0x14058C220 (RtlStringFromGUID.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
   Handle = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  if ( (dword_1404401DC & 8) == 0 && !a1 )
+  if ( (dword_1404412A4 & 8) == 0 && !a1 )
   {
     v2 = 0;
     goto LABEL_4;
@@ -37,17 +37,17 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
   if ( v2 >= 0 )
   {
     ObjectAttributes.RootDirectory = KeyHandle;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140355F70;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140356F70;
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v2 = ZwCreateKey(&Handle, 0x20006u, &ObjectAttributes, 0, 0LL, 1u, 0LL);
     if ( v2 >= 0 )
     {
-      if ( (dword_1404401DC & 8) != 0 )
+      if ( (dword_1404412A4 & 8) != 0 )
       {
-        Data = dword_1404401DC & 1;
-        v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_140355F80, 0, 4u, &Data, 4u);
+        Data = dword_1404412A4 & 1;
+        v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_140356F80, 0, 4u, &Data, 4u);
         if ( v2 < 0 )
           goto LABEL_4;
         if ( Data )
@@ -60,13 +60,13 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
         {
           v2 = ZwSetValueKey(
                  Handle,
-                 (PUNICODE_STRING)&stru_140355F50,
+                 (PUNICODE_STRING)&stru_140356F50,
                  0,
                  1u,
                  UnicodeString.Buffer,
                  UnicodeString.Length + 2);
           if ( v2 >= 0 )
-            v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_140355F60, 0, 4u, (PVOID)(a1 + 20), 4u);
+            v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_140356F60, 0, 4u, (PVOID)(a1 + 20), 4u);
         }
       }
     }

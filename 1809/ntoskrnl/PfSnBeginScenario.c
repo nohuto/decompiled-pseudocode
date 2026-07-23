@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnBeginScenario @ 0x140667284
+ * XREFs of PfSnBeginScenario @ 0x140668444
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
- *     PfSnOperationProcess @ 0x1406CF864 (PfSnOperationProcess.c)
+ *     PfSnBeginAppLaunch @ 0x140667DB4 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x1406D0B04 (PfSnOperationProcess.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     PfSnStartTraceTimer @ 0x1400E2328 (PfSnStartTraceTimer.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfSnLogScenarioDecision @ 0x14066758C (PfSnLogScenarioDecision.c)
- *     PfSnCheckActionsNeeded @ 0x140667E3C (PfSnCheckActionsNeeded.c)
- *     PfSnBeginTrace @ 0x140668524 (PfSnBeginTrace.c)
- *     PfSnLogIdentifier @ 0x1406687A0 (PfSnLogIdentifier.c)
- *     PfSnGetPrefetchInstructions @ 0x140668818 (PfSnGetPrefetchInstructions.c)
- *     PfSnPrefetchScenario @ 0x1406C0F00 (PfSnPrefetchScenario.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     PfSnStartTraceTimer @ 0x1400E23A8 (PfSnStartTraceTimer.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PfSnLogScenarioDecision @ 0x14066874C (PfSnLogScenarioDecision.c)
+ *     PfSnCheckActionsNeeded @ 0x140668FFC (PfSnCheckActionsNeeded.c)
+ *     PfSnBeginTrace @ 0x1406696E4 (PfSnBeginTrace.c)
+ *     PfSnLogIdentifier @ 0x140669960 (PfSnLogIdentifier.c)
+ *     PfSnGetPrefetchInstructions @ 0x1406699D8 (PfSnGetPrefetchInstructions.c)
+ *     PfSnPrefetchScenario @ 0x1406C21A0 (PfSnPrefetchScenario.c)
  */
 
 __int64 __fastcall PfSnBeginScenario(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, __int64 a5)
@@ -56,7 +56,7 @@ __int64 __fastcall PfSnBeginScenario(__int64 a1, __int64 a2, unsigned int a3, un
     goto LABEL_19;
   }
   v12 = v11 + 1;
-  if ( v11 + 1 + _InterlockedExchangeAdd(&dword_14043C270, v11 + 1) < (unsigned int)dword_14043BF08 )
+  if ( v11 + 1 + _InterlockedExchangeAdd(&dword_14043D330, v11 + 1) < (unsigned int)dword_14043CFC8 )
   {
     v9 = PfSnCheckActionsNeeded(v8, v6, CurrentThread, (unsigned int)&v21, (__int64)&v22);
     if ( (a4 & 2) != 0 )
@@ -151,7 +151,7 @@ LABEL_7:
   started = -1073741631;
   v22 = v11 + 1;
 LABEL_13:
-  _InterlockedDecrement(&dword_14043C270);
+  _InterlockedDecrement(&dword_14043D330);
   v13 = P;
   v14 = v25;
 LABEL_14:

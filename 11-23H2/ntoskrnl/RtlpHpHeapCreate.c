@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpHeapCreate @ 0x140388CB8
+ * XREFs of RtlpHpHeapCreate @ 0x140388E98
  * Callers:
- *     RtlpHpMetadataHeapCreate @ 0x1403885C0 (RtlpHpMetadataHeapCreate.c)
- *     ExCreateHeap @ 0x140388C6C (ExCreateHeap.c)
+ *     RtlpHpMetadataHeapCreate @ 0x1403887A0 (RtlpHpMetadataHeapCreate.c)
+ *     ExCreateHeap @ 0x140388E4C (ExCreateHeap.c)
  * Callees:
- *     RtlpHpVsContextInitialize @ 0x1403630D8 (RtlpHpVsContextInitialize.c)
- *     HalQueryMaximumProcessorCount @ 0x14037F8A0 (HalQueryMaximumProcessorCount.c)
- *     RtlpHpSegContextInitialize @ 0x140389000 (RtlpHpSegContextInitialize.c)
- *     RtlpHpHeapAllocate @ 0x140389128 (RtlpHpHeapAllocate.c)
- *     RtlpHpSegContextReserve @ 0x1403893C8 (RtlpHpSegContextReserve.c)
- *     RtlpHpRegisterEnvironment @ 0x14038944C (RtlpHpRegisterEnvironment.c)
- *     RtlpHpLfhContextInitialize @ 0x140389704 (RtlpHpLfhContextInitialize.c)
- *     RtlpHpHeapDestroy @ 0x1405B6630 (RtlpHpHeapDestroy.c)
- *     CmSiRWLockInitialize @ 0x14080E150 (CmSiRWLockInitialize.c)
+ *     RtlpHpVsContextInitialize @ 0x140363278 (RtlpHpVsContextInitialize.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037FA40 (HalQueryMaximumProcessorCount.c)
+ *     RtlpHpSegContextInitialize @ 0x1403891E0 (RtlpHpSegContextInitialize.c)
+ *     RtlpHpHeapAllocate @ 0x140389308 (RtlpHpHeapAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x1403895A8 (RtlpHpSegContextReserve.c)
+ *     RtlpHpRegisterEnvironment @ 0x14038962C (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpLfhContextInitialize @ 0x1403898E4 (RtlpHpLfhContextInitialize.c)
+ *     RtlpHpHeapDestroy @ 0x1405B6BA0 (RtlpHpHeapDestroy.c)
+ *     CmSiRWLockInitialize @ 0x14080E420 (CmSiRWLockInitialize.c)
  */
 
 __int64 __fastcall RtlpHpHeapCreate(unsigned int a1, __int64 a2, __int64 a3, __int128 *a4)

@@ -1,60 +1,60 @@
 /*
- * XREFs of KiCheckWaitNext @ 0x1402092E0
+ * XREFs of KiCheckWaitNext @ 0x1403308C0
  * Callers:
- *     KeWaitForAlertByThreadId @ 0x14020765C (KeWaitForAlertByThreadId.c)
- *     KeRemovePriQueue @ 0x140208340 (KeRemovePriQueue.c)
+ *     KeWaitForAlertByThreadId @ 0x14032EC3C (KeWaitForAlertByThreadId.c)
+ *     KeRemovePriQueue @ 0x14032F920 (KeRemovePriQueue.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     KiRcuReportQuiescentState @ 0x14033D364 (KiRcuReportQuiescentState.c)
- *     KiRcuFlushCompleted @ 0x14033D510 (KiRcuFlushCompleted.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSrcuFlushCompleted @ 0x1405C0EA4 (KiSrcuFlushCompleted.c)
- *     KiSrcuReportQuiescent @ 0x1405C17F8 (KiSrcuReportQuiescent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     KiRcuReportQuiescentState @ 0x14031C844 (KiRcuReportQuiescentState.c)
+ *     KiRcuFlushCompleted @ 0x14031C9F0 (KiRcuFlushCompleted.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSrcuFlushCompleted @ 0x1405BE474 (KiSrcuFlushCompleted.c)
+ *     KiSrcuReportQuiescent @ 0x1405BEDC8 (KiSrcuReportQuiescent.c)
  */
 
-__int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, _DWORD *a5)
+__int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, _DWORD *a5)
 {
   unsigned int v5; // ebx
-  char v7; // bp
   unsigned __int8 CurrentIrql; // di
   struct _KPRCB *CurrentPrcb; // rdi
-  __int64 v13; // rax
-  __int64 InterruptTimePrecise; // rcx
-  __int64 v15; // rcx
-  _DWORD *v16; // rax
-  _QWORD *v17; // rcx
-  char v18; // r8
-  struct _KPRCB *v19; // rcx
-  signed __int32 *v20; // r8
-  signed __int32 v21; // eax
-  signed __int32 v22; // ett
-  char v23; // al
+  signed __int64 GraceSequenceQuiescent; // rdx
+  __int64 v14; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rcx
+  LONGLONG v16; // rcx
+  _DWORD *v17; // rax
+  unsigned __int64 *v18; // rcx
+  __int64 v19; // rdx
+  bool v20; // r8
+  struct _KPRCB *v21; // rcx
+  signed __int32 *v22; // r8
+  signed __int32 v23; // eax
+  signed __int32 v24; // ett
+  bool v25; // al
   _LIST_ENTRY *AwaitingCompletion; // r12
-  char v25; // r8
-  struct _KPRCB *v26; // rcx
+  bool v27; // r8
+  struct _KPRCB *v28; // rcx
   signed __int32 *SchedulerAssist; // r8
-  signed __int32 v28; // eax
-  signed __int32 v29; // ett
+  signed __int32 v30; // eax
+  signed __int32 v31; // ett
   _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *v31; // rcx
+  struct _LIST_ENTRY *v33; // rcx
   struct _LIST_ENTRY *Blink; // rax
-  struct _LIST_ENTRY *v33; // rax
-  struct _KPRCB *v34; // rcx
-  signed __int32 *v35; // r8
-  signed __int32 v36; // eax
-  signed __int32 v37; // ett
-  char v38; // r8
-  _LIST_ENTRY *v39; // rax
-  signed __int32 *v40; // r8
-  signed __int32 v41; // ett
-  struct _LIST_ENTRY *v42; // rcx
-  signed __int32 v43[18]; // [rsp+0h] [rbp-48h] BYREF
-  char v44; // [rsp+50h] [rbp+8h] BYREF
+  struct _LIST_ENTRY *v35; // rax
+  struct _KPRCB *v36; // rcx
+  signed __int32 *v37; // r8
+  signed __int32 v38; // eax
+  signed __int32 v39; // ett
+  bool v40; // r8
+  _LIST_ENTRY *v41; // rax
+  signed __int32 *v42; // r8
+  signed __int32 v43; // ett
+  struct _LIST_ENTRY *v44; // rcx
+  signed __int32 v45[18]; // [rsp+0h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = 0;
-  v7 = a3;
   if ( _bittestandreset((signed __int32 *)(a1 + 116), 2u) )
   {
     v5 = (2 * _bittestandreset((signed __int32 *)(a1 + 116), 0x10u)) | 1;
@@ -64,7 +64,7 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, __int64 a3, _QWORD *a
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
-      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL, a3);
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
     *(_BYTE *)(a1 + 390) = CurrentIrql;
   }
   CurrentPrcb = KeGetCurrentPrcb();
@@ -72,25 +72,25 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, __int64 a3, _QWORD *a
   {
     if ( !CurrentPrcb->RcuData.AwaitingCompletion )
       goto LABEL_7;
-    v23 = KeDisableInterrupts();
+    v25 = KeDisableInterrupts();
     AwaitingCompletion = CurrentPrcb->RcuData.AwaitingCompletion;
-    v25 = v23;
+    v27 = v25;
     if ( !AwaitingCompletion )
     {
-      if ( v23 )
+      if ( v25 )
       {
-        v26 = KeGetCurrentPrcb();
-        SchedulerAssist = (signed __int32 *)v26->SchedulerAssist;
+        v28 = KeGetCurrentPrcb();
+        SchedulerAssist = (signed __int32 *)v28->SchedulerAssist;
         if ( SchedulerAssist )
         {
           _m_prefetchw(SchedulerAssist);
-          v28 = *SchedulerAssist;
+          v30 = *SchedulerAssist;
           do
           {
-            v29 = v28;
-            v28 = _InterlockedCompareExchange(SchedulerAssist, v28 & 0xFFDFFFFF, v28);
+            v31 = v30;
+            v30 = _InterlockedCompareExchange(SchedulerAssist, v30 & 0xFFDFFFFF, v30);
           }
-          while ( v29 != v28 );
+          while ( v31 != v30 );
           goto LABEL_38;
         }
         goto LABEL_40;
@@ -112,33 +112,33 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, __int64 a3, _QWORD *a
       else
       {
         CurrentPrcb->RcuData.AwaitingCompletion = Flink;
-        v31 = AwaitingCompletion->Flink;
+        v33 = AwaitingCompletion->Flink;
         Blink = AwaitingCompletion->Blink;
         if ( AwaitingCompletion->Flink->Blink != AwaitingCompletion || Blink->Flink != AwaitingCompletion )
           goto LABEL_69;
-        Blink->Flink = v31;
-        v31->Blink = Blink;
+        Blink->Flink = v33;
+        v33->Blink = Blink;
       }
-      v33 = AwaitingCompletion[3].Flink;
+      v35 = AwaitingCompletion[3].Flink;
       AwaitingCompletion->Flink = 0LL;
-      AwaitingCompletion[1].Flink = v33[3].Blink;
+      AwaitingCompletion[1].Flink = v35[3].Blink;
     }
-    if ( v25 )
+    if ( v27 )
     {
-      v34 = KeGetCurrentPrcb();
-      v35 = (signed __int32 *)v34->SchedulerAssist;
-      if ( v35 )
+      v36 = KeGetCurrentPrcb();
+      v37 = (signed __int32 *)v36->SchedulerAssist;
+      if ( v37 )
       {
-        _m_prefetchw(v35);
-        v36 = *v35;
+        _m_prefetchw(v37);
+        v38 = *v37;
         do
         {
-          v37 = v36;
-          v36 = _InterlockedCompareExchange(v35, v36 & 0xFFDFFFFF, v36);
+          v39 = v38;
+          v38 = _InterlockedCompareExchange(v37, v38 & 0xFFDFFFFF, v38);
         }
-        while ( v37 != v36 );
-        if ( (v36 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(v34);
+        while ( v39 != v38 );
+        if ( (v38 & 0x200000) != 0 )
+          KiRemoveSystemWorkPriorityKick((__int64)v36);
       }
       _enable();
     }
@@ -150,27 +150,27 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, __int64 a3, _QWORD *a
         KiSrcuFlushCompleted(AwaitingCompletion[3].Flink);
       goto LABEL_7;
     }
-    v38 = KeDisableInterrupts();
+    v40 = KeDisableInterrupts();
     if ( AwaitingCompletion->Flink )
     {
 LABEL_62:
-      if ( v38 )
+      if ( v40 )
       {
-        v26 = KeGetCurrentPrcb();
-        v40 = (signed __int32 *)v26->SchedulerAssist;
-        if ( v40 )
+        v28 = KeGetCurrentPrcb();
+        v42 = (signed __int32 *)v28->SchedulerAssist;
+        if ( v42 )
         {
-          _m_prefetchw(v40);
-          v28 = *v40;
+          _m_prefetchw(v42);
+          v30 = *v42;
           do
           {
-            v41 = v28;
-            v28 = _InterlockedCompareExchange(v40, v28 & 0xFFDFFFFF, v28);
+            v43 = v30;
+            v30 = _InterlockedCompareExchange(v42, v30 & 0xFFDFFFFF, v30);
           }
-          while ( v41 != v28 );
+          while ( v43 != v30 );
 LABEL_38:
-          if ( (v28 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick(v26);
+          if ( (v30 & 0x200000) != 0 )
+            KiRemoveSystemWorkPriorityKick((__int64)v28);
         }
 LABEL_40:
         _enable();
@@ -178,59 +178,60 @@ LABEL_40:
 LABEL_7:
       if ( CurrentPrcb->RcuData.GracePeriodNeeded && !CurrentPrcb->RcuData.NestingLevel )
       {
-        v18 = KeDisableInterrupts();
+        v20 = KeDisableInterrupts();
         if ( CurrentPrcb->RcuData.GracePeriodNeeded && !CurrentPrcb->RcuData.NestingLevel )
         {
           CurrentPrcb->RcuData.GracePeriodNeeded = 0;
-          _InterlockedOr(v43, 0);
-          CurrentPrcb->RcuData.GraceSequenceQuiescent = qword_140F20C48;
+          _InterlockedOr(v45, 0);
+          CurrentPrcb->RcuData.GraceSequenceQuiescent = qword_140F205C8;
         }
-        if ( v18 )
+        if ( v20 )
         {
-          v19 = KeGetCurrentPrcb();
-          v20 = (signed __int32 *)v19->SchedulerAssist;
-          if ( v20 )
+          v21 = KeGetCurrentPrcb();
+          v22 = (signed __int32 *)v21->SchedulerAssist;
+          if ( v22 )
           {
-            _m_prefetchw(v20);
-            v21 = *v20;
+            _m_prefetchw(v22);
+            v23 = *v22;
             do
             {
-              v22 = v21;
-              v21 = _InterlockedCompareExchange(v20, v21 & 0xFFDFFFFF, v21);
+              v24 = v23;
+              v23 = _InterlockedCompareExchange(v22, v23 & 0xFFDFFFFF, v23);
             }
-            while ( v22 != v21 );
-            if ( (v21 & 0x200000) != 0 )
-              KiRemoveSystemWorkPriorityKick(v19);
+            while ( v24 != v23 );
+            if ( (v23 & 0x200000) != 0 )
+              KiRemoveSystemWorkPriorityKick((__int64)v21);
           }
           _enable();
         }
       }
-      if ( CurrentPrcb->RcuData.GraceSequenceQuiescent != CurrentPrcb->RcuData.GraceSequenceReported )
+      GraceSequenceQuiescent = CurrentPrcb->RcuData.GraceSequenceQuiescent;
+      if ( GraceSequenceQuiescent != CurrentPrcb->RcuData.GraceSequenceReported )
       {
-        v17 = (_QWORD *)((char *)&KiRcuData + 32 * CurrentPrcb->Number);
-        if ( (*(_QWORD *)(v17[1] + 56LL) & *v17) == 0LL )
+        v18 = (unsigned __int64 *)((char *)&KiRcuData + 32 * CurrentPrcb->Number);
+        if ( (*(_QWORD *)(v18[1] + 56) & *v18) == 0 )
         {
-          if ( (unsigned int)KiRcuReportQuiescentState() )
-            KiRcuFlushCompleted(CurrentPrcb->RcuData.ExpediteReporting);
+          if ( (unsigned int)KiRcuReportQuiescentState(v18, GraceSequenceQuiescent) )
+            KiRcuFlushCompleted(CurrentPrcb->RcuData.ExpediteReporting, v19);
         }
       }
       goto LABEL_9;
     }
-    v39 = CurrentPrcb->RcuData.AwaitingCompletion;
-    if ( !v39 )
+    v41 = CurrentPrcb->RcuData.AwaitingCompletion;
+    if ( !v41 )
     {
       AwaitingCompletion->Blink = AwaitingCompletion;
       AwaitingCompletion->Flink = AwaitingCompletion;
       CurrentPrcb->RcuData.AwaitingCompletion = AwaitingCompletion;
       goto LABEL_62;
     }
-    v42 = v39->Blink;
-    if ( v42->Flink == v39 )
+    v44 = v41->Blink;
+    if ( v44->Flink == v41 )
     {
-      AwaitingCompletion->Flink = v39;
-      AwaitingCompletion->Blink = v42;
-      v42->Flink = AwaitingCompletion;
-      v39->Blink = AwaitingCompletion;
+      AwaitingCompletion->Flink = v41;
+      AwaitingCompletion->Blink = v44;
+      v44->Flink = AwaitingCompletion;
+      v41->Blink = AwaitingCompletion;
       goto LABEL_62;
     }
 LABEL_69:
@@ -241,20 +242,20 @@ LABEL_9:
   {
     if ( *(int *)(a2 + 4) < 0 )
     {
-      if ( v7 )
+      if ( a3 )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v44);
-        v13 = MEMORY[0xFFFFF780000003B0];
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+        v14 = MEMORY[0xFFFFF780000003B0];
       }
       else
       {
-        v13 = MEMORY[0xFFFFF780000003B0];
-        InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
+        v14 = MEMORY[0xFFFFF780000003B0];
+        InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
       }
-      v15 = InterruptTimePrecise - v13;
-      v16 = a5;
-      *a4 = v15 - *(_QWORD *)a2 - *(_QWORD *)(a1 + 248);
-      *v16 = 2;
+      v16 = InterruptTimePrecise.QuadPart - v14;
+      v17 = a5;
+      *a4 = v16 - *(_QWORD *)a2 - *(_QWORD *)(a1 + 248);
+      *v17 = 2;
     }
     else
     {

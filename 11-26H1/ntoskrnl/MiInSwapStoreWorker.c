@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInSwapStoreWorker @ 0x140AE9FA0
+ * XREFs of MiInSwapStoreWorker @ 0x140AECA90
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SmSwapStore @ 0x140AEA064 (SmSwapStore.c)
- *     EtwTraceWorkingSetInSwapStoreFail @ 0x140AEA0E8 (EtwTraceWorkingSetInSwapStoreFail.c)
- *     MiInSwapStoreContextDereference @ 0x140AEA190 (MiInSwapStoreContextDereference.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SmSwapStore @ 0x140AECB54 (SmSwapStore.c)
+ *     EtwTraceWorkingSetInSwapStoreFail @ 0x140AECBD8 (EtwTraceWorkingSetInSwapStoreFail.c)
+ *     MiInSwapStoreContextDereference @ 0x140AECC80 (MiInSwapStoreContextDereference.c)
  */
 
 __int64 __fastcall MiInSwapStoreWorker(__int64 a1)

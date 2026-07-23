@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpInvokeLogCallbacks @ 0x1408C3B4C
+ * XREFs of AlpcpInvokeLogCallbacks @ 0x1408C3CAC
  * Callers:
- *     AlpcpLogClosePort @ 0x1408C3BE0 (AlpcpLogClosePort.c)
- *     AlpcpLogConnectFail @ 0x1408C3C50 (AlpcpLogConnectFail.c)
- *     AlpcpLogConnectRequest @ 0x1408C3CB8 (AlpcpLogConnectRequest.c)
- *     AlpcpLogConnectSuccess @ 0x1408C3D28 (AlpcpLogConnectSuccess.c)
- *     AlpcpLogReceiveMessage @ 0x1408C3D90 (AlpcpLogReceiveMessage.c)
- *     AlpcpLogSendMessage @ 0x1408C3E00 (AlpcpLogSendMessage.c)
- *     AlpcpLogUnwait @ 0x1408C3E70 (AlpcpLogUnwait.c)
- *     AlpcpLogWaitForNewMessage @ 0x1408C3ED8 (AlpcpLogWaitForNewMessage.c)
- *     AlpcpLogWaitForReply @ 0x1408C3FD4 (AlpcpLogWaitForReply.c)
+ *     AlpcpLogClosePort @ 0x1408C3D40 (AlpcpLogClosePort.c)
+ *     AlpcpLogConnectFail @ 0x1408C3DB0 (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x1408C3E18 (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x1408C3E88 (AlpcpLogConnectSuccess.c)
+ *     AlpcpLogReceiveMessage @ 0x1408C3EF0 (AlpcpLogReceiveMessage.c)
+ *     AlpcpLogSendMessage @ 0x1408C3F60 (AlpcpLogSendMessage.c)
+ *     AlpcpLogUnwait @ 0x1408C3FD0 (AlpcpLogUnwait.c)
+ *     AlpcpLogWaitForNewMessage @ 0x1408C4038 (AlpcpLogWaitForNewMessage.c)
+ *     AlpcpLogWaitForReply @ 0x1408C4134 (AlpcpLogWaitForReply.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 char __fastcall AlpcpInvokeLogCallbacks(__int64 a1, unsigned int a2)

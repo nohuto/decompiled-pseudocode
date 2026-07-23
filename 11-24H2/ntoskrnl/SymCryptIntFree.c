@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptIntFree @ 0x1405238A0
+ * XREFs of SymCryptIntFree @ 0x1405211B8
  * Callers:
- *     SymCryptEcDsaSelftest @ 0x14052972C (SymCryptEcDsaSelftest.c)
+ *     SymCryptEcDsaSelftest @ 0x14052704C (SymCryptEcDsaSelftest.c)
  * Callees:
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     SymCryptCallbackFree @ 0x1406A5848 (SymCryptCallbackFree.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     SymCryptCallbackFree @ 0x1406A6848 (SymCryptCallbackFree.c)
  */
 
 __int64 __fastcall SymCryptIntFree(__int64 a1)

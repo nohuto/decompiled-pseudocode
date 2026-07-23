@@ -109,10 +109,13 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
   v19 = (volatile LONG *)(a1 + 232);
   *v8 = v44;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 232));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -155,10 +158,10 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
               *(_QWORD *)(v28 + 8) = v12;
             }
             ExReleaseSpinLockExclusiveFromDpcLevel(v19);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v31 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v31 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v31 >= 2u )
               {
                 v32 = KeGetCurrentPrcb();
                 v33 = v32->SchedulerAssist;
@@ -171,10 +174,10 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
             }
             __writecr8(v30);
             _InterlockedAnd64((volatile signed __int64 *)(v28 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v35 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v29 <= 0xFu && v35 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v29 <= 0xFu && v35 >= 2u )
               {
                 v36 = KeGetCurrentPrcb();
                 v37 = v36->SchedulerAssist;

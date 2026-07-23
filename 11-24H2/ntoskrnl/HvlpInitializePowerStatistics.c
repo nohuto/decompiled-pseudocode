@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpInitializePowerStatistics @ 0x1405899A0
+ * XREFs of HvlpInitializePowerStatistics @ 0x140586C90
  * Callers:
- *     HvlPhase1Initialize @ 0x140582A60 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x14057FDE0 (HvlPhase1Initialize.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
  */
 
 __int64 HvlpInitializePowerStatistics()
@@ -38,10 +38,10 @@ __int64 HvlpInitializePowerStatistics()
     v3 = HvcallInitiateHypercall(155);
     if ( !v3 )
     {
-      xmmword_140E3ECD0 = *(_OWORD *)v2;
-      xmmword_140E3ECE0 = *((_OWORD *)v2 + 1);
-      unk_140E3ECF0 = *((_OWORD *)v2 + 2);
-      qword_140E3ED00 = v2[6];
+      xmmword_140E3EE10 = *(_OWORD *)v2;
+      xmmword_140E3EE20 = *((_OWORD *)v2 + 1);
+      unk_140E3EE30 = *((_OWORD *)v2 + 2);
+      qword_140E3EE40 = v2[6];
     }
     v4 = v3 != 0 ? 0xC0000001 : 0;
     HvlpReleaseHypercallPage((unsigned int *)&v5);

@@ -1,5 +1,5 @@
 /*
- * XREFs of SeCheckForCriticalAceRemoval @ 0x14078FD10
+ * XREFs of SeCheckForCriticalAceRemoval @ 0x14078FCE0
  * Callers:
  *     <none>
  * Callees:

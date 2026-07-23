@@ -1,19 +1,19 @@
 /*
- * XREFs of ObAssignObjectSecurityDescriptor @ 0x140A2FDF0
+ * XREFs of ObAssignObjectSecurityDescriptor @ 0x140A41C70
  * Callers:
- *     WmipSecurityMethod @ 0x140A2FD20 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x140A41BA0 (WmipSecurityMethod.c)
  * Callees:
- *     RtlHashBytes2 @ 0x14024B704 (RtlHashBytes2.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlHashBytes2 @ 0x14024D064 (RtlHashBytes2.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObAssignObjectSecurityDescriptor(__int64 a1, __int64 a2)
@@ -39,16 +39,10 @@ __int64 __fastcall ObAssignObjectSecurityDescriptor(__int64 a1, __int64 a2)
   LegacyAutoBoost *v21; // rbx
   signed __int64 v22; // rdx
   signed __int64 v23; // rbx
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  _QWORD *v26; // r14
-  __int64 v27; // rdx
-  __int64 v28; // r8
-  unsigned int v29; // ebx
-  __int64 v31; // rdx
-  __int64 v32; // r8
+  _QWORD *v24; // r14
+  unsigned int v25; // ebx
   __int64 Pool2; // rax
-  struct _KLOCK_ENTRIES *v34; // r9
+  struct _KLOCK_ENTRIES *v28; // r9
   struct _KTHREAD *CurrentThread; // [rsp+68h] [rbp+10h]
 
   if ( !a2 )
@@ -162,8 +156,8 @@ LABEL_36:
         if ( v22 != _InterlockedCompareExchange64(v17, 0LL, v22) )
           ExfReleasePushLockShared(v17);
         KeAbPostRelease((unsigned __int64)v17);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread, v24, v25);
-        v26 = v18 + 4;
+        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        v24 = v18 + 4;
         goto LABEL_48;
       }
     }
@@ -172,7 +166,7 @@ LABEL_36:
       if ( v22 != _InterlockedCompareExchange64(v17, 0LL, v22) )
         ExfReleasePushLockShared(v17);
       KeAbPostRelease((unsigned __int64)v17);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread, v31, v32);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
       if ( v4 + 40 < v4 )
         return (unsigned int)-1073741670;
       Pool2 = ExAllocatePool2(0x108uLL);
@@ -185,7 +179,7 @@ LABEL_36:
       memmove((void *)(Pool2 + 32), (const void *)a2, v4);
       --CurrentThread->KernelApcDisable;
       v19 = v17 + 1;
-      v21 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)v17, 0LL, 0LL, v34);
+      v21 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)v17, 0LL, 0LL, v28);
       v22 = 17LL;
       if ( _InterlockedCompareExchange64(v17, 17LL, 0LL) )
       {
@@ -212,7 +206,7 @@ LABEL_35:
     }
     if ( *(_QWORD *)(v23 + 16) == v16 && *(_DWORD *)(v23 + 24) == v4 )
     {
-      v26 = (_QWORD *)(v23 + 32);
+      v24 = (_QWORD *)(v23 + 32);
       if ( !memcmp((const void *)a2, (const void *)(v23 + 32), v4) )
         break;
     }
@@ -226,15 +220,15 @@ LABEL_35:
   if ( _InterlockedCompareExchange64(v17, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v17);
   KeAbPostRelease((unsigned __int64)v17);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread, v27, v28);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v18 )
     ExFreePoolWithTag(v18, 0x6353624Fu);
 LABEL_48:
-  v29 = 0;
+  v25 = 0;
   ExFreePoolWithTag((PVOID)a2, 0);
-  if ( v26 )
-    *(_QWORD *)(a1 - 8) = (char *)v26 + 15;
+  if ( v24 )
+    *(_QWORD *)(a1 - 8) = (char *)v24 + 15;
   else
     *(_QWORD *)(a1 - 8) = 0LL;
-  return v29;
+  return v25;
 }

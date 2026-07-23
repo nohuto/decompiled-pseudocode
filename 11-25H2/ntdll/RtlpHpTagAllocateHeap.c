@@ -26,7 +26,7 @@
  *     RtlHeapZero @ 0x180168590 (RtlHeapZero.c)
  */
 
-unsigned __int64 __fastcall RtlpHpTagAllocateHeap(char *Src, unsigned __int64 a2, unsigned int a3)
+unsigned __int64 __fastcall RtlpHpTagAllocateHeap(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   __int64 v4; // r12
   unsigned __int16 v7; // r14
@@ -41,14 +41,14 @@ unsigned __int64 __fastcall RtlpHpTagAllocateHeap(char *Src, unsigned __int64 a2
   unsigned __int64 v16; // rax
   unsigned __int64 v17; // rbx
   int v18; // eax
-  char *v19; // r11
+  __int64 v19; // r11
   unsigned int v20; // ecx
   __int64 v21; // rax
   __int64 v22; // rdx
   __int64 v23; // rax
-  char *v24; // rdi
+  __int64 v24; // rdi
   __int64 v25; // r8
-  char *v26; // rdx
+  __int64 v26; // rdx
   __int64 v27; // rax
   unsigned __int64 NTHeapInternal; // rdi
   __int64 HeapSlow; // rax
@@ -80,7 +80,7 @@ unsigned __int64 __fastcall RtlpHpTagAllocateHeap(char *Src, unsigned __int64 a2
   int v59; // r15d
   int v60; // ebx
   int v61; // eax
-  unsigned __int64 v62; // r10
+  __int64 v62; // r10
   __int64 v63; // r11
   unsigned __int64 v64; // r8
   char v65; // cl
@@ -114,9 +114,9 @@ unsigned __int64 __fastcall RtlpHpTagAllocateHeap(char *Src, unsigned __int64 a2
   unsigned __int64 v95; // rax
   unsigned int v97; // eax
   void **TlsExpansionSlots; // r8
-  char *v101; // rcx
+  unsigned __int64 v101; // rcx
   signed __int64 v102; // rax
-  char *v103; // rdx
+  __int64 v103; // rdx
   signed __int64 v104; // rtt
   signed __int64 v105; // rax
   __int64 v106; // r10
@@ -150,21 +150,21 @@ unsigned __int64 __fastcall RtlpHpTagAllocateHeap(char *Src, unsigned __int64 a2
   int v137; // [rsp+38h] [rbp-C0h]
   int v138; // [rsp+3Ch] [rbp-BCh]
   int v139; // [rsp+44h] [rbp-B4h] BYREF
-  __int64 v140; // [rsp+48h] [rbp-B0h]
+  volatile signed __int64 *v140; // [rsp+48h] [rbp-B0h]
   int v141; // [rsp+50h] [rbp-A8h]
   unsigned __int64 v142; // [rsp+58h] [rbp-A0h]
   int v143; // [rsp+60h] [rbp-98h]
   unsigned __int64 v144; // [rsp+68h] [rbp-90h]
   __int64 v145; // [rsp+70h] [rbp-88h]
-  char *v146; // [rsp+78h] [rbp-80h]
+  __int64 v146; // [rsp+78h] [rbp-80h]
   __int128 v147; // [rsp+90h] [rbp-68h]
   __int128 v148; // [rsp+A0h] [rbp-58h] BYREF
 
   v4 = 0LL;
   v7 = 0;
   v147 = RtlpHpEnvHandle;
-  if ( *((_DWORD *)Src + 4) != -571548178
-    || Src == (char *)qword_1801D4208[2 * (unsigned int)dword_1801816F8[BYTE1(RtlpHpEnvHandle)]] )
+  if ( *(_DWORD *)(a1 + 16) != -571548178
+    || a1 == qword_1801D4208[2 * (unsigned int)dword_1801816F8[BYTE1(RtlpHpEnvHandle)]] )
   {
     goto LABEL_13;
   }
@@ -174,7 +174,7 @@ unsigned __int64 __fastcall RtlpHpTagAllocateHeap(char *Src, unsigned __int64 a2
   v9 = 0LL;
   v10 = SubProcessTag >> 24;
   v11 = SubProcessTag - RtlpHpNullGUID;
-  v140 = SubProcessTag >> 24;
+  v140 = (volatile signed __int64 *)(SubProcessTag >> 24);
   if ( SubProcessTag == RtlpHpNullGUID )
     v11 = *((_QWORD *)&v148 + 1) - qword_1801D08D0;
   if ( !v11 )
@@ -187,7 +187,7 @@ unsigned __int64 __fastcall RtlpHpTagAllocateHeap(char *Src, unsigned __int64 a2
     goto LABEL_99;
   v126 = SubProcessTag;
   v12 = *(_QWORD *)(qword_1801D5C98 + 8LL * (unsigned __int16)word_1801D5CA4 - 8);
-  LOBYTE(v10) = v140;
+  LOBYTE(v10) = (_BYTE)v140;
   v13 = *(_QWORD *)(v12 + 16) - SubProcessTag;
   if ( !v13 )
     v13 = *(_QWORD *)(v12 + 24) - *((_QWORD *)&v148 + 1);
@@ -222,30 +222,32 @@ LABEL_99:
                                   + 37
                                   * (BYTE5(SubProcessTag) + 37 * (BYTE4(SubProcessTag) + 37LL * (unsigned __int8)v10)))))))))))
                          + 0x201911C49281756FLL);
-    v140 = HIBYTE(v148)
-         + 0x288D4C21D6A4D26DLL * v126
-         + 0x8B7970C2A4EFB2A9uLL * BYTE1(SubProcessTag)
-         + 0x3433B6F080FF8F35LL * BYTE2(SubProcessTag)
-         + 37
-         * (BYTE14(v148)
-          + 37
-          * (BYTE13(v148)
-           + 37
-           * (BYTE12(v148)
-            + 37
-            * (BYTE11(v148)
-             + 37
-             * (BYTE10(v148)
-              + 37
-              * (BYTE9(v148)
-               + 37
-               * ((unsigned __int8)v9
-                + 37
-                * (HIBYTE(SubProcessTag)
-                 + 37
-                 * (BYTE6(SubProcessTag)
-                  + 37 * (BYTE5(SubProcessTag) + 37 * (BYTE4(SubProcessTag) + 37LL * (unsigned __int8)v10)))))))))))
-         + 0x201911C49281756FLL;
+    v140 = (volatile signed __int64 *)(HIBYTE(v148)
+                                     + 0x288D4C21D6A4D26DLL * v126
+                                     + 0x8B7970C2A4EFB2A9uLL * BYTE1(SubProcessTag)
+                                     + 0x3433B6F080FF8F35LL * BYTE2(SubProcessTag)
+                                     + 37
+                                     * (BYTE14(v148)
+                                      + 37
+                                      * (BYTE13(v148)
+                                       + 37
+                                       * (BYTE12(v148)
+                                        + 37
+                                        * (BYTE11(v148)
+                                         + 37
+                                         * (BYTE10(v148)
+                                          + 37
+                                          * (BYTE9(v148)
+                                           + 37
+                                           * ((unsigned __int8)v9
+                                            + 37
+                                            * (HIBYTE(SubProcessTag)
+                                             + 37
+                                             * (BYTE6(SubProcessTag)
+                                              + 37
+                                              * (BYTE5(SubProcessTag)
+                                               + 37 * (BYTE4(SubProcessTag) + 37LL * (unsigned __int8)v10)))))))))))
+                                     + 0x201911C49281756FLL);
     v77 = 0LL;
 LABEL_100:
     if ( v77 )
@@ -288,7 +290,7 @@ LABEL_103:
         }
       }
     }
-    v7 = RtlpHpTagContextAllocateTag(v74, &v148, v140, a2);
+    v7 = RtlpHpTagContextAllocateTag(v74, &v148, (__int64)v140, a2);
     goto LABEL_11;
   }
   _InterlockedAdd64((volatile signed __int64 *)(v12 + 32), a2);
@@ -301,9 +303,9 @@ LABEL_12:
     a3 |= 0x100u;
   }
 LABEL_13:
-  if ( *((_DWORD *)Src + 4) != -571548178 )
+  if ( *(_DWORD *)(a1 + 16) != -571548178 )
   {
-    NTHeapInternal = RtlpAllocateNTHeapInternal(Src);
+    NTHeapInternal = RtlpAllocateNTHeapInternal(a1);
     goto LABEL_59;
   }
   if ( a3 )
@@ -333,11 +335,11 @@ LABEL_13:
     v14 = 0;
   }
   v141 = v14;
-  __writegsqword(0x1858u, (unsigned __int64)(Src + 20));
-  v15 = ((unsigned __int16)v14 | (unsigned __int16)*((_DWORD *)Src + 5)) & 0x2FFA;
-  if ( (((unsigned __int16)v14 | (unsigned __int16)*((_DWORD *)Src + 5)) & 0x2FF8) == 0 )
+  __writegsqword(0x1858u, a1 + 20);
+  v15 = ((unsigned __int16)v14 | (unsigned __int16)*(_DWORD *)(a1 + 20)) & 0x2FFA;
+  if ( (((unsigned __int16)v14 | (unsigned __int16)*(_DWORD *)(a1 + 20)) & 0x2FF8) == 0 )
   {
-    v16 = *((unsigned __int16 *)Src + 450);
+    v16 = *(unsigned __int16 *)(a1 + 900);
     v17 = 1LL;
     if ( a2 > 1 )
       v17 = a2;
@@ -345,8 +347,8 @@ LABEL_13:
     if ( v17 >= v16 )
       goto LABEL_73;
     v18 = v17 + 2;
-    v19 = Src + 832;
-    v20 = *((unsigned __int16 *)Src + 454);
+    v19 = a1 + 832;
+    v20 = *(unsigned __int16 *)(a1 + 908);
     if ( (_DWORD)a2 == (_DWORD)v17 )
       v18 = v17;
     v21 = (unsigned int)(v18 + 15) >> 4;
@@ -367,30 +369,30 @@ LABEL_13:
     {
 LABEL_25:
       v142 = v23;
-      v24 = &v19[64 * (unsigned __int16)v23];
-      v140 = 2LL * (unsigned int)v22;
-      v25 = *(unsigned __int16 *)&v24[v140];
-      if ( *(_WORD *)&v24[v140] )
+      v24 = v19 + ((unsigned __int16)v23 << 6);
+      v140 = (volatile signed __int64 *)(2LL * (unsigned int)v22);
+      v25 = *(unsigned __int16 *)((char *)v140 + v24);
+      if ( *(_WORD *)((char *)v140 + v24) )
         goto LABEL_26;
       if ( RtlpHpLfhBucketCheckAndUpdate(v19, v22, v25) )
       {
-        v19 = Src + 832;
-        v101 = &Src[256 * (unsigned __int64)BYTE4(v142) + 2304];
-        LODWORD(v25) = *(unsigned __int16 *)&v101[v140];
+        v19 = a1 + 832;
+        v101 = a1 + 832 + ((unsigned __int64)BYTE4(v142) << 8) + 1472;
+        LODWORD(v25) = *(unsigned __int16 *)((char *)v140 + v101);
         if ( v24 != v101 )
-          *(_WORD *)&v24[v140] = *(_WORD *)&v101[v140];
+          *(_WORD *)((char *)v140 + v24) = *(_WORD *)((char *)v140 + v101);
 LABEL_26:
-        v26 = &v19[(_DWORD)v25 << 6];
+        v26 = v19 + (unsigned int)((_DWORD)v25 << 6);
         v146 = v26;
-        if ( *((_WORD *)v26 + 2) )
+        if ( *(_WORD *)(v26 + 4) )
         {
-          v27 = *((_QWORD *)v26 + 7);
+          v27 = *(_QWORD *)(v26 + 56);
           if ( (v27 & 0xFFF) != 0 )
           {
             v110 = 0x100000001LL;
             v111 = v27 & 0xFFFFFFFFFFFFF000uLL;
             v144 = v27 & 0xFFFFFFFFFFFFF000uLL;
-            *((_QWORD *)v26 + 7) = v27 - 1;
+            *(_QWORD *)(v26 + 56) = v27 - 1;
             v112 = NtCurrentTeb();
             v113 = *(unsigned __int8 *)((v27 & 0xFFFFFFFFFFFFF000uLL) + 0x18);
             v114 = v112->RngState[0];
@@ -438,20 +440,20 @@ LABEL_26:
           }
           else
           {
-            NTHeapInternal = RtlpHpLfhSlotAllocateSlow((__int64)v19);
+            NTHeapInternal = RtlpHpLfhSlotAllocateSlow(v19);
           }
           goto LABEL_57;
         }
         v132 = 0;
-        _m_prefetchw(v26 + 56);
-        for ( i = *((_QWORD *)v26 + 7); ; i = v31 )
+        _m_prefetchw((const void *)(v26 + 56));
+        for ( i = *(_QWORD *)(v26 + 56); ; i = v31 )
         {
           if ( (i & 0xFFF) == 0 )
           {
-            NTHeapInternal = RtlpHpLfhSlotAllocateSlow((__int64)v19);
+            NTHeapInternal = RtlpHpLfhSlotAllocateSlow(v19);
             goto LABEL_54;
           }
-          v31 = _InterlockedCompareExchange64((volatile signed __int64 *)v26 + 7, i - 1, i);
+          v31 = _InterlockedCompareExchange64((volatile signed __int64 *)(v26 + 56), i - 1, i);
           if ( i == v31 )
             break;
           v132 = 1;
@@ -477,7 +479,7 @@ LABEL_26:
         v127 = *(_BYTE *)((i & 0xFFFFFFFFFFFFF000uLL) + 0x27);
         v41 = v33 + 64 + 8 * ((unsigned int)(v35 - 8) - 1LL);
         v42 = *(unsigned __int8 *)((i & 0xFFFFFFFFFFFFF000uLL) + 0x24);
-        v140 = v41;
+        v140 = (volatile signed __int64 *)v41;
         v43 = (volatile signed __int64 *)(v33 + 64 + 8 * v42);
 LABEL_38:
         while ( 1 )
@@ -532,13 +534,13 @@ LABEL_135:
           v44 = v50;
           if ( v50 == v49 )
             break;
-          v41 = v140;
+          v41 = (__int64)v140;
           v94 = ~(_DWORD)v50;
           _RDX = v94;
           if ( !v94 )
           {
             v40 = (volatile signed __int64 *)(v33 + 64);
-            if ( v43 == (volatile signed __int64 *)v140 )
+            if ( v43 == v140 )
               goto LABEL_135;
             ++v43;
             goto LABEL_38;
@@ -552,7 +554,7 @@ LABEL_135:
         v136 = v53;
         if ( v127 > 1u )
         {
-          if ( (int)RtlpHpLfhSubsegmentCommitBlock((__int64)v19, i & 0xFFFFFFFFFFFFF000uLL, v53) < 0 )
+          if ( (int)RtlpHpLfhSubsegmentCommitBlock(v19, i & 0xFFFFFFFFFFFFF000uLL, v53) < 0 )
           {
             NTHeapInternal = 0LL;
             if ( v134 != -1 )
@@ -569,7 +571,7 @@ LABEL_53:
             v52 = v142;
 LABEL_156:
             v102 = *(_QWORD *)(v52 + 16);
-            v103 = Src + 832;
+            v103 = a1 + 832;
             do
             {
               v138 = HIDWORD(v102);
@@ -582,19 +584,19 @@ LABEL_156:
               v102 = _InterlockedCompareExchange64((volatile signed __int64 *)(v52 + 16), v129, v102);
             }
             while ( v104 != v102 );
-            if ( !v103[v44 + 92] )
+            if ( !*(_BYTE *)(v44 + v103 + 92) )
             {
-              v103[v44 + 92] = 1;
+              *(_BYTE *)(v44 + v103 + 92) = 1;
               if ( !(unsigned int)RtlpHpEnvCompactionIsScheduled(v129, v103, v52, v44) )
               {
                 RtlpHpEnvCompactionSchedule();
                 v52 = v142;
-                v103 = Src + 832;
+                v103 = a1 + 832;
               }
             }
             if ( BYTE2(v138) == 1 )
             {
-              v44 = (signed __int64)&v103[64 * (unsigned __int16)v138];
+              v44 = v103 + ((unsigned __int16)v138 << 6);
               _m_prefetchw((const void *)(v44 + 8));
               v105 = *(_QWORD *)(v44 + 8);
               v106 = *(_QWORD *)(v52 + 24);
@@ -621,8 +623,8 @@ LABEL_156:
 LABEL_54:
             if ( v132 )
               RtlpHpLfhBucketUpdateAffinityMapping(
-                Src + 832,
-                &Src[64 * (unsigned __int64)*((unsigned __int16 *)v146 + 1) + 832],
+                a1 + 832,
+                a1 + 832 + ((unsigned __int64)*(unsigned __int16 *)(v146 + 2) << 6),
                 v52,
                 v44);
             v17 = v144;
@@ -652,7 +654,7 @@ LABEL_47:
             }
             goto LABEL_53;
           }
-          RtlpHpLfhSubsegmentPrefetch((__int64)v19, i & 0xFFFFFFFFFFFFF000uLL, v53, (unsigned __int16)v128);
+          RtlpHpLfhSubsegmentPrefetch(v19, i & 0xFFFFFFFFFFFFF000uLL, v53, (unsigned __int16)v128);
         }
         v51 = (unsigned __int16)v128;
         v53 = v136;
@@ -661,31 +663,31 @@ LABEL_47:
 LABEL_73:
       if ( v17 <= 0x20000 )
       {
-        NTHeapInternal = RtlpHpVsContextAllocate(Src + 704, a2, v17, v15);
+        NTHeapInternal = RtlpHpVsContextAllocate((_BYTE *)(a1 + 704), a2, v17, v15);
         goto LABEL_58;
       }
-      if ( v17 <= *((unsigned int *)Src + 132) )
+      if ( v17 <= *(unsigned int *)(a1 + 528) )
       {
-        NTHeapInternal = RtlpHpAllocateHeapBackend((__int64)Src, a2, v17, v15);
+        NTHeapInternal = RtlpHpAllocateHeapBackend(a1, a2, v17, v15);
         goto LABEL_58;
       }
-      HeapSlow = RtlpHpLargeAlloc(Src, a2, v17, v15);
+      HeapSlow = RtlpHpLargeAlloc(a1, a2, v17, v15);
       goto LABEL_31;
     }
 LABEL_144:
-    v23 = RtlpHpLfhThreadDataInitializeSet((__int64)(Src + 832));
+    v23 = RtlpHpLfhThreadDataInitializeSet(a1 + 832);
     v22 = v131;
-    v19 = Src + 832;
+    v19 = a1 + 832;
     goto LABEL_25;
   }
-  if ( (((unsigned __int8)v14 | (unsigned __int8)*((_DWORD *)Src + 5)) & 0x10) != 0
-    && *((_DWORD *)Src + 56) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
+  if ( (((unsigned __int8)v14 | (unsigned __int8)*(_DWORD *)(a1 + 20)) & 0x10) != 0
+    && *(_DWORD *)(a1 + 224) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
   {
     RtlpHpEnvAcquireGlobalLockSharedContended(
-      Src + 20,
-      ((unsigned __int16)v14 | (unsigned __int16)*((_DWORD *)Src + 5)) & 0x2FFA);
+      a1 + 20,
+      ((unsigned __int16)v14 | (unsigned __int16)*(_DWORD *)(a1 + 20)) & 0x2FFA);
   }
-  HeapSlow = RtlpHpAllocateHeapSlow(Src, a2, v15);
+  HeapSlow = RtlpHpAllocateHeapSlow(a1, a2, v15);
 LABEL_31:
   NTHeapInternal = HeapSlow;
 LABEL_58:
@@ -694,8 +696,8 @@ LABEL_58:
   {
     v125 = NtCurrentTeb();
     v125->LastStatusValue = -1073741801;
-    v125->LastErrorValue = RtlNtStatusToDosErrorNoTeb(0xC0000017);
-    if ( (*((_DWORD *)Src + 5) | v141) < 0 )
+    v125->LastErrorValue = RtlNtStatusToDosErrorNoTeb(-1073741801);
+    if ( (*(_DWORD *)(a1 + 20) | v141) < 0 )
       RtlpAllocateHeapRaiseException(a2);
   }
 LABEL_59:
@@ -706,7 +708,7 @@ LABEL_59:
     _InterlockedAdd64((volatile signed __int64 *)(*(_QWORD *)(qword_1801D5C98 + 8LL * v7 - 8) + 32LL), -(__int64)a2);
     return NTHeapInternal;
   }
-  v59 = *((_DWORD *)Src + 5);
+  v59 = *(_DWORD *)(a1 + 20);
   v60 = 0;
   v139 = 0;
   if ( (_WORD)NTHeapInternal )
@@ -715,16 +717,16 @@ LABEL_59:
   }
   else
   {
-    v71 = RtlCSparseBitmapBitmaskRead(&unk_1801D0980, 2 * ((NTHeapInternal - qword_1801D0978) >> 20));
+    v71 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((NTHeapInternal - qword_1801D0978) >> 20));
     if ( !v71 || (v61 = v71 - 1, v61 == 2) )
     {
-      v72 = RtlpHpLargeAllocSize((__int64)Src, NTHeapInternal, &v139);
+      v72 = RtlpHpLargeAllocSize((_RTL_SRWLOCK *)a1, NTHeapInternal, &v139);
       v60 = v139;
       v73 = v72;
       goto LABEL_120;
     }
   }
-  v62 = (unsigned __int64)&Src[192 * v61 + 320];
+  v62 = a1 + 192LL * v61 + 320;
   v63 = *(_QWORD *)v62;
   v64 = NTHeapInternal & *(_QWORD *)v62;
   if ( RtlpHpHeapGlobals ^ v62 ^ *(_QWORD *)(v64 + 0x10) ^ v64 )

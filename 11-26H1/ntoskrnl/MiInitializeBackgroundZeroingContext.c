@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeBackgroundZeroingContext @ 0x14045D464
+ * XREFs of MiInitializeBackgroundZeroingContext @ 0x140456E64
  * Callers:
- *     MiBackgroundZeroPage @ 0x14045D3B4 (MiBackgroundZeroPage.c)
+ *     MiBackgroundZeroPage @ 0x140456DB4 (MiBackgroundZeroPage.c)
  * Callees:
- *     MiGetZeroingContext @ 0x14045D650 (MiGetZeroingContext.c)
- *     MiZeroPageMakeHot @ 0x14070EEF0 (MiZeroPageMakeHot.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetZeroingContext @ 0x140457050 (MiGetZeroingContext.c)
+ *     MiZeroPageMakeHot @ 0x140713BF0 (MiZeroPageMakeHot.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeBackgroundZeroingContext(__int64 a1, __int64 a2, _BYTE *a3)
@@ -33,7 +33,7 @@ __int64 __fastcall MiInitializeBackgroundZeroingContext(__int64 a1, __int64 a2, 
   {
     if ( v9 )
     {
-      if ( (stru_140E36558.WaitRegister.Flags & 1) != 0 )
+      if ( (stru_140E366D8.WaitRegister.Flags & 1) != 0 )
         MiZeroPageMakeHot(a1);
     }
     else

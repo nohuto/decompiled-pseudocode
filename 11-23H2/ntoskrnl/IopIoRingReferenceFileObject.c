@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIoRingReferenceFileObject @ 0x140949F04
+ * XREFs of IopIoRingReferenceFileObject @ 0x14094A104
  * Callers:
- *     IopIoRingDispatchCancel @ 0x14094927C (IopIoRingDispatchCancel.c)
- *     IopIoRingDispatchFlush @ 0x14094933C (IopIoRingDispatchFlush.c)
- *     IopIoRingDispatchRead @ 0x14094941C (IopIoRingDispatchRead.c)
- *     IopIoRingDispatchWrite @ 0x140949C64 (IopIoRingDispatchWrite.c)
+ *     IopIoRingDispatchCancel @ 0x14094947C (IopIoRingDispatchCancel.c)
+ *     IopIoRingDispatchFlush @ 0x14094953C (IopIoRingDispatchFlush.c)
+ *     IopIoRingDispatchRead @ 0x14094961C (IopIoRingDispatchRead.c)
+ *     IopIoRingDispatchWrite @ 0x140949E64 (IopIoRingDispatchWrite.c)
  * Callees:
- *     IopReferenceFileObject @ 0x1403016DC (IopReferenceFileObject.c)
- *     ObReferenceFileObjectForWrite @ 0x140749DE4 (ObReferenceFileObjectForWrite.c)
+ *     IopReferenceFileObject @ 0x14030196C (IopReferenceFileObject.c)
+ *     ObReferenceFileObjectForWrite @ 0x140749FD4 (ObReferenceFileObjectForWrite.c)
  */
 
 __int64 __fastcall IopIoRingReferenceFileObject(

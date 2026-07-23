@@ -34,7 +34,7 @@ unsigned __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsig
   unsigned __int64 v9; // rdi
   unsigned __int64 v11; // r15
   unsigned __int64 v12; // rsi
-  unsigned __int64 v13; // rax
+  _RTL_BALANCED_NODE *v13; // rax
   unsigned int SessionId; // r13d
   __int64 v15; // rdi
   __int64 v16; // r14
@@ -45,7 +45,7 @@ unsigned __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsig
   unsigned int v21; // edx
   bool v22; // zf
   __int64 v23; // rcx
-  unsigned __int64 v24; // rsi
+  __int64 v24; // rsi
   __int64 v25; // rdx
   __int64 v26; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -61,7 +61,7 @@ unsigned __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsig
   unsigned __int8 v37; // r14
   unsigned int v38; // r8d
   __int64 v39; // rcx
-  unsigned __int64 v40; // rsi
+  __int64 v40; // rsi
   unsigned __int8 v41; // al
   __int64 v42; // rcx
   _DWORD v43[2]; // [rsp+34h] [rbp-35h] BYREF
@@ -114,12 +114,16 @@ unsigned __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsig
   }
   v11 = v4 >> 20;
   v12 = RtlpHpAcquireLockExclusive((volatile LONG *)BugCheckParameter2, *(_BYTE *)(BugCheckParameter2 + 46) & 1);
-  v13 = RtlpHpVaMgrRangeFind(BugCheckParameter2, (unsigned __int16)v11, (unsigned __int16)(v3 >> 20), &v47);
+  v13 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(
+                                BugCheckParameter2,
+                                (unsigned __int16)v11,
+                                (unsigned __int16)(v3 >> 20),
+                                &v47);
   SessionId = -1;
-  v15 = v13;
+  v15 = (__int64)v13;
   if ( v13 )
   {
-    RtlRbRemoveNode((unsigned __int64 *)(BugCheckParameter2 + 8), v13);
+    RtlRbRemoveNode((PRTL_RB_TREE)(BugCheckParameter2 + 8), v13);
     v16 = v47;
     if ( v47 != v15 )
     {
@@ -183,7 +187,7 @@ LABEL_13:
         v43[1] = v23;
         if ( v22 )
           break;
-        v24 = (unsigned __int64)&CurrentThread->LockEntries[v23];
+        v24 = (__int64)&CurrentThread->LockEntries[v23];
         v21 &= ~(1 << v23);
         if ( (*(_BYTE *)(v24 + 26) & 1) != 0
           && (*(_DWORD *)(v24 + 32) & 1) == 0
@@ -197,12 +201,12 @@ LABEL_13:
             {
               *(_BYTE *)(v24 + 32) |= 2u;
               if ( *(__int64 *)(v24 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v24);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
               v44 = *(_DWORD *)(v24 + 88) & 0x1FFFF;
               *(_DWORD *)(v24 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v24 + 25) &= ~1u;
               *(_QWORD *)(v24 + 32) = 0LL;
-              v25 = (__int64)(v24 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+              v25 = (signed __int64)(v24 - (unsigned __int64)CurrentThread->LockEntries) / 96;
               if ( v20 == 1 )
                 CurrentThread->AbEntrySummary |= 1 << v25;
               else
@@ -268,7 +272,7 @@ LABEL_34:
       goto LABEL_65;
     while ( 1 )
     {
-      v40 = (unsigned __int64)&v31->LockEntries[v39];
+      v40 = (__int64)&v31->LockEntries[v39];
       v38 &= ~(1 << v39);
       if ( (*(_BYTE *)(v40 + 26) & 1) != 0
         && (*(_DWORD *)(v40 + 32) & 1) == 0
@@ -293,12 +297,12 @@ LABEL_65:
     {
       *(_BYTE *)(v40 + 32) |= 2u;
       if ( *(__int64 *)(v40 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v40);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v40);
       v43[0] = *(_DWORD *)(v40 + 88) & 0x1FFFF;
       *(_DWORD *)(v40 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v40 + 25) &= ~1u;
       *(_QWORD *)(v40 + 32) = 0LL;
-      v41 = 1 << ((__int64)(v40 - (unsigned __int64)v31->LockEntries) / 96);
+      v41 = 1 << ((signed __int64)(v40 - (unsigned __int64)v31->LockEntries) / 96);
       if ( v37 == 1 )
         v31->AbEntrySummary |= v41;
       else

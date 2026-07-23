@@ -681,8 +681,8 @@ LABEL_230:
       else if ( (unsigned __int64)Src + 0x80000000000LL > 0x7FFFFFFFFFLL )
       {
         if ( PsNtosImageBase
-          && ((unsigned __int64)Src >= PsNtosImageBase && (unsigned __int64)Src < PsNtosImageEnd
-           || (unsigned __int64)Src >= PsHalImageBase && (unsigned __int64)Src < PsHalImageEnd) )
+          && (Src >= PsNtosImageBase && (unsigned __int64)Src < PsNtosImageEnd
+           || Src >= PsHalImageBase && (unsigned __int64)Src < PsHalImageEnd) )
         {
           v8 = 64;
         }
@@ -812,8 +812,8 @@ LABEL_45:
     {
       if ( (unsigned __int64)Src + 0x80000000000LL > 0x7FFFFFFFFFLL
         && (!PsNtosImageBase
-         || ((unsigned __int64)Src < PsNtosImageBase || (unsigned __int64)Src >= PsNtosImageEnd)
-         && ((unsigned __int64)Src < PsHalImageBase || (unsigned __int64)Src >= PsHalImageEnd)) )
+         || (Src < PsNtosImageBase || (unsigned __int64)Src >= PsNtosImageEnd)
+         && (Src < PsHalImageBase || (unsigned __int64)Src >= PsHalImageEnd)) )
       {
         goto LABEL_71;
       }

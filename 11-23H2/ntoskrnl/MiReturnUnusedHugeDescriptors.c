@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnUnusedHugeDescriptors @ 0x140622710
+ * XREFs of MiReturnUnusedHugeDescriptors @ 0x140622C60
  * Callers:
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
- *     MiDeleteAcceleratorDescriptor @ 0x1406549FC (MiDeleteAcceleratorDescriptor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140654F4C (MiDeleteAcceleratorDescriptor.c)
  */
 
 __int64 __fastcall MiReturnUnusedHugeDescriptors(__int64 a1)
@@ -29,10 +29,10 @@ __int64 __fastcall MiReturnUnusedHugeDescriptors(__int64 a1)
   v6 = ((v1 - qword_140C67DF0) >> 3) & 0x3FFFFF;
   result = (unsigned int)~(1 << (v6 & 0x1F));
   _InterlockedAnd((volatile signed __int32 *)(qword_140C67DF8 + 4 * ((unsigned __int64)(unsigned int)v6 >> 5)), result);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

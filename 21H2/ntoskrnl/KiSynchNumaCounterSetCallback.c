@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSynchNumaCounterSetCallback @ 0x1408BAFB0
+ * XREFs of KiSynchNumaCounterSetCallback @ 0x1408BB110
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PcwAddInstance @ 0x140687F00 (PcwAddInstance.c)
- *     KiAddSynchCounters @ 0x1408BAE60 (KiAddSynchCounters.c)
- *     EtwDereferenceSpinLockCounters @ 0x14093CE54 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x14093CEB0 (EtwReferenceSpinLockCounters.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PcwAddInstance @ 0x1405E7060 (PcwAddInstance.c)
+ *     KiAddSynchCounters @ 0x1408BAFC0 (KiAddSynchCounters.c)
+ *     EtwDereferenceSpinLockCounters @ 0x14093D024 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x14093D080 (EtwReferenceSpinLockCounters.c)
  */
 
 int __fastcall KiSynchNumaCounterSetCallback(int a1, __int64 a2)

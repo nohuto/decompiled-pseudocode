@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampImageNotify @ 0x1408A9820
+ * XREFs of EtwpCovSampImageNotify @ 0x1408A9A70
  * Callers:
- *     EtwpCovSampEnumerateDriver @ 0x1409F2350 (EtwpCovSampEnumerateDriver.c)
- *     EtwpCovSampEnumerateProcess @ 0x1409F23B0 (EtwpCovSampEnumerateProcess.c)
+ *     EtwpCovSampEnumerateDriver @ 0x1409F25E0 (EtwpCovSampEnumerateDriver.c)
+ *     EtwpCovSampEnumerateProcess @ 0x1409F2640 (EtwpCovSampEnumerateProcess.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408A846C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampModuleDereference @ 0x1408A9930 (EtwpCovSampModuleDereference.c)
- *     EtwpCovSampProcessEnsureContext @ 0x1408A99B0 (EtwpCovSampProcessEnsureContext.c)
- *     EtwpCovSampContextGetModule @ 0x1409F128C (EtwpCovSampContextGetModule.c)
- *     EtwpCovSampProcessAddModule @ 0x1409F2864 (EtwpCovSampProcessAddModule.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408A86BC (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampModuleDereference @ 0x1408A9B80 (EtwpCovSampModuleDereference.c)
+ *     EtwpCovSampProcessEnsureContext @ 0x1408A9C00 (EtwpCovSampProcessEnsureContext.c)
+ *     EtwpCovSampContextGetModule @ 0x1409F151C (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampProcessAddModule @ 0x1409F2AF4 (EtwpCovSampProcessAddModule.c)
  */
 
 void __fastcall EtwpCovSampImageNotify(PUNICODE_STRING FullImageName, struct _LIST_ENTRY *ProcessId, char *ImageInfo)
@@ -34,7 +34,7 @@ void __fastcall EtwpCovSampImageNotify(PUNICODE_STRING FullImageName, struct _LI
   if ( (int)EtwpCovSampAcquireSamplerRundown(&v12) >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    v3 = qword_140C31CB8 + 16;
+    v3 = qword_140C31C58 + 16;
     Process = CurrentThread->ApcState.Process;
     if ( ProcessId )
     {
@@ -47,7 +47,7 @@ void __fastcall EtwpCovSampImageNotify(PUNICODE_STRING FullImageName, struct _LI
     }
     else if ( (*(_DWORD *)ImageInfo & 0x100) != 0 )
     {
-      v10 = qword_140C31CB8 + 1264;
+      v10 = qword_140C31C58 + 1264;
 LABEL_9:
       if ( (int)EtwpCovSampContextGetModule(v3, (_DWORD)Process, v10, v6, (__int64)v7, (__int64)&v11) >= 0 )
         EtwpCovSampProcessAddModule(v10, v3, v11, *((_QWORD *)ImageInfo + 1));
@@ -57,7 +57,7 @@ LABEL_9:
     EtwpCovSampModuleDereference(v3);
   if ( v12 )
   {
-    ExReleaseRundownProtection_0(&stru_140C31CC0);
+    ExReleaseRundownProtection_0(&stru_140C31C60);
     KeLeaveCriticalRegion();
   }
 }

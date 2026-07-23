@@ -1,25 +1,25 @@
 /*
- * XREFs of HalQueryRealTimeClock @ 0x140451480
+ * XREFs of HalQueryRealTimeClock @ 0x1404495B0
  * Callers:
- *     HalpCheckWakeupTimeAndAdjust @ 0x140594734 (HalpCheckWakeupTimeAndAdjust.c)
- *     ExpRefreshSystemTime @ 0x140836324 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1408366B0 (NtSetSystemTime.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140C08734 (ExUpdateSystemTimeFromCmos.c)
- *     HaliSetWakeAlarm @ 0x140C0A6E0 (HaliSetWakeAlarm.c)
- *     GetBootSystemTime @ 0x140CAA5C4 (GetBootSystemTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x140596EB4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     ExpRefreshSystemTime @ 0x14083C564 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x14083C8F0 (NtSetSystemTime.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140C0E944 (ExUpdateSystemTimeFromCmos.c)
+ *     HaliSetWakeAlarm @ 0x140C108F0 (HaliSetWakeAlarm.c)
+ *     GetBootSystemTime @ 0x140CB05C4 (GetBootSystemTime.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpReadCmosTime @ 0x140451878 (HalpReadCmosTime.c)
- *     HalpSetVirtualRtc @ 0x140451B58 (HalpSetVirtualRtc.c)
- *     RtlpTimeToTimeFields @ 0x140451D40 (RtlpTimeToTimeFields.c)
- *     RtlpTimeFieldsToTime @ 0x1404522F8 (RtlpTimeFieldsToTime.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalEfiGetTime @ 0x140533554 (HalEfiGetTime.c)
- *     HalpQueryVirtualRtc @ 0x140585330 (HalpQueryVirtualRtc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HalpAcpiRealTimeToUtcTime @ 0x1407801E4 (HalpAcpiRealTimeToUtcTime.c)
- *     HalpQueryAcpiRealTimeClock @ 0x140B26A10 (HalpQueryAcpiRealTimeClock.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpReadCmosTime @ 0x1404499A8 (HalpReadCmosTime.c)
+ *     HalpSetVirtualRtc @ 0x140449C88 (HalpSetVirtualRtc.c)
+ *     RtlpTimeToTimeFields @ 0x140449E70 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeFieldsToTime @ 0x14044A428 (RtlpTimeFieldsToTime.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalEfiGetTime @ 0x1405359D4 (HalEfiGetTime.c)
+ *     HalpQueryVirtualRtc @ 0x140587850 (HalpQueryVirtualRtc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HalpAcpiRealTimeToUtcTime @ 0x140782CE4 (HalpAcpiRealTimeToUtcTime.c)
+ *     HalpQueryAcpiRealTimeClock @ 0x140B28C70 (HalpQueryAcpiRealTimeClock.c)
  */
 
 char __fastcall HalQueryRealTimeClock(__int64 a1)
@@ -28,7 +28,7 @@ char __fastcall HalQueryRealTimeClock(__int64 a1)
   __int64 v3; // rdx
   __int64 v4; // rcx
   char v5; // bl
-  volatile unsigned int NextProcessor; // ebx
+  int LastXStateSaveDebugInfo; // ebx
   int v8; // eax
   unsigned __int8 CurrentIrql; // di
   int Time; // ebx
@@ -54,8 +54,8 @@ char __fastcall HalQueryRealTimeClock(__int64 a1)
       goto LABEL_5;
     }
   }
-  NextProcessor = HalpDeviceBlockUnblockPushLock.NextProcessor;
-  if ( KeGetCurrentIrql() < 2u && !HalpDeviceBlockUnblockPushLock.NextProcessor )
+  LastXStateSaveDebugInfo = HalpDeviceBlockUnblockPushLock.LastXStateSaveDebugInfo;
+  if ( KeGetCurrentIrql() < 2u && !LODWORD(HalpDeviceBlockUnblockPushLock.LastXStateSaveDebugInfo) )
   {
     v8 = HalpQueryAcpiRealTimeClock(&OutputBuffer);
     if ( v8 < 0 )
@@ -85,7 +85,7 @@ LABEL_5:
       return v5;
     }
   }
-  if ( HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104] && NextProcessor && (HalpPlatformFlags & 8) == 0 )
+  if ( HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72] && LastXStateSaveDebugInfo && (HalpPlatformFlags & 8) == 0 )
   {
     if ( KeGetCurrentIrql() >= 2u )
     {

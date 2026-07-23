@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpPartitionReferenceParentSafeByProcess @ 0x1404471E0
+ * XREFs of PfpPartitionReferenceParentSafeByProcess @ 0x14043FCD0
  * Callers:
- *     PfpLogApplicationEvent @ 0x140446FB0 (PfpLogApplicationEvent.c)
- *     PfCheckDeprioritizeFile @ 0x1409C4504 (PfCheckDeprioritizeFile.c)
- *     PfSnEndTrace @ 0x140AA3588 (PfSnEndTrace.c)
+ *     PfpLogApplicationEvent @ 0x14043FAA0 (PfpLogApplicationEvent.c)
+ *     PfCheckDeprioritizeFile @ 0x1409954E4 (PfCheckDeprioritizeFile.c)
+ *     PfSnEndTrace @ 0x140AA6328 (PfSnEndTrace.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInswapAndReadyThread @ 0x1402C6944
+ * XREFs of KiInswapAndReadyThread @ 0x1403115E4
  * Callers:
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
- *     KiProcessThreadWaitList @ 0x14023BDB0 (KiProcessThreadWaitList.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
+ *     KiProcessThreadWaitList @ 0x14023D710 (KiProcessThreadWaitList.c)
  * Callees:
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiRequestProcessInSwap @ 0x1402C6AEC (KiRequestProcessInSwap.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KiRequestProcessInSwap @ 0x14031178C (KiRequestProcessInSwap.c)
  */
 
 int __fastcall KiInswapAndReadyThread(struct _KPRCB *a1, ULONG_PTR a2, __int64 *a3)
@@ -71,19 +71,16 @@ LABEL_13:
   _interlockedbittestandreset((volatile signed __int32 *)(a2 + 120), 0x14u);
   *(_BYTE *)(a2 + 388) = 6;
   v11 = (signed __int64 *)(a2 + 216);
-  _m_prefetchw(&KiSupervisorXStateFeaturesLock.UserAffinityPrimaryGroup);
-  v9 = *(_QWORD *)&KiSupervisorXStateFeaturesLock.UserAffinityPrimaryGroup;
+  _m_prefetchw(&qword_140F26B70);
+  v9 = qword_140F26B70;
   do
   {
     *v11 = v9;
     v12 = v9;
-    v9 = _InterlockedCompareExchange64(
-           (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.UserAffinityPrimaryGroup,
-           (signed __int64)v11,
-           v9);
+    v9 = _InterlockedCompareExchange64(&qword_140F26B70, (signed __int64)v11, v9);
   }
   while ( v9 != v12 );
   if ( !v9 )
-    LODWORD(v9) = KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.StackLimit, 10, 0);
+    LODWORD(v9) = KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry, 10, 0);
   return v9;
 }

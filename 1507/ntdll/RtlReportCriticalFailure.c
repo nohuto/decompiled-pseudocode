@@ -21,7 +21,7 @@ void __fastcall RtlReportCriticalFailure(int a1, unsigned __int64 a2)
 
   if ( RtlIsAnyDebuggerPresent() )
   {
-    DbgPrintEx(101, 0, "Critical error detected %lx\n", v4);
+    DbgPrintEx(0x65u, 0, "Critical error detected %lx\n", v4);
     __debugbreak();
   }
   ExceptionRecord.ExceptionCode = a1;

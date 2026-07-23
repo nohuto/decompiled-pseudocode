@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 ZwGetMUIRegistryInfo()
+NTSTATUS __cdecl ZwGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 231LL;
+  result = 231;
   __asm { syscall; Low latency system call }
   return result;
 }

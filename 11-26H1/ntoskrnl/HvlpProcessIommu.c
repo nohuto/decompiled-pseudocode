@@ -1,27 +1,27 @@
 /*
- * XREFs of HvlpProcessIommu @ 0x1404EE194
+ * XREFs of HvlpProcessIommu @ 0x1404E7774
  * Callers:
- *     HvlQueryVsmProtectionInfo @ 0x140B51DB0 (HvlQueryVsmProtectionInfo.c)
+ *     HvlQueryVsmProtectionInfo @ 0x140B54650 (HvlQueryVsmProtectionInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     KiGetCpuVendor @ 0x140C0A4F8 (KiGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     KiGetCpuVendor @ 0x140C10708 (KiGetCpuVendor.c)
  */
 
 bool HvlpProcessIommu()
 {
   char v0; // bl
   int v1; // eax
-  unsigned int v3; // [rsp+20h] [rbp-30h] BYREF
-  int v4; // [rsp+28h] [rbp-28h] BYREF
+  ULONG ReturnLength; // [rsp+20h] [rbp-30h] BYREF
+  int SystemInformation; // [rsp+28h] [rbp-28h] BYREF
   __int64 v5; // [rsp+2Ch] [rbp-24h]
   __int64 v6; // [rsp+34h] [rbp-1Ch]
 
   v0 = 0;
   v5 = 1LL;
   v6 = 0LL;
-  v4 = 1094930505;
-  v3 = 20;
+  SystemInformation = 1094930505;
+  ReturnLength = 20;
   v1 = KiGetCpuVendor() - 1;
   if ( v1 )
   {
@@ -33,7 +33,7 @@ bool HvlpProcessIommu()
   {
     HIDWORD(v5) = 1397904969;
   }
-  if ( (unsigned int)ZwQuerySystemInformation(76LL, &v4, v3, &v3) == -1073741789 )
-    return v3 != 0;
+  if ( ZwQuerySystemInformation(SystemFirmwareTableInformation, &SystemInformation, ReturnLength, &ReturnLength) == -1073741789 )
+    return ReturnLength != 0;
   return v0;
 }

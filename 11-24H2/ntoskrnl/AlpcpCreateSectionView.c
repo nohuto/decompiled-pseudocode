@@ -1,56 +1,57 @@
 /*
- * XREFs of AlpcpCreateSectionView @ 0x14093DC88
+ * XREFs of AlpcpCreateSectionView @ 0x1408950B8
  * Callers:
- *     AlpcpMapLegacyPortView @ 0x14093C1C0 (AlpcpMapLegacyPortView.c)
- *     NtAlpcCreateSectionView @ 0x14093DA50 (NtAlpcCreateSectionView.c)
+ *     NtAlpcCreateSectionView @ 0x1408951F0 (NtAlpcCreateSectionView.c)
+ *     AlpcpMapLegacyPortView @ 0x1409E98D0 (AlpcpMapLegacyPortView.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     AlpcpDereferenceBlobEx @ 0x140890420 (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140890590 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x140890620 (AlpcpUnlockBlob.c)
- *     AlpcpCreateView @ 0x14089328C (AlpcpCreateView.c)
- *     AlpcpCreateRegion @ 0x14093ED50 (AlpcpCreateRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     AlpcpCreateRegion @ 0x140893390 (AlpcpCreateRegion.c)
+ *     AlpcpCreateView @ 0x140897248 (AlpcpCreateView.c)
+ *     AlpcpUnlockBlob @ 0x1408980A0 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14089EBC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14089ED30 (AlpcpLockForCachedReferenceBlob.c)
  */
 
-__int64 __fastcall AlpcpCreateSectionView(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
+__int64 __fastcall AlpcpCreateSectionView(
+        ULONG_PTR BugCheckParameter2,
+        __int64 a2,
+        __int64 a3,
+        unsigned __int64 a4,
+        _QWORD *a5)
 {
-  int Region; // ebx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  _QWORD *v11; // rbx
+  int v9; // ebx
+  char *v10; // rbx
+  ULONG_PTR v11; // rbx
   int View; // esi
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // r8
-  __int64 v17; // r9
-  ULONG_PTR v19[4]; // [rsp+28h] [rbp-20h] BYREF
+  ULONG_PTR BugCheckParameter2a; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+28h] [rbp-20h]
 
-  v19[0] = 0LL;
+  BugCheckParameter2a = 0LL;
+  v15 = 0LL;
   *a5 = 0LL;
   AlpcpLockForCachedReferenceBlob(BugCheckParameter2);
-  Region = AlpcpCreateRegion(BugCheckParameter2);
-  AlpcpUnlockBlob(BugCheckParameter2, v8, v9, v10);
-  if ( Region < 0 )
-    return (unsigned int)Region;
-  v11 = KeAbPreAcquire(a2 + 352, 0LL);
+  v9 = AlpcpCreateRegion(BugCheckParameter2, a3, a4, &BugCheckParameter2a);
+  AlpcpUnlockBlob(BugCheckParameter2);
+  if ( v9 < 0 )
+    return (unsigned int)v9;
+  v10 = (char *)KeAbPreAcquire(a2 + 352, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 352), 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)(a2 + 352), 0, v11, a2 + 352);
-  if ( v11 )
-    *((_BYTE *)v11 + 10) = 1;
-  AlpcpLockForCachedReferenceBlob(0LL);
-  View = AlpcpCreateView(0LL, a2, v19);
-  AlpcpUnlockBlob(0LL, v13, v14, v15);
+    ExfAcquirePushLockSharedEx((signed __int64 *)(a2 + 352), 0, v10, a2 + 352);
+  if ( v10 )
+    v10[10] = 1;
+  v11 = BugCheckParameter2a;
+  AlpcpLockForCachedReferenceBlob(BugCheckParameter2a);
+  View = AlpcpCreateView(v11);
+  AlpcpUnlockBlob(v11);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 352), 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)(a2 + 352));
   KeAbPostRelease(a2 + 352);
-  AlpcpDereferenceBlobEx(0LL, 1, v16, v17);
+  AlpcpDereferenceBlobEx(BugCheckParameter2a);
   if ( View < 0 )
     return (unsigned int)View;
-  *a5 = v19[0];
+  *a5 = v15;
   return 0LL;
 }

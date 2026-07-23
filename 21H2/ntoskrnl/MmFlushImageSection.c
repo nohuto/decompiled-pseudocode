@@ -1,12 +1,12 @@
 /*
- * XREFs of MmFlushImageSection @ 0x1402B9080
+ * XREFs of MmFlushImageSection @ 0x140237290
  * Callers:
- *     MiCanFileBeTruncatedInternal @ 0x1402A10AC (MiCanFileBeTruncatedInternal.c)
+ *     MiCanFileBeTruncatedInternal @ 0x14021E62C (MiCanFileBeTruncatedInternal.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAttemptSectionDelete @ 0x1402B9294 (MiAttemptSectionDelete.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAttemptSectionDelete @ 0x1402374A4 (MiAttemptSectionDelete.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -14,8 +14,8 @@ BOOLEAN __stdcall MmFlushImageSection(PSECTION_OBJECT_POINTERS SectionObjectPoin
 {
   BOOLEAN v2; // di
   unsigned __int64 v5; // rbx
-  volatile signed __int32 *DataSectionObject; // rsi
-  volatile signed __int32 *ImageSectionObject; // rsi
+  volatile LONG *DataSectionObject; // rsi
+  char *ImageSectionObject; // rsi
   __int64 v9; // rdx
   unsigned __int8 v10; // al
   struct _KPRCB *v11; // r10
@@ -34,10 +34,10 @@ BOOLEAN __stdcall MmFlushImageSection(PSECTION_OBJECT_POINTERS SectionObjectPoin
   v2 = 0;
   while ( 1 )
   {
-    v5 = ExAcquireSpinLockExclusive(&dword_140C4C980);
+    v5 = ExAcquireSpinLockExclusive(&dword_140C4C9C0);
     if ( FlushType == MmFlushForDelete )
     {
-      DataSectionObject = (volatile signed __int32 *)SectionObjectPointer->DataSectionObject;
+      DataSectionObject = (volatile LONG *)SectionObjectPointer->DataSectionObject;
       if ( SectionObjectPointer->DataSectionObject )
       {
         if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 18) )
@@ -46,7 +46,7 @@ BOOLEAN __stdcall MmFlushImageSection(PSECTION_OBJECT_POINTERS SectionObjectPoin
           || (DataSectionObject[14] & 2) != 0
           || *((_QWORD *)DataSectionObject + 14) > 1uLL )
         {
-          ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+          ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
           ExReleaseSpinLockExclusiveFromDpcLevel(DataSectionObject + 18);
           if ( KiIrqlFlags )
           {
@@ -70,10 +70,10 @@ BOOLEAN __stdcall MmFlushImageSection(PSECTION_OBJECT_POINTERS SectionObjectPoin
         ExReleaseSpinLockExclusiveFromDpcLevel(DataSectionObject + 18);
       }
     }
-    ImageSectionObject = (volatile signed __int32 *)SectionObjectPointer->ImageSectionObject;
+    ImageSectionObject = (char *)SectionObjectPointer->ImageSectionObject;
     if ( !ImageSectionObject )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -96,10 +96,10 @@ LABEL_7:
       __writecr8(v5);
       return v2;
     }
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(ImageSectionObject + 18) )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(ImageSectionObject + 72) )
       break;
 LABEL_17:
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -119,7 +119,7 @@ LABEL_17:
     }
     __writecr8(v5);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
   LOBYTE(v9) = v5;
   return MiAttemptSectionDelete(ImageSectionObject, v9, 0LL);
 }

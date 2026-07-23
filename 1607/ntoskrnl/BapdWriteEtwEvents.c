@@ -1,19 +1,19 @@
 /*
- * XREFs of BapdWriteEtwEvents @ 0x140131F3C
+ * XREFs of BapdWriteEtwEvents @ 0x1401324AC
  * Callers:
- *     BapdpProcessEtwEvents @ 0x14013CE64 (BapdpProcessEtwEvents.c)
- *     PopBootLoaderTraceProcess @ 0x14053185C (PopBootLoaderTraceProcess.c)
+ *     BapdpProcessEtwEvents @ 0x14013D3D4 (BapdpProcessEtwEvents.c)
+ *     PopBootLoaderTraceProcess @ 0x140531D9C (PopBootLoaderTraceProcess.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     BapdpParseEventParts @ 0x14013224C (BapdpParseEventParts.c)
- *     BapdRegisterEtwProvider @ 0x1401322E0 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     BapdpParseEventParts @ 0x1401327BC (BapdpParseEventParts.c)
+ *     BapdRegisterEtwProvider @ 0x140132850 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
  *     BapdpWriteEventDataToRegistry @ 0x1403D3384 (BapdpWriteEventDataToRegistry.c)
- *     EtwUnregister @ 0x1405488B0 (EtwUnregister.c)
- *     EtwSetInformation @ 0x140548AE4 (EtwSetInformation.c)
+ *     EtwUnregister @ 0x140548DF0 (EtwUnregister.c)
+ *     EtwSetInformation @ 0x140549024 (EtwSetInformation.c)
  */
 
 __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
@@ -144,7 +144,7 @@ LABEL_20:
                 break;
               case 20:
                 if ( !*v8 )
-                  ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL);
+                  ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0, 0LL, 0LL, 0, 0);
                 break;
               case 16:
               case 29:

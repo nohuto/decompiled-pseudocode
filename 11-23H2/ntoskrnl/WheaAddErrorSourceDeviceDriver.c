@@ -1,12 +1,12 @@
 /*
- * XREFs of WheaAddErrorSourceDeviceDriver @ 0x14081E950
+ * XREFs of WheaAddErrorSourceDeviceDriver @ 0x14081EC20
  * Callers:
- *     WheaAddErrorSourceDeviceDriverV1 @ 0x1403B5050 (WheaAddErrorSourceDeviceDriverV1.c)
+ *     WheaAddErrorSourceDeviceDriverV1 @ 0x1403B5230 (WheaAddErrorSourceDeviceDriverV1.c)
  * Callees:
- *     WheapDeviceDriverGetPacketLength @ 0x140380BBC (WheapDeviceDriverGetPacketLength.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WheaAddErrorSource @ 0x14081EB20 (WheaAddErrorSource.c)
- *     WheaConfigureErrorSource @ 0x140A90590 (WheaConfigureErrorSource.c)
+ *     WheapDeviceDriverGetPacketLength @ 0x140380D5C (WheapDeviceDriverGetPacketLength.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WheaAddErrorSource @ 0x14081EDF0 (WheaAddErrorSource.c)
+ *     WheaConfigureErrorSource @ 0x140A90410 (WheaConfigureErrorSource.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

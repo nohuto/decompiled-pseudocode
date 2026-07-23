@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTracePerfTrackData @ 0x140990168
+ * XREFs of PopDiagTracePerfTrackData @ 0x140990368
  * Callers:
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     PopReadRegKeyValue @ 0x140384968 (PopReadRegKeyValue.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopComputeDerivedHiberStats @ 0x14098BFC0 (PopComputeDerivedHiberStats.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     PopReadRegKeyValue @ 0x140384B48 (PopReadRegKeyValue.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopComputeDerivedHiberStats @ 0x14098C1C0 (PopComputeDerivedHiberStats.c)
  *     PopQpcTimeInMs @ 0x140A87B50 (PopQpcTimeInMs.c)
  */
 
@@ -74,15 +74,15 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
     if ( result )
     {
       v3 = 1000LL * *(unsigned int *)(KeGetPrcb(0) + 68);
-      v35 = PopQpcTimeInMs(&qword_140C3D320, &qword_140C3D328);
-      v34 = PopQpcTimeInMs(&qword_140C3D310, &qword_140C3D318);
-      if ( qword_140C3D308 )
+      v35 = PopQpcTimeInMs(&qword_140C3D2E0, &qword_140C3D2E8);
+      v34 = PopQpcTimeInMs(&qword_140C3D2D0, &qword_140C3D2D8);
+      if ( qword_140C3D2C8 )
       {
         v33 = 0LL;
-        v30 = PopQpcTimeInMs(&v33, &qword_140C3D308);
-        v28 = v30 + PopQpcTimeInMs(&qword_140C3D2E8, &qword_140C3D2F0);
+        v30 = PopQpcTimeInMs(&v33, &qword_140C3D2C8);
+        v28 = v30 + PopQpcTimeInMs(&qword_140C3D2A8, &qword_140C3D2B0);
         *(_QWORD *)&UserData.Size = 4LL;
-        UserData.Ptr = (ULONGLONG)&qword_140C3D4C8;
+        UserData.Ptr = (ULONGLONG)&qword_140C3D488;
         v42 = &v28;
         v44 = &v30;
         v46 = &v34;
@@ -93,20 +93,20 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
         v49 = 4LL;
         return EtwWrite(PopDiagHandle, (PCEVENT_DESCRIPTOR)POP_ETW_EVENT_PERFTRACK_STANDBY, 0LL, 5u, &UserData);
       }
-      result = dword_140C3D510;
-      if ( dword_140C3D510 )
+      result = dword_140C3D4D0;
+      if ( dword_140C3D4D0 )
       {
-        v4 = qword_140C3D378;
-        v31 = (4 * dword_140C3D510) & 0x3FFFFF;
-        v37 = qword_140C3D378;
-        v32 = qword_140C3D350 / v3;
-        result = qword_140C3D520;
-        v28 = qword_140C3D520;
+        v4 = qword_140C3D338;
+        v31 = (4 * dword_140C3D4D0) & 0x3FFFFF;
+        v37 = qword_140C3D338;
+        v32 = qword_140C3D310 / v3;
+        result = qword_140C3D4E0;
+        v28 = qword_140C3D4E0;
         if ( (a1 & 8) != 0 )
         {
           if ( !PopShutdownButtonPressTime )
             return result;
-          v29 = PopQpcTimeInMs(&PopShutdownButtonPressTime, &qword_140C3D2C8) + v4;
+          v29 = PopQpcTimeInMs(&PopShutdownButtonPressTime, &qword_140C3D288) + v4;
           if ( (int)PopReadRegKeyValue(
                       L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
                       L"LastLogOffEndTimePerfCounter",
@@ -115,7 +115,7 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
                       &v33) < 0 )
             v5 = 0;
           else
-            v5 = PopQpcTimeInMs(&v33, &qword_140C3D380);
+            v5 = PopQpcTimeInMs(&v33, &qword_140C3D340);
           v36 = v5;
           *(_QWORD *)&UserData.Size = 4LL;
           UserData.Ptr = (ULONGLONG)&v31;
@@ -126,27 +126,27 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
           v46 = &v36;
           v47 = 4LL;
           EtwWrite(PopDiagHandle, &POP_ETW_EVENT_PERFTRACK_HYBRID_SHUTDOWN, 0LL, 4u, &UserData);
-          PopComputeDerivedHiberStats((unsigned __int64 *)&qword_140C3D338, v3, (__int64)&v38);
+          PopComputeDerivedHiberStats((unsigned __int64 *)&qword_140C3D2F8, v3, (__int64)&v38);
           LODWORD(v39) = v28;
-          v6 = (unsigned __int64)qword_140C3D4F8 >> 8;
+          v6 = (unsigned __int64)qword_140C3D4B8 >> 8;
           WORD3(v39) = -1;
-          if ( (unsigned __int64)qword_140C3D4F8 >> 8 > 0x7FFF )
+          if ( (unsigned __int64)qword_140C3D4B8 >> 8 > 0x7FFF )
             LOWORD(v6) = 0x7FFF;
           WORD2(v39) = v6 & 0x7FFF;
-          if ( (unsigned __int64)qword_140C3D500 >> 8 <= 0xFFFF )
-            WORD3(v39) = (unsigned int)qword_140C3D500 >> 8;
+          if ( (unsigned __int64)qword_140C3D4C0 >> 8 <= 0xFFFF )
+            WORD3(v39) = (unsigned int)qword_140C3D4C0 >> 8;
           WORD4(v39) = -1;
-          if ( 1000 * qword_140C3D398 / PopQpcFrequency <= 0xFFFF )
-            WORD4(v39) = 1000 * qword_140C3D398 / PopQpcFrequency;
+          if ( 1000 * qword_140C3D358 / PopQpcFrequency <= 0xFFFF )
+            WORD4(v39) = 1000 * qword_140C3D358 / PopQpcFrequency;
           WORD5(v39) = -1;
-          if ( qword_140C3D488 / v3 <= 0xFFFF )
-            WORD5(v39) = qword_140C3D488 / v3;
+          if ( qword_140C3D448 / v3 <= 0xFFFF )
+            WORD5(v39) = qword_140C3D448 / v3;
           WORD6(v39) = -1;
-          if ( (unsigned int)qword_140C3D388 <= 0xFFFF )
-            WORD6(v39) = qword_140C3D388;
+          if ( (unsigned int)qword_140C3D348 <= 0xFFFF )
+            WORD6(v39) = qword_140C3D348;
           HIWORD(v39) = -1;
-          if ( (unsigned int)qword_140C3D4C8 <= 0xFFFF )
-            HIWORD(v39) = qword_140C3D4C8;
+          if ( (unsigned int)qword_140C3D488 <= 0xFFFF )
+            HIWORD(v39) = qword_140C3D488;
           v7 = DWORD1(v38);
           HIWORD(v40) = -1;
           if ( DWORD1(v38) > 0x3FF )
@@ -155,16 +155,16 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
           if ( HIDWORD(v38) > 0x1FF )
             v8 = 511;
           v9 = v7 ^ (v7 ^ (v8 << 10)) & 0x7FC00;
-          v10 = 1000 * (qword_140C3D418 - qword_140C3D450) / PopQpcFrequency;
+          v10 = 1000 * (qword_140C3D3D8 - qword_140C3D410) / PopQpcFrequency;
           if ( v10 > 0x1FFF )
             LODWORD(v10) = 0x1FFF;
           LODWORD(v40) = v9 & 0x7FFFF | ((_DWORD)v10 << 19);
-          v11 = (unsigned __int64)qword_140C3D4D8 >> 8;
-          if ( (unsigned __int64)qword_140C3D4D8 >> 8 > 0x7FFF )
+          v11 = (unsigned __int64)qword_140C3D498 >> 8;
+          if ( (unsigned __int64)qword_140C3D498 >> 8 > 0x7FFF )
             LOWORD(v11) = 0x7FFF;
           WORD2(v40) = v11 & 0x7FFF;
-          if ( (unsigned __int64)qword_140C3D4E0 >> 8 <= 0xFFFF )
-            HIWORD(v40) = (unsigned int)qword_140C3D4E0 >> 8;
+          if ( (unsigned __int64)qword_140C3D4A0 >> 8 <= 0xFFFF )
+            HIWORD(v40) = (unsigned int)qword_140C3D4A0 >> 8;
           p_Reserved = (union _EVENT_DATA_DESCRIPTOR::$535316677C6A15A6ECBA40D88E1D787B *)&UserData.Reserved;
           v13 = 6LL;
           v14 = &v39;
@@ -188,29 +188,29 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
           v43 = 4LL;
           v45 = 4LL;
           result = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_PERFTRACK_HIBERNATE, 0LL, 3u, &UserData);
-          v16 = qword_140C3D388;
-          if ( !(_DWORD)qword_140C3D388 )
+          v16 = qword_140C3D348;
+          if ( !(_DWORD)qword_140C3D348 )
             return result;
-          PopComputeDerivedHiberStats((unsigned __int64 *)&qword_140C3D338, v3, (__int64)&v38);
+          PopComputeDerivedHiberStats((unsigned __int64 *)&qword_140C3D2F8, v3, (__int64)&v38);
           LODWORD(v39) = v28;
-          v17 = (unsigned __int64)qword_140C3D4F8 >> 8;
-          if ( (unsigned __int64)qword_140C3D4F8 >> 8 > 0x7FFF )
+          v17 = (unsigned __int64)qword_140C3D4B8 >> 8;
+          if ( (unsigned __int64)qword_140C3D4B8 >> 8 > 0x7FFF )
             LOWORD(v17) = 0x7FFF;
           WORD2(v39) = (a1 << 10) ^ (v17 ^ (a1 << 10)) & 0x7FFF;
-          WORD3(v39) = (unsigned int)qword_140C3D500 >> 8;
-          if ( (unsigned __int64)qword_140C3D500 >> 8 >= 0xFFFF )
+          WORD3(v39) = (unsigned int)qword_140C3D4C0 >> 8;
+          if ( (unsigned __int64)qword_140C3D4C0 >> 8 >= 0xFFFF )
             WORD3(v39) = -1;
-          WORD4(v39) = 1000 * qword_140C3D398 / PopQpcFrequency;
-          if ( 1000 * qword_140C3D398 / PopQpcFrequency >= 0xFFFF )
+          WORD4(v39) = 1000 * qword_140C3D358 / PopQpcFrequency;
+          if ( 1000 * qword_140C3D358 / PopQpcFrequency >= 0xFFFF )
             WORD4(v39) = -1;
-          WORD5(v39) = qword_140C3D488 / v3;
-          if ( qword_140C3D488 / v3 >= 0xFFFF )
+          WORD5(v39) = qword_140C3D448 / v3;
+          if ( qword_140C3D448 / v3 >= 0xFFFF )
             WORD5(v39) = -1;
           WORD6(v39) = v16;
           if ( v16 >= 0xFFFF )
             WORD6(v39) = -1;
-          HIWORD(v39) = qword_140C3D4C8;
-          if ( (unsigned int)qword_140C3D4C8 >= 0xFFFF )
+          HIWORD(v39) = qword_140C3D488;
+          if ( (unsigned int)qword_140C3D488 >= 0xFFFF )
             HIWORD(v39) = -1;
           v18 = DWORD1(v38);
           if ( DWORD1(v38) > 0x3FF )
@@ -219,21 +219,21 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
           if ( HIDWORD(v38) > 0x1FF )
             v19 = 511;
           v20 = v18 ^ (v18 ^ (v19 << 10)) & 0x7FC00;
-          v21 = 1000 * (qword_140C3D418 - qword_140C3D450) / PopQpcFrequency;
+          v21 = 1000 * (qword_140C3D3D8 - qword_140C3D410) / PopQpcFrequency;
           if ( v21 > 0x1FFF )
             LODWORD(v21) = 0x1FFF;
           v22 = ((_DWORD)v21 << 19) | v20 & 0x7FFFF;
-          v23 = (unsigned __int64)qword_140C3D4D8 >> 8;
+          v23 = (unsigned __int64)qword_140C3D498 >> 8;
           LODWORD(v40) = v22;
-          if ( (unsigned __int64)qword_140C3D4D8 >> 8 > 0x7FFF )
+          if ( (unsigned __int64)qword_140C3D498 >> 8 > 0x7FFF )
             LOWORD(v23) = 0x7FFF;
           if ( PopEnableMinimalHiberFile )
             v24 = 0x8000;
           else
             v24 = 0;
           WORD2(v40) = v24 | v23 & 0x7FFF;
-          HIWORD(v40) = (unsigned int)qword_140C3D4E0 >> 8;
-          if ( (unsigned __int64)qword_140C3D4E0 >> 8 >= 0xFFFF )
+          HIWORD(v40) = (unsigned int)qword_140C3D4A0 >> 8;
+          if ( (unsigned __int64)qword_140C3D4A0 >> 8 >= 0xFFFF )
             HIWORD(v40) = -1;
           v25 = (union _EVENT_DATA_DESCRIPTOR::$535316677C6A15A6ECBA40D88E1D787B *)&UserData.Reserved;
           v26 = 6LL;

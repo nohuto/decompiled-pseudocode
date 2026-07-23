@@ -1,9 +1,9 @@
 /*
- * XREFs of ApiSetpSearchForHostOverrideIndex_V7 @ 0x140662790
+ * XREFs of ApiSetpSearchForHostOverrideIndex_V7 @ 0x140661074
  * Callers:
- *     ApiSetpResolveHost @ 0x140661338 (ApiSetpResolveHost.c)
+ *     ApiSetpResolveHost @ 0x14065FB18 (ApiSetpResolveHost.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall ApiSetpSearchForHostOverrideIndex_V7(

@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptSha256Append @ 0x14051AE40
+ * XREFs of SymCryptSha256Append @ 0x140518710
  * Callers:
- *     SymCryptSha256 @ 0x14051ADAC (SymCryptSha256.c)
- *     HashpHashBytes @ 0x1408300C8 (HashpHashBytes.c)
+ *     SymCryptSha256 @ 0x14051867C (SymCryptSha256.c)
+ *     HashpHashBytes @ 0x1408308F8 (HashpHashBytes.c)
  * Callees:
- *     SymCryptSha256AppendBlocks @ 0x14051AF20 (SymCryptSha256AppendBlocks.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     SymCryptSha256AppendBlocks @ 0x1405187F0 (SymCryptSha256AppendBlocks.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall SymCryptSha256Append(unsigned int *a1, char *a2, size_t a3)

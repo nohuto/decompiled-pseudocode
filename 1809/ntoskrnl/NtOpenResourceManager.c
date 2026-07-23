@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenResourceManager @ 0x140194410
+ * XREFs of NtOpenResourceManager @ 0x140194550
  * Callers:
  *     <none>
  * Callees:

@@ -1,19 +1,19 @@
 /*
- * XREFs of CcPerfLogWorkItemEnqueue @ 0x140389AC8
+ * XREFs of CcPerfLogWorkItemEnqueue @ 0x14038B878
  * Callers:
- *     CcPostWorkQueueCachemapUninit @ 0x1403831F0 (CcPostWorkQueueCachemapUninit.c)
- *     CcAsyncLazywriteWorker @ 0x140385850 (CcAsyncLazywriteWorker.c)
- *     CcPostWorkQueueRegular @ 0x14038641C (CcPostWorkQueueRegular.c)
- *     CcWorkerThread @ 0x1403865D0 (CcWorkerThread.c)
- *     CcPostWorkQueueAsyncRead @ 0x140387C88 (CcPostWorkQueueAsyncRead.c)
- *     CcPostWorkQueueAsyncLazywrite @ 0x140388074 (CcPostWorkQueueAsyncLazywrite.c)
- *     CcPostWorkQueueSpecial @ 0x1404EEB44 (CcPostWorkQueueSpecial.c)
- *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1405B1608 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     CcPostWorkQueueCachemapUninit @ 0x140384FA0 (CcPostWorkQueueCachemapUninit.c)
+ *     CcAsyncLazywriteWorker @ 0x140387600 (CcAsyncLazywriteWorker.c)
+ *     CcPostWorkQueueRegular @ 0x1403881CC (CcPostWorkQueueRegular.c)
+ *     CcWorkerThread @ 0x140388380 (CcWorkerThread.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140389A38 (CcPostWorkQueueAsyncRead.c)
+ *     CcPostWorkQueueAsyncLazywrite @ 0x140389E24 (CcPostWorkQueueAsyncLazywrite.c)
+ *     CcPostWorkQueueSpecial @ 0x1404E8124 (CcPostWorkQueueSpecial.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1405B3E18 (CcWaitForCurrentLazyWriterActivityOnNode.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14039ADF4 (CcReferenceSharedCacheMapFileObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x14039CB54 (CcReferenceSharedCacheMapFileObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogWorkItemEnqueue(__int64 a1, __int64 a2, char a3, char a4)

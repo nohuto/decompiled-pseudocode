@@ -1,17 +1,17 @@
 /*
- * XREFs of ConstraintEval @ 0x14098E0C4
+ * XREFs of ConstraintEval @ 0x14094EB24
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14098EA84 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14094F4E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     SimplifyFilter @ 0x14098DF7C (SimplifyFilter.c)
- *     FilterEvalStrict @ 0x1409A7F40 (FilterEvalStrict.c)
- *     FilterEvalImpliedAnd @ 0x1409A8D0C (FilterEvalImpliedAnd.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     SimplifyFilter @ 0x14094E9DC (SimplifyFilter.c)
+ *     FilterEvalStrict @ 0x140968990 (FilterEvalStrict.c)
+ *     FilterEvalImpliedAnd @ 0x14096971C (FilterEvalImpliedAnd.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a4, __int64 a5)
@@ -39,7 +39,7 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
   int v29; // eax
   int v30; // ebx
   int v31; // eax
-  __int64 *p_OtherOperationCount; // rcx
+  char *v32; // rcx
   int v33; // [rsp+30h] [rbp-50h] BYREF
   unsigned int v34; // [rsp+34h] [rbp-4Ch] BYREF
   __int128 v35; // [rsp+38h] [rbp-48h] BYREF
@@ -116,17 +116,17 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
       {
         if ( (_DWORD)v38 != 17 )
           goto LABEL_33;
-        p_OtherOperationCount = &WheapPfaLock.OtherOperationCount;
+        v32 = (char *)&WheapPfaLock.UserWaitTime + 1;
         if ( **((_BYTE **)&v38 + 1) != 0xFF )
-          p_OtherOperationCount = (__int64 *)&unk_140E0F1E0;
-        *((_QWORD *)&v38 + 1) = p_OtherOperationCount;
+          v32 = (char *)&unk_140E0F260;
+        *((_QWORD *)&v38 + 1) = v32;
       }
     }
   }
   else
   {
     *(_QWORD *)&v38 = 0x400000007LL;
-    *((_QWORD *)&v38 + 1) = (char *)&WheapPfaLock.OtherOperationCount + 4;
+    *((_QWORD *)&v38 + 1) = (char *)&WheapPfaLock.UserWaitTime + 4;
   }
   for ( j = 0; j < v5; ++j )
   {

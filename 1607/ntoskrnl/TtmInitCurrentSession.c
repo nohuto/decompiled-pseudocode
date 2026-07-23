@@ -1,22 +1,22 @@
 /*
- * XREFs of TtmInitCurrentSession @ 0x1406786B8
+ * XREFs of TtmInitCurrentSession @ 0x14067879C
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PoRegisterPowerSettingCallback @ 0x1403F2E38 (PoRegisterPowerSettingCallback.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmiCreateTerminal @ 0x140677760 (TtmiCreateTerminal.c)
- *     TtmiUpdateActiveTerminalCount @ 0x140678D34 (TtmiUpdateActiveTerminalCount.c)
- *     TtmpAcquireSessionLock @ 0x140678E60 (TtmpAcquireSessionLock.c)
- *     TtmiLogInitCurrentSessionStart @ 0x14067B048 (TtmiLogInitCurrentSessionStart.c)
- *     TtmiLogInitCurrentSessionStop @ 0x14067B0E8 (TtmiLogInitCurrentSessionStop.c)
- *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x14067B8C4 (TtmiLogSessionDeviceAssignmentPolicySet.c)
+ *     PoRegisterPowerSettingCallback @ 0x1403F1CFC (PoRegisterPowerSettingCallback.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmiCreateTerminal @ 0x140677844 (TtmiCreateTerminal.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x140678E18 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmpAcquireSessionLock @ 0x140678F44 (TtmpAcquireSessionLock.c)
+ *     TtmiLogInitCurrentSessionStart @ 0x14067B12C (TtmiLogInitCurrentSessionStart.c)
+ *     TtmiLogInitCurrentSessionStop @ 0x14067B1CC (TtmiLogInitCurrentSessionStop.c)
+ *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x14067B9A8 (TtmiLogSessionDeviceAssignmentPolicySet.c)
  */
 
 __int64 TtmInitCurrentSession()

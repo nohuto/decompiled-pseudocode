@@ -1,8 +1,8 @@
 /*
- * XREFs of PspIsParentProcess @ 0x140091DA8
+ * XREFs of PspIsParentProcess @ 0x140091CE8
  * Callers:
- *     PspThreadOpen @ 0x140609090 (PspThreadOpen.c)
- *     PspProcessOpen @ 0x140609150 (PspProcessOpen.c)
+ *     PspThreadOpen @ 0x14060A090 (PspThreadOpen.c)
+ *     PspProcessOpen @ 0x14060A150 (PspProcessOpen.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcSectionTypeToBufferType @ 0x14080A15C
+ * XREFs of RtlpFcSectionTypeToBufferType @ 0x14080FBEC
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140CF0AF0 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140CF6E68 (CmFcManagerStartRuntimePhase.c)
  * Callees:
  *     <none>
  */

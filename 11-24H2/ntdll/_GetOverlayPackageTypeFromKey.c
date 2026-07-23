@@ -1,41 +1,39 @@
 /*
- * XREFs of _GetOverlayPackageTypeFromKey @ 0x1800B2D20
+ * XREFs of _GetOverlayPackageTypeFromKey @ 0x18007F5C0
  * Callers:
- *     GetOverlayFilePathUsingChecksum @ 0x1800B25C0 (GetOverlayFilePathUsingChecksum.c)
+ *     GetOverlayFilePathUsingChecksum @ 0x18007EE60 (GetOverlayFilePathUsingChecksum.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     NtQueryValueKey @ 0x180161F70 (NtQueryValueKey.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     NtQueryValueKey @ 0x180160330 (NtQueryValueKey.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall GetOverlayPackageTypeFromKey(__int64 a1, _DWORD *a2)
+__int64 __fastcall GetOverlayPackageTypeFromKey(HANDLE KeyHandle, _DWORD *a2)
 {
   int v3; // esi
   size_t v5; // rax
   _DWORD *Heap; // rdi
-  int v7; // eax
+  NTSTATUS v7; // eax
   int v8; // ebx
   unsigned int v9; // eax
-  _WORD v11[2]; // [rsp+30h] [rbp-28h] BYREF
-  int v12; // [rsp+34h] [rbp-24h]
-  const wchar_t *v13; // [rsp+38h] [rbp-20h]
-  int v14; // [rsp+70h] [rbp+18h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-28h] BYREF
+  ULONG ResultLength; // [rsp+70h] [rbp+18h] BYREF
 
   v3 = 0;
-  v12 = 0;
-  v13 = L"Type";
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  ValueName.Buffer = (wchar_t *)L"Type";
   v5 = 2 * wcslen(L"Type");
   if ( v5 >= 0xFFFE )
     LOWORD(v5) = -4;
-  v14 = 0;
-  v11[0] = v5;
-  v11[1] = v5 + 2;
-  Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
+  ResultLength = 0;
+  ValueName.Length = v5;
+  ValueName.MaximumLength = v5 + 2;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
   if ( !Heap )
     return (unsigned int)-1073741670;
-  v7 = NtQueryValueKey(a1, v11, 2LL, Heap, 16, &v14);
+  v7 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, 0x10u, &ResultLength);
   v8 = v7;
   if ( v7 >= 0 )
   {
@@ -58,7 +56,7 @@ __int64 __fastcall GetOverlayPackageTypeFromKey(__int64 a1, _DWORD *a2)
 LABEL_20:
     v8 = -1073741789;
 LABEL_12:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   if ( v8 == -1073741772 )
   {
     *a2 = 0;

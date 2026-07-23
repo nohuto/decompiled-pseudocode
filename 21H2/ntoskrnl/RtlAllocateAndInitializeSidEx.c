@@ -1,12 +1,16 @@
 /*
- * XREFs of RtlAllocateAndInitializeSidEx @ 0x1409132BC
+ * XREFs of RtlAllocateAndInitializeSidEx @ 0x14091341C
  * Callers:
- *     EtwpUserInAdminOrLogUsersGroup @ 0x14093B0EC (EtwpUserInAdminOrLogUsersGroup.c)
+ *     EtwpUserInAdminOrLogUsersGroup @ 0x14093B2BC (EtwpUserInAdminOrLogUsersGroup.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
  */
 
-__int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, __int64 a2, char *a3, _QWORD *a4)
+NTSTATUS __cdecl RtlAllocateAndInitializeSidEx(
+        PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
+        UCHAR SubAuthorityCount,
+        PULONG SubAuthorities,
+        PSID *Sid)
 {
   char *PoolWithQuotaTag; // rax
   __int64 v9; // rcx
@@ -14,20 +18,20 @@ __int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, __int64 a2, char *a
 
   PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x10uLL, 0x62507452u);
   if ( !PoolWithQuotaTag )
-    return 3221225495LL;
+    return -1073741801;
   *PoolWithQuotaTag = 1;
   v9 = 2LL;
-  *(_DWORD *)(PoolWithQuotaTag + 2) = *(_DWORD *)a1;
-  v10 = PoolWithQuotaTag - a3;
-  *((_WORD *)PoolWithQuotaTag + 3) = *(_WORD *)(a1 + 4);
+  *(_DWORD *)(PoolWithQuotaTag + 2) = *(_DWORD *)IdentifierAuthority->Value;
+  v10 = PoolWithQuotaTag - (char *)SubAuthorities;
+  *((_WORD *)PoolWithQuotaTag + 3) = *(_WORD *)&IdentifierAuthority->Value[4];
   PoolWithQuotaTag[1] = 2;
   do
   {
-    *(_DWORD *)&a3[v10 + 8] = *(_DWORD *)a3;
-    a3 += 4;
+    *(PULONG)((char *)SubAuthorities + v10 + 8) = *SubAuthorities;
+    ++SubAuthorities;
     --v9;
   }
   while ( v9 );
-  *a4 = PoolWithQuotaTag;
-  return 0LL;
+  *Sid = PoolWithQuotaTag;
+  return 0;
 }

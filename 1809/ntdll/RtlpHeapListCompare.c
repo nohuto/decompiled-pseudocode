@@ -4,7 +4,7 @@
  *     RtlpFreeHeap @ 0x180019FC0 (RtlpFreeHeap.c)
  *     RtlpHeapAddListEntry @ 0x18002070C (RtlpHeapAddListEntry.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHeapListCompare(__int64 a1, __int64 a2, int a3, char a4)

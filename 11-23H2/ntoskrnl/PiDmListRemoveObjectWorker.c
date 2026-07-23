@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmListRemoveObjectWorker @ 0x14095AF78
+ * XREFs of PiDmListRemoveObjectWorker @ 0x14095B178
  * Callers:
- *     PiDmListRemoveList @ 0x14095AD6C (PiDmListRemoveList.c)
- *     PiDmListRemoveObject @ 0x14095AEBC (PiDmListRemoveObject.c)
+ *     PiDmListRemoveList @ 0x14095AF6C (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x14095B0BC (PiDmListRemoveObject.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     RtlDeleteElementGenericTableAvl @ 0x14031E9D0 (RtlDeleteElementGenericTableAvl.c)
- *     PiDmObjectRelease @ 0x1406D6B68 (PiDmObjectRelease.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x14086BC88 (PiDmListUpdateAggregationCountWorker.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14031EC60 (RtlDeleteElementGenericTableAvl.c)
+ *     PiDmObjectRelease @ 0x1406D6B98 (PiDmObjectRelease.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x14086BEC8 (PiDmListUpdateAggregationCountWorker.c)
  */
 
 char *__fastcall PiDmListRemoveObjectWorker(int a1, __int64 a2, char *a3, __int64 a4, char *a5)

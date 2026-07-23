@@ -1,10 +1,10 @@
 /*
- * XREFs of SepFlattenAcl @ 0x140516924
+ * XREFs of SepFlattenAcl @ 0x140510394
  * Callers:
- *     SeLogAccessFailure @ 0x1402B59D0 (SeLogAccessFailure.c)
+ *     SeLogAccessFailure @ 0x1403006A0 (SeLogAccessFailure.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepFlattenAcl(__int64 a1, __int64 *a2, _DWORD *a3, _WORD *a4)

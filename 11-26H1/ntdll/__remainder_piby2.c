@@ -1,9 +1,9 @@
 /*
- * XREFs of __remainder_piby2 @ 0x180130550
+ * XREFs of __remainder_piby2 @ 0x1801302C0
  * Callers:
- *     cos @ 0x18012A350 (cos.c)
- *     sin @ 0x18012A6F0 (sin.c)
- *     tan @ 0x18012D300 (tan.c)
+ *     cos @ 0x18012A0C0 (cos.c)
+ *     sin @ 0x18012A460 (sin.c)
+ *     tan @ 0x18012D070 (tan.c)
  * Callees:
  *     <none>
  */
@@ -58,44 +58,44 @@ unsigned __int64 __fastcall _remainder_piby2(double a1, double *a2, double *a3, 
   v8 = v6 / 10;
   v9 = v6 / 10;
   v10 = v6 % 10;
-  v11 = ((*((_QWORD *)&unk_1801C5B00 + v8 + 18) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000uLL)) >> 10)
-      + *((_QWORD *)&unk_1801C5B00 + v9 + 17) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[17] = (*((_WORD *)&unk_1801C5B00 + 4 * v8 + 72) * LOWORD(a1)) & 0x3FF;
+  v11 = ((*((_QWORD *)&unk_1801C4B00 + v8 + 18) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000uLL)) >> 10)
+      + *((_QWORD *)&unk_1801C4B00 + v9 + 17) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[17] = (*((_WORD *)&unk_1801C4B00 + 4 * v8 + 72) * LOWORD(a1)) & 0x3FF;
   v48[16] = v11 & 0x3FF;
-  v12 = (v11 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 16) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[15] = ((unsigned __int16)(v11 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 64) * LOWORD(a1)) & 0x3FF;
-  v13 = (v12 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 15) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[14] = ((unsigned __int16)(v12 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 60) * LOWORD(a1)) & 0x3FF;
-  v14 = (v13 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 14) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[13] = ((unsigned __int16)(v13 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 56) * LOWORD(a1)) & 0x3FF;
-  v15 = (v14 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 13) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[12] = ((unsigned __int16)(v14 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 52) * LOWORD(a1)) & 0x3FF;
-  v16 = (v15 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 12) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[11] = ((unsigned __int16)(v15 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 48) * LOWORD(a1)) & 0x3FF;
-  v17 = (v16 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 11) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[10] = ((unsigned __int16)(v16 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 44) * LOWORD(a1)) & 0x3FF;
-  v18 = (v17 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 10) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[9] = ((unsigned __int16)(v17 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 40) * LOWORD(a1)) & 0x3FF;
-  v19 = (v18 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 9) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[8] = ((unsigned __int16)(v18 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 36) * LOWORD(a1)) & 0x3FF;
-  v20 = (v19 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 8) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[7] = ((unsigned __int16)(v19 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 32) * LOWORD(a1)) & 0x3FF;
-  v21 = (v20 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 7) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[6] = ((unsigned __int16)(v20 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 28) * LOWORD(a1)) & 0x3FF;
-  v22 = (v21 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 6) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[5] = ((unsigned __int16)(v21 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 24) * LOWORD(a1)) & 0x3FF;
-  v23 = (v22 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 5) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[4] = ((unsigned __int16)(v22 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 20) * LOWORD(a1)) & 0x3FF;
-  v24 = (v23 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 4) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[3] = ((unsigned __int16)(v23 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 16) * LOWORD(a1)) & 0x3FF;
-  v25 = (v24 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 3) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
-  v48[2] = ((unsigned __int16)(v24 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v8 + 12) * LOWORD(a1)) & 0x3FF;
-  v26 = (v25 >> 10) + *((_QWORD *)&unk_1801C5B00 + v8 + 2) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v12 = (v11 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 16) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[15] = ((unsigned __int16)(v11 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 64) * LOWORD(a1)) & 0x3FF;
+  v13 = (v12 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 15) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[14] = ((unsigned __int16)(v12 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 60) * LOWORD(a1)) & 0x3FF;
+  v14 = (v13 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 14) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[13] = ((unsigned __int16)(v13 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 56) * LOWORD(a1)) & 0x3FF;
+  v15 = (v14 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 13) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[12] = ((unsigned __int16)(v14 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 52) * LOWORD(a1)) & 0x3FF;
+  v16 = (v15 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 12) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[11] = ((unsigned __int16)(v15 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 48) * LOWORD(a1)) & 0x3FF;
+  v17 = (v16 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 11) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[10] = ((unsigned __int16)(v16 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 44) * LOWORD(a1)) & 0x3FF;
+  v18 = (v17 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 10) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[9] = ((unsigned __int16)(v17 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 40) * LOWORD(a1)) & 0x3FF;
+  v19 = (v18 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 9) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[8] = ((unsigned __int16)(v18 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 36) * LOWORD(a1)) & 0x3FF;
+  v20 = (v19 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 8) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[7] = ((unsigned __int16)(v19 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 32) * LOWORD(a1)) & 0x3FF;
+  v21 = (v20 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 7) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[6] = ((unsigned __int16)(v20 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 28) * LOWORD(a1)) & 0x3FF;
+  v22 = (v21 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 6) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[5] = ((unsigned __int16)(v21 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 24) * LOWORD(a1)) & 0x3FF;
+  v23 = (v22 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 5) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[4] = ((unsigned __int16)(v22 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 20) * LOWORD(a1)) & 0x3FF;
+  v24 = (v23 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 4) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[3] = ((unsigned __int16)(v23 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 16) * LOWORD(a1)) & 0x3FF;
+  v25 = (v24 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 3) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
+  v48[2] = ((unsigned __int16)(v24 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v8 + 12) * LOWORD(a1)) & 0x3FF;
+  v26 = (v25 >> 10) + *((_QWORD *)&unk_1801C4B00 + v8 + 2) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL);
   v27 = 1;
   v48[1] = v26 & 0x3FF;
-  v28 = *((_QWORD *)&unk_1801C5B00 + v8 + 1) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL) + (v26 >> 10);
-  v29 = (*((_WORD *)&unk_1801C5B00 + 4 * v8 + 4) * LOWORD(a1) + (unsigned __int16)(v26 >> 10)) & 0x3FF;
-  v30 = (v28 >> 10) + *((_WORD *)&unk_1801C5B00 + 4 * v9) * LOWORD(a1);
+  v28 = *((_QWORD *)&unk_1801C4B00 + v8 + 1) * (*(_QWORD *)&a1 & 0xFFFFFFFFFFFFFLL | 0x10000000000000LL) + (v26 >> 10);
+  v29 = (*((_WORD *)&unk_1801C4B00 + 4 * v8 + 4) * LOWORD(a1) + (unsigned __int16)(v26 >> 10)) & 0x3FF;
+  v30 = (v28 >> 10) + *((_WORD *)&unk_1801C4B00 + 4 * v9) * LOWORD(a1);
   v48[0] = v29;
   v47 = v30 & 0x3FF;
   v31 = (((v29 | (unsigned __int64)(v47 << 10)) >> (10 - (unsigned __int8)v10 - 1)) & 7) >> 1;

@@ -1,18 +1,18 @@
 /*
- * XREFs of KdPullRemoteFile @ 0x14091967C
+ * XREFs of KdPullRemoteFile @ 0x14091A67C
  * Callers:
- *     MiCreateSectionForDriver @ 0x1406822A0 (MiCreateSectionForDriver.c)
+ *     MiCreateSectionForDriver @ 0x140683460 (MiCreateSectionForDriver.c)
  * Callees:
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KdpCloseRemoteFile @ 0x140919914 (KdpCloseRemoteFile.c)
- *     KdpCreateRemoteFile @ 0x140919A60 (KdpCreateRemoteFile.c)
- *     KdpReadRemoteFile @ 0x140919C68 (KdpReadRemoteFile.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     KdpCloseRemoteFile @ 0x14091A914 (KdpCloseRemoteFile.c)
+ *     KdpCreateRemoteFile @ 0x14091AA60 (KdpCreateRemoteFile.c)
+ *     KdpReadRemoteFile @ 0x14091AC68 (KdpReadRemoteFile.c)
  */
 
 __int64 __fastcall KdPullRemoteFile(UNICODE_STRING *a1, __int64 a2, __int64 a3, ULONG a4)

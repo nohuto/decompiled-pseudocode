@@ -1,9 +1,9 @@
 /*
- * XREFs of PsCreateSiloContext @ 0x14055FC0C
+ * XREFs of PsCreateSiloContext @ 0x14056014C
  * Callers:
- *     CmpCreateServerSiloCallback @ 0x14055F990 (CmpCreateServerSiloCallback.c)
+ *     CmpCreateServerSiloCallback @ 0x14055FED0 (CmpCreateServerSiloCallback.c)
  * Callees:
- *     ObCreateObjectEx @ 0x14041D970 (ObCreateObjectEx.c)
+ *     ObCreateObjectEx @ 0x14041C830 (ObCreateObjectEx.c)
  */
 
 __int64 __fastcall PsCreateSiloContext(__int64 a1, int a2, int a3, __int64 a4, _QWORD *a5)

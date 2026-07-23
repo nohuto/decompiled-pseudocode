@@ -1,11 +1,11 @@
 /*
- * XREFs of MiZeroTrailingImageBytes @ 0x1406F7900
+ * XREFs of MiZeroTrailingImageBytes @ 0x1406FC570
  * Callers:
- *     MiValidateInPage @ 0x14038C154 (MiValidateInPage.c)
+ *     MiValidateInPage @ 0x14038DF04 (MiValidateInPage.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiZeroTrailingImageBytes(__int64 a1)

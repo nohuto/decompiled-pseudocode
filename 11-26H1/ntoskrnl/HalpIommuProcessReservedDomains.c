@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuProcessReservedDomains @ 0x140BEBD4C
+ * XREFs of HalpIommuProcessReservedDomains @ 0x140BF1D4C
  * Callers:
- *     HalpIommuInitializeAll @ 0x140C0D57C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x140C1378C (HalpIommuInitializeAll.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpIommuConstructReservedPageTable @ 0x140BEBC40 (HalpIommuConstructReservedPageTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuConstructReservedPageTable @ 0x140BF1C40 (HalpIommuConstructReservedPageTable.c)
  */
 
 __int64 __fastcall HalpIommuProcessReservedDomains(__int64 a1, __int64 a2)

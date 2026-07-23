@@ -1,16 +1,21 @@
 /*
- * XREFs of NtQuerySystemEnvironmentValueEx @ 0x1800A2DF0
+ * XREFs of NtQuerySystemEnvironmentValueEx @ 0x1800A2E10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQuerySystemEnvironmentValueEx()
+NTSTATUS __cdecl NtQuerySystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        PULONG ValueLength,
+        PULONG Attributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 345LL;
+  result = 345;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

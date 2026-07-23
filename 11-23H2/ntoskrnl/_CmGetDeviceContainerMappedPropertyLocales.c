@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetDeviceContainerMappedPropertyLocales @ 0x140A64234
+ * XREFs of _CmGetDeviceContainerMappedPropertyLocales @ 0x140A644E4
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x14079AA80 (_PnpDispatchDeviceContainer.c)
+ *     _PnpDispatchDeviceContainer @ 0x14079AC70 (_PnpDispatchDeviceContainer.c)
  * Callees:
  *     <none>
  */

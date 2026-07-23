@@ -1,17 +1,17 @@
 /*
- * XREFs of MiEndingOffsetWithLock @ 0x140023560
+ * XREFs of MiEndingOffsetWithLock @ 0x1400230E0
  * Callers:
- *     MiReadyFlushMdlToWrite @ 0x14002166C (MiReadyFlushMdlToWrite.c)
- *     MiFinishMdlForMappedFileFault @ 0x1400232A0 (MiFinishMdlForMappedFileFault.c)
- *     MiViewMayContainPage @ 0x14008F754 (MiViewMayContainPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
- *     MiPfAllocateMdls @ 0x140499560 (MiPfAllocateMdls.c)
+ *     MiReadyFlushMdlToWrite @ 0x1400211EC (MiReadyFlushMdlToWrite.c)
+ *     MiFinishMdlForMappedFileFault @ 0x140022E20 (MiFinishMdlForMappedFileFault.c)
+ *     MiViewMayContainPage @ 0x14008EEB4 (MiViewMayContainPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
+ *     MiPfAllocateMdls @ 0x140499FF0 (MiPfAllocateMdls.c)
  * Callees:
- *     MiEndingOffset @ 0x1400235F0 (MiEndingOffset.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089C20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DDDC (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DEBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiEndingOffset @ 0x140023170 (MiEndingOffset.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089320 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DC08 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DCE8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiEndingOffsetWithLock(_QWORD *a1)

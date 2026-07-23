@@ -1,9 +1,9 @@
 /*
- * XREFs of InitSkuSessionParameters @ 0x140CAB730
+ * XREFs of InitSkuSessionParameters @ 0x140CB1770
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExIsMultiSessionSku @ 0x14083763C (ExIsMultiSessionSku.c)
+ *     ExIsMultiSessionSku @ 0x14083D87C (ExIsMultiSessionSku.c)
  */
 
 __int64 InitSkuSessionParameters()
@@ -23,7 +23,7 @@ __int64 InitSkuSessionParameters()
     result = MmWriteableSharedUserData;
     *(_DWORD *)(MmWriteableSharedUserData + 752) |= 0x200u;
   }
-  if ( HIDWORD(WheapPfaLock.CycleTime) )
+  if ( HIDWORD(WheapPfaLock.KernelStack) )
   {
     result = MmWriteableSharedUserData;
     *(_DWORD *)(MmWriteableSharedUserData + 752) |= 0x400u;

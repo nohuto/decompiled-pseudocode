@@ -11,7 +11,7 @@
 
 __int64 HvlQueryHypervisorTscAdjustment()
 {
-  union _SLIST_HEADER *v1; // rsi
+  _SLIST_HEADER *v1; // rsi
   char v2; // r12
   char v3; // r13
   unsigned __int8 v4; // bp
@@ -21,7 +21,7 @@ __int64 HvlQueryHypervisorTscAdjustment()
   __int64 *v8; // rdi
   PHYSICAL_ADDRESS PhysicalAddress; // r14
   PSLIST_ENTRY v10; // rax
-  struct _SLIST_ENTRY *v11; // r15
+  _SLIST_ENTRY *v11; // r15
   __int64 v12; // rdi
   __int64 HypercallCachedPages; // rax
   struct _KPRCB *v14; // rcx
@@ -30,10 +30,10 @@ __int64 HvlQueryHypervisorTscAdjustment()
   char v17; // [rsp+20h] [rbp-108h]
   PSLIST_ENTRY ListEntry; // [rsp+28h] [rbp-100h]
   PHYSICAL_ADDRESS Next; // [rsp+30h] [rbp-F8h]
-  union _SLIST_HEADER *v20; // [rsp+40h] [rbp-E8h]
-  struct _SLIST_ENTRY *v21; // [rsp+48h] [rbp-E0h]
-  union _SLIST_HEADER *v22; // [rsp+60h] [rbp-C8h]
-  struct _SLIST_ENTRY *v23; // [rsp+68h] [rbp-C0h]
+  _SLIST_HEADER *v20; // [rsp+40h] [rbp-E8h]
+  _SLIST_ENTRY *v21; // [rsp+48h] [rbp-E0h]
+  _SLIST_HEADER *v22; // [rsp+60h] [rbp-C8h]
+  _SLIST_ENTRY *v23; // [rsp+68h] [rbp-C0h]
   _BYTE v24[7]; // [rsp+80h] [rbp-A8h] BYREF
   _BYTE v25[9]; // [rsp+87h] [rbp-A1h] BYREF
   _BYTE v26[7]; // [rsp+90h] [rbp-98h] BYREF
@@ -54,7 +54,7 @@ __int64 HvlQueryHypervisorTscAdjustment()
       v4 = (unsigned __int8)CurrentPrcb;
       Next = (PHYSICAL_ADDRESS)v7[1].Next;
       v17 = 1;
-      v20 = (union _SLIST_HEADER *)CurrentPrcb;
+      v20 = (_SLIST_HEADER *)CurrentPrcb;
     }
     else
     {
@@ -96,7 +96,7 @@ LABEL_22:
     v11 = v23;
     goto LABEL_23;
   }
-  v1 = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+  v1 = (_SLIST_HEADER *)KeGetCurrentPrcb();
   v10 = RtlpInterlockedPopEntrySList(v1 + 1535);
   v8 = (__int64 *)v10;
   if ( !v10 )

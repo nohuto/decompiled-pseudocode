@@ -1,27 +1,27 @@
 /*
- * XREFs of MiLockDriverPageRange @ 0x14052DA04
+ * XREFs of MiLockDriverPageRange @ 0x14052DC44
  * Callers:
- *     MmWriteSystemImageTracepoint @ 0x14053F6F8 (MmWriteSystemImageTracepoint.c)
- *     MiLockHotPatchPages @ 0x1408CB184 (MiLockHotPatchPages.c)
- *     MiLockHotPatchUndoPages @ 0x1408CB234 (MiLockHotPatchUndoPages.c)
- *     MiLockAndMapEntireDriver @ 0x1408D0AF4 (MiLockAndMapEntireDriver.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F938 (MmWriteSystemImageTracepoint.c)
+ *     MiLockHotPatchPages @ 0x1408CB2E4 (MiLockHotPatchPages.c)
+ *     MiLockHotPatchUndoPages @ 0x1408CB394 (MiLockHotPatchUndoPages.c)
+ *     MiLockAndMapEntireDriver @ 0x1408D0C54 (MiLockAndMapEntireDriver.c)
  * Callees:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
- *     MiCaptureDirtyBitToPfn @ 0x14030FB10 (MiCaptureDirtyBitToPfn.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReferenceDriverPage @ 0x140397B28 (MiReferenceDriverPage.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
+ *     MiMakeDriverPagesPrivate @ 0x140298244 (MiMakeDriverPagesPrivate.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiCopyOnWrite @ 0x1402E3B50 (MiCopyOnWrite.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031A860 (MiCaptureDirtyBitToPfn.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReferenceDriverPage @ 0x140397C78 (MiReferenceDriverPage.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeSetPagePrivilege @ 0x140512E78 (KeSetPagePrivilege.c)
- *     MiCopyOnWriteCheckConditions @ 0x14055BEF8 (MiCopyOnWriteCheckConditions.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeSetPagePrivilege @ 0x1405130B8 (KeSetPagePrivilege.c)
+ *     MiCopyOnWriteCheckConditions @ 0x14055C138 (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiLockDriverPageRange(
@@ -99,7 +99,7 @@ LABEL_27:
       MiUnlockPageTableInternal(a2, v17);
     }
     v17 = ((v16 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    MiLockPageTableInternal(a2, v17, 0LL);
+    MiLockPageTableInternal(a2, v17, 0);
     v18 = v42;
 LABEL_11:
     if ( v8[6] && v18 < v8[5] && _bittest64((const signed __int64 *)v8[6], v18) )
@@ -138,7 +138,7 @@ LABEL_11:
           v33 = MiCaptureDirtyBitToPfn(48 * v20 - 0x58000000000LL);
           if ( v33 )
           {
-            v34 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v21 + 40) >> 39) & 0x3FFLL));
+            v34 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v21 + 40) >> 39) & 0x3FFLL));
             v37 = v34;
           }
           else
@@ -161,7 +161,7 @@ LABEL_11:
         v8 = a1;
         MiMakeDriverPagesPrivate(*a1, v16, v16 + 8LL * (a4 - v42), 8);
         MiLockWorkingSetShared(a2, v30, v31, v32);
-        MiLockPageTableInternal(a2, v17, 0LL);
+        MiLockPageTableInternal(a2, v17, 0);
         v14 = BugCheckParameter1;
         goto LABEL_27;
       }
@@ -175,7 +175,7 @@ LABEL_11:
         MiUnlockWorkingSetShared(a2, v44);
         MiCopyOnWriteCheckConditions(a2, v26);
         MiLockWorkingSetShared(a2, v27, v28, v29);
-        MiLockPageTableInternal(a2, v17, 0LL);
+        MiLockPageTableInternal(a2, v17, 0);
         v8 = a1;
         goto LABEL_27;
       }
@@ -190,7 +190,7 @@ LABEL_11:
       if ( (int)MmAccessFault(0LL, v14, 0, (ULONG_PTR)&v40[1] + 9) >= 0 )
         goto LABEL_4;
       MiLockWorkingSetShared(a2, v13, v9, v10);
-      MiLockPageTableInternal(a2, v17, 0LL);
+      MiLockPageTableInternal(a2, v17, 0);
       if ( (a5 & 2) == 0 )
       {
         v12 = -1073741701;

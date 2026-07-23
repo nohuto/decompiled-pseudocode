@@ -12,10 +12,10 @@
 
 int __fastcall RtlpInterlockedFlushSList(unsigned int a1)
 {
-  volatile signed __int32 *v2; // edi
+  _RTL_SRWLOCK *v2; // edi
   int v3; // esi
 
-  v2 = &RtlpSlistLockedAltLocks[(a1 >> 2) & 0x1F];
+  v2 = &RtlpSlistLockedAltLocks + ((a1 >> 2) & 0x1F);
   RtlAcquireSRWLockExclusive(v2);
   v3 = *(_DWORD *)a1;
   *(_DWORD *)a1 = 0;

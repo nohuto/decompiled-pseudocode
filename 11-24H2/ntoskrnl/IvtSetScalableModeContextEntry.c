@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtSetScalableModeContextEntry @ 0x140571494
+ * XREFs of IvtSetScalableModeContextEntry @ 0x14056E924
  * Callers:
- *     IvtInitializeIommu @ 0x140B51B90 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x140B53BE0 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDispatchKernelModeEvent @ 0x140C5D440
+ * XREFs of KiDispatchKernelModeEvent @ 0x140C63440
  * Callers:
- *     KiEnterKernelModeEvent @ 0x140C5D100 (KiEnterKernelModeEvent.c)
+ *     KiEnterKernelModeEvent @ 0x140C63100 (KiEnterKernelModeEvent.c)
  * Callees:
- *     KiDispatchKernelModeEvent @ 0x140C5D440 (KiDispatchKernelModeEvent.c)
+ *     KiDispatchKernelModeEvent @ 0x140C63440 (KiDispatchKernelModeEvent.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -29,5 +29,5 @@ void __fastcall KiDispatchKernelModeEvent(double a1, double a2, double a3, doubl
     *(_DWORD *)(v4 + 268) |= 0x3000Du;
     *(_WORD *)(v4 + 224) = 0;
   }
-  JUMPOUT(0x140C5D4EELL);
+  JUMPOUT(0x140C634EELL);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of memcpy_s @ 0x140504070
+ * XREFs of memcpy_s @ 0x140501930
  * Callers:
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 errno_t __cdecl memcpy_s(void *a1, rsize_t DstSize, const void *Src, rsize_t MaxCount)

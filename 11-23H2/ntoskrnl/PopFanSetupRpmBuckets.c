@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFanSetupRpmBuckets @ 0x140997364
+ * XREFs of PopFanSetupRpmBuckets @ 0x140997564
  * Callers:
- *     PopFanWorker @ 0x140847C10 (PopFanWorker.c)
+ *     PopFanWorker @ 0x140847F10 (PopFanWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 unsigned int __fastcall PopFanSetupRpmBuckets(__int64 a1)
@@ -63,7 +63,7 @@ unsigned int __fastcall PopFanSetupRpmBuckets(__int64 a1)
             return result;
           v18 = a1;
           v21 = &v18;
-          v16 = (unsigned __int8 *)&byte_140031877;
+          v16 = (unsigned __int8 *)&byte_1400315E7;
           v23 = v4;
           v17 = 4;
           v24 = 16LL;
@@ -96,7 +96,7 @@ LABEL_24:
           {
             LODWORD(v18) = v5;
             v21 = &v19;
-            v16 = (unsigned __int8 *)&dword_1400318BC;
+            v16 = (unsigned __int8 *)&dword_14003162C;
             v25 = v4;
             v23 = &v18;
             v26 = 16LL;
@@ -129,7 +129,7 @@ LABEL_11:
           v26 = 2LL;
           result = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C03950,
-                     (unsigned __int8 *)&dword_14003182C,
+                     (unsigned __int8 *)&dword_14003159C,
                      0LL,
                      0LL,
                      6u,
@@ -138,7 +138,7 @@ LABEL_11:
         if ( *(_BYTE *)(a1 + 88) != 1 )
         {
           *(_BYTE *)(a1 + 88) = 1;
-          _InterlockedIncrement(&dword_140C3C948);
+          _InterlockedIncrement(&dword_140C3C908);
         }
         return result;
       }
@@ -148,7 +148,7 @@ LABEL_11:
   {
     LODWORD(v18) = 0;
     v21 = &v19;
-    v16 = (unsigned __int8 *)&word_140031956;
+    v16 = (unsigned __int8 *)&unk_140031958;
     v23 = &v18;
     v17 = 4;
 LABEL_23:

@@ -6,7 +6,7 @@
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  *     MiInitializeSystemVa @ 0x1407AA428 (MiInitializeSystemVa.c)
@@ -36,14 +36,14 @@ char __fastcall MmInitSystem(__int64 a1, ULONG_PTR a2)
         v5 = NumaGraph;
         if ( NumaGraph )
         {
-          memmove(qword_1403269A8, NumaGraph, 2LL * (unsigned __int16)KeNumberNodes * (unsigned __int16)KeNumberNodes);
+          memmove(qword_1403269E8, NumaGraph, 2LL * (unsigned __int16)KeNumberNodes * (unsigned __int16)KeNumberNodes);
           ExFreePoolWithTag(v5, 0);
         }
       }
       MiFlags = MiFlags & 0xFFFFFFCF | 0x10;
       if ( (unsigned __int8)MiInitSystem(1LL, v2) )
       {
-        byte_140327798 = 1;
+        byte_1403277D8 = 1;
         return 1;
       }
     }

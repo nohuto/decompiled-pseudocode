@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipEnableCollectOrEvent @ 0x140612CC4
+ * XREFs of WmipEnableCollectOrEvent @ 0x140613CC4
  * Callers:
- *     WmipOpenBlock @ 0x140611928 (WmipOpenBlock.c)
+ *     WmipOpenBlock @ 0x140612928 (WmipOpenBlock.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     WmipSendEnableRequest @ 0x1406CE2D4 (WmipSendEnableRequest.c)
+ *     WmipSendEnableRequest @ 0x1406CF574 (WmipSendEnableRequest.c)
  */
 
 __int64 __fastcall WmipEnableCollectOrEvent(ULONG_PTR BugCheckParameter2, int a2, _BYTE *a3)

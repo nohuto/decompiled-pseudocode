@@ -1,18 +1,18 @@
 /*
- * XREFs of ValidFilter @ 0x140489300
+ * XREFs of ValidFilter @ 0x140511A74
  * Callers:
- *     PiDqQueryValidateQueryData @ 0x14048C734 (PiDqQueryValidateQueryData.c)
+ *     PiDqQueryValidateQueryData @ 0x14048CD48 (PiDqQueryValidateQueryData.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _PnpValidatePropertyData @ 0x1404893D0 (_PnpValidatePropertyData.c)
- *     FilterEval @ 0x1405027C4 (FilterEval.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     FilterEval @ 0x1404E5754 (FilterEval.c)
+ *     _PnpValidatePropertyData @ 0x140511B44 (_PnpValidatePropertyData.c)
  */
 
-__int64 __fastcall ValidFilter(unsigned int a1, __int64 a2)
+__int64 __fastcall ValidFilter(unsigned int a1, _DWORD *a2)
 {
   int v4; // edi
-  __int64 i; // rbx
+  _DWORD *i; // rbx
   int v7; // [rsp+30h] [rbp-58h] BYREF
   int v8; // [rsp+38h] [rbp-50h] BYREF
   _BYTE *v9; // [rsp+40h] [rbp-48h]
@@ -22,15 +22,19 @@ __int64 __fastcall ValidFilter(unsigned int a1, __int64 a2)
   v7 = 0;
   v9 = v10;
   v8 = 1;
-  if ( (unsigned int)FilterEval((unsigned int)GetPropertyFromPropArray, (unsigned int)&v8, a1, a2, (__int64)&v7) != -1073741811 )
+  if ( (unsigned int)FilterEval(
+                       (__int64 (__fastcall *)(__int64, unsigned int *, unsigned int *, unsigned int *, __int64 *))GetPropertyFromPropArray,
+                       (__int64)&v8,
+                       a1,
+                       a2,
+                       &v7) != -1073741811 )
   {
     v4 = 0;
     if ( !a1 )
       return 1LL;
-    for ( i = a2 + 40;
-          !*(_QWORD *)(i - 8)
-       && (unsigned int)PnpValidatePropertyData(*(PSECURITY_DESCRIPTOR *)(i + 8), *(_DWORD *)(i + 4)) != 1;
-          i += 56LL )
+    for ( i = a2 + 10;
+          !*((_QWORD *)i - 1) && (unsigned int)PnpValidatePropertyData(*((PSECURITY_DESCRIPTOR *)i + 1), i[1]) != 1;
+          i += 14 )
     {
       if ( ++v4 >= a1 )
         return 1LL;

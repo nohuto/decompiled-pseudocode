@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledFallback @ 0x1405E9500
+ * XREFs of Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledFallback @ 0x1405EBE70
  * Callers:
- *     Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline @ 0x1405E94C4 (Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline @ 0x1405EBE34 (Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledFallback(__int64 a1, unsigned int a2)

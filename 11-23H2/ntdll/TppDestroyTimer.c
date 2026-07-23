@@ -7,8 +7,8 @@
  *     TpAdjustBindingCount @ 0x18002FDF0 (TpAdjustBindingCount.c)
  */
 
-__int64 __fastcall TppDestroyTimer(_QWORD *a1)
+void __fastcall TppDestroyTimer(_QWORD *a1)
 {
   TpAdjustBindingCount(a1[18], 0xFFFFFFFF);
-  return TppCleanupGroupMemberDestroy(a1);
+  TppCleanupGroupMemberDestroy(a1);
 }

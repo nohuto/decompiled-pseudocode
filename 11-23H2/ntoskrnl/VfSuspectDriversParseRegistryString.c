@@ -3,11 +3,11 @@
  * Callers:
  *     VfInitBootDriversLoaded @ 0x140B577A4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140ACA890 (VfDriverUnlock.c)
- *     VfSuspectDriversAllocateEntry @ 0x140ADA3C4 (VfSuspectDriversAllocateEntry.c)
- *     VfSuspectDriversInsert @ 0x140ADA700 (VfSuspectDriversInsert.c)
- *     VfSuspectExcludedDriversAllocateEntry @ 0x140ADAC40 (VfSuspectExcludedDriversAllocateEntry.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x140ACA880 (VfDriverUnlock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140ADA3B4 (VfSuspectDriversAllocateEntry.c)
+ *     VfSuspectDriversInsert @ 0x140ADA6F0 (VfSuspectDriversInsert.c)
+ *     VfSuspectExcludedDriversAllocateEntry @ 0x140ADAC30 (VfSuspectExcludedDriversAllocateEntry.c)
  */
 
 int VfSuspectDriversParseRegistryString()

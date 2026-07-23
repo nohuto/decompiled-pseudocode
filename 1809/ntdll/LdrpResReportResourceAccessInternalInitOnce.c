@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpResReportResourceAccessInternalInitOnce @ 0x180086B80
+ * XREFs of LdrpResReportResourceAccessInternalInitOnce @ 0x180086B90
  * Callers:
  *     <none>
  * Callees:
- *     TraceLoggingRegisterEx @ 0x180075FFC (TraceLoggingRegisterEx.c)
+ *     TraceLoggingRegisterEx @ 0x18007600C (TraceLoggingRegisterEx.c)
  */
 
 __int64 __fastcall LdrpResReportResourceAccessInternalInitOnce(
-        __int64 a1,
-        void (__stdcall *a2)(LPCGUID SourceId, ULONG IsEnabled, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, PEVENT_FILTER_DESCRIPTOR FilterData, PVOID CallbackContext),
-        void *a3)
+        PRTL_RUN_ONCE a1,
+        void (__cdecl *a2)(LPCGUID, ULONG, UCHAR, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, PVOID),
+        PVOID *a3)
 {
   TraceLoggingRegisterEx((TraceLoggingHProvider)&dword_18015F520, a2, a3);
   dword_180166010 = (unsigned __int16)(__rdtsc() >> 4);

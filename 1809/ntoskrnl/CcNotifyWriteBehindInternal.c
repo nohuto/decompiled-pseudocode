@@ -1,13 +1,13 @@
 /*
- * XREFs of CcNotifyWriteBehindInternal @ 0x14012BF3C
+ * XREFs of CcNotifyWriteBehindInternal @ 0x14012C00C
  * Callers:
- *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     CcScanDpc @ 0x14012BF20 (CcScanDpc.c)
- *     CcNotifyWriteBehindEx @ 0x1401532B4 (CcNotifyWriteBehindEx.c)
- *     CcNotifyWriteBehindHelper @ 0x140159AC0 (CcNotifyWriteBehindHelper.c)
- *     CcExitPartition @ 0x14026B5B0 (CcExitPartition.c)
+ *     CcScheduleLazyWriteScan @ 0x14007EEB8 (CcScheduleLazyWriteScan.c)
+ *     CcScanDpc @ 0x14012BFF0 (CcScanDpc.c)
+ *     CcNotifyWriteBehindEx @ 0x1401533B4 (CcNotifyWriteBehindEx.c)
+ *     CcNotifyWriteBehindHelper @ 0x140159BC0 (CcNotifyWriteBehindHelper.c)
+ *     CcExitPartition @ 0x14026B7A0 (CcExitPartition.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 LONG __fastcall CcNotifyWriteBehindInternal(struct _KEVENT *a1, char a2)

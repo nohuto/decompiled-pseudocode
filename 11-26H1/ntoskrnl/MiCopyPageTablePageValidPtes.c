@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCopyPageTablePageValidPtes @ 0x14033BDE0
+ * XREFs of MiCopyPageTablePageValidPtes @ 0x14033DE60
  * Callers:
- *     MiReplacePageTablePage @ 0x14033C35C (MiReplacePageTablePage.c)
+ *     MiReplacePageTablePage @ 0x14033E3DC (MiReplacePageTablePage.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 unsigned __int64 __fastcall MiCopyPageTablePageValidPtes(int *a1, _QWORD *a2)
@@ -93,7 +93,7 @@ LABEL_4:
     result = (unsigned int)(v6 - 1);
     v13 = v10 & (v12 >> 12);
     *a1 = result;
-    if ( v13 <= qword_140E2D7A0 )
+    if ( v13 <= qword_140E2D920 )
     {
       result = *(_QWORD *)(48 * v13 - 0x21FFFFFFFFD8LL);
       if ( (result & 0x40000000000000LL) != 0 && v13 != v7 )
@@ -182,7 +182,7 @@ LABEL_4:
         if ( result )
         {
           v22 = 1;
-          if ( !BYTE5(stru_140E2D930.Header.WaitListHead.Blink) )
+          if ( !BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) )
           {
             result = v21;
             if ( (v21 & 1) != 0 )

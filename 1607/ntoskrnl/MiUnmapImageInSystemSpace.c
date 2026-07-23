@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnmapImageInSystemSpace @ 0x140525DFC
+ * XREFs of MiUnmapImageInSystemSpace @ 0x140508E5C
  * Callers:
- *     MiSetPagesModified @ 0x1401E5664 (MiSetPagesModified.c)
- *     MiGetSystemAddressForImage @ 0x1404CCEDC (MiGetSystemAddressForImage.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
- *     MiParseComImage @ 0x1405250A8 (MiParseComImage.c)
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
- *     MiCreateSessionDriverProtos @ 0x1406645B4 (MiCreateSessionDriverProtos.c)
+ *     MiSetPagesModified @ 0x1401E5490 (MiSetPagesModified.c)
+ *     MiGetSystemAddressForImage @ 0x1404B2908 (MiGetSystemAddressForImage.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
+ *     MiParseComImage @ 0x140508108 (MiParseComImage.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
+ *     MiCreateSessionDriverProtos @ 0x140664698 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiRemoveFromSystemSpace @ 0x140100090 (MiRemoveFromSystemSpace.c)
- *     MiUnmapViewOfSection @ 0x14042E400 (MiUnmapViewOfSection.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiRemoveFromSystemSpace @ 0x1400FDE10 (MiRemoveFromSystemSpace.c)
+ *     MiUnmapViewOfSection @ 0x14042D2D0 (MiUnmapViewOfSection.c)
  */
 
 void __fastcall MiUnmapImageInSystemSpace(__int64 a1)
@@ -25,6 +25,6 @@ void __fastcall MiUnmapImageInSystemSpace(__int64 a1)
   }
   else
   {
-    MiRemoveFromSystemSpace((__int64)&unk_140326880, v1, 1);
+    MiRemoveFromSystemSpace((__int64)&unk_1403268C0, v1, 1);
   }
 }

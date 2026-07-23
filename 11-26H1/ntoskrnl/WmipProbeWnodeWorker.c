@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipProbeWnodeWorker @ 0x140A0C784
+ * XREFs of WmipProbeWnodeWorker @ 0x140A0B754
  * Callers:
- *     WmipProbeWnodeSingleItem @ 0x140823A10 (WmipProbeWnodeSingleItem.c)
- *     WmipProbeWnodeSingleInstance @ 0x140A0C704 (WmipProbeWnodeSingleInstance.c)
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
+ *     WmipProbeWnodeSingleItem @ 0x140829C5C (WmipProbeWnodeSingleItem.c)
+ *     WmipProbeWnodeSingleInstance @ 0x140A0B6D4 (WmipProbeWnodeSingleInstance.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
  * Callees:
  *     <none>
  */

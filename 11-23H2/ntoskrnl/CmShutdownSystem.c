@@ -1,14 +1,14 @@
 /*
- * XREFs of CmShutdownSystem @ 0x140A112D8
+ * XREFs of CmShutdownSystem @ 0x140A11588
  * Callers:
- *     ExRebootSystemForRecovery @ 0x140606674 (ExRebootSystemForRecovery.c)
- *     PopGracefulShutdown @ 0x140AA0A60 (PopGracefulShutdown.c)
+ *     ExRebootSystemForRecovery @ 0x140606BC4 (ExRebootSystemForRecovery.c)
+ *     PopGracefulShutdown @ 0x140AA08D0 (PopGracefulShutdown.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     CmShutdownSystem0 @ 0x140615B9C (CmShutdownSystem0.c)
- *     CmShutdownSystem1 @ 0x140615BC4 (CmShutdownSystem1.c)
- *     CmShutdownSystem2 @ 0x140615E1C (CmShutdownSystem2.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     CmShutdownSystem0 @ 0x1406160EC (CmShutdownSystem0.c)
+ *     CmShutdownSystem1 @ 0x140616114 (CmShutdownSystem1.c)
+ *     CmShutdownSystem2 @ 0x14061636C (CmShutdownSystem2.c)
  */
 
 __int64 CmShutdownSystem()

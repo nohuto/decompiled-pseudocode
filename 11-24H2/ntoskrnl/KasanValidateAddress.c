@@ -1,11 +1,11 @@
 /*
- * XREFs of KasanValidateAddress @ 0x1405A9DF0
+ * XREFs of KasanValidateAddress @ 0x1405A6D60
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 char __fastcall KasanValidateAddress(
@@ -26,7 +26,7 @@ char __fastcall KasanValidateAddress(
     KeBugCheckEx(0x1F1u, 3uLL, 1uLL, BugCheckParameter1, BugCheckParameter2);
   if ( v5 < BugCheckParameter1 )
     KeBugCheckEx(0x1F1u, 3uLL, 3uLL, BugCheckParameter1, BugCheckParameter2);
-  if ( byte_140FCDC2A && BugCheckParameter1 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && BugCheckParameter1 >= 0xFFFF800000000000uLL )
   {
     if ( BugCheckParameter2 )
     {

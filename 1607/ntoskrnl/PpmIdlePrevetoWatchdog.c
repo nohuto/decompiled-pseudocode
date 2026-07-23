@@ -1,24 +1,24 @@
 /*
- * XREFs of PpmIdlePrevetoWatchdog @ 0x1402006B8
+ * XREFs of PpmIdlePrevetoWatchdog @ 0x1402004E4
  * Callers:
- *     PopDripsWatchdogTakeAction @ 0x140675208 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1406752EC (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1400D71A0 (RtlGetInterruptTimePrecise.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlGetInterruptTimePrecise @ 0x1400D5040 (RtlGetInterruptTimePrecise.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rsi
   KIRQL v7; // bp
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 v9; // rdx
   unsigned int v10; // r9d
   __int64 v11; // r10
   unsigned __int64 v12; // rcx
   __int64 v13; // r8
-  LARGE_INTEGER v14; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp+10h] BYREF
 
   *a2 = 0;
   *a3 = 0LL;
@@ -26,11 +26,11 @@ void __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWORD *
   {
     if ( *(_DWORD *)(PpmPlatformStates + 4) )
     {
-      v6 = (unsigned int)dword_140328940;
-      if ( dword_140328940 != -1 )
+      v6 = (unsigned int)dword_140328980;
+      if ( dword_140328980 != -1 )
       {
         v7 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v14);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         v9 = 0LL;
         v10 = *(_DWORD *)(384 * v6 + PpmPlatformStates + 100);
         if ( v10 )
@@ -42,7 +42,7 @@ void __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWORD *
             v13 = *(_QWORD *)(v12 + v11 + 32);
             if ( v13 )
             {
-              if ( InterruptTimePrecise - v13 >= a1 )
+              if ( InterruptTimePrecise.QuadPart - v13 >= a1 )
                 break;
             }
             v9 = (unsigned int)(v9 + 1);

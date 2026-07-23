@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteEmptyPageTableTail @ 0x140476F00
+ * XREFs of MiDeleteEmptyPageTableTail @ 0x1404734A0
  * Callers:
- *     MiDeleteVaDirect @ 0x1402DA300 (MiDeleteVaDirect.c)
+ *     MiDeleteVaDirect @ 0x14023BBE0 (MiDeleteVaDirect.c)
  * Callees:
- *     MiDecommitPagesTail @ 0x1402DBE74 (MiDecommitPagesTail.c)
- *     MiReleaseWalkLocks @ 0x1402E37F0 (MiReleaseWalkLocks.c)
- *     MiDeleteEmptyPageTableCommit @ 0x140477174 (MiDeleteEmptyPageTableCommit.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiReleaseWalkLocks @ 0x14020BAF0 (MiReleaseWalkLocks.c)
+ *     MiDecommitPagesTail @ 0x14023D754 (MiDecommitPagesTail.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x140473714 (MiDeleteEmptyPageTableCommit.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiDeleteEmptyPageTableTail(__int64 a1)

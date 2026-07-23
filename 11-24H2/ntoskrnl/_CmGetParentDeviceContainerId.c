@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetParentDeviceContainerId @ 0x140AB65B0
+ * XREFs of _CmGetParentDeviceContainerId @ 0x140AB0634
  * Callers:
- *     _CmUpdateDevicePanelInterface @ 0x14098EC58 (_CmUpdateDevicePanelInterface.c)
- *     _CmUpdateDevicePanel @ 0x14098EE00 (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140979C90 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x140979E38 (_CmUpdateDevicePanel.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmGetDeviceParent @ 0x140926998 (_CmGetDeviceParent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceParent @ 0x140928AD8 (_CmGetDeviceParent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetParentDeviceContainerId(_QWORD *a1, WCHAR *a2, const wchar_t *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall CmGetParentDeviceContainerId(_QWORD *a1, WCHAR *a2, const wch
   v12 = 0;
   v10 = 0;
   v11[0] = 200;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x190uLL, 0x52504E50u);
   v7 = Pool2;
   if ( Pool2 )
   {

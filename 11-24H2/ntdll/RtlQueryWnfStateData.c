@@ -1,12 +1,23 @@
 /*
- * XREFs of RtlQueryWnfStateData @ 0x180098D40
+ * XREFs of RtlQueryWnfStateData @ 0x18002DB90
  * Callers:
  *     <none>
  * Callees:
- *     RtlQueryWnfStateDataWithExplicitScope @ 0x180098D70 (RtlQueryWnfStateDataWithExplicitScope.c)
+ *     RtlQueryWnfStateDataWithExplicitScope @ 0x18002DBC0 (RtlQueryWnfStateDataWithExplicitScope.c)
  */
 
-__int64 __fastcall RtlQueryWnfStateData(int a1, int a2, int a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlQueryWnfStateData(
+        PWNF_CHANGE_STAMP ChangeStamp,
+        WNF_STATE_NAME StateName,
+        PWNF_USER_CALLBACK Callback,
+        PVOID CallbackContext,
+        PWNF_TYPE_ID TypeId)
 {
-  return RtlQueryWnfStateDataWithExplicitScope(a1, a2, 0, a3, a4, a5);
+  return RtlQueryWnfStateDataWithExplicitScope(
+           (int)ChangeStamp,
+           StateName.Data[0],
+           0,
+           (int)Callback,
+           (__int64)CallbackContext,
+           TypeId);
 }

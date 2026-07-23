@@ -1,14 +1,14 @@
 /*
- * XREFs of MmStealTopLevelPage @ 0x1404C2F84
+ * XREFs of MmStealTopLevelPage @ 0x1404BC7D4
  * Callers:
- *     KiSwapDirectoryTableBaseTarget @ 0x1402BD0A0 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x140307D60 (KiSwapDirectoryTableBaseTarget.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiReplacePageTablePage @ 0x14033C35C (MiReplacePageTablePage.c)
- *     MiLockWorkingSetExclusiveAtDpc @ 0x1404C31C0 (MiLockWorkingSetExclusiveAtDpc.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiReplacePageTablePage @ 0x14033E3DC (MiReplacePageTablePage.c)
+ *     MiLockWorkingSetExclusiveAtDpc @ 0x1404BCA10 (MiLockWorkingSetExclusiveAtDpc.c)
  */
 
 __int64 __fastcall MmStealTopLevelPage(__int64 a1)
@@ -38,7 +38,7 @@ __int64 __fastcall MmStealTopLevelPage(__int64 a1)
   if ( *(int *)(a1 + 56) >= 0 )
   {
     v6 = *(_QWORD *)(a1 + 32);
-    _InterlockedIncrement(&dword_140EF8CA8);
+    _InterlockedIncrement(&dword_140EF9008);
     v7 = MiMapPageInHyperSpaceWorker(*(_QWORD *)(a1 + 32), 0LL, 0x80000000);
     v8 = (__int64 *)(v7 + 8LL * ((((*(_DWORD *)(a1 + 8) >> 9) & 0xFFFFFFF8) >> 3) & 0x1FF));
     PteShadow = *v8;

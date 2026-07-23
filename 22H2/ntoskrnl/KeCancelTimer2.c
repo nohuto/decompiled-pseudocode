@@ -30,14 +30,12 @@ char __fastcall KeCancelTimer2(__int64 a1)
   char v4; // r15
   __int64 v5; // r13
   unsigned __int8 CurrentIrql; // di
-  __int64 v7; // rdx
-  __int64 v8; // r8
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v11; // al
+  unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v13; // r8
-  int v14; // eax
-  bool v15; // zf
+  _DWORD *v11; // r8
+  int v12; // eax
+  bool v13; // zf
 
   v1 = 0;
   v3 = 0;
@@ -62,7 +60,7 @@ char __fastcall KeCancelTimer2(__int64 a1)
   {
     if ( (unsigned __int8)KiAcquireTimer2CollectionLockIfInserted(a1) )
     {
-      KiRemoveTimer2(a1, v7, v8);
+      KiRemoveTimer2(a1);
       KxReleaseSpinLock(&KiTimer2CollectionLock);
     }
     else
@@ -79,15 +77,15 @@ LABEL_8:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v11 = KeGetCurrentIrql();
-      if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      v9 = KeGetCurrentIrql();
+      if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v13 = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v15 = (v14 & v13[5]) == 0;
-        v13[5] &= v14;
-        if ( v15 )
+        v11 = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v13 = (v12 & v11[5]) == 0;
+        v11[5] &= v12;
+        if ( v13 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

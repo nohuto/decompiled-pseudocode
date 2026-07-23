@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIsAddressRangeValid @ 0x1404AB6BC
+ * XREFs of KiIsAddressRangeValid @ 0x1404A5A08
  * Callers:
- *     KeAddTriageDumpDataBlock @ 0x1405B1660 (KeAddTriageDumpDataBlock.c)
- *     KiCollectTriageDumpDataBlocks @ 0x1405B33A8 (KiCollectTriageDumpDataBlocks.c)
- *     KiValidateTriageDumpDataArray @ 0x1405B454C (KiValidateTriageDumpDataArray.c)
- *     PopInternalSaveStackToDumpFile @ 0x1405CCF5C (PopInternalSaveStackToDumpFile.c)
+ *     KeAddTriageDumpDataBlock @ 0x1405AE5D0 (KeAddTriageDumpDataBlock.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x1405B0318 (KiCollectTriageDumpDataBlocks.c)
+ *     KiValidateTriageDumpDataArray @ 0x1405B14D0 (KiValidateTriageDumpDataArray.c)
+ *     PopInternalSaveStackToDumpFile @ 0x1405CA6CC (PopInternalSaveStackToDumpFile.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
  */
 
 char __fastcall KiIsAddressRangeValid(__int64 a1, __int64 a2)

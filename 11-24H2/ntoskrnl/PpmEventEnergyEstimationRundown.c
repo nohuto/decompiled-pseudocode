@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmEventEnergyEstimationRundown @ 0x140AA8C10
+ * XREFs of PpmEventEnergyEstimationRundown @ 0x140AA3CBC
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PpmEventEnergyEstimationRundown()

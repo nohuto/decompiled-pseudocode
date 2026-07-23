@@ -7,14 +7,14 @@
  *     <none>
  */
 
-__int64 __fastcall RtlDrainNonVolatileFlush(char a1)
+DWORD __cdecl RtlDrainNonVolatileFlush(PVOID NvToken)
 {
-  if ( (a1 & 1) == 0 )
-    return 3221225485LL;
-  if ( RtlpIsDrainRequired )
+  if ( ((unsigned __int8)NvToken & 1) == 0 )
+    return -1073741811;
+  if ( byte_140D04900 )
   {
-    if ( (a1 & 2) != 0 )
+    if ( ((unsigned __int8)NvToken & 2) != 0 )
       _mm_sfence();
   }
-  return 0LL;
+  return 0;
 }

@@ -1,41 +1,41 @@
 /*
- * XREFs of HalPutScatterGatherListV2 @ 0x14038F730
+ * XREFs of HalPutScatterGatherListV2 @ 0x140389070
  * Callers:
- *     HalPutScatterGatherList @ 0x1403927F0 (HalPutScatterGatherList.c)
+ *     HalPutScatterGatherList @ 0x14038C120 (HalPutScatterGatherList.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x14038D160 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaFlushBuffer @ 0x14038D450 (HalpDmaFlushBuffer.c)
- *     HalpDmaNextContiguousPieceV2 @ 0x14038F490 (HalpDmaNextContiguousPieceV2.c)
- *     HalpDmaGetAdapterVersion @ 0x14038FBDC (HalpDmaGetAdapterVersion.c)
- *     HalpDmaNextContiguousPiece @ 0x14038FC00 (HalpDmaNextContiguousPiece.c)
- *     HalpDmaNextContiguousPieceV3 @ 0x14038FC4C (HalpDmaNextContiguousPieceV3.c)
- *     HalpDmaSyncMapBuffers @ 0x14038FF20 (HalpDmaSyncMapBuffers.c)
- *     IoFreeMapRegistersV2 @ 0x140390720 (IoFreeMapRegistersV2.c)
- *     HalpDmaFlushContiguousTransferV2 @ 0x1403910E4 (HalpDmaFlushContiguousTransferV2.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140386AA0 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaFlushBuffer @ 0x140386D90 (HalpDmaFlushBuffer.c)
+ *     HalpDmaNextContiguousPieceV2 @ 0x140388DD0 (HalpDmaNextContiguousPieceV2.c)
+ *     HalpDmaGetAdapterVersion @ 0x14038951C (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaNextContiguousPiece @ 0x140389540 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaNextContiguousPieceV3 @ 0x14038958C (HalpDmaNextContiguousPieceV3.c)
+ *     HalpDmaSyncMapBuffers @ 0x140389860 (HalpDmaSyncMapBuffers.c)
+ *     IoFreeMapRegistersV2 @ 0x14038A060 (IoFreeMapRegistersV2.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x14038AA14 (HalpDmaFlushContiguousTransferV2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall HalPutScatterGatherListV2(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+void __fastcall HalPutScatterGatherListV2(__int64 a1, _QWORD *a2, char a3)
 {
-  _DWORD *v4; // rbx
-  char v5; // r14
-  unsigned __int64 v7; // rbp
-  __int64 v8; // rsi
-  unsigned int v9; // r12d
-  __int64 v10; // r15
-  unsigned int v11; // eax
-  unsigned __int64 v12; // rcx
-  __int64 v13; // rdx
-  unsigned int v14; // r13d
-  unsigned int v15; // eax
-  unsigned int v16; // r12d
-  unsigned __int64 v17; // r15
-  char v18; // r12
-  __int64 v19; // rbx
+  _DWORD *v3; // rbx
+  unsigned __int64 v6; // rbp
+  __int64 v7; // rsi
+  unsigned int v8; // r12d
+  __int64 v9; // r15
+  unsigned int v10; // eax
+  unsigned __int64 v11; // rcx
+  __int64 v12; // rdx
+  unsigned int v13; // r13d
+  unsigned int v14; // eax
+  unsigned int v15; // r12d
+  unsigned __int64 v16; // r15
+  char v17; // r12
+  __int64 v18; // rbx
   int ContiguousPieceV2; // r8d
+  unsigned int v20; // r8d
   int v21; // edx
   unsigned __int64 v22; // rcx
   unsigned __int64 v23; // rdx
@@ -62,27 +62,26 @@ void __fastcall HalPutScatterGatherListV2(__int64 a1, _QWORD *a2, __int64 a3, __
   unsigned int v44; // [rsp+A8h] [rbp+10h]
   unsigned int v45; // [rsp+B8h] [rbp+20h]
 
-  v4 = (_DWORD *)a2[1];
-  v5 = a3;
-  v40 = v4;
-  if ( !v4 )
+  v3 = (_DWORD *)a2[1];
+  v40 = v3;
+  if ( !v3 )
   {
     ExFreePoolWithTag(a2, 0);
     return;
   }
-  if ( v4 != (_DWORD *)1 )
+  if ( v3 != (_DWORD *)1 )
   {
-    v7 = *((_QWORD *)v4 + 4);
-    v8 = *((_QWORD *)v4 + 1);
-    v9 = v4[10];
-    v10 = *((_QWORD *)v4 + 3);
-    v11 = *(_DWORD *)(v8 + 32) + *(_DWORD *)(v8 + 40) + *(_DWORD *)(v8 + 44) - v7;
-    v39 = v10;
-    if ( !v9 )
+    v6 = *((_QWORD *)v3 + 4);
+    v7 = *((_QWORD *)v3 + 1);
+    v8 = v3[10];
+    v9 = *((_QWORD *)v3 + 3);
+    v10 = *(_DWORD *)(v7 + 32) + *(_DWORD *)(v7 + 40) + *(_DWORD *)(v7 + 44) - v6;
+    v39 = v9;
+    if ( !v8 )
     {
 LABEL_35:
-      IoFreeMapRegistersV2(a1, *((_QWORD *)v4 + 3));
-      v26 = (struct _MDL *)*((_QWORD *)v4 + 2);
+      IoFreeMapRegistersV2(a1, *((_QWORD *)v3 + 3));
+      v26 = (struct _MDL *)*((_QWORD *)v3 + 2);
       if ( v26 )
       {
         do
@@ -95,65 +94,65 @@ LABEL_35:
         }
         while ( Next );
       }
-      if ( (*v4 & 1) == 0 )
-        ExFreePoolWithTag(v4, 0);
+      if ( (*v3 & 1) == 0 )
+        ExFreePoolWithTag(v3, 0);
       return;
     }
-    while ( !v11 )
+    while ( !v10 )
     {
 LABEL_33:
-      v8 = *(_QWORD *)v8;
-      if ( v8 )
+      v7 = *(_QWORD *)v7;
+      if ( v7 )
       {
-        v7 = *(_QWORD *)(v8 + 32) + *(unsigned int *)(v8 + 44);
-        v11 = *(_DWORD *)(v8 + 40);
-        if ( v9 )
+        v6 = *(_QWORD *)(v7 + 32) + *(unsigned int *)(v7 + 44);
+        v10 = *(_DWORD *)(v7 + 40);
+        if ( v8 )
           continue;
       }
       goto LABEL_35;
     }
-    v12 = *(_QWORD *)v8;
-    v13 = v9;
-    v14 = v9;
-    if ( v11 <= v9 )
-      v13 = v11;
-    if ( v12 )
-      v14 = v13;
-    v15 = v9 - v13;
-    v16 = 0;
-    if ( v12 )
-      v16 = v15;
-    v45 = v16;
+    v11 = *(_QWORD *)v7;
+    v12 = v8;
+    v13 = v8;
+    if ( v10 <= v8 )
+      v12 = v10;
+    if ( v11 )
+      v13 = v12;
+    v14 = v8 - v12;
+    v15 = 0;
+    if ( v11 )
+      v15 = v14;
+    v45 = v15;
     if ( a1 && !*(_BYTE *)(a1 + 441) )
-      guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 432), v13, a3, a4);
-    if ( !v10 )
+      guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 432), v12);
+    if ( !v9 )
     {
-      if ( !v5 && !*(_BYTE *)(a1 + 445) )
-        HalpDmaFlushBuffer(v12, v8, v7, v14, 0, 0);
+      if ( !a3 && !*(_BYTE *)(a1 + 445) )
+        HalpDmaFlushBuffer(v11, v7, v6, v13, 0, 0);
       goto LABEL_20;
     }
     if ( !a1 || !*(_BYTE *)(a1 + 442) )
     {
-      HalpDmaFlushContiguousTransferV2(a1, v8, v10, v7, v14, v5);
+      HalpDmaFlushContiguousTransferV2(a1, v7, v9, v6, v13, a3);
 LABEL_20:
-      v17 = (v7 & 0xFFF) + (*(_QWORD *)(v8 + 8LL * (unsigned int)((v7 - *(_QWORD *)(v8 + 32)) >> 12) + 48) << 12);
-      v18 = *(_BYTE *)(a1 + 442);
-      v19 = v39;
+      v16 = (v6 & 0xFFF) + (*(_QWORD *)(v7 + 8LL * (unsigned int)((v6 - *(_QWORD *)(v7 + 32)) >> 12) + 48) << 12);
+      v17 = *(_BYTE *)(a1 + 442);
+      v18 = v39;
       v43 = *(_QWORD *)(a1 + 144);
       do
       {
-        if ( v18 )
+        if ( v17 )
         {
           if ( *(_DWORD *)(a1 + 156) == 2 )
-            ContiguousPieceV2 = HalpDmaNextContiguousPieceV2(a1, v8, v19, v7, v5, v14);
+            ContiguousPieceV2 = HalpDmaNextContiguousPieceV2(a1, v7, v18, v6, a3, v13);
           else
-            ContiguousPieceV2 = HalpDmaNextContiguousPieceV3(a1, v8, v19, v7, v5, v14);
+            ContiguousPieceV2 = HalpDmaNextContiguousPieceV3(a1, v7, v18, v6, a3, v13);
         }
         else
         {
-          ContiguousPieceV2 = v14;
+          ContiguousPieceV2 = v13;
         }
-        v14 -= ContiguousPieceV2;
+        v13 -= ContiguousPieceV2;
         if ( (unsigned int)HalpDmaGetAdapterVersion(a1) == 2 )
         {
           v21 = 1;
@@ -164,11 +163,11 @@ LABEL_20:
           if ( *(_BYTE *)(a1 + 445) )
             v21 = 1;
         }
-        v22 = v17 + (unsigned int)a3;
+        v22 = v16 + v20;
         if ( v43 < v22 - 1
-          || !v5 && !*(_BYTE *)(a1 + 445) && ((v27 = (unsigned int)(v21 - 1), (v27 & v17) != 0) || (v27 & v22) != 0) )
+          || !a3 && !*(_BYTE *)(a1 + 445) && ((v27 = (unsigned int)(v21 - 1), (v27 & v16) != 0) || (v27 & v22) != 0) )
         {
-          v23 = ((v7 & 0xFFF) + (unsigned int)a3 + 4095LL) >> 12;
+          v23 = ((v6 & 0xFFF) + v20 + 4095LL) >> 12;
           if ( (_DWORD)v23 )
           {
             v24 = v39;
@@ -180,36 +179,36 @@ LABEL_20:
             }
             while ( v25 );
             v39 = v24;
-            v19 = v24;
+            v18 = v24;
           }
         }
-        v7 += (unsigned int)a3;
-        v17 += (unsigned int)a3;
+        v6 += v20;
+        v16 += v20;
       }
-      while ( v14 );
-      v4 = v40;
-      v9 = v45;
-      v10 = v39;
+      while ( v13 );
+      v3 = v40;
+      v8 = v45;
+      v9 = v39;
       goto LABEL_33;
     }
-    if ( v5 )
+    if ( a3 )
     {
 LABEL_19:
-      *(_QWORD *)(v10 + 56) = v10;
+      *(_QWORD *)(v9 + 56) = v9;
       goto LABEL_20;
     }
-    v28 = v14;
-    *(_QWORD *)(v10 + 56) = v10;
-    v29 = v7;
+    v28 = v13;
+    *(_QWORD *)(v9 + 56) = v9;
+    v29 = v6;
     while ( 1 )
     {
-      ContiguousPiece = HalpDmaNextContiguousPiece(a1, v8, v10, v29, 0, v28);
+      ContiguousPiece = HalpDmaNextContiguousPiece(a1, v7, v9, v29, 0, v28);
       v41 = v29 & 0xFFF;
       v44 = ContiguousPiece;
       v42 = ContiguousPiece;
       if ( *(_QWORD *)(a1 + 144) < ContiguousPiece
                                  + v41
-                                 + (*(_QWORD *)(v8 + 8LL * (unsigned int)((v29 - *(_QWORD *)(v8 + 32)) >> 12) + 48) << 12)
+                                 + (*(_QWORD *)(v7 + 8LL * (unsigned int)((v29 - *(_QWORD *)(v7 + 32)) >> 12) + 48) << 12)
                                  - 1 )
         goto LABEL_54;
       if ( *(_BYTE *)(a1 + 445) )
@@ -219,8 +218,8 @@ LABEL_19:
       {
 LABEL_54:
         LODWORD(v38) = ContiguousPiece;
-        HalpDmaSyncMapBuffers(a1, v8, v29, *(_QWORD *)(v10 + 56), v38, 0, 0, 0);
-        v31 = *(_QWORD *)(v10 + 56);
+        HalpDmaSyncMapBuffers(a1, v7, v29, *(_QWORD *)(v9 + 56), v38, 0, 0, 0);
+        v31 = *(_QWORD *)(v9 + 56);
         v32 = (v41 + 4095 + v42) >> 12;
         if ( (_DWORD)v32 )
         {
@@ -232,11 +231,11 @@ LABEL_54:
           }
           while ( v33 );
         }
-        *(_QWORD *)(v10 + 56) = v31;
+        *(_QWORD *)(v9 + 56) = v31;
       }
       else
       {
-        HalpDmaFlushBuffer(v34, v8, v29, ContiguousPiece, 0, 0);
+        HalpDmaFlushBuffer(v34, v7, v29, ContiguousPiece, 0, 0);
       }
       ContiguousPiece = v44;
 LABEL_59:

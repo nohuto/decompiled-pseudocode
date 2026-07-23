@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInPageSkipPage @ 0x14046BBC4
+ * XREFs of MiInPageSkipPage @ 0x14046BFC4
  * Callers:
- *     MiValidatePagefilePageHash @ 0x14046F37A (MiValidatePagefilePageHash.c)
+ *     MiValidatePagefilePageHash @ 0x14046F77A (MiValidatePagefilePageHash.c)
  * Callees:
- *     MiInPageGapPage @ 0x1403514A8 (MiInPageGapPage.c)
+ *     MiInPageGapPage @ 0x140351648 (MiInPageGapPage.c)
  */
 
 _BOOL8 __fastcall MiInPageSkipPage(__int64 a1)

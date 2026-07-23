@@ -3,8 +3,8 @@
  * Callers:
  *     WheaInitialize @ 0x140B490E8 (WheaInitialize.c)
  * Callees:
- *     WheapAddErrorSource @ 0x140380DBC (WheapAddErrorSource.c)
- *     WheapInitializeErrorSource @ 0x14081ED84 (WheapInitializeErrorSource.c)
+ *     WheapAddErrorSource @ 0x140380F5C (WheapAddErrorSource.c)
+ *     WheapInitializeErrorSource @ 0x14081F090 (WheapInitializeErrorSource.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of toupper @ 0x140537D60
+ * XREFs of toupper @ 0x14053A1E0
  * Callers:
- *     SdbpMergeAreTagValuesEqual @ 0x140887BB0 (SdbpMergeAreTagValuesEqual.c)
- *     AslStringPatternMatchExA @ 0x1409E7760 (AslStringPatternMatchExA.c)
+ *     SdbpMergeAreTagValuesEqual @ 0x14088DFAC (SdbpMergeAreTagValuesEqual.c)
+ *     AslStringPatternMatchExA @ 0x1409D57E0 (AslStringPatternMatchExA.c)
  * Callees:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x14096C780 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlAnsiCharToUnicodeChar @ 0x14096CA60 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x14097D0C0 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x14097D3A0 (RtlAnsiCharToUnicodeChar.c)
  */
 
 int __cdecl toupper(int C)
 {
   int result; // eax
-  int *v2; // [rsp+30h] [rbp-10h] BYREF
+  PUCHAR SourceCharacter; // [rsp+30h] [rbp-10h] BYREF
   int v3; // [rsp+50h] [rbp+10h] BYREF
   CHAR MultiByteString; // [rsp+58h] [rbp+18h] BYREF
   unsigned __int8 v5; // [rsp+59h] [rbp+19h]
@@ -20,8 +20,8 @@ int __cdecl toupper(int C)
 
   v3 = C;
   BytesInMultiByteString = 0;
-  v2 = &v3;
-  UnicodeString = RtlAnsiCharToUnicodeChar(&v2);
+  SourceCharacter = (PUCHAR)&v3;
+  UnicodeString = RtlAnsiCharToUnicodeChar(&SourceCharacter);
   if ( RtlUpcaseUnicodeToMultiByteN(&MultiByteString, 2u, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
     return v3;
   result = (unsigned __int8)MultiByteString;

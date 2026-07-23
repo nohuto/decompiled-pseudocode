@@ -26,8 +26,8 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
         unsigned int a4,
         char a5)
 {
-  char *PoolWithTag; // rax
-  char *v11; // r12
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v11; // r12
   int v12; // ebx
   unsigned int v13; // edi
   _BYTE *CellMap; // rcx
@@ -45,8 +45,8 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
   int v26; // r11d
   unsigned int v27; // ecx
   unsigned int v28; // edx
-  char *v29; // r8
-  char *v30; // r10
+  unsigned int *v29; // r8
+  unsigned int *v30; // r10
   unsigned int v31; // r15d
   bool i; // zf
   unsigned int v33; // r15d
@@ -54,35 +54,37 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
   struct _EX_RUNDOWN_REF *v35; // rbp
   __int64 v36; // [rsp+38h] [rbp-60h]
   unsigned __int64 v37; // [rsp+40h] [rbp-58h]
-  unsigned int v38; // [rsp+48h] [rbp-50h] BYREF
-  char *v39; // [rsp+50h] [rbp-48h]
-  int v40; // [rsp+A0h] [rbp+8h]
+  _RTL_BITMAP Destination; // [rsp+48h] [rbp-50h] BYREF
+  int v39; // [rsp+A0h] [rbp+8h]
 
   if ( (*(_BYTE *)(BugCheckParameter2 + 124) & 4) == 0 )
     return 0LL;
-  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(BugCheckParameter2 + 92), 0x30364D43u);
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(
+                                  PagedPool,
+                                  *(unsigned int *)(BugCheckParameter2 + 92),
+                                  0x30364D43u);
   v11 = PoolWithTag;
   if ( PoolWithTag )
   {
-    v39 = PoolWithTag;
-    v38 = *(_DWORD *)(BugCheckParameter2 + 72);
+    Destination.Buffer = PoolWithTag;
+    Destination.SizeOfBitMap = *(_DWORD *)(BugCheckParameter2 + 72);
     if ( !a2 )
     {
       memset(PoolWithTag, 0, *(unsigned int *)(BugCheckParameter2 + 92));
       goto LABEL_13;
     }
-    RtlCopyBitMap((int *)(BugCheckParameter2 + 72), (__int64)&v38, 0);
-    RtlMergeBitMaps(&v38, BugCheckParameter2 + 96);
+    RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 72), &Destination, 0);
+    RtlMergeBitMaps(&Destination.SizeOfBitMap, BugCheckParameter2 + 96);
     if ( (*(_DWORD *)(BugCheckParameter2 + 5488) & 1) != 0 )
     {
       if ( *(struct _KTHREAD **)(BugCheckParameter2 + 5440) == KeGetCurrentThread() && !a5 )
         goto LABEL_13;
-      RtlMergeBitMaps(&v38, BugCheckParameter2 + 2856);
+      RtlMergeBitMaps(&Destination.SizeOfBitMap, BugCheckParameter2 + 2856);
     }
     if ( a5 )
-      RtlMergeBitMaps(&v38, BugCheckParameter2 + 2904);
+      RtlMergeBitMaps(&Destination.SizeOfBitMap, BugCheckParameter2 + 2904);
 LABEL_13:
-    v40 = 0;
+    v39 = 0;
     if ( !a4 )
     {
 LABEL_46:
@@ -103,7 +105,7 @@ LABEL_47:
         break;
 LABEL_45:
       a3 += 6;
-      v40 = v18 + 1;
+      v39 = v18 + 1;
       if ( v18 + 1 >= a4 )
         goto LABEL_46;
     }
@@ -124,7 +126,7 @@ LABEL_45:
 LABEL_43:
       if ( v19 >= a3[4] + *a3 - 4096 )
       {
-        v18 = v40;
+        v18 = v39;
         goto LABEL_45;
       }
     }
@@ -159,13 +161,13 @@ LABEL_31:
     {
       v27 = v25 >> 9;
       v28 = (v25 >> 9) + 7;
-      if ( v28 >= v38 )
+      if ( v28 >= Destination.SizeOfBitMap )
         goto LABEL_27;
-      v29 = &v11[4 * ((unsigned __int64)v27 >> 5)];
-      v30 = &v11[4 * ((unsigned __int64)v28 >> 5)];
+      v29 = &v11[(unsigned __int64)v27 >> 5];
+      v30 = &v11[(unsigned __int64)v28 >> 5];
       if ( v29 != v30 )
         break;
-      if ( ((255 << v27) & *(_DWORD *)v29) != 0 )
+      if ( ((255 << v27) & *v29) != 0 )
         goto LABEL_27;
 LABEL_37:
       v31 = v25 + 4096;
@@ -179,10 +181,9 @@ LABEL_29:
         goto LABEL_31;
       }
     }
-    for ( i = ((-1 << v27) & *(_DWORD *)v29) == 0; i; i = *(_DWORD *)v29 == 0 )
+    for ( i = ((-1 << v27) & *v29) == 0; i; i = *v29 == 0 )
     {
-      v29 += 4;
-      if ( v29 == v30 )
+      if ( ++v29 == v30 )
         goto LABEL_37;
     }
 LABEL_27:

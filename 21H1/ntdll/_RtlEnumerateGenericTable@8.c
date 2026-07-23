@@ -7,22 +7,22 @@
  *     _RtlRealSuccessor@4 @ 0x4B35E030 (_RtlRealSuccessor@4.c)
  */
 
-int __stdcall RtlEnumerateGenericTable(_DWORD **a1, char a2)
+PVOID __cdecl RtlEnumerateGenericTable(PRTL_GENERIC_TABLE Table, BOOLEAN Restart)
 {
-  _DWORD *v2; // esi
+  PRTL_SPLAY_LINKS TableRoot; // esi
 
-  v2 = *a1;
-  if ( !*a1 )
+  TableRoot = Table->TableRoot;
+  if ( !Table->TableRoot )
     return 0;
-  if ( a2 )
+  if ( Restart )
   {
-    while ( v2[1] )
-      v2 = (_DWORD *)v2[1];
+    while ( TableRoot->LeftChild )
+      TableRoot = TableRoot->LeftChild;
     goto LABEL_5;
   }
-  v2 = RtlRealSuccessor(v2);
-  if ( v2 )
+  TableRoot = RtlRealSuccessor(TableRoot);
+  if ( TableRoot )
 LABEL_5:
-    *a1 = RtlSplay(v2);
-  return v2 != 0 ? (unsigned int)(v2 + 6) : 0;
+    Table->TableRoot = RtlSplay(TableRoot);
+  return TableRoot != 0 ? &TableRoot[2] : 0;
 }

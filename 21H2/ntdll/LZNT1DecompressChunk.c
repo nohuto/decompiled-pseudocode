@@ -1,8 +1,8 @@
 /*
- * XREFs of LZNT1DecompressChunk @ 0x1800A2AC0
+ * XREFs of LZNT1DecompressChunk @ 0x1800A2A80
  * Callers:
- *     RtlDecompressBufferLZNT1 @ 0x18010CAC0 (RtlDecompressBufferLZNT1.c)
- *     RtlDecompressFragmentLZNT1 @ 0x18010CC50 (RtlDecompressFragmentLZNT1.c)
+ *     RtlDecompressBufferLZNT1 @ 0x18010CA80 (RtlDecompressBufferLZNT1.c)
+ *     RtlDecompressFragmentLZNT1 @ 0x18010CC10 (RtlDecompressFragmentLZNT1.c)
  * Callees:
  *     <none>
  */

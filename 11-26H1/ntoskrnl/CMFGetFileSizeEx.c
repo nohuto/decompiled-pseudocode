@@ -1,11 +1,11 @@
 /*
- * XREFs of CMFGetFileSizeEx @ 0x1408437D4
+ * XREFs of CMFGetFileSizeEx @ 0x140848C64
  * Callers:
- *     CMFFlushHitsFile @ 0x1408434C8 (CMFFlushHitsFile.c)
- *     CMFSystemThreadRoutine @ 0x140843E00 (CMFSystemThreadRoutine.c)
+ *     CMFFlushHitsFile @ 0x140848958 (CMFFlushHitsFile.c)
+ *     CMFSystemThreadRoutine @ 0x140849290 (CMFSystemThreadRoutine.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
  */
 
 NTSTATUS __fastcall CMFGetFileSizeEx(void *a1, _QWORD *a2)

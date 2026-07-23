@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDecrementAweMapCount @ 0x1402B012C
+ * XREFs of MiDecrementAweMapCount @ 0x1402B031C
  * Callers:
- *     MiFreePhysicalPages @ 0x1402B08E0 (MiFreePhysicalPages.c)
- *     MiWriteAwePtes @ 0x1402B2278 (MiWriteAwePtes.c)
- *     MiReferenceIncomingPhysicalPages @ 0x14084FF3C (MiReferenceIncomingPhysicalPages.c)
+ *     MiFreePhysicalPages @ 0x1402B0AD0 (MiFreePhysicalPages.c)
+ *     MiWriteAwePtes @ 0x1402B2468 (MiWriteAwePtes.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x14085119C (MiReferenceIncomingPhysicalPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDecrementAweMapCount(__int64 a1, __int64 a2, __int64 *a3, char a4)

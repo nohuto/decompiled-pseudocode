@@ -13,58 +13,64 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall EtwSendNotification(int *a1, int a2, _BYTE *a3, __int64 a4, __int64 a5)
+ULONG __cdecl EtwSendNotification(
+        PETW_NOTIFICATION_HEADER DataBlock,
+        ULONG ReceiveDataBlockSize,
+        PVOID ReceiveDataBlock,
+        PULONG ReplyReceived,
+        PULONG ReplySizeNeeded)
 {
-  char v5; // r15
-  int v7; // esi
+  BOOLEAN ReplyRequested; // r15
+  ULONG Timeout; // esi
   char v8; // r14
   NTSTATUS v11; // eax
   __int64 v12; // r8
   __int64 v13; // r9
   ULONG v14; // edi
-  ULONG v16; // r15d
-  void *v17; // r14
-  int v18; // edi
+  ULONG ReplyCount; // r15d
+  void *Reserved2; // r14
+  ULONG v18; // edi
   __int64 v19; // r8
   _BYTE *v20; // rax
   __int64 v21; // r9
-  int v22; // [rsp+40h] [rbp-C0h]
+  ETW_NOTIFICATION_TYPE v22; // [rsp+40h] [rbp-C0h]
   ULONG v23; // [rsp+50h] [rbp-B0h] BYREF
-  _DWORD v24[2]; // [rsp+54h] [rbp-ACh] BYREF
-  int v25; // [rsp+5Ch] [rbp-A4h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-A0h]
-  __int64 v27; // [rsp+68h] [rbp-98h]
-  _BYTE v28[128]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v29[32]; // [rsp+F0h] [rbp-10h] BYREF
-  int *v30; // [rsp+110h] [rbp+10h]
-  __int64 v31; // [rsp+118h] [rbp+18h]
-  int *v32; // [rsp+120h] [rbp+20h]
-  __int64 v33; // [rsp+128h] [rbp+28h]
-  ULONG *v34; // [rsp+130h] [rbp+30h]
-  __int64 v35; // [rsp+138h] [rbp+38h]
-  _DWORD *v36; // [rsp+140h] [rbp+40h]
-  __int64 v37; // [rsp+148h] [rbp+48h]
+  ETW_NOTIFICATION_TYPE NotificationType; // [rsp+54h] [rbp-ACh] BYREF
+  ULONG ReturnLength; // [rsp+58h] [rbp-A8h] BYREF
+  ETW_NOTIFICATION_TYPE v26; // [rsp+5Ch] [rbp-A4h] BYREF
+  __int64 v27; // [rsp+60h] [rbp-A0h]
+  __int64 v28; // [rsp+68h] [rbp-98h]
+  _BYTE v29[128]; // [rsp+70h] [rbp-90h] BYREF
+  _EVENT_DATA_DESCRIPTOR v30[2]; // [rsp+F0h] [rbp-10h] BYREF
+  GUID *p_DestinationGuid; // [rsp+110h] [rbp+10h]
+  __int64 v32; // [rsp+118h] [rbp+18h]
+  ETW_NOTIFICATION_TYPE *p_NotificationType; // [rsp+120h] [rbp+20h]
+  __int64 v34; // [rsp+128h] [rbp+28h]
+  ULONG *v35; // [rsp+130h] [rbp+30h]
+  __int64 v36; // [rsp+138h] [rbp+38h]
+  ETW_NOTIFICATION_TYPE *v37; // [rsp+140h] [rbp+40h]
+  __int64 v38; // [rsp+148h] [rbp+48h]
 
-  v5 = *((_BYTE *)a1 + 12);
-  v7 = a1[4];
+  ReplyRequested = DataBlock->ReplyRequested;
+  Timeout = DataBlock->Timeout;
   v8 = 1;
-  v27 = a4;
-  v26 = a5;
-  v24[1] = 0;
-  if ( v5 == 1 )
+  v28 = (__int64)ReplyReceived;
+  v27 = (__int64)ReplySizeNeeded;
+  ReturnLength = 0;
+  if ( ReplyRequested == 1 )
   {
-    *((_QWORD *)a1 + 3) = 0LL;
-    if ( !v7 )
-      v7 = 60000;
+    DataBlock->Reserved2 = 0LL;
+    if ( !Timeout )
+      Timeout = 60000;
   }
-  v11 = NtTraceControl(17LL, a1, (unsigned int)a1[1]);
+  v11 = NtTraceControl(EtwSendDataBlock, DataBlock, DataBlock->NotificationSize, DataBlock, 0x48u, &ReturnLength);
   if ( v11 )
     v14 = RtlNtStatusToDosError(v11);
   else
     v14 = 0;
-  if ( v5 )
+  if ( ReplyRequested )
   {
-    v16 = a1[5];
+    ReplyCount = DataBlock->ReplyCount;
     if ( v14 )
     {
       if ( (unsigned int)dword_1801CE6F0 > 2 )
@@ -73,51 +79,63 @@ __int64 __fastcall EtwSendNotification(int *a1, int a2, _BYTE *a3, __int64 a4, _
           v8 = 0;
         if ( v8 )
         {
-          v30 = a1 + 10;
-          v24[0] = *a1;
-          v32 = v24;
-          v33 = 4LL;
-          v35 = 4LL;
-          v34 = &v23;
-          v31 = 16LL;
+          p_DestinationGuid = &DataBlock->DestinationGuid;
+          NotificationType = DataBlock->NotificationType;
+          p_NotificationType = &NotificationType;
+          v34 = 4LL;
+          v36 = 4LL;
+          v35 = &v23;
+          v32 = 16LL;
           v23 = v14;
-          tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CE6F0, byte_1801A4598, v12, v13, 5, (__int64)v29);
+          tlgWriteTransfer_EtwEventWriteTransfer(
+            (__int64)&dword_1801CE6F0,
+            (unsigned __int8 *)dword_1801A4598,
+            v12,
+            v13,
+            5u,
+            v30);
         }
       }
     }
     else
     {
-      v17 = (void *)*((_QWORD *)a1 + 3);
-      if ( v16 )
+      Reserved2 = (void *)DataBlock->Reserved2;
+      if ( ReplyCount )
       {
         v18 = 120;
-        memset_thunk_772440563353939046(v28, 0, 0x78uLL);
+        memset_thunk_772440563353939046(v29, 0, 0x78uLL);
         if ( (unsigned int)dword_1801CE6F0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1801CE6F0, 10LL) )
         {
-          v31 = 16LL;
-          v30 = a1 + 10;
-          v25 = *a1;
-          v34 = &v23;
-          v32 = &v25;
-          v36 = v24;
-          v33 = 4LL;
-          v23 = v16;
-          v35 = 4LL;
-          v24[0] = v7;
-          v37 = 4LL;
-          tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CE6F0, byte_1801A45E7, v19, v21, 6, (__int64)v29);
+          v32 = 16LL;
+          p_DestinationGuid = &DataBlock->DestinationGuid;
+          v26 = DataBlock->NotificationType;
+          v35 = &v23;
+          p_NotificationType = &v26;
+          v37 = &NotificationType;
+          v34 = 4LL;
+          v23 = ReplyCount;
+          v36 = 4LL;
+          NotificationType = Timeout;
+          v38 = 4LL;
+          tlgWriteTransfer_EtwEventWriteTransfer(
+            (__int64)&dword_1801CE6F0,
+            (unsigned __int8 *)dword_1801A45E7,
+            v19,
+            v21,
+            6u,
+            v30);
         }
-        v20 = v28;
-        v22 = *a1;
-        if ( *a1 != 3 )
-          v18 = a2;
-        if ( v22 != 3 )
-          v20 = a3;
-        LOBYTE(v19) = v22 == 3;
-        v14 = EtwpReceiveReplyDataBlock((_DWORD)v17, v7, v19, v16, (__int64)v20, v18, v27, v26, v22);
+        v20 = v29;
+        v22 = DataBlock->NotificationType;
+        if ( DataBlock->NotificationType != EtwNotificationTypeEnable )
+          v18 = ReceiveDataBlockSize;
+        if ( v22 != EtwNotificationTypeEnable )
+          v20 = ReceiveDataBlock;
+        LOBYTE(v19) = v22 == EtwNotificationTypeEnable;
+        v14 = EtwpReceiveReplyDataBlock((int)Reserved2, Timeout, v19, ReplyCount, v20, v18, v28, v27, v22);
       }
-      if ( v17 )
-        NtClose(v17);
+      if ( Reserved2 )
+        NtClose(Reserved2);
     }
   }
   return v14;

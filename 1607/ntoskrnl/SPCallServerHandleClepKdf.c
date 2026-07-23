@@ -1,9 +1,9 @@
 /*
- * XREFs of SPCallServerHandleClepKdf @ 0x1404E185C
+ * XREFs of SPCallServerHandleClepKdf @ 0x1404C4E60
  * Callers:
- *     sub_1404A6E00 @ 0x1404A6E00 (sub_1404A6E00.c)
+ *     sub_14051F200 @ 0x14051F200 (sub_14051F200.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

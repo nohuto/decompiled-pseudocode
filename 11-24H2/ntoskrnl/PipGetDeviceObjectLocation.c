@@ -1,15 +1,15 @@
 /*
- * XREFs of PipGetDeviceObjectLocation @ 0x14071BA24
+ * XREFs of PipGetDeviceObjectLocation @ 0x1407195B4
  * Callers:
- *     IoReserveKsrPersistentMemoryEx @ 0x14071B440 (IoReserveKsrPersistentMemoryEx.c)
- *     PipMatchPersistentMemory @ 0x14071C4CC (PipMatchPersistentMemory.c)
- *     PipMatchPersistentMemoryV1 @ 0x14071C5B0 (PipMatchPersistentMemoryV1.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x140718FD0 (IoReserveKsrPersistentMemoryEx.c)
+ *     PipMatchPersistentMemory @ 0x14071A05C (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x14071A140 (PipMatchPersistentMemoryV1.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipGetDeviceObjectLocation(ULONG_PTR BugCheckParameter2, unsigned int *a2, _QWORD *a3)
@@ -99,7 +99,7 @@ LABEL_28:
     {
       if ( Pool2 )
         ExFreePoolWithTag(Pool2, 0x61706E50u);
-      Pool2 = (void *)ExAllocatePool2(0x40uLL);
+      Pool2 = (void *)ExAllocatePool2(0x40uLL, v18, 0x61706E50u);
       if ( !Pool2 )
         return (unsigned int)-1073741670;
     }

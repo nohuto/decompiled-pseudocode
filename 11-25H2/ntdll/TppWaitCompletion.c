@@ -19,132 +19,135 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-struct _PEB *__fastcall TppWaitCompletion(__int64 a1, __int64 a2, __int64 a3)
+int __fastcall TppWaitCompletion(PTP_CALLBACK_INSTANCE a1, __int64 a2, _TP_WAIT *a3)
 {
-  volatile signed __int32 *v3; // rbp
+  _RTL_SRWLOCK *p_Lock; // rbp
   char *SchedulerSharedDataSlot; // r8
   unsigned int i; // edx
-  volatile signed __int32 **v8; // rcx
-  char v9; // al
-  volatile signed __int32 *v10; // r14
+  _RTL_SRWLOCK **v8; // rcx
+  unsigned __int8 TimerStatus; // al
+  _RTL_SRWLOCK *v10; // r14
   char v11; // di
   int v12; // edi
   signed int v13; // edi
-  char v14; // al
-  void (__fastcall *v15)(__int64); // rax
+  unsigned __int8 AllFlags; // al
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
   __int64 v17; // r15
   unsigned __int64 v18; // r15
   __int64 v19; // rcx
-  __int64 v20; // r8
-  signed __int64 v21; // rax
+  _LARGE_INTEGER *p_NextWaitTimeout; // r8
+  signed __int64 First; // rax
   signed __int64 v22; // rdx
   _QWORD v23[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  v3 = (volatile signed __int32 *)(a3 + 240);
+  p_Lock = &a3->Timer.Lock;
   SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
   {
     for ( i = 0; i < 8; ++i )
     {
-      v8 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * i];
+      v8 = (_RTL_SRWLOCK **)&SchedulerSharedDataSlot[8 * i];
       if ( !*v8 )
       {
         if ( v8 )
-          *v8 = v3;
+          *v8 = p_Lock;
         break;
       }
     }
   }
-  if ( _interlockedbittestandset64(v3, 0LL) )
-    RtlpAcquireSRWLockExclusiveContended(v3);
-  v9 = *(_BYTE *)(a3 + 354);
-  v10 = (volatile signed __int32 *)(*(_QWORD *)(a3 + 144) + 112LL);
-  v11 = (v9 & 2) != 0;
-  if ( (v9 & 1) != 0 )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)p_Lock, 0LL) )
+    RtlpAcquireSRWLockExclusiveContended(p_Lock);
+  TimerStatus = a3->Timer.TimerStatus;
+  v10 = &a3->Timer.Work.CleanupGroupMember.Pool->TimerQueue.Lock;
+  v11 = (TimerStatus & 2) != 0;
+  if ( (TimerStatus & 1) != 0 )
   {
-    v17 = 2LL;
-    if ( (v9 & 2) == 0 )
-      v17 = 32LL;
+    v17 = 1LL;
+    if ( (TimerStatus & 2) == 0 )
+      v17 = 16LL;
     v18 = (unsigned __int64)&v10[v17];
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v19 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v19 = 2147353478LL;
     if ( *(_BYTE *)v19 )
       TppETWTimerCancelled(v18, a3);
     RtlAcquireSRWLockExclusive(v10);
-    if ( *(_BYTE *)(a3 + 352) )
+    if ( a3->Timer.Inserted )
     {
-      TppPHDelete(v18 + 16, a3 + 248);
-      TppPHDelete(v18 + 8, a3 + 288);
+      TppPHDelete(v18 + 16, &a3->Timer.248);
+      TppPHDelete(v18 + 8, &a3->Timer.WindowStartLinks);
       TppUpdateSubQueueTimer(v18, v11);
-      *(_BYTE *)(a3 + 352) = 0;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)v10);
-      *(_DWORD *)(a3 + 348) = 0;
+      a3->Timer.Inserted = 0;
+      RtlReleaseSRWLockExclusive(v10);
+      a3->Timer.Period = 0;
       v12 = 0;
-      *(_QWORD *)(a3 + 328) = 0LL;
-      *(_BYTE *)(a3 + 354) = 0;
+      a3->Timer.DueTime = 0LL;
+      a3->Timer.TimerStatus = 0;
     }
     else
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)v10);
-      *(_BYTE *)(a3 + 354) |= 4u;
+      RtlReleaseSRWLockExclusive(v10);
+      a3->Timer.TimerStatus |= 4u;
       v23[1] = NtCurrentTeb()->ClientId.UniqueThread;
-      _m_prefetchw((const void *)(a3 + 336));
-      v21 = *(_QWORD *)(a3 + 336);
+      _m_prefetchw(&a3->Timer.CancelIte);
+      First = (signed __int64)a3->Timer.CancelIte.First;
       do
       {
-        v22 = v21;
-        v23[0] = v21;
-        v21 = _InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 336), (signed __int64)v23, v21);
+        v22 = First;
+        v23[0] = First;
+        First = _InterlockedCompareExchange64(
+                  (volatile signed __int64 *)&a3->Timer.CancelIte,
+                  (signed __int64)v23,
+                  First);
       }
-      while ( v21 != v22 );
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)v3);
-      NtWaitForAlertByThreadId(a3 + 336, 0LL);
-      RtlAcquireSRWLockExclusive(v3);
+      while ( First != v22 );
+      RtlReleaseSRWLockExclusive(p_Lock);
+      NtWaitForAlertByThreadId(&a3->Timer.CancelIte, 0LL);
+      RtlAcquireSRWLockExclusive(p_Lock);
       v12 = 1;
     }
   }
   else
   {
-    *(_QWORD *)(a3 + 328) = 0LL;
+    a3->Timer.DueTime = 0LL;
     v12 = 1;
   }
   v13 = v12 - 1;
-  if ( (*(_BYTE *)(a3 + 464) & 4) == 0 )
-    TppBarrierAdjust(a3 + 56, 1LL, 0LL);
-  v14 = *(_BYTE *)(a3 + 464);
-  *(_QWORD *)(a3 + 360) = 0LL;
-  if ( (v14 & 1) != 0 )
+  if ( (a3->WaitFlags.AllFlags & 4) == 0 )
+    TppBarrierAdjust(&a3->Timer.Work.CleanupGroupMember.CallbackBarrier, 1LL, 0LL);
+  AllFlags = a3->WaitFlags.AllFlags;
+  a3->Handle = 0LL;
+  if ( (AllFlags & 1) != 0 )
   {
-    v20 = a3 + 384;
-    if ( (v14 & 2) == 0 )
-      v20 = 0LL;
-    v13 += TppSetupNextWait(a3, *(_QWORD *)(a3 + 376), v20);
+    p_NextWaitTimeout = &a3->NextWaitTimeout;
+    if ( (AllFlags & 2) == 0 )
+      p_NextWaitTimeout = 0LL;
+    v13 += TppSetupNextWait(a3, a3->NextWaitHandle, p_NextWaitTimeout);
   }
-  *(_BYTE *)(a3 + 464) = 0;
+  a3->WaitFlags.AllFlags = 0;
   if ( v13 > 0 )
   {
-    _InterlockedAdd((volatile signed __int32 *)a3, v13);
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)v3);
+    _InterlockedAdd(&a3->Timer.Work.CleanupGroupMember.Refcount.Refcount, v13);
+    RtlReleaseSRWLockExclusive(p_Lock);
   }
   else
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)v3);
-    if ( v13 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a3, v13) == -v13 )
+    RtlReleaseSRWLockExclusive(p_Lock);
+    if ( v13 < 0 && _InterlockedExchangeAdd(&a3->Timer.Work.CleanupGroupMember.Refcount.Refcount, v13) == -v13 )
     {
-      v15 = **(void (__fastcall ***)(__int64))(a3 + 8);
-      if ( (char *)v15 == (char *)TppFreeWait )
+      Free = a3->Timer.Work.CleanupGroupMember.VFuncs->Free;
+      if ( (char *)Free == (char *)TppFreeWait )
       {
         TppFreeWait(a3);
       }
-      else if ( (char *)v15 == (char *)TppTimerpFree )
+      else if ( (char *)Free == (char *)TppTimerpFree )
       {
         TppTimerpFree(a3);
       }
       else
       {
-        v15(a3);
+        Free(&a3->Timer.Work.CleanupGroupMember);
       }
     }
   }

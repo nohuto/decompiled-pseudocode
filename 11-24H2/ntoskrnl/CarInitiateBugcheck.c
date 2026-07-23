@@ -1,10 +1,10 @@
 /*
- * XREFs of CarInitiateBugcheck @ 0x140619AA0
+ * XREFs of CarInitiateBugcheck @ 0x140618060
  * Callers:
- *     CarReportDifPluginRuleViolation @ 0x140617240 (CarReportDifPluginRuleViolation.c)
+ *     CarReportDifPluginRuleViolation @ 0x140615800 (CarReportDifPluginRuleViolation.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     DifiDbgPrint @ 0x1406197A4 (DifiDbgPrint.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     DifiDbgPrint @ 0x140617D64 (DifiDbgPrint.c)
  */
 
 void __fastcall __noreturn CarInitiateBugcheck(ULONG BugCheckCode, ULONG_PTR BugCheckParameter1, ULONG_PTR *a3)

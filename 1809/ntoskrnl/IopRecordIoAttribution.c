@@ -1,12 +1,12 @@
 /*
- * XREFs of IopRecordIoAttribution @ 0x1401058A4
+ * XREFs of IopRecordIoAttribution @ 0x140105924
  * Callers:
- *     IoDiskIoAttributionQuery @ 0x1401053E4 (IoDiskIoAttributionQuery.c)
- *     IoRecordIoAttribution @ 0x1401056B0 (IoRecordIoAttribution.c)
+ *     IoDiskIoAttributionQuery @ 0x140105464 (IoDiskIoAttributionQuery.c)
+ *     IoRecordIoAttribution @ 0x140105730 (IoRecordIoAttribution.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopRecordIoAttribution(KSPIN_LOCK *a1, __int64 a2, char a3)

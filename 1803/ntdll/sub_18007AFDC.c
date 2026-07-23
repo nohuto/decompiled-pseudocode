@@ -12,49 +12,55 @@
  *     ZwCreateSection @ 0x18009B400 (ZwCreateSection.c)
  */
 
-__int64 __fastcall sub_18007AFDC(__int64 a1, unsigned __int64 *a2, _DWORD *a3)
+__int64 __fastcall sub_18007AFDC(_UNICODE_STRING *a1, volatile signed __int32 **a2, _DWORD *a3)
 {
-  int v4; // eax
+  ULONG v4; // eax
   int v6; // ebx
-  __int64 v8; // [rsp+50h] [rbp-19h] BYREF
-  __int64 v9; // [rsp+58h] [rbp-11h] BYREF
-  _DWORD *v10; // [rsp+60h] [rbp-9h] BYREF
-  _BYTE v11[16]; // [rsp+68h] [rbp-1h] BYREF
-  int v12; // [rsp+78h] [rbp+Fh] BYREF
-  __int64 v13; // [rsp+80h] [rbp+17h]
-  __int64 v14; // [rsp+88h] [rbp+1Fh]
-  int v15; // [rsp+90h] [rbp+27h]
-  __int128 v16; // [rsp+98h] [rbp+2Fh]
-  unsigned __int64 v17; // [rsp+D0h] [rbp+67h] BYREF
-  unsigned __int64 v18; // [rsp+E8h] [rbp+7Fh] BYREF
+  HANDLE SectionHandle; // [rsp+50h] [rbp-19h] BYREF
+  HANDLE FileHandle; // [rsp+58h] [rbp-11h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp-9h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+Fh] BYREF
+  PVOID BaseAddress; // [rsp+D0h] [rbp+67h] BYREF
+  ULONG_PTR ViewSize; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v13 = 0LL;
-  v14 = a1;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = a1;
   v4 = 64;
   if ( !byte_18015C318 )
     v4 = 2112;
-  v12 = 48;
-  v15 = v4;
-  v16 = 0LL;
-  v6 = ZwOpenFile(&v9, 1048577LL, &v12, v11, 5, 96);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = v4;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v6 = ZwOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
   if ( v6 >= 0 )
   {
-    v6 = ZwCreateSection(&v8, 4LL, 0LL, 0LL, 2, 0x8000000, v9);
+    v6 = ZwCreateSection(&SectionHandle, 4u, 0LL, 0LL, 2u, 0x8000000u, FileHandle);
     if ( v6 >= 0 )
     {
-      v17 = 0LL;
-      v18 = 0LL;
-      v6 = ZwMapViewOfSection(v8, -1LL, &v17, 0LL, 0LL, 0LL, &v18, 1, 0, 2);
+      BaseAddress = 0LL;
+      ViewSize = 0LL;
+      v6 = ZwMapViewOfSection(
+             SectionHandle,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             &BaseAddress,
+             0LL,
+             0LL,
+             0LL,
+             &ViewSize,
+             ViewShare,
+             0,
+             2u);
       if ( v6 >= 0 )
       {
-        v6 = RtlImageNtHeaderEx(0, v17, v18, &v10);
+        v6 = RtlImageNtHeaderEx(0, BaseAddress, ViewSize, &OutHeaders);
         if ( v6 >= 0 )
-          v6 = sub_18002DC58(v17, v10, a2, a3);
-        ZwUnmapViewOfSection(-1LL);
+          v6 = sub_18002DC58(BaseAddress, OutHeaders, a2, a3);
+        ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
       }
-      ZwClose(v8);
+      ZwClose(SectionHandle);
     }
-    ZwClose(v9);
+    ZwClose(FileHandle);
   }
   return (unsigned int)v6;
 }

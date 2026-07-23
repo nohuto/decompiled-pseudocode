@@ -1,14 +1,14 @@
 /*
- * XREFs of WbMakeUserExecutablePagesKernelWritable @ 0x14068FEA4
+ * XREFs of WbMakeUserExecutablePagesKernelWritable @ 0x140691064
  * Callers:
- *     sub_140584974 @ 0x140584974 (sub_140584974.c)
- *     WbAllocateMemoryBlock @ 0x14068FD60 (WbAllocateMemoryBlock.c)
+ *     sub_140585974 @ 0x140585974 (sub_140585974.c)
+ *     WbAllocateMemoryBlock @ 0x140690F20 (WbAllocateMemoryBlock.c)
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     MmProbeAndLockPagesPrivate @ 0x14010CD94 (MmProbeAndLockPagesPrivate.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     MmProbeAndLockPagesPrivate @ 0x14010CE14 (MmProbeAndLockPagesPrivate.c)
  */
 
 __int64 __fastcall WbMakeUserExecutablePagesKernelWritable(void *a1, ULONG a2, PMDL *a3, _QWORD *a4)

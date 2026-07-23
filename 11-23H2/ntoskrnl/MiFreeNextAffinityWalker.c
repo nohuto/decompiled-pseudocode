@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreeNextAffinityWalker @ 0x1405B79BC
+ * XREFs of MiFreeNextAffinityWalker @ 0x1405B7F2C
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x1406C1070 (SepAccessCheckAndAuditAlarm.c)
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
- *     MiFreeImageLoadConfig @ 0x140A4A2E4 (MiFreeImageLoadConfig.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406C10A0 (SepAccessCheckAndAuditAlarm.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
+ *     MiFreeImageLoadConfig @ 0x140A4A594 (MiFreeImageLoadConfig.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateReserveClusterInfo @ 0x1404A4D38
+ * XREFs of MiUpdateReserveClusterInfo @ 0x14049E3C8
  * Callers:
- *     MiAdjustModifiedPageLoad @ 0x1404BC438 (MiAdjustModifiedPageLoad.c)
- *     MiFinishPageFileExtension @ 0x14050F0CC (MiFinishPageFileExtension.c)
- *     MiInsertPageFileInList @ 0x14086BC8C (MiInsertPageFileInList.c)
+ *     MiAdjustModifiedPageLoad @ 0x1404B5B78 (MiAdjustModifiedPageLoad.c)
+ *     MiFinishPageFileExtension @ 0x140508B3C (MiFinishPageFileExtension.c)
+ *     MiInsertPageFileInList @ 0x14087206C (MiInsertPageFileInList.c)
  * Callees:
  *     <none>
  */

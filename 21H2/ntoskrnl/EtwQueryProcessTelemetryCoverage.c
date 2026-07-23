@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwQueryProcessTelemetryCoverage @ 0x140934D4C
+ * XREFs of EtwQueryProcessTelemetryCoverage @ 0x140934F1C
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpCoverageUserIsAdmin @ 0x140935758 (EtwpCoverageUserIsAdmin.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpCoverageUserIsAdmin @ 0x140935928 (EtwpCoverageUserIsAdmin.c)
  */
 
 __int64 __fastcall EtwQueryProcessTelemetryCoverage(_KPROCESS *a1, char *a2, unsigned int a3, unsigned int *a4)
@@ -24,7 +24,10 @@ __int64 __fastcall EtwQueryProcessTelemetryCoverage(_KPROCESS *a1, char *a2, uns
   __int64 *j; // rsi
   unsigned int v16; // eax
   __int64 v17; // rdi
-  unsigned int v19; // [rsp+24h] [rbp-44h]
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  unsigned int v22; // [rsp+24h] [rbp-44h]
 
   if ( a1 == KeGetCurrentThread()->ApcState.Process )
   {
@@ -55,7 +58,7 @@ __int64 __fastcall EtwQueryProcessTelemetryCoverage(_KPROCESS *a1, char *a2, uns
         }
         if ( a3 < v9 )
         {
-          v19 = -2147483643;
+          v22 = -2147483643;
         }
         else
         {
@@ -69,22 +72,22 @@ __int64 __fastcall EtwQueryProcessTelemetryCoverage(_KPROCESS *a1, char *a2, uns
               a2 += v17;
             }
           }
-          v19 = 0;
+          v22 = 0;
         }
       }
       else
       {
-        v19 = -1073741790;
+        v22 = -1073741790;
       }
     }
     else
     {
-      v19 = -1073741641;
+      v22 = -1073741641;
     }
   }
   else
   {
-    v19 = -1073741637;
+    v22 = -1073741637;
   }
   if ( (struct _KTHREAD *)EtwpCoverageLockOwner == KeGetCurrentThread() )
   {
@@ -92,7 +95,7 @@ __int64 __fastcall EtwQueryProcessTelemetryCoverage(_KPROCESS *a1, char *a2, uns
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCoverageLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&EtwpCoverageLock);
     KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
   }
-  return v19;
+  return v22;
 }

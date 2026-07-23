@@ -1,12 +1,12 @@
 /*
- * XREFs of IopChildToRootTranslation @ 0x140A93B6C
+ * XREFs of IopChildToRootTranslation @ 0x140A9031C
  * Callers:
- *     PnpBuildCmResourceList @ 0x140A936D4 (PnpBuildCmResourceList.c)
+ *     PnpBuildCmResourceList @ 0x140A8FE84 (PnpBuildCmResourceList.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     IopFindLegacyBusDeviceNode @ 0x140A93D38 (IopFindLegacyBusDeviceNode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     IopFindLegacyBusDeviceNode @ 0x140A904E8 (IopFindLegacyBusDeviceNode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopChildToRootTranslation(
@@ -32,10 +32,10 @@ __int64 __fastcall IopChildToRootTranslation(
   v6 = 0;
   v10 = 0;
   v21 = a4 == 1;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0x14uLL, 0x20207050u);
   if ( !Pool2 )
     return 3221225626LL;
-  v13 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  v13 = (_DWORD *)ExAllocatePool2(0x100uLL, 0x14uLL, 0x20207050u);
   if ( !v13 )
   {
     ExFreePoolWithTag(Pool2, 0);
@@ -75,7 +75,7 @@ LABEL_24:
     LegacyBusDeviceNode = (_QWORD *)LegacyBusDeviceNode[2];
     goto LABEL_8;
   }
-  v18 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v17 + 8), Pool2, 0LL, 0LL);
+  v18 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v17 + 8), Pool2);
   v6 = v18;
   v19 = Pool2;
   if ( v18 >= 0 )

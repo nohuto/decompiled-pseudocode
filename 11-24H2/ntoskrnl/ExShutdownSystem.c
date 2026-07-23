@@ -1,18 +1,18 @@
 /*
- * XREFs of ExShutdownSystem @ 0x140B61148
+ * XREFs of ExShutdownSystem @ 0x140B63218
  * Callers:
- *     PopGracefulShutdown @ 0x140B5BA88 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140B5DAF8 (PopGracefulShutdown.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     ExpRecordShutdownTime @ 0x14065362C (ExpRecordShutdownTime.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     ExSwapinWorkerThreads @ 0x140A51B34 (ExSwapinWorkerThreads.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     ExpRecordShutdownTime @ 0x140651D8C (ExpRecordShutdownTime.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     ExSwapinWorkerThreads @ 0x140A48C04 (ExSwapinWorkerThreads.c)
  */
 
 void ExShutdownSystem()
@@ -22,9 +22,9 @@ void ExShutdownSystem()
   _QWORD *ServerSiloGlobals; // rbx
   void *v3; // rcx
   void *v4; // rcx
-  _QWORD *v5; // rax
+  char *v5; // rax
   signed __int8 v6; // cf
-  _QWORD *v7; // rbx
+  char *v7; // rbx
   signed __int64 v8; // rdx
   ULONG_PTR v9; // rtt
 
@@ -51,22 +51,22 @@ void ExShutdownSystem()
       ObfDereferenceObjectWithTag(v4, 0x65487845u);
       ServerSiloGlobals[106] = 0LL;
     }
-    v5 = KeAbPreAcquire((__int64)&ExpKeyManipLock, 0LL);
+    v5 = (char *)KeAbPreAcquire((__int64)&ExpKeyManipLock, 0LL);
     v6 = _interlockedbittestandset64((volatile signed __int32 *)&ExpKeyManipLock, 0LL);
     v7 = v5;
     if ( v6 )
-      ExfAcquirePushLockExclusiveEx(&ExpKeyManipLock, (__int64)v5, (__int64)&ExpKeyManipLock);
+      ExfAcquirePushLockExclusiveEx(&ExpKeyManipLock, v5, (__int64)&ExpKeyManipLock);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     if ( ExpControlKey )
     {
       ObfDereferenceObject(ExpControlKey);
       ExpControlKey = 0LL;
     }
-    if ( qword_140EFE8A8 )
+    if ( qword_140EFEBD8 )
     {
-      ObfDereferenceObject(qword_140EFE8A8);
-      qword_140EFE8A8 = 0LL;
+      ObfDereferenceObject(qword_140EFEBD8);
+      qword_140EFEBD8 = 0LL;
     }
     if ( ExpProductTypeKey )
     {

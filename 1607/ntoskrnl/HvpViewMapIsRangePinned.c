@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpViewMapIsRangePinned @ 0x1401B6824
+ * XREFs of HvpViewMapIsRangePinned @ 0x1401B6708
  * Callers:
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140605D14 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140605DC8 (HvExtendHivePrimaryFileValidDataLength.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwDeviceCreate @ 0x140A7BEBC
+ * XREFs of PiSwDeviceCreate @ 0x140A8CFFC
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x140A7B9C8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x140A8CB08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiSwDeviceCreate(_QWORD *a1)

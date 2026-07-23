@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryTimerDueTime @ 0x140570D80
+ * XREFs of KeQueryTimerDueTime @ 0x1405712C0
  * Callers:
- *     ExGetNextWakeTimeForDeepSleep @ 0x14060B5B0 (ExGetNextWakeTimeForDeepSleep.c)
- *     ExGetWakeTimerList @ 0x14060B628 (ExGetWakeTimerList.c)
- *     NtQueryTimer @ 0x1409FB710 (NtQueryTimer.c)
- *     ExGetNextWakeTime @ 0x140AAAEEC (ExGetNextWakeTime.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x14060BB00 (ExGetNextWakeTimeForDeepSleep.c)
+ *     ExGetWakeTimerList @ 0x14060BB78 (ExGetWakeTimerList.c)
+ *     NtQueryTimer @ 0x1409FB9A0 (NtQueryTimer.c)
+ *     ExGetNextWakeTime @ 0x140AAAD5C (ExGetNextWakeTime.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryTimerDueTime(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall KeQueryTimerDueTime(__int64 a1)
   v2 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v5 = 4;
@@ -37,10 +37,10 @@ __int64 __fastcall KeQueryTimerDueTime(__int64 a1)
   if ( (*(_BYTE *)(a1 + 3) & 0x40) != 0 )
     v2 = *(_QWORD *)(a1 + 24);
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = CurrentPrcb->SchedulerAssist;

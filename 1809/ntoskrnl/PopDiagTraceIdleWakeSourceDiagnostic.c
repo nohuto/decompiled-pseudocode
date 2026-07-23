@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceIdleWakeSourceDiagnostic @ 0x140872E14
+ * XREFs of PopDiagTraceIdleWakeSourceDiagnostic @ 0x140874074
  * Callers:
- *     PopDiagIdleWakeAccountingStop @ 0x14086FCC8 (PopDiagIdleWakeAccountingStop.c)
+ *     PopDiagIdleWakeAccountingStop @ 0x140870F28 (PopDiagIdleWakeAccountingStop.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIdleWakeSourceDiagnostic(__int64 a1)
@@ -91,7 +91,7 @@ void __fastcall PopDiagTraceIdleWakeSourceDiagnostic(__int64 a1)
   __int64 v77; // [rsp+1F8h] [rbp+F0h]
   __int64 v78; // [rsp+200h] [rbp+F8h]
 
-  RtlInitUnicodeString(&DestinationString, &word_140766550);
+  RtlInitUnicodeString(&DestinationString, &word_140767740);
   if ( *(_DWORD *)a1 == 5 )
   {
     v2 = *(_DWORD *)(a1 + 56);
@@ -166,7 +166,7 @@ void __fastcall PopDiagTraceIdleWakeSourceDiagnostic(__int64 a1)
     v57 = 8LL;
     v59 = 2LL;
     v62 = 0;
-    TlgWrite(&pCallbackContext, &unk_14036F5FF, 0LL, 0LL, 0x10u, &pData);
+    TlgWrite(&pCallbackContext, &unk_1403705EC, 0LL, 0LL, 0x10u, &pData);
   }
   if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DRIPS_WAKE_ACCOUNTING_SUMMARY) )
   {

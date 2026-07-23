@@ -10,17 +10,17 @@
  *     MiLockTrackerCompare @ 0x1405A4430 (MiLockTrackerCompare.c)
  */
 
-unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
+signed __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // r15
   __int64 v4; // rsi
-  unsigned __int64 v5; // r14
+  signed __int64 v5; // r14
   KIRQL v6; // al
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   unsigned __int64 v8; // rbp
   int v9; // edi
   int v10; // eax
-  unsigned __int64 v11; // rax
+  signed __int64 v11; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   int v14; // edx
@@ -56,15 +56,18 @@ unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned _
   }
   if ( v7 )
   {
-    RtlRbRemoveNode((unsigned __int64 *)v4, v7);
+    RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7);
     v5 = v7;
     *(_QWORD *)(v7 + 16) = -1LL;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));

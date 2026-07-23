@@ -7,27 +7,27 @@
  *     ZwQueryInformationThread @ 0x1800A1350 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall RtlSetThreadIsCritical(unsigned __int8 a1, _BYTE *a2, char a3)
+NTSTATUS __cdecl RtlSetThreadIsCritical(BOOLEAN NewValue, PBOOLEAN OldValue, BOOLEAN CheckFlag)
 {
   int v3; // edi
-  __int64 result; // rax
-  int v6; // [rsp+50h] [rbp+18h] BYREF
+  NTSTATUS result; // eax
+  int ThreadInformation; // [rsp+50h] [rbp+18h] BYREF
 
-  v3 = a1;
-  if ( a2 )
-    *a2 = 0;
-  if ( a3 && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
-    return 3221225473LL;
-  if ( !a2 )
+  v3 = NewValue;
+  if ( OldValue )
+    *OldValue = 0;
+  if ( CheckFlag && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
+    return -1073741823;
+  if ( !OldValue )
   {
 LABEL_8:
-    v6 = v3;
-    return NtSetInformationThread(-2LL, 18LL, &v6);
+    ThreadInformation = v3;
+    return NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadBreakOnTermination, &ThreadInformation, 4u);
   }
-  result = ZwQueryInformationThread(-2LL, 18LL, &v6, 4LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadBreakOnTermination, &ThreadInformation, 4u, 0LL);
+  if ( result >= 0 )
   {
-    *a2 = v6;
+    *OldValue = ThreadInformation;
     goto LABEL_8;
   }
   return result;

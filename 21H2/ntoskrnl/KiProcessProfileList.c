@@ -1,9 +1,9 @@
 /*
- * XREFs of KiProcessProfileList @ 0x14051BFC0
+ * XREFs of KiProcessProfileList @ 0x14051C200
  * Callers:
- *     KeProfileInterruptWithSource @ 0x14051BB80 (KeProfileInterruptWithSource.c)
+ *     KeProfileInterruptWithSource @ 0x14051BDC0 (KeProfileInterruptWithSource.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 unsigned __int64 __fastcall KiProcessProfileList(__int64 a1, int a2, __int64 **a3)

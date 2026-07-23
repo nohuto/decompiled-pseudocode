@@ -1,12 +1,12 @@
 /*
- * XREFs of VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma @ 0x14058D2C0
+ * XREFs of VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma @ 0x14058A5B0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140456290 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14044B190 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma(int a1, char a2, char a3, char a4)
@@ -28,7 +28,7 @@ char __fastcall VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma(int a1, c
   v13 = a3;
   v14 = a4;
   v15 = 2;
-  v8 = (int)VslpEnterIumSecureMode(2u, 267LL, 0, (__int64)v10) < 0;
+  v8 = (int)VslpEnterIumSecureMode(2u, 0x10Bu, 0, (__int64)v10) < 0;
   result = v15;
   if ( v8 )
     return -1;

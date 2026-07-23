@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUserShutdownDelayDpcCallback @ 0x140205D10
+ * XREFs of PopUserShutdownDelayDpcCallback @ 0x140205B3C
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 void __fastcall PopUserShutdownDelayDpcCallback(

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetCrossPartitionCharges @ 0x140659F78
+ * XREFs of MiGetCrossPartitionCharges @ 0x14065A4C8
  * Callers:
- *     MiGetCrossPartitionCloneCharges @ 0x14066480C (MiGetCrossPartitionCloneCharges.c)
- *     MiCreateLargePfnList @ 0x1406679EC (MiCreateLargePfnList.c)
- *     MiGetSubsectionCharges @ 0x14066B1A8 (MiGetSubsectionCharges.c)
- *     MiAllocateUserPhysicalPages @ 0x140A40358 (MiAllocateUserPhysicalPages.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x140664D5C (MiGetCrossPartitionCloneCharges.c)
+ *     MiCreateLargePfnList @ 0x140667F3C (MiCreateLargePfnList.c)
+ *     MiGetSubsectionCharges @ 0x14066B6F8 (MiGetSubsectionCharges.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A40608 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiApplyCrossPartitionCharges @ 0x140658F1C (MiApplyCrossPartitionCharges.c)
- *     MiReturnCrossPartitionCharge @ 0x14065B2D8 (MiReturnCrossPartitionCharge.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiApplyCrossPartitionCharges @ 0x14065946C (MiApplyCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharge @ 0x14065B828 (MiReturnCrossPartitionCharge.c)
  */
 
 __int64 __fastcall MiGetCrossPartitionCharges(__int64 a1, int a2, char a3, __int64 a4)
@@ -48,10 +48,13 @@ __int64 __fastcall MiGetCrossPartitionCharges(__int64 a1, int a2, char a3, __int
     }
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v5);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));

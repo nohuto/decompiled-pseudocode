@@ -1,27 +1,27 @@
 /*
- * XREFs of MiReferenceControlAreaFileWithTag @ 0x14038ED10
+ * XREFs of MiReferenceControlAreaFileWithTag @ 0x140390AC0
  * Callers:
- *     MiEmptyPageAccessLog @ 0x1402CFDDC (MiEmptyPageAccessLog.c)
- *     MiLogPageAccess @ 0x140320930 (MiLogPageAccess.c)
- *     MiCompleteRestrictedImageFault @ 0x1403744A0 (MiCompleteRestrictedImageFault.c)
- *     MiCreateSystemSection @ 0x14038A4C0 (MiCreateSystemSection.c)
- *     MiInitializeFlushPacket @ 0x14038CD08 (MiInitializeFlushPacket.c)
- *     MiReferenceInPageFile @ 0x14038D284 (MiReferenceInPageFile.c)
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     MiFaultTrimBehind @ 0x140441F5C (MiFaultTrimBehind.c)
- *     MiSetPagesModified @ 0x14045BE6C (MiSetPagesModified.c)
- *     MiMakeModifiedSystemCachePteValid @ 0x14048BB40 (MiMakeModifiedSystemCachePteValid.c)
- *     MiGatherMappedPages @ 0x140496CD8 (MiGatherMappedPages.c)
- *     MmGetFileObjectForSection @ 0x140AAE5D0 (MmGetFileObjectForSection.c)
+ *     MiEmptyPageAccessLog @ 0x1402B1B9C (MiEmptyPageAccessLog.c)
+ *     MiLogPageAccess @ 0x140322960 (MiLogPageAccess.c)
+ *     MiCompleteRestrictedImageFault @ 0x140376250 (MiCompleteRestrictedImageFault.c)
+ *     MiCreateSystemSection @ 0x14038C270 (MiCreateSystemSection.c)
+ *     MiInitializeFlushPacket @ 0x14038EAB4 (MiInitializeFlushPacket.c)
+ *     MiReferenceInPageFile @ 0x14038F034 (MiReferenceInPageFile.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     MiFaultTrimBehind @ 0x14043AA6C (MiFaultTrimBehind.c)
+ *     MiSetPagesModified @ 0x140455A14 (MiSetPagesModified.c)
+ *     MiMakeModifiedSystemCachePteValid @ 0x140485680 (MiMakeModifiedSystemCachePteValid.c)
+ *     MiGatherMappedPages @ 0x140490828 (MiGatherMappedPages.c)
+ *     MmGetFileObjectForSection @ 0x140AA75C0 (MmGetFileObjectForSection.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void *__fastcall MiReferenceControlAreaFileWithTag(__int64 a1, unsigned int a2, int a3)
@@ -97,7 +97,7 @@ LABEL_14:
     ObfReferenceObjectWithTag(v18, a2);
   if ( v17 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v15, 0xBFFFFFFF);
       _InterlockedDecrement(v15);
@@ -109,7 +109,7 @@ LABEL_14:
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v15, 0xBFFFFFFF);
       _InterlockedDecrement(v15);

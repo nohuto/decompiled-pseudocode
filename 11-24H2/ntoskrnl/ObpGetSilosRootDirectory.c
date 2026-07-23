@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpGetSilosRootDirectory @ 0x14082B0A0
+ * XREFs of ObpGetSilosRootDirectory @ 0x14082B8D0
  * Callers:
- *     ObCreateSiloRootDirectory @ 0x14082ABD4 (ObCreateSiloRootDirectory.c)
+ *     ObCreateSiloRootDirectory @ 0x14082B404 (ObCreateSiloRootDirectory.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     ZwCreateDirectoryObject @ 0x1406A7990 (ZwCreateDirectoryObject.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     ZwCreateDirectoryObject @ 0x1406A8930 (ZwCreateDirectoryObject.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ObpGetSilosRootDirectory(PHANDLE DirectoryHandle)
@@ -33,7 +33,7 @@ NTSTATUS __fastcall ObpGetSilosRootDirectory(PHANDLE DirectoryHandle)
   {
     v3 = RtlLengthSid(SeWorldSid);
     v4 = RtlLengthSid(SeLocalSystemSid) + 32 + v3;
-    Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
+    Pool2 = (ACL *)ExAllocatePool2(0x100uLL, v4, 0x6C636144u);
     v6 = Pool2;
     if ( Pool2 )
     {

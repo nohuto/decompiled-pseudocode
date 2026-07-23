@@ -1,34 +1,34 @@
 /*
- * XREFs of ObCreateObject @ 0x140932FB0
+ * XREFs of ObCreateObject @ 0x14090EB60
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     KiAllocatePrcbThread @ 0x1405EC38C (KiAllocatePrcbThread.c)
- *     ExCreateDpcEvent @ 0x1406CFAC0 (ExCreateDpcEvent.c)
- *     CmpCreateRegistryRoot @ 0x140CEA70C (CmpCreateRegistryRoot.c)
- *     MiSectionInitialization @ 0x140CF86BC (MiSectionInitialization.c)
- *     IopInitializeBuiltinDriver @ 0x140D08E68 (IopInitializeBuiltinDriver.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     KiAllocatePrcbThread @ 0x1405EECFC (KiAllocatePrcbThread.c)
+ *     ExCreateDpcEvent @ 0x1406D3AF0 (ExCreateDpcEvent.c)
+ *     CmpCreateRegistryRoot @ 0x140CF0AAC (CmpCreateRegistryRoot.c)
+ *     MiSectionInitialization @ 0x140CFEA3C (MiSectionInitialization.c)
+ *     IopInitializeBuiltinDriver @ 0x140D0F138 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     SepPrivilegeCheck @ 0x14042F0A0 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpRegisterObject @ 0x140778F98 (ObpRegisterObject.c)
- *     ObpCaptureObjectCreateInformation @ 0x1408FDFD0 (ObpCaptureObjectCreateInformation.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140932AB0 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     ObpAllocateObject @ 0x1409344A0 (ObpAllocateObject.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     SepPrivilegeCheck @ 0x14041BFB0 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpRegisterObject @ 0x14077BE38 (ObpRegisterObject.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14090E660 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ObpAllocateObject @ 0x140910050 (ObpAllocateObject.c)
+ *     ObpCaptureObjectCreateInformation @ 0x14092DF60 (ObpCaptureObjectCreateInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObCreateObject(
-        char a1,
+        unsigned __int8 a1,
         _DWORD *a2,
-        void *a3,
+        __int64 a3,
         unsigned __int8 a4,
         int a5,
         int a6,
@@ -42,7 +42,7 @@ __int64 __fastcall ObCreateObject(
   _DWORD *v14; // r13
   __int64 v15; // rdi
   int Information; // ebx
-  _KSCHEDULING_GROUP *volatile SchedulingGroup; // rbx
+  __int64 v17; // rbx
   _QWORD *ClientToken; // rbx
   unsigned int v19; // r14d
   char v20; // al
@@ -53,7 +53,7 @@ __int64 __fastcall ObCreateObject(
   _KPROCESS *Process; // rdx
   signed __int64 ActiveProcessors; // rax
   signed __int64 v27; // rtt
-  struct _SLIST_ENTRY *v28; // r8
+  _SLIST_ENTRY *v28; // r8
   struct _KPRCB *v29; // rdx
   _GENERAL_LOOKASIDE *v30; // rcx
   void *v31; // rcx
@@ -66,11 +66,11 @@ __int64 __fastcall ObCreateObject(
   struct _KLOCK_ENTRIES *v39; // r9
   __int64 v40; // rdi
   int v41; // r11d
-  _KSCHEDULING_GROUP *volatile *v42; // r9
+  __int64 *v42; // r9
   __int64 v43; // r10
   struct _LIST_ENTRY *Blink; // rdx
   struct _LIST_ENTRY *Flink; // rax
-  _KSCHEDULING_GROUP *volatile *v46; // rdx
+  __int64 *v46; // rdx
   __int64 v47; // r9
   _UNKNOWN **v48; // r8
   _DWORD *v49; // rax
@@ -81,7 +81,7 @@ __int64 __fastcall ObCreateObject(
   PSLIST_ENTRY ListEntry[2]; // [rsp+78h] [rbp-31h] BYREF
   _QWORD *v56; // [rsp+88h] [rbp-21h]
   unsigned int v57[2]; // [rsp+90h] [rbp-19h] BYREF
-  _KSCHEDULING_GROUP *volatile v58; // [rsp+98h] [rbp-11h] BYREF
+  __int64 v58; // [rsp+98h] [rbp-11h] BYREF
   int v59; // [rsp+A0h] [rbp-9h]
 
   CurrentPrcb = KeGetCurrentPrcb();
@@ -204,10 +204,10 @@ LABEL_24:
       }
       goto LABEL_33;
     }
-    SchedulingGroup = PspSiloMonitorLock.SchedulingGroup;
+    v17 = *(_QWORD *)&PspSiloMonitorLock.SystemCallNumber;
     memset(&SubjectContext, 0, sizeof(SubjectContext));
     SeCaptureSubjectContext(&SubjectContext);
-    v58 = SchedulingGroup;
+    v58 = v17;
     ClientToken = SubjectContext.ClientToken;
     v19 = 1;
     v57[0] = 1;
@@ -224,14 +224,14 @@ LABEL_14:
         {
           _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(PrimaryToken + 1144) + 284LL));
           PrimaryToken = (__int64)SubjectContext.PrimaryToken;
-          if ( SubjectContext.PrimaryToken == RtlpBootStatHandleLock.TrapFrame )
+          if ( SubjectContext.PrimaryToken == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
             __debugbreak();
           ClientToken = SubjectContext.ClientToken;
         }
         if ( ClientToken )
         {
           _InterlockedDecrement((volatile signed __int32 *)(ClientToken[143] + 284LL));
-          if ( SubjectContext.ClientToken == RtlpBootStatHandleLock.TrapFrame )
+          if ( SubjectContext.ClientToken == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
             __debugbreak();
           PrimaryToken = (__int64)SubjectContext.PrimaryToken;
         }
@@ -279,7 +279,7 @@ LABEL_11:
         if ( ClientToken )
           v23 = (_QWORD **)ClientToken;
         v24 = (void *)*v23[19];
-        if ( !RtlEqualSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags, v24) )
+        if ( !RtlEqualSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4), v24) )
         {
           v35 = SeExports;
           if ( !RtlEqualSid(SeExports->SeNetworkServiceSid, v24) && !RtlEqualSid(v35->SeLocalServiceSid, v24) )
@@ -302,7 +302,7 @@ LABEL_11:
               }
               ++v41;
 LABEL_61:
-              v42 = (_KSCHEDULING_GROUP *volatile *)((char *)v42 + 12);
+              v42 = (__int64 *)((char *)v42 + 12);
               --v43;
             }
             while ( v43 );
@@ -321,7 +321,7 @@ LABEL_61:
               }
               ++v41;
 LABEL_66:
-              v46 = (_KSCHEDULING_GROUP *volatile *)((char *)v46 + 12);
+              v46 = (__int64 *)((char *)v46 + 12);
               --v47;
             }
             while ( v47 );

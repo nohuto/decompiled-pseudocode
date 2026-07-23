@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoAttachDeviceWrapper @ 0x1405DD4D0
+ * XREFs of DifIoAttachDeviceWrapper @ 0x1405DDA40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoAttachDevice @ 0x140946C00 (IoAttachDevice.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoAttachDevice @ 0x140946E00 (IoAttachDevice.c)
  */
 
 NTSTATUS __fastcall DifIoAttachDeviceWrapper(

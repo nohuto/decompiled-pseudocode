@@ -1,28 +1,28 @@
 /*
- * XREFs of WheapInitializeWorkQueue @ 0x14017D144
+ * XREFs of WheapInitializeWorkQueue @ 0x14017D284
  * Callers:
- *     WheaInitialize @ 0x1409AFD68 (WheaInitialize.c)
+ *     WheaInitialize @ 0x1409B0D68 (WheaInitialize.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 (__fastcall *WheapInitializeWorkQueue())()
 {
   __int64 (__fastcall *result)(); // rax
 
-  memset(&WheapDispatchPtr.DeviceLock.Header.WaitListHead, 0, 0x88uLL);
-  WheapDispatchPtr.DeviceLock.Header.WaitListHead.Blink = &WheapDispatchPtr.DeviceLock.Header.WaitListHead;
-  WheapDispatchPtr.DeviceLock.Header.WaitListHead.Flink = &WheapDispatchPtr.DeviceLock.Header.WaitListHead;
-  qword_1404066B8 = (__int64)WheapWorkQueueDpcRoutine;
-  qword_1404066F0 = (__int64)WheapWorkQueueWorkerRoutine;
+  memset(&WheapDispatchPtr.Reserved, 0, 0x88uLL);
+  *((_QWORD *)&WheapDispatchPtr.Reserved + 1) = &WheapDispatchPtr.Reserved;
+  WheapDispatchPtr.Reserved = &WheapDispatchPtr.Reserved;
+  qword_1404076F8 = (__int64)WheapWorkQueueDpcRoutine;
+  qword_140407730 = (__int64)WheapWorkQueueWorkerRoutine;
   result = WheapProcessWorkQueueItem;
-  qword_140406700 = (__int64)WheapProcessWorkQueueItem;
-  *(_QWORD *)&WheapDispatchPtr.SectorSize = 0LL;
-  LODWORD(WheapDispatchPtr.Reserved) = 275;
-  qword_1404066C0 = (__int64)&WheapDispatchPtr.DeviceLock.Header.WaitListHead;
-  qword_1404066D8 = 0LL;
-  qword_1404066B0 = 0LL;
-  qword_1404066F8 = (__int64)&WheapDispatchPtr.DeviceLock.Header.WaitListHead;
-  qword_1404066E0 = 0LL;
+  qword_140407740 = (__int64)WheapProcessWorkQueueItem;
+  qword_1404076D0 = 0LL;
+  dword_1404076E0 = 275;
+  qword_140407700 = (__int64)&WheapDispatchPtr.Reserved;
+  qword_140407718 = 0LL;
+  qword_1404076F0 = 0LL;
+  qword_140407738 = (__int64)&WheapDispatchPtr.Reserved;
+  qword_140407720 = 0LL;
   return result;
 }

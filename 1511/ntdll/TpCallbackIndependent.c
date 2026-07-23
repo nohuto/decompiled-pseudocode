@@ -8,64 +8,64 @@
  *     TppRaiseInvalidParameter @ 0x1800F5658 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpCallbackIndependent(__int64 a1, __int64 a2)
+NTSTATUS __fastcall TpCallbackIndependent(__int64 a1)
 {
-  unsigned int v2; // r8d
+  int v1; // r8d
+  __int64 v2; // rbx
   __int64 v3; // rbx
-  __int64 v4; // rbx
-  signed __int64 v5; // rax
-  signed __int64 v6; // rtt
-  __int64 v7; // rdi
-  signed __int32 v8; // eax
-  int v9; // edx
-  unsigned __int32 v10; // r8d
-  int v12; // [rsp+30h] [rbp+8h] BYREF
-  signed __int64 v13; // [rsp+38h] [rbp+10h]
+  signed __int64 v4; // rax
+  signed __int64 v5; // rtt
+  __int64 v6; // rdi
+  signed __int32 v7; // eax
+  int v8; // edx
+  unsigned __int32 v9; // r8d
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
+  signed __int64 v12; // [rsp+38h] [rbp+10h]
 
-  v2 = 0;
+  v1 = 0;
   if ( !a1 || *(_DWORD *)(a1 + 72) )
   {
-    TppRaiseInvalidParameter(a1, a2, 0LL, a1);
-    return (unsigned int)-1073741811;
+    TppRaiseInvalidParameter(a1);
+    return -1073741811;
   }
-  v3 = *(_QWORD *)(a1 + 184);
-  if ( v3 )
-    v4 = *(_QWORD *)(v3 + 136);
+  v2 = *(_QWORD *)(a1 + 184);
+  if ( v2 )
+    v3 = *(_QWORD *)(v2 + 136);
   else
-    v4 = *(_QWORD *)(a1 + 128);
-  if ( !v4 )
-    return (unsigned int)-1073741811;
-  if ( TppPoolpSerializedPool == v4 )
-    return v2;
-  _InterlockedDecrement((volatile signed __int32 *)(v4 + 416));
-  _InterlockedIncrement((volatile signed __int32 *)(v4 + 420));
-  _m_prefetchw((const void *)(v4 + 8));
-  v5 = *(_QWORD *)(v4 + 8);
-  v13 = v5;
+    v3 = *(_QWORD *)(a1 + 128);
+  if ( !v3 )
+    return -1073741811;
+  if ( TppPoolpSerializedPool == v3 )
+    return v1;
+  _InterlockedDecrement((volatile signed __int32 *)(v3 + 416));
+  _InterlockedIncrement((volatile signed __int32 *)(v3 + 420));
+  _m_prefetchw((const void *)(v3 + 8));
+  v4 = *(_QWORD *)(v3 + 8);
+  v12 = v4;
   do
   {
-    LODWORD(v13) = (unsigned __int16)(v13 ^ (v13 + 1)) ^ (unsigned int)v13;
-    v6 = v5;
-    v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 8), v13, v5);
-    v13 = v5;
+    LODWORD(v12) = (unsigned __int16)(v12 ^ (v12 + 1)) ^ (unsigned int)v12;
+    v5 = v4;
+    v4 = _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 8), v12, v4);
+    v12 = v4;
   }
-  while ( v6 != v5 );
+  while ( v5 != v4 );
   *(_DWORD *)(a1 + 144) |= 0x10u;
-  v7 = *(_QWORD *)(a1 + 136);
+  v6 = *(_QWORD *)(a1 + 136);
   *(_DWORD *)(a1 + 72) = 2;
-  if ( v7 && (*(_BYTE *)(v7 + 280) & 3) == 3 )
+  if ( v6 && (*(_BYTE *)(v6 + 280) & 3) == 3 )
   {
     while ( 1 )
     {
-      v8 = *(_DWORD *)(v7 + 276);
-      v9 = MEMORY[0x7FFE03C0] + *(_DWORD *)(*(_QWORD *)(v7 + 208) + 420LL);
-      v10 = v9 + MEMORY[0x7FFE03C0];
-      if ( v8 >= v9 && v8 <= (int)(v10 + MEMORY[0x7FFE03C0]) )
+      v7 = *(_DWORD *)(v6 + 276);
+      v8 = MEMORY[0x7FFE03C0] + *(_DWORD *)(*(_QWORD *)(v6 + 208) + 420LL);
+      v9 = v8 + MEMORY[0x7FFE03C0];
+      if ( v7 >= v8 && v7 <= (int)(v9 + MEMORY[0x7FFE03C0]) )
         break;
-      if ( v8 == _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 276), v10, v8) )
-        AlpcAdjustCompletionListConcurrencyCount(*(_QWORD *)(v7 + 264), v10);
+      if ( v7 == _InterlockedCompareExchange((volatile signed __int32 *)(v6 + 276), v9, v7) )
+        AlpcAdjustCompletionListConcurrencyCount(*(HANDLE *)(v6 + 264), v9);
     }
   }
-  v12 = 2;
-  return NtSetInformationWorkerFactory(*(_QWORD *)(v4 + 56), 9LL, &v12);
+  WorkerFactoryInformation = 2;
+  return NtSetInformationWorkerFactory(*(HANDLE *)(v3 + 56), WorkerFactoryCallbackType, &WorkerFactoryInformation, 4u);
 }

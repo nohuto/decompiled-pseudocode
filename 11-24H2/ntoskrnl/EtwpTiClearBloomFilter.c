@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiClearBloomFilter @ 0x1403D3604
+ * XREFs of EtwpTiClearBloomFilter @ 0x140262E58
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x1409FBC80 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1409F49C0 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     EtwpTiGetHashedBitNumbers @ 0x1403D3A3C (EtwpTiGetHashedBitNumbers.c)
+ *     EtwpTiGetHashedBitNumbers @ 0x140263290 (EtwpTiGetHashedBitNumbers.c)
  */
 
 int __fastcall EtwpTiClearBloomFilter(__int64 a1, __int64 a2)
@@ -21,12 +21,12 @@ int __fastcall EtwpTiClearBloomFilter(__int64 a1, __int64 a2)
   v9 = 0;
   EtwpTiGetHashedBitNumbers(&v8, a2, a2);
   v2 = HIDWORD(v8);
-  *(_BYTE *)(qword_140EFEC48 + ((unsigned __int64)(unsigned int)v8 >> 3)) &= ~(1 << (v8 & 7));
-  v3 = (_BYTE *)(qword_140EFEC48 + ((unsigned __int64)v2 >> 3));
+  *(_BYTE *)(qword_140EFEF68 + ((unsigned __int64)(unsigned int)v8 >> 3)) &= ~(1 << (v8 & 7));
+  v3 = (_BYTE *)(qword_140EFEF68 + ((unsigned __int64)v2 >> 3));
   v4 = (char)*v3 & ~(1 << (v2 & 7));
   v5 = v9;
   *v3 = v4;
-  v6 = (_BYTE *)(qword_140EFEC48 + ((unsigned __int64)v5 >> 3));
+  v6 = (_BYTE *)(qword_140EFEF68 + ((unsigned __int64)v5 >> 3));
   result = (char)*v6 & ~(1 << (v5 & 7));
   *v6 = result;
   return result;

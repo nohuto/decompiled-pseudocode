@@ -9,11 +9,15 @@
  *     <none>
  */
 
-__int64 NtOpenThreadToken()
+NTSTATUS __cdecl NtOpenThreadToken(
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        BOOLEAN OpenAsSelf,
+        PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 36LL;
+  result = 36;
   __asm { syscall; Low latency system call }
   return result;
 }

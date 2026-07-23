@@ -30,7 +30,7 @@
  *     RtlUnwind @ 0x14035E150 (RtlUnwind.c)
  */
 
-__int64 __fastcall local_unwind(unsigned __int64 a1, __int64 a2)
+void __fastcall local_unwind(void *a1, void *a2)
 {
-  return RtlUnwind(a1, a2, 0LL, 0LL);
+  RtlUnwind(a1, a2, 0LL, 0LL);
 }

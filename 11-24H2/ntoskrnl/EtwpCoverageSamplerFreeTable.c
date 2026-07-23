@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageSamplerFreeTable @ 0x140A70600
+ * XREFs of EtwpCoverageSamplerFreeTable @ 0x140A69A90
  * Callers:
- *     EtwpCoverageSamplerCleanup @ 0x1407B2980 (EtwpCoverageSamplerCleanup.c)
+ *     EtwpCoverageSamplerCleanup @ 0x1407B2DD0 (EtwpCoverageSamplerCleanup.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCoverageSamplerFreeTable(_QWORD *P)

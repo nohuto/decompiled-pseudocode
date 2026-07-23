@@ -1,5 +1,5 @@
 /*
- * XREFs of IvtInitializeMTRR @ 0x1403AC158
+ * XREFs of IvtInitializeMTRR @ 0x1403AC338
  * Callers:
  *     IvtInitializeIommu @ 0x140A89E10 (IvtInitializeIommu.c)
  * Callees:

@@ -1,21 +1,21 @@
 /*
- * XREFs of wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140A385E8
+ * XREFs of wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140A395E8
  * Callers:
- *     CmInitBootFeatureConfigurations @ 0x140A38340 (CmInitBootFeatureConfigurations.c)
+ *     CmInitBootFeatureConfigurations @ 0x140A39340 (CmInitBootFeatureConfigurations.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403F0554 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403F06C4 (wil_details_FeatureDescriptors_SkipPadding.c)
  *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1405CC5C4 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14091A2C0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14091A420 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  */
 
-__int64 *__fastcall wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers(__int64 *a1)
+__int64 (__fastcall **__fastcall wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers(__int64 *a1))()
 {
-  __int64 *v2; // rcx
+  __int64 (__fastcall **v2)(); // rcx
   __int64 v3; // rax
   int v4; // ecx
   int FeatureConfigurationFromBuffers; // eax
-  __int64 *result; // rax
-  __int64 *v7; // rbx
+  __int64 (__fastcall **result)(); // rax
+  __int64 (__fastcall **v7)(); // rbx
   __int64 v8; // rdx
   __int64 v9; // [rsp+20h] [rbp-40h] BYREF
   int v10; // [rsp+28h] [rbp-38h]
@@ -23,7 +23,7 @@ __int64 *__fastcall wil_details_PopulateInitialConfiguredFeatureStatesFromBuffer
   _QWORD v12[3]; // [rsp+48h] [rbp-18h] BYREF
   __int64 v13; // [rsp+78h] [rbp+18h] BYREF
 
-  v2 = (__int64 *)&wil_details_featureDescriptors_a;
+  v2 = (__int64 (__fastcall **)())&wil_details_featureDescriptors_a;
   while ( 1 )
   {
     result = wil_details_FeatureDescriptors_SkipPadding(v2);

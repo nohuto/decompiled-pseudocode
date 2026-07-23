@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSnapPageMoveInProgress @ 0x1403C85E0
+ * XREFs of MiSnapPageMoveInProgress @ 0x1403D24D0
  * Callers:
- *     MiTradePageMarkedBad @ 0x14028E820 (MiTradePageMarkedBad.c)
- *     MiGetPartitionNodePageCounts @ 0x1403C84E0 (MiGetPartitionNodePageCounts.c)
- *     MiTryUnlinkNodeLargePages @ 0x14051E74C (MiTryUnlinkNodeLargePages.c)
- *     MiGetHugeRange @ 0x1406EB880 (MiGetHugeRange.c)
+ *     MiTradePageMarkedBad @ 0x14028DD80 (MiTradePageMarkedBad.c)
+ *     MiGetPartitionNodePageCounts @ 0x1403D23D0 (MiGetPartitionNodePageCounts.c)
+ *     MiTryUnlinkNodeLargePages @ 0x140520D5C (MiTryUnlinkNodeLargePages.c)
+ *     MiGetHugeRange @ 0x1406F0520 (MiGetHugeRange.c)
  * Callees:
  *     <none>
  */

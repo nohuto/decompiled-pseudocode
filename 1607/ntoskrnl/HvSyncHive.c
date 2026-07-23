@@ -1,21 +1,21 @@
 /*
- * XREFs of HvSyncHive @ 0x14060635C
+ * XREFs of HvSyncHive @ 0x140606410
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14055D110 (CmpFinishSystemHivesLoad.c)
- *     CmpMountPreloadedHives @ 0x14055E464 (CmpMountPreloadedHives.c)
- *     CmReplaceKey @ 0x1405FE0FC (CmReplaceKey.c)
- *     HvRefreshHive @ 0x140605F64 (HvRefreshHive.c)
+ *     CmpFinishSystemHivesLoad @ 0x14055D650 (CmpFinishSystemHivesLoad.c)
+ *     CmpMountPreloadedHives @ 0x14055E9A4 (CmpMountPreloadedHives.c)
+ *     CmReplaceKey @ 0x1405FE1B0 (CmReplaceKey.c)
+ *     HvRefreshHive @ 0x140606018 (HvRefreshHive.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     HvWriteLogFile @ 0x1403F5A70 (HvWriteLogFile.c)
- *     HvResetUnreconciledData @ 0x14047E8D0 (HvResetUnreconciledData.c)
- *     HvpTruncateBins @ 0x140481A44 (HvpTruncateBins.c)
- *     HvResetDirtyData @ 0x140481C90 (HvResetDirtyData.c)
- *     HvWriteHivePrimaryFile @ 0x140483AA4 (HvWriteHivePrimaryFile.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140484068 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvUpdateUnreconciledVector @ 0x1404BEA20 (HvUpdateUnreconciledVector.c)
- *     HvResetLogFileStatusAll @ 0x1404F0AF4 (HvResetLogFileStatusAll.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     HvWriteLogFile @ 0x1403F4934 (HvWriteLogFile.c)
+ *     HvResetUnreconciledData @ 0x14047D624 (HvResetUnreconciledData.c)
+ *     HvpTruncateBins @ 0x140480798 (HvpTruncateBins.c)
+ *     HvResetDirtyData @ 0x1404809E4 (HvResetDirtyData.c)
+ *     HvWriteHivePrimaryFile @ 0x1404827F8 (HvWriteHivePrimaryFile.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140482DBC (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvUpdateUnreconciledVector @ 0x1404AA750 (HvUpdateUnreconciledVector.c)
+ *     HvResetLogFileStatusAll @ 0x1404D2BE8 (HvResetLogFileStatusAll.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
  */
 
 char __fastcall HvSyncHive(ULONG_PTR BugCheckParameter2)
@@ -55,7 +55,7 @@ char __fastcall HvSyncHive(ULONG_PTR BugCheckParameter2)
         goto LABEL_18;
       v1 = 1;
     }
-    HvUpdateUnreconciledVector((struct _RTL_BITMAP *)BugCheckParameter2, 0);
+    HvUpdateUnreconciledVector((_RTL_BITMAP *)BugCheckParameter2, 0);
     if ( *(_BYTE *)(BugCheckParameter2 + 174)
       && (int)HvValidateOrInvalidatePrimaryFileHeader(BugCheckParameter2, 0, 0, 0) < 0 )
     {

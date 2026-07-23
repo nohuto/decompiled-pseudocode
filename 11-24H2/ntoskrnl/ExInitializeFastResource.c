@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInitializeFastResource @ 0x140490200
+ * XREFs of ExInitializeFastResource @ 0x14048A840
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializeFastResource2 @ 0x140490220 (ExInitializeFastResource2.c)
+ *     ExInitializeFastResource2 @ 0x14048A860 (ExInitializeFastResource2.c)
  */
 
 __int64 __fastcall ExInitializeFastResource(ULONG_PTR a1, ULONG_PTR a2)

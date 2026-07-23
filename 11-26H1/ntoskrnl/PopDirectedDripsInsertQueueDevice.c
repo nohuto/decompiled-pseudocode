@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDirectedDripsInsertQueueDevice @ 0x14077AB2C
+ * XREFs of PopDirectedDripsInsertQueueDevice @ 0x14077DA5C
  * Callers:
- *     PopDirectedDripsVisitPs4Device @ 0x1407E29BC (PopDirectedDripsVisitPs4Device.c)
- *     PopDirectedDripsMarkDfxDevice @ 0x140B0BB98 (PopDirectedDripsMarkDfxDevice.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x1407E7A4C (PopDirectedDripsVisitPs4Device.c)
+ *     PopDirectedDripsMarkDfxDevice @ 0x140B0D58C (PopDirectedDripsMarkDfxDevice.c)
  * Callees:
  *     <none>
  */

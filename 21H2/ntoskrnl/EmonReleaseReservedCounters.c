@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonReleaseReservedCounters @ 0x1404D4298
+ * XREFs of EmonReleaseReservedCounters @ 0x1404D44D8
  * Callers:
- *     EmonReleaseProfileResourcesInternal @ 0x1404D41E0 (EmonReleaseProfileResourcesInternal.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x1404D4420 (EmonReleaseProfileResourcesInternal.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -23,8 +23,8 @@ void __fastcall EmonReleaseReservedCounters(int a1, unsigned __int64 a2)
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v13; // r8
   int v14; // eax
-  struct _GROUP_AFFINITY v15; // [rsp+28h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-20h] BYREF
+  _GROUP_AFFINITY v15; // [rsp+28h] [rbp-30h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-20h] BYREF
 
   v3 = (unsigned int)(a1 * EmonNumberCounters);
   v15 = 0LL;

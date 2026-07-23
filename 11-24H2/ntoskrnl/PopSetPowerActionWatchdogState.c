@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSetPowerActionWatchdogState @ 0x1404BCE5C
+ * XREFs of PopSetPowerActionWatchdogState @ 0x1404B7FCC
  * Callers:
- *     PopIssueActionRequest @ 0x140A87C34 (PopIssueActionRequest.c)
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopIssueActionRequest @ 0x140A84124 (PopIssueActionRequest.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     PopPowerActionWatchdog @ 0x1405D3990 (PopPowerActionWatchdog.c)
- *     PopUpdatePowerActionWatchdogTimeouts @ 0x140753F7C (PopUpdatePowerActionWatchdogTimeouts.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     PopPowerActionWatchdog @ 0x1405D10B0 (PopPowerActionWatchdog.c)
+ *     PopUpdatePowerActionWatchdogTimeouts @ 0x14075229C (PopUpdatePowerActionWatchdogTimeouts.c)
  */
 
 void __fastcall PopSetPowerActionWatchdogState(int a1)
@@ -21,18 +21,18 @@ void __fastcall PopSetPowerActionWatchdogState(int a1)
   {
     if ( a1 == 1 )
       PopUpdatePowerActionWatchdogTimeouts();
-    v2 = KeAcquireSpinLockRaiseToDpc(&qword_140F0B228);
-    if ( dword_140F0B2B4 == a1 )
+    v2 = KeAcquireSpinLockRaiseToDpc(&qword_140F0BAA8);
+    if ( dword_140F0BB34 == a1 )
       goto LABEL_16;
-    if ( dword_140F0B2B4 )
+    if ( dword_140F0BB34 )
     {
-      if ( !KeCancelTimer(&stru_140F0B270) )
+      if ( !KeCancelTimer(&stru_140F0BAF0) )
       {
         PopPowerActionWatchdog(0LL, 0LL, 0LL, 0LL);
         goto LABEL_16;
       }
-      qword_140F0B2B8 = 0LL;
-      dword_140F0B2B4 = 0;
+      qword_140F0BB38 = 0LL;
+      dword_140F0BB34 = 0;
     }
     if ( a1 )
     {
@@ -48,13 +48,13 @@ void __fastcall PopSetPowerActionWatchdogState(int a1)
       }
       if ( v3 )
       {
-        qword_140F0B2B8 = MEMORY[0xFFFFF78000000008];
-        dword_140F0B2C0 = v3;
-        dword_140F0B2B4 = a1;
-        KiSetTimerEx((__int64)&stru_140F0B270, -10000000LL * v3, 0, 0, (__int64)&dword_140F0B230);
+        qword_140F0BB38 = MEMORY[0xFFFFF78000000008];
+        dword_140F0BB40 = v3;
+        dword_140F0BB34 = a1;
+        KiSetTimerEx((__int64)&stru_140F0BAF0, -10000000LL * v3, 0, 0, (__int64)&dword_140F0BAB0);
       }
     }
 LABEL_16:
-    KeReleaseSpinLock(&qword_140F0B228, v2);
+    KeReleaseSpinLock(&qword_140F0BAA8, v2);
   }
 }

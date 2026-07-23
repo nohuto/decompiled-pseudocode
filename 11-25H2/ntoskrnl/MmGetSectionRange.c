@@ -13,9 +13,9 @@ __int64 __fastcall MmGetSectionRange(__int64 a1, unsigned __int64 *a2, unsigned 
   unsigned int v6; // esi
   __int64 v7; // rax
   __int64 v8; // rbx
-  unsigned __int64 v9; // rcx
+  void *v9; // rcx
   unsigned __int64 v10; // rdi
-  unsigned __int64 v11; // rax
+  PIMAGE_NT_HEADERS v11; // rax
   unsigned int v12; // r8d
   unsigned int *v13; // rdx
   unsigned int v14; // r9d
@@ -27,12 +27,12 @@ __int64 __fastcall MmGetSectionRange(__int64 a1, unsigned __int64 *a2, unsigned 
   v8 = v7;
   if ( v7 )
   {
-    v9 = *(_QWORD *)(v7 + 48);
-    v10 = a1 - v9;
+    v9 = *(void **)(v7 + 48);
+    v10 = a1 - (_QWORD)v9;
     v11 = RtlImageNtHeader(v9);
     v12 = 0;
-    v13 = (unsigned int *)(*(unsigned __int16 *)(v11 + 20) + v11 + 32);
-    while ( v12 < *(unsigned __int16 *)(v11 + 6) )
+    v13 = (unsigned int *)((char *)&v11->OptionalHeader.SizeOfInitializedData + v11->FileHeader.SizeOfOptionalHeader);
+    while ( v12 < v11->FileHeader.NumberOfSections )
     {
       v14 = v13[2];
       v15 = v13[1];

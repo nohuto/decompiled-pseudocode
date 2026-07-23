@@ -1,33 +1,32 @@
 /*
- * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x1800D3BFC
+ * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x1800D200C
  * Callers:
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1800D34B8 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1800D18C8 (RtlpOpenImageFileOptionsKeyEx.c)
  * Callees:
- *     NtOpenKey @ 0x18015F180 (NtOpenKey.c)
- *     ZwCreateKey @ 0x18015F2E0 (ZwCreateKey.c)
+ *     NtOpenKey @ 0x18015F080 (NtOpenKey.c)
+ *     ZwCreateKey @ 0x18015F1E0 (ZwCreateKey.c)
  */
 
-__int64 __fastcall RtlpOpenBaseImageFileOptionsKeyEx(_QWORD *a1, __int64 a2, char a3)
+NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKeyEx(HANDLE *a1, ACCESS_MASK a2, char a3)
 {
-  __int64 result; // rax
-  _QWORD v5[4]; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v6; // [rsp+60h] [rbp-10h]
-  __int64 v7; // [rsp+98h] [rbp+28h] BYREF
+  NTSTATUS result; // eax
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
+  HANDLE KeyHandle; // [rsp+98h] [rbp+28h] BYREF
 
-  v7 = 0LL;
-  v5[1] = 0LL;
-  v5[0] = 48LL;
-  v5[2] = &unk_180171E50;
-  v5[3] = 576LL;
-  v6 = 0LL;
+  KeyHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_180170E48;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( a3 )
-    result = ZwCreateKey(&v7, a2, v5, 0LL, 0LL, 0, 0LL);
+    result = ZwCreateKey(&KeyHandle, a2, &ObjectAttributes, 0, 0LL, 0, 0LL);
   else
-    result = NtOpenKey(&v7, a2, v5);
-  if ( (int)result >= 0 )
+    result = NtOpenKey(&KeyHandle, a2, &ObjectAttributes);
+  if ( result >= 0 )
   {
-    *a1 = v7;
-    return 0LL;
+    *a1 = KeyHandle;
+    return 0;
   }
   return result;
 }

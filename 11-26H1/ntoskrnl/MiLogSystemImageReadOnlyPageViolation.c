@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogSystemImageReadOnlyPageViolation @ 0x1404C3220
+ * XREFs of MiLogSystemImageReadOnlyPageViolation @ 0x1404BCA70
  * Callers:
- *     MiProbeLeafPteAccess @ 0x1402EF490 (MiProbeLeafPteAccess.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
+ *     MiProbeLeafPteAccess @ 0x1402D1510 (MiProbeLeafPteAccess.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x140366D8C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x140366E14 (MmLockLoadedModuleListShared.c)
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140368B2C (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x140368BB4 (MmLockLoadedModuleListShared.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogSystemImageReadOnlyPageViolation(unsigned __int64 a1, int a2)
@@ -44,14 +44,14 @@ void __fastcall MiLogSystemImageReadOnlyPageViolation(unsigned __int64 a1, int a
   __int64 *v31; // [rsp+F8h] [rbp-10h]
   __int64 v32; // [rsp+100h] [rbp-8h]
 
-  if ( stru_140E36558.FirstArgument )
+  if ( stru_140E366D8.FirstArgument )
   {
     v4 = MmLockLoadedModuleListShared();
     DataTableEntryByAddress = MmFindDataTableEntryByAddress(a1);
     if ( DataTableEntryByAddress
       && ((__int64)DataTableEntryByAddress[11].Blink & 0x100000) == 0
-      && *(_DWORD *)stru_140E36558.FirstArgument > 5u
-      && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000004000LL) )
+      && *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+      && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000004000LL) )
     {
       v8 = *(_QWORD *)(v7 + 112) == 0LL;
       v19[4] = (__int64)v20;
@@ -79,7 +79,7 @@ void __fastcall MiLogSystemImageReadOnlyPageViolation(unsigned __int64 a1, int a
       v16 = a2;
       v30 = 4LL;
       v32 = 8LL;
-      tlgWriteEx_EtwWriteEx(v6, (int)&dword_140057874, v6, 1, v11, v12, 0xAu, (__int64)v19);
+      tlgWriteEx_EtwWriteEx(v6, (int)&unk_1400588D0, v6, 1, v11, v12, 0xAu, (__int64)v19);
     }
     MmUnlockLoadedModuleListShared(v4);
   }

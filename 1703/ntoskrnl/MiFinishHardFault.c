@@ -109,7 +109,7 @@ __int64 __fastcall MiFinishHardFault(unsigned int *P, unsigned __int64 *a2, __in
   unsigned __int64 v62; // r9
   signed __int32 v63; // eax
   __int64 v64; // rax
-  struct _SLIST_ENTRY *v65; // r12
+  _SLIST_ENTRY *v65; // r12
   unsigned __int8 v66; // di
   unsigned __int64 v67; // rbp
   unsigned __int64 v68; // r14

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopHandleWakeSources @ 0x140AA0E5C
+ * XREFs of PopHandleWakeSources @ 0x140AA0CCC
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PopAcquireWakeSourceSpinLock @ 0x14058E3CC (PopAcquireWakeSourceSpinLock.c)
- *     PopReleaseWakeSourceSpinLock @ 0x14058E6A0 (PopReleaseWakeSourceSpinLock.c)
- *     ExCopyWakeTimerInfo @ 0x14060B530 (ExCopyWakeTimerInfo.c)
- *     PopNewWakeSource @ 0x140987544 (PopNewWakeSource.c)
- *     PopUnlinkWakeSources @ 0x140987A4C (PopUnlinkWakeSources.c)
- *     PopCheckAttendedWake @ 0x140AA0DA0 (PopCheckAttendedWake.c)
- *     PopCheckBatteryWake @ 0x140AA0E10 (PopCheckBatteryWake.c)
- *     PopValidateRTCWake @ 0x140AA14D4 (PopValidateRTCWake.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x14058E8BC (PopAcquireWakeSourceSpinLock.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x14058EB90 (PopReleaseWakeSourceSpinLock.c)
+ *     ExCopyWakeTimerInfo @ 0x14060BA80 (ExCopyWakeTimerInfo.c)
+ *     PopNewWakeSource @ 0x140987744 (PopNewWakeSource.c)
+ *     PopUnlinkWakeSources @ 0x140987C4C (PopUnlinkWakeSources.c)
+ *     PopCheckAttendedWake @ 0x140AA0C10 (PopCheckAttendedWake.c)
+ *     PopCheckBatteryWake @ 0x140AA0C80 (PopCheckBatteryWake.c)
+ *     PopValidateRTCWake @ 0x140AA1344 (PopValidateRTCWake.c)
  */
 
 LONG PopHandleWakeSources()
@@ -52,10 +52,10 @@ LONG PopHandleWakeSources()
     v1 = v10;
     v2 = 4;
 LABEL_9:
-    if ( dword_140C3D120 < 0 || (unsigned __int64)dword_140C3D120 >= 3 )
+    if ( dword_140C3CDE0 < 0 || (unsigned __int64)dword_140C3CDE0 >= 3 )
       v3 = 0LL;
     else
-      v3 = (_QWORD *)qword_140C3D138[3 * dword_140C3D120];
+      v3 = (_QWORD *)qword_140C3CDF8[3 * dword_140C3CDE0];
     if ( v2 == 4 )
     {
       if ( (unsigned __int64)v3 > 0xFFFFFFFFFFFFFFFCuLL )

@@ -1,18 +1,18 @@
 /*
- * XREFs of KiCompleteBootProcessorContextInitialization @ 0x1405B65C0
+ * XREFs of KiCompleteBootProcessorContextInitialization @ 0x1405B3888
  * Callers:
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiAllocateDpcDelegateThread @ 0x1405B5908 (KiAllocateDpcDelegateThread.c)
- *     KiAllocateIdleSearchStructures @ 0x1405B5990 (KiAllocateIdleSearchStructures.c)
- *     KiStartPrcbThread @ 0x1405B7FCC (KiStartPrcbThread.c)
- *     KiAllocateSmtIsolationThread @ 0x1405C2AE4 (KiAllocateSmtIsolationThread.c)
- *     KiAllocateForceParkingData @ 0x1405C8218 (KiAllocateForceParkingData.c)
- *     KiResetBootProcessorApicMask @ 0x14073B3B4 (KiResetBootProcessorApicMask.c)
- *     MmAllocateIsrStack @ 0x1407F6B68 (MmAllocateIsrStack.c)
- *     KiInitializePrcbContext @ 0x140B56930 (KiInitializePrcbContext.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAllocateDpcDelegateThread @ 0x1405B2BD0 (KiAllocateDpcDelegateThread.c)
+ *     KiAllocateIdleSearchStructures @ 0x1405B2C58 (KiAllocateIdleSearchStructures.c)
+ *     KiStartPrcbThread @ 0x1405B55AC (KiStartPrcbThread.c)
+ *     KiAllocateSmtIsolationThread @ 0x1405C00B4 (KiAllocateSmtIsolationThread.c)
+ *     KiAllocateForceParkingData @ 0x1405C5948 (KiAllocateForceParkingData.c)
+ *     KiResetBootProcessorApicMask @ 0x1407392E4 (KiResetBootProcessorApicMask.c)
+ *     MmAllocateIsrStack @ 0x1407F72DC (MmAllocateIsrStack.c)
+ *     KiInitializePrcbContext @ 0x140B58980 (KiInitializePrcbContext.c)
  */
 
 __int64 KiCompleteBootProcessorContextInitialization()

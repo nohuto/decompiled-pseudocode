@@ -1,5 +1,5 @@
 /*
- * XREFs of KscpCfgDispatchUserCallTargetEsNoSmep @ 0x140C5E8C0
+ * XREFs of KscpCfgDispatchUserCallTargetEsNoSmep @ 0x140C648C0
  * Callers:
  *     <none>
  * Callees:

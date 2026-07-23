@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpNameFromAttributes @ 0x14092D668
+ * XREFs of CmpNameFromAttributes @ 0x14092F7A8
  * Callers:
- *     NtReplaceKey @ 0x1407D0990 (NtReplaceKey.c)
- *     CmLoadDifferencingKey @ 0x14092C750 (CmLoadDifferencingKey.c)
+ *     NtReplaceKey @ 0x1407D0E80 (NtReplaceKey.c)
+ *     CmLoadDifferencingKey @ 0x14092E890 (CmLoadDifferencingKey.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryObject @ 0x1406A6610 (ZwQueryObject.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140A6E1F0 (IoConvertFileHandleToKernelHandle.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryObject @ 0x1406A75B0 (ZwQueryObject.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140A676F0 (IoConvertFileHandleToKernelHandle.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpNameFromAttributes(_OWORD *a1, char a2, UNICODE_STRING *a3)
@@ -74,7 +74,7 @@ LABEL_19:
       return 3221225531LL;
     a3->Length = v7;
     a3->MaximumLength = v7;
-    Pool2 = (wchar_t *)ExAllocatePool2(0x101uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x101uLL, v7, 0x6E664D43u);
     a3->Buffer = Pool2;
     if ( Pool2 )
       memmove(Pool2, Src[1], v7);
@@ -102,7 +102,7 @@ LABEL_19:
     if ( v12 > 0xFFFF )
       return 3221225529LL;
     a3->MaximumLength = v12;
-    v13 = ExAllocatePool2(0x101uLL);
+    v13 = ExAllocatePool2(0x101uLL, (unsigned __int16)v12, 0x6E664D43u);
     a3->Buffer = (wchar_t *)v13;
     if ( !v13 )
       return 3221225626LL;

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCopyAces @ 0x140919190
+ * XREFs of RtlpCopyAces @ 0x14090CC00
  * Callers:
- *     RtlpComputeMergedAcl2 @ 0x1407811B4 (RtlpComputeMergedAcl2.c)
- *     RtlpInheritAcl2 @ 0x140919BE0 (RtlpInheritAcl2.c)
+ *     RtlpComputeMergedAcl2 @ 0x1407810E4 (RtlpComputeMergedAcl2.c)
+ *     RtlpInheritAcl2 @ 0x14090D650 (RtlpInheritAcl2.c)
  * Callees:
- *     RtlFindAceByType @ 0x14040C700 (RtlFindAceByType.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlpCopyEffectiveAce @ 0x1409196A0 (RtlpCopyEffectiveAce.c)
+ *     RtlFindAceByType @ 0x140404D90 (RtlFindAceByType.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlpCopyEffectiveAce @ 0x14090D110 (RtlpCopyEffectiveAce.c)
  */
 
 __int64 __fastcall RtlpCopyAces(
@@ -24,7 +24,7 @@ __int64 __fastcall RtlpCopyAces(
         __int64 a11,
         int a12,
         unsigned int *a13,
-        __int64 a14)
+        PACL Acl)
 {
   char v14; // si
   int v15; // r15d
@@ -33,7 +33,7 @@ __int64 __fastcall RtlpCopyAces(
   __int64 v18; // r9
   unsigned int v19; // ecx
   int *i; // rbx
-  unsigned __int64 v21; // rax
+  int *v21; // rax
   int v22; // ecx
   _BYTE *v23; // r13
   unsigned int v24; // r12d
@@ -70,7 +70,7 @@ __int64 __fastcall RtlpCopyAces(
   v49 = a7;
   v48 = a8;
   v47 = a9;
-  v16 = *(_BYTE *)a14 - 2;
+  v16 = Acl->AclRevision - 2;
   v45 = a3;
   v17 = (__int64)a2;
   v44 = a2;
@@ -81,12 +81,12 @@ __int64 __fastcall RtlpCopyAces(
   if ( v16 > 2u )
     return 3221225560LL;
   v19 = 0;
-  for ( i = (int *)(a14 + 8); ; i = (int *)((char *)i + *((unsigned __int16 *)i + 1)) )
+  for ( i = (int *)&Acl[1]; ; i = (int *)((char *)i + *((unsigned __int16 *)i + 1)) )
   {
-    v21 = a14 + *(unsigned __int16 *)(a14 + 2);
-    if ( v19 >= *(unsigned __int16 *)(a14 + 4) )
+    v21 = (int *)((char *)Acl + Acl->AclSize);
+    if ( v19 >= Acl->AceCount )
       break;
-    if ( (unsigned __int64)i >= v21 )
+    if ( i >= v21 )
       return 3221225597LL;
     ++v19;
   }
@@ -95,7 +95,7 @@ __int64 __fastcall RtlpCopyAces(
   *(_DWORD *)&v41[3] = 0;
   v24 = 0;
   v25 = 0;
-  if ( (unsigned __int64)i > v21 )
+  if ( i > v21 )
     i = 0LL;
   while ( 1 )
   {
@@ -130,7 +130,7 @@ LABEL_10:
       if ( !a5 )
       {
         v27 = *((unsigned __int16 *)v23 + 1);
-        if ( i && v27 <= a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)i )
+        if ( i && v27 <= (__int64)Acl + Acl->AclSize - (_QWORD)i )
         {
           if ( !v14 )
           {
@@ -158,7 +158,7 @@ LABEL_10:
             }
             *((_BYTE *)i + 1) &= ~a4;
 LABEL_29:
-            ++*(_WORD *)(a14 + 4);
+            ++Acl->AceCount;
 LABEL_30:
             i = (int *)((char *)i + (unsigned int)v27);
 LABEL_31:
@@ -194,7 +194,7 @@ LABEL_31:
                                0,
                                (__int64)&v43,
                                (__int64)&v41[7],
-                               a14,
+                               (__int64)Acl,
                                0LL,
                                (__int64)&v41[1],
                                (__int64)v41) )
@@ -239,7 +239,7 @@ LABEL_44:
         LODWORD(v27) = *((unsigned __int16 *)v23 + 1) + (_DWORD)v27;
         if ( (unsigned int)v27 > 0xFFFF )
           return 3221225597LL;
-        if ( *((unsigned __int16 *)v23 + 1) > a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v43 )
+        if ( *((unsigned __int16 *)v23 + 1) > (__int64)Acl + Acl->AclSize - (_QWORD)v43 )
         {
           v14 = 1;
         }
@@ -263,12 +263,12 @@ LABEL_59:
       }
       v24 = *(_DWORD *)&v41[3];
 LABEL_54:
-      i = (int *)(a14 + *(unsigned __int16 *)(a14 + 2));
+      i = (int *)((char *)Acl + Acl->AclSize);
       goto LABEL_31;
     }
     if ( v22 == 3 )
     {
-      if ( RtlFindAceByType(a14, 17, 0LL) )
+      if ( RtlFindAceByType(Acl, 0x11u, 0LL) )
         break;
       v25 = v42;
       v17 = (__int64)v44;

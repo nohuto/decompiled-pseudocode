@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetVadCacheAttribute @ 0x1402CB0E4
+ * XREFs of MiGetVadCacheAttribute @ 0x1402CB2D4
  * Callers:
- *     MiProtectAweRegion @ 0x1402B15BC (MiProtectAweRegion.c)
- *     MiReferenceIncomingPhysicalPages @ 0x14084FF3C (MiReferenceIncomingPhysicalPages.c)
+ *     MiProtectAweRegion @ 0x1402B17AC (MiProtectAweRegion.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x14085119C (MiReferenceIncomingPhysicalPages.c)
  * Callees:
  *     <none>
  */

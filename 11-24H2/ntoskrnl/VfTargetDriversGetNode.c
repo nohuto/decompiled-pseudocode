@@ -1,17 +1,17 @@
 /*
- * XREFs of VfTargetDriversGetNode @ 0x1403F00E4
+ * XREFs of VfTargetDriversGetNode @ 0x1403E3D54
  * Callers:
- *     VfDifCaptureIoCallbacks @ 0x14049E358 (VfDifCaptureIoCallbacks.c)
- *     VfDifCaptureDriverEntry @ 0x14049E3B8 (VfDifCaptureDriverEntry.c)
- *     DifRegisterClassDriverPlugin @ 0x14060FCF0 (DifRegisterClassDriverPlugin.c)
- *     VfUtilGetDriverBaseAddress @ 0x140B83270 (VfUtilGetDriverBaseAddress.c)
- *     VfUtilGetDriverImageSize @ 0x140B832C0 (VfUtilGetDriverImageSize.c)
- *     VfThunkApplyThunksCurrentSession @ 0x140B971AC (VfThunkApplyThunksCurrentSession.c)
- *     ViThunkApplyWdmThunksCurrentSession @ 0x140B97424 (ViThunkApplyWdmThunksCurrentSession.c)
- *     VfTargetDriversGetVerifierData @ 0x140BA7E7C (VfTargetDriversGetVerifierData.c)
+ *     VfDifCaptureIoCallbacks @ 0x140499158 (VfDifCaptureIoCallbacks.c)
+ *     VfDifCaptureDriverEntry @ 0x1404991B8 (VfDifCaptureDriverEntry.c)
+ *     DifRegisterClassDriverPlugin @ 0x14060E2B0 (DifRegisterClassDriverPlugin.c)
+ *     VfUtilGetDriverBaseAddress @ 0x140B85270 (VfUtilGetDriverBaseAddress.c)
+ *     VfUtilGetDriverImageSize @ 0x140B852C0 (VfUtilGetDriverImageSize.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140B991AC (VfThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140B99424 (ViThunkApplyWdmThunksCurrentSession.c)
+ *     VfTargetDriversGetVerifierData @ 0x140BA9E7C (VfTargetDriversGetVerifierData.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
  */
 
 __int64 __fastcall VfTargetDriversGetNode(__int64 a1)

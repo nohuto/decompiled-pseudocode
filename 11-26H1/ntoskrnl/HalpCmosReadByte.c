@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpCmosReadByte @ 0x14058C2E0
+ * XREFs of HalpCmosReadByte @ 0x14058EA60
  * Callers:
  *     <none>
  * Callees:

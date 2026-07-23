@@ -1,5 +1,5 @@
 /*
- * XREFs of PopIrpWorker @ 0x140171740
+ * XREFs of PopIrpWorker @ 0x140171840
  * Callers:
  *     <none>
  * Callees:
@@ -7,21 +7,21 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
- *     PoDeviceAcquireIrp @ 0x140171DA0 (PoDeviceAcquireIrp.c)
- *     PopPepDeviceDState @ 0x140171F84 (PopPepDeviceDState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopDoesFxDeviceSupportDirectedTransition @ 0x1402D6B10 (PopDoesFxDeviceSupportDirectedTransition.c)
- *     PopFxIssueDirectedPowerTransition @ 0x1402D886C (PopFxIssueDirectedPowerTransition.c)
- *     PsTerminateSystemThread @ 0x1406CC570 (PsTerminateSystemThread.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D29F0 (KeReleaseSemaphoreEx.c)
+ *     PoDeviceAcquireIrp @ 0x140171EA0 (PoDeviceAcquireIrp.c)
+ *     PopPepDeviceDState @ 0x140172084 (PopPepDeviceDState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopDoesFxDeviceSupportDirectedTransition @ 0x1402D6D00 (PopDoesFxDeviceSupportDirectedTransition.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x1402D8A5C (PopFxIssueDirectedPowerTransition.c)
+ *     PsTerminateSystemThread @ 0x1406CD810 (PsTerminateSystemThread.c)
  */
 
 NTSTATUS __fastcall PopIrpWorker(__int64 *Entry)
@@ -84,13 +84,13 @@ NTSTATUS __fastcall PopIrpWorker(__int64 *Entry)
   ExAcquireFastMutex(&PopIrpWorkerMutex);
   --PopIrpWorkerPendingCount;
   ++PopIrpWorkerCount;
-  if ( *(__int64 **)qword_1404104B8 != &PopIrpThreadList )
-LABEL_80:
+  if ( *(__int64 **)qword_140411568 != &PopIrpThreadList )
+LABEL_81:
     __fastfail(3u);
   v38[0] = &PopIrpThreadList;
-  v38[1] = qword_1404104B8;
-  *(_QWORD *)qword_1404104B8 = v38;
-  qword_1404104B8 = (__int64)v38;
+  v38[1] = qword_140411568;
+  *(_QWORD *)qword_140411568 = v38;
+  qword_140411568 = (__int64)v38;
 LABEL_7:
   KeReleaseGuardedMutex(&PopIrpWorkerMutex);
   do
@@ -101,7 +101,7 @@ LABEL_7:
       v5 = PopIrpWorkerList;
       v6 = *(_QWORD *)PopIrpWorkerList;
       if ( *(__int64 **)(PopIrpWorkerList + 8) != &PopIrpWorkerList || *(_QWORD *)(v6 + 8) != PopIrpWorkerList )
-        goto LABEL_80;
+        goto LABEL_81;
       PopIrpWorkerList = *(_QWORD *)PopIrpWorkerList;
       *(_QWORD *)(v6 + 8) = &PopIrpWorkerList;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
@@ -117,7 +117,8 @@ LABEL_7:
       v8 = ++PopIrpWorkerInFlightCount;
       if ( PopCreateIrpWorkerAllowed
         && v8 == PopIrpWorkerCount
-        && __PAIR64__(PopIrpWorkerPendingCount, PopIrpWorkerCount) < 0xF
+        && !PopIrpWorkerPendingCount
+        && (unsigned int)PopIrpWorkerCount < 0xF
         && !PopIrpWorkerRequested )
       {
         PopIrpWorkerRequested = 1;
@@ -176,7 +177,7 @@ LABEL_7:
           if ( PopDirectedDripsEnableV2 )
           {
             if ( (*(_DWORD *)(v33 + 760) & 0x10000) != 0 && (*(_DWORD *)(v33 + 760) & 0x20000) == 0 )
-              goto LABEL_65;
+              goto LABEL_66;
             DoesFxDeviceSupportDirectedTransition = 0;
           }
           else
@@ -188,7 +189,7 @@ LABEL_7:
           }
           if ( DoesFxDeviceSupportDirectedTransition )
           {
-LABEL_65:
+LABEL_66:
             if ( v10->Tail.Overlay.CurrentStackLocation->MinorFunction == (_BYTE)v17 )
             {
               PopFxIssueDirectedPowerTransition(v34);
@@ -242,7 +243,7 @@ LABEL_21:
       v28 = v38[1];
       v29 = 0;
       if ( *(_QWORD **)(v38[0] + 8LL) != v38 || *(_QWORD **)v38[1] != v38 )
-        goto LABEL_80;
+        goto LABEL_81;
       *(_QWORD *)v38[1] = v38[0];
       *(_QWORD *)(v27 + 8) = v28;
       PopIrpWorkerCount = v26;

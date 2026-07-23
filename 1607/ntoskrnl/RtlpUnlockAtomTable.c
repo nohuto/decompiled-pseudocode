@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpUnlockAtomTable @ 0x14042B3F0
+ * XREFs of RtlpUnlockAtomTable @ 0x14042A2C0
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x140014694 (RtlAddAtomToAtomTableEx.c)
- *     RtlDestroyLowBoxAtoms @ 0x140088C44 (RtlDestroyLowBoxAtoms.c)
- *     RtlDestroyAtomTable @ 0x1404A2E30 (RtlDestroyAtomTable.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1404A3568 (RtlDeleteAtomFromAtomTable.c)
- *     RtlPinAtomInAtomTable @ 0x1404E1468 (RtlPinAtomInAtomTable.c)
- *     RtlEmptyAtomTable @ 0x1406881D0 (RtlEmptyAtomTable.c)
- *     RtlQueryAtomsInAtomTable @ 0x1406882B0 (RtlQueryAtomsInAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x140014214 (RtlAddAtomToAtomTableEx.c)
+ *     RtlDestroyLowBoxAtoms @ 0x14010CE34 (RtlDestroyLowBoxAtoms.c)
+ *     RtlPinAtomInAtomTable @ 0x1404C4A6C (RtlPinAtomInAtomTable.c)
+ *     RtlDestroyAtomTable @ 0x14051B230 (RtlDestroyAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x14051B968 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlEmptyAtomTable @ 0x1406882B4 (RtlEmptyAtomTable.c)
+ *     RtlQueryAtomsInAtomTable @ 0x140688394 (RtlQueryAtomsInAtomTable.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall RtlpUnlockAtomTable(__int64 a1)

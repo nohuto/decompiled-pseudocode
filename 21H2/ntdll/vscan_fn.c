@@ -4,7 +4,7 @@
  *     sscanf @ 0x1800910D0 (sscanf.c)
  * Callees:
  *     _invalid_parameter @ 0x18008C868 (_invalid_parameter.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall vscan_fn(

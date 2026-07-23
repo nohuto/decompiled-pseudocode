@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnlockCodePage @ 0x140083BE0
+ * XREFs of MiUnlockCodePage @ 0x140081D40
  * Callers:
- *     MiLockCode @ 0x1400155F0 (MiLockCode.c)
- *     MiUnlockImageSection @ 0x140083B04 (MiUnlockImageSection.c)
- *     MiHandleDriverNonPagedSections @ 0x14047EAEC (MiHandleDriverNonPagedSections.c)
- *     PopFreeHiberContext @ 0x14052EA54 (PopFreeHiberContext.c)
- *     MiUnlockDriverCode @ 0x14054480C (MiUnlockDriverCode.c)
+ *     MiLockCode @ 0x140015170 (MiLockCode.c)
+ *     MiUnlockImageSection @ 0x140081C64 (MiUnlockImageSection.c)
+ *     MiHandleDriverNonPagedSections @ 0x14047D840 (MiHandleDriverNonPagedSections.c)
+ *     PopFreeHiberContext @ 0x14052EF94 (PopFreeHiberContext.c)
+ *     MiUnlockDriverCode @ 0x140544D4C (MiUnlockDriverCode.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiUnlockCodePage(unsigned __int64 a1, unsigned __int64 a2)

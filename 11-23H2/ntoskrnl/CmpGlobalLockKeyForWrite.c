@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpGlobalLockKeyForWrite @ 0x14084754C
+ * XREFs of CmpGlobalLockKeyForWrite @ 0x14084784C
  * Callers:
- *     CmLockKeyForWrite @ 0x1408472CC (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x1408475CC (CmLockKeyForWrite.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     CmpUnlockGlobalKeyLockTracker @ 0x140847664 (CmpUnlockGlobalKeyLockTracker.c)
- *     CmpCreateGlobalKeyLockEntry @ 0x1408476CC (CmpCreateGlobalKeyLockEntry.c)
- *     CmpLockGlobalKeyLockTrackerExclusive @ 0x140847720 (CmpLockGlobalKeyLockTrackerExclusive.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     CmpUnlockGlobalKeyLockTracker @ 0x140847964 (CmpUnlockGlobalKeyLockTracker.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x1408479CC (CmpCreateGlobalKeyLockEntry.c)
+ *     CmpLockGlobalKeyLockTrackerExclusive @ 0x140847A20 (CmpLockGlobalKeyLockTrackerExclusive.c)
  */
 
 __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)
@@ -27,14 +27,14 @@ __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)
   v6 = 0;
   if ( v5 )
     *(_BYTE *)(v5 + 18) = 1;
-  v7 = (__int64 *)qword_140C13D08;
+  v7 = (__int64 *)qword_140C13CC8;
   GlobalKeyLockEntry = 0LL;
-  if ( (__int64 *)qword_140C13D08 != &qword_140C13D08 )
+  if ( (__int64 *)qword_140C13CC8 != &qword_140C13CC8 )
   {
     while ( v7[3] != a1 )
     {
       v7 = (__int64 *)*v7;
-      if ( v7 == &qword_140C13D08 )
+      if ( v7 == &qword_140C13CC8 )
         goto LABEL_10;
     }
     GlobalKeyLockEntry = (__int64)v7;
@@ -53,13 +53,13 @@ LABEL_10:
       return (unsigned int)-1073741670;
     *(_WORD *)(a1 + 8) |= 0x80u;
     CmpLockGlobalKeyLockTrackerExclusive();
-    v9 = (__int64 *)qword_140C13D10;
-    if ( *(__int64 **)qword_140C13D10 != &qword_140C13D08 )
+    v9 = (__int64 *)qword_140C13CD0;
+    if ( *(__int64 **)qword_140C13CD0 != &qword_140C13CC8 )
       __fastfail(3u);
-    *(_QWORD *)GlobalKeyLockEntry = &qword_140C13D08;
+    *(_QWORD *)GlobalKeyLockEntry = &qword_140C13CC8;
     *(_QWORD *)(GlobalKeyLockEntry + 8) = v9;
     *v9 = GlobalKeyLockEntry;
-    qword_140C13D10 = GlobalKeyLockEntry;
+    qword_140C13CD0 = GlobalKeyLockEntry;
   }
   *a2 = GlobalKeyLockEntry;
   CmpUnlockGlobalKeyLockTracker();

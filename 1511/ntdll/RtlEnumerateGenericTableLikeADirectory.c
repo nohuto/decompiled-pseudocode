@@ -8,68 +8,68 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-_QWORD *__fastcall RtlEnumerateGenericTableLikeADirectory(
-        __int64 a1,
-        __int64 (*a2)(),
-        __int64 a3,
-        int a4,
-        _QWORD *a5,
-        _DWORD *a6,
-        __int64 a7)
+PVOID __cdecl RtlEnumerateGenericTableLikeADirectory(
+        PRTL_AVL_TABLE Table,
+        PRTL_AVL_MATCH_FUNCTION MatchFunction,
+        PVOID MatchData,
+        ULONG NextFlag,
+        PVOID *RestartKey,
+        PULONG DeleteCount,
+        PVOID Buffer)
 {
-  _QWORD *v7; // r14
-  __int64 (*v10)(); // rbp
-  _QWORD *v12; // rdi
-  _DWORD *v14; // r15
+  PVOID *v7; // r14
+  __int64 (__fastcall *v10)(PRTL_AVL_TABLE, PVOID *, PVOID); // rbp
+  PVOID *v12; // rdi
+  PULONG v14; // r15
   int NodeOrParent; // eax
   int v16; // ecx
 
-  v7 = a5;
-  v10 = a2;
-  v12 = (_QWORD *)*a5;
-  if ( !*(_DWORD *)(a1 + 44) )
+  v7 = RestartKey;
+  v10 = (__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID *, PVOID))MatchFunction;
+  v12 = (PVOID *)*RestartKey;
+  if ( !Table->NumberGenericTableElements )
   {
-    *a5 = 0LL;
+    *RestartKey = 0LL;
     return 0LL;
   }
-  v14 = a6;
-  if ( !a2 )
-    v10 = WinSqmCheckEscalationSetString;
-  if ( *a6 != *(_DWORD *)(a1 + 64) )
+  v14 = DeleteCount;
+  if ( !MatchFunction )
+    v10 = (__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID *, PVOID))WinSqmCheckEscalationSetString;
+  if ( *DeleteCount != Table->DeleteCount )
     v12 = 0LL;
-  a5 = v12;
+  RestartKey = v12;
   if ( v12 )
     goto LABEL_14;
-  NodeOrParent = FindNodeOrParent(a1, a7, &a5);
+  NodeOrParent = FindNodeOrParent((__int64)Table, (__int64)Buffer, &RestartKey);
   if ( NodeOrParent == 1 )
   {
-    v12 = a5;
+    v12 = RestartKey;
 LABEL_14:
-    if ( a4 )
-      v12 = RealSuccessor(v12);
+    if ( NextFlag )
+      v12 = (PVOID *)RealSuccessor(v12);
     goto LABEL_16;
   }
-  a4 = 0;
+  NextFlag = 0;
   if ( NodeOrParent == 3 )
   {
-    v12 = RealSuccessor(a5);
+    v12 = (PVOID *)RealSuccessor(RestartKey);
     goto LABEL_14;
   }
-  v12 = a5;
+  v12 = RestartKey;
 LABEL_16:
   if ( !v12 )
     return 0LL;
   while ( 1 )
   {
-    v16 = ((__int64 (__fastcall *)(__int64, _QWORD *, __int64))v10)(a1, v12 + 4, a3);
+    v16 = v10(Table, v12 + 4, MatchData);
     if ( v16 != -1073741198 )
       break;
-    v12 = RealSuccessor(v12);
+    v12 = (PVOID *)RealSuccessor(v12);
     if ( !v12 )
       return 0LL;
   }
   *v7 = v12;
-  *v14 = *(_DWORD *)(a1 + 64);
+  *v14 = Table->DeleteCount;
   if ( v16 )
     return 0LL;
   return v12 + 4;

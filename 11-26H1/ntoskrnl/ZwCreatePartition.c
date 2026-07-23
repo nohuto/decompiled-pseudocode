@@ -1,15 +1,20 @@
 /*
- * XREFs of ZwCreatePartition @ 0x140724B90
+ * XREFs of ZwCreatePartition @ 0x140729760
  * Callers:
- *     DifZwCreatePartitionWrapper @ 0x1406A0870 (DifZwCreatePartitionWrapper.c)
- *     ExpInitializeMemoryMirroring @ 0x140CE3C6C (ExpInitializeMemoryMirroring.c)
+ *     DifZwCreatePartitionWrapper @ 0x1406A4450 (DifZwCreatePartitionWrapper.c)
+ *     ExpInitializeMemoryMirroring @ 0x140CEA00C (ExpInitializeMemoryMirroring.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreatePartition(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreatePartition(
+        HANDLE ParentPartitionHandle,
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG PreferredNode)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ParentPartitionHandle);
 }

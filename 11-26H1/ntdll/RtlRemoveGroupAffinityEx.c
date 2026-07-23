@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlRemoveGroupAffinityEx @ 0x18013FBC0
+ * XREFs of RtlRemoveGroupAffinityEx @ 0x18013FAC0
  * Callers:
  *     <none>
  * Callees:

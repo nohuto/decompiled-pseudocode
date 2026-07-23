@@ -3,9 +3,9 @@
  * Callers:
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140407F0C (EtwpGetGuidSecurityDescriptor.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x140406DCC (EtwpGetGuidSecurityDescriptor.c)
  */
 
 NTSTATUS EtwpInitializeSecurity()

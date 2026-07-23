@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpCreateInterrupt @ 0x14055A380
+ * XREFs of HalpCreateInterrupt @ 0x140557FB0
  * Callers:
- *     HalpTimerTestHypervisorTimer @ 0x14054A490 (HalpTimerTestHypervisorTimer.c)
- *     HalpInterruptSetIdtEntry @ 0x14055A460 (HalpInterruptSetIdtEntry.c)
+ *     HalpTimerTestHypervisorTimer @ 0x140547D50 (HalpTimerTestHypervisorTimer.c)
+ *     HalpInterruptSetIdtEntry @ 0x140558090 (HalpInterruptSetIdtEntry.c)
  * Callees:
- *     KeInitializeInterruptEx @ 0x14047E278 (KeInitializeInterruptEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpAllocateKInterrupt @ 0x14055A274 (HalpAllocateKInterrupt.c)
- *     KeConnectInterruptForHal @ 0x1405BC4E0 (KeConnectInterruptForHal.c)
+ *     KeInitializeInterruptEx @ 0x140479468 (KeInitializeInterruptEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpAllocateKInterrupt @ 0x140557EA4 (HalpAllocateKInterrupt.c)
+ *     KeConnectInterruptForHal @ 0x1405B9B10 (KeConnectInterruptForHal.c)
  */
 
 char *__fastcall HalpCreateInterrupt(
-        __int64 (__fastcall *a1)(struct _KINTERRUPT *a1, void *a2, __int64 a3, __int64 a4),
+        __int64 (__fastcall *a1)(struct _KINTERRUPT *a1, void *a2),
         int a2,
         char a3,
         __int64 a4,

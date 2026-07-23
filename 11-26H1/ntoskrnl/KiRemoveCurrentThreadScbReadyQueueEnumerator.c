@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x140230720
+ * XREFs of KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x140232078
  * Callers:
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
- *     KiDetermineNextScbForScbReadyQueueEnumerator @ 0x140230558 (KiDetermineNextScbForScbReadyQueueEnumerator.c)
- *     KiRemoveThreadFromScbQueue @ 0x1402BCCA4 (KiRemoveThreadFromScbQueue.c)
+ *     KiDetermineNextScbForScbReadyQueueEnumerator @ 0x140231EE8 (KiDetermineNextScbForScbReadyQueueEnumerator.c)
+ *     KiRemoveThreadFromScbQueue @ 0x140307964 (KiRemoveThreadFromScbQueue.c)
  */
 
 unsigned int __fastcall KiRemoveCurrentThreadScbReadyQueueEnumerator(__int64 a1)

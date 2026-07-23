@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlRunOnceExecuteOnce @ 0x14045CE04
+ * XREFs of RtlRunOnceExecuteOnce @ 0x14045BCD4
  * Callers:
- *     SeQuerySigningPolicy @ 0x14045CA2C (SeQuerySigningPolicy.c)
- *     ExpCheckFullProcessInformationAccess @ 0x14048D0EC (ExpCheckFullProcessInformationAccess.c)
- *     ExQueryBootEntropyInformation @ 0x140580F3C (ExQueryBootEntropyInformation.c)
+ *     SeQuerySigningPolicy @ 0x14045B8FC (SeQuerySigningPolicy.c)
+ *     ExpCheckFullProcessInformationAccess @ 0x14048DB7C (ExpCheckFullProcessInformationAccess.c)
+ *     ExQueryBootEntropyInformation @ 0x1405813E8 (ExQueryBootEntropyInformation.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     RtlRunOnceBeginInitialize @ 0x14045CED4 (RtlRunOnceBeginInitialize.c)
- *     RtlRunOnceComplete @ 0x14054CDD8 (RtlRunOnceComplete.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     RtlRunOnceBeginInitialize @ 0x14045BDA4 (RtlRunOnceBeginInitialize.c)
+ *     RtlRunOnceComplete @ 0x14054D318 (RtlRunOnceComplete.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceExecuteOnce(

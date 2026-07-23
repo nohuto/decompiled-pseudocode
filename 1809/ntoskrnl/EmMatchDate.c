@@ -1,9 +1,9 @@
 /*
- * XREFs of EmMatchDate @ 0x140813CC0
+ * XREFs of EmMatchDate @ 0x140814EC0
  * Callers:
  *     <none>
  * Callees:
- *     EmpCheckOperator @ 0x140750828 (EmpCheckOperator.c)
+ *     EmpCheckOperator @ 0x140751A18 (EmpCheckOperator.c)
  */
 
 __int64 __fastcall EmMatchDate(__int64 a1, __int64 a2, unsigned __int8 **a3, int a4, _DWORD *a5, int a6)

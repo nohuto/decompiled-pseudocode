@@ -1,38 +1,38 @@
 /*
- * XREFs of IoBoostThreadIoPriority @ 0x140278D90
+ * XREFs of IoBoostThreadIoPriority @ 0x14022E320
  * Callers:
- *     KiAbProcessThreadLocks @ 0x1402509C0 (KiAbProcessThreadLocks.c)
- *     KiAbDeferredProcessingWorker @ 0x140253050 (KiAbDeferredProcessingWorker.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ExpApplyPriorityBoost @ 0x140277A10 (ExpApplyPriorityBoost.c)
- *     ExpBoostIoAfterAcquire @ 0x140278960 (ExpBoostIoAfterAcquire.c)
- *     MiModifiedPageWriter @ 0x1402CF990 (MiModifiedPageWriter.c)
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x1403EF8F4 (PspNotifyProcessEffectiveIoLimitChanged.c)
- *     FsRtlpWaitForIoAtEof @ 0x14040D308 (FsRtlpWaitForIoAtEof.c)
- *     FsRtlpDoBoost @ 0x14047FDA8 (FsRtlpDoBoost.c)
- *     IoBoostThreadIo @ 0x1404B4100 (IoBoostThreadIo.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1404DAE88 (CcBoostLowPriorityWorkerThread.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExpApplyPriorityBoost @ 0x14022CFA0 (ExpApplyPriorityBoost.c)
+ *     ExpBoostIoAfterAcquire @ 0x14022DEF0 (ExpBoostIoAfterAcquire.c)
+ *     KiAbProcessThreadLocks @ 0x140280FD0 (KiAbProcessThreadLocks.c)
+ *     KiAbDeferredProcessingWorker @ 0x140283660 (KiAbDeferredProcessingWorker.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1402E1598 (FsRtlpWaitForIoAtEof.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x1403E2874 (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     MiModifiedPageWriter @ 0x14046F7B0 (MiModifiedPageWriter.c)
+ *     FsRtlpDoBoost @ 0x14047A9E8 (FsRtlpDoBoost.c)
+ *     IoBoostThreadIo @ 0x1404AE920 (IoBoostThreadIo.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1404D48A8 (CcBoostLowPriorityWorkerThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1402D6B90 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x140357E10 (KxAcquireQueuedSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
@@ -67,22 +67,23 @@ void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
   unsigned __int64 v32; // rdx
   unsigned __int16 v33; // bx
   PEX_RUNDOWN_REF v34; // rsi
+  char *v35; // rcx
   __int64 i; // rdx
-  struct _EX_RUNDOWN_REF *v36; // rcx
-  __int64 v37; // rdx
+  struct _EX_RUNDOWN_REF *v37; // rcx
+  __int64 v38; // rdx
   PEX_RUNDOWN_REF *Pool2; // rax
-  KIRQL v39; // [rsp+20h] [rbp-E0h]
-  struct _EX_RUNDOWN_REF *v41; // [rsp+28h] [rbp-D8h]
-  __int64 v43; // [rsp+38h] [rbp-C8h]
-  struct _EX_RUNDOWN_REF *v44; // [rsp+38h] [rbp-C8h]
-  PVOID v45[10]; // [rsp+50h] [rbp-B0h] BYREF
+  KIRQL v40; // [rsp+20h] [rbp-E0h]
+  struct _EX_RUNDOWN_REF *v42; // [rsp+28h] [rbp-D8h]
+  __int64 v44; // [rsp+38h] [rbp-C8h]
+  struct _EX_RUNDOWN_REF *v45; // [rsp+38h] [rbp-C8h]
+  PVOID v46[10]; // [rsp+50h] [rbp-B0h] BYREF
   PVOID P; // [rsp+A0h] [rbp-60h]
   PEX_RUNDOWN_REF RunRef[8]; // [rsp+B0h] [rbp-50h] BYREF
-  _QWORD v48[8]; // [rsp+F0h] [rbp-10h] BYREF
+  _QWORD v49[8]; // [rsp+F0h] [rbp-10h] BYREF
 
   v5 = 0;
   memset_0(RunRef, 0, sizeof(RunRef));
-  memset_0(v48, 0, sizeof(v48));
+  memset_0(v49, 0, sizeof(v49));
   v6 = 0LL;
   v7 = 0;
   if ( a3 < 0 )
@@ -114,7 +115,7 @@ void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
     v12 = (struct _EX_RUNDOWN_REF *)ExReferenceCallBackBlock((char *)&IopUpdatePriorityCallbackRoutine + v10 * 8);
     RunRef[v10] = v12;
     if ( v12 )
-      v48[v10] = v12[2].Count;
+      v49[v10] = v12[2].Count;
     ++v10;
     --v11;
   }
@@ -122,11 +123,11 @@ void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
   v14 = 8LL;
   if ( v5 == 1 )
     goto LABEL_13;
-  v44 = 0LL;
+  v45 = 0LL;
   v28 = a1 + 195;
   v29 = KeAcquireSpinLockRaiseToDpc(a1 + 195);
   v30 = a1[168];
-  v39 = v29;
+  v40 = v29;
   if ( (KSPIN_LOCK *)v30 != a1 + 168 )
   {
     do
@@ -140,37 +141,38 @@ void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
           if ( *(_QWORD *)(v32 + 40) )
           {
             v33 = 0;
-            v41 = *(struct _EX_RUNDOWN_REF **)(v32 + 40);
+            v42 = *(struct _EX_RUNDOWN_REF **)(v32 + 40);
             while ( v33 < 8u )
             {
               v34 = RunRef[v33];
               if ( v34 )
               {
-                KxAcquireQueuedSpinLock((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
-                for ( i = *(_QWORD *)(*(_QWORD *)(v48[v33] + 32LL) + 8LL); ; i = *(_QWORD *)(i + 16) )
+                v35 = (char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160;
+                KxAcquireQueuedSpinLock(v35, *((_QWORD *)v35 + 1));
+                for ( i = *(_QWORD *)(*(_QWORD *)(v49[v33] + 32LL) + 8LL); ; i = *(_QWORD *)(i + 16) )
                 {
                   if ( !i )
                   {
                     KxReleaseQueuedSpinLock((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
                     goto LABEL_48;
                   }
-                  if ( (struct _EX_RUNDOWN_REF *)i == v41 && (*(_DWORD *)(i + 48) & 0x1000000) != 0 )
+                  if ( (struct _EX_RUNDOWN_REF *)i == v42 && (*(_DWORD *)(i + 48) & 0x1000000) != 0 )
                     break;
                 }
                 KxReleaseQueuedSpinLock((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
-                v36 = v41;
-                if ( v44 != v41 )
+                v37 = v42;
+                if ( v45 != v42 )
                 {
-                  v44 = v41;
+                  v45 = v42;
                   if ( v7 >= 2 )
                   {
-                    Pool2 = (PEX_RUNDOWN_REF *)ExAllocatePool2(0x40uLL);
+                    Pool2 = (PEX_RUNDOWN_REF *)ExAllocatePool2(0x40uLL, 0x30uLL, 0x43426F49u);
                     if ( !Pool2 )
                       break;
                     Pool2[4] = (PEX_RUNDOWN_REF)P;
-                    v36 = v41;
+                    v37 = v42;
                     P = Pool2;
-                    Pool2[1] = v41;
+                    Pool2[1] = v42;
                     *Pool2 = v34;
                     *((_WORD *)Pool2 + 20) = v33;
                     Pool2[2] = (PEX_RUNDOWN_REF)a1;
@@ -178,16 +180,16 @@ void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
                   }
                   else
                   {
-                    v37 = 6LL * v7;
-                    v45[v37] = v34;
-                    LOWORD(v45[v37 + 5]) = v33;
-                    v45[v37 + 1] = v41;
-                    v45[v37 + 2] = a1;
-                    LODWORD(v45[v37 + 3]) = a2;
-                    v45[v37 + 4] = 0LL;
+                    v38 = 6LL * v7;
+                    v46[v38] = v34;
+                    LOWORD(v46[v38 + 5]) = v33;
+                    v46[v38 + 1] = v42;
+                    v46[v38 + 2] = a1;
+                    LODWORD(v46[v38 + 3]) = a2;
+                    v46[v38 + 4] = 0LL;
                   }
                   ++v7;
-                  ObfReferenceObjectWithTag(v36, 0x746C6644u);
+                  ObfReferenceObjectWithTag(v37, 0x746C6644u);
                   ObfReferenceObjectWithTag(a1, 0x746C6644u);
                   if ( (*(_DWORD *)(v30 - 16) & 2) != 0 )
                     ++IoBoostedPagingIrpCount;
@@ -207,14 +209,14 @@ LABEL_48:
     while ( (KSPIN_LOCK *)v30 != a1 + 168 );
     v28 = a1 + 195;
     v14 = 8LL;
-    v29 = v39;
+    v29 = v40;
   }
   KeReleaseSpinLock(v28, v29);
   if ( !v7 )
   {
 LABEL_13:
     v15 = 0;
-    v43 = 0LL;
+    v44 = 0LL;
     v16 = 0LL;
     while ( 1 )
     {
@@ -222,7 +224,7 @@ LABEL_13:
       if ( !v17 )
         goto LABEL_15;
       v22 = KeAcquireQueuedSpinLock(0xAuLL);
-      v23 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)((char *)v48 + v16) + 32LL) + 8LL);
+      v23 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)((char *)v49 + v16) + 32LL) + 8LL);
       if ( !v23 )
         goto LABEL_35;
       while ( (*(_DWORD *)(v23 + 48) & 0x1000000) == 0 )
@@ -234,7 +236,7 @@ LABEL_33:
       }
       if ( v7 < 2 )
         break;
-      v25 = (_QWORD *)ExAllocatePool2(0x40uLL);
+      v25 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x30uLL, 0x43426F49u);
       if ( v25 )
       {
         v25[4] = P;
@@ -247,13 +249,13 @@ LABEL_33:
         goto LABEL_32;
       }
 LABEL_34:
-      v16 = v43;
+      v16 = v44;
 LABEL_35:
       KeReleaseQueuedSpinLock(0xAuLL, v22);
 LABEL_15:
       v16 += 8LL;
       ++v15;
-      v43 = v16;
+      v44 = v16;
       if ( v15 >= 8u )
       {
         v14 = 8LL;
@@ -263,12 +265,12 @@ LABEL_15:
       }
     }
     v24 = 6LL * v7;
-    v45[v24] = v17;
-    LOWORD(v45[v24 + 5]) = v15;
-    v45[v24 + 1] = (PVOID)v23;
-    v45[v24 + 2] = a1;
-    LODWORD(v45[v24 + 3]) = a2;
-    v45[v24 + 4] = 0LL;
+    v46[v24] = v17;
+    LOWORD(v46[v24 + 5]) = v15;
+    v46[v24 + 1] = (PVOID)v23;
+    v46[v24 + 2] = a1;
+    LODWORD(v46[v24 + 3]) = a2;
+    v46[v24 + 4] = 0LL;
 LABEL_32:
     ObfReferenceObjectWithTag((PVOID)v23, 0x746C6644u);
     ObfReferenceObjectWithTag(a1, 0x746C6644u);
@@ -288,7 +290,7 @@ LABEL_18:
     }
     else
     {
-      guard_dispatch_icall_no_overrides(v45[6 * j], &v45[6 * j + 1], 0LL, v45[6 * j]);
+      guard_dispatch_icall_no_overrides(v46[6 * j], &v46[6 * j + 1], 0LL, v46[6 * j]);
     }
   }
   do

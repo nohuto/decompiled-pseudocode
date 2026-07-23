@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnRemoveProcessTrace @ 0x1402F52FC
+ * XREFs of PfSnRemoveProcessTrace @ 0x1402F558C
  * Callers:
- *     PfSnDeactivateTrace @ 0x1402F521C (PfSnDeactivateTrace.c)
+ *     PfSnDeactivateTrace @ 0x1402F54AC (PfSnDeactivateTrace.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall PfSnRemoveProcessTrace(__int64 a1)
@@ -57,10 +57,13 @@ LABEL_7:
   }
   v7 = KeAcquireSpinLockRaiseToDpc(&qword_140C6A610);
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A610);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

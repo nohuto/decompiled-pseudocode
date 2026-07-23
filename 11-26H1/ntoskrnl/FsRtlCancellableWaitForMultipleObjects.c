@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlCancellableWaitForMultipleObjects @ 0x140A6C380
+ * XREFs of FsRtlCancellableWaitForMultipleObjects @ 0x140A7D9B0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KeQueryTimeIncrement @ 0x140457230 (KeQueryTimeIncrement.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KeQueryTimeIncrement @ 0x14044EAA0 (KeQueryTimeIncrement.c)
  */
 
 NTSTATUS __stdcall FsRtlCancellableWaitForMultipleObjects(

@@ -1,19 +1,19 @@
 /*
  * XREFs of PoIdle @ 0x14005D6B0
  * Callers:
- *     KiIdleLoop @ 0x1401C0520 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x1401C0680 (KiIdleLoop.c)
  * Callees:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  *     PpmIdlePrepare @ 0x14005F3A0 (PpmIdlePrepare.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     PpmEventIdleStateChange @ 0x14011FC98 (PpmEventIdleStateChange.c)
- *     KeIdleSpecCtrl @ 0x14013E0F0 (KeIdleSpecCtrl.c)
- *     PpmIdleSelectStates @ 0x140180090 (PpmIdleSelectStates.c)
- *     PpmResetProcessorIdleAccounting @ 0x14018B8E4 (PpmResetProcessorIdleAccounting.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeExecuteVerw @ 0x1401D1500 (KeExecuteVerw.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PpmSetPlatformIdleDurationHint @ 0x1402D5A50 (PpmSetPlatformIdleDurationHint.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     PpmEventIdleStateChange @ 0x14011FD08 (PpmEventIdleStateChange.c)
+ *     KeIdleSpecCtrl @ 0x14013E1F0 (KeIdleSpecCtrl.c)
+ *     PpmIdleSelectStates @ 0x1401801D0 (PpmIdleSelectStates.c)
+ *     PpmResetProcessorIdleAccounting @ 0x14018BA24 (PpmResetProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeExecuteVerw @ 0x1401D1600 (KeExecuteVerw.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PpmSetPlatformIdleDurationHint @ 0x1402D5C40 (PpmSetPlatformIdleDurationHint.c)
  */
 
 __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
@@ -64,8 +64,8 @@ __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   __int64 v46; // [rsp+78h] [rbp-90h] BYREF
   _DWORD v47[44]; // [rsp+88h] [rbp-80h] BYREF
 
-  result = dword_1404180CC;
-  if ( BYTE1(PpmCurrentProfile[341 * dword_1404180CC + 23]) )
+  result = dword_14041918C;
+  if ( BYTE1(PpmCurrentProfile[341 * dword_14041918C + 23]) )
     return result;
   v3 = 0;
   v4 = *(_QWORD *)(BugCheckParameter4 + 23808);
@@ -258,7 +258,7 @@ LABEL_62:
     {
       while ( ++v33 != (unsigned __int16)KeNumberNodes )
       {
-        v35 = KeNodeBlock[*((unsigned __int16 *)qword_14043A050
+        v35 = KeNodeBlock[*((unsigned __int16 *)qword_14043B110
                           + v33
                           + ParentNode->Affinity.Reserved[0] * (unsigned int)(unsigned __int16)KeNumberNodes)];
         if ( *(_QWORD *)(v35 + 64) != *(_QWORD *)(v35 + 136) )

@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IoReportResourceUsageInternal @ 0x140945128 (IoReportResourceUsageInternal.c)
+ *     sub_140945128 @ 0x140945128 (sub_140945128.c)
  */
 
 NTSTATUS __stdcall IoReportResourceUsage(
@@ -39,23 +39,23 @@ NTSTATUS __stdcall IoReportResourceUsage(
       {
         if ( DriverObject )
         {
-          IoAddTriageDumpDataBlock((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
+          sub_1403D99B4((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
           if ( DriverObject->DriverName.Length )
           {
-            IoAddTriageDumpDataBlock((_DWORD)DriverObject + 56, (PVOID)2);
-            IoAddTriageDumpDataBlock((ULONG)DriverObject->DriverName.Buffer, (PVOID)DriverObject->DriverName.Length);
+            sub_1403D99B4((_DWORD)DriverObject + 56, (PVOID)2);
+            sub_1403D99B4((ULONG)DriverObject->DriverName.Buffer, (PVOID)DriverObject->DriverName.Length);
           }
         }
-        IoAddTriageDumpDataBlock((ULONG)DeviceObject, (PVOID)DeviceObject->Size);
+        sub_1403D99B4((ULONG)DeviceObject, (PVOID)DeviceObject->Size);
         v11 = DeviceObject->DriverObject;
         if ( v11 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)(unsigned int)v11->Size);
+          sub_1403D99B4((ULONG)v11, (PVOID)(unsigned int)v11->Size);
           p_DriverName = &DeviceObject->DriverObject->DriverName;
           if ( p_DriverName->Length )
           {
-            IoAddTriageDumpDataBlock((ULONG)p_DriverName, (PVOID)2);
-            IoAddTriageDumpDataBlock(
+            sub_1403D99B4((ULONG)p_DriverName, (PVOID)2);
+            sub_1403D99B4(
               (ULONG)DeviceObject->DriverObject->DriverName.Buffer,
               (PVOID)DeviceObject->DriverObject->DriverName.Length);
           }
@@ -64,18 +64,18 @@ NTSTATUS __stdcall IoReportResourceUsage(
         if ( v13 )
         {
           v14 = (unsigned __int16 *)(v13 + 40);
-          IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)0x310);
+          sub_1403D99B4((ULONG)v13, (PVOID)0x310);
           if ( *v14 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
-            IoAddTriageDumpDataBlock(*((_QWORD *)v14 + 1), (PVOID)*v14);
+            sub_1403D99B4((ULONG)v14, (PVOID)2);
+            sub_1403D99B4(*((_QWORD *)v14 + 1), (PVOID)*v14);
           }
           DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
           v16 = (char *)DeviceObjectExtension->DeviceNode + 56;
           if ( *v16 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
-            IoAddTriageDumpDataBlock(
+            sub_1403D99B4((ULONG)v16, (PVOID)2);
+            sub_1403D99B4(
               *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 8),
               (PVOID)*((unsigned __int16 *)DeviceObject->DeviceObjectExtension->DeviceNode + 28));
             DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
@@ -86,9 +86,9 @@ NTSTATUS __stdcall IoReportResourceUsage(
             v18 = (_WORD *)(v17 + 56);
             if ( *v18 )
             {
-              IoAddTriageDumpDataBlock((ULONG)v18, (PVOID)2);
+              sub_1403D99B4((ULONG)v18, (PVOID)2);
               v19 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v19 + 64), (PVOID)*(unsigned __int16 *)(v19 + 56));
+              sub_1403D99B4(*(_QWORD *)(v19 + 64), (PVOID)*(unsigned __int16 *)(v19 + 56));
             }
           }
         }
@@ -96,5 +96,5 @@ NTSTATUS __stdcall IoReportResourceUsage(
       }
     }
   }
-  return IoReportResourceUsageInternal(0, (_DWORD)DriverObject, (_DWORD)DriverObject, (_DWORD)DriverList);
+  return sub_140945128(0, (_DWORD)DriverObject, (_DWORD)DriverObject, (_DWORD)DriverList);
 }

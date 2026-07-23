@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpCreateLogFile @ 0x1407F66D0
+ * XREFs of EtwpCreateLogFile @ 0x1407F69A0
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpLogger @ 0x140773100 (EtwpLogger.c)
- *     EtwpBufferingModeFlush @ 0x1408A7A28 (EtwpBufferingModeFlush.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1407732F0 (EtwpLogger.c)
+ *     EtwpBufferingModeFlush @ 0x1408A7C78 (EtwpBufferingModeFlush.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14041B240 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041B680 (ZwQueryVolumeInformationFile.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     EtwpSendSessionNotification @ 0x14077E820 (EtwpSendSessionNotification.c)
- *     EtwpFinalizeHeader @ 0x1407F5E38 (EtwpFinalizeHeader.c)
- *     EtwpDelayCreate @ 0x1407F6A54 (EtwpDelayCreate.c)
- *     EtwpExpandFileName @ 0x1407F6D80 (EtwpExpandFileName.c)
- *     EtwpUpdateFileHeader @ 0x1407F6FF4 (EtwpUpdateFileHeader.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x14041B5D0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x14041BA10 (ZwQueryVolumeInformationFile.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     EtwpSendSessionNotification @ 0x14077EA10 (EtwpSendSessionNotification.c)
+ *     EtwpFinalizeHeader @ 0x1407F6108 (EtwpFinalizeHeader.c)
+ *     EtwpDelayCreate @ 0x1407F6D24 (EtwpDelayCreate.c)
+ *     EtwpExpandFileName @ 0x1407F7050 (EtwpExpandFileName.c)
+ *     EtwpUpdateFileHeader @ 0x1407F72C4 (EtwpUpdateFileHeader.c)
  */
 
 __int64 __fastcall EtwpCreateLogFile(__int64 a1, char a2, unsigned int *a3)

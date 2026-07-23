@@ -1,15 +1,15 @@
 /*
- * XREFs of KiDeregisterNmiSxCallback @ 0x14056CA94
+ * XREFs of KiDeregisterNmiSxCallback @ 0x14056D154
  * Callers:
- *     KeDeregisterNmiCallback @ 0x14056C3E0 (KeDeregisterNmiCallback.c)
- *     DifKeDeregisterNmiCallbackWrapper @ 0x1405E2F20 (DifKeDeregisterNmiCallbackWrapper.c)
+ *     KeDeregisterNmiCallback @ 0x14056CAA0 (KeDeregisterNmiCallback.c)
+ *     DifKeDeregisterNmiCallbackWrapper @ 0x1405E3490 (DifKeDeregisterNmiCallbackWrapper.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x14039AAC0 (KiSetSystemAffinityThreadToProcessor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x14039ACA0 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -30,7 +30,7 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
   _DWORD *v15; // r8
   int v16; // eax
   unsigned int v17; // edi
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 0;
   PreviousAffinity = 0LL;
@@ -43,10 +43,13 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
     if ( !v4 )
     {
       KxReleaseSpinLock((volatile signed __int64 *)&KiNmiCallbackListLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v6 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -54,7 +57,7 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
           v11 = (v10 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v10;
           if ( v11 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(v6);
@@ -67,10 +70,10 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
   }
   *v5 = *v4;
   KxReleaseSpinLock((volatile signed __int64 *)&KiNmiCallbackListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
     {
       v14 = KeGetCurrentPrcb();
       v15 = v14->SchedulerAssist;
@@ -78,7 +81,7 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
       v11 = (v16 & v15[5]) == 0;
       v15[5] &= v16;
       if ( v11 )
-        KiRemoveSystemWorkPriorityKick(v14);
+        KiRemoveSystemWorkPriorityKick((__int64)v14);
     }
   }
   __writecr8(v6);

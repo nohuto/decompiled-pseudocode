@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpBugcheckPowerTimeout @ 0x140561088
+ * XREFs of PnpBugcheckPowerTimeout @ 0x140561748
  * Callers:
- *     PnpPowerStateTransitionWatchdogCallback @ 0x1405606B0 (PnpPowerStateTransitionWatchdogCallback.c)
- *     PopBuildDeviceNotifyListWatchdog @ 0x140AA7260 (PopBuildDeviceNotifyListWatchdog.c)
+ *     PnpPowerStateTransitionWatchdogCallback @ 0x140560D70 (PnpPowerStateTransitionWatchdogCallback.c)
+ *     PopBuildDeviceNotifyListWatchdog @ 0x140AA70D0 (PopBuildDeviceNotifyListWatchdog.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn PnpBugcheckPowerTimeout(ULONG_PTR BugCheckParameter2)

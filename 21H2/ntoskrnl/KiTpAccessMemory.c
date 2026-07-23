@@ -1,15 +1,15 @@
 /*
- * XREFs of KiTpAccessMemory @ 0x140A12008
+ * XREFs of KiTpAccessMemory @ 0x140A13008
  * Callers:
- *     KiTpEmulateGroup0Instruction @ 0x140A123B4 (KiTpEmulateGroup0Instruction.c)
- *     KiTpEmulateGroup11Instruction @ 0x140A12610 (KiTpEmulateGroup11Instruction.c)
- *     KiTpEmulateGroup1Instruction @ 0x140A126D0 (KiTpEmulateGroup1Instruction.c)
- *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
- *     KiTpEmulateMovzx @ 0x140A12FCC (KiTpEmulateMovzx.c)
- *     KiTpEmulateRegisterPushPop @ 0x140A130DC (KiTpEmulateRegisterPushPop.c)
- *     KiTpReadOperandValue @ 0x140A133EC (KiTpReadOperandValue.c)
+ *     KiTpEmulateGroup0Instruction @ 0x140A133B4 (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateGroup11Instruction @ 0x140A13610 (KiTpEmulateGroup11Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x140A136D0 (KiTpEmulateGroup1Instruction.c)
+ *     KiTpEmulateInstruction @ 0x140A138C0 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateMovzx @ 0x140A13FCC (KiTpEmulateMovzx.c)
+ *     KiTpEmulateRegisterPushPop @ 0x140A140DC (KiTpEmulateRegisterPushPop.c)
+ *     KiTpReadOperandValue @ 0x140A143EC (KiTpReadOperandValue.c)
  * Callees:
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
  */
 
 __int64 __fastcall KiTpAccessMemory(

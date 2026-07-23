@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpWriteProcessorTrace @ 0x1406C8520
+ * XREFs of EtwpWriteProcessorTrace @ 0x1406CC500
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
  */
 
 __int64 __fastcall EtwpWriteProcessorTrace(__int64 *a1, __int64 a2, int a3, int a4)

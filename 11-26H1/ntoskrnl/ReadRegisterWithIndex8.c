@@ -1,9 +1,9 @@
 /*
- * XREFs of ReadRegisterWithIndex8 @ 0x140722610
+ * XREFs of ReadRegisterWithIndex8 @ 0x1407271E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ReadRegisterWithIndex8(__int64 a1, __int64 a2)

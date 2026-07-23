@@ -24,16 +24,16 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
   ULONG v8; // r15d
   __int64 v9; // r12
   unsigned int v10; // edx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v12; // r14
   unsigned int v13; // eax
   unsigned int v14; // edx
   bool v15; // cf
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
   __int128 Src; // [rsp+30h] [rbp-50h] BYREF
   __int128 v18; // [rsp+40h] [rbp-40h]
   __int128 v19; // [rsp+50h] [rbp-30h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
 
   ++*(_DWORD *)(a1 + 184);
   Affinity = 0LL;

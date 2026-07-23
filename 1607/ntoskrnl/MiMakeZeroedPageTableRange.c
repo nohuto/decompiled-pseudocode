@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMakeZeroedPageTableRange @ 0x140020CC8
+ * XREFs of MiMakeZeroedPageTableRange @ 0x140020848
  * Callers:
- *     MiMakeZeroedPageTableRange @ 0x140020CC8 (MiMakeZeroedPageTableRange.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
+ *     MiMakeZeroedPageTableRange @ 0x140020848 (MiMakeZeroedPageTableRange.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMakeZeroedPageTableRange @ 0x140020CC8 (MiMakeZeroedPageTableRange.c)
- *     MiInitializeSystemPageTable @ 0x140020FBC (MiInitializeSystemPageTable.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiReplicatePteChange @ 0x1401482F0 (MiReplicatePteChange.c)
- *     KeCopyPage @ 0x140161F20 (KeCopyPage.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMakeZeroedPageTableRange @ 0x140020848 (MiMakeZeroedPageTableRange.c)
+ *     MiInitializeSystemPageTable @ 0x140020B3C (MiInitializeSystemPageTable.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiReplicatePteChange @ 0x140148860 (MiReplicatePteChange.c)
+ *     KeCopyPage @ 0x140162490 (KeCopyPage.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     MxCopyPage @ 0x1407977D0 (MxCopyPage.c)
  */
 
@@ -79,7 +79,7 @@ void __fastcall MiMakeZeroedPageTableRange(unsigned __int64 a1, __int64 a2, __in
         if ( v14 > 1 && *(_DWORD *)(v13 + 32) )
         {
           v29 = 1;
-          KeAcquireInStackQueuedSpinLock(&qword_140326AC0, &LockHandle);
+          KeAcquireInStackQueuedSpinLock(&qword_140326B00, &LockHandle);
           v17 = MI_READ_PTE_LOCK_FREE(a1);
           v13 = a5;
           v15 = v17;

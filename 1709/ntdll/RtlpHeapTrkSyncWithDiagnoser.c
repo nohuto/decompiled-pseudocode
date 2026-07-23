@@ -11,12 +11,20 @@
 char RtlpHeapTrkSyncWithDiagnoser()
 {
   char result; // al
+  HANDLE Handles; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v2; // [rsp+38h] [rbp-10h]
+  LARGE_INTEGER Timeout; // [rsp+50h] [rbp+8h] BYREF
 
   result = 0;
+  Handles = 0LL;
+  v2 = 0LL;
   if ( TrkContext )
   {
-    ZwSetEvent();
-    if ( (unsigned int)NtWaitForMultipleObjects() == 1 )
+    Handles = (HANDLE)*((_QWORD *)TrkContext + 1);
+    v2 = *((_QWORD *)TrkContext + 3);
+    Timeout.QuadPart = -100000000LL;
+    ZwSetEvent(*((HANDLE *)TrkContext + 2), 0LL);
+    if ( NtWaitForMultipleObjects(2u, &Handles, WaitAny, 0, &Timeout) == 1 )
     {
       return 1;
     }

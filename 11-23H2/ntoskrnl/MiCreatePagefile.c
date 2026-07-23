@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCreatePagefile @ 0x140833A94
+ * XREFs of MiCreatePagefile @ 0x140833D94
  * Callers:
- *     MmStoreRegister @ 0x140832E04 (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A4715C (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MmStoreRegister @ 0x140833104 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A4740C (MiCreateSpecialPurposeMemoryPageFile.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     MiAllocateModWriterEntry @ 0x140349EB0 (MiAllocateModWriterEntry.c)
- *     MiReservePageHash @ 0x140395D18 (MiReservePageHash.c)
- *     MiInitializePagefileBitmapsCache @ 0x140395ED0 (MiInitializePagefileBitmapsCache.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x140833E0C (MiCreatePageFileSpaceBitmaps.c)
- *     MiDeletePagefile @ 0x140A32800 (MiDeletePagefile.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     MiAllocateModWriterEntry @ 0x14034A048 (MiAllocateModWriterEntry.c)
+ *     MiReservePageHash @ 0x140395EF8 (MiReservePageHash.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403960B0 (MiInitializePagefileBitmapsCache.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x14083410C (MiCreatePageFileSpaceBitmaps.c)
+ *     MiDeletePagefile @ 0x140A32AB0 (MiDeletePagefile.c)
  */
 
 _BYTE *__fastcall MiCreatePagefile(
@@ -50,7 +50,7 @@ _BYTE *__fastcall MiCreatePagefile(
   ULONG_PTR v29; // rax
   __int64 PageFileSpaceBitmaps; // rax
   __int64 v31; // rdi
-  RTL_BITMAP *v32; // rdi
+  _RTL_BITMAP *v32; // rdi
   PVOID v33; // rax
   __int64 v36; // [rsp+30h] [rbp-168h]
   _BYTE v37[288]; // [rsp+40h] [rbp-158h] BYREF
@@ -181,7 +181,7 @@ LABEL_27:
     *((_QWORD *)v14 + 14) = PageFileSpaceBitmaps;
     RtlSetAllBits((PRTL_BITMAP)(PageFileSpaceBitmaps + 8));
     RtlClearBits((PRTL_BITMAP)(v31 + 8), v12, *(_DWORD *)v14 - v12);
-    v32 = (RTL_BITMAP *)(v31 + 24);
+    v32 = (_RTL_BITMAP *)(v31 + 24);
     RtlSetAllBits(v32);
     if ( (a8 & 2) == 0 )
       RtlClearBits(v32, v12, *(_DWORD *)v14 - v12);

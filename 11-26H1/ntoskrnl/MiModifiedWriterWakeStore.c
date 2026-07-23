@@ -1,10 +1,10 @@
 /*
- * XREFs of MiModifiedWriterWakeStore @ 0x1404068D8
+ * XREFs of MiModifiedWriterWakeStore @ 0x1403FF9C8
  * Callers:
- *     MiModifiedWriterShouldWrite @ 0x1404066FC (MiModifiedWriterShouldWrite.c)
+ *     MiModifiedWriterShouldWrite @ 0x1403FF7EC (MiModifiedWriterShouldWrite.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
  */
 
 LIST_ENTRY *__fastcall MiModifiedWriterWakeStore(__int64 a1)

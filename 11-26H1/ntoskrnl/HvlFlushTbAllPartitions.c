@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlFlushTbAllPartitions @ 0x14024FE70
+ * XREFs of HvlFlushTbAllPartitions @ 0x1402517D0
  * Callers:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
  * Callees:
- *     VslFlushEntireTb @ 0x140251968 (VslFlushEntireTb.c)
- *     HvcallFastExtended @ 0x14032BFB0 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     VslFlushEntireTb @ 0x1402532C8 (VslFlushEntireTb.c)
+ *     HvcallFastExtended @ 0x14032DFE0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 HvlFlushTbAllPartitions()

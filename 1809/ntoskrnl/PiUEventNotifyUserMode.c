@@ -1,29 +1,29 @@
 /*
- * XREFs of PiUEventNotifyUserMode @ 0x14058EF60
+ * XREFs of PiUEventNotifyUserMode @ 0x14058FF60
  * Callers:
- *     PnpDeviceEventWorker @ 0x14058BBC0 (PnpDeviceEventWorker.c)
- *     PnpProcessCustomDeviceEvent @ 0x14058E8E0 (PnpProcessCustomDeviceEvent.c)
- *     PnpProcessTargetDeviceEvent @ 0x1406EB0C0 (PnpProcessTargetDeviceEvent.c)
- *     PnpNotifyUserModeDeviceRemoval @ 0x1406F00F4 (PnpNotifyUserModeDeviceRemoval.c)
+ *     PnpDeviceEventWorker @ 0x14058CBC0 (PnpDeviceEventWorker.c)
+ *     PnpProcessCustomDeviceEvent @ 0x14058F8E0 (PnpProcessCustomDeviceEvent.c)
+ *     PnpProcessTargetDeviceEvent @ 0x1406EC360 (PnpProcessTargetDeviceEvent.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x1406F1394 (PnpNotifyUserModeDeviceRemoval.c)
  * Callees:
  *     PiUEventShouldQueueEvent @ 0x140006360 (PiUEventShouldQueueEvent.c)
  *     KeInitializeGuardedMutex @ 0x1400063D0 (KeInitializeGuardedMutex.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PiUEventDereferenceEventEntry @ 0x14058EAD8 (PiUEventDereferenceEventEntry.c)
- *     PiUEventFreeEventEntry @ 0x14058EB3C (PiUEventFreeEventEntry.c)
- *     PiUEventCacheObjectProperties @ 0x14058F280 (PiUEventCacheObjectProperties.c)
- *     PiUEventIsDeviceEventVetoable @ 0x14058F8F0 (PiUEventIsDeviceEventVetoable.c)
- *     PiUEventReferenceEventEntry @ 0x14058FAC4 (PiUEventReferenceEventEntry.c)
- *     PiUEventDeviceNeedsInstall @ 0x1406FEC5C (PiUEventDeviceNeedsInstall.c)
- *     PiUEventSendDeviceInstallNotification @ 0x1407606D8 (PiUEventSendDeviceInstallNotification.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PiUEventDereferenceEventEntry @ 0x14058FAD8 (PiUEventDereferenceEventEntry.c)
+ *     PiUEventFreeEventEntry @ 0x14058FB3C (PiUEventFreeEventEntry.c)
+ *     PiUEventCacheObjectProperties @ 0x140590280 (PiUEventCacheObjectProperties.c)
+ *     PiUEventIsDeviceEventVetoable @ 0x1405908F0 (PiUEventIsDeviceEventVetoable.c)
+ *     PiUEventReferenceEventEntry @ 0x140590AC4 (PiUEventReferenceEventEntry.c)
+ *     PiUEventDeviceNeedsInstall @ 0x1406FFEFC (PiUEventDeviceNeedsInstall.c)
+ *     PiUEventSendDeviceInstallNotification @ 0x1407618C8 (PiUEventSendDeviceInstallNotification.c)
  */
 
 __int64 __fastcall PiUEventNotifyUserMode(__int64 a1)
@@ -130,14 +130,14 @@ LABEL_35:
     memmove((void *)(v7 + 72), (const void *)(a1 + 112), *(unsigned int *)(a1 + 148));
     PiUEventCacheObjectProperties(v7);
     ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
-    v11 = (__int64 *)qword_140435308;
+    v11 = (__int64 *)qword_1404363A8;
     v12 = (PVOID *)PiUEventUsermodeEventQueue;
-    if ( *(PVOID **)qword_140435308 != &PiUEventUsermodeEventQueue )
+    if ( *(PVOID **)qword_1404363A8 != &PiUEventUsermodeEventQueue )
       goto LABEL_42;
     *(_QWORD *)v7 = &PiUEventUsermodeEventQueue;
     *(_QWORD *)(v7 + 8) = v11;
     *v11 = v7;
-    qword_140435308 = v7;
+    qword_1404363A8 = v7;
     KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
     if ( v12 != &PiUEventUsermodeEventQueue )
       goto LABEL_17;
@@ -157,7 +157,7 @@ LABEL_17:
         v17 = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 1u, &Timeout, 0LL);
         LODWORD(Size) = 0;
         v18 = v17;
-        ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)&Size, 4LL);
+        ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, &Size, 4u, 0LL, 0LL, 0, 0);
         if ( v18 )
         {
           if ( v18 == 1 )

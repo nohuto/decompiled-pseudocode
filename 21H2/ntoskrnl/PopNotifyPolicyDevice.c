@@ -1,17 +1,17 @@
 /*
- * XREFs of PopNotifyPolicyDevice @ 0x1407C42E0
+ * XREFs of PopNotifyPolicyDevice @ 0x1407C4800
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopAcquireTransitionLock @ 0x14078DA78 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x14078DAD4 (PopReleaseTransitionLock.c)
- *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
- *     PopChangeCapability @ 0x140792494 (PopChangeCapability.c)
- *     PopConnectToPolicyDevice @ 0x1407C4368 (PopConnectToPolicyDevice.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopAcquireTransitionLock @ 0x14078DC38 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14078DC94 (PopReleaseTransitionLock.c)
+ *     PopEnableHiberFile @ 0x1407926A0 (PopEnableHiberFile.c)
+ *     PopChangeCapability @ 0x140793A44 (PopChangeCapability.c)
+ *     PopConnectToPolicyDevice @ 0x1407C4888 (PopConnectToPolicyDevice.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopNotifyPolicyDevice(_QWORD *NotificationStructure, PVOID Context)
@@ -34,7 +34,7 @@ __int64 __fastcall PopNotifyPolicyDevice(_QWORD *NotificationStructure, PVOID Co
   if ( (_DWORD)Context == 8 )
   {
     PopAcquirePolicyLock((_DWORD)NotificationStructure);
-    PopChangeCapability(&byte_140C24073, !v5);
+    PopChangeCapability(&byte_140C23433, !v5);
     PopReleasePolicyLock(v8, v7);
   }
   else if ( (_DWORD)Context == 3 )

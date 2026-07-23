@@ -1,28 +1,28 @@
 /*
- * XREFs of PipMakeGloballyUniqueId @ 0x14076C400
+ * XREFs of PipMakeGloballyUniqueId @ 0x14076C5C0
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
- *     PiCreateDriverSwDeviceCallback @ 0x1408B46E0 (PiCreateDriverSwDeviceCallback.c)
+ *     PiProcessNewDeviceNode @ 0x140744650 (PiProcessNewDeviceNode.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x1408B4840 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     RtlStringCchPrintfW @ 0x14026D570 (RtlStringCchPrintfW.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     RtlStringCchCopyW @ 0x1403711F0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlUpcaseUnicodeString @ 0x14067B110 (RtlUpcaseUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipMakeGloballyUniqueId(__int64 a1, __int64 a2, wchar_t **a3)
@@ -40,46 +40,49 @@ __int64 __fastcall PipMakeGloballyUniqueId(__int64 a1, __int64 a2, wchar_t **a3)
   __int64 v14; // r13
   __int64 v15; // rax
   wchar_t *v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
   wchar_t *Buffer; // rdx
-  int v19; // r8d
-  unsigned __int64 v20; // r9
-  unsigned __int64 v21; // rcx
-  int v22; // eax
-  int v23; // ebx
-  unsigned int v24; // eax
-  unsigned int v25; // r13d
+  int v22; // r8d
+  unsigned __int64 v23; // r9
+  unsigned __int64 v24; // rcx
+  int v25; // eax
+  int v26; // ebx
+  unsigned int v27; // eax
+  unsigned int v28; // r13d
   wchar_t *PoolWithTag; // rax
   ULONG Length[2]; // [rsp+20h] [rbp-79h]
   PULONG ResultLength; // [rsp+28h] [rbp-71h]
-  __int64 v29; // [rsp+30h] [rbp-69h]
-  __int64 v30; // [rsp+38h] [rbp-61h]
-  ULONG v31; // [rsp+50h] [rbp-49h] BYREF
-  wchar_t **v32; // [rsp+58h] [rbp-41h]
+  __int64 v32; // [rsp+30h] [rbp-69h]
+  __int64 v33; // [rsp+38h] [rbp-61h]
+  ULONG v34; // [rsp+50h] [rbp-49h] BYREF
+  wchar_t **v35; // [rsp+58h] [rbp-41h]
   int Data; // [rsp+60h] [rbp-39h] BYREF
   UNICODE_STRING ValueName; // [rsp+68h] [rbp-31h] BYREF
   HANDLE KeyHandle; // [rsp+78h] [rbp-21h] BYREF
-  int v36; // [rsp+80h] [rbp-19h]
-  HANDLE v37; // [rsp+88h] [rbp-11h] BYREF
+  int v39; // [rsp+80h] [rbp-19h]
+  HANDLE v40; // [rsp+88h] [rbp-11h] BYREF
   size_t cbDest; // [rsp+90h] [rbp-9h]
   NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+98h] [rbp-1h] BYREF
-  __int64 v40; // [rsp+A0h] [rbp+7h]
+  __int64 v43; // [rsp+A0h] [rbp+7h]
   _BYTE KeyValueInformation[4]; // [rsp+A8h] [rbp+Fh] BYREF
-  int v42; // [rsp+ACh] [rbp+13h]
-  int v43; // [rsp+B0h] [rbp+17h]
-  unsigned int v44; // [rsp+B4h] [rbp+1Bh]
+  int v45; // [rsp+ACh] [rbp+13h]
+  int v46; // [rsp+B0h] [rbp+17h]
+  unsigned int v47; // [rsp+B4h] [rbp+1Bh]
 
   v3 = 0LL;
-  v32 = a3;
+  v35 = a3;
   Data = 0;
   KeyHandle = 0LL;
   v4 = -1LL;
-  v31 = 0;
+  v34 = 0;
   v5 = a3;
   ValueName = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v40 = a2;
+  v43 = a2;
   v8 = 0LL;
-  v37 = 0LL;
+  v40 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
   --CurrentThread->KernelApcDisable;
@@ -105,30 +108,30 @@ __int64 __fastcall PipMakeGloballyUniqueId(__int64 a1, __int64 a2, wchar_t **a3)
                              KeyValuePartialInformation,
                              KeyValueInformation,
                              0x10u,
-                             &v31);
+                             &v34);
     if ( CachedContextBaseKey >= 0 )
     {
-      if ( v42 != 4 || v43 != 4 )
+      if ( v45 != 4 || v46 != 4 )
       {
         CachedContextBaseKey = -1073741811;
         goto LABEL_18;
       }
-      v25 = v44;
+      v28 = v47;
       PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x12uLL, 0x6E657050u);
       v9 = PoolWithTag;
       if ( !PoolWithTag )
         goto LABEL_47;
-      RtlStringCbPrintfW(PoolWithTag, 0x12uLL, L"%x", v25);
+      RtlStringCbPrintfW(PoolWithTag, 0x12uLL, L"%x", v28);
     }
     else
     {
       *(_DWORD *)&ValueName.Length = 1966108;
-      v31 = 66;
+      v34 = 66;
       ValueName.Buffer = (wchar_t *)L"ParentIdPrefix";
       v10 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x42uLL, 0x6E657050u);
       if ( !v10 )
         goto LABEL_47;
-      CachedContextBaseKey = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, v10, v31, &v31);
+      CachedContextBaseKey = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, v10, v34, &v34);
       if ( CachedContextBaseKey >= 0 )
       {
         if ( *((_DWORD *)v10 + 1) == 1 )
@@ -147,76 +150,76 @@ LABEL_47:
         }
         CachedContextBaseKey = -1073741811;
 LABEL_17:
-        v5 = v32;
+        v5 = v35;
 LABEL_18:
         ZwClose(KeyHandle);
         goto LABEL_19;
       }
-      v31 = 31;
+      v34 = 31;
       CachedContextBaseKey = RtlUpcaseUnicodeString(&ValueName, (PCUNICODE_STRING)(v3 + 40), 1u);
       if ( CachedContextBaseKey < 0 )
         goto LABEL_17;
       Buffer = ValueName.Buffer;
-      v19 = 0;
-      v20 = 0LL;
-      v21 = (unsigned __int64)ValueName.Length >> 1;
-      if ( ValueName.Buffer > &ValueName.Buffer[v21] )
-        v21 = 0LL;
-      if ( v21 )
+      v22 = 0;
+      v23 = 0LL;
+      v24 = (unsigned __int64)ValueName.Length >> 1;
+      if ( ValueName.Buffer > &ValueName.Buffer[v24] )
+        v24 = 0LL;
+      if ( v24 )
       {
         do
         {
-          v22 = *Buffer;
-          ++v20;
+          v25 = *Buffer;
+          ++v23;
           ++Buffer;
-          v19 = v22 + 37 * v19;
+          v22 = v25 + 37 * v22;
         }
-        while ( v20 < v21 );
+        while ( v23 < v24 );
       }
-      v23 = (int)abs32(314159269 * v19) % 1000000007;
-      v36 = v23;
+      v26 = (int)abs32(314159269 * v22) % 1000000007;
+      v39 = v26;
       RtlFreeAnsiString(&ValueName);
-      cbDest = 2 * v31;
+      cbDest = 2 * v34;
       v9 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, cbDest, 0x6E657050u);
       if ( !v9 )
         goto LABEL_47;
       LODWORD(ResultLength) = *(_DWORD *)(v3 + 152);
-      Length[0] = v23;
+      Length[0] = v26;
       RtlStringCbPrintfW(v9, cbDest, L"%s.%x.%x", L"NextParentID", *(_QWORD *)Length, ResultLength);
-      CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 5, (__int64)&v37);
+      CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 5, (__int64)&v40);
       if ( CachedContextBaseKey < 0 )
         goto LABEL_17;
       RtlInitUnicodeString(&ValueName, v9);
-      if ( ZwQueryValueKey(v37, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x10u, &v31) < 0
-        || v42 != 4
-        || (v24 = v44, v43 != 4) )
+      if ( ZwQueryValueKey(v40, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x10u, &v34) < 0
+        || v45 != 4
+        || (v27 = v47, v46 != 4) )
       {
-        v24 = 0;
+        v27 = 0;
       }
-      Data = v24 + 1;
-      CachedContextBaseKey = ZwSetValueKey(v37, &ValueName, 0, 4u, &Data, 4u);
+      Data = v27 + 1;
+      CachedContextBaseKey = ZwSetValueKey(v40, &ValueName, 0, 4u, &Data, 4u);
       if ( CachedContextBaseKey < 0 )
         goto LABEL_17;
       ValueName.Buffer = (wchar_t *)L"ParentIdPrefix";
       --Data;
-      LODWORD(v30) = v36;
+      LODWORD(v33) = v39;
       *(_DWORD *)&ValueName.Length = 1966108;
-      LODWORD(v29) = *(_DWORD *)(v3 + 152);
+      LODWORD(v32) = *(_DWORD *)(v3 + 152);
       ppszDestEnd = v9;
-      RtlStringCchPrintfExW(v9, cbDest >> 1, &ppszDestEnd, 0LL, 0, L"%x&%x&%x", v29, v30, Data);
-      v31 = ppszDestEnd - v9 + 1;
-      CachedContextBaseKey = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, v9, 2 * v31);
+      RtlStringCchPrintfExW(v9, cbDest >> 1, &ppszDestEnd, 0LL, 0, L"%x&%x&%x", v32, v33, Data);
+      v34 = ppszDestEnd - v9 + 1;
+      CachedContextBaseKey = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, v9, 2 * v34);
       if ( CachedContextBaseKey < 0 )
         goto LABEL_17;
     }
 LABEL_10:
-    v14 = v40;
-    if ( v40 )
+    v14 = v43;
+    if ( v43 )
     {
       v15 = -1LL;
       do
         ++v15;
-      while ( *(_WORD *)(v40 + 2 * v15) );
+      while ( *(_WORD *)(v43 + 2 * v15) );
     }
     else
     {
@@ -225,22 +228,22 @@ LABEL_10:
     do
       ++v4;
     while ( v9[v4] );
-    v31 = v4 + v15 + 2;
-    v16 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2LL * v31, 0x6E657050u);
+    v34 = v4 + v15 + 2;
+    v16 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2LL * v34, 0x6E657050u);
     v8 = v16;
     if ( v16 )
     {
       if ( v14 )
-        RtlStringCchPrintfW(v16, v31, L"%s&%s", v9, v14);
+        RtlStringCchPrintfW(v16, v34, L"%s&%s", v9, v14);
       else
-        RtlStringCchCopyW(v16, v31, v9);
+        RtlStringCchCopyW(v16, v34, v9);
       goto LABEL_17;
     }
     goto LABEL_47;
   }
 LABEL_19:
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v17, v18, v19);
   if ( v10 )
     ExFreePoolWithTag(v10, 0);
   if ( v9 )

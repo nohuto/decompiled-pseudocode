@@ -1,13 +1,13 @@
 /*
- * XREFs of IpmiHwInitializeContext @ 0x14071CEF4
+ * XREFs of IpmiHwInitializeContext @ 0x140721B84
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x140532728 (IpmiHwContextInitialized.c)
- *     IpmiHwKcsInit @ 0x14071CFE8 (IpmiHwKcsInit.c)
- *     IpmiHwpReadSpmiConfiguration @ 0x14071D128 (IpmiHwpReadSpmiConfiguration.c)
- *     IpmiLibReadSmbiosRecord38 @ 0x14071D1E0 (IpmiLibReadSmbiosRecord38.c)
- *     IpmiLibpParseDeviceInfo @ 0x14071D318 (IpmiLibpParseDeviceInfo.c)
+ *     IpmiHwContextInitialized @ 0x140534BC8 (IpmiHwContextInitialized.c)
+ *     IpmiHwKcsInit @ 0x140721C78 (IpmiHwKcsInit.c)
+ *     IpmiHwpReadSpmiConfiguration @ 0x140721DB8 (IpmiHwpReadSpmiConfiguration.c)
+ *     IpmiLibReadSmbiosRecord38 @ 0x140721E70 (IpmiLibReadSmbiosRecord38.c)
+ *     IpmiLibpParseDeviceInfo @ 0x140721FA8 (IpmiLibpParseDeviceInfo.c)
  */
 
 __int64 IpmiHwInitializeContext()

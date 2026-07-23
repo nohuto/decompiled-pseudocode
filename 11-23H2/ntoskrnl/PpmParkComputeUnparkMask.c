@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmParkComputeUnparkMask @ 0x14059C604
+ * XREFs of PpmParkComputeUnparkMask @ 0x14059CAF4
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x140353830 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1403539D0 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeFindFirstSetRightAffinityEx @ 0x14056F3E0 (KeFindFirstSetRightAffinityEx.c)
- *     PpmHeteroRestrictToFavoredClass @ 0x1405977A4 (PpmHeteroRestrictToFavoredClass.c)
- *     PpmEventHeteroFavoredCoreRotationChange @ 0x14059A0D8 (PpmEventHeteroFavoredCoreRotationChange.c)
- *     PpmEventParkNodePreference @ 0x14059ADBC (PpmEventParkNodePreference.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x14056F920 (KeFindFirstSetRightAffinityEx.c)
+ *     PpmHeteroRestrictToFavoredClass @ 0x140597C94 (PpmHeteroRestrictToFavoredClass.c)
+ *     PpmEventHeteroFavoredCoreRotationChange @ 0x14059A5C8 (PpmEventHeteroFavoredCoreRotationChange.c)
+ *     PpmEventParkNodePreference @ 0x14059B2AC (PpmEventParkNodePreference.c)
  */
 
 char __fastcall PpmParkComputeUnparkMask(
@@ -127,7 +127,7 @@ char __fastcall PpmParkComputeUnparkMask(
   memset(v91, 0, 0x108uLL);
   memset(v96, 0, 0x108uLL);
   v20 = a9;
-  v21 = 55LL * dword_140C3D86C;
+  v21 = 55LL * dword_140C3D96C;
   v22 = BYTE4(PpmCurrentProfile[v21 + 59]);
   v23 = BYTE5(PpmCurrentProfile[v21 + 59]);
   LOBYTE(v24) = BYTE6(PpmCurrentProfile[v21 + 59]);

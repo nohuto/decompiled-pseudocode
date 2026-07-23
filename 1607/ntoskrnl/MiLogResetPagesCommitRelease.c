@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogResetPagesCommitRelease @ 0x1401DFCF4
+ * XREFs of MiLogResetPagesCommitRelease @ 0x1401DFB20
  * Callers:
- *     MiReleaseCommitForResetPages @ 0x1401E0934 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseCommitForResetPages @ 0x1401E0760 (MiReleaseCommitForResetPages.c)
  * Callees:
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _TlgCreateSz @ 0x1401CDF00 (_TlgCreateSz.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _TlgCreateSz @ 0x1401CDD4C (_TlgCreateSz.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
  */
 
 void MiLogResetPagesCommitRelease()
@@ -21,9 +21,9 @@ void MiLogResetPagesCommitRelease()
   int v7; // [rsp+60h] [rbp+0h] BYREF
 
   v0 = (unsigned __int64)&v7 & 0xFFFFFFFFFFFFFFE0uLL;
-  if ( hProvider && hProvider->LevelPlus1 > 5 )
+  if ( qword_1403277E0 && qword_1403277E0->LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(hProvider, 4uLL) )
+    if ( TlgKeywordOn(qword_1403277E0, 4uLL) )
     {
       *(_DWORD *)v0 = *(_DWORD *)(v1 + 744);
       *(_QWORD *)(((unsigned __int64)&v7 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = *(_QWORD *)(v1 + 1480);
@@ -40,7 +40,7 @@ void MiLogResetPagesCommitRelease()
       *(_DWORD *)(((unsigned __int64)&v7 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 4;
       *(_DWORD *)(((unsigned __int64)&v7 & 0xFFFFFFFFFFFFFFE0uLL) + 0x68) = 8;
       *(_DWORD *)(((unsigned __int64)&v7 & 0xFFFFFFFFFFFFFFE0uLL) + 0x78) = 8;
-      TlgWriteEx(v4, &unk_14027C1F7, v3, (ULONG)v4, v5, v6, 6u, (EVENT_DATA_DESCRIPTOR *)(v0 + 32));
+      TlgWriteEx(v4, &unk_14027C2F7, v3, (ULONG)v4, v5, v6, 6u, (EVENT_DATA_DESCRIPTOR *)(v0 + 32));
     }
   }
 }

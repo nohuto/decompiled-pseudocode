@@ -7,7 +7,7 @@
  *     RtlInstallFunctionTableCallback @ 0x180069900 (RtlInstallFunctionTableCallback.c)
  *     RtlCreateTagHeap @ 0x18007DA70 (RtlCreateTagHeap.c)
  *     RtlpGetNameFromLangInfoNode @ 0x180080180 (RtlpGetNameFromLangInfoNode.c)
- *     RtlQueryProcessHeapInformation @ 0x1800D7D90 (RtlQueryProcessHeapInformation.c)
+ *     RtlQueryProcessHeapInformation @ 0x1800D7D50 (RtlQueryProcessHeapInformation.c)
  * Callees:
  *     <none>
  */

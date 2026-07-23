@@ -8,55 +8,60 @@
  *     LdrProcessRelocationBlockLongLong @ 0x1800736B0 (LdrProcessRelocationBlockLongLong.c)
  */
 
-__int64 __fastcall LdrRelocateImage(unsigned __int64 a1)
+NTSTATUS __cdecl LdrRelocateImage(
+        PVOID NewBase,
+        PSTR LoaderName,
+        NTSTATUS Success,
+        NTSTATUS Conflict,
+        NTSTATUS Invalid)
 {
-  unsigned int v1; // ebx
-  __int64 v3; // rax
-  __int64 v4; // rdi
-  int v5; // eax
-  __int64 v6; // r14
-  _DWORD *v7; // rax
-  int v8; // esi
-  int v9; // r8d
-  int v11; // [rsp+68h] [rbp+20h] BYREF
+  NTSTATUS v5; // ebx
+  PIMAGE_NT_HEADERS v7; // rax
+  PIMAGE_NT_HEADERS v8; // rdi
+  int Magic; // eax
+  unsigned __int64 ImageBase_high; // r14
+  _DWORD *v11; // rax
+  ULONG v12; // esi
+  int v13; // r8d
+  ULONG Size; // [rsp+68h] [rbp+20h] BYREF
 
-  v1 = 0;
-  v11 = 0;
-  v3 = RtlImageNtHeader(a1);
-  v4 = v3;
-  if ( !v3 )
-    return (unsigned int)-1073741701;
-  v5 = *(unsigned __int16 *)(v3 + 24);
-  if ( v5 == 267 )
+  v5 = 0;
+  Size = 0;
+  v7 = RtlImageNtHeader(NewBase);
+  v8 = v7;
+  if ( !v7 )
+    return -1073741701;
+  Magic = v7->OptionalHeader.Magic;
+  if ( Magic == 267 )
   {
-    v6 = *(unsigned int *)(v4 + 52);
+    ImageBase_high = HIDWORD(v8->OptionalHeader.ImageBase);
   }
   else
   {
-    if ( v5 != 523 )
-      return (unsigned int)-1073741701;
-    v6 = *(_QWORD *)(v4 + 48);
+    if ( Magic != 523 )
+      return -1073741701;
+    ImageBase_high = v8->OptionalHeader.ImageBase;
   }
-  v7 = (_DWORD *)RtlImageDirectoryEntryToData(a1, 1, 5u, &v11);
-  if ( !v7 )
-    return (*(_BYTE *)(v4 + 22) & 1) != 0 ? 0xC0000018 : 0;
-  v8 = v11;
+  v11 = RtlImageDirectoryEntryToData(NewBase, 1u, 5u, &Size);
   if ( !v11 )
-    return (*(_BYTE *)(v4 + 22) & 1) != 0 ? 0xC0000018 : 0;
+    return (v8->FileHeader.Characteristics & 1) != 0 ? 0xC0000018 : 0;
+  v12 = Size;
+  if ( !Size )
+    return (v8->FileHeader.Characteristics & 1) != 0 ? 0xC0000018 : 0;
   while ( 1 )
   {
-    v9 = v7[1];
-    v8 -= v9;
-    v7 = (_DWORD *)LdrProcessRelocationBlockLongLong(
-                     *(unsigned __int16 *)(v4 + 4),
-                     (int)a1 + *v7,
-                     (unsigned int)(v9 - 8) >> 1,
-                     (int)v7 + 8,
-                     a1 - v6);
-    if ( !v7 )
+    v13 = v11[1];
+    v12 -= v13;
+    v11 = (_DWORD *)LdrProcessRelocationBlockLongLong(
+                      v8->FileHeader.Machine,
+                      (int)NewBase + *v11,
+                      (unsigned int)(v13 - 8) >> 1,
+                      (int)v11 + 8,
+                      (__int64)NewBase - ImageBase_high);
+    if ( !v11 )
       break;
-    if ( !v8 )
-      return v1;
+    if ( !v12 )
+      return v5;
   }
-  return (unsigned int)-1073741701;
+  return -1073741701;
 }

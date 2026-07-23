@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwIsSystemResumeAutomatic @ 0x14015BB40
+ * XREFs of ZwIsSystemResumeAutomatic @ 0x14015C0B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,11 +8,9 @@
 
 BOOLEAN ZwIsSystemResumeAutomatic(void)
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
+  __int64 v0; // rcx
 
   _disable();
   __readeflags();
-  return KiServiceInternal(v1, v0, v2);
+  return KiServiceInternal(v0);
 }

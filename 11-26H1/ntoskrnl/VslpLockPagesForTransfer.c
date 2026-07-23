@@ -1,54 +1,54 @@
 /*
- * XREFs of VslpLockPagesForTransfer @ 0x14040FF88
+ * XREFs of VslpLockPagesForTransfer @ 0x14040F6A8
  * Callers:
- *     VslAllocatePool @ 0x14040E558 (VslAllocatePool.c)
- *     VslTransferSecureImageVersionResource @ 0x14040EB30 (VslTransferSecureImageVersionResource.c)
- *     VslPrepareSecureImageRelocations @ 0x14040ED80 (VslPrepareSecureImageRelocations.c)
- *     VslCreateSecureImageSection @ 0x14040EFE0 (VslCreateSecureImageSection.c)
- *     VslFillSecureAllocation @ 0x14040F0E0 (VslFillSecureAllocation.c)
- *     VslIumEfiRuntimeService @ 0x14040F7D0 (VslIumEfiRuntimeService.c)
- *     VslValidateSecureImagePages @ 0x14040FE30 (VslValidateSecureImagePages.c)
- *     VslRegisterLogPages @ 0x140411B34 (VslRegisterLogPages.c)
- *     VslQuerySecureKernelProfileInformation @ 0x140526690 (VslQuerySecureKernelProfileInformation.c)
- *     VslFinishStartSecureProcessor @ 0x1405C2D7C (VslFinishStartSecureProcessor.c)
- *     VslGetEtwDebugId @ 0x1405C2E78 (VslGetEtwDebugId.c)
- *     VslInitializeSecureProcess @ 0x1405C34F8 (VslInitializeSecureProcess.c)
- *     VslQueryActiveSecurePatches @ 0x1405C38F0 (VslQueryActiveSecurePatches.c)
- *     VslRegisterSecurePatch @ 0x1405C3AB4 (VslRegisterSecurePatch.c)
- *     VslRetrieveMailbox @ 0x1405C3F80 (VslRetrieveMailbox.c)
- *     VslCaptureImageHotPatchMetadata @ 0x1405C4890 (VslCaptureImageHotPatchMetadata.c)
- *     VslInitFunctionOverrideCapabilities @ 0x1405C49A8 (VslInitFunctionOverrideCapabilities.c)
- *     VslCapturePgoData @ 0x140792010 (VslCapturePgoData.c)
- *     VslInitializeEnclave @ 0x14079232C (VslInitializeEnclave.c)
- *     VslObtainHotPatchUndoTable @ 0x14079251C (VslObtainHotPatchUndoTable.c)
- *     VslQueryRuntimeAttestationReport @ 0x1407926B0 (VslQueryRuntimeAttestationReport.c)
- *     VslRegisterSyscallProviderServiceTableMetadata @ 0x1407929DC (VslRegisterSyscallProviderServiceTableMetadata.c)
- *     VslStartSecureProcessor @ 0x140792CA4 (VslStartSecureProcessor.c)
- *     VslReapplyImportOptimizationForDriverVerifier @ 0x140792F08 (VslReapplyImportOptimizationForDriverVerifier.c)
- *     VslDebugReadWriteSecureProcess @ 0x140A22CB8 (VslDebugReadWriteSecureProcess.c)
- *     VslGetSetSecureContext @ 0x140A32C4C (VslGetSetSecureContext.c)
- *     VslValidateDynamicCodePages @ 0x140AD5FA4 (VslValidateDynamicCodePages.c)
- *     VslCreateSecureSection @ 0x140AFB740 (VslCreateSecureSection.c)
- *     VslGetOnDemandDebugChallenge @ 0x140B0AE88 (VslGetOnDemandDebugChallenge.c)
- *     VslCaptureSecureImageIat @ 0x140B3258C (VslCaptureSecureImageIat.c)
- *     VslLoadEnclaveModule @ 0x140B3352C (VslLoadEnclaveModule.c)
- *     VslCreateEnclave @ 0x140B39D48 (VslCreateEnclave.c)
- *     VslTransformDumpKey @ 0x140B69E24 (VslTransformDumpKey.c)
- *     VslRegisterBootDrivers @ 0x140D054B4 (VslRegisterBootDrivers.c)
- *     VslConnectSwInterrupt @ 0x140D06C2C (VslConnectSwInterrupt.c)
+ *     VslRegisterLogPages @ 0x14040E040 (VslRegisterLogPages.c)
+ *     VslAllocatePool @ 0x14040E164 (VslAllocatePool.c)
+ *     VslTransferSecureImageVersionResource @ 0x14040E250 (VslTransferSecureImageVersionResource.c)
+ *     VslPrepareSecureImageRelocations @ 0x14040E4A0 (VslPrepareSecureImageRelocations.c)
+ *     VslCreateSecureImageSection @ 0x14040E700 (VslCreateSecureImageSection.c)
+ *     VslFillSecureAllocation @ 0x14040E800 (VslFillSecureAllocation.c)
+ *     VslIumEfiRuntimeService @ 0x14040EEF0 (VslIumEfiRuntimeService.c)
+ *     VslValidateSecureImagePages @ 0x14040F550 (VslValidateSecureImagePages.c)
+ *     VslQuerySecureKernelProfileInformation @ 0x140528D00 (VslQuerySecureKernelProfileInformation.c)
+ *     VslFinishStartSecureProcessor @ 0x1405C55EC (VslFinishStartSecureProcessor.c)
+ *     VslGetEtwDebugId @ 0x1405C56E8 (VslGetEtwDebugId.c)
+ *     VslInitializeSecureProcess @ 0x1405C5D68 (VslInitializeSecureProcess.c)
+ *     VslQueryActiveSecurePatches @ 0x1405C6160 (VslQueryActiveSecurePatches.c)
+ *     VslRegisterSecurePatch @ 0x1405C6324 (VslRegisterSecurePatch.c)
+ *     VslRetrieveMailbox @ 0x1405C67F0 (VslRetrieveMailbox.c)
+ *     VslCaptureImageHotPatchMetadata @ 0x1405C7100 (VslCaptureImageHotPatchMetadata.c)
+ *     VslInitFunctionOverrideCapabilities @ 0x1405C7218 (VslInitFunctionOverrideCapabilities.c)
+ *     VslCapturePgoData @ 0x140794B40 (VslCapturePgoData.c)
+ *     VslInitializeEnclave @ 0x140794E5C (VslInitializeEnclave.c)
+ *     VslObtainHotPatchUndoTable @ 0x14079504C (VslObtainHotPatchUndoTable.c)
+ *     VslQueryRuntimeAttestationReport @ 0x1407951E0 (VslQueryRuntimeAttestationReport.c)
+ *     VslRegisterSyscallProviderServiceTableMetadata @ 0x14079550C (VslRegisterSyscallProviderServiceTableMetadata.c)
+ *     VslStartSecureProcessor @ 0x1407957D4 (VslStartSecureProcessor.c)
+ *     VslReapplyImportOptimizationForDriverVerifier @ 0x140795A38 (VslReapplyImportOptimizationForDriverVerifier.c)
+ *     VslDebugReadWriteSecureProcess @ 0x140A2C2D8 (VslDebugReadWriteSecureProcess.c)
+ *     VslGetSetSecureContext @ 0x140A4DBAC (VslGetSetSecureContext.c)
+ *     VslValidateDynamicCodePages @ 0x140AD2F54 (VslValidateDynamicCodePages.c)
+ *     VslCreateSecureSection @ 0x140AFD3C0 (VslCreateSecureSection.c)
+ *     VslGetOnDemandDebugChallenge @ 0x140B0C5D4 (VslGetOnDemandDebugChallenge.c)
+ *     VslCaptureSecureImageIat @ 0x140B349E0 (VslCaptureSecureImageIat.c)
+ *     VslLoadEnclaveModule @ 0x140B3597C (VslLoadEnclaveModule.c)
+ *     VslCreateEnclave @ 0x140B3BF58 (VslCreateEnclave.c)
+ *     VslTransformDumpKey @ 0x140B6CDB4 (VslTransformDumpKey.c)
+ *     VslRegisterBootDrivers @ 0x140D0B784 (VslRegisterBootDrivers.c)
+ *     VslConnectSwInterrupt @ 0x140D0CEFC (VslConnectSwInterrupt.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14024C4E0 (MmBuildMdlForNonPagedPool.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     VslpLockMdlForTransfer @ 0x14041112C (VslpLockMdlForTransfer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmBuildMdlForNonPagedPool @ 0x14024DE40 (MmBuildMdlForNonPagedPool.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     VslpLockMdlForTransfer @ 0x14041084C (VslpLockMdlForTransfer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslpLockPagesForTransfer(__int64 a1, struct _MDL *a2, unsigned int a3, char a4, unsigned int a5)
@@ -61,7 +61,7 @@ __int64 __fastcall VslpLockPagesForTransfer(__int64 a1, struct _MDL *a2, unsigne
   struct _MDL *v10; // r13
   unsigned int v11; // r14d
   __int64 Pool2; // rax
-  struct _MDL *v13; // rdi
+  struct _MDL *Flink; // rdi
   int v14; // eax
   int v15; // ebp
   int v17; // esi
@@ -97,44 +97,44 @@ __int64 __fastcall VslpLockPagesForTransfer(__int64 a1, struct _MDL *a2, unsigne
       break;
     Pool2 = ExAllocatePool2(0x40uLL);
     v6 = 0LL;
-    v13 = (struct _MDL *)Pool2;
+    Flink = (struct _MDL *)Pool2;
     if ( !Pool2 )
       break;
     while ( 1 )
     {
-      v13->Next = 0LL;
-      v13->MdlFlags = 0;
-      v13->ByteCount = v7;
-      v13->ByteOffset = (unsigned __int16)v8 & 0xFFF;
-      v13->Size = 8 * ((((unsigned __int64)((unsigned __int16)v8 & 0xFFF) + v7 + 4095) >> 12) + 6);
-      v13->StartVa = (PVOID)((unsigned __int64)v8 & 0xFFFFFFFFFFFFF000uLL);
+      Flink->Next = 0LL;
+      Flink->MdlFlags = 0;
+      Flink->ByteCount = v7;
+      Flink->ByteOffset = (unsigned __int16)v8 & 0xFFF;
+      Flink->Size = 8 * ((((unsigned __int64)((unsigned __int16)v8 & 0xFFF) + v7 + 4095) >> 12) + 6);
+      Flink->StartVa = (PVOID)((unsigned __int64)v8 & 0xFFFFFFFFFFFFF000uLL);
       if ( (v5 & 6) != 0 )
       {
-        MmBuildMdlForNonPagedPool(v13);
+        MmBuildMdlForNonPagedPool(Flink);
         v6 = 0LL;
       }
       else if ( (_DWORD)v7 )
       {
-        v14 = MmProbeAndLockPagesEx((__int64)v13, 2LL * (a4 & 3));
+        v14 = MmProbeAndLockPagesEx((__int64)Flink, 2LL * (a4 & 3));
         v6 = 0LL;
         v15 = v14;
         if ( v14 < 0 )
         {
-          v13->Next = v10;
+          Flink->Next = v10;
           goto LABEL_40;
         }
         v9 = a1;
       }
       if ( (v5 & 0x10) == 0 )
       {
-        v13->Next = v10;
-        v10 = v13;
-        v25 = v13;
+        Flink->Next = v10;
+        v10 = Flink;
+        v25 = Flink;
         v7 = v11;
         if ( v11 > 0x1000 )
           break;
       }
-      v15 = VslpLockMdlForTransfer(v9, v13, v5, 0LL);
+      v15 = VslpLockMdlForTransfer(v9, Flink, v5, 0LL);
       if ( v15 >= 0 )
       {
         *(_DWORD *)(a1 + 64) |= 8u;
@@ -142,8 +142,8 @@ __int64 __fastcall VslpLockPagesForTransfer(__int64 a1, struct _MDL *a2, unsigne
       }
       if ( (v5 & 0x10) == 0 )
         goto LABEL_40;
-      MmUnlockPages(v13);
-      ExFreePoolWithTag(v13, 0);
+      MmUnlockPages(Flink);
+      ExFreePoolWithTag(Flink, 0);
       v9 = a1;
       v8 = v25;
 LABEL_33:
@@ -169,29 +169,29 @@ LABEL_33:
           *((_BYTE *)v21 + 10) = 1;
         }
       }
-      v13 = (struct _MDL *)VslpReservedTransferMdl;
+      Flink = (struct _MDL *)VslpReservedTransferLock.Header.WaitListHead.Flink;
       v5 |= 0x20u;
     }
-    v8 = v13;
+    v8 = Flink;
   }
   if ( (v5 & 0x10) != 0 )
     goto LABEL_33;
-  v13 = v10;
+  Flink = v10;
   v15 = -1073741670;
 LABEL_40:
-  if ( v13 )
+  if ( Flink )
   {
     v17 = v5 & 0x20;
     do
     {
-      v22 = (v13->MdlFlags & 2) == 0;
-      Next = v13->Next;
-      v13->Next = 0LL;
+      v22 = (Flink->MdlFlags & 2) == 0;
+      Next = Flink->Next;
+      Flink->Next = 0LL;
       if ( !v22 )
-        MmUnlockPages(v13);
+        MmUnlockPages(Flink);
       if ( !v17 )
-        ExFreePoolWithTag(v13, 0);
-      v13 = Next;
+        ExFreePoolWithTag(Flink, 0);
+      Flink = Next;
     }
     while ( Next );
     goto LABEL_19;

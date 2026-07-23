@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipIncludeStaticNames @ 0x1409CB50C
+ * XREFs of WmipIncludeStaticNames @ 0x1409B1C2C
  * Callers:
- *     WmipProcessEvent @ 0x1409CB800 (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x1409B1F20 (WmipProcessEvent.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     RtlStringCbCatW @ 0x14044CE48 (RtlStringCbCatW.c)
- *     WmipAlign @ 0x140467F3C (WmipAlign.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     WmipFindGEByGuid @ 0x1409CD8B0 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x1409CE1D4 (WmipUnreferenceEntry.c)
- *     WmipInsertStaticNames @ 0x1409CE570 (WmipInsertStaticNames.c)
- *     WmipStaticInstanceNameSize @ 0x1409CE798 (WmipStaticInstanceNameSize.c)
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     RtlStringCbCatW @ 0x140443D48 (RtlStringCbCatW.c)
+ *     WmipAlign @ 0x1404608EC (WmipAlign.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     WmipFindGEByGuid @ 0x1409B2884 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x1409B31A8 (WmipUnreferenceEntry.c)
+ *     WmipInsertStaticNames @ 0x1409B3544 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x1409B376C (WmipStaticInstanceNameSize.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 unsigned int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)
@@ -83,7 +83,7 @@ unsigned int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int 
               if ( v25 <= -1 - v28 )
               {
                 v26 = v25 + v28;
-                Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+                Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, v25 + v28, 0x70696D57u);
                 v18 = Pool2;
                 if ( Pool2 )
                 {
@@ -130,7 +130,7 @@ LABEL_25:
                 v16 = (a2 + 1) & 0xFFFFFFFE;
                 if ( v15 <= ~(_DWORD)v16 )
                 {
-                  v17 = (unsigned int *)ExAllocatePool2(0x100uLL);
+                  v17 = (unsigned int *)ExAllocatePool2(0x100uLL, (unsigned int)v16 + v15, 0x70696D57u);
                   v18 = v17;
                   if ( v17 )
                   {

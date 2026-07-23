@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlReleaseHeaderMutex @ 0x1400C73E0
+ * XREFs of FsRtlReleaseHeaderMutex @ 0x1400C5280
  * Callers:
- *     FsRtlReleaseEofLock @ 0x1400C6E40 (FsRtlReleaseEofLock.c)
- *     FsRtlpWaitForIoAtEof @ 0x1400C71EC (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlReleaseEofLock @ 0x1400C4CE0 (FsRtlReleaseEofLock.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1400C508C (FsRtlpWaitForIoAtEof.c)
  * Callees:
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
  */
 
 unsigned __int64 __fastcall FsRtlReleaseHeaderMutex(__int64 a1, volatile signed __int32 *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepIsModuleShimmed @ 0x14067E228
+ * XREFs of KsepIsModuleShimmed @ 0x14067F3E8
  * Callers:
- *     KsepGetShimsForDriver @ 0x14067DBAC (KsepGetShimsForDriver.c)
- *     KsepGetShimCallbacksForDriver @ 0x140680878 (KsepGetShimCallbacksForDriver.c)
- *     KseDriverUnloadImage @ 0x14070F03C (KseDriverUnloadImage.c)
+ *     KsepGetShimsForDriver @ 0x14067ED6C (KsepGetShimsForDriver.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140681A38 (KsepGetShimCallbacksForDriver.c)
+ *     KseDriverUnloadImage @ 0x1407102DC (KseDriverUnloadImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
@@ -25,7 +25,7 @@ __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
   CurrentThread = KeGetCurrentThread();
   *a3 = 0LL;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043C8E0, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043D9A0, 0LL);
   v8 = (_QWORD **)(a1 + 32);
   v9 = *v8;
   while ( v9 != v8 )
@@ -39,9 +39,9 @@ __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
       break;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043C8E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043C8E0);
-  KeAbPostRelease((ULONG_PTR)&qword_14043C8E0);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043D9A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043D9A0);
+  KeAbPostRelease((ULONG_PTR)&qword_14043D9A0);
   KeLeaveCriticalRegion();
   return v3;
 }

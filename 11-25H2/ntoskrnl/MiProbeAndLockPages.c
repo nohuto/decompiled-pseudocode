@@ -19,11 +19,11 @@
 
 void __fastcall MiProbeAndLockPages(__int64 a1, char a2, int a3)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   __int64 v7; // rdx
   __int64 v8; // r8
   __int64 v9; // r9
-  int v10; // esi
+  NTSTATUS v10; // esi
   struct _KPRCB *CurrentPrcb; // r8
   char v12; // dl
   __int64 v13; // rax

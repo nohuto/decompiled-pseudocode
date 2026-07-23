@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPartitionCreatePoolDelayed @ 0x140772290
+ * XREFs of ExpPartitionCreatePoolDelayed @ 0x140775290
  * Callers:
- *     ExpWorkQueueManagerThread @ 0x140A039A0 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x140A77D60 (ExpWorkQueueManagerThread.c)
  * Callees:
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     ExpPartitionCreatePoolInternal @ 0x140B6C40C (ExpPartitionCreatePoolInternal.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140B6F508 (ExpPartitionCreatePoolInternal.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, unsigned __int16 *a2, int a3, int a4)
@@ -21,7 +21,7 @@ __int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, unsigned __int16 *a
   IsNodeInitialized = KeIsNodeInitialized(((unsigned int)*(_QWORD *)(*(_QWORD *)(a1 + 8)
                                                                    + 8LL
                                                                    * (a4
-                                                                    + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32]
+                                                                    + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72]
                                                                     * (a3 + 8 * (unsigned int)*a2))) >> 1) & 0x7F);
   v10 = 0LL;
   if ( IsNodeInitialized )
@@ -31,11 +31,10 @@ __int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, unsigned __int16 *a
   if ( (*(_QWORD *)(*(_QWORD *)(a1 + 8)
                   + 8LL
                   * (v7
-                   + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (v9 + 8 * (unsigned int)*v11))) & 1) == 0 )
+                   + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (v9 + 8 * (unsigned int)*v11))) & 1) == 0 )
     v10 = *(_QWORD *)(*(_QWORD *)(a1 + 8)
                     + 8LL
                     * (v7
-                     + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32]
-                     * (v9 + 8 * (unsigned int)*v11)));
+                     + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (v9 + 8 * (unsigned int)*v11)));
   return ExpPartitionCreatePoolInternal(a1, (2 * *(_DWORD *)(v10 + 716)) >> 1, *(_DWORD *)(v10 + 720), v5, v9, v7);
 }

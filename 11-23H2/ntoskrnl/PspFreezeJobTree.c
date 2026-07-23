@@ -1,17 +1,17 @@
 /*
- * XREFs of PspFreezeJobTree @ 0x1407DA0C8
+ * XREFs of PspFreezeJobTree @ 0x1407DA398
  * Callers:
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspFreezeJobTree @ 0x1407DA0C8 (PspFreezeJobTree.c)
+ *     PspFreezeJobTree @ 0x1407DA398 (PspFreezeJobTree.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspFreezeJobTree @ 0x1407DA0C8 (PspFreezeJobTree.c)
- *     PspDispatchWakeNotification @ 0x1407DA334 (PspDispatchWakeNotification.c)
- *     PspComputeReportWakeFilter @ 0x1407DA454 (PspComputeReportWakeFilter.c)
+ *     PspFreezeJobTree @ 0x1407DA398 (PspFreezeJobTree.c)
+ *     PspDispatchWakeNotification @ 0x1407DA604 (PspDispatchWakeNotification.c)
+ *     PspComputeReportWakeFilter @ 0x1407DA724 (PspComputeReportWakeFilter.c)
  */
 
 __int64 __fastcall PspFreezeJobTree(__int64 a1, __int64 a2)

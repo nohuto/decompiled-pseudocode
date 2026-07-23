@@ -1,11 +1,11 @@
 /*
- * XREFs of BgGetContext @ 0x140AF126C
+ * XREFs of BgGetContext @ 0x140AF127C
  * Callers:
- *     BgkResumePrepare @ 0x140A99A74 (BgkResumePrepare.c)
+ *     BgkResumePrepare @ 0x140A998E4 (BgkResumePrepare.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
- *     ResFwGetContext @ 0x140AF2010 (ResFwGetContext.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
+ *     ResFwGetContext @ 0x140AF2020 (ResFwGetContext.c)
  */
 
 __int64 BgGetContext()

@@ -1,24 +1,24 @@
 /*
- * XREFs of KeRemovePriQueue @ 0x1402421D0
+ * XREFs of KeRemovePriQueue @ 0x1402E6A20
  * Callers:
- *     ExpWorkerThread @ 0x140241E80 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x1402E66D0 (ExpWorkerThread.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
- *     KiBeginThreadWait @ 0x140242630 (KiBeginThreadWait.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiProcessThreadWaitList @ 0x14024B2D0 (KiProcessThreadWaitList.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     KiFastExitThreadWait @ 0x140278248 (KiFastExitThreadWait.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiAttemptFastRemovePriQueue @ 0x14029F740 (KiAttemptFastRemovePriQueue.c)
- *     KiSwitchPriQueue @ 0x1402CEF3C (KiSwitchPriQueue.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402E9CCC (KiSetBasePriorityAndClearDecrement.c)
- *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
- *     HvlNotifyLongSpinWait @ 0x140390140 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiAttemptFastRemovePriQueue @ 0x14021CCA0 (KiAttemptFastRemovePriQueue.c)
+ *     KiSwitchPriQueue @ 0x14024D43C (KiSwitchPriQueue.c)
+ *     KiFastExitThreadWait @ 0x1402661E8 (KiFastExitThreadWait.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14029B01C (KiSetBasePriorityAndClearDecrement.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1402D4110 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSetPriorityThread @ 0x1402D4AF0 (KiSetPriorityThread.c)
+ *     KiBeginThreadWait @ 0x1402E6E80 (KiBeginThreadWait.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiProcessThreadWaitList @ 0x1402EFB20 (KiProcessThreadWaitList.c)
+ *     KiCommitThreadWait @ 0x140350D00 (KiCommitThreadWait.c)
+ *     HvlNotifyLongSpinWait @ 0x140390290 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140391070 (KiCheckVpBackingLongSpinWaitHypercall.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiGetDueTimeWithThreadTimerDelay @ 0x140522A70 (KiGetDueTimeWithThreadTimerDelay.c)
+ *     KiGetDueTimeWithThreadTimerDelay @ 0x140522CB0 (KiGetDueTimeWithThreadTimerDelay.c)
  */
 
 __int64 __fastcall KeRemovePriQueue(
@@ -30,14 +30,14 @@ __int64 __fastcall KeRemovePriQueue(
   struct _KTHREAD *CurrentThread; // rbx
   unsigned int v5; // esi
   unsigned __int64 v10; // r15
-  $AC3BF0C7EA58B0FE9399BAAA5443B647 *v11; // r14
+  $97202178496CA35ABF26341004BDBFC1 *v11; // r14
   int v12; // ebp
   unsigned __int8 CurrentIrql; // r10
   __int64 result; // rax
   __int64 v15; // rdx
   __int64 v16; // rcx
   __int64 v17; // r9
-  _DISPATCHER_HEADER *volatile Queue; // r8
+  unsigned __int64 Queue; // r8
   unsigned __int64 DueTimeWithThreadTimerDelay; // rax
   struct _KPRCB *v20; // rsi
   _DWORD *v21; // rcx
@@ -114,7 +114,7 @@ __int64 __fastcall KeRemovePriQueue(
   {
     if ( *(int *)(a4 + 4) < 0 )
     {
-      UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(0LL);
+      UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
       v10 = UnbiasedInterruptTime - (*v46 + CurrentThread->RelativeTimerBias);
     }
     else
@@ -132,9 +132,9 @@ __int64 __fastcall KeRemovePriQueue(
     result = (int)KiBeginThreadWait(CurrentThread, a2, 15LL, a3);
     if ( (_DWORD)result )
       return result;
-    Queue = CurrentThread->Queue;
-    if ( BugCheckParameter2 != Queue )
-      KiSwitchPriQueue(CurrentThread, BugCheckParameter2);
+    Queue = (unsigned __int64)CurrentThread->Queue;
+    if ( BugCheckParameter2 != (_DISPATCHER_HEADER *)Queue )
+      KiSwitchPriQueue((__int64)CurrentThread, (__int64)BugCheckParameter2, Queue);
     CurrentThread->WaitBlock[0].WaitType = 3;
     CurrentThread->WaitBlockFill4[17] = 4;
     CurrentThread->WaitBlock[0].WaitKey = 128;
@@ -200,7 +200,10 @@ LABEL_66:
           }
         }
       }
-      v29 = KiAttemptFastRemovePriQueue((ULONG_PTR)BugCheckParameter2);
+      v29 = (__int64)KiAttemptFastRemovePriQueue(
+                       (ULONG_PTR)BugCheckParameter2,
+                       &v71,
+                       (unsigned __int8)CurrentThread->QueuePriority);
       if ( v29 )
       {
         v30 = v71;
@@ -218,7 +221,7 @@ LABEL_66:
           CurrentThread->QueuePriority = v37 | (unsigned __int8)v30;
         }
         CurrentThread->Saturation = 0;
-        KiSetBasePriorityAndClearDecrement(CurrentThread, &v71, 0LL);
+        KiSetBasePriorityAndClearDecrement((__int64)CurrentThread, (char *)&v71, 0);
         if ( v30 != CurrentThread->Priority )
         {
           v33 = KeGetCurrentPrcb();
@@ -239,10 +242,10 @@ LABEL_66:
           CurrentThread->QuantumTarget = v35;
           KiSetPriorityThread(CurrentThread, 0LL, v36);
         }
-        KiReleaseThreadLockSafe(CurrentThread);
+        KiReleaseThreadLockSafe((__int64)CurrentThread);
         goto LABEL_26;
       }
-      KiReleaseThreadLockSafe(CurrentThread);
+      KiReleaseThreadLockSafe((__int64)CurrentThread);
     }
     if ( (BugCheckParameter2->Signalling & 1) != 0 )
     {
@@ -299,14 +302,14 @@ LABEL_112:
         Blink->Flink = Flink;
         Flink->Blink = Blink;
       }
-      KiReleaseThreadLockSafe(CurrentThread);
+      KiReleaseThreadLockSafe((__int64)CurrentThread);
       v29 = 128LL;
       goto LABEL_26;
     }
     DueTimeWithThreadTimerDelay = v10;
     if ( v12 == 2 )
     {
-      KiQueryUnbiasedInterruptTime(0LL);
+      KiQueryUnbiasedInterruptTime();
       DueTimeWithThreadTimerDelay = KiGetDueTimeWithThreadTimerDelay(CurrentThread, (unsigned int)(v50 + 2), v10, 0LL);
     }
     else
@@ -328,7 +331,7 @@ LABEL_26:
       if ( v32->DeferredReadyListHead.Next )
         KiProcessThreadWaitList(v32, 1LL, 0LL, 2LL);
       LOBYTE(Queue) = 1;
-      KiFastExitThreadWait(v32, CurrentThread, Queue);
+      KiFastExitThreadWait((__int64)v32, (__int64)CurrentThread, Queue);
       return v29;
     }
 LABEL_14:

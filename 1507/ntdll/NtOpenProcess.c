@@ -8,11 +8,15 @@
  *     <none>
  */
 
-__int64 NtOpenProcess()
+NTSTATUS __cdecl NtOpenProcess(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PCLIENT_ID ClientId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 38LL;
+  result = 38;
   __asm { syscall; Low latency system call }
   return result;
 }

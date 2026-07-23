@@ -7,22 +7,22 @@
  *     <none>
  */
 
-int __stdcall AlpcGetHeaderSize(int a1)
+ULONG __cdecl AlpcGetHeaderSize(ULONG Flags)
 {
-  int result; // eax
+  ULONG result; // eax
 
-  result = ((a1 >> 31) & 0xC) + 8;
-  if ( (a1 & 0x40000000) != 0 )
-    result = ((a1 >> 31) & 0xC) + 24;
-  if ( (a1 & 0x20000000) != 0 )
+  result = (((int)Flags >> 31) & 0xC) + 8;
+  if ( (Flags & 0x40000000) != 0 )
+    result = (((int)Flags >> 31) & 0xC) + 24;
+  if ( (Flags & 0x20000000) != 0 )
     result += 20;
-  if ( (a1 & 0x10000000) != 0 )
+  if ( (Flags & 0x10000000) != 0 )
     result += 16;
-  if ( (a1 & 0x8000000) != 0 )
+  if ( (Flags & 0x8000000) != 0 )
     result += 24;
-  if ( (a1 & 0x4000000) != 0 )
+  if ( (Flags & 0x4000000) != 0 )
     result += 4;
-  if ( (a1 & 0x2000000) != 0 )
+  if ( (Flags & 0x2000000) != 0 )
     result += 8;
   return result;
 }

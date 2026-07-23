@@ -1,9 +1,9 @@
 /*
- * XREFs of KiMoveApcState @ 0x1400CEAA0
+ * XREFs of KiMoveApcState @ 0x1400CC940
  * Callers:
- *     KiAttachProcess @ 0x1400CD4F0 (KiAttachProcess.c)
- *     KiDetachProcess @ 0x1400CE460 (KiDetachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
+ *     KiAttachProcess @ 0x1400CB390 (KiAttachProcess.c)
+ *     KiDetachProcess @ 0x1400CC300 (KiDetachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
  * Callees:
  *     <none>
  */

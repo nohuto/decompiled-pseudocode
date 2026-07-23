@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCopyKernelScpUnwindInfo @ 0x1405F0CBC
+ * XREFs of RtlCopyKernelScpUnwindInfo @ 0x1405EE2FC
  * Callers:
- *     MiApplyDynamicFixupsToKernelAndHal @ 0x140C55264 (MiApplyDynamicFixupsToKernelAndHal.c)
+ *     MiApplyDynamicFixupsToKernelAndHal @ 0x140C573F4 (MiApplyDynamicFixupsToKernelAndHal.c)
  * Callees:
- *     RtlCalculateUnwindInfoSizeForKernelScp @ 0x1405F0C78 (RtlCalculateUnwindInfoSizeForKernelScp.c)
- *     RtlpGetKernelScpFunctionTable @ 0x1405F0E94 (RtlpGetKernelScpFunctionTable.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     RtlCalculateUnwindInfoSizeForKernelScp @ 0x1405EE2B8 (RtlCalculateUnwindInfoSizeForKernelScp.c)
+ *     RtlpGetKernelScpFunctionTable @ 0x1405EE4D4 (RtlpGetKernelScpFunctionTable.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall RtlCopyKernelScpUnwindInfo(__int64 a1, int a2, unsigned int *a3, int a4)

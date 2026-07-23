@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpAnalyzeHeapFailure @ 0x1402FB88C
+ * XREFs of RtlpAnalyzeHeapFailure @ 0x1402FBA7C
  * Callers:
- *     RtlpAllocateHeap @ 0x1402EFD30 (RtlpAllocateHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x1402F0774 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x1402F0B64 (RtlpCreateSplitBlock.c)
- *     RtlpExtendHeap @ 0x1402F19C0 (RtlpExtendHeap.c)
- *     RtlpFindAndCommitPages @ 0x1402F1C60 (RtlpFindAndCommitPages.c)
- *     RtlpFreeHeap @ 0x1402F1EC8 (RtlpFreeHeap.c)
- *     RtlpSetupExtendedBlock @ 0x1402F2C18 (RtlpSetupExtendedBlock.c)
- *     RtlpPopulateListIndex @ 0x1402FC44C (RtlpPopulateListIndex.c)
- *     RtlZeroHeap @ 0x140895F30 (RtlZeroHeap.c)
+ *     RtlpAllocateHeap @ 0x1402EFF20 (RtlpAllocateHeap.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1402F0964 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateSplitBlock @ 0x1402F0D54 (RtlpCreateSplitBlock.c)
+ *     RtlpExtendHeap @ 0x1402F1BB0 (RtlpExtendHeap.c)
+ *     RtlpFindAndCommitPages @ 0x1402F1E50 (RtlpFindAndCommitPages.c)
+ *     RtlpFreeHeap @ 0x1402F20B8 (RtlpFreeHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x1402F2E08 (RtlpSetupExtendedBlock.c)
+ *     RtlpPopulateListIndex @ 0x1402FC63C (RtlpPopulateListIndex.c)
+ *     RtlZeroHeap @ 0x140897190 (RtlZeroHeap.c)
  * Callees:
- *     RtlpHeapExceptionFilter @ 0x1402FB724 (RtlpHeapExceptionFilter.c)
- *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
+ *     RtlpHeapExceptionFilter @ 0x1402FB914 (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapFailure @ 0x1402FBA28 (RtlpLogHeapFailure.c)
  */
 
 void __fastcall RtlpAnalyzeHeapFailure(ULONG_PTR a1, ULONG_PTR a2)

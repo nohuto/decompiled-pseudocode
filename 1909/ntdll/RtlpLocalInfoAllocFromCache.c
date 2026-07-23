@@ -20,7 +20,7 @@
 
 __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
 {
-  struct _SLIST_ENTRY *v2; // r12
+  _SLIST_ENTRY *v2; // r12
   __int64 v4; // rdi
   __int64 v5; // rsi
   int v6; // edx
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   unsigned int v24; // r13d
   __int64 v25; // rbx
   unsigned int v26; // r12d
-  union _SLIST_HEADER *v27; // rbp
+  _SLIST_HEADER *v27; // rbp
   __int64 v28; // rcx
   PSLIST_ENTRY v29; // rax
   _QWORD **v30; // rbx
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   __int64 v34; // rcx
   unsigned int v35; // ebp
   _SLIST_ENTRY *v36; // rbx
-  union _SLIST_HEADER *v37; // r15
+  _SLIST_HEADER *v37; // r15
   PSLIST_ENTRY v38; // rsi
   __int16 RandomValue32; // ax
   __int64 v40; // rbx
@@ -92,9 +92,7 @@ LABEL_2:
           && (int)RtlpAffinitizeSegmentInfoForBucket(v5, *(unsigned __int8 *)(v5 + 4 * v40 + 678)) >= 0 )
         {
           *(_BYTE *)(v5 + 4 * v40 + 679) |= 1u;
-          v41 = (unsigned int)RtlGetCurrentServiceSessionId()
-              ? (char *)NtCurrentPeb()->SharedData + 550
-              : (char *)2147353472;
+          v41 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 550 : (char *)2147353472;
           if ( *v41 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
             RtlpLogHeapAffinityManagerEnable(*(_QWORD *)(v5 + 24), *(unsigned __int8 *)(v5 + 4 * v40 + 678));
         }
@@ -200,8 +198,7 @@ LABEL_23:
           v19 = 0LL;
           goto LABEL_43;
         }
-        v27 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v57 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192)
-                                    + 144LL);
+        v27 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v57 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
         while ( 1 )
         {
           v29 = RtlpInterlockedPopEntrySList(v27);
@@ -253,8 +250,7 @@ LABEL_43:
     }
     v35 = 0;
     v36 = 0LL;
-    v37 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v57 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192)
-                                + 144LL);
+    v37 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v57 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
     v38 = RtlpInterlockedPopEntrySList(v37);
     if ( !v38 )
       return 0LL;
@@ -312,7 +308,7 @@ LABEL_45:
     v33 = *(__int64 **)v19;
     if ( *(_QWORD *)v19 == a1 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v34 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v34 = 2147353472LL;

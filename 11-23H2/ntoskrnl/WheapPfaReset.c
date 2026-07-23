@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapPfaReset @ 0x140A08E80
+ * XREFs of WheapPfaReset @ 0x140A09130
  * Callers:
- *     WheapCommitPolicy @ 0x140A09648 (WheapCommitPolicy.c)
+ *     WheapCommitPolicy @ 0x140A098F8 (WheapCommitPolicy.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     WheapApplyPolicyChanges @ 0x140A09364 (WheapApplyPolicyChanges.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     WheapApplyPolicyChanges @ 0x140A09614 (WheapApplyPolicyChanges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

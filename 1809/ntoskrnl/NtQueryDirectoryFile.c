@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryDirectoryFile @ 0x1406B4DF0
+ * XREFs of NtQueryDirectoryFile @ 0x1406B6090
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryDirectoryFileEx @ 0x1405FA640 (NtQueryDirectoryFileEx.c)
+ *     NtQueryDirectoryFileEx @ 0x1405FB640 (NtQueryDirectoryFileEx.c)
  */
 
 NTSTATUS __stdcall NtQueryDirectoryFile(
@@ -19,11 +19,20 @@ NTSTATUS __stdcall NtQueryDirectoryFile(
         PUNICODE_STRING FileName,
         BOOLEAN RestartScan)
 {
+  unsigned __int8 v11; // r10
+
+  v11 = (ReturnSingleEntry != 0 ? 2 : 0) | 1;
+  if ( !RestartScan )
+    v11 = ReturnSingleEntry != 0 ? 2 : 0;
   return NtQueryDirectoryFileEx(
-           (__int64)FileHandle,
-           (__int64)Event,
-           (__int64)ApcRoutine,
-           (__int64)ApcContext,
-           (__int64)IoStatusBlock,
-           (__int64)FileInformation);
+           FileHandle,
+           Event,
+           ApcRoutine,
+           ApcContext,
+           IoStatusBlock,
+           FileInformation,
+           Length,
+           FileInformationClass,
+           v11,
+           FileName);
 }

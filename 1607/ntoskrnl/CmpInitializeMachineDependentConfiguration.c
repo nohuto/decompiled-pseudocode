@@ -3,20 +3,20 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenSection @ 0x14015A360 (ZwOpenSection.c)
- *     __report_rangecheckfailure @ 0x1401B1250 (__report_rangecheckfailure.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenSection @ 0x14015A8D0 (ZwOpenSection.c)
+ *     __report_rangecheckfailure @ 0x1401B1134 (__report_rangecheckfailure.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     NtOpenKey @ 0x140415458 (NtOpenKey.c)
- *     NtCreateKey @ 0x1404640C8 (NtCreateKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     CmpAddProcessorConfigurationEntry @ 0x14055C8D4 (CmpAddProcessorConfigurationEntry.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     NtOpenKey @ 0x140414318 (NtOpenKey.c)
+ *     NtCreateKey @ 0x140462F98 (NtCreateKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x14055CE14 (CmpAddProcessorConfigurationEntry.c)
  *     CmpSetSystemBiosInformation @ 0x1407ACD84 (CmpSetSystemBiosInformation.c)
  *     CmpSetVideoBiosInformation @ 0x1407AD088 (CmpSetVideoBiosInformation.c)
  *     CmpInitializeSystemBiosInformation @ 0x1407CD76C (CmpInitializeSystemBiosInformation.c)
@@ -180,8 +180,8 @@ NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
     *(_OWORD *)(((unsigned __int64)v22 & 0xFFFFFFFFFFFFFFC0uLL) + 0x50) = 0LL;
     if ( ZwOpenSection((PHANDLE)(v1 + 24), 0xF001Fu, (POBJECT_ATTRIBUTES)(v1 + 48)) >= 0 )
     {
-      v17 = dword_1402FD0D0;
-      if ( dword_1402FD0D0 == 1 )
+      v17 = dword_1402FD030;
+      if ( dword_1402FD030 == 1 )
         CmpSetSystemBiosInformation(v2, *(_QWORD *)(((unsigned __int64)v22 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18), v7);
       else
         CmpInitializeSystemBiosInformation(v2);

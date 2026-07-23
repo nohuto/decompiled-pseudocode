@@ -82,7 +82,7 @@ void __stdcall RtlUnwindEx(
   unsigned __int8 v51; // r9
   DWORD64 v52; // rcx
   ULONG64 v53; // r12
-  EXCEPTION_ROUTINE *v54; // rdx
+  EXCEPTION_DISPOSITION (__cdecl *v54)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // rdx
   _BYTE *v55; // rax
   PVOID v56; // rcx
   int v57; // ebx
@@ -145,12 +145,12 @@ void __stdcall RtlUnwindEx(
   PRUNTIME_FUNCTION v114; // [rsp+50h] [rbp-B0h]
   PVOID HandlerData; // [rsp+58h] [rbp-A8h] BYREF
   PEXCEPTION_ROUTINE v116; // [rsp+60h] [rbp-A0h]
-  int v117; // [rsp+68h] [rbp-98h]
+  DWORD v117; // [rsp+68h] [rbp-98h]
   unsigned __int64 EstablisherFrame; // [rsp+70h] [rbp-90h] BYREF
   PCONTEXT v119; // [rsp+78h] [rbp-88h]
   PUNWIND_HISTORY_TABLE v120; // [rsp+80h] [rbp-80h]
   PVOID v121; // [rsp+88h] [rbp-78h]
-  PEXCEPTION_RECORD v122; // [rsp+90h] [rbp-70h]
+  PEXCEPTION_RECORD ExceptionRecorda; // [rsp+90h] [rbp-70h]
   int i; // [rsp+98h] [rbp-68h]
   unsigned __int64 v124; // [rsp+A0h] [rbp-60h] BYREF
   unsigned __int8 *v125; // [rsp+A8h] [rbp-58h]
@@ -163,7 +163,7 @@ void __stdcall RtlUnwindEx(
   unsigned __int64 v132; // [rsp+E8h] [rbp-18h]
   PVOID v133; // [rsp+F0h] [rbp-10h]
   PCONTEXT v134; // [rsp+F8h] [rbp-8h]
-  EXCEPTION_ROUTINE *v135; // [rsp+100h] [rbp+0h]
+  EXCEPTION_DISPOSITION (__cdecl *v135)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+100h] [rbp+0h]
   PVOID v136; // [rsp+108h] [rbp+8h]
   struct _UNWIND_HISTORY_TABLE *v137; // [rsp+110h] [rbp+10h]
   int v138; // [rsp+118h] [rbp+18h]
@@ -180,7 +180,7 @@ void __stdcall RtlUnwindEx(
   v139 = ContextRecord;
   v120 = HistoryTable;
   v127 = ReturnValue;
-  v122 = ExceptionRecord;
+  ExceptionRecorda = ExceptionRecord;
   if ( !sub_1800313AC(&v126, (PVOID *)&v124) )
     RtlRaiseStatus(-1073741784);
   v119 = ContextRecord;
@@ -192,7 +192,7 @@ void __stdcall RtlUnwindEx(
   if ( !ExceptionRecord )
   {
     Rip = ContextRecord->Rip;
-    v122 = (PEXCEPTION_RECORD)&v140;
+    ExceptionRecorda = (PEXCEPTION_RECORD)&v140;
     v142 = Rip;
     v140 = -1073741785;
     v141 = 0LL;
@@ -626,7 +626,7 @@ LABEL_118:
         v104 = (unsigned __int8)v102[2];
       v105 = *(unsigned int *)&v102[2 * v104 + 4];
       v55 = &v102[2 * (v104 + 2) + 4];
-      v54 = (EXCEPTION_ROUTINE *)(ImageBase + v105);
+      v54 = (EXCEPTION_DISPOSITION (__cdecl *)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID))(ImageBase + v105);
       HandlerData = v55;
       v116 = v54;
       goto LABEL_93;
@@ -651,13 +651,13 @@ LABEL_93:
       {
         if ( v56 == (PVOID)v12 )
           v58 |= 0x20u;
-        v59 = v122;
+        v59 = ExceptionRecorda;
         v9 = v119;
         v60 = (DWORD64)v127;
         v61 = v119;
         v136 = v55;
         v62 = v120;
-        v122->ExceptionFlags = v58;
+        ExceptionRecorda->ExceptionFlags = v58;
         v58 &= 0xFFFFFF9F;
         v61->Rax = v60;
         v131 = v114;
@@ -685,7 +685,7 @@ LABEL_93:
           sub_180034554(&v144, v64, v65, v64);
           v67 = RtlVirtualUnwind(2u, v53, (ULONG64)v15, v66, &v144, &HandlerData, &EstablisherFrame, 0LL);
           v116 = v67;
-          if ( ((*((_QWORD *)&xmmword_18016B360 + 1) >> 12) & 3) == 1 )
+          if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
           {
             if ( v67 != v135 || (v12 = EstablisherFrame, EstablisherFrame != v132) || HandlerData != v136 )
               __fastfail(0x27u);
@@ -741,7 +741,7 @@ LABEL_166:
   if ( (PVOID)v12 == v56 )
   {
 LABEL_172:
-    v110 = v122;
+    v110 = ExceptionRecorda;
     v9->Rax = (DWORD64)v127;
     if ( v110->ExceptionCode != -2147483607 )
       v9->Rip = (DWORD64)v128;
@@ -749,22 +749,22 @@ LABEL_172:
     if ( v110->ExceptionCode == -2147483610 )
     {
       v111 = v110->ExceptionInformation[0];
-      if ( qword_18016B370 && !(unsigned int)sub_180036954(*(_QWORD *)(v111 + 16)) )
+      if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] && !(unsigned int)sub_180036954(*(_QWORD *)(v111 + 16)) )
         __fastfail(0xDu);
-      RtlGuardCheckLongJumpTarget(*(_QWORD *)(v111 + 80), 0LL, 0LL);
+      RtlGuardCheckLongJumpTarget(*(PVOID *)(v111 + 80), 0, 0LL);
     }
     else
     {
       if ( v110->ExceptionCode != -2147483607 || !v110->NumberParameters )
         goto LABEL_181;
-      if ( qword_18016B370 )
+      if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] )
       {
         if ( sub_180030138() )
           sub_180096200();
         else
           sub_1800961B0();
 LABEL_181:
-        if ( qword_18016B370 )
+        if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] )
         {
           if ( !(unsigned int)sub_180036954(v9->Rsp) )
             __fastfail(0xDu);
@@ -776,5 +776,5 @@ LABEL_181:
   }
   if ( v15 == (unsigned __int8 *)v9->Rip )
     RtlRaiseStatus(-1073741569);
-  ZwRaiseException(v122, v9, 0LL);
+  ZwRaiseException(ExceptionRecorda, v9, 0);
 }

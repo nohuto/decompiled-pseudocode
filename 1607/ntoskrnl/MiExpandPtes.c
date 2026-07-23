@@ -1,20 +1,20 @@
 /*
- * XREFs of MiExpandPtes @ 0x1400A2C68
+ * XREFs of MiExpandPtes @ 0x1400A1590
  * Callers:
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiObtainSystemVa @ 0x1400A3024 (MiObtainSystemVa.c)
- *     MiObtainSessionVa @ 0x1400A397C (MiObtainSessionVa.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiSplitBitmapPages @ 0x140101E54 (MiSplitBitmapPages.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiObtainSystemVa @ 0x1400A194C (MiObtainSystemVa.c)
+ *     MiObtainSessionVa @ 0x1400A22A4 (MiObtainSessionVa.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiSplitBitmapPages @ 0x1400FFBD4 (MiSplitBitmapPages.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
  */
 
 __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
@@ -68,7 +68,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
   v39 = 16;
   v7 = 0;
   if ( a2 >= 0x200 )
-    v7 = a1 == &qword_140327870;
+    v7 = a1 == &qword_1403278B0;
   v8 = (a2 + 511) & 0xFFFFFFFFFFFFFE00uLL;
   v33 = v6;
   v9 = v8 >> 9;
@@ -166,9 +166,9 @@ LABEL_51:
   }
   _InterlockedExchangeAdd64(a1 + 12, v10);
   _InterlockedExchangeAdd64(a1 + 8, v10);
-  if ( (dword_1403A913C & 2) != 0 && a1 == &qword_140327870 )
+  if ( (dword_1403A913C & 2) != 0 && a1 == &qword_1403278B0 )
   {
-    v31 = qword_1403274C8 + ((2 * v34) >> 3);
+    v31 = qword_140327508 + ((2 * v34) >> 3);
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 6, &LockHandle);
     if ( !(unsigned int)MiSplitBitmapPages(v5, v31, ((2 * (_BYTE)v34) & 7) + 2 * v32) )
       dword_1403A913C &= ~2u;

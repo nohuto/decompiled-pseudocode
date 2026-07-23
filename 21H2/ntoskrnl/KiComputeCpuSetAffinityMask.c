@@ -1,9 +1,9 @@
 /*
- * XREFs of KiComputeCpuSetAffinityMask @ 0x14051D128
+ * XREFs of KiComputeCpuSetAffinityMask @ 0x14051D368
  * Callers:
- *     KiIntSteerComputeCpuSet @ 0x1405227A0 (KiIntSteerComputeCpuSet.c)
+ *     KiIntSteerComputeCpuSet @ 0x1405229E0 (KiIntSteerComputeCpuSet.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x1402EBB60 (RtlBeginReadTickLock.c)
+ *     RtlBeginReadTickLock @ 0x14029CEB0 (RtlBeginReadTickLock.c)
  */
 
 __int64 __fastcall KiComputeCpuSetAffinityMask(__int64 a1, __int64 *a2, int a3, unsigned __int64 a4)

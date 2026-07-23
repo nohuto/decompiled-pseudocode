@@ -1,14 +1,24 @@
 /*
- * XREFs of ZwCreateWorkerFactory @ 0x140724E90
+ * XREFs of ZwCreateWorkerFactory @ 0x140729A60
  * Callers:
- *     DifZwCreateWorkerFactoryWrapper @ 0x1406A38B0 (DifZwCreateWorkerFactoryWrapper.c)
+ *     DifZwCreateWorkerFactoryWrapper @ 0x1406A7490 (DifZwCreateWorkerFactoryWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateWorkerFactory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateWorkerFactory(
+        PHANDLE WorkerFactoryHandleReturn,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE CompletionPortHandle,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WorkerFactoryHandleReturn);
 }

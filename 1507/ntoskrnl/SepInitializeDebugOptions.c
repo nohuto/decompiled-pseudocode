@@ -19,7 +19,7 @@ void SepInitializeDebugOptions()
     SeCiDebugOptions |= 2u;
   if ( SeILSigningPolicy )
   {
-    if ( (v0 = ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, SystemInformation, 0x18u, 0LL),
+    if ( (v0 = ZwQuerySystemInformation(SystemSecureBootPolicyInformation, SystemInformation, 0x18u, 0LL),
           v1 = v0,
           v0 >= 0)
       && (v3 & 0x10) != 0

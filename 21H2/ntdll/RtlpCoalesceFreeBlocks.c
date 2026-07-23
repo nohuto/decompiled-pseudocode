@@ -3,16 +3,16 @@
  * Callers:
  *     RtlpExtendHeap @ 0x18000E348 (RtlpExtendHeap.c)
  *     RtlpDeCommitFreeBlock @ 0x18001E2D8 (RtlpDeCommitFreeBlock.c)
- *     RtlpCoalesceHeap @ 0x1800F369C (RtlpCoalesceHeap.c)
+ *     RtlpCoalesceHeap @ 0x1800F365C (RtlpCoalesceHeap.c)
  * Callees:
  *     RtlpHeapRemoveListEntry @ 0x18000A774 (RtlpHeapRemoveListEntry.c)
  *     RtlpCommitBlock @ 0x18000ED0C (RtlpCommitBlock.c)
  *     RtlpDeCommitFreeBlock @ 0x18001E2D8 (RtlpDeCommitFreeBlock.c)
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
- *     RtlCompareMemoryUlong @ 0x1800A2070 (RtlCompareMemoryUlong.c)
- *     RtlpBreakPointHeap @ 0x1800FA5EC (RtlpBreakPointHeap.c)
- *     RtlpAnalyzeHeapFailure @ 0x180107EA4 (RtlpAnalyzeHeapFailure.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlCompareMemoryUlong @ 0x1800A2030 (RtlCompareMemoryUlong.c)
+ *     RtlpBreakPointHeap @ 0x1800FA5AC (RtlpBreakPointHeap.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180107E64 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  */
 
 unsigned __int64 __fastcall RtlpCoalesceFreeBlocks(unsigned __int64 a1, unsigned __int64 a2, _QWORD *a3, char a4)
@@ -32,8 +32,8 @@ unsigned __int64 __fastcall RtlpCoalesceFreeBlocks(unsigned __int64 a1, unsigned
   unsigned int v20; // ecx
   char v21; // al
   __int64 v22; // rax
-  unsigned __int64 v23; // rbx
-  __int64 v24; // rbp
+  SIZE_T v23; // rbx
+  SIZE_T v24; // rbp
   __int64 *v25; // r14
   unsigned __int64 v26; // r8
   __int64 v27; // rbp
@@ -44,8 +44,8 @@ unsigned __int64 __fastcall RtlpCoalesceFreeBlocks(unsigned __int64 a1, unsigned
   __int64 v32; // rax
   unsigned int v33; // ecx
   char v34; // al
-  unsigned __int64 v35; // rbp
-  __int64 v36; // r15
+  SIZE_T v35; // rbp
+  SIZE_T v36; // r15
   __int64 *v37; // r14
   unsigned __int64 v38; // r8
   __int64 v39; // rbp
@@ -56,8 +56,8 @@ unsigned __int64 __fastcall RtlpCoalesceFreeBlocks(unsigned __int64 a1, unsigned
   __int64 v44; // rax
   unsigned int v45; // r9d
   char v46; // al
-  unsigned __int64 v47; // rbp
-  __int64 v48; // r14
+  SIZE_T v47; // rbp
+  SIZE_T v48; // r14
   __int64 *v49; // r14
   unsigned __int64 v50; // r8
   __int64 v51; // rbp
@@ -68,8 +68,8 @@ unsigned __int64 __fastcall RtlpCoalesceFreeBlocks(unsigned __int64 a1, unsigned
   __int64 v56; // rax
   unsigned int v57; // ecx
   char v58; // al
-  unsigned __int64 v59; // rbp
-  __int64 v60; // r15
+  SIZE_T v59; // rbp
+  SIZE_T v60; // r15
   int v61; // [rsp+38h] [rbp-30h]
 
   v5 = 16 * (*(unsigned __int16 *)(a1 + 140) ^ (unsigned __int64)*(unsigned __int16 *)(a2 + 12));
@@ -123,7 +123,7 @@ LABEL_71:
             v47 = 16LL * *(unsigned __int16 *)(v8 + 8) - 32;
             if ( (v46 & 2) != 0 && v47 > 4 )
               v47 = 16LL * *(unsigned __int16 *)(v8 + 8) - 36;
-            v48 = RtlCompareMemoryUlong(v8 + 32, v47, 4277075694LL);
+            v48 = RtlCompareMemoryUlong((PVOID)(v8 + 32), v47, 0xFEEEFEEE);
             if ( v48 != v47 )
             {
               if ( NtCurrentPeb()->Ldr )
@@ -186,7 +186,7 @@ LABEL_20:
           v23 = 16LL * *(unsigned __int16 *)(v7 + 8) - 32;
           if ( (v21 & 2) != 0 && v23 > 4 )
             v23 = 16LL * *(unsigned __int16 *)(v7 + 8) - 36;
-          v24 = RtlCompareMemoryUlong(v7 + 32, v23, 4277075694LL);
+          v24 = RtlCompareMemoryUlong((PVOID)(v7 + 32), v23, 0xFEEEFEEE);
           if ( v24 != v23 )
           {
             if ( NtCurrentPeb()->Ldr )
@@ -272,7 +272,7 @@ LABEL_97:
             v59 = 16LL * *(unsigned __int16 *)(v8 + 8) - 32;
             if ( (v58 & 2) != 0 && v59 > 4 )
               v59 = 16LL * *(unsigned __int16 *)(v8 + 8) - 36;
-            v60 = RtlCompareMemoryUlong(v8 + 32, v59, 4277075694LL);
+            v60 = RtlCompareMemoryUlong((PVOID)(v8 + 32), v59, 0xFEEEFEEE);
             if ( v60 != v59 )
             {
               if ( NtCurrentPeb()->Ldr )
@@ -335,7 +335,7 @@ LABEL_47:
           v35 = 16LL * *(unsigned __int16 *)(v10 + 8) - 32;
           if ( (v34 & 2) != 0 && v35 > 4 )
             v35 = 16LL * *(unsigned __int16 *)(v10 + 8) - 36;
-          v36 = RtlCompareMemoryUlong(v10 + 32, v35, 4277075694LL);
+          v36 = RtlCompareMemoryUlong((PVOID)(v10 + 32), v35, 0xFEEEFEEE);
           if ( v36 != v35 )
           {
             if ( NtCurrentPeb()->Ldr )

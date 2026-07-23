@@ -254,7 +254,7 @@ LABEL_53:
     goto LABEL_63;
   LOBYTE(v34) = 1;
   v35 = v61 & 0x1F;
-  v36 = (volatile signed __int32 *)(qword_1402FECB0 + 4 * (v61 >> 5));
+  v36 = (volatile signed __int32 *)stru_1402FECA8.Buffer + (v61 >> 5);
   if ( v35 + 1 <= 0x20 )
   {
     v37 = 1 << v35;

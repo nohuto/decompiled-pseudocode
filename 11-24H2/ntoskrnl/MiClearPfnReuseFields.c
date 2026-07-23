@@ -1,21 +1,21 @@
 /*
- * XREFs of MiClearPfnReuseFields @ 0x1403A1D30
+ * XREFs of MiClearPfnReuseFields @ 0x140218960
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x140220F00 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiReplaceTransitionPage @ 0x140224B14 (MiReplaceTransitionPage.c)
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiRelinkStandbyPage @ 0x14022C848 (MiRelinkStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x14039474C (MiSwapNumaStandbyPage.c)
- *     MiDeleteSectionCluster @ 0x1403A0124 (MiDeleteSectionCluster.c)
- *     MiTradeActivePage @ 0x1403A0758 (MiTradeActivePage.c)
- *     MiZeroAndReleasePages @ 0x1403A0C10 (MiZeroAndReleasePages.c)
- *     MiDiscardTransitionPteEx @ 0x1403A1C98 (MiDiscardTransitionPteEx.c)
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiSwapStackPageNoDpc @ 0x1404307F4 (MiSwapStackPageNoDpc.c)
- *     MiReuseStandbyPage @ 0x140442E50 (MiReuseStandbyPage.c)
- *     MiPreInitializeSystemImagePage @ 0x1404CBDEC (MiPreInitializeSystemImagePage.c)
- *     MiStackCopyHighLevel @ 0x140675304 (MiStackCopyHighLevel.c)
- *     MiAddExpansionNonPagedPool @ 0x14067C9FC (MiAddExpansionNonPagedPool.c)
+ *     MiDeleteSectionCluster @ 0x140216B54 (MiDeleteSectionCluster.c)
+ *     MiTradeActivePage @ 0x1402172BC (MiTradeActivePage.c)
+ *     MiZeroAndReleasePages @ 0x140217770 (MiZeroAndReleasePages.c)
+ *     MiDiscardTransitionPteEx @ 0x1402188CC (MiDiscardTransitionPteEx.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14024DC50 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiReplaceTransitionPage @ 0x140251EC4 (MiReplaceTransitionPage.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiRelinkStandbyPage @ 0x140300158 (MiRelinkStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1403F7A6C (MiSwapNumaStandbyPage.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiSwapStackPageNoDpc @ 0x1404221A4 (MiSwapStackPageNoDpc.c)
+ *     MiReuseStandbyPage @ 0x14043BE20 (MiReuseStandbyPage.c)
+ *     MiPreInitializeSystemImagePage @ 0x1404C5268 (MiPreInitializeSystemImagePage.c)
+ *     MiStackCopyHighLevel @ 0x1406764D4 (MiStackCopyHighLevel.c)
+ *     MiAddExpansionNonPagedPool @ 0x14067DBDC (MiAddExpansionNonPagedPool.c)
  * Callees:
  *     <none>
  */

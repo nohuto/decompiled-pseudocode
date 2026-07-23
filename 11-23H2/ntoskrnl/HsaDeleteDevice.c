@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaDeleteDevice @ 0x14052F5B0
+ * XREFs of HsaDeleteDevice @ 0x14052FB00
  * Callers:
  *     <none>
  * Callees:
- *     ExtEnvFreeMemory @ 0x14051F5AC (ExtEnvFreeMemory.c)
+ *     ExtEnvFreeMemory @ 0x14051FAFC (ExtEnvFreeMemory.c)
  */
 
 __int64 __fastcall HsaDeleteDevice(__int64 a1, unsigned __int64 a2)

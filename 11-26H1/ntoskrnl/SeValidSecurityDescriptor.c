@@ -1,82 +1,108 @@
 /*
- * XREFs of SeValidSecurityDescriptor @ 0x140A7C990
+ * XREFs of SeValidSecurityDescriptor @ 0x140A8DAC0
  * Callers:
- *     RtlNormalizeSecurityDescriptor @ 0x1404EE240 (RtlNormalizeSecurityDescriptor.c)
- *     SepReadAndPopulateCapes @ 0x1408171AC (SepReadAndPopulateCapes.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140920E70 (EtwpGetGuidSecurityDescriptor.c)
- *     PiSwValidateCreateData @ 0x140A7BF28 (PiSwValidateCreateData.c)
- *     WmipSDRegistryQueryRoutine @ 0x140A7C910 (WmipSDRegistryQueryRoutine.c)
+ *     RtlNormalizeSecurityDescriptor @ 0x1404E7820 (RtlNormalizeSecurityDescriptor.c)
+ *     SepReadAndPopulateCapes @ 0x14081D3BC (SepReadAndPopulateCapes.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x1408FC980 (EtwpGetGuidSecurityDescriptor.c)
+ *     PiSwValidateCreateData @ 0x140A8D068 (PiSwValidateCreateData.c)
+ *     WmipSDRegistryQueryRoutine @ 0x140A8DA40 (WmipSDRegistryQueryRoutine.c)
  * Callees:
- *     RtlValidAcl @ 0x140928000 (RtlValidAcl.c)
+ *     Feature_1875900730__private_IsEnabledDeviceUsageNoInline @ 0x14063E87C (Feature_1875900730__private_IsEnabledDeviceUsageNoInline.c)
+ *     RtlValidAcl @ 0x140903B10 (RtlValidAcl.c)
  */
 
 BOOLEAN __stdcall SeValidSecurityDescriptor(ULONG Length, PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
-  __int64 v4; // rcx
-  int v5; // eax
-  __int64 v6; // rcx
-  int v7; // eax
-  __int64 v8; // rcx
-  unsigned int v9; // edx
-  char *v10; // rcx
-  __int64 v11; // rcx
-  unsigned int v13; // edi
-  char *v14; // rcx
+  char *v4; // rbp
+  char *v5; // r14
+  char *v6; // rsi
+  __int64 v7; // rcx
+  __int64 v8; // r15
+  int v9; // eax
+  __int64 v10; // rcx
+  int v11; // eax
+  __int64 v12; // rcx
+  __int64 v13; // rcx
+  int v14; // eax
+  ULONG v15; // edx
 
-  if ( Length < 0x14 )
-    return 0;
-  if ( *(_BYTE *)SecurityDescriptor != 1 )
-    return 0;
-  if ( *((__int16 *)SecurityDescriptor + 1) >= 0 )
-    return 0;
-  v4 = *((unsigned int *)SecurityDescriptor + 1);
-  if ( !(_DWORD)v4 )
-    return 0;
-  if ( ((v4 + 3) & 0xFFFFFFFFFFFFFFFCuLL) != v4 )
-    return 0;
-  if ( (unsigned int)v4 > Length )
-    return 0;
-  if ( Length - (unsigned int)v4 < 0xC )
-    return 0;
-  if ( *((_BYTE *)SecurityDescriptor + v4) != 1 )
-    return 0;
-  v5 = *((unsigned __int8 *)SecurityDescriptor + v4 + 1);
-  if ( (unsigned __int8)v5 > 0xFu )
-    return 0;
-  if ( Length - (unsigned int)v4 < 4 * v5 + 8 )
-    return 0;
-  v6 = *((unsigned int *)SecurityDescriptor + 2);
-  if ( (_DWORD)v6 )
+  v4 = 0LL;
+  v5 = 0LL;
+  v6 = 0LL;
+  if ( Length >= 0x14 && *(_BYTE *)SecurityDescriptor == 1 && *((__int16 *)SecurityDescriptor + 1) < 0 )
   {
-    if ( ((v6 + 3) & 0xFFFFFFFFFFFFFFFCuLL) != v6 )
-      return 0;
-    if ( (unsigned int)v6 > Length )
-      return 0;
-    if ( Length - (unsigned int)v6 < 0xC )
-      return 0;
-    if ( *((_BYTE *)SecurityDescriptor + v6) != 1 )
-      return 0;
-    v7 = *((unsigned __int8 *)SecurityDescriptor + v6 + 1);
-    if ( (unsigned __int8)v7 > 0xFu || Length - (unsigned int)v6 < 4 * v7 + 8 )
-      return 0;
+    v7 = *((unsigned int *)SecurityDescriptor + 1);
+    if ( (_DWORD)v7 )
+    {
+      v8 = (unsigned int)v7;
+      if ( ((v7 + 3) & 0xFFFFFFFFFFFFFFFCuLL) == v7
+        && (unsigned int)v7 <= Length
+        && Length - (unsigned int)v7 >= 0xC
+        && *((_BYTE *)SecurityDescriptor + v7) == 1 )
+      {
+        v9 = *((unsigned __int8 *)SecurityDescriptor + v7 + 1);
+        if ( (unsigned __int8)v9 <= 0xFu && Length - (unsigned int)v7 >= 4 * v9 + 8 )
+        {
+          v10 = *((unsigned int *)SecurityDescriptor + 2);
+          if ( !(_DWORD)v10
+            || ((v10 + 3) & 0xFFFFFFFFFFFFFFFCuLL) == v10
+            && (unsigned int)v10 <= Length
+            && Length - (unsigned int)v10 >= 0xC
+            && (v4 = (char *)SecurityDescriptor + v10, *((_BYTE *)SecurityDescriptor + v10) == 1)
+            && (v11 = (unsigned __int8)v4[1], (unsigned __int8)v11 <= 0xFu)
+            && Length - (unsigned int)v10 >= 4 * v11 + 8 )
+          {
+            v12 = *((unsigned int *)SecurityDescriptor + 4);
+            if ( !(_DWORD)v12
+              || ((v12 + 3) & 0xFFFFFFFFFFFFFFFCuLL) == v12
+              && (unsigned int)v12 <= Length
+              && Length - (unsigned int)v12 >= 8
+              && (v5 = (char *)SecurityDescriptor + v12,
+                  Length - (unsigned int)v12 >= *(unsigned __int16 *)((char *)SecurityDescriptor + v12 + 2))
+              && RtlValidAcl((PACL)((char *)SecurityDescriptor + v12)) )
+            {
+              v13 = *((unsigned int *)SecurityDescriptor + 3);
+              if ( !(_DWORD)v13
+                || ((v13 + 3) & 0xFFFFFFFFFFFFFFFCuLL) == v13
+                && (unsigned int)v13 <= Length
+                && Length - (unsigned int)v13 >= 8
+                && (v6 = (char *)SecurityDescriptor + v13,
+                    Length - (unsigned int)v13 >= *(unsigned __int16 *)((char *)SecurityDescriptor + v13 + 2))
+                && RtlValidAcl((PACL)((char *)SecurityDescriptor + v13)) )
+              {
+                if ( !(unsigned int)Feature_1875900730__private_IsEnabledDeviceUsageNoInline() )
+                  return 1;
+                v14 = *((unsigned __int8 *)SecurityDescriptor + v8 + 1);
+                v15 = ((4 * v14 + 11) & 0xFFFFFFFC) + 20;
+                if ( ((4 * v14 + 11) & 0xFFFFFFFC) < 0xFFFFFFEC )
+                {
+                  if ( v4 )
+                  {
+                    if ( v15 + ((4 * (unsigned __int8)v4[1] + 11) & 0xFFFFFFFC) < v15 )
+                      return 0;
+                    v15 += (4 * (unsigned __int8)v4[1] + 11) & 0xFFFFFFFC;
+                  }
+                  if ( v5 )
+                  {
+                    if ( v15 + ((*((unsigned __int16 *)v5 + 1) + 3) & 0xFFFFFFFC) < v15 )
+                      return 0;
+                    v15 += (*((unsigned __int16 *)v5 + 1) + 3) & 0xFFFFFFFC;
+                  }
+                  if ( v6 )
+                  {
+                    if ( v15 + ((*((unsigned __int16 *)v6 + 1) + 3) & 0xFFFFFFFC) < v15 )
+                      return 0;
+                    v15 += (*((unsigned __int16 *)v6 + 1) + 3) & 0xFFFFFFFC;
+                  }
+                  if ( v15 <= Length )
+                    return 1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  if ( ((v8 = *((unsigned int *)SecurityDescriptor + 4), !(_DWORD)v8)
-     || ((v8 + 3) & 0xFFFFFFFFFFFFFFFCuLL) == v8
-     && (unsigned int)v8 <= Length
-     && (v9 = Length - v8, Length - (unsigned int)v8 >= 8)
-     && (v10 = (char *)SecurityDescriptor + v8, v9 >= *((unsigned __int16 *)v10 + 1))
-     && RtlValidAcl((__int64)v10))
-    && ((v11 = *((unsigned int *)SecurityDescriptor + 3), !(_DWORD)v11)
-     || ((v11 + 3) & 0xFFFFFFFFFFFFFFFCuLL) == v11
-     && (unsigned int)v11 <= Length
-     && (v13 = Length - v11, v13 >= 8)
-     && (v14 = (char *)SecurityDescriptor + v11, v13 >= *((unsigned __int16 *)v14 + 1))
-     && RtlValidAcl((__int64)v14)) )
-  {
-    return 1;
-  }
-  else
-  {
-    return 0;
-  }
+  return 0;
 }

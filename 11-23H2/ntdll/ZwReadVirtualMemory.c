@@ -8,19 +8,24 @@
  *     RtlpQueryCriticalSectionOwner64 @ 0x1800E448C (RtlpQueryCriticalSectionOwner64.c)
  *     RtlQueryCriticalSectionOwner @ 0x1800F4B30 (RtlQueryCriticalSectionOwner.c)
  *     RtlpHeapPerformCrossProcessQuery @ 0x180100668 (RtlpHeapPerformCrossProcessQuery.c)
- *     PssNtFreeRemoteSnapshot @ 0x180128D70 (PssNtFreeRemoteSnapshot.c)
- *     PsspCaptureAuxiliaryPages @ 0x180129BC8 (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureImageInformation @ 0x180129E68 (PsspCaptureImageInformation.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C484 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     PssNtFreeRemoteSnapshot @ 0x180128D40 (PssNtFreeRemoteSnapshot.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180129B98 (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureImageInformation @ 0x180129E38 (PsspCaptureImageInformation.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C488 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwReadVirtualMemory()
+NTSTATUS __cdecl ZwReadVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 63LL;
+  result = 63;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

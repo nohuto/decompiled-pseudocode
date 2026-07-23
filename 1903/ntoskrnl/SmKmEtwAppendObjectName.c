@@ -16,7 +16,7 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAt
   int v3; // r14d
   __int64 v4; // rdx
   void *v6; // r13
-  struct _OBJECT_NAME_INFORMATION *v7; // rdi
+  _OBJECT_NAME_INFORMATION *v7; // rdi
   ULONG v8; // r14d
   void *v9; // rbp
   BOOLEAN v10; // r15
@@ -35,7 +35,7 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAt
   v4 = *(_QWORD *)(a1 + 8) + *(unsigned int *)(a1 + 24);
   Src[0] = *(_OWORD *)L"\\Device\\Unknown";
   v6 = (void *)(v4 + 2);
-  v7 = (struct _OBJECT_NAME_INFORMATION *)((v4 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
+  v7 = (_OBJECT_NAME_INFORMATION *)((v4 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
   v8 = v4 + v3 - (_DWORD)v7;
   Src[1] = *(_OWORD *)L"Unknown";
   *(_QWORD *)&v7->Name.Length = 0LL;

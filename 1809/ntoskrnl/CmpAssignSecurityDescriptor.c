@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAssignSecurityDescriptor @ 0x1407F47B0
+ * XREFs of CmpAssignSecurityDescriptor @ 0x1407F59B0
  * Callers:
- *     CmpCreateTombstone @ 0x14026D15C (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x14026D34C (CmpCreateTombstone.c)
  * Callees:
- *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x140581AB8 (CmpGetSecurityDescriptorNodeEx.c)
  */
 
 __int64 __fastcall CmpAssignSecurityDescriptor(ULONG_PTR a1, ULONG_PTR a2, __int64 a3, void *Src)

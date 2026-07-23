@@ -1,8 +1,8 @@
 /*
- * XREFs of KeResetLegacyFloatingPointState @ 0x14015DB60
+ * XREFs of KeResetLegacyFloatingPointState @ 0x14015E0D0
  * Callers:
- *     KiParkUmsThread @ 0x1401DC264 (KiParkUmsThread.c)
- *     KiSwapToUmsThread @ 0x1406508F8 (KiSwapToUmsThread.c)
+ *     KiParkUmsThread @ 0x1401DC090 (KiParkUmsThread.c)
+ *     KiSwapToUmsThread @ 0x1406509DC (KiSwapToUmsThread.c)
  * Callees:
  *     <none>
  */

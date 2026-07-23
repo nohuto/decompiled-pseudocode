@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRcuForEachParticipatingCpu @ 0x1404C70FC
+ * XREFs of KiRcuForEachParticipatingCpu @ 0x1404C055C
  * Callers:
- *     KiRcuStartGracePeriod @ 0x1405BBF44 (KiRcuStartGracePeriod.c)
+ *     KiRcuStartGracePeriod @ 0x1405B9574 (KiRcuStartGracePeriod.c)
  * Callees:
- *     KiRcuStartGracePeriodEnumCallback @ 0x1404C6B9C (KiRcuStartGracePeriodEnumCallback.c)
+ *     KiRcuStartGracePeriodEnumCallback @ 0x1404BFFFC (KiRcuStartGracePeriodEnumCallback.c)
  */
 
 __int64 __fastcall KiRcuForEachParticipatingCpu(__int64 a1, _DWORD *a2)
@@ -16,11 +16,11 @@ __int64 __fastcall KiRcuForEachParticipatingCpu(__int64 a1, _DWORD *a2)
   unsigned __int64 v8; // rdi
   unsigned int i; // esi
 
-  result = (unsigned __int8)byte_140F20C23;
+  result = (unsigned __int8)byte_140F205A3;
   v3 = (char *)&KiRcuData;
-  v4 = qword_140F20C30;
-  v6 = (unsigned __int8)byte_140F20C21;
-  v7 = qword_140F20C30 + 72LL * (unsigned __int8)byte_140F20C23;
+  v4 = qword_140F205B0;
+  v6 = (unsigned __int8)byte_140F205A1;
+  v7 = qword_140F205B0 + 72LL * (unsigned __int8)byte_140F205A3;
   while ( v4 != v7 )
   {
     v8 = *(_QWORD *)(v4 + 16) & ~*(_QWORD *)(v4 + 24);

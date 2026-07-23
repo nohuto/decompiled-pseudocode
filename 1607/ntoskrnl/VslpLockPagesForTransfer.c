@@ -1,22 +1,22 @@
 /*
- * XREFs of VslpLockPagesForTransfer @ 0x1401C33D0
+ * XREFs of VslpLockPagesForTransfer @ 0x1401C32B4
  * Callers:
- *     VslRegisterLogPages @ 0x140131CF8 (VslRegisterLogPages.c)
- *     VslAllocatePool @ 0x1401C2648 (VslAllocatePool.c)
- *     VslIumEfiRuntimeService @ 0x1401C2BA0 (VslIumEfiRuntimeService.c)
- *     VslQuerySecureKernelProfileInformation @ 0x1401C2DAC (VslQuerySecureKernelProfileInformation.c)
- *     VslCreateSecureImageSection @ 0x14023D15C (VslCreateSecureImageSection.c)
- *     VslFillSecureAllocation @ 0x14023D248 (VslFillSecureAllocation.c)
- *     VslPrepareSecureImageRelocations @ 0x14023D554 (VslPrepareSecureImageRelocations.c)
- *     VslTransferSecureImageVersionResource @ 0x14023D668 (VslTransferSecureImageVersionResource.c)
- *     VslValidateSecureImagePages @ 0x14023D928 (VslValidateSecureImagePages.c)
- *     VslGetOnDemandDebugChallenge @ 0x140620820 (VslGetOnDemandDebugChallenge.c)
- *     VslGetSetSecureContext @ 0x1406209F8 (VslGetSetSecureContext.c)
+ *     VslRegisterLogPages @ 0x140132268 (VslRegisterLogPages.c)
+ *     VslAllocatePool @ 0x1401C252C (VslAllocatePool.c)
+ *     VslIumEfiRuntimeService @ 0x1401C2A84 (VslIumEfiRuntimeService.c)
+ *     VslQuerySecureKernelProfileInformation @ 0x1401C2C90 (VslQuerySecureKernelProfileInformation.c)
+ *     VslCreateSecureImageSection @ 0x14023D040 (VslCreateSecureImageSection.c)
+ *     VslFillSecureAllocation @ 0x14023D12C (VslFillSecureAllocation.c)
+ *     VslPrepareSecureImageRelocations @ 0x14023D438 (VslPrepareSecureImageRelocations.c)
+ *     VslTransferSecureImageVersionResource @ 0x14023D54C (VslTransferSecureImageVersionResource.c)
+ *     VslValidateSecureImagePages @ 0x14023D80C (VslValidateSecureImagePages.c)
+ *     VslGetOnDemandDebugChallenge @ 0x1406208D4 (VslGetOnDemandDebugChallenge.c)
+ *     VslGetSetSecureContext @ 0x140620AAC (VslGetSetSecureContext.c)
  *     VslConnectSwInterrupt @ 0x14079873C (VslConnectSwInterrupt.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MmBuildMdlForNonPagedPool @ 0x1400FCBB0 (MmBuildMdlForNonPagedPool.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1400FA930 (MmBuildMdlForNonPagedPool.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

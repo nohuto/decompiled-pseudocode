@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRemoveRegistrationFromTable @ 0x180059814
+ * XREFs of EtwpRemoveRegistrationFromTable @ 0x180059804
  * Callers:
- *     EtwNotificationUnregister @ 0x180059700 (EtwNotificationUnregister.c)
+ *     EtwNotificationUnregister @ 0x1800596F0 (EtwNotificationUnregister.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x18001C040 (RtlRbRemoveNode.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x18001C030 (RtlRbRemoveNode.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall EtwpRemoveRegistrationFromTable(unsigned __int64 *a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall EtwpRemoveRegistrationFromTable(PRTL_BALANCED_NODE Node)
 {
-  RtlAcquireSRWLockExclusive((unsigned __int64)&EtwpProvLock, a2, a3, a4);
-  RtlRbRemoveNode((unsigned __int64 *)&EtwpRegistrationTable, a1);
-  memset(a1, 171, 24);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  RtlRbRemoveNode((PRTL_RB_TREE)&EtwpRegistrationTable, Node);
+  memset(Node, 171, sizeof(_RTL_BALANCED_NODE));
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

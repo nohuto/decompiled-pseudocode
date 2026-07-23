@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryAuxiliaryCounterFrequency @ 0x14028EF00
+ * XREFs of KeQueryAuxiliaryCounterFrequency @ 0x14028F0F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 KeQueryAuxiliaryCounterFrequency()
 {
-  return off_1403FE670[0]();
+  return off_1403FF670[0]();
 }

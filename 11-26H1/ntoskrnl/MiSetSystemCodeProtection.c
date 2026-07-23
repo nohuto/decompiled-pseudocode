@@ -1,33 +1,33 @@
 /*
- * XREFs of MiSetSystemCodeProtection @ 0x14038B984
+ * XREFs of MiSetSystemCodeProtection @ 0x14038D734
  * Callers:
- *     MiSetImageProtection @ 0x14038B930 (MiSetImageProtection.c)
- *     MmProtectDriverSection @ 0x1406E6130 (MmProtectDriverSection.c)
- *     MiProtectSystemImage @ 0x140A7935C (MiProtectSystemImage.c)
- *     MiProtectKernelCfgData @ 0x140CF2570 (MiProtectKernelCfgData.c)
+ *     MiSetImageProtection @ 0x14038D6E0 (MiSetImageProtection.c)
+ *     MmProtectDriverSection @ 0x1406EADE0 (MmProtectDriverSection.c)
+ *     MiProtectSystemImage @ 0x1409E4B80 (MiProtectSystemImage.c)
+ *     MiProtectKernelCfgData @ 0x140CF88F0 (MiProtectKernelCfgData.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiMakeDriverPagesPrivate @ 0x14038A9E0 (MiMakeDriverPagesPrivate.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     MiRestrictSystemCodeProtection @ 0x140529C14 (MiRestrictSystemCodeProtection.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiMakeDriverPagesPrivate @ 0x14038C790 (MiMakeDriverPagesPrivate.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     MiRestrictSystemCodeProtection @ 0x14052C130 (MiRestrictSystemCodeProtection.c)
  */
 
 __int64 __fastcall MiSetSystemCodeProtection(
@@ -112,7 +112,7 @@ __int64 __fastcall MiSetSystemCodeProtection(
   }
   v15 = 0LL;
   v36 = 0LL;
-  v46 = MiLockWorkingSetShared((__int64)&unk_140E36E00, v13, v14);
+  v46 = MiLockWorkingSetShared((__int64)&unk_140E36F80, v13, v14);
   while ( v8 <= a3 )
   {
     if ( !v15 )
@@ -125,11 +125,11 @@ __int64 __fastcall MiSetSystemCodeProtection(
         MiReleaseProcessorFlushList();
         ProcessorFlushList = 0LL;
       }
-      MiUnlockPageTableInternal((__int64)&unk_140E36E00, v15);
+      MiUnlockPageTableInternal((__int64)&unk_140E36F80, v15);
 LABEL_53:
       v15 = ((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
       v36 = v15;
-      MiLockPageTableInternal((signed __int64)&unk_140E36E00, v15, 0);
+      MiLockPageTableInternal((signed __int64)&unk_140E36F80, v15, 0);
     }
     if ( v8 > v40 )
     {
@@ -149,13 +149,13 @@ LABEL_53:
           MiReleaseProcessorFlushList();
           ProcessorFlushList = 0LL;
         }
-        MiUnlockPageTableInternal((__int64)&unk_140E36E00, v15);
+        MiUnlockPageTableInternal((__int64)&unk_140E36F80, v15);
         LOBYTE(v26) = v46;
-        MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v26);
+        MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v26);
         v37 = MiOffsetToProtos(v41, v25, &v39);
         v27 = (_DWORD *)v37;
-        MiLockWorkingSetShared((__int64)&unk_140E36E00, v28, v29);
-        MiLockPageTableInternal((signed __int64)&unk_140E36E00, v15, 0);
+        MiLockWorkingSetShared((__int64)&unk_140E36F80, v28, v29);
+        MiLockPageTableInternal((signed __int64)&unk_140E36F80, v15, 0);
         v16 = v39;
       }
       v30 = (unsigned int)v27[11] - (unsigned __int64)(unsigned int)v27[13] - v16;
@@ -210,9 +210,9 @@ LABEL_41:
         _InterlockedAnd64((volatile signed __int64 *)(v19 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( v22 )
           MiReleasePageFileInfo(
-            *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v19 + 40) >> 43) & 0x3FFLL)),
+            *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v19 + 40) >> 43) & 0x3FFLL)),
             v22,
-            1);
+            1LL);
         ValidPte = MiMakeValidPte(v8, v42, v44);
         if ( (v44 & 5) == 4 && v38 )
           ValidPte |= 0x42uLL;
@@ -227,7 +227,7 @@ LABEL_41:
             ProcessorFlushList = MiGetProcessorFlushList();
             MiInitializeTbFlushList(
               (__int64)ProcessorFlushList,
-              (__int64)&unk_140E36E00,
+              (__int64)&unk_140E36F80,
               *((_DWORD *)ProcessorFlushList + 3),
               0,
               32);
@@ -255,12 +255,12 @@ LABEL_38:
       {
         v31 = *(_QWORD *)v8;
         v32 = *(_QWORD *)v8;
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
           if ( (v31 & 0x10) != 0 )
             v32 &= ~0x10uLL;
           else
-            v32 &= qword_140E2D748;
+            v32 &= qword_140E2D8C8;
         }
         v33 = 48 * ((v32 >> 12) & 0xFFFFFFFFFFLL);
         v34 = 32LL * v18;
@@ -278,8 +278,8 @@ LABEL_38:
     MiReleaseProcessorFlushList();
   }
   if ( v15 )
-    MiUnlockPageTableInternal((__int64)&unk_140E36E00, v15);
+    MiUnlockPageTableInternal((__int64)&unk_140E36F80, v15);
   LOBYTE(v16) = v46;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v16);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v16);
   return v10;
 }

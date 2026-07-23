@@ -1,16 +1,16 @@
 /*
- * XREFs of SmcGetCacheStats @ 0x14092D9E0
+ * XREFs of SmcGetCacheStats @ 0x14092DB40
  * Callers:
- *     SmcProcessStatsRequest @ 0x14092AB78 (SmcProcessStatsRequest.c)
+ *     SmcProcessStatsRequest @ 0x14092ACD8 (SmcProcessStatsRequest.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     memset @ 0x140414200 (memset.c)
- *     SmKmFileInfoGetPath @ 0x14092B4A4 (SmKmFileInfoGetPath.c)
- *     SmcCacheReference @ 0x14092D704 (SmcCacheReference.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SmKmFileInfoGetPath @ 0x14092B604 (SmKmFileInfoGetPath.c)
+ *     SmcCacheReference @ 0x14092D864 (SmcCacheReference.c)
  */
 
 __int64 __fastcall SmcGetCacheStats(__int64 a1, _DWORD *a2)
@@ -67,7 +67,7 @@ __int64 __fastcall SmcGetCacheStats(__int64 a1, _DWORD *a2)
       a2[4] = v8;
       Path = 0;
     }
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(32LL * (a2[1] & 0xF) + a1 + 8));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(32LL * (a2[1] & 0xF) + a1 + 8));
   }
   else
   {

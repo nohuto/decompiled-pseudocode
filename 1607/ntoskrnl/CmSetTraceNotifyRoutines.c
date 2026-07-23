@@ -1,7 +1,7 @@
 /*
- * XREFs of CmSetTraceNotifyRoutines @ 0x1405FB8F8
+ * XREFs of CmSetTraceNotifyRoutines @ 0x1405FB9AC
  * Callers:
- *     EtwpDisableKernelTrace @ 0x1404960E4 (EtwpDisableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x140496B74 (EtwpDisableKernelTrace.c)
  * Callees:
  *     <none>
  */

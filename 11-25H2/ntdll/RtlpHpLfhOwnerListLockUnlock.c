@@ -7,26 +7,24 @@
  *     RtlReleaseSRWLockExclusive @ 0x1800123F0 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpHpLfhOwnerListLockUnlock(__int64 a1, volatile signed __int32 **a2, int a3)
+void __fastcall RtlpHpLfhOwnerListLockUnlock(__int64 a1, _RTL_SRWLOCK **a2, int a3)
 {
-  volatile signed __int32 *i; // rbx
-  __int64 result; // rax
+  _RTL_SRWLOCK *i; // rbx
 
-  for ( i = *a2; i != (volatile signed __int32 *)a2; i = *(volatile signed __int32 **)i )
+  for ( i = *a2; i != (_RTL_SRWLOCK *)a2; i = (_RTL_SRWLOCK *)i->Value )
   {
-    if ( *((_BYTE *)i + 39) != 1 )
+    if ( HIBYTE(i[4].Ptr) != 1 )
     {
       if ( a3 < 1 )
       {
-        result = (__int64)RtlAcquireSRWLockExclusive(i + 14);
+        RtlAcquireSRWLockExclusive(i + 7);
       }
       else
       {
         if ( a3 >= 2 )
-          *((_QWORD *)i + 7) = 1LL;
-        result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)i + 7);
+          i[7].Value = 1LL;
+        RtlReleaseSRWLockExclusive(i + 7);
       }
     }
   }
-  return result;
 }

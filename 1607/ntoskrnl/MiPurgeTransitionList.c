@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPurgeTransitionList @ 0x1401F3960
+ * XREFs of MiPurgeTransitionList @ 0x1401F378C
  * Callers:
  *     MmPerformMemoryListCommand @ 0x1403D2CFC (MmPerformMemoryListCommand.c)
  * Callees:
- *     MiGetNextPartition @ 0x140001C94 (MiGetNextPartition.c)
- *     MiPurgePartitionStandby @ 0x14012093C (MiPurgePartitionStandby.c)
+ *     MiGetNextPartition @ 0x140001E08 (MiGetNextPartition.c)
+ *     MiPurgePartitionStandby @ 0x140120EAC (MiPurgePartitionStandby.c)
  */
 
 __int64 *__fastcall MiPurgeTransitionList(unsigned int a1)

@@ -6,12 +6,12 @@
  *     <none>
  */
 
-bool __fastcall RtlIsTextUnicode(__int64 a1, unsigned int a2, int *a3)
+BOOLEAN __cdecl RtlIsTextUnicode(PVOID Buffer, ULONG Size, PULONG Result)
 {
   int v3; // r11d
-  unsigned int v4; // r15d
-  unsigned int v5; // r13d
-  __int64 v7; // rbp
+  ULONG v4; // r15d
+  ULONG v5; // r13d
+  unsigned __int8 *v7; // rbp
   int v8; // r8d
   int v9; // r12d
   int v10; // ebx
@@ -40,7 +40,7 @@ bool __fastcall RtlIsTextUnicode(__int64 a1, unsigned int a2, int *a3)
   int v33; // r8d
   int v34; // ecx
   int v35; // eax
-  int v36; // ecx
+  ULONG v36; // ecx
   unsigned int v38; // r8d
   unsigned int v39; // r13d
   unsigned __int64 v40; // rax
@@ -58,15 +58,15 @@ bool __fastcall RtlIsTextUnicode(__int64 a1, unsigned int a2, int *a3)
   int v52; // [rsp+28h] [rbp-60h]
   int v53; // [rsp+2Ch] [rbp-5Ch]
   int v54; // [rsp+30h] [rbp-58h]
-  unsigned int v55; // [rsp+34h] [rbp-54h]
+  ULONG v55; // [rsp+34h] [rbp-54h]
   unsigned int v59; // [rsp+A8h] [rbp+20h]
 
   v3 = 0;
-  v4 = a2;
+  v4 = Size;
   v46 = 0;
-  v5 = a2 >> 1;
+  v5 = Size >> 1;
   v42 = 0;
-  v7 = a1;
+  v7 = (unsigned __int8 *)Buffer;
   v45 = 0;
   v8 = 0;
   v44 = 0;
@@ -100,23 +100,23 @@ bool __fastcall RtlIsTextUnicode(__int64 a1, unsigned int a2, int *a3)
   }
   if ( v4 == 2 )
   {
-    if ( !*(_WORD *)v7 || *(_BYTE *)(v7 + 1) )
+    if ( !*(_WORD *)v7 || v7[1] )
       goto LABEL_10;
 LABEL_86:
-    if ( a3 )
-      *a3 = 5;
+    if ( Result )
+      *Result = 5;
     return 0;
   }
   if ( v4 > 2 && v5 <= 0x100 && (v4 & 1) == 0 )
   {
-    if ( (*(_WORD *)(v7 + 2LL * (v16 - 1)) & 0xFF00) == 0 )
+    if ( (*(_WORD *)&v7[2 * v16 - 2] & 0xFF00) == 0 )
       --v16;
     v8 = 0;
   }
 LABEL_10:
   if ( v16 )
   {
-    v17 = (_WORD *)v7;
+    v17 = v7;
     v18 = 0;
     v19 = v16;
     v20 = 0;
@@ -227,9 +227,9 @@ LABEL_10:
       --v19;
     }
     while ( v19 );
-    v7 = a1;
+    v7 = (unsigned __int8 *)Buffer;
     v46 = v20;
-    v4 = a2;
+    v4 = Size;
     v59 = v18;
     v5 = v55;
   }
@@ -262,7 +262,7 @@ LABEL_27:
       v39 = 0;
       do
       {
-        if ( word_180159D80[*(unsigned __int8 *)(v38 + v7)] )
+        if ( word_180159D80[v7[v38]] )
         {
           ++v39;
           ++v38;
@@ -294,7 +294,7 @@ LABEL_27:
 LABEL_36:
   v29 = 0;
 LABEL_37:
-  if ( NlsMbCodePageTag && v43 && a3 && (*a3 & 0x400) != 0 )
+  if ( NlsMbCodePageTag && v43 && Result && (*Result & 0x400) != 0 )
   {
     if ( v5 <= 0x100 )
       v40 = (unsigned __int64)v4 >> 1;
@@ -343,10 +343,10 @@ LABEL_37:
   {
     v36 |= 0x80u;
   }
-  if ( a3 )
+  if ( Result )
   {
-    *a3 &= v36;
-    v36 = *a3;
+    *Result &= v36;
+    v36 = *Result;
   }
   return (v36 & 0xB08) == 8 || (v36 & 0xF0) == 0 && (v36 & 0xF00) == 0 && (v36 & 0xF00F) != 0;
 }

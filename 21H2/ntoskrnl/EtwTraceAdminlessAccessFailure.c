@@ -1,34 +1,34 @@
 /*
- * XREFs of EtwTraceAdminlessAccessFailure @ 0x14093FC38
+ * XREFs of EtwTraceAdminlessAccessFailure @ 0x14093FE08
  * Callers:
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     KeQuerySystemTimePrecise @ 0x140278F00 (KeQuerySystemTimePrecise.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeQuerySystemTimePrecise @ 0x140266EA0 (KeQuerySystemTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
-char __fastcall EtwTraceAdminlessAccessFailure(int a1, __int64 a2, __int64 a3, char a4)
+char __fastcall EtwTraceAdminlessAccessFailure(int a1, __int64 a2, int a3, char a4)
 {
-  unsigned __int16 *v5; // r9
-  int v6; // ebx
-  unsigned __int64 v7; // rax
-  int v8; // r11d
+  unsigned __int64 v5; // rax
+  unsigned __int16 *v6; // r9
+  int v7; // r11d
+  unsigned __int16 *v8; // r9
   int v9; // r11d
-  __int16 *v10; // rdx
+  unsigned __int8 *v10; // rdx
   struct _EVENT_DATA_DESCRIPTOR *v11; // rax
-  int v12; // r11d
-  int v14; // [rsp+38h] [rbp-D0h] BYREF
-  int v15; // [rsp+3Ch] [rbp-CCh] BYREF
-  int v16; // [rsp+40h] [rbp-C8h] BYREF
-  int v17; // [rsp+44h] [rbp-C4h] BYREF
-  int v18; // [rsp+48h] [rbp-C0h] BYREF
-  int v19; // [rsp+4Ch] [rbp-BCh] BYREF
-  __int64 v20; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-B0h] BYREF
-  _QWORD v22[2]; // [rsp+60h] [rbp-A8h] BYREF
+  unsigned __int16 *v12; // r9
+  int v13; // r11d
+  int v15; // [rsp+38h] [rbp-D0h] BYREF
+  int v16; // [rsp+3Ch] [rbp-CCh] BYREF
+  int v17; // [rsp+40h] [rbp-C8h] BYREF
+  int v18; // [rsp+44h] [rbp-C4h] BYREF
+  int v19; // [rsp+48h] [rbp-C0h] BYREF
+  int v20; // [rsp+4Ch] [rbp-BCh] BYREF
+  __int64 v21; // [rsp+50h] [rbp-B8h] BYREF
+  LARGE_INTEGER v22[3]; // [rsp+58h] [rbp-B0h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-98h] BYREF
   int *v24; // [rsp+80h] [rbp-88h]
   __int64 v25; // [rsp+88h] [rbp-80h]
@@ -64,32 +64,28 @@ char __fastcall EtwTraceAdminlessAccessFailure(int a1, __int64 a2, __int64 a3, c
   int v55; // [rsp+1F8h] [rbp+F0h] BYREF
 
   v55 = a1;
-  v21 = 0LL;
-  v22[1] = &word_1407D7BA0;
-  v5 = (unsigned __int16 *)v22;
-  v6 = a3;
-  v22[0] = 0x20000LL;
-  v7 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
-  if ( v7 )
-    v5 = (unsigned __int16 *)v7;
-  if ( !(_DWORD)a3 )
+  v22[0].QuadPart = 0LL;
+  v22[2].QuadPart = (LONGLONG)&word_1407D7CE0;
+  v22[1].QuadPart = 0x20000LL;
+  v5 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
+  if ( !a3 )
   {
     if ( a4 )
     {
       if ( (unsigned int)dword_140C02BF0 <= 5 )
-        goto LABEL_15;
-      LOBYTE(v7) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
-      if ( !(_BYTE)v7 )
-        goto LABEL_15;
-      v19 = v12;
-      v47 = &v19;
-      v10 = &word_14002D98E;
+        goto LABEL_13;
+      LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
+      if ( !(_BYTE)v5 )
+        goto LABEL_13;
+      v20 = v13;
+      v47 = &v20;
+      v10 = (unsigned __int8 *)byte_14002DA99;
       v48 = 4LL;
       v49 = v52;
-      v51 = *((_QWORD *)v5 + 1);
-      v52[0] = *v5;
-      LODWORD(v20) = v55;
-      v53 = &v20;
+      v51 = *((_QWORD *)v12 + 1);
+      v52[0] = *v12;
+      LODWORD(v21) = v55;
+      v53 = &v21;
       v11 = (struct _EVENT_DATA_DESCRIPTOR *)&v46;
       v50 = 2LL;
       v52[1] = 0;
@@ -98,64 +94,64 @@ char __fastcall EtwTraceAdminlessAccessFailure(int a1, __int64 a2, __int64 a3, c
     else
     {
       if ( (unsigned int)dword_140C02BF0 <= 5 )
-        goto LABEL_15;
-      LOBYTE(v7) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
-      if ( !(_BYTE)v7 )
-        goto LABEL_15;
-      v17 = v9;
-      v38 = &v17;
-      v10 = &word_14002D9D6;
+        goto LABEL_13;
+      LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
+      if ( !(_BYTE)v5 )
+        goto LABEL_13;
+      v18 = v9;
+      v38 = &v18;
+      v10 = (unsigned __int8 *)&word_14002DA4E;
       v39 = 4LL;
       v40 = v43;
-      v42 = *((_QWORD *)v5 + 1);
-      v43[0] = *v5;
-      v18 = v55;
-      v44 = &v18;
+      v42 = *((_QWORD *)v8 + 1);
+      v43[0] = *v8;
+      v19 = v55;
+      v44 = &v19;
       v11 = (struct _EVENT_DATA_DESCRIPTOR *)&v37;
       v41 = 2LL;
       v43[1] = 0;
       v45 = 4LL;
     }
-    LOBYTE(v7) = tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02BF0, (unsigned __int8 *)v10, 0LL, 0LL, 6u, v11);
-    goto LABEL_15;
+    LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02BF0, v10, 0LL, 0LL, 6u, v11);
+    goto LABEL_13;
   }
   if ( (unsigned int)dword_140C02BF0 > 5 )
   {
-    LOBYTE(v7) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
-    if ( (_BYTE)v7 )
+    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
+    if ( (_BYTE)v5 )
     {
-      v14 = v8;
-      v27 = &v14;
+      v15 = v7;
+      v27 = &v15;
       v28 = 4LL;
       v29 = v32;
-      v31 = *((_QWORD *)v5 + 1);
-      v32[0] = *v5;
-      v15 = v55;
-      v33 = &v15;
-      v35 = &v16;
+      v31 = *((_QWORD *)v6 + 1);
+      v32[0] = *v6;
+      v16 = v55;
+      v33 = &v16;
+      v35 = &v17;
       v30 = 2LL;
       v32[1] = 0;
       v34 = 4LL;
-      v16 = v6;
+      v17 = a3;
       v36 = 4LL;
-      LOBYTE(v7) = tlgWriteTransfer_EtwWriteTransfer(
+      LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C02BF0,
-                     (unsigned __int8 *)word_14002D922,
+                     (unsigned __int8 *)word_14002D9E2,
                      0LL,
                      0LL,
                      7u,
                      &v26);
     }
   }
-LABEL_15:
+LABEL_13:
   if ( EtwAdminlessProvRegHandle && SeAdminlessEnableEventLogging )
   {
-    KeQuerySystemTimePrecise(&v21, a2, a3, (__int64)v5);
-    UserData.Ptr = (ULONGLONG)&v21;
+    KeQuerySystemTimePrecise(v22);
+    UserData.Ptr = (ULONGLONG)v22;
     *(_QWORD *)&UserData.Size = 8LL;
     v24 = &v55;
     v25 = 4LL;
-    LOBYTE(v7) = EtwWrite(EtwAdminlessProvRegHandle, &LpacAccessFailureLog, 0LL, 2u, &UserData);
+    LOBYTE(v5) = EtwWrite(EtwAdminlessProvRegHandle, &LpacAccessFailureLog, 0LL, 2u, &UserData);
   }
-  return v7;
+  return v5;
 }

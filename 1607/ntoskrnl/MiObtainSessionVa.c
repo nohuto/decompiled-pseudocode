@@ -1,16 +1,16 @@
 /*
- * XREFs of MiObtainSessionVa @ 0x1400A397C
+ * XREFs of MiObtainSessionVa @ 0x1400A22A4
  * Callers:
- *     MiExpandPagedPool @ 0x1400A296C (MiExpandPagedPool.c)
- *     MiExpandPtes @ 0x1400A2C68 (MiExpandPtes.c)
- *     MiExpandSpecialPool @ 0x1401EB618 (MiExpandSpecialPool.c)
+ *     MiExpandPagedPool @ 0x1400A1294 (MiExpandPagedPool.c)
+ *     MiExpandPtes @ 0x1400A1590 (MiExpandPtes.c)
+ *     MiExpandSpecialPool @ 0x1401EB444 (MiExpandSpecialPool.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall MiObtainSessionVa(ULONG NumberToFind)
@@ -322,5 +322,5 @@ LABEL_16:
     ExfTryToWakePushLock(v27 + 7816);
   KeAbPostRelease(v27 + 7816);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
-  return qword_1403268C0 + (v26 << 21);
+  return qword_140326900 + (v26 << 21);
 }

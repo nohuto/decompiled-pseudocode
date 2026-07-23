@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDrvDbQueryHiveFileName @ 0x140737B8C
+ * XREFs of PiDrvDbQueryHiveFileName @ 0x140735ABC
  * Callers:
- *     PiDrvDbMountNode @ 0x140ABC164 (PiDrvDbMountNode.c)
+ *     PiDrvDbMountNode @ 0x140AB7184 (PiDrvDbMountNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PiDrvDbQueryHiveFileName(__int64 a1, UNICODE_STRING *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall PiDrvDbQueryHiveFileName(__int64 a1, UNICODE_STRING *a2)
   wchar_t *Buffer; // rdi
   unsigned __int16 MaximumLength; // si
   int v8; // eax
-  unsigned __int16 v9; // bx
+  ULONG_PTR v9; // rbx
   HANDLE Handle; // [rsp+30h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
   int v13; // [rsp+A0h] [rbp+50h] BYREF
@@ -56,7 +56,7 @@ __int64 __fastcall PiDrvDbQueryHiveFileName(__int64 a1, UNICODE_STRING *a2)
         ExFreePool(Buffer);
       DestinationString.MaximumLength = v9;
       MaximumLength = v9;
-      DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+      DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, v9, 0x67727453u);
       Buffer = DestinationString.Buffer;
       if ( !DestinationString.Buffer )
       {

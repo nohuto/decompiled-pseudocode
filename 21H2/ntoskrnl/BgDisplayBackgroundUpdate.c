@@ -1,12 +1,12 @@
 /*
- * XREFs of BgDisplayBackgroundUpdate @ 0x1409F4748
+ * XREFs of BgDisplayBackgroundUpdate @ 0x1409F5748
  * Callers:
- *     BgkDestroy @ 0x1409F4B08 (BgkDestroy.c)
- *     BgkDisplayBackgroundUpdate @ 0x140A969D4 (BgkDisplayBackgroundUpdate.c)
+ *     BgkDestroy @ 0x1409F5B08 (BgkDestroy.c)
+ *     BgkDisplayBackgroundUpdate @ 0x140A979D4 (BgkDisplayBackgroundUpdate.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
- *     AnFwDisplayBackgroundUpdate @ 0x1409F4784 (AnFwDisplayBackgroundUpdate.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x1409F5784 (AnFwDisplayBackgroundUpdate.c)
  */
 
 __int64 __fastcall BgDisplayBackgroundUpdate(char a1)

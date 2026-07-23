@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogReserveVaFailed @ 0x140658BFC
+ * XREFs of MiLogReserveVaFailed @ 0x140658CE0
  * Callers:
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
  * Callees:
- *     PsGetProcessSessionId @ 0x140014150 (PsGetProcessSessionId.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
+ *     PsGetProcessSessionId @ 0x140013CD0 (PsGetProcessSessionId.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
  */
 
 char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3)
@@ -54,7 +54,7 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3)
   _UNKNOWN *retaddr; // [rsp+130h] [rbp+28h] BYREF
 
   Flink = (struct _LIST_ENTRY *)&retaddr;
-  if ( hProvider )
+  if ( qword_1403277E0 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
     _m_prefetchw((char *)Process[2].ActiveProcessors.Bitmap + 4);
@@ -75,9 +75,9 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3)
       v23 = MEMORY[0xFFFFF780000002C4];
       Flink = Process[1].ThreadListHead.Flink;
       v24 = Flink;
-      if ( hProvider->LevelPlus1 > 5 )
+      if ( qword_1403277E0->LevelPlus1 > 5 )
       {
-        LOBYTE(Flink) = TlgKeywordOn(hProvider, 0x400000000000uLL);
+        LOBYTE(Flink) = TlgKeywordOn(qword_1403277E0, 0x400000000000uLL);
         if ( (_BYTE)Flink )
         {
           v11 = Process[1].Affinity.Bitmap[1];
@@ -108,7 +108,7 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3)
           v39 = 8;
           v42 = 8;
           v45 = 8;
-          LOBYTE(Flink) = TlgWriteEx(v10, &unk_14027C2C2, v9, (ULONG)v10, v13, v14, 9u, &pData);
+          LOBYTE(Flink) = TlgWriteEx(v10, &unk_14027C3C2, v9, (ULONG)v10, v13, v14, 9u, &pData);
         }
       }
     }

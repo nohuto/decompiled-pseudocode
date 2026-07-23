@@ -15,14 +15,14 @@ PSLIST_ENTRY __fastcall HvlNotifyRootCrashdump(int a1)
   PSLIST_ENTRY result; // rax
   char v2; // si
   char v4; // r15
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _DWORD *HypercallCachedPages; // rbx
   PHYSICAL_ADDRESS Next; // rbp
   PSLIST_ENTRY v8; // rax
-  struct _SLIST_ENTRY *v9; // r14
+  _SLIST_ENTRY *v9; // r14
   struct _KPRCB *v10; // rcx
-  union _SLIST_HEADER *v11; // [rsp+28h] [rbp-60h]
-  struct _SLIST_ENTRY *v12; // [rsp+30h] [rbp-58h]
+  _SLIST_HEADER *v11; // [rsp+28h] [rbp-60h]
+  _SLIST_ENTRY *v12; // [rsp+30h] [rbp-58h]
   _BYTE v13[7]; // [rsp+40h] [rbp-48h] BYREF
   _BYTE v14[9]; // [rsp+47h] [rbp-41h] BYREF
   int v15; // [rsp+80h] [rbp-8h]
@@ -33,7 +33,7 @@ PSLIST_ENTRY __fastcall HvlNotifyRootCrashdump(int a1)
     return result;
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v8 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     HypercallCachedPages = v8;
     if ( v8 )

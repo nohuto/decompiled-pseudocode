@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerSetClockTimerMinimumInterval @ 0x140581824
+ * XREFs of HalpTimerSetClockTimerMinimumInterval @ 0x140583D44
  * Callers:
- *     HaliSetSystemInformation @ 0x1407767B4 (HaliSetSystemInformation.c)
+ *     HaliSetSystemInformation @ 0x14077965C (HaliSetSystemInformation.c)
  * Callees:
  *     <none>
  */

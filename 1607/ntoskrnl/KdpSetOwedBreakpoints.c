@@ -1,10 +1,10 @@
 /*
  * XREFs of KdpSetOwedBreakpoints @ 0x1406F640C
  * Callers:
- *     KdSetOwedBreakpoints @ 0x1401D1CE8 (KdSetOwedBreakpoints.c)
+ *     KdSetOwedBreakpoints @ 0x1401D1B14 (KdSetOwedBreakpoints.c)
  * Callees:
- *     KdEnterDebugger @ 0x1406F2738 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x1406F2838 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x1406F23D0 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1406F24D0 (KdExitDebugger.c)
  *     KdpCopyCodeStream @ 0x1406F5FA4 (KdpCopyCodeStream.c)
  *     KdpInsertBreakpoint @ 0x1406F61AC (KdpInsertBreakpoint.c)
  *     KdpRemoveBreakpoint @ 0x1406F635C (KdpRemoveBreakpoint.c)
@@ -28,7 +28,7 @@ void __fastcall KdpSetOwedBreakpoints(__int64 a1)
   v12 = 0LL;
   if ( KdpOweBreakpoint )
   {
-    v1 = (_KPROCESS **)&unk_14030F668;
+    v1 = (_KPROCESS **)&unk_14030F6A8;
     v2 = a1 & 0xFFFFFFFFFFFFF000uLL;
     Process = KeGetCurrentThread()->ApcState.Process;
     while ( 1 )
@@ -47,12 +47,12 @@ void __fastcall KdpSetOwedBreakpoints(__int64 a1)
         }
       }
       v1 += 5;
-      if ( (__int64)v1 >= (__int64)&unk_14030FB68 )
+      if ( (__int64)v1 >= (__int64)&unk_14030FBA8 )
         return;
     }
     v7 = KdEnterDebugger(0LL);
     KdpOweBreakpoint = 0;
-    v8 = (unsigned __int8 *)&unk_14030F685;
+    v8 = (unsigned __int8 *)&unk_14030F6C5;
     do
     {
       if ( (*(_DWORD *)(v8 - 5) & 0xA) != 0 )
@@ -83,7 +83,7 @@ void __fastcall KdpSetOwedBreakpoints(__int64 a1)
       }
       v8 += 40;
     }
-    while ( (__int64)v8 < (__int64)byte_14030FB85 );
+    while ( (__int64)v8 < (__int64)byte_14030FBC5 );
     KdExitDebugger(v7);
   }
 }

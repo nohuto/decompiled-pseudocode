@@ -1,10 +1,10 @@
 /*
- * XREFs of McGenEventRegister_EtwRegister @ 0x1403B7368
+ * XREFs of McGenEventRegister_EtwRegister @ 0x1403B74D8
  * Callers:
- *     FsRtlpHeatRegisterVolume @ 0x14088D0C8 (FsRtlpHeatRegisterVolume.c)
- *     PnpDiagInitialize @ 0x140A53304 (PnpDiagInitialize.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14088D228 (FsRtlpHeatRegisterVolume.c)
+ *     PnpDiagInitialize @ 0x140A54304 (PnpDiagInitialize.c)
  * Callees:
- *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
+ *     EtwRegister @ 0x140762E70 (EtwRegister.c)
  */
 
 NTSTATUS __fastcall McGenEventRegister_EtwRegister(const GUID *a1, __int64 a2, void *a3, ULONGLONG *a4)

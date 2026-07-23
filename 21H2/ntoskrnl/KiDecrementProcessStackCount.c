@@ -1,14 +1,14 @@
 /*
- * XREFs of KiDecrementProcessStackCount @ 0x140207A80
+ * XREFs of KiDecrementProcessStackCount @ 0x1402AC380
  * Callers:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiSuspendThread @ 0x14027A324 (KiSuspendThread.c)
- *     KiOutSwapKernelStacks @ 0x1402E4740 (KiOutSwapKernelStacks.c)
- *     KeDeleteThread @ 0x1402E4B78 (KeDeleteThread.c)
- *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
+ *     KiSuspendThread @ 0x1402682C4 (KiSuspendThread.c)
+ *     KiOutSwapKernelStacks @ 0x140295A90 (KiOutSwapKernelStacks.c)
+ *     KeDeleteThread @ 0x140295EC8 (KeDeleteThread.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     KiCommitThreadWait @ 0x140350D00 (KiCommitThreadWait.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

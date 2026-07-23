@@ -1,7 +1,8 @@
 /*
- * XREFs of SeIsPermissiveLearningModeEnabled @ 0x14046210C
+ * XREFs of SeIsPermissiveLearningModeEnabled @ 0x14045771C
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
+ *     PsConvertToGuiThread @ 0x140AC9700 (PsConvertToGuiThread.c)
  * Callees:
  *     <none>
  */

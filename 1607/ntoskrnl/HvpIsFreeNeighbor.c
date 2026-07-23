@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpIsFreeNeighbor @ 0x1404018CC
+ * XREFs of HvpIsFreeNeighbor @ 0x14040078C
  * Callers:
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
  * Callees:
- *     HvpDelistFreeCell @ 0x140401978 (HvpDelistFreeCell.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     HvpDelistFreeCell @ 0x140400838 (HvpDelistFreeCell.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 char __fastcall HvpIsFreeNeighbor(ULONG_PTR BugCheckParameter2, _DWORD *a2, int *a3, int **a4, int a5)

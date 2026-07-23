@@ -1,7 +1,7 @@
 /*
- * XREFs of SepGetTokenLoggingInformationBufferSize @ 0x140ABABE0
+ * XREFs of SepGetTokenLoggingInformationBufferSize @ 0x140ABC0A0
  * Callers:
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
  * Callees:
  *     <none>
  */

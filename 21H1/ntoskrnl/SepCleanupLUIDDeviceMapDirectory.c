@@ -34,10 +34,10 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   struct _LIST_ENTRY *v9; // rsi
   NTSTATUS v10; // edi
   HANDLE *PoolWithTag; // r14
-  __int64 v12; // rdi
-  int v13; // r12d
-  int DirectoryObject; // esi
-  unsigned int v15; // r15d
+  unsigned int RestartScan; // r15d
+  __int64 v13; // rdi
+  SIZE_T v14; // r12
+  NTSTATUS v15; // esi
   HANDLE *v16; // rsi
   __int64 v17; // r8
   _DWORD *v18; // r9
@@ -47,26 +47,28 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   __int64 v23; // r8
   _DWORD *v24; // r9
   char v25; // [rsp+40h] [rbp-C0h]
-  int NumberOfBytes_4; // [rsp+48h] [rbp-B8h]
+  ULONG ReturnLength; // [rsp+44h] [rbp-BCh] BYREF
+  ULONG Length; // [rsp+48h] [rbp-B8h]
   HANDLE DirectoryHandle; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE LinkHandle; // [rsp+58h] [rbp-A8h] BYREF
-  int v29; // [rsp+60h] [rbp-A0h]
-  struct _LIST_ENTRY *v30; // [rsp+68h] [rbp-98h]
+  ULONG Context; // [rsp+60h] [rbp-A0h] BYREF
+  struct _LIST_ENTRY *v31; // [rsp+68h] [rbp-98h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
-  _OWORD v33[3]; // [rsp+B0h] [rbp-50h] BYREF
+  _OWORD v34[3]; // [rsp+B0h] [rbp-50h] BYREF
   wchar_t Dst[64]; // [rsp+E0h] [rbp-20h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   LinkHandle = 0LL;
   v4 = 0LL;
-  v29 = 0;
+  Context = 0;
   v5 = 100;
-  NumberOfBytes_4 = 0;
+  ReturnLength = 0;
   DirectoryHandle = 0LL;
+  Length = 0;
   DestinationString = 0LL;
-  memset(v33, 0, sizeof(v33));
+  memset(v34, 0, sizeof(v34));
   if ( !a1 )
     return 3221225485LL;
   v25 = ObReferenceObjectSafeWithTag((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -74,7 +76,7 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   if ( v25 )
     ObfDereferenceObjectWithTag(KeGetCurrentThread()->ApcState.Process, 0x4D526553u);
   else
-    KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v33, v6);
+    KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v34, v6);
   ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId((__int64)a2);
   swprintf_s(Dst, 0x40uLL, L"\\Sessions\\%d\\DosDevices\\%08x-%08x", ServerSiloServiceSessionId, a1[1], *a1);
   RtlInitUnicodeString(&DestinationString, Dst);
@@ -83,14 +85,14 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   ObjectAttributes.RootDirectory = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ObjectAttributes.Attributes = 576;
-  v30 = PsAttachSiloToCurrentThread(a2);
-  v9 = v30;
+  v31 = PsAttachSiloToCurrentThread(a2);
+  v9 = v31;
   v10 = ZwOpenDirectoryObject(&DirectoryHandle, 1u, &ObjectAttributes);
   if ( v10 < 0 )
   {
     PsDetachSiloFromCurrentThread(v9);
     if ( !v25 )
-      KiUnstackDetachProcess((__int64)v33, 0LL, v20, v21);
+      KiUnstackDetachProcess((__int64)v34, 0LL, v20, v21);
     return (unsigned int)v10;
   }
   else
@@ -99,49 +101,50 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
     if ( PoolWithTag )
     {
 LABEL_6:
-      v12 = 0LL;
+      LOBYTE(RestartScan) = 1;
+      v13 = 0LL;
       while ( 1 )
       {
-        v13 = NumberOfBytes_4;
+        LODWORD(v14) = Length;
         do
         {
-          DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v4);
-          if ( DirectoryObject == -1073741789 )
+          v15 = ZwQueryDirectoryObject(DirectoryHandle, v4, v14, 1u, RestartScan, &Context, &ReturnLength);
+          if ( v15 == -1073741789 )
           {
-            v13 = 0;
+            v14 = ReturnLength;
             if ( v4 )
               ExFreePoolWithTag(v4, 0);
-            v4 = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, 0LL, 0x62446553u);
+            v4 = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, v14, 0x62446553u);
             if ( !v4 )
-              DirectoryObject = -1073741670;
+              v15 = -1073741670;
           }
         }
-        while ( DirectoryObject == -1073741789 );
-        v15 = 0;
-        NumberOfBytes_4 = v13;
+        while ( v15 == -1073741789 );
+        RestartScan = 0;
+        Length = v14;
         v7 = v25;
-        if ( DirectoryObject < 0 )
+        if ( v15 < 0 )
           break;
         if ( !wcscmp(v4[1].Buffer, L"SymbolicLink") )
         {
-          if ( (unsigned int)v12 >= v5 )
+          if ( (unsigned int)v13 >= v5 )
           {
-            if ( (_DWORD)v12 )
+            if ( (_DWORD)v13 )
             {
               v22 = PoolWithTag;
               do
               {
                 ZwClose(*v22++);
-                --v12;
+                --v13;
               }
-              while ( v12 );
+              while ( v13 );
             }
             v5 += 20;
             ExFreePoolWithTag(PoolWithTag, 0);
             PoolWithTag = (HANDLE *)ExAllocatePoolWithTag(PagedPool, 8LL * v5, 0x61486553u);
             if ( !PoolWithTag )
             {
-              v9 = v30;
+              v9 = v31;
               goto LABEL_44;
             }
             goto LABEL_6;
@@ -159,33 +162,33 @@ LABEL_6:
             }
             else
             {
-              PoolWithTag[v12] = LinkHandle;
-              v12 = (unsigned int)(v12 + 1);
+              PoolWithTag[v13] = LinkHandle;
+              v13 = (unsigned int)(v13 + 1);
             }
           }
         }
       }
-      if ( DirectoryObject != -2147483622 )
-        v15 = DirectoryObject;
-      if ( (_DWORD)v12 )
+      if ( v15 != -2147483622 )
+        RestartScan = v15;
+      if ( (_DWORD)v13 )
       {
         v16 = PoolWithTag;
         do
         {
           ZwClose(*v16++);
-          --v12;
+          --v13;
         }
-        while ( v12 );
+        while ( v13 );
       }
       ExFreePoolWithTag(PoolWithTag, 0);
       if ( v4 )
         ExFreePoolWithTag(v4, 0);
       if ( DirectoryHandle )
         ZwClose(DirectoryHandle);
-      PsDetachSiloFromCurrentThread(v30);
+      PsDetachSiloFromCurrentThread(v31);
       if ( !v25 )
-        KiUnstackDetachProcess((__int64)v33, 0LL, v17, v18);
-      return v15;
+        KiUnstackDetachProcess((__int64)v34, 0LL, v17, v18);
+      return RestartScan;
     }
     else
     {
@@ -195,7 +198,7 @@ LABEL_44:
         ExFreePoolWithTag(v4, 0);
       PsDetachSiloFromCurrentThread(v9);
       if ( !v7 )
-        KiUnstackDetachProcess((__int64)v33, 0LL, v23, v24);
+        KiUnstackDetachProcess((__int64)v34, 0LL, v23, v24);
       return 3221225495LL;
     }
   }

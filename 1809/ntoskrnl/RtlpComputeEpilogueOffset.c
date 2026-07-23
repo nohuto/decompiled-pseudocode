@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpComputeEpilogueOffset @ 0x1401AEF6C
+ * XREFs of RtlpComputeEpilogueOffset @ 0x1401AF0AC
  * Callers:
- *     FsRtlTruncateSmallMcb @ 0x1403229C0 (FsRtlTruncateSmallMcb.c)
+ *     FsRtlTruncateSmallMcb @ 0x140322BB0 (FsRtlTruncateSmallMcb.c)
  * Callees:
- *     KeExitRetpoline @ 0x14013916C (KeExitRetpoline.c)
- *     sub_140349570 @ 0x140349570 (sub_140349570.c)
- *     KeGuardDispatchICall @ 0x14034AB40 (KeGuardDispatchICall.c)
+ *     KeExitRetpoline @ 0x14013926C (KeExitRetpoline.c)
+ *     sub_14034A570 @ 0x14034A570 (sub_14034A570.c)
+ *     KeGuardDispatchICall @ 0x14034BB40 (KeGuardDispatchICall.c)
  */
 
 __int64 __fastcall RtlpComputeEpilogueOffset(__int64 a1, _QWORD *a2, unsigned __int64 a3, _QWORD *a4)
@@ -39,6 +39,6 @@ __int64 __fastcall RtlpComputeEpilogueOffset(__int64 a1, _QWORD *a2, unsigned __
     KeExitRetpoline(v7, a2, a3, a4);
   else
     _mm_lfence();
-  sub_140349570(a1, v4, 0LL, 0LL);
+  sub_14034A570(a1, v4, 0LL, 0LL);
   return ((__int64 (__fastcall *)(_QWORD *, __int64))v4[33])(v4 + 240, 1LL);
 }

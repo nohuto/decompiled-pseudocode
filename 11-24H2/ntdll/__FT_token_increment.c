@@ -1,7 +1,7 @@
 /*
- * XREFs of __FT_token_increment @ 0x180146118
+ * XREFs of __FT_token_increment @ 0x1801444C8
  * Callers:
- *     RtlpFtFeatureConfigChangeCallback @ 0x180145EF0 (RtlpFtFeatureConfigChangeCallback.c)
+ *     RtlpFtFeatureConfigChangeCallback @ 0x1801442A0 (RtlpFtFeatureConfigChangeCallback.c)
  * Callees:
  *     <none>
  */

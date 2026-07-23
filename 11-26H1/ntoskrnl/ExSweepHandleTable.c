@@ -1,25 +1,25 @@
 /*
- * XREFs of ExSweepHandleTable @ 0x140958F4C
+ * XREFs of ExSweepHandleTable @ 0x1409FE810
  * Callers:
- *     ObKillProcess @ 0x140958EE4 (ObKillProcess.c)
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
- *     ObInitProcess @ 0x140971938 (ObInitProcess.c)
+ *     ObInitProcess @ 0x1409BCC28 (ObInitProcess.c)
+ *     ObKillProcess @ 0x1409FE7A8 (ObKillProcess.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
- *     ObCloseHandleTableEntry2 @ 0x1408FAF70 (ObCloseHandleTableEntry2.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
+ *     ObCloseHandleTableEntry2 @ 0x14092AF00 (ObCloseHandleTableEntry2.c)
  */
 
-$7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall ExSweepHandleTable(struct _KPROCESS *a1, __int64 a2, char a3)
+$241382875694CED3D471BC5892DE3337 *__fastcall ExSweepHandleTable(struct _KPROCESS *a1, __int64 a2, char a3)
 {
   char v3; // r13
   struct _KTHREAD *CurrentThread; // r14
@@ -32,21 +32,19 @@ $7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall ExSweepHandleTable(struct _KPROCES
   AutoBoost *v13; // rax
   void *v14; // rdx
   AutoBoost *v15; // rsi
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *result; // rax
-  char v19; // [rsp+40h] [rbp-78h]
+  $241382875694CED3D471BC5892DE3337 *result; // rax
+  char v17; // [rsp+40h] [rbp-78h]
   struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-70h] BYREF
 
   memset(&ApcState, 0, sizeof(ApcState));
   v3 = 0;
-  v19 = 0;
+  v17 = 0;
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->ApcState.Process != a1 )
   {
     KeStackAttachProcess(a1, &ApcState);
     v3 = 1;
-    v19 = 1;
+    v17 = 1;
   }
   --CurrentThread->KernelApcDisable;
   v7 = 4LL;
@@ -78,7 +76,7 @@ LABEL_8:
             v9 = (__int64 *)ExpLookupHandleTableEntry((unsigned int *)a2, v7);
             if ( !v9 )
             {
-              v3 = v19;
+              v3 = v17;
               goto LABEL_11;
             }
           }
@@ -112,7 +110,7 @@ LABEL_11:
     ExfTryToWakePushLock((volatile signed __int64 *)(a2 + 64));
   KeAbPostRelease(a2 + 64);
   *(_BYTE *)(a2 + 44) |= 4u;
-  result = ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)KeLeaveCriticalRegionThread((__int64)CurrentThread, v16, v17);
+  result = ($241382875694CED3D471BC5892DE3337 *)KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v3 == 1 )
     return KiUnstackDetachProcess((__int64)&ApcState, 0);
   return result;

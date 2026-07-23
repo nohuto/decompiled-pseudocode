@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwSetInformationResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, *(_QWORD *)&ResourceManagerInformationClass);
+  return sub_140433F80(ResourceManagerHandle, *(_QWORD *)&ResourceManagerInformationClass);
 }

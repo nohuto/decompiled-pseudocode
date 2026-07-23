@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpPrepareForSubtreeInvalidation @ 0x1408AF9AC
+ * XREFs of CmpPrepareForSubtreeInvalidation @ 0x1408B5EAC
  * Callers:
- *     CmpSaveBootControlSet @ 0x14084CBB8 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback @ 0x14085EF80 (CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback.c)
- *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x1408BC6D0 (CmpTransMgrFreeVolatileData.c)
- *     CmRestoreKey @ 0x140986024 (CmRestoreKey.c)
+ *     CmpSaveBootControlSet @ 0x140852EC8 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback @ 0x140865270 (CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmpPerformUnloadKey @ 0x1408B6104 (CmpPerformUnloadKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1408C2CA0 (CmpTransMgrFreeVolatileData.c)
+ *     CmRestoreKey @ 0x140947D24 (CmRestoreKey.c)
  * Callees:
- *     CmpPrepareForSubtreeInvalidationWorker @ 0x1408AFACC (CmpPrepareForSubtreeInvalidationWorker.c)
- *     CmpCleanUpKCBCacheTable @ 0x1408AFB20 (CmpCleanUpKCBCacheTable.c)
+ *     CmpPrepareForSubtreeInvalidationWorker @ 0x1408B5FCC (CmpPrepareForSubtreeInvalidationWorker.c)
+ *     CmpCleanUpKCBCacheTable @ 0x1408B6020 (CmpCleanUpKCBCacheTable.c)
  */
 
 __int64 __fastcall CmpPrepareForSubtreeInvalidation(__int64 a1, int a2, __int64 a3)

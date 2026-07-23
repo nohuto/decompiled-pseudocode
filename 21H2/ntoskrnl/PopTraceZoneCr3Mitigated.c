@@ -1,15 +1,15 @@
 /*
- * XREFs of PopTraceZoneCr3Mitigated @ 0x140573AD0
+ * XREFs of PopTraceZoneCr3Mitigated @ 0x140573D10
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1403C50F8 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalZoneRemove @ 0x1408E7D80 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C5528 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalZoneRemove @ 0x1408E7EE0 (PopThermalZoneRemove.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceZoneCr3Mitigated(int a1, __int64 a2)
@@ -55,7 +55,7 @@ char __fastcall PopTraceZoneCr3Mitigated(int a1, __int64 a2)
         tlgCreate1Sz_wchar_t((__int64)v19, v8);
         LOBYTE(DeviceAttachmentBaseRefWithTag) = tlgWriteTransfer_EtwWriteTransfer(
                                                    (__int64)&dword_140C02228,
-                                                   (unsigned __int8 *)byte_140028011,
+                                                   (unsigned __int8 *)byte_140028019,
                                                    0LL,
                                                    0LL,
                                                    5u,

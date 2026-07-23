@@ -13,17 +13,15 @@
  *     PopDispatchStateCallout @ 0x140725A94 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PoBlockConsoleSwitch(__int64 a1, __int64 a2)
+ULONG __fastcall PoBlockConsoleSwitch(__int64 a1)
 {
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  int ActiveConsoleId; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActiveConsoleId; // [rsp+30h] [rbp+8h] BYREF
   LARGE_INTEGER Interval; // [rsp+38h] [rbp+10h] BYREF
 
   Interval.QuadPart = -100000LL;
   while ( 1 )
   {
-    ActiveConsoleId = RtlGetActiveConsoleId(a1, a2);
+    ActiveConsoleId = RtlGetActiveConsoleId();
     if ( ActiveConsoleId != -1 )
     {
       *(_DWORD *)(a1 + 16) = 0;
@@ -32,5 +30,5 @@ __int64 __fastcall PoBlockConsoleSwitch(__int64 a1, __int64 a2)
     }
     KeDelayExecutionThread(0, 0, &Interval);
   }
-  return RtlGetActiveConsoleId(v4, v3);
+  return RtlGetActiveConsoleId();
 }

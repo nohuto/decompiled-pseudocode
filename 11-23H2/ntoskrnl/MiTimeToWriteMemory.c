@@ -1,8 +1,8 @@
 /*
- * XREFs of MiTimeToWriteMemory @ 0x1403521D8
+ * XREFs of MiTimeToWriteMemory @ 0x140352378
  * Callers:
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     MiAllocateFastLargePagesForMdl @ 0x14038B504 (MiAllocateFastLargePagesForMdl.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x14038B6E4 (MiAllocateFastLargePagesForMdl.c)
  * Callees:
  *     <none>
  */

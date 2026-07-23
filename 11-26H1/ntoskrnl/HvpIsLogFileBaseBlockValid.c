@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpIsLogFileBaseBlockValid @ 0x140ADFCE8
+ * XREFs of HvpIsLogFileBaseBlockValid @ 0x140ADD528
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140ADF748 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140ADCF88 (HvAnalyzeLogFiles.c)
  * Callees:
- *     HvpHeaderCheckSum @ 0x140C58720 (HvpHeaderCheckSum.c)
+ *     HvpHeaderCheckSum @ 0x140C5E720 (HvpHeaderCheckSum.c)
  */
 
 bool __fastcall HvpIsLogFileBaseBlockValid(__int64 a1, _QWORD *a2)

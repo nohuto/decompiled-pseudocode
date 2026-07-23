@@ -1,12 +1,12 @@
 /*
- * XREFs of VfWdCheckForSettingsChange @ 0x140B9C898
+ * XREFs of VfWdCheckForSettingsChange @ 0x140B9E898
  * Callers:
- *     ViSettingsIoCheckForChanges @ 0x140B9B3CC (ViSettingsIoCheckForChanges.c)
- *     VfWdSetCancelTimeout @ 0x140B9C9B8 (VfWdSetCancelTimeout.c)
+ *     ViSettingsIoCheckForChanges @ 0x140B9D3CC (ViSettingsIoCheckForChanges.c)
+ *     VfWdSetCancelTimeout @ 0x140B9E9B8 (VfWdSetCancelTimeout.c)
  * Callees:
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KeRemoveQueueDpcEx @ 0x140464090 (KeRemoveQueueDpcEx.c)
- *     ViWdStartTimer @ 0x140B9CD4C (ViWdStartTimer.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KeRemoveQueueDpcEx @ 0x14045A7C0 (KeRemoveQueueDpcEx.c)
+ *     ViWdStartTimer @ 0x140B9ED4C (ViWdStartTimer.c)
  */
 
 __int64 __fastcall VfWdCheckForSettingsChange(char a1)

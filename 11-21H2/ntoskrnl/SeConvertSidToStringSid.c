@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     LocalConvertSidToStringSidW @ 0x1406C85A0 (LocalConvertSidToStringSidW.c)
+ *     sub_1406C85A0 @ 0x1406C85A0 (sub_1406C85A0.c)
  */
 
 __int64 __fastcall SeConvertSidToStringSid(void *a1)
 {
-  return LocalConvertSidToStringSidW(a1);
+  return sub_1406C85A0(a1);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiDpcRuntimeHistoryHashTableCleanupTimerCallback @ 0x140476B20
+ * XREFs of KiDpcRuntimeHistoryHashTableCleanupTimerCallback @ 0x1404730C0
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KiDpcRuntimeHistoryHashTableCleanupDpcRoutine @ 0x140476BE0 (KiDpcRuntimeHistoryHashTableCleanupDpcRoutine.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KiDpcRuntimeHistoryHashTableCleanupDpcRoutine @ 0x140473180 (KiDpcRuntimeHistoryHashTableCleanupDpcRoutine.c)
  */
 
 void KiDpcRuntimeHistoryHashTableCleanupTimerCallback()
@@ -24,7 +24,7 @@ void KiDpcRuntimeHistoryHashTableCleanupTimerCallback()
     {
       _BitScanForward64(&v3, v1);
       v1 &= ~(1LL << v3);
-      Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * i + (unsigned __int8)v3));
+      Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * i + (unsigned __int8)v3));
       if ( (struct _KPRCB *)Prcb != CurrentPrcb )
         KeInsertQueueDpc(*(PRKDPC *)(Prcb + 14360), 0LL, 0LL);
     }

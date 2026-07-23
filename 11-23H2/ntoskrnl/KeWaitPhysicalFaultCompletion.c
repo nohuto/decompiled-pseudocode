@@ -1,11 +1,11 @@
 /*
- * XREFs of KeWaitPhysicalFaultCompletion @ 0x140578D88
+ * XREFs of KeWaitPhysicalFaultCompletion @ 0x140579278
  * Callers:
- *     HvlNotifyPageHeat @ 0x140679314 (HvlNotifyPageHeat.c)
+ *     HvlNotifyPageHeat @ 0x140679864 (HvlNotifyPageHeat.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiEpfDrainCompletionQueue @ 0x140578F8C (KiEpfDrainCompletionQueue.c)
- *     KiEpfStart @ 0x140579034 (KiEpfStart.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiEpfDrainCompletionQueue @ 0x14057947C (KiEpfDrainCompletionQueue.c)
+ *     KiEpfStart @ 0x140579524 (KiEpfStart.c)
  */
 
 __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)
   ++dword_140C416FC;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v4) = 4;
@@ -33,10 +33,10 @@ __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)
   }
   KiEpfDrainCompletionQueue();
   KiEpfStart(a1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v5 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v7 = CurrentPrcb->SchedulerAssist;

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiDisconnectInterruptCommon @ 0x1401242B8
+ * XREFs of KiDisconnectInterruptCommon @ 0x140124828
  * Callers:
- *     KeDisconnectInterrupt @ 0x140123E5C (KeDisconnectInterrupt.c)
- *     KiDisconnectSecondaryInterrupt @ 0x1401D5BD8 (KiDisconnectSecondaryInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x1401243CC (KeDisconnectInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x1401D5A04 (KiDisconnectSecondaryInterrupt.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KiDisconnectInterruptInternal @ 0x1401243DC (KiDisconnectInterruptInternal.c)
- *     KiReleaseInterruptConnectLock @ 0x14012D2AC (KiReleaseInterruptConnectLock.c)
- *     KiAcquireInterruptConnectLock @ 0x14012D2BC (KiAcquireInterruptConnectLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiDisconnectSecondaryInterruptInternal @ 0x1401D5CA0 (KiDisconnectSecondaryInterruptInternal.c)
- *     KiSignalWaitDisconnectLock @ 0x1401D8D0C (KiSignalWaitDisconnectLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KiDisconnectInterruptInternal @ 0x14012494C (KiDisconnectInterruptInternal.c)
+ *     KiReleaseInterruptConnectLock @ 0x14012D81C (KiReleaseInterruptConnectLock.c)
+ *     KiAcquireInterruptConnectLock @ 0x14012D82C (KiAcquireInterruptConnectLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiDisconnectSecondaryInterruptInternal @ 0x1401D5ACC (KiDisconnectSecondaryInterruptInternal.c)
+ *     KiSignalWaitDisconnectLock @ 0x1401D8B38 (KiSignalWaitDisconnectLock.c)
  */
 
 __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3, __int64 a4)

@@ -16,6 +16,6 @@ __int64 __fastcall HvlUnregisterDeviceId(unsigned __int64 a1)
     return 3221225485LL;
   v3[0] = -1LL;
   v3[1] = a1;
-  v2 = HvcallFastExtended(65667LL, (__int64)v3, 16LL, 0LL, 0);
+  v2 = HvcallFastExtended(65667LL, (__int64)v3, 0x10u, 0, 0);
   return HvlpHvToNtStatus(v2);
 }

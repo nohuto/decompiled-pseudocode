@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x1404FEDD0
+ * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x1404FF320
  * Callers:
  *     <none>
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 bool __fastcall HalpTimerQueryAndResetRtcErrors(char a1)
@@ -25,25 +25,25 @@ bool __fastcall HalpTimerQueryAndResetRtcErrors(char a1)
   v1 = _InterlockedExchange(&HalpTimerRtcErrorCode, 0);
   if ( a1 )
   {
-    if ( (unsigned int)dword_140C04BF0 > 5 && tlgKeywordOn((__int64)&dword_140C04BF0, 0x400000000000LL) )
+    if ( (unsigned int)dword_140C04BB0 > 5 && tlgKeywordOn((__int64)&dword_140C04BB0, 0x400000000000LL) )
     {
       v12 = 0;
       v10 = &v8;
       v8 = v1;
       v11 = 4;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C04BF0, (unsigned __int8 *)&byte_140029431, v2, 1u, v6, v7, 3u, v9);
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C04BB0, (unsigned __int8 *)&byte_1400294B1, v2, 1u, v6, v7, 3u, v9);
     }
     v3 = 9;
   }
   else
   {
-    if ( (unsigned int)dword_140C04BF0 > 5 && tlgKeywordOn((__int64)&dword_140C04BF0, 0x400000000000LL) )
+    if ( (unsigned int)dword_140C04BB0 > 5 && tlgKeywordOn((__int64)&dword_140C04BB0, 0x400000000000LL) )
     {
       v12 = 0;
       v10 = &v8;
       v8 = v1;
       v11 = 4;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C04BF0, (unsigned __int8 *)&word_1400293F6, v4, 1u, v6, v7, 3u, v9);
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C04BB0, (unsigned __int8 *)&word_140029476, v4, 1u, v6, v7, 3u, v9);
     }
     v3 = 31;
   }

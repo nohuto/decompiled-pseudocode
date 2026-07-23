@@ -1,29 +1,29 @@
 /*
- * XREFs of MiDeleteUltraThreadContext @ 0x14020C870
+ * XREFs of MiDeleteUltraThreadContext @ 0x140335BD0
  * Callers:
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiFindContiguousPagesEx @ 0x140304960 (MiFindContiguousPagesEx.c)
- *     MiZeroLargePage @ 0x140308BDC (MiZeroLargePage.c)
- *     MiZeroInParallelWorker @ 0x14030A090 (MiZeroInParallelWorker.c)
- *     MiDeleteZeroThreadContext @ 0x1403C6608 (MiDeleteZeroThreadContext.c)
- *     MiInitializeNewUltraHugeContext @ 0x1403F98CC (MiInitializeNewUltraHugeContext.c)
- *     MiDereferenceHugeContext @ 0x1404CFD8C (MiDereferenceHugeContext.c)
- *     MiHugePageOperation @ 0x140685BC0 (MiHugePageOperation.c)
- *     MiDefragmentSlabWorker @ 0x140686E60 (MiDefragmentSlabWorker.c)
- *     MiFreeForkMappingPte @ 0x1406FBF5C (MiFreeForkMappingPte.c)
- *     MmDeleteProcessor @ 0x1407E8154 (MmDeleteProcessor.c)
- *     MiReleaseScrubPacket @ 0x1407FD9F4 (MiReleaseScrubPacket.c)
- *     MmRelocatePfnList @ 0x140932988 (MmRelocatePfnList.c)
- *     MiCombineIdenticalPages @ 0x140A9C0E0 (MiCombineIdenticalPages.c)
- *     MmInitializeProcessor @ 0x140B62038 (MmInitializeProcessor.c)
+ *     MiFindContiguousPagesEx @ 0x14030E840 (MiFindContiguousPagesEx.c)
+ *     MiZeroLargePage @ 0x140312ABC (MiZeroLargePage.c)
+ *     MiZeroInParallelWorker @ 0x140313F70 (MiZeroInParallelWorker.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403EF7D8 (MiInitializeNewUltraHugeContext.c)
+ *     MiDeleteZeroThreadContext @ 0x140412560 (MiDeleteZeroThreadContext.c)
+ *     MiDereferenceHugeContext @ 0x1404C8E3C (MiDereferenceHugeContext.c)
+ *     MiHugePageOperation @ 0x140686CF0 (MiHugePageOperation.c)
+ *     MiDefragmentSlabWorker @ 0x140687F90 (MiDefragmentSlabWorker.c)
+ *     MiFreeForkMappingPte @ 0x1406F9B9C (MiFreeForkMappingPte.c)
+ *     MmDeleteProcessor @ 0x1407E8724 (MmDeleteProcessor.c)
+ *     MiReleaseScrubPacket @ 0x1407FE164 (MiReleaseScrubPacket.c)
+ *     MmRelocatePfnList @ 0x1408F754C (MmRelocatePfnList.c)
+ *     MiCombineIdenticalPages @ 0x140A97650 (MiCombineIdenticalPages.c)
+ *     MmInitializeProcessor @ 0x140B64108 (MmInitializeProcessor.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
- *     MiReleaseFreshPage @ 0x140221FC0 (MiReleaseFreshPage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140222030 (MiReleaseFreshPageAtDpc.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x1402236D0 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiManageUltraSpacePageTable @ 0x1402D1CC4 (MiManageUltraSpacePageTable.c)
- *     MiArePageContentsZero @ 0x1404CA060 (MiArePageContentsZero.c)
+ *     MiReleaseFreshPage @ 0x14024ED10 (MiReleaseFreshPage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x14024ED80 (MiReleaseFreshPageAtDpc.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x140250420 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
+ *     MiManageUltraSpacePageTable @ 0x140352F3C (MiManageUltraSpacePageTable.c)
+ *     MiArePageContentsZero @ 0x1404C33B0 (MiArePageContentsZero.c)
  */
 
 __int64 __fastcall MiDeleteUltraThreadContext(__int64 a1)
@@ -34,13 +34,16 @@ __int64 __fastcall MiDeleteUltraThreadContext(__int64 a1)
   __int64 result; // rax
   unsigned int v5; // r12d
   unsigned int v6; // r15d
-  unsigned __int64 v7; // rbp
-  ULONG_PTR v8; // rcx
-  __int64 v9; // rdi
-  ULONG_PTR v10; // rcx
-  __int64 v11; // rdi
-  unsigned int v12; // eax
-  unsigned int v13; // eax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  unsigned __int64 v10; // rbp
+  ULONG_PTR v11; // rcx
+  __int64 v12; // rdi
+  ULONG_PTR v13; // rcx
+  __int64 v14; // rdi
+  unsigned int v15; // eax
+  unsigned int v16; // eax
 
   v1 = a1 + 16;
   v2 = 0;
@@ -57,53 +60,53 @@ __int64 __fastcall MiDeleteUltraThreadContext(__int64 a1)
       if ( KeGetCurrentIrql() != 2 )
         v6 = 2;
       MiGetUltraMapping(v1 - 16, v2, *v3, v6);
-      _InterlockedDecrement(&dword_140E35F1C);
-      v7 = 0LL;
-      v8 = *(_QWORD *)(v1 - 8);
-      if ( v8 != -1LL )
+      _InterlockedDecrement(&dword_140E3605C);
+      v10 = 0LL;
+      v11 = *(_QWORD *)(v1 - 8);
+      if ( v11 != -1LL )
       {
-        v9 = 48 * v8 - 0x220000000000LL;
-        if ( byte_140E2DB41 )
+        v12 = 48 * v11 - 0x220000000000LL;
+        if ( byte_140E2DC81 )
         {
-          v12 = MI_PAGE_TO_FULL_COLOR(v8);
-          MiManageUltraSpacePageTable(v9, v12, v5);
+          v15 = MI_PAGE_TO_FULL_COLOR(v11);
+          MiManageUltraSpacePageTable(v12, v15, v5);
         }
         else
         {
-          if ( (MiFlags & 0x80u) != 0LL && (++dword_140E30170 & MmPageValidationFrequency) == 0 )
-            MiArePageContentsZero(v8);
+          if ( (MiFlags & 0x80u) != 0LL && (++dword_140E302B0 & MmPageValidationFrequency) == 0 )
+            MiArePageContentsZero(v11);
           if ( (v6 & 4) != 0 )
-            MiReleaseFreshPageAtDpc(v9);
+            MiReleaseFreshPageAtDpc(v12, v7, v8, v9);
           else
-            MiReleaseFreshPage(v9);
-          v7 = 1LL;
+            MiReleaseFreshPage(v12);
+          v10 = 1LL;
         }
         *(_QWORD *)(v1 - 8) = -1LL;
       }
-      v10 = *(_QWORD *)v1;
+      v13 = *(_QWORD *)v1;
       if ( *(_QWORD *)v1 != -1LL )
       {
-        v11 = 48 * v10 - 0x220000000000LL;
-        if ( byte_140E2DB41 )
+        v14 = 48 * v13 - 0x220000000000LL;
+        if ( byte_140E2DC81 )
         {
-          v13 = MI_PAGE_TO_FULL_COLOR(v10);
-          MiManageUltraSpacePageTable(v11, v13, v5);
+          v16 = MI_PAGE_TO_FULL_COLOR(v13);
+          MiManageUltraSpacePageTable(v14, v16, v5);
         }
         else
         {
-          if ( (MiFlags & 0x80u) != 0LL && (++dword_140E30170 & MmPageValidationFrequency) == 0 )
-            MiArePageContentsZero(v10);
+          if ( (MiFlags & 0x80u) != 0LL && (++dword_140E302B0 & MmPageValidationFrequency) == 0 )
+            MiArePageContentsZero(v13);
           if ( (v6 & 4) != 0 )
-            MiReleaseFreshPageAtDpc(v11);
+            MiReleaseFreshPageAtDpc(v14, v7, v8, v9);
           else
-            MiReleaseFreshPage(v11);
-          ++v7;
+            MiReleaseFreshPage(v14);
+          ++v10;
         }
         *(_QWORD *)v1 = -1LL;
       }
       *(_BYTE *)(v1 + 8) = 0;
-      if ( v7 )
-        MiReleaseNonPagedResources((__int64)&MiSystemPartition, v7);
+      if ( v10 )
+        MiReleaseNonPagedResources((__int64)&MiSystemPartition, v10);
       result = 1LL;
     }
     ++v2;

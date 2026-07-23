@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpAllocateHeap @ 0x14052125C
+ * XREFs of RtlpAllocateHeap @ 0x1405238C8
  * Callers:
- *     RtlpAllocateNTHeapInternal @ 0x140498638 (RtlpAllocateNTHeapInternal.c)
+ *     RtlpAllocateNTHeapInternal @ 0x140492188 (RtlpAllocateNTHeapInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     RtlpHpHeapCheckCommitLimit @ 0x14047F6B0 (RtlpHpHeapCheckCommitLimit.c)
- *     RtlpFindEntry @ 0x140521BB0 (RtlpFindEntry.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpCreateSplitBlock @ 0x14061B414 (RtlpCreateSplitBlock.c)
- *     RtlpExtendHeap @ 0x14061C228 (RtlpExtendHeap.c)
- *     RtlpHpAllocVirtBlockCommitFirst @ 0x14061CBCC (RtlpHpAllocVirtBlockCommitFirst.c)
- *     RtlpAnalyzeHeapFailure @ 0x14062584C (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapRemoveListEntry @ 0x1406260DC (RtlpHeapRemoveListEntry.c)
- *     RtlCompareMemoryUlong @ 0x140730E10 (RtlCompareMemoryUlong.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlGetNtGlobalFlags @ 0x140B536C0 (RtlGetNtGlobalFlags.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x140479020 (RtlpHpHeapCheckCommitLimit.c)
+ *     RtlpFindEntry @ 0x14052421C (RtlpFindEntry.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpCreateSplitBlock @ 0x14061E464 (RtlpCreateSplitBlock.c)
+ *     RtlpExtendHeap @ 0x14061F278 (RtlpExtendHeap.c)
+ *     RtlpHpAllocVirtBlockCommitFirst @ 0x14061FC1C (RtlpHpAllocVirtBlockCommitFirst.c)
+ *     RtlpAnalyzeHeapFailure @ 0x14062889C (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapRemoveListEntry @ 0x14062912C (RtlpHeapRemoveListEntry.c)
+ *     RtlCompareMemoryUlong @ 0x1407359E0 (RtlCompareMemoryUlong.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlGetNtGlobalFlags @ 0x140B55F60 (RtlGetNtGlobalFlags.c)
  */
 
 _DWORD *__fastcall RtlpAllocateHeap(

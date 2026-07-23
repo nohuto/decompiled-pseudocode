@@ -1,13 +1,13 @@
 /*
- * XREFs of ViZwCheckApcRequirement @ 0x140C330B8
+ * XREFs of ViZwCheckApcRequirement @ 0x140C390C8
  * Callers:
- *     VfZwDeviceIoControlFile_Entry @ 0x140C32880 (VfZwDeviceIoControlFile_Entry.c)
- *     VfZwQueryDirectoryFileEx_Entry @ 0x140C32CE0 (VfZwQueryDirectoryFileEx_Entry.c)
- *     VfZwQueryDirectoryFile_Entry @ 0x140C32D50 (VfZwQueryDirectoryFile_Entry.c)
- *     VfZwWriteFile_Entry @ 0x140C32F30 (VfZwWriteFile_Entry.c)
+ *     VfZwDeviceIoControlFile_Entry @ 0x140C38890 (VfZwDeviceIoControlFile_Entry.c)
+ *     VfZwQueryDirectoryFileEx_Entry @ 0x140C38CF0 (VfZwQueryDirectoryFileEx_Entry.c)
+ *     VfZwQueryDirectoryFile_Entry @ 0x140C38D60 (VfZwQueryDirectoryFile_Entry.c)
+ *     VfZwWriteFile_Entry @ 0x140C38F40 (VfZwWriteFile_Entry.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 BOOLEAN __fastcall ViZwCheckApcRequirement(ULONG_PTR a1)

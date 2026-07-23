@@ -1,5 +1,5 @@
 /*
- * XREFs of TppRaiseInvalidParameter @ 0x1801124DC
+ * XREFs of TppRaiseInvalidParameter @ 0x18011249C
  * Callers:
  *     TpAllocWait @ 0x18000DF40 (TpAllocWait.c)
  *     TpAllocTimer @ 0x18000EFD0 (TpAllocTimer.c)
@@ -40,24 +40,24 @@
  *     TpSetPoolMinThreads @ 0x180083C20 (TpSetPoolMinThreads.c)
  *     TpCallbackSetEventOnCompletion @ 0x180085A20 (TpCallbackSetEventOnCompletion.c)
  *     TpCallbackLeaveCriticalSectionOnCompletion @ 0x180088C10 (TpCallbackLeaveCriticalSectionOnCompletion.c)
- *     TpCallbackDetectedUnrecoverableError @ 0x1801121F0 (TpCallbackDetectedUnrecoverableError.c)
- *     TpCallbackReleaseMutexOnCompletion @ 0x180112220 (TpCallbackReleaseMutexOnCompletion.c)
- *     TpCallbackReleaseSemaphoreOnCompletion @ 0x180112260 (TpCallbackReleaseSemaphoreOnCompletion.c)
- *     TpCallbackSendPendingAlpcMessage @ 0x1801122A0 (TpCallbackSendPendingAlpcMessage.c)
+ *     TpCallbackDetectedUnrecoverableError @ 0x1801121B0 (TpCallbackDetectedUnrecoverableError.c)
+ *     TpCallbackReleaseMutexOnCompletion @ 0x1801121E0 (TpCallbackReleaseMutexOnCompletion.c)
+ *     TpCallbackReleaseSemaphoreOnCompletion @ 0x180112220 (TpCallbackReleaseSemaphoreOnCompletion.c)
+ *     TpCallbackSendPendingAlpcMessage @ 0x180112260 (TpCallbackSendPendingAlpcMessage.c)
  * Callees:
  *     RtlSetLastWin32Error @ 0x1800518D0 (RtlSetLastWin32Error.c)
  *     RtlRaiseException @ 0x1800520D0 (RtlRaiseException.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     TppReportExceptionFilter @ 0x18011255C (TppReportExceptionFilter.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     TppReportExceptionFilter @ 0x18011251C (TppReportExceptionFilter.c)
  */
 
-void TppRaiseInvalidParameter()
+void __fastcall TppRaiseInvalidParameter()
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   memset(&ExceptionRecord.ExceptionFlags, 0, 0x94uLL);
   ExceptionRecord.ExceptionCode = -1073741811;
-  RtlSetLastWin32Error(0x57u);
+  RtlSetLastWin32Error(87);
   RtlRaiseException(&ExceptionRecord);
 }

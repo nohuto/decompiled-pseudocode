@@ -1,7 +1,7 @@
 /*
- * XREFs of KiTpCompletionContextSize @ 0x140976704
+ * XREFs of KiTpCompletionContextSize @ 0x140976904
  * Callers:
- *     KeMarkDynamicTracingHiberPhase @ 0x14057EB2C (KeMarkDynamicTracingHiberPhase.c)
+ *     KeMarkDynamicTracingHiberPhase @ 0x14057F01C (KeMarkDynamicTracingHiberPhase.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopRemovePageFromPageMap @ 0x140553734
+ * XREFs of IopRemovePageFromPageMap @ 0x140553DF4
  * Callers:
- *     IoFreeDumpRange @ 0x140550480 (IoFreeDumpRange.c)
+ *     IoFreeDumpRange @ 0x140550B40 (IoFreeDumpRange.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14028BB20 (RtlClearBitsEx.c)
+ *     RtlClearBitsEx @ 0x14028BDB0 (RtlClearBitsEx.c)
  */
 
 __int64 __fastcall IopRemovePageFromPageMap(

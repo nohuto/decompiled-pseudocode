@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogSlabEntryAllocateFailure @ 0x1403D2660
+ * XREFs of MiLogSlabEntryAllocateFailure @ 0x14047E460
  * Callers:
- *     MiCreateSlabEntry @ 0x1403A112C (MiCreateSlabEntry.c)
+ *     MiCreateSlabEntry @ 0x140217C8C (MiCreateSlabEntry.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     ExtractAggregateFieldTypes @ 0x1403D0E80 (ExtractAggregateFieldTypes.c)
- *     InsertEventEntryInLookUpTable @ 0x1403D0F14 (InsertEventEntryInLookUpTable.c)
- *     MiNodeAvailablePages @ 0x1403D29E0 (MiNodeAvailablePages.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExtractAggregateFieldTypes @ 0x140274970 (ExtractAggregateFieldTypes.c)
+ *     InsertEventEntryInLookUpTable @ 0x140274A04 (InsertEventEntryInLookUpTable.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     MiNodeAvailablePages @ 0x14047E7E0 (MiNodeAvailablePages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4, char a5)
@@ -40,7 +40,7 @@ void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4
   unsigned __int64 v30; // [rsp+80h] [rbp-80h] BYREF
   __int64 v31; // [rsp+88h] [rbp-78h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+90h] [rbp-70h] BYREF
-  int *v33; // [rsp+A0h] [rbp-60h]
+  __int16 *v33; // [rsp+A0h] [rbp-60h]
   int v34; // [rsp+A8h] [rbp-58h]
   int v35; // [rsp+ACh] [rbp-54h]
   __int64 *v36; // [rsp+B0h] [rbp-50h]
@@ -68,7 +68,7 @@ void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4
 
   v22 = a3;
   v21 = a2;
-  if ( !*(_QWORD *)&qword_140E37518 )
+  if ( !*(_QWORD *)&qword_140E37658 )
     return;
   v7 = *(ULONG **)(a1 + 24);
   v8 = (unsigned __int64)&MiSystemPartition;
@@ -77,8 +77,8 @@ void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4
   v11 = *(_QWORD *)(v10 + 14976);
   if ( v7 == &MiSystemPartition )
   {
-    v8 = (unsigned __int64)qword_140E37600;
-    v12 = qword_140E37600[v9];
+    v8 = (unsigned __int64)qword_140E37740;
+    v12 = qword_140E37740[v9];
     if ( v11 <= v12 )
     {
       v11 = 0LL;
@@ -116,12 +116,12 @@ LABEL_7:
     LOBYTE(v10) = CurrentIrql;
     KiRaiseIrqlProcessIrqlFlags(v10, v8);
   }
-  v17 = *(_QWORD *)&qword_140E37518;
-  if ( **(_DWORD **)&qword_140E37518 > 5u )
+  v17 = *(_QWORD *)&qword_140E37658;
+  if ( **(_DWORD **)&qword_140E37658 > 5u )
   {
-    if ( (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 16LL) & 0x400000000400LL) == 0
+    if ( (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 16LL) & 0x400000000400LL) == 0
       || (v18 = 1,
-          (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 0x400000000400LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37518
+          (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 0x400000000400LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37658
                                                                                             + 24LL)) )
     {
       v18 = 0;
@@ -145,7 +145,7 @@ LABEL_7:
       v54 = &v20;
       v56 = &v31;
       *(_DWORD *)&EventDescriptor.Level = 5;
-      UserData.Ptr = *(_QWORD *)(*(_QWORD *)&qword_140E37518 + 8LL);
+      UserData.Ptr = *(_QWORD *)(*(_QWORD *)&qword_140E37658 + 8LL);
       v37 = 8LL;
       v39 = 4LL;
       v41 = 4LL;
@@ -164,16 +164,16 @@ LABEL_7:
       *(_DWORD *)&EventDescriptor.Id = 184549376;
       EventDescriptor.Keyword = 0x400000000400LL;
       UserData.Size = *(unsigned __int16 *)UserData.Ptr;
-      v33 = &dword_140057D44;
+      v33 = word_1400587DA;
       UserData.Reserved = 2;
       v34 = 212;
       v35 = 1;
       v27[1] = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
-      if ( *(void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(*(_QWORD *)&qword_140E37518 + 40LL) == TlgAggregateInternalRegisteredProviderEtwCallback )
+      if ( *(void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(*(_QWORD *)&qword_140E37658 + 40LL) == TlgAggregateInternalRegisteredProviderEtwCallback )
       {
         AggregateFieldTypes = ExtractAggregateFieldTypes((__int64)&TraceLoggingMetadata, (__int64)&UserData);
         if ( AggregateFieldTypes )
-          InsertEventEntryInLookUpTable(v17, (__int64)&EventDescriptor, 13, (__int64)&UserData, AggregateFieldTypes);
+          InsertEventEntryInLookUpTable(v17, (__int64)&EventDescriptor, 0xDu, (__int64)&UserData, AggregateFieldTypes);
         else
           EtwWriteEx(*(_QWORD *)(v17 + 32), &EventDescriptor, 0LL, 0, 0LL, 0LL, 0xDu, &UserData);
       }

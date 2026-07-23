@@ -10,73 +10,73 @@
  *     RtlpTpIoAlloc @ 0x1800901F4 (RtlpTpIoAlloc.c)
  */
 
-__int64 __fastcall RtlpTpIoLookup(__int64 *a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall RtlpTpIoLookup(PRTL_SPLAY_LINKS *a1, _RTL_SPLAY_LINKS *a2, void *a3)
 {
-  __int64 v7; // rdi
-  __int64 v8; // rbx
-  unsigned __int64 v9; // rax
-  int v10; // esi
-  __int64 v11; // rax
-  __int64 *v12; // rax
-  __int64 v14; // [rsp+68h] [rbp+20h] BYREF
+  PRTL_SPLAY_LINKS v6; // rdi
+  PRTL_SPLAY_LINKS v7; // rbx
+  _RTL_SPLAY_LINKS *Parent; // rax
+  NTSTATUS v9; // esi
+  _RTL_SPLAY_LINKS *RightChild; // rax
+  PRTL_SPLAY_LINKS *p_Parent; // rax
+  PRTL_SPLAY_LINKS v13; // [rsp+68h] [rbp+20h] BYREF
 
-  v14 = 0LL;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpTpIoTreeLock, a2, a3, a4);
-  v7 = RtlpTpIoTree;
+  v13 = 0LL;
+  RtlAcquireSRWLockExclusive(&RtlpTpIoTreeLock);
+  v6 = RtlpTpIoTree;
   if ( RtlpTpIoTree )
   {
     while ( 1 )
     {
-      v8 = v7 - 96;
-      v14 = v7 - 96;
-      v9 = *(_QWORD *)(v7 - 96);
-      if ( a2 == v9 )
+      v7 = v6 - 4;
+      v13 = v6 - 4;
+      Parent = v6[-4].Parent;
+      if ( a2 == Parent )
         break;
-      if ( a2 >= v9 )
+      if ( a2 >= Parent )
       {
-        v11 = *(_QWORD *)(v7 + 16);
-        if ( !v11 )
+        RightChild = v6->RightChild;
+        if ( !RightChild )
         {
-          v10 = RtlpTpIoAlloc(&v14, a2, a3);
-          v8 = v14;
-          if ( !v14 )
+          v9 = RtlpTpIoAlloc(&v13, a2, a3);
+          v7 = v13;
+          if ( !v13 )
             goto LABEL_16;
-          v12 = (__int64 *)(v14 + 96);
-          *(_QWORD *)(v7 + 16) = v14 + 96;
+          p_Parent = &v13[4].Parent;
+          v6->RightChild = v13 + 4;
           goto LABEL_14;
         }
       }
       else
       {
-        v11 = *(_QWORD *)(v7 + 8);
-        if ( !v11 )
+        RightChild = v6->LeftChild;
+        if ( !RightChild )
         {
-          v10 = RtlpTpIoAlloc(&v14, a2, a3);
-          v8 = v14;
-          if ( !v14 )
+          v9 = RtlpTpIoAlloc(&v13, a2, a3);
+          v7 = v13;
+          if ( !v13 )
             goto LABEL_16;
-          v12 = (__int64 *)(v14 + 96);
-          *(_QWORD *)(v7 + 8) = v14 + 96;
+          p_Parent = &v13[4].Parent;
+          v6->LeftChild = v13 + 4;
 LABEL_14:
-          *v12 = v7;
+          *p_Parent = v6;
           goto LABEL_16;
         }
       }
-      v7 = v11;
+      v6 = RightChild;
     }
-    v10 = TpBindFileToDirect((__int64)a3, v8 + 8, *(_QWORD *)(v8 + 80));
-    if ( v10 >= 0 )
-      ++*(_DWORD *)(v8 + 88);
+    v9 = TpBindFileToDirect(a3, (__int64)&v7->LeftChild, (__int64)v7[3].LeftChild);
+    if ( v9 >= 0 )
+      ++LODWORD(v7[3].RightChild);
   }
   else
   {
-    v10 = RtlpTpIoAlloc(&v14, a2, a3);
-    v8 = v14;
+    v9 = RtlpTpIoAlloc(&v13, a2, a3);
+    v7 = v13;
   }
 LABEL_16:
-  if ( v8 && RtlpTpIoTree != v8 + 96 )
-    RtlpTpIoTree = (__int64)RtlSplay((_QWORD *)(v8 + 96));
+  if ( v7 && RtlpTpIoTree != &v7[4] )
+    RtlpTpIoTree = RtlSplay(v7 + 4);
   RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
-  *a1 = v8;
-  return (unsigned int)v10;
+  *a1 = v7;
+  return (unsigned int)v9;
 }

@@ -1,24 +1,24 @@
 /*
  * XREFs of MiInsertLargePageInFreeOrZeroList @ 0x140036320
  * Callers:
- *     MiDemoteLocalLargePage @ 0x140064060 (MiDemoteLocalLargePage.c)
- *     MiDemoteLargeFreePage @ 0x14012BAA4 (MiDemoteLargeFreePage.c)
- *     MiDemoteLargeFreeZeroPage @ 0x14016994C (MiDemoteLargeFreeZeroPage.c)
+ *     MiDemoteLocalLargePage @ 0x140064050 (MiDemoteLocalLargePage.c)
+ *     MiDemoteLargeFreePage @ 0x14012BB74 (MiDemoteLargeFreePage.c)
+ *     MiDemoteLargeFreeZeroPage @ 0x140169A4C (MiDemoteLargeFreeZeroPage.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
- *     MiAddColdPagesToHotRanges @ 0x1402CEA4C (MiAddColdPagesToHotRanges.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14009BA00 (MiInsertLargePageInNodeListHelper.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103CD0 (ExfTryAcquirePushLockShared.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
+ *     MiAddColdPagesToHotRanges @ 0x1402CEC3C (MiAddColdPagesToHotRanges.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
  */
 
 _QWORD *__fastcall MiInsertLargePageInFreeOrZeroList(__int64 a1, unsigned int a2, int a3, int a4, int a5)
@@ -131,7 +131,7 @@ _QWORD *__fastcall MiInsertLargePageInFreeOrZeroList(__int64 a1, unsigned int a2
   }
   else
   {
-    v14 = dword_14043A088 & a4;
+    v14 = dword_14043B148 & a4;
     v36 = v9 + (v14 & 0xFFFFFFF0);
     v73 = v36;
     v74 = v36 + v13;
@@ -168,7 +168,7 @@ LABEL_9:
   v20 = (*(_BYTE *)(v7 + 34) & 7) == 0;
   v50 = *(_BYTE *)(v7 + 34) & 7;
   v58[1] = v11 | (!v20 + 1);
-  v21 = *(_QWORD *)(qword_14043A748 + 8 * ((v18 >> 40) & 0x3FF));
+  v21 = *(_QWORD *)(qword_14043B808 + 8 * ((v18 >> 40) & 0x3FF));
   v69 = v21;
   CurrentIrql = KeGetCurrentIrql();
   v57 = CurrentIrql;
@@ -179,7 +179,7 @@ LABEL_9:
   {
     v42 = (volatile signed __int64 *)(v21 + 184);
     v51 = 1;
-    v43 = (_KLOCK_ENTRY *)KeAbPreAcquire(v21 + 184);
+    v43 = (_KLOCK_ENTRY *)KeAbPreAcquire(v21 + 184, 0LL);
     if ( !_InterlockedCompareExchange64(v42, 17LL, 0LL) || (unsigned __int8)ExfTryAcquirePushLockShared(v42) )
     {
       if ( v43 )
@@ -251,7 +251,7 @@ LABEL_9:
         *((_QWORD *)v24 - 1) = ZeroPte;
         if ( v20 )
         {
-          if ( (MiFlags & 0x80u) != 0 && (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+          if ( (MiFlags & 0x80u) != 0 && (++dword_14043B92C & MmPageValidationFrequency) == 0 )
             MiArePageContentsZero(v19);
         }
         else

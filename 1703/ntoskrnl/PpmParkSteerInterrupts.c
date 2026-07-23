@@ -34,7 +34,7 @@ char PpmParkSteerInterrupts()
   unsigned int v1; // edi
   unsigned int v2; // ebx
   unsigned __int64 v3; // r9
-  __int64 v4; // r11
+  LARGE_INTEGER v4; // r11
   unsigned __int16 v5; // si
   __int64 v6; // r10
   unsigned __int64 v7; // rdx
@@ -64,7 +64,7 @@ char PpmParkSteerInterrupts()
   __int64 v32; // [rsp+58h] [rbp-A8h]
   __int16 v33; // [rsp+60h] [rbp-A0h]
   _DWORD v34[2]; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v35; // [rsp+70h] [rbp-90h] BYREF
+  LARGE_INTEGER v35; // [rsp+70h] [rbp-90h] BYREF
   unsigned __int16 *v36[2]; // [rsp+78h] [rbp-88h] BYREF
   __int16 v37; // [rsp+88h] [rbp-78h]
   int v38; // [rsp+90h] [rbp-70h] BYREF
@@ -134,10 +134,10 @@ LABEL_7:
     ++v2;
     if ( !*(_QWORD *)(v6 + 8LL * v27) )
     {
-      *(_QWORD *)(v6 + 8LL * v27) = v4;
+      *(LARGE_INTEGER *)(v6 + 8LL * v27) = v4;
       v6 = PpmIntSteerTrigger;
     }
-    if ( v4 - *(_QWORD *)(v6 + 8LL * (unsigned int)v8) >= (unsigned __int64)(10000 * PpmIntSteerTriggerMax) )
+    if ( v4.QuadPart - *(_QWORD *)(v6 + 8LL * (unsigned int)v8) >= (unsigned __int64)(10000 * PpmIntSteerTriggerMax) )
     {
       v9 = KiProcessorIndexToNumberMappingTable[(unsigned int)v8] & 0x3F;
       v10 = (unsigned int)KiProcessorIndexToNumberMappingTable[(unsigned int)v8] >> 6;

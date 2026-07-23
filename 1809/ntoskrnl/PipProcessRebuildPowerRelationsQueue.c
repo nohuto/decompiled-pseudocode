@@ -1,22 +1,22 @@
 /*
- * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x1406EB810
+ * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x1406ECAB0
  * Callers:
- *     IoResolveDependency @ 0x140181BD0 (IoResolveDependency.c)
- *     PnpDeleteAllDependencyRelations @ 0x14059F218 (PnpDeleteAllDependencyRelations.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x1406EB72C (PnpNewDeviceNodeDependencyCheck.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406ED428 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     IoDuplicateDependency @ 0x1408238C0 (IoDuplicateDependency.c)
- *     IoSetDependency @ 0x140823A80 (IoSetDependency.c)
+ *     IoResolveDependency @ 0x140181D10 (IoResolveDependency.c)
+ *     PnpDeleteAllDependencyRelations @ 0x1405A0218 (PnpDeleteAllDependencyRelations.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x1406EC9CC (PnpNewDeviceNodeDependencyCheck.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406EE6C8 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     IoDuplicateDependency @ 0x140824AC0 (IoDuplicateDependency.c)
+ *     IoSetDependency @ 0x140824C80 (IoSetDependency.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x14059D8F4 (PnpAcquireDependencyRelationsLock.c)
- *     PiGetProviderList @ 0x1406E6C20 (PiGetProviderList.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x1406EB9AC (PipIsDeviceReadyForPowerRelations.c)
- *     PiQueryPowerRelations @ 0x14070B948 (PiQueryPowerRelations.c)
- *     PipDeleteDependencyNode @ 0x14075D8AC (PipDeleteDependencyNode.c)
- *     PiEnumerateProviderListEntry @ 0x140823B4C (PiEnumerateProviderListEntry.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x14059E8F4 (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x1406E7EC0 (PiGetProviderList.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x1406ECC4C (PipIsDeviceReadyForPowerRelations.c)
+ *     PiQueryPowerRelations @ 0x14070CBE8 (PiQueryPowerRelations.c)
+ *     PipDeleteDependencyNode @ 0x14075EA9C (PipDeleteDependencyNode.c)
+ *     PiEnumerateProviderListEntry @ 0x140824D4C (PiEnumerateProviderListEntry.c)
  */
 
 void PipProcessRebuildPowerRelationsQueue()

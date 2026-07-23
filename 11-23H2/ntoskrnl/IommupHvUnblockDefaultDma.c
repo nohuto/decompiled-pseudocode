@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupHvUnblockDefaultDma @ 0x14052544C
+ * XREFs of IommupHvUnblockDefaultDma @ 0x14052599C
  * Callers:
  *     HalpIommuInitSystem @ 0x140A89BC0 (HalpIommuInitSystem.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 IommupHvUnblockDefaultDma()

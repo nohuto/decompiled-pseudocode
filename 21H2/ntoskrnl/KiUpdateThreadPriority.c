@@ -1,49 +1,49 @@
 /*
- * XREFs of KiUpdateThreadPriority @ 0x140230E50
+ * XREFs of KiUpdateThreadPriority @ 0x1402D56A0
  * Callers:
- *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
- *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
- *     KiUpdateVPBackingThreadPriority @ 0x140258E10 (KiUpdateVPBackingThreadPriority.c)
- *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
- *     KeStartThread @ 0x140277A6C (KeStartThread.c)
- *     KeYieldExecution @ 0x14029E1B0 (KeYieldExecution.c)
- *     KiSetPriorityBoost @ 0x1402BCC00 (KiSetPriorityBoost.c)
- *     KiApplyForegroundBoostThread @ 0x1402EA08C (KiApplyForegroundBoostThread.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
- *     KeTransitionProcessorParkState @ 0x1405254AC (KeTransitionProcessorParkState.c)
- *     KiCompleteKernelInit @ 0x14099E0E0 (KiCompleteKernelInit.c)
+ *     KeYieldExecution @ 0x14021B710 (KeYieldExecution.c)
+ *     KiSetPriorityBoost @ 0x14023B2B0 (KiSetPriorityBoost.c)
+ *     KeStartThread @ 0x140265A0C (KeStartThread.c)
+ *     KiQuantumEnd @ 0x140279260 (KiQuantumEnd.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x14027A380 (KiUpdateVPBackingThreadPriority.c)
+ *     KiQueueReadyThread @ 0x14027A920 (KiQueueReadyThread.c)
+ *     KiApplyForegroundBoostThread @ 0x14029B3DC (KiApplyForegroundBoostThread.c)
+ *     KiSetPriorityThread @ 0x1402D4AF0 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
+ *     KiDirectSwitchThread @ 0x1402F1090 (KiDirectSwitchThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
+ *     KeTransitionProcessorParkState @ 0x1405256EC (KeTransitionProcessorParkState.c)
+ *     KiCompleteKernelInit @ 0x14099F010 (KiCompleteKernelInit.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x14024D450 (KiIsThreadRankNonZero.c)
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
- *     KiSetSchedulerAssistPriority @ 0x140520954 (KiSetSchedulerAssistPriority.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
+ *     KiIsThreadRankNonZero @ 0x1402F1CA0 (KiIsThreadRankNonZero.c)
+ *     KiSetSchedulerAssistPriority @ 0x140520B94 (KiSetSchedulerAssistPriority.c)
  */
 
-void __fastcall KiUpdateThreadPriority(__int64 a1, __int64 a2, _SINGLE_LIST_ENTRY *p_AbPropagateBoostsList, char a4)
+void __fastcall KiUpdateThreadPriority(__int64 a1, __int64 a2, PVOID *p_DpcData, char a4)
 {
-  struct _KPRCB *CurrentPrcb; // rcx
+  struct _KDPC *CurrentPrcb; // rcx
   char v7; // di
   __int64 v9; // rcx
   bool v10; // zf
   char v11; // al
-  struct _SINGLE_LIST_ENTRY *v12; // rdx
+  PVOID *v12; // rdx
   __int64 v13; // rdx
 
-  CurrentPrcb = KeGetCurrentPrcb();
-  v7 = (char)p_AbPropagateBoostsList;
-  if ( (char)p_AbPropagateBoostsList > *(char *)(a2 + 195) )
+  CurrentPrcb = (struct _KDPC *)KeGetCurrentPrcb();
+  v7 = (char)p_DpcData;
+  if ( (char)p_DpcData > *(char *)(a2 + 195) )
   {
     if ( *(_BYTE *)(a2 + 793) )
     {
-      v12 = (struct _SINGLE_LIST_ENTRY *)(a2 + 808);
-      if ( v12->Next == (struct _SINGLE_LIST_ENTRY *)1 )
+      v12 = (PVOID *)(a2 + 808);
+      if ( *v12 == (PVOID)1 )
       {
-        p_AbPropagateBoostsList = &CurrentPrcb->AbPropagateBoostsList;
-        if ( CurrentPrcb != (struct _KPRCB *)-34680LL )
+        p_DpcData = &CurrentPrcb[541].DpcData;
+        if ( CurrentPrcb != (struct _KDPC *)-34680LL )
         {
-          v12->Next = p_AbPropagateBoostsList->Next;
-          p_AbPropagateBoostsList->Next = v12;
+          *v12 = *p_DpcData;
+          *p_DpcData = v12;
           _InterlockedIncrement16((volatile signed __int16 *)(a2 + 868));
           KiAbQueueAutoBoostDpc(CurrentPrcb);
         }
@@ -73,7 +73,7 @@ void __fastcall KiUpdateThreadPriority(__int64 a1, __int64 a2, _SINGLE_LIST_ENTR
   }
   if ( (*(_DWORD *)(a2 + 120) & 0x400000) != 0 )
   {
-    LOBYTE(p_AbPropagateBoostsList) = 1;
-    KiSetSchedulerAssistPriority(*(_QWORD *)(a2 + 968), (unsigned int)*(char *)(a2 + 195), p_AbPropagateBoostsList);
+    LOBYTE(p_DpcData) = 1;
+    KiSetSchedulerAssistPriority(*(_QWORD *)(a2 + 968), (unsigned int)*(char *)(a2 + 195), p_DpcData);
   }
 }

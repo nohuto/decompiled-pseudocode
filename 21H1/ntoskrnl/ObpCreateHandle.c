@@ -412,7 +412,7 @@ LABEL_18:
   Privileges = 0LL;
   NumberOfBytes = 0;
   v166 = 0;
-  if ( *(__int64 (__fastcall **)(_QWORD *, int, ULONG *, void *, __int64, __int64 *, POOL_TYPE, GENERIC_MAPPING *))(v21 + 152) != SeDefaultObjectMethod )
+  if ( *(__int64 (__fastcall **)(_QWORD *, int, DWORD *, void *, __int64, __int64 *, POOL_TYPE, GENERIC_MAPPING *))(v21 + 152) != SeDefaultObjectMethod )
   {
     v166 = 447;
     NumberOfBytes = ObpDefaultSecurityDescriptorLength;
@@ -1198,8 +1198,18 @@ LABEL_75:
         v112 = OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO((__int64)v170);
         if ( v112 )
           LOBYTE(v112) = 1;
-        if ( (_BYTE)v112 && SepSidInTokenSidHash(v101 + 808, 0LL, SeConstrainedImpersonationCapabilitySid, 0, 1, 0, 0) )
+        if ( (_BYTE)v112
+          && SepSidInTokenSidHash(
+               (PSID_AND_ATTRIBUTES_HASH)(v101 + 808),
+               0LL,
+               SeConstrainedImpersonationCapabilitySid,
+               0,
+               1,
+               0,
+               0) )
+        {
           ObHandleRevocationBlockAddObject(*(_QWORD *)(v68 + 216) + 128LL, v61);
+        }
       }
       ExReleaseResourceLite(*(PERESOURCE *)(v101 + 48));
       KeLeaveCriticalRegion();

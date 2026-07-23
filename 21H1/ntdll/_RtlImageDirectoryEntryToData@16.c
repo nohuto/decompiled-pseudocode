@@ -26,13 +26,16 @@
  *     _RtlpImageDirectoryEntryToDataEx@20 @ 0x4B2BE470 (_RtlpImageDirectoryEntryToDataEx@20.c)
  */
 
-void *__thiscall RtlImageDirectoryEntryToData(void *this, int a2, char a3, int a4, int a5)
+PVOID __cdecl RtlImageDirectoryEntryToData(
+        PVOID BaseOfImage,
+        BOOLEAN MappedAsImage,
+        USHORT DirectoryEntry,
+        PULONG Size)
 {
-  void *v6; // [esp+0h] [ebp-4h] BYREF
+  int v5; // [esp+0h] [ebp-4h] BYREF
 
-  v6 = this;
-  if ( (int)RtlpImageDirectoryEntryToDataEx(a4, a5, &v6) < 0 )
+  if ( RtlpImageDirectoryEntryToDataEx(BaseOfImage, DirectoryEntry, (int)Size, (int)&v5) < 0 )
     return 0;
   else
-    return v6;
+    return (PVOID)v5;
 }

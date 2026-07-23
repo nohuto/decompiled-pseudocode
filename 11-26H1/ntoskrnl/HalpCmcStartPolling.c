@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpCmcStartPolling @ 0x14057AB8C
+ * XREFs of HalpCmcStartPolling @ 0x14057D0BC
  * Callers:
- *     HalpCmciDeferredRoutine @ 0x14057E660 (HalpCmciDeferredRoutine.c)
- *     HalpInitializeCmc @ 0x140BE9DA8 (HalpInitializeCmc.c)
+ *     HalpCmciDeferredRoutine @ 0x140580B80 (HalpCmciDeferredRoutine.c)
+ *     HalpInitializeCmc @ 0x140BEFDA8 (HalpInitializeCmc.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
  */
 
 void HalpCmcStartPolling()
@@ -32,11 +32,11 @@ LABEL_4:
           && !HalpCmcPollingStarted )
         {
           KiSetTimerEx(
-            (__int64)&qword_140E10768,
+            (__int64)&qword_140E10898,
             -10000LL * (unsigned int)HalpCmcContext,
             HalpCmcContext,
             0,
-            (__int64)&dword_140E107A8);
+            (__int64)&dword_140E108D8);
           HalpCmcPollingStarted = 1;
         }
       }

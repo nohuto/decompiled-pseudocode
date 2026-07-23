@@ -1,11 +1,11 @@
 /*
- * XREFs of PspApplyCoreIsolationPolicy @ 0x1407767F8
+ * XREFs of PspApplyCoreIsolationPolicy @ 0x140776A18
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     PspUnlockProcessShared @ 0x14025E2E0 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x14033E760 (PspLockProcessShared.c)
- *     KeEnableCoreIsolationMitigationPolicyThread @ 0x1405C2120 (KeEnableCoreIsolationMitigationPolicyThread.c)
+ *     PspUnlockProcessShared @ 0x14028E8F0 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x14031DC40 (PspLockProcessShared.c)
+ *     KeEnableCoreIsolationMitigationPolicyThread @ 0x1405BF6F0 (KeEnableCoreIsolationMitigationPolicyThread.c)
  */
 
 __int64 __fastcall PspApplyCoreIsolationPolicy(__int64 a1)

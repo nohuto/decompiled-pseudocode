@@ -1,29 +1,29 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770
+ * XREFs of _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00
  * Callers:
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x1409B44A8 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x1409AB838 (_CmGetDeviceMappedPropertyKeys.c)
  * Callees:
- *     RtlStringCbCopyExW @ 0x14044D8AC (RtlStringCbCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     wcscmp @ 0x1404FFE20 (wcscmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1408BC37C (_CmIsDeviceSafeRemovalRequired.c)
- *     _CmGetDeviceStatus @ 0x1408BC8C8 (_CmGetDeviceStatus.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmGetDeviceParent @ 0x140926998 (_CmGetDeviceParent.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x140990A40 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmGetDeviceRelationsList @ 0x1409B3D90 (_CmGetDeviceRelationsList.c)
- *     _CmGetDeviceSiblings @ 0x1409B3E64 (_CmGetDeviceSiblings.c)
- *     _CmGetDeviceChildren @ 0x1409B400C (_CmGetDeviceChildren.c)
- *     _PnpMultiSzGetLen @ 0x1409B6270 (_PnpMultiSzGetLen.c)
- *     _CmGetDeviceCompoundFilters @ 0x1409B62B0 (_CmGetDeviceCompoundFilters.c)
+ *     RtlStringCbCopyExW @ 0x1404447AC (RtlStringCbCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     wcscmp @ 0x1404FD6E0 (wcscmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x1408B9CCC (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetDeviceStatus @ 0x1408BA218 (_CmGetDeviceStatus.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceParent @ 0x140928AD8 (_CmGetDeviceParent.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14097BA80 (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmGetDeviceRelationsList @ 0x1409AB120 (_CmGetDeviceRelationsList.c)
+ *     _CmGetDeviceSiblings @ 0x1409AB1F4 (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceChildren @ 0x1409AB39C (_CmGetDeviceChildren.c)
+ *     _PnpMultiSzGetLen @ 0x1409AD600 (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceCompoundFilters @ 0x1409AD640 (_CmGetDeviceCompoundFilters.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
@@ -74,59 +74,58 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
   __int64 v46; // rax
   __int64 v47; // rax
   __int64 v48; // rax
-  __int64 v49; // r8
-  int v50; // eax
+  int v49; // eax
+  __int64 v50; // rax
   __int64 v51; // rax
   __int64 v52; // rax
-  __int64 v53; // rax
+  int v53; // eax
   int v54; // eax
-  int v55; // eax
-  bool v56; // zf
-  __int64 v57; // rax
+  bool v55; // zf
+  __int64 v56; // rax
+  int v57; // eax
   int v58; // eax
-  int v59; // eax
-  __int64 v60; // rax
+  __int64 v59; // rax
   int DeviceChildren; // eax
-  bool v62; // zf
+  bool v61; // zf
   int DeviceRelationsList; // eax
   unsigned int Len; // eax
-  __int64 v65; // rax
+  __int64 v64; // rax
+  int v65; // eax
   int v66; // eax
-  int v67; // eax
-  __int64 v68; // rax
-  int v69; // eax
-  bool v70; // zf
-  __int64 v71; // rax
+  __int64 v67; // rax
+  int v68; // eax
+  bool v69; // zf
+  __int64 v70; // rax
+  __int64 v71; // rcx
   __int64 v72; // rcx
-  __int64 v73; // rcx
+  __int64 v73; // rax
   __int64 v74; // rax
-  __int64 v75; // rax
   unsigned int DeviceSiblings; // eax
-  __int64 v77; // rcx
-  __int64 v78; // rax
-  unsigned int v79; // eax
-  int v80; // r8d
+  __int64 v76; // rcx
+  __int64 v77; // rax
+  unsigned int v78; // eax
+  int v79; // r8d
+  __int64 v80; // rax
   __int64 v81; // rax
-  __int64 v82; // rax
-  __int64 v83; // rcx
-  __int64 v84; // rax
-  int *v85; // rax
-  unsigned int v86; // [rsp+30h] [rbp-D0h]
-  int v87; // [rsp+50h] [rbp-B0h]
-  wchar_t v88; // [rsp+60h] [rbp-A0h] BYREF
-  WCHAR *v89; // [rsp+68h] [rbp-98h]
-  int v90; // [rsp+70h] [rbp-90h] BYREF
-  int v91; // [rsp+74h] [rbp-8Ch] BYREF
-  ULONG v92; // [rsp+78h] [rbp-88h] BYREF
-  int v93; // [rsp+7Ch] [rbp-84h] BYREF
-  unsigned int v94; // [rsp+80h] [rbp-80h] BYREF
-  unsigned int v95; // [rsp+84h] [rbp-7Ch] BYREF
-  unsigned int v96; // [rsp+88h] [rbp-78h]
-  void *v97; // [rsp+90h] [rbp-70h]
-  int *v98; // [rsp+98h] [rbp-68h]
+  __int64 v82; // rcx
+  __int64 v83; // rax
+  int *v84; // rax
+  unsigned int v85; // [rsp+30h] [rbp-D0h]
+  int v86; // [rsp+50h] [rbp-B0h]
+  wchar_t v87; // [rsp+60h] [rbp-A0h] BYREF
+  WCHAR *v88; // [rsp+68h] [rbp-98h]
+  int v89; // [rsp+70h] [rbp-90h] BYREF
+  int v90; // [rsp+74h] [rbp-8Ch] BYREF
+  ULONG v91; // [rsp+78h] [rbp-88h] BYREF
+  int v92; // [rsp+7Ch] [rbp-84h] BYREF
+  unsigned int v93; // [rsp+80h] [rbp-80h] BYREF
+  unsigned int v94; // [rsp+84h] [rbp-7Ch] BYREF
+  unsigned int v95; // [rsp+88h] [rbp-78h]
+  void *v96; // [rsp+90h] [rbp-70h]
+  int *v97; // [rsp+98h] [rbp-68h]
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
-  int v100; // [rsp+B0h] [rbp-50h] BYREF
-  int v101; // [rsp+B4h] [rbp-4Ch] BYREF
+  int v99; // [rsp+B0h] [rbp-50h] BYREF
+  int v100; // [rsp+B4h] [rbp-4Ch] BYREF
   HANDLE Handle; // [rsp+B8h] [rbp-48h] BYREF
   __int128 Buf2; // [rsp+C0h] [rbp-40h] BYREF
   __int128 Buf1; // [rsp+D0h] [rbp-30h] BYREF
@@ -134,22 +133,22 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
   WCHAR SourceString[40]; // [rsp+130h] [rbp+30h] BYREF
 
   v9 = a6;
-  v97 = a3;
-  v89 = a2;
+  v96 = a3;
+  v88 = a2;
   v12 = a3;
-  v98 = a5;
+  v97 = a5;
   v13 = a2;
-  v95 = 0;
+  v94 = 0;
   DeviceStatus = 0;
-  v90 = 0;
+  v89 = 0;
+  v91 = 0;
   v92 = 0;
   v93 = 0;
-  v94 = 0;
-  v100 = 0;
+  v99 = 0;
   Handle = 0LL;
-  v91 = 0;
-  v101 = 0;
-  LOBYTE(v88) = 0;
+  v90 = 0;
+  v100 = 0;
+  LOBYTE(v87) = 0;
   DestinationString = 0LL;
   Buf2 = 0LL;
   Buf1 = 0LL;
@@ -158,7 +157,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
   *a5 = 0;
   v15 = a9 & 0xFFFF0000;
   *a8 = 0;
-  v96 = a9 & 0xFFFF0000;
+  v95 = a9 & 0xFFFF0000;
   if ( a6 )
   {
     v16 = a7;
@@ -189,7 +188,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
                          a5,
                          v9,
                          v16,
-                         (__int64)&v90,
+                         (__int64)&v89,
                          a9 & 0xFFFF0000);
       DeviceStatus = ObjectProperty;
       if ( ObjectProperty && ObjectProperty != -1073741789 )
@@ -198,15 +197,15 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
           goto LABEL_30;
         v32 = PnpGetObjectProperty(
                 a1,
-                v89,
+                v88,
                 1u,
-                v97,
+                v96,
                 0LL,
                 (__int64)&DEVPKEY_Device_DeviceDesc,
-                v98,
+                v97,
                 v9,
                 a7,
-                (__int64)&v90,
+                (__int64)&v89,
                 v15);
         DeviceStatus = v32;
         if ( v32 && v32 != -1073741789 )
@@ -218,18 +217,18 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
       }
       goto LABEL_63;
     }
-    v75 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Siblings.fmtid.Data1;
+    v74 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Siblings.fmtid.Data1;
     if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Siblings.fmtid.Data1 )
-      v75 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Siblings.fmtid.Data4;
-    if ( v75 )
+      v74 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Siblings.fmtid.Data4;
+    if ( v74 )
       return DeviceStatus;
-    v92 = v16 >> 1;
-    DeviceSiblings = CmGetDeviceSiblings(a1, v13, v9, &v92);
+    v91 = v16 >> 1;
+    DeviceSiblings = CmGetDeviceSiblings(a1, v13, v9, &v91);
     DeviceStatus = DeviceSiblings;
     if ( !DeviceSiblings )
-      goto LABEL_226;
-    v62 = DeviceSiblings == -1073741789;
-    goto LABEL_167;
+      goto LABEL_225;
+    v61 = DeviceSiblings == -1073741789;
+    goto LABEL_166;
   }
   if ( v17 != 256 )
   {
@@ -241,11 +240,11 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
       if ( !v39 )
       {
 LABEL_92:
-        DeviceStatus = CmGetDeviceStatus((__int64)a1, v13, (int)v97, &v93, &v94, &v95, v86);
+        DeviceStatus = CmGetDeviceStatus((__int64)a1, v13, (int)v96, &v92, &v93, &v94, v85);
         if ( (DeviceStatus & 0x80000000) == 0 )
         {
           v40 = *(_DWORD *)(a4 + 16);
-          v41 = v93;
+          v41 = v92;
           if ( v40 == 2 )
           {
             v42 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
@@ -256,21 +255,21 @@ LABEL_92:
           }
           if ( v40 == 3 )
           {
-            v71 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
+            v70 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
             if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
-              v71 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
-            if ( !v71 )
+              v70 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
+            if ( !v70 )
             {
 LABEL_97:
               v43 = 7;
               goto LABEL_98;
             }
           }
-          if ( (v93 & 0x400) != 0 )
+          if ( (v92 & 0x400) != 0 )
           {
             v43 = 24;
 LABEL_98:
-            v44 = v98;
+            v44 = v97;
             *a8 = 4;
             *v44 = v43;
             if ( a7 >= *a8 )
@@ -289,19 +288,19 @@ LABEL_98:
               }
               else if ( v45 == 3 )
               {
-                v78 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
+                v77 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
                 if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
-                  v78 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
-                if ( !v78 )
+                  v77 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
+                if ( !v77 )
                 {
-                  v79 = (v41 & 0x400) != 0 ? v94 : 0;
-LABEL_242:
-                  *(_DWORD *)v9 = v79;
+                  v78 = (v41 & 0x400) != 0 ? v93 : 0;
+LABEL_241:
+                  *(_DWORD *)v9 = v78;
                   return DeviceStatus;
                 }
               }
-              v79 = v95;
-              goto LABEL_242;
+              v78 = v94;
+              goto LABEL_241;
             }
             return (unsigned int)-1073741789;
           }
@@ -314,31 +313,31 @@ LABEL_242:
         v47 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_SafeRemovalRequired.fmtid.Data4;
       if ( v47 )
       {
-        v84 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ContainerId.fmtid.Data1;
+        v83 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ContainerId.fmtid.Data1;
         if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ContainerId.fmtid.Data1 )
-          v84 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ContainerId.fmtid.Data4;
-        if ( v84 )
+          v83 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ContainerId.fmtid.Data4;
+        if ( v83 )
           return DeviceStatus;
-        v90 = 78;
+        v89 = 78;
         DeviceStatus = CmGetDeviceRegProp(
                          (__int64)a1,
                          (__int64)v13,
-                         (__int64)v97,
+                         (__int64)v96,
                          0x25u,
-                         (__int64)&v101,
+                         (__int64)&v100,
                          (__int64)Str2,
-                         (__int64)&v90,
+                         (__int64)&v89,
                          a9);
         if ( (DeviceStatus & 0x80000000) != 0 )
           goto LABEL_30;
         if ( !wcscmp(L"{00000000-0000-0000-0000-000000000000}", Str2) )
           return (unsigned int)-1073741275;
-        v85 = v98;
+        v84 = v97;
         *a8 = 16;
-        *v85 = 13;
+        *v84 = 13;
         if ( a7 >= *a8 )
         {
-          DeviceStatus = CmGetDeviceContainerIdFromBase(a1, v89, Str2, SourceString);
+          DeviceStatus = CmGetDeviceContainerIdFromBase(a1, v88, Str2, SourceString);
           if ( (DeviceStatus & 0x80000000) == 0 )
           {
             DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, SourceString);
@@ -354,18 +353,26 @@ LABEL_242:
       if ( v16 < *a8 )
         return (unsigned int)-1073741789;
       v29 = -CmIsDeviceSafeRemovalRequired((__int64)a1, (__int64)v13, (int)a3);
-      goto LABEL_55;
     }
-    if ( v17 == 3 )
+    else
     {
-      v72 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
-        v72 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
-      if ( !v72 )
-        goto LABEL_92;
-    }
-    if ( v17 != 12 )
-    {
+      if ( v17 == 3 )
+      {
+        v71 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemCode.fmtid.Data1 )
+          v71 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
+        if ( !v71 )
+          goto LABEL_92;
+      }
+      if ( v17 == 12 )
+      {
+        v82 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1 )
+          v82 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemStatus.fmtid.Data4;
+        if ( !v82 )
+          goto LABEL_92;
+        goto LABEL_21;
+      }
       v18 = 4;
       if ( v17 != 4 )
       {
@@ -391,7 +398,7 @@ LABEL_242:
             *(_BYTE *)v9 = 0;
             if ( !a1[33] )
               return (unsigned int)-1073741822;
-            v38 = guard_dispatch_icall_no_overrides(a1, &DestinationString, &v93, &v94);
+            v38 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
             if ( v38 == -2147483643 )
               return (unsigned int)-1073741789;
             if ( v38 == -1073741810 )
@@ -399,7 +406,7 @@ LABEL_242:
             DeviceStatus = v38;
             if ( v38 < 0 )
               return DeviceStatus;
-            goto LABEL_146;
+            goto LABEL_145;
           }
           v18 = 8;
         }
@@ -410,23 +417,23 @@ LABEL_242:
             switch ( v17 )
             {
               case 7u:
-                v73 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_BusRelations.fmtid.Data1;
+                v72 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_BusRelations.fmtid.Data1;
                 if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_BusRelations.fmtid.Data1 )
-                  v73 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_BusRelations.fmtid.Data4;
-                if ( !v73 )
+                  v72 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_BusRelations.fmtid.Data4;
+                if ( !v72 )
                 {
                   v18 = 32;
-                  goto LABEL_169;
+                  goto LABEL_168;
                 }
                 break;
               case 0xBu:
-                v77 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_TransportRelations.fmtid.Data1;
+                v76 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_TransportRelations.fmtid.Data1;
                 if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_TransportRelations.fmtid.Data1 )
-                  v77 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_TransportRelations.fmtid.Data4;
-                if ( !v77 )
+                  v76 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_TransportRelations.fmtid.Data4;
+                if ( !v76 )
                 {
                   v18 = 64;
-                  goto LABEL_169;
+                  goto LABEL_168;
                 }
                 break;
               case 8u:
@@ -435,10 +442,10 @@ LABEL_242:
                   v34 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Parent.fmtid.Data4;
                 if ( v34 )
                 {
-                  v51 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data1;
+                  v50 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data1;
                   if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data1 )
-                    v51 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data4;
-                  if ( v51 )
+                    v50 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ReportedDeviceIdsHash.fmtid.Data4;
+                  if ( v50 )
                     return DeviceStatus;
                   *a5 = 7;
                   *a8 = 4;
@@ -447,56 +454,56 @@ LABEL_242:
                     goto LABEL_30;
                   if ( a1[32] )
                   {
-                    v50 = guard_dispatch_icall_no_overrides(a1, &DestinationString, 13LL, v9);
-                    DeviceStatus = v50;
-                    if ( v50 == -1073741772 )
+                    v49 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
+                    DeviceStatus = v49;
+                    if ( v49 == -1073741772 )
                       return (unsigned int)-1073741275;
-                    if ( v50 == -2147483643 )
+                    if ( v49 == -2147483643 )
                       return (unsigned int)-1073741789;
-LABEL_118:
-                    if ( v50 >= 0 )
+LABEL_117:
+                    if ( v49 >= 0 )
                       return DeviceStatus;
                     goto LABEL_30;
                   }
                   return (unsigned int)-1073741822;
                 }
-                v92 = v16 >> 1;
-                DeviceParent = CmGetDeviceParent(a1, v13, v9, &v92);
+                v91 = v16 >> 1;
+                DeviceParent = CmGetDeviceParent(a1, v13, v9, &v91);
                 DeviceStatus = DeviceParent;
                 if ( DeviceParent && DeviceParent != -1073741789 )
                   goto LABEL_30;
-                *a8 = 2 * v92;
-                *v98 = 18;
+                *a8 = 2 * v91;
+                *v97 = 18;
 LABEL_74:
                 if ( a7 >= *a8 )
                   goto LABEL_30;
                 return (unsigned int)-1073741789;
               case 9u:
-                v60 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Children.fmtid.Data1;
+                v59 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Children.fmtid.Data1;
                 if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_Children.fmtid.Data1 )
-                  v60 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Children.fmtid.Data4;
-                if ( v60 )
+                  v59 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Children.fmtid.Data4;
+                if ( v59 )
                   return DeviceStatus;
-                v92 = v16 >> 1;
-                DeviceChildren = CmGetDeviceChildren((__int64)a1, v13, v9, &v92);
+                v91 = v16 >> 1;
+                DeviceChildren = CmGetDeviceChildren((__int64)a1, v13, v9, &v91);
                 DeviceStatus = DeviceChildren;
                 if ( DeviceChildren == -1073741789 )
                 {
-LABEL_226:
-                  *a8 = 2 * v92;
-                  *v98 = 8210;
+LABEL_225:
+                  *a8 = 2 * v91;
+                  *v97 = 8210;
                   goto LABEL_74;
                 }
-                v62 = DeviceChildren == 0;
-LABEL_167:
-                if ( !v62 )
+                v61 = DeviceChildren == 0;
+LABEL_166:
+                if ( !v61 )
                   goto LABEL_30;
-                goto LABEL_226;
+                goto LABEL_225;
               case 0xFu:
-                v65 = *(_QWORD *)a4 - DEVPKEY_Device_IsConnected;
+                v64 = *(_QWORD *)a4 - DEVPKEY_Device_IsConnected;
                 if ( *(_QWORD *)a4 == DEVPKEY_Device_IsConnected )
-                  v65 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
-                if ( v65 )
+                  v64 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
+                if ( v64 )
                   return DeviceStatus;
                 *a5 = 17;
                 *a8 = 1;
@@ -508,43 +515,43 @@ LABEL_167:
                 *(_BYTE *)v9 = 0;
                 if ( !a1[33] )
                   return (unsigned int)-1073741822;
-                v66 = guard_dispatch_icall_no_overrides(a1, &DestinationString, &v93, &v94);
-                if ( v66 == -2147483643 )
+                v65 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
+                if ( v65 == -2147483643 )
                   return (unsigned int)-1073741789;
-                if ( v66 == -1073741810 )
+                if ( v65 == -1073741810 )
                   return 0;
-                DeviceStatus = v66;
-                if ( v66 < 0 || (v93 & 0x2000000) != 0 )
+                DeviceStatus = v65;
+                if ( v65 < 0 || (v92 & 0x2000000) != 0 )
                   return DeviceStatus;
-                v67 = PnpGetObjectProperty(
+                v66 = PnpGetObjectProperty(
                         a1,
-                        v89,
+                        v88,
                         1u,
                         0LL,
                         0LL,
                         (__int64)&DEVPKEY_Device_PresenceNotForDevice,
-                        &v91,
-                        &v88,
+                        &v90,
+                        &v87,
                         1u,
-                        (__int64)&v90,
-                        v96);
-                DeviceStatus = v67;
-                if ( v67 >= 0 )
+                        (__int64)&v89,
+                        v95);
+                DeviceStatus = v66;
+                if ( v66 >= 0 )
                 {
-                  if ( v91 != 17 )
-                    goto LABEL_146;
-                  v56 = (_BYTE)v88 == 0xFF;
-                  goto LABEL_145;
+                  if ( v90 != 17 )
+                    goto LABEL_145;
+                  v55 = (_BYTE)v87 == 0xFF;
+                  goto LABEL_144;
                 }
-                if ( v67 != -1073741275 && v67 != -1073741789 )
+                if ( v66 != -1073741275 && v66 != -1073741789 )
                   goto LABEL_30;
                 DeviceStatus = 0;
-                goto LABEL_146;
+                goto LABEL_145;
               case 0x10u:
-                v68 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_IsRebootRequired.fmtid.Data1;
+                v67 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_IsRebootRequired.fmtid.Data1;
                 if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_IsRebootRequired.fmtid.Data1 )
-                  v68 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_IsRebootRequired.fmtid.Data4;
-                if ( v68 )
+                  v67 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_IsRebootRequired.fmtid.Data4;
+                if ( v67 )
                   return DeviceStatus;
                 *a5 = 17;
                 *a8 = 1;
@@ -556,20 +563,20 @@ LABEL_167:
                 *(_BYTE *)v9 = 0;
                 if ( a1[33] )
                 {
-                  v69 = guard_dispatch_icall_no_overrides(a1, &DestinationString, &v93, &v94);
-                  if ( v69 == -1073741810 )
+                  v68 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
+                  if ( v68 == -1073741810 )
                     return 0;
-                  if ( v69 != -2147483643 )
+                  if ( v68 != -2147483643 )
                   {
-                    DeviceStatus = v69;
-                    if ( v69 < 0 )
+                    DeviceStatus = v68;
+                    if ( v68 < 0 )
                       return DeviceStatus;
-                    if ( (v93 & 0x100) != 0 )
-                      goto LABEL_146;
-                    if ( (v93 & 0x400) == 0 )
+                    if ( (v92 & 0x100) != 0 )
+                      goto LABEL_145;
+                    if ( (v92 & 0x400) == 0 )
                       return DeviceStatus;
-                    v70 = v94 == 14;
-                    goto LABEL_200;
+                    v69 = v93 == 14;
+                    goto LABEL_199;
                   }
                   return (unsigned int)-1073741789;
                 }
@@ -584,35 +591,209 @@ LABEL_167:
                 DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, v13);
                 if ( (DeviceStatus & 0x80000000) != 0 )
                   goto LABEL_30;
-                if ( a1[32] )
-                {
-                  v49 = 14LL;
-LABEL_115:
-                  v50 = guard_dispatch_icall_no_overrides(a1, &DestinationString, v49, v9);
-                  if ( v50 == -2147483643 )
-                    return (unsigned int)-1073741789;
-                  if ( v50 == -1073741772 )
-                    return (unsigned int)-1073741275;
-                  DeviceStatus = v50;
-                  goto LABEL_118;
-                }
-                return (unsigned int)-1073741822;
+                if ( !a1[32] )
+                  return (unsigned int)-1073741822;
+                goto LABEL_114;
               default:
                 break;
             }
-            v15 = v96;
-            v12 = v97;
-            goto LABEL_21;
+            v15 = v95;
+            v12 = v96;
+LABEL_21:
+            if ( v17 != 20 )
+            {
+              if ( v17 != 21 )
+              {
+                if ( v17 != 26 )
+                {
+                  if ( v17 == 22 )
+                  {
+                    v33 = *(_QWORD *)a4 - DEVPKEY_Device_CompoundUpperFilters;
+                    if ( *(_QWORD *)a4 == DEVPKEY_Device_CompoundUpperFilters )
+                      v33 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
+                    if ( !v33 )
+                    {
+LABEL_29:
+                      DeviceStatus = CmGetDeviceCompoundFilters((_DWORD)a1, (__int64)a5, (__int64)v9, v16, (__int64)a8);
+LABEL_30:
+                      v13 = v88;
+                      goto LABEL_31;
+                    }
+                  }
+                  if ( v17 == 23 )
+                  {
+                    v19 = *(_QWORD *)a4 - DEVPKEY_Device_CompoundLowerFilters;
+                    if ( *(_QWORD *)a4 == DEVPKEY_Device_CompoundLowerFilters )
+                      v19 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
+                    if ( v19 )
+                      return DeviceStatus;
+                    goto LABEL_29;
+                  }
+                  if ( v17 != 102 )
+                    return DeviceStatus;
+                  v80 = *(_QWORD *)a4 - DEVPKEY_Device_EffectiveRestrictedSD;
+                  if ( *(_QWORD *)a4 == DEVPKEY_Device_EffectiveRestrictedSD )
+                    v80 = *(_QWORD *)(a4 + 8) - 0x57C1C6A499921E96LL;
+                  if ( v80 )
+                    return DeviceStatus;
+                  DeviceStatus = PnpGetObjectProperty(
+                                   a1,
+                                   v13,
+                                   1u,
+                                   v12,
+                                   0LL,
+                                   (__int64)&DEVPKEY_Device_RestrictedSD,
+                                   &v90,
+                                   v9,
+                                   v16,
+                                   (__int64)&v89,
+                                   v15);
+                  if ( (int)(DeviceStatus + 0x80000000) >= 0 && DeviceStatus != -1073741789 )
+                  {
+                    if ( DeviceStatus != -1073741275 )
+                      goto LABEL_30;
+                    goto LABEL_269;
+                  }
+                  if ( v90 != 19 )
+                  {
+LABEL_269:
+                    DeviceStatus = PnpGetObjectProperty(
+                                     a1,
+                                     v88,
+                                     1u,
+                                     v96,
+                                     0LL,
+                                     (__int64)&DEVPKEY_Device_InheritedRestrictedSD,
+                                     &v90,
+                                     v9,
+                                     a7,
+                                     (__int64)&v89,
+                                     v15);
+                    if ( (int)(DeviceStatus + 0x80000000) >= 0 && DeviceStatus != -1073741789 )
+                      goto LABEL_30;
+                    v13 = v88;
+                    if ( v90 == 19 )
+                    {
+                      *v97 = 19;
+                      *a8 = v89;
+                    }
+                    else
+                    {
+                      DeviceStatus = -1073741275;
+                    }
+                    goto LABEL_31;
+                  }
+                  *v97 = 19;
+LABEL_63:
+                  *a8 = v89;
+                  goto LABEL_30;
+                }
+                v56 = *(_QWORD *)a4 - DEVPKEY_Device_OmitFromSystemSpec;
+                if ( *(_QWORD *)a4 == DEVPKEY_Device_OmitFromSystemSpec )
+                  v56 = *(_QWORD *)(a4 + 8) + 0x298AF3586C1A6853LL;
+                if ( v56 )
+                  return DeviceStatus;
+                *a5 = 17;
+                *a8 = 1;
+                if ( v16 )
+                {
+                  *(_BYTE *)v9 = 0;
+                  v57 = PnpGetObjectProperty(
+                          a1,
+                          v13,
+                          1u,
+                          v12,
+                          0LL,
+                          (__int64)DEVPKEY_Device_UpdateWithUngroupedDrivers,
+                          &v90,
+                          &v87,
+                          1u,
+                          (__int64)&v89,
+                          v15);
+                  DeviceStatus = v57;
+                  if ( v57 >= 0 )
+                  {
+                    if ( v90 == 17 && v89 == 1 )
+                    {
+                      v69 = (_BYTE)v87 == 0;
+LABEL_199:
+                      if ( !v69 )
+                        return DeviceStatus;
+                      goto LABEL_145;
+                    }
+                  }
+                  else if ( v57 != -1073741275 && v57 != -1073741789 )
+                  {
+                    goto LABEL_30;
+                  }
+                  v58 = PnpGetObjectProperty(
+                          a1,
+                          v88,
+                          1u,
+                          v96,
+                          0LL,
+                          (__int64)DEVPKEY_Device_DriverNeedsGroupUpdate,
+                          &v90,
+                          &v87,
+                          1u,
+                          (__int64)&v89,
+                          v15);
+                  DeviceStatus = v58;
+                  if ( v58 < 0 )
+                  {
+                    if ( v58 != -1073741275 && v58 != -1073741789 )
+                      goto LABEL_30;
+                    return 0;
+                  }
+                  if ( v90 != 17 || v89 != 1 )
+                    return DeviceStatus;
+                  v69 = (_BYTE)v87 == 0xFF;
+                  goto LABEL_199;
+                }
+                return (unsigned int)-1073741789;
+              }
+              v73 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DependencyDependents.fmtid.Data1;
+              if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DependencyDependents.fmtid.Data1 )
+                v73 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DependencyDependents.fmtid.Data4;
+              if ( v73 )
+                return DeviceStatus;
+              *a5 = 8210;
+              DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, v13);
+              if ( (DeviceStatus & 0x80000000) != 0 )
+                goto LABEL_30;
+              if ( a1[32] )
+                goto LABEL_114;
+              return (unsigned int)-1073741822;
+            }
+            v81 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DependencyProviders.fmtid.Data1;
+            if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DependencyProviders.fmtid.Data1 )
+              v81 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DependencyProviders.fmtid.Data4;
+            if ( v81 )
+              return DeviceStatus;
+            *a5 = 8210;
+            DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, v13);
+            if ( (DeviceStatus & 0x80000000) != 0 )
+              goto LABEL_30;
+            if ( !a1[32] )
+              return (unsigned int)-1073741822;
+LABEL_114:
+            v49 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
+            if ( v49 == -2147483643 )
+              return (unsigned int)-1073741789;
+            if ( v49 == -1073741772 )
+              return (unsigned int)-1073741275;
+            DeviceStatus = v49;
+            goto LABEL_117;
           }
-          v52 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_PowerRelations.fmtid.Data1;
+          v51 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_PowerRelations.fmtid.Data1;
           if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_PowerRelations.fmtid.Data1 )
-            v52 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_PowerRelations.fmtid.Data4;
-          if ( v52 )
+            v51 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_PowerRelations.fmtid.Data4;
+          if ( v51 )
           {
-            v53 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_HasProblem.fmtid.Data1;
+            v52 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_HasProblem.fmtid.Data1;
             if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_HasProblem.fmtid.Data1 )
-              v53 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_HasProblem.fmtid.Data4;
-            if ( v53 )
+              v52 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_HasProblem.fmtid.Data4;
+            if ( v52 )
               return DeviceStatus;
             *a5 = 17;
             *a8 = 1;
@@ -624,59 +805,59 @@ LABEL_115:
             *(_BYTE *)v9 = 0;
             if ( !a1[33] )
               return (unsigned int)-1073741822;
-            v54 = guard_dispatch_icall_no_overrides(a1, &DestinationString, &v93, &v94);
-            if ( v54 == -2147483643 )
+            v53 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
+            if ( v53 == -2147483643 )
               return (unsigned int)-1073741789;
-            if ( v54 == -1073741810 )
+            if ( v53 == -1073741810 )
               return 0;
-            DeviceStatus = v54;
-            if ( v54 < 0 )
+            DeviceStatus = v53;
+            if ( v53 < 0 )
               return DeviceStatus;
-            if ( (v93 & 0x8000) == 0 )
+            if ( (v92 & 0x8000) == 0 )
             {
-              if ( (v93 & 0x400) == 0 || v94 <= 0x1D && (v80 = 591396864, _bittest(&v80, v94)) )
+              if ( (v92 & 0x400) == 0 || v93 <= 0x1D && (v79 = 591396864, _bittest(&v79, v93)) )
               {
-                if ( (v93 & 8) != 0 )
+                if ( (v92 & 8) != 0 )
                   return DeviceStatus;
-                v55 = PnpGetObjectProperty(
+                v54 = PnpGetObjectProperty(
                         a1,
-                        v89,
+                        v88,
                         1u,
-                        v97,
+                        v96,
                         0LL,
                         (__int64)&DEVPKEY_Device_Capabilities,
-                        &v91,
-                        (const wchar_t *)&v100,
+                        &v90,
+                        (const wchar_t *)&v99,
                         4u,
-                        (__int64)&v90,
-                        v96);
-                DeviceStatus = v55;
-                if ( v55 == -1073741275 )
+                        (__int64)&v89,
+                        v95);
+                DeviceStatus = v54;
+                if ( v54 == -1073741275 )
                   return 0;
-                if ( v55 < 0 )
+                if ( v54 < 0 )
                   goto LABEL_30;
-                v56 = (v100 & 0x40) == 0;
-LABEL_145:
-                if ( v56 )
+                v55 = (v99 & 0x40) == 0;
+LABEL_144:
+                if ( v55 )
                   return DeviceStatus;
               }
             }
-LABEL_146:
+LABEL_145:
             *(_BYTE *)v9 = -1;
             return DeviceStatus;
           }
           v18 = 16;
         }
-LABEL_169:
-        DeviceRelationsList = CmGetDeviceRelationsList((__int64)a1, v13, v18, (__int64)v9);
+LABEL_168:
+        DeviceRelationsList = CmGetDeviceRelationsList((__int64)a1, v13, v18);
         DeviceStatus = DeviceRelationsList;
         if ( DeviceRelationsList == -1073741772 )
           return (unsigned int)-1073741275;
         if ( !DeviceRelationsList || DeviceRelationsList == -1073741789 )
         {
-          *v98 = 8210;
+          *v97 = 8210;
           if ( DeviceRelationsList )
-            Len = v92;
+            Len = v91;
           else
             Len = PnpMultiSzGetLen(v9);
           *a8 = 2 * Len;
@@ -688,14 +869,14 @@ LABEL_169:
       if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_EjectionRelations.fmtid.Data1 )
         v26 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_EjectionRelations.fmtid.Data4;
       if ( !v26 )
-        goto LABEL_169;
+        goto LABEL_168;
       v27 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InLocalMachineContainer.fmtid.Data1;
       if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_InLocalMachineContainer.fmtid.Data1 )
         v27 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InLocalMachineContainer.fmtid.Data4;
       if ( v27 )
         return DeviceStatus;
-      v28 = v96;
-      v87 = v96;
+      v28 = v95;
+      v86 = v95;
       *a5 = 17;
       *a8 = 1;
       DeviceStatus = PnpGetObjectProperty(
@@ -705,11 +886,11 @@ LABEL_169:
                        a3,
                        0LL,
                        (__int64)&DEVPKEY_Device_ContainerId,
-                       &v91,
+                       &v90,
                        (const wchar_t *)&Buf2,
                        0x10u,
-                       (__int64)&v90,
-                       v87);
+                       (__int64)&v89,
+                       v86);
       if ( (DeviceStatus & 0x80000000) != 0 )
         goto LABEL_30;
       DeviceStatus = PnpGetObjectProperty(
@@ -719,211 +900,19 @@ LABEL_169:
                        0LL,
                        0LL,
                        (__int64)&DEVPKEY_Device_BaseContainerId,
-                       &v91,
+                       &v90,
                        (const wchar_t *)&Buf1,
                        0x10u,
-                       (__int64)&v90,
+                       (__int64)&v89,
                        v28);
       if ( (DeviceStatus & 0x80000000) != 0 )
         goto LABEL_30;
       if ( a7 < *a8 )
         return (unsigned int)-1073741789;
       v29 = (memcmp(&Buf1, &Buf2, 0x10uLL) != 0) - 1;
-LABEL_55:
-      *(_BYTE *)v9 = v29;
-      return DeviceStatus;
     }
-    v83 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1;
-    if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_ProblemStatus.fmtid.Data1 )
-      v83 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemStatus.fmtid.Data4;
-    if ( !v83 )
-      goto LABEL_92;
-LABEL_21:
-    if ( v17 == 20 )
-    {
-      v82 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DependencyProviders.fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DependencyProviders.fmtid.Data1 )
-        v82 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DependencyProviders.fmtid.Data4;
-      if ( v82 )
-        return DeviceStatus;
-      *a5 = 8210;
-      DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, v13);
-      if ( (DeviceStatus & 0x80000000) != 0 )
-        goto LABEL_30;
-      if ( a1[32] )
-      {
-        v49 = 15LL;
-        goto LABEL_115;
-      }
-    }
-    else
-    {
-      if ( v17 != 21 )
-      {
-        if ( v17 != 26 )
-        {
-          if ( v17 == 22 )
-          {
-            v33 = *(_QWORD *)a4 - DEVPKEY_Device_CompoundUpperFilters;
-            if ( *(_QWORD *)a4 == DEVPKEY_Device_CompoundUpperFilters )
-              v33 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
-            if ( !v33 )
-            {
-LABEL_29:
-              DeviceStatus = CmGetDeviceCompoundFilters((_DWORD)a1, (__int64)a5, (__int64)v9, v16, (__int64)a8);
-LABEL_30:
-              v13 = v89;
-              goto LABEL_31;
-            }
-          }
-          if ( v17 == 23 )
-          {
-            v19 = *(_QWORD *)a4 - DEVPKEY_Device_CompoundLowerFilters;
-            if ( *(_QWORD *)a4 == DEVPKEY_Device_CompoundLowerFilters )
-              v19 = *(_QWORD *)(a4 + 8) - 0x293B573F92A15394LL;
-            if ( v19 )
-              return DeviceStatus;
-            goto LABEL_29;
-          }
-          if ( v17 != 102 )
-            return DeviceStatus;
-          v81 = *(_QWORD *)a4 - DEVPKEY_Device_EffectiveRestrictedSD;
-          if ( *(_QWORD *)a4 == DEVPKEY_Device_EffectiveRestrictedSD )
-            v81 = *(_QWORD *)(a4 + 8) - 0x57C1C6A499921E96LL;
-          if ( v81 )
-            return DeviceStatus;
-          DeviceStatus = PnpGetObjectProperty(
-                           a1,
-                           v13,
-                           1u,
-                           v12,
-                           0LL,
-                           (__int64)&DEVPKEY_Device_RestrictedSD,
-                           &v91,
-                           v9,
-                           v16,
-                           (__int64)&v90,
-                           v15);
-          if ( (int)(DeviceStatus + 0x80000000) >= 0 && DeviceStatus != -1073741789 )
-          {
-            if ( DeviceStatus != -1073741275 )
-              goto LABEL_30;
-            goto LABEL_270;
-          }
-          if ( v91 != 19 )
-          {
-LABEL_270:
-            DeviceStatus = PnpGetObjectProperty(
-                             a1,
-                             v89,
-                             1u,
-                             v97,
-                             0LL,
-                             (__int64)&DEVPKEY_Device_InheritedRestrictedSD,
-                             &v91,
-                             v9,
-                             a7,
-                             (__int64)&v90,
-                             v15);
-            if ( (int)(DeviceStatus + 0x80000000) >= 0 && DeviceStatus != -1073741789 )
-              goto LABEL_30;
-            v13 = v89;
-            if ( v91 == 19 )
-            {
-              *v98 = 19;
-              *a8 = v90;
-            }
-            else
-            {
-              DeviceStatus = -1073741275;
-            }
-            goto LABEL_31;
-          }
-          *v98 = 19;
-LABEL_63:
-          *a8 = v90;
-          goto LABEL_30;
-        }
-        v57 = *(_QWORD *)a4 - DEVPKEY_Device_OmitFromSystemSpec;
-        if ( *(_QWORD *)a4 == DEVPKEY_Device_OmitFromSystemSpec )
-          v57 = *(_QWORD *)(a4 + 8) + 0x298AF3586C1A6853LL;
-        if ( v57 )
-          return DeviceStatus;
-        *a5 = 17;
-        *a8 = 1;
-        if ( v16 )
-        {
-          *(_BYTE *)v9 = 0;
-          v58 = PnpGetObjectProperty(
-                  a1,
-                  v13,
-                  1u,
-                  v12,
-                  0LL,
-                  (__int64)DEVPKEY_Device_UpdateWithUngroupedDrivers,
-                  &v91,
-                  &v88,
-                  1u,
-                  (__int64)&v90,
-                  v15);
-          DeviceStatus = v58;
-          if ( v58 >= 0 )
-          {
-            if ( v91 == 17 && v90 == 1 )
-            {
-              v70 = (_BYTE)v88 == 0;
-LABEL_200:
-              if ( !v70 )
-                return DeviceStatus;
-              goto LABEL_146;
-            }
-          }
-          else if ( v58 != -1073741275 && v58 != -1073741789 )
-          {
-            goto LABEL_30;
-          }
-          v59 = PnpGetObjectProperty(
-                  a1,
-                  v89,
-                  1u,
-                  v97,
-                  0LL,
-                  (__int64)DEVPKEY_Device_DriverNeedsGroupUpdate,
-                  &v91,
-                  &v88,
-                  1u,
-                  (__int64)&v90,
-                  v15);
-          DeviceStatus = v59;
-          if ( v59 < 0 )
-          {
-            if ( v59 != -1073741275 && v59 != -1073741789 )
-              goto LABEL_30;
-            return 0;
-          }
-          if ( v91 != 17 || v90 != 1 )
-            return DeviceStatus;
-          v70 = (_BYTE)v88 == 0xFF;
-          goto LABEL_200;
-        }
-        return (unsigned int)-1073741789;
-      }
-      v74 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DependencyDependents.fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_DependencyDependents.fmtid.Data1 )
-        v74 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_DependencyDependents.fmtid.Data4;
-      if ( v74 )
-        return DeviceStatus;
-      *a5 = 8210;
-      DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, v13);
-      if ( (DeviceStatus & 0x80000000) != 0 )
-        goto LABEL_30;
-      if ( a1[32] )
-      {
-        v49 = 16LL;
-        goto LABEL_115;
-      }
-    }
-    return (unsigned int)-1073741822;
+    *(_BYTE *)v9 = v29;
+    return DeviceStatus;
   }
   v21 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
   if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1 )
@@ -953,11 +942,11 @@ LABEL_200:
     if ( v16 >= *a8 )
     {
       v24 = RtlStringCbCopyExW(v9, (unsigned int)*a8, v13, 0LL, 0LL, 0x900u);
-      v13 = v89;
+      v13 = v88;
       DeviceStatus = v24;
       if ( v24 < 0 )
       {
-        v25 = v98;
+        v25 = v97;
         *a8 = 0;
         *v25 = 0;
       }

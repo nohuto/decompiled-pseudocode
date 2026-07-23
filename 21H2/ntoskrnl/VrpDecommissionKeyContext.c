@@ -4,8 +4,8 @@
  *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  *     VrpFreeKeyContext @ 0x1405D5A80 (VrpFreeKeyContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VrpDecommissionKeyContext(UNICODE_STRING *a1)

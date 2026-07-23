@@ -18,45 +18,42 @@
  *     RtlpHpTlLogVAChange @ 0x180106054 (RtlpHpTlLogVAChange.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, unsigned __int64 a3, char a4)
+PVOID __fastcall RtlpHpLargeAlloc(PVOID BaseAddress, __int16 a2, ULONG_PTR a3, char a4)
 {
-  unsigned __int64 v4; // rsi
-  void *v9; // rax
-  unsigned __int64 v10; // rdi
-  int v11; // eax
-  int v12; // r15d
+  PVOID v4; // rsi
+  _RTL_BALANCED_NODE *v9; // rax
+  _RTL_BALANCED_NODE *v10; // rdi
+  ULONG Protect; // eax
+  NTSTATUS v12; // r15d
   int v13; // eax
-  int v14; // eax
-  unsigned __int64 v15; // rdx
-  unsigned __int64 *v16; // r8
-  __int64 v17; // r9
-  int v18; // r14d
-  int v19; // r12d
-  bool v20; // r8
-  unsigned __int64 v21; // rdx
-  __int64 v22; // rcx
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int64 v26; // [rsp+38h] [rbp-8h] BYREF
+  ULONG v14; // eax
+  NTSTATUS v15; // r14d
+  int v16; // r12d
+  BOOLEAN v17; // r8
+  _RTL_BALANCED_NODE *v18; // rdx
+  __int64 v19; // rcx
+  _RTL_BALANCED_NODE *v21; // rax
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-10h] BYREF
+  PVOID BaseAddressa; // [rsp+38h] [rbp-8h] BYREF
 
   v4 = 0LL;
-  v26 = 0LL;
-  v9 = (void *)RtlpHpMetadataAlloc(40LL, 0LL);
-  v10 = (unsigned __int64)v9;
+  BaseAddressa = 0LL;
+  v9 = (_RTL_BALANCED_NODE *)RtlpHpMetadataAlloc(40LL, 0LL);
+  v10 = v9;
   if ( !v9 )
   {
 LABEL_35:
-    if ( v26 )
+    if ( BaseAddressa )
     {
-      v25 = 0LL;
-      ZwFreeVirtualMemory(-1LL, &v26, &v25, 0x8000LL);
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, 0x8000u);
       if ( (RtlpHpHeapFeatures & 8) != 0 )
-        RtlpHpTlLogVAChange(0x8000LL, v25, v26);
+        RtlpHpTlLogVAChange(0x8000LL, RegionSize, BaseAddressa);
     }
     return v4;
   }
   memset(v9, 0, 0x28uLL);
-  v25 = a3 + 4096;
+  RegionSize = a3 + 4096;
   if ( a3 + 4096 < a3 )
   {
 LABEL_33:
@@ -64,85 +61,85 @@ LABEL_33:
       RtlpHpMetadataFree(v10);
     goto LABEL_35;
   }
-  v11 = RtlpHpHeapValidateProtection(a1, (*(_DWORD *)(a1 + 20) & 0x40000000) != 0 ? 64 : 4);
-  v12 = ZwAllocateVirtualMemory(-1LL, &v26, 0LL, &v25, 0x2000, v11);
+  Protect = RtlpHpHeapValidateProtection(BaseAddress, (*((_DWORD *)BaseAddress + 5) & 0x40000000) != 0 ? 64 : 4);
+  v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x2000u, Protect);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(0x2000LL, v25, v26);
+    RtlpHpTlLogVAChange(0x2000LL, RegionSize, BaseAddressa);
   if ( v12 < 0 )
   {
-    v26 = 0LL;
+    BaseAddressa = 0LL;
     goto LABEL_33;
   }
-  v13 = *(_DWORD *)(a1 + 20) & 0x40000000;
-  v25 = a3;
-  v14 = RtlpHpHeapValidateProtection(a1, v13 != 0 ? 64 : 4);
-  v18 = ZwAllocateVirtualMemory(-1LL, &v26, 0LL, &v25, 4096, v14);
+  v13 = *((_DWORD *)BaseAddress + 5) & 0x40000000;
+  RegionSize = a3;
+  v14 = RtlpHpHeapValidateProtection(BaseAddress, v13 != 0 ? 64 : 4);
+  v15 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, v14);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(4096LL, v25, v26);
-  if ( v18 < 0 )
+    RtlpHpTlLogVAChange(4096LL, RegionSize, BaseAddressa);
+  if ( v15 < 0 )
     goto LABEL_33;
-  *(_QWORD *)(v10 + 24) = v26;
-  *(_QWORD *)(v10 + 32) = v25 ^ ((unsigned __int16)v25 ^ (unsigned __int16)*(_QWORD *)(v10 + 32)) & 0xFFF;
-  *(_WORD *)(v10 + 24) = v25 - a2;
-  v19 = a4 & 1;
-  if ( !v19 )
-    RtlAcquireSRWLockExclusive(a1 + 72, v15, v16, v17);
-  v20 = 0;
-  v21 = *(_QWORD *)(a1 + 80);
-  if ( v21 )
+  v10[1].Children[0] = (_RTL_BALANCED_NODE *)BaseAddressa;
+  v10[1].Children[1] = (_RTL_BALANCED_NODE *)(RegionSize ^ ((unsigned __int16)RegionSize ^ (unsigned __int16)v10[1].Children[1]) & 0xFFF);
+  LOWORD(v10[1].Children[0]) = RegionSize - a2;
+  v16 = a4 & 1;
+  if ( !v16 )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 9);
+  v17 = 0;
+  v18 = (_RTL_BALANCED_NODE *)*((_QWORD *)BaseAddress + 10);
+  if ( v18 )
   {
     while ( 1 )
     {
-      if ( v26 < (*(_QWORD *)(v21 + 24) & 0xFFFFFFFFFFFF0000uLL) )
+      if ( (unsigned __int64)BaseAddressa < ((unsigned __int64)v18[1].Children[0] & 0xFFFFFFFFFFFF0000uLL) )
       {
-        v24 = *(_QWORD *)v21;
-        if ( (*(_BYTE *)(a1 + 88) & 1) != 0 )
+        v21 = v18->Children[0];
+        if ( (*((_BYTE *)BaseAddress + 88) & 1) != 0 )
         {
-          if ( !v24 )
+          if ( !v21 )
           {
 LABEL_25:
-            v20 = 0;
+            v17 = 0;
             break;
           }
-          v24 ^= v21;
+          v21 = (_RTL_BALANCED_NODE *)((unsigned __int64)v18 ^ (unsigned __int64)v21);
         }
-        if ( !v24 )
+        if ( !v21 )
           goto LABEL_25;
       }
       else
       {
-        v24 = *(_QWORD *)(v21 + 8);
-        if ( (*(_BYTE *)(a1 + 88) & 1) != 0 )
+        v21 = v18->Children[1];
+        if ( (*((_BYTE *)BaseAddress + 88) & 1) != 0 )
         {
-          if ( !v24 )
+          if ( !v21 )
           {
 LABEL_21:
-            v20 = 1;
+            v17 = 1;
             break;
           }
-          v24 ^= v21;
+          v21 = (_RTL_BALANCED_NODE *)((unsigned __int64)v18 ^ (unsigned __int64)v21);
         }
-        if ( !v24 )
+        if ( !v21 )
           goto LABEL_21;
       }
-      v21 = v24;
+      v18 = v21;
     }
   }
-  RtlRbInsertNodeEx(a1 + 80, v21, v20, v10);
-  if ( !v19 )
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 96), (v25 >> 12) + 1);
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 104), v25 >> 12);
-  v4 = v26;
+  RtlRbInsertNodeEx((PRTL_RB_TREE)BaseAddress + 5, v18, v17, v10);
+  if ( !v16 )
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 9);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)BaseAddress + 12, (RegionSize >> 12) + 1);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)BaseAddress + 13, RegionSize >> 12);
+  v4 = BaseAddressa;
   v10 = 0LL;
-  v26 = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v22 = (__int64)NtCurrentPeb()->SharedData + 558;
+  BaseAddressa = 0LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v19 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
-    v22 = 2147353480LL;
-  if ( *(_BYTE *)v22 )
+    v19 = 2147353480LL;
+  if ( *(_BYTE *)v19 )
   {
-    RtlpHeapLogRangeReserve(a1, v4, v25 + 4096);
+    RtlpHeapLogRangeReserve(BaseAddress, v4, RegionSize + 4096);
     goto LABEL_33;
   }
   return v4;

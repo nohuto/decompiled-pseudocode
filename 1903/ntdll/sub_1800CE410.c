@@ -15,42 +15,42 @@ char sub_1800CE410()
   __int64 v2; // rdi
   int v3; // r8d
   int v4; // r9d
-  char *v5; // rcx
-  int v6; // ebx
-  unsigned int CurrentServiceSessionId; // eax
+  USHORT *v5; // rcx
+  LOGICAL v6; // ebx
+  ULONG CurrentServiceSessionId; // eax
   int v8; // r8d
   int v9; // r9d
   int v11; // r8d
   int v12; // r9d
 
   v0 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v1 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v1 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   else
     v1 = 2147353476LL;
   v2 = 2147353477LL;
   if ( *(_BYTE *)v1 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v5 = (unsigned int)RtlGetCurrentServiceSessionId()
-       ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-       : (char *)2147353477;
-    if ( (*v5 & 0x20) != 0 )
+    v5 = RtlGetCurrentServiceSessionId()
+       ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+       : (USHORT *)2147353477;
+    if ( (*(_BYTE *)v5 & 0x20) != 0 )
     {
       LOBYTE(v4) = -1;
       LOBYTE(v3) = -1;
       sub_1800CFA48(5248, -1, v3, v4, 0LL, 0LL);
     }
   }
-  v6 = RtlTryEnterCriticalSection((__int64)&off_18015F4F8);
-  CurrentServiceSessionId = (unsigned int)RtlGetCurrentServiceSessionId();
+  v6 = RtlTryEnterCriticalSection(&stru_18015F4F8);
+  CurrentServiceSessionId = RtlGetCurrentServiceSessionId();
   if ( v6 )
   {
     if ( CurrentServiceSessionId )
-      v0 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+      v0 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v2 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+      if ( RtlGetCurrentServiceSessionId() )
+        v2 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
       if ( (*(_BYTE *)v2 & 0x20) != 0 )
       {
         LOBYTE(v9) = -1;
@@ -63,11 +63,11 @@ char sub_1800CE410()
   else
   {
     if ( CurrentServiceSessionId )
-      v0 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+      v0 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v2 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+      if ( RtlGetCurrentServiceSessionId() )
+        v2 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
       if ( (*(_BYTE *)v2 & 0x20) != 0 )
       {
         LOBYTE(v12) = -1;

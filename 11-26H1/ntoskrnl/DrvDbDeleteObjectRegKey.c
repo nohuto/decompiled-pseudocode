@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbDeleteObjectRegKey @ 0x14089DBC4
+ * XREFs of DrvDbDeleteObjectRegKey @ 0x1408A3FC4
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x14091B3D0 (DrvDbDispatchDeviceId.c)
- *     DrvDbDispatchDriverInfFile @ 0x14091BC80 (DrvDbDispatchDriverInfFile.c)
- *     DrvDbDispatchDriverPackage @ 0x14091C060 (DrvDbDispatchDriverPackage.c)
- *     DrvDbDispatchDriverFile @ 0x140B55610 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDeviceId @ 0x140975E30 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDriverInfFile @ 0x1409766E0 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverPackage @ 0x140976AC0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverFile @ 0x140B57EB0 (DrvDbDispatchDriverFile.c)
  * Callees:
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x14091D48C (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x14091DC40 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbGetObjectDatabaseNode @ 0x14091E8CC (DrvDbGetObjectDatabaseNode.c)
- *     DrvDbDeleteObjectSubKey @ 0x140A2D44C (DrvDbDeleteObjectSubKey.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140977EEC (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1409786A0 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x14097932C (DrvDbGetObjectDatabaseNode.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140A3EE58 (DrvDbDeleteObjectSubKey.c)
  */
 
 __int64 __fastcall DrvDbDeleteObjectRegKey(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)

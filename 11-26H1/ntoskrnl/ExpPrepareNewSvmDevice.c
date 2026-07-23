@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPrepareNewSvmDevice @ 0x1406D1778
+ * XREFs of ExpPrepareNewSvmDevice @ 0x1406D57A8
  * Callers:
- *     ExpShareAddressSpaceWithDevice @ 0x1406D1A1C (ExpShareAddressSpaceWithDevice.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x1406D5A4C (ExpShareAddressSpaceWithDevice.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4, struct _LIST_ENTRY **a5)
@@ -17,8 +17,8 @@ __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __
   struct _LIST_ENTRY *v12; // rdi
   __int64 v13; // rcx
   __int64 v14; // rdx
-  struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *v16; // rdx
+  struct _LIST_ENTRY *Blink; // rax
+  struct _LIST_ENTRY *Flink; // rdx
   unsigned int v18; // [rsp+78h] [rbp+20h] BYREF
 
   v5 = a5;
@@ -56,7 +56,7 @@ __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __
           if ( (v18 & 1) != 0
             && (v18 & 2) != 0
             && (v18 & 4) != 0
-            && (unsigned int)(1 << (v18 >> 3)) >= *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill10[8] )
+            && (unsigned int)(1 << (v18 >> 3)) >= LODWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) )
           {
             _InterlockedAdd(&ExTbFlushActive, 1u);
             v10 = guard_dispatch_icall_no_overrides(a2, v12[10].Blink);
@@ -66,13 +66,13 @@ __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __
               if ( v10 >= 0 )
               {
                 guard_dispatch_icall_no_overrides(*(_QWORD *)(a3 + 8), v14);
-                Flink = ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink;
-                if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink->Blink != &ExSaPageGroupDescriptorArrayLock.152 )
+                Blink = ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink;
+                if ( (unsigned __int8 *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink->Blink != &ExSaPageGroupDescriptorArrayLock.ApcStateFill[8] )
                   __fastfail(3u);
-                v12->Flink = ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink;
-                v12->Blink = ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead;
-                Flink->Blink = v12;
-                ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink = v12;
+                v12->Flink = ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink;
+                v12->Blink = (struct _LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink;
+                Blink->Blink = v12;
+                ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink = v12;
                 *v5 = v12;
                 return (unsigned int)v10;
               }
@@ -93,10 +93,10 @@ __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __
         v10 = -1073741637;
       }
     }
-    v16 = v12[11].Flink;
-    if ( v16 )
+    Flink = v12[11].Flink;
+    if ( Flink )
     {
-      guard_dispatch_icall_no_overrides(a2, v16);
+      guard_dispatch_icall_no_overrides(a2, Flink);
       _InterlockedDecrement(&ExTbFlushActive);
     }
     ExFreePoolWithTag(v12, 0);

@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcReleaseRwLockExclusive @ 0x1406FBAF8
+ * XREFs of PdcReleaseRwLockExclusive @ 0x1406F9738
  * Callers:
- *     PdcTaskClientRequest @ 0x140A8B894 (PdcTaskClientRequest.c)
+ *     PdcTaskClientRequest @ 0x140A87D84 (PdcTaskClientRequest.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void __fastcall PdcReleaseRwLockExclusive(signed __int64 *BugCheckParameter2)

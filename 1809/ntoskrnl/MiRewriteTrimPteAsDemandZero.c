@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRewriteTrimPteAsDemandZero @ 0x14011AAEC
+ * XREFs of MiRewriteTrimPteAsDemandZero @ 0x14011AB5C
  * Callers:
- *     MiWsleFree @ 0x1400B2C70 (MiWsleFree.c)
+ *     MiWsleFree @ 0x1400B2BB0 (MiWsleFree.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     MiSetNonResidentPteHeat @ 0x140081E40 (MiSetNonResidentPteHeat.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiRewriteTrimPteAsDemandZero(__int64 a1, _QWORD *a2)
@@ -38,9 +38,9 @@ __int64 __fastcall MiRewriteTrimPteAsDemandZero(__int64 a1, _QWORD *a2)
   if ( (v2 & 2) != 0 )
   {
     v7 = a2[5];
-    v17 = *(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8 * ((v7 >> 40) & 0x3FF)) + 8LL * ((unsigned __int16)v2 >> 12) + 7136);
-    if ( qword_14043A0C0 && (v2 & 0x10) == 0 )
-      v2 &= ~qword_14043A0C0;
+    v17 = *(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8 * ((v7 >> 40) & 0x3FF)) + 8LL * ((unsigned __int16)v2 >> 12) + 7136);
+    if ( qword_14043B180 && (v2 & 0x10) == 0 )
+      v2 &= ~qword_14043B180;
     v5 = MiTransferSoftwarePte(a2[2], v17, HIDWORD(v2));
   }
   else
@@ -73,7 +73,7 @@ LABEL_7:
     if ( (_DWORD)result )
     {
       LODWORD(v10) = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_7;
       v18 = (v5 & 1) == 0;
     }
@@ -95,7 +95,7 @@ LABEL_7:
     if ( (unsigned int)MiPteHasShadow(v15, v14) )
     {
       LODWORD(v14) = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_13;
       v19 = (v5 & 1) == 0;
     }

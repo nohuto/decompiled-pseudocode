@@ -1,19 +1,18 @@
 /*
- * XREFs of PpmEndActiveTimeAccumulation @ 0x1403B69C4
+ * XREFs of PpmEndActiveTimeAccumulation @ 0x140371B70
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
  * Callees:
- *     PpmUpdatePerformanceFeedback @ 0x1403505D0 (PpmUpdatePerformanceFeedback.c)
- *     PpmUpdateTimeAccumulation @ 0x140434060 (PpmUpdateTimeAccumulation.c)
- *     PpmGetPmcCounters @ 0x140456D70 (PpmGetPmcCounters.c)
+ *     PpmUpdatePerformanceFeedback @ 0x14036EAB0 (PpmUpdatePerformanceFeedback.c)
+ *     PpmUpdateTimeAccumulation @ 0x1403700D0 (PpmUpdateTimeAccumulation.c)
+ *     PpmGetPmcCounters @ 0x14044C5BC (PpmGetPmcCounters.c)
  */
 
-__int64 __fastcall PpmEndActiveTimeAccumulation(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall PpmEndActiveTimeAccumulation(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
 
-  LOBYTE(a3) = 1;
-  PpmUpdateTimeAccumulation(a1, a2, a3);
+  PpmUpdateTimeAccumulation(a1, a2, 1);
   PpmUpdatePerformanceFeedback(a1, 0, 0, 1, 0LL);
   result = PpmGetPmcCounters(a1, 0LL, 0LL);
   *(_QWORD *)(a1 + 34920) = a2;

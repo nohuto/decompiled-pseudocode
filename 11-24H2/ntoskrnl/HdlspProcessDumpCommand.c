@@ -1,17 +1,17 @@
 /*
- * XREFs of HdlspProcessDumpCommand @ 0x140BADFDC
+ * XREFs of HdlspProcessDumpCommand @ 0x140BAFFDC
  * Callers:
- *     HdlspBugCheckProcessing @ 0x140BAD1F8 (HdlspBugCheckProcessing.c)
- *     HdlspDispatch @ 0x140BAD320 (HdlspDispatch.c)
+ *     HdlspBugCheckProcessing @ 0x140BAF1F8 (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x140BAF320 (HdlspDispatch.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlTimeToTimeFields @ 0x1404260F0 (RtlTimeToTimeFields.c)
- *     sprintf_s @ 0x140504170 (sprintf_s.c)
- *     RtlUnicodeStringToAnsiString @ 0x1408AEF80 (RtlUnicodeStringToAnsiString.c)
- *     HdlspPutMore @ 0x140BAE214 (HdlspPutMore.c)
- *     HdlspPutString @ 0x140BAE2F0 (HdlspPutString.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlTimeToTimeFields @ 0x140419FA0 (RtlTimeToTimeFields.c)
+ *     sprintf_s @ 0x140501A30 (sprintf_s.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1409051E0 (RtlUnicodeStringToAnsiString.c)
+ *     HdlspPutMore @ 0x140BB0214 (HdlspPutMore.c)
+ *     HdlspPutString @ 0x140BB02F0 (HdlspPutString.c)
  */
 
 void __fastcall HdlspProcessDumpCommand(char a1)
@@ -26,8 +26,8 @@ void __fastcall HdlspProcessDumpCommand(char a1)
   __int64 v9; // rcx
   unsigned __int64 v10; // rax
   const char *v11; // rcx
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
-  STRING v13; // [rsp+50h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
+  _STRING v13; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   char v15; // [rsp+A8h] [rbp+38h] BYREF
 

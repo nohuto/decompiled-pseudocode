@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFtQueryConfiguration @ 0x180145FAC
+ * XREFs of RtlpFtQueryConfiguration @ 0x18014435C
  * Callers:
- *     RtlGetFeatureToggleConfiguration @ 0x180145CB0 (RtlGetFeatureToggleConfiguration.c)
- *     RtlNotifyFeatureToggleUsage @ 0x180145E20 (RtlNotifyFeatureToggleUsage.c)
+ *     RtlGetFeatureToggleConfiguration @ 0x180144060 (RtlGetFeatureToggleConfiguration.c)
+ *     RtlNotifyFeatureToggleUsage @ 0x1801441D0 (RtlNotifyFeatureToggleUsage.c)
  * Callees:
- *     RtlRunOnceExecuteOnce @ 0x180098200 (RtlRunOnceExecuteOnce.c)
- *     RtlQueryInternalFeatureConfiguration @ 0x18011C7F0 (RtlQueryInternalFeatureConfiguration.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002D050 (RtlRunOnceExecuteOnce.c)
+ *     RtlQueryInternalFeatureConfiguration @ 0x18011AA20 (RtlQueryInternalFeatureConfiguration.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpFtQueryConfiguration(unsigned int a1, __int64 a2)
@@ -24,11 +24,7 @@ __int64 __fastcall RtlpFtQueryConfiguration(unsigned int a1, __int64 a2)
 
   v13 = HIDWORD(a2);
   v2 = a2;
-  RtlRunOnceExecuteOnce(
-    &_ft_g_init_once,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpFtInitOnceCallback,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&_ft_g_init_once, (PRTL_RUN_ONCE_INIT_FN)RtlpFtInitOnceCallback, 0LL, 0LL);
   v12 = 0LL;
   HIDWORD(v10) = HIDWORD(v2);
   v11 = 0LL;

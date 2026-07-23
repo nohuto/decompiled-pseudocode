@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTimeToSecondsSince1980 @ 0x140211240
+ * XREFs of RtlTimeToSecondsSince1980 @ 0x14021106C
  * Callers:
  *     <none>
  * Callees:
- *     RtlExtendedMagicDivide @ 0x1400AB014 (RtlExtendedMagicDivide.c)
+ *     RtlExtendedMagicDivide @ 0x1400A9594 (RtlExtendedMagicDivide.c)
  */
 
 BOOLEAN __stdcall RtlTimeToSecondsSince1980(PLARGE_INTEGER Time, PULONG ElapsedSeconds)

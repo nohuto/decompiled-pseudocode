@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipSendGuidUpdateNotifications @ 0x1409CA5B4
+ * XREFs of WmipSendGuidUpdateNotifications @ 0x1409B0A84
  * Callers:
- *     WmipGenerateRegistrationNotification @ 0x1409CB3C4 (WmipGenerateRegistrationNotification.c)
- *     WmipUpdateDataSource @ 0x1409D1534 (WmipUpdateDataSource.c)
+ *     WmipUpdateDataSource @ 0x1409AF500 (WmipUpdateDataSource.c)
+ *     WmipGenerateRegistrationNotification @ 0x1409B1AE4 (WmipGenerateRegistrationNotification.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WmipProcessEvent @ 0x1409CB800 (WmipProcessEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WmipProcessEvent @ 0x1409B1F20 (WmipProcessEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WmipSendGuidUpdateNotifications(int a1, unsigned int a2, _OWORD **a3)
@@ -29,7 +29,7 @@ void __fastcall WmipSendGuidUpdateNotifications(int a1, unsigned int a2, _OWORD 
   v3 = a2;
   v6 = 16 * a2 + 8;
   v7 = 16 * a2 + 110;
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
+  Pool2 = (char *)ExAllocatePool2(0x100uLL, v7, 0x70696D57u);
   v9 = Pool2;
   if ( Pool2 )
   {

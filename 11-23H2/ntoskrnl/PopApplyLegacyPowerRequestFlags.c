@@ -1,16 +1,16 @@
 /*
- * XREFs of PopApplyLegacyPowerRequestFlags @ 0x14032EE4C
+ * XREFs of PopApplyLegacyPowerRequestFlags @ 0x14032F0DC
  * Callers:
- *     PoRegisterSystemState @ 0x14058DCA0 (PoRegisterSystemState.c)
- *     NtSetThreadExecutionState @ 0x1407A8D20 (NtSetThreadExecutionState.c)
+ *     PoRegisterSystemState @ 0x14058E190 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x1407A8F10 (NtSetThreadExecutionState.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PoClearPowerRequest @ 0x14032A680 (PoClearPowerRequest.c)
- *     PoSetPowerRequest @ 0x14032B610 (PoSetPowerRequest.c)
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CD14 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PoClearPowerRequest @ 0x14032A910 (PoClearPowerRequest.c)
+ *     PoSetPowerRequest @ 0x14032B8A0 (PoSetPowerRequest.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CFA4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall PopApplyLegacyPowerRequestFlags(_BYTE *Object, char a2, char a3)
@@ -74,10 +74,10 @@ int __fastcall PopApplyLegacyPowerRequestFlags(_BYTE *Object, char a2, char a3)
     }
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )

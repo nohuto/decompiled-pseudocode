@@ -3,8 +3,8 @@
  * Callers:
  *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
  * Callees:
- *     PspFreeStorage @ 0x1409B7CA8 (PspFreeStorage.c)
- *     PspStorageEmptyArray @ 0x1409B7D84 (PspStorageEmptyArray.c)
+ *     PspFreeStorage @ 0x1409B7EA8 (PspFreeStorage.c)
+ *     PspStorageEmptyArray @ 0x1409B7F84 (PspStorageEmptyArray.c)
  */
 
 __int64 __fastcall PspJobDeleteStorageArrays(__int64 a1)

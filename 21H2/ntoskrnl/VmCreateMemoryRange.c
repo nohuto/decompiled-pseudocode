@@ -1,30 +1,30 @@
 /*
- * XREFs of VmCreateMemoryRange @ 0x14092EE00
+ * XREFs of VmCreateMemoryRange @ 0x14092EF60
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     VmpInsertMemoryRange @ 0x1405A3980 (VmpInsertMemoryRange.c)
- *     VmpAllocateMemoryRanges @ 0x14092F54C (VmpAllocateMemoryRanges.c)
- *     VmpDecodePreallocationRangeHandle @ 0x14092F644 (VmpDecodePreallocationRangeHandle.c)
- *     VmpFreeMemoryRanges @ 0x14092F698 (VmpFreeMemoryRanges.c)
- *     VmpProcessContextCleanup @ 0x14092FABC (VmpProcessContextCleanup.c)
- *     VmpValidateMemoryRangeParameters @ 0x14092FAD0 (VmpValidateMemoryRangeParameters.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VmpInsertMemoryRange @ 0x1405A3BB0 (VmpInsertMemoryRange.c)
+ *     VmpAllocateMemoryRanges @ 0x14092F6AC (VmpAllocateMemoryRanges.c)
+ *     VmpDecodePreallocationRangeHandle @ 0x14092F7A4 (VmpDecodePreallocationRangeHandle.c)
+ *     VmpFreeMemoryRanges @ 0x14092F7F8 (VmpFreeMemoryRanges.c)
+ *     VmpProcessContextCleanup @ 0x14092FC1C (VmpProcessContextCleanup.c)
+ *     VmpValidateMemoryRangeParameters @ 0x14092FC30 (VmpValidateMemoryRangeParameters.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  _QWORD *MemoryRanges; // rdi
+  _RTL_BALANCED_NODE *MemoryRanges; // rdi
   _KPROCESS *Process; // rsi
   signed __int64 v11; // rbx
   PVOID PoolWithTag; // rax
   int inserted; // ebx
   PVOID v14; // rcx
   __int64 v15; // rax
-  __int64 v16; // rcx
-  unsigned __int64 v17; // r14
+  unsigned __int64 ParentValue; // rcx
+  _RTL_BALANCED_NODE *v17; // r14
   unsigned __int64 v18; // r15
 
   MemoryRanges = 0LL;
@@ -53,7 +53,7 @@ __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
     }
   }
   if ( a5 )
-    MemoryRanges = (_QWORD *)VmpDecodePreallocationRangeHandle(v11);
+    MemoryRanges = (_RTL_BALANCED_NODE *)VmpDecodePreallocationRangeHandle(v11);
   if ( (unsigned int)VmpValidateMemoryRangeParameters(a1, a2, a3, a4) )
   {
     inserted = -1073741811;
@@ -65,17 +65,17 @@ __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
     {
       if ( !MemoryRanges )
       {
-        MemoryRanges = (_QWORD *)VmpAllocateMemoryRanges(1LL);
+        MemoryRanges = (_RTL_BALANCED_NODE *)VmpAllocateMemoryRanges(1LL);
         if ( !MemoryRanges )
           return (unsigned int)-1073741670;
       }
-      v16 = MemoryRanges[5];
-      v17 = a2 >> 12;
-      MemoryRanges[3] = v17;
-      MemoryRanges[4] = v17 + a3 - 1;
+      ParentValue = MemoryRanges[1].ParentValue;
+      v17 = (_RTL_BALANCED_NODE *)(a2 >> 12);
+      MemoryRanges[1].Children[0] = v17;
+      MemoryRanges[1].Children[1] = (_RTL_BALANCED_NODE *)((char *)v17 + a3 - 1);
       v18 = a1 >> 12;
-      *(_QWORD *)(v16 + 48) = v18;
-      *(_QWORD *)(v16 + 56) = v18 + a3 - 1;
+      *(_QWORD *)(ParentValue + 48) = v18;
+      *(_QWORD *)(ParentValue + 56) = v18 + a3 - 1;
       inserted = VmpInsertMemoryRange((PEX_SPIN_LOCK)v11, MemoryRanges, a4);
       if ( inserted >= 0 )
       {

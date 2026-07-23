@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpTpWaitRundown @ 0x1800DDAA0
+ * XREFs of RtlpTpWaitRundown @ 0x1800DAA10
  * Callers:
- *     RtlpTpWaitFinalizationCallback @ 0x1800DDA70 (RtlpTpWaitFinalizationCallback.c)
- *     RtlDeregisterWaitEx @ 0x1801087C0 (RtlDeregisterWaitEx.c)
+ *     RtlpTpWaitFinalizationCallback @ 0x1800DA9E0 (RtlpTpWaitFinalizationCallback.c)
+ *     RtlDeregisterWaitEx @ 0x180108160 (RtlDeregisterWaitEx.c)
  * Callees:
- *     ZwSetEvent @ 0x18015F100 (ZwSetEvent.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
+ *     ZwSetEvent @ 0x18015F000 (ZwSetEvent.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
  */
 
-__int64 __fastcall RtlpTpWaitRundown(__int64 a1)
+LOGICAL __fastcall RtlpTpWaitRundown(HANDLE *BaseAddress)
 {
-  __int64 v2; // rcx
+  HANDLE v2; // rcx
 
-  v2 = *(_QWORD *)(a1 + 80);
+  v2 = BaseAddress[10];
   if ( v2 )
     ZwSetEvent(v2, 0LL);
-  if ( *(_QWORD *)a1 )
-    NtClose(*(HANDLE *)a1);
-  return RtlFreeHeap_0();
+  if ( *BaseAddress )
+    NtClose(*BaseAddress);
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

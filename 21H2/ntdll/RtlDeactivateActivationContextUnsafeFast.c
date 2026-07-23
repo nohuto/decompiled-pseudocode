@@ -13,7 +13,7 @@
  *     RtlpTpWorkCallback @ 0x180070B90 (RtlpTpWorkCallback.c)
  *     LdrpQuerySxSMUIFile @ 0x1800775AC (LdrpQuerySxSMUIFile.c)
  *     RtlDispatchAPC @ 0x18007FB40 (RtlDispatchAPC.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     DbgPrintEx @ 0x180051450 (DbgPrintEx.c)
  *     RtlRaiseException @ 0x1800520D0 (RtlRaiseException.c)
@@ -109,8 +109,8 @@ LABEL_31:
       v8 = *v5;
       v9 = 0;
       DbgPrintEx(
-        51LL,
-        2LL,
+        0x33u,
+        2u,
         "SXS: %s() Active frame is not the frame being deactivated %p != %p\n",
         "RtlDeactivateActivationContextUnsafeFast",
         ActivationContextStackPointer->ActiveFrame,

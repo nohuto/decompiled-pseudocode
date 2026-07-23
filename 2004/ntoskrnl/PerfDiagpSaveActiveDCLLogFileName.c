@@ -14,22 +14,22 @@
 
 void PerfDiagpSaveActiveDCLLogFileName()
 {
-  _WORD *ValueData; // rbx
+  _WORD *PoolWithTag; // rbx
   unsigned __int16 v1; // cx
-  unsigned int v2; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = 0;
-  ValueData = ExAllocatePoolWithTag(PagedPool, 0x20AuLL, 0x64465250u);
-  if ( ValueData )
+  ReturnLength = 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20AuLL, 0x64465250u);
+  if ( PoolWithTag )
   {
-    memset(dword_140C1A050, 0, 0xB0uLL);
+    memset(&OutputBuffer, 0, 0xB0uLL);
     wcscpy(&xmmword_140C1A02C, L"WdiContextLog");
     dword_140C1A07C = 0x20000;
     RtlInitUnicodeString(&DestinationString, &xmmword_140C1A02C);
-    qword_140C1A0D8 = (__int64)ValueData;
+    qword_140C1A0D8 = (__int64)PoolWithTag;
     word_140C1A0D2 = 520;
-    dword_140C1A050[0] = 176;
-    if ( (int)NtTraceControl(3u, dword_140C1A050, 0xB0u, dword_140C1A050, 0xB0u, &v2) < 0
+    OutputBuffer = 176;
+    if ( NtTraceControl(EtwQueryLoggerCode, &OutputBuffer, 0xB0u, &OutputBuffer, 0xB0u, &ReturnLength) < 0
       || (unsigned __int16)word_140C1A0D0 < 2u )
     {
       RtlDeleteRegistryValue(2u, L"Diagnostics\\Performance", L"ActiveShutdownDCL");
@@ -37,16 +37,16 @@ void PerfDiagpSaveActiveDCLLogFileName()
     else
     {
       v1 = (unsigned __int16)word_140C1A0D0 >> 1;
-      ValueData[v1] = 0;
+      PoolWithTag[v1] = 0;
       RtlWriteRegistryValue(
         2u,
         L"Diagnostics\\Performance",
         L"ActiveShutdownDCL",
         1u,
-        ValueData,
+        PoolWithTag,
         2 * (unsigned __int16)(v1 + 1));
     }
-    ExFreePoolWithTag(ValueData, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   else
   {

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReplenishPageSlist @ 0x1400EE3A0
+ * XREFs of MiReplenishPageSlist @ 0x1400EE420
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiGetPerfectColorHeadPage @ 0x1400EE048 (MiGetPerfectColorHeadPage.c)
+ *     MiGetPerfectColorHeadPage @ 0x1400EE0C8 (MiGetPerfectColorHeadPage.c)
  * Callees:
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     MiIsFreeZeroPfnCold @ 0x140082370 (MiIsFreeZeroPfnCold.c)
- *     MiIncreaseAvailablePages @ 0x14009CEE0 (MiIncreaseAvailablePages.c)
- *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
- *     MiDecreaseAvailablePages @ 0x1400EE84C (MiDecreaseAvailablePages.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400EE928 (MiNodeLargeFreeZeroPages.c)
- *     MiUpdateZeroFreeBitmap @ 0x1400EE9D4 (MiUpdateZeroFreeBitmap.c)
- *     MiPageListCollision @ 0x1401212C4 (MiPageListCollision.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     InterlockedPushListSList @ 0x1401C5480 (InterlockedPushListSList.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     MiIsFreeZeroPfnCold @ 0x140082360 (MiIsFreeZeroPfnCold.c)
+ *     MiIncreaseAvailablePages @ 0x14009CE20 (MiIncreaseAvailablePages.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE374 (MiNodeFreeZeroPages.c)
+ *     MiDecreaseAvailablePages @ 0x1400EE8CC (MiDecreaseAvailablePages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400EE9A8 (MiNodeLargeFreeZeroPages.c)
+ *     MiUpdateZeroFreeBitmap @ 0x1400EEA54 (MiUpdateZeroFreeBitmap.c)
+ *     MiPageListCollision @ 0x140121394 (MiPageListCollision.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     InterlockedPushListSList @ 0x1401C55E0 (InterlockedPushListSList.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
  */
 
 void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
@@ -60,7 +60,7 @@ void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
   unsigned __int64 *v43; // [rsp+40h] [rbp-108h]
   __int64 v44; // [rsp+48h] [rbp-100h]
   __int64 v45; // [rsp+50h] [rbp-F8h]
-  struct _SLIST_ENTRY *List; // [rsp+58h] [rbp-F0h]
+  _SLIST_ENTRY *List; // [rsp+58h] [rbp-F0h]
   __int64 v47; // [rsp+60h] [rbp-E8h]
   int v48; // [rsp+70h] [rbp-D8h] BYREF
   unsigned int v49; // [rsp+74h] [rbp-D4h]
@@ -76,14 +76,14 @@ void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
   if ( v6 >= v7 )
     return;
   v8 = (int)v7 - v6;
-  v9 = *(_QWORD *)(a1 + 16) + 1984 * ((unsigned __int64)a3 >> byte_14043A049);
+  v9 = *(_QWORD *)(a1 + 16) + 1984 * ((unsigned __int64)a3 >> byte_14043B109);
   v47 = v9;
-  v40 = (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a3 >> byte_14043A04A));
+  v40 = (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a3 >> byte_14043B10A));
   if ( a2 )
   {
     v10 = *(_QWORD *)(a1 + 2120);
     v41 = (volatile signed __int64 *)(a1 + 2240);
-    if ( MiNodeFreeZeroPages(v9, (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a3 >> byte_14043A04A)), 4096) < v8 + 64 )
+    if ( MiNodeFreeZeroPages(v9, (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a3 >> byte_14043B10A)), 4096) < v8 + 64 )
       return;
   }
   else
@@ -91,11 +91,11 @@ void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
     v10 = *(_QWORD *)(a1 + 2112);
     v41 = (volatile signed __int64 *)(a1 + 2176);
     if ( (unsigned int)MmNumberOfChannels > 1 )
-      v11 = *(_QWORD *)(v9 + 16 * ((unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a3 >> byte_14043A04A)) + 114LL));
+      v11 = *(_QWORD *)(v9 + 16 * ((unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a3 >> byte_14043B10A)) + 114LL));
     else
       v11 = *(_QWORD *)(v9 + 1760);
     if ( v11
-       + MiNodeLargeFreeZeroPages(v9, (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a3 >> byte_14043A04A)), 0LL) < v8 + 64
+       + MiNodeLargeFreeZeroPages(v9, (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a3 >> byte_14043B10A)), 0LL) < v8 + 64
       || *(_BYTE *)(a1 + 4765) == 1 )
     {
       return;
@@ -120,7 +120,7 @@ void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
     v18 = 48 * v17 - 0x58000000000LL;
     v19 = 0x2AAAAAAAAAAAAAABLL;
     v20 = 0LL;
-    List = (struct _SLIST_ENTRY *)v18;
+    List = (_SLIST_ENTRY *)v18;
     v21 = 0xFFFFFFFFFLL;
     v22 = 0xFFFFFFFE00000000uLL;
     while ( 1 )
@@ -168,7 +168,7 @@ LABEL_37:
         return;
       }
       v20 = v18;
-      if ( !(_DWORD)v4 && (MiFlags & 0x80u) != 0 && (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+      if ( !(_DWORD)v4 && (MiFlags & 0x80u) != 0 && (++dword_14043B92C & MmPageValidationFrequency) == 0 )
       {
         v34 = (__int64)((unsigned __int128)((v18 + 0x58000000000LL) * (__int128)v19) >> 64) >> 3;
         MiArePageContentsZero((v34 >> 63) + v34);
@@ -176,7 +176,7 @@ LABEL_37:
         v22 = 0xFFFFFFFE00000000uLL;
         v19 = 0x2AAAAAAAAAAAAAABLL;
       }
-      if ( dword_14043A76C == 1 )
+      if ( dword_14043B82C == 1 )
         break;
 LABEL_16:
       *(_BYTE *)(v18 + 34) = *(_BYTE *)(v18 + 34) & 0xF8 | 5;
@@ -215,20 +215,20 @@ LABEL_16:
       {
         LODWORD(v26) = 0;
       }
-      else if ( qword_14043A0C0 )
+      else if ( qword_14043B180 )
       {
         if ( (v26 & 0x10) != 0 )
           LODWORD(v26) = v26 & 0xFFFFFFEF;
         else
-          LODWORD(v26) = ~(_DWORD)qword_14043A0C0 & v26;
+          LODWORD(v26) = ~(_DWORD)qword_14043B180 & v26;
       }
       v27 = v22 | (unsigned int)v26;
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
-        if ( (qword_14043A0C0 & v27) != 0 )
+        if ( (qword_14043B180 & v27) != 0 )
           v27 |= 0x10uLL;
         else
-          v27 |= qword_14043A0C0;
+          v27 |= qword_14043B180;
       }
       ++v15;
       *(_QWORD *)(v20 + 16) = v27;
@@ -241,7 +241,7 @@ LABEL_16:
         + ((__int64)((unsigned __int128)((v18 + 0x58000000000LL) * (__int128)v19) >> 64) >> 3);
     v31 = (((((unsigned __int128)((v18 + 0x58000000000LL) * (__int128)v19) >> 64) & 0x8000000000000000uLL) != 0LL)
          + (unsigned __int8)((__int64)((unsigned __int128)((v18 + 0x58000000000LL) * (__int128)v19) >> 64) >> 3)) & 0x1F;
-    v32 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v30 >> 5));
+    v32 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v30 >> 5));
     if ( (unsigned __int64)(v31 + 1) > 0x20 )
     {
       if ( v31 )

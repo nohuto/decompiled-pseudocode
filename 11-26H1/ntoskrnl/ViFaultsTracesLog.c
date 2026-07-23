@@ -1,9 +1,9 @@
 /*
- * XREFs of ViFaultsTracesLog @ 0x140C34FF0
+ * XREFs of ViFaultsTracesLog @ 0x140C3B000
  * Callers:
- *     ViFaultsInjectionNotification @ 0x140C34E94 (ViFaultsInjectionNotification.c)
+ *     ViFaultsInjectionNotification @ 0x140C3AEA4 (ViFaultsInjectionNotification.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall ViFaultsTracesLog(ULONG FramesToSkip)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCreateOutputNT @ 0x14083E7EC
+ * XREFs of ExpCreateOutputNT @ 0x14083EAEC
  * Callers:
- *     ExpTranslateEfiPath @ 0x14083E520 (ExpTranslateEfiPath.c)
- *     ExpConvertArcName @ 0x1409FBA98 (ExpConvertArcName.c)
- *     ExpConvertSignatureName @ 0x1409FBC5C (ExpConvertSignatureName.c)
+ *     ExpTranslateEfiPath @ 0x14083E820 (ExpTranslateEfiPath.c)
+ *     ExpConvertArcName @ 0x1409FBD28 (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x1409FBEEC (ExpConvertSignatureName.c)
  * Callees:
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
  */
 
 __int64 __fastcall ExpCreateOutputNT(__int64 a1, unsigned int *a2, const wchar_t **a3, const wchar_t *a4)

@@ -33,10 +33,8 @@ void __fastcall KiScanInterruptObjectList(__int64 a1, __int64 a2, __int64 Curren
   unsigned __int64 v20; // rcx
   unsigned __int64 v21; // rcx
   int v22; // edx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  unsigned __int8 v25; // [rsp+20h] [rbp-48h]
-  LARGE_INTEGER v26[8]; // [rsp+28h] [rbp-40h] BYREF
+  unsigned __int8 v23; // [rsp+20h] [rbp-48h]
+  LARGE_INTEGER v24[8]; // [rsp+28h] [rbp-40h] BYREF
 
   v6 = *(unsigned __int8 *)(v5 + 92);
   if ( KiIrqlFlags )
@@ -80,7 +78,7 @@ void __fastcall KiScanInterruptObjectList(__int64 a1, __int64 a2, __int64 Curren
   v17 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v4 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
   if ( !v17 )
-    EtwGetKernelTraceTimestamp(v26, 536887296LL, CurrentThread, a4);
+    EtwGetKernelTraceTimestamp(v24, 0x20004000u);
   while ( 2 )
   {
     v18 = 0;
@@ -89,7 +87,7 @@ void __fastcall KiScanInterruptObjectList(__int64 a1, __int64 a2, __int64 Curren
       v19 = v16 - 8;
       if ( (*(_DWORD *)(v19 + 104) & 1) != 0 )
       {
-        v25 = 0;
+        v23 = 0;
       }
       else
       {
@@ -101,19 +99,19 @@ void __fastcall KiScanInterruptObjectList(__int64 a1, __int64 a2, __int64 Curren
         }
         if ( (_BYTE)v20 != *(_BYTE *)(v5 + 92) )
           __writecr8(v20);
-        v25 = KiCallInterruptServiceRoutine(v19, 1LL, CurrentThread, a4);
+        v23 = KiCallInterruptServiceRoutine(v19, 1LL, CurrentThread, a4);
         v21 = *(unsigned __int8 *)(v5 + 92);
         if ( (_BYTE)v21 != *(_BYTE *)(v19 + 93) )
           __writecr8(v21);
       }
       if ( *(_BYTE *)(v4 + 243) )
       {
-        v22 = v25;
+        v22 = v23;
         BYTE1(v22) = *(_BYTE *)(v19 + 88);
-        PerfInfoLogInterrupt(v19, v22, (__int64)v26);
-        EtwGetKernelTraceTimestamp(v26, 536887296LL, v23, v24);
+        PerfInfoLogInterrupt(v19, v22, (__int64)v24);
+        EtwGetKernelTraceTimestamp(v24, 0x20004000u);
       }
-      if ( v25 )
+      if ( v23 )
       {
         if ( *(_WORD *)(v19 + 108) != 1 )
           goto LABEL_29;

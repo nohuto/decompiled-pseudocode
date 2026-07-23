@@ -6,9 +6,9 @@
  *     RtlGetSystemTimePrecise @ 0x140110620 (RtlGetSystemTimePrecise.c)
  */
 
-__int64 __fastcall WmiGetClock(int a1)
+unsigned __int64 __fastcall WmiGetClock(int a1)
 {
-  __int64 result; // rax
+  unsigned __int64 result; // rax
 
   result = 0LL;
   if ( a1 )
@@ -22,7 +22,7 @@ __int64 __fastcall WmiGetClock(int a1)
         if ( a1 == 5 )
           return __rdtsc();
       }
-      return RtlGetSystemTimePrecise();
+      return RtlGetSystemTimePrecise().QuadPart;
     }
     return KeQueryPerformanceCounter(0LL).QuadPart;
   }
@@ -32,5 +32,5 @@ __int64 __fastcall WmiGetClock(int a1)
       return __rdtsc();
     return KeQueryPerformanceCounter(0LL).QuadPart;
   }
-  return RtlGetSystemTimePrecise();
+  return RtlGetSystemTimePrecise().QuadPart;
 }

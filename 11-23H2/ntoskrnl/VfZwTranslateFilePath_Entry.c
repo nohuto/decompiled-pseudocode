@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwTranslateFilePath_Entry @ 0x140AD3FF0
+ * XREFs of VfZwTranslateFilePath_Entry @ 0x140AD3FE0
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckVirtualAddress @ 0x140AD503C (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140AD5078 (ViZwShouldCheck.c)
+ *     ViZwCheckVirtualAddress @ 0x140AD502C (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140AD5068 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwTranslateFilePath_Entry(ULONG_PTR *a1)

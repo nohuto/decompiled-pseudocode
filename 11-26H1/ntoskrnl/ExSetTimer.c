@@ -1,19 +1,19 @@
 /*
- * XREFs of ExSetTimer @ 0x14037A420
+ * XREFs of ExSetTimer @ 0x14037C1D0
  * Callers:
- *     EnableFlushTimer @ 0x14045A2F8 (EnableFlushTimer.c)
- *     CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x140532CA0 (CmFcpManagerArmFeatureUsageProviderPublishTimer.c)
- *     CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x140532CE8 (CmFcpManagerArmFeatureUsageProviderFlushTimer.c)
- *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x1406E2C80 (CmFcpManagerArmFeatureUsageRetryTimer.c)
- *     EtwpUpdatePeriodicCaptureState @ 0x14082D210 (EtwpUpdatePeriodicCaptureState.c)
- *     SendCaptureStateNotificationsWorker @ 0x14082D4F0 (SendCaptureStateNotificationsWorker.c)
- *     WdipTimeoutCheckRoutine @ 0x140AD8D80 (WdipTimeoutCheckRoutine.c)
- *     HalpPmuArbiterStartPeriodicTimer @ 0x140B11650 (HalpPmuArbiterStartPeriodicTimer.c)
- *     ?ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z @ 0x140B2C780 (-ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     EnableFlushTimer @ 0x140451B78 (EnableFlushTimer.c)
+ *     CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x140535140 (CmFcpManagerArmFeatureUsageProviderPublishTimer.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x140535188 (CmFcpManagerArmFeatureUsageProviderFlushTimer.c)
+ *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x1406E6F60 (CmFcpManagerArmFeatureUsageRetryTimer.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x140833450 (EtwpUpdatePeriodicCaptureState.c)
+ *     SendCaptureStateNotificationsWorker @ 0x140833730 (SendCaptureStateNotificationsWorker.c)
+ *     WdipTimeoutCheckRoutine @ 0x140AD5830 (WdipTimeoutCheckRoutine.c)
+ *     HalpPmuArbiterStartPeriodicTimer @ 0x140B133D0 (HalpPmuArbiterStartPeriodicTimer.c)
+ *     ?ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z @ 0x140B2E800 (-ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, signed __int64 a2, signed __int64 a3, ULONG_PTR a4)

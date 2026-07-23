@@ -81,10 +81,13 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, __int64 a2, unsigned int a3)
   {
     v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v10 + 1496));
     KxReleaseSpinLock((volatile signed __int64 *)(v10 + 1496));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v12 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -123,10 +126,10 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, __int64 a2, unsigned int a3)
     v13 = KeGetCurrentIrql();
     __writecr8(1uLL);
     IopCopyCompleteReadRequest(v3 + 120, 0LL, 0LL, &v37, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && v13 <= 0xFu && v23 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && v13 <= 0xFu && v23 >= 2u )
       {
         v24 = KeGetCurrentPrcb();
         v14 = v24->SchedulerAssist;

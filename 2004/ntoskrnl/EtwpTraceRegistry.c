@@ -6,7 +6,7 @@
  *     EtwpLogRegistryEvent @ 0x140933904 (EtwpLogRegistryEvent.c)
  */
 
-_QWORD *__fastcall EtwpTraceRegistry(
+unsigned int *__fastcall EtwpTraceRegistry(
         unsigned __int8 a1,
         __int64 a2,
         unsigned int a3,
@@ -14,19 +14,19 @@ _QWORD *__fastcall EtwpTraceRegistry(
         __int64 a5,
         __int64 a6)
 {
-  _QWORD *result; // rax
+  unsigned int *result; // rax
   unsigned int v11; // ebx
   bool i; // zf
   __int64 v13; // r10
   _DWORD *v14; // rcx
 
-  result = (_QWORD *)EtwpHostSiloState;
+  result = (unsigned int *)EtwpHostSiloState;
   v11 = *(_DWORD *)(EtwpHostSiloState + 4224);
   for ( i = !_BitScanForward((unsigned int *)&v13, v11); !i; i = !_BitScanForward((unsigned int *)&v13, v11) )
   {
     v11 &= v11 - 1;
-    result = (_QWORD *)(32LL * (unsigned int)v13);
-    v14 = (_DWORD *)((char *)result + EtwpHostSiloState + 4260);
+    result = (unsigned int *)(32LL * (unsigned int)v13);
+    v14 = (unsigned int *)((char *)result + EtwpHostSiloState + 4260);
     if ( v14 )
     {
       if ( (*v14 & 0x20000) != 0 )

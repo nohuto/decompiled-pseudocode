@@ -12,7 +12,7 @@
 
 __int64 __fastcall PopUpdateOverThrottledCount(__int64 a1, char a2)
 {
-  int v4; // [rsp+58h] [rbp+10h] BYREF
+  int Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   PopDiagTraceThermalOverthrottleState(*(struct _DEVICE_OBJECT **)(a1 + 48));
   PopAcquirePolicyLock();
@@ -20,14 +20,14 @@ __int64 __fastcall PopUpdateOverThrottledCount(__int64 a1, char a2)
   {
     if ( ++dword_14032DCF8 == 1 )
     {
-      v4 = 1;
+      Buffer = 1;
 LABEL_6:
-      ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_OVERTHROTTLE, (__int64)&v4, 4LL);
+      ZwUpdateWnfStateData(&WNF_PO_THERMAL_OVERTHROTTLE, &Buffer, 4u, 0LL, 0LL, 0, 0);
     }
   }
   else if ( !--dword_14032DCF8 )
   {
-    v4 = 0;
+    Buffer = 0;
     goto LABEL_6;
   }
   return PopReleasePolicyLock();

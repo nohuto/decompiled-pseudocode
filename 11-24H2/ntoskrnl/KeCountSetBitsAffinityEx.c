@@ -1,22 +1,22 @@
 /*
- * XREFs of KeCountSetBitsAffinityEx @ 0x1403AFC80
+ * XREFs of KeCountSetBitsAffinityEx @ 0x14039E490
  * Callers:
- *     PPmHeteroHgsUpdateOrderValue @ 0x140203D90 (PPmHeteroHgsUpdateOrderValue.c)
- *     KiForwardTick @ 0x14029D53C (KiForwardTick.c)
- *     KiIntSteerLogMask @ 0x140353958 (KiIntSteerLogMask.c)
- *     PpmParkReportUnparkedCores @ 0x1403546E0 (PpmParkReportUnparkedCores.c)
- *     KeFlushProcessWriteBuffers @ 0x1403AFA9C (KeFlushProcessWriteBuffers.c)
- *     KeChangeMemoryAttributes @ 0x1403CA178 (KeChangeMemoryAttributes.c)
- *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1403CAED4 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
- *     HalSendNMI @ 0x1405441C0 (HalSendNMI.c)
- *     KeUpdateProcessorRestrictionsEx @ 0x1405B5474 (KeUpdateProcessorRestrictionsEx.c)
- *     KeQueryProcessAvailableCpus @ 0x1405B82AC (KeQueryProcessAvailableCpus.c)
- *     KeQuerySystemAvailableCpus @ 0x1405B836C (KeQuerySystemAvailableCpus.c)
- *     PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DEFC0 (PpmEventTraceMultiClassHeteroResponseEx.c)
- *     PpmParkCalculateCoreParkingMaskEx @ 0x1405E1B9C (PpmParkCalculateCoreParkingMaskEx.c)
- *     PpmParkComputeUnparkMaskEx @ 0x1405E2544 (PpmParkComputeUnparkMaskEx.c)
- *     PpmIdleInitializeConcurrency @ 0x14074A0E0 (PpmIdleInitializeConcurrency.c)
- *     KiInitializeTopologyStructures @ 0x140B59298 (KiInitializeTopologyStructures.c)
+ *     KiForwardTick @ 0x1402AC02C (KiForwardTick.c)
+ *     KiIntSteerLogMask @ 0x1402B1728 (KiIntSteerLogMask.c)
+ *     PpmParkReportUnparkedCores @ 0x1402B2410 (PpmParkReportUnparkedCores.c)
+ *     KeFlushProcessWriteBuffers @ 0x14039E2AC (KeFlushProcessWriteBuffers.c)
+ *     KeChangeMemoryAttributes @ 0x1403A4D48 (KeChangeMemoryAttributes.c)
+ *     PPmHeteroHgsUpdateOrderValue @ 0x14047BAB4 (PPmHeteroHgsUpdateOrderValue.c)
+ *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x140484B24 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
+ *     HalSendNMI @ 0x140541B10 (HalSendNMI.c)
+ *     KeUpdateProcessorRestrictionsEx @ 0x1405B273C (KeUpdateProcessorRestrictionsEx.c)
+ *     KeQueryProcessAvailableCpus @ 0x1405B588C (KeQueryProcessAvailableCpus.c)
+ *     KeQuerySystemAvailableCpus @ 0x1405B594C (KeQuerySystemAvailableCpus.c)
+ *     PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DC0EC (PpmEventTraceMultiClassHeteroResponseEx.c)
+ *     PpmParkCalculateCoreParkingMaskEx @ 0x1405DF1A8 (PpmParkCalculateCoreParkingMaskEx.c)
+ *     PpmParkComputeUnparkMaskEx @ 0x1405DFACC (PpmParkComputeUnparkMaskEx.c)
+ *     PpmIdleInitializeConcurrency @ 0x140748410 (PpmIdleInitializeConcurrency.c)
+ *     KiInitializeTopologyStructures @ 0x140B5B318 (KiInitializeTopologyStructures.c)
  * Callees:
  *     <none>
  */

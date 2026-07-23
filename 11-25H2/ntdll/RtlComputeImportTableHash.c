@@ -19,130 +19,152 @@
  *     NtCreateSection @ 0x180163B60 (NtCreateSection.c)
  */
 
-__int64 __fastcall RtlComputeImportTableHash(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlComputeImportTableHash(HANDLE FileHandle, PCHAR Hash, ULONG ImportTableHashRevision)
 {
-  __int64 v4; // r14
-  unsigned int v6; // ebx
-  int v7; // eax
-  int v8; // ebx
-  int v9; // eax
-  unsigned int *v10; // rdi
-  __int64 v11; // rsi
-  unsigned int v12; // r8d
-  const char *v13; // rsi
+  __int64 v3; // r14
+  NTSTATUS v5; // ebx
+  NTSTATUS v6; // eax
+  NTSTATUS v7; // ebx
+  NTSTATUS v8; // eax
+  PIMAGE_NT_HEADERS v9; // rdi
+  _IMAGE_NT_HEADERS64 *v10; // rsi
+  ULONG PointerToSymbolTable; // r8d
+  const char *v12; // rsi
   _QWORD *Heap; // rax
-  __int64 v15; // rbx
-  __int64 v16; // rsi
-  __int64 *v17; // r15
+  __int64 v14; // rbx
+  __int64 v15; // rsi
+  __int64 *v16; // r15
   int inserted; // eax
-  HANDLE Handle; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-18h] BYREF
-  __int64 v22; // [rsp+60h] [rbp-10h] BYREF
-  __int64 v23; // [rsp+68h] [rbp-8h] BYREF
-  int v24; // [rsp+B0h] [rbp+40h] BYREF
-  unsigned __int64 v25; // [rsp+B8h] [rbp+48h] BYREF
+  HANDLE SectionHandle; // [rsp+50h] [rbp-20h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+58h] [rbp-18h] BYREF
+  ULONG_PTR ViewSize; // [rsp+60h] [rbp-10h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+68h] [rbp-8h] BYREF
+  unsigned int v23; // [rsp+B0h] [rbp+40h] BYREF
+  PVOID BaseAddress; // [rsp+B8h] [rbp+48h] BYREF
 
-  Handle = (HANDLE)-1LL;
-  v4 = 0LL;
-  v25 = 0LL;
-  v21 = 0LL;
-  v23 = 0LL;
-  v22 = 0LL;
-  if ( (_DWORD)a3 == 1 )
+  SectionHandle = (HANDLE)-1LL;
+  v3 = 0LL;
+  BaseAddress = 0LL;
+  OutHeaders = 0LL;
+  SectionOffset.QuadPart = 0LL;
+  ViewSize = 0LL;
+  if ( ImportTableHashRevision == 1 )
   {
-    v7 = NtCreateSection(&Handle, 983045LL, 0LL);
-    if ( Handle == (HANDLE)-1LL || v7 < 0 )
+    v6 = NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, 2u, 0x8000000u, FileHandle);
+    if ( SectionHandle == (HANDLE)-1LL || v6 < 0 )
     {
-      v6 = -1073741816;
+      v5 = -1073741816;
       goto LABEL_38;
     }
-    v8 = ZwMapViewOfSection(Handle, -1LL, &v25, 0LL, 0LL, &v23, &v22, 1, 0, 2);
-    NtClose(Handle);
-    if ( !v25 || v8 < 0 )
+    v7 = ZwMapViewOfSection(
+           SectionHandle,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &BaseAddress,
+           0LL,
+           0LL,
+           &SectionOffset,
+           &ViewSize,
+           ViewShare,
+           0,
+           2u);
+    NtClose(SectionHandle);
+    if ( !BaseAddress || v7 < 0 )
     {
-      v6 = -1073741799;
+      v5 = -1073741799;
       goto LABEL_38;
     }
-    v9 = RtlpImageDirectoryEntryToDataEx(v25, 0, 1u, &v24, (__int64)&v21);
-    if ( v9 >= 0 )
+    v8 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, 0, 1u, &v23, (PIMAGE_NT_HEADERS)&OutHeaders);
+    if ( v8 >= 0 )
     {
-      v10 = (unsigned int *)v21;
+      v9 = OutHeaders;
     }
     else
     {
-      if ( v9 != -1073741822 )
+      if ( v8 != -1073741822 )
       {
-        v6 = -1073741687;
+        v5 = -1073741687;
         goto LABEL_38;
       }
-      v10 = 0LL;
+      v9 = 0LL;
     }
-    v21 = 0LL;
-    RtlImageNtHeaderEx(1, v25, 0LL, &v21);
-    v11 = v21;
-    while ( v10 )
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, BaseAddress, 0LL, &OutHeaders);
+    v10 = OutHeaders;
+    while ( v9 )
     {
-      v12 = v10[3];
-      if ( !v12 || !v10[4] )
+      PointerToSymbolTable = v9->FileHeader.PointerToSymbolTable;
+      if ( !PointerToSymbolTable || !v9->FileHeader.NumberOfSymbols )
         break;
-      v13 = (const char *)RtlAddressInSectionTable(v11, v25, v12);
-      if ( !v13 )
+      v12 = (const char *)RtlAddressInSectionTable(v10, BaseAddress, PointerToSymbolTable);
+      if ( !v12 )
       {
-        v6 = -1073741685;
+        v5 = -1073741685;
         goto LABEL_38;
       }
-      Heap = (_QWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x18uLL);
-      v15 = (__int64)Heap;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x18uLL);
+      v14 = (__int64)Heap;
       if ( !Heap )
       {
-        v6 = -1073741801;
+        v5 = -1073741801;
         goto LABEL_38;
       }
       Heap[2] = 0LL;
       *Heap = 0LL;
-      Heap[1] = v13;
-      if ( v4 && stricmp(*(const char **)(v4 + 8), v13) <= 0 )
+      Heap[1] = v12;
+      if ( v3 && stricmp(*(const char **)(v3 + 8), v12) <= 0 )
       {
-        v16 = *(_QWORD *)v4;
-        v17 = (__int64 *)v4;
-        while ( v16 )
+        v15 = *(_QWORD *)v3;
+        v16 = (__int64 *)v3;
+        while ( v15 )
         {
-          if ( stricmp(*(const char **)(v16 + 8), *(const char **)(v15 + 8)) >= 0 )
+          if ( stricmp(*(const char **)(v15 + 8), *(const char **)(v14 + 8)) >= 0 )
           {
-            *(_QWORD *)v15 = v16;
+            *(_QWORD *)v14 = v15;
             goto LABEL_25;
           }
-          v17 = (__int64 *)v16;
-          v16 = *(_QWORD *)v16;
+          v16 = (__int64 *)v15;
+          v15 = *(_QWORD *)v15;
         }
-        *(_QWORD *)v15 = 0LL;
+        *(_QWORD *)v14 = 0LL;
 LABEL_25:
-        *v17 = v15;
+        *v16 = v14;
       }
       else
       {
-        *(_QWORD *)v15 = v4;
-        v4 = v15;
+        *(_QWORD *)v14 = v3;
+        v3 = v14;
       }
-      v11 = v21;
-      if ( *(_WORD *)(v21 + 24) == 267 )
-        inserted = InsertModuleFunctions<_IMAGE_THUNK_DATA32,unsigned long,2147483648>(v15, v25, v21, v10);
+      v10 = OutHeaders;
+      if ( OutHeaders->OptionalHeader.Magic == 267 )
+        inserted = InsertModuleFunctions<_IMAGE_THUNK_DATA32,unsigned long,2147483648>(
+                     v14,
+                     BaseAddress,
+                     OutHeaders,
+                     &v9->Signature);
       else
-        inserted = InsertModuleFunctions<_IMAGE_THUNK_DATA64,unsigned __int64,-9223372036854775808>(v15, v25, v21, v10);
-      v6 = inserted;
+        inserted = InsertModuleFunctions<_IMAGE_THUNK_DATA64,unsigned __int64,-9223372036854775808>(
+                     v14,
+                     BaseAddress,
+                     OutHeaders,
+                     &v9->Signature);
+      v5 = inserted;
       if ( inserted < 0 )
         goto LABEL_38;
-      v10 += 5;
+      v9 = (PIMAGE_NT_HEADERS)((char *)v9 + 20);
     }
-    v6 = ImportTablepHashCanonicalLists((_QWORD *)v4, a2);
+    v5 = ImportTablepHashCanonicalLists((_QWORD *)v3, (__int64)Hash);
   }
   else
   {
-    v6 = -1073741736;
+    v5 = -1073741736;
   }
 LABEL_38:
-  ImportTablepFreeModuleSorted((_QWORD **)v4, a2, a3, a4);
-  if ( v25 && (unsigned int)NtUnmapViewOfSection(-1LL) == -1073741755 && RtlFlushSecureMemoryCache(v25, 0LL) )
-    NtUnmapViewOfSection(-1LL);
-  return v6;
+  ImportTablepFreeModuleSorted((_QWORD **)v3);
+  if ( BaseAddress
+    && NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress) == -1073741755
+    && RtlFlushSecureMemoryCache(BaseAddress, 0LL) )
+  {
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+  }
+  return v5;
 }

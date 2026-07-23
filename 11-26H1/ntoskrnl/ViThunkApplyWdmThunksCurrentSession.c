@@ -1,15 +1,15 @@
 /*
- * XREFs of ViThunkApplyWdmThunksCurrentSession @ 0x140C355E0
+ * XREFs of ViThunkApplyWdmThunksCurrentSession @ 0x140C3B5F0
  * Callers:
- *     VfSuspectApplyDifVolatileVerification @ 0x140C3878C (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectApplyDifVolatileVerification @ 0x140C3E79C (VfSuspectApplyDifVolatileVerification.c)
  * Callees:
- *     VfTargetDriversGetNode @ 0x1403B7A04 (VfTargetDriversGetNode.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VfUtilPrintCheckinString @ 0x140C21A10 (VfUtilPrintCheckinString.c)
- *     ViIsDriverSuspectForVerifier @ 0x140C21D58 (ViIsDriverSuspectForVerifier.c)
- *     ViThunkFindAllSharedExports @ 0x140C3572C (ViThunkFindAllSharedExports.c)
- *     ViThunkFindAllThunkedImports @ 0x140C3585C (ViThunkFindAllThunkedImports.c)
- *     MmApplyVerifierToRunningImage @ 0x140C43750 (MmApplyVerifierToRunningImage.c)
+ *     VfTargetDriversGetNode @ 0x1403C1904 (VfTargetDriversGetNode.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VfUtilPrintCheckinString @ 0x140C27A20 (VfUtilPrintCheckinString.c)
+ *     ViIsDriverSuspectForVerifier @ 0x140C27D68 (ViIsDriverSuspectForVerifier.c)
+ *     ViThunkFindAllSharedExports @ 0x140C3B73C (ViThunkFindAllSharedExports.c)
+ *     ViThunkFindAllThunkedImports @ 0x140C3B86C (ViThunkFindAllThunkedImports.c)
+ *     MmApplyVerifierToRunningImage @ 0x140C49760 (MmApplyVerifierToRunningImage.c)
  */
 
 __int64 __fastcall ViThunkApplyWdmThunksCurrentSession(ULONG_PTR BugCheckParameter2)

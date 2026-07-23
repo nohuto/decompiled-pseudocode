@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetVadPtesInCluster @ 0x1404F8D3C
+ * XREFs of MiGetVadPtesInCluster @ 0x1404F234C
  * Callers:
- *     MiPrepareWriteWatchPacket @ 0x140A8DCD0 (MiPrepareWriteWatchPacket.c)
+ *     MiPrepareWriteWatchPacket @ 0x140A929A0 (MiPrepareWriteWatchPacket.c)
  * Callees:
  *     <none>
  */

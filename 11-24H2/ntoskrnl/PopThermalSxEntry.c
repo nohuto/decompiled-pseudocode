@@ -1,18 +1,18 @@
 /*
- * XREFs of PopThermalSxEntry @ 0x1404D972C
+ * XREFs of PopThermalSxEntry @ 0x1404D31A8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopCoolingSxTransition @ 0x140427860 (PopCoolingSxTransition.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopThermalStandbyEndTracking @ 0x1404C7D4C (PopThermalStandbyEndTracking.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x1404D3FE8 (PopTraceThermalZonePassiveHistogram.c)
- *     PopPowerLimitSxTransition @ 0x1405CF7E4 (PopPowerLimitSxTransition.c)
- *     PopTraceThermalZoneActiveActivity @ 0x1405D66DC (PopTraceThermalZoneActiveActivity.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140A8FAF8 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140AA26A4 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     PopCoolingSxTransition @ 0x14041B9F0 (PopCoolingSxTransition.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopThermalStandbyEndTracking @ 0x1404C11AC (PopThermalStandbyEndTracking.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x1404CD1F8 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopPowerLimitSxTransition @ 0x1405CCF04 (PopPowerLimitSxTransition.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x1405D3CF0 (PopTraceThermalZoneActiveActivity.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140A8C138 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140A9DA34 (PopThermalUpdateActiveTimeTracking.c)
  */
 
 __int64 PopThermalSxEntry()
@@ -27,10 +27,10 @@ __int64 PopThermalSxEntry()
   result = (unsigned int)_InterlockedExchange(&PopThermalStateTransitionInProgress, 1);
   if ( !(_DWORD)result )
   {
-    PopAcquireRwLockExclusive(&PopSystemThermalInfo);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemThermalInfo);
     PopThermalStandbyEndTracking(4LL, v1, v2);
-    PopReleaseRwLock((signed __int64 *)&PopSystemThermalInfo);
-    PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+    PopReleaseRwLock(&PopSystemThermalInfo);
+    PopAcquireRwLockShared(&PopPolicyDeviceLock);
     for ( i = (unsigned __int64 *)PopThermal; i != (unsigned __int64 *)&PopThermal; i = (unsigned __int64 *)*i )
     {
       PopAcquireRwLockExclusive(i + 54);
@@ -49,13 +49,13 @@ __int64 PopThermalSxEntry()
       *((_BYTE *)i + 504) = 1;
       PopReleaseRwLock((signed __int64 *)i + 54);
     }
-    PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+    PopReleaseRwLock(&PopPolicyDeviceLock);
     PopCoolingSxTransition(1);
     LOBYTE(v5) = 1;
     PopPowerLimitSxTransition(v5);
-    PopAcquireRwLockExclusive(&PopThermalStateTransitionContext);
-    byte_140F0AB30 = 0;
-    return PopReleaseRwLock((signed __int64 *)&PopThermalStateTransitionContext);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopThermalStateTransitionContext);
+    byte_140F0AF70 = 0;
+    return PopReleaseRwLock(&PopThermalStateTransitionContext);
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of Amd64InitializeCacheStatusOriginal @ 0x14056B6C0
+ * XREFs of Amd64InitializeCacheStatusOriginal @ 0x140568B50
  * Callers:
- *     Amd64InitializeUncoreProfilingOriginal @ 0x14056BCE8 (Amd64InitializeUncoreProfilingOriginal.c)
+ *     Amd64InitializeUncoreProfilingOriginal @ 0x140569178 (Amd64InitializeUncoreProfilingOriginal.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     HalpInterruptGetIdentifiers @ 0x1404BACE0 (HalpInterruptGetIdentifiers.c)
- *     Amd64FreeCounter @ 0x14056B1A4 (Amd64FreeCounter.c)
- *     Amd64InitializeUncoreStatusOriginal @ 0x14056BE94 (Amd64InitializeUncoreStatusOriginal.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     HalpInterruptGetIdentifiers @ 0x1404B5B80 (HalpInterruptGetIdentifiers.c)
+ *     Amd64FreeCounter @ 0x140568634 (Amd64FreeCounter.c)
+ *     Amd64InitializeUncoreStatusOriginal @ 0x140569324 (Amd64InitializeUncoreStatusOriginal.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall Amd64InitializeCacheStatusOriginal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

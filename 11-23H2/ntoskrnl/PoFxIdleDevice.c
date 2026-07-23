@@ -1,28 +1,28 @@
 /*
- * XREFs of PoFxIdleDevice @ 0x140322F7C
+ * XREFs of PoFxIdleDevice @ 0x14032320C
  * Callers:
- *     PoFxAddDeviceRelation @ 0x140587A90 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140588500 (PoFxRemoveDeviceRelation.c)
- *     PopFxClearDeviceConstraints @ 0x140589280 (PopFxClearDeviceConstraints.c)
- *     PopFxIdleDevicesFromSx @ 0x14058A560 (PopFxIdleDevicesFromSx.c)
- *     PopCompleteDirectedPowerTransitionCallback @ 0x140590414 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopPepPlatformStateRegistered @ 0x14059F994 (PopPepPlatformStateRegistered.c)
- *     PopPlIdleDeviceIterator @ 0x1405A12B0 (PopPlIdleDeviceIterator.c)
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
- *     PiProcessQueryDeviceState @ 0x14079328C (PiProcessQueryDeviceState.c)
- *     PipEnumerateDevice @ 0x140794D7C (PipEnumerateDevice.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1407950AC (PnpDeviceCompletionProcessCompletedRequest.c)
- *     PnpDeleteLockedDeviceNodes @ 0x140868128 (PnpDeleteLockedDeviceNodes.c)
- *     PnpDeleteLockedDeviceNode @ 0x140868428 (PnpDeleteLockedDeviceNode.c)
- *     PiProcessResourceRequirementsChanged @ 0x1409594D4 (PiProcessResourceRequirementsChanged.c)
- *     PnpCancelStopDeviceNode @ 0x14096E3F4 (PnpCancelStopDeviceNode.c)
- *     PipProcessRestartPhase2 @ 0x14096F408 (PipProcessRestartPhase2.c)
- *     PopFxUpdateVetoMaskWork @ 0x140985F50 (PopFxUpdateVetoMaskWork.c)
+ *     PoFxAddDeviceRelation @ 0x140587F80 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x1405889F0 (PoFxRemoveDeviceRelation.c)
+ *     PopFxClearDeviceConstraints @ 0x140589770 (PopFxClearDeviceConstraints.c)
+ *     PopFxIdleDevicesFromSx @ 0x14058AA50 (PopFxIdleDevicesFromSx.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x140590904 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopPepPlatformStateRegistered @ 0x14059FE84 (PopPepPlatformStateRegistered.c)
+ *     PopPlIdleDeviceIterator @ 0x1405A17A0 (PopPlIdleDeviceIterator.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
+ *     PiProcessQueryDeviceState @ 0x14079347C (PiProcessQueryDeviceState.c)
+ *     PipEnumerateDevice @ 0x140794F6C (PipEnumerateDevice.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x14079529C (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x140868368 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140868668 (PnpDeleteLockedDeviceNode.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1409596D4 (PiProcessResourceRequirementsChanged.c)
+ *     PnpCancelStopDeviceNode @ 0x14096E5F4 (PnpCancelStopDeviceNode.c)
+ *     PipProcessRestartPhase2 @ 0x14096F608 (PipProcessRestartPhase2.c)
+ *     PopFxUpdateVetoMaskWork @ 0x140986150 (PopFxUpdateVetoMaskWork.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PoFxIdleComponent @ 0x140312F80 (PoFxIdleComponent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PoFxIdleComponent @ 0x140313210 (PoFxIdleComponent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PoFxIdleDevice(__int64 a1)
@@ -80,10 +80,13 @@ void __fastcall PoFxIdleDevice(__int64 a1)
         }
       }
       ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v5 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

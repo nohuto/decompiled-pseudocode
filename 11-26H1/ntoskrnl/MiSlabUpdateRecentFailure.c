@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSlabUpdateRecentFailure @ 0x1402A7900
+ * XREFs of MiSlabUpdateRecentFailure @ 0x1402A6D10
  * Callers:
- *     MiFreeUnusedSlabPages @ 0x1402A7510 (MiFreeUnusedSlabPages.c)
- *     MiFreeSlabEntries @ 0x1402A76DC (MiFreeSlabEntries.c)
+ *     MiFreeUnusedSlabPages @ 0x1402A6920 (MiFreeUnusedSlabPages.c)
+ *     MiFreeSlabEntries @ 0x1402A6AEC (MiFreeSlabEntries.c)
  * Callees:
- *     MiGetSlabCurrentTime @ 0x1402073A0 (MiGetSlabCurrentTime.c)
+ *     MiGetSlabCurrentTime @ 0x140207480 (MiGetSlabCurrentTime.c)
  */
 
 ULONG64 __fastcall MiSlabUpdateRecentFailure(ULONG64 *a1)

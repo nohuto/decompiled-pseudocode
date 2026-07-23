@@ -1,29 +1,29 @@
 /*
- * XREFs of MiIdentifyPfn @ 0x1400A7EE0
+ * XREFs of MiIdentifyPfn @ 0x1400A7E20
  * Callers:
  *     MiMakePageAvoidRead @ 0x1400348E0 (MiMakePageAvoidRead.c)
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
- *     MiDemoteCombinedPte @ 0x14006C200 (MiDemoteCombinedPte.c)
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiIdentifyPfnWrapper @ 0x1400A7E30 (MiIdentifyPfnWrapper.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MmSetPfnListInfo @ 0x14013FC90 (MmSetPfnListInfo.c)
- *     MmTryIdentifyPage @ 0x1402AA644 (MmTryIdentifyPage.c)
+ *     MiDemoteCombinedPte @ 0x14006C1F0 (MiDemoteCombinedPte.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
+ *     MiIdentifyPfnWrapper @ 0x1400A7D70 (MiIdentifyPfnWrapper.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MmSetPfnListInfo @ 0x14013FD90 (MmSetPfnListInfo.c)
+ *     MmTryIdentifyPage @ 0x1402AA834 (MmTryIdentifyPage.c)
  * Callees:
  *     MiGetSubsectionDriverProtos @ 0x14001B7BC (MiGetSubsectionDriverProtos.c)
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
- *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MmQuerySpecialPoolBlockType @ 0x1402AD7D4 (MmQuerySpecialPoolBlockType.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetTopLevelPfn @ 0x140083810 (MiGetTopLevelPfn.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E9D4 (MiGetLeafPfnBuddy.c)
+ *     MiGetSharedProtos @ 0x140177274 (MiGetSharedProtos.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MmQuerySpecialPoolBlockType @ 0x1402AD9C4 (MmQuerySpecialPoolBlockType.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -203,8 +203,8 @@ LABEL_16:
       {
         if ( (v12 & 0x400) != 0 )
         {
-          if ( qword_14043A0C0 && (v12 & 0x10) == 0 )
-            v12 &= ~qword_14043A0C0;
+          if ( qword_14043B180 && (v12 & 0x10) == 0 )
+            v12 &= ~qword_14043B180;
           v15 = v12 >> 16;
           v16 = *(_QWORD *)v15;
           if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
@@ -350,7 +350,7 @@ LABEL_16:
         v28 = *((_QWORD *)&v73 + 1) | 0x8000000000000000uLL;
       if ( v28 >= 0xFFFF800000000000uLL )
       {
-        v29 = byte_14043B950[((v28 >> 39) & 0x1FF) - 256];
+        v29 = byte_14043CA10[((v28 >> 39) & 0x1FF) - 256];
         if ( v29 == 5 || v29 == 13 )
         {
           *a2 = (*a2 ^ (*a2 ^ ((v28 - 1088) << 9)) & 0x1FFFFFFFFFFFE00LL) & 0xFFFFFFFFFFFFFFF0uLL | 3;
@@ -376,8 +376,8 @@ LABEL_170:
         }
         else
         {
-          v64 = (_QWORD *)qword_14043A188;
-          if ( qword_14043A188 )
+          v64 = (_QWORD *)qword_14043B248;
+          if ( qword_14043B248 )
           {
             v65 = (__int64)&STACK[0x58000000038] / 48;
             do
@@ -415,7 +415,7 @@ LABEL_47:
         v71 = 0;
         goto LABEL_48;
       }
-      v71 = (unsigned __int8)byte_14043B950[((v32 >> 39) & 0x1FF) - 256];
+      v71 = (unsigned __int8)byte_14043CA10[((v32 >> 39) & 0x1FF) - 256];
       if ( v71 == 5 )
       {
         v40 = *a2 & 0xFFFFFFFFFFFFFFF5uLL;
@@ -486,13 +486,13 @@ LABEL_50:
         {
           if ( v32 > 0x7FFFFFFEFFFFLL )
           {
-            v42 = (((unsigned __int64)qword_14043BAC0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+            v42 = (((unsigned __int64)qword_14043CB80 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
             v43 = v27 | 0x8000000000000000uLL;
             if ( v43 >= 0xFFFFF68000000000uLL )
             {
               while ( v43 <= 0xFFFFF6FFFFFFFFFFuLL )
               {
-                if ( v43 <= (((unsigned __int64)qword_14043A530 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL && v43 >= v42 )
+                if ( v43 <= (((unsigned __int64)qword_14043B5F0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL && v43 >= v42 )
                 {
                   v69 = MiGetTopLevelPfn((__int64)BugCheckParameter2);
                   v70 = *a2 & 0xFF000000000001FFuLL | ((*(_QWORD *)v69 & 0xFFFFFFFFFFE0000LL | 0x1000000000000000uLL) >> 4);
@@ -565,7 +565,7 @@ LABEL_50:
             _InterlockedAnd64((volatile signed __int64 *)(v34 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           if ( v32 < 0xFFFFF68000000000uLL || v32 > 0xFFFFF6FFFFFFFFFFuLL )
           {
-            if ( v32 < qword_14043BAC0 || v32 > qword_14043A530 )
+            if ( v32 < qword_14043CB80 || v32 > qword_14043B5F0 )
               *a2 &= 0xFFFFFFFFFFFFFFF0uLL;
             else
               *a2 = *a2 & 0xFFFFFFFFFFFFFFF0uLL | 0xC;

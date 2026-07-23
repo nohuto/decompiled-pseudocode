@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpMatchList @ 0x14075751C
+ * XREFs of SdbpMatchList @ 0x14075770C
  * Callers:
- *     SdbpCheckForMatch @ 0x1407569FC (SdbpCheckForMatch.c)
- *     SdbpMatchOne @ 0x140A516C0 (SdbpMatchOne.c)
+ *     SdbpCheckForMatch @ 0x140756BEC (SdbpCheckForMatch.c)
+ *     SdbpMatchOne @ 0x140A51970 (SdbpMatchOne.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     SdbGetStringTagPtr @ 0x140757368 (SdbGetStringTagPtr.c)
- *     SdbpFindMatcher @ 0x140757660 (SdbpFindMatcher.c)
- *     SdbGetFirstChild @ 0x140757944 (SdbGetFirstChild.c)
- *     SdbFindFirstTag @ 0x1407579A4 (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x140757A18 (SdbGetNextChild.c)
- *     SdbpIsSdbCapabilityPresent @ 0x140A51500 (SdbpIsSdbCapabilityPresent.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     SdbGetStringTagPtr @ 0x140757558 (SdbGetStringTagPtr.c)
+ *     SdbpFindMatcher @ 0x140757850 (SdbpFindMatcher.c)
+ *     SdbGetFirstChild @ 0x140757B34 (SdbGetFirstChild.c)
+ *     SdbFindFirstTag @ 0x140757B94 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x140757C08 (SdbGetNextChild.c)
+ *     SdbpIsSdbCapabilityPresent @ 0x140A517B0 (SdbpIsSdbCapabilityPresent.c)
  */
 
 __int64 __fastcall SdbpMatchList(

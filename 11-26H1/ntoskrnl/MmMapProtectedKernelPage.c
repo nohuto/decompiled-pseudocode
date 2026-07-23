@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMapProtectedKernelPage @ 0x140B460E8
+ * XREFs of MmMapProtectedKernelPage @ 0x140B48118
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
  */
 
 unsigned __int64 __fastcall MmMapProtectedKernelPage(unsigned __int64 a1)

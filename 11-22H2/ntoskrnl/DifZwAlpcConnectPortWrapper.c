@@ -10,18 +10,18 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwAlpcConnectPortWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11)
+NTSTATUS __fastcall DifZwAlpcConnectPortWrapper(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSID RequiredServerSid,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   __int64 v15; // rdx
   __int64 v16; // rcx
@@ -31,7 +31,7 @@ __int64 __fastcall DifZwAlpcConnectPortWrapper(
   int v20; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v24; // rdi
   _QWORD *v25; // rbx
   _QWORD v26[14]; // [rsp+68h] [rbp-69h] BYREF
@@ -65,24 +65,35 @@ LABEL_8:
   }
   v26[0] = 0LL;
 LABEL_10:
-  LODWORD(v26[7]) = a5;
-  v26[6] = a6;
-  v26[5] = a7;
-  v26[4] = a8;
-  v26[3] = a9;
-  v26[2] = a10;
-  v26[1] = a11;
-  v26[11] = a1;
-  v26[10] = a2;
-  v26[9] = a3;
-  v26[8] = a4;
+  LODWORD(v26[7]) = Flags;
+  v26[6] = RequiredServerSid;
+  v26[5] = ConnectionMessage;
+  v26[4] = BufferLength;
+  v26[3] = OutMessageAttributes;
+  v26[2] = InMessageAttributes;
+  v26[1] = Timeout;
+  v26[11] = PortHandle;
+  v26[10] = PortName;
+  v26[9] = ObjectAttributes;
+  v26[8] = PortAttributes;
   for ( i = (__int64 *)APIThunkContextById[4]; i != APIThunkContextById + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(_QWORD *))*(i - 1))(v26);
   }
 LABEL_17:
-  result = ZwAlpcConnectPort(a1, a2);
+  result = ZwAlpcConnectPort(
+             PortHandle,
+             PortName,
+             ObjectAttributes,
+             PortAttributes,
+             Flags,
+             RequiredServerSid,
+             ConnectionMessage,
+             BufferLength,
+             OutMessageAttributes,
+             InMessageAttributes,
+             Timeout);
   LODWORD(v26[12]) = result;
   if ( APIThunkContextById )
   {
@@ -97,7 +108,7 @@ LABEL_17:
         v25 = (_QWORD *)*v25;
       }
       while ( v25 != v24 );
-      return LODWORD(v26[12]);
+      return v26[12];
     }
   }
   return result;

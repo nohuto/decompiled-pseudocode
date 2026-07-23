@@ -9,15 +9,15 @@
  *     <none>
  */
 
-PSLIST_ENTRY __fastcall sub_180029EA4(PSLIST_ENTRY ListEntry)
+LOGICAL __fastcall sub_180029EA4(PSLIST_ENTRY ListEntry)
 {
   if ( LOWORD(stru_18015D0E0.Alignment) >= 0xAu
     && (&unk_18015AC20 > (_UNKNOWN *)ListEntry || ListEntry >= (PSLIST_ENTRY)&dword_18015ADA0) )
   {
-    return (PSLIST_ENTRY)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)ListEntry);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ListEntry);
   }
   else
   {
-    return RtlInterlockedPushEntrySList_0(&stru_18015D0E0, ListEntry);
+    return (unsigned int)RtlInterlockedPushEntrySList_0(&stru_18015D0E0, ListEntry);
   }
 }

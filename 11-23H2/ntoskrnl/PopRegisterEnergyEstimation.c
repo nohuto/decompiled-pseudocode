@@ -1,9 +1,9 @@
 /*
- * XREFs of PopRegisterEnergyEstimation @ 0x1403B56D0
+ * XREFs of PopRegisterEnergyEstimation @ 0x1403B58B0
  * Callers:
  *     <none>
  * Callees:
- *     PopDetermineBucketFrequencies @ 0x1405836F0 (PopDetermineBucketFrequencies.c)
+ *     PopDetermineBucketFrequencies @ 0x140583BE0 (PopDetermineBucketFrequencies.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

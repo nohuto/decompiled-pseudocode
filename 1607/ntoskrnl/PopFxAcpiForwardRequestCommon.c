@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxAcpiForwardRequestCommon @ 0x14020E5B4
+ * XREFs of PopFxAcpiForwardRequestCommon @ 0x14020E3E0
  * Callers:
- *     PopFxRequestCommon @ 0x140203A28 (PopFxRequestCommon.c)
+ *     PopFxRequestCommon @ 0x140203854 (PopFxRequestCommon.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall PopFxAcpiForwardRequestCommon(int a1, __int64 a2)

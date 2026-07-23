@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReducePteUseCount @ 0x140212920
+ * XREFs of MiReducePteUseCount @ 0x140305C80
  * Callers:
- *     MiDecommitPagesTail @ 0x1402DBE74 (MiDecommitPagesTail.c)
- *     MiClearDriverTablePtes @ 0x1404F2870 (MiClearDriverTablePtes.c)
+ *     MiDecommitPagesTail @ 0x14023D754 (MiDecommitPagesTail.c)
+ *     MiClearDriverTablePtes @ 0x1404F0310 (MiClearDriverTablePtes.c)
  * Callees:
- *     MiPteHasShadow @ 0x1402141A0 (MiPteHasShadow.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiPteHasShadow @ 0x140307500 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiReducePteUseCount(__int64 a1, unsigned __int64 a2, unsigned int a3)
+__int64 __fastcall MiReducePteUseCount(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   ULONG_PTR BugCheckParameter4; // rbp
   unsigned __int64 *v4; // r10
@@ -27,7 +27,7 @@ __int64 __fastcall MiReducePteUseCount(__int64 a1, unsigned __int64 a2, unsigned
   __int64 v16; // rax
   __int64 v17; // rax
 
-  BugCheckParameter4 = a3;
+  BugCheckParameter4 = (unsigned int)a3;
   v4 = (unsigned __int64 *)(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v5 = *v4;
   if ( (unsigned __int64)v4 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v4 <= 0xFFFFF6FB7DBED7F8uLL && (v5 & 1) != 0 )
@@ -35,7 +35,7 @@ __int64 __fastcall MiReducePteUseCount(__int64 a1, unsigned __int64 a2, unsigned
     LOBYTE(a1) = (v5 & 0x42) != 0;
     if ( ((unsigned __int8)a1 & ((v5 & 0x20) != 0)) == 0 )
     {
-      HasShadow = MiPteHasShadow(a1, *v4);
+      HasShadow = MiPteHasShadow(a1, *v4, a3, v5);
       if ( HasShadow )
       {
         v16 = *(_QWORD *)(HasShadow + 1288);
@@ -60,7 +60,7 @@ __int64 __fastcall MiReducePteUseCount(__int64 a1, unsigned __int64 a2, unsigned
     {
       if ( (++v8 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1) )
+        && KiCheckVpBackingLongSpinWaitHypercall() )
       {
         HvlNotifyLongSpinWait(v8);
       }

@@ -1,18 +1,18 @@
 /*
- * XREFs of CcDecrementVolumeUseCountWithDelete @ 0x140299DE0
+ * XREFs of CcDecrementVolumeUseCountWithDelete @ 0x14029A070
  * Callers:
- *     CcScanLogHandleList @ 0x140299BAC (CcScanLogHandleList.c)
- *     CcDeleteSharedCacheMap @ 0x140299FC0 (CcDeleteSharedCacheMap.c)
- *     CcGetDeviceGuidAsync @ 0x1403AD230 (CcGetDeviceGuidAsync.c)
- *     CcQueueAsyncGetDeviceGuid @ 0x1403AE324 (CcQueueAsyncGetDeviceGuid.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x1403C2074 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcScanLogHandleList @ 0x140299E3C (CcScanLogHandleList.c)
+ *     CcDeleteSharedCacheMap @ 0x14029A250 (CcDeleteSharedCacheMap.c)
+ *     CcGetDeviceGuidAsync @ 0x1403AD410 (CcGetDeviceGuidAsync.c)
+ *     CcQueueAsyncGetDeviceGuid @ 0x1403AE504 (CcQueueAsyncGetDeviceGuid.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403C2254 (CcDeletePrivateVolumeCacheMap.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -65,10 +65,10 @@ int __fastcall CcDecrementVolumeUseCountWithDelete(_DWORD *P, char a2, _BYTE *a3
   {
     LODWORD(v7) = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LODWORD(v7) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v7 <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)v7 >= 2u )

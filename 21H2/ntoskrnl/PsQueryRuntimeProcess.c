@@ -1,14 +1,14 @@
 /*
- * XREFs of PsQueryRuntimeProcess @ 0x1406211D0
+ * XREFs of PsQueryRuntimeProcess @ 0x14068AE40
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     ExpQuerySystemPerformanceInformation @ 0x140646800 (ExpQuerySystemPerformanceInformation.c)
- *     PspSetJobTimeLimitCallback @ 0x140909880 (PspSetJobTimeLimitCallback.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14063B5F0 (ExpQuerySystemPerformanceInformation.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     PspSetJobTimeLimitCallback @ 0x1409099E0 (PspSetJobTimeLimitCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PsQueryRuntimeProcess(__int64 a1, _DWORD *a2)
@@ -19,6 +19,9 @@ __int64 __fastcall PsQueryRuntimeProcess(__int64 a1, _DWORD *a2)
   int v7; // esi
   _QWORD **v8; // rbx
   _QWORD *i; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
   __int64 result; // rax
 
   CurrentThread = KeGetCurrentThread();
@@ -36,7 +39,7 @@ __int64 __fastcall PsQueryRuntimeProcess(__int64 a1, _DWORD *a2)
   if ( _InterlockedCompareExchange64(v5, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v5);
   KeAbPostRelease((ULONG_PTR)v5);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v10, v11, v12);
   result = v6;
   *a2 = v7;
   return result;

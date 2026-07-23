@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x140ACA3A4
+ * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x140ACC4B4
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x140ACA1BC (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140ACC2CC (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PfResourceExclusiveAcquire @ 0x1404D7018 (PfResourceExclusiveAcquire.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     PfSnPrefetchCacheEntryGet @ 0x140970220 (PfSnPrefetchCacheEntryGet.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PfResourceExclusiveAcquire @ 0x1404D07E8 (PfResourceExclusiveAcquire.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1409D2508 (PfSnPrefetchCacheEntryGet.c)
  */
 
 void __fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
@@ -35,13 +35,13 @@ void __fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
     --v5;
   }
   while ( v5 );
-  PfResourceExclusiveAcquire((struct _ERESOURCE *)&stru_140E66FF0.Teb);
-  v7 = stru_140E66FF0.WaitListEntry.Blink - 1;
-  if ( !memcmp(&stru_140E66FF0.WaitListEntry.Blink[1], v1, 0x40uLL)
-    || (v7 = (struct _LIST_ENTRY *)PfSnPrefetchCacheEntryGet((__int64)&stru_140E66FF0.WaitStatus, v1, v4, 0LL)) != 0LL )
+  PfResourceExclusiveAcquire((struct _ERESOURCE *)&stru_140E67200.Teb);
+  v7 = stru_140E67200.WaitListEntry.Blink - 1;
+  if ( !memcmp(&stru_140E67200.WaitListEntry.Blink[1], v1, 0x40uLL)
+    || (v7 = (struct _LIST_ENTRY *)PfSnPrefetchCacheEntryGet((__int64)&stru_140E67200.WaitStatus, v1, v4, 0LL)) != 0LL )
   {
     HIDWORD(v7[7].Flink) = *(_DWORD *)(a1 + 68);
   }
-  ExReleaseResourceLite((PERESOURCE)&stru_140E66FF0.Teb);
+  ExReleaseResourceLite((PERESOURCE)&stru_140E67200.Teb);
   KeLeaveCriticalRegion();
 }

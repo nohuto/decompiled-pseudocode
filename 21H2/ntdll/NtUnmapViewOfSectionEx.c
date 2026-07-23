@@ -1,16 +1,16 @@
 /*
- * XREFs of NtUnmapViewOfSectionEx @ 0x1800A0FF0
+ * XREFs of NtUnmapViewOfSectionEx @ 0x1800A0FB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtUnmapViewOfSectionEx()
+NTSTATUS __cdecl NtUnmapViewOfSectionEx(HANDLE ProcessHandle, PVOID BaseAddress, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 462LL;
+  result = 462;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -15,18 +15,18 @@
 
 __int64 CarInit()
 {
-  RTL_AVL_TABLE *Pool2; // rax
-  RTL_AVL_TABLE *v2; // rbx
+  _RTL_AVL_TABLE *Pool2; // rax
+  _RTL_AVL_TABLE *v2; // rbx
   __int64 v3; // rcx
 
   if ( CarInitialized )
     return 0LL;
-  Pool2 = (RTL_AVL_TABLE *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_RTL_AVL_TABLE *)ExAllocatePool2(0x40uLL);
   CarDb = Pool2;
   v2 = Pool2;
   if ( Pool2 )
   {
-    memset_0(Pool2, 0, sizeof(RTL_AVL_TABLE));
+    memset_0(Pool2, 0, sizeof(_RTL_AVL_TABLE));
     v2->BalancedRoot.Parent = &v2->BalancedRoot;
     v2->CompareRoutine = (_RTL_GENERIC_COMPARE_RESULTS (__fastcall *)(_RTL_AVL_TABLE *, void *, void *))CarComparRuleViolation;
     v2->AllocateRoutine = (void *(__fastcall *)(_RTL_AVL_TABLE *, unsigned int))CarAllocDbNode;

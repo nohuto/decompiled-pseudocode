@@ -1,16 +1,16 @@
 /*
- * XREFs of IopFileUtilClearAttributes @ 0x14064BF88
+ * XREFs of IopFileUtilClearAttributes @ 0x14064C06C
  * Callers:
- *     PpLastGoodDeleteFilesCallback @ 0x14062D1B4 (PpLastGoodDeleteFilesCallback.c)
+ *     PpLastGoodDeleteFilesCallback @ 0x14062D268 (PpLastGoodDeleteFilesCallback.c)
  *     IopFileUtilRename @ 0x1407B9164 (IopFileUtilRename.c)
  *     PiLastGoodRevertLastKnownDirectory @ 0x1407CEF34 (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14015A160 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x14015A6D0 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __fastcall IopFileUtilClearAttributes(UNICODE_STRING *a1)

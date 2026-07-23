@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpMmBuildTiledMemoryMap @ 0x14099A1BC
+ * XREFs of HalpMmBuildTiledMemoryMap @ 0x14099B1BC
  * Callers:
- *     HalpBuildResumeStructures @ 0x14099835C (HalpBuildResumeStructures.c)
- *     HalpInterruptStartProcessor @ 0x140999F74 (HalpInterruptStartProcessor.c)
+ *     HalpBuildResumeStructures @ 0x14099935C (HalpBuildResumeStructures.c)
+ *     HalpInterruptStartProcessor @ 0x14099AF74 (HalpInterruptStartProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     HalpAllocateCR3Root @ 0x1403CBAC8 (HalpAllocateCR3Root.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpCommitCR3Worker @ 0x1409995EC (HalpCommitCR3Worker.c)
- *     HalpMmFreeTiledMemoryMap @ 0x14099A150 (HalpMmFreeTiledMemoryMap.c)
- *     HalpMapCR3Ex @ 0x14099A2A0 (HalpMapCR3Ex.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     HalpAllocateCR3Root @ 0x1403CBC38 (HalpAllocateCR3Root.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpCommitCR3Worker @ 0x14099A5EC (HalpCommitCR3Worker.c)
+ *     HalpMmFreeTiledMemoryMap @ 0x14099B150 (HalpMmFreeTiledMemoryMap.c)
+ *     HalpMapCR3Ex @ 0x14099B2A0 (HalpMapCR3Ex.c)
  */
 
 __int64 __fastcall HalpMmBuildTiledMemoryMap(unsigned int *a1, __int64 a2, unsigned int a3)

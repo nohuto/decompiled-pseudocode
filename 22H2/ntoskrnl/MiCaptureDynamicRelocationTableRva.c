@@ -9,24 +9,24 @@
  */
 
 __int64 __fastcall MiCaptureDynamicRelocationTableRva(
-        unsigned __int64 a1,
-        unsigned int a2,
+        char *BaseOfImage,
+        ULONG64 Size,
         __int64 a3,
         __int16 a4,
         __int64 a5,
         unsigned int a6,
         _DWORD *a7)
 {
-  int v7; // r10d
+  NTSTATUS v7; // r10d
   unsigned __int16 v8; // bx
   int v9; // esi
   __int64 v10; // r11
-  unsigned __int64 v12; // rdi
-  unsigned __int64 v13; // r8
+  char *v12; // rdi
+  char *v13; // r8
   int v14; // r11d
-  __int64 v15; // [rsp+28h] [rbp-10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+28h] [rbp-10h] BYREF
 
-  v15 = 0LL;
+  OutHeaders = 0LL;
   v7 = 0;
   v8 = 0;
   v9 = 0;
@@ -54,21 +54,21 @@ __int64 __fastcall MiCaptureDynamicRelocationTableRva(
   }
   if ( v8 )
   {
-    v12 = a2 + a1;
-    v7 = RtlImageNtHeaderEx(0, a1, a2, &v15);
+    v12 = &BaseOfImage[(unsigned int)Size];
+    v7 = RtlImageNtHeaderEx(0, BaseOfImage, (unsigned int)Size, &OutHeaders);
     if ( v7 >= 0 )
     {
-      if ( v8 > *(_WORD *)(v15 + 6) )
+      if ( v8 > OutHeaders->FileHeader.NumberOfSections )
       {
         return (unsigned int)-1073741701;
       }
       else
       {
-        v13 = *(unsigned __int16 *)(v15 + 20) + v15 + 8 * (5LL * v8 - 2);
+        v13 = (char *)OutHeaders + 40 * v8 + OutHeaders->FileHeader.SizeOfOptionalHeader - 16;
         if ( v12 <= v13 || v12 < v13 + 40 )
           return (unsigned int)-1073741701;
         else
-          *a7 = v9 + *(_DWORD *)(v13 + 12);
+          *a7 = v9 + *((_DWORD *)v13 + 3);
       }
     }
   }
@@ -77,7 +77,7 @@ __int64 __fastcall MiCaptureDynamicRelocationTableRva(
     if ( a3 )
       v14 = v10 - a3;
     else
-      v14 = v10 - a1;
+      v14 = v10 - (_DWORD)BaseOfImage;
     *a7 = v14;
   }
   else

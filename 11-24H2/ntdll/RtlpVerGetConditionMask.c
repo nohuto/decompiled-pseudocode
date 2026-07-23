@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpVerGetConditionMask @ 0x1800ACEC0
+ * XREFs of RtlpVerGetConditionMask @ 0x18000A4C0
  * Callers:
- *     RtlSwitchedVVI @ 0x1800A97F0 (RtlSwitchedVVI.c)
- *     RtlVerifyVersionInfo @ 0x1800ABEF0 (RtlVerifyVersionInfo.c)
+ *     RtlVerifyVersionInfo @ 0x18000A100 (RtlVerifyVersionInfo.c)
+ *     RtlSwitchedVVI @ 0x18000A980 (RtlSwitchedVVI.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
  * XREFs of KeInitThread @ 0x140A875D0
  * Callers:
- *     KiAllocatePrcbThread @ 0x140376B98 (KiAllocatePrcbThread.c)
- *     KiInitializeAndStartInitialThread @ 0x1403B394C (KiInitializeAndStartInitialThread.c)
- *     PspAllocateThread @ 0x1407409D0 (PspAllocateThread.c)
+ *     KiAllocatePrcbThread @ 0x140376D38 (KiAllocatePrcbThread.c)
+ *     KiInitializeAndStartInitialThread @ 0x1403B3B2C (KiInitializeAndStartInitialThread.c)
+ *     PspAllocateThread @ 0x140740BC0 (PspAllocateThread.c)
  * Callees:
- *     MmDeleteKernelStackEx @ 0x14026F8D0 (MmDeleteKernelStackEx.c)
- *     MmCreateKernelStack @ 0x1402716A0 (MmCreateKernelStack.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeAbInitializeThreadState @ 0x1402BE68C (KeAbInitializeThreadState.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KiInitializeContextThread @ 0x1402BE74C (KiInitializeContextThread.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeCopyXfdMaskToTeb @ 0x1405724A0 (KeCopyXfdMaskToTeb.c)
- *     KiCreateKernelShadowStack @ 0x140974360 (KiCreateKernelShadowStack.c)
- *     KiDeleteKernelShadowStack @ 0x14097438C (KiDeleteKernelShadowStack.c)
+ *     MmDeleteKernelStackEx @ 0x14026FB60 (MmDeleteKernelStackEx.c)
+ *     MmCreateKernelStack @ 0x140271930 (MmCreateKernelStack.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeAbInitializeThreadState @ 0x1402BE91C (KeAbInitializeThreadState.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KiInitializeContextThread @ 0x1402BE9DC (KiInitializeContextThread.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeCopyXfdMaskToTeb @ 0x1405729E0 (KeCopyXfdMaskToTeb.c)
+ *     KiCreateKernelShadowStack @ 0x140974560 (KiCreateKernelShadowStack.c)
+ *     KiDeleteKernelShadowStack @ 0x14097458C (KiDeleteKernelShadowStack.c)
  */
 
 __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)

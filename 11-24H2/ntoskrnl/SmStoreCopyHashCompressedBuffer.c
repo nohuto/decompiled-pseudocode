@@ -1,10 +1,10 @@
 /*
- * XREFs of SmStoreCopyHashCompressedBuffer @ 0x140464248
+ * XREFs of SmStoreCopyHashCompressedBuffer @ 0x14045A978
  * Callers:
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14027ABDC (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14023016C (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
  * Callees:
- *     wyhash @ 0x140389238 (wyhash.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     wyhash @ 0x140382B78 (wyhash.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall SmStoreCopyHashCompressedBuffer(char *a1, unsigned __int16 *Src, size_t Size, int a4)

@@ -1,12 +1,12 @@
 /*
  * XREFs of IoStopIoRateControl @ 0x140001814
  * Callers:
- *     PspIoRateEntryActivate @ 0x140585150 (PspIoRateEntryActivate.c)
- *     PspIoRateEntryDeactivate @ 0x140585238 (PspIoRateEntryDeactivate.c)
+ *     PspIoRateEntryActivate @ 0x140586150 (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryDeactivate @ 0x140586238 (PspIoRateEntryDeactivate.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 void __fastcall IoStopIoRateControl(__int64 a1)

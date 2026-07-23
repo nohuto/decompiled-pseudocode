@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline @ 0x14060C740
+ * XREFs of Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline @ 0x14060F8A0
  * Callers:
- *     PopEvaluateWeakChargerState @ 0x1407D920C (PopEvaluateWeakChargerState.c)
+ *     PopEvaluateWeakChargerState @ 0x1407DCC2C (PopEvaluateWeakChargerState.c)
  * Callees:
- *     Feature_SuppressNotificationsNoBattery__private_IsEnabledFallback @ 0x14060C77C (Feature_SuppressNotificationsNoBattery__private_IsEnabledFallback.c)
+ *     Feature_SuppressNotificationsNoBattery__private_IsEnabledFallback @ 0x14060F8DC (Feature_SuppressNotificationsNoBattery__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline()

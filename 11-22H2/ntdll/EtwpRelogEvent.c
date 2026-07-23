@@ -13,8 +13,8 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   unsigned int v4; // ebx
   unsigned int v5; // r15d
   size_t v6; // rsi
-  void *v7; // rax
-  void *Heap; // rax
+  PVOID v7; // rax
+  PVOID Heap; // rax
   __int64 v9; // r8
   void *v10; // rax
   __int64 v13; // [rsp+58h] [rbp+10h] BYREF
@@ -41,7 +41,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
       && (unsigned int)v6 >= 8
       && !*(_BYTE *)(*(_QWORD *)(a2 + 72) + 7LL) )
     {
-      Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
       *(_QWORD *)(a1 + 520) = Heap;
       if ( !Heap )
         return 1450;
@@ -51,7 +51,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   }
   else if ( !*(_BYTE *)(*(_QWORD *)(a2 + 72) + 7LL) )
   {
-    v7 = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    v7 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 504) = v7;
     if ( !v7 )
       return 1450;

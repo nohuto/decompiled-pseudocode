@@ -1,25 +1,25 @@
 /*
- * XREFs of PiPnpRtlGatherDeviceDeleteInfo @ 0x140734550
+ * XREFs of PiPnpRtlGatherDeviceDeleteInfo @ 0x140734710
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x1403FCA00 (ZwPlugPlayControl.c)
- *     memset @ 0x140414200 (memset.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x1403FCBE0 (ZwPlugPlayControl.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlGatherDeviceDeleteInfo(PCWSTR SourceString, __int64 a2)
 {
   PVOID PoolWithTag; // rax
   _DWORD *v5; // rdi
-  int v6; // eax
+  NTSTATUS v6; // eax
   int DeviceRegProp; // edi
   void *v8; // rcx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  UNICODE_STRING v11; // [rsp+50h] [rbp-30h] BYREF
+  UNICODE_STRING PnPControlData; // [rsp+50h] [rbp-30h] BYREF
   __int64 v12; // [rsp+60h] [rbp-20h]
   __int64 v13; // [rsp+68h] [rbp-18h]
   __int64 v14; // [rsp+70h] [rbp-10h]
@@ -45,8 +45,8 @@ LABEL_19:
     v14 = 0LL;
     v12 = 0LL;
     v13 = 0LL;
-    v11 = DestinationString;
-    v6 = ZwPlugPlayControl(14LL, (__int64)&v11);
+    PnPControlData = DestinationString;
+    v6 = ZwPlugPlayControl(PlugPlayControlDeviceStatus, &PnPControlData, 0x28u);
     if ( v6 >= 0 )
       *v5 = v13;
     v5 = *(_DWORD **)a2;

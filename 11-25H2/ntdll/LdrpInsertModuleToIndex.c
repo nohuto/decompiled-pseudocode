@@ -8,9 +8,9 @@
  *     LdrpInsertModuleToIndexLockHeld @ 0x18006E938 (LdrpInsertModuleToIndexLockHeld.c)
  */
 
-__int64 __fastcall LdrpInsertModuleToIndex(__int64 a1, _DWORD *a2)
+void __fastcall LdrpInsertModuleToIndex(__int64 a1, _DWORD *a2)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   LdrpInsertModuleToIndexLockHeld(a1, a2);
-  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+  RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 }

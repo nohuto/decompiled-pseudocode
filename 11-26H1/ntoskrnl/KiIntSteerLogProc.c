@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerLogProc @ 0x140254918
+ * XREFs of KiIntSteerLogProc @ 0x140256278
  * Callers:
- *     KiIntSteerLogStatus @ 0x140254C20 (KiIntSteerLogStatus.c)
+ *     KiIntSteerLogStatus @ 0x140256580 (KiIntSteerLogStatus.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KiIntSteerEtwEventEnabled @ 0x140254D14 (KiIntSteerEtwEventEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KiIntSteerEtwEventEnabled @ 0x140256674 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiIntSteerLogProc(char a1)
@@ -29,14 +29,13 @@ __int64 __fastcall KiIntSteerLogProc(char a1)
   result = KiIntSteerEtwEventEnabled(v1);
   if ( (_BYTE)result )
   {
-    v3 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 4);
-    for ( i = 0; ; v3 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 8 * i + 4) )
+    v3 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 4);
+    for ( i = 0; ; v3 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 8 * i + 4) )
     {
       while ( v3 )
       {
         _BitScanForward64(&v5, v3);
-        v6 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-             + 64 * i
+        v6 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * i].Flink
              + (unsigned __int8)v5);
         UserData.Ptr = (ULONGLONG)&v8;
         v8 = v6;
@@ -48,7 +47,7 @@ __int64 __fastcall KiIntSteerLogProc(char a1)
         v3 &= ~(1LL << v5);
       }
       result = ++i;
-      if ( i >= (unsigned int)*(unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags )
+      if ( i >= (unsigned int)*(unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags )
         break;
     }
   }

@@ -6,7 +6,7 @@
  *     VrpCountPathComponents @ 0x1405D4DCC (VrpCountPathComponents.c)
  *     VrpTranslatePath @ 0x1405D4E34 (VrpTranslatePath.c)
  *     VrpComparePath @ 0x1405D520C (VrpComparePath.c)
- *     VrpPreLoadKey @ 0x14088338C (VrpPreLoadKey.c)
+ *     VrpPreLoadKey @ 0x1408834EC (VrpPreLoadKey.c)
  * Callees:
  *     <none>
  */

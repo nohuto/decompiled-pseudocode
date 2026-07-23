@@ -16,7 +16,7 @@ char __fastcall RtlpHeapTrkReportResult(size_t Size, unsigned __int16 a2, int a3
   size_t v8; // rsi
   unsigned int v10; // ebx
   unsigned __int64 v11; // rax
-  __int64 v12; // rdi
+  char *v12; // rdi
   char result; // al
   _DWORD v14[4]; // [rsp+20h] [rbp-238h] BYREF
   __int64 v15; // [rsp+30h] [rbp-228h]
@@ -29,7 +29,7 @@ char __fastcall RtlpHeapTrkReportResult(size_t Size, unsigned __int16 a2, int a3
   v11 = (unsigned int)(dword_1801CF0CC + v8);
   if ( (unsigned int)v11 < dword_1801CF0CC )
     return 0;
-  v12 = TrkContext;
+  v12 = (char *)TrkContext;
   if ( !TrkContext )
     return 0;
   if ( v11 > *(_QWORD *)TrkContext )
@@ -37,8 +37,8 @@ char __fastcall RtlpHeapTrkReportResult(size_t Size, unsigned __int16 a2, int a3
     if ( (unsigned __int8)RtlpHeapTrkSyncWithDiagnoser() )
     {
       v10 = 88;
-      *(_DWORD *)(TrkContext + 60) = 0;
-      v12 = TrkContext;
+      *((_DWORD *)TrkContext + 15) = 0;
+      v12 = (char *)TrkContext;
       goto LABEL_4;
     }
     return 0;
@@ -50,9 +50,9 @@ LABEL_4:
   v15 = a4;
   if ( Sizea <= 0x200 )
     memmove(v16, Src, Sizea);
-  memmove((void *)(v12 + v10), v14, v8);
+  memmove(&v12[v10], v14, v8);
   dword_1801CF0CC = v8 + v10;
   result = 1;
-  ++*(_DWORD *)(TrkContext + 60);
+  ++*((_DWORD *)TrkContext + 15);
   return result;
 }

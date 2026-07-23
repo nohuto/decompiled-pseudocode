@@ -7,8 +7,8 @@
  *     isdigit @ 0x18008D0F0 (isdigit.c)
  *     isxdigit @ 0x18008D240 (isxdigit.c)
  *     strtol @ 0x180091DC0 (strtol.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 LONG __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_addr *Addr)
@@ -20,14 +20,14 @@ LONG __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_ad
   unsigned int v8; // edi
   unsigned int v9; // r12d
   unsigned int v10; // r14d
-  int v11; // edx
+  unsigned int v11; // edx
   CHAR v12; // bl
   unsigned int v14; // eax
   int v15; // eax
   unsigned int v16; // eax
   PCSTR v17; // [rsp+20h] [rbp-58h]
   char v18; // [rsp+80h] [rbp+8h]
-  int v21; // [rsp+98h] [rbp+20h]
+  unsigned int v21; // [rsp+98h] [rbp+20h]
 
   v4 = Addr;
   v5 = 0;
@@ -56,7 +56,7 @@ LONG __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_ad
         v5 = 2;
         v21 = v11 + 1;
         ++S;
-        v4->u.Word[v11] = 0;
+        *((_WORD *)v4 + v11) = 0;
         v6 = v17;
         goto LABEL_36;
       }
@@ -147,7 +147,7 @@ LABEL_36:
           if ( v14 > 0xFF )
             return -1073741811;
           v4 = Addr;
-          Addr->u.Byte[2 * v21 - 1 + v8] = v14;
+          *((_BYTE *)Addr + 2 * v21 + v8 - 1) = v14;
 LABEL_28:
           v11 = v21;
         }
@@ -156,7 +156,7 @@ LABEL_28:
           if ( v9 > 4 )
             return -1073741811;
           v4 = Addr;
-          Addr->u.Word[v21] = __ROR2__(strtol(v6, 0LL, 16), 8);
+          *((_WORD *)Addr + v21) = __ROR2__(strtol(v6, 0LL, 16), 8);
           v11 = ++v21;
         }
         v6 = v17;
@@ -192,7 +192,7 @@ LABEL_13:
   {
     if ( v5 == 2 )
     {
-      v4->u.Word[v11] = 0;
+      *((_WORD *)v4 + v11) = 0;
       goto LABEL_69;
     }
     return -1073741811;
@@ -204,7 +204,7 @@ LABEL_13:
       v16 = strtol(v6, 0LL, 10);
       if ( v16 <= 0xFF )
       {
-        v4->u.Byte[2 * v21 + v8] = v16;
+        *((_BYTE *)v4 + 2 * v21 + v8) = v16;
         goto LABEL_69;
       }
     }
@@ -212,11 +212,11 @@ LABEL_13:
   }
   if ( v9 > 4 )
     return -1073741811;
-  v4->u.Word[v21] = __ROR2__(strtol(v6, 0LL, 16), 8);
+  *((_WORD *)v4 + v21) = __ROR2__(strtol(v6, 0LL, 16), 8);
 LABEL_69:
   if ( v10 )
   {
-    memmove((char *)&v4[1] + 2 * (v10 - v7), (char *)v4 + 2 * v10, 2LL * (v7 - v10));
+    memmove((char *)v4 + 2 * (v10 - v7) + 16, (char *)v4 + 2 * v10, 2LL * (v7 - v10));
     memset((char *)v4 + 2 * v10, 0, 2LL * (8 - v7));
   }
   return 0;

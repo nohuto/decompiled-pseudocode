@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlWow64GetEquivalentMachineCHPE @ 0x1404AF87C
+ * XREFs of RtlWow64GetEquivalentMachineCHPE @ 0x1404A8F0C
  * Callers:
- *     PsWow64IsMachineSupported @ 0x1409EBAE0 (PsWow64IsMachineSupported.c)
+ *     PsWow64IsMachineSupported @ 0x1409E82B0 (PsWow64IsMachineSupported.c)
  * Callees:
  *     <none>
  */

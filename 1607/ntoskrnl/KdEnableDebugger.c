@@ -1,13 +1,13 @@
 /*
- * XREFs of KdEnableDebugger @ 0x1401D1624
+ * XREFs of KdEnableDebugger @ 0x1401D1450
  * Callers:
- *     KdpStub @ 0x1400F67A4 (KdpStub.c)
- *     NtSystemDebugControl @ 0x1404DE844 (NtSystemDebugControl.c)
+ *     KdpStub @ 0x1400F45F4 (KdpStub.c)
+ *     NtSystemDebugControl @ 0x1404C1E48 (NtSystemDebugControl.c)
  *     KiVerifyXcpt15 @ 0x1407772E0 (KiVerifyXcpt15.c)
  *     KiFilterFiberContext @ 0x140777A80 (KiFilterFiberContext.c)
  * Callees:
- *     KdEnableDebuggerWithLock @ 0x1401D1658 (KdEnableDebuggerWithLock.c)
- *     KeRelaxTimingConstraints @ 0x1401D1D98 (KeRelaxTimingConstraints.c)
+ *     KdEnableDebuggerWithLock @ 0x1401D1484 (KdEnableDebuggerWithLock.c)
+ *     KeRelaxTimingConstraints @ 0x1401D1BC4 (KeRelaxTimingConstraints.c)
  */
 
 NTSTATUS KdEnableDebugger(void)

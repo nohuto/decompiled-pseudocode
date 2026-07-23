@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpVsContextAddSubsegment @ 0x14034F59C
+ * XREFs of RtlpHpVsContextAddSubsegment @ 0x14034F73C
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x14024A0B0 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A180 (RtlpHpVsContextAllocateInternal.c)
  * Callees:
- *     RtlpHpVsFreeChunkInsert @ 0x140249EA0 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsChunkAlignSplit @ 0x14024EF90 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x140249F70 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x14024F060 (RtlpHpVsChunkAlignSplit.c)
  */
 
-__int64 __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, __int64 a2)
+BOOLEAN __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx
   __int64 *v5; // rcx
   unsigned __int64 v6; // r8
   __int64 v7; // rdx
-  _DWORD *v8; // rax
+  unsigned __int64 v8; // rax
 
   v4 = a1 + 32;
   v5 = (__int64 *)(a1 + 40);
@@ -27,9 +27,9 @@ __int64 __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, __int64 a2)
   *v5 = v7;
   if ( (*(_DWORD *)(a1 + 176) & 1) != 0 && ((a2 + 80) & 0xFFF) != 0 )
   {
-    v8 = (_DWORD *)RtlpHpVsChunkAlignSplit((__int64)v5, a2, a2 + 48);
+    v8 = RtlpHpVsChunkAlignSplit((__int64)v5, a2, a2 + 48);
     if ( v8 )
-      RtlpHpVsFreeChunkInsert((_QWORD *)a1, a2, v8);
+      RtlpHpVsFreeChunkInsert((_RTL_RB_TREE *)a1, a2, v8);
   }
-  return RtlpHpVsFreeChunkInsert((_QWORD *)a1, a2, (_DWORD *)(a2 + 48));
+  return RtlpHpVsFreeChunkInsert((_RTL_RB_TREE *)a1, a2, a2 + 48);
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of PsOpenThread @ 0x140611DF0
+ * XREFs of PsOpenThread @ 0x140612DF0
  * Callers:
- *     NtOpenThread @ 0x140611DC0 (NtOpenThread.c)
- *     NtAlpcOpenSenderThread @ 0x1406B7480 (NtAlpcOpenSenderThread.c)
+ *     NtOpenThread @ 0x140612DC0 (NtOpenThread.c)
+ *     NtAlpcOpenSenderThread @ 0x1406B8720 (NtAlpcOpenSenderThread.c)
  * Callees:
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
- *     PsLookupThreadByThreadId @ 0x1406487A0 (PsLookupThreadByThreadId.c)
- *     PsLookupProcessThreadByCid @ 0x1406B2F90 (PsLookupProcessThreadByCid.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     SeCreateAccessState @ 0x140613230 (SeCreateAccessState.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
+ *     PsLookupThreadByThreadId @ 0x140649960 (PsLookupThreadByThreadId.c)
+ *     PsLookupProcessThreadByCid @ 0x1406B4230 (PsLookupProcessThreadByCid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PsOpenThread(

@@ -8,43 +8,43 @@
  *     __security_check_cookie @ 0x18008E790 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlSidDominates(__int64 a1, __int64 a2, char *a3)
+NTSTATUS __cdecl RtlSidDominates(PSID Sid1, PSID Sid2, PBOOLEAN Dominates)
 {
   int v6; // edx
   int v7; // ecx
-  bool v8; // al
-  char v9; // cl
+  BOOLEAN v8; // al
+  BOOLEAN v9; // cl
   int v11; // eax
   unsigned int v12; // edx
   int v13; // eax
 
-  *a3 = 0;
-  v6 = *(_DWORD *)(a1 + 2);
+  *Dominates = 0;
+  v6 = *(_DWORD *)((char *)Sid1 + 2);
   if ( !v6 )
-    v6 = *(unsigned __int16 *)(a1 + 6) - 4096;
+    v6 = *((unsigned __int16 *)Sid1 + 3) - 4096;
   if ( v6 )
-    return 3221225485LL;
-  v7 = *(_DWORD *)(a2 + 2);
+    return -1073741811;
+  v7 = *(_DWORD *)((char *)Sid2 + 2);
   if ( !v7 )
-    v7 = *(unsigned __int16 *)(a2 + 6) - 4096;
+    v7 = *((unsigned __int16 *)Sid2 + 3) - 4096;
   if ( v7 )
-    return 3221225485LL;
-  v8 = RtlEqualSid((unsigned __int8 *)a1, (_WORD *)a2);
+    return -1073741811;
+  v8 = RtlEqualSid(Sid1, Sid2);
   v9 = 1;
   if ( !v8 )
   {
-    v11 = *(unsigned __int8 *)(a1 + 1);
+    v11 = *((unsigned __int8 *)Sid1 + 1);
     if ( (_BYTE)v11 )
-      v12 = *(_DWORD *)(a1 + 4LL * (unsigned int)(v11 - 1) + 8);
+      v12 = *((_DWORD *)Sid1 + (unsigned int)(v11 - 1) + 2);
     else
       v12 = 0;
-    v13 = *(unsigned __int8 *)(a2 + 1);
+    v13 = *((unsigned __int8 *)Sid2 + 1);
     if ( (_BYTE)v13 )
     {
-      if ( v12 < *(_DWORD *)(a2 + 4LL * (unsigned int)(v13 - 1) + 8) )
+      if ( v12 < *((_DWORD *)Sid2 + (unsigned int)(v13 - 1) + 2) )
         v9 = 0;
     }
   }
-  *a3 = v9;
-  return 0LL;
+  *Dominates = v9;
+  return 0;
 }

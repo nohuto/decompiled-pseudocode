@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_AddMemInfoToBootTrace__private_IsEnabledDeviceUsageNoInline @ 0x1406C341C
+ * XREFs of Feature_AddMemInfoToBootTrace__private_IsEnabledDeviceUsageNoInline @ 0x1406C6FFC
  * Callers:
- *     PerfDiagpProxyWorker @ 0x14081EE70 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpProxyWorker @ 0x140825080 (PerfDiagpProxyWorker.c)
  * Callees:
- *     Feature_AddMemInfoToBootTrace__private_IsEnabledFallback @ 0x1406C3458 (Feature_AddMemInfoToBootTrace__private_IsEnabledFallback.c)
+ *     Feature_AddMemInfoToBootTrace__private_IsEnabledFallback @ 0x1406C7038 (Feature_AddMemInfoToBootTrace__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_AddMemInfoToBootTrace__private_IsEnabledDeviceUsageNoInline()

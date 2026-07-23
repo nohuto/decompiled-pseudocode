@@ -12,17 +12,19 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtLockRegistryKey(int a1)
+NTSTATUS __cdecl NtLockRegistryKey(HANDLE KeyHandle)
 {
+  int v1; // ebx
   __int64 v2; // rdx
   __int64 v3; // rcx
   __int64 v4; // r8
   __int64 v5; // r9
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   int v7; // r8d
   __int128 v9; // [rsp+30h] [rbp-18h] BYREF
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
+  v1 = (int)KeyHandle;
   v9 = 0LL;
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v9);
   Object = 0LL;
@@ -32,7 +34,7 @@ __int64 __fastcall NtLockRegistryKey(int a1)
   }
   else if ( (unsigned __int8)CmpAcquireShutdownRundown(v3, v2, v4, v5) )
   {
-    v6 = CmObReferenceObjectByHandle(a1, 131078, v7, 0, (__int64)&Object, 0LL);
+    v6 = CmObReferenceObjectByHandle(v1, 131078, v7, 0, (__int64)&Object, 0LL);
     if ( v6 >= 0 )
     {
       v6 = CmLockKeyForWrite(Object);
@@ -48,5 +50,5 @@ __int64 __fastcall NtLockRegistryKey(int a1)
     v6 = -1073741431;
   }
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v9);
-  return (unsigned int)v6;
+  return v6;
 }

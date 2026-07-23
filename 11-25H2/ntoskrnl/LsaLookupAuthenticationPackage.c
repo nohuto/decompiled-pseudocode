@@ -8,15 +8,18 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall LsaLookupAuthenticationPackage(__int64 a1)
+NTSTATUS __cdecl LsaLookupAuthenticationPackage(
+        HANDLE LsaHandle,
+        PLSA_STRING PackageName,
+        PULONG AuthenticationPackage)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v4; // ebx
 
-  v2 = -1073741822;
+  v4 = -1073741822;
   if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost) )
   {
-    v2 = guard_dispatch_icall_no_overrides(a1);
+    v4 = guard_dispatch_icall_no_overrides(LsaHandle);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   }
-  return v2;
+  return v4;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpLogTypeToLogArrayIndex @ 0x1405A62AC
+ * XREFs of HvpLogTypeToLogArrayIndex @ 0x1405A72AC
  * Callers:
- *     HvTruncateCurrentLogFileIfRequired @ 0x1405A605C (HvTruncateCurrentLogFileIfRequired.c)
- *     CmpInitializeActualFileSizes @ 0x1405A6144 (CmpInitializeActualFileSizes.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     HvWriteLogFile @ 0x1406B85DC (HvWriteLogFile.c)
- *     CmpDoFileSetSizeEx @ 0x1406B8940 (CmpDoFileSetSizeEx.c)
- *     HvSwapLogFiles @ 0x1406C963C (HvSwapLogFiles.c)
- *     HvIsCurrentLogSwappable @ 0x1406CD1AC (HvIsCurrentLogSwappable.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x1406CF7D4 (HvTruncateAllLogFilesIfRequired.c)
- *     HvResetLogFileStatusAll @ 0x1406CFA0C (HvResetLogFileStatusAll.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x1405A705C (HvTruncateCurrentLogFileIfRequired.c)
+ *     CmpInitializeActualFileSizes @ 0x1405A7144 (CmpInitializeActualFileSizes.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     HvWriteLogFile @ 0x1406B987C (HvWriteLogFile.c)
+ *     CmpDoFileSetSizeEx @ 0x1406B9BE0 (CmpDoFileSetSizeEx.c)
+ *     HvSwapLogFiles @ 0x1406CA8DC (HvSwapLogFiles.c)
+ *     HvIsCurrentLogSwappable @ 0x1406CE44C (HvIsCurrentLogSwappable.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x1406D0A74 (HvTruncateAllLogFilesIfRequired.c)
+ *     HvResetLogFileStatusAll @ 0x1406D0CAC (HvResetLogFileStatusAll.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F8D60 (HvpPerformLogFileRecovery.c)
  * Callees:
  *     <none>
  */

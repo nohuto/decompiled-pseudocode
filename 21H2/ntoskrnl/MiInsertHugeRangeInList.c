@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInsertHugeRangeInList @ 0x140533608
+ * XREFs of MiInsertHugeRangeInList @ 0x140533848
  * Callers:
  *     MiMarkHugePfnBad @ 0x1403F39F4 (MiMarkHugePfnBad.c)
  *     MiMarkHugePfnGood @ 0x1403F3DA8 (MiMarkHugePfnGood.c)
- *     MiAddPartitionHugeRange @ 0x140532798 (MiAddPartitionHugeRange.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
- *     MiFreePartitionPageRun @ 0x1408DB034 (MiFreePartitionPageRun.c)
+ *     MiAddPartitionHugeRange @ 0x1405329D8 (MiAddPartitionHugeRange.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DAAD8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreePartitionPageRun @ 0x1408DB194 (MiFreePartitionPageRun.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiHugePfnPartition @ 0x1403F38E8 (MiHugePfnPartition.c)
  */
@@ -42,14 +42,14 @@ unsigned __int64 __fastcall MiInsertHugeRangeInList(int a1, char a2, _QWORD *a3)
 
   v3 = a1 & 0x3FFFF;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v6 = (unsigned __int64 *)(qword_140C4E670 + 8 * v3);
+  v6 = (unsigned __int64 *)(qword_140C4E6B0 + 8 * v3);
   if ( a3 )
     v7 = a3;
   else
-    v7 = (_QWORD *)MiHugePfnPartition((_QWORD *)(qword_140C4E670 + 8 * v3));
+    v7 = (_QWORD *)MiHugePfnPartition((_QWORD *)(qword_140C4E6B0 + 8 * v3));
   v8 = v7[770];
   v9 = MiSearchNumaNodeTable(v3 << 18);
-  v10 = (unsigned int)dword_140C4DF80[0];
+  v10 = (unsigned int)dword_140C4DFC0[0];
   v11 = *((unsigned int *)v9 + 2);
   if ( a2 >= 0 )
     KeAcquireInStackQueuedSpinLock(v7 + 516, &LockHandle);
@@ -100,8 +100,8 @@ LABEL_14:
   if ( v20 )
   {
     *v6 = v22 | v20;
-    result = v21 | *(_QWORD *)(qword_140C4E670 + 8 * v20) & 0xFFFFFF80001FFFFFuLL;
-    *(_QWORD *)(qword_140C4E670 + 8 * v20) = result;
+    result = v21 | *(_QWORD *)(qword_140C4E6B0 + 8 * v20) & 0xFFFFFF80001FFFFFuLL;
+    *(_QWORD *)(qword_140C4E6B0 + 8 * v20) = result;
   }
   else
   {

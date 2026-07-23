@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptMlDsaVectorNTT @ 0x14057463C
+ * XREFs of SymCryptMlDsaVectorNTT @ 0x1405738A0
  * Callers:
- *     SymCryptMlDsaKeyGenerateEx @ 0x14055D64C (SymCryptMlDsaKeyGenerateEx.c)
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
- *     SymCryptMlDsaExpandMask @ 0x140572830 (SymCryptMlDsaExpandMask.c)
- *     SymCryptMlDsaPkDecode @ 0x140572D9C (SymCryptMlDsaPkDecode.c)
- *     SymCryptMlDsaSkDecode @ 0x140573AF4 (SymCryptMlDsaSkDecode.c)
+ *     SymCryptMlDsaKeyGenerateEx @ 0x14055FB34 (SymCryptMlDsaKeyGenerateEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsaExpandMask @ 0x140571A18 (SymCryptMlDsaExpandMask.c)
+ *     SymCryptMlDsaPkDecode @ 0x140571FA8 (SymCryptMlDsaPkDecode.c)
+ *     SymCryptMlDsaSkDecode @ 0x140572D4C (SymCryptMlDsaSkDecode.c)
  * Callees:
- *     SymCryptMlDsaPolyElementNTT @ 0x1405734A0 (SymCryptMlDsaPolyElementNTT.c)
+ *     SymCryptMlDsaPolyElementNTT @ 0x1405726AC (SymCryptMlDsaPolyElementNTT.c)
  */
 
 __int64 __fastcall SymCryptMlDsaVectorNTT(_BYTE *a1)

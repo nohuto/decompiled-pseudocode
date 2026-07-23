@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRestoreUchFromUmsContext @ 0x1408BF028
+ * XREFs of KiRestoreUchFromUmsContext @ 0x1408BF188
  * Callers:
- *     KeFixUserSwitchContext @ 0x1408BEA20 (KeFixUserSwitchContext.c)
+ *     KeFixUserSwitchContext @ 0x1408BEB80 (KeFixUserSwitchContext.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeContextToKframes @ 0x1403FE020 (KeContextToKframes.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiCopyXStateArea @ 0x140519F90 (KiCopyXStateArea.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeContextToKframes @ 0x1403FE200 (KeContextToKframes.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiCopyXStateArea @ 0x14051A1D0 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KiRestoreUchFromUmsContext(__int64 a1, __int64 *a2, __int64 a3)

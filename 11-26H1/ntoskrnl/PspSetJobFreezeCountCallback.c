@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetJobFreezeCountCallback @ 0x1404D1550
+ * XREFs of PspSetJobFreezeCountCallback @ 0x1404CAF80
  * Callers:
  *     <none>
  * Callees:
- *     PspComputeExecutionState @ 0x140A8FE0C (PspComputeExecutionState.c)
+ *     PspComputeExecutionState @ 0x140A94964 (PspComputeExecutionState.c)
  */
 
 __int64 __fastcall PspSetJobFreezeCountCallback(_DWORD *a1, __int64 *a2)

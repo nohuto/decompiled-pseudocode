@@ -136,7 +136,7 @@ char __fastcall KiAdjustTimer2DueTimes(__int64 a1)
     {
       v22 = (__int64)(v2 - 3);
       v2 = (_QWORD *)*v2;
-      KiInsertTimer2(v22, 1, (unsigned __int64)&v24);
+      KiInsertTimer2(v22, 1, &v24);
       if ( v24 )
         v6 = 1;
     }

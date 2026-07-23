@@ -1,63 +1,63 @@
 /*
- * XREFs of NtQuerySystemInformationEx @ 0x140833690
+ * XREFs of NtQuerySystemInformationEx @ 0x1408398D0
  * Callers:
- *     DifNtQuerySystemInformationExWrapper @ 0x140685ED0 (DifNtQuerySystemInformationExWrapper.c)
+ *     DifNtQuerySystemInformationExWrapper @ 0x140689AB0 (DifNtQuerySystemInformationExWrapper.c)
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  */
 
-__int64 __fastcall NtQuerySystemInformationEx(
-        int a1,
-        volatile void *a2,
-        unsigned int a3,
-        volatile void *Address,
-        SIZE_T a5,
-        __int64 a6)
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  volatile void *v6; // r15
+  PVOID Address; // r15
   SIZE_T v7; // rsi
   int v8; // r14d
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
+  __int32 v10; // ecx
+  __int32 v11; // ecx
+  __int32 v12; // ecx
+  __int32 v13; // ecx
   int v14; // ecx
   int v15; // ecx
   int v16; // ecx
   ULONG v17; // r8d
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // ecx
-  int v21; // ecx
+  __int32 v18; // ecx
+  __int32 v19; // ecx
+  __int32 v20; // ecx
+  __int32 v21; // ecx
   int v22; // ecx
   int v23; // ecx
-  int v24; // ecx
-  int v25; // ecx
-  int v26; // ecx
-  int v27; // ecx
+  __int32 v24; // ecx
+  __int32 v25; // ecx
+  __int32 v26; // ecx
+  __int32 v27; // ecx
   int v28; // ecx
   int v29; // ecx
   int v30; // ecx
-  int v31; // ecx
-  int v32; // ecx
-  int v33; // ecx
-  int v34; // ecx
+  __int32 v31; // ecx
+  __int32 v32; // ecx
+  __int32 v33; // ecx
+  __int32 v34; // ecx
   int v35; // ecx
   int v36; // ecx
   char PreviousMode; // di
   SIZE_T Length; // [rsp+28h] [rbp-30h]
 
-  v6 = Address;
-  v7 = a3;
-  v8 = (int)a2;
-  if ( !a2 || !a3 )
-    return 3221225485LL;
-  if ( a1 > 180 )
+  Address = SystemInformation;
+  v7 = InputBufferLength;
+  v8 = (int)InputBuffer;
+  if ( !InputBuffer || !InputBufferLength )
+    return -1073741811;
+  if ( SystemInformationClass > SystemInterruptSteeringInformation )
   {
-    if ( a1 > 231 )
+    if ( SystemInformationClass > SystemSingleProcessorRelationshipInformation )
     {
-      v31 = a1 - 232;
+      v31 = SystemInformationClass - 232;
       if ( !v31 )
         goto LABEL_43;
       v32 = v31 - 6;
@@ -77,15 +77,15 @@ __int64 __fastcall NtQuerySystemInformationEx(
         {
           if ( v36 == 2 )
             goto LABEL_43;
-          return 3221225475LL;
+          return -1073741821;
         }
       }
     }
     else
     {
-      if ( a1 == 231 )
+      if ( SystemInformationClass == SystemSingleProcessorRelationshipInformation )
         goto LABEL_43;
-      v24 = a1 - 181;
+      v24 = SystemInformationClass - 181;
       if ( v24 )
       {
         v25 = v24 - 13;
@@ -105,7 +105,7 @@ __int64 __fastcall NtQuerySystemInformationEx(
               goto LABEL_43;
             v30 = v29 - 1;
             if ( v30 && v30 != 7 )
-              return 3221225475LL;
+              return -1073741821;
           }
         }
       }
@@ -114,11 +114,11 @@ LABEL_23:
     v17 = 8;
     goto LABEL_44;
   }
-  if ( a1 == 180 )
+  if ( SystemInformationClass == SystemInterruptSteeringInformation )
     goto LABEL_43;
-  if ( a1 > 107 )
+  if ( SystemInformationClass > SystemLogicalProcessorAndGroupInformation )
   {
-    v18 = a1 - 108;
+    v18 = SystemInformationClass - 108;
     if ( !v18 )
       goto LABEL_15;
     v19 = v18 - 13;
@@ -136,11 +136,11 @@ LABEL_23:
     v23 = v22 - 10;
     if ( !v23 || v23 == 3 )
       goto LABEL_23;
-    return 3221225475LL;
+    return -1073741821;
   }
-  if ( a1 == 107 )
+  if ( SystemInformationClass == SystemLogicalProcessorAndGroupInformation )
     goto LABEL_43;
-  v10 = a1 - 8;
+  v10 = SystemInformationClass - 8;
   if ( !v10 )
     goto LABEL_15;
   v11 = v10 - 15;
@@ -166,7 +166,7 @@ LABEL_43:
     if ( v16 )
     {
       if ( v16 != 17 )
-        return 3221225475LL;
+        return -1073741821;
     }
   }
 LABEL_15:
@@ -174,8 +174,15 @@ LABEL_15:
 LABEL_44:
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
-    ProbeForRead(a2, v7, v17);
-  LODWORD(Length) = a5;
-  LOBYTE(Address) = PreviousMode;
-  return ExpQuerySystemInformation(a1, v8, v7, (int)Address, v6, Length, a6);
+    ProbeForRead(InputBuffer, v7, v17);
+  LODWORD(Length) = SystemInformationLength;
+  LOBYTE(SystemInformation) = PreviousMode;
+  return ExpQuerySystemInformation(
+           SystemInformationClass,
+           v8,
+           v7,
+           (int)SystemInformation,
+           Address,
+           Length,
+           (__int64)ReturnLength);
 }

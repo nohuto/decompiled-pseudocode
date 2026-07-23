@@ -11,7 +11,7 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwSetSystemTimeWrapper(__int64 a1, __int64 a2)
+__int64 __fastcall DifZwSetSystemTimeWrapper(PLARGE_INTEGER SystemTime, PLARGE_INTEGER PreviousTime)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v5; // rsi
@@ -41,8 +41,8 @@ __int64 __fastcall DifZwSetSystemTimeWrapper(__int64 a1, __int64 a2)
       *(_QWORD *)&v13 = DifGetReturnAddressForWrappers();
     }
     v7 = 0;
-    *(_QWORD *)&v14 = a1;
-    *((_QWORD *)&v13 + 1) = a2;
+    *(_QWORD *)&v14 = SystemTime;
+    *((_QWORD *)&v13 + 1) = PreviousTime;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v7 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -55,7 +55,7 @@ __int64 __fastcall DifZwSetSystemTimeWrapper(__int64 a1, __int64 a2)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v14) = ZwSetSystemTime(a1, a2);
+  DWORD2(v14) = ZwSetSystemTime(SystemTime, PreviousTime);
   if ( v5 )
   {
     if ( (v9 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

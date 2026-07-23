@@ -15,23 +15,25 @@
  *     NtUnmapViewOfSection @ 0x1800A13F0 (NtUnmapViewOfSection.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int16 a2)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  char v4; // bl
+  __int16 v2; // r12
+  BOOLEAN v4; // bl
   unsigned int v5; // edi
   int v6; // esi
   int v7; // r13d
-  __int64 v8; // r14
+  char *v8; // r14
   _QWORD *v9; // rbx
   __int64 v10; // rdx
-  unsigned __int64 v11; // rdx
+  void *v11; // rdx
   void *v12; // rcx
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   int i; // [rsp+24h] [rbp-34h]
-  __int64 v16; // [rsp+60h] [rbp+8h]
+  char *v16; // [rsp+60h] [rbp+8h]
 
+  v2 = Flags;
   v4 = 0;
-  if ( !a1 )
+  if ( !DllHandle )
     return 0;
   RtlAcquireSRWLockExclusive(&MuiCacheSWRLock);
   v5 = AlternateResourceModuleCount;
@@ -43,33 +45,33 @@ char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int16 a2)
       if ( v6 <= 0 )
         goto LABEL_30;
       v7 = v6 - 1;
-      v8 = AlternateResourceModules + ((__int64)(v6 - 1) << 6);
-      if ( *(_QWORD *)(v8 + 8) == a1 )
+      v8 = (char *)AlternateResourceModules + 64 * (__int64)(v6 - 1);
+      if ( *((PVOID *)v8 + 1) == DllHandle )
         break;
 LABEL_6:
       v6 = v7;
     }
-    v16 = AlternateResourceModules + ((__int64)v7 << 6);
-    v9 = (_QWORD *)(v8 + 32);
-    v10 = *(_QWORD *)(v8 + 32);
-    if ( v10 && (!a2 || a2 == *(_WORD *)v8) && v10 != -1 )
+    v16 = (char *)AlternateResourceModules + 64 * (__int64)v7;
+    v9 = v8 + 32;
+    v10 = *((_QWORD *)v8 + 4);
+    if ( v10 && (!v2 || v2 == *(_WORD *)v8) && v10 != -1 )
     {
-      v11 = v10 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( *(_DWORD *)(v8 + 56) == -1073741799 )
+      v11 = (void *)(v10 & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( *((_DWORD *)v8 + 14) == -1073741799 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
         v6 = i;
         v8 = v16;
       }
       else
       {
-        NtUnmapViewOfSection(-1LL);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v11);
       }
-      v12 = *(void **)(v8 + 40);
+      v12 = (void *)*((_QWORD *)v8 + 5);
       if ( v12 )
       {
         NtClose(v12);
-        *(_QWORD *)(v8 + 40) = 0LL;
+        *((_QWORD *)v8 + 5) = 0LL;
       }
       *v9 = 0LL;
       v5 = AlternateResourceModuleCount;
@@ -82,7 +84,7 @@ LABEL_6:
       if ( v5 >= AltResMemBlockCount - 32 )
         goto LABEL_20;
       Heap = RtlReAllocateHeap(
-               (__int64)NtCurrentPeb()->ProcessHeap,
+               NtCurrentPeb()->ProcessHeap,
                0,
                AlternateResourceModules,
                (unsigned __int64)(unsigned int)(AltResMemBlockCount - 32) << 6);
@@ -96,7 +98,7 @@ LABEL_6:
     }
     else
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
       AlternateResourceModules = 0LL;
       AltResMemBlockCount = 0;
     }

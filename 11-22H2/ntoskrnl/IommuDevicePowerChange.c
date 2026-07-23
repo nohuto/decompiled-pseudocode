@@ -38,9 +38,9 @@ __int64 __fastcall IommuDevicePowerChange(__int64 a1, __int64 a2, char a3)
       v4 = 1;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           v7 = 4;
@@ -53,10 +53,10 @@ __int64 __fastcall IommuDevicePowerChange(__int64 a1, __int64 a2, char a3)
     ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a2 + 64));
     if ( v4 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v10 = CurrentPrcb->SchedulerAssist;

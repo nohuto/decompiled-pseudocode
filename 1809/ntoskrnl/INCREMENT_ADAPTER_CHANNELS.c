@@ -1,11 +1,11 @@
 /*
- * XREFs of INCREMENT_ADAPTER_CHANNELS @ 0x1409294E0
+ * XREFs of INCREMENT_ADAPTER_CHANNELS @ 0x14092A4E0
  * Callers:
- *     VfAllocateAdapterChannel @ 0x140929AE0 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x140929D10 (VfAllocateAdapterChannelEx.c)
+ *     VfAllocateAdapterChannel @ 0x14092AAE0 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x14092AD10 (VfAllocateAdapterChannelEx.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030B008 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x14092ED28 (ViHalPreprocessOptions.c)
  */
 
 void __fastcall INCREMENT_ADAPTER_CHANNELS(__int64 a1)
@@ -20,13 +20,13 @@ void __fastcall INCREMENT_ADAPTER_CHANNELS(__int64 a1)
     if ( v2 != v3 + 1 )
     {
       ViHalPreprocessOptions(
-        byte_140405460,
+        byte_14040647C,
         "Driver has allocated too many simultaneous adapter channels.",
         11LL,
         (unsigned int)(v2 - v3),
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0xBuLL, (unsigned int)(v2 - *(_DWORD *)(a1 + 184)), 0LL, 0LL, byte_140405460);
+      VfReportIssueWithOptions(0xE6u, 0xBuLL, (unsigned int)(v2 - *(_DWORD *)(a1 + 184)), 0LL, 0LL, byte_14040647C);
     }
   }
 }

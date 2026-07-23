@@ -1,12 +1,12 @@
 /*
- * XREFs of SeInitSystem @ 0x1409AB3BC
+ * XREFs of SeInitSystem @ 0x1409AC3BC
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     SepInitializationPhase1 @ 0x140726F24 (SepInitializationPhase1.c)
- *     SepInitializationPhase0 @ 0x1409AD8C0 (SepInitializationPhase0.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     SepInitializationPhase1 @ 0x1407281C4 (SepInitializationPhase1.c)
+ *     SepInitializationPhase0 @ 0x1409AE8C0 (SepInitializationPhase0.c)
  */
 
 char SeInitSystem()

@@ -11,7 +11,7 @@
  *     RtlpInitCurrentDir @ 0x18005FCB8 (RtlpInitCurrentDir.c)
  *     RtlpDetermineDosPathNameType4 @ 0x1800789F4 (RtlpDetermineDosPathNameType4.c)
  *     RtlpComputeBackupIndex @ 0x180081CBC (RtlpComputeBackupIndex.c)
- *     RtlNtPathNameToDosPathName @ 0x1800CC4C0 (RtlNtPathNameToDosPathName.c)
+ *     RtlNtPathNameToDosPathName @ 0x1800CC480 (RtlNtPathNameToDosPathName.c)
  * Callees:
  *     <none>
  */

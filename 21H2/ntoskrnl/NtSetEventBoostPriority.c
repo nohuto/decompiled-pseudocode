@@ -1,22 +1,22 @@
 /*
- * XREFs of NtSetEventBoostPriority @ 0x14094F420
+ * XREFs of NtSetEventBoostPriority @ 0x14094F5F0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeSetEventBoostPriority @ 0x140518C60 (KeSetEventBoostPriority.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeSetEventBoostPriority @ 0x140518EA0 (KeSetEventBoostPriority.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetEventBoostPriority(void *a1)
+NTSTATUS __cdecl NtSetEventBoostPriority(HANDLE EventHandle)
 {
-  NTSTATUS v1; // edi
+  int v1; // edi
   struct _DMA_ADAPTER *v2; // rbx
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
   DmaAdapter = 0LL;
   v1 = ObReferenceObjectByHandle(
-         a1,
+         EventHandle,
          2u,
          (POBJECT_TYPE)ExEventObjectType,
          KeGetCurrentThread()->PreviousMode,
@@ -31,5 +31,5 @@ __int64 __fastcall NtSetEventBoostPriority(void *a1)
       v1 = -1073741788;
     HalPutDmaAdapter(v2);
   }
-  return (unsigned int)v1;
+  return v1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CcReferencePartitionFromFileObject @ 0x14038462C
+ * XREFs of CcReferencePartitionFromFileObject @ 0x1403863DC
  * Callers:
- *     CcCanIWrite @ 0x140383700 (CcCanIWrite.c)
- *     CcDeferWrite @ 0x1403E0210 (CcDeferWrite.c)
- *     CcZeroData @ 0x14046D2D0 (CcZeroData.c)
+ *     CcCanIWrite @ 0x1403854B0 (CcCanIWrite.c)
+ *     CcDeferWrite @ 0x1403E3400 (CcDeferWrite.c)
+ *     CcZeroData @ 0x140466A50 (CcZeroData.c)
  * Callees:
  *     <none>
  */

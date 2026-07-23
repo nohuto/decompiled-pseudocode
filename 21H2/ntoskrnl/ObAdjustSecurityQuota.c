@@ -1,11 +1,11 @@
 /*
- * XREFs of ObAdjustSecurityQuota @ 0x14065FB48
+ * XREFs of ObAdjustSecurityQuota @ 0x140654968
  * Callers:
- *     ObSetSecurityDescriptorInfo @ 0x14065F2B0 (ObSetSecurityDescriptorInfo.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1406540D0 (ObSetSecurityDescriptorInfo.c)
  * Callees:
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14027E9DC (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     PsChargeSharedPoolQuota @ 0x140660338 (PsChargeSharedPoolQuota.c)
- *     PsReturnSharedPoolQuota @ 0x1406603C4 (PsReturnSharedPoolQuota.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14026C97C (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     PsChargeSharedPoolQuota @ 0x140655158 (PsChargeSharedPoolQuota.c)
+ *     PsReturnSharedPoolQuota @ 0x1406551E4 (PsReturnSharedPoolQuota.c)
  */
 
 __int64 __fastcall ObAdjustSecurityQuota(__int64 a1, unsigned int a2)

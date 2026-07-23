@@ -17,7 +17,7 @@
 __int64 __fastcall BiQueryBootEntryOrder(ULONG **a1, ULONG *a2)
 {
   ULONG *v2; // rdi
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   ULONG *PoolWithTag; // rax
   ULONG Count; // [rsp+50h] [rbp+18h] BYREF
   __int64 v9; // [rsp+58h] [rbp+20h] BYREF

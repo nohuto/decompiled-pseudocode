@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpAccessFaultBatch @ 0x1403AB20C
+ * XREFs of VmpAccessFaultBatch @ 0x140399920
  * Callers:
- *     VmAccessFault @ 0x140A07D80 (VmAccessFault.c)
+ *     VmAccessFault @ 0x140A042B0 (VmAccessFault.c)
  * Callees:
- *     VmpFaultEntryInsert @ 0x1403AB3CC (VmpFaultEntryInsert.c)
- *     VmpFaultEntryRemove @ 0x1403AB51C (VmpFaultEntryRemove.c)
- *     VmpProcessContextLockShared @ 0x1403ABC30 (VmpProcessContextLockShared.c)
- *     VmpProcessContextUnlockShared @ 0x1403ABC7C (VmpProcessContextUnlockShared.c)
- *     VmpProcessUpdateSlat @ 0x1403ABCD4 (VmpProcessUpdateSlat.c)
- *     VmpAccessFaultBatchResolve @ 0x1409F7BB4 (VmpAccessFaultBatchResolve.c)
+ *     VmpFaultEntryInsert @ 0x140399AE0 (VmpFaultEntryInsert.c)
+ *     VmpFaultEntryRemove @ 0x140399C30 (VmpFaultEntryRemove.c)
+ *     VmpProcessContextLockShared @ 0x14039A340 (VmpProcessContextLockShared.c)
+ *     VmpProcessContextUnlockShared @ 0x14039A38C (VmpProcessContextUnlockShared.c)
+ *     VmpProcessUpdateSlat @ 0x14039A3E4 (VmpProcessUpdateSlat.c)
+ *     VmpAccessFaultBatchResolve @ 0x1409F0524 (VmpAccessFaultBatchResolve.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatch(

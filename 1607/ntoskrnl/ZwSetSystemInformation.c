@@ -1,11 +1,11 @@
 /*
- * XREFs of ZwSetSystemInformation @ 0x14015CF60
+ * XREFs of ZwSetSystemInformation @ 0x14015D4D0
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x140220D48 (SmKmStoreTerminateWorker.c)
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
- *     SmStoreCreate @ 0x140696FB0 (SmStoreCreate.c)
- *     SmStoreDelete @ 0x1406970BC (SmStoreDelete.c)
- *     SmStoreResize @ 0x140697294 (SmStoreResize.c)
+ *     SmKmStoreTerminateWorker @ 0x140220B74 (SmKmStoreTerminateWorker.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
+ *     SmStoreCreate @ 0x140697094 (SmStoreCreate.c)
+ *     SmStoreDelete @ 0x1406971A0 (SmStoreDelete.c)
+ *     SmStoreResize @ 0x140697378 (SmStoreResize.c)
  *     KitpInitAitSampleRate @ 0x1407BB31C (KitpInitAitSampleRate.c)
  * Callees:
  *     <none>
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwSetSystemInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&SystemInformationClass, SystemInformation, SystemInformationLength);
+  return KiServiceInternal(*(_QWORD *)&SystemInformationClass);
 }

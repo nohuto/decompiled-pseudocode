@@ -1,10 +1,10 @@
 /*
- * XREFs of PiSwDestroyDeviceObject @ 0x1404C3958
+ * XREFs of PiSwDestroyDeviceObject @ 0x140483C74
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x1403F1680 (PiSwPdoPnPDispatch.c)
- *     PiSwProcessParentRemoveIrp @ 0x1404C62E4 (PiSwProcessParentRemoveIrp.c)
+ *     PiSwPdoPnPDispatch @ 0x1403F0544 (PiSwPdoPnPDispatch.c)
+ *     PiSwProcessParentRemoveIrp @ 0x140484AEC (PiSwProcessParentRemoveIrp.c)
  * Callees:
- *     PiSwUnassociateDeviceObject @ 0x1404C3A00 (PiSwUnassociateDeviceObject.c)
+ *     PiSwUnassociateDeviceObject @ 0x140483D1C (PiSwUnassociateDeviceObject.c)
  */
 
 void __fastcall PiSwDestroyDeviceObject(struct _DEVICE_OBJECT *a1)

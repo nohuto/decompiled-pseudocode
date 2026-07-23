@@ -9,31 +9,27 @@
  *     _RtlpValidateHeap@8 @ 0x4B360697 (_RtlpValidateHeap@8.c)
  */
 
-char __thiscall RtlDebugDestroyHeap(_DWORD *this)
+char __thiscall RtlDebugDestroyHeap(int this)
 {
-  int v3; // edx
-  int v4; // ecx
-  int v5; // [esp+4h] [ebp-4h] BYREF
+  int v3; // ecx
+  int v4; // [esp+4h] [ebp-4h] BYREF
 
-  if ( this == NtCurrentPeb()->ProcessHeap )
+  if ( (void *)this == NtCurrentPeb()->ProcessHeap )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("May not destroy the process heap at %p\n", this);
+    DbgPrint("May not destroy the process heap at %p\n", (const void *)this);
     return 0;
   }
-  if ( !RtlpCheckHeapSignature(this, "RtlDestroyHeap") )
+  if ( !RtlpCheckHeapSignature((_DWORD *)this, "RtlDestroyHeap") || !(unsigned __int8)RtlpValidateHeap((PVOID)this) )
     return 0;
-  LOBYTE(v3) = 0;
-  if ( !(unsigned __int8)RtlpValidateHeap(this, v3) )
-    return 0;
-  this[24] = 0;
-  if ( this[32] )
+  *(_DWORD *)(this + 96) = 0;
+  if ( *(_DWORD *)(this + 128) )
   {
-    v5 = 0;
-    RtlpSecMemFreeVirtualMemory(v4, this + 32, &v5, 0x8000);
+    v4 = 0;
+    RtlpSecMemFreeVirtualMemory(v3, (PVOID *)(this + 128), (ULONG_PTR *)&v4, 0x8000u);
   }
   return 1;
 }

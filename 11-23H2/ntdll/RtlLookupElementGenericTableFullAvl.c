@@ -6,42 +6,46 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFullAvl(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  __int64 i; // rbx
-  int v9; // eax
-  __int64 v11; // rax
+  _RTL_BALANCED_LINKS *i; // rbx
+  _RTL_GENERIC_COMPARE_RESULTS v9; // eax
+  _RTL_BALANCED_LINKS *RightChild; // rax
 
-  if ( !*(_DWORD *)(a1 + 44) )
+  if ( !Table->NumberGenericTableElements )
   {
-    *a4 = 0;
+    *SearchResult = TableEmptyTree;
     return 0LL;
   }
-  for ( i = *(_QWORD *)(a1 + 16); ; i = v11 )
+  for ( i = Table->BalancedRoot.RightChild; ; i = RightChild )
   {
-    v9 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 72))(a1, a2, i + 32);
-    if ( !v9 )
+    v9 = Table->CompareRoutine(Table, Buffer, &i[1]);
+    if ( v9 == GenericLessThan )
       break;
-    if ( v9 != 1 )
+    if ( v9 != GenericGreaterThan )
     {
-      *a3 = i;
-      *a4 = 1;
-      return *a3 + 32LL;
+      *NodeOrParent = i;
+      *SearchResult = TableFoundNode;
+      return (char *)*NodeOrParent + 32;
     }
-    v11 = *(_QWORD *)(i + 16);
-    if ( !v11 )
+    RightChild = i->RightChild;
+    if ( !RightChild )
     {
-      *a3 = i;
-      *a4 = 3;
+      *NodeOrParent = i;
+      *SearchResult = TableInsertAsRight;
       return 0LL;
     }
 LABEL_7:
     ;
   }
-  v11 = *(_QWORD *)(i + 8);
-  if ( v11 )
+  RightChild = i->LeftChild;
+  if ( RightChild )
     goto LABEL_7;
-  *a3 = i;
-  *a4 = 2;
+  *NodeOrParent = i;
+  *SearchResult = TableInsertAsLeft;
   return 0LL;
 }

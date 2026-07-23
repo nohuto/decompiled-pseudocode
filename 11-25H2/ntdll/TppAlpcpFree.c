@@ -27,7 +27,7 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall TppAlpcpFree(_QWORD *a1)
+LOGICAL __fastcall TppAlpcpFree(_QWORD *a1)
 {
   _QWORD *v2; // rdi
 
@@ -35,5 +35,5 @@ __int64 __fastcall TppAlpcpFree(_QWORD *a1)
   TpAdjustBindingCount(a1[18], 0xFFFFFFFF);
   v2[7] = 0LL;
   TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x80000), v2);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x80000, v2);
 }

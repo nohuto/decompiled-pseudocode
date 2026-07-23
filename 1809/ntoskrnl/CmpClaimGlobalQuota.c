@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpClaimGlobalQuota @ 0x1405A7334
+ * XREFs of CmpClaimGlobalQuota @ 0x1405A8334
  * Callers:
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     CmpAllocate @ 0x1405A72D0 (CmpAllocate.c)
- *     HvpMapHiveImageFromViewMap @ 0x1405F9C30 (HvpMapHiveImageFromViewMap.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x14073CFDC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     CmpAllocate @ 0x1405A82D0 (CmpAllocate.c)
+ *     HvpMapHiveImageFromViewMap @ 0x1405FAC30 (HvpMapHiveImageFromViewMap.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x14073E1CC (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     CmpUpdateGlobalQuotaAllowed @ 0x1405A738C (CmpUpdateGlobalQuotaAllowed.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     CmpUpdateGlobalQuotaAllowed @ 0x1405A838C (CmpUpdateGlobalQuotaAllowed.c)
  */
 
 char __fastcall CmpClaimGlobalQuota(__int64 a1, __int64 a2)

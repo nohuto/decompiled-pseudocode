@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDemoteLargeFreePage @ 0x140434410
+ * XREFs of MiDemoteLargeFreePage @ 0x14042B4F0
  * Callers:
- *     MiTradePageMarkedFreeZero @ 0x14028E304 (MiTradePageMarkedFreeZero.c)
- *     MiGetBadPageResources @ 0x1406F1108 (MiGetBadPageResources.c)
+ *     MiTradePageMarkedFreeZero @ 0x14028D864 (MiTradePageMarkedFreeZero.c)
+ *     MiGetBadPageResources @ 0x1406F5D78 (MiGetBadPageResources.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiGetBaseResidentPage @ 0x1402F1BA0 (MiGetBaseResidentPage.c)
- *     MiObtainedPageIsGood @ 0x14043467C (MiObtainedPageIsGood.c)
- *     MiInsertDemotedPages @ 0x1404346F0 (MiInsertDemotedPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiGetBaseResidentPage @ 0x1402D3C20 (MiGetBaseResidentPage.c)
+ *     MiObtainedPageIsGood @ 0x14042B75C (MiObtainedPageIsGood.c)
+ *     MiInsertDemotedPages @ 0x14042B7D0 (MiInsertDemotedPages.c)
  */
 
 __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, unsigned __int8 a2, int a3)
@@ -38,7 +38,7 @@ __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, unsigned __int8 a2, int a3)
   v4 = 48 * a1;
   v6 = 48 * a1 - 0x220000000000LL;
   IsGood = 0;
-  v8 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
+  v8 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
   BaseResidentPage = MiGetBaseResidentPage(v6);
   PfnPageSizeIndex = MiGetPfnPageSizeIndex(BaseResidentPage);
   if ( BaseResidentPage != v6 )

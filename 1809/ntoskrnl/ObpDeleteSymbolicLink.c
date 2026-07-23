@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpDeleteSymbolicLink @ 0x1406CAF00
+ * XREFs of ObpDeleteSymbolicLink @ 0x1406CC1A0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpDeleteSymbolicLink(__int64 a1)

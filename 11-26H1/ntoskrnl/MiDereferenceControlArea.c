@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDereferenceControlArea @ 0x1404EF3F0
+ * XREFs of MiDereferenceControlArea @ 0x1404E89D0
  * Callers:
- *     MiDeleteVadEventAwe @ 0x140878FD0 (MiDeleteVadEventAwe.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiMapViewInSystemSpace @ 0x1409B7280 (MiMapViewInSystemSpace.c)
- *     AlpcpCreateView @ 0x1409C2150 (AlpcpCreateView.c)
- *     MiPrepareDataViewSubsections @ 0x1409C4B70 (MiPrepareDataViewSubsections.c)
- *     MiDataVadErrorCleanup @ 0x1409C670C (MiDataVadErrorCleanup.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1409C9790 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiMapImageInSystemSpace @ 0x1409CC82C (MiMapImageInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1409CD37C (MiMapViewOfImageSection.c)
- *     MiAllocateImageVad @ 0x1409CD948 (MiAllocateImageVad.c)
- *     KsepSdbMapToMemory @ 0x1409E6578 (KsepSdbMapToMemory.c)
- *     NtGetNlsSectionPtr @ 0x140A97650 (NtGetNlsSectionPtr.c)
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiDeleteVadEventAwe @ 0x14087F3B0 (MiDeleteVadEventAwe.c)
+ *     MiMapViewInSystemSpace @ 0x140988260 (MiMapViewInSystemSpace.c)
+ *     AlpcpCreateView @ 0x140993130 (AlpcpCreateView.c)
+ *     MiPrepareDataViewSubsections @ 0x140995B50 (MiPrepareDataViewSubsections.c)
+ *     MiDataVadErrorCleanup @ 0x1409976EC (MiDataVadErrorCleanup.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14099A770 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiMapImageInSystemSpace @ 0x14099D80C (MiMapImageInSystemSpace.c)
+ *     MiMapViewOfImageSection @ 0x14099E35C (MiMapViewOfImageSection.c)
+ *     MiAllocateImageVad @ 0x14099E928 (MiAllocateImageVad.c)
+ *     KsepSdbMapToMemory @ 0x1409D65BC (KsepSdbMapToMemory.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     NtGetNlsSectionPtr @ 0x140A9B7D0 (NtGetNlsSectionPtr.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
  */
 
 __int64 __fastcall MiDereferenceControlArea(__int64 a1)

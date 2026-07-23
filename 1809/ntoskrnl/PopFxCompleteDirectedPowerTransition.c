@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxCompleteDirectedPowerTransition @ 0x1402D7ABC
+ * XREFs of PopFxCompleteDirectedPowerTransition @ 0x1402D7CAC
  * Callers:
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1402D7CB4 (PopFxDerefAndCompleteDirectedPowerTransition.c)
- *     PopFxHandleDirectedPowerTransition @ 0x1402D819C (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1402D7EA4 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x1402D838C (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PopFxAddLogEntry @ 0x1400FE804 (PopFxAddLogEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
- *     PopDiagTraceFxDeviceDirectedCompletion @ 0x1402E0C50 (PopDiagTraceFxDeviceDirectedCompletion.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PopFxAddLogEntry @ 0x1400FE884 (PopFxAddLogEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1402D76B0 (PopFxBugCheck.c)
+ *     PopDiagTraceFxDeviceDirectedCompletion @ 0x1402E0E40 (PopDiagTraceFxDeviceDirectedCompletion.c)
  */
 
 LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDowncaseUnicodeChar @ 0x1409E36B0
+ * XREFs of RtlDowncaseUnicodeChar @ 0x1409DE110
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
  */
 
 WCHAR __stdcall RtlDowncaseUnicodeChar(WCHAR SourceCharacter)

@@ -10,7 +10,7 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180075B10 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall LdrEnumerateLoadedModules(int a1, void (__fastcall *a2)(__int64 *, __int64, char *), __int64 a3)
+NTSTATUS __cdecl LdrEnumerateLoadedModules(BOOLEAN ReservedFlag, PLDR_ENUM_CALLBACK EnumProc, PVOID Context)
 {
   char v5; // bl
   __int64 v6; // rcx
@@ -18,8 +18,8 @@ __int64 __fastcall LdrEnumerateLoadedModules(int a1, void (__fastcall *a2)(__int
   char v9; // [rsp+40h] [rbp+8h] BYREF
   char v10; // [rsp+58h] [rbp+20h]
 
-  if ( a1 || !a2 )
-    return 3221225485LL;
+  if ( ReservedFlag || !EnumProc )
+    return -1073741811;
   v9 = 0;
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
   {
@@ -35,12 +35,12 @@ __int64 __fastcall LdrEnumerateLoadedModules(int a1, void (__fastcall *a2)(__int
   LdrpAcquireLoaderLock();
   for ( i = (__int64 *)qword_1801461D0; i != &qword_1801461D0; i = (__int64 *)*i )
   {
-    a2(i, a3, &v9);
+    ((void (__fastcall *)(__int64 *, PVOID, char *))EnumProc)(i, Context, &v9);
     if ( v9 )
       break;
   }
   LdrpReleaseLoaderLock(v6, 15, 0);
   if ( !v5 )
     LdrpDropLastInProgressCount();
-  return 0LL;
+  return 0;
 }

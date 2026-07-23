@@ -1,30 +1,30 @@
 /*
- * XREFs of SepGetScopedPolicySid @ 0x1405960C8
+ * XREFs of SepGetScopedPolicySid @ 0x1405962F8
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SeComputeCreatorDeniedRights @ 0x14034FC90 (SeComputeCreatorDeniedRights.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x140358A30 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SeComputeCreatorDeniedRights @ 0x14035A9E0 (SeComputeCreatorDeniedRights.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140372BC4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406922C0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     RtlFindAceByType @ 0x140352210 (RtlFindAceByType.c)
+ *     RtlFindAceByType @ 0x14035CF60 (RtlFindAceByType.c)
  */
 
-unsigned __int8 *__fastcall SepGetScopedPolicySid(__int64 a1)
+_BYTE *__fastcall SepGetScopedPolicySid(PACL Acl)
 {
-  unsigned __int8 *result; // rax
-  unsigned int v3; // [rsp+38h] [rbp+10h] BYREF
+  _BYTE *result; // rax
+  ULONG Index; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = 0;
+  Index = 0;
   while ( 1 )
   {
-    result = RtlFindAceByType(a1, 19, &v3);
+    result = RtlFindAceByType(Acl, 0x13u, &Index);
     if ( result )
     {
       if ( (result[1] & 8) == 0 )
         break;
     }
-    ++v3;
+    ++Index;
     if ( !result )
       return result;
   }

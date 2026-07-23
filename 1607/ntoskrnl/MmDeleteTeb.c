@@ -1,15 +1,15 @@
 /*
- * XREFs of MmDeleteTeb @ 0x1404CD424
+ * XREFs of MmDeleteTeb @ 0x1404B2E50
  * Callers:
- *     PspAllocateThread @ 0x1405154A0 (PspAllocateThread.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ *     PspAllocateThread @ 0x1404F8890 (PspAllocateThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
  * Callees:
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiDeleteTebRange @ 0x1404CD4BC (MiDeleteTebRange.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiDeleteTebRange @ 0x1404B2EE8 (MiDeleteTebRange.c)
  */
 
 int __fastcall MmDeleteTeb(_KPROCESS *a1, __int64 a2)

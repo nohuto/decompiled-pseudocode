@@ -6,11 +6,11 @@
  *     _RtlCopySid@12 @ 0x4B2D6820 (_RtlCopySid@12.c)
  */
 
-int __fastcall RtlpInitializeDeniedAce(int a1, __int16 a2, char a3, char a4, int a5, unsigned __int8 *Src)
+NTSTATUS __fastcall RtlpInitializeDeniedAce(int a1, __int16 a2, char a3, char a4, int a5, unsigned __int8 *SourceSid)
 {
   *(_WORD *)(a1 + 2) = a2;
   *(_BYTE *)(a1 + 1) = a4 | a3;
   *(_DWORD *)(a1 + 4) = a5;
   *(_BYTE *)a1 = 1;
-  return RtlCopySid(4 * Src[1] + 8, (void *)(a1 + 8), Src);
+  return RtlCopySid(4 * SourceSid[1] + 8, (PSID)(a1 + 8), SourceSid);
 }

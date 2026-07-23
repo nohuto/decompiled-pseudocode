@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDereferenceSlabIdentity @ 0x140687730
+ * XREFs of MiDereferenceSlabIdentity @ 0x140688860
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x140AE61C8 (MmCreateProcessAddressSpace.c)
- *     MmDeleteProcessAddressSpace @ 0x140AE6484 (MmDeleteProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x140AE7AA8 (MmCreateProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140AE7D64 (MmDeleteProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of CcQueueAsyncLazywriteCompletion @ 0x14057E2B0
+ * XREFs of CcQueueAsyncLazywriteCompletion @ 0x14057B740
  * Callers:
- *     CcAsyncLazywriteWorkerMulti @ 0x1404C768C (CcAsyncLazywriteWorkerMulti.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404C0AEC (CcAsyncLazywriteWorkerMulti.c)
  * Callees:
- *     CcFlushCachePostProcess @ 0x1402ABF10 (CcFlushCachePostProcess.c)
- *     CcWriteBehindReleaseFile @ 0x1404DE6F8 (CcWriteBehindReleaseFile.c)
- *     CcPostWorkQueueAsyncLazywrite @ 0x1404DF0A0 (CcPostWorkQueueAsyncLazywrite.c)
+ *     CcFlushCachePostProcess @ 0x1402791F0 (CcFlushCachePostProcess.c)
+ *     CcWriteBehindReleaseFile @ 0x1404D8118 (CcWriteBehindReleaseFile.c)
+ *     CcPostWorkQueueAsyncLazywrite @ 0x1404D8AC0 (CcPostWorkQueueAsyncLazywrite.c)
  */
 
 char __fastcall CcQueueAsyncLazywriteCompletion(__int64 a1, char a2, char a3)
@@ -18,7 +18,7 @@ char __fastcall CcQueueAsyncLazywriteCompletion(__int64 a1, char a2, char a3)
   v4 = 0;
   v5 = *(_QWORD *)(a1 + 152);
   if ( a2 )
-    CcFlushCachePostProcess(*(_QWORD *)(a1 + 16));
+    CcFlushCachePostProcess(*(__int64 **)(a1 + 16));
   if ( a3 )
     v4 = CcWriteBehindReleaseFile(v3);
   *(_DWORD *)(a1 + 128) = 8;

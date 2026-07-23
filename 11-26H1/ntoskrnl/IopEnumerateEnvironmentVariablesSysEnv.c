@@ -1,9 +1,9 @@
 /*
- * XREFs of IopEnumerateEnvironmentVariablesSysEnv @ 0x14079A650
+ * XREFs of IopEnumerateEnvironmentVariablesSysEnv @ 0x14079D180
  * Callers:
  *     <none>
  * Callees:
- *     IopIssueSystemEnvironmentRequest @ 0x14079AEA8 (IopIssueSystemEnvironmentRequest.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x14079D9E8 (IopIssueSystemEnvironmentRequest.c)
  */
 
 __int64 __fastcall IopEnumerateEnvironmentVariablesSysEnv(

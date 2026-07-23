@@ -1,17 +1,17 @@
 /*
- * XREFs of ExSetLicenseTamperState @ 0x1406AE220
+ * XREFs of ExSetLicenseTamperState @ 0x1406AE358
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpLicUpdateChecksum @ 0x14008606C (ExpLicUpdateChecksum.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExpSetKernelDataProtection @ 0x140497230 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x14049779C (ExpGetKernelDataProtection.c)
- *     sub_1404F1514 @ 0x1404F1514 (sub_1404F1514.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpLicUpdateChecksum @ 0x14008795C (ExpLicUpdateChecksum.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExpSetKernelDataProtection @ 0x140497CC0 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x14049822C (ExpGetKernelDataProtection.c)
+ *     sub_1404D3608 @ 0x1404D3608 (sub_1404D3608.c)
  */
 
 void __fastcall ExSetLicenseTamperState(int a1)
@@ -113,7 +113,7 @@ void __fastcall ExSetLicenseTamperState(int a1)
       KeAbPostRelease((ULONG_PTR)&qword_140747B20);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v12, v13, v14);
       if ( v2 )
-        sub_1404F1514();
+        sub_1404D3608();
     }
   }
 }

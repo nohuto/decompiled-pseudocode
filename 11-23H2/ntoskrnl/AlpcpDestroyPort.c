@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpDestroyPort @ 0x140718670
+ * XREFs of AlpcpDestroyPort @ 0x140718870
  * Callers:
- *     AlpcpDeletePort @ 0x140718710 (AlpcpDeletePort.c)
+ *     AlpcpDeletePort @ 0x140718910 (AlpcpDeletePort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall AlpcpDestroyPort(__int64 *a1)

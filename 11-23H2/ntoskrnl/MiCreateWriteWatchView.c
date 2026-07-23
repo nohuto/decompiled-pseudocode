@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateWriteWatchView @ 0x1407CCB04
+ * XREFs of MiCreateWriteWatchView @ 0x1407CCDD4
  * Callers:
- *     MiReserveUserMemory @ 0x14071F3E0 (MiReserveUserMemory.c)
- *     MiAllocateChildVads @ 0x140A4837C (MiAllocateChildVads.c)
+ *     MiReserveUserMemory @ 0x14071F5E0 (MiReserveUserMemory.c)
+ *     MiAllocateChildVads @ 0x140A4862C (MiAllocateChildVads.c)
  * Callees:
- *     MiGetVadMandatoryPageSize @ 0x1402EADF0 (MiGetVadMandatoryPageSize.c)
- *     MiCreateVadEventBitmap @ 0x1407CCE04 (MiCreateVadEventBitmap.c)
+ *     MiGetVadMandatoryPageSize @ 0x1402EB080 (MiGetVadMandatoryPageSize.c)
+ *     MiCreateVadEventBitmap @ 0x1407CD0D4 (MiCreateVadEventBitmap.c)
  */
 
 __int64 __fastcall MiCreateWriteWatchView(__int64 a1, __int64 a2)

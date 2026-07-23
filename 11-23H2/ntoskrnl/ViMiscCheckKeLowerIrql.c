@@ -1,11 +1,11 @@
 /*
- * XREFs of ViMiscCheckKeLowerIrql @ 0x140AE1338
+ * XREFs of ViMiscCheckKeLowerIrql @ 0x140AE1328
  * Callers:
- *     VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140ADFF80 (VfMiscKeReleaseInStackQueuedSpinLock_Entry.c)
- *     VfMiscKeReleaseQueuedSpinLock_Entry @ 0x140AE0000 (VfMiscKeReleaseQueuedSpinLock_Entry.c)
- *     VfMiscKeReleaseSpinLock_Entry @ 0x140AE0040 (VfMiscKeReleaseSpinLock_Entry.c)
+ *     VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140ADFF70 (VfMiscKeReleaseInStackQueuedSpinLock_Entry.c)
+ *     VfMiscKeReleaseQueuedSpinLock_Entry @ 0x140ADFFF0 (VfMiscKeReleaseQueuedSpinLock_Entry.c)
+ *     VfMiscKeReleaseSpinLock_Entry @ 0x140AE0030 (VfMiscKeReleaseSpinLock_Entry.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 char __fastcall ViMiscCheckKeLowerIrql(unsigned __int8 a1, unsigned __int8 a2)

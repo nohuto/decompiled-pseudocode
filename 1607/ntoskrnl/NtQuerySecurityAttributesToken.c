@@ -1,38 +1,38 @@
 /*
- * XREFs of NtQuerySecurityAttributesToken @ 0x14040F420
+ * XREFs of NtQuerySecurityAttributesToken @ 0x14040E2E0
  * Callers:
  *     <none>
  * Callees:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000E3E0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepReferenceTokenByHandle @ 0x14000E870 (SepReferenceTokenByHandle.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000DF60 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepReferenceTokenByHandle @ 0x14000E3F0 (SepReferenceTokenByHandle.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SepCaptureUnicodeStringArray @ 0x140411D10 (SepCaptureUnicodeStringArray.c)
- *     ExRaiseAccessViolation @ 0x1406B6048 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SepCaptureUnicodeStringArray @ 0x140410BD0 (SepCaptureUnicodeStringArray.c)
+ *     ExRaiseAccessViolation @ 0x1406B6180 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQuerySecurityAttributesToken(
-        char *a1,
-        __int64 a2,
-        unsigned int a3,
-        _QWORD *a4,
-        unsigned int a5,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtQuerySecurityAttributesToken(
+        HANDLE TokenHandle,
+        PUNICODE_STRING Attributes,
+        ULONG NumberOfAttributes,
+        PVOID Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   char v9; // r13
   unsigned __int8 v10; // r14
   unsigned __int64 v11; // rdx
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rcx
-  _DWORD *v14; // r15
-  unsigned __int64 v15; // rdx
+  PULONG v14; // r15
+  PULONG v15; // rdx
   unsigned __int64 v16; // rcx
   unsigned __int64 v17; // rcx
-  int SecurityAttributesToken; // edi
+  NTSTATUS SecurityAttributesToken; // edi
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v20; // rbx
   char v21; // dl
@@ -54,9 +54,9 @@ __int64 __fastcall NtQuerySecurityAttributesToken(
   v27[0] = 0;
   v10 = KeGetCurrentThread()->gap0[10];
   v27[1] = v10;
-  if ( a5 )
+  if ( Length )
   {
-    if ( a4 )
+    if ( Buffer )
       goto LABEL_3;
 LABEL_40:
     SecurityAttributesToken = -1073741811;
@@ -65,18 +65,18 @@ LABEL_42:
     v20 = (PERESOURCE *)Object;
     goto LABEL_26;
   }
-  if ( a4 )
+  if ( Buffer )
     goto LABEL_40;
 LABEL_3:
   if ( v10 )
   {
-    if ( a5 )
+    if ( Length )
     {
-      v11 = (unsigned __int64)a4;
-      if ( ((unsigned __int8)a4 & 3) != 0 )
+      v11 = (unsigned __int64)Buffer;
+      if ( ((unsigned __int8)Buffer & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v12 = (unsigned __int64)a4 + a5 - 1;
-      if ( (unsigned __int64)a4 > v12 || v12 >= 0x7FFFFFFF0000LL )
+      v12 = (unsigned __int64)Buffer + Length - 1;
+      if ( (unsigned __int64)Buffer > v12 || v12 >= 0x7FFFFFFF0000LL )
       {
         if ( !KeGetCurrentThread()->ApcState.Process->SecurePid )
           ExRaiseAccessViolation();
@@ -92,12 +92,12 @@ LABEL_3:
         while ( v11 != v13 );
       }
     }
-    v14 = (_DWORD *)a6;
-    v15 = a6;
-    if ( (a6 & 3) != 0 )
+    v14 = ReturnLength;
+    v15 = ReturnLength;
+    if ( ((unsigned __int8)ReturnLength & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v16 = a6 + 3;
-    if ( a6 >= a6 + 3 || v16 >= 0x7FFFFFFF0000LL )
+    v16 = (unsigned __int64)ReturnLength + 3;
+    if ( ReturnLength >= (PULONG)((char *)ReturnLength + 3) || v16 >= 0x7FFFFFFF0000LL )
     {
       if ( !KeGetCurrentThread()->ApcState.Process->SecurePid )
         ExRaiseAccessViolation();
@@ -108,20 +108,20 @@ LABEL_3:
       do
       {
         *(_BYTE *)v15 = *(_BYTE *)v15;
-        v15 = (v15 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+        v15 = (PULONG)(((unsigned __int64)v15 & 0xFFFFFFFFFFFFF000uLL) + 4096);
       }
-      while ( v15 != v17 );
+      while ( v15 != (PULONG)v17 );
     }
   }
   else
   {
-    v14 = (_DWORD *)a6;
+    v14 = ReturnLength;
   }
-  SecurityAttributesToken = SepCaptureUnicodeStringArray(a2, a3, v10, &P);
+  SecurityAttributesToken = SepCaptureUnicodeStringArray(Attributes, NumberOfAttributes, v10, &P);
   v28 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_42;
-  SecurityAttributesToken = SepReferenceTokenByHandle(a1, 8u, v10, &Object, v27, &v31);
+  SecurityAttributesToken = SepReferenceTokenByHandle((char *)TokenHandle, 8u, v10, &Object, v27, &v31);
   v28 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_42;
@@ -130,14 +130,14 @@ LABEL_3:
   v20 = (PERESOURCE *)Object;
   ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
   v9 = 1;
-  LODWORD(Size) = a5;
+  LODWORD(Size) = Length;
   SecurityAttributesToken = SepInternalQuerySecurityAttributesTokenEx(
                               (__int64)v20,
                               v21,
                               (__int64)P,
-                              a3,
+                              NumberOfAttributes,
                               0,
-                              a4,
+                              Buffer,
                               Size,
                               v14);
   v28 = SecurityAttributesToken;
@@ -161,5 +161,5 @@ LABEL_26:
   }
   if ( v20 )
     ObfDereferenceObject(v20);
-  return (unsigned int)SecurityAttributesToken;
+  return SecurityAttributesToken;
 }

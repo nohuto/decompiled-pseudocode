@@ -1,48 +1,43 @@
 /*
- * XREFs of KiBugCheckRecoveryPrepareForCrashDump @ 0x1405C5E70
+ * XREFs of KiBugCheckRecoveryPrepareForCrashDump @ 0x1405C35A0
  * Callers:
- *     KiDeferredBugcheckRecoveryWorker @ 0x1405C6000 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x1405C3730 (KiDeferredBugcheckRecoveryWorker.c)
  * Callees:
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HvlPrepareForRootCrashdump @ 0x140587C34 (HvlPrepareForRootCrashdump.c)
- *     IoRevertFromDemotedDumpType @ 0x140591EE0 (IoRevertFromDemotedDumpType.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C5B80 (KiBugCheckRecoveryFreezeOtherProcessors.c)
- *     KiSaveBugcheckRecoveryProgress @ 0x1405C6550 (KiSaveBugcheckRecoveryProgress.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlPrepareForRootCrashdump @ 0x140584F94 (HvlPrepareForRootCrashdump.c)
+ *     IoRevertFromDemotedDumpType @ 0x14058EF04 (IoRevertFromDemotedDumpType.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C32B0 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiSaveBugcheckRecoveryProgress @ 0x1405C3C80 (KiSaveBugcheckRecoveryProgress.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool *a2, __int64 a3, __int64 a4)
+char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool *a2)
 {
-  __int64 v4; // r8
-  int v7; // edx
+  int v4; // edx
   unsigned __int8 CurrentIrql; // bl
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
 
-  v4 = KiBugcheckRecoveryDumpPolicy & 0xF;
-  if ( (unsigned int)(v4 - 1) > 1 )
+  if ( (KiBugcheckRecoveryDumpPolicy & 0xFu) - 1 > 1 )
     return 0;
-  if ( (_DWORD)v4 == 2 )
+  if ( (KiBugcheckRecoveryDumpPolicy & 0xF) == 2 )
   {
     if ( !KiPristineTriageDump )
-      IoRevertFromDemotedDumpType((__int64)a1, (__int64)a2, v4, a4);
+      IoRevertFromDemotedDumpType();
     HvlEnlightenments &= 0x2000u;
     KiSaveBugcheckRecoveryProgress(96LL);
   }
-  guard_dispatch_icall_no_overrides(a1, a2, v4, a4);
+  guard_dispatch_icall_no_overrides(a1, a2);
   *a2 = KeDisableInterrupts();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags )
   {
-    LOBYTE(v7) = 15;
-    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v7);
+    LOBYTE(v4) = 15;
+    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v4);
   }
   *a1 = CurrentIrql;
   KiBugCheckRecoveryFreezeOtherProcessors(0);
   if ( (KiBugcheckRecoveryDumpPolicy & 0xF) == 2 )
-    HvlPrepareForRootCrashdump(0LL, v9, v10, v11);
+    HvlPrepareForRootCrashdump(0);
   return 1;
 }

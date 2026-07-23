@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDecayPfnFullyInitialized @ 0x1402AB654
+ * XREFs of MiDecayPfnFullyInitialized @ 0x140229794
  * Callers:
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
- *     MiDeleteVaTail @ 0x14033AB30 (MiDeleteVaTail.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MiCopyDataPageToImagePage @ 0x14030F138 (MiCopyDataPageToImagePage.c)
+ *     MiDeleteVaTail @ 0x140345880 (MiDeleteVaTail.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiRemoveDecayClusterTimer @ 0x1402AB810 (MiRemoveDecayClusterTimer.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiRemoveDecayClusterTimer @ 0x140229950 (MiRemoveDecayClusterTimer.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
+__int64 __fastcall MiDecayPfnFullyInitialized(PSLIST_ENTRY ListEntry)
 {
   int v2; // esi
   __int64 v3; // rdi
-  unsigned __int64 v4; // rax
+  unsigned __int64 Next; // rax
   __int64 v5; // rax
   char v6; // cl
   __int64 result; // rax
@@ -30,26 +30,26 @@ __int64 __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = 0;
-  v3 = (__int64)(BugCheckParameter2 + 0x58000000000LL) / 48;
+  v3 = (__int64)&ListEntry[0x5800000000LL] / 48;
   KeAcquireInStackQueuedSpinLock(
-    (PKSPIN_LOCK)(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 39) & 0x3FFLL)) + 2664LL),
+    (PKSPIN_LOCK)(*(_QWORD *)(qword_140C4E688 + 8 * ((*((_QWORD *)&ListEntry[2].Next + 1) >> 39) & 0x3FFLL)) + 2664LL),
     &LockHandle);
-  v4 = *(_QWORD *)(BugCheckParameter2 + 16);
-  if ( qword_140C4DF40 && (v4 & 0x10) == 0 )
-    v4 &= ~qword_140C4DF40;
-  v5 = (v4 >> 12) & 0xFFFFFFFFFLL;
-  v6 = *(_BYTE *)(BugCheckParameter2 + 35);
+  Next = (unsigned __int64)ListEntry[1].Next;
+  if ( qword_140C4DF80 && (Next & 0x10) == 0 )
+    Next &= ~qword_140C4DF80;
+  v5 = (Next >> 12) & 0xFFFFFFFFFLL;
+  v6 = BYTE3(ListEntry[2].Next);
   if ( (v6 & 8) == 0 )
     goto LABEL_10;
   if ( v5 == v3 )
   {
-    MiUnlinkPageFromList(BugCheckParameter2, 1);
-    MiRemoveDecayClusterTimer(BugCheckParameter2);
-    v6 = *(_BYTE *)(BugCheckParameter2 + 35);
+    MiUnlinkPageFromList((ULONG_PTR)ListEntry);
+    MiRemoveDecayClusterTimer(ListEntry);
+    v6 = BYTE3(ListEntry[2].Next);
 LABEL_10:
     v2 = 1;
   }
-  *(_BYTE *)(BugCheckParameter2 + 35) = v6 & 0xF7;
+  BYTE3(ListEntry[2].Next) = v6 & 0xF7;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
@@ -72,6 +72,6 @@ LABEL_10:
   }
   __writecr8(OldIrql);
   if ( v2 == 1 )
-    return (__int64)RtlpInterlockedPushEntrySList(&stru_140C4E9B0, (PSLIST_ENTRY)BugCheckParameter2);
+    return (__int64)RtlpInterlockedPushEntrySList(&ListHead, ListEntry);
   return result;
 }

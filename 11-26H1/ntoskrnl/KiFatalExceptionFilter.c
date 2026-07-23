@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFatalExceptionFilter @ 0x140D01CE0
+ * XREFs of KiFatalExceptionFilter @ 0x140D08080
  * Callers:
- *     KiLockServiceTable @ 0x1407134A4 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x140718194 (KiLockServiceTable.c)
  * Callees:
- *     RtlCaptureImageExceptionValues @ 0x14040E248 (RtlCaptureImageExceptionValues.c)
- *     RtlLookupExceptionHandler @ 0x140522F8C (RtlLookupExceptionHandler.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlCaptureImageExceptionValues @ 0x14042B178 (RtlCaptureImageExceptionValues.c)
+ *     RtlLookupExceptionHandler @ 0x1405255F8 (RtlLookupExceptionHandler.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 KiFatalExceptionFilter()
@@ -27,7 +27,7 @@ __int64 KiFatalExceptionFilter()
   _mm_lfence();
   CurrentPrcb = KeGetCurrentPrcb();
   CurrentPrcb->HalReserved[6] = (unsigned __int64)KiServiceTablesLocked;
-  RtlCaptureImageExceptionValues(0x140000000LL, &v11, &v10);
+  RtlCaptureImageExceptionValues((void *)0x140000000LL, &v11, (ULONG *)&v10);
   if ( !v11 )
     goto LABEL_16;
   v2 = (unsigned int)v10 / 0xC;

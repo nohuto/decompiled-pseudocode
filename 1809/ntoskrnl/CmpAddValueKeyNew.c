@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpAddValueKeyNew @ 0x1405ACC78
+ * XREFs of CmpAddValueKeyNew @ 0x1405ADC78
  * Callers:
- *     CmpSetValueKeyNew @ 0x1405ACBBC (CmpSetValueKeyNew.c)
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406950E4 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpSetValueKeyNew @ 0x1405ADBBC (CmpSetValueKeyNew.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406962A4 (CmpLightWeightPrepareSetValueKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     CmpCopyName @ 0x1405ACDB0 (CmpCopyName.c)
- *     CmpSetValueDataNew @ 0x1405ACE10 (CmpSetValueDataNew.c)
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpNameSize @ 0x1406A5494 (CmpNameSize.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     CmpCopyName @ 0x1405ADDB0 (CmpCopyName.c)
+ *     CmpSetValueDataNew @ 0x1405ADE10 (CmpSetValueDataNew.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     HvAllocateCell @ 0x1405FCE54 (HvAllocateCell.c)
+ *     CmpNameSize @ 0x1406A6734 (CmpNameSize.c)
  */
 
 __int64 __fastcall CmpAddValueKeyNew(

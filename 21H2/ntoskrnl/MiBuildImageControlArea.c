@@ -1,18 +1,18 @@
 /*
- * XREFs of MiBuildImageControlArea @ 0x1406D5038
+ * XREFs of MiBuildImageControlArea @ 0x1406AC318
  * Callers:
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
- *     MiMakeSubsectionPte @ 0x1402F83DC (MiMakeSubsectionPte.c)
- *     MiMakeDemandZeroPte @ 0x140329F70 (MiMakeDemandZeroPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiParseImageSectionHeaders @ 0x1406E8410 (MiParseImageSectionHeaders.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140302FB0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiMakeSubsectionPte @ 0x14030312C (MiMakeSubsectionPte.c)
+ *     MiMakeDemandZeroPte @ 0x140334CC0 (MiMakeDemandZeroPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiParseImageSectionHeaders @ 0x1406FF7F0 (MiParseImageSectionHeaders.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiBuildImageControlArea(int a1, int a2, __int64 a3, __int64 a4, int a5, _DWORD *a6, _QWORD *a7)
@@ -41,7 +41,7 @@ __int64 __fastcall MiBuildImageControlArea(int a1, int a2, __int64 a3, __int64 a
   int v30; // esi
   unsigned int v31; // r15d
   BOOL v32; // eax
-  __int64 v33; // r8
+  int v33; // r8d
   __int64 v34; // rdx
   __int64 v35; // rax
   void *v36; // rdi
@@ -55,7 +55,7 @@ __int64 __fastcall MiBuildImageControlArea(int a1, int a2, __int64 a3, __int64 a
   __int64 v45; // r15
   unsigned int *v46; // rbp
   BOOL v47; // eax
-  __int64 v48; // r8
+  int v48; // r8d
   __int64 v49; // rdx
   bool v50; // zf
   bool v51; // zf
@@ -84,7 +84,7 @@ __int64 __fastcall MiBuildImageControlArea(int a1, int a2, __int64 a3, __int64 a
   v13 = Pool;
   if ( !Pool )
   {
-    dword_140C4CC18 = 26;
+    dword_140C4CC58 = 26;
     return 3221225626LL;
   }
   v14 = (__int64)(Pool + 16);
@@ -96,7 +96,7 @@ __int64 __fastcall MiBuildImageControlArea(int a1, int a2, __int64 a3, __int64 a
   v17 = v16;
   if ( !v16 )
   {
-    dword_140C4CC18 = 27;
+    dword_140C4CC58 = 27;
     v37 = -1073741670;
     goto LABEL_40;
   }
@@ -106,7 +106,7 @@ __int64 __fastcall MiBuildImageControlArea(int a1, int a2, __int64 a3, __int64 a
   v19 = v18;
   if ( !v18 )
   {
-    dword_140C4CC18 = 28;
+    dword_140C4CC58 = 28;
     v37 = -1073741670;
     v36 = 0LL;
     goto LABEL_36;
@@ -156,7 +156,7 @@ __int64 __fastcall MiBuildImageControlArea(int a1, int a2, __int64 a3, __int64 a
     v22 = *(unsigned int *)(v9 + 24);
     if ( !(_DWORD)v22 )
     {
-      dword_140C4CC18 = 29;
+      dword_140C4CC58 = 29;
       v37 = -1073741701;
       v36 = v19;
       goto LABEL_36;
@@ -165,7 +165,7 @@ __int64 __fastcall MiBuildImageControlArea(int a1, int a2, __int64 a3, __int64 a
     v24 = v22 + v23 - 1;
     if ( v24 <= (unsigned int)v22 )
     {
-      dword_140C4CC18 = 30;
+      dword_140C4CC58 = 30;
     }
     else
     {
@@ -193,7 +193,7 @@ LABEL_23:
         while ( 1 )
         {
           v32 = MiPteInShadowRange((unsigned __int64)v17);
-          v33 = 0LL;
+          v33 = 0;
           if ( v31 >= *(_DWORD *)(v9 + 24) )
           {
             v39 = ZeroPte;
@@ -201,15 +201,15 @@ LABEL_23:
             {
 LABEL_29:
               *v17 = v39;
-              if ( (_DWORD)v33 )
-                MiWritePteShadow((__int64)v17, v39, v33);
+              if ( v33 )
+                MiWritePteShadow((__int64)v17, v39);
               *(_DWORD *)(v14 + 52) ^= (*(_DWORD *)(v14 + 52) ^ (*(_DWORD *)(v14 + 52) + 1)) & 0x3FFFFFFF;
               goto LABEL_21;
             }
             if ( (unsigned int)MiPteHasShadow() )
             {
-              v33 = 1LL;
-              if ( HIBYTE(word_140C4E008) )
+              v33 = 1;
+              if ( HIBYTE(word_140C4E048) )
                 goto LABEL_29;
               v52 = (v39 & 1) == 0;
             }
@@ -228,8 +228,8 @@ LABEL_29:
           {
             if ( (unsigned int)MiPteHasShadow() )
             {
-              v33 = 1LL;
-              if ( !HIBYTE(word_140C4E008) )
+              v33 = 1;
+              if ( !HIBYTE(word_140C4E048) )
               {
                 v51 = (SubsectionPte & 1) == 0;
                 goto LABEL_72;
@@ -244,8 +244,8 @@ LABEL_72:
             }
           }
           *v17 = v34;
-          if ( (_DWORD)v33 )
-            MiWritePteShadow((__int64)v17, v34, v33);
+          if ( v33 )
+            MiWritePteShadow((__int64)v17, v34);
 LABEL_21:
           v35 = *(unsigned int *)(v14 + 44);
           v31 += 4096;
@@ -259,7 +259,7 @@ LABEL_21:
           }
         }
       }
-      dword_140C4CC18 = 31;
+      dword_140C4CC58 = 31;
     }
     v36 = (void *)Size;
     v37 = -1073741701;
@@ -281,7 +281,7 @@ LABEL_21:
   do
   {
     v47 = MiPteInShadowRange((unsigned __int64)v17);
-    v48 = 0LL;
+    v48 = 0;
     if ( v44 >= *v46 )
     {
       v49 = DemandZeroPte;
@@ -289,8 +289,8 @@ LABEL_21:
         goto LABEL_58;
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v48 = 1LL;
-        if ( HIBYTE(word_140C4E008) )
+        v48 = 1;
+        if ( HIBYTE(word_140C4E048) )
           goto LABEL_58;
         v50 = (DemandZeroPte & 1) == 0;
       }
@@ -308,8 +308,8 @@ LABEL_21:
         goto LABEL_58;
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v48 = 1LL;
-        if ( HIBYTE(word_140C4E008) )
+        v48 = 1;
+        if ( HIBYTE(word_140C4E048) )
           goto LABEL_58;
         v50 = (v40 & 1) == 0;
       }
@@ -324,8 +324,8 @@ LABEL_21:
       v49 |= 0x8000000000000000uLL;
 LABEL_58:
     *v17 = v49;
-    if ( (_DWORD)v48 )
-      MiWritePteShadow((__int64)v17, v49, v48);
+    if ( v48 )
+      MiWritePteShadow((__int64)v17, v49);
     v44 += 4096;
     ++v17;
     --v45;

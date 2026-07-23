@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipReceiveNotifications @ 0x1402C05CC
+ * XREFs of WmipReceiveNotifications @ 0x14023EA1C
  * Callers:
- *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406061A0 (WmipIoControl.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     WmipCompleteGuidIrpWithError @ 0x140264F84 (WmipCompleteGuidIrpWithError.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     WmipClearIrpObjectList @ 0x1402D1DEC (WmipClearIrpObjectList.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     WmipClearIrpObjectList @ 0x1402501BC (WmipClearIrpObjectList.c)
+ *     WmipCompleteGuidIrpWithError @ 0x140253014 (WmipCompleteGuidIrpWithError.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     WmipCopyFromEventQueues @ 0x14076ED34 (WmipCopyFromEventQueues.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     WmipCopyFromEventQueues @ 0x14076EEF4 (WmipCopyFromEventQueues.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipReceiveNotifications(unsigned int *a1, int *a2, __int64 a3)
@@ -51,7 +51,7 @@ __int64 __fastcall WmipReceiveNotifications(unsigned int *a1, int *a2, __int64 a
   int v32; // eax
   unsigned int v33; // ebx
   int v34; // r14d
-  __int64 *v35; // r12
+  PVOID *v35; // r12
   __int64 v36; // r13
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -175,12 +175,12 @@ LABEL_16:
     v44 = v12 + v9;
     if ( (_BYTE)v11 == 1 && (_DWORD)v10 )
     {
-      v35 = (__int64 *)PoolWithTag;
+      v35 = PoolWithTag;
       v36 = (unsigned int)v10;
       do
       {
-        if ( *(_QWORD *)(*v35 + 72) )
-          WmipCompleteGuidIrpWithError(*v35);
+        if ( *((_QWORD *)*v35 + 9) )
+          WmipCompleteGuidIrpWithError();
         v35 += 2;
         --v36;
       }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAuditEnumerateRsdtsInRange @ 0x140C1404C
+ * XREFs of HalpAuditEnumerateRsdtsInRange @ 0x140C1604C
  * Callers:
- *     HalpAuditEnumerateRsdts @ 0x140C13F58 (HalpAuditEnumerateRsdts.c)
+ *     HalpAuditEnumerateRsdts @ 0x140C15F58 (HalpAuditEnumerateRsdts.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HalpAuditAllocateRsdtArrayTable @ 0x140C13EB0 (HalpAuditAllocateRsdtArrayTable.c)
- *     HalpAuditSelectRsdtOrXsdt @ 0x140C142E4 (HalpAuditSelectRsdtOrXsdt.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HalpAuditAllocateRsdtArrayTable @ 0x140C15EB0 (HalpAuditAllocateRsdtArrayTable.c)
+ *     HalpAuditSelectRsdtOrXsdt @ 0x140C162E4 (HalpAuditSelectRsdtOrXsdt.c)
  */
 
 __int64 __fastcall HalpAuditEnumerateRsdtsInRange(__int64 a1, unsigned int a2, char a3, _DWORD **a4)
@@ -19,7 +19,7 @@ __int64 __fastcall HalpAuditEnumerateRsdtsInRange(__int64 a1, unsigned int a2, c
   unsigned int v11; // ecx
 
   v5 = a2;
-  v7 = MmMapIoSpaceEx(a1, a2, 0x204u);
+  v7 = MmMapIoSpaceEx(a1, a2, 516LL);
   if ( v7 )
   {
     RsdtArrayTable = 0;

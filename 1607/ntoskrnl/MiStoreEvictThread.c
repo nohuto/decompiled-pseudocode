@@ -1,18 +1,18 @@
 /*
- * XREFs of MiStoreEvictThread @ 0x14014341C
+ * XREFs of MiStoreEvictThread @ 0x14014398C
  * Callers:
  *     <none>
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeInitializeTimer2 @ 0x14007DD48 (KeInitializeTimer2.c)
- *     MiStoreEvictPageFile @ 0x1400B0530 (MiStoreEvictPageFile.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeInitializeTimer2 @ 0x14007DDC8 (KeInitializeTimer2.c)
+ *     MiStoreEvictPageFile @ 0x1400AE60C (MiStoreEvictPageFile.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

@@ -11,12 +11,13 @@
 __int64 __fastcall sub_1800EF8F8(unsigned int a1)
 {
   struct _PEB *v2; // rdi
-  void **ProcessHeaps; // r12
-  unsigned int NumberOfHeaps; // ebx
+  PVOID *ProcessHeaps; // r12
+  ULONG NumberOfHeaps; // ebx
   __int64 v5; // r14
   int v6; // r15d
   _DWORD *v7; // rcx
-  int v9; // [rsp+58h] [rbp-50h]
+  char MemoryInformation[32]; // [rsp+38h] [rbp-70h] BYREF
+  int v10; // [rsp+58h] [rbp-50h]
 
   v2 = NtCurrentPeb();
   if ( a1 )
@@ -28,8 +29,14 @@ __int64 __fastcall sub_1800EF8F8(unsigned int a1)
     v6 = 0;
     while ( (unsigned int)v5 < v2->NumberOfHeaps )
     {
-      ZwQueryVirtualMemory();
-      if ( v9 == 4096 && ((v7 = ProcessHeaps[v5], v7[38] == -285217025) || v7[4] == -571548178) )
+      ZwQueryVirtualMemory(
+        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+        ProcessHeaps[v5],
+        MemoryBasicInformation,
+        MemoryInformation,
+        0x30uLL,
+        0LL);
+      if ( v10 == 4096 && ((v7 = ProcessHeaps[v5], v7[38] == -285217025) || v7[4] == -571548178) )
         ProcessHeaps[v6++] = v7;
       else
         --NumberOfHeaps;

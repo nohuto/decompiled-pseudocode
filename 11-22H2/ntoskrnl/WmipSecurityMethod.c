@@ -19,7 +19,7 @@
 __int64 __fastcall WmipSecurityMethod(
         unsigned __int16 *Object,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         ULONG *a5,
         __int64 a6,
@@ -37,7 +37,7 @@ __int64 __fastcall WmipSecurityMethod(
   POOL_TYPE v18[2]; // [rsp+20h] [rbp-F8h]
   PGENERIC_MAPPING v19; // [rsp+28h] [rbp-F0h]
   ULONG i; // [rsp+70h] [rbp-A8h] BYREF
-  ULONG v21; // [rsp+74h] [rbp-A4h] BYREF
+  DWORD v21; // [rsp+74h] [rbp-A4h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-A0h] BYREF
   wchar_t pszDest[40]; // [rsp+90h] [rbp-88h] BYREF
 

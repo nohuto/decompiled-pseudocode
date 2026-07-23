@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdlePrevetoWatchdog @ 0x140566AF0
+ * XREFs of PpmIdlePrevetoWatchdog @ 0x140566D30
  * Callers:
- *     PopDripsWatchdogTakeAction @ 0x1408FA6A0 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA800 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -14,7 +14,7 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
   __int64 result; // rax
   __int64 v7; // rbp
   unsigned __int64 v8; // rbx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 v10; // rdx
   __int64 v11; // r8
   unsigned int v12; // r10d
@@ -24,9 +24,9 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v18; // zf
-  LARGE_INTEGER v19; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp+10h] BYREF
 
-  v19.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   result = PpmPlatformStates;
   *a2 = 0;
   *a3 = 0LL;
@@ -34,12 +34,12 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
   {
     if ( *(_DWORD *)(result + 4) )
     {
-      v7 = (unsigned int)dword_140C50080;
-      result = (unsigned int)dword_140C50080;
-      if ( dword_140C50080 != -1 )
+      v7 = (unsigned int)dword_140C500C0;
+      result = (unsigned int)dword_140C500C0;
+      if ( dword_140C500C0 != -1 )
       {
         v8 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         v10 = 0LL;
         v11 = PpmPlatformStates + 384 * v7;
         v12 = *(_DWORD *)(v11 + 108);
@@ -52,7 +52,7 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
             v15 = *(_QWORD *)(v14 + v13 + 32);
             if ( v15 )
             {
-              if ( InterruptTimePrecise - v15 >= a1 )
+              if ( InterruptTimePrecise.QuadPart - v15 >= a1 )
                 break;
             }
             v10 = (unsigned int)(v10 + 1);

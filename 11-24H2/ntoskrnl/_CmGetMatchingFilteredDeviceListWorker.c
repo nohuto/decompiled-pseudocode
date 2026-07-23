@@ -1,25 +1,25 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceListWorker @ 0x140A1A630
+ * XREFs of _CmGetMatchingFilteredDeviceListWorker @ 0x140A16574
  * Callers:
- *     _CmGetMatchingFilteredDeviceList @ 0x140A1A490 (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140A163D4 (_CmGetMatchingFilteredDeviceList.c)
  * Callees:
- *     _CmGetMatchingDeviceListForSubkey @ 0x14081BC80 (_CmGetMatchingDeviceListForSubkey.c)
- *     _CmGetDeviceRelationsList @ 0x1409B3D90 (_CmGetDeviceRelationsList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _CmGetMatchingDeviceListForSubkey @ 0x14081C3C0 (_CmGetMatchingDeviceListForSubkey.c)
+ *     _CmGetDeviceRelationsList @ 0x1409AB120 (_CmGetDeviceRelationsList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceListWorker(
         __int64 a1,
         const WCHAR *a2,
         int a3,
-        char (__fastcall *a4)(__int64 a1, __int64 a2, unsigned int a3, __int64 a4),
+        char (__fastcall *a4)(__int64 a1, __int64 a2, __int64 a3, __int64 a4),
         _QWORD *a5,
         _WORD *a6,
         unsigned int a7,
         _DWORD *a8,
         __int16 a9)
 {
-  char (__fastcall *v9)(__int64, __int64, unsigned int, __int64); // rdi
+  char (__fastcall *v9)(__int64, __int64, __int64, __int64); // rdi
   unsigned int MatchingDeviceListForSubkey; // ebx
   _QWORD *v11; // rax
   _WORD *v14; // [rsp+28h] [rbp-58h]
@@ -29,7 +29,7 @@ __int64 __fastcall CmGetMatchingFilteredDeviceListWorker(
   const WCHAR *v18; // [rsp+58h] [rbp-28h] BYREF
   PVOID P; // [rsp+60h] [rbp-20h]
   __int64 v20; // [rsp+68h] [rbp-18h]
-  char (__fastcall *v21)(__int64, __int64, unsigned int, __int64); // [rsp+70h] [rbp-10h]
+  char (__fastcall *v21)(__int64, __int64, __int64, __int64); // [rsp+70h] [rbp-10h]
   __int64 v22; // [rsp+78h] [rbp-8h]
 
   v9 = a4;
@@ -42,7 +42,7 @@ __int64 __fastcall CmGetMatchingFilteredDeviceListWorker(
   {
     if ( !a2 )
       return (unsigned int)-1073741811;
-    return (unsigned int)CmGetDeviceRelationsList(a1, a2, a3, (__int64)a6);
+    return (unsigned int)CmGetDeviceRelationsList(a1, a2, a3);
   }
   if ( (a3 & 2) == 0 )
   {

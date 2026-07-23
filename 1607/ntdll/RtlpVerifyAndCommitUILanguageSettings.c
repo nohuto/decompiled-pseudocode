@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpVerifyAndCommitUILanguageSettings @ 0x18008D890
+ * XREFs of RtlpVerifyAndCommitUILanguageSettings @ 0x18008D880
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCreateProcessRegistryInfo @ 0x180014540 (RtlpCreateProcessRegistryInfo.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlLCIDToCultureName @ 0x1800448B0 (RtlLCIDToCultureName.c)
- *     RtlUpdateProcessRegistryInfo @ 0x1800706C4 (RtlUpdateProcessRegistryInfo.c)
- *     RtlAdjustPrivilege @ 0x18007B990 (RtlAdjustPrivilege.c)
- *     RtlpGetInstalledLanguageType @ 0x18008DA9C (RtlpGetInstalledLanguageType.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpCreateProcessRegistryInfo @ 0x180014530 (RtlpCreateProcessRegistryInfo.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlLCIDToCultureName @ 0x1800448A0 (RtlLCIDToCultureName.c)
+ *     RtlUpdateProcessRegistryInfo @ 0x1800706B4 (RtlUpdateProcessRegistryInfo.c)
+ *     RtlAdjustPrivilege @ 0x18007B980 (RtlAdjustPrivilege.c)
+ *     RtlpGetInstalledLanguageType @ 0x18008DA8C (RtlpGetInstalledLanguageType.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     NtQueryValueKey @ 0x1800A6700 (NtQueryValueKey.c)
  *     ZwCreateKey @ 0x1800A67C0 (ZwCreateKey.c)
@@ -23,42 +23,37 @@
 
 __int64 __fastcall RtlpVerifyAndCommitUILanguageSettings(char a1)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   bool v3; // sf
-  int v5; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned __int16 v6; // [rsp+4Ch] [rbp-BCh] BYREF
-  __int64 v7; // [rsp+50h] [rbp-B8h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v9; // [rsp+60h] [rbp-A8h] BYREF
-  _BYTE *v10; // [rsp+68h] [rbp-A0h]
-  _BYTE v11[8]; // [rsp+70h] [rbp-98h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+78h] [rbp-90h] BYREF
-  int v13; // [rsp+88h] [rbp-80h] BYREF
-  __int64 v14; // [rsp+90h] [rbp-78h]
-  UNICODE_STRING *p_DestinationString; // [rsp+98h] [rbp-70h]
-  int v16; // [rsp+A0h] [rbp-68h]
-  __int128 v17; // [rsp+A8h] [rbp-60h]
-  _BYTE v18[688]; // [rsp+B8h] [rbp-50h] BYREF
-  _BYTE v19[12]; // [rsp+368h] [rbp+260h] BYREF
-  int v20; // [rsp+374h] [rbp+26Ch]
+  BOOLEAN WasEnabled[4]; // [rsp+48h] [rbp-C0h] BYREF
+  LANGID InstallUILanguageId; // [rsp+4Ch] [rbp-BCh] BYREF
+  __int64 Data; // [rsp+50h] [rbp-B8h] BYREF
+  HANDLE KeyHandle; // [rsp+58h] [rbp-B0h] BYREF
+  _UNICODE_STRING String; // [rsp+60h] [rbp-A8h] BYREF
+  ULONG ResultLength; // [rsp+70h] [rbp-98h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+78h] [rbp-90h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-80h] BYREF
+  _BYTE v13[688]; // [rsp+B8h] [rbp-50h] BYREF
+  _BYTE KeyValueInformation[12]; // [rsp+368h] [rbp+260h] BYREF
+  int v15; // [rsp+374h] [rbp+26Ch]
 
-  v6 = 0;
-  memset(v18, 0, sizeof(v18));
-  v2 = NtQueryInstallUILanguage(&v6);
+  InstallUILanguageId = 0;
+  memset(v13, 0, sizeof(v13));
+  v2 = NtQueryInstallUILanguage(&InstallUILanguageId);
   if ( v2 >= 0 )
   {
-    v10 = v18;
-    LODWORD(v9) = 11141120;
-    if ( RtlLCIDToCultureName(v6, (__int64)&v9)
-      && (int)RtlpCreateProcessRegistryInfo((__int64 *)&Handle) >= 0
-      && Handle
-      && (int)RtlpGetInstalledLanguageType(Handle, v10, &v7, 0LL) >= 0
-      && (_DWORD)v7 != 4 )
+    String.Buffer = (wchar_t *)v13;
+    *(_DWORD *)&String.Length = 11141120;
+    if ( RtlLCIDToCultureName(InstallUILanguageId, &String)
+      && (int)RtlpCreateProcessRegistryInfo(&KeyHandle) >= 0
+      && KeyHandle
+      && (int)RtlpGetInstalledLanguageType(KeyHandle, String.Buffer, &Data, 0LL) >= 0
+      && (_DWORD)Data != 4 )
     {
-      v2 = NtFlushInstallUILanguage(v6, 1LL);
+      v2 = NtFlushInstallUILanguage(InstallUILanguageId, 1u);
       if ( v2 >= 0 )
       {
-        ZwGetMUIRegistryInfo(10LL, 0LL, 0LL);
+        ZwGetMUIRegistryInfo(0xAu, 0LL, 0LL);
         RtlUpdateProcessRegistryInfo();
       }
     }
@@ -77,9 +72,9 @@ LABEL_11:
       return (unsigned int)v2;
     goto LABEL_12;
   }
-  if ( (unsigned int)RtlAdjustPrivilege(0x13u, 1, 1, (bool *)&v5) == -1073741700 )
-    RtlAdjustPrivilege(0x13u, 1, 0, (bool *)&v5);
-  v2 = ZwShutdownSystem(2LL);
+  if ( RtlAdjustPrivilege(0x13u, 1u, 1u, WasEnabled) == -1073741700 )
+    RtlAdjustPrivilege(0x13u, 1u, 0, WasEnabled);
+  v2 = ZwShutdownSystem(ShutdownPowerOff);
   if ( v2 < 0 )
   {
     v2 = -1073741616;
@@ -88,22 +83,22 @@ LABEL_10:
     goto LABEL_11;
   }
 LABEL_12:
-  Handle = 0LL;
+  KeyHandle = 0LL;
   RtlInitUnicodeString(
     &DestinationString,
     L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CMF\\SQMData\\BootLanguages");
-  p_DestinationString = &DestinationString;
-  v13 = 48;
-  v14 = 0LL;
-  v16 = 64;
-  v17 = 0LL;
-  if ( (int)ZwCreateKey(&Handle, 131103LL, &v13, 0LL, 0LL, 0, 0LL) >= 0 )
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, 0LL) >= 0 )
   {
-    LODWORD(v7) = 1;
-    if ( (int)NtQueryValueKey(Handle, &v9, 2LL, v19, 20, v11) >= 0 )
-      LODWORD(v7) = v20 + 1;
-    ZwSetValueKey(Handle, &v9, 0LL, 4LL, &v7, 4);
-    NtClose(Handle);
+    LODWORD(Data) = 1;
+    if ( NtQueryValueKey(KeyHandle, &String, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0 )
+      LODWORD(Data) = v15 + 1;
+    ZwSetValueKey(KeyHandle, &String, 0, 4u, &Data, 4u);
+    NtClose(KeyHandle);
   }
   return (unsigned int)v2;
 }

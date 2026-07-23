@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlAddSecureHvPagesCallbackRoutine @ 0x140547440
+ * XREFs of HvlAddSecureHvPagesCallbackRoutine @ 0x140547B00
  * Callers:
  *     <none>
  * Callees:
- *     HvlAddSecurePagesCallbackRoutine @ 0x140547498 (HvlAddSecurePagesCallbackRoutine.c)
- *     IoIsPartialDumpRetry @ 0x1405507E0 (IoIsPartialDumpRetry.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140547B58 (HvlAddSecurePagesCallbackRoutine.c)
+ *     IoIsPartialDumpRetry @ 0x140550EA0 (IoIsPartialDumpRetry.c)
  */
 
 void __fastcall HvlAddSecureHvPagesCallbackRoutine(

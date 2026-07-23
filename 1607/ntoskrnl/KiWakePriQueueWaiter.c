@@ -1,9 +1,9 @@
 /*
- * XREFs of KiWakePriQueueWaiter @ 0x14007E8D0
+ * XREFs of KiWakePriQueueWaiter @ 0x14007E950
  * Callers:
- *     KiActivateWaiterPriQueue @ 0x14007E794 (KiActivateWaiterPriQueue.c)
+ *     KiActivateWaiterPriQueue @ 0x14007E814 (KiActivateWaiterPriQueue.c)
  * Callees:
- *     KiTryUnwaitThreadWithPriority @ 0x14007E954 (KiTryUnwaitThreadWithPriority.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x14007E9D4 (KiTryUnwaitThreadWithPriority.c)
  */
 
 __int64 __fastcall KiWakePriQueueWaiter(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

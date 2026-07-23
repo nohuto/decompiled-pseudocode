@@ -325,10 +325,10 @@ LABEL_17:
     _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v33 != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v42 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v33 <= 0xFu && v42 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v33 <= 0xFu && v42 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v30 = -1LL << (v33 + 1);
@@ -360,10 +360,10 @@ LABEL_17:
           v41 = (unsigned __int8)MiLockPageInline(v40);
           MiRemoveLockedPageChargeAndDecRef(v40);
           _InterlockedAnd64((volatile signed __int64 *)(v40 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v46 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v46 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v46 >= 2u )
             {
               v47 = KeGetCurrentPrcb();
               v30 = -1LL << ((unsigned __int8)v41 + 1);

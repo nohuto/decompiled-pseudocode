@@ -13,79 +13,76 @@
  *     _RtlpWnfCalculateAndSetNextTimer@0 @ 0x4B33C27B (_RtlpWnfCalculateAndSetNextTimer@0.c)
  */
 
-int __stdcall RtlpWnfRetryTimerCallback(int a1, int a2, int a3)
+void __stdcall RtlpWnfRetryTimerCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
-  int result; // eax
-  int v4; // eax
-  _DWORD *v5; // edi
-  int v6; // ebx
-  int v7; // ecx
-  int *v8; // esi
-  int v9; // eax
-  unsigned int v10; // [esp+0h] [ebp-20h]
-  unsigned int v11; // [esp+4h] [ebp-1Ch]
-  int v12; // [esp+1Ch] [ebp-4h]
+  _RTL_SRWLOCK *v3; // eax
+  _WNF_STATE_NAME *v4; // edi
+  int v5; // ebx
+  _RTL_SRWLOCK *v6; // ecx
+  int *v7; // esi
+  ULONG v8; // eax
+  unsigned int v9; // [esp+0h] [ebp-20h]
+  ULONG64 *OldSubscriptionId; // [esp+4h] [ebp-1Ch]
+  int v11; // [esp+1Ch] [ebp-4h]
 
-  result = dword_4B3A664C;
   if ( dword_4B3A664C )
   {
-    v12 = 0;
-    RtlAcquireSRWLockShared((volatile signed __int32 *)(dword_4B3A664C + 4));
-    v4 = dword_4B3A664C;
+    v11 = 0;
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(dword_4B3A664C + 4));
+    v3 = (_RTL_SRWLOCK *)dword_4B3A664C;
     *(_DWORD *)(dword_4B3A664C + 56) = 0;
-    *(_DWORD *)(v4 + 60) = 0;
-    RtlReleaseSRWLockShared((volatile signed __int32 *)(v4 + 4));
+    v3[15].Value = 0;
+    RtlReleaseSRWLockShared(v3 + 1);
     while ( 1 )
     {
       while ( MEMORY[0x7FFE000C] != MEMORY[0x7FFE0010] )
         _mm_pause();
-      v5 = 0;
-      v6 = v12;
-      v11 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias + 500000;
-      v10 = (unsigned __int64)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias + 500000) >> 32;
-      RtlAcquireSRWLockShared((volatile signed __int32 *)(dword_4B3A664C + 4));
-      v7 = dword_4B3A664C;
-      v8 = *(int **)(dword_4B3A664C + 8);
-      if ( v8 != (int *)(dword_4B3A664C + 8) )
+      v4 = 0;
+      v5 = v11;
+      OldSubscriptionId = (ULONG64 *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias + 500000);
+      v9 = (unsigned __int64)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias + 500000) >> 32;
+      RtlAcquireSRWLockShared((PRTL_SRWLOCK)(dword_4B3A664C + 4));
+      v6 = (_RTL_SRWLOCK *)dword_4B3A664C;
+      v7 = *(int **)(dword_4B3A664C + 8);
+      if ( v7 != (int *)(dword_4B3A664C + 8) )
       {
         while ( 1 )
         {
-          RtlAcquireSRWLockExclusive(v8 + 3);
-          if ( v8[16] == 2 && __PAIR64__(v10, v11) >= *(_QWORD *)(v8 + 17) )
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v7 + 3);
+          if ( v7[16] == 2 && __PAIR64__(v9, (unsigned int)OldSubscriptionId) >= *(_QWORD *)(v7 + 17) )
             break;
-          RtlReleaseSRWLockExclusive(v8 + 3);
-          v7 = dword_4B3A664C;
-          v8 = (int *)*v8;
-          if ( v8 == (int *)(dword_4B3A664C + 8) )
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v7 + 3);
+          v6 = (_RTL_SRWLOCK *)dword_4B3A664C;
+          v7 = (int *)*v7;
+          if ( v7 == (int *)(dword_4B3A664C + 8) )
             goto LABEL_11;
         }
-        v5 = (_DWORD *)v8[15];
-        v8[15] = 0;
-        v8[16] = 0;
-        RtlReleaseSRWLockExclusive(v8 + 3);
-        v7 = dword_4B3A664C;
+        v4 = (_WNF_STATE_NAME *)v7[15];
+        v7[15] = 0;
+        v7[16] = 0;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v7 + 3);
+        v6 = (_RTL_SRWLOCK *)dword_4B3A664C;
 LABEL_11:
-        v6 = v12;
+        v5 = v11;
       }
-      result = RtlReleaseSRWLockShared((volatile signed __int32 *)(v7 + 4));
-      if ( !v5 )
+      RtlReleaseSRWLockShared(v6 + 1);
+      if ( !v4 )
         break;
       RtlpWnfCalculateAndSetNextTimer();
-      v12 = 0;
-      v9 = RtlpWnfProcessCurrentDescriptor(v5, 1);
-      if ( v9 == -1073741267 )
+      v11 = 0;
+      v8 = RtlpWnfProcessCurrentDescriptor(v4, 1);
+      if ( v8 == -1073741267 )
       {
-        v12 = 1;
+        v11 = 1;
       }
       else
       {
-        if ( !v9 )
-          NtGetCompleteWnfStateSubscription((int)(v5 + 2), (int)v5, v5[6], 0, 0, 0);
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v5);
+        if ( !v8 )
+          NtGetCompleteWnfStateSubscription(v4 + 1, (ULONG64 *)v4->Data, v4[3].Data[0], 0, 0, 0);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
       }
     }
-    if ( v6 )
-      return RtlpWnfCalculateAndSetNextTimer();
+    if ( v5 )
+      RtlpWnfCalculateAndSetNextTimer();
   }
-  return result;
 }

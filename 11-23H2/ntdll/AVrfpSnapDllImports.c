@@ -6,15 +6,15 @@
  *     LdrpPrepareImportAddressTableForSnap @ 0x18002B270 (LdrpPrepareImportAddressTableForSnap.c)
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
  *     ZwProtectVirtualMemory @ 0x1800A18B0 (ZwProtectVirtualMemory.c)
- *     RtlGuardGrantSuppressedCallAccess @ 0x18010B820 (RtlGuardGrantSuppressedCallAccess.c)
+ *     RtlGuardGrantSuppressedCallAccess @ 0x18010B7F0 (RtlGuardGrantSuppressedCallAccess.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall AVrfpSnapDllImports(__int64 a1)
+int __fastcall AVrfpSnapDllImports(__int64 a1)
 {
-  __int64 result; // rax
+  int result; // eax
   _QWORD *v3; // rbx
-  unsigned __int64 v4; // rax
+  ULONG_PTR v4; // rax
   __int64 v5; // r13
   __int64 *v6; // rdi
   __int64 *v7; // rax
@@ -29,26 +29,28 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
   _QWORD *v16; // [rsp+38h] [rbp-120h]
   _BYTE v17[56]; // [rsp+40h] [rbp-118h] BYREF
   __int64 v18; // [rsp+78h] [rbp-E0h]
-  _QWORD *v19; // [rsp+B0h] [rbp-A8h]
-  unsigned __int64 v20; // [rsp+B8h] [rbp-A0h]
-  char v22; // [rsp+168h] [rbp+10h] BYREF
-  __int64 v23; // [rsp+178h] [rbp+20h]
+  PVOID BaseAddress; // [rsp+B0h] [rbp-A8h] BYREF
+  ULONG_PTR RegionSize[3]; // [rsp+B8h] [rbp-A0h] BYREF
+  ULONG NewProtect; // [rsp+D0h] [rbp-88h]
+  char v23; // [rsp+168h] [rbp+10h] BYREF
+  ULONG OldProtect; // [rsp+170h] [rbp+18h] BYREF
+  __int64 v25; // [rsp+178h] [rbp+20h]
 
   if ( !AVrfpEnabled )
-    return 3221225506LL;
+    return -1073741790;
   memset_thunk_772440563353939046(v17, 0, 0xC8uLL);
   v18 = a1;
   result = LdrpPrepareImportAddressTableForSnap((__int64)v17);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v3 = v19;
-    if ( v19 )
+    v3 = BaseAddress;
+    if ( BaseAddress )
     {
-      v4 = v20 >> 3;
-      if ( (unsigned int)(v20 >> 3) )
+      v4 = RegionSize[0] >> 3;
+      if ( (unsigned int)(RegionSize[0] >> 3) )
       {
         v5 = (unsigned int)v4;
-        v23 = (unsigned int)v4;
+        v25 = (unsigned int)v4;
         do
         {
           if ( *v3 )
@@ -78,7 +80,7 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
                       {
                         if ( *v3 == v13[1] )
                         {
-                          RtlGuardGrantSuppressedCallAccess(*v3, 1LL, &v22);
+                          RtlGuardGrantSuppressedCallAccess(*v3, 1LL, &v23);
                           v14 = v13[2];
                           if ( !v14 )
                           {
@@ -106,19 +108,19 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
                 }
               }
               while ( v6 != &AVrfpVerifierProvidersList );
-              v5 = v23;
+              v5 = v25;
             }
           }
           ++v3;
-          v23 = --v5;
+          v25 = --v5;
         }
         while ( v5 );
       }
-      return ZwProtectVirtualMemory();
+      return ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, RegionSize, NewProtect, &OldProtect);
     }
     else
     {
-      return 0LL;
+      return 0;
     }
   }
   return result;

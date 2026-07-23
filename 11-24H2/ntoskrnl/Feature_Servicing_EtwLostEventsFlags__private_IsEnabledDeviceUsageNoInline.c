@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_EtwLostEventsFlags__private_IsEnabledDeviceUsageNoInline @ 0x14032A690
+ * XREFs of Feature_Servicing_EtwLostEventsFlags__private_IsEnabledDeviceUsageNoInline @ 0x1404410B4
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
  * Callees:
- *     Feature_Servicing_EtwLostEventsFlags__private_IsEnabledFallback @ 0x1404FB4E8 (Feature_Servicing_EtwLostEventsFlags__private_IsEnabledFallback.c)
+ *     Feature_Servicing_EtwLostEventsFlags__private_IsEnabledFallback @ 0x1404F8DC8 (Feature_Servicing_EtwLostEventsFlags__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_EtwLostEventsFlags__private_IsEnabledDeviceUsageNoInline()

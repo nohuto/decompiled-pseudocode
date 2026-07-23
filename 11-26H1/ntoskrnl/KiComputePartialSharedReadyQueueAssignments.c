@@ -1,10 +1,10 @@
 /*
- * XREFs of KiComputePartialSharedReadyQueueAssignments @ 0x1405FB8D4
+ * XREFs of KiComputePartialSharedReadyQueueAssignments @ 0x1405FE324
  * Callers:
- *     KiComputeSharedReadyQueueAssignments @ 0x1405FB9A0 (KiComputeSharedReadyQueueAssignments.c)
+ *     KiComputeSharedReadyQueueAssignments @ 0x1405FE3F0 (KiComputeSharedReadyQueueAssignments.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiComputePartialSharedReadyQueueAssignments(

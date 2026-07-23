@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLockVirtualMemoryVa @ 0x140318C10
+ * XREFs of MiLockVirtualMemoryVa @ 0x14031AC40
  * Callers:
- *     NtLockVirtualMemory @ 0x140318600 (NtLockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x14031A630 (NtLockVirtualMemory.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiUpdatePfnPriority @ 0x1402992A0 (MiUpdatePfnPriority.c)
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiUnlockPageTableCharges @ 0x140318F40 (MiUnlockPageTableCharges.c)
- *     MiReturnResavailToPrcb @ 0x140319330 (MiReturnResavailToPrcb.c)
- *     MiLockPageAndSetDirty @ 0x14031A7E4 (MiLockPageAndSetDirty.c)
- *     MiLockPageTablePage @ 0x14031A8E0 (MiLockPageTablePage.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiGetEffectivePagePriorityThread @ 0x1403719B0 (MiGetEffectivePagePriorityThread.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiUpdatePfnPriority @ 0x140298800 (MiUpdatePfnPriority.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiUnlockPageTableCharges @ 0x14031AF70 (MiUnlockPageTableCharges.c)
+ *     MiReturnResavailToPrcb @ 0x14031B360 (MiReturnResavailToPrcb.c)
+ *     MiLockPageAndSetDirty @ 0x14031C814 (MiLockPageAndSetDirty.c)
+ *     MiLockPageTablePage @ 0x14031C910 (MiLockPageTablePage.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140373760 (MiGetEffectivePagePriorityThread.c)
  */
 
 __int64 __fastcall MiLockVirtualMemoryVa(__int64 a1, __int64 a2)
@@ -36,7 +36,7 @@ __int64 __fastcall MiLockVirtualMemoryVa(__int64 a1, __int64 a2)
 
   v2 = *(_QWORD *)(a1 + 104);
   v4 = 0;
-  v5 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v2 + 174));
+  v5 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v2 + 174));
   v6 = a2 << 25 >> 16;
   if ( (MiGetWsleContents(a1, v6) & 0xF) == 8 )
     return 1073741849;
@@ -56,7 +56,7 @@ __int64 __fastcall MiLockVirtualMemoryVa(__int64 a1, __int64 a2)
     if ( (v14 & 0x400) != 0 )
     {
       if ( *(__int64 *)(v9 + 40) < 0
-        && *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL)) == v5 )
+        && *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL)) == v5 )
       {
         if ( !(unsigned int)MiChargeCommit((ULONG *)v5, 1uLL, 0) )
         {

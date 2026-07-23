@@ -1,12 +1,12 @@
 /*
- * XREFs of MiScheduleZeroPageThreads @ 0x140272E84
+ * XREFs of MiScheduleZeroPageThreads @ 0x140260E24
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiReduceZeroingThreads @ 0x1402BB870 (MiReduceZeroingThreads.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReduceZeroingThreads @ 0x140239A80 (MiReduceZeroingThreads.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -41,11 +41,11 @@ LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
         v7 = *(_QWORD *)(v6 + 48);
         if ( v3.QuadPart <= v7 )
         {
-          ++dword_140C2A270;
+          ++dword_140C2A2B0;
         }
-        else if ( 1000000 * (v3.QuadPart - v7) / stru_140C4DF10.QuadPart < 0x10000 )
+        else if ( 1000000 * (v3.QuadPart - v7) / stru_140C4DF50.QuadPart < 0x10000 )
         {
-          ++dword_140C2A274;
+          ++dword_140C2A2B4;
         }
         else
         {
@@ -54,15 +54,15 @@ LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
           {
             if ( v7 == *(_QWORD *)(v6 + 48) )
             {
-              if ( (unsigned int)MiReduceZeroingThreads(v6, v5, 1LL) == 7 )
-                ++dword_140C2A27C;
+              if ( (unsigned int)MiReduceZeroingThreads(v6, v5, 1) == 7 )
+                ++dword_140C2A2BC;
               else
-                ++dword_140C2A280;
+                ++dword_140C2A2C0;
               *(LARGE_INTEGER *)(v6 + 48) = KeQueryPerformanceCounter(0LL);
             }
             else
             {
-              ++dword_140C2A278;
+              ++dword_140C2A2B8;
             }
           }
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -89,7 +89,7 @@ LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
       }
       else
       {
-        ++dword_140C2A26C;
+        ++dword_140C2A2AC;
       }
       result.QuadPart = (unsigned __int16)KeNumberNodes;
     }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCallJobHierarchyCallbacks @ 0x1405FDBF8
+ * XREFs of PspCallJobHierarchyCallbacks @ 0x1405FEBF8
  * Callers:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FD9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FE9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1405FE100 (PspLockJobExclusive.c)
- *     PspLockJobShared @ 0x1405FE128 (PspLockJobShared.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PspUnlockJob @ 0x1405FF0C0 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1405FF100 (PspLockJobExclusive.c)
+ *     PspLockJobShared @ 0x1405FF128 (PspLockJobShared.c)
  */
 
 __int64 __fastcall PspCallJobHierarchyCallbacks(

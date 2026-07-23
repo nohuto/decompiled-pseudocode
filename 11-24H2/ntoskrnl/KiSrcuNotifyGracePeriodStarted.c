@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSrcuNotifyGracePeriodStarted @ 0x1405C124C
+ * XREFs of KiSrcuNotifyGracePeriodStarted @ 0x1405BE81C
  * Callers:
- *     KiSrcuReportQuiescent @ 0x1405C17F8 (KiSrcuReportQuiescent.c)
- *     KiSrcuStartGracePeriod @ 0x1405C1A2C (KiSrcuStartGracePeriod.c)
+ *     KiSrcuReportQuiescent @ 0x1405BEDC8 (KiSrcuReportQuiescent.c)
+ *     KiSrcuStartGracePeriod @ 0x1405BEFFC (KiSrcuStartGracePeriod.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSrcuNotifyWorkerAcquire @ 0x1405C1450 (KiSrcuNotifyWorkerAcquire.c)
- *     KiSrcuNotifyWorkerSelectAndQueue @ 0x1405C15C4 (KiSrcuNotifyWorkerSelectAndQueue.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSrcuNotifyWorkerAcquire @ 0x1405BEA20 (KiSrcuNotifyWorkerAcquire.c)
+ *     KiSrcuNotifyWorkerSelectAndQueue @ 0x1405BEB94 (KiSrcuNotifyWorkerSelectAndQueue.c)
  */
 
 unsigned __int64 __fastcall KiSrcuNotifyGracePeriodStarted(__int64 a1, __int64 a2)

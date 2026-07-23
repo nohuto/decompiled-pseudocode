@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpSysVolTakeOwnership @ 0x140688D98
+ * XREFs of RtlpSysVolTakeOwnership @ 0x140688E7C
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x140529CB8 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x14052A1F8 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     NtOpenProcessTokenEx @ 0x140420240 (NtOpenProcessTokenEx.c)
- *     NtOpenFile @ 0x14045B890 (NtOpenFile.c)
- *     NtAdjustPrivilegesToken @ 0x14045FAF4 (NtAdjustPrivilegesToken.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14048D1C4 (RtlSetOwnerSecurityDescriptor.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     NtSetSecurityObject @ 0x140520B3C (NtSetSecurityObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     NtOpenProcessTokenEx @ 0x14041F100 (NtOpenProcessTokenEx.c)
+ *     NtOpenFile @ 0x14045A760 (NtOpenFile.c)
+ *     NtAdjustPrivilegesToken @ 0x14045E9C4 (NtAdjustPrivilegesToken.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14048DC54 (RtlSetOwnerSecurityDescriptor.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     NtSetSecurityObject @ 0x140503BA4 (NtSetSecurityObject.c)
  */
 
 int __fastcall RtlpSysVolTakeOwnership(UNICODE_STRING *a1)

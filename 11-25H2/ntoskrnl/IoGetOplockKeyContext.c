@@ -9,7 +9,7 @@
 POPLOCK_KEY_ECP_CONTEXT __stdcall IoGetOplockKeyContext(PFILE_OBJECT FileObject)
 {
   _QWORD *FileObjectExtension; // rcx
-  struct _OPLOCK_KEY_ECP_CONTEXT *v2; // rdx
+  _OPLOCK_KEY_ECP_CONTEXT *v2; // rdx
   __int64 v3; // rcx
 
   FileObjectExtension = FileObject->FileObjectExtension;

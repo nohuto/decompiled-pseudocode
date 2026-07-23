@@ -41,7 +41,7 @@ __int64 __fastcall PsGetProcessEnclaveModuleInfo(__int64 a1, char **a2, unsigned
   unsigned int v23; // r8d
   bool v24; // zf
   __int64 v25; // rcx
-  unsigned __int64 v26; // rdi
+  __int64 v26; // rdi
   int v27; // eax
   unsigned int v28; // ecx
   __int64 v29; // rdx
@@ -191,7 +191,7 @@ LABEL_30:
     goto LABEL_47;
   while ( 1 )
   {
-    v26 = (unsigned __int64)&v20->LockEntries[v25];
+    v26 = (__int64)&v20->LockEntries[v25];
     v23 &= ~(1 << v25);
     if ( (*(_BYTE *)(v26 + 26) & 1) != 0
       && (*(_DWORD *)(v26 + 32) & 1) == 0
@@ -216,14 +216,14 @@ LABEL_47:
   {
     *(_BYTE *)(v26 + 32) |= 2u;
     if ( *(__int64 *)(v26 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v26);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
     v27 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
     v28 = *(_DWORD *)(v26 + 88) & 0xFFFE0000;
     *(_BYTE *)(v26 + 25) &= ~1u;
     v32 = v27;
     *(_DWORD *)(v26 + 88) = v28;
     *(_QWORD *)(v26 + 32) = 0LL;
-    v29 = (__int64)(v26 - (unsigned __int64)v20->LockEntries) / 96;
+    v29 = (signed __int64)(v26 - (unsigned __int64)v20->LockEntries) / 96;
     if ( v22 == 1 )
       v20->AbEntrySummary |= 1 << v29;
     else

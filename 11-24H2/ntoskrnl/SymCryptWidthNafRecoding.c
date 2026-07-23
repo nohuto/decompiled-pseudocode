@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptWidthNafRecoding @ 0x140539238
+ * XREFs of SymCryptWidthNafRecoding @ 0x1405336D8
  * Callers:
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140529D00 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140527510 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
  * Callees:
- *     SymCryptIntAddUint32 @ 0x140523784 (SymCryptIntAddUint32.c)
- *     SymCryptIntDivPow2 @ 0x140523888 (SymCryptIntDivPow2.c)
- *     SymCryptIntGetValueLsbits32 @ 0x140523940 (SymCryptIntGetValueLsbits32.c)
- *     SymCryptIntSubUint32 @ 0x140523A98 (SymCryptIntSubUint32.c)
+ *     SymCryptIntAddUint32 @ 0x14052109C (SymCryptIntAddUint32.c)
+ *     SymCryptIntDivPow2 @ 0x1405211A0 (SymCryptIntDivPow2.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x140521258 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntSubUint32 @ 0x1405213B0 (SymCryptIntSubUint32.c)
  */
 
 __int64 __fastcall SymCryptWidthNafRecoding(char a1, __int64 a2, __int64 a3, _DWORD *a4, unsigned int a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiClearFileOnlyPfn @ 0x14063C200
+ * XREFs of MiClearFileOnlyPfn @ 0x14063C750
  * Callers:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
- *     MiQueueExtentPfnDeletion @ 0x14063F0B8 (MiQueueExtentPfnDeletion.c)
+ *     MiQueueExtentPfnDeletion @ 0x14063F608 (MiQueueExtentPfnDeletion.c)
  */
 
 __int64 __fastcall MiClearFileOnlyPfn(__int64 a1)

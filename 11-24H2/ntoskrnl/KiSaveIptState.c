@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSaveIptState @ 0x1404BD15C
+ * XREFs of KiSaveIptState @ 0x1404B82CC
  * Callers:
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1404D0514 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     KeSaveSupervisorState @ 0x1405B8864 (KeSaveSupervisorState.c)
- *     KiSaveThreadIptState @ 0x1405B8CD0 (KiSaveThreadIptState.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1404C9708 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KeSaveSupervisorState @ 0x1405B5EA4 (KeSaveSupervisorState.c)
+ *     KiSaveThreadIptState @ 0x1405B6310 (KiSaveThreadIptState.c)
  * Callees:
  *     <none>
  */

@@ -10,7 +10,7 @@
 
 void __fastcall EtwpTraceAdminlessAccessFailure(int a1)
 {
-  __int64 SystemTimePrecise; // [rsp+40h] [rbp-38h] BYREF
+  LARGE_INTEGER SystemTimePrecise; // [rsp+40h] [rbp-38h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-30h] BYREF
   int *v3; // [rsp+58h] [rbp-20h]
   int v4; // [rsp+60h] [rbp-18h]

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteAweBitMap @ 0x1407F9648
+ * XREFs of MiDeleteAweBitMap @ 0x1407F9DB8
  * Callers:
- *     MiDeleteAweInfo @ 0x1407F9698 (MiDeleteAweInfo.c)
- *     MiResizeAweBitMap @ 0x1407F99A0 (MiResizeAweBitMap.c)
+ *     MiDeleteAweInfo @ 0x1407F9E08 (MiDeleteAweInfo.c)
+ *     MiResizeAweBitMap @ 0x1407FA110 (MiResizeAweBitMap.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteAweBitMap(ULONG_PTR a1, __int64 a2)

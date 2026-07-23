@@ -9,28 +9,26 @@
  *     _RtlStringCchCopyExW@24 @ 0x4B330DC4 (_RtlStringCchCopyExW@24.c)
  */
 
-int __fastcall LdrpMakeUnicodeStringFromPathElement(int a1, int a2, int *a3)
+int __fastcall LdrpMakeUnicodeStringFromPathElement(int a1, int a2, _UNICODE_STRING *a3)
 {
   unsigned int v4; // edi
   _DWORD *v5; // eax
   unsigned int v6; // edx
-  const unsigned __int16 *v7; // ecx
+  WCHAR *v7; // ecx
   int v8; // eax
-  int v10; // [esp+10h] [ebp-C8Ch] BYREF
-  int v11; // [esp+14h] [ebp-C88h]
-  unsigned __int16 Src[1598]; // [esp+18h] [ebp-C84h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-C8Ch] BYREF
+  WCHAR Buffer[1598]; // [esp+18h] [ebp-C84h] BYREF
 
-  v10 = 0;
-  v11 = 0;
+  *(_DWORD *)&DestinationString.Length = 0;
+  DestinationString.Buffer = 0;
   if ( a2 == 4 )
   {
-    if ( RtlGetCurrentDirectory_U(0xC78u, (char *)Src) )
+    if ( RtlGetCurrentDirectory_U(0xC78u, Buffer) )
     {
-      if ( !RtlCreateUnicodeString((int)&v10, Src) )
+      if ( !RtlCreateUnicodeString(&DestinationString, Buffer) )
         return 0;
 LABEL_4:
-      *a3 = v10;
-      a3[1] = v11;
+      *a3 = DestinationString;
       return 0;
     }
   }
@@ -48,15 +46,15 @@ LABEL_4:
     }
     if ( v6 >= v4 )
       return -1073741275;
-    v7 = *(const unsigned __int16 **)(a1 + 4 * v6 + 44);
+    v7 = *(WCHAR **)(a1 + 4 * v6 + 44);
     if ( v6 != v4 - 1 )
     {
       v8 = RtlStringCchCopyExW(v7, 0, 0, v7);
       if ( v8 < 0 && v8 != -2147483643 )
         return -1073741823;
-      v7 = Src;
+      v7 = Buffer;
     }
-    if ( RtlCreateUnicodeString((int)&v10, v7) )
+    if ( RtlCreateUnicodeString(&DestinationString, v7) )
       goto LABEL_4;
   }
   return -1073741823;

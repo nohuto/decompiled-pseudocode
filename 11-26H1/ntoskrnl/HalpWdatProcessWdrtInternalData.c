@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpWdatProcessWdrtInternalData @ 0x140597AA4
+ * XREFs of HalpWdatProcessWdrtInternalData @ 0x14059A224
  * Callers:
- *     HalpWdatDiscover @ 0x1405974A4 (HalpWdatDiscover.c)
+ *     HalpWdatDiscover @ 0x140599C24 (HalpWdatDiscover.c)
  * Callees:
- *     WdHwCreateHardwareRegister @ 0x1405A4E34 (WdHwCreateHardwareRegister.c)
- *     WdHwDestroyHardwareRegister @ 0x1405A4FCC (WdHwDestroyHardwareRegister.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     WdHwCreateHardwareRegister @ 0x1405A7644 (WdHwCreateHardwareRegister.c)
+ *     WdHwDestroyHardwareRegister @ 0x1405A77DC (WdHwDestroyHardwareRegister.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpWdatProcessWdrtInternalData(__int64 a1, _DWORD *a2, _DWORD *a3, _BYTE *a4)

@@ -10,18 +10,18 @@
  *     AlpcpProbeForWriteMessageHeader @ 0x1409CE6C0 (AlpcpProbeForWriteMessageHeader.c)
  */
 
-__int64 __fastcall NtReplyWaitReplyPort(void *a1, __int64 a2)
+NTSTATUS __cdecl NtReplyWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE ReplyMessage)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r14
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v5 >= 0 )
   {
     if ( (*((_DWORD *)Object + 104) & 6) == 2 )
@@ -31,8 +31,17 @@ __int64 __fastcall NtReplyWaitReplyPort(void *a1, __int64 a2)
     else
     {
       if ( PreviousMode )
-        AlpcpProbeForWriteMessageHeader(a2, 0LL);
-      v5 = AlpcpProcessSynchronousRequest((_DWORD)Object, 131073, a2, 0, a2, 0LL, 0LL, 0LL, PreviousMode);
+        AlpcpProbeForWriteMessageHeader(ReplyMessage, 0LL);
+      v5 = AlpcpProcessSynchronousRequest(
+             (_DWORD)Object,
+             131073,
+             (_DWORD)ReplyMessage,
+             0,
+             (__int64)ReplyMessage,
+             0LL,
+             0LL,
+             0LL,
+             PreviousMode);
       if ( v5 == -1073740029 )
         v5 = -1073741769;
       if ( v5 == -1073740031 )
@@ -42,5 +51,5 @@ __int64 __fastcall NtReplyWaitReplyPort(void *a1, __int64 a2)
   if ( Object )
     ObfDereferenceObject(Object);
   KeLeaveCriticalRegion();
-  return (unsigned int)v5;
+  return v5;
 }

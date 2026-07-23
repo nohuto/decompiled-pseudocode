@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmGetDeviceRegPropWorker @ 0x1405C6B1C
+ * XREFs of _CmGetDeviceRegPropWorker @ 0x1405C7B1C
  * Callers:
- *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x1405C799C (_CmGetDeviceRegProp.c)
  * Callees:
  *     _CmDevicePropertyRead @ 0x140015BB4 (_CmDevicePropertyRead.c)
  *     _MapCmDevicePropertyToNtProperty @ 0x140015BEC (_MapCmDevicePropertyToNtProperty.c)
  *     _MapCmDevicePropertyToRegValue @ 0x140015C50 (_MapCmDevicePropertyToRegValue.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbCopyNExW @ 0x140133460 (RtlStringCbCopyNExW.c)
- *     _MapCmDevicePropertyToRegType @ 0x140138548 (_MapCmDevicePropertyToRegType.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcschr @ 0x1401976D0 (wcschr.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x1405C6E94 (_PnpCtxRegQueryValueIndirect.c)
- *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     _NtPlugPlayGetDeviceProperty @ 0x1406C7C4C (_NtPlugPlayGetDeviceProperty.c)
- *     _CmGetInstallerClassRegProp @ 0x1406F1234 (_CmGetInstallerClassRegProp.c)
+ *     RtlStringCbCopyNExW @ 0x140133530 (RtlStringCbCopyNExW.c)
+ *     _MapCmDevicePropertyToRegType @ 0x140138648 (_MapCmDevicePropertyToRegType.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcschr @ 0x140197810 (wcschr.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1405C799C (_CmGetDeviceRegProp.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x1405C7E94 (_PnpCtxRegQueryValueIndirect.c)
+ *     _CmOpenDeviceRegKey @ 0x1405C7EF0 (_CmOpenDeviceRegKey.c)
+ *     _NtPlugPlayGetDeviceProperty @ 0x1406C8EEC (_NtPlugPlayGetDeviceProperty.c)
+ *     _CmGetInstallerClassRegProp @ 0x1406F24D4 (_CmGetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall CmGetDeviceRegPropWorker(

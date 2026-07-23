@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x1405465C4
+ * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x140546804
  * Callers:
- *     MiDbgCopyMemory @ 0x1405458A4 (MiDbgCopyMemory.c)
- *     MiDbgTranslatePhysicalAddress @ 0x1405461F0 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgCopyMemory @ 0x140545AE4 (MiDbgCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140546430 (MiDbgTranslatePhysicalAddress.c)
  * Callees:
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeFlushSingleCurrentTb @ 0x14038A028 (KeFlushSingleCurrentTb.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -24,8 +24,8 @@ void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
 
   if ( (*a1 & 0x20) != 0 )
   {
-    v2 = qword_140C4E888 << 25;
-    _InterlockedExchange64((volatile __int64 *)qword_140C4E888, ZeroPte);
+    v2 = qword_140C4E8C8 << 25;
+    _InterlockedExchange64((volatile __int64 *)qword_140C4E8C8, ZeroPte);
     v3 = v2 >> 16;
     if ( (*a1 & 0x12) != 0 )
       KeFlushSingleTb(v3, 0, 1u);
@@ -41,7 +41,7 @@ void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
     }
     else if ( (v4 & 8) != 0 || (v4 & 0x10) != 0 )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC40);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC80);
     }
   }
   v5 = *((unsigned __int8 *)a1 + 4);

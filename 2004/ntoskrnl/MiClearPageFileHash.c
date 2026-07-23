@@ -19,7 +19,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
   _QWORD *v5; // rsi
   __int64 v6; // rax
   unsigned __int64 v7; // rbx
-  struct _SLIST_ENTRY *v8; // r13
+  _SLIST_ENTRY *v8; // r13
   __int64 Next; // rcx
   __int64 v10; // rdi
   __int64 v11; // rax
@@ -104,7 +104,7 @@ LABEL_24:
       v7 = updated;
     }
   }
-  v8 = (struct _SLIST_ENTRY *)(48 * ((v7 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
+  v8 = (_SLIST_ENTRY *)(48 * ((v7 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
   Next = (__int64)v8[1].Next;
   HIDWORD(v10) = HIDWORD(Next);
   if ( qword_140C4DD40 && (Next & 0x10) == 0 )

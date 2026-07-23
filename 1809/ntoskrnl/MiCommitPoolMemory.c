@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCommitPoolMemory @ 0x140099590
+ * XREFs of MiCommitPoolMemory @ 0x1400994D0
  * Callers:
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
  * Callees:
  *     MiReturnPoolCharges @ 0x140023984 (MiReturnPoolCharges.c)
  *     MiReturnPhysicalPoolPages @ 0x140025380 (MiReturnPhysicalPoolPages.c)
@@ -16,31 +16,31 @@
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiFlushTbAsNeeded @ 0x140097FD0 (MiFlushTbAsNeeded.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiAssignNonPagedPoolPtes @ 0x1400992E0 (MiAssignNonPagedPoolPtes.c)
- *     MiIsPoolPteInUse @ 0x14009A0D8 (MiIsPoolPteInUse.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiGetPoolPages @ 0x1400CB1C0 (MiGetPoolPages.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x140103CD0 (MiInitializeLargeNonPagedPoolLeafFrames.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiObtainPoolCharges @ 0x1401097E4 (MiObtainPoolCharges.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiWriteTopLevelPxe @ 0x140170950 (MiWriteTopLevelPxe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCountSystemPool @ 0x1401B4E20 (MiCountSystemPool.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
- *     MiFreeLargePageChain @ 0x1402CC82C (MiFreeLargePageChain.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiFlushTbAsNeeded @ 0x140097F10 (MiFlushTbAsNeeded.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     MiAssignNonPagedPoolPtes @ 0x140099220 (MiAssignNonPagedPoolPtes.c)
+ *     MiIsPoolPteInUse @ 0x14009A018 (MiIsPoolPteInUse.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetPoolPages @ 0x1400CB2A0 (MiGetPoolPages.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x140103D50 (MiInitializeLargeNonPagedPoolLeafFrames.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiObtainPoolCharges @ 0x140109864 (MiObtainPoolCharges.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiWriteTopLevelPxe @ 0x140170A50 (MiWriteTopLevelPxe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCountSystemPool @ 0x1401B4F60 (MiCountSystemPool.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9508 (MiLogPerfMemoryRangeEvent.c)
+ *     MiFreeLargePageChain @ 0x1402CCA1C (MiFreeLargePageChain.c)
  */
 
 __int64 __fastcall MiCommitPoolMemory(ULONG_PTR *a1, __int64 a2, int a3, unsigned int a4, unsigned int a5)
@@ -103,7 +103,7 @@ __int64 __fastcall MiCommitPoolMemory(ULONG_PTR *a1, __int64 a2, int a3, unsigne
   __int64 v61; // rsi
   struct _KPRCB *CurrentPrcb; // rcx
   unsigned __int64 v63; // rdi
-  union _SLIST_HEADER *v64; // rbx
+  _SLIST_HEADER *v64; // rbx
   unsigned __int64 v65; // rsi
   unsigned __int64 Alignment; // rax
   unsigned __int8 OldIrql; // bl
@@ -153,7 +153,7 @@ __int64 __fastcall MiCommitPoolMemory(ULONG_PTR *a1, __int64 a2, int a3, unsigne
   v92 = 0;
   v15 = ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v71 = (((v5 + v13 - 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v75 = (unsigned __int16 *)&unk_14043B5D0;
+  v75 = (unsigned __int16 *)&unk_14043C690;
   v16 = ((v5 + v13 - 1) >> 18) & 0x3FFFFFF8;
   v77 = -1LL;
   v17 = (v5 >> 18) & 0x3FFFFFF8;
@@ -176,12 +176,12 @@ __int64 __fastcall MiCommitPoolMemory(ULONG_PTR *a1, __int64 a2, int a3, unsigne
     }
     else
     {
-      v19 = (unsigned __int16 *)&unk_14043B2A0;
+      v19 = (unsigned __int16 *)&unk_14043C360;
       v94 = 6;
     }
     v20 = v19[87];
     v75 = v19;
-    v83 = *(_QWORD *)(qword_14043A748 + 8 * v20);
+    v83 = *(_QWORD *)(qword_14043B808 + 8 * v20);
     if ( (unsigned int)MiChargeCommit(v83, ((__int64)(v71 - v15) >> 3) + 1, 1u) )
     {
       v80 = 0LL;
@@ -196,7 +196,7 @@ LABEL_19:
     PoolPages = (unsigned __int64 *)MiGetPoolPages(v7, (unsigned int)(v9 - 1), ((__int64)(v71 - v15) >> 3) + 1);
     if ( PoolPages )
     {
-      v19 = (unsigned __int16 *)&unk_14043B5D0;
+      v19 = (unsigned __int16 *)&unk_14043C690;
       v80 = PoolPages[5] >> 58;
       goto LABEL_19;
     }
@@ -213,7 +213,7 @@ LABEL_19:
     v23 = -1073741670;
     goto LABEL_145;
   }
-  v19 = (unsigned __int16 *)&unk_14043B5D0;
+  v19 = (unsigned __int16 *)&unk_14043C690;
   v24 = 2;
   v92 = 2;
   v80 = PoolPages[5] >> 58;
@@ -239,7 +239,7 @@ LABEL_117:
     }
     __writecr8((unsigned __int8)CurrentIrql);
     v63 = v81;
-    v64 = &qword_14043A058[25 * v80];
+    v64 = &qword_14043B118[25 * v80];
     if ( v81 && v81 > v64[16].Region )
     {
       v65 = v77;
@@ -354,7 +354,7 @@ LABEL_112:
         {
           if ( (unsigned int)MiPteHasShadow(v57, v56) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (v56 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v56 & 1) != 0 )
               v56 |= 0x8000000000000000uLL;
             *v49 = v56;
             MiWritePteShadow(((v15 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
@@ -401,7 +401,7 @@ LABEL_106:
       {
         if ( (unsigned int)MiPteHasShadow(v43, v44) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v46 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v46 & 1) != 0 )
             v45 |= 0x8000000000000000uLL;
           *(_QWORD *)v15 = v45;
           MiWritePteShadow(v15);

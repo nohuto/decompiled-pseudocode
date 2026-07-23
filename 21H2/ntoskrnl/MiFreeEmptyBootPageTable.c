@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeEmptyBootPageTable @ 0x140A92F24
+ * XREFs of MiFreeEmptyBootPageTable @ 0x140A93F24
  * Callers:
- *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x140A44ECC (MxCreateFreePfns.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiLockAndInsertPageInFreeList @ 0x1403B750C (MiLockAndInsertPageInFreeList.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1403B767C (MiLockAndInsertPageInFreeList.c)
  */
 
 __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v5 = 1;
-      if ( !HIBYTE(word_140C4E008) )
+      if ( !HIBYTE(word_140C4E048) )
       {
         v9 = (ZeroPte & 1) == 0;
         goto LABEL_8;
@@ -49,6 +49,6 @@ LABEL_8:
   }
   *(_QWORD *)v1 = v4;
   if ( v5 )
-    MiWritePteShadow(v1, v4, v7);
+    MiWritePteShadow(v1, v4);
   return MiLockAndInsertPageInFreeList(a1, v6, v7, v8);
 }

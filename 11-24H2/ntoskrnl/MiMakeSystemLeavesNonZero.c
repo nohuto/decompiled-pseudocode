@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeSystemLeavesNonZero @ 0x1404D80F4
+ * XREFs of MiMakeSystemLeavesNonZero @ 0x1404D1540
  * Callers:
- *     MiComputePxeWalkAction @ 0x1402DE580 (MiComputePxeWalkAction.c)
- *     MiCreateSystemPageTable @ 0x140395350 (MiCreateSystemPageTable.c)
+ *     MiComputePxeWalkAction @ 0x14023FE60 (MiComputePxeWalkAction.c)
+ *     MiCreateSystemPageTable @ 0x14038EDA0 (MiCreateSystemPageTable.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
  */
 
 char __fastcall MiMakeSystemLeavesNonZero(int *a1, ULONG_PTR a2, int a3)
@@ -49,7 +49,7 @@ char __fastcall MiMakeSystemLeavesNonZero(int *a1, ULONG_PTR a2, int a3)
     }
     while ( v8 <= v7 );
     if ( v3 && (_DWORD)v4 != 4 )
-      MiIncreaseUsedPtes(v12, ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v3, 2);
+      MiIncreaseUsedPtes(v12, ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v3, 2LL);
   }
   v13 = *a1;
   if ( (*a1 & 4) != 0 )

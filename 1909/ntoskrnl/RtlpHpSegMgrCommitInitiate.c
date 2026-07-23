@@ -40,7 +40,7 @@ __int64 __fastcall RtlpHpSegMgrCommitInitiate(
   int v21; // eax
   signed __int16 v22; // bx
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v25; // r14
   unsigned int v26; // r8d
   __int64 v27; // rcx
@@ -145,9 +145,9 @@ LABEL_10:
         v35 = 0;
         CurrentThread = KeGetCurrentThread();
         if ( (unsigned int)MiGetSystemRegionType(v7, v13, v12, a4) == 1 )
-          SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
+          SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
         else
-          SessionId = 0xFFFFFFFFLL;
+          SessionId = -1;
         --CurrentThread->SpecialApcDisable;
         v25 = ++CurrentThread->AbAllocationRegionCount;
         v26 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
@@ -161,7 +161,7 @@ LABEL_10:
           if ( (*(_BYTE *)(v28 + 26) & 1) != 0
             && (*(_DWORD *)(v28 + 32) & 1) == 0
             && (*(_QWORD *)(v28 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v7 & 0x7FFFFFFFFFFFFFFCLL)
-            && *(_DWORD *)(v28 + 40) == (_DWORD)SessionId )
+            && *(_DWORD *)(v28 + 40) == SessionId )
           {
             *(_BYTE *)(v28 + 26) &= ~1u;
             if ( *(_QWORD *)(v28 + 32) )
@@ -170,7 +170,7 @@ LABEL_10:
               {
                 *(_BYTE *)(v28 + 32) |= 2u;
                 if ( *(__int64 *)(v28 + 32) < 0 )
-                  KiAbEntryRemoveFromTree(v28, SessionId);
+                  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v28);
                 v35 = 0;
                 v35 = *(_DWORD *)(v28 + 88) & 0x1FFFF;
                 *(_DWORD *)(v28 + 88) &= 0xFFFE0000;
@@ -188,7 +188,7 @@ LABEL_10:
           }
         }
         if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v7, (unsigned int)SessionId, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v7, SessionId, 0LL);
 LABEL_50:
         --CurrentThread->AbAllocationRegionCount;
         KiAbThreadRemoveBoosts(CurrentThread, v7, &v35);

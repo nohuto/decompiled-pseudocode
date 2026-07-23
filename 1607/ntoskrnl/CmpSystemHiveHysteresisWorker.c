@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpSystemHiveHysteresisWorker @ 0x1405FC620
+ * XREFs of CmpSystemHiveHysteresisWorker @ 0x1405FC6D4
  * Callers:
  *     <none>
  * Callees:

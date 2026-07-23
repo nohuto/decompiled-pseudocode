@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCompressBufferLZNT1 @ 0x140B640F0
+ * XREFs of RtlCompressBufferLZNT1 @ 0x140B66200
  * Callers:
- *     SmStoreCompressBuffer @ 0x140389E34 (SmStoreCompressBuffer.c)
- *     RtlCompressBuffer @ 0x14038A270 (RtlCompressBuffer.c)
+ *     SmStoreCompressBuffer @ 0x140383774 (SmStoreCompressBuffer.c)
+ *     RtlCompressBuffer @ 0x140383BB0 (RtlCompressBuffer.c)
  * Callees:
- *     LZNT1CompressChunk @ 0x140B64200 (LZNT1CompressChunk.c)
+ *     LZNT1CompressChunk @ 0x140B66310 (LZNT1CompressChunk.c)
  */
 
 __int64 __fastcall RtlCompressBufferLZNT1(

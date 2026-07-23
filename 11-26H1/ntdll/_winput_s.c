@@ -1,15 +1,15 @@
 /*
- * XREFs of _winput_s @ 0x180136E98
+ * XREFs of _winput_s @ 0x180136C0C
  * Callers:
- *     _swinput_s @ 0x180136DC4 (_swinput_s.c)
+ *     _swinput_s @ 0x180136B38 (_swinput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     iswctype @ 0x18012AE10 (iswctype.c)
- *     ReadString_1 @ 0x180136A00 (ReadString_1.c)
- *     ReadStringDelimited_1 @ 0x180136C34 (ReadStringDelimited_1.c)
- *     _whiteout @ 0x180136E40 (_whiteout.c)
- *     _fgetwc_nolock @ 0x18013786C (_fgetwc_nolock.c)
- *     _ungetwc_nolock @ 0x1801378B8 (_ungetwc_nolock.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     iswctype @ 0x18012AB80 (iswctype.c)
+ *     ReadString_1 @ 0x180136774 (ReadString_1.c)
+ *     ReadStringDelimited_1 @ 0x1801369A8 (ReadStringDelimited_1.c)
+ *     _whiteout @ 0x180136BB4 (_whiteout.c)
+ *     _fgetwc_nolock @ 0x1801375E0 (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x18013762C (_ungetwc_nolock.c)
  */
 
 __int64 __fastcall winput_s(FILE *Stream, wint_t *a2, unsigned int *a3)

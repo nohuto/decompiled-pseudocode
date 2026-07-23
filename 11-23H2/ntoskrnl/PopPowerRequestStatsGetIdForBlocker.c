@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestStatsGetIdForBlocker @ 0x1407A8370
+ * XREFs of PopPowerRequestStatsGetIdForBlocker @ 0x1407A8560
  * Callers:
- *     PopPowerRequestStatsCreate @ 0x1407A77DC (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsCreate @ 0x1407A79CC (PopPowerRequestStatsCreate.c)
  * Callees:
- *     SleepstudyHelperGetBlockerVerboseDescription @ 0x1407A8498 (SleepstudyHelperGetBlockerVerboseDescription.c)
+ *     SleepstudyHelperGetBlockerVerboseDescription @ 0x1407A8688 (SleepstudyHelperGetBlockerVerboseDescription.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

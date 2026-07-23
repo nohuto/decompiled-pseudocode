@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSleepCheckpointInitFailure @ 0x1408EC6B8
+ * XREFs of PopTraceSleepCheckpointInitFailure @ 0x1408EC818
  * Callers:
- *     PopEnableSystemSleepCheckpoint @ 0x1407749C4 (PopEnableSystemSleepCheckpoint.c)
+ *     PopEnableSystemSleepCheckpoint @ 0x140774B84 (PopEnableSystemSleepCheckpoint.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PopTraceSleepCheckpointInitFailure()
@@ -25,13 +25,7 @@ void PopTraceSleepCheckpointInitFailure()
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C02228,
-        (unsigned __int8 *)&word_140027C3E,
-        0LL,
-        0LL,
-        3u,
-        &v2);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)byte_1400283F1, 0LL, 0LL, 3u, &v2);
     }
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of CarLoadConfig @ 0x1405D5694
+ * XREFs of CarLoadConfig @ 0x1405D5C04
  * Callers:
- *     CarInit @ 0x1405D3D04 (CarInit.c)
+ *     CarInit @ 0x1405D4274 (CarInit.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     CarLoadFromDV @ 0x1405D56F8 (CarLoadFromDV.c)
- *     CarReadRegistry @ 0x1405D574C (CarReadRegistry.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CarLoadFromDV @ 0x1405D5C68 (CarLoadFromDV.c)
+ *     CarReadRegistry @ 0x1405D5CBC (CarReadRegistry.c)
  */
 
 __int64 CarLoadConfig()

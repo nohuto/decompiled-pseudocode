@@ -7,26 +7,26 @@
  *     KeAcquireSpinLockRaiseToDpc @ 0x1400693C0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
-ULONG_PTR *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(__int64 a1)
+_LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  ULONG_PTR *v2; // rbx
+  _LIST_ENTRY *v2; // rbx
   KIRQL v3; // si
-  ULONG_PTR *i; // rax
-  ULONG_PTR v6; // rcx
-  ULONG_PTR **v7; // rdx
+  _LIST_ENTRY *i; // rax
+  struct _LIST_ENTRY *Flink; // rcx
+  struct _LIST_ENTRY *Blink; // rdx
 
   v2 = 0LL;
   v3 = KeAcquireSpinLockRaiseToDpc(&Lock);
-  for ( i = (ULONG_PTR *)ViAdapterList; &ViAdapterList != i; i = (ULONG_PTR *)*i )
+  for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
-    if ( i[3] == a1 && (*((int *)i + 9) <= 0 || *((_BYTE *)i + 32) == 1) )
+    if ( i[1].Blink == a1 && (SHIDWORD(i[2].Flink) <= 0 || LOBYTE(i[2].Flink) == 1) )
     {
-      v6 = *i;
+      Flink = i->Flink;
       v2 = i;
-      if ( *(ULONG_PTR **)(*i + 8) != i || (v7 = (ULONG_PTR **)i[1], *v7 != i) )
+      if ( i->Flink->Blink != i || (Blink = i->Blink, Blink->Flink != i) )
         __fastfail(3u);
-      *v7 = (ULONG_PTR *)v6;
-      *(_QWORD *)(v6 + 8) = v7;
+      Blink->Flink = Flink;
+      Flink->Blink = Blink;
       break;
     }
   }

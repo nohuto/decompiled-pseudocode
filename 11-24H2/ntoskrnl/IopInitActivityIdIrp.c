@@ -1,18 +1,18 @@
 /*
- * XREFs of IopInitActivityIdIrp @ 0x140454AF0
+ * XREFs of IopInitActivityIdIrp @ 0x140449990
  * Callers:
- *     IopAllocateIrpPrivate @ 0x140253E10 (IopAllocateIrpPrivate.c)
- *     IopAllocateReserveIrp @ 0x140374518 (IopAllocateReserveIrp.c)
- *     IopAllocateIrpWithExtension @ 0x14037592C (IopAllocateIrpWithExtension.c)
- *     IopAllocateBackpocketIrp @ 0x140595CD8 (IopAllocateBackpocketIrp.c)
- *     IovAllocateIrp @ 0x140BA9550 (IovAllocateIrp.c)
+ *     IopAllocateReserveIrp @ 0x14025CDD8 (IopAllocateReserveIrp.c)
+ *     IopAllocateIrpWithExtension @ 0x14025E1EC (IopAllocateIrpWithExtension.c)
+ *     IopAllocateIrpPrivate @ 0x140284420 (IopAllocateIrpPrivate.c)
+ *     IopAllocateBackpocketIrp @ 0x140592D08 (IopAllocateBackpocketIrp.c)
+ *     IovAllocateIrp @ 0x140BAB550 (IovAllocateIrp.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     IoSetActivityIdIrp @ 0x140454CF0 (IoSetActivityIdIrp.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x14046D660 (PnpIsSafeToExamineUserModeTeb.c)
- *     IopIsActivityTracingEventEnabled @ 0x1404B1634 (IopIsActivityTracingEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     IoSetActivityIdIrp @ 0x140449B90 (IoSetActivityIdIrp.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x140468200 (PnpIsSafeToExamineUserModeTeb.c)
+ *     IopIsActivityTracingEventEnabled @ 0x1404ABEC4 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall IopInitActivityIdIrp(__int64 a1)
@@ -49,9 +49,9 @@ int __fastcall IopInitActivityIdIrp(__int64 a1)
     else if ( (unsigned __int8)PnpIsSafeToExamineUserModeTeb() && (*(_BYTE *)(a1 + 71) & 0x21) != 0x21 )
     {
       v10 = 0;
-      if ( KeGetPcr()->NtTib.$F9182C7BBDA5465159379F5666D1C81A::$B2F89C67BE96B06D3F6044187E462952::Self )
+      if ( KeGetPcr()->NtTib.$5225818D498B3FAE6A65DB4E37572489::$27D8BC11A01A0546FE12179A0057C7B6::Self )
       {
-        v11 = *(GUID *)&KeGetPcr()->NtTib.$F9182C7BBDA5465159379F5666D1C81A::$B2F89C67BE96B06D3F6044187E462952::Self[105].SubSystemTib;
+        v11 = *(GUID *)&KeGetPcr()->NtTib.$5225818D498B3FAE6A65DB4E37572489::$27D8BC11A01A0546FE12179A0057C7B6::Self[105].SubSystemTib;
         v10 = 1;
       }
       if ( v10 )

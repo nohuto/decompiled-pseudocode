@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpKeyEnumStackNotifyPromotion @ 0x14087ABDC
+ * XREFs of CmpKeyEnumStackNotifyPromotion @ 0x14087AD3C
  * Callers:
- *     CmpPromoteSubtree @ 0x1407291E8 (CmpPromoteSubtree.c)
- *     CmpPartialPromoteSubkeys @ 0x1408800C0 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteSubtree @ 0x140729698 (CmpPromoteSubtree.c)
+ *     CmpPartialPromoteSubkeys @ 0x140880220 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140699C08 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpKeyEnumStackEntryNotifyPromotion @ 0x14087AA20 (CmpKeyEnumStackEntryNotifyPromotion.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x1405F8DC8 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1405F8E58 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackEntryNotifyPromotion @ 0x14087AB80 (CmpKeyEnumStackEntryNotifyPromotion.c)
  */
 
 _QWORD *__fastcall CmpKeyEnumStackNotifyPromotion(__int16 *a1)

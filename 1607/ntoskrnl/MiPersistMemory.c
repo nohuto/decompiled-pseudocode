@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPersistMemory @ 0x1401EDA3C
+ * XREFs of MiPersistMemory @ 0x1401ED868
  * Callers:
- *     MiFlushFileOnlyMdl @ 0x1401ED6C8 (MiFlushFileOnlyMdl.c)
+ *     MiFlushFileOnlyMdl @ 0x1401ED4F4 (MiFlushFileOnlyMdl.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLoadCrashdumpDriver @ 0x140131B48
+ * XREFs of IopLoadCrashdumpDriver @ 0x1401320B8
  * Callers:
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
- *     IopInitializeCrashDump @ 0x140569208 (IopInitializeCrashDump.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
+ *     IopInitializeCrashDump @ 0x140569748 (IopInitializeCrashDump.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     IopGetPhysicalMemoryBlock @ 0x140149BA4 (IopGetPhysicalMemoryBlock.c)
- *     HvlGetEncryptedDataDomains @ 0x14014C9E8 (HvlGetEncryptedDataDomains.c)
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     IopGetPhysicalMemoryBlock @ 0x14014A114 (IopGetPhysicalMemoryBlock.c)
+ *     HvlGetEncryptedDataDomains @ 0x14014CF58 (HvlGetEncryptedDataDomains.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  */
 
 __int64 IopLoadCrashdumpDriver()
@@ -49,7 +49,7 @@ __int64 IopLoadCrashdumpDriver()
     v10 = HvlGetEncryptedData;
     EncryptedDataDomains = HvlGetEncryptedDataDomains();
     CrashdmpCallTable = 1;
-    dword_1403289C4 = 9;
+    dword_140328A04 = 9;
     result = ((__int64 (__fastcall *)(UNICODE_STRING **, int *))v4)(&v6, &CrashdmpCallTable);
     if ( (int)result >= 0 )
     {

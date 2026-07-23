@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpScanHeapAllocBlocks @ 0x1800ED998
+ * XREFs of RtlpScanHeapAllocBlocks @ 0x1800EDA58
  * Callers:
- *     RtlpScanProcessVirtualMemory @ 0x1800EDBD0 (RtlpScanProcessVirtualMemory.c)
+ *     RtlpScanProcessVirtualMemory @ 0x1800EDC90 (RtlpScanProcessVirtualMemory.c)
  * Callees:
- *     RtlSizeHeap @ 0x180046180 (RtlSizeHeap.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     RtlSizeHeap @ 0x180046170 (RtlSizeHeap.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
- *     RtlpGetBlockInfo @ 0x1800ED418 (RtlpGetBlockInfo.c)
- *     RtlpGetHeapBlock @ 0x1800ED460 (RtlpGetHeapBlock.c)
+ *     RtlpGetBlockInfo @ 0x1800ED4D8 (RtlpGetBlockInfo.c)
+ *     RtlpGetHeapBlock @ 0x1800ED520 (RtlpGetHeapBlock.c)
  */
 
 char RtlpScanHeapAllocBlocks()
@@ -27,9 +27,9 @@ char RtlpScanHeapAllocBlocks()
   __int64 BlockInfo; // rax
   int v13; // r9d
   __int64 v14; // rbx
-  __int64 v15; // rax
-  __int64 v16; // rsi
-  unsigned __int64 v17; // r8
+  SIZE_T v15; // rax
+  _DWORD *v16; // rsi
+  char *v17; // r8
   unsigned __int8 *v18; // rbx
   int v19; // eax
 
@@ -79,7 +79,7 @@ char RtlpScanHeapAllocBlocks()
     {
       if ( qword_180150BE8 )
       {
-        v15 = RtlSizeHeap(*(_QWORD *)(BlockInfo + 8), 0, *(_QWORD *)(j + 16));
+        v15 = RtlSizeHeap(*(PVOID *)(BlockInfo + 8), 0, *(PVOID *)(j + 16));
         qword_180150BE8(0LL, *(_QWORD *)(v14 + 8), *(_QWORD *)(j + 16), v15, 0, 0LL);
       }
       else
@@ -90,21 +90,21 @@ char RtlpScanHeapAllocBlocks()
           DbgPrint("Entry     Heap              Size       \n");
           DbgPrint("---------------------------------------\n");
         }
-        v16 = *(_QWORD *)(v14 + 8);
-        v17 = *(_QWORD *)(j + 16);
-        if ( *(_DWORD *)(v16 + 16) == -571548178 )
+        v16 = *(_DWORD **)(v14 + 8);
+        v17 = *(char **)(j + 16);
+        if ( v16[4] == -571548178 )
         {
           v18 = *(unsigned __int8 **)(j + 16);
         }
         else
         {
           v18 = (unsigned __int8 *)(v17 - 16);
-          _m_prefetchw((const void *)(v17 - 16));
-          if ( *(_BYTE *)(v17 - 16 + 15) == 5 )
+          _m_prefetchw(v17 - 16);
+          if ( *(v17 - 1) == 5 )
             v18 -= 16 * v18[14];
         }
         v19 = RtlSizeHeap(v16, 0, v17);
-        DbgPrint("%p  %-16Ix  %Id", v18, v16, v19);
+        DbgPrint("%p  %-16Ix  %Id", v18, (_DWORD)v16, v19);
         DbgPrint("\n");
       }
       ++RtlpLeaksCount;

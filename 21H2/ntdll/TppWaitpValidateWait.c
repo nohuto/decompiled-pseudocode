@@ -7,7 +7,7 @@
  *     TpSetWaitEx @ 0x180011D60 (TpSetWaitEx.c)
  * Callees:
  *     TppValidateCleanupGroupMember @ 0x18001298C (TppValidateCleanupGroupMember.c)
- *     TppRaiseInvalidParameter @ 0x1801124DC (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x18011249C (TppRaiseInvalidParameter.c)
  */
 
 __int64 __fastcall TppWaitpValidateWait(__int64 a1, __int64 a2, __int64 a3)
@@ -28,6 +28,6 @@ __int64 __fastcall TppWaitpValidateWait(__int64 a1, __int64 a2, __int64 a3)
     }
   }
   if ( v7 || (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
-    TppRaiseInvalidParameter(Ldr, v3, v5, v6);
+    TppRaiseInvalidParameter(Ldr, v3, v5);
   return 0LL;
 }

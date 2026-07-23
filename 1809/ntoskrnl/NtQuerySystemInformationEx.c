@@ -1,45 +1,45 @@
 /*
- * XREFs of NtQuerySystemInformationEx @ 0x1406AA8A0
+ * XREFs of NtQuerySystemInformationEx @ 0x1406ABB40
  * Callers:
  *     <none>
  * Callees:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
-int __fastcall NtQuerySystemInformationEx(
-        signed int a1,
-        LOGICAL_PROCESSOR_RELATIONSHIP *a2,
-        unsigned int a3,
-        __int64 a4,
-        unsigned int a5,
-        unsigned int *a6)
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  int v8; // ecx
-  int v9; // ecx
-  int v10; // ecx
-  int v11; // ecx
+  __int32 v8; // ecx
+  __int32 v9; // ecx
+  __int32 v10; // ecx
+  __int32 v11; // ecx
   int v12; // ecx
   __int64 v13; // rdx
   int v14; // ecx
   int v15; // ecx
-  unsigned __int64 v16; // rcx
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // ecx
-  int v21; // ecx
+  char *v16; // rcx
+  __int32 v18; // ecx
+  __int32 v19; // ecx
+  __int32 v20; // ecx
+  __int32 v21; // ecx
   int v22; // ecx
   int v23; // ecx
   int v24; // ecx
   int v25; // ecx
 
-  if ( !a2 || !a3 )
+  if ( !InputBuffer || !InputBufferLength )
     return -1073741811;
-  if ( a1 <= 108 )
+  if ( SystemInformationClass <= SystemProcessorCycleTimeInformation )
   {
-    if ( a1 == 108 )
+    if ( SystemInformationClass == SystemProcessorCycleTimeInformation )
       goto LABEL_31;
-    v18 = a1 - 8;
+    v18 = SystemInformationClass - 8;
     if ( !v18 )
       goto LABEL_31;
     v19 = v18 - 15;
@@ -69,7 +69,7 @@ int __fastcall NtQuerySystemInformationEx(
     v13 = 3LL;
     goto LABEL_13;
   }
-  v8 = a1 - 121;
+  v8 = SystemInformationClass - 121;
   if ( !v8 || (v9 = v8 - 20) == 0 || (v10 = v9 - 19) == 0 )
   {
 LABEL_31:
@@ -100,11 +100,17 @@ LABEL_12:
 LABEL_13:
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( (v13 & (unsigned __int64)a2) != 0 )
+    if ( (v13 & (unsigned __int64)InputBuffer) != 0 )
       ExRaiseDatatypeMisalignment();
-    v16 = (unsigned __int64)a2 + a3;
-    if ( v16 > 0x7FFFFFFF0000LL || v16 < (unsigned __int64)a2 )
+    v16 = (char *)InputBuffer + InputBufferLength;
+    if ( (unsigned __int64)v16 > 0x7FFFFFFF0000LL || v16 < InputBuffer )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  return ExpQuerySystemInformation(a1, a2, a3, a4, a5, a6);
+  return ExpQuerySystemInformation(
+           SystemInformationClass,
+           (LOGICAL_PROCESSOR_RELATIONSHIP *)InputBuffer,
+           InputBufferLength,
+           (__int64)SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeletePageFileMemoryExtents @ 0x140A47214
+ * XREFs of MiDeletePageFileMemoryExtents @ 0x140A474C4
  * Callers:
- *     MiDeletePagefile @ 0x140A32800 (MiDeletePagefile.c)
- *     MiCreatePagefileMemoryExtents @ 0x140A46EF8 (MiCreatePagefileMemoryExtents.c)
+ *     MiDeletePagefile @ 0x140A32AB0 (MiDeletePagefile.c)
+ *     MiCreatePagefileMemoryExtents @ 0x140A471A8 (MiCreatePagefileMemoryExtents.c)
  * Callees:
- *     MiFreeContiguousPages @ 0x1403C39DC (MiFreeContiguousPages.c)
+ *     MiFreeContiguousPages @ 0x1403C3BBC (MiFreeContiguousPages.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

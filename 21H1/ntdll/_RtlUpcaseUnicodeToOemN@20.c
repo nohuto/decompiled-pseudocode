@@ -11,13 +11,25 @@
  *     _UpcaseUnicodeToUTF8NHelper@20 @ 0x4B344718 (_UpcaseUnicodeToUTF8NHelper@20.c)
  */
 
-unsigned int __stdcall RtlUpcaseUnicodeToOemN(int a1, unsigned int a2, unsigned int *a3, int a4, int a5)
+NTSTATUS __cdecl RtlUpcaseUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
   unsigned int v5; // edx
 
   if ( RtlpIsUtf8Process(1) )
-    return UpcaseUnicodeToUTF8NHelper(a3, a4, v5);
+    return UpcaseUnicodeToUTF8NHelper(BytesInOemString, UnicodeString, v5);
   if ( NlsMbOemCodePageTag )
-    return UpcaseUnicodeToMultiByteNHelper(a3, a4, v5);
-  return UpcaseUnicodeToSingleByteNHelper(a1, a2, a3, a4, v5, NlsUnicodeToOemData, NlsOemToUnicodeData);
+    return UpcaseUnicodeToMultiByteNHelper(BytesInOemString, UnicodeString, v5);
+  return UpcaseUnicodeToSingleByteNHelper(
+           (int)OemString,
+           MaxBytesInOemString,
+           BytesInOemString,
+           (int)UnicodeString,
+           v5,
+           NlsUnicodeToOemData,
+           NlsOemToUnicodeData);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlUpcaseUnicodeChar @ 0x1406DA280
+ * XREFs of RtlUpcaseUnicodeChar @ 0x1406DA2B0
  * Callers:
- *     AuthzBasepUnicodeStringFromOperandValue @ 0x14022D190 (AuthzBasepUnicodeStringFromOperandValue.c)
- *     towupper @ 0x1403DB7D0 (towupper.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x14022D2A0 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     towupper @ 0x1403DB9B0 (towupper.c)
  *     ObpUseSystemDeviceMap @ 0x14067EA7C (ObpUseSystemDeviceMap.c)
- *     PfpRpFileKeyUpdate @ 0x1406D9830 (PfpRpFileKeyUpdate.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14077C3F4 (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpAllocateDiffHiveEntry @ 0x14077C838 (VrpAllocateDiffHiveEntry.c)
- *     VfUtilPrintCheckinString @ 0x140AC2834 (VfUtilPrintCheckinString.c)
+ *     PfpRpFileKeyUpdate @ 0x1406D9860 (PfpRpFileKeyUpdate.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14077C5E4 (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpAllocateDiffHiveEntry @ 0x14077CA28 (VrpAllocateDiffHiveEntry.c)
+ *     VfUtilPrintCheckinString @ 0x140AC2824 (VfUtilPrintCheckinString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
  */
 
 WCHAR __stdcall RtlUpcaseUnicodeChar(WCHAR SourceCharacter)

@@ -2,11 +2,11 @@
  * XREFs of MiObtainSystemCharges @ 0x140026DC8
  * Callers:
  *     MiGetPageTablePages @ 0x140026E90 (MiGetPageTablePages.c)
- *     MiGetLargePagesForSystemMapping @ 0x140851F70 (MiGetLargePagesForSystemMapping.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408531D0 (MiGetLargePagesForSystemMapping.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiObtainSystemCharges(__int64 a1, unsigned __int64 a2, int a3)
@@ -33,9 +33,9 @@ __int64 __fastcall MiObtainSystemCharges(__int64 a1, unsigned __int64 a2, int a3
   else if ( a3 != 2 )
   {
     if ( a3 == 4 )
-      _InterlockedExchangeAdd64(&qword_14043B040, a2);
+      _InterlockedExchangeAdd64(&qword_14043C100, a2);
     else
-      _InterlockedExchangeAdd64(&qword_14043B020, a2);
+      _InterlockedExchangeAdd64(&qword_14043C0E0, a2);
   }
   return 1LL;
 }

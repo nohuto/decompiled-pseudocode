@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSendSuspendResumeApplicationNotification @ 0x1407D10E8
+ * XREFs of PopSendSuspendResumeApplicationNotification @ 0x1407D4188
  * Callers:
- *     PopSendSuspendResumeNotifications @ 0x140B606E0 (PopSendSuspendResumeNotifications.c)
+ *     PopSendSuspendResumeNotifications @ 0x140B63780 (PopSendSuspendResumeNotifications.c)
  * Callees:
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopDiagTraceSuspendResumeNotification @ 0x1407D54FC (PopDiagTraceSuspendResumeNotification.c)
- *     PopDispatchStateCallout @ 0x140A39B10 (PopDispatchStateCallout.c)
- *     PsGetNextSession @ 0x140A7D980 (PsGetNextSession.c)
- *     PopSuspendResumeInvocation @ 0x140B35570 (PopSuspendResumeInvocation.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopDiagTraceSuspendResumeNotification @ 0x1407D86B4 (PopDiagTraceSuspendResumeNotification.c)
+ *     PopDispatchStateCallout @ 0x1409F5718 (PopDispatchStateCallout.c)
+ *     PsGetNextSession @ 0x140A837F0 (PsGetNextSession.c)
+ *     PopSuspendResumeInvocation @ 0x140B37780 (PopSuspendResumeInvocation.c)
  */
 
 __int64 __fastcall PopSendSuspendResumeApplicationNotification(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCMReturnStatusResultData @ 0x140A9F858
+ * XREFs of PiCMReturnStatusResultData @ 0x140A9FB88
  * Callers:
- *     PiCMGetDeviceStatus @ 0x140A9F724 (PiCMGetDeviceStatus.c)
+ *     PiCMGetDeviceStatus @ 0x140A9FA54 (PiCMGetDeviceStatus.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMReturnStatusResultData(

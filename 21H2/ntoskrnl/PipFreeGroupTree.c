@@ -1,11 +1,11 @@
 /*
- * XREFs of PipFreeGroupTree @ 0x140A5F124
+ * XREFs of PipFreeGroupTree @ 0x140A60124
  * Callers:
- *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
- *     PipFreeGroupTree @ 0x140A5F124 (PipFreeGroupTree.c)
+ *     IopInitializeSystemDrivers @ 0x140A5E754 (IopInitializeSystemDrivers.c)
+ *     PipFreeGroupTree @ 0x140A60124 (PipFreeGroupTree.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     PipFreeGroupTree @ 0x140A5F124 (PipFreeGroupTree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     PipFreeGroupTree @ 0x140A60124 (PipFreeGroupTree.c)
  */
 
 void __fastcall PipFreeGroupTree(_QWORD *a1)

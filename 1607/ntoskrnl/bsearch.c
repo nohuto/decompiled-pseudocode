@@ -1,15 +1,15 @@
 /*
- * XREFs of bsearch @ 0x14014DAA0
+ * XREFs of bsearch @ 0x14014E010
  * Callers:
- *     DownLevelLangIDToLanguageName @ 0x1401323C4 (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x1401409B8 (DownLevelLanguageNameToLangID.c)
- *     DownLevelGetParentLanguageName @ 0x140231CF4 (DownLevelGetParentLanguageName.c)
- *     EtwpIsGuidAllowed @ 0x140491F64 (EtwpIsGuidAllowed.c)
- *     sub_1404A4A10 @ 0x1404A4A10 (sub_1404A4A10.c)
- *     ExpFindFastCacheDescriptor @ 0x1406AEFD0 (ExpFindFastCacheDescriptor.c)
- *     sub_1406AF038 @ 0x1406AF038 (sub_1406AF038.c)
+ *     DownLevelLangIDToLanguageName @ 0x140132934 (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x140140F28 (DownLevelLanguageNameToLangID.c)
+ *     DownLevelGetParentLanguageName @ 0x140231B20 (DownLevelGetParentLanguageName.c)
+ *     EtwpIsGuidAllowed @ 0x1404929F4 (EtwpIsGuidAllowed.c)
+ *     sub_14051CE10 @ 0x14051CE10 (sub_14051CE10.c)
+ *     ExpFindFastCacheDescriptor @ 0x1406AF108 (ExpFindFastCacheDescriptor.c)
+ *     sub_1406AF170 @ 0x1406AF170 (sub_1406AF170.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 void *__cdecl bsearch(

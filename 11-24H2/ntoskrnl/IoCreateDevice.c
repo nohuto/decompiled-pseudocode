@@ -1,44 +1,44 @@
 /*
- * XREFs of IoCreateDevice @ 0x1409A3530
+ * XREFs of IoCreateDevice @ 0x1408ABEC0
  * Callers:
- *     DifIoCreateDeviceWrapper @ 0x140626C50 (DifIoCreateDeviceWrapper.c)
- *     HalpAddDevice @ 0x1406FE8E0 (HalpAddDevice.c)
- *     IopCreateRootEnumeratedDeviceObject @ 0x14072D9EC (IopCreateRootEnumeratedDeviceObject.c)
- *     VRegSetup @ 0x140829110 (VRegSetup.c)
- *     IoCreateDeviceSecure @ 0x1409A1B40 (IoCreateDeviceSecure.c)
- *     RawMountVolume @ 0x1409A3134 (RawMountVolume.c)
- *     PiSwGetChildPdo @ 0x140AC3B1C (PiSwGetChildPdo.c)
- *     ViDdiDriverEntry @ 0x140B84750 (ViDdiDriverEntry.c)
- *     VfFilterAttach @ 0x140B9CD90 (VfFilterAttach.c)
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
- *     PiDaDriverEntry @ 0x140C255C0 (PiDaDriverEntry.c)
- *     RawInitialize @ 0x140C36730 (RawInitialize.c)
- *     WmipDriverEntry @ 0x140C3C9C0 (WmipDriverEntry.c)
+ *     DifIoCreateDeviceWrapper @ 0x140625210 (DifIoCreateDeviceWrapper.c)
+ *     HalpAddDevice @ 0x1406FC520 (HalpAddDevice.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x14072B9FC (IopCreateRootEnumeratedDeviceObject.c)
+ *     VRegSetup @ 0x140829940 (VRegSetup.c)
+ *     RawMountVolume @ 0x1408ACB4C (RawMountVolume.c)
+ *     IoCreateDeviceSecure @ 0x140A603E0 (IoCreateDeviceSecure.c)
+ *     PiSwGetChildPdo @ 0x140AC1360 (PiSwGetChildPdo.c)
+ *     ViDdiDriverEntry @ 0x140B86750 (ViDdiDriverEntry.c)
+ *     VfFilterAttach @ 0x140B9ED90 (VfFilterAttach.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
+ *     PiDaDriverEntry @ 0x140C27610 (PiDaDriverEntry.c)
+ *     RawInitialize @ 0x140C38870 (RawInitialize.c)
+ *     WmipDriverEntry @ 0x140C3EB10 (WmipDriverEntry.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlGetNtProductType @ 0x14042F1D0 (RtlGetNtProductType.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     IopInsertRemoveDevice @ 0x140483320 (IopInsertRemoveDevice.c)
- *     KeInitializeDeviceQueue @ 0x1404ADD00 (KeInitializeDeviceQueue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopCreateVpb @ 0x140714EC8 (IopCreateVpb.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     IopCreateSecurityDescriptorPerType @ 0x1409A3AF0 (IopCreateSecurityDescriptorPerType.c)
- *     EtwTiLogDeviceObjectLoadUnload @ 0x1409A3CD0 (EtwTiLogDeviceObjectLoadUnload.c)
- *     AstLogDeviceCreated @ 0x1409A3E34 (AstLogDeviceCreated.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     PoVolumeDevice @ 0x140AB1498 (PoVolumeDevice.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlGetNtProductType @ 0x1404213A0 (RtlGetNtProductType.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     IopInsertRemoveDevice @ 0x14047E864 (IopInsertRemoveDevice.c)
+ *     KeInitializeDeviceQueue @ 0x1404A8610 (KeInitializeDeviceQueue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopCreateVpb @ 0x140712A58 (IopCreateVpb.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x1408AC480 (IopCreateSecurityDescriptorPerType.c)
+ *     EtwTiLogDeviceObjectLoadUnload @ 0x1408AC660 (EtwTiLogDeviceObjectLoadUnload.c)
+ *     AstLogDeviceCreated @ 0x1408AC7C4 (AstLogDeviceCreated.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     PoVolumeDevice @ 0x140AAC408 (PoVolumeDevice.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoCreateDevice(
@@ -74,11 +74,11 @@ NTSTATUS __stdcall IoCreateDevice(
   USHORT AclSize; // si
   unsigned __int8 *v31; // rax
   ACL *Pool2; // rax
-  unsigned __int8 *v33; // rax
+  PSID v33; // rax
   int v34; // r9d
   void *Src; // [rsp+20h] [rbp-E0h]
   PVOID Object; // [rsp+50h] [rbp-B0h] BYREF
-  int v37; // [rsp+58h] [rbp-A8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+58h] [rbp-A8h] BYREF
   PVOID P; // [rsp+60h] [rbp-A0h] BYREF
   unsigned int v39; // [rsp+68h] [rbp-98h]
   ULONG v40; // [rsp+6Ch] [rbp-94h]
@@ -154,11 +154,11 @@ LABEL_7:
         v13 = 2LL;
         goto LABEL_8;
       }
-      v37 = 0;
+      NtProductType = 0;
       AclSize = SePublicDefaultUnrestrictedDacl->AclSize;
-      if ( !RtlGetNtProductType(&v37) )
+      if ( !RtlGetNtProductType(&NtProductType) )
         goto LABEL_9;
-      if ( v37 == 1 )
+      if ( NtProductType == NtProductWinNt )
       {
         v31 = (unsigned __int8 *)SeInteractiveSid;
       }
@@ -170,7 +170,7 @@ LABEL_7:
       }
       AclSize += 4 * (v31[1] + 4);
 LABEL_84:
-      Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
+      Pool2 = (ACL *)ExAllocatePool2(0x100uLL, AclSize, 0x65536F49u);
       v7 = Pool2;
       if ( !Pool2 )
       {
@@ -179,11 +179,11 @@ LABEL_9:
         goto LABEL_10;
       }
       memmove(Pool2, SePublicDefaultUnrestrictedDacl, SePublicDefaultUnrestrictedDacl->AclSize);
-      v29 = v37 == 1;
+      v29 = NtProductType == NtProductWinNt;
       v7->AclSize = AclSize;
       if ( v29 )
       {
-        v33 = (unsigned __int8 *)SeInteractiveSid;
+        v33 = SeInteractiveSid;
         v34 = -1073676288;
       }
       else
@@ -197,10 +197,10 @@ LABEL_90:
           v7 = 0LL;
           goto LABEL_62;
         }
-        v33 = (unsigned __int8 *)SeWorldSid;
+        v33 = SeWorldSid;
         v34 = 0x80000000;
       }
-      RtlpAddKnownAce((__int64)v7, 2u, 0, v34, v33, 0);
+      RtlpAddKnownAce((int)v7, 2, 0, v34, v33, 0);
       goto LABEL_90;
     }
     if ( (_DWORD)v10 == 32 || (_DWORD)v10 == 20 || (_DWORD)v10 == 36 || (_DWORD)v10 == 45 )

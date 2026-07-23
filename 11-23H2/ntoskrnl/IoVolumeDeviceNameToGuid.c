@@ -1,10 +1,10 @@
 /*
- * XREFs of IoVolumeDeviceNameToGuid @ 0x14094AAC0
+ * XREFs of IoVolumeDeviceNameToGuid @ 0x14094ACC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     IoVolumeDeviceNameToGuidPath @ 0x1407020A0 (IoVolumeDeviceNameToGuidPath.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x1407022B0 (IoVolumeDeviceNameToGuidPath.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

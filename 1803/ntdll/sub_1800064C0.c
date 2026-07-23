@@ -30,24 +30,24 @@ __int64 __fastcall sub_1800064C0(__int64 a1, void *a2, unsigned int a3, char a4)
 {
   bool v7; // zf
   __int64 v8; // r14
-  const WCHAR *v9; // rbx
-  __int64 v10; // r15
-  int SystemInformation; // ebx
+  const WCHAR *QuadPart; // rbx
+  SIZE_T Length; // r15
+  NTSTATUS InformationThread; // ebx
   int v12; // r13d
-  __int64 Heap; // rax
-  __int64 v14; // rsi
-  _DWORD *v15; // r12
+  LARGE_INTEGER *Heap; // rax
+  LARGE_INTEGER *Buffer; // rsi
+  LARGE_INTEGER *v15; // r12
   char *v16; // rbx
-  unsigned __int64 v17; // rax
+  LARGE_INTEGER v17; // rax
   struct _PEB *v18; // rdx
   char v19; // cl
   char v20; // al
-  int v21; // eax
+  LONG v21; // eax
   __int64 v22; // rcx
-  __int64 v23; // rbx
-  PCWSTR v24; // rax
+  LARGE_INTEGER *v23; // rbx
+  LARGE_INTEGER v24; // rax
   int v25; // eax
-  __int64 v26; // r14
+  HANDLE v26; // r14
   __int64 v27; // rcx
   __int64 v28; // rdx
   size_t v30; // r9
@@ -56,103 +56,103 @@ __int64 __fastcall sub_1800064C0(__int64 a1, void *a2, unsigned int a3, char a4)
   char v33; // r10
   int v34; // eax
   int v35; // ecx
-  __int64 v36; // r13
-  int v37; // r15d
-  int v38; // eax
-  int v39; // [rsp+20h] [rbp-E0h]
-  int v41; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v42; // [rsp+60h] [rbp-A0h] BYREF
-  PCWSTR SourceString; // [rsp+68h] [rbp-98h] BYREF
+  __int64 LowPart; // r13
+  LONG HighPart; // r15d
+  NTSTATUS v38; // eax
+  int ReturnLength; // [rsp+20h] [rbp-E0h]
+  LONG v41; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER v43; // [rsp+68h] [rbp-98h] BYREF
   unsigned int Size; // [rsp+70h] [rbp-90h]
   int Size_4; // [rsp+74h] [rbp-8Ch]
   void *Src; // [rsp+78h] [rbp-88h]
-  __int64 v47; // [rsp+80h] [rbp-80h] BYREF
-  unsigned __int64 v48; // [rsp+88h] [rbp-78h] BYREF
-  _BYTE v49[16]; // [rsp+90h] [rbp-70h] BYREF
-  unsigned __int64 v50; // [rsp+A0h] [rbp-60h] BYREF
-  _BYTE v51[16]; // [rsp+A8h] [rbp-58h] BYREF
-  int v52; // [rsp+B8h] [rbp-48h]
-  int v53; // [rsp+C0h] [rbp-40h]
+  LARGE_INTEGER ByteOffset; // [rsp+80h] [rbp-80h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+88h] [rbp-78h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+90h] [rbp-70h] BYREF
+  unsigned __int64 FileInformation; // [rsp+A0h] [rbp-60h] BYREF
+  char ThreadInformation[16]; // [rsp+A8h] [rbp-58h] BYREF
+  LONG v52; // [rsp+B8h] [rbp-48h]
+  DWORD v53; // [rsp+C0h] [rbp-40h]
   _QWORD v54[5]; // [rsp+D8h] [rbp-28h] BYREF
-  _DWORD v55[16]; // [rsp+100h] [rbp+0h] BYREF
-  _BYTE v56[20]; // [rsp+140h] [rbp+40h] BYREF
+  _DWORD SystemInformation[16]; // [rsp+100h] [rbp+0h] BYREF
+  char FsInformation[20]; // [rsp+140h] [rbp+40h] BYREF
   int v57; // [rsp+154h] [rbp+54h]
   _QWORD v58[6]; // [rsp+158h] [rbp+58h] BYREF
 
   Size = a3;
   Src = a2;
   v41 = 0;
-  memset(v55, 0, sizeof(v55));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   memset(v58, 0, sizeof(v58));
   memset(v54, 0, 0x20uLL);
   v7 = (*(_BYTE *)(a1 + 324) & 8) == 0;
   v8 = 0LL;
-  v42 = 0LL;
+  FileHandle = 0LL;
   if ( !v7 )
-    sub_180004530((const wchar_t **)(a1 + 184), (volatile signed __int32 *)(a1 + 200), (UNICODE_STRING *)(a1 + 168));
-  v9 = *(const WCHAR **)(a1 + 176);
-  v10 = *(unsigned int *)(a1 + 208);
-  SourceString = v9;
-  Size_4 = v10;
+    sub_180004530((const wchar_t **)(a1 + 184), (volatile signed __int32 *)(a1 + 200), (_UNICODE_STRING *)(a1 + 168));
+  QuadPart = *(const WCHAR **)(a1 + 176);
+  Length = *(unsigned int *)(a1 + 208);
+  v43.QuadPart = (LONGLONG)QuadPart;
+  Size_4 = Length;
   if ( a2 )
   {
     v12 = a3 + 72;
 LABEL_10:
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v10);
-    v14 = Heap;
+    Heap = (LARGE_INTEGER *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
+    Buffer = Heap;
     if ( !Heap )
       return (unsigned int)-1073741801;
-    v15 = (_DWORD *)(Heap + 72);
-    SystemInformation = sub_1800092CC(v9, v39, (__int64)&v42);
-    if ( SystemInformation < 0 )
+    v15 = Heap + 9;
+    InformationThread = sub_1800092CC(QuadPart, ReturnLength, (__int64)&FileHandle);
+    if ( InformationThread < 0 )
     {
-      v26 = v42;
+      v26 = FileHandle;
     }
     else if ( a4 )
     {
-      v26 = v42;
-      v47 = 0LL;
-      SystemInformation = ZwReadFile(v42, 0LL, 0LL, 0LL, v49, v14, v10, &v47, 0LL);
-      if ( SystemInformation >= 0 )
+      v26 = FileHandle;
+      ByteOffset.QuadPart = 0LL;
+      InformationThread = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
+      if ( InformationThread >= 0 )
       {
-        if ( (*(_BYTE *)(v14 + 136) & 2) == 0
-          && *(_BYTE *)(v14 + 108) == MEMORY[0x7FFE026C]
-          && *(_BYTE *)(v14 + 109) == MEMORY[0x7FFE0270]
-          && *(_DWORD *)(v14 + 148) == 8 )
+        if ( (Buffer[17].LowPart & 2) == 0
+          && BYTE4(Buffer[13].QuadPart) == MEMORY[0x7FFE026C]
+          && BYTE5(Buffer[13].QuadPart) == MEMORY[0x7FFE0270]
+          && Buffer[18].HighPart == 8 )
         {
-          v36 = *(unsigned int *)(v14 + 104);
-          if ( (unsigned int)(v36 - 1024) <= 0xFFFC00 )
+          LowPart = Buffer[13].LowPart;
+          if ( (unsigned int)(LowPart - 1024) <= 0xFFFC00 )
           {
-            v37 = *(_DWORD *)(v14 + 140);
-            if ( v37 )
+            HighPart = Buffer[17].HighPart;
+            if ( HighPart )
             {
-              if ( *(_QWORD *)(v14 + 120) && *(_DWORD *)(v14 + 116) == *(_DWORD *)(a1 + 204) )
+              if ( Buffer[15].QuadPart && Buffer[14].HighPart == *(_DWORD *)(a1 + 204) )
               {
-                *(_QWORD *)(v14 + 120) = 0LL;
-                v38 = ZwWriteFile(v26, 0LL, 0LL, 0LL, v49, v14, *(_DWORD *)(a1 + 208), &v47, 0LL);
-                *(_DWORD *)(a1 + 392) = v37;
-                SystemInformation = v38;
-                *(_DWORD *)(a1 + 336) = v37;
-                *(_DWORD *)(a1 + 208) = v36;
-                *(_QWORD *)(a1 + 352) = v36;
+                Buffer[15].QuadPart = 0LL;
+                v38 = ZwWriteFile(v26, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, *(_DWORD *)(a1 + 208), &ByteOffset, 0LL);
+                *(_DWORD *)(a1 + 392) = HighPart;
+                InformationThread = v38;
+                *(_DWORD *)(a1 + 336) = HighPart;
+                *(_DWORD *)(a1 + 208) = LowPart;
+                *(_QWORD *)(a1 + 352) = LowPart;
                 *(_QWORD *)(a1 + 144) = v26;
-                *(_QWORD *)(a1 + 360) = (unsigned int)(v36 * v37);
+                *(_QWORD *)(a1 + 360) = (unsigned int)(LowPart * HighPart);
 LABEL_39:
-                RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v14);
-                return (unsigned int)SystemInformation;
+                RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+                return (unsigned int)InformationThread;
               }
             }
           }
         }
-        SystemInformation = -1073741811;
+        InformationThread = -1073741811;
       }
     }
     else
     {
       v16 = (char *)Src;
-      *(_DWORD *)v14 = v10;
-      *(_DWORD *)(v14 + 52) = 262145;
-      *(_DWORD *)(v14 + 48) = (v12 + 7) & 0xFFFFFFF8;
+      Buffer->LowPart = Length;
+      Buffer[6].HighPart = 262145;
+      Buffer[6].LowPart = (v12 + 7) & 0xFFFFFFF8;
       if ( v16 )
       {
         v30 = Size;
@@ -182,8 +182,8 @@ LABEL_39:
             v31 += (*(unsigned __int16 *)&v16[v31 + 4] + 7) & 0xFFFFFFF8;
           }
           while ( v31 < (unsigned int)v30 );
-          LODWORD(v10) = Size_4;
-          v15 = (_DWORD *)(v14 + 72);
+          LODWORD(Length) = Size_4;
+          v15 = Buffer + 9;
         }
         if ( *(_DWORD *)(v8 + 44) == 4 )
           v34 = *(_DWORD *)(v8 + 264);
@@ -194,30 +194,30 @@ LABEL_39:
       }
       else
       {
-        *v15 = -1073610752;
-        v15[1] = v12 - 72;
+        v15->LowPart = -1073610752;
+        v15->HighPart = v12 - 72;
         if ( *(_DWORD *)(a1 + 16) == 2 )
         {
-          v17 = MEMORY[0x7FFE0014];
+          v17.QuadPart = MEMORY[0x7FFE0014];
         }
         else if ( *(_DWORD *)(a1 + 16) == 3 )
         {
-          v17 = __rdtsc();
+          v17.QuadPart = __rdtsc();
         }
         else
         {
-          v48 = 0LL;
-          RtlQueryPerformanceCounter(&v48);
-          v17 = v48;
+          PerformanceCounter.QuadPart = 0LL;
+          RtlQueryPerformanceCounter(&PerformanceCounter);
+          v17 = PerformanceCounter;
         }
-        *((_QWORD *)v15 + 2) = v17;
-        v15[3] = v52;
-        v15[2] = v53;
-        v15[6] = v54[2] / (__int64)v55[1];
-        v15[7] = v54[3] / (__int64)v55[1];
+        v15[2] = v17;
+        v15[1].HighPart = v52;
+        v15[1].LowPart = v53;
+        v15[3].LowPart = v54[2] / (__int64)SystemInformation[1];
+        v15[3].HighPart = v54[3] / (__int64)SystemInformation[1];
         v18 = NtCurrentPeb();
-        *(_BYTE *)(v14 + 108) = v18->OSMajorVersion;
-        *(_BYTE *)(v14 + 109) = v18->OSMinorVersion;
+        BYTE4(Buffer[13].QuadPart) = v18->OSMajorVersion;
+        BYTE5(Buffer[13].QuadPart) = v18->OSMinorVersion;
         if ( (*(_DWORD *)(a1 + 324) & 0x4000000) != 0
           || *(_DWORD *)(a1 + 208) > 0x100000u
           || *(_DWORD *)(a1 + 204) > 0x100u )
@@ -230,97 +230,103 @@ LABEL_39:
           v19 = 5;
           v20 = 1;
         }
-        *(_BYTE *)(v14 + 110) = v20;
-        *(_BYTE *)(v14 + 111) = v19;
-        *(_DWORD *)(v14 + 112) = v18->OSBuildNumber;
-        *(_DWORD *)(v14 + 376) = *(_DWORD *)(a1 + 16);
-        *(_DWORD *)(v14 + 116) = *(_DWORD *)(a1 + 204);
-        *(_DWORD *)(v14 + 148) = 8;
-        *(_DWORD *)(v14 + 144) = 1;
-        *(_DWORD *)(v14 + 104) = v10;
-        *(_DWORD *)(v14 + 140) = 1;
-        *(_DWORD *)(v14 + 132) = *(_DWORD *)(a1 + 320);
-        *(_DWORD *)(v14 + 136) = *(_DWORD *)(a1 + 324);
-        *(_DWORD *)(v14 + 128) = v55[1];
-        *(_QWORD *)(v14 + 352) = v58[0] - v58[4];
+        BYTE6(Buffer[13].QuadPart) = v20;
+        HIBYTE(Buffer[13].QuadPart) = v19;
+        Buffer[14].LowPart = v18->OSBuildNumber;
+        Buffer[47].LowPart = *(_DWORD *)(a1 + 16);
+        Buffer[14].HighPart = *(_DWORD *)(a1 + 204);
+        Buffer[18].HighPart = 8;
+        Buffer[18].LowPart = 1;
+        Buffer[13].LowPart = Length;
+        Buffer[17].HighPart = 1;
+        Buffer[16].HighPart = *(_DWORD *)(a1 + 320);
+        Buffer[17].LowPart = *(_DWORD *)(a1 + 324);
+        Buffer[16].LowPart = SystemInformation[1];
+        Buffer[44].QuadPart = v58[0] - v58[4];
         v21 = v41;
-        *(_QWORD *)(v14 + 160) = 0LL;
-        *(_QWORD *)(v14 + 168) = 0LL;
-        *(_DWORD *)(v14 + 156) = v21;
-        memmove((void *)(v14 + 384), *(const void **)(a1 + 160), *(unsigned __int16 *)(a1 + 152) + 2LL);
+        Buffer[20].QuadPart = 0LL;
+        Buffer[21].QuadPart = 0LL;
+        Buffer[19].HighPart = v21;
+        memmove(&Buffer[48], *(const void **)(a1 + 160), *(unsigned __int16 *)(a1 + 152) + 2LL);
         memmove(
-          (void *)(v14 + *(unsigned __int16 *)(a1 + 152) + 386LL),
+          (char *)&Buffer[48] + *(unsigned __int16 *)(a1 + 152) + 2,
           *(const void **)(a1 + 176),
           *(unsigned __int16 *)(a1 + 168) + 2LL);
-        sub_180009C0C((void *)(v14 + 176));
-        *(_QWORD *)(v14 + 360) = MEMORY[0x7FFE0300];
-        *(_QWORD *)(v14 + 368) = *(_QWORD *)a1;
-        *((_QWORD *)v15 + 2) = *(_QWORD *)(a1 + 8);
-        v22 = *(unsigned int *)(v14 + 48);
-        if ( (unsigned int)(v22 + 80) <= *(_DWORD *)v14 )
+        sub_180009C0C(&Buffer[22]);
+        Buffer[45].QuadPart = MEMORY[0x7FFE0300];
+        Buffer[46] = *(LARGE_INTEGER *)a1;
+        v15[2] = *(LARGE_INTEGER *)(a1 + 8);
+        v22 = Buffer[6].LowPart;
+        if ( (unsigned int)(v22 + 80) <= Buffer->LowPart )
         {
-          v23 = v14 + v22;
-          *(_DWORD *)(v23 + 4) = 5242960;
-          *(_DWORD *)v23 = -1073610750;
-          *(_DWORD *)(v23 + 8) = v53;
-          *(_DWORD *)(v23 + 12) = v52;
-          *(_DWORD *)(v23 + 24) = v54[2] / (__int64)v55[1];
-          *(_DWORD *)(v23 + 28) = v54[3] / (__int64)v55[1];
+          v23 = (LARGE_INTEGER *)((char *)Buffer + v22);
+          v23->HighPart = 5242960;
+          v23->LowPart = -1073610750;
+          v23[1].LowPart = v53;
+          v23[1].HighPart = v52;
+          v23[3].LowPart = v54[2] / (__int64)SystemInformation[1];
+          v23[3].HighPart = v54[3] / (__int64)SystemInformation[1];
           if ( *(_DWORD *)(a1 + 16) == 2 )
           {
-            v24 = (PCWSTR)MEMORY[0x7FFE0014];
+            v24.QuadPart = MEMORY[0x7FFE0014];
           }
           else if ( *(_DWORD *)(a1 + 16) == 3 )
           {
-            v24 = (PCWSTR)__rdtsc();
+            v24.QuadPart = __rdtsc();
           }
           else
           {
-            SourceString = 0LL;
-            RtlQueryPerformanceCounter(&SourceString);
-            v24 = SourceString;
+            v43.QuadPart = 0LL;
+            RtlQueryPerformanceCounter(&v43);
+            v24 = v43;
           }
-          *(_QWORD *)(v23 + 16) = v24;
-          *(_DWORD *)(v23 + 32) = 0;
-          v25 = sub_1800096C4(v23 + 48, v23 + 36, v23 + 40, v23 + 64);
+          v23[2] = v24;
+          v23[4].LowPart = 0;
+          v25 = sub_1800096C4(&v23[6], (char *)&v23[4].QuadPart + 4, &v23[5], &v23[8]);
           v16 = (char *)Src;
           if ( !v25 )
-            *(_DWORD *)(v14 + 48) += 80;
+            Buffer[6].LowPart += 80;
         }
       }
-      v26 = v42;
+      v26 = FileHandle;
       if ( (*(_DWORD *)(a1 + 324) & 0x4000000) != 0 )
       {
-        *(_DWORD *)(v14 + 44) = 3;
-        if ( (int)ZwQueryVolumeInformationFile(v26, v49, v56, 24LL, 3) >= 0 )
+        Buffer[5].HighPart = 3;
+        if ( ZwQueryVolumeInformationFile(v26, &IoStatusBlock, FsInformation, 0x18u, FileFsSizeInformation) >= 0 )
         {
-          v35 = *(_DWORD *)(v14 + 48) + 80;
+          v35 = Buffer[6].LowPart + 80;
           if ( !v16 )
-            v35 = *(_DWORD *)(v14 + 48);
-          LODWORD(v10) = ~(v57 - 1) & (v35 + v57 - 1);
-          *(_DWORD *)v14 = v10;
+            v35 = Buffer[6].LowPart;
+          LODWORD(Length) = ~(v57 - 1) & (v35 + v57 - 1);
+          Buffer->LowPart = Length;
         }
       }
-      *(_DWORD *)(v14 + 4) = *(_DWORD *)(v14 + 48);
-      sub_180009274(a1, v14, (unsigned int)v10);
-      v27 = *(unsigned int *)(v14 + 48);
-      if ( (unsigned int)v27 < (unsigned int)v10 && (unsigned int)v27 > 0x48 )
-        memset((void *)(v14 + v27), 255, (unsigned int)(v10 - v27));
-      SystemInformation = ZwWriteFile(v26, 0LL, 0LL, 0LL, v49, v14, v10, 0LL, 0LL);
-      if ( SystemInformation >= 0 )
+      Buffer->HighPart = Buffer[6].LowPart;
+      sub_180009274(a1, Buffer, (unsigned int)Length);
+      v27 = Buffer[6].LowPart;
+      if ( (unsigned int)v27 < (unsigned int)Length && (unsigned int)v27 > 0x48 )
+        memset((char *)Buffer + v27, 255, (unsigned int)(Length - v27));
+      InformationThread = ZwWriteFile(v26, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, 0LL, 0LL);
+      if ( InformationThread >= 0 )
       {
         v28 = *(unsigned int *)(a1 + 320);
         if ( !(_DWORD)v28
           || (*(_DWORD *)(a1 + 324) & 0x20) == 0
-          || (v50 = v28 * ((-(__int64)((*(_DWORD *)(a1 + 324) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000),
-              SystemInformation = ZwSetInformationFile(v26, v49, &v50, 8LL, 20),
-              SystemInformation >= 0) )
+          || (FileInformation = v28
+                              * ((-(__int64)((*(_DWORD *)(a1 + 324) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000),
+              InformationThread = ZwSetInformationFile(
+                                    v26,
+                                    &IoStatusBlock,
+                                    &FileInformation,
+                                    8u,
+                                    FileEndOfFileInformation),
+              InformationThread >= 0) )
         {
           *(_QWORD *)(a1 + 144) = v26;
           *(_DWORD *)(a1 + 392) = 1;
           *(_DWORD *)(a1 + 336) = 1;
-          *(_QWORD *)(a1 + 360) = (unsigned int)v10;
-          *(_QWORD *)(a1 + 352) = (unsigned int)v10;
+          *(_QWORD *)(a1 + 360) = (unsigned int)Length;
+          *(_QWORD *)(a1 + 352) = (unsigned int)Length;
           if ( (*(_DWORD *)(a1 + 324) & 0x4000000) != 0 )
           {
             *(_QWORD *)(a1 + 456) = 0LL;
@@ -334,22 +340,27 @@ LABEL_39:
       ZwClose(v26);
     goto LABEL_39;
   }
-  SystemInformation = ZwQuerySystemInformation(0LL, v55, 64LL);
-  if ( SystemInformation >= 0 )
+  InformationThread = ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
+  if ( InformationThread >= 0 )
   {
-    SystemInformation = ZwQueryInformationThread(-2LL, 0LL, v51, 48LL, 0LL);
-    if ( SystemInformation >= 0 )
+    InformationThread = ZwQueryInformationThread(
+                          (HANDLE)0xFFFFFFFFFFFFFFFELL,
+                          ThreadBasicInformation,
+                          ThreadInformation,
+                          0x30u,
+                          0LL);
+    if ( InformationThread >= 0 )
     {
-      SystemInformation = ZwQueryInformationThread(-2LL, 1LL, v54, 32LL, 0LL);
-      if ( SystemInformation >= 0 )
+      InformationThread = ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadTimes, v54, 0x20u, 0LL);
+      if ( InformationThread >= 0 )
       {
-        SystemInformation = ZwQuerySystemInformation(3LL, v58, 48LL);
-        if ( SystemInformation >= 0 )
+        InformationThread = ZwQuerySystemInformation(SystemTimeOfDayInformation, v58, 0x30u, 0LL);
+        if ( InformationThread >= 0 )
         {
-          SystemInformation = EtwpGetCpuSpeed_0(&v41);
-          if ( SystemInformation >= 0 )
+          InformationThread = EtwpGetCpuSpeed_0(&v41);
+          if ( InformationThread >= 0 )
           {
-            v9 = SourceString;
+            QuadPart = (const WCHAR *)v43.QuadPart;
             v12 = *(unsigned __int16 *)(a1 + 168) + *(unsigned __int16 *)(a1 + 152) + 388;
             goto LABEL_10;
           }
@@ -357,5 +368,5 @@ LABEL_39:
       }
     }
   }
-  return (unsigned int)SystemInformation;
+  return (unsigned int)InformationThread;
 }

@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlpFindDynamicEHContinuationTarget @ 0x140A2FEA4
+ * XREFs of RtlpFindDynamicEHContinuationTarget @ 0x140A248E4
  * Callers:
- *     RtlVerifyUserUnwindTarget @ 0x140A12F3C (RtlVerifyUserUnwindTarget.c)
+ *     RtlVerifyUserUnwindTarget @ 0x140A0B69C (RtlVerifyUserUnwindTarget.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     RtlpDynamicEHContinuationTargetsTreeCompare @ 0x140A2FF90 (RtlpDynamicEHContinuationTargetsTreeCompare.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlpDynamicEHContinuationTargetsTreeCompare @ 0x140A249D0 (RtlpDynamicEHContinuationTargetsTreeCompare.c)
  */
 
 bool __fastcall RtlpFindDynamicEHContinuationTarget(__int64 a1)
 {
   _KPROCESS *Process; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v4; // rbx
+  char *v4; // rbx
   _QWORD *v5; // rbx
   int v6; // eax
 
   Process = KeGetCurrentThread()->ApcState.Process;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v4 = KeAbPreAcquire((__int64)&Process[4].ReadyListHead, 0LL);
+  v4 = (char *)KeAbPreAcquire((__int64)&Process[4].ReadyListHead, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Process[4].ReadyListHead, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&Process[4].ReadyListHead, 0, v4, (__int64)&Process[4].ReadyListHead);
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   v5 = *(_QWORD **)&Process[4].AutoBoostState.TreeCount;
   while ( v5 )
   {

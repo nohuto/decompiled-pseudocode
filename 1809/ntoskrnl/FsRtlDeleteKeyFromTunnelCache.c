@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x1406B9430
+ * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x1406BA6D0
  * Callers:
  *     <none>
  * Callees:
@@ -7,12 +7,12 @@
  *     FsRtlEmptyFreePoolList @ 0x1400147C8 (FsRtlEmptyFreePoolList.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlRealSuccessor @ 0x14012EF60 (RtlRealSuccessor.c)
+ *     RtlRealSuccessor @ 0x14012F030 (RtlRealSuccessor.c)
  */
 
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
 {
-  struct _RTL_SPLAY_LINKS *v2; // rbx
+  _RTL_SPLAY_LINKS *v2; // rbx
   PRTL_SPLAY_LINKS v5; // rax
   ULONGLONG Parent; // rcx
   PRTL_SPLAY_LINKS v7; // rbp

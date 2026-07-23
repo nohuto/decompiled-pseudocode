@@ -1,13 +1,13 @@
 /*
- * XREFs of IovUtilIsDeviceObjectMarked @ 0x140B92B44
+ * XREFs of IovUtilIsDeviceObjectMarked @ 0x140B94B44
  * Callers:
- *     IovpCallDriver1 @ 0x140B8CCB4 (IovpCallDriver1.c)
- *     IovpCallDriver2 @ 0x140B8D280 (IovpCallDriver2.c)
- *     VfIoDeleteDevice @ 0x140B9222C (VfIoDeleteDevice.c)
- *     VfIrpLogRecordEvent @ 0x140B9B684 (VfIrpLogRecordEvent.c)
- *     VfPnpVerifyIrpStackDownward @ 0x140BA5760 (VfPnpVerifyIrpStackDownward.c)
- *     VfPnpVerifyIrpStackUpward @ 0x140BA58F0 (VfPnpVerifyIrpStackUpward.c)
- *     ViPnpVerifyMinorWasProcessedProperly @ 0x140BA5BD0 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     IovpCallDriver1 @ 0x140B8ECB4 (IovpCallDriver1.c)
+ *     IovpCallDriver2 @ 0x140B8F280 (IovpCallDriver2.c)
+ *     VfIoDeleteDevice @ 0x140B9422C (VfIoDeleteDevice.c)
+ *     VfIrpLogRecordEvent @ 0x140B9D684 (VfIrpLogRecordEvent.c)
+ *     VfPnpVerifyIrpStackDownward @ 0x140BA7760 (VfPnpVerifyIrpStackDownward.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x140BA78F0 (VfPnpVerifyIrpStackUpward.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x140BA7BD0 (ViPnpVerifyMinorWasProcessedProperly.c)
  * Callees:
  *     <none>
  */

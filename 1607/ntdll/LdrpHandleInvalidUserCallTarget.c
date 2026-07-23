@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpHandleInvalidUserCallTarget @ 0x180096760
+ * XREFs of LdrpHandleInvalidUserCallTarget @ 0x180096750
  * Callers:
- *     LdrpValidateUserCallTarget @ 0x180096800 (LdrpValidateUserCallTarget.c)
- *     LdrpDispatchUserCallTarget @ 0x180096850 (LdrpDispatchUserCallTarget.c)
+ *     LdrpValidateUserCallTarget @ 0x1800967F0 (LdrpValidateUserCallTarget.c)
+ *     LdrpDispatchUserCallTarget @ 0x180096840 (LdrpDispatchUserCallTarget.c)
  * Callees:
  *     RtlpHandleInvalidUserCallTarget @ 0x1800EFC70 (RtlpHandleInvalidUserCallTarget.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTracePowerLimitExtensionValueUpdate @ 0x1407D41E4
+ * XREFs of PopDiagTracePowerLimitExtensionValueUpdate @ 0x1407D7364
  * Callers:
- *     PopEvaluatePowerLimitChange @ 0x1407CAB64 (PopEvaluatePowerLimitChange.c)
+ *     PopEvaluatePowerLimitChange @ 0x1407CDC04 (PopEvaluatePowerLimitChange.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerLimitExtensionValueUpdate(__int64 a1)
@@ -25,11 +25,9 @@ void __fastcall PopDiagTracePowerLimitExtensionValueUpdate(__int64 a1)
   int v12; // [rsp+60h] [rbp-10h]
   int v13; // [rsp+64h] [rbp-Ch]
 
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_POWER_LIMIT_EXTENSION_UPDATE) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_LIMIT_EXTENSION_UPDATE) )
     {
       v2 = (unsigned int *)(a1 + 72);
       v3 = 16 * *(_DWORD *)(a1 + 72);
@@ -54,12 +52,7 @@ void __fastcall PopDiagTracePowerLimitExtensionValueUpdate(__int64 a1)
           v11 = Pool2;
           v12 = v3;
           v13 = 0;
-          EtwWrite(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            &POP_ETW_EVENT_POWER_LIMIT_EXTENSION_UPDATE,
-            0LL,
-            3u,
-            &UserData);
+          EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_LIMIT_EXTENSION_UPDATE, 0LL, 3u, &UserData);
           ExFreePoolWithTag(Pool2, 0x67696450u);
         }
       }

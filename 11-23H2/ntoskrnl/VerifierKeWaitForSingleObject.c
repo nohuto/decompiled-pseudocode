@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeWaitForSingleObject @ 0x140AC0540
+ * XREFs of VerifierKeWaitForSingleObject @ 0x140AC0530
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViKeInjectStatusAlerted @ 0x140AC0618 (ViKeInjectStatusAlerted.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViKeInjectStatusAlerted @ 0x140AC0608 (ViKeInjectStatusAlerted.c)
  */
 
 __int64 __fastcall VerifierKeWaitForSingleObject(__int64 a1, unsigned int a2, char a3, char a4, __int64 a5)

@@ -1,9 +1,9 @@
 /*
- * XREFs of NormalizationListEntry_Alloc @ 0x14059431C
+ * XREFs of NormalizationListEntry_Alloc @ 0x14059454C
  * Callers:
- *     RtlpGetNormalization @ 0x14091B820 (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x14091B980 (RtlpGetNormalization.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID NormalizationListEntry_Alloc()

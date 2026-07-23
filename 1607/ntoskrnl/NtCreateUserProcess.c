@@ -1,66 +1,66 @@
 /*
- * XREFs of NtCreateUserProcess @ 0x14045AB40
+ * XREFs of NtCreateUserProcess @ 0x140459A10
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     FsRtlFreeExtraCreateParameterList @ 0x140414F98 (FsRtlFreeExtraCreateParameterList.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     PspDeleteCreateProcessContext @ 0x140458B9C (PspDeleteCreateProcessContext.c)
- *     PspMapThreadCreationFlags @ 0x14045902C (PspMapThreadCreationFlags.c)
- *     PspBuildCreateProcessContext @ 0x1404599E8 (PspBuildCreateProcessContext.c)
- *     IoCreateFileEx @ 0x14045B754 (IoCreateFileEx.c)
- *     PspUpdateCreateInfo @ 0x14045C5C8 (PspUpdateCreateInfo.c)
- *     PspCreateUserProcessEcp @ 0x14045C848 (PspCreateUserProcessEcp.c)
- *     SeQuerySigningPolicy @ 0x14045CA2C (SeQuerySigningPolicy.c)
- *     PspReferenceTokenForNewProcess @ 0x14045CF84 (PspReferenceTokenForNewProcess.c)
- *     PspCaptureCreateInfo @ 0x14045CFFC (PspCaptureCreateInfo.c)
- *     MmCreateSpecialImageSection @ 0x14045DF70 (MmCreateSpecialImageSection.c)
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
- *     PspInsertProcess @ 0x14045F5C0 (PspInsertProcess.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspCaptureProcessParameters @ 0x1404B14B0 (PspCaptureProcessParameters.c)
- *     PspCheckForInvalidAccessByProtection @ 0x1404BB248 (PspCheckForInvalidAccessByProtection.c)
- *     PsTerminateProcess @ 0x1404EC470 (PsTerminateProcess.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     PspAllocateThread @ 0x1405154A0 (PspAllocateThread.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
- *     PspCreateObjectHandle @ 0x140516ED4 (PspCreateObjectHandle.c)
- *     PspGetContextThreadInternal @ 0x140517A04 (PspGetContextThreadInternal.c)
- *     EtwTraceDeniedTokenCreation @ 0x1406A133C (EtwTraceDeniedTokenCreation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x140413E58 (FsRtlFreeExtraCreateParameterList.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     PspDeleteCreateProcessContext @ 0x140457A6C (PspDeleteCreateProcessContext.c)
+ *     PspMapThreadCreationFlags @ 0x140457EFC (PspMapThreadCreationFlags.c)
+ *     PspBuildCreateProcessContext @ 0x1404588B8 (PspBuildCreateProcessContext.c)
+ *     IoCreateFileEx @ 0x14045A624 (IoCreateFileEx.c)
+ *     PspUpdateCreateInfo @ 0x14045B498 (PspUpdateCreateInfo.c)
+ *     PspCreateUserProcessEcp @ 0x14045B718 (PspCreateUserProcessEcp.c)
+ *     SeQuerySigningPolicy @ 0x14045B8FC (SeQuerySigningPolicy.c)
+ *     PspReferenceTokenForNewProcess @ 0x14045BE54 (PspReferenceTokenForNewProcess.c)
+ *     PspCaptureCreateInfo @ 0x14045BECC (PspCaptureCreateInfo.c)
+ *     MmCreateSpecialImageSection @ 0x14045CE40 (MmCreateSpecialImageSection.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
+ *     PspInsertProcess @ 0x14045E490 (PspInsertProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PspCaptureProcessParameters @ 0x14049B890 (PspCaptureProcessParameters.c)
+ *     PspCheckForInvalidAccessByProtection @ 0x1404A6F78 (PspCheckForInvalidAccessByProtection.c)
+ *     PsTerminateProcess @ 0x1404CE4F8 (PsTerminateProcess.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     PspAllocateThread @ 0x1404F8890 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
+ *     PspCreateObjectHandle @ 0x1404FA2C4 (PspCreateObjectHandle.c)
+ *     PspGetContextThreadInternal @ 0x1404FADF4 (PspGetContextThreadInternal.c)
+ *     EtwTraceDeniedTokenCreation @ 0x1406A1474 (EtwTraceDeniedTokenCreation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateUserProcess(
-        unsigned __int64 a1,
-        __int64 a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        unsigned int a7,
-        int a8,
-        __int64 a9,
-        __int64 a10,
-        _QWORD *a11)
+NTSTATUS __cdecl NtCreateUserProcess(
+        PHANDLE ProcessHandle,
+        PHANDLE ThreadHandle,
+        ACCESS_MASK ProcessDesiredAccess,
+        ACCESS_MASK ThreadDesiredAccess,
+        POBJECT_ATTRIBUTES ProcessObjectAttributes,
+        POBJECT_ATTRIBUTES ThreadObjectAttributes,
+        ULONG ProcessFlags,
+        ULONG ThreadFlags,
+        PVOID ProcessParameters,
+        PPS_CREATE_INFO CreateInfo,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
   _BYTE *Process; // r13
   KPROCESSOR_MODE PreviousMode; // r15
-  unsigned int v14; // esi
+  ULONG v14; // esi
   __int64 v15; // rcx
   __int64 v16; // rcx
-  int v17; // eax
+  ULONG v17; // eax
   __int64 v18; // rcx
-  __int64 result; // rax
-  NTSTATUS Info; // edi
+  NTSTATUS result; // eax
+  int Info; // edi
   __int64 v21; // r8
   KPROCESSOR_MODE v22; // r14
   int v23; // r9d
@@ -96,19 +96,19 @@ __int64 __fastcall NtCreateUserProcess(
   _DWORD v53[3]; // [rsp+84h] [rbp-B54h] BYREF
   char v54[8]; // [rsp+90h] [rbp-B48h]
   int v55; // [rsp+98h] [rbp-B40h]
-  int v56; // [rsp+9Ch] [rbp-B3Ch]
+  ACCESS_MASK v56; // [rsp+9Ch] [rbp-B3Ch]
   struct _KTHREAD *CurrentThread; // [rsp+A0h] [rbp-B38h]
   PVOID v58; // [rsp+A8h] [rbp-B30h] BYREF
   int v59; // [rsp+B0h] [rbp-B28h] BYREF
   __int64 v60; // [rsp+B8h] [rbp-B20h]
   PVOID v61; // [rsp+C0h] [rbp-B18h] BYREF
-  __int64 v62; // [rsp+C8h] [rbp-B10h]
+  PPS_CREATE_INFO v62; // [rsp+C8h] [rbp-B10h]
   PVOID v63; // [rsp+D0h] [rbp-B08h] BYREF
   PVOID Object; // [rsp+D8h] [rbp-B00h] BYREF
   PVOID v65; // [rsp+E0h] [rbp-AF8h] BYREF
-  __int64 v66; // [rsp+E8h] [rbp-AF0h]
-  __int64 v67; // [rsp+F0h] [rbp-AE8h]
-  _QWORD *v68; // [rsp+F8h] [rbp-AE0h]
+  POBJECT_ATTRIBUTES v66; // [rsp+E8h] [rbp-AF0h]
+  POBJECT_ATTRIBUTES v67; // [rsp+F0h] [rbp-AE8h]
+  PHANDLE v68; // [rsp+F8h] [rbp-AE0h]
   _BYTE *v69; // [rsp+100h] [rbp-AD8h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+108h] [rbp-AD0h] BYREF
   _BYTE DriverContext[40]; // [rsp+138h] [rbp-AA0h] BYREF
@@ -117,7 +117,7 @@ __int64 __fastcall NtCreateUserProcess(
   _BYTE v74[64]; // [rsp+190h] [rbp-A48h] BYREF
   UNICODE_STRING v75[27]; // [rsp+1D0h] [rbp-A08h] BYREF
   struct _ACCESS_STATE AccessState; // [rsp+380h] [rbp-858h] BYREF
-  int v77; // [rsp+500h] [rbp-6D8h]
+  ULONG v77; // [rsp+500h] [rbp-6D8h]
   KPROCESSOR_MODE v78; // [rsp+504h] [rbp-6D4h]
   HANDLE v79; // [rsp+508h] [rbp-6D0h]
   struct _ACCESS_STATE v80; // [rsp+510h] [rbp-6C8h] BYREF
@@ -126,14 +126,14 @@ __int64 __fastcall NtCreateUserProcess(
   __int64 v83; // [rsp+6A0h] [rbp-538h] BYREF
   __int64 v84[154]; // [rsp+6C0h] [rbp-518h] BYREF
 
-  v55 = a4;
-  v56 = a3;
-  v60 = a2;
-  v68 = (_QWORD *)a1;
-  v66 = a5;
-  v67 = a6;
-  *(_QWORD *)v54 = a9;
-  v62 = a10;
+  v55 = ThreadDesiredAccess;
+  v56 = ProcessDesiredAccess;
+  v60 = (__int64)ThreadHandle;
+  v68 = ProcessHandle;
+  v66 = ProcessObjectAttributes;
+  v67 = ThreadObjectAttributes;
+  *(_QWORD *)v54 = ProcessParameters;
+  v62 = CreateInfo;
   *(_WORD *)DriverContext = 0;
   memset(&DriverContext[8], 0, 0x20uLL);
   memset(v74, 0, sizeof(v74));
@@ -144,17 +144,17 @@ __int64 __fastcall NtCreateUserProcess(
   v69 = Process;
   PreviousMode = CurrentThread->PreviousMode;
   v52[1] = PreviousMode;
-  v14 = a7;
-  if ( (a7 & 0xFFFF6838) != 0 || (a8 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  if ( (a7 & 0x8400) == 0x8400 )
-    return 3221225520LL;
+  v14 = ProcessFlags;
+  if ( (ProcessFlags & 0xFFFF6838) != 0 || (ThreadFlags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  if ( (ProcessFlags & 0x8400) == 0x8400 )
+    return -1073741776;
   v77 = 0;
   v78 = PreviousMode;
   if ( PreviousMode )
   {
-    v15 = a1;
-    if ( a1 >= 0x7FFFFFFF0000LL )
+    v15 = (__int64)ProcessHandle;
+    if ( (unsigned __int64)ProcessHandle >= 0x7FFFFFFF0000LL )
       v15 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v15 = *(_QWORD *)v15;
     v16 = v60;
@@ -162,22 +162,25 @@ __int64 __fastcall NtCreateUserProcess(
       v16 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v16 = *(_QWORD *)v16;
   }
-  if ( a5 )
+  if ( ProcessObjectAttributes )
   {
-    if ( PreviousMode && (a5 & 3) != 0 )
+    if ( PreviousMode && ((unsigned __int8)ProcessObjectAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     if ( PreviousMode )
-      v17 = *(_DWORD *)(a5 + 24) & 0x1DF2;
+      v17 = ProcessObjectAttributes->Attributes & 0x1DF2;
     else
-      v17 = *(_DWORD *)(a5 + 24) & 0x11FF2;
+      v17 = ProcessObjectAttributes->Attributes & 0x11FF2;
     v77 = v17;
   }
   memset(v75, 0, 0x1A8uLL);
-  if ( !a11 || (result = PspBuildCreateProcessContext(a11, PreviousMode, 0LL, (__int64)v75), (int)result >= 0) )
+  if ( !AttributeList
+    || (result = PspBuildCreateProcessContext((__int64 *)AttributeList, PreviousMode, 0LL, (__int64)v75), result >= 0) )
   {
-    if ( (a7 & 0x40) != 0 && (*(_DWORD *)(&v75[0].MaximumLength + 1) & 0x20000) != 0 && !LOBYTE(v75[22].Buffer) )
+    if ( (ProcessFlags & 0x40) != 0
+      && (*(_DWORD *)(&v75[0].MaximumLength + 1) & 0x20000) != 0
+      && !LOBYTE(v75[22].Buffer) )
     {
-      v14 = a7 & 0xFFFFFFBF;
+      v14 = ProcessFlags & 0xFFFFFFBF;
       *(_DWORD *)(&v75[0].MaximumLength + 1) &= ~0x20000u;
     }
     if ( (v14 & 4) != 0 )
@@ -199,7 +202,7 @@ LABEL_75:
       PspDeleteCreateProcessContext((__int64)v75);
       if ( *(_QWORD *)&DriverContext[8] )
         FsRtlFreeExtraCreateParameterList(*(PECP_LIST *)&DriverContext[8]);
-      return (unsigned int)Info;
+      return Info;
     }
     v22 = 1;
     if ( (*(_BYTE *)(&v75[0].MaximumLength + 1) & 1) != 0 )
@@ -352,7 +355,7 @@ LABEL_49:
           v32 = PspAllocateProcess(
                   (_DWORD)Process,
                   v29,
-                  v66,
+                  (_DWORD)v66,
                   v30,
                   v51,
                   v52[0],
@@ -399,7 +402,7 @@ LABEL_49:
             v31[1] = LODWORD(v75[3].Buffer);
           }
           *(_DWORD *)v54 = 0;
-          PspMapThreadCreationFlags(a8, v53);
+          PspMapThreadCreationFlags(ThreadFlags, v53);
           if ( v59 )
           {
             *(_DWORD *)v54 = 2;

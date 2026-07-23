@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCadHpmiPnpNotification @ 0x14099CB40
+ * XREFs of PopCadHpmiPnpNotification @ 0x14099CD40
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 __int64 __fastcall PopCadHpmiPnpNotification(char *NotificationStructure, PVOID Context)

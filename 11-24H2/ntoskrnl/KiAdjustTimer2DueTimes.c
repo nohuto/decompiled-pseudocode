@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAdjustTimer2DueTimes @ 0x1404551A0
+ * XREFs of KiAdjustTimer2DueTimes @ 0x140449E60
  * Callers:
- *     KiAdjustTimerDueTimes @ 0x1404017B8 (KiAdjustTimerDueTimes.c)
+ *     KiAdjustTimerDueTimes @ 0x1404E0430 (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KiSendClockInterruptToTargetProcessor @ 0x1402A0034 (KiSendClockInterruptToTargetProcessor.c)
- *     KiInsertTimer2 @ 0x1403C08C4 (KiInsertTimer2.c)
- *     KiRemoveTimer2 @ 0x1403C1900 (KiRemoveTimer2.c)
- *     KiRequestTimer2Expiration @ 0x14041B550 (KiRequestTimer2Expiration.c)
- *     KiShouldActivateHRTimerClock @ 0x1404553DC (KiShouldActivateHRTimerClock.c)
- *     RtlULongLongSub @ 0x140476D94 (RtlULongLongSub.c)
+ *     KiSendClockInterruptToTargetProcessor @ 0x1403179A4 (KiSendClockInterruptToTargetProcessor.c)
+ *     KiInsertTimer2 @ 0x1403AF484 (KiInsertTimer2.c)
+ *     KiRemoveTimer2 @ 0x1403B04C0 (KiRemoveTimer2.c)
+ *     KiRequestTimer2Expiration @ 0x14040F090 (KiRequestTimer2Expiration.c)
+ *     KiShouldActivateHRTimerClock @ 0x14044A09C (KiShouldActivateHRTimerClock.c)
+ *     RtlULongLongSub @ 0x140473334 (RtlULongLongSub.c)
  */
 
 __int64 __fastcall KiAdjustTimer2DueTimes(__int64 a1)
@@ -137,7 +137,7 @@ LABEL_31:
     ++v1;
     v4 += 24LL;
   }
-  while ( v4 < (__int64)&KiHrTimerActiveCount );
+  while ( v4 < (__int64)&KiNextTimer2DueTime );
   v21 = 0;
   if ( v3 != v28 )
   {
@@ -153,9 +153,9 @@ LABEL_31:
     if ( v21 )
       KiRequestTimer2Expiration();
   }
-  v23 = qword_140F22080;
-  if ( qword_140F22080 >= (unsigned __int64)qword_140F22068 )
-    v23 = qword_140F22068;
+  v23 = qword_140F22220;
+  if ( qword_140F22220 >= (unsigned __int64)qword_140F22208 )
+    v23 = qword_140F22208;
   result = KiShouldActivateHRTimerClock(MEMORY[0xFFFFF78000000008], v23);
   if ( (_BYTE)result )
     return KiSendClockInterruptToTargetProcessor(KiClockTimerOwner);

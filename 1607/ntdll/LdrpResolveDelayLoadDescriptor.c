@@ -1,37 +1,35 @@
 /*
- * XREFs of LdrpResolveDelayLoadDescriptor @ 0x180031788
+ * XREFs of LdrpResolveDelayLoadDescriptor @ 0x180031778
  * Callers:
- *     LdrpSnapKernelBaseExtensions @ 0x1800155AC (LdrpSnapKernelBaseExtensions.c)
- *     LdrResolveDelayLoadsFromDll @ 0x1800D0EB0 (LdrResolveDelayLoadsFromDll.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18001559C (LdrpSnapKernelBaseExtensions.c)
+ *     LdrResolveDelayLoadsFromDll @ 0x1800D0F70 (LdrResolveDelayLoadsFromDll.c)
  * Callees:
- *     LdrResolveDelayLoadedAPI @ 0x1800319E0 (LdrResolveDelayLoadedAPI.c)
+ *     LdrResolveDelayLoadedAPI @ 0x1800319D0 (LdrResolveDelayLoadedAPI.c)
  */
 
-__int64 __fastcall LdrpResolveDelayLoadDescriptor(__int64 a1, __int64 a2)
+__int64 __fastcall LdrpResolveDelayLoadDescriptor(
+        char *ParentModuleBase,
+        PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor)
 {
   unsigned int v2; // edi
-  _QWORD *v3; // rbx
+  char *v3; // rbx
   __int64 v4; // r14
-  int v5; // esi
-  int v6; // ebp
-  _QWORD *v7; // rax
+  IMAGE_THUNK_DATA64 *ThunkAddress; // rax
 
   v2 = 0;
-  v3 = (_QWORD *)(a1 + *(unsigned int *)(a2 + 12));
+  v3 = &ParentModuleBase[DelayloadDescriptor->ImportAddressTableRVA];
   LODWORD(v4) = 0;
-  v5 = a2;
-  v6 = a1;
-  if ( *v3 )
+  if ( *(_QWORD *)v3 )
   {
-    v7 = (_QWORD *)(a1 + *(unsigned int *)(a2 + 12));
+    ThunkAddress = (IMAGE_THUNK_DATA64 *)&ParentModuleBase[DelayloadDescriptor->ImportAddressTableRVA];
     do
     {
-      if ( !LdrResolveDelayLoadedAPI(v6, v5, 0, 0, (__int64)v7, 0) )
+      if ( !LdrResolveDelayLoadedAPI(ParentModuleBase, DelayloadDescriptor, 0LL, 0LL, ThunkAddress, 0) )
         v2 = -1073740782;
       v4 = (unsigned int)(v4 + 1);
-      v7 = &v3[v4];
+      ThunkAddress = (IMAGE_THUNK_DATA64 *)&v3[8 * v4];
     }
-    while ( *v7 );
+    while ( ThunkAddress->u1.ForwarderString );
   }
   return v2;
 }

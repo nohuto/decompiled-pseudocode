@@ -1,27 +1,27 @@
 /*
- * XREFs of IopDeleteFileObjectExtension @ 0x1403C3010
+ * XREFs of IopDeleteFileObjectExtension @ 0x1403B1BD0
  * Callers:
- *     IopDeleteFile @ 0x140841DB0 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x14083E070 (IopDeleteFile.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     KeAreAllApcsDisabled @ 0x1403C3440 (KeAreAllApcsDisabled.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403C3480 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     PsReleaseSiloHardReference @ 0x1403C4750 (PsReleaseSiloHardReference.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     IopCleanupNotifications @ 0x1404A60A8 (IopCleanupNotifications.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1408A2A00 (FsRtlFreeExtraCreateParameter.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1409D2920 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpDeregisterObject @ 0x1409D2A68 (ObpDeregisterObject.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140A67818 (PspAdjustKeepAliveCountProcess.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KeAreAllApcsDisabled @ 0x1403B2000 (KeAreAllApcsDisabled.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403B2040 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     PsReleaseSiloHardReference @ 0x1403B3310 (PsReleaseSiloHardReference.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     IopCleanupNotifications @ 0x1404A0DB4 (IopCleanupNotifications.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x1408AB0A0 (FsRtlFreeExtraCreateParameter.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1409C2750 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObpDeregisterObject @ 0x1409C2898 (ObpDeregisterObject.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140A60D10 (PspAdjustKeepAliveCountProcess.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDeleteFileObjectExtension(__int64 a1)
@@ -55,7 +55,7 @@ void __fastcall IopDeleteFileObjectExtension(__int64 a1)
   unsigned __int8 v28; // [rsp+60h] [rbp+8h]
 
   v1 = *(_QWORD *)(a1 + 208);
-  if ( !v1 || (__int64 *)v1 == qword_140014770 )
+  if ( !v1 || (__int64 *)v1 == &qword_1400145A0 )
     return;
   for ( i = 0LL; i < 10; ++i )
   {
@@ -164,13 +164,13 @@ LABEL_46:
       v21 = (_BYTE *)v6[3];
       v22 = v6;
       v6 = (_QWORD *)*v6;
-      v23 = KeAcquireSpinLockRaiseToDpc(&qword_140F8C930);
+      v23 = KeAcquireSpinLockRaiseToDpc(&qword_140F8CB50);
       v28 = v21[18];
       if ( v21[16] == 1 )
         v21[17] = 1;
       else
         ExFreePoolWithTag(v21, 0);
-      KeReleaseSpinLock(&qword_140F8C930, v23);
+      KeReleaseSpinLock(&qword_140F8CB50, v23);
       if ( *((_DWORD *)v22 + 4) )
       {
         PspAdjustKeepAliveCountProcess(v22[1], 0xFFFFFFFFLL, a1, v28);

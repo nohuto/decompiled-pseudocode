@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlFindClearBitsAndSet @ 0x1400D95E0
+ * XREFs of RtlFindClearBitsAndSet @ 0x1400D9660
  * Callers:
- *     BgpFwReserveAllocate @ 0x14016F664 (BgpFwReserveAllocate.c)
- *     MiGetUltraHugeAlreadyActive @ 0x1401855F4 (MiGetUltraHugeAlreadyActive.c)
- *     MiAssignSharedUserRanges @ 0x140187950 (MiAssignSharedUserRanges.c)
- *     RtlApplyHotPatch @ 0x14057E148 (RtlApplyHotPatch.c)
- *     SepAddLuidToIndexEntry @ 0x14064EFAC (SepAddLuidToIndexEntry.c)
- *     MiObtainRelocationBits @ 0x14064FADC (MiObtainRelocationBits.c)
- *     SepGetLowBoxNumberEntry @ 0x14065C240 (SepGetLowBoxNumberEntry.c)
- *     MiReserveDriverPtes @ 0x1406838AC (MiReserveDriverPtes.c)
- *     MiSessionCreateInternal @ 0x140715C68 (MiSessionCreateInternal.c)
- *     PspStorageAllocSlot @ 0x140728938 (PspStorageAllocSlot.c)
- *     MiAllocatePartitionId @ 0x140851C98 (MiAllocatePartitionId.c)
- *     TtmiCreateTerminal @ 0x14087E80C (TtmiCreateTerminal.c)
- *     RtlHotPatchSynchronizationRequired @ 0x140899DEC (RtlHotPatchSynchronizationRequired.c)
- *     ViAllocateFromContiguousMemory @ 0x14092C6B0 (ViAllocateFromContiguousMemory.c)
- *     MiAssignSystemVa @ 0x1409D2CE0 (MiAssignSystemVa.c)
- *     MiAssignSessionRanges @ 0x1409D3794 (MiAssignSessionRanges.c)
+ *     BgpFwReserveAllocate @ 0x14016F764 (BgpFwReserveAllocate.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x140185734 (MiGetUltraHugeAlreadyActive.c)
+ *     MiAssignSharedUserRanges @ 0x140187A90 (MiAssignSharedUserRanges.c)
+ *     RtlApplyHotPatch @ 0x14057F148 (RtlApplyHotPatch.c)
+ *     SepAddLuidToIndexEntry @ 0x14065016C (SepAddLuidToIndexEntry.c)
+ *     MiObtainRelocationBits @ 0x140650C9C (MiObtainRelocationBits.c)
+ *     SepGetLowBoxNumberEntry @ 0x14065D400 (SepGetLowBoxNumberEntry.c)
+ *     MiReserveDriverPtes @ 0x140684A6C (MiReserveDriverPtes.c)
+ *     MiSessionCreateInternal @ 0x140716F08 (MiSessionCreateInternal.c)
+ *     PspStorageAllocSlot @ 0x140729B28 (PspStorageAllocSlot.c)
+ *     MiAllocatePartitionId @ 0x140852EF8 (MiAllocatePartitionId.c)
+ *     TtmiCreateTerminal @ 0x14087FA6C (TtmiCreateTerminal.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x14089B04C (RtlHotPatchSynchronizationRequired.c)
+ *     ViAllocateFromContiguousMemory @ 0x14092D6B0 (ViAllocateFromContiguousMemory.c)
+ *     MiAssignSystemVa @ 0x1409D3CE0 (MiAssignSystemVa.c)
+ *     MiAssignSessionRanges @ 0x1409D4794 (MiAssignSessionRanges.c)
  * Callees:
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
  */
 
 ULONG __stdcall RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
   unsigned int SizeOfBitMap; // r15d
   ULONG v4; // esi
-  struct _RTL_BITMAP *v6; // r13
+  _RTL_BITMAP *v6; // r13
   ULONG v7; // ebx
   unsigned int v8; // r9d
   unsigned int *Buffer; // r10

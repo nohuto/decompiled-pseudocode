@@ -25,28 +25,28 @@
  *     _NtdllpReallocateStringRoutine@8 @ 0x4B333B47 (_NtdllpReallocateStringRoutine@8.c)
  */
 
-int __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, int a3, int *a4)
+int __fastcall LdrpPreprocessDllName(PUNICODE_STRING OriginalName, PUNICODE_STRING SystemPath, int a3, int *a4)
 {
-  unsigned __int16 *v4; // ebx
+  PUNICODE_STRING v4; // ebx
   int *v6; // ecx
   char v7; // al
   int appended; // esi
   int v9; // eax
   bool v10; // al
-  int **v11; // ecx
-  int v12; // ebx
+  _UNICODE_STRING *v11; // ecx
+  NTSTATUS v12; // ebx
   bool v13; // zf
-  unsigned int v14; // edx
-  unsigned __int16 *v15; // eax
+  wchar_t *Buffer; // edx
+  wchar_t *v15; // eax
   int v16; // ecx
-  int v17; // eax
+  int Length; // eax
   unsigned int v18; // ecx
-  unsigned __int16 *v19; // eax
-  unsigned int v20; // edx
-  unsigned __int16 *v21; // eax
+  PUNICODE_STRING v19; // eax
+  wchar_t *v20; // edx
+  wchar_t *v21; // eax
   int v22; // ecx
-  unsigned int v23; // ecx
-  _WORD *i; // eax
+  wchar_t *v23; // ecx
+  wchar_t *i; // eax
   int v26; // eax
   const WCHAR *NtSystemRoot; // eax
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // eax
@@ -54,34 +54,36 @@ int __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2,
   const char *v30; // eax
   unsigned int v31; // esi
   struct _PEB *StringRoutine; // ecx
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-28h] BYREF
-  _DWORD v34[2]; // [esp+18h] [ebp-20h] BYREF
-  _WORD v35[4]; // [esp+20h] [ebp-18h] BYREF
-  struct _PEB *v36; // [esp+28h] [ebp-10h]
-  int v37; // [esp+2Ch] [ebp-Ch] BYREF
-  unsigned __int16 *v38; // [esp+30h] [ebp-8h]
-  bool v39; // [esp+34h] [ebp-4h]
-  char v40; // [esp+35h] [ebp-3h]
-  char v41; // [esp+36h] [ebp-2h] BYREF
-  char v42; // [esp+37h] [ebp-1h]
+  SIZE_T v33; // [esp-8h] [ebp-40h]
+  size_t v34; // [esp-4h] [ebp-3Ch]
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-28h] BYREF
+  _UNICODE_STRING DynamicString; // [esp+18h] [ebp-20h] BYREF
+  _WORD v37[4]; // [esp+20h] [ebp-18h] BYREF
+  struct _PEB *v38; // [esp+28h] [ebp-10h]
+  PVOID OldFsRedirectionLevel; // [esp+2Ch] [ebp-Ch] BYREF
+  PUNICODE_STRING v40; // [esp+30h] [ebp-8h]
+  bool v41; // [esp+34h] [ebp-4h]
+  char v42; // [esp+35h] [ebp-3h]
+  char v43; // [esp+36h] [ebp-2h] BYREF
+  char v44; // [esp+37h] [ebp-1h]
 
-  v4 = a1;
-  v38 = a1;
-  v39 = RtlWow64EnableFsRedirectionEx(0, &v37) >= 0;
+  v4 = OriginalName;
+  v40 = OriginalName;
+  v41 = RtlWow64EnableFsRedirectionEx(0, &OldFsRedirectionLevel) >= 0;
   v6 = a4;
   v7 = 0;
   appended = 0;
-  v42 = 0;
+  v44 = 0;
   if ( (*a4 & 0x800008) != 0 )
     goto LABEL_17;
-  v42 = 0;
-  v36 = NtCurrentPeb();
-  v40 = 1;
+  v44 = 0;
+  v38 = NtCurrentPeb();
+  v42 = 1;
   LdrpLogDllState(5328);
-  appended = ApiSetResolveToHost(a3 != 0 ? a3 + 44 : 0, &v41, v35);
-  if ( appended >= 0 && v41 )
+  appended = ApiSetResolveToHost(a3 != 0 ? a3 + 44 : 0, &v43, v37);
+  if ( appended >= 0 && v43 )
   {
-    if ( v35[0] )
+    if ( v37[0] )
       v9 = 5329;
     else
       v9 = 5330;
@@ -91,41 +93,50 @@ int __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2,
     v9 = 5331;
   }
   LdrpLogDllState(v9);
-  if ( !v41 )
+  if ( !v43 )
     goto LABEL_6;
-  if ( v35[0] )
+  if ( v37[0] )
   {
-    *a2 = 0;
-    NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot();
+    SystemPath->Length = 0;
+    NtSystemRoot = RtlGetNtSystemRoot();
     RtlInitUnicodeString(&DestinationString, NtSystemRoot);
-    LdrpAppendUnicodeStringToFilenameBuffer(a2, &DestinationString);
-    LdrpAppendUnicodeStringToFilenameBuffer(a2, &SlashSystem32SlashString);
-    appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, v35);
+    LdrpAppendUnicodeStringToFilenameBuffer(SystemPath, &DestinationString);
+    LdrpAppendUnicodeStringToFilenameBuffer(SystemPath, &SlashSystem32SlashString);
+    appended = LdrpAppendUnicodeStringToFilenameBuffer(SystemPath, v37);
     if ( appended >= 0 )
     {
-      ProcessParameters = v36->ProcessParameters;
+      ProcessParameters = v38->ProcessParameters;
       v10 = ProcessParameters && (ProcessParameters->Flags & 0x1000) != 0;
-      v11 = (int **)a2;
+      v11 = SystemPath;
       goto LABEL_7;
     }
 LABEL_6:
-    v10 = v40;
-    v11 = (int **)v4;
+    v10 = v42;
+    v11 = v4;
 LABEL_7:
     if ( appended < 0 )
       goto LABEL_80;
     if ( v10 && !LdrpIsSecureProcess )
     {
-      v12 = RtlDosApplyFileIsolationRedirection_Ustr(1, v11, (int)&LdrpDefaultExtension, 0, v34, 0, 0, 0, 0);
+      v12 = RtlDosApplyFileIsolationRedirection_Ustr(
+              1u,
+              v11,
+              (PUNICODE_STRING)&LdrpDefaultExtension,
+              0,
+              &DynamicString,
+              0,
+              0,
+              0,
+              0);
       if ( v12 >= 0 )
       {
-        v42 = 1;
-        LdrpGetFullPath(v34, a2);
-        LdrpFreeUnicodeString(v34);
+        v44 = 1;
+        LdrpGetFullPath(&DynamicString, SystemPath);
+        LdrpFreeUnicodeString(&DynamicString);
       }
       if ( v12 != -1072365560 )
         appended = v12;
-      v4 = v38;
+      v4 = v40;
     }
     goto LABEL_15;
   }
@@ -134,10 +145,10 @@ LABEL_15:
   if ( appended < 0 )
     goto LABEL_80;
   v6 = a4;
-  v7 = v42;
+  v7 = v44;
 LABEL_17:
-  v13 = *a2 == 0;
-  v38 = v4;
+  v13 = SystemPath->Length == 0;
+  v40 = v4;
   if ( !v13 )
   {
     if ( (ShowSnaps & 5) != 0 )
@@ -153,29 +164,29 @@ LABEL_17:
         2,
         "DLL %wZ was redirected to %wZ by %s\n",
         v4,
-        a2,
+        SystemPath,
         v30);
       v6 = a4;
     }
     v26 = *v6 | 0x200;
-    v13 = v42 == 0;
+    v13 = v44 == 0;
     *v6 = v26;
     if ( !v13 )
       *v6 = v26 | 4;
-    v19 = a2;
-    v38 = a2;
+    v19 = SystemPath;
+    v40 = SystemPath;
     goto LABEL_28;
   }
-  v14 = *((_DWORD *)v4 + 1);
-  v15 = (unsigned __int16 *)(v14 + *v4 - 2);
-  if ( (unsigned int)v15 >= v14 )
+  Buffer = v4->Buffer;
+  v15 = (wchar_t *)((char *)Buffer + v4->Length - 2);
+  if ( v15 >= Buffer )
   {
     while ( 1 )
     {
       v16 = *v15;
       if ( v16 == 92 || v16 == 47 )
         break;
-      if ( (unsigned int)--v15 < v14 )
+      if ( --v15 < Buffer )
       {
         v6 = a4;
         goto LABEL_23;
@@ -183,7 +194,7 @@ LABEL_17:
     }
     if ( RtlDetermineDosPathNameType_Ustr(v4) != 5 )
     {
-      FullPath = LdrpGetFullPath(v4, a2);
+      FullPath = LdrpGetFullPath(v4, SystemPath);
       v6 = a4;
       appended = FullPath;
       v19 = v4;
@@ -206,23 +217,24 @@ LABEL_80:
         __debugbreak();
       goto LABEL_41;
     }
-    appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, v4);
+    appended = LdrpAppendUnicodeStringToFilenameBuffer(SystemPath, v4);
     goto LABEL_26;
   }
 LABEL_23:
   *v6 |= 0x20u;
   appended = 0;
-  v17 = *v4;
-  if ( (_WORD)v17 )
+  Length = v4->Length;
+  if ( (_WORD)Length )
   {
-    v18 = *a2 + 2 + v17;
-    if ( v18 <= a2[1] )
+    v18 = SystemPath->Length + 2 + Length;
+    if ( v18 <= SystemPath->MaximumLength )
     {
 LABEL_25:
       appended = 0;
-      memcpy((void *)(*((_DWORD *)a2 + 1) + *a2), *((const void **)v4 + 1), *v4);
-      *a2 += *v4;
-      *(_WORD *)(*((_DWORD *)a2 + 1) + 2 * (*a2 >> 1)) = 0;
+      LODWORD(v34) = v4->Length;
+      memcpy((char *)SystemPath->Buffer + SystemPath->Length, v4->Buffer, v34);
+      SystemPath->Length += v4->Length;
+      SystemPath->Buffer[SystemPath->Length >> 1] = 0;
 LABEL_26:
       v6 = a4;
       goto LABEL_27;
@@ -235,26 +247,29 @@ LABEL_26:
     v31 = (v18 + 63) & 0xFFFFFFC0;
     if ( v31 > 0xFFFE )
       v31 = 65534;
-    if ( *((unsigned __int16 **)a2 + 1) == a2 + 4 )
+    if ( (PUNICODE_STRING)SystemPath->Buffer == &SystemPath[1] )
     {
       StringRoutine = (struct _PEB *)NtdllpAllocateStringRoutine(v31);
-      v36 = StringRoutine;
+      v38 = StringRoutine;
       if ( !StringRoutine )
         goto LABEL_77;
-      if ( *a2 )
+      if ( SystemPath->Length )
       {
-        memcpy(StringRoutine, *((const void **)a2 + 1), *a2);
-        StringRoutine = v36;
+        LODWORD(v34) = SystemPath->Length;
+        memcpy(StringRoutine, SystemPath->Buffer, v34);
+        StringRoutine = v38;
       }
     }
     else
     {
-      StringRoutine = (struct _PEB *)NtdllpReallocateStringRoutine(v31, *((_DWORD *)a2 + 1));
+      HIDWORD(v33) = SystemPath->Buffer;
+      LODWORD(v33) = v31;
+      StringRoutine = (struct _PEB *)NtdllpReallocateStringRoutine(v33);
     }
     if ( StringRoutine )
     {
-      *((_DWORD *)a2 + 1) = StringRoutine;
-      a2[1] = v31;
+      SystemPath->Buffer = (wchar_t *)&StringRoutine->InheritedAddressSpace;
+      SystemPath->MaximumLength = v31;
       goto LABEL_25;
     }
 LABEL_77:
@@ -268,15 +283,15 @@ LABEL_28:
     goto LABEL_80;
   if ( (*v6 & 0x200) != 0 )
   {
-    LdrStandardizeSystemPath(a2);
-    v19 = v38;
+    LdrStandardizeSystemPath(SystemPath);
+    v19 = v40;
   }
-  v20 = *((_DWORD *)v19 + 1);
-  v21 = (unsigned __int16 *)(v20 + *v19 - 2);
-  if ( (unsigned int)v21 < v20 )
+  v20 = v19->Buffer;
+  v21 = (wchar_t *)((char *)v20 + v19->Length - 2);
+  if ( v21 < v20 )
   {
 LABEL_36:
-    appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, &LdrpDefaultExtension);
+    appended = LdrpAppendUnicodeStringToFilenameBuffer(SystemPath, &LdrpDefaultExtension);
   }
   else
   {
@@ -285,12 +300,12 @@ LABEL_36:
       v22 = *v21;
       if ( v22 == 46 )
         break;
-      if ( v22 != 47 && v22 != 92 && (unsigned int)--v21 >= v20 )
+      if ( v22 != 47 && v22 != 92 && --v21 >= v20 )
         continue;
       goto LABEL_36;
     }
-    v23 = *((_DWORD *)a2 + 1);
-    for ( i = (_WORD *)(v23 + *a2 - 2); (unsigned int)i >= v23; *a2 -= 2 )
+    v23 = SystemPath->Buffer;
+    for ( i = (wchar_t *)((char *)v23 + SystemPath->Length - 2); i >= v23; SystemPath->Length -= 2 )
     {
       if ( *i != 46 )
         break;
@@ -301,7 +316,7 @@ LABEL_36:
   if ( appended < 0 )
     goto LABEL_80;
 LABEL_41:
-  if ( v39 )
-    RtlWow64EnableFsRedirectionEx(v37, &v37);
+  if ( v41 )
+    RtlWow64EnableFsRedirectionEx(OldFsRedirectionLevel, &OldFsRedirectionLevel);
   return appended;
 }

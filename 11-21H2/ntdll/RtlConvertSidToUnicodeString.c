@@ -41,7 +41,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   _BYTE v22[2]; // [rsp+22Ch] [rbp-3Ch] BYREF
   _BYTE v23[2]; // [rsp+22Eh] [rbp-3Ah] BYREF
 
-  if ( (unsigned __int8)RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
+  if ( RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
     return -1073741704;
   wcscpy_s(&Destination, 0x100uLL, L"S-1-");
   v6 = v20;
@@ -102,7 +102,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
 LABEL_13:
       if ( AllocateDestinationString )
       {
-        if ( (unsigned __int8)RtlCreateUnicodeString(UnicodeString, &Destination) )
+        if ( RtlCreateUnicodeString(UnicodeString, &Destination) )
           return 0;
         else
           return -1073741801;

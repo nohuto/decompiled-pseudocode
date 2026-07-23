@@ -1,12 +1,12 @@
 /*
- * XREFs of deflate_fast @ 0x180152E80
+ * XREFs of deflate_fast @ 0x180151240
  * Callers:
  *     <none>
  * Callees:
- *     fill_window @ 0x1801542F0 (fill_window.c)
- *     flush_pending @ 0x180154658 (flush_pending.c)
- *     longest_match @ 0x18015479C (longest_match.c)
- *     _tr_flush_block @ 0x180155AC0 (_tr_flush_block.c)
+ *     fill_window @ 0x1801526B0 (fill_window.c)
+ *     flush_pending @ 0x180152A18 (flush_pending.c)
+ *     longest_match @ 0x180152B5C (longest_match.c)
+ *     _tr_flush_block @ 0x180153E80 (_tr_flush_block.c)
  */
 
 __int64 __fastcall deflate_fast(__int64 *a1, int a2)
@@ -142,7 +142,7 @@ __int64 __fastcall deflate_fast(__int64 *a1, int a2)
       if ( v20 >= 0x100u )
       {
         v21 = (unsigned __int64)v20 >> 7;
-        v22 = (unsigned __int8 *)&unk_180199B60;
+        v22 = (unsigned __int8 *)&unk_180198C90;
       }
       else
       {

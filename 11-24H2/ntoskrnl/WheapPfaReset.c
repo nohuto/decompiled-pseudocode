@@ -1,22 +1,22 @@
 /*
- * XREFs of WheapPfaReset @ 0x1407C9404
+ * XREFs of WheapPfaReset @ 0x1407C98F4
  * Callers:
- *     WheaRegChangeNotifyCallback @ 0x1407C8A60 (WheaRegChangeNotifyCallback.c)
+ *     WheaRegChangeNotifyCallback @ 0x1407C8F50 (WheaRegChangeNotifyCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void WheapPfaReset()
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v1; // rax
+  char *v1; // rax
   signed __int8 v2; // cf
-  _QWORD *v3; // rdi
+  char *v3; // rdi
   PVOID *v4; // rdi
   PVOID *v5; // rax
   PVOID *v6; // rcx
@@ -24,13 +24,13 @@ void WheapPfaReset()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((__int64)&WheapPfaLock, 0LL);
+  v1 = (char *)KeAbPreAcquire((__int64)&WheapPfaLock, 0LL);
   v2 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&WheapPfaLock, (__int64)v1, (__int64)&WheapPfaLock);
+    ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v1, (__int64)&WheapPfaLock);
   if ( v3 )
-    *((_BYTE *)v3 + 10) = 1;
+    v3[10] = 1;
   v4 = (PVOID *)WheapPfaList;
   while ( v4 != &WheapPfaList )
   {

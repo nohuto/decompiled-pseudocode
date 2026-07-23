@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCalculateUserShadowStackSizes @ 0x1408A5F54
+ * XREFs of RtlCalculateUserShadowStackSizes @ 0x1408A61A4
  * Callers:
- *     PspSetupUserShadowStack @ 0x1409B1B0C (PspSetupUserShadowStack.c)
+ *     PspSetupUserShadowStack @ 0x1409B1D0C (PspSetupUserShadowStack.c)
  * Callees:
- *     RtlULongLongSub @ 0x140310CA8 (RtlULongLongSub.c)
+ *     RtlULongLongSub @ 0x140310F38 (RtlULongLongSub.c)
  */
 
 NTSTATUS __fastcall RtlCalculateUserShadowStackSizes(__int64 a1, ULONGLONG *a2)

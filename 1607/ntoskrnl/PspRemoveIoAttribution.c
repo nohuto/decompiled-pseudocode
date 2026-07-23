@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRemoveIoAttribution @ 0x1404F22AC
+ * XREFs of PspRemoveIoAttribution @ 0x1404D4A40
  * Callers:
- *     PspJobDelete @ 0x1400888BC (PspJobDelete.c)
- *     PspSetJobIoAttribution @ 0x1404F206C (PspSetJobIoAttribution.c)
+ *     PspJobDelete @ 0x14010CAAC (PspJobDelete.c)
+ *     PspSetJobIoAttribution @ 0x1404D4800 (PspSetJobIoAttribution.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14001F3AC (IoDiskIoAttributionDereference.c)
- *     IoStopDiskIoAttributionForContext @ 0x1400B71B8 (IoStopDiskIoAttributionForContext.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     IoDiskIoAttributionDereference @ 0x14001EF2C (IoDiskIoAttributionDereference.c)
+ *     IoStopDiskIoAttributionForContext @ 0x1400B4FE0 (IoStopDiskIoAttributionForContext.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140467544 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 __int64 __fastcall PspRemoveIoAttribution(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall PspRemoveIoAttribution(__int64 a1)
 
   if ( *(_DWORD *)(a1 + 1340) )
   {
-    IoStopDiskIoAttributionForContext(*(struct _EX_RUNDOWN_REF **)(a1 + 1344));
+    IoStopDiskIoAttributionForContext(*(PRTL_BALANCED_NODE *)(a1 + 1344));
     IoDiskIoAttributionDereference(*(_QWORD *)(a1 + 1344));
     *(_QWORD *)(a1 + 1344) = 0LL;
     v2 = a1;

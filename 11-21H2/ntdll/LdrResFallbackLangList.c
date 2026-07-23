@@ -22,7 +22,7 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, int a2, unsigned __int16 a
   __int64 v7; // rcx
   __int64 v8; // r14
   unsigned __int16 *v9; // rdi
-  __int64 v10; // r8
+  int v10; // r8d
   unsigned int v11; // r13d
   unsigned __int16 CurrentLocale; // bx
   int v13; // edx
@@ -32,31 +32,31 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, int a2, unsigned __int16 a
   int v17; // ecx
   int v18; // ecx
   int v19; // ecx
-  __int64 v20; // rcx
+  int v20; // ecx
   int v21; // ecx
   char v23; // al
   unsigned int v24; // r10d
   unsigned __int16 *MergedPrefLanguages; // rcx
   __int64 v26; // rdx
   unsigned int v27; // ecx
-  int v28; // eax
-  int v29; // eax
+  NTSTATUS v28; // eax
+  NTSTATUS v29; // eax
   __int64 v30; // rcx
   __int64 v31; // rcx
   _WORD v32[2]; // [rsp+38h] [rbp-51h] BYREF
   int v33; // [rsp+3Ch] [rbp-4Dh]
   unsigned int v34; // [rsp+40h] [rbp-49h]
   unsigned __int16 v35; // [rsp+44h] [rbp-45h] BYREF
-  int v36; // [rsp+48h] [rbp-41h] BYREF
-  int v37; // [rsp+4Ch] [rbp-3Dh] BYREF
-  int v38; // [rsp+50h] [rbp-39h] BYREF
+  DWORD v36; // [rsp+48h] [rbp-41h] BYREF
+  DWORD DefaultLocaleId; // [rsp+4Ch] [rbp-3Dh] BYREF
+  DWORD Lcid; // [rsp+50h] [rbp-39h] BYREF
   int v39; // [rsp+54h] [rbp-35h] BYREF
   PCWSTR SourceString; // [rsp+58h] [rbp-31h] BYREF
   int v41; // [rsp+60h] [rbp-29h] BYREF
   const wchar_t *v42; // [rsp+68h] [rbp-21h]
   int v43; // [rsp+70h] [rbp-19h] BYREF
   const wchar_t *v44; // [rsp+78h] [rbp-11h]
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-9h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+80h] [rbp-9h] BYREF
 
   v41 = 3801144;
   v42 = L"LdrResFallbackLangList Enter";
@@ -64,14 +64,14 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, int a2, unsigned __int16 a
   v44 = L"LdrResFallbackLangList Exit";
   v5 = 0;
   v6 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v7 = 2147353477LL;
   v8 = 2147353476LL;
   if ( (*(_BYTE *)v7 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v31 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v31 = 2147353476LL;
@@ -84,7 +84,7 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, int a2, unsigned __int16 a
     goto LABEL_15;
   }
   *a5 = 0;
-  LODWORD(v10) = 0;
+  v10 = 0;
   *((_BYTE *)v9 + 516) = 0;
   v11 = 0;
   v34 = 0;
@@ -96,8 +96,7 @@ LABEL_6:
   while ( 1 )
   {
     v14 = v10;
-    v15 = v10;
-    v10 = (unsigned int)(v10 + 1);
+    v15 = v10++;
     v33 = v10;
     if ( !v14 )
     {
@@ -119,17 +118,17 @@ LABEL_6:
         if ( (int)RtlpResUltimateFallbackInfo(a1, a2, (unsigned int)&SourceString, (unsigned int)&v39, v13) < 0 )
           goto LABEL_38;
         RtlInitUnicodeString(&DestinationString, SourceString);
-        if ( !RtlCultureNameToLCID(&DestinationString.Length, &v38) )
+        if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
         {
           v11 = -1073020923;
 LABEL_38:
-          LODWORD(v10) = v33;
+          v10 = v33;
 LABEL_39:
           CurrentLocale = -4370;
           goto LABEL_6;
         }
-        CurrentLocale = v38;
-        v32[0] = v38;
+        CurrentLocale = Lcid;
+        v32[0] = Lcid;
         if ( (a4 & 0x100000) != 0 )
         {
           GetLCIDFromLangListNodeWithLICCheck(v30, (__int64)NtCurrentTeb()->MergedPrefLanguages, 0, v32, (bool *)&a5);
@@ -138,15 +137,15 @@ LABEL_39:
           else
             CurrentLocale = v32[0];
         }
-        LODWORD(v10) = v33;
+        v10 = v33;
         v5 = (v39 & 1) != 0 ? 10 : 4;
         goto LABEL_26;
       }
       v19 = v18 - 1;
       if ( v19 )
       {
-        v20 = (unsigned int)(v19 - 1);
-        if ( (_DWORD)v20 )
+        v20 = v19 - 1;
+        if ( v20 )
         {
           v21 = v20 - 1;
           if ( v21 )
@@ -177,22 +176,21 @@ LABEL_31:
             goto LABEL_6;
           }
           CurrentLocale = -4370;
-          v28 = NtQueryDefaultLocale(0LL, &v37, v10);
-          LODWORD(v10) = v33;
+          v28 = NtQueryDefaultLocale(0, &DefaultLocaleId);
+          v10 = v33;
           v13 = a4;
           v11 = v28;
-          if ( v28 >= 0 && v37 != v36 )
+          if ( v28 >= 0 && DefaultLocaleId != v36 )
           {
-            CurrentLocale = v37;
+            CurrentLocale = DefaultLocaleId;
             goto LABEL_26;
           }
         }
         else
         {
-          LODWORD(v20) = 1;
           CurrentLocale = -4370;
-          v29 = NtQueryDefaultLocale(v20, &v36, v10);
-          LODWORD(v10) = v33;
+          v29 = NtQueryDefaultLocale(1u, &v36);
+          v10 = v33;
           v13 = a4;
           v11 = v29;
           if ( v29 >= 0 )
@@ -238,7 +236,7 @@ LABEL_31:
       }
       if ( !CurrentLocale )
       {
-        LODWORD(v10) = v33;
+        v10 = v33;
         CurrentLocale = -4370;
         goto LABEL_6;
       }
@@ -246,7 +244,7 @@ LABEL_31:
         CurrentLocale = -4370;
       v5 = 3;
       v34 = v24 + 1;
-      LODWORD(v10) = v15;
+      v10 = v15;
 LABEL_26:
       v13 = a4;
       if ( CurrentLocale != 0xEEEE )
@@ -260,10 +258,10 @@ LABEL_26:
       *((_BYTE *)v9 + 516) = 1;
       if ( (int)LdrpGetParentLangId(CurrentLocale, &v35) < 0 )
         goto LABEL_15;
-      LODWORD(v10) = v15;
+      v10 = v15;
       CurrentLocale = v35;
       if ( !v35 )
-        LODWORD(v10) = -1;
+        v10 = -1;
     }
     else
     {
@@ -274,11 +272,11 @@ LABEL_26:
   }
   *((_BYTE *)v9 + 516) = 1;
 LABEL_15:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 555;
   if ( (*(_BYTE *)v6 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 554;
     LdrpTraceLoadMUIDll(&v43, *(unsigned __int8 *)v8);
   }

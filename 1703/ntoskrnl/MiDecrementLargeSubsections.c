@@ -38,24 +38,23 @@ __int64 __fastcall MiDecrementLargeSubsections(volatile LONG **a1, volatile LONG
   __int64 v12; // rbx
   struct _KTHREAD *v13; // rbx
   unsigned __int8 v14; // r14
-  __int64 v15; // r8
-  __int64 v16; // rdx
-  int v17; // eax
-  __int64 v18; // rcx
-  _KLOCK_ENTRY *v19; // rdi
-  bool v20; // zf
-  __int64 v21; // rcx
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int16 v24; // ax
+  __int64 v15; // rdx
+  int v16; // eax
+  __int64 v17; // rcx
+  _KLOCK_ENTRY *v18; // rdi
+  bool v19; // zf
+  __int64 v20; // rcx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int16 v23; // ax
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-58h]
   struct _KTHREAD *CurrentThread; // [rsp+38h] [rbp-50h]
-  int v28; // [rsp+90h] [rbp+8h] BYREF
-  volatile LONG **v29; // [rsp+98h] [rbp+10h]
-  int v30; // [rsp+A0h] [rbp+18h]
-  volatile LONG *v31; // [rsp+A8h] [rbp+20h]
+  int v27; // [rsp+90h] [rbp+8h] BYREF
+  volatile LONG **v28; // [rsp+98h] [rbp+10h]
+  int v29; // [rsp+A0h] [rbp+18h]
+  volatile LONG *v30; // [rsp+A8h] [rbp+20h]
 
-  v29 = a2;
+  v28 = a2;
   v2 = *a1;
   v3 = a1;
   CurrentThread = KeGetCurrentThread();
@@ -64,9 +63,9 @@ __int64 __fastcall MiDecrementLargeSubsections(volatile LONG **a1, volatile LONG
   BugCheckParameter2 = v4 + 40;
   ExAcquirePushLockExclusiveEx(v4 + 40, 0LL);
   v5 = v2 + 18;
-  v31 = v2 + 18;
+  v30 = v2 + 18;
   v6 = ExAcquireSpinLockExclusive(v2 + 18);
-  v7 = v29;
+  v7 = v28;
   SessionId = -1;
   while ( 1 )
   {
@@ -94,12 +93,12 @@ __int64 __fastcall MiDecrementLargeSubsections(volatile LONG **a1, volatile LONG
           --v11;
         }
         while ( v11 );
-        v5 = v31;
+        v5 = v30;
         SessionId = -1;
       }
       MiReturnResidentAvailable(v9);
       ExAcquireSpinLockExclusive(v5);
-      v7 = v29;
+      v7 = v28;
     }
     --*((_DWORD *)v3 + 27);
     if ( v3 == v7 )
@@ -110,60 +109,59 @@ __int64 __fastcall MiDecrementLargeSubsections(volatile LONG **a1, volatile LONG
   __writecr8(v6);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
-  v28 = 0;
+  v27 = 0;
   v13 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 1 )
     SessionId = MmGetSessionIdEx(v13->ApcState.Process);
   --v13->SpecialApcDisable;
   v14 = ++v13->AbAllocationRegionCount;
-  v15 = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
-  LODWORD(v16) = ((char)v13->AbEntrySummary | (char)v13->AbOrphanedEntrySummary) ^ 0x3F;
+  LODWORD(v15) = ((char)v13->AbEntrySummary | (char)v13->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
-    v20 = !_BitScanReverse((unsigned int *)&v21, v16);
-    v30 = v21;
-    if ( v20 )
+    v19 = !_BitScanReverse((unsigned int *)&v20, v15);
+    v29 = v20;
+    if ( v19 )
       goto LABEL_23;
-    v17 = 1 << v21;
-    v18 = v21;
-    v19 = &v13->LockEntries[v18];
-    v16 = ~v17 & (unsigned int)v16;
-    if ( (v19->AcquiredByte & 1) != 0
-      && (*(_DWORD *)&v19->LockState.0 & 1) == 0
-      && (*(_QWORD *)&v19->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == v15
-      && v19->LockState.SessionId == SessionId )
+    v16 = 1 << v20;
+    v17 = v20;
+    v18 = &v13->LockEntries[v17];
+    v15 = ~v16 & (unsigned int)v15;
+    if ( (v18->AcquiredByte & 1) != 0
+      && (*(_DWORD *)&v18->LockState.0 & 1) == 0
+      && (*(_QWORD *)&v18->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
+      && v18->LockState.SessionId == SessionId )
     {
-      v19->AcquiredByte &= ~1u;
-      if ( v19->LockState.0 )
+      v18->AcquiredByte &= ~1u;
+      if ( v18->LockState.0 )
         break;
     }
   }
-  if ( !v19 )
+  if ( !v18 )
   {
 LABEL_23:
     if ( (*((_DWORD *)&v13->0 + 1) & 0x8000) == 0 )
       KeBugCheckEx(0x162u, (ULONG_PTR)v13, BugCheckParameter2, SessionId, 0LL);
     goto LABEL_30;
   }
-  v19->CrossThreadReleasableAndBusyByte |= 2u;
-  if ( (__int64)v19->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v13->LockEntries[v18], v16, v15);
-  v28 = 0;
-  v28 = v19->BoostBitmap.AllFields & 0x1FFFF;
-  v19->BoostBitmap.AllFields &= 0xFFFE0000;
-  v19->ThreadLocalFlags &= ~1u;
-  v19->LockState.0 = 0LL;
-  v22 = ((char *)v19 - (char *)v13 - 800) / 96;
+  v18->CrossThreadReleasableAndBusyByte |= 2u;
+  if ( (__int64)v18->LockState.LockState < 0 )
+    KiAbEntryRemoveFromTree(&v13->LockEntries[v17].TreeNode, v15);
+  v27 = 0;
+  v27 = v18->BoostBitmap.AllFields & 0x1FFFF;
+  v18->BoostBitmap.AllFields &= 0xFFFE0000;
+  v18->ThreadLocalFlags &= ~1u;
+  v18->LockState.0 = 0LL;
+  v21 = ((char *)v18 - (char *)v13 - 800) / 96;
   if ( v14 == 1 )
-    v13->AbEntrySummary |= 1 << v22;
+    v13->AbEntrySummary |= 1 << v21;
   else
-    _InterlockedOr8((volatile signed __int8 *)&v13->AbOrphanedEntrySummary, 1 << v22);
+    _InterlockedOr8((volatile signed __int8 *)&v13->AbOrphanedEntrySummary, 1 << v21);
 LABEL_30:
   --v13->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts(&v13->Header.Lock, BugCheckParameter2, (unsigned int *)&v28);
-  v24 = v13->SpecialApcDisable + 1;
-  v13->SpecialApcDisable = v24;
-  if ( !v24 && ($69CD3F157F9F39B6F7113F2231989901 *)v13->ApcState.ApcListHead[0].Flink != &v13->152 )
-    KiCheckForKernelApcDelivery(v23);
+  KiAbThreadRemoveBoosts(&v13->Header.Lock, BugCheckParameter2, (unsigned int *)&v27);
+  v23 = v13->SpecialApcDisable + 1;
+  v13->SpecialApcDisable = v23;
+  if ( !v23 && ($69CD3F157F9F39B6F7113F2231989901 *)v13->ApcState.ApcListHead[0].Flink != &v13->152 )
+    KiCheckForKernelApcDelivery(v22);
   return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
 }

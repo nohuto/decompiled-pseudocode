@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpFlsCallbackEntryGetContext @ 0x1403346BC
+ * XREFs of RtlpFlsCallbackEntryGetContext @ 0x14033494C
  * Callers:
- *     PsTlsGetValue @ 0x1407AABB0 (PsTlsGetValue.c)
- *     PsTlsSetValue @ 0x1407BD5F0 (PsTlsSetValue.c)
+ *     PsTlsGetValue @ 0x1407AADA0 (PsTlsGetValue.c)
+ *     PsTlsSetValue @ 0x1407BD8C0 (PsTlsSetValue.c)
  * Callees:
  *     <none>
  */

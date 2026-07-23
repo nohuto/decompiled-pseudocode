@@ -40,7 +40,7 @@ signed __int64 __fastcall RtlpHpHeapExtendContext(int *a1, __int64 a2)
   unsigned int v20; // r8d
   bool v21; // zf
   __int64 v22; // rcx
-  unsigned __int64 v23; // rdi
+  __int64 v23; // rdi
   int v24; // eax
   unsigned int v25; // ecx
   __int64 v26; // rdx
@@ -49,7 +49,7 @@ signed __int64 __fastcall RtlpHpHeapExtendContext(int *a1, __int64 a2)
   unsigned __int8 v29; // r15
   unsigned int v30; // r8d
   __int64 v31; // rcx
-  unsigned __int64 v32; // rdi
+  __int64 v32; // rdi
   int v33; // eax
   unsigned int v34; // ecx
   __int64 v35; // rdx
@@ -65,7 +65,7 @@ signed __int64 __fastcall RtlpHpHeapExtendContext(int *a1, __int64 a2)
   unsigned __int8 v45; // r14
   unsigned int v46; // edx
   __int64 v47; // rcx
-  unsigned __int64 v48; // rdi
+  __int64 v48; // rdi
   int v49; // ecx
   unsigned int v50; // edx
   __int64 v51; // rdx
@@ -125,7 +125,7 @@ signed __int64 __fastcall RtlpHpHeapExtendContext(int *a1, __int64 a2)
           goto LABEL_55;
         while ( 1 )
         {
-          v32 = (unsigned __int64)&CurrentThread->LockEntries[v31];
+          v32 = (__int64)&CurrentThread->LockEntries[v31];
           v30 &= ~(1 << v31);
           if ( (*(_BYTE *)(v32 + 26) & 1) != 0
             && (*(_DWORD *)(v32 + 32) & 1) == 0
@@ -150,14 +150,14 @@ LABEL_55:
         {
           *(_BYTE *)(v32 + 32) |= 2u;
           if ( *(__int64 *)(v32 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v32);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v32);
           v33 = *(_DWORD *)(v32 + 88) & 0x1FFFF;
           v34 = *(_DWORD *)(v32 + 88) & 0xFFFE0000;
           *(_BYTE *)(v32 + 25) &= ~1u;
           v64 = v33;
           *(_DWORD *)(v32 + 88) = v34;
           *(_QWORD *)(v32 + 32) = 0LL;
-          v35 = (__int64)(v32 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          v35 = (signed __int64)(v32 - (unsigned __int64)CurrentThread->LockEntries) / 96;
           if ( v29 == 1 )
             CurrentThread->AbEntrySummary |= 1 << v35;
           else
@@ -234,7 +234,7 @@ LABEL_28:
         goto LABEL_35;
       while ( 1 )
       {
-        v23 = (unsigned __int64)&CurrentThread->LockEntries[v22];
+        v23 = (__int64)&CurrentThread->LockEntries[v22];
         v20 &= ~(1 << v22);
         if ( (*(_BYTE *)(v23 + 26) & 1) != 0
           && (*(_DWORD *)(v23 + 32) & 1) == 0
@@ -260,14 +260,14 @@ LABEL_35:
       {
         *(_BYTE *)(v23 + 32) |= 2u;
         if ( *(__int64 *)(v23 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v23);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23);
         v24 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
         v25 = *(_DWORD *)(v23 + 88) & 0xFFFE0000;
         *(_BYTE *)(v23 + 25) &= ~1u;
         v57[0] = v24;
         *(_DWORD *)(v23 + 88) = v25;
         *(_QWORD *)(v23 + 32) = 0LL;
-        v26 = (__int64)(v23 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+        v26 = (signed __int64)(v23 - (unsigned __int64)CurrentThread->LockEntries) / 96;
         if ( v19 == 1 )
           CurrentThread->AbEntrySummary |= 1 << v26;
         else
@@ -342,7 +342,7 @@ LABEL_29:
       v57[1] = v47;
       if ( v21 )
         break;
-      v48 = (unsigned __int64)&v44->LockEntries[v47];
+      v48 = (__int64)&v44->LockEntries[v47];
       v46 &= ~(1 << v47);
       if ( (*(_BYTE *)(v48 + 26) & 1) != 0
         && (*(_DWORD *)(v48 + 32) & 1) == 0
@@ -356,14 +356,14 @@ LABEL_29:
           {
             *(_BYTE *)(v48 + 32) |= 2u;
             if ( *(__int64 *)(v48 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v48);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v48);
             v49 = *(_DWORD *)(v48 + 88) & 0x1FFFF;
             v50 = *(_DWORD *)(v48 + 88) & 0xFFFE0000;
             *(_BYTE *)(v48 + 25) &= ~1u;
             v58 = v49;
             *(_DWORD *)(v48 + 88) = v50;
             *(_QWORD *)(v48 + 32) = 0LL;
-            v51 = (__int64)(v48 - (unsigned __int64)v44->LockEntries) / 96;
+            v51 = (signed __int64)(v48 - (unsigned __int64)v44->LockEntries) / 96;
             if ( v45 == 1 )
               v44->AbEntrySummary |= 1 << v51;
             else

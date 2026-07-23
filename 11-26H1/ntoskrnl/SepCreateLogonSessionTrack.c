@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCreateLogonSessionTrack @ 0x140AAF14C
+ * XREFs of SepCreateLogonSessionTrack @ 0x140AACD9C
  * Callers:
- *     SeInitServerSilo @ 0x1408100DC (SeInitServerSilo.c)
- *     SepRmCreateLogonSessionWrkr @ 0x140AAF120 (SepRmCreateLogonSessionWrkr.c)
- *     SepRmDbInitialization @ 0x140CDE524 (SepRmDbInitialization.c)
+ *     SeInitServerSilo @ 0x140815B6C (SeInitServerSilo.c)
+ *     SepRmCreateLogonSessionWrkr @ 0x140AACD70 (SepRmCreateLogonSessionWrkr.c)
+ *     SepRmDbInitialization @ 0x140CE48BC (SepRmDbInitialization.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
@@ -46,7 +46,7 @@ __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
   v5 = (__int64 **)(SepLogonSessions + 8 * v4);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v4 & 3));
+  v7 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v4 & 3));
   ExAcquireResourceExclusiveLite(v7, 1u);
   v8 = *v5;
   CurrentServerSilo = (void *)PsGetCurrentServerSilo();

@@ -56,10 +56,13 @@ __int64 __fastcall IommupDomainDetachPasidDevice(__int64 a1)
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)(v2 + 88));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -92,10 +95,10 @@ __int64 __fastcall IommupDomainDetachPasidDevice(__int64 a1)
   *v15 = v14;
   *(_QWORD *)(v14 + 8) = v15;
   KxReleaseSpinLock((volatile signed __int64 *)(v2 + 88));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));

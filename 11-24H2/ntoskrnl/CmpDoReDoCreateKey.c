@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDoReDoCreateKey @ 0x1407E6BD4
+ * XREFs of CmpDoReDoCreateKey @ 0x1407E71A4
  * Callers:
- *     CmpDoReDoRecord @ 0x1407E6CC4 (CmpDoReDoRecord.c)
+ *     CmpDoReDoRecord @ 0x1407E7294 (CmpDoReDoRecord.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     CmpDoReOpenTransKey @ 0x1407E6EF4 (CmpDoReOpenTransKey.c)
- *     CmpSplitParentKeyName @ 0x140BB9D74 (CmpSplitParentKeyName.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     CmpDoReOpenTransKey @ 0x1407E74C4 (CmpDoReOpenTransKey.c)
+ *     CmpSplitParentKeyName @ 0x140BBBD74 (CmpSplitParentKeyName.c)
  */
 
 __int64 __fastcall CmpDoReDoCreateKey(__int64 a1, __int64 a2)

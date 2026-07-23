@@ -8,13 +8,13 @@
  *     RtlLCIDToCultureName @ 0x140AB5EA0 (RtlLCIDToCultureName.c)
  */
 
-__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   __int64 v5; // rax
   __int64 v6; // r8
-  __int16 v7; // r11
-  __int64 v8; // rcx
+  unsigned __int16 v7; // r11
+  LCID v8; // ecx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
@@ -25,7 +25,7 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
     {
       v8 = *(unsigned __int16 *)(a2 + 4);
       if ( (((_WORD)v8 - 4096) & 0xFBFF) != 0 )
-        return (unsigned __int8)RtlLCIDToCultureName(v8, a3) == 0 ? 0xC00000E5 : 0;
+        return RtlLCIDToCultureName(v8, a3) == 0 ? 0xC00000E5 : 0;
     }
     else
     {
@@ -34,10 +34,10 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
       RtlInitUnicodeString(
         &DestinationString,
         (PCWSTR)(*(_QWORD *)(v6 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v6 + 16) + 2 * v5)));
-      if ( DestinationString.Length <= *(_WORD *)(a3 + 2)
-        && RtlStringCbCopyW(*(NTSTRSAFE_PWSTR *)(a3 + 8), *(unsigned __int16 *)(a3 + 2), DestinationString.Buffer) >= 0 )
+      if ( DestinationString.Length <= a3->MaximumLength
+        && RtlStringCbCopyW(a3->Buffer, a3->MaximumLength, DestinationString.Buffer) >= 0 )
       {
-        *(_WORD *)a3 = v7;
+        a3->Length = v7;
         return v3;
       }
     }

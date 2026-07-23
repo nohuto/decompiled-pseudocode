@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdatePfnForPrefetchByPte @ 0x140273080
+ * XREFs of MiUpdatePfnForPrefetchByPte @ 0x140273310
  * Callers:
- *     MiSystemFault @ 0x1402611A0 (MiSystemFault.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiSystemFault @ 0x140261430 (MiSystemFault.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiRelinkStandbyPage @ 0x14025A760 (MiRelinkStandbyPage.c)
- *     MiLockPfnByPte @ 0x140270760 (MiLockPfnByPte.c)
- *     MiSetNonResidentPteHeat @ 0x1402D90B0 (MiSetNonResidentPteHeat.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAddPageToHeatRanges @ 0x140653CF4 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1406545FC (MiNotifyPageHeat.c)
+ *     MiRelinkStandbyPage @ 0x14025A9F0 (MiRelinkStandbyPage.c)
+ *     MiLockPfnByPte @ 0x1402709F0 (MiLockPfnByPte.c)
+ *     MiSetNonResidentPteHeat @ 0x1402D9340 (MiSetNonResidentPteHeat.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAddPageToHeatRanges @ 0x140654244 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140654B4C (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiUpdatePfnForPrefetchByPte(unsigned __int64 a1, unsigned int a2, __int64 a3)
@@ -76,7 +76,9 @@ __int64 __fastcall MiUpdatePfnForPrefetchByPte(unsigned __int64 a1, unsigned int
       }
     }
     _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v10 = v21;
       if ( v21 <= 0xFu && CurrentIrql >= 2u )

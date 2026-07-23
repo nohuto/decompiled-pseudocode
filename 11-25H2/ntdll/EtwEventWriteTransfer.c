@@ -14,12 +14,18 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwEventWriteTransfer(__int64 a1, __int128 *a2, _GUID *a3, __int128 *a4, int a5, __int64 a6)
+ULONG __cdecl EtwEventWriteTransfer(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        LPCGUID ActivityId,
+        LPCGUID RelatedActivityId,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
   unsigned int v6; // edi
   int v9; // r12d
   ULONG v10; // r8d
-  __int128 v11; // xmm0
+  EVENT_DESCRIPTOR v11; // xmm0
   __int64 v12; // rdx
   __int64 v13; // r11
   unsigned __int64 v15; // r9
@@ -28,15 +34,15 @@ __int64 __fastcall EtwEventWriteTransfer(__int64 a1, __int128 *a2, _GUID *a3, __
   unsigned __int8 v18; // cl
   char v19; // si
   unsigned __int8 v20; // al
-  _GUID ActivityId; // xmm0
+  _GUID v21; // xmm0
   NTSTATUS v22; // eax
   __int64 *v23; // rcx
   __int64 v24; // rdx
-  __int128 v25; // xmm0
-  _OWORD v26[4]; // [rsp+58h] [rbp-A8h] BYREF
+  GUID v25; // xmm0
+  _OWORD Fields[4]; // [rsp+58h] [rbp-A8h] BYREF
   _GUID v27; // [rsp+98h] [rbp-68h]
   __int128 v28; // [rsp+A8h] [rbp-58h]
-  __int128 v29; // [rsp+B8h] [rbp-48h]
+  GUID v29; // [rsp+B8h] [rbp-48h]
   __int64 v30; // [rsp+C8h] [rbp-38h]
   _OWORD v31[8]; // [rsp+D0h] [rbp-30h] BYREF
   __int64 v32; // [rsp+150h] [rbp+50h]
@@ -44,36 +50,46 @@ __int64 __fastcall EtwEventWriteTransfer(__int64 a1, __int128 *a2, _GUID *a3, __
   v6 = 0;
   v30 = 0LL;
   v32 = 0LL;
-  v9 = (int)a2;
+  v9 = (int)EventDescriptor;
   v10 = 0;
-  memset(v26, 0, sizeof(v26));
+  memset(Fields, 0, sizeof(Fields));
   v27 = 0LL;
   v28 = 0LL;
   v29 = 0LL;
   memset(v31, 0, sizeof(v31));
-  if ( a2 )
+  if ( EventDescriptor )
   {
-    v11 = *a2;
-    v12 = ((unsigned int)a1 >> 1) & 7;
-    *(_OWORD *)((char *)&v26[2] + 8) = v11;
+    v11 = *EventDescriptor;
+    v12 = ((unsigned int)RegHandle >> 1) & 7;
+    *(EVENT_DESCRIPTOR *)((char *)&Fields[2] + 8) = v11;
     v13 = qword_1801D02A0[v12];
-    if ( ((v13 != 0 && (unsigned int)a1 >> 4 < dword_18019C7E0[v12]) & (unsigned __int8)a1) == 0 )
-      return 6LL;
-    v15 = (unsigned __int64)(unsigned int)a1 >> 4;
+    if ( ((v13 != 0 && (unsigned int)RegHandle >> 4 < dword_18019C7E0[v12]) & (unsigned __int8)RegHandle) == 0 )
+      return 6;
+    v15 = (unsigned __int64)(unsigned int)RegHandle >> 4;
     v16 = 0LL;
     if ( (*(_QWORD *)(v13 + 8 * v15) & 1) == 0 )
       v16 = *(_QWORD *)(v13 + 8 * v15);
-    if ( !v16 || WORD2(a1) != *(_WORD *)(v16 + 84) )
-      return 6LL;
-    v17 = *(_QWORD *)&v26[3];
+    if ( !v16 || WORD2(RegHandle) != *(_WORD *)(v16 + 84) )
+      return 6;
+    v17 = *(_QWORD *)&Fields[3];
     if ( *(_BYTE *)(v16 + 236)
-      && ((v18 = *(_BYTE *)(v16 + 237), BYTE12(v26[2]) <= v18) || !v18)
-      && ((*(_BYTE *)(v16 + 232) & 0x40) != 0 && !*(_QWORD *)&v26[3]
-       || (*(_QWORD *)&v26[3] & *(_QWORD *)(v16 + 224)) != 0LL
-       && (*(_QWORD *)&v26[3] & *(_QWORD *)(v16 + 216)) == *(_QWORD *)(v16 + 216)) )
+      && ((v18 = *(_BYTE *)(v16 + 237), BYTE12(Fields[2]) <= v18) || !v18)
+      && ((*(_BYTE *)(v16 + 232) & 0x40) != 0 && !*(_QWORD *)&Fields[3]
+       || (*(_QWORD *)&Fields[3] & *(_QWORD *)(v16 + 224)) != 0LL
+       && (*(_QWORD *)&Fields[3] & *(_QWORD *)(v16 + 216)) == *(_QWORD *)(v16 + 216)) )
     {
       v19 = 1;
-      v10 = EtwpWriteToPrivateBuffers(v16, v9, 0, 0, 0, (__int64)a3, (__int64)a4, a5, a6, (__int64)v31);
+      v10 = EtwpWriteToPrivateBuffers(
+              v16,
+              v9,
+              0,
+              0,
+              0,
+              (__int64)ActivityId,
+              (__int64)RelatedActivityId,
+              UserDataCount,
+              (__int64)UserData,
+              (__int64)v31);
       if ( v10 )
       {
 LABEL_29:
@@ -93,7 +109,7 @@ LABEL_29:
         }
         return v10;
       }
-      v17 = *(_QWORD *)&v26[3];
+      v17 = *(_QWORD *)&Fields[3];
     }
     else
     {
@@ -102,28 +118,28 @@ LABEL_29:
     if ( *(_BYTE *)(v16 + 116) )
     {
       v20 = *(_BYTE *)(v16 + 117);
-      if ( (BYTE12(v26[2]) <= v20 || !v20)
+      if ( (BYTE12(Fields[2]) <= v20 || !v20)
         && ((*(_BYTE *)(v16 + 112) & 0x40) != 0 && !v17
          || (v17 & *(_QWORD *)(v16 + 104)) != 0 && (v17 & *(_QWORD *)(v16 + 96)) == *(_QWORD *)(v16 + 96)) )
       {
-        *((_QWORD *)&v28 + 1) = a6;
-        DWORD1(v26[0]) = 0;
-        DWORD1(v28) = a5;
-        if ( a3 )
-          ActivityId = *a3;
+        *((_QWORD *)&v28 + 1) = UserData;
+        DWORD1(Fields[0]) = 0;
+        DWORD1(v28) = UserDataCount;
+        if ( ActivityId )
+          v21 = *ActivityId;
         else
-          ActivityId = NtCurrentTeb()->ActivityId;
+          v21 = NtCurrentTeb()->ActivityId;
         LOBYTE(v28) = 0;
-        v27 = ActivityId;
-        if ( a4 )
+        v27 = v21;
+        if ( RelatedActivityId )
         {
-          v25 = *a4;
+          v25 = *RelatedActivityId;
           LOBYTE(v28) = 1;
           v29 = v25;
         }
         WORD1(v28) = 0;
         LODWORD(v30) = 0;
-        v22 = NtTraceEvent(*(_QWORD *)(v16 + 88), 768LL, 120LL, v26);
+        v22 = NtTraceEvent(*(HANDLE *)(v16 + 88), 0x300u, 0x78u, Fields);
         if ( v22 )
           v10 = RtlNtStatusToDosError(v22);
         else
@@ -134,5 +150,5 @@ LABEL_29:
       return v10;
     goto LABEL_29;
   }
-  return 87LL;
+  return 87;
 }

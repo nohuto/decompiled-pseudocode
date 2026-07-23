@@ -1,18 +1,18 @@
 /*
- * XREFs of BapdpMarshallBootDataToRegistry @ 0x1401862BC
+ * XREFs of BapdpMarshallBootDataToRegistry @ 0x1401863FC
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x1409D1004 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x1409D2004 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
- *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlStringFromGUIDEx @ 0x14058C238 (RtlStringFromGUIDEx.c)
+ *     RtlIntegerToUnicodeString @ 0x1405A9E00 (RtlIntegerToUnicodeString.c)
  */
 
 void BapdpMarshallBootDataToRegistry()
@@ -38,7 +38,7 @@ void BapdpMarshallBootDataToRegistry()
   ULONG v18; // ecx
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE v20; // [rsp+50h] [rbp-B8h] BYREF
-  _QWORD v21[2]; // [rsp+58h] [rbp-B0h] BYREF
+  UNICODE_STRING GuidString; // [rsp+58h] [rbp-B0h] BYREF
   UNICODE_STRING String; // [rsp+68h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-90h] BYREF
   __int64 v24; // [rsp+80h] [rbp-88h]
@@ -46,19 +46,19 @@ void BapdpMarshallBootDataToRegistry()
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-70h] BYREF
   char v27; // [rsp+C8h] [rbp-40h] BYREF
 
-  v0 = (__int64 *)qword_1404DB4B8;
+  v0 = (__int64 *)qword_1404DC578;
   Class = 0LL;
   Handle = (HANDLE)0x43F585FA729AF26ELL;
-  v2 = (__int64 *)qword_1404DB4B8;
+  v2 = (__int64 *)qword_1404DC578;
   v3 = 0;
   v24 = 0x55C1EB7445F20CB8LL;
   KeyHandle = 0LL;
   v20 = 0LL;
-  if ( qword_1404DB4B8 )
+  if ( qword_1404DC578 )
   {
     do
     {
-      if ( v2 == &qword_1404DB4B8 )
+      if ( v2 == &qword_1404DC578 )
         break;
       v4 = v2[2];
       v2 = (__int64 *)*v2;
@@ -78,7 +78,7 @@ void BapdpMarshallBootDataToRegistry()
       PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v3, 0x64506142u);
       if ( PoolWithTag )
       {
-        while ( v0 != &qword_1404DB4B8 )
+        while ( v0 != &qword_1404DC578 )
         {
           v8 = v0[2];
           v0 = (__int64 *)*v0;
@@ -125,13 +125,13 @@ LABEL_40:
             if ( *v12 )
             {
               v13 = **v12;
-              LODWORD(v21[0]) = 5111808;
-              v21[1] = &v27;
+              *(_DWORD *)&GuidString.Length = 5111808;
+              GuidString.Buffer = (wchar_t *)&v27;
               DestinationString = v13;
-              if ( (int)RtlStringFromGUIDEx(&DestinationString, v21, 0LL) >= 0 )
+              if ( RtlStringFromGUIDEx((PGUID)&DestinationString, &GuidString, 0) >= 0 )
               {
                 ObjectAttributes.RootDirectory = v20;
-                ObjectAttributes.ObjectName = (PUNICODE_STRING)v21;
+                ObjectAttributes.ObjectName = &GuidString;
                 ObjectAttributes.Length = 48;
                 ObjectAttributes.Attributes = 576;
                 *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagStopCsSleepStudySession @ 0x14087057C
+ * XREFs of PopDiagStopCsSleepStudySession @ 0x1408717DC
  * Callers:
- *     PopDisplayBurstSuppressWorker @ 0x140874B10 (PopDisplayBurstSuppressWorker.c)
- *     PopForceCompleteCsSleepStudySessionWorker @ 0x140874CB0 (PopForceCompleteCsSleepStudySessionWorker.c)
- *     PopLidClosedSleepStudyWorker @ 0x140874F70 (PopLidClosedSleepStudyWorker.c)
- *     PopPowerAggregatorExecuteDirectedDripsCallback @ 0x140875B90 (PopPowerAggregatorExecuteDirectedDripsCallback.c)
+ *     PopDisplayBurstSuppressWorker @ 0x140875D70 (PopDisplayBurstSuppressWorker.c)
+ *     PopForceCompleteCsSleepStudySessionWorker @ 0x140875F10 (PopForceCompleteCsSleepStudySessionWorker.c)
+ *     PopLidClosedSleepStudyWorker @ 0x1408761D0 (PopLidClosedSleepStudyWorker.c)
+ *     PopPowerAggregatorExecuteDirectedDripsCallback @ 0x140876DF0 (PopPowerAggregatorExecuteDirectedDripsCallback.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopEvaluateAggressiveStandbyActions @ 0x140868BC8 (PopEvaluateAggressiveStandbyActions.c)
- *     PopDiagNextCsSleepStudySession @ 0x140870270 (PopDiagNextCsSleepStudySession.c)
- *     PdcTaskClientRequest @ 0x14089A6E8 (PdcTaskClientRequest.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopEvaluateAggressiveStandbyActions @ 0x140869E28 (PopEvaluateAggressiveStandbyActions.c)
+ *     PopDiagNextCsSleepStudySession @ 0x1408714D0 (PopDiagNextCsSleepStudySession.c)
+ *     PdcTaskClientRequest @ 0x14089B948 (PdcTaskClientRequest.c)
  */
 
 LONG __fastcall PopDiagStopCsSleepStudySession(char a1, int a2, int a3)
@@ -31,14 +31,14 @@ LONG __fastcall PopDiagStopCsSleepStudySession(char a1, int a2, int a3)
   }
   PopPdcLastCsExitReason = a2;
   PopEvaluateAggressiveStandbyActions(0);
-  byte_14043C45C = 1;
+  byte_14043D51C = 1;
   CsSleepStudySession = PopDiagNextCsSleepStudySession(&NullGuid);
   if ( a1 && !CsSleepStudySession && !PopConsoleDisplayState )
   {
     PopPdcLastCsEnterReason = a3;
     v8 = PopEvaluateAggressiveStandbyActions(1);
-    if ( qword_14043FFD0 )
-      ((void (__fastcall *)(_QWORD))qword_14043FFD0)(v8);
+    if ( qword_140441090 )
+      ((void (__fastcall *)(_QWORD))qword_140441090)(v8);
     PopDiagNextCsSleepStudySession(&GUID_SPM_LOW_POWER_CS);
   }
   return KeReleaseMutex(&PopSleepStudySessionLock, 0);

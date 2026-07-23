@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateIoPageExclusion @ 0x1406F39A8
+ * XREFs of MiCreateIoPageExclusion @ 0x1406F8618
  * Callers:
- *     MiMapNewPfns @ 0x140866674 (MiMapNewPfns.c)
+ *     MiMapNewPfns @ 0x14086CA54 (MiMapNewPfns.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiIoPfnTreeExclusionCompatible @ 0x1406F4220 (MiIoPfnTreeExclusionCompatible.c)
- *     MiLockIoPfnTree @ 0x1406F4668 (MiLockIoPfnTree.c)
- *     MiUnlockIoPfnTree @ 0x1406F4E8C (MiUnlockIoPfnTree.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiIoPfnTreeExclusionCompatible @ 0x1406F8E8C (MiIoPfnTreeExclusionCompatible.c)
+ *     MiLockIoPfnTree @ 0x1406F92D4 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x1406F9AFC (MiUnlockIoPfnTree.c)
  */
 
 __int64 __fastcall MiCreateIoPageExclusion(_QWORD *a1, int a2, _BOOL8 a3, __int64 a4)
@@ -32,8 +32,8 @@ __int64 __fastcall MiCreateIoPageExclusion(_QWORD *a1, int a2, _BOOL8 a3, __int6
   }
   if ( !v4 )
   {
-    v7 = (_QWORD *)xmmword_140E35EC0;
-    if ( (_QWORD)xmmword_140E35EC0 )
+    v7 = (_QWORD *)xmmword_140E36040;
+    if ( (_QWORD)xmmword_140E36040 )
     {
       do
       {
@@ -67,9 +67,9 @@ LABEL_16:
     if ( v8 < 0 )
       goto LABEL_27;
   }
-  v10 = (_QWORD *)*((_QWORD *)&xmmword_140E35EC0 + 1);
+  v10 = (_QWORD *)*((_QWORD *)&xmmword_140E36040 + 1);
   LOBYTE(a3) = 0;
-  if ( !*((_QWORD *)&xmmword_140E35EC0 + 1) )
+  if ( !*((_QWORD *)&xmmword_140E36040 + 1) )
     goto LABEL_26;
   v7 = (_QWORD *)a1[4];
   while ( (unsigned __int64)v7 < v10[3] )
@@ -87,11 +87,11 @@ LABEL_31:
     goto LABEL_31;
   LOBYTE(a3) = 1;
 LABEL_26:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E35EC0 + 1, (unsigned __int64)v10, a3, a1);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E36040 + 1, (unsigned __int64)v10, a3, a1);
 LABEL_27:
   LOBYTE(v7) = CurrentIrql;
   MiUnlockIoPfnTree(v7, 2LL, a3, a4);
   if ( v8 < 0 )
-    _InterlockedIncrement(&dword_140E35F08);
+    _InterlockedIncrement(&dword_140E36088);
   return (unsigned int)v8;
 }

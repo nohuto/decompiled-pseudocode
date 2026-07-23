@@ -1,22 +1,31 @@
 /*
- * XREFs of PsspDumpObject_Mutant @ 0x180109DB0
+ * XREFs of PsspDumpObject_Mutant @ 0x180104CE0
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryMutant @ 0x1801648C0 (ZwQueryMutant.c)
+ *     ZwQueryMutant @ 0x180162C80 (ZwQueryMutant.c)
  */
 
-__int64 __fastcall PsspDumpObject_Mutant(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __fastcall PsspDumpObject_Mutant(
+        HANDLE MutantHandle,
+        char *MutantInformation,
+        unsigned int a3,
+        ULONG *ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 < 0x18 )
-    return 3221225507LL;
-  result = ZwQueryMutant(a1, 0LL, a2, 8LL, a4);
-  if ( (int)result < 0 || (result = ZwQueryMutant(a1, 1LL, a2 + 8, 16LL, 0LL), (int)result < 0) )
-    *a4 = 0;
+    return -1073741789;
+  result = ZwQueryMutant(MutantHandle, MutantBasicInformation, MutantInformation, 8u, ReturnLength);
+  if ( result < 0
+    || (result = ZwQueryMutant(MutantHandle, MutantOwnerInformation, MutantInformation + 8, 0x10u, 0LL), result < 0) )
+  {
+    *ReturnLength = 0;
+  }
   else
-    *a4 += 16;
+  {
+    *ReturnLength += 16;
+  }
   return result;
 }

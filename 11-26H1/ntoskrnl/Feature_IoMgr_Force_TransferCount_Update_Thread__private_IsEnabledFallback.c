@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledFallback @ 0x1405CA578
+ * XREFs of Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledFallback @ 0x1405CCE48
  * Callers:
- *     Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline @ 0x1405CA53C (Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline @ 0x1405CCE0C (Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledFallback(

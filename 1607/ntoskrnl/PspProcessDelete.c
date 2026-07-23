@@ -1,40 +1,40 @@
 /*
- * XREFs of PspProcessDelete @ 0x140460828
+ * XREFs of PspProcessDelete @ 0x14045F6F8
  * Callers:
  *     <none>
  * Callees:
- *     SmKmStoreDeleteWhenEmpty @ 0x140002E5C (SmKmStoreDeleteWhenEmpty.c)
- *     SmKmStoreDereference @ 0x140002F88 (SmKmStoreDereference.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14000321C (SmKmStoreRefFromStoreIndex.c)
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PspUnlockProcessListExclusive @ 0x14007602C (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140076068 (PspLockProcessListExclusive.c)
- *     IoSetDiskIoAttributionOnProcess @ 0x14007641C (IoSetDiskIoAttributionOnProcess.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     SmpKeyedStoreEntryGet @ 0x1400C92BC (SmpKeyedStoreEntryGet.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D3F30 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeInsertQueueDpc @ 0x1400D82A0 (KeInsertQueueDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
- *     KeUnsecureProcess @ 0x1401D2408 (KeUnsecureProcess.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140002FD0 (SmKmStoreDeleteWhenEmpty.c)
+ *     SmKmStoreDereference @ 0x1400030FC (SmKmStoreDereference.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140003390 (SmKmStoreRefFromStoreIndex.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PspUnlockProcessListExclusive @ 0x1400760AC (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1400760E8 (PspLockProcessListExclusive.c)
+ *     IoSetDiskIoAttributionOnProcess @ 0x14007649C (IoSetDiskIoAttributionOnProcess.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     SmpKeyedStoreEntryGet @ 0x1400C715C (SmpKeyedStoreEntryGet.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D1DD0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeInsertQueueDpc @ 0x1400D6140 (KeInsertQueueDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
+ *     KeUnsecureProcess @ 0x1401D2234 (KeUnsecureProcess.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeDeassignPrimaryToken @ 0x14045F4DC (SeDeassignPrimaryToken.c)
- *     PspExitProcess @ 0x140460564 (PspExitProcess.c)
- *     MmDeleteProcessAddressSpace @ 0x140460678 (MmDeleteProcessAddressSpace.c)
- *     ObDereferenceDeviceMap @ 0x140460DF0 (ObDereferenceDeviceMap.c)
- *     ExWnfExitProcess @ 0x140460ECC (ExWnfExitProcess.c)
- *     LpcExitProcess @ 0x140460F24 (LpcExitProcess.c)
- *     EtwExitProcess @ 0x140461084 (EtwExitProcess.c)
- *     PspRemoveProcessFromJobChain @ 0x140469654 (PspRemoveProcessFromJobChain.c)
- *     ExDestroyHandle @ 0x1404A3C38 (ExDestroyHandle.c)
- *     ExMapHandleToPointer @ 0x14050DF14 (ExMapHandleToPointer.c)
- *     PspDereferenceQuota @ 0x14067CF54 (PspDereferenceQuota.c)
+ *     SeDeassignPrimaryToken @ 0x14045E3AC (SeDeassignPrimaryToken.c)
+ *     PspExitProcess @ 0x14045F434 (PspExitProcess.c)
+ *     MmDeleteProcessAddressSpace @ 0x14045F548 (MmDeleteProcessAddressSpace.c)
+ *     ObDereferenceDeviceMap @ 0x14045FCC0 (ObDereferenceDeviceMap.c)
+ *     ExWnfExitProcess @ 0x14045FD9C (ExWnfExitProcess.c)
+ *     LpcExitProcess @ 0x14045FDF4 (LpcExitProcess.c)
+ *     EtwExitProcess @ 0x14045FF54 (EtwExitProcess.c)
+ *     PspRemoveProcessFromJobChain @ 0x140468524 (PspRemoveProcessFromJobChain.c)
+ *     ExMapHandleToPointer @ 0x1404F0EA4 (ExMapHandleToPointer.c)
+ *     ExDestroyHandle @ 0x14051C038 (ExDestroyHandle.c)
+ *     PspDereferenceQuota @ 0x14067D038 (PspDereferenceQuota.c)
  */
 
 void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
@@ -163,18 +163,18 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
   v15 = *(void **)(BugCheckParameter2 + 1848);
   if ( v15 )
     ExFreePoolWithTag(v15, 0);
-  if ( KiQueryUnbiasedInterruptTime() >= (unsigned __int64)qword_140326290 )
+  if ( KiQueryUnbiasedInterruptTime() >= (unsigned __int64)qword_1403262D0 )
   {
     v16 = &KeServiceDescriptorTable;
     _mm_prefetch((const char *)&KeServiceDescriptorTable, 0);
-    v17 = qword_140326280;
+    v17 = qword_1403262C0;
     v18 = 64;
-    v19 = qword_140326288;
-    v20 = qword_140326280;
+    v19 = qword_1403262C8;
+    v20 = qword_1403262C0;
     v21 = 8LL;
     do
     {
-      v20 = __ROR8__(v20 - *(_QWORD *)v16, qword_140326288);
+      v20 = __ROR8__(v20 - *(_QWORD *)v16, qword_1403262C8);
       v16 = (__int128 *)((char *)v16 + 8);
       v18 -= 8;
       --v21;
@@ -184,20 +184,20 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
     {
       v22 = *(unsigned __int8 *)v16;
       v16 = (__int128 *)((char *)v16 + 1);
-      v20 = __ROR8__(v20 - v22, qword_140326288);
+      v20 = __ROR8__(v20 - v22, qword_1403262C8);
     }
-    v23 = qword_140326298 == v20;
-    v24 = qword_140326250;
-    if ( !v23 && !qword_140326250 )
+    v23 = qword_1403262D8 == v20;
+    v24 = qword_140326290;
+    if ( !v23 && !qword_140326290 )
     {
-      v19 = qword_140326288;
-      v17 = qword_140326280;
+      v19 = qword_1403262C8;
+      v17 = qword_1403262C0;
       v24 = (unsigned int)__ROR4__(2120, 35);
-      qword_140326250 = (unsigned int)v24;
-      qword_140326258 = 0LL;
-      qword_140326260 = 0LL;
-      qword_140326268 = 267LL;
-      qword_140326270 = (__int64)&KeServiceDescriptorTable;
+      qword_140326290 = (unsigned int)v24;
+      qword_140326298 = 0LL;
+      qword_1403262A0 = 0LL;
+      qword_1403262A8 = 267LL;
+      qword_1403262B0 = (__int64)&KeServiceDescriptorTable;
     }
     v25 = (_QWORD *)KeServiceDescriptorTable;
     v26 = (const char *)KeServiceDescriptorTable;
@@ -230,16 +230,16 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
       v25 = (_QWORD *)((char *)v25 + 1);
       v29 = __ROR8__(v29 - v31, v19);
     }
-    if ( qword_1403262A0 != v29 && !v24 )
+    if ( qword_1403262E0 != v29 && !v24 )
     {
-      v19 = qword_140326288;
-      v17 = qword_140326280;
+      v19 = qword_1403262C8;
+      v17 = qword_1403262C0;
       v24 = (unsigned int)__ROR4__(1111490560, 150);
-      qword_140326250 = (unsigned int)v24;
-      qword_140326258 = 0LL;
-      qword_140326260 = 0LL;
-      qword_140326268 = 267LL;
-      qword_140326270 = KeServiceDescriptorTable;
+      qword_140326290 = (unsigned int)v24;
+      qword_140326298 = 0LL;
+      qword_1403262A0 = 0LL;
+      qword_1403262A8 = 267LL;
+      qword_1403262B0 = KeServiceDescriptorTable;
     }
     v32 = &KeServiceDescriptorTableShadow;
     _mm_prefetch((const char *)&KeServiceDescriptorTableShadow, 0);
@@ -259,14 +259,14 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
       v32 = (__int128 *)((char *)v32 + 1);
       v17 = __ROR8__(v17 - v35, v19);
     }
-    if ( qword_1403262A8 != v17 && !v24 )
+    if ( qword_1403262E8 != v17 && !v24 )
     {
-      qword_140326258 = 0LL;
+      qword_140326298 = 0LL;
       v24 = (unsigned int)__ROR4__(603979780, 186);
-      qword_140326250 = (unsigned int)v24;
-      qword_140326260 = 0LL;
-      qword_140326268 = 267LL;
-      qword_140326270 = (__int64)&KeServiceDescriptorTableShadow;
+      qword_140326290 = (unsigned int)v24;
+      qword_1403262A0 = 0LL;
+      qword_1403262A8 = 267LL;
+      qword_1403262B0 = (__int64)&KeServiceDescriptorTableShadow;
     }
     if ( (_QWORD)KeServiceDescriptorTableShadow != (_QWORD)KeServiceDescriptorTable
       || (_DWORD)xmmword_1403AA790 != (_DWORD)xmmword_1403AA7D0 )
@@ -274,22 +274,22 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
       if ( v24 )
         goto LABEL_60;
       v24 = (unsigned int)__ROR4__(4240, 68);
-      qword_140326250 = (unsigned int)v24;
-      qword_140326258 = 0LL;
-      qword_140326260 = 0LL;
-      qword_140326268 = 267LL;
-      qword_140326270 = KeServiceDescriptorTableShadow;
+      qword_140326290 = (unsigned int)v24;
+      qword_140326298 = 0LL;
+      qword_1403262A0 = 0LL;
+      qword_1403262A8 = 267LL;
+      qword_1403262B0 = KeServiceDescriptorTableShadow;
     }
     if ( !v24 )
     {
 LABEL_63:
-      qword_140326290 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
+      qword_1403262D0 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
       goto LABEL_64;
     }
 LABEL_60:
     if ( (void (__fastcall __noreturn *)(struct _KDPC *, ULONG_PTR *, PVOID, PVOID))DeferredContext.DeferredRoutine != KiSchedulerDpc )
       KeInitializeDpc(&DeferredContext, (PKDEFERRED_ROUTINE)KiSchedulerDpc, &DeferredContext);
-    qword_140326278 = 1824040LL;
+    qword_1403262B8 = 1824040LL;
     KeInsertQueueDpc(&DeferredContext, 0LL, 0LL);
     goto LABEL_63;
   }

@@ -3,46 +3,46 @@
  * Callers:
  *     PopBsdUpdateWorker @ 0x1405CF240 (PopBsdUpdateWorker.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
  *     PopDiagTraceBsdWriteTime @ 0x1403F83A8 (PopDiagTraceBsdWriteTime.c)
- *     RtlSetSystemBootStatus @ 0x140790690 (RtlSetSystemBootStatus.c)
- *     PopQpcTimeInMs @ 0x140990634 (PopQpcTimeInMs.c)
+ *     RtlSetSystemBootStatus @ 0x140791C40 (RtlSetSystemBootStatus.c)
+ *     PopQpcTimeInMs @ 0x140991634 (PopQpcTimeInMs.c)
  */
 
-__int64 __fastcall PopWriteBsdPoInfo(unsigned int a1, __int64 a2)
+__int64 __fastcall PopWriteBsdPoInfo(unsigned int a1, void *a2)
 {
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 v5; // rcx
-  int v6; // edi
+  RTL_BSD_ITEM_TYPE v5; // ecx
+  NTSTATUS v6; // edi
   unsigned int v7; // eax
   LARGE_INTEGER v9; // [rsp+40h] [rbp+18h] BYREF
   LARGE_INTEGER v10; // [rsp+48h] [rbp+20h] BYREF
 
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v5 = 7LL;
+  v5 = RtlBsdPowerTransition;
   v10 = PerformanceCounter;
   if ( a1 == 7 )
     goto LABEL_9;
   if ( a1 != 14 )
   {
-    v5 = 16LL;
+    v5 = RtlBsdPowerTransitionExtension;
     if ( a1 != 16 )
     {
       v6 = -1073741811;
       goto LABEL_10;
     }
 LABEL_9:
-    v6 = RtlSetSystemBootStatus(v5, a2, 32LL);
+    v6 = RtlSetSystemBootStatus(v5, a2, 0x20u, 0LL);
     goto LABEL_10;
   }
-  v6 = RtlSetSystemBootStatus(14LL, a2, 48LL);
+  v6 = RtlSetSystemBootStatus(RtlBsdItemPowerButtonPressInfo, a2, 0x30u, 0LL);
   if ( v6 < 0 )
   {
     PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
-    if ( HIWORD(xmmword_140C50568) != 0xFFFF )
-      ++HIWORD(xmmword_140C50568);
+    if ( HIWORD(xmmword_140C505C8) != 0xFFFF )
+      ++HIWORD(xmmword_140C505C8);
     PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
   }
 LABEL_10:

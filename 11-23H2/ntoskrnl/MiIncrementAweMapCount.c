@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIncrementAweMapCount @ 0x14064AAD0
+ * XREFs of MiIncrementAweMapCount @ 0x14064B020
  * Callers:
- *     MiReferenceIncomingPhysicalPages @ 0x140A41DB8 (MiReferenceIncomingPhysicalPages.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140A42068 (MiReferenceIncomingPhysicalPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiChangeAwePageAttributes @ 0x140649440 (MiChangeAwePageAttributes.c)
- *     MiValidateAndLockAweMapCountPage @ 0x14064C18C (MiValidateAndLockAweMapCountPage.c)
- *     MiWakeWaitersForAweCacheAttributeChange @ 0x14064C3E8 (MiWakeWaitersForAweCacheAttributeChange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangeAwePageAttributes @ 0x140649990 (MiChangeAwePageAttributes.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x14064C6DC (MiValidateAndLockAweMapCountPage.c)
+ *     MiWakeWaitersForAweCacheAttributeChange @ 0x14064C938 (MiWakeWaitersForAweCacheAttributeChange.c)
  */
 
 __int64 __fastcall MiIncrementAweMapCount(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -88,10 +88,13 @@ __int64 __fastcall MiIncrementAweMapCount(__int64 a1, __int64 a2, int a3, __int6
       *(_QWORD *)(a1 + 56) = &v38;
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 48));
       _InterlockedAnd64(v11, 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v10 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -126,10 +129,10 @@ LABEL_44:
 LABEL_34:
         _InterlockedAnd64(v11, 0x7FFFFFFFFFFFFFFFuLL);
 LABEL_48:
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v29 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v10 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v10 <= 0xFu )
           {
             v27 = v29 < 2u;
 LABEL_53:
@@ -152,10 +155,10 @@ LABEL_56:
       if ( *(_WORD *)(v6 + 32) > 2u || v18 != 1 || (*v11 & 0x4000000000000000LL) != 0 )
       {
         _InterlockedAnd64(v11, 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v26 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v10 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v10 <= 0xFu )
           {
             v27 = v26 < 2u;
             goto LABEL_53;
@@ -171,10 +174,10 @@ LABEL_56:
       }
       *(_BYTE *)(v6 + 34) = v12 | 0x20;
       _InterlockedAnd64(v11, 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v19 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v19 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v19 >= 2u )
         {
           v20 = KeGetCurrentPrcb();
           v21 = v20->SchedulerAssist;
@@ -206,10 +209,10 @@ LABEL_56:
     (volatile signed __int32 *)(qword_140C67DF8 + 4 * (((((__int64)v5 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
     ~(1 << ((((__int64)v5 - qword_140C67DF0) >> 3) & 0x1F)));
 LABEL_59:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v33 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v33 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v33 >= 2u )
     {
       v34 = KeGetCurrentPrcb();
       v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));

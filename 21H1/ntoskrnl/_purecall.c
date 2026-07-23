@@ -8,5 +8,5 @@
 
 void __noreturn purecall()
 {
-  RtlRaiseStatus(0xC0000002);
+  RtlRaiseStatus(-1073741822);
 }

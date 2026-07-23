@@ -1,68 +1,73 @@
 /*
- * XREFs of NtQueryIoCompletion @ 0x140A71580
+ * XREFs of NtQueryIoCompletion @ 0x140A6A960
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQueryIoCompletion(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtQueryIoCompletion(
+        HANDLE IoCompletionHandle,
+        IO_COMPLETION_INFORMATION_CLASS IoCompletionInformationClass,
+        PVOID IoCompletionInformation,
+        ULONG IoCompletionInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v8; // rdx
   __int64 v9; // rcx
-  _DWORD *v10; // rbx
-  NTSTATUS v11; // esi
+  PULONG v10; // rbx
+  int v11; // esi
   int v12; // r14d
   PVOID Object; // [rsp+38h] [rbp-30h] BYREF
 
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 4 )
-    return 3221225476LL;
+  if ( IoCompletionInformationClass )
+    return -1073741821;
+  if ( IoCompletionInformationLength != 4 )
+    return -1073741820;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)IoCompletionInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v8 = 0x7FFFFFFF0000LL;
     v9 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v9 = a3;
+    if ( (unsigned __int64)IoCompletionInformation < 0x7FFFFFFF0000LL )
+      v9 = (__int64)IoCompletionInformation;
     *(_BYTE *)v9 = *(_BYTE *)v9;
     *(_BYTE *)(v9 + 3) = *(_BYTE *)(v9 + 3);
-    v10 = (_DWORD *)a5;
-    if ( a5 )
+    v10 = ReturnLength;
+    if ( ReturnLength )
     {
-      if ( a5 < 0x7FFFFFFF0000LL )
-        v8 = a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v8 = (__int64)ReturnLength;
       *(_DWORD *)v8 = *(_DWORD *)v8;
     }
   }
   else
   {
-    v10 = (_DWORD *)a5;
+    v10 = ReturnLength;
   }
   Object = 0LL;
-  v11 = ObReferenceObjectByHandle(Handle, 1u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(IoCompletionHandle, 1u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
   if ( v11 >= 0 )
   {
     v12 = *((_DWORD *)Object + 1);
     ObfDereferenceObject(Object);
     if ( PreviousMode )
     {
-      *(_DWORD *)a3 = v12;
+      *(_DWORD *)IoCompletionInformation = v12;
       if ( v10 )
         *v10 = 4;
     }
     else
     {
-      *(_DWORD *)a3 = v12;
+      *(_DWORD *)IoCompletionInformation = v12;
       if ( v10 )
         *v10 = 4;
     }
   }
-  return (unsigned int)v11;
+  return v11;
 }

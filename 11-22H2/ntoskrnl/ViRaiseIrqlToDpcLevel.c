@@ -25,9 +25,9 @@ unsigned __int8 ViRaiseIrqlToDpcLevel()
   {
     v1 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v1 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v1 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v1 == 2 )

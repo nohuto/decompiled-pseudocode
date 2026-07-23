@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpPmuReservedResourcesProcessorCallback @ 0x1405805F8
+ * XREFs of HalpPmuReservedResourcesProcessorCallback @ 0x140582B18
  * Callers:
- *     EmonAllocateResources @ 0x140594F44 (EmonAllocateResources.c)
- *     EmonReleaseProfileResourcesInternal @ 0x140595FF4 (EmonReleaseProfileResourcesInternal.c)
+ *     EmonAllocateResources @ 0x1405976C4 (EmonAllocateResources.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x140598774 (EmonReleaseProfileResourcesInternal.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeSetTargetProcessorDpcEx @ 0x140428940 (KeSetTargetProcessorDpcEx.c)
- *     KeGetProcessorNumberFromIndex @ 0x1404289E0 (KeGetProcessorNumberFromIndex.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140202CC0 (KeGetProcessorNumberFromIndex.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14021AC20 (KeSetTargetProcessorDpcEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpPmuReservedResourcesProcessorCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -30,7 +30,7 @@ __int64 __fastcall HalpPmuReservedResourcesProcessorCallback(__int64 a1, __int64
   __int64 v20; // [rsp+60h] [rbp-10h]
   ULONG ProcIndex; // [rsp+B0h] [rbp+40h] BYREF
   int v22; // [rsp+B8h] [rbp+48h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+C0h] [rbp+50h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+C0h] [rbp+50h] BYREF
 
   v19[0] = a2;
   v17 = 0;

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCSparseBitmapBitsClear @ 0x14034E15C
+ * XREFs of RtlCSparseBitmapBitsClear @ 0x1403501DC
  * Callers:
- *     RtlpHpSegPageRangeShrink @ 0x14034DB40 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegSegmentFree @ 0x14034F76C (RtlpHpSegSegmentFree.c)
- *     RtlCSparseBitmapBitmaskWrite @ 0x14034F848 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlpHpVaMgrRangeCleanup @ 0x14034FCD4 (RtlpHpVaMgrRangeCleanup.c)
- *     RtlpHpVaMgrRangeCreate @ 0x1403511E8 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14034FBC0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegSegmentFree @ 0x1403517EC (RtlpHpSegSegmentFree.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1403518C8 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpHpVaMgrRangeCleanup @ 0x140351D54 (RtlpHpVaMgrRangeCleanup.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x140353268 (RtlpHpVaMgrRangeCreate.c)
  * Callees:
- *     RtlpCSparseBitmapPageDecommit @ 0x140351604 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140353684 (RtlpCSparseBitmapPageDecommit.c)
  */
 
 void __fastcall RtlCSparseBitmapBitsClear(__int64 a1, unsigned __int64 a2, __int64 a3)

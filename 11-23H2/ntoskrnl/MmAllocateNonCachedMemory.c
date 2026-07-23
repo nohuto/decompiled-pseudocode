@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAllocateNonCachedMemory @ 0x140A2D910
+ * XREFs of MmAllocateNonCachedMemory @ 0x140A2DBC0
  * Callers:
- *     DifMmAllocateNonCachedMemoryWrapper @ 0x1405E6B30 (DifMmAllocateNonCachedMemoryWrapper.c)
+ *     DifMmAllocateNonCachedMemoryWrapper @ 0x1405E70A0 (DifMmAllocateNonCachedMemoryWrapper.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeGetIdealNodeNumberThread @ 0x140570760 (KeGetIdealNodeNumberThread.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MmFreePagesFromMdl @ 0x1402EC240 (MmFreePagesFromMdl.c)
+ *     MiAllocatePagesForMdl @ 0x1402F8F6C (MiAllocatePagesForMdl.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeGetIdealNodeNumberThread @ 0x140570CA0 (KeGetIdealNodeNumberThread.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

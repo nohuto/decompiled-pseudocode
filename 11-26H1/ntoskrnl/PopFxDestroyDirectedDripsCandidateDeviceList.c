@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxDestroyDirectedDripsCandidateDeviceList @ 0x140504790
+ * XREFs of PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1404FE0D4
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140AC54E8 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x140AC7158 (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
  */
 
 void __fastcall PopFxDestroyDirectedDripsCandidateDeviceList(_QWORD **a1)
@@ -29,19 +29,19 @@ void __fastcall PopFxDestroyDirectedDripsCandidateDeviceList(_QWORD **a1)
     *v2 = v2;
     PopFxDereferenceDevice((__int64)(v2 - 114), 3);
   }
-  _m_prefetchw(&stru_140F12420);
-  v4 = *(_QWORD *)&stru_140F12420.Header.Lock - 16LL;
-  if ( (*(_QWORD *)&stru_140F12420.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  _m_prefetchw(&PopFxBlockingDeviceListLock);
+  v4 = *(_QWORD *)&PopFxBlockingDeviceListLock.Header.Lock - 16LL;
+  if ( (*(_QWORD *)&PopFxBlockingDeviceListLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v4 = 0LL;
-  if ( (stru_140F12420.Header.Type & 2) != 0
-    || (v5 = *(_QWORD *)&stru_140F12420.Header.Lock,
+  if ( (PopFxBlockingDeviceListLock.Header.Type & 2) != 0
+    || (v5 = *(_QWORD *)&PopFxBlockingDeviceListLock.Header.Lock,
         v5 != _InterlockedCompareExchange64(
-                (volatile signed __int64 *)&stru_140F12420,
+                (volatile signed __int64 *)&PopFxBlockingDeviceListLock,
                 v4,
-                *(signed __int64 *)&stru_140F12420.Header.Lock)) )
+                *(signed __int64 *)&PopFxBlockingDeviceListLock.Header.Lock)) )
   {
-    ExfReleasePushLock(&stru_140F12420);
+    ExfReleasePushLock(&PopFxBlockingDeviceListLock);
   }
-  KeAbPostRelease((unsigned __int64)&stru_140F12420);
+  KeAbPostRelease((unsigned __int64)&PopFxBlockingDeviceListLock);
   KeLeaveCriticalRegion();
 }

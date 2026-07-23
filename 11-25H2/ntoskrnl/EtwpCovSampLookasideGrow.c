@@ -15,7 +15,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi
   unsigned int v5; // ebx
-  struct _SLIST_ENTRY *v6; // rdi
+  _SLIST_ENTRY *v6; // rdi
   KIRQL v7; // r14
   _SLIST_ENTRY *v8; // rdx
   _SLIST_ENTRY *v9; // rcx
@@ -24,7 +24,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
   KeGetCurrentIrql();
   if ( *(_DWORD *)(a2 + 52) < *(_DWORD *)(a2 + 56) )
   {
-    v6 = (struct _SLIST_ENTRY *)guard_dispatch_icall_no_overrides(a1, a2);
+    v6 = (_SLIST_ENTRY *)guard_dispatch_icall_no_overrides(a1, a2);
     if ( v6 )
     {
       v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 632));
@@ -33,7 +33,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
         _InterlockedIncrement((volatile signed __int32 *)(a2 + 52));
         ++*(_DWORD *)(v2 + 72);
         v8 = *(_SLIST_ENTRY **)(v2 + 40);
-        v9 = (struct _SLIST_ENTRY *)((char *)v6 + 24);
+        v9 = (_SLIST_ENTRY *)((char *)v6 + 24);
         if ( v8->Next != (_SLIST_ENTRY *)(v2 + 32) )
           __fastfail(3u);
         v6[2].Next = v8;

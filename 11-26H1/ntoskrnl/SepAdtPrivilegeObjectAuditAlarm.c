@@ -1,27 +1,27 @@
 /*
- * XREFs of SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0
+ * XREFs of SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1409F7550 (NtOpenObjectAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x1409F8190 (NtPrivilegeObjectAuditAlarm.c)
- *     SeAuditHandleCreation @ 0x1409FAC60 (SeAuditHandleCreation.c)
- *     PspCreateObjectHandle @ 0x140A0406C (PspCreateObjectHandle.c)
- *     SePrivilegeObjectAuditAlarm @ 0x140A7AA20 (SePrivilegeObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140B09DB0 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     SeAuditHandleCreation @ 0x14091F860 (SeAuditHandleCreation.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x140A60090 (NtOpenObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x140A60CD0 (NtPrivilegeObjectAuditAlarm.c)
+ *     PspCreateObjectHandle @ 0x140A7BDE4 (PspCreateObjectHandle.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x140A82960 (SePrivilegeObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140B0BB70 (SeOpenObjectAuditAlarmForNonObObject.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     SepAdtCheckPrivilegeForSensitivity @ 0x1404BBEA8 (SepAdtCheckPrivilegeForSensitivity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SepFilterPrivilegeAudits @ 0x1409F7460 (SepFilterPrivilegeAudits.c)
- *     ObNormalizeHandleValue @ 0x1409FA514 (ObNormalizeHandleValue.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1409FABB0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     SepAdtCheckPrivilegeForSensitivity @ 0x1404B60C8 (SepAdtCheckPrivilegeForSensitivity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     ObNormalizeHandleValue @ 0x14091F114 (ObNormalizeHandleValue.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14091F7B0 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepFilterPrivilegeAudits @ 0x140A5FFB0 (SepFilterPrivilegeAudits.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall SepAdtPrivilegeObjectAuditAlarm(
@@ -121,7 +121,7 @@ char __fastcall SepAdtPrivilegeObjectAuditAlarm(
   if ( !a5 )
     v17 = a6;
   v33 = **(unsigned __int8 ***)(v17 + 152);
-  if ( RtlEqualSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags, v33) )
+  if ( RtlEqualSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4), v33) )
     return 0;
   CurrentThreadProcess = PsGetCurrentThreadProcess();
   AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(CurrentThreadProcess, &P);

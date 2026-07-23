@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x14053A858
+ * XREFs of HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x140538098
  * Callers:
- *     HalpTimerInitSystem @ 0x14053AFA0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1405387E0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _UNKNOWN **HalpTimerCaptureCloestAuxiliaryQpcPair()
@@ -17,8 +17,6 @@ _UNKNOWN **HalpTimerCaptureCloestAuxiliaryQpcPair()
   LARGE_INTEGER PerformanceCounter; // rbx
   __int64 InternalData; // rax
   __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = &retaddr;
@@ -31,7 +29,7 @@ _UNKNOWN **HalpTimerCaptureCloestAuxiliaryQpcPair()
     {
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
       InternalData = HalpTimerGetInternalData(HalpAuxiliaryCounter);
-      guard_dispatch_icall_no_overrides(InternalData, v6, v7, v8);
+      guard_dispatch_icall_no_overrides(InternalData, v6);
       result = (_UNKNOWN **)(*(_QWORD *)&KeQueryPerformanceCounter(0LL) - PerformanceCounter.QuadPart);
       if ( v3 <= (unsigned __int64)result )
         result = (_UNKNOWN **)v3;

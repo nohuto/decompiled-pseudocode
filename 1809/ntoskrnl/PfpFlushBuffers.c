@@ -1,38 +1,38 @@
 /*
- * XREFs of PfpFlushBuffers @ 0x140669E70
+ * XREFs of PfpFlushBuffers @ 0x14066B030
  * Callers:
- *     PfTLoggingWorker @ 0x14073F930 (PfTLoggingWorker.c)
+ *     PfTLoggingWorker @ 0x140740B20 (PfTLoggingWorker.c)
  * Callees:
- *     MmFreeAccessPfnBuffer @ 0x1400E261C (MmFreeAccessPfnBuffer.c)
- *     PfpIsProcessInfoPresent @ 0x1400E265C (PfpIsProcessInfoPresent.c)
- *     PfpReturnAccessBuffer @ 0x1400E279C (PfpReturnAccessBuffer.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PfpFlushEventBuffers @ 0x140669B10 (PfpFlushEventBuffers.c)
- *     PfpCopyEvent @ 0x140669C20 (PfpCopyEvent.c)
- *     PfpLogPageAccess @ 0x14066A170 (PfpLogPageAccess.c)
- *     PfTAcquireLogEntry @ 0x140865164 (PfTAcquireLogEntry.c)
+ *     MmFreeAccessPfnBuffer @ 0x1400E269C (MmFreeAccessPfnBuffer.c)
+ *     PfpIsProcessInfoPresent @ 0x1400E26DC (PfpIsProcessInfoPresent.c)
+ *     PfpReturnAccessBuffer @ 0x1400E281C (PfpReturnAccessBuffer.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C55B0 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PfpFlushEventBuffers @ 0x14066ACD0 (PfpFlushEventBuffers.c)
+ *     PfpCopyEvent @ 0x14066ADE0 (PfpCopyEvent.c)
+ *     PfpLogPageAccess @ 0x14066B330 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x1408663C4 (PfTAcquireLogEntry.c)
  */
 
 char PfpFlushBuffers()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   _SLIST_ENTRY *v1; // rdi
   void *v2; // r12
   int v3; // r14d
   PSLIST_ENTRY v4; // rax
-  struct _SLIST_ENTRY *v5; // rcx
-  struct _SLIST_ENTRY *v6; // r15
-  struct _SLIST_ENTRY *v7; // rsi
-  struct _SLIST_ENTRY *v8; // r13
+  _SLIST_ENTRY *v5; // rcx
+  _SLIST_ENTRY *v6; // r15
+  _SLIST_ENTRY *v7; // rsi
+  _SLIST_ENTRY *v8; // r13
   unsigned __int64 v9; // r9
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // rcx
   __int64 v12; // rbp
   _SLIST_ENTRY *v13; // r14
   unsigned __int64 v14; // rdx
-  struct _SLIST_ENTRY *v16; // rcx
+  _SLIST_ENTRY *v16; // rcx
   _SLIST_ENTRY *Next; // r14
   unsigned __int64 v18; // rbp
   __int64 v19; // rax
@@ -57,7 +57,7 @@ char PfpFlushBuffers()
   v3 = v22;
   if ( v22 < 0 )
     return 0;
-  v4 = RtlpInterlockedFlushSList(&stru_1404D7540);
+  v4 = RtlpInterlockedFlushSList(&stru_1404D8600);
   if ( !v4 )
     goto LABEL_20;
   do
@@ -81,8 +81,8 @@ char PfpFlushBuffers()
     Src = 163851LL;
     v11 = ((MEMORY[0xFFFFF78000000004] * HIDWORD(*((_QWORD *)&v7[1].Next + 1))) << 8)
         + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)*((_QWORD *)&v7[1].Next + 1)) >> 24);
-    LODWORD(v30) = dword_14043C09C + ((v10 + (v9 >> 24)) >> 10);
-    HIDWORD(v30) = dword_14043C09C + (v11 >> 10);
+    LODWORD(v30) = dword_14043D15C + ((v10 + (v9 >> 24)) >> 10);
+    HIDWORD(v30) = dword_14043D15C + (v11 >> 10);
     v29 = (unsigned int)v30;
     PfpCopyEvent(&Src);
     if ( *((int *)&v7->Next + 2) > 1
@@ -98,7 +98,7 @@ char PfpFlushBuffers()
         while ( 1 )
         {
           v18 = (unsigned __int64)Next->Next;
-          v19 = PfTAcquireLogEntry(&unk_14043BB58, &v23, 1LL);
+          v19 = PfTAcquireLogEntry(&unk_14043CC18, &v23, 1LL);
           if ( !v19 )
             break;
           v20 = (unsigned __int64 *)(16LL * v23 + ((v19 + 31) & 0xFFFFFFFFFFFFFFF8uLL));
@@ -130,7 +130,7 @@ char PfpFlushBuffers()
       goto LABEL_14;
     }
     v2 = &v7[4].Next + 1;
-    v1 = (struct _SLIST_ENTRY *)((char *)v7 + 72);
+    v1 = (_SLIST_ENTRY *)((char *)v7 + 72);
     if ( (_SLIST_ENTRY *)(&v7[4].Next + 1) < v7[2].Next )
       break;
 LABEL_12:
@@ -140,7 +140,7 @@ LABEL_12:
 LABEL_13:
     v14 = *((_QWORD *)&v7[1].Next + 1);
     v27[0] = 147463LL;
-    v27[1] = dword_14043C09C
+    v27[1] = dword_14043D15C
            + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(v14)) << 8)
                            + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)v14) >> 24)) >> 10);
     PfpCopyEvent(v27);

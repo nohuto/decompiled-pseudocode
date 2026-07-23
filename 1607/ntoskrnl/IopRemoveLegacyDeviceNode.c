@@ -1,11 +1,11 @@
 /*
- * XREFs of IopRemoveLegacyDeviceNode @ 0x140554AD8
+ * XREFs of IopRemoveLegacyDeviceNode @ 0x140555018
  * Callers:
- *     IopLegacyResourceAllocation @ 0x1405549AC (IopLegacyResourceAllocation.c)
+ *     IopLegacyResourceAllocation @ 0x140554EEC (IopLegacyResourceAllocation.c)
  * Callees:
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     IopDestroyDeviceNode @ 0x1403F2CD4 (IopDestroyDeviceNode.c)
- *     PipClearDevNodeFlags @ 0x1403F3414 (PipClearDevNodeFlags.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     IopDestroyDeviceNode @ 0x1403F1B98 (IopDestroyDeviceNode.c)
+ *     PipClearDevNodeFlags @ 0x1403F22D8 (PipClearDevNodeFlags.c)
  */
 
 void __fastcall IopRemoveLegacyDeviceNode(__int64 a1, char *a2)

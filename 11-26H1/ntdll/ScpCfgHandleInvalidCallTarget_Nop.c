@@ -1,5 +1,5 @@
 /*
- * XREFs of ScpCfgHandleInvalidCallTarget_Nop @ 0x18016C240
+ * XREFs of ScpCfgHandleInvalidCallTarget_Nop @ 0x18016B240
  * Callers:
  *     <none>
  * Callees:

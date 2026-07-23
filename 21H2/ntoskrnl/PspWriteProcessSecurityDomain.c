@@ -1,7 +1,7 @@
 /*
- * XREFs of PspWriteProcessSecurityDomain @ 0x1402BC4B0
+ * XREFs of PspWriteProcessSecurityDomain @ 0x14023AA3C
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

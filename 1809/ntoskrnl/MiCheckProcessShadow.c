@@ -2,22 +2,22 @@
  * XREFs of MiCheckProcessShadow @ 0x140046A70
  * Callers:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiFinishVadDeletion @ 0x140067770 (MiFinishVadDeletion.c)
- *     MiGetVadWakeList @ 0x140068270 (MiGetVadWakeList.c)
- *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     MiMakeHyperRangeAccessible @ 0x14006E3D0 (MiMakeHyperRangeAccessible.c)
- *     MiMoveDirtyBitsToPfns @ 0x140074A40 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x140086AD0 (NtGetWriteWatch.c)
- *     MmCheckProcessShadow @ 0x140135C00 (MmCheckProcessShadow.c)
- *     MmRemoveSystemCacheFromDump @ 0x1402AE6AC (MmRemoveSystemCacheFromDump.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiFinishVadDeletion @ 0x140067760 (MiFinishVadDeletion.c)
+ *     MiGetVadWakeList @ 0x140068260 (MiGetVadWakeList.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14006D570 (MiTrimOrAgeWorkingSet.c)
+ *     MiMakeHyperRangeAccessible @ 0x14006E3C0 (MiMakeHyperRangeAccessible.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140074A30 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x140086AC0 (NtGetWriteWatch.c)
+ *     MmCheckProcessShadow @ 0x140135CD0 (MmCheckProcessShadow.c)
+ *     MmRemoveSystemCacheFromDump @ 0x1402AE89C (MmRemoveSystemCacheFromDump.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiCheckRelevantKernelShadows @ 0x14012B0DC (MiCheckRelevantKernelShadows.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiCheckRelevantKernelShadows @ 0x14012B1AC (MiCheckRelevantKernelShadows.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckProcessShadow(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -125,7 +125,7 @@ LABEL_15:
     if ( (v17 & 1) != 0 )
     {
       v21 = v17 & 0xCFFFFFFFFFFFFFDFuLL | 0x20;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
         v18 |= 0x8000000000000000uLL;
       BugCheckParameter4 = v18 | 0x20;
       if ( v21 != BugCheckParameter4 )

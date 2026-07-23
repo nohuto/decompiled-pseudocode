@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetSchemaExpander_Initialize @ 0x140418850
+ * XREFs of ApiSetSchemaExpander_Initialize @ 0x140418BE0
  * Callers:
- *     ApiSetComposeSchema_V7 @ 0x140417648 (ApiSetComposeSchema_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x1404179D8 (ApiSetComposeSchema_V7.c)
  * Callees:
  *     <none>
  */

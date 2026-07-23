@@ -8,7 +8,7 @@
  *     LdrpInitializeDllPath @ 0x180022848 (LdrpInitializeDllPath.c)
  *     LdrpPreprocessDllName @ 0x180025FA8 (LdrpPreprocessDllName.c)
  *     RtlReleasePath @ 0x180071700 (RtlReleasePath.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     LdrpCleanupEnclaveLoadState @ 0x1800CF038 (LdrpCleanupEnclaveLoadState.c)
  *     LdrpCreatePendingEnclaveModule @ 0x1800CF100 (LdrpCreatePendingEnclaveModule.c)
  *     LdrpDereferenceEnclave @ 0x1800CF33C (LdrpDereferenceEnclave.c)
@@ -16,68 +16,57 @@
  *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x1800D20DC (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
  */
 
-__int64 __fastcall LdrLoadEnclaveModule(unsigned __int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl LdrLoadEnclaveModule(PVOID BaseAddress, PWSTR DllPath, PUNICODE_STRING DllName)
 {
   __int64 *v5; // r14
   _QWORD *v7; // rsi
-  int PendingEnclaveModule; // ebx
+  NTSTATUS EnclaveModule; // ebx
   _QWORD *i; // rdi
-  unsigned __int64 v10; // rdx
-  unsigned __int64 *v11; // r8
-  __int64 v12; // r9
-  int v13; // [rsp+40h] [rbp-C0h] BYREF
-  int v14[3]; // [rsp+44h] [rbp-BCh] BYREF
-  __int64 v15[15]; // [rsp+50h] [rbp-B0h] BYREF
-  char v16; // [rsp+CCh] [rbp-34h]
-  int v17; // [rsp+D0h] [rbp-30h] BYREF
-  __int16 *v18; // [rsp+D8h] [rbp-28h]
-  __int16 v19; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned int v10; // [rsp+40h] [rbp-C0h] BYREF
+  NTSTATUS v11[3]; // [rsp+44h] [rbp-BCh] BYREF
+  PWSTR Path[15]; // [rsp+50h] [rbp-B0h] BYREF
+  char v13; // [rsp+CCh] [rbp-34h]
+  int v14; // [rsp+D0h] [rbp-30h] BYREF
+  __int16 *v15; // [rsp+D8h] [rbp-28h]
+  __int16 v16; // [rsp+E0h] [rbp-20h] BYREF
 
-  v5 = LdrpObtainLockedEnclave(a1, 1);
+  v5 = LdrpObtainLockedEnclave((unsigned __int64)BaseAddress, 1);
   if ( !v5 )
-    return 3221225632LL;
-  LdrpInitializeDllPath(*(_QWORD *)(a3 + 8), a2, v15);
+    return -1073741664;
+  LdrpInitializeDllPath((__int64)DllName->Buffer, (__int64)DllPath, (__int64 *)Path);
   if ( v5[10] || (v7 = v5 + 11, (_QWORD *)*v7 != v7) )
   {
-    PendingEnclaveModule = -1073741800;
+    EnclaveModule = -1073741800;
   }
   else
   {
-    v17 = 0x1000000;
-    v18 = &v19;
-    v19 = 0;
-    v13 = 0x800000;
-    PendingEnclaveModule = LdrpPreprocessDllName((unsigned __int16 *)a3, (unsigned __int16 *)&v17, 0, &v13);
-    if ( PendingEnclaveModule >= 0 )
+    v14 = 0x1000000;
+    v15 = &v16;
+    v16 = 0;
+    v10 = 0x800000;
+    EnclaveModule = LdrpPreprocessDllName(&DllName->Length, (unsigned __int16 *)&v14, 0LL, (int *)&v10);
+    if ( EnclaveModule >= 0 )
     {
-      v14[0] = 0;
-      PendingEnclaveModule = LdrpCreatePendingEnclaveModule(
-                               (_DWORD)v5,
-                               (unsigned int)&v17,
-                               v13,
-                               7,
-                               (__int64)v15,
-                               0LL,
-                               0LL,
-                               (__int64)v14);
-      if ( PendingEnclaveModule >= 0 )
+      v11[0] = 0;
+      EnclaveModule = LdrpCreatePendingEnclaveModule(v5, &v14, v10, 7LL, Path, 0LL, 0LL, v11);
+      if ( EnclaveModule >= 0 )
       {
         for ( i = (_QWORD *)*v7; i != v7; i = (_QWORD *)*i )
         {
-          PendingEnclaveModule = LdrpLoadEnclaveModule(i[22]);
-          if ( PendingEnclaveModule < 0 )
+          EnclaveModule = LdrpLoadEnclaveModule(i[22]);
+          if ( EnclaveModule < 0 )
             goto LABEL_13;
         }
-        PendingEnclaveModule = v14[0];
+        EnclaveModule = v11[0];
       }
     }
   }
 LABEL_13:
-  LdrpCleanupEnclaveLoadState(v5, (unsigned int)PendingEnclaveModule);
-  RtlLeaveCriticalSection((__int64)(v5 + 2));
+  LdrpCleanupEnclaveLoadState(v5, (unsigned int)EnclaveModule);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v5 + 2));
   LdrpDereferenceEnclave(v5);
-  if ( v16 )
-    RtlReleasePath(v15[0], v10, v11, v12);
-  LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry((unsigned int)PendingEnclaveModule);
-  return (unsigned int)PendingEnclaveModule;
+  if ( v13 )
+    RtlReleasePath(Path[0]);
+  LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry((unsigned int)EnclaveModule);
+  return EnclaveModule;
 }

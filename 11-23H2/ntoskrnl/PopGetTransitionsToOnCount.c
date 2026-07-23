@@ -1,10 +1,10 @@
 /*
- * XREFs of PopGetTransitionsToOnCount @ 0x1405951AC
+ * XREFs of PopGetTransitionsToOnCount @ 0x14059569C
  * Callers:
- *     PopSetSleepMarker @ 0x1409814A0 (PopSetSleepMarker.c)
+ *     PopSetSleepMarker @ 0x1409816A0 (PopSetSleepMarker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 PopGetTransitionsToOnCount()
@@ -12,7 +12,7 @@ __int64 PopGetTransitionsToOnCount()
   unsigned int v0; // ebx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopTelemetryOsState);
-  v0 = dword_140C3C408;
+  v0 = dword_140C3C3A8;
   PopReleaseRwLock(&PopTelemetryOsState);
   return v0;
 }

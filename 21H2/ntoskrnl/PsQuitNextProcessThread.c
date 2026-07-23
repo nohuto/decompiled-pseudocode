@@ -1,13 +1,13 @@
 /*
- * XREFs of PsQuitNextProcessThread @ 0x1406C39B0
+ * XREFs of PsQuitNextProcessThread @ 0x140622590
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     DbgkpPostFakeThreadMessages @ 0x140884E94 (DbgkpPostFakeThreadMessages.c)
- *     PsWaitForAllProcesses @ 0x14090ADF8 (PsWaitForAllProcesses.c)
- *     PspWaitForUsermodeExit @ 0x14090B2EC (PspWaitForUsermodeExit.c)
- *     ExpDebuggerWorker @ 0x1409B5030 (ExpDebuggerWorker.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140884FF4 (DbgkpPostFakeThreadMessages.c)
+ *     PsWaitForAllProcesses @ 0x14090AF58 (PsWaitForAllProcesses.c)
+ *     PspWaitForUsermodeExit @ 0x14090B44C (PspWaitForUsermodeExit.c)
+ *     ExpDebuggerWorker @ 0x1409B6030 (ExpDebuggerWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PsQuitNextProcessThread(void *a1)

@@ -25,7 +25,7 @@ NTSTATUS __stdcall RtlRunOnceExecuteOnce(
 {
   struct _KTHREAD *CurrentThread; // rax
   NTSTATUS v9; // eax
-  NTSTATUS v10; // ebx
+  int v10; // ebx
   PVOID v12; // r8
   NTSTATUS v13; // eax
 

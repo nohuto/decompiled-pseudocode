@@ -23,21 +23,23 @@
 __int64 __fastcall sub_1800FADB0(__int64 a1)
 {
   unsigned __int64 v1; // rbp
-  int InstallUILanguage; // edi
+  NTSTATUS InstallUILanguage; // edi
   __int64 result; // rax
   unsigned int v5; // ecx
-  __int64 v6; // rax
-  __int64 v7; // rax
-  int v8; // esi
+  _QWORD *v6; // rax
+  _QWORD *v7; // rax
+  ULONG v8; // esi
   unsigned __int64 v9; // rcx
-  __int64 v10; // rcx
+  void *v10; // rcx
   __int16 v11; // cx
   unsigned int v12; // ecx
   char v13; // r8
-  int v14; // [rsp+20h] [rbp-30h]
-  int v15; // [rsp+50h] [rbp+0h] BYREF
+  void *v14; // rcx
+  void *v15; // rcx
+  int Length; // [rsp+20h] [rbp-30h]
+  int v17; // [rsp+50h] [rbp+0h] BYREF
 
-  v1 = (unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL;
+  v1 = (unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL;
   *(_QWORD *)(v1 + 16) = 0LL;
   *(_QWORD *)(v1 + 8) = 0LL;
   InstallUILanguage = 0;
@@ -46,9 +48,9 @@ __int64 __fastcall sub_1800FADB0(__int64 a1)
   *(_WORD *)(v1 + 4) = -1;
   if ( !a1 )
     return 3221225485LL;
-  if ( (int)ZwIsUILanguageComitted() >= 0 )
+  if ( ZwIsUILanguageComitted() >= 0 )
   {
-    InstallUILanguage = ZwQueryInstallUILanguage();
+    InstallUILanguage = ZwQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_33;
     sub_18008A9A4(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));
@@ -72,19 +74,25 @@ LABEL_33:
   RtlInitUnicodeString(
     (PUNICODE_STRING)(v1 + 40),
     L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages");
-  *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = 0LL;
-  *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) = ((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL)
+  *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = 0LL;
+  *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) = ((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL)
                                                                        + 40;
-  *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 48;
-  *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 0LL;
-  *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50) = 64;
-  *(_OWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 0LL;
-  if ( (int)ZwOpenKey() >= 0 )
+  *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 48;
+  *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 0LL;
+  *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50) = 64;
+  *(_OWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 0LL;
+  if ( ZwOpenKey((PHANDLE)(v1 + 16), 0x20019u, (POBJECT_ATTRIBUTES)(v1 + 56)) >= 0 )
   {
     v8 = 0;
     do
     {
-      InstallUILanguage = ZwEnumerateKey();
+      InstallUILanguage = ZwEnumerateKey(
+                            *(HANDLE *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10),
+                            v8,
+                            KeyBasicInformation,
+                            (PVOID)(v1 + 128),
+                            0x200u,
+                            (PULONG)(v1 + 24));
       if ( InstallUILanguage < 0 )
       {
         if ( InstallUILanguage != -2147483622 )
@@ -92,31 +100,31 @@ LABEL_33:
       }
       else
       {
-        v9 = *(unsigned int *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x8C);
+        v9 = *(unsigned int *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x8C);
         if ( v9 + 24 <= 0x200 )
         {
-          *(_WORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x90 + 2 * (v9 >> 1)) = 0;
+          *(_WORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x90 + 2 * (v9 >> 1)) = 0;
           RtlInitUnicodeString((PUNICODE_STRING)(v1 + 40), (PCWSTR)(v1 + 144));
-          *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL)
+          *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL)
                                                                                            + 0x10);
-          *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
-          *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) = ((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL)
+          *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
+          *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) = ((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL)
                                                                                + 40;
-          *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 48;
-          *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50) = 64;
-          *(_OWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 0LL;
-          if ( (int)ZwOpenKey() >= 0 )
+          *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 48;
+          *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50) = 64;
+          *(_OWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 0LL;
+          if ( ZwOpenKey((PHANDLE)(v1 + 8), 0x20019u, (POBJECT_ATTRIBUTES)(v1 + 56)) >= 0 )
           {
             RtlInitUnicodeString((PUNICODE_STRING)(v1 + 40), L"Type");
-            v10 = *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
-            *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20) = 4;
-            *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x1C) = 4;
+            v10 = *(void **)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+            *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20) = 4;
+            *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x1C) = 4;
             if ( (int)sub_18006F7EC(
                         v10,
-                        v1 + 40,
+                        (PUNICODE_STRING)(v1 + 40),
                         (_DWORD *)(v1 + 32),
-                        (void *)((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL),
-                        (unsigned int *)(v1 + 28)) >= 0
+                        (void *)((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL),
+                        (ULONG *)(v1 + 28)) >= 0
               && (int)sub_1800FA4D4(*(_DWORD *)v1) >= 0 )
             {
               v12 = v11 & 0x419F;
@@ -132,28 +140,30 @@ LABEL_33:
                 if ( (v13 & 0x18) != 0 && (v13 & 0x18 & -(v13 & 0x18)) == (v13 & 0x18) && (v13 & 0xC) != 8 )
                   sub_1800F86F8(
                     (_QWORD *)a1,
-                    *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
+                    *(void **)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
                     (wchar_t *)(v1 + 144),
                     v12,
-                    v14,
+                    Length,
                     v1 + 4);
               }
             }
           }
         }
       }
-      if ( *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8) )
+      v14 = *(void **)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+      if ( v14 )
       {
-        ZwClose();
-        *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
+        ZwClose(v14);
+        *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
       }
       ++v8;
     }
     while ( InstallUILanguage != -2147483622 );
-    if ( *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) )
+    v15 = *(void **)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
+    if ( v15 )
     {
-      ZwClose();
-      *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = 0LL;
+      ZwClose(v15);
+      *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = 0LL;
     }
   }
   result = sub_1800FB5E4(a1);

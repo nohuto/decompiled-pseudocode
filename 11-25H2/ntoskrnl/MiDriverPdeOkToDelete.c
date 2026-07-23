@@ -17,7 +17,7 @@ __int64 __fastcall MiDriverPdeOkToDelete(unsigned __int64 a1)
   unsigned __int64 v8; // r8
   PVOID *i; // r9
   unsigned __int64 v10; // rdx
-  unsigned __int64 v11; // r11
+  char *v11; // r11
   void *v12; // rt1
 
   v2 = (__int64)(a1 << 25) >> 16;
@@ -33,15 +33,15 @@ __int64 __fastcall MiDriverPdeOkToDelete(unsigned __int64 a1)
   for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
   {
     v10 = (unsigned __int64)i[6];
-    v11 = v10 + (unsigned int)(*((_DWORD *)i + 16) - 1);
+    v11 = (char *)(v10 + (unsigned int)(*((_DWORD *)i + 16) - 1));
     v12 = *(void **)&KeNumberProcessorsGroup0[9];
-    if ( (void *)v10 == v12 || v10 == PsHalImageBase )
+    if ( (void *)v10 == v12 || (PVOID)v10 == PsHalImageBase )
       v8 = ((unsigned int)dword_140E3726C + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
     else
       v8 = ((unsigned __int64)(unsigned int)dword_140E2D4F8 << 12)
          + (((unsigned int)(dword_140E37270 + dword_140E3726C) + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
     v7 = ((v10 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
-    if ( a1 >= v7 && a1 <= (((v11 + v8) >> 18) & 0x3FFFFFF8) - 0x904C0000000LL )
+    if ( a1 >= v7 && a1 <= (((unsigned __int64)&v11[v8] >> 18) & 0x3FFFFFF8) - 0x904C0000000LL )
     {
       v5 = 0;
       break;

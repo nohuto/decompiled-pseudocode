@@ -1,12 +1,12 @@
 /*
- * XREFs of SmEtwEnableCallback @ 0x1407501E0
+ * XREFs of SmEtwEnableCallback @ 0x1407513D0
  * Callers:
  *     <none>
  * Callees:
- *     SmKmStoreReferenceEx @ 0x1400E11EC (SmKmStoreReferenceEx.c)
- *     SmEtwEnabled @ 0x1400E3E28 (SmEtwEnabled.c)
- *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x140308C50 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
- *     SmKmEtwLogStoreRundown @ 0x140750238 (SmKmEtwLogStoreRundown.c)
+ *     SmKmStoreReferenceEx @ 0x1400E126C (SmKmStoreReferenceEx.c)
+ *     SmEtwEnabled @ 0x1400E3EA8 (SmEtwEnabled.c)
+ *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x140308E40 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
+ *     SmKmEtwLogStoreRundown @ 0x140751428 (SmKmEtwLogStoreRundown.c)
  */
 
 void __fastcall SmEtwEnableCallback(LPCGUID SourceId, ULONG ControlCode, __int64 Level, ULONGLONG MatchAnyKeyword)
@@ -14,9 +14,9 @@ void __fastcall SmEtwEnableCallback(LPCGUID SourceId, ULONG ControlCode, __int64
   unsigned int i; // ebx
   unsigned __int64 v5; // rax
 
-  if ( ControlCode <= 1 && (dword_14055B4FC = MatchAnyKeyword | 0x40, ControlCode == 1) || ControlCode == 2 )
+  if ( ControlCode <= 1 && (dword_14055C4FC = MatchAnyKeyword | 0x40, ControlCode == 1) || ControlCode == 2 )
   {
-    SmKmEtwLogStoreRundown(&qword_14055B4F0, &SmGlobals, Level);
+    SmKmEtwLogStoreRundown(&qword_14055C4F0, &SmGlobals, Level);
     if ( SmEtwEnabled(3) )
     {
       for ( i = 0; i < 0x400; ++i )

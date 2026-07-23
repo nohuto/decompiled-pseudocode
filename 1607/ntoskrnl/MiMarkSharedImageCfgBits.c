@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMarkSharedImageCfgBits @ 0x1400E9AA0
+ * XREFs of MiMarkSharedImageCfgBits @ 0x1400E7910
  * Callers:
- *     MiMarkProcessCfgBits @ 0x140429A14 (MiMarkProcessCfgBits.c)
+ *     MiMarkProcessCfgBits @ 0x1404288E4 (MiMarkProcessCfgBits.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiGetControlAreaCfg @ 0x1400C038C (MiGetControlAreaCfg.c)
- *     MiIsCfgBitMapPageShared @ 0x1400E9DF0 (MiIsCfgBitMapPageShared.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MiCopyToCfgBitMap @ 0x14042F1E0 (MiCopyToCfgBitMap.c)
- *     MiUnlockNestedVad @ 0x140527FB0 (MiUnlockNestedVad.c)
- *     MiLockNestedVad @ 0x140527FE0 (MiLockNestedVad.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiGetControlAreaCfg @ 0x1400BE21C (MiGetControlAreaCfg.c)
+ *     MiIsCfgBitMapPageShared @ 0x1400E7C60 (MiIsCfgBitMapPageShared.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     MiCopyToCfgBitMap @ 0x14042E0B0 (MiCopyToCfgBitMap.c)
+ *     MiUnlockNestedVad @ 0x14050B010 (MiUnlockNestedVad.c)
+ *     MiLockNestedVad @ 0x14050B040 (MiLockNestedVad.c)
  */
 
 __int64 __fastcall MiMarkSharedImageCfgBits(__int64 a1, int a2, __int64 a3)
@@ -88,7 +88,7 @@ LABEL_30:
     }
     if ( (unsigned int)(IsCfgBitMapPageShared - 2) <= 1 )
     {
-      v23 = &dword_140327C80;
+      v23 = &dword_140327CC0;
       if ( (*(_BYTE *)(v11 + 184) & 7) != 2 )
         v23 = (volatile LONG *)(v11 + 192);
       ExReleaseSpinLockSharedFromDpcLevel(v23);
@@ -107,7 +107,7 @@ LABEL_30:
       if ( v21 < 0 )
         goto LABEL_32;
       v15 = v24 - 4095;
-      v22 = &dword_140327C80;
+      v22 = &dword_140327CC0;
       if ( (*(_BYTE *)(v11 + 184) & 7) != 2 )
         v22 = (LONG *)(v11 + 192);
       v13 = ExAcquireSpinLockShared(v22);

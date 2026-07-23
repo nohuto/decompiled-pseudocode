@@ -1,33 +1,32 @@
 /*
- * XREFs of IoQueryLowPriorityIoInformation @ 0x140B3D4BC
+ * XREFs of IoQueryLowPriorityIoInformation @ 0x140B3F58C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
  */
 
 __int64 __fastcall IoQueryLowPriorityIoInformation(__int64 a1, void *a2, unsigned int a3, _DWORD *a4, char a5)
 {
   unsigned int v6; // ebx
-  _DWORD Src[7]; // [rsp+28h] [rbp-40h] BYREF
-  void *FirstArgument; // [rsp+44h] [rbp-24h]
-  int TrapFrame; // [rsp+4Ch] [rbp-1Ch]
+  _DWORD Src[10]; // [rsp+28h] [rbp-40h] BYREF
 
   v6 = 0;
   *a4 = 0;
   if ( a3 >= 0x28 )
   {
-    Src[0] = IoLowPriorityReadOperationCount;
-    Src[1] = IoLowPriorityWriteOperationCount;
-    Src[2] = IoKernelIssuedIoBoostedCount;
-    Src[3] = IopSessionNotificationLock.InitialStack;
-    Src[4] = HIDWORD(IopSessionNotificationLock.QuantumTarget);
-    Src[5] = IopSessionNotificationLock.StackLimit;
-    Src[6] = HIDWORD(IopSessionNotificationLock.InitialStack);
-    FirstArgument = IopSessionNotificationLock.FirstArgument;
-    TrapFrame = (int)IopSessionNotificationLock.TrapFrame;
+    Src[0] = HIDWORD(IopPerfIoTrackingLock.KcsanThread);
+    Src[1] = IopPerfIoTrackingLock.SchedulerAssistYieldCounter;
+    Src[2] = IopPerfIoTrackingLock.SchedulerAssistYieldBoostCount;
+    Src[3] = IoPagingReadLowPriorityCount;
+    Src[4] = IoPagingReadLowPriorityBumpedCount;
+    Src[5] = IoPagingWriteLowPriorityCount;
+    Src[6] = IoPagingWriteLowPriorityBumpedCount;
+    Src[7] = IoBoostedThreadedIrpCount;
+    Src[8] = IoBoostedPagingIrpCount;
+    Src[9] = IoBlanketBoostCount;
     if ( a5 )
       RtlCopyToUser(a2, Src, 0x28uLL);
     else

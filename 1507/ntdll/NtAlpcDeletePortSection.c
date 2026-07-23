@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcDeletePortSection()
+NTSTATUS __cdecl NtAlpcDeletePortSection(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE SectionHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 124LL;
+  result = 124;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
  * XREFs of ZwCreateDirectoryObject @ 0x14041CC80
  * Callers:
- *     DifZwCreateDirectoryObjectWrapper @ 0x14061E280 (DifZwCreateDirectoryObjectWrapper.c)
- *     SeGetTokenDeviceMap @ 0x14069CC40 (SeGetTokenDeviceMap.c)
- *     ObpInitializeRootNamespace @ 0x14082C020 (ObpInitializeRootNamespace.c)
- *     SepInitializationPhase1 @ 0x140847FF0 (SepInitializationPhase1.c)
- *     ExInitializeNls @ 0x14085A828 (ExInitializeNls.c)
- *     ObpGetSilosRootDirectory @ 0x140A349F0 (ObpGetSilosRootDirectory.c)
- *     CmpInitializeDriverStores @ 0x140B2B730 (CmpInitializeDriverStores.c)
+ *     sub_14061E280 @ 0x14061E280 (sub_14061E280.c)
+ *     sub_14069CC40 @ 0x14069CC40 (sub_14069CC40.c)
+ *     sub_14082C020 @ 0x14082C020 (sub_14082C020.c)
+ *     sub_140847FF0 @ 0x140847FF0 (sub_140847FF0.c)
+ *     sub_14085A828 @ 0x14085A828 (sub_14085A828.c)
+ *     sub_140A349F0 @ 0x140A349F0 (sub_140A349F0.c)
+ *     sub_140B2B730 @ 0x140B2B730 (sub_140B2B730.c)
  * Callees:
  *     <none>
  */
@@ -20,5 +20,5 @@ NTSTATUS __stdcall ZwCreateDirectoryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DirectoryHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(DirectoryHandle, *(_QWORD *)&DesiredAccess);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeRegisterImageVerificationCallback @ 0x14080FCE0
+ * XREFs of SeRegisterImageVerificationCallback @ 0x140815770
  * Callers:
  *     <none>
  * Callees:
- *     ExRegisterCallback @ 0x1404F0710 (ExRegisterCallback.c)
+ *     ExRegisterCallback @ 0x1404E9CF0 (ExRegisterCallback.c)
  */
 
 __int64 __fastcall SeRegisterImageVerificationCallback(
@@ -16,7 +16,7 @@ __int64 __fastcall SeRegisterImageVerificationCallback(
 {
   unsigned int v6; // ebx
   bool v7; // zf
-  struct _CALLBACK_OBJECT *Flink; // rcx
+  struct _CALLBACK_OBJECT *v8; // rcx
   PVOID v9; // rcx
 
   v6 = 0;
@@ -38,13 +38,13 @@ __int64 __fastcall SeRegisterImageVerificationCallback(
     }
     else
     {
-      Flink = (struct _CALLBACK_OBJECT *)ExpSysDbgLock.Header.WaitListHead.Flink;
+      v8 = (struct _CALLBACK_OBJECT *)ExCbSeImageVerificationDriverInfo;
       if ( a2 )
-        Flink = (struct _CALLBACK_OBJECT *)ExpSysDbgLock.Header.WaitListHead.Blink;
-      v9 = ExRegisterCallback(Flink, a3, a4);
+        v8 = ExCbSeImageVerificationBlockInfo;
+      v9 = ExRegisterCallback(v8, a3, a4);
       if ( v9 )
       {
-        _InterlockedIncrement((volatile signed __int32 *)&RtlpBootStatHandleLock.Affinity);
+        _InterlockedIncrement((volatile signed __int32 *)&RtlpBootStatHandleLock.AffinityPrimaryGroup);
         *a6 = v9;
       }
       else

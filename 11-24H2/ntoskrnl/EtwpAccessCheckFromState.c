@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpAccessCheckFromState @ 0x140839BF8
+ * XREFs of EtwpAccessCheckFromState @ 0x140836E70
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x140839260 (EtwpAddRegEntryToGroup.c)
+ *     EtwpAddRegEntryToGroup @ 0x140AD9390 (EtwpAddRegEntryToGroup.c)
  * Callees:
- *     SeAccessCheckFromState @ 0x14035A040 (SeAccessCheckFromState.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140839E78 (EtwpGetGuidSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SeAccessCheckFromState @ 0x1403B6390 (SeAccessCheckFromState.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x1408370F0 (EtwpGetGuidSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpAccessCheckFromState(unsigned int *a1, __int64 a2, struct _TOKEN_ACCESS_INFORMATION *a3)
+__int64 __fastcall EtwpAccessCheckFromState(unsigned int *a1, __int64 a2, _TOKEN_ACCESS_INFORMATION *a3)
 {
   int v3; // eax
   int v5; // ecx

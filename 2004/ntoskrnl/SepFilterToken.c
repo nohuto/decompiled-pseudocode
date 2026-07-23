@@ -55,13 +55,13 @@ __int64 __fastcall SepFilterToken(
         unsigned int a6,
         _DWORD *a7,
         unsigned int a8,
-        _QWORD *a9,
+        PSID *a9,
         ULONG ulAddend,
         PADAPTER_OBJECT *a11)
 {
   _DMA_OPERATIONS *v13; // r15
   unsigned int v14; // edi
-  _QWORD *v15; // rbx
+  PSID *v15; // rbx
   _DMA_OPERATIONS *PoolWithTag; // rax
   _DMA_OPERATIONS *v17; // r14
   _DMA_OPERATIONS *v18; // rcx
@@ -85,27 +85,27 @@ __int64 __fastcall SepFilterToken(
   _DMA_OPERATIONS *v37; // rdx
   struct _KPROCESS *v38; // rax
   struct _DMA_ADAPTER *v39; // rbx
-  _DMA_OPERATIONS *v40; // r14
+  _SID_AND_ATTRIBUTES *v40; // r14
   int v41; // eax
   unsigned int v42; // r15d
-  char *v43; // r15
+  _SID_AND_ATTRIBUTES *SidArea; // r15
   __int64 v44; // r8
-  int v45; // eax
+  NTSTATUS v45; // eax
   unsigned int v46; // r12d
-  char *v47; // r14
+  _SID_AND_ATTRIBUTES *v47; // r14
   char **v48; // r13
   unsigned int v49; // edx
-  int v50; // eax
+  NTSTATUS v50; // eax
   struct _DMA_ADAPTER *v51; // rdx
   __int64 v52; // rax
   unsigned int v53; // ecx
   size_t v54; // r14
   char *v55; // r12
-  unsigned int *v56; // r13
+  ULONG *v56; // r13
   char v57; // al
   _DWORD *v58; // rcx
   unsigned int v59; // r15d
-  unsigned int v60; // r9d
+  ULONG v60; // r9d
   unsigned __int8 *v61; // rdx
   int v62; // eax
   struct _ERESOURCE *v63; // rcx
@@ -120,7 +120,7 @@ __int64 __fastcall SepFilterToken(
   __int64 v72; // [rsp+60h] [rbp-A8h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp-A0h]
   ULONG v74[2]; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v75; // [rsp+78h] [rbp-90h] BYREF
+  PSID RemainingSidArea; // [rsp+78h] [rbp-90h] BYREF
   int v76; // [rsp+80h] [rbp-88h]
   struct _DMA_ADAPTER *v77; // [rsp+88h] [rbp-80h]
   _DMA_OPERATIONS **p_DmaOperations; // [rsp+90h] [rbp-78h]
@@ -129,9 +129,9 @@ __int64 __fastcall SepFilterToken(
   _DMA_OPERATIONS **v81; // [rsp+A8h] [rbp-60h]
   struct _DMA_ADAPTER *v82; // [rsp+B0h] [rbp-58h]
   struct _DMA_ADAPTER *v83; // [rsp+B8h] [rbp-50h]
-  __int64 **v84; // [rsp+C0h] [rbp-48h]
-  _DMA_OPERATIONS **v85; // [rsp+C8h] [rbp-40h]
-  unsigned int *p_Version; // [rsp+D0h] [rbp-38h]
+  PSID_AND_ATTRIBUTES *v84; // [rsp+C0h] [rbp-48h]
+  PSID_AND_ATTRIBUTES_HASH SidAttrHash; // [rsp+C8h] [rbp-40h]
+  ULONG *p_Version; // [rsp+D0h] [rbp-38h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+D8h] [rbp-30h] BYREF
   int v88; // [rsp+F8h] [rbp-10h]
   int v89; // [rsp+FCh] [rbp-Ch]
@@ -160,7 +160,7 @@ __int64 __fastcall SepFilterToken(
   if ( a8 )
   {
     v15 = a9;
-    while ( !(unsigned __int8)RtlIsPackageSid(*v15) && !(unsigned __int8)RtlIsCapabilitySid(*v15) )
+    while ( !RtlIsPackageSid(*v15) && !RtlIsCapabilitySid(*v15) )
     {
       ++v14;
       v15 += 2;
@@ -291,11 +291,11 @@ LABEL_101:
   *(_QWORD *)&v27[72].Version = 0LL;
   v83 = v27 + 72;
   v27[49].DmaOperations = 0LL;
-  v84 = (__int64 **)&v27[49].DmaOperations;
+  v84 = (PSID_AND_ATTRIBUTES *)&v27[49].DmaOperations;
   *(_QWORD *)&v27[49].Version = 0LL;
-  p_Version = (unsigned int *)&v27[50].Version;
+  p_Version = (ULONG *)&v27[50].Version;
   *(_DWORD *)&v27[50].Version = 0;
-  v85 = &v27[50].DmaOperations;
+  SidAttrHash = (PSID_AND_ATTRIBUTES_HASH)&v27[50].DmaOperations;
   memset(&v27[50].DmaOperations, 0, 0x110uLL);
   *(_QWORD *)&v27[11].Version = 0LL;
   *(_QWORD *)&v27[69].Version = 0LL;
@@ -346,20 +346,20 @@ LABEL_101:
       *v32 |= 0x40u;
     HalPutDmaAdapter(v39);
   }
-  v40 = (_DMA_OPERATIONS *)&v27[73];
+  v40 = (_SID_AND_ATTRIBUTES *)&v27[73];
   v41 = ((_BYTE)v27 - 112) & 7;
   if ( (((_BYTE)v27 - 112) & 7) != 0 )
   {
-    v40 = (_DMA_OPERATIONS *)((char *)v40 + (unsigned int)(8 - v41));
+    v40 = (_SID_AND_ATTRIBUTES *)((char *)v40 + (unsigned int)(8 - v41));
     v28 -= 8 - v41;
     pulResult = v28;
   }
   v42 = a8;
   if ( *(_DWORD *)(a1 + 128) > a8 )
     v42 = *(_DWORD *)(a1 + 128);
-  v43 = (char *)v40 + 16 * *(_DWORD *)(a1 + 124) + 16 * v42;
-  v27[9].DmaOperations = v40;
-  v75 = (__int64)v43;
+  SidArea = &v40[*(_DWORD *)(a1 + 124) + v42];
+  v27[9].DmaOperations = (_DMA_OPERATIONS *)v40;
+  RemainingSidArea = SidArea;
   if ( SepTokenSidSharingEnabled )
   {
     Object = SepDuplicateTokenUserAndGroups(a1, v27);
@@ -379,17 +379,17 @@ LABEL_29:
     HIDWORD(v27[7].DmaOperations) = *(_DWORD *)(a1 + 124);
     v45 = RtlCopySidAndAttributesArray(
             *(_DWORD *)(a1 + 124),
-            *(_QWORD *)(a1 + 152),
+            *(PSID_AND_ATTRIBUTES *)(a1 + 152),
             v28,
-            (int)v40,
-            v43,
-            (__int64)&v75,
-            (__int64)&pulResult);
-    v43 = (char *)v75;
+            v40,
+            SidArea,
+            &RemainingSidArea,
+            &pulResult);
+    SidArea = (_SID_AND_ATTRIBUTES *)RemainingSidArea;
     Object = v45;
   }
   v46 = 0;
-  v47 = (char *)v40 + (unsigned int)(16 * *(_DWORD *)(a1 + 124));
+  v47 = (_SID_AND_ATTRIBUTES *)((char *)v40 + (unsigned int)(16 * *(_DWORD *)(a1 + 124)));
   *(_QWORD *)&v27[10].Version = v47;
   if ( a8 )
   {
@@ -400,17 +400,17 @@ LABEL_29:
       if ( !v49 || SepSidInSidAndAttributes(*(unsigned __int8 ***)(a1 + 160), v49, v44, *v48) )
       {
         v50 = RtlCopySidAndAttributesArray(
-                1,
-                (unsigned int)a9 + 16 * v46,
+                1u,
+                (PSID_AND_ATTRIBUTES)&a9[2 * v46],
                 pulResult,
-                (int)v47,
-                v43,
-                (__int64)&v75,
-                (__int64)&pulResult);
+                v47,
+                SidArea,
+                &RemainingSidArea,
+                &pulResult);
         v51 = v77;
         Object = v50;
-        LODWORD(v47) = (_DWORD)v47 + 16;
-        v43 = (char *)v75;
+        ++v47;
+        SidArea = (_SID_AND_ATTRIBUTES *)RemainingSidArea;
         *(_DWORD *)(*(_QWORD *)&v27[10].Version + 16LL * *(unsigned int *)&v77->Version + 8) = 7;
         ++*(_DWORD *)&v51->Version;
       }
@@ -431,7 +431,7 @@ LABEL_29:
     Object = -1073741670;
     goto LABEL_28;
   }
-  v56 = (unsigned int *)&v77->Version;
+  v56 = (ULONG *)&v77->Version;
   if ( *(_DWORD *)(a1 + 128) && !*(_DWORD *)&v77->Version )
   {
     Object = -1073741811;
@@ -499,8 +499,11 @@ LABEL_29:
   KeLeaveCriticalRegion();
   v27[10].DmaOperations = (_DMA_OPERATIONS *)&v55[v59];
   SepRemoveDisabledGroupsAndPrivileges((__int64)v27, a3, a4, a5, a6, a7);
-  RtlSidHashInitialize((__int64 *)v27[9].DmaOperations, HIDWORD(v27[7].DmaOperations), &v27[14].DmaOperations);
-  RtlSidHashInitialize(*(__int64 **)&v27[10].Version, *v56, &v27[31].DmaOperations);
+  RtlSidHashInitialize(
+    (PSID_AND_ATTRIBUTES)v27[9].DmaOperations,
+    HIDWORD(v27[7].DmaOperations),
+    (PSID_AND_ATTRIBUTES_HASH)&v27[14].DmaOperations);
+  RtlSidHashInitialize(*(PSID_AND_ATTRIBUTES *)&v27[10].Version, *v56, (PSID_AND_ATTRIBUTES_HASH)&v27[31].DmaOperations);
   SeCaptureSubjectContext(&SubjectContext);
   v65 = v72;
   v95.PrimaryToken = SubjectContext.PrimaryToken;
@@ -522,7 +525,7 @@ LABEL_29:
   {
     SeReleaseSubjectContext(&SubjectContext);
     if ( *v84 )
-      RtlSidHashInitialize(*v84, *p_Version, v85);
+      RtlSidHashInitialize(*v84, *p_Version, SidAttrHash);
     if ( SeTokenLeakTracking
       && SepTokenLeakMethodWatch == 15
       && PsGetCurrentProcess()[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)SepTokenLeakProcessCid )

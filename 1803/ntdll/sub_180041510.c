@@ -11,9 +11,9 @@
  *     wcscat_s @ 0x1800969F0 (wcscat_s.c)
  */
 
-__int64 __fastcall sub_180041510(__int64 a1, _WORD *a2, unsigned int *a3, wchar_t *a4)
+NTSTATUS __fastcall sub_180041510(PCWSTR Source, PCWSTR a2, unsigned int *a3, wchar_t *a4)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v9; // ebx
   wchar_t *v10; // r15
   __int64 v11; // rdi
@@ -22,36 +22,35 @@ __int64 __fastcall sub_180041510(__int64 a1, _WORD *a2, unsigned int *a3, wchar_
   int v14; // ecx
   unsigned int v15; // r14d
   rsize_t v16; // rdi
-  wchar_t *Source; // [rsp+20h] [rbp-E0h] BYREF
-  int v18; // [rsp+28h] [rbp-D8h] BYREF
-  wchar_t *String1; // [rsp+30h] [rbp-D0h]
-  char v20; // [rsp+40h] [rbp-C0h] BYREF
+  wchar_t *Sourcea; // [rsp+20h] [rbp-E0h] BYREF
+  _UNICODE_STRING Destination; // [rsp+28h] [rbp-D8h] BYREF
+  char v19; // [rsp+40h] [rbp-C0h] BYREF
 
-  Source = 0LL;
+  Sourcea = 0LL;
   if ( (unsigned __int8)sub_180041624() )
-    return 3221226337LL;
-  if ( !a1 || !a2 || !a3 )
-    return 3221225485LL;
-  v18 = 46006272;
-  String1 = (wchar_t *)&v20;
-  result = RtlAppendUnicodeToString((unsigned __int16 *)&v18, a2);
-  if ( (int)result >= 0 )
+    return -1073740959;
+  if ( !Source || !a2 || !a3 )
+    return -1073741811;
+  *(_DWORD *)&Destination.Length = 46006272;
+  Destination.Buffer = (PWCH)&v19;
+  result = RtlAppendUnicodeToString(&Destination, a2);
+  if ( result >= 0 )
   {
-    v9 = sub_18004148C(String1, &Source);
+    v9 = sub_18004148C(Destination.Buffer, &Sourcea);
     if ( v9 >= 0 )
     {
-      v10 = Source;
+      v10 = Sourcea;
       v11 = -1LL;
       do
         ++v11;
-      while ( Source[v11] );
-      LODWORD(Source) = *a3;
+      while ( Sourcea[v11] );
+      LODWORD(Sourcea) = *a3;
       v12 = 2 * v11;
-      v13 = sub_180031574(a1, (unsigned int *)&Source, a4);
-      v14 = (int)Source;
+      v13 = sub_180031574(Source, (unsigned int *)&Sourcea, a4);
+      v14 = (int)Sourcea;
       v9 = v13;
       if ( v13 == -1073741789 )
-        *a3 = v12 + (_DWORD)Source + 16;
+        *a3 = v12 + (_DWORD)Sourcea + 16;
       if ( v13 >= 0 )
       {
         v15 = v12 + v14 + 16;
@@ -68,7 +67,7 @@ __int64 __fastcall sub_180041510(__int64 a1, _WORD *a2, unsigned int *a3, wchar_
         *a3 = v15;
       }
     }
-    return (unsigned int)v9;
+    return v9;
   }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KeChangeEnclavePageProtection @ 0x1405704A0
+ * XREFs of KeChangeEnclavePageProtection @ 0x1405709E0
  * Callers:
- *     MiProtectEnclavePages @ 0x140648248 (MiProtectEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x140648798 (MiProtectEnclavePages.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiEncls @ 0x14041FC80 (KiEncls.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiEnclsStatus @ 0x140570718 (KiEnclsStatus.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiEncls @ 0x140420010 (KiEncls.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiEnclsStatus @ 0x140570C58 (KiEnclsStatus.c)
  */
 
 __int64 __fastcall KeChangeEnclavePageProtection(__int64 a1, char a2)

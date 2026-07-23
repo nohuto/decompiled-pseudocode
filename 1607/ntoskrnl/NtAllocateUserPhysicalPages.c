@@ -1,30 +1,30 @@
 /*
- * XREFs of NtAllocateUserPhysicalPages @ 0x14065CA98
+ * XREFs of NtAllocateUserPhysicalPages @ 0x14065CB7C
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiChargeProcessCommitment @ 0x14002BB20 (MiChargeProcessCommitment.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002BE60 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BED0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x14008BE60 (ExReleaseAutoExpandPushLockShared.c)
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     MiReturnProcessCommitment @ 0x1400A3E4C (MiReturnProcessCommitment.c)
- *     ExAcquireAutoExpandPushLockShared @ 0x1400C7740 (ExAcquireAutoExpandPushLockShared.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiAllocatePagesForMdl @ 0x140104224 (MiAllocatePagesForMdl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiChargeProcessCommitment @ 0x14002B6A0 (MiChargeProcessCommitment.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002B9E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BA50 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x14008B5C0 (ExReleaseAutoExpandPushLockShared.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     MiReturnProcessCommitment @ 0x1400A2774 (MiReturnProcessCommitment.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1400C55E0 (ExAcquireAutoExpandPushLockShared.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiAllocatePagesForMdl @ 0x140101FA4 (MiAllocatePagesForMdl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     MiChargeProcessPhysicalPages @ 0x14065A294 (MiChargeProcessPhysicalPages.c)
- *     MiAllocateAweInfo @ 0x14065C02C (MiAllocateAweInfo.c)
- *     MiResizeAweBitMap @ 0x14065C82C (MiResizeAweBitMap.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     MiChargeProcessPhysicalPages @ 0x14065A378 (MiChargeProcessPhysicalPages.c)
+ *     MiAllocateAweInfo @ 0x14065C110 (MiAllocateAweInfo.c)
+ *     MiResizeAweBitMap @ 0x14065C910 (MiResizeAweBitMap.c)
  */
 
 NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
@@ -266,7 +266,7 @@ NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
               ExReleaseAutoExpandPushLockShared(v26, 0LL);
               KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
               UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)v11);
-              AweInfo = MiResizeAweBitMap((unsigned __int64 *)v42);
+              AweInfo = MiResizeAweBitMap((_RTL_BITMAP_EX *)v42);
               if ( AweInfo < 0 && v45 >= *(_QWORD *)v42 )
               {
                 MiFreePagesFromMdl((ULONG_PTR)PagesForMdl, 0x80000000);

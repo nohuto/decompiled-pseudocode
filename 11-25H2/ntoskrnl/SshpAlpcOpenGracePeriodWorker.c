@@ -22,7 +22,7 @@ __int64 __fastcall SshpAlpcOpenGracePeriodWorker(int a1)
   v2 = KeAbPreAcquire((__int64)&stru_140F05788, 0LL);
   v4 = v2;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140F05788, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&stru_140F05788, v2, (__int64)&stru_140F05788);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F05788, v2, (__int64)&stru_140F05788);
   if ( v4 )
     *((_BYTE *)v4 + 10) = 1;
   v5 = &dword_140F05798[48 * a1];

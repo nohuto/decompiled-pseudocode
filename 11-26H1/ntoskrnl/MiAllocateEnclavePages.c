@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAllocateEnclavePages @ 0x1403378DC
+ * XREFs of MiAllocateEnclavePages @ 0x14033995C
  * Callers:
- *     MiAllocateEnclavePagesForMdl @ 0x140338234 (MiAllocateEnclavePagesForMdl.c)
- *     MiGetPageForEnclave @ 0x1403418D0 (MiGetPageForEnclave.c)
- *     MiReserveEnclavePages @ 0x140341D50 (MiReserveEnclavePages.c)
- *     MiPrepareEnclaveMetadataPage @ 0x140700050 (MiPrepareEnclaveMetadataPage.c)
- *     MiCreateHardwareEnclave @ 0x1408760F0 (MiCreateHardwareEnclave.c)
+ *     MiAllocateEnclavePagesForMdl @ 0x14033A2B4 (MiAllocateEnclavePagesForMdl.c)
+ *     MiGetPageForEnclave @ 0x140343950 (MiGetPageForEnclave.c)
+ *     MiReserveEnclavePages @ 0x140343DD0 (MiReserveEnclavePages.c)
+ *     MiPrepareEnclaveMetadataPage @ 0x140704D20 (MiPrepareEnclaveMetadataPage.c)
+ *     MiCreateHardwareEnclave @ 0x14087C4D4 (MiCreateHardwareEnclave.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiReturnEnclavePage @ 0x140341F44 (MiReturnEnclavePage.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiReturnEnclavePage @ 0x140343FC4 (MiReturnEnclavePage.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiAllocateEnclavePages(__int64 a1, int a2, int a3, __int64 a4, _OWORD *a5)
@@ -48,7 +48,7 @@ __int64 __fastcall MiAllocateEnclavePages(__int64 a1, int a2, int a3, __int64 a4
   v8 = a4;
   *a5 = 0LL;
   *((_QWORD *)v5 + 2) = 0LL;
-  v9 = (unsigned int *)(qword_140E2D690 + 4 * v7);
+  v9 = (unsigned int *)(qword_140E2D810 + 4 * v7);
   if ( (a3 & 2) != 0 )
     v10 = 1LL;
   else

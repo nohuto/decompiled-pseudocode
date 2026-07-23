@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwRegisterClassicProvider @ 0x14093BE30
+ * XREFs of EtwRegisterClassicProvider @ 0x1409179D0
  * Callers:
- *     WmipProcessLegacyEtwRegister @ 0x140823C4C (WmipProcessLegacyEtwRegister.c)
+ *     WmipProcessLegacyEtwRegister @ 0x140829E98 (WmipProcessLegacyEtwRegister.c)
  * Callees:
- *     EtwpRegisterKMProvider @ 0x14093B298 (EtwpRegisterKMProvider.c)
+ *     EtwpRegisterKMProvider @ 0x140916E38 (EtwpRegisterKMProvider.c)
  */
 
 __int64 __fastcall EtwRegisterClassicProvider(ULONGLONG a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)

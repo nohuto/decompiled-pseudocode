@@ -1,24 +1,24 @@
 /*
- * XREFs of MiAllocateNewSubAllocatedRegion @ 0x1407CCB64
+ * XREFs of MiAllocateNewSubAllocatedRegion @ 0x1407CCE34
  * Callers:
  *     MiAllocateFromSubAllocatedRegion @ 0x1406AB290 (MiAllocateFromSubAllocatedRegion.c)
  * Callees:
- *     MiInsertVad @ 0x140287C90 (MiInsertVad.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140289B74 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14028A040 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     MiUpdateVadStartVpn @ 0x14029C908 (MiUpdateVadStartVpn.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     MiInsertVadCharges @ 0x1406FA8B0 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x14071F960 (MiAdvanceVadHint.c)
- *     MiSelectUserAddress @ 0x14071FCC0 (MiSelectUserAddress.c)
- *     MiGetUserReservationHighestAddress @ 0x140721FD0 (MiGetUserReservationHighestAddress.c)
- *     MiAddSecureEntry @ 0x140745D84 (MiAddSecureEntry.c)
- *     MiCreateVadEventBitmap @ 0x1407CCE04 (MiCreateVadEventBitmap.c)
- *     MiFreeVadEventBitmap @ 0x140A31F08 (MiFreeVadEventBitmap.c)
+ *     MiInsertVad @ 0x140287F20 (MiInsertVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140289E04 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14028A2D0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     MiUpdateVadStartVpn @ 0x14029CB98 (MiUpdateVadStartVpn.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     MiInsertVadCharges @ 0x1406FAAC0 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x14071FB60 (MiAdvanceVadHint.c)
+ *     MiSelectUserAddress @ 0x14071FEC0 (MiSelectUserAddress.c)
+ *     MiGetUserReservationHighestAddress @ 0x1407221D0 (MiGetUserReservationHighestAddress.c)
+ *     MiAddSecureEntry @ 0x140745F74 (MiAddSecureEntry.c)
+ *     MiCreateVadEventBitmap @ 0x1407CD0D4 (MiCreateVadEventBitmap.c)
+ *     MiFreeVadEventBitmap @ 0x140A321B8 (MiFreeVadEventBitmap.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

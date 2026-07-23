@@ -11,7 +11,12 @@
  *     PnpGetDeviceInterfacePropertyData @ 0x140862214 (PnpGetDeviceInterfacePropertyData.c)
  */
 
-__int64 __fastcall ExpHwidGetDevicePropertyData(PDEVICE_OBJECT Pdo, int a2, const DEVPROPKEY *a3, int a4, __int64 Type)
+__int64 __fastcall ExpHwidGetDevicePropertyData(
+        PDEVICE_OBJECT Pdo,
+        __int64 a2,
+        const DEVPROPKEY *a3,
+        int a4,
+        __int64 Type)
 {
   char v5; // r14
   unsigned int v10; // edi
@@ -24,8 +29,6 @@ __int64 __fastcall ExpHwidGetDevicePropertyData(PDEVICE_OBJECT Pdo, int a2, cons
   ULONG v18; // eax
   int v19; // eax
   int v20; // eax
-  ULONG Size; // [rsp+20h] [rbp-20h]
-  PVOID Data; // [rsp+28h] [rbp-18h]
   ULONG RequiredSize; // [rsp+88h] [rbp+48h] BYREF
 
   v5 = 0;
@@ -51,19 +54,17 @@ LABEL_29:
   {
     while ( 1 )
     {
-      Data = *(PVOID *)(v11 + 8);
-      Size = *(unsigned __int16 *)(v11 + 2) - v10;
       v12 = Pdo
-          ? IoGetDevicePropertyData(Pdo, a3, 0, 0, Size, Data, &RequiredSize, (PDEVPROPTYPE)&Type)
-          : PnpGetDeviceInterfacePropertyData(
-              a2,
-              (_DWORD)a3,
+          ? IoGetDevicePropertyData(
+              Pdo,
+              a3,
               0,
-              a4,
-              Size,
-              (__int64)Data,
-              (__int64)&RequiredSize,
-              (__int64)&Type);
+              0,
+              *(unsigned __int16 *)(v11 + 2) - v10,
+              *(PVOID *)(v11 + 8),
+              &RequiredSize,
+              (PDEVPROPTYPE)&Type)
+          : PnpGetDeviceInterfacePropertyData(a2, a3, 0LL);
       v14 = (unsigned int)v12;
       if ( v12 >= 0 )
         break;

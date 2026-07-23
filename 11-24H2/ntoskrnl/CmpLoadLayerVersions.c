@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpLoadLayerVersions @ 0x1407D6F70
+ * XREFs of CmpLoadLayerVersions @ 0x1407D74E4
  * Callers:
- *     CmpLoadSystemVersionData @ 0x1407D7168 (CmpLoadSystemVersionData.c)
+ *     CmpLoadSystemVersionData @ 0x1407D76DC (CmpLoadSystemVersionData.c)
  * Callees:
- *     qsort @ 0x1404FED20 (qsort.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpLoadLayerVersion @ 0x1407D6B20 (CmpLoadLayerVersion.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpLoadLayerVersion @ 0x1407D7094 (CmpLoadLayerVersion.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpLoadLayerVersions(_QWORD *Base, _DWORD *a2, __int64 a3, void *a4, UNICODE_STRING *a5, int a6)
@@ -58,7 +58,7 @@ NTSTATUS __fastcall CmpLoadLayerVersions(_QWORD *Base, _DWORD *a2, __int64 a3, v
       if ( v12 < 0 )
         goto LABEL_14;
       v22[(unsigned __int64)v21 >> 1] = 0;
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0x328uLL, 0x64764D43u);
       if ( !Pool2 )
       {
         v10 = -1073741670;

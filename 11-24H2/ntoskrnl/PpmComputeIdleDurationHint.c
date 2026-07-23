@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmComputeIdleDurationHint @ 0x1404C0B50
+ * XREFs of PpmComputeIdleDurationHint @ 0x1404BC138
  * Callers:
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
  * Callees:
- *     PpmEstimateIdleDuration @ 0x1404C0C0C (PpmEstimateIdleDuration.c)
+ *     PpmEstimateIdleDuration @ 0x1404BC1F4 (PpmEstimateIdleDuration.c)
  */
 
 __int64 __fastcall PpmComputeIdleDurationHint(__int64 a1, int a2, int a3, char a4, int a5)

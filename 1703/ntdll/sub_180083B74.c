@@ -11,14 +11,14 @@
 
 __int64 sub_180083B74()
 {
-  int v0; // esi
+  NTSTATUS v0; // esi
   int v1; // eax
   __int64 v3; // rbx
-  __int64 (__fastcall **v4)(); // rdi
-  __int64 (__fastcall **v5)(); // rdi
+  PVOID *v4; // rdi
+  PVOID *v5; // rdi
 
   v0 = 0;
-  RtlAcquireSRWLockExclusive(&qword_18015C260);
+  RtlAcquireSRWLockExclusive(&stru_18015C260);
   v1 = dword_18015BF88;
   if ( dword_18015BF88 )
   {
@@ -28,7 +28,7 @@ LABEL_2:
   else
   {
     v3 = 0LL;
-    v4 = off_180110F60;
+    v4 = (PVOID *)off_180110F60;
     while ( 1 )
     {
       v0 = RtlLockModuleSection(*v4);
@@ -44,7 +44,7 @@ LABEL_2:
     }
     if ( (_DWORD)v3 )
     {
-      v5 = &off_180110F60[v3];
+      v5 = (PVOID *)&off_180110F60[v3];
       do
       {
         RtlUnlockModuleSection(*--v5);
@@ -53,6 +53,6 @@ LABEL_2:
       while ( (_DWORD)v3 );
     }
   }
-  RtlReleaseSRWLockExclusive(&qword_18015C260);
+  RtlReleaseSRWLockExclusive(&stru_18015C260);
   return (unsigned int)v0;
 }

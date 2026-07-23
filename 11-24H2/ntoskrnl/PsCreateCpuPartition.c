@@ -1,22 +1,22 @@
 /*
- * XREFs of PsCreateCpuPartition @ 0x14077643C
+ * XREFs of PsCreateCpuPartition @ 0x14077665C
  * Callers:
- *     NtCreateCpuPartition @ 0x1407757E0 (NtCreateCpuPartition.c)
- *     PsInitializeBootCpuPartitions @ 0x140C3489C (PsInitializeBootCpuPartitions.c)
- *     PspInitializeCpuPartitionsPhase0 @ 0x140C356C8 (PspInitializeCpuPartitionsPhase0.c)
+ *     NtCreateCpuPartition @ 0x140775A00 (NtCreateCpuPartition.c)
+ *     PsInitializeBootCpuPartitions @ 0x140C369DC (PsInitializeBootCpuPartitions.c)
+ *     PspInitializeCpuPartitionsPhase0 @ 0x140C37808 (PspInitializeCpuPartitionsPhase0.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     KeCreateCpuPartition @ 0x1405BFA38 (KeCreateCpuPartition.c)
- *     PspCheckCpuPartitionCreateAccess @ 0x140776AB4 (PspCheckCpuPartitionCreateAccess.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeCreateCpuPartition @ 0x1405BD068 (KeCreateCpuPartition.c)
+ *     PspCheckCpuPartitionCreateAccess @ 0x140776CD4 (PspCheckCpuPartitionCreateAccess.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
  */
 
 __int64 __fastcall PsCreateCpuPartition(
@@ -34,9 +34,9 @@ __int64 __fastcall PsCreateCpuPartition(
   int v11; // ecx
   int v12; // r9d
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v14; // rax
+  char *v14; // rax
   signed __int8 v15; // cf
-  _QWORD *v16; // rdi
+  char *v16; // rdi
   HANDLE v17; // rax
   HANDLE Handle; // [rsp+58h] [rbp-20h] BYREF
 
@@ -68,19 +68,19 @@ __int64 __fastcall PsCreateCpuPartition(
           }
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
-          v14 = KeAbPreAcquire((__int64)&PspCpuPartitionListLock, 0LL);
+          v14 = (char *)KeAbPreAcquire((__int64)&PspCpuPartitionListLock, 0LL);
           v15 = _interlockedbittestandset64((volatile signed __int32 *)&PspCpuPartitionListLock, 0LL);
           v16 = v14;
           if ( v15 )
-            ExfAcquirePushLockExclusiveEx(&PspCpuPartitionListLock, (__int64)v14, (__int64)&PspCpuPartitionListLock);
+            ExfAcquirePushLockExclusiveEx(&PspCpuPartitionListLock, v14, (__int64)&PspCpuPartitionListLock);
           if ( v16 )
-            *((_BYTE *)v16 + 10) = 1;
-          if ( *(__int64 **)qword_140FD93D8 != &PspCpuPartitionListHead )
+            v16[10] = 1;
+          if ( *(__int64 **)qword_140FDA3F0 != &PspCpuPartitionListHead )
             __fastfail(3u);
           MEMORY[0x10] = &PspCpuPartitionListHead;
-          MEMORY[0x18] = qword_140FD93D8;
-          *(_QWORD *)qword_140FD93D8 = 16LL;
-          qword_140FD93D8 = 16LL;
+          MEMORY[0x18] = qword_140FDA3F0;
+          *(_QWORD *)qword_140FDA3F0 = 16LL;
+          qword_140FDA3F0 = 16LL;
           if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PspCpuPartitionListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
             ExfTryToWakePushLock((volatile signed __int64 *)&PspCpuPartitionListLock);
           KeAbPostRelease((ULONG_PTR)&PspCpuPartitionListLock);

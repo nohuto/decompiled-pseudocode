@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlpReadProcessHeaps @ 0x1800F7540
  * Callers:
- *     RtlDetectHeapLeaks @ 0x180084DE0 (RtlDetectHeapLeaks.c)
+ *     RtlDetectHeapLeaks @ 0x180084DF0 (RtlDetectHeapLeaks.c)
  * Callees:
- *     RtlQueryHeapInformation @ 0x18007B040 (RtlQueryHeapInformation.c)
+ *     RtlQueryHeapInformation @ 0x18007B050 (RtlQueryHeapInformation.c)
  *     RtlpPushPageDescriptor @ 0x1800F73D8 (RtlpPushPageDescriptor.c)
  */
 
@@ -20,7 +20,7 @@ char RtlpReadProcessHeaps()
   v4 = 0LL;
   v3 = RtlpLeakCallbackRoutine;
   v2 = 5;
-  result = RtlQueryHeapInformation(0LL, 2, v1, 0x58uLL, 0LL);
+  result = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)2, v1, 0x58uLL, 0LL);
   if ( RtlpLDPreviousPage )
     result = RtlpPushPageDescriptor(RtlpLDPreviousPage, 1LL);
   RtlpLDPreviousPage = 0LL;

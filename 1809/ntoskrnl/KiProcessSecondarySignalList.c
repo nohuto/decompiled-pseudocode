@@ -1,12 +1,12 @@
 /*
- * XREFs of KiProcessSecondarySignalList @ 0x1402939D0
+ * XREFs of KiProcessSecondarySignalList @ 0x140293BC0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondarySignalListLock @ 0x1402933FC (KiAcquireSecondarySignalListLock.c)
- *     KiProcessDisconnectList @ 0x14029A008 (KiProcessDisconnectList.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondarySignalListLock @ 0x1402935EC (KiAcquireSecondarySignalListLock.c)
+ *     KiProcessDisconnectList @ 0x14029A1F8 (KiProcessDisconnectList.c)
  */
 
 void __fastcall KiProcessSecondarySignalList(
@@ -31,12 +31,12 @@ void __fastcall KiProcessSecondarySignalList(
     if ( *(__int64 **)(v8 + 8) != &v8
       || *v9 != &v8
       || *(__int64 **)(KiSecondarySignalList + 8) != &KiSecondarySignalList
-      || *(__int64 **)qword_14041B578 != &KiSecondarySignalList
+      || *(__int64 **)qword_14041C5C8 != &KiSecondarySignalList
       || (*v9 = &KiSecondarySignalList,
-          v9 = (__int64 **)qword_14041B578,
-          *(_QWORD *)qword_14041B578 = &v8,
+          v9 = (__int64 **)qword_14041C5C8,
+          *(_QWORD *)qword_14041C5C8 = &v8,
           v5 = KiSecondarySignalList,
-          qword_14041B578 = (__int64)v4,
+          qword_14041C5C8 = (__int64)v4,
           *(__int64 **)(KiSecondarySignalList + 8) != &KiSecondarySignalList)
       || *v4 != &KiSecondarySignalList )
     {
@@ -44,7 +44,7 @@ void __fastcall KiProcessSecondarySignalList(
     }
     *v4 = (__int64 *)KiSecondarySignalList;
     *(_QWORD *)(v5 + 8) = v4;
-    qword_14041B578 = (__int64)&KiSecondarySignalList;
+    qword_14041C5C8 = (__int64)&KiSecondarySignalList;
     KiSecondarySignalList = (__int64)&KiSecondarySignalList;
   }
   KiSecondarySignalDpcRunning = 0;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWorkingSetVeryLarge @ 0x1401E2AAC
+ * XREFs of MiWorkingSetVeryLarge @ 0x1401E28D8
  * Callers:
- *     MiDoReplacement @ 0x1401E282C (MiDoReplacement.c)
- *     MiOrderTrimList @ 0x1401E9B8C (MiOrderTrimList.c)
+ *     MiDoReplacement @ 0x1401E2658 (MiDoReplacement.c)
+ *     MiOrderTrimList @ 0x1401E99B8 (MiOrderTrimList.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetStandbyRepurposed @ 0x1400BF4A8 (MiGetStandbyRepurposed.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetStandbyRepurposed @ 0x1400BD338 (MiGetStandbyRepurposed.c)
  */
 
 _BOOL8 __fastcall MiWorkingSetVeryLarge(__int64 a1, int a2)

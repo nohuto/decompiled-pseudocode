@@ -1,11 +1,11 @@
 /*
- * XREFs of CcPerfLogScheduleReadAhead @ 0x14045F10C
+ * XREFs of CcPerfLogScheduleReadAhead @ 0x140453FCC
  * Callers:
- *     CcScheduleReadAheadNuma @ 0x1404992C0 (CcScheduleReadAheadNuma.c)
+ *     CcScheduleReadAheadNuma @ 0x140493C50 (CcScheduleReadAheadNuma.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall CcPerfLogScheduleReadAhead(__int64 a1, _QWORD *a2, _QWORD *a3, int a4, int a5, char a6, int a7)

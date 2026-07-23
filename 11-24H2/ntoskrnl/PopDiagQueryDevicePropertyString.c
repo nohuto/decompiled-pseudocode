@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagQueryDevicePropertyString @ 0x140A89E80
+ * XREFs of PopDiagQueryDevicePropertyString @ 0x140A86280
  * Callers:
- *     PopDiagTraceFxDeviceAccounting @ 0x14032F5A4 (PopDiagTraceFxDeviceAccounting.c)
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x140764194 (PopDirectedDripsDiagCreateDeviceDescription.c)
- *     PopDiagTraceFxComponentAccounting @ 0x140A5D908 (PopDiagTraceFxComponentAccounting.c)
+ *     PopDiagTraceFxDeviceAccounting @ 0x1402B7DE8 (PopDiagTraceFxDeviceAccounting.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x140763B64 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopDiagTraceFxComponentAccounting @ 0x140A55D28 (PopDiagTraceFxComponentAccounting.c)
  * Callees:
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopDiagQueryDevicePropertyString(
@@ -31,7 +31,7 @@ __int64 __fastcall PopDiagQueryDevicePropertyString(
     }
     else
     {
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, BufferLength, 0x67696450u);
       if ( Pool2 )
       {
         v6 = IoGetDeviceProperty(DeviceObject, DeviceProperty, BufferLength, Pool2, ResultLength);

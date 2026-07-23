@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSectionClose @ 0x1405F0B80
+ * XREFs of MiSectionClose @ 0x1405F1B80
  * Callers:
  *     <none>
  * Callees:
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiRemoveSharedCommitNode @ 0x1405F0650 (MiRemoveSharedCommitNode.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiRemoveSharedCommitNode @ 0x1405F1650 (MiRemoveSharedCommitNode.c)
  */
 
 void __fastcall MiSectionClose(__int64 a1, __int64 a2)

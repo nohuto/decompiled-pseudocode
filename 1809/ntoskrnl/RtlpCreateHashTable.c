@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpCreateHashTable @ 0x14016A570
+ * XREFs of RtlpCreateHashTable @ 0x14016A670
  * Callers:
- *     RtlCreateHashTableEx @ 0x14016A530 (RtlCreateHashTableEx.c)
- *     RtlCreateHashTable @ 0x14016A550 (RtlCreateHashTable.c)
- *     SepBuildCapPolicyTable @ 0x1401818D8 (SepBuildCapPolicyTable.c)
- *     SepInitializeSingletonAttributesStructures @ 0x1409AD9A0 (SepInitializeSingletonAttributesStructures.c)
+ *     RtlCreateHashTableEx @ 0x14016A630 (RtlCreateHashTableEx.c)
+ *     RtlCreateHashTable @ 0x14016A650 (RtlCreateHashTable.c)
+ *     SepBuildCapPolicyTable @ 0x140181A18 (SepBuildCapPolicyTable.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x1409AE9A0 (SepInitializeSingletonAttributesStructures.c)
  * Callees:
- *     RtlDeleteHashTable @ 0x14012ACF0 (RtlDeleteHashTable.c)
- *     RtlpAllocateSecondLevelDir @ 0x140139610 (RtlpAllocateSecondLevelDir.c)
- *     RtlpInitializeSecondLevelDir @ 0x14016A6EC (RtlpInitializeSecondLevelDir.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlDeleteHashTable @ 0x14012ADC0 (RtlDeleteHashTable.c)
+ *     RtlpAllocateSecondLevelDir @ 0x140139710 (RtlpAllocateSecondLevelDir.c)
+ *     RtlpInitializeSecondLevelDir @ 0x14016A7EC (RtlpInitializeSecondLevelDir.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall RtlpCreateHashTable(struct _RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
+char __fastcall RtlpCreateHashTable(_RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
 {
   unsigned int v4; // ebp
-  struct _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rbx
   int v10; // esi
   PVOID v11; // rax
   void *v12; // r8
@@ -38,12 +38,12 @@ char __fastcall RtlpCreateHashTable(struct _RTL_DYNAMIC_HASH_TABLE **a1, unsigne
   v10 = 0;
   if ( !*a1 )
   {
-    PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62615448u);
+    PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62615448u);
     if ( !PoolWithTag )
       return 0;
     v10 = 1;
   }
-  memset(PoolWithTag, 0, sizeof(struct _RTL_DYNAMIC_HASH_TABLE));
+  memset(PoolWithTag, 0, sizeof(_RTL_DYNAMIC_HASH_TABLE));
   PoolWithTag->Pivot = 0;
   PoolWithTag->Shift = a3;
   PoolWithTag->Flags = a4 | v10;

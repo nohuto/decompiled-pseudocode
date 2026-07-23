@@ -2,12 +2,12 @@
  * XREFs of KiSendFreeze @ 0x14020D150
  * Callers:
  *     KeFreezeExecution @ 0x14020D540 (KeFreezeExecution.c)
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057A7BC (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057ACAC (KiBugCheckRecoveryFreezeOtherProcessors.c)
  * Callees:
  *     HalSendNMI @ 0x14020CEE0 (HalSendNMI.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
  */
 
 __int64 __fastcall KiSendFreeze(__int64 a1, char a2)

@@ -245,7 +245,7 @@ int __fastcall KiStackAttachProcess(_KPROCESS *BugCheckParameter1, int a2, __int
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -318,7 +318,7 @@ int __fastcall KiStackAttachProcess(_KPROCESS *BugCheckParameter1, int a2, __int
         KiInSwapSingleProcess(CurrentThread, BugCheckParameter1, CurrentIrql);
         v24 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
         {
           v26 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v24 != 2 )
@@ -384,10 +384,10 @@ int __fastcall KiStackAttachProcess(_KPROCESS *BugCheckParameter1, int a2, __int
       CurrentThread->MiscFlags &= ~0x800u;
       if ( !v5 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v29 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
           {
             v30 = KeGetCurrentPrcb();
             v31 = v30->SchedulerAssist;

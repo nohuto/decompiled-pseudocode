@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReleaseAddMemoryLocks @ 0x140866D0C
+ * XREFs of MiReleaseAddMemoryLocks @ 0x14086D0EC
  * Callers:
- *     MiReturnAddMemoryResources @ 0x1406EA170 (MiReturnAddMemoryResources.c)
- *     MiAddPhysicalMemory @ 0x14086501C (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140866D5C (MiRemovePhysicalMemory.c)
+ *     MiReturnAddMemoryResources @ 0x1406EEE10 (MiReturnAddMemoryResources.c)
+ *     MiAddPhysicalMemory @ 0x14086B3FC (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14086D13C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiUnlockDynamicMemoryExclusive @ 0x14052A718 (MiUnlockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryNestedExclusive @ 0x1406EA20C (MiUnlockDynamicMemoryNestedExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14052CC38 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryNestedExclusive @ 0x1406EEEAC (MiUnlockDynamicMemoryNestedExclusive.c)
  */
 
 void __fastcall MiReleaseAddMemoryLocks(__int64 a1)

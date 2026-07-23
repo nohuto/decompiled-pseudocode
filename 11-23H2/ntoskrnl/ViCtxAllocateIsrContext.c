@@ -1,8 +1,8 @@
 /*
- * XREFs of ViCtxAllocateIsrContext @ 0x140AE4A94
+ * XREFs of ViCtxAllocateIsrContext @ 0x140AE4A84
  * Callers:
- *     VerifierIoConnectInterrupt @ 0x140AE4740 (VerifierIoConnectInterrupt.c)
- *     ViCtxSetPrivateConnectParameters @ 0x140AE4E9C (ViCtxSetPrivateConnectParameters.c)
+ *     VerifierIoConnectInterrupt @ 0x140AE4730 (VerifierIoConnectInterrupt.c)
+ *     ViCtxSetPrivateConnectParameters @ 0x140AE4E8C (ViCtxSetPrivateConnectParameters.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

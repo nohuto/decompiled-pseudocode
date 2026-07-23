@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwInitializeRegistry @ 0x140725510
+ * XREFs of ZwInitializeRegistry @ 0x14072A0E0
  * Callers:
- *     NtInitializeRegistry @ 0x14084EE60 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x140855170 (NtInitializeRegistry.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwInitializeRegistry(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwInitializeRegistry(USHORT BootCondition)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(BootCondition);
 }

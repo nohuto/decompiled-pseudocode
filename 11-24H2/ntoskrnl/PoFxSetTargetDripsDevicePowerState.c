@@ -1,17 +1,17 @@
 /*
- * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x140A71950
+ * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x140A6AD30
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     PopFxTryReferenceDevice @ 0x140377BF0 (PopFxTryReferenceDevice.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopPepGetMinimumDevicePowerState @ 0x1404A1D24 (PopPepGetMinimumDevicePowerState.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PopFxTryReferenceDevice @ 0x1403A6408 (PopFxTryReferenceDevice.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x14049CCB4 (PopPepGetMinimumDevicePowerState.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PoFxSetTargetDripsDevicePowerState(__int64 a1, int a2)
@@ -49,8 +49,8 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(__int64 a1, int a2)
   }
   if ( a2 == 1 || a2 > 4 )
     goto LABEL_15;
-  v4 = dword_140E27DC0;
-  if ( dword_140E27DC0 == -1 )
+  v4 = dword_140E27F00;
+  if ( dword_140E27F00 == -1 )
   {
     v6 = -1073741823;
     goto LABEL_14;
@@ -78,7 +78,7 @@ LABEL_15:
           }
           if ( v12 <= 1 || !a2 || a2 > v12 )
           {
-            Pool2 = ExAllocatePool2(0x40uLL);
+            Pool2 = ExAllocatePool2(0x40uLL, 0x40uLL, 0x4D584650u);
             if ( Pool2 )
             {
               *(_QWORD *)(Pool2 + 8) = Pool2;
@@ -105,8 +105,8 @@ LABEL_16:
     goto LABEL_16;
   }
 LABEL_14:
-  RtlInitUnicodeString(&DestinationString, &word_140AEA890);
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  RtlInitUnicodeString(&DestinationString, &word_140AEDAC0);
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v19 = 2LL;
     v18 = v21;
@@ -122,7 +122,7 @@ LABEL_14:
     v25 = 4LL;
     v15 = 0x1000000LL;
     v27 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)byte_140048793, 0LL, 0LL, 7u, &v17);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_140048B93, 0LL, 0LL, 7u, &v17);
   }
   return (unsigned int)v6;
 }

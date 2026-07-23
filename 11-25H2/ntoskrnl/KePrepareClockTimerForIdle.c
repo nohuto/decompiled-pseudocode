@@ -25,12 +25,12 @@ NTSTATUS __fastcall KePrepareClockTimerForIdle(__int64 *a1)
   struct _KPRCB *CurrentPrcb; // rbx
   __int64 *v2; // r13
   __int64 NextTickDueTime; // rsi
-  __int64 InterruptTimePrecise; // r12
+  LARGE_INTEGER InterruptTimePrecise; // r12
   unsigned __int64 v5; // r14
   unsigned __int8 CurrentIrql; // r15
   int v7; // edx
   unsigned __int64 v8; // rax
-  unsigned __int64 NextTimerDueTime; // rax
+  unsigned __int64 v9; // rax
   __int64 v10; // rcx
   $725FE607DE8AA0A008C64067311614D0 *v11; // rdx
   __int64 v12; // r8
@@ -41,14 +41,14 @@ NTSTATUS __fastcall KePrepareClockTimerForIdle(__int64 *a1)
   unsigned __int8 ClockOwner; // [rsp+48h] [rbp-C0h] BYREF
   unsigned __int8 ClockActive; // [rsp+49h] [rbp-BFh] BYREF
   unsigned __int64 v19; // [rsp+50h] [rbp-B8h] BYREF
-  unsigned __int64 v20; // [rsp+58h] [rbp-B0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-B0h] BYREF
   __int64 *v21; // [rsp+60h] [rbp-A8h]
-  __int64 v22; // [rsp+68h] [rbp-A0h] BYREF
+  LARGE_INTEGER v22; // [rsp+68h] [rbp-A0h] BYREF
   __int64 v23; // [rsp+70h] [rbp-98h] BYREF
   __int64 v24; // [rsp+78h] [rbp-90h] BYREF
   unsigned __int64 v25; // [rsp+80h] [rbp-88h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v26; // [rsp+88h] [rbp-80h] BYREF
-  __int64 *v27; // [rsp+A8h] [rbp-60h]
+  LARGE_INTEGER *v27; // [rsp+A8h] [rbp-60h]
   __int64 v28; // [rsp+B0h] [rbp-58h]
   unsigned __int8 *p_ClockOwner; // [rsp+B8h] [rbp-50h]
   __int64 v30; // [rsp+C0h] [rbp-48h]
@@ -64,9 +64,9 @@ NTSTATUS __fastcall KePrepareClockTimerForIdle(__int64 *a1)
   CurrentPrcb = KeGetCurrentPrcb();
   v2 = a1;
   v21 = a1;
-  v20 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   NextTickDueTime = -1LL;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v20);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v5 = -1LL;
   if ( CurrentPrcb->ClockOwner )
   {
@@ -93,10 +93,14 @@ NTSTATUS __fastcall KePrepareClockTimerForIdle(__int64 *a1)
         KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
       goto LABEL_28;
     }
-    NextTimerDueTime = KiFindNextTimerDueTime(CurrentPrcb, InterruptTimePrecise, 0LL, &v19);
+    v9 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))KiFindNextTimerDueTime)(
+           CurrentPrcb,
+           (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+           0LL,
+           &v19);
     v5 = v19;
-    if ( NextTimerDueTime < v19 )
-      v5 = NextTimerDueTime;
+    if ( v9 < v19 )
+      v5 = v9;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
     if ( KiIrqlFlags )
@@ -111,7 +115,11 @@ NTSTATUS __fastcall KePrepareClockTimerForIdle(__int64 *a1)
   {
     if ( !KiSerializeTimerExpiration )
     {
-      v8 = KiFindNextTimerDueTime(CurrentPrcb, InterruptTimePrecise, 0LL, &v19);
+      v8 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))KiFindNextTimerDueTime)(
+             CurrentPrcb,
+             (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+             0LL,
+             &v19);
       v5 = v19;
       if ( v8 < v19 )
         v5 = v8;
@@ -147,7 +155,7 @@ LABEL_28:
         KiSetNextClockTickDueTime(InterruptTimePrecise, 0LL, v12);
       }
       NextTickDueTime = CurrentPrcb->ClockTimerState.NextTickDueTime;
-      v13 = NextTickDueTime - InterruptTimePrecise;
+      v13 = NextTickDueTime - InterruptTimePrecise.QuadPart;
       goto LABEL_42;
     }
     ++v10;

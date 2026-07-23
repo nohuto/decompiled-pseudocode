@@ -19,12 +19,12 @@
 
 void __fastcall BapdpProcessBCDCache(__int64 a1)
 {
-  __int64 v1; // rdi
+  HANDLE v1; // rdi
   WCHAR *v2; // rbx
   void *v3; // rax
   __int64 v4; // rcx
   __int64 Pool2; // rax
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   WCHAR *v7; // rcx
   __int64 v8; // r8
   WCHAR v9; // ax
@@ -40,9 +40,9 @@ void __fastcall BapdpProcessBCDCache(__int64 a1)
   signed __int64 v19; // r8
   __int16 v20; // r9
   char *v21; // rax
-  int v22; // eax
+  NTSTATUS v22; // eax
   HANDLE FileHandle; // [rsp+68h] [rbp-29h] BYREF
-  __int64 v24; // [rsp+70h] [rbp-21h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+70h] [rbp-21h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-19h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-9h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B8h] [rbp+27h] BYREF
@@ -55,7 +55,7 @@ void __fastcall BapdpProcessBCDCache(__int64 a1)
   FileHandle = 0LL;
   v1 = 0LL;
   v2 = 0LL;
-  v24 = 0LL;
+  BcdStoreHandle = 0LL;
   IoStatusBlock = 0LL;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
@@ -161,10 +161,10 @@ void __fastcall BapdpProcessBCDCache(__int64 a1)
           0LL);
         ZwClose(FileHandle);
         FileHandle = 0LL;
-        v22 = BcdOpenStoreFromFile(&DestinationString.Length, &v24);
-        v1 = v24;
+        v22 = BcdOpenStoreFromFile(&DestinationString, &BcdStoreHandle);
+        v1 = BcdStoreHandle;
         if ( v22 >= 0 )
-          BcdSetSystemStore(v24);
+          BcdSetSystemStore((__int64)BcdStoreHandle);
       }
     }
     goto LABEL_3;

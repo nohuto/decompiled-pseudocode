@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     XdvExAllocatePoolInternal @ 0x14070CE7C (XdvExAllocatePoolInternal.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     XdvExAllocatePoolInternal @ 0x14070CEAC (XdvExAllocatePoolInternal.c)
  */
 
 __int64 __fastcall VerifierPortExAllocatePoolWithQuotaTag(int a1, int a2, int a3, int a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExFreePoolEx @ 0x140AC0150
+ * XREFs of VerifierExFreePoolEx @ 0x140AC0140
  * Callers:
  *     <none>
  * Callees:
- *     VerifierExFreePool @ 0x140AC0100 (VerifierExFreePool.c)
+ *     VerifierExFreePool @ 0x140AC00F0 (VerifierExFreePool.c)
  */
 
 void __fastcall VerifierExFreePoolEx(__int64 a1)

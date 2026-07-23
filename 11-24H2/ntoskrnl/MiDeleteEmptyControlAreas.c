@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteEmptyControlAreas @ 0x1403F7618
+ * XREFs of MiDeleteEmptyControlAreas @ 0x1403EE1FC
  * Callers:
- *     MiRemoveUnusedSegments @ 0x1403F734C (MiRemoveUnusedSegments.c)
+ *     MiRemoveUnusedSegments @ 0x1403EDF30 (MiRemoveUnusedSegments.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiSegmentDelete @ 0x140A131E4 (MiSegmentDelete.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSegmentDelete @ 0x140A0B944 (MiSegmentDelete.c)
  */
 
 __int64 __fastcall MiDeleteEmptyControlAreas(__int64 a1)
@@ -34,7 +34,7 @@ LABEL_9:
       __fastfail(3u);
     *v1 = v6;
     v6[1] = (__int64)v1;
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)v4 + 16) )
     {
       *((_DWORD *)v4 + 12) &= ~0x10000000u;
       v4[1] = (__int64)v4;

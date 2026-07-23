@@ -18,21 +18,21 @@
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiWriteValidPteVolatile @ 0x140085FA0 (MiWriteValidPteVolatile.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiAllowGuardFault @ 0x140117CB8 (MiAllowGuardFault.c)
- *     KeInvalidAccessAllowed @ 0x140117D0C (KeInvalidAccessAllowed.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiWriteValidPteVolatile @ 0x140085F90 (MiWriteValidPteVolatile.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiAllowGuardFault @ 0x140117D28 (MiAllowGuardFault.c)
+ *     KeInvalidAccessAllowed @ 0x140117D7C (KeInvalidAccessAllowed.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
  */
 
 __int64 __fastcall MiResolveProtoPteFault(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -287,7 +287,7 @@ LABEL_17:
       v20 = (*(_BYTE *)(v11 - 0x57FFFFFFFDDLL) & 0x20) != 0;
     v16 = v11 - 0x57FFFFFFFE0LL;
   }
-  v22 = *(ULONG_PTR **)(qword_14043A748 + 8 * ((CurrentPrcb >> 40) & 0x3FF));
+  v22 = *(ULONG_PTR **)(qword_14043B808 + 8 * ((CurrentPrcb >> 40) & 0x3FF));
   if ( !v20 || (v111 = (__int16 *)v16, (unsigned int)MiChargeCommit(v22, 1LL, 4LL)) )
   {
     if ( v22 == &MiSystemPartition )
@@ -397,11 +397,11 @@ LABEL_33:
     }
     if ( (*(_QWORD *)v28 & 0xC00LL) != 0x800 )
       break;
-    if ( !v29 || !qword_14043A0C0 || (v29 & qword_14043A0C0) != 0 )
+    if ( !v29 || !qword_14043B180 || (v29 & qword_14043B180) != 0 )
     {
       v30 = *(_QWORD *)v28;
-      if ( qword_14043A0C0 && (v29 & 0x10) == 0 )
-        v30 = v29 & ~qword_14043A0C0;
+      if ( qword_14043B180 && (v29 & 0x10) == 0 )
+        v30 = v29 & ~qword_14043B180;
       goto LABEL_33;
     }
   }
@@ -459,8 +459,8 @@ LABEL_36:
     if ( (v52 & 0x400) == 0 )
       goto LABEL_83;
     v54 = v52;
-    if ( qword_14043A0C0 && (v52 & 0x10) == 0 )
-      v54 = v52 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v52 & 0x10) == 0 )
+      v54 = v52 & ~qword_14043B180;
     if ( HIDWORD(v54) == 0xFFFFFFFF )
     {
       v55 = a1;
@@ -525,7 +525,7 @@ LABEL_87:
                 goto LABEL_357;
               if ( (unsigned int)MiPteHasShadow(v97, v96) )
               {
-                if ( HIBYTE(word_14043A1AC) || (v98 & 1) == 0 )
+                if ( HIBYTE(word_14043B26C) || (v98 & 1) == 0 )
                   goto LABEL_345;
                 goto LABEL_344;
               }
@@ -541,7 +541,7 @@ LABEL_87:
                 goto LABEL_357;
               if ( (unsigned int)MiPteHasShadow(v101, v100) )
               {
-                if ( HIBYTE(word_14043A1AC) || (v98 & 1) == 0 )
+                if ( HIBYTE(word_14043B26C) || (v98 & 1) == 0 )
                   goto LABEL_345;
 LABEL_344:
                 v98 |= 0x8000000000000000uLL;
@@ -566,8 +566,8 @@ LABEL_357:
           v28 = v109;
 LABEL_90:
           v57 = v33;
-          if ( qword_14043A0C0 && (v33 & 0x10) == 0 )
-            v57 = v33 & ~(_WORD)qword_14043A0C0;
+          if ( qword_14043B180 && (v33 & 0x10) == 0 )
+            v57 = v33 & ~(_WORD)qword_14043B180;
           if ( (v57 & 0x400) != 0
             || (v57 & 0x800) != 0
             || (v57 & 4) != 0
@@ -632,8 +632,8 @@ LABEL_126:
                 if ( (v52 & 0x400) == 0 )
                   goto LABEL_131;
                 v68 = v52;
-                if ( qword_14043A0C0 && (v52 & 0x10) == 0 )
-                  v68 = v52 & ~qword_14043A0C0;
+                if ( qword_14043B180 && (v52 & 0x10) == 0 )
+                  v68 = v52 & ~qword_14043B180;
                 if ( HIDWORD(v68) != 0xFFFFFFFF )
 LABEL_131:
                   v52 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v117);
@@ -655,7 +655,7 @@ LABEL_131:
                 {
                   if ( (unsigned int)MiPteHasShadow(0xFFFFF6FB7DBED7F8uLL, v72) )
                   {
-                    if ( !HIBYTE(word_14043A1AC) && (v72 & 1) != 0 )
+                    if ( !HIBYTE(word_14043B26C) && (v72 & 1) != 0 )
                       v72 |= 0x8000000000000000uLL;
                     *(_QWORD *)v7 = v72;
                     MiWritePteShadow(v7);
@@ -763,8 +763,8 @@ LABEL_359:
     v35 = *(_QWORD *)(v31 + 16);
     if ( (v35 & 0x400) != 0 && ((v34 >> 54) & 7) != 3 )
     {
-      if ( qword_14043A0C0 && (v35 & 0x10) == 0 )
-        v35 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v35 & 0x10) == 0 )
+        v35 &= ~qword_14043B180;
       v60 = v35 >> 16;
       v61 = *(_QWORD *)v60;
       if ( (*(_DWORD *)(*(_QWORD *)v60 + 56LL) & 0x20) != 0 )
@@ -876,7 +876,7 @@ LABEL_50:
     {
       v3 = 1;
     }
-    v47 = *(_QWORD *)(qword_14043A748 + 8 * ((v41 >> 40) & 0x3FF));
+    v47 = *(_QWORD *)(qword_14043B808 + 8 * ((v41 >> 40) & 0x3FF));
     if ( v3 == 1 )
     {
       MiReturnCommit(v47, 1LL);
@@ -918,7 +918,7 @@ LABEL_209:
           v44 = (int)CachedResidentAvailable - 192 + 1LL;
         }
       }
-      _InterlockedExchangeAdd64(&qword_14043E600, v44);
+      _InterlockedExchangeAdd64(&qword_14043F6C0, v44);
       goto LABEL_61;
     }
     _InterlockedExchangeAdd64((volatile signed __int64 *)(v47 + 7360), 1uLL);

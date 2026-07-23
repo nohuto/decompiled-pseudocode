@@ -1,18 +1,18 @@
 /*
- * XREFs of KiNmiInterruptStart @ 0x14040AE40
+ * XREFs of KiNmiInterruptStart @ 0x14040AF40
  * Callers:
- *     KiNmiInterruptShadow @ 0x140A14240 (KiNmiInterruptShadow.c)
+ *     KiNmiInterruptShadow @ 0x140A15240 (KiNmiInterruptShadow.c)
  * Callees:
- *     KiCheckForSListAddress @ 0x14024D5B0 (KiCheckForSListAddress.c)
- *     KiRestoreDebugRegisterState @ 0x1403FE3C0 (KiRestoreDebugRegisterState.c)
- *     KiSaveDebugRegisterState @ 0x1403FE440 (KiSaveDebugRegisterState.c)
- *     KiSetSpecCtrlNmi @ 0x140402B40 (KiSetSpecCtrlNmi.c)
- *     KxNmiInterrupt @ 0x14040B240 (KxNmiInterrupt.c)
- *     KiBugCheckDispatch @ 0x140412740 (KiBugCheckDispatch.c)
- *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
- *     KeWakeProcessor @ 0x140519A20 (KeWakeProcessor.c)
- *     KiCopyCounters @ 0x14051BE60 (KiCopyCounters.c)
- *     KiMcheckFastForward @ 0x1405266C0 (KiMcheckFastForward.c)
+ *     KiCheckForSListAddress @ 0x1402F1E00 (KiCheckForSListAddress.c)
+ *     KiRestoreDebugRegisterState @ 0x1403FE5A0 (KiRestoreDebugRegisterState.c)
+ *     KiSaveDebugRegisterState @ 0x1403FE620 (KiSaveDebugRegisterState.c)
+ *     KiSetSpecCtrlNmi @ 0x140402D20 (KiSetSpecCtrlNmi.c)
+ *     KxNmiInterrupt @ 0x14040B340 (KxNmiInterrupt.c)
+ *     KiBugCheckDispatch @ 0x140412840 (KiBugCheckDispatch.c)
+ *     KzSetIrqlUnsafe @ 0x140512E80 (KzSetIrqlUnsafe.c)
+ *     KeWakeProcessor @ 0x140519C60 (KeWakeProcessor.c)
+ *     KiCopyCounters @ 0x14051C0A0 (KiCopyCounters.c)
+ *     KiMcheckFastForward @ 0x140526900 (KiMcheckFastForward.c)
  */
 
 __int64 __fastcall KiNmiInterruptStart(

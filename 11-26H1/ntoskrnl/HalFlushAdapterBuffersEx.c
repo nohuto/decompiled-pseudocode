@@ -1,17 +1,17 @@
 /*
- * XREFs of HalFlushAdapterBuffersEx @ 0x14043EEB0
+ * XREFs of HalFlushAdapterBuffersEx @ 0x1404379C0
  * Callers:
- *     HalPutScatterGatherListV3 @ 0x14043ED84 (HalPutScatterGatherListV3.c)
+ *     HalPutScatterGatherListV3 @ 0x140437894 (HalPutScatterGatherListV3.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x14043E23C (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaControllerFlushChannel @ 0x14043F130 (HalpDmaControllerFlushChannel.c)
- *     HalpDmaCheckMdlAccessibility @ 0x14043F81C (HalpDmaCheckMdlAccessibility.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x1404402F0 (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x140440B80 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaFlushDriverMdl @ 0x140578CA8 (HalpDmaFlushDriverMdl.c)
- *     HalpDmaFreeLa @ 0x140578D38 (HalpDmaFreeLa.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x140436D4C (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaControllerFlushChannel @ 0x140437C44 (HalpDmaControllerFlushChannel.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x14043832C (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x140438E00 (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140439690 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaFlushDriverMdl @ 0x14057B1D8 (HalpDmaFlushDriverMdl.c)
+ *     HalpDmaFreeLa @ 0x14057B268 (HalpDmaFreeLa.c)
  */
 
 __int64 __fastcall HalFlushAdapterBuffersEx(
@@ -26,10 +26,10 @@ __int64 __fastcall HalFlushAdapterBuffersEx(
   __int64 v8; // r15
   struct _MDL *v11; // rbx
   unsigned int v12; // esi
-  unsigned int v14; // r8d
+  unsigned int v14; // edx
   unsigned int v15; // ecx
   __int64 v16; // r9
-  char v17; // dl
+  char v17; // r8
   unsigned __int64 v18; // rax
   char v19; // r13
   int AdapterCacheAlignment; // eax

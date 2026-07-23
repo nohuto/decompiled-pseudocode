@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLocateRelatedBlocks @ 0x18014C3B8
+ * XREFs of RtlpLocateRelatedBlocks @ 0x18014A780
  * Callers:
- *     RtlpHpHeapHandleError @ 0x18011D8C0 (RtlpHpHeapHandleError.c)
+ *     RtlpHpHeapHandleError @ 0x18011BAF0 (RtlpHpHeapHandleError.c)
  * Callees:
  *     <none>
  */
@@ -85,8 +85,8 @@ __int64 __fastcall RtlpLocateRelatedBlocks(__int64 a1, unsigned __int64 a2)
         if ( !v17 )
           break;
       }
-      qword_1801CD118 = v13;
-      qword_1801CD120 = v12;
+      qword_1801CC118 = v13;
+      qword_1801CC120 = v12;
       if ( !v13 || !v12 )
         goto LABEL_38;
       if ( *(_DWORD *)(a1 + 124) )
@@ -102,7 +102,7 @@ __int64 __fastcall RtlpLocateRelatedBlocks(__int64 a1, unsigned __int64 a2)
       result = v13 + 16LL * (unsigned __int16)v18;
       if ( result != v12 - 16 * (*(unsigned __int16 *)(a1 + 140) ^ (unsigned __int64)*(unsigned __int16 *)(v12 + 12)) )
       {
-        dword_1801CD0E8 = 4;
+        dword_1801CC0E8 = 4;
       }
       else
       {
@@ -127,7 +127,7 @@ LABEL_38:
         v23 = 2LL * (unsigned __int16)v22;
         if ( v12 )
         {
-          qword_1801CD128 = *(unsigned __int16 *)(a1 + 140) ^ (unsigned __int64)*(unsigned __int16 *)(v12 + 12);
+          qword_1801CC128 = *(unsigned __int16 *)(a1 + 140) ^ (unsigned __int64)*(unsigned __int16 *)(v12 + 12);
           v20 = *v19;
         }
         if ( v13 )
@@ -143,7 +143,7 @@ LABEL_38:
           {
             LOWORD(v24) = *(_WORD *)(v13 + 8);
           }
-          qword_1801CD130 = (unsigned __int16)v24;
+          qword_1801CC130 = (unsigned __int16)v24;
         }
         if ( *v21 )
         {
@@ -156,15 +156,15 @@ LABEL_38:
           LOWORD(result) = *(_WORD *)(v13 + 8 * v23 + 8);
         }
         result = (unsigned __int16)result;
-        if ( qword_1801CD128 == (unsigned __int16)result )
+        if ( qword_1801CC128 == (unsigned __int16)result )
         {
           result = *(unsigned __int16 *)(a1 + 140);
-          if ( qword_1801CD130 != (result ^ *(unsigned __int16 *)(v13 + 8 * v23 + 12)) )
-            dword_1801CD0E8 = 7;
+          if ( qword_1801CC130 != (result ^ *(unsigned __int16 *)(v13 + 8 * v23 + 12)) )
+            dword_1801CC0E8 = 7;
         }
         else
         {
-          dword_1801CD0E8 = 6;
+          dword_1801CC0E8 = 6;
         }
       }
       return result;
@@ -174,7 +174,7 @@ LABEL_38:
   for ( j = *v25; (unsigned __int64 *)j != v25; j = *(_QWORD *)j )
   {
     if ( (j & 0xFFFFFFFFFFFF0000uLL) <= a2 && *(_QWORD *)(j + 40) + (j & 0xFFFFFFFFFFFF0000uLL) > a2 )
-      dword_1801CD0E8 = 5;
+      dword_1801CC0E8 = 5;
   }
   return result;
 }

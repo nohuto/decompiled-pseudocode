@@ -5,7 +5,7 @@
  *     VfAvlReserveNode @ 0x14020A26C (VfAvlReserveNode.c)
  *     VfAvlDeleteTreeNode @ 0x14020A720 (VfAvlDeleteTreeNode.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
  */
 
 __int64 __fastcall ViAvlNodeInitializeSessionId(__int64 a1, __int64 a2)

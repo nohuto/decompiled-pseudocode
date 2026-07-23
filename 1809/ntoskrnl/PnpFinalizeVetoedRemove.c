@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpFinalizeVetoedRemove @ 0x140832F9C
+ * XREFs of PnpFinalizeVetoedRemove @ 0x1408341FC
  * Callers:
- *     PiEventBuildPdoList @ 0x1406EDA28 (PiEventBuildPdoList.c)
- *     PiCheckRemovalPreconditions @ 0x1406EF748 (PiCheckRemovalPreconditions.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
- *     PiProcessQueryAndCancelRemoval @ 0x140840138 (PiProcessQueryAndCancelRemoval.c)
+ *     PiEventBuildPdoList @ 0x1406EECC8 (PiEventBuildPdoList.c)
+ *     PiCheckRemovalPreconditions @ 0x1406F09E8 (PiCheckRemovalPreconditions.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x140841398 (PiProcessQueryAndCancelRemoval.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
  */
 
 __int16 __fastcall PnpFinalizeVetoedRemove(__int64 a1, int a2, UNICODE_STRING *a3)

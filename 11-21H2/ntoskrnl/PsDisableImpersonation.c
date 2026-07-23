@@ -2,13 +2,13 @@
  * XREFs of PsDisableImpersonation @ 0x140725F50
  * Callers:
  *     NtOpenThreadTokenEx @ 0x140725A50 (NtOpenThreadTokenEx.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14080B938 (CmpAddRemoveContainerToCLFSLog.c)
- *     CmpStartCLFSLog @ 0x14080CD20 (CmpStartCLFSLog.c)
+ *     sub_14080B938 @ 0x14080B938 (sub_14080B938.c)
+ *     sub_14080CD20 @ 0x14080CD20 (sub_14080CD20.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
+ *     sub_1402AC800 @ 0x1402AC800 (sub_1402AC800.c)
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
  */
 
@@ -16,39 +16,39 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
 {
   char v2; // r14
   struct _KTHREAD *CurrentThread; // rbp
-  struct _KTHREAD *v6; // rax
+  void *v6; // rax
   BOOLEAN result; // al
   void *v8; // rcx
 
   v2 = 0;
-  if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
+  if ( (*((_DWORD *)Thread + 344) & 8) != 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&Thread[1].WaitBlockList, 0LL);
-    if ( _interlockedbittestandreset((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 3u) )
+    --*((_WORD *)CurrentThread + 242);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)Thread + 1360, 0LL);
+    if ( _interlockedbittestandreset((volatile signed __int32 *)Thread + 344, 3u) )
     {
       v2 = 1;
-      ImpersonationState->Level = *((_DWORD *)&Thread[1].0 + 1) & 3;
-      ImpersonationState->EffectiveOnly = (*(_BYTE *)(&Thread[1].MiscFlags + 1) & 4) != 0;
-      ImpersonationState->CopyOnOpen = BYTE1(*((_DWORD *)&Thread[1].SwapListEntry + 2)) & 1;
-      v6 = Thread[1].WaitBlock[1].Thread;
+      ImpersonationState->Level = *((_DWORD *)Thread + 318) & 3;
+      ImpersonationState->EffectiveOnly = (*((_BYTE *)Thread + 1272) & 4) != 0;
+      ImpersonationState->CopyOnOpen = BYTE1(*((_DWORD *)Thread + 344)) & 1;
+      v6 = (void *)*((_QWORD *)Thread + 193);
       if ( v6 )
       {
         ImpersonationState->Token = v6;
-        v8 = (void *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
-        Thread[1].WaitBlock[1].Thread = 0LL;
+        v8 = (void *)(*((_QWORD *)Thread + 159) & 0xFFFFFFFFFFFFFFF8uLL);
+        *((_QWORD *)Thread + 193) = 0LL;
         ObfDereferenceObject(v8);
       }
       else
       {
-        ImpersonationState->Token = (PACCESS_TOKEN)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+        ImpersonationState->Token = (PACCESS_TOKEN)(*((_QWORD *)Thread + 159) & 0xFFFFFFFFFFFFFFF8uLL);
       }
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&Thread[1].WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&Thread[1].WaitBlockList);
-    KeAbPostRelease((ULONG_PTR)&Thread[1].WaitBlockList);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)Thread + 170, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((char *)Thread + 1360);
+    sub_1402AFC00((ULONG_PTR)Thread + 1360);
+    sub_1402AC800((__int64)CurrentThread);
     if ( v2 )
       return 1;
   }

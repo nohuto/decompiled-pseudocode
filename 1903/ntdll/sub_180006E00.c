@@ -9,28 +9,28 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall sub_180006E00(__int64 a1, _QWORD *a2, _QWORD *a3)
+LOGICAL __fastcall sub_180006E00(volatile signed __int32 *BaseAddress, _QWORD *a2, _QWORD *a3)
 {
-  __int64 result; // rax
-  __int64 v7; // rcx
-  _QWORD *v8; // rdx
+  LOGICAL result; // eax
+  volatile signed __int32 **v7; // rcx
+  PVOID *v8; // rdx
   _DWORD *v9; // rdi
   signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 80), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd(BaseAddress + 20, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    if ( *(_QWORD *)(a1 + 72) )
+    if ( *((_QWORD *)BaseAddress + 9) )
       sub_1800078BC();
-    v7 = *(_QWORD *)(a1 + 8);
-    if ( *(_QWORD *)(v7 + 8) != a1 + 8 || (v8 = *(_QWORD **)(a1 + 16), *v8 != a1 + 8) )
+    v7 = (volatile signed __int32 **)*((_QWORD *)BaseAddress + 1);
+    if ( v7[1] != BaseAddress + 2 || (v8 = (PVOID *)*((_QWORD *)BaseAddress + 2), *v8 != BaseAddress + 2) )
       __fastfail(3u);
     *v8 = v7;
-    *(_QWORD *)(v7 + 8) = v8;
-    v9 = *(_DWORD **)(a1 + 88);
-    *a2 = *(_QWORD *)(a1 + 104);
-    *a3 = *(_QWORD *)(a1 + 112);
-    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+    v7[1] = (volatile signed __int32 *)v8;
+    v9 = (_DWORD *)*((_QWORD *)BaseAddress + 11);
+    *a2 = *((_QWORD *)BaseAddress + 13);
+    *a3 = *((_QWORD *)BaseAddress + 14);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)BaseAddress);
     if ( v9 )
     {
       *v9 = 1;

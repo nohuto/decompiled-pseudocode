@@ -13,7 +13,7 @@ bool PiIsHVCIEnabled()
 
   v0 = 0;
   SystemInformation = 8LL;
-  if ( ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &SystemInformation, 8u, 0LL) >= 0 )
+  if ( ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, 0LL) >= 0 )
     return (SystemInformation & 0x40000000000LL) != 0;
   return v0;
 }

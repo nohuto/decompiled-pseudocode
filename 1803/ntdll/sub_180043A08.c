@@ -10,15 +10,15 @@
  *     ZwQueryInformationProcess @ 0x18009ADE0 (ZwQueryInformationProcess.c)
  */
 
-void __fastcall sub_180043A08(unsigned __int16 *a1, unsigned __int16 *a2, int a3, __int64 a4, char a5)
+void __fastcall sub_180043A08(unsigned __int16 *a1, unsigned __int16 *a2, int a3, const EVENT_DESCRIPTOR *a4, char a5)
 {
-  int v8; // eax
+  NTSTATUS v8; // eax
   int v9; // ecx
   __int64 v10; // rcx
   int v11; // eax
-  __int64 v12; // r8
+  ULONG v12; // r8d
   int v13; // eax
-  int v14; // [rsp+30h] [rbp-40h] BYREF
+  int ProcessInformation; // [rsp+30h] [rbp-40h] BYREF
   int *v15; // [rsp+38h] [rbp-38h] BYREF
   int v16; // [rsp+40h] [rbp-30h]
   int v17; // [rsp+44h] [rbp-2Ch]
@@ -31,25 +31,30 @@ void __fastcall sub_180043A08(unsigned __int16 *a1, unsigned __int16 *a2, int a3
   int v24; // [rsp+A0h] [rbp+30h] BYREF
 
   v24 = a3;
-  v14 = 0;
+  ProcessInformation = 0;
   if ( (dword_1801596D4 & 0x20) != 0 )
   {
     if ( a5 )
       goto LABEL_8;
     if ( (RtlGetThreadErrorMode() & 0x10) == 0 )
     {
-      v8 = ZwQueryInformationProcess(-1LL, 12LL, &v14);
-      v9 = v14;
+      v8 = ZwQueryInformationProcess(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             ProcessDefaultHardErrorMode,
+             &ProcessInformation,
+             4u,
+             0LL);
+      v9 = ProcessInformation;
       if ( v8 < 0 )
         v9 = 5;
-      v14 = v9;
+      ProcessInformation = v9;
       if ( (v9 & 5) != 0 )
       {
 LABEL_8:
         v10 = *((_QWORD *)a1 + 1);
         v11 = *a1;
         v17 = 0;
-        v12 = 2LL;
+        v12 = 2;
         v20 = 0;
         v18 = v10;
         v15 = &v24;
@@ -59,11 +64,11 @@ LABEL_8:
         {
           v21 = *((_QWORD *)a2 + 1);
           v13 = *a2 + 2;
-          v12 = 3LL;
+          v12 = 3;
           v23 = 0;
           v22 = v13;
         }
-        EtwEventWriteNoRegistration(&unk_1801160F8, a4, v12, &v15);
+        EtwEventWriteNoRegistration(&stru_1801160F8, a4, v12, (PEVENT_DATA_DESCRIPTOR)&v15);
       }
     }
   }

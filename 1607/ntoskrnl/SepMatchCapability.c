@@ -1,19 +1,19 @@
 /*
- * XREFs of SepMatchCapability @ 0x1400A7790
+ * XREFs of SepMatchCapability @ 0x1400A5D08
  * Callers:
- *     SepMaximumAccessCheck @ 0x1400616A0 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheck @ 0x140062440 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x140132FC4 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x140136148 (SepNormalAccessCheckEx.c)
+ *     SepMaximumAccessCheck @ 0x140061220 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheck @ 0x140061FC0 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x140133534 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x1401366B8 (SepNormalAccessCheckEx.c)
  * Callees:
- *     SepSidInTokenSidHash @ 0x1400611F0 (SepSidInTokenSidHash.c)
+ *     SepSidInTokenSidHash @ 0x140060D70 (SepSidInTokenSidHash.c)
  */
 
 char __fastcall SepMatchCapability(__int64 a1, int a2, void *a3, int a4, _BYTE *a5, _DWORD *a6)
 {
   char result; // al
 
-  result = SepSidInTokenSidHash(a1 + 808, 0LL, a3, 0, 1, 0);
+  result = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a1 + 808), 0LL, a3, 0, 1, 0);
   if ( result )
   {
     *a6 |= a4 & a2;

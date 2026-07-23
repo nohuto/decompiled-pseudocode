@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlLookupImageSectionByName @ 0x1404E4CB0
+ * XREFs of RtlLookupImageSectionByName @ 0x1404DE250
  * Callers:
- *     KasanDriverLoadImageInternal @ 0x140523630 (KasanDriverLoadImageInternal.c)
- *     PrExtExtractDataRecordTable @ 0x1406DCBDC (PrExtExtractDataRecordTable.c)
- *     MiConfigureDriverProxyState @ 0x1408649B0 (MiConfigureDriverProxyState.c)
- *     MiMarkKernelImageCfgBits @ 0x140AC705C (MiMarkKernelImageCfgBits.c)
- *     MiApplyDynamicFixupsToKernelAndHal @ 0x140CFA528 (MiApplyDynamicFixupsToKernelAndHal.c)
- *     MiPrepareScpFixupsForNtAndHal @ 0x140CFADB4 (MiPrepareScpFixupsForNtAndHal.c)
+ *     KasanDriverLoadImageInternal @ 0x140525CA0 (KasanDriverLoadImageInternal.c)
+ *     PrExtExtractDataRecordTable @ 0x1406E0E7C (PrExtExtractDataRecordTable.c)
+ *     MiConfigureDriverProxyState @ 0x14086AD90 (MiConfigureDriverProxyState.c)
+ *     MiMarkKernelImageCfgBits @ 0x140AC8C4C (MiMarkKernelImageCfgBits.c)
+ *     MiApplyDynamicFixupsToKernelAndHal @ 0x140D008A8 (MiApplyDynamicFixupsToKernelAndHal.c)
+ *     MiPrepareScpFixupsForNtAndHal @ 0x140D01134 (MiPrepareScpFixupsForNtAndHal.c)
  * Callees:
- *     strncmp @ 0x14073D360 (strncmp.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
  */
 
 const char *__fastcall RtlLookupImageSectionByName(__int64 a1, const char *a2)

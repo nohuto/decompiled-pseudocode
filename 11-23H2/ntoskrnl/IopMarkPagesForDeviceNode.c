@@ -1,9 +1,9 @@
 /*
- * XREFs of IopMarkPagesForDeviceNode @ 0x14055D08C
+ * XREFs of IopMarkPagesForDeviceNode @ 0x14055D74C
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055C86C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055CF2C (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopMarkPagesForDeviceNode(__int64 a1, __int64 a2)

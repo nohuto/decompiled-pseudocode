@@ -1,30 +1,30 @@
 /*
- * XREFs of SshpSessionManagerSendControlEvent @ 0x1408741A8
+ * XREFs of SshpSessionManagerSendControlEvent @ 0x1408743E8
  * Callers:
- *     SshSessionManagerTraceDirtyTransition @ 0x1408000B8 (SshSessionManagerTraceDirtyTransition.c)
- *     PopBootBatteryStatusWorker @ 0x140864700 (PopBootBatteryStatusWorker.c)
- *     SshpSessionManagerTraceSystemStart @ 0x140864A38 (SshpSessionManagerTraceSystemStart.c)
- *     SshSessionManagerTraceCsEnterReason @ 0x1408783D8 (SshSessionManagerTraceCsEnterReason.c)
- *     PopDiagTraceAcDcStateChange @ 0x14098C160 (PopDiagTraceAcDcStateChange.c)
- *     PopDiagTraceBatteryCountChange @ 0x14098CCC0 (PopDiagTraceBatteryCountChange.c)
- *     SshSessionManagerTraceCsExitReason @ 0x1409A17DC (SshSessionManagerTraceCsExitReason.c)
- *     SshSessionManagerTracePostSleepNotification @ 0x1409A19FC (SshSessionManagerTracePostSleepNotification.c)
- *     SshSessionManagerTracePreSleepNotification @ 0x1409A1AE0 (SshSessionManagerTracePreSleepNotification.c)
- *     SshSessionManagerTraceShutdownAction @ 0x1409A1B8C (SshSessionManagerTraceShutdownAction.c)
- *     SshSessionManagerTraceSystemStop @ 0x1409A1C10 (SshSessionManagerTraceSystemStop.c)
+ *     SshSessionManagerTraceDirtyTransition @ 0x140800388 (SshSessionManagerTraceDirtyTransition.c)
+ *     PopBootBatteryStatusWorker @ 0x140864940 (PopBootBatteryStatusWorker.c)
+ *     SshpSessionManagerTraceSystemStart @ 0x140864C78 (SshpSessionManagerTraceSystemStart.c)
+ *     SshSessionManagerTraceCsEnterReason @ 0x140878618 (SshSessionManagerTraceCsEnterReason.c)
+ *     PopDiagTraceAcDcStateChange @ 0x14098C360 (PopDiagTraceAcDcStateChange.c)
+ *     PopDiagTraceBatteryCountChange @ 0x14098CEC0 (PopDiagTraceBatteryCountChange.c)
+ *     SshSessionManagerTraceCsExitReason @ 0x1409A19DC (SshSessionManagerTraceCsExitReason.c)
+ *     SshSessionManagerTracePostSleepNotification @ 0x1409A1BFC (SshSessionManagerTracePostSleepNotification.c)
+ *     SshSessionManagerTracePreSleepNotification @ 0x1409A1CE0 (SshSessionManagerTracePreSleepNotification.c)
+ *     SshSessionManagerTraceShutdownAction @ 0x1409A1D8C (SshSessionManagerTraceShutdownAction.c)
+ *     SshSessionManagerTraceSystemStop @ 0x1409A1E10 (SshSessionManagerTraceSystemStop.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E10 (RtlGetSystemTimePrecise.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14032D320 (SSHSupportReleasePushLockExclusive.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     SshpAlpcOpenTraceSessionUnsafe @ 0x14084C370 (SshpAlpcOpenTraceSessionUnsafe.c)
- *     SshpSessionManagerFlushControlEventBuffer @ 0x14085B2C0 (SshpSessionManagerFlushControlEventBuffer.c)
+ *     RtlGetSystemTimePrecise @ 0x140226F20 (RtlGetSystemTimePrecise.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x14032D5B0 (SSHSupportReleasePushLockExclusive.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SshpAlpcOpenTraceSessionUnsafe @ 0x14084C670 (SshpAlpcOpenTraceSessionUnsafe.c)
+ *     SshpSessionManagerFlushControlEventBuffer @ 0x14085B500 (SshpSessionManagerFlushControlEventBuffer.c)
  */
 
 signed __int32 __fastcall SshpSessionManagerSendControlEvent(__int64 a1, unsigned int a2, __int64 a3)
 {
-  __int64 SystemTimePrecise; // r13
+  LARGE_INTEGER SystemTimePrecise; // r13
   int v7; // ebp
   __int64 v8; // rsi
   _DWORD *v9; // rcx
@@ -56,13 +56,13 @@ signed __int32 __fastcall SshpSessionManagerSendControlEvent(__int64 a1, unsigne
     while ( v10 );
   }
   v11 = (const void **)(a3 + 8);
-  if ( (unsigned int)(v7 + 12 + dword_140C38760) <= 0x400 )
+  if ( (unsigned int)(v7 + 12 + dword_140C38700) <= 0x400 )
   {
-    KeResetEvent(&stru_140C38748);
-    v12 = (char *)&unk_140C38764 + (unsigned int)dword_140C38760;
+    KeResetEvent(&stru_140C386E8);
+    v12 = (char *)&unk_140C38704 + (unsigned int)dword_140C38700;
     *(_DWORD *)v12 = v7;
     *(_QWORD *)(v12 + 4) = a1;
-    *(_QWORD *)(v12 + 12) = SystemTimePrecise;
+    *(LARGE_INTEGER *)(v12 + 12) = SystemTimePrecise;
     v13 = v12 + 20;
     if ( a2 )
     {
@@ -76,14 +76,14 @@ signed __int32 __fastcall SshpSessionManagerSendControlEvent(__int64 a1, unsigne
       }
       while ( v8 );
     }
-    dword_140C38760 += v7 + 12;
-    if ( !byte_140C38740 )
+    dword_140C38700 += v7 + 12;
+    if ( !byte_140C386E0 )
     {
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C38548, 0LL);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C384E8, 0LL);
       v17 = SshpAlpcOpenTraceSessionUnsafe(v16, 0, SshpSessionManagerContext);
-      SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C38548);
+      SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C384E8);
       if ( v17 )
-        byte_140C38740 = 1;
+        byte_140C386E0 = 1;
       else
         SshpSessionManagerFlushControlEventBuffer(v19, v18, v20);
     }

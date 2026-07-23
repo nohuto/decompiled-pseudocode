@@ -1,14 +1,14 @@
 /*
- * XREFs of IopIrpStackProfilerDpcRoutine @ 0x1404BAE80
+ * XREFs of IopIrpStackProfilerDpcRoutine @ 0x1404B4660
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     IopProcessIrpStackProfiler @ 0x1404BB0A4 (IopProcessIrpStackProfiler.c)
- *     _local_unwind @ 0x140536000 (_local_unwind.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     KiCustomAccessRoutine2 @ 0x1407327B0 (KiCustomAccessRoutine2.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     IopProcessIrpStackProfiler @ 0x1404B4884 (IopProcessIrpStackProfiler.c)
+ *     _local_unwind @ 0x140538480 (_local_unwind.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiCustomAccessRoutine2 @ 0x140737380 (KiCustomAccessRoutine2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IopIrpStackProfilerDpcRoutine(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -59,15 +59,15 @@ __int64 __fastcall IopIrpStackProfilerDpcRoutine(__int64 a1, __int64 a2, __int64
     }
   }
   v13 = 20;
-  result = *(unsigned int *)&IopSessionNotificationLock.PriorityFloorCounts[16];
-  if ( v8 > *(unsigned int *)&IopSessionNotificationLock.PriorityFloorCounts[16] )
+  result = HIDWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink);
+  if ( v8 > HIDWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) )
   {
     v13 = 0;
     v17 = 0LL;
-    result = *(unsigned int *)&IopSessionNotificationLock.PriorityFloorCounts[20];
+    result = LODWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink);
     do
     {
-      if ( v19[v17] > (unsigned __int64)*(unsigned int *)&IopSessionNotificationLock.PriorityFloorCounts[20] )
+      if ( v19[v17] > (unsigned __int64)LODWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) )
         break;
       ++v13;
       ++v17;
@@ -77,12 +77,12 @@ __int64 __fastcall IopIrpStackProfilerDpcRoutine(__int64 a1, __int64 a2, __int64
   if ( v13 != 20 )
   {
     IopProcessIrpStackProfiler(v19);
-    *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[20] *= 2;
-    if ( *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[20] > 0x1900u )
-      *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[20] = 6400;
-    *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[16] *= 2;
-    if ( *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[16] > 0x7D00u )
-      *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[16] = 32000;
+    LODWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) *= 2;
+    if ( LODWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) > 0x1900 )
+      LODWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) = 6400;
+    HIDWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) *= 2;
+    if ( HIDWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) > 0x7D00 )
+      HIDWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) = 32000;
     v15 = 0;
     for ( result = (unsigned int)KeNumberProcessors_0;
           v15 < (unsigned int)KeNumberProcessors_0;
@@ -101,6 +101,6 @@ __int64 __fastcall IopIrpStackProfilerDpcRoutine(__int64 a1, __int64 a2, __int64
       ++v15;
     }
   }
-  _InterlockedOr((volatile signed __int32 *)&IopSessionNotificationLock.Timer.Header.WaitListHead.Blink, 4u);
+  _InterlockedOr(&IopIrpStackProfilerFlags, 4u);
   return result;
 }

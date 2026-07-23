@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptShortWeierstrassSetZero @ 0x14052E5E0
+ * XREFs of SymCryptShortWeierstrassSetZero @ 0x140535210
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementSetValueUint32 @ 0x140523D18 (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModElementSetValueUint32 @ 0x140521630 (SymCryptModElementSetValueUint32.c)
  */
 
 __int64 __fastcall SymCryptShortWeierstrassSetZero(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

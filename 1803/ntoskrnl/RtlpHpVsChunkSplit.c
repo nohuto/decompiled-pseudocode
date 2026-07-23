@@ -156,7 +156,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(
               {
                 v38->CrossThreadReleasableAndBusyByte |= 2u;
                 if ( (__int64)v38->LockState.LockState < 0 )
-                  KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v37]);
+                  KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v37].TreeNode);
                 LODWORD(v43) = 0;
                 LODWORD(v43) = v38->BoostBitmap.AllFields & 0x1FFFF;
                 v38->BoostBitmap.AllFields &= 0xFFFE0000;

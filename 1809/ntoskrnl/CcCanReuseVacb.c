@@ -1,7 +1,7 @@
 /*
- * XREFs of CcCanReuseVacb @ 0x14026A58C
+ * XREFs of CcCanReuseVacb @ 0x14026A77C
  * Callers:
- *     CcUnmapInactiveViewsInternal @ 0x14026AAAC (CcUnmapInactiveViewsInternal.c)
+ *     CcUnmapInactiveViewsInternal @ 0x14026AC9C (CcUnmapInactiveViewsInternal.c)
  * Callees:
  *     <none>
  */

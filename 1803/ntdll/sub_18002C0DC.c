@@ -17,8 +17,8 @@ __int64 __fastcall sub_18002C0DC(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbx
   int v7; // edi
-  int v8; // eax
-  __int64 v9; // rcx
+  NTSTATUS v8; // eax
+  char *v9; // rcx
   int v11; // eax
   __int64 v12; // r13
   __int64 v13; // rsi
@@ -31,11 +31,11 @@ __int64 __fastcall sub_18002C0DC(__int64 a1, __int64 a2, int a3)
   char v20; // al
   int v21; // r8d
   int v22; // r9d
-  char *v23; // rcx
+  USHORT *v23; // rcx
   int v24; // r8d
   int v25; // r9d
-  int v26; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v27; // [rsp+88h] [rbp+20h] BYREF
+  DWORD v26; // [rsp+70h] [rbp+8h] BYREF
+  char *v27; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 56);
   v7 = 0;
@@ -50,7 +50,7 @@ __int64 __fastcall sub_18002C0DC(__int64 a1, __int64 a2, int a3)
     return (unsigned int)-1073741701;
   v11 = *(_DWORD *)(v3 + 104) | 0x400000;
   *(_DWORD *)(v3 + 104) = v11;
-  if ( (*(_BYTE *)(v9 + 16) & 1) == 0
+  if ( (v9[16] & 1) == 0
     || (v18 = *(_QWORD *)(v3 + 48),
         *(_DWORD *)(v3 + 104) = v11 | 0x1000000,
         v19 = sub_18008325C(v18),
@@ -66,37 +66,36 @@ LABEL_4:
         {
           v12 = *(_QWORD *)(v3 + 48);
           v13 = 2147353476LL;
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-            v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+          if ( RtlGetCurrentServiceSessionId() )
+            v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
           else
             v14 = 2147353476LL;
           v15 = 2147353477LL;
           if ( *(_BYTE *)v14 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
           {
-            v23 = (unsigned int)RtlGetCurrentServiceSessionId()
-                ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-                : (char *)2147353477;
-            if ( (*v23 & 0x20) != 0 )
+            v23 = RtlGetCurrentServiceSessionId()
+                ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+                : (USHORT *)2147353477;
+            if ( (*(_BYTE *)v23 & 0x20) != 0 )
             {
               LOBYTE(v22) = -1;
               LOBYTE(v21) = -1;
               sub_1800CBAB0(5264, v12, v21, v22, 0LL, 0LL);
             }
           }
-          if ( a3 == 1073741827
-            && (v16 = sub_180082804(*(_QWORD *)(v3 + 48), *(_QWORD *)(a1 + 160), a2, v3 + 72), v7 = v16, v16 < 0) )
+          if ( a3 == 1073741827 && (v16 = sub_180082804(*(PVOID *)(v3 + 48)), v7 = v16, v16 < 0) )
           {
             sub_180043B30((unsigned int)v16, 5264LL, 0LL, v3 + 72);
           }
           else
           {
             v17 = *(_QWORD *)(v3 + 48);
-            if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-              v13 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+            if ( RtlGetCurrentServiceSessionId() )
+              v13 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
             if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
             {
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-                v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+              if ( RtlGetCurrentServiceSessionId() )
+                v15 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
               if ( (*(_BYTE *)v15 & 0x20) != 0 )
               {
                 LOBYTE(v25) = -1;

@@ -6,14 +6,17 @@
  *     ZwTraceControl @ 0x18009E210 (ZwTraceControl.c)
  */
 
-__int64 __fastcall sub_180107084(__int64 a1, _QWORD *a2, _WORD *a3)
+NTSTATUS __fastcall sub_180107084(__int16 a1, _QWORD *a2, _WORD *a3)
 {
-  __int64 result; // rax
-  unsigned int v6; // [rsp+30h] [rbp-18h]
+  NTSTATUS result; // eax
+  unsigned int v6; // [rsp+30h] [rbp-18h] BYREF
   __int16 v7; // [rsp+34h] [rbp-14h]
+  __int16 v8; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v9; // [rsp+68h] [rbp+20h] BYREF
 
-  result = ZwTraceControl();
-  if ( !(_DWORD)result )
+  v8 = a1;
+  result = ZwTraceControl(EtwRegisterPrivateSession, &v8, 2u, &v6, 8u, &v9);
+  if ( !result )
   {
     *a2 = v6;
     *a3 = v7;

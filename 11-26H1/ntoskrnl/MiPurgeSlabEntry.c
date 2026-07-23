@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPurgeSlabEntry @ 0x1404C1DFC
+ * XREFs of MiPurgeSlabEntry @ 0x1404BB64C
  * Callers:
- *     MiPurgeSlabEntries @ 0x1404C1C3C (MiPurgeSlabEntries.c)
- *     MiEstablishDefragSlabEntries @ 0x140706AC4 (MiEstablishDefragSlabEntries.c)
+ *     MiPurgeSlabEntries @ 0x1404BB48C (MiPurgeSlabEntries.c)
+ *     MiEstablishDefragSlabEntries @ 0x14070B794 (MiEstablishDefragSlabEntries.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     MiIsFreeSlabPage @ 0x1404C1F3C (MiIsFreeSlabPage.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     MiIsFreeSlabPage @ 0x1404BB78C (MiIsFreeSlabPage.c)
  */
 
 __int64 __fastcall MiPurgeSlabEntry(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, char a4)
@@ -40,7 +40,7 @@ __int64 __fastcall MiPurgeSlabEntry(unsigned __int64 a1, unsigned __int64 a2, __
           KeYieldProcessorEx(&v13);
         while ( *(__int64 *)v10 < 0 );
       }
-      if ( v8 > qword_140E2D7A0 || ((*i >> 54) & 1) == 0 || (unsigned int)MiGetPfnSlabType(v9) == 9 )
+      if ( v8 > qword_140E2D920 || ((*i >> 54) & 1) == 0 || (unsigned int)MiGetPfnSlabType(v9) == 9 )
         goto LABEL_18;
       if ( (*(_BYTE *)(v10 + 10) & 7) != 2
         || (unsigned __int16)*(_DWORD *)(v10 + 8)

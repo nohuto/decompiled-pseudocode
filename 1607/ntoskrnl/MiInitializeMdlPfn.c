@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeMdlPfn @ 0x140106F20
+ * XREFs of MiInitializeMdlPfn @ 0x140104CA0
  * Callers:
- *     MiInitializeMdlPages @ 0x140106A8C (MiInitializeMdlPages.c)
+ *     MiInitializeMdlPages @ 0x14010480C (MiInitializeMdlPages.c)
  * Callees:
- *     MiAbortCombineScan @ 0x14001D810 (MiAbortCombineScan.c)
+ *     MiAbortCombineScan @ 0x14001D390 (MiAbortCombineScan.c)
  */
 
 char __fastcall MiInitializeMdlPfn(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -38,7 +38,7 @@ char __fastcall MiInitializeMdlPfn(__int64 a1, __int64 a2, __int64 a3, __int64 a
     {
       MiAbortCombineScan(a1, a2, a3, a4);
       *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 40) & 0xFE3FFFFFFFFFFFFFuLL | 0xC0000000000000LL;
-      _InterlockedIncrement64(&qword_140326AA0);
+      _InterlockedIncrement64(&qword_140326AE0);
     }
     LOBYTE(v9) = *(_BYTE *)(a1 + 34) & 0xF8 | 6;
     *(_BYTE *)(a1 + 34) = v9;

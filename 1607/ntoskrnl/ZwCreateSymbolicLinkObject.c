@@ -1,17 +1,16 @@
 /*
- * XREFs of ZwCreateSymbolicLinkObject @ 0x14015B320
+ * XREFs of ZwCreateSymbolicLinkObject @ 0x14015B890
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1403F26A4 (IopProcessSetInterfaceState.c)
- *     SeGetTokenDeviceMap @ 0x1404CABA0 (SeGetTokenDeviceMap.c)
- *     IoCreateSymbolicLink @ 0x1404EEF88 (IoCreateSymbolicLink.c)
- *     ObpInitializeRootNamespace @ 0x140579974 (ObpInitializeRootNamespace.c)
- *     ObpCreateDosDevicesDirectory @ 0x140579BE8 (ObpCreateDosDevicesDirectory.c)
- *     IoCreateUnprotectedSymbolicLink @ 0x1406237F4 (IoCreateUnprotectedSymbolicLink.c)
+ *     IopProcessSetInterfaceState @ 0x1403F1568 (IopProcessSetInterfaceState.c)
+ *     SeGetTokenDeviceMap @ 0x1404885C0 (SeGetTokenDeviceMap.c)
+ *     IoCreateSymbolicLink @ 0x1404D107C (IoCreateSymbolicLink.c)
+ *     ObpInitializeRootNamespace @ 0x140579EB4 (ObpInitializeRootNamespace.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14057A128 (ObpCreateDosDevicesDirectory.c)
+ *     IoCreateUnprotectedSymbolicLink @ 0x1406238A8 (IoCreateUnprotectedSymbolicLink.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateSymbolicLinkObject(
         PHANDLE SymbolicLinkHandle,
         ACCESS_MASK DesiredAccess,
@@ -20,5 +19,5 @@ NTSTATUS __stdcall ZwCreateSymbolicLinkObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SymbolicLinkHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(SymbolicLinkHandle);
 }

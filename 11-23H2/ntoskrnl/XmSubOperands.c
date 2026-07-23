@@ -1,13 +1,13 @@
 /*
- * XREFs of XmSubOperands @ 0x1403B8E78
+ * XREFs of XmSubOperands @ 0x1403B9058
  * Callers:
- *     XmSubOp @ 0x1403AFEB0 (XmSubOp.c)
- *     XmDecOp @ 0x1403B8900 (XmDecOp.c)
- *     XmCmpxchgOp @ 0x1405332C0 (XmCmpxchgOp.c)
- *     XmNegOp @ 0x140533330 (XmNegOp.c)
- *     XmSbbOp @ 0x140533360 (XmSbbOp.c)
+ *     XmSubOp @ 0x1403B0090 (XmSubOp.c)
+ *     XmDecOp @ 0x1403B8AE0 (XmDecOp.c)
+ *     XmCmpxchgOp @ 0x140533810 (XmCmpxchgOp.c)
+ *     XmNegOp @ 0x140533880 (XmNegOp.c)
+ *     XmSbbOp @ 0x1405338B0 (XmSbbOp.c)
  * Callees:
- *     XmStoreResult @ 0x1403B9608 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403B97E8 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmSubOperands(_DWORD *a1, unsigned int a2)

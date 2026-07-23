@@ -1,9 +1,9 @@
 /*
- * XREFs of strrchr @ 0x18012CC40
+ * XREFs of strrchr @ 0x18012C9B0
  * Callers:
- *     LdrpEnclaveAddForwarderModules @ 0x1800382C0 (LdrpEnclaveAddForwarderModules.c)
- *     LdrpResolveForwarder @ 0x180039370 (LdrpResolveForwarder.c)
- *     LdrpResolveProcedureAddress @ 0x1800C5A40 (LdrpResolveProcedureAddress.c)
+ *     LdrpEnclaveAddForwarderModules @ 0x180022830 (LdrpEnclaveAddForwarderModules.c)
+ *     LdrpResolveForwarder @ 0x1800238E0 (LdrpResolveForwarder.c)
+ *     LdrpResolveProcedureAddress @ 0x1800C3200 (LdrpResolveProcedureAddress.c)
  * Callees:
  *     <none>
  */

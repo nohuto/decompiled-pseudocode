@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpMarkIndexDirty @ 0x14066C5EC
+ * XREFs of CmpMarkIndexDirty @ 0x14066140C
  * Callers:
- *     CmpMarkKeyDirty @ 0x14066A298 (CmpMarkKeyDirty.c)
- *     CmpMarkKeyParentDirty @ 0x140879204 (CmpMarkKeyParentDirty.c)
+ *     CmpMarkKeyDirty @ 0x14065F0B8 (CmpMarkKeyDirty.c)
+ *     CmpMarkKeyParentDirty @ 0x140879364 (CmpMarkKeyParentDirty.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyInRoot @ 0x1405ED60C (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1405EDFE0 (CmpFindSubKeyInLeafWithStatus.c)
- *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
- *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpCopyCompressedName @ 0x14065ED94 (CmpCopyCompressedName.c)
+ *     CmpFindSubKeyInRoot @ 0x1406DCD6C (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1406DD740 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpMarkCellDirty @ 0x14071F800 (HvpMarkCellDirty.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpMarkIndexDirty(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3)
@@ -32,7 +32,7 @@ char __fastcall CmpMarkIndexDirty(ULONG_PTR BugCheckParameter2, unsigned int a2,
   _DWORD v20[2]; // [rsp+30h] [rbp-20h] BYREF
   _DWORD v21[2]; // [rsp+38h] [rbp-18h] BYREF
   __int128 v22; // [rsp+40h] [rbp-10h] BYREF
-  unsigned int v23; // [rsp+90h] [rbp+40h] BYREF
+  int v23; // [rsp+90h] [rbp+40h] BYREF
   int v24; // [rsp+A8h] [rbp+58h] BYREF
 
   v20[1] = 0;
@@ -98,7 +98,7 @@ LABEL_26:
       goto LABEL_25;
     if ( *v17 != 26994 )
       break;
-    if ( (int)CmpFindSubKeyInRoot(BugCheckParameter2, (__int64)v17, (__int64)&v22, 0, &v23) < 0 )
+    if ( (int)CmpFindSubKeyInRoot(BugCheckParameter2, (_DWORD)v17, (unsigned int)&v22, 0, (__int64)&v23) < 0 )
     {
 LABEL_24:
       (*(void (__fastcall **)(ULONG_PTR, _DWORD *))(BugCheckParameter2 + 16))(BugCheckParameter2, v21);
@@ -125,7 +125,7 @@ LABEL_15:
       goto LABEL_25;
   }
   v24 = 0;
-  CmpFindSubKeyInLeafWithStatus(BugCheckParameter2, (__int64)v17, (unsigned __int16 *)&v22, 0LL, &v23, &v24);
+  CmpFindSubKeyInLeafWithStatus(BugCheckParameter2, (_DWORD)v17, (unsigned int)&v22, 0, (__int64)&v23, (__int64)&v24);
   if ( v24 < 0 )
     goto LABEL_24;
   (*(void (__fastcall **)(ULONG_PTR, _DWORD *))(BugCheckParameter2 + 16))(BugCheckParameter2, v21);

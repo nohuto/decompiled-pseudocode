@@ -9,20 +9,20 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopBcdReadElement(int a1, int a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall PopBcdReadElement(HANDLE BcdObjectHandle, ULONG BcdElement, _QWORD *a3, _DWORD *a4)
 {
   PVOID PoolWithTag; // rdi
-  int v9; // r8d
-  int ElementDataWithFlags; // ebx
-  unsigned int NumberOfBytes[6]; // [rsp+30h] [rbp-18h] BYREF
+  BCD_FLAGS v9; // r8d
+  NTSTATUS ElementDataWithFlags; // ebx
+  ULONG NumberOfBytes[6]; // [rsp+30h] [rbp-18h] BYREF
 
   NumberOfBytes[0] = 0;
-  if ( (unsigned int)BcdGetElementDataWithFlags(a1, a2, (_DWORD)a3, 0, (__int64)NumberOfBytes) == -1073741789 )
+  if ( BcdGetElementDataWithFlags(BcdObjectHandle, BcdElement, (BCD_FLAGS)a3, 0LL, NumberOfBytes) == -1073741789 )
   {
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes[0], 0x64634250u);
     if ( PoolWithTag )
     {
-      ElementDataWithFlags = BcdGetElementDataWithFlags(a1, a2, v9, (_DWORD)PoolWithTag, (__int64)NumberOfBytes);
+      ElementDataWithFlags = BcdGetElementDataWithFlags(BcdObjectHandle, BcdElement, v9, PoolWithTag, NumberOfBytes);
       if ( ElementDataWithFlags < 0 )
       {
         ExFreePoolWithTag(PoolWithTag, 0);

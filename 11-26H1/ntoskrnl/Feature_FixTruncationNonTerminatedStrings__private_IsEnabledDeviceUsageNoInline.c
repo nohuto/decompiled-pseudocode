@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline @ 0x1404F3DAC
+ * XREFs of Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline @ 0x1404ED38C
  * Callers:
- *     RtlpQueryRegistryDirect @ 0x140A11808 (RtlpQueryRegistryDirect.c)
+ *     RtlpQueryRegistryDirect @ 0x140A109F8 (RtlpQueryRegistryDirect.c)
  * Callees:
- *     Feature_FixTruncationNonTerminatedStrings__private_IsEnabledFallback @ 0x140532D74 (Feature_FixTruncationNonTerminatedStrings__private_IsEnabledFallback.c)
+ *     Feature_FixTruncationNonTerminatedStrings__private_IsEnabledFallback @ 0x140535214 (Feature_FixTruncationNonTerminatedStrings__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline()

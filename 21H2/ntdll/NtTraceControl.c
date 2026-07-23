@@ -1,5 +1,5 @@
 /*
- * XREFs of NtTraceControl @ 0x1800A0ED0
+ * XREFs of NtTraceControl @ 0x1800A0E90
  * Callers:
  *     EtwpReceiveReplyDataBlock @ 0x1800016FC (EtwpReceiveReplyDataBlock.c)
  *     EtwReplyNotification @ 0x1800019A0 (EtwReplyNotification.c)
@@ -14,18 +14,24 @@
  *     EtwpTrackProviderBinary @ 0x180081E38 (EtwpTrackProviderBinary.c)
  *     EtwEventWriteStartScenario @ 0x18008A400 (EtwEventWriteStartScenario.c)
  *     EtwRegisterSecurityProvider @ 0x18008C5A0 (EtwRegisterSecurityProvider.c)
- *     EtwpUseDescriptorType @ 0x180110970 (EtwpUseDescriptorType.c)
- *     EtwpDemuxUmTraceHandle @ 0x180110E40 (EtwpDemuxUmTraceHandle.c)
- *     EtwpRegisterPrivateSession @ 0x180111114 (EtwpRegisterPrivateSession.c)
+ *     EtwpUseDescriptorType @ 0x180110930 (EtwpUseDescriptorType.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180110E00 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpRegisterPrivateSession @ 0x1801110D4 (EtwpRegisterPrivateSession.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtTraceControl()
+NTSTATUS __cdecl NtTraceControl(
+        ETWTRACECONTROLCODE FunctionCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 453LL;
+  result = 453;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

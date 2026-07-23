@@ -3,25 +3,25 @@
  * Callers:
  *     MiUnlockWsle @ 0x14001A18C (MiUnlockWsle.c)
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
- *     MiAgePteWorker @ 0x14006B2C0 (MiAgePteWorker.c)
- *     MiClearPteAccessed @ 0x14006B780 (MiClearPteAccessed.c)
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiUpdateWsleAge @ 0x1400948B4 (MiUpdateWsleAge.c)
- *     MiTrimWorkingSetBuildup @ 0x14011C718 (MiTrimWorkingSetBuildup.c)
- *     MiResetAccessBitPte @ 0x14016E830 (MiResetAccessBitPte.c)
- *     MiResetAccessBitPteWorker @ 0x1402B3780 (MiResetAccessBitPteWorker.c)
+ *     MiAgePteWorker @ 0x14006B2B0 (MiAgePteWorker.c)
+ *     MiClearPteAccessed @ 0x14006B770 (MiClearPteAccessed.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     MiUpdateWsleAge @ 0x1400947F4 (MiUpdateWsleAge.c)
+ *     MiTrimWorkingSetBuildup @ 0x14011C788 (MiTrimWorkingSetBuildup.c)
+ *     MiResetAccessBitPte @ 0x14016E930 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPteWorker @ 0x1402B3970 (MiResetAccessBitPteWorker.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiCountWslesInPageTable @ 0x1400F8230 (MiCountWslesInPageTable.c)
- *     MiVolunteerForTrimFirst @ 0x14012C7F8 (MiVolunteerForTrimFirst.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiCountWslesInPageTable @ 0x1400F82B0 (MiCountWslesInPageTable.c)
+ *     MiVolunteerForTrimFirst @ 0x14012C8C8 (MiVolunteerForTrimFirst.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiSetVaAgeList(__int64 a1, unsigned __int64 a2, unsigned int a3, unsigned __int8 a4)
@@ -115,9 +115,9 @@ __int64 __fastcall MiSetVaAgeList(__int64 a1, unsigned __int64 a2, unsigned int 
     v8 = *(_BYTE *)(a1 + 184);
     v9 = 0;
   }
-  v10 = &dword_14043B728;
+  v10 = &dword_14043C7E8;
   if ( (v8 & 7) == 2 )
-    v11 = &dword_14043B728;
+    v11 = &dword_14043C7E8;
   else
     v11 = (volatile signed __int32 *)(a1 + 232);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
@@ -396,7 +396,7 @@ LABEL_9:
         v5 = 0xFFFFF68000000000uLL;
       }
       while ( !v34 );
-      v10 = &dword_14043B728;
+      v10 = &dword_14043C7E8;
     }
     if ( (*(_BYTE *)(a1 + 184) & 7) != 2 )
       v10 = (LONG *)(a1 + 232);

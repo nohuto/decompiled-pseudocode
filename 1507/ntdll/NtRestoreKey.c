@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtRestoreKey()
+NTSTATUS __cdecl NtRestoreKey(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 352LL;
+  result = 352;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of IoIs32bitProcess @ 0x14022BA20
+ * XREFs of IoIs32bitProcess @ 0x14022BB30
  * Callers:
- *     IoIsInitiator32bitProcess @ 0x1403B67F0 (IoIsInitiator32bitProcess.c)
- *     FsRtlGetMarkHandleInfo @ 0x14053DC2C (FsRtlGetMarkHandleInfo.c)
- *     EtwpGetScsiPassThroughCdb @ 0x1405FDD60 (EtwpGetScsiPassThroughCdb.c)
- *     PiCMFastIoDeviceDispatch @ 0x1406D06F0 (PiCMFastIoDeviceDispatch.c)
- *     NtCopyFileChunk @ 0x140749890 (NtCopyFileChunk.c)
- *     WmipIoControl @ 0x1407D6170 (WmipIoControl.c)
- *     WmipProbeWmiOpenGuidBlock @ 0x1407D64C8 (WmipProbeWmiOpenGuidBlock.c)
- *     WmipProbeAndCaptureGuidObjectAttributes @ 0x1407D656C (WmipProbeAndCaptureGuidObjectAttributes.c)
- *     PiDqDispatch @ 0x1407F8E60 (PiDqDispatch.c)
+ *     IoIsInitiator32bitProcess @ 0x1403B69D0 (IoIsInitiator32bitProcess.c)
+ *     FsRtlGetMarkHandleInfo @ 0x14053E17C (FsRtlGetMarkHandleInfo.c)
+ *     EtwpGetScsiPassThroughCdb @ 0x1405FE2D0 (EtwpGetScsiPassThroughCdb.c)
+ *     PiCMFastIoDeviceDispatch @ 0x1406D0720 (PiCMFastIoDeviceDispatch.c)
+ *     NtCopyFileChunk @ 0x140749A80 (NtCopyFileChunk.c)
+ *     WmipIoControl @ 0x1407D6440 (WmipIoControl.c)
+ *     WmipProbeWmiOpenGuidBlock @ 0x1407D6798 (WmipProbeWmiOpenGuidBlock.c)
+ *     WmipProbeAndCaptureGuidObjectAttributes @ 0x1407D683C (WmipProbeAndCaptureGuidObjectAttributes.c)
+ *     PiDqDispatch @ 0x1407F9130 (PiDqDispatch.c)
  * Callees:
  *     <none>
  */

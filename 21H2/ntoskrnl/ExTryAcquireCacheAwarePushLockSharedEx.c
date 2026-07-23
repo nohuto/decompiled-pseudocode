@@ -1,12 +1,12 @@
 /*
- * XREFs of ExTryAcquireCacheAwarePushLockSharedEx @ 0x1405B3F70
+ * XREFs of ExTryAcquireCacheAwarePushLockSharedEx @ 0x1405B41A0
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryAcquirePushLockShared @ 0x14028AEE0 (ExfTryAcquirePushLockShared.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x140208080 (ExfTryAcquirePushLockShared.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall ExTryAcquireCacheAwarePushLockSharedEx(
@@ -14,7 +14,7 @@ unsigned __int64 __fastcall ExTryAcquireCacheAwarePushLockSharedEx(
         ULONG_PTR BugCheckParameter1)
 {
   volatile signed __int64 *v3; // rbp
-  ULONG_PTR v4; // rdi
+  PRTL_BALANCED_NODE v4; // rdi
   bool v5; // bl
 
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
@@ -28,9 +28,9 @@ unsigned __int64 __fastcall ExTryAcquireCacheAwarePushLockSharedEx(
   if ( v4 )
   {
     if ( v5 )
-      *(_BYTE *)(v4 + 26) |= 1u;
+      BYTE2(v4[1].Left) |= 1u;
     else
-      KeAbPostReleaseEx(BugCheckParameter2, v4);
+      KeAbPostReleaseEx(BugCheckParameter2, (ULONG_PTR)v4);
   }
   return (unsigned __int64)v3 & -(__int64)v5;
 }

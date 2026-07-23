@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWorkerFactoryInitialization @ 0x140CE7508
+ * XREFs of ExpWorkerFactoryInitialization @ 0x140CED3E0
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     KeRegisterObjectNotification @ 0x1403DF824 (KeRegisterObjectNotification.c)
- *     KeInitializeQueue @ 0x1404CBEC0 (KeInitializeQueue.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KeRegisterObjectNotification @ 0x1403E2A14 (KeRegisterObjectNotification.c)
+ *     KeInitializeQueue @ 0x1404C58F0 (KeInitializeQueue.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
  */
 
 __int64 ExpWorkerFactoryInitialization()
@@ -50,25 +50,25 @@ __int64 ExpWorkerFactoryInitialization()
   {
     ExpWorkerFactoryThreadIdleTimeoutInSeconds = 1;
   }
-  WheapConfigTableLock.WaitBlock[1].SparePtr = (PVOID)-1200000LL;
-  WheapConfigTableLock.WaitBlock[1].Object = (PVOID)(-10000000LL * v0);
-  WheapConfigTableLock.WaitBlock[2].WaitListEntry.Flink = (struct _LIST_ENTRY *)-300000LL;
+  WheapConfigTableLock.SavedApcState.Process = (_KPROCESS *)-1200000LL;
+  WheapConfigTableLock.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)(-10000000LL * v0);
+  *(_QWORD *)&WheapConfigTableLock.WaitBlockFill11[160] = -300000LL;
   if ( ((unsigned __int8)&ExpWorkerFactoryThreadCreationList & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
   ExpWorkerFactoryThreadCreationList = 0LL;
-  KeInitializeQueue((PRKQUEUE)&WheapConfigTableLock.Affinity, 0);
-  WheapConfigTableLock.WaitBlock[2].Object = (PVOID)9;
-  WheapConfigTableLock.WaitBlock[3].WaitListEntry.Flink = (struct _LIST_ENTRY *)&WheapConfigTableLock.WaitBlockFill11[136];
-  WheapConfigTableLock.WaitBlock[2].SparePtr = &WheapConfigTableLock.WaitBlockFill11[136];
-  WheapConfigTableLock.WaitBlock[3].WaitListEntry.Blink = 0LL;
-  HIDWORD(WheapConfigTableLock.LastXStateSaveDebugInfo) = 0;
-  LOWORD(WheapConfigTableLock.LastXStateSaveDebugInfo) = 0;
-  BYTE3(WheapConfigTableLock.LastXStateSaveDebugInfo) = 0;
+  KeInitializeQueue((PRKQUEUE)&WheapConfigTableLock.SavedApcStateFill[40], 0);
+  *(_QWORD *)&WheapConfigTableLock.ThreadFlags2 = 9LL;
+  WheapConfigTableLock.QueueListEntry.Blink = &WheapConfigTableLock.QueueListEntry;
+  WheapConfigTableLock.QueueListEntry.Flink = &WheapConfigTableLock.QueueListEntry;
+  *(_QWORD *)&WheapConfigTableLock.NextProcessor = 0LL;
+  HIDWORD(WheapConfigTableLock.AffinityVersion) = 0;
+  LOWORD(WheapConfigTableLock.AffinityVersion) = 0;
+  BYTE3(WheapConfigTableLock.AffinityVersion) = 0;
   KeRegisterObjectNotification(
-    (__int64)&WheapConfigTableLock.WaitBlock[2].Object,
-    (__int64)&WheapConfigTableLock.Affinity,
-    (__int64)&WheapConfigTableLock.512);
-  *(_DWORD *)&WheapConfigTableLock.SavedApcStateFill[40] = 0;
+    (__int64)&WheapConfigTableLock.512,
+    (__int64)&WheapConfigTableLock.SavedApcStateFill[40],
+    (__int64)&WheapConfigTableLock.Affinity);
+  *(_DWORD *)&WheapConfigTableLock.SchedulerApcFill5[56] = 0;
   memset_0(&v3, 0, 0x78uLL);
   v3 = 120;
   v9 = ExpCloseWorkerFactory;
@@ -78,7 +78,7 @@ __int64 ExpWorkerFactoryInitialization()
   v8 = 672;
   v5 = ExpWorkerFactoryMapping;
   v6 = 983295;
-  v1 = ObCreateObjectType((const UNICODE_STRING *)&qword_140D15930, &v3, 0LL, (__int64)&ExpWorkerFactoryObjectType);
+  v1 = ObCreateObjectType((const UNICODE_STRING *)&qword_140D1BB10, &v3, 0LL, (__int64)&ExpWorkerFactoryObjectType);
   if ( v1 >= 0 )
   {
     v1 = PsCreateSystemThread(

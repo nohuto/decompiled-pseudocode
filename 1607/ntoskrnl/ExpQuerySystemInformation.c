@@ -1,121 +1,121 @@
 /*
- * XREFs of ExpQuerySystemInformation @ 0x140415620
+ * XREFs of ExpQuerySystemInformation @ 0x1404144E0
  * Callers:
- *     NtQuerySystemInformation @ 0x1404154E0 (NtQuerySystemInformation.c)
- *     NtQuerySystemInformationEx @ 0x1404CD6B4 (NtQuerySystemInformationEx.c)
+ *     NtQuerySystemInformation @ 0x1404143A0 (NtQuerySystemInformation.c)
+ *     NtQuerySystemInformationEx @ 0x1404B30E0 (NtQuerySystemInformationEx.c)
  * Callees:
- *     KeQueryActiveGroupCount @ 0x140004F14 (KeQueryActiveGroupCount.c)
- *     PoGetIdleTimes @ 0x14000DBB4 (PoGetIdleTimes.c)
- *     KeGetProcessorIndexFromNumber @ 0x14000DC90 (KeGetProcessorIndexFromNumber.c)
- *     ExpGetSystemBasicInformation @ 0x14000F344 (ExpGetSystemBasicInformation.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     MmQueryMemoryListInformation @ 0x14001FEE0 (MmQueryMemoryListInformation.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     MmGetAvailablePages @ 0x14006D5BC (MmGetAvailablePages.c)
- *     KeQueryLogicalProcessorRelationship @ 0x14007D290 (KeQueryLogicalProcessorRelationship.c)
- *     ExpGetSystemEmulationProcessorInformation @ 0x140085E8C (ExpGetSystemEmulationProcessorInformation.c)
- *     ExpGetSystemProcessorInformation @ 0x140085EDC (ExpGetSystemProcessorInformation.c)
- *     KeGetRecommendedSharedDataAlignment @ 0x14009D700 (KeGetRecommendedSharedDataAlignment.c)
- *     ExpGetSystemEmulationBasicInformation @ 0x1400A9218 (ExpGetSystemEmulationBasicInformation.c)
- *     MmGetTotalCommittedPages @ 0x1400AB0E0 (MmGetTotalCommittedPages.c)
- *     MmGetTotalCommitLimit @ 0x1400AB0F4 (MmGetTotalCommitLimit.c)
- *     MmGetPeakCommitment @ 0x1400AB108 (MmGetPeakCommitment.c)
- *     MmGetResidentAvailablePages @ 0x1400AB11C (MmGetResidentAvailablePages.c)
- *     KeQueryBootTimeValues @ 0x1400AD214 (KeQueryBootTimeValues.c)
- *     MmGetSharedCommit @ 0x1400AD8EC (MmGetSharedCommit.c)
- *     VslIsSecureKernelRunning @ 0x1400B5F98 (VslIsSecureKernelRunning.c)
- *     MmQuerySystemWorkingSetInformation @ 0x1400C03A0 (MmQuerySystemWorkingSetInformation.c)
- *     KeFlushProcessWriteBuffers @ 0x1400C892C (KeFlushProcessWriteBuffers.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     PoEnergyEstimationEnabled @ 0x1400F2054 (PoEnergyEstimationEnabled.c)
- *     PsWow64GetSupportedArchitectures @ 0x1400F7170 (PsWow64GetSupportedArchitectures.c)
- *     KeQueryGroupAffinity @ 0x1400FAF88 (KeQueryGroupAffinity.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x14010FFEC (ExCpuSetResourceManagerAccessCheck.c)
- *     VslGetNestedPageProtectionFlags @ 0x14013D140 (VslGetNestedPageProtectionFlags.c)
- *     PsQueryCpuQuotaInformation @ 0x14014C8AC (PsQueryCpuQuotaInformation.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlQueryActiveProcessors @ 0x1401BAEA8 (HvlQueryActiveProcessors.c)
- *     HvlQueryProcessorTopologyCount @ 0x1401BB040 (HvlQueryProcessorTopologyCount.c)
- *     VslIsTrustletRunning @ 0x1401C2B28 (VslIsTrustletRunning.c)
- *     VslQuerySecureKernelProfileInformation @ 0x1401C2DAC (VslQuerySecureKernelProfileInformation.c)
- *     KeGetAffinitizedInterruptsInfo @ 0x1401DA468 (KeGetAffinitizedInterruptsInfo.c)
- *     MmEnumerateBadPages @ 0x1401FE948 (MmEnumerateBadPages.c)
- *     PoGetPerfStateAndParkingInfo @ 0x14020A2B8 (PoGetPerfStateAndParkingInfo.c)
- *     PpmCapturePerformanceDistribution @ 0x14020A4B8 (PpmCapturePerformanceDistribution.c)
- *     SeQueryTrustedPlatformModuleInformation @ 0x14021A7E4 (SeQueryTrustedPlatformModuleInformation.c)
- *     ExpGetLookasideInformation @ 0x14022C4EC (ExpGetLookasideInformation.c)
- *     ExGetBigPoolInfo @ 0x14022CD84 (ExGetBigPoolInfo.c)
+ *     KeQueryActiveGroupCount @ 0x140005088 (KeQueryActiveGroupCount.c)
+ *     PoGetIdleTimes @ 0x14000D734 (PoGetIdleTimes.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14000D810 (KeGetProcessorIndexFromNumber.c)
+ *     ExpGetSystemBasicInformation @ 0x14000EEC4 (ExpGetSystemBasicInformation.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     MmQueryMemoryListInformation @ 0x14001FA60 (MmQueryMemoryListInformation.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     MmGetAvailablePages @ 0x14006D13C (MmGetAvailablePages.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x14007D310 (KeQueryLogicalProcessorRelationship.c)
+ *     ExpGetSystemEmulationProcessorInformation @ 0x14008777C (ExpGetSystemEmulationProcessorInformation.c)
+ *     ExpGetSystemProcessorInformation @ 0x1400877CC (ExpGetSystemProcessorInformation.c)
+ *     KeGetRecommendedSharedDataAlignment @ 0x14009CF00 (KeGetRecommendedSharedDataAlignment.c)
+ *     ExpGetSystemEmulationBasicInformation @ 0x1400A7798 (ExpGetSystemEmulationBasicInformation.c)
+ *     MmGetTotalCommittedPages @ 0x1400A9660 (MmGetTotalCommittedPages.c)
+ *     MmGetTotalCommitLimit @ 0x1400A9674 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x1400A9688 (MmGetPeakCommitment.c)
+ *     MmGetResidentAvailablePages @ 0x1400A969C (MmGetResidentAvailablePages.c)
+ *     KeQueryBootTimeValues @ 0x1400AB77C (KeQueryBootTimeValues.c)
+ *     MmGetSharedCommit @ 0x1400ABE54 (MmGetSharedCommit.c)
+ *     VslIsSecureKernelRunning @ 0x1400B3DC0 (VslIsSecureKernelRunning.c)
+ *     MmQuerySystemWorkingSetInformation @ 0x1400BE230 (MmQuerySystemWorkingSetInformation.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400C67CC (KeFlushProcessWriteBuffers.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     PoEnergyEstimationEnabled @ 0x1400EFEA4 (PoEnergyEstimationEnabled.c)
+ *     PsWow64GetSupportedArchitectures @ 0x1400F4FB0 (PsWow64GetSupportedArchitectures.c)
+ *     KeQueryGroupAffinity @ 0x1400F8D14 (KeQueryGroupAffinity.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x140110550 (ExCpuSetResourceManagerAccessCheck.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14013D6B0 (VslGetNestedPageProtectionFlags.c)
+ *     PsQueryCpuQuotaInformation @ 0x14014CE1C (PsQueryCpuQuotaInformation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlQueryActiveProcessors @ 0x1401BAD8C (HvlQueryActiveProcessors.c)
+ *     HvlQueryProcessorTopologyCount @ 0x1401BAF24 (HvlQueryProcessorTopologyCount.c)
+ *     VslIsTrustletRunning @ 0x1401C2A0C (VslIsTrustletRunning.c)
+ *     VslQuerySecureKernelProfileInformation @ 0x1401C2C90 (VslQuerySecureKernelProfileInformation.c)
+ *     KeGetAffinitizedInterruptsInfo @ 0x1401DA294 (KeGetAffinitizedInterruptsInfo.c)
+ *     MmEnumerateBadPages @ 0x1401FE774 (MmEnumerateBadPages.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x14020A0E4 (PoGetPerfStateAndParkingInfo.c)
+ *     PpmCapturePerformanceDistribution @ 0x14020A2E4 (PpmCapturePerformanceDistribution.c)
+ *     SeQueryTrustedPlatformModuleInformation @ 0x14021A610 (SeQueryTrustedPlatformModuleInformation.c)
+ *     ExpGetLookasideInformation @ 0x14022C318 (ExpGetLookasideInformation.c)
+ *     ExGetBigPoolInfo @ 0x14022CBB0 (ExGetBigPoolInfo.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SmQueryStoreInformation @ 0x1403E3354 (SmQueryStoreInformation.c)
- *     ExpQueryNumaProcessorMap @ 0x1403E4940 (ExpQueryNumaProcessorMap.c)
- *     ExAcquireTimeRefreshLock @ 0x1403EA8B0 (ExAcquireTimeRefreshLock.c)
- *     ExpQueryModuleInformation @ 0x1403F71C0 (ExpQueryModuleInformation.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ExpQuerySystemPerformanceInformation @ 0x140414000 (ExpQuerySystemPerformanceInformation.c)
- *     PfQuerySuperfetchInformation @ 0x140418550 (PfQuerySuperfetchInformation.c)
- *     PsLookupProcessByProcessId @ 0x140420700 (PsLookupProcessByProcessId.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExpGetProcessInformation @ 0x1404513E0 (ExpGetProcessInformation.c)
- *     ExGetSessionPoolTagInformation @ 0x1404990F4 (ExGetSessionPoolTagInformation.c)
- *     ExSystemExceptionFilter @ 0x1404BBBFC (ExSystemExceptionFilter.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x1404BE634 (ExpGetSystemFirmwareTableInformation.c)
- *     ExGetPoolTagInfo @ 0x1404C9814 (ExGetPoolTagInfo.c)
- *     MmGetPageFileInformation @ 0x1404CC9F4 (MmGetPageFileInformation.c)
- *     ExHandleSPCall2 @ 0x1404CE374 (ExHandleSPCall2.c)
- *     PsQueryFullProcessImageName @ 0x1404D0910 (PsQueryFullProcessImageName.c)
- *     KeBuildLogicalProcessorSystemInformation @ 0x1404D3644 (KeBuildLogicalProcessorSystemInformation.c)
- *     PfSnQueryPrefetcherInformation @ 0x1404D8920 (PfSnQueryPrefetcherInformation.c)
- *     SeSecureBootQueryInformation @ 0x1404ECD50 (SeSecureBootQueryInformation.c)
- *     ExpReadComPlusPackage @ 0x1404F1038 (ExpReadComPlusPackage.c)
- *     ExIsRestrictedCaller @ 0x1404F163C (ExIsRestrictedCaller.c)
- *     IoQuerySystemDeviceName @ 0x140541E1C (IoQuerySystemDeviceName.c)
- *     IopRetrieveSystemDeviceName @ 0x140541E5C (IopRetrieveSystemDeviceName.c)
- *     CmQueryRegistryQuotaInformation @ 0x14054BE5C (CmQueryRegistryQuotaInformation.c)
- *     ExpQueryNumaAvailableMemory @ 0x14054C0E4 (ExpQueryNumaAvailableMemory.c)
- *     ExpQueryModuleInformationEx @ 0x140563E90 (ExpQueryModuleInformationEx.c)
- *     ExpQueryMemoryTopologyInformation @ 0x140576F34 (ExpQueryMemoryTopologyInformation.c)
- *     KeQueryCpuSetInformation @ 0x140578728 (KeQueryCpuSetInformation.c)
- *     ExpGetSystemPlatformBinary @ 0x14057C53C (ExpGetSystemPlatformBinary.c)
- *     ExpQueryInterruptSteeringInformation @ 0x14057D258 (ExpQueryInterruptSteeringInformation.c)
- *     HvlQueryEnlightenmentInfo @ 0x140580294 (HvlQueryEnlightenmentInfo.c)
- *     IoQueryVhdBootInformation @ 0x1405803CC (IoQueryVhdBootInformation.c)
- *     ExQueryBootEntropyInformation @ 0x140580F3C (ExQueryBootEntropyInformation.c)
- *     SeQueryHSTIResults @ 0x140581668 (SeQueryHSTIResults.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
- *     HvlQueryDetailInfo @ 0x1406201C0 (HvlQueryDetailInfo.c)
- *     HvlQueryDmaProtectionInfo @ 0x1406202D4 (HvlQueryDmaProtectionInfo.c)
- *     IoQueryLowPriorityIoInformation @ 0x1406238AC (IoQueryLowPriorityIoInformation.c)
- *     KeQueryKvaShadowInformation @ 0x14064FF2C (KeQueryKvaShadowInformation.c)
- *     KeQuerySpeculationControlInformation @ 0x140650070 (KeQuerySpeculationControlInformation.c)
- *     MmGetSessionMappedViewInformation @ 0x140657244 (MmGetSessionMappedViewInformation.c)
- *     ObQueryRefTraceInformation @ 0x140667388 (ObQueryRefTraceInformation.c)
- *     PsRootSiloInformation @ 0x14067E078 (PsRootSiloInformation.c)
- *     EtwQueryPerformanceTraceInformation @ 0x1406A3258 (EtwQueryPerformanceTraceInformation.c)
- *     ExGetSessionBigPoolInformation @ 0x1406AB034 (ExGetSessionBigPoolInformation.c)
- *     ExpGetDeviceDataInformation @ 0x1406AB248 (ExpGetDeviceDataInformation.c)
- *     ExpGetHandleInformation @ 0x1406AB42C (ExpGetHandleInformation.c)
- *     ExpGetHandleInformationEx @ 0x1406AB498 (ExpGetHandleInformationEx.c)
- *     ExpGetLockInformation @ 0x1406AB504 (ExpGetLockInformation.c)
- *     ExpGetObjectInformation @ 0x1406AB570 (ExpGetObjectInformation.c)
- *     ExpGetSystemProcessorFeaturesInformation @ 0x1406AB5EC (ExpGetSystemProcessorFeaturesInformation.c)
- *     ExpQueryChannelInformation @ 0x1406AB750 (ExpQueryChannelInformation.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1406AB86C (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryLegacyDriverInformation @ 0x1406ABD24 (ExpQueryLegacyDriverInformation.c)
- *     ExpQueryNumaProximityNode @ 0x1406ABE0C (ExpQueryNumaProximityNode.c)
- *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1406ABF58 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
- *     ExpQuerySingleModuleInformation @ 0x1406AC168 (ExpQuerySingleModuleInformation.c)
- *     ExRaiseAccessViolation @ 0x1406B6048 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
- *     ExpCovQueryInformation @ 0x1406B71B8 (ExpCovQueryInformation.c)
+ *     SmQueryStoreInformation @ 0x1403E4980 (SmQueryStoreInformation.c)
+ *     ExpQueryNumaProcessorMap @ 0x1403E5F6C (ExpQueryNumaProcessorMap.c)
+ *     ExAcquireTimeRefreshLock @ 0x1403EBEE0 (ExAcquireTimeRefreshLock.c)
+ *     ExpQueryModuleInformation @ 0x1403F6080 (ExpQueryModuleInformation.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140412EC0 (ExpQuerySystemPerformanceInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x140417410 (PfQuerySuperfetchInformation.c)
+ *     PsLookupProcessByProcessId @ 0x14041F5C0 (PsLookupProcessByProcessId.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ExpGetProcessInformation @ 0x1404502B0 (ExpGetProcessInformation.c)
+ *     ExGetSessionPoolTagInformation @ 0x140499B84 (ExGetSessionPoolTagInformation.c)
+ *     ExSystemExceptionFilter @ 0x1404A792C (ExSystemExceptionFilter.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1404AA364 (ExpGetSystemFirmwareTableInformation.c)
+ *     ExGetPoolTagInfo @ 0x1404AF594 (ExGetPoolTagInfo.c)
+ *     MmGetPageFileInformation @ 0x1404B2420 (MmGetPageFileInformation.c)
+ *     ExHandleSPCall2 @ 0x1404B35D4 (ExHandleSPCall2.c)
+ *     PsQueryFullProcessImageName @ 0x1404B43B0 (PsQueryFullProcessImageName.c)
+ *     KeBuildLogicalProcessorSystemInformation @ 0x1404B70E4 (KeBuildLogicalProcessorSystemInformation.c)
+ *     PfSnQueryPrefetcherInformation @ 0x1404BBF24 (PfSnQueryPrefetcherInformation.c)
+ *     SeSecureBootQueryInformation @ 0x1404CEEBC (SeSecureBootQueryInformation.c)
+ *     ExpReadComPlusPackage @ 0x1404D312C (ExpReadComPlusPackage.c)
+ *     ExIsRestrictedCaller @ 0x1404D3730 (ExIsRestrictedCaller.c)
+ *     IoQuerySystemDeviceName @ 0x14054235C (IoQuerySystemDeviceName.c)
+ *     IopRetrieveSystemDeviceName @ 0x14054239C (IopRetrieveSystemDeviceName.c)
+ *     CmQueryRegistryQuotaInformation @ 0x14054C39C (CmQueryRegistryQuotaInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x14054C624 (ExpQueryNumaAvailableMemory.c)
+ *     ExpQueryModuleInformationEx @ 0x1405643D0 (ExpQueryModuleInformationEx.c)
+ *     ExpQueryMemoryTopologyInformation @ 0x140577474 (ExpQueryMemoryTopologyInformation.c)
+ *     KeQueryCpuSetInformation @ 0x140578C68 (KeQueryCpuSetInformation.c)
+ *     ExpGetSystemPlatformBinary @ 0x14057C9E8 (ExpGetSystemPlatformBinary.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x14057D704 (ExpQueryInterruptSteeringInformation.c)
+ *     HvlQueryEnlightenmentInfo @ 0x140580740 (HvlQueryEnlightenmentInfo.c)
+ *     IoQueryVhdBootInformation @ 0x140580878 (IoQueryVhdBootInformation.c)
+ *     ExQueryBootEntropyInformation @ 0x1405813E8 (ExQueryBootEntropyInformation.c)
+ *     SeQueryHSTIResults @ 0x140581B14 (SeQueryHSTIResults.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
+ *     HvlQueryDetailInfo @ 0x140620274 (HvlQueryDetailInfo.c)
+ *     HvlQueryDmaProtectionInfo @ 0x140620388 (HvlQueryDmaProtectionInfo.c)
+ *     IoQueryLowPriorityIoInformation @ 0x140623960 (IoQueryLowPriorityIoInformation.c)
+ *     KeQueryKvaShadowInformation @ 0x140650010 (KeQueryKvaShadowInformation.c)
+ *     KeQuerySpeculationControlInformation @ 0x140650154 (KeQuerySpeculationControlInformation.c)
+ *     MmGetSessionMappedViewInformation @ 0x140657328 (MmGetSessionMappedViewInformation.c)
+ *     ObQueryRefTraceInformation @ 0x14066746C (ObQueryRefTraceInformation.c)
+ *     PsRootSiloInformation @ 0x14067E15C (PsRootSiloInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1406A3390 (EtwQueryPerformanceTraceInformation.c)
+ *     ExGetSessionBigPoolInformation @ 0x1406AB16C (ExGetSessionBigPoolInformation.c)
+ *     ExpGetDeviceDataInformation @ 0x1406AB380 (ExpGetDeviceDataInformation.c)
+ *     ExpGetHandleInformation @ 0x1406AB564 (ExpGetHandleInformation.c)
+ *     ExpGetHandleInformationEx @ 0x1406AB5D0 (ExpGetHandleInformationEx.c)
+ *     ExpGetLockInformation @ 0x1406AB63C (ExpGetLockInformation.c)
+ *     ExpGetObjectInformation @ 0x1406AB6A8 (ExpGetObjectInformation.c)
+ *     ExpGetSystemProcessorFeaturesInformation @ 0x1406AB724 (ExpGetSystemProcessorFeaturesInformation.c)
+ *     ExpQueryChannelInformation @ 0x1406AB888 (ExpQueryChannelInformation.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x1406AB9A4 (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryLegacyDriverInformation @ 0x1406ABE5C (ExpQueryLegacyDriverInformation.c)
+ *     ExpQueryNumaProximityNode @ 0x1406ABF44 (ExpQueryNumaProximityNode.c)
+ *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1406AC090 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
+ *     ExpQuerySingleModuleInformation @ 0x1406AC2A0 (ExpQuerySingleModuleInformation.c)
+ *     ExRaiseAccessViolation @ 0x1406B6180 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
+ *     ExpCovQueryInformation @ 0x1406B72F0 (ExpCovQueryInformation.c)
  *     VfGetVerifierInformation @ 0x140720F40 (VfGetVerifierInformation.c)
  *     VfGetVerifierInformationEx @ 0x140721000 (VfGetVerifierInformationEx.c)
  *     BgkQueryBootGraphicsInformation @ 0x140726E70 (BgkQueryBootGraphicsInformation.c)
@@ -225,7 +225,7 @@ int __fastcall ExpQuerySystemInformation(
   struct _KPROCESS *v100; // rax
   __int64 v101; // rax
   size_t Size; // [rsp+30h] [rbp-358h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-350h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-350h] BYREF
   unsigned __int8 v104; // [rsp+3Ch] [rbp-34Ch]
   _BYTE v105[3]; // [rsp+3Dh] [rbp-34Bh] BYREF
   ULONG v106; // [rsp+40h] [rbp-348h]
@@ -818,16 +818,16 @@ LABEL_185:
           }
           *(_DWORD *)v6 = (_DWORD)v10;
           *(_DWORD *)(v6 + 4) = KeThreadSwitchCounters;
-          *(_DWORD *)(v6 + 8) = dword_14030E248;
-          *(_DWORD *)(v6 + 12) = dword_14030E244;
-          *(_DWORD *)(v6 + 16) = dword_14030E24C;
-          *(_DWORD *)(v6 + 20) = dword_14030E250;
-          *(_DWORD *)(v6 + 24) = dword_14030E258;
-          *(_DWORD *)(v6 + 28) = dword_14030E254;
-          *(_DWORD *)(v6 + 32) = dword_14030E25C;
-          *(_DWORD *)(v6 + 36) = dword_14030E260;
-          *(_DWORD *)(v6 + 40) = dword_14030E264;
-          *(_DWORD *)(v6 + 44) = dword_14030E268;
+          *(_DWORD *)(v6 + 8) = dword_14030E288;
+          *(_DWORD *)(v6 + 12) = dword_14030E284;
+          *(_DWORD *)(v6 + 16) = dword_14030E28C;
+          *(_DWORD *)(v6 + 20) = dword_14030E290;
+          *(_DWORD *)(v6 + 24) = dword_14030E298;
+          *(_DWORD *)(v6 + 28) = dword_14030E294;
+          *(_DWORD *)(v6 + 32) = dword_14030E29C;
+          *(_DWORD *)(v6 + 36) = dword_14030E2A0;
+          *(_DWORD *)(v6 + 40) = dword_14030E2A4;
+          *(_DWORD *)(v6 + 44) = dword_14030E2A8;
           LODWORD(Size) = 48;
           goto LABEL_81;
         case 0x25u:
@@ -1229,12 +1229,12 @@ LABEL_173:
             return -1073741820;
           }
           *(_OWORD *)v6 = ExpBootEnvironmentInformation;
-          *(_DWORD *)(v6 + 16) = dword_1402FD0D0;
+          *(_DWORD *)(v6 + 16) = dword_1402FD030;
           if ( Length < 0x20 )
 LABEL_278:
             LODWORD(Size) = 20;
           else
-            *(_QWORD *)(v6 + 24) = qword_1402FD0D8;
+            *(_QWORD *)(v6 + 24) = qword_1402FD038;
           goto LABEL_81;
         case 0x5Bu:
           SystemBasicInformation = HvlQueryEnlightenmentInfo(v6, Length, v11, &Size);
@@ -1795,8 +1795,8 @@ LABEL_463:
           {
             *(_QWORD *)v6 = PoOffCrashConfigTable;
             *(_DWORD *)(v6 + 8) = DWORD2(PoOffCrashConfigTable);
-            *(_QWORD *)(v6 + 16) = xmmword_140304CD0;
-            *(_DWORD *)(v6 + 24) = DWORD2(xmmword_140304CD0);
+            *(_QWORD *)(v6 + 16) = xmmword_140304D10;
+            *(_DWORD *)(v6 + 24) = DWORD2(xmmword_140304D10);
 LABEL_510:
             LogicalProcessorRelationship = HIDWORD(Size);
             goto LABEL_585;
@@ -1841,7 +1841,7 @@ LABEL_516:
           }
           goto LABEL_585;
         case 0x9Du:
-          LODWORD(Size) = WORD1(qword_1402FD0E8) + 24;
+          LODWORD(Size) = WORD1(qword_1402FD048) + 24;
           if ( Length >= (unsigned int)Size )
           {
             v92 = (void *)(v6 + 24);
@@ -1849,11 +1849,11 @@ LABEL_516:
             *(_QWORD *)(v6 + 8) = 0LL;
             *(_QWORD *)(v6 + 16) = 0LL;
             *(_DWORD *)v6 = ExpManufacturingInformation;
-            *(_DWORD *)(v6 + 8) = qword_1402FD0E8;
-            if ( (_WORD)qword_1402FD0E8 )
+            *(_DWORD *)(v6 + 8) = qword_1402FD048;
+            if ( (_WORD)qword_1402FD048 )
             {
               *(_QWORD *)(v6 + 16) = v92;
-              memmove(v92, qword_1402FD0F0, WORD1(qword_1402FD0E8));
+              memmove(v92, qword_1402FD050, WORD1(qword_1402FD048));
             }
             LogicalProcessorRelationship = HIDWORD(Size);
           }
@@ -2112,7 +2112,7 @@ LABEL_81:
           LODWORD(Size) = 8;
           if ( Length >= 8 )
           {
-            v101 = qword_140326998;
+            v101 = qword_1403269D8;
             *(_QWORD *)v6 = 0LL;
             *(_QWORD *)v6 = v101;
             LogicalProcessorRelationship = HIDWORD(Size);

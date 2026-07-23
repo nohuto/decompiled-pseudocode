@@ -1,15 +1,15 @@
 /*
- * XREFs of PspGetNextSilo @ 0x1408EBA34
+ * XREFs of PspGetNextSilo @ 0x14085D264
  * Callers:
- *     EtwpAdjustTraceBuffers @ 0x14048EAC0 (EtwpAdjustTraceBuffers.c)
- *     PsFreeSiloContextSlot @ 0x140772100 (PsFreeSiloContextSlot.c)
- *     PsRootSiloInformation @ 0x1407722B0 (PsRootSiloInformation.c)
- *     PsShutdownSystem @ 0x140778944 (PsShutdownSystem.c)
- *     PsStartSiloMonitor @ 0x140779270 (PsStartSiloMonitor.c)
- *     PsUnregisterSiloMonitor @ 0x1407794B0 (PsUnregisterSiloMonitor.c)
+ *     EtwpAdjustTraceBuffers @ 0x140488EF0 (EtwpAdjustTraceBuffers.c)
+ *     PsFreeSiloContextSlot @ 0x140772320 (PsFreeSiloContextSlot.c)
+ *     PsRootSiloInformation @ 0x1407724D0 (PsRootSiloInformation.c)
+ *     PsShutdownSystem @ 0x140778A44 (PsShutdownSystem.c)
+ *     PsStartSiloMonitor @ 0x140779370 (PsStartSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x1407795B0 (PsUnregisterSiloMonitor.c)
  * Callees:
- *     PsIsServerSilo @ 0x140349B68 (PsIsServerSilo.c)
- *     PspGetNextJob @ 0x1408EBB60 (PspGetNextJob.c)
+ *     PsIsServerSilo @ 0x1403C35A8 (PsIsServerSilo.c)
+ *     PspGetNextJob @ 0x14085D390 (PspGetNextJob.c)
  */
 
 __int64 __fastcall PspGetNextSilo(void *a1, char a2)

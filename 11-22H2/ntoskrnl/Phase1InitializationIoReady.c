@@ -63,7 +63,7 @@ __int64 __fastcall Phase1InitializationIoReady(ULONG_PTR a1, char a2)
     KeBugCheckEx(0x32u, inited, 8uLL, 1uLL, 0LL);
   TmInitSystemPhase2();
   InbvSetProgressBarSubset();
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     LOBYTE(v8) = a2;
     InitSafeBoot(v8);
@@ -103,7 +103,7 @@ LABEL_26:
   }
   if ( VfClearanceFlag )
     VfClearVerifierSettings();
-  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) == 0 && !(_DWORD)InitSafeBootMode )
+  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) == 0 && !InitSafeBootMode )
     CarReportUnusualShutdown();
   ExQueryBootEntropyInformation(0LL);
   result = KeInitSystem(4LL);

@@ -10,12 +10,12 @@
  *     RtlpTimeToTimeFields @ 0x14042E040 (RtlpTimeToTimeFields.c)
  */
 
-char __fastcall HalpSetVirtualRtc(__int64 *a1)
+char __fastcall HalpSetVirtualRtc(LARGE_INTEGER *a1)
 {
-  __int64 SystemTimePrecise; // rbx
+  LARGE_INTEGER SystemTimePrecise; // rbx
   LARGE_INTEGER PerformanceCounter; // rax
   __int128 v5; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER v6; // [rsp+48h] [rbp+10h] BYREF
 
   v5 = 0LL;
   if ( SystemPowerPhase == 2 )
@@ -38,8 +38,8 @@ char __fastcall HalpSetVirtualRtc(__int64 *a1)
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   dword_140FC0C60 = PerformanceCounter.HighPart;
   qword_140FC0C58 = PerformanceCounter.QuadPart;
-  dword_140FC0C54 = HIDWORD(v6);
-  qword_140FC0C4C = SystemTimePrecise;
+  dword_140FC0C54 = v6.HighPart;
+  qword_140FC0C4C = SystemTimePrecise.QuadPart;
   dword_140FC0C48 = PerformanceCounter.HighPart;
   VrtcTime = PerformanceCounter.QuadPart;
   if ( a1 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlRaiseStatus @ 0x1801106D0
+ * XREFs of RtlRaiseStatus @ 0x1801106A0
  * Callers:
  *     LdrpReportError @ 0x18000C07C (LdrpReportError.c)
  *     RtlDispatchException @ 0x18001E680 (RtlDispatchException.c)
@@ -76,41 +76,25 @@
  *     RtlIsNameInExpression @ 0x180108DC0 (RtlIsNameInExpression.c)
  *     RtlIsNameInUnUpcasedExpression @ 0x180108E70 (RtlIsNameInUnUpcasedExpression.c)
  *     RtlpIsNameInExpressionPrivate @ 0x180108F4C (RtlpIsNameInExpressionPrivate.c)
- *     RtlInitializeContext @ 0x18010D1F0 (RtlInitializeContext.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
- *     RtlWow64PopAllCrossProcessWorkFromWorkList @ 0x1801114E0 (RtlWow64PopAllCrossProcessWorkFromWorkList.c)
- *     RtlWow64PopCrossProcessWorkFromFreeList @ 0x1801115C0 (RtlWow64PopCrossProcessWorkFromFreeList.c)
- *     RtlWow64PushCrossProcessWorkOntoFreeList @ 0x180111680 (RtlWow64PushCrossProcessWorkOntoFreeList.c)
- *     RtlWow64PushCrossProcessWorkOntoWorkList @ 0x180111750 (RtlWow64PushCrossProcessWorkOntoWorkList.c)
- *     TppExceptionFilter @ 0x18012712C (TppExceptionFilter.c)
+ *     RtlInitializeContext @ 0x18010D1C0 (RtlInitializeContext.c)
+ *     RtlWow64PopAllCrossProcessWorkFromWorkList @ 0x1801114B0 (RtlWow64PopAllCrossProcessWorkFromWorkList.c)
+ *     RtlWow64PopCrossProcessWorkFromFreeList @ 0x180111590 (RtlWow64PopCrossProcessWorkFromFreeList.c)
+ *     RtlWow64PushCrossProcessWorkOntoFreeList @ 0x180111650 (RtlWow64PushCrossProcessWorkOntoFreeList.c)
+ *     RtlWow64PushCrossProcessWorkOntoWorkList @ 0x180111720 (RtlWow64PushCrossProcessWorkOntoWorkList.c)
+ *     TppExceptionFilter @ 0x1801270FC (TppExceptionFilter.c)
  * Callees:
  *     RtlRaiseNoncontinuableException @ 0x1800A59A0 (RtlRaiseNoncontinuableException.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  char v1; // bl
-  unsigned int v2; // eax
-  _DWORD v3[2]; // [rsp+20h] [rbp-578h] BYREF
-  __int64 v4; // [rsp+28h] [rbp-570h]
-  __int64 v5; // [rsp+30h] [rbp-568h]
-  int v6; // [rsp+38h] [rbp-560h]
-  _BYTE v7[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  struct _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  v4 = 0LL;
-  v1 = 1;
-  v6 = 0;
-  v5 = -1LL;
-  v3[0] = a1;
-  v3[1] = 129;
-  do
-  {
-    LOBYTE(v2) = RtlRaiseNoncontinuableException((__int64)v3, (__int64)v7);
-    if ( NtCurrentPeb()->BeingDebugged )
-      break;
-    --v1;
-  }
-  while ( !v1 );
-  RtlRaiseStatus(v2);
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionAddress = (void *)-1LL;
+  ExceptionRecord.ExceptionCode = Status;
+  ExceptionRecord.ExceptionFlags = 129;
+  RtlRaiseNoncontinuableException(&ExceptionRecord, &ContextRecord);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpExtrasSetPresent @ 0x140604A24
+ * XREFs of RtlpHpExtrasSetPresent @ 0x140602064
  * Callers:
- *     RtlpHpExtrasAppend @ 0x1404D19E8 (RtlpHpExtrasAppend.c)
+ *     RtlpHpExtrasAppend @ 0x1404CAA28 (RtlpHpExtrasAppend.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x1402B381C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpLargeAllocGetMetadata @ 0x140420DAC (RtlpHpLargeAllocGetMetadata.c)
- *     RtlpHpLargeLockReleaseShared @ 0x1404FA96C (RtlpHpLargeLockReleaseShared.c)
- *     RtlpHpLargeLockAcquireShared @ 0x1404FAB0C (RtlpHpLargeLockAcquireShared.c)
- *     RtlpHpSegSetExtraPresent @ 0x140606158 (RtlpHpSegSetExtraPresent.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14035C3DC (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLargeAllocGetMetadata @ 0x140459080 (RtlpHpLargeAllocGetMetadata.c)
+ *     RtlpHpLargeLockReleaseShared @ 0x1404F824C (RtlpHpLargeLockReleaseShared.c)
+ *     RtlpHpLargeLockAcquireShared @ 0x1404F83EC (RtlpHpLargeLockAcquireShared.c)
+ *     RtlpHpSegSetExtraPresent @ 0x140603798 (RtlpHpSegSetExtraPresent.c)
  */
 
 void __fastcall RtlpHpExtrasSetPresent(__int64 a1, unsigned __int64 a2)
@@ -19,7 +19,7 @@ void __fastcall RtlpHpExtrasSetPresent(__int64 a1, unsigned __int64 a2)
 
   v2 = 0;
   if ( (_WORD)a2
-    || (v5 = RtlCSparseBitmapBitmaskRead((__int64)&dword_140E68310, 2 * ((a2 - qword_140E68308) >> 20))) != 0
+    || (v5 = RtlCSparseBitmapBitmaskRead((__int64)&dword_140E68510, 2 * ((a2 - qword_140E68508) >> 20))) != 0
     && (v2 = v5 - 1, (_DWORD)v5 != 3) )
   {
     RtlpHpSegSetExtraPresent(a1 + 192LL * v2 + 320, a2);

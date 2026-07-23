@@ -25,7 +25,7 @@ __int64 __fastcall RtlpCopyAces(
         char a11,
         int a12,
         _DWORD *a13,
-        __int64 a14)
+        PACL Acl)
 {
   char v14; // di
   _DWORD *v16; // r14
@@ -48,7 +48,7 @@ __int64 __fastcall RtlpCopyAces(
   int v34; // edx
   _BYTE v36[11]; // [rsp+81h] [rbp-68h] BYREF
   unsigned int v37; // [rsp+8Ch] [rbp-5Dh]
-  void *v38; // [rsp+90h] [rbp-59h] BYREF
+  PVOID FirstFree; // [rsp+90h] [rbp-59h] BYREF
   int v39; // [rsp+98h] [rbp-51h]
   __int64 v40; // [rsp+A0h] [rbp-49h]
   __int64 v41; // [rsp+A8h] [rbp-41h]
@@ -66,14 +66,14 @@ __int64 __fastcall RtlpCopyAces(
   v43 = a7;
   v42 = a8;
   v41 = a9;
-  v17 = *(_BYTE *)a14 - 2;
+  v17 = Acl->AclRevision - 2;
   v39 = a3;
   v40 = a2;
   v45 = a1;
   v46 = (__int64)a13;
   if ( v17 > 2u )
     return 3221225560LL;
-  if ( !RtlFirstFreeAce(a14, &v38) )
+  if ( !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225597LL;
   v18 = a1 + 8;
   v19 = 0;
@@ -82,7 +82,7 @@ __int64 __fastcall RtlpCopyAces(
   *(_DWORD *)&v36[3] = 0;
   if ( !*(_WORD *)(a1 + 4) )
     goto LABEL_35;
-  v21 = (int *)v38;
+  v21 = (int *)FirstFree;
   while ( *(_BYTE *)v18 != 17 )
   {
     if ( a12 != 3 )
@@ -96,7 +96,7 @@ LABEL_32:
   }
   if ( a12 != 3 )
     goto LABEL_32;
-  if ( !RtlFindAceByType(a14, 17, 0LL) )
+  if ( !RtlFindAceByType(Acl, 0x11u, 0LL) )
   {
     v19 = v37;
 LABEL_7:
@@ -116,7 +116,7 @@ LABEL_7:
     if ( !a5 )
     {
       v23 = *(unsigned __int16 *)(v18 + 2);
-      if ( v21 && v23 <= a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v21 )
+      if ( v21 && v23 <= (__int64)Acl + Acl->AclSize - (_QWORD)v21 )
       {
         if ( !v14 )
         {
@@ -142,7 +142,7 @@ LABEL_7:
             v21[1] = v26 & v28;
           }
           *((_BYTE *)v21 + 1) &= ~a4;
-          ++*(_WORD *)(a14 + 4);
+          ++Acl->AceCount;
           goto LABEL_30;
         }
       }
@@ -151,14 +151,14 @@ LABEL_7:
         v14 = 1;
       }
 LABEL_67:
-      v21 = (int *)(a14 + *(unsigned __int16 *)(a14 + 2));
+      v21 = (int *)((char *)Acl + Acl->AclSize);
       goto LABEL_31;
     }
     v30 = 0;
     v36[0] = 0;
     LODWORD(v23) = 0;
     *(_DWORD *)&v36[7] = 0;
-    v38 = v21;
+    FirstFree = v21;
     if ( !a10 || (v31 = 1, (*(_BYTE *)(v18 + 1) & 3) == 0) )
       v31 = 0;
     if ( (*(_BYTE *)(v18 + 1) & 8) == 0 )
@@ -177,9 +177,9 @@ LABEL_67:
               (_DWORD *)v40,
               0LL,
               0,
-              &v38,
+              &FirstFree,
               &v36[7],
-              a14,
+              (__int64)Acl,
               0LL,
               v36,
               &v36[1]) )
@@ -222,7 +222,7 @@ LABEL_31:
             LODWORD(v23) = *(unsigned __int16 *)(v18 + 2) + (_DWORD)v23;
             if ( (unsigned int)v23 > 0xFFFF )
               return 3221225597LL;
-            if ( *(unsigned __int16 *)(v18 + 2) > a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v38 )
+            if ( *(unsigned __int16 *)(v18 + 2) > (__int64)Acl + Acl->AclSize - (_QWORD)FirstFree )
             {
               v14 = 1;
               goto LABEL_66;
@@ -233,10 +233,10 @@ LABEL_66:
               v20 = *(_DWORD *)&v36[3];
               goto LABEL_67;
             }
-            memmove(v38, (const void *)v18, *(unsigned __int16 *)(v18 + 2));
-            *((_BYTE *)v38 + 1) |= 8u;
-            *((_BYTE *)v38 + 1) &= ~a4;
-            ++*(_WORD *)(a14 + 4);
+            memmove(FirstFree, (const void *)v18, *(unsigned __int16 *)(v18 + 2));
+            *((_BYTE *)FirstFree + 1) |= 8u;
+            *((_BYTE *)FirstFree + 1) &= ~a4;
+            ++Acl->AceCount;
           }
         }
         if ( !v14 )

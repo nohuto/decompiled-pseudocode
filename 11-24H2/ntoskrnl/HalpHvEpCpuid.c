@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvEpCpuid @ 0x14054A930
+ * XREFs of HalpHvEpCpuid @ 0x1405481F0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpHvEpCpuid(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4, _DWORD *a5, _DWORD *a6)
@@ -22,11 +22,11 @@ __int64 __fastcall HalpHvEpCpuid(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4,
   }
   else
   {
-    result = qword_140FC0F28;
-    if ( qword_140FC0F28 )
+    result = qword_140FC1188;
+    if ( qword_140FC1188 )
     {
       LODWORD(a1) = a1 & 0x7FFFFFFF;
-      result = guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+      result = guard_dispatch_icall_no_overrides(a1, a2);
       if ( (int)result >= 0 )
         return result;
       *a3 = 0;

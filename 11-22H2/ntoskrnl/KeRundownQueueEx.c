@@ -23,7 +23,7 @@ __int64 __fastcall KeRundownQueueEx(__int64 a1, char a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v9) = 4;
@@ -54,6 +54,6 @@ __int64 __fastcall KeRundownQueueEx(__int64 a1, char a2)
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   if ( a2 )
     KiAcquireReleaseObjectRundownLockExclusive(a1);
-  KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v6;
 }

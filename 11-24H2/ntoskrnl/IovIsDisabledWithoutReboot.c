@@ -1,8 +1,8 @@
 /*
- * XREFs of IovIsDisabledWithoutReboot @ 0x1405A2FFC
+ * XREFs of IovIsDisabledWithoutReboot @ 0x14059FF3C
  * Callers:
- *     VfPacketCreateAndLock @ 0x140B9B430 (VfPacketCreateAndLock.c)
- *     ViPacketNotificationCallback @ 0x140B9B530 (ViPacketNotificationCallback.c)
+ *     VfPacketCreateAndLock @ 0x140B9D430 (VfPacketCreateAndLock.c)
+ *     ViPacketNotificationCallback @ 0x140B9D530 (ViPacketNotificationCallback.c)
  * Callees:
  *     <none>
  */

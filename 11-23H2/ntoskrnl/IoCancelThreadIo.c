@@ -1,12 +1,12 @@
 /*
- * XREFs of IoCancelThreadIo @ 0x14076E4E4
+ * XREFs of IoCancelThreadIo @ 0x14076E6D4
  * Callers:
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     IoCancelIrp @ 0x140351E90 (IoCancelIrp.c)
- *     IopDisassociateThreadIrp @ 0x140555134 (IopDisassociateThreadIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     IoCancelIrp @ 0x140352030 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopDisassociateThreadIrp @ 0x1405557F4 (IopDisassociateThreadIrp.c)
  */
 
 struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
@@ -46,10 +46,10 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
     v5 = 100 * IopIrpCompletionTimeoutInSeconds;
     v6 = 0;
     Interval.QuadPart = -100000LL;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,10 +67,10 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
       __writecr8(1uLL);
       if ( *(unsigned int **)p_SystemCallNumber == p_SystemCallNumber )
         break;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v14 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v7 <= 0xFu && v14 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v7 <= 0xFu && v14 >= 2u )
         {
           v15 = KeGetCurrentPrcb();
           v16 = v15->SchedulerAssist;
@@ -87,10 +87,10 @@ struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)
       if ( v8 > v5 )
         IopDisassociateThreadIrp();
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v7 <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v7 <= 0xFu && v18 >= 2u )
       {
         v19 = KeGetCurrentPrcb();
         v20 = v19->SchedulerAssist;

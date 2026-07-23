@@ -2,19 +2,19 @@
  * XREFs of MmSizeOfMdl @ 0x140206EA0
  * Callers:
  *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     MiAllocatePerSessionProtos @ 0x1407B5E60 (MiAllocatePerSessionProtos.c)
- *     ExInitializeLeapSecondData @ 0x140853510 (ExInitializeLeapSecondData.c)
- *     VslValidateDynamicCodePages @ 0x14087EEF8 (VslValidateDynamicCodePages.c)
- *     VslCreateSecureSection @ 0x140941BF0 (VslCreateSecureSection.c)
- *     VslObtainHotPatchUndoTable @ 0x140942AF8 (VslObtainHotPatchUndoTable.c)
- *     PspCreateSecureThread @ 0x1409B0F60 (PspCreateSecureThread.c)
- *     SmProcessStatsRequest @ 0x1409D7378 (SmProcessStatsRequest.c)
- *     NtStartProfile @ 0x140A04620 (NtStartProfile.c)
- *     MiReplaceRotateWithDemandZero @ 0x140A31408 (MiReplaceRotateWithDemandZero.c)
- *     MiRotateToFrameBuffer @ 0x140A316A0 (MiRotateToFrameBuffer.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140A3E0D4 (MiLoadDataIntoVsmEnclave.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140A3F950 (MiQueryMemoryPhysicalContiguity.c)
- *     PopMarkHiberPhase @ 0x140AA3898 (PopMarkHiberPhase.c)
+ *     MiAllocatePerSessionProtos @ 0x1407B6140 (MiAllocatePerSessionProtos.c)
+ *     ExInitializeLeapSecondData @ 0x140853810 (ExInitializeLeapSecondData.c)
+ *     VslValidateDynamicCodePages @ 0x14087F138 (VslValidateDynamicCodePages.c)
+ *     VslCreateSecureSection @ 0x140941DF0 (VslCreateSecureSection.c)
+ *     VslObtainHotPatchUndoTable @ 0x140942CF8 (VslObtainHotPatchUndoTable.c)
+ *     PspCreateSecureThread @ 0x1409B1160 (PspCreateSecureThread.c)
+ *     SmProcessStatsRequest @ 0x1409D7578 (SmProcessStatsRequest.c)
+ *     NtStartProfile @ 0x140A048B0 (NtStartProfile.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140A316B8 (MiReplaceRotateWithDemandZero.c)
+ *     MiRotateToFrameBuffer @ 0x140A31950 (MiRotateToFrameBuffer.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x140A3E384 (MiLoadDataIntoVsmEnclave.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140A3FC00 (MiQueryMemoryPhysicalContiguity.c)
+ *     PopMarkHiberPhase @ 0x140AA3708 (PopMarkHiberPhase.c)
  * Callees:
  *     <none>
  */

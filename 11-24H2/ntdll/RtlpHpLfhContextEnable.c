@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextEnable @ 0x18011CDD8
+ * XREFs of RtlpHpLfhContextEnable @ 0x18011B010
  * Callers:
- *     LdrpInitializeProcessHeap @ 0x1800A5FB8 (LdrpInitializeProcessHeap.c)
- *     RtlpHpHeapCreate @ 0x1800A6374 (RtlpHpHeapCreate.c)
+ *     LdrpInitializeProcessHeap @ 0x18002385C (LdrpInitializeProcessHeap.c)
+ *     RtlpHpHeapCreate @ 0x180026120 (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHpEnvTlsAlloc @ 0x1800B9008 (RtlpHpEnvTlsAlloc.c)
+ *     RtlpHpEnvTlsAlloc @ 0x1800B0DA8 (RtlpHpEnvTlsAlloc.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextEnable(_DWORD *a1, int *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpLfhContextEnable(_DWORD *a1, int *a2)
   if ( !v4 )
     return 3221225626LL;
   a1[19] = v4;
-  if ( (RtlpHpLfhPerfFlags & 4) != 0 && (qword_1801CDEE8 & 4) != 0 )
+  if ( (RtlpHpLfhPerfFlags & 4) != 0 && (qword_1801CCEE8 & 4) != 0 )
     a1[18] |= 1u;
   v6 = *a2;
   LOWORD(v6) = *a2 - 15;

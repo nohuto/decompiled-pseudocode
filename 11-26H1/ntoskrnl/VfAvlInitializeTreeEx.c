@@ -1,15 +1,19 @@
 /*
- * XREFs of VfAvlInitializeTreeEx @ 0x140C220CC
+ * XREFs of VfAvlInitializeTreeEx @ 0x140C280DC
  * Callers:
- *     VfAvlInitializeTree @ 0x140640BA8 (VfAvlInitializeTree.c)
- *     VfInitBootDriversLoaded @ 0x140CDE91C (VfInitBootDriversLoaded.c)
+ *     VfAvlInitializeTree @ 0x140644788 (VfAvlInitializeTree.c)
+ *     VfInitBootDriversLoaded @ 0x140CE4CB4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x14048F5B0 (RtlInitializeGenericTableAvl.c)
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
+ *     RtlInitializeGenericTableAvl @ 0x140488F70 (RtlInitializeGenericTableAvl.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall VfAvlInitializeTreeEx(_QWORD *TableContext, __int64 a2, int a3, RTL_AVL_FREE_ROUTINE *a4)
+__int64 __fastcall VfAvlInitializeTreeEx(
+        _QWORD *TableContext,
+        __int64 a2,
+        int a3,
+        void (__cdecl *a4)(_RTL_AVL_TABLE *, PVOID))
 {
   int v6; // eax
   int v7; // eax

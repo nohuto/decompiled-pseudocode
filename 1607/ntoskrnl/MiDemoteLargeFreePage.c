@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDemoteLargeFreePage @ 0x14008A280
+ * XREFs of MiDemoteLargeFreePage @ 0x140089980
  * Callers:
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
  * Callees:
- *     MiInsertLargePageInFreeOrZeroList @ 0x140064EF0 (MiInsertLargePageInFreeOrZeroList.c)
- *     MiTryUnlinkNodeLargePage @ 0x14008A2E0 (MiTryUnlinkNodeLargePage.c)
+ *     MiInsertLargePageInFreeOrZeroList @ 0x140064A70 (MiInsertLargePageInFreeOrZeroList.c)
+ *     MiTryUnlinkNodeLargePage @ 0x1400899E0 (MiTryUnlinkNodeLargePage.c)
  */
 
 __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, int a2)

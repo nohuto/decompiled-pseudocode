@@ -5,38 +5,38 @@
  *     RtlpLockUlockAllHeapsCallback @ 0x18005F650 (RtlpLockUlockAllHeapsCallback.c)
  *     RtlValidateHeap @ 0x18005F680 (RtlValidateHeap.c)
  *     RtlpQueryExtendedHeapInformation @ 0x1800750FC (RtlpQueryExtendedHeapInformation.c)
- *     RtlpHpStackTraceHeapSerialize @ 0x180109400 (RtlpHpStackTraceHeapSerialize.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x1801093C0 (RtlpHpStackTraceHeapSerialize.c)
  * Callees:
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
  *     RtlpCheckHeapSignature @ 0x18005FAC0 (RtlpCheckHeapSignature.c)
  *     RtlpHpHeapLock @ 0x18005FAF4 (RtlpHpHeapLock.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlpLogHeapLockEvent @ 0x18010A34C (RtlpLogHeapLockEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlpLogHeapLockEvent @ 0x18010A30C (RtlpLogHeapLockEvent.c)
  */
 
-char __fastcall RtlLockHeap(__int64 a1)
+BOOLEAN __cdecl RtlLockHeap(PVOID HeapHandle)
 {
   bool v1; // zf
   _DWORD *SharedData; // rcx
   __int64 v4; // rcx
   char v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 16) == -571548178;
+  v1 = *((_DWORD *)HeapHandle + 4) == -571548178;
   v6 = -1;
   if ( v1 )
   {
-    RtlpHpHeapLock(a1, &v6);
+    RtlpHpHeapLock(HeapHandle, &v6);
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_180166440)();
-    if ( !(unsigned __int8)RtlpCheckHeapSignature(a1, "RtlLockHeap") )
+    if ( !(unsigned __int8)RtlpCheckHeapSignature(HeapHandle, "RtlLockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      ++*(_WORD *)(a1 + 416);
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+      ++*((_WORD *)HeapHandle + 208);
     }
   }
   SharedData = NtCurrentPeb()->SharedData;
@@ -47,7 +47,7 @@ char __fastcall RtlLockHeap(__int64 a1)
   if ( *(_BYTE *)v4 )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapLockEvent(a1);
+      RtlpLogHeapLockEvent(HeapHandle);
   }
   return 1;
 }

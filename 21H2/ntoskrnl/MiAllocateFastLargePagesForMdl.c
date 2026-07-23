@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateFastLargePagesForMdl @ 0x140533CE4
+ * XREFs of MiAllocateFastLargePagesForMdl @ 0x140533F24
  * Callers:
- *     MiFindPagesForMdl @ 0x1402E40DC (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x14029542C (MiFindPagesForMdl.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
- *     MiEndDpcGang @ 0x140560498 (MiEndDpcGang.c)
- *     MiInitializeDpcGang @ 0x140560550 (MiInitializeDpcGang.c)
- *     MiInsertDpcGang @ 0x14056061C (MiInsertDpcGang.c)
- *     MiStartDpcGang @ 0x1405606AC (MiStartDpcGang.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
+ *     MiEndDpcGang @ 0x1405606D8 (MiEndDpcGang.c)
+ *     MiInitializeDpcGang @ 0x140560790 (MiInitializeDpcGang.c)
+ *     MiInsertDpcGang @ 0x14056085C (MiInsertDpcGang.c)
+ *     MiStartDpcGang @ 0x1405608EC (MiStartDpcGang.c)
  */
 
 __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 a1, unsigned int a2, char a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxDerefAndCompleteDirectedPowerTransition @ 0x140589B78
+ * XREFs of PopFxDerefAndCompleteDirectedPowerTransition @ 0x14058A068
  * Callers:
- *     PopFxHandleReportDevicePoweredOn @ 0x14028D050 (PopFxHandleReportDevicePoweredOn.c)
- *     PopFxNotifyPreDIrpCompletion @ 0x14028DFBC (PopFxNotifyPreDIrpCompletion.c)
- *     PoFxCompleteDirectedPowerDown @ 0x140587EB0 (PoFxCompleteDirectedPowerDown.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x14028D2E0 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopFxNotifyPreDIrpCompletion @ 0x14028E24C (PopFxNotifyPreDIrpCompletion.c)
+ *     PoFxCompleteDirectedPowerDown @ 0x1405883A0 (PoFxCompleteDirectedPowerDown.c)
  * Callees:
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
- *     PopFxCompleteDirectedPowerTransition @ 0x14058969C (PopFxCompleteDirectedPowerTransition.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x140589B8C (PopFxCompleteDirectedPowerTransition.c)
  */
 
 LONG __fastcall PopFxDerefAndCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter3, char a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of Normalization__LoadTables @ 0x14078615C
+ * XREFs of Normalization__LoadTables @ 0x14078608C
  * Callers:
- *     RtlpGetNormalization @ 0x14078D5B0 (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x14078D4E0 (RtlpGetNormalization.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall Normalization__LoadTables(__int64 a1, unsigned __int16 *a2, unsigned __int64 a3, _DWORD *a4)

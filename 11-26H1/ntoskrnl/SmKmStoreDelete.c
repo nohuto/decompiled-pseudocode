@@ -1,21 +1,21 @@
 /*
- * XREFs of SmKmStoreDelete @ 0x140B20310
+ * XREFs of SmKmStoreDelete @ 0x140B22710
  * Callers:
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x1404E0280 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmProcessDeleteRequest @ 0x1408198D4 (SmProcessDeleteRequest.c)
- *     SmKmCleanup @ 0x14081A5EC (SmKmCleanup.c)
- *     SmProcessCreateRequest @ 0x140967230 (SmProcessCreateRequest.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x1404D9960 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmProcessDeleteRequest @ 0x14081FAE4 (SmProcessDeleteRequest.c)
+ *     SmKmCleanup @ 0x1408207FC (SmKmCleanup.c)
+ *     SmProcessCreateRequest @ 0x140ADC4D4 (SmProcessCreateRequest.c)
  * Callees:
- *     SmKmStoreRefFromStoreIndex @ 0x140204B30 (SmKmStoreRefFromStoreIndex.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SmKmEtwLogStoreChange @ 0x14081A678 (SmKmEtwLogStoreChange.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140204C10 (SmKmStoreRefFromStoreIndex.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SmKmEtwLogStoreChange @ 0x140820888 (SmKmEtwLogStoreChange.c)
  */
 
 __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)
@@ -78,9 +78,9 @@ LABEL_9:
   }
   guard_dispatch_icall_no_overrides(a1, *(_QWORD *)v9);
   ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(v9 + 8));
-  if ( ((unsigned __int64)&stru_140E27B08.QuantumTarget & -(__int64)((WORD2(stru_140E27B08.InitialStack) & 0x100) != 0)) != 0 )
+  if ( ((unsigned __int64)&stru_140E27C48.QuantumTarget & -(__int64)((WORD2(stru_140E27C48.InitialStack) & 0x100) != 0)) != 0 )
     SmKmEtwLogStoreChange(
-      (REGHANDLE *)((unsigned __int64)&stru_140E27B08.QuantumTarget & -(__int64)((WORD2(stru_140E27B08.InitialStack) & 0x100) != 0)),
+      (REGHANDLE *)((unsigned __int64)&stru_140E27C48.QuantumTarget & -(__int64)((WORD2(stru_140E27C48.InitialStack) & 0x100) != 0)),
       *(_QWORD *)v9,
       SmEventStoreDelete);
   guard_dispatch_icall_no_overrides(a1, v17);

@@ -1,7 +1,7 @@
 /*
- * XREFs of TppPHInsert @ 0x18003C6B8
+ * XREFs of TppPHInsert @ 0x18003C6A8
  * Callers:
- *     TppEnqueueTimer @ 0x18003C61C (TppEnqueueTimer.c)
+ *     TppEnqueueTimer @ 0x18003C60C (TppEnqueueTimer.c)
  * Callees:
  *     <none>
  */

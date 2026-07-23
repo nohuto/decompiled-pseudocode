@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfCalculateQosClassPolicies @ 0x140429AF0
+ * XREFs of PpmPerfCalculateQosClassPolicies @ 0x140472694
  * Callers:
- *     PpmPerfUpdateDomainPolicy @ 0x140AC66D0 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AC40C8 (PpmPerfUpdateDomainPolicy.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x14042AA7C (PpmGetPerfPolicyClass.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     PpmEventQosClassPolicy @ 0x140A5E934 (PpmEventQosClassPolicy.c)
+ *     PpmGetPerfPolicyClass @ 0x1403A2FAC (PpmGetPerfPolicyClass.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     PpmEventQosClassPolicy @ 0x140A56B24 (PpmEventQosClassPolicy.c)
  */
 
 char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
@@ -73,8 +73,8 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
   __m128 v62; // [rsp+68h] [rbp+7h]
   __m128i v63; // [rsp+78h] [rbp+17h]
 
-  PerfPolicyClass = PpmGetPerfPolicyClass(*(_QWORD *)(a1 + 16));
-  v3 = dword_140F0BA4C;
+  PerfPolicyClass = PpmGetPerfPolicyClass(*(_BYTE **)(a1 + 16));
+  v3 = dword_140F0B38C;
   v4 = PerfPolicyClass;
   v53 = 0;
   v55 = 0;
@@ -83,7 +83,7 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
   v54 = 0;
   v59 = 0LL;
   v7 = 0LL;
-  v58 = dword_140F0BA4C;
+  v58 = dword_140F0B38C;
   for ( i = 0; i < 7; ++i )
   {
     v8 = (unsigned int)PpmQosClassesOrdered[2 * v6];
@@ -94,7 +94,7 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
     if ( !(_DWORD)v8 )
     {
 LABEL_11:
-      v16 = &PpmCurrentProfile[0][61 * dword_140F0BA4C + 5];
+      v16 = &PpmCurrentProfile[0][61 * dword_140F0B38C + 5];
       goto LABEL_12;
     }
     v10 = v9 - 1;
@@ -150,7 +150,7 @@ LABEL_92:
       v18 = 0LL;
       goto LABEL_14;
     }
-    v16 = (__int64 *)((char *)&unk_140F069A8 + 488 * v3);
+    v16 = (__int64 *)((char *)&unk_140F06CC8 + 488 * v3);
 LABEL_12:
     if ( !v16 )
       goto LABEL_92;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUsbErrorWNFNotificationCallback @ 0x140996110
+ * XREFs of PopUsbErrorWNFNotificationCallback @ 0x140996310
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopBatteryQueueWork @ 0x1403C6458 (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407E21C0 (ExQueryWnfStateData.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopBatteryQueueWork @ 0x1403C6638 (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1407E2490 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1)

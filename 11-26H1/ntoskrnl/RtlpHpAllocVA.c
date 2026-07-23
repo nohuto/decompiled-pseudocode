@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpAllocVA @ 0x140364350
+ * XREFs of RtlpHpAllocVA @ 0x1403660F0
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x14034EB50 (RtlpHpSegMgrCommit.c)
- *     RtlpHpSegMgrReserve @ 0x14034FA14 (RtlpHpSegMgrReserve.c)
- *     RtlpHpLargeAlloc @ 0x140351D9C (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapExtendContext @ 0x1404DF1CC (RtlpHpHeapExtendContext.c)
- *     RtlpHpHeapAllocate @ 0x140638054 (RtlpHpHeapAllocate.c)
+ *     RtlpHpSegMgrCommit @ 0x140350BD0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrReserve @ 0x140351A94 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpLargeAlloc @ 0x140353E20 (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapExtendContext @ 0x1404D88AC (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapAllocate @ 0x14063B058 (RtlpHpHeapAllocate.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     RtlpHpReleaseLockShared @ 0x14034BE40 (RtlpHpReleaseLockShared.c)
- *     RtlpHpVaMgrAlloc @ 0x140350BAC (RtlpHpVaMgrAlloc.c)
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
- *     RtlpHpVaMgrCtxAllocatorFind @ 0x14050A9D4 (RtlpHpVaMgrCtxAllocatorFind.c)
- *     RtlpHpVaMgrCtxCommit @ 0x140523340 (RtlpHpVaMgrCtxCommit.c)
- *     RtlHeapZero @ 0x1407322C0 (RtlHeapZero.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     RtlpHpReleaseLockShared @ 0x14034DEC0 (RtlpHpReleaseLockShared.c)
+ *     RtlpHpVaMgrAlloc @ 0x140352C2C (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x140504444 (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     RtlpHpVaMgrCtxCommit @ 0x1405259B0 (RtlpHpVaMgrCtxCommit.c)
+ *     RtlHeapZero @ 0x140736E90 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpAllocVA(
@@ -63,13 +63,13 @@ __int64 __fastcall RtlpHpAllocVA(
     a6 = (_QWORD *)(v13 - (v14 & 0xFFFFF) + 0xFFFFF);
     if ( v12 == -1 )
     {
-      v19 = ExAcquireSpinLockShared(&dword_140E68C38);
-      v17 = (struct _KTHREAD *)RtlpHpVaMgrCtxAllocatorFind(&ExpUuidLock.FirstArgument, v21, 0LL, 0LL);
-      RtlpHpReleaseLockShared((struct _KTHREAD *)&dword_140E68C38, 1, v19);
+      v19 = ExAcquireSpinLockShared(&dword_140E68F38);
+      v17 = (struct _KTHREAD *)RtlpHpVaMgrCtxAllocatorFind(&ExpUuidLock.TrapFrame, v21, 0LL, 0LL);
+      RtlpHpReleaseLockShared((struct _KTHREAD *)&dword_140E68F38, 1, v19);
     }
     else
     {
-      v17 = (struct _KTHREAD *)((char *)&unk_140E68C48 + 48 * v12);
+      v17 = (struct _KTHREAD *)((char *)&unk_140E68F48 + 48 * v12);
     }
     v18 = RtlpHpVaMgrAlloc(v17, (unsigned __int64 *)&a6, a3, a4);
     if ( !v18 )
@@ -88,7 +88,7 @@ __int64 __fastcall RtlpHpAllocVA(
     v15 = a6;
     goto LABEL_9;
   }
-  result = RtlpHpVaMgrCtxCommit(&ExpUuidLock.FirstArgument, *a1, v15, a5);
+  result = RtlpHpVaMgrCtxCommit(&ExpUuidLock.TrapFrame, *a1, v15, a5);
   if ( (int)result >= 0 )
   {
     if ( (v6 & 0x40000000) != 0 )

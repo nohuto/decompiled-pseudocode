@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteWorkingSetList @ 0x140481A60
+ * XREFs of MiDeleteWorkingSetList @ 0x14047CD20
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140AE6484 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140AE7D64 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiPruneProcessLargePageCaches @ 0x1402D2D24 (MiPruneProcessLargePageCaches.c)
- *     MiFreeProcessLargePageCache @ 0x1406929F4 (MiFreeProcessLargePageCache.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiPruneProcessLargePageCaches @ 0x140353F9C (MiPruneProcessLargePageCaches.c)
+ *     MiFreeProcessLargePageCache @ 0x140693AC4 (MiFreeProcessLargePageCache.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteWorkingSetList(__int64 a1)
@@ -27,7 +27,7 @@ void __fastcall MiDeleteWorkingSetList(__int64 a1)
       v3 = *(_QWORD **)(*(_QWORD *)(a1 + 16) + 1048LL);
       if ( v3 )
       {
-        v4 = *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174));
+        v4 = *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174));
         v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v4 + 16448));
         v6 = *v3;
         if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v7 = (_QWORD *)v3[1], (_QWORD *)*v7 != v3) )

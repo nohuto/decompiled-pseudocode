@@ -4,8 +4,8 @@
  *     KiIntSteerInit @ 0x140B4E594 (KiIntSteerInit.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     HviIsXboxNanovisorPresent @ 0x1403514C8 (HviIsXboxNanovisorPresent.c)
- *     HviIsAnyHypervisorPresent @ 0x140382850 (HviIsAnyHypervisorPresent.c)
+ *     HviIsXboxNanovisorPresent @ 0x140351668 (HviIsXboxNanovisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403829F0 (HviIsAnyHypervisorPresent.c)
  */
 
 char KiIntSteerDetermineSteeringEnabled()

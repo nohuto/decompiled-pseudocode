@@ -1,10 +1,10 @@
 /*
- * XREFs of PsSetThreadProperty @ 0x1400B112C
+ * XREFs of PsSetThreadProperty @ 0x1400AF06C
  * Callers:
  *     <none>
  * Callees:
- *     PspInsertProperty @ 0x1400B121C (PspInsertProperty.c)
- *     PspValidateThread @ 0x1400EE5C8 (PspValidateThread.c)
+ *     PspInsertProperty @ 0x1400AF15C (PspInsertProperty.c)
+ *     PspValidateThread @ 0x1400EC448 (PspValidateThread.c)
  */
 
 __int64 __fastcall PsSetThreadProperty(__int64 a1, __int64 a2, __int64 a3)

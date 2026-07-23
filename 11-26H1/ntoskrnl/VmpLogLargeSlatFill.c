@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogLargeSlatFill @ 0x1406C2E2C
+ * XREFs of VmpLogLargeSlatFill @ 0x1406C6A0C
  * Callers:
- *     VmpFillSlat @ 0x1406C0FB4 (VmpFillSlat.c)
+ *     VmpFillSlat @ 0x1406C4B94 (VmpFillSlat.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall VmpLogLargeSlatFill(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
@@ -36,7 +36,7 @@ void __fastcall VmpLogLargeSlatFill(__int64 a1, __int64 a2, __int64 a3, __int64 
   int *v29; // [rsp+E0h] [rbp+27h]
   __int64 v30; // [rsp+E8h] [rbp+2Fh]
 
-  if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 1LL) )
+  if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 1LL) )
   {
     Flink = (int)KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
     p_Flink = &Flink;
@@ -55,6 +55,6 @@ void __fastcall VmpLogLargeSlatFill(__int64 a1, __int64 a2, __int64 a3, __int64 
     v17 = v7;
     v26 = 4LL;
     v30 = 4LL;
-    tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_140053271, v7, 0, v11, v12, v6 + 7, &v19);
+    tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&dword_140054274, v7, 0, v11, v12, v6 + 7, &v19);
   }
 }

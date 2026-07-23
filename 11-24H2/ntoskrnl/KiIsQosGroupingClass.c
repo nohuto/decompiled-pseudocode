@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsQosGroupingClass @ 0x14029E7C0
+ * XREFs of KiIsQosGroupingClass @ 0x1402AD2B0
  * Callers:
- *     PpmPerfArbitratorApplyProcessorState @ 0x14029E340 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1402ACE30 (PpmPerfArbitratorApplyProcessorState.c)
  * Callees:
  *     <none>
  */

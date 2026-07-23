@@ -14,10 +14,12 @@
  *     RtlpRemoveArchDisallowedXStateFeatures @ 0x180082AFC (RtlpRemoveArchDisallowedXStateFeatures.c)
  */
 
-__int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2, __int64 a3)
+NTSTATUS __cdecl RtlGetExtendedContextLength2(
+        ULONG ContextFlags,
+        PULONG ContextLength,
+        ULONG64 EnabledExtendedFeatures)
 {
-  unsigned int v5; // esi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v7; // ebx
   int v8; // ecx
   int v9; // eax
@@ -25,34 +27,33 @@ __int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2, __int64 
   int v11; // r11d
   int v12; // [rsp+20h] [rbp-28h] BYREF
   _BYTE v13[36]; // [rsp+24h] [rbp-24h] BYREF
-  unsigned __int64 v14; // [rsp+60h] [rbp+18h] BYREF
+  ULONG64 v14; // [rsp+60h] [rbp+18h] BYREF
   int v15; // [rsp+68h] [rbp+20h] BYREF
 
   v12 = 0;
   v15 = 0;
-  v5 = a1;
-  result = RtlpValidateContextFlags(a1, v13);
-  if ( (int)result >= 0 )
+  result = RtlpValidateContextFlags(ContextFlags, v13);
+  if ( result >= 0 )
   {
-    RtlpGetLegacyContextLength(v5, &v15, &v12);
+    RtlpGetLegacyContextLength(ContextFlags, &v15, &v12);
     v7 = v12;
     v8 = v15 + 32;
     if ( (v13[0] & 2) != 0 )
     {
       if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
       {
-        v14 = (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL) & a3;
-        RtlpRemoveArchDisallowedXStateFeatures(v5, &v14);
-        a3 = v14;
+        v14 = (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL) & EnabledExtendedFeatures;
+        RtlpRemoveArchDisallowedXStateFeatures(ContextFlags, &v14);
+        EnabledExtendedFeatures = v14;
       }
-      EntireXStateAreaLength = RtlpGetEntireXStateAreaLength(a3);
+      EntireXStateAreaLength = RtlpGetEntireXStateAreaLength(EnabledExtendedFeatures);
       v8 = EntireXStateAreaLength + v11 - v7 - 448;
     }
     v9 = v8 + 32;
     if ( (v13[0] & 4) == 0 )
       v9 = v8;
-    *a2 = v7 + v9 - 1;
-    return 0LL;
+    *ContextLength = v7 + v9 - 1;
+    return 0;
   }
   return result;
 }

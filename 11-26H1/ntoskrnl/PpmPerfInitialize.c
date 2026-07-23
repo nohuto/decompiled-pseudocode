@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfInitialize @ 0x140CD1148
+ * XREFs of PpmPerfInitialize @ 0x140CD72F0
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PopInitializeTimer @ 0x1407C8C18 (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x1407CBCB8 (PopInitializeTimer.c)
  */
 
 __int64 PpmPerfInitialize()
@@ -22,11 +22,11 @@ __int64 PpmPerfInitialize()
   __int64 v11; // r11
 
   v0 = 3LL;
-  qword_140FBFCA8 = (__int64)&Mm64BitPhysicalAddress + 2;
+  qword_140FC0CA8 = (__int64)&Mm64BitPhysicalAddress + 2;
   *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2) = (PBOOLEAN)&Mm64BitPhysicalAddress + 2;
-  dword_140F0B13C = 50;
-  dword_140F0B404 = 50;
-  v1 = &unk_140F0B408;
+  HIDWORD(PopDirectedDripsDiagLock.WpsFeedback) = 50;
+  dword_140F0B7C4 = 50;
+  v1 = &unk_140F0B7C8;
   do
   {
     *(v1 - 712) = 1;
@@ -47,19 +47,19 @@ __int64 PpmPerfInitialize()
     --v0;
   }
   while ( v0 );
-  *(_QWORD *)&stru_140F11D08.ThreadTimerDelay = 0LL;
-  dword_140F0B178 = 2;
-  dword_140F0B440 = 2;
-  stru_140F11D08.KernelWaitTime = 0LL;
-  *(_QWORD *)&stru_140F11D08.ReservedPreviousReadyTimeValue = PpmMediaBufferingWorker;
-  stru_140F11D08.ExtendedFeatureDisableMask = (unsigned __int64)PpmPerfLatencySensitivityHintWorker;
-  stru_140F11D08.SchedulerAssist = 0LL;
-  stru_140F11D08.WpsFeedback = 0LL;
-  stru_140F11D08.KernelShadowStackBase = 0LL;
+  PpmMediaBufferingWork = 0LL;
+  LODWORD(PopDirectedDripsDiagLock.AutoBoostThreadState) = 2;
+  dword_140F0B800 = 2;
+  WorkItem.Parameter = 0LL;
+  WorkItem.WorkerRoutine = (void (__fastcall *)(void *))PpmMediaBufferingWorker;
+  PpmPerfLatencyBoostWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PpmPerfLatencySensitivityHintWorker;
+  WorkItem.List.Flink = 0LL;
+  PpmPerfLatencyBoostWorkItem.Parameter = 0LL;
+  PpmPerfLatencyBoostWorkItem.List.Flink = 0LL;
   v2 = PpmPerfQosTransitionHysteresisOverride;
   v3 = PpmPerfQosTransitionHysteresisOverride;
-  dword_140F0B174 = 100;
-  dword_140F0B43C = 100;
+  HIDWORD(PopDirectedDripsDiagLock.SchedulerSharedSwappablePage) = 100;
+  dword_140F0B7FC = 100;
   if ( PpmPerfQosTransitionHysteresisOverride == -1 )
     v3 = PpmPerfQosTransitionHysteresis;
   if ( v3 <= 0x1F4 )
@@ -113,7 +113,7 @@ LABEL_23:
   }
   while ( v5 < 7 );
   return PopInitializeTimer(
-           (__int64)&stru_140F11D08.1144,
+           (__int64)&PpmPerfTelemetryTimer,
            (__int64)PpmPerfTelemetryCallback,
            0LL,
            (__int64)PpmPerfTelemetryWorker,

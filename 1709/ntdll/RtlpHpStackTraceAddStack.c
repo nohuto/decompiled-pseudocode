@@ -15,41 +15,39 @@
  *     RtlStackDbStackRemove @ 0x18010D838 (RtlStackDbStackRemove.c)
  */
 
-signed __int64 __fastcall RtlpHpStackTraceAddStack(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpStackTraceAddStack(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v5; // rbx
-  PVOID *v7; // rax
-  __int64 v8; // rax
-  __int64 v9; // rdi
-  signed __int64 result; // rax
-  __int64 v11; // [rsp+40h] [rbp+18h] BYREF
+  unsigned __int64 v3; // rbx
+  PVOID *v5; // rax
+  __int64 v6; // rax
+  __int64 v7; // rdi
+  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
-  v5 = 0LL;
-  RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext, a2, a3, a4);
+  v3 = 0LL;
+  RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext);
   if ( (dword_180160378 & 1) != 0
     && (dword_180160378 & 2) != 0
-    && (int)RtlpHpStackTraceHeapGetContext(a1, 1LL, &v11) >= 0 )
+    && (int)RtlpHpStackTraceHeapGetContext(a1, 1LL, &v8) >= 0 )
   {
-    v7 = (PVOID *)RtlpHpMetadataAlloc(0x600uLL, 0);
-    v5 = (unsigned __int64)v7;
-    if ( v7 )
+    v5 = (PVOID *)RtlpHpMetadataAlloc(0x600uLL, 0);
+    v3 = (unsigned __int64)v5;
+    if ( v5 )
     {
-      if ( RtlCaptureStackBackTrace(1u, 0xC0u, v7, 0LL) )
+      if ( RtlCaptureStackBackTrace(1u, 0xC0u, v5, 0LL) )
       {
-        v8 = RtlStackDbStackAdd(&qword_180160380, v5);
-        v9 = v8;
-        if ( v8 )
+        v6 = RtlStackDbStackAdd(&qword_180160380, v3);
+        v7 = v6;
+        if ( v6 )
         {
-          if ( (unsigned int)RtlpHpStackTraceAllocAdd(v11, a2, v8) )
-            v9 = 0LL;
-          if ( v9 )
-            RtlStackDbStackRemove(&qword_180160380, v9);
+          if ( (unsigned int)RtlpHpStackTraceAllocAdd(v8, a2, v6) )
+            v7 = 0LL;
+          if ( v7 )
+            RtlStackDbStackRemove(&qword_180160380, v7);
         }
       }
     }
   }
-  result = RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
-  if ( v5 )
-    return RtlpHpMetadataFree(v5);
-  return result;
+  RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
+  if ( v3 )
+    RtlpHpMetadataFree(v3);
 }

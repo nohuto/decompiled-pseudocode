@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAllocateStringFilterData @ 0x1406A88D8
+ * XREFs of EtwpAllocateStringFilterData @ 0x1406A8A10
  * Callers:
- *     EtwpValidateFilterDescriptors @ 0x1406A940C (EtwpValidateFilterDescriptors.c)
+ *     EtwpValidateFilterDescriptors @ 0x1406A9544 (EtwpValidateFilterDescriptors.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

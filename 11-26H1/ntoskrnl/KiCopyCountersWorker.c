@@ -1,12 +1,12 @@
 /*
- * XREFs of KiCopyCountersWorker @ 0x1407BAFAC
+ * XREFs of KiCopyCountersWorker @ 0x1407BE00C
  * Callers:
- *     KiCopyCounters @ 0x1405F3410 (KiCopyCounters.c)
+ *     KiCopyCounters @ 0x1405F5DD0 (KiCopyCounters.c)
  * Callees:
- *     KeGetCurrentProcessorNumberEx @ 0x1404481A0 (KeGetCurrentProcessorNumberEx.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140440C90 (KeGetCurrentProcessorNumberEx.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall KiCopyCountersWorker(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall KiCopyCountersWorker(__int64 a1, __int64 a2)
   __int64 v8; // r13
   __int64 v9; // r12
   __int64 v10; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+68h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+68h] [rbp+10h] BYREF
 
   ProcNumber = 0;
   v4 = *(_QWORD *)(a2 + 8);

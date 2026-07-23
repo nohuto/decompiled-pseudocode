@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlUnicodeToOemN @ 0x140694CB0
+ * XREFs of RtlUnicodeToOemN @ 0x1405F4200
  * Callers:
- *     RtlUnicodeStringToOemString @ 0x140694670 (RtlUnicodeStringToOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x140694820 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToOemString @ 0x1405F3BC0 (RtlUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1405F3D70 (RtlUnicodeStringToCountedOemString.c)
  * Callees:
- *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x1406B92D0 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeToUTF8N @ 0x1406188F0 (RtlUnicodeToUTF8N.c)
+ *     RtlpIsUtf8Process @ 0x1406DDCE0 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToOemN(
@@ -15,6 +15,7 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
         PCWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
+  CHAR *v5; // rdi
   NTSTATUS v9; // ebx
   ULONG v10; // edx
   ULONG v11; // eax
@@ -24,21 +25,23 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
   ULONG *v16; // r8
   NTSTATUS v17; // eax
   int v18; // r8d
-  PCHAR v19; // r9
+  CHAR *v19; // r9
   __int64 v20; // rcx
   __int16 v21; // r10
   ULONG v22; // eax
   char v23; // [rsp+30h] [rbp-18h] BYREF
 
+  v5 = OemString;
+  LOBYTE(OemString) = 1;
   v9 = 0;
-  if ( RtlpIsUtf8Process(1) )
+  if ( (unsigned __int8)RtlpIsUtf8Process(OemString) )
   {
     v16 = (ULONG *)&v23;
     if ( BytesInOemString )
       v16 = BytesInOemString;
     if ( BytesInUnicodeString )
     {
-      v17 = RtlUnicodeToUTF8N(OemString, MaxBytesInOemString, v16, UnicodeString, BytesInUnicodeString);
+      v17 = RtlUnicodeToUTF8N(v5, MaxBytesInOemString, v16, UnicodeString, BytesInUnicodeString);
     }
     else
     {
@@ -54,10 +57,10 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
     v10 = BytesInUnicodeString >> 1;
     if ( (_BYTE)NlsMbOemCodePageTag )
     {
-      v18 = (int)OemString;
+      v18 = (int)v5;
       if ( v10 )
       {
-        v19 = OemString;
+        v19 = v5;
         do
         {
           if ( !MaxBytesInOemString )
@@ -69,18 +72,18 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
             v22 = MaxBytesInOemString--;
             if ( v22 < 2 )
               break;
-            *OemString = HIBYTE(v21);
-            OemString = ++v19;
+            *v5 = HIBYTE(v21);
+            v5 = ++v19;
           }
-          *OemString = v21;
+          *v5 = v21;
           --MaxBytesInOemString;
-          OemString = ++v19;
+          v5 = ++v19;
           --v10;
         }
         while ( v10 );
       }
       if ( BytesInOemString )
-        *BytesInOemString = (_DWORD)OemString - v18;
+        *BytesInOemString = (_DWORD)v5 - v18;
     }
     else
     {
@@ -96,7 +99,7 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
         do
         {
           v14 = *UnicodeString++;
-          *OemString++ = *(_BYTE *)(v14 + v12);
+          *v5++ = *(_BYTE *)(v14 + v12);
           --v13;
         }
         while ( v13 );

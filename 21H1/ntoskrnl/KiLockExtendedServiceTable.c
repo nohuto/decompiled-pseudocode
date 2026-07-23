@@ -56,9 +56,9 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   PVOID *v41; // rdx
   ULONG_PTR v42; // r8
   __int64 v43; // rax
-  __int64 v44; // rcx
+  void *v44; // rcx
   char v45; // r13
-  __int64 v46; // rax
+  PIMAGE_NT_HEADERS v46; // rax
   char *v47; // r9
   int v48; // r11d
   int v49; // ecx
@@ -84,10 +84,10 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   char v69; // al
   unsigned int v70; // r10d
   char v71; // r14
-  _QWORD *v72; // r12
+  char *v72; // r12
   _QWORD *v73; // r11
-  unsigned __int64 v74; // rcx
-  const char *v75; // rax
+  char *v74; // rcx
+  const char *i; // rax
   ULONG_PTR v76; // r8
   unsigned int v77; // r15d
   __int64 v78; // rax
@@ -101,14 +101,14 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   unsigned __int64 v86; // rax
   ULONG_PTR v87; // rax
   int v88; // r8d
-  __int64 v89; // rdx
-  unsigned __int64 v90; // r13
-  __int64 v91; // rcx
-  __int64 v92; // rax
-  __int64 v93; // r12
-  __int64 v94; // r15
+  PIMAGE_NT_HEADERS v89; // rdx
+  char *v90; // r13
+  __int64 Size; // rcx
+  __int64 VirtualAddress; // rax
+  char *v93; // r12
+  char *v94; // r15
   __int64 v95; // rax
-  unsigned __int64 v96; // r14
+  char *v96; // r14
   int v97; // eax
   __int64 v98; // rcx
   __int64 *v99; // rax
@@ -140,8 +140,8 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   unsigned __int64 v125; // rax
   signed __int32 v127[6]; // [rsp+8h] [rbp-D9h] BYREF
   __int64 v128; // [rsp+38h] [rbp-A9h] BYREF
-  __int64 v129; // [rsp+40h] [rbp-A1h] BYREF
-  __int64 v130; // [rsp+48h] [rbp-99h]
+  PVOID BaseOfImage; // [rsp+40h] [rbp-A1h] BYREF
+  PIMAGE_NT_HEADERS v130; // [rsp+48h] [rbp-99h]
   __int64 v131; // [rsp+50h] [rbp-91h]
   unsigned __int64 v132; // [rsp+58h] [rbp-89h]
   __int64 v133; // [rsp+60h] [rbp-81h]
@@ -321,8 +321,8 @@ LABEL_141:
         v133 = 0LL;
         do
         {
-          v44 = qword_140C12F80[v43];
-          v129 = v44;
+          v44 = (void *)qword_140C12F80[v43];
+          BaseOfImage = v44;
           if ( !v44 )
             break;
           v45 = v40 & 0x3F;
@@ -331,8 +331,8 @@ LABEL_141:
           v130 = v46;
           if ( !v46 )
             KeBugCheckEx(0x43u, BugCheckParameter1, a2, BugCheckParameter3, 1uLL);
-          v47 = (char *)(v46 + *(unsigned __int16 *)(v46 + 20) + 24LL);
-          v132 = (unsigned __int64)&v47[40 * *(unsigned __int16 *)(v46 + 6)];
+          v47 = (char *)&v46->OptionalHeader + v46->FileHeader.SizeOfOptionalHeader;
+          v132 = (unsigned __int64)&v47[40 * v46->FileHeader.NumberOfSections];
           do
           {
             v48 = 0;
@@ -418,19 +418,11 @@ LABEL_65:
               v71 = v45;
               if ( v70 <= *((_DWORD *)v47 + 2) )
                 v70 = *((_DWORD *)v47 + 2);
-              v72 = (_QWORD *)(v129 + *((unsigned int *)v47 + 3));
+              v72 = (char *)BaseOfImage + *((unsigned int *)v47 + 3);
               v73 = v72;
-              v74 = (unsigned __int64)v72 + v70;
-              v75 = (const char *)v72;
-              if ( (unsigned __int64)v72 < v74 )
-              {
-                do
-                {
-                  _mm_prefetch(v75, 0);
-                  v75 += 64;
-                }
-                while ( (unsigned __int64)v75 < v74 );
-              }
+              v74 = &v72[v70];
+              for ( i = v72; i < v74; i += 64 )
+                _mm_prefetch(i, 0);
               v76 = v40;
               v77 = v70 >> 7;
               if ( v70 >> 7 )
@@ -448,7 +440,7 @@ LABEL_65:
                     --v78;
                   }
                   while ( v78 );
-                  v82 = __ROL8__(v40 ^ ((char *)v73 - (char *)v72), 17) ^ v40 ^ ((char *)v73 - (char *)v72);
+                  v82 = __ROL8__(v40 ^ ((char *)v73 - v72), 17) ^ v40 ^ ((char *)v73 - v72);
                   v144 = (v82 * (unsigned __int128)0x7010008004002001uLL) >> 64;
                   v83 = v71 ^ v144 ^ v82;
                   v71 = 1;
@@ -487,38 +479,38 @@ LABEL_65:
           if ( !v148 )
           {
             v89 = v130;
-            v90 = v129;
-            v91 = *(unsigned int *)(v130 + 148);
-            if ( (unsigned int)v91 >= 0x14 )
+            v90 = (char *)BaseOfImage;
+            Size = v130->OptionalHeader.DataDirectory[1].Size;
+            if ( (unsigned int)Size >= 0x14 )
             {
-              v92 = *(unsigned int *)(v130 + 144);
-              v93 = v92 + v91 + v129;
-              v94 = v92 + v129;
-              if ( v92 + v129 != v93 )
+              VirtualAddress = v130->OptionalHeader.DataDirectory[1].VirtualAddress;
+              v93 = (char *)BaseOfImage + Size + VirtualAddress;
+              v94 = (char *)BaseOfImage + VirtualAddress;
+              if ( (char *)BaseOfImage + VirtualAddress != v93 )
               {
                 do
                 {
-                  if ( !*(_DWORD *)(v94 + 12) )
+                  if ( !*((_DWORD *)v94 + 3) )
                     break;
-                  v95 = *(unsigned int *)(v94 + 16);
+                  v95 = *((unsigned int *)v94 + 4);
                   if ( !(_DWORD)v95 )
                     break;
-                  v96 = *(_QWORD *)(v95 + v90);
-                  if ( v96 && (v96 < v90 || v96 >= v90 + *(unsigned int *)(v89 + 80)) )
+                  v96 = *(char **)&v90[v95];
+                  if ( v96 && (v96 < v90 || v96 >= &v90[v89->OptionalHeader.SizeOfImage]) )
                   {
-                    LOBYTE(v97) = MmIsSessionAddress(v96);
+                    LOBYTE(v97) = MmIsSessionAddress((unsigned __int64)v96);
                     if ( v97 )
                     {
-                      RtlPcToFileHeader(v96, &v129);
-                      if ( v129 )
+                      RtlPcToFileHeader(v96, &BaseOfImage);
+                      if ( BaseOfImage )
                       {
                         v98 = 0LL;
                         v99 = qword_140C12F80;
-                        while ( *v99 != v129 )
+                        while ( (PVOID)*v99 != BaseOfImage )
                         {
                           if ( !*v99 )
                           {
-                            qword_140C12F80[v98] = v129;
+                            qword_140C12F80[v98] = (__int64)BaseOfImage;
                             break;
                           }
                           v98 = (unsigned int)(v98 + 1);
@@ -532,7 +524,7 @@ LABEL_65:
                     }
                     v89 = v130;
                   }
-                  v94 += 20LL;
+                  v94 += 20;
                 }
                 while ( v94 != v93 );
                 v88 = 0;
@@ -561,8 +553,8 @@ LABEL_115:
     v100 = (unsigned __int64)&qword_140C12E90;
     v101 = (unsigned __int64)&qword_140C12E90 & 0x3F;
     v132 = (unsigned __int64)&qword_140C12E90 & 0x3F;
-    RtlImageNtHeader(0x140000000LL);
-    RtlCaptureImageExceptionValues(0x40000000, &v138, &v128);
+    RtlImageNtHeader((PVOID)0x140000000LL);
+    RtlCaptureImageExceptionValues((void *)0x140000000LL, &v138, (ULONG *)&v128);
     v102 = v138;
     v103 = 0x140000000uLL;
     LODWORD(v128) = (unsigned int)v128 / 0xC;

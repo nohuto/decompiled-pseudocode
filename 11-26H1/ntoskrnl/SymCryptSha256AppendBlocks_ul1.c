@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x140553A30
+ * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x140555EC0
  * Callers:
- *     SymCryptSha256AppendBlocks @ 0x1405535A0 (SymCryptSha256AppendBlocks.c)
+ *     SymCryptSha256AppendBlocks @ 0x140555A30 (SymCryptSha256AppendBlocks.c)
  * Callees:
  *     <none>
  */
@@ -273,13 +273,13 @@ __int64 __fastcall SymCryptSha256AppendBlocks_ul1(__m128i *a1, __int64 a2, unsig
       v123 = _byteswap_ulong(v7[13]);
       v65 = v58;
       v66 = v132;
-      v67 = (char *)&xmmword_140024240 + 8;
+      v67 = (char *)&xmmword_140023B40 + 8;
       v68 = v123
           + (__ROR4__(v63, 11) ^ __ROR4__(v63, 25) ^ __ROR4__(v63, 6))
           + (v115 ^ v63 & (v115 ^ v58))
           + v52
           - 1046744716;
-      v114 = (char *)&xmmword_140024240 + 8;
+      v114 = (char *)&xmmword_140023B40 + 8;
       v69 = v68 + v54;
       v70 = v123;
       v116 = v69;

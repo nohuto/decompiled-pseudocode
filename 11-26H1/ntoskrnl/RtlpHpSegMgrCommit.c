@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpSegMgrCommit @ 0x14034EB50
+ * XREFs of RtlpHpSegMgrCommit @ 0x140350BD0
  * Callers:
- *     RtlpHpSegMgrRelease @ 0x14034E480 (RtlpHpSegMgrRelease.c)
- *     RtlpHpSegPageRangeCommit @ 0x14034E5D0 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegMgrAllocate @ 0x14034F948 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegMgrRelease @ 0x140350500 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegPageRangeCommit @ 0x140350650 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegMgrAllocate @ 0x1403519C8 (RtlpHpSegMgrAllocate.c)
  * Callees:
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpVaMgrCtxFree @ 0x14034FEFC (RtlpHpVaMgrCtxFree.c)
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
- *     RtlCSparseBitmapFindBitSetCapped @ 0x140350720 (RtlCSparseBitmapFindBitSetCapped.c)
- *     RtlpHpSegHeapCheckCommitLimit @ 0x1403521D4 (RtlpHpSegHeapCheckCommitLimit.c)
- *     RtlpHpAllocVA @ 0x140364350 (RtlpHpAllocVA.c)
- *     RtlpHpSegMgrCommitInitiate @ 0x14046F180 (RtlpHpSegMgrCommitInitiate.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpVaMgrCtxFree @ 0x140351F7C (RtlpHpVaMgrCtxFree.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x1403527A0 (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlpHpSegHeapCheckCommitLimit @ 0x140354258 (RtlpHpSegHeapCheckCommitLimit.c)
+ *     RtlpHpAllocVA @ 0x1403660F0 (RtlpHpAllocVA.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x140468900 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrCommit(int *a1, unsigned __int64 a2, unsigned int a3, int a4, int a5, int a6, int a7)
@@ -105,13 +105,13 @@ __int64 __fastcall RtlpHpSegMgrCommit(int *a1, unsigned __int64 a2, unsigned int
     v64 = a7;
     goto LABEL_19;
   }
-  v16 = ((a2 & 0xFFFFFFFFFFE00000uLL) - (unsigned __int64)ExpUuidLock.TrapFrame) >> 20;
+  v16 = ((a2 & 0xFFFFFFFFFFE00000uLL) - (unsigned __int64)ExpUuidLock.ApcState.ApcListHead[0].Flink) >> 20;
   v66 = a2 & 0xFFFFFFFFFFE00000uLL;
   if ( RtlCSparseBitmapFindBitSetCapped(
-         &ExpUuidLock.ApcStateFill[16],
-         8 * (v16 << ExpUuidLock.ApcStateFill[8]),
-         8 * (1LL << ExpUuidLock.ApcStateFill[8])) == -1
-    || (v17 = (char *)ExpUuidLock.ApcState.ApcListHead[1].Blink + (v16 << ExpUuidLock.ApcStateFill[8])) == 0LL )
+         &ExpUuidLock.ApcStateFill[24],
+         8 * (v16 << ExpUuidLock.ApcStateFill[16]),
+         8 * (1LL << ExpUuidLock.ApcStateFill[16])) == -1
+    || (v17 = (char *)ExpUuidLock.ApcState.Process + (v16 << ExpUuidLock.ApcStateFill[16])) == 0LL )
   {
     RtlpLogHeapFailure(22, a2 & 0xFFE00000, 0, 0, 0LL, 0LL);
     v18 = 0LL;
@@ -180,7 +180,7 @@ LABEL_36:
           v66 = v32;
           v67 = v22 + v23 - v32;
           if ( v22 + v23 != v32 )
-            RtlpHpVaMgrCtxFree(&ExpUuidLock.FirstArgument, &v66, &v67);
+            RtlpHpVaMgrCtxFree(&ExpUuidLock.TrapFrame, &v66, &v67);
           v33 = 0;
         }
         else if ( (unsigned __int8)(BYTE1(v75) - 2) > 2u )
@@ -189,20 +189,20 @@ LABEL_36:
         }
         else
         {
-          v34 = (v23 - (unsigned __int64)ExpUuidLock.TrapFrame) >> 20;
+          v34 = (v23 - (unsigned __int64)ExpUuidLock.ApcState.ApcListHead[0].Flink) >> 20;
           if ( RtlCSparseBitmapFindBitSetCapped(
-                 &ExpUuidLock.ApcStateFill[16],
-                 8 * (v34 << ExpUuidLock.ApcStateFill[8]),
-                 8 * (1LL << ExpUuidLock.ApcStateFill[8])) == -1 )
+                 &ExpUuidLock.ApcStateFill[24],
+                 8 * (v34 << ExpUuidLock.ApcStateFill[16]),
+                 8 * (1LL << ExpUuidLock.ApcStateFill[16])) == -1 )
             v35 = 0LL;
           else
-            v35 = (char *)ExpUuidLock.ApcState.ApcListHead[1].Blink + (v34 << ExpUuidLock.ApcStateFill[8]);
+            v35 = (char *)ExpUuidLock.ApcState.Process + (v34 << ExpUuidLock.ApcStateFill[16]);
           v36 = (unsigned __int8)v35[1];
           v73 = v23;
           v74 = v22;
           for ( j = 48 * v36; (*v35 & 2) != 0; v35 -= 32 )
             ;
-          v38 = (unsigned int)`RtlpHpMemoryTypePageSize'::`2'::PageSize[((unsigned __int64)byte_140E68C76[j] >> 1) & 7];
+          v38 = (unsigned int)`RtlpHpMemoryTypePageSize'::`2'::PageSize[((unsigned __int64)byte_140E68F76[j] >> 1) & 7];
           if ( (unsigned int)v38 <= 0x100000 )
           {
             if ( (unsigned int)v38 < 0x10000 )
@@ -220,8 +220,8 @@ LABEL_36:
             {
               if ( (*v35 & 4) != 0 )
                 goto LABEL_71;
-              v44 = (char *)&unk_140E68C60 + j;
-              v45 = *(_QWORD *)((char *)&unk_140E68C60 + j);
+              v44 = (char *)&unk_140E68F60 + j;
+              v45 = *(_QWORD *)((char *)&unk_140E68F60 + j);
               v46 = (v42 - *(_QWORD *)(v45 + 8)) >> 20;
               v47 = RtlCSparseBitmapFindBitSetCapped(
                       v45 + 32,

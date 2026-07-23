@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlGetFileNameInformation @ 0x1404DE5D0
+ * XREFs of FsRtlGetFileNameInformation @ 0x1404C1BD4
  * Callers:
  *     <none>
  * Callees:

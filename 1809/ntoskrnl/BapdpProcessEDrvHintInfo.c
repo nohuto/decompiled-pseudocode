@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpProcessEDrvHintInfo @ 0x1409D0D68
+ * XREFs of BapdpProcessEDrvHintInfo @ 0x1409D1D68
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x1409D1004 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x1409D2004 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x1409D160C (BapdpQueryData.c)
- *     BapdpRegisterEDrvHintInfo @ 0x1409F8C80 (BapdpRegisterEDrvHintInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x1409D260C (BapdpQueryData.c)
+ *     BapdpRegisterEDrvHintInfo @ 0x1409F9C80 (BapdpRegisterEDrvHintInfo.c)
  */
 
 void __fastcall BapdpProcessEDrvHintInfo(__int64 a1)

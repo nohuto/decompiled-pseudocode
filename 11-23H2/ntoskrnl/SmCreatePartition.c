@@ -1,18 +1,18 @@
 /*
- * XREFs of SmCreatePartition @ 0x140706428
+ * XREFs of SmCreatePartition @ 0x140706638
  * Callers:
- *     MiMakePartitionActive @ 0x140292600 (MiMakePartitionActive.c)
- *     SmProcessConfigRequest @ 0x14085BB0C (SmProcessConfigRequest.c)
- *     PspSetJobMemoryPartition @ 0x1409B2C24 (PspSetJobMemoryPartition.c)
+ *     MiMakePartitionActive @ 0x140292890 (MiMakePartitionActive.c)
+ *     SmProcessConfigRequest @ 0x14085BD4C (SmProcessConfigRequest.c)
+ *     PspSetJobMemoryPartition @ 0x1409B2E24 (PspSetJobMemoryPartition.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D354 (SSHSupportAllocateNonPaged.c)
- *     SmPartitionInitialize @ 0x14084F2DC (SmPartitionInitialize.c)
- *     SmPartitionCleanup @ 0x1409D6BB8 (SmPartitionCleanup.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     SSHSupportAllocateNonPaged @ 0x14032D5E4 (SSHSupportAllocateNonPaged.c)
+ *     SmPartitionInitialize @ 0x14084F5DC (SmPartitionInitialize.c)
+ *     SmPartitionCleanup @ 0x1409D6DB8 (SmPartitionCleanup.c)
  */
 
 __int64 __fastcall SmCreatePartition(__int64 a1)

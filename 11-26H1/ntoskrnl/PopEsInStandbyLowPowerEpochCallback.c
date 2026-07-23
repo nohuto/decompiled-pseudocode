@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsInStandbyLowPowerEpochCallback @ 0x140946710
+ * XREFs of PopEsInStandbyLowPowerEpochCallback @ 0x1409C2080
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopEsInStandbyEvaluate @ 0x14094683C (PopEsInStandbyEvaluate.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopEsInStandbyEvaluate @ 0x1409C21AC (PopEsInStandbyEvaluate.c)
  */
 
 __int64 __fastcall PopEsInStandbyLowPowerEpochCallback(
@@ -14,12 +14,8 @@ __int64 __fastcall PopEsInStandbyLowPowerEpochCallback(
         __int64 ValueLength,
         struct _KLOCK_ENTRIES *Context)
 {
-  PopAcquireRwLockExclusive(
-    (unsigned __int64 *)&PopModernStandbyStateNotify.MutantListHead.Blink,
-    Value,
-    ValueLength,
-    Context);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock, Value, ValueLength, Context);
   PopEsInStandbyEvaluate();
-  PopReleaseRwLock((struct _KTHREAD *)&PopModernStandbyStateNotify.MutantListHead.Blink);
+  PopReleaseRwLock((struct _KTHREAD *)&PopEsLock);
   return 0LL;
 }

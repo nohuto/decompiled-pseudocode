@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxCompleteDirectedPowerTransition @ 0x14056A55C
+ * XREFs of PopFxCompleteDirectedPowerTransition @ 0x14056A79C
  * Callers:
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x14056A7B4 (PopFxDerefAndCompleteDirectedPowerTransition.c)
- *     PopFxHandleDirectedPowerTransition @ 0x14056ACA8 (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x14056A9F4 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14056AEE8 (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
- *     PopFxDisableWorkOrderWatchdog @ 0x140262B58 (PopFxDisableWorkOrderWatchdog.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopFxAddLogEntry @ 0x140282184 (PopFxAddLogEntry.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x140284C74 (PopFxDisableWorkOrderWatchdog.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
- *     PopFxEnforceDirectedPowerTransition @ 0x14056AB0C (PopFxEnforceDirectedPowerTransition.c)
- *     PopDiagTraceFxDeviceDirectedCompletion @ 0x140572260 (PopDiagTraceFxDeviceDirectedCompletion.c)
- *     PopCompleteDirectedPowerTransitionCallback @ 0x140576A24 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopFxBugCheck @ 0x14056962C (PopFxBugCheck.c)
+ *     PopFxEnforceDirectedPowerTransition @ 0x14056AD4C (PopFxEnforceDirectedPowerTransition.c)
+ *     PopDiagTraceFxDeviceDirectedCompletion @ 0x1405724A0 (PopDiagTraceFxDeviceDirectedCompletion.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x140576C64 (PopCompleteDirectedPowerTransitionCallback.c)
  */
 
 LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter3, char a2)
@@ -97,7 +97,7 @@ LABEL_23:
   __writecr8(v8);
   LOBYTE(v13) = a2;
   PopDiagTraceFxDeviceDirectedCompletion(*(_QWORD *)(BugCheckParameter3 + 48), v13);
-  if ( byte_140C24E54 )
+  if ( byte_140C24EB4 )
     v12 = 0;
   else
     PopFxEnforceDirectedPowerTransition(BugCheckParameter3);

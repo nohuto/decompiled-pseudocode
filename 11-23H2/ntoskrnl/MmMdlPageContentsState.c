@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMdlPageContentsState @ 0x14033C100
+ * XREFs of MmMdlPageContentsState @ 0x14033C390
  * Callers:
- *     SmKmIssueVolumeIo @ 0x1405CB5CC (SmKmIssueVolumeIo.c)
- *     MdlInvariantPostProcessing1 @ 0x1405CF494 (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x1405CF678 (MdlInvariantPreProcessing1.c)
- *     SmKmStoreFileWriteHeader @ 0x1409DA568 (SmKmStoreFileWriteHeader.c)
+ *     SmKmIssueVolumeIo @ 0x1405CBB3C (SmKmIssueVolumeIo.c)
+ *     MdlInvariantPostProcessing1 @ 0x1405CFA04 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x1405CFBE8 (MdlInvariantPreProcessing1.c)
+ *     SmKmStoreFileWriteHeader @ 0x1409DA768 (SmKmStoreFileWriteHeader.c)
  * Callees:
  *     <none>
  */

@@ -10,9 +10,14 @@
  *     _EtwpSwitchBuffer@12 @ 0x4B2EFDE8 (_EtwpSwitchBuffer@12.c)
  */
 
-int __fastcall EtwpReserveTraceBuffer(int a1, unsigned int a2, unsigned int a3, _DWORD *a4, _DWORD *a5)
+int __fastcall EtwpReserveTraceBuffer(
+        int a1,
+        unsigned int a2,
+        unsigned int a3,
+        PLARGE_INTEGER PerformanceCounter,
+        _DWORD *a5)
 {
-  int v6; // edi
+  unsigned int v6; // edi
   unsigned int v7; // ecx
   unsigned int v8; // ebx
   unsigned int v9; // edx
@@ -20,7 +25,7 @@ int __fastcall EtwpReserveTraceBuffer(int a1, unsigned int a2, unsigned int a3, 
   int v11; // ecx
   unsigned __int32 v12; // edx
   int v13; // edi
-  _DWORD *v14; // ecx
+  PLARGE_INTEGER v14; // ecx
   unsigned __int64 v15; // rax
   unsigned int v17; // [esp+Ch] [ebp-4h]
   int v18; // [esp+Ch] [ebp-4h]
@@ -68,8 +73,8 @@ LABEL_14:
   v13 = v12 + v11;
   v18 = v12 + v11;
   *a5 = v11;
-  v14 = a4;
-  if ( a4 )
+  v14 = PerformanceCounter;
+  if ( PerformanceCounter )
   {
     if ( *(_DWORD *)(a1 + 16) == 2 )
     {
@@ -80,21 +85,21 @@ LABEL_14:
           break;
         _mm_pause();
       }
-      v14 = a4;
+      v14 = PerformanceCounter;
       v13 = v18;
-      *a4 = MEMORY[0x7FFE0014];
+      PerformanceCounter->LowPart = MEMORY[0x7FFE0014];
 LABEL_11:
-      v14[1] = HIDWORD(v15);
+      v14->HighPart = HIDWORD(v15);
     }
     else
     {
       if ( *(_DWORD *)(a1 + 16) == 3 )
       {
         v15 = __rdtsc();
-        *a4 = v15;
+        PerformanceCounter->LowPart = v15;
         goto LABEL_11;
       }
-      RtlQueryPerformanceCounter(a4);
+      RtlQueryPerformanceCounter(PerformanceCounter);
     }
   }
   return v13;

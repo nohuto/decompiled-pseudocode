@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmiCreateTerminal @ 0x1409AADA8
+ * XREFs of TtmiCreateTerminal @ 0x1409AAFA8
  * Callers:
- *     TtmInitCurrentSession @ 0x1409A3FA0 (TtmInitCurrentSession.c)
- *     TtmpDispatchCreateTerminal @ 0x1409A656C (TtmpDispatchCreateTerminal.c)
+ *     TtmInitCurrentSession @ 0x1409A41A0 (TtmInitCurrentSession.c)
+ *     TtmpDispatchCreateTerminal @ 0x1409A676C (TtmpDispatchCreateTerminal.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObject @ 0x14076B590 (ObInsertObject.c)
- *     TtmiUpdateActiveTerminalCount @ 0x1409A4DD0 (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiLogTerminalCreated @ 0x1409AA118 (TtmiLogTerminalCreated.c)
- *     TtmpSetTerminalPendingCleanup @ 0x1409ABA30 (TtmpSetTerminalPendingCleanup.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObject @ 0x14076B780 (ObInsertObject.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1409A4FD0 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiLogTerminalCreated @ 0x1409AA318 (TtmiLogTerminalCreated.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x1409ABC30 (TtmpSetTerminalPendingCleanup.c)
  */
 
 __int64 __fastcall TtmiCreateTerminal(__int64 a1, ACCESS_MASK a2, char a3, HANDLE *a4, PVOID Object, _QWORD *a6)

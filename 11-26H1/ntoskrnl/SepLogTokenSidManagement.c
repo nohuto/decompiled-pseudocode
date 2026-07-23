@@ -1,16 +1,16 @@
 /*
- * XREFs of SepLogTokenSidManagement @ 0x140B2B4E0
+ * XREFs of SepLogTokenSidManagement @ 0x140B2D560
  * Callers:
- *     SepSetTokenUserAndGroups @ 0x140A802F4 (SepSetTokenUserAndGroups.c)
- *     SepDereferenceSidValuesBlock @ 0x140B0E95C (SepDereferenceSidValuesBlock.c)
- *     SepTokenDeleteMethod @ 0x140B7CB10 (SepTokenDeleteMethod.c)
+ *     SepSetTokenUserAndGroups @ 0x140A86164 (SepSetTokenUserAndGroups.c)
+ *     SepDereferenceSidValuesBlock @ 0x140B1018C (SepDereferenceSidValuesBlock.c)
+ *     SepTokenDeleteMethod @ 0x140B85580 (SepTokenDeleteMethod.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     RtlConvertLuidToUlonglong @ 0x14063B620 (RtlConvertLuidToUlonglong.c)
- *     SepGetSidValuesDump @ 0x14063B654 (SepGetSidValuesDump.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SepGetSidManagementActionName @ 0x1407790EC (SepGetSidManagementActionName.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     RtlConvertLuidToUlonglong @ 0x14063E73C (RtlConvertLuidToUlonglong.c)
+ *     SepGetSidValuesDump @ 0x14063E770 (SepGetSidValuesDump.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SepGetSidManagementActionName @ 0x14077BF8C (SepGetSidManagementActionName.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -19,10 +19,10 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
   __int64 v7; // r8
   int v8; // edx
   unsigned __int64 LastRebalanceQpc; // rax
-  _KPROCESS **p_Process; // rcx
-  _KPROCESS **v11; // r9
+  $96231996492BD5F83A07B2C42980F173 *v10; // rcx
+  $96231996492BD5F83A07B2C42980F173 *v11; // r9
   int v12; // r10d
-  _KPROCESS **v13; // rax
+  $96231996492BD5F83A07B2C42980F173 *v13; // rax
   int v14; // r9d
   __int64 v15; // rax
   ULONG v16; // eax
@@ -47,23 +47,23 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
   int v35; // [rsp+40h] [rbp-C0h] BYREF
   ULONG v36; // [rsp+44h] [rbp-BCh] BYREF
   int v37; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v38; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v39; // [rsp+58h] [rbp-A8h] BYREF
+  ULONGLONG v38; // [rsp+50h] [rbp-B0h] BYREF
+  ULONGLONG v39; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v40; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v41; // [rsp+68h] [rbp-98h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-90h] BYREF
-  _KPROCESS **v43; // [rsp+80h] [rbp-80h]
+  $96231996492BD5F83A07B2C42980F173 *v43; // [rsp+80h] [rbp-80h]
   int v44; // [rsp+88h] [rbp-78h]
   int v45; // [rsp+8Ch] [rbp-74h]
-  _KPROCESS **v46; // [rsp+90h] [rbp-70h]
+  $96231996492BD5F83A07B2C42980F173 *v46; // [rsp+90h] [rbp-70h]
   int v47; // [rsp+98h] [rbp-68h]
   int v48; // [rsp+9Ch] [rbp-64h]
-  _KPROCESS **v49; // [rsp+A0h] [rbp-60h]
+  $96231996492BD5F83A07B2C42980F173 *v49; // [rsp+A0h] [rbp-60h]
   int v50; // [rsp+A8h] [rbp-58h]
   int v51; // [rsp+ACh] [rbp-54h]
-  __int64 *v52; // [rsp+B0h] [rbp-50h]
+  ULONGLONG *v52; // [rsp+B0h] [rbp-50h]
   __int64 v53; // [rsp+B8h] [rbp-48h]
-  __int64 *v54; // [rsp+C0h] [rbp-40h]
+  ULONGLONG *v54; // [rsp+C0h] [rbp-40h]
   __int64 v55; // [rsp+C8h] [rbp-38h]
   int *v56; // [rsp+D0h] [rbp-30h]
   __int64 v57; // [rsp+D8h] [rbp-28h]
@@ -83,12 +83,12 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
   v31 = 0;
   v35 = 0;
   v36 = 0;
-  if ( EtwpSecurityLock.MutantListHead.Blink && RtlpBootStatHandleLock.WaitBlockFill7[129] )
+  if ( EtwKernelProvRegHandle && BYTE3(RtlpBootStatHandleLock.Queue) )
   {
     if ( a4 )
     {
-      v38 = RtlConvertLuidToUlonglong(a4 + 16);
-      v39 = RtlConvertLuidToUlonglong(v26 + 24);
+      v38 = RtlConvertLuidToUlonglong((LUID)(a4 + 16));
+      v39 = RtlConvertLuidToUlonglong((LUID)(v26 + 24));
       v32 = v27[48];
       v33 = v27[49];
       v34 = v27[50];
@@ -106,15 +106,15 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     UserData.Size = v31;
     UserData.Reserved = 0;
     LastRebalanceQpc = KeGetCurrentThread()->ApcState.Process[1].LastRebalanceQpc;
-    p_Process = &RtlpBootStatHandleLock.SavedApcState.Process;
+    v10 = &RtlpBootStatHandleLock.648;
     if ( LastRebalanceQpc && *(_WORD *)LastRebalanceQpc )
     {
-      v11 = *(_KPROCESS ***)(LastRebalanceQpc + 8);
+      v11 = *($96231996492BD5F83A07B2C42980F173 **)(LastRebalanceQpc + 8);
       v12 = *(unsigned __int16 *)(LastRebalanceQpc + 2);
     }
     else
     {
-      v11 = &RtlpBootStatHandleLock.SavedApcState.Process;
+      v11 = &RtlpBootStatHandleLock.648;
       v12 = 2;
     }
     v43 = v11;
@@ -122,12 +122,12 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     v45 = 0;
     if ( v7 && *(_WORD *)(v7 + 64) )
     {
-      v13 = *(_KPROCESS ***)(v7 + 72);
+      v13 = *($96231996492BD5F83A07B2C42980F173 **)(v7 + 72);
       v14 = *(unsigned __int16 *)(v7 + 66);
     }
     else
     {
-      v13 = &RtlpBootStatHandleLock.SavedApcState.Process;
+      v13 = &RtlpBootStatHandleLock.648;
       v14 = 2;
     }
     v46 = v13;
@@ -135,10 +135,10 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     v48 = 0;
     if ( v7 && *(_WORD *)(v7 + 80) )
     {
-      p_Process = *(_KPROCESS ***)(v7 + 88);
+      v10 = *($96231996492BD5F83A07B2C42980F173 **)(v7 + 88);
       v8 = *(unsigned __int16 *)(v7 + 82);
     }
-    v49 = p_Process;
+    v49 = v10;
     v52 = &v38;
     v54 = &v39;
     v56 = &v32;
@@ -205,7 +205,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
       *(&UserData.Size + 2 * v30) = v29;
       *(&UserData.Reserved + 2 * v30) = 0;
     }
-    EtwWrite((REGHANDLE)EtwpSecurityLock.MutantListHead.Blink, &TokenSidManagementLog, 0LL, v24, &UserData);
+    EtwWrite(EtwKernelProvRegHandle, &TokenSidManagementLog, 0LL, v24, &UserData);
     if ( SidValuesDump )
       ExFreePoolWithTag(SidValuesDump, 0);
     if ( v25 )

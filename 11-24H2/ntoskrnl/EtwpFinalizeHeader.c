@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpFinalizeHeader @ 0x1409DBD1C
+ * XREFs of EtwpFinalizeHeader @ 0x1409D652C
  * Callers:
- *     EtwpBufferingModeFlush @ 0x140832840 (EtwpBufferingModeFlush.c)
- *     EtwpLogger @ 0x1409D88E0 (EtwpLogger.c)
- *     EtwpCreateLogFile @ 0x1409DA6AC (EtwpCreateLogFile.c)
+ *     EtwpBufferingModeFlush @ 0x1409D2A94 (EtwpBufferingModeFlush.c)
+ *     EtwpLogger @ 0x1409D33F0 (EtwpLogger.c)
+ *     EtwpCreateLogFile @ 0x1409D51BC (EtwpCreateLogFile.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14024CFF4 (EtwpQueryUsedProcessorCount.c)
- *     KeQuerySystemTimePrecise @ 0x14034EC60 (KeQuerySystemTimePrecise.c)
- *     EtwpAddLastDroppedEvent @ 0x1404A6D34 (EtwpAddLastDroppedEvent.c)
- *     EtwpIsListEmptyRaw @ 0x1406503EC (EtwpIsListEmptyRaw.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1406A64D0 (ZwReadFile.c)
- *     ZwWriteFile @ 0x1406A6510 (ZwWriteFile.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x1406A6D30 (ZwQueryVolumeInformationFile.c)
- *     EtwpIsWow64Logger @ 0x1409DC0DC (EtwpIsWow64Logger.c)
- *     EtwpAddDebugInfoEvents @ 0x1409DC100 (EtwpAddDebugInfoEvents.c)
- *     EtwpAddBinaryInfoEvents @ 0x1409DC3D4 (EtwpAddBinaryInfoEvents.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14027D604 (EtwpQueryUsedProcessorCount.c)
+ *     KeQuerySystemTimePrecise @ 0x14036D140 (KeQuerySystemTimePrecise.c)
+ *     EtwpAddLastDroppedEvent @ 0x1404A1604 (EtwpAddLastDroppedEvent.c)
+ *     EtwpIsListEmptyRaw @ 0x14064EA2C (EtwpIsListEmptyRaw.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1406A7470 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1406A74B0 (ZwWriteFile.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1406A7CD0 (ZwQueryVolumeInformationFile.c)
+ *     EtwpIsWow64Logger @ 0x1409D68EC (EtwpIsWow64Logger.c)
+ *     EtwpAddDebugInfoEvents @ 0x1409D6910 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1409D6BE4 (EtwpAddBinaryInfoEvents.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, char a2)
@@ -75,7 +75,7 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, char a2)
     v7 = Length;
     if ( v4 )
       v7 = *(_DWORD *)(a1 + 4);
-    Buffer = ExAllocatePool2(0x100uLL);
+    Buffer = ExAllocatePool2(0x100uLL, (v7 + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
     if ( !Buffer )
       return -1073741801;
     v9 = *(void **)(a1 + 800);

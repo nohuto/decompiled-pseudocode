@@ -1,23 +1,32 @@
 /*
- * XREFs of NtWriteFile @ 0x18015F040
+ * XREFs of NtWriteFile @ 0x18015EF40
  * Callers:
- *     EtwpAddLogHeaderToLogFile @ 0x180055750 (EtwpAddLogHeaderToLogFile.c)
- *     EtwpFlushBuffer @ 0x180078550 (EtwpFlushBuffer.c)
- *     EtwpWriteBufferCompressed @ 0x1800787C8 (EtwpWriteBufferCompressed.c)
- *     EtwpFinalizeLogFileHeader @ 0x180078A04 (EtwpFinalizeLogFileHeader.c)
- *     EtwpWriteRemainingCompressedData @ 0x180078EC4 (EtwpWriteRemainingCompressedData.c)
- *     RtlCreateBootStatusDataFile @ 0x18010BE60 (RtlCreateBootStatusDataFile.c)
- *     RtlRestoreBootStatusDefaults @ 0x18010C090 (RtlRestoreBootStatusDefaults.c)
- *     RtlpGetSetBootStatusData @ 0x18011617C (RtlpGetSetBootStatusData.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x18003FCD0 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpFlushBuffer @ 0x180066D70 (EtwpFlushBuffer.c)
+ *     EtwpWriteBufferCompressed @ 0x180066FE8 (EtwpWriteBufferCompressed.c)
+ *     EtwpFinalizeLogFileHeader @ 0x180067224 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpWriteRemainingCompressedData @ 0x1800676E4 (EtwpWriteRemainingCompressedData.c)
+ *     RtlCreateBootStatusDataFile @ 0x18010B9B0 (RtlCreateBootStatusDataFile.c)
+ *     RtlRestoreBootStatusDefaults @ 0x18010BBE0 (RtlRestoreBootStatusDefaults.c)
+ *     RtlpGetSetBootStatusData @ 0x18011595C (RtlpGetSetBootStatusData.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWriteFile()
+NTSTATUS __cdecl NtWriteFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 8LL;
+  result = 8;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

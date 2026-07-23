@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpCmciInitProcessor @ 0x1403801A8
+ * XREFs of HalpCmciInitProcessor @ 0x140380348
  * Callers:
  *     HalpCmciInit @ 0x140A8A70C (HalpCmciInit.c)
  *     HalpInitializeCmc @ 0x140A8AD2C (HalpInitializeCmc.c)
- *     HalpMcaResumeProcessorConfig @ 0x140A9520C (HalpMcaResumeProcessorConfig.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140A9507C (HalpMcaResumeProcessorConfig.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     HalpCmciSetProcessorConfig @ 0x140380098 (HalpCmciSetProcessorConfig.c)
- *     HalpCmciPollProcessor @ 0x140380298 (HalpCmciPollProcessor.c)
- *     HalpGetMcaPcrContext @ 0x140380334 (HalpGetMcaPcrContext.c)
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIsCmciImplementedAMD @ 0x140A957DC (HalpIsCmciImplementedAMD.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     HalpCmciSetProcessorConfig @ 0x140380238 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciPollProcessor @ 0x140380438 (HalpCmciPollProcessor.c)
+ *     HalpGetMcaPcrContext @ 0x1403804D4 (HalpGetMcaPcrContext.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIsCmciImplementedAMD @ 0x140A9564C (HalpIsCmciImplementedAMD.c)
  */
 
 unsigned __int8 __fastcall HalpCmciInitProcessor(__int64 a1, __int64 a2)
@@ -37,7 +37,7 @@ unsigned __int8 __fastcall HalpCmciInitProcessor(__int64 a1, __int64 a2)
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -62,10 +62,10 @@ LABEL_23:
     *(_DWORD *)(McaPcrContext + 120) = 0;
     *(_BYTE *)(McaPcrContext + 128) = 0;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;

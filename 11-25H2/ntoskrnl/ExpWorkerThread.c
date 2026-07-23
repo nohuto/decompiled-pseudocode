@@ -71,7 +71,7 @@ LONG __fastcall ExpWorkerThread(ULONG_PTR BugCheckParameter2)
   ULONG_PTR v43; // [rsp+58h] [rbp-B0h]
   __int128 v44; // [rsp+60h] [rbp-A8h]
   _QWORD v45[3]; // [rsp+70h] [rbp-98h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-80h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-80h] BYREF
   __int64 v47; // [rsp+98h] [rbp-70h] BYREF
   _QWORD v48[33]; // [rsp+A0h] [rbp-68h] BYREF
 

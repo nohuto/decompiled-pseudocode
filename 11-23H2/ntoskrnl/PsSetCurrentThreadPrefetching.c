@@ -1,12 +1,12 @@
 /*
- * XREFs of PsSetCurrentThreadPrefetching @ 0x14075C8B0
+ * XREFs of PsSetCurrentThreadPrefetching @ 0x14075CAA0
  * Callers:
  *     PfpPrefetchSharedCleanup @ 0x140684B04 (PfpPrefetchSharedCleanup.c)
- *     PfpPrefetchSharedStart @ 0x14074BE1C (PfpPrefetchSharedStart.c)
- *     PfSnSectionInfoCleanupWorkItem @ 0x14075C2C0 (PfSnSectionInfoCleanupWorkItem.c)
- *     PfSnPopulateReadList @ 0x14075C380 (PfSnPopulateReadList.c)
+ *     PfpPrefetchSharedStart @ 0x14074C00C (PfpPrefetchSharedStart.c)
+ *     PfSnSectionInfoCleanupWorkItem @ 0x14075C4B0 (PfSnSectionInfoCleanupWorkItem.c)
+ *     PfSnPopulateReadList @ 0x14075C570 (PfSnPopulateReadList.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 BOOLEAN __stdcall PsSetCurrentThreadPrefetching(BOOLEAN Prefetching)

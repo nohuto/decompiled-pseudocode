@@ -1,9 +1,9 @@
 /*
- * XREFs of MmKasanCommitRegion @ 0x14052A8A4
+ * XREFs of MmKasanCommitRegion @ 0x14052CDC4
  * Callers:
- *     KasanTrackAddressNoInline @ 0x140532270 (KasanTrackAddressNoInline.c)
+ *     KasanTrackAddressNoInline @ 0x140534710 (KasanTrackAddressNoInline.c)
  * Callees:
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
  */
 
 __int64 __fastcall MmKasanCommitRegion(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

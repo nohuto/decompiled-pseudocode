@@ -8,16 +8,15 @@
  *     sub_18005649C @ 0x18005649C (sub_18005649C.c)
  */
 
-__int64 __fastcall TpWaitForJobNotification(__int64 a1)
+int __fastcall TpWaitForJobNotification(_RTL_SRWLOCK *a1)
 {
-  __int64 result; // rax
-  __int64 v3; // r9
+  int result; // eax
 
   result = sub_18005649C(a1, 0LL);
-  if ( (_DWORD)result )
+  if ( result )
   {
     sub_180056190(a1);
-    return sub_180055584((volatile signed __int64 *)(a1 + 128), 0, (unsigned __int64 *)1, v3);
+    return sub_180055584(a1 + 16, 0, 1);
   }
   return result;
 }

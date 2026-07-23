@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSecureConnectPort @ 0x1401BB150
+ * XREFs of ZwSecureConnectPort @ 0x1401BB2B0
  * Callers:
  *     <none>
  * Callees:
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwSecureConnectPort(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, PortName, SecurityQos);
+  return KiServiceInternal(PortHandle);
 }

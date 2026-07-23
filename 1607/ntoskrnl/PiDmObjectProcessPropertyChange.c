@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDmObjectProcessPropertyChange @ 0x14050539C
+ * XREFs of PiDmObjectProcessPropertyChange @ 0x1404E832C
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x14050470C (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1404E769C (PiPnpRtlObjectEventWorker.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x1404DE6B0 (PiDmGetReferencedObjectFromProperty.c)
- *     PiDmCacheDataEncode @ 0x1404E0974 (PiDmCacheDataEncode.c)
- *     PiDmCacheDataFree @ 0x1404E9A74 (PiDmCacheDataFree.c)
- *     PnpGetObjectProperty @ 0x1404FBC64 (PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
- *     PiDmGetCacheKeys @ 0x1404FF4E4 (PiDmGetCacheKeys.c)
- *     PiDmGetCachedKeyIndex @ 0x1404FF530 (PiDmGetCachedKeyIndex.c)
- *     PiDmCacheDataDecode @ 0x1404FFBB0 (PiDmCacheDataDecode.c)
- *     PiDmObjectAcquireExclusiveLock @ 0x140506124 (PiDmObjectAcquireExclusiveLock.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x1404C1CB4 (PiDmGetReferencedObjectFromProperty.c)
+ *     PiDmCacheDataEncode @ 0x1404C3F78 (PiDmCacheDataEncode.c)
+ *     PiDmCacheDataFree @ 0x1404CBCD0 (PiDmCacheDataFree.c)
+ *     PnpGetObjectProperty @ 0x1404DEBF4 (PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
+ *     PiDmGetCacheKeys @ 0x1404E2474 (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1404E24C0 (PiDmGetCachedKeyIndex.c)
+ *     PiDmCacheDataDecode @ 0x1404E2B40 (PiDmCacheDataDecode.c)
+ *     PiDmObjectAcquireExclusiveLock @ 0x1404E90B4 (PiDmObjectAcquireExclusiveLock.c)
  */
 
 void __fastcall PiDmObjectProcessPropertyChange(

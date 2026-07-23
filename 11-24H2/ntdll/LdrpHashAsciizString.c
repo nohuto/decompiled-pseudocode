@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpHashAsciizString @ 0x1800F0854
+ * XREFs of LdrpHashAsciizString @ 0x1800EB4D4
  * Callers:
- *     LdrpCheckRedirection @ 0x180072128 (LdrpCheckRedirection.c)
- *     LdrpAddRedirectedFunction @ 0x180160C30 (LdrpAddRedirectedFunction.c)
+ *     LdrpCheckRedirection @ 0x18008EA08 (LdrpCheckRedirection.c)
+ *     LdrpAddRedirectedFunction @ 0x18015EFF0 (LdrpAddRedirectedFunction.c)
  * Callees:
  *     <none>
  */

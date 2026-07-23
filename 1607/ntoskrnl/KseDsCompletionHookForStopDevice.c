@@ -1,5 +1,5 @@
 /*
- * XREFs of KseDsCompletionHookForStopDevice @ 0x1401DD304
+ * XREFs of KseDsCompletionHookForStopDevice @ 0x1401DD130
  * Callers:
  *     <none>
  * Callees:

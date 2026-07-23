@@ -9,16 +9,15 @@
  *     sub_1800F9748 @ 0x1800F9748 (sub_1800F9748.c)
  */
 
-__int64 __fastcall sub_1800F9414(__int64 a1, __int16 a2, unsigned int *a3, _WORD *a4, unsigned int a5, _DWORD *a6)
+__int64 __fastcall sub_1800F9414(__int64 a1, __int16 a2, LCID *a3, _WORD *a4, unsigned int a5, _DWORD *a6)
 {
   __int64 v7; // rax
   __int64 v8; // r9
   unsigned __int16 *v9; // rdx
   __int64 v10; // rdx
-  unsigned int v12; // ecx
-  int v13; // [rsp+20h] [rbp-E8h] BYREF
-  char *v14; // [rsp+28h] [rbp-E0h]
-  char v15; // [rsp+30h] [rbp-D8h] BYREF
+  LCID v12; // ecx
+  _UNICODE_STRING String; // [rsp+20h] [rbp-E8h] BYREF
+  char v14; // [rsp+30h] [rbp-D8h] BYREF
 
   if ( !a1 || !a3 || !a4 || !a5 || !a6 )
     return 3221225485LL;
@@ -35,10 +34,10 @@ __int64 __fastcall sub_1800F9414(__int64 a1, __int16 a2, unsigned int *a3, _WORD
   if ( (__int16)v10 > 0 )
     return sub_1800F9748(a1, v10, a4, a5);
   v12 = *a3;
-  v14 = &v15;
-  v13 = 11141120;
-  if ( RtlLCIDToCultureName(v12, (__int64)&v13) )
-    return sub_180001E28(a4, a5, (__int64)v14);
+  String.Buffer = (PWCH)&v14;
+  *(_DWORD *)&String.Length = 11141120;
+  if ( RtlLCIDToCultureName(v12, &String) )
+    return sub_180001E28(a4, a5, (__int64)String.Buffer);
   else
     return 3221226021LL;
 }

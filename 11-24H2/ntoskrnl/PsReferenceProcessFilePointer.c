@@ -1,17 +1,18 @@
 /*
- * XREFs of PsReferenceProcessFilePointer @ 0x1408FF760
+ * XREFs of PsReferenceProcessFilePointer @ 0x140922040
  * Callers:
- *     SepVerifyDesktopAppxImage @ 0x140356A00 (SepVerifyDesktopAppxImage.c)
- *     SepMandatorySubProcessToken @ 0x1404EF064 (SepMandatorySubProcessToken.c)
- *     PsCheckProcessFileSigningLevel @ 0x1407761B0 (PsCheckProcessFileSigningLevel.c)
- *     DbgkCreateThread @ 0x1408FED24 (DbgkCreateThread.c)
- *     PspCallProcessNotifyRoutines @ 0x140938898 (PspCallProcessNotifyRoutines.c)
- *     CmpCheckExeOwnerForPca @ 0x1409A1D9C (CmpCheckExeOwnerForPca.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     SepMandatorySubProcessToken @ 0x1404EC31C (SepMandatorySubProcessToken.c)
+ *     SepVerifyDesktopAppxImage @ 0x1404EC6F0 (SepVerifyDesktopAppxImage.c)
+ *     SepVerifyUIAccessChildProcessImage @ 0x140607418 (SepVerifyUIAccessChildProcessImage.c)
+ *     PsCheckProcessFileSigningLevel @ 0x1407763D0 (PsCheckProcessFileSigningLevel.c)
+ *     CmpCheckExeOwnerForPca @ 0x1408AE8F4 (CmpCheckExeOwnerForPca.c)
+ *     PspCallProcessNotifyRoutines @ 0x1408F2F68 (PspCallProcessNotifyRoutines.c)
+ *     DbgkCreateThread @ 0x140921604 (DbgkCreateThread.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     MmGetFileObjectForSection @ 0x1408FF7D0 (MmGetFileObjectForSection.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     MmGetFileObjectForSection @ 0x1409220B0 (MmGetFileObjectForSection.c)
  */
 
 __int64 __fastcall PsReferenceProcessFilePointer(struct _EX_RUNDOWN_REF *a1, __int64 *a2)
@@ -22,7 +23,7 @@ __int64 __fastcall PsReferenceProcessFilePointer(struct _EX_RUNDOWN_REF *a1, __i
   __int64 result; // rax
 
   v2 = a1 + 61;
-  if ( ExAcquireRundownProtection(a1 + 61) )
+  if ( ExAcquireRundownProtection_0(a1 + 61) )
   {
     Count = a1[85].Count;
     if ( Count )

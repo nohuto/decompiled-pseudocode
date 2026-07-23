@@ -9,7 +9,7 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiStoreFreeWriteSupport(struct _SLIST_ENTRY *P, union _SLIST_HEADER *a2)
+void __fastcall MiStoreFreeWriteSupport(_SLIST_ENTRY *P, _SLIST_HEADER *a2)
 {
   _SLIST_ENTRY *Next; // rcx
 

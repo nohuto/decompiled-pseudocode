@@ -2,22 +2,22 @@
  * XREFs of InsertEventEntryInLookUpTable @ 0x140012AF4
  * Callers:
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
- *     PnpTraceInterruptUsage @ 0x14016DADC (PnpTraceInterruptUsage.c)
+ *     PnpTraceInterruptUsage @ 0x14016DBDC (PnpTraceInterruptUsage.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     RunningHash @ 0x140012E2C (RunningHash.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     EnableFlushTimer @ 0x140127D20 (EnableFlushTimer.c)
- *     CreateNewEventEntry @ 0x1401299F8 (CreateNewEventEntry.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D090 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     EnableFlushTimer @ 0x140127DF0 (EnableFlushTimer.c)
+ *     CreateNewEventEntry @ 0x140129AC8 (CreateNewEventEntry.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall InsertEventEntryInLookUpTable(
@@ -103,10 +103,10 @@ __int64 __fastcall InsertEventEntryInLookUpTable(
   {
     if ( (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
     {
-      v17 = KeAbPreAcquire(v5 + 272);
+      v17 = KeAbPreAcquire(v5 + 272, 0LL);
       v18 = 17;
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 272), 17LL, 0LL) )
-        ExfAcquirePushLockSharedEx((unsigned __int64 *)(v5 + 272), v17, v5 + 272);
+        ExfAcquirePushLockSharedEx((unsigned __int64 *)(v5 + 272), (_RTL_BALANCED_NODE *)v17, v5 + 272);
       v19 = 0;
       if ( v17 )
         *(_BYTE *)(v17 + 26) |= 1u;

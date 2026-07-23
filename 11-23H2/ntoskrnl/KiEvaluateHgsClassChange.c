@@ -1,7 +1,7 @@
 /*
- * XREFs of KiEvaluateHgsClassChange @ 0x140576F70
+ * XREFs of KiEvaluateHgsClassChange @ 0x140577460
  * Callers:
- *     KiUpdateThreadHgsFeedback @ 0x1405786E0 (KiUpdateThreadHgsFeedback.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140578BD0 (KiUpdateThreadHgsFeedback.c)
  * Callees:
  *     <none>
  */

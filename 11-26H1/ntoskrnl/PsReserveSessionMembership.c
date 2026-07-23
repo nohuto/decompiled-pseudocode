@@ -1,7 +1,7 @@
 /*
- * XREFs of PsReserveSessionMembership @ 0x140ABDA60
+ * XREFs of PsReserveSessionMembership @ 0x140AC0050
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x140ABD3B0 (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x140ABF9A0 (MmCreateProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

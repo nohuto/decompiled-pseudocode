@@ -1,25 +1,25 @@
 /*
- * XREFs of SepIsLockedDown @ 0x1409C8CFC
+ * XREFs of SepIsLockedDown @ 0x1409C8EFC
  * Callers:
- *     SeQuerySigningPolicyWorker @ 0x1406B7CC4 (SeQuerySigningPolicyWorker.c)
+ *     SeQuerySigningPolicyWorker @ 0x1406B7CF4 (SeQuerySigningPolicyWorker.c)
  * Callees:
- *     ZwQueryLicenseValue @ 0x14041D920 (ZwQueryLicenseValue.c)
- *     ExQueryFastCacheDevLicense @ 0x1407E1DB0 (ExQueryFastCacheDevLicense.c)
- *     KIsSideloadingEnabled @ 0x140A0A3F0 (KIsSideloadingEnabled.c)
+ *     ZwQueryLicenseValue @ 0x14041DCB0 (ZwQueryLicenseValue.c)
+ *     ExQueryFastCacheDevLicense @ 0x1407E2080 (ExQueryFastCacheDevLicense.c)
+ *     KIsSideloadingEnabled @ 0x140A0A6A0 (KIsSideloadingEnabled.c)
  */
 
 __int64 __fastcall SepIsLockedDown(unsigned __int8 a1, _BYTE *a2)
 {
   unsigned int v2; // ebx
-  int LicenseValue; // eax
+  NTSTATUS v4; // eax
   unsigned __int8 v6; // [rsp+50h] [rbp+8h] BYREF
-  int v7; // [rsp+58h] [rbp+10h]
-  int v8; // [rsp+60h] [rbp+18h]
-  int v9; // [rsp+68h] [rbp+20h] BYREF
+  int Data; // [rsp+58h] [rbp+10h] BYREF
+  ULONG ResultDataSize; // [rsp+60h] [rbp+18h] BYREF
+  ULONG Type; // [rsp+68h] [rbp+20h] BYREF
 
-  v9 = 0;
+  Type = 0;
   v2 = 0;
-  v8 = 0;
+  ResultDataSize = 0;
   v6 = 0;
   *a2 = 1;
   if ( a1 < 2u )
@@ -30,22 +30,22 @@ __int64 __fastcall SepIsLockedDown(unsigned __int8 a1, _BYTE *a2)
   v2 = KIsSideloadingEnabled(&v6);
   if ( (v2 & 0x80000000) != 0 )
     return v2;
-  v7 = v6;
+  Data = v6;
   if ( v6 )
     goto LABEL_9;
-  LicenseValue = ZwQueryLicenseValue((__int64)aTv_1, (__int64)&v9);
-  v2 = LicenseValue;
-  if ( LicenseValue != -1073741772 )
+  v4 = ZwQueryLicenseValue(&stru_140C092E0, &Type, &Data, 4u, &ResultDataSize);
+  v2 = v4;
+  if ( v4 != -1073741772 )
   {
-    if ( LicenseValue < 0 )
+    if ( v4 < 0 )
       return v2;
-    if ( !v7 )
+    if ( !Data )
       goto LABEL_8;
 LABEL_9:
     *a2 = 0;
     return v2;
   }
-  v7 = 0;
+  Data = 0;
   v2 = 0;
 LABEL_8:
   if ( ExQueryFastCacheDevLicense() )

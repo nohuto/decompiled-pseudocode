@@ -1,33 +1,33 @@
 /*
  * XREFs of PsGetProcessId @ 0x140361530
  * Callers:
- *     PopEtAggregateKeyCopyFromProcess @ 0x140674EA8 (PopEtAggregateKeyCopyFromProcess.c)
- *     EtwTraceWorkingSetInSwapStoreFail @ 0x1406EBE78 (EtwTraceWorkingSetInSwapStoreFail.c)
- *     EtwTraceWorkingSetSwap @ 0x1406EC338 (EtwTraceWorkingSetSwap.c)
- *     EtwpNotifyGuid @ 0x1406EF64C (EtwpNotifyGuid.c)
- *     PsOpenProcess @ 0x1407292A0 (PsOpenProcess.c)
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     PspProcessDelete @ 0x1407E0F30 (PspProcessDelete.c)
- *     WbDispatchOperation @ 0x1407E2B70 (WbDispatchOperation.c)
- *     EtwQueryPerformanceTraceInformation @ 0x14081C05C (EtwQueryPerformanceTraceInformation.c)
- *     MiForceCrashForInvalidAccess @ 0x140967E00 (MiForceCrashForInvalidAccess.c)
- *     MiLogHotPatchManagement @ 0x14097471C (MiLogHotPatchManagement.c)
- *     MiLogHotPatchOperation @ 0x140974B60 (MiLogHotPatchOperation.c)
- *     MiLogHotPatchOperationStatus @ 0x140974FBC (MiLogHotPatchOperationStatus.c)
- *     MiLogHotPatchPagesLocked @ 0x1409755D4 (MiLogHotPatchPagesLocked.c)
- *     MiLogHotPatchRundown @ 0x140975748 (MiLogHotPatchRundown.c)
- *     TtmpCloseTerminalHandle @ 0x1409A3930 (TtmpCloseTerminalHandle.c)
- *     TtmpOpenTerminalHandle @ 0x1409A3AB0 (TtmpOpenTerminalHandle.c)
- *     TtmpCloseQueueHandle @ 0x1409AB560 (TtmpCloseQueueHandle.c)
- *     TtmpOpenQueueHandle @ 0x1409AB660 (TtmpOpenQueueHandle.c)
- *     EtwpObjectHandleRundown @ 0x1409EA9A0 (EtwpObjectHandleRundown.c)
- *     WheaTerminateProcess @ 0x140A08E84 (WheaTerminateProcess.c)
- *     EtwTraceSystemTimeChange @ 0x140A526FC (EtwTraceSystemTimeChange.c)
+ *     sub_140674EA8 @ 0x140674EA8 (sub_140674EA8.c)
+ *     sub_1406EBE78 @ 0x1406EBE78 (sub_1406EBE78.c)
+ *     sub_1406EC338 @ 0x1406EC338 (sub_1406EC338.c)
+ *     sub_1406EF64C @ 0x1406EF64C (sub_1406EF64C.c)
+ *     sub_1407292A0 @ 0x1407292A0 (sub_1407292A0.c)
+ *     sub_14079028C @ 0x14079028C (sub_14079028C.c)
+ *     sub_1407E0F30 @ 0x1407E0F30 (sub_1407E0F30.c)
+ *     sub_1407E2B70 @ 0x1407E2B70 (sub_1407E2B70.c)
+ *     sub_14081C05C @ 0x14081C05C (sub_14081C05C.c)
+ *     sub_140967E00 @ 0x140967E00 (sub_140967E00.c)
+ *     sub_14097471C @ 0x14097471C (sub_14097471C.c)
+ *     sub_140974B60 @ 0x140974B60 (sub_140974B60.c)
+ *     sub_140974FBC @ 0x140974FBC (sub_140974FBC.c)
+ *     sub_1409755D4 @ 0x1409755D4 (sub_1409755D4.c)
+ *     sub_140975748 @ 0x140975748 (sub_140975748.c)
+ *     sub_1409A3930 @ 0x1409A3930 (sub_1409A3930.c)
+ *     sub_1409A3AB0 @ 0x1409A3AB0 (sub_1409A3AB0.c)
+ *     sub_1409AB560 @ 0x1409AB560 (sub_1409AB560.c)
+ *     sub_1409AB660 @ 0x1409AB660 (sub_1409AB660.c)
+ *     sub_1409EA9A0 @ 0x1409EA9A0 (sub_1409EA9A0.c)
+ *     sub_140A08E84 @ 0x140A08E84 (sub_140A08E84.c)
+ *     sub_140A526FC @ 0x140A526FC (sub_140A526FC.c)
  * Callees:
  *     <none>
  */
 
 HANDLE __stdcall PsGetProcessId(PEPROCESS Process)
 {
-  return Process[1].Header.WaitListHead.Flink;
+  return (HANDLE)*((_QWORD *)Process + 136);
 }

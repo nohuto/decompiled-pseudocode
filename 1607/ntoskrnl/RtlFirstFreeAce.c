@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlFirstFreeAce @ 0x140420A70
+ * XREFs of RtlFirstFreeAce @ 0x14041F930
  * Callers:
- *     RtlQueryInformationAcl @ 0x14040700C (RtlQueryInformationAcl.c)
- *     RtlAddAce @ 0x140407348 (RtlAddAce.c)
- *     RtlpInheritAcl2 @ 0x14041DCB0 (RtlpInheritAcl2.c)
- *     RtlpCombineAcls @ 0x14041E240 (RtlpCombineAcls.c)
- *     RtlAddMandatoryAce @ 0x140420B10 (RtlAddMandatoryAce.c)
- *     RtlDeleteAce @ 0x14047D15C (RtlDeleteAce.c)
- *     RtlAddProcessTrustLabelAce @ 0x140553AB8 (RtlAddProcessTrustLabelAce.c)
- *     RtlAddResourceAttributeAce @ 0x140684700 (RtlAddResourceAttributeAce.c)
- *     RtlpAddKnownObjectAce @ 0x140684A24 (RtlpAddKnownObjectAce.c)
- *     SddlAddMandatoryAce @ 0x1406CBE60 (SddlAddMandatoryAce.c)
- *     SddlAddProcessTrustLabelAce @ 0x1406CBFB8 (SddlAddProcessTrustLabelAce.c)
- *     SddlAddScopedPolicyIDAce @ 0x1406CC108 (SddlAddScopedPolicyIDAce.c)
+ *     RtlQueryInformationAcl @ 0x140405ECC (RtlQueryInformationAcl.c)
+ *     RtlAddAce @ 0x140406208 (RtlAddAce.c)
+ *     RtlpInheritAcl2 @ 0x14041CB70 (RtlpInheritAcl2.c)
+ *     RtlpCombineAcls @ 0x14041D100 (RtlpCombineAcls.c)
+ *     RtlAddMandatoryAce @ 0x14041F9D0 (RtlAddMandatoryAce.c)
+ *     RtlDeleteAce @ 0x14047C02C (RtlDeleteAce.c)
+ *     RtlAddProcessTrustLabelAce @ 0x140553FF8 (RtlAddProcessTrustLabelAce.c)
+ *     RtlAddResourceAttributeAce @ 0x1406847E4 (RtlAddResourceAttributeAce.c)
+ *     RtlpAddKnownObjectAce @ 0x140684B08 (RtlpAddKnownObjectAce.c)
+ *     SddlAddMandatoryAce @ 0x1406CBF98 (SddlAddMandatoryAce.c)
+ *     SddlAddProcessTrustLabelAce @ 0x1406CC0F0 (SddlAddProcessTrustLabelAce.c)
+ *     SddlAddScopedPolicyIDAce @ 0x1406CC240 (SddlAddScopedPolicyIDAce.c)
  * Callees:
  *     <none>
  */

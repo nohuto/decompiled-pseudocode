@@ -58,7 +58,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(char *Address, __int64 Leng
   unsigned int v15; // r12d
   int v16; // r13d
   int v17; // r14d
-  unsigned int v18; // edi
+  ULONG v18; // edi
   unsigned int v19; // edx
   struct _KTHREAD *v20; // rax
   unsigned int *v21; // rax
@@ -125,7 +125,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(char *Address, __int64 Leng
   int v83; // [rsp+68h] [rbp-1B0h]
   unsigned int v84; // [rsp+6Ch] [rbp-1ACh]
   int v85; // [rsp+70h] [rbp-1A8h]
-  unsigned int v86; // [rsp+74h] [rbp-1A4h]
+  ULONG v86; // [rsp+74h] [rbp-1A4h]
   int v87; // [rsp+78h] [rbp-1A0h]
   int v88; // [rsp+7Ch] [rbp-19Ch]
   int v89; // [rsp+80h] [rbp-198h]
@@ -513,7 +513,7 @@ LABEL_156:
         v18 = *((_DWORD *)Address + 1);
         v86 = v18;
         KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
-        v13 = NtSetIntervalProfile(v18, 0);
+        v13 = NtSetIntervalProfile(v18, ProfileTime);
         if ( v13 >= 0 )
           EtwpProfileInterval = v18;
 LABEL_28:
@@ -591,7 +591,7 @@ LABEL_119:
         switch ( v76 )
         {
           case 6:
-            updated = EtwpUpdateStackTracing((RTL_BITMAP *)v22, (__int64)v62, v61);
+            updated = EtwpUpdateStackTracing((_RTL_BITMAP *)v22, (__int64)v62, v61);
             break;
           case 15:
             updated = EtwpUpdatePmcCounters(v22, v62, v61);

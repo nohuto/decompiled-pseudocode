@@ -13,9 +13,8 @@
  *     RtlpWalkLowFragHeapSegment @ 0x1800F27F0 (RtlpWalkLowFragHeapSegment.c)
  */
 
-__int64 __fastcall RtlpWalkHeap(unsigned __int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpWalkHeap(unsigned __int64 a1, __int64 a2, char a3)
 {
-  char v3; // r14
   __int64 v7; // r9
   _QWORD *v8; // rcx
   unsigned __int64 v9; // r8
@@ -83,17 +82,16 @@ __int64 __fastcall RtlpWalkHeap(unsigned __int64 a1, __int64 a2, __int64 a3)
   int v71; // [rsp+30h] [rbp-29h]
   int v72; // [rsp+40h] [rbp-19h]
   int v73; // [rsp+50h] [rbp-9h]
-  char v74[6]; // [rsp+58h] [rbp-1h] BYREF
+  char Fields[6]; // [rsp+58h] [rbp-1h] BYREF
   __int16 v75; // [rsp+5Eh] [rbp+5h]
   unsigned __int64 v76; // [rsp+78h] [rbp+1Fh]
 
-  v3 = a3;
   if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return qword_1801420F8(a1, a2);
+    return ((__int64 (__fastcall *)(unsigned __int64, __int64))qword_1801420F8)(a1, a2);
   v7 = 1LL;
   if ( (*(_DWORD *)(a1 + 112) & 0x61000000) != 0 && (*(_DWORD *)(a1 + 112) & 0x10000000) == 0 )
   {
-    if ( !(unsigned __int8)RtlDebugWalkHeap(a1, a2, a3, 1LL) )
+    if ( !(unsigned __int8)RtlDebugWalkHeap((PVOID)a1) )
     {
       v70[0] = -1073741811;
       goto LABEL_197;
@@ -114,7 +112,7 @@ __int64 __fastcall RtlpWalkHeap(unsigned __int64 a1, __int64 a2, __int64 a3)
   v11 = *(_WORD *)(a2 + 18) & 2;
   if ( !v11 || (*(_BYTE *)(a1 + 378) != 2 ? (v12 = 0LL) : (v12 = *(_QWORD **)(a1 + 368)), v8 != v12) )
   {
-    if ( v3 && v11 )
+    if ( a3 && v11 )
     {
       v13 = v8[8];
       goto LABEL_90;
@@ -134,7 +132,7 @@ __int64 __fastcall RtlpWalkHeap(unsigned __int64 a1, __int64 a2, __int64 a3)
       v8 = 0LL;
     }
 LABEL_26:
-    if ( v3 && v13 < v8[9] )
+    if ( a3 && v13 < v8[9] )
       goto LABEL_90;
     v15 = v8[3];
     if ( v15 != a1 + 288 )
@@ -574,7 +572,7 @@ LABEL_197:
   {
     v75 = 4142;
     v76 = a1;
-    NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v74);
+    NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
   }
   return v70[0];
 }

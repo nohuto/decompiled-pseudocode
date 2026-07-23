@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTiVadQueryEventWrite @ 0x140312F64
+ * XREFs of EtwpTiVadQueryEventWrite @ 0x140313154
  * Callers:
- *     EtwTiLogQueueApcThread @ 0x140312880 (EtwTiLogQueueApcThread.c)
- *     EtwTiLogSetContextThread @ 0x1406A9180 (EtwTiLogSetContextThread.c)
+ *     EtwTiLogQueueApcThread @ 0x140312A70 (EtwTiLogQueueApcThread.c)
+ *     EtwTiLogSetContextThread @ 0x1406AA420 (EtwTiLogSetContextThread.c)
  * Callees:
- *     EtwpTiAsyncVadQueryEventWrite @ 0x140312D24 (EtwpTiAsyncVadQueryEventWrite.c)
- *     EtwpTiFillVadEventWrite @ 0x140312E2C (EtwpTiFillVadEventWrite.c)
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x140312F14 (EtwpTiAsyncVadQueryEventWrite.c)
+ *     EtwpTiFillVadEventWrite @ 0x14031301C (EtwpTiFillVadEventWrite.c)
  */
 
 void EtwpTiVadQueryEventWrite(

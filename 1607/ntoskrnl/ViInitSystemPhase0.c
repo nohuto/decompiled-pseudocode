@@ -3,14 +3,14 @@
  * Callers:
  *     VerifierInitSystem @ 0x1407B9E08 (VerifierInitSystem.c)
  * Callees:
- *     KiInitializeMutant @ 0x140085B84 (KiInitializeMutant.c)
- *     strstr @ 0x14014CF38 (strstr.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     VfRandomGetNumber @ 0x140702AD0 (VfRandomGetNumber.c)
- *     VfInitSystemNoRebootNeeded @ 0x1407031D4 (VfInitSystemNoRebootNeeded.c)
- *     VfDisableCodeIntegrityBreaks @ 0x140704378 (VfDisableCodeIntegrityBreaks.c)
- *     VfSetVerifierRunningMode @ 0x14070FE60 (VfSetVerifierRunningMode.c)
+ *     KiInitializeMutant @ 0x140087474 (KiInitializeMutant.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     VfRandomGetNumber @ 0x140702B00 (VfRandomGetNumber.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140703204 (VfInitSystemNoRebootNeeded.c)
+ *     VfDisableCodeIntegrityBreaks @ 0x1407043A8 (VfDisableCodeIntegrityBreaks.c)
+ *     VfSetVerifierRunningMode @ 0x14070FE90 (VfSetVerifierRunningMode.c)
  *     VfTriageSystem @ 0x1407B9FB0 (VfTriageSystem.c)
  *     VfInitSetVerifyDriverTargets @ 0x1407D1678 (VfInitSetVerifyDriverTargets.c)
  */
@@ -39,16 +39,16 @@ void __fastcall ViInitSystemPhase0(__int64 a1)
   if ( (v1 & 0x80u) != 0 )
     VfDisableCodeIntegrityBreaks();
   KiInitializeMutant((__int64)&ViDriversLoadLock, 0, 1);
-  qword_140300B48 = (__int64)&VfSuspectDriversList;
+  qword_140300B28 = (__int64)&VfSuspectDriversList;
   VfSuspectDriversList = (__int64)&VfSuspectDriversList;
-  qword_140300648 = (__int64)&VfExcludedDriversList;
+  qword_140300628 = (__int64)&VfExcludedDriversList;
   VfExcludedDriversList = (__int64)&VfExcludedDriversList;
-  qword_140300658 = (__int64)&VfXdvExcludedDriversList;
+  qword_140300638 = (__int64)&VfXdvExcludedDriversList;
   VfXdvExcludedDriversList = (__int64)&VfXdvExcludedDriversList;
   if ( VfVerifyMode == -1 )
   {
     VfVerifyMode = 4;
-    dword_14030727C = 4;
+    dword_1403072BC = 4;
   }
   if ( strstr(*(const char **)(a1 + 216), "SAFEBOOT:") )
   {

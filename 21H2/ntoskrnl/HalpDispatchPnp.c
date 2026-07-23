@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpDispatchPnp @ 0x140764F80
+ * XREFs of HalpDispatchPnp @ 0x140765140
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     HalpPassIrpFromFdoToPdo @ 0x1403A729C (HalpPassIrpFromFdoToPdo.c)
- *     HalpInitializeLateSystemActions @ 0x1403AD57C (HalpInitializeLateSystemActions.c)
- *     HalpAllocateCR3Root @ 0x1403CBAC8 (HalpAllocateCR3Root.c)
- *     HalpQueryInterface @ 0x140765200 (HalpQueryInterface.c)
- *     HalpQueryResources @ 0x1407B9214 (HalpQueryResources.c)
- *     HalpQueryAcpiResourceRequirements @ 0x1407B9344 (HalpQueryAcpiResourceRequirements.c)
- *     HalpQueryIdPdo @ 0x1407D0980 (HalpQueryIdPdo.c)
- *     HalpQueryDeviceRelations @ 0x1407D0D40 (HalpQueryDeviceRelations.c)
- *     HalpQueryIdFdo @ 0x1407D1728 (HalpQueryIdFdo.c)
- *     HalpInitSystemHelper @ 0x14099C0C8 (HalpInitSystemHelper.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x1403A73EC (HalpPassIrpFromFdoToPdo.c)
+ *     HalpInitializeLateSystemActions @ 0x1403AD6CC (HalpInitializeLateSystemActions.c)
+ *     HalpAllocateCR3Root @ 0x1403CBC38 (HalpAllocateCR3Root.c)
+ *     HalpQueryInterface @ 0x1407653C0 (HalpQueryInterface.c)
+ *     HalpQueryResources @ 0x1407B9734 (HalpQueryResources.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407B9864 (HalpQueryAcpiResourceRequirements.c)
+ *     HalpQueryIdPdo @ 0x1407D0AF0 (HalpQueryIdPdo.c)
+ *     HalpQueryDeviceRelations @ 0x1407D0EB0 (HalpQueryDeviceRelations.c)
+ *     HalpQueryIdFdo @ 0x1407D1898 (HalpQueryIdFdo.c)
+ *     HalpInitSystemHelper @ 0x14099D0C8 (HalpInitSystemHelper.c)
  */
 
 NTSTATUS __fastcall HalpDispatchPnp(_QWORD *Object, PIRP Irp)

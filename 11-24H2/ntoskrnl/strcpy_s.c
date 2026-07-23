@@ -1,17 +1,17 @@
 /*
- * XREFs of strcpy_s @ 0x1405042E0
+ * XREFs of strcpy_s @ 0x140501BA0
  * Callers:
- *     CmpAddProcessorConfigurationEntry @ 0x1407D4D18 (CmpAddProcessorConfigurationEntry.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x1408127CC (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x140A9857C (BiConvertNtDeviceToBootEnvironment.c)
- *     RtlIncrementCorrelationVector @ 0x140AA2130 (RtlIncrementCorrelationVector.c)
- *     ExpSystemErrorHandler2 @ 0x140B61470 (ExpSystemErrorHandler2.c)
- *     HdlspGetLine @ 0x140BADAA4 (HdlspGetLine.c)
- *     HdlspSetBlueScreenInformation @ 0x140BAE600 (HdlspSetBlueScreenInformation.c)
- *     PspCreateSecureSystemProcess @ 0x140C34DEC (PspCreateSecureSystemProcess.c)
- *     PspInitPhase0 @ 0x140C65530 (PspInitPhase0.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x1407D5208 (CmpAddProcessorConfigurationEntry.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140812F0C (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x140A94D38 (BiConvertNtDeviceToBootEnvironment.c)
+ *     RtlIncrementCorrelationVector @ 0x140A9D4C0 (RtlIncrementCorrelationVector.c)
+ *     ExpSystemErrorHandler2 @ 0x140B63540 (ExpSystemErrorHandler2.c)
+ *     HdlspGetLine @ 0x140BAFAA4 (HdlspGetLine.c)
+ *     HdlspSetBlueScreenInformation @ 0x140BB0600 (HdlspSetBlueScreenInformation.c)
+ *     PspCreateSecureSystemProcess @ 0x140C36F2C (PspCreateSecureSystemProcess.c)
+ *     PspInitPhase0 @ 0x140C676AC (PspInitPhase0.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strcpy_s(char *a1, rsize_t SizeInBytes, const char *Src)

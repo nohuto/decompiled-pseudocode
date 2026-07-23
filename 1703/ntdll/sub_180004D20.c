@@ -7,17 +7,19 @@
  *     ZwFreeVirtualMemory @ 0x1800A56C0 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall sub_180004D20(__int64 a1)
+LOGICAL __fastcall sub_180004D20(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  void *v1; // r8
+  LOGICAL result; // eax
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *(_QWORD *)(a1 + 432) )
-    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
+  v1 = *(void **)(a1 + 432);
+  if ( v1 )
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   if ( *(_QWORD *)(a1 + 440) )
   {
-    v3 = 0LL;
-    return ZwFreeVirtualMemory(-1LL, a1 + 440, &v3, 0x8000LL);
+    RegionSize = 0LL;
+    return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(a1 + 440), &RegionSize, 0x8000u);
   }
   return result;
 }

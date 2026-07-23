@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x14083FE10
+ * XREFs of PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x140841070
  * Callers:
  *     PnpRecordBlackbox @ 0x140005BB0 (PnpRecordBlackbox.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  */
 
 void __fastcall PnpRecordBlackboxDelayedRemoveWorkerInformation(_QWORD *a1)
@@ -44,7 +44,7 @@ void __fastcall PnpRecordBlackboxDelayedRemoveWorkerInformation(_QWORD *a1)
   LODWORD(InputBuffer[3]) = 11;
   InputBuffer[0] = v1;
   InputBuffer[1] = v2;
-  NtPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+  NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
   if ( v1 )
     ExFreePoolWithTag(v1, 0x4B706E50u);
 }

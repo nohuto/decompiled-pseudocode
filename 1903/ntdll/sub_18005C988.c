@@ -11,40 +11,40 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-__int64 sub_18005C988()
+NTSTATUS sub_18005C988()
 {
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rbx
-  void *Environment; // rbp
+  PRTL_USER_PROCESS_PARAMETERS ProcessParameters; // rbx
+  PVOID v1; // rbp
   size_t v2; // rdi
   void *v3; // rax
-  void *v4; // rsi
-  __int64 result; // rax
-  void *v6; // [rsp+30h] [rbp+8h]
+  PVOID v4; // rsi
+  NTSTATUS result; // eax
+  PVOID Environment; // [rsp+30h] [rbp+8h] BYREF
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  Environment = ProcessParameters->Environment;
-  if ( Environment )
+  v1 = ProcessParameters->Environment;
+  if ( v1 )
   {
     v2 = sub_18005D7A8(ProcessParameters->Environment, 1LL);
     v3 = (void *)sub_18005D77C(v2);
     v4 = v3;
     if ( !v3 )
-      return 3221225626LL;
-    memmove(v3, Environment, v2);
+      return -1073741670;
+    memmove(v3, v1, v2);
     goto LABEL_4;
   }
   v2 = 4LL;
-  result = RtlCreateEnvironmentEx(0LL);
-  if ( (int)result >= 0 )
+  result = RtlCreateEnvironmentEx(0LL, &Environment, 4u);
+  if ( result >= 0 )
   {
-    v4 = v6;
+    v4 = Environment;
 LABEL_4:
     ++ProcessParameters->EnvironmentVersion;
     ProcessParameters->Environment = v4;
     ProcessParameters->EnvironmentSize = v2;
     memset(&unk_180165B80, 0, 0x468uLL);
     sub_18005CA3C();
-    return 0LL;
+    return 0;
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckPteRelease @ 0x1401F4400
+ * XREFs of MiCheckPteRelease @ 0x1401F422C
  * Callers:
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
@@ -29,18 +29,18 @@ __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
   v3 = a1 << 25 >> 16;
   if ( !a2 )
     KeBugCheckEx(0xDAu, 0x300uLL, a1 << 25 >> 16, 0LL, 0LL);
-  if ( v3 < qword_140326AF0 || v3 >= qword_140326AF0 + (qword_140326AE0 << 21) )
+  if ( v3 < qword_140326B30 || v3 >= qword_140326B30 + (qword_140326B20 << 21) )
     KeBugCheckEx(0xDAu, 0x301uLL, a1 << 25 >> 16, 0LL, 0LL);
-  v4 = 2LL * (unsigned int)((a1 - qword_140327880) >> 3);
-  if ( _bittest64((const signed __int64 *)qword_1403274C8, v4) )
+  v4 = 2LL * (unsigned int)((a1 - qword_1403278C0) >> 3);
+  if ( _bittest64((const signed __int64 *)qword_140327508, v4) )
     KeBugCheckEx(0xDAu, 0x303uLL, v3, a2, 0LL);
   LOBYTE(v5) = 2;
-  if ( v4 && *(_DWORD *)(qword_1403274C8 + 4 * ((v4 - 2) >> 5)) >> ((v4 - 2) & 0x1F) == 2 )
+  if ( v4 && *(_DWORD *)(qword_140327508 + 4 * ((v4 - 2) >> 5)) >> ((v4 - 2) & 0x1F) == 2 )
     KeBugCheckEx(0xDAu, 0x304uLL, v3, a2, 0LL);
   v6 = v4 + 1;
-  for ( i = _bittest64((const signed __int64 *)qword_1403274C8, v4 + 1);
+  for ( i = _bittest64((const signed __int64 *)qword_140327508, v4 + 1);
         i == 1;
-        i = _bittest64((const signed __int64 *)qword_1403274C8, v6) )
+        i = _bittest64((const signed __int64 *)qword_140327508, v6) )
   {
     v6 += 2LL;
   }
@@ -50,14 +50,14 @@ __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
   v9 = v4 + 2 * BugCheckParameter4;
   for ( j = v4; j < v9; j += 2LL )
   {
-    if ( _bittest64((const signed __int64 *)qword_1403274C8, j) == 1 )
+    if ( _bittest64((const signed __int64 *)qword_140327508, j) == 1 )
       KeBugCheckEx(0xDAu, 0x306uLL, v3, v3 + (((j - v4) << 11) & 0xFFFFFFFFFFFFF000uLL), BugCheckParameter4);
   }
   v11 = v4 + 2 * (a2 - 1);
   while ( 1 )
   {
     v16 = v4 & 0x1F;
-    v14 = (volatile signed __int32 *)(qword_1403274C8 + 4 * (v4 >> 5));
+    v14 = (volatile signed __int32 *)(qword_140327508 + 4 * (v4 >> 5));
     if ( v4 >= v11 )
       break;
     LOBYTE(v12) = 1;

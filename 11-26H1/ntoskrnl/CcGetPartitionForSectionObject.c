@@ -1,11 +1,11 @@
 /*
- * XREFs of CcGetPartitionForSectionObject @ 0x14039D1F0
+ * XREFs of CcGetPartitionForSectionObject @ 0x14039EF50
  * Callers:
- *     CcPurgeCacheSection @ 0x14039B300 (CcPurgeCacheSection.c)
- *     CcGetFlushedValidData @ 0x14039E120 (CcGetFlushedValidData.c)
- *     CcNotifyOfMappedWriteComplete @ 0x14046D008 (CcNotifyOfMappedWriteComplete.c)
+ *     CcPurgeCacheSection @ 0x14039D060 (CcPurgeCacheSection.c)
+ *     CcGetFlushedValidData @ 0x14039FE80 (CcGetFlushedValidData.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x140466788 (CcNotifyOfMappedWriteComplete.c)
  * Callees:
- *     MmGetControlAreaPartition @ 0x14039D20C (MmGetControlAreaPartition.c)
+ *     MmGetControlAreaPartition @ 0x14039EF6C (MmGetControlAreaPartition.c)
  */
 
 __int64 CcGetPartitionForSectionObject()

@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefRawNeg @ 0x140403CA8
+ * XREFs of SymCryptFdefRawNeg @ 0x140403E88
  * Callers:
- *     SymCryptFdefIntNeg @ 0x1404035CC (SymCryptFdefIntNeg.c)
- *     SymCryptFdefIntSubMixedSize @ 0x140403648 (SymCryptFdefIntSubMixedSize.c)
+ *     SymCryptFdefIntNeg @ 0x1404037AC (SymCryptFdefIntNeg.c)
+ *     SymCryptFdefIntSubMixedSize @ 0x140403828 (SymCryptFdefIntSubMixedSize.c)
  * Callees:
  *     <none>
  */

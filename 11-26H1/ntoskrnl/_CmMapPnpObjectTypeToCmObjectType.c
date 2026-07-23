@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmMapPnpObjectTypeToCmObjectType @ 0x1409A2BFC
+ * XREFs of _CmMapPnpObjectTypeToCmObjectType @ 0x14096365C
  * Callers:
- *     PiDmGetCmObjectConstraintListFromCache @ 0x1409A2C44 (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x1409636A4 (PiDmGetCmObjectConstraintListFromCache.c)
  * Callees:
  *     <none>
  */

@@ -1,36 +1,47 @@
 /*
- * XREFs of NtOpenDirectoryObject @ 0x140A99DC0
+ * XREFs of NtOpenDirectoryObject @ 0x140A9DF40
  * Callers:
- *     DifNtOpenDirectoryObjectWrapper @ 0x14067CB70 (DifNtOpenDirectoryObjectWrapper.c)
+ *     DifNtOpenDirectoryObjectWrapper @ 0x140680750 (DifNtOpenDirectoryObjectWrapper.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtOpenDirectoryObject(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenDirectoryObject(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // si
   __int64 ULong64FromUser; // rax
   POBJECT_TYPE v8; // rbx
   struct _LIST_ENTRY *CurrentSilo; // rax
-  unsigned int v10; // ebx
-  __int64 v12[4]; // [rsp+48h] [rbp-20h] BYREF
+  NTSTATUS v10; // ebx
+  void *v12; // [rsp+48h] [rbp-20h] BYREF
 
-  v12[0] = 0LL;
+  v12 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(DirectoryHandle);
+    RtlWriteULong64ToUser(DirectoryHandle, ULong64FromUser);
   }
   v8 = ObpDirectoryObjectType;
   CurrentSilo = PsGetCurrentSilo();
-  v10 = ObOpenObjectByNameEx(a3, (__int64)v8, PreviousMode, 0LL, a2, 0LL, (__int64)CurrentSilo, v12);
+  v10 = ObOpenObjectByNameEx(
+          (__int64)ObjectAttributes,
+          (__int64)v8,
+          PreviousMode,
+          0LL,
+          DesiredAccess,
+          0LL,
+          (__int64)CurrentSilo,
+          &v12);
   if ( PreviousMode )
-    RtlWriteULong64ToUser(a1, v12[0]);
+    RtlWriteULong64ToUser(DirectoryHandle, (__int64)v12);
   else
-    *a1 = v12[0];
+    *DirectoryHandle = v12;
   return v10;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of DifExAcquireFastResourceSharedStarveExclusiveWrapper @ 0x14064EC60
+ * XREFs of DifExAcquireFastResourceSharedStarveExclusiveWrapper @ 0x140652840
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x140456410 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14025FA20 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall DifExAcquireFastResourceSharedStarveExclusiveWrapper(
-        struct _KTHREAD *a1,
-        ULONG_PTR BugCheckParameter2,
+        struct _KTHREAD *BugCheckParameter2,
+        ULONG_PTR a2,
         char a3)
 {
   __int128 *APIThunkContextById; // rax
@@ -48,8 +48,8 @@ char __fastcall DifExAcquireFastResourceSharedStarveExclusiveWrapper(
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    *((_QWORD *)&v18 + 1) = a1;
-    *(_QWORD *)&v18 = BugCheckParameter2;
+    *((_QWORD *)&v18 + 1) = BugCheckParameter2;
+    *(_QWORD *)&v18 = a2;
     BYTE8(v17) = a3;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
@@ -63,7 +63,7 @@ char __fastcall DifExAcquireFastResourceSharedStarveExclusiveWrapper(
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LOBYTE(v19) = ExAcquireFastResourceSharedStarveExclusive(a1, BugCheckParameter2, a3);
+  LOBYTE(v19) = ExAcquireFastResourceSharedStarveExclusive(BugCheckParameter2, a2, a3);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

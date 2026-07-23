@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpAddVetoInformation @ 0x140A90FC8
+ * XREFs of PnpAddVetoInformation @ 0x140A8D6C4
  * Callers:
- *     PnpCollectOpenHandlesCallBack @ 0x14072DBC0 (PnpCollectOpenHandlesCallBack.c)
+ *     PnpCollectOpenHandlesCallBack @ 0x14072BBD0 (PnpCollectOpenHandlesCallBack.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpAddVetoInformation(void *a1, char **a2, unsigned int a3)
@@ -64,7 +64,7 @@ void __fastcall PnpAddVetoInformation(void *a1, char **a2, unsigned int a3)
   }
   if ( v9 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x4F706E50u);
     v4 = (void **)Pool2;
     if ( !Pool2 )
       return;
@@ -82,7 +82,7 @@ LABEL_9:
     v4[1] = v4;
     *v4 = v4;
   }
-  v11 = (_QWORD *)ExAllocatePool2(0x40uLL);
+  v11 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x50706E50u);
   if ( v11 )
   {
     PsReferenceSiloContext(a1);

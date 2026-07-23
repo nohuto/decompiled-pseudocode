@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlTraceDatabaseCreate @ 0x180149E20
+ * XREFs of RtlTraceDatabaseCreate @ 0x180149CD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitializeCriticalSectionEx @ 0x18007BB90 (RtlInitializeCriticalSectionEx.c)
- *     RtlpTraceDatabaseAllocate @ 0x18014A1EC (RtlpTraceDatabaseAllocate.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlInitializeCriticalSectionEx @ 0x18006A3B0 (RtlInitializeCriticalSectionEx.c)
+ *     RtlpTraceDatabaseAllocate @ 0x18014A09C (RtlpTraceDatabaseAllocate.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlTraceDatabaseCreate(
@@ -39,7 +39,7 @@ __int64 __fastcall RtlTraceDatabaseCreate(
   *(_QWORD *)(v9 + 120) = 0LL;
   *(_QWORD *)(v9 + 112) = 0LL;
   memset_thunk_772440563353939046((void *)(v9 + 128), 0, 0x40uLL);
-  RtlInitializeCriticalSectionEx(v10 + 48, 0, 0);
+  RtlInitializeCriticalSectionEx((PRTL_CRITICAL_SECTION)(v10 + 48), 0, 0);
   v12 = RtlStackTraceHashFunction;
   *(_DWORD *)(v10 + 88) = a1;
   if ( a5 )

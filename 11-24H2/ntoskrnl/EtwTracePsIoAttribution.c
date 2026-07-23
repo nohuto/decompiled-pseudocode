@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTracePsIoAttribution @ 0x1408EA2C4
+ * XREFs of EtwTracePsIoAttribution @ 0x14085BAF4
  * Callers:
- *     PspSetJobIoAttribution @ 0x1408EA0D0 (PspSetJobIoAttribution.c)
+ *     PspSetJobIoAttribution @ 0x14085B900 (PspSetJobIoAttribution.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTracePsIoAttribution(int a1, char a2, __int64 a3, int a4)

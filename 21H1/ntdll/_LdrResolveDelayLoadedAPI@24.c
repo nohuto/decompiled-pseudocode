@@ -15,79 +15,85 @@
  *     _LdrpUnsuppressAddressTakenIat@12 @ 0x4B3345D2 (_LdrpUnsuppressAddressTakenIat@12.c)
  */
 
-int __stdcall LdrResolveDelayLoadedAPI(_BYTE *a1, _BYTE *a2, int a3, int a4, char *a5, int a6)
+PVOID __cdecl LdrResolveDelayLoadedAPI(
+        PVOID ParentModuleBase,
+        PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor,
+        PDELAYLOAD_FAILURE_DLL_CALLBACK FailureDllHook,
+        PDELAYLOAD_FAILURE_SYSTEM_ROUTINE FailureSystemHook,
+        PIMAGE_THUNK_DATA ThunkAddress,
+        ULONG Flags)
 {
-  int v6; // edi
-  int v7; // edx
+  void *v6; // edi
+  ULONG v7; // edx
   int v8; // eax
-  int v9; // ebx
-  unsigned int v10; // eax
-  unsigned int v11; // ecx
-  _DWORD *v12; // eax
+  volatile signed __int32 *v9; // ebx
+  _RTL_BALANCED_NODE *Root; // eax
+  _RTL_BALANCED_NODE *v11; // ecx
+  _RTL_BALANCED_NODE *v12; // eax
   int v13; // eax
   int v15; // eax
   char v16; // cl
   char v17; // cl
   int v18; // [esp+0h] [ebp-40h]
   int v19; // [esp+4h] [ebp-3Ch]
-  int v20; // [esp+24h] [ebp-1Ch]
+  void *ForwarderString; // [esp+24h] [ebp-1Ch]
 
   v6 = 0;
-  v7 = a6;
-  if ( (a6 & 0xFFFFDFFF) == 8 || ((LdrpPolicyBits & 4) == 0 ? (v8 = -31489) : (v8 = -32513), (v8 & a6) == 0) )
+  v7 = Flags;
+  if ( (Flags & 0xFFFFDFFF) == 8 || ((LdrpPolicyBits & 4) == 0 ? (v8 = -31489) : (v8 = -32513), (v8 & Flags) == 0) )
   {
-    if ( (*a2 & 1) != 0 )
+    if ( (DelayloadDescriptor->Attributes.AllAttributes & 1) != 0 )
     {
       v9 = 0;
-      if ( a1 )
+      if ( ParentModuleBase )
       {
-        if ( a1 == (_BYTE *)LdrpSystemDllBase )
+        if ( ParentModuleBase == (PVOID)LdrpSystemDllBase )
         {
-          v9 = LdrpNtDllDataTableEntry;
+          v9 = (volatile signed __int32 *)LdrpNtDllDataTableEntry;
         }
         else
         {
           RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-          v10 = LdrpModuleBaseAddressIndex;
-          if ( (dword_4B3A67A8 & 1) != 0 && LdrpModuleBaseAddressIndex )
-            v10 = (unsigned int)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
-          if ( v10 )
+          Root = LdrpModuleBaseAddressIndex.Root;
+          if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && LdrpModuleBaseAddressIndex.Root )
+            Root = (_RTL_BALANCED_NODE *)((unsigned int)&LdrpModuleBaseAddressIndex ^ (unsigned int)LdrpModuleBaseAddressIndex.Root);
+          if ( Root )
           {
-            while ( (unsigned int)a1 >= *(_DWORD *)(v10 - 80) )
+            while ( ParentModuleBase >= Root[-7].Children[1] )
             {
-              if ( (unsigned int)a1 <= *(_DWORD *)(v10 - 80) )
+              if ( ParentModuleBase <= Root[-7].Children[1] )
                 goto LABEL_20;
-              v11 = *(_DWORD *)(v10 + 4);
-              if ( (dword_4B3A67A8 & 1) == 0 || !v11 )
+              v11 = Root->Children[1];
+              if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) == 0 || !v11 )
                 goto LABEL_18;
-              v10 ^= v11;
+              Root = (_RTL_BALANCED_NODE *)((unsigned int)v11 ^ (unsigned int)Root);
 LABEL_19:
-              if ( !v10 )
+              if ( !Root )
               {
 LABEL_20:
-                if ( v10 )
+                if ( Root )
                 {
-                  v9 = v10 - 104;
-                  v12 = *(_DWORD **)(v10 - 104 + 80);
-                  if ( v12[3] != -1 && (*(_BYTE *)(*v12 - 32) & 0x20) == 0 )
-                    _InterlockedIncrement((volatile signed __int32 *)(v9 + 156));
+                  v9 = (volatile signed __int32 *)&Root[-9].Children[1];
+                  v12 = Root[-2].Children[0];
+                  if ( v12[1].Children[0] != (_RTL_BALANCED_NODE *)-1 && ((int)v12->Children[0][-3].Right & 0x20) == 0 )
+                    _InterlockedIncrement(v9 + 39);
                 }
                 goto LABEL_22;
               }
             }
-            v11 = *(_DWORD *)v10;
-            if ( (dword_4B3A67A8 & 1) != 0 && v11 )
+            v11 = Root->Children[0];
+            if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v11 )
             {
-              v10 ^= v11;
+              Root = (_RTL_BALANCED_NODE *)((unsigned int)v11 ^ (unsigned int)Root);
               goto LABEL_19;
             }
 LABEL_18:
-            v10 = v11;
+            Root = v11;
             goto LABEL_19;
           }
 LABEL_22:
           RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-          v7 = a6;
+          v7 = Flags;
         }
       }
       if ( v9 )
@@ -96,20 +102,20 @@ LABEL_22:
         v13 = -1073741515;
       if ( v13 >= 0 )
       {
-        v20 = *(_DWORD *)a5;
-        if ( (unsigned int)(*(_DWORD *)a5 - (_DWORD)a1) < *(_DWORD *)(v9 + 32) )
+        ForwarderString = (void *)ThunkAddress->u1.ForwarderString;
+        if ( (unsigned int)(LODWORD(ThunkAddress->u1.ForwarderString) - (_DWORD)ParentModuleBase) < *((_DWORD *)v9 + 8) )
         {
-          if ( (*(_DWORD *)(v9 + 52) & 0x8000) != 0 )
+          if ( (v9[13] & 0x8000) != 0 )
           {
-            v6 = LdrpHandleProtectedDelayload(a3, a4, a5, v7, v18, v19);
+            v6 = (void *)LdrpHandleProtectedDelayload(FailureDllHook, FailureSystemHook, ThunkAddress, v7, v18, v19);
             goto LABEL_28;
           }
-          v20 = LdrpHandleUnprotectedDelayLoad(a3, a4, a5, v7);
-          if ( v20 )
+          ForwarderString = (void *)LdrpHandleUnprotectedDelayLoad(FailureDllHook, FailureSystemHook, ThunkAddress, v7);
+          if ( ForwarderString )
           {
             if ( LdrControlFlowGuardEnforcedWithExportSuppression() )
             {
-              v15 = LdrpUnsuppressAddressTakenIat(a5 - a1);
+              v15 = LdrpUnsuppressAddressTakenIat(ParentModuleBase, (char *)ThunkAddress - (_BYTE *)ParentModuleBase);
               if ( v15 < 0 )
               {
                 v16 = ShowSnaps;
@@ -122,7 +128,7 @@ LABEL_22:
                     0,
                     "LdrResolveDelayLoadedAPI:Unable to unsuppress the export suppressed functions that are imported in t"
                     "he DLL based at 0x%p.Status = 0x%x\n",
-                    a1,
+                    ParentModuleBase,
                     v15);
                   v16 = ShowSnaps;
                 }
@@ -132,9 +138,9 @@ LABEL_22:
             }
           }
         }
-        v6 = v20;
+        v6 = ForwarderString;
 LABEL_28:
-        LdrpDereferenceModule(v9);
+        LdrpDereferenceModule((PVOID)v9);
         return v6;
       }
       v17 = ShowSnaps;
@@ -146,7 +152,7 @@ LABEL_28:
           "LdrResolveDelayLoadedAPI",
           0,
           "LdrResolveDelayLoadedAPI:Unable to locate DLL based at 0x%p.Status = 0x%x\n",
-          a1,
+          ParentModuleBase,
           v13);
         v17 = ShowSnaps;
       }

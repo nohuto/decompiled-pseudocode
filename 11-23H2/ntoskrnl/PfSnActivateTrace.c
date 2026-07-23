@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnActivateTrace @ 0x1402F5D58
+ * XREFs of PfSnActivateTrace @ 0x1402F5FE8
  * Callers:
- *     PfSnBeginTrace @ 0x14074D9B8 (PfSnBeginTrace.c)
+ *     PfSnBeginTrace @ 0x14074DBA8 (PfSnBeginTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     PfSnAddProcessTrace @ 0x1402F5E18 (PfSnAddProcessTrace.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     PfSnAddProcessTrace @ 0x1402F60A8 (PfSnAddProcessTrace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnActivateTrace(__int64 a1)
@@ -41,10 +41,13 @@ __int64 __fastcall PfSnActivateTrace(__int64 a1)
       qword_140C6A608 = a1 + 8;
     }
     KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A610);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

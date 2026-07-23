@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpChargePagedPoolQuota @ 0x14071CB4C
+ * XREFs of AlpcpChargePagedPoolQuota @ 0x14071CD4C
  * Callers:
- *     AlpcpCreateSecurityContext @ 0x14071C9C8 (AlpcpCreateSecurityContext.c)
- *     AlpcpSendMessage @ 0x1407390A0 (AlpcpSendMessage.c)
- *     AlpcpCaptureMessageData @ 0x14073AA20 (AlpcpCaptureMessageData.c)
- *     AlpcpCreateReserve @ 0x1407CFE74 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x14071CBC8 (AlpcpCreateSecurityContext.c)
+ *     AlpcpSendMessage @ 0x140739290 (AlpcpSendMessage.c)
+ *     AlpcpCaptureMessageData @ 0x14073AC10 (AlpcpCaptureMessageData.c)
+ *     AlpcpCreateReserve @ 0x1407D0144 (AlpcpCreateReserve.c)
  * Callees:
- *     PsChargeProcessPagedPoolQuota @ 0x1407B0A30 (PsChargeProcessPagedPoolQuota.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x1407B0C20 (PsChargeProcessPagedPoolQuota.c)
  */
 
 __int64 __fastcall AlpcpChargePagedPoolQuota(__int64 a1, unsigned __int64 a2)

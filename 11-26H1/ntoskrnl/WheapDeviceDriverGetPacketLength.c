@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapDeviceDriverGetPacketLength @ 0x1406D5644
+ * XREFs of WheapDeviceDriverGetPacketLength @ 0x1406D9724
  * Callers:
- *     WheaAddErrorSourceDeviceDriver @ 0x140847BD0 (WheaAddErrorSourceDeviceDriver.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x14084DEA0 (WheaAddErrorSourceDeviceDriver.c)
  * Callees:
  *     <none>
  */

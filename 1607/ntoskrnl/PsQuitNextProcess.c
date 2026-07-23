@@ -1,5 +1,5 @@
 /*
- * XREFs of PsQuitNextProcess @ 0x14054C95C
+ * XREFs of PsQuitNextProcess @ 0x14054CE9C
  * Callers:
  *     ExpDebuggerWorker @ 0x1406F3E60 (ExpDebuggerWorker.c)
  * Callees:

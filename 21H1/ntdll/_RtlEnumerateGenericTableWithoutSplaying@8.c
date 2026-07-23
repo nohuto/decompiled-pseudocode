@@ -6,26 +6,26 @@
  *     _RtlRealSuccessor@4 @ 0x4B35E030 (_RtlRealSuccessor@4.c)
  */
 
-int __stdcall RtlEnumerateGenericTableWithoutSplaying(int *a1, int *a2)
+PVOID __cdecl RtlEnumerateGenericTableWithoutSplaying(PRTL_GENERIC_TABLE Table, PVOID *RestartKey)
 {
-  int result; // eax
+  PVOID result; // eax
 
-  result = *a1;
-  if ( *a1 )
+  result = Table->TableRoot;
+  if ( Table->TableRoot )
   {
-    if ( *a2 )
+    if ( *RestartKey )
     {
-      result = RtlRealSuccessor(*a2);
+      result = RtlRealSuccessor((PRTL_SPLAY_LINKS)*RestartKey);
       if ( !result )
-        return result != 0 ? result + 24 : 0;
+        return result != 0 ? (char *)result + 24 : 0;
     }
     else
     {
-      while ( *(_DWORD *)(result + 4) )
-        result = *(_DWORD *)(result + 4);
+      while ( *((_DWORD *)result + 1) )
+        result = (PVOID)*((_DWORD *)result + 1);
     }
-    *a2 = result;
-    return result != 0 ? result + 24 : 0;
+    *RestartKey = result;
+    return result != 0 ? (char *)result + 24 : 0;
   }
   return result;
 }

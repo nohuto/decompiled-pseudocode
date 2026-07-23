@@ -28,27 +28,27 @@
  */
 
 __int64 __fastcall LdrpSearchResourceSection_U(
-        unsigned __int64 a1,
-        unsigned __int64 *a2,
+        __int64 BaseOfImage,
+        __int64 a2,
         __int64 a3,
         unsigned int a4,
-        _QWORD *a5)
+        unsigned __int64 a5)
 {
-  unsigned int v5; // r14d
-  unsigned __int64 *v6; // r15
-  unsigned __int64 v8; // rsi
+  unsigned int NumberOfSymbols; // r14d
+  unsigned __int64 *p_SizeOfInitializedData; // r15
+  _IMAGE_DATA_DIRECTORY v8; // rsi
   unsigned int v9; // r13d
-  unsigned __int16 v10; // di
+  __int16 v10; // di
   unsigned __int64 v11; // rcx
   unsigned int ResourceFromAlternativeModule; // edi
-  unsigned __int64 v13; // rax
+  _IMAGE_DATA_DIRECTORY v13; // rax
   __int64 result; // rax
-  __int64 v15; // rbx
-  unsigned __int64 String1; // rcx
-  unsigned __int64 v17; // rdx
-  __int64 v18; // r8
-  unsigned int v19; // edi
-  unsigned int v20; // eax
+  unsigned __int64 SizeOfStackCommit; // rbx
+  unsigned __int64 SizeOfStackReserve; // rdx
+  unsigned __int16 Signature; // r8
+  unsigned int v18; // edi
+  unsigned int SectionAlignment; // eax
+  unsigned int v20; // ecx
   int v21; // r9d
   __int64 v22; // r10
   unsigned int v23; // ecx
@@ -56,64 +56,41 @@ __int64 __fastcall LdrpSearchResourceSection_U(
   int v25; // ecx
   unsigned int *v26; // r8
   unsigned __int64 v27; // r11
-  _QWORD *v28; // r15
-  unsigned __int64 *v29; // rsi
-  int v30; // ebx
-  unsigned __int64 *v31; // r9
-  int v32; // eax
-  int CurrentLocale_low; // eax
-  unsigned __int64 v34; // rax
-  unsigned __int64 v35; // rax
-  unsigned int v36; // eax
-  unsigned int v37; // ebx
-  __int64 Heap; // rax
-  unsigned __int64 *v39; // r15
-  int v40; // ebx
-  _QWORD *v41; // rsi
-  unsigned int v42; // eax
+  wchar_t *String1; // rcx
+  unsigned __int64 v29; // r15
+  __int64 v30; // rsi
+  int v31; // ebx
+  __int64 v32; // r9
+  unsigned int v33; // eax
+  unsigned int TimeDateStamp_low; // eax
+  _IMAGE_DATA_DIRECTORY v35; // rax
+  _IMAGE_DATA_DIRECTORY v36; // rax
+  unsigned __int32 v37; // eax
+  unsigned int v38; // ecx
+  unsigned int Win32VersionValue; // ebx
+  PVOID Heap; // rax
+  __int64 v41; // r15
+  int v42; // ebx
+  unsigned __int64 ImageBase; // rsi
+  unsigned __int32 v44; // eax
   _DWORD *RcConfig; // rax
+  __int64 v46; // rcx
   int ParentLangId; // eax
-  _WORD v45[2]; // [rsp+40h] [rbp-128h] BYREF
-  bool v46; // [rsp+44h] [rbp-124h]
-  int v47; // [rsp+48h] [rbp-120h]
-  __int64 v48; // [rsp+50h] [rbp-118h] BYREF
-  unsigned __int16 v49; // [rsp+58h] [rbp-110h]
-  unsigned int v50; // [rsp+60h] [rbp-108h]
-  int v51; // [rsp+68h] [rbp-100h]
-  __int64 v52; // [rsp+70h] [rbp-F8h] BYREF
-  int v53; // [rsp+78h] [rbp-F0h]
-  _QWORD *v54; // [rsp+80h] [rbp-E8h]
-  unsigned int v55; // [rsp+88h] [rbp-E0h]
-  unsigned __int64 *v56; // [rsp+90h] [rbp-D8h]
-  char v57[4]; // [rsp+98h] [rbp-D0h] BYREF
-  unsigned int v58; // [rsp+9Ch] [rbp-CCh]
-  int v59; // [rsp+A0h] [rbp-C8h] BYREF
-  int v60; // [rsp+A4h] [rbp-C4h] BYREF
-  __int64 v61; // [rsp+A8h] [rbp-C0h]
-  __int64 v62; // [rsp+B0h] [rbp-B8h] BYREF
-  __int64 v63; // [rsp+B8h] [rbp-B0h] BYREF
-  int v64[2]; // [rsp+C0h] [rbp-A8h]
-  int v65; // [rsp+C8h] [rbp-A0h] BYREF
-  int v66[2]; // [rsp+D0h] [rbp-98h] BYREF
-  unsigned int *v67; // [rsp+D8h] [rbp-90h]
-  __int64 *v68; // [rsp+E0h] [rbp-88h]
-  unsigned __int64 v69; // [rsp+E8h] [rbp-80h]
-  UNICODE_STRING DestinationString; // [rsp+F0h] [rbp-78h] BYREF
-  unsigned __int64 v71; // [rsp+100h] [rbp-68h] BYREF
-  unsigned __int64 v72; // [rsp+108h] [rbp-60h]
-  unsigned __int64 v73; // [rsp+110h] [rbp-58h]
-  unsigned __int64 v74; // [rsp+118h] [rbp-50h]
+  _WORD v48[2]; // [rsp+40h] [rbp-128h] BYREF
+  bool v49; // [rsp+44h] [rbp-124h]
+  NTSTATUS DefaultLocale; // [rsp+48h] [rbp-120h]
+  _IMAGE_NT_HEADERS64 OutHeaders; // [rsp+50h] [rbp-118h] BYREF
 
-  v5 = a4;
-  v51 = a3;
-  v6 = a2;
-  v50 = a4;
-  v54 = a5;
-  v56 = a2;
-  v46 = 0;
+  NumberOfSymbols = a4;
+  *(_DWORD *)&OutHeaders.OptionalHeader.Magic = a3;
+  p_SizeOfInitializedData = (unsigned __int64 *)a2;
+  OutHeaders.FileHeader.NumberOfSymbols = a4;
+  OutHeaders.OptionalHeader.ImageBase = a5;
+  *(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion = a2;
+  v49 = 0;
   v8 = 0LL;
-  *(_QWORD *)v66 = 0LL;
-  v58 = 0;
+  *(_QWORD *)&OutHeaders.OptionalHeader.LoaderFlags = 0LL;
+  OutHeaders.OptionalHeader.Win32VersionValue = 0;
   if ( (unsigned int)a3 < 3 && (a4 & 2) == 0
     || (unsigned int)a3 > 4
     || (a4 & 0x41) != 0 && (_DWORD)a3 != 4
@@ -124,254 +101,259 @@ __int64 __fastcall LdrpSearchResourceSection_U(
   v9 = 3;
   if ( (_DWORD)a3 != 4 )
     v9 = a3;
-  v55 = v9;
+  OutHeaders.OptionalHeader.SectionAlignment = v9;
   if ( (~(_BYTE)a4 & 0x10) != 0 && v9 - 1 <= 2 )
   {
     if ( v9 == 3 )
-      v10 = *((_WORD *)a2 + 8);
+      v10 = *(_WORD *)(a2 + 16);
     else
       v10 = 0;
-    v49 = v10;
-    v11 = *a2;
-    if ( ((*a2 - 16) & 0xFFFFFFFFFFFFFFF7uLL) != 0
+    LOWORD(OutHeaders.FileHeader.TimeDateStamp) = v10;
+    v11 = *(_QWORD *)a2;
+    if ( ((*(_QWORD *)a2 - 16LL) & 0xFFFFFFFFFFFFFFF7uLL) != 0
       && ((v11 & 0xFFFFFFFFFFFF0000uLL) == 0 || wcsicmp((const wchar_t *)v11, L"MUI"))
-      || (~(_BYTE)v5 & 8) == 0
+      || (~(_BYTE)NumberOfSymbols & 8) == 0
       || (v10 & 0xF3FF) != 0
       || v10 == 3072 )
     {
-      v5 |= LdrIsResItemExist(a1, v6, a3, v5);
-      v50 = v5;
-      if ( (v5 & 0x40000) != 0 )
+      NumberOfSymbols |= LdrIsResItemExist((void *)BaseOfImage, p_SizeOfInitializedData, a3, NumberOfSymbols);
+      OutHeaders.FileHeader.NumberOfSymbols = NumberOfSymbols;
+      if ( (NumberOfSymbols & 0x40000) != 0 )
       {
         ResourceFromAlternativeModule = -1073741686;
-        v47 = -1073741686;
-        if ( (v5 & 0x20000) == 0 )
+        DefaultLocale = -1073741686;
+        if ( (NumberOfSymbols & 0x20000) == 0 )
         {
-          v71 = *v6;
+          OutHeaders.OptionalHeader.DataDirectory[5] = (_IMAGE_DATA_DIRECTORY)*p_SizeOfInitializedData;
           if ( v9 < 2 )
             v13 = 0LL;
           else
-            v13 = v6[1];
-          v72 = v13;
+            v13 = (_IMAGE_DATA_DIRECTORY)p_SizeOfInitializedData[1];
+          OutHeaders.OptionalHeader.DataDirectory[6] = v13;
           if ( v9 == 3 )
-            v8 = v6[2];
-          v73 = v8;
-          if ( v51 == 4 )
-            v74 = v6[3];
+            v8 = (_IMAGE_DATA_DIRECTORY)p_SizeOfInitializedData[2];
+          OutHeaders.OptionalHeader.DataDirectory[7] = v8;
+          if ( *(_DWORD *)&OutHeaders.OptionalHeader.Magic == 4 )
+            OutHeaders.OptionalHeader.DataDirectory[8] = (_IMAGE_DATA_DIRECTORY)p_SizeOfInitializedData[3];
           ResourceFromAlternativeModule = LdrpLoadResourceFromAlternativeModule(
-                                            a1,
-                                            (unsigned int)&v71,
-                                            v51,
-                                            v5,
-                                            (__int64)v54);
-          v47 = ResourceFromAlternativeModule;
+                                            (PVOID)BaseOfImage,
+                                            OutHeaders.OptionalHeader.ImageBase);
+          DefaultLocale = ResourceFromAlternativeModule;
         }
         return ResourceFromAlternativeModule;
       }
     }
     else
     {
-      v5 |= 0x10u;
-      v50 = v5;
+      NumberOfSymbols |= 0x10u;
+      OutHeaders.FileHeader.NumberOfSymbols = NumberOfSymbols;
     }
   }
-  if ( (int)RtlpImageDirectoryEntryToDataEx(a1, 1, 2u, &v60, (__int64)&v48) < 0 )
+  if ( RtlpImageDirectoryEntryToDataEx(BaseOfImage, 1, 2u, &OutHeaders.OptionalHeader.SizeOfHeaders, &OutHeaders) < 0 )
   {
-    v15 = 0LL;
-    v48 = 0LL;
+    SizeOfStackCommit = 0LL;
+    *(_QWORD *)&OutHeaders.Signature = 0LL;
   }
   else
   {
-    v15 = v48;
+    SizeOfStackCommit = *(_QWORD *)&OutHeaders.Signature;
   }
-  *(_QWORD *)v64 = v15;
-  if ( !v15 )
+  OutHeaders.OptionalHeader.SizeOfHeapReserve = SizeOfStackCommit;
+  if ( !SizeOfStackCommit )
     return 3221225609LL;
-  result = LdrpResGetMappingSize(a1, (unsigned __int64 *)v66, 256, 1);
-  v47 = result;
+  result = LdrpResGetMappingSize(BaseOfImage, (unsigned __int64 *)&OutHeaders.OptionalHeader.LoaderFlags, 256, 1);
+  DefaultLocale = result;
   if ( (int)result >= 0 )
   {
-    v63 = v15;
-    v52 = 61166LL;
-    v53 = 0;
-    v17 = 0LL;
-    v62 = 0LL;
-    v61 = 0LL;
-    v18 = 0LL;
-    LODWORD(v48) = 0;
-    v45[0] = 0;
-    v49 = 0;
-    v59 = 0;
-    v19 = -1073741308;
+    OutHeaders.OptionalHeader.SizeOfStackCommit = SizeOfStackCommit;
+    *(_QWORD *)&OutHeaders.OptionalHeader.SizeOfInitializedData = 61166LL;
+    OutHeaders.OptionalHeader.AddressOfEntryPoint = 0;
+    SizeOfStackReserve = 0LL;
+    OutHeaders.OptionalHeader.SizeOfStackReserve = 0LL;
+    *(_QWORD *)&OutHeaders.OptionalHeader.CheckSum = 0LL;
+    Signature = 0;
+    OutHeaders.Signature = 0;
+    v48[0] = 0;
+    LOWORD(OutHeaders.FileHeader.TimeDateStamp) = 0;
+    OutHeaders.OptionalHeader.SizeOfImage = 0;
+    v18 = -1073741308;
     while ( 1 )
     {
-      if ( !v15 )
+      if ( !SizeOfStackCommit )
         goto LABEL_52;
-      v20 = v55;
-      String1 = --v55;
-      if ( !v20 )
+      SectionAlignment = OutHeaders.OptionalHeader.SectionAlignment;
+      v20 = --OutHeaders.OptionalHeader.SectionAlignment;
+      if ( !SectionAlignment )
         goto LABEL_52;
-      if ( !(_DWORD)String1 && v9 == 3 )
-        v61 = v15;
-      if ( v61 )
+      if ( !v20 && v9 == 3 )
+        *(_QWORD *)&OutHeaders.OptionalHeader.CheckSum = SizeOfStackCommit;
+      if ( *(_QWORD *)&OutHeaders.OptionalHeader.CheckSum )
       {
-        v18 = 0LL;
-        LODWORD(v48) = 0;
-        v45[0] = 0;
-        v31 = v56;
-        v49 = *((_WORD *)v56 + 8);
-        v46 = (v49 & 0x3FF) == 0;
+        Signature = 0;
+        OutHeaders.Signature = 0;
+        v48[0] = 0;
+        v32 = *(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion;
+        LOWORD(OutHeaders.FileHeader.TimeDateStamp) = *(_WORD *)(*(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion
+                                                               + 16LL);
+        v49 = (OutHeaders.FileHeader.TimeDateStamp & 0x3FF) == 0;
         while ( 1 )
         {
-          v32 = v53++;
-          if ( v32 )
+          v33 = OutHeaders.OptionalHeader.AddressOfEntryPoint++;
+          if ( v33 )
           {
-            switch ( v32 )
+            switch ( v33 )
             {
-              case 1:
-                if ( (~v5 & 0x20000) == 0 || (~v5 & 0x80000) == 0 || (~(_BYTE)v5 & 0x10) == 0 )
+              case 1u:
+                if ( (~NumberOfSymbols & 0x20000) == 0
+                  || (~NumberOfSymbols & 0x80000) == 0
+                  || (~(_BYTE)NumberOfSymbols & 0x10) == 0 )
+                {
                   goto LABEL_68;
-                v71 = *v31;
+                }
+                OutHeaders.OptionalHeader.DataDirectory[5] = *(_IMAGE_DATA_DIRECTORY *)v32;
                 if ( v9 < 2 )
-                  v34 = 0LL;
-                else
-                  v34 = v31[1];
-                v72 = v34;
-                if ( v9 == 3 )
-                  v35 = v31[2];
-                else
                   v35 = 0LL;
-                v73 = v35;
-                if ( v51 == 4 )
-                  v74 = v31[3];
-                result = LdrpLoadResourceFromAlternativeModule(a1, (unsigned int)&v71, v51, v5, (__int64)v54);
-                v47 = result;
+                else
+                  v35 = *(_IMAGE_DATA_DIRECTORY *)(v32 + 8);
+                OutHeaders.OptionalHeader.DataDirectory[6] = v35;
+                if ( v9 == 3 )
+                  v36 = *(_IMAGE_DATA_DIRECTORY *)(v32 + 16);
+                else
+                  v36 = 0LL;
+                OutHeaders.OptionalHeader.DataDirectory[7] = v36;
+                if ( *(_DWORD *)&OutHeaders.OptionalHeader.Magic == 4 )
+                  OutHeaders.OptionalHeader.DataDirectory[8] = *(_IMAGE_DATA_DIRECTORY *)(v32 + 24);
+                result = LdrpLoadResourceFromAlternativeModule((PVOID)BaseOfImage, OutHeaders.OptionalHeader.ImageBase);
+                DefaultLocale = result;
                 if ( (int)result < 0 )
                   goto LABEL_68;
                 return result;
-              case 2:
-                if ( v46 )
+              case 2u:
+                if ( v49 )
                   goto LABEL_68;
-                CurrentLocale_low = v49;
+                TimeDateStamp_low = LOWORD(OutHeaders.FileHeader.TimeDateStamp);
                 goto LABEL_69;
-              case 3:
-                if ( (v5 & 4) != 0 )
+              case 3u:
+                if ( (NumberOfSymbols & 4) != 0 )
                   return 3221225988LL;
-                if ( v46 )
+                if ( v49 )
                   goto LABEL_68;
-                ParentLangId = LdrpGetParentLangId((unsigned __int16)v18, v45);
+                ParentLangId = LdrpGetParentLangId(Signature, v48);
                 if ( ParentLangId < 0 )
                   goto LABEL_86;
-                LODWORD(v48) = v45[0];
-                if ( v45[0] )
-                  --v53;
+                OutHeaders.Signature = v48[0];
+                if ( v48[0] )
+                  --OutHeaders.OptionalHeader.AddressOfEntryPoint;
                 break;
-              case 4:
-                if ( v46 )
+              case 4u:
+                if ( v49 )
                   goto LABEL_68;
-                CurrentLocale_low = v49;
-                LOWORD(CurrentLocale_low) = v49 & 0x3FF;
+                TimeDateStamp_low = LOWORD(OutHeaders.FileHeader.TimeDateStamp);
+                LOWORD(TimeDateStamp_low) = OutHeaders.FileHeader.TimeDateStamp & 0x3FF;
                 goto LABEL_69;
-              case 5:
-                if ( v46 )
+              case 5u:
+                if ( v49 )
                   goto LABEL_68;
                 return 3221225988LL;
-              case 6:
-                LODWORD(v48) = (unsigned __int16)v52;
-                v45[0] = v52;
-                if ( (v5 & 0x20) != 0 )
+              case 6u:
+                OutHeaders.Signature = LOWORD(OutHeaders.OptionalHeader.SizeOfInitializedData);
+                v48[0] = OutHeaders.OptionalHeader.SizeOfInitializedData;
+                if ( (NumberOfSymbols & 0x20) != 0 )
                   break;
-                v45[0] = 0;
+                v48[0] = 0;
                 if ( (unsigned __int8)LdrpSetThreadPreferredLangList() )
                 {
-                  String1 = *((unsigned __int16 *)NtCurrentTeb()->MergedPrefLanguages + 2);
-                  if ( v58 >= (unsigned int)String1 )
+                  v38 = *((unsigned __int16 *)NtCurrentTeb()->MergedPrefLanguages + 2);
+                  if ( OutHeaders.OptionalHeader.Win32VersionValue >= v38 )
                   {
-                    v45[0] = 0;
+                    v48[0] = 0;
                   }
                   else
                   {
-                    v37 = v58;
+                    Win32VersionValue = OutHeaders.OptionalHeader.Win32VersionValue;
                     GetLCIDFromLangListNodeWithLICCheck(
-                      String1,
+                      v38,
                       NtCurrentTeb()->MergedPrefLanguages,
-                      v58,
-                      (unsigned int)v45,
-                      (__int64)v57);
-                    LODWORD(v48) = v45[0];
-                    if ( v45[0] )
+                      OutHeaders.OptionalHeader.Win32VersionValue,
+                      (unsigned int)v48,
+                      (__int64)&OutHeaders.OptionalHeader.MajorSubsystemVersion);
+                    OutHeaders.Signature = v48[0];
+                    if ( v48[0] )
                     {
-                      v58 = v37 + 1;
-                      --v53;
-                      v5 = v50;
+                      OutHeaders.OptionalHeader.Win32VersionValue = Win32VersionValue + 1;
+                      --OutHeaders.OptionalHeader.AddressOfEntryPoint;
+                      NumberOfSymbols = OutHeaders.FileHeader.NumberOfSymbols;
                       break;
                     }
                   }
-                  v5 = v50;
+                  NumberOfSymbols = OutHeaders.FileHeader.NumberOfSymbols;
                 }
                 else
                 {
-                  v45[0] = 0;
+                  v48[0] = 0;
                 }
                 goto LABEL_68;
-              case 7:
-                if ( (~v5 & 0x80000) == 0 )
+              case 7u:
+                if ( (~NumberOfSymbols & 0x80000) == 0 )
                   goto LABEL_68;
-                RcConfig = LdrpGetRcConfig(a1, 0x180000000LL, 0, 1);
+                RcConfig = LdrpGetRcConfig((PVOID)BaseOfImage, 0x180000000LL, 0, 1);
                 if ( !RcConfig )
                   goto LABEL_68;
                 if ( *RcConfig != -20054323 )
                   goto LABEL_68;
-                String1 = (unsigned int)RcConfig[31];
-                if ( !(_DWORD)String1 )
+                v46 = (unsigned int)RcConfig[31];
+                if ( !(_DWORD)v46 )
                   goto LABEL_68;
-                RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)RcConfig + String1));
-                if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v60) )
+                RtlInitUnicodeString(
+                  (PUNICODE_STRING)&OutHeaders.OptionalHeader.DataDirectory[3],
+                  (PCWSTR)((char *)RcConfig + v46));
+                if ( !RtlCultureNameToLCID(
+                        (PUNICODE_STRING)&OutHeaders.OptionalHeader.DataDirectory[3],
+                        &OutHeaders.OptionalHeader.SizeOfHeaders) )
                   goto LABEL_68;
-                CurrentLocale_low = (unsigned __int16)v60;
+                TimeDateStamp_low = LOWORD(OutHeaders.OptionalHeader.SizeOfHeaders);
                 goto LABEL_69;
-              case 8:
-                LODWORD(v48) = (unsigned __int16)v52;
-                v45[0] = v52;
-                if ( (~v5 & 0x80000) != 0 )
+              case 8u:
+                OutHeaders.Signature = LOWORD(OutHeaders.OptionalHeader.SizeOfInitializedData);
+                v48[0] = OutHeaders.OptionalHeader.SizeOfInitializedData;
+                if ( (~NumberOfSymbols & 0x80000) != 0 )
                   goto LABEL_155;
                 if ( NtCurrentTeb() )
                 {
-                  CurrentLocale_low = LOWORD(NtCurrentTeb()->CurrentLocale);
-                  v45[0] = CurrentLocale_low;
+                  TimeDateStamp_low = LOWORD(NtCurrentTeb()->CurrentLocale);
+                  v48[0] = TimeDateStamp_low;
                 }
                 else
                 {
-                  CurrentLocale_low = v45[0];
+                  TimeDateStamp_low = v48[0];
                 }
-                v5 = v50;
+                NumberOfSymbols = OutHeaders.FileHeader.NumberOfSymbols;
                 goto LABEL_70;
-              case 9:
-                LODWORD(v48) = (unsigned __int16)v52;
-                v45[0] = v52;
-                LOBYTE(String1) = 1;
-                v47 = NtQueryDefaultLocale(String1, &v59, v18);
-                if ( v47 < 0 )
+              case 9u:
+                OutHeaders.Signature = LOWORD(OutHeaders.OptionalHeader.SizeOfInitializedData);
+                v48[0] = OutHeaders.OptionalHeader.SizeOfInitializedData;
+                DefaultLocale = NtQueryDefaultLocale(1u, &OutHeaders.OptionalHeader.SizeOfImage);
+                if ( DefaultLocale < 0 )
                   break;
-                CurrentLocale_low = (unsigned __int16)v59;
+                TimeDateStamp_low = LOWORD(OutHeaders.OptionalHeader.SizeOfImage);
                 goto LABEL_69;
-              case 10:
-                LODWORD(v48) = (unsigned __int16)v52;
-                v45[0] = v52;
-                v47 = NtQueryDefaultLocale(0LL, &v65, v18);
-                if ( v47 < 0 )
+              case 0xAu:
+                OutHeaders.Signature = LOWORD(OutHeaders.OptionalHeader.SizeOfInitializedData);
+                v48[0] = OutHeaders.OptionalHeader.SizeOfInitializedData;
+                DefaultLocale = NtQueryDefaultLocale(0, (PLCID)&OutHeaders.OptionalHeader.SizeOfHeapCommit);
+                if ( DefaultLocale < 0 )
                   break;
-                CurrentLocale_low = v65;
-                if ( v65 == v59 )
+                TimeDateStamp_low = OutHeaders.OptionalHeader.SizeOfHeapCommit;
+                if ( LODWORD(OutHeaders.OptionalHeader.SizeOfHeapCommit) == OutHeaders.OptionalHeader.SizeOfImage )
                   break;
                 goto LABEL_69;
-              case 11:
-                CurrentLocale_low = 1033;
+              case 0xBu:
+                TimeDateStamp_low = 1033;
                 goto LABEL_69;
-              case 12:
+              case 0xCu:
 LABEL_155:
-                v5 |= 0x20u;
-                v50 = v5;
+                NumberOfSymbols |= 0x20u;
+                OutHeaders.FileHeader.NumberOfSymbols = NumberOfSymbols;
                 break;
               default:
                 return 3221225988LL;
@@ -379,42 +361,42 @@ LABEL_155:
           }
           else
           {
-            if ( v49 )
+            if ( LOWORD(OutHeaders.FileHeader.TimeDateStamp) )
             {
-              if ( (v5 & 0x80000) != 0 )
-                CurrentLocale_low = v49;
+              if ( (NumberOfSymbols & 0x80000) != 0 )
+                TimeDateStamp_low = LOWORD(OutHeaders.FileHeader.TimeDateStamp);
               else
 LABEL_68:
-                CurrentLocale_low = (unsigned __int16)v52;
+                TimeDateStamp_low = LOWORD(OutHeaders.OptionalHeader.SizeOfInitializedData);
             }
             else
             {
 LABEL_86:
-              CurrentLocale_low = 0;
+              TimeDateStamp_low = 0;
             }
 LABEL_69:
-            v45[0] = CurrentLocale_low;
+            v48[0] = TimeDateStamp_low;
 LABEL_70:
-            LODWORD(v48) = CurrentLocale_low;
+            OutHeaders.Signature = TimeDateStamp_low;
           }
-          if ( (~(_BYTE)v5 & 0x20) == 0 )
+          if ( (~(_BYTE)NumberOfSymbols & 0x20) == 0 )
             break;
-          v18 = (unsigned int)v48;
-          if ( (unsigned __int16)v48 != v52 )
+          Signature = OutHeaders.Signature;
+          if ( LOWORD(OutHeaders.Signature) != *(_QWORD *)&OutHeaders.OptionalHeader.SizeOfInitializedData )
             goto LABEL_73;
 LABEL_75:
-          v31 = v56;
+          v32 = *(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion;
         }
-        LOWORD(v18) = v48;
+        Signature = OutHeaders.Signature;
 LABEL_73:
-        v52 = (unsigned __int16)v18;
-        v6 = (unsigned __int64 *)&v52;
-        v68 = &v52;
-        v15 = v61;
-        v63 = v61;
+        *(_QWORD *)&OutHeaders.OptionalHeader.SizeOfInitializedData = Signature;
+        p_SizeOfInitializedData = (unsigned __int64 *)&OutHeaders.OptionalHeader.SizeOfInitializedData;
+        OutHeaders.OptionalHeader.DataDirectory[1] = (_IMAGE_DATA_DIRECTORY)&OutHeaders.OptionalHeader.SizeOfInitializedData;
+        SizeOfStackCommit = *(_QWORD *)&OutHeaders.OptionalHeader.CheckSum;
+        OutHeaders.OptionalHeader.SizeOfStackCommit = *(_QWORD *)&OutHeaders.OptionalHeader.CheckSum;
       }
-      v21 = *(unsigned __int16 *)(v15 + 14);
-      v22 = *(unsigned __int16 *)(v15 + 12);
+      v21 = *(unsigned __int16 *)(SizeOfStackCommit + 14);
+      v22 = *(unsigned __int16 *)(SizeOfStackCommit + 12);
       v23 = v22 + v21;
       if ( (int)v22 + v21 < (unsigned int)v22 )
       {
@@ -425,11 +407,11 @@ LABEL_73:
       {
         result = 0LL;
       }
-      v47 = result;
+      DefaultLocale = result;
       if ( (int)result < 0 )
         return result;
       v24 = 8LL * v23;
-      v69 = v24;
+      OutHeaders.OptionalHeader.DataDirectory[2] = (_IMAGE_DATA_DIRECTORY)v24;
       if ( v24 > 0xFFFFFFFF )
       {
         LODWORD(v24) = -1;
@@ -439,201 +421,211 @@ LABEL_73:
       {
         v25 = 0;
       }
-      v47 = v25;
+      DefaultLocale = v25;
       if ( v25 < 0 )
         return (unsigned int)v25;
-      v26 = (unsigned int *)(v15 + 16);
-      v67 = (unsigned int *)(v15 + 16);
-      v27 = *(_QWORD *)v66 + (a1 & 0xFFFFFFFFFFFFFFFCuLL);
-      if ( v15 + 16 + (unsigned __int64)(unsigned int)v24 > v27 )
+      v26 = (unsigned int *)(SizeOfStackCommit + 16);
+      OutHeaders.OptionalHeader.DataDirectory[0] = (_IMAGE_DATA_DIRECTORY)(SizeOfStackCommit + 16);
+      v27 = *(_QWORD *)&OutHeaders.OptionalHeader.LoaderFlags + (BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( SizeOfStackCommit + 16 + (unsigned int)v24 > v27 )
         return 3221225595LL;
-      String1 = *v6;
-      if ( (*v6 & 0xFFFFFFFFFFFF0000uLL) == 0 )
+      String1 = (wchar_t *)*p_SizeOfInitializedData;
+      if ( (*p_SizeOfInitializedData & 0xFFFFFFFFFFFF0000uLL) == 0 )
       {
         v26 += 2 * v22;
-        v67 = v26;
+        OutHeaders.OptionalHeader.DataDirectory[0] = (_IMAGE_DATA_DIRECTORY)v26;
         LOWORD(v22) = v21;
       }
       if ( !(_WORD)v22 )
       {
-        switch ( v9 - v55 )
+        switch ( v9 - OutHeaders.OptionalHeader.SectionAlignment )
         {
           case 1u:
-            v19 = -1073741686;
+            v18 = -1073741686;
             goto LABEL_124;
           case 2u:
-            v19 = -1073741685;
+            v18 = -1073741685;
 LABEL_124:
-            v47 = v19;
-            if ( (v5 & 0x2040000) != 0 )
+            DefaultLocale = v18;
+            if ( (NumberOfSymbols & 0x2040000) != 0 )
             {
 LABEL_125:
-              v39 = v56;
-              v40 = v51;
+              v41 = *(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion;
+              v42 = *(_DWORD *)&OutHeaders.OptionalHeader.Magic;
               goto LABEL_126;
             }
-            v39 = v56;
-            v40 = v51;
+            v41 = *(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion;
+            v42 = *(_DWORD *)&OutHeaders.OptionalHeader.Magic;
             if ( v9 == 3 )
             {
-              v71 = *v56;
-              v72 = v56[1];
-              v73 = v56[2];
-              if ( v51 == 4 )
-                v74 = v56[3];
-              v41 = v54;
-              v42 = LdrpLoadResourceFromAlternativeModule(a1, (unsigned int)&v71, v51, v5 | 0x1000000, (__int64)v54);
-              if ( v42 != -1073020927 && v42 != -1073020922 )
+              OutHeaders.OptionalHeader.DataDirectory[5] = **(_IMAGE_DATA_DIRECTORY **)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion;
+              OutHeaders.OptionalHeader.DataDirectory[6] = *(_IMAGE_DATA_DIRECTORY *)(*(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion
+                                                                                    + 8LL);
+              OutHeaders.OptionalHeader.DataDirectory[7] = *(_IMAGE_DATA_DIRECTORY *)(*(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion
+                                                                                    + 16LL);
+              if ( *(_DWORD *)&OutHeaders.OptionalHeader.Magic == 4 )
+                OutHeaders.OptionalHeader.DataDirectory[8] = *(_IMAGE_DATA_DIRECTORY *)(*(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion
+                                                                                      + 24LL);
+              ImageBase = OutHeaders.OptionalHeader.ImageBase;
+              v44 = LdrpLoadResourceFromAlternativeModule((PVOID)BaseOfImage, OutHeaders.OptionalHeader.ImageBase);
+              if ( v44 != -1073020927 && v44 != -1073020922 )
               {
-                v19 = v42;
-                v47 = v42;
+                v18 = v44;
+                DefaultLocale = v44;
               }
             }
             else
             {
 LABEL_126:
-              v41 = v54;
+              ImageBase = OutHeaders.OptionalHeader.ImageBase;
             }
-            if ( v19 + 1073741686 <= 1
-              && (~v5 & 0x20000) != 0
-              && (~v5 & 0x80000) != 0
-              && (~(_BYTE)v5 & 0x10) != 0
+            if ( v18 + 1073741686 <= 1
+              && (~NumberOfSymbols & 0x20000) != 0
+              && (~NumberOfSymbols & 0x80000) != 0
+              && (~(_BYTE)NumberOfSymbols & 0x10) != 0
               && v9 == 3 )
             {
-              v71 = *v39;
-              v72 = v39[1];
-              v73 = v39[2];
-              if ( v40 == 4 )
-                v74 = v39[3];
-              v19 = LdrpLoadResourceFromAlternativeModule(a1, (unsigned int)&v71, v40, v5, (__int64)v41);
-              v47 = v19;
+              OutHeaders.OptionalHeader.DataDirectory[5] = *(_IMAGE_DATA_DIRECTORY *)v41;
+              OutHeaders.OptionalHeader.DataDirectory[6] = *(_IMAGE_DATA_DIRECTORY *)(v41 + 8);
+              OutHeaders.OptionalHeader.DataDirectory[7] = *(_IMAGE_DATA_DIRECTORY *)(v41 + 16);
+              if ( v42 == 4 )
+                OutHeaders.OptionalHeader.DataDirectory[8] = *(_IMAGE_DATA_DIRECTORY *)(v41 + 24);
+              v18 = LdrpLoadResourceFromAlternativeModule((PVOID)BaseOfImage, ImageBase);
+              DefaultLocale = v18;
             }
             break;
           case 3u:
-            v47 = -1073741308;
+            DefaultLocale = -1073741308;
             break;
           default:
-            v19 = -1073741811;
-            v47 = -1073741811;
+            v18 = -1073741811;
+            DefaultLocale = -1073741811;
             goto LABEL_125;
         }
-        return v19;
+        return v18;
       }
-      if ( v61 && (v5 & 0x20) != 0 )
+      if ( *(_QWORD *)&OutHeaders.OptionalHeader.CheckSum && (NumberOfSymbols & 0x20) != 0 )
         break;
       if ( !(unsigned __int8)ResourceEntryBinarySearch(
-                               a1,
-                               v66[0],
+                               BaseOfImage,
+                               OutHeaders.OptionalHeader.LoaderFlags,
                                (unsigned __int16)v22,
-                               v64[0],
+                               OutHeaders.OptionalHeader.SizeOfHeapReserve,
                                (__int64)v26,
-                               (wchar_t *)String1,
-                               (__int64)&v63,
-                               (__int64)&v62) )
+                               String1,
+                               (__int64)&OutHeaders.OptionalHeader.SizeOfStackCommit,
+                               (__int64)&OutHeaders.OptionalHeader.SizeOfStackReserve) )
         return 3221225595LL;
-      v68 = (__int64 *)++v6;
-      v15 = v63;
-      v17 = v62;
-      v18 = (unsigned int)v48;
+      OutHeaders.OptionalHeader.DataDirectory[1] = (_IMAGE_DATA_DIRECTORY)++p_SizeOfInitializedData;
+      SizeOfStackCommit = OutHeaders.OptionalHeader.SizeOfStackCommit;
+      SizeOfStackReserve = OutHeaders.OptionalHeader.SizeOfStackReserve;
+      Signature = OutHeaders.Signature;
     }
-    v15 = 0LL;
-    v63 = 0LL;
-    v52 = *v26;
-    v17 = *(_QWORD *)v64 + v26[1];
-    if ( v17 > v27 )
+    SizeOfStackCommit = 0LL;
+    OutHeaders.OptionalHeader.SizeOfStackCommit = 0LL;
+    *(_QWORD *)&OutHeaders.OptionalHeader.SizeOfInitializedData = *v26;
+    SizeOfStackReserve = OutHeaders.OptionalHeader.SizeOfHeapReserve + v26[1];
+    if ( SizeOfStackReserve > v27 )
       return 3221225595LL;
-    v62 = *(_QWORD *)v64 + v26[1];
-    v18 = (unsigned int)v48;
+    OutHeaders.OptionalHeader.SizeOfStackReserve = OutHeaders.OptionalHeader.SizeOfHeapReserve + v26[1];
+    Signature = OutHeaders.Signature;
 LABEL_52:
-    if ( v17 && (v5 & 2) == 0 )
+    if ( SizeOfStackReserve && (NumberOfSymbols & 2) == 0 )
     {
-      v28 = v54;
-      *v54 = v17;
+      v29 = OutHeaders.OptionalHeader.ImageBase;
+      *(_QWORD *)OutHeaders.OptionalHeader.ImageBase = SizeOfStackReserve;
       if ( !NtCurrentTeb()->ResourceRetValue )
       {
-        *(_QWORD *)v64 = NtCurrentTeb();
-        Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 24LL);
-        *(_QWORD *)(*(_QWORD *)v64 + 6160LL) = Heap;
+        OutHeaders.OptionalHeader.SizeOfHeapReserve = (unsigned __int64)NtCurrentTeb();
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x18uLL);
+        *(_QWORD *)(OutHeaders.OptionalHeader.SizeOfHeapReserve + 6160) = Heap;
       }
       if ( NtCurrentTeb()->ResourceRetValue )
       {
-        *(_QWORD *)NtCurrentTeb()->ResourceRetValue = a1;
-        *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 1) = v62;
-        *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 2) = a1;
+        *(_QWORD *)NtCurrentTeb()->ResourceRetValue = BaseOfImage;
+        *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 1) = OutHeaders.OptionalHeader.SizeOfStackReserve;
+        *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 2) = BaseOfImage;
       }
-      v19 = 0;
-      v47 = 0;
-      v5 = v50;
+      v18 = 0;
+      DefaultLocale = 0;
+      NumberOfSymbols = OutHeaders.FileHeader.NumberOfSymbols;
       goto LABEL_59;
     }
-    if ( v15 && (v5 & 2) != 0 )
+    if ( SizeOfStackCommit && (NumberOfSymbols & 2) != 0 )
     {
-      v28 = v54;
-      *v54 = v15;
-      v19 = 0;
-      v47 = 0;
+      v29 = OutHeaders.OptionalHeader.ImageBase;
+      *(_QWORD *)OutHeaders.OptionalHeader.ImageBase = SizeOfStackCommit;
+      v18 = 0;
+      DefaultLocale = 0;
     }
     else
     {
-      if ( v9 - v55 == 3 )
+      if ( v9 - OutHeaders.OptionalHeader.SectionAlignment == 3 )
       {
-        v47 = -1073741308;
-        if ( v61 )
+        DefaultLocale = -1073741308;
+        if ( *(_QWORD *)&OutHeaders.OptionalHeader.CheckSum )
         {
-          v62 = 0LL;
+          OutHeaders.OptionalHeader.SizeOfStackReserve = 0LL;
           goto LABEL_75;
         }
       }
       else
       {
-        if ( v9 - v55 != 1 )
+        if ( v9 - OutHeaders.OptionalHeader.SectionAlignment != 1 )
         {
-          v28 = v54;
-          if ( v9 - v55 == 2 )
+          v29 = OutHeaders.OptionalHeader.ImageBase;
+          if ( v9 - OutHeaders.OptionalHeader.SectionAlignment == 2 )
           {
-            v19 = -1073741685;
-            v47 = -1073741685;
+            v18 = -1073741685;
+            DefaultLocale = -1073741685;
           }
           else
           {
-            v19 = -1073741811;
-            v47 = -1073741811;
+            v18 = -1073741811;
+            DefaultLocale = -1073741811;
           }
           goto LABEL_59;
         }
-        v19 = -1073741686;
-        v47 = -1073741686;
+        v18 = -1073741686;
+        DefaultLocale = -1073741686;
       }
-      v28 = v54;
+      v29 = OutHeaders.OptionalHeader.ImageBase;
     }
 LABEL_59:
-    v29 = v56;
-    v30 = v51;
-    if ( (v5 & 0x2040000) == 0 && v19 + 1073741686 <= 1 && v9 == 3 )
+    v30 = *(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion;
+    v31 = *(_DWORD *)&OutHeaders.OptionalHeader.Magic;
+    if ( (NumberOfSymbols & 0x2040000) == 0 && v18 + 1073741686 <= 1 && v9 == 3 )
     {
-      v71 = *v56;
-      v72 = v56[1];
-      v73 = v56[2];
-      if ( v51 == 4 )
-        v74 = v56[3];
-      v36 = LdrpLoadResourceFromAlternativeModule(a1, (unsigned int)&v71, v51, v5 | 0x1000000, (__int64)v28);
-      if ( v36 != -1073020927 && v36 != -1073020922 )
+      OutHeaders.OptionalHeader.DataDirectory[5] = **(_IMAGE_DATA_DIRECTORY **)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion;
+      OutHeaders.OptionalHeader.DataDirectory[6] = *(_IMAGE_DATA_DIRECTORY *)(*(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion
+                                                                            + 8LL);
+      OutHeaders.OptionalHeader.DataDirectory[7] = *(_IMAGE_DATA_DIRECTORY *)(*(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion
+                                                                            + 16LL);
+      if ( *(_DWORD *)&OutHeaders.OptionalHeader.Magic == 4 )
+        OutHeaders.OptionalHeader.DataDirectory[8] = *(_IMAGE_DATA_DIRECTORY *)(*(_QWORD *)&OutHeaders.OptionalHeader.MajorOperatingSystemVersion
+                                                                              + 24LL);
+      v37 = LdrpLoadResourceFromAlternativeModule((PVOID)BaseOfImage, v29);
+      if ( v37 != -1073020927 && v37 != -1073020922 )
       {
-        v19 = v36;
-        v47 = v36;
+        v18 = v37;
+        DefaultLocale = v37;
       }
     }
-    if ( v19 + 1073741686 <= 1 && (~v5 & 0x20000) != 0 && (~v5 & 0x80000) != 0 && (~(_BYTE)v5 & 0x10) != 0 && v9 == 3 )
+    if ( v18 + 1073741686 <= 1
+      && (~NumberOfSymbols & 0x20000) != 0
+      && (~NumberOfSymbols & 0x80000) != 0
+      && (~(_BYTE)NumberOfSymbols & 0x10) != 0
+      && v9 == 3 )
     {
-      v71 = *v29;
-      v72 = v29[1];
-      v73 = v29[2];
-      if ( v30 == 4 )
-        v74 = v29[3];
-      v19 = LdrpLoadResourceFromAlternativeModule(a1, (unsigned int)&v71, v30, v5, (__int64)v28);
-      v47 = v19;
+      OutHeaders.OptionalHeader.DataDirectory[5] = *(_IMAGE_DATA_DIRECTORY *)v30;
+      OutHeaders.OptionalHeader.DataDirectory[6] = *(_IMAGE_DATA_DIRECTORY *)(v30 + 8);
+      OutHeaders.OptionalHeader.DataDirectory[7] = *(_IMAGE_DATA_DIRECTORY *)(v30 + 16);
+      if ( v31 == 4 )
+        OutHeaders.OptionalHeader.DataDirectory[8] = *(_IMAGE_DATA_DIRECTORY *)(v30 + 24);
+      v18 = LdrpLoadResourceFromAlternativeModule((PVOID)BaseOfImage, v29);
+      DefaultLocale = v18;
     }
-    return v19;
+    return v18;
   }
   return result;
 }

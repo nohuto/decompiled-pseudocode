@@ -6,13 +6,13 @@
  *     RtlGetCurrentServiceSessionId @ 0x18003B280 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 __fastcall RtlGetSystemGlobalData(int a1, _QWORD *a2, int a3)
+DWORD __cdecl RtlGetSystemGlobalData(RTL_SYSTEM_GLOBAL_DATA_ID DataId, PVOID Buffer, DWORD Size)
 {
-  int v4; // ecx
+  __int32 v4; // ecx
   __int64 v5; // rax
-  int v7; // ecx
-  int v8; // ecx
-  int v9; // ecx
+  __int32 v7; // ecx
+  __int32 v8; // ecx
+  __int32 v9; // ecx
   int v10; // ecx
   int v11; // ecx
   __int64 v12; // rcx
@@ -22,30 +22,30 @@ __int64 __fastcall RtlGetSystemGlobalData(int a1, _QWORD *a2, int a3)
   __int16 v16; // ax
   __int64 v17; // rdx
   char v18; // al
-  int v19; // ecx
-  int v20; // ecx
-  int v21; // ecx
-  int v22; // ecx
+  __int32 v19; // ecx
+  __int32 v20; // ecx
+  __int32 v21; // ecx
+  __int32 v22; // ecx
   int v23; // ecx
   int v24; // ecx
   int v25; // ecx
   __int64 v26; // [rsp+48h] [rbp+20h]
 
-  if ( a1 <= 10 )
+  if ( DataId <= GlobalDataIdKdDebuggerEnabled )
   {
-    if ( a1 != 10 )
+    if ( DataId != GlobalDataIdKdDebuggerEnabled )
     {
-      v4 = a1 - 1;
+      v4 = DataId - 1;
       if ( !v4 )
       {
-        if ( a3 == 8 )
+        if ( Size == 8 )
         {
           v5 = MEMORY[0x7FFE0250];
 LABEL_6:
-          *a2 = v5;
-          return 0LL;
+          *(_QWORD *)Buffer = v5;
+          return 0;
         }
-        return 3221225990LL;
+        return -1073741306;
       }
       v7 = v4 - 1;
       if ( v7 )
@@ -62,16 +62,16 @@ LABEL_6:
               v11 = v10 - 1;
               if ( !v11 )
               {
-                if ( a3 == 4 )
+                if ( Size == 4 )
                 {
-                  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+                  if ( RtlGetCurrentServiceSessionId() )
                     v12 = (__int64)NtCurrentPeb()->SharedData + 584;
                   else
                     v12 = 2147353152LL;
-                  *(_DWORD *)a2 = *(_DWORD *)v12;
-                  return 0LL;
+                  *(_DWORD *)Buffer = *(_DWORD *)v12;
+                  return 0;
                 }
-                return 3221225990LL;
+                return -1073741306;
               }
               v13 = v11 - 1;
               if ( v13 )
@@ -81,47 +81,47 @@ LABEL_6:
                 {
                   if ( v14 == 1 )
                   {
-                    if ( a3 == 8 )
+                    if ( Size == 8 )
                     {
                       v5 = MEMORY[0x7FFE02C8];
                       goto LABEL_6;
                     }
-                    return 3221225990LL;
+                    return -1073741306;
                   }
-                  return 3221225485LL;
+                  return -1073741811;
                 }
-                if ( a3 == 4 )
+                if ( Size == 4 )
                 {
                   v15 = MEMORY[0x7FFE0270];
 LABEL_27:
-                  *(_DWORD *)a2 = v15;
-                  return 0LL;
+                  *(_DWORD *)Buffer = v15;
+                  return 0;
                 }
               }
-              else if ( a3 == 4 )
+              else if ( Size == 4 )
               {
                 v15 = MEMORY[0x7FFE026C];
                 goto LABEL_27;
               }
-              return 3221225990LL;
+              return -1073741306;
             }
-            if ( a3 != 2 )
-              return 3221225990LL;
+            if ( Size != 2 )
+              return -1073741306;
             v16 = MEMORY[0x7FFE002E];
           }
           else
           {
-            if ( a3 != 2 )
-              return 3221225990LL;
+            if ( Size != 2 )
+              return -1073741306;
             v16 = MEMORY[0x7FFE002C];
           }
 LABEL_73:
-          *(_WORD *)a2 = v16;
-          return 0LL;
+          *(_WORD *)Buffer = v16;
+          return 0;
         }
-        if ( a3 != 8 )
-          return 3221225990LL;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( Size != 8 )
+          return -1073741306;
+        if ( RtlGetCurrentServiceSessionId() )
           v17 = (__int64)NtCurrentPeb()->SharedData + 592;
         else
           v17 = 2147352608LL;
@@ -135,8 +135,8 @@ LABEL_73:
       }
       else
       {
-        if ( a3 != 8 )
-          return 3221225990LL;
+        if ( Size != 8 )
+          return -1073741306;
         while ( 1 )
         {
           v26 = MEMORY[0x7FFE0008];
@@ -145,84 +145,84 @@ LABEL_73:
           _mm_pause();
         }
       }
-      *a2 = v26;
-      return 0LL;
+      *(_QWORD *)Buffer = v26;
+      return 0;
     }
-    if ( a3 != 1 )
-      return 3221225990LL;
+    if ( Size != 1 )
+      return -1073741306;
     v18 = MEMORY[0x7FFE02D4];
 LABEL_47:
-    *(_BYTE *)a2 = v18;
-    return 0LL;
+    *(_BYTE *)Buffer = v18;
+    return 0;
   }
-  v19 = a1 - 11;
+  v19 = DataId - 11;
   if ( !v19 )
   {
-    if ( a3 != 2 )
-      return 3221225990LL;
+    if ( Size != 2 )
+      return -1073741306;
     v16 = MEMORY[0x7FFE02D6];
     goto LABEL_73;
   }
   v20 = v19 - 1;
   if ( !v20 )
   {
-    if ( a3 != 1 )
-      return 3221225990LL;
+    if ( Size != 1 )
+      return -1073741306;
     v18 = MEMORY[0x7FFE02EC];
     goto LABEL_47;
   }
   v21 = v20 - 1;
   if ( !v21 )
   {
-    if ( a3 == 4 )
+    if ( Size == 4 )
     {
       v15 = MEMORY[0x7FFE02E4];
       goto LABEL_27;
     }
-    return 3221225990LL;
+    return -1073741306;
   }
   v22 = v21 - 1;
   if ( !v22 )
   {
-    if ( a3 == 4 )
+    if ( Size == 4 )
     {
       v15 = MEMORY[0x7FFE02F0];
       goto LABEL_27;
     }
-    return 3221225990LL;
+    return -1073741306;
   }
   v23 = v22 - 2;
   if ( !v23 )
   {
-    if ( a3 != 1 )
-      return 3221225990LL;
+    if ( Size != 1 )
+      return -1073741306;
     v18 = MEMORY[0x7FFE03C7];
     goto LABEL_47;
   }
   v24 = v23 - 1;
   if ( !v24 )
   {
-    if ( a3 != 1 )
-      return 3221225990LL;
+    if ( Size != 1 )
+      return -1073741306;
     v18 = MEMORY[0x7FFE03C6];
     goto LABEL_47;
   }
   v25 = v24 - 1;
   if ( !v25 )
   {
-    if ( a3 != 2 )
-      return 3221225990LL;
+    if ( Size != 2 )
+      return -1073741306;
     v16 = MEMORY[0x7FFE03C6];
     goto LABEL_73;
   }
   if ( v25 == 1 )
   {
-    if ( a3 == 8 )
+    if ( Size == 8 )
     {
       v5 = MEMORY[0x7FFE03B8];
       goto LABEL_6;
     }
-    return 3221225990LL;
+    return -1073741306;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

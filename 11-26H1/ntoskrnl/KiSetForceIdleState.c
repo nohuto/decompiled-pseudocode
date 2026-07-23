@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSetForceIdleState @ 0x1404C5428
+ * XREFs of KiSetForceIdleState @ 0x1404BEDD8
  * Callers:
- *     KiUpdateTime @ 0x14021D690 (KiUpdateTime.c)
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     KiResetForceIdle @ 0x140336934 (KiResetForceIdle.c)
- *     KiCheckAndRearmForceIdle @ 0x140336E2C (KiCheckAndRearmForceIdle.c)
- *     ?KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404C4D60 (-KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
- *     KeSetForceIdle @ 0x1404C5268 (KeSetForceIdle.c)
- *     KeClearForceIdle @ 0x1404C533C (KeClearForceIdle.c)
- *     ?KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404FE0B0 (-KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     KiUpdateTime @ 0x14021F020 (KiUpdateTime.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     KiResetForceIdle @ 0x1403389B4 (KiResetForceIdle.c)
+ *     KiCheckAndRearmForceIdle @ 0x140338EAC (KiCheckAndRearmForceIdle.c)
+ *     ?KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404BE710 (-KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     KeSetForceIdle @ 0x1404BEC18 (KeSetForceIdle.c)
+ *     KeClearForceIdle @ 0x1404BECEC (KeClearForceIdle.c)
+ *     ?KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404F75F0 (-KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
  * Callees:
- *     PoTraceForceIdleStateChange @ 0x1404C5454 (PoTraceForceIdleStateChange.c)
+ *     PoTraceForceIdleStateChange @ 0x1404BEE04 (PoTraceForceIdleStateChange.c)
  */
 
 __int64 __fastcall KiSetForceIdleState(unsigned int a1)

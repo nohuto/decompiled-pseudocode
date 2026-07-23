@@ -1,14 +1,14 @@
 /*
- * XREFs of SeQuerySecurityDescriptorInfo @ 0x1405CB720
+ * XREFs of SeQuerySecurityDescriptorInfo @ 0x1405CC720
  * Callers:
- *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1405BBBC0 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
- *     ObQuerySecurityDescriptorInfo @ 0x1405C833C (ObQuerySecurityDescriptorInfo.c)
- *     CmpQueryKeySecurity @ 0x1405CB550 (CmpQueryKeySecurity.c)
- *     IopGetSetSecurityObject @ 0x1406990D0 (IopGetSetSecurityObject.c)
- *     EtwQueryPerformanceTraceInformation @ 0x1408B9360 (EtwQueryPerformanceTraceInformation.c)
+ *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1405BCBC0 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x1405C933C (ObQuerySecurityDescriptorInfo.c)
+ *     CmpQueryKeySecurity @ 0x1405CC550 (CmpQueryKeySecurity.c)
+ *     IopGetSetSecurityObject @ 0x14069A290 (IopGetSetSecurityObject.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1408BA620 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlpFilterSacl @ 0x1405CBBE8 (RtlpFilterSacl.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlpFilterSacl @ 0x1405CCBE8 (RtlpFilterSacl.c)
  */
 
 NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(

@@ -1,9 +1,9 @@
 /*
- * XREFs of Uart16550GetByte @ 0x14032D0C0
+ * XREFs of Uart16550GetByte @ 0x14032D2B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall Uart16550GetByte(__int64 a1, _BYTE *a2)

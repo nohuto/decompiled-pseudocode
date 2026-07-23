@@ -1,18 +1,18 @@
 /*
- * XREFs of VslObtainHotPatchUndoTable @ 0x14070FCC0
+ * XREFs of VslObtainHotPatchUndoTable @ 0x14070D850
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1407F0C5C (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1407F122C (MiApplyDriverHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MmSizeOfMdl @ 0x140458550 (MmSizeOfMdl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     MmSizeOfMdl @ 0x14044DA00 (MmSizeOfMdl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslObtainHotPatchUndoTable(PVOID Base, __int64 a2, ULONG a3)
@@ -31,7 +31,7 @@ __int64 __fastcall VslObtainHotPatchUndoTable(PVOID Base, __int64 a2, ULONG a3)
   memset_0(v13, 0, 0x68uLL);
   memset_0(v12, 0, 0x48uLL);
   v6 = MmSizeOfMdl(Base, a3);
-  Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL, v6, 0x54736D56u);
   v8 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
@@ -49,7 +49,7 @@ __int64 __fastcall VslObtainHotPatchUndoTable(PVOID Base, __int64 a2, ULONG a3)
     v14 = Base;
     v15 = v12[0];
     v16 = v12[7];
-    v11 = VslpEnterIumSecureMode(2u, 76LL, 0, (__int64)v13);
+    v11 = VslpEnterIumSecureMode(2u, 0x4Cu, 0, (__int64)v13);
     VslpUnlockPagesForTransfer(v12);
   }
   if ( (*(_BYTE *)p_MdlFlags & 2) != 0 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpAdjustCreatorAccessState @ 0x140662D98
+ * XREFs of ObpAdjustCreatorAccessState @ 0x140657BB8
  * Callers:
- *     ObpGrantAccess @ 0x1405D97B4 (ObpGrantAccess.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     ObpGrantAccess @ 0x1405EA53C (ObpGrantAccess.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  * Callees:
- *     SeComputeCreatorDeniedRights @ 0x14034FC90 (SeComputeCreatorDeniedRights.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
- *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
- *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
- *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
- *     ObpReferenceSecurityDescriptor @ 0x14065F9D0 (ObpReferenceSecurityDescriptor.c)
- *     RtlMapGenericMask @ 0x140702EA0 (RtlMapGenericMask.c)
+ *     SeComputeCreatorDeniedRights @ 0x14035A9E0 (SeComputeCreatorDeniedRights.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SeAppendPrivileges @ 0x1405EA7C0 (SeAppendPrivileges.c)
+ *     SePrivilegeCheck @ 0x140649D60 (SePrivilegeCheck.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406544C0 (ObDereferenceSecurityDescriptor.c)
+ *     ObpReferenceSecurityDescriptor @ 0x1406547F0 (ObpReferenceSecurityDescriptor.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14069382C (SePrivilegedServiceAuditAlarm.c)
+ *     RtlMapGenericMask @ 0x14071A280 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCESSOR_MODE a2, __int64 a3, __int64 a4)
@@ -42,7 +42,7 @@ __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCE
     RequiredPrivileges.Control = 1;
     if ( !SePrivilegeCheck(&RequiredPrivileges, &AccessState->SubjectSecurityContext, a2) )
     {
-      SePrivilegedServiceAuditAlarm(0, (__int64 *)&AccessState->SubjectSecurityContext, (__int64)&RequiredPrivileges, 0);
+      SePrivilegedServiceAuditAlarm(0LL, &AccessState->SubjectSecurityContext, &RequiredPrivileges, 0LL);
       return 3221225569LL;
     }
     *p_RemainingDesiredAccess &= ~0x1000000u;

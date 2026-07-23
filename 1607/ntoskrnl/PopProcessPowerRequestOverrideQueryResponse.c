@@ -1,14 +1,14 @@
 /*
- * XREFs of PopProcessPowerRequestOverrideQueryResponse @ 0x1400FB954
+ * XREFs of PopProcessPowerRequestOverrideQueryResponse @ 0x1400F96D4
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1403F7C58 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x1403F6B18 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     PopQueuePowerRequestCallbacks @ 0x1400FBD98 (PopQueuePowerRequestCallbacks.c)
- *     PopReleasePowerRequestPushLock @ 0x140520694 (PopReleasePowerRequestPushLock.c)
- *     PopPowerRequestFindEntryById @ 0x1405206A0 (PopPowerRequestFindEntryById.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopQueuePowerRequestCallbacks @ 0x1400F9B18 (PopQueuePowerRequestCallbacks.c)
+ *     PopReleasePowerRequestPushLock @ 0x1405036FC (PopReleasePowerRequestPushLock.c)
+ *     PopPowerRequestFindEntryById @ 0x140503708 (PopPowerRequestFindEntryById.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 __fastcall PopProcessPowerRequestOverrideQueryResponse(unsigned int *a1)

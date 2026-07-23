@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpGetKernelDataProtection @ 0x1407AEA20
+ * XREFs of ExpGetKernelDataProtection @ 0x1407AEC10
  * Callers:
- *     ExpGetLicenseTamperState @ 0x14060905C (ExpGetLicenseTamperState.c)
- *     sub_1409F9A40 @ 0x1409F9A40 (sub_1409F9A40.c)
+ *     ExpGetLicenseTamperState @ 0x1406095AC (ExpGetLicenseTamperState.c)
+ *     sub_1409F9CD0 @ 0x1409F9CD0 (sub_1409F9CD0.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     sub_1407AEAD8 @ 0x1407AEAD8 (sub_1407AEAD8.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     sub_1407AECC8 @ 0x1407AECC8 (sub_1407AECC8.c)
  */
 
 __int64 __fastcall ExpGetKernelDataProtection(__int64 a1, _OWORD *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall ExpGetKernelDataProtection(__int64 a1, _OWORD *a2)
   if ( v5 )
   {
     v9 = *v5;
-    v8 = sub_1407AEAD8(&v9);
+    v8 = sub_1407AECC8(&v9);
     if ( v8 >= 0 )
     {
       v6 = v9;

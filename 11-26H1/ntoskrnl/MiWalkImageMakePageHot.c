@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWalkImageMakePageHot @ 0x140705660
+ * XREFs of MiWalkImageMakePageHot @ 0x14070A330
  * Callers:
  *     <none>
  * Callees:
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     MiWalkEntireImagePageNeedsProcessing @ 0x140B5EB50 (MiWalkEntireImagePageNeedsProcessing.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     MiWalkEntireImagePageNeedsProcessing @ 0x140B61CD0 (MiWalkEntireImagePageNeedsProcessing.c)
  */
 
 __int64 __fastcall MiWalkImageMakePageHot(__int64 a1)

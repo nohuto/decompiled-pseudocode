@@ -1,13 +1,13 @@
 /*
- * XREFs of MmReportParkedProcessors @ 0x1403C8D50
+ * XREFs of MmReportParkedProcessors @ 0x1403A38F0
  * Callers:
- *     PpmParkReportMask @ 0x1403C88E0 (PpmParkReportMask.c)
+ *     PpmParkReportMask @ 0x1403A3480 (PpmParkReportMask.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     MiMoveBackgroundZeroThreads @ 0x1403C8F60 (MiMoveBackgroundZeroThreads.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiMoveBackgroundZeroThreads @ 0x1403A3B00 (MiMoveBackgroundZeroThreads.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
  */
 
 void MmReportParkedProcessors()
@@ -23,15 +23,15 @@ void MmReportParkedProcessors()
   __int128 v8; // xmm0
   __int128 v9; // xmm1
 
-  ExAcquireSpinLockExclusiveAtDpcLevel(&SpinLock);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2ED80);
   v0 = &PpmPerfCoreParkingMask;
-  if ( RtlCompareMemory(&word_140E2EC48, &PpmPerfCoreParkingMask, 0x108uLL) == 264 )
+  if ( RtlCompareMemory(&word_140E2ED88, &PpmPerfCoreParkingMask, 0x108uLL) == 264 )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(&SpinLock);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2ED80);
   }
   else
   {
-    v1 = &word_140E2EC48;
+    v1 = &word_140E2ED88;
     v2 = 2LL;
     do
     {
@@ -56,19 +56,19 @@ void MmReportParkedProcessors()
     }
     while ( v2 );
     *(_QWORD *)v1 = *(_QWORD *)&v0->Count;
-    if ( stru_140E2ED50.Parameter )
+    if ( stru_140E2EE90.Parameter )
     {
-      if ( stru_140E2ED50.Parameter == (void *)1 )
-        stru_140E2ED50.Parameter = (void *)2;
+      if ( stru_140E2EE90.Parameter == (void *)1 )
+        stru_140E2EE90.Parameter = (void *)2;
     }
     else
     {
-      stru_140E2ED50.List.Flink = 0LL;
-      stru_140E2ED50.WorkerRoutine = (void (__fastcall *)(void *))MiSendParkedCoreUpdateToAllChildPartitions;
-      stru_140E2ED50.Parameter = (void *)1;
-      ExQueueWorkItem(&stru_140E2ED50, DelayedWorkQueue);
+      stru_140E2EE90.List.Flink = 0LL;
+      stru_140E2EE90.WorkerRoutine = (void (__fastcall *)(void *))MiSendParkedCoreUpdateToAllChildPartitions;
+      stru_140E2EE90.Parameter = (void *)1;
+      ExQueueWorkItem(&stru_140E2EE90, DelayedWorkQueue);
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel(&SpinLock);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2ED80);
     MiMoveBackgroundZeroThreads(&MiSystemPartition, 1LL);
   }
 }

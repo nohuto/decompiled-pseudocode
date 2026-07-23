@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateEventFilterAndFree @ 0x140939990
+ * XREFs of EtwpUpdateEventFilterAndFree @ 0x140915530
  * Callers:
- *     EtwpUpdateGuidFilterData @ 0x140937FB0 (EtwpUpdateGuidFilterData.c)
+ *     EtwpUpdateGuidFilterData @ 0x140913B50 (EtwpUpdateGuidFilterData.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpUpdateEventFilterAndFree(volatile __int64 *a1, __int64 *a2)

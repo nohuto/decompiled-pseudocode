@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilCheckKernelAddress @ 0x140702C44
+ * XREFs of VfUtilCheckKernelAddress @ 0x140702C74
  * Callers:
- *     VfUtilSynchronizationObjectSanityChecks @ 0x140703048 (VfUtilSynchronizationObjectSanityChecks.c)
- *     VerifierIoFreeMdl @ 0x140705624 (VerifierIoFreeMdl.c)
- *     VerifierIoInitializeWorkItem @ 0x14070566C (VerifierIoInitializeWorkItem.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x140703078 (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VerifierIoFreeMdl @ 0x140705654 (VerifierIoFreeMdl.c)
+ *     VerifierIoInitializeWorkItem @ 0x14070569C (VerifierIoInitializeWorkItem.c)
  *     VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelCommon @ 0x140711B48 (VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelCommon.c)
  *     VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x140711BDC (VerifierKeAcquireInStackQueuedSpinLockCommon.c)
  *     VerifierKeAcquireInStackQueuedSpinLockForDpcCommon @ 0x140711CA8 (VerifierKeAcquireInStackQueuedSpinLockForDpcCommon.c)
@@ -14,9 +14,9 @@
  *     VerifierKeReleaseMutexNoReboot @ 0x1407124C4 (VerifierKeReleaseMutexNoReboot.c)
  *     VerifierKeReleaseSpinLockFromDpcLevel @ 0x14071255C (VerifierKeReleaseSpinLockFromDpcLevel.c)
  *     VerifierKeReleaseSpinLockFromDpcLevelNoReboot @ 0x1407125E0 (VerifierKeReleaseSpinLockFromDpcLevelNoReboot.c)
- *     VerifierKeSetEvent @ 0x14071268C (VerifierKeSetEvent.c)
- *     VerifierPortKeAcquireSpinLock @ 0x140712A78 (VerifierPortKeAcquireSpinLock.c)
- *     VerifierPortKeAcquireSpinLockNoXdv @ 0x140712AF4 (VerifierPortKeAcquireSpinLockNoXdv.c)
+ *     VerifierKeSetEvent @ 0x140712644 (VerifierKeSetEvent.c)
+ *     VerifierPortKeAcquireSpinLock @ 0x140712A30 (VerifierPortKeAcquireSpinLock.c)
+ *     VerifierPortKeAcquireSpinLockNoXdv @ 0x140712AAC (VerifierPortKeAcquireSpinLockNoXdv.c)
  *     VfKeInsertQueueDpc @ 0x140712CD8 (VfKeInsertQueueDpc.c)
  *     VfKeRemoveQueueDpc @ 0x140712DA0 (VfKeRemoveQueueDpc.c)
  *     ViKeAcquireSpinLockAtDpcLevelCommon @ 0x140712DC4 (ViKeAcquireSpinLockAtDpcLevelCommon.c)
@@ -31,7 +31,7 @@
  *     VerifierObfReferenceObject @ 0x14071CEE8 (VerifierObfReferenceObject.c)
  *     VerifierObfReferenceObjectWithTag @ 0x14071CF3C (VerifierObfReferenceObjectWithTag.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfUtilCheckKernelAddress(unsigned __int64 a1, __int64 a2)

@@ -4,9 +4,9 @@
  *     ViCtxIsr @ 0x140719FC4 (ViCtxIsr.c)
  *     ViCtxIsrMessageBased @ 0x14071A010 (ViCtxIsrMessageBased.c)
  * Callees:
- *     RtlXSave @ 0x14008308C (RtlXSave.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     VfErrorStoreTriageInformation @ 0x14070EB30 (VfErrorStoreTriageInformation.c)
+ *     RtlXSave @ 0x140083D0C (RtlXSave.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     VfErrorStoreTriageInformation @ 0x14070EB60 (VfErrorStoreTriageInformation.c)
  *     ViCtxEqualExtendedState @ 0x140719EBC (ViCtxEqualExtendedState.c)
  */
 

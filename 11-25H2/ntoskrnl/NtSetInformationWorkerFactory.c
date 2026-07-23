@@ -25,29 +25,33 @@
  *     ExRaiseDatatypeMisalignment @ 0x14085AF60 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, __m128i *a3, unsigned int a4)
+NTSTATUS __cdecl NtSetInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // r14
-  unsigned int v9; // r12d
+  ULONG v9; // r12d
   __int32 v10; // eax
   __int64 v11; // rcx
   __int64 v12; // rcx
   NTSTATUS result; // eax
-  int Thread; // r14d
+  NTSTATUS Thread; // r14d
   bool v15; // r13
   unsigned __int64 *v16; // rcx
   __int64 CurrentIrql; // r8
   struct _KPRCB **v18; // rdx
-  int v19; // ebx
+  __int32 v19; // ebx
   _QWORD *v20; // rdi
-  int v21; // ebx
-  int v22; // ebx
+  __int32 v21; // ebx
+  __int32 v22; // ebx
   int v23; // eax
   int v24; // eax
   char v25; // r15
-  int v26; // ebx
-  int v27; // ebx
-  int v28; // ebx
+  __int32 v26; // ebx
+  __int32 v27; // ebx
+  __int32 v28; // ebx
   bool v29; // zf
   int v30; // eax
   unsigned int v31; // ecx
@@ -62,7 +66,7 @@ NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, __m128i
   unsigned __int32 v40; // ecx
   unsigned __int32 v41; // eax
   __int64 v42; // rdx
-  __int32 v43; // ebx
+  int v43; // ebx
   unsigned int v44; // r8d
   unsigned int v45; // eax
   char v46; // cl
@@ -81,20 +85,22 @@ NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, __m128i
   v55 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   memset_0(&Src, 0, 0x100uLL);
-  if ( a2 <= 8 )
+  if ( WorkerFactoryInformationClass <= WorkerFactoryAdjustThreadGoal )
   {
-    if ( a2 != 8 )
+    if ( WorkerFactoryInformationClass != WorkerFactoryAdjustThreadGoal )
     {
-      if ( (unsigned int)a2 < 2 )
+      if ( (unsigned int)WorkerFactoryInformationClass < WorkerFactoryIdleTimeout )
         return -1073741821;
-      if ( a2 == 2 )
+      if ( WorkerFactoryInformationClass == WorkerFactoryIdleTimeout )
       {
         v9 = 8;
         goto LABEL_6;
       }
-      if ( a2 != 3 && a2 != 4 && a2 != 5 )
+      if ( WorkerFactoryInformationClass != WorkerFactoryBindingCount
+        && WorkerFactoryInformationClass != WorkerFactoryThreadMinimum
+        && WorkerFactoryInformationClass != WorkerFactoryThreadMaximum )
       {
-        if ( a2 == 6 )
+        if ( WorkerFactoryInformationClass == WorkerFactoryPaused )
           return -1073741822;
         return -1073741821;
       }
@@ -103,96 +109,96 @@ LABEL_5:
     v9 = 4;
     goto LABEL_6;
   }
-  switch ( a2 )
+  switch ( WorkerFactoryInformationClass )
   {
-    case 9:
+    case WorkerFactoryCallbackType:
       goto LABEL_5;
-    case 10:
+    case WorkerFactoryStackInformation:
       v9 = 16;
       goto LABEL_6;
-    case 11:
-    case 12:
-    case 13:
-    case 14:
+    case WorkerFactoryThreadBasePriority:
+    case WorkerFactoryTimeoutWaiters:
+    case WorkerFactoryFlags:
+    case WorkerFactoryThreadSoftMaximum:
       goto LABEL_5;
   }
-  if ( a2 != 15 )
+  if ( WorkerFactoryInformationClass != WorkerFactoryThreadCpuSets )
     return -1073741821;
-  if ( a4 >= 0x100 )
+  if ( WorkerFactoryInformationLength >= 0x100 )
     v9 = 256;
   else
-    v9 = a4 + (a4 & 7);
+    v9 = WorkerFactoryInformationLength + (WorkerFactoryInformationLength & 7);
 LABEL_6:
-  if ( a4 != v9 )
+  if ( WorkerFactoryInformationLength != v9 )
     return -1073741820;
-  if ( a2 > 10 )
+  if ( WorkerFactoryInformationClass > WorkerFactoryStackInformation )
   {
-    if ( a2 == 11 )
+    if ( WorkerFactoryInformationClass == WorkerFactoryThreadBasePriority )
       goto LABEL_18;
-    if ( a2 == 12 )
+    if ( WorkerFactoryInformationClass == WorkerFactoryTimeoutWaiters )
     {
       if ( PreviousMode )
       {
         v12 = 0x7FFFFFFF0000LL;
-        if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-          v12 = (__int64)a3;
+        if ( (unsigned __int64)WorkerFactoryInformation < 0x7FFFFFFF0000LL )
+          v12 = (__int64)WorkerFactoryInformation;
         *(_DWORD *)v12 = *(_DWORD *)v12;
       }
     }
     else
     {
-      if ( (unsigned int)(a2 - 13) < 2 )
+      if ( (unsigned int)(WorkerFactoryInformationClass - 13) < 2 )
         goto LABEL_18;
-      if ( PreviousMode && v9 && ((unsigned __int8)a3 & 3) != 0 )
+      if ( PreviousMode && v9 && ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      memmove(&Src, a3, v9);
+      memmove(&Src, WorkerFactoryInformation, v9);
     }
   }
   else
   {
-    switch ( a2 )
+    switch ( WorkerFactoryInformationClass )
     {
-      case 10:
-        if ( PreviousMode && ((unsigned __int8)a3 & 3) != 0 )
+      case WorkerFactoryStackInformation:
+        if ( PreviousMode && ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
           goto LABEL_24;
-        Src = *a3;
+        Src = *(__m128i *)WorkerFactoryInformation;
         Src.m128i_i32[0] = _mm_cvtsi128_si32(Src);
         break;
-      case 2:
-        if ( PreviousMode && ((unsigned __int8)a3 & 3) != 0 )
+      case WorkerFactoryIdleTimeout:
+        if ( PreviousMode && ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
 LABEL_24:
           ExRaiseDatatypeMisalignment();
-        Src.m128i_i64[0] = a3->m128i_i64[0];
+        Src.m128i_i64[0] = *(_QWORD *)WorkerFactoryInformation;
         break;
-      case 3:
-      case 4:
-      case 5:
-      case 8:
+      case WorkerFactoryBindingCount:
+      case WorkerFactoryThreadMinimum:
+      case WorkerFactoryThreadMaximum:
+      case WorkerFactoryAdjustThreadGoal:
 LABEL_18:
         if ( PreviousMode )
         {
           v11 = 0x7FFFFFFF0000LL;
-          if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-            v11 = (__int64)a3;
+          if ( (unsigned __int64)WorkerFactoryInformation < 0x7FFFFFFF0000LL )
+            v11 = (__int64)WorkerFactoryInformation;
           v10 = *(_DWORD *)v11;
           goto LABEL_17;
         }
 LABEL_16:
-        v10 = a3->m128i_i32[0];
+        v10 = *(_DWORD *)WorkerFactoryInformation;
 LABEL_17:
         Src.m128i_i32[0] = v10;
         break;
       default:
-        if ( PreviousMode && ((unsigned __int8)a3 & 3) != 0 )
+        if ( PreviousMode && ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
         goto LABEL_16;
     }
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(WorkerFactoryHandle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   if ( result < 0 )
     return result;
-  if ( a2 != 8 )
+  if ( WorkerFactoryInformationClass != WorkerFactoryAdjustThreadGoal )
   {
     Thread = 0;
     v52 = 0;
@@ -223,9 +229,9 @@ LABEL_17:
     {
       KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)v16);
     }
-    if ( a2 > 10 )
+    if ( WorkerFactoryInformationClass > WorkerFactoryStackInformation )
     {
-      v26 = a2 - 11;
+      v26 = WorkerFactoryInformationClass - 11;
       v20 = Object;
       if ( !v26 )
       {
@@ -247,7 +253,7 @@ LABEL_17:
         }
         KeReleaseInStackQueuedSpinLock(&LockHandle);
         v49 = 0;
-        a3->m128i_i32[0] = v43;
+        *(_DWORD *)WorkerFactoryInformation = v43;
         v25 = 0;
         goto LABEL_64;
       }
@@ -302,7 +308,7 @@ LABEL_73:
       v25 = 0;
       goto LABEL_64;
     }
-    if ( a2 == 10 )
+    if ( WorkerFactoryInformationClass == WorkerFactoryStackInformation )
     {
       v20 = Object;
       v25 = 0;
@@ -317,7 +323,7 @@ LABEL_73:
       }
       goto LABEL_64;
     }
-    v19 = a2 - 2;
+    v19 = WorkerFactoryInformationClass - 2;
     v20 = Object;
     if ( !v19 )
     {
@@ -332,7 +338,7 @@ LABEL_73:
             v42 = -6000000000LL;
           *((_QWORD *)Object + 14) = v42;
           *((_QWORD *)&v55 + 1) = -1LL;
-          KeSetTimer2((__int64)(v20 + 53), v42, -v42, (__int64)&v55);
+          KeSetTimer2((__int64)(v20 + 53), (LARGE_INTEGER)v42, -v42, (__int64)&v55);
         }
         else
         {

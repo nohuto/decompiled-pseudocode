@@ -15,7 +15,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ebx
   __int64 v5; // rbp
-  struct _SLIST_ENTRY *v6; // rdi
+  _SLIST_ENTRY *v6; // rdi
   KIRQL v7; // r14
   unsigned int v8; // eax
   _SLIST_ENTRY *v9; // rcx
@@ -25,14 +25,14 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
   if ( *(_DWORD *)(a2 + 52) < *(_DWORD *)(a2 + 56) )
   {
     v5 = *(_QWORD *)(a2 + 32);
-    v6 = (struct _SLIST_ENTRY *)(*(__int64 (**)(void))(v5 + 48))();
+    v6 = (_SLIST_ENTRY *)(*(__int64 (**)(void))(v5 + 48))();
     if ( v6 )
     {
       v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 264));
       if ( *(_DWORD *)(a2 + 40) && (v8 = *(_DWORD *)(a2 + 52), v8 < *(_DWORD *)(a2 + 56)) )
       {
         *(_DWORD *)(a2 + 52) = v8 + 1;
-        v9 = (struct _SLIST_ENTRY *)((char *)v6 + 24);
+        v9 = (_SLIST_ENTRY *)((char *)v6 + 24);
         ++*(_DWORD *)(v5 + 72);
         v10 = *(_SLIST_ENTRY **)(v5 + 40);
         if ( v10->Next != (_SLIST_ENTRY *)(v5 + 32) )

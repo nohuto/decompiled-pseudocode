@@ -1,5 +1,5 @@
 /*
- * XREFs of __guard_retpoline_switchtable_jump_rdi @ 0x140C5E2A0
+ * XREFs of __guard_retpoline_switchtable_jump_rdi @ 0x140C642A0
  * Callers:
  *     <none>
  * Callees:

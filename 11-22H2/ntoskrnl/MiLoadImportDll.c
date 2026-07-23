@@ -16,7 +16,7 @@ __int64 __fastcall MiLoadImportDll(__int64 a1, __int64 a2, int a3, ULONG_PTR *a4
   ULONG_PTR v8; // rbx
   ULONG_PTR v9; // rcx
   ULONG_PTR v11; // [rsp+40h] [rbp-18h] BYREF
-  unsigned __int64 v12; // [rsp+48h] [rbp-10h] BYREF
+  PVOID v12; // [rsp+48h] [rbp-10h] BYREF
 
   v11 = 0LL;
   v12 = 0LL;

@@ -1,8 +1,8 @@
 /*
- * XREFs of PsGetSessionCreateTime @ 0x14094BFE0
+ * XREFs of PsGetSessionCreateTime @ 0x1408F0550
  * Callers:
- *     EtwQueryProcessTelemetryInfo @ 0x14094B234 (EtwQueryProcessTelemetryInfo.c)
- *     EtwpWriteProcessStarted @ 0x14094E248 (EtwpWriteProcessStarted.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1408EF7A4 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpWriteProcessStarted @ 0x140A2FF1C (EtwpWriteProcessStarted.c)
  * Callees:
  *     <none>
  */

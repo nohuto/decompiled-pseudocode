@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeCombining @ 0x1403AFC54
+ * XREFs of MiInitializeCombining @ 0x1403AFDC4
  * Callers:
- *     MiInitializePartition @ 0x14079C65C (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14079C85C (MiInitializePartition.c)
  * Callees:
  *     <none>
  */

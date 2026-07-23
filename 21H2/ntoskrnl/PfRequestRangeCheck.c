@@ -1,9 +1,9 @@
 /*
- * XREFs of PfRequestRangeCheck @ 0x1406C52FC
+ * XREFs of PfRequestRangeCheck @ 0x140673BEC
  * Callers:
- *     PfPrefetchRequestVerifyRanges @ 0x1406C4F0C (PfPrefetchRequestVerifyRanges.c)
- *     PfPrefetchRequestVerify @ 0x1406C4FF0 (PfPrefetchRequestVerify.c)
- *     PfPrefetchRequestVerifyPath @ 0x1406C5270 (PfPrefetchRequestVerifyPath.c)
+ *     PfPrefetchRequestVerifyRanges @ 0x1406737FC (PfPrefetchRequestVerifyRanges.c)
+ *     PfPrefetchRequestVerify @ 0x1406738E0 (PfPrefetchRequestVerify.c)
+ *     PfPrefetchRequestVerifyPath @ 0x140673B60 (PfPrefetchRequestVerifyPath.c)
  * Callees:
  *     <none>
  */

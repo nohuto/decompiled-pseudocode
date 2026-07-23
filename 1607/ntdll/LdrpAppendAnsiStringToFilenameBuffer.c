@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpAppendAnsiStringToFilenameBuffer @ 0x180013218
+ * XREFs of LdrpAppendAnsiStringToFilenameBuffer @ 0x180013208
  * Callers:
- *     LdrpLoadForwardedDll @ 0x180013300 (LdrpLoadForwardedDll.c)
+ *     LdrpLoadForwardedDll @ 0x1800132F0 (LdrpLoadForwardedDll.c)
  * Callees:
- *     LdrpAllocateFileNameBufferIfNeeded @ 0x1800132BC (LdrpAllocateFileNameBufferIfNeeded.c)
- *     RtlAnsiStringToUnicodeString @ 0x1800182E0 (RtlAnsiStringToUnicodeString.c)
- *     RtlxOemStringToUnicodeSize @ 0x180088370 (RtlxOemStringToUnicodeSize.c)
+ *     LdrpAllocateFileNameBufferIfNeeded @ 0x1800132AC (LdrpAllocateFileNameBufferIfNeeded.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1800182D0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlxOemStringToUnicodeSize @ 0x180088360 (RtlxOemStringToUnicodeSize.c)
  */
 
-__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(unsigned __int16 *a1, STRING *a2)
+__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(unsigned __int16 *a1, const ANSI_STRING *a2)
 {
   int FileNameBufferIfNeeded; // edi
   int v5; // eax
   unsigned __int16 v6; // dx
   __int64 v7; // rcx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   FileNameBufferIfNeeded = 0;
   if ( a2->Length )

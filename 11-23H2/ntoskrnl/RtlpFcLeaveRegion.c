@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcLeaveRegion @ 0x1407D1090
+ * XREFs of RtlpFcLeaveRegion @ 0x1407D1360
  * Callers:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D208 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D3A8 (RtlpFcBufferManagerDereferenceBuffers.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
  */
 
 void RtlpFcLeaveRegion()

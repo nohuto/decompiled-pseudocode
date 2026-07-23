@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageForWriteCluster @ 0x140150660
+ * XREFs of MiGetPageForWriteCluster @ 0x140150760
  * Callers:
- *     MiBuildReservationCluster @ 0x1401500BC (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1401501BC (MiBuildReservationCluster.c)
  * Callees:
- *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
- *     MiCheckPteForWriteCluster @ 0x140150778 (MiCheckPteForWriteCluster.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BC04 (MiReferencePageForModifiedWrite.c)
+ *     MiCheckPteForWriteCluster @ 0x140150878 (MiCheckPteForWriteCluster.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPageForWriteCluster(
@@ -42,14 +42,14 @@ __int64 __fastcall MiGetPageForWriteCluster(
   }
   else if ( (unsigned int)*a6 <= 0x1F )
   {
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (a3 & 0x10) == 0 )
-        a3 &= ~qword_14043A0C0;
+        a3 &= ~qword_14043B180;
     }
     if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(a3)) )
     {
-      v11 = qword_14043ADC0;
+      v11 = qword_14043BE80;
       v10 = *a6 + 1;
 LABEL_8:
       *a6 = v10;

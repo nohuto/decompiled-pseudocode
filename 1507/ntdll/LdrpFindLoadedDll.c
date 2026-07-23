@@ -12,7 +12,7 @@
  *     __security_check_cookie @ 0x180084090 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDll(__int64 a1, int a2, __int64 *a3)
+__int64 __fastcall LdrpFindLoadedDll(__int64 a1, __int64 a2, char **a3)
 {
   __int64 v5; // rdx
   int LoadedDllInternal; // ebx
@@ -31,13 +31,13 @@ __int64 __fastcall LdrpFindLoadedDll(__int64 a1, int a2, __int64 *a3)
   LoadedDllInternal = LdrpPreprocessDllName(a1, &v11, 0LL, &v9);
   if ( LoadedDllInternal >= 0 )
   {
-    LoadedDllInternal = LdrpFindLoadedDllInternal((unsigned int)&v11, a2, (_DWORD)a3, (unsigned int)v10, v9);
+    LoadedDllInternal = LdrpFindLoadedDllInternal(&v11, a2, a3, v10, v9);
     if ( LoadedDllInternal >= 0 && v10[0] < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
     {
       LdrpDereferenceModule(*a3);
       *a3 = 0LL;
       LdrpDrainWorkQueue(0LL);
-      LoadedDllInternal = LdrpFindLoadedDllInternal((unsigned int)&v11, a2, (_DWORD)a3, (unsigned int)v10, v9);
+      LoadedDllInternal = LdrpFindLoadedDllInternal(&v11, a2, a3, v10, v9);
       LdrpDropLastInProgressCount();
     }
   }

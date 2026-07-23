@@ -1,16 +1,16 @@
 /*
- * XREFs of SeReportSecurityEventWithSubCategory @ 0x140215140
+ * XREFs of SeReportSecurityEventWithSubCategory @ 0x140215470
  * Callers:
- *     SeReportSecurityEvent @ 0x14063B740 (SeReportSecurityEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x14085B480 (CmpReportAuditVirtualizationEvent.c)
+ *     SeReportSecurityEvent @ 0x14063E850 (SeReportSecurityEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140861774 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
  */
 
 NTSTATUS __stdcall SeReportSecurityEventWithSubCategory(
@@ -105,12 +105,12 @@ LABEL_30:
                 else
                 {
                   if ( Type == 8 )
-                    v12 = *((_BYTE *)&SepRmCapTableLock.MiscFlags + 2 * v9 + 4);
+                    v12 = *((_BYTE *)&SepRmCapTableLock.SListFaultAddress + 2 * v9);
                   else
-                    v12 = *((_BYTE *)&SepRmCapTableLock.MiscFlags + 2 * v9 + 5);
+                    v12 = *((_BYTE *)&SepRmCapTableLock.SListFaultAddress + 2 * v9 + 1);
                   if ( !v12 )
                     return 0;
-                  v13 = *(unsigned __int8 **)&RtlpBootStatHandleLock.WaitRegister.Flags;
+                  v13 = *(unsigned __int8 **)((char *)&RtlpBootStatHandleLock.116 + 4);
                   if ( UserSid )
                     v13 = (unsigned __int8 *)UserSid;
                 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpReleaseSvmAgentsLock @ 0x1406D19E4
+ * XREFs of ExpReleaseSvmAgentsLock @ 0x1406D5A14
  * Callers:
- *     ExpAllocateAsid @ 0x1406D143C (ExpAllocateAsid.c)
- *     ExpFreeAsid @ 0x1406D16D4 (ExpFreeAsid.c)
- *     ExpSvmDereferenceAsid @ 0x1406D2040 (ExpSvmDereferenceAsid.c)
- *     ExpSvmReferenceAsid @ 0x1406D2310 (ExpSvmReferenceAsid.c)
- *     ExpSvmServicePageFault @ 0x1406D23E0 (ExpSvmServicePageFault.c)
+ *     ExpAllocateAsid @ 0x1406D546C (ExpAllocateAsid.c)
+ *     ExpFreeAsid @ 0x1406D5704 (ExpFreeAsid.c)
+ *     ExpSvmDereferenceAsid @ 0x1406D6070 (ExpSvmDereferenceAsid.c)
+ *     ExpSvmReferenceAsid @ 0x1406D6340 (ExpSvmReferenceAsid.c)
+ *     ExpSvmServicePageFault @ 0x1406D6410 (ExpSvmServicePageFault.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __fastcall ExpReleaseSvmAgentsLock(struct _KLOCK_QUEUE_HANDLE *a1, unsigned __int8 a2)

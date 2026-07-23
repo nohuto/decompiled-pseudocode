@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpCloseHandle @ 0x1405F573C
+ * XREFs of ObpCloseHandle @ 0x1405F673C
  * Callers:
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ObpSetDeviceMap @ 0x1406C697C (ObpSetDeviceMap.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     ObpSetDeviceMap @ 0x1406C7C1C (ObpSetDeviceMap.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     ExQueryHandleExceptionsPermanency @ 0x140160774 (ExQueryHandleExceptionsPermanency.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KeRaiseUserException @ 0x1402906A0 (KeRaiseUserException.c)
- *     ExHandleLogBadReference @ 0x140319E14 (ExHandleLogBadReference.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
- *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
- *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)
+ *     ObpIsKernelHandle @ 0x140088EC8 (ObpIsKernelHandle.c)
+ *     ExQueryHandleExceptionsPermanency @ 0x140160874 (ExQueryHandleExceptionsPermanency.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KeRaiseUserException @ 0x140290890 (KeRaiseUserException.c)
+ *     ExHandleLogBadReference @ 0x14031A004 (ExHandleLogBadReference.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
+ *     ObCloseHandleTableEntry @ 0x1405E7360 (ObCloseHandleTableEntry.c)
+ *     ExMapHandleToPointer @ 0x1405F66A0 (ExMapHandleToPointer.c)
  */
 
 __int64 __fastcall ObpCloseHandle(unsigned __int64 a1, char a2)

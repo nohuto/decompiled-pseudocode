@@ -9,24 +9,24 @@
  *     BcdGetElementDataWithFlags @ 0x14056FEE4 (BcdGetElementDataWithFlags.c)
  */
 
-__int64 __fastcall BiGetDefaultBootEntryIdentifier(__int64 a1, _OWORD *a2)
+__int64 __fastcall BiGetDefaultBootEntryIdentifier(void *a1, _OWORD *a2)
 {
-  int ElementDataWithFlags; // ebx
-  __int64 v4; // r8
-  HANDLE Handle; // [rsp+30h] [rbp-38h] BYREF
-  int v7; // [rsp+38h] [rbp-30h] BYREF
-  __int128 v8; // [rsp+40h] [rbp-28h] BYREF
+  NTSTATUS ElementDataWithFlags; // ebx
+  BCD_FLAGS v4; // r8d
+  HANDLE BcdObjectHandle; // [rsp+30h] [rbp-38h] BYREF
+  ULONG BufferSize; // [rsp+38h] [rbp-30h] BYREF
+  __int128 Buffer; // [rsp+40h] [rbp-28h] BYREF
 
-  Handle = 0LL;
-  ElementDataWithFlags = BcdOpenObject(a1, (__int128 *)&GUID_WINDOWS_BOOTMGR, &Handle);
+  BcdObjectHandle = 0LL;
+  ElementDataWithFlags = BcdOpenObject(a1, &GUID_WINDOWS_BOOTMGR, &BcdObjectHandle);
   if ( ElementDataWithFlags >= 0 )
   {
-    v7 = 16;
-    ElementDataWithFlags = BcdGetElementDataWithFlags((__int64)Handle, 0x23000003u, v4, (__int64)&v8, &v7);
+    BufferSize = 16;
+    ElementDataWithFlags = BcdGetElementDataWithFlags(BcdObjectHandle, 0x23000003u, v4, &Buffer, &BufferSize);
     if ( ElementDataWithFlags >= 0 )
-      *a2 = v8;
+      *a2 = Buffer;
   }
-  if ( Handle )
-    BcdCloseObject(Handle);
+  if ( BcdObjectHandle )
+    BcdCloseObject(BcdObjectHandle);
   return (unsigned int)ElementDataWithFlags;
 }

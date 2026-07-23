@@ -1,66 +1,66 @@
 /*
- * XREFs of EtwpInsertGuidEntry @ 0x18010C374
+ * XREFs of EtwpInsertGuidEntry @ 0x180106D44
  * Callers:
- *     EtwpAllocateUmGuidEntry @ 0x18010C304 (EtwpAllocateUmGuidEntry.c)
+ *     EtwpAllocateUmGuidEntry @ 0x180106CD4 (EtwpAllocateUmGuidEntry.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x180054EB0 (RtlRbInsertNodeEx.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     RtlRbInsertNodeEx @ 0x18006AA90 (RtlRbInsertNodeEx.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
-__int64 __fastcall EtwpInsertGuidEntry(unsigned __int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __fastcall EtwpInsertGuidEntry(PRTL_BALANCED_NODE Node)
 {
-  __int64 v4; // rdi
-  bool v5; // bl
-  int v6; // esi
-  __int64 v7; // rax
+  unsigned __int64 Root; // rdi
+  BOOLEAN v3; // bl
+  int v4; // esi
+  unsigned __int64 v5; // rax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&EtwpProvLock, a2, a3);
-  v4 = EtwpGuidEntryTable;
-  v5 = 0;
-  if ( (qword_1801D2278 & 1) != 0 )
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  Root = (unsigned __int64)EtwpGuidEntryTable.Root;
+  v3 = 0;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 )
   {
-    if ( EtwpGuidEntryTable )
-      v4 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
+    if ( EtwpGuidEntryTable.Root )
+      Root = (unsigned __int64)&EtwpGuidEntryTable ^ (unsigned __int64)EtwpGuidEntryTable.Root;
     else
-      v4 = 0LL;
+      Root = 0LL;
   }
-  v6 = qword_1801D2278 & 1;
-  if ( v4 )
+  v4 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( memcmp((const void *)(a1 + 24), (const void *)(v4 + 24), 0x10uLL) >= 0 )
+      if ( memcmp(&Node[1], (const void *)(Root + 24), 0x10uLL) >= 0 )
       {
-        v7 = *(_QWORD *)(v4 + 8);
-        if ( v6 )
+        v5 = *(_QWORD *)(Root + 8);
+        if ( v4 )
         {
-          if ( !v7 )
+          if ( !v5 )
           {
 LABEL_11:
-            v5 = 1;
+            v3 = 1;
             break;
           }
-          v7 ^= v4;
+          v5 ^= Root;
         }
-        if ( !v7 )
+        if ( !v5 )
           goto LABEL_11;
       }
       else
       {
-        v7 = *(_QWORD *)v4;
-        if ( v6 )
+        v5 = *(_QWORD *)Root;
+        if ( v4 )
         {
-          if ( !v7 )
+          if ( !v5 )
             break;
-          v7 ^= v4;
+          v5 ^= Root;
         }
-        if ( !v7 )
+        if ( !v5 )
           break;
       }
-      v4 = v7;
+      Root = v5;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64)&EtwpGuidEntryTable, v4, v5, a1);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlRbInsertNodeEx(&EtwpGuidEntryTable, (PRTL_BALANCED_NODE)Root, v3, Node);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

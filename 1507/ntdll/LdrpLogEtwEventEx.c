@@ -10,7 +10,7 @@
  *     LdrpEventAddUnicodeString @ 0x1800BCF8C (LdrpEventAddUnicodeString.c)
  */
 
-_WORD *__fastcall LdrpLogEtwEventEx(
+int __fastcall LdrpLogEtwEventEx(
         __int16 a1,
         __int64 a2,
         __int64 a3,
@@ -19,29 +19,32 @@ _WORD *__fastcall LdrpLogEtwEventEx(
         unsigned __int16 *a6)
 {
   unsigned int v8; // edi
-  _WORD *result; // rax
-  unsigned int v10; // [rsp+20h] [rbp-50h] BYREF
-  __int16 v11; // [rsp+2Eh] [rbp-42h]
-  __int64 v12; // [rsp+48h] [rbp-28h]
-  __int16 v13; // [rsp+50h] [rbp-20h]
-  _WORD *v14; // [rsp+58h] [rbp-18h]
+  _WORD *Heap; // rax
+  unsigned int v10; // ebx
+  unsigned int v12; // [rsp+20h] [rbp-50h] BYREF
+  _BYTE Fields[6]; // [rsp+28h] [rbp-48h] BYREF
+  __int16 v14; // [rsp+2Eh] [rbp-42h]
+  __int64 v15; // [rsp+48h] [rbp-28h]
+  __int16 v16; // [rsp+50h] [rbp-20h]
+  PVOID BaseAddress; // [rsp+58h] [rbp-18h]
 
-  v14 = 0LL;
+  BaseAddress = 0LL;
   v8 = *a6 + 4 + *a5;
-  result = (_WORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
-  v14 = result;
-  if ( result )
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
+  BaseAddress = Heap;
+  if ( Heap )
   {
-    v11 = a1;
+    v14 = a1;
     if ( a2 != -1 )
     {
-      v12 = a2;
-      v13 = 0;
-      LdrpEventAddUnicodeString((__int64)a5, result, v8, &v10);
-      LdrpEventAddUnicodeString((__int64)a6, &v14[(unsigned __int64)v10 >> 1], v8 - v10, &v10);
-      NtTraceEvent();
-      return (_WORD *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v14);
+      v15 = a2;
+      v16 = 0;
+      LdrpEventAddUnicodeString((__int64)a5, Heap, v8, &v12);
+      v10 = v12 + 8;
+      LdrpEventAddUnicodeString((__int64)a6, (_WORD *)BaseAddress + ((unsigned __int64)v12 >> 1), v8 - v12, &v12);
+      NtTraceEvent((HANDLE)MEMORY[0x7FFE0384], 0x402u, v10 + v12, Fields);
+      LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     }
   }
-  return result;
+  return (int)Heap;
 }

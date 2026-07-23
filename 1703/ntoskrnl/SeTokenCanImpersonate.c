@@ -17,39 +17,39 @@
  *     SepIsImpersonationAllowedDueToCapability @ 0x1405600D0 (SepIsImpersonationAllowedDueToCapability.c)
  */
 
-__int64 __fastcall SeTokenCanImpersonate(_DWORD *Token, _DWORD *a2, int a3, _BYTE *a4)
+NTSTATUS __fastcall SeTokenCanImpersonate(_DWORD *Token, _DWORD *a2, int a3, _BYTE *a4)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int IsElevated; // ebx
   void *v9; // rbp
   void *v10; // r14
   int v11; // eax
-  char *Buf2; // [rsp+20h] [rbp-48h]
-  char *Buf1; // [rsp+30h] [rbp-38h]
-  int v14; // [rsp+70h] [rbp+8h] BYREF
-  bool v15; // [rsp+78h] [rbp+10h] BYREF
+  PSID Sid2; // [rsp+20h] [rbp-48h]
+  PSID Sid1; // [rsp+30h] [rbp-38h]
+  _RTL_ELEVATION_FLAGS DominatesTrust; // [rsp+70h] [rbp+8h] BYREF
+  BOOLEAN Dominates; // [rsp+78h] [rbp+10h] BYREF
   char v16; // [rsp+80h] [rbp+18h] BYREF
 
-  v15 = 0;
-  LOBYTE(v14) = 0;
+  Dominates = 0;
+  LOBYTE(DominatesTrust.Flags) = 0;
   v16 = 0;
   *a4 = 0;
   if ( a3 < 2 || a2[6] == 998 && !a2[7] )
-    return 0LL;
-  result = RtlSidDominatesForTrust(*((_QWORD *)Token + 138), *((_QWORD *)a2 + 138), &v14);
-  if ( (int)result < 0 )
+    return 0;
+  result = RtlSidDominatesForTrust(*((PSID *)Token + 138), *((PSID *)a2 + 138), (PBOOLEAN)&DominatesTrust);
+  if ( result < 0 )
     return result;
-  if ( !(_BYTE)v14 )
+  if ( !LOBYTE(DominatesTrust.Flags) )
     *a4 = 1;
   if ( (Token[16] & Token[18] & 0x20000000) != 0 )
-    return 0LL;
+    return 0;
   SepAcquireOrderedReadLocks((unsigned __int64)Token, (unsigned __int64)a2);
   SepCopyTokenIntegrity();
   SepCopyTokenIntegrity();
-  IsElevated = RtlSidDominates(Buf1, Buf2, &v15);
+  IsElevated = RtlSidDominates(Sid1, Sid2, &Dominates);
   if ( IsElevated >= 0 )
   {
-    if ( !v15 )
+    if ( !Dominates )
       goto LABEL_33;
     if ( (unsigned __int8)SepIsImpersonationAllowedDueToCapability(Token) || Token[6] == a2[56] && Token[7] == a2[57] )
     {
@@ -59,7 +59,7 @@ __int64 __fastcall SeTokenCanImpersonate(_DWORD *Token, _DWORD *a2, int a3, _BYT
     {
       if ( !RtlEqualSid(**((PSID **)Token + 19), **((PSID **)a2 + 19)) )
         goto LABEL_33;
-      if ( (int)RtlQueryElevationFlags(&v14) < 0 || (v14 & 1) == 0 )
+      if ( RtlQueryElevationFlags(&DominatesTrust) < 0 || (DominatesTrust.Flags & 1) == 0 )
         goto LABEL_23;
       IsElevated = SeTokenIsElevated(a2, &v16);
       if ( IsElevated >= 0 )
@@ -96,5 +96,5 @@ LABEL_33:
   }
 LABEL_34:
   SepReleaseOrderedReadLocks((__int64)Token, (__int64)a2);
-  return (unsigned int)IsElevated;
+  return IsElevated;
 }

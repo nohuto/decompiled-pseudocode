@@ -1,18 +1,18 @@
 /*
- * XREFs of ObQueryRefTraceInformation @ 0x140B5E750
+ * XREFs of ObQueryRefTraceInformation @ 0x140B618D0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ObpGetPoolTags @ 0x14077C264 (ObpGetPoolTags.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ObpGetPoolTags @ 0x14077ED58 (ObpGetPoolTags.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
  */
 
 __int64 __fastcall ObQueryRefTraceInformation(char *a1, unsigned int a2, unsigned int *a3, struct _KLOCK_ENTRIES *a4)
@@ -40,10 +40,10 @@ __int64 __fastcall ObQueryRefTraceInformation(char *a1, unsigned int a2, unsigne
   v6 = 40;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F132C8, 0LL, 0LL, a4);
+  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL, 0LL, a4);
   v9 = v8;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140F132C8, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F132C8, v8, (__int64)&stru_140F132C8);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&ObpStackTraceLock, 0LL) )
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&ObpStackTraceLock, v8, (__int64)&ObpStackTraceLock);
   v10 = 1;
   if ( v9 )
   {
@@ -61,12 +61,11 @@ __int64 __fastcall ObQueryRefTraceInformation(char *a1, unsigned int a2, unsigne
   BYTE1(Src) = v10 & ((unsigned __int8)ObpTraceFlags >> 6);
   if ( (ObpTraceFlags & 0x20) != 0 )
   {
-    WORD4(Src) = stru_140F132C8.SavedApcState.ApcListHead[0].Flink;
-    WORD5(Src) = LOWORD(stru_140F132C8.SavedApcState.ApcListHead[0].Flink) + 2;
+    WORD4(Src) = ObpStackTraceLock.AffinityPrimaryGroup;
+    WORD5(Src) = ObpStackTraceLock.AffinityPrimaryGroup + 2;
     v18[0] = a1 + 40;
-    v12 += 2
-         * ((unsigned __int64)(unsigned __int16)(LOWORD(stru_140F132C8.SavedApcState.ApcListHead[0].Flink) + 2) >> 1);
-    v6 = (unsigned __int16)(LOWORD(stru_140F132C8.SavedApcState.ApcListHead[0].Flink) + 2) + 40;
+    v12 += 2 * ((unsigned __int64)(unsigned __int16)(ObpStackTraceLock.AffinityPrimaryGroup + 2) >> 1);
+    v6 = (unsigned __int16)(ObpStackTraceLock.AffinityPrimaryGroup + 2) + 40;
   }
   if ( (ObpTraceFlags & 0x10) != 0 )
   {
@@ -88,9 +87,9 @@ __int64 __fastcall ObQueryRefTraceInformation(char *a1, unsigned int a2, unsigne
     if ( (ObpTraceFlags & 0x20) != 0 )
     {
       if ( PreviousMode )
-        RtlCopyToUser(v18[0], stru_140F132C8.SavedApcState.ApcListHead[0].Blink, WORD4(Src));
+        RtlCopyToUser(v18[0], (void *)ObpStackTraceLock.NpxState, WORD4(Src));
       else
-        RtlCopyVolatileMemory(v18[0], stru_140F132C8.SavedApcState.ApcListHead[0].Blink, WORD4(Src));
+        RtlCopyVolatileMemory(v18[0], (const void *)ObpStackTraceLock.NpxState, WORD4(Src));
     }
     if ( (ObpTraceFlags & 0x10) != 0 )
     {
@@ -106,9 +105,9 @@ __int64 __fastcall ObQueryRefTraceInformation(char *a1, unsigned int a2, unsigne
     PoolTags = -1073741820;
   }
 LABEL_28:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F132C8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F132C8.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140F132C8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&ObpStackTraceLock.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&ObpStackTraceLock);
   KeLeaveGuardedRegion();
   if ( ((int)(PoolTags + 0x80000000) < 0 || PoolTags == -1073741820) && a3 )
     *a3 = v6;

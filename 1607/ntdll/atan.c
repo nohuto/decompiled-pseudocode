@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     _controlfp @ 0x18009E8B8 (_controlfp.c)
- *     _handle_error @ 0x18009E9F4 (_handle_error.c)
+ *     _controlfp @ 0x18009E8A8 (_controlfp.c)
+ *     _handle_error @ 0x18009E9E4 (_handle_error.c)
  */
 
 double __cdecl atan(double X)

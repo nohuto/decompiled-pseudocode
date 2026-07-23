@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSanitizeProfileInterval @ 0x140579548
+ * XREFs of KiSanitizeProfileInterval @ 0x140579A38
  * Callers:
- *     KeSetIntervalProfile @ 0x140975118 (KeSetIntervalProfile.c)
+ *     KeSetIntervalProfile @ 0x140975318 (KeSetIntervalProfile.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepIdleTimeoutDpcRoutine @ 0x1405749C0
+ * XREFs of PopPepIdleTimeoutDpcRoutine @ 0x140574C00
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItemEx @ 0x14027A208 (ExQueueWorkItemEx.c)
- *     PopPepArmIdleTimer @ 0x140573FD4 (PopPepArmIdleTimer.c)
+ *     ExQueueWorkItemEx @ 0x1402681A8 (ExQueueWorkItemEx.c)
+ *     PopPepArmIdleTimer @ 0x140574214 (PopPepArmIdleTimer.c)
  */
 
 void PopPepIdleTimeoutDpcRoutine()
 {
-  if ( !(unsigned __int8)ExQueueWorkItemEx(&PopPepIdleWorkItem, 1u, 0xFFFFFFFF) )
+  if ( !(unsigned __int8)ExQueueWorkItemEx((ULONG_PTR)&PopPepIdleWorkItem, 1u, -1) )
     PopPepArmIdleTimer(1);
 }

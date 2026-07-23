@@ -1,18 +1,18 @@
 /*
- * XREFs of CcMdlWriteComplete2 @ 0x140461194
+ * XREFs of CcMdlWriteComplete2 @ 0x1404567A4
  * Callers:
- *     CcMdlWriteComplete @ 0x140A6CFD0 (CcMdlWriteComplete.c)
- *     FsRtlMdlWriteCompleteDev @ 0x140A80E70 (FsRtlMdlWriteCompleteDev.c)
+ *     CcMdlWriteComplete @ 0x140A66690 (CcMdlWriteComplete.c)
+ *     FsRtlMdlWriteCompleteDev @ 0x140A7B8D0 (FsRtlMdlWriteCompleteDev.c)
  * Callees:
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     CcDecrementOpenCount @ 0x1402ABDBC (CcDecrementOpenCount.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     FsRtlIsNtstatusExpected @ 0x140456400 (FsRtlIsNtstatusExpected.c)
- *     CcSetDirtyInMask @ 0x1404614E0 (CcSetDirtyInMask.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     CcDecrementOpenCount @ 0x140279504 (CcDecrementOpenCount.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     FsRtlIsNtstatusExpected @ 0x14044B3D0 (FsRtlIsNtstatusExpected.c)
+ *     CcSetDirtyInMask @ 0x140456AF0 (CcSetDirtyInMask.c)
  */
 
 void __fastcall CcMdlWriteComplete2(__int64 a1, __int64 *a2, struct _MDL *a3)
@@ -30,7 +30,7 @@ void __fastcall CcMdlWriteComplete2(__int64 a1, __int64 *a2, struct _MDL *a3)
   __int64 v14; // rax
   struct _MDL *v15; // rbx
   BOOLEAN IsNtstatusExpected; // al
-  int v17; // ecx
+  NTSTATUS v17; // ecx
   __int128 v18; // [rsp+30h] [rbp-58h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-48h] BYREF
   __int64 v20; // [rsp+90h] [rbp+8h] BYREF
@@ -54,7 +54,7 @@ void __fastcall CcMdlWriteComplete2(__int64 a1, __int64 *a2, struct _MDL *a3)
     ByteCount = v9->ByteCount;
     if ( (*(_DWORD *)(a1 + 80) & 0x10) != 0 )
     {
-      MmFlushSection(*(__int64 **)(a1 + 40), &v20, ByteCount, 0LL, &v18, 1);
+      MmFlushSection(*(_QWORD *)(a1 + 40), &v20, ByteCount, 0LL, &v18, 1);
       if ( (int)v18 < 0 )
         v8 = v18;
     }

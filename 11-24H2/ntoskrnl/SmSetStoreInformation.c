@@ -1,21 +1,21 @@
 /*
- * XREFs of SmSetStoreInformation @ 0x140A5F8F0
+ * XREFs of SmSetStoreInformation @ 0x140A57E40
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     SmProcessConfigRequest @ 0x140797C64 (SmProcessConfigRequest.c)
- *     SmProcessDeleteRequest @ 0x140797F58 (SmProcessDeleteRequest.c)
- *     SmProcessResizeRequest @ 0x140798580 (SmProcessResizeRequest.c)
- *     SmcProcessCreateRequest @ 0x140798E7C (SmcProcessCreateRequest.c)
- *     SmcProcessDeleteRequest @ 0x140799130 (SmcProcessDeleteRequest.c)
- *     SmcProcessResizeRequest @ 0x14079934C (SmcProcessResizeRequest.c)
- *     SmcProcessStoreCreateRequest @ 0x140799644 (SmcProcessStoreCreateRequest.c)
- *     SmcProcessStoreDeleteRequest @ 0x1407997B0 (SmcProcessStoreDeleteRequest.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     SmProcessCreateRequest @ 0x140A42DD4 (SmProcessCreateRequest.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x140A5FA44 (SmProcessStoreMemoryPriorityRequest.c)
- *     SmProcessSystemStoreTrimRequest @ 0x140A5FC18 (SmProcessSystemStoreTrimRequest.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     SmProcessConfigRequest @ 0x140797D74 (SmProcessConfigRequest.c)
+ *     SmProcessDeleteRequest @ 0x140798068 (SmProcessDeleteRequest.c)
+ *     SmProcessResizeRequest @ 0x140798690 (SmProcessResizeRequest.c)
+ *     SmcProcessCreateRequest @ 0x140798F8C (SmcProcessCreateRequest.c)
+ *     SmcProcessDeleteRequest @ 0x140799240 (SmcProcessDeleteRequest.c)
+ *     SmcProcessResizeRequest @ 0x14079945C (SmcProcessResizeRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x140799754 (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x1407998C0 (SmcProcessStoreDeleteRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     SmProcessCreateRequest @ 0x140A38664 (SmProcessCreateRequest.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x140A57F94 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x140A58168 (SmProcessSystemStoreTrimRequest.c)
  */
 
 __int64 __fastcall SmSetStoreInformation(__int64 a1, __int64 a2, unsigned int a3, KPROCESSOR_MODE a4)

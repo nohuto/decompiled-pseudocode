@@ -1,13 +1,13 @@
 /*
- * XREFs of KiDisconnectSecondaryInterrupt @ 0x1401D5BD8
+ * XREFs of KiDisconnectSecondaryInterrupt @ 0x1401D5A04
  * Callers:
- *     KeDisconnectInterrupt @ 0x140123E5C (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x1401243CC (KeDisconnectInterrupt.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KiDisconnectInterruptCommon @ 0x1401242B8 (KiDisconnectInterruptCommon.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x1401D5A3C (KiAcquireSecondaryPassiveConnectLock.c)
- *     KiReleaseSecondaryPassiveConnectLock @ 0x1401D5F88 (KiReleaseSecondaryPassiveConnectLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KiDisconnectInterruptCommon @ 0x140124828 (KiDisconnectInterruptCommon.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x1401D5868 (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KiReleaseSecondaryPassiveConnectLock @ 0x1401D5DB4 (KiReleaseSecondaryPassiveConnectLock.c)
  */
 
 __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, __int64 a2)

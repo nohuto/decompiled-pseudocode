@@ -10,121 +10,126 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlVerifyVersionInfo(int a1, int a2, signed __int64 a3)
+NTSTATUS __cdecl RtlVerifyVersionInfo(
+        PRTL_OSVERSIONINFOEXW VersionInformation,
+        ULONG TypeMask,
+        ULONGLONG ConditionMask)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v4; // edx
-  int v5; // eax
+  int wSuiteMask; // eax
   unsigned int v6; // ecx
   int v7; // ebx
-  int ConditionMask; // eax
+  int v8; // eax
   int v9; // eax
   char v10; // bl
   char v11; // al
   int v12; // ebx
   bool v13; // zf
   int v14; // eax
-  int v15; // ebx
+  PRTL_OSVERSIONINFOEXW v15; // ebx
   int v16; // eax
   int v17; // eax
-  unsigned int v18; // [esp+Ch] [ebp-12Ch]
-  int v19; // [esp+10h] [ebp-128h]
-  char v20; // [esp+17h] [ebp-121h] BYREF
-  _DWORD v21[71]; // [esp+18h] [ebp-120h] BYREF
+  size_t v18; // [esp-4h] [ebp-13Ch]
+  unsigned int v19; // [esp+Ch] [ebp-12Ch]
+  int v20; // [esp+10h] [ebp-128h]
+  char v21; // [esp+17h] [ebp-121h] BYREF
+  _OSVERSIONINFOEXW v22; // [esp+18h] [ebp-120h] BYREF
 
-  v20 = 0;
-  if ( !a2 )
+  v21 = 0;
+  if ( !TypeMask )
     return -1073741811;
-  memset(&v21[1], 0, 0x118u);
-  v21[0] = 284;
-  result = RtlGetVersion((int)v21);
+  LODWORD(v18) = 280;
+  memset(&v22.dwMajorVersion, 0, v18);
+  v22.dwOSVersionInfoSize = 284;
+  result = RtlGetVersion(&v22);
   if ( result )
     return result;
-  if ( (a2 & 0x40) != 0 )
+  if ( (TypeMask & 0x40) != 0 )
   {
-    v5 = *(unsigned __int16 *)(a1 + 280);
-    if ( (_WORD)v5 )
+    wSuiteMask = VersionInformation->wSuiteMask;
+    if ( (_WORD)wSuiteMask )
     {
       v6 = 0;
-      v19 = *(unsigned __int16 *)(a1 + 280);
-      v18 = 0;
+      v20 = VersionInformation->wSuiteMask;
+      v19 = 0;
       while ( 1 )
       {
         v7 = 1 << v6;
-        if ( (v5 & (1 << v6)) == 0 )
+        if ( (wSuiteMask & (1 << v6)) == 0 )
           goto LABEL_16;
-        if ( a3 < 0 )
+        if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
         {
-          ConditionMask = RtlpVerGetConditionMask(0x40u, v4, a3, SHIDWORD(a3));
-          v6 = v18;
+          v8 = RtlpVerGetConditionMask(0x40u, v4, ConditionMask, SHIDWORD(ConditionMask));
+          v6 = v19;
         }
         else
         {
-          ConditionMask = 0;
+          v8 = 0;
         }
-        v9 = ConditionMask - 6;
+        v9 = v8 - 6;
         if ( !v9 )
           break;
         if ( v9 != 1 )
           return -1073741811;
-        v5 = v19;
-        if ( (v21[70] & (unsigned __int16)v7) == 0 )
+        wSuiteMask = v20;
+        if ( (v22.wSuiteMask & (unsigned __int16)v7) == 0 )
           goto LABEL_16;
         v10 = 1;
-        v20 = 1;
+        v21 = 1;
 LABEL_17:
-        v18 = ++v6;
+        v19 = ++v6;
         if ( v6 >= 0x10 )
         {
-          if ( RtlpVerGetConditionMask(0x40u, v4, a3, SHIDWORD(a3)) != 7 || v10 )
+          if ( RtlpVerGetConditionMask(0x40u, v4, ConditionMask, SHIDWORD(ConditionMask)) != 7 || v10 )
             goto LABEL_20;
           return -1073741735;
         }
       }
-      if ( (v21[70] & (unsigned __int16)v7) == 0 )
+      if ( (v22.wSuiteMask & (unsigned __int16)v7) == 0 )
         return -1073741735;
-      v5 = v19;
+      wSuiteMask = v20;
 LABEL_16:
-      v10 = v20;
+      v10 = v21;
       goto LABEL_17;
     }
   }
 LABEL_20:
   v11 = 1;
   v12 = 1;
-  v20 = 1;
-  if ( (a2 & 2) != 0 )
+  v21 = 1;
+  if ( (TypeMask & 2) != 0 )
   {
-    if ( a3 < 0 )
-      v12 = RtlpVerGetConditionMask(2u, v4, a3, SHIDWORD(a3));
+    if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
+      v12 = RtlpVerGetConditionMask(2u, v4, ConditionMask, SHIDWORD(ConditionMask));
     else
-      v12 = (unsigned __int8)((unsigned __int64)a3 >> 4);
-    v13 = !RtlpVerCompare(v12, *(_DWORD *)(a1 + 4), v21[1], (bool *)&v20, 0);
-    v11 = v20;
+      v12 = (unsigned __int8)(ConditionMask >> 4);
+    v13 = !RtlpVerCompare(v12, VersionInformation->dwMajorVersion, v22.dwMajorVersion, (bool *)&v21, 0);
+    v11 = v21;
     if ( v13 )
     {
-      if ( !v20 )
+      if ( !v21 )
         return -1073741735;
     }
-    else if ( !v20 )
+    else if ( !v21 )
     {
       goto LABEL_53;
     }
   }
-  if ( (a2 & 1) == 0 )
+  if ( (TypeMask & 1) == 0 )
     goto LABEL_36;
   if ( v12 == 1 )
   {
-    if ( a3 < 0 )
-      v12 = RtlpVerGetConditionMask(1u, v4, a3, SHIDWORD(a3));
+    if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
+      v12 = RtlpVerGetConditionMask(1u, v4, ConditionMask, SHIDWORD(ConditionMask));
     else
-      v12 = (unsigned __int8)((unsigned __int64)a3 >> 2);
+      v12 = (unsigned __int8)(ConditionMask >> 2);
   }
-  v13 = !RtlpVerCompare(v12, *(_DWORD *)(a1 + 8), v21[2], (bool *)&v20, 1);
-  v11 = v20;
+  v13 = !RtlpVerCompare(v12, VersionInformation->dwMinorVersion, v22.dwMinorVersion, (bool *)&v21, 1);
+  v11 = v21;
   if ( v13 )
   {
-    if ( !v20 )
+    if ( !v21 )
       return -1073741735;
   }
   else
@@ -133,7 +138,7 @@ LABEL_36:
     if ( !v11 )
       goto LABEL_53;
   }
-  if ( (a2 & 0x20) == 0 )
+  if ( (TypeMask & 0x20) == 0 )
   {
 LABEL_46:
     if ( !v11 )
@@ -142,52 +147,56 @@ LABEL_46:
   }
   if ( v12 == 1 )
   {
-    if ( a3 < 0 )
-      v12 = RtlpVerGetConditionMask(0x20u, v4, a3, SHIDWORD(a3));
+    if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
+      v12 = RtlpVerGetConditionMask(0x20u, v4, ConditionMask, SHIDWORD(ConditionMask));
     else
       v12 = 0;
   }
-  if ( RtlpVerCompare(v12, *(unsigned __int16 *)(a1 + 276), LOWORD(v21[69]), (bool *)&v20, 0) )
+  if ( RtlpVerCompare(v12, VersionInformation->wServicePackMajor, v22.wServicePackMajor, (bool *)&v21, 0) )
   {
-    v11 = v20;
+    v11 = v21;
     goto LABEL_46;
   }
-  if ( !v20 )
+  if ( !v21 )
     return -1073741735;
 LABEL_47:
-  if ( (a2 & 0x10) != 0 )
+  if ( (TypeMask & 0x10) != 0 )
   {
     if ( v12 == 1 )
     {
-      if ( a3 < 0 )
-        v12 = RtlpVerGetConditionMask(0x10u, v4, a3, SHIDWORD(a3));
+      if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
+        v12 = RtlpVerGetConditionMask(0x10u, v4, ConditionMask, SHIDWORD(ConditionMask));
       else
         v12 = 0;
     }
-    if ( !RtlpVerCompare(v12, *(unsigned __int16 *)(a1 + 278), HIWORD(v21[69]), (bool *)&v20, 1) )
+    if ( !RtlpVerCompare(v12, VersionInformation->wServicePackMinor, v22.wServicePackMinor, (bool *)&v21, 1) )
       return -1073741735;
   }
 LABEL_53:
-  if ( (a2 & 4) != 0 )
+  if ( (TypeMask & 4) != 0 )
   {
-    if ( a3 < 0 )
-      v14 = RtlpVerGetConditionMask(4u, v4, a3, SHIDWORD(a3));
+    if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
+      v14 = RtlpVerGetConditionMask(4u, v4, ConditionMask, SHIDWORD(ConditionMask));
     else
-      v14 = BYTE2(a3);
-    v15 = a1;
-    if ( !RtlpVerCompare(v14, *(_DWORD *)(a1 + 12), v21[3], (bool *)&v20, 0) )
+      v14 = BYTE2(ConditionMask);
+    v15 = VersionInformation;
+    if ( !RtlpVerCompare(v14, VersionInformation->dwBuildNumber, v22.dwBuildNumber, (bool *)&v21, 0) )
       return -1073741735;
   }
   else
   {
-    v15 = a1;
+    v15 = VersionInformation;
   }
-  if ( ((a2 & 8) == 0
-     || (a3 < 0 ? (v16 = RtlpVerGetConditionMask(8u, v4, a3, SHIDWORD(a3))) : (v16 = 0),
-         RtlpVerCompare(v16, *(_DWORD *)(v15 + 16), v21[4], (bool *)&v20, 0)))
-    && ((a2 & 0x80u) == 0
-     || (a3 < 0 ? (v17 = RtlpVerGetConditionMask(0x80u, v4, a3, SHIDWORD(a3))) : (v17 = 0),
-         RtlpVerCompare(v17, *(unsigned __int8 *)(v15 + 282), BYTE2(v21[70]), (bool *)&v20, 0))) )
+  if ( ((TypeMask & 8) == 0
+     || ((ConditionMask & 0x8000000000000000uLL) != 0LL
+       ? (v16 = RtlpVerGetConditionMask(8u, v4, ConditionMask, SHIDWORD(ConditionMask)))
+       : (v16 = 0),
+         RtlpVerCompare(v16, v15->dwPlatformId, v22.dwPlatformId, (bool *)&v21, 0)))
+    && ((TypeMask & 0x80u) == 0
+     || ((ConditionMask & 0x8000000000000000uLL) != 0LL
+       ? (v17 = RtlpVerGetConditionMask(0x80u, v4, ConditionMask, SHIDWORD(ConditionMask)))
+       : (v17 = 0),
+         RtlpVerCompare(v17, v15->wProductType, v22.wProductType, (bool *)&v21, 0))) )
   {
     return 0;
   }

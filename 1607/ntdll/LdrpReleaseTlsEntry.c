@@ -1,44 +1,44 @@
 /*
- * XREFs of LdrpReleaseTlsEntry @ 0x18008410C
+ * XREFs of LdrpReleaseTlsEntry @ 0x1800840FC
  * Callers:
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
- *     LdrpHandleTlsData @ 0x18002DED4 (LdrpHandleTlsData.c)
- *     LdrpDereferenceModule @ 0x180032238 (LdrpDereferenceModule.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
+ *     LdrpHandleTlsData @ 0x18002DEC4 (LdrpHandleTlsData.c)
+ *     LdrpDereferenceModule @ 0x180032228 (LdrpDereferenceModule.c)
  * Callees:
- *     LdrpFindTlsEntry @ 0x180012638 (LdrpFindTlsEntry.c)
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     LdrpFindTlsEntry @ 0x180012628 (LdrpFindTlsEntry.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrpReleaseTlsEntry(void *a1, unsigned __int64 *a2, __int64 a3, __int64 a4)
+__int64 __fastcall LdrpReleaseTlsEntry(void *a1, unsigned int **a2)
 {
-  __int64 *TlsEntry; // rax
-  unsigned __int64 v7; // rbx
-  __int64 v8; // rcx
-  _QWORD *v9; // rax
+  unsigned int *TlsEntry; // rax
+  unsigned int *v5; // rbx
+  __int64 v6; // rcx
+  unsigned int **v7; // rax
 
   if ( !a2 )
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpTlsLock, 0LL, a3, a4);
-  TlsEntry = (__int64 *)LdrpFindTlsEntry(a1);
-  v7 = (unsigned __int64)TlsEntry;
+    RtlAcquireSRWLockExclusive(&LdrpTlsLock);
+  TlsEntry = (unsigned int *)LdrpFindTlsEntry(a1);
+  v5 = TlsEntry;
   if ( TlsEntry )
   {
-    v8 = *TlsEntry;
-    v9 = (_QWORD *)TlsEntry[1];
-    if ( *(_QWORD *)(v8 + 8) != v7 || *v9 != v7 )
+    v6 = *(_QWORD *)TlsEntry;
+    v7 = (unsigned int **)*((_QWORD *)TlsEntry + 1);
+    if ( *(unsigned int **)(v6 + 8) != v5 || *v7 != v5 )
       __fastfail(3u);
-    *v9 = v8;
-    *(_QWORD *)(v8 + 8) = v9;
-    _bittestandreset((signed __int32 *)Src, *(_DWORD *)(v7 + 64));
+    *v7 = (unsigned int *)v6;
+    *(_QWORD *)(v6 + 8) = v7;
+    _bittestandreset((signed __int32 *)LdrpTlsBitmap.Buffer, v5[16]);
   }
   if ( !a2 )
     RtlReleaseSRWLockExclusive(&LdrpTlsLock);
-  if ( !v7 )
+  if ( !v5 )
     return 3221226021LL;
   if ( a2 )
-    *a2 = v7;
+    *a2 = v5;
   else
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   return 0LL;
 }

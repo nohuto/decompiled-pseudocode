@@ -1,19 +1,19 @@
 /*
- * XREFs of MmEnforceWorkingSetLimit @ 0x140076CF4
+ * XREFs of MmEnforceWorkingSetLimit @ 0x140076D74
  * Callers:
- *     PspApplyWorkingSetLimitsToProcess @ 0x14046A558 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspSetQuotaLimits @ 0x1404DF2C4 (PspSetQuotaLimits.c)
- *     PspAddProcessToWorkingSetChangeList @ 0x140680194 (PspAddProcessToWorkingSetChangeList.c)
- *     PspApplyWorkingSetLimits @ 0x140680254 (PspApplyWorkingSetLimits.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140469428 (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspSetQuotaLimits @ 0x1404C28C8 (PspSetQuotaLimits.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x140680278 (PspAddProcessToWorkingSetChangeList.c)
+ *     PspApplyWorkingSetLimits @ 0x140680338 (PspApplyWorkingSetLimits.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmEnforceWorkingSetLimit(_KPROCESS *a1, char a2)
@@ -62,7 +62,7 @@ __int64 __fastcall MmEnforceWorkingSetLimit(_KPROCESS *a1, char a2)
   v9 = ExAcquireSpinLockExclusive(SharedVm);
   SharedVm[1] = 0;
   v10 = v9;
-  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327740, &LockHandle);
+  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327780, &LockHandle);
   v11 = *(_DWORD *)(v3 + 184);
   v16 = *(_DWORD *)(v3 + 184);
   if ( (v2 & 8) != 0 )

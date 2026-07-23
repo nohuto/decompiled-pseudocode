@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlGetSecurityDescriptorRMControl @ 0x18010C9C0
+ * XREFs of RtlGetSecurityDescriptorRMControl @ 0x180107700
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlGetSecurityDescriptorRMControl(__int64 a1, _BYTE *a2)
+BOOLEAN __cdecl RtlGetSecurityDescriptorRMControl(PSECURITY_DESCRIPTOR SecurityDescriptor, PUCHAR RMControl)
 {
-  if ( (*(_WORD *)(a1 + 2) & 0x4000) != 0 )
+  if ( (*((_WORD *)SecurityDescriptor + 1) & 0x4000) != 0 )
   {
-    *a2 = *(_BYTE *)(a1 + 1);
+    *RMControl = *((_BYTE *)SecurityDescriptor + 1);
     return 1;
   }
   else
   {
-    *a2 = 0;
+    *RMControl = 0;
     return 0;
   }
 }

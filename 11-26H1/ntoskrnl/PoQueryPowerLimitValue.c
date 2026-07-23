@@ -1,12 +1,12 @@
 /*
- * XREFs of PoQueryPowerLimitValue @ 0x1407CA450
+ * XREFs of PoQueryPowerLimitValue @ 0x1407CD4F0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopPowerLimitUpdatePendingEvents @ 0x1407CB224 (PopPowerLimitUpdatePendingEvents.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopPowerLimitUpdatePendingEvents @ 0x1407CE2C4 (PopPowerLimitUpdatePendingEvents.c)
  */
 
 __int64 __fastcall PoQueryPowerLimitValue(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

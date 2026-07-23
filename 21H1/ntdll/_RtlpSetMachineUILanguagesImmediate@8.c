@@ -10,65 +10,60 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __stdcall RtlpSetMachineUILanguagesImmediate(int a1, int a2)
+NTSTATUS __stdcall RtlpSetMachineUILanguagesImmediate(int a1, PVOID Data)
 {
-  int Key; // esi
-  int v4; // [esp+Ch] [ebp-2Ch] BYREF
-  HANDLE v5; // [esp+10h] [ebp-28h]
-  UNICODE_STRING *p_DestinationString; // [esp+14h] [ebp-24h]
-  int v7; // [esp+18h] [ebp-20h]
-  int v8; // [esp+1Ch] [ebp-1Ch]
-  int v9; // [esp+20h] [ebp-18h]
-  UNICODE_STRING DestinationString; // [esp+24h] [ebp-14h] BYREF
-  HANDLE v11; // [esp+2Ch] [ebp-Ch] BYREF
-  HANDLE v12; // [esp+30h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+34h] [ebp-4h] BYREF
+  NTSTATUS v2; // esi
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+Ch] [ebp-2Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+24h] [ebp-14h] BYREF
+  HANDLE CurrentUserKey; // [esp+2Ch] [ebp-Ch] BYREF
+  HANDLE Handle; // [esp+30h] [ebp-8h] BYREF
+  HANDLE KeyHandle; // [esp+34h] [ebp-4h] BYREF
 
-  v12 = 0;
-  v11 = 0;
+  Handle = 0;
+  CurrentUserKey = 0;
   *(_DWORD *)&DestinationString.Length = 0;
   DestinationString.Buffer = 0;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-  v4 = 24;
-  p_DestinationString = &DestinationString;
-  v5 = 0;
-  v7 = 64;
-  v8 = 0;
-  v9 = 0;
-  Handle = 0;
-  Key = ZwCreateKey((int)&Handle, 983103, (int)&v4, 0, 0, 0, 0);
-  if ( Key >= 0 )
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  KeyHandle = 0;
+  v2 = ZwCreateKey(&KeyHandle, 0xF003Fu, &ObjectAttributes, 0, 0, 0, 0);
+  if ( v2 >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
-    Key = ZwSetValueKey((int)Handle, (int)&DestinationString, 0, 7, a2, HIWORD(a1));
-    if ( Key >= 0 && OpenGlobalizationUserSettingsKey((void *)0x2000000, (int)&v11) >= 0 )
+    v2 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 7u, Data, HIWORD(a1));
+    if ( v2 >= 0 && OpenGlobalizationUserSettingsKey(0x2000000u, &CurrentUserKey) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached");
-      v5 = v11;
-      p_DestinationString = &DestinationString;
-      v4 = 24;
-      v7 = 64;
-      v8 = 0;
-      v9 = 0;
-      Key = ZwCreateKey((int)&v12, 983103, (int)&v4, 0, 0, 1, 0);
-      if ( Key >= 0 )
+      ObjectAttributes.RootDirectory = CurrentUserKey;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 24;
+      ObjectAttributes.Attributes = 64;
+      ObjectAttributes.SecurityDescriptor = 0;
+      ObjectAttributes.SecurityQualityOfService = 0;
+      v2 = ZwCreateKey(&Handle, 0xF003Fu, &ObjectAttributes, 0, 0, 1u, 0);
+      if ( v2 >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, L"MachinePreferredUILanguages");
-        Key = ZwSetValueKey((int)v12, (int)&DestinationString, 0, 7, a2, HIWORD(a1));
+        v2 = ZwSetValueKey(Handle, &DestinationString, 0, 7u, Data, HIWORD(a1));
       }
     }
+  }
+  if ( KeyHandle )
+  {
+    NtClose(KeyHandle);
+    KeyHandle = 0;
   }
   if ( Handle )
   {
     NtClose(Handle);
     Handle = 0;
   }
-  if ( v12 )
-  {
-    NtClose(v12);
-    v12 = 0;
-  }
-  if ( v11 )
-    NtClose(v11);
-  return Key;
+  if ( CurrentUserKey )
+    NtClose(CurrentUserKey);
+  return v2;
 }

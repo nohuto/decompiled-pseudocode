@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDrvDbGetFilePathVolume @ 0x14028B418
+ * XREFs of PiDrvDbGetFilePathVolume @ 0x14028B608
  * Callers:
- *     PiDrvDbResolveSystemFilePath @ 0x14083EE68 (PiDrvDbResolveSystemFilePath.c)
+ *     PiDrvDbResolveSystemFilePath @ 0x1408400C8 (PiDrvDbResolveSystemFilePath.c)
  * Callees:
  *     <none>
  */

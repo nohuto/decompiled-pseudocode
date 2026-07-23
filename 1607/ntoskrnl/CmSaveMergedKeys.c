@@ -1,25 +1,25 @@
 /*
- * XREFs of CmSaveMergedKeys @ 0x14060CE74
+ * XREFs of CmSaveMergedKeys @ 0x14060CF28
  * Callers:
- *     NtSaveMergedKeys @ 0x1405FACD4 (NtSaveMergedKeys.c)
+ *     NtSaveMergedKeys @ 0x1405FAD88 (NtSaveMergedKeys.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     CmpBlockTwoHiveWrites @ 0x1403E16A4 (CmpBlockTwoHiveWrites.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpLockTwoKcbsShared @ 0x140438C20 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x140438FD0 (CmpUnlockTwoKcbs.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140439400 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpUuidCreate @ 0x14049F598 (CmpUuidCreate.c)
- *     CmpCopyKeyPartial @ 0x1404EBDEC (CmpCopyKeyPartial.c)
- *     HvWriteExternal @ 0x1406064F4 (HvWriteExternal.c)
- *     CmpCopySyncTree @ 0x1406081A4 (CmpCopySyncTree.c)
- *     CmpMergeKeyValues @ 0x140608F88 (CmpMergeKeyValues.c)
- *     CmpLogUnsupportedOperation @ 0x14060BD0C (CmpLogUnsupportedOperation.c)
- *     CmpCreateTemporaryHive @ 0x14060D1EC (CmpCreateTemporaryHive.c)
- *     CmpDestroyTemporaryHive @ 0x14060D2A0 (CmpDestroyTemporaryHive.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpLockTwoKcbsShared @ 0x140437AF0 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x140437EA0 (CmpUnlockTwoKcbs.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1404382D0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpCopyKeyPartial @ 0x1404CDE74 (CmpCopyKeyPartial.c)
+ *     CmpUuidCreate @ 0x1405179A4 (CmpUuidCreate.c)
+ *     HvWriteExternal @ 0x1406065A8 (HvWriteExternal.c)
+ *     CmpCopySyncTree @ 0x140608258 (CmpCopySyncTree.c)
+ *     CmpMergeKeyValues @ 0x14060903C (CmpMergeKeyValues.c)
+ *     CmpLogUnsupportedOperation @ 0x14060BDC0 (CmpLogUnsupportedOperation.c)
+ *     CmpCreateTemporaryHive @ 0x14060D2A0 (CmpCreateTemporaryHive.c)
+ *     CmpDestroyTemporaryHive @ 0x14060D354 (CmpDestroyTemporaryHive.c)
  */
 
 NTSTATUS __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3)

@@ -6,17 +6,17 @@
  *     <none>
  */
 
-int __stdcall RtlInitBarrier(int a1, int a2, int a3)
+NTSTATUS __cdecl RtlInitBarrier(PRTL_BARRIER Barrier, ULONG TotalThreads, ULONG SpinCount)
 {
   _DWORD *v3; // eax
-  int v4; // edx
+  NTSTATUS v4; // edx
 
-  v3 = (_DWORD *)((a1 + 7) & 0xFFFFFFF8);
+  v3 = (_DWORD *)(((unsigned int)&Barrier->Reserved2 + 3) & 0xFFFFFFF8);
   if ( !v3 )
     return -1073741811;
   v4 = 0;
   v3[2] = 0;
-  v3[3] = a2;
+  v3[3] = TotalThreads;
   *v3 = 0;
   v3[1] = 0;
   return v4;

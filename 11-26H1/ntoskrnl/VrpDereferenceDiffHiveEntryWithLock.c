@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpDereferenceDiffHiveEntryWithLock @ 0x140B044DC
+ * XREFs of VrpDereferenceDiffHiveEntryWithLock @ 0x140B060EC
  * Callers:
- *     VrpDereferenceDiffHiveEntry @ 0x140979CB0 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x14093BCC0 (VrpDereferenceDiffHiveEntry.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VrpDereferenceDiffHiveEntryWithLock(volatile signed __int64 *P)

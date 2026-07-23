@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwFilterToken @ 0x1401B9D50
+ * XREFs of ZwFilterToken @ 0x1401B9EB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwFilterToken(
         HANDLE ExistingTokenHandle,
         ULONG Flags,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwFilterToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ExistingTokenHandle, *(_QWORD *)&Flags, SidsToDisable);
+  return KiServiceInternal(ExistingTokenHandle);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopExternalMonitorUpdatedWorker @ 0x1407D5790
+ * XREFs of PopExternalMonitorUpdatedWorker @ 0x1407D5900
  * Callers:
  *     <none>
  * Callees:
- *     PopOkayToQueueNextWorkItem @ 0x1402D1FF4 (PopOkayToQueueNextWorkItem.c)
- *     PopEvaluateInputSuppressionAction @ 0x1408EEB74 (PopEvaluateInputSuppressionAction.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1402503C4 (PopOkayToQueueNextWorkItem.c)
+ *     PopEvaluateInputSuppressionAction @ 0x1408EECD4 (PopEvaluateInputSuppressionAction.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopExternalMonitorUpdatedWorker(int a1)

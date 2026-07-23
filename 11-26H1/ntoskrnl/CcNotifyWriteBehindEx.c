@@ -1,10 +1,10 @@
 /*
- * XREFs of CcNotifyWriteBehindEx @ 0x1403E045C
+ * XREFs of CcNotifyWriteBehindEx @ 0x1403E364C
  * Callers:
- *     MiFlushAllPagesWorker @ 0x1403E0A6C (MiFlushAllPagesWorker.c)
- *     MiObtainFreePages @ 0x140531914 (MiObtainFreePages.c)
+ *     MiFlushAllPagesWorker @ 0x1403E3C5C (MiFlushAllPagesWorker.c)
+ *     MiObtainFreePages @ 0x140533DBC (MiObtainFreePages.c)
  * Callees:
- *     CcNotifyWriteBehindInternal @ 0x1403E07DC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindInternal @ 0x1403E39CC (CcNotifyWriteBehindInternal.c)
  */
 
 __int64 __fastcall CcNotifyWriteBehindEx(unsigned int a1, __int64 a2)

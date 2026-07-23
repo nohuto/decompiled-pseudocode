@@ -128,7 +128,7 @@ LABEL_26:
   }
   *(_BYTE *)(v17 + 32) |= 2u;
   if ( *(__int64 *)(v17 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v17);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v17);
   v31 = *(_DWORD *)(v17 + 88) & 0x1FFFF;
   *(_DWORD *)(v17 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v17 + 25) &= ~1u;

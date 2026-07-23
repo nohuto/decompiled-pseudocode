@@ -6,24 +6,26 @@
  *     _RtlpPopulateContext@12 @ 0x4B35B59E (_RtlpPopulateContext@12.c)
  */
 
-char __stdcall RtlInitEnumerationHashTable(int a1, int **a2)
+BOOLEAN __cdecl RtlInitEnumerationHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  int *v2; // edx
-  int *v4; // [esp+4h] [ebp-Ch]
+  _LIST_ENTRY *Flink; // edx
+  _LIST_ENTRY *v4; // [esp+4h] [ebp-Ch]
 
   RtlpPopulateContext(0);
-  ++*(_DWORD *)(a1 + 28);
-  if ( (int *)*v4 == v4 )
-    ++*(_DWORD *)(a1 + 24);
-  v2 = (int *)*v4;
-  if ( *(int **)(*v4 + 4) != v4 )
+  ++HashTable->NumEnumerators;
+  if ( v4->Flink == v4 )
+    ++HashTable->NonEmptyBuckets;
+  Flink = v4->Flink;
+  if ( v4->Flink->Blink != v4 )
     __fastfail(3u);
-  *a2 = v2;
-  a2[1] = v4;
-  v2[1] = (int)a2;
-  *v4 = (int)a2;
-  a2[4] = 0;
-  a2[2] = 0;
-  a2[3] = v4;
+  Enumerator->HashEntry.Linkage.Flink = Flink;
+  Enumerator->HashEntry.Linkage.Blink = v4;
+  Flink->Blink = &Enumerator->HashEntry.Linkage;
+  v4->Flink = &Enumerator->HashEntry.Linkage;
+  Enumerator->BucketIndex = 0;
+  Enumerator->HashEntry.Signature = 0;
+  Enumerator->ChainHead = v4;
   return 1;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiQueryUpdateBytesWritten @ 0x1409202CC
+ * XREFs of MiQueryUpdateBytesWritten @ 0x140923A10
  * Callers:
- *     MiGetWorkingSetInfo @ 0x14040F210 (MiGetWorkingSetInfo.c)
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
- *     MiQueryReturnResults @ 0x140920250 (MiQueryReturnResults.c)
- *     MiQueryMappedFileName @ 0x1409FE7DC (MiQueryMappedFileName.c)
+ *     MiGetWorkingSetInfo @ 0x14040E930 (MiGetWorkingSetInfo.c)
+ *     MiQueryMappedFileName @ 0x1409233DC (MiQueryMappedFileName.c)
+ *     MiQueryReturnResults @ 0x140923994 (MiQueryReturnResults.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
  */
 
 __int64 __fastcall MiQueryUpdateBytesWritten(__int64 a1, __int64 a2)

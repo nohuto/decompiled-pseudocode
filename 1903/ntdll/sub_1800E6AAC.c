@@ -14,7 +14,7 @@ __int64 sub_1800E6AAC()
 
   dword_180164EEC = 0;
   if ( ((unsigned __int8)&stru_180166180 & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   v0 = &unk_180163D40;
   stru_180166180 = 0uLL;
   do

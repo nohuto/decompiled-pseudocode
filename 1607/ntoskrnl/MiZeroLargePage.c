@@ -1,15 +1,15 @@
 /*
- * XREFs of MiZeroLargePage @ 0x14008B1C0
+ * XREFs of MiZeroLargePage @ 0x14008A8C0
  * Callers:
- *     MiZeroPageThread @ 0x140139C40 (MiZeroPageThread.c)
- *     MiZeroLargePages @ 0x14013F2D0 (MiZeroLargePages.c)
+ *     MiZeroPageThread @ 0x14013A1B0 (MiZeroPageThread.c)
+ *     MiZeroLargePages @ 0x14013F840 (MiZeroLargePages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiReleaseLargeZeroingVa @ 0x14008B474 (MiReleaseLargeZeroingVa.c)
- *     MiLargePageFreeToZero @ 0x14008B560 (MiLargePageFreeToZero.c)
- *     KeZeroPages @ 0x140161E50 (KeZeroPages.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiReleaseLargeZeroingVa @ 0x14008AB74 (MiReleaseLargeZeroingVa.c)
+ *     MiLargePageFreeToZero @ 0x14008AC60 (MiLargePageFreeToZero.c)
+ *     KeZeroPages @ 0x1401623C0 (KeZeroPages.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -56,7 +56,7 @@ void __fastcall MiZeroLargePage(__int64 a1)
   {
     v2 = *(_QWORD *)(v7 + 168);
     KeAcquireInStackQueuedSpinLock(
-      (PKSPIN_LOCK)(qword_140323570 + 2152 + 2184LL * *(unsigned int *)(v7 + 184)),
+      (PKSPIN_LOCK)(qword_1403235B0 + 2152 + 2184LL * *(unsigned int *)(v7 + 184)),
       &LockHandle);
   }
   v16 = 1;

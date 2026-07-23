@@ -27,40 +27,41 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1, __int64 a2, __int64 a3,
   SIZE_T v9; // r12
   int v10; // esi
   SIZE_T v11; // rax
-  unsigned int i; // esi
+  unsigned int v12; // esi
   char v13; // r12
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v15; // rcx
   bool v16; // zf
-  char v18; // [rsp+20h] [rbp-68h]
+  BOOLEAN Verified[4]; // [rsp+20h] [rbp-68h] BYREF
+  int v19; // [rsp+24h] [rbp-64h]
   HANDLE FileHandle; // [rsp+28h] [rbp-60h] BYREF
   PVOID P; // [rsp+30h] [rbp-58h]
-  __int64 v21; // [rsp+38h] [rbp-50h]
-  __int64 v22; // [rsp+40h] [rbp-48h]
-  volatile void **v23; // [rsp+48h] [rbp-40h]
-  KPROCESSOR_MODE v24; // [rsp+98h] [rbp+10h]
-  char v25; // [rsp+A8h] [rbp+20h]
+  __int64 v22; // [rsp+38h] [rbp-50h]
+  __int64 v23; // [rsp+40h] [rbp-48h]
+  volatile void **v24; // [rsp+48h] [rbp-40h]
+  KPROCESSOR_MODE v25; // [rsp+98h] [rbp+10h]
+  char v26; // [rsp+A8h] [rbp+20h]
 
   PoolWithTag = 0LL;
   FileHandle = 0LL;
-  v25 = 0;
+  v26 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v24 = PreviousMode;
+  v25 = PreviousMode;
   if ( PreviousMode )
   {
     v8 = *(unsigned int *)(a1 + 8);
     v7 = *(unsigned int *)(a1 + 8) * (unsigned __int128)0x18u;
-    v22 = *((_QWORD *)&v7 + 1);
+    v23 = *((_QWORD *)&v7 + 1);
     v9 = v7;
     if ( is_mul_ok(v8, 0x18uLL) )
     {
-      v21 = v7;
+      v22 = v7;
       v10 = 0;
     }
     else
     {
       v9 = -1LL;
-      v21 = -1LL;
+      v22 = -1LL;
       v10 = -1073741675;
     }
     if ( v10 < 0 )
@@ -74,7 +75,7 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1, __int64 a2, __int64 a3,
     {
       v10 = -1073741670;
 LABEL_26:
-      v13 = v24;
+      v13 = v25;
       goto LABEL_27;
     }
     if ( v9 )
@@ -86,10 +87,13 @@ LABEL_26:
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     memmove(PoolWithTag, *(const void **)(a1 + 16), v9);
-    for ( i = 0; i < *(_DWORD *)(a1 + 8); ++i )
+    v12 = 0;
+    v19 = 0;
+    while ( v12 < *(_DWORD *)(a1 + 8) )
     {
-      v23 = (volatile void **)&PoolWithTag[24 * i];
-      ProbeForWrite(v23[1], *((unsigned int *)v23 + 4), 1u);
+      v24 = (volatile void **)&PoolWithTag[24 * v12];
+      ProbeForWrite(v24[1], *((unsigned int *)v24 + 4), 1u);
+      v19 = ++v12;
     }
   }
   else
@@ -97,21 +101,21 @@ LABEL_26:
     PoolWithTag = *(char **)(a1 + 16);
     P = PoolWithTag;
   }
-  v25 = 1;
+  v26 = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopBootStatLock, 0LL);
   v10 = RtlLockBootStatusData(&FileHandle);
   if ( v10 < 0 )
     goto LABEL_26;
-  v13 = v24;
-  if ( !v24 || (v10 = PopBootStatAccessCheck(FileHandle, v24, 1u), v10 >= 0) )
+  v13 = v25;
+  if ( !v25 || (v10 = PopBootStatAccessCheck(FileHandle, v25, 1u), v10 >= 0) )
   {
-    v10 = RtlCheckBootStatusIntegrity(FileHandle);
+    v10 = RtlCheckBootStatusIntegrity(FileHandle, Verified);
     if ( v10 >= 0 )
     {
       if ( *((_DWORD *)PoolWithTag + 4) )
-        **((_BYTE **)PoolWithTag + 1) = v18;
+        **((_BYTE **)PoolWithTag + 1) = Verified[0];
       else
         v10 = -1073741811;
     }
@@ -119,7 +123,7 @@ LABEL_26:
 LABEL_27:
   if ( FileHandle )
     RtlUnlockBootStatusData(FileHandle);
-  if ( v25 )
+  if ( v26 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopBootStatLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&PopBootStatLock, *((__int64 *)&v7 + 1), a3, a4);

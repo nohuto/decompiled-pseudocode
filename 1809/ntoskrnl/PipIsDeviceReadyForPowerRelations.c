@@ -1,8 +1,8 @@
 /*
- * XREFs of PipIsDeviceReadyForPowerRelations @ 0x1406EB9AC
+ * XREFs of PipIsDeviceReadyForPowerRelations @ 0x1406ECC4C
  * Callers:
- *     PipProcessRebuildPowerRelationsQueue @ 0x1406EB810 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x1406EB920 (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1406ECAB0 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x1406ECBC0 (PipAddtoRebuildPowerRelationsQueue.c)
  * Callees:
  *     <none>
  */

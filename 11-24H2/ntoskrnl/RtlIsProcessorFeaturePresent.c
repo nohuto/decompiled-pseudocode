@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlIsProcessorFeaturePresent @ 0x1404AA0E0
+ * XREFs of RtlIsProcessorFeaturePresent @ 0x1404A43B0
  * Callers:
- *     ExIsProcessorFeaturePresent @ 0x1404AA0C0 (ExIsProcessorFeaturePresent.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405781C8 (HalpIvtProcessDrhdEntry.c)
- *     RtlHpGlobalsInitialize @ 0x1405F265C (RtlHpGlobalsInitialize.c)
- *     DifExIsProcessorFeaturePresentWrapper @ 0x14061F670 (DifExIsProcessorFeaturePresentWrapper.c)
+ *     ExIsProcessorFeaturePresent @ 0x1404A4390 (ExIsProcessorFeaturePresent.c)
+ *     HalpIvtProcessDrhdEntry @ 0x140575658 (HalpIvtProcessDrhdEntry.c)
+ *     RtlHpGlobalsInitialize @ 0x1405EFC9C (RtlHpGlobalsInitialize.c)
+ *     DifExIsProcessorFeaturePresentWrapper @ 0x14061DC30 (DifExIsProcessorFeaturePresentWrapper.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 __fastcall RtlIsProcessorFeaturePresent(unsigned int a1)
+BOOLEAN __cdecl RtlIsProcessorFeaturePresent(ULONG ProcessorFeature)
 {
-  if ( a1 >= 0xC0 )
+  if ( ProcessorFeature >= 0xC0 )
     return 0;
-  if ( a1 < 0x40 )
-    return *(_BYTE *)(a1 - 0x87FFFFFFD8CLL);
-  return _bittest64((const signed __int64 *)qword_140FC6538, a1 - 64);
+  if ( ProcessorFeature < 0x40 )
+    return *(_BYTE *)(ProcessorFeature - 0x87FFFFFFD8CLL);
+  return _bittest64((const signed __int64 *)qword_140FC75A0, ProcessorFeature - 64);
 }

@@ -21,22 +21,22 @@ __int64 __fastcall sub_180024CB8(__int64 a1, __int64 a2, __int64 a3, int a4, __i
   volatile signed __int32 **v6; // rsi
   unsigned int v7; // eax
   int v8; // r14d
-  __int64 v9; // rcx
-  int InformationActivationContext; // ebx
-  void *v11; // rdx
+  _ACTIVATION_CONTEXT *v9; // rcx
+  NTSTATUS v10; // ebx
+  _RTL_SRWLOCK *v11; // rdx
   __int64 *v12; // rcx
   __int64 *v13; // rdx
   __int64 v14; // rax
   __int64 **v15; // rcx
-  void *v16; // rsi
+  _RTL_SRWLOCK *v16; // rsi
   volatile signed __int32 *v17; // rax
   _QWORD *v18; // rax
   _QWORD *v19; // rcx
-  volatile signed __int32 *v21; // rcx
-  __int64 v22; // [rsp+48h] [rbp-30h] BYREF
+  _ACTIVATION_CONTEXT *v21; // rcx
+  PACTIVATION_CONTEXT ActivationContext; // [rsp+48h] [rbp-30h] BYREF
   __int64 v23; // [rsp+50h] [rbp-28h]
 
-  v22 = 0LL;
+  ActivationContext = 0LL;
   v23 = 0LL;
   *(_DWORD *)a1 = 1;
   *(_QWORD *)(a1 + 8) = a5;
@@ -77,35 +77,42 @@ LABEL_4:
   if ( (a4 & 2) != 0 && *v6 )
     return (unsigned int)-1073741811;
   *(_QWORD *)(a1 + 104) = NtCurrentTeb()->SubProcessTag;
-  *(struct _GUID *)(a1 + 112) = NtCurrentTeb()->ActivityId;
+  *(GUID *)(a1 + 112) = NtCurrentTeb()->ActivityId;
   *(_QWORD *)(a1 + 48) = a1 + 40;
   *(_QWORD *)(a1 + 40) = a1 + 40;
-  v9 = *(_QWORD *)(a1 + 96);
+  v9 = *(_ACTIVATION_CONTEXT **)(a1 + 96);
   if ( v9 )
   {
-    if ( v9 != -1 )
-      RtlAddRefActivationContext();
+    if ( v9 != (_ACTIVATION_CONTEXT *)-1LL )
+      RtlAddRefActivationContext(v9);
   }
   else
   {
-    InformationActivationContext = RtlQueryInformationActivationContext(1, 0, 0, 1, (__int64)&v22, 16LL, 0LL);
-    if ( InformationActivationContext < 0 )
-      return (unsigned int)InformationActivationContext;
+    v10 = RtlQueryInformationActivationContext(
+            1u,
+            0LL,
+            0LL,
+            ActivationContextBasicInformation,
+            &ActivationContext,
+            0x10uLL,
+            0LL);
+    if ( v10 < 0 )
+      return (unsigned int)v10;
     if ( (v23 & 1) != 0 )
     {
-      RtlReleaseActivationContext((volatile signed __int32 *)v22);
-      v22 = -1LL;
+      RtlReleaseActivationContext(ActivationContext);
+      ActivationContext = (PACTIVATION_CONTEXT)-1LL;
     }
-    *(_QWORD *)(a1 + 96) = v22;
+    *(_QWORD *)(a1 + 96) = ActivationContext;
   }
   if ( *v6 )
   {
     _InterlockedAdd(*v6, 1u);
 LABEL_14:
-    InformationActivationContext = 0;
+    v10 = 0;
     if ( *v6 )
     {
-      RtlAcquireSRWLockExclusive(*v6 + 18);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)*v6 + 9);
       v13 = (__int64 *)(a1 + 152);
       v14 = (__int64)(*v6 + 20);
       v15 = (__int64 **)*((_QWORD *)*v6 + 11);
@@ -115,12 +122,12 @@ LABEL_14:
       *(_QWORD *)(a1 + 160) = v15;
       *v15 = v13;
       *(_QWORD *)(v14 + 8) = v13;
-      v16 = (void *)(*v6 + 18);
+      v16 = (_RTL_SRWLOCK *)(*v6 + 18);
     }
     else
     {
-      v16 = &unk_180160900;
-      RtlAcquireSRWLockExclusive(&unk_180160900);
+      v16 = &stru_180160900;
+      RtlAcquireSRWLockExclusive(&stru_180160900);
       v18 = (_QWORD *)(a1 + 152);
       v19 = off_180156A68;
       if ( *off_180156A68 != (_UNKNOWN *)&off_180156A60 )
@@ -135,29 +142,29 @@ LABEL_14:
     if ( v17 )
     {
       _InterlockedAdd(v17, 1u);
-      InformationActivationContext = 0;
+      v10 = 0;
     }
     goto LABEL_26;
   }
   if ( v8 )
   {
-    v11 = &unk_18015D3A0;
+    v11 = (_RTL_SRWLOCK *)&unk_18015D3A0;
     v12 = &qword_18015D3A8;
   }
   else
   {
-    v11 = &unk_18015D3B0;
-    v12 = &qword_18015D3B8;
+    v11 = &stru_18015D3B0;
+    v12 = (__int64 *)&qword_18015D3B8;
   }
-  InformationActivationContext = sub_180059230(v12, v11, v6);
-  if ( InformationActivationContext >= 0 )
+  v10 = sub_180059230(v12, v11, v6);
+  if ( v10 >= 0 )
     goto LABEL_14;
 LABEL_26:
-  if ( InformationActivationContext < 0 )
+  if ( v10 < 0 )
   {
-    v21 = *(volatile signed __int32 **)(a1 + 96);
-    if ( (unsigned __int64)v21 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
+    v21 = *(_ACTIVATION_CONTEXT **)(a1 + 96);
+    if ( (unsigned __int64)&v21[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
       RtlReleaseActivationContext(v21);
   }
-  return (unsigned int)InformationActivationContext;
+  return (unsigned int)v10;
 }

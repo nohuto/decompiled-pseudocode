@@ -1,5 +1,5 @@
 /*
- * XREFs of PipPnPDriverEntry @ 0x140CC67B0
+ * XREFs of PipPnPDriverEntry @ 0x140CCC8A0
  * Callers:
  *     <none>
  * Callees:

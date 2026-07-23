@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetDmaAdapter @ 0x140755900
+ * XREFs of IoGetDmaAdapter @ 0x140756AF0
  * Callers:
- *     VfGetDmaAdapter @ 0x14092B140 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x14092C140 (VfGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
- *     PiGetDmaAdapterFromBusInterface @ 0x1407559D0 (PiGetDmaAdapterFromBusInterface.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     IoGetDeviceProperty @ 0x1405886E0 (IoGetDeviceProperty.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x140756BC0 (PiGetDmaAdapterFromBusInterface.c)
  */
 
 struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
@@ -89,7 +89,7 @@ struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
       }
       KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
     }
-    ((void (__fastcall *)(struct _KTHREAD *, PDEVICE_OBJECT))off_1403FE648[0])(
+    ((void (__fastcall *)(struct _KTHREAD *, PDEVICE_OBJECT))off_1403FF648[0])(
       KeGetCurrentThread(),
       PhysicalDeviceObject);
     if ( ((DeviceDescription->InterfaceType + 1) & 0xFFFFFFEF) == 0 )
@@ -117,7 +117,7 @@ struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
       PropertyBuffer[0] = v10;
     }
     DmaAdapterFromBusInterface = (struct _DMA_ADAPTER *)PiGetDmaAdapterFromBusInterface(PhysicalDeviceObject);
-    ((void (__fastcall *)(struct _KTHREAD *, _QWORD))off_1403FE648[0])(KeGetCurrentThread(), 0LL);
+    ((void (__fastcall *)(struct _KTHREAD *, _QWORD))off_1403FF648[0])(KeGetCurrentThread(), 0LL);
   }
   return DmaAdapterFromBusInterface;
 }

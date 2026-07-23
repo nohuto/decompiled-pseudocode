@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFirmwareS3Stats @ 0x14057DC00
+ * XREFs of PopDiagTraceFirmwareS3Stats @ 0x14057EC00
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void PopDiagTraceFirmwareS3Stats()
@@ -29,14 +29,14 @@ void PopDiagTraceFirmwareS3Stats()
   int *v14; // [rsp+88h] [rbp+27h]
   __int64 v15; // [rsp+90h] [rbp+2Fh]
 
-  if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, ULONG *))off_140400458[0])(35LL, 0LL, 0LL, &NumberOfBytes) == -1073741820 )
+  if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, ULONG *))off_140401458[0])(35LL, 0LL, 0LL, &NumberOfBytes) == -1073741820 )
   {
     if ( NumberOfBytes )
     {
       PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPool, NumberOfBytes, 0x74703353u);
       if ( PoolWithTag )
       {
-        if ( ((int (__fastcall *)(__int64, _QWORD, unsigned int *, ULONG *))off_140400458[0])(
+        if ( ((int (__fastcall *)(__int64, _QWORD, unsigned int *, ULONG *))off_140401458[0])(
                35LL,
                NumberOfBytes,
                PoolWithTag,
@@ -73,12 +73,12 @@ void PopDiagTraceFirmwareS3Stats()
               v13 = 4LL;
               v15 = 4LL;
               EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_S3FWSTATS_RESUME, 0LL, 1u, 0LL, 0LL, 3u, &UserData);
-              if ( !qword_140417B68 )
+              if ( !qword_140418C08 )
               {
                 v3 = -1LL;
                 if ( is_mul_ok(NumberOfBytes_4, PopQpcFrequency) )
                   v3 = NumberOfBytes_4 * PopQpcFrequency;
-                qword_140417B68 = v3 / 0x3E8;
+                qword_140418C08 = v3 / 0x3E8;
               }
             }
           }

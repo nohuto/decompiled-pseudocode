@@ -1,14 +1,14 @@
 /*
- * XREFs of PoTraceSystemTimerResolutionKernel @ 0x1400FCC50
+ * XREFs of PoTraceSystemTimerResolutionKernel @ 0x1400FCCD0
  * Callers:
  *     KiCheckForTimerExpiration @ 0x1400605D0 (KiCheckForTimerExpiration.c)
- *     KiSetClockInterval @ 0x14012EAF8 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x140190BEC (KiResetClockInterval.c)
- *     ExSetTimerResolution @ 0x1403197B0 (ExSetTimerResolution.c)
+ *     KiSetClockInterval @ 0x14012EBC8 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140190D2C (KiResetClockInterval.c)
+ *     ExSetTimerResolution @ 0x1403199A0 (ExSetTimerResolution.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PoTraceSystemTimerResolutionKernel(int a1, int a2)

@@ -1,17 +1,16 @@
 /*
- * XREFs of RtlpHpVsContextFree @ 0x1402B2F20
+ * XREFs of RtlpHpVsContextFree @ 0x14035BAE0
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     RtlpHpFreeHeap @ 0x1402B2660 (RtlpHpFreeHeap.c)
- *     RtlpHpSegFreeInternal @ 0x1402B33D0 (RtlpHpSegFreeInternal.c)
- *     RtlpFreeNTHeapInternal @ 0x14047DEEC (RtlpFreeNTHeapInternal.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x14035B220 (RtlpHpFreeHeap.c)
+ *     RtlpHpSegFreeInternal @ 0x14035BF90 (RtlpHpSegFreeInternal.c)
+ *     RtlpFreeNTHeapInternal @ 0x14047917C (RtlpFreeNTHeapInternal.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHpVsSlotFreeList @ 0x1402B3510 (RtlpHpVsSlotFreeList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsSlotFreeList @ 0x14035C0D0 (RtlpHpVsSlotFreeList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFree(__int64 a1, _WORD *a2, ULONG_PTR a3, unsigned int *a4)
@@ -20,8 +19,8 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, _WORD *a2, ULONG_PTR a3, unsi
   __int64 v5; // rdi
   PSLIST_ENTRY v8; // rbx
   unsigned int v9; // ecx
-  union _SLIST_HEADER *v10; // r14
-  union _SLIST_HEADER *v11; // rcx
+  _SLIST_HEADER *v10; // r14
+  _SLIST_HEADER *v11; // rcx
   ULONG_PTR v13; // rsi
   __int64 v14; // r9
   int v15; // ecx
@@ -99,7 +98,7 @@ LABEL_14:
   }
   v9 = 16 * (WORD1(RtlpHpHeapGlobals) ^ WORD1(v5) ^ *(unsigned __int16 *)(v5 + 2)) - 16;
   *a4 = v9;
-  v10 = (union _SLIST_HEADER *)(a1 + ((unsigned __int64)(unsigned __int16)a2[17] << 6));
+  v10 = (_SLIST_HEADER *)(a1 + ((unsigned __int64)(unsigned __int16)a2[17] << 6));
   if ( (v4 & 2) == 0 || v9 >= 0x1000 )
     goto LABEL_17;
   v11 = v10 + 4;

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierNtUnlockFile @ 0x140AE3EA0
+ * XREFs of VerifierNtUnlockFile @ 0x140AE3E90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierNtUnlockFile(__int64 a1)

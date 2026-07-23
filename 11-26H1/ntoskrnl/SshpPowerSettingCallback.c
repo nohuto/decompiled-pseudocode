@@ -1,9 +1,9 @@
 /*
- * XREFs of SshpPowerSettingCallback @ 0x140B1F180
+ * XREFs of SshpPowerSettingCallback @ 0x140B21200
  * Callers:
  *     <none>
  * Callees:
- *     SshpSetCollectionActive @ 0x1404A2B28 (SshpSetCollectionActive.c)
+ *     SshpSetCollectionActive @ 0x14049C548 (SshpSetCollectionActive.c)
  */
 
 __int64 __fastcall SshpPowerSettingCallback(LPCGUID SettingGuid, _DWORD *Value, ULONG ValueLength, PVOID Context)
@@ -17,10 +17,10 @@ __int64 __fastcall SshpPowerSettingCallback(LPCGUID SettingGuid, _DWORD *Value, 
   if ( !v4 )
   {
     v5 = *Value != 0;
-    if ( v5 != LOBYTE(PsAltSystemCallRegistrationLock.WpsFeedback) )
+    if ( v5 != byte_140F0A848 )
     {
       SshpSetCollectionActive(&SshpBlockerCollections, *Value != 0);
-      LOBYTE(PsAltSystemCallRegistrationLock.WpsFeedback) = v5;
+      byte_140F0A848 = v5;
     }
   }
   return 0LL;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetCcAccessLog @ 0x140A52AF4
+ * XREFs of MiGetCcAccessLog @ 0x140A5BDE4
  * Callers:
- *     MmPrefetchForCacheManager @ 0x140A50CB0 (MmPrefetchForCacheManager.c)
+ *     MmPrefetchForCacheManager @ 0x140A59FA0 (MmPrefetchForCacheManager.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiQueuePageAccessLog @ 0x1403BA328 (MiQueuePageAccessLog.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiInitializePageAccessLogging @ 0x1404A72E0 (MiInitializePageAccessLogging.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiQueuePageAccessLog @ 0x1403C4198 (MiQueuePageAccessLog.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiInitializePageAccessLogging @ 0x1404A0970 (MiInitializePageAccessLogging.c)
  */
 
 __int64 __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2, __int64 a3)
@@ -24,9 +24,9 @@ __int64 __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2, __int64 a3)
   char *AnyMultiplexedVm; // rax
   __int64 v15; // rdx
 
-  if ( qword_140E3C380 )
+  if ( qword_140E3C500 )
   {
-    v5 = _InterlockedExchange64(&qword_140E3C380, 0LL);
+    v5 = _InterlockedExchange64(&qword_140E3C500, 0LL);
     if ( v5 )
     {
       v6 = *(_QWORD *)(v5 + 40);

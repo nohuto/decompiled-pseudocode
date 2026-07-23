@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlHashBytes2 @ 0x14041A464
+ * XREFs of RtlHashBytes2 @ 0x14041A7F4
  * Callers:
- *     MiFindUserSidHotPatchContext @ 0x140A36ECC (MiFindUserSidHotPatchContext.c)
- *     MiLoadHotPatchForUserSid @ 0x140A382F8 (MiLoadHotPatchForUserSid.c)
+ *     MiFindUserSidHotPatchContext @ 0x140A3717C (MiFindUserSidHotPatchContext.c)
+ *     MiLoadHotPatchForUserSid @ 0x140A385A8 (MiLoadHotPatchForUserSid.c)
  * Callees:
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067BD90 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067C2E0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
  */
 
 __int64 __fastcall RtlHashBytes2(const unsigned __int8 *a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)

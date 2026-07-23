@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfIoCompletionCheckState @ 0x1407059C4 (VfIoCompletionCheckState.c)
- *     ViIoCallbackSnapState @ 0x140705A54 (ViIoCallbackSnapState.c)
- *     IovpCompleteRequest2 @ 0x14070B1D8 (IovpCompleteRequest2.c)
- *     IovpCompleteRequest3 @ 0x14070B544 (IovpCompleteRequest3.c)
- *     IovpCompleteRequest4 @ 0x14070B5CC (IovpCompleteRequest4.c)
- *     VfPendingMoreProcessingRequired @ 0x14070D020 (VfPendingMoreProcessingRequired.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfIoCompletionCheckState @ 0x1407059F4 (VfIoCompletionCheckState.c)
+ *     ViIoCallbackSnapState @ 0x140705A84 (ViIoCallbackSnapState.c)
+ *     IovpCompleteRequest2 @ 0x14070B208 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest3 @ 0x14070B574 (IovpCompleteRequest3.c)
+ *     IovpCompleteRequest4 @ 0x14070B5FC (IovpCompleteRequest4.c)
+ *     VfPendingMoreProcessingRequired @ 0x14070D050 (VfPendingMoreProcessingRequired.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x140716B8C (VfIrpDatabaseEntryReleaseLock.c)
  *     IovpSessionDataDereference @ 0x140717948 (IovpSessionDataDereference.c)
  */

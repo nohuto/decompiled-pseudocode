@@ -1,23 +1,23 @@
 /*
- * XREFs of MmInSwapWorkingSet @ 0x1400E4E84
+ * XREFs of MmInSwapWorkingSet @ 0x1400E4F04
  * Callers:
- *     PspChangeProcessExecutionState @ 0x1406035AC (PspChangeProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x1406045AC (PspChangeProcessExecutionState.c)
  * Callees:
  *     MiGetWorkingSetSwapSupport @ 0x14001290C (MiGetWorkingSetSwapSupport.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
- *     MiProcessWsInSwapSupport @ 0x1400E5A94 (MiProcessWsInSwapSupport.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     SmStoreSetProcessVaRanges @ 0x14066B6DC (SmStoreSetProcessVaRanges.c)
- *     MiContractWsSwapPageFile @ 0x14066B784 (MiContractWsSwapPageFile.c)
- *     EtwTraceWorkingSetSwap @ 0x14066B7C8 (EtwTraceWorkingSetSwap.c)
- *     MiFreeWorkingSetSwapContext @ 0x1406B8DE4 (MiFreeWorkingSetSwapContext.c)
- *     MiInSwapStore @ 0x1406D0DCC (MiInSwapStore.c)
- *     VmPrefetchVirtualAddresses @ 0x1408AFD4C (VmPrefetchVirtualAddresses.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
+ *     MiProcessWsInSwapSupport @ 0x1400E5B14 (MiProcessWsInSwapSupport.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     SmStoreSetProcessVaRanges @ 0x14066C89C (SmStoreSetProcessVaRanges.c)
+ *     MiContractWsSwapPageFile @ 0x14066C944 (MiContractWsSwapPageFile.c)
+ *     EtwTraceWorkingSetSwap @ 0x14066C988 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeWorkingSetSwapContext @ 0x1406BA084 (MiFreeWorkingSetSwapContext.c)
+ *     MiInSwapStore @ 0x1406D206C (MiInSwapStore.c)
+ *     VmPrefetchVirtualAddresses @ 0x1408B0FAC (VmPrefetchVirtualAddresses.c)
  */
 
 __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
@@ -39,7 +39,7 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
 
   v1 = &Process[1].IdealNode[12];
   EtwTraceWorkingSetSwap(Process);
-  v3 = *(_QWORD *)(qword_14043A748 + 8LL * v1[87]);
+  v3 = *(_QWORD *)(qword_14043B808 + 8LL * v1[87]);
   v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3 + 1120));
   WorkingSetSwapSupport = MiGetWorkingSetSwapSupport((__int64)v1, v5);
   v8 = (_QWORD *)WorkingSetSwapSupport;

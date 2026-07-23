@@ -1,23 +1,23 @@
 /*
- * XREFs of EmProviderDeregister @ 0x140709960
+ * XREFs of EmProviderDeregister @ 0x140707520
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EmpProviderDeregisterEntry @ 0x14057F170 (EmpProviderDeregisterEntry.c)
- *     EmpQueueRuleUpdateState @ 0x14057F200 (EmpQueueRuleUpdateState.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EmpProviderDeregisterEntry @ 0x14057C600 (EmpProviderDeregisterEntry.c)
+ *     EmpQueueRuleUpdateState @ 0x14057C690 (EmpQueueRuleUpdateState.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EmProviderDeregister(char *P)
 {
-  _QWORD *v2; // rax
+  char *v2; // rax
   signed __int8 v3; // cf
-  _QWORD *v4; // rbx
+  char *v4; // rbx
   unsigned int i; // edx
   _QWORD *v6; // r8
   __int64 v7; // rcx
@@ -32,13 +32,13 @@ void __fastcall EmProviderDeregister(char *P)
 
   if ( P )
   {
-    v2 = KeAbPreAcquire((__int64)&EmpDatabaseLock, 0LL);
+    v2 = (char *)KeAbPreAcquire((__int64)&EmpDatabaseLock, 0LL);
     v3 = _interlockedbittestandset64((volatile signed __int32 *)&EmpDatabaseLock, 0LL);
     v4 = v2;
     if ( v3 )
-      ExfAcquirePushLockExclusiveEx(&EmpDatabaseLock, (__int64)v2, (__int64)&EmpDatabaseLock);
+      ExfAcquirePushLockExclusiveEx(&EmpDatabaseLock, v2, (__int64)&EmpDatabaseLock);
     if ( v4 )
-      *((_BYTE *)v4 + 10) = 1;
+      v4[10] = 1;
     if ( *((_QWORD *)P + 3) )
     {
       for ( i = 0; i < *((_DWORD *)P + 8); *(_QWORD *)(v7 + 8) = v8 )

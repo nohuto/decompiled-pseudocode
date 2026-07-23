@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCheckLeaf @ 0x1405EBF20
+ * XREFs of CmpCheckLeaf @ 0x1406DB680
  * Callers:
- *     CmpCheckKey @ 0x1405F11F0 (CmpCheckKey.c)
+ *     CmpCheckKey @ 0x1406E0950 (CmpCheckKey.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
- *     CmpGenerateFastLeafHintForUnicodeString @ 0x1406AFC20 (CmpGenerateFastLeafHintForUnicodeString.c)
- *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpGenerateFastLeafHintForUnicodeString @ 0x14060E4C0 (CmpGenerateFastLeafHintForUnicodeString.c)
+ *     CmpHashUnicodeComponent @ 0x14065F044 (CmpHashUnicodeComponent.c)
+ *     HvpMarkCellDirty @ 0x14071F800 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCheckLeaf(ULONG_PTR BugCheckParameter2, int a2, _WORD *a3, int a4, __int64 a5)
@@ -38,10 +38,10 @@ __int64 __fastcall CmpCheckLeaf(ULONG_PTR BugCheckParameter2, int a2, _WORD *a3,
   unsigned __int8 *v29; // r9
   __int16 v30; // cx
   unsigned __int16 v31; // ax
-  int v33; // eax
-  int v34; // eax
+  int FastLeafHintForUnicodeString; // eax
+  unsigned int v34; // eax
   __int64 v35; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v36; // [rsp+38h] [rbp-50h] BYREF
+  __m128i v36; // [rsp+38h] [rbp-50h] BYREF
   __int64 v37; // [rsp+A0h] [rbp+18h] BYREF
   ULONG_PTR BugCheckParameter3; // [rsp+A8h] [rbp+20h]
 
@@ -114,7 +114,7 @@ LABEL_20:
                       v13);
               if ( !v26 )
               {
-                SetFailureLocation(a5, 0, 23, -1073741670, 0);
+                SetFailureLocation(a5, 0, 23, 0xC000009A, 0);
                 return 3221225626LL;
               }
               v27 = -4 - *(_DWORD *)(v26 - 4);
@@ -126,9 +126,9 @@ LABEL_29:
               }
               v29 = (unsigned __int8 *)(v26 + 76);
               v30 = *(_WORD *)(v26 + 2) & 0x20;
-              WORD1(v36) = *(_WORD *)(v26 + 72);
-              LOWORD(v36) = v28;
-              *((_QWORD *)&v36 + 1) = v26 + 76;
+              v36.m128i_i16[1] = *(_WORD *)(v26 + 72);
+              v36.m128i_i16[0] = v28;
+              v36.m128i_i64[1] = v26 + 76;
               if ( *a3 == 26732 )
               {
                 if ( v30 )
@@ -155,7 +155,7 @@ LABEL_28:
                       v34 = 16;
                       goto LABEL_56;
                     }
-                    SetFailureLocation(a5, 1, 23, -1073741492, 32);
+                    SetFailureLocation(a5, 1, 23, 0xC000014C, 0x20u);
                     if ( !(unsigned __int8)HvpMarkCellDirty(BugCheckParameter2, (unsigned int)BugCheckParameter3) )
                     {
                       v34 = 48;
@@ -170,7 +170,7 @@ LABEL_56:
                   }
                   goto LABEL_29;
                 }
-                v33 = CmpHashUnicodeComponent(&v36);
+                FastLeafHintForUnicodeString = CmpHashUnicodeComponent(&v36);
               }
               else
               {
@@ -190,9 +190,9 @@ LABEL_56:
                   v6 = v37;
                   goto LABEL_28;
                 }
-                v33 = CmpGenerateFastLeafHintForUnicodeString(&v36);
+                FastLeafHintForUnicodeString = CmpGenerateFastLeafHintForUnicodeString((unsigned __int16 *)&v36);
               }
-              v6 = v33;
+              v6 = FastLeafHintForUnicodeString;
               goto LABEL_28;
             }
           }

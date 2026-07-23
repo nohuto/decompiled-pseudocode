@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefModElementConditionalSwap @ 0x140535BC4
+ * XREFs of SymCryptFdefModElementConditionalSwap @ 0x140530064
  * Callers:
- *     SymCryptModElementConditionalSwap @ 0x140523BA8 (SymCryptModElementConditionalSwap.c)
+ *     SymCryptModElementConditionalSwap @ 0x1405214C0 (SymCryptModElementConditionalSwap.c)
  * Callees:
- *     SymCryptFdefConditionalSwap @ 0x140536F70 (SymCryptFdefConditionalSwap.c)
+ *     SymCryptFdefConditionalSwap @ 0x140531410 (SymCryptFdefConditionalSwap.c)
  */
 
 __int64 __fastcall SymCryptFdefModElementConditionalSwap(__int64 a1, __int64 a2, __int64 a3)

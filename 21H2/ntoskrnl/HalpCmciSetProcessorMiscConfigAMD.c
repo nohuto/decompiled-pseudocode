@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCmciSetProcessorMiscConfigAMD @ 0x1404BD05C
+ * XREFs of HalpCmciSetProcessorMiscConfigAMD @ 0x1404BD29C
  * Callers:
- *     HalpCmciSetProcessorConfigAMD @ 0x1404BCE00 (HalpCmciSetProcessorConfigAMD.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x1404BD040 (HalpCmciSetProcessorConfigAMD.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpCmciSetProcessorMiscConfigAMD(__int64 a1, __int64 a2, signed __int64 a3, char a4, __int64 a5)

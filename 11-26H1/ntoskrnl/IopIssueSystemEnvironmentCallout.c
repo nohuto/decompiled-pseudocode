@@ -1,9 +1,9 @@
 /*
- * XREFs of IopIssueSystemEnvironmentCallout @ 0x14079AE80
+ * XREFs of IopIssueSystemEnvironmentCallout @ 0x14079D9C0
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
  */
 
 void __fastcall IopIssueSystemEnvironmentCallout(PVOID Parameter)

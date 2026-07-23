@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpRegisterTimerInterruptHandler @ 0x140562A20
+ * XREFs of HalpRegisterTimerInterruptHandler @ 0x140560650
  * Callers:
- *     HalpSetSystemInformation @ 0x140A9A4A0 (HalpSetSystemInformation.c)
+ *     HalpSetSystemInformation @ 0x140A95A10 (HalpSetSystemInformation.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall HalpRegisterTimerInterruptHandler(__int64 a1)
@@ -14,13 +14,13 @@ __int64 __fastcall HalpRegisterTimerInterruptHandler(__int64 a1)
 
   v2 = 0;
   v3 = KeAcquireSpinLockRaiseToDpc(&HalpPerfInterruptHandlerRegistrationLock);
-  if ( qword_140E11640 )
+  if ( qword_140E117D8 )
   {
-    if ( qword_140E11640 == KeGetCurrentThread()[1].CycleTime )
+    if ( qword_140E117D8 == KeGetCurrentThread()[1].CycleTime )
     {
       HalpTimerProfilingCallback = a1;
       if ( !a1 )
-        qword_140E11640 = 0LL;
+        qword_140E117D8 = 0LL;
     }
     else
     {
@@ -31,7 +31,7 @@ __int64 __fastcall HalpRegisterTimerInterruptHandler(__int64 a1)
   {
     HalpTimerProfilingCallback = a1;
     if ( a1 )
-      qword_140E11640 = KeGetCurrentThread()[1].CycleTime;
+      qword_140E117D8 = KeGetCurrentThread()[1].CycleTime;
   }
   KeReleaseSpinLock(&HalpPerfInterruptHandlerRegistrationLock, v3);
   return v2;

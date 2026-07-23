@@ -1,16 +1,16 @@
 /*
- * XREFs of PspCallProcessNotifyRoutines @ 0x140428E24
+ * XREFs of PspCallProcessNotifyRoutines @ 0x140427CF4
  * Callers:
- *     PspExitProcess @ 0x140460564 (PspExitProcess.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ *     PspExitProcess @ 0x14045F434 (PspExitProcess.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
  * Callees:
- *     ExDereferenceCallBackBlock @ 0x140013F40 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140013F80 (ExReferenceCallBackBlock.c)
- *     ExGetCallBackBlockRoutine @ 0x140014034 (ExGetCallBackBlockRoutine.c)
- *     ExGetCallBackBlockContext @ 0x140014184 (ExGetCallBackBlockContext.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsReferenceProcessFilePointer @ 0x14046EFC0 (PsReferenceProcessFilePointer.c)
- *     PsTerminateProcess @ 0x1404EC470 (PsTerminateProcess.c)
+ *     ExDereferenceCallBackBlock @ 0x140013AC0 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140013B00 (ExReferenceCallBackBlock.c)
+ *     ExGetCallBackBlockRoutine @ 0x140013BB4 (ExGetCallBackBlockRoutine.c)
+ *     ExGetCallBackBlockContext @ 0x140013D04 (ExGetCallBackBlockContext.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsReferenceProcessFilePointer @ 0x14046DE90 (PsReferenceProcessFilePointer.c)
+ *     PsTerminateProcess @ 0x1404CE4F8 (PsTerminateProcess.c)
  */
 
 __int64 __fastcall PspCallProcessNotifyRoutines(_QWORD *a1, __int64 a2, char a3)

@@ -19,7 +19,7 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
   PVOID *v4; // rbx
   PVOID *v5; // r8
   unsigned int v7; // edi
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 0;
   PreviousAffinity = 0LL;

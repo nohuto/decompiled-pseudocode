@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmCheckComputeEnergy @ 0x1400A74C0
+ * XREFs of PpmCheckComputeEnergy @ 0x1400A7400
  * Callers:
  *     <none>
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 char PpmCheckComputeEnergy()
@@ -42,7 +42,7 @@ char PpmCheckComputeEnergy()
 
   if ( PopComputeEnergy )
   {
-    v0 = qword_1405416A8[0];
+    v0 = qword_1405426A8[0];
     v1 = 0;
     v20[0] = 64;
     v20[1] = 64;
@@ -97,7 +97,7 @@ LABEL_4:
     }
     while ( ++v1 < (unsigned int)LOWORD(KeActiveProcessors[0]) )
     {
-      v0 = qword_1405416A8[v1];
+      v0 = qword_1405426A8[v1];
       if ( v0 )
         goto LABEL_4;
     }

@@ -9,27 +9,27 @@
  *     RtlLeaveCriticalSection @ 0x18003A8A0 (RtlLeaveCriticalSection.c)
  */
 
-void sub_18002E1E0()
+void __fastcall sub_18002E1E0(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WORK a3)
 {
-  __int64 *v0; // rbx
-  __int64 v1; // rax
+  __int64 *v3; // rbx
+  __int64 v4; // rax
 
   if ( !byte_180165300 )
   {
-    RtlEnterCriticalSection((__int64)&unk_1801652C0);
-    v0 = (__int64 *)qword_1801652F0;
-    v1 = *(_QWORD *)qword_1801652F0;
-    if ( *(__int64 **)(qword_1801652F0 + 8) != &qword_1801652F0 || *(_QWORD *)(v1 + 8) != qword_1801652F0 )
+    RtlEnterCriticalSection(&stru_1801652C0);
+    v3 = (__int64 *)qword_1801652F0;
+    v4 = *(_QWORD *)qword_1801652F0;
+    if ( *(__int64 **)(qword_1801652F0 + 8) != &qword_1801652F0 || *(_QWORD *)(v4 + 8) != qword_1801652F0 )
       __fastfail(3u);
     qword_1801652F0 = *(_QWORD *)qword_1801652F0;
-    *(_QWORD *)(v1 + 8) = &qword_1801652F0;
-    if ( &qword_1801652F0 != v0 )
+    *(_QWORD *)(v4 + 8) = &qword_1801652F0;
+    if ( &qword_1801652F0 != v3 )
     {
       ++dword_1801652E8;
       sub_18002E464();
     }
-    RtlLeaveCriticalSection(&unk_1801652C0);
-    if ( &qword_1801652F0 != v0 )
-      sub_18002E26C(v0 - 8, 0LL);
+    RtlLeaveCriticalSection(&stru_1801652C0);
+    if ( &qword_1801652F0 != v3 )
+      sub_18002E26C(v3 - 8, 0LL);
   }
 }

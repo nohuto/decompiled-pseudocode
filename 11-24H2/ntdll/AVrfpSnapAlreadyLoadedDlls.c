@@ -1,11 +1,11 @@
 /*
- * XREFs of AVrfpSnapAlreadyLoadedDlls @ 0x180115C90
+ * XREFs of AVrfpSnapAlreadyLoadedDlls @ 0x180111124
  * Callers:
- *     AVrfInitializeVerifier @ 0x180118960 (AVrfInitializeVerifier.c)
+ *     AVrfInitializeVerifier @ 0x180113994 (AVrfInitializeVerifier.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     AVrfpIsVerifierProviderDll @ 0x1800EC8BC (AVrfpIsVerifierProviderDll.c)
- *     AVrfpDllLoadNotificationInternal @ 0x1800EC8F0 (AVrfpDllLoadNotificationInternal.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     AVrfpIsVerifierProviderDll @ 0x1800E74EC (AVrfpIsVerifierProviderDll.c)
+ *     AVrfpDllLoadNotificationInternal @ 0x1800E7520 (AVrfpDllLoadNotificationInternal.c)
  */
 
 void AVrfpSnapAlreadyLoadedDlls()
@@ -13,8 +13,8 @@ void AVrfpSnapAlreadyLoadedDlls()
   __int64 *v0; // rbx
   __int64 v1; // rdi
 
-  v0 = (__int64 *)qword_1801D28D0;
-  while ( v0 != &qword_1801D28D0 )
+  v0 = (__int64 *)qword_1801D18D0;
+  while ( v0 != &qword_1801D18D0 )
   {
     v1 = (__int64)v0;
     v0 = (__int64 *)*v0;

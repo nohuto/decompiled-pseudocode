@@ -1,19 +1,19 @@
 /*
- * XREFs of MiScrubPage @ 0x1405642F4
+ * XREFs of MiScrubPage @ 0x140564534
  * Callers:
- *     MiScrubAwePage @ 0x14054DD3C (MiScrubAwePage.c)
- *     MiScrubNodeLargePageList @ 0x140556E38 (MiScrubNodeLargePageList.c)
- *     MiScrubLargeMappedPage @ 0x140563A88 (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x14056404C (MiScrubNode.c)
+ *     MiScrubAwePage @ 0x14054DF7C (MiScrubAwePage.c)
+ *     MiScrubNodeLargePageList @ 0x140557078 (MiScrubNodeLargePageList.c)
+ *     MiScrubLargeMappedPage @ 0x140563CC8 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x14056428C (MiScrubNode.c)
  * Callees:
- *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
- *     MiMakeProtectionPfnCompatible @ 0x14023B9BC (MiMakeProtectionPfnCompatible.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     KeCopyPage @ 0x140402E50 (KeCopyPage.c)
- *     RtlScrubMemory @ 0x140590568 (RtlScrubMemory.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiGetUltraMapping @ 0x1402D8F50 (MiGetUltraMapping.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1402E020C (MiMakeProtectionPfnCompatible.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     KeCopyPage @ 0x140403030 (KeCopyPage.c)
+ *     RtlScrubMemory @ 0x140590798 (RtlScrubMemory.c)
  */
 
 __int64 __fastcall MiScrubPage(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3, char a4)
@@ -23,12 +23,10 @@ __int64 __fastcall MiScrubPage(unsigned __int64 *a1, __int64 a2, unsigned __int6
   int ProtectionPfnCompatible; // eax
   unsigned __int64 ValidPte; // rbx
   int v12; // r15d
-  __int64 v13; // r8
-  __int64 v14; // rbx
-  unsigned int v15; // r15d
-  unsigned __int64 v16; // rbx
-  int v17; // esi
-  __int64 v18; // r8
+  __int64 v13; // rbx
+  unsigned int v14; // r15d
+  unsigned __int64 v15; // rbx
+  int v16; // esi
 
   if ( a3 )
   {
@@ -46,7 +44,7 @@ __int64 __fastcall MiScrubPage(unsigned __int64 *a1, __int64 a2, unsigned __int6
     if ( (unsigned int)MiPteHasShadow() )
     {
       v12 = 1;
-      if ( !HIBYTE(word_140C4E008) )
+      if ( !HIBYTE(word_140C4E048) )
       {
 LABEL_8:
         if ( (ValidPte & 1) != 0 )
@@ -60,34 +58,34 @@ LABEL_8:
   }
   *v9 = ValidPte;
   if ( v12 )
-    MiWritePteShadow((__int64)v9, ValidPte, v13);
+    MiWritePteShadow((__int64)v9, ValidPte);
 LABEL_12:
   if ( (a4 & 1) != 0 )
   {
-    v14 = a1[25];
-    KeCopyPage(v14, UltraMapping);
+    v13 = a1[25];
+    KeCopyPage(v13, UltraMapping);
   }
   else
   {
-    v14 = 0LL;
+    v13 = 0LL;
   }
-  v15 = RtlScrubMemory((PVOID)UltraMapping);
-  if ( v14 )
-    KeCopyPage(UltraMapping, v14);
+  v14 = RtlScrubMemory((PVOID)UltraMapping);
+  if ( v13 )
+    KeCopyPage(UltraMapping, v13);
   if ( !a3 )
   {
-    v16 = ZeroPte;
-    v17 = 0;
+    v15 = ZeroPte;
+    v16 = 0;
     if ( MiPteInShadowRange((unsigned __int64)v9) )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v17 = 1;
-        if ( !HIBYTE(word_140C4E008) )
+        v16 = 1;
+        if ( !HIBYTE(word_140C4E048) )
         {
 LABEL_23:
           if ( (ZeroPte & 1) != 0 )
-            v16 = ZeroPte | 0x8000000000000000uLL;
+            v15 = ZeroPte | 0x8000000000000000uLL;
         }
       }
       else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
@@ -95,10 +93,10 @@ LABEL_23:
         goto LABEL_23;
       }
     }
-    *v9 = v16;
-    if ( v17 )
-      MiWritePteShadow((__int64)v9, v16, v18);
+    *v9 = v15;
+    if ( v16 )
+      MiWritePteShadow((__int64)v9, v15);
   }
   ++a1[26];
-  return v15;
+  return v14;
 }

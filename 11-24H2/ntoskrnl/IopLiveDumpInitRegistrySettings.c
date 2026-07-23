@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpInitRegistrySettings @ 0x14059B7E4
+ * XREFs of IopLiveDumpInitRegistrySettings @ 0x140598764
  * Callers:
- *     IoCaptureLiveDump @ 0x1404E6068 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x1404DC764 (IoCaptureLiveDump.c)
  * Callees:
- *     IopGetRegistryBoolValue @ 0x140597DBC (IopGetRegistryBoolValue.c)
- *     IopGetRegistryULongValue @ 0x140597DDC (IopGetRegistryULongValue.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     IopOpenRegistryKey @ 0x140A77340 (IopOpenRegistryKey.c)
+ *     IopGetRegistryBoolValue @ 0x140594D38 (IopGetRegistryBoolValue.c)
+ *     IopGetRegistryULongValue @ 0x140594D58 (IopGetRegistryULongValue.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     IopOpenRegistryKey @ 0x140A71460 (IopOpenRegistryKey.c)
  */
 
 NTSTATUS __fastcall IopLiveDumpInitRegistrySettings(__int64 a1)

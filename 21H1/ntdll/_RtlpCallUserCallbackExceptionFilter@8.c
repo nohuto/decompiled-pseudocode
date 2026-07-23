@@ -10,25 +10,25 @@
 
 BOOL __stdcall RtlpCallUserCallbackExceptionFilter(int a1, int a2)
 {
-  int v2; // edx
+  PULONG v2; // edx
   int v3; // esi
-  int InformationProcess; // eax
+  int v4; // eax
   int (__thiscall *v5)(_DWORD, _DWORD *); // esi
   BOOL result; // eax
   _DWORD v7[2]; // [esp+4h] [ebp-Ch] BYREF
-  int v8; // [esp+Ch] [ebp-4h] BYREF
+  ULONG *ProcessInformation; // [esp+Ch] [ebp-4h] BYREF
 
   v2 = `RtlpGetCookieValue'::`2'::CookieValue;
   v3 = RtlpUserCallbackExceptionFilter;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    InformationProcess = ZwQueryInformationProcess(-1, 36, (int)&v8, 4, 0);
-    if ( InformationProcess < 0 )
-      RtlRaiseStatus(InformationProcess);
-    v2 = v8;
-    `RtlpGetCookieValue'::`2'::CookieValue = v8;
+    v4 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+    if ( v4 < 0 )
+      RtlRaiseStatus(v4);
+    v2 = ProcessInformation;
+    `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  v5 = (int (__thiscall *)(_DWORD, _DWORD *))(v2 ^ __ROR4__(v3, 32 - (v2 & 0x1F)));
+  v5 = (int (__thiscall *)(_DWORD, _DWORD *))((unsigned int)v2 ^ __ROR4__(v3, 32 - ((unsigned __int8)v2 & 0x1F)));
   result = 1;
   if ( v5 )
   {

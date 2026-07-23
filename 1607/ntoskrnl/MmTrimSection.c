@@ -1,15 +1,15 @@
 /*
- * XREFs of MmTrimSection @ 0x14008F450
+ * XREFs of MmTrimSection @ 0x14008EBB0
  * Callers:
- *     CcPurgeCacheSection @ 0x140072920 (CcPurgeCacheSection.c)
- *     CcCoherencyFlushAndPurgeCache @ 0x14008F364 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcPurgeCacheSection @ 0x1400724A0 (CcPurgeCacheSection.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x14008EAC4 (CcCoherencyFlushAndPurgeCache.c)
  * Callees:
- *     MiComputeFlushRange @ 0x140021854 (MiComputeFlushRange.c)
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiTrimSection @ 0x14008F514 (MiTrimSection.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiComputeFlushRange @ 0x1400213D4 (MiComputeFlushRange.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiTrimSection @ 0x14008EC74 (MiTrimSection.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 __int64 __fastcall MmTrimSection(__int64 a1, __int64 *a2, __int64 a3, char a4)

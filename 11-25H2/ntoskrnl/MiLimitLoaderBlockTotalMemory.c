@@ -9,7 +9,7 @@
 
 unsigned __int64 __fastcall MiLimitLoaderBlockTotalMemory(__int64 a1, ULONG_PTR a2)
 {
-  unsigned __int64 v2; // r14
+  __int64 v2; // r14
   ULONG_PTR v3; // r8
   __int64 v4; // rax
   ULONG_PTR BugCheckParameter4; // r9
@@ -147,7 +147,7 @@ LABEL_18:
           }
           else
           {
-            RtlRbRemoveNode(v2, v22);
+            RtlRbRemoveNode((PRTL_RB_TREE)v2, (PRTL_BALANCED_NODE)v22);
             v18 -= v22[5];
             v22[5] = 0LL;
           }

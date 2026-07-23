@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckAndUpdatePagingFileMinimum @ 0x1406F8C58
+ * XREFs of MiCheckAndUpdatePagingFileMinimum @ 0x1406FD928
  * Callers:
- *     MiUpdateExistingPageFile @ 0x14086C380 (MiUpdateExistingPageFile.c)
+ *     MiUpdateExistingPageFile @ 0x140872760 (MiUpdateExistingPageFile.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 _BOOL8 __fastcall MiCheckAndUpdatePagingFileMinimum(unsigned int *a1, unsigned int a2)

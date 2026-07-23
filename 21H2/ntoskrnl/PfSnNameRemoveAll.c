@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnNameRemoveAll @ 0x140698BDC
+ * XREFs of PfSnNameRemoveAll @ 0x1405F78D4
  * Callers:
- *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x140328350 (PfFileInfoNotify.c)
  * Callees:
- *     PfSnActiveTraceGetNext @ 0x1402B52F8 (PfSnActiveTraceGetNext.c)
- *     PfSnNameRemove @ 0x1402B53B4 (PfSnNameRemove.c)
- *     PfSnLogStreamDelete @ 0x140698C2C (PfSnLogStreamDelete.c)
+ *     PfSnActiveTraceGetNext @ 0x1402334A8 (PfSnActiveTraceGetNext.c)
+ *     PfSnNameRemove @ 0x140233564 (PfSnNameRemove.c)
+ *     PfSnLogStreamDelete @ 0x1405F7924 (PfSnLogStreamDelete.c)
  */
 
 __int64 *__fastcall PfSnNameRemoveAll(__int64 a1)
@@ -20,7 +20,7 @@ __int64 *__fastcall PfSnNameRemoveAll(__int64 a1)
     v4 = (struct _EX_RUNDOWN_REF *)result;
     if ( !result )
       break;
-    if ( (unsigned int)PfSnNameRemove((__int64)result, *(_QWORD *)(a1 + 16)) )
+    if ( (unsigned int)PfSnNameRemove((__int64)result, *(_RTL_BALANCED_NODE **)(a1 + 16)) )
       PfSnLogStreamDelete(a1, v4);
   }
   return result;

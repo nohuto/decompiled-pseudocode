@@ -1,10 +1,10 @@
 /*
- * XREFs of TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x140316850
+ * XREFs of TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x1402BF400
  * Callers:
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140315720 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     MiLockSectionControlArea @ 0x140316190 (MiLockSectionControlArea.c)
- *     PopPepWork @ 0x140316330 (PopPepWork.c)
+ *     MiLockSectionControlArea @ 0x1402BED40 (MiLockSectionControlArea.c)
+ *     PopPepWork @ 0x1402BEEE0 (PopPepWork.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1404627C0 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  * Callees:
  *     <none>
  */

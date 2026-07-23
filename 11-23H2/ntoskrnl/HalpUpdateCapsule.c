@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpUpdateCapsule @ 0x1405213A0
+ * XREFs of HalpUpdateCapsule @ 0x1405218F0
  * Callers:
  *     <none>
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalEfiUpdateCapsule @ 0x14050D51C (HalEfiUpdateCapsule.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HalEfiUpdateCapsule @ 0x14050DA6C (HalEfiUpdateCapsule.c)
  */
 
 __int64 HalpUpdateCapsule()
@@ -14,8 +14,8 @@ __int64 HalpUpdateCapsule()
   char v1; // di
   unsigned int v2; // edx
   unsigned int updated; // ebx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

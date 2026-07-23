@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInsertSecondarySignalList @ 0x14058F77C
+ * XREFs of HalpInsertSecondarySignalList @ 0x140591EFC
  * Callers:
- *     HalpReleaseSecondaryIcEntryShared @ 0x140423128 (HalpReleaseSecondaryIcEntryShared.c)
- *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14042683C (HalpHandleMaskUnmaskSecondaryInterrupt.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x140430218 (HalpReleaseSecondaryIcEntryShared.c)
+ *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14043394C (HalpHandleMaskUnmaskSecondaryInterrupt.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
  */
 
 void __fastcall HalpInsertSecondarySignalList(__int64 a1)
@@ -18,16 +18,16 @@ void __fastcall HalpInsertSecondarySignalList(__int64 a1)
   bool v6; // zf
 
   v2 = HalpAcquireHighLevelLock(&SecondarySignalListLock);
-  v3 = (_QWORD *)qword_140F89A08;
+  v3 = (_QWORD *)qword_140F89DC8;
   v4 = v2;
   v5 = (_QWORD *)(a1 + 144);
-  if ( *(__int64 **)qword_140F89A08 != &SecondarySignalList )
+  if ( *(__int64 **)qword_140F89DC8 != &SecondarySignalList )
     __fastfail(3u);
   v6 = SecondarySignalDpcRunning == 0;
   *v5 = &SecondarySignalList;
   v5[1] = v3;
   *v3 = v5;
-  qword_140F89A08 = (__int64)v5;
+  qword_140F89DC8 = (__int64)v5;
   if ( v6 )
   {
     SecondarySignalDpcRunning = 1;

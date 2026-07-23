@@ -19,7 +19,7 @@ __int64 __fastcall ExpWnfAcquireSubscriptionByName(__int64 a1, __int64 a2, struc
   __int64 result; // rax
 
   v3 = (unsigned __int64 *)(a2 + 80);
-  v7 = KeAbPreAcquire(a2 + 80, 0LL, 0LL);
+  v7 = KeAbPreAcquire(a2 + 80, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v3, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v3, v7, (ULONG_PTR)v3);
   if ( v7 )

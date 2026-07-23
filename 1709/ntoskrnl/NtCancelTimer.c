@@ -29,8 +29,8 @@ NTSTATUS __stdcall NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
   _QWORD *v10; // rdi
   LONG SignalState; // ebx
   signed __int64 v12; // rdx
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rdi
+  PRTL_BALANCED_NODE v13; // rax
+  PRTL_BALANCED_NODE v14; // rdi
   LIST_ENTRY *p_WaitListHead; // rsi
   struct _LIST_ENTRY *Flink; // rcx
   struct _LIST_ENTRY *Blink; // rax
@@ -72,9 +72,9 @@ NTSTATUS __stdcall NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
       v13 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL, 0);
       v14 = v13;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v13, (__int16 *)&ExpWakeTimerLock);
+        ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, (__int64)v13, (__int16 *)&ExpWakeTimerLock);
       if ( v14 )
-        *(_BYTE *)(v14 + 26) |= 1u;
+        BYTE2(v14[1].Left) |= 1u;
       v26 = 1;
       v25 = KeAcquireSpinLockRaiseToDpc(v8);
       v10 = *(_QWORD **)&v7[4].Header.Lock;

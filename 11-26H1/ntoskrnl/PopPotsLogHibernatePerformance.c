@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPotsLogHibernatePerformance @ 0x140AF5820
+ * XREFs of PopPotsLogHibernatePerformance @ 0x140AF7EC0
  * Callers:
- *     PopDiagTraceHiberStats @ 0x140AF5348 (PopDiagTraceHiberStats.c)
+ *     PopDiagTraceHiberStats @ 0x140AF79E8 (PopDiagTraceHiberStats.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PpmConvertTime @ 0x1403E63D0 (PpmConvertTime.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PpmConvertTime @ 0x1402F32B0 (PpmConvertTime.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopPotsLogHibernatePerformance(__int64 a1, char a2)
@@ -176,9 +176,9 @@ char __fastcall PopPotsLogHibernatePerformance(__int64 a1, char a2)
     v44 = v21[91] / v4;
     v25 = v21[92] / v4;
     LOBYTE(v2) = PpmConvertTime(v22, v5, 0x3E8uLL);
-    if ( (unsigned int)dword_140E081F0 > 5 )
+    if ( (unsigned int)dword_140E081E0 > 5 )
     {
-      LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E081F0, 0x400000000000LL);
+      LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E081E0, 0x400000000000LL);
       if ( (_BYTE)v2 )
       {
         v28 = *(_QWORD *)(v27 + 256);
@@ -267,8 +267,8 @@ char __fastcall PopPotsLogHibernatePerformance(__int64 a1, char a2)
         v60 = 0x1000000LL;
         v127 = 8LL;
         LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_140E081F0,
-                       (unsigned __int8 *)byte_140050633,
+                       (__int64)&dword_140E081E0,
+                       (unsigned __int8 *)&word_140051626,
                        0LL,
                        0LL,
                        0x23u,

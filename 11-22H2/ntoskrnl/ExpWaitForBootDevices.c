@@ -45,10 +45,13 @@ void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
         KxReleaseSpinLock((volatile signed __int64 *)&ExBootDeviceListSpinLock);
         if ( v2 == &ExBootDeviceList )
           break;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v4 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,10 +71,10 @@ void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
           goto LABEL_24;
         }
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v10 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v10 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v10 >= 2u )
         {
           v11 = KeGetCurrentPrcb();
           v12 = v11->SchedulerAssist;

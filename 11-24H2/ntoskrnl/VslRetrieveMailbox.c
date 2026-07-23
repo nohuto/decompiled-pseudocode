@@ -1,13 +1,13 @@
 /*
- * XREFs of VslRetrieveMailbox @ 0x14058E1C0
+ * XREFs of VslRetrieveMailbox @ 0x14058B5D0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslRetrieveMailbox(__int64 a1, _QWORD *a2, unsigned __int8 a3, struct _MDL *a4, unsigned int *a5)
@@ -38,7 +38,7 @@ __int64 __fastcall VslRetrieveMailbox(__int64 a1, _QWORD *a2, unsigned __int8 a3
     v16 = v10;
     v17 = a1;
     v18 = v6;
-    v11 = VslpEnterIumSecureMode(2u, 20LL, 0, (__int64)v13);
+    v11 = VslpEnterIumSecureMode(2u, 0x14u, 0, (__int64)v13);
     VslpUnlockPagesForTransfer(v12);
     if ( (int)(v11 + 0x80000000) < 0 || v11 == -1073741789 )
       *(_QWORD *)a5 = v15;

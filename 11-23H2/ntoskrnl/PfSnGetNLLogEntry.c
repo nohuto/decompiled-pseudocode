@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnGetNLLogEntry @ 0x140773A7C
+ * XREFs of PfSnGetNLLogEntry @ 0x140773C6C
  * Callers:
- *     PfSnLogStreamCreate @ 0x140773928 (PfSnLogStreamCreate.c)
- *     PfSnLogStreamDelete @ 0x1407C3284 (PfSnLogStreamDelete.c)
- *     PfSnLogVolumeCreate @ 0x1407DAA40 (PfSnLogVolumeCreate.c)
+ *     PfSnLogStreamCreate @ 0x140773B18 (PfSnLogStreamCreate.c)
+ *     PfSnLogStreamDelete @ 0x1407C3554 (PfSnLogStreamDelete.c)
+ *     PfSnLogVolumeCreate @ 0x1407DAD10 (PfSnLogVolumeCreate.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 _DWORD *__fastcall PfSnGetNLLogEntry(__int64 a1, char a2, unsigned int a3, int a4, int a5)

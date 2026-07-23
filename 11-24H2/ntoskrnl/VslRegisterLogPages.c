@@ -1,15 +1,15 @@
 /*
- * XREFs of VslRegisterLogPages @ 0x1404C95C0
+ * XREFs of VslRegisterLogPages @ 0x1404C2A70
  * Callers:
- *     PsIumResumeAfterHibernate @ 0x1404F71AC (PsIumResumeAfterHibernate.c)
+ *     PsIumResumeAfterHibernate @ 0x1404F4A8C (PsIumResumeAfterHibernate.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 VslRegisterLogPages()
@@ -44,7 +44,7 @@ __int64 VslRegisterLogPages()
     }
     v9 = v7[0];
     v10 = v7[7];
-    v6 = VslpEnterIumSecureMode(2u, 254LL, 0, (__int64)v8);
+    v6 = VslpEnterIumSecureMode(2u, 0xFEu, 0, (__int64)v8);
     if ( KiIrqlFlags )
     {
       LOBYTE(v5) = CurrentIrql;

@@ -3,17 +3,18 @@
  * Callers:
  *     RtlSidDominates @ 0x180004160 (RtlSidDominates.c)
  *     RtlpValidOwnerSubjectContext @ 0x180004234 (RtlpValidOwnerSubjectContext.c)
- *     RtlGetAppContainerNamedObjectPath @ 0x18000F010 (RtlGetAppContainerNamedObjectPath.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008C544 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlpCompareKnownObjectAces @ 0x18008EA20 (RtlpCompareKnownObjectAces.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x18000F000 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008C534 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpCompareKnownObjectAces @ 0x18008EA10 (RtlpCompareKnownObjectAces.c)
  *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x1800CF4F0 (RtlAppxIsFileOwnedByTrustedInstaller.c)
- *     RtlpCompareKnownAces @ 0x1800DFE20 (RtlpCompareKnownAces.c)
- *     RtlFindAceBySid @ 0x1800E19DC (RtlFindAceBySid.c)
+ *     RtlpCompareKnownAces @ 0x1800DFEE0 (RtlpCompareKnownAces.c)
+ *     RtlFindAceBySid @ 0x1800E1A9C (RtlFindAceBySid.c)
  * Callees:
- *     memcmp @ 0x18009A6A0 (memcmp.c)
+ *     memcmp @ 0x18009A690 (memcmp.c)
  */
 
-bool __fastcall RtlEqualSid(unsigned __int8 *a1, _WORD *a2)
+BOOLEAN __cdecl RtlEqualSid(PSID Sid1, PSID Sid2)
 {
-  return *(_WORD *)a1 == *a2 && memcmp(a1, a2, 4 * (unsigned int)a1[1] + 8) == 0;
+  return *(_WORD *)Sid1 == *(_WORD *)Sid2
+      && memcmp(Sid1, Sid2, 4 * (unsigned int)*((unsigned __int8 *)Sid1 + 1) + 8) == 0;
 }

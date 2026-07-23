@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwPrepareEnlistmentWrapper @ 0x1405F3310
+ * XREFs of DifZwPrepareEnlistmentWrapper @ 0x1405F3880
  * Callers:
  *     <none>
  * Callees:
- *     ZwPrepareEnlistment @ 0x14041D540 (ZwPrepareEnlistment.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwPrepareEnlistment @ 0x14041D8D0 (ZwPrepareEnlistment.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwPrepareEnlistmentWrapper(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)

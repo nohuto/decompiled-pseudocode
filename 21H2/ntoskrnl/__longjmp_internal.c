@@ -1,33 +1,36 @@
 /*
- * XREFs of __longjmp_internal @ 0x1403F9BA0
+ * XREFs of __longjmp_internal @ 0x1403F9D80
  * Callers:
- *     longjmp @ 0x1403D0670 (longjmp.c)
+ *     longjmp @ 0x1403D07E0 (longjmp.c)
  * Callees:
- *     RtlUnwindEx @ 0x140275A30 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x1402639D0 (RtlUnwindEx.c)
  */
 
-__int64 __fastcall _longjmp_internal(__int64 a1, __int64 a2)
+__int64 __fastcall _longjmp_internal(unsigned __int64 a1, __int64 a2)
 {
-  __int64 v2; // r10
-  _QWORD v4[3]; // [rsp+30h] [rbp-508h] BYREF
-  int v5; // [rsp+48h] [rbp-4F0h]
-  __int64 v6; // [rsp+50h] [rbp-4E8h]
-  _BYTE v7[1240]; // [rsp+60h] [rbp-4D8h] BYREF
+  _EXCEPTION_RECORD *HistoryTable; // r10
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-508h] BYREF
 
   if ( !a2 )
     a2 = 1LL;
-  v2 = 0LL;
+  HistoryTable = 0LL;
   if ( *(_QWORD *)a1 )
   {
     while ( 1 )
     {
-      LODWORD(v4[0]) = -2147483610;
-      HIDWORD(v4[0]) = v2;
-      v4[1] = v2;
-      v4[2] = v2;
-      v5 = v2 + 1;
-      v6 = a1;
-      RtlUnwindEx(*(_QWORD *)a1, *(_QWORD *)(a1 + 80), v4, a2, (__int64)v7, v2);
+      ExceptionRecord.ExceptionCode = -2147483610;
+      ExceptionRecord.ExceptionFlags = (unsigned int)HistoryTable;
+      ExceptionRecord.ExceptionRecord = HistoryTable;
+      ExceptionRecord.ExceptionAddress = HistoryTable;
+      ExceptionRecord.NumberParameters = (_DWORD)HistoryTable + 1;
+      ExceptionRecord.ExceptionInformation[0] = a1;
+      RtlUnwindEx(
+        *(PVOID *)a1,
+        *(PVOID *)(a1 + 80),
+        &ExceptionRecord,
+        (PVOID)a2,
+        (PCONTEXT)&ExceptionRecord.ExceptionInformation[2],
+        (PUNWIND_HISTORY_TABLE)HistoryTable);
     }
   }
   _mm_lfence();

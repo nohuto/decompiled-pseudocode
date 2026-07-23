@@ -23,10 +23,9 @@ __int64 __fastcall sub_180045B5C(__int64 a1, unsigned __int16 a2, char a3, _WORD
   __int64 v12; // rcx
   __int64 v13; // r9
   __int64 v14; // rdx
-  const WCHAR *v15; // rax
-  unsigned __int64 v16; // rdi
-  int v17; // [rsp+20h] [rbp-38h] BYREF
-  const WCHAR *v18; // [rsp+28h] [rbp-30h]
+  WCHAR *v15; // rax
+  WCHAR *v16; // rdi
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
 
   result = 3221225524LL;
   v9 = -1073741772;
@@ -40,20 +39,20 @@ __int64 __fastcall sub_180045B5C(__int64 a1, unsigned __int16 a2, char a3, _WORD
     if ( !*(_WORD *)(v11 + 6) )
     {
 LABEL_13:
-      v15 = (const WCHAR *)sub_180045488(v12, 0x55u);
-      v16 = (unsigned __int64)v15;
+      v15 = (WCHAR *)sub_180045488(v12, 0x55u);
+      v16 = v15;
       if ( v15 )
       {
-        v18 = v15;
-        v17 = 11141120;
+        String.Buffer = v15;
+        *(_DWORD *)&String.Length = 11141120;
         if ( a3 )
         {
-          v18 = v15;
-          v17 = 11141120;
-          if ( RtlLCIDToCultureName(a2, (__int64)&v17) )
-            v9 = sub_180044C70(a1, v18, 0, a4);
+          String.Buffer = v15;
+          *(_DWORD *)&String.Length = 11141120;
+          if ( RtlLCIDToCultureName(a2, &String) )
+            v9 = sub_180044C70(a1, String.Buffer, 0, a4);
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v16);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v16);
         if ( v10 && v9 == -1073741772 )
           return 3221225659LL;
       }

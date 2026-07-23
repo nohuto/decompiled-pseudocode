@@ -1,11 +1,11 @@
 /*
- * XREFs of BcpDisplayCriticalCharacter @ 0x1406989F0
+ * XREFs of BcpDisplayCriticalCharacter @ 0x140699A70
  * Callers:
- *     BcpDisplayErrorInformation @ 0x1406991EC (BcpDisplayErrorInformation.c)
- *     BgpFwDisplayBugCheckScreen @ 0x14069A360 (BgpFwDisplayBugCheckScreen.c)
+ *     BcpDisplayErrorInformation @ 0x14069A26C (BcpDisplayErrorInformation.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14069B3E0 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140697F6C (BgpDisplayCharacterEx.c)
- *     BcpSetCursorPosition @ 0x14069A0C8 (BcpSetCursorPosition.c)
+ *     BgpDisplayCharacterEx @ 0x140698FEC (BgpDisplayCharacterEx.c)
+ *     BcpSetCursorPosition @ 0x14069B148 (BcpSetCursorPosition.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2, int a3)
@@ -28,13 +28,13 @@ __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2, int a3)
   v4 = BcpCursor;
   v5 = *(&BcpCursor + 1);
   v6 = *(&BcpCursor + 1);
-  v7 = *(_QWORD *)(qword_140E3EAA0 + 24);
+  v7 = *(_QWORD *)(qword_140E3EBE0 + 24);
   v13 = 0;
   v12 = 0;
-  v8 = dword_140EEFAE8;
+  v8 = dword_140EEFD38;
   *(_DWORD *)(v7 + 56) = a2;
-  *(_DWORD *)(qword_140E3EAA0 + 8) = a2;
-  result = BgpDisplayCharacterEx(0x20u, (__int64 *)qword_140E3EAA0, v4, v6, *(_DWORD *)(v7 + 40), -1, &v13, &v12, v10);
+  *(_DWORD *)(qword_140E3EBE0 + 8) = a2;
+  result = BgpDisplayCharacterEx(0x20u, (__int64 *)qword_140E3EBE0, v4, v6, *(_DWORD *)(v7 + 40), -1, &v13, &v12, v10);
   if ( (int)result >= 0 )
   {
     if ( v8 < v5 + v12 )

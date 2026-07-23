@@ -1,41 +1,41 @@
 /*
- * XREFs of MiMapLockedPagesInUserSpace @ 0x14076B6A0
+ * XREFs of MiMapLockedPagesInUserSpace @ 0x14076B860
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14025AE28 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
- *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
- *     MiSanitizePage @ 0x140295E68 (MiSanitizePage.c)
- *     MiDereferenceIoPages @ 0x140297968 (MiDereferenceIoPages.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1402980D4 (MiMapLockedPagesInUserSpaceHelper.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402FFBEC (MiLegitimatePageForDriversToMap.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     MiDoubleLockMdlPage @ 0x14037D1AC (MiDoubleLockMdlPage.c)
- *     MiDoubleUnlockMdlPage @ 0x14037FB48 (MiDoubleUnlockMdlPage.c)
- *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
- *     MiIsVaRangeAvailable @ 0x14061DBD8 (MiIsVaRangeAvailable.c)
- *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
- *     MiGetUserReservationHighestAddress @ 0x1406EC0BC (MiGetUserReservationHighestAddress.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x1406ECF60 (MiAdvanceVadHint.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     MiReferenceIoPages @ 0x1402176E4 (MiReferenceIoPages.c)
+ *     MiSanitizePage @ 0x140217B28 (MiSanitizePage.c)
+ *     MiDereferenceIoPages @ 0x1402183E8 (MiDereferenceIoPages.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x140218B54 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14027C398 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiReferenceVad @ 0x14027C900 (MiReferenceVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14030A93C (MiLegitimatePageForDriversToMap.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031FFDC (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     MiDoubleLockMdlPage @ 0x14037CCFC (MiDoubleLockMdlPage.c)
+ *     MiDoubleUnlockMdlPage @ 0x14037F698 (MiDoubleUnlockMdlPage.c)
+ *     MiIsVaRangeAvailable @ 0x140687848 (MiIsVaRangeAvailable.c)
+ *     MiAddSecureEntry @ 0x140689430 (MiAddSecureEntry.c)
+ *     MiSelectUserAddress @ 0x1406EA100 (MiSelectUserAddress.c)
+ *     MiGetUserReservationHighestAddress @ 0x14070349C (MiGetUserReservationHighestAddress.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x140704340 (MiAdvanceVadHint.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall MiMapLockedPagesInUserSpace(
         __int64 a1,
         __int16 a2,
-        unsigned int a3,
+        int a3,
         unsigned __int64 a4,
         int a5,
-        int a6)
+        unsigned int a6)
 {
   unsigned __int64 *v7; // r15
   unsigned __int64 v8; // r14
@@ -44,11 +44,11 @@ unsigned __int64 __fastcall MiMapLockedPagesInUserSpace(
   unsigned __int64 v11; // r12
   __int64 Process; // rsi
   unsigned __int64 UserReservationHighestAddress; // rax
-  __int64 v14; // rdx
+  unsigned __int64 v14; // rdx
   unsigned __int64 v15; // rbx
   int v16; // eax
   unsigned __int64 v17; // r10
-  signed int inserted; // esi
+  NTSTATUS inserted; // esi
   unsigned __int64 v19; // rbp
   unsigned __int64 v20; // rcx
   unsigned __int64 *v21; // rax
@@ -79,7 +79,7 @@ unsigned __int64 __fastcall MiMapLockedPagesInUserSpace(
 
   v47 = a4;
   if ( (a4 & 0xFFF) != 0 )
-    RtlRaiseStatus(0xC0000141);
+    RtlRaiseStatus(-1073741503);
   v7 = (unsigned __int64 *)(a1 + 48);
   v39 = a1 + 48;
   v8 = ((a2 & 0xFFF) + 4095LL + (unsigned __int64)*(unsigned int *)(a1 + 40)) >> 12;
@@ -87,7 +87,7 @@ unsigned __int64 __fastcall MiMapLockedPagesInUserSpace(
   v45 = (__int64)Pool;
   v10 = (__int64)Pool;
   if ( !Pool )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   Pool[5] = 0LL;
   v11 = 0LL;
   Pool[2] = -2LL;
@@ -208,7 +208,7 @@ LABEL_29:
   if ( v40 )
     MiAdvanceVadHint(v43, v42, v40);
   MiLockVad((__int64)CurrentThread, v10);
-  MiMapLockedPagesInUserSpaceHelper(v15, (__int64)v7, 0LL, (_DWORD *)a3, v8, v10, a5);
+  MiMapLockedPagesInUserSpaceHelper(v15, (__int64)v7, 0LL, a3, v8, v10, a5);
   UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, (__int64)v38);
   MiReferenceVad(v10);
   v28 = 2;
@@ -217,7 +217,7 @@ LABEL_29:
   if ( !MiAddSecureEntry(v10, v15, v44, v28, 0) )
   {
     MiDeleteVad((_DWORD *)v10, 0LL, 0);
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   }
   MiUnlockAndDereferenceVad((char *)v10);
   return v15 + *(unsigned int *)(a1 + 44);

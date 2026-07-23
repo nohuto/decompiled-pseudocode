@@ -1,9 +1,9 @@
 /*
- * XREFs of wcspbrk @ 0x18012DF10
+ * XREFs of wcspbrk @ 0x18012DC80
  * Callers:
- *     RtlpMuiRegLoadLicInformation @ 0x1800DDFB0 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1800DAF20 (RtlpMuiRegLoadLicInformation.c)
  * Callees:
- *     wcschr @ 0x18012D9A0 (wcschr.c)
+ *     wcschr @ 0x18012D710 (wcschr.c)
  */
 
 wchar_t *__cdecl wcspbrk(const wchar_t *String, const wchar_t *Control)

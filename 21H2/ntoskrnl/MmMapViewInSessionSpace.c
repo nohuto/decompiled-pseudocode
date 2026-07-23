@@ -1,9 +1,9 @@
 /*
- * XREFs of MmMapViewInSessionSpace @ 0x1406B26F0
+ * XREFs of MmMapViewInSessionSpace @ 0x140611730
  * Callers:
  *     <none>
  * Callees:
- *     MmMapViewInSessionSpaceEx @ 0x1406B2720 (MmMapViewInSessionSpaceEx.c)
+ *     MmMapViewInSessionSpaceEx @ 0x140611760 (MmMapViewInSessionSpaceEx.c)
  */
 
 NTSTATUS __stdcall MmMapViewInSessionSpace(PVOID Section, PVOID *MappedBase, PSIZE_T ViewSize)

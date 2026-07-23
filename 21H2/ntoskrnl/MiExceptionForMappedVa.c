@@ -1,12 +1,12 @@
 /*
- * XREFs of MiExceptionForMappedVa @ 0x14052D028
+ * XREFs of MiExceptionForMappedVa @ 0x14052D268
  * Callers:
- *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140325F40 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiGetSessionVm @ 0x14031CEEC (MiGetSessionVm.c)
  */
 
 __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
   unsigned int v14; // ebx
 
   v1 = 0;
-  v3 = &unk_140C4CD68;
+  v3 = &unk_140C4CDA8;
   Process = KeGetCurrentThread()->ApcState.Process;
   for ( i = (__int64)MiGetAnyMultiplexedVm(1); ; i = MiGetSessionVm() )
   {
@@ -52,7 +52,7 @@ __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
       }
     }
     MiUnlockWorkingSetShared(v9, v10);
-    if ( v3 != (_QWORD *)&unk_140C4CD68 )
+    if ( v3 != (_QWORD *)&unk_140C4CDA8 )
       break;
     v13 = Process[1].AffinityPadding[5];
     if ( !v13 || (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )

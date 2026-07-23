@@ -13,21 +13,21 @@
  *     RtlpLoadInstallLanguageFallback @ 0x140790254 (RtlpLoadInstallLanguageFallback.c)
  */
 
-__int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2)
+NTSTATUS __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
 {
   int InstallUILanguage; // edi
   __int64 Languages; // rax
   __int64 StringPool; // rax
-  char v6; // al
-  const WCHAR *v7; // rdx
-  __int64 result; // rax
+  char v5; // al
+  const WCHAR *v6; // rdx
+  NTSTATUS result; // eax
 
   InstallUILanguage = 0;
   if ( !a1 )
-    return 3221225485LL;
+    return -1073741811;
   if ( PsUILanguageComitted )
   {
-    InstallUILanguage = ZwQueryInstallUILanguage(a1 + 4, a2);
+    InstallUILanguage = ZwQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_12;
     RtlpLoadInstallLanguageFallback(a1, a1 + 6, a1 + 8);
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2)
     InstallUILanguage = -1073741801;
 LABEL_12:
     RtlpMuiRegFreeRegistryInfo(a1, 1023LL);
-    return (unsigned int)InstallUILanguage;
+    return InstallUILanguage;
   }
   *(_DWORD *)a1 |= 1u;
   StringPool = RtlpMuiRegCreateStringPool(0xFFFFFFFFLL, 0xFFFFFFFFLL);
@@ -48,16 +48,16 @@ LABEL_12:
   if ( !StringPool )
     goto LABEL_12;
   *(_DWORD *)a1 |= 2u;
-  v6 = IsMachineLanguageListInMutableLocation();
-  v7 = L"\\Registry\\Machine\\OSDATA\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
-  if ( !v6 )
-    v7 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
-  InstallUILanguage = RtlpMuiRegLoadInstalledFromKey(a1, v7);
+  v5 = IsMachineLanguageListInMutableLocation();
+  v6 = L"\\Registry\\Machine\\OSDATA\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
+  if ( !v5 )
+    v6 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
+  InstallUILanguage = RtlpMuiRegLoadInstalledFromKey(a1, v6);
   if ( InstallUILanguage < 0 )
     goto LABEL_12;
   result = RtlpMuiRegValidateInstalled(a1);
   InstallUILanguage = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
     goto LABEL_12;
   return result;
 }

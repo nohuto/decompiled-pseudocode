@@ -1,88 +1,84 @@
 /*
- * XREFs of RtlCheckTokenCapability @ 0x14048DC70
+ * XREFs of RtlCheckTokenCapability @ 0x1403B5260
  * Callers:
- *     RtlCapabilityCheck @ 0x140A62840 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x140A5B140 (RtlCapabilityCheck.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryInformationToken @ 0x1406A6830 (ZwQueryInformationToken.c)
- *     ZwDuplicateToken @ 0x1406A6C50 (ZwDuplicateToken.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14085CB30 (RtlSetOwnerSecurityDescriptor.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     RtlAddAccessAllowedAce @ 0x1409A7460 (RtlAddAccessAllowedAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140A23FB0 (RtlSetGroupSecurityDescriptor.c)
- *     RtlIsCapabilitySid @ 0x140A4AD90 (RtlIsCapabilitySid.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryInformationToken @ 0x1406A77D0 (ZwQueryInformationToken.c)
+ *     ZwDuplicateToken @ 0x1406A7BF0 (ZwDuplicateToken.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1408588A0 (RtlSetOwnerSecurityDescriptor.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     RtlAddAccessAllowedAce @ 0x140911600 (RtlAddAccessAllowedAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140A18380 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlIsCapabilitySid @ 0x140A41A18 (RtlIsCapabilitySid.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlCheckTokenCapability(HANDLE ExistingTokenHandle, PSID Sid, _BYTE *a3)
+NTSTATUS __cdecl RtlCheckTokenCapability(HANDLE TokenHandle, PSID CapabilitySidToCheck, PBOOLEAN HasCapability)
 {
   char v6; // si
-  NTSTATUS v7; // ebx
-  bool v8; // al
-  int v9; // ecx
+  int v7; // ebx
   PACCESS_TOKEN PrimaryToken; // rcx
-  int v12; // [rsp+60h] [rbp-A0h] BYREF
   ULONG ReturnLength; // [rsp+64h] [rbp-9Ch] BYREF
-  unsigned int v14; // [rsp+68h] [rbp-98h] BYREF
-  HANDLE TokenHandle; // [rsp+70h] [rbp-90h] BYREF
+  int v11; // [rsp+68h] [rbp-98h]
+  HANDLE TokenHandlea; // [rsp+70h] [rbp-90h] BYREF
   PVOID P; // [rsp+78h] [rbp-88h] BYREF
-  PVOID v17; // [rsp+80h] [rbp-80h] BYREF
-  char *v18; // [rsp+88h] [rbp-78h] BYREF
+  PVOID v14; // [rsp+80h] [rbp-80h] BYREF
+  char *v15; // [rsp+88h] [rbp-78h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+90h] [rbp-70h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B0h] [rbp-50h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+E0h] [rbp-20h] BYREF
-  __int64 v22; // [rsp+100h] [rbp+0h]
+  __int64 v19; // [rsp+100h] [rbp+0h]
   PSID TokenInformation[12]; // [rsp+110h] [rbp+10h] BYREF
-  __int64 v24; // [rsp+170h] [rbp+70h] BYREF
-  int v25; // [rsp+178h] [rbp+78h]
+  __int64 v21; // [rsp+170h] [rbp+70h] BYREF
+  int v22; // [rsp+178h] [rbp+78h]
   ACL Acl; // [rsp+180h] [rbp+80h] BYREF
-  char v27; // [rsp+220h] [rbp+120h] BYREF
+  char v24; // [rsp+220h] [rbp+120h] BYREF
 
-  v14 = 0;
-  v12 = 0;
+  v11 = 0;
   memset_0(&Acl, 0, 0xA0uLL);
-  TokenHandle = 0LL;
-  v24 = 0LL;
-  v25 = 0;
+  TokenHandlea = 0LL;
+  v21 = 0LL;
+  v22 = 0;
   memset(&ObjectAttributes, 0, 44);
-  v22 = 0LL;
-  v18 = 0LL;
+  v19 = 0LL;
+  v15 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   memset_0(TokenInformation, 0, 0x58uLL);
   ReturnLength = 0;
   P = 0LL;
   *(_OWORD *)&SubjectContext.ClientToken = 0LL;
   v6 = 0;
-  *a3 = 0;
+  *HasCapability = 0;
   *(_OWORD *)&SubjectContext.PrimaryToken = 0LL;
-  if ( (unsigned __int8)RtlIsCapabilitySid(Sid) )
+  if ( RtlIsCapabilitySid(CapabilitySidToCheck) )
   {
-    if ( ExistingTokenHandle )
+    if ( TokenHandle )
     {
       ObjectAttributes.Length = 48;
-      ObjectAttributes.SecurityQualityOfService = &v24;
+      ObjectAttributes.SecurityQualityOfService = &v21;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 512;
       ObjectAttributes.ObjectName = 0LL;
       ObjectAttributes.SecurityDescriptor = 0LL;
-      v24 = 0x20000000CLL;
-      LOWORD(v25) = 1;
-      v7 = ZwDuplicateToken(ExistingTokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &TokenHandle);
+      v21 = 0x20000000CLL;
+      LOWORD(v22) = 1;
+      v7 = ZwDuplicateToken(TokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &TokenHandlea);
       if ( v7 < 0 )
         goto LABEL_13;
       ReturnLength = 88;
-      ExistingTokenHandle = 0LL;
-      ZwQueryInformationToken(TokenHandle, TokenUser, TokenInformation, 0x58u, &ReturnLength);
+      TokenHandle = 0LL;
+      ZwQueryInformationToken(TokenHandlea, TokenUser, TokenInformation, 0x58u, &ReturnLength);
     }
     else
     {
@@ -99,41 +95,25 @@ __int64 __fastcall RtlCheckTokenCapability(HANDLE ExistingTokenHandle, PSID Sid,
     RtlSetGroupSecurityDescriptor(SecurityDescriptor, TokenInformation[0], 0);
     RtlCreateAcl(&Acl, 0xA0u, 2u);
     RtlAddAccessAllowedAce(&Acl, 2u, 0x10001u, TokenInformation[0]);
-    RtlAddAccessAllowedAce(&Acl, 2u, 0x10001u, Sid);
+    RtlAddAccessAllowedAce(&Acl, 2u, 0x10001u, CapabilitySidToCheck);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    v18 = &v27;
+    v15 = &v24;
     if ( v6
-      || (v17 = 0LL,
+      || (v14 = 0LL,
           SubjectContext.ProcessAuditId = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink,
-          v7 = ObReferenceObjectByHandle(TokenHandle, 8u, (POBJECT_TYPE)SeTokenObjectType, 0, &v17, 0LL),
-          SubjectContext.PrimaryToken = v17,
+          v7 = ObReferenceObjectByHandle(TokenHandlea, 8u, (POBJECT_TYPE)SeTokenObjectType, 0, &v14, 0LL),
+          SubjectContext.PrimaryToken = v14,
           v7 >= 0) )
     {
-      v8 = SeAccessCheckWithHint(
-             (__int64)SecurityDescriptor,
-             0,
-             (int *)&SubjectContext,
-             0,
-             0x10001u,
-             0,
-             &v18,
-             RtlpCheckTokenCapabilityGenericMapping,
-             KeGetCurrentThread()->PreviousMode,
-             &v14,
-             &v12);
-      v9 = v12;
-      v7 = v12;
-      if ( !v8 )
+      v7 = 0;
+      if ( !(unsigned __int8)SeAccessCheckWithHint(SecurityDescriptor, 0LL, &SubjectContext) )
         v7 = -1073741790;
       if ( !v6 )
-      {
         ObfDereferenceObjectWithTag(SubjectContext.PrimaryToken, 0x746C6644u);
-        v9 = v12;
-      }
       if ( v7 >= 0 )
       {
-        if ( !v9 && v14 == 65537 )
-          *a3 = 1;
+        if ( v11 == 65537 )
+          *HasCapability = 1;
         v7 = 0;
       }
       if ( v6 )
@@ -147,7 +127,7 @@ __int64 __fastcall RtlCheckTokenCapability(HANDLE ExistingTokenHandle, PSID Sid,
 LABEL_13:
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( !ExistingTokenHandle && TokenHandle )
-    ZwClose(TokenHandle);
-  return (unsigned int)v7;
+  if ( !TokenHandle && TokenHandlea )
+    ZwClose(TokenHandlea);
+  return v7;
 }

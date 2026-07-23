@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpLogMemInfoWs @ 0x14096E598
+ * XREFs of EtwpLogMemInfoWs @ 0x1409BBBE8
  * Callers:
- *     EtwpLogMemInfoRundown @ 0x14082F528 (EtwpLogMemInfoRundown.c)
- *     EtwpPerfMemInfoWork @ 0x14096E570 (EtwpPerfMemInfoWork.c)
+ *     EtwpLogMemInfoRundown @ 0x140835768 (EtwpLogMemInfoRundown.c)
+ *     EtwpPerfMemInfoWork @ 0x1409BBBC0 (EtwpPerfMemInfoWork.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
- *     SmProcessQueryStoreStats @ 0x14096EFCC (SmProcessQueryStoreStats.c)
- *     EtwpLogMemInfoWsHelper @ 0x140AF260C (EtwpLogMemInfoWsHelper.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpLogMemInfoWsHelper @ 0x1409BA2C0 (EtwpLogMemInfoWsHelper.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
+ *     SmProcessQueryStoreStats @ 0x1409BC61C (SmProcessQueryStoreStats.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
@@ -38,17 +38,17 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   unsigned int v20; // ebx
   unsigned int *v21; // rax
   unsigned int *v22; // r14
-  unsigned int v23; // [rsp+28h] [rbp-59h]
-  _DWORD v24[4]; // [rsp+40h] [rbp-41h]
+  SYSTEM_INFORMATION_CLASS v23; // [rsp+28h] [rbp-59h]
+  SYSTEM_INFORMATION_CLASS SystemInformationClass[4]; // [rsp+40h] [rbp-41h]
   __int64 v25; // [rsp+50h] [rbp-31h]
   _DWORD *v26; // [rsp+58h] [rbp-29h]
-  _QWORD v27[8]; // [rsp+68h] [rbp-19h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+68h] [rbp-19h] BYREF
 
   v25 = a1;
-  v24[0] = 81;
-  v24[1] = 119;
-  v24[2] = 120;
-  memset_0(v27, 0, sizeof(v27));
+  SystemInformationClass[0] = SystemFileCacheInformationEx;
+  SystemInformationClass[1] = SystemPagedPoolInformationEx;
+  SystemInformationClass[2] = SystemSystemPtesInformationEx;
+  memset_0(SystemInformation, 0, sizeof(SystemInformation));
   v3 = 4356;
   v4 = -1;
   v5 = 64;
@@ -62,12 +62,12 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   v26 = Pool2 + 1089;
   while ( v9 < 3 )
   {
-    v23 = v24[v9];
-    if ( (unsigned int)ZwQuerySystemInformation(v23, (__int64)v27) )
+    v23 = SystemInformationClass[v9];
+    if ( ZwQuerySystemInformation(v23, SystemInformation, 0x40u, 0LL) )
       goto LABEL_31;
     *v8 = v4;
-    v10 = v27[0] >> 12;
-    *(_QWORD *)(v8 + 1) = v27[0] >> 12;
+    v10 = SystemInformation[0] >> 12;
+    *(_QWORD *)(v8 + 1) = SystemInformation[0] >> 12;
     *(_QWORD *)(v8 + 7) = v10;
     *(_QWORD *)(v8 + 3) = v10;
     *(_QWORD *)(v8 + 15) = 0LL;
@@ -75,7 +75,7 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
     *(_QWORD *)(v8 + 11) = 0LL;
     *(_QWORD *)(v8 + 9) = 0LL;
     *(_QWORD *)(v8 + 13) = 0LL;
-    if ( v23 == 119 && a2 > v10 )
+    if ( v23 == SystemPagedPoolInformationEx && a2 > v10 )
     {
       *(_QWORD *)(v8 + 3) = a2;
       *(_QWORD *)(v8 + 5) = a2;

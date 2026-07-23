@@ -1,17 +1,17 @@
 /*
- * XREFs of IopResourceRequirementsListToReqList @ 0x140556A60
+ * XREFs of IopResourceRequirementsListToReqList @ 0x140556FA0
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1401CE0DC (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x1404C866C (PnpGetResourceRequirementsForAssignTable.c)
- *     IopAllocateBootResourcesInternal @ 0x1405561C0 (IopAllocateBootResourcesInternal.c)
- *     PnpRestoreResourcesInternal @ 0x14064BE48 (PnpRestoreResourcesInternal.c)
- *     IopQueryConflictListInternal @ 0x14064E5F8 (IopQueryConflictListInternal.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1401CDF28 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x14050D06C (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopAllocateBootResourcesInternal @ 0x140556700 (IopAllocateBootResourcesInternal.c)
+ *     PnpRestoreResourcesInternal @ 0x14064BF2C (PnpRestoreResourcesInternal.c)
+ *     IopQueryConflictListInternal @ 0x14064E6DC (IopQueryConflictListInternal.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopFreeReqList @ 0x14055630C (IopFreeReqList.c)
- *     IopFreeReqAlternative @ 0x14055635C (IopFreeReqAlternative.c)
- *     IopSetupArbiterAndTranslators @ 0x140556FA8 (IopSetupArbiterAndTranslators.c)
+ *     IopFreeReqList @ 0x14055684C (IopFreeReqList.c)
+ *     IopFreeReqAlternative @ 0x14055689C (IopFreeReqAlternative.c)
+ *     IopSetupArbiterAndTranslators @ 0x1405574E8 (IopSetupArbiterAndTranslators.c)
  */
 
 __int64 __fastcall IopResourceRequirementsListToReqList(__int64 a1, _QWORD *a2)

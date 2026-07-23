@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAttemptPageFileReduction @ 0x1402B72CC
+ * XREFs of MiAttemptPageFileReduction @ 0x1402B74BC
  * Callers:
- *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
+ *     MiProcessDereferenceList @ 0x140154150 (MiProcessDereferenceList.c)
  * Callees:
- *     MiOkToShrinkPageFiles @ 0x1400917F8 (MiOkToShrinkPageFiles.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiQueueSyncModifiedWriterApc @ 0x1402B88F8 (MiQueueSyncModifiedWriterApc.c)
- *     IoSetInformation @ 0x140701280 (IoSetInformation.c)
+ *     MiOkToShrinkPageFiles @ 0x140091738 (MiOkToShrinkPageFiles.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x1402B8AE8 (MiQueueSyncModifiedWriterApc.c)
+ *     IoSetInformation @ 0x140702520 (IoSetInformation.c)
  */
 
 int __fastcall MiAttemptPageFileReduction(__int64 a1)

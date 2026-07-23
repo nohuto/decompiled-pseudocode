@@ -12,32 +12,32 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TppWaitCompletion(int a1, int a2, int a3, int a4)
+int __stdcall TppWaitCompletion(PTP_CALLBACK_INSTANCE Instance, int a2, _RTL_SRWLOCK *ApcContext, int a4)
 {
   signed int v4; // esi
   char v5; // cl
 
   v4 = 0;
-  RtlAcquireSRWLockExclusive(a3 + 144);
-  if ( (unsigned __int8)TppCancelTimer(1) )
+  RtlAcquireSRWLockExclusive(ApcContext + 36);
+  if ( (unsigned __int8)TppCancelTimer(ApcContext, ApcContext[23].Value + 64, 1) )
     v4 = -1;
-  v5 = *(_BYTE *)(a3 + 292);
+  v5 = (char)ApcContext[73].0;
   if ( (v5 & 4) == 0 )
   {
     TppBarrierAdjust(0);
-    v5 = *(_BYTE *)(a3 + 292);
+    v5 = (char)ApcContext[73].0;
   }
-  *(_DWORD *)(a3 + 224) = 0;
+  ApcContext[56].Value = 0;
   if ( (v5 & 1) != 0 )
-    v4 += TppSetupNextWait((v5 & 2) != 0 ? a3 + 240 : 0);
-  *(_BYTE *)(a3 + 292) = 0;
+    v4 += TppSetupNextWait(ApcContext, ApcContext[58].Ptr, (v5 & 2) != 0 ? (unsigned int)&ApcContext[60] : 0);
+  *(_BYTE *)&ApcContext[73].0 = 0;
   if ( v4 > 0 )
   {
-    _InterlockedExchangeAdd((volatile signed __int32 *)a3, v4);
+    _InterlockedExchangeAdd((volatile signed __int32 *)ApcContext, v4);
     v4 = 0;
   }
-  RtlReleaseSRWLockExclusive(a3 + 144);
-  if ( v4 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a3, v4) == -v4 )
-    (**(void (__thiscall ***)(_DWORD, int))(a3 + 4))(**(_DWORD **)(a3 + 4), a3);
-  return TppExecuteWaitCallback(0);
+  RtlReleaseSRWLockExclusive(ApcContext + 36);
+  if ( v4 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)ApcContext, v4) == -v4 )
+    (*(void (__thiscall **)(_DWORD, _RTL_SRWLOCK *))ApcContext[1].Value)(*(_DWORD *)ApcContext[1].Value, ApcContext);
+  return TppExecuteWaitCallback(Instance, 0);
 }

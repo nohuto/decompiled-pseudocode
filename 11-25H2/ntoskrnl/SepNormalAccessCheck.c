@@ -80,9 +80,9 @@ __int64 __fastcall SepNormalAccessCheck(
   int v58; // eax
   unsigned __int8 *v59; // rdi
   __int64 v60; // rbx
-  __int64 v61; // rbx
-  __int64 v62; // rax
-  int v63; // ecx
+  _SID_AND_ATTRIBUTES_HASH *v61; // rbx
+  PSID_AND_ATTRIBUTES v62; // rax
+  ULONG Attributes; // ecx
   int v64; // ecx
   __int64 k; // r8
   unsigned int v66; // ebx
@@ -344,7 +344,7 @@ LABEL_93:
         goto LABEL_38;
       }
 LABEL_67:
-      SepMatchCapability(v15, v74, (_DWORD)v23 + 8, *((_DWORD *)v23 + 1), a13 + 22, a13 + 8);
+      SepMatchCapability(v15, v74, v23 + 8, *((unsigned int *)v23 + 1), a13 + 22, a13 + 8);
       v49 = ~*(_DWORD *)(a13 + 8);
       *(_DWORD *)a13 &= v49;
       v73 = v49 & v14;
@@ -375,7 +375,7 @@ LABEL_67:
           v60 = 504LL;
           if ( !a11 )
             v60 = 232LL;
-          v61 = v15 + v60;
+          v61 = (_SID_AND_ATTRIBUTES_HASH *)(v15 + v60);
           if ( v24 && RtlEqualSid(SePrincipalSelfSid, v23 + 8) )
             v59 = a7;
           if ( !a12 || !RtlEqualSid(SeOwnerRightsSid, v59) )
@@ -383,10 +383,10 @@ LABEL_67:
             v62 = RtlSidHashLookup(v61, v59);
             if ( !v62 )
               goto LABEL_38;
-            if ( a11 || v62 != *(_QWORD *)(v61 + 8) )
+            if ( a11 || v62 != v61->SidAttr )
             {
-              v63 = *(_DWORD *)(v62 + 8);
-              if ( (v63 & 4) == 0 && (v63 & 0x10) == 0 )
+              Attributes = v62->Attributes;
+              if ( (Attributes & 4) == 0 && (Attributes & 0x10) == 0 )
                 goto LABEL_38;
             }
           }

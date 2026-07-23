@@ -1,46 +1,42 @@
 /*
- * XREFs of TppCancelWait @ 0x180067A40
+ * XREFs of TppCancelWait @ 0x180087E90
  * Callers:
- *     TpWaitForWait @ 0x18002A2F0 (TpWaitForWait.c)
- *     TppStopWaitCallbackGeneration @ 0x18010D3F0 (TppStopWaitCallbackGeneration.c)
+ *     TpWaitForWait @ 0x1800153F0 (TpWaitForWait.c)
+ *     TppStopWaitCallbackGeneration @ 0x18010CF40 (TppStopWaitCallbackGeneration.c)
  * Callees:
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     TppCancelTimer @ 0x1800686D0 (TppCancelTimer.c)
- *     ZwCancelWaitCompletionPacket @ 0x180160210 (ZwCancelWaitCompletionPacket.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     TppCancelTimer @ 0x180088B20 (TppCancelTimer.c)
+ *     ZwCancelWaitCompletionPacket @ 0x180160110 (ZwCancelWaitCompletionPacket.c)
  */
 
 __int64 __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
 {
   int v4; // r8d
-  __int64 v6; // rbx
   _BYTE *v8; // rbx
   unsigned __int8 v9; // di
   __int64 result; // rax
-  int v11; // eax
+  NTSTATUS v11; // eax
   __int64 v12; // rdx
   __int64 v13; // rcx
-  __int64 v14; // r8
+  char v14; // al
   char v15; // al
-  char v16; // al
 
   v4 = a3 & 2;
-  v6 = a2;
   if ( *(_QWORD *)(a1 + 360) )
   {
-    LOBYTE(a2) = v4 != 0;
-    v11 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), a2);
+    v11 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 368), v4 != 0);
     if ( v11 )
     {
       if ( v11 != 259 && v11 != -1073741536 )
-        TppRaiseInvalidParameter(v13, v12, v14);
+        TppRaiseInvalidParameter(v13, v12);
       v8 = (_BYTE *)(a1 + 464);
       v9 = 0;
-      v16 = *(_BYTE *)(a1 + 464);
-      if ( (v16 & 4) == 0 )
+      v15 = *(_BYTE *)(a1 + 464);
+      if ( (v15 & 4) == 0 )
       {
-        *v8 = v16 | 4;
-        TppBarrierAdjust((signed __int64 *)(a1 + 56), 1, 0);
+        *v8 = v15 | 4;
+        TppBarrierAdjust((_RTL_SRWLOCK *)(a1 + 56), 1, 0);
       }
       *a4 = 0;
     }
@@ -48,14 +44,14 @@ __int64 __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
     {
       v9 = 1;
       *(_QWORD *)(a1 + 360) = 0LL;
-      v15 = TppCancelTimer(a1, v6, 1LL);
+      v14 = TppCancelTimer(a1, a2, 1LL);
       *a4 = -1;
-      if ( v15 )
+      if ( v14 )
         *a4 = -2;
       v8 = (_BYTE *)(a1 + 464);
       if ( (*(_BYTE *)(a1 + 464) & 4) != 0 )
       {
-        TppBarrierAdjust((signed __int64 *)(a1 + 56), -1, 0);
+        TppBarrierAdjust((_RTL_SRWLOCK *)(a1 + 56), -1, 0);
         *v8 &= ~4u;
       }
     }

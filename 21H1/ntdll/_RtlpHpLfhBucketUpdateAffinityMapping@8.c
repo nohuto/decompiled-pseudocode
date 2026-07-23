@@ -10,26 +10,26 @@
  *     _RtlpHpLfhBucketAllocateSlot@12 @ 0x4B376049 (_RtlpHpLfhBucketAllocateSlot@12.c)
  */
 
-signed __int32 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(unsigned int a1, int a2)
+void __fastcall RtlpHpLfhBucketUpdateAffinityMapping(unsigned int a1, int a2)
 {
   char CurrentProcessorNumber; // bl
   unsigned __int8 v5; // al
   unsigned int v6; // ebx
   struct _TEB *v7; // ecx
-  signed __int32 result; // eax
-  int v9; // edi
-  unsigned __int8 v10; // al
-  unsigned int v11; // edx
-  unsigned int v12; // ecx
-  unsigned int v13; // eax
-  unsigned int v14; // ecx
-  unsigned __int8 v15; // bl
-  unsigned __int8 v16; // cl
-  char v17; // di
+  int v8; // edi
+  unsigned __int8 v9; // al
+  unsigned int v10; // edx
+  unsigned int v11; // ecx
+  unsigned int v12; // eax
+  unsigned int v13; // ecx
+  unsigned __int8 v14; // bl
+  unsigned __int8 v15; // cl
+  char v16; // di
+  int v17; // esi
   int v18; // esi
-  int v19; // esi
+  void *Slot; // eax
   signed __int32 v20; // [esp+10h] [ebp-28h] BYREF
-  volatile signed __int32 *v21; // [esp+14h] [ebp-24h]
+  PRTL_SRWLOCK SRWLock; // [esp+14h] [ebp-24h]
   int v22; // [esp+18h] [ebp-20h]
   unsigned int v23; // [esp+1Ch] [ebp-1Ch]
   unsigned int v24; // [esp+20h] [ebp-18h]
@@ -53,79 +53,77 @@ signed __int32 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(unsigned int a1, 
   }
   v7 = NtCurrentTeb();
   v26 = *(_BYTE *)(v6 + *(_DWORD *)(a2 + 48));
-  result = BYTE1(v7->HeapData);
-  if ( result != v6 )
+  if ( BYTE1(v7->HeapData) != v6 )
   {
     BYTE1(v7->HeapData) = v6;
-    return result;
+    return;
   }
   v27[0] = 0;
   v27[1] = 0;
-  v21 = (volatile signed __int32 *)(a2 + 44);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 44));
-  v9 = *(_DWORD *)(a2 + 48);
-  v10 = v26;
-  if ( v26 != *(_BYTE *)(v9 + v6) )
-    return RtlReleaseSRWLockExclusive(v21);
-  v11 = *(unsigned __int8 *)(v23 + 28);
-  v12 = 0;
+  SRWLock = (PRTL_SRWLOCK)(a2 + 44);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 44));
+  v8 = *(_DWORD *)(a2 + 48);
+  v9 = v26;
+  if ( v26 != *(_BYTE *)(v8 + v6) )
+    goto LABEL_22;
+  v10 = *(unsigned __int8 *)(v23 + 28);
+  v11 = 0;
   if ( *(_BYTE *)(v23 + 28) )
   {
     do
-      ++*((_BYTE *)v27 + *(unsigned __int8 *)(v9 + v12++));
-    while ( v12 < v11 );
-    v10 = v26;
+      ++*((_BYTE *)v27 + *(unsigned __int8 *)(v8 + v11++));
+    while ( v11 < v10 );
+    v9 = v26;
   }
-  if ( *((_BYTE *)v27 + v10) == 1 )
-    return RtlReleaseSRWLockExclusive(v21);
-  v13 = v10 + 1;
-  v24 = v13;
-  v14 = v13;
-  if ( v13 < v11 )
+  if ( *((_BYTE *)v27 + v9) == 1 )
+    goto LABEL_22;
+  v12 = v9 + 1;
+  v24 = v12;
+  v13 = v12;
+  if ( v12 < v10 )
   {
     do
     {
-      v15 = *((_BYTE *)v27 + v14);
-      if ( !v15 )
+      v14 = *((_BYTE *)v27 + v13);
+      if ( !v14 )
         break;
-      if ( v15 < *((_BYTE *)v27 + v13) )
-        v13 = v14;
-      ++v14;
+      if ( v14 < *((_BYTE *)v27 + v12) )
+        v12 = v13;
+      ++v13;
     }
-    while ( v14 < v11 );
+    while ( v13 < v10 );
     v6 = v25;
-    v24 = v13;
+    v24 = v12;
   }
-  if ( *((_BYTE *)v27 + v13) )
+  if ( *((_BYTE *)v27 + v12) )
   {
-    *(_BYTE *)(v9 + v6) = v13;
-    return RtlReleaseSRWLockExclusive(v21);
+    *(_BYTE *)(v8 + v6) = v12;
+LABEL_22:
+    RtlReleaseSRWLockExclusive(SRWLock);
+    return;
   }
-  v16 = *(_BYTE *)(a2 + 41);
-  if ( v16 < (unsigned int)RtlpHpLfhContentionLimit )
+  v15 = *(_BYTE *)(a2 + 41);
+  if ( v15 < (unsigned int)RtlpHpLfhContentionLimit )
   {
-    *(_BYTE *)(a2 + 41) = v16 + 1;
-    return RtlReleaseSRWLockExclusive(v21);
+    *(_BYTE *)(a2 + 41) = v15 + 1;
+    goto LABEL_22;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a2 + 44));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 44));
   v25 = 0;
-  v17 = v24;
-  v18 = *(_DWORD *)(a2 + 52);
+  v16 = v24;
+  v17 = *(_DWORD *)(a2 + 52);
   LOWORD(v25) = 2;
-  result = _InterlockedCompareExchange((volatile signed __int32 *)(4 * v24 + v18), 2, 0);
-  if ( !result )
+  if ( !_InterlockedCompareExchange((volatile signed __int32 *)(4 * v24 + v17), 2, 0) )
   {
-    v19 = v22;
-    result = (signed __int32)RtlpHpLfhBucketAllocateSlot(v23, v22, v24);
-    *(_DWORD *)(*(_DWORD *)(v22 + 52) + 4 * v24) = result;
-    if ( result )
+    v18 = v22;
+    Slot = RtlpHpLfhBucketAllocateSlot(v23, v22, v24);
+    *(_DWORD *)(*(_DWORD *)(v22 + 52) + 4 * v24) = Slot;
+    if ( Slot )
     {
       _InterlockedOr(&v20, 0);
-      *(_BYTE *)(v19 + 2) = v17 + 1;
-      result = *(_DWORD *)(v19 + 48);
-      *(_BYTE *)(v6 + result) = v17;
-      *(_BYTE *)(v19 + 41) = 0;
+      *(_BYTE *)(v18 + 2) = v16 + 1;
+      *(_BYTE *)(v6 + *(_DWORD *)(v18 + 48)) = v16;
+      *(_BYTE *)(v18 + 41) = 0;
     }
   }
-  return result;
 }

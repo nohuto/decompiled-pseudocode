@@ -1,16 +1,16 @@
 /*
- * XREFs of CcMapAndCopyFromCache @ 0x140447390
+ * XREFs of CcMapAndCopyFromCache @ 0x140446260
  * Callers:
- *     CcCopyReadEx @ 0x140032C70 (CcCopyReadEx.c)
- *     CcCompleteAsyncRead @ 0x14006EAE4 (CcCompleteAsyncRead.c)
- *     CcPerformReadAhead @ 0x140072334 (CcPerformReadAhead.c)
+ *     CcCopyReadEx @ 0x1400327F0 (CcCopyReadEx.c)
+ *     CcCompleteAsyncRead @ 0x14006E664 (CcCompleteAsyncRead.c)
+ *     CcPerformReadAhead @ 0x140071EB4 (CcPerformReadAhead.c)
  * Callees:
- *     CcFreeVirtualAddress @ 0x140032F20 (CcFreeVirtualAddress.c)
- *     CcFetchDataForRead @ 0x140032F50 (CcFetchDataForRead.c)
- *     CcGetVirtualAddress @ 0x1400333C0 (CcGetVirtualAddress.c)
- *     CcUpdateSharedCacheMapFlag @ 0x14006B19C (CcUpdateSharedCacheMapFlag.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     CcCopyBytesToUserBuffer @ 0x1404476E0 (CcCopyBytesToUserBuffer.c)
+ *     CcFreeVirtualAddress @ 0x140032AA0 (CcFreeVirtualAddress.c)
+ *     CcFetchDataForRead @ 0x140032AD0 (CcFetchDataForRead.c)
+ *     CcGetVirtualAddress @ 0x140032F40 (CcGetVirtualAddress.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x14006AD1C (CcUpdateSharedCacheMapFlag.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     CcCopyBytesToUserBuffer @ 0x1404465B0 (CcCopyBytesToUserBuffer.c)
  */
 
 char __fastcall CcMapAndCopyFromCache(__int64 a1, __int64 a2, unsigned int a3, char a4, char *a5, _DWORD *a6, int a7)

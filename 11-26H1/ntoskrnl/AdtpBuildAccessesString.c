@@ -1,21 +1,21 @@
 /*
- * XREFs of AdtpBuildAccessesString @ 0x14096A1B4
+ * XREFs of AdtpBuildAccessesString @ 0x14097AAF4
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14043282C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpPackageParameters @ 0x140475440 (AdtpPackageParameters.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x14071533C (AdtpBuildStagingReasonAuditStringInternal.c)
- *     AdtpBuildObjectTypeStrings @ 0x140B5B908 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14041F85C (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpPackageParameters @ 0x14046EBC0 (AdtpPackageParameters.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x14071A02C (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     AdtpBuildObjectTypeStrings @ 0x140B5EC24 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     RtlIntegerToUnicodeString @ 0x14096B330 (RtlIntegerToUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     RtlIntegerToUnicodeString @ 0x14097BC70 (RtlIntegerToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AdtpBuildAccessesString(
@@ -32,7 +32,7 @@ __int64 __fastcall AdtpBuildAccessesString(
   int v9; // r15d
   NTSTATUS appended; // r13d
   int v11; // edx
-  __int64 *v12; // r14
+  unsigned __int64 *v12; // r14
   int v13; // ecx
   const WCHAR *v14; // r12
   int v15; // ebx
@@ -44,10 +44,10 @@ __int64 __fastcall AdtpBuildAccessesString(
   wchar_t **v21; // rdi
   struct _KTHREAD *CurrentThread; // rax
   char v23; // si
-  __int64 *v24; // rbx
+  unsigned __int64 *v24; // rbx
   const UNICODE_STRING *v25; // rdi
   BOOLEAN v26; // al
-  __int64 *v27; // rcx
+  unsigned __int64 *v27; // rcx
   _QWORD *v28; // r15
   _QWORD *v29; // rbx
   bool v30; // r14
@@ -161,9 +161,9 @@ LABEL_6:
       v38 = (__int64 *)((char *)v38 + 4);
     }
     while ( v37 < 5 );
-    v12 = *(__int64 **)&String.Length;
+    v12 = *(unsigned __int64 **)&String.Length;
   }
-  v20 = &dword_14001438C;
+  v20 = &dword_14001478C;
   do
   {
     if ( (v9 & *v20) != 0 )
@@ -181,10 +181,10 @@ LABEL_6:
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquireResourceExclusiveLite((PERESOURCE)&gLoadedDiffHivesLock.PriorityFloorCounts[8], 1u);
+    ExAcquireResourceExclusiveLite((PERESOURCE)&gLoadedDiffHivesLock.Spare35[1], 1u);
     v23 = 0;
-    v24 = &AdtpSourceModules;
-    if ( AdtpSourceModules )
+    v24 = &gLoadedDiffHivesLock.Padding[2];
+    if ( gLoadedDiffHivesLock.Padding[2] )
     {
       v25 = String2;
       do
@@ -192,18 +192,18 @@ LABEL_6:
         if ( v23 )
           break;
         v26 = RtlEqualUnicodeString((PCUNICODE_STRING)(*v24 + 8), v25, 1u);
-        v27 = (__int64 *)*v24;
+        v27 = (unsigned __int64 *)*v24;
         if ( v26 )
         {
           v23 = 1;
           *v24 = *v27;
           v12 = v27;
-          *v27 = AdtpSourceModules;
-          AdtpSourceModules = (__int64)v27;
+          *v27 = gLoadedDiffHivesLock.Padding[2];
+          gLoadedDiffHivesLock.Padding[2] = (unsigned __int64)v27;
         }
         else
         {
-          v24 = (__int64 *)*v24;
+          v24 = (unsigned __int64 *)*v24;
         }
       }
       while ( *v24 );
@@ -254,7 +254,7 @@ LABEL_6:
         v9 = v42;
       }
     }
-    ExReleaseResourceLite((PERESOURCE)&gLoadedDiffHivesLock.PriorityFloorCounts[8]);
+    ExReleaseResourceLite((PERESOURCE)&gLoadedDiffHivesLock.Spare35[1]);
     KeLeaveCriticalRegion();
     if ( v23 )
       v33 = *((_DWORD *)v48 + 6);

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyPdata @ 0x140CCBE24
+ * XREFs of KiVerifyPdata @ 0x140CD1F84
  * Callers:
- *     KiVerifyScopesExecute @ 0x140CCBF20 (KiVerifyScopesExecute.c)
+ *     KiVerifyScopesExecute @ 0x140CD2080 (KiVerifyScopesExecute.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1402E9A40 (RtlpxLookupFunctionTable.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlpxLookupFunctionTable @ 0x1402CBA80 (RtlpxLookupFunctionTable.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall KiVerifyPdata(ULONG_PTR BugCheckParameter2)

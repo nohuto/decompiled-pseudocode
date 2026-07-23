@@ -1,12 +1,12 @@
 /*
- * XREFs of PopWnfBluetoothChargingCallback @ 0x140568DD0
+ * XREFs of PopWnfBluetoothChargingCallback @ 0x140569010
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
+ *     ExQueryWnfStateData @ 0x14061A450 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfBluetoothChargingCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -32,10 +32,10 @@ __int64 __fastcall PopWnfBluetoothChargingCallback(__int64 a1, __int64 a2, __int
     if ( v14[0] )
     {
       v5 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-      byte_140C23EE5 = v13[0];
+      byte_140C23385 = v13[0];
       v6 = v5;
-      if ( PopCsResiliencyStats[0] && v13[0] && !byte_140C230E3 )
-        byte_140C230E3 = 1;
+      if ( PopCsResiliencyStats[0] && v13[0] && !byte_140C236E3 )
+        byte_140C236E3 = 1;
       KxReleaseSpinLock(&PopCsResiliencyStatsLock);
       if ( KiIrqlFlags )
       {

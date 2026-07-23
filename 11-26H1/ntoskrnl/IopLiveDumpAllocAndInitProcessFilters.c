@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpAllocAndInitProcessFilters @ 0x1405CC8F8
+ * XREFs of IopLiveDumpAllocAndInitProcessFilters @ 0x1405CF108
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1405CC998 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1405CF1A8 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     IopLiveDumpAddProcessFilter @ 0x1405CC5E8 (IopLiveDumpAddProcessFilter.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     IopLiveDumpAddProcessFilter @ 0x1405CEDF8 (IopLiveDumpAddProcessFilter.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocAndInitProcessFilters(__int64 a1)

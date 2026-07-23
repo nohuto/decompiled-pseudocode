@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbGetDeviceIdMappedProperty @ 0x140876974
+ * XREFs of DrvDbGetDeviceIdMappedProperty @ 0x140876BB4
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1408762A0 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x1408764E0 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     DrvDbOpenObjectRegKey @ 0x140876BB8 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetRegValueMappedProperty @ 0x1408774BC (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x140877798 (DrvDbGetDeviceIdDriverInfMatches.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x140A6C274 (DrvDbGetObjectDatabaseNodeName.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140A6C968 (DrvDbOpenDeviceIdRegKey.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x140876DF8 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1408776FC (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x1408779D8 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x140A6C524 (DrvDbGetObjectDatabaseNodeName.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140A6CC18 (DrvDbOpenDeviceIdRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDeviceIdMappedProperty(
@@ -85,7 +85,7 @@ __int64 __fastcall DrvDbGetDeviceIdMappedProperty(
     }
 LABEL_63:
     v32 = 0;
-    for ( i = &off_14000B228; ; i += 5 )
+    for ( i = &off_14000B290; ; i += 5 )
     {
       v34 = *i;
       if ( *((_DWORD *)*i + 4) == v11 )
@@ -100,7 +100,7 @@ LABEL_63:
         return (unsigned int)-1073741802;
     }
     v36 = 5LL * v32;
-    v37 = &(&off_14000B228)[5 * v32];
+    v37 = &(&off_14000B290)[5 * v32];
     if ( v37 )
     {
       if ( !a3 )

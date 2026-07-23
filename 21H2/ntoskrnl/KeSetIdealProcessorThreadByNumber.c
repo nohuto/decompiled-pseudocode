@@ -1,32 +1,28 @@
 /*
- * XREFs of KeSetIdealProcessorThreadByNumber @ 0x14037A874
+ * XREFs of KeSetIdealProcessorThreadByNumber @ 0x14037A3C4
  * Callers:
- *     KeSetIdealProcessorThread @ 0x14037A820 (KeSetIdealProcessorThread.c)
- *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
+ *     KeSetIdealProcessorThread @ 0x14037A370 (KeSetIdealProcessorThread.c)
+ *     NtQueryInformationThread @ 0x1406EB0A0 (NtQueryInformationThread.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     KeSetIdealProcessorThreadEx @ 0x1402EAD48 (KeSetIdealProcessorThreadEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140263490 (KeGetProcessorNumberFromIndex.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14029C098 (KeSetIdealProcessorThreadEx.c)
  */
 
-__int64 __fastcall KeSetIdealProcessorThreadByNumber(
-        struct _KTHREAD *a1,
-        struct _PROCESSOR_NUMBER *a2,
-        struct _PROCESSOR_NUMBER *a3)
+__int64 __fastcall KeSetIdealProcessorThreadByNumber(struct _KTHREAD *a1, _PROCESSOR_NUMBER *a2, _PROCESSOR_NUMBER *a3)
 {
   ULONG ProcessorIndexFromNumber; // eax
-  _DWORD *v6; // r9
-  unsigned int v7; // eax
+  unsigned int v6; // eax
   ULONG IdealProcessor; // ecx
-  unsigned int v9; // edi
+  unsigned int v8; // edi
   ULONG ProcIndex; // [rsp+48h] [rbp+20h] BYREF
 
   ProcIndex = 0;
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(a2);
   if ( ProcessorIndexFromNumber == -1 )
   {
-    v9 = -1073741811;
+    v8 = -1073741811;
     if ( a1 == KeGetCurrentThread() )
       IdealProcessor = a1->IdealProcessor;
     else
@@ -34,10 +30,10 @@ __int64 __fastcall KeSetIdealProcessorThreadByNumber(
   }
   else
   {
-    v7 = KeSetIdealProcessorThreadEx((__int64)a1, ProcessorIndexFromNumber, (__int64)&ProcIndex, v6);
+    v6 = KeSetIdealProcessorThreadEx((__int64)a1, ProcessorIndexFromNumber, &ProcIndex);
     IdealProcessor = ProcIndex;
-    v9 = v7;
+    v8 = v6;
   }
   KeGetProcessorNumberFromIndex(IdealProcessor, a3);
-  return v9;
+  return v8;
 }

@@ -1,109 +1,106 @@
 /*
- * XREFs of RtlpHpSegPageRangeAllocate @ 0x180096D10
+ * XREFs of RtlpHpSegPageRangeAllocate @ 0x1800715F0
  * Callers:
- *     RtlpHpSegAlloc @ 0x1800E0094 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegAlloc @ 0x1800DD93C (RtlpHpSegAlloc.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpSegFreeRangeInsert @ 0x18006AD78 (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegFreeRangeRemove @ 0x18006AF00 (RtlpHpSegFreeRangeRemove.c)
- *     RtlpHpLargeLockAcquire @ 0x180089C88 (RtlpHpLargeLockAcquire.c)
- *     RtlpHpSegSegmentInitialize @ 0x180089EBC (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpSegHeapAddSegment @ 0x180089F98 (RtlpHpSegHeapAddSegment.c)
- *     RtlpHpSegSegmentAllocate @ 0x18008AB18 (RtlpHpSegSegmentAllocate.c)
- *     RtlpHpSegPageRangeSplit @ 0x180097090 (RtlpHpSegPageRangeSplit.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x18015829C (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpSegSegmentAllocate @ 0x18006DF50 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpLargeLockAcquire @ 0x18007100C (RtlpHpLargeLockAcquire.c)
+ *     RtlpHpSegPageRangeSplit @ 0x180071970 (RtlpHpSegPageRangeSplit.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x18008B1C8 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x18008B350 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlpHpSegHeapAddSegment @ 0x1800E1FF8 (RtlpHpSegHeapAddSegment.c)
+ *     RtlpHpSegSegmentInitialize @ 0x1800E2038 (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x18015816C (RtlpHpSegLargeRangeAllocate.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, int a3)
 {
-  __int64 v4; // rdx
-  unsigned int v6; // r15d
-  __int64 v7; // rbx
-  unsigned int v8; // r8d
-  __int64 v9; // rdx
-  int v10; // edi
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  unsigned __int64 v13; // r14
+  unsigned int v5; // r15d
+  __int64 v6; // rbx
+  unsigned int v7; // r8d
+  __int64 v8; // rdx
+  int v9; // edi
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // r14
+  __int64 v14; // rax
   __int64 v15; // rax
-  __int64 v16; // rax
-  unsigned int v17; // edx
-  _BYTE *v18; // rax
-  __int64 v19; // rdx
+  unsigned int v16; // edx
+  _BYTE *v17; // rax
 
-  v4 = (unsigned int)(a2 - 1);
-  v6 = (unsigned int)(v4 + (1 << *(_BYTE *)(a1 + 9))) >> *(_BYTE *)(a1 + 9);
-  RtlpHpLargeLockAcquire(a1, v4);
-  v7 = *(_QWORD *)(a1 + 96);
-  v8 = v6 << 24;
-  if ( (*(_BYTE *)(a1 + 104) & 1) != 0 && v7 )
-    v7 ^= a1 + 96;
-  v9 = 0LL;
-  while ( v7 )
+  v5 = (unsigned int)(a2 - 1 + (1 << *(_BYTE *)(a1 + 9))) >> *(_BYTE *)(a1 + 9);
+  RtlpHpLargeLockAcquire((_RTL_SRWLOCK *)a1);
+  v6 = *(_QWORD *)(a1 + 96);
+  v7 = v5 << 24;
+  if ( (*(_BYTE *)(a1 + 104) & 1) != 0 && v6 )
+    v6 ^= a1 + 96;
+  v8 = 0LL;
+  while ( v6 )
   {
-    if ( v8 > *(_DWORD *)(v7 + 28) )
+    if ( v7 > *(_DWORD *)(v6 + 28) )
     {
-      v15 = *(_QWORD *)(v7 + 8);
+      v14 = *(_QWORD *)(v6 + 8);
     }
     else
     {
-      if ( v8 >= *(_DWORD *)(v7 + 28) )
+      if ( v7 >= *(_DWORD *)(v6 + 28) )
       {
-        v10 = a3 & 0x800000;
+        v9 = a3 & 0x800000;
         goto LABEL_7;
       }
-      v15 = *(_QWORD *)v7;
-      v9 = v7;
+      v14 = *(_QWORD *)v6;
+      v8 = v6;
     }
-    if ( (*(_BYTE *)(a1 + 104) & 1) != 0 && v15 )
-      v7 ^= v15;
+    if ( (*(_BYTE *)(a1 + 104) & 1) != 0 && v14 )
+      v6 ^= v14;
     else
-      v7 = v15;
+      v6 = v14;
   }
-  v7 = v9;
-  v10 = a3 & 0x800000;
-  if ( !v9 )
+  v6 = v8;
+  v9 = a3 & 0x800000;
+  if ( !v8 )
     goto LABEL_10;
 LABEL_7:
-  if ( v10 )
-    v7 = RtlpHpSegLargeRangeAllocate(a1, v7, v6, 1LL);
+  if ( v9 )
+    v6 = RtlpHpSegLargeRangeAllocate(a1, v6, v5, 1LL);
   else
-    RtlpHpSegFreeRangeRemove(a1, v7);
-  if ( v7 )
+    RtlpHpSegFreeRangeRemove(a1, v6);
+  if ( v6 )
     goto LABEL_20;
 LABEL_10:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-  v12 = RtlpHpSegSegmentAllocate(a1, 0);
-  v13 = v12;
-  if ( !v12 )
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+  v11 = RtlpHpSegSegmentAllocate(a1, 0);
+  v12 = v11;
+  if ( !v11 )
     return 0LL;
-  RtlpHpSegSegmentInitialize((_BYTE *)a1, v12, 0);
-  v7 = v13 + 32LL * *(unsigned __int8 *)(a1 + 10);
-  RtlpHpLargeLockAcquire(a1, v19);
-  RtlpHpSegHeapAddSegment(a1, v13);
-  if ( v10 )
-    v7 = RtlpHpSegLargeRangeAllocate(a1, v7, v6, 0LL);
+  RtlpHpSegSegmentInitialize(a1, v11, 0LL);
+  v6 = v12 + 32LL * *(unsigned __int8 *)(a1 + 10);
+  RtlpHpLargeLockAcquire((_RTL_SRWLOCK *)a1);
+  RtlpHpSegHeapAddSegment(a1, v12);
+  if ( v9 )
+    v6 = RtlpHpSegLargeRangeAllocate(a1, v6, v5, 0LL);
 LABEL_20:
-  v16 = RtlpHpSegPageRangeSplit(v11, v7, v6);
-  if ( v16 )
-    RtlpHpSegFreeRangeInsert(a1, v16, 0LL);
+  v15 = RtlpHpSegPageRangeSplit(v10, v6, v5);
+  if ( v15 )
+    RtlpHpSegFreeRangeInsert(a1, v15, 0LL);
   if ( (a3 & 4) != 0 )
-    *(_DWORD *)(v7 + 8) |= 2u;
-  *(_BYTE *)(v7 + 24) |= (a3 & 0xE000000 | 0x800000u) >> 23;
-  *(_BYTE *)(32LL * (v6 - 1) + v7 + 24) |= 1u;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-  *(_BYTE *)(v7 + 26) = 0;
-  v17 = 1;
-  if ( v6 - 1 > 1 )
+    *(_DWORD *)(v6 + 8) |= 2u;
+  *(_BYTE *)(v6 + 24) |= (a3 & 0xE000000 | 0x800000u) >> 23;
+  *(_BYTE *)(32LL * (v5 - 1) + v6 + 24) |= 1u;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+  *(_BYTE *)(v6 + 26) = 0;
+  v16 = 1;
+  if ( v5 - 1 > 1 )
   {
-    v18 = (_BYTE *)(v7 + 56);
+    v17 = (_BYTE *)(v6 + 56);
     do
     {
-      v18[2] = v17++;
-      *v18 |= 1u;
-      v18 += 32;
+      v17[2] = v16++;
+      *v17 |= 1u;
+      v17 += 32;
     }
-    while ( v17 < v6 - 1 );
+    while ( v16 < v5 - 1 );
   }
-  return v7;
+  return v6;
 }

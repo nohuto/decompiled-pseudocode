@@ -1,15 +1,15 @@
 /*
- * XREFs of NtQueryDriverEntryOrder @ 0x1406B4A14
+ * XREFs of NtQueryDriverEntryOrder @ 0x1406B4B4C
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExUnlockUserBuffer @ 0x140086998 (ExUnlockUserBuffer.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x140499420 (ExLockUserBuffer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x140088288 (ExUnlockUserBuffer.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140499EB0 (ExLockUserBuffer.c)
  */
 
 NTSTATUS __stdcall NtQueryDriverEntryOrder(PULONG Ids, PULONG Count)
@@ -32,7 +32,7 @@ NTSTATUS __stdcall NtQueryDriverEntryOrder(PULONG Ids, PULONG Count)
   struct _MDL *v19; // [rsp+40h] [rbp-28h] BYREF
   ULONG v20; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( dword_1402FD0D0 != 2 )
+  if ( dword_1402FD030 != 2 )
     return -1073741822;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )

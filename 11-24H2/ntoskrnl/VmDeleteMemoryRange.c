@@ -1,13 +1,13 @@
 /*
- * XREFs of VmDeleteMemoryRange @ 0x140A63260
+ * XREFs of VmDeleteMemoryRange @ 0x140A5BB60
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     VmpRemoveMemoryRange @ 0x14047ED34 (VmpRemoveMemoryRange.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     VmpLogCreateDeleteMemoryRange @ 0x14079FC58 (VmpLogCreateDeleteMemoryRange.c)
- *     VmpValidateMemoryRangeParameters @ 0x140A6337C (VmpValidateMemoryRangeParameters.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     VmpRemoveMemoryRange @ 0x140479B50 (VmpRemoveMemoryRange.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     VmpLogCreateDeleteMemoryRange @ 0x14079FD68 (VmpLogCreateDeleteMemoryRange.c)
+ *     VmpValidateMemoryRangeParameters @ 0x140A5BC7C (VmpValidateMemoryRangeParameters.c)
  */
 
 __int64 __fastcall VmDeleteMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -27,7 +27,7 @@ __int64 __fastcall VmDeleteMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
   {
     v8 = 1;
     FsRtlAcquirePushLockExclusive((unsigned __int64 *)&Blink[7].Blink);
-    v10 = VmpRemoveMemoryRange((PEX_SPIN_LOCK)Blink, a2 >> 12, a1 >> 12, a3, a4);
+    v10 = VmpRemoveMemoryRange((PEX_SPIN_LOCK)Blink, (_RTL_BALANCED_NODE *)(a2 >> 12), a1 >> 12, a3, a4);
     if ( v10 >= 0 )
       v10 = 0;
   }

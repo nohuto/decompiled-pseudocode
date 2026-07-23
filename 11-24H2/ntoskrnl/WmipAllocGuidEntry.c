@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipAllocGuidEntry @ 0x1409D0E2C
+ * XREFs of WmipAllocGuidEntry @ 0x1409AFDEC
  * Callers:
- *     WmipOpenBlock @ 0x1409CD2D0 (WmipOpenBlock.c)
- *     WmipLinkDataSourceToList @ 0x1409CF724 (WmipLinkDataSourceToList.c)
+ *     WmipLinkDataSourceToList @ 0x1409B19AC (WmipLinkDataSourceToList.c)
+ *     WmipOpenBlock @ 0x1409B25B0 (WmipOpenBlock.c)
  * Callees:
- *     WmipAllocEntry @ 0x1409D00A0 (WmipAllocEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WmipAllocEntry @ 0x1409B04E8 (WmipAllocEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _QWORD *WmipAllocGuidEntry()
@@ -17,10 +17,10 @@ _QWORD *WmipAllocGuidEntry()
   _QWORD *v4; // rax
 
   v0 = 0LL;
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
+  Pool2 = (void *)ExAllocatePool2(0x40uLL, 0x38uLL, 0x70696D57u);
   if ( Pool2 )
   {
-    v3 = WmipAllocEntry((__int64)&WmipGEChunkInfo);
+    v3 = (_QWORD *)WmipAllocEntry(&WmipGEChunkInfo);
     v0 = v3;
     if ( v3 )
     {

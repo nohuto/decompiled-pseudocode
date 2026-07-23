@@ -1,13 +1,13 @@
 /*
- * XREFs of strtoxlX @ 0x18012D014
+ * XREFs of strtoxlX @ 0x18012CD80
  * Callers:
- *     strtol @ 0x18012D250 (strtol.c)
- *     strtolX @ 0x18012D284 (strtolX.c)
- *     strtoul @ 0x18012D2C0 (strtoul.c)
+ *     strtol @ 0x18012CFC0 (strtol.c)
+ *     strtolX @ 0x18012CFF4 (strtolX.c)
+ *     strtoul @ 0x18012D030 (strtoul.c)
  * Callees:
- *     _errno @ 0x180107440 (_errno.c)
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     __pctype_func @ 0x18012E790 (__pctype_func.c)
+ *     _errno @ 0x180106E40 (_errno.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     __pctype_func @ 0x18012E500 (__pctype_func.c)
  */
 
 __int64 __fastcall strtoxlX(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, unsigned int a4, int a5, int a6)

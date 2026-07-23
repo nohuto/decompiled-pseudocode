@@ -23,7 +23,7 @@ __int64 __fastcall sub_1800F0614(
   unsigned __int64 v15; // rdx
   unsigned __int64 v16; // rdx
   unsigned __int64 v17; // rax
-  __int64 v18; // rcx
+  _DWORD *v18; // rcx
   __int64 result; // rax
 
   v6 = 0;
@@ -78,7 +78,7 @@ LABEL_6:
   *a4 = v17;
   v6 = 1;
 LABEL_21:
-  v18 = *(_QWORD *)(a1 + 40);
+  v18 = *(_DWORD **)(a1 + 40);
   *a5 = v6;
   result = sub_18004733C(v18, 0);
   *a6 = result;

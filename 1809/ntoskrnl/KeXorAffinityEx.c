@@ -1,9 +1,9 @@
 /*
- * XREFs of KeXorAffinityEx @ 0x14028E468
+ * XREFs of KeXorAffinityEx @ 0x14028E658
  * Callers:
- *     PpmParkComputeDiff @ 0x1402E7E6C (PpmParkComputeDiff.c)
+ *     PpmParkComputeDiff @ 0x1402E805C (PpmParkComputeDiff.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 KeXorAffinityEx()
@@ -56,8 +56,8 @@ __int64 KeXorAffinityEx()
     *(_QWORD *)&PpmPerfChangedCoreParkingMask[4 * v11 + 4] = *(_QWORD *)&v1[4 * v11 + 4];
     v10 = (unsigned __int16)PpmPerfChangedCoreParkingMask[0];
   }
-  dword_140405234 = 0;
-  word_140405232 = 20;
+  dword_140406244 = 0;
+  word_140406242 = 20;
   if ( v5 < 0x14 )
     memset(&PpmPerfChangedCoreParkingMask[4 * v5 + 4], 0, 8LL * (20 - v5));
   LOBYTE(v3) = v4 != 0;

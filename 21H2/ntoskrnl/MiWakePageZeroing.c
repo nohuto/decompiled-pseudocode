@@ -1,37 +1,34 @@
 /*
- * XREFs of MiWakePageZeroing @ 0x1402FF128
+ * XREFs of MiWakePageZeroing @ 0x140309E78
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
- *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
+ *     MiInsertLargePageInNodeList @ 0x1403097A0 (MiInsertLargePageInNodeList.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiWakeZeroingThreads @ 0x1402FF3D0 (MiWakeZeroingThreads.c)
- *     MiNodeLargeFreeZeroPages @ 0x140318E40 (MiNodeLargeFreeZeroPages.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiWakeZeroingThreads @ 0x14030A120 (MiWakeZeroingThreads.c)
+ *     MiNodeLargeFreeZeroPages @ 0x140323B90 (MiNodeLargeFreeZeroPages.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiWakePageZeroing(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall MiWakePageZeroing(__int64 a1, unsigned __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned __int8 CurrentIrql; // r15
-  unsigned __int64 v6; // rbx
-  unsigned __int64 v7; // rsi
+  unsigned __int64 v7; // rbx
+  unsigned __int64 v8; // rsi
   __int64 result; // rax
   _BYTE *i; // rbx
-  _DWORD *SchedulerAssist; // r9
   __int64 v11; // r14
   unsigned __int64 OldIrql; // r14
   unsigned __int8 v13; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v15; // r9
-  int v16; // eax
-  bool v17; // zf
-  unsigned __int8 v18; // al
-  struct _KPRCB *v19; // r10
-  _DWORD *v20; // r9
-  int v21; // eax
+  int v15; // eax
+  bool v16; // zf
+  unsigned __int8 v17; // al
+  struct _KPRCB *v18; // r10
+  int v19; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   CurrentIrql = 17;
@@ -41,18 +38,18 @@ __int64 __fastcall MiWakePageZeroing(__int64 a1, unsigned __int64 a2, __int64 a3
     result = *(unsigned int *)(a1 + 4);
     if ( (result & 0x40) != 0 )
       return result;
-    v6 = a2;
-    v7 = a2 + 4544;
+    v7 = a2;
+    v8 = a2 + 4544;
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 16);
-    v7 = v6 + 4544LL * (unsigned __int16)KeNumberNodes;
+    v7 = *(_QWORD *)(a1 + 16);
+    v8 = v7 + 4544LL * (unsigned __int16)KeNumberNodes;
   }
   result = *(unsigned int *)(a1 + 6340);
-  if ( !(_DWORD)result && v6 < v7 )
+  if ( !(_DWORD)result && v7 < v8 )
   {
-    for ( i = (_BYTE *)(v6 + 4490); (unsigned __int64)(i - 4490) < v7; i += 4544 )
+    for ( i = (_BYTE *)(v7 + 4490); (unsigned __int64)(i - 4490) < v8; i += 4544 )
     {
       if ( !*i )
       {
@@ -86,12 +83,12 @@ LABEL_17:
                 if ( v13 <= 0xFu && LockHandle.OldIrql <= 0xFu && v13 >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
-                  v15 = CurrentPrcb->SchedulerAssist;
-                  v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-                  v17 = (v16 & v15[5]) == 0;
-                  a3 = (unsigned int)v16 & v15[5];
-                  v15[5] = a3;
-                  if ( v17 )
+                  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                  v15 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+                  v16 = (v15 & SchedulerAssist[5]) == 0;
+                  a3 = (unsigned int)v15 & SchedulerAssist[5];
+                  SchedulerAssist[5] = a3;
+                  if ( v16 )
                     KiRemoveSystemWorkPriorityKick(CurrentPrcb);
                 }
               }
@@ -102,7 +99,7 @@ LABEL_17:
           {
             LockHandle.LockQueue.Next = 0LL;
             LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 4928);
-            KxAcquireQueuedSpinLock(&LockHandle, a1 + 4928, a3);
+            KxAcquireQueuedSpinLock(&LockHandle, a1 + 4928, a3, SchedulerAssist);
             if ( !*i )
             {
               *i = 1;
@@ -116,17 +113,17 @@ LABEL_17:
             {
               if ( (KiIrqlFlags & 1) != 0 )
               {
-                v18 = KeGetCurrentIrql();
-                if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+                v17 = KeGetCurrentIrql();
+                if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
                 {
-                  v19 = KeGetCurrentPrcb();
-                  v20 = v19->SchedulerAssist;
-                  v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                  v17 = (v21 & v20[5]) == 0;
-                  a3 = (unsigned int)v21 & v20[5];
-                  v20[5] = a3;
-                  if ( v17 )
-                    KiRemoveSystemWorkPriorityKick(v19);
+                  v18 = KeGetCurrentPrcb();
+                  SchedulerAssist = v18->SchedulerAssist;
+                  v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                  v16 = (v19 & SchedulerAssist[5]) == 0;
+                  a3 = (unsigned int)v19 & SchedulerAssist[5];
+                  SchedulerAssist[5] = a3;
+                  if ( v16 )
+                    KiRemoveSystemWorkPriorityKick(v18);
                 }
               }
             }

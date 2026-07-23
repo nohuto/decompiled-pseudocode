@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpInitHiveFromFile @ 0x1403F9AEC
+ * XREFs of CmpInitHiveFromFile @ 0x1403F89AC
  * Callers:
- *     CmpCmdHiveOpen @ 0x14049C7BC (CmpCmdHiveOpen.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
+ *     CmpCmdHiveOpen @ 0x1404A4CD8 (CmpCmdHiveOpen.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     ZwSetInformationObject @ 0x14015A800 (ZwSetInformationObject.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     ZwSetInformationObject @ 0x14015AD70 (ZwSetInformationObject.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpQueryFileSecurityDescriptor @ 0x1403F6164 (CmpQueryFileSecurityDescriptor.c)
- *     CmpOpenHiveFile @ 0x1403F9400 (CmpOpenHiveFile.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmpLogEvent @ 0x1405FC494 (CmpLogEvent.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1403F5028 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpOpenHiveFile @ 0x1403F82C0 (CmpOpenHiveFile.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmpLogEvent @ 0x1405FC548 (CmpLogEvent.c)
  */
 
 __int64 __fastcall CmpInitHiveFromFile(
@@ -106,7 +106,7 @@ __int64 __fastcall CmpInitHiveFromFile(
     Buffer = Source->Buffer;
     v66[0] = Source->Length;
     v66[1] = 0;
-    TlgWrite(&stru_1402F34E0, &unk_14027AC63, 0LL, 0LL, 4u, &pData);
+    TlgWrite(&stru_1402F34E0, &unk_14027AD63, 0LL, 0LL, 4u, &pData);
     v12 = (void *)v47;
     a4 = v54;
     a3 = v49;
@@ -366,7 +366,7 @@ LABEL_13:
     v42 = v18;
     v68 = &v42;
     v69 = 4LL;
-    TlgWrite(&stru_1402F34E0, &unk_14027AC39, 0LL, 0LL, 3u, &v67);
+    TlgWrite(&stru_1402F34E0, &unk_14027AD39, 0LL, 0LL, 3u, &v67);
   }
   return (unsigned int)v18;
 }

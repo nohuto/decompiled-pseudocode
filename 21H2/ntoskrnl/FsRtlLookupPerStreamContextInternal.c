@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlLookupPerStreamContextInternal @ 0x140349FA0
+ * XREFs of FsRtlLookupPerStreamContextInternal @ 0x140354CF0
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlLookupPerStreamContextInternal(
@@ -20,7 +20,7 @@ PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlLookupPerStreamContextInternal(
   _LIST_ENTRY *p_FilterContexts; // rcx
   struct _FSRTL_PER_STREAM_CONTEXT *v9; // rdi
   struct _KTHREAD *v10; // rdx
-  $C459BD0D405E8E46662177FB3D0A143F *v13; // rcx
+  bool v11; // zf
 
   if ( (*((_BYTE *)StreamContext + 7) & 0xF0u) < 0x10 )
   {
@@ -75,11 +75,12 @@ LABEL_8:
   {
     ExReleasePushLockEx((ULONG_PTR)&StreamContext->PushLock, 0LL);
     v10 = KeGetCurrentThread();
-    if ( v10->KernelApcDisable++ == -1 )
+    v11 = v10->KernelApcDisable++ == -1;
+    if ( v11
+      && ($C459BD0D405E8E46662177FB3D0A143F *)v10->ApcState.ApcListHead[0].Flink != &v10->152
+      && !v10->SpecialApcDisable )
     {
-      v13 = &v10->152;
-      if ( ($C459BD0D405E8E46662177FB3D0A143F *)v13->ApcState.ApcListHead[0].Flink != v13 && !v10->SpecialApcDisable )
-        KiCheckForKernelApcDelivery((__int64)v13);
+      KiCheckForKernelApcDelivery();
     }
   }
   return v9;

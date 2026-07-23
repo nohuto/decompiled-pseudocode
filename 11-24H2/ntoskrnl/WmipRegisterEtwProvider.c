@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipRegisterEtwProvider @ 0x1407A57CC
+ * XREFs of WmipRegisterEtwProvider @ 0x1407A590C
  * Callers:
- *     WmipLinkDataSourceToList @ 0x1409CF724 (WmipLinkDataSourceToList.c)
+ *     WmipLinkDataSourceToList @ 0x1409B19AC (WmipLinkDataSourceToList.c)
  * Callees:
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     WmipQueueLegacyEtwWork @ 0x1409D101C (WmipQueueLegacyEtwWork.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     WmipQueueLegacyEtwWork @ 0x140A8AB68 (WmipQueueLegacyEtwWork.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall WmipRegisterEtwProvider(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ void __fastcall WmipRegisterEtwProvider(__int64 a1, __int64 a2)
   v3 = 0LL;
   if ( ++*(_DWORD *)(v2 + 152) == 1 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x18uLL, 0x70696D57u);
     v3 = Pool2;
     if ( !Pool2 )
       return;
@@ -27,7 +27,7 @@ void __fastcall WmipRegisterEtwProvider(__int64 a1, __int64 a2)
   }
   else if ( *(_QWORD *)(v2 + 120) )
   {
-    v3 = ExAllocatePool2(0x100uLL);
+    v3 = ExAllocatePool2(0x100uLL, 0x30uLL, 0x70696D57u);
     if ( !v3 )
       return;
     *(_DWORD *)(a1 + 16) |= 0x200000u;

@@ -1,22 +1,22 @@
 /*
- * XREFs of DrvDbDeleteObjectSubKey @ 0x1406E0C4C
+ * XREFs of DrvDbDeleteObjectSubKey @ 0x1406E0D84
  * Callers:
- *     DrvDbDeleteObjectRegKey @ 0x1406E0AEC (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x1406E0C24 (DrvDbDeleteObjectRegKey.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     wcsrchr @ 0x14014F0D4 (wcsrchr.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     wcsrchr @ 0x14014F694 (wcsrchr.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpCtxRegEnumValue @ 0x1404D5ABC (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1404D5B08 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpDeletePropertyWorker @ 0x1404F0C10 (_PnpDeletePropertyWorker.c)
- *     _PnpCtxRegDeleteValue @ 0x1404F0DB4 (_PnpCtxRegDeleteValue.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140550618 (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegDeleteKey @ 0x1406D7080 (_PnpCtxRegDeleteKey.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1406DC208 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpCtxRegEnumValue @ 0x1404B90C0 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1404B910C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpDeletePropertyWorker @ 0x1404D2D04 (_PnpDeletePropertyWorker.c)
+ *     _PnpCtxRegDeleteValue @ 0x1404D2EA8 (_PnpCtxRegDeleteValue.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140550B58 (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegDeleteKey @ 0x1406D71B8 (_PnpCtxRegDeleteKey.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1406DC340 (_PnpGetGenericStorePropertyKeys.c)
  */
 
 __int64 __fastcall DrvDbDeleteObjectSubKey(__int64 **a1, __int64 a2, const wchar_t *a3, unsigned int a4)
@@ -80,9 +80,9 @@ LABEL_3:
       InfoKey = 0;
     goto LABEL_69;
   }
-  for ( i = PnpGetGenericStorePropertyKeys(*a1, (__int64)Handle, 0LL, 0, 0LL, 0, &v41);
+  for ( i = PnpGetGenericStorePropertyKeys(*a1, (int)Handle, 0LL, 0, 0LL, 0, &v41);
         ;
-        i = PnpGetGenericStorePropertyKeys(*a1, (__int64)Handle, 0LL, 0, (__int64)PoolWithTag, v14, &v41) )
+        i = PnpGetGenericStorePropertyKeys(*a1, (int)Handle, 0LL, 0, (__int64)PoolWithTag, v14, &v41) )
   {
     InfoKey = i;
     if ( i != -1073741789 )

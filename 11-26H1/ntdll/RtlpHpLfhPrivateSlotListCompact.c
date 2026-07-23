@@ -1,45 +1,46 @@
 /*
- * XREFs of RtlpHpLfhPrivateSlotListCompact @ 0x180016B50
+ * XREFs of RtlpHpLfhPrivateSlotListCompact @ 0x180062280
  * Callers:
- *     RtlpHpLfhPrivateSlotsCompact @ 0x180016AC0 (RtlpHpLfhPrivateSlotsCompact.c)
+ *     RtlpHpLfhPrivateSlotsCompact @ 0x1800621F0 (RtlpHpLfhPrivateSlotsCompact.c)
  * Callees:
- *     RtlpHpLfhHeatMapQuery @ 0x180016630 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhOwnerCompact @ 0x180016790 (RtlpHpLfhOwnerCompact.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x1800933DC (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x180094B78 (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpEnvThreadSuspend @ 0x18010C3F0 (RtlpHpEnvThreadSuspend.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtChangeThreadState @ 0x180160250 (NtChangeThreadState.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x180061D60 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180061EC0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x18006251C (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x180072340 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpEnvThreadSuspend @ 0x18010BF40 (RtlpHpEnvThreadSuspend.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtChangeThreadState @ 0x180160150 (NtChangeThreadState.c)
  */
 
-__int64 __fastcall RtlpHpLfhPrivateSlotListCompact(__int64 a1, __int64 a2)
+void __fastcall RtlpHpLfhPrivateSlotListCompact(__int64 a1, __int64 a2)
 {
   int v3; // r15d
   unsigned int v4; // ecx
   __int64 v6; // rbx
-  __int64 v7; // rdx
-  int v8; // r9d
-  unsigned __int16 v9; // r12
-  unsigned __int8 *v10; // r13
-  HANDLE v11; // r14
-  unsigned __int64 v12; // rbp
-  __int64 v13; // rdi
-  signed int v14; // eax
-  __int64 v15; // rax
-  __int64 v16; // rcx
-  unsigned int v17; // eax
-  unsigned int v18; // ecx
+  int v7; // r9d
+  unsigned __int16 v8; // r12
+  unsigned __int8 *v9; // r13
+  HANDLE v10; // r14
+  unsigned __int64 v11; // rbp
+  __int64 v12; // rdi
+  signed int v13; // eax
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  unsigned int v16; // eax
+  unsigned int v17; // ecx
   void **TlsExpansionSlots; // rdx
-  HANDLE Handle[9]; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v22; // [rsp+80h] [rbp+8h]
+  SIZE_T ExtendedInformationLength; // [rsp+20h] [rbp-58h]
+  ULONG64 Reserved; // [rsp+28h] [rbp-50h]
+  HANDLE ThreadHandle[9]; // [rsp+30h] [rbp-48h] BYREF
+  _RTL_SRWLOCK *v22; // [rsp+80h] [rbp+8h]
   unsigned __int8 *v23; // [rsp+88h] [rbp+10h] BYREF
 
   v23 = (unsigned __int8 *)a2;
   v3 = 0;
   v4 = (unsigned __int16)*(_DWORD *)(a1 + 84);
-  *(_OWORD *)Handle = 0LL;
+  *(_OWORD *)ThreadHandle = 0LL;
   if ( v4 < 0x40 )
   {
     v6 = __readgsqword(8 * v4 + 5248);
@@ -55,21 +56,21 @@ LABEL_3:
   }
   v6 = RtlpHpLfhThreadDataInitializeSet(a1);
 LABEL_4:
-  v22 = a2 + 80;
-  RtlAcquireSRWLockExclusive(a2 + 80);
-  v9 = *(_WORD *)(a2 + 88);
-  v10 = v23;
+  v22 = (_RTL_SRWLOCK *)(a2 + 80);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 80));
+  v8 = *(_WORD *)(a2 + 88);
+  v9 = v23;
 LABEL_5:
-  v11 = Handle[0];
-  while ( v9 )
+  v10 = ThreadHandle[0];
+  while ( v8 )
   {
-    v12 = a1 + ((unsigned __int64)v9 << 6);
-    if ( (unsigned __int8 *)(v12 + 16) == v10 + 88 )
+    v11 = a1 + ((unsigned __int64)v8 << 6);
+    if ( (unsigned __int8 *)(v11 + 16) == v9 + 88 )
       break;
-    v9 = *(_WORD *)(v12 + 16);
-    if ( (_WORD)v6 == *(_WORD *)(v12 + 4) )
+    v8 = *(_WORD *)(v11 + 16);
+    if ( (_WORD)v6 == *(_WORD *)(v11 + 4) )
     {
-      v13 = v6;
+      v12 = v6;
     }
     else
     {
@@ -78,42 +79,44 @@ LABEL_5:
         v3 = 1;
         RtlAcquireSRWLockExclusive(&RtlpHpEnvThreadSuspendOwnershipLock);
       }
-      v15 = *(_QWORD *)a1;
-      v16 = *(unsigned int *)(v12 + 20);
+      v14 = *(_QWORD *)a1;
+      v15 = *(unsigned int *)(v11 + 20);
       LODWORD(v23) = 0;
-      if ( (unsigned int)RtlpHpEnvThreadSuspend(v16, *(_QWORD *)(v15 + 56) + 20LL, Handle, &v23) )
+      if ( (unsigned int)RtlpHpEnvThreadSuspend(v15, *(_QWORD *)(v14 + 56) + 20LL, ThreadHandle, &v23) )
         goto LABEL_5;
-      v17 = *(unsigned __int8 *)(a1 + 72);
-      v18 = (unsigned __int8)v23 & 0x3F;
-      if ( v18 >= v17 )
+      v16 = *(unsigned __int8 *)(a1 + 72);
+      v17 = (unsigned __int8)v23 & 0x3F;
+      if ( v17 >= v16 )
       {
-        if ( v18 == v17 || (_BYTE)v17 == 1 )
-          v18 = 0;
+        if ( v17 == v16 || (_BYTE)v16 == 1 )
+          v17 = 0;
         else
-          v18 = *(unsigned __int8 *)(v18 - v17 - 1 + *(_QWORD *)(a1 + 64));
+          v17 = *(unsigned __int8 *)(v17 - v16 - 1 + *(_QWORD *)(a1 + 64));
       }
-      v11 = Handle[0];
-      LOWORD(v23) = (((unsigned __int64)v18 << 8) + 1472) >> 6;
+      v10 = ThreadHandle[0];
+      LOWORD(v23) = (((unsigned __int64)v17 << 8) + 1472) >> 6;
       WORD1(v23) = 3;
-      HIDWORD(v23) = (unsigned __int8)v18;
-      LODWORD(v23) = *(_DWORD *)(v12 + 4);
-      v13 = (__int64)v23;
+      HIDWORD(v23) = (unsigned __int8)v17;
+      LODWORD(v23) = *(_DWORD *)(v11 + 4);
+      v12 = (__int64)v23;
     }
-    v14 = RtlpHpLfhHeatMapQuery(a1, a1 + ((unsigned __int64)*(unsigned __int16 *)(v12 + 6) << 6), v10, v8);
-    if ( v14 >= 2 )
-      RtlpHpLfhOwnerCompact(a1, (unsigned __int8 *)v12, v14);
+    v13 = RtlpHpLfhHeatMapQuery(a1, a1 + ((unsigned __int64)*(unsigned __int16 *)(v11 + 6) << 6), v9, v7);
+    if ( v13 >= 2 )
+      RtlpHpLfhOwnerCompact(a1, (unsigned __int8 *)v11, v13);
     else
-      RtlpHpLfhPrivateSlotShutdown(a1, v12, v13, 1LL);
-    if ( v11 )
+      RtlpHpLfhPrivateSlotShutdown(a1, v11, v12, 1LL);
+    if ( v10 )
     {
-      NtChangeThreadState(Handle[1], v11, 1LL, 0LL, 0, 0);
-      NtClose(Handle[1]);
-      NtClose(v11);
-      *(_OWORD *)Handle = 0LL;
-      v11 = 0LL;
+      LODWORD(Reserved) = 0;
+      LODWORD(ExtendedInformationLength) = 0;
+      NtChangeThreadState(ThreadHandle[1], v10, ThreadStateChangeResume, 0LL, ExtendedInformationLength, Reserved);
+      NtClose(ThreadHandle[1]);
+      NtClose(v10);
+      *(_OWORD *)ThreadHandle = 0LL;
+      v10 = 0LL;
     }
   }
   if ( v3 )
-    RtlReleaseSRWLockExclusive(&RtlpHpEnvThreadSuspendOwnershipLock, v7);
-  return RtlReleaseSRWLockExclusive(v22, v7);
+    RtlReleaseSRWLockExclusive(&RtlpHpEnvThreadSuspendOwnershipLock);
+  RtlReleaseSRWLockExclusive(v22);
 }

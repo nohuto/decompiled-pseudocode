@@ -20,7 +20,7 @@
 
 __int64 __fastcall CmpQueryKeySecurity(
         _QWORD *a1,
-        ULONG *a2,
+        DWORD *a2,
         void *a3,
         ULONG *a4,
         PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor)

@@ -1,48 +1,50 @@
 /*
- * XREFs of BiDeleteEfiVariable @ 0x1409C13D0
+ * XREFs of BiDeleteEfiVariable @ 0x1409A7A20
  * Callers:
- *     BiExportEfiBootManager @ 0x140AB305C (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140AADFCC (BiExportEfiBootManager.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQuerySystemEnvironmentValueEx @ 0x1406A91B0 (ZwQuerySystemEnvironmentValueEx.c)
- *     ZwSetSystemEnvironmentValueEx @ 0x1406A9B70 (ZwSetSystemEnvironmentValueEx.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     BiReleasePrivilege @ 0x1409C0C38 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1409C0C90 (BiAcquirePrivilege.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQuerySystemEnvironmentValueEx @ 0x1406AA150 (ZwQuerySystemEnvironmentValueEx.c)
+ *     ZwSetSystemEnvironmentValueEx @ 0x1406AAB10 (ZwSetSystemEnvironmentValueEx.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x1409A7288 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1409A72E0 (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiDeleteEfiVariable(PCWSTR SourceString)
 {
-  int v2; // ebx
-  int SystemEnvironmentValue; // eax
-  __int64 v5; // [rsp+38h] [rbp-38h] BYREF
+  NTSTATUS v2; // ebx
+  NTSTATUS v3; // eax
+  ULONG ValueLength; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v6; // [rsp+38h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-30h] BYREF
-  _DWORD v7[4]; // [rsp+50h] [rbp-20h] BYREF
+  GUID VendorGuid; // [rsp+50h] [rbp-20h] BYREF
 
-  v5 = 0LL;
-  v7[0] = -1947934879;
-  v7[1] = 299013066;
-  v7[2] = -536867414;
+  v6 = 0LL;
+  VendorGuid.Data1 = -1947934879;
+  *(_DWORD *)&VendorGuid.Data2 = 299013066;
+  *(_DWORD *)VendorGuid.Data4 = -536867414;
   DestinationString = 0LL;
-  v7[3] = -1943338088;
-  v2 = BiAcquirePrivilege(0x16u, (__int64)&v5);
+  *(_DWORD *)&VendorGuid.Data4[4] = -1943338088;
+  v2 = BiAcquirePrivilege(0x16u, (__int64)&v6);
   if ( v2 >= 0 )
   {
+    ValueLength = 0;
     RtlInitUnicodeString(&DestinationString, SourceString);
-    SystemEnvironmentValue = ZwQuerySystemEnvironmentValueEx((__int64)&DestinationString, (__int64)v7);
-    v2 = SystemEnvironmentValue;
-    if ( SystemEnvironmentValue == -1073741789 )
+    v3 = ZwQuerySystemEnvironmentValueEx(&DestinationString, &VendorGuid, 0LL, &ValueLength, 0LL);
+    v2 = v3;
+    if ( v3 == -1073741789 )
     {
-      v2 = ZwSetSystemEnvironmentValueEx((__int64)&DestinationString, (__int64)v7);
+      v2 = ZwSetSystemEnvironmentValueEx(&DestinationString, &VendorGuid, 0LL, 0, 1u);
       if ( v2 >= 0 )
       {
 LABEL_4:
-        BiReleasePrivilege((unsigned int *)&v5);
+        BiReleasePrivilege((unsigned int *)&v6);
         return (unsigned int)v2;
       }
     }
-    else if ( SystemEnvironmentValue == -1073741568 )
+    else if ( v3 == -1073741568 )
     {
       v2 = 0;
       goto LABEL_4;

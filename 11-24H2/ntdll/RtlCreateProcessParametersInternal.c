@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlCreateProcessParametersInternal @ 0x1800E6A30
+ * XREFs of RtlCreateProcessParametersInternal @ 0x1800E1EE0
  * Callers:
- *     RtlCreateProcessParametersEx @ 0x1800E6890 (RtlCreateProcessParametersEx.c)
- *     RtlCreateProcessParametersWithTemplate @ 0x1800E6900 (RtlCreateProcessParametersWithTemplate.c)
- *     RtlCreateProcessParameters @ 0x18015F6C0 (RtlCreateProcessParameters.c)
+ *     RtlCreateProcessParametersEx @ 0x1800E1D40 (RtlCreateProcessParametersEx.c)
+ *     RtlCreateProcessParametersWithTemplate @ 0x1800E1DB0 (RtlCreateProcessParametersWithTemplate.c)
+ *     RtlCreateProcessParameters @ 0x18015DA80 (RtlCreateProcessParameters.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     ValidateOptionalString @ 0x1800E6F6C (ValidateOptionalString.c)
- *     RtlpCopyProcString @ 0x1800E6F80 (RtlpCopyProcString.c)
- *     RtlpGetBlockSizeEx @ 0x1800E7020 (RtlpGetBlockSizeEx.c)
- *     ValidateStringParameter @ 0x1800E709C (ValidateStringParameter.c)
- *     RtlDeNormalizeProcessParams @ 0x18011FDC0 (RtlDeNormalizeProcessParams.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     ValidateOptionalString @ 0x1800E241C (ValidateOptionalString.c)
+ *     RtlpCopyProcString @ 0x1800E2430 (RtlpCopyProcString.c)
+ *     RtlpGetBlockSizeEx @ 0x1800E24D0 (RtlpGetBlockSizeEx.c)
+ *     ValidateStringParameter @ 0x1800E254C (ValidateStringParameter.c)
+ *     RtlDeNormalizeProcessParams @ 0x18011DFF0 (RtlDeNormalizeProcessParams.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlCreateProcessParametersInternal(
-        _QWORD *a1,
+        PRTL_USER_PROCESS_PARAMETERS *a1,
         unsigned __int16 *a2,
         __int64 a3,
         __int64 a4,
@@ -51,8 +51,8 @@ __int64 __fastcall RtlCreateProcessParametersInternal(
   unsigned __int64 v29; // rdi
   size_t BlockSize; // rsi
   unsigned __int64 i; // r14
-  __int64 Heap; // rax
-  _DWORD *v33; // rbx
+  _RTL_USER_PROCESS_PARAMETERS *Heap; // rax
+  PRTL_USER_PROCESS_PARAMETERS v33; // rbx
   char *v34; // rsi
   _RTL_USER_PROCESS_PARAMETERS *v35; // rsi
   int v36; // eax
@@ -138,72 +138,72 @@ __int64 __fastcall RtlCreateProcessParametersInternal(
   {
     if ( i < BlockSize || i + v29 < v29 )
       return 3221225621LL;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, i + v29);
-    v33 = (_DWORD *)Heap;
+    Heap = (_RTL_USER_PROCESS_PARAMETERS *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, i + v29);
+    v33 = Heap;
     if ( !Heap )
       return 3221225626LL;
     if ( Src )
     {
-      memmove((void *)(v29 + Heap), Src, BlockSize);
+      memmove((char *)Heap + v29, Src, BlockSize);
       v34 = (char *)v33 + v29;
       goto LABEL_35;
     }
-    RtlEnterCriticalSection((__int64)&FastPebLock);
+    RtlEnterCriticalSection(&FastPebLock);
     BlockSize = ProcessParameters->EnvironmentSize;
     v42 = (BlockSize + 7) & 0xFFFFFFFFFFFFFFF8uLL;
     if ( BlockSize <= i )
       break;
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v33);
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v33);
   }
   v39 = BlockSize;
   v34 = (char *)v33 + v29;
   memmove((char *)v33 + v29, ProcessParameters->Environment, v39);
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
+  RtlLeaveCriticalSection(&FastPebLock);
   i = v42;
 LABEL_35:
   memset_thunk_772440563353939046(v33, 0, 0x448uLL);
-  *((_QWORD *)v33 + 16) = v34;
+  v33->Environment = v34;
   v35 = ProcessParameters;
-  *v33 = v29;
-  v33[1] = v29;
-  *((_QWORD *)v33 + 126) = i;
-  v42 = (unsigned __int64)(v33 + 274);
-  v33[2] = 1;
-  v33[6] = v35->ConsoleFlags & 1;
+  v33->MaximumLength = v29;
+  v33->Length = v29;
+  v33->EnvironmentSize = i;
+  v42 = (unsigned __int64)&v33[1];
+  v33->Flags = 1;
+  v33->ConsoleFlags = v35->ConsoleFlags & 1;
   if ( a4 )
   {
-    RtlpCopyProcString(&v42, v33 + 14, a4, 520LL);
+    RtlpCopyProcString(&v42, &v33->CurrentDirectory, a4, 520LL);
     if ( v41 )
     {
-      *(_WORD *)(*((_QWORD *)v33 + 8) + 2 * v16) = 92;
-      *((_WORD *)v33 + 28) += 2;
+      v33->CurrentDirectory.DosPath.Buffer[v16] = 92;
+      v33->CurrentDirectory.DosPath.Length += 2;
     }
   }
   else
   {
-    RtlEnterCriticalSection((__int64)&FastPebLock);
-    RtlpCopyProcString(&v42, v33 + 14, &v35->CurrentDirectory, 520LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlEnterCriticalSection(&FastPebLock);
+    RtlpCopyProcString(&v42, &v33->CurrentDirectory, &v35->CurrentDirectory, 520LL);
+    RtlLeaveCriticalSection(&FastPebLock);
   }
   if ( a3 )
-    RtlpCopyProcString(&v42, v33 + 20, a3, *(unsigned __int16 *)(a3 + 2));
+    RtlpCopyProcString(&v42, &v33->DllPath, a3, *(unsigned __int16 *)(a3 + 2));
   if ( a11 )
-    RtlpCopyProcString(&v42, v33 + 260, a11, *(unsigned __int16 *)(a11 + 2));
-  RtlpCopyProcString(&v42, v33 + 24, a2, (unsigned int)*a2 + 2);
+    RtlpCopyProcString(&v42, &v33->RedirectionDllName, a11, *(unsigned __int16 *)(a11 + 2));
+  RtlpCopyProcString(&v42, &v33->ImagePathName, a2, (unsigned int)*a2 + 2);
   v36 = *v44;
   if ( (_WORD)v36 == v44[1] )
     v37 = v44[1];
   else
     v37 = (unsigned int)(v36 + 2);
-  RtlpCopyProcString(&v42, v33 + 28, v44, v37);
-  RtlpCopyProcString(&v42, v33 + 44, v45, v45[1]);
-  RtlpCopyProcString(&v42, v33 + 48, v46, v46[1]);
-  RtlpCopyProcString(&v42, v33 + 52, v47, v47[1]);
+  RtlpCopyProcString(&v42, &v33->CommandLine, v44, v37);
+  RtlpCopyProcString(&v42, &v33->WindowTitle, v45, v45[1]);
+  RtlpCopyProcString(&v42, &v33->DesktopInfo, v46, v46[1]);
+  RtlpCopyProcString(&v42, &v33->ShellInfo, v47, v47[1]);
   if ( *v48 )
-    RtlpCopyProcString(&v42, v33 + 56, v48, (unsigned __int16)v48[1]);
+    RtlpCopyProcString(&v42, &v33->RuntimeData, v48, (unsigned __int16)v48[1]);
   if ( (a12 & 1) == 0 )
-    v33 = (_DWORD *)RtlDeNormalizeProcessParams(v33);
+    v33 = RtlDeNormalizeProcessParams(v33);
   *a1 = v33;
   return 0LL;
 }

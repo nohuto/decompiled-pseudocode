@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRebuildLargePages @ 0x1401FDB30
+ * XREFs of MiRebuildLargePages @ 0x1401FD95C
  * Callers:
  *     <none>
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiNodeFreeZeroPages @ 0x1400665F0 (MiNodeFreeZeroPages.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1400671B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400C0DDC (MiNodeLargeFreeZeroPages.c)
- *     MiGetNodeStandbyPageCount @ 0x1401F321C (MiGetNodeStandbyPageCount.c)
- *     MiRebuildLargePage @ 0x1401FD8CC (MiRebuildLargePage.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiNodeFreeZeroPages @ 0x140066170 (MiNodeFreeZeroPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140066D30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400BEC6C (MiNodeLargeFreeZeroPages.c)
+ *     MiGetNodeStandbyPageCount @ 0x1401F3048 (MiGetNodeStandbyPageCount.c)
+ *     MiRebuildLargePage @ 0x1401FD6F8 (MiRebuildLargePage.c)
  */
 
 void __fastcall MiRebuildLargePages(unsigned __int64 a1)

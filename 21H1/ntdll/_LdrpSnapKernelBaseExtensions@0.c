@@ -19,64 +19,65 @@
 
 int __stdcall LdrpSnapKernelBaseExtensions()
 {
-  void *v0; // ecx
-  _DWORD *v1; // edi
+  const IMAGE_DELAYLOAD_DESCRIPTOR *v0; // edi
   int Descriptor; // esi
-  unsigned int v3; // ebx
-  int v4; // eax
-  char *v5; // ecx
-  char *v6; // eax
-  int v7; // esi
-  int v8; // eax
+  ULONG v2; // ebx
+  DWORD DllNameRVA; // eax
+  void *v4; // ecx
+  ULONG v5; // eax
+  int v6; // esi
+  int v7; // eax
+  size_t v9; // [esp-4h] [ebp-3Ch]
   char v10; // [esp+Fh] [ebp-29h] BYREF
-  _BYTE *v11; // [esp+10h] [ebp-28h] BYREF
-  unsigned int v12; // [esp+14h] [ebp-24h] BYREF
+  PVOID DllHandle; // [esp+10h] [ebp-28h] BYREF
+  ULONG Size; // [esp+14h] [ebp-24h] BYREF
   PCSZ SourceString; // [esp+18h] [ebp-20h]
   void *ApiSetMap; // [esp+1Ch] [ebp-1Ch]
-  UNICODE_STRING UnicodeString; // [esp+20h] [ebp-18h] BYREF
-  STRING DestinationString; // [esp+28h] [ebp-10h] BYREF
-  _WORD v17[4]; // [esp+30h] [ebp-8h] BYREF
+  _UNICODE_STRING UnicodeString; // [esp+20h] [ebp-18h] BYREF
+  _STRING DestinationString; // [esp+28h] [ebp-10h] BYREF
+  _UNICODE_STRING String2; // [esp+30h] [ebp-8h] BYREF
 
-  v11 = 0;
-  LdrGetDllHandleByName(&LdrpKernelbaseDllName, 0, &v11);
-  v1 = RtlImageDirectoryEntryToData(v0, (int)v11, 1, 13, (int)&v12);
-  if ( !v1 )
+  DllHandle = 0;
+  LdrGetDllHandleByName((PUNICODE_STRING)&LdrpKernelbaseDllName, 0, &DllHandle);
+  v0 = (const IMAGE_DELAYLOAD_DESCRIPTOR *)RtlImageDirectoryEntryToData(DllHandle, 1u, 0xDu, &Size);
+  if ( !v0 )
     return 0;
   Descriptor = 0;
-  v3 = v12 >> 5;
+  v2 = Size >> 5;
   ApiSetMap = NtCurrentPeb()->ApiSetMap;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0;
-  v12 = 0;
-  if ( v3 )
+  Size = 0;
+  if ( v2 )
   {
     do
     {
-      v4 = v1[1];
-      if ( !v4 )
+      DllNameRVA = v0->DllNameRVA;
+      if ( !DllNameRVA )
         break;
-      SourceString = &v11[v4];
-      if ( !_strnicmp(&v11[v4], "EXT-", 4u) )
+      LODWORD(v9) = 4;
+      SourceString = (char *)DllHandle + DllNameRVA;
+      if ( !_strnicmp((const char *)DllHandle + DllNameRVA, "EXT-", v9) )
       {
         RtlInitAnsiString(&DestinationString, SourceString);
-        v6 = RtlxOemStringToUnicodeSize(v5, &DestinationString.Length);
-        v7 = (int)v6;
-        if ( (unsigned int)v6 > UnicodeString.MaximumLength )
+        v5 = RtlxOemStringToUnicodeSize(v4, (PCSTR *)&DestinationString);
+        v6 = v5;
+        if ( v5 > UnicodeString.MaximumLength )
         {
-          if ( (unsigned int)v6 >= 0xFFFE )
+          if ( v5 >= 0xFFFE )
           {
             Descriptor = -1073741675;
             break;
           }
           if ( UnicodeString.Buffer )
             RtlFreeAnsiString(&UnicodeString);
-          UnicodeString.Buffer = (wchar_t *)NtdllpAllocateStringRoutine(v7);
+          UnicodeString.Buffer = (wchar_t *)NtdllpAllocateStringRoutine(v6);
           if ( !UnicodeString.Buffer )
           {
             Descriptor = -1073741670;
             break;
           }
-          UnicodeString.MaximumLength = v7;
+          UnicodeString.MaximumLength = v6;
         }
         else
         {
@@ -84,24 +85,24 @@ int __stdcall LdrpSnapKernelBaseExtensions()
         }
         RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 0);
         LdrpLogDllState(0, (int)&UnicodeString, 5328);
-        Descriptor = ApiSetResolveToHost(0, &v10, v17);
+        Descriptor = ApiSetResolveToHost(0, &v10, &String2);
         if ( Descriptor >= 0 && v10 )
-          v8 = (v17[0] == 0) + 5329;
+          v7 = (String2.Length == 0) + 5329;
         else
-          v8 = 5331;
-        LdrpLogDllState(0, (int)&UnicodeString, v8);
-        if ( v10 && !RtlCompareUnicodeString(&LdrpKernel32DllName, v17, 1) )
+          v7 = 5331;
+        LdrpLogDllState(0, (int)&UnicodeString, v7);
+        if ( v10 && !RtlCompareUnicodeString((PUNICODE_STRING)&LdrpKernel32DllName, &String2, 1u) )
         {
-          Descriptor = LdrpResolveDelayLoadDescriptor(v11, (int)v1);
+          Descriptor = LdrpResolveDelayLoadDescriptor((char *)DllHandle, v0);
           if ( Descriptor < 0 )
             break;
           Descriptor = 0;
         }
       }
-      v1 += 8;
-      ++v12;
+      ++v0;
+      ++Size;
     }
-    while ( v12 < v3 );
+    while ( Size < v2 );
     if ( UnicodeString.Buffer )
       RtlFreeAnsiString(&UnicodeString);
   }

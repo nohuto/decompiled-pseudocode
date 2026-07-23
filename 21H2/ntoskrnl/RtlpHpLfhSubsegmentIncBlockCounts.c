@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402ABAC8
+ * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x140229C08
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x14033CE40 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140347B90 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140313100 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
@@ -48,10 +48,9 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
   __int64 v30; // rcx
   __int64 v31; // rdi
   __int64 v32; // rdx
-  __int64 v33; // rcx
-  signed __int16 v34; // tt
-  signed __int16 *v35; // [rsp+30h] [rbp-48h]
-  __int64 v36; // [rsp+88h] [rbp+10h]
+  signed __int16 v33; // tt
+  signed __int16 *v34; // [rsp+30h] [rbp-48h]
+  __int64 v35; // [rsp+88h] [rbp+10h]
 
   v7 = a6;
   if ( a6 )
@@ -61,13 +60,13 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
   v11 = *(_BYTE *)(a2 + 44);
   v12 = a3 >> v11;
   v13 = (signed __int16 *)(2 * v12 + a2 + *(unsigned __int16 *)(a2 + 46));
-  v36 = 2 * v12;
+  v35 = 2 * v12;
   _m_prefetchw(v13);
   v14 = -1;
-  v35 = &v13[((a3 + a4 - 1) >> v11) - (unsigned int)v12 + 1];
+  v34 = &v13[((a3 + a4 - 1) >> v11) - (unsigned int)v12 + 1];
   LODWORD(v15) = 0;
   v16 = 0;
-  if ( v13 < v35 )
+  if ( v13 < v34 )
   {
     do
     {
@@ -76,11 +75,11 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
         v17 = *v13;
         while ( v17 > 0 )
         {
-          v34 = v17;
+          v33 = v17;
           v17 = _InterlockedCompareExchange16(v13, v17 + 1, v17);
-          if ( v34 == v17 )
+          if ( v33 == v17 )
           {
-            v18 = v36;
+            v18 = v35;
             goto LABEL_10;
           }
         }
@@ -92,13 +91,13 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
         }
         break;
       }
-      v18 = v36;
+      v18 = v35;
       if ( v17 )
       {
         ++v16;
-        v15 = v36 >> 1;
+        v15 = v35 >> 1;
         if ( v14 == -1 )
-          v14 = v36 >> 1;
+          v14 = v35 >> 1;
       }
       else
       {
@@ -107,9 +106,9 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
       *v13 = v17 + 1;
 LABEL_10:
       ++v13;
-      v36 = v18 + 2;
+      v35 = v18 + 2;
     }
-    while ( v13 < v35 );
+    while ( v13 < v34 );
     if ( v16 && (RtlpHpLfhPerfFlags & 0x20) != 0 )
       _InterlockedExchangeAdd64(
         (volatile signed __int64 *)(*(__int16 *)(a1 + 58) + a1 + 24),
@@ -177,7 +176,7 @@ LABEL_10:
             {
               *(_BYTE *)(v31 + 32) |= 2u;
               if ( *(__int64 *)(v31 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v31);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v31);
               *(_DWORD *)(v31 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v31 + 25) &= ~1u;
               *(_QWORD *)(v31 + 32) = 0LL;
@@ -201,7 +200,7 @@ LABEL_44:
       if ( v27
         && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(v33);
+        KiCheckForKernelApcDelivery();
       }
       KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     }

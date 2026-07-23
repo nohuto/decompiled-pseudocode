@@ -1,17 +1,17 @@
 /*
- * XREFs of PopEvaluateInputSuppressionAction @ 0x1408EEB74
+ * XREFs of PopEvaluateInputSuppressionAction @ 0x1408EECD4
  * Callers:
- *     PopBroadcastInputSuppressionCallback @ 0x140781BB0 (PopBroadcastInputSuppressionCallback.c)
- *     PopExternalMonitorUpdatedWorker @ 0x1407D5790 (PopExternalMonitorUpdatedWorker.c)
+ *     PopBroadcastInputSuppressionCallback @ 0x140781D70 (PopBroadcastInputSuppressionCallback.c)
+ *     PopExternalMonitorUpdatedWorker @ 0x1407D5900 (PopExternalMonitorUpdatedWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     PopBroadcastSessionInfo @ 0x1407967A4 (PopBroadcastSessionInfo.c)
- *     PopTraceInputSuppressionActionUpdate @ 0x1408EC3E0 (PopTraceInputSuppressionActionUpdate.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     PopBroadcastSessionInfo @ 0x1407969A4 (PopBroadcastSessionInfo.c)
+ *     PopTraceInputSuppressionActionUpdate @ 0x1408EC540 (PopTraceInputSuppressionActionUpdate.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 void __fastcall PopEvaluateInputSuppressionAction(int a1)
@@ -27,23 +27,23 @@ void __fastcall PopEvaluateInputSuppressionAction(int a1)
   __int64 v9; // rcx
   __int64 v10; // r8
   __int64 v11; // r9
-  int v12; // [rsp+28h] [rbp-60h]
-  BOOL v13; // [rsp+40h] [rbp-48h] BYREF
+  WNF_CHANGE_STAMP MatchingChangeStamp; // [rsp+28h] [rbp-60h]
+  BOOL Buffer; // [rsp+40h] [rbp-48h] BYREF
   GUID v14; // [rsp+48h] [rbp-40h] BYREF
   BOOL v15; // [rsp+58h] [rbp-30h]
 
   v15 = 0;
-  v13 = 0;
+  Buffer = 0;
   v14 = 0LL;
   PopAcquirePolicyLock(a1);
   PopAcquireRwLockExclusive((ULONG_PTR)&PopInputSuppressionLock);
   v3 = PopConsoleExternalDisplayConnected;
   v4 = PopLidOpened == 0;
-  v5 = dword_140C23E8C == 1;
+  v5 = dword_140C2332C == 1;
   v6 = PopConsoleDisplayState == 0;
   if ( PopErrataReportingIncorrectLidState
     || !PopIgnoreLidStateForInputSuppression && PopLidOpened
-    || dword_140C23E8C != 1
+    || dword_140C2332C != 1
     || PopConsoleExternalDisplayConnected
     || (v7 = 1, PopConsoleDisplayState) )
   {
@@ -58,15 +58,15 @@ void __fastcall PopEvaluateInputSuppressionAction(int a1)
     LOBYTE(v10) = v5;
     LOBYTE(v8) = v4;
     PopInputSuppressionRequired = v7;
-    PopTraceInputSuppressionActionUpdate(v9, v8, v10, v11, v6, v12, v7);
-    ZwUpdateWnfStateData((__int64)&WNF_PO_INPUT_SUPPRESS_NOTIFICATION_EX, (__int64)&PopInputSuppressionRequired);
+    PopTraceInputSuppressionActionUpdate(v9, v8, v10, v11, v6, MatchingChangeStamp, v7);
+    ZwUpdateWnfStateData(&WNF_PO_INPUT_SUPPRESS_NOTIFICATION_EX, &PopInputSuppressionRequired, 4u, 0LL, 0LL, 0, 0);
     if ( PopEnableInputSuppression )
     {
       if ( (unsigned int)PopInputSuppressionRequired <= 1 )
         _InterlockedIncrement(&PopInputSuppressionActionCount);
-      v13 = PopInputSuppressionRequired == 1;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_INPUT_SUPPRESS_NOTIFICATION, (__int64)&v13);
-      v15 = v13;
+      Buffer = PopInputSuppressionRequired == 1;
+      ZwUpdateWnfStateData(&WNF_PO_INPUT_SUPPRESS_NOTIFICATION, &Buffer, 4u, 0LL, 0LL, 0, 0);
+      v15 = Buffer;
       v14 = GUID_INPUT_SUPPRESS_REQUESTED;
       PopBroadcastSessionInfo(0, 20, (__int64)&v14);
     }

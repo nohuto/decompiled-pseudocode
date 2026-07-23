@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFatalFilter @ 0x1405FB47C
+ * XREFs of CmpFatalFilter @ 0x1405FB530
  * Callers:
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn CmpFatalFilter(int **a1, ULONG_PTR BugCheckParameter4)

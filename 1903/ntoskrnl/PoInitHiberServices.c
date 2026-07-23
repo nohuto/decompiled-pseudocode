@@ -27,13 +27,13 @@ void __fastcall PoInitHiberServices(char a1)
   _DWORD *v1; // rsi
   bool v2; // di
   int v3; // eax
-  __int64 v4; // rbx
+  HANDLE v4; // rbx
   _DWORD *PoolWithTag; // rax
   unsigned int v6; // ebp
   __int64 v7; // rbx
   __int64 v8; // rcx
   ULONG ReturnLength; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+68h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+68h] [rbp+10h] BYREF
 
   LOBYTE(ReturnLength) = a1;
   v1 = 0LL;
@@ -44,11 +44,11 @@ void __fastcall PoInitHiberServices(char a1)
   v3 = PopHiberFileTypeReg;
   if ( PopHiberFileTypeReg != -1 || (v3 = PopHiberFileTypeDefaultReg, PopHiberFileTypeDefaultReg != -1) )
     PopHiberFileType = v3;
-  EmClientQueryRuleState(&GUID_EM_REMOVE_BAD_S3_PAGE_RULE, &v10);
-  if ( !ExIsSoftBoot() && (int)PopBcdOpen(&v10) >= 0 )
+  EmClientQueryRuleState(&GUID_EM_REMOVE_BAD_S3_PAGE_RULE, &BcdStoreHandle);
+  if ( !ExIsSoftBoot() && (int)PopBcdOpen(&BcdStoreHandle) >= 0 )
   {
-    v4 = v10;
-    PopBcdEstablishResumeObject(v10, 0LL);
+    v4 = BcdStoreHandle;
+    PopBcdEstablishResumeObject(BcdStoreHandle, 0LL);
     PopBcdClearPendingResume(v4);
     PopBcdClose(v4);
   }
@@ -66,7 +66,7 @@ void __fastcall PoInitHiberServices(char a1)
           if ( v1[1] <= ReturnLength )
           {
             v2 = 1;
-            PoDisableSleepStates(2LL, 8LL, &v10);
+            PoDisableSleepStates(2LL, 8LL, &BcdStoreHandle);
           }
         }
       }
@@ -79,7 +79,10 @@ void __fastcall PoInitHiberServices(char a1)
     if ( *(_DWORD *)((char *)&PopHiberForceDisabledReg + v7) )
     {
       v2 = 1;
-      if ( (int)PoDisableSleepStates(*(unsigned int *)((char *)PopHiberForceDisabledReasonMap + v7), 8LL, &v10) < 0 )
+      if ( (int)PoDisableSleepStates(
+                  *(unsigned int *)((char *)PopHiberForceDisabledReasonMap + v7),
+                  8LL,
+                  &BcdStoreHandle) < 0 )
       {
         LOBYTE(v8) = 1;
         PoShutdownBugCheck(v8, 160LL, 272LL, 0LL, 0LL, 0LL);

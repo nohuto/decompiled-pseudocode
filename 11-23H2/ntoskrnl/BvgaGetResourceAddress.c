@@ -1,5 +1,5 @@
 /*
- * XREFs of BvgaGetResourceAddress @ 0x14054F330
+ * XREFs of BvgaGetResourceAddress @ 0x14054F9F0
  * Callers:
  *     <none>
  * Callees:

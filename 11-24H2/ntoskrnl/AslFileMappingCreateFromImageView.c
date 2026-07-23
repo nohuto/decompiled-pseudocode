@@ -1,13 +1,13 @@
 /*
- * XREFs of AslFileMappingCreateFromImageView @ 0x14080900C
+ * XREFs of AslFileMappingCreateFromImageView @ 0x14080974C
  * Callers:
- *     SdbGetDatabaseMatch @ 0x1409595F0 (SdbGetDatabaseMatch.c)
+ *     SdbGetDatabaseMatch @ 0x1409410B0 (SdbGetDatabaseMatch.c)
  * Callees:
- *     AslStringDuplicate @ 0x14095A750 (AslStringDuplicate.c)
- *     AslFileMappingDelete @ 0x14095CDD8 (AslFileMappingDelete.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     AslpFileMappingGetFileKind @ 0x140A911CC (AslpFileMappingGetFileKind.c)
+ *     AslStringDuplicate @ 0x140942210 (AslStringDuplicate.c)
+ *     AslFileMappingDelete @ 0x140944898 (AslFileMappingDelete.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     AslpFileMappingGetFileKind @ 0x140A8D8CC (AslpFileMappingGetFileKind.c)
  */
 
 __int64 __fastcall AslFileMappingCreateFromImageView(__int64 *a1, _WORD *a2, __int64 a3, __int64 a4)

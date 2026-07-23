@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpInterruptEnablePerformanceEvents @ 0x1404298AC
+ * XREFs of HalpInterruptEnablePerformanceEvents @ 0x1404360DC
  * Callers:
- *     EmonPreOverflowHandler @ 0x140429890 (EmonPreOverflowHandler.c)
- *     HalpInterruptInitSystem @ 0x140BEB450 (HalpInterruptInitSystem.c)
- *     HalpPostSleepMP @ 0x140BECEF0 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140BEE0F0 (HalpDpPostReplaceInitialization.c)
+ *     EmonPreOverflowHandler @ 0x1404360C0 (EmonPreOverflowHandler.c)
+ *     HalpInterruptInitSystem @ 0x140BF1450 (HalpInterruptInitSystem.c)
+ *     HalpPostSleepMP @ 0x140BF2EF0 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140BF40F0 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     HalpGetProcessorStateByNtIndex @ 0x140425B78 (HalpGetProcessorStateByNtIndex.c)
- *     HalpInterruptGsiToLine @ 0x14042638C (HalpInterruptGsiToLine.c)
- *     HalpInterruptFindLines @ 0x1404265EC (HalpInterruptFindLines.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpInterruptSetLineState @ 0x1404294DC (HalpInterruptSetLineState.c)
- *     HalpInterruptGetPriority @ 0x1404299E4 (HalpInterruptGetPriority.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     HalpGetProcessorStateByNtIndex @ 0x140432C88 (HalpGetProcessorStateByNtIndex.c)
+ *     HalpInterruptGsiToLine @ 0x14043349C (HalpInterruptGsiToLine.c)
+ *     HalpInterruptFindLines @ 0x1404336FC (HalpInterruptFindLines.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptSetLineState @ 0x140435168 (HalpInterruptSetLineState.c)
+ *     HalpInterruptGetPriority @ 0x140436214 (HalpInterruptGetPriority.c)
  */
 
 void __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1, __int64 a2, __int64 a3)
@@ -64,10 +64,10 @@ void __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1, __int64 a2, __i
     LODWORD(v19) = 254;
     HIDWORD(v19) = HalpInterruptGetPriority(v3, 254LL, a3);
     if ( !a1 )
-      v7 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+      v7 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
     HalpInterruptSetLineStateInternal(v3, (__int64)&v20, (__int64)&v16);
     if ( !a1 )
-      HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v7);
+      HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, v7);
   }
   v8 = *(_DWORD *)(v3 + 240);
   if ( v8 == 3 || ((v8 - 4) & 0xFFFFFFFD) == 0 )
@@ -85,10 +85,10 @@ void __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1, __int64 a2, __i
       if ( (int)HalpInterruptGsiToLine(v10, &v20) >= 0 )
       {
         v12 = *(_BYTE *)(ProcessorStateByNtIndex + 14);
-        v13 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+        v13 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
         LOBYTE(v4) = v12 != 0;
         HalpInterruptSetLineState(&v20, 0xFEu, 15, v4, 1, (__int64)&v14, (__int64)&v21);
-        HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v13);
+        HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, v13);
       }
     }
   }

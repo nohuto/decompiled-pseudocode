@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceThreadWorkItem @ 0x1405A83C0
+ * XREFs of EtwTraceThreadWorkItem @ 0x1405A85F0
  * Callers:
- *     ExpWorkerThread @ 0x140241E80 (ExpWorkerThread.c)
- *     IopProcessWorkItem @ 0x1402EF050 (IopProcessWorkItem.c)
+ *     ExpWorkerThread @ 0x1402E66D0 (ExpWorkerThread.c)
+ *     IopProcessWorkItem @ 0x1402F9DA0 (IopProcessWorkItem.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExIsSafeWorkItem @ 0x1403DBD20 (ExIsSafeWorkItem.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExIsSafeWorkItem @ 0x1403DBE90 (ExIsSafeWorkItem.c)
  */
 
 struct _KTHREAD *(__fastcall *__fastcall EtwTraceThreadWorkItem(__int64 (__fastcall *a1)(), __int16 a2))(__int64 a1)

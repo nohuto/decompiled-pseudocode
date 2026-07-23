@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpFinalizeDeviceRemovalForReset @ 0x1407A2BCC
+ * XREFs of PnpFinalizeDeviceRemovalForReset @ 0x1407A570C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     IopLogDeviceResetComplete @ 0x1407A27D4 (IopLogDeviceResetComplete.c)
- *     IopMarkDeviceToBeReset @ 0x1407A2860 (IopMarkDeviceToBeReset.c)
- *     IopEnumerateRelations @ 0x140AEAAAC (IopEnumerateRelations.c)
+ *     IopLogDeviceResetComplete @ 0x1407A5314 (IopLogDeviceResetComplete.c)
+ *     IopMarkDeviceToBeReset @ 0x1407A53A0 (IopMarkDeviceToBeReset.c)
+ *     IopEnumerateRelations @ 0x140AED59C (IopEnumerateRelations.c)
  */
 
 NTSTATUS __fastcall PnpFinalizeDeviceRemovalForReset(__int64 a1, int a2)

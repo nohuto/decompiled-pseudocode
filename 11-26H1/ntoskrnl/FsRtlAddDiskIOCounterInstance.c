@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlAddDiskIOCounterInstance @ 0x140A67C98
+ * XREFs of FsRtlAddDiskIOCounterInstance @ 0x140A74C68
  * Callers:
- *     FsRtlDiskIOCounterSetCallback @ 0x140A67C10 (FsRtlDiskIOCounterSetCallback.c)
+ *     FsRtlDiskIOCounterSetCallback @ 0x140A74BE0 (FsRtlDiskIOCounterSetCallback.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpPcwDisabledStatus @ 0x140A69904 (ExpPcwDisabledStatus.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpPcwDisabledStatus @ 0x140A768D4 (ExpPcwDisabledStatus.c)
  */
 
 __int64 __fastcall FsRtlAddDiskIOCounterInstance(__int64 a1)

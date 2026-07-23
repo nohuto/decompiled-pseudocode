@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDripsWatchdogInvokeDeviceCallbacks @ 0x140B32398
+ * XREFs of PopDripsWatchdogInvokeDeviceCallbacks @ 0x140B347EC
  * Callers:
- *     PopDripsWatchdogCallbackHandler @ 0x140B3FB6C (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x140B41B9C (PopDripsWatchdogCallbackHandler.c)
  * Callees:
- *     PopFxInvokeDripsWatchdogCallback @ 0x1407CD654 (PopFxInvokeDripsWatchdogCallback.c)
+ *     PopFxInvokeDripsWatchdogCallback @ 0x1407D06F4 (PopFxInvokeDripsWatchdogCallback.c)
  */
 
 _UNKNOWN **__fastcall PopDripsWatchdogInvokeDeviceCallbacks(__int64 a1)

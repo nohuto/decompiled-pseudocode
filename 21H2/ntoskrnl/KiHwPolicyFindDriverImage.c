@@ -1,9 +1,9 @@
 /*
- * XREFs of KiHwPolicyFindDriverImage @ 0x140A652D8
+ * XREFs of KiHwPolicyFindDriverImage @ 0x140A662D8
  * Callers:
- *     KeHwPolicyLocateResource @ 0x140A65230 (KeHwPolicyLocateResource.c)
+ *     KeHwPolicyLocateResource @ 0x140A66230 (KeHwPolicyLocateResource.c)
  * Callees:
- *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1406DDA80 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall KiHwPolicyFindDriverImage(__int64 a1)

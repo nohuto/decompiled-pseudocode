@@ -1,49 +1,48 @@
 /*
- * XREFs of PsBoostThreadIoEx @ 0x14034D800
+ * XREFs of PsBoostThreadIoEx @ 0x140358550
  * Callers:
- *     ExpApplyPriorityBoost @ 0x14022F000 (ExpApplyPriorityBoost.c)
- *     ExpSetResourceOwnerPointerEx @ 0x140286C70 (ExpSetResourceOwnerPointerEx.c)
- *     ExpBoostIoAfterAcquire @ 0x1402872F0 (ExpBoostIoAfterAcquire.c)
- *     KiAbThreadBoostIoPriority @ 0x140288934 (KiAbThreadBoostIoPriority.c)
- *     FsRtlpWaitForIoAtEof @ 0x140290A2C (FsRtlpWaitForIoAtEof.c)
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x140292930 (ExEnterPriorityRegionAndAcquireResourceShared.c)
- *     PsLeavePriorityRegion @ 0x140293FA0 (PsLeavePriorityRegion.c)
- *     PsEnterPriorityRegion @ 0x14029BD30 (PsEnterPriorityRegion.c)
- *     FsRtlpDoBoost @ 0x1402CA830 (FsRtlpDoBoost.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1402D083C (CcBoostLowPriorityWorkerThread.c)
- *     KiAbThreadUnboostIoPriority @ 0x1402D0FD0 (KiAbThreadUnboostIoPriority.c)
- *     FsRtlReleaseEofLock @ 0x1402EEC80 (FsRtlReleaseEofLock.c)
- *     ExpFreeOwnerEntry @ 0x1402F4FF0 (ExpFreeOwnerEntry.c)
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     CcApplyLowIoPriorityToThread @ 0x1402F6308 (CcApplyLowIoPriorityToThread.c)
- *     ExReinitializeResourceLite @ 0x1402F7920 (ExReinitializeResourceLite.c)
- *     CcAcquireByteRangeForWrite @ 0x14030FF40 (CcAcquireByteRangeForWrite.c)
- *     ExpReleaseResourceSharedForThreadLite @ 0x14034B5C0 (ExpReleaseResourceSharedForThreadLite.c)
- *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireResourceExclusiveLite @ 0x14034C9B0 (ExpAcquireResourceExclusiveLite.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x14034D1C0 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     PsBoostThreadIo @ 0x14034D7E0 (PsBoostThreadIo.c)
- *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
- *     IoBoostThreadIo @ 0x140505930 (IoBoostThreadIo.c)
- *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1405B5390 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
- *     ExReleaseResourceAndLeavePriorityRegion @ 0x1405B5460 (ExReleaseResourceAndLeavePriorityRegion.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x140203E10 (ExpSetResourceOwnerPointerEx.c)
+ *     ExpBoostIoAfterAcquire @ 0x140204490 (ExpBoostIoAfterAcquire.c)
+ *     KiAbThreadBoostIoPriority @ 0x140205AD4 (KiAbThreadBoostIoPriority.c)
+ *     FsRtlpWaitForIoAtEof @ 0x14020E99C (FsRtlpWaitForIoAtEof.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402108A0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     PsLeavePriorityRegion @ 0x140211F10 (PsLeavePriorityRegion.c)
+ *     PsEnterPriorityRegion @ 0x140213700 (PsEnterPriorityRegion.c)
+ *     FsRtlpDoBoost @ 0x140249120 (FsRtlpDoBoost.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x14024ECCC (CcBoostLowPriorityWorkerThread.c)
+ *     KiAbThreadUnboostIoPriority @ 0x14024F460 (KiAbThreadUnboostIoPriority.c)
+ *     ExpApplyPriorityBoost @ 0x1402D3850 (ExpApplyPriorityBoost.c)
+ *     FsRtlReleaseEofLock @ 0x1402F99D0 (FsRtlReleaseEofLock.c)
+ *     ExpFreeOwnerEntry @ 0x1402FFD40 (ExpFreeOwnerEntry.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     CcApplyLowIoPriorityToThread @ 0x140301058 (CcApplyLowIoPriorityToThread.c)
+ *     ExReinitializeResourceLite @ 0x140302670 (ExReinitializeResourceLite.c)
+ *     CcAcquireByteRangeForWrite @ 0x14031AC90 (CcAcquireByteRangeForWrite.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x140356310 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x140356DB0 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x140357700 (ExpAcquireResourceExclusiveLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x140357F10 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     PsBoostThreadIo @ 0x140358530 (PsBoostThreadIo.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403799C4 (FsRtlpModifyThreadPriorities.c)
+ *     IoBoostThreadIo @ 0x1405058B0 (IoBoostThreadIo.c)
+ *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1405B55C0 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
+ *     ExReleaseResourceAndLeavePriorityRegion @ 0x1405B5690 (ExReleaseResourceAndLeavePriorityRegion.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
- *     KiAbThreadInsertList @ 0x1402C7CCC (KiAbThreadInsertList.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KiAbThreadInsertList @ 0x14024652C (KiAbThreadInsertList.c)
+ *     RtlCaptureStackBackTrace @ 0x1402C1720 (RtlCaptureStackBackTrace.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, char a3, _DWORD *SchedulerAssist)
+void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, char a3, void *a4)
 {
   signed __int32 v4; // ebx
   KIRQL v5; // r13
-  _DWORD *v6; // r15
   char v7; // bp
   PVOID *v10; // r12
   bool v11; // zf
@@ -60,15 +59,16 @@ void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, char a3, _DWORD *Schedule
   PVOID **v22; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  int v25; // eax
-  unsigned __int8 v26; // al
-  struct _KPRCB *v27; // r9
-  _DWORD *v28; // r8
-  int v29; // eax
+  _DWORD *SchedulerAssist; // r9
+  int v26; // eax
+  _DWORD *v27; // r9
+  unsigned __int8 v28; // al
+  struct _KPRCB *v29; // r9
+  _DWORD *v30; // r8
+  int v31; // eax
 
   v4 = 0;
   v5 = 0;
-  v6 = SchedulerAssist;
   v7 = a3;
   v10 = 0LL;
   if ( PspAlwaysTrackIoBoosting )
@@ -86,7 +86,7 @@ void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, char a3, _DWORD *Schedule
     memset(PoolWithTag, 0, 0x70uLL);
     RtlCaptureStackBackTrace(1u, 0xAu, v10 + 2, 0LL);
     v10[12] = KeGetCurrentThread();
-    v10[13] = v6;
+    v10[13] = a4;
   }
   v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1408));
 LABEL_3:
@@ -172,9 +172,9 @@ LABEL_29:
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v25 = ~(unsigned __int16)(-1LL << (v5 + 1));
-          v11 = (v25 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v25;
+          v26 = ~(unsigned __int16)(-1LL << (v5 + 1));
+          v11 = (v26 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v26;
           if ( v11 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
@@ -197,26 +197,26 @@ LABEL_8:
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
     {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1 << (v12 + 1)) & 4;
+      v27 = KeGetCurrentPrcb()->SchedulerAssist;
+      v27[5] |= (-1 << (v12 + 1)) & 4;
     }
     v13 = (struct _KDPC *)KeGetCurrentPrcb();
-    if ( (unsigned int)KiAbThreadInsertList(a1, &v13[541].DpcData, (_QWORD *)(a1 + 808), (__int64)SchedulerAssist) )
+    if ( (unsigned int)KiAbThreadInsertList(a1, &v13[541].DpcData, (_QWORD *)(a1 + 808)) )
       KiAbQueueAutoBoostDpc(v13);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v26 = KeGetCurrentIrql();
-        if ( v26 <= 0xFu && v12 <= 0xFu && v26 >= 2u )
+        v28 = KeGetCurrentIrql();
+        if ( v28 <= 0xFu && v12 <= 0xFu && v28 >= 2u )
         {
-          v27 = KeGetCurrentPrcb();
-          v28 = v27->SchedulerAssist;
-          v29 = ~(unsigned __int16)(-1LL << (v12 + 1));
-          v11 = (v29 & v28[5]) == 0;
-          v28[5] &= v29;
+          v29 = KeGetCurrentPrcb();
+          v30 = v29->SchedulerAssist;
+          v31 = ~(unsigned __int16)(-1LL << (v12 + 1));
+          v11 = (v31 & v30[5]) == 0;
+          v30[5] &= v31;
           if ( v11 )
-            KiRemoveSystemWorkPriorityKick(v27);
+            KiRemoveSystemWorkPriorityKick(v29);
         }
       }
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierObReferenceObjectByHandle @ 0x140C41190
+ * XREFs of VerifierObReferenceObjectByHandle @ 0x140C471A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierObReferenceObjectByHandle(__int64 a1, __int64 a2)

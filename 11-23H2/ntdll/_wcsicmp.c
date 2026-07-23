@@ -19,10 +19,10 @@
  *     AVrfpParseVerifierDllsString @ 0x1800E67D0 (AVrfpParseVerifierDllsString.c)
  *     AVrfpVerifierStopInitialize @ 0x1800E6D28 (AVrfpVerifierStopInitialize.c)
  *     RtlpCleanupRegistryKeys @ 0x1800FBD00 (RtlpCleanupRegistryKeys.c)
- *     RtlpMuiRegAddAlternateCodePage @ 0x1801122BC (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x180112698 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x180113674 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     PsspWalkHandleTable @ 0x18012AEB4 (PsspWalkHandleTable.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x18011228C (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x180112668 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x180113644 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     PsspWalkHandleTable @ 0x18012AE84 (PsspWalkHandleTable.c)
  * Callees:
  *     <none>
  */

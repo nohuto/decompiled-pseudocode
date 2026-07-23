@@ -13,23 +13,19 @@
  *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(
-        __int64 a1,
-        __int64 a2,
-        struct _SLIST_ENTRY *a3,
-        unsigned int *a4)
+void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(__int64 a1, __int64 a2, _SLIST_ENTRY *a3, unsigned int *a4)
 {
   _SLIST_ENTRY *Next; // r15
   unsigned int v5; // esi
   int v6; // ebp
   int v9; // r14d
-  struct _SLIST_ENTRY v10; // xmm1
-  union _SLIST_HEADER *v11; // rcx
+  _SLIST_ENTRY v10; // xmm1
+  _SLIST_HEADER *v11; // rcx
   BOOL v12; // edi
   struct _EX_RUNDOWN_REF *v13; // rax
   int v14; // ebx
-  struct _SLIST_ENTRY v15; // [rsp+20h] [rbp-58h] BYREF
-  struct _SLIST_ENTRY v16; // [rsp+30h] [rbp-48h]
+  _SLIST_ENTRY v15; // [rsp+20h] [rbp-58h] BYREF
+  _SLIST_ENTRY v16; // [rsp+30h] [rbp-48h]
   _SLIST_ENTRY *v17; // [rsp+40h] [rbp-38h]
 
   Next = a3[2].Next;
@@ -102,7 +98,7 @@ LABEL_16:
   }
 LABEL_10:
   if ( a4 )
-    v6 = ((__int64 (__fastcall *)(struct _SLIST_ENTRY *, __int64, __int64, _QWORD))SMKM_STORE_MGR<SM_TRAITS>::SmIoCtxWorkItemComplete)(
+    v6 = ((__int64 (__fastcall *)(_SLIST_ENTRY *, __int64, __int64, _QWORD))SMKM_STORE_MGR<SM_TRAITS>::SmIoCtxWorkItemComplete)(
            &v15,
            a2,
            a2,

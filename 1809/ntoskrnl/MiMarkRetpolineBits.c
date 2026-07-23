@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMarkRetpolineBits @ 0x140853D50
+ * XREFs of MiMarkRetpolineBits @ 0x140854FB0
  * Callers:
- *     MiMarkKernelImageRetpolineBits @ 0x140853D04 (MiMarkKernelImageRetpolineBits.c)
- *     MmMarkHypercallPageRetpolineBit @ 0x1409AAFD0 (MmMarkHypercallPageRetpolineBit.c)
- *     MiApplyRetpolineToBootDrivers @ 0x1409B88C4 (MiApplyRetpolineToBootDrivers.c)
- *     MiInitializeRetpoline @ 0x1409DEFC8 (MiInitializeRetpoline.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x140854F64 (MiMarkKernelImageRetpolineBits.c)
+ *     MmMarkHypercallPageRetpolineBit @ 0x1409ABFD0 (MmMarkHypercallPageRetpolineBit.c)
+ *     MiApplyRetpolineToBootDrivers @ 0x1409B98C4 (MiApplyRetpolineToBootDrivers.c)
+ *     MiInitializeRetpoline @ 0x1409DFFC8 (MiInitializeRetpoline.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
- *     RtlAreBitsClearEx @ 0x1401143C0 (RtlAreBitsClearEx.c)
- *     MiAddressToRetpolineBit @ 0x1402B8FF0 (MiAddressToRetpolineBit.c)
+ *     RtlSetBitsEx @ 0x14008AF10 (RtlSetBitsEx.c)
+ *     RtlAreBitsClearEx @ 0x140114430 (RtlAreBitsClearEx.c)
+ *     MiAddressToRetpolineBit @ 0x1402B91E0 (MiAddressToRetpolineBit.c)
  */
 
 __int64 __fastcall MiMarkRetpolineBits(__int64 a1)
@@ -27,15 +27,15 @@ __int64 __fastcall MiMarkRetpolineBits(__int64 a1)
   v4 = MiAddressToRetpolineBit((v3 + v1 + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL);
   v5 = v4;
   v6 = v4 - v2;
-  if ( v7 || RtlAreBitsClearEx((__int64)&qword_140438E40, v2, v4 - v2) )
+  if ( v7 || RtlAreBitsClearEx((__int64)&qword_140439F00, v2, v4 - v2) )
   {
-    if ( !(unsigned int)MiSplitBitmapPages(5u, (unsigned __int64)qword_140438E48 + (v2 >> 3), v5 + (v2 & 7) - v2) )
+    if ( !(unsigned int)MiSplitBitmapPages(5u, (unsigned __int64)qword_140439F08 + (v2 >> 3), v5 + (v2 & 7) - v2) )
       return 3221225495LL;
-    RtlSetBitsEx((__int64)&qword_140438E40, v2, v6);
+    RtlSetBitsEx((__int64)&qword_140439F00, v2, v6);
   }
   else
   {
-    RtlClearBitsEx((__int64)&qword_140438E40, v2, v6);
+    RtlClearBitsEx((__int64)&qword_140439F00, v2, v6);
   }
   return 0LL;
 }

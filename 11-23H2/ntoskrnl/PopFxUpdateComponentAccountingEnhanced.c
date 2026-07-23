@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxUpdateComponentAccountingEnhanced @ 0x14035DF30
+ * XREFs of PopFxUpdateComponentAccountingEnhanced @ 0x14035E0D0
  * Callers:
- *     PopPepDeviceDState @ 0x14028DB5C (PopPepDeviceDState.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x14035C560 (PopPepStartComponentIdleStateChangeActivity.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x14035DE60 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepDeviceDState @ 0x14028DDEC (PopPepDeviceDState.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x14035C700 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x14035E000 (PopPepCompleteComponentIdleStateChangeActivity.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxUpdateAccountingActiveTime @ 0x140313170 (PopFxUpdateAccountingActiveTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140313400 (PopFxUpdateAccountingActiveTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxUpdateComponentAccountingEnhanced(__int64 a1, unsigned int a2, unsigned int a3, int a4)
@@ -44,10 +44,10 @@ __int64 __fastcall PopFxUpdateComponentAccountingEnhanced(__int64 a1, unsigned i
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v7 <= 0xFu
       && (unsigned __int8)result >= 2u )

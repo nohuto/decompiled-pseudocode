@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlFlushNonVolatileMemory @ 0x1404FAE20
+ * XREFs of RtlFlushNonVolatileMemory @ 0x1404F8700
  * Callers:
- *     CcCopyToCacheHelper @ 0x14040C830 (CcCopyToCacheHelper.c)
- *     RtlWriteNonVolatileMemory @ 0x1404A50D0 (RtlWriteNonVolatileMemory.c)
- *     RtlFillNonVolatileMemory @ 0x1405EE400 (RtlFillNonVolatileMemory.c)
- *     RtlFlushNonVolatileMemoryRanges @ 0x1405EE4B0 (RtlFlushNonVolatileMemoryRanges.c)
+ *     CcCopyToCacheHelper @ 0x140404EC0 (CcCopyToCacheHelper.c)
+ *     RtlWriteNonVolatileMemory @ 0x14049FE60 (RtlWriteNonVolatileMemory.c)
+ *     RtlFillNonVolatileMemory @ 0x1405EB9E0 (RtlFillNonVolatileMemory.c)
+ *     RtlFlushNonVolatileMemoryRanges @ 0x1405EBA90 (RtlFlushNonVolatileMemoryRanges.c)
  * Callees:
- *     RtlDrainNonVolatileFlush @ 0x1405E7E50 (RtlDrainNonVolatileFlush.c)
+ *     RtlDrainNonVolatileFlush @ 0x1405E5440 (RtlDrainNonVolatileFlush.c)
  */
 
-__int64 __fastcall RtlFlushNonVolatileMemory(__int64 a1, __int64 a2, __int64 a3, char a4)
+DWORD __cdecl RtlFlushNonVolatileMemory(PVOID NvToken, PVOID NvBuffer, SIZE_T Size, DWORD Flags)
 {
-  unsigned __int64 v7; // rdx
+  char *v7; // rdx
 
-  if ( (a1 & 1) == 0 )
-    return 3221225485LL;
-  if ( (a1 & 2) != 0 )
+  if ( ((unsigned __int8)NvToken & 1) == 0 )
+    return -1073741811;
+  if ( ((unsigned __int8)NvToken & 2) != 0 )
   {
-    _RCX = (char *)(a2 & -RtlpClFlushSize);
-    v7 = a3 + a2;
+    _RCX = (char *)((unsigned __int64)NvBuffer & -RtlpClFlushSize);
+    v7 = (char *)NvBuffer + Size;
     if ( RtlpOptimalFlushMethod == 2 )
     {
-      while ( (unsigned __int64)_RCX < v7 )
+      while ( _RCX < v7 )
       {
         __asm { clwb    byte ptr [rcx] }
         _RCX += RtlpClFlushSize;
@@ -29,7 +29,7 @@ __int64 __fastcall RtlFlushNonVolatileMemory(__int64 a1, __int64 a2, __int64 a3,
     }
     else if ( RtlpOptimalFlushMethod == 3 )
     {
-      while ( (unsigned __int64)_RCX < v7 )
+      while ( _RCX < v7 )
       {
         __asm { clflushopt byte ptr [rcx] }
         _RCX += RtlpClFlushSize;
@@ -37,14 +37,14 @@ __int64 __fastcall RtlFlushNonVolatileMemory(__int64 a1, __int64 a2, __int64 a3,
     }
     else
     {
-      while ( (unsigned __int64)_RCX < v7 )
+      while ( _RCX < v7 )
       {
         _mm_clflush(_RCX);
         _RCX += RtlpClFlushSize;
       }
     }
-    if ( (a4 & 1) == 0 )
-      RtlDrainNonVolatileFlush(a1);
+    if ( (Flags & 1) == 0 )
+      RtlDrainNonVolatileFlush(NvToken);
   }
-  return 0LL;
+  return 0;
 }

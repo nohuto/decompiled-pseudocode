@@ -1,13 +1,13 @@
 /*
- * XREFs of VfPoolTrackingEntry @ 0x1405D2128
+ * XREFs of VfPoolTrackingEntry @ 0x1405D2698
  * Callers:
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
- *     ViPtInitAvlTrees @ 0x140ADEDE0 (ViPtInitAvlTrees.c)
- *     ViPtInitCircularPoolTrace @ 0x140ADEE5C (ViPtInitCircularPoolTrace.c)
- *     ViPtPluginUnload @ 0x140ADF1E0 (ViPtPluginUnload.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
+ *     ViPtInitAvlTrees @ 0x140ADEDD0 (ViPtInitAvlTrees.c)
+ *     ViPtInitCircularPoolTrace @ 0x140ADEE4C (ViPtInitCircularPoolTrace.c)
+ *     ViPtPluginUnload @ 0x140ADF1D0 (ViPtPluginUnload.c)
  */
 
 __int64 VfPoolTrackingEntry()
@@ -64,7 +64,7 @@ __int64 VfPoolTrackingEntry()
   v29 = 0LL;
   v33 = 0LL;
   v37 = 0LL;
-  qword_140C373D8 = (__int64)ViPtPluginUnload;
+  qword_140C37398 = (__int64)ViPtPluginUnload;
   v2 = "ExAllocatePool";
   v4 = ViGenericVerifyNewRequest;
   v6 = "ExAllocatePool2";

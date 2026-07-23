@@ -1,14 +1,14 @@
 /*
- * XREFs of PspIumFreePartitionState @ 0x1405E6704
+ * XREFs of PspIumFreePartitionState @ 0x1405E3D04
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     MmFreeNonChargedSecurePages @ 0x14041098C (MmFreeNonChargedSecurePages.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MmFreeNonChargedSecurePages @ 0x140433BCC (MmFreeNonChargedSecurePages.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspIumFreePartitionState(unsigned int *P)
@@ -38,7 +38,7 @@ void __fastcall PspIumFreePartitionState(unsigned int *P)
     memmove((void *)(*((_QWORD *)P + 20) + 8LL * P[39]), P + 6, 8LL * v3);
     P[39] += P[1];
   }
-  MmFreeNonChargedSecurePages(*((_QWORD *)P + 1), 1, P[38], *((_QWORD **)P + 20));
+  MmFreeNonChargedSecurePages(*((ULONG ***)P + 1), 1, P[38], *((_QWORD **)P + 20));
   ExFreePoolWithTag(*((PVOID *)P + 20), 0);
   ObfDereferenceObjectWithTag(*((PVOID *)P + 1), 0x746C6644u);
   ExFreePoolWithTag(P, 0);

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpComputeDllPath @ 0x18000BB30
+ * XREFs of RtlpComputeDllPath @ 0x18000BB20
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLookupCurDirSetting @ 0x1800093F0 (RtlpLookupCurDirSetting.c)
- *     RtlpComputePath @ 0x18000CD84 (RtlpComputePath.c)
- *     RtlReleaseSRWLockShared @ 0x180042570 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x180042650 (RtlAcquireSRWLockShared.c)
+ *     RtlpLookupCurDirSetting @ 0x1800093E0 (RtlpLookupCurDirSetting.c)
+ *     RtlpComputePath @ 0x18000CD74 (RtlpComputePath.c)
+ *     RtlReleaseSRWLockShared @ 0x180042560 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180042640 (RtlAcquireSRWLockShared.c)
  */
 
 __int64 __fastcall RtlpComputeDllPath(__int64 a1)
@@ -16,10 +16,10 @@ __int64 __fastcall RtlpComputeDllPath(__int64 a1)
   __int64 v4; // rbx
 
   EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
-  if ( *((_QWORD *)&LdrpDllDirectory + 1) )
+  if ( LdrpDllDirectory.Buffer )
   {
     RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
-    if ( *((_QWORD *)&LdrpDllDirectory + 1) )
+    if ( LdrpDllDirectory.Buffer )
     {
       v4 = RtlpComputePath(&unk_18010C060, 4LL, a1, 0LL);
       RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpComputeDllPath(__int64 a1)
   }
   v3 = dword_180153350;
   if ( !dword_180153350 )
-    v3 = RtlpLookupCurDirSetting((__int64)L"\"$", 1u, &dword_180153350);
+    v3 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_180108100, 1u, &dword_180153350);
   v4 = RtlpComputePath((char *)&unk_18010C030 + 16 * v3, 4LL, a1, 0LL);
 LABEL_5:
   if ( v4 )

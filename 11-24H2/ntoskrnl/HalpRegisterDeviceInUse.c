@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpRegisterDeviceInUse @ 0x140B75C94
+ * XREFs of HalpRegisterDeviceInUse @ 0x140B77C94
  * Callers:
- *     HalpKdSetupDebuggingDevice @ 0x140B75A80 (HalpKdSetupDebuggingDevice.c)
+ *     HalpKdSetupDebuggingDevice @ 0x140B77A80 (HalpKdSetupDebuggingDevice.c)
  * Callees:
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     HalpMmAllocateMemory @ 0x140542CB4 (HalpMmAllocateMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     HalpFindDevice @ 0x140B75770 (HalpFindDevice.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     HalpMmAllocateMemory @ 0x140540604 (HalpMmAllocateMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     HalpFindDevice @ 0x140B77770 (HalpFindDevice.c)
  */
 
 __int64 __fastcall HalpRegisterDeviceInUse(__int64 a1)
@@ -66,14 +66,14 @@ __int64 __fastcall HalpRegisterDeviceInUse(__int64 a1)
         v8[31] = v8 + 37;
         wcscpy_s(*(wchar_t **)(v8[2] + 224LL), (unsigned __int64)v5 >> 1, *(const wchar_t **)(a1 + 224));
       }
-      v12 = (_QWORD *)qword_140F8ED90;
-      if ( *(__int64 **)qword_140F8ED90 != &qword_140F8ED88 )
+      v12 = (_QWORD *)qword_140F8EF90;
+      if ( *(__int64 **)qword_140F8EF90 != &qword_140F8EF88 )
         __fastfail(3u);
-      *v8 = &qword_140F8ED88;
+      *v8 = &qword_140F8EF88;
       v8[1] = v12;
       *v12 = v8;
       ++DevicesList;
-      qword_140F8ED90 = (__int64)v8;
+      qword_140F8EF90 = (__int64)v8;
     }
   }
   return 0LL;

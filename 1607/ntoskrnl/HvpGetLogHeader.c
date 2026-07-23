@@ -1,20 +1,20 @@
 /*
- * XREFs of HvpGetLogHeader @ 0x140610A74
+ * XREFs of HvpGetLogHeader @ 0x140610B28
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvpLogIneligibleLogHeader @ 0x1401B705C (HvpLogIneligibleLogHeader.c)
- *     HvpLogInvalidLogHeader @ 0x1401B70FC (HvpLogInvalidLogHeader.c)
- *     HvpLogUnreadableLog @ 0x1401B7264 (HvpLogUnreadableLog.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvpLogIneligibleLogHeader @ 0x1401B6F40 (HvpLogIneligibleLogHeader.c)
+ *     HvpLogInvalidLogHeader @ 0x1401B6FE0 (HvpLogInvalidLogHeader.c)
+ *     HvpLogUnreadableLog @ 0x1401B7148 (HvpLogUnreadableLog.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvpHeaderCheckSum @ 0x140481EC0 (HvpHeaderCheckSum.c)
- *     HvpDetermineLatestLogFile @ 0x1406129BC (HvpDetermineLatestLogFile.c)
+ *     HvpHeaderCheckSum @ 0x140480C14 (HvpHeaderCheckSum.c)
+ *     HvpDetermineLatestLogFile @ 0x140612A70 (HvpDetermineLatestLogFile.c)
  */
 
 __int64 __fastcall HvpGetLogHeader(
@@ -350,7 +350,7 @@ LABEL_22:
     v87 = 1;
     v90 = 4;
     v93 = 4;
-    TlgWrite(&stru_1402F34E0, &unk_14027B247, 0LL, 0LL, 7u, &pData);
+    TlgWrite(&stru_1402F34E0, &unk_14027B347, 0LL, 0LL, 7u, &pData);
   }
   if ( !a7 )
   {
@@ -484,6 +484,6 @@ LABEL_101:
   }
   while ( v56 );
   if ( v17 == 1 && stru_1402F34E0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1402F34E0, 0x400000000000uLL) )
-    TlgWrite(&stru_1402F34E0, &unk_14027B223, 0LL, 0LL, 2u, &v78);
+    TlgWrite(&stru_1402F34E0, &unk_14027B323, 0LL, 0LL, 2u, &v78);
   return v17;
 }

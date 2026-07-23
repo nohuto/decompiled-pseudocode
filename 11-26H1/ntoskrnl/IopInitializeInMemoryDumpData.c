@@ -1,23 +1,23 @@
 /*
- * XREFs of IopInitializeInMemoryDumpData @ 0x140CBA480
+ * XREFs of IopInitializeInMemoryDumpData @ 0x140CC04C0
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x140CBA6C4 (IopInitializeOfflineCrashDump.c)
+ *     IopInitializeOfflineCrashDump @ 0x140CC0704 (IopInitializeOfflineCrashDump.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MmAllocateContiguousNodeMemory @ 0x14034A0F0 (MmAllocateContiguousNodeMemory.c)
- *     KdCopyDataBlock @ 0x1405E35A4 (KdCopyDataBlock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwFilterBootOption @ 0x140725170 (ZwFilterBootOption.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IoSetEnvironmentVariableEx @ 0x140906830 (IoSetEnvironmentVariableEx.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14034C170 (MmAllocateContiguousNodeMemory.c)
+ *     KdCopyDataBlock @ 0x1405E5F14 (KdCopyDataBlock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwFilterBootOption @ 0x140729D40 (ZwFilterBootOption.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IoSetEnvironmentVariableEx @ 0x140A2EB60 (IoSetEnvironmentVariableEx.c)
  */
 
 void IopInitializeInMemoryDumpData()
 {
   __int64 v0; // rsi
   char v1; // r14
-  int v2; // eax
+  NTSTATUS v2; // eax
   unsigned int i; // edi
   void *ContiguousNodeMemory; // rax
   __int64 v5; // rax
@@ -25,33 +25,37 @@ void IopInitializeInMemoryDumpData()
   unsigned __int64 v7; // rax
   unsigned __int64 v8; // rax
   int v9; // eax
-  __int128 v10; // [rsp+38h] [rbp-38h]
-  _DWORD v11[4]; // [rsp+50h] [rbp-20h] BYREF
+  _BYTE Data[8]; // [rsp+30h] [rbp-40h] BYREF
+  __int128 v11; // [rsp+38h] [rbp-38h]
+  __int64 v12; // [rsp+48h] [rbp-28h]
+  _DWORD v13[4]; // [rsp+50h] [rbp-20h] BYREF
 
-  v11[0] = 2012912317;
-  v11[1] = 1295123289;
-  v11[2] = -198680387;
-  v11[3] = 1266192359;
-  *(_QWORD *)&v10 = 0x302E4594353594B3LL;
+  v13[0] = 2012912317;
+  v13[1] = 1295123289;
+  v13[2] = -198680387;
+  v13[3] = 1266192359;
+  Data[0] = 0;
+  *(_QWORD *)&v11 = 0x302E4594353594B3LL;
   v0 = 2LL;
-  *((_QWORD *)&v10 + 1) = 0xB50211F197DACBD4uLL;
+  *((_QWORD *)&v11 + 1) = 0xB50211F197DACBD4uLL;
+  v12 = 0x199B7088610836E8LL;
   if ( _InterlockedExchange(InMemData, 1) != 1 )
   {
-    dword_140E65DD4 = 0;
-    LODWORD(qword_140E65DC0) = 0;
+    dword_140E66114 = 0;
+    LODWORD(qword_140E66100) = 0;
     v1 = 0;
-    v2 = ZwFilterBootOption(1LL, 270532611LL);
+    v2 = ZwFilterBootOption(FilterBootOptionOperationSetElement, 0x10200003u, 0x260000A0u, Data, 1u);
     if ( v2 >= 0 || v2 == -2143092730 && (_BYTE)KdDebuggerEnabled )
       v1 = 1;
-    qword_140E65DB8 = 9152LL;
+    qword_140E660F8 = 9152LL;
     for ( i = 0; i < 2; ++i )
     {
-      ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(qword_140E65DB8, 0, -1, 0, 4, 0x80000000);
+      ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(qword_140E660F8, 0, -1, 0, 4, 0x80000000);
       *(_QWORD *)&InMemData[2 * i + 2] = ContiguousNodeMemory;
       if ( !ContiguousNodeMemory )
       {
-        dword_140E65DD4 = -1073741801;
-        v6 = (PVOID *)&unk_140E65DA8;
+        dword_140E66114 = -1073741801;
+        v6 = (PVOID *)&unk_140E660E8;
         do
         {
           if ( *v6 )
@@ -65,25 +69,25 @@ void IopInitializeInMemoryDumpData()
         while ( v0 );
         goto LABEL_20;
       }
-      memset_0(ContiguousNodeMemory, 0, qword_140E65DB8);
+      memset_0(ContiguousNodeMemory, 0, qword_140E660F8);
       v5 = *(_QWORD *)&InMemData[2 * i + 2];
-      *(_OWORD *)v5 = v10;
-      *(_QWORD *)(v5 + 16) = 0x199B7088610836E8LL;
+      *(_OWORD *)v5 = v11;
+      *(_QWORD *)(v5 + 16) = v12;
       if ( v1 )
         KdCopyDataBlock((_OWORD *)(*(_QWORD *)&InMemData[2 * i + 2] + 8216LL));
     }
     v7 = __rdtsc();
-    LODWORD(qword_140E65DC8) = v7;
+    LODWORD(qword_140E66108) = v7;
     v8 = __rdtsc();
-    HIDWORD(qword_140E65DC8) = v8;
-    HIDWORD(qword_140E65DC8) = ExGenRandom(1, (unsigned __int64)HIDWORD(v8) << 32) & 0x7FFFFFFF;
-    v9 = IoSetEnvironmentVariableEx(L"DumpInstance", (__int64)v11, (__int64)&qword_140E65DC8, 8, 7);
+    HIDWORD(qword_140E66108) = v8;
+    HIDWORD(qword_140E66108) = ExGenRandom(1, (unsigned __int64)HIDWORD(v8) << 32) & 0x7FFFFFFF;
+    v9 = IoSetEnvironmentVariableEx(L"DumpInstance", (__int64)v13, (__int64)&qword_140E66108, 8, 7);
     if ( v9 < 0 )
     {
-      dword_140E65DD4 = v9;
-      qword_140E65DC8 = 0x4547415045474150LL;
+      dword_140E66114 = v9;
+      qword_140E66108 = 0x4547415045474150LL;
     }
-    dword_140E65DA4 = 1;
+    dword_140E660E4 = 1;
 LABEL_20:
     _InterlockedExchange(InMemData, 0);
   }

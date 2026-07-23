@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlIpv6StringToAddressA @ 0x1405AEED0
+ * XREFs of RtlIpv6StringToAddressA @ 0x1405AF440
  * Callers:
- *     RtlIpv6StringToAddressExA @ 0x1405AF330 (RtlIpv6StringToAddressExA.c)
+ *     RtlIpv6StringToAddressExA @ 0x1405AF8A0 (RtlIpv6StringToAddressExA.c)
  * Callees:
- *     strtol @ 0x1403D8DD8 (strtol.c)
- *     __isascii @ 0x1403DA030 (__isascii.c)
- *     isdigit @ 0x1403DA050 (isdigit.c)
- *     isxdigit @ 0x1403DA140 (isxdigit.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     strtol @ 0x1403D8FB8 (strtol.c)
+ *     __isascii @ 0x1403DA210 (__isascii.c)
+ *     isdigit @ 0x1403DA230 (isdigit.c)
+ *     isxdigit @ 0x1403DA320 (isxdigit.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_addr *Addr)
 {
   CHAR v3; // bl
   char v4; // r9
-  int v5; // edx
+  unsigned int v5; // edx
   PCSTR v6; // rsi
   int v7; // r12d
   unsigned int v8; // ebp
@@ -32,7 +32,7 @@ NTSTATUS __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in
   char *Str; // [rsp+28h] [rbp-50h]
   char v21; // [rsp+80h] [rbp+8h]
   struct in6_addr *v23; // [rsp+90h] [rbp+18h]
-  int v24; // [rsp+98h] [rbp+20h]
+  unsigned int v24; // [rsp+98h] [rbp+20h]
 
   v23 = Addr;
   v3 = *S;
@@ -151,7 +151,7 @@ LABEL_52:
         v19 = v4;
         v24 = v5 + 1;
         ++v6;
-        Addr->u.Word[v5] = 0;
+        *((_WORD *)Addr + v5) = 0;
         v7 = 2;
       }
       if ( !Str )
@@ -164,14 +164,14 @@ LABEL_52:
         if ( v14 > 0xFF )
           return -1073741811;
         Addr = v23;
-        v23->u.Byte[2 * v24 - 1 + v9] = v14;
+        *((_BYTE *)v23 + 2 * v24 + v9 - 1) = v14;
         goto LABEL_54;
       }
       if ( v10 > 4 )
         return -1073741811;
       v13 = strtol(Str, 0LL, 16);
       Addr = v23;
-      v23->u.Word[v24] = __ROR2__(v13, 8);
+      *((_WORD *)v23 + v24) = __ROR2__(v13, 8);
       v5 = ++v24;
 LABEL_55:
       v3 = *++v6;
@@ -195,7 +195,7 @@ LABEL_59:
     if ( v7 == 2 )
     {
       v15 = v23;
-      v23->u.Word[v24] = 0;
+      *((_WORD *)v23 + v24) = 0;
       goto LABEL_72;
     }
     return -1073741811;
@@ -208,7 +208,7 @@ LABEL_59:
       if ( v16 <= 0xFF )
       {
         v15 = v23;
-        v23->u.Byte[2 * v24 + v9] = v16;
+        *((_BYTE *)v23 + 2 * v24 + v9) = v16;
         goto LABEL_72;
       }
     }
@@ -216,13 +216,13 @@ LABEL_59:
   }
   if ( v10 > 4 )
     return -1073741811;
-  v23->u.Word[v24] = __ROR2__(strtol(Str, 0LL, 16), 8);
+  *((_WORD *)v23 + v24) = __ROR2__(strtol(Str, 0LL, 16), 8);
   v15 = v23;
 LABEL_72:
   if ( v11 )
   {
     v17 = (char *)v15 + 2 * v11;
-    memmove((char *)&v15[1] + 2 * (v11 - v8), v17, 2LL * (v8 - v11));
+    memmove((char *)v15 + 2 * (v11 - v8) + 16, v17, 2LL * (v8 - v11));
     memset(v17, 0, 2LL * (8 - v8));
   }
   return 0;

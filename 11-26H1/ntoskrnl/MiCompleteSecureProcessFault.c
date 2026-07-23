@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCompleteSecureProcessFault @ 0x14038AED0
+ * XREFs of MiCompleteSecureProcessFault @ 0x14038CC80
  * Callers:
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiValidVirtualizationFault @ 0x140525860 (MiValidVirtualizationFault.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x140527ED0 (MiValidVirtualizationFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     MiIsVirtualizationFaultPrimaryPage @ 0x1404F650C (MiIsVirtualizationFaultPrimaryPage.c)
- *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F9184 (MiMarkVirtualizationFaultPageInfoFailed.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     MiIsVirtualizationFaultPrimaryPage @ 0x1404EFB1C (MiIsVirtualizationFaultPrimaryPage.c)
+ *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F2794 (MiMarkVirtualizationFaultPageInfoFailed.c)
  */
 
 __int64 __fastcall MiCompleteSecureProcessFault(const __m128i **a1, __int64 *a2, __int64 a3)
@@ -55,7 +55,7 @@ __int64 __fastcall MiCompleteSecureProcessFault(const __m128i **a1, __int64 *a2,
       KeYieldProcessorEx(&v25);
     while ( v3[1].m128i_i64[1] < 0 );
   }
-  v8 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)v3[2].m128i_i64[1] >> 43) & 0x3FF));
+  v8 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)v3[2].m128i_i64[1] >> 43) & 0x3FF));
   v9 = v3->m128i_i64[1] | 0x8000000000000000uLL;
   v10 = (__int64)(v9 << 25) >> 16;
   if ( (v3[2].m128i_i8[2] & 8) != 0 )
@@ -131,7 +131,7 @@ LABEL_7:
       v13 = MiCaptureDirtyBitToPfn((ULONG_PTR)v3);
       _InterlockedAnd64(&v3[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
       if ( v13 )
-        MiReleasePageFileInfo(v8, v13, 1);
+        MiReleasePageFileInfo(v8, v13, 1LL);
       return 1LL;
     }
   }

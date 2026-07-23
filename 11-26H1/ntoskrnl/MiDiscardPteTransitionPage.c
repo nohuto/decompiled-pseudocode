@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDiscardPteTransitionPage @ 0x1405287F0
+ * XREFs of MiDiscardPteTransitionPage @ 0x14052AE60
  * Callers:
- *     MiWsleFree @ 0x140319990 (MiWsleFree.c)
- *     MiDiscardPte @ 0x1406EEED0 (MiDiscardPte.c)
+ *     MiWsleFree @ 0x14031B9C0 (MiWsleFree.c)
+ *     MiDiscardPte @ 0x1406F3B70 (MiDiscardPte.c)
  * Callees:
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiDeleteTransitionPte @ 0x14033E7F0 (MiDeleteTransitionPte.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiDeleteTransitionPte @ 0x140340870 (MiDeleteTransitionPte.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
  */
 
 __int64 __fastcall MiDiscardPteTransitionPage(unsigned __int64 *BugCheckParameter2, __int64 a2)
@@ -47,7 +47,7 @@ __int64 __fastcall MiDiscardPteTransitionPage(unsigned __int64 *BugCheckParamete
     v5 = 0;
   }
   v6 = *(_DWORD *)(v2 + 32);
-  v7 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v2 + 40) >> 43) & 0x3FFLL));
+  v7 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v2 + 40) >> 43) & 0x3FFLL));
   if ( (unsigned __int16)v6 <= v5 )
   {
     v13 = MiCaptureDirtyBitToPfn(v2);
@@ -92,7 +92,7 @@ __int64 __fastcall MiDiscardPteTransitionPage(unsigned __int64 *BugCheckParamete
     {
       v10 = v9;
 LABEL_24:
-      MiReleasePageFileInfo(v7, v10, 1);
+      MiReleasePageFileInfo(v7, v10, 1LL);
     }
   }
   return 1LL;

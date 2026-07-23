@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPlGrowTableIfNeeded @ 0x1406CC960
+ * XREFs of ExpPlGrowTableIfNeeded @ 0x1406D0990
  * Callers:
- *     ExpTrackTableInsertLimit @ 0x1406CCD60 (ExpTrackTableInsertLimit.c)
+ *     ExpTrackTableInsertLimit @ 0x1406D0D90 (ExpTrackTableInsertLimit.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 ExpPlGrowTableIfNeeded()
@@ -31,9 +31,9 @@ __int64 ExpPlGrowTableIfNeeded()
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v0 = 0LL;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Blink, &LockHandle);
-  v1 = 2 * ((unsigned int)stru_140E28440.RealtimePriorityFloor >> 5);
-  if ( stru_140E28440.SchedulerAssistPriorityFloor >= v1 )
+  KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &LockHandle);
+  v1 = 2 * ((unsigned int)stru_140E285C0.RealtimePriorityFloor >> 5);
+  if ( stru_140E285C0.SchedulerAssistPriorityFloor >= v1 )
   {
     v0 = v1;
     v2 = 1;
@@ -52,9 +52,9 @@ __int64 ExpPlGrowTableIfNeeded()
       Pool2 = (char *)ExAllocatePool2(0x40uLL);
       if ( !Pool2 )
         return (unsigned int)-1073741801;
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Blink, &LockHandle);
-      v5 = 2 * ((unsigned int)stru_140E28440.RealtimePriorityFloor >> 5);
-      if ( stru_140E28440.SchedulerAssistPriorityFloor < v5 )
+      KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &LockHandle);
+      v5 = 2 * ((unsigned int)stru_140E285C0.RealtimePriorityFloor >> 5);
+      if ( stru_140E285C0.SchedulerAssistPriorityFloor < v5 )
         break;
       if ( v5 < 4 )
         v5 = 4;
@@ -72,15 +72,15 @@ __int64 ExpPlGrowTableIfNeeded()
         if ( Pool2 > &Pool2[8 * v0] )
           v7 = 0LL;
         if ( v7 )
-          memset64(Pool2, (unsigned __int64)&stru_140E28440.SchedulerAssistPriorityFloor + 1, v7);
-        RealtimePriorityFloor = stru_140E28440.RealtimePriorityFloor;
+          memset64(Pool2, (unsigned __int64)&stru_140E285C0.SchedulerAssistPriorityFloor + 1, v7);
+        RealtimePriorityFloor = stru_140E285C0.RealtimePriorityFloor;
         v9 = 0;
-        v10 = -1LL << (stru_140E28440.RealtimePriorityFloor & 0x1F);
-        if ( (stru_140E28440.RealtimePriorityFloor & 0xFFFFFFE0) != 0 )
+        v10 = -1LL << (stru_140E285C0.RealtimePriorityFloor & 0x1F);
+        if ( (stru_140E285C0.RealtimePriorityFloor & 0xFFFFFFE0) != 0 )
         {
           do
           {
-            KernelShadowStack = stru_140E28440.KernelShadowStack;
+            KernelShadowStack = stru_140E285C0.KernelShadowStack;
             while ( 1 )
             {
               v12 = (_QWORD *)KernelShadowStack[v9];
@@ -103,15 +103,15 @@ __int64 ExpPlGrowTableIfNeeded()
               *v12 = *(_QWORD *)&Pool2[8 * v13];
               *(_QWORD *)&Pool2[8 * v13] = v12;
             }
-            RealtimePriorityFloor = stru_140E28440.RealtimePriorityFloor;
+            RealtimePriorityFloor = stru_140E285C0.RealtimePriorityFloor;
             ++v9;
           }
-          while ( v9 < (unsigned int)stru_140E28440.RealtimePriorityFloor >> 5 );
+          while ( v9 < (unsigned int)stru_140E285C0.RealtimePriorityFloor >> 5 );
         }
-        v14 = (char *)stru_140E28440.KernelShadowStack;
-        stru_140E28440.KernelShadowStack = Pool2;
+        v14 = (char *)stru_140E285C0.KernelShadowStack;
+        stru_140E285C0.KernelShadowStack = Pool2;
         Pool2 = v14;
-        stru_140E28440.RealtimePriorityFloor = (32 * v0) | RealtimePriorityFloor & 0x1F;
+        stru_140E285C0.RealtimePriorityFloor = (32 * v0) | RealtimePriorityFloor & 0x1F;
         break;
       }
       KeReleaseInStackQueuedSpinLock(&LockHandle);

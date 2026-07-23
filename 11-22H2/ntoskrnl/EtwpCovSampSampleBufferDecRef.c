@@ -21,7 +21,7 @@ int __fastcall EtwpCovSampSampleBufferDecRef(__int64 a1, __int64 a2)
   {
     if ( v4 )
       __fastfail(0xEu);
-    LODWORD(v4) = EtwpCovSampCaptureQueueBuffer(a1, (struct _SLIST_ENTRY *)a2);
+    LODWORD(v4) = EtwpCovSampCaptureQueueBuffer(a1, (_SLIST_ENTRY *)a2);
   }
   return v4;
 }

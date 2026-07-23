@@ -1,25 +1,25 @@
 /*
  * XREFs of MmBuildMdlForNonPagedPool @ 0x14027C410
  * Callers:
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14037A8BC (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     VslpLockMdlForTransfer @ 0x1403A108C (VslpLockMdlForTransfer.c)
- *     HalpFlushMapBuffers @ 0x14051416C (HalpFlushMapBuffers.c)
- *     HvlGetCoverageData @ 0x140543148 (HvlGetCoverageData.c)
- *     SmKmIssueVolumeIo @ 0x1405FB99C (SmKmIssueVolumeIo.c)
- *     DifMmBuildMdlForNonPagedPoolWrapper @ 0x140616CB0 (DifMmBuildMdlForNonPagedPoolWrapper.c)
- *     MiCreateMdl @ 0x1407084B0 (MiCreateMdl.c)
- *     PopAllocateHiberContext @ 0x140802068 (PopAllocateHiberContext.c)
- *     HvlpDynamicUpdateMicrocode @ 0x140931378 (HvlpDynamicUpdateMicrocode.c)
- *     MiReplaceRotateWithDemandZero @ 0x14096D10C (MiReplaceRotateWithDemandZero.c)
- *     SmKmStoreFileWriteHeader @ 0x1409D7390 (SmKmStoreFileWriteHeader.c)
- *     EtwpBuildMdlForTraceBuffer @ 0x1409EC8CC (EtwpBuildMdlForTraceBuffer.c)
+ *     sub_14037A8BC @ 0x14037A8BC (sub_14037A8BC.c)
+ *     sub_1403A0F08 @ 0x1403A0F08 (sub_1403A0F08.c)
+ *     sub_1403A108C @ 0x1403A108C (sub_1403A108C.c)
+ *     sub_14051416C @ 0x14051416C (sub_14051416C.c)
+ *     sub_140543148 @ 0x140543148 (sub_140543148.c)
+ *     sub_1405FB99C @ 0x1405FB99C (sub_1405FB99C.c)
+ *     sub_140616CB0 @ 0x140616CB0 (sub_140616CB0.c)
+ *     sub_1407084B0 @ 0x1407084B0 (sub_1407084B0.c)
+ *     sub_140802068 @ 0x140802068 (sub_140802068.c)
+ *     sub_140931378 @ 0x140931378 (sub_140931378.c)
+ *     sub_14096D10C @ 0x14096D10C (sub_14096D10C.c)
+ *     sub_1409D7390 @ 0x1409D7390 (sub_1409D7390.c)
+ *     sub_1409EC8CC @ 0x1409EC8CC (sub_1409EC8CC.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiSetNonPagedPoolNoSteal @ 0x14027C3BC (MiSetNonPagedPoolNoSteal.c)
- *     MiQueuePinDriverAddressLog @ 0x14027DD28 (MiQueuePinDriverAddressLog.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiVaToPfnEx @ 0x1403B8520 (MiVaToPfnEx.c)
+ *     sub_14027B080 @ 0x14027B080 (sub_14027B080.c)
+ *     sub_14027C3BC @ 0x14027C3BC (sub_14027C3BC.c)
+ *     sub_14027DD28 @ 0x14027DD28 (sub_14027DD28.c)
+ *     sub_140317A10 @ 0x140317A10 (sub_140317A10.c)
+ *     sub_1403B8520 @ 0x1403B8520 (sub_1403B8520.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -32,7 +32,7 @@ void __stdcall MmBuildMdlForNonPagedPool(PMDL MemoryDescriptorList)
   unsigned __int64 v5; // r14
   int v7; // ebp
   ULONG_PTR v8; // rdi
-  int SystemRegionType; // r13d
+  int v9; // r13d
   ULONG_PTR v10; // r12
   int v11; // r10d
   __int64 v12; // r9
@@ -41,7 +41,7 @@ void __stdcall MmBuildMdlForNonPagedPool(PMDL MemoryDescriptorList)
   __int64 v15; // rax
   CSHORT MdlFlags; // r8
   ULONG_PTR BugCheckParameter4; // rax
-  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v18; // rdx
   char v19; // r8
   __int64 v20; // rax
   __int64 v21; // [rsp+28h] [rbp-60h]
@@ -61,7 +61,7 @@ void __stdcall MmBuildMdlForNonPagedPool(PMDL MemoryDescriptorList)
   v26 = 0LL;
   v7 = 0;
   v8 = ((StartVa >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  SystemRegionType = 0;
+  v9 = 0;
   v10 = v8 + 8 * ((((unsigned __int16)v4 & 0xFFF) + (unsigned __int64)MemoryDescriptorList->ByteCount + 4095) >> 12);
   if ( v8 < v10 )
   {
@@ -104,16 +104,16 @@ LABEL_12:
       v14 = *(_QWORD *)v13;
       if ( v13 >= 0xFFFFF6FB7DBED000uLL
         && v13 <= 0xFFFFF6FB7DBED7F8uLL
-        && (MiFlags & 0xC00000) != 0
-        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (dword_140D06880 & 0xC00000) != 0
+        && *(_BYTE *)(*((_QWORD *)KeGetCurrentThread() + 23) + 912LL) != 1
         && (v14 & 1) != 0
         && ((v14 & 0x20) == 0 || (v14 & 0x42) == 0) )
       {
-        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-        if ( Flink )
+        v18 = *(_QWORD *)(*((_QWORD *)KeGetCurrentThread() + 23) + 1928LL);
+        if ( v18 )
         {
           v19 = v14 | 0x20;
-          v20 = *((_QWORD *)&Flink->Flink + ((v13 >> 3) & 0x1FF));
+          v20 = *(_QWORD *)(v18 + 8 * ((v13 >> 3) & 0x1FF));
           if ( (v20 & 0x20) == 0 )
             v19 = v14;
           LOBYTE(v14) = v19;
@@ -127,7 +127,7 @@ LABEL_12:
       {
         if ( v11 )
         {
-          v15 = MiVaToPfnEx((__int64)(v8 << 25) >> 16);
+          v15 = sub_1403B8520((__int64)(v8 << 25) >> 16);
           v3 = v26;
           v5 = v15;
           v7 = 1;
@@ -137,9 +137,9 @@ LABEL_12:
       }
     }
     while ( v12 != 1 );
-    v3 = MI_READ_PTE_LOCK_FREE(v8);
-    SystemRegionType = MiGetSystemRegionType((__int64)(v8 << 25) >> 16);
-    if ( SystemRegionType == 5 )
+    v3 = sub_140317A10(v8);
+    v9 = sub_14027B080((__int64)(v8 << 25) >> 16);
+    if ( v9 == 5 )
       v7 = 3;
     else
       v7 = 2;
@@ -147,15 +147,15 @@ LABEL_24:
     if ( (v3 & 1) == 0 )
       KeBugCheckEx(0x1Au, 0x1240uLL, (ULONG_PTR)MemoryDescriptorList, v8, v3);
     if ( v7 == 3 )
-      MiSetNonPagedPoolNoSteal((volatile signed __int64 *)v8);
-    BugCheckParameter4 = MI_READ_PTE_LOCK_FREE(v8);
+      sub_14027C3BC((volatile signed __int64 *)v8);
+    BugCheckParameter4 = sub_140317A10(v8);
     v26 = BugCheckParameter4;
     v3 = BugCheckParameter4;
     if ( (BugCheckParameter4 & 1) == 0 )
       KeBugCheckEx(0x1Au, 0x1241uLL, (ULONG_PTR)MemoryDescriptorList, v8, BugCheckParameter4);
-    v5 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v26) >> 12) & 0xFFFFFFFFFFLL;
-    if ( SystemRegionType == 12 )
-      MiQueuePinDriverAddressLog((__int64)(v8 << 25) >> 16, v3, 1LL);
+    v5 = ((unsigned __int64)sub_140317A10(&v26) >> 12) & 0xFFFFFFFFFFLL;
+    if ( v9 == 12 )
+      sub_14027DD28((__int64)(v8 << 25) >> 16, v3, 1LL);
     goto LABEL_12;
   }
 LABEL_19:

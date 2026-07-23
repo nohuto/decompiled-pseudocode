@@ -6,8 +6,8 @@
  *     RtlDispatchException @ 0x1800048E0 (RtlDispatchException.c)
  *     RtlUnwindEx @ 0x180005BF0 (RtlUnwindEx.c)
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
- *     RtlInitializeExtendedContext @ 0x18007C0A0 (RtlInitializeExtendedContext.c)
- *     RtlCopyContext @ 0x18008A610 (RtlCopyContext.c)
+ *     RtlInitializeExtendedContext @ 0x18007C0B0 (RtlInitializeExtendedContext.c)
+ *     RtlCopyContext @ 0x18008A620 (RtlCopyContext.c)
  *     RtlpCopyExtendedContext @ 0x1800F4F74 (RtlpCopyExtendedContext.c)
  * Callees:
  *     <none>

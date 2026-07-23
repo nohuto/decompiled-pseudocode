@@ -8,7 +8,7 @@
  *     sub_18002891C @ 0x18002891C (sub_18002891C.c)
  */
 
-__int64 __fastcall sub_180077094(__int64 a1, unsigned __int16 *a2, _DWORD *a3, int *a4)
+__int64 __fastcall sub_180077094(__int64 a1, _UNICODE_STRING *a2, _DWORD *a3, int *a4)
 {
   unsigned int v4; // ebx
   char v7; // di
@@ -34,26 +34,28 @@ __int64 __fastcall sub_180077094(__int64 a1, unsigned __int16 *a2, _DWORD *a3, i
     *a4 = 0;
   if ( !a2 || !a3 || !a4 )
     return (unsigned int)-1073741811;
-  v11 = sub_18002891C(a2);
-  v12 = *a2 == 4;
+  v11 = sub_18002891C(&a2->Length);
+  v12 = a2->Length == 4;
   *v13 = v11;
   if ( v12 )
     goto LABEL_28;
   v7 = 1;
-  if ( RtlEqualUnicodeString(word_180118788, (__int64)a2, 1) || RtlEqualUnicodeString(L"\b\n", (__int64)a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&stru_180118788, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&stru_180118778, a2, 1u) )
   {
     v10 = 1;
   }
-  else if ( !RtlPrefixUnicodeString(L"\b\n", (__int64)a2, 1) )
+  else if ( !RtlPrefixUnicodeString((PUNICODE_STRING)&stru_180118778, a2, 1u) )
   {
     return v4;
   }
-  if ( RtlEqualUnicodeString(word_1801187A8, (__int64)a2, 1) || RtlEqualUnicodeString(word_180118798, (__int64)a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&stru_1801187A8, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&stru_180118798, a2, 1u) )
   {
     v10 = 1;
     goto LABEL_25;
   }
-  if ( RtlPrefixUnicodeString(word_180118798, (__int64)a2, 1) )
+  if ( RtlPrefixUnicodeString((PUNICODE_STRING)&stru_180118798, a2, 1u) )
   {
 LABEL_25:
     v9 = 0;
@@ -63,7 +65,7 @@ LABEL_25:
   if ( v10 )
     goto LABEL_28;
   v15 = *(__m128i *)a2;
-  v18[0] = *(_QWORD *)a2;
+  v18[0] = *(_QWORD *)&a2->Length;
   v18[1] = _mm_srli_si128(v15, 8).m128i_u64[0] + 8;
   LOWORD(v18[0]) -= 8;
   WORD1(v18[0]) -= 8;

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeAttachProcess @ 0x1402C6510
+ * XREFs of KeAttachProcess @ 0x1403111B0
  * Callers:
- *     KiExecuteSmtIsolationThread @ 0x1405F6610 (KiExecuteSmtIsolationThread.c)
- *     KiExecuteDpcDelegate @ 0x1405FAF60 (KiExecuteDpcDelegate.c)
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     KiExecuteSmtIsolationThread @ 0x1405F8FD0 (KiExecuteSmtIsolationThread.c)
+ *     KiExecuteDpcDelegate @ 0x1405FD980 (KiExecuteDpcDelegate.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiAttachProcess @ 0x1402C76D0 (KiAttachProcess.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAttachProcess @ 0x140312370 (KiAttachProcess.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall KeAttachProcess(PRKPROCESS Process)

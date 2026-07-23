@@ -1,22 +1,22 @@
 /*
- * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x140973334
+ * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x140973514
  * Callers:
- *     BiCreateEfiEntry @ 0x1409712D0 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x1409714B0 (BiCreateEfiEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsupr @ 0x1403D23F0 (_wcsupr.c)
- *     wcsstr @ 0x1403D4190 (wcsstr.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
- *     BcdQueryObject @ 0x140783304 (BcdQueryObject.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140972338 (BiGetObjectReferenceFromEfiEntry.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsupr @ 0x1403D2560 (_wcsupr.c)
+ *     wcsstr @ 0x1403D4300 (wcsstr.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14066DF18 (RtlStringFromGUIDEx.c)
+ *     BcdQueryObject @ 0x1407834C4 (BcdQueryObject.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140972518 (BiGetObjectReferenceFromEfiEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
+__int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, void *a2)
 {
   int ObjectReferenceFromEfiEntry; // ebx
   __int64 v5; // rax
@@ -25,21 +25,21 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
   wchar_t *v8; // rsi
   wchar_t *v9; // rdi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  __int128 v12; // [rsp+30h] [rbp-30h] BYREF
+  GUID Identifier; // [rsp+30h] [rbp-30h] BYREF
   GUID v13; // [rsp+40h] [rbp-20h] BYREF
 
-  v12 = 0LL;
+  Identifier = 0LL;
   v13 = 0LL;
   DestinationString = 0LL;
   ObjectReferenceFromEfiEntry = BiGetObjectReferenceFromEfiEntry(a1, &v13);
   if ( ObjectReferenceFromEfiEntry >= 0 )
   {
-    ObjectReferenceFromEfiEntry = BcdQueryObject(a2, 0, 0LL, (__int64)&v12);
+    ObjectReferenceFromEfiEntry = BcdQueryObject(a2, 0, 0LL, &Identifier);
     if ( ObjectReferenceFromEfiEntry >= 0 )
     {
-      v5 = *(_QWORD *)&v13.Data1 - v12;
-      if ( *(_QWORD *)&v13.Data1 == (_QWORD)v12 )
-        v5 = *(_QWORD *)v13.Data4 - *((_QWORD *)&v12 + 1);
+      v5 = *(_QWORD *)&v13.Data1 - *(_QWORD *)&Identifier.Data1;
+      if ( *(_QWORD *)&v13.Data1 == *(_QWORD *)&Identifier.Data1 )
+        v5 = *(_QWORD *)v13.Data4 - *(_QWORD *)Identifier.Data4;
       if ( v5 )
       {
         v6 = (unsigned int)(*(_DWORD *)(a1 + 40) - 20);
@@ -53,7 +53,7 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
           if ( v9 )
           {
             RtlInitUnicodeString(&DestinationString, 0LL);
-            ObjectReferenceFromEfiEntry = RtlStringFromGUIDEx((unsigned int *)&v12, (__int64)&DestinationString, 1);
+            ObjectReferenceFromEfiEntry = RtlStringFromGUIDEx(&Identifier, &DestinationString, 1u);
             if ( ObjectReferenceFromEfiEntry >= 0 )
             {
               memmove(

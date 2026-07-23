@@ -1,19 +1,23 @@
 /*
- * XREFs of NtCreateDebugObject @ 0x140885B80
+ * XREFs of NtCreateDebugObject @ 0x140885CE0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateDebugObject(__int64 *a1, ACCESS_MASK a2, __int64 a3, int a4)
+NTSTATUS __cdecl NtCreateDebugObject(
+        PHANDLE DebugObjectHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
   char v4; // si
   char PreviousMode; // r10
   __int64 v8; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PRKEVENT v10; // rbx
   unsigned __int64 v11; // rax
   __int16 v12; // ax
@@ -21,22 +25,32 @@ __int64 __fastcall NtCreateDebugObject(__int64 *a1, ACCESS_MASK a2, __int64 a3, 
   PRKEVENT Event; // [rsp+58h] [rbp-30h] BYREF
   unsigned __int64 v15[4]; // [rsp+60h] [rbp-28h] BYREF
 
-  v4 = a4;
+  v4 = Flags;
   v15[0] = 0LL;
   Event = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a1;
+    if ( (unsigned __int64)DebugObjectHandle < 0x7FFFFFFF0000LL )
+      v8 = (__int64)DebugObjectHandle;
     *(_QWORD *)v8 = *(_QWORD *)v8;
   }
-  *a1 = 0LL;
-  if ( (a4 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  result = ObCreateObjectEx(PreviousMode, DbgkDebugObjectType, a3, PreviousMode, v13, 104, 0, 0, &Event, 0LL);
-  if ( (int)result >= 0 )
+  *DebugObjectHandle = 0LL;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  result = ObCreateObjectEx(
+             PreviousMode,
+             DbgkDebugObjectType,
+             (__int64)ObjectAttributes,
+             PreviousMode,
+             v13,
+             104,
+             0,
+             0,
+             &Event,
+             0LL);
+  if ( result >= 0 )
   {
     v10 = Event;
     Event[1].Header.LockNV = 1;
@@ -57,12 +71,9 @@ __int64 __fastcall NtCreateDebugObject(__int64 *a1, ACCESS_MASK a2, __int64 a3, 
       if ( v12 == 332 || v12 == 452 )
         v10[4].Header.LockNV |= 4u;
     }
-    result = ObInsertObjectEx((char *)Event, 0LL, a2, 0, 0, 0LL, v15);
-    if ( (int)result >= 0 )
-    {
-      *a1 = v15[0];
-      return (unsigned int)result;
-    }
+    result = ObInsertObjectEx((char *)Event, 0LL, DesiredAccess, 0, 0, 0LL, v15);
+    if ( result >= 0 )
+      *DebugObjectHandle = (HANDLE)v15[0];
   }
   return result;
 }

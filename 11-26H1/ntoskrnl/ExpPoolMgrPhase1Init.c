@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpPoolMgrPhase1Init @ 0x140CE7998
+ * XREFs of ExpPoolMgrPhase1Init @ 0x140CEDD38
  * Callers:
- *     ExpHeapInitPhase1 @ 0x1406D2FE8 (ExpHeapInitPhase1.c)
+ *     ExpHeapInitPhase1 @ 0x1406D7018 (ExpHeapInitPhase1.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     ExpPoolMgrGetFirstPool @ 0x1404E62D4 (ExpPoolMgrGetFirstPool.c)
- *     ExpPoolMgrGetNextPool @ 0x1404E76F8 (ExpPoolMgrGetNextPool.c)
- *     ExpPoolPhase1Init @ 0x1406D3A9C (ExpPoolPhase1Init.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ExpPoolMgrGetFirstPool @ 0x1404DF874 (ExpPoolMgrGetFirstPool.c)
+ *     ExpPoolMgrGetNextPool @ 0x1404E0AB4 (ExpPoolMgrGetNextPool.c)
+ *     ExpPoolPhase1Init @ 0x1406D7B28 (ExpPoolPhase1Init.c)
  */
 
 __int64 __fastcall ExpPoolMgrPhase1Init(unsigned __int64 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

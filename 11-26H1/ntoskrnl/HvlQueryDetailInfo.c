@@ -1,19 +1,19 @@
 /*
- * XREFs of HvlQueryDetailInfo @ 0x140776C54
+ * XREFs of HvlQueryDetailInfo @ 0x140779AFC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     HviGetHypervisorVendorAndMaxFunction @ 0x1404E6318 (HviGetHypervisorVendorAndMaxFunction.c)
- *     HviGetHardwareFeatures @ 0x1404E6360 (HviGetHardwareFeatures.c)
- *     HviGetEnlightenmentInformation @ 0x1406DC6E8 (HviGetEnlightenmentInformation.c)
- *     HviGetHypervisorFeatures @ 0x1406DC730 (HviGetHypervisorFeatures.c)
- *     HviGetHypervisorInterface @ 0x1406DC778 (HviGetHypervisorInterface.c)
- *     HviGetHypervisorVersion @ 0x1406DC7C0 (HviGetHypervisorVersion.c)
- *     HviGetImplementationLimits @ 0x1406DC808 (HviGetImplementationLimits.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x1404DF8B8 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     HviGetHardwareFeatures @ 0x1404DF900 (HviGetHardwareFeatures.c)
+ *     HviGetEnlightenmentInformation @ 0x1406E0980 (HviGetEnlightenmentInformation.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     HviGetHypervisorInterface @ 0x1406E0A18 (HviGetHypervisorInterface.c)
+ *     HviGetHypervisorVersion @ 0x1406E0A60 (HviGetHypervisorVersion.c)
+ *     HviGetImplementationLimits @ 0x1406E0AA8 (HviGetImplementationLimits.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
  */
 
 __int64 __fastcall HvlQueryDetailInfo(void *a1, int a2, char a3, _DWORD *a4)

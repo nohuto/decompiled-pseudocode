@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSubtreeEnumeratorReset @ 0x140A206D0
+ * XREFs of CmpSubtreeEnumeratorReset @ 0x140A20980
  * Callers:
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
  * Callees:
- *     CmpResetKeyNodeStack @ 0x140A2013C (CmpResetKeyNodeStack.c)
- *     CmpKeyEnumStackReset @ 0x140A241DC (CmpKeyEnumStackReset.c)
+ *     CmpResetKeyNodeStack @ 0x140A203EC (CmpResetKeyNodeStack.c)
+ *     CmpKeyEnumStackReset @ 0x140A2448C (CmpKeyEnumStackReset.c)
  */
 
 void __fastcall CmpSubtreeEnumeratorReset(__int64 a1)

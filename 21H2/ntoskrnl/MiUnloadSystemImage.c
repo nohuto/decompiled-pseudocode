@@ -1,79 +1,79 @@
 /*
- * XREFs of MiUnloadSystemImage @ 0x1406D11C8
+ * XREFs of MiUnloadSystemImage @ 0x1406A84A8
  * Callers:
- *     MmChangeImageProtection @ 0x1406D0DD0 (MmChangeImageProtection.c)
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
- *     MiDereferenceImports @ 0x140771E90 (MiDereferenceImports.c)
- *     MmUnloadSystemImage @ 0x140772150 (MmUnloadSystemImage.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmChangeImageProtection @ 0x1406A80B0 (MmChangeImageProtection.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
+ *     MiDereferenceImports @ 0x140772050 (MiDereferenceImports.c)
+ *     MmUnloadSystemImage @ 0x140772310 (MmUnloadSystemImage.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9358 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiGetPdeAddress @ 0x14026DF3C (MiGetPdeAddress.c)
- *     MiReturnResident @ 0x140296E9C (MiReturnResident.c)
- *     MiCreateSystemWsles @ 0x1402C0BD0 (MiCreateSystemWsles.c)
- *     MiPartitionIdToPointer @ 0x1402CBF58 (MiPartitionIdToPointer.c)
- *     MiDereferenceControlArea @ 0x1402D38B8 (MiDereferenceControlArea.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
- *     MiManageSubsectionView @ 0x140311100 (MiManageSubsectionView.c)
- *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiIsRetpolineEnabled @ 0x14035E904 (MiIsRetpolineEnabled.c)
- *     MiProcessLoaderEntry @ 0x140372360 (MiProcessLoaderEntry.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14037294C (DbgUnLoadImageSymbolsUnicode.c)
- *     LdrUnloadAlternateResourceModule @ 0x14037FD58 (LdrUnloadAlternateResourceModule.c)
- *     MiSessionRemoveImage @ 0x14038AFF8 (MiSessionRemoveImage.c)
- *     MiDeleteSessionPdes @ 0x14038CAC8 (MiDeleteSessionPdes.c)
- *     MiFreePrivateFixupEntryForSystemImage @ 0x14039EF48 (MiFreePrivateFixupEntryForSystemImage.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeFlushRsb @ 0x14051B218 (KeFlushRsb.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x14052A924 (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14053161C (MiLogPerfMemoryRangeEvent.c)
- *     MiClearDriverHotPatchPtes @ 0x14053E428 (MiClearDriverHotPatchPtes.c)
- *     MiUnmapPatchTable @ 0x14053F19C (MiUnmapPatchTable.c)
- *     MiUnmapRetpolineStubs @ 0x140544248 (MiUnmapRetpolineStubs.c)
- *     MiInitPerfMemoryFlags @ 0x140544A58 (MiInitPerfMemoryFlags.c)
- *     MiVaToSoftwareWsle @ 0x14055C478 (MiVaToSoftwareWsle.c)
- *     PerfLogImageUnload @ 0x140629C50 (PerfLogImageUnload.c)
- *     MiDereferencePerSessionProtos @ 0x1406BC7FC (MiDereferencePerSessionProtos.c)
- *     MiBytesToMapSystemImage @ 0x1406D1870 (MiBytesToMapSystemImage.c)
- *     MiRememberUnloadedDriver @ 0x14075FAF4 (MiRememberUnloadedDriver.c)
- *     MiReturnSystemImageAddress @ 0x14075FCA4 (MiReturnSystemImageAddress.c)
- *     MiReleaseDriverPtes @ 0x14075FCF0 (MiReleaseDriverPtes.c)
- *     MiUnlockDriverCode @ 0x1407716C4 (MiUnlockDriverCode.c)
- *     MiDereferenceImports @ 0x140771E90 (MiDereferenceImports.c)
- *     KseDriverUnloadImage @ 0x140772EF4 (KseDriverUnloadImage.c)
- *     MiMarkKernelImageCfgBits @ 0x1407731A4 (MiMarkKernelImageCfgBits.c)
- *     MiReturnSystemImageCommitment @ 0x140773240 (MiReturnSystemImageCommitment.c)
- *     MmHasImageBeenImportOptimized @ 0x1407735E8 (MmHasImageBeenImportOptimized.c)
- *     MiFreeLoadedImportList @ 0x140773614 (MiFreeLoadedImportList.c)
- *     ExCovReadjustUnloadedModuleEntry @ 0x140773640 (ExCovReadjustUnloadedModuleEntry.c)
- *     KeCleanupImageTracepoints @ 0x14077369C (KeCleanupImageTracepoints.c)
- *     MiReleasePrivilegedPtes @ 0x140773A48 (MiReleasePrivilegedPtes.c)
- *     MiDeleteSessionDriverProtos @ 0x140779628 (MiDeleteSessionDriverProtos.c)
- *     MiReleaseSessionDriverCharges @ 0x140779908 (MiReleaseSessionDriverCharges.c)
- *     MiFreeRetpolineRelocationInformation @ 0x14078D7C4 (MiFreeRetpolineRelocationInformation.c)
- *     MiFreeRetpolineImportInfo @ 0x1407CDF54 (MiFreeRetpolineImportInfo.c)
- *     MiFreePatchTableProtos @ 0x1408C9EC4 (MiFreePatchTableProtos.c)
- *     MiIsImageFullyRetpolined @ 0x1408D0AB4 (MiIsImageFullyRetpolined.c)
- *     MiMarkKernelImageRetpolineBits @ 0x1408D0C68 (MiMarkKernelImageRetpolineBits.c)
- *     MiUnmapLargeDriver @ 0x1408DA744 (MiUnmapLargeDriver.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     VfDriverUnloadImage @ 0x1409C2474 (VfDriverUnloadImage.c)
+ *     MiCreateSystemWsles @ 0x14023F040 (MiCreateSystemWsles.c)
+ *     MiPartitionIdToPointer @ 0x14024A6C4 (MiPartitionIdToPointer.c)
+ *     MiDereferenceControlArea @ 0x140251BB8 (MiDereferenceControlArea.c)
+ *     MiGetPdeAddress @ 0x14025BEDC (MiGetPdeAddress.c)
+ *     MiReturnResident @ 0x140273F7C (MiReturnResident.c)
+ *     MiIsRetpolineEnabled @ 0x1402A3834 (MiIsRetpolineEnabled.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiDeleteSystemPagableVm @ 0x1403107D0 (MiDeleteSystemPagableVm.c)
+ *     MiManageSubsectionView @ 0x14031BE50 (MiManageSubsectionView.c)
+ *     MiGetSessionVm @ 0x14031CEEC (MiGetSessionVm.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiProcessLoaderEntry @ 0x140371EB0 (MiProcessLoaderEntry.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14037249C (DbgUnLoadImageSymbolsUnicode.c)
+ *     LdrUnloadAlternateResourceModule @ 0x14037F8A8 (LdrUnloadAlternateResourceModule.c)
+ *     MiSessionRemoveImage @ 0x14038B148 (MiSessionRemoveImage.c)
+ *     MiDeleteSessionPdes @ 0x14038CC18 (MiDeleteSessionPdes.c)
+ *     MiFreePrivateFixupEntryForSystemImage @ 0x14039F098 (MiFreePrivateFixupEntryForSystemImage.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeFlushRsb @ 0x14051B458 (KeFlushRsb.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14052AB64 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14053185C (MiLogPerfMemoryRangeEvent.c)
+ *     MiClearDriverHotPatchPtes @ 0x14053E668 (MiClearDriverHotPatchPtes.c)
+ *     MiUnmapPatchTable @ 0x14053F3DC (MiUnmapPatchTable.c)
+ *     MiUnmapRetpolineStubs @ 0x140544488 (MiUnmapRetpolineStubs.c)
+ *     MiInitPerfMemoryFlags @ 0x140544C98 (MiInitPerfMemoryFlags.c)
+ *     MiVaToSoftwareWsle @ 0x14055C6B8 (MiVaToSoftwareWsle.c)
+ *     PerfLogImageUnload @ 0x1405FE2D4 (PerfLogImageUnload.c)
+ *     MiDereferencePerSessionProtos @ 0x14061B9CC (MiDereferencePerSessionProtos.c)
+ *     MiBytesToMapSystemImage @ 0x1406A8B50 (MiBytesToMapSystemImage.c)
+ *     MiRememberUnloadedDriver @ 0x14075FCB4 (MiRememberUnloadedDriver.c)
+ *     MiReturnSystemImageAddress @ 0x14075FE64 (MiReturnSystemImageAddress.c)
+ *     MiReleaseDriverPtes @ 0x14075FEB0 (MiReleaseDriverPtes.c)
+ *     MiUnlockDriverCode @ 0x140771884 (MiUnlockDriverCode.c)
+ *     MiDereferenceImports @ 0x140772050 (MiDereferenceImports.c)
+ *     KseDriverUnloadImage @ 0x1407730B4 (KseDriverUnloadImage.c)
+ *     MiMarkKernelImageCfgBits @ 0x140773364 (MiMarkKernelImageCfgBits.c)
+ *     MiReturnSystemImageCommitment @ 0x140773400 (MiReturnSystemImageCommitment.c)
+ *     MmHasImageBeenImportOptimized @ 0x1407737A8 (MmHasImageBeenImportOptimized.c)
+ *     MiFreeLoadedImportList @ 0x1407737D4 (MiFreeLoadedImportList.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x140773800 (ExCovReadjustUnloadedModuleEntry.c)
+ *     KeCleanupImageTracepoints @ 0x14077385C (KeCleanupImageTracepoints.c)
+ *     MiReleasePrivilegedPtes @ 0x140773C08 (MiReleasePrivilegedPtes.c)
+ *     MiDeleteSessionDriverProtos @ 0x1407797E8 (MiDeleteSessionDriverProtos.c)
+ *     MiReleaseSessionDriverCharges @ 0x140779AC8 (MiReleaseSessionDriverCharges.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x14078D984 (MiFreeRetpolineRelocationInformation.c)
+ *     MiFreeRetpolineImportInfo @ 0x1407CE0C4 (MiFreeRetpolineImportInfo.c)
+ *     MiFreePatchTableProtos @ 0x1408CA024 (MiFreePatchTableProtos.c)
+ *     MiIsImageFullyRetpolined @ 0x1408D0C14 (MiIsImageFullyRetpolined.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x1408D0DC8 (MiMarkKernelImageRetpolineBits.c)
+ *     MiUnmapLargeDriver @ 0x1408DA8A4 (MiUnmapLargeDriver.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     VfDriverUnloadImage @ 0x1409C3474 (VfDriverUnloadImage.c)
  */
 
 void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
 {
   char v2; // di
   bool v4; // zf
-  unsigned __int64 v5; // r15
+  void *v5; // r15
   ULONG_PTR v6; // r14
   unsigned __int64 v7; // r13
   unsigned __int64 v8; // r12
@@ -132,16 +132,16 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
   v48 = 0LL;
   if ( v4 )
     return;
-  v5 = *(_QWORD *)(BugCheckParameter2 + 48);
-  BugCheckParameter2a = v5;
+  v5 = *(void **)(BugCheckParameter2 + 48);
+  BugCheckParameter2a = (ULONG_PTR)v5;
   v6 = (BugCheckParameter2 + 160) & -(__int64)((v2 & 4) != 0);
   v7 = 0LL;
-  PteAddress = MiGetPteAddress(v5);
+  PteAddress = MiGetPteAddress((unsigned __int64)v5);
   v8 = (unsigned __int64)*(unsigned int *)(BugCheckParameter2 + 64) >> 12;
   v39 = v8;
   Object = *(PVOID *)(BugCheckParameter2 + 112);
   v41 = (unsigned __int64)MiBytesToMapSystemImage(*(unsigned int *)(BugCheckParameter2 + 64)) >> 12;
-  if ( (unsigned int)MiGetSystemRegionType(v5) == 1 )
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)v5) == 1 )
   {
     v51 = 0;
     v10 = MiSessionRemoveImage(BugCheckParameter2, (__int64)&v44);
@@ -167,21 +167,21 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
     MiReleaseSessionDriverCharges(v10);
     if ( v12 )
     {
-      v14 = (dword_140C4CCB0 & 0xFFF) != 0;
-      if ( v14 + ((unsigned int)dword_140C4CCB0 >> 12) )
-        MiUnmapPatchTable(PteAddress + 8 * (v41 - (v14 + ((unsigned int)dword_140C4CCB0 >> 12))));
+      v14 = (dword_140C4CCF0 & 0xFFF) != 0;
+      if ( v14 + ((unsigned int)dword_140C4CCF0 >> 12) )
+        MiUnmapPatchTable(PteAddress + 8 * (v41 - (v14 + ((unsigned int)dword_140C4CCF0 >> 12))));
       if ( (*(_DWORD *)(v7 + 56) & 0x4000000) != 0 )
       {
         SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
         MiDereferencePerSessionProtos((__int64 *)v7, SessionId);
       }
-      MiGetPdeAddress(v5);
+      MiGetPdeAddress((unsigned __int64)v5);
       v15 = v44;
       if ( (_QWORD)v44 )
         v15 = v44 + 1;
       if ( v15 )
         MiGetPdeAddress(v15);
-      PdeAddress = MiGetPdeAddress(v5 + (unsigned int)(*(_DWORD *)(BugCheckParameter2 + 64) - 1));
+      PdeAddress = MiGetPdeAddress((unsigned __int64)v5 + (unsigned int)(*(_DWORD *)(BugCheckParameter2 + 64) - 1));
       if ( *((_QWORD *)&v44 + 1) )
       {
         v34 = MiGetPdeAddress(*((unsigned __int64 *)&v44 + 1));
@@ -222,10 +222,10 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
   }
   KeCleanupImageTracepoints(BugCheckParameter2);
   if ( (int)MiMarkKernelImageCfgBits(BugCheckParameter2, 0LL) < 0 )
-    KeBugCheckEx(0x1Au, 0x1015uLL, v5, BugCheckParameter2, (*(_DWORD *)(v6 + 36) >> 8) & 1);
+    KeBugCheckEx(0x1Au, 0x1015uLL, (ULONG_PTR)v5, BugCheckParameter2, (*(_DWORD *)(v6 + 36) >> 8) & 1);
   if ( v9 )
   {
-    if ( dword_140C4CCB0 )
+    if ( dword_140C4CCF0 )
       MiClearDriverHotPatchPtes(BugCheckParameter2);
   }
   else
@@ -269,7 +269,7 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
   *(_QWORD *)(BugCheckParameter2 + 136) = 1LL;
   LdrUnloadAlternateResourceModule(v5);
   if ( (*(_DWORD *)(BugCheckParameter2 + 104) & 0x100000) != 0 )
-    DbgUnLoadImageSymbolsUnicode((PCUNICODE_STRING)(BugCheckParameter2 + 88), v5, 0xFFFFFFFFLL);
+    DbgUnLoadImageSymbolsUnicode((PCUNICODE_STRING)(BugCheckParameter2 + 88), (__int64)v5, 0xFFFFFFFFLL);
   if ( *(_QWORD *)BugCheckParameter2 && v8 )
     ExCovReadjustUnloadedModuleEntry(BugCheckParameter2, 0LL);
   v21 = 0;
@@ -289,12 +289,12 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
     }
   }
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v5) )
+  if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v5) )
   {
     if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
     {
       inited = MiInitPerfMemoryFlags(0, 6);
-      MiLogPerfMemoryRangeEvent(v5, 0LL, inited, (v39 + 511) & 0xFFFFFFFFFFFFFE00uLL);
+      MiLogPerfMemoryRangeEvent((__int64)v5, 0LL, inited, (v39 + 511) & 0xFFFFFFFFFFFFFE00uLL);
     }
     MiUnmapLargeDriver(v5, v39);
     v21 = 1;
@@ -302,14 +302,14 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
   }
   if ( v6 )
     MiUnlockDriverCode(BugCheckParameter2);
-  qword_140C4CD20 = BugCheckParameter2;
+  qword_140C4CD60 = BugCheckParameter2;
   MiDeleteSystemPagableVm((__int64)AnyMultiplexedVm, v23, PteAddress, v39, 5, &v46);
   v26 = DWORD2(v47);
   v27 = v46;
   if ( v23 )
     MiWalkEntireImage(v23, (__int64)&v43, 4, 0xFFFFFFFF);
-  qword_140C4CD20 = 0LL;
-  _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4CD48 + 3, v27 - v26);
+  qword_140C4CD60 = 0LL;
+  _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4CD88 + 3, v27 - v26);
   v28 = Object;
   if ( !Object )
   {
@@ -323,7 +323,7 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
         memset(v37, v38, v41 - v39);
       }
     }
-    v5 = BugCheckParameter2a;
+    v5 = (void *)BugCheckParameter2a;
     v22 = 1;
     v21 = 0;
     v2 = a2;
@@ -331,7 +331,7 @@ LABEL_95:
     v28 = Object;
     goto LABEL_63;
   }
-  v5 = BugCheckParameter2a;
+  v5 = (void *)BugCheckParameter2a;
   v21 = 0;
   v2 = a2;
 LABEL_63:
@@ -378,9 +378,9 @@ LABEL_63:
     }
     v32 = MiSectionControlArea((__int64)Object);
     v33 = v32;
-    if ( !v21 && v5 != *(_QWORD *)(*(_QWORD *)v32 + 32LL) )
+    if ( !v21 && v5 != *(void **)(*(_QWORD *)v32 + 32LL) )
     {
-      MiFreePrivateFixupEntryForSystemImage(v5, 1);
+      MiFreePrivateFixupEntryForSystemImage((ULONG_PTR)v5, 1);
       MiReturnSystemImageAddress(v5, *(unsigned int *)(BugCheckParameter2 + 64));
     }
     if ( v6 && v51 && (*(_DWORD *)(v6 + 36) & 0x80u) != 0 )

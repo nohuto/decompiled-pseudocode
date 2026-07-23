@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpViewMapPrefetchFile @ 0x140610074
+ * XREFs of HvpViewMapPrefetchFile @ 0x140610128
  * Callers:
- *     HvViewMapStart @ 0x14060FCB4 (HvViewMapStart.c)
+ *     HvViewMapStart @ 0x14060FD68 (HvViewMapStart.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmPrefetchPagesEx @ 0x14042C0DC (MmPrefetchPagesEx.c)
+ *     MmPrefetchPagesEx @ 0x14042AFAC (MmPrefetchPagesEx.c)
  */
 
 __int64 __fastcall HvpViewMapPrefetchFile(__int64 a1, int a2)

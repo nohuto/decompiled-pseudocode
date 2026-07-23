@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCloseLogger @ 0x140073C30
+ * XREFs of EtwpCloseLogger @ 0x1400737B0
  * Callers:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14007394C (EtwpLogSystemEventUnsafe.c)
- *     EtwpCCSwapFlush @ 0x140073B1C (EtwpCCSwapFlush.c)
- *     EtwpOpenLogger @ 0x140073C68 (EtwpOpenLogger.c)
- *     NtTraceEvent @ 0x1400D5560 (NtTraceEvent.c)
- *     EtwpTraceMessageVa @ 0x1400D5D90 (EtwpTraceMessageVa.c)
- *     EtwSendTraceBuffer @ 0x140225124 (EtwSendTraceBuffer.c)
- *     EtwTraceEvent @ 0x14022528C (EtwTraceEvent.c)
- *     EtwTraceRaw @ 0x1402256C4 (EtwTraceRaw.c)
- *     EtwpTraceStackKey @ 0x14022B1D8 (EtwpTraceStackKey.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1400734CC (EtwpLogSystemEventUnsafe.c)
+ *     EtwpCCSwapFlush @ 0x14007369C (EtwpCCSwapFlush.c)
+ *     EtwpOpenLogger @ 0x1400737E8 (EtwpOpenLogger.c)
+ *     NtTraceEvent @ 0x1400D3400 (NtTraceEvent.c)
+ *     EtwpTraceMessageVa @ 0x1400D3C30 (EtwpTraceMessageVa.c)
+ *     EtwSendTraceBuffer @ 0x140224F50 (EtwSendTraceBuffer.c)
+ *     EtwTraceEvent @ 0x1402250B8 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1402254F0 (EtwTraceRaw.c)
+ *     EtwpTraceStackKey @ 0x14022B004 (EtwpTraceStackKey.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140007280 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400073F0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 __int64 __fastcall EtwpCloseLogger(unsigned int a1, __int64 a2, char a3)

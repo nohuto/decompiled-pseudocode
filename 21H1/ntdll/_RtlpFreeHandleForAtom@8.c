@@ -8,15 +8,15 @@
  *     _RtlFreeHandle@8 @ 0x4B2E7780 (_RtlFreeHandle@8.c)
  */
 
-int __fastcall RtlpFreeHandleForAtom(int a1, int a2)
+BOOLEAN __fastcall RtlpFreeHandleForAtom(int a1, int a2)
 {
-  int v2; // esi
-  int result; // eax
-  void *v4; // [esp+4h] [ebp-4h] BYREF
+  _RTL_HANDLE_TABLE *v2; // esi
+  BOOLEAN result; // al
+  PRTL_HANDLE_TABLE_ENTRY Handle; // [esp+4h] [ebp-4h] BYREF
 
-  v2 = a1 + 12;
-  result = RtlIsValidIndexHandle(a1 + 12, *(unsigned __int16 *)(a2 + 4), &v4);
-  if ( (_BYTE)result )
-    return RtlFreeHandle(v2, v4);
+  v2 = (_RTL_HANDLE_TABLE *)(a1 + 12);
+  result = RtlIsValidIndexHandle((PRTL_HANDLE_TABLE)(a1 + 12), *(unsigned __int16 *)(a2 + 4), &Handle);
+  if ( result )
+    return RtlFreeHandle(v2, Handle);
   return result;
 }

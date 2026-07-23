@@ -87,7 +87,7 @@ void sub_140978BA4()
   memset(v29, 0, 32);
   v29[4] = 10800LL;
   v30 = 1;
-  if ( (_DWORD)InitSafeBootMode || InitIsWinPEMode )
+  if ( InitSafeBootMode || InitIsWinPEMode )
     v30 = 0;
   ntoskrnl_20(Blink, v29, 0xFFFFFFFFLL, 1LL);
   if ( (_InterlockedExchangeAdd64(p_Blink, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

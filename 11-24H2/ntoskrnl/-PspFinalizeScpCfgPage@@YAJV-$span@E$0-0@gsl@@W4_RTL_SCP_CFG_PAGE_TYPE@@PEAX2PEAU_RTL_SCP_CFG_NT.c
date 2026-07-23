@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PspFinalizeScpCfgPage@@YAJV?$span@E$0?0@gsl@@W4_RTL_SCP_CFG_PAGE_TYPE@@PEAX2PEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_EXPORTS_ARM64EC@@EK@Z @ 0x140C3612C
+ * XREFs of ?PspFinalizeScpCfgPage@@YAJV?$span@E$0?0@gsl@@W4_RTL_SCP_CFG_PAGE_TYPE@@PEAX2PEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_EXPORTS_ARM64EC@@EK@Z @ 0x140C3826C
  * Callers:
- *     PsInitializeScpCfgPages @ 0x140C3658C (PsInitializeScpCfgPages.c)
+ *     PsInitializeScpCfgPages @ 0x140C386CC (PsInitializeScpCfgPages.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x1404F8960 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6240 (-terminate@details@gsl@@YAXXZ.c)
  */
 
 __int64 __fastcall PspFinalizeScpCfgPage(gsl::details *a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
@@ -26,7 +26,7 @@ __int64 __fastcall PspFinalizeScpCfgPage(gsl::details *a1, __int64 a2, __int64 a
   v18 = *(_OWORD *)a1;
   if ( *(_QWORD *)a1 < 0x18uLL )
   {
-    gsl::details::terminate(a1, a2, a3, a4);
+    gsl::details::terminate(a1, a2);
     __debugbreak();
   }
   if ( (unsigned int)(a2 - 1) <= 1 )

@@ -24,7 +24,7 @@ __int64 __fastcall sub_18002DF14(__int64 a1, __int64 a2)
   char v10; // [rsp+50h] [rbp+18h] BYREF
 
   LODWORD(v2) = 0;
-  if ( (HANDLE)qword_1801564D0 == NtCurrentTeb()->ClientId.UniqueThread )
+  if ( stru_1801564C0.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
     return (unsigned int)v2;
   switch ( *(_DWORD *)(*(_QWORD *)(a1 + 152) + 56LL) )
   {

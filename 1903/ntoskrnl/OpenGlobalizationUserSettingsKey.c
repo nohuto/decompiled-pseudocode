@@ -24,10 +24,10 @@ NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE 
   v4 = dword_1404F2A88;
   if ( !dword_1404F2A88 )
   {
-    if ( (unsigned __int8)RtlIsMultiSessionSku() )
+    if ( RtlIsMultiSessionSku() )
       v4 = 1;
     else
-      v4 = ((unsigned __int8)RtlIsMultiUsersInSessionSku() != 0) + 2;
+      v4 = (RtlIsMultiUsersInSessionSku() != 0) + 2;
     dword_1404F2A88 = v4;
   }
   v5 = v4 - 1;

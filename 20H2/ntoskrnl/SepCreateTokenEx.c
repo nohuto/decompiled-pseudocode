@@ -43,9 +43,9 @@ __int64 __fastcall SepCreateTokenEx(
         int a6,
         __int64 a7,
         _QWORD *a8,
-        void **a9,
-        int a10,
-        __int64 a11,
+        _SID_AND_ATTRIBUTES *a9,
+        ULONG Count,
+        _SID_AND_ATTRIBUTES *a11,
         unsigned int a12,
         unsigned int a13,
         char **a14,
@@ -61,24 +61,24 @@ __int64 __fastcall SepCreateTokenEx(
         char a24)
 {
   PSID v26; // rdi
-  unsigned int v27; // r13d
+  ULONG v27; // r13d
   int v28; // r12d
   __int64 result; // rax
-  void *v30; // rsi
-  unsigned int v31; // ebx
-  unsigned int v32; // r14d
+  PSID Sid; // rsi
+  ULONG v31; // ebx
+  ULONG v32; // r14d
   __int64 v33; // rax
-  void **v34; // r15
+  PSID_AND_ATTRIBUTES v34; // r15
   BOOLEAN v35; // al
   __int64 v36; // r10
   bool v37; // bl
   int v38; // r11d
   bool v39; // r14
   BOOLEAN v40; // al
-  int v41; // eax
+  ULONG Attributes; // eax
   int v42; // r15d
-  _DWORD *v43; // rsi
-  int v44; // edx
+  ULONG *p_Attributes; // rsi
+  ULONG v44; // edx
   unsigned __int8 *v45; // rdi
   char v46; // dl
   PSID_IDENTIFIER_AUTHORITY v47; // rcx
@@ -101,10 +101,10 @@ __int64 __fastcall SepCreateTokenEx(
   void *v64; // rcx
   struct _ERESOURCE *v65; // r15
   int v66; // ebx
-  unsigned int v67; // r14d
-  __int64 v68; // rax
+  ULONG v67; // r14d
+  unsigned __int8 *v68; // rax
   ULONG v69; // r12d
-  unsigned int v70; // ecx
+  ULONG v70; // ecx
   int v71; // eax
   NTSTATUS inserted; // ebx
   _QWORD *v73; // rbx
@@ -119,8 +119,8 @@ __int64 __fastcall SepCreateTokenEx(
   __int64 v82; // rdx
   _KPROCESS *Process; // rcx
   ULONG v84; // eax
-  int v85; // edx
-  unsigned int v86; // r14d
+  _SID_AND_ATTRIBUTES *v85; // rdx
+  ULONG v86; // r14d
   __int64 v87; // rcx
   char *v88; // rsi
   unsigned __int8 *v89; // r14
@@ -131,34 +131,34 @@ __int64 __fastcall SepCreateTokenEx(
   void *v94; // rcx
   int v95; // edx
   PVOID v96; // rdi
-  unsigned int v97; // [rsp+30h] [rbp-D0h]
+  ULONG RemainingSidAreaSize; // [rsp+30h] [rbp-D0h]
   char v98; // [rsp+50h] [rbp-B0h]
   char v99; // [rsp+51h] [rbp-AFh] BYREF
   char v100; // [rsp+52h] [rbp-AEh]
   char v101; // [rsp+53h] [rbp-ADh]
   int v102; // [rsp+54h] [rbp-ACh]
-  __int64 v103; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG SidAreaSize; // [rsp+58h] [rbp-A8h] BYREF
   char **v104; // [rsp+60h] [rbp-A0h]
   int v105; // [rsp+68h] [rbp-98h]
   int v106; // [rsp+6Ch] [rbp-94h]
   PVOID Object; // [rsp+70h] [rbp-90h] BYREF
   unsigned int v108; // [rsp+78h] [rbp-88h]
-  int v109[2]; // [rsp+80h] [rbp-80h]
+  PSID_AND_ATTRIBUTES Src; // [rsp+80h] [rbp-80h]
   PSID v110; // [rsp+88h] [rbp-78h]
   PVOID P; // [rsp+90h] [rbp-70h]
-  void *v112; // [rsp+98h] [rbp-68h] BYREF
+  PSID SidArea; // [rsp+98h] [rbp-68h] BYREF
   PSID Sid1; // [rsp+A0h] [rbp-60h]
   int v114; // [rsp+A8h] [rbp-58h]
   unsigned int v115; // [rsp+ACh] [rbp-54h]
   __int64 v116; // [rsp+B0h] [rbp-50h]
-  int v117[2]; // [rsp+B8h] [rbp-48h]
+  PSID_AND_ATTRIBUTES v117; // [rsp+B8h] [rbp-48h]
   PHANDLE Handle; // [rsp+C0h] [rbp-40h]
   _QWORD *v119; // [rsp+C8h] [rbp-38h]
   __int64 v120; // [rsp+D0h] [rbp-30h]
   __int64 v121; // [rsp+D8h] [rbp-28h]
   __int64 v122; // [rsp+E0h] [rbp-20h]
   __int64 v123; // [rsp+E8h] [rbp-18h]
-  void *Src; // [rsp+F0h] [rbp-10h]
+  void *v124; // [rsp+F0h] [rbp-10h]
   __int64 v125; // [rsp+F8h] [rbp-8h]
   __int64 v126; // [rsp+100h] [rbp+0h]
   __int64 v127; // [rsp+108h] [rbp+8h]
@@ -166,12 +166,12 @@ __int64 __fastcall SepCreateTokenEx(
   _BYTE v129[224]; // [rsp+1B0h] [rbp+B0h] BYREF
 
   v26 = a15;
-  v27 = a10;
+  v27 = Count;
   v106 = -1;
   v123 = a7;
   v104 = a14;
   Sid1 = a16;
-  Src = a17;
+  v124 = a17;
   v127 = a19;
   v126 = a20;
   v125 = a22;
@@ -180,11 +180,11 @@ __int64 __fastcall SepCreateTokenEx(
   v101 = a2;
   Handle = a1;
   Object = 0LL;
-  v112 = 0LL;
+  SidArea = 0LL;
   v102 = 0;
   v119 = (_QWORD *)a4;
-  *(_QWORD *)v109 = a9;
-  *(_QWORD *)v117 = a11;
+  Src = a9;
+  v117 = a11;
   v110 = a15;
   memset(&PassedAccessState, 0, sizeof(PassedAccessState));
   memset(v129, 0, sizeof(v129));
@@ -196,38 +196,38 @@ __int64 __fastcall SepCreateTokenEx(
   result = SeCaptureObjectAttributeSecurityDescriptorPresent(a4, a2, &v99);
   if ( (int)result >= 0 )
   {
-    v30 = *a9;
+    Sid = a9->Sid;
     v31 = 0;
-    if ( a10 )
+    if ( Count )
     {
       do
       {
         v32 = v31;
         while ( v32 < v27 )
         {
-          if ( !RtlEqualSid(v30, *(PSID *)(a11 + 16LL * v32)) || (*(_DWORD *)(a11 + 16LL * v32 + 8) & 0x20) != 0 )
+          if ( !RtlEqualSid(Sid, a11[v32].Sid) || (a11[v32].Attributes & 0x20) != 0 )
             ++v32;
           else
-            *(_OWORD *)(a11 + 16LL * v32) = *(_OWORD *)(a11 + 16LL * --v27);
+            a11[v32] = a11[--v27];
         }
         v33 = v31++;
-        v30 = *(void **)(a11 + 16 * v33);
+        Sid = a11[v33].Sid;
       }
       while ( v31 < v27 );
-      v34 = *(void ***)v109;
+      v34 = Src;
       v26 = v110;
-      v30 = **(void ***)v109;
+      Sid = Src->Sid;
     }
     else
     {
-      v34 = *(void ***)v109;
+      v34 = Src;
     }
-    v35 = RtlEqualSid(Sid1, v30);
+    v35 = RtlEqualSid(Sid1, Sid);
     v36 = 0LL;
     v37 = v35 != 0;
     if ( v26 )
     {
-      v40 = RtlEqualSid(v26, v30);
+      v40 = RtlEqualSid(v26, Sid);
       v36 = 0LL;
       LOBYTE(v38) = 1;
       v39 = v40 != 0;
@@ -237,10 +237,10 @@ __int64 __fastcall SepCreateTokenEx(
       LOBYTE(v38) = 1;
       v39 = 1;
     }
-    v41 = *((_DWORD *)v34 + 2);
-    if ( (v41 & 0x10) != 0 )
+    Attributes = v34->Attributes;
+    if ( (Attributes & 0x10) != 0 )
     {
-      if ( (v41 & 6) != 0 )
+      if ( (Attributes & 6) != 0 )
         return 3221225485LL;
       v28 = 2048;
       v102 = 2048;
@@ -249,15 +249,15 @@ __int64 __fastcall SepCreateTokenEx(
     if ( v27 )
     {
       v42 = 1;
-      v43 = (_DWORD *)(*(_QWORD *)v117 + 8LL);
+      p_Attributes = &v117->Attributes;
       v105 = 0;
       while ( 1 )
       {
-        v44 = *v43;
-        if ( ((unsigned __int8)*v43 & (unsigned __int8)v38) != 0 )
+        v44 = *p_Attributes;
+        if ( ((unsigned __int8)*p_Attributes & (unsigned __int8)v38) != 0 )
         {
           v44 |= 6u;
-          *v43 = v44;
+          *p_Attributes = v44;
         }
         if ( (v44 & 0x10) != 0 )
         {
@@ -266,7 +266,7 @@ __int64 __fastcall SepCreateTokenEx(
           v28 |= 0x800u;
           v102 = v28;
         }
-        v45 = (unsigned __int8 *)*((_QWORD *)v43 - 1);
+        v45 = (unsigned __int8 *)*((_QWORD *)p_Attributes - 1);
         RtlIdentifierAuthoritySid(v45);
         v47 = RtlIdentifierAuthoritySid(SeUntrustedMandatorySid);
         if ( *(_DWORD *)v47->Value == *(_DWORD *)v48 && *(_WORD *)&v47->Value[4] == *(_WORD *)(v48 + 4) )
@@ -299,7 +299,7 @@ LABEL_42:
           v36 = 0LL;
           if ( v53 )
           {
-            if ( (*v43 & 8) == 0 )
+            if ( (*p_Attributes & 8) == 0 )
               return 3221225562LL;
             v38 = 1;
             v105 = v42;
@@ -311,7 +311,7 @@ LABEL_42:
           }
         }
         v42 += v38;
-        v43 += 4;
+        p_Attributes += 4;
         if ( v42 - 1 >= v27 )
           goto LABEL_50;
       }
@@ -435,22 +435,31 @@ LABEL_78:
     }
     else
     {
-      v68 = **(_QWORD **)v109;
+      v68 = (unsigned __int8 *)Src->Sid;
       v108 = (a12 + 7) & 0xFFFFFFF8;
-      v67 = v66 + ((RtlLengthRequiredSid(*(unsigned __int8 *)(v68 + 1)) + 3) & 0xFFFFFFFC) + v108 + 16;
+      v67 = v66 + ((RtlLengthRequiredSid(v68[1]) + 3) & 0xFFFFFFFC) + v108 + 16;
     }
-    LODWORD(v103) = v67;
+    SidAreaSize = v67;
     v69 = (RtlLengthRequiredSid(*((unsigned __int8 *)Sid1 + 1)) + 3) & 0xFFFFFFFC;
-    if ( Src )
-      v69 += (*((unsigned __int16 *)Src + 1) + 3) & 0xFFFFFFFC;
+    if ( v124 )
+      v69 += (*((unsigned __int16 *)v124 + 1) + 3) & 0xFFFFFFFC;
     v70 = v67 + 1168;
     v71 = 4096;
     if ( v69 >= 0x1000 )
       v71 = v69;
     v114 = v71;
-    v97 = v70 + v71;
+    RemainingSidAreaSize = v70 + v71;
     LOBYTE(v70) = v101;
-    inserted = ObCreateObject(v70, (_DWORD)SeTokenObjectType, (_DWORD)v119, 1, 0, v67 + 1168, v97, 0, (__int64)&Object);
+    inserted = ObCreateObject(
+                 v70,
+                 (_DWORD)SeTokenObjectType,
+                 (_DWORD)v119,
+                 1,
+                 0,
+                 v67 + 1168,
+                 RemainingSidAreaSize,
+                 0,
+                 (__int64)&Object);
     if ( inserted < 0 )
     {
       ExFreePoolWithTag(v61, 0);
@@ -558,10 +567,10 @@ LABEL_78:
       v74 = (char *)Object;
       SepAddTokenLogonSession(Object);
     }
-    v85 = v109[0];
+    v85 = Src;
     if ( SepTokenSidSharingEnabled )
     {
-      inserted = SepSetTokenUserAndGroups((_DWORD)v74, v109[0], v27, v117[0], v108);
+      inserted = SepSetTokenUserAndGroups((_DWORD)v74, (_DWORD)Src, v27, (_DWORD)v117, v108);
       if ( inserted < 0 )
         goto LABEL_116;
     }
@@ -571,12 +580,22 @@ LABEL_78:
       *((_QWORD *)v74 + 19) = v74 + 1168;
       v87 = v27 + 1;
       *((_DWORD *)v74 + 31) = v87;
-      v112 = &v74[16 * v87 + 1168];
-      LODWORD(v103) = v86 - 16;
-      RtlCopySidAndAttributesArray(1, v85, v86 - 16, (_DWORD)v74 + 1168, v112, (__int64)&v112, (__int64)&v103);
-      RtlCopySidAndAttributesArray(v27, v117[0], v103, (_DWORD)v74 + 1184, v112, (__int64)&v112, (__int64)&v103);
+      SidArea = &v74[16 * v87 + 1168];
+      SidAreaSize = v86 - 16;
+      RtlCopySidAndAttributesArray(1u, v85, v86 - 16, (PSID_AND_ATTRIBUTES)v74 + 73, SidArea, &SidArea, &SidAreaSize);
+      RtlCopySidAndAttributesArray(
+        v27,
+        v117,
+        SidAreaSize,
+        (PSID_AND_ATTRIBUTES)v74 + 74,
+        SidArea,
+        &SidArea,
+        &SidAreaSize);
     }
-    RtlSidHashInitialize(*((__int64 **)v74 + 19), *((_DWORD *)v74 + 31), (_QWORD *)v74 + 29);
+    RtlSidHashInitialize(
+      *((PSID_AND_ATTRIBUTES *)v74 + 19),
+      *((_DWORD *)v74 + 31),
+      (PSID_AND_ATTRIBUTES_HASH)(v74 + 232));
     *((_QWORD *)v74 + 20) = 0LL;
     *((_DWORD *)v74 + 32) = 0;
     v88 = (char *)ExAllocatePoolWithTag(PagedPool, v69, 0x64546553u);
@@ -587,11 +606,11 @@ LABEL_78:
       *((_QWORD *)v74 + 21) = v88;
       v90 = RtlLengthRequiredSid(v89[1]);
       RtlCopySid(v90, v88, v89);
-      v91 = (unsigned __int16 *)Src;
+      v91 = (unsigned __int16 *)v124;
       v92 = &v88[(v90 + 3) & 0xFFFFFFFC];
-      if ( Src )
+      if ( v124 )
       {
-        v93 = Src;
+        v93 = v124;
         *v104 = v92;
         memmove(v92, v93, v91[1]);
       }

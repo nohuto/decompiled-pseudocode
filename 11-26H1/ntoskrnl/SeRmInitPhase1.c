@@ -1,35 +1,34 @@
 /*
- * XREFs of SeRmInitPhase1 @ 0x140D0B16C
+ * XREFs of SeRmInitPhase1 @ 0x140D1143C
  * Callers:
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwAlpcCreatePort @ 0x140724390 (ZwAlpcCreatePort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14088FB44 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
- *     SepAdtInitializeAuditingOptions @ 0x140CDE828 (SepAdtInitializeAuditingOptions.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwAlpcCreatePort @ 0x140728F60 (ZwAlpcCreatePort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140895F40 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140CE4BC0 (SepAdtInitializeAuditingOptions.c)
  */
 
 char SeRmInitPhase1()
 {
-  __int64 v0; // rcx
-  _QWORD v2[4]; // [rsp+40h] [rbp-39h] BYREF
-  __int128 v3; // [rsp+60h] [rbp-19h]
-  int v4[4]; // [rsp+70h] [rbp-9h] BYREF
-  __int64 v5; // [rsp+80h] [rbp+7h]
+  __int64 v0; // rdx
+  __int64 v1; // rcx
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-39h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+70h] [rbp-9h] BYREF
 
-  v2[0] = 48LL;
-  v2[1] = 0LL;
-  v2[3] = 512LL;
-  v2[2] = L" \"";
-  v3 = 0LL;
-  memset_0(v4, 0, 0x48uLL);
-  v4[0] = 1179648;
-  v5 = 512LL;
-  if ( (int)ZwAlpcCreatePort((__int64)PspSiloMonitorLock.TracingPrivate, (__int64)v2) < 0 )
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 512LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)L" \"";
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  memset_0(&PortAttributes, 0, sizeof(PortAttributes));
+  PortAttributes.Flags = 1179648;
+  PortAttributes.MaxMessageLength = 512LL;
+  if ( ZwAlpcCreatePort((PHANDLE)PspSiloMonitorLock.TracingPrivate, &ObjectAttributes, &PortAttributes) < 0 )
     return 0;
   SepAdtInitializeAuditingOptions();
   if ( PsCreateSystemThread(
@@ -41,9 +40,9 @@ char SeRmInitPhase1()
          (PKSTART_ROUTINE)SepRmCommandServerThread,
          0LL) < 0 )
     return 0;
-  AuthzBasepInitializeSystemSecurityAttributes(v0);
+  AuthzBasepInitializeSystemSecurityAttributes(v1, v0);
   ZwClose(*(HANDLE *)&PspSiloMonitorLock.ThreadTimerDelay);
   *(_QWORD *)&PspSiloMonitorLock.ThreadTimerDelay = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E086F0, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E086E0, 0LL, 0LL);
   return 1;
 }

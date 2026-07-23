@@ -1,5 +1,5 @@
 /*
- * XREFs of ViTargetAddToCounter @ 0x140710350
+ * XREFs of ViTargetAddToCounter @ 0x140710380
  * Callers:
  *     VerifierMmAllocateNodePagesForMdlEx @ 0x14071B988 (VerifierMmAllocateNodePagesForMdlEx.c)
  *     VerifierMmAllocatePagesForMdl @ 0x14071BAD8 (VerifierMmAllocatePagesForMdl.c)
@@ -14,10 +14,10 @@
  *     VerifierMmUnmapIoSpace @ 0x14071C56C (VerifierMmUnmapIoSpace.c)
  *     VerifierMmUnmapLockedPages @ 0x14071C5E4 (VerifierMmUnmapLockedPages.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14012F004 (VfAvlLookupTreeNode.c)
- *     ViTargetUpdateTreeAllowed @ 0x1407107E8 (ViTargetUpdateTreeAllowed.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14012F574 (VfAvlLookupTreeNode.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140710818 (ViTargetUpdateTreeAllowed.c)
  */
 
 unsigned __int64 __fastcall ViTargetAddToCounter(__int64 a1, __int64 a2, unsigned int a3, unsigned __int64 a4)

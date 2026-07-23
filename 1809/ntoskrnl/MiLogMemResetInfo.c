@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLogMemResetInfo @ 0x14084E070
+ * XREFs of MiLogMemResetInfo @ 0x14084F2D0
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiLogPerfMemoryEvent @ 0x1402A7D8C (MiLogPerfMemoryEvent.c)
+ *     MiLogPerfMemoryEvent @ 0x1402A7F7C (MiLogPerfMemoryEvent.c)
  */
 
 void __fastcall MiLogMemResetInfo(__int64 a1, __int64 a2, int a3)

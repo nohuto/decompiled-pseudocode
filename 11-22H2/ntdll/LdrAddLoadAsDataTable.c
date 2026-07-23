@@ -15,35 +15,40 @@
  *     memmove @ 0x1800A5980 (memmove.c)
  */
 
-__int64 __fastcall LdrAddLoadAsDataTable(wchar_t *String2, _WORD *Src, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl LdrAddLoadAsDataTable(
+        PVOID Module,
+        PWSTR FilePath,
+        SIZE_T Size,
+        HANDLE Handle,
+        PACTIVATION_CONTEXT ActCtx)
 {
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   unsigned int v11; // edi
-  __int64 v12; // r8
-  __int64 v13; // rax
-  __int64 Heap; // rax
-  void *v15; // rdi
+  PVOID *v12; // r8
+  PVOID *v13; // rax
+  PVOID *Heap; // rax
+  PVOID v15; // rdi
   __int64 v16; // rax
   size_t v17; // rbx
-  void *v18; // rax
+  PVOID v18; // rax
   __int64 v19; // rdx
 
   v9 = 0;
-  if ( !String2 )
-    return 3221225485LL;
+  if ( !Module )
+    return -1073741811;
   if ( (unsigned int)Feature_Servicing_CritsecInit__private_IsEnabled() )
     LdrpInitMuiCritsRtlInitOnce();
   else
     LdrpInitMuiCrits();
   RtlEnterCriticalSection(&LoadAsDataCrits);
   v11 = 0;
-  v12 = LoadAsDataTable;
+  v12 = (PVOID *)LoadAsDataTable;
   while ( v11 < LoadAsDataTableCount )
   {
-    if ( *(wchar_t **)(v12 + 48LL * v11) == String2 )
+    if ( v12[6 * v11] == Module )
     {
-      LdrRemoveLoadAsDataTable(String2, 0LL, 0LL, 0);
-      v12 = LoadAsDataTable;
+      LdrRemoveLoadAsDataTable(Module, 0LL, 0LL, 0);
+      v12 = (PVOID *)LoadAsDataTable;
     }
     ++v11;
   }
@@ -51,11 +56,11 @@ __int64 __fastcall LdrAddLoadAsDataTable(wchar_t *String2, _WORD *Src, __int64 a
   {
     if ( LoadAsDataTableCount < (unsigned int)LoadAsDataTableBlockCount )
       goto LABEL_19;
-    Heap = RtlReAllocateHeap(
-             NtCurrentPeb()->ProcessHeap,
-             0LL,
-             LoadAsDataTable,
-             48LL * (unsigned int)(LoadAsDataTableBlockCount + 32));
+    Heap = (PVOID *)RtlReAllocateHeap(
+                      NtCurrentPeb()->ProcessHeap,
+                      0,
+                      LoadAsDataTable,
+                      48LL * (unsigned int)(LoadAsDataTableBlockCount + 32));
     v12 = Heap;
     if ( !Heap )
       goto LABEL_13;
@@ -64,7 +69,7 @@ __int64 __fastcall LdrAddLoadAsDataTable(wchar_t *String2, _WORD *Src, __int64 a
   }
   else
   {
-    v13 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 1536LL);
+    v13 = (PVOID *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x600uLL);
     v12 = v13;
     if ( !v13 )
     {
@@ -78,32 +83,32 @@ LABEL_13:
   v9 = 0;
 LABEL_19:
   v15 = 0LL;
-  if ( Src )
+  if ( FilePath )
   {
     v16 = -1LL;
     do
       ++v16;
-    while ( Src[v16] );
+    while ( FilePath[v16] );
     v17 = 2 * v16;
-    v18 = (void *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 2 * v16 + 2);
+    v18 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v16 + 2);
     v15 = v18;
     if ( !v18 )
       goto LABEL_13;
-    memmove(v18, Src, v17);
+    memmove(v18, FilePath, v17);
     v9 = 0;
-    v12 = LoadAsDataTable;
+    v12 = (PVOID *)LoadAsDataTable;
   }
   v19 = 6LL * (unsigned int)LoadAsDataTableCount;
-  *(_QWORD *)(v12 + 8 * v19) = String2;
-  *(_QWORD *)(v12 + 8 * v19 + 8) = v15;
-  *(_QWORD *)(v12 + 8 * v19 + 16) = a3;
-  *(_QWORD *)(v12 + 8 * v19 + 24) = a4;
-  *(_DWORD *)(v12 + 8 * v19 + 32) = 1;
-  *(_QWORD *)(v12 + 8 * v19 + 40) = a5;
+  v12[v19] = Module;
+  v12[v19 + 1] = v15;
+  v12[v19 + 2] = (PVOID)Size;
+  v12[v19 + 3] = Handle;
+  LODWORD(v12[v19 + 4]) = 1;
+  v12[v19 + 5] = ActCtx;
   ++LoadAsDataTableCount;
 LABEL_25:
   RtlLeaveCriticalSection(&LoadAsDataCrits);
-  if ( v9 >= 0 && Src )
-    LdrLogNewDataDllLoad(String2, Src);
-  return (unsigned int)v9;
+  if ( v9 >= 0 && FilePath )
+    LdrLogNewDataDllLoad(Module, FilePath);
+  return v9;
 }

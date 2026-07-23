@@ -3,7 +3,7 @@
  * Callers:
  *     RtlCopyBitMap @ 0x14000F710 (RtlCopyBitMap.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 unsigned __int64 __fastcall RtlpCopyBitMapTailToHead(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

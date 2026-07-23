@@ -257,30 +257,29 @@
  *     RtlpWakeSRWLock @ 0x18001E4A4 (RtlpWakeSRWLock.c)
  */
 
-signed __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   __int64 v2; // rdx
   signed __int64 v3; // r8
   signed __int64 v4; // rdx
   signed __int64 v5; // rtt
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 1LL);
-  if ( result != 1 )
+  v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
+  if ( v1 != 1 )
   {
     do
     {
       v2 = 3LL;
-      v3 = result & 6;
+      v3 = v1 & 6;
       if ( v3 != 2 )
         v2 = -1LL;
-      v4 = result + v2;
-      v5 = result;
-      result = _InterlockedCompareExchange64(a1, v4, result);
+      v4 = v1 + v2;
+      v5 = v1;
+      v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v4, v1);
     }
-    while ( v5 != result );
+    while ( v5 != v1 );
     if ( v3 == 2 )
-      return RtlpWakeSRWLock(a1, v4, 0LL);
+      RtlpWakeSRWLock(SRWLock, v4, 0LL);
   }
-  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpErrataInitSystem @ 0x1409A0160
+ * XREFs of HalpErrataInitSystem @ 0x1409A1090
  * Callers:
  *     <none>
  * Callees:
- *     HalpUsbLegacyScanBusForHandoff @ 0x1403BA85C (HalpUsbLegacyScanBusForHandoff.c)
- *     HalpErrataApplyPerProcessor @ 0x140999CD0 (HalpErrataApplyPerProcessor.c)
- *     HalpErrataInitDiscard @ 0x140A3908C (HalpErrataInitDiscard.c)
- *     HalpInitChipHacks @ 0x140A629BC (HalpInitChipHacks.c)
+ *     HalpUsbLegacyScanBusForHandoff @ 0x1403BA9CC (HalpUsbLegacyScanBusForHandoff.c)
+ *     HalpErrataApplyPerProcessor @ 0x14099ACD0 (HalpErrataApplyPerProcessor.c)
+ *     HalpErrataInitDiscard @ 0x140A3A08C (HalpErrataInitDiscard.c)
+ *     HalpInitChipHacks @ 0x140A639BC (HalpInitChipHacks.c)
  */
 
 __int64 __fastcall HalpErrataInitSystem(int a1, __int64 a2, __int64 a3)
@@ -25,7 +25,7 @@ __int64 __fastcall HalpErrataInitSystem(int a1, __int64 a2, __int64 a3)
       HalpErrataInitDiscard();
       return v3;
     case 17:
-      qword_140C48D88 = (__int64)&HalpUsbControllerList;
+      qword_140C48DC8 = (__int64)&HalpUsbControllerList;
       HalpUsbControllerList = (__int64)&HalpUsbControllerList;
       HalpUsbLegacyScanBusForHandoff();
 LABEL_9:

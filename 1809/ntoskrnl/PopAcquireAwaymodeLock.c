@@ -1,8 +1,8 @@
 /*
- * XREFs of PopAcquireAwaymodeLock @ 0x14056631C
+ * XREFs of PopAcquireAwaymodeLock @ 0x14056731C
  * Callers:
- *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
- *     PopAwayModePowerRequest @ 0x140866340 (PopAwayModePowerRequest.c)
+ *     PopIssueActionRequest @ 0x1406DFAF0 (PopIssueActionRequest.c)
+ *     PopAwayModePowerRequest @ 0x1408675A0 (PopAwayModePowerRequest.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

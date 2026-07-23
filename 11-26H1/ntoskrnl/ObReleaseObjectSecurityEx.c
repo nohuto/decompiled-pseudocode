@@ -1,16 +1,16 @@
 /*
- * XREFs of ObReleaseObjectSecurityEx @ 0x14093C920
+ * XREFs of ObReleaseObjectSecurityEx @ 0x1409184C0
  * Callers:
- *     PspCheckJobAccessState @ 0x140778CD8 (PspCheckJobAccessState.c)
- *     PspAllocateNotificationChannel @ 0x1407F7938 (PspAllocateNotificationChannel.c)
- *     ObpInsertOrLocateNamedObject @ 0x1408EEAF0 (ObpInsertOrLocateNamedObject.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x14093B234 (EtwpCheckCurrentUserProcessAccess.c)
- *     ObpCheckTraverseAccess @ 0x14093C7C8 (ObpCheckTraverseAccess.c)
- *     MiAllowImageMap @ 0x140B1FE0C (MiAllowImageMap.c)
- *     PopBootStatAccessCheck @ 0x140B50828 (PopBootStatAccessCheck.c)
+ *     PspCheckJobAccessState @ 0x14077BB78 (PspCheckJobAccessState.c)
+ *     PspAllocateNotificationChannel @ 0x1407FD498 (PspAllocateNotificationChannel.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1408F50B0 (ObpInsertOrLocateNamedObject.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x140916DD4 (EtwpCheckCurrentUserProcessAccess.c)
+ *     ObpCheckTraverseAccess @ 0x140918368 (ObpCheckTraverseAccess.c)
+ *     MiAllowImageMap @ 0x140B2222C (MiAllowImageMap.c)
+ *     PopBootStatAccessCheck @ 0x140B530B8 (PopBootStatAccessCheck.c)
  * Callees:
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObReleaseObjectSecurityEx(__int64 a1, char a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmUnlockHive @ 0x140663A5C
+ * XREFs of CmUnlockHive @ 0x14065887C
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
- *     CmpFlushNotify @ 0x14066AE8C (CmpFlushNotify.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140658050 (NtNotifyChangeMultipleKeys.c)
+ *     CmpFlushNotify @ 0x14065FCAC (CmpFlushNotify.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  */
 
 char __fastcall CmUnlockHive(__int64 a1)

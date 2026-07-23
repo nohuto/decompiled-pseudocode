@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpLogClosePort @ 0x140742788
+ * XREFs of AlpcpLogClosePort @ 0x1407406B8
  * Callers:
- *     AlpcpDispatchCloseMessage @ 0x14088CEEC (AlpcpDispatchCloseMessage.c)
+ *     AlpcpDispatchCloseMessage @ 0x14089016C (AlpcpDispatchCloseMessage.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     AlpcpInvokeLogCallbacks @ 0x140AA9974 (AlpcpInvokeLogCallbacks.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x140AA4A24 (AlpcpInvokeLogCallbacks.c)
  */
 
 __int64 __fastcall AlpcpLogClosePort(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipAddProviderIdToPIList @ 0x1409CF0AC
+ * XREFs of WmipAddProviderIdToPIList @ 0x1409B407C
  * Callers:
- *     WmipPrepareWnodeSI @ 0x1409CEBB0 (WmipPrepareWnodeSI.c)
+ *     WmipPrepareWnodeSI @ 0x1409B3B80 (WmipPrepareWnodeSI.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     WmipUnreferenceEntry @ 0x1409CE1D4 (WmipUnreferenceEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     WmipUnreferenceEntry @ 0x1409B31A8 (WmipUnreferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipAddProviderIdToPIList(
@@ -41,7 +41,7 @@ __int64 __fastcall WmipAddProviderIdToPIList(
   }
   else
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, 8LL * (unsigned int)(2 * v7), 0x70696D57u);
     v12 = Pool2;
     v13 = v8;
     if ( Pool2 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetUltraHugeAlreadyActive @ 0x1404879F0
+ * XREFs of MiGetUltraHugeAlreadyActive @ 0x140482A60
  * Callers:
- *     MiGetBackgroundHugePageToZero @ 0x140209AF0 (MiGetBackgroundHugePageToZero.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1403310D0 (MiGetBackgroundHugePageToZero.c)
  * Callees:
- *     MiJoinHugeContext @ 0x140487A9C (MiJoinHugeContext.c)
- *     MiDereferenceHugeContext @ 0x1404CFD8C (MiDereferenceHugeContext.c)
+ *     MiJoinHugeContext @ 0x140482B0C (MiJoinHugeContext.c)
+ *     MiDereferenceHugeContext @ 0x1404C8E3C (MiDereferenceHugeContext.c)
  */
 
 _QWORD *__fastcall MiGetUltraHugeAlreadyActive(__int64 a1)

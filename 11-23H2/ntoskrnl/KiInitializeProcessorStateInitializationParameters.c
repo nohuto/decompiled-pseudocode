@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeProcessorStateInitializationParameters @ 0x14056BEAC
+ * XREFs of KiInitializeProcessorStateInitializationParameters @ 0x14056C56C
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall KiInitializeProcessorStateInitializationParameters(void *a1)

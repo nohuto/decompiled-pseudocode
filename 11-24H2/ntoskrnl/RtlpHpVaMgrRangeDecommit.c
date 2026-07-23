@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrRangeDecommit @ 0x140605D70
+ * XREFs of RtlpHpVaMgrRangeDecommit @ 0x1406033B0
  * Callers:
- *     RtlpHpVaMgrCtxDecommit @ 0x140605AF0 (RtlpHpVaMgrCtxDecommit.c)
+ *     RtlpHpVaMgrCtxDecommit @ 0x140603130 (RtlpHpVaMgrCtxDecommit.c)
  * Callees:
- *     MmFreePoolMemory @ 0x140243A40 (MmFreePoolMemory.c)
- *     RtlpHpVaMgrRangeCommitProcess @ 0x14048EEC4 (RtlpHpVaMgrRangeCommitProcess.c)
+ *     MmFreePoolMemory @ 0x14020C540 (MmFreePoolMemory.c)
+ *     RtlpHpVaMgrRangeCommitProcess @ 0x1404892C4 (RtlpHpVaMgrRangeCommitProcess.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRangeDecommit(__int64 a1, _BYTE *a2, ULONG_PTR *a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipCountedToSz @ 0x1409CF68C
+ * XREFs of WmipCountedToSz @ 0x1409B5550
  * Callers:
- *     WmipPrepareWnodeSI @ 0x1409CEBB0 (WmipPrepareWnodeSI.c)
- *     WmipAddDataSource @ 0x1409CFD60 (WmipAddDataSource.c)
+ *     WmipAddDataSource @ 0x1409B01A8 (WmipAddDataSource.c)
+ *     WmipPrepareWnodeSI @ 0x1409B3B80 (WmipPrepareWnodeSI.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 _WORD *__fastcall WmipCountedToSz(unsigned __int16 *a1)
@@ -15,7 +15,7 @@ _WORD *__fastcall WmipCountedToSz(unsigned __int16 *a1)
   _WORD *v4; // rbx
 
   v1 = *a1;
-  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v1 + 2, 0x70696D57u);
   v4 = Pool2;
   if ( Pool2 )
   {

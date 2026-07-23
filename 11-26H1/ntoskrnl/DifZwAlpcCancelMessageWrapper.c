@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwAlpcCancelMessageWrapper @ 0x14069A290
+ * XREFs of DifZwAlpcCancelMessageWrapper @ 0x14069DE70
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwAlpcCancelMessage @ 0x140724330 (ZwAlpcCancelMessage.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwAlpcCancelMessage @ 0x140728F00 (ZwAlpcCancelMessage.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwAlpcCancelMessageWrapper(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall DifZwAlpcCancelMessageWrapper(HANDLE PortHandle, ULONG Flags, PALPC_CONTEXT_ATTR MessageContext)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -45,9 +45,9 @@ __int64 __fastcall DifZwAlpcCancelMessageWrapper(__int64 a1, unsigned int a2, __
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    *((_QWORD *)&v18 + 1) = a1;
-    LODWORD(v18) = a2;
-    *((_QWORD *)&v17 + 1) = a3;
+    *((_QWORD *)&v18 + 1) = PortHandle;
+    LODWORD(v18) = Flags;
+    *((_QWORD *)&v17 + 1) = MessageContext;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -60,7 +60,7 @@ __int64 __fastcall DifZwAlpcCancelMessageWrapper(__int64 a1, unsigned int a2, __
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = ZwAlpcCancelMessage(a1, a2, a3);
+  LODWORD(v19) = ZwAlpcCancelMessage(PortHandle, Flags, MessageContext);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

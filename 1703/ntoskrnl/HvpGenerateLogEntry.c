@@ -21,7 +21,7 @@ __int64 __fastcall HvpGenerateLogEntry(__int64 a1, _QWORD *a2, unsigned int *a3)
   unsigned int v3; // edi
   int v5; // ebx
   char v6; // r15
-  struct _RTL_BITMAP *v7; // r12
+  _RTL_BITMAP *v7; // r12
   unsigned int v8; // esi
   ULONG v9; // eax
   unsigned int v10; // r13d
@@ -55,7 +55,7 @@ __int64 __fastcall HvpGenerateLogEntry(__int64 a1, _QWORD *a2, unsigned int *a3)
     v6 = 1;
     v5 = 512;
   }
-  v7 = (struct _RTL_BITMAP *)(a1 + 72);
+  v7 = (_RTL_BITMAP *)(a1 + 72);
   v8 = HvpCountSetRangesInVector((PRTL_BITMAP)(a1 + 72));
   LODWORD(Size) = v8;
   v9 = RtlNumberOfSetBits(v7);

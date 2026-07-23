@@ -19,7 +19,7 @@ __int64 __fastcall MiSetIdealProcessorThread(PGROUP_AFFINITY Affinity)
   KPRIORITY v4; // edi
   unsigned int FirstSetRightGroupAffinity; // eax
   int v6; // esi
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+28h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+28h] [rbp-20h] BYREF
 
   v1 = Affinity->Mask == 0;
   PreviousAffinity = 0LL;

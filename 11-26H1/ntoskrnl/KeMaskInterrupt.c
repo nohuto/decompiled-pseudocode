@@ -1,20 +1,20 @@
 /*
- * XREFs of KeMaskInterrupt @ 0x140424930
+ * XREFs of KeMaskInterrupt @ 0x140431A20
  * Callers:
- *     KeDisconnectInterrupt @ 0x140423CA0 (KeDisconnectInterrupt.c)
- *     IopMaskInterrupt @ 0x140424338 (IopMaskInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x140430D90 (KeDisconnectInterrupt.c)
+ *     IopMaskInterrupt @ 0x140431428 (IopMaskInterrupt.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KeRemoveQueueDpcEx @ 0x140423370 (KeRemoveQueueDpcEx.c)
- *     KiMaskSecondaryInterruptInternal @ 0x140423640 (KiMaskSecondaryInterruptInternal.c)
- *     KiAcquireInterruptConnectLock @ 0x14042372C (KiAcquireInterruptConnectLock.c)
- *     KiMaskInterruptInternal @ 0x1404237C0 (KiMaskInterruptInternal.c)
- *     KiIsInterruptTypeSecondary @ 0x140424BA4 (KiIsInterruptTypeSecondary.c)
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KeRemoveQueueDpcEx @ 0x140430460 (KeRemoveQueueDpcEx.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x140430730 (KiMaskSecondaryInterruptInternal.c)
+ *     KiAcquireInterruptConnectLock @ 0x14043081C (KiAcquireInterruptConnectLock.c)
+ *     KiMaskInterruptInternal @ 0x1404308B0 (KiMaskInterruptInternal.c)
+ *     KiIsInterruptTypeSecondary @ 0x140431C94 (KiIsInterruptTypeSecondary.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, ULONG_PTR a4)
@@ -36,8 +36,8 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   unsigned int v23; // edx
   ULONG ProcessorIndexFromNumber; // eax
   unsigned __int8 v25[4]; // [rsp+30h] [rbp-58h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-54h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-54h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
 
   v5 = 0;
   PreviousAffinity = 0LL;
@@ -107,7 +107,7 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
     if ( v22 )
     {
       if ( v22 >= KeMaximumProcessors
-        || (v23 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v22)) == 0 )
+        || (v23 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v22)) == 0 )
       {
 LABEL_38:
         v12 = -1073741811;

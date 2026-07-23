@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCollectFreeBlocks @ 0x180017060
+ * XREFs of RtlpCollectFreeBlocks @ 0x180002140
  * Callers:
- *     RtlpFlushHeap @ 0x180016FFC (RtlpFlushHeap.c)
- *     RtlpDeCommitFreeBlock @ 0x180025C70 (RtlpDeCommitFreeBlock.c)
+ *     RtlpFlushHeap @ 0x1800020DC (RtlpFlushHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010D40 (RtlpDeCommitFreeBlock.c)
  * Callees:
- *     RtlpDecommitBlock @ 0x180017150 (RtlpDecommitBlock.c)
- *     RtlpAnalyzeHeapFailure @ 0x1800257B0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpDecommitBlock @ 0x180002230 (RtlpDecommitBlock.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180010880 (RtlpAnalyzeHeapFailure.c)
  */
 
 void __fastcall RtlpCollectFreeBlocks(__int64 a1)
@@ -47,7 +47,7 @@ void __fastcall RtlpCollectFreeBlocks(__int64 a1)
     }
     else
     {
-      RtlpDecommitBlock(a1, v2 - 16);
+      RtlpDecommitBlock(a1);
       v2 = *(_QWORD *)(v2 + 8);
     }
   }

@@ -21,7 +21,7 @@ unsigned __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, __int
   unsigned int v5; // r12d
   unsigned int v6; // ebx
   int v7; // r13d
-  unsigned __int64 *v8; // r15
+  _RTL_BALANCED_NODE **v8; // r15
   __int64 v9; // r14
   unsigned __int64 v10; // rbx
   int v11; // esi
@@ -33,15 +33,15 @@ unsigned __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, __int
   __int64 v17; // rax
   __int64 v18; // r8
   __int64 v19; // r14
-  unsigned __int64 v20; // rsi
+  _RTL_BALANCED_NODE *v20; // rsi
   int v21; // ebp
   __int64 v22; // r12
-  unsigned __int64 v23; // rax
+  _RTL_BALANCED_NODE *v23; // rax
   char v24; // cl
   unsigned int v25; // esi
   unsigned int v26; // edx
   _BYTE *v28; // rax
-  unsigned __int64 v29; // rax
+  PVOID v29; // rax
   unsigned __int64 v30; // rsi
   unsigned int v31; // [rsp+68h] [rbp+10h]
   int v32; // [rsp+70h] [rbp+18h]
@@ -53,8 +53,8 @@ unsigned __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, __int
   v6 = (unsigned __int8)a3 | (((v5 << 16) | (unsigned __int16)~((_WORD)v5 << v4)) << 8);
   v7 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 24);
-  v8 = (unsigned __int64 *)(a1 + 56);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
+  v8 = (_RTL_BALANCED_NODE **)(a1 + 56);
   v9 = v6;
   v10 = *(_QWORD *)(a1 + 56);
   v11 = *(_BYTE *)(a1 + 64) & 1;
@@ -82,7 +82,7 @@ unsigned __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, __int
 LABEL_12:
   if ( v10 )
   {
-    RtlRbRemoveNode(a1 + 56, v10);
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 56), (PRTL_BALANCED_NODE)v10);
     *(_QWORD *)v10 = 0LL;
     *(_QWORD *)(v10 + 8) = 0LL;
     *(_QWORD *)(v10 + 16) = 0LL;
@@ -95,15 +95,15 @@ LABEL_12:
   else
   {
     if ( !v7 )
-      RtlReleaseSRWLockExclusive(a1 + 24);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     v29 = RtlpHpSegSegmentAllocate((int *)a1, 0);
-    v30 = v29;
+    v30 = (unsigned __int64)v29;
     if ( !v29 )
       return 0LL;
-    RtlpHpSegSegmentInitialize(a1, v29, 0);
+    RtlpHpSegSegmentInitialize(a1, (__int64)v29, 0);
     v10 = v30 + 32LL * *(unsigned __int8 *)(a1 + 10);
     if ( !v7 )
-      RtlAcquireSRWLockExclusive(a1 + 24);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     RtlpHpSegHeapAddSegment(a1, v30);
   }
   v17 = RtlpHpSegPageRangeSplit(v16, v10, v5);
@@ -120,7 +120,7 @@ LABEL_12:
   {
     if ( (int)RtlpHpSegFreeRangeCompare(v22, v20, v18) >= 0 )
     {
-      v23 = *(_QWORD *)(v20 + 8);
+      v23 = v20->Children[1];
       if ( v21 )
       {
         if ( !v23 )
@@ -129,13 +129,13 @@ LABEL_21:
           LOBYTE(v18) = 1;
           goto LABEL_22;
         }
-        v23 ^= v20;
+        v23 = (_RTL_BALANCED_NODE *)((unsigned __int64)v20 ^ (unsigned __int64)v23);
       }
       if ( !v23 )
         goto LABEL_21;
       goto LABEL_20;
     }
-    v23 = *(_QWORD *)v20;
+    v23 = v20->Children[0];
     if ( v21 )
       break;
 LABEL_32:
@@ -146,13 +146,13 @@ LABEL_20:
   }
   if ( v23 )
   {
-    v23 ^= v20;
+    v23 = (_RTL_BALANCED_NODE *)((unsigned __int64)v20 ^ (unsigned __int64)v23);
     goto LABEL_32;
   }
 LABEL_33:
   LOBYTE(v18) = 0;
 LABEL_22:
-  RtlRbInsertNodeEx(a1 + 56, v20, v18, v19);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 56), v20, v18, (PRTL_BALANCED_NODE)v19);
   _InterlockedExchangeAdd64(
     (volatile signed __int64 *)(*(_QWORD *)(a1 + 72) + 16LL),
     (unsigned __int16)~(*(_DWORD *)(v19 + 28) >> 8));
@@ -174,7 +174,7 @@ LABEL_25:
   *(_BYTE *)(v10 + 24) |= v24;
   *(_BYTE *)(32LL * (v5 - 1) + v10 + 24) |= 1u;
   if ( !v7 )
-    RtlReleaseSRWLockExclusive(a1 + 24);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
   v26 = 1;
   if ( v25 > 1 )
   {

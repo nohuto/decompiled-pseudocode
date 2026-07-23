@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReferencePageRuns @ 0x1404401F0
+ * XREFs of MiReferencePageRuns @ 0x1403F8A50
  * Callers:
- *     MiFindContiguousPagesEx @ 0x140304960 (MiFindContiguousPagesEx.c)
- *     MiProcessLargeCoalesceCandidates @ 0x14030A3A4 (MiProcessLargeCoalesceCandidates.c)
- *     MiRebuildLargePage @ 0x1403D2BAC (MiRebuildLargePage.c)
- *     MiReferencePageRuns @ 0x1404401F0 (MiReferencePageRuns.c)
- *     MiComputeNodeMemory @ 0x14066C790 (MiComputeNodeMemory.c)
- *     MiGetListOfPendingBadPages @ 0x140673AD0 (MiGetListOfPendingBadPages.c)
- *     MmIdentifyPhysicalMemory @ 0x1407EBB48 (MmIdentifyPhysicalMemory.c)
- *     MiScanPagefileSpace @ 0x1407EF7B0 (MiScanPagefileSpace.c)
- *     MmScrubMemory @ 0x1407FDC70 (MmScrubMemory.c)
- *     MiCombineAllPhysicalMemory @ 0x1409F24E8 (MiCombineAllPhysicalMemory.c)
- *     MmGetNodeChannelRanges @ 0x140A6BAE4 (MmGetNodeChannelRanges.c)
- *     MiGetPhysicalMemoryRanges @ 0x140AB2D28 (MiGetPhysicalMemoryRanges.c)
+ *     MiFindContiguousPagesEx @ 0x14030E840 (MiFindContiguousPagesEx.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x140314284 (MiProcessLargeCoalesceCandidates.c)
+ *     MiRebuildLargePage @ 0x1403F7120 (MiRebuildLargePage.c)
+ *     MiReferencePageRuns @ 0x1403F8A50 (MiReferencePageRuns.c)
+ *     MiComputeNodeMemory @ 0x14066D960 (MiComputeNodeMemory.c)
+ *     MiGetListOfPendingBadPages @ 0x140674CA0 (MiGetListOfPendingBadPages.c)
+ *     MmIdentifyPhysicalMemory @ 0x1407EC118 (MmIdentifyPhysicalMemory.c)
+ *     MiScanPagefileSpace @ 0x1407EFD80 (MiScanPagefileSpace.c)
+ *     MmScrubMemory @ 0x1407FE3E0 (MmScrubMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1409E6848 (MiCombineAllPhysicalMemory.c)
+ *     MmGetNodeChannelRanges @ 0x140A65044 (MmGetNodeChannelRanges.c)
+ *     MiGetPhysicalMemoryRanges @ 0x140AADC98 (MiGetPhysicalMemoryRanges.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiReferencePageRuns @ 0x1404401F0 (MiReferencePageRuns.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReferencePageRuns @ 0x1403F8A50 (MiReferencePageRuns.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2)
@@ -38,7 +38,7 @@ __int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2)
     v5 = ExAcquireSpinLockExclusive(v4);
   }
   if ( (ULONG *)a1 != &MiSystemPartition )
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E38CC8);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E38E08);
   if ( a2 )
   {
     v6 = *(_QWORD **)(a1 + 32);
@@ -52,7 +52,7 @@ __int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2)
   if ( v6 )
     ++*(v6 - 1);
   if ( (ULONG *)a1 != &MiSystemPartition )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E38CC8);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E38E08);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 200));
   if ( v5 != 17 )
   {

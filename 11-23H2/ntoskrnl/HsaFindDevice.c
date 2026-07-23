@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaFindDevice @ 0x14052F860
+ * XREFs of HsaFindDevice @ 0x14052FDB0
  * Callers:
  *     <none>
  * Callees:

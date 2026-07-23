@@ -6,8 +6,8 @@
  *     RtlLocateExtendedFeature2 @ 0x180076C30 (RtlLocateExtendedFeature2.c)
  *     RtlpVirtualPopShadowStack @ 0x18007CF7C (RtlpVirtualPopShadowStack.c)
  *     RtlpUnwindOpSlots @ 0x1800896AC (RtlpUnwindOpSlots.c)
- *     RtlpIsContinuationContextMachineFrameEntry @ 0x1800A0344 (RtlpIsContinuationContextMachineFrameEntry.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
+ *     RtlpIsContinuationContextMachineFrameEntry @ 0x1800A0304 (RtlpIsContinuationContextMachineFrameEntry.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
  */
 
 __int64 __fastcall RtlpUnwindPrologue(
@@ -229,7 +229,7 @@ LABEL_10:
       a4 = &v9[2 * v10 + 4];
       if ( (unsigned int)++v34 > 0x20 )
 LABEL_77:
-        RtlRaiseStatus(3221225727LL);
+        RtlRaiseStatus(-1073741569);
       continue;
     }
     break;

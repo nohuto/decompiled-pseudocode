@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIpv6StringToAddressExA @ 0x14058C810
+ * XREFs of RtlIpv6StringToAddressExA @ 0x14058CA40
  * Callers:
  *     <none>
  * Callees:
- *     __isascii @ 0x1403D26B0 (__isascii.c)
- *     isdigit @ 0x1403D26D0 (isdigit.c)
- *     islower @ 0x1403D2700 (islower.c)
- *     isxdigit @ 0x1403D27C0 (isxdigit.c)
- *     RtlIpv6StringToAddressA @ 0x14058C3F0 (RtlIpv6StringToAddressA.c)
+ *     __isascii @ 0x1403D2820 (__isascii.c)
+ *     isdigit @ 0x1403D2840 (isdigit.c)
+ *     islower @ 0x1403D2870 (islower.c)
+ *     isxdigit @ 0x1403D2930 (isxdigit.c)
+ *     RtlIpv6StringToAddressA @ 0x14058C620 (RtlIpv6StringToAddressA.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressExA(

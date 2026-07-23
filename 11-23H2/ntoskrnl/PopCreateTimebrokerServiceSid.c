@@ -3,8 +3,8 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
- *     RtlLengthRequiredSid @ 0x1407D1670 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x1407D1940 (RtlLengthRequiredSid.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -15,7 +15,7 @@ __int64 PopCreateTimebrokerServiceSid()
   _DWORD *Pool2; // rax
   _DWORD *v2; // rbx
   NTSTATUS v3; // edi
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
@@ -37,7 +37,7 @@ __int64 PopCreateTimebrokerServiceSid()
       v2[5] = 1717734767;
       v2[6] = -1973635081;
       v2[7] = -539001157;
-      PopTimeBrokerServiceSid = (__int64)v2;
+      PopTimeBrokerServiceSid = v2;
     }
   }
   else

@@ -10,17 +10,11 @@
 
 __int64 __fastcall LdrpThreadTokenSetImpersonationToken(__int64 a1)
 {
-  unsigned int v1; // ebx
-  __int64 v3; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int32 v1; // ebx
+  __int64 ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = a1;
-  v1 = NtSetInformationThread(-2LL, 5LL, &v3);
-  LdrpLogInternal(
-    (int)"minkernel\\ldr\\ldrapi.c",
-    4473,
-    (int)"LdrpThreadTokenSetImpersonationToken",
-    2,
-    "Status: 0x%x\n",
-    v1);
+  ThreadInformation = a1;
+  v1 = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 4473LL, "LdrpThreadTokenSetImpersonationToken", 2LL, "Status: 0x%x\n", v1);
   return v1;
 }

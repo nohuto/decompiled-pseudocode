@@ -9,11 +9,14 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-void *__stdcall RtlDeleteResource(HANDLE *a1)
+void __cdecl RtlDeleteResource(PRTL_RESOURCE Resource)
 {
-  RtlDeleteCriticalSection(a1);
-  NtClose(a1[6]);
-  NtClose(a1[8]);
-  RtlpFreeDebugInfo(a1[13]);
-  return memset(a1, 0, 0x38u);
+  size_t v1; // [esp-4h] [ebp-8h]
+
+  RtlDeleteCriticalSection(&Resource->CriticalSection);
+  NtClose(Resource->SharedSemaphore);
+  NtClose(Resource->ExclusiveSemaphore);
+  RtlpFreeDebugInfo(Resource->DebugInfo);
+  LODWORD(v1) = 56;
+  memset(Resource, 0, v1);
 }

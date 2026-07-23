@@ -1,15 +1,15 @@
 /*
- * XREFs of ObQueryRefTraceInformation @ 0x140744838
+ * XREFs of ObQueryRefTraceInformation @ 0x140742B28
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
  */
 
 __int64 __fastcall ObQueryRefTraceInformation(char *Address, SIZE_T Length, unsigned int *a3)
@@ -18,8 +18,8 @@ __int64 __fastcall ObQueryRefTraceInformation(char *Address, SIZE_T Length, unsi
   unsigned int v5; // r14d
   unsigned int v6; // esi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v8; // rax
-  _QWORD *v9; // r13
+  char *v8; // rax
+  char *v9; // r13
   char v10; // cl
   unsigned __int16 v11; // r13
   char *v12; // r12
@@ -35,12 +35,12 @@ __int64 __fastcall ObQueryRefTraceInformation(char *Address, SIZE_T Length, unsi
   v6 = 40;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v8 = KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
+  v8 = (char *)KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ObpStackTraceLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, (__int64)v8, (__int64)&ObpStackTraceLock);
+    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, v8, (__int64)&ObpStackTraceLock);
   if ( v9 )
-    *((_BYTE *)v9 + 10) = 1;
+    v9[10] = 1;
   v10 = ObpTraceFlags;
   if ( (ObpTraceFlags & 2) == 0 )
   {

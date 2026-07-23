@@ -13,11 +13,10 @@ __int64 __fastcall TpAlpcUnregisterCompletionList(__int64 a1)
   __int64 v3; // rdx
   __int64 v4; // rcx
   __int64 v5; // r8
-  __int64 v6; // r9
 
-  result = sub_180056970((struct _PEB_LDR_DATA *)a1, 0LL, 1LL);
+  result = sub_180056970((PPEB_LDR_DATA)a1, 0LL, 1LL);
   if ( !(_DWORD)result || (*(_BYTE *)(a1 + 288) & 1) == 0 )
-    result = sub_1801086C8(v4, v3, v5, v6);
+    result = sub_1801086C8(v4, v3, v5);
   *(_DWORD *)(a1 + 288) &= ~2u;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeDriverPatchState @ 0x140A9A35C
+ * XREFs of MiInitializeDriverPatchState @ 0x140A958C8
  * Callers:
- *     MiLockPatchIatForDV @ 0x14067BF00 (MiLockPatchIatForDV.c)
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x14067C118 (MiReapplyImportOptimizationForDriverVerifier.c)
- *     MmWriteSystemImageTracepoint @ 0x14067DBF0 (MmWriteSystemImageTracepoint.c)
- *     MmReapplyBootPatchImports @ 0x140C56B08 (MmReapplyBootPatchImports.c)
+ *     MiLockPatchIatForDV @ 0x14067D0E0 (MiLockPatchIatForDV.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x14067D2F8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MmWriteSystemImageTracepoint @ 0x14067EDF0 (MmWriteSystemImageTracepoint.c)
+ *     MmReapplyBootPatchImports @ 0x140C58C98 (MmReapplyBootPatchImports.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeDriverPatchState(__int64 a1, __int64 a2)

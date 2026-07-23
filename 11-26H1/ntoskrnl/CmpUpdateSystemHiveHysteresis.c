@@ -1,41 +1,41 @@
 /*
- * XREFs of CmpUpdateSystemHiveHysteresis @ 0x140AFAA28
+ * XREFs of CmpUpdateSystemHiveHysteresis @ 0x140AFCC90
  * Callers:
- *     HvFreeHivePartial @ 0x1408B7A44 (HvFreeHivePartial.c)
- *     HvpAddBin @ 0x140B7EAA0 (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x1408BE014 (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x140B87980 (HvpAddBin.c)
  * Callees:
- *     CmpDoQueueSystemHiveHysteresis @ 0x140851308 (CmpDoQueueSystemHiveHysteresis.c)
+ *     CmpDoQueueSystemHiveHysteresis @ 0x140857618 (CmpDoQueueSystemHiveHysteresis.c)
  */
 
 void __fastcall CmpUpdateSystemHiveHysteresis(struct _KTHREAD *a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // eax
 
-  if ( a1 == stru_140E098B8.WaitBlock[2].Thread && *(_QWORD *)&WheapPfaLock.WaitRegister.Flags )
+  if ( a1 == stru_140E098B8.WaitBlock[2].Thread && WheapPfaLock.TrapFrame )
   {
-    v3 = 100 * (a2 + 4096) / LODWORD(WheapPfaLock.FirstArgument);
+    v3 = 100 * (a2 + 4096) / *(_DWORD *)&WheapPfaLock.ApcStateFill[8];
     if ( a2 <= a3 )
     {
-      if ( !BYTE1(WheapPfaLock.SchedulingGroup) && v3 < WheapPfaLock.ReadyTime )
+      if ( !*((_BYTE *)&WheapPfaLock.MiscFlags + 4) && v3 < LODWORD(WheapPfaLock.FirstArgument) )
       {
-        BYTE1(WheapPfaLock.SchedulingGroup) = 1;
-        if ( LOBYTE(WheapPfaLock.SchedulingGroup) == 1 )
+        *((_BYTE *)&WheapPfaLock.MiscFlags + 4) = 1;
+        if ( LOBYTE(WheapPfaLock.SystemCallNumber) == 1 )
         {
           if ( CmpDoQueueSystemHiveHysteresis(v3) != 1 )
           {
 LABEL_15:
-            BYTE1(WheapPfaLock.SchedulingGroup) = 0;
+            *((_BYTE *)&WheapPfaLock.MiscFlags + 4) = 0;
             return;
           }
 LABEL_14:
-          LOBYTE(WheapPfaLock.SchedulingGroup) = 0;
+          LOBYTE(WheapPfaLock.SystemCallNumber) = 0;
         }
       }
     }
-    else if ( v3 > WheapPfaLock.SystemCallNumber && !LOBYTE(WheapPfaLock.SchedulingGroup) )
+    else if ( v3 > WheapPfaLock.ReadyTime && !LOBYTE(WheapPfaLock.SystemCallNumber) )
     {
-      LOBYTE(WheapPfaLock.SchedulingGroup) = 1;
-      if ( BYTE1(WheapPfaLock.SchedulingGroup) == 1 )
+      LOBYTE(WheapPfaLock.SystemCallNumber) = 1;
+      if ( *((_BYTE *)&WheapPfaLock.MiscFlags + 4) == 1 )
       {
         if ( CmpDoQueueSystemHiveHysteresis(v3) == 1 )
           goto LABEL_15;

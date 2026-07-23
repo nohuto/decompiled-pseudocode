@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpCollectOpenHandlesCallBack @ 0x14064294C
+ * XREFs of PnpCollectOpenHandlesCallBack @ 0x140642A30
  * Callers:
  *     <none>
  * Callees:
- *     IopDebugPrint @ 0x1401CDCC4 (IopDebugPrint.c)
- *     PnpAddVetoInformation @ 0x140642760 (PnpAddVetoInformation.c)
+ *     IopDebugPrint @ 0x1401CDB10 (IopDebugPrint.c)
+ *     PnpAddVetoInformation @ 0x140642844 (PnpAddVetoInformation.c)
  */
 
 __int64 __fastcall PnpCollectOpenHandlesCallBack(const void *a1, __int64 a2, const void *a3, int a4, __int64 a5)

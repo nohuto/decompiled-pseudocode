@@ -1,19 +1,19 @@
 /*
- * XREFs of IopQueryNameInternal @ 0x140620504
+ * XREFs of IopQueryNameInternal @ 0x14068A174
  * Callers:
- *     IoQueryFileDosDeviceName @ 0x140620460 (IoQueryFileDosDeviceName.c)
- *     IopQueryName @ 0x1406AE640 (IopQueryName.c)
+ *     IopQueryName @ 0x14060CEE0 (IopQueryName.c)
+ *     IoQueryFileDosDeviceName @ 0x14068A0D0 (IoQueryFileDosDeviceName.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     IopExceptionFilterMode @ 0x140500AA4 (IopExceptionFilterMode.c)
- *     IopGetFileInformation @ 0x140620A14 (IopGetFileInformation.c)
- *     IoVolumeDeviceToDosName @ 0x140620B50 (IoVolumeDeviceToDosName.c)
- *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     VfIsVerifierEnabled @ 0x140252060 (VfIsVerifierEnabled.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     IopExceptionFilterMode @ 0x140500A24 (IopExceptionFilterMode.c)
+ *     IopQueryXxxInformation @ 0x140677FF8 (IopQueryXxxInformation.c)
+ *     IopGetFileInformation @ 0x14068A684 (IopGetFileInformation.c)
+ *     IoVolumeDeviceToDosName @ 0x14068A7C0 (IoVolumeDeviceToDosName.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryNameInternal(
@@ -28,18 +28,18 @@ __int64 __fastcall IopQueryNameInternal(
   __int64 v7; // r8
   UNICODE_STRING *v8; // r12
   char v9; // r13
-  unsigned int v10; // r14d
+  ULONG v10; // r14d
   UNICODE_STRING *v11; // rsi
   _DWORD *v12; // rcx
   NTSTATUS NameStringMode; // ebx
   UNICODE_STRING *v14; // rdx
   UNICODE_STRING *v15; // r15
   char v16; // r8
-  unsigned int Length; // ecx
+  ULONG Length; // ecx
   __int64 v18; // r10
   char v19; // cl
   _DWORD *v20; // r13
-  char *v21; // rsi
+  struct _IRP *v21; // rsi
   NTSTATUS FileInformation; // eax
   int v23; // eax
   unsigned int v24; // eax
@@ -189,23 +189,26 @@ LABEL_21:
   }
   if ( a7 == 1 )
   {
-    v21 = (char *)v8;
+    v21 = (struct _IRP *)v8;
+    if ( !v19 )
+      v10 = v10 - v31 + 4;
   }
   else if ( v19 )
   {
-    v21 = (char *)v34;
+    v21 = (struct _IRP *)v34;
     if ( NumberOfBytes >= 0x10 )
-      v21 = (char *)v14;
+      v21 = (struct _IRP *)v14;
   }
   else
   {
-    v21 = (char *)&v15[-1].Buffer + 4;
+    v21 = (struct _IRP *)((char *)&v15[-1].Buffer + 4);
     LODWORD(v32) = HIDWORD(v15[-1].Buffer);
+    v10 = (_DWORD)v14 + v10 - ((_DWORD)v15 - 4) - 2;
   }
   if ( (a7 != 1 || v16) && (*(_DWORD *)(v18 + 80) & 2) != 0 )
     FileInformation = IopGetFileInformation((PADAPTER_OBJECT)v18, (__int64)&v31);
   else
-    FileInformation = IopQueryXxxInformation((PADAPTER_OBJECT)v18, (__int64)v21, (__int64)&v31, 1);
+    FileInformation = IopQueryXxxInformation((PADAPTER_OBJECT)v18, 9, v10, a7, v21, &v31, 1);
   NameStringMode = FileInformation;
   if ( (FileInformation & 0xC0000000) == 0xC0000000 )
   {
@@ -216,8 +219,8 @@ LABEL_21:
     if ( !_bittest(&v30, v29) )
       goto LABEL_44;
     LODWORD(v31) = 4;
-    *(_DWORD *)v21 = 0;
-    *((_WORD *)v21 + 2) = 92;
+    *(_DWORD *)&v21->Type = 0;
+    *(&v21->Size + 1) = 92;
     NameStringMode = 0;
     v23 = v31;
   }
@@ -230,22 +233,22 @@ LABEL_21:
   }
   if ( v37 )
   {
-    *v20 += *(_DWORD *)v21;
+    *v20 += *(_DWORD *)&v21->Type;
     NameStringMode = NumberOfBytes < 0x10 ? -1073741820 : -2147483643;
   }
   else
   {
     v24 = v23 - 4;
-    v25 = *(_DWORD *)v21;
-    if ( v24 <= *(_DWORD *)v21 )
+    v25 = *(_DWORD *)&v21->Type;
+    if ( v24 <= *(_DWORD *)&v21->Type )
       v25 = v24;
-    LODWORD(v31) = (_DWORD)v15 + *(_DWORD *)v21 - (_DWORD)a4;
-    if ( *((_WORD *)v21 + 2) == 92 )
+    LODWORD(v31) = (_DWORD)v15 + *(_DWORD *)&v21->Type - (_DWORD)a4;
+    if ( *(&v21->Size + 1) == 92 )
     {
       if ( a7 == 1 )
-        memmove(v15, v21 + 4, v25);
+        memmove(v15, &v21->Size + 1, v25);
       else
-        *(_DWORD *)v21 = (_DWORD)v32;
+        *(_DWORD *)&v21->Type = (_DWORD)v32;
       v26 = (char *)v15 + v25;
       v32 = v26;
       *(_WORD *)v26 = 0;

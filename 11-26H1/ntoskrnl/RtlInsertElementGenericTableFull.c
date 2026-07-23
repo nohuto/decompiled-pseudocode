@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertElementGenericTableFull @ 0x1402C1120
+ * XREFs of RtlInsertElementGenericTableFull @ 0x14030BDE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1402C0DB0 (RtlSplay.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     RtlSplay @ 0x14030BA70 (RtlSplay.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTableFull(
@@ -17,7 +17,7 @@ PVOID __stdcall RtlInsertElementGenericTableFull(
         TABLE_SEARCH_RESULT SearchResult)
 {
   size_t v7; // r14
-  RTL_SPLAY_LINKS *v10; // rbx
+  _RTL_SPLAY_LINKS *v10; // rbx
   __int64 v12; // rdx
   _QWORD *v13; // rax
   struct _LIST_ENTRY *v14; // rax
@@ -26,7 +26,7 @@ PVOID __stdcall RtlInsertElementGenericTableFull(
   v7 = BufferSize;
   if ( SearchResult == TableFoundNode )
   {
-    v10 = (RTL_SPLAY_LINKS *)NodeOrParent;
+    v10 = (_RTL_SPLAY_LINKS *)NodeOrParent;
 LABEL_3:
     Table->TableRoot = RtlSplay(v10);
     if ( NewElement )
@@ -37,7 +37,7 @@ LABEL_3:
   if ( (unsigned int)v12 >= BufferSize )
   {
     v13 = (_QWORD *)guard_dispatch_icall_no_overrides(Table, v12, BufferSize);
-    v10 = (RTL_SPLAY_LINKS *)v13;
+    v10 = (_RTL_SPLAY_LINKS *)v13;
     if ( v13 )
     {
       *v13 = v13;

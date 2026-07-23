@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferQueue @ 0x14043EC48
+ * XREFs of EtwpCovSampCaptureBufferQueue @ 0x1404347FC
  * Callers:
- *     EtwpCovSampCaptureSample @ 0x140651D44 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140900430 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureSample @ 0x140650444 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140922D10 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     EtwpCovSampSampleBufferReserve @ 0x14043ED5C (EtwpCovSampSampleBufferReserve.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x14043EF30 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x1406520D4 (EtwpCovSampSampleBufferDecRef.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x140434910 (EtwpCovSampSampleBufferReserve.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140434AE4 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x1406507D4 (EtwpCovSampSampleBufferDecRef.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 char __fastcall EtwpCovSampCaptureBufferQueue(__int64 a1, __int64 a2)

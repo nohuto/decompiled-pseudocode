@@ -1,13 +1,13 @@
 /*
- * XREFs of ExInitSystem @ 0x140A68944
+ * XREFs of ExInitSystem @ 0x140A69944
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
- *     ExpInitSystemPhase0 @ 0x140A69014 (ExpInitSystemPhase0.c)
- *     ExpStringCheck @ 0x140A69180 (ExpStringCheck.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExpInitSystemPhase1 @ 0x140A3DEBC (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase0 @ 0x140A6A014 (ExpInitSystemPhase0.c)
+ *     ExpStringCheck @ 0x140A6A180 (ExpStringCheck.c)
  */
 
 char ExInitSystem()

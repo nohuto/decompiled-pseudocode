@@ -199,7 +199,7 @@ __int64 __fastcall MiAddViewsForSection(ULONG_PTR a1, unsigned __int64 a2, unsig
   v100 = v4 & 0x180;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v42 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -241,10 +241,10 @@ __int64 __fastcall MiAddViewsForSection(ULONG_PTR a1, unsigned __int64 a2, unsig
     {
       v99 = *(_DWORD *)(v5 + 52) & 0x3FFFFFFF;
       ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v44 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && CurrentIrql <= 0xFu && v44 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && CurrentIrql <= 0xFu && v44 >= 2u )
         {
           v45 = KeGetCurrentPrcb();
           v46 = v45->SchedulerAssist;
@@ -430,10 +430,10 @@ LABEL_30:
     {
       FileExtents = -1073741800;
       ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v80 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v80 <= 0xFu && CurrentIrql <= 0xFu && v80 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v80 <= 0xFu && CurrentIrql <= 0xFu && v80 >= 2u )
         {
           v81 = KeGetCurrentPrcb();
           v82 = v81->SchedulerAssist;
@@ -466,10 +466,10 @@ LABEL_30:
     if ( v6 && (*(_DWORD *)(v5 + 52) & 0x40000000) != 0 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v58 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && CurrentIrql <= 0xFu && v58 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && CurrentIrql <= 0xFu && v58 >= 2u )
         {
           v59 = KeGetCurrentPrcb();
           v60 = v59->SchedulerAssist;
@@ -504,10 +504,10 @@ LABEL_156:
         if ( !v95 )
           goto LABEL_52;
         ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v63 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v63 <= 0xFu && CurrentIrql <= 0xFu && v63 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v63 <= 0xFu && CurrentIrql <= 0xFu && v63 >= 2u )
           {
             v64 = KeGetCurrentPrcb();
             v65 = v64->SchedulerAssist;
@@ -546,10 +546,10 @@ LABEL_19:
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v3 + 18, retaddr);
       else
         v3[18] = 0;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v76 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v76 <= 0xFu && CurrentIrql <= 0xFu && v76 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v76 <= 0xFu && CurrentIrql <= 0xFu && v76 >= 2u )
         {
           v77 = KeGetCurrentPrcb();
           v78 = v77->SchedulerAssist;
@@ -579,10 +579,10 @@ LABEL_19:
   if ( active == -1073741302 )
     goto LABEL_52;
   ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v67 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v67 <= 0xFu && CurrentIrql <= 0xFu && v67 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v67 <= 0xFu && CurrentIrql <= 0xFu && v67 >= 2u )
     {
       v68 = KeGetCurrentPrcb();
       v69 = v68->SchedulerAssist;
@@ -615,10 +615,10 @@ LABEL_179:
     v84 = ExAcquireSpinLockExclusive(v3 + 18);
     v85 = MiDecrementSubsections(a1);
     ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v86 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v86 <= 0xFu && (unsigned __int8)v84 <= 0xFu && v86 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v86 <= 0xFu && (unsigned __int8)v84 <= 0xFu && v86 >= 2u )
       {
         v87 = KeGetCurrentPrcb();
         v88 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v84 + 1));

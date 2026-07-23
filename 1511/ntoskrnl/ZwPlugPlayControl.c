@@ -18,5 +18,5 @@ NTSTATUS __stdcall ZwPlugPlayControl(PLUGPLAY_CONTROL_CLASS PlugPlayControlClass
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&PlugPlayControlClass, Buffer, *(_QWORD *)&BufferSize);
+  return KiServiceInternal(*(_QWORD *)&PlugPlayControlClass);
 }

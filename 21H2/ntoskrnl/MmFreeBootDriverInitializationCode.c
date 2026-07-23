@@ -1,20 +1,23 @@
 /*
- * XREFs of MmFreeBootDriverInitializationCode @ 0x1407B3B08
+ * XREFs of MmFreeBootDriverInitializationCode @ 0x1407B3CA8
  * Callers:
- *     Phase1Initialization @ 0x1407B3AA0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x1407B3C40 (Phase1Initialization.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
- *     MiFreeDriverInitialization @ 0x14075EBB4 (MiFreeDriverInitialization.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     MmReleaseLoadLock @ 0x1406A83F0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406A8450 (MmAcquireLoadLock.c)
+ *     MiFreeDriverInitialization @ 0x14075ED74 (MiFreeDriverInitialization.c)
  */
 
 _QWORD *MmFreeBootDriverInitializationCode()
 {
   struct _KTHREAD *Lock; // rdi
   PVOID *i; // rbx
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // r9
 
   Lock = MmAcquireLoadLock();
   --Lock->KernelApcDisable;
@@ -25,6 +28,6 @@ _QWORD *MmFreeBootDriverInitializationCode()
       MiFreeDriverInitialization((__int64)i);
   }
   ExReleaseResourceLite(&PsLoadedModuleResource);
-  KeLeaveCriticalRegionThread((__int64)Lock);
+  KeLeaveCriticalRegionThread((__int64)Lock, v2, v3, v4);
   return MmReleaseLoadLock((__int64)Lock);
 }

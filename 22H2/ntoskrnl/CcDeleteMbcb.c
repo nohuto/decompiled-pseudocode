@@ -85,7 +85,7 @@ LABEL_20:
       *(_QWORD *)(v8 + 8) = v9;
       v10 = (unsigned int *)*((_QWORD *)v7 + 5);
       if ( v10 && v10 != v4 + 24 )
-        ExFreeToNPagedLookasideList(&CcBitmapLookasideList, v10);
+        ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&CcBitmapLookasideList, v10);
       if ( v7 < v4 || v7 >= v4 + 48 )
       {
         v11 = p_P;

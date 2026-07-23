@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpDriverObjectDereferenceComplete @ 0x140A8ACC4
+ * XREFs of PnpDriverObjectDereferenceComplete @ 0x140A87004
  * Callers:
- *     IopDeleteDriver @ 0x140A8AC00 (IopDeleteDriver.c)
+ *     IopDeleteDriver @ 0x140A86F40 (IopDeleteDriver.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
  */
 
 __int64 PnpDriverObjectDereferenceComplete()

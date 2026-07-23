@@ -1,13 +1,13 @@
 /*
- * XREFs of PsEnumProcessThreads @ 0x14094A540
+ * XREFs of PsEnumProcessThreads @ 0x1408EEAB0
  * Callers:
- *     EtwpProcessEnumCallback @ 0x14094ACC0 (EtwpProcessEnumCallback.c)
- *     sub_140BE10B0 @ 0x140BE10B0 (sub_140BE10B0.c)
+ *     EtwpProcessEnumCallback @ 0x1408EF230 (EtwpProcessEnumCallback.c)
+ *     sub_140BE30B0 @ 0x140BE30B0 (sub_140BE30B0.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpThreadEnumCallback @ 0x14094A5E0 (EtwpThreadEnumCallback.c)
- *     PsGetNextProcessThread @ 0x14094A700 (PsGetNextProcessThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpThreadEnumCallback @ 0x1408EEB50 (EtwpThreadEnumCallback.c)
+ *     PsGetNextProcessThread @ 0x1408EEC70 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall PsEnumProcessThreads(__int64 a1, __int64 (__fastcall *a2)(_QWORD, _QWORD, _QWORD), __int64 a3)
@@ -16,8 +16,7 @@ __int64 __fastcall PsEnumProcessThreads(__int64 a1, __int64 (__fastcall *a2)(_QW
   void *v5; // rdx
   __int64 i; // rsi
   void *NextProcessThread; // rbx
-  __int64 v9; // r9
-  int v10; // eax
+  int v9; // eax
 
   v3 = 0;
   v5 = 0LL;
@@ -27,11 +26,11 @@ __int64 __fastcall PsEnumProcessThreads(__int64 a1, __int64 (__fastcall *a2)(_QW
     if ( !NextProcessThread )
       break;
     if ( a2 == EtwpThreadEnumCallback )
-      v10 = EtwpThreadEnumCallback(i, NextProcessThread, a3);
+      v9 = EtwpThreadEnumCallback(i, NextProcessThread, a3);
     else
-      v10 = guard_dispatch_icall_no_overrides(i, NextProcessThread, a3, v9);
-    v3 = v10;
-    if ( v10 < 0 )
+      v9 = guard_dispatch_icall_no_overrides(i, NextProcessThread);
+    v3 = v9;
+    if ( v9 < 0 )
     {
       ObfDereferenceObjectWithTag(NextProcessThread, 0x6E457350u);
       return v3;

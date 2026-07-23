@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipQueryGuidInfo @ 0x140A0C62C
+ * XREFs of WmipQueryGuidInfo @ 0x140A0B5FC
  * Callers:
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall WmipQueryGuidInfo(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall WmipQueryGuidInfo(__int64 a1)
     if ( v5 )
     {
       *(_BYTE *)(a1 + 8) = 0;
-      KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+      KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       v6 = (__int64 ***)(v5 + 56);
       for ( i = *v6; i != (__int64 **)v6; i = (__int64 **)*i )
       {
@@ -39,7 +39,7 @@ __int64 __fastcall WmipQueryGuidInfo(__int64 a1)
           break;
         }
       }
-      KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+      KeReleaseMutex(&WmipSMMutex, 0);
     }
     else
     {

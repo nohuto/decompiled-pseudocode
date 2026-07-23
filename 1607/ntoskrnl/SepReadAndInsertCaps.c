@@ -1,19 +1,19 @@
 /*
- * XREFs of SepReadAndInsertCaps @ 0x140696138
+ * XREFs of SepReadAndInsertCaps @ 0x14069621C
  * Callers:
- *     SepBuildCapPolicyTable @ 0x140144EF0 (SepBuildCapPolicyTable.c)
+ *     SepBuildCapPolicyTable @ 0x140145460 (SepBuildCapPolicyTable.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x14007CFAC (RtlInsertEntryHashTable.c)
- *     RtlStringCchPrintfW @ 0x14007F50C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     SepRmCapPoolExpand @ 0x14021B580 (SepRmCapPoolExpand.c)
+ *     RtlInsertEntryHashTable @ 0x14007D02C (RtlInsertEntryHashTable.c)
+ *     RtlStringCchPrintfW @ 0x14007F58C (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     SepRmCapPoolExpand @ 0x14021B3AC (SepRmCapPoolExpand.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepRegOpenKey @ 0x140476484 (SepRegOpenKey.c)
- *     SepReadSingleCap @ 0x140696490 (SepReadSingleCap.c)
+ *     SepRegOpenKey @ 0x140475354 (SepRegOpenKey.c)
+ *     SepReadSingleCap @ 0x140696574 (SepReadSingleCap.c)
  */
 
 __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
   NTSTATUS v11; // eax
   NTSTATUS v12; // eax
   int SingleCap; // eax
-  struct _RTL_DYNAMIC_HASH_TABLE *v14; // r10
+  _RTL_DYNAMIC_HASH_TABLE *v14; // r10
   ULONG_PTR v15; // r8
   ULONG Length; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE KeyHandlea; // [rsp+38h] [rbp-C8h] BYREF

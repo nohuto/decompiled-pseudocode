@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepShimDbChanged @ 0x140373FD8
+ * XREFs of KsepShimDbChanged @ 0x140374178
  * Callers:
- *     KseQueryDeviceData @ 0x140808000 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x140976900 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x1408082D0 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x140976B00 (KseQueryDeviceDataList.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KsepShimDatabaseTime @ 0x1408082CC (KsepShimDatabaseTime.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KsepShimDatabaseTime @ 0x14080859C (KsepShimDatabaseTime.c)
  */
 
 __int64 KsepShimDbChanged()
@@ -23,20 +23,20 @@ __int64 KsepShimDbChanged()
   v1 = 0;
   if ( (int)KsepShimDatabaseTime(L"\\SystemRoot\\AppPatch\\drvmain.sdb") >= 0 )
   {
-    if ( qword_140C40C28 )
+    if ( qword_140C40BE8 )
     {
-      qword_140C40C28 = 0LL;
+      qword_140C40BE8 = 0LL;
       v1 = 1;
     }
     else
     {
-      qword_140C40C28 = 0LL;
+      qword_140C40BE8 = 0LL;
     }
     if ( (int)KsepShimDatabaseTime(L"\\SystemRoot\\AppPatch\\drvpatch.sdb") >= 0 )
     {
-      if ( qword_140C40C60 )
+      if ( qword_140C40C20 )
         v1 = 1;
-      qword_140C40C60 = 0LL;
+      qword_140C40C20 = 0LL;
     }
   }
   v2 = _InterlockedExchangeAdd64((volatile signed __int64 *)&KsepShimDbLock, 0xFFFFFFFFFFFFFFFFuLL);

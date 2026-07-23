@@ -1,18 +1,22 @@
 /*
- * XREFs of ZwTranslateFilePath @ 0x140726EF0
+ * XREFs of ZwTranslateFilePath @ 0x14072BAC0
  * Callers:
- *     DifZwTranslateFilePathWrapper @ 0x1406BDC90 (DifZwTranslateFilePathWrapper.c)
- *     ExpSetBootEntry @ 0x14083BEC0 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x14083C5DC (ExpSetDriverEntry.c)
- *     SiBootEntryGetNtFilePath @ 0x140894DB4 (SiBootEntryGetNtFilePath.c)
- *     BiTranslateFilePath @ 0x1409D1C64 (BiTranslateFilePath.c)
+ *     DifZwTranslateFilePathWrapper @ 0x1406C1870 (DifZwTranslateFilePathWrapper.c)
+ *     ExpSetBootEntry @ 0x140842100 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x14084281C (ExpSetDriverEntry.c)
+ *     SiBootEntryGetNtFilePath @ 0x14089B1B4 (SiBootEntryGetNtFilePath.c)
+ *     BiTranslateFilePath @ 0x1409A2C44 (BiTranslateFilePath.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwTranslateFilePath(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwTranslateFilePath(
+        PFILE_PATH InputFilePath,
+        ULONG OutputType,
+        PFILE_PATH OutputFilePath,
+        PULONG OutputFilePathLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(InputFilePath);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwManageHotPatch @ 0x1401BA2D0
+ * XREFs of ZwManageHotPatch @ 0x1401BA430
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwManageHotPatch(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall ZwManageHotPatch(__int64 a1)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(a1);
 }

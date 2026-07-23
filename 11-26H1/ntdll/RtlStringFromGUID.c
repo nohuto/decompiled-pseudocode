@@ -1,13 +1,12 @@
 /*
- * XREFs of RtlStringFromGUID @ 0x1800D5C70
+ * XREFs of RtlStringFromGUID @ 0x1800D2C30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlStringFromGUID(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlStringFromGUID(PGUID Guid, PUNICODE_STRING GuidString)
 {
-  LOBYTE(a3) = 1;
-  return RtlStringFromGUIDEx(a1, a2, a3);
+  return RtlStringFromGUIDEx(Guid, GuidString, 1u);
 }

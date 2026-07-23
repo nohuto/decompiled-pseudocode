@@ -30,7 +30,7 @@ __int64 __fastcall sub_18000499C(unsigned int a1, _DWORD *a2, _DWORD *a3, __int6
       {
         *(_QWORD *)(a4 + 152) = a4 + 176;
         *(_WORD *)(a4 + 146) = *(_WORD *)(v9 + 154);
-        RtlCopyUnicodeString(a4 + 144, v9 + 152);
+        RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 144), (PCUNICODE_STRING)(v9 + 152));
         *a3 += *(unsigned __int16 *)(v9 + 154);
       }
       sub_180005F40(a4, v9, 0LL);
@@ -39,7 +39,7 @@ __int64 __fastcall sub_18000499C(unsigned int a1, _DWORD *a2, _DWORD *a3, __int6
       {
         *(_QWORD *)(a4 + 136) = a4 + v10;
         *(_WORD *)(a4 + 130) = *(_WORD *)(v9 + 170);
-        RtlCopyUnicodeString(a4 + 128, v9 + 168);
+        RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 128), (PCUNICODE_STRING)(v9 + 168));
         *a3 += *(unsigned __int16 *)(v9 + 170);
       }
       *a2 = *a3;

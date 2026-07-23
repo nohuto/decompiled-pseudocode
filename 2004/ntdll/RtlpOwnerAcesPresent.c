@@ -9,55 +9,53 @@
  *     __security_check_cookie @ 0x18008C240 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpOwnerAcesPresent(unsigned __int8 a1, __int64 a2, __int64 a3)
+char __fastcall RtlpOwnerAcesPresent(unsigned __int8 a1, __int64 a2)
 {
-  unsigned __int8 *v5; // rbx
-  unsigned int v6; // esi
-  unsigned int v7; // edi
-  unsigned int v8; // ecx
-  int v9; // edx
-  unsigned __int8 *v10; // rcx
-  int v12; // [rsp+20h] [rbp-28h] BYREF
-  __int16 v13; // [rsp+24h] [rbp-24h]
-  __int16 v14; // [rsp+28h] [rbp-20h] BYREF
-  int v15; // [rsp+30h] [rbp-18h]
+  unsigned __int8 *v4; // rbx
+  unsigned int v5; // esi
+  unsigned int v6; // edi
+  unsigned int v7; // ecx
+  int v8; // edx
+  unsigned __int8 *v9; // rcx
+  _SID_IDENTIFIER_AUTHORITY v11; // [rsp+20h] [rbp-28h] BYREF
+  _BYTE Sid2[8]; // [rsp+28h] [rbp-20h] BYREF
+  int v13; // [rsp+30h] [rbp-18h]
 
-  v12 = 0;
-  v13 = 768;
-  LOBYTE(a3) = 1;
-  if ( (int)RtlInitializeSid(&v14, &v12, a3) < 0 )
+  *(_DWORD *)v11.Value = 0;
+  *(_WORD *)&v11.Value[4] = 768;
+  if ( RtlInitializeSid(Sid2, &v11, 1u) < 0 )
     return 0;
-  v15 = 4;
+  v13 = 4;
   if ( !a2 )
     return 0;
-  v5 = (unsigned __int8 *)(a2 + 8);
-  v6 = 0;
-  v7 = *(unsigned __int16 *)(a2 + 4);
-  if ( !v7 )
+  v4 = (unsigned __int8 *)(a2 + 8);
+  v5 = 0;
+  v6 = *(unsigned __int16 *)(a2 + 4);
+  if ( !v6 )
     return 0;
   while ( 1 )
   {
-    if ( (v5[1] & 8) == 0 )
+    if ( (v4[1] & 8) == 0 )
     {
-      v8 = *v5;
-      if ( (unsigned __int8)v8 <= 0x10u && (v9 = 104928, _bittest(&v9, v8)) )
+      v7 = *v4;
+      if ( (unsigned __int8)v7 <= 0x10u && (v8 = 104928, _bittest(&v8, v7)) )
       {
-        v10 = &v5[16 * (*((_DWORD *)v5 + 2) & 1) + ((8LL * (*((_DWORD *)v5 + 2) & 2)) | 0xC)];
+        v9 = &v4[16 * (*((_DWORD *)v4 + 2) & 1) + ((8LL * (*((_DWORD *)v4 + 2) & 2)) | 0xC)];
       }
-      else if ( (_BYTE)v8 == 4 )
+      else if ( (_BYTE)v7 == 4 )
       {
-        v10 = v5 + 12;
+        v9 = v4 + 12;
       }
       else
       {
-        v10 = (unsigned __int8)v8 < 0xBu || (unsigned __int8)(v8 - 13) <= 1u ? v5 + 8 : 0LL;
+        v9 = (unsigned __int8)v7 < 0xBu || (unsigned __int8)(v7 - 13) <= 1u ? v4 + 8 : 0LL;
       }
-      if ( v10 && RtlEqualSid(v10, &v14) && (!a1 || (a1 & v5[1]) != 0) )
+      if ( v9 && RtlEqualSid(v9, Sid2) && (!a1 || (a1 & v4[1]) != 0) )
         break;
     }
-    ++v6;
-    v5 += *((unsigned __int16 *)v5 + 1);
-    if ( v6 >= v7 )
+    ++v5;
+    v4 += *((unsigned __int16 *)v4 + 1);
+    if ( v5 >= v6 )
       return 0;
   }
   return 1;

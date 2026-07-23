@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTryScheduleNextForegroundBoost @ 0x1402B9B5C
+ * XREFs of KiTryScheduleNextForegroundBoost @ 0x1402B9DEC
  * Callers:
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
  * Callees:
- *     KiScheduleNextForegroundBoost @ 0x1403D41BC (KiScheduleNextForegroundBoost.c)
+ *     KiScheduleNextForegroundBoost @ 0x1403D439C (KiScheduleNextForegroundBoost.c)
  */
 
 char __fastcall KiTryScheduleNextForegroundBoost(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of HeadlessInit @ 0x140CE59A8
+ * XREFs of HeadlessInit @ 0x140CEBD48
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmLockPagableDataSection @ 0x140ABB180 (MmLockPagableDataSection.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     HdlspEnableTerminal @ 0x140C4C9D4 (HdlspEnableTerminal.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmLockPagableDataSection @ 0x140ABC640 (MmLockPagableDataSection.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     HdlspEnableTerminal @ 0x140C529D4 (HdlspEnableTerminal.c)
  */
 
 void __fastcall HeadlessInit(__int64 a1)

@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 NtReplacePartitionUnit()
+NTSTATUS __cdecl NtReplacePartitionUnit(
+        PUNICODE_STRING TargetInstancePath,
+        PUNICODE_STRING SpareInstancePath,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 347LL;
+  result = 347;
   __asm { syscall; Low latency system call }
   return result;
 }

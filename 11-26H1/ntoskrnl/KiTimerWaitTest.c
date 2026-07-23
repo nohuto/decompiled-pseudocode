@@ -1,20 +1,20 @@
 /*
- * XREFs of KiTimerWaitTest @ 0x1403ACF4C
+ * XREFs of KiTimerWaitTest @ 0x1403B6C5C
  * Callers:
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     KiResumeThread @ 0x1402C60D8 (KiResumeThread.c)
- *     KiProcessExpiredTimerList @ 0x1403ABBEC (KiProcessExpiredTimerList.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeSetTimerEx @ 0x1403AC190 (KeSetTimerEx.c)
- *     KeSetTimer @ 0x1403AC590 (KeSetTimer.c)
- *     KiAdjustTimerDueTimes @ 0x1403E52EC (KiAdjustTimerDueTimes.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     KiResumeThread @ 0x140310D78 (KiResumeThread.c)
+ *     KiProcessExpiredTimerList @ 0x1403B58FC (KiProcessExpiredTimerList.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x1403B5EA0 (KeSetTimerEx.c)
+ *     KeSetTimer @ 0x1403B62A0 (KeSetTimer.c)
+ *     KiAdjustTimerDueTimes @ 0x1403E84DC (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x1402735B4 (KiTryUnwaitThread.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiInsertTimerTable @ 0x1403ACC88 (KiInsertTimerTable.c)
- *     KiDecodeTolerableDelayValue @ 0x1403ACEEC (KiDecodeTolerableDelayValue.c)
- *     PsTimerResolutionActive @ 0x140457020 (PsTimerResolutionActive.c)
+ *     KiTryUnwaitThread @ 0x140272B24 (KiTryUnwaitThread.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiInsertTimerTable @ 0x1403B6998 (KiInsertTimerTable.c)
+ *     KiDecodeTolerableDelayValue @ 0x1403B6BFC (KiDecodeTolerableDelayValue.c)
+ *     PsTimerResolutionActive @ 0x14044E890 (PsTimerResolutionActive.c)
  */
 
 unsigned __int64 __fastcall KiTimerWaitTest(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -50,7 +50,7 @@ unsigned __int64 __fastcall KiTimerWaitTest(__int64 a1, __int64 a2, __int64 a3, 
   v7 = *(_BYTE *)a2 & 0x7F;
   v31 = 0LL;
   v8 = *(int *)(a2 + 60);
-  v10 = (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(a2 ^ v6);
+  v10 = (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(a2 ^ v6);
   v11 = -1;
   if ( (_DWORD)v8 )
   {

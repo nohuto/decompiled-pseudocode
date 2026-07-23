@@ -16,29 +16,26 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-_UNKNOWN **LdrShutdownProcess()
+void __noreturn LdrShutdownProcess(void)
 {
-  _UNKNOWN **result; // rax
-  struct _TEB *v1; // rdi
+  struct _TEB *v0; // rdi
   _PEB *ProcessEnvironmentBlock; // rsi
   void *FlsData; // rcx
-  char v4; // r15
-  __int64 *v5; // rsi
-  __int64 v6; // rbx
-  __int64 (__fastcall *v7)(__int64, _QWORD, __int64); // r12
-  void (*v8)(void); // rbx
-  __int64 v9; // r9
-  __int64 v10; // [rsp+50h] [rbp-B8h] BYREF
-  int v11; // [rsp+58h] [rbp-B0h]
-  _BYTE v12[56]; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v13; // [rsp+A0h] [rbp-68h] BYREF
-  int v14; // [rsp+A8h] [rbp-60h]
-  _BYTE v15[56]; // [rsp+B0h] [rbp-58h] BYREF
-  _UNKNOWN *retaddr; // [rsp+108h] [rbp+0h] BYREF
+  char v3; // r15
+  __int64 *v4; // rsi
+  __int64 v5; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *v6; // r12
+  _RTL_DYNAMIC_HASH_TABLE *v7; // rbx
+  __int64 v8; // r9
+  __int64 v9; // [rsp+50h] [rbp-B8h] BYREF
+  int v10; // [rsp+58h] [rbp-B0h]
+  _BYTE v11[56]; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v12; // [rsp+A0h] [rbp-68h] BYREF
+  int v13; // [rsp+A8h] [rbp-60h]
+  _BYTE v14[56]; // [rsp+B0h] [rbp-58h] BYREF
 
-  result = &retaddr;
-  v1 = NtCurrentTeb();
-  ProcessEnvironmentBlock = v1->ProcessEnvironmentBlock;
+  v0 = NtCurrentTeb();
+  ProcessEnvironmentBlock = v0->ProcessEnvironmentBlock;
   if ( !byte_180145248 )
   {
     if ( (LdrpDebugFlags & 5) != 0 )
@@ -48,18 +45,22 @@ _UNKNOWN **LdrShutdownProcess()
         (unsigned int)"LdrShutdownProcess",
         2,
         (__int64)"Process 0x%p (%wZ) exiting\n");
-    qword_180145250 = (__int64)v1->ClientId.UniqueThread;
+    qword_180145250 = (__int64)v0->ClientId.UniqueThread;
     byte_180145248 = 1;
     if ( g_ShimsEnabled )
     {
-      v8 = (void (*)(void))(__ROR8__(g_pfnSE_ProcessDying, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]);
-      _guard_check_icall_fptr();
-      v8();
+      v7 = (_RTL_DYNAMIC_HASH_TABLE *)(__ROR8__(
+                                         g_pfnSE_ProcessDying,
+                                         64 - ((unsigned __int8)MEMORY[0x7FFE0330] & 0x3Fu)) ^ (unsigned int)MEMORY[0x7FFE0330]);
+      ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+        v7,
+        (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)(unsigned int)MEMORY[0x7FFE0330]);
+      ((void (*)(void))v7)();
     }
-    FlsData = v1->FlsData;
+    FlsData = v0->FlsData;
     if ( FlsData )
       RtlProcessFlsData(FlsData);
-    if ( !v1->ActivationContextStackPointer )
+    if ( !v0->ActivationContextStackPointer )
     {
       dword_180146098 = 0;
       qword_180146080 = 0LL;
@@ -69,55 +70,54 @@ _UNKNOWN **LdrShutdownProcess()
       dword_1801460A0 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
       RtlpInitializeActivationContextStackFrameList(dword_180146440);
       qword_180146448 = qword_180146088;
-      qword_180146450 = v9;
-      if ( *(_QWORD *)(qword_180146088 + 8) != v9 )
+      qword_180146450 = v8;
+      if ( *(_QWORD *)(qword_180146088 + 8) != v8 )
         __fastfail(3u);
       *(_QWORD *)(qword_180146088 + 8) = &qword_180146448;
       qword_180146088 = (__int64)&qword_180146448;
-      v1->ActivationContextStackPointer = (_ACTIVATION_CONTEXT_STACK *)&qword_180146080;
+      v0->ActivationContextStackPointer = (_ACTIVATION_CONTEXT_STACK *)&qword_180146080;
     }
     if ( (ProcessEnvironmentBlock->BitField & 0x10) == 0
       || (ProcessEnvironmentBlock->ProcessParameters->Flags & 0x40000000) != 0
       || (ProcessEnvironmentBlock->NtGlobalFlag & 0x2000100) != 0 )
     {
-      v4 = 0;
-      v5 = (__int64 *)qword_180145238;
-      while ( v5 != &qword_180145230 )
+      v3 = 0;
+      v4 = (__int64 *)qword_180145238;
+      while ( v4 != &qword_180145230 )
       {
-        v6 = (__int64)(v5 - 4);
-        v5 = (__int64 *)v5[1];
-        v7 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v6 + 56);
-        if ( v7 && (*(_DWORD *)(v6 + 104) & 0x80000) != 0 )
+        v5 = (__int64)(v4 - 4);
+        v4 = (__int64 *)v4[1];
+        v6 = *(_RTL_DYNAMIC_HASH_TABLE **)(v5 + 56);
+        if ( v6 && (*(_DWORD *)(v5 + 104) & 0x80000) != 0 )
         {
-          v10 = 72LL;
-          v11 = 1;
-          memset(v12, 0, sizeof(v12));
-          RtlActivateActivationContextUnsafeFast((__int64)&v10, *(_QWORD *)(v6 + 136));
-          if ( *(_WORD *)(v6 + 110) )
-            LdrpCallTlsInitializers(0, v6);
-          LdrpCallInitRoutine(v7, *(_QWORD *)(v6 + 48), 0, 1LL);
-          RtlDeactivateActivationContextUnsafeFast((__int64)&v10);
+          v9 = 72LL;
+          v10 = 1;
+          memset(v11, 0, sizeof(v11));
+          RtlActivateActivationContextUnsafeFast((__int64)&v9, *(_QWORD *)(v5 + 136));
+          if ( *(_WORD *)(v5 + 110) )
+            LdrpCallTlsInitializers(0LL, v5);
+          LdrpCallInitRoutine(v6, *(_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR **)(v5 + 48), 0, 1LL);
+          RtlDeactivateActivationContextUnsafeFast((__int64)&v9);
         }
       }
       if ( *(_WORD *)(LdrpImageEntry + 110) )
       {
-        v13 = 72LL;
-        v14 = 1;
-        memset(v15, 0, sizeof(v15));
-        RtlActivateActivationContextUnsafeFast((__int64)&v13, *(_QWORD *)(LdrpImageEntry + 136));
-        LdrpCallTlsInitializers(0, LdrpImageEntry);
-        RtlDeactivateActivationContextUnsafeFast((__int64)&v13);
+        v12 = 72LL;
+        v13 = 1;
+        memset(v14, 0, sizeof(v14));
+        RtlActivateActivationContextUnsafeFast((__int64)&v12, *(_QWORD *)(LdrpImageEntry + 136));
+        LdrpCallTlsInitializers(0LL, LdrpImageEntry);
+        RtlDeactivateActivationContextUnsafeFast((__int64)&v12);
       }
     }
     else
     {
-      v4 = 1;
+      v3 = 1;
     }
-    if ( (__int64 *)v1->ActivationContextStackPointer == &qword_180146080 )
-      v1->ActivationContextStackPointer = 0LL;
-    if ( !v4 )
+    if ( (__int64 *)v0->ActivationContextStackPointer == &qword_180146080 )
+      v0->ActivationContextStackPointer = 0LL;
+    if ( !v3 )
       RtlDetectHeapLeaks();
-    return (_UNKNOWN **)SbCleanupTrace();
+    SbCleanupTrace();
   }
-  return result;
 }

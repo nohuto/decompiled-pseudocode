@@ -14,54 +14,54 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall sub_18000983C(PCWSTR SourceString, PCWSTR a2, void *a3, unsigned int a4)
+__int64 __fastcall sub_18000983C(PCWSTR SourceString, PCWSTR a2, void *a3, ULONG a4)
 {
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   unsigned __int64 v7; // rax
-  unsigned int v8; // eax
-  unsigned int v9; // ebx
-  __int64 Heap; // rdi
-  __int64 v12; // [rsp+38h] [rbp-19h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-11h] BYREF
-  UNICODE_STRING v14; // [rsp+50h] [rbp-1h] BYREF
-  _OWORD v15[3]; // [rsp+60h] [rbp+Fh] BYREF
-  unsigned int v16; // [rsp+D0h] [rbp+7Fh] BYREF
+  ULONG v8; // eax
+  ULONG Length; // ebx
+  unsigned int *Heap; // rdi
+  HANDLE KeyHandle; // [rsp+38h] [rbp-19h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-11h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+50h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+Fh] BYREF
+  ULONG ResultLength; // [rsp+D0h] [rbp+7Fh] BYREF
 
-  v16 = a4;
+  ResultLength = a4;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  memset(v15, 0, sizeof(v15));
-  *((_QWORD *)&v15[0] + 1) = 0LL;
-  *(_QWORD *)&v15[1] = &DestinationString;
-  LODWORD(v15[0]) = 48;
-  DWORD2(v15[1]) = 64;
-  v15[2] = 0LL;
-  v6 = ZwOpenKey(&v12, 131097LL, v15);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v6 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v6 < 0 )
     return (unsigned int)v6;
-  v7 = 2LL * v16;
+  v7 = 2LL * ResultLength;
   if ( v7 <= 0xFFFFFFFF )
   {
     v8 = v7 + 12;
-    if ( 2 * v16 + 12 >= 2 * v16 )
+    if ( 2 * ResultLength + 12 >= 2 * ResultLength )
     {
-      v9 = v8;
-      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v8);
+      Length = v8;
+      Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v8);
       if ( Heap )
       {
-        RtlInitUnicodeString(&v14, a2);
-        v6 = ZwQueryValueKey(v12, &v14, 2LL, Heap, v9, &v16);
+        RtlInitUnicodeString(&ValueName, a2);
+        v6 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, Length, &ResultLength);
         if ( v6 >= 0 )
-          memmove(a3, (const void *)(Heap + 12), *(unsigned int *)(Heap + 8));
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+          memmove(a3, Heap + 3, Heap[2]);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {
         v6 = -1073741801;
       }
-      ZwClose(v12);
+      ZwClose(KeyHandle);
       return (unsigned int)v6;
     }
   }
-  ZwClose(v12);
+  ZwClose(KeyHandle);
   return 3221225621LL;
 }

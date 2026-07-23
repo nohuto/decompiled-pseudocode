@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapReportPersistedErrorRecord @ 0x14031FBAC
+ * XREFs of WheapReportPersistedErrorRecord @ 0x14031FD9C
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14017D2DC (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14017D41C (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     WheapWorkQueueAddItem @ 0x140321184 (WheapWorkQueueAddItem.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     WheapWorkQueueAddItem @ 0x140321374 (WheapWorkQueueAddItem.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall WheapReportPersistedErrorRecord(_DWORD *Src)

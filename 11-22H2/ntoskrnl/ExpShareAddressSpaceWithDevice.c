@@ -190,7 +190,7 @@ __int64 __fastcall ExpShareAddressSpaceWithDevice(__int64 a1, __int64 a2, unsign
       goto LABEL_108;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       v26 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -210,10 +210,13 @@ __int64 __fastcall ExpShareAddressSpaceWithDevice(__int64 a1, __int64 a2, unsign
       Process[273].Count = Count;
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle.LockQueue.Lock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && (unsigned __int8)v17 <= 0xFu
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v17 >= 2u )
       {
         v28 = KeGetCurrentPrcb();
         v17 = (unsigned int)CurrentIrql + 1;
@@ -326,7 +329,7 @@ LABEL_79:
   *(_QWORD *)(Pool2 + 16) = P;
   v45 = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v45 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu )
   {
     v46 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v45 == 15 )
@@ -355,10 +358,13 @@ LABEL_79:
   v49->Count = (unsigned __int64)v6;
 LABEL_97:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle.LockQueue.Lock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v52 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v52 <= 0xFu && v45 <= 0xFu && (unsigned __int8)v52 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && (unsigned __int8)v52 <= 0xFu
+      && v45 <= 0xFu
+      && (unsigned __int8)v52 >= 2u )
     {
       v53 = KeGetCurrentPrcb();
       v52 = (unsigned int)v45 + 1;
@@ -406,7 +412,7 @@ LABEL_108:
   {
     v56 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v56 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu )
     {
       v57 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v56 == 15 )
@@ -423,10 +429,10 @@ LABEL_108:
       *v60 = v59;
       *(_QWORD *)(v59 + 8) = v60;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle.LockQueue.Lock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v61 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v61 <= 0xFu && v56 <= 0xFu && v61 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v61 <= 0xFu && v56 <= 0xFu && v61 >= 2u )
         {
           v62 = KeGetCurrentPrcb();
           v63 = v62->SchedulerAssist;

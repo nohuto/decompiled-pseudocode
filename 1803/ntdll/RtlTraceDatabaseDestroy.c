@@ -8,34 +8,34 @@
  *     sub_1800F7CF8 @ 0x1800F7CF8 (sub_1800F7CF8.c)
  */
 
-char __fastcall RtlTraceDatabaseDestroy(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+char __fastcall RtlTraceDatabaseDestroy(__int64 a1)
 {
-  _QWORD *v5; // rax
-  char v6; // bl
-  _QWORD *v7; // rdi
-  _QWORD *v8; // rsi
+  _QWORD *v2; // rax
+  char v3; // bl
+  _QWORD *v4; // rdi
+  _QWORD *v5; // rsi
 
-  RtlDeleteCriticalSection((__int64 *)(a1 + 48), a2, a3, a4);
-  v5 = *(_QWORD **)(a1 + 16);
-  if ( !v5 )
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
+  v2 = *(_QWORD **)(a1 + 16);
+  if ( !v2 )
     goto LABEL_9;
-  v6 = 0;
+  v3 = 0;
   do
   {
-    v7 = (_QWORD *)v5[2];
-    v8 = v5 - 24;
-    if ( v7 )
-      v8 = v5;
-    if ( !(unsigned __int8)sub_1800F7CF8(v8) )
+    v4 = (_QWORD *)v2[2];
+    v5 = v2 - 24;
+    if ( v4 )
+      v5 = v2;
+    if ( !(unsigned __int8)sub_1800F7CF8(v5) )
     {
-      DbgPrint("Trace database: failed to release segment %p \n", v8);
-      v6 = 1;
+      DbgPrint("Trace database: failed to release segment %p \n", v5);
+      v3 = 1;
     }
-    v5 = v7;
+    v2 = v4;
   }
-  while ( v7 );
-  if ( !v6 )
+  while ( v4 );
+  if ( !v3 )
 LABEL_9:
-    LOBYTE(v5) = 1;
-  return (char)v5;
+    LOBYTE(v2) = 1;
+  return (char)v2;
 }

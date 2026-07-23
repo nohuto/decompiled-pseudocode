@@ -1,21 +1,21 @@
 /*
  * XREFs of wcsstr @ 0x1403E3540
  * Callers:
- *     BcpGetProgressMessages @ 0x1403CABF8 (BcpGetProgressMessages.c)
- *     SmUniqueIdParseProductName @ 0x1405FACB4 (SmUniqueIdParseProductName.c)
- *     SiIsWinPEBoot @ 0x1406BAF60 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceName @ 0x1406BAFD4 (SiGetBootDeviceName.c)
- *     PiGetDeviceRegProperty @ 0x1407741A4 (PiGetDeviceRegProperty.c)
- *     PfSnIsHostingApplication @ 0x1407DC5E4 (PfSnIsHostingApplication.c)
- *     EtwpGenerateFileName @ 0x1407FC710 (EtwpGenerateFileName.c)
- *     BiIsWinPEBoot @ 0x140812540 (BiIsWinPEBoot.c)
- *     IopCheckIfNotNativeDriver @ 0x140933EEC (IopCheckIfNotNativeDriver.c)
- *     PiGetDeviceRegistryProperty @ 0x140943248 (PiGetDeviceRegistryProperty.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140A202A4 (BiGetObjectReferenceFromEfiEntry.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140A212A0 (BiUpdateObjectReferenceInEfiEntry.c)
- *     SiGetBiosSystemPartition @ 0x140A22650 (SiGetBiosSystemPartition.c)
- *     SubstringMatch @ 0x140A31A94 (SubstringMatch.c)
- *     PopGetBitlockerKeyLocation @ 0x140A52500 (PopGetBitlockerKeyLocation.c)
+ *     sub_1403CABF8 @ 0x1403CABF8 (sub_1403CABF8.c)
+ *     sub_1405FACB4 @ 0x1405FACB4 (sub_1405FACB4.c)
+ *     sub_1406BAF60 @ 0x1406BAF60 (sub_1406BAF60.c)
+ *     sub_1406BAFD4 @ 0x1406BAFD4 (sub_1406BAFD4.c)
+ *     sub_1407741A4 @ 0x1407741A4 (sub_1407741A4.c)
+ *     sub_1407DC5E4 @ 0x1407DC5E4 (sub_1407DC5E4.c)
+ *     sub_1407FC710 @ 0x1407FC710 (sub_1407FC710.c)
+ *     sub_140812540 @ 0x140812540 (sub_140812540.c)
+ *     sub_140933EEC @ 0x140933EEC (sub_140933EEC.c)
+ *     sub_140943248 @ 0x140943248 (sub_140943248.c)
+ *     sub_140A202A4 @ 0x140A202A4 (sub_140A202A4.c)
+ *     sub_140A212A0 @ 0x140A212A0 (sub_140A212A0.c)
+ *     sub_140A22650 @ 0x140A22650 (sub_140A22650.c)
+ *     sub_140A31A94 @ 0x140A31A94 (sub_140A31A94.c)
+ *     sub_140A52500 @ 0x140A52500 (sub_140A52500.c)
  * Callees:
  *     <none>
  */

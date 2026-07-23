@@ -1,16 +1,16 @@
 /*
  * XREFs of MiFreeSlabEntries @ 0x14021F040
  * Callers:
- *     MiDeleteSlabAllocator @ 0x140656770 (MiDeleteSlabAllocator.c)
+ *     MiDeleteSlabAllocator @ 0x140656CC0 (MiDeleteSlabAllocator.c)
  * Callees:
  *     MiSlabUpdateRecentFailure @ 0x14021F214 (MiSlabUpdateRecentFailure.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     MiPurgeSlabEntries @ 0x14036B670 (MiPurgeSlabEntries.c)
- *     MiFreeSlabEntry @ 0x1403B86D0 (MiFreeSlabEntry.c)
- *     MiRemoveSlabEntry @ 0x1403C248C (MiRemoveSlabEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     MiPurgeSlabEntries @ 0x14036B810 (MiPurgeSlabEntries.c)
+ *     MiFreeSlabEntry @ 0x1403B88B0 (MiFreeSlabEntry.c)
+ *     MiRemoveSlabEntry @ 0x1403C266C (MiRemoveSlabEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeSlabEntries(__int64 a1, __int64 a2, int a3)
@@ -72,10 +72,13 @@ LABEL_24:
             v10 = (_QWORD *)*v10;
             MiFreeSlabEntry(a2, v20);
           }
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v13 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;

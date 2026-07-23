@@ -1,20 +1,20 @@
 /*
- * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x140A4621C
+ * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x1409E43BC
  * Callers:
- *     SepSetTokenCapabilities @ 0x140A44AC4 (SepSetTokenCapabilities.c)
+ *     SepSetTokenCapabilities @ 0x1409E2C54 (SepSetTokenCapabilities.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlInsertEntryHashTable @ 0x140466310 (RtlInsertEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x140477880 (RtlRemoveEntryHashTable.c)
- *     RtlCopySid @ 0x140A2AE10 (RtlCopySid.c)
- *     SepFindSharedSidEntry @ 0x140A46BB4 (SepFindSharedSidEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlInsertEntryHashTable @ 0x14045F470 (RtlInsertEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x140471000 (RtlRemoveEntryHashTable.c)
+ *     SepFindSharedSidEntry @ 0x1409E470C (SepFindSharedSidEntry.c)
+ *     RtlCopySid @ 0x140A3DEA0 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepInsertOrReferenceSharedSidEntries(
@@ -34,8 +34,8 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(
   __int64 v14; // r12
   __int64 SharedSidEntry; // rax
   struct _LIST_ENTRY *Blink; // rcx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *Pool2; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v18; // rbp
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *Pool2; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v18; // rbp
   __int64 v19; // rcx
   ULONG_PTR v20; // r8
   __int64 v21; // rax
@@ -75,7 +75,7 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(
     else
     {
       v27 = 8 * *(unsigned __int8 *)(*(_QWORD *)(a1 + 16LL * v12) + 1LL) + 96;
-      Pool2 = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePool2(0x100uLL);
       v18 = Pool2;
       if ( !Pool2 )
       {

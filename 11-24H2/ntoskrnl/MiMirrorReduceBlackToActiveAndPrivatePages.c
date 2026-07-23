@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMirrorReduceBlackToActiveAndPrivatePages @ 0x1404A212C
+ * XREFs of MiMirrorReduceBlackToActiveAndPrivatePages @ 0x14049D0BC
  * Callers:
- *     MiMirrorBlackPhase @ 0x140672C9C (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x140673E6C (MiMirrorBlackPhase.c)
  * Callees:
- *     MiMirrorRemoveInactivePages @ 0x1404A2358 (MiMirrorRemoveInactivePages.c)
+ *     MiMirrorRemoveInactivePages @ 0x14049D2E8 (MiMirrorRemoveInactivePages.c)
  */
 
 __int64 __fastcall MiMirrorReduceBlackToActiveAndPrivatePages(__int64 a1)
@@ -33,22 +33,22 @@ __int64 __fastcall MiMirrorReduceBlackToActiveAndPrivatePages(__int64 a1)
   v1 = 0LL;
   do
   {
-    v3 = v1 & -(__int64)(v1 < (unsigned __int64)xmmword_140E300A0);
-    v4 = xmmword_140E300A0 - 1;
+    v3 = v1 & -(__int64)(v1 < (unsigned __int64)xmmword_140E301E0);
+    v4 = xmmword_140E301E0 - 1;
     while ( 1 )
     {
       result = v4 - v3 + 1;
       if ( v4 - v3 == -1LL )
         goto LABEL_7;
-      v6 = (_QWORD *)(*((_QWORD *)&xmmword_140E300A0 + 1) + 8 * (v3 >> 6));
+      v6 = (_QWORD *)(*((_QWORD *)&xmmword_140E301E0 + 1) + 8 * (v3 >> 6));
       result = ~*v6;
       for ( i = result | ((1LL << (v3 & 0x3F)) - 1); i == -1; i = ~*v6 )
       {
-        if ( (unsigned __int64)++v6 > *((_QWORD *)&xmmword_140E300A0 + 1) + 8 * (v4 >> 6) )
+        if ( (unsigned __int64)++v6 > *((_QWORD *)&xmmword_140E301E0 + 1) + 8 * (v4 >> 6) )
           goto LABEL_7;
       }
       _BitScanForward64((unsigned __int64 *)&result, ~i);
-      v8 = result + (((__int64)v6 - *((_QWORD *)&xmmword_140E300A0 + 1)) >> 3 << 6);
+      v8 = result + (((__int64)v6 - *((_QWORD *)&xmmword_140E301E0 + 1)) >> 3 << 6);
       if ( v8 > v4 )
       {
 LABEL_7:
@@ -61,19 +61,19 @@ LABEL_8:
       if ( !v3 )
         break;
       v9 = v1 + 1;
-      if ( v1 + 1 > (unsigned __int64)xmmword_140E300A0 )
-        v9 = xmmword_140E300A0;
+      if ( v1 + 1 > (unsigned __int64)xmmword_140E301E0 )
+        v9 = xmmword_140E301E0;
       v4 = v9 - 1;
       v3 = 0LL;
     }
     if ( v8 < v1 || v8 == -1LL )
       break;
     v10 = 0LL;
-    v11 = xmmword_140E300A0;
-    if ( (unsigned __int64)xmmword_140E300A0 > v8 )
+    v11 = xmmword_140E301E0;
+    if ( (unsigned __int64)xmmword_140E301E0 > v8 )
     {
-      v12 = *((_QWORD *)&xmmword_140E300A0 + 1) + 8 * ((unsigned __int64)(xmmword_140E300A0 - 1) >> 6);
-      v13 = (_QWORD *)(*((_QWORD *)&xmmword_140E300A0 + 1) + 8 * (v8 >> 6));
+      v12 = *((_QWORD *)&xmmword_140E301E0 + 1) + 8 * ((unsigned __int64)(xmmword_140E301E0 - 1) >> 6);
+      v13 = (_QWORD *)(*((_QWORD *)&xmmword_140E301E0 + 1) + 8 * (v8 >> 6));
       v14 = ((1LL << (v8 & 0x3F)) - 1) | *v13;
       for ( j = v13 + 1; ; ++j )
       {
@@ -82,15 +82,15 @@ LABEL_8:
           break;
         if ( (unsigned __int64)j > v12 )
         {
-          v11 = xmmword_140E300A0;
+          v11 = xmmword_140E301E0;
           goto LABEL_35;
         }
         v14 = *++v13;
       }
       _BitScanForward64((unsigned __int64 *)&v17, v16);
-      v18 = (unsigned int)v17 + (((__int64)v13 - *((_QWORD *)&xmmword_140E300A0 + 1)) >> 3 << 6);
-      v11 = xmmword_140E300A0;
-      if ( v18 > (unsigned __int64)xmmword_140E300A0 )
+      v18 = (unsigned int)v17 + (((__int64)v13 - *((_QWORD *)&xmmword_140E301E0 + 1)) >> 3 << 6);
+      v11 = xmmword_140E301E0;
+      if ( v18 > (unsigned __int64)xmmword_140E301E0 )
       {
 LABEL_35:
         v18 = v11;
@@ -108,10 +108,10 @@ LABEL_35:
       }
       _BitScanForward64(&k, k);
 LABEL_28:
-      v21 = k + (((__int64)v13 - *((_QWORD *)&xmmword_140E300A0 + 1)) >> 3 << 6);
-      v11 = xmmword_140E300A0;
-      if ( v21 > (unsigned __int64)xmmword_140E300A0 )
-        v21 = xmmword_140E300A0;
+      v21 = k + (((__int64)v13 - *((_QWORD *)&xmmword_140E301E0 + 1)) >> 3 << 6);
+      v11 = xmmword_140E301E0;
+      if ( v21 > (unsigned __int64)xmmword_140E301E0 )
+        v21 = xmmword_140E301E0;
       v10 = v21 - v18;
 LABEL_31:
       if ( v10 )
@@ -122,6 +122,6 @@ LABEL_31:
     result = MiMirrorRemoveInactivePages(a1, v8, v22);
     v1 = v22 + v10 + v8;
   }
-  while ( v1 < (unsigned __int64)xmmword_140E300A0 );
+  while ( v1 < (unsigned __int64)xmmword_140E301E0 );
   return result;
 }

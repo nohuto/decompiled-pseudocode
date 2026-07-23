@@ -14,44 +14,47 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetCachedSigningLevel2(
-        __int64 a1,
-        unsigned __int64 a2,
-        const void *a3,
-        unsigned int a4,
-        __int64 a5,
-        char *a6)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtSetCachedSigningLevel2(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile,
+        SE_SET_FILE_CACHE_INFORMATION *CacheInformation)
 {
   __int64 v6; // r12
   __int16 v8; // r14
   UNICODE_STRING *Pool2; // rdi
   char PreviousMode; // r15
   size_t v11; // r12
-  char *v12; // rbx
+  SE_SET_FILE_CACHE_INFORMATION *v12; // rbx
   __int64 v13; // r8
-  NTSTATUS v14; // ebx
-  NTSTATUS v15; // eax
-  __int128 v17; // xmm0
-  void *v18; // rbx
+  int v14; // ebx
+  int v15; // eax
+  __int64 v16; // rdx
+  UNICODE_STRING CatalogDirectoryPath; // xmm0
+  void *v19; // rbx
   _KPROCESS *Process; // rcx
-  PVOID P; // [rsp+60h] [rbp-78h]
+  char v21; // dl
+  wchar_t *P; // [rsp+60h] [rbp-78h]
   PCUNICODE_STRING SourceString[2]; // [rsp+68h] [rbp-70h] BYREF
   void *Src[2]; // [rsp+78h] [rbp-60h]
-  void *v23; // [rsp+98h] [rbp-40h]
+  void *v25; // [rsp+98h] [rbp-40h]
 
-  v6 = a4;
-  v8 = a1;
+  v6 = SourceFileCount;
+  v8 = Flags;
   Pool2 = 0LL;
   SourceString[0] = 0LL;
   P = 0LL;
   *(_OWORD *)Src = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a1 & 0x2000) != 0 )
+  if ( (Flags & 0x2000) != 0 )
   {
     if ( qword_140F04588 )
     {
-      a2 = (unsigned __int64)a6;
-      if ( !a6 || !a5 )
+      *(_QWORD *)&InputSigningLevel = CacheInformation;
+      if ( !CacheInformation || !TargetFile )
       {
         v14 = -1073741811;
         goto LABEL_34;
@@ -60,44 +63,47 @@ __int64 __fastcall NtSetCachedSigningLevel2(
       {
         if ( (BYTE2(KeGetCurrentThread()->ApcState.Process[3].ActiveGroupsMask.Masks[1]) & 7) != 1 )
           goto LABEL_68;
-        if ( ((unsigned __int8)a6 & 3) != 0 )
+        if ( ((unsigned __int8)CacheInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        v17 = *(_OWORD *)(a6 + 8);
-        *(_OWORD *)Src = v17;
-        v18 = (void *)v17;
-        if ( (_QWORD)v17 )
+        CatalogDirectoryPath = CacheInformation->CatalogDirectoryPath;
+        *(UNICODE_STRING *)Src = CatalogDirectoryPath;
+        v19 = *(void **)&CatalogDirectoryPath.Length;
+        if ( *(_QWORD *)&CatalogDirectoryPath.Length )
         {
           if ( ((__int64)Src[1] & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          a2 = (unsigned __int64)Src[1] + v17;
-          if ( (char *)Src[1] + (unsigned __int64)v17 > (void *)0x7FFFFFFF0000LL || (void *)a2 < Src[1] )
-            v18 = Src[0];
+          *(_QWORD *)&InputSigningLevel = (char *)Src[1] + *(_QWORD *)&CatalogDirectoryPath.Length;
+          if ( (char *)Src[1] + *(_QWORD *)&CatalogDirectoryPath.Length > (void *)0x7FFFFFFF0000LL
+            || (void *)InputSigningLevel < Src[1] )
+          {
+            v19 = Src[0];
+          }
         }
-        v23 = v18;
-        if ( !Src[1] || !v18 )
+        v25 = v19;
+        if ( !Src[1] || !v19 )
         {
           v14 = -1073741811;
           goto LABEL_34;
         }
-        if ( (unsigned __int64)v18 > 0xFFFF )
+        if ( (unsigned __int64)v19 > 0xFFFF )
         {
           v14 = -1073741811;
           goto LABEL_34;
         }
-        P = (PVOID)ExAllocatePool2(0x103uLL);
+        P = (wchar_t *)ExAllocatePool2(0x103uLL);
         if ( !P )
         {
           v14 = -1073741670;
           goto LABEL_34;
         }
-        memmove(P, Src[1], (size_t)v18);
+        memmove(P, Src[1], (size_t)v19);
       }
       else
       {
-        P = (PVOID)*((_QWORD *)a6 + 2);
+        P = CacheInformation->CatalogDirectoryPath.Buffer;
       }
-      LOBYTE(a1) = PreviousMode;
-      v15 = guard_dispatch_icall_no_overrides(a1);
+      LOBYTE(Flags) = PreviousMode;
+      v15 = guard_dispatch_icall_no_overrides(*(_QWORD *)&Flags);
       goto LABEL_31;
     }
 LABEL_33:
@@ -106,31 +112,31 @@ LABEL_33:
   }
   if ( !qword_140F044A8 )
     goto LABEL_33;
-  if ( (a2 & 0x30) != 0 )
+  if ( (InputSigningLevel & 0x30) != 0 )
     goto LABEL_41;
-  if ( a4 - 1 > 0xFFF )
+  if ( SourceFileCount - 1 > 0xFFF )
     goto LABEL_39;
-  if ( (a1 & 6) == 0 && (_BYTE)a2 )
+  if ( (Flags & 6) == 0 && InputSigningLevel )
   {
 LABEL_41:
     v14 = -1073741584;
     goto LABEL_34;
   }
-  if ( (a1 & 3) == 3 )
+  if ( (Flags & 3) == 3 )
     goto LABEL_38;
   if ( PreviousMode == 1 )
   {
-    if ( (a1 & 2) == 0 )
+    if ( (Flags & 2) == 0 )
     {
-      v8 = a1 | 1;
-      if ( (a1 & 4) != 0 )
+      v8 = Flags | 1;
+      if ( (Flags & 4) != 0 )
         goto LABEL_10;
       Process = KeGetCurrentThread()->ApcState.Process;
       if ( (BYTE2(Process[3].ActiveGroupsMask.Masks[1]) & 7) == 1 )
       {
-        LOBYTE(a2) = Process[3].ActiveGroupsMask.Masks[1] & 0xF;
+        v21 = Process[3].ActiveGroupsMask.Masks[1] & 0xF;
         LOBYTE(Process) = BYTE1(Process[3].ActiveGroupsMask.Masks[1]) & 0xF;
-        SeCompareSigningLevels(Process, a2);
+        SeCompareSigningLevels(Process, v21);
         goto LABEL_10;
       }
 LABEL_68:
@@ -141,7 +147,7 @@ LABEL_38:
     v14 = -1073741585;
     goto LABEL_34;
   }
-  if ( (a1 & 1) == 0 && (a1 & 2) == 0 )
+  if ( (Flags & 1) == 0 && (Flags & 2) == 0 )
     goto LABEL_38;
 LABEL_10:
   v11 = 8 * v6;
@@ -154,30 +160,32 @@ LABEL_10:
   }
   if ( PreviousMode == 1 )
   {
-    if ( v11 && ((unsigned __int8)a3 & 7) != 0 )
+    if ( v11 && ((unsigned __int8)SourceFiles & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    v12 = a6;
-    if ( a6 && ((unsigned __int8)a6 & 3) != 0 )
+    v12 = CacheInformation;
+    if ( CacheInformation && ((unsigned __int8)CacheInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
   }
   else
   {
-    v12 = a6;
+    v12 = CacheInformation;
   }
-  memmove(Pool2, a3, v11);
+  memmove(Pool2, SourceFiles, v11);
   if ( !v12 )
     goto LABEL_27;
-  if ( *(_DWORD *)v12 < 0x18u )
+  if ( v12->Size < 0x18 )
   {
     v14 = -1073741580;
     goto LABEL_34;
   }
-  if ( !*((_WORD *)v12 + 4)
-    || (LOBYTE(v13) = PreviousMode, v14 = SepCaptureUnicodeStringArray(v12 + 8, 1LL, v13, SourceString), v14 >= 0)
-    && (v14 = RtlUnicodeStringValidateEx(SourceString[0], a2), v14 >= 0) )
+  if ( !v12->CatalogDirectoryPath.Length
+    || (LOBYTE(v13) = PreviousMode,
+        v14 = SepCaptureUnicodeStringArray(&v12->CatalogDirectoryPath, 1LL, v13, SourceString),
+        v14 >= 0)
+    && (v14 = RtlUnicodeStringValidateEx(SourceString[0], InputSigningLevel), v14 >= 0) )
   {
 LABEL_27:
-    a2 = a4;
+    *(_QWORD *)&InputSigningLevel = SourceFileCount;
     if ( (v8 & 6) == 0 )
     {
 LABEL_30:
@@ -186,9 +194,9 @@ LABEL_31:
       v14 = v15;
       goto LABEL_34;
     }
-    if ( a4 == 1 )
+    if ( SourceFileCount == 1 )
     {
-      if ( a5 == *(_QWORD *)&Pool2->Length )
+      if ( TargetFile == *(HANDLE *)&Pool2->Length )
         goto LABEL_30;
       v14 = -1073741581;
       goto LABEL_34;
@@ -197,11 +205,11 @@ LABEL_39:
     v14 = -1073741582;
   }
 LABEL_34:
-  LOBYTE(a2) = PreviousMode;
-  SepReleaseUnicodeStringArray(SourceString[0], a2);
+  LOBYTE(v16) = PreviousMode;
+  SepReleaseUnicodeStringArray(SourceString[0], v16);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x63734943u);
   if ( P && PreviousMode == 1 )
     ExFreePoolWithTag(P, 0x63734943u);
-  return (unsigned int)v14;
+  return v14;
 }

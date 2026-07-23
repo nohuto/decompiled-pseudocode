@@ -26,7 +26,7 @@ char __fastcall sub_180106954(
         __int64 a7,
         __int64 a8)
 {
-  struct _PEB_LDR_DATA *v8; // r10
+  _PEB_LDR_DATA *v8; // r10
   _DWORD *v9; // r14
   bool v10; // cf
   unsigned int v11; // ebp
@@ -40,7 +40,7 @@ char __fastcall sub_180106954(
   unsigned __int16 v21; // cx
   char v22; // al
   bool v23; // zf
-  unsigned __int64 v24; // rbp
+  SIZE_T v24; // rbp
   __int64 *v25; // r14
   __int64 **v26; // r15
   __int64 v27; // rbp
@@ -62,7 +62,7 @@ char __fastcall sub_180106954(
   unsigned __int64 k; // rax
   __int64 v44; // rax
   int v45; // r8d
-  __int64 v46; // r14
+  SIZE_T v46; // r14
   __int64 v47; // rax
   unsigned __int8 v48; // al
   unsigned __int64 v49; // rcx
@@ -209,7 +209,7 @@ LABEL_35:
             v36 = (__int64 *)(a1 + 336);
             *(_BYTE *)(i + 10) = (_BYTE)v8;
             *(_BYTE *)(i + 15) = (_BYTE)v8;
-            if ( *(struct _PEB_LDR_DATA **)(a1 + 312) == v8 )
+            if ( *(_PEB_LDR_DATA **)(a1 + 312) == v8 )
             {
               v37 = (__int64 *)*v36;
             }
@@ -291,7 +291,7 @@ LABEL_39:
           v9 = a4;
           goto LABEL_41;
         }
-        v46 = RtlCompareMemoryUlong((_DWORD *)(i + 32), v24, -17891602);
+        v46 = RtlCompareMemoryUlong((PVOID)(i + 32), v24, 0xFEEEFEEE);
         if ( v46 != v24 )
         {
           if ( NtCurrentPeb()->Ldr )

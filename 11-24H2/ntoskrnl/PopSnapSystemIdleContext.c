@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSnapSystemIdleContext @ 0x140902A80
+ * XREFs of PopSnapSystemIdleContext @ 0x140A6E360
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1404BF450 (PopIdlePhaseWatchdogCallback.c)
- *     PopArmIdlePhaseWatchdog @ 0x14090292C (PopArmIdlePhaseWatchdog.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x1404BA980 (PopIdlePhaseWatchdogCallback.c)
+ *     PopArmIdlePhaseWatchdog @ 0x140A6E20C (PopArmIdlePhaseWatchdog.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2)
@@ -20,8 +20,8 @@ __int64 __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2)
   __int64 v11; // r8
   unsigned int v12; // edx
 
-  PopAcquireRwLockExclusive(&PopSystemIdleLock);
-  Pool2 = ExAllocatePool2(0x100uLL);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemIdleLock);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x148uLL, 0x67696450u);
   v5 = 2LL;
   *a1 = Pool2;
   v6 = (_OWORD *)Pool2;
@@ -48,9 +48,9 @@ __int64 __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2)
   v6[3] = *((_OWORD *)v7 + 3);
   *((_QWORD *)v6 + 8) = *((_QWORD *)v7 + 8);
   *a2 = 0;
-  if ( dword_140E0B784 )
+  if ( dword_140E0B804 )
   {
-    v10 = &unk_140E0B6AC;
+    v10 = &unk_140E0B72C;
     v11 = 4LL;
     do
     {
@@ -75,5 +75,5 @@ __int64 __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2)
     }
     while ( v11 );
   }
-  return PopReleaseRwLock((signed __int64 *)&PopSystemIdleLock);
+  return PopReleaseRwLock(&PopSystemIdleLock);
 }

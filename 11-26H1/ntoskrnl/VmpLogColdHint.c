@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogColdHint @ 0x1406C2D44
+ * XREFs of VmpLogColdHint @ 0x1406C6924
  * Callers:
- *     VmColdPagesHint @ 0x1404BE180 (VmColdPagesHint.c)
+ *     VmColdPagesHint @ 0x1404B79D0 (VmColdPagesHint.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void VmpLogColdHint()
@@ -31,7 +31,7 @@ void VmpLogColdHint()
   __int64 *v18; // [rsp+B0h] [rbp+37h]
   __int64 v19; // [rsp+B8h] [rbp+3Fh]
 
-  if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 4LL) )
+  if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 4LL) )
   {
     Flink = (int)KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
     p_Flink = &Flink;
@@ -45,6 +45,6 @@ void VmpLogColdHint()
     v9 = v1;
     v17 = 8LL;
     v19 = 8LL;
-    tlgWriteEx_EtwWriteEx(v3, (unsigned __int8 *)&byte_140053413, v1, 0, v5, v6, 6u, &v11);
+    tlgWriteEx_EtwWriteEx(v3, (unsigned __int8 *)&byte_1400541D1, v1, 0, v5, v6, 6u, &v11);
   }
 }

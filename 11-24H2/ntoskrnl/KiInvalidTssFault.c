@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInvalidTssFault @ 0x1406B8CC0
+ * XREFs of KiInvalidTssFault @ 0x1406B9BC0
  * Callers:
- *     KiInvalidTssFaultShadow @ 0x140BBB640 (KiInvalidTssFaultShadow.c)
+ *     KiInvalidTssFaultShadow @ 0x140BBD640 (KiInvalidTssFaultShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x14041B1F0 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x1404FBC90 (KiSaveDebugRegisterState.c)
- *     KiInvalidTssFault @ 0x1406B8CC0 (KiInvalidTssFault.c)
- *     KiBugCheckDispatch @ 0x1406BEC80 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406BF740 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14040ED30 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x1404F9550 (KiSaveDebugRegisterState.c)
+ *     KiInvalidTssFault @ 0x1406B9BC0 (KiInvalidTssFault.c)
+ *     KiBugCheckDispatch @ 0x1406BFB80 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406C0640 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiInvalidTssFault()
@@ -62,7 +62,7 @@ void __noreturn KiInvalidTssFault()
       v6 = KeGetPcr()->Prcb.PrcbPad12a[1];
     }
     if ( (v6 & 2) != 0 )
-      JUMPOUT(0x1406B8F25LL);
+      JUMPOUT(0x1406B9E25LL);
     if ( v6 < 0 )
     {
       _mm_lfence();

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPfCompleteInPageSupport @ 0x1402FCB98
+ * XREFs of MiPfCompleteInPageSupport @ 0x1403078E8
  * Callers:
- *     MiPfCompletePrefetchIos @ 0x1402FCB00 (MiPfCompletePrefetchIos.c)
- *     MiPfCompleteCoalescedIo @ 0x14053908C (MiPfCompleteCoalescedIo.c)
+ *     MiPfCompletePrefetchIos @ 0x140307850 (MiPfCompletePrefetchIos.c)
+ *     MiPfCompleteCoalescedIo @ 0x1405392CC (MiPfCompleteCoalescedIo.c)
  * Callees:
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiInitializePageFaultPacket @ 0x1402FCC78 (MiInitializePageFaultPacket.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiInitializePageFaultPacket @ 0x1403079C8 (MiInitializePageFaultPacket.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiWaitForInPageComplete @ 0x140325F40 (MiWaitForInPageComplete.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiPfCompleteInPageSupport(__int64 a1, __int64 AnyMultiplexedVm)

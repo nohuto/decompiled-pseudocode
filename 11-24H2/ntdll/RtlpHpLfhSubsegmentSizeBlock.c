@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x1800BEB30
+ * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x1800B68F0
  * Callers:
- *     RtlpHpSegReportPageRange @ 0x18011D290 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpSegReportPageRange @ 0x18011B4C0 (RtlpHpSegReportPageRange.c)
  * Callees:
  *     <none>
  */
@@ -20,15 +20,15 @@ __int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, unsigned __int64 a2,
 
   v4 = *(_DWORD *)(a2 + 40);
   v7 = a2 >> 12;
-  v9 = a3 - (((unsigned int)qword_1801CDEC8 ^ v4 ^ (unsigned int)(a2 >> 12)) >> 16) - a2;
+  v9 = a3 - (((unsigned int)qword_1801CCEC8 ^ v4 ^ (unsigned int)(a2 >> 12)) >> 16) - a2;
   v10 = (v9 * (unsigned __int64)*(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(a2 + 44) << 6) + a1 + 72)) >> 32;
-  if ( v9 != (_DWORD)v10 * (unsigned __int16)(qword_1801CDEC8 ^ v4 ^ (a2 >> 12)) )
+  if ( v9 != (_DWORD)v10 * (unsigned __int16)(qword_1801CCEC8 ^ v4 ^ (a2 >> 12)) )
     return -1LL;
   v11 = 1LL << (v10 & 0x1F);
   v12 = a2 + 8 * (v10 >> 5);
   if ( (*(_DWORD *)(v12 + 64) & (unsigned int)v11) == 0 )
     return -1LL;
-  result = (unsigned __int16)qword_1801CDEC8 ^ (unsigned int)(unsigned __int16)(v7 ^ v4);
+  result = (unsigned __int16)qword_1801CCEC8 ^ (unsigned int)(unsigned __int16)(v7 ^ v4);
   if ( (HIDWORD(*(_QWORD *)(v12 + 64)) & v11) != 0 )
   {
     v14 = *(_WORD *)(result + a3 - 2);

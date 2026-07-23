@@ -1,13 +1,13 @@
 /*
- * XREFs of TppCleanupGroupMemberRelease @ 0x18003B9D0
+ * XREFs of TppCleanupGroupMemberRelease @ 0x18003B9C0
  * Callers:
- *     TpReleaseTimer @ 0x18003A490 (TpReleaseTimer.c)
- *     TppWorkCallbackPrologRelease @ 0x18003AFD0 (TppWorkCallbackPrologRelease.c)
- *     TpReleaseWork @ 0x18003BA30 (TpReleaseWork.c)
- *     TpReleaseWait @ 0x180064590 (TpReleaseWait.c)
- *     TpReleaseAlpcCompletion @ 0x1800654C0 (TpReleaseAlpcCompletion.c)
- *     TpReleaseIoCompletion @ 0x1800785F0 (TpReleaseIoCompletion.c)
- *     TpReleaseJobNotification @ 0x1800843C0 (TpReleaseJobNotification.c)
+ *     TpReleaseTimer @ 0x18003A480 (TpReleaseTimer.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003AFC0 (TppWorkCallbackPrologRelease.c)
+ *     TpReleaseWork @ 0x18003BA20 (TpReleaseWork.c)
+ *     TpReleaseWait @ 0x180064580 (TpReleaseWait.c)
+ *     TpReleaseAlpcCompletion @ 0x1800654B0 (TpReleaseAlpcCompletion.c)
+ *     TpReleaseIoCompletion @ 0x1800785E0 (TpReleaseIoCompletion.c)
+ *     TpReleaseJobNotification @ 0x1800843B0 (TpReleaseJobNotification.c)
  * Callees:
  *     TppRaiseInvalidParameter @ 0x1800FE5C4 (TppRaiseInvalidParameter.c)
  */

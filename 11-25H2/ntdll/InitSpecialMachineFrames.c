@@ -7,36 +7,36 @@
  *     ZwDelayExecution @ 0x1801638A0 (ZwDelayExecution.c)
  */
 
-PRUNTIME_FUNCTION InitSpecialMachineFrames()
+int InitSpecialMachineFrames()
 {
-  PRUNTIME_FUNCTION result; // rax
+  PRUNTIME_FUNCTION v0; // rax
   ULONG64 *v1; // rbx
   __int64 v2; // rdi
-  signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
   unsigned __int64 ImageBase; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  result = (PRUNTIME_FUNCTION)(unsigned int)_InterlockedIncrement(&SpecialMachineFramesInitCount);
-  if ( (_DWORD)result == 1 )
+  LODWORD(v0) = _InterlockedIncrement(&SpecialMachineFramesInitCount);
+  if ( (_DWORD)v0 == 1 )
   {
     ImageBase = 0LL;
     v1 = (ULONG64 *)RtlpContinuationContextMachineFrameEntries;
     v2 = 2LL;
     do
     {
-      result = RtlLookupFunctionEntry(*v1, &ImageBase, 0LL);
-      *v1++ = ImageBase + result->UnwindInfoAddress;
+      v0 = RtlLookupFunctionEntry(*v1, &ImageBase, 0LL);
+      *v1++ = ImageBase + v0->UnwindInfoAddress;
       --v2;
     }
     while ( v2 );
-    _InterlockedOr(v3, 0);
+    _InterlockedOr(v4, 0);
     SpecialMachineFramesInitialized = 1;
   }
   else
   {
-    v5 = -300000LL;
+    DelayInterval.QuadPart = -300000LL;
     while ( !SpecialMachineFramesInitialized )
-      result = (PRUNTIME_FUNCTION)ZwDelayExecution(0LL, &v5);
+      LODWORD(v0) = ZwDelayExecution(0, &DelayInterval);
   }
-  return result;
+  return (int)v0;
 }

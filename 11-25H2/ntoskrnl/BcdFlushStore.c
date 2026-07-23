@@ -12,23 +12,23 @@
  *     BiLogMessage @ 0x140A26990 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdFlushStore(__int64 a1)
+NTSTATUS __cdecl BcdFlushStore(HANDLE BcdStoreHandle)
 {
   __int64 v2; // rcx
   char v3; // di
   int v4; // eax
-  unsigned int v5; // r8d
+  NTSTATUS v5; // r8d
   void *v7; // rax
   NTSTATUS v8; // eax
   __int64 v9; // rcx
-  unsigned int v10; // ebx
+  NTSTATUS v10; // ebx
 
-  LOBYTE(v2) = BiIsOfflineHandle(a1);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = v2;
   v4 = BiAcquireBcdSyncMutant(v2);
   if ( v4 >= 0 )
   {
-    v7 = (void *)BiSanitizeHandle(a1);
+    v7 = (void *)BiSanitizeHandle((__int64)BcdStoreHandle);
     v8 = ZwFlushKey(v7);
     LOBYTE(v9) = v3;
     v10 = v8;

@@ -1,12 +1,12 @@
 /*
- * XREFs of KasanWrapperRtlRestoreContext @ 0x140449420
+ * XREFs of KasanWrapperRtlRestoreContext @ 0x140441B70
  * Callers:
- *     RtlRestoreContext @ 0x1404FCBA0 (RtlRestoreContext.c)
+ *     RtlRestoreContext @ 0x1404FA460 (RtlRestoreContext.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x140259BD0 (KeQueryCurrentStackInformationEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x1406AA390 (KeGetCurrentStackPointer.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14028A1E0 (KeQueryCurrentStackInformationEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1406AB330 (KeGetCurrentStackPointer.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
@@ -28,7 +28,7 @@ char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
   v13 = 0;
   BugCheckParameter3 = 0LL;
   v11[0] = 0LL;
-  if ( byte_140FCDC28 )
+  if ( byte_140FCECA8 )
   {
     LODWORD(v1) = *(_DWORD *)(a1 + 48) & 0x100001;
     if ( (_DWORD)v1 == 1048577 )
@@ -49,7 +49,7 @@ char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
               {
                 v4 = BugCheckParameter3;
                 BugCheckParameter4 = *(_QWORD *)(a1 + 152) - BugCheckParameter3;
-                if ( byte_140FCDC28 )
+                if ( byte_140FCECA8 )
                 {
                   if ( BugCheckParameter3 < 0xFFFF800000000000uLL )
                     KeBugCheckEx(0x1F1u, 2uLL, 1uLL, BugCheckParameter3, 0LL);
@@ -79,7 +79,7 @@ char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
       if ( (_BYTE)v1 == 1 && v13 == 10 )
       {
         v8 = v11[0] - BugCheckParameter3;
-        if ( byte_140FCDC28 )
+        if ( byte_140FCECA8 )
         {
           if ( BugCheckParameter3 < 0xFFFF800000000000uLL )
             KeBugCheckEx(0x1F1u, 2uLL, 1uLL, BugCheckParameter3, 0LL);

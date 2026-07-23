@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateProfile @ 0x14015B280
+ * XREFs of ZwCreateProfile @ 0x14015B7F0
  * Callers:
  *     <none>
  * Callees:
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwCreateProfile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProfileHandle, ProcessHandle, ImageBase);
+  return KiServiceInternal(ProfileHandle);
 }

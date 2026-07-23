@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgEnumDeviceKeys @ 0x140767AB8
+ * XREFs of PiDevCfgEnumDeviceKeys @ 0x140767C78
  * Callers:
- *     PiDevCfgResetDeviceKeys @ 0x140730714 (PiDevCfgResetDeviceKeys.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x1407675E4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgResetDeviceKeys @ 0x1407308E0 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1407677A4 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x1402C9DF8 (CmIsStateSeparationEnabled.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxOpenContextBaseKey @ 0x14077C908 (_PnpCtxOpenContextBaseKey.c)
- *     _PnpCtxOpenContextNodeBaseKey @ 0x1409747C0 (_PnpCtxOpenContextNodeBaseKey.c)
+ *     CmIsStateSeparationEnabled @ 0x1402486E8 (CmIsStateSeparationEnabled.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14077CAC8 (_PnpCtxOpenContextBaseKey.c)
+ *     _PnpCtxOpenContextNodeBaseKey @ 0x1409749A0 (_PnpCtxOpenContextNodeBaseKey.c)
  */
 
 __int64 __fastcall PiDevCfgEnumDeviceKeys(
@@ -56,7 +56,7 @@ __int64 __fastcall PiDevCfgEnumDeviceKeys(
   _BYTE v38[76]; // [rsp+F0h] [rbp-10h] BYREF
   __int16 v39; // [rsp+13Ch] [rbp+3Ch]
 
-  v7 = &dword_140985AEC;
+  v7 = &dword_140985CCC;
   v34 = a6;
   v8 = a3;
   v32 = a7;

@@ -1,142 +1,139 @@
 /*
- * XREFs of MiIssueHardFaultIo @ 0x140398DC4
+ * XREFs of MiIssueHardFaultIo @ 0x140351514
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1402A98D0 (MiPrefetchVirtualMemory.c)
- *     MiPfCoalesceAndIssueIOs @ 0x1402AA4C8 (MiPfCoalesceAndIssueIOs.c)
- *     MiIssueHardFault @ 0x140397B2C (MiIssueHardFault.c)
- *     MiPfIssueCoalesceCandidates @ 0x14047E4E8 (MiPfIssueCoalesceCandidates.c)
+ *     MiIssueHardFault @ 0x140350280 (MiIssueHardFault.c)
+ *     MiPrefetchVirtualMemory @ 0x140351B80 (MiPrefetchVirtualMemory.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x140352778 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfIssueCoalesceCandidates @ 0x1403DAED4 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14022AD20 (MiGetSystemRegionType.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     IoPageReadEx @ 0x140373740 (IoPageReadEx.c)
- *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1403990B0 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
- *     MiTransferFileExtent @ 0x1404BEE98 (MiTransferFileExtent.c)
- *     MiCopyImageExtentContents @ 0x1404CC4F4 (MiCopyImageExtentContents.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x14025C000 (IoPageReadEx.c)
+ *     SmPageRead @ 0x1402F6388 (SmPageRead.c)
+ *     MiGetSystemRegionType @ 0x1402FDF90 (MiGetSystemRegionType.c)
+ *     MiTransferFileExtent @ 0x1404BA3CC (MiTransferFileExtent.c)
+ *     MiCopyImageExtentContents @ 0x1404C5964 (MiCopyImageExtentContents.c)
  */
 
-__int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall MiIssueHardFaultIo(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v3; // r9d
-  int v7; // eax
-  int v8; // ecx
-  int v9; // r8d
-  struct _KEVENT *v10; // rsi
-  NTSTATUS *v11; // r14
-  __int64 v12; // rax
-  NTSTATUS v13; // eax
-  unsigned int v14; // ebx
-  __int64 v16; // rdx
-  __int64 v17; // rdx
-  __int64 v18; // rdx
-  __int64 v19; // rax
-  __int64 v20; // rcx
-  int v21; // esi
-  char v22; // bl
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  int v15; // esi
+  char v16; // bl
   _KPROCESS *Process; // rdx
   signed __int32 Value; // eax
-  signed __int32 v25; // ett
+  signed __int32 v19; // ett
+  struct _KEVENT *v20; // rsi
+  int *v21; // r14
+  int v22; // eax
+  int v23; // eax
+  int v24; // ecx
+  int v25; // r8d
   unsigned __int64 v26; // r10
-  __int64 v27; // rbx
-  __int64 v28; // rax
-  int v29; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v27; // ebx
 
   v3 = *(_DWORD *)(a1 + 192);
   if ( (v3 & 0x400) != 0 )
   {
-    v7 = a1 + 272;
-    v8 = (a1 + 272) | 1;
+    v23 = a1 + 272;
+    v24 = (a1 + 272) | 1;
     if ( (v3 & 0x20) == 0 )
-      v8 = v7;
-    v9 = v8;
+      v24 = v23;
+    v25 = v24;
     if ( (a3 & 1) != 0 )
     {
       v26 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
       if ( *(_BYTE *)v26 == 1 && (*(_DWORD *)(v26 + 80) & 0x800) != 0 )
-        v9 = v8 | 2;
+        v25 = v24 | 2;
     }
-    v10 = (struct _KEVENT *)(a1 + 32);
-    v11 = (NTSTATUS *)(a1 + 80);
-    v12 = *(_QWORD *)(*(_QWORD *)(a1 + 248) + 40LL) >> 43;
-    v29 = *(_DWORD *)(a1 + 96);
-    v13 = SMKM_STORE_MGR<SM_TRAITS>::SmPageRead(
-            *(_QWORD *)(*(_QWORD *)(*((_QWORD *)qword_140E2FF88 + (v12 & 0x3FF)) + 184LL) + 24LL),
-            (unsigned int)&v29,
-            v9,
+    v20 = (struct _KEVENT *)(a1 + 32);
+    v21 = (int *)(a1 + 80);
+    v22 = SmPageRead(
+            *(_QWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(*(_QWORD *)(a1 + 248) + 40LL) >> 43) & 0x3FFLL))
+                      + 184LL),
+            (int *)(a1 + 96),
+            v25,
             (int)a1 + 32,
             a1 + 80);
-LABEL_6:
-    v14 = v13;
-    if ( v13 < 0 )
+LABEL_36:
+    v27 = v22;
+    if ( v22 < 0 )
     {
       *(_QWORD *)(a1 + 88) = 0LL;
-      *v11 = v13;
-      KeSetEvent(v10, 0, 0);
+      *v21 = v22;
+      KeSetEvent(v20, 0, 0);
     }
-    return v14;
+    return v27;
   }
-  if ( !a2 )
+  if ( a2 )
   {
-    v16 = *(_QWORD *)(a1 + 248);
-    if ( *(__int64 *)(v16 + 40) < 0 )
+    if ( (*(_BYTE *)(**(_QWORD **)(a1 + 208) + 62LL) & 0xC) == 8 )
     {
-      v17 = *(_QWORD *)(v16 + 16);
-      if ( (v17 & 0x400) != 0 )
-      {
-        if ( qword_140E2DB80 && (v17 & 0x10) == 0 )
-          v17 &= ~qword_140E2DB80;
-        v18 = v17 >> 16;
-        if ( (*(_BYTE *)(*(_QWORD *)v18 + 62LL) & 0xC) == 8 )
-        {
-          v19 = *(_QWORD *)(a1 + 256);
-          v20 = a1 + 272;
-          if ( v19 )
-            v20 = v19;
-          MiTransferFileExtent(v20, v18, *(_QWORD *)(a1 + 96), 0LL, a1 + 80);
-          KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
-          return *(unsigned int *)(a1 + 80);
-        }
-      }
+      v7 = a1 + 272;
+      if ( *(_QWORD *)(a1 + 256) )
+        v7 = *(_QWORD *)(a1 + 256);
+      MiCopyImageExtentContents(a1, v7, a2);
+      v8 = *(unsigned int *)(v7 + 40);
+      *(_DWORD *)(a1 + 80) = 0;
+      *(_QWORD *)(a1 + 88) = v8;
+      KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
+      return 0LL;
     }
-LABEL_20:
-    v21 = (v3 >> 3) & 4 | 1;
+    goto LABEL_16;
+  }
+  v10 = *(_QWORD *)(a1 + 248);
+  if ( *(__int64 *)(v10 + 40) >= 0 )
+    goto LABEL_16;
+  v11 = *(_QWORD *)(v10 + 16);
+  if ( (v11 & 0x400) == 0 )
+    goto LABEL_16;
+  if ( qword_140E2DCC0 && (v11 & 0x10) == 0 )
+    v11 &= ~qword_140E2DCC0;
+  v12 = v11 >> 16;
+  if ( (*(_BYTE *)(*(_QWORD *)v12 + 62LL) & 0xC) != 8 )
+  {
+LABEL_16:
+    v15 = (v3 >> 3) & 4 | 1;
     if ( (v3 & 0x80000) == 0 )
-      v21 = (v3 >> 3) & 4;
+      v15 = (v3 >> 3) & 4;
     if ( (v3 & 0x20) != 0 )
     {
-      v22 = v21 | 2;
+      v16 = v15 | 2;
     }
     else
     {
-      v22 = v21;
+      v16 = v15;
       if ( !a2 && (unsigned int)MiGetSystemRegionType(*(_QWORD *)(a1 + 224)) == 7 )
-        v22 = v21 | 2;
+        v16 = v15 | 2;
       Process = KeGetCurrentThread()->Process;
       Value = Process[3].StackCount.Value;
       while ( Value )
       {
-        v25 = Value;
+        v19 = Value;
         Value = _InterlockedCompareExchange(&Process[3].StackCount.Value, Value - 1, Value);
-        if ( v25 == Value )
+        if ( v19 == Value )
         {
-          v22 |= 8u;
+          v16 |= 8u;
           break;
         }
       }
     }
-    v10 = (struct _KEVENT *)(a1 + 32);
-    v11 = (NTSTATUS *)(a1 + 80);
-    v13 = IoPageReadEx(*(PFILE_OBJECT *)(a1 + 200), a1 + 272, (_QWORD *)(a1 + 96), a1 + 32, a1 + 80, v22, 0LL);
-    goto LABEL_6;
+    v20 = (struct _KEVENT *)(a1 + 32);
+    v21 = (int *)(a1 + 80);
+    v22 = IoPageReadEx(*(PFILE_OBJECT *)(a1 + 200), a1 + 272, (_QWORD *)(a1 + 96), a1 + 32, a1 + 80, v16, 0LL);
+    goto LABEL_36;
   }
-  if ( (*(_BYTE *)(**(_QWORD **)(a1 + 208) + 62LL) & 0xC) != 8 )
-    goto LABEL_20;
-  v27 = a1 + 272;
-  if ( *(_QWORD *)(a1 + 256) )
-    v27 = *(_QWORD *)(a1 + 256);
-  MiCopyImageExtentContents(a1, v27);
-  v28 = *(unsigned int *)(v27 + 40);
-  *(_DWORD *)(a1 + 80) = 0;
-  *(_QWORD *)(a1 + 88) = v28;
+  v13 = *(_QWORD *)(a1 + 256);
+  v14 = a1 + 272;
+  if ( v13 )
+    v14 = v13;
+  MiTransferFileExtent(v14, v12, *(_QWORD *)(a1 + 96), 0LL, a1 + 80);
   KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
-  return 0LL;
+  return *(unsigned int *)(a1 + 80);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpCaptureHandleInformationEx @ 0x140A59890
+ * XREFs of ObpCaptureHandleInformationEx @ 0x140A66800
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
  */
 
 __int64 __fastcall ObpCaptureHandleInformationEx(

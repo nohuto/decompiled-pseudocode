@@ -51,7 +51,7 @@ __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, int a3, int a4, __int
   _QWORD *Pool; // rax
   _QWORD *v22; // r14
   _QWORD *v23; // rcx
-  unsigned __int64 v24; // rsi
+  void *v24; // rsi
   int Config; // esi
   __int64 v26; // rax
   _QWORD *v27; // rdx
@@ -188,7 +188,7 @@ __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, int a3, int a4, __int
     MiSetDeleteOnClose(v14, 0);
     return 0LL;
   }
-  v24 = v74[0];
+  v24 = (void *)v74[0];
   v62 = v74[0];
   v54 = PsSetSystemPagePriorityThread((__int64)CurrentThread, 1);
   v8 |= 1u;

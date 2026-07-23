@@ -34,7 +34,7 @@ char __fastcall IopProcessIoTracking(__int64 a1, int a2)
     --CurrentThread->SpecialApcDisable;
     v2 = 1;
   }
-  v4 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)&IopPerfIoTrackingLock, 0LL, 1LL);
+  v4 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)&IopPerfIoTrackingLock, 0LL, 1);
   if ( !_InterlockedCompareExchange64((volatile signed __int64 *)&IopPerfIoTrackingLock, 17LL, 0LL)
     || (result = ExfTryAcquirePushLockShared((signed __int64 *)&IopPerfIoTrackingLock)) != 0 )
   {

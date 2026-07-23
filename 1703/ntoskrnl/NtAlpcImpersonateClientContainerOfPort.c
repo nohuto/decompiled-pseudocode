@@ -18,11 +18,11 @@
  *     ObReferenceObjectByHandle @ 0x1405317C0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, unsigned __int64 a2, int a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // si
-  int v7; // edi
+  NTSTATUS v7; // edi
   struct _KTHREAD *v8; // rsi
   struct _KTHREAD *WorkOnBehalfThread; // rax
   struct _KTHREAD *v10; // rbx
@@ -32,13 +32,13 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, unsigned __i
   __int64 v16; // [rsp+48h] [rbp-40h] BYREF
   char v17[16]; // [rsp+50h] [rbp-38h] BYREF
   __int128 v18; // [rsp+60h] [rbp-28h]
-  __int64 v19; // [rsp+70h] [rbp-18h]
+  unsigned __int64 ClientViewSize; // [rsp+70h] [rbp-18h]
   int v20; // [rsp+A8h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v7 = ObReferenceObjectByHandle(a1, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v7 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v7 >= 0 )
   {
     if ( (*((_BYTE *)Object + 416) & 6) == 6
@@ -46,14 +46,14 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, unsigned __i
     {
       if ( PreviousMode )
       {
-        AlpcpProbeAndCaptureMessageHeader(a2, (__int64)v17, a3);
+        AlpcpProbeAndCaptureMessageHeader((unsigned __int64)Message, (__int64)v17, Flags);
       }
       else
       {
-        v18 = *(_OWORD *)(a2 + 16);
-        v19 = *(_QWORD *)(a2 + 32);
+        v18 = *(__int128 *)((char *)&Message->8 + 8);
+        ClientViewSize = Message->ClientViewSize;
       }
-      v7 = AlpcpLookupMessage((__int64)Object, SDWORD2(v18), v19, &v15);
+      v7 = AlpcpLookupMessage((__int64)Object, SDWORD2(v18), ClientViewSize, &v15);
       if ( v7 >= 0 )
       {
         if ( (*(_DWORD *)(v15 + 40) & 0x80u) == 0 )
@@ -106,5 +106,5 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, unsigned __i
   if ( Object )
     ObfDereferenceObject(Object);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v7;
+  return v7;
 }

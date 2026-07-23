@@ -4,8 +4,8 @@
  *     KiOutSwapKernelStacks @ 0x140222854 (KiOutSwapKernelStacks.c)
  *     PspReaper @ 0x140222A80 (PspReaper.c)
  * Callees:
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
  */
 
 char __fastcall KiWaitForContextSwap(__int64 a1)

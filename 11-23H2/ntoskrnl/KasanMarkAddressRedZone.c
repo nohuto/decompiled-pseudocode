@@ -1,10 +1,10 @@
 /*
- * XREFs of KasanMarkAddressRedZone @ 0x1403AC800
+ * XREFs of KasanMarkAddressRedZone @ 0x1403AC9E0
  * Callers:
  *     MiInitializeSharedUserData @ 0x140B6BC64 (MiInitializeSharedUserData.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall KasanMarkAddressRedZone(

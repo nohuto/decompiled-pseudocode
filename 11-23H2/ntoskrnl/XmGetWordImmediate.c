@@ -1,16 +1,16 @@
 /*
- * XREFs of XmGetWordImmediate @ 0x1403B9670
+ * XREFs of XmGetWordImmediate @ 0x1403B9850
  * Callers:
- *     XmSegmentOffset @ 0x1403A5070 (XmSegmentOffset.c)
- *     XmRetOp @ 0x1403B8B70 (XmRetOp.c)
- *     XmEvaluateAddressSpecifier @ 0x1403B922C (XmEvaluateAddressSpecifier.c)
- *     XmGetImmediateSourceValue @ 0x1403B9514 (XmGetImmediateSourceValue.c)
- *     XmLongJump @ 0x1403B9630 (XmLongJump.c)
- *     XmImmediateEnter @ 0x140532EB0 (XmImmediateEnter.c)
- *     XmImmediateJump @ 0x140532F00 (XmImmediateJump.c)
+ *     XmSegmentOffset @ 0x1403A5250 (XmSegmentOffset.c)
+ *     XmRetOp @ 0x1403B8D50 (XmRetOp.c)
+ *     XmEvaluateAddressSpecifier @ 0x1403B940C (XmEvaluateAddressSpecifier.c)
+ *     XmGetImmediateSourceValue @ 0x1403B96F4 (XmGetImmediateSourceValue.c)
+ *     XmLongJump @ 0x1403B9810 (XmLongJump.c)
+ *     XmImmediateEnter @ 0x140533400 (XmImmediateEnter.c)
+ *     XmImmediateJump @ 0x140533450 (XmImmediateJump.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x1403BEFC0 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x1403D7EE0 (longjmp.c)
+ *     x86BiosTranslateAddress @ 0x1403BF1A0 (x86BiosTranslateAddress.c)
+ *     longjmp @ 0x1403D80C0 (longjmp.c)
  */
 
 __int64 __fastcall XmGetWordImmediate(__int64 a1)

@@ -14,12 +14,12 @@
  *     EtwpGetUmProcessImageInfo @ 0x180122610 (EtwpGetUmProcessImageInfo.c)
  */
 
-__int64 __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
+void __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
 {
   char v2; // r14
-  __int64 result; // rax
-  __int64 v4; // rsi
-  __int64 v5; // rdi
+  _RTL_SRWLOCK *GuidEntry; // rax
+  _RTL_SRWLOCK *v4; // rsi
+  _RTL_SRWLOCK *v5; // rdi
   unsigned __int8 *v6; // rbp
   __int64 v7; // r15
   __int128 v8; // xmm0
@@ -27,12 +27,12 @@ __int64 __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
   _QWORD v10[15]; // [rsp+20h] [rbp-A8h] BYREF
 
   v2 = 0;
-  result = EtwpFindGuidEntry((void *)(a1 + 32));
-  v4 = result;
-  if ( result )
+  GuidEntry = (_RTL_SRWLOCK *)EtwpFindGuidEntry((void *)(a1 + 32));
+  v4 = GuidEntry;
+  if ( GuidEntry )
   {
-    v5 = result + 40;
-    RtlAcquireSRWLockShared(result + 40);
+    v5 = GuidEntry + 5;
+    RtlAcquireSRWLockShared(GuidEntry + 5);
     *(_QWORD *)(a1 + 248) = v4;
     EtwpPopulatePrivateEnableInfoFromGuidEntry(a1);
     v6 = (unsigned __int8 *)(a1 + 150);
@@ -54,24 +54,23 @@ __int64 __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
       if ( (*(_WORD *)(a1 + 98) & 0x3FFF) == 2 )
       {
         memset(v10, 0, sizeof(v10));
-        v8 = *(_OWORD *)(v4 + 24);
-        v10[13] = *(_QWORD *)(v4 + 152);
-        LODWORD(v10[14]) = *(_DWORD *)(v4 + 160);
+        v8 = *(_OWORD *)&v4[3].0;
+        v10[13] = v4[19].0;
+        LODWORD(v10[14]) = v4[20].0;
         *(_OWORD *)&v10[5] = v8;
         RtlReleaseSRWLockShared(v5);
         LOBYTE(v9) = 1;
-        return EtwpRegisterGuidsApiCallback(v10, a1, v9);
+        EtwpRegisterGuidsApiCallback(v10, a1, v9);
       }
       else
       {
         RtlReleaseSRWLockShared(v5);
-        return EtwpPreEnableEventApiCallback(a1);
+        EtwpPreEnableEventApiCallback(a1);
       }
     }
     else
     {
-      return RtlReleaseSRWLockShared(v5);
+      RtlReleaseSRWLockShared(v5);
     }
   }
-  return result;
 }

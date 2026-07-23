@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnLogVolumeCreate @ 0x1407DAA40
+ * XREFs of PfSnLogVolumeCreate @ 0x1407DAD10
  * Callers:
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x1402DF7B0 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     PfSnLogHelper @ 0x1407738C8 (PfSnLogHelper.c)
- *     PfSnGetNLLogEntry @ 0x140773A7C (PfSnGetNLLogEntry.c)
- *     RtlUpcaseUnicodeString @ 0x140773AF0 (RtlUpcaseUnicodeString.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     PfSnLogHelper @ 0x140773AB8 (PfSnLogHelper.c)
+ *     PfSnGetNLLogEntry @ 0x140773C6C (PfSnGetNLLogEntry.c)
+ *     RtlUpcaseUnicodeString @ 0x140773CE0 (RtlUpcaseUnicodeString.c)
  */
 
 __int64 __fastcall PfSnLogVolumeCreate(__int64 a1)

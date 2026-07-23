@@ -26,7 +26,7 @@ void __fastcall PnpLogVetoInformation(__int16 *a1, _QWORD *a2)
   char v6; // r13
   PEPROCESS v7; // r15
   UNICODE_STRING *v8; // rbx
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   unsigned __int16 v10; // ax
   wchar_t *Buffer; // rcx
   unsigned __int16 v12; // cx
@@ -45,7 +45,7 @@ void __fastcall PnpLogVetoInformation(__int16 *a1, _QWORD *a2)
   __int16 *v25; // [rsp+50h] [rbp-69h]
   _QWORD *v26; // [rsp+58h] [rbp-61h]
   UNICODE_STRING v27; // [rsp+60h] [rbp-59h] BYREF
-  STRING DestinationString; // [rsp+70h] [rbp-49h] BYREF
+  _STRING DestinationString; // [rsp+70h] [rbp-49h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+80h] [rbp-39h] BYREF
   __int16 *v30; // [rsp+90h] [rbp-29h]
   __int64 v31; // [rsp+98h] [rbp-21h]
@@ -79,7 +79,7 @@ void __fastcall PnpLogVetoInformation(__int16 *a1, _QWORD *a2)
           ExFreePoolWithTag(P, 0);
           v8 = &v27;
           P = &v27;
-          ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)v7);
+          ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)v7);
           RtlInitAnsiString(&DestinationString, ProcessImageFileName);
           RtlAnsiStringToUnicodeString(&v27, &DestinationString, 1u);
         }

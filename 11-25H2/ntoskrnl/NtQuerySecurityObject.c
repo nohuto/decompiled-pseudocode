@@ -35,7 +35,7 @@ NTSTATUS __stdcall NtQuerySecurityObject(
   NTSTATUS result; // eax
   PVOID v20; // rsi
   __int64 v21; // rax
-  __int64 (__fastcall *v22)(ULONG_PTR *, int, ULONG *, void *, ULONG *, __int64, int, __int64); // r10
+  __int64 (__fastcall *v22)(ULONG_PTR *, int, DWORD *, void *, ULONG *, __int64, int, __int64); // r10
   NTSTATUS SetSecurityObject; // eax
   NTSTATUS v24; // ebx
   POBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+28h] [rbp-50h]
@@ -43,7 +43,7 @@ NTSTATUS __stdcall NtQuerySecurityObject(
   __int64 v27; // [rsp+38h] [rbp-40h]
   PVOID Object; // [rsp+50h] [rbp-28h] BYREF
   struct _OBJECT_HANDLE_INFORMATION v29; // [rsp+58h] [rbp-20h] BYREF
-  ULONG v30; // [rsp+88h] [rbp+10h] BYREF
+  DWORD v30; // [rsp+88h] [rbp+10h] BYREF
   ULONG Lengtha; // [rsp+98h] [rbp+20h] BYREF
 
   Lengtha = Length;
@@ -104,7 +104,7 @@ NTSTATUS __stdcall NtQuerySecurityObject(
   {
     v20 = Object;
     v21 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
-    v22 = *(__int64 (__fastcall **)(ULONG_PTR *, int, ULONG *, void *, ULONG *, __int64, int, __int64))(v21 + 152);
+    v22 = *(__int64 (__fastcall **)(ULONG_PTR *, int, DWORD *, void *, ULONG *, __int64, int, __int64))(v21 + 152);
     v27 = v21 + 76;
     v26 = *(_DWORD *)(v21 + 100);
     HandleInformation = (POBJECT_HANDLE_INFORMATION)((char *)Object - 8);

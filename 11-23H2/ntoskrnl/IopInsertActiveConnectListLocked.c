@@ -1,7 +1,7 @@
 /*
- * XREFs of IopInsertActiveConnectListLocked @ 0x140854A2C
+ * XREFs of IopInsertActiveConnectListLocked @ 0x140854D2C
  * Callers:
- *     IopInitializeActiveConnectBlock @ 0x14078EC94 (IopInitializeActiveConnectBlock.c)
+ *     IopInitializeActiveConnectBlock @ 0x14078EE84 (IopInitializeActiveConnectBlock.c)
  * Callees:
  *     <none>
  */

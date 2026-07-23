@@ -4,18 +4,18 @@
  *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
  * Callees:
  *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     VrpTranslatePath @ 0x14068D49C (VrpTranslatePath.c)
  *     VrpGetNextToken @ 0x14068DA8C (VrpGetNextToken.c)
  *     VrpBuildKeyPath @ 0x14068DE10 (VrpBuildKeyPath.c)
  *     CmpFindExtraParameterInBlock @ 0x14068E720 (CmpFindExtraParameterInBlock.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     CmAllocateExtraParameter @ 0x1407E62E0 (CmAllocateExtraParameter.c)
- *     CmpFreeExtraParameter @ 0x1407E6D20 (CmpFreeExtraParameter.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     CmAllocateExtraParameter @ 0x1407E65B0 (CmAllocateExtraParameter.c)
+ *     CmpFreeExtraParameter @ 0x1407E6FF0 (CmpFreeExtraParameter.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -177,7 +177,7 @@ LABEL_36:
         *(_DWORD *)(a1 + 12) = 872;
         v11 = -1073740541;
 LABEL_5:
-        if ( (unsigned int)dword_140C04460 > 5 )
+        if ( (unsigned int)dword_140C04420 > 5 )
         {
           v12 = (PCUNICODE_STRING)&EmptyUnicodeString;
           if ( (*v2)->Buffer )
@@ -185,7 +185,7 @@ LABEL_5:
           Length = v12->Length;
           v14 = v12->Buffer;
           v43 = v46;
-          v15 = (unsigned __int8 *)byte_14003A589;
+          v15 = (unsigned __int8 *)byte_14003A671;
           LODWORD(v33) = -1073740541;
 LABEL_19:
           v45 = v14;
@@ -194,7 +194,7 @@ LABEL_19:
           v44 = 2LL;
           v46[1] = 0;
           v48 = 4LL;
-          tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04460, v15, &ActivityId, 0LL, 5u, &v42);
+          tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04420, v15, &ActivityId, 0LL, 5u, &v42);
           goto LABEL_20;
         }
         goto LABEL_20;
@@ -204,7 +204,7 @@ LABEL_19:
   if ( v11 == -1073740541 )
     goto LABEL_5;
 LABEL_15:
-  if ( (unsigned int)dword_140C04460 > 2 )
+  if ( (unsigned int)dword_140C04420 > 2 )
   {
     v16 = (PCUNICODE_STRING)&EmptyUnicodeString;
     if ( (*v2)->Buffer )
@@ -212,7 +212,7 @@ LABEL_15:
     Length = v16->Length;
     v14 = v16->Buffer;
     v43 = v46;
-    v15 = (unsigned __int8 *)&unk_14003A6D8;
+    v15 = (unsigned __int8 *)&word_14003A786;
     LODWORD(v33) = v11;
     goto LABEL_19;
   }

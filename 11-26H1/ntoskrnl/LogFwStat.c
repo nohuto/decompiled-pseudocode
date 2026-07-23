@@ -1,10 +1,10 @@
 /*
- * XREFs of LogFwStat @ 0x140C54040
+ * XREFs of LogFwStat @ 0x140C5A040
  * Callers:
- *     AnFwDisplayProgressIndicator @ 0x140C51380 (AnFwDisplayProgressIndicator.c)
- *     AnFwpProgressAnimationManual @ 0x140C51650 (AnFwpProgressAnimationManual.c)
+ *     AnFwDisplayProgressIndicator @ 0x140C57380 (AnFwDisplayProgressIndicator.c)
+ *     AnFwpProgressAnimationManual @ 0x140C57650 (AnFwpProgressAnimationManual.c)
  * Callees:
- *     BgpFwQueryPerformanceCounter @ 0x1404F84EC (BgpFwQueryPerformanceCounter.c)
+ *     BgpFwQueryPerformanceCounter @ 0x1404F1AFC (BgpFwQueryPerformanceCounter.c)
  */
 
 LARGE_INTEGER __fastcall LogFwStat(int a1, int a2, LARGE_INTEGER *a3)
@@ -22,34 +22,33 @@ LARGE_INTEGER __fastcall LogFwStat(int a1, int a2, LARGE_INTEGER *a3)
 
   v4 = a2;
   result = BgpFwQueryPerformanceCounter(a3);
-  WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)result.QuadPart;
+  *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = result;
   if ( a1 )
   {
-    qword_140E64F90[v4] = result.QuadPart;
+    qword_140E65190[v4] = result.QuadPart;
     return result;
   }
-  v6.QuadPart = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E64F90[v4];
-  *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorCounts[24] = v6;
+  v6.QuadPart = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E65190[v4];
+  WheapPfaLock.OtherTransferCount = v6.QuadPart;
   if ( !(_DWORD)v4 )
   {
-    if ( v6.QuadPart < qword_140E0F1C8 )
-      qword_140E0F1C8 = v6.QuadPart;
-    if ( v6.QuadPart > (__int64)WheapPfaLock.SchedulerApc.NormalContext )
-      WheapPfaLock.SchedulerApc.NormalContext = (PVOID)v6.QuadPart;
+    if ( v6.QuadPart < qword_140E0F248 )
+      qword_140E0F248 = v6.QuadPart;
+    if ( v6.QuadPart > *(__int64 *)&WheapPfaLock.PriorityFloorCounts[8] )
+      *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorCounts[8] = v6;
 LABEL_8:
-    WheapPfaLock.MutantListHead.Blink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.MutantListHead.Blink + v6.QuadPart);
-    ++LODWORD(WheapPfaLock.PropagateBoostsEntry.Next);
+    *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[24] += v6.QuadPart;
+    ++HIDWORD(WheapPfaLock.ReadOperationCount);
     goto LABEL_9;
   }
   v7 = v4 - 1;
   if ( !v7 )
   {
-    if ( v6.QuadPart < qword_140E0F1C8 )
-      qword_140E0F1C8 = v6.QuadPart;
-    if ( v6.QuadPart > (__int64)WheapPfaLock.SchedulerApc.NormalContext )
-      WheapPfaLock.SchedulerApc.NormalContext = (PVOID)v6.QuadPart;
-    WheapPfaLock.SuspendEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.SuspendEvent.Header.WaitListHead.Flink
-                                                                               + v6.QuadPart);
+    if ( v6.QuadPart < qword_140E0F248 )
+      qword_140E0F248 = v6.QuadPart;
+    if ( v6.QuadPart > *(__int64 *)&WheapPfaLock.PriorityFloorCounts[8] )
+      *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorCounts[8] = v6;
+    WheapPfaLock.OtherOperationCount += v6.QuadPart;
     goto LABEL_8;
   }
   v8 = v7 - 1;
@@ -58,14 +57,14 @@ LABEL_8:
     v9 = v8 - 1;
     if ( !v9 )
     {
-      *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[16] += v6.QuadPart;
-      return (LARGE_INTEGER)WheapPfaLock.ThreadListEntry.Blink;
+      WheapPfaLock.ReadTransferCount += v6.QuadPart;
+      return *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary;
     }
     v10 = v9 - 1;
     if ( !v10 )
     {
-      *(_QWORD *)&WheapPfaLock.PriorityFloorSummary += v6.QuadPart;
-      return (LARGE_INTEGER)WheapPfaLock.ThreadListEntry.Blink;
+      WheapPfaLock.WriteTransferCount += v6.QuadPart;
+      return *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary;
     }
     v11 = v10 - 1;
     if ( v11 )
@@ -77,37 +76,34 @@ LABEL_8:
         if ( v13 )
         {
           if ( v13 == 1 )
-            qword_140E64F88 += v6.QuadPart;
+            qword_140E651F8 += v6.QuadPart;
         }
         else
         {
-          WheapPfaLock.SchedulerApc.SystemArgument1 = (PVOID)v6.QuadPart;
+          WheapPfaLock.SchedulerSharedSystemSlot = (void *)v6.QuadPart;
         }
       }
       else
       {
-        if ( v6.QuadPart < qword_140E0F1D8 )
-          qword_140E0F1D8 = v6.QuadPart;
-        if ( v6.QuadPart > *(__int64 *)&WheapPfaLock.SchedulerApcFill5[80] )
-          *(LARGE_INTEGER *)&WheapPfaLock.SchedulerApcFill5[80] = v6;
-        WheapPfaLock.SuspendEvent.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.SuspendEvent.Header.WaitListHead.Blink
-                                                                                   + v6.QuadPart);
-        WheapPfaLock.MutantListHead.Flink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.MutantListHead.Flink
-                                                                 + v6.QuadPart);
-        ++WheapPfaLock.SuspendEvent.Header.LockNV;
+        if ( v6.QuadPart < qword_140E0F258 )
+          qword_140E0F258 = v6.QuadPart;
+        if ( v6.QuadPart > (__int64)WheapPfaLock.PropagateBoostsEntry.Next )
+          WheapPfaLock.PropagateBoostsEntry.Next = (struct _SINGLE_LIST_ENTRY *)v6.QuadPart;
+        *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[16] += v6.QuadPart;
+        *(_QWORD *)&WheapPfaLock.AbCompletedIoQoSBoostCount += v6.QuadPart;
+        ++LODWORD(WheapPfaLock.IoSelfBoostsEntry.Next);
       }
-      return (LARGE_INTEGER)WheapPfaLock.ThreadListEntry.Blink;
+      return *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary;
     }
-    WheapPfaLock.SuspendEvent.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.SuspendEvent.Header.WaitListHead.Blink
-                                                                               + v6.QuadPart);
-    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorCounts[8] = v6;
+    *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[16] += v6.QuadPart;
+    WheapPfaLock.GlobalForegroundListEntry.Blink = (struct _LIST_ENTRY *)v6.QuadPart;
   }
   else
   {
-    WheapPfaLock.MutantListHead.Blink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.MutantListHead.Blink + v6.QuadPart);
-    *(LARGE_INTEGER *)&WheapPfaLock.AbWaitEntryCount = v6;
+    *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[24] += v6.QuadPart;
+    *(LARGE_INTEGER *)&WheapPfaLock.ThreadTimerDelay = v6;
   }
 LABEL_9:
-  WheapPfaLock.MutantListHead.Flink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.MutantListHead.Flink + v6.QuadPart);
-  return (LARGE_INTEGER)WheapPfaLock.ThreadListEntry.Blink;
+  *(_QWORD *)&WheapPfaLock.AbCompletedIoQoSBoostCount += v6.QuadPart;
+  return *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmTraceExitLatency @ 0x140567BE0
+ * XREFs of PpmTraceExitLatency @ 0x140567E20
  * Callers:
- *     PpmIdleCompleteExitLatencyTrace @ 0x14056670C (PpmIdleCompleteExitLatencyTrace.c)
+ *     PpmIdleCompleteExitLatencyTrace @ 0x14056694C (PpmIdleCompleteExitLatencyTrace.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PpmConvertTime @ 0x14026A1CC (PpmConvertTime.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmTraceExitLatency(__int64 a1, int a2, int a3, int a4, int a5, _QWORD *a6)

@@ -9,7 +9,7 @@
  *     TpReleaseIoCompletion @ 0x18007CDA0 (TpReleaseIoCompletion.c)
  *     TpReleaseJobNotification @ 0x18007FC70 (TpReleaseJobNotification.c)
  * Callees:
- *     TppRaiseInvalidParameter @ 0x1801124DC (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x18011249C (TppRaiseInvalidParameter.c)
  */
 
 bool __fastcall TppCleanupGroupMemberRelease(__int64 a1, __int64 a2)

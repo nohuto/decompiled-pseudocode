@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  *     memmove @ 0x140435B40 (memmove.c)
  */
 
@@ -26,6 +26,6 @@ errno_t __cdecl memmove_s(void *a1, rsize_t DstSize, const void *Src, rsize_t Ma
   {
     v5 = 22;
   }
-  xHalTimerWatchdogStop();
+  _misaligned_access();
   return v5;
 }

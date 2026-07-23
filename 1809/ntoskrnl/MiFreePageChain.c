@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreePageChain @ 0x140155A98
+ * XREFs of MiFreePageChain @ 0x140155B98
  * Callers:
  *     MiCompletePrivateZeroFault @ 0x140047940 (MiCompletePrivateZeroFault.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
  */
 
 __int64 __fastcall MiFreePageChain(__int64 a1)

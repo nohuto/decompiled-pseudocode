@@ -20,8 +20,8 @@ __int64 __fastcall AslEnvVarQuery(
 {
   unsigned int v6; // esi
   WCHAR *v7; // rbp
-  __int64 NtSystemRoot; // rax
-  _BYTE *v12; // rdx
+  PWSTR NtSystemRoot; // rax
+  PWSTR v12; // rdx
   unsigned __int64 v13; // rbx
   unsigned __int64 v14; // rcx
   size_t v15; // rbx
@@ -68,7 +68,7 @@ LABEL_22:
       if ( v19 )
       {
         v12 = v20 + 1;
-        v22 = ((char *)a1 - v12) >> 1;
+        v22 = a1 - v12;
         if ( v22 < a5 )
         {
           v15 = v22;
@@ -105,11 +105,11 @@ LABEL_28:
     goto LABEL_27;
   }
   NtSystemRoot = RtlGetNtSystemRoot();
-  v12 = (_BYTE *)NtSystemRoot;
+  v12 = NtSystemRoot;
   v13 = -1LL;
   do
     ++v13;
-  while ( *(_WORD *)(NtSystemRoot + 2 * v13) );
+  while ( NtSystemRoot[v13] );
   if ( v13 < a5 )
   {
     *a6 = v13;

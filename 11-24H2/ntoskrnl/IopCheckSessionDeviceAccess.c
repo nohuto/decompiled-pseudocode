@@ -1,24 +1,24 @@
 /*
- * XREFs of IopCheckSessionDeviceAccess @ 0x14034A630
+ * XREFs of IopCheckSessionDeviceAccess @ 0x1403C1594
  * Callers:
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     PsGetSessionId @ 0x1403D5E10 (PsGetSessionId.c)
- *     IopGetSessionIdFromPDO @ 0x140A11704 (IopGetSessionIdFromPDO.c)
+ *     PsGetSessionId @ 0x1403C1560 (PsGetSessionId.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     IopGetSessionIdFromPDO @ 0x1409BFB14 (IopGetSessionIdFromPDO.c)
  */
 
 bool __fastcall IopCheckSessionDeviceAccess(__int64 a1)
 {
   int SessionId; // ebx
-  unsigned __int64 CurrentServerSilo; // rax
+  __int64 CurrentServerSilo; // rax
   int SessionIdFromPDO; // eax
   bool result; // al
 
-  SessionId = PsGetSessionId(KeGetCurrentThread()->ApcState.Process);
+  SessionId = PsGetSessionId((__int64)KeGetCurrentThread()->ApcState.Process);
   CurrentServerSilo = PsGetCurrentServerSilo();
-  result = SessionId == **((_DWORD **)PsGetServerSiloGlobals(CurrentServerSilo) + 161)
+  result = SessionId == **(_DWORD **)(PsGetServerSiloGlobals(CurrentServerSilo) + 1288)
         && !IopSessionZeroAccessCheckEnabled
         || (SessionIdFromPDO = IopGetSessionIdFromPDO(a1), SessionIdFromPDO == -1)
         || SessionId == SessionIdFromPDO;

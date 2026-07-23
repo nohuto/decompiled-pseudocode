@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwSetInformationTransactionManager @ 0x1407269F0
+ * XREFs of ZwSetInformationTransactionManager @ 0x14072B5C0
  * Callers:
- *     DifZwSetInformationTransactionManagerWrapper @ 0x1406BADD0 (DifZwSetInformationTransactionManagerWrapper.c)
+ *     DifZwSetInformationTransactionManagerWrapper @ 0x1406BE9B0 (DifZwSetInformationTransactionManagerWrapper.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationTransactionManager(
         HANDLE TmHandle,
         TRANSACTIONMANAGER_INFORMATION_CLASS TransactionManagerInformationClass,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSetInformationTransactionManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TmHandle, *(_QWORD *)&TransactionManagerInformationClass);
+  return KiServiceInternal(TmHandle);
 }

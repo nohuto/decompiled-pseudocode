@@ -9,8 +9,8 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall TppWorkpFree(_DWORD *a1)
+LOGICAL __stdcall TppWorkpFree(PVOID BaseAddress)
 {
-  TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, (int)a1);
+  TppCleanupGroupMemberDestroy((int)BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
 }

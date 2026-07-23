@@ -16,7 +16,7 @@
 char __fastcall EtwpApplyPackageIdFilter(__int64 a1, unsigned __int16 *a2, unsigned __int16 *a3)
 {
   char v6; // bl
-  ULONG_PTR v8; // r13
+  void *v8; // r13
   unsigned __int16 v9; // r14
   unsigned int v10; // esi
   char v11; // r15
@@ -26,32 +26,32 @@ char __fastcall EtwpApplyPackageIdFilter(__int64 a1, unsigned __int16 *a2, unsig
   char v15; // [rsp+30h] [rbp-D0h] BYREF
   _BYTE v16[7]; // [rsp+31h] [rbp-CFh] BYREF
   __int64 v17; // [rsp+38h] [rbp-C8h]
-  size_t v18; // [rsp+40h] [rbp-C0h] BYREF
-  size_t v19[2]; // [rsp+48h] [rbp-B8h] BYREF
-  wchar_t Str2[128]; // [rsp+58h] [rbp-A8h] BYREF
-  wchar_t v21[196]; // [rsp+158h] [rbp+58h] BYREF
+  ULONG_PTR PackageSize; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG_PTR AppIdSize[2]; // [rsp+48h] [rbp-B8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+58h] [rbp-A8h] BYREF
+  WCHAR AppId[196]; // [rsp+158h] [rbp+58h] BYREF
 
   v17 = a1;
-  memset_0(&v18, 0, 0x2A0uLL);
+  memset_0(&PackageSize, 0, 0x2A0uLL);
   v6 = 0;
   v15 = 0;
   if ( !a2 && !a3 )
     return 1;
-  v8 = PsReferencePrimaryTokenWithTag(*(_QWORD *)(a1 + 80), 0x746C6644u);
-  PsQueryProcessAttributesByToken(v8, &v15, v16);
+  v8 = (void *)PsReferencePrimaryTokenWithTag(*(_QWORD *)(a1 + 80), 0x746C6644u);
+  PsQueryProcessAttributesByToken((__int64)v8, &v15, v16);
   if ( v15 )
   {
-    v18 = 256LL;
-    v19[0] = 130LL;
-    if ( (int)RtlQueryPackageIdentity(v8, Str2, &v18, v21, v19, 0LL) >= 0 )
+    PackageSize = 256LL;
+    AppIdSize[0] = 130LL;
+    if ( RtlQueryPackageIdentity(v8, PackageFullName, &PackageSize, AppId, AppIdSize, 0LL) >= 0 )
     {
       if ( a2 )
       {
         v9 = 0;
-        v10 = (v18 >> 1) - 1;
+        v10 = (PackageSize >> 1) - 1;
         while ( v9 < *a2 )
         {
-          if ( a2[8 * v9 + 4] == v10 && !wcsnicmp(*(const wchar_t **)&a2[8 * v9 + 8], Str2, v10) )
+          if ( a2[8 * v9 + 4] == v10 && !wcsnicmp(*(const wchar_t **)&a2[8 * v9 + 8], PackageFullName, v10) )
             goto LABEL_13;
           ++v9;
         }
@@ -65,10 +65,10 @@ LABEL_13:
       if ( a3 )
       {
         v12 = 0;
-        v13 = (v19[0] >> 1) - 1;
+        v13 = (AppIdSize[0] >> 1) - 1;
         while ( v12 < *a3 )
         {
-          if ( a3[8 * v12 + 4] == v13 && !wcsnicmp(*(const wchar_t **)&a3[8 * v12 + 8], v21, v13) )
+          if ( a3[8 * v12 + 4] == v13 && !wcsnicmp(*(const wchar_t **)&a3[8 * v12 + 8], AppId, v13) )
             goto LABEL_21;
           ++v12;
         }
@@ -86,6 +86,6 @@ LABEL_21:
       }
     }
   }
-  ObFastDereferenceObject((__int64 *)(*(_QWORD *)(v17 + 80) + 584LL), v8, 1953261124LL);
+  ObFastDereferenceObject((__int64 *)(*(_QWORD *)(v17 + 80) + 584LL), (ULONG_PTR)v8, 1953261124LL);
   return v6;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlFlushAddressSpaceTb @ 0x1401C14DC
+ * XREFs of HvlFlushAddressSpaceTb @ 0x1401C13C0
  * Callers:
- *     KeFlushProcessTb @ 0x140075E7C (KeFlushProcessTb.c)
- *     KiFlushAddressSpaceTb @ 0x1401D61D4 (KiFlushAddressSpaceTb.c)
+ *     KeFlushProcessTb @ 0x140075EFC (KeFlushProcessTb.c)
+ *     KiFlushAddressSpaceTb @ 0x1401D6000 (KiFlushAddressSpaceTb.c)
  * Callees:
  *     <none>
  */

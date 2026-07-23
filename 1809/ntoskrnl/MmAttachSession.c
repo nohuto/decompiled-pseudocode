@@ -1,34 +1,34 @@
 /*
- * XREFs of MmAttachSession @ 0x14011A650
+ * XREFs of MmAttachSession @ 0x14011A6C0
  * Callers:
  *     MiEmptyAccessLogs @ 0x140010D20 (MiEmptyAccessLogs.c)
- *     MiTrimSharedPageFromViews @ 0x1400EB40C (MiTrimSharedPageFromViews.c)
- *     MiAttachToOwningSession @ 0x14011A4CC (MiAttachToOwningSession.c)
- *     ExpHpCompactSessionPools @ 0x1401B7628 (ExpHpCompactSessionPools.c)
- *     PopPowerButtonWorkCallback @ 0x1402E47A0 (PopPowerButtonWorkCallback.c)
- *     PopWatchdogWorker @ 0x1402E4F30 (PopWatchdogWorker.c)
- *     EtwpSendDataBlock @ 0x1405C039C (EtwpSendDataBlock.c)
- *     PspChangeProcessExecutionState @ 0x1406035AC (PspChangeProcessExecutionState.c)
- *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
- *     MmPrefetchVirtualMemory @ 0x14066BDA8 (MmPrefetchVirtualMemory.c)
- *     ObpProcessRemoveObjectQueue @ 0x1406919C0 (ObpProcessRemoveObjectQueue.c)
- *     ExGetSessionPoolTagInformation @ 0x14069E4B4 (ExGetSessionPoolTagInformation.c)
- *     PspAttachSession @ 0x14069E7C8 (PspAttachSession.c)
- *     ExCallSessionCallBack @ 0x14069E824 (ExCallSessionCallBack.c)
- *     PnpNotifyDriverCallback @ 0x140703754 (PnpNotifyDriverCallback.c)
- *     MmEnumerateSystemImages @ 0x140726B6C (MmEnumerateSystemImages.c)
- *     MmGetSessionMappedViewInformation @ 0x14084C4A0 (MmGetSessionMappedViewInformation.c)
- *     PopLazySensorActiveInput @ 0x140878F20 (PopLazySensorActiveInput.c)
- *     TtmpSessionWorker @ 0x1408810C0 (TtmpSessionWorker.c)
- *     EtwpPoolRunDown @ 0x1408BF034 (EtwpPoolRunDown.c)
- *     ExGetSessionBigPoolInformation @ 0x1408CB33C (ExGetSessionBigPoolInformation.c)
- *     VfThunkApplyMandatoryThunks @ 0x140936A5C (VfThunkApplyMandatoryThunks.c)
- *     VfThunkApplyThunks @ 0x140936B30 (VfThunkApplyThunks.c)
+ *     MiTrimSharedPageFromViews @ 0x1400EB48C (MiTrimSharedPageFromViews.c)
+ *     MiAttachToOwningSession @ 0x14011A53C (MiAttachToOwningSession.c)
+ *     ExpHpCompactSessionPools @ 0x1401B7788 (ExpHpCompactSessionPools.c)
+ *     PopPowerButtonWorkCallback @ 0x1402E4990 (PopPowerButtonWorkCallback.c)
+ *     PopWatchdogWorker @ 0x1402E5120 (PopWatchdogWorker.c)
+ *     EtwpSendDataBlock @ 0x1405C139C (EtwpSendDataBlock.c)
+ *     PspChangeProcessExecutionState @ 0x1406045AC (PspChangeProcessExecutionState.c)
+ *     EtwpEnableGuid @ 0x1406570F8 (EtwpEnableGuid.c)
+ *     MmPrefetchVirtualMemory @ 0x14066CF68 (MmPrefetchVirtualMemory.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140692B80 (ObpProcessRemoveObjectQueue.c)
+ *     ExGetSessionPoolTagInformation @ 0x14069F774 (ExGetSessionPoolTagInformation.c)
+ *     PspAttachSession @ 0x14069FA88 (PspAttachSession.c)
+ *     ExCallSessionCallBack @ 0x14069FAE4 (ExCallSessionCallBack.c)
+ *     PnpNotifyDriverCallback @ 0x1407049F4 (PnpNotifyDriverCallback.c)
+ *     MmEnumerateSystemImages @ 0x140727E0C (MmEnumerateSystemImages.c)
+ *     MmGetSessionMappedViewInformation @ 0x14084D700 (MmGetSessionMappedViewInformation.c)
+ *     PopLazySensorActiveInput @ 0x14087A180 (PopLazySensorActiveInput.c)
+ *     TtmpSessionWorker @ 0x140882320 (TtmpSessionWorker.c)
+ *     EtwpPoolRunDown @ 0x1408C02F4 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x1408CC5FC (ExGetSessionBigPoolInformation.c)
+ *     VfThunkApplyMandatoryThunks @ 0x140937A5C (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyThunks @ 0x140937B30 (VfThunkApplyThunks.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmAttachSession(_KPROCESS *BugCheckParameter1, __int64 a2)
@@ -47,7 +47,7 @@ __int64 __fastcall MmAttachSession(_KPROCESS *BugCheckParameter1, __int64 a2)
   v4 = BugCheckParameter1;
   Process = KeGetCurrentThread()->ApcState.Process;
   v6 = Process[1].ActiveProcessors.Bitmap[2];
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, v12);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, v12);
   if ( (*(_DWORD *)(v3 + 4) & 2) != 0 )
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)v12);

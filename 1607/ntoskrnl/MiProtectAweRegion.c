@@ -1,19 +1,19 @@
 /*
- * XREFs of MiProtectAweRegion @ 0x14065C4E0
+ * XREFs of MiProtectAweRegion @ 0x14065C5C4
  * Callers:
- *     MiProtectVirtualMemory @ 0x140433470 (MiProtectVirtualMemory.c)
+ *     MiProtectVirtualMemory @ 0x140432340 (MiProtectVirtualMemory.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140097430 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1400982A0 (ExAcquireAutoExpandPushLockExclusive.c)
- *     MiInitializeTbFlushList @ 0x1400B5A30 (MiInitializeTbFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140096C30 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140097AA0 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     MiInitializeTbFlushList @ 0x1400B3858 (MiInitializeTbFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiProtectAweRegion(unsigned __int64 a1)
@@ -45,7 +45,7 @@ __int64 __fastcall MiProtectAweRegion(unsigned __int64 a1)
   v8 = v5;
   if ( v5 == 24 )
     v8 = 1LL;
-  v9 = ((unsigned __int64)(HIBYTE(word_140326AA8) & 1) << 8) | MmProtectToPteMask[v8] & 0xFFFFFFFFFFFFFF7FuLL | 0xFFFFFFFFF025LL;
+  v9 = ((unsigned __int64)(HIBYTE(word_140326AE8) & 1) << 8) | MmProtectToPteMask[v8] & 0xFFFFFFFFFFFFFF7FuLL | 0xFFFFFFFFF025LL;
   if ( v5 == 24 )
   {
     v9 &= ~4uLL;

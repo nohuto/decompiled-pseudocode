@@ -1,30 +1,30 @@
 /*
- * XREFs of PspThreadDelete @ 0x140AA21E0
+ * XREFs of PspThreadDelete @ 0x140AA3CB0
  * Callers:
  *     <none>
  * Callees:
  *     KeCleanupThreadState @ 0x140201FC8 (KeCleanupThreadState.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInsertQueueDpc @ 0x1402BDB30 (KeInsertQueueDpc.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeEnumerateKernelStackSegments @ 0x1404107D8 (KeEnumerateKernelStackSegments.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeFoldProcessStatisticsThread @ 0x140484EB0 (KeFoldProcessStatisticsThread.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404F4824 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExMapHandleToPointer @ 0x1408FA200 (ExMapHandleToPointer.c)
- *     ExDestroyHandle @ 0x14092C030 (ExDestroyHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInsertQueueDpc @ 0x1403087F0 (KeInsertQueueDpc.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeEnumerateKernelStackSegments @ 0x14040FEF8 (KeEnumerateKernelStackSegments.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeFoldProcessStatisticsThread @ 0x14047E820 (KeFoldProcessStatisticsThread.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404EDE04 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExDestroyHandle @ 0x140907B60 (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x14092A190 (ExMapHandleToPointer.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 LONG_PTR __fastcall PspThreadDelete(ULONG_PTR BugCheckParameter1)
@@ -48,14 +48,14 @@ LONG_PTR __fastcall PspThreadDelete(ULONG_PTR BugCheckParameter1)
   __int64 *v18; // rcx
   __int64 **v19; // rax
   void *v20; // rcx
-  __int64 v21; // rdx
+  char *v21; // rdx
   unsigned __int64 v22; // r8
-  _KPROCESS **p_Process; // rdx
+  unsigned int *p_ForegroundLossTime; // rdx
   __int64 v24; // r9
-  __int64 v25; // r10
+  struct _LIST_ENTRY *v25; // r10
   int v26; // r9d
   _QWORD *v27; // r8
-  const char *v28; // rax
+  const char *i; // rax
   __int64 v29; // rax
   __int64 v30; // rax
 
@@ -98,50 +98,49 @@ LONG_PTR __fastcall PspThreadDelete(ULONG_PTR BugCheckParameter1)
   *(_QWORD *)(BugCheckParameter1 + 1336) = 0LL;
   if ( v7 )
     ExFreePoolWithTag(v7, 0x6D4E6854u);
-  if ( MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0] >= (unsigned __int64)qword_140E62400 )
+  if ( (PVOID)(MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0]) >= stru_140E62450.WaitBlock[1].Object )
   {
-    v21 = qword_140E623F0;
-    if ( qword_140E623F0 )
+    v21 = *(char **)&stru_140E62450.WaitBlockFill11[64];
+    if ( *(_QWORD *)&stru_140E62450.WaitBlockFill11[64] )
     {
-      if ( (_DWORD)qword_140E62408 )
+      if ( *(_DWORD *)&stru_140E62450.WaitBlockFill11[88] )
       {
         v22 = 0LL;
-        p_Process = &stru_140F132C8.SavedApcState.Process;
-        v24 = (unsigned int)qword_140E62408;
+        p_ForegroundLossTime = &ObpStackTraceLock.ForegroundLossTime;
+        v24 = *(unsigned int *)&stru_140E62450.WaitBlockFill11[88];
         do
         {
-          v25 = (__int64)*p_Process;
-          if ( (((*p_Process)->ProcessLock & 0x400000) != 0) != _bittest64(qword_140E62410, v22) && !qword_140E623C0 )
+          v25 = *(struct _LIST_ENTRY **)p_ForegroundLossTime;
+          if ( ((*(_BYTE *)(*(_QWORD *)p_ForegroundLossTime + 66LL) & 0x40) != 0) != _bittest64(
+                                                                                       (const signed __int64 *)&stru_140E62450.WaitBlock[2].WaitListEntry.Flink,
+                                                                                       v22)
+            && !*(_QWORD *)&stru_140E62450.WaitBlockFill11[16] )
           {
-            qword_140E623C0 = (unsigned int)__ROR4__(8480, 101);
-            xmmword_140E623C8 = 0LL;
-            qword_140E623D8 = 268LL;
-            qword_140E623E0 = v25;
+            *(_QWORD *)&stru_140E62450.WaitBlockFill11[16] = (unsigned int)__ROR4__(8480, 101);
+            *(_OWORD *)&stru_140E62450.WaitBlockFill11[24] = 0LL;
+            stru_140E62450.WaitBlock[0].SparePtr = (PVOID)268;
+            stru_140E62450.WaitBlock[1].WaitListEntry.Flink = v25;
           }
           ++v22;
-          ++p_Process;
+          p_ForegroundLossTime += 2;
           --v24;
         }
         while ( v24 );
-        v21 = qword_140E623F0;
+        v21 = *(char **)&stru_140E62450.WaitBlockFill11[64];
       }
       v26 = 64;
-      v27 = (_QWORD *)(qword_140E62430 + 112);
-      v28 = (const char *)(qword_140E62430 + 112);
-      if ( qword_140E62430 + 112 < (unsigned __int64)(qword_140E62430 + 176) )
+      v27 = (char *)stru_140E62450.WaitBlock[2].Object + 112;
+      for ( i = (char *)stru_140E62450.WaitBlock[2].Object + 112;
+            i < (char *)stru_140E62450.WaitBlock[2].Object + 176;
+            i += 64 )
       {
-        do
-        {
-          _mm_prefetch(v28, 0);
-          v28 += 64;
-        }
-        while ( (unsigned __int64)v28 < qword_140E62430 + 176 );
+        _mm_prefetch(i, 0);
       }
       v29 = 8LL;
       do
       {
         v26 -= 8;
-        v21 = __ROR8__(v21 - *v27++, qword_140E623F8);
+        v21 = (char *)__ROR8__(&v21[-*v27++], stru_140E62450.WaitBlockFill6[72]);
         --v29;
       }
       while ( v29 );
@@ -149,32 +148,35 @@ LONG_PTR __fastcall PspThreadDelete(ULONG_PTR BugCheckParameter1)
       {
         v30 = *(unsigned __int8 *)v27;
         v27 = (_QWORD *)((char *)v27 + 1);
-        v21 = __ROR8__(v21 - v30, qword_140E623F8);
+        v21 = (char *)__ROR8__(&v21[-v30], stru_140E62450.WaitBlockFill6[72]);
       }
-      if ( qword_140E62438 != v21 )
+      if ( stru_140E62450.WaitBlock[2].SparePtr != v21 )
       {
-        if ( qword_140E623C0 )
+        if ( *(_QWORD *)&stru_140E62450.WaitBlockFill11[16] )
           goto LABEL_68;
-        qword_140E623D8 = 268LL;
-        qword_140E623C0 = (unsigned int)__ROR4__(4341760, 110);
-        xmmword_140E623C8 = 0LL;
-        qword_140E623E0 = qword_140E62430;
+        stru_140E62450.WaitBlock[0].SparePtr = (PVOID)268;
+        *(_QWORD *)&stru_140E62450.WaitBlockFill11[16] = (unsigned int)__ROR4__(4341760, 110);
+        *(_OWORD *)&stru_140E62450.WaitBlockFill11[24] = 0LL;
+        stru_140E62450.WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)stru_140E62450.WaitBlock[2].Object;
       }
     }
-    if ( !qword_140E623C0 )
+    if ( !*(_QWORD *)&stru_140E62450.WaitBlockFill11[16] )
     {
 LABEL_59:
-      qword_140E62400 = MEMORY[0xFFFFF78000000008]
-                      + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL
-                      - MEMORY[0xFFFFF780000003B0]
-                      + 288000000000LL;
+      stru_140E62450.WaitBlock[1].Object = (PVOID)(MEMORY[0xFFFFF78000000008]
+                                                 + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL
+                                                 - MEMORY[0xFFFFF780000003B0]
+                                                 + 288000000000LL);
       goto LABEL_15;
     }
 LABEL_68:
-    if ( (void (__fastcall __noreturn *)(struct _KDPC *, _QWORD *, PVOID, PVOID))stru_140E62380.DeferredRoutine != KiScanQueues )
-      KeInitializeDpc(&stru_140E62380, (PKDEFERRED_ROUTINE)KiScanQueues, &stru_140E62380);
-    qword_140E623E8 = 1845888LL;
-    KeInsertQueueDpc(&stru_140E62380, 0LL, 0LL);
+    if ( stru_140E62450.Timer.TimerListEntry.Blink != (struct _LIST_ENTRY *)KiScanQueues )
+      KeInitializeDpc(
+        (PRKDPC)&stru_140E62450.Timer.Header.WaitListHead.Blink,
+        (PKDEFERRED_ROUTINE)KiScanQueues,
+        &stru_140E62450.Timer.Header.WaitListHead.Blink);
+    stru_140E62450.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)1845888;
+    KeInsertQueueDpc((PRKDPC)&stru_140E62450.Timer.Header.WaitListHead.Blink, 0LL, 0LL);
     goto LABEL_59;
   }
 LABEL_15:

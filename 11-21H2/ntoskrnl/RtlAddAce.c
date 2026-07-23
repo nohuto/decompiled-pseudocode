@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlAddAce @ 0x140724BB0
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x140257C7C (SepAppendAceToTokenDefaultDacl.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x14041A13C (SepSetProcessTrustLabelAceForToken.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14064B9D8 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140678874 (PiDevCfgGetKeySecurityDescriptor.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140724550 (SepAppendAceToTokenObjectAcl.c)
+ *     sub_140257C7C @ 0x140257C7C (sub_140257C7C.c)
+ *     sub_14041A13C @ 0x14041A13C (sub_14041A13C.c)
+ *     sub_14064B9D8 @ 0x14064B9D8 (sub_14064B9D8.c)
+ *     sub_140675DA8 @ 0x140675DA8 (sub_140675DA8.c)
+ *     sub_140678874 @ 0x140678874 (sub_140678874.c)
+ *     sub_140724550 @ 0x140724550 (sub_140724550.c)
  * Callees:
  *     RtlFirstFreeAce @ 0x140724CE0 (RtlFirstFreeAce.c)
  *     RtlValidAcl @ 0x1407B4A50 (RtlValidAcl.c)
@@ -28,10 +28,10 @@ NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex
   NTSTATUS result; // eax
   __int64 v21; // r10
   bool v22; // cf
-  __int64 v23[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-28h] BYREF
 
-  v23[0] = 0LL;
-  if ( !(unsigned __int8)RtlValidAcl(Acl) || !(unsigned __int8)RtlFirstFreeAce(Acl, v23) )
+  FirstFree = 0LL;
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741811;
   v9 = (char *)AceList;
   AclRevision = AceRevision;
@@ -68,7 +68,7 @@ LABEL_7:
   }
   if ( v9 > v12 )
     return -1073741811;
-  if ( !v23[0] || (unsigned __int64)AceListLength + v23[0] > (unsigned __int64)Acl + Acl->AclSize )
+  if ( !FirstFree || (char *)FirstFree + AceListLength > (char *)Acl + Acl->AclSize )
     return -1073741789;
   v15 = 0;
   for ( i = Acl + 1; v15 < StartingAceIndex; i = (PACL)((char *)i + i->AclSize) )
@@ -77,7 +77,7 @@ LABEL_7:
       break;
     ++v15;
   }
-  v17 = LODWORD(v23[0]) - (_DWORD)i - 1;
+  v17 = (_DWORD)FirstFree - (_DWORD)i - 1;
   v18 = v17;
   if ( v17 >= 0 )
   {

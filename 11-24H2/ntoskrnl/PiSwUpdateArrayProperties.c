@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwUpdateArrayProperties @ 0x1408B2070
+ * XREFs of PiSwUpdateArrayProperties @ 0x1408AF964
  * Callers:
- *     PiSwIrpPropertySet @ 0x1408B1E40 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfaceRegister @ 0x1408B2584 (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x1408B9044 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpPropertySet @ 0x1408AF734 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x1408AFE78 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1408B69EC (PiSwIrpInterfacePropertySet.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwUpdateArrayProperties(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
@@ -75,7 +75,8 @@ LABEL_16:
   v15 = *(void **)(v10 + a1 + 40);
   *(_QWORD *)(v10 + a1 + 40) = 0LL;
   if ( !*(_DWORD *)(a3 + 48LL * v6 + 36)
-    || (Pool2 = ExAllocatePool2(0x100uLL), (*(_QWORD *)(v10 + a1 + 40) = Pool2) != 0LL) )
+    || (Pool2 = ExAllocatePool2(0x100uLL, *(unsigned int *)(a3 + 48LL * v6 + 36), 0x57706E50u),
+        (*(_QWORD *)(v10 + a1 + 40) = Pool2) != 0LL) )
   {
     if ( v15 )
       ExFreePoolWithTag(v15, 0x57706E50u);

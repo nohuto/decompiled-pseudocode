@@ -1,23 +1,23 @@
 /*
- * XREFs of IopIsNotNativeDriverImage @ 0x140794E8C
+ * XREFs of IopIsNotNativeDriverImage @ 0x1407979BC
  * Callers:
- *     IopCheckIfNotNativeDriver @ 0x140794428 (IopCheckIfNotNativeDriver.c)
+ *     IopCheckIfNotNativeDriver @ 0x140796F58 (IopCheckIfNotNativeDriver.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1407238F0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x140723930 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x140723D30 (ZwCreateSection.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1407284C0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140728500 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140728900 (ZwCreateSection.c)
  */
 
 bool __fastcall IopIsNotNativeDriverImage(UNICODE_STRING *a1)
 {
   bool v1; // bl
-  _DWORD *v3; // rax
+  PIMAGE_NT_HEADERS v3; // rax
   HANDLE FileHandle; // [rsp+58h] [rbp-A0h] BYREF
   HANDLE SectionHandle; // [rsp+60h] [rbp-98h] BYREF
   PVOID BaseAddress; // [rsp+68h] [rbp-90h] BYREF
@@ -68,9 +68,9 @@ LABEL_4:
     ZwClose(SectionHandle);
     goto LABEL_4;
   }
-  v3 = RtlImageNtHeader((unsigned __int64)BaseAddress);
+  v3 = RtlImageNtHeader(BaseAddress);
   if ( v3 )
-    v1 = *((_WORD *)v3 + 2) != 0x8664;
+    v1 = v3->FileHeader.Machine != 0x8664;
   ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   KiUnstackDetachProcess((__int64)&ApcState, 0);
   ZwClose(SectionHandle);

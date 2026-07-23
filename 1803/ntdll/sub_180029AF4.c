@@ -69,9 +69,9 @@ LABEL_4:
       if ( v8 )
       {
         *((_DWORD *)v3 + 12) = 0;
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)v3 + 5);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v3 + 5);
         if ( v4 < 4 && !v2 )
-          sub_180005D90((__int64)v3);
+          sub_180005D90(v3);
       }
       goto LABEL_6;
     }
@@ -156,7 +156,7 @@ LABEL_50:
         goto LABEL_4;
     }
     *((_DWORD *)v3 + 12) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)v3 + 5);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v3 + 5);
     return;
   }
 LABEL_6:

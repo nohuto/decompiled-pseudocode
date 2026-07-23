@@ -180,7 +180,8 @@ __int64 __fastcall MiResolvePrivateZeroFault(int *a1, __int64 a2, __int64 a3, un
     && (*(_BYTE *)(v11 + 192) & 7) != 1
     && (v4 < 0xFFFF800000000000uLL || byte_14036D700[((v4 >> 39) & 0x1FF) - 256] != 12)
     && (!PsNtosImageBase
-     || (v4 < PsNtosImageBase || v4 >= PsNtosImageEnd) && (v4 < PsHalImageBase || v4 >= PsHalImageEnd)) )
+     || (v4 < (unsigned __int64)PsNtosImageBase || v4 >= PsNtosImageEnd)
+     && (v4 < (unsigned __int64)PsHalImageBase || v4 >= PsHalImageEnd)) )
   {
     v26 = *((_QWORD *)a1 + 9);
     if ( v26 )

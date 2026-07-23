@@ -3,12 +3,12 @@
  * Callers:
  *     PopHandleNextState @ 0x1403CC8F0 (PopHandleNextState.c)
  * Callees:
- *     IoInitializeDumpStack @ 0x140113340 (IoInitializeDumpStack.c)
- *     IoNotifyDump @ 0x1401133B8 (IoNotifyDump.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
+ *     IoInitializeDumpStack @ 0x1401138B0 (IoInitializeDumpStack.c)
+ *     IoNotifyDump @ 0x140113928 (IoNotifyDump.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
  *     PopHiberReadChecksums @ 0x1403CD0C4 (PopHiberReadChecksums.c)
  *     PopDecompressHiberBlocks @ 0x1403CDE5C (PopDecompressHiberBlocks.c)
  *     PopRequestRead @ 0x1403CE5E8 (PopRequestRead.c)
@@ -61,18 +61,18 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
   *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 272) + ((unsigned __int64)Number << 7) + 80) = 0LL;
   if ( Number == *(_DWORD *)(BugCheckParameter3 + 192) )
   {
-    byte_1403289A0 = 0;
+    byte_1403289E0 = 0;
     v29 = __rdtsc();
     if ( Address )
     {
       v30 = BgLibraryInitialize(Address, 0xFFFFFFFFLL);
-      v31 = byte_1403289A0;
+      v31 = byte_1403289E0;
       if ( v30 >= 0 )
         v31 = 1;
-      byte_1403289A0 = v31;
+      byte_1403289E0 = v31;
     }
     v32 = __rdtsc();
-    qword_140303A10 += (((unsigned __int64)HIDWORD(v32) << 32) | (unsigned int)v32) - v29;
+    qword_140303950 += (((unsigned __int64)HIDWORD(v32) << 32) | (unsigned int)v32) - v29;
   }
   if ( !Number )
   {
@@ -82,11 +82,11 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
       *(_QWORD *)(BugCheckParameter3 + 408) = v5[70];
     else
       *(_QWORD *)(BugCheckParameter3 + 408) = 0LL;
-    v6 = qword_140303618;
+    v6 = qword_140303558;
     v7 = *(_QWORD *)(BugCheckParameter3 + 408);
     v8 = *(_DWORD *)(BugCheckParameter3 + 288);
     v9 = *(_QWORD *)(BugCheckParameter3 + 280);
-    memset(qword_140303618, 0, 0x40uLL);
+    memset(qword_140303558, 0, 0x40uLL);
     v6[6] = 0;
     *(_QWORD *)v6 = v9;
     v6[2] = v8;
@@ -97,8 +97,8 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
     {
       *(_DWORD *)(BugCheckParameter3 + 184) = 9;
       *(_QWORD *)(BugCheckParameter3 + 160) = v34;
-      v34[0] = qword_140303598;
-      v34[1] = qword_140303598;
+      v34[0] = qword_1403034D8;
+      v34[1] = qword_1403034D8;
       v34[2] = 0LL;
       off_1402F2568();
       v10 = IoInitializeDumpStack(*(_QWORD *)(BugCheckParameter3 + 168));
@@ -110,7 +110,7 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
         KeBugCheckEx(0xA0u, 0xCuLL, v11, *(_QWORD *)(BugCheckParameter3 + 168), 0LL);
       }
       v12 = __rdtsc();
-      qword_1403039F0 = (((unsigned __int64)HIDWORD(v12) << 32) | (unsigned int)v12) - v35;
+      qword_140303930 = (((unsigned __int64)HIDWORD(v12) << 32) | (unsigned int)v12) - v35;
       v13 = *(_QWORD *)(BugCheckParameter3 + 168);
       *(_DWORD *)(BugCheckParameter3 + 336) = 0;
       *(_QWORD *)(BugCheckParameter3 + 352) = 0LL;
@@ -146,18 +146,18 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
     if ( *(_DWORD *)(BugCheckParameter3 + 264) )
     {
       v21 = *(_QWORD *)(BugCheckParameter3 + 272);
-      v22 = qword_140303A08;
-      v23 = qword_1403039E0;
-      v24 = qword_1403039D0;
+      v22 = qword_140303948;
+      v23 = qword_140303920;
+      v24 = qword_140303910;
       do
       {
         v25 = (unsigned __int64)v20 << 7;
         v24 += *(_QWORD *)(v25 + v21 + 64);
-        qword_1403039D0 = v24;
+        qword_140303910 = v24;
         v23 += *(_QWORD *)(v25 + *(_QWORD *)(BugCheckParameter3 + 272) + 72);
-        qword_1403039E0 = v23;
+        qword_140303920 = v23;
         v22 += *(_QWORD *)(v25 + *(_QWORD *)(BugCheckParameter3 + 272) + 80);
-        qword_140303A08 = v22;
+        qword_140303948 = v22;
         v21 = *(_QWORD *)(BugCheckParameter3 + 272);
         if ( *(_QWORD *)(v25 + v21 + 64) + *(_QWORD *)(v25 + v21 + 72) > v4 )
           v4 = *(_QWORD *)(v25 + v21 + 64) + *(_QWORD *)(v25 + v21 + 72);
@@ -173,22 +173,22 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
     v27 = v17 / (v19 + 1);
     if ( v27 > v26 )
     {
-      v33 = 100 * (qword_1403039D8 * *(unsigned int *)(BugCheckParameter3 + 264) / (v19 + v18 + 1) - v26) / (v27 - v26);
+      v33 = 100 * (qword_140303918 * *(unsigned int *)(BugCheckParameter3 + 264) / (v19 + v18 + 1) - v26) / (v27 - v26);
       if ( v33 > 99 )
       {
-        dword_1403035C4 = 99;
+        dword_140303504 = 99;
         goto LABEL_32;
       }
-      dword_1403035C4 = v33;
+      dword_140303504 = v33;
       if ( (int)v33 >= 1 )
         goto LABEL_32;
     }
-    dword_1403035C4 = 1;
+    dword_140303504 = 1;
 LABEL_32:
     v28 = __rdtsc();
-    qword_1403039F8 = (((unsigned __int64)HIDWORD(v28) << 32) | (unsigned int)v28) - v35;
-    result = (struct _KPRCB *)(qword_1403039F8 - qword_1403039F0 - v4);
-    qword_1403039C8 = (__int64)result;
+    qword_140303938 = (((unsigned __int64)HIDWORD(v28) << 32) | (unsigned int)v28) - v35;
+    result = (struct _KPRCB *)(qword_140303938 - qword_140303930 - v4);
+    qword_140303908 = (__int64)result;
     return result;
   }
   while ( !*(_BYTE *)(BugCheckParameter3 + 4) )

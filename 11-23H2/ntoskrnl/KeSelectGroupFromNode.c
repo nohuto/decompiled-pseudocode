@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSelectGroupFromNode @ 0x140364490
+ * XREFs of KeSelectGroupFromNode @ 0x140364630
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

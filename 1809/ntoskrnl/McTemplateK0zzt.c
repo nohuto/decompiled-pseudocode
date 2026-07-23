@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0zzt @ 0x14028AE4C
+ * XREFs of McTemplateK0zzt @ 0x14028B03C
  * Callers:
- *     PiCMGetDeviceIdList @ 0x1406BB674 (PiCMGetDeviceIdList.c)
+ *     PiCMGetDeviceIdList @ 0x1406BC914 (PiCMGetDeviceIdList.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D7C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0zzt(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4, const wchar_t *a5, char a6)

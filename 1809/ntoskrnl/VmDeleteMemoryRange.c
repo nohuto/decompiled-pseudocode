@@ -1,10 +1,10 @@
 /*
- * XREFs of VmDeleteMemoryRange @ 0x1408B02D0
+ * XREFs of VmDeleteMemoryRange @ 0x1408B1530
  * Callers:
  *     <none>
  * Callees:
- *     VmpRemoveMemoryRange @ 0x14030D610 (VmpRemoveMemoryRange.c)
- *     VmpValidateMemoryRangeParameters @ 0x1408B0B3C (VmpValidateMemoryRangeParameters.c)
+ *     VmpRemoveMemoryRange @ 0x14030D800 (VmpRemoveMemoryRange.c)
+ *     VmpValidateMemoryRangeParameters @ 0x1408B1D9C (VmpValidateMemoryRangeParameters.c)
  */
 
 __int64 __fastcall VmDeleteMemoryRange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -20,7 +20,7 @@ __int64 __fastcall VmDeleteMemoryRange(__int64 a1, __int64 a2, __int64 a3, __int
   v9 = (volatile LONG *)KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[15];
   if ( !v9 )
     return 3221225608LL;
-  result = VmpRemoveMemoryRange(v9, v5 >> 12, v6 >> 12, a3, v7);
+  result = VmpRemoveMemoryRange(v9, v5 >> 12, (_RTL_BALANCED_NODE *)(v6 >> 12), a3, v7);
   if ( (int)result >= 0 )
     return 0LL;
   return result;

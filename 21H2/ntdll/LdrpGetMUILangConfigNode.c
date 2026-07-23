@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpGetMUILangConfigNode @ 0x1800EEC68
+ * XREFs of LdrpGetMUILangConfigNode @ 0x1800EEC28
  * Callers:
  *     RtlpTraverseParents @ 0x18005884C (RtlpTraverseParents.c)
  * Callees:
- *     RtlpCompareConfigNodeWithSpec @ 0x1800F00C4 (RtlpCompareConfigNodeWithSpec.c)
- *     RtlpMuiRegGetLanginfoTypeNSpec @ 0x1800F0B54 (RtlpMuiRegGetLanginfoTypeNSpec.c)
+ *     RtlpCompareConfigNodeWithSpec @ 0x1800F0084 (RtlpCompareConfigNodeWithSpec.c)
+ *     RtlpMuiRegGetLanginfoTypeNSpec @ 0x1800F0B14 (RtlpMuiRegGetLanginfoTypeNSpec.c)
  */
 
 __int64 __fastcall LdrpGetMUILangConfigNode(__int64 a1, __int64 a2, __int64 a3, __int16 *a4)

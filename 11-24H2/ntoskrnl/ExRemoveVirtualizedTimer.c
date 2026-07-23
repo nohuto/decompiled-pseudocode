@@ -1,11 +1,11 @@
 /*
- * XREFs of ExRemoveVirtualizedTimer @ 0x1403E4090
+ * XREFs of ExRemoveVirtualizedTimer @ 0x14046BD44
  * Callers:
- *     PspProcessUnbindVirtualizedTimers @ 0x1403E3FE0 (PspProcessUnbindVirtualizedTimers.c)
+ *     PspProcessUnbindVirtualizedTimers @ 0x14046BC94 (PspProcessUnbindVirtualizedTimers.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ExpTimerResume @ 0x1403E4104 (ExpTimerResume.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     ExpTimerResume @ 0x14046BDB8 (ExpTimerResume.c)
  */
 
 __int64 __fastcall ExRemoveVirtualizedTimer(__int64 a1)

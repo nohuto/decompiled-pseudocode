@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpComparePath @ 0x14080E0D4
+ * XREFs of VrpComparePath @ 0x14080F2D4
  * Callers:
- *     VrpFindNamespaceNode @ 0x14080A514 (VrpFindNamespaceNode.c)
+ *     VrpFindNamespaceNode @ 0x14080B714 (VrpFindNamespaceNode.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     VrpGetNextToken @ 0x14080E21C (VrpGetNextToken.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     VrpGetNextToken @ 0x14080F41C (VrpGetNextToken.c)
  */
 
 __int64 __fastcall VrpComparePath(__int64 a1, __int64 a2, _QWORD *a3)

@@ -12,11 +12,11 @@
 
 __int64 __fastcall WheapCallInUsePageNotificationCallbacks(__int64 a1, char a2, char a3)
 {
-  unsigned __int64 v7; // rax
+  PRTL_BALANCED_NODE v7; // rax
   __int64 v8; // rdx
   __int64 v9; // r8
   signed __int8 v10; // cf
-  unsigned __int64 v11; // rbx
+  PRTL_BALANCED_NODE v11; // rbx
   __int64 i; // rbx
 
   if ( WheapInUsePageOfflineNotifyInit != 1 )
@@ -25,9 +25,12 @@ __int64 __fastcall WheapCallInUsePageNotificationCallbacks(__int64 a1, char a2, 
   v10 = _interlockedbittestandset64((volatile signed __int32 *)&WheapInUsePageOfflineNotifyLock, 0LL);
   v11 = v7;
   if ( v10 )
-    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v7, (__int16 *)&WheapInUsePageOfflineNotifyLock);
+    ExfAcquirePushLockExclusiveEx(
+      &WheapInUsePageOfflineNotifyLock,
+      (__int64)v7,
+      (__int16 *)&WheapInUsePageOfflineNotifyLock);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   for ( i = WheapInUsePageOfflineNotifyList; (__int64 *)i != &WheapInUsePageOfflineNotifyList; i = *(_QWORD *)i )
   {
     LOBYTE(v9) = a3;

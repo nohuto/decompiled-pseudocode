@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlRemoveDotsFromPath @ 0x14099E400
+ * XREFs of FsRtlRemoveDotsFromPath @ 0x1409C72C0
  * Callers:
- *     IopReplaceSymlinkPath @ 0x14099E1C0 (IopReplaceSymlinkPath.c)
+ *     IopReplaceSymlinkPath @ 0x1409C707C (IopReplaceSymlinkPath.c)
  * Callees:
  *     <none>
  */

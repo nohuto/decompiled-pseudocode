@@ -11,7 +11,7 @@
 
 int __fastcall LdrpResCompareResourceNames(
         int a1,
-        int a2,
+        void *a2,
         int a3,
         wchar_t *String1,
         int a5,
@@ -28,19 +28,20 @@ int __fastcall LdrpResCompareResourceNames(
   int v14; // ebx
   unsigned __int16 *v15; // ebx
   int v16; // ecx
-  unsigned __int16 *v18; // [esp+14h] [ebp-21Ch] BYREF
-  int v19; // [esp+18h] [ebp-218h]
-  int *v20; // [esp+1Ch] [ebp-214h]
-  unsigned int v21; // [esp+20h] [ebp-210h] BYREF
-  _BYTE v22[520]; // [esp+24h] [ebp-20Ch] BYREF
-  int v23; // [esp+248h] [ebp+18h]
+  size_t v18; // [esp-4h] [ebp-234h]
+  unsigned __int16 *v20; // [esp+14h] [ebp-21Ch] BYREF
+  int v21; // [esp+18h] [ebp-218h]
+  int *v22; // [esp+1Ch] [ebp-214h]
+  unsigned int Buffer; // [esp+20h] [ebp-210h] BYREF
+  _BYTE v24[520]; // [esp+24h] [ebp-20Ch] BYREF
+  int v25; // [esp+248h] [ebp+18h]
 
   v8 = a8;
-  v19 = a1;
+  v21 = a1;
   v9 = a7 & 0x1000;
-  v21 = a5;
-  v20 = a8;
-  v23 = a7 & 0x8800;
+  Buffer = a5;
+  v22 = a8;
+  v25 = a7 & 0x8800;
   v10 = String1;
   if ( !a5 || !a6 )
     return -1073741811;
@@ -71,20 +72,21 @@ LABEL_29:
   v14 = v11 & 0x7FFFFFFF;
   if ( v9 )
   {
-    if ( (RtlULongPtrAdd(v21, v14, (int *)&v18) & 0x80000000) != 0 || v14 + v21 > a3 + (v19 & 0xFFFFFFFC) )
+    if ( (RtlULongPtrAdd(Buffer, v14, (int *)&v20) & 0x80000000) != 0 || v14 + Buffer > a3 + (v21 & 0xFFFFFFFC) )
       return -1073741701;
-    v15 = v18;
+    v15 = v20;
   }
   else
   {
     v15 = (unsigned __int16 *)(a5 + v14);
   }
-  if ( v23 != 34816 )
+  if ( v25 != 34816 )
   {
 LABEL_16:
     if ( ((unsigned int)(v15 + 1) & 0xFFFF0000) == 0 )
       return -1073741701;
-    v16 = wcsncmp(String1, v15 + 1, *v15);
+    LODWORD(v18) = *v15;
+    v16 = wcsncmp(String1, v15 + 1, v18);
     if ( v16 )
       goto LABEL_20;
     while ( *v10++ )
@@ -92,21 +94,21 @@ LABEL_16:
     if ( v10 - (String1 + 1) == *v15 )
     {
 LABEL_20:
-      *v20 = v16;
+      *v22 = v16;
       return File;
     }
-    v8 = v20;
+    v8 = v22;
     goto LABEL_29;
   }
-  result = LdrpResReadFile(&v21, 2);
+  result = LdrpResReadFile(a2, &Buffer, 2u);
   if ( result >= 0 )
   {
-    if ( (unsigned int)(unsigned __int16)v21 + 3 > 0x104 )
+    if ( (unsigned int)(unsigned __int16)Buffer + 3 > 0x104 )
       return -1073741701;
-    File = LdrpResReadFile(v22, 2 * (unsigned __int16)v21 + 2);
+    File = LdrpResReadFile(a2, v24, 2 * (unsigned __int16)Buffer + 2);
     if ( File < 0 )
       return File;
-    v15 = (unsigned __int16 *)v22;
+    v15 = (unsigned __int16 *)v24;
     goto LABEL_16;
   }
   return result;

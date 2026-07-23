@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x140A882E0
+ * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x140A8F410
  * Callers:
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PsQueryProcessSignatureMitigationPolicy(__int64 a1, _DWORD *a2)
@@ -20,11 +20,11 @@ void __fastcall PsQueryProcessSignatureMitigationPolicy(__int64 a1, _DWORD *a2)
   v4 = a2;
   if ( *(_BYTE *)(a1 + 1528) < 8u || *v2 < 8u )
   {
-    if ( SepRmCapTableLock.ReadTransferCount
+    if ( *(_QWORD *)&SepRmCapTableLock.ThreadTimerDelay
       && (LOBYTE(a2) = 6,
           LOBYTE(a1) = *(_BYTE *)(a1 + 1528),
           (unsigned int)guard_dispatch_icall_no_overrides(a1, (__int64)a2))
-      && SepRmCapTableLock.ReadTransferCount
+      && *(_QWORD *)&SepRmCapTableLock.ThreadTimerDelay
       && (LOBYTE(v6) = *v2, LOBYTE(v5) = 6, (unsigned int)guard_dispatch_icall_no_overrides(v6, v5)) )
     {
       *v4 |= 2u;

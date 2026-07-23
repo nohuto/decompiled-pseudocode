@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpProtectReadOnlyHeap @ 0x18010B2EC
+ * XREFs of RtlpProtectReadOnlyHeap @ 0x18010B2AC
  * Callers:
  *     RtlAddGrowableFunctionTable @ 0x180069C10 (RtlAddGrowableFunctionTable.c)
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlpProtectReadOnlyHeap(int a1)
+void __fastcall RtlpProtectReadOnlyHeap(int a1)
 {
-  return LdrProtectMrdataHeap(a1);
+  LdrProtectMrdataHeap(a1);
 }

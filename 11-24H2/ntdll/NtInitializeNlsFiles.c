@@ -1,17 +1,21 @@
 /*
- * XREFs of NtInitializeNlsFiles @ 0x180163D80
+ * XREFs of NtInitializeNlsFiles @ 0x180162140
  * Callers:
- *     RtlpLoadNlsData @ 0x1800333EC (RtlpLoadNlsData.c)
- *     RtlGetLocaleFileMappingAddress @ 0x1800FA390 (RtlGetLocaleFileMappingAddress.c)
+ *     RtlpLoadNlsData @ 0x1800144AC (RtlpLoadNlsData.c)
+ *     RtlGetLocaleFileMappingAddress @ 0x1800F50F0 (RtlGetLocaleFileMappingAddress.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtInitializeNlsFiles()
+NTSTATUS __cdecl NtInitializeNlsFiles(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 264LL;
+  result = 264;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

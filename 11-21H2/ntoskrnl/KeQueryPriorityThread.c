@@ -2,29 +2,29 @@
  * XREFs of KeQueryPriorityThread @ 0x14035D5C0
  * Callers:
  *     PoNotifyMediaBuffering @ 0x140258980 (PoNotifyMediaBuffering.c)
- *     MiSetIdealProcessorThread @ 0x14035CA04 (MiSetIdealProcessorThread.c)
- *     LZNT1DecompressChunkNewThread @ 0x14035D158 (LZNT1DecompressChunkNewThread.c)
- *     FsRtlpWaitForIoAtEof @ 0x14035D3E0 (FsRtlpWaitForIoAtEof.c)
- *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x14035F4C8 (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
- *     MiQueueForceTrimRequest @ 0x140373F2C (MiQueueForceTrimRequest.c)
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x14037CFB8 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
- *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x14037D2EC (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
- *     ?SmStWorkItemGet@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAU1@PEAK@Z @ 0x140384F50 (-SmStWorkItemGet@-$SMKM_STORE@USM_TRAITS@@@@SAPEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@PEAU1@P.c)
- *     MiModifiedPageWriter @ 0x1403CFD20 (MiModifiedPageWriter.c)
- *     MiInSwapStore @ 0x1406EBCCC (MiInSwapStore.c)
- *     PfSnPrefetchSections @ 0x1407D7100 (PfSnPrefetchSections.c)
- *     PfSnPrefetchSectionsCleanup @ 0x1407D7544 (PfSnPrefetchSectionsCleanup.c)
- *     PfSnPrefetchScenario @ 0x1407D7AE0 (PfSnPrefetchScenario.c)
- *     ViPendingQueuePassiveLevelCompletion @ 0x140A914C4 (ViPendingQueuePassiveLevelCompletion.c)
+ *     sub_14035CA04 @ 0x14035CA04 (sub_14035CA04.c)
+ *     sub_14035D158 @ 0x14035D158 (sub_14035D158.c)
+ *     sub_14035D3E0 @ 0x14035D3E0 (sub_14035D3E0.c)
+ *     sub_14035F4C8 @ 0x14035F4C8 (sub_14035F4C8.c)
+ *     sub_140373F2C @ 0x140373F2C (sub_140373F2C.c)
+ *     sub_14037CFB8 @ 0x14037CFB8 (sub_14037CFB8.c)
+ *     sub_14037D2EC @ 0x14037D2EC (sub_14037D2EC.c)
+ *     sub_140384F50 @ 0x140384F50 (sub_140384F50.c)
+ *     sub_1403CFD20 @ 0x1403CFD20 (sub_1403CFD20.c)
+ *     sub_1406EBCCC @ 0x1406EBCCC (sub_1406EBCCC.c)
+ *     sub_1407D7100 @ 0x1407D7100 (sub_1407D7100.c)
+ *     sub_1407D7544 @ 0x1407D7544 (sub_1407D7544.c)
+ *     sub_1407D7AE0 @ 0x1407D7AE0 (sub_1407D7AE0.c)
+ *     sub_140A914C4 @ 0x140A914C4 (sub_140A914C4.c)
  * Callees:
- *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x140577B4C (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ *     sub_140577B4C @ 0x140577B4C (sub_140577B4C.c)
  */
 
 KPRIORITY __stdcall KeQueryPriorityThread(PKTHREAD Thread)
 {
-  if ( Thread->Process == (_KPROCESS *)&KiInitialProcess )
+  if ( *((_UNKNOWN **)Thread + 68) == &unk_140D32B00 )
     return 1;
-  if ( (*((_DWORD *)&Thread->0 + 1) & 0x400000) != 0 )
-    KiUpdateVpBackingThreadPriorityOnPriorityQuery((ULONG_PTR)Thread);
-  return Thread->Priority;
+  if ( (*((_DWORD *)Thread + 30) & 0x400000) != 0 )
+    sub_140577B4C((ULONG_PTR)Thread);
+  return *((char *)Thread + 195);
 }

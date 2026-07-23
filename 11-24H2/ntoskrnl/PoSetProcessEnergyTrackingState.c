@@ -1,11 +1,11 @@
 /*
- * XREFs of PoSetProcessEnergyTrackingState @ 0x1409044C4
+ * XREFs of PoSetProcessEnergyTrackingState @ 0x14099B460
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopEtEnergyContextSetState @ 0x140904E6C (PopEtEnergyContextSetState.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopEtEnergyContextSetState @ 0x14099BAF0 (PopEtEnergyContextSetState.c)
  */
 
 __int64 __fastcall PoSetProcessEnergyTrackingState(__int64 a1, _DWORD *a2)

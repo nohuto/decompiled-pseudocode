@@ -1,10 +1,10 @@
 /*
- * XREFs of SHA256Update @ 0x180009654
+ * XREFs of SHA256Update @ 0x180009644
  * Callers:
- *     SHA256Final @ 0x18000A224 (SHA256Final.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x18000C630 (RtlDeriveCapabilitySidsFromName.c)
+ *     SHA256Final @ 0x18000A214 (SHA256Final.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x18000C620 (RtlDeriveCapabilitySidsFromName.c)
  * Callees:
- *     SHA256Transform @ 0x180009758 (SHA256Transform.c)
+ *     SHA256Transform @ 0x180009748 (SHA256Transform.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

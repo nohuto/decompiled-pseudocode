@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRestoreSupervisorState @ 0x1405B87E0
+ * XREFs of KeRestoreSupervisorState @ 0x1405B5E20
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x140467B1C (IopLiveDumpProcessCorralStateChange.c)
- *     KiFreezeTargetExecution @ 0x1405C1C80 (KiFreezeTargetExecution.c)
- *     KdExitDebugger @ 0x140B75008 (KdExitDebugger.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x14045F638 (IopLiveDumpProcessCorralStateChange.c)
+ *     KiFreezeTargetExecution @ 0x1405BF250 (KiFreezeTargetExecution.c)
+ *     KdExitDebugger @ 0x140B77008 (KdExitDebugger.c)
  * Callees:
- *     RtlXRestoreS @ 0x140406EF8 (RtlXRestoreS.c)
- *     KiRestoreIptState @ 0x1404B8DAC (KiRestoreIptState.c)
+ *     RtlXRestoreS @ 0x1403FF3D8 (RtlXRestoreS.c)
+ *     KiRestoreIptState @ 0x1404B3A68 (KiRestoreIptState.c)
  */
 
 unsigned __int64 __fastcall KeRestoreSupervisorState(__int64 a1, __int64 a2)

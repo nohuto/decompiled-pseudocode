@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLightWeightDuplicateParentLists @ 0x140A28C00
+ * XREFs of CmpLightWeightDuplicateParentLists @ 0x140A28EB0
  * Callers:
- *     CmpLightWeightCreateModificationData @ 0x140A289F8 (CmpLightWeightCreateModificationData.c)
+ *     CmpLightWeightCreateModificationData @ 0x140A28CA8 (CmpLightWeightCreateModificationData.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpDuplicateIndex @ 0x140A23200 (CmpDuplicateIndex.c)
- *     CmpMarkEntireIndexDirty @ 0x140A24518 (CmpMarkEntireIndexDirty.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpDuplicateIndex @ 0x140A234B0 (CmpDuplicateIndex.c)
+ *     CmpMarkEntireIndexDirty @ 0x140A247C8 (CmpMarkEntireIndexDirty.c)
  */
 
 __int64 __fastcall CmpLightWeightDuplicateParentLists(

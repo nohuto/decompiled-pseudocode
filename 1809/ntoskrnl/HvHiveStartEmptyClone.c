@@ -1,11 +1,11 @@
 /*
- * XREFs of HvHiveStartEmptyClone @ 0x1407F7254
+ * XREFs of HvHiveStartEmptyClone @ 0x1407F8454
  * Callers:
- *     CmpCreateEmptyHiveClone @ 0x1407F65D8 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407F77D8 (CmpCreateEmptyHiveClone.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     HvpViewMapStart @ 0x1405A51A0 (HvpViewMapStart.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     HvpViewMapStart @ 0x1405A61A0 (HvpViewMapStart.c)
  */
 
 NTSTATUS __fastcall HvHiveStartEmptyClone(__int64 a1, __int64 a2)

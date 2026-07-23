@@ -1,15 +1,15 @@
 /*
- * XREFs of IopUpdateMinidumpContext @ 0x140449FD8
+ * XREFs of IopUpdateMinidumpContext @ 0x140442108
  * Callers:
- *     IopCollectTriageDumpData @ 0x1405C8974 (IopCollectTriageDumpData.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CA224 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D5088 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopCollectTriageDumpData @ 0x1405CB244 (IopCollectTriageDumpData.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CCAF4 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D7878 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     IopAddBugcheckTriageDataFromParameters @ 0x14044A38C (IopAddBugcheckTriageDataFromParameters.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     IopIsAddressRangeValid @ 0x1404EC1EC (IopIsAddressRangeValid.c)
- *     IopGetMaxValidMemorySize @ 0x1405C97BC (IopGetMaxValidMemorySize.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x1404424BC (IopAddBugcheckTriageDataFromParameters.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     IopIsAddressRangeValid @ 0x1404E57CC (IopIsAddressRangeValid.c)
+ *     IopGetMaxValidMemorySize @ 0x1405CC08C (IopGetMaxValidMemorySize.c)
  */
 
 _OWORD *__fastcall IopUpdateMinidumpContext(
@@ -164,8 +164,8 @@ LABEL_9:
     if ( (_DWORD)DpcLogBufferSize )
       IoAddTriageDumpDataBlock((ULONG)DpcLog, DpcLogBufferSize);
   }
-  for ( j = (struct _KTHREAD *)stru_140F10828.FirstArgument;
-        j != (struct _KTHREAD *)&stru_140F10828.FirstArgument;
+  for ( j = (struct _KTHREAD *)PpmIdlePolicyLock.SystemAffinityTokenListHead.Next;
+        j != (struct _KTHREAD *)&PpmIdlePolicyLock.SystemAffinityTokenListHead;
         j = *(struct _KTHREAD **)&j->Header.Lock )
   {
     IoAddTriageDumpDataBlock((ULONG)j, (PVOID)0x420);

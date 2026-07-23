@@ -137,7 +137,7 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
         *((_QWORD *)&v50 + 1) = v17;
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           v27 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -178,10 +178,10 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
                     *(_BYTE *)(v18 + 35) = v23 | v22 & 0xF8;
                 }
                 _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v31 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
                   {
                     v32 = KeGetCurrentPrcb();
                     v33 = v32->SchedulerAssist;
@@ -208,7 +208,7 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
                 {
                   MiSetActivePfnHeat(v18, 1LL);
                   _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v38 = KeGetCurrentIrql();
                     if ( ((unsigned __int8)KiIrqlFlags & v37) != 0 && v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
@@ -232,10 +232,10 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
           }
         }
         _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v42 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && CurrentIrql <= 0xFu && v42 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && CurrentIrql <= 0xFu && v42 >= 2u )
           {
             v43 = KeGetCurrentPrcb();
             v44 = v43->SchedulerAssist;

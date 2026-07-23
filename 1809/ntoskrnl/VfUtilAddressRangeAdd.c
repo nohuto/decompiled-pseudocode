@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilAddressRangeAdd @ 0x140925F8C
+ * XREFs of VfUtilAddressRangeAdd @ 0x140926F8C
  * Callers:
- *     ViDeadlockAddResource @ 0x14093C74C (ViDeadlockAddResource.c)
- *     ViDeadlockAddThread @ 0x14093C98C (ViDeadlockAddThread.c)
- *     VfIrpDatabaseEntryInsertAndLock @ 0x14093E2D0 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     ViDeadlockAddResource @ 0x14093D74C (ViDeadlockAddResource.c)
+ *     ViDeadlockAddThread @ 0x14093D98C (ViDeadlockAddThread.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x14093F2D0 (VfIrpDatabaseEntryInsertAndLock.c)
  * Callees:
  *     <none>
  */

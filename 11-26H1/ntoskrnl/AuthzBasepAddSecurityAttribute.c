@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepAddSecurityAttribute @ 0x1403CBA8C
+ * XREFs of AuthzBasepAddSecurityAttribute @ 0x1403B0444
  * Callers:
- *     AuthzBasepSetSecurityAttributesToken @ 0x1403CB2B8 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepReplaceSecurityAttribute @ 0x1403CB934 (AuthzBasepReplaceSecurityAttribute.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403AFD64 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepReplaceSecurityAttribute @ 0x1403B03D4 (AuthzBasepReplaceSecurityAttribute.c)
  * Callees:
- *     AuthzBasepAddSecurityAttributeValues @ 0x1403CA128 (AuthzBasepAddSecurityAttributeValues.c)
- *     AuthzBasepAllocateSecurityAttribute @ 0x1403CB9B0 (AuthzBasepAllocateSecurityAttribute.c)
- *     AuthzBasepFindSecurityAttribute @ 0x1403CD4D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1403B1DF0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepAllocateSecurityAttribute @ 0x1403B2050 (AuthzBasepAllocateSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x1403B24FC (AuthzBasepAddSecurityAttributeValues.c)
  */
 
 __int64 __fastcall AuthzBasepAddSecurityAttribute(__int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ __int64 __fastcall AuthzBasepAddSecurityAttribute(__int64 a1, __int64 a2)
   bool v2; // zf
   __int64 SecurityAttribute; // rax
   __int64 v6; // rcx
-  _WORD *v7; // rax
+  __int64 v7; // rax
   _QWORD *v8; // r8
   _QWORD *v9; // rax
   __int128 v11; // [rsp+20h] [rbp-18h] BYREF
@@ -34,12 +34,12 @@ __int64 __fastcall AuthzBasepAddSecurityAttribute(__int64 a1, __int64 a2)
   }
   else
   {
-    v7 = AuthzBasepAllocateSecurityAttribute((unsigned __int16 *)&v11);
-    v6 = (__int64)v7;
+    v7 = AuthzBasepAllocateSecurityAttribute(&v11);
+    v6 = v7;
     if ( !v7 )
       return 3221225626LL;
-    *((_DWORD *)v7 + 13) = *(_DWORD *)(a2 + 20);
-    v7[24] = *(_WORD *)(a2 + 16);
+    *(_DWORD *)(v7 + 52) = *(_DWORD *)(a2 + 20);
+    *(_WORD *)(v7 + 48) = *(_WORD *)(a2 + 16);
   }
   if ( (*(_DWORD *)(v6 + 56) & 2) == 0 )
   {

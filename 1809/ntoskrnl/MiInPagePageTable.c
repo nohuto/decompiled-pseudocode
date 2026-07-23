@@ -1,5 +1,5 @@
 /*
- * XREFs of MiInPagePageTable @ 0x1400987E0
+ * XREFs of MiInPagePageTable @ 0x140098720
  * Callers:
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  * Callees:
@@ -11,25 +11,25 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
- *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
- *     MiIsVadLarge @ 0x140070D90 (MiIsVadLarge.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiCheckFatalAccessViolation @ 0x1400963AC (MiCheckFatalAccessViolation.c)
- *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiLeapPrefetch @ 0x1402AEAE8 (MiLeapPrefetch.c)
- *     MiGetLargeVadMappingIndex @ 0x1402BC138 (MiGetLargeVadMappingIndex.c)
- *     MiInsertLargeVadMapping @ 0x1402BC234 (MiInsertLargeVadMapping.c)
- *     MiLargePageFault @ 0x1402BC3D8 (MiLargePageFault.c)
+ *     MiIsAddressValid @ 0x140068590 (MiIsAddressValid.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiVadPureReserve @ 0x140070D20 (MiVadPureReserve.c)
+ *     MiIsVadLarge @ 0x140070D80 (MiIsVadLarge.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiCheckFatalAccessViolation @ 0x1400962EC (MiCheckFatalAccessViolation.c)
+ *     MiGetUsedPtesHandle @ 0x140098640 (MiGetUsedPtesHandle.c)
+ *     MiCheckVirtualAddress @ 0x140098C30 (MiCheckVirtualAddress.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
+ *     MiIncreaseUsedPtesCount @ 0x1401100E4 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiLeapPrefetch @ 0x1402AECD8 (MiLeapPrefetch.c)
+ *     MiGetLargeVadMappingIndex @ 0x1402BC328 (MiGetLargeVadMappingIndex.c)
+ *     MiInsertLargeVadMapping @ 0x1402BC424 (MiInsertLargeVadMapping.c)
+ *     MiLargePageFault @ 0x1402BC5C8 (MiLargePageFault.c)
  */
 
 __int64 __fastcall MiInPagePageTable(_QWORD *a1, int a2)
@@ -255,7 +255,7 @@ LABEL_13:
     {
       if ( (unsigned int)MiPteHasShadow(v22, v21) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v21 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v21 & 1) != 0 )
           v21 |= 0x8000000000000000uLL;
         *(_QWORD *)v7 = v21;
         MiWritePteShadow(v7);

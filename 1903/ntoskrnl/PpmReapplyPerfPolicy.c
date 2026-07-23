@@ -22,12 +22,9 @@ LONG __fastcall PpmReapplyPerfPolicy(_DWORD *a1)
 {
   _WORD *v1; // rbx
   char v2; // al
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
   LONG result; // eax
-  char v7; // si
-  char v8; // di
+  char v4; // si
+  char v5; // di
 
   v1 = a1;
   if ( (*a1 & 0x1800) != 0 )
@@ -54,28 +51,28 @@ LONG __fastcall PpmReapplyPerfPolicy(_DWORD *a1)
     PpmCheckReInit();
     result = *(_DWORD *)v1;
   }
-  v7 = 0;
-  v8 = 1;
+  v4 = 0;
+  v5 = 1;
   if ( (result & 2) != 0 )
   {
-    v8 = 0;
-    v7 = 1;
+    v5 = 0;
+    v4 = 1;
     PpmPerfUpdateDomainPolicy(0);
     result = *(_DWORD *)v1;
   }
   if ( (result & 4) != 0 )
   {
-    if ( v7 )
+    if ( v4 )
     {
       PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
       result = *(_DWORD *)v1;
     }
-    v8 = 0;
+    v5 = 0;
     if ( (result & 0x2000) != 0 )
       return PpmCheckInitProcessors(1);
-    result = PpmCheckApplyParkConstraints(v4, v3, v5);
+    result = PpmCheckApplyParkConstraints();
   }
-  if ( v8 )
+  if ( v5 )
     return PpmReleaseLock(&PpmPerfPolicyLock);
   return result;
 }

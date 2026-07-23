@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetupUserShadowStack @ 0x1409F1C84
+ * XREFs of PspSetupUserShadowStack @ 0x1409EE454
  * Callers:
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     RtlLocateExtendedFeature @ 0x1403D7020 (RtlLocateExtendedFeature.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MmFreeVirtualMemory @ 0x14095F3F0 (MmFreeVirtualMemory.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1409F1E60 (PspReserveAndCommitUserShadowStack.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     RtlLocateExtendedFeature @ 0x1403D9FF0 (RtlLocateExtendedFeature.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409EE630 (PspReserveAndCommitUserShadowStack.c)
+ *     MmFreeVirtualMemory @ 0x140A04CB0 (MmFreeVirtualMemory.c)
  */
 
 __int64 __fastcall PspSetupUserShadowStack(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD *a3, _BYTE *a4, int a5)
@@ -22,8 +22,8 @@ __int64 __fastcall PspSetupUserShadowStack(_KPROCESS *BugCheckParameter1, __int6
   int v15; // ebx
   int v16; // ebx
   _QWORD *ExtendedFeature; // rax
-  unsigned __int64 v18; // rax
-  unsigned __int64 v20; // [rsp+30h] [rbp-31h] BYREF
+  __int64 v18; // rax
+  __int64 v20; // [rsp+30h] [rbp-31h] BYREF
   __int64 v21; // [rsp+38h] [rbp-29h] BYREF
   _OWORD v22[3]; // [rsp+40h] [rbp-21h] BYREF
 
@@ -55,7 +55,7 @@ __int64 __fastcall PspSetupUserShadowStack(_KPROCESS *BugCheckParameter1, __int6
   {
     if ( (*(_DWORD *)(a2 + 48) & 0x100040) == 0x100040 )
     {
-      ExtendedFeature = (_QWORD *)RtlLocateExtendedFeature(a2 + 1232, 11LL);
+      ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a2 + 1232), 0xBu, 0LL);
       if ( ExtendedFeature )
       {
         *(_QWORD *)(*(int *)(a2 + 1248) + a2 + 1232) |= 0x800uLL;
@@ -71,7 +71,7 @@ __int64 __fastcall PspSetupUserShadowStack(_KPROCESS *BugCheckParameter1, __int6
   {
     v20 = v18;
     v21 = 0LL;
-    MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, &v20, &v21, 0x8000u, 0, 0x40000000);
+    MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, 0, 0x40000000);
   }
   KiUnstackDetachProcess((__int64)v22, 0);
   return (unsigned int)v16;

@@ -40,22 +40,22 @@
  *     ViHalPreprocessOptions @ 0x14073E7D0 (ViHalPreprocessOptions.c)
  */
 
-__int64 __fastcall ViGetRealDmaOperation(__int64 a1, unsigned int a2)
+__int64 __fastcall ViGetRealDmaOperation(struct _LIST_ENTRY *a1, unsigned int a2)
 {
   __int64 v3; // rdi
-  ULONG_PTR AdapterInformationInternal; // rax
-  __int64 v5; // rax
+  struct _LIST_ENTRY *AdapterInformationInternal; // rax
+  struct _LIST_ENTRY *Flink; // rax
 
   v3 = a2;
   if ( ViVerifyDma && !a1 )
   {
     ViHalPreprocessOptions(byte_140323174, "DMA adapters aren't supposed to be NULL anymore", 25LL, 0LL);
-    VfReportIssueWithOptions(230, a1 + 25, 0, 0, 0LL, byte_140323174);
+    VfReportIssueWithOptions(230, (_DWORD)a1 + 25, 0, 0, 0LL, byte_140323174);
   }
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1, 1);
   if ( AdapterInformationInternal )
-    v5 = *(_QWORD *)(AdapterInformationInternal + 48);
+    Flink = AdapterInformationInternal[3].Flink;
   else
-    v5 = *(_QWORD *)(a1 + 8);
-  return *(_QWORD *)(v3 + v5);
+    Flink = a1->Blink;
+  return *(__int64 *)((char *)&Flink->Flink + v3);
 }

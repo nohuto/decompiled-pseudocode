@@ -15,7 +15,7 @@ void __fastcall RtlpHpTlLogVAChange(int a1, int a2, int a3, int a4)
   int v6; // [esp+4h] [ebp-64h] BYREF
   int v7; // [esp+8h] [ebp-60h] BYREF
   int v8; // [esp+Ch] [ebp-5Ch] BYREF
-  _DWORD v9[8]; // [esp+10h] [ebp-58h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+10h] [ebp-58h] BYREF
   int *v10; // [esp+30h] [ebp-38h]
   int v11; // [esp+34h] [ebp-34h]
   int v12; // [esp+38h] [ebp-30h]
@@ -85,6 +85,6 @@ LABEL_14:
     v17 = 0;
     v19 = 0;
     v21 = 0;
-    _tlgWriteTransfer_EtwEventWriteTransfer(&dword_4B3A33F0, (unsigned __int8 *)v5, 0, 0, 5, v9);
+    _tlgWriteTransfer_EtwEventWriteTransfer((int)&dword_4B3A33F0, (unsigned __int8 *)v5, 0, 0, 5u, &UserData);
   }
 }

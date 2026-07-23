@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpCorProcessImports @ 0x180087A14
+ * XREFs of LdrpCorProcessImports @ 0x180087A24
  * Callers:
  *     LdrpMapDllWithSectionHandle @ 0x180021D1C (LdrpMapDllWithSectionHandle.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  * Callees:
  *     LdrpLogDllState @ 0x180026314 (LdrpLogDllState.c)
  *     LdrpSendDllNotifications @ 0x18002795C (LdrpSendDllNotifications.c)
- *     AVrfDllLoadNotification @ 0x180087A7C (AVrfDllLoadNotification.c)
+ *     AVrfDllLoadNotification @ 0x180087A8C (AVrfDllLoadNotification.c)
  */
 
 __int64 __fastcall LdrpCorProcessImports(__int64 a1)

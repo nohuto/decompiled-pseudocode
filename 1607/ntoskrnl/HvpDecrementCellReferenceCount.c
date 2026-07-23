@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpDecrementCellReferenceCount @ 0x14002D424
+ * XREFs of HvpDecrementCellReferenceCount @ 0x14002CFA4
  * Callers:
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
  * Callees:
  *     <none>
  */

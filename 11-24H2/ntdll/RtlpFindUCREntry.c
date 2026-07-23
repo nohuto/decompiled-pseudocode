@@ -1,12 +1,11 @@
 /*
- * XREFs of RtlpFindUCREntry @ 0x1800A0970
+ * XREFs of RtlpFindUCREntry @ 0x1800DBA60
  * Callers:
- *     RtlpInsertUCRBlock @ 0x18009FB50 (RtlpInsertUCRBlock.c)
- *     RtlpCreateUCREntry @ 0x1800A0100 (RtlpCreateUCREntry.c)
- *     RtlpFindAndCommitPages @ 0x1800A03B0 (RtlpFindAndCommitPages.c)
+ *     RtlpFindAndCommitPages @ 0x18000D030 (RtlpFindAndCommitPages.c)
+ *     RtlpInsertUCRBlock @ 0x1800DB980 (RtlpInsertUCRBlock.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x180031DD0 (RtlpHeapHandleError.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     RtlpHeapHandleError @ 0x180010460 (RtlpHeapHandleError.c)
  */
 
 __int64 *__fastcall RtlpFindUCREntry(__int64 a1, unsigned __int64 a2)
@@ -38,7 +37,7 @@ __int64 *__fastcall RtlpFindUCREntry(__int64 a1, unsigned __int64 a2)
     else
       DbgPrint("HEAP: ");
     DbgPrint("(ROUND_UP_TO_POWER2(Size, PAGE_SIZE) == Size)");
-    RtlpHeapHandleError();
+    RtlpHeapHandleError(1LL);
   }
   v4 = *(__int64 **)(a1 + 320);
   if ( v4 )

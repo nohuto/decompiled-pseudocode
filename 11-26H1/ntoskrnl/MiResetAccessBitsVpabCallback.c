@@ -1,10 +1,10 @@
 /*
- * XREFs of MiResetAccessBitsVpabCallback @ 0x1404C7860
+ * XREFs of MiResetAccessBitsVpabCallback @ 0x1404C15A0
  * Callers:
  *     <none>
  * Callees:
- *     MiResetAccessBitPteWorker @ 0x14029C4C8 (MiResetAccessBitPteWorker.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiResetAccessBitPteWorker @ 0x14029BA28 (MiResetAccessBitPteWorker.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiResetAccessBitsVpabCallback(__int64 a1, _QWORD *a2, __int64 *a3, __int64 a4, __int64 a5)

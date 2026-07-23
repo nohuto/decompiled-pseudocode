@@ -1,43 +1,43 @@
 /*
- * XREFs of SepGetLowBoxNumberEntry @ 0x140476BFC
+ * XREFs of SepGetLowBoxNumberEntry @ 0x140475ACC
  * Callers:
- *     SepSetTokenLowboxNumber @ 0x140476A64 (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenLowboxNumber @ 0x140475934 (SepSetTokenLowboxNumber.c)
  * Callees:
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     RtlInsertEntryHashTable @ 0x14007CFAC (RtlInsertEntryHashTable.c)
- *     RtlLookupEntryHashTable @ 0x14007FAE0 (RtlLookupEntryHashTable.c)
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     RtlGetNextEntryHashTable @ 0x1400976C0 (RtlGetNextEntryHashTable.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     RtlInsertEntryHashTable @ 0x14007D02C (RtlInsertEntryHashTable.c)
+ *     RtlLookupEntryHashTable @ 0x14007FB60 (RtlLookupEntryHashTable.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     RtlGetNextEntryHashTable @ 0x140096EC0 (RtlGetNextEntryHashTable.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCopySid @ 0x14041268C (RtlCopySid.c)
+ *     RtlCopySid @ 0x14041154C (RtlCopySid.c)
  */
 
 __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a3)
 {
-  struct _RTL_BITMAP *v3; // r14
-  struct _RTL_DYNAMIC_HASH_TABLE *v4; // r13
+  _RTL_BITMAP *v3; // r14
+  _RTL_DYNAMIC_HASH_TABLE *v4; // r13
   unsigned int v6; // ebx
   ULONG_PTR v8; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v10; // rdi
   unsigned int v12; // esi
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v14; // rdi
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v14; // rdi
   ULONG ClearBitsAndSet; // esi
   ULONG v16; // esi
   __int64 v17; // rax
   ULONG_PTR v18; // r8
   ULONG v19; // esi
   unsigned int *v20; // r12
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-48h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-48h] BYREF
 
-  v3 = (struct _RTL_BITMAP *)(a1 + 8);
-  v4 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
+  v3 = (_RTL_BITMAP *)(a1 + 8);
+  v4 = *(_RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
   v6 = 0;
   v8 = *(unsigned int *)&a2[4 * a2[1] + 4];
   if ( !v8 )
@@ -55,7 +55,7 @@ LABEL_6:
   if ( !v10 )
   {
     v12 = (4 * a2[1] + 67) & 0xFFFFFFFC;
-    PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v12, 0x734C6553u);
+    PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v12, 0x734C6553u);
     v14 = PoolWithTag;
     if ( !PoolWithTag )
       return 3221225626LL;

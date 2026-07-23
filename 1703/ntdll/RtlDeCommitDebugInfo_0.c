@@ -10,17 +10,14 @@
  *     <none>
  */
 
-__int64 __fastcall RtlDeCommitDebugInfo_0(__int64 a1, __int64 a2, unsigned int a3)
+void __cdecl RtlDeCommitDebugInfo_0(PRTL_DEBUG_INFORMATION Buffer, PVOID p, SIZE_T Size)
 {
-  __int64 v3; // r8
-  __int64 result; // rax
+  SIZE_T v3; // r8
 
-  if ( a3 <= 0xFFFFFFF8 )
+  if ( (unsigned int)Size <= 0xFFFFFFF8 )
   {
-    v3 = *(_QWORD *)(a1 + 72) - ((a3 + 7) & 0xFFFFFFF8);
-    result = v3 + a1;
-    if ( a2 == v3 + a1 )
-      *(_QWORD *)(a1 + 72) = v3;
+    v3 = Buffer->OffsetFree - (((_DWORD)Size + 7) & 0xFFFFFFF8);
+    if ( p == (char *)Buffer + v3 )
+      Buffer->OffsetFree = v3;
   }
-  return result;
 }

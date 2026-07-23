@@ -24,7 +24,7 @@
 
 LONG PopUnlockAfterSleepWorker()
 {
-  __int64 v0; // rcx
+  UNICODE_STRING *v0; // rcx
   __int64 v1; // rcx
 
   qword_140C23000 = (__int64)KeGetCurrentThread();

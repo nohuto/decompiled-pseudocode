@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCheckCurrentPatchesApplied @ 0x14091AC40
+ * XREFs of RtlCheckCurrentPatchesApplied @ 0x14091ADA0
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x1408CD638 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x1408CD798 (MiPrepareToHotPatchImage.c)
  * Callees:
- *     RtlpCheckFunctionPatchApplied @ 0x1409B2AF8 (RtlpCheckFunctionPatchApplied.c)
+ *     RtlpCheckFunctionPatchApplied @ 0x1409B3A28 (RtlpCheckFunctionPatchApplied.c)
  */
 
 __int64 __fastcall RtlCheckCurrentPatchesApplied(__int64 a1, __int64 a2, unsigned int *a3, unsigned int a4)

@@ -51,16 +51,16 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
   unsigned int v24; // ebp
   __int64 *k; // rbx
   __int64 v26; // rdx
-  char *v27; // r9
+  CHAR *v27; // r9
   unsigned int v28; // r8d
-  char v29; // al
+  CHAR v29; // al
   __int64 v30; // rcx
   unsigned int i; // edi
   PVOID PoolWithTag; // rax
   PVOID v33; // rbx
   signed __int32 v34[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v5 = 0;
   v6 = 0;
@@ -336,7 +336,7 @@ LABEL_31:
           break;
         DestinationString = 0LL;
         LODWORD(v26) = 0;
-        v27 = (char *)k[10];
+        v27 = (CHAR *)k[10];
         v28 = *((unsigned __int16 *)k + 36) >> 1;
         if ( v28 >= 0x100 )
           v28 = 255;
@@ -353,13 +353,13 @@ LABEL_31:
           _report_rangecheckfailure();
         SourceString[v26] = 0;
         RtlInitAnsiString(&DestinationString, SourceString);
-        DbgLoadImageSymbols((__int64)&DestinationString, k[6], 0xFFFFFFFFLL);
+        DbgLoadImageSymbols((__int64)&DestinationString, (void *)k[6], 0xFFFFFFFFLL);
         k = (__int64 *)*k;
       }
     }
     else
     {
-      DbgLoadImageSymbols(0LL, qword_140C00B38, 0xFFFFFFFFLL);
+      DbgLoadImageSymbols(0LL, (void *)qword_140C00B38, 0xFFFFFFFFLL);
     }
     if ( a2 )
     {

@@ -182,7 +182,7 @@ NTSTATUS __stdcall NtSetInformationThread(
   bool v112; // [rsp+4Eh] [rbp-22Ah]
   char v113; // [rsp+51h] [rbp-227h]
   LONG Increment; // [rsp+54h] [rbp-224h]
-  struct _PROCESSOR_NUMBER v115; // [rsp+58h] [rbp-220h] BYREF
+  _PROCESSOR_NUMBER v115; // [rsp+58h] [rbp-220h] BYREF
   _QWORD *v116; // [rsp+60h] [rbp-218h]
   __int64 v117; // [rsp+68h] [rbp-210h]
   ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp-208h]
@@ -225,7 +225,8 @@ NTSTATUS __stdcall NtSetInformationThread(
   v8 = CurrentThread->gap0[10];
   if ( v8 )
   {
-    if ( ThreadInformationClass >= (ThreadEnableAlignmentFaultFixup|0x20) && ThreadInformationClass < 48
+    if ( ThreadInformationClass >= ThreadSelectedCpuSets
+      && ThreadInformationClass < ThreadManageWritesToExecutableMemory
       || ThreadInformationClass < ThreadEnableAlignmentFaultFixup && ThreadInformationClass >= ThreadImpersonationToken )
     {
 LABEL_4:
@@ -241,58 +242,58 @@ LABEL_6:
       v9 = 0x140000000uLL;
       switch ( ThreadInformationClass )
       {
-        case 2:
-        case 3:
-        case 5:
-        case 6:
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-        case 12:
-        case 13:
-        case 14:
-        case 15:
-        case 16:
-        case 17:
-        case 18:
-        case 19:
-        case 20:
-        case 21:
-        case 22:
-        case 23:
-        case 24:
-        case 25:
-        case 26:
-        case 27:
-        case 28:
-        case 29:
-        case 33:
-        case 35:
-        case 36:
-        case 37:
-        case 39:
-        case 40:
-        case 41:
-        case 42:
-        case 43:
-        case 44:
-        case 45:
-        case 46:
-        case 47:
-        case 48:
-        case 49:
+        case ThreadPriority:
+        case ThreadBasePriority:
+        case ThreadImpersonationToken:
+        case ThreadDescriptorTableEntry:
+        case ThreadEventPair:
+        case ThreadQuerySetWin32StartAddress:
+        case ThreadZeroTlsCell:
+        case ThreadPerformanceCount:
+        case ThreadAmILastThread:
+        case ThreadIdealProcessor:
+        case ThreadPriorityBoost:
+        case ThreadSetTlsArrayAddress:
+        case ThreadIsIoPending:
+        case ThreadHideFromDebugger:
+        case ThreadBreakOnTermination:
+        case ThreadSwitchLegacyState:
+        case ThreadIsTerminated:
+        case ThreadLastSystemCall:
+        case ThreadIoPriority:
+        case ThreadCycleTime:
+        case ThreadPagePriority:
+        case ThreadActualBasePriority:
+        case ThreadTebInformation:
+        case ThreadCSwitchMon:
+        case ThreadCSwitchPmu:
+        case ThreadWow64Context:
+        case ThreadIdealProcessorEx:
+        case ThreadSuspendCount:
+        case ThreadHeterogeneousCpuPolicy:
+        case ThreadContainerId:
+        case ThreadSelectedCpuSets:
+        case ThreadSystemThreadInformation:
+        case ThreadActualGroupAffinity:
+        case ThreadDynamicCodePolicyInfo:
+        case ThreadExplicitCaseSensitivity:
+        case ThreadWorkOnBehalfTicket:
+        case ThreadSubsystemInformation:
+        case ThreadDbgkWerReportActive:
+        case ThreadAttachContainer:
+        case ThreadManageWritesToExecutableMemory:
+        case ThreadPowerThrottlingState:
           goto LABEL_5;
-        case 4:
-        case 30:
-        case 31:
-        case 34:
-        case 38:
+        case ThreadAffinityMask:
+        case ThreadGroupInformation:
+        case ThreadUmsInformation:
+        case ThreadCpuAccountingInformation:
+        case ThreadNameInformation:
           v11 = 7LL;
           v10 = 3;
           goto LABEL_6;
-        case 7:
-        case 32:
+        case ThreadEnableAlignmentFaultFixup:
+        case ThreadCounterProfiling:
           v12 = 0;
           v11 = 0LL;
           v10 = 3;
@@ -318,7 +319,7 @@ LABEL_6:
     v12 = 0;
     v10 = 3;
   }
-  if ( ThreadInformationClass == (ThreadAmILastThread|0x20) )
+  if ( ThreadInformationClass == ThreadWorkOnBehalfTicket )
   {
     if ( ThreadHandle == (HANDLE)-2LL )
     {
@@ -885,7 +886,7 @@ LABEL_64:
     case 31:
       if ( ThreadInformationLength != 4 )
         return -1073741820;
-      v115 = *(struct _PROCESSOR_NUMBER *)ThreadInformation;
+      v115 = *(_PROCESSOR_NUMBER *)ThreadInformation;
       result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
       if ( result < 0 )
         return result;
@@ -895,7 +896,7 @@ LABEL_64:
       {
         if ( (v32[29] & 0x400) == 0 )
           PspWriteTebIdealProcessor((__int64)CurrentThread, (__int64)v32);
-        *(struct _PROCESSOR_NUMBER *)ThreadInformation = v115;
+        *(_PROCESSOR_NUMBER *)ThreadInformation = v115;
       }
       goto LABEL_64;
     case 32:
@@ -1076,7 +1077,9 @@ LABEL_182:
         goto LABEL_307;
       if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, v8) )
         return -1073741727;
-      if ( !RtlTestProtectedAccess(BYTE2(CurrentThread->Process[2].ActiveProcessors.Bitmap[0]), 0x51u) )
+      if ( !RtlTestProtectedAccess(
+              (PS_PROTECTION)SBYTE2(CurrentThread->Process[2].ActiveProcessors.Bitmap[0]),
+              (PS_PROTECTION)81) )
         return -1073741790;
       v6 = BugCheckParameter1;
 LABEL_307:

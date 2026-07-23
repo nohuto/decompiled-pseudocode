@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpWatchdogFirstChanceCallback @ 0x1407A38C0
+ * XREFs of PnpWatchdogFirstChanceCallback @ 0x1407A6400
  * Callers:
  *     <none>
  * Callees:
- *     PnpWatchdogEtwWrite @ 0x14049FA50 (PnpWatchdogEtwWrite.c)
- *     PnpRecordBlackbox @ 0x1409DE16C (PnpRecordBlackbox.c)
+ *     PnpWatchdogEtwWrite @ 0x1404995A0 (PnpWatchdogEtwWrite.c)
+ *     PnpRecordBlackbox @ 0x140A1B298 (PnpRecordBlackbox.c)
  */
 
 __int64 __fastcall PnpWatchdogFirstChanceCallback(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of AccelpGetCopyBuffer @ 0x1406DF5C0
+ * XREFs of AccelpGetCopyBuffer @ 0x1406E3840
  * Callers:
- *     AccelpSdxiInternalOperationHandler @ 0x1406E0A10 (AccelpSdxiInternalOperationHandler.c)
+ *     AccelpSdxiInternalOperationHandler @ 0x1406E4C90 (AccelpSdxiInternalOperationHandler.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AccelpAcquireLockExclusive @ 0x14084ADCC (AccelpAcquireLockExclusive.c)
- *     AccelpAlloc @ 0x14084ADE4 (AccelpAlloc.c)
- *     AccelpReleaseLockExclusive @ 0x14084AE10 (AccelpReleaseLockExclusive.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AccelpAcquireLockExclusive @ 0x1408510DC (AccelpAcquireLockExclusive.c)
+ *     AccelpAlloc @ 0x1408510F4 (AccelpAlloc.c)
+ *     AccelpReleaseLockExclusive @ 0x140851120 (AccelpReleaseLockExclusive.c)
  */
 
 __int64 __fastcall AccelpGetCopyBuffer(__int64 a1, unsigned __int8 a2, __int64 *a3)

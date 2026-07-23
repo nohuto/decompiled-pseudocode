@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpAutoCompleteLanguageFallback @ 0x18013F3FC
+ * XREFs of RtlpAutoCompleteLanguageFallback @ 0x18013D5EC
  * Callers:
- *     RtlpSetPreferredUILanguages @ 0x180140750 (RtlpSetPreferredUILanguages.c)
+ *     RtlpSetPreferredUILanguages @ 0x18013E940 (RtlpSetPreferredUILanguages.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18007D580 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1801124E0 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
- *     RtlpGetCompleteLanguageFallback @ 0x18013FBF4 (RtlpGetCompleteLanguageFallback.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x1800CAFA0 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1800CB340 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlpGetCompleteLanguageFallback @ 0x18013DDE4 (RtlpGetCompleteLanguageFallback.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpAutoCompleteLanguageFallback(__int64 a1, const wchar_t *a2)
+__int64 __fastcall RtlpAutoCompleteLanguageFallback(__int64 a1, wchar_t *a2)
 {
   __int64 result; // rax
   __int64 v5; // rcx
   __int128 *v6; // rdx
   __int64 v7; // rax
-  const WCHAR *i; // rbx
+  const wchar_t *i; // rbx
   __int64 v9; // rax
   __int64 v10; // rax
   __int16 v11; // [rsp+30h] [rbp-48h] BYREF

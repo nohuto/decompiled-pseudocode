@@ -1,17 +1,17 @@
 /*
- * XREFs of PopUpdateSystemIdleContext @ 0x1408F12A4
+ * XREFs of PopUpdateSystemIdleContext @ 0x1408F1404
  * Callers:
- *     PopInitSIdle @ 0x14078CAA8 (PopInitSIdle.c)
+ *     PopInitSIdle @ 0x14078CC68 (PopInitSIdle.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopIdleCancelAoAcDozeS4Timer @ 0x140381D44 (PopIdleCancelAoAcDozeS4Timer.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x14057C218 (PopIdleArmAoAcDozeS4Timer.c)
- *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
- *     PopPulseSystemIdleEvent @ 0x14078E950 (PopPulseSystemIdleEvent.c)
- *     PopDiagTraceSystemIdleContextUpdate @ 0x1408EB8CC (PopDiagTraceSystemIdleContextUpdate.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x140381894 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14057C458 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopFilterCapabilities @ 0x14066EBC4 (PopFilterCapabilities.c)
+ *     PopPulseSystemIdleEvent @ 0x14078EB10 (PopPulseSystemIdleEvent.c)
+ *     PopDiagTraceSystemIdleContextUpdate @ 0x1408EBA2C (PopDiagTraceSystemIdleContextUpdate.c)
  */
 
 void __fastcall PopUpdateSystemIdleContext(int a1)
@@ -44,8 +44,8 @@ LABEL_8:
     v6 = 5;
     goto LABEL_9;
   }
-  v5 = dword_140C23EA0;
-  if ( !dword_140C23EA0 )
+  v5 = dword_140C23340;
+  if ( !dword_140C23340 )
     goto LABEL_8;
   v6 = 4;
 LABEL_9:
@@ -54,7 +54,7 @@ LABEL_9:
   if ( a1 == 3 )
   {
     PopIdleCancelAoAcDozeS4Timer(6u);
-    if ( byte_140C233B1 )
+    if ( byte_140C239B1 )
       PopIdleArmAoAcDozeS4Timer();
   }
   PopSystemIdleContext = v6;

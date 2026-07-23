@@ -1,12 +1,12 @@
 /*
- * XREFs of PopClearHiberFileSignature @ 0x140751C50
+ * XREFs of PopClearHiberFileSignature @ 0x14074FF70
  * Callers:
- *     PopFreeHiberContext @ 0x1406FB788 (PopFreeHiberContext.c)
- *     PopEnableHiberFile @ 0x140AB3950 (PopEnableHiberFile.c)
+ *     PopFreeHiberContext @ 0x1406F93C8 (PopFreeHiberContext.c)
+ *     PopEnableHiberFile @ 0x140AAE8C0 (PopEnableHiberFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x1406A6B30 (ZwFsControlFile.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x1406A7AD0 (ZwFsControlFile.c)
  */
 
 void PopClearHiberFileSignature()

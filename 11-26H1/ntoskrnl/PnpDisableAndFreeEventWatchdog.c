@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDisableAndFreeEventWatchdog @ 0x1409DDF60
+ * XREFs of PnpDisableAndFreeEventWatchdog @ 0x140A1B08C
  * Callers:
- *     PnpProcessCompletedEject @ 0x1407A4D50 (PnpProcessCompletedEject.c)
- *     PnpDeviceEventWorker @ 0x1409DCD90 (PnpDeviceEventWorker.c)
+ *     PnpProcessCompletedEject @ 0x1407A7890 (PnpProcessCompletedEject.c)
+ *     PnpDeviceEventWorker @ 0x140A1A040 (PnpDeviceEventWorker.c)
  * Callees:
- *     PnpDisableWatchdog @ 0x1409DDFA8 (PnpDisableWatchdog.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PnpDisableWatchdog @ 0x140A1B0D4 (PnpDisableWatchdog.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDisableAndFreeEventWatchdog(__int64 a1)

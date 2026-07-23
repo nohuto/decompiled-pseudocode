@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbGetNextAllocationRange @ 0x14055953C
+ * XREFs of ArbGetNextAllocationRange @ 0x140559A7C
  * Callers:
  *     <none>
  * Callees:
- *     ArbpUpdatePriority @ 0x1405596B4 (ArbpUpdatePriority.c)
+ *     ArbpUpdatePriority @ 0x140559BF4 (ArbpUpdatePriority.c)
  */
 
 char __fastcall ArbGetNextAllocationRange(__int64 a1, __int64 a2)

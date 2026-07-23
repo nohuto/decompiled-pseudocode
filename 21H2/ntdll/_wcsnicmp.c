@@ -8,7 +8,7 @@
  *     IsProgramFilesPath @ 0x18004A744 (IsProgramFilesPath.c)
  *     LdrpGetFileDriverStoreRoot @ 0x18007A150 (LdrpGetFileDriverStoreRoot.c)
  *     punycode_encode @ 0x180082B44 (punycode_encode.c)
- *     RtlpHpOptIntoSegmentHeap @ 0x1800F4508 (RtlpHpOptIntoSegmentHeap.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x1800F44C8 (RtlpHpOptIntoSegmentHeap.c)
  * Callees:
  *     <none>
  */

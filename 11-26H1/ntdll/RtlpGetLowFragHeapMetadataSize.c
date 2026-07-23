@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetLowFragHeapMetadataSize @ 0x180074BB0
+ * XREFs of RtlpGetLowFragHeapMetadataSize @ 0x180092ACC
  * Callers:
- *     RtlpQueryMemoryUsageHeap @ 0x180074AB4 (RtlpQueryMemoryUsageHeap.c)
+ *     RtlpQueryMemoryUsageHeap @ 0x1800929D0 (RtlpQueryMemoryUsageHeap.c)
  * Callees:
  *     <none>
  */

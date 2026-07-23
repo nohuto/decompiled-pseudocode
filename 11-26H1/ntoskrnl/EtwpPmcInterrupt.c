@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpPmcInterrupt @ 0x1404F5EC0
+ * XREFs of EtwpPmcInterrupt @ 0x1404EF480
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
  */
 
 __int64 __fastcall EtwpPmcInterrupt(__int64 a1, __int16 a2)

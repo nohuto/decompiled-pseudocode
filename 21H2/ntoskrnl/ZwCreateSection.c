@@ -1,30 +1,29 @@
 /*
- * XREFs of ZwCreateSection @ 0x1403FACE0
+ * XREFs of ZwCreateSection @ 0x1403FAEC0
  * Callers:
- *     CmSiCreateSectionForFile @ 0x140362A74 (CmSiCreateSectionForFile.c)
- *     LdrpMapResourceFile @ 0x1403806CC (LdrpMapResourceFile.c)
- *     RtlFileMapMapView @ 0x1403BD8C4 (RtlFileMapMapView.c)
- *     ExpGetGlobalLocaleSection @ 0x140612BDC (ExpGetGlobalLocaleSection.c)
- *     NtGetNlsSectionPtr @ 0x1406B9930 (NtGetNlsSectionPtr.c)
- *     KsepSdbMapToMemory @ 0x140755A54 (KsepSdbMapToMemory.c)
- *     PiInitializeDDB @ 0x14077E964 (PiInitializeDDB.c)
- *     ExInitializeLeapSecondData @ 0x1407A8EAC (ExInitializeLeapSecondData.c)
- *     SepRmLsaConnectRequest @ 0x1407AD3B0 (SepRmLsaConnectRequest.c)
- *     CmFcpManagerCreateSection @ 0x14087E570 (CmFcpManagerCreateSection.c)
- *     IopIsNotNativeDriverImage @ 0x140891924 (IopIsNotNativeDriverImage.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x14094A69C (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x14094A8D8 (ExpQueryElamCertInfo.c)
- *     SLUpdateLicenseDataInternal @ 0x14094E290 (SLUpdateLicenseDataInternal.c)
- *     CMFReadCompressedSegment @ 0x140958EF0 (CMFReadCompressedSegment.c)
- *     CMFSystemThreadRoutine @ 0x1409593D0 (CMFSystemThreadRoutine.c)
- *     ApiSetpLoadSchemaImage @ 0x14095EDC4 (ApiSetpLoadSchemaImage.c)
- *     AslpFileLargeMapCreate @ 0x14096C404 (AslpFileLargeMapCreate.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     CmSiCreateSectionForFile @ 0x1402F7C64 (CmSiCreateSectionForFile.c)
+ *     LdrpMapResourceFile @ 0x14038021C (LdrpMapResourceFile.c)
+ *     RtlFileMapMapView @ 0x1403BDA34 (RtlFileMapMapView.c)
+ *     NtGetNlsSectionPtr @ 0x14060EE10 (NtGetNlsSectionPtr.c)
+ *     ExpGetGlobalLocaleSection @ 0x1406A268C (ExpGetGlobalLocaleSection.c)
+ *     KsepSdbMapToMemory @ 0x140755C14 (KsepSdbMapToMemory.c)
+ *     PiInitializeDDB @ 0x14077EB24 (PiInitializeDDB.c)
+ *     ExInitializeLeapSecondData @ 0x1407A90AC (ExInitializeLeapSecondData.c)
+ *     SepRmLsaConnectRequest @ 0x1407AD5B0 (SepRmLsaConnectRequest.c)
+ *     CmFcpManagerCreateSection @ 0x14087E6D0 (CmFcpManagerCreateSection.c)
+ *     IopIsNotNativeDriverImage @ 0x140891A84 (IopIsNotNativeDriverImage.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x14094A86C (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x14094AAA8 (ExpQueryElamCertInfo.c)
+ *     SLUpdateLicenseDataInternal @ 0x14094E460 (SLUpdateLicenseDataInternal.c)
+ *     CMFReadCompressedSegment @ 0x1409590C0 (CMFReadCompressedSegment.c)
+ *     CMFSystemThreadRoutine @ 0x1409595A0 (CMFSystemThreadRoutine.c)
+ *     ApiSetpLoadSchemaImage @ 0x14095EFA4 (ApiSetpLoadSchemaImage.c)
+ *     AslpFileLargeMapCreate @ 0x14096C5E4 (AslpFileLargeMapCreate.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateSection(
         PHANDLE SectionHandle,
         ACCESS_MASK DesiredAccess,
@@ -36,5 +35,5 @@ NTSTATUS __stdcall ZwCreateSection(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SectionHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(SectionHandle);
 }

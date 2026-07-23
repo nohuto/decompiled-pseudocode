@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiSessionsRundown @ 0x1409A4ADC
+ * XREFs of TtmiSessionsRundown @ 0x1409A4CDC
  * Callers:
- *     TtmpTraceLoggingCallback @ 0x1409AAD80 (TtmpTraceLoggingCallback.c)
+ *     TtmpTraceLoggingCallback @ 0x1409AAF80 (TtmpTraceLoggingCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     TtmiDevicesRundown @ 0x1409A2B6C (TtmiDevicesRundown.c)
- *     TtmiAcquireCurrentSession @ 0x1409A4930 (TtmiAcquireCurrentSession.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiLogSessionRundown @ 0x1409A9CB4 (TtmiLogSessionRundown.c)
- *     TtmiTerminalsRundown @ 0x1409AB658 (TtmiTerminalsRundown.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     TtmiDevicesRundown @ 0x1409A2D6C (TtmiDevicesRundown.c)
+ *     TtmiAcquireCurrentSession @ 0x1409A4B30 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiLogSessionRundown @ 0x1409A9EB4 (TtmiLogSessionRundown.c)
+ *     TtmiTerminalsRundown @ 0x1409AB858 (TtmiTerminalsRundown.c)
  */
 
 void TtmiSessionsRundown()

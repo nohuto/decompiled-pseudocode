@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlCollectLivedump @ 0x1405C02A4
+ * XREFs of HvlCollectLivedump @ 0x1405C2B14
  * Callers:
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     HvlpSnapshotCrashArea @ 0x1405C0EF4 (HvlpSnapshotCrashArea.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     HvlpSnapshotCrashArea @ 0x1405C3764 (HvlpSnapshotCrashArea.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
@@ -56,7 +56,7 @@ __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int6
       *a3 = 0LL;
     }
   }
-  else if ( (HvlpRootFlags & 2) != 0 && VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink )
+  else if ( (HvlpRootFlags & 2) != 0 && VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink )
   {
     v9 = HvlpAcquireHypercallPage((__int64)&v25, 1, (__int64)v31, 32LL);
     v10 = HvlpAcquireHypercallPage((__int64)&v23, 2, (__int64)v30, 16LL);
@@ -80,11 +80,11 @@ __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int6
     if ( v17 >= 0 )
     {
       v21 = *(void **)(a4 + 32);
-      v22 = *(_DWORD *)&VslpReservedTransferLock.WaitBlockFill11[112] << 12;
+      v22 = *(_DWORD *)&VslpReservedTransferLock.WaitBlockFill11[160] << 12;
       if ( v21 == *(void **)a4 && *(_DWORD *)(a4 + 8) >= v22 )
-        memmove(v21, VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink, v22);
+        memmove(v21, VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink, v22);
       else
-        *(_QWORD *)(a4 + 32) = VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink;
+        *(_QWORD *)(a4 + 32) = VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink;
       *(_DWORD *)(a4 + 40) = v22;
       *(_OWORD *)(a4 + 16) = HvlCrashdumpGuid;
     }

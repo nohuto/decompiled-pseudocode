@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryHardwareCounterConfiguration @ 0x1407BADB0
+ * XREFs of KeQueryHardwareCounterConfiguration @ 0x1407BDE10
  * Callers:
  *     <none>
  * Callees:

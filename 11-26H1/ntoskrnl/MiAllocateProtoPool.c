@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAllocateProtoPool @ 0x140396B20
+ * XREFs of MiAllocateProtoPool @ 0x1403988A0
  * Callers:
- *     MiAllocateSubsectionProtos @ 0x140458B54 (MiAllocateSubsectionProtos.c)
- *     MiAllocateCombineBlock @ 0x14048F2C0 (MiAllocateCombineBlock.c)
- *     MiCreatePrototypePtes @ 0x14049406C (MiCreatePrototypePtes.c)
- *     MiCreatePagingFileControlArea @ 0x1409B8144 (MiCreatePagingFileControlArea.c)
- *     MiBuildImageControlArea @ 0x140A551FC (MiBuildImageControlArea.c)
- *     MiAllocatePerSessionProtos @ 0x140B11CA8 (MiAllocatePerSessionProtos.c)
- *     MiBuildNewCloneDescriptor @ 0x140B558E4 (MiBuildNewCloneDescriptor.c)
- *     MiInitializeSharedUserData @ 0x140CF1F60 (MiInitializeSharedUserData.c)
+ *     MiAllocateSubsectionProtos @ 0x1404503C4 (MiAllocateSubsectionProtos.c)
+ *     MiAllocateCombineBlock @ 0x140488D08 (MiAllocateCombineBlock.c)
+ *     MiCreatePrototypePtes @ 0x14048DBBC (MiCreatePrototypePtes.c)
+ *     MiCreatePagingFileControlArea @ 0x140989124 (MiCreatePagingFileControlArea.c)
+ *     MiBuildImageControlArea @ 0x140A6279C (MiBuildImageControlArea.c)
+ *     MiAllocatePerSessionProtos @ 0x140B13A28 (MiAllocatePerSessionProtos.c)
+ *     MiBuildNewCloneDescriptor @ 0x140B58184 (MiBuildNewCloneDescriptor.c)
+ *     MiInitializeSharedUserData @ 0x140CF82E0 (MiInitializeSharedUserData.c)
  * Callees:
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiAllocateProtoPool(__int64 a1, unsigned __int64 a2, __int64 a3)

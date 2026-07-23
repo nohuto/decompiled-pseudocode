@@ -1,18 +1,18 @@
 /*
- * XREFs of PspWow64ReadOrWriteThreadCpuArea @ 0x1405188AC
+ * XREFs of PspWow64ReadOrWriteThreadCpuArea @ 0x1404FBC9C
  * Callers:
- *     PspWow64GetContextThread @ 0x140518BB8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x140518F20 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1404FBFA8 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1404FC310 (PspWow64SetContextThread.c)
  * Callees:
- *     PspUnlockThreadSecurityShared @ 0x140087058 (PspUnlockThreadSecurityShared.c)
- *     PspLockThreadSecurityShared @ 0x1400870A0 (PspLockThreadSecurityShared.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     PsGetThreadTeb @ 0x1400F6828 (PsGetThreadTeb.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     RtlWow64GetCpuAreaInfo @ 0x140518800 (RtlWow64GetCpuAreaInfo.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     PspUnlockThreadSecurityShared @ 0x1400920C8 (PspUnlockThreadSecurityShared.c)
+ *     PspLockThreadSecurityShared @ 0x140092110 (PspLockThreadSecurityShared.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     PsGetThreadTeb @ 0x1400F4678 (PsGetThreadTeb.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1404FBBF0 (RtlWow64GetCpuAreaInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspWow64ReadOrWriteThreadCpuArea(

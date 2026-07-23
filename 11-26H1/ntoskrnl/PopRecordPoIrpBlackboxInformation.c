@@ -1,35 +1,35 @@
 /*
- * XREFs of PopRecordPoIrpBlackboxInformation @ 0x140613304
+ * XREFs of PopRecordPoIrpBlackboxInformation @ 0x1406161C0
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1407E39E0 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x1407E8D2C (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     PopDiagGetDriverName @ 0x140486FD8 (PopDiagGetDriverName.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     PopDiagGetDriverName @ 0x1404809A8 (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PopRecordPoIrpBlackboxInformation()
 {
-  __int64 v0; // rsi
+  _KWAIT_BLOCK *WaitBlockList; // rsi
   int v1; // r14d
   void *v2; // rdi
   unsigned __int64 v3; // rbx
   KIRQL v4; // al
-  int v5; // r12d
-  __int64 v6; // rcx
+  int Blink; // r12d
+  struct _LIST_ENTRY *Flink; // rcx
   unsigned __int64 v7; // r11
   __int64 v8; // rax
   __int64 Pool2; // rax
   _DWORD *v10; // r14
-  __int64 i; // rsi
+  _KWAIT_BLOCK *i; // rsi
   __int64 v12; // r12
   __int64 v13; // r15
   __int128 InputBuffer_8; // [rsp+38h] [rbp-99h] BYREF
@@ -40,25 +40,25 @@ void PopRecordPoIrpBlackboxInformation()
   InputBuffer_8 = 0LL;
   v15 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(qword_140F10540, &LockHandle);
-  v0 = qword_140F10550;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitListEntry.Blink, &LockHandle);
+  WaitBlockList = PpmIdlePolicyLock.WaitBlockList;
   v1 = 0;
-  stru_140F10070.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  PopIrpLockThread = (__int64)KeGetCurrentThread();
   v2 = 0LL;
   v3 = 64LL;
-  while ( (__int64 *)v0 != &qword_140F10550 )
+  while ( WaitBlockList != (_KWAIT_BLOCK *)&PpmIdlePolicyLock.WaitBlockList )
   {
-    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v0 + 288));
-    v5 = *(_DWORD *)(v0 + 296);
-    if ( v5 == 1 )
-      v6 = *(_QWORD *)(v0 + 48);
+    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WaitBlockList[6]);
+    Blink = (int)WaitBlockList[6].WaitListEntry.Blink;
+    if ( Blink == 1 )
+      Flink = WaitBlockList[1].WaitListEntry.Flink;
     else
-      v6 = 0LL;
-    *(_QWORD *)(v0 + 304) = v6;
-    KeReleaseSpinLock((PKSPIN_LOCK)(v0 + 288), v4);
-    if ( v5 == 1 )
+      Flink = 0LL;
+    *(_QWORD *)&WaitBlockList[6].WaitType = Flink;
+    KeReleaseSpinLock((PKSPIN_LOCK)&WaitBlockList[6], v4);
+    if ( Blink == 1 )
     {
-      if ( (int)PopDiagGetDriverName(*(_QWORD *)(v0 + 32), Src) >= 0 )
+      if ( (int)PopDiagGetDriverName((__int64)WaitBlockList->Object, Src) >= 0 )
       {
         v8 = -1LL;
         do
@@ -73,7 +73,7 @@ void PopRecordPoIrpBlackboxInformation()
         goto LABEL_14;
       v3 += v7;
     }
-    v0 = *(_QWORD *)v0;
+    WaitBlockList = (_KWAIT_BLOCK *)WaitBlockList->WaitListEntry.Flink;
   }
   if ( !v1 )
   {
@@ -89,19 +89,21 @@ LABEL_14:
     v10 = (_DWORD *)(Pool2 + 40);
     *(_DWORD *)(Pool2 + 4) = 1;
     *(_DWORD *)Pool2 = v3;
-    *(_QWORD *)(Pool2 + 16) = &qword_140F10550;
-    *(_QWORD *)(Pool2 + 24) = &PopWeakChargerLock.WaitBlock[0].Object;
-    *(_QWORD *)(Pool2 + 32) = ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Blink;
-    for ( i = qword_140F10550; (__int64 *)i != &qword_140F10550; i = *(_QWORD *)i )
+    *(_QWORD *)(Pool2 + 16) = &PpmIdlePolicyLock.WaitBlockList;
+    *(_QWORD *)(Pool2 + 24) = &PopIrpThreadList;
+    *(_QWORD *)(Pool2 + 32) = *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[64];
+    for ( i = PpmIdlePolicyLock.WaitBlockList;
+          i != (_KWAIT_BLOCK *)&PpmIdlePolicyLock.WaitBlockList;
+          i = (_KWAIT_BLOCK *)i->WaitListEntry.Flink )
     {
-      if ( *(_QWORD *)(i + 304) )
+      if ( *(_QWORD *)&i[6].WaitType )
       {
-        v10[2] = *(unsigned __int8 *)(i + 184);
-        v10[3] = *(_DWORD *)(i + 188);
-        v10[4] = *(_DWORD *)(i + 192);
+        v10[2] = LOBYTE(i[3].SparePtr);
+        v10[3] = HIDWORD(i[3].SparePtr);
+        v10[4] = i[4].WaitListEntry.Flink;
         v12 = 24LL;
-        v10[1] = (KiQueryUnbiasedInterruptTime() - *(_QWORD *)(i + 304)) / 0x2710uLL;
-        if ( (int)PopDiagGetDriverName(*(_QWORD *)(i + 32), Src) >= 0 )
+        v10[1] = (KiQueryUnbiasedInterruptTime() - *(_QWORD *)&i[6].WaitType) / 0x2710uLL;
+        if ( (int)PopDiagGetDriverName((__int64)i->Object, Src) >= 0 )
         {
           v13 = -1LL;
           do
@@ -117,7 +119,7 @@ LABEL_14:
     }
   }
 LABEL_26:
-  stru_140F10070.ApcState.ApcListHead[1].Flink = 0LL;
+  PopIrpLockThread = 0LL;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v3 )
   {

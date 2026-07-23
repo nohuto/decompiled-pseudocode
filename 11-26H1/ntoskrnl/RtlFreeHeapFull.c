@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFreeHeapFull @ 0x140619770
+ * XREFs of RtlFreeHeapFull @ 0x14061C7CC
  * Callers:
- *     RtlFreeHeap @ 0x14051C3A0 (RtlFreeHeap.c)
- *     RtlFreeHeapExport @ 0x140619740 (RtlFreeHeapExport.c)
+ *     RtlFreeHeap @ 0x140518F90 (RtlFreeHeap.c)
+ *     RtlFreeHeapExport @ 0x14061C79C (RtlFreeHeapExport.c)
  * Callees:
- *     RtlpFreeNTHeapInternal @ 0x140352C30 (RtlpFreeNTHeapInternal.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpHeapFatalExceptionFilter @ 0x14061985C (RtlpHeapFatalExceptionFilter.c)
+ *     RtlpFreeNTHeapInternal @ 0x140354CB0 (RtlpFreeNTHeapInternal.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x14061C8AC (RtlpHeapFatalExceptionFilter.c)
  */
 
 __int64 __fastcall RtlFreeHeapFull(unsigned __int64 a1, int a2, unsigned __int64 a3)

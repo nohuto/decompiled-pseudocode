@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDrainControlAreaWrites @ 0x140416FA4
+ * XREFs of MiDrainControlAreaWrites @ 0x1402704C4
  * Callers:
- *     MiPrepareSegmentForDeletion @ 0x140416EDC (MiPrepareSegmentForDeletion.c)
- *     MiDestroySection @ 0x140417200 (MiDestroySection.c)
+ *     MiDestroySection @ 0x140270330 (MiDestroySection.c)
+ *     MiPrepareSegmentForDeletion @ 0x1402703FC (MiPrepareSegmentForDeletion.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
-void __fastcall MiDrainControlAreaWrites(__int64 a1, KIRQL a2)
+void __fastcall MiDrainControlAreaWrites(__int64 a1, __int64 a2)
 {
   bool v3; // zf
   __int64 v4; // [rsp+20h] [rbp-30h] BYREF
@@ -36,9 +36,9 @@ void __fastcall MiDrainControlAreaWrites(__int64 a1, KIRQL a2)
       *(_QWORD *)(a1 + 80) = &v4;
       v7 = 263;
       v8 = 6;
-      MiReleaseSpinLockExclusive((_DWORD *)(a1 + 72), a2);
-      KeWaitForGate((__int64)&v7, 18LL, 0);
-      a2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
+      MiReleaseSpinLockExclusive(a1 + 72, a2);
+      KeWaitForGate(&v7, 18LL);
+      LOBYTE(a2) = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
     }
     while ( *(_DWORD *)(a1 + 76) );
   }

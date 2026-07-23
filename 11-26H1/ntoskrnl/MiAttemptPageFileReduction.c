@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAttemptPageFileReduction @ 0x1406F870C
+ * XREFs of MiAttemptPageFileReduction @ 0x1406FD3DC
  * Callers:
- *     MiHandlePageFileSizeChanges @ 0x140524EAC (MiHandlePageFileSizeChanges.c)
+ *     MiHandlePageFileSizeChanges @ 0x14052751C (MiHandlePageFileSizeChanges.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetPageFileResizeCandidates @ 0x1404E7480 (MiGetPageFileResizeCandidates.c)
- *     MiQueueSyncModifiedWriterApc @ 0x1404E84E4 (MiQueueSyncModifiedWriterApc.c)
- *     MiExcessCommitExists @ 0x1405069F0 (MiExcessCommitExists.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IoSetInformation @ 0x140B326A0 (IoSetInformation.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetPageFileResizeCandidates @ 0x1404E083C (MiGetPageFileResizeCandidates.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x1404E18A4 (MiQueueSyncModifiedWriterApc.c)
+ *     MiExcessCommitExists @ 0x1405002A0 (MiExcessCommitExists.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IoSetInformation @ 0x140B34AF0 (IoSetInformation.c)
  */
 
 int __fastcall MiAttemptPageFileReduction(__int64 a1)
@@ -84,8 +84,8 @@ int __fastcall MiAttemptPageFileReduction(__int64 a1)
       LODWORD(v7) = IoSetInformation(*(PFILE_OBJECT *)(v10 + 24), FileAllocationInformation, 8u, &FileInformation);
       if ( (int)v7 <= -1 )
       {
-        _InterlockedIncrement(&dword_140E35FE4);
-        dword_140E35FE8 = v7;
+        _InterlockedIncrement(&dword_140E36164);
+        dword_140E36168 = v7;
       }
     }
     ++v8;

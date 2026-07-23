@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCopyContext @ 0x18001A1B0
+ * XREFs of RtlpCopyContext @ 0x180046BB0
  * Callers:
- *     RtlUnwindEx @ 0x180015480 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x180019060 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x180041E80 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x180045A60 (RtlDispatchException.c)
  * Callees:
- *     RtlLocateExtendedFeature @ 0x180018F00 (RtlLocateExtendedFeature.c)
+ *     RtlLocateExtendedFeature @ 0x180045900 (RtlLocateExtendedFeature.c)
  */
 
 __int64 __fastcall RtlpCopyContext(__int64 a1, __int64 a2)
@@ -12,8 +12,8 @@ __int64 __fastcall RtlpCopyContext(__int64 a1, __int64 a2)
   int v4; // ecx
   __int64 result; // rax
   _OWORD *v6; // rbx
-  char *ExtendedFeature; // rsi
-  char *v8; // rax
+  _OWORD *ExtendedFeature; // rsi
+  _OWORD *v8; // rax
 
   if ( a2 == a1 )
   {
@@ -27,13 +27,13 @@ __int64 __fastcall RtlpCopyContext(__int64 a1, __int64 a2)
     if ( (*(_DWORD *)(a2 + 48) & 0x100040) == 0x100040 && (v4 & 0x100040) == 0x100040 )
     {
       *(_DWORD *)(a1 + 48) = 1048640;
-      ExtendedFeature = RtlLocateExtendedFeature((_DWORD *)(a2 + 1232), 0xBu, 0LL);
-      v8 = RtlLocateExtendedFeature((_DWORD *)(a1 + 1232), 0xBu, 0LL);
+      ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a2 + 1232), 0xBu, 0LL);
+      v8 = RtlLocateExtendedFeature((PCONTEXT_EX)(a1 + 1232), 0xBu, 0LL);
       if ( ExtendedFeature )
       {
         if ( v8 )
         {
-          *(_OWORD *)v8 = *(_OWORD *)ExtendedFeature;
+          *v8 = *ExtendedFeature;
           *(_QWORD *)(*(int *)(a1 + 1248) + a1 + 1232) |= *(_DWORD *)(*(int *)(a2 + 1248) + a2 + 1232) & 0x800;
         }
       }

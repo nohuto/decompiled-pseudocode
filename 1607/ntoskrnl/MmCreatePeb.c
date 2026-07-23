@@ -1,19 +1,19 @@
 /*
- * XREFs of MmCreatePeb @ 0x14046C0B8
+ * XREFs of MmCreatePeb @ 0x14046AF88
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     MmGetSessionId @ 0x140014160 (MmGetSessionId.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     KeQueryGroupAffinity @ 0x1400FAF88 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MmMapViewOfSection @ 0x14046BFE8 (MmMapViewOfSection.c)
- *     MiCreatePebOrTeb @ 0x14050B230 (MiCreatePebOrTeb.c)
- *     MiInitializeWowPeb @ 0x14051BDC4 (MiInitializeWowPeb.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     MmGetSessionId @ 0x140013CE0 (MmGetSessionId.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     KeQueryGroupAffinity @ 0x1400F8D14 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MmMapViewOfSection @ 0x14046AEB8 (MmMapViewOfSection.c)
+ *     MiCreatePebOrTeb @ 0x1404EE1C0 (MiCreatePebOrTeb.c)
+ *     MiInitializeWowPeb @ 0x1404FF1B4 (MiInitializeWowPeb.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
@@ -40,7 +40,7 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
   __int64 v27; // [rsp+68h] [rbp-160h] BYREF
   __int64 v28; // [rsp+70h] [rbp-158h] BYREF
   char *v29; // [rsp+78h] [rbp-150h] BYREF
-  struct _IMAGE_NT_HEADERS64 *v30; // [rsp+80h] [rbp-148h]
+  _IMAGE_NT_HEADERS64 *v30; // [rsp+80h] [rbp-148h]
   __int64 v31; // [rsp+90h] [rbp-138h] BYREF
   int MinorSubsystemVersion; // [rsp+98h] [rbp-130h]
   __int64 v33; // [rsp+9Ch] [rbp-12Ch]
@@ -99,7 +99,7 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
   v38 = qword_1403A9178;
   v39 = KeNumberProcessors_0;
   v40 = NtGlobalFlag;
-  v43 = qword_140326970;
+  v43 = qword_1403269B0;
   v45 = (unsigned int)dword_1403A915C;
   v46 = qword_1403A9170;
   v47 = qword_1403A9168;
@@ -168,7 +168,7 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
   }
   if ( (Characteristics & 0x4000) != 0 )
   {
-    v21 = _InterlockedExchangeAdd(&dword_140326968, 1u) + 1;
+    v21 = _InterlockedExchangeAdd(&dword_1403269A8, 1u) + 1;
     do
     {
       v22 = v21 & 0x3F;
@@ -193,7 +193,7 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
   *(_QWORD *)(v10 + 208) = v38;
   *(_DWORD *)(v10 + 184) = KeNumberProcessors_0;
   *(_DWORD *)(v10 + 188) = NtGlobalFlag;
-  *(_QWORD *)(v10 + 192) = qword_140326970;
+  *(_QWORD *)(v10 + 192) = qword_1403269B0;
   *(_QWORD *)(v10 + 792) = (unsigned int)dword_1403A915C;
   *(_QWORD *)(v10 + 240) = v44;
   *(_QWORD *)(v10 + 216) = qword_1403A9170;

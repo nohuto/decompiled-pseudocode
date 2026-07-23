@@ -1,11 +1,11 @@
 /*
- * XREFs of ExReleaseDisownedFastResourceShared @ 0x1406CE320
+ * XREFs of ExReleaseDisownedFastResourceShared @ 0x1406D2350
  * Callers:
- *     DifExReleaseDisownedFastResourceSharedWrapper @ 0x140653B60 (DifExReleaseDisownedFastResourceSharedWrapper.c)
+ *     DifExReleaseDisownedFastResourceSharedWrapper @ 0x140657740 (DifExReleaseDisownedFastResourceSharedWrapper.c)
  * Callees:
- *     ExpReleaseDisownedFastResourceShared @ 0x1404310D8 (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x14043120C (ExpReleaseDisownedFastResourceExclusive.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x14041E108 (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x14041E23C (ExpReleaseDisownedFastResourceExclusive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 LONG_PTR __fastcall ExReleaseDisownedFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

@@ -1,25 +1,25 @@
 /*
- * XREFs of NtNotifyChangeDirectoryFile @ 0x1404D51E4
+ * XREFs of NtNotifyChangeDirectoryFile @ 0x1404B87E8
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x14002E5C0 (IopResetEvent.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopVerifierExAllocatePoolWithQuota @ 0x140079F20 (IopVerifierExAllocatePoolWithQuota.c)
- *     IopReferenceFileObject @ 0x14007B630 (IopReferenceFileObject.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IopAcquireFastLock_1 @ 0x1401CAD9C (IopAcquireFastLock_1.c)
- *     IopProbeAndLockPages_1 @ 0x1401CADE0 (IopProbeAndLockPages_1.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x1406213D4 (IopExceptionCleanup.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopResetEvent @ 0x14002E140 (IopResetEvent.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopVerifierExAllocatePoolWithQuota @ 0x140079FA0 (IopVerifierExAllocatePoolWithQuota.c)
+ *     IopReferenceFileObject @ 0x14007B6B0 (IopReferenceFileObject.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopProbeAndLockPages_0 @ 0x1401CAC3C (IopProbeAndLockPages_0.c)
+ *     IopAcquireFastLock_1 @ 0x1401CAD48 (IopAcquireFastLock_1.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140621488 (IopExceptionCleanup.c)
  */
 
 NTSTATUS __stdcall NtNotifyChangeDirectoryFile(
@@ -171,7 +171,7 @@ LABEL_22:
       Mdl = IoAllocateMdl(Buffer, v13, 0, 1u, v27);
       if ( !Mdl )
         RtlRaiseStatus(-1073741670);
-      IopProbeAndLockPages_1(Mdl, PreviousMode, v32, (__int64)RelatedDeviceObject, *(unsigned __int8 *)(v28 - 72));
+      IopProbeAndLockPages_0(Mdl, PreviousMode, v32, (__int64)RelatedDeviceObject, *(unsigned __int8 *)(v28 - 72));
       goto LABEL_40;
     }
     v27->UserBuffer = Buffer;

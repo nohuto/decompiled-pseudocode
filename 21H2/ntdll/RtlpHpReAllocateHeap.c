@@ -9,12 +9,12 @@
  *     RtlpHpSegDescriptorValidate @ 0x180022944 (RtlpHpSegDescriptorValidate.c)
  *     RtlpHpSegReAlloc @ 0x1800271D0 (RtlpHpSegReAlloc.c)
  *     RtlpHpLargeAllocSize @ 0x180084A9C (RtlpHpLargeAllocSize.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     RtlpCallInterceptRoutine @ 0x1800F3654 (RtlpCallInterceptRoutine.c)
- *     RtlpLogHeapReallocateEvent @ 0x18010A3C8 (RtlpLogHeapReallocateEvent.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
- *     RtlpHpLargeReAlloc @ 0x18010E97C (RtlpHpLargeReAlloc.c)
- *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010EDC8 (RtlpHpSegGetDescriptorValidateSafe.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     RtlpCallInterceptRoutine @ 0x1800F3614 (RtlpCallInterceptRoutine.c)
+ *     RtlpLogHeapReallocateEvent @ 0x18010A388 (RtlpLogHeapReallocateEvent.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
+ *     RtlpHpLargeReAlloc @ 0x18010E93C (RtlpHpLargeReAlloc.c)
+ *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010ED88 (RtlpHpSegGetDescriptorValidateSafe.c)
  */
 
 __int64 __fastcall RtlpHpReAllocateHeap(
@@ -146,7 +146,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   }
   else
   {
-    v82 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC60, 2 * ((a3 - qword_18016DC58) >> 20));
+    v82 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a3 - qword_18016DC48) >> 20));
     if ( !v82 || (v13 = v82 - 1, v13 == 2) )
     {
       v40 = RtlpHpLargeAllocSize(a1, a3, v7, &v95);
@@ -314,7 +314,7 @@ LABEL_28:
   if ( a6 )
   {
     if ( v92
-      || (v50 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC60, 2 * ((a3 - qword_18016DC58) >> 20))) != 0
+      || (v50 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a3 - qword_18016DC48) >> 20))) != 0
       && (LODWORD(v50) = v50 - 1, (_DWORD)v50 != 2) )
     {
       v99 = a1 + 192LL * (int)v50 + 256;
@@ -476,10 +476,10 @@ LABEL_82:
   }
   v74 = v7 & 0x12000001 | 0x1000000;
   if ( v92
-    || (v83 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC60, 2 * ((a3 - qword_18016DC58) >> 20))) != 0
+    || (v83 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a3 - qword_18016DC48) >> 20))) != 0
     && (v12 = v83 - 1, (_DWORD)v83 != 3) )
   {
-    v75 = RtlpHpSegReAlloc(a1 + 192LL * v12 + 256, v74, a3, &v93);
+    v75 = RtlpHpSegReAlloc((int)a1 + 192 * v12 + 256, v74, (void *)a3);
   }
   else
   {

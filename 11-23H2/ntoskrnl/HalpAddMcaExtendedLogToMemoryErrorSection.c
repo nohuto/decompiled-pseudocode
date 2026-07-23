@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAddMcaExtendedLogToMemoryErrorSection @ 0x140501DD4
+ * XREFs of HalpAddMcaExtendedLogToMemoryErrorSection @ 0x140502324
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x140502868 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x140502DB8 (HalpCreateMcaMemoryErrorRecord.c)
  * Callees:
- *     HalpAddMcaToMemoryErrorSection @ 0x140501E4C (HalpAddMcaToMemoryErrorSection.c)
- *     HalpGetMcaExtendedLogStatusBlock @ 0x140502E04 (HalpGetMcaExtendedLogStatusBlock.c)
- *     HalpAddErrorEntryToPacket @ 0x140518A60 (HalpAddErrorEntryToPacket.c)
+ *     HalpAddMcaToMemoryErrorSection @ 0x14050239C (HalpAddMcaToMemoryErrorSection.c)
+ *     HalpGetMcaExtendedLogStatusBlock @ 0x140503354 (HalpGetMcaExtendedLogStatusBlock.c)
+ *     HalpAddErrorEntryToPacket @ 0x140518FB0 (HalpAddErrorEntryToPacket.c)
  */
 
 __int64 __fastcall HalpAddMcaExtendedLogToMemoryErrorSection(__int64 a1, __int64 a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiKernelSysretExit @ 0x140A15DC0
+ * XREFs of KiKernelSysretExit @ 0x140A16DC0
  * Callers:
- *     KiCallUserMode @ 0x1404022D0 (KiCallUserMode.c)
- *     KiSystemCall64 @ 0x140411A00 (KiSystemCall64.c)
- *     KiUmsFastReturnToUser @ 0x140413100 (KiUmsFastReturnToUser.c)
+ *     KiCallUserMode @ 0x1404024B0 (KiCallUserMode.c)
+ *     KiSystemCall64 @ 0x140411B00 (KiSystemCall64.c)
+ *     KiUmsFastReturnToUser @ 0x140413200 (KiUmsFastReturnToUser.c)
  * Callees:
  *     <none>
  */

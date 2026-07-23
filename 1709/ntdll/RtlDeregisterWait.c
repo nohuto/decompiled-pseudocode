@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlDeregisterWait(__int64 a1)
+NTSTATUS __cdecl RtlDeregisterWait(HANDLE WaitHandle)
 {
-  return RtlDeregisterWaitEx(a1, 0LL);
+  return RtlDeregisterWaitEx(WaitHandle, 0LL);
 }

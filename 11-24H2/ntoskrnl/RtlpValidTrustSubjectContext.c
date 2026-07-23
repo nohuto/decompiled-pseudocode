@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpValidTrustSubjectContext @ 0x14045B91C
+ * XREFs of RtlpValidTrustSubjectContext @ 0x1403E334C
  * Callers:
- *     RtlpSetSecurityObject @ 0x140858F70 (RtlpSetSecurityObject.c)
- *     RtlpValidFilterAclSubjectContext @ 0x14085A8C0 (RtlpValidFilterAclSubjectContext.c)
- *     RtlpNewSecurityObject @ 0x14091A290 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x140855250 (RtlpSetSecurityObject.c)
+ *     RtlpValidFilterAclSubjectContext @ 0x140856BA0 (RtlpValidFilterAclSubjectContext.c)
+ *     RtlpNewSecurityObject @ 0x14090DD00 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1403599E0 (RtlIsValidProcessTrustLabelSid.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x1403E3C50 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-char __fastcall RtlpValidTrustSubjectContext(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+char __fastcall RtlpValidTrustSubjectContext(void *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   char v4; // r8
-  __int64 v5; // r10
+  void *v5; // r10
   __int64 v7; // r10
   __int64 v8; // r11
 

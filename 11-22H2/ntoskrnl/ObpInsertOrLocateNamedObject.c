@@ -39,7 +39,7 @@ __int64 __fastcall ObpInsertOrLocateNamedObject(
   struct _LIST_ENTRY *CurrentSilo; // rax
   int v15; // eax
   __int64 v16; // r9
-  int ObjectSecurity; // ebx
+  NTSTATUS ObjectSecurity; // ebx
   __int64 v18; // rcx
   __int64 v19; // r14
   char v20; // r12
@@ -61,33 +61,34 @@ __int64 __fastcall ObpInsertOrLocateNamedObject(
   __int128 v37; // xmm0
   _QWORD *v38; // r8
   _QWORD *v39; // rcx
-  char v40; // [rsp+70h] [rbp-90h] BYREF
+  int v40; // [rsp+28h] [rbp-D8h]
+  char v41; // [rsp+70h] [rbp-90h] BYREF
   BOOLEAN DaclPresent[3]; // [rsp+71h] [rbp-8Fh] BYREF
-  __int16 v42; // [rsp+74h] [rbp-8Ch] BYREF
+  WORD Control; // [rsp+74h] [rbp-8Ch] BYREF
   BOOLEAN DaclDefaulted[4]; // [rsp+78h] [rbp-88h] BYREF
-  int v44; // [rsp+7Ch] [rbp-84h]
+  int v45; // [rsp+7Ch] [rbp-84h]
   PVOID Object; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v46; // [rsp+88h] [rbp-78h] BYREF
-  PVOID v47; // [rsp+90h] [rbp-70h]
-  ULONG_PTR v48; // [rsp+98h] [rbp-68h]
-  __int64 v49[2]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v50; // [rsp+B0h] [rbp-50h]
+  ULONG Revision[2]; // [rsp+88h] [rbp-78h] BYREF
+  PVOID v48; // [rsp+90h] [rbp-70h]
+  ULONG_PTR v49; // [rsp+98h] [rbp-68h]
+  __int64 v50[2]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v51; // [rsp+B0h] [rbp-50h]
   PACL Dacl; // [rsp+B8h] [rbp-48h] BYREF
-  unsigned __int64 v52; // [rsp+C0h] [rbp-40h]
-  PVOID *v53; // [rsp+C8h] [rbp-38h]
-  _OWORD v54[10]; // [rsp+D0h] [rbp-30h] BYREF
+  unsigned __int64 v53; // [rsp+C0h] [rbp-40h]
+  PVOID *v54; // [rsp+C8h] [rbp-38h]
+  _OWORD v55[10]; // [rsp+D0h] [rbp-30h] BYREF
 
-  v46 = a3;
-  v47 = a2;
+  *(_QWORD *)Revision = a3;
+  v48 = a2;
   v9 = BugCheckParameter1;
-  v48 = BugCheckParameter1;
-  v53 = a7;
-  v42 = 0;
+  v49 = BugCheckParameter1;
+  v54 = a7;
+  Control = 0;
   DaclPresent[0] = 0;
   Object = 0LL;
-  *(_OWORD *)v49 = 0LL;
-  v50 = 0LL;
-  memset(v54, 0, sizeof(v54));
+  *(_OWORD *)v50 = 0LL;
+  v51 = 0LL;
+  memset(v55, 0, sizeof(v55));
   *a7 = 0LL;
   Dacl = 0LL;
   v11 = a2 - 48;
@@ -97,16 +98,16 @@ __int64 __fastcall ObpInsertOrLocateNamedObject(
     v12 = 0LL;
   v13 = v11[27];
   CurrentSilo = PsGetCurrentSilo();
-  v52 = (unsigned __int64)v11 >> 8;
+  v53 = (unsigned __int64)v11 >> 8;
   v15 = ObpLookupObjectName(
           *((_QWORD *)a6 + 1),
           (v13 & 2) == 0,
           0,
           *((_QWORD *)a6 + 5),
-          v47,
+          v48,
           (__int64)CurrentSilo,
           a4,
-          (__int64)v49,
+          (__int64)v50,
           0LL,
           (__int64)&Object);
   v16 = 0LL;
@@ -117,15 +118,15 @@ LABEL_46:
     ObpDecrementHandleCount(v9);
     return (unsigned int)ObjectSecurity;
   }
-  if ( Object != v47 )
+  if ( Object != v48 )
   {
     v25 = 0LL;
-    if ( v49[0] )
+    if ( v50[0] )
     {
       v25 = (char *)Object - 48;
       ObpReferenceNamedObject((__int64)Object - 48);
-      if ( v49[0] )
-        ObpUnlockDirectory(v49);
+      if ( v50[0] )
+        ObpUnlockDirectory(v50);
     }
     ObpDecrementHandleCount(v9);
     if ( (*a6 & 0x80u) == 0 )
@@ -149,7 +150,7 @@ LABEL_46:
       }
       else
       {
-        ObjectSecurity = ObpIncrementHandleCountEx(1, v46, v9, (_DWORD)Object, a5, *a6, 0LL);
+        ObjectSecurity = ObpIncrementHandleCountEx(1, Revision[0], v9, (_DWORD)Object, a5, *a6, 0LL);
         if ( v25 )
           ObpDereferenceNamedObject((__int64)v25);
         if ( ObjectSecurity >= 0 )
@@ -161,18 +162,18 @@ LABEL_46:
   }
   v18 = *(_QWORD *)v12;
   v19 = 0LL;
-  v46 = 0LL;
-  v40 = 0;
-  v44 = 0;
+  *(_QWORD *)Revision = 0LL;
+  v41 = 0;
+  v45 = 0;
   if ( v18 )
   {
     if ( (*(_DWORD *)(v18 + 336) & 8) != 0 || ObpObjectSecurityInheritance )
-      v44 = 3;
+      v45 = 3;
     LOBYTE(v16) = a5;
-    ObjectSecurity = ObpGetObjectSecurity(v18, &v46, &v40, v16);
+    ObjectSecurity = ObpGetObjectSecurity(v18, Revision, &v41, v16);
     if ( ObjectSecurity < 0 )
       goto LABEL_53;
-    v19 = v46;
+    v19 = *(_QWORD *)Revision;
   }
   v20 = 0;
   if ( !*(_QWORD *)v12 || (*(_DWORD *)(*(_QWORD *)v12 + 336LL) & 8) == 0 && !ObpObjectSecurityInheritance )
@@ -182,54 +183,50 @@ LABEL_46:
     goto LABEL_13;
   ObjectSecurity = RtlGetDaclSecurityDescriptor(v29, DaclPresent, &Dacl, DaclDefaulted);
   if ( ObjectSecurity < 0
-    || (ObjectSecurity = RtlGetControlSecurityDescriptor(*(unsigned __int8 **)(a4 + 64), &v42, &v46), ObjectSecurity < 0) )
+    || (ObjectSecurity = RtlGetControlSecurityDescriptor(*(PSECURITY_DESCRIPTOR *)(a4 + 64), &Control, Revision),
+        ObjectSecurity < 0) )
   {
     if ( v19 )
       goto LABEL_16;
     goto LABEL_49;
   }
-  if ( !Dacl && (v42 & 0x1000) == 0 )
+  if ( !Dacl && (Control & 0x1000) == 0 )
   {
     v30 = *(_OWORD *)(a4 + 16);
-    v54[0] = *(_OWORD *)a4;
+    v55[0] = *(_OWORD *)a4;
     v31 = *(_OWORD *)(a4 + 32);
-    v54[1] = v30;
+    v55[1] = v30;
     v32 = *(_OWORD *)(a4 + 48);
-    v54[2] = v31;
+    v55[2] = v31;
     v33 = *(_OWORD *)(a4 + 64);
-    v54[3] = v32;
+    v55[3] = v32;
     v34 = *(_OWORD *)(a4 + 80);
-    v54[4] = v33;
+    v55[4] = v33;
     v35 = *(_OWORD *)(a4 + 96);
-    v54[5] = v34;
+    v55[5] = v34;
     v36 = *(_OWORD *)(a4 + 128);
-    v54[6] = v35;
-    v54[7] = *(_OWORD *)(a4 + 112);
+    v55[6] = v35;
+    v55[7] = *(_OWORD *)(a4 + 112);
     v37 = *(_OWORD *)(a4 + 144);
-    v54[8] = v36;
-    v54[9] = v37;
-    *(_QWORD *)&v54[4] = 0LL;
-    v21 = v54;
+    v55[8] = v36;
+    v55[9] = v37;
+    *(_QWORD *)&v55[4] = 0LL;
+    v21 = v55;
   }
   else
   {
 LABEL_13:
     v21 = (_OWORD *)a4;
   }
-  if ( !*((_QWORD *)v21 + 8) && v44 )
+  if ( !*((_QWORD *)v21 + 8) && v45 )
     v20 = 1;
-  v22 = ObpAssignSecurity(
-          (_DWORD)v21,
-          v19,
-          (_DWORD)v47,
-          ObTypeIndexTable[(unsigned __int8)(ObHeaderCookie ^ v11[24] ^ v52)],
-          v44,
-          v20);
+  LOBYTE(v40) = v20;
+  v22 = ObpAssignSecurity(v21, v19, v48, ObTypeIndexTable[(unsigned __int8)(ObHeaderCookie ^ v11[24] ^ v53)], v45, v40);
   ObjectSecurity = v22;
   if ( v19 )
   {
 LABEL_16:
-    LOBYTE(v23) = v40;
+    LOBYTE(v23) = v41;
     ObReleaseObjectSecurityEx(v19, v23, *(_QWORD *)v12);
     if ( ObjectSecurity >= 0 )
       goto LABEL_17;
@@ -238,18 +235,18 @@ LABEL_16:
   if ( v22 < 0 )
   {
 LABEL_49:
-    v9 = v48;
+    v9 = v49;
 LABEL_53:
-    v38 = (_QWORD *)v49[1];
-    v39 = *(_QWORD **)v49[1];
-    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v49[1] + 8LL)
+    v38 = (_QWORD *)v50[1];
+    v39 = *(_QWORD **)v50[1];
+    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v50[1] + 8LL)
               - 48LL
-              - ObpInfoMaskToOffset[*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v49[1] + 8LL) - 48LL + 26) & 3]) = 0LL;
+              - ObpInfoMaskToOffset[*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v50[1] + 8LL) - 48LL + 26) & 3]) = 0LL;
     *v38 = *v39;
     *v39 = 0LL;
-    ObpDeleteDirectoryEntry(v39, (void **)v49);
-    if ( v49[0] )
-      ObpUnlockDirectory(v49);
+    ObpDeleteDirectoryEntry(v39, (void **)v50);
+    if ( v50[0] )
+      ObpUnlockDirectory(v50);
     goto LABEL_46;
   }
   LOBYTE(v23) = *((_BYTE *)a6 + 16);
@@ -257,9 +254,9 @@ LABEL_53:
   *((_QWORD *)a6 + 4) = 0LL;
   *(_QWORD *)(a4 + 64) = 0LL;
 LABEL_17:
-  if ( v49[0] )
-    ObpUnlockDirectory(v49);
+  if ( v50[0] )
+    ObpUnlockDirectory(v50);
 LABEL_19:
-  *v53 = Object;
+  *v54 = Object;
   return (unsigned int)ObjectSecurity;
 }

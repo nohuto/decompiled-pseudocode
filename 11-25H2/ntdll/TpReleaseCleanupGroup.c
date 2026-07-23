@@ -6,19 +6,19 @@
  *     TppRaiseInvalidParameter @ 0x18003EEE4 (TppRaiseInvalidParameter.c)
  */
 
-void __fastcall TpReleaseCleanupGroup(volatile signed __int32 *a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl TpReleaseCleanupGroup(PTP_CLEANUP_GROUP CleanupGroup)
 {
-  if ( !a1 )
+  if ( !CleanupGroup )
     goto LABEL_6;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
     return;
-  if ( _InterlockedExchange(a1 + 1, 1) )
+  if ( _InterlockedExchange(&CleanupGroup->Released, 1) )
   {
 LABEL_6:
     TppRaiseInvalidParameter();
   }
-  else if ( _InterlockedExchangeAdd(a1, 0xFFFFFFFF) == 1 )
+  else if ( _InterlockedExchangeAdd(&CleanupGroup->Refcount.Refcount, 0xFFFFFFFF) == 1 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag, (__int64)a1, a4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, CleanupGroup);
   }
 }

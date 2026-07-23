@@ -20,11 +20,11 @@
  *     RtlDebugSizeHeap @ 0x1800ED6C8 (RtlDebugSizeHeap.c)
  */
 
-__int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+SIZE_T __cdecl RtlSizeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  unsigned int v4; // esi
   __int64 HeapByAlloc; // rbx
-  int v6; // edx
+  ULONG v6; // edx
   __int64 v7; // rbp
   unsigned __int64 v8; // rdx
   char v9; // al
@@ -33,11 +33,11 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
   unsigned int v12; // r9d
   char v13; // cl
   unsigned __int64 v14; // r8
-  unsigned __int64 v17; // r9
+  char *v17; // r9
   unsigned int v18; // eax
   __int64 v19; // r9
   __int64 v20; // rax
-  __int64 v21; // rsi
+  SIZE_T v21; // rsi
   __int64 v22; // rax
   unsigned int v23; // ecx
   int v24; // eax
@@ -49,33 +49,37 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
   int v30; // [rsp+38h] [rbp-10h]
   int v31; // [rsp+38h] [rbp-10h]
 
-  v4 = a2;
-  HeapByAlloc = a1;
+  HeapByAlloc = (__int64)HeapHandle;
   if ( (RtlpHpHeapFeatures & 2) != 0 )
   {
-    if ( (void *)a1 == NtCurrentPeb()->ProcessHeap )
-      HeapByAlloc = RtlpHpVirtFindHeapByAlloc(a1, a3, 0LL);
-    return RtlpSizeHeapInternal(HeapByAlloc, v4, a3);
+    if ( HeapHandle == NtCurrentPeb()->ProcessHeap )
+      HeapByAlloc = RtlpHpVirtFindHeapByAlloc(HeapHandle, BaseAddress, 0LL);
+    return RtlpSizeHeapInternal((PVOID)HeapByAlloc);
   }
-  else if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  else if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    if ( (RtlpHpAppCompatFlags & 2) != 0 && a3 )
+    if ( (RtlpHpAppCompatFlags & 2) != 0 && BaseAddress )
     {
-      if ( (_WORD)a3 || !(unsigned int)RtlSparseBitmapCtxCheckBitsInternal(a1, a3 >> 16) )
-        v17 = a3 - 16;
+      if ( (_WORD)BaseAddress
+        || !(unsigned int)RtlSparseBitmapCtxCheckBitsInternal(HeapHandle, (unsigned __int64)BaseAddress >> 16) )
+      {
+        v17 = (char *)BaseAddress - 16;
+      }
       else
-        v17 = a3;
+      {
+        v17 = (char *)BaseAddress;
+      }
     }
     else
     {
-      v17 = a3;
+      v17 = (char *)BaseAddress;
     }
-    v18 = RtlpHpConvertFlagsToSegmentFlags(v4, a2, a3, v17);
+    v18 = RtlpHpConvertFlagsToSegmentFlags(Flags, *(_QWORD *)&Flags, BaseAddress, v17);
     v20 = RtlpHpSizeHeap(HeapByAlloc, v19, v18);
     v21 = v20;
     if ( v20 == -1 )
     {
-      RtlpLogHeapFailure(9, HeapByAlloc, a3, 0, 0LL, 0LL);
+      RtlpLogHeapFailure(9, HeapByAlloc, (_DWORD)BaseAddress, 0, 0LL, 0LL);
     }
     else if ( (RtlpHpAppCompatFlags & 2) != 0 )
     {
@@ -85,28 +89,28 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
   }
   else
   {
-    v6 = a2 | *(_DWORD *)(a1 + 116);
+    v6 = Flags | *((_DWORD *)HeapHandle + 29);
     if ( (v6 & 0x61000000) == 0 || (v6 & 0x10000000) != 0 )
     {
       v7 = 0LL;
-      if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+      if ( (*((_BYTE *)HeapHandle + 120) & 1) != 0 )
       {
-        v8 = RtlpProbeUserBufferSafe(a1, a3);
+        v8 = RtlpProbeUserBufferSafe(HeapHandle, BaseAddress);
       }
-      else if ( (a3 & 0xF) != 0 )
+      else if ( ((unsigned __int8)BaseAddress & 0xF) != 0 )
       {
-        RtlpLogHeapFailure(9, a1, a3, 0, 0LL, 0LL);
+        RtlpLogHeapFailure(9, (_DWORD)HeapHandle, (_DWORD)BaseAddress, 0, 0LL, 0LL);
         v8 = 0LL;
       }
       else
       {
-        v8 = a3 - 16;
-        _m_prefetchw((const void *)(a3 - 16));
-        if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+        v8 = (unsigned __int64)BaseAddress - 16;
+        _m_prefetchw((char *)BaseAddress - 16);
+        if ( *((char *)BaseAddress - 1) == 5 )
           v8 -= 16LL * *(unsigned __int8 *)(v8 + 14);
         if ( (*(_BYTE *)(v8 + 15) & 0x3F) == 0 )
         {
-          RtlpLogHeapFailure(8, a1, v8, 0, 0LL, 0LL);
+          RtlpLogHeapFailure(8, (_DWORD)HeapHandle, v8, 0, 0LL, 0LL);
           v8 = 0LL;
         }
       }
@@ -209,7 +213,7 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
     }
     else
     {
-      return RtlDebugSizeHeap();
+      return RtlDebugSizeHeap(HeapHandle);
     }
   }
 }

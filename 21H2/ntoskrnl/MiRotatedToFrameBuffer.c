@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRotatedToFrameBuffer @ 0x1402B0538
+ * XREFs of MiRotatedToFrameBuffer @ 0x14022E898
  * Callers:
- *     MiActOnPte @ 0x14023C5F0 (MiActOnPte.c)
- *     MiLockStealUserVm @ 0x14026AFD4 (MiLockStealUserVm.c)
- *     MiGetWorkingSetInfoList @ 0x14026E89C (MiGetWorkingSetInfoList.c)
- *     MiMakeVaRangeNoAccess @ 0x1402C8854 (MiMakeVaRangeNoAccess.c)
- *     MiProtectPrivateMemory @ 0x14030DA00 (MiProtectPrivateMemory.c)
- *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
- *     MiGetPageProtection @ 0x140330DA0 (MiGetPageProtection.c)
- *     MiRevertValidPte @ 0x140334300 (MiRevertValidPte.c)
- *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
- *     MiCheckCommitReleaseFromVad @ 0x14052B10C (MiCheckCommitReleaseFromVad.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402470B4 (MiMakeVaRangeNoAccess.c)
+ *     MiLockStealUserVm @ 0x140258F74 (MiLockStealUserVm.c)
+ *     MiGetWorkingSetInfoList @ 0x14025C83C (MiGetWorkingSetInfoList.c)
+ *     MiActOnPte @ 0x1402E0E40 (MiActOnPte.c)
+ *     MiProtectPrivateMemory @ 0x140318750 (MiProtectPrivateMemory.c)
+ *     NtUnlockVirtualMemory @ 0x140338C80 (NtUnlockVirtualMemory.c)
+ *     MiGetPageProtection @ 0x14033BAF0 (MiGetPageProtection.c)
+ *     MiRevertValidPte @ 0x14033F050 (MiRevertValidPte.c)
+ *     MiDeleteVa @ 0x1403427D0 (MiDeleteVa.c)
+ *     MiCheckCommitReleaseFromVad @ 0x14052B34C (MiCheckCommitReleaseFromVad.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 

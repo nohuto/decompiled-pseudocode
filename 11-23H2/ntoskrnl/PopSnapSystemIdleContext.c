@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSnapSystemIdleContext @ 0x1408839C0
+ * XREFs of PopSnapSystemIdleContext @ 0x140883C00
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1403D5810 (PopIdlePhaseWatchdogCallback.c)
- *     PopArmIdlePhaseWatchdog @ 0x140883874 (PopArmIdlePhaseWatchdog.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x1403D59F0 (PopIdlePhaseWatchdogCallback.c)
+ *     PopArmIdlePhaseWatchdog @ 0x140883AB4 (PopArmIdlePhaseWatchdog.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

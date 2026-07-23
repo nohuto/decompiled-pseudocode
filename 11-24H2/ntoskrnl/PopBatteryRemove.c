@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBatteryRemove @ 0x14075B010
+ * XREFs of PopBatteryRemove @ 0x140759700
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     IoCancelIrp @ 0x140418FA0 (IoCancelIrp.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopBatteryQueueWork @ 0x1404A42EC (PopBatteryQueueWork.c)
- *     PopChangeCapability @ 0x140A688B0 (PopChangeCapability.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IoCancelIrp @ 0x140408D50 (IoCancelIrp.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopBatteryQueueWork @ 0x14049F07C (PopBatteryQueueWork.c)
+ *     PopChangeCapability @ 0x140A61C60 (PopChangeCapability.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopBatteryRemove(__int64 a1)
@@ -39,17 +39,17 @@ __int64 __fastcall PopBatteryRemove(__int64 a1)
     *v4 = (__int64 *)v3;
     *(_QWORD *)(v3 + 8) = v4;
     *v2 = 0LL;
-    --dword_140F0AE54;
-    ++dword_140F0AECC;
-    byte_140F0AE58 = 1;
+    --dword_140F0BC94;
+    ++dword_140F0BD0C;
+    byte_140F0BC98 = 1;
     PopBatteryQueueWork(3u);
   }
   PopBatteryQueueWork(8u);
   result = PopReleaseRwLock((signed __int64 *)&PopCB);
-  if ( !--dword_140F0AE50 )
+  if ( !--dword_140F0BC90 )
   {
     PopAcquirePolicyLock(v7, v6);
-    PopChangeCapability(&byte_140F0BB5E, 0LL);
+    PopChangeCapability(&byte_140F0B67E, 0LL);
     return PopReleasePolicyLock(v9, v8, v10, v11, v12);
   }
   return result;

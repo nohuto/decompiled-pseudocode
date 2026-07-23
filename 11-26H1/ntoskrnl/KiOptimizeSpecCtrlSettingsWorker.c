@@ -1,27 +1,27 @@
 /*
- * XREFs of KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470
+ * XREFs of KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KiUpdateSpeculationControl @ 0x1402BB280 (KiUpdateSpeculationControl.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeCanUseHaltOnAddress @ 0x1403E5790 (KeCanUseHaltOnAddress.c)
- *     KiHaltOnAddress @ 0x1403E57E8 (KiHaltOnAddress.c)
- *     KeExitRetpoline @ 0x14048D73C (KeExitRetpoline.c)
- *     KiSetMicrocodeUpdateOptions @ 0x14052DC20 (KiSetMicrocodeUpdateOptions.c)
- *     KiSetVirtualMitigationControl @ 0x1405336D0 (KiSetVirtualMitigationControl.c)
- *     HvlIsCoreSharingPossible @ 0x1405B8778 (HvlIsCoreSharingPossible.c)
- *     KiDetectAmdNonArchSsbdSupport @ 0x1405F1A04 (KiDetectAmdNonArchSsbdSupport.c)
- *     KiIsBranchConfusionMitigationDesired @ 0x1405F2158 (KiIsBranchConfusionMitigationDesired.c)
- *     KiIsBranchConfusionMitigationSupported @ 0x1405F2198 (KiIsBranchConfusionMitigationSupported.c)
- *     KiIsBranchConfusionPresent @ 0x1405F21C4 (KiIsBranchConfusionPresent.c)
- *     KiIsSrsoMitigationDesired @ 0x1405F2318 (KiIsSrsoMitigationDesired.c)
- *     KiIsTsaMitigationDesired @ 0x1405F23A0 (KiIsTsaMitigationDesired.c)
- *     KiIsTsaMitigationSupported @ 0x1405F23BC (KiIsTsaMitigationSupported.c)
- *     KiSelectBhbFlushSequence @ 0x1405F3114 (KiSelectBhbFlushSequence.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KiUpdateSpeculationControl @ 0x140305F40 (KiUpdateSpeculationControl.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeCanUseHaltOnAddress @ 0x1403E8980 (KeCanUseHaltOnAddress.c)
+ *     KiHaltOnAddress @ 0x1403E89D8 (KiHaltOnAddress.c)
+ *     KeExitRetpoline @ 0x14048727C (KeExitRetpoline.c)
+ *     KiSetMicrocodeUpdateOptions @ 0x140530140 (KiSetMicrocodeUpdateOptions.c)
+ *     KiSetVirtualMitigationControl @ 0x140535B50 (KiSetVirtualMitigationControl.c)
+ *     HvlIsCoreSharingPossible @ 0x1405BAFE8 (HvlIsCoreSharingPossible.c)
+ *     KiDetectAmdNonArchSsbdSupport @ 0x1405F43C4 (KiDetectAmdNonArchSsbdSupport.c)
+ *     KiIsBranchConfusionMitigationDesired @ 0x1405F4B18 (KiIsBranchConfusionMitigationDesired.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1405F4B58 (KiIsBranchConfusionMitigationSupported.c)
+ *     KiIsBranchConfusionPresent @ 0x1405F4B84 (KiIsBranchConfusionPresent.c)
+ *     KiIsSrsoMitigationDesired @ 0x1405F4CD8 (KiIsSrsoMitigationDesired.c)
+ *     KiIsTsaMitigationDesired @ 0x1405F4D60 (KiIsTsaMitigationDesired.c)
+ *     KiIsTsaMitigationSupported @ 0x1405F4D7C (KiIsTsaMitigationSupported.c)
+ *     KiSelectBhbFlushSequence @ 0x1405F5AD4 (KiSelectBhbFlushSequence.c)
  */
 
 ULONG_PTR __fastcall KiOptimizeSpecCtrlSettingsWorker(volatile signed __int32 *Argument)
@@ -397,8 +397,7 @@ LABEL_37:
             v31 = CurrentPrcb->GroupIndex + 1;
             LODWORD(v50) = 0;
             _BitScanForward64(&v32, __ROR8__(CoreProcessorSet, v31));
-            CurrentPrcb->PairPrcb = (_KPRCB *)KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                                        + 64 * CurrentPrcb->Group
+            CurrentPrcb->PairPrcb = (_KPRCB *)KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * CurrentPrcb->Group].Flink
                                                         + (((unsigned __int8)v32 + v31) & 0x3F)));
             v27 = 1;
             CurrentPrcb->PairRegister = 6;

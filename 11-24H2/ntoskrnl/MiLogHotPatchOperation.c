@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogHotPatchOperation @ 0x1407F3824
+ * XREFs of MiLogHotPatchOperation @ 0x1407F3E18
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x1407F191C (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x1407F1EEC (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     MiFillLogProcessInfo @ 0x140446A08 (MiFillLogProcessInfo.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     MiFillLogProcessInfo @ 0x14043EDB8 (MiFillLogProcessInfo.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchOperation(
@@ -25,7 +25,7 @@ char __fastcall MiLogHotPatchOperation(
   _KPROCESS *Process; // rdi
   __int64 v14; // rbx
   __int64 v15; // r8
-  int *v16; // rdx
+  unsigned __int8 *v16; // rdx
   int v17; // eax
   unsigned int *v18; // rax
   int v19; // eax
@@ -90,16 +90,16 @@ char __fastcall MiLogHotPatchOperation(
 
   v8 = &retaddr;
   v36 = 0LL;
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
     LOBYTE(v8) = MiFillLogProcessInfo((__int64)&Process[2].ReadyListHead.Blink, &v38, &v36);
-    v14 = *(_QWORD *)&qword_140E37518;
+    v14 = *(_QWORD *)&qword_140E37658;
     if ( a8 )
     {
-      if ( **(_DWORD **)&qword_140E37518 > 5u )
+      if ( **(_DWORD **)&qword_140E37658 > 5u )
       {
-        LOBYTE(v8) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000020LL);
+        LOBYTE(v8) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000020LL);
         if ( (_BYTE)v8 )
         {
           LODWORD(v35) = (unsigned int)PsGetProcessId(Process);
@@ -107,7 +107,7 @@ char __fastcall MiLogHotPatchOperation(
           v41 = 4LL;
           tlgCreate1Sz_char((__int64)v42, v36);
           v43 = &v34;
-          v16 = (int *)&word_140056CCE;
+          v16 = (unsigned __int8 *)&byte_1400581B1;
           v34 = a7;
           v45 = &v33;
           v47 = &v32;
@@ -147,9 +147,9 @@ char __fastcall MiLogHotPatchOperation(
         }
       }
     }
-    else if ( **(_DWORD **)&qword_140E37518 > 5u )
+    else if ( **(_DWORD **)&qword_140E37658 > 5u )
     {
-      LOBYTE(v8) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000020LL);
+      LOBYTE(v8) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000020LL);
       if ( (_BYTE)v8 )
       {
         ProcessId = (unsigned int)PsGetProcessId(Process);
@@ -157,7 +157,7 @@ char __fastcall MiLogHotPatchOperation(
         v41 = 4LL;
         tlgCreate1Sz_char((__int64)v42, v36);
         v43 = &v25;
-        v16 = &dword_140056E24;
+        v16 = (unsigned __int8 *)&word_140057F4E;
         v25 = a7;
         v45 = &v26;
         v47 = &v27;
@@ -209,7 +209,7 @@ LABEL_9:
         v73 = 4LL;
         v75 = 2LL;
         v77 = 8LL;
-        LOBYTE(v8) = tlgWriteEx_EtwWriteEx(v14, (unsigned __int8 *)v16, v15, 1u, v21, v22, 0x15u, &v39);
+        LOBYTE(v8) = tlgWriteEx_EtwWriteEx(v14, v16, v15, 1u, v21, v22, 0x15u, &v39);
       }
     }
   }

@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpGetLoggerInfoFromContext @ 0x14065AAD0
+ * XREFs of EtwpGetLoggerInfoFromContext @ 0x14065BC90
  * Callers:
- *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
- *     EtwpQueryTrace @ 0x140659D80 (EtwpQueryTrace.c)
- *     EtwpFlushTrace @ 0x1406C2940 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
- *     EtwpIncrementTraceFile @ 0x1408B6510 (EtwpIncrementTraceFile.c)
+ *     EtwpStopTrace @ 0x14065A150 (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
+ *     EtwpQueryTrace @ 0x14065AF40 (EtwpQueryTrace.c)
+ *     EtwpFlushTrace @ 0x1406C3BE0 (EtwpFlushTrace.c)
+ *     EtwpUpdateTrace @ 0x140726D7C (EtwpUpdateTrace.c)
+ *     EtwpIncrementTraceFile @ 0x1408B77D0 (EtwpIncrementTraceFile.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     EtwpMapEnableFlags @ 0x1406CBBAC (EtwpMapEnableFlags.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     EtwpMapEnableFlags @ 0x1406CCE4C (EtwpMapEnableFlags.c)
  */
 
 __int64 __fastcall EtwpGetLoggerInfoFromContext(__int64 a1, int *a2)

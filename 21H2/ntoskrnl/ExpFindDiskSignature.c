@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpFindDiskSignature @ 0x140950200
+ * XREFs of ExpFindDiskSignature @ 0x1409503D0
  * Callers:
- *     ExpConvertSignatureName @ 0x14094F760 (ExpConvertSignatureName.c)
- *     ExpCreateOutputEFI @ 0x14094FA9C (ExpCreateOutputEFI.c)
- *     ExpTranslateEfiPath @ 0x14095223C (ExpTranslateEfiPath.c)
+ *     ExpConvertSignatureName @ 0x14094F930 (ExpConvertSignatureName.c)
+ *     ExpCreateOutputEFI @ 0x14094FC6C (ExpCreateOutputEFI.c)
+ *     ExpTranslateEfiPath @ 0x14095240C (ExpTranslateEfiPath.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     ExpGetPartitionTableInfo @ 0x140950888 (ExpGetPartitionTableInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D6A60 (swprintf_s.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     ExpGetPartitionTableInfo @ 0x140950A58 (ExpGetPartitionTableInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExpFindDiskSignature(__int64 a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6)
+NTSTATUS __fastcall ExpFindDiskSignature(__int64 a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6)
 {
   __int64 v6; // r14
   char v7; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int PartitionTableInfo; // ebx
   wchar_t *PoolWithTag; // r15
   unsigned int v11; // ebp
@@ -26,23 +26,23 @@ __int64 __fastcall ExpFindDiskSignature(__int64 a1, _DWORD *a2, unsigned int *a3
   _DWORD *v14; // rdx
   __int64 v15; // rdx
   _DWORD *v16; // [rsp+20h] [rbp-88h]
-  __int128 v20; // [rsp+50h] [rbp-58h] BYREF
+  __int128 SystemInformation; // [rsp+50h] [rbp-58h] BYREF
   __int64 v21; // [rsp+60h] [rbp-48h]
 
   v16 = a2;
   v6 = 0LL;
   v21 = 0LL;
-  v20 = 0LL;
+  SystemInformation = 0LL;
   v7 = 0;
-  result = ZwQuerySystemInformation(7LL, (__int64)&v20);
+  result = ZwQuerySystemInformation(SystemDeviceInformation, &SystemInformation, 0x18u, 0LL);
   PartitionTableInfo = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x4CuLL, 0x72766E45u);
   if ( !PoolWithTag )
-    return 3221225626LL;
+    return -1073741670;
   v11 = 0;
-  if ( !(_DWORD)v20 )
+  if ( !(_DWORD)SystemInformation )
     goto LABEL_23;
   do
   {
@@ -87,7 +87,7 @@ LABEL_21:
 LABEL_22:
     ++v11;
   }
-  while ( v11 < (unsigned int)v20 );
+  while ( v11 < (unsigned int)SystemInformation );
 LABEL_23:
   v14 = v16;
 LABEL_24:
@@ -104,5 +104,5 @@ LABEL_24:
     ExFreePoolWithTag(0LL, 0);
   }
   ExFreePoolWithTag(PoolWithTag, 0);
-  return (unsigned int)PartitionTableInfo;
+  return PartitionTableInfo;
 }

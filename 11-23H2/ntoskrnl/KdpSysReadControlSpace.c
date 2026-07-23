@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpSysReadControlSpace @ 0x140AB1C50
  * Callers:
- *     KdSystemDebugControl @ 0x1409720F0 (KdSystemDebugControl.c)
+ *     KdSystemDebugControl @ 0x1409722F0 (KdSystemDebugControl.c)
  *     KdpReadControlSpace @ 0x140AB1B90 (KdpReadControlSpace.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)

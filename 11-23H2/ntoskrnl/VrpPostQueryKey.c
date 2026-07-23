@@ -5,12 +5,12 @@
  * Callees:
  *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
  *     ExGetPreviousMode @ 0x140208C20 (ExGetPreviousMode.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     VrpCleanupBufferParameter @ 0x14068CC68 (VrpCleanupBufferParameter.c)
  *     VrpOutputBufferParameter @ 0x14068CCA0 (VrpOutputBufferParameter.c)
  *     VrpProcessBufferParameter @ 0x14068F3B8 (VrpProcessBufferParameter.c)
- *     VrpUpdateKeyInformation @ 0x1407E0120 (VrpUpdateKeyInformation.c)
+ *     VrpUpdateKeyInformation @ 0x1407E03F0 (VrpUpdateKeyInformation.c)
  */
 
 __int64 __fastcall VrpPostQueryKey(__int64 a1)
@@ -63,7 +63,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
   v5 = 283LL;
   if ( !_bittest((const int *)&v5, v9) )
     goto LABEL_4;
-  if ( (unsigned int)dword_140C04460 > 5 )
+  if ( (unsigned int)dword_140C04420 > 5 )
   {
     v14 = (__int64 *)(v2 + 16);
     v19 = *(_DWORD *)(v3 + 8);
@@ -76,8 +76,8 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
     v29 = (int *)v14[1];
     v30[0] = *(unsigned __int16 *)v14;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04460,
-      (unsigned __int8 *)byte_14003A47D,
+      (__int64)&dword_140C04420,
+      (unsigned __int8 *)&dword_14003A4D4,
       &ActivityId,
       0LL,
       5u,
@@ -116,13 +116,13 @@ LABEL_4:
     && updated != -1073741789 )
   {
 LABEL_29:
-    if ( v6 != -1073740541 && (unsigned int)dword_140C04460 > 2 )
+    if ( v6 != -1073740541 && (unsigned int)dword_140C04420 > 2 )
     {
       if ( *(_QWORD *)(v2 + 24) )
         v7 = (__int64 *)(v2 + 16);
       updated = v6;
       v25 = &v28;
-      v15 = byte_14003A4BB;
+      v15 = byte_14003A55D;
       v27 = (_QWORD *)v7[1];
       LODWORD(v28) = *(unsigned __int16 *)v7;
       v29 = &updated;
@@ -131,7 +131,7 @@ LABEL_34:
       v26 = 2LL;
       HIDWORD(v28) = 0;
       v30[0] = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04460, (unsigned __int8 *)v15, &ActivityId, 0LL, v17, v24);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04420, (unsigned __int8 *)v15, &ActivityId, 0LL, v17, v24);
       goto LABEL_5;
     }
     goto LABEL_5;
@@ -145,11 +145,11 @@ LABEL_34:
   }
   *(_DWORD *)(v22 + 24) = updated;
   v6 = -1073740541;
-  if ( (unsigned int)dword_140C04460 > 5 )
+  if ( (unsigned int)dword_140C04420 > 5 )
   {
     v16 = *(_QWORD *)(v2 + 24) == 0LL;
     v30[2] = 4LL;
-    v15 = byte_14003A5C8;
+    v15 = &byte_14003A6DF;
     if ( !v16 )
       v7 = (__int64 *)(v2 + 16);
     v25 = &v28;

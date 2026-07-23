@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpFreeEnvironmentHashTable(__int64 a1)
+LOGICAL __fastcall RtlpFreeEnvironmentHashTable(void *a1)
 {
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

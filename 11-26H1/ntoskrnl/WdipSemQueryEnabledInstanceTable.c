@@ -1,8 +1,8 @@
 /*
- * XREFs of WdipSemQueryEnabledInstanceTable @ 0x140ADB08C
+ * XREFs of WdipSemQueryEnabledInstanceTable @ 0x140AD7B3C
  * Callers:
- *     WdipSemReserveInstanceTableEntry @ 0x140ADAF30 (WdipSemReserveInstanceTableEntry.c)
- *     WdipSemMarkInstanceForDeletion @ 0x140B56724 (WdipSemMarkInstanceForDeletion.c)
+ *     WdipSemReserveInstanceTableEntry @ 0x140AD79E0 (WdipSemReserveInstanceTableEntry.c)
+ *     WdipSemMarkInstanceForDeletion @ 0x140B59424 (WdipSemMarkInstanceForDeletion.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +16,8 @@ struct _KTHREAD *__fastcall WdipSemQueryEnabledInstanceTable(struct _LIST_ENTRY 
   v1 = 0LL;
   if ( a1 )
   {
-    for ( i = (struct _KTHREAD *)stru_140F03F40.WaitBlock[0].WaitListEntry.Flink;
-          &stru_140F03F40.320 != ($21A6EA393ADDDF0D13424531359FF08A *)i;
+    for ( i = (struct _KTHREAD *)stru_140F049E8.SListFaultAddress;
+          &stru_140F049E8.SListFaultAddress != (void **)i;
           i = *(struct _KTHREAD **)&i->Header.Lock )
     {
       v5 = (char *)*a1 - (char *)i->Header.WaitListHead.Blink;

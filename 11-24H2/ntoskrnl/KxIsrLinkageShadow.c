@@ -1,7 +1,7 @@
 /*
- * XREFs of KxIsrLinkageShadow @ 0x140BBCB00
+ * XREFs of KxIsrLinkageShadow @ 0x140BBEB00
  * Callers:
- *     KiIsrThunkShadow @ 0x140BBC2C0 (KiIsrThunkShadow.c)
+ *     KiIsrThunkShadow @ 0x140BBE2C0 (KiIsrThunkShadow.c)
  * Callees:
  *     <none>
  */

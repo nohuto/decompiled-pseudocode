@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFindZeroCloneBlock @ 0x1400BDDCC
+ * XREFs of MiFindZeroCloneBlock @ 0x1400BBC5C
  * Callers:
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslDebugProtectSecureProcessMemory @ 0x1408182B0
+ * XREFs of VslDebugProtectSecureProcessMemory @ 0x1408194B0
  * Callers:
- *     MiProtectEnclavePages @ 0x1402BE120 (MiProtectEnclavePages.c)
- *     NtProtectVirtualMemory @ 0x1405EDD70 (NtProtectVirtualMemory.c)
+ *     MiProtectEnclavePages @ 0x1402BE310 (MiProtectEnclavePages.c)
+ *     NtProtectVirtualMemory @ 0x1405EED70 (NtProtectVirtualMemory.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslDebugProtectSecureProcessMemory(

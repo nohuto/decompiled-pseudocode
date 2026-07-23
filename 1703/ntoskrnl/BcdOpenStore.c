@@ -12,9 +12,9 @@
  *     BiLogMessage @ 0x14058C1E4 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdOpenStore(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl BcdOpenStore(UNICODE_STRING *BcdFilePath, BCD_OPEN_FLAGS BcdOpenFlags, PHANDLE BcdStoreHandle)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   int v5; // eax
 
   v4 = BiAcquireBcdSyncMutant(0LL);
@@ -25,11 +25,11 @@ __int64 __fastcall BcdOpenStore(__int64 a1, __int64 a2, __int64 a3)
   else
   {
     BiLogMessage(2LL, L"Opening store. Flags: 0x%x");
-    v5 = BiOpenSystemStore(a3, 2LL);
+    v5 = BiOpenSystemStore(BcdStoreHandle, 2LL);
     v4 = v5;
     if ( v5 < 0 )
       BiLogMessage(4LL, L"Failed to open system store. Status: %x", (unsigned int)v5);
     BiReleaseBcdSyncMutant(0LL);
   }
-  return (unsigned int)v4;
+  return v4;
 }

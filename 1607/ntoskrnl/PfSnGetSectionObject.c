@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnGetSectionObject @ 0x14050ACA0
+ * XREFs of PfSnGetSectionObject @ 0x1404EDC30
  * Callers:
- *     PfSnPopulateReadList @ 0x14050A770 (PfSnPopulateReadList.c)
+ *     PfSnPopulateReadList @ 0x1404ED700 (PfSnPopulateReadList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PfpFileCheckAttributesForPrefetch @ 0x1400CA54C (PfpFileCheckAttributesForPrefetch.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     NtCreateSection @ 0x14042C990 (NtCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     PfSnPrefetchFileMetadata @ 0x1404D3B8C (PfSnPrefetchFileMetadata.c)
- *     IoQueryFileInformation @ 0x14050A100 (IoQueryFileInformation.c)
- *     PfpOpenHandleClose @ 0x14050A308 (PfpOpenHandleClose.c)
- *     PfpOpenHandleCreate @ 0x14050A388 (PfpOpenHandleCreate.c)
- *     PfSnIsSectionPrefetchedAfterPhase @ 0x14050B02C (PfSnIsSectionPrefetchedAfterPhase.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x1400C83EC (PfpFileCheckAttributesForPrefetch.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     NtCreateSection @ 0x14042B860 (NtCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     PfSnPrefetchFileMetadata @ 0x1404B762C (PfSnPrefetchFileMetadata.c)
+ *     IoQueryFileInformation @ 0x1404ED090 (IoQueryFileInformation.c)
+ *     PfpOpenHandleClose @ 0x1404ED298 (PfpOpenHandleClose.c)
+ *     PfpOpenHandleCreate @ 0x1404ED318 (PfpOpenHandleCreate.c)
+ *     PfSnIsSectionPrefetchedAfterPhase @ 0x1404EDFBC (PfSnIsSectionPrefetchedAfterPhase.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 __int64 __fastcall PfSnGetSectionObject(

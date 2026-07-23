@@ -1,24 +1,28 @@
 /*
- * XREFs of PopAcquirePowerRequestPushLock @ 0x140AECCA4
+ * XREFs of PopAcquirePowerRequestPushLock @ 0x140AEFCB4
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x1404A65D0 (PopPowerRequestHandleRequestOverrideQueryResponse.c)
- *     PopPowerRequestCallbackWorker @ 0x1404A68A0 (PopPowerRequestCallbackWorker.c)
- *     PopPowerRequestDebounceTimerWorker @ 0x1407C9450 (PopPowerRequestDebounceTimerWorker.c)
- *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x1407C9510 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
- *     PopPowerRequestNotificationsBegin @ 0x1407C9544 (PopPowerRequestNotificationsBegin.c)
- *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1407C95DC (PopPowerRequestNotifyMobileHotspotChanged.c)
- *     PopPowerRequestOverrideInitialize @ 0x1407C9624 (PopPowerRequestOverrideInitialize.c)
- *     PopPowerRequestSpecialRequestSet @ 0x140AF1C64 (PopPowerRequestSpecialRequestSet.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x14049FC60 (PopPowerRequestHandleRequestOverrideQueryResponse.c)
+ *     PopPowerRequestCallbackWorker @ 0x14049FF30 (PopPowerRequestCallbackWorker.c)
+ *     PopPowerRequestDebounceTimerWorker @ 0x1407CC4F0 (PopPowerRequestDebounceTimerWorker.c)
+ *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x1407CC5B0 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
+ *     PopPowerRequestNotificationsBegin @ 0x1407CC5E4 (PopPowerRequestNotificationsBegin.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1407CC67C (PopPowerRequestNotifyMobileHotspotChanged.c)
+ *     PopPowerRequestOverrideInitialize @ 0x1407CC6C4 (PopPowerRequestOverrideInitialize.c)
+ *     PopPowerRequestSpecialRequestSet @ 0x140AF4534 (PopPowerRequestSpecialRequestSet.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
  */
 
 struct _KTHREAD *__fastcall PopAcquirePowerRequestPushLock(char a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   if ( a1 )
-    return PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20, a2, a3, a4);
+    return PopAcquireRwLockExclusive(stru_140F12EA0.TracingPrivate, a2, a3, a4);
   else
-    return (struct _KTHREAD *)PopAcquireRwLockShared((volatile signed __int64 *)&stru_140F12D20.Header.Lock, a2, a3, a4);
+    return (struct _KTHREAD *)PopAcquireRwLockShared(
+                                (volatile signed __int64 *)stru_140F12EA0.TracingPrivate,
+                                a2,
+                                a3,
+                                a4);
 }

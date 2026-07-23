@@ -14,17 +14,17 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
         PCUNICODE_STRING SourceString,
         BOOLEAN AllocateDestinationString)
 {
-  unsigned int v6; // eax
+  ULONG v6; // eax
   __int64 v7; // rcx
   unsigned __int16 *p_MaximumLength; // r15
   char **p_Buffer; // rdi
   NTSTATUS result; // eax
-  NTSTATUS v11; // ebx
+  int v11; // ebx
   unsigned __int16 v12; // dx
-  unsigned int v13; // [rsp+88h] [rbp+20h] BYREF
+  ULONG BytesInOemString; // [rsp+88h] [rbp+20h] BYREF
 
   v6 = RtlxUnicodeStringToOemSize(SourceString);
-  v13 = v6;
+  BytesInOemString = v6;
   if ( v6 > 0xFFFF )
     return -1073741584;
   p_MaximumLength = &DestinationString->MaximumLength;
@@ -33,16 +33,11 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   result = AllocateOrValidateCharStringBuffer(v7, v6, &DestinationString->Buffer, &DestinationString->MaximumLength);
   if ( result >= 0 )
   {
-    v11 = RtlUnicodeToOemN(
-            (unsigned int)*p_Buffer,
-            *p_MaximumLength,
-            (unsigned int)&v13,
-            SourceString->Buffer,
-            SourceString->Length);
+    v11 = RtlUnicodeToOemN(*p_Buffer, *p_MaximumLength, &BytesInOemString, SourceString->Buffer, SourceString->Length);
     if ( v11 >= 0 )
     {
-      v12 = v13;
-      (*p_Buffer)[v13] = 0;
+      v12 = BytesInOemString;
+      (*p_Buffer)[BytesInOemString] = 0;
       DestinationString->Length = v12;
       v11 = 0;
     }

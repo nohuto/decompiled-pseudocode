@@ -28,7 +28,7 @@ __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
   NTSTATUS Acl; // ebx
   HANDLE FileHandle; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C8h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A8h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+90h] [rbp-78h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B8h] [rbp-50h] BYREF

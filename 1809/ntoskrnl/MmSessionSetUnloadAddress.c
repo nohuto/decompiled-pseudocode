@@ -1,11 +1,11 @@
 /*
- * XREFs of MmSessionSetUnloadAddress @ 0x140177D74
+ * XREFs of MmSessionSetUnloadAddress @ 0x140177E74
  * Callers:
- *     ExpInitializeSessionDriver @ 0x14071E310 (ExpInitializeSessionDriver.c)
+ *     ExpInitializeSessionDriver @ 0x14071F5B0 (ExpInitializeSessionDriver.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmSessionSetUnloadAddress(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall MmSessionSetUnloadAddress(__int64 a1)
   if ( !v2 )
     v2 = 1LL;
   v3 = CurrentThread->ApcState.Process[1].ActiveProcessors.Bitmap[2];
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   if ( !*(_QWORD *)(v3 + 7872) )
     *(_QWORD *)(v3 + 7872) = v2;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);

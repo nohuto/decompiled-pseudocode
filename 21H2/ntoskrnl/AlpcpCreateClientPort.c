@@ -1,38 +1,38 @@
 /*
- * XREFs of AlpcpCreateClientPort @ 0x1405E054C
+ * XREFs of AlpcpCreateClientPort @ 0x1406CFCAC
  * Callers:
- *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
- *     AlpcpConnectPort @ 0x1405DF5BC (AlpcpConnectPort.c)
+ *     NtSecureConnectPort @ 0x1406CD3F0 (NtSecureConnectPort.c)
+ *     AlpcpConnectPort @ 0x1406CED1C (AlpcpConnectPort.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
- *     AlpcpCheckConnectionSecurity @ 0x1405DEB24 (AlpcpCheckConnectionSecurity.c)
- *     AlpcpSetOwnerProcessPort @ 0x1405E098C (AlpcpSetOwnerProcessPort.c)
- *     AlpcpAllocateMessage @ 0x1405E09E4 (AlpcpAllocateMessage.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x1405E0B04 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcInitializeHandleTable @ 0x1405E0D44 (AlpcInitializeHandleTable.c)
- *     AlpcpInitializePort @ 0x1405E0D98 (AlpcpInitializePort.c)
- *     AlpcpCreatePort @ 0x1405E0F24 (AlpcpCreatePort.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     SeCreateClientSecurity @ 0x14065DD70 (SeCreateClientSecurity.c)
- *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
- *     ObReferenceObjectByName @ 0x140661100 (ObReferenceObjectByName.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     SeCreateClientSecurity @ 0x140652B90 (SeCreateClientSecurity.c)
+ *     AlpcpAllocateBlob @ 0x1406558AC (AlpcpAllocateBlob.c)
+ *     ObReferenceObjectByName @ 0x140655F20 (ObReferenceObjectByName.c)
+ *     ObReferenceObjectByNameEx @ 0x1406CDDFC (ObReferenceObjectByNameEx.c)
+ *     AlpcpCheckConnectionSecurity @ 0x1406CE284 (AlpcpCheckConnectionSecurity.c)
+ *     AlpcpSetOwnerProcessPort @ 0x1406D00EC (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpAllocateMessage @ 0x1406D0144 (AlpcpAllocateMessage.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x1406D0264 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcInitializeHandleTable @ 0x1406D04A4 (AlpcInitializeHandleTable.c)
+ *     AlpcpInitializePort @ 0x1406D04F8 (AlpcpInitializePort.c)
+ *     AlpcpCreatePort @ 0x1406D0684 (AlpcpCreatePort.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
 __int64 __fastcall AlpcpCreateClientPort(
         __int64 *a1,
         _QWORD *a2,
         int a3,
-        int a4,
+        unsigned __int64 a4,
         __int64 a5,
         __int64 a6,
         _DWORD *a7,
@@ -53,7 +53,7 @@ __int64 __fastcall AlpcpCreateClientPort(
   _DWORD *v20; // rdi
   int v21; // esi
   _DWORD *v22; // rsi
-  PADAPTER_OBJECT *Blob; // rax
+  _QWORD *Blob; // rax
   ULONG_PTR *v24; // r13
   __int64 v25; // rax
   __int64 *v26; // rcx
@@ -66,7 +66,7 @@ __int64 __fastcall AlpcpCreateClientPort(
   volatile signed __int64 *v33; // rdi
   PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-20h] BYREF
   PVOID Object; // [rsp+48h] [rbp-18h] BYREF
-  PADAPTER_OBJECT *v36; // [rsp+50h] [rbp-10h]
+  _QWORD *v36; // [rsp+50h] [rbp-10h]
   __int64 v37; // [rsp+58h] [rbp-8h] BYREF
   char v41; // [rsp+C0h] [rbp+60h]
 
@@ -76,9 +76,9 @@ __int64 __fastcall AlpcpCreateClientPort(
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v37 = 0LL;
   if ( a5 )
-    result = ObReferenceObjectByNameEx(a5, 0LL, 1u, (__int64)AlpcPortObjectType, PreviousMode, 0LL, &DmaAdapter);
+    result = ObReferenceObjectByNameEx(a5, 0LL, 1, (__int64)AlpcPortObjectType, PreviousMode, 0LL, &DmaAdapter);
   else
-    result = ObReferenceObjectByName(a4, 0, 0, 1, (__int64)AlpcPortObjectType, PreviousMode, 0LL, (__int64)&DmaAdapter);
+    result = ObReferenceObjectByName(a4, 0LL, 0LL, 1u, (__int64)AlpcPortObjectType, PreviousMode, 0LL, &DmaAdapter);
   if ( (int)result >= 0 )
   {
     v14 = DmaAdapter;
@@ -133,20 +133,20 @@ LABEL_60:
           {
             v22 = v20 + 104;
             v20[104] |= 8u;
-            Blob = (PADAPTER_OBJECT *)AlpcpAllocateBlob(AlpcConnectionType, 80LL, 1LL);
+            Blob = AlpcpAllocateBlob((__int64)AlpcConnectionType, 80LL, 1);
             v36 = Blob;
             if ( Blob )
             {
               *((_QWORD *)v20 + 2) = Blob;
-              v24 = (ULONG_PTR *)(Blob + 9);
+              v24 = Blob + 9;
               Blob[9] = 0LL;
               Blob[1] = 0LL;
               *Blob = v14;
-              Blob[2] = (PADAPTER_OBJECT)v20;
+              Blob[2] = v20;
               ExAcquirePushLockExclusiveEx(*(_QWORD *)&v14[1].Version - 16LL, 0LL);
               ExAcquirePushLockExclusiveEx((ULONG_PTR)&v14[22], 0LL);
               v25 = *(_QWORD *)&v14[1].Version + 24LL;
-              v26 = (__int64 *)(v36 + 3);
+              v26 = v36 + 3;
               v27 = *(__int64 ***)(*(_QWORD *)&v14[1].Version + 32LL);
               if ( *v27 != (__int64 *)v25 )
                 __fastfail(3u);

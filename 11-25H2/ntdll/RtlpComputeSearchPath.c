@@ -27,7 +27,7 @@ __int64 RtlpComputeSearchPath()
     {
       v0 = dword_1801D4410;
       if ( !dword_1801D4410 )
-        v0 = RtlpLookupCurDirSetting(L"*,", 0LL, &dword_1801D4410);
+        v0 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_1801759D8);
     }
   }
   RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);

@@ -1,8 +1,8 @@
 /*
- * XREFs of PspModifyAncestorBits @ 0x1407F8E78
+ * XREFs of PspModifyAncestorBits @ 0x1407FE978
  * Callers:
- *     PspRemoveRateControl @ 0x1407F9160 (PspRemoveRateControl.c)
- *     PspSetJobRateControl @ 0x1407F987C (PspSetJobRateControl.c)
+ *     PspRemoveRateControl @ 0x1407FEC60 (PspRemoveRateControl.c)
+ *     PspSetJobRateControl @ 0x1407FF37C (PspSetJobRateControl.c)
  * Callees:
  *     <none>
  */

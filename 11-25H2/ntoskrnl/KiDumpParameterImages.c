@@ -17,27 +17,27 @@ void __fastcall KiDumpParameterImages(NTSTRSAFE_PSTR pszDest, const void **a2, u
 {
   __int64 v6; // r15
   const void *v7; // rbx
-  int v8; // r13d
+  unsigned int TimeDateStamp; // r13d
   const void *v9; // r14
   __int64 UnloadedDriver; // rax
   unsigned __int16 *v11; // rdi
   unsigned __int16 *v12; // rcx
   __int64 v13; // rdi
-  unsigned __int64 v14; // rdx
+  void *v14; // rdx
   ULONG v15; // ebx
   const char *v16; // r9
   const void *v17; // rbx
-  int v18; // r13d
+  unsigned int v18; // r13d
   const void *v19; // r14
   __int64 v20; // rax
   __int64 v21; // rdi
   __int64 v22; // rdi
-  unsigned __int64 v23; // rdx
+  void *v23; // rdx
   ULONG v24; // ebx
   const char *v25; // r9
   char v26; // [rsp+40h] [rbp-89h]
   _BYTE v27[7]; // [rsp+41h] [rbp-88h] BYREF
-  __int64 v28; // [rsp+48h] [rbp-81h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp-81h] BYREF
   _QWORD v29[2]; // [rsp+50h] [rbp-79h] BYREF
   char v30[128]; // [rsp+60h] [rbp-69h] BYREF
 
@@ -54,7 +54,7 @@ void __fastcall KiDumpParameterImages(NTSTRSAFE_PSTR pszDest, const void **a2, u
       while ( 1 )
       {
         v7 = *a2;
-        v8 = 0;
+        TimeDateStamp = 0;
         v9 = (const void *)KiPcToFileHeader(*a2, v29, 1LL, v27);
         if ( v9 )
           break;
@@ -80,7 +80,7 @@ LABEL_12:
               v30,
               *a2,
               v9,
-              v8);
+              TimeDateStamp);
           }
           *(_QWORD *)&KiBugCheckDriver = v11;
           KiBugCheckDriverOffset = v15;
@@ -93,11 +93,11 @@ LABEL_12:
       v13 = v29[0];
       if ( MmIsAddressValidEx(*(_QWORD *)(v29[0] + 48LL)) )
       {
-        v14 = *(_QWORD *)(v13 + 48);
-        v28 = 0LL;
-        RtlImageNtHeaderEx(1, v14, 0LL, &v28);
-        if ( v28 )
-          v8 = *(_DWORD *)(v28 + 8);
+        v14 = *(void **)(v13 + 48);
+        OutHeaders = 0LL;
+        RtlImageNtHeaderEx(1u, v14, 0LL, &OutHeaders);
+        if ( OutHeaders )
+          TimeDateStamp = OutHeaders->FileHeader.TimeDateStamp;
       }
       v11 = (unsigned __int16 *)(v13 + 88);
       v12 = v11;
@@ -143,11 +143,11 @@ LABEL_26:
     v22 = v29[0];
     if ( MmIsAddressValidEx(*(_QWORD *)(v29[0] + 48LL)) )
     {
-      v23 = *(_QWORD *)(v22 + 48);
-      v28 = 0LL;
-      RtlImageNtHeaderEx(1, v23, 0LL, &v28);
-      if ( v28 )
-        v18 = *(_DWORD *)(v28 + 8);
+      v23 = *(void **)(v22 + 48);
+      OutHeaders = 0LL;
+      RtlImageNtHeaderEx(1u, v23, 0LL, &OutHeaders);
+      if ( OutHeaders )
+        v18 = OutHeaders->FileHeader.TimeDateStamp;
     }
     v21 = v22 + 88;
     goto LABEL_26;

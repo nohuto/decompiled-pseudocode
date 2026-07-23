@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetPhysicalAddress @ 0x14024D084
+ * XREFs of MiGetPhysicalAddress @ 0x14024E9E4
  * Callers:
- *     MiDbgCopyPrivilegedData @ 0x1406FDCAC (MiDbgCopyPrivilegedData.c)
+ *     MiDbgCopyPrivilegedData @ 0x14070297C (MiDbgCopyPrivilegedData.c)
  * Callees:
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
  */
 
 __int64 __fastcall MiGetPhysicalAddress(__int64 a1, _QWORD *a2, _DWORD *a3)

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtMapUserPhysicalPages()
+NTSTATUS __cdecl NtMapUserPhysicalPages(PVOID VirtualAddress, ULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 257LL;
+  result = 257;
   __asm { syscall; Low latency system call }
   return result;
 }

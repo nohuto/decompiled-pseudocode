@@ -1,27 +1,27 @@
 /*
- * XREFs of MiGetPagePrivilege @ 0x1400B2A70
+ * XREFs of MiGetPagePrivilege @ 0x1400B29B0
  * Callers:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiAllocateWsle @ 0x140048800 (MiAllocateWsle.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiRevertValidPte @ 0x1400B2360 (MiRevertValidPte.c)
- *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
- *     MiWsleFree @ 0x1400B2C70 (MiWsleFree.c)
- *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
- *     MiPageMightBeZero @ 0x14012589C (MiPageMightBeZero.c)
- *     MiTradeActivePage @ 0x14012DF24 (MiTradeActivePage.c)
- *     MiDbgWriteCheck @ 0x1402BB384 (MiDbgWriteCheck.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiRevertValidPte @ 0x1400B22A0 (MiRevertValidPte.c)
+ *     MiCombineCandidate @ 0x1400B2610 (MiCombineCandidate.c)
+ *     MiWsleFree @ 0x1400B2BB0 (MiWsleFree.c)
+ *     MiStealPage @ 0x1400EBFC4 (MiStealPage.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BC04 (MiReferencePageForModifiedWrite.c)
+ *     MiPageMightBeZero @ 0x14012596C (MiPageMightBeZero.c)
+ *     MiTradeActivePage @ 0x14012DFF4 (MiTradeActivePage.c)
+ *     MiDbgWriteCheck @ 0x1402BB574 (MiDbgWriteCheck.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetTopLevelPfn @ 0x140083810 (MiGetTopLevelPfn.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPagePrivilege(__int64 BugCheckParameter2, int a2, unsigned __int64 *a3)
@@ -124,8 +124,8 @@ __int64 __fastcall MiGetPagePrivilege(__int64 BugCheckParameter2, int a2, unsign
   if ( (v16 & 0x400) == 0 )
     return 16 * ((v8 >> 18) & 1) + 3;
   v17 = *(_QWORD *)(BugCheckParameter2 + 16);
-  if ( qword_14043A0C0 && (v16 & 0x10) == 0 )
-    v17 = ~qword_14043A0C0 & v16;
+  if ( qword_14043B180 && (v16 & 0x10) == 0 )
+    v17 = ~qword_14043B180 & v16;
   v18 = v17 >> 16;
   v19 = *(_QWORD *)v18;
   if ( (*(_DWORD *)(*(_QWORD *)v18 + 56LL) & 0x20) == 0 )

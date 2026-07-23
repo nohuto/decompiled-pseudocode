@@ -2,19 +2,19 @@
  * XREFs of CarReportRuleViolationForTriage @ 0x140604030
  * Callers:
  *     CarReportRuleViolation @ 0x140603FF0 (CarReportRuleViolation.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     sub_140A8C924 @ 0x140A8C924 (sub_140A8C924.c)
  * Callees:
- *     CarEtwWriteBugCheckEvent @ 0x140602808 (CarEtwWriteBugCheckEvent.c)
+ *     sub_140602808 @ 0x140602808 (sub_140602808.c)
  *     CarCopyRuleViolationDetails @ 0x1406033F0 (CarCopyRuleViolationDetails.c)
  *     CarCreateRuleViolationDetails @ 0x140603630 (CarCreateRuleViolationDetails.c)
- *     CarCreateTelemetryData @ 0x14060369C (CarCreateTelemetryData.c)
- *     CarDeleteTelemetryData @ 0x140603744 (CarDeleteTelemetryData.c)
+ *     sub_14060369C @ 0x14060369C (sub_14060369C.c)
+ *     sub_140603744 @ 0x140603744 (sub_140603744.c)
  *     CarDeleteRuleViolationDetails @ 0x140603780 (CarDeleteRuleViolationDetails.c)
  *     CarQueryReportActionForTriage @ 0x140603BD0 (CarQueryReportActionForTriage.c)
- *     CarInitiateBugcheck @ 0x1406051B0 (CarInitiateBugcheck.c)
- *     CarpSaveViolationSnapshot @ 0x140605280 (CarpSaveViolationSnapshot.c)
- *     CarWriteLivedump @ 0x1406055D0 (CarWriteLivedump.c)
- *     VfUtilGetSigningLevel @ 0x140A81D70 (VfUtilGetSigningLevel.c)
+ *     sub_1406051B0 @ 0x1406051B0 (sub_1406051B0.c)
+ *     sub_140605280 @ 0x140605280 (sub_140605280.c)
+ *     sub_1406055D0 @ 0x1406055D0 (sub_1406055D0.c)
+ *     sub_140A81D70 @ 0x140A81D70 (sub_140A81D70.c)
  */
 
 __int64 __fastcall CarReportRuleViolationForTriage(ULONG BugCheckCode, ULONG_PTR BugCheckParameter1, __int64 a3)
@@ -62,19 +62,19 @@ __int64 __fastcall CarReportRuleViolationForTriage(ULONG BugCheckCode, ULONG_PTR
         RuleViolationDetails = CarQueryReportActionForTriage(BugCheckCode, v4, &v12);
         if ( RuleViolationDetails >= 0 )
         {
-          RuleViolationDetails = CarCreateTelemetryData(&v10, BugCheckCode, v4, (int)v7, (__int64)v8);
+          RuleViolationDetails = sub_14060369C(&v10, BugCheckCode, v4, (int)v7, (__int64)v8);
           if ( RuleViolationDetails >= 0 )
           {
             if ( v10 )
-              RuleViolationDetails = CarEtwWriteBugCheckEvent(v10, v4, v8, KeGetCurrentIrql());
+              RuleViolationDetails = sub_140602808(v10, v4, v8, KeGetCurrentIrql());
             else
               RuleViolationDetails = -1073741811;
           }
-          CarpSaveViolationSnapshot(BugCheckCode, v4, v7, v10);
+          sub_140605280(BugCheckCode, v4, v7, v10);
           switch ( (_DWORD)v12 )
           {
             case 2:
-              RuleViolationDetails = CarWriteLivedump(
+              RuleViolationDetails = sub_1406055D0(
                                        v10,
                                        v4,
                                        (unsigned int)*v7,
@@ -85,8 +85,8 @@ __int64 __fastcall CarReportRuleViolationForTriage(ULONG BugCheckCode, ULONG_PTR
             case 3:
               if ( v7[6] )
               {
-                if ( (((unsigned __int8)VfUtilGetSigningLevel() - 8) & 0xFB) != 0 )
-                  CarInitiateBugcheck(BugCheckCode, v4);
+                if ( (((unsigned __int8)sub_140A81D70() - 8) & 0xFB) != 0 )
+                  sub_1406051B0(BugCheckCode, v4);
               }
               else
               {
@@ -94,13 +94,13 @@ __int64 __fastcall CarReportRuleViolationForTriage(ULONG BugCheckCode, ULONG_PTR
               }
               break;
             case 4:
-              CarInitiateBugcheck(BugCheckCode, v4);
+              sub_1406051B0(BugCheckCode, v4);
           }
-          _InterlockedCompareExchange(&CarIsViolationSnapshotTaken, 0, 1);
+          _InterlockedCompareExchange(&dword_140D04C00, 0, 1);
           if ( v13 )
           {
-            CarDeleteTelemetryData((void **)&v10);
-            _InterlockedCompareExchange(&CarLkdInProgress, 0, 1);
+            sub_140603744((void **)&v10);
+            _InterlockedCompareExchange(&dword_140C18EF8, 0, 1);
           }
           CarDeleteRuleViolationDetails(&v11);
         }

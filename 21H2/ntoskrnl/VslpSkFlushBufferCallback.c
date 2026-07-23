@@ -1,10 +1,10 @@
 /*
- * XREFs of VslpSkFlushBufferCallback @ 0x1404FE0A0
+ * XREFs of VslpSkFlushBufferCallback @ 0x1404FE020
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     VslpFlushBufferArray @ 0x1404FDCF0 (VslpFlushBufferArray.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     VslpFlushBufferArray @ 0x1404FDC70 (VslpFlushBufferArray.c)
  */
 
 void __fastcall VslpSkFlushBufferCallback(

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateFileOnlyPfns @ 0x1407F0124
+ * XREFs of MiCreateFileOnlyPfns @ 0x1407F06F4
  * Callers:
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
- *     MiGetControlAreaPartition @ 0x1404378D0 (MiGetControlAreaPartition.c)
- *     MiDecrementProtoShareCounts @ 0x14067A6F4 (MiDecrementProtoShareCounts.c)
- *     MiFillFileOnlyProtoAsBad @ 0x14067AC68 (MiFillFileOnlyProtoAsBad.c)
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
- *     MiRemoveFileOnlyPages @ 0x1407F066C (MiRemoveFileOnlyPages.c)
+ *     MiGetControlAreaPartition @ 0x14042A350 (MiGetControlAreaPartition.c)
+ *     MiDecrementProtoShareCounts @ 0x14067B8D4 (MiDecrementProtoShareCounts.c)
+ *     MiFillFileOnlyProtoAsBad @ 0x14067BE48 (MiFillFileOnlyProtoAsBad.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
+ *     MiRemoveFileOnlyPages @ 0x1407F0C3C (MiRemoveFileOnlyPages.c)
  */
 
-__int64 __fastcall MiCreateFileOnlyPfns(__int64 *a1, __int64 a2, char a3, __int64 a4, unsigned __int64 a5)
+__int64 __fastcall MiCreateFileOnlyPfns(__int64 *a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int64 a5)
 {
   int v5; // esi
   unsigned __int64 v6; // r13
@@ -29,7 +29,9 @@ __int64 __fastcall MiCreateFileOnlyPfns(__int64 *a1, __int64 a2, char a3, __int6
   int v21; // [rsp+54h] [rbp-44h]
   __int64 *v22; // [rsp+A0h] [rbp+8h]
   __int64 v23; // [rsp+A8h] [rbp+10h]
+  char v24; // [rsp+B0h] [rbp+18h]
 
+  v24 = a3;
   v23 = a2;
   v22 = a1;
   v5 = 0;
@@ -76,7 +78,7 @@ __int64 __fastcall MiCreateFileOnlyPfns(__int64 *a1, __int64 a2, char a3, __int6
         if ( a4 + 8 * v9 <= v6 )
         {
           if ( (v11 & 0x40) != 0 )
-            MiDecrementProtoShareCounts(v8, v7);
+            MiDecrementProtoShareCounts(v8, v7, a3, a4);
           MiRemoveFileOnlyPages(v8, v7);
         }
       }
@@ -109,7 +111,7 @@ __int64 __fastcall MiCreateFileOnlyPfns(__int64 *a1, __int64 a2, char a3, __int6
     v7 = 0LL;
     --v9;
 LABEL_28:
-    v11 = a3;
+    v11 = v24;
     ++v9;
     a1 = v22;
     a2 = v23;

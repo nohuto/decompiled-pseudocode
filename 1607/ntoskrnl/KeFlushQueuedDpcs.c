@@ -1,16 +1,16 @@
 /*
- * XREFs of KeFlushQueuedDpcs @ 0x1400841B4
+ * XREFs of KeFlushQueuedDpcs @ 0x140082314
  * Callers:
- *     KeCleanupThreadState @ 0x140088E78 (KeCleanupThreadState.c)
- *     MmPageEntireDriver @ 0x14047DC74 (MmPageEntireDriver.c)
- *     IopDeleteDriver @ 0x140545C94 (IopDeleteDriver.c)
- *     PopThermalZoneRemove @ 0x140670550 (PopThermalZoneRemove.c)
+ *     KeCleanupThreadState @ 0x14010D068 (KeCleanupThreadState.c)
+ *     MmPageEntireDriver @ 0x14047C9C8 (MmPageEntireDriver.c)
+ *     IopDeleteDriver @ 0x1405461D4 (IopDeleteDriver.c)
+ *     PopThermalZoneRemove @ 0x140670634 (PopThermalZoneRemove.c)
  * Callees:
- *     KiGetDeepIdleProcessors @ 0x140084278 (KiGetDeepIdleProcessors.c)
- *     KeGenericProcessorCallback @ 0x1400CA714 (KeGenericProcessorCallback.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiGetDeepIdleProcessors @ 0x1400823D8 (KiGetDeepIdleProcessors.c)
+ *     KeGenericProcessorCallback @ 0x1400C85B4 (KeGenericProcessorCallback.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void KeFlushQueuedDpcs(void)

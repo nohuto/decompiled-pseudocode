@@ -1,7 +1,7 @@
 /*
- * XREFs of ObpInitInfoBlockOffsets @ 0x140C2C5CC
+ * XREFs of ObpInitInfoBlockOffsets @ 0x140C2E6EC
  * Callers:
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRcuSystemInitialize @ 0x140C66764
+ * XREFs of KiRcuSystemInitialize @ 0x140C688E0
  * Callers:
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSrcuProcessorInitialize @ 0x1404F9238 (KiSrcuProcessorInitialize.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSrcuProcessorInitialize @ 0x1404F6B18 (KiSrcuProcessorInitialize.c)
  */
 
 void __fastcall KiRcuSystemInitialize(__int64 a1)
@@ -31,8 +31,8 @@ void __fastcall KiRcuSystemInitialize(__int64 a1)
   KiRcuState = 536952864;
   v1 = 0;
   v2 = &KiRcuNode;
-  v4 = &unk_140F20C22;
-  v5 = &unk_140F20C28;
+  v4 = &unk_140F205A2;
+  v5 = &unk_140F205A8;
   do
   {
     *v5 = v2;
@@ -59,21 +59,21 @@ void __fastcall KiRcuSystemInitialize(__int64 a1)
     ++v4;
   }
   while ( v1 < 2 );
-  stru_140F20CA0.Parameter = 0LL;
-  qword_140F20C58 = (__int64)&qword_140F20C50;
-  qword_140F20C50 = (__int64)&qword_140F20C50;
-  stru_140F20CA0.List.Flink = 0LL;
-  stru_140F20CA0.WorkerRoutine = (void (__fastcall *)(void *))KiRcuFlushCompletedWorkerRoutine;
-  Dpc.DeferredRoutine = (PKDEFERRED_ROUTINE)KiRcuFlushCompletedDpcRoutine;
-  Dpc.TargetInfoAsUlong = 282;
-  Dpc.DeferredContext = 0LL;
-  Dpc.DpcData = 0LL;
-  Dpc.ProcessorHistory = 0LL;
+  stru_140F20620.Parameter = 0LL;
+  qword_140F205D8 = (__int64)&qword_140F205D0;
+  qword_140F205D0 = (__int64)&qword_140F205D0;
+  stru_140F20620.List.Flink = 0LL;
+  stru_140F20620.WorkerRoutine = (void (__fastcall *)(void *))KiRcuFlushCompletedWorkerRoutine;
+  stru_140F205E0.DeferredRoutine = (PKDEFERRED_ROUTINE)KiRcuFlushCompletedDpcRoutine;
+  stru_140F205E0.TargetInfoAsUlong = 282;
+  stru_140F205E0.DeferredContext = 0LL;
+  stru_140F205E0.DpcData = 0LL;
+  stru_140F205E0.ProcessorHistory = 0LL;
   v10 = (char *)&KiRcuData + 32 * *(unsigned int *)(a1 + 36);
-  v12 = *(_DWORD *)(a1 + 36) % (unsigned int)(unsigned __int8)byte_140F20C21;
-  v11 = *(_DWORD *)(a1 + 36) / (unsigned int)(unsigned __int8)byte_140F20C21;
+  v12 = *(_DWORD *)(a1 + 36) % (unsigned int)(unsigned __int8)byte_140F205A1;
+  v11 = *(_DWORD *)(a1 + 36) / (unsigned int)(unsigned __int8)byte_140F205A1;
   *((_QWORD *)v10 + 2) = a1;
-  v13 = qword_140F20C30 + 72 * v11;
+  v13 = qword_140F205B0 + 72 * v11;
   *(_QWORD *)v10 = 1LL << v12;
   *((_QWORD *)v10 + 1) = v13;
   if ( !*(_QWORD *)(v13 + 16) )

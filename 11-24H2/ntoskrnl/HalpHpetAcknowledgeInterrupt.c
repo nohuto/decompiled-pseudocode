@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHpetAcknowledgeInterrupt @ 0x1404AF000
+ * XREFs of HalpHpetAcknowledgeInterrupt @ 0x1404A99E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpHpetSetMatchValue @ 0x1404A290C (HalpHpetSetMatchValue.c)
- *     HalSetTimerProblem @ 0x1404FAD60 (HalSetTimerProblem.c)
+ *     HalpHpetSetMatchValue @ 0x14049D89C (HalpHpetSetMatchValue.c)
+ *     HalSetTimerProblem @ 0x1404F8640 (HalSetTimerProblem.c)
  */
 
 __int64 __fastcall HalpHpetAcknowledgeInterrupt(__int64 a1)

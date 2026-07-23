@@ -42,7 +42,7 @@ __int64 __fastcall IopCreateFile(
         _DWORD *a13,
         int a14,
         int a15,
-        _LOOKASIDE_LIST_EX *a16)
+        __int16 *a16)
 {
   ACCESS_MASK v17; // r12d
   char PreviousMode; // r13
@@ -68,52 +68,51 @@ __int64 __fastcall IopCreateFile(
   struct _KPRCB *v39; // rcx
   _GENERAL_LOOKASIDE *v40; // r8
   KPROCESSOR_MODE v41; // si
-  _LOOKASIDE_LIST_EX *v42; // rdx
-  size_t Alignment_low; // r8
+  size_t v42; // r8
   struct _KTHREAD *CurrentThread; // rcx
   struct _ECP_LIST *Next; // rcx
   int ExtraCreateParameter; // r15d
-  _DWORD *v47; // rdi
-  void *v48; // rcx
-  _SLIST_ENTRY *v49; // r13
-  __int64 **v50; // rsi
-  __int64 *v51; // rax
-  __int64 v52; // rcx
-  _QWORD *v53; // r14
-  __int64 *v54; // rdi
-  void (__fastcall *v55)(_QWORD *, __int64 *); // rax
-  struct _NPAGED_LOOKASIDE_LIST *v56; // rcx
-  __int64 *v57; // rdi
-  __int64 *v58; // rcx
-  _QWORD *v59; // rax
-  __int64 v60; // r8
-  _QWORD *v61; // rdx
-  bool v62; // di
-  _DWORD *v63; // rcx
-  int v64; // ecx
-  _DWORD *v65; // rdx
-  __int64 v66; // rcx
-  __int64 v67; // rax
-  void *v68; // rcx
-  struct _KPRCB *v69; // rcx
-  unsigned int v70; // [rsp+40h] [rbp-68h]
-  unsigned __int8 v71; // [rsp+48h] [rbp-60h]
+  _DWORD *v46; // rdi
+  void *v47; // rcx
+  _SLIST_ENTRY *v48; // r13
+  __int64 **v49; // rsi
+  __int64 *v50; // rax
+  __int64 v51; // rcx
+  _QWORD *v52; // r14
+  __int64 *v53; // rdi
+  void (__fastcall *v54)(_QWORD *, __int64 *); // rax
+  struct _NPAGED_LOOKASIDE_LIST *v55; // rcx
+  __int64 *v56; // rdi
+  __int64 *v57; // rcx
+  _QWORD *v58; // rax
+  __int64 v59; // r8
+  _QWORD *v60; // rdx
+  bool v61; // di
+  _DWORD *v62; // rcx
+  int v63; // ecx
+  _DWORD *v64; // rdx
+  __int64 v65; // rcx
+  __int64 v66; // rax
+  void *v67; // rcx
+  struct _KPRCB *v68; // rcx
+  unsigned int v69; // [rsp+40h] [rbp-68h]
+  unsigned __int8 v70; // [rsp+48h] [rbp-60h]
   HANDLE Handle; // [rsp+58h] [rbp-50h] BYREF
-  _DWORD *v73; // [rsp+60h] [rbp-48h]
+  _DWORD *v72; // [rsp+60h] [rbp-48h]
   PVOID EcpContext; // [rsp+68h] [rbp-40h] BYREF
-  HANDLE *v75; // [rsp+70h] [rbp-38h]
+  HANDLE *v74; // [rsp+70h] [rbp-38h]
   PVOID Object; // [rsp+78h] [rbp-30h]
 
-  v73 = (_DWORD *)a4;
+  v72 = (_DWORD *)a4;
   v17 = a2;
-  v75 = a1;
+  v74 = a1;
   Object = 0LL;
-  v70 = 0;
+  v69 = 0;
   EcpContext = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( (a14 & 0x100) != 0 )
     PreviousMode = 0;
-  v71 = PreviousMode;
+  v70 = PreviousMode;
   CurrentPrcb = KeGetCurrentPrcb();
   P = CurrentPrcb->PPLookasideList[8].P;
   ++P->TotalAllocates;
@@ -197,11 +196,11 @@ LABEL_43:
     if ( (a9 & 0xFFFFFFCD) != 0 )
       goto LABEL_43;
 LABEL_53:
-    if ( v71 )
+    if ( v70 )
     {
       *((_QWORD *)&v21[4].Next + 1) = 0LL;
-      v31 = v75;
-      if ( (unsigned __int64)v75 >= MmUserProbeAddress )
+      v31 = v74;
+      if ( (unsigned __int64)v74 >= MmUserProbeAddress )
         v31 = (_QWORD *)MmUserProbeAddress;
       *v31 = *v31;
       v32 = (_DWORD *)a4;
@@ -233,11 +232,11 @@ LABEL_53:
         *((_QWORD *)&v21[4].Next + 1) = PoolWithQuotaTag;
         LODWORD(v21[5].Next) = NumberOfBytes;
         memmove(PoolWithQuotaTag, Src, (unsigned int)NumberOfBytes);
-        v34 = IoCheckEaBufferValidity(*((PFILE_FULL_EA_INFORMATION *)&v21[4].Next + 1), NumberOfBytes, v73 + 2);
-        v70 = v34;
+        v34 = IoCheckEaBufferValidity(*((PFILE_FULL_EA_INFORMATION *)&v21[4].Next + 1), NumberOfBytes, v72 + 2);
+        v69 = v34;
         if ( v34 < 0 )
         {
-          *v73 = v34;
+          *v72 = v34;
           RtlRaiseStatus(v34);
         }
 LABEL_95:
@@ -259,21 +258,20 @@ LABEL_96:
         LODWORD(v21[7].Next) = v23;
         *((_QWORD *)&v21[7].Next + 1) = v28;
         LODWORD(v21[9].Next) = a15;
-        v41 = v71;
-        BYTE4(v21[9].Next) = v71;
+        v41 = v70;
+        BYTE4(v21[9].Next) = v70;
         *((_QWORD *)&v21[9].Next + 1) = 0LL;
         v21[10].Next = 0LL;
         *((_QWORD *)&v21[10].Next + 1) = 0LL;
         v21[11].Next = 0LL;
         *((_WORD *)&v21[9].Next + 4) = 40;
         *((_QWORD *)&v21[11].Next + 1) = 1LL;
-        v42 = a16;
         if ( a16 )
         {
-          Alignment_low = SLOWORD(a16->L.ListHead.Alignment);
-          if ( Alignment_low > 0x28 )
-            Alignment_low = 40LL;
-          memmove(&v21[9].Next + 1, a16, Alignment_low);
+          v42 = *a16;
+          if ( v42 > 0x28 )
+            v42 = 40LL;
+          memmove(&v21[9].Next + 1, a16, v42);
         }
         if ( *((_QWORD *)&v21[11].Next + 1) == 1LL )
         {
@@ -289,17 +287,17 @@ LABEL_96:
         if ( Next )
         {
           ExtraCreateParameter = FsRtlFindExtraCreateParameter(Next, &GUID_ECP_FILTER_DEVICE_TYPE, &EcpContext, 0LL);
-          v70 = ExtraCreateParameter;
+          v69 = ExtraCreateParameter;
           if ( ExtraCreateParameter >= 0 )
           {
-            v47 = EcpContext;
+            v46 = EcpContext;
             if ( FsRtlIsEcpFromUserMode(EcpContext) )
             {
               ExtraCreateParameter = -1073740011;
-              v70 = -1073740011;
+              v69 = -1073740011;
               LODWORD(v21[1].Next) = -1073740011;
             }
-            if ( !*v47 )
+            if ( !*v46 )
             {
               LODWORD(v21[9].Next) |= 0x10u;
               *((_QWORD *)&v21[1].Next + 1) = 2684354563LL;
@@ -308,135 +306,135 @@ LABEL_96:
         }
         else
         {
-          ExtraCreateParameter = v70;
+          ExtraCreateParameter = v69;
         }
         if ( SLODWORD(v21[1].Next) >= 0 )
         {
           ExtraCreateParameter = ObOpenObjectByNameEx(
                                    a3,
                                    (struct _OBJECT_TYPE *)IoFileObjectType,
-                                   v71,
+                                   v70,
                                    0LL,
                                    v17,
                                    v21,
                                    *((_QWORD *)&v21[11].Next + 1),
                                    &Handle);
-          v70 = ExtraCreateParameter;
+          v69 = ExtraCreateParameter;
         }
-        v48 = (void *)*((_QWORD *)&v21[4].Next + 1);
+        v47 = (void *)*((_QWORD *)&v21[4].Next + 1);
+        if ( v47 )
+          ExFreePoolWithTag(v47, 0);
+        v48 = v21[10].Next;
         if ( v48 )
-          ExFreePoolWithTag(v48, 0);
-        v49 = v21[10].Next;
-        if ( v49 )
         {
-          v50 = (__int64 **)(&v49->Next + 1);
-          if ( (HIDWORD(v49->Next) & 1) == 0 )
+          v49 = (__int64 **)(&v48->Next + 1);
+          if ( (HIDWORD(v48->Next) & 1) == 0 )
           {
-            while ( *v50 != (__int64 *)v50 )
+            while ( *v49 != (__int64 *)v49 )
             {
-              v51 = *v50;
-              v52 = **v50;
-              if ( (__int64 **)(*v50)[1] != v50 || *(__int64 **)(v52 + 8) != v51 )
+              v50 = *v49;
+              v51 = **v49;
+              if ( (__int64 **)(*v49)[1] != v49 || *(__int64 **)(v51 + 8) != v50 )
                 __fastfail(3u);
-              *v50 = (__int64 *)v52;
-              *(_QWORD *)(v52 + 8) = v50;
-              v51[1] = 0LL;
-              *v51 = 0LL;
-              v53 = v51 + 8;
-              v54 = v51 - 1;
-              v55 = (void (__fastcall *)(_QWORD *, __int64 *))v51[4];
+              *v49 = (__int64 *)v51;
+              *(_QWORD *)(v51 + 8) = v49;
+              v50[1] = 0LL;
+              *v50 = 0LL;
+              v52 = v50 + 8;
+              v53 = v50 - 1;
+              v54 = (void (__fastcall *)(_QWORD *, __int64 *))v50[4];
+              if ( v54 )
+                v54(v52, v53 + 3);
+              if ( (v53[6] & 0x20) != 0 && FltMgrCallbacks )
+                (*(void (__fastcall **)(__int64, _QWORD *))FltMgrCallbacks)(v53[8], v52);
+              v55 = (struct _NPAGED_LOOKASIDE_LIST *)v53[7];
               if ( v55 )
-                v55(v53, v54 + 3);
-              if ( (v54[6] & 0x20) != 0 && FltMgrCallbacks )
-                (*(void (__fastcall **)(__int64, _QWORD *))FltMgrCallbacks)(v54[8], v53);
-              v56 = (struct _NPAGED_LOOKASIDE_LIST *)v54[7];
-              if ( v56 )
-                ExFreeToNPagedLookasideList(v56, v54);
+                ExFreeToNPagedLookasideList(v55, v53);
               else
-                ExFreePoolWithTag(v54, 0);
+                ExFreePoolWithTag(v53, 0);
             }
-            if ( (HIDWORD(v49->Next) & 4) != 0 )
+            if ( (HIDWORD(v48->Next) & 4) != 0 )
             {
-              ++FsRtlEcpListLookaside.L.TotalFrees;
-              if ( LOWORD(FsRtlEcpListLookaside.L.ListHead.Alignment) < FsRtlEcpListLookaside.L.Depth )
+              ++unk_140306B1C;
+              if ( LOWORD(FsRtlEcpListLookaside.Alignment) < unk_140306B10 )
               {
-                RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside.L.ListHead, v49);
+                RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside, v48);
               }
               else
               {
-                ++FsRtlEcpListLookaside.L.FreeMisses;
-                FsRtlEcpListLookaside.L.FreeEx(v49, v42);
+                ++unk_140306B20;
+                unk_140306B38(v48);
               }
             }
             else
             {
-              ExFreePoolWithTag(v49, 0);
+              ExFreePoolWithTag(v48, 0);
             }
             v21[10].Next = 0LL;
 LABEL_133:
-            v41 = v71;
+            v41 = v70;
             goto LABEL_143;
           }
-          v57 = *v50;
-          if ( *v50 != (__int64 *)v50 )
+          v56 = *v49;
+          if ( *v49 != (__int64 *)v49 )
           {
             do
             {
-              v58 = v57 - 1;
-              v57 = (__int64 *)*v57;
-              if ( (v58[6] & 1) == 0 )
+              v57 = v56 - 1;
+              v56 = (__int64 *)*v56;
+              if ( (v57[6] & 1) == 0 )
               {
-                v59 = v58 + 1;
-                v60 = v58[1];
-                v61 = (_QWORD *)v58[2];
-                if ( *(__int64 **)(v60 + 8) != v58 + 1 || (_QWORD *)*v61 != v59 )
+                v58 = v57 + 1;
+                v59 = v57[1];
+                v60 = (_QWORD *)v57[2];
+                if ( *(__int64 **)(v59 + 8) != v57 + 1 || (_QWORD *)*v60 != v58 )
                   __fastfail(3u);
-                *v61 = v60;
-                *(_QWORD *)(v60 + 8) = v61;
-                v58[2] = 0LL;
-                *v59 = 0LL;
-                FsRtlFreeExtraCreateParameter(v58 + 9);
+                *v60 = v59;
+                *(_QWORD *)(v59 + 8) = v60;
+                v57[2] = 0LL;
+                *v58 = 0LL;
+                FsRtlFreeExtraCreateParameter(v57 + 9);
               }
             }
-            while ( v57 != (__int64 *)v50 );
+            while ( v56 != (__int64 *)v49 );
             goto LABEL_133;
           }
-          v41 = v71;
+          v41 = v70;
         }
 LABEL_143:
-        v62 = LODWORD(v21[2].Next) == -1096154543;
+        v61 = LODWORD(v21[2].Next) == -1096154543;
         if ( ExtraCreateParameter >= 0 )
         {
           if ( LODWORD(v21[2].Next) == -1096154543 )
           {
             *(_DWORD *)(*((_QWORD *)&v21->Next + 1) + 80LL) |= 0x40000u;
             *(_DWORD *)(*((_QWORD *)&v21->Next + 1) + 80LL) &= ~0x2000000u;
-            *v75 = Handle;
-            v63 = v73;
-            *((_QWORD *)v73 + 1) = *((_QWORD *)&v21[1].Next + 1);
-            *v63 = v21[1].Next;
-            v70 = (unsigned int)v21[1].Next;
+            *v74 = Handle;
+            v62 = v72;
+            *((_QWORD *)v72 + 1) = *((_QWORD *)&v21[1].Next + 1);
+            *v62 = v21[1].Next;
+            v69 = (unsigned int)v21[1].Next;
             goto LABEL_163;
           }
           ObCloseHandle(Handle, v41);
           ExtraCreateParameter = -1073741788;
-          v70 = -1073741788;
+          v69 = -1073741788;
         }
-        v64 = (int)v21[1].Next;
-        if ( v64 >= 0 )
+        v63 = (int)v21[1].Next;
+        if ( v63 >= 0 )
         {
-          v66 = *((_QWORD *)&v21->Next + 1);
-          if ( v66 )
+          v65 = *((_QWORD *)&v21->Next + 1);
+          if ( v65 )
           {
-            if ( v62 )
+            if ( v61 )
             {
-              if ( (*(_DWORD *)(v66 + 80) & 0x40000) == 0 )
+              if ( (*(_DWORD *)(v65 + 80) & 0x40000) == 0 )
                 IopCloseFile(0LL, *((struct _FILE_OBJECT **)&v21->Next + 1), 1LL, 1LL);
             }
             else
             {
-              if ( *(_WORD *)(v66 + 88) )
-                ExFreePoolWithTag(*(PVOID *)(v66 + 96), 0);
+              if ( *(_WORD *)(v65 + 88) )
+                ExFreePoolWithTag(*(PVOID *)(v65 + 96), 0);
               *(_QWORD *)(*((_QWORD *)&v21->Next + 1) + 8LL) = 0LL;
               ObfDereferenceObject(*((PVOID *)&v21->Next + 1));
             }
@@ -445,42 +443,42 @@ LABEL_143:
         else
         {
           ExtraCreateParameter = (int)v21[1].Next;
-          v70 = ExtraCreateParameter;
-          if ( (v64 & 0xC0000000) == 0x80000000 )
+          v69 = ExtraCreateParameter;
+          if ( (v63 & 0xC0000000) == 0x80000000 )
           {
-            v65 = v73;
-            *v73 = v64;
-            *((_QWORD *)v65 + 1) = *((_QWORD *)&v21[1].Next + 1);
+            v64 = v72;
+            *v72 = v63;
+            *((_QWORD *)v64 + 1) = *((_QWORD *)&v21[1].Next + 1);
           }
         }
         if ( ExtraCreateParameter == -1073741772 )
         {
-          v67 = *((_QWORD *)&v21[1].Next + 1);
-          if ( v67 == 2684354563LL || v67 == 2684354572LL || v67 == 2147483673LL )
-            v70 = -1073741184;
+          v66 = *((_QWORD *)&v21[1].Next + 1);
+          if ( v66 == 2684354563LL || v66 == 2684354572LL || v66 == 2147483673LL )
+            v69 = -1073741184;
         }
 LABEL_163:
-        if ( v62 )
+        if ( v61 )
         {
-          v68 = (void *)*((_QWORD *)&v21->Next + 1);
-          if ( v68 )
-            ObfDereferenceObject(v68);
+          v67 = (void *)*((_QWORD *)&v21->Next + 1);
+          if ( v67 )
+            ObfDereferenceObject(v67);
         }
         if ( Object )
           ObfDereferenceObject(Object);
-        v69 = KeGetCurrentPrcb();
-        v40 = v69->PPLookasideList[8].P;
+        v68 = KeGetCurrentPrcb();
+        v40 = v68->PPLookasideList[8].P;
         ++v40->TotalFrees;
         if ( LOWORD(v40->ListHead.Alignment) >= v40->Depth )
         {
           ++v40->FreeMisses;
-          v40 = v69->PPLookasideList[8].L;
+          v40 = v68->PPLookasideList[8].L;
           ++v40->TotalFrees;
           if ( LOWORD(v40->ListHead.Alignment) >= v40->Depth )
           {
             ++v40->FreeMisses;
             ((void (__fastcall *)(PSLIST_ENTRY))v40->FreeEx)(v21);
-            return v70;
+            return v69;
           }
         }
         goto LABEL_93;
@@ -507,12 +505,12 @@ LABEL_81:
       {
         LODWORD(v21[5].Next) = NumberOfBytes;
         memmove(PoolWithTag, Src, (unsigned int)NumberOfBytes);
-        v38 = IoCheckEaBufferValidity(*((PFILE_FULL_EA_INFORMATION *)&v21[4].Next + 1), NumberOfBytes, v73 + 2);
-        v70 = v38;
+        v38 = IoCheckEaBufferValidity(*((PFILE_FULL_EA_INFORMATION *)&v21[4].Next + 1), NumberOfBytes, v72 + 2);
+        v69 = v38;
         if ( v38 < 0 )
         {
           ExFreePoolWithTag(*((PVOID *)&v21[4].Next + 1), 0);
-          *v73 = v38;
+          *v72 = v38;
           v39 = KeGetCurrentPrcb();
           v40 = v39->PPLookasideList[8].P;
           ++v40->TotalFrees;
@@ -525,12 +523,12 @@ LABEL_81:
             {
               ++v40->FreeMisses;
               ((void (__fastcall *)(PSLIST_ENTRY))v40->FreeEx)(v21);
-              return v70;
+              return v69;
             }
           }
 LABEL_93:
           RtlpInterlockedPushEntrySList(&v40->ListHead, v21);
-          return v70;
+          return v69;
         }
         goto LABEL_95;
       }

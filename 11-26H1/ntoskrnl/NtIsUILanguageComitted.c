@@ -1,12 +1,12 @@
 /*
- * XREFs of NtIsUILanguageComitted @ 0x140B24990
+ * XREFs of NtIsUILanguageComitted @ 0x140B26E30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtIsUILanguageComitted()
+NTSTATUS NtIsUILanguageComitted(void)
 {
-  return HIDWORD(PspSiloMonitorLock.CycleTime) == 0 ? 0xC0000034 : 0;
+  return PspSiloMonitorLock.CurrentRunTime == 0 ? 0xC0000034 : 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopUnmaskInterrupt @ 0x140158A24
+ * XREFs of IopUnmaskInterrupt @ 0x140158B24
  * Callers:
- *     IoReportInterruptActive @ 0x1401589F0 (IoReportInterruptActive.c)
+ *     IoReportInterruptActive @ 0x140158AF0 (IoReportInterruptActive.c)
  * Callees:
- *     KeUnmaskInterrupt @ 0x140158AA0 (KeUnmaskInterrupt.c)
+ *     KeUnmaskInterrupt @ 0x140158BA0 (KeUnmaskInterrupt.c)
  */
 
 __int64 __fastcall IopUnmaskInterrupt(__int64 a1)

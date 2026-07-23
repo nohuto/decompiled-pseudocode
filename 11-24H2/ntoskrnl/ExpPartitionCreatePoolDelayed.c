@@ -1,16 +1,15 @@
 /*
- * XREFs of ExpPartitionCreatePoolDelayed @ 0x140A221DC
+ * XREFs of ExpPartitionCreatePoolDelayed @ 0x1408F898C
  * Callers:
- *     ExpWorkQueueManagerThread @ 0x140A21D40 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x1408F84F0 (ExpWorkQueueManagerThread.c)
  * Callees:
- *     ExpPartitionCreatePoolInternal @ 0x140A22748 (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1408F7C7C (ExpPartitionCreatePoolInternal.c)
  */
 
-__int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, unsigned __int16 *a2, int a3)
+__int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, USHORT *a2, int a3)
 {
   __int64 v3; // r11
   __int64 v5; // r8
-  int v6; // r9d
   __int64 v7; // rax
   __int64 v8; // rdx
   char *v9; // rcx
@@ -19,7 +18,6 @@ __int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, unsigned __int16 *a
 
   v3 = a3;
   v5 = 0LL;
-  v6 = (int)a2;
   v7 = (*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * *a2) + 8 * v3) >> 1) & 0x7FLL;
   v8 = KeNodeBlock[v7];
   v9 = (char *)&KiNodeInit + 824 * v7;
@@ -29,5 +27,5 @@ __int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, unsigned __int16 *a
   v11 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * *v10);
   if ( (*(_QWORD *)(v11 + 8 * v3) & 1) == 0 )
     v5 = *(_QWORD *)(v11 + 8 * v3);
-  return ExpPartitionCreatePoolInternal(a1, (2 * *(_DWORD *)(v5 + 716)) >> 1, *(_DWORD *)(v5 + 720), v6, v3);
+  return ExpPartitionCreatePoolInternal(a1, (2 * *(_DWORD *)(v5 + 716)) >> 1, *(_DWORD *)(v5 + 720), a2, v3);
 }

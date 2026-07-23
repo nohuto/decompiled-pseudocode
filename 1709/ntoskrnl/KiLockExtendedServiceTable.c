@@ -544,7 +544,7 @@ LABEL_109:
     v95 = (unsigned __int64)&qword_140359D48;
     v96 = (unsigned __int64)&qword_140359D48 & 0x3F;
     RtlImageNtHeader((PVOID)0x140000000LL);
-    RtlCaptureImageExceptionValues(0x140000000uLL, &v136, (int)&v123);
+    RtlCaptureImageExceptionValues(0x140000000uLL, (__int64)&v136, (__int64)&v123);
     v97 = v136;
     v98 = 0x140000000uLL;
     v137 = 0x140000000uLL;

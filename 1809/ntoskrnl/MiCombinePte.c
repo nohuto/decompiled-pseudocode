@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCombinePte @ 0x140088F10
+ * XREFs of MiCombinePte @ 0x140088F00
  * Callers:
  *     <none>
  * Callees:
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
- *     MiPerformCombineScan @ 0x140101D60 (MiPerformCombineScan.c)
- *     MiComputeHash64 @ 0x140101DF0 (MiComputeHash64.c)
- *     MiMapArbitraryPage @ 0x14010EA10 (MiMapArbitraryPage.c)
- *     MiReleaseArbitraryPage @ 0x140111C80 (MiReleaseArbitraryPage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCombineWorkingSetTail @ 0x1401226C0 (MiCombineWorkingSetTail.c)
- *     MiHashIsCommon @ 0x1402CBFB8 (MiHashIsCommon.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiCombineCandidate @ 0x1400B2610 (MiCombineCandidate.c)
+ *     MiPerformCombineScan @ 0x140101DE0 (MiPerformCombineScan.c)
+ *     MiComputeHash64 @ 0x140101E70 (MiComputeHash64.c)
+ *     MiMapArbitraryPage @ 0x14010EA90 (MiMapArbitraryPage.c)
+ *     MiReleaseArbitraryPage @ 0x140111CF0 (MiReleaseArbitraryPage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCombineWorkingSetTail @ 0x140122790 (MiCombineWorkingSetTail.c)
+ *     MiHashIsCommon @ 0x1402CC1A8 (MiHashIsCommon.c)
  */
 
 __int64 __fastcall MiCombinePte(__int64 a1, unsigned __int64 a2, int a3)
@@ -63,7 +63,7 @@ __int64 __fastcall MiCombinePte(__int64 a1, unsigned __int64 a2, int a3)
     v10 = v3 - 1280;
     if ( (*(_DWORD *)(v3 - 508) & 0xC00u) < 0xC00 )
       return 3LL;
-    v11 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v10 + 1454));
+    v11 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v10 + 1454));
     if ( *(_DWORD *)(v11 + 1144) )
     {
       if ( *(_QWORD *)(v11 + 1264) == v10 )
@@ -147,7 +147,7 @@ LABEL_21:
     {
       if ( (unsigned int)MiPteHasShadow(v30, v29) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v29 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v29 & 1) != 0 )
           v29 |= 0x8000000000000000uLL;
         *v26 = v29;
         MiWritePteShadow(v26);
@@ -171,7 +171,7 @@ LABEL_27:
   {
     if ( (unsigned int)MiPteHasShadow(v35, v34) )
     {
-      if ( !HIBYTE(word_14043A1AC) && (v34 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v34 & 1) != 0 )
         v34 |= 0x8000000000000000uLL;
       *v26 = v34;
       MiWritePteShadow(v26);

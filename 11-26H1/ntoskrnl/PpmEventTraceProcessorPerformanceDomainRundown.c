@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x140B21C4C
+ * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x140B2404C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KeAndGroupAffinityEx @ 0x140469070 (KeAndGroupAffinityEx.c)
- *     KeQueryGroupAffinity @ 0x14049AF50 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     KeAndGroupAffinityEx @ 0x140462640 (KeAndGroupAffinityEx.c)
+ *     KeQueryGroupAffinity @ 0x140494AA0 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
@@ -44,10 +44,7 @@ void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
   _OWORD v29[32]; // [rsp+488h] [rbp+380h] BYREF
 
   Pool2 = 0LL;
-  if ( PpmEtwRegistered
-    && EtwEventEnabled(
-         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-         &PPM_ETW_PERF_DOMAIN_RUNDOWN) )
+  if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PERF_DOMAIN_RUNDOWN) )
   {
     v3 = 0;
     v26 = 0;
@@ -127,12 +124,7 @@ void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
     v13 = v12;
     UserData[v13].Ptr = a1 + 448;
     *(_QWORD *)&UserData[v13].Size = 4LL;
-    EtwWrite(
-      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-      &PPM_ETW_PERF_DOMAIN_RUNDOWN,
-      0LL,
-      v12 + 1,
-      UserData);
+    EtwWrite(PpmEtwHandle, &PPM_ETW_PERF_DOMAIN_RUNDOWN, 0LL, v12 + 1, UserData);
     if ( Pool2 )
       ExFreePoolWithTag(Pool2, 0x654D5050u);
   }

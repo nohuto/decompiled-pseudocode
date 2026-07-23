@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeProcessUserVa @ 0x140962818
+ * XREFs of MiComputeProcessUserVa @ 0x140A086A0
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1409622B0 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x140A08138 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MmGetMinWsPagePriority @ 0x1404B1660 (MmGetMinWsPagePriority.c)
- *     MiUpdateChargedWsles @ 0x1405240B4 (MiUpdateChargedWsles.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MmGetMinWsPagePriority @ 0x1404AACF0 (MmGetMinWsPagePriority.c)
+ *     MiUpdateChargedWsles @ 0x140526724 (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -14,8 +14,8 @@ __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _Q
   __int64 v4; // rax
   unsigned __int64 v9; // rdi
   __int64 v10; // rcx
-  __int64 v11; // rdx
   __int64 result; // rax
+  __int64 v12; // rcx
   __int16 v13; // ax
 
   v4 = *(_QWORD *)(a1 + 1040);
@@ -25,7 +25,7 @@ __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _Q
   *(_QWORD *)(v4 + 1160) = v4 + 1160;
   if ( !(unsigned int)MmGetMinWsPagePriority() && (*(_DWORD *)(v10 + 1532) & 1) == 0 )
   {
-    result = MiChargeFullProcessCommitment(v10, 4LL);
+    result = MiChargeFullProcessCommitment(v10, 4uLL);
     if ( (int)result < 0 )
       return result;
     MiUpdateChargedWsles(a1 + 1024, 4uLL);
@@ -36,10 +36,10 @@ __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _Q
     {
       if ( (*(_DWORD *)(a3 + 56) & 0x20) != 0 )
       {
-        v11 = *(_QWORD *)(*(_QWORD *)MiSectionControlArea(a3) + 56LL);
+        v12 = *(_QWORD *)MiSectionControlArea(a3);
         if ( (*(_DWORD *)(a1 + 500) & 0x20000) == 0 )
         {
-          if ( (*(_BYTE *)(v11 + 44) & 0x20) != 0 )
+          if ( (*(_BYTE *)(*(_QWORD *)(v12 + 56) + 44LL) & 0x20) != 0 || (*(_DWORD *)(a1 + 500) & 0x200) != 0 )
           {
             if ( *(_QWORD *)(a1 + 784) )
             {
@@ -61,7 +61,7 @@ __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _Q
       }
     }
   }
-  if ( dword_140FBE220 )
+  if ( dword_140FBF220 )
   {
     if ( v9 > 0x80000000 )
       _InterlockedOr((volatile signed __int32 *)(a1 + 500), 0x200000u);

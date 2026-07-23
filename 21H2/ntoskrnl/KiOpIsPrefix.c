@@ -1,7 +1,7 @@
 /*
- * XREFs of KiOpIsPrefix @ 0x140274090
+ * XREFs of KiOpIsPrefix @ 0x140262030
  * Callers:
- *     KiOpDecode @ 0x140273EE0 (KiOpDecode.c)
+ *     KiOpDecode @ 0x140261E80 (KiOpDecode.c)
  * Callees:
  *     <none>
  */

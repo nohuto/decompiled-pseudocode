@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpPrintErrorInformation @ 0x180118FFC
+ * XREFs of RtlpPrintErrorInformation @ 0x180118FCC
  * Callers:
- *     RtlpReportHeapFailure @ 0x180119558 (RtlpReportHeapFailure.c)
+ *     RtlpReportHeapFailure @ 0x180119528 (RtlpReportHeapFailure.c)
  * Callees:
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
  */
 
-__int64 RtlpPrintErrorInformation()
+ULONG RtlpPrintErrorInformation()
 {
   const char *v0; // rbx
 
-  v0 = byte_180138CCA;
+  v0 = (const char *)&Flags;
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else

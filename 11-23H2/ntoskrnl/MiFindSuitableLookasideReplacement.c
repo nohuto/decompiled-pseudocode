@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFindSuitableLookasideReplacement @ 0x140331130
+ * XREFs of MiFindSuitableLookasideReplacement @ 0x1403313C0
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiReplaceStandbyLookaside @ 0x140330C08 (MiReplaceStandbyLookaside.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiReplaceStandbyLookaside @ 0x140330E98 (MiReplaceStandbyLookaside.c)
  * Callees:
- *     MiIsDecayPfn @ 0x14026EBD0 (MiIsDecayPfn.c)
- *     MiPageStandbyLookasideStatus @ 0x140331450 (MiPageStandbyLookasideStatus.c)
- *     MiPurgingPageFromLookaside @ 0x1403314B0 (MiPurgingPageFromLookaside.c)
- *     MiSetStandbyLookasideState @ 0x140331620 (MiSetStandbyLookasideState.c)
- *     MiGetStandbyPageType @ 0x140650774 (MiGetStandbyPageType.c)
+ *     MiIsDecayPfn @ 0x14026EE60 (MiIsDecayPfn.c)
+ *     MiPageStandbyLookasideStatus @ 0x1403316E0 (MiPageStandbyLookasideStatus.c)
+ *     MiPurgingPageFromLookaside @ 0x140331740 (MiPurgingPageFromLookaside.c)
+ *     MiSetStandbyLookasideState @ 0x1403318B0 (MiSetStandbyLookasideState.c)
+ *     MiGetStandbyPageType @ 0x140650CC4 (MiGetStandbyPageType.c)
  */
 
 __int64 __fastcall MiFindSuitableLookasideReplacement(int a1, _QWORD *a2, int a3, __int64 a4, int a5)

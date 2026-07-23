@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCchCopyStringN @ 0x14057EFB8
+ * XREFs of RtlUnicodeStringCchCopyStringN @ 0x14057F1F8
  * Callers:
- *     PopPlInitWString @ 0x1408F99FC (PopPlInitWString.c)
+ *     PopPlInitWString @ 0x1408F9B5C (PopPlInitWString.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker @ 0x14057F088 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x14057F2C8 (RtlWideCharArrayCopyStringWorker.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCchCopyStringN(

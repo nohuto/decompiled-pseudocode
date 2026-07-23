@@ -1,20 +1,20 @@
 /*
- * XREFs of MiShutdownSystem @ 0x14057BBF4
+ * XREFs of MiShutdownSystem @ 0x14057CBF4
  * Callers:
- *     MmShutdownSystem @ 0x14057BEF0 (MmShutdownSystem.c)
+ *     MmShutdownSystem @ 0x14057CEF0 (MmShutdownSystem.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x140097F00 (MmUnlockPagableImageSection.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     CcNotifyWriteBehind @ 0x1401530C8 (CcNotifyWriteBehind.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiZeroAllPageFiles @ 0x14057BD54 (MiZeroAllPageFiles.c)
- *     MmLockPagableSectionByHandle @ 0x14061F240 (MmLockPagableSectionByHandle.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     MiDeletePagingFiles @ 0x140853200 (MiDeletePagingFiles.c)
+ *     MmUnlockPagableImageSection @ 0x140097E40 (MmUnlockPagableImageSection.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     CcNotifyWriteBehind @ 0x1401531C8 (CcNotifyWriteBehind.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AB1E0 (MiFlushAllFilesystemPages.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiZeroAllPageFiles @ 0x14057CD54 (MiZeroAllPageFiles.c)
+ *     MmLockPagableSectionByHandle @ 0x140620240 (MmLockPagableSectionByHandle.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     MiDeletePagingFiles @ 0x140854460 (MiDeletePagingFiles.c)
  */
 
 char MiShutdownSystem()
@@ -28,13 +28,13 @@ char MiShutdownSystem()
   PVOID v6; // rsi
   PVOID v7; // rcx
 
-  if ( !dword_14043A764 )
+  if ( !dword_14043B824 )
   {
     CcNotifyWriteBehind();
     MiFlushAllFilesystemPages();
-    dword_14043A764 = 1;
-    KeSetEvent(&stru_14043C9A8, 0, 0);
-    if ( byte_14043A762 == 1 )
+    dword_14043B824 = 1;
+    KeSetEvent(&stru_14043DA68, 0, 0);
+    if ( byte_14043B822 == 1 )
     {
       if ( (MiFlags & 4) == 0 )
         MmLockPagableSectionByHandle(ExPageLockHandle);

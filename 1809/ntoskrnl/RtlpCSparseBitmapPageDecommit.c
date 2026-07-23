@@ -7,9 +7,9 @@
  *     RtlpCSparseBitmapUnlock @ 0x14000A7A0 (RtlpCSparseBitmapUnlock.c)
  *     RtlpCSparseBitmapLock @ 0x14000AB40 (RtlpCSparseBitmapLock.c)
  *     RtlCSparseBitmapEnterLockingRegion @ 0x14000ABB8 (RtlCSparseBitmapEnterLockingRegion.c)
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
- *     ExpUnblockPushLock @ 0x140111B80 (ExpUnblockPushLock.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x1402FE230 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
+ *     ExpUnblockPushLock @ 0x140111BF0 (ExpUnblockPushLock.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x1402FE420 (RtlpCSparseBitmapWaitOnAddress.c)
  */
 
 __int64 __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, __int64 a3)

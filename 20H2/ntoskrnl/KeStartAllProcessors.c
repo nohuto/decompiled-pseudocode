@@ -249,7 +249,7 @@ ULONG KeStartAllProcessors()
       if ( !v20 )
         goto LABEL_108;
       v21 = (_OWORD *)KeNodeBlock[v42[0]];
-      if ( (unsigned int)HvlInitializeProcessor((union _SLIST_HEADER *)v20)
+      if ( (unsigned int)HvlInitializeProcessor((_SLIST_HEADER *)v20)
         || !(unsigned int)MmInitializeProcessor(v20)
         || (int)KiInitializePrcbContext(v20, v42[0]) < 0
         || (int)KeInitializeTimerTable(v20) < 0 )

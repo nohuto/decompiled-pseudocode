@@ -1,5 +1,5 @@
 /*
- * XREFs of ViPendingCompleteAtDPC @ 0x14070D3A8
+ * XREFs of ViPendingCompleteAtDPC @ 0x14070D3D8
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of PipIsDevNodeEffectivelyRemoved @ 0x1401CDEE8
+ * XREFs of PipIsDevNodeEffectivelyRemoved @ 0x1401CDD34
  * Callers:
- *     IopRetryDeviceRemovalForReset @ 0x14062C83C (IopRetryDeviceRemovalForReset.c)
+ *     IopRetryDeviceRemovalForReset @ 0x14062C8F0 (IopRetryDeviceRemovalForReset.c)
  * Callees:
  *     <none>
  */

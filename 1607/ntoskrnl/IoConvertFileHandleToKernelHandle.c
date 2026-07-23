@@ -1,19 +1,19 @@
 /*
- * XREFs of IoConvertFileHandleToKernelHandle @ 0x140623544
+ * XREFs of IoConvertFileHandleToKernelHandle @ 0x1406235F8
  * Callers:
- *     CmpNameFromAttributes @ 0x14049C2AC (CmpNameFromAttributes.c)
- *     IopOpenLinkOrRenameTarget @ 0x1404D9450 (IopOpenLinkOrRenameTarget.c)
- *     NtRestoreKey @ 0x1405FA570 (NtRestoreKey.c)
- *     NtSaveKey @ 0x1405FA800 (NtSaveKey.c)
- *     NtSaveKeyEx @ 0x1405FAA3C (NtSaveKeyEx.c)
- *     NtSaveMergedKeys @ 0x1405FACD4 (NtSaveMergedKeys.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1406AB86C (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x1406ABA40 (ExpQueryElamCertInfo.c)
+ *     CmpNameFromAttributes @ 0x1404A4444 (CmpNameFromAttributes.c)
+ *     IopOpenLinkOrRenameTarget @ 0x1404BCA54 (IopOpenLinkOrRenameTarget.c)
+ *     NtRestoreKey @ 0x1405FA624 (NtRestoreKey.c)
+ *     NtSaveKey @ 0x1405FA8B4 (NtSaveKey.c)
+ *     NtSaveKeyEx @ 0x1405FAAF0 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x1405FAD88 (NtSaveMergedKeys.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x1406AB9A4 (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x1406ABB78 (ExpQueryElamCertInfo.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     ObDuplicateObject @ 0x14050CBB0 (ObDuplicateObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     ObDuplicateObject @ 0x1404EFB40 (ObDuplicateObject.c)
  */
 
 NTSTATUS __fastcall IoConvertFileHandleToKernelHandle(

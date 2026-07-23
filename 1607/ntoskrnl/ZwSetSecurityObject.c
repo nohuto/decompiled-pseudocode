@@ -1,20 +1,19 @@
 /*
- * XREFs of ZwSetSecurityObject @ 0x14015CF00
+ * XREFs of ZwSetSecurityObject @ 0x14015D470
  * Callers:
- *     BiZwSetSecurityObject @ 0x14012E080 (BiZwSetSecurityObject.c)
- *     CmpInitBackupHive @ 0x14054DB38 (CmpInitBackupHive.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     CmpDoReDoSetEntireSecurityDescriptor @ 0x140611A4C (CmpDoReDoSetEntireSecurityDescriptor.c)
- *     CmpDoReDoSetSecurityDescriptor @ 0x140611B60 (CmpDoReDoSetSecurityDescriptor.c)
- *     PiDevCfgCopyDeviceKey @ 0x140636298 (PiDevCfgCopyDeviceKey.c)
- *     SmKmStoreFileCreateForIoType @ 0x140698F68 (SmKmStoreFileCreateForIoType.c)
- *     _RegRtlCopyTreeInternal @ 0x1406E0128 (_RegRtlCopyTreeInternal.c)
+ *     BiZwSetSecurityObject @ 0x14012E5F0 (BiZwSetSecurityObject.c)
+ *     CmpInitBackupHive @ 0x14054DED8 (CmpInitBackupHive.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     CmpDoReDoSetEntireSecurityDescriptor @ 0x140611B00 (CmpDoReDoSetEntireSecurityDescriptor.c)
+ *     CmpDoReDoSetSecurityDescriptor @ 0x140611C14 (CmpDoReDoSetSecurityDescriptor.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14063634C (PiDevCfgCopyDeviceKey.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14069904C (SmKmStoreFileCreateForIoType.c)
+ *     _RegRtlCopyTreeInternal @ 0x1406E0260 (_RegRtlCopyTreeInternal.c)
  *     IopApplySystemPartitionProt @ 0x1407CE99C (IopApplySystemPartitionProt.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetSecurityObject(
         HANDLE Handle,
         SECURITY_INFORMATION SecurityInformation,
@@ -22,5 +21,5 @@ NTSTATUS __stdcall ZwSetSecurityObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, *(_QWORD *)&SecurityInformation, SecurityDescriptor);
+  return KiServiceInternal(Handle);
 }

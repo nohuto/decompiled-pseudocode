@@ -12,12 +12,12 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SepRmDestroyCapTable(struct _RTL_DYNAMIC_HASH_TABLE *P)
+void __fastcall SepRmDestroyCapTable(_RTL_DYNAMIC_HASH_TABLE *P)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v2; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v3; // rdi
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v2; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v3; // rdi
   void *v4; // rcx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&Enumerator, 0, sizeof(Enumerator));
   RtlInitEnumerationHashTable(P, &Enumerator);

@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpFillProcessorStreamIndexMap @ 0x180088F70
+ * XREFs of EtwpFillProcessorStreamIndexMap @ 0x180088F80
  * Callers:
  *     EtwpInitLoggerContext @ 0x180051D88 (EtwpInitLoggerContext.c)
  * Callees:
@@ -10,11 +10,11 @@ __int64 __fastcall EtwpFillProcessorStreamIndexMap(__int64 a1, unsigned __int16 
 {
   unsigned int v6; // r10d
   unsigned int i; // r11d
-  __int64 Heap; // r8
+  _QWORD *Heap; // r8
   unsigned __int16 v11; // r11
   unsigned __int16 v12; // dx
   unsigned int v13; // r9d
-  __int64 j; // r14
+  char *j; // r14
   unsigned __int16 v15; // si
   __int64 v16; // rcx
   __int64 result; // rax
@@ -22,19 +22,19 @@ __int64 __fastcall EtwpFillProcessorStreamIndexMap(__int64 a1, unsigned __int16 
   v6 = 8 * a2;
   for ( i = 0; i < a4; i += (*(unsigned __int16 *)(i + a3 + 4) + 7) & 0xFFFFFFF8 )
     v6 += 2 * *(_DWORD *)(i + a3 + 44);
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v6);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v6);
   if ( !Heap )
     return 3221225495LL;
   v11 = 0;
   v12 = 0;
   v13 = 0;
-  for ( j = Heap + 8LL * a2; v13 < a4; v13 += (*(unsigned __int16 *)(v13 + a3 + 4) + 7) & 0xFFFFFFF8 )
+  for ( j = (char *)&Heap[a2]; v13 < a4; v13 += (*(unsigned __int16 *)(v13 + a3 + 4) + 7) & 0xFFFFFFF8 )
   {
     v15 = 0;
-    for ( *(_QWORD *)(Heap + 8LL * v12) = j + 2LL * v11; (unsigned int)v15 < *(_DWORD *)(v13 + a3 + 44); ++v15 )
+    for ( Heap[v12] = &j[2 * v11]; (unsigned int)v15 < *(_DWORD *)(v13 + a3 + 44); ++v15 )
     {
       v16 = v11;
-      *(_WORD *)(j + 2LL * v11) = v11;
+      *(_WORD *)&j[2 * v11] = v11;
       ++v11;
       *(_WORD *)(*(_QWORD *)(a1 + 536) + 4 * v16) = v12;
       *(_WORD *)(*(_QWORD *)(a1 + 536) + 4 * v16 + 2) = v15;

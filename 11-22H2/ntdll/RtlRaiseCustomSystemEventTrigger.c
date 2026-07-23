@@ -16,90 +16,99 @@
  *     RtlpCtContextInit @ 0x18010F0C4 (RtlpCtContextInit.c)
  */
 
-__int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)
+DWORD __cdecl RtlRaiseCustomSystemEventTrigger(PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG TriggerConfig)
 {
-  int WnfStateData; // ebx
-  __int64 Heap; // rdi
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  int v6; // [rsp+44h] [rbp-5h]
-  unsigned int v7; // [rsp+48h] [rbp-1h]
-  _PEB_LDR_DATA **v8; // [rsp+50h] [rbp+7h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp+Fh] BYREF
-  __int128 v10; // [rsp+68h] [rbp+1Fh]
-  __int64 v11; // [rsp+78h] [rbp+2Fh]
-  __int128 v12; // [rsp+80h] [rbp+37h] BYREF
+  NTSTATUS updated; // ebx
+  _DWORD *Buffer; // rdi
+  ULONG BufferSize; // [rsp+40h] [rbp-9h] BYREF
+  int InfoBuffer; // [rsp+44h] [rbp-5h] BYREF
+  ULONG ChangeStamp; // [rsp+48h] [rbp-1h] BYREF
+  PTP_WORK *v7; // [rsp+50h] [rbp+7h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp+Fh] BYREF
+  __int128 v9; // [rsp+68h] [rbp+1Fh]
+  WNF_STATE_NAME StateName; // [rsp+78h] [rbp+2Fh] BYREF
+  GUID Guid; // [rsp+80h] [rbp+37h] BYREF
 
-  v8 = 0LL;
-  v11 = WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED;
-  v10 = 0LL;
-  v12 = 0LL;
-  if ( a1 )
+  v7 = 0LL;
+  StateName = (WNF_STATE_NAME)WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED;
+  v9 = 0LL;
+  Guid = 0LL;
+  if ( TriggerConfig )
   {
-    RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(a1 + 8));
-    WnfStateData = RtlGUIDFromString(&DestinationString.Length, (__int64)&v12);
-    if ( WnfStateData < 0 )
-      return (unsigned int)WnfStateData;
+    RtlInitUnicodeString(&DestinationString, TriggerConfig->TriggerId);
+    updated = RtlGUIDFromString(&DestinationString, &Guid);
+    if ( updated < 0 )
+      return updated;
     if ( _InterlockedExchange(&RtlpCtPublishInProgress, 1) )
-      return (unsigned int)-1073741823;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 4096LL);
-    if ( Heap )
+      return -1073741823;
+    BufferSize = 4096;
+    Buffer = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x1000uLL);
+    if ( Buffer )
     {
-      WnfStateData = ZwQueryWnfStateData();
-      if ( WnfStateData >= 0 )
+      updated = ZwQueryWnfStateData(&StateName, 0LL, 0LL, &ChangeStamp, Buffer, &BufferSize);
+      if ( updated >= 0 )
       {
-        WnfStateData = NtQueryWnfStateNameInformation();
-        if ( WnfStateData >= 0 )
+        updated = NtQueryWnfStateNameInformation(&StateName, WnfInfoIsQuiescent, 0LL, &InfoBuffer, 4u);
+        if ( updated >= 0 )
         {
-          if ( v6 )
+          if ( InfoBuffer )
           {
-            WnfStateData = NtQueryWnfStateNameInformation();
-            if ( WnfStateData >= 0 )
+            updated = NtQueryWnfStateNameInformation(&StateName, WnfInfoSubscribersPresent, 0LL, &InfoBuffer, 4u);
+            if ( updated >= 0 )
             {
-              if ( Heap == -8 )
+              if ( InfoBuffer )
               {
-                WnfStateData = -1073741811;
+                BufferSize = 4096;
+                if ( Buffer == (_DWORD *)-8LL )
+                {
+                  updated = -1073741811;
+                }
+                else
+                {
+                  *(_OWORD *)(Buffer + 2) = v9;
+                  *(GUID *)(Buffer + 6) = Guid;
+                  Buffer[10] = 16;
+                  BufferSize = 36;
+                  *Buffer = 0;
+                  Buffer[1] = -1;
+                  *Buffer = 4 * (BufferSize & 0xFFF | 0x100000);
+                  updated = RtlpCtContextInit(&v7, ChangeStamp);
+                  if ( updated >= 0 )
+                  {
+                    updated = ZwUpdateWnfStateData(&StateName, Buffer, BufferSize + 8, 0LL, 0LL, ChangeStamp, 1u);
+                    if ( updated >= 0 )
+                    {
+                      TpPostWork(*v7);
+                      goto LABEL_23;
+                    }
+                  }
+                  if ( v7 )
+                    RtlpCtContextFree();
+                }
               }
               else
               {
-                *(_OWORD *)(Heap + 8) = v10;
-                *(_OWORD *)(Heap + 24) = v12;
-                *(_DWORD *)(Heap + 40) = 16;
-                *(_DWORD *)Heap = 0;
-                *(_DWORD *)(Heap + 4) = -1;
-                *(_DWORD *)Heap = 4194448;
-                WnfStateData = RtlpCtContextInit(&v8, v7);
-                if ( WnfStateData >= 0 )
-                {
-                  WnfStateData = ZwUpdateWnfStateData();
-                  if ( WnfStateData >= 0 )
-                  {
-                    TpPostWork(*v8, v3, v4);
-                    goto LABEL_21;
-                  }
-                }
-                if ( v8 )
-                  RtlpCtContextFree(v8, v3, v4);
+                updated = -1073741653;
               }
             }
           }
           else
           {
-            WnfStateData = -1073741823;
+            updated = -1073741823;
           }
         }
       }
     }
     else
     {
-      WnfStateData = -1073741670;
+      updated = -1073741670;
     }
     _InterlockedExchange(&RtlpCtPublishInProgress, 0);
-    if ( !Heap )
-      return (unsigned int)WnfStateData;
-LABEL_21:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-    return (unsigned int)WnfStateData;
+    if ( !Buffer )
+      return updated;
+LABEL_23:
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+    return updated;
   }
-  return (unsigned int)-1073741811;
+  return -1073741811;
 }

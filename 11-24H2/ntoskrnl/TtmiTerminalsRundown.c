@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmiTerminalsRundown @ 0x140770020
+ * XREFs of TtmiTerminalsRundown @ 0x140770240
  * Callers:
- *     TtmiSessionsRundown @ 0x140769F5C (TtmiSessionsRundown.c)
+ *     TtmiSessionsRundown @ 0x14076A17C (TtmiSessionsRundown.c)
  * Callees:
- *     TtmiLogTerminalRundown @ 0x14076EFFC (TtmiLogTerminalRundown.c)
+ *     TtmiLogTerminalRundown @ 0x14076F21C (TtmiLogTerminalRundown.c)
  */
 
 void __fastcall TtmiTerminalsRundown(__int64 a1)

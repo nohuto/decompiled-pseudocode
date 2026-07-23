@@ -47,8 +47,8 @@ void __fastcall CmpDereferenceKeyControlBlock(ULONG_PTR BugCheckParameter4)
   __int64 v9; // rax
   bool v10; // dl
   int v11; // ecx
-  __int64 v12; // rax
-  __int64 v13; // r14
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // r14
   unsigned __int8 CurrentIrql; // cl
   int v15; // eax
   __int64 v16; // rcx
@@ -158,7 +158,7 @@ LABEL_57:
             CurrentIrql = v30;
           }
           if ( v13 )
-            *(_BYTE *)(v13 + 26) |= 1u;
+            BYTE2(v13[1].Left) |= 1u;
           *(&CmpDelayedCloseTableLock + 1) = (ULONG_PTR)KeGetCurrentThread();
           v15 = CurrentIrql;
           v16 = CmpDelayedLRUListHead;

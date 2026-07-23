@@ -1,61 +1,57 @@
 /*
- * XREFs of MiChangePageAttributeBatch @ 0x1402668E4
+ * XREFs of MiChangePageAttributeBatch @ 0x1403A8860
  * Callers:
- *     MiConvertContiguousPages @ 0x140268C24 (MiConvertContiguousPages.c)
- *     MiFreeSlabEntry @ 0x1402D2150 (MiFreeSlabEntry.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
- *     MiChangePageAttributeAndZeroBatch @ 0x140414984 (MiChangePageAttributeAndZeroBatch.c)
- *     MiSwitchToTransition @ 0x1404F1388 (MiSwitchToTransition.c)
- *     MiPerformFinalZeroing @ 0x1404F8564 (MiPerformFinalZeroing.c)
- *     MiChangeAwePageAttributes @ 0x140681768 (MiChangeAwePageAttributes.c)
+ *     MiChangePageAttributeAndZeroBatch @ 0x1402708E0 (MiChangePageAttributeAndZeroBatch.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
+ *     MiFreeSlabEntry @ 0x1403533C8 (MiFreeSlabEntry.c)
+ *     MiConvertContiguousPages @ 0x1403932BC (MiConvertContiguousPages.c)
+ *     MiSwitchToTransition @ 0x1404EEE28 (MiSwitchToTransition.c)
+ *     MiPerformFinalZeroing @ 0x1404F5E44 (MiPerformFinalZeroing.c)
+ *     MiChangeAwePageAttributes @ 0x140682958 (MiChangeAwePageAttributes.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiAbortCombineScan @ 0x140265104 (MiAbortCombineScan.c)
- *     MiGetPteLink @ 0x140268350 (MiGetPteLink.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1403AE894 (MiFlushEntireTbDueToAttributeChange.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x1403AEA10 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KeInvalidateAllCaches @ 0x1403AEA80 (KeInvalidateAllCaches.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14039D0A4 (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x14039D220 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeInvalidateAllCaches @ 0x14039D290 (KeInvalidateAllCaches.c)
+ *     MiGetPteLink @ 0x1403A7E10 (MiGetPteLink.c)
+ *     MiAbortCombineScan @ 0x1403A9DB0 (MiAbortCombineScan.c)
  */
 
-void __fastcall MiChangePageAttributeBatch(__int64 *a1, int a2, __int64 a3, int a4)
+void __fastcall MiChangePageAttributeBatch(unsigned __int64 *a1, int a2, __int64 a3, int a4)
 {
-  __int64 v4; // rsi
+  unsigned __int64 v4; // rsi
   char i; // r12
-  __int64 PteLink; // r14
+  unsigned __int64 PteLink; // r14
   unsigned __int64 v7; // r15
   int v8; // r13d
   __int64 v9; // rdi
   __int64 v10; // rdx
-  unsigned __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  int v14; // edi
-  __int64 v15; // r12
-  __int64 v16; // r14
-  unsigned int v17; // ebp
-  __int64 v18; // rbp
-  _QWORD *MmInternal; // rdx
-  __int64 v20; // r9
-  int v21; // r11d
-  int v22; // r8d
-  int v23; // r10d
-  int v24; // r8d
-  unsigned __int64 v25; // rdi
-  __int64 v26; // r8
-  __int64 v27; // r9
-  struct _KPRCB *CurrentPrcb; // rcx
-  int v29; // [rsp+28h] [rbp-60h]
-  __int64 v30; // [rsp+30h] [rbp-58h]
-  char v31; // [rsp+90h] [rbp+8h]
+  __int64 v11; // r8
+  __int64 v12; // r9
+  int v13; // edi
+  unsigned __int64 v14; // r12
+  __int64 v15; // r14
+  unsigned int v16; // ebp
+  __int64 v17; // rbp
+  __int64 v18; // r9
+  int v19; // r11d
+  int v20; // r8d
+  char v21; // dl
+  int v22; // r10d
+  int v23; // r8d
+  unsigned __int64 v24; // rdi
+  int v25; // [rsp+28h] [rbp-60h]
+  unsigned __int64 v26; // [rsp+30h] [rbp-58h]
+  unsigned __int8 v27; // [rsp+90h] [rbp+8h]
 
   v4 = *a1;
-  v30 = *a1;
-  for ( i = 17; v4 != 0x7FFFFFFFFFLL; i = v31 )
+  v26 = *a1;
+  for ( i = 17; v4 != 0x7FFFFFFFFFLL; i = v27 )
   {
     PteLink = v4;
     v7 = 0LL;
@@ -71,16 +67,16 @@ void __fastcall MiChangePageAttributeBatch(__int64 *a1, int a2, __int64 a3, int 
       }
       else if ( a4 )
       {
-        v17 = 0;
+        v16 = 0;
         while ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 24), 0x3FuLL) )
         {
           do
           {
-            if ( (++v17 & HvlLongSpinCountMask) == 0
+            if ( (++v16 & HvlLongSpinCountMask) == 0
               && (HvlEnlightenments & 0x40) != 0
-              && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v11) )
+              && KiCheckVpBackingLongSpinWaitHypercall() )
             {
-              HvlNotifyLongSpinWait(v17);
+              HvlNotifyLongSpinWait(v16);
             }
             else
             {
@@ -92,79 +88,73 @@ void __fastcall MiChangePageAttributeBatch(__int64 *a1, int a2, __int64 a3, int 
       }
       else
       {
-        i = MiLockPageInline(v9);
+        i = MiLockPageInline(v9, v10, v11, v12);
       }
       if ( (HIWORD(*(_DWORD *)(v9 + 32)) & 0xC0) != 0xC0 )
         v8 = 0;
       MiAbortCombineScan(v9);
       ++v7;
-      if ( (unsigned __int8)i < 2u && (v7 & 0x3F) == 0 && KeShouldYieldProcessor() )
-        break;
-      v11 = 0xFFFFDE0000000000uLL;
     }
-    while ( PteLink != 0x7FFFFFFFFFLL );
-    v4 = v30;
-    v31 = i;
+    while ( ((unsigned __int8)i >= 2u || (v7 & 0x3F) != 0 || !KeShouldYieldProcessor()) && PteLink != 0x7FFFFFFFFFLL );
+    v4 = v26;
+    v27 = i;
     if ( v8 )
     {
-      v14 = a2;
+      v13 = a2;
     }
     else
     {
-      MiFlushEntireTbDueToAttributeChange(v11, v10, v12, v13);
-      v14 = a2;
-      if ( v7 >= (unsigned int)dword_140E2DB5C && a2 != 1 )
+      MiFlushEntireTbDueToAttributeChange();
+      v13 = a2;
+      if ( v7 >= (unsigned int)dword_140E2DC9C && a2 != 1 )
       {
-        ++dword_140E2DB54;
+        ++dword_140E2DC94;
         KeInvalidateAllCaches();
-        v16 = 0LL;
-        v15 = v30;
+        v15 = 0LL;
+        v14 = v26;
         goto LABEL_18;
       }
     }
-    v15 = v30;
-    v16 = 0LL;
-    if ( v30 == 0x7FFFFFFFFFLL )
+    v14 = v26;
+    v15 = 0LL;
+    if ( v26 == 0x7FFFFFFFFFLL )
       break;
     while ( 1 )
     {
 LABEL_18:
-      v30 = v4;
-      v18 = 48 * v15 - 0x220000000000LL;
-      v15 = MiGetPteLink(*(_QWORD *)(v18 + 16));
-      v29 = *(_DWORD *)(v18 + 32);
-      v22 = BYTE2(v29) >> 6;
-      BYTE2(v29) = (unsigned __int8)MmInternal | BYTE2(v29) & 0x3F;
-      *(_DWORD *)(v18 + 32) = v29;
-      if ( !v23 && !v8 && v22 == 1 && v14 != 1 )
+      v26 = v4;
+      v17 = 48 * v14 - 0x220000000000LL;
+      v14 = MiGetPteLink(*(_QWORD *)(v17 + 16));
+      v25 = *(_DWORD *)(v17 + 32);
+      v20 = BYTE2(v25) >> 6;
+      BYTE2(v25) = v21 | BYTE2(v25) & 0x3F;
+      *(_DWORD *)(v17 + 32) = v25;
+      if ( !v22 && !v8 && v20 == 1 && v13 != 1 )
       {
-        ++dword_140E2DB58;
-        v24 = 2;
-        if ( v14 != 2 )
-          v24 = v21;
-        v25 = MiMapPageInHyperSpaceWorker(0xAAAAAAAAAAAAAAABuLL * (v20 >> 4), 0LL, v24 | 0xC0000000);
-        KeInvalidateRangeAllCachesNoIpi(v25, 4096LL);
-        CurrentPrcb = KeGetCurrentPrcb();
-        MmInternal = CurrentPrcb->MmInternal;
-        *MmInternal = 0LL;
-        *(_QWORD *)(((v25 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = CLFS_LSN_NULL_EXT;
-        v14 = a2;
+        ++dword_140E2DC98;
+        v23 = 2;
+        if ( v13 != 2 )
+          v23 = v19;
+        v24 = MiMapPageInHyperSpaceWorker(0xAAAAAAAAAAAAAAABuLL * (v18 >> 4), 0LL, v23 | 0xC0000000);
+        KeInvalidateRangeAllCachesNoIpi(v24, 0x1000u);
+        *(_QWORD *)KeGetCurrentPrcb()->MmInternal = 0LL;
+        *(_QWORD *)(((v24 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = CLFS_LSN_NULL_EXT;
+        v13 = a2;
         if ( a2 == 3 )
-          MiFlushEntireTbDueToAttributeChange(CurrentPrcb, MmInternal, v26, v27);
+          MiFlushEntireTbDueToAttributeChange();
       }
-      *(_QWORD *)(v18 + 24) &= 0xC7FFFFFFFFFFFFFFuLL;
+      *(_QWORD *)(v17 + 24) &= 0xC7FFFFFFFFFFFFFFuLL;
       if ( a3 != -1 )
-        *(_QWORD *)(v18 + 16) = a3;
-      if ( ++v16 == v7 )
+        *(_QWORD *)(v17 + 16) = a3;
+      if ( ++v15 == v7 )
         break;
-      _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( v15 == 0x7FFFFFFFFFLL )
+      _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( v14 == 0x7FFFFFFFFFLL )
         goto LABEL_30;
     }
-    LOBYTE(MmInternal) = v31;
-    MiUnlockPage(v18, MmInternal);
-    v4 = v15;
-    v30 = v15;
+    MiUnlockPage(v17, v27);
+    v4 = v14;
+    v26 = v14;
 LABEL_30:
     ;
   }

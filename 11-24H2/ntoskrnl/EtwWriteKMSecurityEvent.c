@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwWriteKMSecurityEvent @ 0x1403482A0
+ * XREFs of EtwWriteKMSecurityEvent @ 0x140326CA0
  * Callers:
- *     AdtpWriteToEtwEx @ 0x140453140 (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x140AE821C (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x1404481F0 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x140AEB4C0 (AdtpWriteToEtw.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
  */
 
 __int64 EtwWriteKMSecurityEvent()
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
-  unsigned int v1; // r8d
+  int v1; // r8d
   __int64 v2; // r9
   __int64 v3; // r10
 
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   return EtwpEventWriteFull(
-           &CurrentServerSiloGlobals[52].Flink[1].Blink,
-           (unsigned __int16)CurrentServerSiloGlobals[52].Flink[271].Flink,
+           (unsigned int)CurrentServerSiloGlobals[52].Flink + 24,
+           LOWORD(CurrentServerSiloGlobals[52].Flink[271].Flink),
            0,
            0,
            v3,

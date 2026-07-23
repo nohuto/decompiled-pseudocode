@@ -1,15 +1,15 @@
 /*
- * XREFs of PopInitializeDripsWatchdog @ 0x1409DEB00
+ * XREFs of PopInitializeDripsWatchdog @ 0x1409DFB00
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     PopCapturePlatformRole @ 0x1406CBB34 (PopCapturePlatformRole.c)
- *     PopIsDirectedDripsEnabled @ 0x1406ED174 (PopIsDirectedDripsEnabled.c)
- *     PopInitializeTimer @ 0x140759448 (PopInitializeTimer.c)
- *     PopDripsWatchdogInitializeActions @ 0x1409F7E18 (PopDripsWatchdogInitializeActions.c)
- *     PopDripsWatchdogInitializeCallbackTimer @ 0x1409F7E78 (PopDripsWatchdogInitializeCallbackTimer.c)
- *     PopDripsWatchdogInitializeDiagnosticTimer @ 0x1409F7F78 (PopDripsWatchdogInitializeDiagnosticTimer.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     PopCapturePlatformRole @ 0x1406CCDD4 (PopCapturePlatformRole.c)
+ *     PopIsDirectedDripsEnabled @ 0x1406EE414 (PopIsDirectedDripsEnabled.c)
+ *     PopInitializeTimer @ 0x14075A638 (PopInitializeTimer.c)
+ *     PopDripsWatchdogInitializeActions @ 0x1409F8E18 (PopDripsWatchdogInitializeActions.c)
+ *     PopDripsWatchdogInitializeCallbackTimer @ 0x1409F8E78 (PopDripsWatchdogInitializeCallbackTimer.c)
+ *     PopDripsWatchdogInitializeDiagnosticTimer @ 0x1409F8F78 (PopDripsWatchdogInitializeDiagnosticTimer.c)
  */
 
 void PopInitializeDripsWatchdog()
@@ -29,9 +29,9 @@ void PopInitializeDripsWatchdog()
       && (int)PopDripsWatchdogInitializeCallbackTimer() >= 0
       && (int)PopDripsWatchdogInitializeDiagnosticTimer() >= 0 )
     {
-      dword_140416CA8 |= 2u;
+      dword_140417D28 |= 2u;
 LABEL_4:
-      dword_140416CA8 |= 1u;
+      dword_140417D28 |= 1u;
     }
   }
   else if ( PopPlatformAoAc )
@@ -51,14 +51,14 @@ LABEL_4:
       if ( v1 != 2 && v1 != 8 )
         v0 |= 1u;
     }
-    ExInitializeResourceLite(&stru_1404C67C8);
+    ExInitializeResourceLite(&stru_1404C7888);
     v2 = PopDripsCallbackInterval;
     if ( PopDripsCallbackInterval >= (unsigned int)PopDripsWatchdogTimeout || !PopDripsCallbackInterval )
       v2 = PopDripsWatchdogTimeout;
-    dword_1404C6754 = v0;
+    dword_1404C7814 = v0;
     PopDripsWatchdog = v2;
     PopInitializeTimer(
-      (__int64)&unk_1404C6830,
+      (__int64)&unk_1404C78F0,
       (__int64)PopDripsWatchdogTimerCallbackRoutine,
       (__int64)&PopDripsWatchdog,
       (__int64)PopDripsWatchdogWorkerRoutine,

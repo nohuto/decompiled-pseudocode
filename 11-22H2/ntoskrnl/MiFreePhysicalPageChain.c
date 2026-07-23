@@ -96,10 +96,10 @@ unsigned __int64 __fastcall MiFreePhysicalPageChain(__int64 a1, _QWORD *a2)
       *v16 = 0LL;
       *(_QWORD *)(v17 + 24) = v19 ^ ((v19 + 1) ^ v19) & 0x3FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiQueryLoadedPatches @ 0x140AA6168
+ * XREFs of MiQueryLoadedPatches @ 0x140AA11D8
  * Callers:
- *     NtManageHotPatch @ 0x140AE7000 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x140AE9BD0 (NtManageHotPatch.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     MiFindUserSidHotPatchContext @ 0x1407F279C (MiFindUserSidHotPatchContext.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     MiFindUserSidHotPatchContext @ 0x1407F2D6C (MiFindUserSidHotPatchContext.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
  */
 
 __int64 __fastcall MiQueryLoadedPatches(_QWORD *SourceSid, _QWORD *a2, _DWORD *a3, __int64 a4, unsigned int a5)
@@ -20,7 +20,7 @@ __int64 __fastcall MiQueryLoadedPatches(_QWORD *SourceSid, _QWORD *a2, _DWORD *a
   _DWORD *v6; // r14
   _QWORD *v7; // r15
   unsigned __int64 i; // rbx
-  _QWORD *v10; // rdi
+  char *v10; // rdi
   _QWORD *UserSidHotPatchContext; // rax
   unsigned __int64 v12; // rdx
   unsigned int v13; // esi
@@ -42,19 +42,18 @@ __int64 __fastcall MiQueryLoadedPatches(_QWORD *SourceSid, _QWORD *a2, _DWORD *a
   unsigned __int64 v29; // rcx
   _QWORD **v30; // rax
   _QWORD *v31; // rcx
-  __int64 v32; // rdx
-  $81B80DCEA5A02D890AB7B2872B48AC01 *v34; // rcx
+  bool v32; // zf
 
   CurrentThread = KeGetCurrentThread();
   v6 = a3;
   v7 = a2;
   i = 0LL;
   --CurrentThread->SpecialApcDisable;
-  v10 = KeAbPreAcquire((__int64)&qword_140E37490, 0LL);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E37490, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140E37490, 0, v10, (__int64)&qword_140E37490);
+  v10 = (char *)KeAbPreAcquire((__int64)&qword_140E375D0, 0LL);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E375D0, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140E375D0, 0, v10, (__int64)&qword_140E375D0);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   if ( SourceSid )
   {
     UserSidHotPatchContext = MiFindUserSidHotPatchContext(SourceSid);
@@ -66,7 +65,7 @@ __int64 __fastcall MiQueryLoadedPatches(_QWORD *SourceSid, _QWORD *a2, _DWORD *a
   }
   else
   {
-    v14 = &qword_140E37478;
+    v14 = &qword_140E375B8;
     v12 = 96LL;
     v13 = 0;
   }
@@ -176,14 +175,11 @@ LABEL_21:
   }
   v19 = 0;
 LABEL_42:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E37490, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140E37490);
-  KeAbPostRelease((ULONG_PTR)&qword_140E37490);
-  if ( CurrentThread->SpecialApcDisable++ == -1 )
-  {
-    v34 = &CurrentThread->152;
-    if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)v34->ApcState.ApcListHead[0].Flink != v34 )
-      KiCheckForKernelApcDelivery((__int64)v34, v32);
-  }
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E375D0, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_140E375D0);
+  KeAbPostRelease((ULONG_PTR)&qword_140E375D0);
+  v32 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v32 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery();
   return v19;
 }

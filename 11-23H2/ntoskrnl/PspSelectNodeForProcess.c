@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSelectNodeForProcess @ 0x140705DAC
+ * XREFs of PspSelectNodeForProcess @ 0x140705FBC
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
- *     RtlRandomEx @ 0x1402925A0 (RtlRandomEx.c)
+ *     RtlRandomEx @ 0x140292830 (RtlRandomEx.c)
  */
 
 __int64 PspSelectNodeForProcess()

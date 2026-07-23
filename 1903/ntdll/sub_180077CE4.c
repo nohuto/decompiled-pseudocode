@@ -8,7 +8,7 @@
  *     sub_180077DBC @ 0x180077DBC (sub_180077DBC.c)
  */
 
-signed __int64 sub_180077CE4()
+void sub_180077CE4()
 {
   unsigned int i; // ebx
   void (__stdcall *v1)(PEXCEPTION_RECORD); // rax
@@ -29,18 +29,18 @@ signed __int64 sub_180077CE4()
     v1 = (void (__stdcall *)(PEXCEPTION_RECORD))sub_180077DBC(i);
     if ( !v1 )
       break;
-    v2 = byte_18017A3F5;
+    v2 = BYTE5(LdrSystemDllInitBlock.ScpArm64EcCfgCheckESFunction);
     if ( v1 == RtlRaiseException )
       v2 = i;
-    byte_18017A3F5 = v2;
+    BYTE5(LdrSystemDllInitBlock.ScpArm64EcCfgCheckESFunction) = v2;
     v3 = RtlLookupFunctionEntry((ULONG64)v1, &ImageBase, 0LL);
     v4 = ImageBase;
     v5 = 2LL * i;
     EndAddress = v3->EndAddress;
     v7 = ImageBase + v3->BeginAddress;
-    *(_QWORD *)&dword_18017A3F0[2 * v5 + 8] = v3;
+    *((_QWORD *)&LdrSystemDllInitBlock + v5 + 40) = v3;
     v8 = v4 + EndAddress;
-    *(_QWORD *)&dword_18017A3F0[2 * v5 + 6] = v4;
+    *((_QWORD *)&LdrSystemDllInitBlock + v5 + 39) = v4;
     v9 = qword_18017A3F8;
     if ( v7 < qword_18017A3F8 )
       v9 = v7;
@@ -50,6 +50,6 @@ signed __int64 sub_180077CE4()
       v10 = v8;
     qword_18017A400 = v10;
   }
-  dword_18017A3F0[0] = i;
-  return sub_180035F18(1);
+  LODWORD(LdrSystemDllInitBlock.ScpArm64EcCfgCheckESFunction) = i;
+  sub_180035F18(1);
 }

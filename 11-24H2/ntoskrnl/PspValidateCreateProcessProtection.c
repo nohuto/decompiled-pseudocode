@@ -1,14 +1,14 @@
 /*
- * XREFs of PspValidateCreateProcessProtection @ 0x140A8BA34
+ * XREFs of PspValidateCreateProcessProtection @ 0x140A87F24
  * Callers:
- *     NtCreateUserProcess @ 0x140ACBA80 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140AC9930 (NtCreateUserProcess.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     RtlTestProtectedAccess @ 0x1409E87F0 (RtlTestProtectedAccess.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     RtlTestProtectedAccess @ 0x1409E37B0 (RtlTestProtectedAccess.c)
  */
 
-__int64 __fastcall PspValidateCreateProcessProtection(__int64 a1, __int64 a2, char a3, char a4, unsigned __int8 a5)
+__int64 __fastcall PspValidateCreateProcessProtection(__int64 a1, __int64 a2, char a3, char a4, PS_PROTECTION Source)
 {
   unsigned __int64 v5; // rbx
   unsigned int v6; // edi
@@ -30,7 +30,7 @@ __int64 __fastcall PspValidateCreateProcessProtection(__int64 a1, __int64 a2, ch
         3,
         (__int64)&Feature_ID51912085__private_descriptor);
     }
-    if ( (dword_140B3C464[3 * (v5 >> 4)] & 0x40) != 0 && !RtlTestProtectedAccess(a5, v5) )
+    if ( (dword_140B3E244[3 * (v5 >> 4)] & 0x40) != 0 && !RtlTestProtectedAccess(Source, (PS_PROTECTION)v5) )
       return (unsigned int)-1073741811;
   }
   return v6;

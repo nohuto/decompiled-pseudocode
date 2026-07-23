@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReferenceDataSubsections @ 0x140416740
+ * XREFs of MiReferenceDataSubsections @ 0x1403953D8
  * Callers:
- *     MiInsertInSystemSpace @ 0x140415F30 (MiInsertInSystemSpace.c)
+ *     MiInsertInSystemSpace @ 0x140393BFC (MiInsertInSystemSpace.c)
  * Callees:
- *     MiAddViewsForSection @ 0x14020DA70 (MiAddViewsForSection.c)
- *     MiLocateSubsectionNode @ 0x1402C31C0 (MiLocateSubsectionNode.c)
- *     MiOffsetToProtos @ 0x140319D40 (MiOffsetToProtos.c)
- *     MiDecrementLargeSubsections @ 0x1404C8E10 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x1404C96E0 (MiIncrementLargeSubsections.c)
+ *     MiOffsetToProtos @ 0x1402C28D0 (MiOffsetToProtos.c)
+ *     MiAddViewsForSection @ 0x140336DD0 (MiAddViewsForSection.c)
+ *     MiLocateSubsectionNode @ 0x14040FCF0 (MiLocateSubsectionNode.c)
+ *     MiDecrementLargeSubsections @ 0x1404C22C0 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1404C2B90 (MiIncrementLargeSubsections.c)
  */
 
 __int64 __fastcall MiReferenceDataSubsections(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3, unsigned int *a4)
@@ -15,13 +15,13 @@ __int64 __fastcall MiReferenceDataSubsections(__int64 a1, unsigned __int64 *a2, 
   unsigned __int64 v4; // rdx
   unsigned int v6; // ebx
   __int64 v9; // rbp
-  unsigned int v10; // esi
+  __int16 v10; // si
   unsigned __int64 v11; // r12
   int v12; // eax
   int v13; // edi
   int v14; // eax
   unsigned int v16; // r8d
-  _DWORD *SubsectionNode; // rax
+  __int64 SubsectionNode; // rax
   unsigned __int64 v18[8]; // [rsp+28h] [rbp-40h] BYREF
   int v20; // [rsp+88h] [rbp+20h]
 
@@ -56,7 +56,7 @@ __int64 __fastcall MiReferenceDataSubsections(__int64 a1, unsigned __int64 *a2, 
         v14 = 1;
         goto LABEL_6;
       }
-      v13 = MiAddViewsForSection((int **)v9, v11, v10 & 0xFFFFFDFF);
+      v13 = MiAddViewsForSection((int **)v9, v11, v10 & 0xFDFF);
     }
     if ( v13 < 0 )
       return (unsigned int)v13;
@@ -83,7 +83,7 @@ LABEL_6:
           while ( v16 <= 1 );
           if ( v16 > 1 )
           {
-            SubsectionNode = MiLocateSubsectionNode(a1, (a3 << 12) + *a2 - 1, 0);
+            SubsectionNode = MiLocateSubsectionNode(a1, (a3 << 12) + *a2 - 1, 0LL);
             MiDecrementLargeSubsections(v9, SubsectionNode);
           }
           else

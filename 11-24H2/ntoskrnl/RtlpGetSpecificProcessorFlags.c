@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetSpecificProcessorFlags @ 0x140B60C60
+ * XREFs of RtlpGetSpecificProcessorFlags @ 0x140B62D30
  * Callers:
- *     RtlDetectProcessorFeatures @ 0x140B60270 (RtlDetectProcessorFeatures.c)
+ *     RtlDetectProcessorFeatures @ 0x140B6233C (RtlDetectProcessorFeatures.c)
  * Callees:
  *     <none>
  */

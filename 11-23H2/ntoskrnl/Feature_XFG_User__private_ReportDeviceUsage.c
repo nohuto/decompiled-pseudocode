@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_XFG_User__private_ReportDeviceUsage @ 0x14041A1DC
+ * XREFs of Feature_XFG_User__private_ReportDeviceUsage @ 0x14041A56C
  * Callers:
  *     MiInitializeCfg @ 0x140B455F8 (MiInitializeCfg.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_XFG_User__private_ReportDeviceUsage()

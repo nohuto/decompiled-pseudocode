@@ -8,7 +8,7 @@
  *     RtlpFindUCREntry @ 0x18001D4F8 (RtlpFindUCREntry.c)
  *     RtlpHeapAddListEntry @ 0x18002070C (RtlpHeapAddListEntry.c)
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  *     RtlpHeapHandleError @ 0x180103D1C (RtlpHeapHandleError.c)
  */
 

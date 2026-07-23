@@ -102,7 +102,7 @@ __int64 __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)
             {
               *(_BYTE *)(v26 + 32) |= 2u;
               if ( *(__int64 *)(v26 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v26);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
               v37 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
               *(_DWORD *)(v26 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v26 + 25) &= ~1u;
@@ -165,7 +165,7 @@ LABEL_27:
           {
             *(_BYTE *)(v20 + 32) |= 2u;
             if ( *(__int64 *)(v20 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v20);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
             v34 = 0;
             v34 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
             *(_DWORD *)(v20 + 88) &= 0xFFFE0000;
@@ -226,7 +226,7 @@ LABEL_49:
         {
           *(_BYTE *)(v11 + 32) |= 2u;
           if ( *(__int64 *)(v11 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v11);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11);
           v28 = *(_DWORD *)(v11 + 88) & 0x1FFFF;
           *(_DWORD *)(v11 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v11 + 25) &= ~1u;

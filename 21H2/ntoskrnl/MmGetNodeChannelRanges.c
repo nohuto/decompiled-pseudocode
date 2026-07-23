@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetNodeChannelRanges @ 0x1407C84D0
+ * XREFs of MmGetNodeChannelRanges @ 0x1407C87F0
  * Callers:
- *     ExpQueryMemoryTopologyInformation @ 0x1407C8430 (ExpQueryMemoryTopologyInformation.c)
+ *     ExpQueryMemoryTopologyInformation @ 0x1407C8750 (ExpQueryMemoryTopologyInformation.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiDereferencePageRuns @ 0x14037EFC0 (MiDereferencePageRuns.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiReferencePageRuns @ 0x1402D43E0 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x14037EB10 (MiDereferencePageRuns.c)
  */
 
 __int64 __fastcall MmGetNodeChannelRanges(_QWORD *a1, SIZE_T *a2, __int64 a3, _DWORD *a4)
@@ -55,7 +55,7 @@ __int64 __fastcall MmGetNodeChannelRanges(_QWORD *a1, SIZE_T *a2, __int64 a3, _D
         v18 = *(v15 - 1);
         *((_DWORD *)v12 - 7) = v18;
         ++v13;
-        *((_QWORD *)v12 - 1) = *(_BYTE *)(v18 + qword_140C50D90 + 4544 * v17 + 4321) == 1;
+        *((_QWORD *)v12 - 1) = *(_BYTE *)(v18 + qword_140C50DD0 + 4544 * v17 + 4321) == 1;
       }
       while ( v13 < *v6 );
     }

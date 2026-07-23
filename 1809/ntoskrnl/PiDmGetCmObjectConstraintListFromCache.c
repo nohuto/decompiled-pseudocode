@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x1406D237C
+ * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x1406D361C
  * Callers:
- *     PiPnpRtlGetFilteredDeviceList @ 0x1406D1F64 (PiPnpRtlGetFilteredDeviceList.c)
- *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1406D2270 (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x1406D3204 (PiPnpRtlGetFilteredDeviceList.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1406D3510 (PiPnpRtlGetFilteredDeviceInterfaceList.c)
  * Callees:
- *     PiDmGetObjectConstraintList @ 0x1406D2404 (PiDmGetObjectConstraintList.c)
+ *     PiDmGetObjectConstraintList @ 0x1406D36A4 (PiDmGetObjectConstraintList.c)
  */
 
 __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(
@@ -22,7 +22,7 @@ __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(
 
   v9[1] = a4;
   v9[0] = a3;
-  switch ( *((_DWORD *)&unk_140354A10 + 10 * a1) )
+  switch ( *((_DWORD *)&unk_140355A10 + 10 * a1) )
   {
     case 1:
       v7 = 1;

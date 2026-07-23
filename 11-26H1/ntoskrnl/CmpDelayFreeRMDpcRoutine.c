@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpDelayFreeRMDpcRoutine @ 0x1405277A0
+ * XREFs of CmpDelayFreeRMDpcRoutine @ 0x140529E10
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void CmpDelayFreeRMDpcRoutine()

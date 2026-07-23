@@ -1,13 +1,13 @@
 /*
- * XREFs of KiXmmException @ 0x14040F840
+ * XREFs of KiXmmException @ 0x14040F940
  * Callers:
- *     KiXmmExceptionShadow @ 0x140A14AC0 (KiXmmExceptionShadow.c)
+ *     KiXmmExceptionShadow @ 0x140A15AC0 (KiXmmExceptionShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x1403FE440 (KiSaveDebugRegisterState.c)
- *     KiXmmException @ 0x14040F840 (KiXmmException.c)
- *     KiBugCheckDispatch @ 0x140412740 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x1404127C0 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413B80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1403FE620 (KiSaveDebugRegisterState.c)
+ *     KiXmmException @ 0x14040F940 (KiXmmException.c)
+ *     KiBugCheckDispatch @ 0x140412840 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x1404128C0 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413C80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiXmmException()
@@ -56,7 +56,7 @@ void __noreturn KiXmmException()
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x14040FA75LL);
+      JUMPOUT(0x14040FB75LL);
     if ( (BpbState & 0x200) != 0 )
       KiFlushBhbDuringTrapEntryOrExit(v1);
     _mm_lfence();

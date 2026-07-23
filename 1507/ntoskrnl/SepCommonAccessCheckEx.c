@@ -97,9 +97,9 @@ bool __fastcall SepCommonAccessCheckEx(
   __int64 v63; // rax
   int v64; // ecx
   __int64 v65; // rcx
-  __int64 v66; // rdx
+  __int16 v66; // dx
   __int64 v67; // rax
-  __int64 v68; // rax
+  ACL *v68; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v71; // rdx
@@ -194,7 +194,7 @@ bool __fastcall SepCommonAccessCheckEx(
   int v161; // [rsp+11Ch] [rbp-14h] BYREF
   unsigned __int64 v162; // [rsp+120h] [rbp-10h]
   int v163; // [rsp+128h] [rbp-8h] BYREF
-  __int64 v164; // [rsp+130h] [rbp+0h]
+  ACL *v164; // [rsp+130h] [rbp+0h]
   __int64 v165; // [rsp+138h] [rbp+8h]
   __int64 v166; // [rsp+140h] [rbp+10h]
   int v167; // [rsp+148h] [rbp+18h]
@@ -401,10 +401,10 @@ LABEL_99:
   if ( !SepRmEnforceCap )
     goto LABEL_39;
   v65 = *(_QWORD *)(*((_QWORD *)v7 + 1) + 8LL);
-  v66 = *(unsigned __int16 *)(v65 + 2);
+  v66 = *(_WORD *)(v65 + 2);
   if ( (v66 & 0x10) == 0 || KeGetCurrentIrql() >= 2u )
     goto LABEL_39;
-  if ( (v66 & 0x8000) != 0 )
+  if ( v66 < 0 )
   {
     v67 = *(unsigned int *)(v65 + 12);
     if ( !(_DWORD)v67 )
@@ -412,16 +412,16 @@ LABEL_99:
       v164 = 0LL;
       goto LABEL_39;
     }
-    v68 = v65 + v67;
+    v68 = (ACL *)(v65 + v67);
   }
   else
   {
-    v68 = *(_QWORD *)(v65 + 24);
+    v68 = *(ACL **)(v65 + 24);
   }
   v164 = v68;
   if ( v68 )
   {
-    ScopedPolicySid = (void *)SepGetScopedPolicySid(v68, v66, 0x8000LL);
+    ScopedPolicySid = (void *)SepGetScopedPolicySid(v68);
     if ( ScopedPolicySid )
     {
       Cap = SepRmReferenceFindCap(ScopedPolicySid);
@@ -733,7 +733,7 @@ LABEL_167:
     {
       if ( !v149 )
       {
-        v95 = AuthzBasepInitializeResourceClaimsFromSacl(v164, (__int64)&v149);
+        v95 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v164, (__int64)&v149);
         v96 = (unsigned __int8)v159;
         if ( v95 < 0 )
           v96 = 1;

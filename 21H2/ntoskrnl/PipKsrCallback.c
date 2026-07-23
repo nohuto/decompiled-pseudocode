@@ -1,9 +1,9 @@
 /*
- * XREFs of PipKsrCallback @ 0x1408B2F00
+ * XREFs of PipKsrCallback @ 0x1408B3060
  * Callers:
  *     <none>
  * Callees:
- *     PipKsrNotifyDrivers @ 0x1408B2F78 (PipKsrNotifyDrivers.c)
+ *     PipKsrNotifyDrivers @ 0x1408B30D8 (PipKsrNotifyDrivers.c)
  */
 
 void __fastcall PipKsrCallback(PVOID CallbackContext, unsigned __int64 Argument1, int *Argument2)

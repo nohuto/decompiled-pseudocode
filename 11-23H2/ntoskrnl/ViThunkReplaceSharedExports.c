@@ -1,10 +1,10 @@
 /*
- * XREFs of ViThunkReplaceSharedExports @ 0x140ADC138
+ * XREFs of ViThunkReplaceSharedExports @ 0x140ADC128
  * Callers:
- *     ViThunkReplaceAllSharedExports @ 0x140ADBE94 (ViThunkReplaceAllSharedExports.c)
+ *     ViThunkReplaceAllSharedExports @ 0x140ADBE84 (ViThunkReplaceAllSharedExports.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x140293980 (VfIsVerifierEnabled.c)
- *     MmReplaceImportEntry @ 0x14062CAC8 (MmReplaceImportEntry.c)
+ *     VfIsVerifierEnabled @ 0x140293C10 (VfIsVerifierEnabled.c)
+ *     MmReplaceImportEntry @ 0x14062D018 (MmReplaceImportEntry.c)
  */
 
 void __fastcall ViThunkReplaceSharedExports(ULONG_PTR *a1, unsigned int a2)

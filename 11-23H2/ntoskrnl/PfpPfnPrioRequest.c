@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpPfnPrioRequest @ 0x14075DD48
+ * XREFs of PfpPfnPrioRequest @ 0x14075DF38
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14075D918 (PfQuerySuperfetchInformation.c)
- *     PfSetSuperfetchInformation @ 0x14075F994 (PfSetSuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14075DB08 (PfQuerySuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x14075FB84 (PfSetSuperfetchInformation.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     MmSetPfnListInfo @ 0x14038C2D0 (MmSetPfnListInfo.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MmQueryPfnList @ 0x1406EF440 (MmQueryPfnList.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     PfpCopyUserPfnPrioRequest @ 0x14075DF10 (PfpCopyUserPfnPrioRequest.c)
- *     MmRelocatePfnList @ 0x140A3C988 (MmRelocatePfnList.c)
+ *     MmQueryMemoryListInformation @ 0x1402F8BE8 (MmQueryMemoryListInformation.c)
+ *     MmSetPfnListInfo @ 0x14038C4B0 (MmSetPfnListInfo.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MmQueryPfnList @ 0x1406EF470 (MmQueryPfnList.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     PfpCopyUserPfnPrioRequest @ 0x14075E100 (PfpCopyUserPfnPrioRequest.c)
+ *     MmRelocatePfnList @ 0x140A3CC38 (MmRelocatePfnList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

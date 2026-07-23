@@ -10,18 +10,18 @@
 
 __int64 KiUnshadowKernelSectionByAddress()
 {
-  _DWORD *v0; // rax
-  unsigned int v1; // edx
-  unsigned __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  PIMAGE_SECTION_HEADER v0; // rax
+  unsigned int PhysicalAddress; // edx
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = 0LL;
-  RtlImageNtHeaderEx(1, 0x140000000uLL, 0LL, &v3);
-  v0 = (_DWORD *)RtlSectionTableFromVirtualAddress(
-                   v3,
-                   0x140000000LL,
-                   (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
-  v1 = v0[2];
-  if ( v1 <= v0[4] )
-    v1 = v0[4];
-  return MmDeleteShadowMapping(0x140000000LL + (unsigned int)v0[3], (v1 + 4095) & 0xFFFFF000);
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, (PVOID)0x140000000LL, 0LL, &OutHeaders);
+  v0 = RtlSectionTableFromVirtualAddress(
+         OutHeaders,
+         (PVOID)0x140000000LL,
+         (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
+  PhysicalAddress = v0->Misc.PhysicalAddress;
+  if ( PhysicalAddress <= v0->SizeOfRawData )
+    PhysicalAddress = v0->SizeOfRawData;
+  return MmDeleteShadowMapping(0x140000000LL + v0->VirtualAddress, (PhysicalAddress + 4095) & 0xFFFFF000);
 }

@@ -1,40 +1,37 @@
 /*
- * XREFs of PsInvokeWin32Callout @ 0x140A41140
+ * XREFs of PsInvokeWin32Callout @ 0x1409FCB60
  * Callers:
- *     SeCaptureAtomTableCallout @ 0x1404B53BC (SeCaptureAtomTableCallout.c)
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
- *     PspSetProcessTimerDelayForWin32 @ 0x140617338 (PspSetProcessTimerDelayForWin32.c)
- *     KiSystemCall64 @ 0x14073B680 (KiSystemCall64.c)
- *     PspEnsureGuiThreadAndBatchFlush @ 0x1407ED740 (PspEnsureGuiThreadAndBatchFlush.c)
- *     PspShutdownCsrProcess @ 0x1407EF3B8 (PspShutdownCsrProcess.c)
- *     PspQueryProcessInterferenceCountCallback @ 0x1407F9000 (PspQueryProcessInterferenceCountCallback.c)
- *     PspSetUILimitJobObject @ 0x1407F9E58 (PspSetUILimitJobObject.c)
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
- *     NtAddAtomEx @ 0x140841670 (NtAddAtomEx.c)
- *     NtFindAtom @ 0x1408417F0 (NtFindAtom.c)
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
- *     PopInvokeWin32CalloutWithWatchdog @ 0x140A3F7F4 (PopInvokeWin32CalloutWithWatchdog.c)
- *     NtQueryInformationAtom @ 0x140A40600 (NtQueryInformationAtom.c)
- *     ExpWin32DeleteProcedure @ 0x140A408B0 (ExpWin32DeleteProcedure.c)
- *     NtDeleteAtom @ 0x140A40A80 (NtDeleteAtom.c)
- *     PsConvertToGuiThread @ 0x140A40AE0 (PsConvertToGuiThread.c)
- *     PspExitLastThread @ 0x140A41964 (PspExitLastThread.c)
- *     PspAssignProcessToJob @ 0x140AC5D48 (PspAssignProcessToJob.c)
+ *     SeCaptureAtomTableCallout @ 0x1404AEFD4 (SeCaptureAtomTableCallout.c)
+ *     PspSetProcessTimerDelayForWin32 @ 0x14061A328 (PspSetProcessTimerDelayForWin32.c)
+ *     KiSystemCall64 @ 0x140740280 (KiSystemCall64.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1407F32A0 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     PspShutdownCsrProcess @ 0x1407F4F18 (PspShutdownCsrProcess.c)
+ *     PspQueryProcessInterferenceCountCallback @ 0x1407FEB00 (PspQueryProcessInterferenceCountCallback.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
+ *     NtAddAtomEx @ 0x1408478B0 (NtAddAtomEx.c)
+ *     NtFindAtom @ 0x140847A30 (NtFindAtom.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
+ *     PopInvokeWin32CalloutWithWatchdog @ 0x1409FB214 (PopInvokeWin32CalloutWithWatchdog.c)
+ *     NtQueryInformationAtom @ 0x1409FC020 (NtQueryInformationAtom.c)
+ *     ExpWin32DeleteProcedure @ 0x1409FC2D0 (ExpWin32DeleteProcedure.c)
+ *     NtDeleteAtom @ 0x1409FC4A0 (NtDeleteAtom.c)
+ *     PsConvertToGuiThread @ 0x1409FC500 (PsConvertToGuiThread.c)
+ *     PspExitLastThread @ 0x1409FD314 (PspExitLastThread.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     PsSessionGetWin32Callouts @ 0x14048806C (PsSessionGetWin32Callouts.c)
- *     KeCallbackValidationEpilogue @ 0x1404E07B8 (KeCallbackValidationEpilogue.c)
- *     KeCallbackValidationPrologue @ 0x1404E921C (KeCallbackValidationPrologue.c)
- *     PspUpdateCalloutParameters @ 0x1404FB6E0 (PspUpdateCalloutParameters.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     PsSessionGetWin32Callouts @ 0x140481BAC (PsSessionGetWin32Callouts.c)
+ *     KeCallbackValidationEpilogue @ 0x1404D9E98 (KeCallbackValidationEpilogue.c)
+ *     KeCallbackValidationPrologue @ 0x1404E22FC (KeCallbackValidationPrologue.c)
+ *     PspUpdateCalloutParameters @ 0x140518394 (PspUpdateCalloutParameters.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PsInvokeWin32Callout(int a1, __int128 *a2, int a3, __int64 a4)
 {
   __int64 v4; // rbp
   __int128 *v5; // rbx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   signed __int64 *v7; // rsi
   signed __int64 v8; // rdx
   struct _EX_RUNDOWN_REF *v9; // rdi

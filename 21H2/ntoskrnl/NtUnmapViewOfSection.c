@@ -1,12 +1,12 @@
 /*
- * XREFs of NtUnmapViewOfSection @ 0x14061A960
+ * XREFs of NtUnmapViewOfSection @ 0x1406845C0
  * Callers:
  *     <none>
  * Callees:
- *     NtUnmapViewOfSectionEx @ 0x14061E020 (NtUnmapViewOfSectionEx.c)
+ *     NtUnmapViewOfSectionEx @ 0x140687C90 (NtUnmapViewOfSectionEx.c)
  */
 
-__int64 __fastcall NtUnmapViewOfSection(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  return NtUnmapViewOfSectionEx(a1, a2, 0LL);
+  return NtUnmapViewOfSectionEx(ProcessHandle, BaseAddress, 0);
 }

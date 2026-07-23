@@ -1,11 +1,11 @@
 /*
- * XREFs of MiClearFileOnlyPfn @ 0x1401ED404
+ * XREFs of MiClearFileOnlyPfn @ 0x1401ED230
  * Callers:
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall MiClearFileOnlyPfn(__int64 a1)
@@ -28,16 +28,16 @@ void __fastcall MiClearFileOnlyPfn(__int64 a1)
   v4 = v5[2];
   *(_OWORD *)(a1 + 16) = v3;
   *(_OWORD *)(a1 + 32) = v4;
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140326678);
-  *(_QWORD *)a1 = qword_140326670;
-  qword_140326670 = a1;
-  if ( !byte_1403266A0 )
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_1403266B8);
+  *(_QWORD *)a1 = qword_1403266B0;
+  qword_1403266B0 = a1;
+  if ( !byte_1403266E0 )
   {
-    stru_140326680.List.Flink = 0LL;
-    stru_140326680.WorkerRoutine = (void (__fastcall *)(void *))MiDeleteExtentPfns;
-    stru_140326680.Parameter = (void *)1;
-    ExQueueWorkItem(&stru_140326680, DelayedWorkQueue);
-    byte_1403266A0 = 1;
+    stru_1403266C0.List.Flink = 0LL;
+    stru_1403266C0.WorkerRoutine = (void (__fastcall *)(void *))MiDeleteExtentPfns;
+    stru_1403266C0.Parameter = (void *)1;
+    ExQueueWorkItem(&stru_1403266C0, DelayedWorkQueue);
+    byte_1403266E0 = 1;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326678);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_1403266B8);
 }

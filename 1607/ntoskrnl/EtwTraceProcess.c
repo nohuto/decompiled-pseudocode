@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTraceProcess @ 0x14045D50C
+ * XREFs of EtwTraceProcess @ 0x14045C3DC
  * Callers:
- *     PspExitProcess @ 0x140460564 (PspExitProcess.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ *     PspExitProcess @ 0x14045F434 (PspExitProcess.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     TraceLoggingProviderEnabled @ 0x140088D10 (TraceLoggingProviderEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     TraceLoggingProviderEnabled @ 0x14010CF00 (TraceLoggingProviderEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     EtwpEnumerateAddressSpace @ 0x14042AE3C (EtwpEnumerateAddressSpace.c)
- *     EtwpWriteProcessEvent @ 0x14045D6F0 (EtwpWriteProcessEvent.c)
- *     EtwpWriteAppStateChangeSummary @ 0x14054A9D8 (EtwpWriteAppStateChangeSummary.c)
- *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x14054BDC4 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
- *     EtwpInitStateChangeInfo @ 0x14054BE94 (EtwpInitStateChangeInfo.c)
- *     EtwpWriteProcessStarted @ 0x14054C744 (EtwpWriteProcessStarted.c)
- *     EtwpWriteAppStateChange @ 0x14054C90C (EtwpWriteAppStateChange.c)
- *     EtwpLogProcessPerfCtrs @ 0x1406A23E4 (EtwpLogProcessPerfCtrs.c)
+ *     EtwpEnumerateAddressSpace @ 0x140429D0C (EtwpEnumerateAddressSpace.c)
+ *     EtwpWriteProcessEvent @ 0x14045C5C0 (EtwpWriteProcessEvent.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x14054AF18 (EtwpWriteAppStateChangeSummary.c)
+ *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x14054C304 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
+ *     EtwpInitStateChangeInfo @ 0x14054C3D4 (EtwpInitStateChangeInfo.c)
+ *     EtwpWriteProcessStarted @ 0x14054CC84 (EtwpWriteProcessStarted.c)
+ *     EtwpWriteAppStateChange @ 0x14054CE4C (EtwpWriteAppStateChange.c)
+ *     EtwpLogProcessPerfCtrs @ 0x1406A251C (EtwpLogProcessPerfCtrs.c)
  */
 
 void __fastcall EtwTraceProcess(ULONG_PTR BugCheckParameter1, __int16 a2)

@@ -209,7 +209,7 @@ LABEL_43:
                 goto LABEL_88;
               if ( (*(_BYTE *)(v26 + 64) & 2) != 0 )
               {
-                v39 = KeAbPreAcquire((ULONG_PTR)&CmpDelayedCloseTableLock, 0LL, 0LL);
+                v39 = KeAbPreAcquire((ULONG_PTR)&CmpDelayedCloseTableLock, 0LL, 0);
                 CurrentIrql = KeGetCurrentIrql();
                 __writecr8(1uLL);
                 if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayedCloseTableLock, 0) )

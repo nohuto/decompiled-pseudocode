@@ -3,7 +3,7 @@
  * Callers:
  *     KiCompleteKernelInit @ 0x1403D46A0 (KiCompleteKernelInit.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x1400F6220 (RtlLookupFunctionEntry.c)
+ *     RtlLookupFunctionEntry @ 0x1400F4070 (RtlLookupFunctionEntry.c)
  *     RtlpFunctionAddressTableEntry @ 0x1407B83A4 (RtlpFunctionAddressTableEntry.c)
  */
 

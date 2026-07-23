@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnPrefetchCacheCtxInitialize @ 0x140572824
+ * XREFs of PfSnPrefetchCacheCtxInitialize @ 0x140572D64
  * Callers:
  *     PfSnInitializePrefetcher @ 0x1407B3DC8 (PfSnInitializePrefetcher.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __fastcall PfSnPrefetchCacheCtxInitialize(_QWORD *a1)

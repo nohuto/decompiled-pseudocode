@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlInsertElementGenericTableAvl @ 0x14031EC30
+ * XREFs of RtlInsertElementGenericTableAvl @ 0x14031EEC0
  * Callers:
  *     VfAvlInsertReservedTreeNode @ 0x14020A3A4 (VfAvlInsertReservedTreeNode.c)
  *     PiUpdateDriverDBCache @ 0x140693190 (PiUpdateDriverDBCache.c)
- *     PopPowerRequestTableInsertEntry @ 0x1407A77A4 (PopPowerRequestTableInsertEntry.c)
- *     PopPowerRequestStatsCreate @ 0x1407A77DC (PopPowerRequestStatsCreate.c)
- *     PiDqQueryAddObjectToResultSet @ 0x1407E03B4 (PiDqQueryAddObjectToResultSet.c)
- *     PnpMapDeviceObjectToDeviceInstance @ 0x1407E1D48 (PnpMapDeviceObjectToDeviceInstance.c)
- *     EtwpEnumerateKeyProviders @ 0x140809074 (EtwpEnumerateKeyProviders.c)
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
- *     PiSwBusRelationAdd @ 0x140819CC8 (PiSwBusRelationAdd.c)
- *     PiDmObjectManagerPopulate @ 0x1408396DC (PiDmObjectManagerPopulate.c)
- *     EtwpInitializeAutoLoggers @ 0x14083BACC (EtwpInitializeAutoLoggers.c)
- *     EtwpEnumerateAutologgerPath @ 0x14083BD48 (EtwpEnumerateAutologgerPath.c)
- *     PiDcInitUpdateProperties @ 0x14084F4A8 (PiDcInitUpdateProperties.c)
- *     IopSetFileObjectIosbRange @ 0x140945F38 (IopSetFileObjectIosbRange.c)
- *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x14099F650 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
- *     VfPtAddStackInfoIfNotExist @ 0x140ADE5D0 (VfPtAddStackInfoIfNotExist.c)
- *     VfPtProcessAllocPoolInfo @ 0x140ADEA48 (VfPtProcessAllocPoolInfo.c)
+ *     PopPowerRequestTableInsertEntry @ 0x1407A7994 (PopPowerRequestTableInsertEntry.c)
+ *     PopPowerRequestStatsCreate @ 0x1407A79CC (PopPowerRequestStatsCreate.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x1407E0684 (PiDqQueryAddObjectToResultSet.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x1407E2018 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     EtwpEnumerateKeyProviders @ 0x140809344 (EtwpEnumerateKeyProviders.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
+ *     PiSwBusRelationAdd @ 0x140819F98 (PiSwBusRelationAdd.c)
+ *     PiDmObjectManagerPopulate @ 0x1408399DC (PiDmObjectManagerPopulate.c)
+ *     EtwpInitializeAutoLoggers @ 0x14083BDCC (EtwpInitializeAutoLoggers.c)
+ *     EtwpEnumerateAutologgerPath @ 0x14083C048 (EtwpEnumerateAutologgerPath.c)
+ *     PiDcInitUpdateProperties @ 0x14084F7A8 (PiDcInitUpdateProperties.c)
+ *     IopSetFileObjectIosbRange @ 0x140946138 (IopSetFileObjectIosbRange.c)
+ *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x14099F850 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
+ *     VfPtAddStackInfoIfNotExist @ 0x140ADE5C0 (VfPtAddStackInfoIfNotExist.c)
+ *     VfPtProcessAllocPoolInfo @ 0x140ADEA38 (VfPtProcessAllocPoolInfo.c)
  * Callees:
- *     RtlInsertElementGenericTableFullAvl @ 0x14031ECF0 (RtlInsertElementGenericTableFullAvl.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlInsertElementGenericTableFullAvl @ 0x14031EF80 (RtlInsertElementGenericTableFullAvl.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTableAvl(

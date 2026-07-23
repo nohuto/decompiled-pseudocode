@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuInitializeDmaGuardPolicy @ 0x14058DB34
+ * XREFs of HalpIommuInitializeDmaGuardPolicy @ 0x1405902B4
  * Callers:
- *     HalpIommuInitSystem @ 0x140BEB6E0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x140BF16E0 (HalpIommuInitSystem.c)
  * Callees:
- *     strstr @ 0x140535B20 (strstr.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuInitializeDmaGuardPolicy(__int64 a1, __int64 a2)

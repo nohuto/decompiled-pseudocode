@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_OnFeatureUsageProviderFlushNotification @ 0x140B58170
+ * XREFs of wil_details_OnFeatureUsageProviderFlushNotification @ 0x140B5AF90
  * Callers:
  *     <none>
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404FE2F8 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_RecordCachedUsage @ 0x140500C10 (wil_details_RecordCachedUsage.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404F78A8 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_RecordCachedUsage @ 0x1404FA400 (wil_details_RecordCachedUsage.c)
  */
 
 void __fastcall wil_details_OnFeatureUsageProviderFlushNotification(int a1)

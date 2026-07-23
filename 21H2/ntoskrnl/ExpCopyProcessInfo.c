@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCopyProcessInfo @ 0x140618A20
+ * XREFs of ExpCopyProcessInfo @ 0x140682680
  * Callers:
- *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
+ *     ExpGetProcessInformation @ 0x140708640 (ExpGetProcessInformation.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     PsQueryStatisticsProcess @ 0x140618CC0 (PsQueryStatisticsProcess.c)
- *     ExHandleTableQuery @ 0x140618ED0 (ExHandleTableQuery.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     PsQueryStatisticsProcess @ 0x140682920 (PsQueryStatisticsProcess.c)
+ *     ExHandleTableQuery @ 0x140682B30 (ExHandleTableQuery.c)
  */
 
 __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a4)
@@ -28,18 +28,18 @@ __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a
   PsQueryStatisticsProcess(a2, a4);
   v13 = 0;
   v16 = 0LL;
-  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112)) )
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112)) )
   {
     v8 = *(_QWORD *)(a2 + 1392);
     v16 = v8;
     if ( v8 )
     {
       ExHandleTableQuery(v8, &v13, 0LL);
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112));
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
       v9 = v13;
       goto LABEL_4;
     }
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
   }
   v9 = 0;
   v13 = 0;

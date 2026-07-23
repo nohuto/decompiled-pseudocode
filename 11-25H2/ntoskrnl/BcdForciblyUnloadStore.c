@@ -14,38 +14,39 @@
  *     BiLogMessage @ 0x140A26990 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdForciblyUnloadStore(__int64 a1)
+NTSTATUS __cdecl BcdForciblyUnloadStore(HANDLE BcdStoreHandle)
 {
   __int64 v2; // rcx
   char v3; // si
   int v4; // eax
   __int64 v5; // rdx
-  unsigned int v6; // r8d
-  int v8; // ebx
+  NTSTATUS v6; // r8d
+  NTSTATUS v8; // ebx
   __int64 v9; // rdx
-  int v10; // eax
+  NTSTATUS v10; // eax
   __int64 v11; // rcx
 
-  LOBYTE(v2) = BiIsOfflineHandle(a1);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = v2;
   v4 = BiAcquireBcdSyncMutant(v2);
   if ( v4 >= 0 )
   {
     v8 = 0;
-    if ( (unsigned __int8)BiIsSystemStore(a1, v5, (unsigned int)v4) && BiIsSynchFirmwareEntries(a1) )
+    if ( (unsigned __int8)BiIsSystemStore(BcdStoreHandle, v5, (unsigned int)v4)
+      && BiIsSynchFirmwareEntries((char)BcdStoreHandle) )
     {
       BiLogMessage(2LL, L"Exporting forcible unload to firmware");
-      v8 = BiExportStoreAlterationsToFirmware(a1);
+      v8 = BiExportStoreAlterationsToFirmware(BcdStoreHandle);
     }
     LOBYTE(v9) = 1;
-    v10 = BiUnloadHiveByHandle(a1, v9);
+    v10 = BiUnloadHiveByHandle(BcdStoreHandle, v9);
     if ( v8 < 0 )
       BiLogMessage(4LL, L"Failed to export unload alterations to firmware. Status: %x", (unsigned int)v8);
     else
       v8 = v10;
     LOBYTE(v11) = v3;
     BiReleaseBcdSyncMutant(v11);
-    return (unsigned int)v8;
+    return v8;
   }
   else
   {

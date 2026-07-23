@@ -1,7 +1,7 @@
 /*
- * XREFs of PromoteNode @ 0x1400C449C
+ * XREFs of PromoteNode @ 0x1400C233C
  * Callers:
- *     RebalanceNode @ 0x1400C43DC (RebalanceNode.c)
+ *     RebalanceNode @ 0x1400C227C (RebalanceNode.c)
  * Callees:
  *     <none>
  */

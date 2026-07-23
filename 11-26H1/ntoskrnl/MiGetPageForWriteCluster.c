@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageForWriteCluster @ 0x14033DC08
+ * XREFs of MiGetPageForWriteCluster @ 0x14033FC88
  * Callers:
- *     MiBuildReservationCluster @ 0x14033D2B4 (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x14033F334 (MiBuildReservationCluster.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiReferencePageForModifiedWrite @ 0x1402F4B50 (MiReferencePageForModifiedWrite.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402D6BD0 (MiReferencePageForModifiedWrite.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
  */
 
 __int64 __fastcall MiGetPageForWriteCluster(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, int *a4, _DWORD *a5)
@@ -26,8 +26,8 @@ __int64 __fastcall MiGetPageForWriteCluster(__int64 a1, ULONG_PTR a2, unsigned _
       && (*(_QWORD *)(v9 + 16) & 0xFFFFFFFFF801FC1FuLL) == a3 )
     {
       v11 = a3;
-      if ( qword_140E2D740 && (a3 & 0x10) == 0 )
-        v11 = a3 & qword_140E2D748;
+      if ( qword_140E2D8C0 && (a3 & 0x10) == 0 )
+        v11 = a3 & qword_140E2D8C8;
       if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(v11)) )
       {
         *a5 = MiReferencePageForModifiedWrite(v10, 0);
@@ -47,14 +47,14 @@ __int64 __fastcall MiGetPageForWriteCluster(__int64 a1, ULONG_PTR a2, unsigned _
   }
   if ( (unsigned int)*a4 <= 0x1F )
   {
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
       if ( (a3 & 0x10) == 0 )
-        a3 &= qword_140E2D748;
+        a3 &= qword_140E2D8C8;
     }
     if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(a3)) )
     {
-      v10 = 48 * qword_140E36038 - 0x220000000000LL;
+      v10 = 48 * qword_140E361B8 - 0x220000000000LL;
       v7 = *a4 + 1;
 LABEL_19:
       *a4 = v7;

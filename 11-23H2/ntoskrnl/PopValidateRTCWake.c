@@ -1,11 +1,11 @@
 /*
- * XREFs of PopValidateRTCWake @ 0x140AA14D4
+ * XREFs of PopValidateRTCWake @ 0x140AA1344
  * Callers:
- *     PopHandleWakeSources @ 0x140AA0E5C (PopHandleWakeSources.c)
+ *     PopHandleWakeSources @ 0x140AA0CCC (PopHandleWakeSources.c)
  * Callees:
- *     PopDiagTraceRtcWakeInfo @ 0x1405945BC (PopDiagTraceRtcWakeInfo.c)
- *     PopCurrentPowerStatePrecise @ 0x1408737C8 (PopCurrentPowerStatePrecise.c)
- *     PopCalculateWakeTimeAdjustment @ 0x140987168 (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTraceRtcWakeInfo @ 0x140594AAC (PopDiagTraceRtcWakeInfo.c)
+ *     PopCurrentPowerStatePrecise @ 0x140873A08 (PopCurrentPowerStatePrecise.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x140987368 (PopCalculateWakeTimeAdjustment.c)
  */
 
 unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
@@ -40,7 +40,7 @@ LABEL_22:
   if ( v5 == 16 )
   {
     v9 = 1;
-    dword_140C3D120 = 1;
+    dword_140C3CDE0 = 1;
     *a1 = 0;
     goto LABEL_10;
   }
@@ -48,38 +48,38 @@ LABEL_22:
   {
     v9 = 0;
     v3 = 1;
-    dword_140C3D120 = 0;
+    dword_140C3CDE0 = 0;
     *a1 = 0;
     goto LABEL_10;
   }
   if ( v5 )
   {
     PopCurrentPowerStatePrecise(&v13, 0LL);
-    dword_140C3D120 = dword_140C3D86C;
+    dword_140C3CDE0 = dword_140C3D96C;
   }
-  v9 = dword_140C3D120;
-  if ( dword_140C3D120 >= 0 )
+  v9 = dword_140C3CDE0;
+  if ( dword_140C3CDE0 >= 0 )
   {
 LABEL_10:
     if ( (unsigned __int64)v9 < 3 )
       goto LABEL_15;
   }
-  if ( qword_140C3D148 && qword_140C3D130[0] > (unsigned __int64)qword_140C3D148 )
+  if ( qword_140C3CE08 && qword_140C3CDF0[0] > (unsigned __int64)qword_140C3CE08 )
   {
     v9 = 1;
-    dword_140C3D120 = 1;
+    dword_140C3CDE0 = 1;
   }
   else
   {
     v9 = 0;
     v3 = 1;
-    dword_140C3D120 = 0;
+    dword_140C3CDE0 = 0;
   }
 LABEL_15:
-  v10 = qword_140C3D130[3 * v9];
+  v10 = qword_140C3CDF0[3 * v9];
   if ( v10 )
   {
-    v11 = qword_140C3D108;
+    v11 = qword_140C3CDC8;
     v2 = v11 - 10000 * (unsigned int)PopCalculateWakeTimeAdjustment();
     if ( v10 < v2 + 100000000 )
     {
@@ -100,7 +100,7 @@ LABEL_15:
   }
   v1 = 1;
 LABEL_23:
-  dword_140C3D120 = 3;
+  dword_140C3CDE0 = 3;
   *a1 = 0;
 LABEL_25:
   PopDiagTraceRtcWakeInfo(v3, v4, v1, (unsigned __int8)*a1, v8, v3, v2);

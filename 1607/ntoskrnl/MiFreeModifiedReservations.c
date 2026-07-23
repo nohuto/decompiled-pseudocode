@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeModifiedReservations @ 0x1401EE838
+ * XREFs of MiFreeModifiedReservations @ 0x1401EE664
  * Callers:
- *     MiModifiedPageWriter @ 0x140142508 (MiModifiedPageWriter.c)
- *     MiPageFileNoFreeSpace @ 0x1401EEBBC (MiPageFileNoFreeSpace.c)
+ *     MiModifiedPageWriter @ 0x140142A78 (MiModifiedPageWriter.c)
+ *     MiPageFileNoFreeSpace @ 0x1401EE9E8 (MiPageFileNoFreeSpace.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
  */
 
 __int64 __fastcall MiFreeModifiedReservations(__int64 a1, int a2)

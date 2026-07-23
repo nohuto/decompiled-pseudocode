@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapWmiExecutePluginCtlMethod @ 0x1406D8954
+ * XREFs of WheapWmiExecutePluginCtlMethod @ 0x1406DCAE4
  * Callers:
- *     WheapWmiExecuteMethod @ 0x1406D8758 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x1406DC8E8 (WheapWmiExecuteMethod.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall WheapWmiExecutePluginCtlMethod(

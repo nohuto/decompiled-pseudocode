@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLogPmcCounterRundown @ 0x1408BEA34
+ * XREFs of EtwpLogPmcCounterRundown @ 0x1408BFCF4
  * Callers:
- *     EtwpStopLoggerInstance @ 0x1406CB854 (EtwpStopLoggerInstance.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1408BE614 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpStopLoggerInstance @ 0x1406CCAF4 (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1408BF8D4 (EtwpCheckLoggerAccessAndDoRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
@@ -37,7 +37,7 @@ void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
         v10[0] = 0;
         v6 = &v12[3 * v4 + 17];
         *v6 = *(_DWORD *)(v2 + 4LL * v4);
-        if ( ((int (__fastcall *)(__int64, __int64, _DWORD *, _DWORD *))off_140400458[0])(1LL, 24LL, v6, v10) < 0 )
+        if ( ((int (__fastcall *)(__int64, __int64, _DWORD *, _DWORD *))off_140401458[0])(1LL, 24LL, v6, v10) < 0 )
           v7 = L"Unknown";
         else
           v7 = (const WCHAR *)v12[3 * v4 + 19];

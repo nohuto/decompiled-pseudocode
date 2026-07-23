@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOp_Mov @ 0x14048C950
+ * XREFs of KiOp_Mov @ 0x140486490
  * Callers:
  *     <none>
  * Callees:
- *     KiOpPciConfigSpaceAccessCommon @ 0x1405F82A4 (KiOpPciConfigSpaceAccessCommon.c)
+ *     KiOpPciConfigSpaceAccessCommon @ 0x1405FACC4 (KiOpPciConfigSpaceAccessCommon.c)
  */
 
 __int64 __fastcall KiOp_Mov(__int64 a1)

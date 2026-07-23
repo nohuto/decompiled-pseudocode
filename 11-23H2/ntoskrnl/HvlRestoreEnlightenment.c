@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlRestoreEnlightenment @ 0x14053FD14
+ * XREFs of HvlRestoreEnlightenment @ 0x1405403D4
  * Callers:
- *     PopHiberCheckResume @ 0x140AA2EA0 (PopHiberCheckResume.c)
+ *     PopHiberCheckResume @ 0x140AA2D10 (PopHiberCheckResume.c)
  * Callees:
- *     HvlpTryConfigureInterface @ 0x1403836B0 (HvlpTryConfigureInterface.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HvlpPhase0Enlightenments @ 0x14054941C (HvlpPhase0Enlightenments.c)
+ *     HvlpTryConfigureInterface @ 0x140383890 (HvlpTryConfigureInterface.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HvlpPhase0Enlightenments @ 0x140549ADC (HvlpPhase0Enlightenments.c)
  */
 
 __int64 __fastcall HvlRestoreEnlightenment(char a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUseSlabAllocator @ 0x1402E84B8
+ * XREFs of MiUseSlabAllocator @ 0x140349AF8
  * Callers:
- *     MiResolveMappedFileFault @ 0x140239490 (MiResolveMappedFileFault.c)
- *     MiGetHardFaultPages @ 0x1402D0AC8 (MiGetHardFaultPages.c)
- *     MiPfPutPagesInTransition @ 0x1402E692C (MiPfPutPagesInTransition.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiFinalizeImageHeaderPage @ 0x14049EAB8 (MiFinalizeImageHeaderPage.c)
- *     MiPfPrepareReadList @ 0x1409557EC (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MiResolveMappedFileFault @ 0x140214824 (MiResolveMappedFileFault.c)
+ *     MiGetHardFaultPages @ 0x1402F4630 (MiGetHardFaultPages.c)
+ *     MiPfPutPagesInTransition @ 0x140347F6C (MiPfPutPagesInTransition.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiFinalizeImageHeaderPage @ 0x1404998B8 (MiFinalizeImageHeaderPage.c)
+ *     MiPfPrepareReadList @ 0x14093919C (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */
@@ -51,7 +51,7 @@ LABEL_15:
     LODWORD(v9) = 0;
     goto LABEL_16;
   }
-  if ( !byte_140E2D82D
+  if ( !byte_140E2D96D
     || !(*(_QWORD *)(57216LL * a4 + *(_QWORD *)(a1 + 16) + 16952)
        + **(_QWORD **)(57216LL * a4 + *(_QWORD *)(a1 + 16) + 16936)) )
   {

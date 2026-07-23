@@ -10,7 +10,7 @@
  *     MiDeleteKernelShadowStack @ 0x140644434 (MiDeleteKernelShadowStack.c)
  */
 
-PSLIST_ENTRY __fastcall MiDeleteCachedKernelShadowStack(union _SLIST_HEADER *a1, struct _SLIST_ENTRY *a2, int a3)
+PSLIST_ENTRY __fastcall MiDeleteCachedKernelShadowStack(_SLIST_HEADER *a1, _SLIST_ENTRY *a2, int a3)
 {
   PSLIST_ENTRY result; // rax
 

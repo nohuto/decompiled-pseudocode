@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpWorkerThread @ 0x140241E80
+ * XREFs of ExpWorkerThread @ 0x1402E66D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetKernelStackSwapEnable @ 0x14022C190 (KeSetKernelStackSwapEnable.c)
- *     KeRemovePriQueue @ 0x1402421D0 (KeRemovePriQueue.c)
- *     PsGetPagePriorityThread @ 0x1402427D0 (PsGetPagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     ExpNewThreadNecessary @ 0x140242890 (ExpNewThreadNecessary.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     KeSetAffinityThread @ 0x1403993CC (KeSetAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     EtwTraceThreadWorkItem @ 0x1405A83C0 (EtwTraceThreadWorkItem.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetKernelStackSwapEnable @ 0x1402D0A10 (KeSetKernelStackSwapEnable.c)
+ *     KeRemovePriQueue @ 0x1402E6A20 (KeRemovePriQueue.c)
+ *     PsGetPagePriorityThread @ 0x1402E7020 (PsGetPagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     ExpNewThreadNecessary @ 0x1402E70E0 (ExpNewThreadNecessary.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     KeSetAffinityThread @ 0x14039951C (KeSetAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     EtwTraceThreadWorkItem @ 0x1405A85F0 (EtwTraceThreadWorkItem.c)
  */
 
 BOOLEAN __fastcall ExpWorkerThread(ULONG_PTR BugCheckParameter2)
@@ -26,37 +26,39 @@ BOOLEAN __fastcall ExpWorkerThread(ULONG_PTR BugCheckParameter2)
   __int64 v3; // r15
   int v5; // eax
   __int64 v6; // rax
+  __int64 v7; // r8
+  __int64 v8; // r9
   _QWORD *BugCheckParameter4; // rdi
-  void (__fastcall *v8)(const void *); // rbp
-  const void *v9; // r14
+  void (__fastcall *v10)(const void *); // rbp
+  const void *v11; // r14
   unsigned int Queue; // eax
-  signed __int32 v11; // eax
-  int v12; // edx
-  signed __int32 v13; // r8d
-  unsigned int v14; // edx
-  bool v15; // di
+  signed __int32 v13; // eax
+  int v14; // edx
+  signed __int32 v15; // r8d
+  unsigned int v16; // edx
+  bool v17; // di
   BOOLEAN result; // al
   struct _KPRCB *CurrentPrcb; // rax
-  unsigned int v18; // ecx
+  unsigned int v20; // ecx
   unsigned int PagePriorityThread; // eax
   int IoPriorityThread; // eax
-  signed __int32 v21[8]; // [rsp+0h] [rbp-98h] BYREF
-  __int64 v22; // [rsp+30h] [rbp-68h]
-  __int64 v23; // [rsp+38h] [rbp-60h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
-  unsigned int v25; // [rsp+90h] [rbp-8h]
+  signed __int32 v23[8]; // [rsp+0h] [rbp-98h] BYREF
+  __int64 v24; // [rsp+30h] [rbp-68h]
+  __int64 v25; // [rsp+38h] [rbp-60h]
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
+  unsigned int v27; // [rsp+90h] [rbp-8h]
 
   CurrentThread = KeGetCurrentThread();
   v2 = 1;
   v3 = *(_QWORD *)(BugCheckParameter2 + 696);
-  v23 = *(_QWORD *)(BugCheckParameter2 + 688);
+  v25 = *(_QWORD *)(BugCheckParameter2 + 688);
   v5 = *((_DWORD *)&CurrentThread[1].SwapListEntry + 3);
-  v22 = 0LL;
+  v24 = 0LL;
   PreviousAffinity = 0LL;
   if ( (v5 & 1) != 0 )
     __fastfail(0x38u);
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) = v5 | 1;
-  _InterlockedOr(v21, 0);
+  _InterlockedOr(v23, 0);
   if ( !ExpWorkersCanSwap )
     KeSetKernelStackSwapEnable(0);
   do
@@ -76,19 +78,23 @@ LABEL_4:
 LABEL_6:
         if ( v6 == 128 )
           goto LABEL_30;
-        if ( (unsigned __int8)ExpNewThreadNecessary(BugCheckParameter2, *(unsigned int *)(BugCheckParameter2 + 720)) )
+        if ( (unsigned __int8)ExpNewThreadNecessary(
+                                BugCheckParameter2,
+                                *(unsigned int *)(BugCheckParameter2 + 720),
+                                v7,
+                                v8) )
           KeSetEvent(
-            (PRKEVENT)(*(_QWORD *)(*(_QWORD *)(v23 + 16) + 8LL * *(unsigned __int16 *)(v3 + 146)) + 16LL),
+            (PRKEVENT)(*(_QWORD *)(*(_QWORD *)(v25 + 16) + 8LL * *(unsigned __int16 *)(v3 + 146)) + 16LL),
             0,
             0);
         _InterlockedIncrement((volatile signed __int32 *)(BugCheckParameter2 + 704));
-        v8 = (void (__fastcall *)(const void *))BugCheckParameter4[2];
-        v9 = (const void *)BugCheckParameter4[3];
+        v10 = (void (__fastcall *)(const void *))BugCheckParameter4[2];
+        v11 = (const void *)BugCheckParameter4[3];
         if ( (DWORD2(PerfGlobalGroupMask) & 0x8000000) != 0 )
         {
           EtwTraceThreadWorkItem(BugCheckParameter4[2], 1344LL);
-          v8(v9);
-          EtwTraceThreadWorkItem(v8, 1345LL);
+          v10(v11);
+          EtwTraceThreadWorkItem(v10, 1345LL);
         }
         else
         {
@@ -98,19 +104,19 @@ LABEL_6:
         {
           _disable();
           CurrentPrcb = KeGetCurrentPrcb();
-          v18 = v25 >> 9;
+          v20 = v27 >> 9;
           CurrentPrcb->BpbRetpolineState &= ~1u;
-          if ( (v18 & 1) != 0 )
+          if ( (v20 & 1) != 0 )
             _enable();
         }
         if ( CurrentThread->MutantListHead.Flink != &CurrentThread->MutantListHead )
-          KeBugCheckEx(0x39u, (ULONG_PTR)v8, (ULONG_PTR)v9, (ULONG_PTR)BugCheckParameter4, 0LL);
+          KeBugCheckEx(0x39u, (ULONG_PTR)v10, (ULONG_PTR)v11, (ULONG_PTR)BugCheckParameter4, 0LL);
         if ( CurrentThread->WaitBlock[3].SpareLong )
-          KeBugCheckEx(1u, (ULONG_PTR)v8, CurrentThread->ApcStateIndex, CurrentThread->CombinedApcDisable, 1uLL);
+          KeBugCheckEx(1u, (ULONG_PTR)v10, CurrentThread->ApcStateIndex, CurrentThread->CombinedApcDisable, 1uLL);
         if ( KeGetCurrentIrql() )
-          KeBugCheckEx(0xE1u, (ULONG_PTR)v8, KeGetCurrentIrql(), (ULONG_PTR)v9, (ULONG_PTR)BugCheckParameter4);
+          KeBugCheckEx(0xE1u, (ULONG_PTR)v10, KeGetCurrentIrql(), (ULONG_PTR)v11, (ULONG_PTR)BugCheckParameter4);
         if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
-          KeBugCheckEx(0xDFu, (ULONG_PTR)v8, (ULONG_PTR)v9, (ULONG_PTR)BugCheckParameter4, 0LL);
+          KeBugCheckEx(0xDFu, (ULONG_PTR)v10, (ULONG_PTR)v11, (ULONG_PTR)BugCheckParameter4, 0LL);
         if ( KeGetCurrentThread()->ApcStateIndex == 1 )
           KeBugCheckEx(
             5u,
@@ -119,26 +125,26 @@ LABEL_6:
             CurrentThread->ApcStateIndex,
             (ULONG_PTR)CurrentThread);
         if ( CurrentThread[1].WaitBlock[3].WaitListEntry.Blink != (struct _LIST_ENTRY *)-3LL )
-          KeBugCheckEx(0x19Au, (ULONG_PTR)v8, (ULONG_PTR)v9, (ULONG_PTR)BugCheckParameter4, 0LL);
+          KeBugCheckEx(0x19Au, (ULONG_PTR)v10, (ULONG_PTR)v11, (ULONG_PTR)BugCheckParameter4, 0LL);
         if ( (unsigned int)PsGetIoPriorityThread(CurrentThread) != 2 )
         {
           IoPriorityThread = PsGetIoPriorityThread(CurrentThread);
-          KeBugCheckEx(0x128u, (ULONG_PTR)v8, IoPriorityThread, (ULONG_PTR)v9, (ULONG_PTR)BugCheckParameter4);
+          KeBugCheckEx(0x128u, (ULONG_PTR)v10, IoPriorityThread, (ULONG_PTR)v11, (ULONG_PTR)BugCheckParameter4);
         }
         if ( (unsigned int)PsGetPagePriorityThread(CurrentThread) != 5 )
         {
           PagePriorityThread = PsGetPagePriorityThread(CurrentThread);
-          KeBugCheckEx(0x129u, (ULONG_PTR)v8, PagePriorityThread, (ULONG_PTR)v9, (ULONG_PTR)BugCheckParameter4);
+          KeBugCheckEx(0x129u, (ULONG_PTR)v10, PagePriorityThread, (ULONG_PTR)v11, (ULONG_PTR)BugCheckParameter4);
         }
         Queue = (unsigned int)CurrentThread[1].Queue;
         if ( (Queue & 0x100) != 0 )
-          KeBugCheckEx(0x15Bu, (ULONG_PTR)v8, (Queue >> 9) & 7, (ULONG_PTR)v9, (ULONG_PTR)BugCheckParameter4);
+          KeBugCheckEx(0x15Bu, (ULONG_PTR)v10, (Queue >> 9) & 7, (ULONG_PTR)v11, (ULONG_PTR)BugCheckParameter4);
         if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x800) != 0 )
           KeBugCheckEx(
             0x1D6u,
-            (ULONG_PTR)v8,
+            (ULONG_PTR)v10,
             (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) >> 11) & 1,
-            (ULONG_PTR)v9,
+            (ULONG_PTR)v11,
             (ULONG_PTR)BugCheckParameter4);
         if ( (CurrentThread->MiscFlags & 8) != 0 )
         {
@@ -146,8 +152,8 @@ LABEL_6:
             0,
             0,
             "EXWORKER: worker exit with system affinity set, worker routine %p, parameter %p, item %p\n",
-            v8,
-            v9,
+            v10,
+            v11,
             BugCheckParameter4);
           PreviousAffinity = 0LL;
           KeRevertToUserGroupAffinityThread(&PreviousAffinity);
@@ -164,8 +170,8 @@ LABEL_6:
             0,
             0,
             "EXWORKER: worker exit with activity ID set, worker routine %p, parameter %p, item %p\n",
-            v8,
-            v9,
+            v10,
+            v11,
             BugCheckParameter4);
           KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink = 0LL;
         }
@@ -180,23 +186,23 @@ LABEL_30:
        && (*(struct _KTHREAD **)&CurrentThread[1].SystemCallNumber != (struct _KTHREAD *)&CurrentThread[1].SystemCallNumber
         || *(_DWORD *)(BugCheckParameter2 + 4)) );
   _m_prefetchw((const void *)(BugCheckParameter2 + 712));
-  v11 = *(_DWORD *)(BugCheckParameter2 + 712);
+  v13 = *(_DWORD *)(BugCheckParameter2 + 712);
   do
   {
-    v12 = (v11 & 0x3FFF) - 1;
-    v13 = v11;
-    if ( v12 < (2 * *(_DWORD *)(BugCheckParameter2 + 716)) >> 1 && (v11 & 0x8000) == 0 )
+    v14 = (v13 & 0x3FFF) - 1;
+    v15 = v13;
+    if ( v14 < (2 * *(_DWORD *)(BugCheckParameter2 + 716)) >> 1 && (v13 & 0x8000) == 0 )
       goto LABEL_4;
-    v14 = v11 & 0xFFFFC000 | v12;
-    v11 = _InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter2 + 712), v14, v11);
+    v16 = v13 & 0xFFFFC000 | v14;
+    v13 = _InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter2 + 712), v16, v13);
   }
-  while ( v11 != v13 );
-  v15 = v14 == 0x8000;
+  while ( v13 != v15 );
+  v17 = v16 == 0x8000;
   if ( *(struct _KTHREAD **)&CurrentThread[1].SystemCallNumber != (struct _KTHREAD *)&CurrentThread[1].SystemCallNumber )
     KeBugCheckEx(0x1D2u, 0LL, (ULONG_PTR)CurrentThread, 0LL, 0LL);
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= ~1u;
   result = KeSetKernelStackSwapEnable(1u);
-  if ( v15 )
+  if ( v17 )
     return KeSetEvent(*(PRKEVENT *)(BugCheckParameter2 + 728), 0, 0);
   return result;
 }

@@ -1,55 +1,55 @@
 /*
- * XREFs of PopBatteryWorker @ 0x140AC7D70
+ * XREFs of PopBatteryWorker @ 0x140AC5DB0
  * Callers:
  *     <none>
  * Callees:
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoSynchronousCallDriver @ 0x140374C50 (IoSynchronousCallDriver.c)
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     IoCancelIrp @ 0x140418FA0 (IoCancelIrp.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     PopBatteryQueueWork @ 0x1404A42EC (PopBatteryQueueWork.c)
- *     Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline @ 0x1404F96CC (Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_Servicing_WeakChargerToast__private_IsEnabledDeviceUsageNoInline @ 0x1405D7CFC (Feature_Servicing_WeakChargerToast__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryWnfStateData @ 0x1406A9210 (ZwQueryWnfStateData.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     PopBatteryQueryStatus @ 0x14075ADC4 (PopBatteryQueryStatus.c)
- *     PopEvaluateWeakChargerStateV1 @ 0x14075B2D4 (PopEvaluateWeakChargerStateV1.c)
- *     PopPowerAdapterPublishRecState @ 0x14075B8C8 (PopPowerAdapterPublishRecState.c)
- *     PopPowerAdapterQueryStatus @ 0x14075BB40 (PopPowerAdapterQueryStatus.c)
- *     PopPowerAdapterTraceFailure @ 0x14075BE98 (PopPowerAdapterTraceFailure.c)
- *     PopResetCBTriggers @ 0x14075BFD8 (PopResetCBTriggers.c)
- *     PopSetPowerSettingValueAcDc @ 0x1409BC77C (PopSetPowerSettingValueAcDc.c)
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
- *     PopPrepareIoctl @ 0x140A5D1E8 (PopPrepareIoctl.c)
- *     PopBatteryUpdateCompositeInformation @ 0x140A68738 (PopBatteryUpdateCompositeInformation.c)
- *     PopBatteryInitialize @ 0x140A6AF9C (PopBatteryInitialize.c)
- *     PopEvaluateWeakChargerState @ 0x140A6D820 (PopEvaluateWeakChargerState.c)
- *     PopBatteryQueryEstimatedTime @ 0x140A81F70 (PopBatteryQueryEstimatedTime.c)
- *     PopEstimateChargeTime @ 0x140A82794 (PopEstimateChargeTime.c)
- *     PopBatteryEstimatesSpoiled @ 0x140A82920 (PopBatteryEstimatesSpoiled.c)
- *     PopAccountBatteryEnergyChange @ 0x140A9A614 (PopAccountBatteryEnergyChange.c)
- *     PopBatteryReadTag @ 0x140AADDAC (PopBatteryReadTag.c)
- *     PopBatteryWaitTag @ 0x140AB9BF0 (PopBatteryWaitTag.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     IoSynchronousCallDriver @ 0x14025D510 (IoSynchronousCallDriver.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IoCancelIrp @ 0x140408D50 (IoCancelIrp.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     PopBatteryQueueWork @ 0x14049F07C (PopBatteryQueueWork.c)
+ *     Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline @ 0x1404F6FAC (Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_WeakChargerToast__private_IsEnabledDeviceUsageNoInline @ 0x1405D5270 (Feature_Servicing_WeakChargerToast__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryWnfStateData @ 0x1406AA1B0 (ZwQueryWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     PopBatteryQueryStatus @ 0x1407594B4 (PopBatteryQueryStatus.c)
+ *     PopEvaluateWeakChargerStateV1 @ 0x140759DB0 (PopEvaluateWeakChargerStateV1.c)
+ *     PopPowerAdapterPublishRecState @ 0x14075A5D4 (PopPowerAdapterPublishRecState.c)
+ *     PopPowerAdapterQueryStatus @ 0x14075A84C (PopPowerAdapterQueryStatus.c)
+ *     PopPowerAdapterTraceFailure @ 0x14075AEC8 (PopPowerAdapterTraceFailure.c)
+ *     PopResetCBTriggers @ 0x14075B008 (PopResetCBTriggers.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1409A2DCC (PopSetPowerSettingValueAcDc.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
+ *     PopPrepareIoctl @ 0x140A54F18 (PopPrepareIoctl.c)
+ *     PopBatteryUpdateCompositeInformation @ 0x140A61AE8 (PopBatteryUpdateCompositeInformation.c)
+ *     PopEvaluateWeakChargerState @ 0x140A67028 (PopEvaluateWeakChargerState.c)
+ *     PopBatteryQueryEstimatedTime @ 0x140A7CB50 (PopBatteryQueryEstimatedTime.c)
+ *     PopEstimateChargeTime @ 0x140A7D338 (PopEstimateChargeTime.c)
+ *     PopBatteryEstimatesSpoiled @ 0x140A7D4C4 (PopBatteryEstimatesSpoiled.c)
+ *     PopAccountBatteryEnergyChange @ 0x140A95B84 (PopAccountBatteryEnergyChange.c)
+ *     PopBatteryReadTag @ 0x140AA8E2C (PopBatteryReadTag.c)
+ *     PopBatteryWaitTag @ 0x140AB4CB0 (PopBatteryWaitTag.c)
+ *     PopBatteryInitialize @ 0x140AC5B8C (PopBatteryInitialize.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopBatteryWorker()
 {
   int v0; // r13d
   bool v1; // r12
-  int WnfStateData; // eax
+  NTSTATUS v2; // eax
   int IsEnabledDeviceUsageNoInline; // eax
   __int64 *v4; // rdi
   __int64 v5; // rbx
@@ -119,7 +119,7 @@ __int64 __fastcall PopBatteryWorker()
   unsigned int v69; // ecx
   char v70; // r14
   int v71; // ecx
-  int updated; // edi
+  NTSTATUS updated; // edi
   int v73; // r8d
   const CHAR *v74; // rdx
   const CHAR *v75; // r9
@@ -165,15 +165,15 @@ __int64 __fastcall PopBatteryWorker()
   const CHAR *v115; // r11
   const CHAR *v116; // rdx
   int v117; // r10d
-  unsigned int v118; // eax
+  ULONG v118; // eax
   unsigned __int64 v119; // rax
   const CHAR *v120; // rdx
   int v121; // r9d
-  int v122; // eax
+  NTSTATUS v122; // eax
   signed __int32 v124[8]; // [rsp+8h] [rbp-100h] BYREF
-  PLARGE_INTEGER Timeout; // [rsp+28h] [rbp-E0h]
-  int *v126; // [rsp+30h] [rbp-D8h]
-  __int64 v127; // [rsp+38h] [rbp-D0h]
+  PVOID Buffer; // [rsp+28h] [rbp-E0h]
+  PULONG BufferSize; // [rsp+30h] [rbp-D8h]
+  __int64 CheckStamp; // [rsp+38h] [rbp-D0h]
   __int64 v128; // [rsp+40h] [rbp-C8h]
   __int64 v129; // [rsp+48h] [rbp-C0h]
   bool v130; // [rsp+58h] [rbp-B0h] BYREF
@@ -182,9 +182,9 @@ __int64 __fastcall PopBatteryWorker()
   bool v133; // [rsp+5Bh] [rbp-ADh] BYREF
   int v134; // [rsp+5Ch] [rbp-ACh]
   int v135; // [rsp+60h] [rbp-A8h]
-  int v136; // [rsp+64h] [rbp-A4h] BYREF
+  ULONG v136; // [rsp+64h] [rbp-A4h] BYREF
   int v137; // [rsp+68h] [rbp-A0h]
-  int v138; // [rsp+6Ch] [rbp-9Ch] BYREF
+  ULONG ChangeStamp; // [rsp+6Ch] [rbp-9Ch] BYREF
   int v139; // [rsp+70h] [rbp-98h]
   int v140; // [rsp+74h] [rbp-94h]
   __int64 v141; // [rsp+78h] [rbp-90h] BYREF
@@ -208,7 +208,7 @@ __int64 __fastcall PopBatteryWorker()
   int v159; // [rsp+F0h] [rbp-18h] BYREF
   int v160; // [rsp+F4h] [rbp-14h] BYREF
   int v161; // [rsp+F8h] [rbp-10h]
-  int v162; // [rsp+FCh] [rbp-Ch] BYREF
+  NTSTATUS v162; // [rsp+FCh] [rbp-Ch] BYREF
   int v163; // [rsp+100h] [rbp-8h] BYREF
   unsigned __int64 v164; // [rsp+108h] [rbp+0h] BYREF
   int v165; // [rsp+110h] [rbp+8h] BYREF
@@ -227,11 +227,11 @@ __int64 __fastcall PopBatteryWorker()
   _BYTE v178[24]; // [rsp+1E0h] [rbp+D8h] BYREF
   int v179; // [rsp+1F8h] [rbp+F0h]
   struct _EVENT_DATA_DESCRIPTOR v180; // [rsp+208h] [rbp+100h] BYREF
-  int *v181; // [rsp+228h] [rbp+120h]
+  ULONG *p_ChangeStamp; // [rsp+228h] [rbp+120h]
   __int64 v182; // [rsp+230h] [rbp+128h]
   __int64 *v183; // [rsp+238h] [rbp+130h]
   __int64 v184; // [rsp+240h] [rbp+138h]
-  int *v185; // [rsp+248h] [rbp+140h]
+  ULONG *v185; // [rsp+248h] [rbp+140h]
   __int64 v186; // [rsp+250h] [rbp+148h]
   int *v187; // [rsp+258h] [rbp+150h]
   __int64 v188; // [rsp+260h] [rbp+158h]
@@ -251,9 +251,9 @@ __int64 __fastcall PopBatteryWorker()
   char v202[16]; // [rsp+318h] [rbp+210h] BYREF
   char v203[16]; // [rsp+328h] [rbp+220h] BYREF
   char v204[16]; // [rsp+338h] [rbp+230h] BYREF
-  int *v205; // [rsp+348h] [rbp+240h]
+  ULONG *v205; // [rsp+348h] [rbp+240h]
   __int64 v206; // [rsp+350h] [rbp+248h]
-  int *v207; // [rsp+358h] [rbp+250h]
+  ULONG *v207; // [rsp+358h] [rbp+250h]
   __int64 v208; // [rsp+360h] [rbp+258h]
   int *v209; // [rsp+368h] [rbp+260h]
   __int64 v210; // [rsp+370h] [rbp+268h]
@@ -275,7 +275,7 @@ __int64 __fastcall PopBatteryWorker()
   struct _EVENT_DATA_DESCRIPTOR v226; // [rsp+3F8h] [rbp+2F0h] BYREF
   bool *v227; // [rsp+418h] [rbp+310h]
   __int64 v228; // [rsp+420h] [rbp+318h]
-  int *v229; // [rsp+428h] [rbp+320h]
+  NTSTATUS *v229; // [rsp+428h] [rbp+320h]
   __int64 v230; // [rsp+430h] [rbp+328h]
   int *v231; // [rsp+438h] [rbp+330h]
   __int64 v232; // [rsp+440h] [rbp+338h]
@@ -298,19 +298,17 @@ __int64 __fastcall PopBatteryWorker()
   v177 = 0LL;
   v179 = 0;
   memset(v178, 0, sizeof(v178));
-  PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+  PopAcquireRwLockShared(&PopPolicyDeviceLock);
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopCB);
   v147 = 0LL;
-  v126 = &v136;
-  v138 = 0;
-  Timeout = (PLARGE_INTEGER)&v147;
+  ChangeStamp = 0;
   v136 = 8;
-  WnfStateData = ZwQueryWnfStateData((__int64)&WNF_PO_DISCHARGE_START_FILETIME, 0LL);
-  if ( WnfStateData == -1073741670 || WnfStateData == -1073741431 )
+  v2 = ZwQueryWnfStateData(&WNF_PO_DISCHARGE_START_FILETIME, 0LL, 0LL, &ChangeStamp, &v147, &v136);
+  if ( v2 == -1073741670 || v2 == -1073741431 )
   {
     v134 = 0;
   }
-  else if ( WnfStateData || v136 != 8 )
+  else if ( v2 || v136 != 8 )
   {
     v134 = 1;
   }
@@ -319,10 +317,10 @@ __int64 __fastcall PopBatteryWorker()
     v134 = (v147 != 0) + 2;
   }
   IsEnabledDeviceUsageNoInline = Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline();
-  v4 = (__int64 *)qword_140F0AE70;
-  v5 = qword_140F0B0F0 & -(__int64)(IsEnabledDeviceUsageNoInline != 0);
+  v4 = (__int64 *)qword_140F0BCB0;
+  v5 = qword_140F0BF30 & -(__int64)(IsEnabledDeviceUsageNoInline != 0);
   v141 = v5;
-  while ( v4 != &qword_140F0AE70 )
+  while ( v4 != &qword_140F0BCB0 )
   {
     IoCancelIrp((PIRP)*(v4 - 1));
     v4 = (__int64 *)*v4;
@@ -333,7 +331,7 @@ __int64 __fastcall PopBatteryWorker()
   {
     IoCancelIrp(*(PIRP *)(v5 + 56));
   }
-  for ( i = (__int64 *)qword_140F0AE70; i != &qword_140F0AE70; i = (__int64 *)*i )
+  for ( i = (__int64 *)qword_140F0BCB0; i != &qword_140F0BCB0; i = (__int64 *)*i )
     KeWaitForSingleObject(i + 2, Executive, 0, 0, 0LL);
   if ( (unsigned int)Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline()
     && v5
@@ -357,7 +355,7 @@ __int64 __fastcall PopBatteryWorker()
     {
       PopAcquirePolicyLock(16LL, v7);
       PopResetCBTriggers(0x80u);
-      PopReleasePolicyLock(v12, v11, v13, v14, Timeout);
+      PopReleasePolicyLock(v12, v11, v13, v14, Buffer);
     }
     v132 = (v9 & 0x40) != 0;
     v148 = v132;
@@ -368,8 +366,8 @@ __int64 __fastcall PopBatteryWorker()
     {
       v1 = (*(_BYTE *)(v5 + 140) & 1) != 0;
     }
-    v15 = qword_140F0AE70;
-    if ( (__int64 *)qword_140F0AE70 != &qword_140F0AE70 )
+    v15 = qword_140F0BCB0;
+    if ( (__int64 *)qword_140F0BCB0 != &qword_140F0BCB0 )
     {
       do
       {
@@ -382,18 +380,18 @@ __int64 __fastcall PopBatteryWorker()
           *v18 = v16;
           v16[1] = (__int64)v18;
           *(_QWORD *)v15 = 0LL;
-          ++dword_140F0AECC;
-          --dword_140F0AE54;
-          byte_140F0AE58 = 1;
+          ++dword_140F0BD0C;
+          --dword_140F0BC94;
+          byte_140F0BC98 = 1;
           if ( (int)PopBatteryReadTag(v15 - 64) < 0 )
             PopBatteryWaitTag(v17);
           v10 = 1;
         }
         v15 = (__int64)v16;
       }
-      while ( v16 != &qword_140F0AE70 );
+      while ( v16 != &qword_140F0BCB0 );
     }
-    for ( j = qword_140F0AE60; (__int64 *)j != &qword_140F0AE60; j = *(_QWORD *)j )
+    for ( j = qword_140F0BCA0; (__int64 *)j != &qword_140F0BCA0; j = *(_QWORD *)j )
     {
       if ( *(_DWORD *)(j + 104) == 1 )
       {
@@ -404,8 +402,8 @@ __int64 __fastcall PopBatteryWorker()
           v10 = 1;
       }
     }
-    v20 = qword_140F0AE70;
-    if ( (__int64 *)qword_140F0AE70 != &qword_140F0AE70 )
+    v20 = qword_140F0BCB0;
+    if ( (__int64 *)qword_140F0BCB0 != &qword_140F0BCB0 )
     {
       do
       {
@@ -432,9 +430,9 @@ __int64 __fastcall PopBatteryWorker()
           v24 = *(_DWORD *)(v20 + 96);
           LODWORD(v129) = v23;
           LODWORD(v128) = v24;
-          LODWORD(v127) = *(_DWORD *)(v20 + 92);
-          LODWORD(v126) = *(_DWORD *)(v20 + 88);
-          LODWORD(Timeout) = *(_DWORD *)(v20 + 84);
+          LODWORD(CheckStamp) = *(_DWORD *)(v20 + 92);
+          LODWORD(BufferSize) = *(_DWORD *)(v20 + 88);
+          LODWORD(Buffer) = *(_DWORD *)(v20 + 84);
           DbgPrintEx(
             0x92u,
             3u,
@@ -446,9 +444,9 @@ __int64 __fastcall PopBatteryWorker()
             "|-- Rate       = %d\n"
             "|-- Est Time   = %u\n",
             v20 - 64,
-            Timeout,
-            v126,
-            v127,
+            Buffer,
+            BufferSize,
+            CheckStamp,
             v128,
             v129);
         }
@@ -459,7 +457,7 @@ __int64 __fastcall PopBatteryWorker()
         }
         v20 = *(_QWORD *)v20;
       }
-      while ( (__int64 *)v20 != &qword_140F0AE70 );
+      while ( (__int64 *)v20 != &qword_140F0BCB0 );
       v5 = v141;
       LOBYTE(v9) = v140;
       v137 = v0;
@@ -544,12 +542,12 @@ __int64 __fastcall PopBatteryWorker()
       if ( PopEstimateSpoilerMask )
       {
         PopEstimateSpoiledUntilTime = -1LL;
-        KeCancelTimer(&stru_140F082C0);
+        KeCancelTimer(&stru_140F085A0);
       }
       else
       {
         PopEstimateSpoiledUntilTime = MEMORY[0xFFFFF78000000008] + 300000000LL;
-        KiSetTimerEx((__int64)&stru_140F082C0, -300000000LL, 0, 0, (__int64)&PopPostSpoilingRefresh);
+        KiSetTimerEx((__int64)&stru_140F085A0, -300000000LL, 0, 0, (__int64)&PopPostSpoilingRefresh);
       }
     }
     v37 = 0;
@@ -584,11 +582,11 @@ __int64 __fastcall PopBatteryWorker()
     v135 = v39;
     v143 = 0;
     v145 = -1;
-    if ( dword_140F0AE54 )
+    if ( dword_140F0BC94 )
     {
-      v44 = qword_140F0AE70;
+      v44 = qword_140F0BCB0;
       v43 = v149;
-      if ( (__int64 *)qword_140F0AE70 != &qword_140F0AE70 )
+      if ( (__int64 *)qword_140F0BCB0 != &qword_140F0BCB0 )
       {
         v45 = v161;
         do
@@ -688,7 +686,7 @@ __int64 __fastcall PopBatteryWorker()
           v44 = *(_QWORD *)v44;
           v42 = v143;
         }
-        while ( (__int64 *)v44 != &qword_140F0AE70 );
+        while ( (__int64 *)v44 != &qword_140F0BCB0 );
         v5 = v141;
       }
       v135 = v43;
@@ -709,9 +707,9 @@ LABEL_162:
       v1 = 0;
       if ( !PopDisableBatteryDischargeEstimator )
       {
-        v63 = qword_140F0AE70;
+        v63 = qword_140F0BCB0;
         v64 = 0;
-        if ( (__int64 *)qword_140F0AE70 != &qword_140F0AE70 )
+        if ( (__int64 *)qword_140F0BCB0 != &qword_140F0BCB0 )
         {
           do
           {
@@ -720,10 +718,10 @@ LABEL_162:
               v64 -= 3600 * *(_DWORD *)(v63 + 88) / v65;
             v63 = *(_QWORD *)v63;
           }
-          while ( (__int64 *)v63 != &qword_140F0AE70 );
+          while ( (__int64 *)v63 != &qword_140F0BCB0 );
           if ( v64 )
           {
-            v66 = (__int64 *)qword_140F0AE70;
+            v66 = (__int64 *)qword_140F0BCB0;
             v67 = v145;
             do
             {
@@ -737,7 +735,7 @@ LABEL_162:
               }
               v66 = (__int64 *)*v66;
             }
-            while ( v66 != &qword_140F0AE70 );
+            while ( v66 != &qword_140F0BCB0 );
             LOBYTE(v43) = v135;
             v145 = v67;
             v5 = v141;
@@ -760,16 +758,13 @@ LABEL_163:
     if ( v134 == 2 && !v70 || v134 == 3 && v70 )
       v134 = 1;
     v71 = v43 & 0x10;
-    if ( (xmmword_140F0AE80 & 0x10) != v71 )
+    if ( (xmmword_140F0BCC0 & 0x10) != v71 )
     {
-      LODWORD(v127) = 0;
-      LODWORD(v126) = 0;
-      Timeout = 0LL;
       v130 = v71 != 0;
       v156 = v71 != 0;
-      updated = ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_CHARGE_LIMITING_MODE, (__int64)&v130);
+      updated = ZwUpdateWnfStateData(&WNF_PO_BATTERY_CHARGE_LIMITING_MODE, &v130, 1u, 0LL, 0LL, 0, 0);
       PopSetPowerSettingValueAcDc((__int64)&GUID_BATTERY_CHARGE_LIMITING_MODE, 4u, (__int64)&v156);
-      if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+      if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
       {
         v227 = &v133;
         v74 = "DC + BCL";
@@ -800,8 +795,8 @@ LABEL_163:
         v237 = &v167;
         v238 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E076F0,
-          (unsigned __int8 *)byte_14004CB60,
+          (__int64)&dword_140E07680,
+          (unsigned __int8 *)&word_14004CAAE,
           0LL,
           0LL,
           0xAu,
@@ -812,16 +807,16 @@ LABEL_163:
       v84 = ((v43 & 0x40) != 0) + 1;
     else
       v84 = 0;
-    if ( (_DWORD)qword_140F0B034 == v84 )
+    if ( (_DWORD)qword_140F0BE74 == v84 )
     {
       v85 = v148;
     }
     else
     {
-      PopAcquireRwLockExclusive(&PopWeakChargerLock);
-      LODWORD(qword_140F0B034) = v84;
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock);
+      LODWORD(qword_140F0BE74) = v84;
       PopWeakChargerNotificationBatteryMiniport = v84;
-      PopReleaseRwLock((signed __int64 *)&PopWeakChargerLock);
+      PopReleaseRwLock(&PopWeakChargerLock);
       v85 = v148 | 2;
       v132 = 1;
     }
@@ -841,15 +836,15 @@ LABEL_163:
         PopEvaluateWeakChargerState(v70, v89);
     }
     _InterlockedAnd(&PopBatteryWorkRequests, 0xFFFFFFDF);
-    qword_140F0B040 = MEMORY[0xFFFFF78000000008];
+    qword_140F0BE80 = MEMORY[0xFFFFF78000000008];
     _InterlockedOr(v124, 0);
-    if ( qword_140F0B048 )
-      ExfUnblockPushLock((__int64)&qword_140F0B048, 0LL);
+    if ( qword_140F0BE88 )
+      ExfUnblockPushLock((__int64)&qword_140F0BE88, 0LL);
     if ( _InterlockedCompareExchange(&PopBatteryWorkRequests, 0, 0x80000000) == 0x80000000 )
       break;
     v0 = v137;
   }
-  for ( k = (__int64 *)qword_140F0AE70; k != &qword_140F0AE70; k = (__int64 *)*k )
+  for ( k = (__int64 *)qword_140F0BCB0; k != &qword_140F0BCB0; k = (__int64 *)*k )
     PopBatteryQueryStatus((__int64)(k - 8), 0);
   if ( (unsigned int)Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline()
     && v5
@@ -858,12 +853,7 @@ LABEL_163:
     PopPowerAdapterQueryStatus(v5, 0);
   }
   if ( !PopUserBatteryChargingEstimator )
-  {
-    LODWORD(v127) = 0;
-    LODWORD(v126) = 0;
-    Timeout = 0LL;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_CHARGE_ESTIMATE, (__int64)&v154);
-  }
+    ZwUpdateWnfStateData(&WNF_PO_CHARGE_ESTIMATE, &v154, 8u, 0LL, 0LL, 0, 0);
   if ( PopDisableBatteryDischargeEstimator )
   {
     v92 = v131;
@@ -874,17 +864,14 @@ LABEL_163:
     v92 = v91;
     if ( (_DWORD)v86 != -1 && !v91 )
       v155 = v86;
-    LODWORD(v127) = 0;
-    LODWORD(v126) = 0;
-    Timeout = 0LL;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_DISCHARGE_ESTIMATE, (__int64)&v155);
+    ZwUpdateWnfStateData(&WNF_PO_DISCHARGE_ESTIMATE, &v155, 8u, 0LL, 0LL, 0, 0);
   }
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
-    v138 = PopUserBatteryChargingEstimator;
+    ChangeStamp = PopUserBatteryChargingEstimator;
     v184 = 8LL;
     v182 = 4LL;
-    v181 = &v138;
+    p_ChangeStamp = &ChangeStamp;
     v141 = v154;
     v183 = &v141;
     v136 = PopDisableBatteryDischargeEstimator;
@@ -900,8 +887,8 @@ LABEL_163:
     v131 = v92;
     v192 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E076F0,
-      (unsigned __int8 *)&word_14004C6B6,
+      (__int64)&dword_140E07680,
+      (unsigned __int8 *)&word_14004C6EE,
       0LL,
       0LL,
       8u,
@@ -911,23 +898,20 @@ LABEL_163:
   LOBYTE(v139) = v137 | v139;
   if ( (_BYTE)v139 )
   {
-    *(_DWORD *)v178 = dword_140F0AEC8;
-    v176 = unk_140F0AEA8;
-    v179 = dword_140F0AE50;
-    LODWORD(v127) = 0;
-    LODWORD(v126) = 0;
-    *(_OWORD *)&v178[4] = xmmword_140F0AE80;
-    *(_DWORD *)&v178[20] = dword_140F0AE54;
-    v177 = *(_OWORD *)((char *)&qword_140F0AEB4 + 4);
-    Timeout = 0LL;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_COMPOSITE_BATTERY, (__int64)&v176);
-    if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+    *(_DWORD *)v178 = dword_140F0BD08;
+    v176 = unk_140F0BCE8;
+    v179 = dword_140F0BC90;
+    *(_OWORD *)&v178[4] = xmmword_140F0BCC0;
+    *(_DWORD *)&v178[20] = dword_140F0BC94;
+    v177 = *(_OWORD *)((char *)&qword_140F0BCF4 + 4);
+    ZwUpdateWnfStateData(&WNF_PO_COMPOSITE_BATTERY, &v176, 0x3Cu, 0LL, 0LL, 0, 0);
+    if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
     {
       v94 = "AC Power";
       v194 = &v146;
-      v146 = dword_140F0AE54;
+      v146 = dword_140F0BC94;
       v195 = 4LL;
-      if ( (xmmword_140F0AE80 & 1) == 0 )
+      if ( (xmmword_140F0BCC0 & 1) == 0 )
         v94 = "DC Power";
       tlgCreate1Sz_char((__int64)v196, v94);
       v96 = "Battery Discharging";
@@ -959,38 +943,38 @@ LABEL_163:
         v113 = v112;
       tlgCreate1Sz_char((__int64)v203, v113);
       v116 = "Platform BCL Enabled";
-      if ( (byte_140F0B0D8 & 1) == 0 )
+      if ( (byte_140F0BF18 & 1) == 0 )
         v116 = v115;
       tlgCreate1Sz_char((__int64)v204, v116);
-      if ( HIDWORD(qword_140F0AEB4) )
-        v118 = (unsigned int)((HIDWORD(qword_140F0AEB4) >> 1) + 100 * DWORD1(xmmword_140F0AE80))
-             / HIDWORD(qword_140F0AEB4);
+      if ( HIDWORD(qword_140F0BCF4) )
+        v118 = (unsigned int)((HIDWORD(qword_140F0BCF4) >> 1) + 100 * DWORD1(xmmword_140F0BCC0))
+             / HIDWORD(qword_140F0BCF4);
       else
         v118 = 0;
-      v138 = v118;
-      v205 = &v138;
+      ChangeStamp = v118;
+      v205 = &ChangeStamp;
       v206 = 4LL;
-      if ( HIDWORD(qword_140F0AEB4) )
-        v119 = 100000 * (unsigned __int64)DWORD1(xmmword_140F0AE80) / HIDWORD(qword_140F0AEB4);
+      if ( HIDWORD(qword_140F0BCF4) )
+        v119 = 100000 * (unsigned __int64)DWORD1(xmmword_140F0BCC0) / HIDWORD(qword_140F0BCF4);
       else
         LODWORD(v119) = 0;
       v120 = "Relative Capacity Unit";
       v136 = v119;
       v208 = 4LL;
       v207 = &v136;
-      v165 = DWORD1(xmmword_140F0AE80);
+      v165 = DWORD1(xmmword_140F0BCC0);
       v209 = &v165;
       v211 = &v160;
-      v157 = *((_QWORD *)&xmmword_140F0AE80 + 1);
+      v157 = *((_QWORD *)&xmmword_140F0BCC0 + 1);
       v213 = &v157;
       v215 = (char *)&v157 + 4;
-      v158 = dword_140F0AE50;
+      v158 = dword_140F0BC90;
       v217 = &v158;
       v219 = &v159;
-      if ( (unk_140F0AEA8 & 0x40000000) == 0 )
+      if ( (unk_140F0BCE8 & 0x40000000) == 0 )
         v120 = "mWh Unit";
       v210 = 4LL;
-      v160 = HIDWORD(qword_140F0AEB4);
+      v160 = HIDWORD(qword_140F0BCF4);
       v212 = 4LL;
       v214 = 4LL;
       v216 = 4LL;
@@ -999,14 +983,14 @@ LABEL_163:
       v220 = 4LL;
       tlgCreate1Sz_char((__int64)v221, v120);
       v222 = &v147;
-      LODWORD(v147) = qword_140F0AEB4;
+      LODWORD(v147) = qword_140F0BCF4;
       v224 = &v141;
       LODWORD(v141) = v121;
       v223 = 4LL;
       v225 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E076F0,
-        (unsigned __int8 *)word_14004C79A,
+        (__int64)&dword_140E07680,
+        (unsigned __int8 *)&word_14004C79E,
         0LL,
         0LL,
         0x17u,
@@ -1018,26 +1002,20 @@ LABEL_163:
         v166 = 0LL;
       else
         v166 = MEMORY[0xFFFFF78000000014];
-      LODWORD(v127) = 0;
-      LODWORD(v126) = 0;
-      Timeout = 0LL;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_DISCHARGE_START_FILETIME, (__int64)&v166);
+      ZwUpdateWnfStateData(&WNF_PO_DISCHARGE_START_FILETIME, &v166, 8u, 0LL, 0LL, 0, 0);
     }
     if ( v93 )
     {
-      LODWORD(v127) = 0;
       v164 = 0xFFFFFFFF00000000uLL;
-      LODWORD(v126) = 0;
-      Timeout = 0LL;
-      v122 = ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_STATE_CHANGE, (__int64)&v164);
-      if ( (unsigned int)dword_140E076F0 > 5 )
+      v122 = ZwUpdateWnfStateData(&WNF_PO_POWER_STATE_CHANGE, &v164, 8u, 0LL, 0LL, 0, 0);
+      if ( (unsigned int)dword_140E07680 > 5 )
       {
         LODWORD(v141) = v122;
         v241 = 4LL;
         v240 = &v141;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E076F0,
-          (unsigned __int8 *)&word_14004C766,
+          (__int64)&dword_140E07680,
+          (unsigned __int8 *)byte_14004C9BB,
           0LL,
           0LL,
           3u,
@@ -1046,5 +1024,5 @@ LABEL_163:
     }
   }
   PopReleaseRwLock((signed __int64 *)&PopCB);
-  return PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+  return PopReleaseRwLock(&PopPolicyDeviceLock);
 }

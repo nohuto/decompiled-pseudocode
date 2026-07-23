@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSetPmcProfileSource @ 0x1407AA0E8
+ * XREFs of EtwpSetPmcProfileSource @ 0x1407AA228
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140A440A4 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140A39934 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeProfileCallback @ 0x1406F65A0 (KeInitializeProfileCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeProfileCallback @ 0x1406F45A0 (KeInitializeProfileCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
@@ -28,15 +28,15 @@ __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
   }
   else
   {
-    if ( qword_140EFF4D8 )
+    if ( qword_140EFF5C8 )
     {
-      ExFreePoolWithTag(qword_140EFF4D8, 0);
-      qword_140EFF4D8 = 0LL;
+      ExFreePoolWithTag(qword_140EFF5C8, 0);
+      qword_140EFF5C8 = 0LL;
       EtwpPmcProfile = 0;
     }
     v5 = v3;
-    qword_140EFF4D8 = (PVOID)ExAllocatePool2(0x40uLL);
-    if ( qword_140EFF4D8 )
+    qword_140EFF5C8 = (PVOID)ExAllocatePool2(0x40uLL, 616 * v3, 0x58777445u);
+    if ( qword_140EFF5C8 )
     {
       EtwpPmcProfile = v3;
       if ( (_DWORD)v3 )
@@ -44,7 +44,7 @@ __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
         v6 = 0LL;
         do
         {
-          KeInitializeProfileCallback((char *)qword_140EFF4D8 + v6, (__int64)EtwpPmcInterrupt, (unsigned int)*a1, *a1);
+          KeInitializeProfileCallback((char *)qword_140EFF5C8 + v6, (__int64)EtwpPmcInterrupt, (unsigned int)*a1, *a1);
           v6 += 616LL;
           ++a1;
           --v5;

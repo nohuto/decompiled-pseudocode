@@ -10,8 +10,9 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall RtlInsertInvertedFunctionTable(unsigned __int64 a1, int a2)
+__int64 __fastcall RtlInsertInvertedFunctionTable(unsigned __int64 a1, __int64 a2)
 {
+  int v2; // edi
   int v3; // esi
   NTSTATUS v4; // eax
   __int64 v5; // rbx
@@ -22,14 +23,16 @@ __int64 __fastcall RtlInsertInvertedFunctionTable(unsigned __int64 a1, int a2)
   unsigned __int8 v10; // [rsp+70h] [rbp+18h] BYREF
   int v11; // [rsp+78h] [rbp+20h] BYREF
 
+  v2 = a2;
+  LOBYTE(a2) = 1;
   v3 = a1;
-  v4 = RtlpImageDirectoryEntryToDataEx(a1, 1, 3u, (int)&v11, v9);
+  v4 = RtlpImageDirectoryEntryToDataEx(a1, a2, 3LL, (__int64)&v11, v9);
   v5 = v9[0];
   if ( v4 < 0 )
     v5 = 0LL;
   v9[0] = v5;
   MmLockLoadedModuleListExclusive(&v10);
-  RtlpInsertInvertedFunctionTableEntry(v6, v3, v5, a2, v11);
+  RtlpInsertInvertedFunctionTableEntry(v6, v3, v5, v2, v11);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v10 < 2u )
   {

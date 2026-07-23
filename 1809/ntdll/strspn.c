@@ -1,10 +1,10 @@
 /*
- * XREFs of strspn @ 0x180095040
+ * XREFs of strspn @ 0x180095050
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x180090060 (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x180090070 (__report_rangecheckfailure.c)
  */
 
 size_t __cdecl strspn(const char *Str, const char *Control)

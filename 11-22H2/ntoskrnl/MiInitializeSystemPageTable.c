@@ -199,10 +199,10 @@ LABEL_29:
       MiReplicatePteChange(a3, ValidPte, 1LL);
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_32;
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
       || (unsigned __int8)result > 0xFu
       || LockHandle.OldIrql > 0xFu
       || (unsigned __int8)result < 2u )
@@ -234,10 +234,10 @@ LABEL_22:
       *(_WORD *)(v13 + 32) = 2;
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_32;
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
         || (unsigned __int8)result > 0xFu
         || (unsigned __int8)OldIrql > 0xFu
         || (unsigned __int8)result < 2u )

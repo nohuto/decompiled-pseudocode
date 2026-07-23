@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateControlAreaPartition @ 0x1402A25F4
+ * XREFs of MiValidateControlAreaPartition @ 0x1402A2884
  * Callers:
  *     MiReferenceExistingControlArea @ 0x14020EFE0 (MiReferenceExistingControlArea.c)
- *     MiReferenceControlArea @ 0x1402882B8 (MiReferenceControlArea.c)
- *     MiShareExistingControlArea @ 0x140723CDC (MiShareExistingControlArea.c)
+ *     MiReferenceControlArea @ 0x140288548 (MiReferenceControlArea.c)
+ *     MiShareExistingControlArea @ 0x140723EDC (MiShareExistingControlArea.c)
  * Callees:
  *     <none>
  */

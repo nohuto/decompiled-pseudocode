@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpGetNameFromLangInfoNode @ 0x1403AD158
+ * XREFs of RtlpGetNameFromLangInfoNode @ 0x1403A87CC
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x140793850 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14078F5F0 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlLCIDToCultureName @ 0x140916180 (RtlLCIDToCultureName.c)
  */
 
-__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   __int64 v5; // rax
   __int64 v6; // r8
   unsigned __int16 Length; // si
-  __int64 v9; // rcx
+  LCID v9; // ecx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
@@ -24,7 +24,7 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
     if ( (__int16)v5 <= 0 )
     {
       v9 = *(unsigned __int16 *)(a2 + 4);
-      if ( (((_WORD)v9 - 4096) & 0xFBFF) != 0 && (unsigned __int8)RtlLCIDToCultureName(v9, a3) )
+      if ( (((_WORD)v9 - 4096) & 0xFBFF) != 0 && RtlLCIDToCultureName(v9, a3) )
         return v3;
     }
     else
@@ -35,10 +35,10 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
         &DestinationString,
         (PCWSTR)(*(_QWORD *)(v6 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v6 + 16) + 2 * v5)));
       Length = DestinationString.Length;
-      if ( DestinationString.Length <= *(_WORD *)(a3 + 2)
-        && RtlStringCbCopyW(*(NTSTRSAFE_PWSTR *)(a3 + 8), *(unsigned __int16 *)(a3 + 2), DestinationString.Buffer) >= 0 )
+      if ( DestinationString.Length <= a3->MaximumLength
+        && RtlStringCbCopyW(a3->Buffer, a3->MaximumLength, DestinationString.Buffer) >= 0 )
       {
-        *(_WORD *)a3 = Length;
+        a3->Length = Length;
         return v3;
       }
     }

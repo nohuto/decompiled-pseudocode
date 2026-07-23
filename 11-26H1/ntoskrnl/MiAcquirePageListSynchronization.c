@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAcquirePageListSynchronization @ 0x14029A450
+ * XREFs of MiAcquirePageListSynchronization @ 0x1402999B0
  * Callers:
- *     MiActivateDecayNode @ 0x140299994 (MiActivateDecayNode.c)
+ *     MiActivateDecayNode @ 0x140298EF4 (MiActivateDecayNode.c)
  * Callees:
- *     MiUnlockAllBatchPages @ 0x140299000 (MiUnlockAllBatchPages.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1402C9B5C (MiGetSlabAllocatorRepurposedStandbyList.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiUnlockAllBatchPages @ 0x140298560 (MiUnlockAllBatchPages.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1402AB91C (MiGetSlabAllocatorRepurposedStandbyList.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiAcquirePageListSynchronization(__int64 a1, unsigned __int64 a2)
@@ -88,12 +88,12 @@ void __fastcall MiAcquirePageListSynchronization(__int64 a1, unsigned __int64 a2
   SlabAllocatorRepurposedStandbyList = *(_QWORD *)(v5 + 8LL * (*(_BYTE *)(a2 + 34) & 7) + 7520);
   v8 = (unsigned __int128)((__int64)(a2 + 0x220000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
   v9 = (__int64)(a2 + 0x220000000000LL) / 48;
-  if ( v9 < qword_140E347B0 || v9 >= qword_140E347B0 + 2048 )
+  if ( v9 < qword_140E34930 || v9 >= qword_140E34930 + 2048 )
   {
-    if ( byte_140E3BD26 )
+    if ( byte_140E3BEA6 )
     {
-      if ( *(_BYTE *)(qword_140E3D0C0 + 2 * (v9 >> 9)) )
-        v10 = *(unsigned __int8 *)(qword_140E3D0C0 + 2 * (v9 >> 9)) - 1;
+      if ( *(_BYTE *)(qword_140E3D240 + 2 * (v9 >> 9)) )
+        v10 = *(unsigned __int8 *)(qword_140E3D240 + 2 * (v9 >> 9)) - 1;
       else
         v10 = 9;
     }
@@ -128,11 +128,11 @@ void __fastcall MiAcquirePageListSynchronization(__int64 a1, unsigned __int64 a2
     }
     if ( (_DWORD)v8 == *(_DWORD *)(v5 + 1300) )
     {
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        v8 = qword_140E2D748 & v54;
+        v8 = qword_140E2D8C8 & v54;
         if ( (v54 & 0x10) == 0 )
-          v54 &= qword_140E2D748;
+          v54 &= qword_140E2D8C8;
       }
       v55 = HIDWORD(v54);
       if ( (unsigned int)v55 >= 2 && (unsigned int)v55 < 5 && (v55 & 0xFFFFFFFB) != 0 )
@@ -158,7 +158,7 @@ void __fastcall MiAcquirePageListSynchronization(__int64 a1, unsigned __int64 a2
   if ( (*(_DWORD *)(a2 + 32) & 0x8000000) == 0 )
     goto LABEL_11;
   if ( a2 < 0xFFFFDE0000000000uLL
-    || (v8 = 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL, a2 >= v8)
+    || (v8 = 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL, a2 >= v8)
     || (unsigned int)MiIsDecayPfn((__int64)(a2 + 0x220000000000LL) / 48) )
   {
 LABEL_143:
@@ -226,7 +226,7 @@ LABEL_21:
   if ( (v17 & 0x200) != 0 )
     goto LABEL_145;
   v18 = (_DWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v18);
     v19 = *v18 & 0x7FFFFFFF;
@@ -258,7 +258,7 @@ LABEL_21:
   {
     v24 = 0;
     v25 = *(_QWORD *)(a1 + 48);
-    v26 = v23 >= qword_140E347B0 && v23 < qword_140E347B0 + 2048;
+    v26 = v23 >= qword_140E34930 && v23 < qword_140E34930 + 2048;
     v27 = *(int *)(a1 + 44);
     if ( (int)v27 < 9 && *(_DWORD *)(v25 + 28) == 2 && (*(_DWORD *)(a2 + 32) & 0x8000000) != 0 )
       v24 = 1;
@@ -316,11 +316,11 @@ LABEL_41:
     if ( *(_DWORD *)(v25 + 28) != 2 || v26 || v24 )
       return;
     v34 = 48 * v23 - 0x220000000000LL;
-    v35 = dword_140E2D684;
-    v36 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v34 + 40) >> 43) & 0x3FFLL));
-    if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-      || (v37 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v23 < *(_QWORD *)v37)
-      || dword_140E2D680 != dword_140E2D684 && v23 >= *((_QWORD *)v37 + 2) )
+    v35 = dword_140E2D804;
+    v36 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v34 + 40) >> 43) & 0x3FFLL));
+    if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+      || (v37 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v23 < *(_QWORD *)v37)
+      || dword_140E2D800 != dword_140E2D804 && v23 >= *((_QWORD *)v37 + 2) )
     {
       for ( i = 0; ; i = v57 + 1 )
       {
@@ -329,17 +329,17 @@ LABEL_41:
           if ( v35 < i )
             KeBugCheckEx(0x1Au, 0x5180uLL, v23, 0LL, 0LL);
           v57 = (i + v35) >> 1;
-          v37 = (char *)qword_140E2D6E0 + 16 * v57;
+          v37 = (char *)qword_140E2D860 + 16 * v57;
           if ( v23 >= *(_QWORD *)v37 )
             break;
           if ( !v57 )
             KeBugCheckEx(0x1Au, 0x5180uLL, v23, (ULONG_PTR)v37, 0LL);
           v35 = v57 - 1;
         }
-        if ( v57 == dword_140E2D684 || v23 < *((_QWORD *)v37 + 2) )
+        if ( v57 == dword_140E2D804 || v23 < *((_QWORD *)v37 + 2) )
           break;
       }
-      dword_140E2D680 = (i + v35) >> 1;
+      dword_140E2D800 = (i + v35) >> 1;
     }
     v38 = *(_DWORD *)(v34 + 32);
     v39 = *((unsigned int *)v37 + 2);
@@ -348,7 +348,7 @@ LABEL_41:
     if ( (*(_DWORD *)(v34 + 32) & 0x8000000) == 0 )
       goto LABEL_49;
     if ( v34 < 0xFFFFDE0000000000uLL
-      || v34 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+      || v34 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
       || (unsigned int)MiIsDecayPfn((__int64)(48 * v23) / 48) )
     {
 LABEL_141:
@@ -365,7 +365,7 @@ LABEL_49:
       v40 = 5;
     }
 LABEL_50:
-    if ( qword_140E2D6E8 )
+    if ( qword_140E2D868 )
       v41 = *(_BYTE *)(MiSearchChannelTable(v23) + 12);
     else
       v41 = 0;
@@ -373,7 +373,7 @@ LABEL_50:
     if ( (int)v27 < 9 )
     {
       if ( (_DWORD)v27 == 8 )
-        v58 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)((__int64)(48 * v23) / 48) >> 9) + 1) & 0x7F;
+        v58 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)((__int64)(48 * v23) / 48) >> 9) + 1) & 0x7F;
       else
         v58 = 0;
       v43 = *(_QWORD *)(232 * v27 + v42 + 14824) + 88 * (v40 + 8LL * v58);

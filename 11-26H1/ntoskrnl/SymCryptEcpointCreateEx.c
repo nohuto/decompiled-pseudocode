@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptEcpointCreateEx @ 0x14056436C
+ * XREFs of SymCryptEcpointCreateEx @ 0x14056675C
  * Callers:
- *     SymCryptEcpointCreate @ 0x14056434C (SymCryptEcpointCreate.c)
- *     SymCryptEcpointGetValue @ 0x14056440C (SymCryptEcpointGetValue.c)
- *     SymCryptEcpointSetValue @ 0x1405645A0 (SymCryptEcpointSetValue.c)
+ *     SymCryptEcpointCreate @ 0x14056673C (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointGetValue @ 0x1405667FC (SymCryptEcpointGetValue.c)
+ *     SymCryptEcpointSetValue @ 0x140566990 (SymCryptEcpointSetValue.c)
  * Callees:
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
  */
 
 _BYTE *__fastcall SymCryptEcpointCreateEx(_BYTE *a1, __int64 a2, __int64 a3, unsigned int a4)

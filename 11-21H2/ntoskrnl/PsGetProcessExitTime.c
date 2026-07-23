@@ -8,5 +8,5 @@
 
 LARGE_INTEGER PsGetProcessExitTime(void)
 {
-  return (LARGE_INTEGER)KeGetCurrentThread()->ApcState.Process[1].ExtendedFeatureDisableMask;
+  return *(LARGE_INTEGER *)(*((_QWORD *)KeGetCurrentThread() + 23) + 2112LL);
 }

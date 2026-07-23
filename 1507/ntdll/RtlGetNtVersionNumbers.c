@@ -6,12 +6,12 @@
  *     <none>
  */
 
-void __fastcall RtlGetNtVersionNumbers(_DWORD *a1, _DWORD *a2, _DWORD *a3)
+void __cdecl RtlGetNtVersionNumbers(PULONG NtMajorVersion, PULONG NtMinorVersion, PULONG NtBuildNumber)
 {
-  if ( a1 )
-    *a1 = 10;
-  if ( a2 )
-    *a2 = 0;
-  if ( a3 )
-    *a3 = -268425216;
+  if ( NtMajorVersion )
+    *NtMajorVersion = 10;
+  if ( NtMinorVersion )
+    *NtMinorVersion = 0;
+  if ( NtBuildNumber )
+    *NtBuildNumber = -268425216;
 }

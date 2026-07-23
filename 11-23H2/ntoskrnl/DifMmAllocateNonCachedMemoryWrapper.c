@@ -1,12 +1,12 @@
 /*
- * XREFs of DifMmAllocateNonCachedMemoryWrapper @ 0x1405E6B30
+ * XREFs of DifMmAllocateNonCachedMemoryWrapper @ 0x1405E70A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     MmAllocateNonCachedMemory @ 0x140A2D910 (MmAllocateNonCachedMemory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     MmAllocateNonCachedMemory @ 0x140A2DBC0 (MmAllocateNonCachedMemory.c)
  */
 
 PVOID __fastcall DifMmAllocateNonCachedMemoryWrapper(SIZE_T NumberOfBytes)

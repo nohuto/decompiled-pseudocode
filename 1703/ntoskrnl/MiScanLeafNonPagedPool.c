@@ -28,8 +28,8 @@ __int64 __fastcall MiScanLeafNonPagedPool(
   unsigned __int64 v7; // r15
   __int64 v9; // rbx
   unsigned __int64 v10; // rbp
-  struct _SLIST_ENTRY *v11; // r14
-  union _SLIST_HEADER *v12; // r13
+  _SLIST_ENTRY *v11; // r14
+  _SLIST_HEADER *v12; // r13
   bool v13; // zf
   __int64 v14; // r8
   unsigned __int64 v15; // rdi
@@ -223,7 +223,7 @@ LABEL_104:
           if ( v22 > v17 )
             goto LABEL_59;
           v50 = (unsigned __int64)v11 - v49;
-          if ( v11 == (struct _SLIST_ENTRY *)v49 )
+          if ( v11 == (_SLIST_ENTRY *)v49 )
             goto LABEL_11;
           v20 = v19[1];
           ++v19;
@@ -369,13 +369,13 @@ LABEL_14:
   if ( *(_BYTE *)(a4 + 48) != 1 || ClearBitsAndSet >= v10 )
   {
     v29 = ClearBitsAndSet + v7;
-    if ( v26 != -1LL && v11 == (struct _SLIST_ENTRY *)1 && !*(_DWORD *)a4 )
+    if ( v26 != -1LL && v11 == (_SLIST_ENTRY *)1 && !*(_DWORD *)a4 )
       *(unsigned __int64 *)((char *)&v12[24].Alignment + v25) = v29 + 1;
     v30 = a2;
 LABEL_28:
     MiAllocatingNonPagedPoolVa(v12, a3, v29, v11);
     if ( !*(_DWORD *)a4 && !a3 && (unsigned __int64)v11 <= 3 )
-      v11 = (struct _SLIST_ENTRY *)((char *)v11 + MiReplenishNonPagedSlists((int)v57, v30, (int)v29 - v28, v28, v11));
+      v11 = (_SLIST_ENTRY *)((char *)v11 + MiReplenishNonPagedSlists((int)v57, v30, (int)v29 - v28, v28, v11));
     v31 = MiIncreaseNonPagedPoolUsage(v12, a3, v29, v11);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     __writecr8(LockHandle.OldIrql);

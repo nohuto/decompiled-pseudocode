@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpEventTracingCounterSetCallback @ 0x1406E84EC
+ * XREFs of EtwpEventTracingCounterSetCallback @ 0x1406E8624
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpGetNextGuidEntry @ 0x14040C2A4 (EtwpGetNextGuidEntry.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
- *     WmiQueryTraceInformation @ 0x1404E4534 (WmiQueryTraceInformation.c)
- *     PcwAddInstance @ 0x1404F1B90 (PcwAddInstance.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpGetNextGuidEntry @ 0x14040B164 (EtwpGetNextGuidEntry.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
+ *     WmiQueryTraceInformation @ 0x1404C71EC (WmiQueryTraceInformation.c)
+ *     PcwAddInstance @ 0x1404D4324 (PcwAddInstance.c)
  */
 
 __int64 __fastcall EtwpEventTracingCounterSetCallback(int a1, __int64 a2, __int64 a3)
@@ -61,8 +61,8 @@ __int64 __fastcall EtwpEventTracingCounterSetCallback(int a1, __int64 a2, __int6
       }
       v6 = (unsigned __int64 **)NextGuidEntry;
     }
-    v15 = __PAIR64__(dword_1402FD834[0], dword_1402FD83C);
-    LODWORD(v16) = dword_1402FD838;
+    v15 = __PAIR64__(dword_1402FD814[0], dword_1402FD81C);
+    LODWORD(v16) = dword_1402FD818;
     Data.Data = &v15;
     Data.Size = 24;
     return (unsigned int)PcwAddInstance(v4, &Name, 0, 1u, &Data);

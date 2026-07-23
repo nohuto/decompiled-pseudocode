@@ -1,14 +1,14 @@
 /*
- * XREFs of SmHwAcceleratorPartitionCtxCleanup @ 0x14079CB08
+ * XREFs of SmHwAcceleratorPartitionCtxCleanup @ 0x14079CC18
  * Callers:
- *     SmHwAcceleratorMgrHotRemoveAccelerator @ 0x14060F5EC (SmHwAcceleratorMgrHotRemoveAccelerator.c)
- *     SmHwAcceleratorMgrCreatePartitionAccelerators @ 0x14079C48C (SmHwAcceleratorMgrCreatePartitionAccelerators.c)
- *     SmHwAcceleratorPartitionMgrCleanup @ 0x14079CB7C (SmHwAcceleratorPartitionMgrCleanup.c)
+ *     SmHwAcceleratorMgrHotRemoveAccelerator @ 0x14060DBAC (SmHwAcceleratorMgrHotRemoveAccelerator.c)
+ *     SmHwAcceleratorMgrCreatePartitionAccelerators @ 0x14079C59C (SmHwAcceleratorMgrCreatePartitionAccelerators.c)
+ *     SmHwAcceleratorPartitionMgrCleanup @ 0x14079CC8C (SmHwAcceleratorPartitionMgrCleanup.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExpReleaseRundownProtection @ 0x1402C8140 (ExpReleaseRundownProtection.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExpReleaseRundownProtection @ 0x1402BA900 (ExpReleaseRundownProtection.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
  */
 
 void __fastcall SmHwAcceleratorPartitionCtxCleanup(__int64 a1)

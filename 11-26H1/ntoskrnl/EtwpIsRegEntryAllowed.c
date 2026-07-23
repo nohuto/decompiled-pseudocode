@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpIsRegEntryAllowed @ 0x14093AFA4
+ * XREFs of EtwpIsRegEntryAllowed @ 0x140916B44
  * Callers:
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwpEventWriteProviderAccessCheckStatus @ 0x140772344 (EtwpEventWriteProviderAccessCheckStatus.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140920670 (SeCaptureSubjectContextEx.c)
- *     EtwpCheckGuidAccess @ 0x1409207F8 (EtwpCheckGuidAccess.c)
- *     EtwpApplyTransientFilters @ 0x14093929C (EtwpApplyTransientFilters.c)
- *     EtwpIsGuidAllowed @ 0x14093B14C (EtwpIsGuidAllowed.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x14093B234 (EtwpCheckCurrentUserProcessAccess.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwpEventWriteProviderAccessCheckStatus @ 0x140775344 (EtwpEventWriteProviderAccessCheckStatus.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x1408FBAB0 (SeCaptureSubjectContextEx.c)
+ *     EtwpCheckGuidAccess @ 0x1408FC30C (EtwpCheckGuidAccess.c)
+ *     EtwpApplyTransientFilters @ 0x140914E3C (EtwpApplyTransientFilters.c)
+ *     EtwpIsGuidAllowed @ 0x140916CEC (EtwpIsGuidAllowed.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x140916DD4 (EtwpCheckCurrentUserProcessAccess.c)
  */
 
 char __fastcall EtwpIsRegEntryAllowed(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, __int64 a5, char a6, char a7)
@@ -51,8 +51,12 @@ char __fastcall EtwpIsRegEntryAllowed(__int64 a1, __int64 a2, _BYTE *a3, __int64
       {
         if ( v14 < 0 )
         {
-          if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_PROVIDER_ACCESS_DENIED) )
+          if ( EtwEventEnabled(
+                 (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+                 &ETW_EVENT_PROVIDER_ACCESS_DENIED) )
+          {
             EtwpEventWriteProviderAccessCheckStatus(v16, v15, v17, a1, a2, v14);
+          }
         }
         return 0;
       }

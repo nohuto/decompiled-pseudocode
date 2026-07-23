@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpGenRandom @ 0x1800DCCEC
+ * XREFs of LdrpGenRandom @ 0x1800D9C5C
  * Callers:
- *     InitSecurityCookie @ 0x1800DCC70 (InitSecurityCookie.c)
- *     AvrfMiniLoadDll @ 0x180116838 (AvrfMiniLoadDll.c)
- *     LdrpProcessMappedModule @ 0x18011A098 (LdrpProcessMappedModule.c)
+ *     InitSecurityCookie @ 0x1800D9BE0 (InitSecurityCookie.c)
+ *     AvrfMiniLoadDll @ 0x180116018 (AvrfMiniLoadDll.c)
+ *     LdrpProcessMappedModule @ 0x180119E48 (LdrpProcessMappedModule.c)
  * Callees:
  *     <none>
  */

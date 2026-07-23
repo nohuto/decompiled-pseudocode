@@ -11,7 +11,7 @@ __int64 __fastcall sub_18004CBE8(unsigned int a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // edi
   int v5; // ebp
-  __int64 v6; // rbx
+  SIZE_T v6; // rbx
   _DWORD *Heap; // rax
   _DWORD *v8; // rsi
 
@@ -31,10 +31,7 @@ __int64 __fastcall sub_18004CBE8(unsigned int a1, __int64 a2, _QWORD *a3)
        : 0;
     if ( 24 * (unsigned __int64)(unsigned int)(v5 - 1) + 80 >= 24 * (unsigned __int64)(unsigned int)(v5 - 1) )
     {
-      Heap = (_DWORD *)RtlAllocateHeap(
-                         (__int64)NtCurrentPeb()->ProcessHeap,
-                         (0x18 * (unsigned __int128)(unsigned int)(v5 - 1)) >> 64,
-                         v6);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (0x18 * (unsigned __int128)(unsigned int)(v5 - 1)) >> 64, v6);
       v8 = Heap;
       if ( Heap )
       {

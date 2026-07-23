@@ -1,115 +1,101 @@
 /*
- * XREFs of PopBcdRegenerateResumeObject @ 0x1407E18C4
+ * XREFs of PopBcdRegenerateResumeObject @ 0x1407E6954
  * Callers:
- *     PopBcdEstablishResumeObject @ 0x140B68C20 (PopBcdEstablishResumeObject.c)
+ *     PopBcdEstablishResumeObject @ 0x140B6BBB0 (PopBcdEstablishResumeObject.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     BcdCreateObject @ 0x140774E00 (BcdCreateObject.c)
- *     BcdQueryObject @ 0x140779B20 (BcdQueryObject.c)
- *     BcdDeleteObject @ 0x140891108 (BcdDeleteObject.c)
- *     BcdSetElementDataWithFlags @ 0x1409D30C4 (BcdSetElementDataWithFlags.c)
- *     PopBcdReadElement @ 0x1409D37A8 (PopBcdReadElement.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x1409D3C04 (PopBcdSetDefaultResumeObjectElements.c)
- *     BcdCloseObject @ 0x1409D4E38 (BcdCloseObject.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     BcdCreateObject @ 0x140777E00 (BcdCreateObject.c)
+ *     BcdQueryObject @ 0x14077CA50 (BcdQueryObject.c)
+ *     BcdDeleteObject @ 0x140897504 (BcdDeleteObject.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A40A4 (BcdSetElementDataWithFlags.c)
+ *     PopBcdReadElement @ 0x1409A4788 (PopBcdReadElement.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x1409A4BE4 (PopBcdSetDefaultResumeObjectElements.c)
+ *     BcdCloseObject @ 0x1409A5E18 (BcdCloseObject.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PopBcdRegenerateResumeObject(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall PopBcdRegenerateResumeObject(void *a1, void *a2, _QWORD *a3)
 {
   PVOID v3; // rsi
-  int Object; // ebx
-  void *v7; // rdi
-  __int64 v8; // r8
-  int v9; // eax
-  __int64 v10; // r8
-  __int64 v11; // r8
-  __int64 v12; // r8
-  __int64 v13; // r8
-  int v15; // [rsp+30h] [rbp-29h] BYREF
-  int v16; // [rsp+34h] [rbp-25h] BYREF
-  int v17; // [rsp+38h] [rbp-21h] BYREF
-  PVOID P; // [rsp+40h] [rbp-19h] BYREF
-  PVOID v19; // [rsp+48h] [rbp-11h] BYREF
-  void *v20; // [rsp+50h] [rbp-9h] BYREF
-  PVOID v21; // [rsp+58h] [rbp-1h] BYREF
-  _DWORD v22[2]; // [rsp+60h] [rbp+7h] BYREF
-  GUID v23; // [rsp+68h] [rbp+Fh] BYREF
-  __int128 v24; // [rsp+78h] [rbp+1Fh] BYREF
+  NTSTATUS Element; // ebx
+  HANDLE v7; // rdi
+  BCD_FLAGS v8; // r8d
+  NTSTATUS v9; // eax
+  BCD_FLAGS v10; // r8d
+  BCD_FLAGS v11; // r8d
+  BCD_FLAGS v12; // r8d
+  BCD_FLAGS v13; // r8d
+  HANDLE BcdObjectHandle; // [rsp+50h] [rbp-9h] BYREF
+  PVOID v16; // [rsp+58h] [rbp-1h]
+  _BCD_OBJECT_DESCRIPTION Description; // [rsp+60h] [rbp+7h] BYREF
+  GUID v18; // [rsp+68h] [rbp+Fh] BYREF
+  GUID Identifier; // [rsp+78h] [rbp+1Fh] BYREF
 
   v3 = 0LL;
-  P = 0LL;
-  v21 = 0LL;
-  v16 = 0;
-  v20 = 0LL;
-  v17 = 0;
-  v19 = 0LL;
-  v15 = 0;
-  v22[0] = 1;
-  v24 = 0LL;
-  v22[1] = 270532612;
-  v23 = 0LL;
-  Object = BcdCreateObject(a1, 0, (int)v22, &v20);
-  if ( Object < 0 )
+  v16 = 0LL;
+  BcdObjectHandle = 0LL;
+  Description.Version = 1;
+  Identifier = 0LL;
+  Description.Type = 270532612;
+  v18 = 0LL;
+  Element = BcdCreateObject(a1, 0LL, &Description, &BcdObjectHandle);
+  if ( Element < 0 )
   {
-    v7 = v20;
+    v7 = BcdObjectHandle;
   }
   else
   {
-    Object = PopBcdReadElement(a2, 301989892LL, &v19, &v15);
-    if ( Object < 0 )
+    Element = PopBcdReadElement(a2, 0x12000004u);
+    if ( Element < 0 )
     {
-      v7 = v20;
+      v7 = BcdObjectHandle;
     }
     else
     {
-      PopBcdReadElement(a2, 301989893LL, &v21, &v16);
-      v7 = v20;
-      v9 = BcdSetElementDataWithFlags(v20, 301989892LL, v8, v19, v15);
-      v3 = v21;
-      Object = v9;
+      PopBcdReadElement(a2, 0x12000005u);
+      v7 = BcdObjectHandle;
+      v9 = BcdSetElementDataWithFlags(BcdObjectHandle, 0x12000004u, v8, 0LL, 0);
+      v3 = v16;
+      Element = v9;
       if ( v9 >= 0 )
       {
-        if ( !v21 || (Object = BcdSetElementDataWithFlags(v7, 301989893LL, v10, v21, v16), Object >= 0) )
+        if ( !v16 || (Element = BcdSetElementDataWithFlags(v7, 0x12000005u, v10, v16, 0), Element >= 0) )
         {
-          Object = PopBcdSetDefaultResumeObjectElements(v7, a2);
-          if ( Object >= 0 )
+          Element = PopBcdSetDefaultResumeObjectElements(v7, a2);
+          if ( Element >= 0 )
           {
-            v23 = GUID_RESUME_LOADER_SETTINGS_GROUP;
-            Object = BcdSetElementDataWithFlags(v7, 335544326LL, v11, &v23, 16);
-            if ( Object >= 0 )
+            v18 = GUID_RESUME_LOADER_SETTINGS_GROUP;
+            Element = BcdSetElementDataWithFlags(v7, 0x14000006u, v11, &v18, 0x10u);
+            if ( Element >= 0 )
             {
-              if ( (int)PopBcdReadElement(a2, 385876087LL, &P, &v17) < 0
-                || (Object = BcdSetElementDataWithFlags(v7, 385876087LL, v12, P, v17), Object >= 0) )
+              if ( (int)PopBcdReadElement(a2, 0x17000077u) < 0
+                || (Element = BcdSetElementDataWithFlags(v7, 0x17000077u, v12, 0LL, 0), Element >= 0) )
               {
-                Object = BcdQueryObject((__int64)v7, 0, 0LL, (__int64)&v24);
-                if ( Object >= 0 )
+                Element = BcdQueryObject(v7, 0, 0LL, &Identifier);
+                if ( Element >= 0 )
                 {
-                  Object = BcdSetElementDataWithFlags(a2, 587202563LL, v13, &v24, 16);
-                  if ( Object >= 0 )
+                  Element = BcdSetElementDataWithFlags(a2, 0x23000003u, v13, &Identifier, 0x10u);
+                  if ( Element >= 0 )
                   {
                     *a3 = v7;
                     v7 = 0LL;
                   }
                 }
               }
-              if ( P )
-                ExFreePoolWithTag(P, 0);
             }
           }
         }
       }
     }
-    if ( v19 )
-      ExFreePoolWithTag(v19, 0);
     if ( v3 )
       ExFreePoolWithTag(v3, 0);
   }
   if ( v7 )
   {
-    if ( Object < 0 )
+    if ( Element < 0 )
       BcdDeleteObject(v7);
     else
       BcdCloseObject(v7);
   }
-  return (unsigned int)Object;
+  return (unsigned int)Element;
 }

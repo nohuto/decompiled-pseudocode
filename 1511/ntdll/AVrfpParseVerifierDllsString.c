@@ -12,24 +12,24 @@
 __int64 AVrfpParseVerifierDllsString()
 {
   void *ProcessHeap; // rbp
-  void *Heap; // rax
+  PVOID Heap; // rax
   __int64 v2; // rbx
   __int64 **v4; // rax
   bool v5; // zf
-  int *i; // rbx
+  ULONG *i; // rbx
   __int16 v7; // ax
   const WCHAR *v8; // rsi
-  void *v9; // rax
+  PVOID v9; // rax
   __int64 v10; // rdi
   __int64 **v11; // rax
 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  Heap = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, 72LL);
+  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x48uLL);
   v2 = (__int64)Heap;
   if ( !Heap )
     return 3221225495LL;
   memset(Heap, 0, 0x48uLL);
-  *(_OWORD *)(v2 + 16) = VerifierDllString;
+  *(UNICODE_STRING *)(v2 + 16) = VerifierDllString;
   v4 = (__int64 **)qword_180144498;
   *(_QWORD *)v2 = &AVrfpVerifierProvidersList;
   *(_QWORD *)(v2 + 8) = v4;
@@ -40,10 +40,10 @@ __int64 AVrfpParseVerifierDllsString()
   qword_180144498 = v2;
   if ( v5 )
   {
-    for ( i = AVrfpVerifierDllsString; *(_WORD *)i; i = (int *)((char *)i + 2) )
+    for ( i = AVrfpVerifierDllsString; *(_WORD *)i; i = (ULONG *)((char *)i + 2) )
     {
       while ( *(_WORD *)i == 32 || *(_WORD *)i == 9 )
-        i = (int *)((char *)i + 2);
+        i = (ULONG *)((char *)i + 2);
       v7 = *(_WORD *)i;
       v8 = (const WCHAR *)i;
       if ( !*(_WORD *)i )
@@ -54,7 +54,7 @@ __int64 AVrfpParseVerifierDllsString()
           break;
         if ( v7 == 9 )
           break;
-        i = (int *)((char *)i + 2);
+        i = (ULONG *)((char *)i + 2);
         v7 = *(_WORD *)i;
       }
       while ( *(_WORD *)i );
@@ -63,7 +63,7 @@ __int64 AVrfpParseVerifierDllsString()
       *(_WORD *)i = 0;
       if ( wcsicmp(v8, L"verifier.dll") )
       {
-        v9 = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, 72LL);
+        v9 = RtlAllocateHeap(ProcessHeap, 0, 0x48uLL);
         v10 = (__int64)v9;
         if ( !v9 )
           return 3221225495LL;

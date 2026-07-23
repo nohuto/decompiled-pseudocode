@@ -1,11 +1,11 @@
 /*
- * XREFs of VslMakeProtectedPageWritable @ 0x14027B870
+ * XREFs of VslMakeProtectedPageWritable @ 0x14027BA60
  * Callers:
- *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
+ *     KeSetPagePrivilege @ 0x14028DE10 (KeSetPagePrivilege.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x14012A014 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14012A0E4 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS VslMakeProtectedPageWritable()

@@ -1,20 +1,20 @@
 /*
- * XREFs of SeLogAccessFailure @ 0x1402B59D0
+ * XREFs of SeLogAccessFailure @ 0x1403006A0
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x1402AD130 (SepCommonAccessCheckEx.c)
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x1403AD570 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     SepFlattenAcl @ 0x140516924 (SepFlattenAcl.c)
- *     SepGetLearningModeObjectInformation @ 0x140516F8C (SepGetLearningModeObjectInformation.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PsReferenceEffectiveToken @ 0x14094F580 (PsReferenceEffectiveToken.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     SepFlattenAcl @ 0x140510394 (SepFlattenAcl.c)
+ *     SepGetLearningModeObjectInformation @ 0x1405109FC (SepGetLearningModeObjectInformation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PsReferenceEffectiveToken @ 0x1409CAEC0 (PsReferenceEffectiveToken.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLONG a4, __int64 a5, char a6, char a7)
@@ -100,97 +100,93 @@ void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLO
   __int64 v86; // rax
   __int64 v87; // rax
   __int64 v88; // rax
-  char v89; // [rsp+48h] [rbp-C0h] BYREF
-  char v90; // [rsp+49h] [rbp-BFh]
-  char v91[2]; // [rsp+4Ah] [rbp-BEh] BYREF
-  _WORD v92[2]; // [rsp+4Ch] [rbp-BCh] BYREF
-  __int16 v93[2]; // [rsp+50h] [rbp-B8h] BYREF
-  int v94; // [rsp+54h] [rbp-B4h] BYREF
-  int v95; // [rsp+58h] [rbp-B0h] BYREF
-  int v96; // [rsp+5Ch] [rbp-ACh] BYREF
-  unsigned int v97; // [rsp+60h] [rbp-A8h] BYREF
-  int v98; // [rsp+64h] [rbp-A4h] BYREF
-  int v99; // [rsp+68h] [rbp-A0h] BYREF
-  int v100; // [rsp+6Ch] [rbp-9Ch] BYREF
-  ULONG v101; // [rsp+70h] [rbp-98h] BYREF
-  ULONG v102; // [rsp+74h] [rbp-94h] BYREF
-  int v103; // [rsp+78h] [rbp-90h] BYREF
-  unsigned int v104; // [rsp+7Ch] [rbp-8Ch]
-  PVOID v105; // [rsp+80h] [rbp-88h]
-  ULONGLONG v106; // [rsp+88h] [rbp-80h]
-  void *v107; // [rsp+90h] [rbp-78h] BYREF
-  PVOID v108; // [rsp+98h] [rbp-70h] BYREF
-  PVOID v109; // [rsp+A0h] [rbp-68h]
-  __int64 v110; // [rsp+A8h] [rbp-60h]
-  void *v111; // [rsp+B0h] [rbp-58h]
+  __int16 v89; // [rsp+48h] [rbp-C0h] BYREF
+  char v90[2]; // [rsp+4Ah] [rbp-BEh] BYREF
+  _WORD v91[2]; // [rsp+4Ch] [rbp-BCh] BYREF
+  int v92; // [rsp+50h] [rbp-B8h] BYREF
+  int v93; // [rsp+54h] [rbp-B4h] BYREF
+  int v94; // [rsp+58h] [rbp-B0h] BYREF
+  unsigned int v95; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v96; // [rsp+60h] [rbp-A8h] BYREF
+  int v97; // [rsp+64h] [rbp-A4h] BYREF
+  int v98; // [rsp+68h] [rbp-A0h] BYREF
+  ULONG v99; // [rsp+6Ch] [rbp-9Ch] BYREF
+  ULONG v100; // [rsp+70h] [rbp-98h] BYREF
+  int v101; // [rsp+74h] [rbp-94h] BYREF
+  __int64 v102; // [rsp+78h] [rbp-90h]
+  PVOID v103; // [rsp+80h] [rbp-88h]
+  ULONGLONG v104; // [rsp+88h] [rbp-80h]
+  void *v105; // [rsp+90h] [rbp-78h] BYREF
+  PVOID v106; // [rsp+98h] [rbp-70h] BYREF
+  PVOID v107; // [rsp+A0h] [rbp-68h]
+  __int64 v108; // [rsp+A8h] [rbp-60h]
+  void *v109; // [rsp+B0h] [rbp-58h]
   PVOID P; // [rsp+B8h] [rbp-50h]
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+C8h] [rbp-40h] BYREF
-  const WCHAR *v114; // [rsp+D8h] [rbp-30h]
-  int v115; // [rsp+E0h] [rbp-28h]
-  int v116; // [rsp+E4h] [rbp-24h]
-  const WCHAR *v117; // [rsp+E8h] [rbp-20h]
-  int v118; // [rsp+F0h] [rbp-18h]
-  int v119; // [rsp+F4h] [rbp-14h]
-  const WCHAR *v120; // [rsp+F8h] [rbp-10h]
-  int v121; // [rsp+100h] [rbp-8h]
-  int v122; // [rsp+104h] [rbp-4h]
-  const WCHAR *v123; // [rsp+108h] [rbp+0h]
-  __int64 v124; // [rsp+110h] [rbp+8h]
-  char *v125; // [rsp+118h] [rbp+10h]
-  __int64 v126; // [rsp+120h] [rbp+18h]
-  int *v127; // [rsp+128h] [rbp+20h]
-  __int64 v128; // [rsp+130h] [rbp+28h]
-  int *v129; // [rsp+138h] [rbp+30h]
-  __int64 v130; // [rsp+140h] [rbp+38h]
-  char *v131; // [rsp+148h] [rbp+40h]
-  __int64 v132; // [rsp+150h] [rbp+48h]
-  int *v133; // [rsp+158h] [rbp+50h]
-  __int64 v134; // [rsp+160h] [rbp+58h]
-  int *v135; // [rsp+168h] [rbp+60h]
-  __int64 v136; // [rsp+170h] [rbp+68h]
-  _DWORD *v137; // [rsp+178h] [rbp+70h] BYREF
-  int v138; // [rsp+180h] [rbp+78h]
-  int v139; // [rsp+184h] [rbp+7Ch]
-  char v140; // [rsp+188h] [rbp+80h] BYREF
+  const WCHAR *v112; // [rsp+D8h] [rbp-30h]
+  int v113; // [rsp+E0h] [rbp-28h]
+  int v114; // [rsp+E4h] [rbp-24h]
+  const WCHAR *v115; // [rsp+E8h] [rbp-20h]
+  int v116; // [rsp+F0h] [rbp-18h]
+  int v117; // [rsp+F4h] [rbp-14h]
+  const WCHAR *v118; // [rsp+F8h] [rbp-10h]
+  int v119; // [rsp+100h] [rbp-8h]
+  int v120; // [rsp+104h] [rbp-4h]
+  const WCHAR *v121; // [rsp+108h] [rbp+0h]
+  __int64 v122; // [rsp+110h] [rbp+8h]
+  char *v123; // [rsp+118h] [rbp+10h]
+  __int64 v124; // [rsp+120h] [rbp+18h]
+  int *v125; // [rsp+128h] [rbp+20h]
+  __int64 v126; // [rsp+130h] [rbp+28h]
+  int *v127; // [rsp+138h] [rbp+30h]
+  __int64 v128; // [rsp+140h] [rbp+38h]
+  char *v129; // [rsp+148h] [rbp+40h]
+  __int64 v130; // [rsp+150h] [rbp+48h]
+  int *v131; // [rsp+158h] [rbp+50h]
+  __int64 v132; // [rsp+160h] [rbp+58h]
+  int *v133; // [rsp+168h] [rbp+60h]
+  __int64 v134; // [rsp+170h] [rbp+68h]
+  _DWORD *v135; // [rsp+178h] [rbp+70h] BYREF
+  int v136; // [rsp+180h] [rbp+78h]
+  int v137; // [rsp+184h] [rbp+7Ch]
+  char v138; // [rsp+188h] [rbp+80h] BYREF
 
   v7 = a7;
   v8 = 0;
-  v109 = 0LL;
-  v10 = 0;
   v107 = 0LL;
-  v90 = 0;
-  v11 = a4;
-  v111 = 0LL;
-  v108 = 0LL;
-  v106 = a4;
+  v10 = 0;
   v105 = 0LL;
-  v97 = 0;
-  LOBYTE(v93[0]) = 0;
-  LOWORD(v94) = 0;
-  v101 = 0;
-  v102 = 0;
-  LOWORD(v95) = 0;
-  v91[0] = 0;
+  v11 = a4;
+  v109 = 0LL;
+  v106 = 0LL;
+  v104 = a4;
+  v103 = 0LL;
+  v95 = 0;
+  LOWORD(v92) = 0;
   v99 = 0;
-  v100 = 1;
-  v98 = 0;
+  v100 = 0;
+  LOWORD(v93) = 0;
+  v90[0] = 0;
+  v97 = 0;
+  v98 = 1;
   v96 = 0;
+  v94 = 0;
   v89 = 0;
-  v92[0] = 0;
-  if ( KeGetCurrentIrql() >= 2u || !EtwpSecurityLock.MutantListHead.Blink )
+  v91[0] = 0;
+  if ( KeGetCurrentIrql() >= 2u || !EtwKernelProvRegHandle )
     return;
   if ( Object )
   {
-    v98 = *((_DWORD *)Object + 48);
-    v99 = *((_DWORD *)Object + 49);
+    v96 = *((_DWORD *)Object + 48);
+    v97 = *((_DWORD *)Object + 49);
   }
   else
   {
-    Object = (char *)PsReferenceEffectiveToken(KeGetCurrentThread(), 1732535635LL, &v98, v93, &v99, 0LL);
+    Object = (char *)PsReferenceEffectiveToken(KeGetCurrentThread(), 1732535635LL, &v96, (char *)&v89 + 1, &v97, 0LL);
     if ( !Object )
       return;
     v10 = 1;
-    v90 = 1;
+    HIBYTE(v89) = 1;
   }
   if ( (*((_DWORD *)Object + 50) & 0x1000000) == 0 )
   {
@@ -204,8 +200,8 @@ void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLO
     v12 = L"Permissive";
   UserData.Ptr = (ULONGLONG)v12;
   UserData.Size = v7 != 0 ? 22 : 14;
-  LearningModeObjectInformation = SepGetLearningModeObjectInformation(v91);
-  v110 = LearningModeObjectInformation;
+  LearningModeObjectInformation = SepGetLearningModeObjectInformation(v90);
+  v108 = LearningModeObjectInformation;
   v14 = LearningModeObjectInformation;
   if ( LearningModeObjectInformation && (v15 = *(unsigned __int16 **)(LearningModeObjectInformation + 16)) != 0LL )
   {
@@ -220,9 +216,9 @@ void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLO
     v17 = 2;
     v18 = &SourceString;
   }
-  v114 = v18;
-  v115 = v17;
-  v116 = 0;
+  v112 = v18;
+  v113 = v17;
+  v114 = 0;
   if ( v14 && (v19 = *(unsigned __int16 **)(v14 + 24)) != 0LL )
   {
     if ( *(_QWORD *)(v14 + 32) && (v20 = *(const WCHAR **)(v14 + 48)) != 0LL )
@@ -243,9 +239,9 @@ void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLO
     v21 = 2;
     v20 = &SourceString;
   }
-  v119 = 0;
-  v117 = v20;
-  v118 = v21;
+  v117 = 0;
+  v115 = v20;
+  v116 = v21;
   LastRebalanceQpc = KeGetCurrentThread()->Process[1].LastRebalanceQpc;
   if ( LastRebalanceQpc )
   {
@@ -257,27 +253,27 @@ void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLO
     v23 = 2;
     v24 = &SourceString;
   }
-  v120 = v24;
-  v125 = &a6;
-  v127 = &v98;
-  v129 = &v99;
-  v131 = Object + 120;
-  v121 = v23;
-  v122 = 0;
-  v123 = &SourceString;
-  v124 = 2LL;
+  v118 = v24;
+  v123 = &a6;
+  v125 = &v96;
+  v127 = &v97;
+  v129 = Object + 120;
+  v119 = v23;
+  v120 = 0;
+  v121 = &SourceString;
+  v122 = 2LL;
+  v124 = 4LL;
   v126 = 4LL;
   v128 = 4LL;
   v130 = 4LL;
-  v132 = 4LL;
   v25 = *((_QWORD *)Object + 135);
   if ( v25 )
     v26 = (int *)(v25 + 40);
   else
-    v26 = &v96;
-  v133 = v26;
-  v134 = 4LL;
-  v103 = 1;
+    v26 = &v94;
+  v131 = v26;
+  v132 = 4LL;
+  v101 = 1;
   v27 = 4 * *(unsigned __int8 *)(**((_QWORD **)Object + 19) + 1LL) + 12;
   Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
   P = Pool2;
@@ -289,27 +285,27 @@ void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLO
       Pool2 + 1,
       **((const void ***)Object + 19),
       4LL * *(unsigned __int8 *)(**((_QWORD **)Object + 19) + 1LL) + 8);
-    v137 = v29;
-    v30 = &v103;
+    v135 = v29;
+    v30 = &v101;
     v31 = 13;
-    v138 = v27;
-    v136 = 4LL;
-    v32 = (int **)&v140;
-    v139 = 0;
+    v136 = v27;
+    v134 = 4LL;
+    v32 = (int **)&v138;
+    v137 = 0;
   }
   else
   {
-    v30 = &v96;
-    v136 = 4LL;
-    v32 = &v137;
+    v30 = &v94;
+    v134 = 4LL;
+    v32 = &v135;
     v31 = 12;
   }
-  v135 = v30;
+  v133 = v30;
   v33 = *((_QWORD *)Object + 98);
   v32[1] = (int *)4;
   if ( v33 )
   {
-    *v32 = &v100;
+    *v32 = &v98;
     v69 = 2LL * v31;
     v70 = *((_QWORD *)Object + 98);
     ++v31;
@@ -320,12 +316,12 @@ void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLO
   }
   else
   {
-    *v32 = &v96;
+    *v32 = &v94;
   }
   if ( !*((_DWORD *)Object + 200) )
   {
     v34 = 2LL * v31;
-    *(&UserData.Ptr + v34) = (ULONGLONG)&v96;
+    *(&UserData.Ptr + v34) = (ULONGLONG)&v94;
     *((_QWORD *)&UserData.Size + v34) = 4LL;
 LABEL_31:
     ++v31;
@@ -342,17 +338,17 @@ LABEL_31:
   }
   while ( v74 );
   v76 = (void *)ExAllocatePool2(0x100uLL);
-  v105 = v76;
+  v103 = v76;
   v77 = v76;
   if ( v76 )
   {
     v78 = *((_DWORD *)Object + 200);
     v81 = v76;
-    v97 = v78;
-    v104 = 0;
+    v95 = v78;
+    LODWORD(v102) = 0;
     if ( v78 )
     {
-      v82 = v104;
+      v82 = v102;
       do
       {
         v83 = 2LL * v82;
@@ -360,21 +356,21 @@ LABEL_31:
         v84 = *(unsigned __int8 **)(*((_QWORD *)Object + 99) + 16LL * v82);
         memmove(v81 + 1, v84, 4LL * v84[1] + 8);
         ++v82;
-        v78 = v97;
+        v78 = v95;
         v81 += *(unsigned __int8 *)(*(_QWORD *)(*((_QWORD *)Object + 99) + 8 * v83) + 1LL) + 3;
       }
-      while ( v82 < v97 );
-      v14 = v110;
-      v77 = v105;
+      while ( v82 < v95 );
+      v14 = v108;
+      v77 = v103;
     }
-    v11 = v106;
+    v11 = v104;
   }
   else
   {
-    v78 = v97;
+    v78 = v95;
   }
   v79 = 2LL * v31++;
-  *(&UserData.Ptr + v79) = (ULONGLONG)&v97;
+  *(&UserData.Ptr + v79) = (ULONGLONG)&v95;
   *((_QWORD *)&UserData.Size + v79) = 4LL;
   if ( v78 )
   {
@@ -389,7 +385,7 @@ LABEL_32:
   *((_QWORD *)&UserData.Size + 2 * v31) = 4LL;
   if ( v11 )
   {
-    *(&UserData.Ptr + 2 * v31) = (ULONGLONG)&v100;
+    *(&UserData.Ptr + 2 * v31) = (ULONGLONG)&v98;
     v67 = 2LL * v35;
     v35 = v31 + 2;
     v68 = 4 * *(unsigned __int8 *)(v11 + 1) + 8;
@@ -399,7 +395,7 @@ LABEL_32:
   }
   else
   {
-    *(&UserData.Ptr + 2 * v31) = (ULONGLONG)&v96;
+    *(&UserData.Ptr + 2 * v31) = (ULONGLONG)&v94;
   }
   v36 = v35;
   v37 = v35 + 1;
@@ -476,22 +472,22 @@ LABEL_45:
     *((_QWORD *)&UserData.Size + 2 * v47) = 1LL;
     goto LABEL_71;
   }
-  v53 = SepFlattenAcl(v49, &v107, &v101, &v94);
+  v53 = SepFlattenAcl(v49, &v105, &v99, &v92);
   *((_QWORD *)&UserData.Size + v51) = 1LL;
-  v54 = (ULONGLONG)v107;
-  v109 = v107;
+  v54 = (ULONGLONG)v105;
+  v107 = v105;
   if ( v53 < 0 )
   {
 LABEL_71:
     *(&UserData.Ptr + v51) = (ULONGLONG)&v89;
     *((_QWORD *)&UserData.Size + v52) = 2LL;
-    *(&UserData.Ptr + v52) = (ULONGLONG)v92;
+    *(&UserData.Ptr + v52) = (ULONGLONG)v91;
     goto LABEL_48;
   }
   *(&UserData.Ptr + v51) = v49;
-  *(&UserData.Ptr + v52) = (ULONGLONG)&v94;
+  *(&UserData.Ptr + v52) = (ULONGLONG)&v92;
   ++v50;
-  v55 = v101;
+  v55 = v99;
   *((_QWORD *)&UserData.Size + v52) = 2LL;
   v56 = 2LL * v50;
   *(&UserData.Ptr + v56) = v54;
@@ -519,43 +515,43 @@ LABEL_51:
   v62 = 2LL * (v58 + 1);
   if ( !v59 )
   {
-    v64 = v111;
+    v64 = v109;
     *((_QWORD *)&UserData.Size + v61) = 1LL;
     goto LABEL_73;
   }
-  v63 = SepFlattenAcl(v59, &v108, &v102, &v95);
+  v63 = SepFlattenAcl(v59, &v106, &v100, &v93);
   *((_QWORD *)&UserData.Size + 2 * v58) = 1LL;
-  v64 = v108;
+  v64 = v106;
   if ( v63 < 0 )
   {
 LABEL_73:
     *(&UserData.Ptr + v61) = (ULONGLONG)&v89;
     *((_QWORD *)&UserData.Size + v62) = 2LL;
-    *(&UserData.Ptr + v62) = (ULONGLONG)v92;
+    *(&UserData.Ptr + v62) = (ULONGLONG)v91;
     goto LABEL_54;
   }
   *(&UserData.Ptr + v61) = v59;
-  *(&UserData.Ptr + v62) = (ULONGLONG)&v95;
+  *(&UserData.Ptr + v62) = (ULONGLONG)&v93;
   ++v60;
-  v65 = v102;
+  v65 = v100;
   *((_QWORD *)&UserData.Size + v62) = 2LL;
   v66 = 2LL * v60;
   *(&UserData.Ptr + v66) = (ULONGLONG)v64;
   *(&UserData.Size + 2 * v66) = v65;
   *(&UserData.Reserved + 2 * v66) = 0;
 LABEL_54:
-  EtwWriteEx((REGHANDLE)EtwpSecurityLock.MutantListHead.Blink, &AccessCheckLog, 0LL, 0, 0LL, 0LL, v60 + 1, &UserData);
+  EtwWriteEx(EtwKernelProvRegHandle, &AccessCheckLog, 0LL, 0, 0LL, 0LL, v60 + 1, &UserData);
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( v105 )
-    ExFreePoolWithTag(v105, 0);
-  if ( v109 )
-    ExFreePoolWithTag(v109, 0);
+  if ( v103 )
+    ExFreePoolWithTag(v103, 0);
+  if ( v107 )
+    ExFreePoolWithTag(v107, 0);
   if ( v64 )
     ExFreePoolWithTag(v64, 0);
-  if ( v90 )
+  if ( HIBYTE(v89) )
     ObfDereferenceObjectWithTag(Object, 0x67446553u);
-  if ( v91[0] )
+  if ( v90[0] )
   {
     ExFreePoolWithTag(*(PVOID *)(*(_QWORD *)(v14 + 16) + 8LL), 0);
     ExFreePoolWithTag(*(PVOID *)(v14 + 16), 0);

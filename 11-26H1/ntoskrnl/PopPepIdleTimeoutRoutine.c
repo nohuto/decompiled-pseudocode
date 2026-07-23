@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPepIdleTimeoutRoutine @ 0x140483A70
+ * XREFs of PopPepIdleTimeoutRoutine @ 0x14047D3E0
  * Callers:
  *     <none>
  * Callees:
- *     PopPepArmIdleTimer @ 0x14021A6DC (PopPepArmIdleTimer.c)
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PopPepPromoteActivities @ 0x1403B0F90 (PopPepPromoteActivities.c)
- *     PopPepRequestWork @ 0x1403B14B8 (PopPepRequestWork.c)
- *     PopPepUpdateIdleState @ 0x1403B19D8 (PopPepUpdateIdleState.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140483CB4 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepArmIdleTimer @ 0x14021C06C (PopPepArmIdleTimer.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PopPepPromoteActivities @ 0x1403BACA0 (PopPepPromoteActivities.c)
+ *     PopPepRequestWork @ 0x1403BB1C8 (PopPepRequestWork.c)
+ *     PopPepUpdateIdleState @ 0x1403BB6E8 (PopPepUpdateIdleState.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x14047D624 (PopPepComponentGetResidencyIdleState.c)
  */
 
 void __fastcall PopPepIdleTimeoutRoutine(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -40,9 +40,18 @@ void __fastcall PopPepIdleTimeoutRoutine(__int64 a1, __int64 a2, __int64 a3, str
   v4 = MEMORY[0xFFFFF78000000008];
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&qword_140F0AFD0, 0LL, 0LL, a4);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F0AFD0, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140F0AFD0.Header.Lock, 0, v6, &qword_140F0AFD0);
+  v6 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock.PriorityFloorSummary, 0LL, 0LL, a4);
+  if ( _InterlockedCompareExchange64(
+         (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+         17LL,
+         0LL) )
+  {
+    ExfAcquirePushLockSharedEx(
+      (signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+      0,
+      v6,
+      (struct _KTHREAD *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+  }
   if ( v6 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -50,7 +59,9 @@ void __fastcall PopPepIdleTimeoutRoutine(__int64 a1, __int64 a2, __int64 a3, str
     else
       *((_BYTE *)v6 + 10) = 1;
   }
-  for ( i = PopDirectedDripsUmLock.Padding[3]; (unsigned __int64 *)i != &PopDirectedDripsUmLock.Padding[3]; i = *(_QWORD *)i )
+  for ( i = *(_QWORD *)&PopDirectedDripsDiagLock.ForegroundLossTime;
+        (unsigned int *)i != &PopDirectedDripsDiagLock.ForegroundLossTime;
+        i = *(_QWORD *)i )
   {
     if ( (*(_BYTE *)(i + 16) & 1) == 0 )
     {
@@ -112,9 +123,12 @@ void __fastcall PopPepIdleTimeoutRoutine(__int64 a1, __int64 a2, __int64 a3, str
       ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(i + 64), v8);
     }
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F0AFD0, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140F0AFD0.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&qword_140F0AFD0);
+  if ( _InterlockedCompareExchange64(
+         (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+         0LL,
+         17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+  KeAbPostRelease((unsigned __int64)&PopDirectedDripsDiagLock.PriorityFloorSummary);
   KeLeaveCriticalRegion();
   PopPepArmIdleTimer(1);
 }

@@ -1,22 +1,22 @@
 /*
  * XREFs of MiChangePageAttributeBatch @ 0x14021C9B4
  * Callers:
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9810 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiFreeSlabEntry @ 0x1403B86D0 (MiFreeSlabEntry.c)
- *     MiConvertContiguousPages @ 0x1403BDAD0 (MiConvertContiguousPages.c)
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
- *     MiChangeAwePageAttributes @ 0x140649440 (MiChangeAwePageAttributes.c)
- *     MiPerformFinalZeroing @ 0x14064DC6C (MiPerformFinalZeroing.c)
- *     MiFindLargePageMemory @ 0x140A49768 (MiFindLargePageMemory.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9AA0 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiFreeSlabEntry @ 0x1403B88B0 (MiFreeSlabEntry.c)
+ *     MiConvertContiguousPages @ 0x1403BDCB0 (MiConvertContiguousPages.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
+ *     MiChangeAwePageAttributes @ 0x140649990 (MiChangeAwePageAttributes.c)
+ *     MiPerformFinalZeroing @ 0x14064E1BC (MiPerformFinalZeroing.c)
+ *     MiFindLargePageMemory @ 0x140A49A18 (MiFindLargePageMemory.c)
  * Callees:
  *     MiAbortCombineScan @ 0x14021AAAC (MiAbortCombineScan.c)
  *     MiFlushCacheForAttributeChange @ 0x14021AB84 (MiFlushCacheForAttributeChange.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     KeInvalidateAllCaches @ 0x14036DB40 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     KeInvalidateAllCaches @ 0x14036DCE0 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiChangePageAttributeBatch(__int64 a1, int a2, __int64 a3)
@@ -111,10 +111,10 @@ void __fastcall MiChangePageAttributeBatch(__int64 a1, int a2, __int64 a3)
         _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( v7 == v8 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;

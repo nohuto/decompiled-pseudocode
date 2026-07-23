@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpUpdatePerfectHashFunction @ 0x1406A9260
+ * XREFs of EtwpUpdatePerfectHashFunction @ 0x1406A9398
  * Callers:
- *     EtwpUpdateFilterData @ 0x140491C98 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x140492728 (EtwpUpdateFilterData.c)
  * Callees:
  *     <none>
  */

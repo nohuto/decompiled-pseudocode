@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestTableDeleteEntry @ 0x140981AFC
+ * XREFs of PopPowerRequestTableDeleteEntry @ 0x140981CFC
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x14032BD78 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestCreateCommon @ 0x14032C008 (PopPowerRequestCreateCommon.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x14031E9D0 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14031EC60 (RtlDeleteElementGenericTableAvl.c)
  */
 
 BOOLEAN __fastcall PopPowerRequestTableDeleteEntry(int a1)

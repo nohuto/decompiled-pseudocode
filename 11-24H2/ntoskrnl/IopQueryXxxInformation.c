@@ -1,30 +1,30 @@
 /*
- * XREFs of IopQueryXxxInformation @ 0x14096A530
+ * XREFs of IopQueryXxxInformation @ 0x140952FC0
  * Callers:
- *     IopValidateJunctionTarget @ 0x140713438 (IopValidateJunctionTarget.c)
- *     MiAttemptPageFileExtension @ 0x1407EDD9C (MiAttemptPageFileExtension.c)
- *     MiCreatePagingFile @ 0x1407EE364 (MiCreatePagingFile.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
- *     PfpPrefetchEntireDirectory @ 0x140953B8C (PfpPrefetchEntireDirectory.c)
- *     IopQueryNameInternal @ 0x140968330 (IopQueryNameInternal.c)
- *     IoQueryFileInformation @ 0x14096A7E0 (IoQueryFileInformation.c)
- *     PfSnGetSectionObject @ 0x14096AFAC (PfSnGetSectionObject.c)
- *     IoQueryVolumeInformation @ 0x14096BF40 (IoQueryVolumeInformation.c)
- *     IopGetNetworkOpenInformation @ 0x140AAFFFC (IopGetNetworkOpenInformation.c)
+ *     IopValidateJunctionTarget @ 0x140710FC8 (IopValidateJunctionTarget.c)
+ *     MiAttemptPageFileExtension @ 0x1407EE36C (MiAttemptPageFileExtension.c)
+ *     MiCreatePagingFile @ 0x1407EE934 (MiCreatePagingFile.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
+ *     PfpPrefetchEntireDirectory @ 0x14093753C (PfpPrefetchEntireDirectory.c)
+ *     IopQueryNameInternal @ 0x140950DC0 (IopQueryNameInternal.c)
+ *     IoQueryFileInformation @ 0x140953270 (IoQueryFileInformation.c)
+ *     PfSnGetSectionObject @ 0x140953A3C (PfSnGetSectionObject.c)
+ *     IoQueryVolumeInformation @ 0x1409549A0 (IoQueryVolumeInformation.c)
+ *     IopGetNetworkOpenInformation @ 0x140AAAF68 (IopGetNetworkOpenInformation.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x140253C60 (IopQueueThreadIrp.c)
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     IopReleaseFileObjectLock @ 0x14031D520 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     IopWaitForSynchronousIo @ 0x1403C48D0 (IopWaitForSynchronousIo.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IopQueueThreadIrp @ 0x140284270 (IopQueueThreadIrp.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     IopReleaseFileObjectLock @ 0x1402C60B0 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopWaitForSynchronousIo @ 0x1403B3490 (IopWaitForSynchronousIo.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
  */
 
 __int64 __fastcall IopQueryXxxInformation(
@@ -42,46 +42,45 @@ __int64 __fastcall IopQueryXxxInformation(
   int v14; // r15d
   struct _DEVICE_OBJECT *v15; // rsi
   __int64 Irp; // rax
-  __int64 v17; // rdx
-  IRP *v18; // rbx
+  IRP *v17; // rbx
   struct _KEVENT *p_Event; // rax
-  bool v20; // zf
+  bool v19; // zf
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  char v22; // al
-  __int64 v23; // rax
-  NTSTATUS v24; // eax
+  char v21; // al
+  __int64 v22; // rax
+  NTSTATUS v23; // eax
   unsigned int FinalStatus; // esi
   struct _KTHREAD *CurrentThread; // rax
-  bool v28; // bl
-  _QWORD *v29; // rax
-  unsigned int v30; // ebx
-  __int128 v31; // [rsp+30h] [rbp-58h] BYREF
+  bool v27; // bl
+  _QWORD *v28; // rax
+  unsigned int v29; // ebx
+  __int128 v30; // [rsp+30h] [rbp-58h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-48h] BYREF
-  char v33; // [rsp+90h] [rbp+8h] BYREF
+  char v32; // [rsp+90h] [rbp+8h] BYREF
 
   memset(&Event, 0, sizeof(Event));
-  v31 = 0LL;
+  v30 = 0LL;
   PsReferenceSiloContext(BugCheckParameter2);
   if ( (BugCheckParameter2->Flags & 2) != 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    v28 = (BugCheckParameter2->Flags & 4) != 0;
+    v27 = (BugCheckParameter2->Flags & 4) != 0;
     --CurrentThread->KernelApcDisable;
-    v29 = KeAbPreAcquire((__int64)&BugCheckParameter2->Lock, 0LL);
-    v33 = 0;
+    v28 = KeAbPreAcquire((__int64)&BugCheckParameter2->Lock, 0LL);
+    v32 = 0;
     if ( _InterlockedExchange((volatile __int32 *)&BugCheckParameter2->Busy, 1) )
     {
-      v30 = IopWaitAndAcquireFileObjectLock((_DWORD)BugCheckParameter2, a4, v28, (_DWORD)v29, (__int64)&v33);
-      if ( v33 )
+      v29 = IopWaitAndAcquireFileObjectLock((_DWORD)BugCheckParameter2, a4, v27, (_DWORD)v28, (__int64)&v32);
+      if ( v32 )
       {
         ObfDereferenceObject(BugCheckParameter2);
-        return v30;
+        return v29;
       }
     }
     else
     {
-      if ( v29 )
-        *((_BYTE *)v29 + 10) = 1;
+      if ( v28 )
+        *((_BYTE *)v28 + 10) = 1;
       PsReferenceSiloContext(BugCheckParameter2);
     }
     KeResetEvent(&BugCheckParameter2->Event);
@@ -100,7 +99,7 @@ __int64 __fastcall IopQueryXxxInformation(
   v15 = RelatedDeviceObject;
   LOBYTE(v13) = v11 ^ 1;
   Irp = IopAllocateIrpExReturn((__int64)RelatedDeviceObject, (unsigned __int8)RelatedDeviceObject->StackSize, v13);
-  v18 = (IRP *)Irp;
+  v17 = (IRP *)Irp;
   if ( Irp )
   {
     *(_QWORD *)(Irp + 192) = BugCheckParameter2;
@@ -116,41 +115,41 @@ __int64 __fastcall IopQueryXxxInformation(
       *(_DWORD *)(Irp + 16) = 4;
       p_Event = &Event;
     }
-    v20 = a7 == 0;
-    v18->UserEvent = p_Event;
-    CurrentStackLocation = v18->Tail.Overlay.CurrentStackLocation;
-    v18->UserIosb = (PIO_STATUS_BLOCK)&v31;
-    v22 = 5;
-    if ( v20 )
-      v22 = 10;
-    v18->Overlay.AllocationSize.QuadPart = 0LL;
-    CurrentStackLocation[-1].MajorFunction = v22;
-    v23 = a5;
+    v19 = a7 == 0;
+    v17->UserEvent = p_Event;
+    CurrentStackLocation = v17->Tail.Overlay.CurrentStackLocation;
+    v17->UserIosb = (PIO_STATUS_BLOCK)&v30;
+    v21 = 5;
+    if ( v19 )
+      v21 = 10;
+    v17->Overlay.AllocationSize.QuadPart = 0LL;
+    CurrentStackLocation[-1].MajorFunction = v21;
+    v22 = a5;
     CurrentStackLocation[-1].FileObject = BugCheckParameter2;
-    v18->Flags |= 0x10u;
-    v18->AssociatedIrp.MasterIrp = (struct _IRP *)v23;
+    v17->Flags |= 0x10u;
+    v17->AssociatedIrp.MasterIrp = (struct _IRP *)v22;
     CurrentStackLocation[-1].Parameters.Read.Length = a3;
     CurrentStackLocation[-1].Parameters.Create.Options = v14;
     if ( a2 == 75 )
       CurrentStackLocation[-1].Flags |= 1u;
-    IopQueueThreadIrp((__int64)v18, v17, 10LL);
-    v24 = IofCallDriver(v15, v18);
-    FinalStatus = v24;
+    IopQueueThreadIrp((__int64)v17);
+    v23 = IofCallDriver(v15, v17);
+    FinalStatus = v23;
     if ( v11 )
     {
-      if ( v24 == 259 )
+      if ( v23 == 259 )
       {
-        IopWaitForSynchronousIo(v18, (unsigned int *)BugCheckParameter2, a4);
+        IopWaitForSynchronousIo(v17, (unsigned int *)BugCheckParameter2, a4);
         FinalStatus = BugCheckParameter2->FinalStatus;
       }
       IopReleaseFileObjectLock((ULONG_PTR)BugCheckParameter2);
     }
-    else if ( v24 == 259 )
+    else if ( v23 == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      FinalStatus = v31;
+      FinalStatus = v30;
     }
-    *a6 = DWORD2(v31);
+    *a6 = DWORD2(v30);
     return FinalStatus;
   }
   else

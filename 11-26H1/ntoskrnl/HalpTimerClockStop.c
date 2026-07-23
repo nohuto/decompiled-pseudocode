@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerClockStop @ 0x1404F9F10
+ * XREFs of HalpTimerClockStop @ 0x1404F3520
  * Callers:
- *     HalpTimerClockPowerChange @ 0x1405811D0 (HalpTimerClockPowerChange.c)
+ *     HalpTimerClockPowerChange @ 0x1405836F0 (HalpTimerClockPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 HalpTimerClockStop()

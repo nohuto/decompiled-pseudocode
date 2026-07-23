@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpNtOpenKey(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall RtlpNtOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  if ( a3 )
-    *(_DWORD *)(a3 + 24) &= 0xFFFFFFCF;
-  return NtOpenKey(a1, a2, a3);
+  if ( ObjectAttributes )
+    ObjectAttributes->Attributes &= 0xFFFFFFCF;
+  return NtOpenKey(KeyHandle, DesiredAccess, ObjectAttributes);
 }

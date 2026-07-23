@@ -1,16 +1,16 @@
 /*
- * XREFs of KeGetProcessorNumberFromIndex @ 0x1403B41E0
+ * XREFs of KeGetProcessorNumberFromIndex @ 0x140370900
  * Callers:
- *     KeSetIdealProcessorThreadByNumber @ 0x1403B4160 (KeSetIdealProcessorThreadByNumber.c)
- *     KeMaskInterrupt @ 0x1403B748C (KeMaskInterrupt.c)
- *     HalpInterruptInitializeIpis @ 0x1405445EC (HalpInterruptInitializeIpis.c)
- *     HalpPmuReservedResourcesProcessorCallback @ 0x140545ED8 (HalpPmuReservedResourcesProcessorCallback.c)
- *     IoGetAffinityInterrupt @ 0x1405A44D0 (IoGetAffinityInterrupt.c)
- *     KiAltContextWorkQueueAddItem @ 0x1405C9B28 (KiAltContextWorkQueueAddItem.c)
- *     WheaFlushETWEventsAddWorkRtn @ 0x14065DDDC (WheaFlushETWEventsAddWorkRtn.c)
- *     PnprAddProcessorResources @ 0x14072EF7C (PnprAddProcessorResources.c)
- *     EtwpProcessorRundown @ 0x1407B1358 (EtwpProcessorRundown.c)
- *     PnprQuiesceProcessorDpc @ 0x140B54710 (PnprQuiesceProcessorDpc.c)
+ *     KeMaskInterrupt @ 0x1402B3740 (KeMaskInterrupt.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x140370880 (KeSetIdealProcessorThreadByNumber.c)
+ *     HalpInterruptInitializeIpis @ 0x140541F3C (HalpInterruptInitializeIpis.c)
+ *     HalpPmuReservedResourcesProcessorCallback @ 0x140543798 (HalpPmuReservedResourcesProcessorCallback.c)
+ *     IoGetAffinityInterrupt @ 0x1405A1410 (IoGetAffinityInterrupt.c)
+ *     KiAltContextWorkQueueAddItem @ 0x1405C7258 (KiAltContextWorkQueueAddItem.c)
+ *     WheaFlushETWEventsAddWorkRtn @ 0x14065C5A4 (WheaFlushETWEventsAddWorkRtn.c)
+ *     PnprAddProcessorResources @ 0x14072CF8C (PnprAddProcessorResources.c)
+ *     EtwpProcessorRundown @ 0x1407B17A8 (EtwpProcessorRundown.c)
+ *     PnprQuiesceProcessorDpc @ 0x140B56760 (PnprQuiesceProcessorDpc.c)
  * Callees:
  *     <none>
  */

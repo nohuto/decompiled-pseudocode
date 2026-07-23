@@ -11,7 +11,7 @@
 
 __int64 __fastcall RtlpHpLfhContextCleanup(__int64 a1)
 {
-  unsigned int v1; // ebx
+  int v1; // ebx
   __int64 *v3; // rbx
   __int64 v4; // rsi
   __int64 result; // rax
@@ -20,7 +20,7 @@ __int64 __fastcall RtlpHpLfhContextCleanup(__int64 a1)
   v1 = *(_DWORD *)(a1 + 76);
   if ( v1 )
   {
-    if ( (int)RtlpFlsFree(&RtlpHpEnvFlsContext, HIWORD(v1)) < 0 )
+    if ( (int)RtlpFlsFree(&RtlpHpEnvFlsContext) < 0 )
       NT_ASSERT("(((NTSTATUS)(Status)) >= 0)");
     if ( (int)RtlTlsFree((unsigned __int16)v1) < 0 )
       NT_ASSERT("(((NTSTATUS)(Status)) >= 0)");

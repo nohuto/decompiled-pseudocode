@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRotateHeadWsle @ 0x140016DF0
+ * XREFs of MiRotateHeadWsle @ 0x140016970
  * Callers:
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
- *     MiSimpleAging @ 0x1400AC264 (MiSimpleAging.c)
- *     MiReplaceWorkingSetEntryLarge @ 0x140100DD4 (MiReplaceWorkingSetEntryLarge.c)
- *     MmUpdateOldWorkingSetPages @ 0x1401EA524 (MmUpdateOldWorkingSetPages.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
+ *     MiSimpleAging @ 0x1400AA7CC (MiSimpleAging.c)
+ *     MiReplaceWorkingSetEntryLarge @ 0x1400FEB54 (MiReplaceWorkingSetEntryLarge.c)
+ *     MmUpdateOldWorkingSetPages @ 0x1401EA350 (MmUpdateOldWorkingSetPages.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiInsertWsle @ 0x1400E2090 (MiInsertWsle.c)
- *     MiRemoveEntryWsle @ 0x1400E2580 (MiRemoveEntryWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiInsertWsle @ 0x1400DFF30 (MiInsertWsle.c)
+ *     MiRemoveEntryWsle @ 0x1400E0420 (MiRemoveEntryWsle.c)
  */
 
 __int64 __fastcall MiRotateHeadWsle(__int64 a1, unsigned int a2)

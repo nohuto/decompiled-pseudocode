@@ -11,15 +11,17 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-_WORD *__fastcall LdrpLogFatalLdrEtwEvent(unsigned __int16 *a1, int *a2)
+_WORD *__fastcall LdrpLogFatalLdrEtwEvent(unsigned __int16 *a1, const EVENT_DESCRIPTOR *a2)
 {
   const void **v3; // edi
   unsigned int v4; // ecx
-  int v5; // esi
+  unsigned int v5; // esi
   _WORD *v6; // esi
   unsigned __int16 v7; // ax
   _WORD *result; // eax
-  _DWORD v10[5]; // [esp+18h] [ebp-18h] BYREF
+  SIZE_T v9; // [esp-4h] [ebp-34h]
+  size_t v10; // [esp-4h] [ebp-34h]
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+18h] [ebp-18h] BYREF
 
   v3 = (const void **)(a1 + 2);
   v4 = *a1;
@@ -34,20 +36,21 @@ _WORD *__fastcall LdrpLogFatalLdrEtwEvent(unsigned __int16 *a1, int *a2)
     }
     v5 = v4 + 2;
   }
-  result = (_WORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v5);
+  LODWORD(v9) = v5;
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v9);
   v6 = result;
   if ( !result )
     return result;
-  memcpy(result, *v3, *a1);
+  LODWORD(v10) = *a1;
+  memcpy(result, *v3, v10);
   v6[*a1 >> 1] = 0;
   v7 = *a1;
 LABEL_7:
-  v10[0] = v6;
-  v10[2] = v7 + 2;
-  v10[1] = 0;
-  v10[3] = 0;
-  result = (_WORD *)EtwEventWriteNoRegistration((int)UserLoaderGuid, a2, 1, (int)v10);
+  UserData.Ptr = (unsigned int)v6;
+  UserData.Size = v7 + 2;
+  UserData.Reserved = 0;
+  result = (_WORD *)EtwEventWriteNoRegistration(&UserLoaderGuid, a2, 1u, &UserData);
   if ( v6 != *v3 )
-    return (_WORD *)RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v6);
+    return (_WORD *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
   return result;
 }

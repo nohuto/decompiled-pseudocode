@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInitializeTimers @ 0x1403A4134
+ * XREFs of HalpInitializeTimers @ 0x1403A4314
  * Callers:
- *     HalpTimerInitSystem @ 0x14037AA30 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x14037ABD0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpTimerBuildKnownResourceIdString @ 0x140378DC4 (HalpTimerBuildKnownResourceIdString.c)
- *     HalpTimerSelectRoles @ 0x14037A2AC (HalpTimerSelectRoles.c)
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
- *     HalpTimerCalculateMaximumAllowableDrift @ 0x1403A42D0 (HalpTimerCalculateMaximumAllowableDrift.c)
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A4318 (HalpTimerRegisterBuiltinPluginsCommon.c)
- *     HalpTimerCreateReferencePage @ 0x1403A44A8 (HalpTimerCreateReferencePage.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x140378F64 (HalpTimerBuildKnownResourceIdString.c)
+ *     HalpTimerSelectRoles @ 0x14037A44C (HalpTimerSelectRoles.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
+ *     HalpTimerCalculateMaximumAllowableDrift @ 0x1403A44B0 (HalpTimerCalculateMaximumAllowableDrift.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A44F8 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerCreateReferencePage @ 0x1403A4688 (HalpTimerCreateReferencePage.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpInitializeTimers(__int64 a1)

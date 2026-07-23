@@ -1,16 +1,16 @@
 /*
- * XREFs of VrpPostQueryKey @ 0x14080B240
+ * XREFs of VrpPostQueryKey @ 0x14080C440
  * Callers:
- *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1408091F0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     ExGetPreviousMode @ 0x1400DDC70 (ExGetPreviousMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     VrpCleanupBufferParameter @ 0x1408083C4 (VrpCleanupBufferParameter.c)
- *     VrpOutputBufferParameter @ 0x1408084C8 (VrpOutputBufferParameter.c)
- *     VrpProcessBufferParameter @ 0x1408084F8 (VrpProcessBufferParameter.c)
- *     VrpUpdateKeyInformation @ 0x14080CF74 (VrpUpdateKeyInformation.c)
+ *     EtwActivityIdControl @ 0x1400A3A90 (EtwActivityIdControl.c)
+ *     ExGetPreviousMode @ 0x1400DDCF0 (ExGetPreviousMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     VrpCleanupBufferParameter @ 0x1408095C4 (VrpCleanupBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1408096C8 (VrpOutputBufferParameter.c)
+ *     VrpProcessBufferParameter @ 0x1408096F8 (VrpProcessBufferParameter.c)
+ *     VrpUpdateKeyInformation @ 0x14080E174 (VrpUpdateKeyInformation.c)
  */
 
 __int64 __fastcall VrpPostQueryKey(__int64 a1)
@@ -63,7 +63,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
   v9 = 283;
   if ( !_bittest(&v9, v8) )
     goto LABEL_22;
-  if ( stru_1403FFAD8.LevelPlus1 > 5 )
+  if ( stru_140400AD8.LevelPlus1 > 5 )
   {
     v10 = (unsigned __int16 *)(v2 + 16);
     v18 = *(_DWORD *)(v3 + 8);
@@ -75,7 +75,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
     v28 = (__int64 *)*((_QWORD *)v10 + 1);
     v29[0] = *v10;
     v27 = 2LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CA77, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_140400AD8, &unk_14036DA07, &ActivityId, 0LL, 5u, &pData);
   }
   if ( (*(_DWORD *)(v2 + 36) & 0x20000000) == 0 )
   {
@@ -114,7 +114,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
               {
                 *(_DWORD *)(v19 + 24) = v5;
                 v5 = -1073740541;
-                if ( stru_1403FFAD8.LevelPlus1 <= 5 )
+                if ( stru_140400AD8.LevelPlus1 <= 5 )
                   goto LABEL_28;
                 v16 = *(_QWORD *)(v2 + 24) == 0LL;
                 v17 = (unsigned __int16 *)&EmptyUnicodeString;
@@ -130,7 +130,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
                 v29[1] = &v18;
                 v29[0] = 4LL;
                 v29[2] = 4LL;
-                TlgWrite(&stru_1403FFAD8, &unk_14036CBD9, &ActivityId, 0LL, 6u, &pData);
+                TlgWrite(&stru_140400AD8, &unk_14036DB69, &ActivityId, 0LL, 6u, &pData);
               }
               else
               {
@@ -149,7 +149,7 @@ LABEL_22:
       }
     }
   }
-  if ( v5 != -1073740541 && stru_1403FFAD8.LevelPlus1 > 2 )
+  if ( v5 != -1073740541 && stru_140400AD8.LevelPlus1 > 2 )
   {
     if ( *(_QWORD *)(v2 + 24) )
       v6 = (unsigned __int16 *)(v2 + 16);
@@ -160,7 +160,7 @@ LABEL_22:
     v28 = &v19;
     v25 = 2LL;
     v29[0] = 4LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CA3C, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_140400AD8, &unk_14036D9CC, &ActivityId, 0LL, 5u, &pData);
   }
 LABEL_28:
   VrpCleanupBufferParameter(v7, &v20);

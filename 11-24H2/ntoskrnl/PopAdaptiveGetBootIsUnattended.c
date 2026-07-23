@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAdaptiveGetBootIsUnattended @ 0x1409B9E70
+ * XREFs of PopAdaptiveGetBootIsUnattended @ 0x1409A04C0
  * Callers:
- *     PopUpdateSystemIdleContext @ 0x1409B99D4 (PopUpdateSystemIdleContext.c)
+ *     PopUpdateSystemIdleContext @ 0x1409A0024 (PopUpdateSystemIdleContext.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
  */
 
 bool PopAdaptiveGetBootIsUnattended()
@@ -23,7 +23,7 @@ bool PopAdaptiveGetBootIsUnattended()
   PopAdpmLockThread = (__int64)KeGetCurrentThread();
   PopAdaptiveContext = 0;
   if ( PopAdaptiveBootContext )
-    v5 = (qword_140FD71F0 & 8) != 0;
+    v5 = (qword_140FD81F0 & 8) != 0;
   PopReleaseAdaptiveLock(v2, v1, v3, v4, 0LL);
   return v5;
 }

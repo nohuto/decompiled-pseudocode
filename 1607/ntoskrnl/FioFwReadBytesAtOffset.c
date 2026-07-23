@@ -1,11 +1,11 @@
 /*
- * XREFs of FioFwReadBytesAtOffset @ 0x140128F34
+ * XREFs of FioFwReadBytesAtOffset @ 0x1401294A4
  * Callers:
- *     RaspLoadBearings @ 0x140128914 (RaspLoadBearings.c)
- *     FioFwReadUshortAtOffset @ 0x140128B08 (FioFwReadUshortAtOffset.c)
- *     RaspInitializeGlyphData @ 0x140128B38 (RaspInitializeGlyphData.c)
- *     FioFwReadUlongAtOffset @ 0x140145E88 (FioFwReadUlongAtOffset.c)
- *     RaspInitializeCompositeGlyphData @ 0x14023ADF4 (RaspInitializeCompositeGlyphData.c)
+ *     RaspLoadBearings @ 0x140128E84 (RaspLoadBearings.c)
+ *     FioFwReadUshortAtOffset @ 0x140129078 (FioFwReadUshortAtOffset.c)
+ *     RaspInitializeGlyphData @ 0x1401290A8 (RaspInitializeGlyphData.c)
+ *     FioFwReadUlongAtOffset @ 0x1401463F8 (FioFwReadUlongAtOffset.c)
+ *     RaspInitializeCompositeGlyphData @ 0x14023ACD8 (RaspInitializeCompositeGlyphData.c)
  *     BgpRasInitializeRasterizer @ 0x1407D44FC (BgpRasInitializeRasterizer.c)
  *     FopReadMappingTable @ 0x1407D46C8 (FopReadMappingTable.c)
  *     FopReadCmapTable @ 0x1407D4894 (FopReadCmapTable.c)
@@ -14,7 +14,7 @@
  *     FopReadNameRecord @ 0x1407D4C7C (FopReadNameRecord.c)
  *     FopGetTableOffsetAndSize @ 0x1407D4CE8 (FopGetTableOffsetAndSize.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall FioFwReadBytesAtOffset(__int64 a1, unsigned int a2, unsigned int a3, void *a4)

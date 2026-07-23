@@ -1,27 +1,27 @@
 /*
- * XREFs of ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x140448570
+ * XREFs of ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x140441060
  * Callers:
- *     MiStoreEvictPageFile @ 0x14040B5E0 (MiStoreEvictPageFile.c)
+ *     MiStoreEvictPageFile @ 0x140404A30 (MiStoreEvictPageFile.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     SmKmStoreDereference @ 0x140265B10 (SmKmStoreDereference.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?StLockAcquireExclusive@@YAKPEAUVLOCK@@@Z @ 0x14027E510 (-StLockAcquireExclusive@@YAKPEAUVLOCK@@@Z.c)
- *     ?SmFeEvictUpdatePass@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2PEAUSEARCH_RESULT@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@@Z @ 0x140280620 (-SmFeEvictUpdatePass@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2PEAUSEARCH_R.c)
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x140281140 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
- *     ?SmWorkItemFreeResource@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@@Z @ 0x1402817D0 (-SmWorkItemFreeResource@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_C.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     SmArrayGrow @ 0x1403F2248 (SmArrayGrow.c)
- *     ?SmFeSetEvictFailed@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x14063CC78 (-SmFeSetEvictFailed@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     SmKmStoreDereference @ 0x140265080 (SmKmStoreDereference.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?StLockAcquireExclusive@@YAKPEAUVLOCK@@@Z @ 0x14027DA80 (-StLockAcquireExclusive@@YAKPEAUVLOCK@@@Z.c)
+ *     ?SmFeEvictUpdatePass@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2PEAUSEARCH_RESULT@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@@Z @ 0x14027FB90 (-SmFeEvictUpdatePass@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2PEAUSEARCH_R.c)
+ *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x1402806B0 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
+ *     ?SmWorkItemFreeResource@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@@Z @ 0x140280D40 (-SmWorkItemFreeResource@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_C.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SmArrayGrow @ 0x1403EBBF8 (SmArrayGrow.c)
+ *     ?SmFeSetEvictFailed@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x140640858 (-SmFeSetEvictFailed@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
@@ -166,7 +166,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
   KeAbPostRelease(v4 + 280);
   CurrentThread = KeGetCurrentThread();
   v16 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v16 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v16 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery((__int64)CurrentThread, v14);
   v17 = v56;
   v57 = v56;
@@ -190,7 +190,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
         if ( (v21 & 7) != 0 )
         {
           v24 = v26 + v20 - 8;
-          *v25++ &= byte_140032340[v26];
+          *v25++ &= byte_1400327C0[v26];
         }
         if ( v24 > 8 )
         {
@@ -200,12 +200,12 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
           v24 &= 7u;
         }
         if ( v24 )
-          *v25 &= byte_140017F38[v24];
+          *v25 &= byte_140018470[v24];
         v20 = v56;
       }
       else
       {
-        *v25 &= ~(byte_140032340[v20] << v26);
+        *v25 &= ~(byte_1400327C0[v20] << v26);
       }
       v23 = v54;
     }
@@ -216,14 +216,14 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
     *(_DWORD *)(v22 + 12) += v20;
     if ( v23 == 17 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         *(_DWORD *)(v22 + 200) = 0;
       else
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v22 + 200), retaddr);
     }
     else
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         *(_DWORD *)(v22 + 200) = 0;
       else
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v22 + 200), retaddr);
@@ -250,7 +250,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
             64LL,
             *(unsigned __int16 *)(v58 + 1800),
             810708339LL,
-            &stru_140E27B08.Header.WaitListHead.Blink,
+            &stru_140E27C48.Header.WaitListHead.Blink,
             1);
   if ( !Pool3 )
   {
@@ -274,7 +274,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
     *((_DWORD *)v35 + 2) = Pool3 | 1;
     ++*(_BYTE *)(v30 + 88);
     ++*(_BYTE *)(v30 + 94);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)v30 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)v30, retaddr);
@@ -290,7 +290,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
     *(_QWORD *)Pool3 = 0LL;
     v37 = *(unsigned __int16 *)(v30 + 98);
     HIBYTE(v57) = 49;
-    v60 = ExAllocatePool3(64LL, v37, v57, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+    v60 = ExAllocatePool3(64LL, v37, v57, &stru_140E27C48.Header.WaitListHead.Blink, 1);
     if ( v60 || !v31 )
     {
       v41 = v60;
@@ -314,7 +314,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmpPageEvict(
       *((_DWORD *)v39 + 2) = v41 | 1;
       ++*(_BYTE *)(v30 + 89);
       ++*(_BYTE *)(v30 + 94);
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         *(_DWORD *)v30 = 0;
       else
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)v30, retaddr);
@@ -385,7 +385,7 @@ LABEL_97:
 LABEL_107:
       v52 = 0;
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)v30 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)v30, retaddr);

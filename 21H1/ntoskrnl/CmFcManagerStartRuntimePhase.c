@@ -58,12 +58,12 @@ __int64 CmFcManagerStartRuntimePhase()
   __int64 v21; // r15
   __int64 v22; // rcx
   __int128 v23; // xmm1
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   const WCHAR *v25; // rdx
   __int64 *v26; // rdi
   __int64 v27; // r14
   __int64 *v28; // rdi
-  __int64 v30; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 Buffer; // [rsp+48h] [rbp-C0h] BYREF
   _QWORD DestinationString[3]; // [rsp+50h] [rbp-B8h] BYREF
   _QWORD v32[10]; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD v33[3]; // [rsp+B8h] [rbp-50h] BYREF
@@ -71,7 +71,7 @@ __int64 CmFcManagerStartRuntimePhase()
   __int64 v35[4]; // [rsp+E8h] [rbp-20h] BYREF
 
   v0 = v33;
-  v30 = 0LL;
+  Buffer = 0LL;
   *(_OWORD *)&DestinationString[1] = 0LL;
   v1 = 3LL;
   do
@@ -98,8 +98,8 @@ __int64 CmFcManagerStartRuntimePhase()
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     CmpVolumeManagerLockContextListExclusive((ULONG_PTR)&stru_140C480D0);
-    RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C48130, (__int64)&v30, DestinationString);
-    v6 = v30;
+    RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C48130, (__int64)&Buffer, DestinationString);
+    v6 = Buffer;
     v7 = v33;
     v8 = 3LL;
     do
@@ -122,7 +122,7 @@ __int64 CmFcManagerStartRuntimePhase()
       if ( SectionFromBuffer < 0 )
         goto LABEL_30;
       CmFcpCopySectionState((__int64)v34, (__int64)v33);
-      v6 = v30;
+      v6 = Buffer;
     }
     QuadPart = (void *)v9[7].QuadPart;
     if ( !QuadPart
@@ -153,11 +153,18 @@ __int64 CmFcManagerStartRuntimePhase()
             v14 = v15 + 24;
           }
           while ( v16 != 1 );
-          RtlpFcBufferManagerUpdateBuffers(qword_140C48130, v30, (__int64)v32);
+          RtlpFcBufferManagerUpdateBuffers(qword_140C48130, Buffer, (__int64)v32);
           memset(v32, 0, 0x48uLL);
-          RtlpFcWriteHighLowHigh(0xFFFFF78000000710uLL, v30);
+          RtlpFcWriteHighLowHigh(0xFFFFF78000000710uLL, Buffer);
           CmSiRWLockReleaseExclusive((volatile signed __int64 *)&RunOnce);
-          SectionFromBuffer = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)&v30);
+          SectionFromBuffer = ZwUpdateWnfStateData(
+                                &WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
+                                &Buffer,
+                                8u,
+                                &CmFcpWnfTypeId,
+                                0LL,
+                                0,
+                                0);
           if ( SectionFromBuffer >= 0 )
           {
             for ( i = 0; i < 2; ++i )

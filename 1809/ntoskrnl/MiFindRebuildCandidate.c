@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFindRebuildCandidate @ 0x1402CE298
+ * XREFs of MiFindRebuildCandidate @ 0x1402CE488
  * Callers:
- *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
+ *     MiRebuildLargePage @ 0x1402CE5D4 (MiRebuildLargePage.c)
  * Callees:
- *     MiCollapseRunTopDown @ 0x14009A71C (MiCollapseRunTopDown.c)
- *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)
+ *     MiCollapseRunTopDown @ 0x14009A65C (MiCollapseRunTopDown.c)
+ *     MiPfnsWorthTrying @ 0x14009A6F0 (MiPfnsWorthTrying.c)
  */
 
 __int64 __fastcall MiFindRebuildCandidate(__int16 *a1, int a2, int a3, __int64 a4, __int64 a5, unsigned int *a6)

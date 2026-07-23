@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFindPageFileWriteCluster @ 0x140367BDC
+ * XREFs of MiFindPageFileWriteCluster @ 0x1403C41E0
  * Callers:
- *     MiGatherPagefilePages @ 0x14039C8C8 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1402F9BC8 (MiGatherPagefilePages.c)
  * Callees:
- *     RtlFindLongestRunClearCapped @ 0x140366278 (RtlFindLongestRunClearCapped.c)
- *     MiRefPageFileSpaceBitmaps @ 0x140367484 (MiRefPageFileSpaceBitmaps.c)
- *     MiSetPageFileAllocationBits @ 0x140367504 (MiSetPageFileAllocationBits.c)
- *     MiFindFreePageFileSpace @ 0x140367D88 (MiFindFreePageFileSpace.c)
- *     MiMakePageFilePte @ 0x14039F4D8 (MiMakePageFilePte.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14046FA2C (MiDerefPageFileSpaceBitmaps.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiMakePageFilePte @ 0x140215C78 (MiMakePageFilePte.c)
+ *     MiFindFreePageFileSpace @ 0x1403C438C (MiFindFreePageFileSpace.c)
+ *     MiSetPageFileAllocationBits @ 0x1403C4D5C (MiSetPageFileAllocationBits.c)
+ *     RtlFindLongestRunClearCapped @ 0x1403C5C70 (RtlFindLongestRunClearCapped.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x1403C5EE8 (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x140469F88 (MiDerefPageFileSpaceBitmaps.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-ULONG *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsigned int *a3, int a4)
+unsigned int *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsigned int *a3, int a4)
 {
   unsigned int v4; // r12d
   __int64 v7; // rcx
@@ -20,17 +20,17 @@ ULONG *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsig
   __int64 v9; // rcx
   __int64 v10; // rdx
   int v11; // r9d
-  ULONG FreePageFileSpace; // r14d
+  unsigned int FreePageFileSpace; // r14d
   unsigned __int64 v13; // rbx
   _DWORD *v14; // r12
   unsigned __int64 v15; // rbx
-  ULONG *result; // rax
-  unsigned int *v17; // rcx
+  unsigned int *result; // rax
+  char *v17; // rcx
   _OWORD *v18; // r13
   unsigned int v19; // edi
   int v20; // r15d
-  ULONG v21; // eax
-  ULONG LongestRunClearCapped; // eax
+  unsigned int v21; // eax
+  unsigned int LongestRunClearCapped; // eax
   bool v23; // zf
   unsigned int v24; // ecx
   void *v25; // rax
@@ -41,7 +41,7 @@ ULONG *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsig
   unsigned __int64 v30; // [rsp+B0h] [rbp+48h] BYREF
   _DWORD *v31; // [rsp+B8h] [rbp+50h]
   unsigned int *v32; // [rsp+C0h] [rbp+58h]
-  ULONG v33; // [rsp+C8h] [rbp+60h] BYREF
+  unsigned int v33; // [rsp+C8h] [rbp+60h] BYREF
 
   v32 = a3;
   v31 = a2;
@@ -58,8 +58,8 @@ ULONG *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsig
   if ( FreePageFileSpace )
   {
     v13 = v30;
-    if ( qword_140E2DB80 && (v30 & 0x10) == 0 )
-      v13 = v30 & ~qword_140E2DB80;
+    if ( qword_140E2DCC0 && (v30 & 0x10) == 0 )
+      v13 = v30 & ~qword_140E2DCC0;
     v14 = v31;
     v15 = HIDWORD(v13);
   }
@@ -67,7 +67,7 @@ ULONG *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsig
   {
     if ( a4 )
     {
-      v17 = (unsigned int *)&v26;
+      v17 = (char *)&v26;
       v18 = *(_OWORD **)(a1 + 80);
       v19 = v4;
       v14 = v31;
@@ -80,13 +80,13 @@ ULONG *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsig
     {
       v20 = *(_DWORD *)(a1 + 96);
       v19 = *(_DWORD *)(a1 + 92);
-      if ( v19 < dword_140FC420C && *(_DWORD *)(a1 + 100) != v20 )
+      if ( v19 < dword_140FC520C && *(_DWORD *)(a1 + 100) != v20 )
       {
-        if ( v19 >= (unsigned int)dword_140FC420C >> 3 )
+        if ( v19 >= (unsigned int)dword_140FC520C >> 3 )
         {
           v24 = v19 + (v19 >> 1);
-          v19 = dword_140FC420C;
-          if ( v24 < dword_140FC420C )
+          v19 = dword_140FC520C;
+          if ( v24 < dword_140FC520C )
             v19 = v24;
         }
         else
@@ -100,9 +100,9 @@ ULONG *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsig
         v19 = v4;
       if ( (*(_WORD *)(a1 + 172) & 0x800) != 0 )
         v19 = 1;
-      MiRefPageFileSpaceBitmaps(a1, (__int64)v28);
+      MiRefPageFileSpaceBitmaps(a1, v28);
       v21 = *(_DWORD *)(a1 + 88);
-      v17 = (unsigned int *)v28 + 2;
+      v17 = (char *)v28 + 8;
       v14 = v31;
     }
     v33 = v21;

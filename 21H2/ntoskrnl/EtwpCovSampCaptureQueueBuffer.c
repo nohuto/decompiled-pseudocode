@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueBuffer @ 0x1405AF068
+ * XREFs of EtwpCovSampCaptureQueueBuffer @ 0x1405AF298
  * Callers:
- *     EtwpCovSampCaptureBufferQueue @ 0x1405AE6E4 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x1405AF870 (EtwpCovSampSampleBufferDecRef.c)
- *     EtwpCovSampCaptureFlush @ 0x1409427D0 (EtwpCovSampCaptureFlush.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x1405AE914 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x1405AFAA0 (EtwpCovSampSampleBufferDecRef.c)
+ *     EtwpCovSampCaptureFlush @ 0x1409429A0 (EtwpCovSampCaptureFlush.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
  */
 
-char __fastcall EtwpCovSampCaptureQueueBuffer(__int64 a1, struct _SLIST_ENTRY *a2)
+char __fastcall EtwpCovSampCaptureQueueBuffer(__int64 a1, _SLIST_ENTRY *a2)
 {
   PSLIST_ENTRY v3; // rax
 

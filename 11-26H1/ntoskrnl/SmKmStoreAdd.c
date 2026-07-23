@@ -1,19 +1,19 @@
 /*
- * XREFs of SmKmStoreAdd @ 0x140B0B64C
+ * XREFs of SmKmStoreAdd @ 0x140B0CD9C
  * Callers:
- *     SmProcessCreateRequest @ 0x140967230 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x140ADC4D4 (SmProcessCreateRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     SmKmEtwLogStoreChange @ 0x14081A678 (SmKmEtwLogStoreChange.c)
- *     SmKmStoreRefInitialize @ 0x14081A7C4 (SmKmStoreRefInitialize.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     SmKmEtwLogStoreChange @ 0x140820888 (SmKmEtwLogStoreChange.c)
+ *     SmKmStoreRefInitialize @ 0x1408209D4 (SmKmStoreRefInitialize.c)
  */
 
 __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -163,9 +163,9 @@ LABEL_15:
       LODWORD(a4->Thread) = v21;
     }
     while ( v21 == 66559 );
-    if ( ((unsigned __int64)&stru_140E27B08.QuantumTarget & -(__int64)((WORD2(stru_140E27B08.InitialStack) & 0x100) != 0)) != 0 )
+    if ( ((unsigned __int64)&stru_140E27C48.QuantumTarget & -(__int64)((WORD2(stru_140E27C48.InitialStack) & 0x100) != 0)) != 0 )
       SmKmEtwLogStoreChange(
-        (REGHANDLE *)((unsigned __int64)&stru_140E27B08.QuantumTarget & -(__int64)((WORD2(stru_140E27B08.InitialStack) & 0x100) != 0)),
+        (REGHANDLE *)((unsigned __int64)&stru_140E27C48.QuantumTarget & -(__int64)((WORD2(stru_140E27C48.InitialStack) & 0x100) != 0)),
         *(_QWORD *)v5,
         SmEventStoreCreate);
     _InterlockedExchange64((volatile __int64 *)(v5 + 8), 0LL);

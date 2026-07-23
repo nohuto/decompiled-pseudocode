@@ -1,12 +1,12 @@
 /*
- * XREFs of PsInitializeQuotaSystem @ 0x140A6C13C
+ * XREFs of PsInitializeQuotaSystem @ 0x140A6D13C
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     PspRegisterResource @ 0x1403C93E0 (PspRegisterResource.c)
- *     PspSanitizeResourceLimits @ 0x1407C6A5C (PspSanitizeResourceLimits.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PspRegisterResource @ 0x1403C9580 (PspRegisterResource.c)
+ *     PspSanitizeResourceLimits @ 0x1407C6D7C (PspSanitizeResourceLimits.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall PsInitializeQuotaSystem(int a1)
@@ -44,9 +44,9 @@ LABEL_9:
     LOBYTE(PoolWithTag) = 1;
     return (char)PoolWithTag;
   }
-  dword_140C53C80 = 1;
-  v1 = &unk_140C53AC0;
-  dword_140C53C84 = 1;
+  dword_140C53CC0 = 1;
+  v1 = &unk_140C53B00;
+  dword_140C53CC4 = 1;
   v2 = PspResourceFlags;
   do
   {

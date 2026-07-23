@@ -1,15 +1,15 @@
 /*
- * XREFs of IopQueueWorkItemProlog @ 0x140206670
+ * XREFs of IopQueueWorkItemProlog @ 0x1402AAFA0
  * Callers:
- *     IoQueueWorkItem @ 0x1402B63C0 (IoQueueWorkItem.c)
- *     IoQueueWorkItemEx @ 0x1402B63F0 (IoQueueWorkItemEx.c)
- *     PnpDeviceCompletionRequestDestroy @ 0x14036F8E4 (PnpDeviceCompletionRequestDestroy.c)
- *     IoTryQueueWorkItem @ 0x14037C9B0 (IoTryQueueWorkItem.c)
- *     IoQueueWorkItemToNode @ 0x140507180 (IoQueueWorkItemToNode.c)
+ *     IoQueueWorkItem @ 0x1402345A0 (IoQueueWorkItem.c)
+ *     IoQueueWorkItemEx @ 0x1402345D0 (IoQueueWorkItemEx.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x14036FA94 (PnpDeviceCompletionRequestDestroy.c)
+ *     IoTryQueueWorkItem @ 0x14037C500 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItemToNode @ 0x140507100 (IoQueueWorkItemToNode.c)
  * Callees:
- *     PsGetWorkOnBehalfThread @ 0x1402055CC (PsGetWorkOnBehalfThread.c)
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     IopIsActivityTracingEnabled @ 0x1402EDEF0 (IopIsActivityTracingEnabled.c)
+ *     IopIsActivityTracingEnabled @ 0x14020D8C0 (IopIsActivityTracingEnabled.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402A9F0C (PsGetWorkOnBehalfThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)
   int v10; // [rsp+30h] [rbp+8h] BYREF
 
   v10 = 0;
-  if ( (unsigned __int8)IopIsActivityTracingEnabled()
+  if ( IopIsActivityTracingEnabled()
     && KeGetCurrentIrql() < 2u
     && (Flink = KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink) != 0LL )
   {

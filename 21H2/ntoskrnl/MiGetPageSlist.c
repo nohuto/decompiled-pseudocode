@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetPageSlist @ 0x14029932C
+ * XREFs of MiGetPageSlist @ 0x140215D0C
  * Callers:
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402990B4 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x140215A94 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
- *     MiSlistGetFreePage @ 0x1402993D0 (MiSlistGetFreePage.c)
+ *     MiSlistGetFreePage @ 0x140215DB0 (MiSlistGetFreePage.c)
  */
 
 __int64 __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
@@ -14,7 +14,7 @@ __int64 __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
   int v8; // edi
   __int64 result; // rax
 
-  v3 = dword_140C4DEF8;
+  v3 = dword_140C4DF38;
   v4 = &MiZeroThenZero;
   v7 = a2;
   v8 = (a3 & 0x4000) != 0 ? 16 : 1;

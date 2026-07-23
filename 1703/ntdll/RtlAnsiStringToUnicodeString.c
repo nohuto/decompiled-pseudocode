@@ -22,9 +22,9 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
 {
   unsigned int v6; // eax
   unsigned __int64 v7; // rcx
-  NTSTATUS v8; // edi
-  wchar_t *v10; // rax
-  unsigned int v11; // [rsp+78h] [rbp+20h] BYREF
+  int v8; // edi
+  WCHAR *v10; // rax
+  ULONG BytesInUnicodeString; // [rsp+78h] [rbp+20h] BYREF
 
   if ( NlsMbCodePageTag )
     v6 = RtlxOemStringToUnicodeSize(SourceString);
@@ -36,7 +36,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   if ( AllocateDestinationString )
   {
     DestinationString->MaximumLength = v6;
-    v10 = (wchar_t *)sub_180043FE0(v6);
+    v10 = (WCHAR *)sub_180043FE0(v6);
     DestinationString->Buffer = v10;
     if ( !v10 )
       return -1073741801;
@@ -50,19 +50,19 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   v8 = RtlMultiByteToUnicodeN(
          DestinationString->Buffer,
          DestinationString->Length,
-         (unsigned int)&v11,
+         &BytesInUnicodeString,
          SourceString->Buffer,
          SourceString->Length);
   if ( v8 >= 0 )
   {
-    DestinationString->Buffer[(unsigned __int64)v11 >> 1] = 0;
+    DestinationString->Buffer[(unsigned __int64)BytesInUnicodeString >> 1] = 0;
     v8 = 0;
   }
   if ( v8 < 0 )
   {
     if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor();
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
       DestinationString->Buffer = 0LL;
     }
   }

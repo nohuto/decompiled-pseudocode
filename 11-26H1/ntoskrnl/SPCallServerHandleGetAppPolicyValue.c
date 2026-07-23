@@ -1,13 +1,13 @@
 /*
- * XREFs of SPCallServerHandleGetAppPolicyValue @ 0x140AE264C
+ * XREFs of SPCallServerHandleGetAppPolicyValue @ 0x140AE01CC
  * Callers:
- *     SPCall2ServerInternal @ 0x140A1AE00 (SPCall2ServerInternal.c)
+ *     SPCall2ServerInternal @ 0x140A24430 (SPCall2ServerInternal.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleGetAppPolicyValue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -258,7 +258,7 @@ LABEL_172:
               if ( !(_DWORD)v44 )
               {
 LABEL_77:
-                if ( ExpPlatformBinaryLock.SchedulerApc.NormalContext )
+                if ( ExpPlatformBinaryLock.SchedulerApc.SystemArgument2 )
                   v46 = guard_dispatch_icall_no_overrides((__int64)v25, v32);
                 else
                   v46 = -1073741637;

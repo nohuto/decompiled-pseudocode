@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline @ 0x1405315E4
+ * XREFs of Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline @ 0x140533AE4
  * Callers:
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
- *     PpmEstimateIdleDuration @ 0x1404FC2AC (PpmEstimateIdleDuration.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
+ *     PpmEstimateIdleDuration @ 0x1404F57EC (PpmEstimateIdleDuration.c)
  * Callees:
- *     Feature_PpmDynamicHintAdjust__private_IsEnabledFallback @ 0x14052F8C8 (Feature_PpmDynamicHintAdjust__private_IsEnabledFallback.c)
+ *     Feature_PpmDynamicHintAdjust__private_IsEnabledFallback @ 0x140531DC8 (Feature_PpmDynamicHintAdjust__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline()

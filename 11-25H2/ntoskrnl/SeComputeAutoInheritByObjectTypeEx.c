@@ -8,7 +8,7 @@
  *     RtlFindAceByType @ 0x1404052C0 (RtlFindAceByType.c)
  */
 
-__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, int *a4, _DWORD *a5)
+__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, int *a4, _DWORD *Index)
 {
   _DWORD *v5; // rbx
   char v7; // r8
@@ -23,19 +23,19 @@ __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __
   unsigned int i; // ecx
   _BYTE *v19; // rcx
   __int16 v20; // ax
-  __int64 v21; // rcx
+  ACL *v21; // rcx
   __int64 v22; // rax
-  unsigned __int8 *AceByType; // rax
+  _BYTE *AceByType; // rax
 
-  v5 = a5;
+  v5 = Index;
   v7 = 0;
   v8 = 0;
   v9 = 0;
-  if ( a5 )
+  if ( Index )
   {
-    if ( *a5 != 8 )
+    if ( *Index != 8 )
       return 3221225485LL;
-    a5[1] = -1;
+    Index[1] = -1;
   }
   v12 = *(_DWORD *)(a1 + 216);
   if ( v12 )
@@ -86,7 +86,7 @@ LABEL_10:
   {
     if ( a2 )
     {
-      LODWORD(a5) = 0;
+      LODWORD(Index) = 0;
       while ( 1 )
       {
         v20 = *(_WORD *)(a2 + 2);
@@ -94,25 +94,25 @@ LABEL_10:
         {
           if ( v20 >= 0 )
           {
-            v21 = *(_QWORD *)(a2 + 24);
+            v21 = *(ACL **)(a2 + 24);
           }
           else
           {
             v22 = *(unsigned int *)(a2 + 12);
-            v21 = (_DWORD)v22 ? a2 + v22 : 0LL;
+            v21 = (_DWORD)v22 ? (ACL *)(a2 + v22) : 0LL;
           }
         }
         else
         {
           v21 = 0LL;
         }
-        AceByType = RtlFindAceByType(v21, 17, (unsigned int *)&a5);
+        AceByType = RtlFindAceByType(v21, 0x11u, (PULONG)&Index);
         if ( AceByType )
         {
           if ( (AceByType[1] & 8) == 0 )
             break;
         }
-        LODWORD(a5) = (_DWORD)a5 + 1;
+        LODWORD(Index) = (_DWORD)Index + 1;
         if ( !AceByType )
           goto LABEL_46;
       }

@@ -1,33 +1,33 @@
 /*
- * XREFs of CmpLoadHiveVolatile @ 0x14087CF5C
+ * XREFs of CmpLoadHiveVolatile @ 0x14087D0BC
  * Callers:
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpConstructName @ 0x1405F2FBC (CmpConstructName.c)
- *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
- *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
- *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
- *     CmpAddToHiveFileList @ 0x1406BF09C (CmpAddToHiveFileList.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x1406FC600 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpUuidCreate @ 0x1407167B4 (CmpUuidCreate.c)
- *     CmpLockHiveListExclusive @ 0x14071D2A4 (CmpLockHiveListExclusive.c)
- *     CmpUnlockHiveList @ 0x14071D2C4 (CmpUnlockHiveList.c)
- *     CmpLinkHiveToMaster @ 0x14071E230 (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
- *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
- *     CmpCopyKeyPartial @ 0x14076F88C (CmpCopyKeyPartial.c)
- *     CmpCopySyncTree @ 0x1408784E4 (CmpCopySyncTree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpUnlockHiveList @ 0x1405E2A98 (CmpUnlockHiveList.c)
+ *     CmpLockHiveListExclusive @ 0x1405E2AB8 (CmpLockHiveListExclusive.c)
+ *     CmpAddToHiveFileList @ 0x14061E11C (CmpAddToHiveFileList.c)
+ *     CmpReleaseShutdownRundown @ 0x14064A4A0 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x14064B8D0 (CmpAcquireShutdownRundown.c)
+ *     CmpCopyCompressedName @ 0x14065ED94 (CmpCopyCompressedName.c)
+ *     CmpLockRegistryExclusive @ 0x1406679BC (CmpLockRegistryExclusive.c)
+ *     CmpUuidCreate @ 0x1406C4E04 (CmpUuidCreate.c)
+ *     CmpConstructName @ 0x1406E271C (CmpConstructName.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x1406F8338 (CmpLinkHiveToMaster.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1407139E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpDestroyHive @ 0x1407293E8 (CmpDestroyHive.c)
+ *     CmpCopyKeyPartial @ 0x14076FA4C (CmpCopyKeyPartial.c)
+ *     CmpCopySyncTree @ 0x140878644 (CmpCopySyncTree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
   __int64 v2; // r15
   UNICODE_STRING *v5; // rdi
   int Hive; // ebx
-  __int64 v8; // rsi
+  _BYTE *v8; // rsi
   int v9; // eax
   int v10; // eax
   unsigned int v11; // ebx
@@ -84,7 +84,7 @@ __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
     Hive = CmpUuidCreate(&v32);
     if ( Hive >= 0 )
     {
-      v8 = *(_QWORD *)(v2 + 32);
+      v8 = *(_BYTE **)(v2 + 32);
       if ( v8 == CmpMasterHive )
       {
         v31 = 0LL;
@@ -113,7 +113,7 @@ __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
             {
               Hive = -1073741444;
             }
-            else if ( *(_BYTE *)(v8 + 2936) == 1 )
+            else if ( v8[2936] == 1 )
             {
               Hive = -1073741431;
             }

@@ -4,7 +4,7 @@
  *     KiSetCacheInformationIntel @ 0x1403D4C7C (KiSetCacheInformationIntel.c)
  *     KiSetCacheInformationAmd @ 0x1403DDA18 (KiSetCacheInformationAmd.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiSetStandardizedCacheInformation(__int64 a1, unsigned int a2)

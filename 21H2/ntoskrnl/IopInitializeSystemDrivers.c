@@ -1,26 +1,26 @@
 /*
- * XREFs of IopInitializeSystemDrivers @ 0x140A5D754
+ * XREFs of IopInitializeSystemDrivers @ 0x140A5E754
  * Callers:
- *     IoInitSystem @ 0x140A66E8C (IoInitSystem.c)
+ *     IoInitSystem @ 0x140A67E8C (IoInitSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
- *     PnpDiagnosticTrace @ 0x14037C3D8 (PnpDiagnosticTrace.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
- *     IopReferenceDriverObjectByName @ 0x140742838 (IopReferenceDriverObjectByName.c)
- *     IopGetDriverNameFromKeyNode @ 0x140742900 (IopGetDriverNameFromKeyNode.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     ExIsManufacturingModeEnabled @ 0x140742E10 (ExIsManufacturingModeEnabled.c)
- *     IopOpenRegistryKeyEx @ 0x1407AC650 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     PnpWaitForDevicesToStart @ 0x140A5D40C (PnpWaitForDevicesToStart.c)
- *     InbvIndicateProgress @ 0x140A5EAF4 (InbvIndicateProgress.c)
- *     PipCheckDependencies @ 0x140A5ED14 (PipCheckDependencies.c)
- *     PipLookupGroupName @ 0x140A5ED70 (PipLookupGroupName.c)
- *     PipFreeGroupTree @ 0x140A5F124 (PipFreeGroupTree.c)
- *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PnpRequestDeviceAction @ 0x1403703A4 (PnpRequestDeviceAction.c)
+ *     PnpDiagnosticTrace @ 0x14037BF28 (PnpDiagnosticTrace.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
+ *     IopReferenceDriverObjectByName @ 0x1407429F8 (IopReferenceDriverObjectByName.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140742AC0 (IopGetDriverNameFromKeyNode.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     ExIsManufacturingModeEnabled @ 0x140742FD0 (ExIsManufacturingModeEnabled.c)
+ *     IopOpenRegistryKeyEx @ 0x1407AC850 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     PnpWaitForDevicesToStart @ 0x140A5E40C (PnpWaitForDevicesToStart.c)
+ *     InbvIndicateProgress @ 0x140A5FAF4 (InbvIndicateProgress.c)
+ *     PipCheckDependencies @ 0x140A5FD14 (PipCheckDependencies.c)
+ *     PipLookupGroupName @ 0x140A5FD70 (PipLookupGroupName.c)
+ *     PipFreeGroupTree @ 0x140A60124 (PipFreeGroupTree.c)
+ *     CmGetSystemDriverList @ 0x140A60174 (CmGetSystemDriverList.c)
  */
 
 __int64 IopInitializeSystemDrivers()
@@ -51,7 +51,7 @@ __int64 IopInitializeSystemDrivers()
   UnicodeString = 0LL;
   PnpDiagnosticTrace(&KMPnPEvt_SystemStart_Start, 0, 0LL);
   IsManufacturingModeEnabled = ExIsManufacturingModeEnabled();
-  SystemDriverList = (void **)CmGetSystemDriverList((unsigned __int64)qword_140C19870 & -(__int64)(IsManufacturingModeEnabled != 0));
+  SystemDriverList = (void **)CmGetSystemDriverList((unsigned __int64)Data & -(__int64)(IsManufacturingModeEnabled != 0));
   v2 = SystemDriverList;
   if ( SystemDriverList )
   {

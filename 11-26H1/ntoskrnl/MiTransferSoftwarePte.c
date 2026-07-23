@@ -1,25 +1,25 @@
 /*
- * XREFs of MiTransferSoftwarePte @ 0x140297830
+ * XREFs of MiTransferSoftwarePte @ 0x140296D90
  * Callers:
- *     MiOutSwapWorkingSetPte @ 0x140296850 (MiOutSwapWorkingSetPte.c)
- *     MiHandleForkValidPrivatePte @ 0x14030ADC0 (MiHandleForkValidPrivatePte.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14031B000 (MiRewriteTrimPteAsDemandZero.c)
- *     MiDecommitAddToList @ 0x140323520 (MiDecommitAddToList.c)
- *     MiDecommitHandleTransitionPte @ 0x14033DDD4 (MiDecommitHandleTransitionPte.c)
- *     MiDeleteTransitionPte @ 0x14033E7F0 (MiDeleteTransitionPte.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x14033F350 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiDecommitHandlePageFileFormatPte @ 0x140360BD0 (MiDecommitHandlePageFileFormatPte.c)
- *     MiReservePageFileSpaceForPage @ 0x1403676AC (MiReservePageFileSpaceForPage.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x140404DD0 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiFindFreePageFileSpace @ 0x140405E3C (MiFindFreePageFileSpace.c)
- *     MiStoreWriteModifiedPagePostIssue @ 0x140408014 (MiStoreWriteModifiedPagePostIssue.c)
- *     MiStoreWriteModifiedPagePrepare @ 0x1404091C0 (MiStoreWriteModifiedPagePrepare.c)
- *     MiStoreWriteProcessFailedPages @ 0x140409734 (MiStoreWriteProcessFailedPages.c)
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiMoveModifiedPagesToCompressList @ 0x14051957C (MiMoveModifiedPagesToCompressList.c)
- *     MiDiscardPteTransitionPage @ 0x1405287F0 (MiDiscardPteTransitionPage.c)
+ *     MiOutSwapWorkingSetPte @ 0x140295DB0 (MiOutSwapWorkingSetPte.c)
+ *     MiHandleForkValidPrivatePte @ 0x1402ECE40 (MiHandleForkValidPrivatePte.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x14031D030 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiDecommitAddToList @ 0x140325550 (MiDecommitAddToList.c)
+ *     MiDecommitHandleTransitionPte @ 0x14033FE54 (MiDecommitHandleTransitionPte.c)
+ *     MiDeleteTransitionPte @ 0x140340870 (MiDeleteTransitionPte.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403413D0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiDecommitHandlePageFileFormatPte @ 0x140362970 (MiDecommitHandlePageFileFormatPte.c)
+ *     MiReservePageFileSpaceForPage @ 0x14036944C (MiReservePageFileSpaceForPage.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403FDED0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiFindFreePageFileSpace @ 0x1403FEF30 (MiFindFreePageFileSpace.c)
+ *     MiStoreWriteModifiedPagePostIssue @ 0x140401104 (MiStoreWriteModifiedPagePostIssue.c)
+ *     MiStoreWriteModifiedPagePrepare @ 0x1404022B0 (MiStoreWriteModifiedPagePrepare.c)
+ *     MiStoreWriteProcessFailedPages @ 0x140402824 (MiStoreWriteProcessFailedPages.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiMoveModifiedPagesToCompressList @ 0x140512FEC (MiMoveModifiedPagesToCompressList.c)
+ *     MiDiscardPteTransitionPage @ 0x14052AE60 (MiDiscardPteTransitionPage.c)
  * Callees:
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
  */
 
 unsigned __int64 __fastcall MiTransferSoftwarePte(__int64 a1, __int64 a2, unsigned int a3, char a4)
@@ -76,21 +76,21 @@ unsigned __int64 __fastcall MiTransferSoftwarePte(__int64 a1, __int64 a2, unsign
     v9 = *(unsigned __int16 *)(a2 + 172);
     if ( result )
     {
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         v10 = result;
-        v11 = qword_140E2D748 & result;
+        v11 = qword_140E2D8C8 & result;
         LODWORD(result) = result & 0xFFFFFFEF;
         if ( (v10 & 0x10) == 0 )
           LODWORD(result) = v11;
       }
       PageFilePte = (unsigned int)result | (unsigned __int64)(v6 << 32);
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        if ( (qword_140E2D740 & PageFilePte) != 0 )
+        if ( (qword_140E2D8C0 & PageFilePte) != 0 )
           PageFilePte |= 0x10uLL;
         else
-          PageFilePte |= qword_140E2D740;
+          PageFilePte |= qword_140E2D8C0;
       }
     }
     else

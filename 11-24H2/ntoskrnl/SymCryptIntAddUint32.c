@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptIntAddUint32 @ 0x140523784
+ * XREFs of SymCryptIntAddUint32 @ 0x14052109C
  * Callers:
- *     SymCryptFixedWindowRecoding @ 0x1405390DC (SymCryptFixedWindowRecoding.c)
- *     SymCryptWidthNafRecoding @ 0x140539238 (SymCryptWidthNafRecoding.c)
+ *     SymCryptFixedWindowRecoding @ 0x14053357C (SymCryptFixedWindowRecoding.c)
+ *     SymCryptWidthNafRecoding @ 0x1405336D8 (SymCryptWidthNafRecoding.c)
  * Callees:
- *     SymCryptFdefIntAddUint32 @ 0x14052EC74 (SymCryptFdefIntAddUint32.c)
+ *     SymCryptFdefIntAddUint32 @ 0x14052911C (SymCryptFdefIntAddUint32.c)
  */
 
 __int64 SymCryptIntAddUint32()

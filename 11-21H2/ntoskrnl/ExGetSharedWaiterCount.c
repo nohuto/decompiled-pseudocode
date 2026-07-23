@@ -1,7 +1,7 @@
 /*
  * XREFs of ExGetSharedWaiterCount @ 0x14063D280
  * Callers:
- *     CmpIsRegistryLockContended @ 0x14053F0D4 (CmpIsRegistryLockContended.c)
+ *     sub_14053F0D4 @ 0x14053F0D4 (sub_14053F0D4.c)
  * Callees:
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */

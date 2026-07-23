@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSwapStackPageNoDpc @ 0x14010BB54
+ * XREFs of MiSwapStackPageNoDpc @ 0x1401098D4
  * Callers:
- *     MiSwapStackPage @ 0x14010BCFC (MiSwapStackPage.c)
- *     MiJumpStackTarget @ 0x1401E63E8 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x140109A7C (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x1401E6214 (MiJumpStackTarget.c)
  * Callees:
- *     MiClearPfnReuseFields @ 0x140022220 (MiClearPfnReuseFields.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiCopyPfnEntry @ 0x140107B40 (MiCopyPfnEntry.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
+ *     MiClearPfnReuseFields @ 0x140021DA0 (MiClearPfnReuseFields.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiCopyPfnEntry @ 0x1401058C0 (MiCopyPfnEntry.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
  */
 
 __int64 __fastcall MiSwapStackPageNoDpc(int *a1, __int64 a2, __int64 a3)

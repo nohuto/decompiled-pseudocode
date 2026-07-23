@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCreateLogonSessionTrack @ 0x140A22BDC
+ * XREFs of SepCreateLogonSessionTrack @ 0x140A16FEC
  * Callers:
- *     SeInitServerSilo @ 0x14078ED4C (SeInitServerSilo.c)
- *     SepRmCreateLogonSessionWrkr @ 0x140A22BB0 (SepRmCreateLogonSessionWrkr.c)
- *     SepRmDbInitialization @ 0x140C3B028 (SepRmDbInitialization.c)
+ *     SeInitServerSilo @ 0x14078ED1C (SeInitServerSilo.c)
+ *     SepRmCreateLogonSessionWrkr @ 0x140A16FC0 (SepRmCreateLogonSessionWrkr.c)
+ *     SepRmDbInitialization @ 0x140C3D180 (SepRmDbInitialization.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
   __int64 *v8; // rdi
   void *CurrentServerSilo; // rsi
 
-  Pool2 = (__int64 **)ExAllocatePool2(0x100uLL);
+  Pool2 = (__int64 **)ExAllocatePool2(0x100uLL, 0xC8uLL, 0x734C6553u);
   v3 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of XmGroup8BitOffset @ 0x1404E5510
+ * XREFs of XmGroup8BitOffset @ 0x1404E5750
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
- *     XmEvaluateAddressSpecifier @ 0x140397014 (XmEvaluateAddressSpecifier.c)
- *     XmGetCodeByte @ 0x140397368 (XmGetCodeByte.c)
- *     XmGetOffsetAddress @ 0x1403C920C (XmGetOffsetAddress.c)
+ *     XmSetDestinationValue @ 0x1403970E8 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140397164 (XmEvaluateAddressSpecifier.c)
+ *     XmGetCodeByte @ 0x1403974B8 (XmGetCodeByte.c)
+ *     XmGetOffsetAddress @ 0x1403C93AC (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmGroup8BitOffset(__int64 a1)

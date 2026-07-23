@@ -8,19 +8,19 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-struct _SLIST_ENTRY *EtwpReferenceStackLookasideList()
+_SLIST_ENTRY *EtwpReferenceStackLookasideList()
 {
   int v0; // ebx
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
 
   v0 = 2 * KeNumberProcessors_0 * _InterlockedIncrement(&dword_140C6B4D0);
   do
   {
-    result = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 2080LL, 1819767877LL);
+    result = (_SLIST_ENTRY *)ExAllocatePool2(64LL, 2080LL, 1819767877LL);
     if ( !result )
       break;
     RtlpInterlockedPushEntrySList(&EtwpStackLookAsideList, result);
-    result = (struct _SLIST_ENTRY *)(unsigned int)_InterlockedIncrement(&dword_140C6B4D4);
+    result = (_SLIST_ENTRY *)(unsigned int)_InterlockedIncrement(&dword_140C6B4D4);
   }
   while ( (int)result < v0 );
   return result;

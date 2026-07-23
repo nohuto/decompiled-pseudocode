@@ -1,8 +1,8 @@
 /*
- * XREFs of PsIsImageNotifyEnabled @ 0x140A328DC
+ * XREFs of PsIsImageNotifyEnabled @ 0x140A268F4
  * Callers:
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     DbgkCreateThread @ 0x1408FED24 (DbgkCreateThread.c)
+ *     DbgkCreateThread @ 0x140921604 (DbgkCreateThread.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
  *     <none>
  */

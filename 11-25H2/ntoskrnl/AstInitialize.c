@@ -13,10 +13,10 @@ __int64 AstInitialize()
   ULONG_PTR Pool2; // rax
   __int64 v1; // rdx
   __int64 v2; // rcx
-  int v4; // [rsp+30h] [rbp+8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = 0;
-  if ( RtlGetNtProductType(&v4) && v4 == 1 )
+  NtProductType = 0;
+  if ( RtlGetNtProductType(&NtProductType) && NtProductType == NtProductWinNt )
   {
     AstIsActive = 1;
     Pool2 = ExAllocatePool2(0x100uLL, 0x1000uLL, 0x6E446341uLL);

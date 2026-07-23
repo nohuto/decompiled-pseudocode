@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpAllocateIptBuffers @ 0x1405995D4
+ * XREFs of IopLiveDumpAllocateIptBuffers @ 0x140596554
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1405982F0 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140595270 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140262A88 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x14049ACB4 (IopLiveDumpIsUnderMemoryPressure.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmAllocateIndependentPages @ 0x140A88F50 (MmAllocateIndependentPages.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14029293C (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1404956A4 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmAllocateIndependentPages @ 0x140A85350 (MmAllocateIndependentPages.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateIptBuffers(__int64 a1)
@@ -19,18 +19,16 @@ __int64 __fastcall IopLiveDumpAllocateIptBuffers(__int64 a1)
   unsigned int v6; // esi
   __int64 IndependentPages; // rax
   __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  __int128 v14; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int128 v12; // [rsp+30h] [rbp-18h] BYREF
 
   v1 = 0;
   *(_DWORD *)(a1 + 1060) = 0x10000000;
   v2 = (char **)(a1 + 1048);
   *(_QWORD *)(a1 + 1080) = 0LL;
-  v14 = 0LL;
-  guard_dispatch_icall_no_overrides(2LL, 0LL, a1 + 1048, 48LL);
+  v12 = 0LL;
+  guard_dispatch_icall_no_overrides(2LL, 0LL);
   v4 = *(_DWORD *)(a1 + 1088);
   if ( v4 )
   {
@@ -50,22 +48,22 @@ __int64 __fastcall IopLiveDumpAllocateIptBuffers(__int64 a1)
         return (unsigned int)-1073741248;
       IopLiveDumpDiscardVirtualAddressRange(a1, *v2, (*(unsigned int *)(a1 + 1056) + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
       memset_0(*v2, 0, *(unsigned int *)(a1 + 1056));
-      if ( (int)guard_dispatch_icall_no_overrides(&v14, v8, v9, v10) >= 0 )
+      if ( (int)guard_dispatch_icall_no_overrides(&v12, v8) >= 0 )
       {
-        if ( (_QWORD)v14 )
+        if ( (_QWORD)v12 )
         {
-          if ( *((_QWORD *)&v14 + 1) )
+          if ( *((_QWORD *)&v12 + 1) )
           {
-            IopLiveDumpDiscardVirtualAddressRange(a1, (char *)v14, *((unsigned __int64 *)&v14 + 1));
-            v11 = *((_QWORD *)&v14 + 1);
+            IopLiveDumpDiscardVirtualAddressRange(a1, (char *)v12, *((unsigned __int64 *)&v12 + 1));
+            v9 = *((_QWORD *)&v12 + 1);
             *(_QWORD *)(a1 + 1032) = 0LL;
             *(_DWORD *)(a1 + 1040) = 0;
             *(_DWORD *)(a1 + 1008) = 0;
-            v12 = MmAllocateIndependentPages(v11, 0xFFFFFFFFLL);
-            *(_QWORD *)(a1 + 1000) = v12;
-            if ( v12 )
+            v10 = MmAllocateIndependentPages(v9, 0xFFFFFFFFLL);
+            *(_QWORD *)(a1 + 1000) = v10;
+            if ( v10 )
             {
-              *(_DWORD *)(a1 + 1008) = DWORD2(v14);
+              *(_DWORD *)(a1 + 1008) = DWORD2(v12);
               if ( !IopLiveDumpIsUnderMemoryPressure(a1) )
               {
                 IopLiveDumpDiscardVirtualAddressRange(

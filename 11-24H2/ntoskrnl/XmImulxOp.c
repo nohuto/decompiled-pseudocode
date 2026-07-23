@@ -1,9 +1,9 @@
 /*
- * XREFs of XmImulxOp @ 0x1405771E0
+ * XREFs of XmImulxOp @ 0x140574670
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
  */
 
 __int64 __fastcall XmImulxOp(int *a1)

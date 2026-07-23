@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyXcpt10 @ 0x140C2A650
+ * XREFs of KiVerifyXcpt10 @ 0x140C2C770
  * Callers:
  *     <none>
  * Callees:
- *     _local_unwind @ 0x1404FDE70 (_local_unwind.c)
- *     KiVerifyXcptFilter @ 0x140C2AC20 (KiVerifyXcptFilter.c)
+ *     _local_unwind @ 0x1404FB730 (_local_unwind.c)
+ *     KiVerifyXcptFilter @ 0x140C2CD40 (KiVerifyXcptFilter.c)
  */
 
 __int64 __fastcall KiVerifyXcpt10(_DWORD **a1)
@@ -36,9 +36,9 @@ __int64 __fastcall KiVerifyXcpt10(_DWORD **a1)
       if ( !*v12 )
         break;
       if ( v3 == 11 )
-        v3 = local_unwind((int)v10, (int)&loc_140C2A7A1);
+        local_unwind(v10, &loc_140C2C8C1);
       if ( v3 == 1 )
-        local_unwind((int)v10, (int)&loc_140C2A682);
+        local_unwind(v10, &loc_140C2C7A2);
       *v2 = 0;
     }
     *v12 = 11;
@@ -47,7 +47,7 @@ __int64 __fastcall KiVerifyXcpt10(_DWORD **a1)
     v5 = *v12 + 11;
     *v12 = v5;
     if ( v5 == 99 )
-      local_unwind((int)v10, (int)&loc_140C2A7A1);
+      local_unwind(v10, &loc_140C2C8C1);
     ++**v4;
     *v2 += 11;
     if ( *v2 == 55 )
@@ -68,7 +68,7 @@ __int64 __fastcall KiVerifyXcpt10(_DWORD **a1)
     }
     else
     {
-      local_unwind((int)v10, (int)&loc_140C2A7A1);
+      local_unwind(v10, &loc_140C2C8C1);
     }
     a1 = v11;
     v1 = v12;

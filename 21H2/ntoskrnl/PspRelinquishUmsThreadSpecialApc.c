@@ -1,10 +1,10 @@
 /*
- * XREFs of PspRelinquishUmsThreadSpecialApc @ 0x14090EB70
+ * XREFs of PspRelinquishUmsThreadSpecialApc @ 0x14090ECD0
  * Callers:
  *     <none>
  * Callees:
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14090E844 (PspDisassociateUmsThreadFromPrimary.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14090E9A4 (PspDisassociateUmsThreadFromPrimary.c)
  */
 
 __int64 __fastcall PspRelinquishUmsThreadSpecialApc(
@@ -28,5 +28,5 @@ __int64 __fastcall PspRelinquishUmsThreadSpecialApc(
   else
     *v6 |= 2u;
   *(_DWORD *)(a1 + 96) = v8;
-  return KeSignalGate(a1 + 104, 1LL, (__int64)v6, a4);
+  return KeSignalGate(a1 + 104, 1);
 }

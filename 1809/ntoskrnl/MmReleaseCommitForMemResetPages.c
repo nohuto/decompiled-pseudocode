@@ -1,21 +1,21 @@
 /*
- * XREFs of MmReleaseCommitForMemResetPages @ 0x1402A5584
+ * XREFs of MmReleaseCommitForMemResetPages @ 0x1402A5774
  * Callers:
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
  * Callees:
  *     KeForceAttachProcess @ 0x14001674C (KeForceAttachProcess.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiPrepareAttachThread @ 0x1400EEA3C (MiPrepareAttachThread.c)
- *     MiAttachThreadDone @ 0x1400EEA9C (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x140127F74 (KeForceDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRetryOutswapProcess @ 0x14028E644 (KeRetryOutswapProcess.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiPrepareAttachThread @ 0x1400EEABC (MiPrepareAttachThread.c)
+ *     MiAttachThreadDone @ 0x1400EEB1C (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x140128044 (KeForceDetachProcess.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRetryOutswapProcess @ 0x14028E834 (KeRetryOutswapProcess.c)
  */
 
 __int64 __fastcall MmReleaseCommitForMemResetPages(volatile signed __int32 *BugCheckParameter1, int a2)
@@ -51,7 +51,7 @@ __int64 __fastcall MmReleaseCommitForMemResetPages(volatile signed __int32 *BugC
   SharedVm = MiGetSharedVm((__int64)(BugCheckParameter1 + 320));
   if ( (*(_BYTE *)(v2 + 187) & 0x60) == 0x40 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
     v7 = MiPrepareAttachThread((__int64)BugCheckParameter1, v2);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;

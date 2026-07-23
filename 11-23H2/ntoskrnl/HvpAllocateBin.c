@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpAllocateBin @ 0x1407501CC
+ * XREFs of HvpAllocateBin @ 0x1407503BC
  * Callers:
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14074F794 (HvpRemapAndEnlistHiveBins.c)
- *     HvpDropPagedBins @ 0x140827034 (HvpDropPagedBins.c)
- *     HvpAddDummyBinToHive @ 0x140A1DC30 (HvpAddDummyBinToHive.c)
- *     HvpMapHiveImage @ 0x140A1DCF4 (HvpMapHiveImage.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14074F984 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpDropPagedBins @ 0x140827334 (HvpDropPagedBins.c)
+ *     HvpAddDummyBinToHive @ 0x140A1DEE0 (HvpAddDummyBinToHive.c)
+ *     HvpMapHiveImage @ 0x140A1DFA4 (HvpMapHiveImage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvpAllocateNonPagedBin @ 0x140A2A17C (HvpAllocateNonPagedBin.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvpAllocateNonPagedBin @ 0x140A2A42C (HvpAllocateNonPagedBin.c)
  */
 
 __int64 __fastcall HvpAllocateBin(__int64 a1, __int64 a2, int a3, unsigned int a4, __int64 *a5)

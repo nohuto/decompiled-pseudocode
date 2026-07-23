@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefModElementCreate @ 0x14056F48C
+ * XREFs of SymCryptFdefModElementCreate @ 0x14056E66C
  * Callers:
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
  * Callees:
  *     <none>
  */

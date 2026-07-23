@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetNodeChannelPageCounts @ 0x1403C831C
+ * XREFs of MiGetNodeChannelPageCounts @ 0x1403D220C
  * Callers:
- *     MiGetChannelInformation @ 0x1404A43F4 (MiGetChannelInformation.c)
+ *     MiGetChannelInformation @ 0x14049DA84 (MiGetChannelInformation.c)
  * Callees:
- *     MiGetPartitionNodePageCounts @ 0x1403C84E0 (MiGetPartitionNodePageCounts.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetPartitionNodePageCounts @ 0x1403D23D0 (MiGetPartitionNodePageCounts.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 *__fastcall MiGetNodeChannelPageCounts(
@@ -57,7 +57,7 @@ unsigned __int64 *__fastcall MiGetNodeChannelPageCounts(
   v34 = v10;
   do
   {
-    if ( byte_140E2D718 == 1 || v8 == 2 )
+    if ( byte_140E2D898 == 1 || v8 == 2 )
     {
       memset_0(v37, 0, 0x40uLL);
       v11 = 0LL;
@@ -80,7 +80,7 @@ unsigned __int64 *__fastcall MiGetNodeChannelPageCounts(
       v19 = 0LL;
       if ( v8 == 2 )
       {
-        v20 = byte_140E2D718;
+        v20 = byte_140E2D898;
         goto LABEL_9;
       }
     }

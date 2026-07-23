@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPopLargePfnList @ 0x1404912BC
+ * XREFs of MiPopLargePfnList @ 0x14048BDB4
  * Callers:
- *     MiCommitExistingVad @ 0x140213020 (MiCommitExistingVad.c)
- *     MiCreateSlabEntry @ 0x1403A112C (MiCreateSlabEntry.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x14069197C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiCreateSlabEntry @ 0x140217C8C (MiCreateSlabEntry.c)
+ *     MiCommitExistingVad @ 0x140306380 (MiCommitExistingVad.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140692A4C (MiAllocateLargeProcessPagesFromCache.c)
  * Callees:
- *     MiDemotePfnListChain @ 0x14069234C (MiDemotePfnListChain.c)
+ *     MiDemotePfnListChain @ 0x14069341C (MiDemotePfnListChain.c)
  */
 
 unsigned __int64 __fastcall MiPopLargePfnList(__int64 a1, __int64 a2)

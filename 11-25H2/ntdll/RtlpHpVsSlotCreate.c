@@ -10,12 +10,12 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-union _SLIST_HEADER *__fastcall RtlpHpVsSlotCreate(unsigned __int64 a1)
+_SLIST_HEADER *__fastcall RtlpHpVsSlotCreate(unsigned __int64 a1)
 {
   __int64 v2; // rcx
   unsigned __int64 (__fastcall *v3)(__int64, __int64); // rax
   unsigned __int64 v4; // rax
-  union _SLIST_HEADER *v5; // rbx
+  _SLIST_HEADER *v5; // rbx
   char v6; // al
 
   v2 = *(_QWORD *)(a1 + 8) ^ a1;
@@ -24,7 +24,7 @@ union _SLIST_HEADER *__fastcall RtlpHpVsSlotCreate(unsigned __int64 a1)
     v4 = RtlpHpSegLfhExtendContext(v2, 128LL);
   else
     v4 = v3(v2, 128LL);
-  v5 = (union _SLIST_HEADER *)v4;
+  v5 = (_SLIST_HEADER *)v4;
   if ( v4 )
   {
     memset_thunk_772440563353939046((void *)(v4 + 16), 0, 0x70uLL);

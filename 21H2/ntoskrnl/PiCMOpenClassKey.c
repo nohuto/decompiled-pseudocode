@@ -1,25 +1,31 @@
 /*
- * XREFs of PiCMOpenClassKey @ 0x1406BEA68
+ * XREFs of PiCMOpenClassKey @ 0x140622BDC
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PiCMDuplicateRegistryHandle @ 0x14062FEA4 (PiCMDuplicateRegistryHandle.c)
- *     PiCMReturnHandleResultData @ 0x140633848 (PiCMReturnHandleResultData.c)
- *     PiCMCaptureRegistryInputData @ 0x140633C4C (PiCMCaptureRegistryInputData.c)
- *     PiCMReleaseRegistryInputData @ 0x140633E60 (PiCMReleaseRegistryInputData.c)
- *     _CmOpenInterfaceClassRegKey @ 0x14063A994 (_CmOpenInterfaceClassRegKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
- *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
- *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
- *     _CmCreateInterfaceClass @ 0x14074BB54 (_CmCreateInterfaceClass.c)
- *     _PnpCtxOpenContextBaseKey @ 0x14077C908 (_PnpCtxOpenContextBaseKey.c)
- *     _CmCreateInstallerClass @ 0x140974AE0 (_CmCreateInstallerClass.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PiAuDoesClientHaveAccess @ 0x1405FF814 (PiAuDoesClientHaveAccess.c)
+ *     PiCMDuplicateRegistryHandle @ 0x140624F24 (PiCMDuplicateRegistryHandle.c)
+ *     PiCMReturnHandleResultData @ 0x140628A10 (PiCMReturnHandleResultData.c)
+ *     PiCMCaptureRegistryInputData @ 0x140628CD8 (PiCMCaptureRegistryInputData.c)
+ *     PiCMReleaseRegistryInputData @ 0x140628EEC (PiCMReleaseRegistryInputData.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x14062F7A4 (_CmOpenInterfaceClassRegKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
+ *     RtlUpcaseUnicodeString @ 0x14067B110 (RtlUpcaseUnicodeString.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     _CmCreateInterfaceClass @ 0x14074BD14 (_CmCreateInterfaceClass.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14077CAC8 (_PnpCtxOpenContextBaseKey.c)
+ *     _CmCreateInstallerClass @ 0x140974CC0 (_CmCreateInstallerClass.c)
  */
 
-__int64 __fastcall PiCMOpenClassKey(_DWORD *a1, unsigned int a2, _DWORD *a3, unsigned int a4, int a5, _DWORD *Handle)
+__int64 __fastcall PiCMOpenClassKey(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        unsigned int a4,
+        unsigned int a5,
+        _DWORD *Handle)
 {
   _DWORD *v6; // r13
   KPROCESSOR_MODE PreviousMode; // r12
@@ -27,33 +33,34 @@ __int64 __fastcall PiCMOpenClassKey(_DWORD *a1, unsigned int a2, _DWORD *a3, uns
   int v11; // edi
   int v12; // r8d
   int v13; // edi
-  int inited; // ebx
-  __int64 v15; // r8
-  __int64 v16; // r9
+  NTSTATUS inited; // ebx
+  int v15; // r8d
+  int v16; // r9d
   bool v17; // zf
-  ACCESS_MASK v18; // edi
+  unsigned int v18; // edi
   __int64 v19; // rdx
-  bool v20; // sf
-  int InterfaceClass; // eax
-  HANDLE v23; // [rsp+48h] [rbp-19h] BYREF
+  __int64 v20; // r9
+  bool v21; // sf
+  NTSTATUS InterfaceClass; // eax
+  HANDLE v24; // [rsp+48h] [rbp-19h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-11h] BYREF
-  __int128 v25; // [rsp+60h] [rbp-1h] BYREF
+  __int128 v26; // [rsp+60h] [rbp-1h] BYREF
   PCWSTR SourceString[2]; // [rsp+70h] [rbp+Fh]
-  __int128 v27; // [rsp+80h] [rbp+1Fh]
+  __int128 v28; // [rsp+80h] [rbp+1Fh]
 
   v6 = Handle;
   Handle = 0LL;
-  v23 = 0LL;
+  v24 = 0LL;
   *v6 = 0;
-  v25 = 0LL;
+  v26 = 0LL;
   *(_OWORD *)SourceString = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v27 = 0LL;
+  v28 = 0LL;
   DestinationString = 0LL;
-  v11 = PiCMCaptureRegistryInputData(a1, a2, a5, (__int64)&v25);
+  v11 = PiCMCaptureRegistryInputData(a1, a2, a5, &v26);
   if ( v11 < 0 )
     goto LABEL_19;
-  if ( DWORD1(v25) || DWORD1(v27) || !a3 || a4 < 0x10 || (v13 = DWORD2(v25), (unsigned int)(DWORD2(v25) - 2) > 1) )
+  if ( DWORD1(v26) || DWORD1(v28) || !a3 || a4 < 0x10 || (v13 = DWORD2(v26), (unsigned int)(DWORD2(v26) - 2) > 1) )
   {
     inited = -1073741811;
     goto LABEL_15;
@@ -63,14 +70,17 @@ __int64 __fastcall PiCMOpenClassKey(_DWORD *a1, unsigned int a2, _DWORD *a3, uns
     v18 = HIDWORD(SourceString[1]);
     inited = PnpCtxOpenContextBaseKey(
                v10,
-               8 - (unsigned int)(DWORD2(v25) != 3),
+               8 - (unsigned int)(DWORD2(v26) != 3),
                v12,
                HIDWORD(SourceString[1]),
                (__int64)&Handle);
-    v20 = inited < 0;
+    v21 = inited < 0;
 LABEL_13:
-    if ( !v20 )
-      inited = PiCMDuplicateRegistryHandle(Handle, v19, v18, PreviousMode, &v23);
+    if ( !v21 )
+    {
+      LOBYTE(v20) = PreviousMode;
+      inited = PiCMDuplicateRegistryHandle(Handle, v19, v18, v20, &v24);
+    }
     goto LABEL_15;
   }
   inited = RtlInitUnicodeStringEx(&DestinationString, SourceString[0]);
@@ -85,16 +95,16 @@ LABEL_13:
       {
         inited = CmOpenInterfaceClassRegKey(
                    PiPnpRtlCtx,
-                   (int)SourceString[0],
+                   SourceString[0],
                    v15,
                    v16,
-                   SHIDWORD(SourceString[1]),
+                   HIDWORD(SourceString[1]),
                    0,
                    (__int64)&Handle,
                    0LL);
         if ( inited != -1073741772 )
           goto LABEL_12;
-        if ( (_DWORD)v27 == 1 )
+        if ( (_DWORD)v28 == 1 )
         {
           if ( PiAuDoesClientHaveAccess(2u) )
           {
@@ -109,21 +119,21 @@ LABEL_25:
       else
       {
         inited = CmOpenInstallerClassRegKey(
-                   *(__int64 *)&PiPnpRtlCtx,
-                   (__int64)SourceString[0],
+                   PiPnpRtlCtx,
+                   SourceString[0],
                    v15,
                    v16,
-                   SHIDWORD(SourceString[1]),
+                   HIDWORD(SourceString[1]),
                    0,
                    (__int64)&Handle,
                    0LL);
         if ( inited != -1073741772 )
         {
 LABEL_12:
-          v20 = inited < 0;
+          v21 = inited < 0;
           goto LABEL_13;
         }
-        if ( (_DWORD)v27 == 1 )
+        if ( (_DWORD)v28 == 1 )
         {
           if ( PiAuDoesClientHaveAccess(2u) )
           {
@@ -137,15 +147,15 @@ LABEL_24:
     }
   }
 LABEL_15:
-  v11 = PiCMReturnHandleResultData(inited, (__int64)v23, SDWORD2(v27), a3, a4, v6);
+  v11 = PiCMReturnHandleResultData((unsigned int)inited, v24, DWORD2(v28), a3, a4, v6);
   if ( Handle )
     ZwClose(Handle);
   if ( v11 < 0 || inited < 0 )
   {
-    if ( v23 )
-      ObCloseHandle(v23, PreviousMode);
+    if ( v24 )
+      ObCloseHandle(v24, PreviousMode);
   }
 LABEL_19:
-  PiCMReleaseRegistryInputData((__int64)&v25);
+  PiCMReleaseRegistryInputData(&v26);
   return (unsigned int)v11;
 }

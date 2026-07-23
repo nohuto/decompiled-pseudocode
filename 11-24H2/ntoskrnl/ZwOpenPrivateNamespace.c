@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwOpenPrivateNamespace @ 0x1406A8A50
+ * XREFs of ZwOpenPrivateNamespace @ 0x1406A99F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenPrivateNamespace(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenPrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(NamespaceHandle);
 }

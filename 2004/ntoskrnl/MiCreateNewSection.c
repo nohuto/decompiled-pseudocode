@@ -46,9 +46,9 @@ __int64 __fastcall MiCreateNewSection(unsigned int *a1, _QWORD *a2)
   _QWORD *v22; // r15
   __int64 v23; // rcx
   int v24; // r12d
-  int v25; // r8d
-  unsigned int v26; // edx
-  int v27; // ecx
+  unsigned int v25; // edx
+  int v26; // ecx
+  char v27; // r8
   int v28; // r15d
   unsigned int v29; // ecx
   int Blink; // r13d
@@ -67,29 +67,26 @@ __int64 __fastcall MiCreateNewSection(unsigned int *a1, _QWORD *a2)
   char v43; // [rsp+60h] [rbp-A0h]
   char v44; // [rsp+61h] [rbp-9Fh]
   char v45; // [rsp+62h] [rbp-9Eh] BYREF
-  char v46; // [rsp+63h] [rbp-9Dh] BYREF
-  int v47; // [rsp+64h] [rbp-9Ch]
-  PFILE_OBJECT FileObject; // [rsp+68h] [rbp-98h]
-  int v49; // [rsp+70h] [rbp-90h]
-  _DWORD v50[3]; // [rsp+74h] [rbp-8Ch] BYREF
-  __int64 v51; // [rsp+80h] [rbp-80h]
+  _BYTE FileObject[13]; // [rsp+63h] [rbp-9Dh] BYREF
+  int v47; // [rsp+70h] [rbp-90h]
+  _DWORD v48[3]; // [rsp+74h] [rbp-8Ch] BYREF
+  __int64 v49; // [rsp+80h] [rbp-80h]
   PMDL MemoryDescriptorList; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v53; // [rsp+90h] [rbp-70h]
-  __int64 v54[14]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v51; // [rsp+90h] [rbp-70h]
+  __int64 v52[14]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v51 = 0LL;
-  memset(v54, 0, sizeof(v54));
+  v49 = 0LL;
+  memset(v52, 0, sizeof(v52));
   v4 = (ULONG_PTR **)*((_QWORD *)a1 + 22);
   v5 = (struct _FILE_OBJECT *)*((_QWORD *)a1 + 7);
   v6 = a1[4];
   v7 = *((_QWORD *)a1 + 19);
   v43 = *((_BYTE *)a1 + 24);
-  v46 = 0;
-  FileObject = v5;
-  v49 = 0;
+  *(_WORD *)FileObject = 0;
+  *(_QWORD *)&FileObject[5] = v5;
+  v47 = 0;
   v45 = 0;
-  LOBYTE(v47) = 0;
-  memset(v50, 0, sizeof(v50));
+  memset(v48, 0, sizeof(v48));
   if ( v4 )
     v8 = *v4;
   else
@@ -102,29 +99,29 @@ __int64 __fastcall MiCreateNewSection(unsigned int *a1, _QWORD *a2)
     v12 = v6 & 0x1000000;
     if ( (v6 & 0x1000000) != 0 )
       DataFileMap = MiCreateImageFileMap(
-                      FileObject,
+                      *(PFILE_OBJECT *)&FileObject[5],
                       (__int64)v8,
                       v11,
                       *a1,
-                      (__int64 *)&v50[1],
+                      (__int64 *)&v48[1],
                       &MemoryDescriptorList,
-                      (__int64)v54,
-                      (__int128 *)v50);
+                      (__int64)v52,
+                      (__int128 *)v48);
     else
-      DataFileMap = MiCreateDataFileMap(FileObject, a1[7], v6, v11, *a1);
+      DataFileMap = MiCreateDataFileMap(*(PFILE_OBJECT *)&FileObject[5], a1[7], v6, v11, *a1);
     ImageRequiredSigningLevel = DataFileMap;
     if ( DataFileMap < 0 )
     {
       if ( (*a1 & 2) != 0 )
       {
         IoSetTopLevelIrp(*((PIRP *)a1 + 23));
-        FsRtlReleaseFile(FileObject);
+        FsRtlReleaseFile(*(PFILE_OBJECT *)&FileObject[5]);
         *a1 &= ~2u;
       }
       return (unsigned int)ImageRequiredSigningLevel;
     }
-    v15 = *(_QWORD *)&v50[1];
-    *a2 = *(_QWORD *)&v50[1];
+    v15 = *(_QWORD *)&v48[1];
+    *a2 = *(_QWORD *)&v48[1];
     if ( v7 )
     {
       *((_QWORD *)a1 + 16) = v7;
@@ -132,7 +129,7 @@ __int64 __fastcall MiCreateNewSection(unsigned int *a1, _QWORD *a2)
     else
     {
       v16 = _InterlockedCompareExchange64((volatile signed __int64 *)(v15 + 24), -1LL, -1LL);
-      v15 = *(_QWORD *)&v50[1];
+      v15 = *(_QWORD *)&v48[1];
       *((_QWORD *)a1 + 16) = v16;
     }
     v17 = *a1;
@@ -142,11 +139,11 @@ __int64 __fastcall MiCreateNewSection(unsigned int *a1, _QWORD *a2)
       *(_BYTE *)(v18 + 62) |= 1u;
       v17 = *a1;
     }
-    v19 = FileObject;
+    v19 = *(struct _FILE_OBJECT **)&FileObject[5];
     LOWORD(v20) = v17;
     if ( (v17 & 0x2000) != 0
-      && (FileObject->DeviceObject->Characteristics & 0x10) == 0
-      && (!v12 || (v54[1] & 0xFFF) == 0) )
+      && (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)&FileObject[5] + 8LL) + 52LL) & 0x10) == 0
+      && (!v12 || (v52[1] & 0xFFF) == 0) )
     {
       *(_DWORD *)(v18 + 56) |= 0x20000000u;
       v20 = *a1;
@@ -163,10 +160,10 @@ __int64 __fastcall MiCreateNewSection(unsigned int *a1, _QWORD *a2)
     }
     if ( !v12 )
       goto LABEL_118;
-    v23 = *(_QWORD *)(*(_QWORD *)&v50[1] + 56LL);
-    v53 = v23;
-    if ( !LODWORD(v54[11]) && !HIDWORD(v54[11]) && !*(_BYTE *)(v23 + 50) )
-      *(_BYTE *)(*(_QWORD *)&v50[1] + 15LL) |= 1u;
+    v23 = *(_QWORD *)(*(_QWORD *)&v48[1] + 56LL);
+    v51 = v23;
+    if ( !LODWORD(v52[11]) && !HIDWORD(v52[11]) && !*(_BYTE *)(v23 + 50) )
+      *(_BYTE *)(*(_QWORD *)&v48[1] + 15LL) |= 1u;
     if ( (*(_DWORD *)(v18 + 56) & 0x800) != 0 )
     {
       if ( (*a1 & 0x80000) != 0 )
@@ -186,38 +183,38 @@ LABEL_40:
         goto LABEL_121;
       }
     }
-    ImageRequiredSigningLevel = MiParseComAndCetHeaders(v18, v54, &v45);
+    ImageRequiredSigningLevel = MiParseComAndCetHeaders(v18, v52, &v45);
     if ( ImageRequiredSigningLevel < 0 )
     {
       v24 = 4;
       goto LABEL_40;
     }
-    v26 = *a1;
+    v25 = *a1;
     if ( (*a1 & 0x100) != 0 )
     {
-      v27 = 4;
+      v26 = 4;
     }
-    else if ( (v26 & 0x20) != 0 )
+    else if ( (v25 & 0x20) != 0 )
     {
-      v27 = 1;
+      v26 = 1;
     }
-    else if ( (v26 & 0x10) != 0 )
+    else if ( (v25 & 0x10) != 0 )
     {
-      v27 = (*a1 & 0x1000) != 0 ? 8 : 2;
+      v26 = (*a1 & 0x1000) != 0 ? 8 : 2;
     }
     else
     {
-      v27 = 0;
+      v26 = 0;
     }
-    LOBYTE(v25) = v43;
-    v28 = v27 | 0x10;
-    if ( (v26 & 0x800) == 0 )
-      v28 = v27;
+    v27 = v43;
+    v28 = v26 | 0x10;
+    if ( (v25 & 0x800) == 0 )
+      v28 = v26;
     v29 = *a1;
-    if ( (v26 & 0x8400) != 0 && (v26 & 0x10) == 0 )
+    if ( (v25 & 0x8400) != 0 && (v25 & 0x10) == 0 )
     {
       Blink = (int)KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
-      ImageRequiredSigningLevel = SeGetImageRequiredSigningLevel((_DWORD)FileObject, v28, v25, 0, (__int64)&v46);
+      ImageRequiredSigningLevel = SeGetImageRequiredSigningLevel(*(PVOID *)&FileObject[5], (__int64)FileObject);
       if ( ImageRequiredSigningLevel < 0 )
       {
         dword_140C4CA18 = 7;
@@ -227,55 +224,55 @@ LABEL_40:
       {
         if ( v43 )
         {
-          v31 = v49;
+          v31 = v47;
           if ( (Blink & 0x800000) != 0 )
             v31 = 1;
-          v49 = v31;
+          v47 = v31;
         }
         if ( (Blink & 0x1000000) != 0 )
         {
-          LOBYTE(v47) = 8;
+          FileObject[1] = 8;
         }
         else
         {
-          v32 = (unsigned __int8)v47;
+          v32 = FileObject[1];
           if ( (Blink & 0x2000000) != 0 )
             v32 = 6;
-          v47 = v32;
+          *(_DWORD *)&FileObject[1] = v32;
         }
       }
-      LOBYTE(v25) = v46;
-      v19 = FileObject;
-      *((_BYTE *)a1 + 24) = v46;
+      v27 = FileObject[0];
+      v19 = *(struct _FILE_OBJECT **)&FileObject[5];
+      *((_BYTE *)a1 + 24) = FileObject[0];
       v29 = *a1;
-      v43 = v25;
+      v43 = v27;
     }
     if ( (v29 & 0x80000) != 0 )
     {
-      v33 = v25;
+      v33 = v27;
       v28 |= 0x40000000u;
-      if ( !(_BYTE)v25 )
+      if ( !v27 )
         v33 = 4;
-      LOBYTE(v25) = v33;
+      v27 = v33;
       v43 = v33;
     }
     v34 = v28 | 0x20000000;
     if ( (v29 & 0x400000) == 0 )
       v34 = v28;
-    LODWORD(FileObject) = v34;
+    *(_DWORD *)&FileObject[5] = v34;
     if ( (MiFlags & 0x40000) != 0 )
     {
       v29 |= 0x8000u;
       *a1 = v29;
-      if ( !(_BYTE)v25 )
+      if ( !v27 )
       {
-        LOBYTE(v25) = 1;
+        v27 = 1;
         v43 = 1;
       }
     }
-    if ( (v29 & 0x400) != 0 && (_BYTE)v25 || (v29 & 0x8000) != 0 || (v44 = 0, *(char *)(v53 + 46) < 0) )
+    if ( (v29 & 0x400) != 0 && v27 || (v29 & 0x8000) != 0 || (v44 = 0, *(char *)(v51 + 46) < 0) )
       v44 = 1;
-    v35 = (v29 & 0x400) != 0 && (_BYTE)v47;
+    v35 = (v29 & 0x400) != 0 && FileObject[1];
     if ( (v29 & 0x40) == 0 )
       v21 = (v29 & 0x20) != 0;
     v36 = 0;
@@ -285,7 +282,7 @@ LABEL_40:
       ImageRequiredSigningLevel = DirectImageOriginalBase;
       if ( DirectImageOriginalBase >= 0 )
       {
-        v38 = v51;
+        v38 = v49;
       }
       else
       {
@@ -293,11 +290,11 @@ LABEL_40:
         {
           ImageRequiredSigningLevel = 0;
           v38 = -1LL;
-          v51 = -1LL;
+          v49 = -1LL;
         }
         else
         {
-          v38 = v51;
+          v38 = v49;
         }
         if ( ImageRequiredSigningLevel < 0 )
         {
@@ -309,13 +306,13 @@ LABEL_40:
     else
     {
       v38 = -1LL;
-      v51 = -1LL;
+      v49 = -1LL;
     }
     if ( v44 == 1 || v35 == 1 )
     {
       if ( v38 != -1 )
       {
-        ImageRequiredSigningLevel = MiRelocateImage(v50[1], (unsigned int)v54, v50[0], v21, v38, 0);
+        ImageRequiredSigningLevel = MiRelocateImage(v48[1], (unsigned int)v52, v48[0], v21, v38, 0);
         if ( ImageRequiredSigningLevel < 0 )
         {
           dword_140C4CA18 = 9;
@@ -331,12 +328,12 @@ LABEL_40:
                                     v18,
                                     a1[42],
                                     *((_QWORD *)a1 + 20),
-                                    (int)FileObject,
+                                    *(int *)&FileObject[5],
                                     v44,
                                     v35,
-                                    v49,
+                                    v47,
                                     v43,
-                                    v47);
+                                    FileObject[1]);
       if ( ImageRequiredSigningLevel < 0 )
       {
         dword_140C4CA18 = 10;
@@ -344,9 +341,9 @@ LABEL_40:
       }
       if ( v36 )
         goto LABEL_109;
-      v38 = v51;
+      v38 = v49;
     }
-    ImageRequiredSigningLevel = MiRelocateImage(v50[1], (unsigned int)v54, v50[0], v21, v38, 0);
+    ImageRequiredSigningLevel = MiRelocateImage(v48[1], (unsigned int)v52, v48[0], v21, v38, 0);
     if ( ImageRequiredSigningLevel < 0 )
     {
       dword_140C4CA18 = 11;

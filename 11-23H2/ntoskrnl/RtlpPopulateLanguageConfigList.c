@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpPopulateLanguageConfigList @ 0x14084550C
+ * XREFs of RtlpPopulateLanguageConfigList @ 0x14084580C
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x1408449F4 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadLanguageConfigList @ 0x140844CF4 (RtlpLoadLanguageConfigList.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BEE0 (RtlStringCbLengthW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwEnumerateValueKey @ 0x14041AFC0 (ZwEnumerateValueKey.c)
- *     RtlpMuiRegValidateConfigNode @ 0x14067A198 (RtlpMuiRegValidateConfigNode.c)
- *     RtlpMuiRegCreateLanguageConfigList @ 0x140845654 (RtlpMuiRegCreateLanguageConfigList.c)
- *     RtlpMuiRegConfigListAddLanguage @ 0x140A744EC (RtlpMuiRegConfigListAddLanguage.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x140A74C94 (RtlpMuiRegGetLanguageSpec.c)
+ *     RtlStringCbLengthW @ 0x14022BFF0 (RtlStringCbLengthW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x14041B350 (ZwEnumerateValueKey.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x14067A6E8 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x140845954 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpMuiRegConfigListAddLanguage @ 0x140A7479C (RtlpMuiRegConfigListAddLanguage.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x140A74F44 (RtlpMuiRegGetLanguageSpec.c)
  */
 
 __int64 __fastcall RtlpPopulateLanguageConfigList(HANDLE KeyHandle, __int64 *a2, __int64 a3)

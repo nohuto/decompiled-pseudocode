@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateKeyTransacted_Stub @ 0x1406E08A0
+ * XREFs of NtCreateKeyTransacted_Stub @ 0x1406E09D8
  * Callers:
- *     _RegRtlCreateKeyTransacted @ 0x1404FA914 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1404DD8A0 (_RegRtlCreateKeyTransacted.c)
  * Callees:
- *     ZwCreateKeyTransacted @ 0x14015B120 (ZwCreateKeyTransacted.c)
+ *     ZwCreateKeyTransacted @ 0x14015B690 (ZwCreateKeyTransacted.c)
  */
 
 NTSTATUS __fastcall NtCreateKeyTransacted_Stub(

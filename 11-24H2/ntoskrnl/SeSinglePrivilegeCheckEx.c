@@ -1,15 +1,15 @@
 /*
- * XREFs of SeSinglePrivilegeCheckEx @ 0x140853CA0
+ * XREFs of SeSinglePrivilegeCheckEx @ 0x14084FF60
  * Callers:
- *     CmpCheckOpenAccessOnKeyBody @ 0x140852140 (CmpCheckOpenAccessOnKeyBody.c)
- *     RtlpSetSecurityObject @ 0x140858F70 (RtlpSetSecurityObject.c)
- *     CmpSetAccessStateForBackupRestore @ 0x1409174CC (CmpSetAccessStateForBackupRestore.c)
- *     SepValidOwnerSubjectContext @ 0x140A2D638 (SepValidOwnerSubjectContext.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14084E400 (CmpCheckOpenAccessOnKeyBody.c)
+ *     RtlpSetSecurityObject @ 0x140855250 (RtlpSetSecurityObject.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x14090AF3C (CmpSetAccessStateForBackupRestore.c)
+ *     SepValidOwnerSubjectContext @ 0x140A22078 (SepValidOwnerSubjectContext.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     SepPrivilegeCheck @ 0x140403670 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140853560 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     SepPrivilegeCheck @ 0x1403FE430 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14084F820 (SepAdtPrivilegedServiceAuditAlarm.c)
  */
 
 __int64 __fastcall SeSinglePrivilegeCheckEx(__int64 a1, __int64 a2, char a3)

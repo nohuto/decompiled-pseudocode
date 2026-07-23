@@ -1,10 +1,10 @@
 /*
- * XREFs of TriageGetBugcheckData @ 0x1409FA6FC
+ * XREFs of TriageGetBugcheckData @ 0x1409FB6FC
  * Callers:
- *     VfTriageSystem @ 0x1409DB150 (VfTriageSystem.c)
- *     MmTriageActiveInLastCrash @ 0x1409F6E98 (MmTriageActiveInLastCrash.c)
+ *     VfTriageSystem @ 0x1409DC150 (VfTriageSystem.c)
+ *     MmTriageActiveInLastCrash @ 0x1409F7E98 (MmTriageActiveInLastCrash.c)
  * Callees:
- *     TriagepVerifyDump @ 0x1409FA7EC (TriagepVerifyDump.c)
+ *     TriagepVerifyDump @ 0x1409FB7EC (TriagepVerifyDump.c)
  */
 
 __int64 __fastcall TriageGetBugcheckData(__int64 a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5, _QWORD *a6)

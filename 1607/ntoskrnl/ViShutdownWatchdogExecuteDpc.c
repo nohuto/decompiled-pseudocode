@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     VfErrorStoreTriageInformation @ 0x14070EB30 (VfErrorStoreTriageInformation.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x14070EB60 (VfErrorStoreTriageInformation.c)
  */
 
 void __fastcall ViShutdownWatchdogExecuteDpc(

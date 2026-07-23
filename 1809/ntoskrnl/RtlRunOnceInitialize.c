@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlRunOnceInitialize @ 0x1406DA170
+ * XREFs of RtlRunOnceInitialize @ 0x1406DB410
  * Callers:
- *     RtlpHpHeapCreate @ 0x140140AE0 (RtlpHpHeapCreate.c)
- *     RtlHpHeapManagerInitialize @ 0x1401707D0 (RtlHpHeapManagerInitialize.c)
- *     DbgkpInitializePhase0 @ 0x1409AEA9C (DbgkpInitializePhase0.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
+ *     RtlpHpHeapCreate @ 0x140140BE0 (RtlpHpHeapCreate.c)
+ *     RtlHpHeapManagerInitialize @ 0x1401708D0 (RtlHpHeapManagerInitialize.c)
+ *     DbgkpInitializePhase0 @ 0x1409AFA9C (DbgkpInitializePhase0.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
  * Callees:
  *     <none>
  */

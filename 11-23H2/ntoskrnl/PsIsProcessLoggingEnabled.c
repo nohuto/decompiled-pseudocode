@@ -1,8 +1,8 @@
 /*
- * XREFs of PsIsProcessLoggingEnabled @ 0x1403387E0
+ * XREFs of PsIsProcessLoggingEnabled @ 0x140338A70
  * Callers:
- *     NtProtectVirtualMemory @ 0x1406F91D0 (NtProtectVirtualMemory.c)
- *     MiReadWriteVirtualMemory @ 0x1407AE4F0 (MiReadWriteVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x1406F93E0 (NtProtectVirtualMemory.c)
+ *     MiReadWriteVirtualMemory @ 0x1407AE6E0 (MiReadWriteVirtualMemory.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of IvtLegacyFlushTbInternal @ 0x140570168
+ * XREFs of IvtLegacyFlushTbInternal @ 0x14056D5F8
  * Callers:
- *     IvtLegacyAttachDeviceDomainInternal @ 0x14056FB5C (IvtLegacyAttachDeviceDomainInternal.c)
- *     IvtLegacyFlushDomainTb @ 0x1405700A0 (IvtLegacyFlushDomainTb.c)
- *     IvtLegacyFlushTb @ 0x140570120 (IvtLegacyFlushTb.c)
- *     IvtInitializeIommu @ 0x140B51B90 (IvtInitializeIommu.c)
+ *     IvtLegacyAttachDeviceDomainInternal @ 0x14056CFEC (IvtLegacyAttachDeviceDomainInternal.c)
+ *     IvtLegacyFlushDomainTb @ 0x14056D530 (IvtLegacyFlushDomainTb.c)
+ *     IvtLegacyFlushTb @ 0x14056D5B0 (IvtLegacyFlushTb.c)
+ *     IvtInitializeIommu @ 0x140B53BE0 (IvtInitializeIommu.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     IvtIommuWaitCommand @ 0x1403BB7F4 (IvtIommuWaitCommand.c)
- *     IvtIommuSendCommand @ 0x1403BB944 (IvtIommuSendCommand.c)
- *     HalpIommuGetNextFlushDevice @ 0x1404FA164 (HalpIommuGetNextFlushDevice.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     IvtIommuWaitCommand @ 0x140374F34 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x140375084 (IvtIommuSendCommand.c)
+ *     HalpIommuGetNextFlushDevice @ 0x1404F7A44 (HalpIommuGetNextFlushDevice.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall IvtLegacyFlushTbInternal(
@@ -208,7 +208,7 @@ LABEL_29:
       if ( v20 )
         goto LABEL_36;
     }
-    IvtIommuSendCommand(a1, &v68, 0LL);
+    IvtIommuSendCommand(a1, &v68, 0);
     v14 = v68;
     v20 = v57;
     v11 = a4;
@@ -275,7 +275,7 @@ LABEL_49:
       {
         if ( !*v28 )
         {
-          v34 = ExAcquireRundownProtection(RunRef);
+          v34 = ExAcquireRundownProtection_0(RunRef);
           v11 = a4;
           if ( !v34 )
             goto LABEL_80;
@@ -346,7 +346,7 @@ LABEL_74:
         }
         *((_QWORD *)&v67 + 1) = (v32 << 12) | WORD4(v67) & 0xFFF;
 LABEL_79:
-        IvtIommuSendCommand(a1, &v67, 0LL);
+        IvtIommuSendCommand(a1, &v67, 0);
         v11 = a4;
 LABEL_80:
         if ( !a6 )

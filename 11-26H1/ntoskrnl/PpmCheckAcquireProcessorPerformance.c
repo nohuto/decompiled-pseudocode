@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCheckAcquireProcessorPerformance @ 0x140257780
+ * XREFs of PpmCheckAcquireProcessorPerformance @ 0x140258F60
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckQueueControlAction @ 0x1402577FC (PpmCheckQueueControlAction.c)
+ *     PpmCheckQueueControlAction @ 0x140258FDC (PpmCheckQueueControlAction.c)
  */
 
 char PpmCheckAcquireProcessorPerformance()
@@ -25,8 +25,8 @@ char PpmCheckAcquireProcessorPerformance()
     }
     while ( v0 != (PBOOLEAN)((char *)&Mm64BitPhysicalAddress + 2) );
     if ( result )
-      return PpmCheckQueueControlAction(stru_140F11D08.IptSaveArea);
+      return PpmCheckQueueControlAction(PpmPerfControlAcquirePerformance);
   }
-  *(_DWORD *)&PopSleepstudySessionLock.WaitBlockFill11[100] += 2;
+  PpmCheckPipelineIndex += 2;
   return result;
 }

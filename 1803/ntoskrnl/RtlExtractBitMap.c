@@ -6,81 +6,72 @@
  *     memmove @ 0x1401BC900 (memmove.c)
  */
 
-char __fastcall RtlExtractBitMap(__int64 a1, unsigned int *a2, unsigned int a3, unsigned int a4)
+void __cdecl RtlExtractBitMap(PRTL_BITMAP Source, PRTL_BITMAP Destination, ULONG TargetBit, ULONG NumberOfBits)
 {
-  unsigned __int64 v5; // rbx
+  unsigned __int64 SizeOfBitMap; // rbx
   unsigned __int64 v6; // rax
   unsigned __int64 v8; // rsi
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // rdi
   unsigned __int64 v11; // rbx
   size_t v12; // rdi
-  __int64 v13; // r9
-  unsigned int *v14; // r11
-  __int64 v15; // r8
-  _DWORD *v16; // rsi
-  int v17; // r9d
-  unsigned __int64 v18; // rdi
+  unsigned int *Buffer; // r11
+  __int64 v14; // r8
+  unsigned int *v15; // rsi
+  int v16; // r9d
+  unsigned __int64 v17; // rdi
+  unsigned int v18; // edx
   unsigned int v19; // edx
   unsigned int v20; // edx
-  unsigned int v21; // edx
 
-  v5 = *a2;
-  v6 = *(_DWORD *)a1 - a3;
-  if ( a4 <= (unsigned int)v6 )
-    v6 = a4;
-  if ( v6 <= v5 )
-    v5 = (unsigned int)v6;
-  if ( v5 )
+  SizeOfBitMap = Destination->SizeOfBitMap;
+  v6 = Source->SizeOfBitMap - TargetBit;
+  if ( NumberOfBits <= (unsigned int)v6 )
+    v6 = NumberOfBits;
+  if ( v6 <= SizeOfBitMap )
+    SizeOfBitMap = (unsigned int)v6;
+  if ( SizeOfBitMap )
   {
-    v8 = (unsigned __int64)a3 >> 3;
-    v9 = a3;
-    if ( (a3 & 7) != 0 )
+    v8 = (unsigned __int64)TargetBit >> 3;
+    v9 = TargetBit;
+    if ( (TargetBit & 7) != 0 )
     {
-      v6 = *(_QWORD *)(a1 + 8);
-      v14 = (unsigned int *)*((_QWORD *)a2 + 1);
-      v15 = a3 & 0x1F;
-      v16 = (_DWORD *)(v6 + 4 * (v9 >> 5));
-      v17 = 1 << v15;
-      if ( v5 >= 0x20 )
+      Buffer = Destination->Buffer;
+      v14 = TargetBit & 0x1F;
+      v15 = &Source->Buffer[v9 >> 5];
+      v16 = 1 << v14;
+      if ( SizeOfBitMap >= 0x20 )
       {
-        v18 = v5 >> 5;
-        v5 += -32LL * (v5 >> 5);
+        v17 = SizeOfBitMap >> 5;
+        SizeOfBitMap += -32LL * (SizeOfBitMap >> 5);
         do
         {
-          v19 = *v16++ & ~(v17 - 1);
-          v20 = v19 >> v15;
-          *v14 = v20;
-          LODWORD(v6) = v20 | ((*v16 & (v17 - 1)) << (32 - v15));
-          *v14++ = v6;
-          --v18;
+          v18 = *v15++ & ~(v16 - 1);
+          v19 = v18 >> v14;
+          *Buffer = v19;
+          *Buffer++ = v19 | ((*v15 & (v16 - 1)) << (32 - v14));
+          --v17;
         }
-        while ( v18 );
+        while ( v17 );
       }
-      if ( v5 )
+      if ( SizeOfBitMap )
       {
-        if ( v5 > 32 - v15 )
-          v21 = ((*v16 & (unsigned int)~(v17 - 1)) >> v15) | ((v16[1] & ((1 << (v5 + v15 - 32)) - 1)) << (32 - v15));
+        if ( SizeOfBitMap > 32 - v14 )
+          v20 = ((*v15 & ~(v16 - 1)) >> v14) | ((v15[1] & ((1 << (SizeOfBitMap + v14 - 32)) - 1)) << (32 - v14));
         else
-          v21 = (*v16 & (unsigned int)(((1 << v5) - 1) << v15)) >> v15;
-        LODWORD(v6) = v21 | ~((1 << v5) - 1) & *v14;
-        *v14 = v6;
+          v20 = (*v15 & (((1 << SizeOfBitMap) - 1) << v14)) >> v14;
+        *Buffer = v20 | ~((1 << SizeOfBitMap) - 1) & *Buffer;
       }
     }
     else
     {
-      v10 = (unsigned int)v5;
-      v11 = v5 & 7;
+      v10 = (unsigned int)SizeOfBitMap;
+      v11 = SizeOfBitMap & 7;
       v12 = v10 >> 3;
       if ( v12 )
-        LOBYTE(v6) = (unsigned __int8)memmove(*((void **)a2 + 1), (const void *)(v8 + *(_QWORD *)(a1 + 8)), v12);
+        memmove(Destination->Buffer, (char *)Source->Buffer + v8, v12);
       if ( v11 )
-      {
-        v13 = *((_QWORD *)a2 + 1);
-        LOBYTE(v6) = *(_BYTE *)(v12 + *(_QWORD *)(a1 + 8) + v8) & ((1 << v11) - 1) | *(_BYTE *)(v12 + v13) & ~((1 << v11) - 1);
-        *(_BYTE *)(v12 + v13) = v6;
-      }
+        *((_BYTE *)Destination->Buffer + v12) = *((_BYTE *)Source->Buffer + v12 + v8) & ((1 << v11) - 1) | *((_BYTE *)Destination->Buffer + v12) & ~((1 << v11) - 1);
     }
   }
-  return v6;
 }

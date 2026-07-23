@@ -1,9 +1,9 @@
 /*
- * XREFs of MiImageCantMove @ 0x1401F6F08
+ * XREFs of MiImageCantMove @ 0x1401F6D34
  * Callers:
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiImageCantMove(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTscAdvSynchReadTimeStamp @ 0x140583874
+ * XREFs of HalpTscAdvSynchReadTimeStamp @ 0x140585D94
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x140583650 (HalpTscAdvSynchLeader.c)
+ *     HalpTscAdvSynchLeader @ 0x140585B70 (HalpTscAdvSynchLeader.c)
  * Callees:
  *     <none>
  */

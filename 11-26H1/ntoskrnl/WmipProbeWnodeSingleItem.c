@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipProbeWnodeSingleItem @ 0x140823A10
+ * XREFs of WmipProbeWnodeSingleItem @ 0x140829C5C
  * Callers:
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
  * Callees:
- *     WmipProbeWnodeWorker @ 0x140A0C784 (WmipProbeWnodeWorker.c)
+ *     WmipProbeWnodeWorker @ 0x140A0B754 (WmipProbeWnodeWorker.c)
  */
 
 __int64 __fastcall WmipProbeWnodeSingleItem(_DWORD *a1, unsigned int a2)

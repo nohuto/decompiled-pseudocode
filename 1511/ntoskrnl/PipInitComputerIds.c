@@ -580,10 +580,7 @@ LABEL_98:
                 ComputerId = RtlUnicodeStringCopyStringEx(&RemainingString, L"ComputerMetadata\\", &RemainingString, 0);
                 if ( ComputerId < 0 )
                   break;
-                ComputerId = RtlStringFromGUIDEx(
-                               (unsigned int *)&UnicodeString[v59 + 8].Length,
-                               (__int64)&RemainingString,
-                               0);
+                ComputerId = RtlStringFromGUIDEx((PGUID)&UnicodeString[v59 + 8], &RemainingString, 0);
                 if ( ComputerId < 0 )
                   break;
                 ComputerId = RtlUpcaseUnicodeString(&RemainingString, &RemainingString, 0);

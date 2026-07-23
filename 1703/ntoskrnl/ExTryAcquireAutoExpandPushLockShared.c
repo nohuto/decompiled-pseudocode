@@ -23,7 +23,7 @@ ULONG_PTR __fastcall ExTryAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckPara
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   v5 = BugCheckParameter1 & 2;
   if ( (BugCheckParameter1 & 2) == 0 )
-    v2 = (_KLOCK_ENTRY *)KeAbPreAcquire(BugCheckParameter2, 0LL, 1LL);
+    v2 = (_KLOCK_ENTRY *)KeAbPreAcquire(BugCheckParameter2, 0LL, 1);
   v6 = *(_DWORD *)(BugCheckParameter2 + 8);
   if ( (v6 & 1) != 0 )
   {

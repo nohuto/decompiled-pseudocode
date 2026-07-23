@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtContinueWrapper @ 0x14066F710
+ * XREFs of DifNtContinueWrapper @ 0x1406732F0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     NtContinue @ 0x1407273E0 (NtContinue.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     NtContinue @ 0x14072BFB0 (NtContinue.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifNtContinueWrapper(__int64 a1, char a2)
+__int64 __fastcall DifNtContinueWrapper(PCONTEXT ContextRecord, BOOLEAN a2)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -43,7 +43,7 @@ __int64 __fastcall DifNtContinueWrapper(__int64 a1, char a2)
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v8 = 0;
-    *(_QWORD *)&v16 = a1;
+    *(_QWORD *)&v16 = ContextRecord;
     BYTE8(v15) = a2;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
@@ -57,8 +57,7 @@ __int64 __fastcall DifNtContinueWrapper(__int64 a1, char a2)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LOBYTE(v5) = a2;
-  DWORD2(v16) = NtContinue(a1, v5);
+  DWORD2(v16) = NtContinue(ContextRecord, a2);
   if ( v6 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

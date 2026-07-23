@@ -122,7 +122,7 @@ __int64 __fastcall CcPinFileData(
   __int64 v83; // rdi
   __int16 v84; // cx
   struct _KTHREAD *v85; // r13
-  int v86; // r8d
+  NTSTATUS v86; // r8d
   unsigned __int64 v87; // rdx
   unsigned __int64 v88; // rdi
   unsigned int v89; // eax
@@ -185,7 +185,7 @@ __int64 __fastcall CcPinFileData(
   __int64 v147; // [rsp+80h] [rbp-98h]
   __int64 v148; // [rsp+88h] [rbp-90h]
   int v149; // [rsp+90h] [rbp-88h]
-  int v150; // [rsp+94h] [rbp-84h]
+  NTSTATUS v150; // [rsp+94h] [rbp-84h]
   __int64 v151; // [rsp+98h] [rbp-80h]
   __int64 v152; // [rsp+A0h] [rbp-78h]
   __int64 v153; // [rsp+A8h] [rbp-70h]
@@ -370,10 +370,10 @@ LABEL_48:
         v71 = _InterlockedCompareExchange((volatile signed __int32 *)v15, 1, 0);
         if ( v71 )
           ExpReleaseFastMutexContended(v15, v71);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v72 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v72 <= 0xFu && (unsigned __int8)v70 <= 0xFu && v72 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v72 <= 0xFu && (unsigned __int8)v70 <= 0xFu && v72 >= 2u )
           {
             v73 = KeGetCurrentPrcb();
             v74 = v73->SchedulerAssist;
@@ -484,7 +484,7 @@ LABEL_48:
           v93 = v92 >> 1;
           LODWORD(v85[1].WaitListEntry.Flink) = v93;
           if ( v86 < 0 )
-            RtlRaiseStatus((unsigned int)v86);
+            RtlRaiseStatus(v86);
           v146 = 0;
           v152 = 0LL;
           v94 = KeGetCurrentThread();
@@ -545,10 +545,10 @@ LABEL_48:
           v105 = _InterlockedCompareExchange((volatile signed __int32 *)v15, 1, 0);
           if ( v105 )
             ExpReleaseFastMutexContended(v15, v105);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v106 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v106 <= 0xFu && (unsigned __int8)v104 <= 0xFu && v106 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v106 <= 0xFu && (unsigned __int8)v104 <= 0xFu && v106 >= 2u )
             {
               v107 = KeGetCurrentPrcb();
               v108 = v107->SchedulerAssist;
@@ -610,10 +610,10 @@ LABEL_48:
     v111 = _InterlockedCompareExchange((volatile signed __int32 *)v15, 1, 0);
     if ( v111 )
       ExpReleaseFastMutexContended(v15, v111);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v112 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v112 <= 0xFu && (unsigned __int8)v110 <= 0xFu && v112 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v112 <= 0xFu && (unsigned __int8)v110 <= 0xFu && v112 >= 2u )
       {
         v113 = KeGetCurrentPrcb();
         v114 = v113->SchedulerAssist;
@@ -781,7 +781,7 @@ LABEL_231:
   if ( !v56 )
   {
     KeReleaseGuardedMutex((PKGUARDED_MUTEX)v15);
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   }
   if ( v162 )
     goto LABEL_97;
@@ -887,10 +887,10 @@ LABEL_233:
     v127 = _InterlockedCompareExchange((volatile signed __int32 *)v15, 1, 0);
     if ( v127 )
       ExpReleaseFastMutexContended(v15, v127);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v128 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v128 <= 0xFu && (unsigned __int8)v126 <= 0xFu && v128 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v128 <= 0xFu && (unsigned __int8)v126 <= 0xFu && v128 >= 2u )
       {
         v129 = KeGetCurrentPrcb();
         v130 = v129->SchedulerAssist;

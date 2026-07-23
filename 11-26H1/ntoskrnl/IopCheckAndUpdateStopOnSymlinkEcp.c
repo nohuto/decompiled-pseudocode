@@ -1,7 +1,7 @@
 /*
- * XREFs of IopCheckAndUpdateStopOnSymlinkEcp @ 0x14077A420
+ * XREFs of IopCheckAndUpdateStopOnSymlinkEcp @ 0x14077D350
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
  *     <none>
  */

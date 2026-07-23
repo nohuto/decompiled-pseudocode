@@ -3,19 +3,19 @@
  * Callers:
  *     DbgkInitialize @ 0x140B524F0 (DbgkInitialize.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     CmSiRWLockInitialize @ 0x14080E150 (CmSiRWLockInitialize.c)
- *     ObCreateObjectType @ 0x14081F1D0 (ObCreateObjectType.c)
- *     DbgkpGetServerSiloState @ 0x1408220F4 (DbgkpGetServerSiloState.c)
- *     DbgkpInitializePhase0SiloState @ 0x140822110 (DbgkpInitializePhase0SiloState.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CmSiRWLockInitialize @ 0x14080E420 (CmSiRWLockInitialize.c)
+ *     ObCreateObjectType @ 0x14081F4D0 (ObCreateObjectType.c)
+ *     DbgkpGetServerSiloState @ 0x1408223F4 (DbgkpGetServerSiloState.c)
+ *     DbgkpInitializePhase0SiloState @ 0x140822410 (DbgkpInitializePhase0SiloState.c)
  */
 
 void DbgkpInitializePhase0()
 {
   char *ServerSiloState; // rax
   __int64 v1; // rbx
-  union _RTL_RUN_ONCE *v2; // rcx
-  union _RTL_RUN_ONCE *v3; // rcx
+  _RTL_RUN_ONCE *v2; // rcx
+  _RTL_RUN_ONCE *v3; // rcx
   UNICODE_STRING v4; // [rsp+20h] [rbp-39h] BYREF
   _QWORD v5[16]; // [rsp+30h] [rbp-29h] BYREF
 

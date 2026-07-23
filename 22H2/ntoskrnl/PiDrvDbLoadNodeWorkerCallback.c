@@ -128,7 +128,7 @@ LABEL_27:
     goto LABEL_27;
 LABEL_5:
   ZwClose(Handle);
-  ZwResetEvent(*(_QWORD *)(a1 + 472), 0LL);
+  ZwResetEvent(*(HANDLE *)(a1 + 472), 0LL);
   v4 = PiDrvDbUnloadHive(a1 + 32, *(_QWORD *)(a1 + 472));
   if ( v4 == 259 )
   {

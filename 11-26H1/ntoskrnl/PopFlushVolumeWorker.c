@@ -1,30 +1,30 @@
 /*
- * XREFs of PopFlushVolumeWorker @ 0x140C06A60
+ * XREFs of PopFlushVolumeWorker @ 0x140C0CC70
  * Callers:
- *     PopFlushVolumes @ 0x140C06720 (PopFlushVolumes.c)
+ *     PopFlushVolumes @ 0x140C0C930 (PopFlushVolumes.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PopFlushAndHold @ 0x14050D080 (PopFlushAndHold.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwFlushBuffersFile @ 0x140723D50 (ZwFlushBuffersFile.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtDeviceIoControlFile @ 0x1408F5E30 (NtDeviceIoControlFile.c)
- *     ObQueryNameString @ 0x1409FDA20 (ObQueryNameString.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PopFlushAndHold @ 0x140506AF0 (PopFlushAndHold.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwFlushBuffersFile @ 0x140728920 (ZwFlushBuffersFile.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObQueryNameString @ 0x140922620 (ObQueryNameString.c)
+ *     NtDeviceIoControlFile @ 0x140925DC0 (NtDeviceIoControlFile.c)
  */
 
 void __fastcall PopFlushVolumeWorker(struct _KEVENT *StartContext)
 {
   PVOID *p_Flink; // rcx
-  _XSAVE_FORMAT *v3; // rdi
+  unsigned __int64 **v3; // rdi
   char ***v4; // rdx
   struct _LIST_ENTRY *v5; // rax
-  __int64 v7; // rax
-  _XSAVE_FORMAT **v8; // rcx
-  _XSAVE_FORMAT *StateSaveArea; // rax
+  unsigned __int64 *v7; // rax
+  unsigned __int64 ***v8; // rcx
+  unsigned __int64 *v9; // rax
   HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
   ULONG ReturnLength; // [rsp+68h] [rbp-98h] BYREF
   char ***p_WaitListHead; // [rsp+70h] [rbp-90h] BYREF
@@ -32,14 +32,14 @@ void __fastcall PopFlushVolumeWorker(struct _KEVENT *StartContext)
   struct _KTHREAD *CurrentThread; // [rsp+80h] [rbp-80h]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-78h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-60h] BYREF
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+D0h] [rbp-30h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+D0h] [rbp-30h] BYREF
 
   ReturnLength = 0;
   FileHandle = 0LL;
   IoStatusBlock = 0LL;
   memset(&ObjectAttributes, 0, 44);
   memset_0(&ObjectNameInfo, 0, 0x200uLL);
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F10828.SListFaultAddress);
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&PpmIdlePolicyLock.WriteTransferCount);
   CurrentThread = KeGetCurrentThread();
   p_Flink = (PVOID *)&StartContext[2].Header.WaitListHead.Blink->Flink;
   if ( *p_Flink != &StartContext[2].Header.WaitListHead )
@@ -50,26 +50,26 @@ void __fastcall PopFlushVolumeWorker(struct _KEVENT *StartContext)
   StartContext[2].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&p_WaitListHead;
   while ( 1 )
   {
-    v3 = *(_XSAVE_FORMAT **)&StartContext->Header.Lock;
+    v3 = *(unsigned __int64 ***)&StartContext->Header.Lock;
     if ( *(struct _KEVENT **)&StartContext->Header.Lock == StartContext )
       break;
-    v7 = *(_QWORD *)&v3->ControlWord;
-    if ( *(_XSAVE_FORMAT **)(*(_QWORD *)&v3->ControlWord + 8LL) != v3 )
+    v7 = *v3;
+    if ( (unsigned __int64 **)(*v3)[1] != v3 )
       goto LABEL_2;
-    v8 = *(_XSAVE_FORMAT ***)&v3->ErrorOffset;
+    v8 = (unsigned __int64 ***)v3[1];
     if ( *v8 != v3 )
       goto LABEL_2;
-    *v8 = (_XSAVE_FORMAT *)v7;
-    *(_QWORD *)(v7 + 8) = v8;
-    StateSaveArea = stru_140F10828.StateSaveArea;
-    if ( *(struct _KTHREAD **)stru_140F10828.StateSaveArea != (struct _KTHREAD *)&stru_140F10828.KernelStack )
+    *v8 = (unsigned __int64 **)v7;
+    v7[1] = (unsigned __int64)v8;
+    v9 = *(unsigned __int64 **)&PpmIdlePolicyLock.SchedulerAssistYieldCounter;
+    if ( **(struct _KTHREAD ***)&PpmIdlePolicyLock.SchedulerAssistYieldCounter != (struct _KTHREAD *)&PpmIdlePolicyLock.KcsanThread )
       goto LABEL_2;
-    *(_QWORD *)&v3->ControlWord = &stru_140F10828.KernelStack;
-    *(_QWORD *)&v3->ErrorOffset = StateSaveArea;
-    *(_QWORD *)&StateSaveArea->ControlWord = v3;
-    stru_140F10828.StateSaveArea = v3;
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F10828.SListFaultAddress);
-    if ( ObQueryNameString(*(PVOID *)&v3[-1].Reserved4[40], &ObjectNameInfo, 0x200u, &ReturnLength) >= 0 )
+    *v3 = &PpmIdlePolicyLock.KcsanThread;
+    v3[1] = v9;
+    *v9 = (unsigned __int64)v3;
+    *(_QWORD *)&PpmIdlePolicyLock.SchedulerAssistYieldCounter = v3;
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PpmIdlePolicyLock.WriteTransferCount);
+    if ( ObQueryNameString(*(v3 - 7), &ObjectNameInfo, 0x200u, &ReturnLength) >= 0 )
     {
       if ( ObjectNameInfo.Name.Buffer )
       {
@@ -107,7 +107,7 @@ void __fastcall PopFlushVolumeWorker(struct _KEVENT *StartContext)
         }
       }
     }
-    ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F10828.SListFaultAddress);
+    ExAcquireFastMutex((PKGUARDED_MUTEX)&PpmIdlePolicyLock.WriteTransferCount);
   }
   v4 = p_WaitListHead;
   v5 = Blink;
@@ -118,5 +118,5 @@ LABEL_2:
   v4[1] = (char **)v5;
   if ( LODWORD(StartContext->Header.WaitListHead.Blink)-- == 1 )
     KeSetEvent(StartContext + 1, 0, 0);
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F10828.SListFaultAddress);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PpmIdlePolicyLock.WriteTransferCount);
 }

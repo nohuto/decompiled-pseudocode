@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaDisableInterrupt @ 0x140704680
+ * XREFs of HsaDisableInterrupt @ 0x140702240
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLightWeightCleanupSetSecDescUoW @ 0x140A27F58
+ * XREFs of CmpLightWeightCleanupSetSecDescUoW @ 0x140A28208
  * Callers:
- *     CmpCleanupLightWeightUoWData @ 0x140A1C344 (CmpCleanupLightWeightUoWData.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140A286F0 (CmpLightWeightCommitSetSecDescUoW.c)
- *     CmpLightWeightPrepareSetSecDescUoW @ 0x140A29814 (CmpLightWeightPrepareSetSecDescUoW.c)
+ *     CmpCleanupLightWeightUoWData @ 0x140A1C5F4 (CmpCleanupLightWeightUoWData.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x140A289A0 (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpLightWeightPrepareSetSecDescUoW @ 0x140A29AC4 (CmpLightWeightPrepareSetSecDescUoW.c)
  * Callees:
- *     CmpDereferenceSecurityNode @ 0x140297450 (CmpDereferenceSecurityNode.c)
+ *     CmpDereferenceSecurityNode @ 0x1402976E0 (CmpDereferenceSecurityNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmLoadAppKey @ 0x1405CF54C
+ * XREFs of CmLoadAppKey @ 0x1405D054C
  * Callers:
- *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x1405B5DBC (CmLoadDifferencingKey.c)
  * Callees:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
@@ -13,33 +13,33 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExBlockOnAddressPushLock @ 0x140111A10 (ExBlockOnAddressPushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x14026C328 (CmpCheckHivePrimaryFileReadWriteAccess.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
- *     UNLOCK_HIVE_LOAD @ 0x1405B1514 (UNLOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x1405B1640 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x1405B1690 (LOCK_HIVE_LOAD.c)
- *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
- *     CmpCmdHiveOpen @ 0x1405B494C (CmpCmdHiveOpen.c)
- *     CmpIsThisSameFile @ 0x1405CF4CC (CmpIsThisSameFile.c)
- *     CmpGetNextHive @ 0x1405D00F0 (CmpGetNextHive.c)
- *     CmpDetachFromRegistryProcess @ 0x1405D1AE8 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D8ADC (CmpReferenceKeyControlBlockUnsafe.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpGetLastHive @ 0x1406C22F4 (CmpGetLastHive.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExBlockOnAddressPushLock @ 0x140111A80 (ExBlockOnAddressPushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x14026C518 (CmpCheckHivePrimaryFileReadWriteAccess.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpDeleteHive @ 0x1405B0DEC (CmpDeleteHive.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1405B2514 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x1405B2640 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1405B2690 (LOCK_HIVE_LOAD.c)
+ *     CmpOpenHiveFile @ 0x1405B5330 (CmpOpenHiveFile.c)
+ *     CmpCmdHiveOpen @ 0x1405B594C (CmpCmdHiveOpen.c)
+ *     CmpIsThisSameFile @ 0x1405D04CC (CmpIsThisSameFile.c)
+ *     CmpGetNextHive @ 0x1405D10F0 (CmpGetNextHive.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405D2AE8 (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpConstructNameWithStatus @ 0x1405D83A0 (CmpConstructNameWithStatus.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D9ADC (CmpReferenceKeyControlBlockUnsafe.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpGetLastHive @ 0x1406C3594 (CmpGetLastHive.c)
  */
 
 __int64 __fastcall CmLoadAppKey(
@@ -249,12 +249,12 @@ __int64 __fastcall CmLoadAppKey(
   if ( (__int64 *)CmpAppHiveLoadList == &CmpAppHiveLoadList )
   {
 LABEL_28:
-    if ( *(__int64 **)qword_1404380D8 == &CmpAppHiveLoadList )
+    if ( *(__int64 **)qword_140439198 == &CmpAppHiveLoadList )
     {
       v78 = &CmpAppHiveLoadList;
-      v79 = (__int64 **)qword_1404380D8;
-      *(_QWORD *)qword_1404380D8 = &v78;
-      qword_1404380D8 = (__int64)&v78;
+      v79 = (__int64 **)qword_140439198;
+      *(_QWORD *)qword_140439198 = &v78;
+      qword_140439198 = (__int64)&v78;
       ExReleasePushLockEx((ULONG_PTR)&CmpAppHiveLoadListLock, 0LL);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
       goto LABEL_30;
@@ -459,8 +459,8 @@ LABEL_77:
     || (unsigned __int64 *)v81->Count != &v80
     || (v81->Count = v80,
         *(_QWORD *)(v51 + 8) = v52,
-        v54 = (_QWORD *)qword_1404380D8,
-        *(__int64 **)qword_1404380D8 != &CmpAppHiveLoadList) )
+        v54 = (_QWORD *)qword_140439198,
+        *(__int64 **)qword_140439198 != &CmpAppHiveLoadList) )
   {
 LABEL_87:
     __fastfail(3u);
@@ -468,7 +468,7 @@ LABEL_87:
   *v53 = &CmpAppHiveLoadList;
   v53[1] = v54;
   *v54 = v53;
-  qword_1404380D8 = (__int64)v53;
+  qword_140439198 = (__int64)v53;
 LABEL_84:
   ExReleasePushLockEx((ULONG_PTR)&CmpAppHiveLoadListLock, 0LL);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
@@ -486,7 +486,7 @@ LABEL_90:
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   if ( KeyCommon >= 0 )
   {
-    if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+    if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
     {
       v63 = HIBYTE(v62);
       v117 = &v96;
@@ -497,12 +497,12 @@ LABEL_90:
       v118 = 8LL;
       v120 = 4LL;
       v122 = 1LL;
-      TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BD5E, v59, v60, 5u, &v116);
+      TlgWriteAgg((__int64)&stru_140400AA0, (unsigned __int8 *)dword_14036CCEE, v59, v60, 5u, &v116);
     }
   }
   else if ( LOWORD(v98[1]) || WORD1(v98[1]) )
   {
-    if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+    if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
     {
       v76 = KeyCommon;
       v100 = &v76;
@@ -523,12 +523,12 @@ LABEL_90:
       v112 = 2LL;
       v114 = 12 * v57;
       v115 = 0;
-      TlgWrite(&stru_1403FFAA0, &unk_14036BDB8, 0LL, 0LL, 9u, &pData);
+      TlgWrite(&stru_140400AA0, &unk_14036CD48, 0LL, 0LL, 9u, &pData);
     }
   }
-  else if ( stru_1403FFAA0.LevelPlus1 > 5 )
+  else if ( stru_140400AA0.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
     {
       v95 = 1LL;
       v124 = &v95;
@@ -536,7 +536,7 @@ LABEL_90:
       v75 = KeyCommon;
       v125 = 8LL;
       v127 = 4LL;
-      TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BE92, v55, v56, 4u, &v123);
+      TlgWriteAgg((__int64)&stru_140400AA0, (unsigned __int8 *)dword_14036CE22, v55, v56, 4u, &v123);
     }
   }
   return (unsigned int)KeyCommon;

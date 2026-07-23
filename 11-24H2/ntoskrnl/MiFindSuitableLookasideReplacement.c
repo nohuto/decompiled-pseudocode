@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFindSuitableLookasideReplacement @ 0x14026D5D0
+ * XREFs of MiFindSuitableLookasideReplacement @ 0x140222B60
  * Callers:
- *     MiLockStandbyLookasidePage @ 0x14026C300 (MiLockStandbyLookasidePage.c)
- *     MiReplaceStandbyLookaside @ 0x14026CCE0 (MiReplaceStandbyLookaside.c)
+ *     MiLockStandbyLookasidePage @ 0x140221890 (MiLockStandbyLookasidePage.c)
+ *     MiReplaceStandbyLookaside @ 0x140222270 (MiReplaceStandbyLookaside.c)
  * Callees:
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiSearchChannelTable @ 0x14026F0D4 (MiSearchChannelTable.c)
- *     MiGetStandbyPageType @ 0x1403F48C0 (MiGetStandbyPageType.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiSearchChannelTable @ 0x140224664 (MiSearchChannelTable.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiGetStandbyPageType @ 0x1403E78B0 (MiGetStandbyPageType.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiFindSuitableLookasideReplacement(int a1, _QWORD *a2, int a3, __int64 a4, int a5)
@@ -65,7 +65,7 @@ LABEL_6:
     v12 = 0;
     goto LABEL_7;
   }
-  if ( v11 < qword_140E35B00 || v11 >= qword_140E35B00 + 2048 )
+  if ( v11 < qword_140E35C40 || v11 >= qword_140E35C40 + 2048 )
   {
     v13 = 16 * ((a4 + 0x220000000000LL) >> 4) - 0x220000000000LL;
     if ( (*(_DWORD *)(v13 + 32) & 0x8000000) != 0 && (unsigned int)MiGetPfnSlabType(v13) == 9 )
@@ -134,7 +134,7 @@ LABEL_67:
         goto LABEL_30;
       }
       v17 = 48 * v16 - 0x220000000000LL;
-      if ( v16 >= qword_140E35B00 && v16 < qword_140E35B00 + 2048 )
+      if ( v16 >= qword_140E35C40 && v16 < qword_140E35C40 + 2048 )
       {
         if ( !a5 || v14 > 1 )
         {
@@ -148,12 +148,12 @@ LABEL_67:
         if ( StandbyPageType == 2 )
           goto LABEL_75;
         v43 = *(_QWORD *)(48 * v16 - 0x21FFFFFFFFF0LL);
-        if ( qword_140E2DB80 && (v43 & 0x10) == 0 )
-          v43 &= ~qword_140E2DB80;
+        if ( qword_140E2DCC0 && (v43 & 0x10) == 0 )
+          v43 &= ~qword_140E2DCC0;
         v16 = (v43 >> 12) & 0xFFFFFFFFFFLL;
         ++v14;
       }
-      if ( v16 < qword_140E35B00 || v16 >= qword_140E35B00 + 2048 )
+      if ( v16 < qword_140E35C40 || v16 >= qword_140E35C40 + 2048 )
       {
         v37 = 48 * v16 - 0x220000000000LL;
         if ( (*(_DWORD *)(v37 + 32) & 0x8000000) != 0 && (unsigned int)MiGetPfnSlabType(v37) == 9 )
@@ -178,13 +178,13 @@ LABEL_67:
       v7 = 48 * v16 - 0x220000000000LL;
       v46 = v7;
     }
-    if ( !v9 && v16 >= qword_140E35B00 && v16 < qword_140E35B00 + 2048 )
+    if ( !v9 && v16 >= qword_140E35C40 && v16 < qword_140E35C40 + 2048 )
     {
 LABEL_75:
       StandbyPageType = MiGetStandbyPageType(v16, v17);
       goto LABEL_30;
     }
-    if ( v16 < qword_140E35B00 || v16 >= qword_140E35B00 + 2048 )
+    if ( v16 < qword_140E35C40 || v16 >= qword_140E35C40 + 2048 )
     {
       v18 = *(_QWORD *)(48 * v16 - 0x21FFFFFFFFF0LL);
       if ( (v18 & 0x400) != 0 )
@@ -197,7 +197,7 @@ LABEL_75:
 LABEL_39:
         v22 = a2[a3];
         a2[a3] = v16;
-        if ( v22 == -1LL || v22 >= qword_140E35B00 && v22 < qword_140E35B00 + 2048 )
+        if ( v22 == -1LL || v22 >= qword_140E35C40 && v22 < qword_140E35C40 + 2048 )
         {
           v23 = 0xFFFFDE0000000010uLL;
         }
@@ -211,14 +211,14 @@ LABEL_39:
             v26 = -134217729LL;
           v27 = v25 & v26;
           v28 = v24 - 0x220000000000LL;
-          if ( v22 >= qword_140E35B00 && v22 < qword_140E35B00 + 2048 )
+          if ( v22 >= qword_140E35C40 && v22 < qword_140E35C40 + 2048 )
             v29 = 0xAAAAAAAAAAAAAAABuLL;
           else
             v29 = 0xAAAAAAAAAAAAAAABuLL;
-          v30 = dword_140E2DAC4;
-          if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-            || (v31 = (ULONG_PTR *)((char *)qword_140E2DB20 + 16 * dword_140E2DAC0), v22 < *v31)
-            || dword_140E2DAC0 != dword_140E2DAC4 && v22 >= v31[2] )
+          v30 = dword_140E2DC04;
+          if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+            || (v31 = (ULONG_PTR *)((char *)qword_140E2DC60 + 16 * dword_140E2DC00), v22 < *v31)
+            || dword_140E2DC00 != dword_140E2DC04 && v22 >= v31[2] )
           {
             for ( i = 0; ; i = v33 + 1 )
             {
@@ -227,26 +227,26 @@ LABEL_39:
                 if ( v30 < i )
                   KeBugCheckEx(0x1Au, 0x5180uLL, v22, 0LL, 0LL);
                 v33 = (i + v30) >> 1;
-                v34 = (ULONG_PTR *)((char *)qword_140E2DB20 + 16 * v33);
+                v34 = (ULONG_PTR *)((char *)qword_140E2DC60 + 16 * v33);
                 if ( v22 >= *v34 )
                   break;
                 if ( !v33 )
-                  KeBugCheckEx(0x1Au, 0x5180uLL, v22, (ULONG_PTR)qword_140E2DB20, 0LL);
+                  KeBugCheckEx(0x1Au, 0x5180uLL, v22, (ULONG_PTR)qword_140E2DC60, 0LL);
                 v30 = v33 - 1;
               }
-              if ( v33 == dword_140E2DAC4 || v22 < v34[2] )
+              if ( v33 == dword_140E2DC04 || v22 < v34[2] )
                 break;
             }
-            dword_140E2DAC0 = (i + v30) >> 1;
+            dword_140E2DC00 = (i + v30) >> 1;
           }
           v35 = *(_DWORD *)(v28 + 32);
-          if ( (v35 & 0x8000000) != 0 && v28 >= 0xFFFFDE0000000000uLL && v28 < 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL )
+          if ( (v35 & 0x8000000) != 0 && v28 >= 0xFFFFDE0000000000uLL && v28 < 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL )
           {
             v42 = 0xAAAAAAAAAAAAAAABuLL * (v24 >> 4);
-            if ( (v42 < qword_140E35B00 || v42 >= qword_140E35B00 + 2048) && (BYTE2(v35) & 7) != 6 )
+            if ( (v42 < qword_140E35C40 || v42 >= qword_140E35C40 + 2048) && (BYTE2(v35) & 7) != 6 )
               MiGetPfnSlabType(v24 - 0x220000000000LL);
           }
-          if ( qword_140E2DB28 )
+          if ( qword_140E2DC68 )
           {
             MiSearchChannelTable(v29 * (v24 >> 4));
             v23 = 0xFFFFDE0000000010uLL;
@@ -255,7 +255,7 @@ LABEL_39:
           *(_QWORD *)(v24 + v23) = v27;
         }
         v10 = v16;
-        if ( v16 != -1LL && (v16 < qword_140E35B00 || v16 >= qword_140E35B00 + 2048) )
+        if ( v16 != -1LL && (v16 < qword_140E35C40 || v16 >= qword_140E35C40 + 2048) )
         {
           v40 = *(_QWORD *)(v23 + 48 * v16);
           v41 = 8LL;

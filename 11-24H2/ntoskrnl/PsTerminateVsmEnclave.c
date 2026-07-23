@@ -1,31 +1,31 @@
 /*
- * XREFs of PsTerminateVsmEnclave @ 0x14077B634
+ * XREFs of PsTerminateVsmEnclave @ 0x14077B4E4
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
- *     MiTerminateEnclave @ 0x1407F78B4 (MiTerminateEnclave.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
+ *     MiTerminateEnclave @ 0x1407F8028 (MiTerminateEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 NTSTATUS __fastcall PsTerminateVsmEnclave(__int64 a1, int a2)
 {
   signed __int64 *v2; // r14
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v6; // rbp
+  char *v6; // rbp
   int v7; // eax
-  _QWORD *v8; // rax
-  _QWORD *v9; // r15
+  char *v8; // rax
+  char *v9; // r15
   _QWORD *v10; // r15
   _QWORD *v11; // rcx
   __int64 v12; // rdx
@@ -39,11 +39,11 @@ NTSTATUS __fastcall PsTerminateVsmEnclave(__int64 a1, int a2)
   v15 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = KeAbPreAcquire(a1 + 48, 0LL);
+  v6 = (char *)KeAbPreAcquire(a1 + 48, 0LL);
   if ( _InterlockedCompareExchange64(v2, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v2, 0, v6, (__int64)v2);
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   v7 = *(_DWORD *)(a1 + 44);
   if ( v7 )
   {
@@ -51,12 +51,12 @@ NTSTATUS __fastcall PsTerminateVsmEnclave(__int64 a1, int a2)
     {
       *(_DWORD *)(a1 + 40) = 0;
       *(_DWORD *)(a1 + 44) = 2;
-      v8 = KeAbPreAcquire(a1 + 112, 0LL);
+      v8 = (char *)KeAbPreAcquire(a1 + 112, 0LL);
       v9 = v8;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 112), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 112), (__int64)v8, a1 + 112);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 112), v8, a1 + 112);
       if ( v9 )
-        *((_BYTE *)v9 + 10) = 1;
+        v9[10] = 1;
       *(_DWORD *)(a1 + 72) = 0;
       v10 = (_QWORD *)(a1 + 56);
       while ( 1 )
@@ -80,7 +80,7 @@ NTSTATUS __fastcall PsTerminateVsmEnclave(__int64 a1, int a2)
       {
         memset_0(v16, 0, 0x68uLL);
         v17 = *(_QWORD *)(a1 + 24);
-        VslpEnterIumSecureMode(2u, 51LL, 0, (__int64)v16);
+        VslpEnterIumSecureMode(2u, 0x33u, 0, (__int64)v16);
       }
     }
   }

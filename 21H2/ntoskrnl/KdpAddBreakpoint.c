@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpAddBreakpoint @ 0x1409BA0B0
+ * XREFs of KdpAddBreakpoint @ 0x1409BB0B0
  * Callers:
- *     KdpWriteCustomBreakpoint @ 0x140511624 (KdpWriteCustomBreakpoint.c)
- *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
- *     KdpWriteBreakPointEx @ 0x1409B9090 (KdpWriteBreakPointEx.c)
+ *     KdpWriteCustomBreakpoint @ 0x140511864 (KdpWriteCustomBreakpoint.c)
+ *     KdpSendWaitContinue @ 0x1409B94F4 (KdpSendWaitContinue.c)
+ *     KdpWriteBreakPointEx @ 0x1409BA090 (KdpWriteBreakPointEx.c)
  * Callees:
- *     KdpCopyCodeStream @ 0x1409B9A9C (KdpCopyCodeStream.c)
- *     KdpInsertBreakpoint @ 0x1409BA334 (KdpInsertBreakpoint.c)
+ *     KdpCopyCodeStream @ 0x1409BAA9C (KdpCopyCodeStream.c)
+ *     KdpInsertBreakpoint @ 0x1409BB334 (KdpInsertBreakpoint.c)
  */
 
 __int64 __fastcall KdpAddBreakpoint(unsigned __int64 a1, __int64 a2, unsigned __int8 a3, unsigned __int8 a4)

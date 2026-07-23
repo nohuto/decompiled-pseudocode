@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdleInitializeConcurrency @ 0x1407C98E0
+ * XREFs of PpmIdleInitializeConcurrency @ 0x1407CC980
  * Callers:
- *     PpmParkInitParkNode @ 0x14060F9F4 (PpmParkInitParkNode.c)
+ *     PpmParkInitParkNode @ 0x140612C58 (PpmParkInitParkNode.c)
  * Callees:
- *     PpmQueryTime @ 0x14021B058 (PpmQueryTime.c)
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     PpmQueryTime @ 0x14021C9E8 (PpmQueryTime.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall PpmIdleInitializeConcurrency(__int64 a1, unsigned __int16 *a2, __int64 *a3, __int64 a4)

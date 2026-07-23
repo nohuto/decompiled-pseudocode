@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRcuFlushCompletedDpcRoutine @ 0x140503B60
+ * XREFs of KiRcuFlushCompletedDpcRoutine @ 0x1404FD430
  * Callers:
  *     <none>
  * Callees:
- *     KiRcuFlushCompleted @ 0x140503B7C (KiRcuFlushCompleted.c)
+ *     KiRcuFlushCompleted @ 0x1404FD44C (KiRcuFlushCompleted.c)
  */
 
 __int64 KiRcuFlushCompletedDpcRoutine()

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnVadQuotaCharges @ 0x140A79C0C
+ * XREFs of MiReturnVadQuotaCharges @ 0x140A81B4C
  * Callers:
- *     MiFinishVadDeletion @ 0x140442CA8 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x14043B7B8 (MiFinishVadDeletion.c)
  * Callees:
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     MiConfirmQuotaAmount @ 0x1403BCDC0 (MiConfirmQuotaAmount.c)
- *     MiConfirmQuotaProcess @ 0x1403BCE04 (MiConfirmQuotaProcess.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1403BCF90 (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     MiConfirmQuotaAmount @ 0x1403C6C30 (MiConfirmQuotaAmount.c)
+ *     MiConfirmQuotaProcess @ 0x1403C6C74 (MiConfirmQuotaProcess.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C6E00 (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
  */
 
 void __fastcall MiReturnVadQuotaCharges(__int64 a1, ULONG_PTR a2, int a3)

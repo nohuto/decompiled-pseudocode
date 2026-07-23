@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVsContextCompact @ 0x18005034C
+ * XREFs of RtlpHpVsContextCompact @ 0x180065F2C
  * Callers:
- *     RtlpHpHeapCompact @ 0x180050D34 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x180066914 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpVsSlotCompact @ 0x18011B65C (RtlpHpVsSlotCompact.c)
- *     RtlpHpVsContextGetSlotInfo @ 0x18011C5C0 (RtlpHpVsContextGetSlotInfo.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpHpVsSlotCompact @ 0x18011988C (RtlpHpVsSlotCompact.c)
+ *     RtlpHpVsContextGetSlotInfo @ 0x18011A7F0 (RtlpHpVsContextGetSlotInfo.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpVsContextCompact(__int64 a1)

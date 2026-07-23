@@ -1,10 +1,10 @@
 /*
- * XREFs of WarbirdCrypto::CCipherFeistel64::CallRoundFunction @ 0x1402FABC0
+ * XREFs of WarbirdCrypto::CCipherFeistel64::CallRoundFunction @ 0x1402FAE50
  * Callers:
- *     sub_1402FA4A0 @ 0x1402FA4A0 (sub_1402FA4A0.c)
- *     sub_1402FA820 @ 0x1402FA820 (sub_1402FA820.c)
+ *     sub_1402FA730 @ 0x1402FA730 (sub_1402FA730.c)
+ *     sub_1402FAAB0 @ 0x1402FAAB0 (sub_1402FAAB0.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WarbirdCrypto::CCipherFeistel64::CallRoundFunction(

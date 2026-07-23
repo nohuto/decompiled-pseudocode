@@ -1,15 +1,15 @@
 /*
- * XREFs of DifObReferenceObjectByHandleWrapper @ 0x140636030
+ * XREFs of DifObReferenceObjectByHandleWrapper @ 0x1406345F0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall DifObReferenceObjectByHandleWrapper(
@@ -22,78 +22,74 @@ __int64 __fastcall DifObReferenceObjectByHandleWrapper(
 {
   __int64 *APIThunkContextById; // rax
   __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 *v13; // r14
-  int v14; // ecx
-  BOOLEAN v15; // si
+  __int64 *v11; // r14
+  int v12; // ecx
+  BOOLEAN v13; // si
   __int64 *i; // rbx
-  NTSTATUS v17; // eax
-  __int64 v18; // r8
-  __int64 v19; // r9
-  PVOID *v20; // rdx
-  BOOLEAN v21; // di
+  NTSTATUS v15; // eax
+  PVOID *v16; // rdx
+  BOOLEAN v17; // di
   __int64 *j; // rbx
   PVOID Object; // [rsp+30h] [rbp-50h] BYREF
-  _QWORD v25[3]; // [rsp+40h] [rbp-40h] BYREF
-  KPROCESSOR_MODE v26; // [rsp+58h] [rbp-28h]
-  struct _OBJECT_TYPE *v27; // [rsp+60h] [rbp-20h]
-  ACCESS_MASK v28; // [rsp+68h] [rbp-18h]
-  void *v29; // [rsp+70h] [rbp-10h]
-  unsigned int v30; // [rsp+78h] [rbp-8h]
+  _QWORD v21[3]; // [rsp+40h] [rbp-40h] BYREF
+  KPROCESSOR_MODE v22; // [rsp+58h] [rbp-28h]
+  struct _OBJECT_TYPE *v23; // [rsp+60h] [rbp-20h]
+  ACCESS_MASK v24; // [rsp+68h] [rbp-18h]
+  void *v25; // [rsp+70h] [rbp-10h]
+  unsigned int v26; // [rsp+78h] [rbp-8h]
   _UNKNOWN *retaddr; // [rsp+A8h] [rbp+28h]
 
-  memset_0(v25, 0, 0x40uLL);
+  memset_0(v21, 0, 0x40uLL);
   APIThunkContextById = DifGetAPIThunkContextById(202);
-  v13 = APIThunkContextById;
+  v11 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v14 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v14 & 0x18) != 0 )
+    v12 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v12 & 0x18) != 0 )
     {
-      v25[0] = retaddr;
+      v21[0] = retaddr;
     }
-    else if ( (v14 & 4) != 0 )
+    else if ( (v12 & 4) != 0 )
     {
-      v25[0] = DifGetReturnAddressForWrappers();
+      v21[0] = DifGetReturnAddressForWrappers();
     }
-    v15 = 0;
-    v29 = a1;
-    v25[2] = a5;
-    v25[1] = HandleInformation;
-    v28 = a2;
-    v27 = a3;
-    v26 = a4;
+    v13 = 0;
+    v25 = a1;
+    v21[2] = a5;
+    v21[1] = HandleInformation;
+    v24 = a2;
+    v23 = a3;
+    v22 = a4;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v15 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v13 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v13[4]; i != v13 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v11[4]; i != v11 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(v25, v10, v11, v12);
+          guard_dispatch_icall_no_overrides(v21, v10);
       }
-      if ( v15 )
+      if ( v13 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
   Object = 0LL;
-  v17 = ObReferenceObjectByHandle(a1, a2, a3, a4, &Object, HandleInformation);
-  v20 = a5;
-  v30 = v17;
+  v15 = ObReferenceObjectByHandle(a1, a2, a3, a4, &Object, HandleInformation);
+  v16 = a5;
+  v26 = v15;
   *a5 = Object;
-  if ( v13 )
+  if ( v11 )
   {
-    if ( (v21 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v21 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v17 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( j = (__int64 *)v13[6]; j != v13 + 6; j = (__int64 *)*j )
+      for ( j = (__int64 *)v11[6]; j != v11 + 6; j = (__int64 *)*j )
       {
         if ( j != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(v25, v20, v18, v19);
+          guard_dispatch_icall_no_overrides(v21, v16);
       }
-      if ( v21 )
+      if ( v17 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return v30;
+  return v26;
 }

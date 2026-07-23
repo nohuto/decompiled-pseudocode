@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgLoadImageSymbols @ 0x1400F4C60
+ * XREFs of DbgLoadImageSymbols @ 0x1400F4CE0
  * Callers:
- *     DbgLoadImageSymbolsUnicode @ 0x1400F4C0C (DbgLoadImageSymbolsUnicode.c)
- *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x1400F4C8C (DbgLoadImageSymbolsUnicode.c)
+ *     KdInitSystem @ 0x140916140 (KdInitSystem.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     DebugService2 @ 0x1401C53A0 (DebugService2.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     DebugService2 @ 0x1401C5500 (DebugService2.c)
  */
 
 void __stdcall DbgLoadImageSymbols(PSTRING Name, PVOID Base, ULONG_PTR ProcessId)

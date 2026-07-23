@@ -7,7 +7,7 @@
  *     CmpFreeTransientPoolWithTag @ 0x140442030 (CmpFreeTransientPoolWithTag.c)
  */
 
-void __fastcall SshpCacheDatabaseFree(struct _RTL_AVL_TABLE *Table, PVOID Buffer)
+void __fastcall SshpCacheDatabaseFree(_RTL_AVL_TABLE *a1, PVOID a2)
 {
-  CmpFreeTransientPoolWithTag(Buffer, *((_DWORD *)Table->TableContext + 6));
+  CmpFreeTransientPoolWithTag(a2, *((_DWORD *)a1->TableContext + 6));
 }

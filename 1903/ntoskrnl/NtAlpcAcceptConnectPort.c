@@ -7,23 +7,35 @@
  *     AlpcpAcceptConnectPort @ 0x140648064 (AlpcpAcceptConnectPort.c)
  */
 
-__int64 __fastcall NtAlpcAcceptConnectPort(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        char a9)
+NTSTATUS __cdecl NtAlpcAcceptConnectPort(
+        PHANDLE PortHandle,
+        HANDLE ConnectionPortHandle,
+        ULONG Flags,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        PALPC_MESSAGE_ATTRIBUTES ConnectionMessageAttributes,
+        BOOLEAN AcceptConnection)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v10; // ebx
+  NTSTATUS v10; // ebx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v10 = AlpcpAcceptConnectPort(a1, a3 & 0xC0000000, a2, a4, a5, a6, a7, a8, a9, 0LL, 0LL, 0);
+  v10 = AlpcpAcceptConnectPort(
+          (_DWORD)PortHandle,
+          Flags & 0xC0000000,
+          (_DWORD)ConnectionPortHandle,
+          (_DWORD)ObjectAttributes,
+          (__int64)PortAttributes,
+          (__int64)PortContext,
+          (__int64)ConnectionRequest,
+          (__int64)ConnectionMessageAttributes,
+          AcceptConnection,
+          0LL,
+          0LL,
+          0);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v10;
 }

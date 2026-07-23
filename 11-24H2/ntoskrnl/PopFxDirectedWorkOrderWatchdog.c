@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxDirectedWorkOrderWatchdog @ 0x1405D1080
+ * XREFs of PopFxDirectedWorkOrderWatchdog @ 0x1405CE7A0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PopInternalSaveStackToDumpFile @ 0x1405CCF5C (PopInternalSaveStackToDumpFile.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PopInternalSaveStackToDumpFile @ 0x1405CA6CC (PopInternalSaveStackToDumpFile.c)
  */
 
 void __fastcall __noreturn PopFxDirectedWorkOrderWatchdog(__int64 a1, __int64 a2)

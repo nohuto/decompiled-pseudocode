@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitializeNameCache @ 0x14083D5EC
+ * XREFs of CmpInitializeNameCache @ 0x14083D8EC
  * Callers:
  *     CmInitSystem1 @ 0x140B3626C (CmInitSystem1.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

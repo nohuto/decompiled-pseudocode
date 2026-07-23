@@ -12,25 +12,24 @@
  *     _RtlpIsAppContainer@8 @ 0x4B3490A6 (_RtlpIsAppContainer@8.c)
  */
 
-int __fastcall RtlpCapabilityCheckSystemCapability(void *a1, int a2, _BYTE *a3)
+NTSTATUS __fastcall RtlpCapabilityCheckSystemCapability(HANDLE TokenHandle, int a2, _BYTE *a3)
 {
   int PolicyValueForSystemCapability; // eax
-  int IsAppContainer; // esi
-  UNICODE_STRING UnicodeString; // [esp+10h] [ebp-2Ch] BYREF
-  int v8; // [esp+18h] [ebp-24h] BYREF
-  __int16 v9; // [esp+1Ch] [ebp-20h]
-  char v10; // [esp+22h] [ebp-1Ah] BYREF
-  char Src; // [esp+23h] [ebp-19h] BYREF
-  unsigned __int8 Src_1[8]; // [esp+24h] [ebp-18h] BYREF
-  int v13; // [esp+2Ch] [ebp-10h]
-  int v14; // [esp+30h] [ebp-Ch]
+  NTSTATUS IsAppContainer; // esi
+  _UNICODE_STRING UnicodeString; // [esp+10h] [ebp-2Ch] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [esp+18h] [ebp-24h] BYREF
+  char v9; // [esp+22h] [ebp-1Ah]
+  BOOLEAN IsMember; // [esp+23h] [ebp-19h] BYREF
+  _BYTE Sid[8]; // [esp+24h] [ebp-18h] BYREF
+  int v12; // [esp+2Ch] [ebp-10h]
+  int v13; // [esp+30h] [ebp-Ch]
 
-  v9 = 1280;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0;
-  v8 = 0;
-  Src = 0;
-  v10 = 0;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  IsMember = 0;
+  v9 = 0;
   PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(a2, &UnicodeString);
   IsAppContainer = PolicyValueForSystemCapability;
   if ( PolicyValueForSystemCapability == -1073741772 )
@@ -42,31 +41,31 @@ int __fastcall RtlpCapabilityCheckSystemCapability(void *a1, int a2, _BYTE *a3)
     *a3 = 0;
     if ( PolicyValueForSystemCapability >= 0 )
     {
-      if ( RtlCompareUnicodeString(&UnicodeString.Length, (unsigned __int16 *)&dword_4B281C18, 0) )
+      if ( RtlCompareUnicodeString(&UnicodeString, (PUNICODE_STRING)&stru_4B281C18, 0) )
       {
-        if ( RtlCompareUnicodeString(&UnicodeString.Length, (unsigned __int16 *)&dword_4B281C10, 0) )
+        if ( RtlCompareUnicodeString(&UnicodeString, (PUNICODE_STRING)&stru_4B281C10, 0) )
         {
           IsAppContainer = -1073741823;
           goto LABEL_3;
         }
-        RtlInitializeSid((int)Src_1, (int)&v8, 1u);
-        v13 = 4;
+        RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+        v12 = 4;
       }
       else
       {
-        RtlInitializeSid((int)Src_1, (int)&v8, 2u);
-        v13 = 32;
-        v14 = 583;
+        RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
+        v12 = 32;
+        v13 = 583;
       }
-      IsAppContainer = RtlCheckTokenMembershipEx(a1, Src_1, 2, &Src);
+      IsAppContainer = RtlCheckTokenMembershipEx(TokenHandle, Sid, 2u, &IsMember);
       if ( IsAppContainer >= 0 )
       {
-        if ( Src )
+        if ( IsMember )
         {
-          IsAppContainer = RtlpIsAppContainer(a1, &v10);
+          IsAppContainer = RtlpIsAppContainer(TokenHandle);
           if ( IsAppContainer >= 0 )
           {
-            if ( v10 )
+            if ( v9 )
               *a3 = 1;
           }
         }

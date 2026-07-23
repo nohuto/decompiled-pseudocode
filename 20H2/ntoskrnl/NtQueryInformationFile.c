@@ -214,7 +214,7 @@ LABEL_32:
       {
         v19 = KeGetCurrentThread();
         --v19->KernelApcDisable;
-        v20 = KeAbPreAcquire((ULONG_PTR)&v15->Lock, 0LL, 0LL);
+        v20 = KeAbPreAcquire((ULONG_PTR)&v15->Lock, 0LL, 0);
         LOBYTE(DeviceObject[0]) = 0;
         if ( _InterlockedExchange((volatile __int32 *)&v15->Busy, 1) )
         {

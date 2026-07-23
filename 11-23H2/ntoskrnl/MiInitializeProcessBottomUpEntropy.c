@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeProcessBottomUpEntropy @ 0x1406B32B8
+ * XREFs of MiInitializeProcessBottomUpEntropy @ 0x1406B32E8
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiInitializeProcessBottomUpEntropy(__int64 a1)

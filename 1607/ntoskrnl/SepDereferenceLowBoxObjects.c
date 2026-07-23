@@ -1,10 +1,10 @@
 /*
- * XREFs of SepDereferenceLowBoxObjects @ 0x1400B2F38
+ * XREFs of SepDereferenceLowBoxObjects @ 0x1400B0DB8
  * Callers:
- *     SepSetTokenLowboxHandles @ 0x14007F580 (SepSetTokenLowboxHandles.c)
- *     SepDereferenceLowBoxHandlesEntry @ 0x1404A2998 (SepDereferenceLowBoxHandlesEntry.c)
+ *     SepSetTokenLowboxHandles @ 0x14007F600 (SepSetTokenLowboxHandles.c)
+ *     SepDereferenceLowBoxHandlesEntry @ 0x14051AD98 (SepDereferenceLowBoxHandlesEntry.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  */
 
 __int64 __fastcall SepDereferenceLowBoxObjects(unsigned int a1, HANDLE *a2)

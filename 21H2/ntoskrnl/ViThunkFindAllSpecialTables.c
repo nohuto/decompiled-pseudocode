@@ -1,12 +1,12 @@
 /*
- * XREFs of ViThunkFindAllSpecialTables @ 0x1409D908C
+ * XREFs of ViThunkFindAllSpecialTables @ 0x1409DA08C
  * Callers:
- *     VfThunkApplyDriverAddedThunks @ 0x1409D8AA4 (VfThunkApplyDriverAddedThunks.c)
- *     ViThunkReplaceAllThunkedImports @ 0x1409D9354 (ViThunkReplaceAllThunkedImports.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x1409D9AA4 (VfThunkApplyDriverAddedThunks.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x1409DA354 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     ViThunkFindNextSpecialTable @ 0x1409D913C (ViThunkFindNextSpecialTable.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     ViThunkFindNextSpecialTable @ 0x1409DA13C (ViThunkFindNextSpecialTable.c)
  */
 
 _QWORD *__fastcall ViThunkFindAllSpecialTables(__int64 a1, __int64 a2)

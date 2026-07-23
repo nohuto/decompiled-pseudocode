@@ -10,15 +10,15 @@
  *     NtUnmapViewOfSection @ 0x18009F330 (NtUnmapViewOfSection.c)
  */
 
-__int64 __fastcall LdrpUnmapModule(__int64 a1)
+NTSTATUS __fastcall LdrpUnmapModule(__int64 a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( *(_QWORD *)(a1 + 48) )
   {
     if ( (*(_DWORD *)(a1 + 104) & 0x200) != 0 )
       RtlRemoveInvertedFunctionTable();
-    result = NtUnmapViewOfSection(-1LL);
+    result = NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *(PVOID *)(a1 + 48));
     *(_QWORD *)(a1 + 48) = 0LL;
   }
   return result;

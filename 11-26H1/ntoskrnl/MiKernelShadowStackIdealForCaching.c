@@ -1,13 +1,13 @@
 /*
- * XREFs of MiKernelShadowStackIdealForCaching @ 0x140416D20
+ * XREFs of MiKernelShadowStackIdealForCaching @ 0x14040B330
  * Callers:
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     MiAddKernelStackToPrcbCache @ 0x140416988 (MiAddKernelStackToPrcbCache.c)
- *     MiRemoveNonIdealCachedStacks @ 0x1406FF438 (MiRemoveNonIdealCachedStacks.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     MiAddKernelStackToPrcbCache @ 0x14040AF98 (MiAddKernelStackToPrcbCache.c)
+ *     MiRemoveNonIdealCachedStacks @ 0x140704108 (MiRemoveNonIdealCachedStacks.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiKernelShadowStackIdealForCaching(_QWORD *BugCheckParameter2, ULONG_PTR a2, __int64 *a3, int *a4)
@@ -34,7 +34,7 @@ __int64 __fastcall MiKernelShadowStackIdealForCaching(_QWORD *BugCheckParameter2
       v11 = (*v8 >> 12) & 0xFFFFFFFFFFLL;
       v12 = 48 * v11 - 0x220000000000LL;
       if ( !v9 )
-        *a3 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v12 + 40) >> 43) & 0x3FFLL));
+        *a3 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v12 + 40) >> 43) & 0x3FFLL));
       v13 = *(_DWORD *)(v12 + 32);
       if ( (_WORD)v13 != 2 )
         KeBugCheckEx(0x1Au, 0x3405uLL, (ULONG_PTR)v8, (__int64)(48 * v11) / 48, (unsigned __int16)v13);

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalRegisterPermanentAddressUsage @ 0x140597FD0
+ * XREFs of HalRegisterPermanentAddressUsage @ 0x14059A750
  * Callers:
- *     HalpHpetDiscover @ 0x140598928 (HalpHpetDiscover.c)
- *     HalpApicDiscover @ 0x1405A13D4 (HalpApicDiscover.c)
- *     HalpApicRegisterIoUnit @ 0x1405A1C78 (HalpApicRegisterIoUnit.c)
- *     HalpIommuProcessIvhdEntry @ 0x1405A835C (HalpIommuProcessIvhdEntry.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405AEAE8 (HalpIvtProcessDrhdEntry.c)
+ *     HalpHpetDiscover @ 0x14059B0A8 (HalpHpetDiscover.c)
+ *     HalpApicDiscover @ 0x1405A3BE4 (HalpApicDiscover.c)
+ *     HalpApicRegisterIoUnit @ 0x1405A4488 (HalpApicRegisterIoUnit.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1405AAB6C (HalpIommuProcessIvhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1405B12F8 (HalpIvtProcessDrhdEntry.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
  */
 
 NTSTATUS __stdcall HalRegisterPermanentAddressUsage(LARGE_INTEGER PhysicalAddress, ULONG SizeInBytes)

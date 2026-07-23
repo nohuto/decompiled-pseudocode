@@ -1,25 +1,25 @@
 /*
- * XREFs of BapdpProcessVsmKeyBlobs @ 0x140CE2A38
+ * XREFs of BapdpProcessVsmKeyBlobs @ 0x140CE8DD8
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x1404DEE7C (RtlStringCchCatW.c)
- *     Feature_SrtmAntiRollback__private_IsEnabledDeviceUsageNoInline @ 0x140607130 (Feature_SrtmAntiRollback__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_49798962__private_IsEnabledDeviceUsageNoInline @ 0x1406CB17C (Feature_49798962__private_IsEnabledDeviceUsageNoInline.c)
- *     ZwWriteFile @ 0x1407234F0 (ZwWriteFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     RtlIsStateSeparationEnabled @ 0x140AF47C0 (RtlIsStateSeparationEnabled.c)
- *     BapdGetISRegistryKey @ 0x140C080D8 (BapdGetISRegistryKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140CE2FFC (BapdpQueryData.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1404D855C (RtlStringCchCatW.c)
+ *     Feature_SrtmAntiRollback__private_IsEnabledDeviceUsageNoInline @ 0x140609C8C (Feature_SrtmAntiRollback__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_49798962__private_IsEnabledDeviceUsageNoInline @ 0x1406CF1AC (Feature_49798962__private_IsEnabledDeviceUsageNoInline.c)
+ *     ZwWriteFile @ 0x1407280C0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     RtlIsStateSeparationEnabled @ 0x140AF6E60 (RtlIsStateSeparationEnabled.c)
+ *     BapdGetISRegistryKey @ 0x140C0E2E8 (BapdGetISRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140CE939C (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessVsmKeyBlobs(int a1)
@@ -36,7 +36,7 @@ void __fastcall BapdpProcessVsmKeyBlobs(int a1)
   __int64 *v10; // r13
   int v11; // eax
   NTSTATUS v12; // eax
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   const wchar_t *v14; // r8
   char v15; // r11
   HANDLE FileHandle; // [rsp+60h] [rbp-49h] BYREF

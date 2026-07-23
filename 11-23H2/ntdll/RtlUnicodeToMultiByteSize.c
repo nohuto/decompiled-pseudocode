@@ -21,10 +21,10 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
 
   v3 = UnicodeString;
   _InterlockedOr(v8, 0);
-  if ( GlobalRtlNlsState == -535 || word_1801847A0 == -535 )
+  if ( GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9 )
   {
     if ( BytesInUnicodeString )
-      RtlUnicodeToUTF8N(0, 0, (_DWORD)BytesInMultiByteString, (_DWORD)UnicodeString, BytesInUnicodeString);
+      RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, UnicodeString, BytesInUnicodeString);
     else
       *BytesInMultiByteString = 0;
   }
@@ -32,12 +32,12 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   {
     _InterlockedOr(v8, 0);
     v4 = 0;
-    if ( word_18018476C )
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
       for ( i = BytesInUnicodeString >> 1; i; --i )
       {
         v7 = *v3++;
-        v4 += (HIBYTE(*(_WORD *)(qword_180184788 + 2 * v7)) != 0) + 1;
+        v4 += (HIBYTE(*((_WORD *)GlobalRtlNlsState.WideCharTable + v7)) != 0) + 1;
       }
     }
     else

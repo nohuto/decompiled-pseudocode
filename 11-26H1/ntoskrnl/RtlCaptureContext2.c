@@ -1,101 +1,102 @@
 /*
- * XREFs of RtlCaptureContext2 @ 0x140534B20
+ * XREFs of RtlCaptureContext2 @ 0x140536FA0
  * Callers:
- *     RtlUnwindEx @ 0x1402E8510 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x1402CA550 (RtlUnwindEx.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCaptureContext2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl RtlCaptureContext2(PCONTEXT ContextRecord)
 {
-  __int64 v4; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rbp
-  __int64 v7; // rdi
-  __int64 v8; // rsi
-  __int64 v9; // r10
-  __int64 v10; // r11
-  __int64 v11; // r12
-  __int64 v12; // r13
-  __int64 v13; // r14
-  __int64 v14; // r15
-  __int128 v15; // xmm0
-  __int128 v16; // xmm1
-  __int128 v17; // xmm2
-  __int128 v18; // xmm3
-  __int128 v19; // xmm4
-  __int128 v20; // xmm5
-  __int128 v21; // xmm6
-  __int128 v22; // xmm7
-  __int128 v23; // xmm8
-  __int128 v24; // xmm9
-  __int128 v25; // xmm10
-  __int128 v26; // xmm11
-  __int128 v27; // xmm12
-  __int128 v28; // xmm13
-  __int128 v29; // xmm14
-  __int128 v30; // xmm15
-  __int64 result; // rax
+  unsigned __int64 v1; // rax
+  unsigned __int64 v2; // rdx
+  unsigned __int64 v3; // rbx
+  unsigned __int64 v4; // rbp
+  unsigned __int64 v5; // rdi
+  unsigned __int64 v6; // rsi
+  unsigned __int64 v7; // r8
+  unsigned __int64 v8; // r9
+  unsigned __int64 v9; // r10
+  unsigned __int64 v10; // r11
+  unsigned __int64 v11; // r12
+  unsigned __int64 v12; // r13
+  unsigned __int64 v13; // r14
+  unsigned __int64 v14; // r15
+  _M128A v15; // xmm0
+  _M128A v16; // xmm1
+  _M128A v17; // xmm2
+  _M128A v18; // xmm3
+  _M128A v19; // xmm4
+  _M128A v20; // xmm5
+  _M128A v21; // xmm6
+  _M128A v22; // xmm7
+  _M128A v23; // xmm8
+  _M128A v24; // xmm9
+  _M128A v25; // xmm10
+  _M128A v26; // xmm11
+  _M128A v27; // xmm12
+  _M128A v28; // xmm13
+  _M128A v29; // xmm14
+  _M128A v30; // xmm15
+  _QWORD *v32; // rax
   unsigned int v33; // [rsp+28h] [rbp-10h]
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
+  unsigned __int64 retaddr; // [rsp+38h] [rbp+0h]
   char v35; // [rsp+40h] [rbp+8h] BYREF
 
-  *(_QWORD *)(a1 + 120) = v4;
-  *(_QWORD *)(a1 + 128) = a1;
-  *(_QWORD *)(a1 + 136) = a2;
-  *(_QWORD *)(a1 + 184) = a3;
-  *(_QWORD *)(a1 + 192) = a4;
-  *(_QWORD *)(a1 + 200) = v9;
-  *(_QWORD *)(a1 + 208) = v10;
-  *(_OWORD *)(a1 + 416) = v15;
-  *(_OWORD *)(a1 + 432) = v16;
-  *(_OWORD *)(a1 + 448) = v17;
-  *(_OWORD *)(a1 + 464) = v18;
-  *(_OWORD *)(a1 + 480) = v19;
-  *(_OWORD *)(a1 + 496) = v20;
-  *(_WORD *)(a1 + 56) = __CS__;
-  *(_WORD *)(a1 + 58) = __DS__;
-  *(_WORD *)(a1 + 60) = __ES__;
-  *(_WORD *)(a1 + 66) = __SS__;
-  *(_WORD *)(a1 + 62) = __FS__;
-  *(_WORD *)(a1 + 64) = __GS__;
-  *(_QWORD *)(a1 + 144) = v5;
-  *(_QWORD *)(a1 + 160) = v6;
-  *(_QWORD *)(a1 + 168) = v8;
-  *(_QWORD *)(a1 + 176) = v7;
-  *(_QWORD *)(a1 + 216) = v11;
-  *(_QWORD *)(a1 + 224) = v12;
-  *(_QWORD *)(a1 + 232) = v13;
-  *(_QWORD *)(a1 + 240) = v14;
-  *(_DWORD *)(a1 + 258) = 0;
-  *(_OWORD *)(a1 + 512) = v21;
-  *(_OWORD *)(a1 + 528) = v22;
-  *(_OWORD *)(a1 + 544) = v23;
-  *(_OWORD *)(a1 + 560) = v24;
-  *(_OWORD *)(a1 + 576) = v25;
-  *(_OWORD *)(a1 + 592) = v26;
-  *(_OWORD *)(a1 + 608) = v27;
-  *(_OWORD *)(a1 + 624) = v28;
-  *(_OWORD *)(a1 + 640) = v29;
-  *(_OWORD *)(a1 + 656) = v30;
-  *(_DWORD *)(a1 + 280) = _mm_getcsr();
-  *(_DWORD *)(a1 + 52) = _mm_getcsr();
-  *(_QWORD *)(a1 + 152) = &v35;
-  *(_QWORD *)(a1 + 248) = retaddr;
-  result = v33;
-  *(_DWORD *)(a1 + 68) = v33;
-  *(_DWORD *)(a1 + 48) &= 0x100080u;
-  if ( *(_DWORD *)(a1 + 48) == 1048704 )
+  ContextRecord->Rax = v1;
+  ContextRecord->Rcx = (unsigned __int64)ContextRecord;
+  ContextRecord->Rdx = v2;
+  ContextRecord->R8 = v7;
+  ContextRecord->R9 = v8;
+  ContextRecord->R10 = v9;
+  ContextRecord->R11 = v10;
+  ContextRecord->FltSave.XmmRegisters[0] = v15;
+  ContextRecord->FltSave.XmmRegisters[1] = v16;
+  ContextRecord->FltSave.XmmRegisters[2] = v17;
+  ContextRecord->FltSave.XmmRegisters[3] = v18;
+  ContextRecord->FltSave.XmmRegisters[4] = v19;
+  ContextRecord->FltSave.XmmRegisters[5] = v20;
+  ContextRecord->SegCs = __CS__;
+  ContextRecord->SegDs = __DS__;
+  ContextRecord->SegEs = __ES__;
+  ContextRecord->SegSs = __SS__;
+  ContextRecord->SegFs = __FS__;
+  ContextRecord->SegGs = __GS__;
+  ContextRecord->Rbx = v3;
+  ContextRecord->Rbp = v4;
+  ContextRecord->Rsi = v6;
+  ContextRecord->Rdi = v5;
+  ContextRecord->R12 = v11;
+  ContextRecord->R13 = v12;
+  ContextRecord->R14 = v13;
+  ContextRecord->R15 = v14;
+  *(_DWORD *)((char *)&ContextRecord->Header[0].Low + 2) = 0;
+  ContextRecord->FltSave.XmmRegisters[6] = v21;
+  ContextRecord->FltSave.XmmRegisters[7] = v22;
+  ContextRecord->FltSave.XmmRegisters[8] = v23;
+  ContextRecord->FltSave.XmmRegisters[9] = v24;
+  ContextRecord->FltSave.XmmRegisters[10] = v25;
+  ContextRecord->FltSave.XmmRegisters[11] = v26;
+  ContextRecord->FltSave.XmmRegisters[12] = v27;
+  ContextRecord->FltSave.XmmRegisters[13] = v28;
+  ContextRecord->FltSave.XmmRegisters[14] = v29;
+  ContextRecord->FltSave.XmmRegisters[15] = v30;
+  ContextRecord->FltSave.MxCsr = _mm_getcsr();
+  ContextRecord->MxCsr = _mm_getcsr();
+  ContextRecord->Rsp = (unsigned __int64)&v35;
+  ContextRecord->Rip = retaddr;
+  ContextRecord->EFlags = v33;
+  ContextRecord->ContextFlags &= 0x100080u;
+  if ( ContextRecord->ContextFlags == 1048704 )
   {
     __asm { rdsspq  rdx }
     if ( _RDX )
       _RDX += 8LL;
-    result = a1 + *(int *)(a1 + 1256) + 1232;
-    *(_QWORD *)result = _RDX;
-    *(_QWORD *)(result + 8) = *(_QWORD *)(a1 + 248);
-    *(_QWORD *)(result + 16) = 0LL;
-    *(_WORD *)(result + 16) = *(_WORD *)(a1 + 56);
+    v32 = (unsigned __int64 *)((char *)&ContextRecord[1].P1Home + SLODWORD(ContextRecord[1].P4Home));
+    *v32 = _RDX;
+    v32[1] = ContextRecord->Rip;
+    v32[2] = 0LL;
+    *((_WORD *)v32 + 8) = ContextRecord->SegCs;
   }
-  *(_DWORD *)(a1 + 48) |= 0x10000Fu;
-  return result;
+  ContextRecord->ContextFlags |= 0x10000Fu;
 }

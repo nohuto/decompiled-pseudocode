@@ -1,14 +1,14 @@
 /*
- * XREFs of WMIInitialize @ 0x140C3C798
+ * XREFs of WMIInitialize @ 0x140C3E8F0
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExInitializeResourceLite2 @ 0x140365350 (ExInitializeResourceLite2.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     IoCreateDriver @ 0x140AB1C90 (IoCreateDriver.c)
- *     WmipInitializeRegistration @ 0x140C3C860 (WmipInitializeRegistration.c)
- *     WmipInitializeAllocs @ 0x140C3C8F8 (WmipInitializeAllocs.c)
- *     WmipRegisterFirmwareProviders @ 0x140C3CB5C (WmipRegisterFirmwareProviders.c)
+ *     ExInitializeResourceLite2 @ 0x1403EAA00 (ExInitializeResourceLite2.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     IoCreateDriver @ 0x140AACC00 (IoCreateDriver.c)
+ *     WmipInitializeRegistration @ 0x140C3E9B8 (WmipInitializeRegistration.c)
+ *     WmipInitializeAllocs @ 0x140C3EA50 (WmipInitializeAllocs.c)
+ *     WmipRegisterFirmwareProviders @ 0x140C3ECAC (WmipRegisterFirmwareProviders.c)
  */
 
 char __fastcall WMIInitialize(__int64 a1, __int64 a2)
@@ -28,7 +28,7 @@ char __fastcall WMIInitialize(__int64 a1, __int64 a2)
   }
   WmipInitializeAllocs(a1, a2);
   RtlInitUnicodeString(&DestinationString, L"\\Driver\\WMIxWDM");
-  if ( (int)IoCreateDriver(&DestinationString, (unsigned __int64)WmipDriverEntry) >= 0 )
+  if ( (int)IoCreateDriver(&DestinationString, WmipDriverEntry) >= 0 )
   {
     v4 = *(_QWORD *)(a2 + 240);
     ExInitializeResourceLite2(&WmipSMBiosLock, -1);

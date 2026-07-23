@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreePoolPagesLeft @ 0x1400EF564
+ * XREFs of MiFreePoolPagesLeft @ 0x1400EF5E4
  * Callers:
- *     MmRaisePoolQuota @ 0x140130B90 (MmRaisePoolQuota.c)
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
- *     MiInitializePagedPoolEvents @ 0x1409BD640 (MiInitializePagedPoolEvents.c)
+ *     MmRaisePoolQuota @ 0x140130C60 (MmRaisePoolQuota.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066E19C (ExpQuerySystemPerformanceInformation.c)
+ *     MiInitializePagedPoolEvents @ 0x1409BE640 (MiInitializePagedPoolEvents.c)
  * Callees:
  *     <none>
  */
@@ -15,13 +15,13 @@ __int64 __fastcall MiFreePoolPagesLeft(int a1)
 
   if ( a1 == 5 )
   {
-    v1 = qword_140438A58;
+    v1 = qword_140439B18;
     v2 = MiState[0];
   }
   else
   {
-    v1 = qword_14043AF88;
-    v2 = qword_14043AF98;
+    v1 = qword_14043C048;
+    v2 = qword_14043C058;
   }
   return v2 - v1;
 }

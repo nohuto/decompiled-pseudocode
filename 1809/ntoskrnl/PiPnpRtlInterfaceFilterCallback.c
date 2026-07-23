@@ -1,15 +1,15 @@
 /*
- * XREFs of PiPnpRtlInterfaceFilterCallback @ 0x1405C56A0
+ * XREFs of PiPnpRtlInterfaceFilterCallback @ 0x1405C66A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     _CmIsDeviceInterfaceEnabled @ 0x1405C57EC (_CmIsDeviceInterfaceEnabled.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
+ *     _CmIsDeviceInterfaceEnabled @ 0x1405C67EC (_CmIsDeviceInterfaceEnabled.c)
  */
 
 char __fastcall PiPnpRtlInterfaceFilterCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

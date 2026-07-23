@@ -6,7 +6,7 @@
  *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
  */
 
-__int64 __fastcall HvlInvokeHypervisorDebugger(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 HvlInvokeHypervisorDebugger()
 {
   __int64 result; // rax
 
@@ -14,7 +14,7 @@ __int64 __fastcall HvlInvokeHypervisorDebugger(unsigned int a1, __int64 a2, __in
   if ( (HvlpFlags & 2) == 0 || (result = HvlpRootFlags, (HvlpRootFlags & 1) != 0) )
   {
     if ( HvlHypervisorConnected )
-      return HvcallInitiateHypercall(65546, a1, a2, a4);
+      return HvcallInitiateHypercall(65546);
   }
   return result;
 }

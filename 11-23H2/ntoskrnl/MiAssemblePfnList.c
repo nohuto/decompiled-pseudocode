@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAssemblePfnList @ 0x1406676E8
+ * XREFs of MiAssemblePfnList @ 0x140667C38
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x1402E7A70 (MiAllocateLargeZeroPages.c)
  * Callees:
  *     <none>
  */

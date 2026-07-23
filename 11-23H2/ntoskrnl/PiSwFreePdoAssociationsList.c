@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwFreePdoAssociationsList @ 0x140967400
+ * XREFs of PiSwFreePdoAssociationsList @ 0x140967600
  * Callers:
- *     PiSwDeviceFree @ 0x1409671E0 (PiSwDeviceFree.c)
+ *     PiSwDeviceFree @ 0x1409673E0 (PiSwDeviceFree.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PiSwPdoAssociationFree @ 0x14096760C (PiSwPdoAssociationFree.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PiSwPdoAssociationFree @ 0x14096780C (PiSwPdoAssociationFree.c)
  */
 
 void __fastcall PiSwFreePdoAssociationsList(_QWORD **a1)

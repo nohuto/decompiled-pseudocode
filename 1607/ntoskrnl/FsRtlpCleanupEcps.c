@@ -1,84 +1,84 @@
 /*
- * XREFs of FsRtlpCleanupEcps @ 0x140415010
+ * XREFs of FsRtlpCleanupEcps @ 0x140413ED0
  * Callers:
- *     IopCleanupExtraCreateParameters @ 0x140405BB0 (IopCleanupExtraCreateParameters.c)
- *     NtQueryAttributesFile @ 0x140415160 (NtQueryAttributesFile.c)
+ *     IopCleanupExtraCreateParameters @ 0x140404A70 (IopCleanupExtraCreateParameters.c)
+ *     NtQueryAttributesFile @ 0x140414020 (NtQueryAttributesFile.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1404150D0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x140413F90 (FsRtlFreeExtraCreateParameter.c)
  */
 
-char __fastcall FsRtlpCleanupEcps(struct _SLIST_ENTRY *P, _LOOKASIDE_LIST_EX *a2)
+char __fastcall FsRtlpCleanupEcps(_SLIST_ENTRY *P)
 {
-  __int64 **v3; // rbx
-  __int64 *v4; // rcx
-  __int64 v5; // rax
-  char *v7; // rbx
-  char *v8; // rdi
-  int v9; // eax
-  __int64 *v10; // rcx
-  __int64 v11; // r8
-  _QWORD *v12; // rax
-  _QWORD *v13; // rdx
+  __int64 **v2; // rbx
+  __int64 *v3; // rcx
+  __int64 v4; // rax
+  char *v6; // rbx
+  char *v7; // rdi
+  int v8; // eax
+  __int64 *v9; // rcx
+  __int64 v10; // r8
+  _QWORD *v11; // rax
+  _QWORD *v12; // rdx
 
   if ( (HIDWORD(P->Next) & 1) != 0 )
   {
-    v7 = (char *)*((_QWORD *)&P->Next + 1);
-    v8 = (char *)(&P->Next + 1);
-    if ( v7 != (char *)(&P->Next + 1) )
+    v6 = (char *)*((_QWORD *)&P->Next + 1);
+    v7 = (char *)(&P->Next + 1);
+    if ( v6 != (char *)(&P->Next + 1) )
     {
       do
       {
-        v9 = *((_DWORD *)v7 + 10);
-        v10 = (__int64 *)(v7 - 8);
-        v7 = *(char **)v7;
-        if ( (v9 & 1) == 0 )
+        v8 = *((_DWORD *)v6 + 10);
+        v9 = (__int64 *)(v6 - 8);
+        v6 = *(char **)v6;
+        if ( (v8 & 1) == 0 )
         {
-          v11 = v10[1];
-          v12 = v10 + 1;
-          v13 = (_QWORD *)v10[2];
-          if ( *(__int64 **)(v11 + 8) != v10 + 1 || (_QWORD *)*v13 != v12 )
+          v10 = v9[1];
+          v11 = v9 + 1;
+          v12 = (_QWORD *)v9[2];
+          if ( *(__int64 **)(v10 + 8) != v9 + 1 || (_QWORD *)*v12 != v11 )
             __fastfail(3u);
-          *v13 = v11;
-          *(_QWORD *)(v11 + 8) = v13;
-          v10[2] = 0LL;
-          *v12 = 0LL;
-          FsRtlFreeExtraCreateParameter(v10 + 9);
+          *v12 = v10;
+          *(_QWORD *)(v10 + 8) = v12;
+          v9[2] = 0LL;
+          *v11 = 0LL;
+          FsRtlFreeExtraCreateParameter(v9 + 9);
         }
       }
-      while ( v7 != v8 );
+      while ( v6 != v7 );
     }
     return 0;
   }
   else
   {
-    v3 = (__int64 **)(&P->Next + 1);
-    while ( *v3 != (__int64 *)v3 )
+    v2 = (__int64 **)(&P->Next + 1);
+    while ( *v2 != (__int64 *)v2 )
     {
-      v4 = *v3;
-      v5 = **v3;
-      if ( (__int64 **)(*v3)[1] != v3 || *(__int64 **)(v5 + 8) != v4 )
+      v3 = *v2;
+      v4 = **v2;
+      if ( (__int64 **)(*v2)[1] != v2 || *(__int64 **)(v4 + 8) != v3 )
         __fastfail(3u);
-      *v3 = (__int64 *)v5;
-      *(_QWORD *)(v5 + 8) = v3;
-      v4[1] = 0LL;
-      *v4 = 0LL;
-      FsRtlFreeExtraCreateParameter(v4 + 8);
+      *v2 = (__int64 *)v4;
+      *(_QWORD *)(v4 + 8) = v2;
+      v3[1] = 0LL;
+      *v3 = 0LL;
+      FsRtlFreeExtraCreateParameter(v3 + 8);
     }
     if ( (HIDWORD(P->Next) & 4) == 0 )
     {
       ExFreePoolWithTag(P, 0);
       return 1;
     }
-    ++FsRtlEcpListLookaside.L.TotalFrees;
-    if ( LOWORD(FsRtlEcpListLookaside.L.ListHead.Alignment) < FsRtlEcpListLookaside.L.Depth )
+    ++unk_140329A1C;
+    if ( LOWORD(FsRtlEcpListLookaside.Alignment) < unk_140329A10 )
     {
-      RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside.L.ListHead, P);
+      RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside, P);
       return 1;
     }
-    ++FsRtlEcpListLookaside.L.FreeMisses;
-    FsRtlEcpListLookaside.L.FreeEx(P, a2);
+    ++unk_140329A20;
+    unk_140329A38(P);
     return 1;
   }
 }

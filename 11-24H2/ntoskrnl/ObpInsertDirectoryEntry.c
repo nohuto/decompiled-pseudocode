@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpInsertDirectoryEntry @ 0x140A078AC
+ * XREFs of ObpInsertDirectoryEntry @ 0x140A03DDC
  * Callers:
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char __fastcall ObpInsertDirectoryEntry(char *Object, char *a2, __int64 a3)
@@ -15,7 +15,7 @@ char __fastcall ObpInsertDirectoryEntry(char *Object, char *a2, __int64 a3)
   __int64 v7; // rbx
   char *v8; // rcx
 
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x18uLL, 0x6944624Fu);
   v7 = Pool2;
   if ( Pool2 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of SepRmFetchGlobalSacl @ 0x14084D8EC
+ * XREFs of SepRmFetchGlobalSacl @ 0x14084DBEC
  * Callers:
- *     SepRmGlobalSaclSetWrkr @ 0x14084D850 (SepRmGlobalSaclSetWrkr.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x14084DB50 (SepRmGlobalSaclSetWrkr.c)
  * Callees:
- *     RtlStringCchCatNW @ 0x1403A6F98 (RtlStringCchCatNW.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     SepRegOpenKey @ 0x1407F5308 (SepRegOpenKey.c)
+ *     RtlStringCchCatNW @ 0x1403A7178 (RtlStringCchCatNW.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SepRegOpenKey @ 0x1407F55D8 (SepRegOpenKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

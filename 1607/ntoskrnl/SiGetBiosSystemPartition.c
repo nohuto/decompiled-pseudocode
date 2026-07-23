@@ -1,14 +1,14 @@
 /*
- * XREFs of SiGetBiosSystemPartition @ 0x1406D6BC8
+ * XREFs of SiGetBiosSystemPartition @ 0x1406D6D00
  * Callers:
- *     SiGetSystemPartition @ 0x140542030 (SiGetSystemPartition.c)
+ *     SiGetSystemPartition @ 0x140542570 (SiGetSystemPartition.c)
  * Callees:
- *     wcsstr @ 0x14014F14C (wcsstr.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
+ *     wcsstr @ 0x14014F70C (wcsstr.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SiGetDriveLayoutInformation @ 0x1406D6188 (SiGetDriveLayoutInformation.c)
- *     SiGetBiosSystemDisk @ 0x1406D6AA4 (SiGetBiosSystemDisk.c)
+ *     SiGetDriveLayoutInformation @ 0x1406D62C0 (SiGetDriveLayoutInformation.c)
+ *     SiGetBiosSystemDisk @ 0x1406D6BDC (SiGetBiosSystemDisk.c)
  */
 
 __int64 __fastcall SiGetBiosSystemPartition(wchar_t **a1)

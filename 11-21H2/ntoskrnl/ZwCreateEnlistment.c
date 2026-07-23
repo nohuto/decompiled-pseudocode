@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwCreateEnlistment @ 0x14041CCE0
  * Callers:
- *     DifZwCreateEnlistmentWrapper @ 0x14061E3C0 (DifZwCreateEnlistmentWrapper.c)
+ *     sub_14061E3C0 @ 0x14061E3C0 (sub_14061E3C0.c)
  * Callees:
  *     <none>
  */
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwCreateEnlistment(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(EnlistmentHandle, *(_QWORD *)&DesiredAccess);
 }

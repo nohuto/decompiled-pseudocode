@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosReadCmosPortByte @ 0x1404BF2D0
+ * XREFs of x86BiosReadCmosPortByte @ 0x1404BF510
  * Callers:
- *     x86BiosReadCmosPort @ 0x1404BF250 (x86BiosReadCmosPort.c)
+ *     x86BiosReadCmosPort @ 0x1404BF490 (x86BiosReadCmosPort.c)
  * Callees:
- *     HalpAcquireCmosSpinLock @ 0x1402B612C (HalpAcquireCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x14023430C (HalpAcquireCmosSpinLock.c)
  */
 
 char __fastcall x86BiosReadCmosPortByte(__int64 a1, __int64 a2, __int64 a3)

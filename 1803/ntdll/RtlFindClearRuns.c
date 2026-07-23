@@ -6,61 +6,65 @@
  *     <none>
  */
 
-__int64 __fastcall RtlFindClearRuns(int *a1, __int64 a2, unsigned int a3, char a4)
+ULONG __cdecl RtlFindClearRuns(
+        PRTL_BITMAP BitMapHeader,
+        PRTL_BITMAP_RUN RunArray,
+        ULONG SizeOfRunArray,
+        BOOLEAN LocateLongestRuns)
 {
-  unsigned int v4; // ebp
-  int v5; // esi
-  int v7; // edx
+  ULONG SizeOfBitMap; // ebp
+  ULONG v5; // esi
+  ULONG v7; // edx
   BOOL v10; // r15d
-  unsigned int v11; // r8d
-  unsigned int v12; // r9d
+  ULONG v11; // r8d
+  ULONG v12; // r9d
   bool v13; // zf
-  unsigned int v14; // r15d
-  unsigned int v15; // r12d
-  unsigned __int8 *v16; // rax
+  ULONG v14; // r15d
+  ULONG v15; // r12d
+  PULONG Buffer; // rax
   int v17; // edi
-  unsigned int v18; // ecx
+  ULONG v18; // ecx
   unsigned __int8 v19; // r10
   __int64 v20; // r14
-  unsigned int v21; // r9d
-  __int64 result; // rax
-  int v23; // esi
+  ULONG v21; // r9d
+  ULONG result; // eax
+  signed int v23; // esi
   __int64 v24; // rdi
-  _QWORD *i; // rcx
+  _RTL_BITMAP_RUN *i; // rcx
   __int64 v26; // rcx
   unsigned __int8 v27; // r10
   __int64 v28; // r14
   int v29; // ebp
   unsigned __int8 j; // di
-  unsigned int v31; // eax
-  unsigned int v32; // esi
+  ULONG v31; // eax
+  signed int v32; // esi
   __int64 v33; // rdx
-  _QWORD *k; // rcx
+  _RTL_BITMAP_RUN *k; // rcx
   __int64 v35; // rcx
-  unsigned int v36; // eax
-  unsigned int v37; // r10d
+  ULONG v36; // eax
+  ULONG v37; // r10d
   __int64 v38; // rdx
-  _QWORD *m; // rcx
+  _RTL_BITMAP_RUN *m; // rcx
   __int64 v40; // rdx
   int v41; // [rsp+0h] [rbp-48h]
-  int v42; // [rsp+4h] [rbp-44h]
-  unsigned int v43; // [rsp+8h] [rbp-40h]
-  unsigned __int8 *v44; // [rsp+10h] [rbp-38h]
-  int v45; // [rsp+50h] [rbp+8h]
+  ULONG v42; // [rsp+4h] [rbp-44h]
+  ULONG v43; // [rsp+8h] [rbp-40h]
+  ULONG *v44; // [rsp+10h] [rbp-38h]
+  ULONG v45; // [rsp+50h] [rbp+8h]
 
-  v4 = *a1;
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
   v5 = 0;
-  v43 = *a1;
+  v43 = BitMapHeader->SizeOfBitMap;
   v45 = 0;
-  v7 = *a1 & 7;
+  v7 = BitMapHeader->SizeOfBitMap & 7;
   v42 = v7;
   v10 = v7 != 0;
   v11 = 0;
   v12 = 0;
-  v13 = ((unsigned int)*a1 >> 3) + v10 == 0;
-  v14 = ((unsigned int)*a1 >> 3) + v10;
+  v13 = (BitMapHeader->SizeOfBitMap >> 3) + v10 == 0;
+  v14 = (BitMapHeader->SizeOfBitMap >> 3) + v10;
   v15 = 0;
-  v16 = (unsigned __int8 *)*((_QWORD *)a1 + 1);
+  Buffer = BitMapHeader->Buffer;
   if ( !v13 )
   {
     v17 = 0;
@@ -68,37 +72,37 @@ __int64 __fastcall RtlFindClearRuns(int *a1, __int64 a2, unsigned int a3, char a
     v41 = 0;
     while ( 1 )
     {
-      v19 = *v16;
-      v44 = v16 + 1;
+      v19 = *(_BYTE *)Buffer;
+      v44 = (PULONG)((char *)Buffer + 1);
       if ( v15 == v18 && v7 )
-        v19 |= byte_180120DD0[(v4 & 7) + 32];
+        v19 |= byte_180120DD0[(SizeOfBitMap & 7) + 32];
       if ( v19 )
       {
         v20 = (unsigned __int8)byte_180119500[v19];
         v21 = v20 + v12;
-        if ( v21 && (v11 < a3 || *(_DWORD *)(a2 + 8LL * (v11 - 1) + 4) < v21) )
+        if ( v21 && (v11 < SizeOfRunArray || RunArray[v11 - 1].NumberOfBits < v21) )
         {
-          LODWORD(result) = v11 + 1;
-          if ( v11 >= a3 )
-            LODWORD(result) = v11;
+          result = v11 + 1;
+          if ( v11 >= SizeOfRunArray )
+            result = v11;
           v11 = result;
           v23 = result - 2;
-          if ( a4 )
+          if ( LocateLongestRuns )
           {
             v24 = v23;
-            for ( i = (_QWORD *)(a2 + 8 + 8LL * v23); v24 >= 0 && *((_DWORD *)i - 1) < v21; --i )
+            for ( i = &RunArray[v23 + 1]; v24 >= 0 && i[-1].NumberOfBits < v21; --i )
             {
               --v23;
               --v24;
-              *i = *(i - 1);
+              *i = i[-1];
             }
             v17 = v41;
           }
           v26 = v23 + 1;
-          *(_DWORD *)(a2 + 8 * v26 + 4) = v21;
-          *(_DWORD *)(a2 + 8 * v26) = v45;
-          if ( !a4 && (unsigned int)result >= a3 )
-            return (unsigned int)result;
+          RunArray[v26].NumberOfBits = v21;
+          RunArray[v26].StartingIndex = v45;
+          if ( !LocateLongestRuns && result >= SizeOfRunArray )
+            return result;
         }
         v12 = (unsigned __int8)byte_1801298D0[v19];
         v5 = v17 - v12 + 8;
@@ -108,33 +112,31 @@ __int64 __fastcall RtlFindClearRuns(int *a1, __int64 a2, unsigned int a3, char a
         {
           do
           {
-            if ( v11 >= a3 && *(_DWORD *)(a2 + 8LL * (v11 - 1) + 4) >= (unsigned int)byte_1801299D0[v27] )
+            if ( v11 >= SizeOfRunArray && RunArray[v11 - 1].NumberOfBits >= byte_1801299D0[v27] )
               break;
             v28 = byte_1801299D0[v27];
             v29 = 0;
             for ( j = byte_180120DD0[v28 + 16]; (j & v27) != 0; j *= 2 )
               ++v29;
             v31 = v11 + 1;
-            if ( v11 >= a3 )
+            if ( v11 >= SizeOfRunArray )
               v31 = v11;
             v11 = v31;
             v32 = v31 - 2;
-            if ( a4 )
+            if ( LocateLongestRuns )
             {
-              v33 = (int)v32;
-              for ( k = (_QWORD *)(a2 + 8 + 8LL * (int)v32);
-                    v33 >= 0 && *((_DWORD *)k - 1) < (unsigned int)(unsigned __int8)v28;
-                    --k )
+              v33 = v32;
+              for ( k = &RunArray[v32 + 1]; v33 >= 0 && k[-1].NumberOfBits < (unsigned __int8)v28; --k )
               {
                 --v32;
                 --v33;
-                *k = *(k - 1);
+                *k = k[-1];
               }
             }
-            v35 = (int)(v32 + 1);
-            *(_DWORD *)(a2 + 8 * v35 + 4) = (unsigned __int8)v28;
-            *(_DWORD *)(a2 + 8 * v35) = v29 + v41;
-            if ( !a4 && v31 >= a3 )
+            v35 = v32 + 1;
+            RunArray[v35].NumberOfBits = (unsigned __int8)v28;
+            RunArray[v35].StartingIndex = v29 + v41;
+            if ( !LocateLongestRuns && v31 >= SizeOfRunArray )
               return v11;
             v27 |= j;
           }
@@ -144,7 +146,7 @@ __int64 __fastcall RtlFindClearRuns(int *a1, __int64 a2, unsigned int a3, char a
         }
         v7 = v42;
         v18 = v14 - 1;
-        LOBYTE(v4) = v43;
+        LOBYTE(SizeOfBitMap) = v43;
       }
       else
       {
@@ -156,29 +158,29 @@ __int64 __fastcall RtlFindClearRuns(int *a1, __int64 a2, unsigned int a3, char a
       v41 = v17;
       if ( v15 >= v14 )
         break;
-      v16 = v44;
+      Buffer = v44;
     }
   }
-  if ( v12 && (v11 < a3 || *(_DWORD *)(a2 + 8LL * (v11 - 1) + 4) < v12) )
+  if ( v12 && (v11 < SizeOfRunArray || RunArray[v11 - 1].NumberOfBits < v12) )
   {
     v36 = v11 + 1;
-    if ( v11 >= a3 )
+    if ( v11 >= SizeOfRunArray )
       v36 = v11;
     v11 = v36;
     v37 = v36 - 2;
-    if ( a4 )
+    if ( LocateLongestRuns )
     {
       v38 = (int)v37;
-      for ( m = (_QWORD *)(a2 + 8 + 8LL * (int)v37); v38 >= 0 && *((_DWORD *)m - 1) < v12; --m )
+      for ( m = &RunArray[(int)v37 + 1]; v38 >= 0 && m[-1].NumberOfBits < v12; --m )
       {
         --v37;
         --v38;
-        *m = *(m - 1);
+        *m = m[-1];
       }
     }
     v40 = (int)(v37 + 1);
-    *(_DWORD *)(a2 + 8 * v40 + 4) = v12;
-    *(_DWORD *)(a2 + 8 * v40) = v5;
+    RunArray[v40].NumberOfBits = v12;
+    RunArray[v40].StartingIndex = v5;
   }
   return v11;
 }

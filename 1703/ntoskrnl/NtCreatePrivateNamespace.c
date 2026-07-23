@@ -19,13 +19,18 @@
  *     ObInsertObjectEx @ 0x14050DCA0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(unsigned __int64 a1, __int64 a2, int a3, void *a4)
+NTSTATUS __cdecl NtCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  _QWORD *v5; // r15
+  int v4; // r14d
+  PHANDLE v5; // r15
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v8; // rdi
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   int v10; // r9d
   unsigned __int64 v11; // rbx
   PVOID *p_Object; // rcx
@@ -34,7 +39,7 @@ __int64 __fastcall NtCreatePrivateNamespace(unsigned __int64 a1, __int64 a2, int
   unsigned __int64 v15; // rbx
   size_t v16; // r8
   __int64 v17; // rcx
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   _DWORD *CurrentServerSiloGlobals; // rsi
   struct _KTHREAD *CurrentThread; // rcx
   _QWORD *v21; // rax
@@ -46,16 +51,17 @@ __int64 __fastcall NtCreatePrivateNamespace(unsigned __int64 a1, __int64 a2, int
   PVOID P; // [rsp+60h] [rbp-28h]
   __int64 v28; // [rsp+68h] [rbp-20h] BYREF
 
-  v5 = (_QWORD *)a1;
+  v4 = (int)ObjectAttributes;
+  v5 = NamespaceHandle;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+    if ( (unsigned __int64)NamespaceHandle >= 0x7FFFFFFF0000LL )
+      NamespaceHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *NamespaceHandle = *NamespaceHandle;
   }
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     v8 = P;
     v9 = ObpVerifyCreatorAccessCheck((char *)P + 48);
@@ -71,7 +77,7 @@ __int64 __fastcall NtCreatePrivateNamespace(unsigned __int64 a1, __int64 a2, int
         p_Object = &Object;
         LOBYTE(v10) = PreviousMode;
         LOBYTE(p_Object) = PreviousMode;
-        v13 = ObCreateObjectEx((_DWORD)p_Object, (_DWORD)ObpDirectoryObjectType, a3, v10);
+        v13 = ObCreateObjectEx((_DWORD)p_Object, (_DWORD)ObpDirectoryObjectType, v4, v10);
         if ( v13 >= 0 )
         {
           v14 = Object;
@@ -138,18 +144,18 @@ LABEL_16:
               ExReleasePushLockEx((ULONG_PTR)(CurrentServerSiloGlobals + 180), 0LL);
               KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
               if ( inserted >= 0 )
-                *v5 = v28;
-              return (unsigned int)inserted;
+                *v5 = (HANDLE)v28;
+              return inserted;
             }
           }
           ObfDereferenceObject(v14);
-          return (unsigned int)inserted;
+          return inserted;
         }
         v9 = v13;
       }
     }
     ExFreePoolWithTag(v8, 0x534E624Fu);
-    return (unsigned int)v9;
+    return v9;
   }
   return result;
 }

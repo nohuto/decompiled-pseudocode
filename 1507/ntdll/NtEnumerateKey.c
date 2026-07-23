@@ -11,11 +11,17 @@
  *     <none>
  */
 
-__int64 __fastcall NtEnumerateKey()
+NTSTATUS __cdecl NtEnumerateKey(
+        HANDLE KeyHandle,
+        ULONG Index,
+        KEY_INFORMATION_CLASS KeyInformationClass,
+        PVOID KeyInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 50LL;
+  result = 50;
   __asm { syscall; Low latency system call }
   return result;
 }

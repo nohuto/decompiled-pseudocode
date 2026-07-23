@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSetClockTimerKTimerDeadlines @ 0x1402C1C64
+ * XREFs of KiSetClockTimerKTimerDeadlines @ 0x1402C1EF4
  * Callers:
- *     KeClockInterruptNotify @ 0x1402C46A0 (KeClockInterruptNotify.c)
- *     KeResumeClockTimerFromIdle @ 0x1402C7060 (KeResumeClockTimerFromIdle.c)
- *     KiSetClockInterval @ 0x1403B1FA4 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x14056FDE4 (KiResetClockInterval.c)
- *     KiResumeClockTimer @ 0x14056FE48 (KiResumeClockTimer.c)
+ *     KeClockInterruptNotify @ 0x1402C4930 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C72F0 (KeResumeClockTimerFromIdle.c)
+ *     KiSetClockInterval @ 0x1403B2184 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140570324 (KiResetClockInterval.c)
+ *     KiResumeClockTimer @ 0x140570388 (KiResumeClockTimer.c)
  * Callees:
- *     KiSetClockTimer @ 0x1402C2598 (KiSetClockTimer.c)
+ *     KiSetClockTimer @ 0x1402C2828 (KiSetClockTimer.c)
  */
 
 __int64 __fastcall KiSetClockTimerKTimerDeadlines(int a1, char a2)

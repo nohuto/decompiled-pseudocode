@@ -1,28 +1,28 @@
 /*
- * XREFs of MiSelectImageBase @ 0x1409CACA8
+ * XREFs of MiSelectImageBase @ 0x14099BC88
  * Callers:
- *     MiRelocateImageAgain @ 0x14087B470 (MiRelocateImageAgain.c)
- *     MiRelocateImage @ 0x1409CA7A4 (MiRelocateImage.c)
+ *     MiRelocateImageAgain @ 0x140881870 (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x14099B784 (MiRelocateImage.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlFindClearBitsEx @ 0x14035F9A0 (RtlFindClearBitsEx.c)
- *     RtlCopyBitMapEx @ 0x14044B020 (RtlCopyBitMapEx.c)
- *     MiWriteControlAreaFlags2 @ 0x1404B65F0 (MiWriteControlAreaFlags2.c)
- *     MiSetControlAreaImageRange @ 0x1404BD76C (MiSetControlAreaImageRange.c)
- *     MiSetControlAreaSystemVa @ 0x140506420 (MiSetControlAreaSystemVa.c)
- *     RtlMergeBitMapsEx @ 0x140618AE0 (RtlMergeBitMapsEx.c)
- *     MiGetImageWowSubsystemIndex @ 0x1409C9B80 (MiGetImageWowSubsystemIndex.c)
- *     MiObtainRelocationBits @ 0x1409CB088 (MiObtainRelocationBits.c)
- *     MiBytesToMapSystemImage @ 0x140AC7DE8 (MiBytesToMapSystemImage.c)
- *     MiSelectSystemImageAddress @ 0x140B0A274 (MiSelectSystemImageAddress.c)
- *     MiSelectOverflowDllBase @ 0x140B49A0C (MiSelectOverflowDllBase.c)
- *     MiImageCanUseHighOverflowArea @ 0x140B49BF0 (MiImageCanUseHighOverflowArea.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlFindClearBitsEx @ 0x140361740 (RtlFindClearBitsEx.c)
+ *     RtlCopyBitMapEx @ 0x140443150 (RtlCopyBitMapEx.c)
+ *     MiWriteControlAreaFlags2 @ 0x1404AFA40 (MiWriteControlAreaFlags2.c)
+ *     MiSetControlAreaImageRange @ 0x1404B6F4C (MiSetControlAreaImageRange.c)
+ *     MiSetControlAreaSystemVa @ 0x1404FFCD0 (MiSetControlAreaSystemVa.c)
+ *     RtlMergeBitMapsEx @ 0x14061BB30 (RtlMergeBitMapsEx.c)
+ *     MiGetImageWowSubsystemIndex @ 0x14099AB60 (MiGetImageWowSubsystemIndex.c)
+ *     MiObtainRelocationBits @ 0x14099C068 (MiObtainRelocationBits.c)
+ *     MiBytesToMapSystemImage @ 0x140AC99D8 (MiBytesToMapSystemImage.c)
+ *     MiSelectSystemImageAddress @ 0x140B0C034 (MiSelectSystemImageAddress.c)
+ *     MiSelectOverflowDllBase @ 0x140B4B79C (MiSelectOverflowDllBase.c)
+ *     MiImageCanUseHighOverflowArea @ 0x140B4B980 (MiImageCanUseHighOverflowArea.c)
  */
 
 __int64 __fastcall MiSelectImageBase(__int64 a1, __int64 a2, int a3, char a4, unsigned __int64 *a5)
@@ -110,11 +110,11 @@ LABEL_4:
     v12 = v36;
     v13 = v21 >> 12;
   }
-  else if ( LODWORD(stru_140E2D150.QueueListEntry.Flink) && (*(_DWORD *)(v12 + 76) & 0x40) != 0 )
+  else if ( LODWORD(stru_140E2D2D0.QueueListEntry.Flink) && (*(_DWORD *)(v12 + 76) & 0x40) != 0 )
   {
-    if ( (LODWORD(stru_140E2D150.QueueListEntry.Flink) >> 12) + (int)v13 >= (unsigned int)v13 )
+    if ( (LODWORD(stru_140E2D2D0.QueueListEntry.Flink) >> 12) + (int)v13 >= (unsigned int)v13 )
     {
-      LODWORD(v13) = (LODWORD(stru_140E2D150.QueueListEntry.Flink) >> 12) + v13;
+      LODWORD(v13) = (LODWORD(stru_140E2D2D0.QueueListEntry.Flink) >> 12) + v13;
       goto LABEL_10;
     }
     return 3221225503LL;
@@ -171,7 +171,7 @@ LABEL_30:
     }
     p_Process = 0LL;
     LOBYTE(v12) = v9 != 4;
-    if ( dword_140FBE220 )
+    if ( dword_140FBF220 )
     {
       if ( (unsigned int)MiImageCanUseHighOverflowArea(a1, v19, v12) )
         goto LABEL_42;
@@ -183,26 +183,26 @@ LABEL_30:
       switch ( v9 )
       {
         case 1u:
-          Flink = (unsigned __int64)stru_140E2D150.Timer.TimerListEntry.Flink;
-          p_Blink = (unsigned __int64 *)&stru_140E2D150.Timer.Header.WaitListHead.Blink;
+          Flink = (unsigned __int64)stru_140E2D2D0.Timer.TimerListEntry.Flink;
+          p_Blink = (unsigned __int64 *)&stru_140E2D2D0.Timer.Header.WaitListHead.Blink;
           v25 = 2013265920LL;
           break;
         case 2u:
-          p_Process = &stru_140E2D150.ApcState.Process;
-          RelativeTimerBias = stru_140E2D150.RelativeTimerBias;
+          p_Process = &stru_140E2D2D0.ApcState.Process;
+          RelativeTimerBias = stru_140E2D2D0.RelativeTimerBias;
           v25 = 2013265920LL;
-          v44 = &stru_140E2D150.Timer.Header.WaitListHead.Blink;
+          v44 = &stru_140E2D2D0.Timer.Header.WaitListHead.Blink;
           CurrentThread = KeGetCurrentThread();
           CurrentThread->SpecialApcDisable += v15;
-          v32 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E2D150.116 + 4, 0LL, 0LL, (struct _KLOCK_ENTRIES *)v20);
+          v32 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E2D2D0.116 + 4, 0LL, 0LL, (struct _KLOCK_ENTRIES *)v20);
           v34 = v32;
           v40 = v32;
-          if ( _interlockedbittestandset64((_DWORD *)&stru_140E2D150.0 + 1, 0LL) )
+          if ( _interlockedbittestandset64((_DWORD *)&stru_140E2D2D0.0 + 1, 0LL) )
           {
             ExfAcquirePushLockExclusiveEx(
-              (unsigned __int64 *)((char *)&stru_140E2D150.116 + 4),
+              (unsigned __int64 *)((char *)&stru_140E2D2D0.116 + 4),
               v32,
-              (__int64)&stru_140E2D150.116 + 4);
+              (__int64)&stru_140E2D2D0.116 + 4);
             v34 = v40;
           }
           if ( v34 )
@@ -212,35 +212,35 @@ LABEL_30:
             else
               *((_BYTE *)v34 + 10) = 1;
           }
-          RtlCopyBitMapEx((unsigned __int64 *)&stru_140E2D150.ApcState.Process, &stru_140E2D150.Timer.Header.Lock, 0LL);
+          RtlCopyBitMapEx((unsigned __int64 *)&stru_140E2D2D0.ApcState.Process, &stru_140E2D2D0.Timer.Header.Lock, 0LL);
           RtlMergeBitMapsEx(
-            (unsigned __int64 *)&stru_140E2D150.Timer,
-            (__int64 *)&stru_140E2D150.Timer.Header.WaitListHead.Blink);
+            (unsigned __int64 *)&stru_140E2D2D0.Timer,
+            (__int64 *)&stru_140E2D2D0.Timer.Header.WaitListHead.Blink);
           v39 = (unsigned __int16)v48;
           ClearBits = RtlFindClearBitsEx(
-                        (unsigned __int64 *)&stru_140E2D150.Timer,
+                        (unsigned __int64 *)&stru_140E2D2D0.Timer,
                         (unsigned __int16)v48,
                         RelativeTimerBias);
           if ( (_InterlockedExchangeAdd64(
-                  (volatile signed __int64 *)((char *)&stru_140E2D150.116 + 4),
+                  (volatile signed __int64 *)((char *)&stru_140E2D2D0.116 + 4),
                   0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)((char *)&stru_140E2D150.116 + 4));
-          KeAbPostRelease((unsigned __int64)&stru_140E2D150.116 + 4);
+            ExfTryToWakePushLock((volatile signed __int64 *)((char *)&stru_140E2D2D0.116 + 4));
+          KeAbPostRelease((unsigned __int64)&stru_140E2D2D0.116 + 4);
           v35 = CurrentThread->SpecialApcDisable++ == -1;
           if ( v35
-            && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+            && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
             KiCheckForKernelApcDelivery((__int64)CurrentThread, v18);
           }
           goto LABEL_24;
         case 3u:
-          Flink = stru_140E2D150.RelativeTimerBias;
-          p_Blink = (unsigned __int64 *)&stru_140E2D150.ApcState.Process;
+          Flink = stru_140E2D2D0.RelativeTimerBias;
+          p_Blink = (unsigned __int64 *)&stru_140E2D2D0.ApcState.Process;
           v25 = 2013265920LL;
           break;
         default:
-          Flink = (unsigned __int64)stru_140E2D150.TrapFrame;
-          p_Blink = (unsigned __int64 *)&stru_140E2D150.SystemCallNumber;
+          Flink = (unsigned __int64)stru_140E2D2D0.TrapFrame;
+          p_Blink = (unsigned __int64 *)&stru_140E2D2D0.SystemCallNumber;
           v25 = 0x7FFFFFFF0000LL;
           break;
       }

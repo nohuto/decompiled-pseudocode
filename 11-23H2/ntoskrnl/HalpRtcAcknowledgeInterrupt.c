@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpRtcAcknowledgeInterrupt @ 0x14051F9C0
+ * XREFs of HalpRtcAcknowledgeInterrupt @ 0x14051FF10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpRtcStop @ 0x14051FC10 (HalpRtcStop.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpRtcStop @ 0x140520160 (HalpRtcStop.c)
  */
 
 __int64 __fastcall HalpRtcAcknowledgeInterrupt(_QWORD *a1)

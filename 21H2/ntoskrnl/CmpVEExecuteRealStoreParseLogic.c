@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x14066FC00
+ * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x1406660E0
  * Callers:
- *     CmpVEExecuteParseLogic @ 0x1406FC190 (CmpVEExecuteParseLogic.c)
+ *     CmpVEExecuteParseLogic @ 0x140713570 (CmpVEExecuteParseLogic.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpUnblockHiveWrites @ 0x14066FDA8 (CmpUnblockHiveWrites.c)
- *     CmpFindPathByName @ 0x14066FE28 (CmpFindPathByName.c)
- *     CmpBlockHiveWrites @ 0x14066FE50 (CmpBlockHiveWrites.c)
- *     CmpIsKeyDeleted @ 0x140670F30 (CmpIsKeyDeleted.c)
- *     CmpVirtualBranchIsReplicated @ 0x1406720EC (CmpVirtualBranchIsReplicated.c)
- *     CmRealKCBToVirtualPath @ 0x140672A9C (CmRealKCBToVirtualPath.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1406647D4 (CmpVirtualBranchIsReplicated.c)
+ *     CmpUnblockHiveWrites @ 0x140666288 (CmpUnblockHiveWrites.c)
+ *     CmpFindPathByName @ 0x140666308 (CmpFindPathByName.c)
+ *     CmpBlockHiveWrites @ 0x140666330 (CmpBlockHiveWrites.c)
+ *     CmpIsKeyDeleted @ 0x140667410 (CmpIsKeyDeleted.c)
+ *     CmRealKCBToVirtualPath @ 0x140667CCC (CmRealKCBToVirtualPath.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpVEExecuteRealStoreParseLogic(__int64 a1, __int64 a2, _DWORD *a3, UNICODE_STRING *a4, __int64 a5)
@@ -25,7 +25,7 @@ __int64 __fastcall CmpVEExecuteRealStoreParseLogic(__int64 a1, __int64 a2, _DWOR
   char v13; // r12
   __int64 v15; // rax
   wchar_t *Buffer; // rcx
-  _BYTE v17[4]; // [rsp+30h] [rbp-30h] BYREF
+  char v17[4]; // [rsp+30h] [rbp-30h] BYREF
   unsigned int v18; // [rsp+34h] [rbp-2Ch] BYREF
   __int64 v19; // [rsp+38h] [rbp-28h] BYREF
   __int64 v20; // [rsp+40h] [rbp-20h] BYREF
@@ -79,11 +79,8 @@ LABEL_8:
   if ( v11 < 0 )
     goto LABEL_9;
   *a3 |= 8u;
-  if ( !(unsigned __int8)CmpVirtualBranchIsReplicated(0LL, &DestinationString, v17)
-    && ((*a3 & 1) == 0 || v13 || !v17[0]) )
-  {
+  if ( !CmpVirtualBranchIsReplicated(0LL, &DestinationString, v17) && ((*a3 & 1) == 0 || v13 || !v17[0]) )
     goto LABEL_8;
-  }
   Buffer = a4->Buffer;
   if ( Buffer )
     ExFreePoolWithTag(Buffer, 0);

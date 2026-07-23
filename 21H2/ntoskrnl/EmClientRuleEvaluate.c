@@ -1,18 +1,18 @@
 /*
- * XREFs of EmClientRuleEvaluate @ 0x140990340
+ * XREFs of EmClientRuleEvaluate @ 0x140991340
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x140574D9C (PopPepInitializeVetoMasks.c)
- *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
- *     PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140A73DD8 (PopReadErrataSkipMemoryOverwriteRequestControlLockAction.c)
+ *     PopPepInitializeVetoMasks @ 0x140574FDC (PopPepInitializeVetoMasks.c)
+ *     PoRegisterPowerSettingCallback @ 0x14066F440 (PoRegisterPowerSettingCallback.c)
+ *     PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140A74DD8 (PopReadErrataSkipMemoryOverwriteRequestControlLockAction.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x140281B64 (EmpSearchRuleDatabase.c)
- *     EmpSearchTargetRuleList @ 0x140281B9C (EmpSearchTargetRuleList.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     EmpEvaluateTargetRule @ 0x140373ED8 (EmpEvaluateTargetRule.c)
- *     EmpReleasePagingReference @ 0x14098F708 (EmpReleasePagingReference.c)
- *     EmpAcquirePagingReference @ 0x14098F784 (EmpAcquirePagingReference.c)
+ *     EmpSearchRuleDatabase @ 0x14026FDA4 (EmpSearchRuleDatabase.c)
+ *     EmpSearchTargetRuleList @ 0x14026FDDC (EmpSearchTargetRuleList.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     EmpEvaluateTargetRule @ 0x140373A28 (EmpEvaluateTargetRule.c)
+ *     EmpReleasePagingReference @ 0x1409911C8 (EmpReleasePagingReference.c)
+ *     EmpAcquirePagingReference @ 0x140991244 (EmpAcquirePagingReference.c)
  */
 
 __int64 __fastcall EmClientRuleEvaluate(_QWORD *a1, __int64 a2, int a3, _DWORD *a4)

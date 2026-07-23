@@ -1,27 +1,27 @@
 /*
- * XREFs of EmpParseInfDatabase @ 0x140C167C4
+ * XREFs of EmpParseInfDatabase @ 0x140C187C4
  * Callers:
- *     EmInitSystem @ 0x140C607D0 (EmInitSystem.c)
+ *     EmInitSystem @ 0x140C62920 (EmInitSystem.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     EmpParseCallbacks @ 0x140C1640C (EmpParseCallbacks.c)
- *     EmpParseEntryTypes @ 0x140C16644 (EmpParseEntryTypes.c)
- *     EmpParseRules @ 0x140C172EC (EmpParseRules.c)
- *     EmpParseStrings @ 0x140C17670 (EmpParseStrings.c)
- *     EmpParseTargetRules @ 0x140C17B08 (EmpParseTargetRules.c)
- *     CmpFreeLineList @ 0x140C18180 (CmpFreeLineList.c)
- *     CmpParseInfBuffer @ 0x140C185C4 (CmpParseInfBuffer.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     EmpParseCallbacks @ 0x140C1840C (EmpParseCallbacks.c)
+ *     EmpParseEntryTypes @ 0x140C18644 (EmpParseEntryTypes.c)
+ *     EmpParseRules @ 0x140C192EC (EmpParseRules.c)
+ *     EmpParseStrings @ 0x140C19670 (EmpParseStrings.c)
+ *     EmpParseTargetRules @ 0x140C19B08 (EmpParseTargetRules.c)
+ *     CmpFreeLineList @ 0x140C1A180 (CmpFreeLineList.c)
+ *     CmpParseInfBuffer @ 0x140C1A5C4 (CmpParseInfBuffer.c)
  */
 
 __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
 {
-  _QWORD *v4; // rax
+  char *v4; // rax
   signed __int8 v5; // cf
-  _QWORD *v6; // rbx
+  char *v6; // rbx
   __int64 v7; // rax
   void **v8; // rdi
   int v9; // ebx
@@ -30,13 +30,13 @@ __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
   void *v12; // rcx
   int v14; // [rsp+50h] [rbp+18h] BYREF
 
-  v4 = KeAbPreAcquire((__int64)&EmpParseLock, 0LL);
+  v4 = (char *)KeAbPreAcquire((__int64)&EmpParseLock, 0LL);
   v5 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock, 0LL);
   v6 = v4;
   if ( v5 )
-    ExfAcquirePushLockExclusiveEx(&EmpParseLock, (__int64)v4, (__int64)&EmpParseLock);
+    ExfAcquirePushLockExclusiveEx(&EmpParseLock, v4, (__int64)&EmpParseLock);
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   v14 = 0;
   v7 = CmpParseInfBuffer(a1, a2, &v14);
   v8 = (void **)v7;

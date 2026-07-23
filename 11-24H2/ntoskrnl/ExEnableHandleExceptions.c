@@ -1,10 +1,10 @@
 /*
- * XREFs of ExEnableHandleExceptions @ 0x140A5D86C
+ * XREFs of ExEnableHandleExceptions @ 0x140A55C8C
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ExpLockHandleTableExclusive @ 0x1404527A8 (ExpLockHandleTableExclusive.c)
- *     ExpUnlockHandleTableExclusive @ 0x140458444 (ExpUnlockHandleTableExclusive.c)
+ *     ExpLockHandleTableExclusive @ 0x140447858 (ExpLockHandleTableExclusive.c)
+ *     ExpUnlockHandleTableExclusive @ 0x14044D754 (ExpUnlockHandleTableExclusive.c)
  */
 
 bool __fastcall ExEnableHandleExceptions(__int64 a1, char a2)

@@ -1,30 +1,28 @@
 /*
- * XREFs of MiReleaseKernelCfgLock @ 0x140A3E41C
+ * XREFs of MiReleaseKernelCfgLock @ 0x140A33D2C
  * Callers:
- *     MiMarkKernelImageCfgBits @ 0x140A3DD40 (MiMarkKernelImageCfgBits.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A3E36C (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiMarkKernelImageCfgBits @ 0x140A33650 (MiMarkKernelImageCfgBits.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A33C7C (MiAllocateKernelCfgBitmapPageTables.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
-$81B80DCEA5A02D890AB7B2872B48AC01 *MiReleaseKernelCfgLock()
+$727077A9B6E167EAE1398C74674DC5A5 *MiReleaseKernelCfgLock()
 {
   struct _KTHREAD *CurrentThread; // rbx
-  $81B80DCEA5A02D890AB7B2872B48AC01 *result; // rax
-  __int64 v2; // rdx
-  __int64 v3; // rcx
+  $727077A9B6E167EAE1398C74674DC5A5 *result; // rax
 
   CurrentThread = KeGetCurrentThread();
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2D720, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2D720);
-  result = ($81B80DCEA5A02D890AB7B2872B48AC01 *)KeAbPostRelease((ULONG_PTR)&qword_140E2D720);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2D860, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2D860);
+  result = ($727077A9B6E167EAE1398C74674DC5A5 *)KeAbPostRelease((ULONG_PTR)&qword_140E2D860);
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     result = &CurrentThread->152;
-    if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)result->ApcState.ApcListHead[0].Flink != result )
-      return ($81B80DCEA5A02D890AB7B2872B48AC01 *)KiCheckForKernelApcDelivery(v3, v2);
+    if ( ($727077A9B6E167EAE1398C74674DC5A5 *)result->ApcState.ApcListHead[0].Flink != result )
+      return ($727077A9B6E167EAE1398C74674DC5A5 *)KiCheckForKernelApcDelivery();
   }
   return result;
 }

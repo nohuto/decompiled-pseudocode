@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepTriggerComponentActivatingActivity @ 0x1403B1A40
+ * XREFs of PopPepTriggerComponentActivatingActivity @ 0x1403BB750
  * Callers:
  *     <none>
  * Callees:
- *     PopPepTriggerActivity @ 0x1403AFA10 (PopPepTriggerActivity.c)
- *     PopPepGetComponentPreferedIdleState @ 0x1403B1B10 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepTriggerActivity @ 0x1403B9720 (PopPepTriggerActivity.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1403BB820 (PopPepGetComponentPreferedIdleState.c)
  */
 
 void __fastcall PopPepTriggerComponentActivatingActivity(__int64 a1, __int64 a2)

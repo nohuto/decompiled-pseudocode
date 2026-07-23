@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpAllocateFannedOutPushLock @ 0x1401333D8
+ * XREFs of ExpAllocateFannedOutPushLock @ 0x140133948
  * Callers:
- *     ExpTryExpandAutoExpandPushLock @ 0x140133370 (ExpTryExpandAutoExpandPushLock.c)
+ *     ExpTryExpandAutoExpandPushLock @ 0x1401338E0 (ExpTryExpandAutoExpandPushLock.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeQueryMaximumProcessorCountEx @ 0x140085F34 (KeQueryMaximumProcessorCountEx.c)
- *     ExpSaAllocatorAllocate @ 0x14013365C (ExpSaAllocatorAllocate.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140087824 (KeQueryMaximumProcessorCountEx.c)
+ *     ExpSaAllocatorAllocate @ 0x140133BCC (ExpSaAllocatorAllocate.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall ExpAllocateFannedOutPushLock(__int64 a1, char a2)

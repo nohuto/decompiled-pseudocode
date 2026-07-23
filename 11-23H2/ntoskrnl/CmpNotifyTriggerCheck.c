@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpNotifyTriggerCheck @ 0x1407667E4
+ * XREFs of CmpNotifyTriggerCheck @ 0x1407669D4
  * Callers:
- *     CmpReportNotifyHelper @ 0x1406D5440 (CmpReportNotifyHelper.c)
+ *     CmpReportNotifyHelper @ 0x1406D5470 (CmpReportNotifyHelper.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     CmpCheckNotifyAccess @ 0x140766A84 (CmpCheckNotifyAccess.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     CmpCheckNotifyAccess @ 0x140766C74 (CmpCheckNotifyAccess.c)
  */
 
 char __fastcall CmpNotifyTriggerCheck(__int64 a1, __int64 a2, __int64 a3)

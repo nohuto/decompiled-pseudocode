@@ -1,13 +1,13 @@
 /*
- * XREFs of PopProcessorInformation @ 0x140A843AC
+ * XREFs of PopProcessorInformation @ 0x140A89700
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PpmPerfGetCurrentState @ 0x14047CB64 (PpmPerfGetCurrentState.c)
- *     KeQueryGroupAffinity @ 0x14049AF50 (KeQueryGroupAffinity.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     PpmPerfGetCurrentState @ 0x1404764D4 (PpmPerfGetCurrentState.c)
+ *     KeQueryGroupAffinity @ 0x140494AA0 (KeQueryGroupAffinity.c)
  */
 
 __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, int *a4)
@@ -50,7 +50,7 @@ __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, in
     if ( v12 )
     {
       v14 = 0;
-      PopAcquireRwLockShared((volatile signed __int64 *)&stru_140F10070.1136, v7, v9, v10);
+      PopAcquireRwLockShared((volatile signed __int64 *)&PpmIdlePolicyLock.Header.Lock, v7, v9, v10);
       v15 = v23;
       while ( 1 )
       {
@@ -66,8 +66,7 @@ __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, in
         GroupAffinity &= ~(1LL << v17);
         if ( v14 >= v15 )
           break;
-        Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                         + 64 * (unsigned __int16)v6
+        Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v6].Flink
                          + (unsigned __int8)v17));
         *(_DWORD *)(a1 + 24LL * v14) = *(unsigned __int8 *)(Prcb + 209);
         PpmPerfGetCurrentState(
@@ -97,7 +96,7 @@ __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, in
         *(_DWORD *)(a1 + 24LL * v14++ + 20) = v21;
       }
 LABEL_15:
-      PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+      PopReleaseRwLock(&PpmIdlePolicyLock);
       v5 = a4;
     }
     *v5 = v13;

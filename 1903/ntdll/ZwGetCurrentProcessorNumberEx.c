@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwGetCurrentProcessorNumberEx()
+ULONG __cdecl ZwGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
-  __int64 result; // rax
+  ULONG result; // eax
 
-  result = 239LL;
+  result = 239;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

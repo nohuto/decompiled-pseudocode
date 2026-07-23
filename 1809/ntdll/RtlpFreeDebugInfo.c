@@ -9,12 +9,12 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpFreeDebugInfo(unsigned __int64 a1)
+LOGICAL __fastcall RtlpFreeDebugInfo(char *a1)
 {
   if ( LOWORD(RtlCriticalSectionDebugSList.Alignment) >= 0xAu
-    && ((unsigned __int64)&RtlpStaticDebugInfo > a1 || a1 >= (unsigned __int64)&RtlpForceCSDebugInfoCreation) )
+    && (&RtlpStaticDebugInfo > (_UNKNOWN *)a1 || a1 >= &RtlpForceCSDebugInfoCreation) )
   {
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
   }
   else
   {

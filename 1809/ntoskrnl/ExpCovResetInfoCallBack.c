@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCovResetInfoCallBack @ 0x1408D81A0
+ * XREFs of ExpCovResetInfoCallBack @ 0x1408D9460
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExpCovIsLoadedModulePresent @ 0x1408D75BC (ExpCovIsLoadedModulePresent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExpCovIsLoadedModulePresent @ 0x1408D887C (ExpCovIsLoadedModulePresent.c)
  */
 
 __int64 __fastcall ExpCovResetInfoCallBack(__int64 a1, __int64 a2)

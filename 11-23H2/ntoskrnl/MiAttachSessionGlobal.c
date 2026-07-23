@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAttachSessionGlobal @ 0x14033DA9C
+ * XREFs of MiAttachSessionGlobal @ 0x14033DD2C
  * Callers:
- *     MiAttachWorkingSet @ 0x14033D9E4 (MiAttachWorkingSet.c)
- *     MiAttachToSessionForBaseImage @ 0x140641B94 (MiAttachToSessionForBaseImage.c)
- *     MiActOnPatchInAllSessions @ 0x140A34610 (MiActOnPatchInAllSessions.c)
+ *     MiAttachWorkingSet @ 0x14033DC74 (MiAttachWorkingSet.c)
+ *     MiAttachToSessionForBaseImage @ 0x1406420E4 (MiAttachToSessionForBaseImage.c)
+ *     MiActOnPatchInAllSessions @ 0x140A348C0 (MiActOnPatchInAllSessions.c)
  * Callees:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiCompareTbFlushTimeStamp @ 0x14033DB58 (MiCompareTbFlushTimeStamp.c)
- *     MiAttachSingleProcessThreadToSession @ 0x14033DBCC (MiAttachSingleProcessThreadToSession.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiCompareTbFlushTimeStamp @ 0x14033DDE8 (MiCompareTbFlushTimeStamp.c)
+ *     MiAttachSingleProcessThreadToSession @ 0x14033DE5C (MiAttachSingleProcessThreadToSession.c)
  */
 
 char __fastcall MiAttachSessionGlobal(__int64 a1, unsigned int a2)

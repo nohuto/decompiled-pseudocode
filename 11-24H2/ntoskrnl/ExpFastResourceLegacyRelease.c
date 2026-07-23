@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpFastResourceLegacyRelease @ 0x140469BD0
+ * XREFs of ExpFastResourceLegacyRelease @ 0x140462AF4
  * Callers:
- *     ExReleaseResourceForThreadLite @ 0x1402D6820 (ExReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceForThreadLite @ 0x140357AA0 (ExReleaseResourceForThreadLite.c)
  * Callees:
- *     ExReleaseFastResource @ 0x14025BE50 (ExReleaseFastResource.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseFastResource @ 0x14028C460 (ExReleaseFastResource.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpFastResourceLegacyRelease(_QWORD *BugCheckParameter2, __int64 a2)

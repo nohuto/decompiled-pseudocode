@@ -14,35 +14,45 @@
 void __cdecl RtlRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
 {
   int v4; // eax
-  ULONG_PTR v5; // rcx
-  ULONG_PTR v6; // rdi
+  int v5; // eax
+  int v6; // eax
+  ULONG_PTR v7; // rcx
+  ULONG_PTR v8; // rdi
+  int v9; // eax
 
   if ( !ExceptionRecord )
   {
 LABEL_2:
-    if ( (unsigned int)LdrControlFlowGuardEnforced() && !(unsigned int)sub_18000B304(ContextRecord->Rsp) )
+    LOBYTE(v4) = LdrControlFlowGuardEnforced();
+    if ( v4 && !(unsigned int)sub_18000B304(ContextRecord->Rsp) )
       __fastfail(0xDu);
     goto LABEL_4;
   }
   if ( ExceptionRecord->ExceptionCode != -2147483610 )
   {
-    if ( ExceptionRecord->ExceptionCode == -2147483607
-      && ExceptionRecord->NumberParameters
-      && (unsigned int)LdrControlFlowGuardEnforced() )
+    if ( ExceptionRecord->ExceptionCode == -2147483607 )
     {
-      v4 = sub_18001F704();
-      v5 = ExceptionRecord->ExceptionInformation[0];
-      if ( v4 )
-        sub_18008B460(v5);
-      else
-        sub_18008B410(v5);
+      if ( ExceptionRecord->NumberParameters )
+      {
+        LOBYTE(v5) = LdrControlFlowGuardEnforced();
+        if ( v5 )
+        {
+          v6 = sub_18001F704();
+          v7 = ExceptionRecord->ExceptionInformation[0];
+          if ( v6 )
+            sub_18008B460(v7);
+          else
+            sub_18008B410(v7);
+        }
+      }
     }
     goto LABEL_2;
   }
-  v6 = ExceptionRecord->ExceptionInformation[0];
-  if ( (unsigned int)LdrControlFlowGuardEnforced() && !(unsigned int)sub_18000B304(*(_QWORD *)(v6 + 16)) )
+  v8 = ExceptionRecord->ExceptionInformation[0];
+  LOBYTE(v9) = LdrControlFlowGuardEnforced();
+  if ( v9 && !(unsigned int)sub_18000B304(*(_QWORD *)(v8 + 16)) )
     __fastfail(0xDu);
-  RtlGuardCheckLongJumpTarget(*(_QWORD *)(v6 + 80), 0LL, 0LL);
+  RtlGuardCheckLongJumpTarget(*(PVOID *)(v8 + 80), 0, 0LL);
 LABEL_4:
   sub_18009EB90(ContextRecord, ExceptionRecord);
 }

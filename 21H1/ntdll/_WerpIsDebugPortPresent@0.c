@@ -9,11 +9,11 @@
 BOOL __stdcall WerpIsDebugPortPresent()
 {
   int v0; // esi
-  int v2; // [esp+4h] [ebp-4h] BYREF
+  int ProcessInformation; // [esp+4h] [ebp-4h] BYREF
 
   v0 = 0;
-  v2 = 0;
-  if ( ZwQueryInformationProcess(-1, 7, (int)&v2, 4, 0) >= 0 )
-    return v2 != 0;
+  ProcessInformation = 0;
+  if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessDebugPort, &ProcessInformation, 4u, 0) >= 0 )
+    return ProcessInformation != 0;
   return v0;
 }

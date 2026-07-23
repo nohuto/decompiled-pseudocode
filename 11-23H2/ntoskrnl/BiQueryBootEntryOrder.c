@@ -1,59 +1,59 @@
 /*
- * XREFs of BiQueryBootEntryOrder @ 0x140806F2C
+ * XREFs of BiQueryBootEntryOrder @ 0x1408071FC
  * Callers:
- *     BiBindEfiBootManager @ 0x140802B0C (BiBindEfiBootManager.c)
- *     BiAddBootEntryToNvramDisplayOrder @ 0x140A5D914 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiExportEfiBootManager @ 0x140A5E5CC (BiExportEfiBootManager.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5EC38 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiBindEfiBootManager @ 0x140802DDC (BiBindEfiBootManager.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x140A5DBC4 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiExportEfiBootManager @ 0x140A5E87C (BiExportEfiBootManager.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5EEE8 (BiRemoveBootEntryFromNvramDisplayOrder.c)
  * Callees:
- *     ZwQueryBootEntryOrder @ 0x14041D660 (ZwQueryBootEntryOrder.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
- *     BiAcquirePrivilege @ 0x1408060A8 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x140806134 (BiReleasePrivilege.c)
+ *     ZwQueryBootEntryOrder @ 0x14041D9F0 (ZwQueryBootEntryOrder.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
+ *     BiAcquirePrivilege @ 0x140806378 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x140806404 (BiReleasePrivilege.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall BiQueryBootEntryOrder(_QWORD *a1, unsigned int *a2)
+__int64 __fastcall BiQueryBootEntryOrder(ULONG **a1, ULONG *a2)
 {
-  void *v2; // rdi
-  int BootEntryOrder; // ebx
-  __int64 Pool2; // rax
-  unsigned int v8; // [rsp+50h] [rbp+18h] BYREF
+  ULONG *v2; // rdi
+  NTSTATUS v5; // ebx
+  ULONG *Pool2; // rax
+  ULONG Count; // [rsp+50h] [rbp+18h] BYREF
   __int64 v9; // [rsp+58h] [rbp+20h] BYREF
 
   v9 = 0LL;
   v2 = 0LL;
-  v8 = 0;
-  BootEntryOrder = BiAcquirePrivilege(0x16u, (__int64)&v9);
-  if ( BootEntryOrder >= 0 )
+  Count = 0;
+  v5 = BiAcquirePrivilege(0x16u, (__int64)&v9);
+  if ( v5 >= 0 )
   {
-    BootEntryOrder = ZwQueryBootEntryOrder(0LL, (__int64)&v8);
-    if ( BootEntryOrder != -1073741789 )
+    v5 = ZwQueryBootEntryOrder(0LL, &Count);
+    if ( v5 != -1073741789 )
       goto LABEL_9;
-    Pool2 = ExAllocatePool2(258LL, 4LL * v8, 1262764866LL);
-    v2 = (void *)Pool2;
+    Pool2 = (ULONG *)ExAllocatePool2(258LL, 4LL * Count, 1262764866LL);
+    v2 = Pool2;
     if ( !Pool2 )
     {
-      BootEntryOrder = -1073741670;
+      v5 = -1073741670;
       goto LABEL_6;
     }
-    BootEntryOrder = ZwQueryBootEntryOrder(Pool2, (__int64)&v8);
-    if ( BootEntryOrder < 0 )
+    v5 = ZwQueryBootEntryOrder(Pool2, &Count);
+    if ( v5 < 0 )
     {
 LABEL_9:
-      BiLogMessage(4LL, L"Failed to query boot entry order. Status: %x", (unsigned int)BootEntryOrder);
-      if ( BootEntryOrder < 0 )
+      BiLogMessage(4LL, L"Failed to query boot entry order. Status: %x", (unsigned int)v5);
+      if ( v5 < 0 )
       {
         if ( v2 )
           ExFreePoolWithTag(v2, 0x4B444342u);
         goto LABEL_6;
       }
     }
-    *a2 = v8;
+    *a2 = Count;
     *a1 = v2;
 LABEL_6:
     BiReleasePrivilege((unsigned int *)&v9);
   }
-  return (unsigned int)BootEntryOrder;
+  return (unsigned int)v5;
 }

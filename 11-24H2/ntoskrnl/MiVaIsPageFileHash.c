@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVaIsPageFileHash @ 0x14042D000
+ * XREFs of MiVaIsPageFileHash @ 0x14041F380
  * Callers:
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 __fastcall MiVaIsPageFileHash(__int64 a1, unsigned __int64 a2)
     if ( v6 )
     {
       if ( a2 >= v6
-        && a2 < *(_QWORD *)(v5 + 184) + *(unsigned int *)(v5 + 4) * (unsigned __int64)(unsigned int)dword_140E3728C )
+        && a2 < *(_QWORD *)(v5 + 184) + *(unsigned int *)(v5 + 4) * (unsigned __int64)(unsigned int)dword_140E373CC )
       {
         break;
       }

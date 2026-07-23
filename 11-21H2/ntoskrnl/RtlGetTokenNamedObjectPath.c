@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetTokenNamedObjectPath @ 0x1409B9B50 (RtlpGetTokenNamedObjectPath.c)
+ *     sub_1409B9B50 @ 0x1409B9B50 (sub_1409B9B50.c)
  */
 
-__int64 __fastcall RtlGetTokenNamedObjectPath(void *a1)
+NTSTATUS __cdecl RtlGetTokenNamedObjectPath(HANDLE TokenHandle, PSID Sid, PUNICODE_STRING ObjectPath)
 {
-  return RtlpGetTokenNamedObjectPath(a1, 0LL);
+  return sub_1409B9B50(TokenHandle, 0LL);
 }

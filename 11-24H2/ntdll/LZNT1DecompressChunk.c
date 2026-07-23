@@ -1,8 +1,8 @@
 /*
- * XREFs of LZNT1DecompressChunk @ 0x180166480
+ * XREFs of LZNT1DecompressChunk @ 0x180164840
  * Callers:
- *     RtlDecompressBufferLZNT1 @ 0x180112180 (RtlDecompressBufferLZNT1.c)
- *     RtlDecompressFragmentLZNT1 @ 0x18014D110 (RtlDecompressFragmentLZNT1.c)
+ *     RtlDecompressBufferLZNT1 @ 0x18010D5F0 (RtlDecompressBufferLZNT1.c)
+ *     RtlDecompressFragmentLZNT1 @ 0x18014B4D0 (RtlDecompressFragmentLZNT1.c)
  * Callees:
  *     <none>
  */
@@ -188,12 +188,12 @@ __int64 __fastcall LZNT1DecompressChunk(_BYTE *a1, _BYTE *a2, _BYTE *a3, __int64
                   while ( (unsigned __int64)v5 > v10 )
                   {
                     v11 = (unsigned int)(v11 - 1);
-                    v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+                    v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
                   }
                   v13 = a3 + 1;
                   v14 = *(_WORD *)(a3 + 1);
                   v15 = v14;
-                  v17 = dword_18018B744[v11] & v14;
+                  v17 = dword_18018A744[v11] & v14;
                   v11 = (unsigned int)v11;
                   v16 = v17;
                   v18 = &v5[-(v15 >> v11) - 1];
@@ -238,12 +238,12 @@ LABEL_25:
                 while ( (unsigned __int64)v5 > v10 )
                 {
                   v11 = (unsigned int)(v11 - 1);
-                  v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+                  v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
                 }
                 v20 = a3 + 1;
                 v21 = *((_WORD *)a3 + 1);
                 v22 = v21;
-                v24 = dword_18018B744[v11] & v21;
+                v24 = dword_18018A744[v11] & v21;
                 v11 = (unsigned int)v11;
                 v23 = v24;
                 v25 = &v5[-(v22 >> v11) - 1];
@@ -285,12 +285,12 @@ LABEL_37:
               while ( (unsigned __int64)v5 > v10 )
               {
                 v11 = (unsigned int)(v11 - 1);
-                v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+                v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
               }
               v27 = a3 + 1;
               v28 = *(_WORD *)(a3 + 3);
               v29 = v28;
-              v31 = dword_18018B744[v11] & v28;
+              v31 = dword_18018A744[v11] & v28;
               v11 = (unsigned int)v11;
               v30 = v31;
               v32 = &v5[-(v29 >> v11) - 1];
@@ -329,12 +329,12 @@ LABEL_48:
             while ( (unsigned __int64)v5 > v10 )
             {
               v11 = (unsigned int)(v11 - 1);
-              v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+              v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
             }
             v34 = a3 + 1;
             v35 = *((_WORD *)a3 + 2);
             v36 = v35;
-            v38 = dword_18018B744[v11] & v35;
+            v38 = dword_18018A744[v11] & v35;
             v11 = (unsigned int)v11;
             v37 = v38;
             v39 = &v5[-(v36 >> v11) - 1];
@@ -370,12 +370,12 @@ LABEL_58:
           while ( (unsigned __int64)v5 > v10 )
           {
             v11 = (unsigned int)(v11 - 1);
-            v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+            v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
           }
           v41 = a3 + 1;
           v42 = *(_WORD *)(a3 + 5);
           v43 = v42;
-          v45 = dword_18018B744[v11] & v42;
+          v45 = dword_18018A744[v11] & v42;
           v11 = (unsigned int)v11;
           v44 = v45;
           v46 = &v5[-(v43 >> v11) - 1];
@@ -408,12 +408,12 @@ LABEL_67:
         while ( (unsigned __int64)v5 > v10 )
         {
           v11 = (unsigned int)(v11 - 1);
-          v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+          v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
         }
         v48 = a3 + 1;
         v49 = *((_WORD *)a3 + 3);
         v50 = v49;
-        v52 = dword_18018B744[v11] & v49;
+        v52 = dword_18018A744[v11] & v49;
         v11 = (unsigned int)v11;
         v51 = v52;
         v53 = &v5[-(v50 >> v11) - 1];
@@ -443,12 +443,12 @@ LABEL_75:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v55 = a3 + 1;
       v56 = *(_WORD *)(a3 + 7);
       v57 = v56;
-      v59 = dword_18018B744[v11] & v56;
+      v59 = dword_18018A744[v11] & v56;
       v11 = (unsigned int)v11;
       v58 = v59;
       v60 = &v5[-(v57 >> v11) - 1];
@@ -475,12 +475,12 @@ LABEL_82:
     while ( (unsigned __int64)v5 > v10 )
     {
       v11 = (unsigned int)(v11 - 1);
-      v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+      v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
     }
     v62 = a3 + 1;
     v63 = *((_WORD *)a3 + 4);
     v64 = v63;
-    v66 = dword_18018B744[v11] & v63;
+    v66 = dword_18018A744[v11] & v63;
     v11 = (unsigned int)v11;
     v65 = v66;
     v67 = &v5[-(v64 >> v11) - 1];
@@ -510,12 +510,12 @@ LABEL_82:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v119 = a3 + 1;
       v120 = *((_WORD *)a3 + 4);
       v121 = v120;
-      v123 = dword_18018B744[v11] & v120;
+      v123 = dword_18018A744[v11] & v120;
       v11 = (unsigned int)v11;
       v122 = v123;
       v124 = &v5[-(v121 >> v11) - 1];
@@ -553,12 +553,12 @@ LABEL_92:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v70 = a3 + 1;
       v71 = *(_WORD *)(a3 + 1);
       v72 = v71;
-      v74 = dword_18018B744[v11] & v71;
+      v74 = dword_18018A744[v11] & v71;
       v11 = (unsigned int)v11;
       v73 = v74;
       v75 = &v5[-(v72 >> v11) - 1];
@@ -591,12 +591,12 @@ LABEL_105:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v77 = a3 + 1;
       v78 = *((_WORD *)a3 + 1);
       v79 = v78;
-      v81 = dword_18018B744[v11] & v78;
+      v81 = dword_18018A744[v11] & v78;
       v11 = (unsigned int)v11;
       v80 = v81;
       v82 = &v5[-(v79 >> v11) - 1];
@@ -629,12 +629,12 @@ LABEL_118:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v84 = a3 + 1;
       v85 = *(_WORD *)(a3 + 3);
       v86 = v85;
-      v88 = dword_18018B744[v11] & v85;
+      v88 = dword_18018A744[v11] & v85;
       v11 = (unsigned int)v11;
       v87 = v88;
       v89 = &v5[-(v86 >> v11) - 1];
@@ -667,12 +667,12 @@ LABEL_131:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v91 = a3 + 1;
       v92 = *((_WORD *)a3 + 2);
       v93 = v92;
-      v95 = dword_18018B744[v11] & v92;
+      v95 = dword_18018A744[v11] & v92;
       v11 = (unsigned int)v11;
       v94 = v95;
       v96 = &v5[-(v93 >> v11) - 1];
@@ -705,12 +705,12 @@ LABEL_144:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v98 = a3 + 1;
       v99 = *(_WORD *)(a3 + 5);
       v100 = v99;
-      v102 = dword_18018B744[v11] & v99;
+      v102 = dword_18018A744[v11] & v99;
       v11 = (unsigned int)v11;
       v101 = v102;
       v103 = &v5[-(v100 >> v11) - 1];
@@ -743,12 +743,12 @@ LABEL_157:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v105 = a3 + 1;
       v106 = *((_WORD *)a3 + 3);
       v107 = v106;
-      v109 = dword_18018B744[v11] & v106;
+      v109 = dword_18018A744[v11] & v106;
       v11 = (unsigned int)v11;
       v108 = v109;
       v110 = &v5[-(v107 >> v11) - 1];
@@ -781,12 +781,12 @@ LABEL_170:
       while ( (unsigned __int64)v5 > v10 )
       {
         v11 = (unsigned int)(v11 - 1);
-        v10 = (unsigned __int64)&a1[dword_18018B700[v11]];
+        v10 = (unsigned __int64)&a1[dword_18018A700[v11]];
       }
       v112 = a3 + 1;
       v113 = *(_WORD *)(a3 + 7);
       v114 = v113;
-      v116 = dword_18018B744[v11] & v113;
+      v116 = dword_18018A744[v11] & v113;
       v11 = (unsigned int)v11;
       v115 = v116;
       v117 = &v5[-(v114 >> v11) - 1];

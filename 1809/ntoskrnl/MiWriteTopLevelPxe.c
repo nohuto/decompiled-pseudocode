@@ -1,17 +1,17 @@
 /*
- * XREFs of MiWriteTopLevelPxe @ 0x140170950
+ * XREFs of MiWriteTopLevelPxe @ 0x140170A50
  * Callers:
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
- *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
+ *     MiDeleteVa @ 0x1400696F0 (MiDeleteVa.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
+ *     MiMapNewSession @ 0x1407171D8 (MiMapNewSession.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWriteTopLevelPxe(__int64 *a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall MiWriteTopLevelPxe(__int64 *a1, __int64 a2)
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   v4 = MiPteInShadowRange((unsigned __int64)a1);
   v5 = 0;
   if ( (a2 & 1) != 0 )
@@ -33,7 +33,7 @@ __int64 __fastcall MiWriteTopLevelPxe(__int64 *a1, __int64 a2)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v5 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_3;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

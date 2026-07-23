@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEmulateAtlThunk @ 0x1405269D0
+ * XREFs of KiEmulateAtlThunk @ 0x140526C10
  * Callers:
- *     KiCheckForAtlThunk @ 0x140524544 (KiCheckForAtlThunk.c)
+ *     KiCheckForAtlThunk @ 0x140524784 (KiCheckForAtlThunk.c)
  * Callees:
- *     MmCheckForSafeExecution @ 0x1408D0F40 (MmCheckForSafeExecution.c)
+ *     MmCheckForSafeExecution @ 0x1408D10A0 (MmCheckForSafeExecution.c)
  */
 
 __int64 __fastcall KiEmulateAtlThunk(unsigned int *a1, _DWORD *a2, unsigned int *a3, unsigned int *a4, _DWORD *a5)

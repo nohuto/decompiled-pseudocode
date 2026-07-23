@@ -1,24 +1,24 @@
 /*
- * XREFs of MiLocateCloneAddress @ 0x1400BDB00
+ * XREFs of MiLocateCloneAddress @ 0x1400BB990
  * Callers:
- *     MiCopyToUserVa @ 0x140014B50 (MiCopyToUserVa.c)
- *     MiTrimThisWsle @ 0x140016960 (MiTrimThisWsle.c)
- *     MiProbeLeafFrame @ 0x14002FDC0 (MiProbeLeafFrame.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiDeletePteRun @ 0x140065140 (MiDeletePteRun.c)
- *     MiComputePageCommitment @ 0x140096300 (MiComputePageCommitment.c)
- *     MiGetPfnProtection @ 0x1400B8AB0 (MiGetPfnProtection.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MiGetPageProtection @ 0x1400BD710 (MiGetPageProtection.c)
- *     MiDeletePteList @ 0x1400DFAC0 (MiDeletePteList.c)
- *     MiProtectPrivateMemory @ 0x1400E1040 (MiProtectPrivateMemory.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiCheckCommitReleaseFromVad @ 0x1401DF4E0 (MiCheckCommitReleaseFromVad.c)
- *     MiSplitReducedCommitClonePage @ 0x1401E2F58 (MiSplitReducedCommitClonePage.c)
+ *     MiCopyToUserVa @ 0x1400146D0 (MiCopyToUserVa.c)
+ *     MiTrimThisWsle @ 0x1400164E0 (MiTrimThisWsle.c)
+ *     MiProbeLeafFrame @ 0x14002F940 (MiProbeLeafFrame.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiDeletePteRun @ 0x140064CC0 (MiDeletePteRun.c)
+ *     MiComputePageCommitment @ 0x140095B00 (MiComputePageCommitment.c)
+ *     MiGetPfnProtection @ 0x1400B6940 (MiGetPfnProtection.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MiGetPageProtection @ 0x1400BB5A0 (MiGetPageProtection.c)
+ *     MiDeletePteList @ 0x1400DD960 (MiDeletePteList.c)
+ *     MiProtectPrivateMemory @ 0x1400DEEE0 (MiProtectPrivateMemory.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1401DF30C (MiCheckCommitReleaseFromVad.c)
+ *     MiSplitReducedCommitClonePage @ 0x1401E2D84 (MiSplitReducedCommitClonePage.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmIsFileMapped @ 0x1408EF744
+ * XREFs of MmIsFileMapped @ 0x140860F44
  * Callers:
- *     IopQueryProcessIdsUsingFile @ 0x1408EF610 (IopQueryProcessIdsUsingFile.c)
+ *     IopQueryProcessIdsUsingFile @ 0x140860E10 (IopQueryProcessIdsUsingFile.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     MiUnlockVadShared @ 0x1402BA960 (MiUnlockVadShared.c)
- *     MiLockVadShared @ 0x1402FC580 (MiLockVadShared.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140404438 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404044B8 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     MiDereferenceControlAreaFile @ 0x14042C500 (MiDereferenceControlAreaFile.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     MiLockVadShared @ 0x140345480 (MiLockVadShared.c)
+ *     MiUnlockVadShared @ 0x1403620A0 (MiUnlockVadShared.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403C63D8 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403C6458 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x14041F2B0 (MiDereferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmIsFileMapped(struct _KPROCESS *a1, __int64 a2)
@@ -31,6 +31,8 @@ __int64 __fastcall MmIsFileMapped(struct _KPROCESS *a1, __int64 a2)
   __int64 *v13; // rax
   __int64 v14; // r14
   ULONG_PTR v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
   struct _KAPC_STATE ApcState; // [rsp+28h] [rbp-70h] BYREF
 
   v2 = *(_QWORD *)(a2 + 40);
@@ -103,6 +105,6 @@ __int64 __fastcall MmIsFileMapped(struct _KPROCESS *a1, __int64 a2)
   }
   UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, v4);
   if ( v6 )
-    KiUnstackDetachProcess((__int64)&ApcState, 0);
+    KiUnstackDetachProcess((__int64)&ApcState, 0, v16, v17);
   return v3;
 }

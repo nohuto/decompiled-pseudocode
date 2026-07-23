@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPfAllocateMdls @ 0x140956EEC
+ * XREFs of MiPfAllocateMdls @ 0x14093A89C
  * Callers:
- *     MiPfPrepareReadList @ 0x1409557EC (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x14093919C (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiEndingOffsetWithLock @ 0x14023A3EC (MiEndingOffsetWithLock.c)
- *     MiStartingOffset @ 0x140244020 (MiStartingOffset.c)
- *     MiGetInPageSupportBlock @ 0x1402E42D0 (MiGetInPageSupportBlock.c)
- *     MiFreeInPageSupportBlock @ 0x1402EEC40 (MiFreeInPageSupportBlock.c)
- *     MiGetSharedProtos @ 0x1403025FC (MiGetSharedProtos.c)
- *     MmCreateMdl @ 0x14045AB70 (MmCreateMdl.c)
- *     MiSetInPagePriority @ 0x14046AEC0 (MiSetInPagePriority.c)
+ *     MiStartingOffset @ 0x14020C7B0 (MiStartingOffset.c)
+ *     MiEndingOffsetWithLock @ 0x1402724D4 (MiEndingOffsetWithLock.c)
+ *     MiGetSharedProtos @ 0x14030CC0C (MiGetSharedProtos.c)
+ *     MiGetInPageSupportBlock @ 0x1403DC710 (MiGetInPageSupportBlock.c)
+ *     MiFreeInPageSupportBlock @ 0x140427430 (MiFreeInPageSupportBlock.c)
+ *     MmCreateMdl @ 0x14044FFA0 (MmCreateMdl.c)
+ *     MiSetInPagePriority @ 0x14046393C (MiSetInPagePriority.c)
  */
 
 __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, _SLIST_ENTRY *a3, volatile signed __int64 *a4)
@@ -36,45 +36,46 @@ __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, _SLIST_ENTRY *a
   unsigned __int64 v22; // rax
   __int64 v23; // rdx
   __int64 v24; // r8
-  PSLIST_ENTRY *v25; // rcx
-  unsigned __int64 v27; // rdx
-  ULONG v28; // eax
+  __int64 v25; // r9
+  PSLIST_ENTRY *v26; // rcx
+  unsigned __int64 v28; // rdx
+  ULONG v29; // eax
   __int64 SharedProtos; // rax
-  unsigned __int64 v30; // rcx
-  unsigned int v31; // [rsp+20h] [rbp-98h]
-  _QWORD *v32; // [rsp+28h] [rbp-90h]
-  unsigned int v33; // [rsp+30h] [rbp-88h]
-  unsigned int v34; // [rsp+34h] [rbp-84h]
-  __int64 *v35; // [rsp+38h] [rbp-80h]
-  unsigned __int64 *v36; // [rsp+40h] [rbp-78h]
+  unsigned __int64 v31; // rcx
+  unsigned int v32; // [rsp+20h] [rbp-98h]
+  _QWORD *v33; // [rsp+28h] [rbp-90h]
+  unsigned int v34; // [rsp+30h] [rbp-88h]
+  unsigned int v35; // [rsp+34h] [rbp-84h]
+  __int64 *v36; // [rsp+38h] [rbp-80h]
+  unsigned __int64 *v37; // [rsp+40h] [rbp-78h]
   PMDL Mdl; // [rsp+48h] [rbp-70h]
-  __int64 v38; // [rsp+50h] [rbp-68h]
-  PSLIST_ENTRY v39; // [rsp+58h] [rbp-60h]
-  unsigned __int64 v40; // [rsp+60h] [rbp-58h]
-  unsigned __int64 v41; // [rsp+68h] [rbp-50h]
+  __int64 v39; // [rsp+50h] [rbp-68h]
+  PSLIST_ENTRY v40; // [rsp+58h] [rbp-60h]
+  unsigned __int64 v41; // [rsp+60h] [rbp-58h]
+  unsigned __int64 v42; // [rsp+68h] [rbp-50h]
 
   v4 = 0;
   v5 = *(_DWORD *)(a1 + 184);
   v6 = *(unsigned __int64 **)(a1 + 200);
   v7 = a4;
-  v33 = *(_DWORD *)(a1 + 188);
+  v34 = *(_DWORD *)(a1 + 188);
   v8 = 0LL;
   v9 = 0LL;
   v10 = v6 + 1;
-  v34 = v5;
-  v38 = *(_QWORD *)(a1 + 8);
+  v35 = v5;
+  v39 = *(_QWORD *)(a1 + 8);
   v11 = a1 + 8 * (*(unsigned int *)(a1 + 196) + 30LL);
-  v31 = 0;
-  v12 = v38 + 128;
-  v41 = v11;
-  v35 = 0LL;
-  v13 = 0LL;
+  v32 = 0;
+  v12 = v39 + 128;
+  v42 = v11;
   v36 = 0LL;
+  v13 = 0LL;
+  v37 = 0LL;
   if ( *(_QWORD *)(a1 + 16) )
     v12 = *(_QWORD *)(a1 + 16);
   while ( 1 )
   {
-    v32 = v10;
+    v33 = v10;
     if ( (unsigned __int64)v6 >= v11 )
       return v4;
     v14 = *v6;
@@ -86,7 +87,7 @@ __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, _SLIST_ENTRY *a
           goto LABEL_12;
 LABEL_11:
         --v6;
-        v32 = v10 - 1;
+        v33 = v10 - 1;
         goto LABEL_12;
       }
       if ( v14 < 4 )
@@ -96,19 +97,19 @@ LABEL_11:
     {
       if ( v14 >= 4 )
       {
-        v27 = v14 & 0xFFFFFFFFFFFFFFFCuLL;
+        v28 = v14 & 0xFFFFFFFFFFFFFFFCuLL;
         if ( v8 )
         {
-          if ( (__int64)(v27 - v13) >> 3 > dword_140E37294 )
+          if ( (__int64)(v28 - v13) >> 3 > dword_140E373D4 )
             goto LABEL_11;
         }
         else
         {
           v9 = v6;
-          v36 = v6;
+          v37 = v6;
         }
         v8 = v6;
-        v13 = v27;
+        v13 = v28;
       }
       if ( !v8 )
         goto LABEL_9;
@@ -118,13 +119,13 @@ LABEL_11:
       v15 = v14 & 0xFFFFFFFFFFFFFFFCuLL;
       if ( v8 )
       {
-        if ( (__int64)(v15 - v13) >> 3 > dword_140E37294 )
+        if ( (__int64)(v15 - v13) >> 3 > dword_140E373D4 )
           goto LABEL_11;
       }
       else
       {
         v9 = v6;
-        v36 = v6;
+        v37 = v6;
       }
       v8 = v6;
       v13 = v15;
@@ -132,21 +133,21 @@ LABEL_11:
         goto LABEL_9;
     }
 LABEL_12:
-    v40 = *v8 & 0xFFFFFFFFFFFFFFFCuLL;
+    v41 = *v8 & 0xFFFFFFFFFFFFFFFCuLL;
     v16 = *v9 & 0xFFFFFFFFFFFFFFFCuLL;
-    v17 = ((__int64)(v40 - v16) >> 3) + 1;
+    v17 = ((__int64)(v41 - v16) >> 3) + 1;
     v18 = MiGetInPageSupportBlock(0, v7);
-    v39 = v18;
+    v40 = v18;
     v19 = v18;
     if ( !v18 )
       return (unsigned int)-1073741670;
     *((_QWORD *)&v18[15].Next + 1) = 0LL;
-    MiSetInPagePriority((__int64)v18, v33, v5);
+    MiSetInPagePriority((__int64)v18, v34, v5);
     v20 = v17 << 12;
     if ( v17 <= 0x10 )
     {
       Mdl = (PMDL)&v19[17];
-      *((_WORD *)&v19[17].Next + 4) = 8 * (((__int64)(v40 - v16) >> 3) + 7);
+      *((_WORD *)&v19[17].Next + 4) = 8 * (((__int64)(v41 - v16) >> 3) + 7);
       v19[17].Next = 0LL;
       *((_WORD *)&v19[17].Next + 5) = 0;
       v19[19].Next = 0LL;
@@ -165,37 +166,37 @@ LABEL_15:
       v21 = *(_QWORD *)(v12 + 8);
       if ( v16 >= v21 && v16 < v21 + 8LL * *(unsigned int *)(v12 + 44) )
         break;
-      if ( (*(_DWORD *)(v12 + 32) & 0x20000) != 0 && (*(_DWORD *)(v38 + 56) & 0x8000000) != 0 )
+      if ( (*(_DWORD *)(v12 + 32) & 0x20000) != 0 && (*(_DWORD *)(v39 + 56) & 0x8000000) != 0 )
       {
         if ( *(_QWORD *)(v12 + 24) )
         {
-          SharedProtos = MiGetSharedProtos(v38, a2, v12);
+          SharedProtos = MiGetSharedProtos(v39, a2, v12);
           if ( SharedProtos )
           {
-            v30 = *(_QWORD *)(SharedProtos + 72);
-            if ( v16 >= v30 && v16 < v30 + 8LL * *(unsigned int *)(v12 + 44) )
+            v31 = *(_QWORD *)(SharedProtos + 72);
+            if ( v16 >= v31 && v16 < v31 + 8LL * *(unsigned int *)(v12 + 44) )
               break;
           }
         }
       }
       if ( *(_QWORD *)(a1 + 16) )
       {
-        if ( !v35 )
+        if ( !v36 )
         {
-          v35 = *(__int64 **)(a1 + 24);
-          v12 = v35[3];
+          v36 = *(__int64 **)(a1 + 24);
+          v12 = v36[3];
           goto LABEL_46;
         }
-        if ( v31 >= *((_DWORD *)v35 + 4) )
+        if ( v32 >= *((_DWORD *)v36 + 4) )
         {
-          v35 = (__int64 *)*v35;
-          v12 = v35[3];
+          v36 = (__int64 *)*v36;
+          v12 = v36[3];
 LABEL_46:
-          v31 = 1;
+          v32 = 1;
         }
         else
         {
-          v12 = v35[v31++ + 3];
+          v12 = v36[v32++ + 3];
         }
       }
       else
@@ -204,34 +205,34 @@ LABEL_46:
       }
     }
     v22 = MiStartingOffset((__int64 *)v12, v16, a2);
-    v39[6].Next = (_SLIST_ENTRY *)v22;
-    if ( (*(_BYTE *)v8 & 1) != 0 && (*(_DWORD *)(v38 + 56) & 0x20) != 0 )
+    v40[6].Next = (_SLIST_ENTRY *)v22;
+    if ( (*(_BYTE *)v8 & 1) != 0 && (*(_DWORD *)(v39 + 56) & 0x20) != 0 )
     {
-      v28 = MiEndingOffsetWithLock((_QWORD *)v12, v23, v24) - v22;
-      if ( v28 <= Mdl->ByteCount )
-        Mdl->ByteCount = (v28 + 511) & 0xFFFFFE00;
+      v29 = MiEndingOffsetWithLock((_QWORD *)v12, v23, v24, v25) - v22;
+      if ( v29 <= Mdl->ByteCount )
+        Mdl->ByteCount = (v29 + 511) & 0xFFFFFE00;
     }
-    v9 = v36;
-    v39[15].Next = (_SLIST_ENTRY *)v36;
-    *((_QWORD *)&v39[12].Next + 1) = v8;
-    v39[13].Next = (_SLIST_ENTRY *)v12;
-    v39[14].Next = a3;
+    v9 = v37;
+    v40[15].Next = (_SLIST_ENTRY *)v37;
+    *((_QWORD *)&v40[12].Next + 1) = v8;
+    v40[13].Next = (_SLIST_ENTRY *)v12;
+    v40[14].Next = a3;
     if ( a3 )
-      LODWORD(v39[12].Next) |= 0x20000u;
-    v39[16].Next = (_SLIST_ENTRY *)Mdl;
-    v25 = *(PSLIST_ENTRY **)(a1 + 232);
-    if ( *v25 != (PSLIST_ENTRY)(a1 + 224) )
+      LODWORD(v40[12].Next) |= 0x20000u;
+    v40[16].Next = (_SLIST_ENTRY *)Mdl;
+    v26 = *(PSLIST_ENTRY **)(a1 + 232);
+    if ( *v26 != (PSLIST_ENTRY)(a1 + 224) )
       __fastfail(3u);
-    v10 = v32;
+    v10 = v33;
     v8 = 0LL;
-    v11 = v41;
-    v5 = v34;
-    v39->Next = (_SLIST_ENTRY *)(a1 + 224);
-    *((_QWORD *)&v39->Next + 1) = v25;
-    *v25 = v39;
-    *(_QWORD *)(a1 + 232) = v39;
+    v11 = v42;
+    v5 = v35;
+    v40->Next = (_SLIST_ENTRY *)(a1 + 224);
+    *((_QWORD *)&v40->Next + 1) = v26;
+    *v26 = v40;
+    *(_QWORD *)(a1 + 232) = v40;
     ++*(_DWORD *)(a1 + 212);
-    v13 = v40;
+    v13 = v41;
     v7 = a4;
 LABEL_9:
     ++v6;

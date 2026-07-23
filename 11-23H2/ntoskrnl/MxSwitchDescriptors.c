@@ -3,8 +3,8 @@
  * Callers:
  *     MxGetNextPage @ 0x140B433B4 (MxGetNextPage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiFindHighestDescriptorByNode @ 0x140617A08 (MiFindHighestDescriptorByNode.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiFindHighestDescriptorByNode @ 0x140617F58 (MiFindHighestDescriptorByNode.c)
  *     MiInitializeBootMemoryDescriptor @ 0x140B43680 (MiInitializeBootMemoryDescriptor.c)
  */
 

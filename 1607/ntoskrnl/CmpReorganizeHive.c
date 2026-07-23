@@ -1,39 +1,39 @@
 /*
- * XREFs of CmpReorganizeHive @ 0x14047FA2C
+ * XREFs of CmpReorganizeHive @ 0x14047E780
  * Callers:
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
  * Callees:
- *     RtlSetAllBits @ 0x1400055D0 (RtlSetAllBits.c)
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
- *     CmCheckRegistry @ 0x140480374 (CmCheckRegistry.c)
- *     CmpDestroySecurityCache @ 0x14049FDD4 (CmpDestroySecurityCache.c)
- *     CmpCopyKeyPartial @ 0x1404EBDEC (CmpCopyKeyPartial.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvMarkBaseBlockDirty @ 0x140564650 (HvMarkBaseBlockDirty.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x14057C8C8 (CmpUpdateReorganizeRegistryValues.c)
- *     CmpLogReorganizeEvent @ 0x1405FC540 (CmpLogReorganizeEvent.c)
- *     CmpClearKeyAccessBits @ 0x140603774 (CmpClearKeyAccessBits.c)
- *     CmpCopySyncTree @ 0x1406081A4 (CmpCopySyncTree.c)
- *     CmpCreateTemporaryHive @ 0x14060D1EC (CmpCreateTemporaryHive.c)
- *     CmpDestroyTemporaryHive @ 0x14060D2A0 (CmpDestroyTemporaryHive.c)
- *     HvViewMapAddressForFileOffset @ 0x14060FA68 (HvViewMapAddressForFileOffset.c)
- *     HvViewMapPinForFileOffset @ 0x14060FC6C (HvViewMapPinForFileOffset.c)
+ *     RtlSetAllBits @ 0x140005744 (RtlSetAllBits.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
+ *     CmCheckRegistry @ 0x14047F0C8 (CmCheckRegistry.c)
+ *     CmpCopyKeyPartial @ 0x1404CDE74 (CmpCopyKeyPartial.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     CmpDestroySecurityCache @ 0x1405181E0 (CmpDestroySecurityCache.c)
+ *     HvMarkBaseBlockDirty @ 0x140564B90 (HvMarkBaseBlockDirty.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x14057CD74 (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpLogReorganizeEvent @ 0x1405FC5F4 (CmpLogReorganizeEvent.c)
+ *     CmpClearKeyAccessBits @ 0x140603828 (CmpClearKeyAccessBits.c)
+ *     CmpCopySyncTree @ 0x140608258 (CmpCopySyncTree.c)
+ *     CmpCreateTemporaryHive @ 0x14060D2A0 (CmpCreateTemporaryHive.c)
+ *     CmpDestroyTemporaryHive @ 0x14060D354 (CmpDestroyTemporaryHive.c)
+ *     HvViewMapAddressForFileOffset @ 0x14060FB1C (HvViewMapAddressForFileOffset.c)
+ *     HvViewMapPinForFileOffset @ 0x14060FD20 (HvViewMapPinForFileOffset.c)
  */
 
 __int64 __fastcall CmpReorganizeHive(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -254,7 +254,7 @@ LABEL_10:
       v116 = v20;
       v139 = &v116;
       v140 = 4LL;
-      TlgWrite(&stru_1402F34E0, &unk_14027AF97, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&stru_1402F34E0, &unk_14027B097, 0LL, 0LL, 3u, &pData);
     }
 LABEL_29:
     *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 168LL) = v115;
@@ -279,7 +279,7 @@ LABEL_29:
       v113 = v22;
       v135 = 4LL;
       v137 = 4LL;
-      TlgWrite(&stru_1402F34E0, &unk_14027AF3F, 0LL, 0LL, 4u, &v133);
+      TlgWrite(&stru_1402F34E0, &unk_14027B03F, 0LL, 0LL, 4u, &v133);
     }
     goto LABEL_29;
   }
@@ -627,7 +627,7 @@ LABEL_115:
           v128 = 8LL;
           v130 = 4LL;
           v132 = 4LL;
-          TlgWrite(&stru_1402F34E0, &unk_14027AEF9, 0LL, 0LL, 5u, &v126);
+          TlgWrite(&stru_1402F34E0, &unk_14027AFF9, 0LL, 0LL, 5u, &v126);
         }
       }
       v108.QuadPart = v115;
@@ -670,7 +670,7 @@ LABEL_119:
       LODWORD(v115) = v18;
       v142 = &v115;
       v143 = 4LL;
-      TlgWrite(&stru_1402F34E0, &unk_14027AEC7, 0LL, 0LL, 3u, &v141);
+      TlgWrite(&stru_1402F34E0, &unk_14027AFC7, 0LL, 0LL, 3u, &v141);
     }
   }
   return (unsigned int)v18;

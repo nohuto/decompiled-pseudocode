@@ -1,22 +1,22 @@
 /*
- * XREFs of SepIsSystemAppTCB @ 0x140A28568
+ * XREFs of SepIsSystemAppTCB @ 0x140A3B608
  * Callers:
- *     SeQuerySigningPolicy @ 0x140A283BC (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x140A3B45C (SeQuerySigningPolicy.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     SepIsImageInMinTcbList @ 0x140A88634 (SepIsImageInMinTcbList.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     SepIsImageInMinTcbList @ 0x14097A150 (SepIsImageInMinTcbList.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
  */
 
 __int64 __fastcall SepIsSystemAppTCB(
         PCUNICODE_STRING String2,
-        unsigned int a2,
-        char a3,
+        char a2,
+        unsigned __int8 a3,
         char a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7)
+        char *a5,
+        char *a6,
+        unsigned __int8 *a7)
 {
   unsigned __int64 CurrentServerSilo; // rax
   const UNICODE_STRING **ServerSiloGlobals; // rax
@@ -27,11 +27,9 @@ __int64 __fastcall SepIsSystemAppTCB(
   __int64 v18; // rcx
   wchar_t *Buffer; // rax
   unsigned __int64 v20; // rdx
-  char v21; // [rsp+20h] [rbp-58h]
-  char v22; // [rsp+28h] [rbp-50h]
-  __int128 v23; // [rsp+50h] [rbp-28h] BYREF
+  UNICODE_STRING v21; // [rsp+50h] [rbp-28h] BYREF
 
-  v23 = 0LL;
+  v21 = 0LL;
   CurrentServerSilo = PsGetCurrentServerSilo();
   ServerSiloGlobals = (const UNICODE_STRING **)PsGetServerSiloGlobals(CurrentServerSilo);
   v13 = ServerSiloGlobals;
@@ -50,17 +48,15 @@ __int64 __fastcall SepIsSystemAppTCB(
       return 3221226021LL;
     v15 = v13[96][3].Length;
   }
-  else if ( !RtlPrefixUnicodeString(&stru_140004190, String2, 1u) )
+  else if ( !RtlPrefixUnicodeString(&stru_1400041B0, String2, 1u) )
   {
     return 3221226021LL;
   }
   v18 = (unsigned __int16)(String2->Length - v15);
   Buffer = String2->Buffer;
   v20 = ((unsigned __int64)String2->Length - v18) >> 1;
-  LOWORD(v23) = String2->Length - v15;
-  WORD1(v23) = v18;
-  *((_QWORD *)&v23 + 1) = &Buffer[v20];
-  v22 = a4;
-  v21 = a3;
-  return SepIsImageInMinTcbList(L"hj", 2LL, &v23, a2, v21, v22, a5, a6, a7);
+  v21.Length = String2->Length - v15;
+  v21.MaximumLength = v18;
+  v21.Buffer = &Buffer[v20];
+  return SepIsImageInMinTcbList((__int64)L"hj", 2u, &v21, a2, a3, a4, a5, a6, a7);
 }

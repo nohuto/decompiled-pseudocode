@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSetMaximumCountPriQueue @ 0x14029C1AC
+ * XREFs of KeSetMaximumCountPriQueue @ 0x14029C39C
  * Callers:
- *     ExpWorkQueueManagerThread @ 0x140740AA0 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x140741C90 (ExpWorkQueueManagerThread.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of WheaAttemptPhysicalPageOffline @ 0x1408DBA00
+ * XREFs of WheaAttemptPhysicalPageOffline @ 0x1408DCCC0
  * Callers:
- *     KiMcheckAlternateReturn @ 0x14029DD50 (KiMcheckAlternateReturn.c)
- *     WheapPfaMemoryCheck @ 0x1408DCAB8 (WheapPfaMemoryCheck.c)
- *     WheapPredictiveFailureAnalysis @ 0x1408DCF44 (WheapPredictiveFailureAnalysis.c)
+ *     KiMcheckAlternateReturn @ 0x14029DF40 (KiMcheckAlternateReturn.c)
+ *     WheapPfaMemoryCheck @ 0x1408DDD78 (WheapPfaMemoryCheck.c)
+ *     WheapPredictiveFailureAnalysis @ 0x1408DE204 (WheapPredictiveFailureAnalysis.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408DBD4C (WheapAttemptPhysicalPageOffline.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1408DD00C (WheapAttemptPhysicalPageOffline.c)
  */
 
 __int64 __fastcall WheaAttemptPhysicalPageOffline(__int64 a1, __int64 a2, __int64 a3)

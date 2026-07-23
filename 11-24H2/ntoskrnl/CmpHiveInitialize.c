@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpHiveInitialize @ 0x140930F30
+ * XREFs of CmpHiveInitialize @ 0x140933070
  * Callers:
- *     CmpCreateEmptyHiveClone @ 0x1407DE510 (CmpCreateEmptyHiveClone.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407DEA60 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpInitSecurityCache @ 0x140930FF4 (CmpInitSecurityCache.c)
- *     HvHiveInitialize @ 0x140931030 (HvHiveInitialize.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpInitSecurityCache @ 0x140933134 (CmpInitSecurityCache.c)
+ *     HvHiveInitialize @ 0x140933170 (HvHiveInitialize.c)
  */
 
 __int64 (__fastcall *__fastcall CmpHiveInitialize(__int64 a1, _QWORD *a2))()

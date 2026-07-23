@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlStringCchLengthW @ 0x14042EE70
+ * XREFs of RtlStringCchLengthW @ 0x140420BA0
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x1405EE95C (RtlpIdnToUnicodeWorker.c)
- *     RtlpNameprepAsciiRealWorker @ 0x1405EEC18 (RtlpNameprepAsciiRealWorker.c)
- *     PiCMGenerateDeviceInstance @ 0x14073136C (PiCMGenerateDeviceInstance.c)
- *     PpmRegisterProfiles @ 0x140763BDC (PpmRegisterProfiles.c)
- *     PopPlInitWString @ 0x14076570C (PopPlInitWString.c)
- *     TtmNotifyDeviceArrival @ 0x140768290 (TtmNotifyDeviceArrival.c)
- *     RtlpValidAttribute @ 0x1407807B4 (RtlpValidAttribute.c)
- *     SdbpGetMergeRedirectPathInternal @ 0x140801804 (SdbpGetMergeRedirectPathInternal.c)
- *     SdbpSafeAllocAndConcatW @ 0x140801E9C (SdbpSafeAllocAndConcatW.c)
- *     AslPathCombine @ 0x140809C70 (AslPathCombine.c)
- *     PiUEventCopyEventData @ 0x14085B840 (PiUEventCopyEventData.c)
- *     PiUEventHandleRegistration @ 0x14085BCBC (PiUEventHandleRegistration.c)
- *     PnpGetDeviceDependencyList @ 0x140A0DA98 (PnpGetDeviceDependencyList.c)
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140AA9BA0 (DbgkWerCaptureLiveKernelDump2.c)
- *     PiCMCreateDevice @ 0x140AB4970 (PiCMCreateDevice.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1405EBF3C (RtlpIdnToUnicodeWorker.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x1405EC1F8 (RtlpNameprepAsciiRealWorker.c)
+ *     PiCMGenerateDeviceInstance @ 0x14072F37C (PiCMGenerateDeviceInstance.c)
+ *     PpmRegisterProfiles @ 0x1407635A0 (PpmRegisterProfiles.c)
+ *     PopPlInitWString @ 0x1407650DC (PopPlInitWString.c)
+ *     TtmNotifyDeviceArrival @ 0x1407684B0 (TtmNotifyDeviceArrival.c)
+ *     RtlpValidAttribute @ 0x1407806E4 (RtlpValidAttribute.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140801F44 (SdbpGetMergeRedirectPathInternal.c)
+ *     SdbpSafeAllocAndConcatW @ 0x1408025DC (SdbpSafeAllocAndConcatW.c)
+ *     AslPathCombine @ 0x14080A3B0 (AslPathCombine.c)
+ *     PiUEventCopyEventData @ 0x1408575B0 (PiUEventCopyEventData.c)
+ *     PiUEventHandleRegistration @ 0x140857A2C (PiUEventHandleRegistration.c)
+ *     PnpGetDeviceDependencyList @ 0x1409BBE9C (PnpGetDeviceDependencyList.c)
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x140AA4C50 (DbgkWerCaptureLiveKernelDump2.c)
+ *     PiCMCreateDevice @ 0x140AB39A4 (PiCMCreateDevice.c)
  * Callees:
  *     <none>
  */

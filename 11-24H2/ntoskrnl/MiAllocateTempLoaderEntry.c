@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateTempLoaderEntry @ 0x140A18B30
+ * XREFs of MiAllocateTempLoaderEntry @ 0x140A11CA0
  * Callers:
- *     MiObtainSectionForDriver @ 0x140A18544 (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x140A116B4 (MiObtainSectionForDriver.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
  */
 
 __int64 MiAllocateTempLoaderEntry()

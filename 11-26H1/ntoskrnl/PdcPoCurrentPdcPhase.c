@@ -1,27 +1,26 @@
 /*
- * XREFs of PdcPoCurrentPdcPhase @ 0x14060D4E0
+ * XREFs of PdcPoCurrentPdcPhase @ 0x1406105F0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     PopFxPauseDeviceAccounting @ 0x1403949DC (PopFxPauseDeviceAccounting.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1403B6230 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1403B63C4 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
- *     PopFxResumeDeviceAccounting @ 0x1404AF898 (PopFxResumeDeviceAccounting.c)
- *     Feature_PDCSuspendResumeNotifications__private_IsEnabledDeviceUsageNoInline @ 0x140526A8C (Feature_PDCSuspendResumeNotifications__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline @ 0x1406004D0 (Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopPowerAggregatorNotifyPdcPhaseState @ 0x1407D6C24 (PopPowerAggregatorNotifyPdcPhaseState.c)
- *     PopPowerAggregatorNotifyResiliencyReached @ 0x1407D6D8C (PopPowerAggregatorNotifyResiliencyReached.c)
- *     PopIdleCsStateChanged @ 0x1407DA1D0 (PopIdleCsStateChanged.c)
- *     PopNetResiliencyPhaseStateChanged @ 0x1407DA8C0 (PopNetResiliencyPhaseStateChanged.c)
- *     PopAdaptiveStandbyNotifyShellPhaseState @ 0x1407DFFD0 (PopAdaptiveStandbyNotifyShellPhaseState.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x140A3EEB4 (PopDisarmIdlePhaseWatchdog.c)
- *     PopSuspendResumeInvocation @ 0x140B35570 (PopSuspendResumeInvocation.c)
- *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140B41C58 (PopPowerAggregatorNotifyPdcSleepTransition.c)
- *     PopSmartSuspendMakePredictions @ 0x140B6B6EC (PopSmartSuspendMakePredictions.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     PopFxPauseDeviceAccounting @ 0x14039675C (PopFxPauseDeviceAccounting.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1403C0130 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1403C02C4 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     PopFxResumeDeviceAccounting @ 0x1404A8F28 (PopFxResumeDeviceAccounting.c)
+ *     Feature_PDCSuspendResumeNotifications__private_IsEnabledDeviceUsageNoInline @ 0x1405290FC (Feature_PDCSuspendResumeNotifications__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopPowerAggregatorNotifyPdcPhaseState @ 0x1407D9D94 (PopPowerAggregatorNotifyPdcPhaseState.c)
+ *     PopPowerAggregatorNotifyResiliencyReached @ 0x1407D9EBC (PopPowerAggregatorNotifyResiliencyReached.c)
+ *     PopIdleCsStateChanged @ 0x1407DE134 (PopIdleCsStateChanged.c)
+ *     PopNetResiliencyPhaseStateChanged @ 0x1407DE7B0 (PopNetResiliencyPhaseStateChanged.c)
+ *     PopAdaptiveStandbyNotifyShellPhaseState @ 0x1407E4A18 (PopAdaptiveStandbyNotifyShellPhaseState.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1409FA8D4 (PopDisarmIdlePhaseWatchdog.c)
+ *     PopSuspendResumeInvocation @ 0x140B37780 (PopSuspendResumeInvocation.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140B43B48 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopSmartSuspendMakePredictions @ 0x140B6E7E8 (PopSmartSuspendMakePredictions.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoCurrentPdcPhase(int a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -82,15 +81,15 @@ __int64 __fastcall PdcPoCurrentPdcPhase(int a1, __int64 a2, unsigned int a3, uns
           PerformanceCounter = KeQueryPerformanceCounter(0LL);
           if ( v5 )
           {
-            qword_140E26F80 = PerformanceCounter.QuadPart;
+            qword_140E270C0 = PerformanceCounter.QuadPart;
             PopDeepSleepResiliencyPhaseAccountingBegin(3u, 0);
-            if ( LODWORD(stru_140E66FF0.SchedulerAssistLastYieldBoostTime) == 2 )
+            if ( dword_140E676E0 == 2 )
               PopFxResumeDeviceAccounting(v17, v16, v18, v19);
           }
           else
           {
-            qword_140E26F88 += PerformanceCounter.QuadPart - qword_140E26F80;
-            if ( LODWORD(stru_140E66FF0.SchedulerAssistLastYieldBoostTime) == 2 )
+            qword_140E270C8 += PerformanceCounter.QuadPart - qword_140E270C0;
+            if ( dword_140E676E0 == 2 )
               PopFxPauseDeviceAccounting(
                 v13.QuadPart,
                 v12.QuadPart,
@@ -129,10 +128,7 @@ __int64 __fastcall PdcPoCurrentPdcPhase(int a1, __int64 a2, unsigned int a3, uns
   PopPowerAggregatorNotifyPdcPhaseState(2LL, a2);
   LOBYTE(v21) = v5 != 0;
   PopIdleCsStateChanged(v21);
-  if ( (unsigned int)Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline() )
-  {
-    LOBYTE(v22) = v5;
-    PopAdaptiveStandbyNotifyShellPhaseState(v22);
-  }
+  LOBYTE(v22) = v5;
+  PopAdaptiveStandbyNotifyShellPhaseState(v22);
   return v4;
 }

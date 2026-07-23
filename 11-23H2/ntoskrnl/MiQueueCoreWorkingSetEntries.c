@@ -1,10 +1,10 @@
 /*
- * XREFs of MiQueueCoreWorkingSetEntries @ 0x1402E3190
+ * XREFs of MiQueueCoreWorkingSetEntries @ 0x1402E3420
  * Callers:
- *     MiResolveTransitionFault @ 0x1402624D0 (MiResolveTransitionFault.c)
- *     MiCompleteRestrictedImageFault @ 0x1402E2E50 (MiCompleteRestrictedImageFault.c)
+ *     MiResolveTransitionFault @ 0x140262760 (MiResolveTransitionFault.c)
+ *     MiCompleteRestrictedImageFault @ 0x1402E30E0 (MiCompleteRestrictedImageFault.c)
  * Callees:
- *     MiEmptyDeferredWorkingSetEntries @ 0x140339CD0 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140339F60 (MiEmptyDeferredWorkingSetEntries.c)
  */
 
 __int64 __fastcall MiQueueCoreWorkingSetEntries(__int64 a1, unsigned int a2, __int64 a3)

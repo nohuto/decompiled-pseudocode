@@ -1,9 +1,9 @@
 /*
- * XREFs of VmPauseResumeNotify @ 0x14081C0E0
+ * XREFs of VmPauseResumeNotify @ 0x1408222F0
  * Callers:
  *     <none>
  * Callees:
- *     VmpPauseResumeNotify @ 0x14081CC04 (VmpPauseResumeNotify.c)
+ *     VmpPauseResumeNotify @ 0x140822E14 (VmpPauseResumeNotify.c)
  */
 
 __int64 __fastcall VmPauseResumeNotify(unsigned int a1)

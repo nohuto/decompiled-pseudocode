@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpHashUnicodeString @ 0x1800825C0
+ * XREFs of LdrpHashUnicodeString @ 0x180079960
  * Callers:
- *     LdrpFindLoadedDllByName @ 0x180052F40 (LdrpFindLoadedDllByName.c)
- *     LdrpLoadKnownDll @ 0x180082910 (LdrpLoadKnownDll.c)
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     LdrpMapDllFullPath @ 0x180084A80 (LdrpMapDllFullPath.c)
- *     LdrpInsertDataTableEntry @ 0x180117FB0 (LdrpInsertDataTableEntry.c)
- *     LdrpAddRedirectedFunction @ 0x18015DEAC (LdrpAddRedirectedFunction.c)
+ *     LdrpFindLoadedDllByName @ 0x18003D4C0 (LdrpFindLoadedDllByName.c)
+ *     LdrpLoadKnownDll @ 0x180079CB0 (LdrpLoadKnownDll.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpMapDllFullPath @ 0x18007BE20 (LdrpMapDllFullPath.c)
+ *     LdrpInsertDataTableEntry @ 0x180117D60 (LdrpInsertDataTableEntry.c)
+ *     LdrpAddRedirectedFunction @ 0x18015DDB0 (LdrpAddRedirectedFunction.c)
  * Callees:
  *     <none>
  */
@@ -30,16 +30,16 @@ __int64 __fastcall LdrpHashUnicodeString(unsigned __int16 *a1)
     {
       if ( (unsigned int)v4 > 0x7A )
       {
-        if ( qword_1801C6038 )
+        if ( qword_1801C5038 )
         {
           if ( (unsigned __int16)v4 >= 0xC0u )
-            LOWORD(v4) = *(_WORD *)(qword_1801C6038
+            LOWORD(v4) = *(_WORD *)(qword_1801C5038
                                   + 2
                                   * ((v4 & 0xF)
-                                   + *(unsigned __int16 *)(qword_1801C6038
+                                   + *(unsigned __int16 *)(qword_1801C5038
                                                          + 2LL
                                                          * (((unsigned __int8)v4 >> 4)
-                                                          + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                          + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                               + 2 * (v4 >> 8))))))
                        + v4;
         }

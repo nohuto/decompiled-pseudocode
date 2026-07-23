@@ -1,7 +1,7 @@
 /*
  * XREFs of KeEnterCriticalRegion @ 0x1403468F0
  * Callers:
- *     NtRenameKey @ 0x14090EF60 (NtRenameKey.c)
+ *     sub_14090EF60 @ 0x14090EF60 (sub_14090EF60.c)
  * Callees:
  *     <none>
  */
@@ -11,5 +11,5 @@ void KeEnterCriticalRegion(void)
   struct _KTHREAD *CurrentThread; // rax
 
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
 }

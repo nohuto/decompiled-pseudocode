@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpIvtCheckIdPathMatch @ 0x14052DD38
+ * XREFs of HalpIvtCheckIdPathMatch @ 0x140530258
  * Callers:
- *     IvtIommuFindDevice @ 0x1405AF5D8 (IvtIommuFindDevice.c)
- *     IvtCheckForReservedRegion @ 0x1407879E0 (IvtCheckForReservedRegion.c)
+ *     IvtIommuFindDevice @ 0x1405B1DE8 (IvtIommuFindDevice.c)
+ *     IvtCheckForReservedRegion @ 0x14078A510 (IvtCheckForReservedRegion.c)
  * Callees:
  *     <none>
  */

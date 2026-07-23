@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpQueryID @ 0x1407980D8
+ * XREFs of PnpQueryID @ 0x1407982C8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x14079B9C4 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x14079BBB4 (PipProcessStartPhase3.c)
  * Callees:
- *     PipSetDevNodeFlags @ 0x1407956CC (PipSetDevNodeFlags.c)
- *     PnpIrpQueryID @ 0x1407981CC (PnpIrpQueryID.c)
- *     PnpFixupID @ 0x140798254 (PnpFixupID.c)
- *     PipSetDevNodeProblem @ 0x1408692EC (PipSetDevNodeProblem.c)
- *     PnpLogEvent @ 0x140958AB0 (PnpLogEvent.c)
- *     PnpSetInvalidIDEvent @ 0x140964848 (PnpSetInvalidIDEvent.c)
+ *     PipSetDevNodeFlags @ 0x1407958BC (PipSetDevNodeFlags.c)
+ *     PnpIrpQueryID @ 0x1407983BC (PnpIrpQueryID.c)
+ *     PnpFixupID @ 0x140798444 (PnpFixupID.c)
+ *     PipSetDevNodeProblem @ 0x14086952C (PipSetDevNodeProblem.c)
+ *     PnpLogEvent @ 0x140958CB0 (PnpLogEvent.c)
+ *     PnpSetInvalidIDEvent @ 0x140964A48 (PnpSetInvalidIDEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

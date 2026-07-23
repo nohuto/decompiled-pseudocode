@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpGetCallerSessionId @ 0x1407A46F8
+ * XREFs of PnpGetCallerSessionId @ 0x1407A7238
  * Callers:
- *     PiCMQueryRemove @ 0x140B2D27C (PiCMQueryRemove.c)
+ *     PiCMQueryRemove @ 0x140B2F2FC (PiCMQueryRemove.c)
  * Callees:
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SeQuerySessionIdToken @ 0x140A820F0 (SeQuerySessionIdToken.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     SeQuerySessionIdToken @ 0x140A87F60 (SeQuerySessionIdToken.c)
  */
 
 __int64 __fastcall PnpGetCallerSessionId(PULONG SessionId)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReduceMdl @ 0x1402FC75C
+ * XREFs of MiReduceMdl @ 0x1403074AC
  * Callers:
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
  * Callees:
  *     <none>
  */
@@ -39,7 +39,7 @@ __int64 __fastcall MiReduceMdl(__int64 a1)
   {
     do
     {
-      if ( *(_QWORD *)v7 != qword_140C4ED78 )
+      if ( *(_QWORD *)v7 != qword_140C4EDB8 )
         break;
       ++v8;
       ++v6;
@@ -62,7 +62,7 @@ __int64 __fastcall MiReduceMdl(__int64 a1)
     v9 -= v6;
   }
   v10 = a1 + 8 * v9;
-  if ( *(_QWORD *)(v10 + 40) == qword_140C4ED78 )
+  if ( *(_QWORD *)(v10 + 40) == qword_140C4EDB8 )
   {
     v12 = *(_DWORD *)(a1 + 40);
     v13 = v12;
@@ -79,7 +79,7 @@ __int64 __fastcall MiReduceMdl(__int64 a1)
     {
       do
       {
-        if ( *(_QWORD *)v18 != qword_140C4ED78 )
+        if ( *(_QWORD *)v18 != qword_140C4EDB8 )
           break;
         ++v17;
         v18 -= 8;
@@ -96,7 +96,7 @@ __int64 __fastcall MiReduceMdl(__int64 a1)
   *(_WORD *)(a1 + 10) |= 0x4000u;
   if ( v9 )
   {
-    while ( *(_QWORD *)v1 != qword_140C4ED78 )
+    while ( *(_QWORD *)v1 != qword_140C4EDB8 )
     {
       ++v2;
       v1 += 8;

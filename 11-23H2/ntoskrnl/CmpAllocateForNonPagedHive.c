@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpAllocateForNonPagedHive @ 0x140616510
+ * XREFs of CmpAllocateForNonPagedHive @ 0x140616A60
  * Callers:
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
- *     CmpCreateEmptyHiveClone @ 0x140A1CAC0 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
+ *     CmpCreateEmptyHiveClone @ 0x140A1CD70 (CmpCreateEmptyHiveClone.c)
  * Callees:
- *     CmpClaimGlobalQuota @ 0x140702F9C (CmpClaimGlobalQuota.c)
- *     CmpReleaseGlobalQuota @ 0x140709928 (CmpReleaseGlobalQuota.c)
+ *     CmpClaimGlobalQuota @ 0x1407031AC (CmpClaimGlobalQuota.c)
+ *     CmpReleaseGlobalQuota @ 0x140709B38 (CmpReleaseGlobalQuota.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

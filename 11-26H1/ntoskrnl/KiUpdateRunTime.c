@@ -1,44 +1,44 @@
 /*
- * XREFs of KiUpdateRunTime @ 0x14021F420
+ * XREFs of KiUpdateRunTime @ 0x140220DB0
  * Callers:
- *     KiUpdateTime @ 0x14021D690 (KiUpdateTime.c)
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
+ *     KiUpdateTime @ 0x14021F020 (KiUpdateTime.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KiCheckPreferredHeteroProcessor @ 0x14021EB80 (KiCheckPreferredHeteroProcessor.c)
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiComputeThreadQos @ 0x1402BC220 (KiComputeThreadQos.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     KiRequestSoftwareInterrupt @ 0x1402C7D20 (KiRequestSoftwareInterrupt.c)
- *     KiCheckForPendingQosUpdate @ 0x140330CB0 (KiCheckForPendingQosUpdate.c)
- *     KiShouldScanLocalReadyQueue @ 0x1403BF9A8 (KiShouldScanLocalReadyQueue.c)
- *     KiShouldScanSharedReadyQueue @ 0x1403BF9C8 (KiShouldScanSharedReadyQueue.c)
- *     KiSetClockTimer @ 0x140418F10 (KiSetClockTimer.c)
- *     KiSetDpcRequestFlag @ 0x14044F530 (KiSetDpcRequestFlag.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140220510 (KiCheckPreferredHeteroProcessor.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiComputeThreadQos @ 0x140306EE0 (KiComputeThreadQos.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     KiRequestSoftwareInterrupt @ 0x1403129C0 (KiRequestSoftwareInterrupt.c)
+ *     KiCheckForPendingQosUpdate @ 0x140332CE0 (KiCheckForPendingQosUpdate.c)
+ *     KiShouldScanLocalReadyQueue @ 0x1403C98A8 (KiShouldScanLocalReadyQueue.c)
+ *     KiShouldScanSharedReadyQueue @ 0x1403C98C8 (KiShouldScanSharedReadyQueue.c)
+ *     KiSetClockTimer @ 0x14040D440 (KiSetClockTimer.c)
+ *     KiSetDpcRequestFlag @ 0x140447660 (KiSetDpcRequestFlag.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
-unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a2, unsigned __int8 a3, int a4)
+LARGE_INTEGER __fastcall KiUpdateRunTime(LARGE_INTEGER InterruptTimePrecise, char a2, unsigned __int8 a3, int a4)
 {
   struct _KPRCB *CurrentPrcb; // rbx
   char v9; // al
   int v10; // r13d
   unsigned int LastTick; // r15d
-  unsigned __int64 v12; // rdx
-  unsigned __int64 i; // rcx
+  LARGE_INTEGER v12; // rdx
+  LONGLONG i; // rcx
   bool v14; // zf
   unsigned __int8 CurrentIrql; // di
   int v16; // r15d
   __int64 v17; // r14
   __int64 CurrentThread; // rsi
-  unsigned __int64 result; // rax
-  int v20; // edi
+  LARGE_INTEGER result; // rax
+  ULONG LowPart; // edi
   int v21; // edi
   unsigned __int8 v22; // di
   char v23; // r15
@@ -56,14 +56,14 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
   char v35; // [rsp+41h] [rbp-BFh] BYREF
   int v36; // [rsp+44h] [rbp-BCh] BYREF
   int v37; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v38; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v39; // [rsp+58h] [rbp-A8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-B0h] BYREF
+  LARGE_INTEGER v39; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v40; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v41; // [rsp+68h] [rbp-98h] BYREF
   int v42; // [rsp+70h] [rbp-90h] BYREF
   __int128 v43; // [rsp+74h] [rbp-8Ch]
   struct _EVENT_DATA_DESCRIPTOR v44; // [rsp+90h] [rbp-70h] BYREF
-  __int64 *v45; // [rsp+B0h] [rbp-50h]
+  LARGE_INTEGER *v45; // [rsp+B0h] [rbp-50h]
   __int64 v46; // [rsp+B8h] [rbp-48h]
   int *v47; // [rsp+C0h] [rbp-40h]
   __int64 v48; // [rsp+C8h] [rbp-38h]
@@ -71,7 +71,7 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
   __int64 v50; // [rsp+D8h] [rbp-28h]
   __int64 *v51; // [rsp+E0h] [rbp-20h]
   __int64 v52; // [rsp+E8h] [rbp-18h]
-  unsigned __int64 *v53; // [rsp+F0h] [rbp-10h]
+  LARGE_INTEGER *p_PerformanceCounter; // [rsp+F0h] [rbp-10h]
   __int64 v54; // [rsp+F8h] [rbp-8h]
   int *v55; // [rsp+100h] [rbp+0h]
   __int64 v56; // [rsp+108h] [rbp+8h]
@@ -122,8 +122,8 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
     v16 = KeMinimumIncrement;
     v17 = -(__int64)(unsigned int)KeQuantumEndTimerIncrement;
     if ( !KiClockTimerReducePreciseTimeQueries )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise((unsigned __int64 *)&v38);
-    if ( (unsigned int)dword_140E06F58 > 5 )
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    if ( (unsigned int)dword_140E06F90 > 5 )
     {
       v39 = InterruptTimePrecise;
       v45 = &v39;
@@ -136,12 +136,12 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
       v41 = -v17;
       v50 = 8LL;
       v51 = &v41;
-      v53 = (unsigned __int64 *)&v38;
+      p_PerformanceCounter = &PerformanceCounter;
       v55 = &v36;
       v57 = &v35;
       v59 = &v34;
       v52 = 8LL;
-      v38 = InterruptTimePrecise - v17;
+      PerformanceCounter.QuadPart = InterruptTimePrecise.QuadPart - v17;
       v54 = 8LL;
       v36 = v16;
       v56 = 4LL;
@@ -150,15 +150,15 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
       v34 = 0;
       v60 = 1LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E06F58,
-        (unsigned __int8 *)byte_140048E89,
+        (__int64)&dword_140E06F90,
+        (unsigned __int8 *)word_140049432,
         0LL,
         0LL,
         0xAu,
         &v44);
     }
     CurrentPrcb->ClockTimerState.ClockTimerEntries[3].TypeFlags |= 3u;
-    CurrentPrcb->ClockTimerState.ClockTimerEntries[3].DueTime = InterruptTimePrecise - v17;
+    CurrentPrcb->ClockTimerState.ClockTimerEntries[3].DueTime = InterruptTimePrecise.QuadPart - v17;
     CurrentPrcb->ClockTimerState.ClockTimerEntries[3].TolerableDelay = v16;
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
@@ -183,22 +183,22 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
         CurrentPrcb->NormalPriorityReadyScanTick = i;
       }
     }
-    result = *(_QWORD *)(CurrentThread + 72);
-    if ( result >= *(_QWORD *)(CurrentThread + 32) )
+    result = *(LARGE_INTEGER *)(CurrentThread + 72);
+    if ( result.QuadPart >= *(_QWORD *)(CurrentThread + 32) )
       goto LABEL_28;
     v21 = *(unsigned __int8 *)(CurrentThread + 516);
-    result = KiComputeThreadQos(CurrentThread);
-    if ( v21 != (_DWORD)result )
+    result.QuadPart = KiComputeThreadQos(CurrentThread);
+    if ( v21 != result.LowPart )
       goto LABEL_28;
-    result = KiCheckPreferredHeteroProcessor(CurrentThread, (__int64)CurrentPrcb, 1);
-    if ( (_DWORD)result )
+    result.QuadPart = KiCheckPreferredHeteroProcessor(CurrentThread, (__int64)CurrentPrcb, 1);
+    if ( result.LowPart )
       goto LABEL_28;
     KiCheckForPendingQosUpdate(CurrentThread);
   }
-  result = RtlGetInterruptTimePrecise((unsigned __int64 *)&v38);
-  v12 = CurrentPrcb->GenerationTarget * (unsigned int)KeMaximumIncrement;
+  result = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v12.QuadPart = CurrentPrcb->GenerationTarget * KeMaximumIncrement;
   i = MEMORY[0xFFFFF78000000320];
-  v20 = result;
+  LowPart = result.LowPart;
   if ( MEMORY[0xFFFFF78000000320] > CurrentPrcb->GenerationTarget )
   {
     if ( KiClockTimerPerCpuTickScheduling )
@@ -208,11 +208,11 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
         __writecr8(0xFuLL);
       if ( KiIrqlFlags )
       {
-        LOBYTE(v12) = 15;
-        KiRaiseIrqlProcessIrqlFlags(v22, v12);
+        LOBYTE(v12.LowPart) = 15;
+        ((void (__fastcall *)(_QWORD, _QWORD))KiRaiseIrqlProcessIrqlFlags)(v22, (LARGE_INTEGER)v12.QuadPart);
       }
       CurrentPrcb->ClockTimerState.ClockTimerEntries[4].TypeFlags &= ~1u;
-      if ( (unsigned int)dword_140E06F58 > 5 )
+      if ( (unsigned int)dword_140E06F90 > 5 )
       {
         v36 = 4;
         v62 = &v36;
@@ -221,8 +221,8 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
         v34 = 0;
         v65 = 1LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E06F58,
-          (unsigned __int8 *)byte_140048E4D,
+          (__int64)&dword_140E06F90,
+          (unsigned __int8 *)&word_1400493F6,
           0LL,
           0LL,
           4u,
@@ -230,7 +230,7 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 InterruptTimePrecise, char a
       }
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v22);
-      result = v22;
+      result.QuadPart = v22;
       __writecr8(v22);
     }
 LABEL_28:
@@ -244,7 +244,10 @@ LABEL_28:
       v43 = 0LL;
       if ( (KiTrapFeatures & 0x10) != 0 )
       {
-        v30 = HalpDisableInterrupts(i, v12, KeGetCurrentPrcb());
+        v30 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))HalpDisableInterrupts)(
+                i,
+                (LARGE_INTEGER)v12.QuadPart,
+                KeGetCurrentPrcb());
         v32 = *(_DWORD *)(v31 + 168);
         v33 = v30;
         *(_DWORD *)(v31 + 168) = v32 | 4;
@@ -254,11 +257,11 @@ LABEL_28:
           _enable();
       }
       v42 = 5;
-      return HalpInterruptSendIpi(&v42, 47LL);
+      return (LARGE_INTEGER)HalpInterruptSendIpi(&v42, 47LL);
     }
     return result;
   }
-  if ( result > v12 && KiClockTimerPerCpuTickScheduling )
+  if ( result.QuadPart > (unsigned __int64)v12.QuadPart && KiClockTimerPerCpuTickScheduling )
   {
     v23 = CurrentPrcb->GroupSchedulingOverQuota == 0;
     v24 = KeGetCurrentIrql();
@@ -266,44 +269,44 @@ LABEL_28:
       __writecr8(0xFuLL);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v12) = 15;
-      KiRaiseIrqlProcessIrqlFlags(v24, v12);
+      LOBYTE(v12.LowPart) = 15;
+      ((void (__fastcall *)(_QWORD, _QWORD))KiRaiseIrqlProcessIrqlFlags)(v24, (LARGE_INTEGER)v12.QuadPart);
     }
-    KiSetClockTimer((_DWORD)CurrentPrcb, v20, -KeMaximumIncrement, KeMinimumIncrement, 4, v23, 0);
+    KiSetClockTimer((_DWORD)CurrentPrcb, LowPart, -KeMaximumIncrement, KeMinimumIncrement, 4, v23, 0);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v24);
     __writecr8(v24);
   }
-  result = *(_QWORD *)(CurrentThread + 104);
-  if ( result )
+  result = *(LARGE_INTEGER *)(CurrentThread + 104);
+  if ( result.QuadPart )
   {
-    for ( i = result + CurrentPrcb->ScbOffset; i; i = *(_QWORD *)(i + 440) )
+    for ( i = result.QuadPart + CurrentPrcb->ScbOffset; i; i = *(_QWORD *)(i + 440) )
     {
-      result = CurrentPrcb->ScbOffset;
+      result.QuadPart = CurrentPrcb->ScbOffset;
       v26 = *(_WORD *)(i + 128);
-      v12 = i - result;
+      v12.QuadPart = i - result.QuadPart;
       if ( (v26 & 4) != 0 )
       {
-        result = *(_QWORD *)(i + 24);
-        if ( *(_QWORD *)i >= result )
+        result = *(LARGE_INTEGER *)(i + 24);
+        if ( *(_QWORD *)i >= result.QuadPart )
           goto LABEL_28;
       }
       else if ( (v26 & 0x20) == 0 )
       {
-        result = *(_QWORD *)(i + 8);
-        if ( *(_QWORD *)i > result )
+        result = *(LARGE_INTEGER *)(i + 8);
+        if ( *(_QWORD *)i > result.QuadPart )
           goto LABEL_28;
       }
       if ( (v26 & 0x12) == 0 )
       {
-        result = *(_QWORD *)(v12 + 48);
-        if ( (__int64)result <= 0 )
+        result = *(LARGE_INTEGER *)(v12.QuadPart + 48);
+        if ( result.QuadPart <= 0 )
           goto LABEL_28;
-        result = *(unsigned __int8 *)(i + 128);
-        if ( (result & 0x80u) != 0LL )
+        result.QuadPart = *(unsigned __int8 *)(i + 128);
+        if ( SLOBYTE(result.QuadPart) < 0 )
         {
-          result = *(_QWORD *)(i + 16);
-          if ( *(_QWORD *)i >= result )
+          result = *(LARGE_INTEGER *)(i + 16);
+          if ( *(_QWORD *)i >= result.QuadPart )
             goto LABEL_28;
         }
       }
@@ -311,14 +314,14 @@ LABEL_28:
   }
   if ( (signed int)(CurrentPrcb->ReadyScanTick - v10) < 0 )
   {
-    result = KiShouldScanSharedReadyQueue(CurrentPrcb);
-    if ( !(_DWORD)result
-      || (result = (unsigned __int64)CurrentPrcb->SharedReadyQueue, (*(_DWORD *)(result + 8) & 0x7FFE) == 0) )
+    result.QuadPart = KiShouldScanSharedReadyQueue(CurrentPrcb);
+    if ( !result.LowPart
+      || (result = (LARGE_INTEGER)CurrentPrcb->SharedReadyQueue, (*(_DWORD *)(result.QuadPart + 8) & 0x7FFE) == 0) )
     {
       if ( (CurrentPrcb->ReadySummary & 0x7FFE) == 0 )
       {
-        result = (unsigned int)(v10 + 75);
-        CurrentPrcb->ReadyScanTick = result;
+        result.QuadPart = (unsigned int)(v10 + 75);
+        CurrentPrcb->ReadyScanTick = result.LowPart;
       }
     }
   }

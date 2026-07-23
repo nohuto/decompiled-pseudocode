@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetNodePrimarySubNode @ 0x140305A04
+ * XREFs of KeGetNodePrimarySubNode @ 0x140305C94
  * Callers:
- *     KeQueryNodeActiveAffinity @ 0x1403059B0 (KeQueryNodeActiveAffinity.c)
- *     KeQueryLogicalProcessorRelationship @ 0x140305FB0 (KeQueryLogicalProcessorRelationship.c)
+ *     KeQueryNodeActiveAffinity @ 0x140305C40 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x140306240 (KeQueryLogicalProcessorRelationship.c)
  *     KiComputeNumaCosts @ 0x140B75D24 (KiComputeNumaCosts.c)
  * Callees:
  *     <none>

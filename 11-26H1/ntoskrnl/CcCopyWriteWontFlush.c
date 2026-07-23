@@ -1,11 +1,11 @@
 /*
- * XREFs of CcCopyWriteWontFlush @ 0x14026B440
+ * XREFs of CcCopyWriteWontFlush @ 0x14026A9B0
  * Callers:
- *     FsRtlCopyWrite @ 0x140ABE620 (FsRtlCopyWrite.c)
+ *     FsRtlCopyWrite @ 0x140AC06C0 (FsRtlCopyWrite.c)
  * Callees:
- *     CcForceWriteThrough @ 0x140222070 (CcForceWriteThrough.c)
- *     PsGetBaseIoPriorityThread @ 0x14026D230 (PsGetBaseIoPriorityThread.c)
- *     CcIsFileObjectDirectMapped @ 0x1403845D4 (CcIsFileObjectDirectMapped.c)
+ *     CcForceWriteThrough @ 0x140223A00 (CcForceWriteThrough.c)
+ *     PsGetBaseIoPriorityThread @ 0x14026C7A0 (PsGetBaseIoPriorityThread.c)
+ *     CcIsFileObjectDirectMapped @ 0x140386384 (CcIsFileObjectDirectMapped.c)
  */
 
 BOOLEAN __stdcall CcCopyWriteWontFlush(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset, ULONG Length)

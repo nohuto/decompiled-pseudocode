@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsProbeActive @ 0x14010DED8
+ * XREFs of MiIsProbeActive @ 0x14010E43C
  * Callers:
- *     MiReplaceRotateWithDemandZero @ 0x14010DAD4 (MiReplaceRotateWithDemandZero.c)
- *     MmIsIoSpaceActive @ 0x1401E6D48 (MmIsIoSpaceActive.c)
- *     MiSwitchToTransition @ 0x1401E8B48 (MiSwitchToTransition.c)
+ *     MiReplaceRotateWithDemandZero @ 0x14010E038 (MiReplaceRotateWithDemandZero.c)
+ *     MmIsIoSpaceActive @ 0x1401E6B74 (MmIsIoSpaceActive.c)
+ *     MiSwitchToTransition @ 0x1401E8974 (MiSwitchToTransition.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiIsProbeActive(unsigned __int64 a1, __int64 a2, char a3)
@@ -41,12 +41,12 @@ __int64 __fastcall MiIsProbeActive(unsigned __int64 a1, __int64 a2, char a3)
   unsigned __int64 v31; // [rsp+48h] [rbp-40h]
 
   v3 = 0;
-  if ( (a3 & 3) == 1 && !qword_1403275C8[0] )
+  if ( (a3 & 3) == 1 && !qword_140327608[0] )
     return 0LL;
   v8 = 0;
-  KeAcquireInStackQueuedSpinLock(&qword_1403275C0, &LockHandle);
-  v9 = (_QWORD *)qword_1403275C8[0];
-  if ( qword_1403275C8[0] )
+  KeAcquireInStackQueuedSpinLock(&qword_140327600, &LockHandle);
+  v9 = (_QWORD *)qword_140327608[0];
+  if ( qword_140327608[0] )
   {
     if ( (a3 & 1) != 0 )
     {

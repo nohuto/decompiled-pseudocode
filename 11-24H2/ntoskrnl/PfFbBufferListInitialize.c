@@ -1,10 +1,10 @@
 /*
- * XREFs of PfFbBufferListInitialize @ 0x140748A7C
+ * XREFs of PfFbBufferListInitialize @ 0x140746D6C
  * Callers:
- *     PfTInitialize @ 0x1407468B4 (PfTInitialize.c)
+ *     PfTInitialize @ 0x140744BA4 (PfTInitialize.c)
  * Callees:
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PfFbBufferListInitialize(_QWORD *a1, __int64 a2, char a3)

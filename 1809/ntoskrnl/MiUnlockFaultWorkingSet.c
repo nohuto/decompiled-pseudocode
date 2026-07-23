@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockFaultWorkingSet @ 0x1402BF6C4
+ * XREFs of MiUnlockFaultWorkingSet @ 0x1402BF8B4
  * Callers:
- *     MiWaitForRotateToComplete @ 0x140139C0C (MiWaitForRotateToComplete.c)
- *     MiCheckHoldFaultForHotPatch @ 0x1402B926C (MiCheckHoldFaultForHotPatch.c)
+ *     MiWaitForRotateToComplete @ 0x140139D0C (MiWaitForRotateToComplete.c)
+ *     MiCheckHoldFaultForHotPatch @ 0x1402B945C (MiCheckHoldFaultForHotPatch.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
  */
 
 void __fastcall MiUnlockFaultWorkingSet(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

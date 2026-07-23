@@ -1,10 +1,10 @@
 /*
- * XREFs of MmIsExtentDangling @ 0x14065AC80
+ * XREFs of MmIsExtentDangling @ 0x14065AD64
  * Callers:
- *     FsRtlIsExtentDangling @ 0x14061EA40 (FsRtlIsExtentDangling.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     FsRtlIsExtentDangling @ 0x14061EAF4 (FsRtlIsExtentDangling.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  * Callees:
- *     MiIsPfn @ 0x14000FBA0 (MiIsPfn.c)
+ *     MiIsPfn @ 0x14000F720 (MiIsPfn.c)
  */
 
 unsigned __int64 __fastcall MmIsExtentDangling(unsigned __int64 a1, __int64 a2)

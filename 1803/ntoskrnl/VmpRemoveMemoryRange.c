@@ -12,16 +12,16 @@
 
 __int64 __fastcall VmpRemoveMemoryRange(PEX_SPIN_LOCK SpinLock, _QWORD *a2, __int64 a3)
 {
-  void *v3; // r14
+  _RTL_BALANCED_NODE *v3; // r14
   unsigned int v7; // ebx
   unsigned __int64 v8; // rsi
   __int64 v9; // rax
   unsigned __int64 v10; // rdx
   int v11; // r8d
-  unsigned __int64 v12; // rcx
+  _RTL_BALANCED_NODE *v12; // rcx
   unsigned __int64 v13; // rax
-  _QWORD *v15; // rbx
-  unsigned __int64 v16; // r8
+  _RTL_BALANCED_NODE *v15; // rbx
+  _RTL_BALANCED_NODE *v16; // r8
   unsigned __int64 v17; // rdx
   __int64 v18; // rax
   __int64 v19; // [rsp+60h] [rbp+8h] BYREF
@@ -50,8 +50,8 @@ LABEL_17:
     v7 = -1073741172;
     goto LABEL_18;
   }
-  v12 = a2[6];
-  while ( v12 > *(_QWORD *)(v10 + 32) )
+  v12 = (_RTL_BALANCED_NODE *)a2[6];
+  while ( (unsigned __int64)v12 > *(_QWORD *)(v10 + 32) )
   {
     v13 = *(_QWORD *)(v10 + 8);
 LABEL_12:
@@ -62,37 +62,42 @@ LABEL_12:
     if ( !v10 )
       goto LABEL_17;
   }
-  if ( v12 < *(_QWORD *)(v10 + 24) )
+  if ( (unsigned __int64)v12 < *(_QWORD *)(v10 + 24) )
   {
     v13 = *(_QWORD *)v10;
     goto LABEL_12;
   }
-  v15 = (_QWORD *)(v10 - 24);
-  v16 = *(_QWORD *)(v10 - 24 + 48);
+  v15 = (_RTL_BALANCED_NODE *)(v10 - 24);
+  v16 = *(_RTL_BALANCED_NODE **)(v10 - 24 + 48);
   if ( v12 == v16 )
   {
-    if ( v15[7] == a2[7] && v15[8] == a2[8] && v15[9] == a2[9] )
+    if ( v15[2].Children[1] == (_RTL_BALANCED_NODE *)a2[7]
+      && v15[2].ParentValue == a2[8]
+      && v15[3].Children[0] == (_RTL_BALANCED_NODE *)a2[9] )
     {
-      RtlRbRemoveNode((__int64)(SpinLock + 2), v10);
-      RtlRbRemoveNode((__int64)(SpinLock + 6), (unsigned __int64)v15);
+      RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 2), (PRTL_BALANCED_NODE)v10);
+      RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 6), v15);
       v3 = v15;
       goto LABEL_38;
     }
-    if ( v12 == v16 && a2[8] == v15[8] )
+    if ( v12 == v16 && a2[8] == v15[2].ParentValue )
     {
       v17 = a2[7];
-      if ( v17 < v15[7] && a2[9] < v15[9] )
+      if ( (_RTL_BALANCED_NODE *)v17 < v15[2].Children[1] && (_RTL_BALANCED_NODE *)a2[9] < v15[3].Children[0] )
       {
-        v15[6] = v17 + 1;
-        v15[8] = a2[9] + 1LL;
+        v15[2].Children[0] = (_RTL_BALANCED_NODE *)(v17 + 1);
+        v15[2].ParentValue = a2[9] + 1LL;
         goto LABEL_38;
       }
     }
   }
-  if ( a2[7] == v15[7] && a2[9] == v15[9] && v12 > v16 && a2[8] > v15[8] )
+  if ( (_RTL_BALANCED_NODE *)a2[7] == v15[2].Children[1]
+    && (_RTL_BALANCED_NODE *)a2[9] == v15[3].Children[0]
+    && v12 > v16
+    && a2[8] > v15[2].ParentValue )
   {
-    v15[7] = v12 - 1;
-    v15[9] = a2[8] - 1LL;
+    v15[2].Children[1] = (_RTL_BALANCED_NODE *)((char *)v12 - 1);
+    v15[3].Children[0] = (_RTL_BALANCED_NODE *)(a2[8] - 1LL);
 LABEL_38:
     ++*((_QWORD *)SpinLock + 5);
     v18 = *(_QWORD *)v8;

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInsertUnusedSegment @ 0x140026FEC
+ * XREFs of MiInsertUnusedSegment @ 0x140026B6C
  * Callers:
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     MiCleanSection @ 0x140111CAC (MiCleanSection.c)
- *     MiDeleteCachedSegment @ 0x1401DE4D8 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1401DEA98 (MiFlushControlArea.c)
- *     MiProcessDeleteOnClose @ 0x1401DEEB8 (MiProcessDeleteOnClose.c)
- *     MiSetDeleteOnClose @ 0x1401DF37C (MiSetDeleteOnClose.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     MiCleanSection @ 0x140112210 (MiCleanSection.c)
+ *     MiDeleteCachedSegment @ 0x1401DE304 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1401DE8C4 (MiFlushControlArea.c)
+ *     MiProcessDeleteOnClose @ 0x1401DECE4 (MiProcessDeleteOnClose.c)
+ *     MiSetDeleteOnClose @ 0x1401DF1A8 (MiSetDeleteOnClose.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseControlAreaCharges @ 0x140027350 (MiReleaseControlAreaCharges.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiConvertStaticSubsections @ 0x1400A1C0C (MiConvertStaticSubsections.c)
- *     MiComputePagedPoolSegmentBytes @ 0x1401DE460 (MiComputePagedPoolSegmentBytes.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReleaseControlAreaCharges @ 0x140026ED0 (MiReleaseControlAreaCharges.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiConvertStaticSubsections @ 0x1400A0534 (MiConvertStaticSubsections.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x1401DE28C (MiComputePagedPoolSegmentBytes.c)
  */
 
 __int64 __fastcall MiInsertUnusedSegment(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -75,6 +75,6 @@ __int64 __fastcall MiInsertUnusedSegment(__int64 a1, __int64 a2, __int64 a3, __i
   *(_QWORD *)(v8 + 1536) += v14;
   v15 = v14;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v8 + 1664));
-  _InterlockedExchangeAdd64(&qword_140326568, v15);
+  _InterlockedExchangeAdd64(&qword_1403265A8, v15);
   return v5;
 }

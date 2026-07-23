@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLocateKernelSections @ 0x1409CF80C
+ * XREFs of MiLocateKernelSections @ 0x1409D080C
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x1409CF350 (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x1409D0350 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
  */
 
 PIMAGE_NT_HEADERS __fastcall MiLocateKernelSections(__int64 a1)

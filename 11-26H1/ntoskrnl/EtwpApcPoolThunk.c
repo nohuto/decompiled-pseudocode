@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpApcPoolThunk @ 0x140447400
+ * XREFs of EtwpApcPoolThunk @ 0x14043FEF0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-int __fastcall EtwpApcPoolThunk(struct _SLIST_ENTRY *a1, _QWORD *a2, __int64 a3, __int64 a4, __int64 a5)
+int __fastcall EtwpApcPoolThunk(_SLIST_ENTRY *a1, _QWORD *a2, __int64 a3, __int64 a4, __int64 a5)
 {
   struct _KTHREAD *CurrentThread; // r12
   _SLIST_ENTRY *Next; // rsi
@@ -43,7 +43,7 @@ int __fastcall EtwpApcPoolThunk(struct _SLIST_ENTRY *a1, _QWORD *a2, __int64 a3,
       LOBYTE(Next_low) = 2;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, Next_low);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset64((volatile signed __int32 *)&Next->Next + 2, 0LL) )
         KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&Next->Next + 2);
@@ -52,7 +52,7 @@ int __fastcall EtwpApcPoolThunk(struct _SLIST_ENTRY *a1, _QWORD *a2, __int64 a3,
     {
       KiAcquireSpinLockInstrumented((volatile signed __int32 *)&Next->Next + 2);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       _InterlockedAnd64((volatile signed __int64 *)&Next->Next + 1, 0LL);
     else
       KiReleaseSpinLockInstrumented((volatile signed __int64 *)&Next->Next + 1, retaddr);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExfAcquirePushLockExclusive @ 0x140485540
+ * XREFs of ExfAcquirePushLockExclusive @ 0x14047EEB0
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 signed __int64 __fastcall ExfAcquirePushLockExclusive(unsigned __int64 *a1)

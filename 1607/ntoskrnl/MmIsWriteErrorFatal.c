@@ -1,12 +1,12 @@
 /*
- * XREFs of MmIsWriteErrorFatal @ 0x14008F0EC
+ * XREFs of MmIsWriteErrorFatal @ 0x14008E84C
  * Callers:
- *     CcIsFatalWriteError @ 0x14008E97C (CcIsFatalWriteError.c)
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
- *     MiFlushControlArea @ 0x1401DEA98 (MiFlushControlArea.c)
- *     FsRtlLogCcFlushError @ 0x14061DB78 (FsRtlLogCcFlushError.c)
+ *     CcIsFatalWriteError @ 0x14008E0DC (CcIsFatalWriteError.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
+ *     MiFlushControlArea @ 0x1401DE8C4 (MiFlushControlArea.c)
+ *     FsRtlLogCcFlushError @ 0x14061DC2C (FsRtlLogCcFlushError.c)
  * Callees:
- *     FsRtlIsTotalDeviceFailure @ 0x14008F154 (FsRtlIsTotalDeviceFailure.c)
+ *     FsRtlIsTotalDeviceFailure @ 0x14008E8B4 (FsRtlIsTotalDeviceFailure.c)
  */
 
 __int64 __fastcall MmIsWriteErrorFatal(int a1, int a2, NTSTATUS a3)

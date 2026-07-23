@@ -21,10 +21,10 @@
  *     RtlQueryElevationFlags @ 0x1404AD20C (RtlQueryElevationFlags.c)
  */
 
-__int64 __fastcall SeTokenCanImpersonate(__int64 Token, __int64 a2, int a3, _BYTE *a4)
+NTSTATUS __fastcall SeTokenCanImpersonate(__int64 Token, __int64 a2, int a3, _BYTE *a4)
 {
-  int IsElevated; // ebx
-  __int64 result; // rax
+  NTSTATUS IsElevated; // ebx
+  NTSTATUS result; // eax
   unsigned __int64 v9; // r10
   unsigned __int16 v10; // ax
   _WORD *v11; // r10
@@ -34,40 +34,40 @@ __int64 __fastcall SeTokenCanImpersonate(__int64 Token, __int64 a2, int a3, _BYT
   void *v15; // r14
   void *v16; // r15
   char v17; // [rsp+30h] [rbp-59h] BYREF
-  char v18; // [rsp+31h] [rbp-58h] BYREF
-  bool v19; // [rsp+32h] [rbp-57h] BYREF
-  _BYTE v20[4]; // [rsp+34h] [rbp-55h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+31h] [rbp-58h] BYREF
+  BOOLEAN Dominates[2]; // [rsp+32h] [rbp-57h] BYREF
+  _RTL_ELEVATION_FLAGS Flags; // [rsp+34h] [rbp-55h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-51h] BYREF
-  void *Buf2; // [rsp+48h] [rbp-41h]
-  void *Buf1; // [rsp+58h] [rbp-31h]
+  PSID Sid2; // [rsp+48h] [rbp-41h]
+  PSID Sid1; // [rsp+58h] [rbp-31h]
   EVENT_DATA_DESCRIPTOR pData; // [rsp+70h] [rbp-19h] BYREF
   _DWORD *v25; // [rsp+90h] [rbp+7h]
   __int64 v26; // [rsp+98h] [rbp+Fh]
   __int64 v27; // [rsp+A0h] [rbp+17h]
   _DWORD v28[2]; // [rsp+A8h] [rbp+1Fh] BYREF
 
-  v19 = 0;
-  v18 = 0;
+  Dominates[0] = 0;
+  DominatesTrust = 0;
   v17 = 0;
   *a4 = 0;
   if ( a3 >= 2 && (*(_DWORD *)(a2 + 24) != 998 || *(_DWORD *)(a2 + 28)) )
   {
-    result = RtlSidDominatesForTrust(*(_QWORD *)(Token + 1104), *(_QWORD *)(a2 + 1104), &v18);
-    if ( (int)result < 0 )
+    result = RtlSidDominatesForTrust(*(PSID *)(Token + 1104), *(PSID *)(a2 + 1104), &DominatesTrust);
+    if ( result < 0 )
       return result;
-    if ( !v18 )
+    if ( !DominatesTrust )
       *a4 = 1;
     if ( (*(_DWORD *)(Token + 72) & 0x20000000) == 0 )
     {
       SepAcquireOrderedReadLocks(Token, a2);
       SepCopyTokenIntegrity();
       SepCopyTokenIntegrity();
-      IsElevated = RtlSidDominates((char *)Buf1, (char *)Buf2, &v19);
+      IsElevated = RtlSidDominates(Sid1, Sid2, Dominates);
       if ( IsElevated >= 0 )
       {
-        if ( !v19 )
+        if ( !Dominates[0] )
           goto LABEL_40;
-        if ( SepIsImpersonationAllowedDueToCapability(Token, a2)
+        if ( SepIsImpersonationAllowedDueToCapability((char *)Token, a2)
           || *(_DWORD *)(Token + 24) == *(_DWORD *)(a2 + 224) && *(_DWORD *)(Token + 28) == *(_DWORD *)(a2 + 228) )
         {
           IsElevated = 0;
@@ -79,7 +79,7 @@ LABEL_40:
           IsElevated = -1073741727;
           goto LABEL_41;
         }
-        if ( (int)RtlQueryElevationFlags(v20) < 0 || (v20[0] & 1) == 0 )
+        if ( RtlQueryElevationFlags(&Flags) < 0 || (Flags.Flags & 1) == 0 )
           goto LABEL_32;
         IsElevated = SeTokenIsElevated(a2, &v17);
         if ( IsElevated >= 0 )
@@ -140,7 +140,7 @@ LABEL_32:
       }
 LABEL_41:
       SepReleaseOrderedReadLocks(Token, a2);
-      return (unsigned int)IsElevated;
+      return IsElevated;
     }
   }
   return 0;

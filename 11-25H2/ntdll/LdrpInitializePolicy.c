@@ -13,10 +13,10 @@ char LdrpInitializePolicy()
   _UNICODE_STRING *p_DllPath; // rcx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
   __int128 v3; // xmm0
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  __int64 v7; // rcx
   int v9; // [rsp+50h] [rbp+20h] BYREF
   __int64 v10; // [rsp+58h] [rbp+28h] BYREF
   __int64 v11; // [rsp+60h] [rbp+30h] BYREF
@@ -35,49 +35,25 @@ char LdrpInitializePolicy()
     v11 = 0LL;
     LdrpAppPackagesPath = v3;
     LdrpOriginalAppPackagesPath = v3;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(
-                (_DWORD)p_DllPath,
-                4,
-                (unsigned int)&v9,
-                (unsigned int)&v11,
-                (__int64)&v10) < 0
-      || v9 == 262145 )
-    {
+    if ( (int)AppModelPolicy_GetPolicy_Internal(p_DllPath, 4LL, &v9, &v11, &v10) < 0 || v9 == 262145 )
       LdrpDefaultDllDirectories = 4096;
-    }
     else
-    {
       LdrpPolicyBits &= ~1u;
-    }
     v10 = 0LL;
     v11 = 0LL;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(v4, 7, (unsigned int)&v9, (unsigned int)&v11, (__int64)&v10) >= 0
-      && v9 == 458753 )
-    {
+    if ( (int)AppModelPolicy_GetPolicy_Internal(v4, 7LL, &v9, &v11, &v10) >= 0 && v9 == 458753 )
       LdrpPolicyBits |= 2u;
-    }
     v10 = 0LL;
     v11 = 0LL;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(v5, 19, (unsigned int)&v9, (unsigned int)&v11, (__int64)&v10) >= 0
-      && v9 == 1245185 )
-    {
+    if ( (int)AppModelPolicy_GetPolicy_Internal(v5, 19LL, &v9, &v11, &v10) >= 0 && v9 == 1245185 )
       LdrpPolicyBits |= 0x40u;
-    }
     v10 = 0LL;
     v11 = 0LL;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(v6, 32, (unsigned int)&v9, (unsigned int)&v11, (__int64)&v10) >= 0
-      && v9 == 2097153 )
-    {
+    if ( (int)AppModelPolicy_GetPolicy_Internal(v6, 32LL, &v9, &v11, &v10) >= 0 && v9 == 2097153 )
       LdrpPolicyBits |= 4u;
-    }
     v10 = 0LL;
     v11 = 0LL;
-    LODWORD(ProcessParameters) = AppModelPolicy_GetPolicy_Internal(
-                                   v7,
-                                   54,
-                                   (unsigned int)&v9,
-                                   (unsigned int)&v11,
-                                   (__int64)&v10) | 0x10000000;
+    LODWORD(ProcessParameters) = AppModelPolicy_GetPolicy_Internal(v7, 54LL, &v9, &v11, &v10) | 0x10000000;
     if ( (int)ProcessParameters >= 0 && v9 == 3538945 )
     {
       ProcessParameters = v0->ProcessParameters;
@@ -90,7 +66,7 @@ char LdrpInitializePolicy()
   }
   else if ( p_DllPath->Length )
   {
-    LOBYTE(ProcessParameters) = LdrSetDllDirectory((__int64)p_DllPath);
+    LOBYTE(ProcessParameters) = LdrSetDllDirectory(p_DllPath);
   }
   return (char)ProcessParameters;
 }

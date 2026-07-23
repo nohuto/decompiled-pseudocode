@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpInsertPoolTracker @ 0x1402C4BA8
+ * XREFs of ExpInsertPoolTracker @ 0x14021BE10
  * Callers:
- *     ExInsertPoolTag @ 0x1402C347C (ExInsertPoolTag.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1403A9DD0 (ExpInsertPoolTrackerExpansion.c)
- *     ExpResizeBigPageTable @ 0x140440304 (ExpResizeBigPageTable.c)
- *     ExInitializePoolTracker @ 0x140C4246C (ExInitializePoolTracker.c)
+ *     ExInsertPoolTag @ 0x14021B9D0 (ExInsertPoolTag.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140396EF0 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpResizeBigPageTable @ 0x1403E8ED4 (ExpResizeBigPageTable.c)
+ *     ExInitializePoolTracker @ 0x140C445BC (ExInitializePoolTracker.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpPlFindLimitEntry @ 0x1403A9D04 (ExpPlFindLimitEntry.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1403A9DD0 (ExpInsertPoolTrackerExpansion.c)
- *     ExpPoolTrackerChargeEntry @ 0x1403A9F50 (ExpPoolTrackerChargeEntry.c)
- *     EtwTracePool @ 0x1403AA0C8 (EtwTracePool.c)
- *     ExpPoolFlagsToPoolType @ 0x140B744E0 (ExpPoolFlagsToPoolType.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpPlFindLimitEntry @ 0x140396E20 (ExpPlFindLimitEntry.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140396EF0 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpPoolTrackerChargeEntry @ 0x140397070 (ExpPoolTrackerChargeEntry.c)
+ *     EtwTracePool @ 0x1403971E8 (EtwTracePool.c)
+ *     ExpPoolFlagsToPoolType @ 0x140B76080 (ExpPoolFlagsToPoolType.c)
  */
 
 __int64 __fastcall ExpInsertPoolTracker(unsigned int a1, __int64 a2, __int64 a3, int a4)
@@ -24,7 +24,7 @@ __int64 __fastcall ExpInsertPoolTracker(unsigned int a1, __int64 a2, __int64 a3,
   __int64 v11; // r10
   __int64 v12; // rdx
   unsigned int v13; // r14d
-  unsigned int v14; // r9d
+  __int64 v14; // r9
   __int64 v15; // r15
   int v17; // edx
   __int64 v18; // rcx
@@ -79,7 +79,7 @@ __int64 __fastcall ExpInsertPoolTracker(unsigned int a1, __int64 a2, __int64 a3,
     {
       v15 = v12 + 80LL * v13;
       if ( *(_DWORD *)v15 == (_DWORD)v4 )
-        return ExpPoolTrackerChargeEntry(((v10 >> 8) & 1) == 0, a2, v12 + 80LL * v13);
+        return ExpPoolTrackerChargeEntry(((v10 >> 8) & 1) == 0, a2, v12 + 80LL * v13, v14);
       if ( *(_DWORD *)v15 )
         break;
       v17 = *(_DWORD *)(PoolTrackTable + 80LL * v13);
@@ -117,7 +117,7 @@ __int64 __fastcall ExpInsertPoolTracker(unsigned int a1, __int64 a2, __int64 a3,
     }
     v13 = v9 & (v13 + 1);
   }
-  while ( v13 != v14 );
+  while ( v13 != (_DWORD)v14 );
   ExpInsertPoolTrackerExpansion((unsigned int)v4, a2, v10);
   return 1LL;
 }

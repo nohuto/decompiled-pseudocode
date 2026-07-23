@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAcquireInterruptSpinLock @ 0x14033DEB0
+ * XREFs of KeAcquireInterruptSpinLock @ 0x14033E140
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 KIRQL __stdcall KeAcquireInterruptSpinLock(PKINTERRUPT Interrupt)
@@ -19,7 +19,10 @@ KIRQL __stdcall KeAcquireInterruptSpinLock(PKINTERRUPT Interrupt)
     KeBugCheckEx(0x13Bu, 1uLL, (ULONG_PTR)Interrupt, 0LL, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(SynchronizeIrql);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(SynchronizeIrql - 2) <= 0xDu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && CurrentIrql <= 0xFu
+    && (unsigned __int8)(SynchronizeIrql - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == (_BYTE)SynchronizeIrql )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDrvDbSetupNodes @ 0x140739ABC
+ * XREFs of PiDrvDbSetupNodes @ 0x1407379EC
  * Callers:
- *     PiDrvDbInit @ 0x1407370BC (PiDrvDbInit.c)
+ *     PiDrvDbInit @ 0x140734FEC (PiDrvDbInit.c)
  * Callees:
- *     PiDrvDbSetupNodeHive @ 0x140739634 (PiDrvDbSetupNodeHive.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
+ *     PiDrvDbSetupNodeHive @ 0x140737564 (PiDrvDbSetupNodeHive.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDrvDbSetupNodes(int a1)

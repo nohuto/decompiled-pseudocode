@@ -1,26 +1,26 @@
 /*
- * XREFs of CcLazyWriteScan @ 0x1400D575C
+ * XREFs of CcLazyWriteScan @ 0x1400D57DC
  * Callers:
- *     CcWorkerThread @ 0x14007F2E0 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x14007F2D0 (CcWorkerThread.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScanLogHandleList @ 0x14007EBE8 (CcScanLogHandleList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
- *     CcShouldLazyWriteCacheMap @ 0x1400D5EE4 (CcShouldLazyWriteCacheMap.c)
- *     CcPostWorkQueue @ 0x1400D5FF8 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x1400D632C (CcAllocateWorkQueueEntry.c)
- *     CcSetLazyWriteScanQueued @ 0x1400D7470 (CcSetLazyWriteScanQueued.c)
- *     CcAdjustThrottle @ 0x1400D7554 (CcAdjustThrottle.c)
- *     CcCalculatePagesToWrite @ 0x1400D76F4 (CcCalculatePagesToWrite.c)
- *     CcRescheduleLazyWriteScan @ 0x1400D77CC (CcRescheduleLazyWriteScan.c)
- *     CcUpdateTimeOnLogHandles @ 0x14012BFC0 (CcUpdateTimeOnLogHandles.c)
- *     CcComputeNextScanTime @ 0x14013740C (CcComputeNextScanTime.c)
- *     CcPerfLogLoggedStreamsStats @ 0x14018C174 (CcPerfLogLoggedStreamsStats.c)
- *     CcPerfLogLazyWriteScan @ 0x14018DB8C (CcPerfLogLazyWriteScan.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcScanLogHandleList @ 0x14007EBD8 (CcScanLogHandleList.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
+ *     CcShouldLazyWriteCacheMap @ 0x1400D5F64 (CcShouldLazyWriteCacheMap.c)
+ *     CcPostWorkQueue @ 0x1400D6078 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x1400D63AC (CcAllocateWorkQueueEntry.c)
+ *     CcSetLazyWriteScanQueued @ 0x1400D74F0 (CcSetLazyWriteScanQueued.c)
+ *     CcAdjustThrottle @ 0x1400D75D4 (CcAdjustThrottle.c)
+ *     CcCalculatePagesToWrite @ 0x1400D7774 (CcCalculatePagesToWrite.c)
+ *     CcRescheduleLazyWriteScan @ 0x1400D784C (CcRescheduleLazyWriteScan.c)
+ *     CcUpdateTimeOnLogHandles @ 0x14012C090 (CcUpdateTimeOnLogHandles.c)
+ *     CcComputeNextScanTime @ 0x14013750C (CcComputeNextScanTime.c)
+ *     CcPerfLogLoggedStreamsStats @ 0x14018C2B4 (CcPerfLogLoggedStreamsStats.c)
+ *     CcPerfLogLazyWriteScan @ 0x14018DCCC (CcPerfLogLazyWriteScan.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcPostDeferredWrites @ 0x140269BA0 (CcPostDeferredWrites.c)
  */
 
 __int64 __fastcall CcLazyWriteScan(__int64 a1, int a2, unsigned int a3)
@@ -204,7 +204,7 @@ LABEL_88:
   *(_DWORD *)(a1 + 456) = v21;
   *(_DWORD *)(v23 + 8 * v22) = v21;
   *(_QWORD *)(a1 + 728) = MEMORY[0xFFFFF78000000014];
-  if ( (xmmword_140541350 & 0x20000) != 0 )
+  if ( (xmmword_140542350 & 0x20000) != 0 )
     CcPerfLogLazyWriteScan(
       a2,
       v3,
@@ -252,7 +252,7 @@ LABEL_19:
           if ( v46 > *(_QWORD *)(v45 + 112) )
           {
             *(_QWORD *)(v45 + 112) = v46;
-            if ( (xmmword_140541350 & 0x20000) != 0 )
+            if ( (xmmword_140542350 & 0x20000) != 0 )
               *(_QWORD *)(*(_QWORD *)(v26 + 240) + 128LL) = *(_QWORD *)((*(_QWORD *)(v26 + 96) & 0xFFFFFFFFFFFFFFF0uLL)
                                                                       + 0x18);
           }
@@ -474,7 +474,7 @@ LABEL_20:
     v33 = v81;
   }
   v85 = 0LL;
-  if ( (_BYTE)dword_14054019C
+  if ( (_BYTE)dword_14054119C
     || v34
     || *(_QWORD *)(a1 + 744) != a1 + 744
     || (CcComputeNextScanTime(a1, &v86, &v85), v85 != 0x7FFFFFFFFFFFFFFFLL) )
@@ -499,7 +499,7 @@ LABEL_20:
   __writecr8(v35);
   if ( v78 )
     CcUpdateTimeOnLogHandles(a1);
-  if ( (xmmword_140541350 & 0x20000) != 0 )
+  if ( (xmmword_140542350 & 0x20000) != 0 )
     CcPerfLogLoggedStreamsStats(v3, *(unsigned int *)(a1 + 456));
   result = a1 + 744;
   if ( *(_QWORD *)result != result )

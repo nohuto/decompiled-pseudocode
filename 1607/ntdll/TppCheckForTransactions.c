@@ -1,8 +1,8 @@
 /*
  * XREFs of TppCheckForTransactions @ 0x1800FE4C4
  * Callers:
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
- *     TppCallbackCheckThreadBeforeCallback @ 0x18003A440 (TppCallbackCheckThreadBeforeCallback.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
+ *     TppCallbackCheckThreadBeforeCallback @ 0x18003A430 (TppCallbackCheckThreadBeforeCallback.c)
  * Callees:
  *     <none>
  */

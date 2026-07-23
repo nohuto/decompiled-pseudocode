@@ -25,7 +25,7 @@ __int64 ExpRefreshSystemTime()
   int Flink_high; // esi
   LARGE_INTEGER v3; // rax
   int v5; // [rsp+28h] [rbp-28h]
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+70h] [rbp+20h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+78h] [rbp+28h] BYREF
   LARGE_INTEGER v9; // [rsp+80h] [rbp+30h] BYREF

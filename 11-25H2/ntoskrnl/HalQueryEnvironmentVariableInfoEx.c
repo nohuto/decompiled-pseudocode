@@ -17,8 +17,8 @@ __int64 __fastcall HalQueryEnvironmentVariableInfoEx(int a1, __int64 a2, __int64
   __int64 v9; // rax
   unsigned int v10; // ebx
   unsigned int v12; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLargeAllocSetExtraPresent @ 0x18004F520
+ * XREFs of RtlpHpLargeAllocSetExtraPresent @ 0x18004F510
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlpHpExtrasSetPresent @ 0x18005173C (RtlpHpExtrasSetPresent.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpExtrasSetPresent @ 0x18005172C (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     RtlpHpLargeLockReleaseShared @ 0x18004F5E8 (RtlpHpLargeLockReleaseShared.c)
- *     RtlpHpLargeAllocGetMetadata @ 0x18004F95C (RtlpHpLargeAllocGetMetadata.c)
- *     RtlpHpLargeLockAcquireShared @ 0x180050BE4 (RtlpHpLargeLockAcquireShared.c)
+ *     RtlpHpLargeLockReleaseShared @ 0x18004F5D8 (RtlpHpLargeLockReleaseShared.c)
+ *     RtlpHpLargeAllocGetMetadata @ 0x18004F94C (RtlpHpLargeAllocGetMetadata.c)
+ *     RtlpHpLargeLockAcquireShared @ 0x180050BD4 (RtlpHpLargeLockAcquireShared.c)
  */
 
 __int64 __fastcall RtlpHpLargeAllocSetExtraPresent(__int64 a1, __int64 a2, unsigned int a3)

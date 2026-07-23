@@ -1,14 +1,14 @@
 /*
- * XREFs of PoTraceForceIdleReset @ 0x14052F2F8
+ * XREFs of PoTraceForceIdleReset @ 0x140531818
  * Callers:
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     KiResetForceIdle @ 0x140336934 (KiResetForceIdle.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     KiResetForceIdle @ 0x1403389B4 (KiResetForceIdle.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PoTraceForceIdleReset(int a1)
@@ -25,7 +25,7 @@ void __fastcall PoTraceForceIdleReset(int a1)
   int v10; // [rsp+C0h] [rbp+67h] BYREF
 
   v10 = a1;
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v2 = v1;
     v6 = &v2;
@@ -33,23 +33,15 @@ void __fastcall PoTraceForceIdleReset(int a1)
     v8 = &v3;
     v3 = 0x1000000LL;
     v9 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)word_14004B202, 0LL, 0LL, 4u, &v5);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)byte_14004B85B, 0LL, 0LL, 4u, &v5);
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_FORCEIDLE_RESET) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_FORCEIDLE_RESET) )
     {
       UserData.Ptr = (ULONGLONG)&v10;
       *(_QWORD *)&UserData.Size = 4LL;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_FORCEIDLE_RESET,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        1u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_FORCEIDLE_RESET, 0LL, 0, 0LL, 0LL, 1u, &UserData);
     }
   }
 }

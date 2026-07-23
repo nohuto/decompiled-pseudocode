@@ -20,7 +20,7 @@ NTSTATUS __stdcall SeCreateClientSecurity(
         BOOLEAN RemoteSession,
         PSECURITY_CLIENT_CONTEXT ClientContext)
 {
-  __int64 *v7; // rbp
+  PSID *v7; // rbp
   NTSTATUS result; // eax
   NTSTATUS v9; // edi
   unsigned __int8 v10; // [rsp+60h] [rbp-28h] BYREF
@@ -32,12 +32,12 @@ NTSTATUS __stdcall SeCreateClientSecurity(
 
   v10 = 0;
   v15 = 0LL;
-  v7 = (__int64 *)PsReferenceEffectiveToken(
-                    (_DWORD)ClientThread,
-                    (unsigned int)&v14,
-                    (unsigned int)&v12,
-                    (unsigned int)&v13,
-                    (__int64)&v11);
+  v7 = (PSID *)PsReferenceEffectiveToken(
+                 (_DWORD)ClientThread,
+                 (unsigned int)&v14,
+                 (unsigned int)&v12,
+                 (unsigned int)&v13,
+                 (__int64)&v11);
   SepReconcileTrustSidWithProcessProtection(v7[138], &v11, &v10, &v15);
   result = SepCreateClientSecurityEx(
              (__int64)v7,

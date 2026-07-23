@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlRaiseStatus @ 0x18009F6A0
+ * XREFs of RtlRaiseStatus @ 0x18009F6C0
  * Callers:
  *     RtlpLookupPrimaryFunctionEntry @ 0x180002ED4 (RtlpLookupPrimaryFunctionEntry.c)
  *     RtlpWalkFrameChain @ 0x1800038B0 (RtlpWalkFrameChain.c)
@@ -23,24 +23,24 @@
  *     RtlReleaseResource @ 0x18006DF10 (RtlReleaseResource.c)
  *     RtlDeleteGrowableFunctionTable @ 0x18006ED50 (RtlDeleteGrowableFunctionTable.c)
  *     RtlDecodePointer @ 0x180072AF0 (RtlDecodePointer.c)
- *     RtlEncodePointer @ 0x1800758F0 (RtlEncodePointer.c)
- *     RtlInitializeSListHead @ 0x180076240 (RtlInitializeSListHead.c)
- *     RtlDeactivateActivationContext @ 0x1800766F0 (RtlDeactivateActivationContext.c)
- *     LdrpReportError @ 0x180077170 (LdrpReportError.c)
- *     LdrInitializeThunk @ 0x1800786D0 (LdrInitializeThunk.c)
- *     _LdrpInitialize @ 0x18007874C (_LdrpInitialize.c)
- *     LdrLockLoaderLock @ 0x180081040 (LdrLockLoaderLock.c)
- *     LdrUnlockLoaderLock @ 0x180081CA0 (LdrUnlockLoaderLock.c)
- *     RtlSetUnhandledExceptionFilter @ 0x1800833C0 (RtlSetUnhandledExceptionFilter.c)
- *     RtlpAddVectoredHandler @ 0x180084200 (RtlpAddVectoredHandler.c)
- *     RtlConvertSRWLockExclusiveToShared @ 0x180088C10 (RtlConvertSRWLockExclusiveToShared.c)
- *     RtlConvertExclusiveToShared @ 0x18008DD70 (RtlConvertExclusiveToShared.c)
- *     RtlpUnwindOpSlots @ 0x18009F658 (RtlpUnwindOpSlots.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     KiUserApcDispatcher @ 0x1800A3F10 (KiUserApcDispatcher.c)
- *     KiUserCallbackDispatcherHandler @ 0x1800A3F90 (KiUserCallbackDispatcherHandler.c)
- *     KiUserCallbackDispatcher @ 0x1800A4020 (KiUserCallbackDispatcher.c)
- *     KiUserExceptionDispatcher @ 0x1800A4070 (KiUserExceptionDispatcher.c)
+ *     RtlEncodePointer @ 0x180075900 (RtlEncodePointer.c)
+ *     RtlInitializeSListHead @ 0x180076250 (RtlInitializeSListHead.c)
+ *     RtlDeactivateActivationContext @ 0x180076700 (RtlDeactivateActivationContext.c)
+ *     LdrpReportError @ 0x180077180 (LdrpReportError.c)
+ *     LdrInitializeThunk @ 0x1800786E0 (LdrInitializeThunk.c)
+ *     _LdrpInitialize @ 0x18007875C (_LdrpInitialize.c)
+ *     LdrLockLoaderLock @ 0x180081050 (LdrLockLoaderLock.c)
+ *     LdrUnlockLoaderLock @ 0x180081CB0 (LdrUnlockLoaderLock.c)
+ *     RtlSetUnhandledExceptionFilter @ 0x1800833D0 (RtlSetUnhandledExceptionFilter.c)
+ *     RtlpAddVectoredHandler @ 0x180084210 (RtlpAddVectoredHandler.c)
+ *     RtlConvertSRWLockExclusiveToShared @ 0x180088C20 (RtlConvertSRWLockExclusiveToShared.c)
+ *     RtlConvertExclusiveToShared @ 0x18008DD80 (RtlConvertExclusiveToShared.c)
+ *     RtlpUnwindOpSlots @ 0x18009F66C (RtlpUnwindOpSlots.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     KiUserApcDispatcher @ 0x1800A3F30 (KiUserApcDispatcher.c)
+ *     KiUserCallbackDispatcherHandler @ 0x1800A3FB0 (KiUserCallbackDispatcherHandler.c)
+ *     KiUserCallbackDispatcher @ 0x1800A4040 (KiUserCallbackDispatcher.c)
+ *     KiUserExceptionDispatcher @ 0x1800A4090 (KiUserExceptionDispatcher.c)
  *     LdrpLogFatalUserCallbackException @ 0x1800D14D0 (LdrpLogFatalUserCallbackException.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     LdrpFatalExceptionFilter @ 0x1800D78AC (LdrpFatalExceptionFilter.c)
@@ -58,35 +58,29 @@
  *     TppExceptionFilter @ 0x1801107C4 (TppExceptionFilter.c)
  * Callees:
  *     RtlDispatchException @ 0x1800048E0 (RtlDispatchException.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwRaiseException @ 0x1800A2EB0 (ZwRaiseException.c)
- *     RtlpCaptureContext @ 0x1800A4290 (RtlpCaptureContext.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwRaiseException @ 0x1800A2ED0 (ZwRaiseException.c)
+ *     RtlpCaptureContext @ 0x1800A42B0 (RtlpCaptureContext.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  __int64 v2; // r8
-  char v3; // bl
-  unsigned int v4; // eax
-  _DWORD v5[2]; // [rsp+20h] [rbp-578h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-570h]
-  __int64 v7; // [rsp+30h] [rbp-568h]
-  int v8; // [rsp+38h] [rbp-560h]
-  _BYTE v9[248]; // [rsp+C0h] [rbp-4D8h] BYREF
-  __int64 v10; // [rsp+1B8h] [rbp-3E0h]
+  BOOLEAN v2; // bl
+  NTSTATUS v3; // eax
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  struct _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  RtlpCaptureContext(v9);
-  v5[0] = a1;
-  v3 = 0;
-  v6 = 0LL;
-  v8 = 0;
-  v7 = v10;
-  v5[1] = 1;
+  RtlpCaptureContext(&ContextRecord);
+  ExceptionRecord.ExceptionCode = Status;
+  v2 = 0;
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionAddress = (void *)ContextRecord.Rip;
+  ExceptionRecord.ExceptionFlags = 1;
   if ( NtCurrentPeb()->BeingDebugged )
-    v3 = 1;
+    v2 = 1;
   else
-    RtlDispatchException((__int64)v5, (__int64)v9);
-  LOBYTE(v2) = v3;
-  v4 = ZwRaiseException(v5, v9, v2);
-  RtlRaiseStatus(v4);
+    RtlDispatchException(&ExceptionRecord, &ContextRecord);
+  v3 = ZwRaiseException(&ExceptionRecord, &ContextRecord, v2);
+  RtlRaiseStatus(v3);
 }

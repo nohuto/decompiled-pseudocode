@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpQueryDebuggerInformation @ 0x1409B54CC
+ * XREFs of HalpQueryDebuggerInformation @ 0x1409B64CC
  * Callers:
- *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x1409909D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     wcscpy_s @ 0x1403D83E0 (wcscpy_s.c)
  */
 
 __int64 __fastcall HalpQueryDebuggerInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)
@@ -21,9 +21,9 @@ __int64 __fastcall HalpQueryDebuggerInformation(_DWORD *a1, unsigned int a2, uns
   const wchar_t *v17; // r8
 
   *a3 = 4;
-  v3 = (__int64 *)qword_140C48D68;
+  v3 = (__int64 *)qword_140C48DA8;
   v4 = 0;
-  if ( (__int64 *)qword_140C48D68 == &qword_140C48D68 )
+  if ( (__int64 *)qword_140C48DA8 == &qword_140C48DA8 )
     return 3221225473LL;
   do
   {
@@ -68,7 +68,7 @@ __int64 __fastcall HalpQueryDebuggerInformation(_DWORD *a1, unsigned int a2, uns
     v3 = (__int64 *)*v3;
     ++v4;
   }
-  while ( v3 != &qword_140C48D68 );
+  while ( v3 != &qword_140C48DA8 );
   if ( !v4 )
     return 3221225473LL;
   if ( *a3 > a2 )

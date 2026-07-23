@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsVadLarge @ 0x140318264
+ * XREFs of MiIsVadLarge @ 0x140322FB4
  * Callers:
- *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
- *     MiVadCommitCrossPartition @ 0x14031823C (MiVadCommitCrossPartition.c)
- *     MiRemoveVadCharges @ 0x1406ED1F0 (MiRemoveVadCharges.c)
- *     MiProcessVaRangesInfoClass @ 0x14070FBB4 (MiProcessVaRangesInfoClass.c)
+ *     MiInPagePageTable @ 0x140316B10 (MiInPagePageTable.c)
+ *     MiVadCommitCrossPartition @ 0x140322F8C (MiVadCommitCrossPartition.c)
+ *     MiProcessVaRangesInfoClass @ 0x1406BE204 (MiProcessVaRangesInfoClass.c)
+ *     MiRemoveVadCharges @ 0x1407045D0 (MiRemoveVadCharges.c)
  * Callees:
  *     <none>
  */

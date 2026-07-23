@@ -96,7 +96,9 @@ __int64 __fastcall KeFlushSingleTb(unsigned __int64 a1, unsigned int a2, unsigne
       }
     }
     __invlpg((void *)a1);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v14 = v28;
       if ( v28 <= 0xFu && CurrentIrql >= 2u )
@@ -153,7 +155,7 @@ __int64 __fastcall KeFlushSingleTb(unsigned __int64 a1, unsigned int a2, unsigne
     v31 = v8;
     v21 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
     {
       v22 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v21 == 15 )
@@ -163,10 +165,10 @@ __int64 __fastcall KeFlushSingleTb(unsigned __int64 a1, unsigned int a2, unsigne
       v22[5] |= v23;
     }
     ExFlushTb(1LL, &v31, a2);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v21 <= 0xFu && v24 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v21 <= 0xFu && v24 >= 2u )
       {
         v25 = KeGetCurrentPrcb();
         v26 = v25->SchedulerAssist;

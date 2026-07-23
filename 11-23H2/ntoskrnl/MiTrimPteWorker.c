@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimPteWorker @ 0x1402E38D8
+ * XREFs of MiTrimPteWorker @ 0x1402E3B68
  * Callers:
- *     MiTrimPte @ 0x1402E3630 (MiTrimPte.c)
- *     MiTrimWorkingSetEPTCallback @ 0x1406354D0 (MiTrimWorkingSetEPTCallback.c)
+ *     MiTrimPte @ 0x1402E38C0 (MiTrimPte.c)
+ *     MiTrimWorkingSetEPTCallback @ 0x140635A20 (MiTrimWorkingSetEPTCallback.c)
  * Callees:
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiTrimThisWsle @ 0x1402E27D8 (MiTrimThisWsle.c)
- *     MI_WSLE_LOG_ACCESS @ 0x1402E39BC (MI_WSLE_LOG_ACCESS.c)
- *     MiTrimWorkingSetBuildup @ 0x14034FDC0 (MiTrimWorkingSetBuildup.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiTrimThisWsle @ 0x1402E2A68 (MiTrimThisWsle.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1402E3C4C (MI_WSLE_LOG_ACCESS.c)
+ *     MiTrimWorkingSetBuildup @ 0x14034FF60 (MiTrimWorkingSetBuildup.c)
  */
 
 __int64 __fastcall MiTrimPteWorker(

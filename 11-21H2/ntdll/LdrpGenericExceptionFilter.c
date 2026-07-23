@@ -22,12 +22,12 @@
 
 __int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
 {
-  unsigned int v3; // edi
+  NTSTATUS v3; // edi
   bool v5; // zf
   int v6; // ecx
   int v7; // ecx
   int v8; // ecx
-  char v9; // [rsp+60h] [rbp+8h] BYREF
+  CHAR Response; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = *(_DWORD *)*a1;
   LdrpLogInternal(
@@ -45,18 +45,18 @@ __int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
     while ( 1 )
     {
       DbgPrint("\n***Exception thrown within loader***\n");
-      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &v9, 2LL);
-      if ( v9 > 98 )
+      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &Response, 2u);
+      if ( Response > 98 )
       {
-        v6 = v9 - 105;
-        v5 = v9 == 105;
+        v6 = Response - 105;
+        v5 = Response == 105;
       }
       else
       {
-        if ( v9 == 98 || v9 == 66 )
+        if ( Response == 98 || Response == 66 )
           goto LABEL_14;
-        v6 = v9 - 73;
-        v5 = v9 == 73;
+        v6 = Response - 73;
+        v5 = Response == 73;
       }
       if ( v5 )
         return 1LL;
@@ -73,13 +73,13 @@ LABEL_14:
         if ( v8 == 4 )
         {
           LdrpLogFatalLdrEtwEvent(&NtCurrentPeb()->ProcessParameters->ImagePathName, &LoaderFatalErrorThread);
-          NtTerminateThread(-2LL, v3);
+          NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, v3);
         }
       }
       else
       {
         LdrpLogFatalLdrEtwEvent(&NtCurrentPeb()->ProcessParameters->ImagePathName, &LoaderFatalErrorProc);
-        ZwTerminateProcess(-1LL, v3);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3);
       }
     }
   }

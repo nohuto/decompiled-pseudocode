@@ -23,33 +23,34 @@
  *     sub_1800EFBEC @ 0x1800EFBEC (sub_1800EFBEC.c)
  */
 
-__int64 __fastcall RtlCloneUserProcess(int a1, __int64 a2, __int64 a3, __int64 a4, char *a5)
+NTSTATUS __cdecl RtlCloneUserProcess(
+        ULONG ProcessFlags,
+        PSECURITY_DESCRIPTOR ProcessSecurityDescriptor,
+        PSECURITY_DESCRIPTOR ThreadSecurityDescriptor,
+        HANDLE DebugPort,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  __int64 v7; // rbp
+  PSECURITY_DESCRIPTOR v7; // rbp
   int v9; // esi
-  int v10; // r15d
-  int v11; // r14d
-  int v12; // edi
-  int v13; // ebx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  volatile signed __int64 *v18; // rbx
-  __int64 v19; // rbp
-  unsigned int v20; // eax
-  unsigned int v21; // ebp
-  unsigned int v22; // ebx
-  __int64 v23[8]; // [rsp+30h] [rbp-68h] BYREF
+  ULONG v10; // r15d
+  ULONG v11; // r14d
+  ULONG v12; // edi
+  NTSTATUS v13; // ebx
+  _RTL_SRWLOCK *v14; // rbx
+  __int64 v15; // rbp
+  NTSTATUS v16; // eax
+  NTSTATUS v17; // ebp
+  unsigned int v18; // ebx
+  _QWORD v19[8]; // [rsp+30h] [rbp-68h] BYREF
 
-  v7 = a2;
-  if ( (a1 & 0xFFFFFFF8) != 0 )
-    return 3221225711LL;
+  v7 = ProcessSecurityDescriptor;
+  if ( (ProcessFlags & 0xFFFFFFF8) != 0 )
+    return -1073741585;
   v9 = 2;
-  v10 = a1 & 1;
-  v11 = 2 * (a1 & 2);
-  v12 = a1 & 4;
-  if ( (a1 & 4) == 0 )
+  v10 = ProcessFlags & 1;
+  v11 = 2 * (ProcessFlags & 2);
+  v12 = ProcessFlags & 4;
+  if ( (ProcessFlags & 4) == 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
@@ -58,94 +59,94 @@ __int64 __fastcall RtlCloneUserProcess(int a1, __int64 a2, __int64 a3, __int64 a
     else
     {
       sub_18001AE14(0);
-      sub_180019FC0(v15, v14, v16, v17);
-      RtlEnterCriticalSection((__int64)&unk_18015B220);
+      sub_180019FC0();
+      RtlEnterCriticalSection(&stru_18015B220);
       v13 = 0;
     }
     if ( v13 >= 0 )
     {
-      RtlAcquireSRWLockExclusive(&qword_18015C200);
+      RtlAcquireSRWLockExclusive(&stru_18015C200);
       sub_1800D8EC0();
-      RtlEnterCriticalSection((__int64)&unk_18015AE60);
-      RtlAcquireSRWLockShared(&qword_18015C0D8);
-      v18 = (volatile signed __int64 *)&unk_18015C0E8;
-      v19 = 16LL;
+      RtlEnterCriticalSection(&stru_18015AE60);
+      RtlAcquireSRWLockShared(&stru_18015C0D8);
+      v14 = &stru_18015C0E8;
+      v15 = 16LL;
       do
       {
-        RtlAcquireSRWLockExclusive(v18);
-        v18 += 2;
-        --v19;
+        RtlAcquireSRWLockExclusive(v14);
+        v14 += 2;
+        --v15;
       }
-      while ( v19 );
-      RtlAcquireSRWLockExclusive(&qword_18015C290);
+      while ( v15 );
+      RtlAcquireSRWLockExclusive(&stru_18015C290);
       sub_1800D7D28(0);
       v13 = sub_1800EF328();
       if ( v13 >= 0 )
       {
-        RtlAcquireSRWLockExclusive(&qword_18015C1F8);
-        RtlAcquireSRWLockExclusive(&qword_18015C1E8);
+        RtlAcquireSRWLockExclusive(&stru_18015C1F8);
+        RtlAcquireSRWLockExclusive(&stru_18015C1E8);
         v13 = 0;
         byte_18015AE99 = 1;
       }
       else
       {
         sub_1800D7D28(2);
-        RtlReleaseSRWLockExclusive(&qword_18015C290);
+        RtlReleaseSRWLockExclusive(&stru_18015C290);
         sub_1800D7BCC(0);
-        RtlLeaveCriticalSection((__int64)&unk_18015AE60);
+        RtlLeaveCriticalSection(&stru_18015AE60);
         sub_1800D8F18(0LL);
-        RtlReleaseSRWLockExclusive(&qword_18015C200);
+        RtlReleaseSRWLockExclusive(&stru_18015C200);
         sub_1800D7B28(0);
       }
-      v7 = a2;
+      v7 = ProcessSecurityDescriptor;
     }
     if ( v13 < 0 )
-      return (unsigned int)v13;
+      return v13;
   }
-  memset(v23, 0, 0x38uLL);
-  v23[1] = v7;
-  LOWORD(v23[0]) = 1;
-  v23[2] = a3;
-  v23[4] = a4;
-  v20 = sub_18008D520(0LL, 0LL, v11, v10, (__int64)v23, a5);
-  v21 = v20;
+  memset(v19, 0, 0x38uLL);
+  v19[1] = v7;
+  LOWORD(v19[0]) = 1;
+  v19[2] = ThreadSecurityDescriptor;
+  v19[4] = DebugPort;
+  v16 = sub_18008D520(0LL, 0LL, v11, v10, (__int64)v19, (HANDLE *)ProcessInformation);
+  v17 = v16;
   if ( !v12 )
   {
-    if ( v20 == 297 )
+    if ( v16 == 297 )
     {
-      qword_18015C1F8 = 1LL;
-      v22 = 1;
+      stru_18015C1F8.Ptr = (PVOID)1;
+      v18 = 1;
       v9 = 1;
-      qword_18015AE70 = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
-      dword_18015AE68 = -2;
-      dword_18015AE6C = 1;
-      qword_18015AE78 = 0LL;
-      qword_18015C200 = 1LL;
+      stru_18015AE60.OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+      stru_18015AE60.LockCount = -2;
+      stru_18015AE60.RecursionCount = 1;
+      stru_18015AE60.LockSemaphore = 0LL;
+      stru_18015C200.Ptr = (PVOID)1;
     }
     else
     {
       byte_18015AE99 = 0;
-      v22 = 0;
-      RtlReleaseSRWLockExclusive(&qword_18015C1E8);
+      v18 = 0;
+      RtlReleaseSRWLockExclusive(&stru_18015C1E8);
     }
-    RtlReleaseSRWLockExclusive(&qword_18015C1F8);
+    RtlReleaseSRWLockExclusive(&stru_18015C1F8);
     sub_1800D7D28(v9);
     if ( v9 == 1 )
-      qword_18015C290 = 1LL;
+      stru_18015C290.Ptr = (PVOID)1;
     else
-      RtlReleaseSRWLockExclusive(&qword_18015C290);
-    sub_1800EFBEC(v22);
-    sub_1800D7BCC(v22);
-    RtlLeaveCriticalSection((__int64)&unk_18015AE60);
-    sub_1800D8F18(v22);
-    RtlReleaseSRWLockExclusive(&qword_18015C200);
-    sub_1800D7B28(v22);
-    if ( v22 )
+      RtlReleaseSRWLockExclusive(&stru_18015C290);
+    sub_1800EFBEC(v18);
+    sub_1800D7BCC(v18);
+    RtlLeaveCriticalSection(&stru_18015AE60);
+    sub_1800D8F18(v18);
+    RtlReleaseSRWLockExclusive(&stru_18015C200);
+    sub_1800D7B28(v18);
+    if ( v18 )
     {
       byte_18015AE99 = 0;
-      RtlAcquireReleaseSRWLockExclusive(&qword_18015C1E8);
-      RtlWakeAllConditionVariable(&qword_18015C1F0);
+      RtlAcquireReleaseSRWLockExclusive(&stru_18015C1E8);
+      RtlWakeAllConditionVariable(&ConditionVariable);
     }
   }
-  return v21;
+  return v17;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteInsertedCloneVads @ 0x140B40254
+ * XREFs of MiDeleteInsertedCloneVads @ 0x140B42284
  * Callers:
- *     MiReturnCloneResources @ 0x1409620A4 (MiReturnCloneResources.c)
+ *     MiReturnCloneResources @ 0x140A07D98 (MiReturnCloneResources.c)
  * Callees:
- *     MiReferenceVad @ 0x14027E890 (MiReferenceVad.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiDeleteCloneTree @ 0x1405267A4 (MiDeleteCloneTree.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
+ *     MiReferenceVad @ 0x14027DE00 (MiReferenceVad.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiDeleteCloneTree @ 0x140528E14 (MiDeleteCloneTree.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
  */
 
 PSLIST_ENTRY __fastcall MiDeleteInsertedCloneVads(ULONG_PTR a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

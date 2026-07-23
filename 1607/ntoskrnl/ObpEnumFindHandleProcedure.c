@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpEnumFindHandleProcedure @ 0x14045E5D0
+ * XREFs of ObpEnumFindHandleProcedure @ 0x14045D4A0
  * Callers:
  *     <none>
  * Callees:
- *     ExfUnblockPushLock @ 0x1401598C0 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x140159E30 (ExfUnblockPushLock.c)
  */
 
 __int64 __fastcall ObpEnumFindHandleProcedure(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

@@ -187,7 +187,7 @@ LABEL_31:
           *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
           if ( ZwCreateKey(&DestinationString, 0x2001Fu, &ObjectAttributes_8, 0, 0LL, 1u, &Disposition) >= 0 )
           {
-            CmpAddDockingInfo((__int64)DestinationString, v7 + 4);
+            CmpAddDockingInfo(DestinationString, v7 + 4);
             ZwClose(DestinationString);
             DestinationString = 0LL;
           }

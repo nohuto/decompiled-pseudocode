@@ -8,10 +8,10 @@
  *     IopFreeMiniCompletionPacket @ 0x1406044F0 (IopFreeMiniCompletionPacket.c)
  */
 
-void __fastcall IopFreeCompletionListPackets(struct _SLIST_ENTRY *P)
+void __fastcall IopFreeCompletionListPackets(_SLIST_ENTRY *P)
 {
-  struct _SLIST_ENTRY *v1; // rbx
-  struct _SLIST_ENTRY *v2; // rcx
+  _SLIST_ENTRY *v1; // rbx
+  _SLIST_ENTRY *v2; // rcx
   IRP *v3; // rcx
 
   if ( P )

@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmCheckQueuePhaseActions @ 0x140252698
+ * XREFs of PpmCheckQueuePhaseActions @ 0x140253FF8
  * Callers:
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140252E50 (PpmCheckSnapAllDeliveredPerformance.c)
- *     PpmPerfApplyProcessorStates @ 0x140259FC0 (PpmPerfApplyProcessorStates.c)
- *     PpmParkReportParkedCores @ 0x14025A2F0 (PpmParkReportParkedCores.c)
- *     PpmParkReportUnparkedCores @ 0x14025B3A0 (PpmParkReportUnparkedCores.c)
- *     PpmParkUnblockIdle @ 0x1404A1F80 (PpmParkUnblockIdle.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x1402547B0 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmPerfApplyProcessorStates @ 0x14025B7A0 (PpmPerfApplyProcessorStates.c)
+ *     PpmParkReportParkedCores @ 0x14025BAD0 (PpmParkReportParkedCores.c)
+ *     PpmParkReportUnparkedCores @ 0x14025CB80 (PpmParkReportUnparkedCores.c)
+ *     PpmParkUnblockIdle @ 0x14049BAB0 (PpmParkUnblockIdle.c)
  * Callees:
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
- *     PpmCheckBeginNewAccountingPeriod @ 0x140256C34 (PpmCheckBeginNewAccountingPeriod.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
+ *     PpmCheckBeginNewAccountingPeriod @ 0x1402585C4 (PpmCheckBeginNewAccountingPeriod.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall PpmCheckQueuePhaseActions(__int64 a1, char a2)
@@ -27,8 +27,8 @@ __int64 __fastcall PpmCheckQueuePhaseActions(__int64 a1, char a2)
   v5 = result;
   if ( (_DWORD)result )
   {
-    result = PpmCheckBeginNewAccountingPeriod(PopSleepstudySessionLock.SavedApcState.ApcListHead[0].Flink);
-    _InterlockedAdd((volatile signed __int32 *)&PopSleepstudySessionLock.ApcStateFill[8], v5);
+    result = PpmCheckBeginNewAccountingPeriod(PpmCheckCurrentActionAccountingBucket);
+    _InterlockedAdd(&PpmCheckActionCount, v5);
     v6 = *(_QWORD *)(a1 + 8);
     for ( i = 0; ; v6 = *(_QWORD *)(a1 + 8LL * i + 8) )
     {
@@ -36,8 +36,7 @@ __int64 __fastcall PpmCheckQueuePhaseActions(__int64 a1, char a2)
       {
         _BitScanForward64(&v8, v6);
         v6 &= ~(1LL << v8);
-        Prcb = KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                         + 64 * i
+        Prcb = KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * i].Flink
                          + (unsigned int)(unsigned __int8)v8));
         _m_prefetchw((const void *)(Prcb + 35240));
         LODWORD(result) = *(_DWORD *)(Prcb + 35240);

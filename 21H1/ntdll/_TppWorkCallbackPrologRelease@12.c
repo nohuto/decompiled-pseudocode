@@ -19,24 +19,24 @@
  *     _TppETWCallbackEnqueue@20 @ 0x4B384A30 (_TppETWCallbackEnqueue@20.c)
  */
 
-int __fastcall TppWorkCallbackPrologRelease(int a1, int a2, int a3)
+int __fastcall TppWorkCallbackPrologRelease(_DWORD *a1, int a2, int a3)
 {
-  int v4; // esi
+  void *v4; // esi
   unsigned __int32 v5; // ecx
   signed __int32 v6; // edx
   unsigned __int32 v7; // ecx
   int v9; // eax
   int v11; // [esp+14h] [ebp-10h]
-  int v12; // [esp+18h] [ebp-Ch] BYREF
+  PVOID Cookie; // [esp+18h] [ebp-Ch] BYREF
   int v13; // [esp+1Ch] [ebp-8h]
   int v14; // [esp+20h] [ebp-4h]
   _UNKNOWN *retaddr; // [esp+28h] [ebp+4h]
 
   v11 = 0;
-  v12 = 0;
-  v4 = *(_DWORD *)(a2 + 88);
+  Cookie = 0;
+  v4 = *(void **)(a2 + 88);
   if ( v4 )
-    LdrLockLoaderLock(0, 0, &v12);
+    LdrLockLoaderLock(0, 0, &Cookie);
   v5 = *(_DWORD *)(a2 + 140);
   do
   {
@@ -65,10 +65,10 @@ int __fastcall TppWorkCallbackPrologRelease(int a1, int a2, int a3)
   {
     if ( v13 )
     {
-      if ( (int)LdrAddRefDll(0, v4) >= 0 )
+      if ( LdrAddRefDll(0, v4) >= 0 )
       {
-        *(_DWORD *)(a1 + 80) |= 0x100u;
-        *(_DWORD *)(a1 + 100) = v4;
+        a1[20] |= 0x100u;
+        a1[25] = v4;
       }
       else
       {
@@ -77,7 +77,7 @@ int __fastcall TppWorkCallbackPrologRelease(int a1, int a2, int a3)
         v11 = 1;
       }
     }
-    LdrUnlockLoaderLock(0, v12);
+    LdrUnlockLoaderLock(0, Cookie);
     if ( v11 )
     {
       TppBarrierAdjust(0);

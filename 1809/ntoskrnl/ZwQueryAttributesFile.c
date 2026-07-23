@@ -1,18 +1,16 @@
 /*
- * XREFs of ZwQueryAttributesFile @ 0x1401B8930
+ * XREFs of ZwQueryAttributesFile @ 0x1401B8A90
  * Callers:
- *     BiDoesHiveExist @ 0x140714C90 (BiDoesHiveExist.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x1407F67DC (CmpOpenFileWithExtremePrejudice.c)
- *     BiResolveLocateDevice @ 0x1408F11C0 (BiResolveLocateDevice.c)
+ *     BiDoesHiveExist @ 0x140715F30 (BiDoesHiveExist.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x1407F79DC (CmpOpenFileWithExtremePrejudice.c)
+ *     BiResolveLocateDevice @ 0x1408F2480 (BiResolveLocateDevice.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes, PFILE_BASIC_INFORMATION FileInformation)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectAttributes, FileInformation, v2);
+  return KiServiceInternal(ObjectAttributes);
 }

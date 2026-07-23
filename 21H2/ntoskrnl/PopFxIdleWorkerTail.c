@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxIdleWorkerTail @ 0x140260EC0
+ * XREFs of PopFxIdleWorkerTail @ 0x140282390
  * Callers:
- *     PopFxIdleWorker @ 0x140260DA4 (PopFxIdleWorker.c)
- *     PoFxCompleteIdleCondition @ 0x1402C42D0 (PoFxCompleteIdleCondition.c)
+ *     PoFxCompleteIdleCondition @ 0x140242850 (PoFxCompleteIdleCondition.c)
+ *     PopFxIdleWorker @ 0x140282274 (PopFxIdleWorker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopFxActivateComponentWorker @ 0x1402606E0 (PopFxActivateComponentWorker.c)
- *     PopFxAddRefDevice @ 0x14026077C (PopFxAddRefDevice.c)
- *     PopFxProcessWork @ 0x140260844 (PopFxProcessWork.c)
- *     PopDiagTraceFxComponentLogicalCondition @ 0x140261084 (PopDiagTraceFxComponentLogicalCondition.c)
- *     PopFxCompleteComponentActivation @ 0x140261104 (PopFxCompleteComponentActivation.c)
- *     PoFxIdleComponent @ 0x1402611A0 (PoFxIdleComponent.c)
- *     PpmInterlockedUpdateTimeNoFence @ 0x140261370 (PpmInterlockedUpdateTimeNoFence.c)
- *     PopFxUpdateAccountingActiveTime @ 0x1402613A4 (PopFxUpdateAccountingActiveTime.c)
- *     PopPluginComponentActive @ 0x140261980 (PopPluginComponentActive.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopFxActivateComponentWorker @ 0x140281BAC (PopFxActivateComponentWorker.c)
+ *     PopFxAddRefDevice @ 0x140281C48 (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x140281D14 (PopFxProcessWork.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x140282554 (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxCompleteComponentActivation @ 0x1402825D4 (PopFxCompleteComponentActivation.c)
+ *     PoFxIdleComponent @ 0x140282670 (PoFxIdleComponent.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x140282840 (PpmInterlockedUpdateTimeNoFence.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140282874 (PopFxUpdateAccountingActiveTime.c)
+ *     PopPluginComponentActive @ 0x140282E50 (PopPluginComponentActive.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int a2, int *a3)

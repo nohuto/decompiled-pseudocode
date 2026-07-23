@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpInitializeSessionDriver @ 0x140547D54
+ * XREFs of ExpInitializeSessionDriver @ 0x140548294
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
- *     MmSessionSetUnloadAddress @ 0x140131938 (MmSessionSetUnloadAddress.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmSessionSetUnloadAddress @ 0x140131EA8 (MmSessionSetUnloadAddress.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall ExpInitializeSessionDriver(__int64 (__fastcall *a1)(_QWORD *, _QWORD), __int64 a2)

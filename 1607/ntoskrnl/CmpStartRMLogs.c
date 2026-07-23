@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpStartRMLogs @ 0x1404DA6EC
+ * XREFs of CmpStartRMLogs @ 0x1404BDCF0
  * Callers:
- *     CmpTransInitializeTransaction @ 0x1404DA4B8 (CmpTransInitializeTransaction.c)
+ *     CmpTransInitializeTransaction @ 0x1404BDABC (CmpTransInitializeTransaction.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmpLockRegistryFreezeAware @ 0x1403FB854 (CmpLockRegistryFreezeAware.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpUuidCreate @ 0x14049F598 (CmpUuidCreate.c)
- *     CmpStartRMLog @ 0x1404DAAE0 (CmpStartRMLog.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmpLockRegistryFreezeAware @ 0x1403FA714 (CmpLockRegistryFreezeAware.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpStartRMLog @ 0x1404BE0E4 (CmpStartRMLog.c)
+ *     CmpUuidCreate @ 0x1405179A4 (CmpUuidCreate.c)
  */
 
 __int64 __fastcall CmpStartRMLogs(_DWORD *a1)
@@ -28,7 +28,7 @@ __int64 __fastcall CmpStartRMLogs(_DWORD *a1)
   else if ( (v1 & 1) == 0 )
   {
     v5 = a1 + 28;
-    v6 = CmpUuidCreate(&Uuid) >= 0;
+    v6 = (int)CmpUuidCreate(&Uuid) >= 0;
     if ( (a1[26] & 2) == 0 )
       v5 = a1 + 27;
     CmpLockRegistryFreezeAware(0);

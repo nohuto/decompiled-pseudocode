@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExDeletePagedLookasideList @ 0x14093EBD0
+ * XREFs of VerifierExDeletePagedLookasideList @ 0x14093FBD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViLookasideDelete @ 0x14093F12C (ViLookasideDelete.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViLookasideDelete @ 0x14094012C (ViLookasideDelete.c)
  */
 
 __int64 __fastcall VerifierExDeletePagedLookasideList(ULONG_PTR a1)

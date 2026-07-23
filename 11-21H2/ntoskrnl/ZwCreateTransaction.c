@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwCreateTransaction @ 0x14041D0E0
  * Callers:
- *     DifZwCreateTransactionWrapper @ 0x14061F370 (DifZwCreateTransactionWrapper.c)
+ *     sub_14061F370 @ 0x14061F370 (sub_14061F370.c)
  * Callees:
  *     <none>
  */
@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwCreateTransaction(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(TransactionHandle, *(_QWORD *)&DesiredAccess);
 }

@@ -1,83 +1,79 @@
 /*
- * XREFs of PnprMarkOrMirrorPages @ 0x140B54268
+ * XREFs of PnprMarkOrMirrorPages @ 0x140B562B8
  * Callers:
- *     PnprMirrorPhysicalMemory @ 0x1405A7B30 (PnprMirrorPhysicalMemory.c)
- *     PnprRecopyAddress @ 0x1405A7D30 (PnprRecopyAddress.c)
- *     PnprRecopyMappingReserve @ 0x1405A7D88 (PnprRecopyMappingReserve.c)
+ *     PnprMirrorPhysicalMemory @ 0x1405A4B20 (PnprMirrorPhysicalMemory.c)
+ *     PnprRecopyAddress @ 0x1405A4D20 (PnprRecopyAddress.c)
+ *     PnprRecopyMappingReserve @ 0x1405A4D78 (PnprRecopyMappingReserve.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a2, char a3, __int64 a4)
+__int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a2, char a3)
 {
-  __int64 v5; // rcx
-  unsigned __int64 v6; // r14
-  __int64 v8; // rax
-  RTL_BITMAP *v9; // rsi
-  unsigned __int64 v10; // r13
-  unsigned __int64 v11; // r15
-  unsigned __int64 v12; // rbp
-  unsigned __int64 v13; // rdi
+  __int64 v4; // rcx
+  unsigned __int64 v5; // r14
+  __int64 v7; // rax
+  _RTL_BITMAP *v8; // rsi
+  unsigned __int64 v9; // r13
+  unsigned __int64 v10; // r15
+  unsigned __int64 v11; // rbp
+  unsigned __int64 v12; // rdi
+  unsigned __int64 v13; // rbx
   unsigned __int64 v14; // rbx
-  unsigned __int64 v15; // rbx
-  __int64 v16; // rcx
+  __int64 v15; // rcx
+  int v16; // eax
   int v17; // eax
-  int v18; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
 
-  v5 = PnprContext;
-  v6 = a1 >> 12;
+  v4 = PnprContext;
+  v5 = a1 >> 12;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v8 = PnprContext + 152;
-  v9 = *(RTL_BITMAP **)(PnprContext + 152);
-  v10 = (a2 >> 12) + v6;
-  v11 = v10 - 1;
-  while ( v9 != (RTL_BITMAP *)v8 )
+  v7 = PnprContext + 152;
+  v8 = *(_RTL_BITMAP **)(PnprContext + 152);
+  v9 = (a2 >> 12) + v5;
+  v10 = v9 - 1;
+  while ( v8 != (_RTL_BITMAP *)v7 )
   {
-    v12 = *(_QWORD *)&v9[1].SizeOfBitMap;
-    if ( v11 < v12 )
+    v11 = *(_QWORD *)&v8[1].SizeOfBitMap;
+    if ( v10 < v11 )
       break;
-    v13 = v6;
-    v14 = v10;
-    if ( v6 <= v12 )
-      v13 = *(_QWORD *)&v9[1].SizeOfBitMap;
-    if ( (unsigned int *)v11 >= (unsigned int *)((char *)v9[1].Buffer + v12 - 1) )
-      v14 = (unsigned __int64)v9[1].Buffer + v12;
-    v15 = v14 - 1;
-    if ( v13 <= v15 )
+    v12 = v5;
+    v13 = v9;
+    if ( v5 <= v11 )
+      v12 = *(_QWORD *)&v8[1].SizeOfBitMap;
+    if ( (unsigned int *)v10 >= (unsigned int *)((char *)v8[1].Buffer + v11 - 1) )
+      v13 = (unsigned __int64)v8[1].Buffer + v11;
+    v14 = v13 - 1;
+    if ( v12 <= v14 )
     {
       if ( a3 )
       {
-        if ( (int)guard_dispatch_icall_no_overrides(
-                    *(_QWORD *)(v5 + 33184),
-                    v13 << 12,
-                    (v15 << 12) - (v13 << 12) + 4096,
-                    a4) < 0 )
+        if ( (int)guard_dispatch_icall_no_overrides(*(_QWORD *)(v4 + 33184), v12 << 12) < 0 )
         {
-          v16 = PnprContext;
-          v17 = *(_DWORD *)(PnprContext + 33288);
+          v15 = PnprContext;
+          v16 = *(_DWORD *)(PnprContext + 33288);
+          if ( !v16 )
+            v16 = 3434;
+          *(_DWORD *)(PnprContext + 33288) = v16;
+          v17 = *(_DWORD *)(v15 + 33292);
           if ( !v17 )
-            v17 = 3434;
-          *(_DWORD *)(PnprContext + 33288) = v17;
-          v18 = *(_DWORD *)(v16 + 33292);
-          if ( !v18 )
-            v18 = 8;
-          *(_DWORD *)(v16 + 33292) = v18;
+            v17 = 8;
+          *(_DWORD *)(v15 + 33292) = v17;
         }
       }
       else
       {
-        KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 168), &LockHandle);
-        RtlClearBits(v9 + 2, v13 - v12, v15 - v13 + 1);
+        KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 168), &LockHandle);
+        RtlClearBits(v8 + 2, v12 - v11, v14 - v12 + 1);
         KeReleaseInStackQueuedSpinLock(&LockHandle);
       }
     }
-    v5 = PnprContext;
-    v9 = *(RTL_BITMAP **)&v9->SizeOfBitMap;
-    v8 = PnprContext + 152;
+    v4 = PnprContext;
+    v8 = *(_RTL_BITMAP **)&v8->SizeOfBitMap;
+    v7 = PnprContext + 152;
   }
   return 0LL;
 }

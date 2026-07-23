@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpReleaseRundownProtection @ 0x1402C8140
+ * XREFs of ExpReleaseRundownProtection @ 0x1402BA900
  * Callers:
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     PfSnRemoveProcessTrace @ 0x1402C66D4 (PfSnRemoveProcessTrace.c)
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CB08 (SmHwAcceleratorPartitionCtxCleanup.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     PfSnRemoveProcessTrace @ 0x1402BC4D4 (PfSnRemoveProcessTrace.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CC18 (SmHwAcceleratorPartitionCtxCleanup.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 void __stdcall ExpReleaseRundownProtection(PEX_RUNDOWN_REF RunRef, ULONG Count)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsDereferenceKernelStack @ 0x1407EA090
+ * XREFs of PsDereferenceKernelStack @ 0x1407EA360
  * Callers:
  *     <none>
  * Callees:

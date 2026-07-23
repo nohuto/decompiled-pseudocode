@@ -1,17 +1,17 @@
 /*
- * XREFs of KiComputeCpuSetAffinity @ 0x14029B010
+ * XREFs of KiComputeCpuSetAffinity @ 0x1402A9B00
  * Callers:
- *     KiComputeThreadAffinity @ 0x14029AC34 (KiComputeThreadAffinity.c)
+ *     KiComputeThreadAffinity @ 0x1402A9724 (KiComputeThreadAffinity.c)
  * Callees:
- *     ?KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140205220 (-KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14029B69C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KiCopyGroupMasksToAffinityEx @ 0x14040D9A0 (KiCopyGroupMasksToAffinityEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402AA18C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     ?KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14032C800 (-KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiCopyGroupMasksToAffinityEx @ 0x140405BF0 (KiCopyGroupMasksToAffinityEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall KiComputeCpuSetAffinity(__int64 a1, struct _KAFFINITY_EX *a2)
@@ -309,10 +309,10 @@ LABEL_41:
     while ( v53 < v56.Size );
   }
 LABEL_68:
-  if ( !(unsigned int)KiAndAffinityEx(&v56, &v57, &v56, v35) )
+  if ( !KiAndAffinityEx(&v56, &v57, &v56, v35) )
     KiCopyAffinityEx(&v56, v56.Size, &v57);
   KiCopyGroupMasksToAffinityEx(a2, &KiNonParkedCpuSets, v5);
-  if ( KeAndAffinityEx2(&v56, a2, (__int64)a2) )
+  if ( (unsigned int)KeAndAffinityEx2(&v56, a2, a2) )
     KiCopyAffinityEx(&v56, v56.Size, a2);
   result = (unsigned __int64)memset_0(&a2->8, 0, 8LL * a2->Count);
   v46 = a2->Size;

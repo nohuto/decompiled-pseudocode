@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x140693B04
+ * XREFs of MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x140694BD4
  * Callers:
- *     MiZeroPageCalibrateDpc @ 0x140694280 (MiZeroPageCalibrateDpc.c)
+ *     MiZeroPageCalibrateDpc @ 0x140695350 (MiZeroPageCalibrateDpc.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x1403B4C70 (KeFindFirstSetRightGroupAffinity.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x140371000 (KeFindFirstSetRightGroupAffinity.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiWakeOnlyParticipatingProcessorsFromAssignedNode(__int64 a1)
@@ -40,8 +40,8 @@ PSLIST_ENTRY __fastcall MiWakeOnlyParticipatingProcessorsFromAssignedNode(__int6
     }
     else
     {
-      result = (PSLIST_ENTRY)qword_140E2DAF8;
-      v12 = *(void ***)(384LL * *(unsigned int *)(a1 + 268) + qword_140E2DAF8 + 376);
+      result = (PSLIST_ENTRY)qword_140E2DC38;
+      v12 = *(void ***)(384LL * *(unsigned int *)(a1 + 268) + qword_140E2DC38 + 376);
     }
     v13 = 0;
     if ( *((_WORD *)v12 + 8) )
@@ -91,7 +91,7 @@ PSLIST_ENTRY __fastcall MiWakeOnlyParticipatingProcessorsFromAssignedNode(__int6
           result = *(PSLIST_ENTRY *)a1;
           v10 = 0LL;
           if ( !**(_DWORD **)a1 )
-            ++dword_140EF4CA8;
+            ++dword_140EF4EC8;
         }
         else
         {

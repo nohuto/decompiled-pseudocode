@@ -7,7 +7,7 @@
  *     _RtlpMuiRegAddBaseLanguage @ 0x180102010 (_RtlpMuiRegAddBaseLanguage.c)
  *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x180102E90 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
  * Callees:
- *     _wcsicmp @ 0x1800918E0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1800918F0 (_wcsicmp.c)
  */
 
 char __fastcall RtlpLangNameInMultiSzString(wchar_t *String1, wchar_t *String2)

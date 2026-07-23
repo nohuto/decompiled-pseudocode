@@ -21,23 +21,24 @@
  *     TpUnreserveTaskPost @ 0x18007CD90 (TpUnreserveTaskPost.c)
  */
 
-__int64 __fastcall RtlQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl RtlQueueWorkItem(WORKERCALLBACKFUNC Function, PVOID Context, ULONG Flags)
 {
-  int v6; // esi
-  __int64 Heap; // rax
-  _QWORD *v8; // rdi
-  int InformationActivationContext; // eax
+  char v3; // bl
+  NTSTATUS v6; // esi
+  HANDLE *Heap; // rax
+  __int64 v8; // rdi
+  NTSTATUS InformationActivationContext; // eax
   __int64 *v10; // r14
   int v11; // eax
-  __int64 v12; // rdx
-  volatile signed __int32 *v14; // rcx
+  HANDLE v12; // rdx
+  _ACTIVATION_CONTEXT *v14; // rcx
   char v15; // [rsp+40h] [rbp-A8h]
   char v16; // [rsp+41h] [rbp-A7h]
   char v17; // [rsp+42h] [rbp-A6h]
   char v18; // [rsp+43h] [rbp-A5h]
   int v19; // [rsp+44h] [rbp-A4h]
-  unsigned __int64 v20; // [rsp+48h] [rbp-A0h]
-  __int128 v21; // [rsp+50h] [rbp-98h] BYREF
+  HANDLE *BaseAddress; // [rsp+48h] [rbp-A0h]
+  PACTIVATION_CONTEXT ActivationContext[2]; // [rsp+50h] [rbp-98h] BYREF
   int v22; // [rsp+60h] [rbp-88h] BYREF
   __int64 v23; // [rsp+68h] [rbp-80h]
   __int64 v24; // [rsp+70h] [rbp-78h]
@@ -48,18 +49,19 @@ __int64 __fastcall RtlQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3)
   int v29; // [rsp+9Ch] [rbp-4Ch]
   int v30; // [rsp+A0h] [rbp-48h]
   struct _TEB *v31; // [rsp+B0h] [rbp-38h]
-  __int64 v32; // [rsp+108h] [rbp+20h] BYREF
+  HANDLE v32; // [rsp+108h] [rbp+20h] BYREF
 
-  v21 = 0LL;
+  v3 = Flags;
+  *(_OWORD *)ActivationContext = 0LL;
   v17 = 0;
   v16 = 0;
   v18 = 0;
   v15 = 0;
   v32 = 0LL;
-  v20 = 0LL;
+  BaseAddress = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 3221225473LL;
-  v6 = RtlpTpRevertCapture(&v32, a3 & 0x100);
+    return -1073741823;
+  v6 = RtlpTpRevertCapture(&v32);
   v19 = v6;
   if ( v6 < 0 )
   {
@@ -67,37 +69,44 @@ __int64 __fastcall RtlQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3)
   }
   else
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 120LL);
-    v8 = (_QWORD *)Heap;
-    v20 = Heap;
+    Heap = (HANDLE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x78uLL);
+    v8 = (__int64)Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
-      v6 = RtlpTpInitializeData(Heap + 40, a3, v32);
+      v6 = RtlpTpInitializeData(Heap + 5);
       v19 = v6;
       if ( v6 >= 0 )
       {
         v18 = 1;
-        *(_QWORD *)(v20 + 96) = NtCurrentTeb()->SubProcessTag;
-        v8 = (_QWORD *)v20;
-        *(_GUID *)(v20 + 104) = NtCurrentTeb()->ActivityId;
-        InformationActivationContext = RtlQueryInformationActivationContext(1, 0LL, 0LL, 1, (__int64)&v21, 0x10uLL, 0LL);
+        BaseAddress[12] = NtCurrentTeb()->SubProcessTag;
+        v8 = (__int64)BaseAddress;
+        *(_GUID *)(BaseAddress + 13) = NtCurrentTeb()->ActivityId;
+        InformationActivationContext = RtlQueryInformationActivationContext(
+                                         1u,
+                                         0LL,
+                                         0LL,
+                                         ActivationContextBasicInformation,
+                                         ActivationContext,
+                                         0x10uLL,
+                                         0LL);
         v6 = InformationActivationContext;
         v19 = InformationActivationContext;
         if ( InformationActivationContext >= 0 )
         {
 LABEL_6:
-          if ( (BYTE8(v21) & 1) != 0 )
+          if ( ((__int64)ActivationContext[1] & 1) != 0 )
           {
-            RtlReleaseActivationContext((volatile signed __int32 *)v21);
-            *(_QWORD *)&v21 = -1LL;
+            RtlReleaseActivationContext(ActivationContext[0]);
+            ActivationContext[0] = (PACTIVATION_CONTEXT)-1LL;
           }
-          *(_QWORD *)(v20 + 72) = v21;
+          BaseAddress[9] = ActivationContext[0];
           v17 = 1;
-          *(_DWORD *)(v20 + 88) = 2;
-          *(_QWORD *)(v20 + 56) = a1;
-          *(_QWORD *)(v20 + 64) = a2;
-          v10 = (__int64 *)(v20 + 32);
-          *(_QWORD *)(v20 + 32) = 0LL;
+          *((_DWORD *)BaseAddress + 22) = 2;
+          BaseAddress[7] = Function;
+          BaseAddress[8] = Context;
+          v10 = (__int64 *)(BaseAddress + 4);
+          BaseAddress[4] = 0LL;
           v22 = 3;
           v23 = 0LL;
           v24 = 0LL;
@@ -108,38 +117,38 @@ LABEL_6:
           v29 = 1;
           v30 = 72;
           v11 = 0;
-          if ( (a3 & 0xC0) != 0 )
+          if ( (v3 & 0xC0) != 0 )
             v11 = 2;
           v28 = v11;
-          *(_QWORD *)v20 = RtlpTpWorkTaskCallbacks;
-          *(_DWORD *)(v20 + 8) = 0;
-          v6 = TpReserveTaskPost(*v10, v20, &v22);
+          *BaseAddress = &RtlpTpWorkTaskCallbacks;
+          *((_DWORD *)BaseAddress + 2) = 0;
+          v6 = TpReserveTaskPost(*v10, BaseAddress, &v22);
           v19 = v6;
           if ( v6 >= 0 )
           {
             v15 = 1;
-            RtlPcToFileHeader(*(PVOID *)(v20 + 56), (PVOID *)(v20 + 80));
-            v12 = *(_QWORD *)(v20 + 80);
+            RtlPcToFileHeader(BaseAddress[7], BaseAddress + 10);
+            v12 = BaseAddress[10];
             if ( v12 )
             {
-              LdrAddRefDll(0LL, v12);
+              LdrAddRefDll(0, v12);
               v16 = 1;
               if ( MEMORY[0x7FFE0386] )
               {
                 v31 = NtCurrentTeb();
-                v8 = (_QWORD *)v20;
+                v8 = (__int64)BaseAddress;
                 RtlpTpETWCallbackEnqueue(
                   *v10,
-                  v20,
-                  *(_QWORD *)(v20 + 56),
-                  *(_QWORD *)(v20 + 64),
+                  (__int64)BaseAddress,
+                  (__int64)BaseAddress[7],
+                  (__int64)BaseAddress[8],
                   (__int64)v31->SubProcessTag);
               }
-              TpPostTask((__int64)v8, *v10, 1, (__int64)&v22);
-              if ( !_InterlockedDecrement((volatile signed __int32 *)(v20 + 88)) )
-                RtlpTpWorkUnposted(v20, *v10);
+              TpPostTask(v8, (char *)*v10, 1, (__int64)&v22);
+              if ( !_InterlockedDecrement((volatile signed __int32 *)BaseAddress + 22) )
+                RtlpTpWorkUnposted((__int64)BaseAddress, *v10);
               v8 = 0LL;
-              v20 = 0LL;
+              BaseAddress = 0LL;
               v6 = 0;
               v19 = 0;
             }
@@ -148,7 +157,7 @@ LABEL_6:
         }
         if ( InformationActivationContext == -1072365557 )
         {
-          *(_QWORD *)(v20 + 72) = -1LL;
+          BaseAddress[9] = (HANDLE)-1LL;
           goto LABEL_6;
         }
       }
@@ -164,19 +173,19 @@ LABEL_21:
   {
     if ( v17 )
     {
-      v14 = (volatile signed __int32 *)v8[9];
-      if ( v14 != (volatile signed __int32 *)-1LL )
+      v14 = *(_ACTIVATION_CONTEXT **)(v8 + 72);
+      if ( v14 != (_ACTIVATION_CONTEXT *)-1LL )
         RtlReleaseActivationContext(v14);
     }
     if ( v15 )
-      TpUnreserveTaskPost(v8[4], &v22);
+      TpUnreserveTaskPost(*(_QWORD *)(v8 + 32), &v22);
     if ( v16 )
-      LdrUnloadDll(v8[10]);
+      LdrUnloadDll(*(PVOID *)(v8 + 80));
     if ( v18 )
-      RtlpTpDeleteData(v8 + 5);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v20);
+      RtlpTpDeleteData(v8 + 40);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     v6 = v19;
   }
   RtlpTpResumeImpersonation(v32);
-  return (unsigned int)v6;
+  return v6;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmIdleRemoveVetoBias @ 0x1405CEBA0
+ * XREFs of PpmIdleRemoveVetoBias @ 0x1405CC2C0
  * Callers:
  *     <none>
  * Callees:

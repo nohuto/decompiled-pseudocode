@@ -1,8 +1,8 @@
 /*
- * XREFs of IovpValidateDeviceObject @ 0x1409C5B24
+ * XREFs of IovpValidateDeviceObject @ 0x1409C6B24
  * Callers:
- *     IovCallDriver @ 0x1409C4CB4 (IovCallDriver.c)
- *     IovpCallDriverWithStackBuffer @ 0x1409C54F4 (IovpCallDriverWithStackBuffer.c)
+ *     IovCallDriver @ 0x1409C5CB4 (IovCallDriver.c)
+ *     IovpCallDriverWithStackBuffer @ 0x1409C64F4 (IovpCallDriverWithStackBuffer.c)
  * Callees:
  *     <none>
  */

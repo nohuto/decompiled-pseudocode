@@ -32,7 +32,7 @@ NTSTATUS __fastcall KitLogFeatureUsage(ULONGLONG a1, unsigned __int64 a2, int a3
 
   v10 = a3;
   v11 = 0LL;
-  if ( KitEtwHandle && EtwEventEnabled(KitEtwHandle, &KitFeatureIdUsedEvent) )
+  if ( qword_140D00C18 && EtwEventEnabled(qword_140D00C18, &stru_1400390D0) )
   {
     if ( a3 )
     {
@@ -43,7 +43,7 @@ NTSTATUS __fastcall KitLogFeatureUsage(ULONGLONG a1, unsigned __int64 a2, int a3
         {
 LABEL_13:
           v10 = 3;
-          v11 = *(UNICODE_STRING *)&NoCallerIdString;
+          v11 = *(UNICODE_STRING *)&qword_14000AC88;
 LABEL_14:
           UserData.Reserved = 0;
           v15 = 0;
@@ -58,7 +58,7 @@ LABEL_14:
           UserData.Ptr = a1;
           UserData.Size = 16;
           v17 = 2;
-          return EtwWriteEx(KitEtwHandle, &KitFeatureIdUsedEvent, 0LL, 0, 0LL, 0LL, 4u, &UserData);
+          return EtwWriteEx(qword_140D00C18, &stru_1400390D0, 0LL, 0, 0LL, 0LL, 4u, &UserData);
         }
       }
       a2 = *(_QWORD *)(a2 + 24);

@@ -7,13 +7,11 @@
  *     RtlInsertInvertedFunctionTable @ 0x180020D8C (RtlInsertInvertedFunctionTable.c)
  */
 
-__int64 __fastcall LdrpInitializeExceptionTable(unsigned __int64 a1)
+__int64 __fastcall LdrpInitializeExceptionTable(PVOID BaseAddress)
 {
-  unsigned int v2; // ebx
-  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp+10h] BYREF
 
-  RtlImageNtHeaderEx(3, a1, 0LL, &v4);
-  v2 = *(_DWORD *)(v4 + 80);
-  RtlInsertInvertedFunctionTable(a1, v2);
-  return RtlCreateInvertedFunctionTableCacheEntry(a1, v2);
+  RtlImageNtHeaderEx(3u, BaseAddress, 0LL, &OutHeaders);
+  RtlInsertInvertedFunctionTable((unsigned __int64)BaseAddress, OutHeaders->OptionalHeader.SizeOfImage);
+  return RtlCreateInvertedFunctionTableCacheEntry(BaseAddress);
 }

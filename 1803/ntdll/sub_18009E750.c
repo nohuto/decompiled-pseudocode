@@ -11,14 +11,14 @@
 
 __int64 __fastcall sub_18009E750(PEXCEPTION_RECORD ExceptionRecord, PVOID TargetFrame, PCONTEXT ContextRecord)
 {
-  DWORD ExceptionCode; // [rsp+30h] [rbp-8h]
-  int v5; // [rsp+30h] [rbp-8h]
+  DWORD Status; // [rsp+30h] [rbp-8h]
+  NTSTATUS Statusa; // [rsp+30h] [rbp-8h]
 
   if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x80000) != 0 )
   {
     if ( (ExceptionRecord->ExceptionFlags & 0x66) == 0 )
     {
-      ExceptionCode = ExceptionRecord->ExceptionCode;
+      Status = ExceptionRecord->ExceptionCode;
       RtlUnwindEx(
         TargetFrame,
         &loc_18009E804,
@@ -26,12 +26,12 @@ __int64 __fastcall sub_18009E750(PEXCEPTION_RECORD ExceptionRecord, PVOID Target
         (PVOID)ExceptionRecord->ExceptionCode,
         ContextRecord,
         0LL);
-      RtlRaiseStatus(ExceptionCode);
+      RtlRaiseStatus(Status);
     }
     if ( (ExceptionRecord->ExceptionFlags & 0x20) == 0 )
     {
-      v5 = ZwCallbackReturn();
-      RtlRaiseStatus(v5);
+      Statusa = ZwCallbackReturn(0LL, 0, ExceptionRecord->ExceptionCode);
+      RtlRaiseStatus(Statusa);
     }
     return 1LL;
   }

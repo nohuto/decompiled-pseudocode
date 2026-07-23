@@ -22,15 +22,19 @@
  *     ExRaiseDatatypeMisalignment @ 0x140913920 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, unsigned int a4)
+NTSTATUS __cdecl NtSetInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  int v9; // eax
+  ULONG v9; // eax
   unsigned int v10; // edi
   __int64 v11; // rbx
   __int64 v12; // rax
   NTSTATUS result; // eax
-  int Thread; // r15d
+  NTSTATUS Thread; // r15d
   bool v15; // r12
   char *v16; // rsi
   unsigned int v17; // edi
@@ -60,45 +64,48 @@ NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, unsigne
   v36 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   memset(Src, 0, sizeof(Src));
-  if ( a2 == 9 )
+  if ( WorkerFactoryInformationClass == WorkerFactoryCallbackType )
   {
 LABEL_2:
     v9 = 4;
 LABEL_3:
-    if ( a4 != v9 )
+    if ( WorkerFactoryInformationLength != v9 )
       return -1073741820;
-    if ( a2 == 9 )
+    if ( WorkerFactoryInformationClass == WorkerFactoryCallbackType )
     {
       if ( PreviousMode )
       {
-        if ( (a3 & 3) != 0 )
+        if ( ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+        if ( (unsigned __int64)WorkerFactoryInformation + 4 > 0x7FFFFFFF0000LL
+          || (char *)WorkerFactoryInformation + 4 < WorkerFactoryInformation )
+        {
           MEMORY[0x7FFFFFFF0000] = 0;
+        }
       }
 LABEL_9:
-      v10 = *(_DWORD *)a3;
-      LODWORD(Src[0]) = *(_DWORD *)a3;
+      v10 = *(_DWORD *)WorkerFactoryInformation;
+      LODWORD(Src[0]) = *(_DWORD *)WorkerFactoryInformation;
       v11 = Src[0];
     }
     else
     {
-      switch ( a2 )
+      switch ( WorkerFactoryInformationClass )
       {
-        case 2:
-          if ( PreviousMode && (a3 & 3) != 0 )
+        case WorkerFactoryIdleTimeout:
+          if ( PreviousMode && ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          v11 = *(_QWORD *)a3;
-          Src[0] = *(_QWORD *)a3;
+          v11 = *(_QWORD *)WorkerFactoryInformation;
+          Src[0] = *(_QWORD *)WorkerFactoryInformation;
           v10 = Src[0];
           break;
-        case 3:
-        case 4:
-        case 5:
+        case WorkerFactoryBindingCount:
+        case WorkerFactoryThreadMinimum:
+        case WorkerFactoryThreadMaximum:
           if ( !PreviousMode )
             goto LABEL_9;
-          v12 = a3;
-          if ( a3 >= 0x7FFFFFFF0000LL )
+          v12 = (__int64)WorkerFactoryInformation;
+          if ( (unsigned __int64)WorkerFactoryInformation >= 0x7FFFFFFF0000LL )
             v12 = 0x7FFFFFFF0000LL;
           v10 = *(_DWORD *)v12;
           LODWORD(Src[0]) = *(_DWORD *)v12;
@@ -108,21 +115,21 @@ LABEL_9:
           __fastfail(0x25u);
       }
     }
-    result = ObReferenceObjectByHandle(Handle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+    result = ObReferenceObjectByHandle(WorkerFactoryHandle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
     if ( result >= 0 )
     {
-      if ( a2 != 8 )
+      if ( WorkerFactoryInformationClass != WorkerFactoryAdjustThreadGoal )
       {
         Thread = 0;
         v33 = 0;
         v15 = 0;
         v16 = (char *)Object;
         KeAcquireInStackQueuedSpinLock(*((PKSPIN_LOCK *)Object + 2), &LockHandle);
-        if ( a2 != 9 )
+        if ( WorkerFactoryInformationClass != WorkerFactoryCallbackType )
         {
-          switch ( a2 )
+          switch ( WorkerFactoryInformationClass )
           {
-            case 2:
+            case WorkerFactoryIdleTimeout:
               if ( v11 >= 0 )
                 goto LABEL_110;
               if ( v11 > -10000000 )
@@ -137,7 +144,7 @@ LABEL_9:
               v36 = -1LL;
               KeSetTimer2(v16 + 328, v11, -v11, &v35);
               goto LABEL_32;
-            case 3:
+            case WorkerFactoryBindingCount:
               v24 = *((_DWORD *)v16 + 77);
               if ( (v10 & 0x80000000) != 0 )
               {
@@ -177,7 +184,7 @@ LABEL_9:
                 goto LABEL_33;
               }
               goto LABEL_32;
-            case 4:
+            case WorkerFactoryThreadMinimum:
               if ( *(_BYTE *)(*((_QWORD *)v16 + 2) + 33LL) )
               {
                 Thread = 128;
@@ -213,7 +220,7 @@ LABEL_9:
                 }
               }
               goto LABEL_32;
-            case 5:
+            case WorkerFactoryThreadMaximum:
               v30 = *((_QWORD *)v16 + 2);
               if ( *(_BYTE *)(v30 + 33) )
               {
@@ -360,31 +367,31 @@ LABEL_63:
   }
   else
   {
-    switch ( a2 )
+    switch ( WorkerFactoryInformationClass )
     {
-      case 2:
+      case WorkerFactoryIdleTimeout:
         v9 = 8;
         goto LABEL_3;
-      case 3:
-      case 4:
-      case 5:
-      case 8:
-      case 11:
-      case 12:
-      case 13:
-      case 14:
+      case WorkerFactoryBindingCount:
+      case WorkerFactoryThreadMinimum:
+      case WorkerFactoryThreadMaximum:
+      case WorkerFactoryAdjustThreadGoal:
+      case WorkerFactoryThreadBasePriority:
+      case WorkerFactoryTimeoutWaiters:
+      case WorkerFactoryFlags:
+      case WorkerFactoryThreadSoftMaximum:
         goto LABEL_2;
-      case 6:
+      case WorkerFactoryPaused:
         result = -1073741822;
         break;
-      case 10:
+      case WorkerFactoryStackInformation:
         v9 = 16;
         goto LABEL_3;
-      case 15:
-        if ( a4 >= 0xA0 )
+      case WorkerFactoryThreadCpuSets:
+        if ( WorkerFactoryInformationLength >= 0xA0 )
           v9 = 160;
         else
-          v9 = a4 + (a4 & 7);
+          v9 = WorkerFactoryInformationLength + (WorkerFactoryInformationLength & 7);
         goto LABEL_3;
       default:
         result = -1073741821;

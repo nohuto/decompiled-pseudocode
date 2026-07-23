@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuFreeDmaDomain @ 0x1404C956C
+ * XREFs of HalpIommuFreeDmaDomain @ 0x1404C97AC
  * Callers:
- *     HalpDmaDereferenceDomainObject @ 0x1404C4AF8 (HalpDmaDereferenceDomainObject.c)
- *     IommuDomainDelete @ 0x1408667D0 (IommuDomainDelete.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4D38 (HalpDmaDereferenceDomainObject.c)
+ *     IommuDomainDelete @ 0x140866930 (IommuDomainDelete.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpIommuCleanupPageTable @ 0x1404DB850 (HalpIommuCleanupPageTable.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpIommuCleanupPageTable @ 0x1404DBA90 (HalpIommuCleanupPageTable.c)
  */
 
 __int64 __fastcall HalpIommuFreeDmaDomain(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall HalpIommuFreeDmaDomain(__int64 a1)
   {
     v6 = *(unsigned int *)(a1 + 32);
     BYTE4(v6) = *(_BYTE *)(a1 + 40);
-    v1 = ((__int64 (__fastcall *)(__int64 *))qword_140C4A308)(&v6);
+    v1 = ((__int64 (__fastcall *)(__int64 *))qword_140C4A348)(&v6);
   }
   else
   {

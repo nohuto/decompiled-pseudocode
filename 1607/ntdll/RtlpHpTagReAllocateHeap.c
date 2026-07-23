@@ -1,17 +1,21 @@
 /*
- * XREFs of RtlpHpTagReAllocateHeap @ 0x180073660
+ * XREFs of RtlpHpTagReAllocateHeap @ 0x180073650
  * Callers:
- *     RtlReAllocateHeap @ 0x180020D80 (RtlReAllocateHeap.c)
- *     RtlpHpReAllocWithExceptionProtection @ 0x180073610 (RtlpHpReAllocWithExceptionProtection.c)
+ *     RtlReAllocateHeap @ 0x180020D70 (RtlReAllocateHeap.c)
+ *     RtlpHpReAllocWithExceptionProtection @ 0x180073600 (RtlpHpReAllocWithExceptionProtection.c)
  * Callees:
- *     RtlpReAllocateHeapInternal @ 0x180020DD0 (RtlpReAllocateHeapInternal.c)
- *     RtlpHpTagContextUpdate @ 0x1800736C8 (RtlpHpTagContextUpdate.c)
+ *     RtlpReAllocateHeapInternal @ 0x180020DC0 (RtlpReAllocateHeapInternal.c)
+ *     RtlpHpTagContextUpdate @ 0x1800736B8 (RtlpHpTagContextUpdate.c)
  */
 
-__int64 __fastcall RtlpHpTagReAllocateHeap(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned int a4)
+unsigned __int64 __fastcall RtlpHpTagReAllocateHeap(
+        unsigned __int16 *a1,
+        _DWORD *a2,
+        unsigned __int64 a3,
+        unsigned int a4)
 {
   __int64 v5; // rcx
-  __int64 v6; // rdi
+  unsigned __int64 v6; // rdi
   unsigned __int16 v8; // [rsp+30h] [rbp-18h] BYREF
   __int64 v9; // [rsp+38h] [rbp-10h] BYREF
 

@@ -50,49 +50,46 @@
  *     LdrpReleaseTlsEntry @ 0x18007FA5C (LdrpReleaseTlsEntry.c)
  */
 
-__int64 __fastcall LdrpDereferenceModule(__int64 a1)
+int __fastcall LdrpDereferenceModule(char *BaseAddress)
 {
-  __int64 result; // rax
-  __int64 v3; // r8
-  _QWORD *v4; // rdx
+  __int64 *v1; // rax
+  char **v3; // r8
+  PVOID *v4; // rdx
   _QWORD *v5; // rdi
   _QWORD *v6; // rsi
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rcx
+  _ACTIVATION_CONTEXT *v7; // rcx
 
-  result = *(_QWORD *)(a1 + 152);
-  if ( *(_DWORD *)(result + 24) != -1 )
+  v1 = (__int64 *)*((_QWORD *)BaseAddress + 19);
+  if ( *((_DWORD *)v1 + 6) != -1 )
   {
-    result = *(_QWORD *)result;
-    if ( (*(_BYTE *)(result - 56) & 0x20) == 0 )
+    v1 = (__int64 *)*v1;
+    if ( (*(_BYTE *)(v1 - 7) & 0x20) == 0 )
     {
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 276), 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
+      LODWORD(v1) = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 69, 0xFFFFFFFF);
+      if ( (_DWORD)v1 == 1 )
       {
         RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-        v3 = *(_QWORD *)(a1 + 160);
-        if ( *(_QWORD *)(v3 + 8) != a1 + 160 || (v4 = *(_QWORD **)(a1 + 168), *v4 != a1 + 160) )
+        v3 = (char **)*((_QWORD *)BaseAddress + 20);
+        if ( v3[1] != BaseAddress + 160 || (v4 = (PVOID *)*((_QWORD *)BaseAddress + 21), *v4 != BaseAddress + 160) )
           __fastfail(3u);
         *v4 = v3;
-        *(_QWORD *)(v3 + 8) = v4;
-        v5 = *(_QWORD **)(a1 + 152);
+        v3[1] = (char *)v4;
+        v5 = (_QWORD *)*((_QWORD *)BaseAddress + 19);
         v6 = (_QWORD *)*v5;
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-        if ( *(_WORD *)(a1 + 110) )
-          LdrpReleaseTlsEntry(a1, 0LL);
-        LdrpUnmapModule(a1);
-        v10 = *(_QWORD *)(a1 + 136);
-        if ( (unsigned __int64)(v10 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-          RtlReleaseActivationContext(v10, v7, v8, v9);
-        if ( *(_QWORD *)(a1 + 80) )
-          LdrpFreeUnicodeString(a1 + 72);
-        result = RtlFreeHeap(LdrpHeap, 0LL, a1);
+        if ( *((_WORD *)BaseAddress + 55) )
+          LdrpReleaseTlsEntry(BaseAddress, 0LL);
+        LdrpUnmapModule(BaseAddress);
+        v7 = (_ACTIVATION_CONTEXT *)*((_QWORD *)BaseAddress + 17);
+        if ( (unsigned __int64)&v7[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+          RtlReleaseActivationContext(v7);
+        if ( *((_QWORD *)BaseAddress + 10) )
+          LdrpFreeUnicodeString((__int64)(BaseAddress + 72));
+        LODWORD(v1) = RtlFreeHeap(LdrpHeap, 0, BaseAddress);
         if ( v6 == v5 )
-          return LdrpDestroyNode(v5);
+          LODWORD(v1) = LdrpDestroyNode(v5);
       }
     }
   }
-  return result;
+  return (int)v1;
 }

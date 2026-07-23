@@ -1,16 +1,16 @@
 /*
- * XREFs of PspInitializeFullProcessImageName @ 0x140A346EC
+ * XREFs of PspInitializeFullProcessImageName @ 0x140A286FC
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmGetFileObjectForSection @ 0x1408FF7D0 (MmGetFileObjectForSection.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     PspSetProcessShortName @ 0x140A348C4 (PspSetProcessShortName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmGetFileObjectForSection @ 0x1409220B0 (MmGetFileObjectForSection.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     PspSetProcessShortName @ 0x140A288D4 (PspSetProcessShortName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspInitializeFullProcessImageName(__int64 a1, __int64 a2)
@@ -49,7 +49,7 @@ __int64 __fastcall PspInitializeFullProcessImageName(__int64 a1, __int64 a2)
   {
     if ( v12 > 0x110 )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, v12, 0x6E497350u);
       v8 = (void *)Pool2;
       if ( Pool2 )
       {
@@ -61,7 +61,7 @@ __int64 __fastcall PspInitializeFullProcessImageName(__int64 a1, __int64 a2)
     }
 LABEL_16:
     v12 = 16;
-    v8 = (void *)ExAllocatePool2(0x40uLL);
+    v8 = (void *)ExAllocatePool2(0x40uLL, 0x10uLL, 0x6E497350u);
     v6 = v8 == 0LL ? 0xC0000017 : 0;
     goto LABEL_11;
   }
@@ -69,7 +69,7 @@ LABEL_16:
     goto LABEL_16;
   if ( v12 - 17 > 0xFF )
     goto LABEL_16;
-  v7 = ExAllocatePool2(0x40uLL);
+  v7 = ExAllocatePool2(0x40uLL, v12, 0x6E497350u);
   v8 = (void *)v7;
   if ( !v7 )
     goto LABEL_16;

@@ -42,10 +42,10 @@ __int64 __fastcall PopFxIdleWorker(__int64 *BugCheckParameter2, unsigned int a2)
         PopFxAddLogEntry(BugCheckParameter2[6], a2, 13, 0LL);
 LABEL_5:
         result = KxReleaseSpinLock((volatile signed __int64 *)(v4 + 128));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)result <= 0xFu
             && (unsigned __int8)v5 <= 0xFu
             && (unsigned __int8)result >= 2u )
@@ -73,10 +73,10 @@ LABEL_5:
     goto LABEL_5;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)(v4 + 128));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

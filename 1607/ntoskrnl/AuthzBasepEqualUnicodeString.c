@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepEqualUnicodeString @ 0x1400A045C
+ * XREFs of AuthzBasepEqualUnicodeString @ 0x14009ED84
  * Callers:
- *     SeSecurityAttributePresent @ 0x14000E300 (SeSecurityAttributePresent.c)
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14000E570 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14000E740 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepFindSecurityAttributeValue @ 0x14007C604 (AuthzBasepFindSecurityAttributeValue.c)
- *     AuthzBasepFindSystemSecurityAttribute @ 0x1404C9794 (AuthzBasepFindSystemSecurityAttribute.c)
+ *     SeSecurityAttributePresent @ 0x14000DE80 (SeSecurityAttributePresent.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14000E0F0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14000E2C0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttributeValue @ 0x14007C684 (AuthzBasepFindSecurityAttributeValue.c)
+ *     AuthzBasepFindSystemSecurityAttribute @ 0x1404AF514 (AuthzBasepFindSystemSecurityAttribute.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptParseMadt @ 0x140590738
+ * XREFs of HalpInterruptParseMadt @ 0x140592EB8
  * Callers:
- *     HalpInterruptParseAcpiTables @ 0x140590698 (HalpInterruptParseAcpiTables.c)
+ *     HalpInterruptParseAcpiTables @ 0x140592E18 (HalpInterruptParseAcpiTables.c)
  * Callees:
- *     HalpMap @ 0x1403439AC (HalpMap.c)
- *     HalpInterruptGsiToLine @ 0x14042638C (HalpInterruptGsiToLine.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpInterruptBlockSmtSiblings @ 0x14058FF2C (HalpInterruptBlockSmtSiblings.c)
- *     HalpInterruptSortProcessorTable @ 0x1405911F8 (HalpInterruptSortProcessorTable.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
+ *     HalpInterruptGsiToLine @ 0x14043349C (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpInterruptBlockSmtSiblings @ 0x1405926AC (HalpInterruptBlockSmtSiblings.c)
+ *     HalpInterruptSortProcessorTable @ 0x140593978 (HalpInterruptSortProcessorTable.c)
  */
 
 __int64 __fastcall HalpInterruptParseMadt(__int64 a1, int a2)
@@ -423,13 +423,13 @@ LABEL_41:
             v57 = *((_WORD *)v36 + 4) & 0xC;
             v58 = !v57 || v57 == 4;
             *(_DWORD *)(v52 + 32) = v58;
-            v59 = (__int64 *)qword_140F89668;
-            if ( *(__int64 **)qword_140F89668 != &HalpInterruptOverrides )
+            v59 = (__int64 *)qword_140F89A98;
+            if ( *(__int64 **)qword_140F89A98 != &HalpInterruptOverrides )
               __fastfail(3u);
             *(_QWORD *)v52 = &HalpInterruptOverrides;
             *(_QWORD *)(v52 + 8) = v59;
             *v59 = v52;
-            qword_140F89668 = v52;
+            qword_140F89A98 = v52;
           }
           v5 = 0;
           v97 = 0;

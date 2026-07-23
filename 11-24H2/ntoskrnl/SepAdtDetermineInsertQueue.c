@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAdtDetermineInsertQueue @ 0x14048B0B0
+ * XREFs of SepAdtDetermineInsertQueue @ 0x140485EE0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     SepAdtGenerateDiscardAudit @ 0x1407912E0 (SepAdtGenerateDiscardAudit.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     SepAdtGenerateDiscardAudit @ 0x1407912B0 (SepAdtGenerateDiscardAudit.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
@@ -22,7 +22,7 @@ char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
     return 1;
   if ( SepAdtDiscardingAudits )
   {
-    if ( dword_140E67C20 >= (unsigned int)SepAdtMinListLength )
+    if ( dword_140E67E00 >= (unsigned int)SepAdtMinListLength )
     {
       ++SepAdtCountEventsDiscarded;
       return v1;
@@ -30,7 +30,7 @@ char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
     SepAdtDiscardingAudits = 0;
     if ( KeGetCurrentIrql() >= 2u )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 0x28uLL, 0x20206553u);
       v4 = Pool2;
       if ( Pool2 )
       {
@@ -51,7 +51,7 @@ char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
     }
     SepAdtCountEventsDiscarded = 0;
   }
-  if ( dword_140E67C20 < (unsigned int)SepAdtMaxListLength )
+  if ( dword_140E67E00 < (unsigned int)SepAdtMaxListLength )
     return 1;
   SepAdtDiscardingAudits = 1;
   SepAdtCountEventsDiscarded = 1;

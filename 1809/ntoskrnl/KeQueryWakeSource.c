@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryWakeSource @ 0x14028EF1C
+ * XREFs of KeQueryWakeSource @ 0x14028F10C
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiGetPastDueIRTimerInfo @ 0x14029B884 (KiGetPastDueIRTimerInfo.c)
+ *     RtlGetInterruptTimePrecise @ 0x14008BA90 (RtlGetInterruptTimePrecise.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiGetPastDueIRTimerInfo @ 0x14029BA74 (KiGetPastDueIRTimerInfo.c)
  */
 
 __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
@@ -21,15 +21,15 @@ __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
   __int64 v10; // r10
   __int64 v11; // rcx
   struct _KPRCB *v12; // rcx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   int v14; // edx
   unsigned int v15; // [rsp+20h] [rbp-18h] BYREF
-  LARGE_INTEGER v16[2]; // [rsp+28h] [rbp-10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+28h] [rbp-10h] BYREF
   char v17; // [rsp+50h] [rbp+18h] BYREF
   char v18; // [rsp+58h] [rbp+20h] BYREF
 
   memset(a2, 0, 0x88uLL);
-  result = ((__int64 (__fastcall *)(unsigned int *, _QWORD))off_1403FE628[0])(&v15, 0LL);
+  result = ((__int64 (__fastcall *)(unsigned int *, _QWORD))off_1403FF628[0])(&v15, 0LL);
   if ( (int)result >= 0 )
   {
     if ( ((v15 - 209) & 0xFFFFFFFD) != 0 )
@@ -73,8 +73,11 @@ __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
     }
     else
     {
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(v16);
-      if ( (unsigned int)KiGetPastDueIRTimerInfo(InterruptTimePrecise, &v17, &v18) )
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+      if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))KiGetPastDueIRTimerInfo)(
+                           (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+                           &v17,
+                           &v18) )
       {
         v14 = 6;
         *a2 = v17;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopRecalculateCBTriggerLevels @ 0x140544160
+ * XREFs of PopRecalculateCBTriggerLevels @ 0x1405446A0
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140543EB0 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1405443F0 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
- *     PopBatteryCheckTrigger @ 0x1405440E4 (PopBatteryCheckTrigger.c)
+ *     PopBatteryCheckTrigger @ 0x140544624 (PopBatteryCheckTrigger.c)
  */
 
 __int64 PopRecalculateCBTriggerLevels()
@@ -17,10 +17,10 @@ __int64 PopRecalculateCBTriggerLevels()
   int v6; // edi
 
   PopAcquirePolicyLock();
-  v0 = (char *)&qword_140303738 - (_BYTE *)PopPolicy;
-  v1 = &dword_14030378C;
+  v0 = (char *)&qword_140303678 - (_BYTE *)PopPolicy;
+  v1 = &dword_1403036CC;
   v2 = 0LL;
-  v3 = (_BYTE *)PopPolicy - (_BYTE *)&dword_14030378C;
+  v3 = (_BYTE *)PopPolicy - (_BYTE *)&dword_1403036CC;
   do
   {
     v4 = *v1;
@@ -31,7 +31,7 @@ __int64 PopRecalculateCBTriggerLevels()
       {
         v6 = v4 | 0x80;
         *v1 = v6;
-        if ( PopBatteryCheckTrigger((__int64)&unk_140303788 + 24 * v2) )
+        if ( PopBatteryCheckTrigger((__int64)&unk_1403036C8 + 24 * v2) )
           *v1 = v6 | 2;
       }
     }

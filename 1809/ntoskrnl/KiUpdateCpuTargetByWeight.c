@@ -1,14 +1,14 @@
 /*
- * XREFs of KiUpdateCpuTargetByWeight @ 0x140115F64
+ * XREFs of KiUpdateCpuTargetByWeight @ 0x140115FD4
  * Callers:
- *     KiAssignSchedulingGroupWeights @ 0x140115EAC (KiAssignSchedulingGroupWeights.c)
- *     KiUpdateChildrenCpuTarget @ 0x14029B834 (KiUpdateChildrenCpuTarget.c)
+ *     KiAssignSchedulingGroupWeights @ 0x140115F1C (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateChildrenCpuTarget @ 0x14029BA24 (KiUpdateChildrenCpuTarget.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiCheckForEffectivePriorityChange @ 0x140116894 (KiCheckForEffectivePriorityChange.c)
- *     KiResetScb @ 0x140116934 (KiResetScb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdateChildrenCpuTarget @ 0x14029B834 (KiUpdateChildrenCpuTarget.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiCheckForEffectivePriorityChange @ 0x140116904 (KiCheckForEffectivePriorityChange.c)
+ *     KiResetScb @ 0x1401169A4 (KiResetScb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdateChildrenCpuTarget @ 0x14029BA24 (KiUpdateChildrenCpuTarget.c)
  */
 
 char __fastcall KiUpdateCpuTargetByWeight(unsigned __int16 *a1, __int64 a2, __int64 a3)

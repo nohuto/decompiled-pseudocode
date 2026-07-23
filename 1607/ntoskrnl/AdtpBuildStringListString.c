@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildStringListString @ 0x1406D1244
+ * XREFs of AdtpBuildStringListString @ 0x1406D137C
  * Callers:
- *     AdtpPackageParameters @ 0x140144450 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1401449C0 (AdtpPackageParameters.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -89,7 +89,7 @@ __int64 __fastcall AdtpBuildStringListString(
   else if ( a3 )
   {
     a3[1] = (wchar_t *)4;
-    *a3 = (wchar_t *)&unk_140261FC8;
+    *a3 = (wchar_t *)&unk_140261FE8;
   }
   return 0LL;
 }

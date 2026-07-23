@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpProbeAndCaptureMessageHeader @ 0x1408E68E0
+ * XREFs of AlpcpProbeAndCaptureMessageHeader @ 0x1408ECEA0
  * Callers:
- *     NtAlpcOpenSenderThread @ 0x1408E5160 (NtAlpcOpenSenderThread.c)
- *     NtAlpcOpenSenderProcess @ 0x1408E6510 (NtAlpcOpenSenderProcess.c)
- *     AlpcpAcceptConnectPort @ 0x1408E6A30 (AlpcpAcceptConnectPort.c)
- *     AlpcpProcessConnectionRequest @ 0x1408E7654 (AlpcpProcessConnectionRequest.c)
+ *     NtAlpcOpenSenderThread @ 0x1408EB720 (NtAlpcOpenSenderThread.c)
+ *     NtAlpcOpenSenderProcess @ 0x1408ECAD0 (NtAlpcOpenSenderProcess.c)
+ *     AlpcpAcceptConnectPort @ 0x1408ECFF0 (AlpcpAcceptConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1408EDC14 (AlpcpProcessConnectionRequest.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 (*__fastcall AlpcpProbeAndCaptureMessageHeader(void *Src, _WORD *a2, int a3))(void)

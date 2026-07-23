@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpMarkImportantDumpData @ 0x140578DC8
+ * XREFs of IopLiveDumpMarkImportantDumpData @ 0x140579DC8
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x140578890 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140579890 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
- *     ExAddPrivateDataToCrashDump @ 0x14031A350 (ExAddPrivateDataToCrashDump.c)
- *     MmAddPrivateDataToCrashDump @ 0x14057C5F8 (MmAddPrivateDataToCrashDump.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE400 (MmAddRangeToCrashDump.c)
+ *     ExAddPrivateDataToCrashDump @ 0x14031A540 (ExAddPrivateDataToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x14057D5F8 (MmAddPrivateDataToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkImportantDumpData(

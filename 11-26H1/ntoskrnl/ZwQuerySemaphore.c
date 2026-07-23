@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQuerySemaphore @ 0x140726150
+ * XREFs of ZwQuerySemaphore @ 0x14072AD20
  * Callers:
- *     DifZwQuerySemaphoreWrapper @ 0x1406B3E60 (DifZwQuerySemaphoreWrapper.c)
+ *     DifZwQuerySemaphoreWrapper @ 0x1406B7A40 (DifZwQuerySemaphoreWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySemaphore(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQuerySemaphore(
+        HANDLE SemaphoreHandle,
+        SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
+        PVOID SemaphoreInformation,
+        ULONG SemaphoreInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SemaphoreHandle);
 }

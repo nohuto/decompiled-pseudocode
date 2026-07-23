@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateThreadCpuSets @ 0x1404631C0
+ * XREFs of KiUpdateThreadCpuSets @ 0x14045C180
  * Callers:
- *     KeSetSelectedCpuSetsThread @ 0x140462DA0 (KeSetSelectedCpuSetsThread.c)
- *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14046316C (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
- *     KeSetCpuSetWorkloadClassThread @ 0x1405F3EB8 (KeSetCpuSetWorkloadClassThread.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14045BD60 (KeSetSelectedCpuSetsThread.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14045C12C (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KeSetCpuSetWorkloadClassThread @ 0x1405F6878 (KeSetCpuSetWorkloadClassThread.c)
  * Callees:
- *     KiComputeThreadAffinity @ 0x140229B90 (KiComputeThreadAffinity.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x14022B26C (KiRescheduleThreadAfterAffinityChange.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403322B0 (KiAcquireThreadStateLockForWrite.c)
- *     EtwTraceIdealProcessor @ 0x1404E78D8 (EtwTraceIdealProcessor.c)
- *     EtwTraceThreadAffinity @ 0x14050D0F8 (EtwTraceThreadAffinity.c)
+ *     KiComputeThreadAffinity @ 0x14022B520 (KiComputeThreadAffinity.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x14022CBFC (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403342E0 (KiAcquireThreadStateLockForWrite.c)
+ *     EtwTraceIdealProcessor @ 0x1404E0C98 (EtwTraceIdealProcessor.c)
+ *     EtwTraceThreadAffinity @ 0x140506B68 (EtwTraceThreadAffinity.c)
  */
 
 void __fastcall KiUpdateThreadCpuSets(__int64 a1, struct _SINGLE_LIST_ENTRY *a2, volatile signed __int32 **a3)
@@ -46,6 +46,6 @@ void __fastcall KiUpdateThreadCpuSets(__int64 a1, struct _SINGLE_LIST_ENTRY *a2,
     LOBYTE(v10) = (*(_DWORD *)(a1 + 116) & 8) != 0;
     EtwTraceThreadAffinity(a1, *(unsigned __int16 *)(a1 + 584), v10, 0, *(_QWORD *)(a1 + 576), 1334);
   }
-  if ( v4 != v7 && (xmmword_140FBFC10 & 0x8000000) != 0 )
+  if ( v4 != v7 && (xmmword_140FC0C10 & 0x8000000) != 0 )
     EtwTraceIdealProcessor(a1, 1350LL, v4, v7);
 }

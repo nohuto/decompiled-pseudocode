@@ -1,16 +1,16 @@
 /*
- * XREFs of IommuSetAddressSpace @ 0x14059CC00
+ * XREFs of IommuSetAddressSpace @ 0x14059F380
  * Callers:
- *     IommupDomainAttachPasidDevice @ 0x140588004 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x140588288 (IommupDomainDetachPasidDevice.c)
+ *     IommupDomainAttachPasidDevice @ 0x14058A5DC (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14058A958 (IommupDomainDetachPasidDevice.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuSetAddressSpace(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall IommuSetAddressSpace(__int64 a1, __int64 a2)
   __int64 v11; // [rsp+A8h] [rbp+20h]
 
   v2 = *(_QWORD *)(a1 + 8);
-  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IommuInterfaceStateChangeCallbackPushLock.StateSaveArea);
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)((char *)&IommuInterfaceStateChangeCallbackPushLock.116 + 4));
   v9 = v4;
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 15 )
@@ -56,6 +56,6 @@ __int64 __fastcall IommuSetAddressSpace(__int64 a1, __int64 a2)
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  KeReleaseSpinLock((PKSPIN_LOCK)&IommuInterfaceStateChangeCallbackPushLock.StateSaveArea, v4);
+  KeReleaseSpinLock((PKSPIN_LOCK)((char *)&IommuInterfaceStateChangeCallbackPushLock.116 + 4), v4);
   return 0LL;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PoFxCompleteDevicePowerNotRequired @ 0x14036E7A0
+ * XREFs of PoFxCompleteDevicePowerNotRequired @ 0x14036E940
  * Callers:
- *     DifPoFxCompleteDevicePowerNotRequiredWrapper @ 0x1405E9260 (DifPoFxCompleteDevicePowerNotRequiredWrapper.c)
+ *     DifPoFxCompleteDevicePowerNotRequiredWrapper @ 0x1405E97D0 (DifPoFxCompleteDevicePowerNotRequiredWrapper.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxQueueWorkOrder @ 0x14028C1CC (PopFxQueueWorkOrder.c)
- *     PopFxAddLogEntry @ 0x140312AF4 (PopFxAddLogEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxQueueWorkOrder @ 0x14028C45C (PopFxQueueWorkOrder.c)
+ *     PopFxAddLogEntry @ 0x140312D84 (PopFxAddLogEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PoFxCompleteDevicePowerNotRequired(ULONG_PTR BugCheckParameter2)
@@ -30,10 +30,10 @@ __int64 __fastcall PoFxCompleteDevicePowerNotRequired(ULONG_PTR BugCheckParamete
     if ( *(_DWORD *)(BugCheckParameter2 + 36) == 2 )
       PopFxQueueWorkOrder(BugCheckParameter2 + 304, BugCheckParameter2);
     result = KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter2 + 360));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v5 <= 0xFu
         && (unsigned __int8)result >= 2u )

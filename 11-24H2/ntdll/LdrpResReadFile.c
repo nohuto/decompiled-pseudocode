@@ -1,39 +1,39 @@
 /*
- * XREFs of LdrpResReadFile @ 0x1800D2270
+ * XREFs of LdrpResReadFile @ 0x180098460
  * Callers:
- *     LdrpResSearchResourceInsideDirectory @ 0x18007A580 (LdrpResSearchResourceInsideDirectory.c)
- *     LdrpResCompareResourceNames @ 0x18007B770 (LdrpResCompareResourceNames.c)
- *     LdrpResSearchResourceHandle @ 0x1800D1ACC (LdrpResSearchResourceHandle.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1800969C0 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResCompareResourceNames @ 0x180097BB0 (LdrpResCompareResourceNames.c)
+ *     LdrpResSearchResourceHandle @ 0x18009856C (LdrpResSearchResourceHandle.c)
  * Callees:
- *     LdrpResSetFilePointer @ 0x1800D2330 (LdrpResSetFilePointer.c)
- *     NtWaitForSingleObject @ 0x180161D10 (NtWaitForSingleObject.c)
- *     NtReadFile @ 0x180161D50 (NtReadFile.c)
+ *     LdrpResSetFilePointer @ 0x180098520 (LdrpResSetFilePointer.c)
+ *     NtWaitForSingleObject @ 0x1801600D0 (NtWaitForSingleObject.c)
+ *     NtReadFile @ 0x180160110 (NtReadFile.c)
  */
 
-__int64 __fastcall LdrpResReadFile(char *Handle, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall LdrpResReadFile(char *FileHandle, __int64 a2, void *a3, ULONG a4)
 {
   __int64 result; // rax
   NTSTATUS v8; // edx
   int v9; // ecx
-  __int128 v10; // [rsp+50h] [rbp-18h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
-  v10 = 0LL;
-  if ( (unsigned __int64)(Handle - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+  IoStatusBlock = 0LL;
+  if ( (unsigned __int64)(FileHandle - 1) > 0xFFFFFFFFFFFFFFFDuLL )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
-    result = LdrpResSetFilePointer(Handle, a2);
+    result = LdrpResSetFilePointer();
     if ( (int)result < 0 )
       return result;
-    v8 = NtReadFile(Handle, 0LL, 0LL, 0LL, &v10, a3, a4, 0LL, 0LL);
+    v8 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a3, a4, 0LL, 0LL);
     if ( v8 == 259 )
-      v8 = NtWaitForSingleObject(Handle, 0, 0LL);
+      v8 = NtWaitForSingleObject(FileHandle, 0, 0LL);
     v9 = 0;
     if ( (v8 & 0xC0000000) != 0x80000000 )
       v9 = v8;
-    if ( v9 >= 0 && a4 != DWORD2(v10) )
+    if ( v9 >= 0 && a4 != LODWORD(IoStatusBlock.Information) )
       return (unsigned int)-1073741823;
   }
   return (unsigned int)v9;

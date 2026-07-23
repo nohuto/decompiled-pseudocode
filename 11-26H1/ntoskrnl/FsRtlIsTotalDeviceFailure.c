@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlIsTotalDeviceFailure @ 0x14046DC60
+ * XREFs of FsRtlIsTotalDeviceFailure @ 0x1404673E0
  * Callers:
- *     MiConvertFaultStatus @ 0x1403A2F50 (MiConvertFaultStatus.c)
- *     MiHandleSynchronousFlushError @ 0x14046D9FC (MiHandleSynchronousFlushError.c)
- *     CcIsFatalWriteError @ 0x14046DAB0 (CcIsFatalWriteError.c)
- *     MiIsRetryIoStatus @ 0x14046DB90 (MiIsRetryIoStatus.c)
- *     MmIsWriteErrorFatal @ 0x14046DBD8 (MmIsWriteErrorFatal.c)
- *     IopMountVolume @ 0x140B1E87C (IopMountVolume.c)
+ *     MiConvertFaultStatus @ 0x1403A4CB0 (MiConvertFaultStatus.c)
+ *     MiHandleSynchronousFlushError @ 0x14046717C (MiHandleSynchronousFlushError.c)
+ *     CcIsFatalWriteError @ 0x140467230 (CcIsFatalWriteError.c)
+ *     MiIsRetryIoStatus @ 0x140467310 (MiIsRetryIoStatus.c)
+ *     MmIsWriteErrorFatal @ 0x140467358 (MmIsWriteErrorFatal.c)
+ *     IopMountVolume @ 0x140B208FC (IopMountVolume.c)
  * Callees:
  *     <none>
  */

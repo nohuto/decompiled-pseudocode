@@ -1,38 +1,46 @@
 /*
- * XREFs of RtlRcuFree @ 0x1801498C0
+ * XREFs of RtlRcuFree @ 0x180149770
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
  */
 
-__int64 __fastcall RtlRcuFree(_QWORD *a1, __int64 a2)
+LOGICAL __fastcall RtlRcuFree(_QWORD *BaseAddress)
 {
-  __int64 v3; // rdx
-  _QWORD *v4; // rax
-  unsigned int *v5; // rdi
-  __int64 v6; // rdi
+  _QWORD *v2; // rdx
+  PVOID *v3; // rax
+  unsigned int *v4; // rdi
+  void *v5; // r8
+  _QWORD *v6; // rdi
+  void *v7; // r8
+  void *ProcessHeap; // rcx
 
-  RtlAcquireSRWLockExclusive(&qword_1801CCC30, a2);
-  v3 = *a1;
-  if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v4 = (_QWORD *)a1[1], (_QWORD *)*v4 != a1) )
+  RtlAcquireSRWLockExclusive(&stru_1801CBC70);
+  v2 = (_QWORD *)*BaseAddress;
+  if ( *(_QWORD **)(*BaseAddress + 8LL) != BaseAddress || (v3 = (PVOID *)BaseAddress[1], *v3 != BaseAddress) )
     __fastfail(3u);
-  *v4 = v3;
-  *(_QWORD *)(v3 + 8) = v4;
-  RtlReleaseSRWLockExclusive(&qword_1801CCC30);
-  v5 = (unsigned int *)a1[3];
-  while ( v5 )
+  *v3 = v2;
+  v2[1] = v3;
+  RtlReleaseSRWLockExclusive(&stru_1801CBC70);
+  v4 = (unsigned int *)BaseAddress[3];
+  while ( v4 )
   {
-    v5 = *(unsigned int **)&v5[2 * *v5 + 2];
-    RtlFreeHeap_0();
+    v5 = v4;
+    v4 = *(unsigned int **)&v4[2 * *v4 + 2];
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v5);
   }
-  v6 = a1[4];
-  while ( v6 )
+  v6 = (_QWORD *)BaseAddress[4];
+  while ( 1 )
   {
-    v6 = *(_QWORD *)(v6 + 24);
-    RtlFreeHeap_0();
+    ProcessHeap = NtCurrentPeb()->ProcessHeap;
+    if ( !v6 )
+      break;
+    v7 = v6;
+    v6 = (_QWORD *)v6[3];
+    RtlFreeHeap_0(ProcessHeap, 0, v7);
   }
-  return RtlFreeHeap_0();
+  return RtlFreeHeap_0(ProcessHeap, 0, BaseAddress);
 }

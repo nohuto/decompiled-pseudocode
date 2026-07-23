@@ -1,17 +1,17 @@
 /*
- * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x140958CB0
+ * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x140A0717C
  * Callers:
- *     PsTerminateServerSilo @ 0x1407EE820 (PsTerminateServerSilo.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1407F7D20 (PspEnforceLimitsJobPostCallback.c)
- *     NtTerminateJobObject @ 0x140958500 (NtTerminateJobObject.c)
- *     PspJobClose @ 0x140958D70 (PspJobClose.c)
+ *     PsTerminateServerSilo @ 0x1407F4380 (PsTerminateServerSilo.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1407FD820 (PspEnforceLimitsJobPostCallback.c)
+ *     PspJobClose @ 0x140A06ED0 (PspJobClose.c)
+ *     NtTerminateJobObject @ 0x140A070E0 (NtTerminateJobObject.c)
  * Callees:
- *     PspEvaluateAndNotifyEmptyJob @ 0x140959B30 (PspEvaluateAndNotifyEmptyJob.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14095A350 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     EtwTraceJob @ 0x140A77CC8 (EtwTraceJob.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x1409FF3F0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1409FFC10 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     EtwTraceJob @ 0x140A07238 (EtwTraceJob.c)
  */
 
-char __fastcall PspTerminateAllProcessesInJobHierarchy(volatile signed __int32 *Object, unsigned int a2, char a3)
+char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned int a2, char a3)
 {
   char v3; // bl
   unsigned __int8 v6; // al
@@ -19,10 +19,16 @@ char __fastcall PspTerminateAllProcessesInJobHierarchy(volatile signed __int32 *
 
   v3 = 0;
   v8 = 0LL;
-  _InterlockedOr(Object + 388, 0x80u);
+  _InterlockedOr((volatile signed __int32 *)&Event[64].Header.WaitListHead.Blink, 0x80u);
   LODWORD(v8) = a2;
   BYTE4(v8) = a3 != 0;
-  PspEnumJobsAndProcessesInJobHierarchy((PVOID)Object, (__int64)&v8, 2);
+  PspEnumJobsAndProcessesInJobHierarchy(
+    (__int64 *)&Event->Header.Lock,
+    0,
+    (int)PspTerminateProcessesJobCallback,
+    0,
+    (__int64)&v8,
+    2);
   v6 = BYTE4(v8);
   if ( (v8 & 0x200000000LL) != 0 )
   {
@@ -30,10 +36,10 @@ char __fastcall PspTerminateAllProcessesInJobHierarchy(volatile signed __int32 *
   }
   else
   {
-    PspEvaluateAndNotifyEmptyJob((PVOID)Object);
+    PspEvaluateAndNotifyEmptyJob(Event, 0, 0);
     v6 = BYTE4(v8);
   }
-  if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-    EtwTraceJob(Object, v6, a2, 1825LL);
+  if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )
+    EtwTraceJob(Event, v6, a2, 1825LL);
   return v3;
 }

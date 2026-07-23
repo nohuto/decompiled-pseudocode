@@ -1,28 +1,28 @@
 /*
- * XREFs of EtwpStopLoggerInstance @ 0x140A15968
+ * XREFs of EtwpStopLoggerInstance @ 0x140A14B5C
  * Callers:
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
- *     EtwpStopTrace @ 0x140A6F2F8 (EtwpStopTrace.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x140AB2D10 (EtwpStopTrace.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeInsertQueueDpc @ 0x1402BDB30 (KeInsertQueueDpc.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExCancelTimer @ 0x1403AA0D0 (ExCancelTimer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     EtwpStackRundown @ 0x14047173C (EtwpStackRundown.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpDisableTraceProviders @ 0x1409378E0 (EtwpDisableTraceProviders.c)
- *     EtwpSendSessionNotification @ 0x140A1545C (EtwpSendSessionNotification.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x140A6D418 (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpLogPmcCounterRundown @ 0x140B24C50 (EtwpLogPmcCounterRundown.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x1403087F0 (KeInsertQueueDpc.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExCancelTimer @ 0x1403B3CE0 (ExCancelTimer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     EtwpStackRundown @ 0x14046AEBC (EtwpStackRundown.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpDisableTraceProviders @ 0x140913480 (EtwpDisableTraceProviders.c)
+ *     EtwpSendSessionNotification @ 0x140A14650 (EtwpSendSessionNotification.c)
+ *     EtwpLogPmcCounterRundown @ 0x140A9A250 (EtwpLogPmcCounterRundown.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x140AB0CE0 (EtwpUpdateLoggerGroupMasks.c)
  */
 
 __int64 __fastcall EtwpStopLoggerInstance(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -46,10 +46,10 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1, __int64 a2, __int64 a3, st
   int v22; // [rsp+40h] [rbp-C8h] BYREF
   int v23; // [rsp+44h] [rbp-C4h] BYREF
   int v24; // [rsp+48h] [rbp-C0h] BYREF
-  int v25; // [rsp+4Ch] [rbp-BCh] BYREF
+  int Blink_high; // [rsp+4Ch] [rbp-BCh] BYREF
   int v26; // [rsp+50h] [rbp-B8h] BYREF
-  int v27; // [rsp+54h] [rbp-B4h] BYREF
-  __int64 v28; // [rsp+58h] [rbp-B0h] BYREF
+  unsigned int SecureThreadCookie; // [rsp+54h] [rbp-B4h] BYREF
+  void *SchedulerSharedSystemSlot; // [rsp+58h] [rbp-B0h] BYREF
   __int64 v29; // [rsp+60h] [rbp-A8h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v30; // [rsp+68h] [rbp-A0h] BYREF
   __int64 *v31; // [rsp+88h] [rbp-80h]
@@ -64,13 +64,13 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1, __int64 a2, __int64 a3, st
   __int64 v40; // [rsp+D0h] [rbp-38h]
   int *v41; // [rsp+D8h] [rbp-30h]
   __int64 v42; // [rsp+E0h] [rbp-28h]
-  int *v43; // [rsp+E8h] [rbp-20h]
+  int *p_Blink_high; // [rsp+E8h] [rbp-20h]
   __int64 v44; // [rsp+F0h] [rbp-18h]
   int *v45; // [rsp+F8h] [rbp-10h]
   __int64 v46; // [rsp+100h] [rbp-8h]
-  int *v47; // [rsp+108h] [rbp+0h]
+  unsigned int *p_SecureThreadCookie; // [rsp+108h] [rbp+0h]
   __int64 v48; // [rsp+110h] [rbp+8h]
-  __int64 *v49; // [rsp+118h] [rbp+10h]
+  void **p_SchedulerSharedSystemSlot; // [rsp+118h] [rbp+10h]
   __int64 v50; // [rsp+120h] [rbp+18h]
   char *v51; // [rsp+128h] [rbp+20h]
   __int64 v52; // [rsp+130h] [rbp+28h]
@@ -78,7 +78,7 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1, __int64 a2, __int64 a3, st
   v4 = *(_QWORD *)(a1 + 1360);
   _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x40u);
   v6 = *(unsigned int *)(a1 + 1024);
-  if ( (int)v6 > 0 && (unsigned int)dword_140E08F48 > 5 && tlgKeywordOn((__int64)&dword_140E08F48, 0x200000000000LL) )
+  if ( (int)v6 > 0 && (unsigned int)dword_140E08F78 > 5 && tlgKeywordOn((__int64)&dword_140E08F78, 0x200000000000LL) )
   {
     v20 = v6;
     v31 = &v29;
@@ -93,15 +93,15 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1, __int64 a2, __int64 a3, st
     v39 = &v23;
     v24 = *(_DWORD *)(a1 + 1028);
     v41 = &v24;
-    v25 = *(_DWORD *)&stru_140E28440.PriorityFloorCounts[12];
-    v43 = &v25;
-    v26 = *(_DWORD *)&stru_140E28440.PriorityFloorCounts[16];
+    Blink_high = HIDWORD(stru_140E285C0.MutantListHead.Blink);
+    p_Blink_high = &Blink_high;
+    v26 = *(_DWORD *)&stru_140E285C0.AbWaitEntryCount;
     v45 = &v26;
-    v27 = *(_DWORD *)&stru_140E28440.PriorityFloorCounts[20];
-    v47 = &v27;
-    v28 = *(_QWORD *)&stru_140E28440.PriorityFloorCounts[24];
-    v49 = &v28;
-    v51 = (char *)&v28 + 4;
+    SecureThreadCookie = stru_140E285C0.SecureThreadCookie;
+    p_SecureThreadCookie = &SecureThreadCookie;
+    SchedulerSharedSystemSlot = stru_140E285C0.SchedulerSharedSystemSlot;
+    p_SchedulerSharedSystemSlot = &SchedulerSharedSystemSlot;
+    v51 = (char *)&SchedulerSharedSystemSlot + 4;
     v34 = 4LL;
     v36 = 4LL;
     v38 = 4LL;
@@ -113,8 +113,8 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1, __int64 a2, __int64 a3, st
     v50 = 4LL;
     v52 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08F48,
-      (unsigned __int8 *)byte_1400537A8,
+      (__int64)&dword_140E08F78,
+      (unsigned __int8 *)byte_14005479B,
       0LL,
       0LL,
       0xDu,

@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaSetDeviceSvmCapabilities @ 0x140573880
+ * XREFs of HsaSetDeviceSvmCapabilities @ 0x140570D10
  * Callers:
  *     <none>
  * Callees:

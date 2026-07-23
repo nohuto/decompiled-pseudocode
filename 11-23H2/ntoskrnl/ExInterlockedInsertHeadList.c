@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInterlockedInsertHeadList @ 0x140351FA0
+ * XREFs of ExInterlockedInsertHeadList @ 0x140352140
  * Callers:
  *     CcCanIWrite @ 0x14020F180 (CcCanIWrite.c)
- *     CcDeferWrite @ 0x140537480 (CcDeferWrite.c)
- *     ViAllocateMapRegisterFile @ 0x140AC7CB4 (ViAllocateMapRegisterFile.c)
- *     ViHookDmaAdapter @ 0x140AC9550 (ViHookDmaAdapter.c)
- *     ViScatterGatherCallback @ 0x140AC9DC0 (ViScatterGatherCallback.c)
- *     ViSpecialAllocateCommonBuffer @ 0x140AC9E5C (ViSpecialAllocateCommonBuffer.c)
+ *     CcDeferWrite @ 0x1405379D0 (CcDeferWrite.c)
+ *     ViAllocateMapRegisterFile @ 0x140AC7CA4 (ViAllocateMapRegisterFile.c)
+ *     ViHookDmaAdapter @ 0x140AC9540 (ViHookDmaAdapter.c)
+ *     ViScatterGatherCallback @ 0x140AC9DB0 (ViScatterGatherCallback.c)
+ *     ViSpecialAllocateCommonBuffer @ 0x140AC9E4C (ViSpecialAllocateCommonBuffer.c)
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x140352048 (ExpAcquireSpinLockDisabled.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1403521E8 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedInsertHeadList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)

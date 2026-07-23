@@ -1,5 +1,5 @@
 /*
- * XREFs of TtmpDeleteQueue @ 0x140882760
+ * XREFs of TtmpDeleteQueue @ 0x1408839C0
  * Callers:
  *     <none>
  * Callees:
@@ -7,9 +7,9 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x140880950 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogQueueDestroyed @ 0x140884748 (TtmiLogQueueDestroyed.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x140881BB0 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogQueueDestroyed @ 0x1408859A8 (TtmiLogQueueDestroyed.c)
  */
 
 __int64 __fastcall TtmpDeleteQueue(__int64 *a1)

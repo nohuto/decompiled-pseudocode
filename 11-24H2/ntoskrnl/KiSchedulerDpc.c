@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSchedulerDpc @ 0x140695600
+ * XREFs of KiSchedulerDpc @ 0x1406966D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlWriteTryAcquireTickLock @ 0x14029D508 (RtlWriteTryAcquireTickLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiMcaDeferredRecoveryService @ 0x1406B5AB0 (KiMcaDeferredRecoveryService.c)
+ *     RtlWriteTryAcquireTickLock @ 0x1402ABFF8 (RtlWriteTryAcquireTickLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiMcaDeferredRecoveryService @ 0x1406B6A50 (KiMcaDeferredRecoveryService.c)
  */
 
 void __fastcall __noreturn KiSchedulerDpc(

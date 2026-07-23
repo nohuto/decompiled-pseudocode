@@ -20,7 +20,7 @@ __int16 __fastcall RtlpLogCapabilityCheckLatency(_DWORD *a1, _DWORD *a2, char a3
   char v13; // [esp+1Dh] [ebp-7Bh] BYREF
   char v14; // [esp+1Eh] [ebp-7Ah] BYREF
   char v15; // [esp+1Fh] [ebp-79h] BYREF
-  _BYTE v16[32]; // [esp+20h] [ebp-78h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+20h] [ebp-78h] BYREF
   __int64 *v17; // [esp+40h] [ebp-58h]
   int v18; // [esp+44h] [ebp-54h]
   int v19; // [esp+48h] [ebp-50h]
@@ -45,7 +45,7 @@ __int16 __fastcall RtlpLogCapabilityCheckLatency(_DWORD *a1, _DWORD *a2, char a3
   v6 = NtCurrentPeb();
   if ( v6->ProcessHeap )
   {
-    LOWORD(v6) = RtlRunOnceExecuteOnce((int)&RtlpCapChkTelemetryRunOnceCtx, RtlpCapChkTelemetryRunOnce, 0, 0);
+    LOWORD(v6) = RtlRunOnceExecuteOnce(&RtlpCapChkTelemetryRunOnceCtx, RtlpCapChkTelemetryRunOnce, 0, 0);
     if ( a1 )
     {
       if ( a2 )
@@ -90,7 +90,7 @@ __int16 __fastcall RtlpLogCapabilityCheckLatency(_DWORD *a1, _DWORD *a2, char a3
                   v32 = 0;
                   v34 = 0;
                   v36 = 0;
-                  _tlgWriteTransfer_EtwEventWriteTransfer(v9, v9, 7, v16);
+                  _tlgWriteTransfer_EtwEventWriteTransfer(v9, v9, 7u, &UserData);
                 }
                 LOWORD(v6) = TelemetryEventThrottle;
                 TelemetryEventThrottle = 100;

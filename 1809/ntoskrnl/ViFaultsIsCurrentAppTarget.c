@@ -1,11 +1,11 @@
 /*
- * XREFs of ViFaultsIsCurrentAppTarget @ 0x140938D30
+ * XREFs of ViFaultsIsCurrentAppTarget @ 0x140939D30
  * Callers:
- *     VfFaultsInjectResourceFailure @ 0x140938308 (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsInjectResourceFailure @ 0x140939308 (VfFaultsInjectResourceFailure.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 ViFaultsIsCurrentAppTarget()
@@ -30,9 +30,9 @@ __int64 ViFaultsIsCurrentAppTarget()
     return 1;
   if ( (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x10000) != 0 )
   {
-    ++dword_140985E3C;
+    ++dword_140986E3C;
     return 1;
   }
-  ++dword_140985E38;
+  ++dword_140986E38;
   return v1;
 }

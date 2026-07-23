@@ -1,15 +1,15 @@
 /*
- * XREFs of SmpKeyedStoreReference @ 0x14011C808
+ * XREFs of SmpKeyedStoreReference @ 0x14011CD78
  * Callers:
- *     SmpPageWrite @ 0x140119C58 (SmpPageWrite.c)
+ *     SmpPageWrite @ 0x14011A1C8 (SmpPageWrite.c)
  * Callees:
- *     SmKmStoreReference @ 0x140002FA4 (SmKmStoreReference.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     SmpKeyedStoreEntryGet @ 0x1400C92BC (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreReference @ 0x140003118 (SmKmStoreReference.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     SmpKeyedStoreEntryGet @ 0x1400C715C (SmpKeyedStoreEntryGet.c)
  */
 
 __int64 __fastcall SmpKeyedStoreReference(unsigned __int64 *BugCheckParameter2, __int64 a2, __int64 a3)

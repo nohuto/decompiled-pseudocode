@@ -59,7 +59,7 @@ __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
   unsigned __int8 CurrentIrql; // r13
   unsigned int v26; // edi
   int v27; // eax
-  struct _SLIST_ENTRY *PoolWithTag; // r10
+  _SLIST_ENTRY *PoolWithTag; // r10
   unsigned int v29; // edi
   int v30; // r8d
   int v31; // eax
@@ -254,7 +254,7 @@ LABEL_32:
               PoolWithTag = v73;
               if ( !v73 )
               {
-                PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x78uLL, 0x57536D4Du);
+                PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x78uLL, 0x57536D4Du);
                 v73 = PoolWithTag;
               }
               if ( !PoolWithTag )

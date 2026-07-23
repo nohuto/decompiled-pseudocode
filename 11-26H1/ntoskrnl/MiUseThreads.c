@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUseThreads @ 0x1403C3644
+ * XREFs of MiUseThreads @ 0x1403CD544
  * Callers:
- *     MiProcessPageGroupInfo @ 0x1403C3B34 (MiProcessPageGroupInfo.c)
- *     MiInitializeFastLargePagesMdlPfns @ 0x1406EE130 (MiInitializeFastLargePagesMdlPfns.c)
- *     MiGroupZeroHugeRange @ 0x140705024 (MiGroupZeroHugeRange.c)
- *     MiChangePageAttributeAndZeroBatch @ 0x14070D2EC (MiChangePageAttributeAndZeroBatch.c)
- *     MiCreateDynamicPfns @ 0x140865E98 (MiCreateDynamicPfns.c)
+ *     MiProcessPageGroupInfo @ 0x1403CDA40 (MiProcessPageGroupInfo.c)
+ *     MiInitializeFastLargePagesMdlPfns @ 0x1406F2DD0 (MiInitializeFastLargePagesMdlPfns.c)
+ *     MiGroupZeroHugeRange @ 0x140709CF4 (MiGroupZeroHugeRange.c)
+ *     MiChangePageAttributeAndZeroBatch @ 0x140711F9C (MiChangePageAttributeAndZeroBatch.c)
+ *     MiCreateDynamicPfns @ 0x14086C278 (MiCreateDynamicPfns.c)
  * Callees:
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     MiInitializeThreadGroup @ 0x140501014 (MiInitializeThreadGroup.c)
- *     MiDoParentWork @ 0x140503998 (MiDoParentWork.c)
- *     MiLaunchChildWorkers @ 0x1405172B8 (MiLaunchChildWorkers.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     MiInitializeThreadGroup @ 0x1404FA804 (MiInitializeThreadGroup.c)
+ *     MiDoParentWork @ 0x1404FD268 (MiDoParentWork.c)
+ *     MiLaunchChildWorkers @ 0x140510D28 (MiLaunchChildWorkers.c)
  */
 
 __int64 __fastcall MiUseThreads(__int64 a1)

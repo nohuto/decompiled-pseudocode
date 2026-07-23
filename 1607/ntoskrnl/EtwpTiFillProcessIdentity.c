@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpTiFillProcessIdentity @ 0x14017196C
+ * XREFs of EtwpTiFillProcessIdentity @ 0x140171E6C
  * Callers:
- *     EtwTiLogQueueApcThread @ 0x140228910 (EtwTiLogQueueApcThread.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1406A0764 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTiLogAllocExecVm @ 0x1406A5620 (EtwTiLogAllocExecVm.c)
- *     EtwTiLogMapExecView @ 0x1406A5808 (EtwTiLogMapExecView.c)
- *     EtwTiLogProtectExecVm @ 0x1406A59AC (EtwTiLogProtectExecVm.c)
- *     EtwTiLogReadWriteVm @ 0x1406A5B94 (EtwTiLogReadWriteVm.c)
- *     EtwTiLogSetContextThread @ 0x1406A5D34 (EtwTiLogSetContextThread.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1406A5FA4 (EtwTiLogSuspendResumeProcess.c)
- *     EtwTiLogSuspendResumeThread @ 0x1406A6110 (EtwTiLogSuspendResumeThread.c)
+ *     EtwTiLogQueueApcThread @ 0x14022873C (EtwTiLogQueueApcThread.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1406A089C (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwTiLogAllocExecVm @ 0x1406A5758 (EtwTiLogAllocExecVm.c)
+ *     EtwTiLogMapExecView @ 0x1406A5940 (EtwTiLogMapExecView.c)
+ *     EtwTiLogProtectExecVm @ 0x1406A5AE4 (EtwTiLogProtectExecVm.c)
+ *     EtwTiLogReadWriteVm @ 0x1406A5CCC (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogSetContextThread @ 0x1406A5E6C (EtwTiLogSetContextThread.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1406A60DC (EtwTiLogSuspendResumeProcess.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1406A6248 (EtwTiLogSuspendResumeThread.c)
  * Callees:
- *     EtwpGetProcessStartKey @ 0x1404EDE94 (EtwpGetProcessStartKey.c)
+ *     EtwpGetProcessStartKey @ 0x1404CFF60 (EtwpGetProcessStartKey.c)
  */
 
 __int64 __fastcall EtwpTiFillProcessIdentity(__int64 a1, __int64 a2, _QWORD *a3)

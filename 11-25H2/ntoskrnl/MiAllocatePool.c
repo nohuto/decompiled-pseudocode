@@ -232,7 +232,7 @@ __int64 __fastcall MiAllocatePool(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, in
 {
   ULONG_PTR v3; // rbx
   ULONG_PTR v4; // r9
-  int v5; // ecx
+  NTSTATUS v5; // ecx
   __int64 result; // rax
   ULONG v7; // r10d
   __int64 v8[2]; // [rsp+40h] [rbp-18h] BYREF

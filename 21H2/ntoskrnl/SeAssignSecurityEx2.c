@@ -1,11 +1,11 @@
 /*
- * XREFs of SeAssignSecurityEx2 @ 0x140355E90
+ * XREFs of SeAssignSecurityEx2 @ 0x140360BE0
  * Callers:
- *     ObpAssignSecurity @ 0x140662FAC (ObpAssignSecurity.c)
- *     SeAssignSecurityEx @ 0x1406A0770 (SeAssignSecurityEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     SeAssignSecurityEx @ 0x1405FFAB0 (SeAssignSecurityEx.c)
+ *     ObpAssignSecurity @ 0x140657DCC (ObpAssignSecurity.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  * Callees:
- *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x1407169D0 (RtlpNewSecurityObject.c)
  */
 
 __int64 __fastcall SeAssignSecurityEx2(
@@ -19,7 +19,7 @@ __int64 __fastcall SeAssignSecurityEx2(
         __int64 a8,
         __int64 a9)
 {
-  int v10; // ecx
+  UCHAR v10; // cl
   __int64 *v11; // r9
   __int64 v13; // [rsp+78h] [rbp+20h] BYREF
 
@@ -36,5 +36,5 @@ __int64 __fastcall SeAssignSecurityEx2(
     v10 = 0;
     LODWORD(v11) = 0;
   }
-  return RtlpNewSecurityObject(a1, a2, a3, (_DWORD)v11, v10, a5, a6, a8, a9, (__int64)a7);
+  return RtlpNewSecurityObject(a1, a2, a3, (int)v11, v10, a5, a6, a8, a9, (__int64)a7);
 }

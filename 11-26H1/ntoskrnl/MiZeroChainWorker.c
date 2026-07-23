@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroChainWorker @ 0x1402A0D50
+ * XREFs of MiZeroChainWorker @ 0x1402A02A0
  * Callers:
  *     <none>
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiZeroWithUltraSpace @ 0x1402A0EE0 (MiZeroWithUltraSpace.c)
- *     MiZeroAndConvertPage @ 0x1402A14B0 (MiZeroAndConvertPage.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiZeroWithUltraSpace @ 0x1402A0430 (MiZeroWithUltraSpace.c)
+ *     MiZeroAndConvertPage @ 0x1402A0A00 (MiZeroAndConvertPage.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
  */
 
 __int64 __fastcall MiZeroChainWorker(_QWORD *a1, __int64 a2)
@@ -14,19 +14,19 @@ __int64 __fastcall MiZeroChainWorker(_QWORD *a1, __int64 a2)
   __int64 v2; // rbp
   __int64 v3; // r10
   __int64 v4; // r11
-  _QWORD *v5; // rsi
+  _QWORD *v5; // rdi
   __int64 v6; // r14
   int v7; // edx
   unsigned int v8; // r12d
   __int64 result; // rax
-  __int64 v10; // rdi
+  __int64 v10; // rsi
   __int64 v11; // rbx
   unsigned int v12; // r8d
   unsigned __int64 v13; // r15
   unsigned int PfnPageSizeIndex; // eax
   unsigned int v15; // r13d
-  unsigned __int64 v16; // rdi
-  unsigned __int64 v17; // rdi
+  unsigned __int64 v16; // rsi
+  unsigned __int64 v17; // rsi
   _DWORD *v18; // rbx
   __int64 v19; // [rsp+30h] [rbp-48h]
   int i; // [rsp+98h] [rbp+20h]

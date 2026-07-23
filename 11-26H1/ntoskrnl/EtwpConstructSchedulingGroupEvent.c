@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpConstructSchedulingGroupEvent @ 0x1406C54EC
+ * XREFs of EtwpConstructSchedulingGroupEvent @ 0x1406C912C
  * Callers:
- *     EtwTraceSchedulingGroup @ 0x1406C4E5C (EtwTraceSchedulingGroup.c)
- *     EtwTraceSchedulingGroupRundown @ 0x1406C4EDC (EtwTraceSchedulingGroupRundown.c)
+ *     EtwTraceSchedulingGroup @ 0x1406C8A9C (EtwTraceSchedulingGroup.c)
+ *     EtwTraceSchedulingGroupRundown @ 0x1406C8B1C (EtwTraceSchedulingGroupRundown.c)
  * Callees:
  *     <none>
  */

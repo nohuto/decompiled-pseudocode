@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRecoverEnlistment @ 0x1403FD100
+ * XREFs of ZwRecoverEnlistment @ 0x1403FD2E0
  * Callers:
- *     CmpRecoverEnlistment @ 0x140874E8C (CmpRecoverEnlistment.c)
+ *     CmpRecoverEnlistment @ 0x140874FEC (CmpRecoverEnlistment.c)
  * Callees:
  *     <none>
  */
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwRecoverEnlistment(HANDLE EnlistmentHandle, PVOID Enlistment
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, EnlistmentKey);
+  return KiServiceInternal(EnlistmentHandle);
 }

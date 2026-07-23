@@ -15,7 +15,7 @@
 void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char a3)
 {
   bool v5; // r12
-  union _RTL_RUN_ONCE *v6; // rbx
+  _RTL_RUN_ONCE *v6; // rbx
   __int64 v7; // rsi
   struct _EX_RUNDOWN_REF *v8; // rax
   struct _EX_RUNDOWN_REF *v9; // rbp
@@ -23,13 +23,13 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
   __int64 v11; // rcx
   __int64 v12; // rdi
   void (__fastcall *v13)(_QWORD, _QWORD, _QWORD); // rax
-  union _RTL_RUN_ONCE *v14; // rbx
+  _RTL_RUN_ONCE *v14; // rbx
   __int64 v15; // rsi
   struct _EX_RUNDOWN_REF *v16; // rax
   struct _EX_RUNDOWN_REF *v17; // rbp
   __int64 v18; // rdi
   void (__fastcall *v19)(_QWORD, _QWORD, _QWORD); // rax
-  union _RTL_RUN_ONCE *v20; // rbx
+  _RTL_RUN_ONCE *v20; // rbx
   __int64 v21; // rsi
   struct _EX_RUNDOWN_REF *v22; // rax
   struct _EX_RUNDOWN_REF *v23; // rbp

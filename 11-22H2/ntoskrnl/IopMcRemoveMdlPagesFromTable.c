@@ -49,10 +49,10 @@ _DWORD *__fastcall IopMcRemoveMdlPagesFromTable(__int64 a1, __int64 a2)
       if ( (unsigned __int8)IopMcShouldYield(v6, v7) )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C5D764);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -74,10 +74,10 @@ _DWORD *__fastcall IopMcRemoveMdlPagesFromTable(__int64 a1, __int64 a2)
     while ( v6 < (unsigned int)v5 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C5D764);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && v8 <= 0xFu && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && v8 <= 0xFu && v15 >= 2u )
     {
       v16 = KeGetCurrentPrcb();
       v17 = v16->SchedulerAssist;

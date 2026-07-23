@@ -10,35 +10,39 @@
  *     _ZwCreateWaitCompletionPacket@12 @ 0x4B2F3610 (_ZwCreateWaitCompletionPacket@12.c)
  */
 
-int __fastcall TppInitializeTimerSubQueue(_DWORD *a1, int a2, unsigned __int8 a3)
+NTSTATUS __fastcall TppInitializeTimerSubQueue(int a1, int a2, unsigned __int8 a3)
 {
   HANDLE *v4; // ebx
-  int result; // eax
-  int WaitCompletionPacket; // edi
+  NTSTATUS result; // eax
+  NTSTATUS WaitCompletionPacket; // edi
   _DWORD *v7; // esi
   char v8; // dl
   int v9; // ecx
-  _DWORD *v10; // [esp+10h] [ebp-Ch]
-  char v12; // [esp+1Bh] [ebp-1h] BYREF
+  ULONG_PTR v10; // [esp-8h] [ebp-24h]
+  BOOLEAN *v11; // [esp+0h] [ebp-1Ch]
+  HANDLE *v12; // [esp+10h] [ebp-Ch]
+  char v14; // [esp+1Bh] [ebp-1h] BYREF
 
-  v4 = (HANDLE *)(a1 + 4);
-  *a1 = 0;
-  a1[1] = 0;
-  a1[3] = 0;
-  a1[2] = 0;
-  result = ZwCreateTimer2(a1 + 4, 0, 0, 8, 1048578);
+  v4 = (HANDLE *)(a1 + 16);
+  *(_DWORD *)a1 = 0;
+  *(_DWORD *)(a1 + 4) = 0;
+  *(_DWORD *)(a1 + 12) = 0;
+  *(_DWORD *)(a1 + 8) = 0;
+  result = ZwCreateTimer2((PHANDLE)(a1 + 16), 0, 0, 8u, 0x100002u);
   if ( result >= 0 )
   {
-    v10 = a1 + 5;
-    WaitCompletionPacket = ZwCreateWaitCompletionPacket(a1 + 5, 1, 0);
+    v12 = (HANDLE *)(a1 + 20);
+    WaitCompletionPacket = ZwCreateWaitCompletionPacket((PHANDLE)(a1 + 20), 1u, 0);
     if ( WaitCompletionPacket < 0 )
     {
       NtClose(*v4);
     }
     else
     {
-      v7 = a1 + 6;
-      ZwAssociateWaitCompletionPacket(*v10, *(_DWORD *)(a2 + 40), *v4, v7, a2 + 64, 0, a3, &v12);
+      HIDWORD(v10) = &v14;
+      v7 = (_DWORD *)(a1 + 24);
+      LODWORD(v10) = a3;
+      ZwAssociateWaitCompletionPacket(*v12, *(HANDLE *)(a2 + 40), *v4, v7, (PVOID)(a2 + 64), 0, v10, v11);
       v7[8] = TppTimerQueueExpiration;
       TppGetCurrentThreadNumaNode(v7 + 10);
       v8 = *((_BYTE *)v7 + 40);

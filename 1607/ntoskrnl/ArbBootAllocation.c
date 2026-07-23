@@ -1,14 +1,14 @@
 /*
- * XREFs of ArbBootAllocation @ 0x1405598CC
+ * XREFs of ArbBootAllocation @ 0x140559E0C
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ArbpBuildAlternative @ 0x140559A44 (ArbpBuildAlternative.c)
- *     RtlCopyRangeList @ 0x14055A4DC (RtlCopyRangeList.c)
- *     RtlFreeRangeList @ 0x14055A8D4 (RtlFreeRangeList.c)
+ *     ArbpBuildAlternative @ 0x140559F84 (ArbpBuildAlternative.c)
+ *     RtlCopyRangeList @ 0x14055AA1C (RtlCopyRangeList.c)
+ *     RtlFreeRangeList @ 0x14055AE14 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall ArbBootAllocation(__int64 a1, _QWORD **a2)

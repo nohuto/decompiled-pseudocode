@@ -1,17 +1,17 @@
 /*
- * XREFs of MiStoreWriteModifiedPagePostIssue @ 0x140408014
+ * XREFs of MiStoreWriteModifiedPagePostIssue @ 0x140401104
  * Callers:
- *     MiStoreWriteIssue @ 0x140407EF8 (MiStoreWriteIssue.c)
+ *     MiStoreWriteIssue @ 0x140400FE8 (MiStoreWriteIssue.c)
  * Callees:
- *     MiStoreFreeWriteSupport @ 0x14020A108 (MiStoreFreeWriteSupport.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiUpdatePfnBackingStore @ 0x140408494 (MiUpdatePfnBackingStore.c)
- *     MiIsPfnOriginalPteLost @ 0x140408658 (MiIsPfnOriginalPteLost.c)
- *     MiStoreLogWriteIssueFailure @ 0x140530110 (MiStoreLogWriteIssueFailure.c)
+ *     MiStoreFreeWriteSupport @ 0x14020A1E8 (MiStoreFreeWriteSupport.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiUpdatePfnBackingStore @ 0x140401584 (MiUpdatePfnBackingStore.c)
+ *     MiIsPfnOriginalPteLost @ 0x140401748 (MiIsPfnOriginalPteLost.c)
+ *     MiStoreLogWriteIssueFailure @ 0x140532610 (MiStoreLogWriteIssueFailure.c)
  */
 
 __int64 __fastcall MiStoreWriteModifiedPagePostIssue(__int64 a1)
@@ -50,7 +50,7 @@ __int64 __fastcall MiStoreWriteModifiedPagePostIssue(__int64 a1)
   __int64 v33; // rax
   struct _KEVENT *v34; // rdi
   unsigned __int64 v35; // rax
-  char v36; // r9
+  int v36; // r9d
   int v37; // edx
   __int64 v38; // rcx
   _QWORD v39[7]; // [rsp+30h] [rbp-38h] BYREF
@@ -72,17 +72,17 @@ __int64 __fastcall MiStoreWriteModifiedPagePostIssue(__int64 a1)
     v34 = v41;
     *(_BYTE *)((v3 >> 3) + *(_QWORD *)(*(_QWORD *)&v41[63].Header.Lock + 8LL)) |= 1 << (v3 & 7);
     v35 = MiTransferSoftwarePte(*(__int64 *)&CLFS_LSN_NULL_EXT, v2, v6, 1);
-    MiReleasePageFileInfo(v34, v35, v36 + 2);
-    MiStoreFreeWriteSupport(*(PSLIST_ENTRY *)(v1 + 48), (union _SLIST_HEADER *)v34);
+    MiReleasePageFileInfo(v34, v35, (unsigned int)(v36 + 2));
+    MiStoreFreeWriteSupport(*(PSLIST_ENTRY *)(v1 + 48), (_SLIST_HEADER *)v34);
     v37 = v34[55].Header.LockNV + 1;
     v34[55].Header.LockNV = v37;
-    if ( stru_140E36558.FirstArgument )
+    if ( stru_140E366D8.FirstArgument )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument )
       {
-        if ( (*((_BYTE *)stru_140E36558.FirstArgument + 16) & 2) != 0 )
+        if ( (*((_BYTE *)stru_140E366D8.FirstArgument + 16) & 2) != 0 )
         {
-          v38 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+          v38 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
           if ( (v38 & 2) == v38 )
             MiStoreLogWriteIssueFailure(v38, v4, v1 + 8, *(_DWORD *)(v1 + 4), v37);
         }
@@ -170,20 +170,20 @@ __int64 __fastcall MiStoreWriteModifiedPagePostIssue(__int64 a1)
       v17 = *(unsigned __int16 *)(v2 + 172);
       if ( v16 )
       {
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
           if ( (v16 & 0x10) != 0 )
             LODWORD(v16) = v16 & 0xFFFFFFEF;
           else
-            LODWORD(v16) = qword_140E2D748 & v16;
+            LODWORD(v16) = qword_140E2D8C8 & v16;
         }
         PageFilePte = (unsigned int)v16 | (unsigned __int64)(v6 << 32);
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
-          if ( (qword_140E2D740 & PageFilePte) != 0 )
+          if ( (qword_140E2D8C0 & PageFilePte) != 0 )
             PageFilePte |= 0x10uLL;
           else
-            PageFilePte |= qword_140E2D740;
+            PageFilePte |= qword_140E2D8C0;
         }
       }
       else
@@ -222,7 +222,7 @@ __int64 __fastcall MiStoreWriteModifiedPagePostIssue(__int64 a1)
     }
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v10 )
-      MiReleasePageFileInfo(v41, v10, 3);
+      MiReleasePageFileInfo(v41, v10, 3LL);
     return 1LL;
   }
 }

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwResetWriteWatch()
+NTSTATUS __cdecl ZwResetWriteWatch(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T RegionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 351LL;
+  result = 351;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopWakeDeviceList @ 0x1404B96A8
+ * XREFs of PopWakeDeviceList @ 0x1404B2F38
  * Callers:
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PopIsNotifyForDirectedPowerTransition @ 0x1404B9B48 (PopIsNotifyForDirectedPowerTransition.c)
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x14060769C (PopPushPowerStateTransitionRecordWithCallback.c)
- *     PopIssueDirectedPowerTransition @ 0x140B5A580 (PopIssueDirectedPowerTransition.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140BFD138 (PoDelistPowerStateTransitionBlocker.c)
- *     PopNotifyDevice @ 0x140C0DA04 (PopNotifyDevice.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PopIsNotifyForDirectedPowerTransition @ 0x1404B33D8 (PopIsNotifyForDirectedPowerTransition.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14060A1F8 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     PopIssueDirectedPowerTransition @ 0x140B5D89C (PopIssueDirectedPowerTransition.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140C03138 (PoDelistPowerStateTransitionBlocker.c)
+ *     PopNotifyDevice @ 0x140C13C14 (PopNotifyDevice.c)
  */
 
 int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
@@ -44,7 +44,7 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
   Object[1] = 0;
   Object[3] = 0;
   v25 = 0;
-  if ( (DWORD1(xmmword_140F0FAE0) & 0x800000) != 0 )
+  if ( (DWORD1(PopCurrentBroadcast) & 0x800000) != 0 )
     v4 = -1073741779;
   else
     v4 = PopPushPowerStateTransitionRecordWithCallback(
@@ -81,7 +81,7 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
     do
     {
       KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F0FAF0 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F103F0 + 1, &LockHandle);
       v11 = (_QWORD *)*v5;
       if ( *(_QWORD **)(*v5 + 8LL) != v5
         || (v12 = *v11, *(_QWORD **)(*v11 + 8LL) != v11)
@@ -100,7 +100,7 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
         LODWORD(v10) = PopIssueDirectedPowerTransition(a1, v11);
       else
         LODWORD(v10) = PopNotifyDevice(a1, v11);
-      if ( (*(_DWORD *)&stru_140F10828.WaitBlockFill11[100] & 0x80000) != 0 )
+      if ( (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x80000) != 0 )
       {
         while ( v9 > 0 )
         {

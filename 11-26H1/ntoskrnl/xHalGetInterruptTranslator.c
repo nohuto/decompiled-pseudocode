@@ -1,9 +1,9 @@
 /*
- * XREFs of xHalGetInterruptTranslator @ 0x140B23920
+ * XREFs of xHalGetInterruptTranslator @ 0x140B25D20
  * Callers:
- *     DifNtFlushInstructionCacheWrapper @ 0x140678000 (DifNtFlushInstructionCacheWrapper.c)
- *     AnFwDisplayBackgroundUpdate @ 0x140C511F4 (AnFwDisplayBackgroundUpdate.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140C51580 (AnFwpBackgroundUpdateTimer.c)
+ *     DifNtFlushInstructionCacheWrapper @ 0x14067BBE0 (DifNtFlushInstructionCacheWrapper.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x140C571F4 (AnFwDisplayBackgroundUpdate.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140C57580 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
  *     <none>
  */

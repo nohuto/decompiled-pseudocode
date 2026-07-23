@@ -13,14 +13,14 @@ int __fastcall sub_140424E0B()
   int result; // eax
 
   _RAX = 56026LL;
-  if ( (KeGetPcr()->Prcb.BpbFeatures & 8) != 0 )
+  if ( (BYTE2(KeGetPcr()[5].KdVersionBlock) & 8) != 0 )
   {
     LOBYTE(_RAX) = 32;
     __asm { incsspq rax }
   }
   _mm_lfence();
-  result = KeGetPcr()->Prcb.BpbRetpolineState;
+  result = BYTE2(KeGetPcr()[5].HalReserved[15]);
   *(_BYTE *)(v0 - 88) = result;
-  __writegsbyte(0x856u, KeGetPcr()->Prcb.BpbRetpolineState | 2);
+  __writegsbyte(0x856u, BYTE2(KeGetPcr()[5].HalReserved[15]) | 2);
   return result;
 }

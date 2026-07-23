@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpInitializeDeviceEvents @ 0x1409C7260
+ * XREFs of PnpInitializeDeviceEvents @ 0x1409C8260
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KiInitializeMutant @ 0x1400DD3F8 (KiInitializeMutant.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PnpInitializeDeviceEvents()

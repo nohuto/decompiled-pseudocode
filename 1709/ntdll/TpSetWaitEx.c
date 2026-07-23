@@ -19,60 +19,58 @@
  *     TppRaiseInvalidParameter @ 0x18010AED8 (TppRaiseInvalidParameter.c)
  */
 
-_BOOL8 __fastcall TpSetWaitEx(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
+NTSTATUS __cdecl TpSetWaitEx(PTP_WAIT Wait, HANDLE Handle, PLARGE_INTEGER Timeout, PVOID Reserved)
 {
   __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rbx
-  char v13; // al
-  signed int v14; // ebx
-  BOOL v15; // ebp
-  char v17; // al
-  signed int v18; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v10; // rbx
+  char v11; // al
+  signed int v12; // ebx
+  _BOOL8 v13; // rbp
+  char v15; // al
+  signed int v16; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( !(unsigned int)TppWaitpValidateWait(a1, 0LL, a2 != 0) )
-    return 0LL;
-  if ( a4 )
+  if ( !(unsigned int)TppWaitpValidateWait(Wait, 0LL, Handle != 0LL) )
+    return 0;
+  if ( Reserved )
   {
-    TppRaiseInvalidParameter(v9, v8, v10, v11);
-    return 0LL;
+    TppRaiseInvalidParameter(v9, v8);
+    return 0;
   }
-  v12 = *(_QWORD *)(a1 + 144);
-  RtlAcquireSRWLockExclusive(a1 + 240);
-  v13 = TppCancelWait(a1, v12 + 112, 0LL, &v18);
-  v14 = v18;
-  v15 = v18 != 0;
-  if ( a2 && !*(_BYTE *)(a1 + 355) )
+  v10 = *((_QWORD *)Wait + 18);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
+  v11 = TppCancelWait(Wait, v10 + 112, 0LL, &v16);
+  v12 = v16;
+  v13 = v16 != 0;
+  if ( Handle && !*((_BYTE *)Wait + 355) )
   {
-    if ( !v13 )
+    if ( !v11 )
     {
-      *(_BYTE *)(a1 + 464) |= 1u;
-      v17 = *(_BYTE *)(a1 + 464);
-      *(_QWORD *)(a1 + 376) = a2;
-      if ( a3 )
+      *((_BYTE *)Wait + 464) |= 1u;
+      v15 = *((_BYTE *)Wait + 464);
+      *((_QWORD *)Wait + 47) = Handle;
+      if ( Timeout )
       {
-        *(_BYTE *)(a1 + 464) = v17 | 2;
-        *(_QWORD *)(a1 + 384) = *a3;
+        *((_BYTE *)Wait + 464) = v15 | 2;
+        *((LARGE_INTEGER *)Wait + 48) = *Timeout;
       }
       goto LABEL_8;
     }
-    if ( !*(_QWORD *)(a1 + 360) )
+    if ( !*((_QWORD *)Wait + 45) )
     {
-      v14 += TppSetupNextWait(a1, a2, a3);
-      v18 = v14;
+      v12 += TppSetupNextWait(Wait, Handle, Timeout);
+      v16 = v12;
 LABEL_8:
-      if ( v14 > 0 )
+      if ( v12 > 0 )
       {
-        _InterlockedExchangeAdd((volatile signed __int32 *)a1, v14);
-        v14 = 0;
-        v18 = 0;
+        _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v12);
+        v12 = 0;
+        v16 = 0;
       }
     }
   }
-  RtlReleaseSRWLockExclusive(a1 + 240);
-  if ( v14 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a1, v14) == -v14 )
-    (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
-  return v15;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
+  if ( v12 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v12) == -v12 )
+    (**((void (__fastcall ***)(PTP_WAIT))Wait + 1))(Wait);
+  return v13;
 }

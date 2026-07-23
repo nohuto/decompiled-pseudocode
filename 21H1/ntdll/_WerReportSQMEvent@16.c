@@ -7,9 +7,9 @@
  *     _WerEscalationLazyInit@0 @ 0x4B33B780 (_WerEscalationLazyInit@0.c)
  */
 
-int __stdcall WerReportSQMEvent(int a1, int a2, unsigned int a3, int a4)
+NTSTATUS __stdcall WerReportSQMEvent(int a1, int a2, unsigned int a3, int a4)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   unsigned int v5; // ecx
   char *v6; // edx
   unsigned int v7; // esi

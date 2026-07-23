@@ -1,12 +1,12 @@
 /*
- * XREFs of SmcStoreSlotCommit @ 0x1409DBAA0
+ * XREFs of SmcStoreSlotCommit @ 0x1409DBCA0
  * Callers:
- *     SmcStoreCreate @ 0x1409DB254 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x1409DB454 (SmcStoreCreate.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall SmcStoreSlotCommit(__int64 a1, __int64 a2, int a3, int a4)

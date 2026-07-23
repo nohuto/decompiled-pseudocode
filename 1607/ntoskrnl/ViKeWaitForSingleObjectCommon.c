@@ -1,8 +1,8 @@
 /*
  * XREFs of ViKeWaitForSingleObjectCommon @ 0x140713354
  * Callers:
- *     VerifierKeWaitForSingleObject @ 0x1407129A4 (VerifierKeWaitForSingleObject.c)
- *     VerifierKeWaitForSingleObjectNoReboot @ 0x1407129F0 (VerifierKeWaitForSingleObjectNoReboot.c)
+ *     VerifierKeWaitForSingleObject @ 0x14071295C (VerifierKeWaitForSingleObject.c)
+ *     VerifierKeWaitForSingleObjectNoReboot @ 0x1407129A8 (VerifierKeWaitForSingleObjectNoReboot.c)
  * Callees:
  *     ViKeInjectStatusAlerted @ 0x140712F08 (ViKeInjectStatusAlerted.c)
  *     ViKeWaitSanityChecks @ 0x1407133FC (ViKeWaitSanityChecks.c)

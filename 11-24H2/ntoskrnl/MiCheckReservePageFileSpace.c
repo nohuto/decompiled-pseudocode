@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckReservePageFileSpace @ 0x140286830
+ * XREFs of MiCheckReservePageFileSpace @ 0x140201420
  * Callers:
- *     MiWsleFlush @ 0x140286410 (MiWsleFlush.c)
+ *     MiWsleFlush @ 0x140201004 (MiWsleFlush.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReservePageFileSpace @ 0x140368314 (MiReservePageFileSpace.c)
+ *     MiReservePageFileSpace @ 0x140202948 (MiReservePageFileSpace.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 char __fastcall MiCheckReservePageFileSpace(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -20,9 +20,9 @@ char __fastcall MiCheckReservePageFileSpace(__int64 a1, unsigned __int64 a2, __i
     v6 = *(_QWORD *)(a1 + 16);
     if ( (v6 & 1) == 0 )
     {
-      if ( !v6 || (LOBYTE(v5) = qword_140E2DB80, !qword_140E2DB80) || (qword_140E2DB80 & v6) != 0 )
+      if ( !v6 || (LOBYTE(v5) = qword_140E2DCC0, !qword_140E2DCC0) || (qword_140E2DCC0 & v6) != 0 )
       {
-        v7 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+        v7 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
         LODWORD(v5) = *(_DWORD *)(v7 + 1084);
         if ( (_DWORD)v5 )
         {
@@ -30,21 +30,21 @@ char __fastcall MiCheckReservePageFileSpace(__int64 a1, unsigned __int64 a2, __i
           if ( (v6 & 2) == 0 )
           {
             if ( (*(_DWORD *)(a3 + 184) & 0xF) != 0
-              || ((*(_DWORD *)(a3 + 184) & 0xF) != 1 ? (v8 = (__int64 *)(a3 + 216)) : (v8 = (__int64 *)&unk_140E38758),
+              || ((*(_DWORD *)(a3 + 184) & 0xF) != 1 ? (v8 = (__int64 *)(a3 + 216)) : (v8 = (__int64 *)&unk_140E38898),
                   (v5 = *v8) == 0) )
             {
               if ( (v6 & 0x400) != 0 || (v6 & 0x800) != 0 || (v6 & 4) != 0 )
                 goto LABEL_23;
-              if ( qword_140E2DB80 )
+              if ( qword_140E2DCC0 )
               {
                 if ( (v6 & 0x10) != 0 )
                   v6 &= ~0x10uLL;
                 else
-                  v6 &= ~qword_140E2DB80;
+                  v6 &= ~qword_140E2DCC0;
               }
               if ( HIDWORD(v6) != 1
                 || (*(_BYTE *)(a1 + 34) & 0x10) != 0
-                || (LOBYTE(v5) = MI_READ_PTE_LOCK_FREE(a2), (v5 & 0x42) != 0) )
+                || (LOBYTE(v5) = MI_READ_PTE_LOCK_FREE(a2, qword_140E300C8, a3), (v5 & 0x42) != 0) )
               {
 LABEL_23:
                 LOBYTE(v5) = 120;

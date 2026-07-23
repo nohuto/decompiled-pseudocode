@@ -8,100 +8,103 @@
  *     __SEH_prolog4_GS @ 0x4B307B20 (__SEH_prolog4_GS.c)
  */
 
-int __stdcall RtlIntegerToChar(unsigned int a1, int a2, int a3, char *a4)
+NTSTATUS __cdecl RtlIntegerToChar(ULONG Value, ULONG Base, LONG OutputLength, PSTR String)
 {
-  unsigned int v4; // ebx
+  ULONG v4; // ebx
   int v5; // ecx
   int v6; // esi
   _BYTE *v7; // edx
-  int v9; // ebx
-  signed int v10; // ebx
-  int v11; // edi
-  char *v12; // eax
+  ULONG v9; // ebx
+  LONG v10; // ebx
+  LONG v11; // edi
+  PSTR v12; // eax
   bool v13; // cc
-  int v15; // eax
-  int v16; // esi
-  int v17; // [esp-4h] [ebp-60h]
-  _BYTE *v18; // [esp+14h] [ebp-48h]
-  char *v19; // [esp+18h] [ebp-44h]
-  _BYTE v20[7]; // [esp+3Dh] [ebp-1Fh] BYREF
+  ULONG v15; // eax
+  LONG v16; // esi
+  size_t v17; // [esp-4h] [ebp-60h]
+  int v18; // [esp-4h] [ebp-60h]
+  _BYTE *v19; // [esp+14h] [ebp-48h]
+  PSTR v20; // [esp+18h] [ebp-44h]
+  _BYTE v21[7]; // [esp+3Dh] [ebp-1Fh] BYREF
   CPPEH_RECORD ms_exc; // [esp+44h] [ebp-18h]
 
-  v19 = a4;
-  v4 = a2;
-  switch ( a2 )
+  v20 = String;
+  v4 = Base;
+  switch ( Base )
   {
-    case 0:
+    case 0u:
       v4 = 10;
-      a2 = 10;
+      Base = 10;
       goto LABEL_5;
-    case 2:
+    case 2u:
       v5 = 1;
       goto LABEL_20;
-    case 8:
-      v17 = 3;
+    case 8u:
+      v18 = 3;
 LABEL_19:
-      v5 = v17;
+      v5 = v18;
 LABEL_20:
       v6 = (1 << v5) - 1;
       goto LABEL_6;
   }
-  if ( a2 != 10 )
+  if ( Base != 10 )
   {
-    if ( a2 != 16 )
+    if ( Base != 16 )
       return -1073741811;
-    v17 = 4;
+    v18 = 4;
     goto LABEL_19;
   }
 LABEL_5:
   v5 = 0;
   v6 = 0;
 LABEL_6:
-  v7 = v20;
-  v18 = v20;
+  v7 = v21;
+  v19 = v21;
   do
   {
     if ( v5 )
     {
-      v9 = a1 & v6;
-      a1 >>= v5;
+      v9 = Value & v6;
+      Value >>= v5;
     }
     else
     {
-      v15 = a1 / v4;
-      v9 = a1 % v4;
-      a1 = v15;
-      v7 = v18;
+      v15 = Value / v4;
+      v9 = Value % v4;
+      Value = v15;
+      v7 = v19;
     }
-    v18 = --v7;
+    v19 = --v7;
     *v7 = RtlpIntegerChars[v9];
-    v4 = a2;
+    v4 = Base;
   }
-  while ( a1 );
-  v10 = v20 - v7;
-  v11 = a3;
-  v12 = a4;
-  if ( a3 >= 0 )
+  while ( Value );
+  v10 = v21 - v7;
+  v11 = OutputLength;
+  v12 = String;
+  if ( OutputLength >= 0 )
     goto LABEL_11;
-  v11 = -a3;
-  v13 = v10 <= -a3;
-  if ( v10 < -a3 )
+  v11 = -OutputLength;
+  v13 = v10 <= -OutputLength;
+  if ( v10 < -OutputLength )
   {
     v16 = v11 - v10;
-    memset(a4, 48, v11 - v10);
+    LODWORD(v17) = v11 - v10;
+    memset(String, 48, v17);
     v11 = v10;
-    v12 = &a4[v16];
-    v19 = &a4[v16];
-    v7 = v18;
+    v12 = &String[v16];
+    v20 = &String[v16];
+    v7 = v19;
 LABEL_11:
     v13 = v10 <= v11;
   }
   if ( !v13 )
     return -2147483643;
   ms_exc.registration.TryLevel = 0;
-  memcpy(v12, v7, v10);
+  LODWORD(v17) = v10;
+  memcpy(v12, v7, v17);
   if ( v10 < v11 )
-    v19[v10] = 0;
+    v20[v10] = 0;
   ms_exc.registration.TryLevel = -2;
   return 0;
 }

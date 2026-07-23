@@ -14,7 +14,7 @@
 
 int __cdecl _wcsnicmp(const wchar_t *String1, const wchar_t *String2, size_t MaxCount)
 {
-  size_t v3; // esi
+  int v3; // esi
   int result; // eax
   const wchar_t *v5; // ecx
   unsigned __int16 v6; // dx
@@ -22,7 +22,7 @@ int __cdecl _wcsnicmp(const wchar_t *String1, const wchar_t *String2, size_t Max
 
   v3 = MaxCount;
   result = 0;
-  if ( MaxCount )
+  if ( (_DWORD)MaxCount )
   {
     v5 = String2;
     do

@@ -1,27 +1,27 @@
 /*
- * XREFs of MmOutSwapProcess @ 0x14034CFF8
+ * XREFs of MmOutSwapProcess @ 0x14034D198
  * Callers:
- *     KiOutSwapProcesses @ 0x14034CD80 (KiOutSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x14034CF20 (KiOutSwapProcesses.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     KeFlushProcessTb @ 0x140292C60 (KeFlushProcessTb.c)
- *     MiEmptyPageAccessLog @ 0x1402E1F40 (MiEmptyPageAccessLog.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseCommitForResetPages @ 0x1406190E8 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x140619278 (MiReleaseOutSwappedProcessCommit.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     KeFlushProcessTb @ 0x140292EF0 (KeFlushProcessTb.c)
+ *     MiEmptyPageAccessLog @ 0x1402E21D0 (MiEmptyPageAccessLog.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseCommitForResetPages @ 0x140619638 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1406197C8 (MiReleaseOutSwappedProcessCommit.c)
  */
 
 __int64 __fastcall MmOutSwapProcess(struct _EPROCESS *a1)
@@ -105,10 +105,13 @@ __int64 __fastcall MmOutSwapProcess(struct _EPROCESS *a1)
     p_Vm->Instance.ExitOutswapGate = (_KGATE *)&v37;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -129,10 +132,10 @@ __int64 __fastcall MmOutSwapProcess(struct _EPROCESS *a1)
 LABEL_56:
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v32 = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_64;
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || (unsigned __int8)result > 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || (unsigned __int8)result > 0xFu )
       goto LABEL_64;
     v33 = LockHandle.OldIrql <= 0xFu;
     goto LABEL_60;
@@ -148,10 +151,10 @@ LABEL_56:
   p_WorkingSetExpansionLinks->Flink = 0LL;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v15 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;
@@ -232,10 +235,10 @@ LABEL_41:
   _InterlockedAnd64((volatile signed __int64 *)(v22 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v32 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)result <= 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)result <= 0xFu )
     {
       v33 = LockHandle.OldIrql <= 0xFu;
 LABEL_60:

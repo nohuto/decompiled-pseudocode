@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCanBatchHardFaultPages @ 0x14031CEC0
+ * XREFs of MiCanBatchHardFaultPages @ 0x14031EEF0
  * Callers:
- *     MiAddPageToInsertList @ 0x14031EF60 (MiAddPageToInsertList.c)
+ *     MiAddPageToInsertList @ 0x140320F90 (MiAddPageToInsertList.c)
  * Callees:
- *     MiRemoveLockedPageCharge @ 0x14031D180 (MiRemoveLockedPageCharge.c)
+ *     MiRemoveLockedPageCharge @ 0x14031F1B0 (MiRemoveLockedPageCharge.c)
  */
 
 __int64 __fastcall MiCanBatchHardFaultPages(__int64 *a1, __int64 a2)
@@ -25,12 +25,12 @@ __int64 __fastcall MiCanBatchHardFaultPages(__int64 *a1, __int64 a2)
   {
     if ( (*(_QWORD *)(a2 + 40) & 0x20000000000000LL) != 0 )
       return 2LL;
-    if ( byte_140E3BD26 )
+    if ( byte_140E3BEA6 )
     {
       v10 = (unsigned __int64)((a2 + 0x220000000000LL) / 48) >> 9;
-      if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v10) )
+      if ( *(_BYTE *)(qword_140E3D240 + 2 * v10) )
       {
-        if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v10) != 10 )
+        if ( *(_BYTE *)(qword_140E3D240 + 2 * v10) != 10 )
           return 2LL;
       }
     }
@@ -44,12 +44,12 @@ __int64 __fastcall MiCanBatchHardFaultPages(__int64 *a1, __int64 a2)
   }
   if ( (*(_BYTE *)(a2 + 34) & 0x18) != 0 )
     return 2LL;
-  if ( byte_140E3BD26 )
+  if ( byte_140E3BEA6 )
   {
     v6 = (unsigned __int64)((a2 + 0x220000000000LL) / 48) >> 9;
-    if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v6) )
+    if ( *(_BYTE *)(qword_140E3D240 + 2 * v6) )
     {
-      if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v6) != 10 )
+      if ( *(_BYTE *)(qword_140E3D240 + 2 * v6) != 10 )
         return 2LL;
     }
   }

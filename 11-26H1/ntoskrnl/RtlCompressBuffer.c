@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlCompressBuffer @ 0x14046A480
+ * XREFs of RtlCompressBuffer @ 0x140463C00
  * Callers:
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x140210E90 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
- *     SmStoreCompressBuffer @ 0x14024B590 (SmStoreCompressBuffer.c)
- *     EtwpCompressBuffer @ 0x1406C79D4 (EtwpCompressBuffer.c)
- *     QatSubmitWorkToCpu @ 0x1406E10B0 (QatSubmitWorkToCpu.c)
- *     IaaSubmitWorkToCpu @ 0x1406E1748 (IaaSubmitWorkToCpu.c)
- *     RtlCompressChunks @ 0x140801330 (RtlCompressChunks.c)
- *     EtwpWriteBufferCompressed @ 0x14082F0E4 (EtwpWriteBufferCompressed.c)
- *     PopAddPagesToCompressedPageSet @ 0x140BF99B4 (PopAddPagesToCompressedPageSet.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x140210F70 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     SmStoreCompressBuffer @ 0x14024CEF0 (SmStoreCompressBuffer.c)
+ *     EtwpCompressBuffer @ 0x1406CB9B4 (EtwpCompressBuffer.c)
+ *     QatSubmitWorkToCpu @ 0x1406E5330 (QatSubmitWorkToCpu.c)
+ *     IaaSubmitWorkToCpu @ 0x1406E59C8 (IaaSubmitWorkToCpu.c)
+ *     RtlCompressChunks @ 0x140806DD0 (RtlCompressChunks.c)
+ *     EtwpWriteBufferCompressed @ 0x140835324 (EtwpWriteBufferCompressed.c)
+ *     PopAddPagesToCompressedPageSet @ 0x140BFF9B4 (PopAddPagesToCompressedPageSet.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall RtlCompressBuffer(

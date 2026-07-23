@@ -18,8 +18,8 @@ __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
   _QWORD *v1; // rdi
   __int64 *v2; // rsi
   __int64 *v3; // rbx
-  __int64 v4; // rdx
-  __int64 v5; // rt1
+  PVOID v4; // rdx
+  PVOID v5; // rt1
   volatile signed __int32 *v6; // rax
   __int64 Pool; // rax
   _QWORD *v8; // r9
@@ -50,8 +50,8 @@ __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
   v29 = 0LL;
   while ( v3 != v2 )
   {
-    v4 = v3[6];
-    v5 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+    v4 = (PVOID)v3[6];
+    v5 = *(PVOID *)&KeNumberProcessorsGroup0[9];
     if ( v4 == v5 || (v6 = (volatile signed __int32 *)&xmmword_140E2D628 + 1, v4 == PsHalImageBase) )
       v6 = (volatile signed __int32 *)&xmmword_140E2D628;
     _InterlockedAdd(v6, ((v3[8] & 0xFFF) != 0) + (*((_DWORD *)v3 + 16) >> 12));

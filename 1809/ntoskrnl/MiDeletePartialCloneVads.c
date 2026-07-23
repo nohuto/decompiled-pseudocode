@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDeletePartialCloneVads @ 0x14085E4C8
+ * XREFs of MiDeletePartialCloneVads @ 0x14085F728
  * Callers:
- *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
- *     MiInsertChildVads @ 0x14085E6F0 (MiInsertChildVads.c)
+ *     MiAllocateChildVads @ 0x14085EC58 (MiAllocateChildVads.c)
+ *     MiInsertChildVads @ 0x14085F950 (MiInsertChildVads.c)
  * Callees:
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
- *     MiFreeVadEvents @ 0x1402AFE38 (MiFreeVadEvents.c)
- *     MiDecrementLargeSubsections @ 0x1402B5814 (MiDecrementLargeSubsections.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiRemoveSharedCommitNode @ 0x1405F0650 (MiRemoveSharedCommitNode.c)
- *     MiDereferencePerSessionProtos @ 0x1406C8FB0 (MiDereferencePerSessionProtos.c)
- *     MiFreePlaceholderStorage @ 0x1406D0BD0 (MiFreePlaceholderStorage.c)
- *     MiFreeVadEventBitmap @ 0x14084F474 (MiFreeVadEventBitmap.c)
- *     MiFreeLargePageView @ 0x14085D374 (MiFreeLargePageView.c)
- *     MiVadHasSharedCommit @ 0x14085E994 (MiVadHasSharedCommit.c)
+ *     MiVadMapsLargeImage @ 0x140074A00 (MiVadMapsLargeImage.c)
+ *     MiFreeVadEvents @ 0x1402B0028 (MiFreeVadEvents.c)
+ *     MiDecrementLargeSubsections @ 0x1402B5A04 (MiDecrementLargeSubsections.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiRemoveSharedCommitNode @ 0x1405F1650 (MiRemoveSharedCommitNode.c)
+ *     MiDereferencePerSessionProtos @ 0x1406CA250 (MiDereferencePerSessionProtos.c)
+ *     MiFreePlaceholderStorage @ 0x1406D1E70 (MiFreePlaceholderStorage.c)
+ *     MiFreeVadEventBitmap @ 0x1408506D4 (MiFreeVadEventBitmap.c)
+ *     MiFreeLargePageView @ 0x14085E5D4 (MiFreeLargePageView.c)
+ *     MiVadHasSharedCommit @ 0x14085FBF4 (MiVadHasSharedCommit.c)
  */
 
 void __fastcall MiDeletePartialCloneVads(_QWORD *P)

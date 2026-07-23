@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFlushDmaBuffer @ 0x140222B4C
+ * XREFs of VfFlushDmaBuffer @ 0x140222978
  * Callers:
  *     <none>
  * Callees:
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfFlushDmaBuffer(__int64 a1, __int64 a2, char a3)

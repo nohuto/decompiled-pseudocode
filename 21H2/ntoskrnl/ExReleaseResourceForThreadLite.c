@@ -1,15 +1,15 @@
 /*
- * XREFs of ExReleaseResourceForThreadLite @ 0x14029B1A0
+ * XREFs of ExReleaseResourceForThreadLite @ 0x140212B30
  * Callers:
- *     CcUnpinDataForThread @ 0x140867880 (CcUnpinDataForThread.c)
+ *     CcUnpinDataForThread @ 0x1408679E0 (CcUnpinDataForThread.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
- *     ExpReleaseResourceSharedForThreadLite @ 0x14034B5C0 (ExpReleaseResourceSharedForThreadLite.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x14034D1C0 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     ExpFastResourceLegacyRelease @ 0x14038E4BC (ExpFastResourceLegacyRelease.c)
+ *     KxWaitForLockOwnerShip @ 0x1402D36F0 (KxWaitForLockOwnerShip.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x140356310 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x140357F10 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     ExpFastResourceLegacyRelease @ 0x14038E60C (ExpFastResourceLegacyRelease.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051660C (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall ExReleaseResourceForThreadLite(PERESOURCE Resource, ERESOURCE_THREAD ResourceThreadId)
@@ -18,15 +18,14 @@ void __stdcall ExReleaseResourceForThreadLite(PERESOURCE Resource, ERESOURCE_THR
   unsigned __int8 v5; // r10
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *v7; // rdx
-  _QWORD *v8; // rdx
-  struct _KTHREAD *v9; // r8
+  struct _KTHREAD *v8; // r8
   USHORT Flag; // cx
   unsigned __int8 CurrentIrql; // cl
   struct _KTHREAD *CurrentThread; // rdx
   _DWORD *SchedulerAssist; // r9
-  int v14; // eax
-  _QWORD v15[2]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+40h] [rbp-18h]
+  int v13; // eax
+  _QWORD v14[2]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-18h]
 
   if ( (Resource->Flag & 0x41) == 1 )
     KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
@@ -48,9 +47,9 @@ void __stdcall ExReleaseResourceForThreadLite(PERESOURCE Resource, ERESOURCE_THR
   }
   else
   {
-    v16 = 0LL;
-    v15[0] = 0LL;
-    v15[1] = &Resource->SpinLock;
+    v15 = 0LL;
+    v14[0] = 0LL;
+    v14[1] = &Resource->SpinLock;
     v5 = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v5 <= 0xFu )
@@ -58,36 +57,34 @@ void __stdcall ExReleaseResourceForThreadLite(PERESOURCE Resource, ERESOURCE_THR
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       SchedulerAssist[5] |= (-1 << (v5 + 1)) & 4;
     }
-    LOBYTE(v16) = v5;
+    LOBYTE(v15) = v5;
     CurrentPrcb = KeGetCurrentPrcb();
     v7 = CurrentPrcb->SchedulerAssist;
     if ( v7 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v14 = v7[6];
-        v7[6] = v14 + 1;
-        if ( v14 == -1 )
+        v13 = v7[6];
+        v7[6] = v13 + 1;
+        if ( v13 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     {
-      KiAcquireQueuedSpinLockInstrumented(v15, &Resource->SpinLock);
+      KiAcquireQueuedSpinLockInstrumented(v14, &Resource->SpinLock);
     }
-    else
+    else if ( _InterlockedExchange64((volatile __int64 *)&Resource->SpinLock, (__int64)v14) )
     {
-      v8 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)&Resource->SpinLock, (__int64)v15);
-      if ( v8 )
-        KxWaitForLockOwnerShip((__int64)v15, v8);
+      KxWaitForLockOwnerShip(v14);
     }
-    v9 = KeGetCurrentThread();
+    v8 = KeGetCurrentThread();
     Flag = Resource->Flag;
     if ( ((Flag & 1) != 0 || ExpResourceEnforceOwnerTransfer)
       && (ResourceThreadId & 3) != 3
-      && (struct _KTHREAD *)ResourceThreadId != v9 )
+      && (struct _KTHREAD *)ResourceThreadId != v8 )
     {
-      KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)v9, ResourceThreadId, 0LL);
+      KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)v8, ResourceThreadId, 0LL);
     }
     if ( (Flag & 0x80u) != 0 )
       ExpReleaseResourceExclusiveForThreadLite((ULONG_PTR)Resource, ResourceThreadId);

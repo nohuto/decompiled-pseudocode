@@ -1,10 +1,10 @@
 /*
- * XREFs of PsUnlinkProcessFromSession @ 0x140A7533C
+ * XREFs of PsUnlinkProcessFromSession @ 0x140A6F65C
  * Callers:
- *     MiDeleteFinalPageTables @ 0x14045BA24 (MiDeleteFinalPageTables.c)
+ *     MiDeleteFinalPageTables @ 0x140450DBC (MiDeleteFinalPageTables.c)
  * Callees:
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
  */
 
 _QWORD *__fastcall PsUnlinkProcessFromSession(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopDeleteIoCompletionInternal @ 0x1400FA85C
+ * XREFs of IopDeleteIoCompletionInternal @ 0x1400FA8DC
  * Callers:
- *     IopCloseIoCompletion @ 0x140685770 (IopCloseIoCompletion.c)
- *     IopDeleteIoCompletion @ 0x1406857A0 (IopDeleteIoCompletion.c)
+ *     IopCloseIoCompletion @ 0x140686930 (IopCloseIoCompletion.c)
+ *     IopDeleteIoCompletion @ 0x140686960 (IopDeleteIoCompletion.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     IopFreeWaitCompletionPacket @ 0x1400F9BC8 (IopFreeWaitCompletionPacket.c)
- *     KeRundownQueueEx @ 0x1400FA9BC (KeRundownQueueEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     IopFreeCompletionListPackets @ 0x140662E10 (IopFreeCompletionListPackets.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     IopFreeWaitCompletionPacket @ 0x1400F9C48 (IopFreeWaitCompletionPacket.c)
+ *     KeRundownQueueEx @ 0x1400FAA3C (KeRundownQueueEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopFreeCompletionListPackets @ 0x140663FD0 (IopFreeCompletionListPackets.c)
  */
 
 __int64 __fastcall IopDeleteIoCompletionInternal(KSPIN_LOCK *a1, __int64 a2)

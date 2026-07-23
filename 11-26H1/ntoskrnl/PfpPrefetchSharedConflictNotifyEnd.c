@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpPrefetchSharedConflictNotifyEnd @ 0x140B54090
+ * XREFs of PfpPrefetchSharedConflictNotifyEnd @ 0x140B56930
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     PfpPrefetchSharedDeref @ 0x1409B706C (PfpPrefetchSharedDeref.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     PfpPrefetchSharedDeref @ 0x14098804C (PfpPrefetchSharedDeref.c)
  */
 
 void __fastcall PfpPrefetchSharedConflictNotifyEnd(
@@ -22,7 +22,7 @@ void __fastcall PfpPrefetchSharedConflictNotifyEnd(
   {
     v6 = (struct _KTHREAD *)a1;
     if ( !a1 )
-      v6 = (struct _KTHREAD *)&stru_140E66B30.WaitBlockFill11[48];
+      v6 = (struct _KTHREAD *)&stru_140E66D40.WaitBlockFill11[48];
     KeAbPreAcquire((__int64)v6, a2, 0LL, a4);
     KeAbPostReleaseEx(v6, a2, v7, v8);
   }

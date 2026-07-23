@@ -70,53 +70,52 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   __int64 v53; // rcx
   unsigned __int16 v54; // ax
   void *v55; // rsp
-  int InformationToken; // eax
-  unsigned int v57; // r8d
+  NTSTATUS v56; // eax
+  ULONG v57; // r8d
   _WORD *v58; // rbx
   unsigned __int16 v59; // di
   _DWORD *v60; // rdx
   void *v61; // rbx
   char v62; // [rsp+0h] [rbp-810h] BYREF
-  unsigned int *p_Size; // [rsp+800h] [rbp-10h]
-  unsigned __int16 v64; // [rsp+810h] [rbp+0h]
-  char v65; // [rsp+814h] [rbp+4h]
-  char v66; // [rsp+815h] [rbp+5h]
-  char v67; // [rsp+816h] [rbp+6h]
-  unsigned __int16 v68[2]; // [rsp+818h] [rbp+8h] BYREF
-  int v69; // [rsp+81Ch] [rbp+Ch]
-  unsigned __int16 v70; // [rsp+820h] [rbp+10h]
-  int v71; // [rsp+824h] [rbp+14h]
-  unsigned int Size; // [rsp+828h] [rbp+18h] BYREF
-  unsigned int Size_4; // [rsp+82Ch] [rbp+1Ch]
-  int v74; // [rsp+830h] [rbp+20h]
-  unsigned int v75; // [rsp+834h] [rbp+24h]
-  int v76; // [rsp+838h] [rbp+28h]
-  void *v77; // [rsp+840h] [rbp+30h] BYREF
-  unsigned int v78; // [rsp+848h] [rbp+38h]
-  _BYTE *v79; // [rsp+850h] [rbp+40h]
-  unsigned __int16 *v80; // [rsp+858h] [rbp+48h] BYREF
-  unsigned __int64 v81; // [rsp+860h] [rbp+50h]
-  unsigned __int64 v82; // [rsp+868h] [rbp+58h] BYREF
+  unsigned __int16 v63; // [rsp+810h] [rbp+0h]
+  char v64; // [rsp+814h] [rbp+4h]
+  char v65; // [rsp+815h] [rbp+5h]
+  char v66; // [rsp+816h] [rbp+6h]
+  unsigned __int16 v67[2]; // [rsp+818h] [rbp+8h] BYREF
+  int v68; // [rsp+81Ch] [rbp+Ch]
+  unsigned __int16 v69; // [rsp+820h] [rbp+10h]
+  int v70; // [rsp+824h] [rbp+14h]
+  ULONG ReturnLength; // [rsp+828h] [rbp+18h] BYREF
+  unsigned int v72; // [rsp+82Ch] [rbp+1Ch]
+  int v73; // [rsp+830h] [rbp+20h]
+  unsigned int v74; // [rsp+834h] [rbp+24h]
+  int v75; // [rsp+838h] [rbp+28h]
+  void *v76; // [rsp+840h] [rbp+30h] BYREF
+  ULONG v77; // [rsp+848h] [rbp+38h]
+  _BYTE *v78; // [rsp+850h] [rbp+40h]
+  unsigned __int16 *v79; // [rsp+858h] [rbp+48h] BYREF
+  unsigned __int64 v80; // [rsp+860h] [rbp+50h]
+  unsigned __int64 v81; // [rsp+868h] [rbp+58h] BYREF
   void *Src; // [rsp+870h] [rbp+60h]
-  __int64 v84; // [rsp+878h] [rbp+68h]
-  __int64 v85; // [rsp+880h] [rbp+70h]
-  void *v86; // [rsp+890h] [rbp+80h]
-  __int64 v87; // [rsp+898h] [rbp+88h]
-  char v88[16]; // [rsp+8B0h] [rbp+A0h] BYREF
-  char v89[80]; // [rsp+8C0h] [rbp+B0h] BYREF
-  _OWORD *v90; // [rsp+978h] [rbp+168h]
+  __int64 v83; // [rsp+878h] [rbp+68h]
+  __int64 v84; // [rsp+880h] [rbp+70h]
+  void *v85; // [rsp+890h] [rbp+80h]
+  __int64 v86; // [rsp+898h] [rbp+88h]
+  char TokenInformation[16]; // [rsp+8B0h] [rbp+A0h] BYREF
+  char v88[80]; // [rsp+8C0h] [rbp+B0h] BYREF
+  _OWORD *v89; // [rsp+978h] [rbp+168h]
 
-  v90 = a2;
+  v89 = a2;
   v11 = a1;
+  v80 = a1;
   v81 = a1;
-  v82 = a1;
   v12 = a9;
-  v84 = a9;
-  v85 = a10;
+  v83 = a9;
+  v84 = a10;
   v13 = 0;
-  v77 = 0LL;
-  v68[0] = 0;
-  v70 = 0;
+  v76 = 0LL;
+  v67[0] = 0;
+  v69 = 0;
   Src = 0LL;
   *(_DWORD *)(a10 + 128) = 0;
   if ( a8 > 0x80 )
@@ -126,32 +125,32 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
     if ( (unsigned __int8)EtwpCheckForEnoughStackSpace() )
     {
       v55 = alloca(2064LL);
-      v77 = &v62;
-      EtwpGetStackExtendedHeaderItem(&v77, v68);
+      v76 = &v62;
+      EtwpGetStackExtendedHeaderItem(&v76, v67);
     }
-    a2 = v90;
+    a2 = v89;
   }
   v14 = 0;
-  Size_4 = 0;
+  v72 = 0;
   v15 = a4;
-  v71 = a4;
+  v70 = a4;
   v16 = (_BYTE *)(v11 + 149);
-  v79 = (_BYTE *)(v11 + 149);
+  v78 = (_BYTE *)(v11 + 149);
   while ( 1 )
   {
-    v87 = 0LL;
-    v80 = 0LL;
-    v17 = 0LL;
-    v69 = 80;
-    v67 = 0;
-    v65 = 0;
-    v66 = 0;
-    LOWORD(v78) = 0;
-    Size = 0;
-    v18 = 0;
-    v64 = 0;
-    v74 = 0;
     v86 = 0LL;
+    v79 = 0LL;
+    v17 = 0LL;
+    v68 = 80;
+    v66 = 0;
+    v64 = 0;
+    v65 = 0;
+    LOWORD(v77) = 0;
+    ReturnLength = 0;
+    v18 = 0;
+    v63 = 0;
+    v73 = 0;
+    v85 = 0LL;
     if ( !_bittest(&v15, v14) )
     {
       v19 = *((_QWORD *)a2 + 1);
@@ -159,13 +158,13 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
         break;
     }
 LABEL_55:
-    Size_4 = ++v14;
+    v72 = ++v14;
     v16 += 24;
-    v79 = v16;
+    v78 = v16;
     if ( v14 >= 4 )
       return v13;
-    v12 = v84;
-    a2 = v90;
+    v12 = v83;
+    a2 = v89;
   }
   if ( *((_BYTE *)a2 + 4) > *v16 && *v16
     || ((*(v16 - 5) & 0x40) == 0 || v19)
@@ -174,7 +173,7 @@ LABEL_55:
     goto LABEL_54;
   }
   v20 = (unsigned __int8)v16[1];
-  v75 = v20;
+  v74 = v20;
   v21 = v20 & 0xFFFF7FFF;
   if ( (v20 & 0xFFFF7FFF) < 0x40 && EtwpLoggerArray )
   {
@@ -185,18 +184,18 @@ LABEL_55:
       v13 = 4201;
       goto LABEL_54;
     }
-    v87 = *(_QWORD *)(EtwpLoggerArray + 16LL * v21);
+    v86 = *(_QWORD *)(EtwpLoggerArray + 16LL * v21);
     v13 = 0;
   }
   else
   {
     v13 = 4201;
   }
-  v76 = v13;
+  v75 = v13;
   if ( v13 )
   {
 LABEL_54:
-    v15 = v71;
+    v15 = v70;
     goto LABEL_55;
   }
   v22 = 80;
@@ -204,31 +203,30 @@ LABEL_54:
     v22 = 104;
   if ( (*(v16 - 5) & 1) != 0 )
   {
-    p_Size = &Size;
-    InformationToken = NtQueryInformationToken(-6LL, 1LL, v88);
-    v20 = v75;
+    v56 = NtQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 1u, TokenInformation, 0x58u, &ReturnLength);
+    v20 = v74;
     v18 = 0;
-    if ( InformationToken >= 0 )
+    if ( v56 >= 0 )
     {
-      v57 = Size - 16;
-      Size = v57;
+      v57 = ReturnLength - 16;
+      ReturnLength = v57;
       LOWORD(v57) = (v57 + 15) & 0xFFF8;
-      v78 = v57;
-      v65 = 1;
+      v77 = v57;
+      v64 = 1;
       v22 += (unsigned __int16)v57;
     }
   }
-  if ( (*(v16 - 5) & 4) != 0 && v77 )
+  if ( (*(v16 - 5) & 4) != 0 && v76 )
   {
-    v66 = 1;
-    v22 += v68[0];
+    v65 = 1;
+    v22 += v67[0];
   }
   if ( (*(v16 - 5) & 2) != 0 )
   {
-    v67 = 1;
+    v66 = 1;
     v22 += 16;
   }
-  v23 = v85 + 32LL * *(unsigned int *)(v85 + 128);
+  v23 = v84 + 32LL * *(unsigned int *)(v84 + 128);
   v24 = 0;
   if ( a8 )
   {
@@ -242,14 +240,14 @@ LABEL_54:
         if ( v27 == 1 )
         {
           v18 += *(_WORD *)(v12 + 16LL * v24 + 8);
-          v64 = v18;
-          ++v74;
+          v63 = v18;
+          ++v73;
         }
         else if ( v27 == 2 )
         {
           Src = *(void **)(v12 + 16LL * v24);
-          v70 = *(_WORD *)(v12 + 16LL * v24 + 8);
-          v22 += (v70 + 15) & 0xFFFFFFF8;
+          v69 = *(_WORD *)(v12 + 16LL * v24 + 8);
+          v22 += (v69 + 15) & 0xFFFFFFF8;
         }
       }
       else
@@ -262,10 +260,10 @@ LABEL_54:
         goto LABEL_30;
     }
     v13 = 534;
-    v76 = 534;
+    v75 = 534;
   }
 LABEL_30:
-  if ( v74 )
+  if ( v73 )
     v22 += (v18 + 15) & 0xFFFFFFF8;
   if ( v13 )
   {
@@ -273,25 +271,20 @@ LABEL_30:
     return v13;
   }
   *(_DWORD *)(v23 + 24) = v22;
-  v28 = v87;
-  v29 = EtwpReserveTraceBuffer(
-          v87,
-          v22,
-          NtCurrentTeb()->CurrentIdealProcessor.Reserved,
-          (unsigned int)&v82,
-          (__int64)&v80);
+  v28 = v86;
+  v29 = EtwpReserveTraceBuffer(v86, v22, NtCurrentTeb()->CurrentIdealProcessor.Reserved, &v81, &v79);
   v30 = v29;
   if ( v29 )
   {
     *(_QWORD *)v23 = v28;
     *(_QWORD *)(v23 + 8) = v29;
-    *(_QWORD *)(v23 + 16) = v80;
-    ++*(_DWORD *)(v85 + 128);
+    *(_QWORD *)(v23 + 16) = v79;
+    ++*(_DWORD *)(v84 + 128);
     *(_DWORD *)v29 = v22 | *(_DWORD *)(v28 + 44);
     *(_WORD *)(v29 + 4) = a5;
     *(_WORD *)(v29 + 6) = a3;
-    *(_OWORD *)(v29 + 24) = *(_OWORD *)(v81 + 32);
-    *(_OWORD *)(v29 + 40) = *v90;
+    *(_OWORD *)(v29 + 24) = *(_OWORD *)(v80 + 32);
+    *(_OWORD *)(v29 + 40) = *v89;
     if ( a6 )
       ActivityId = *a6;
     else
@@ -305,29 +298,29 @@ LABEL_30:
       *(_OWORD *)(v29 + 88) = *a7;
       *(_WORD *)(v29 + 4) |= 1u;
       v32 = 104;
-      v69 = 104;
+      v68 = 104;
     }
     else
     {
-      v32 = v69;
+      v32 = v68;
     }
-    if ( v65 == 1 )
+    if ( v64 == 1 )
     {
       v58 = (_WORD *)(v29 + v32);
-      v59 = v78;
-      *v58 = v78;
+      v59 = v77;
+      *v58 = v77;
       v58[1] = 2;
-      v58[3] = Size;
+      v58[3] = ReturnLength;
       v58[2] = 0;
-      memmove(v58 + 4, v89, Size);
+      memmove(v58 + 4, v88, ReturnLength);
       *(_WORD *)(v30 + 4) |= 1u;
       v32 += v59;
-      v69 = v32;
+      v68 = v32;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v58;
     }
-    if ( v67 == 1 )
+    if ( v66 == 1 )
     {
       v60 = (_DWORD *)(v30 + v32);
       *v60 = 196624;
@@ -335,18 +328,18 @@ LABEL_30:
       v60[2] = NtCurrentPeb()->SessionId;
       *(_WORD *)(v30 + 4) |= 1u;
       v32 += 16;
-      v69 = v32;
+      v68 = v32;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v60;
     }
-    if ( v66 == 1 )
+    if ( v65 == 1 )
     {
       v61 = (void *)(v30 + v32);
-      memmove(v61, v77, v68[0]);
+      memmove(v61, v76, v67[0]);
       *(_WORD *)(v30 + 4) |= 1u;
-      v32 += v68[0];
-      v69 = v32;
+      v32 += v67[0];
+      v68 = v32;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v61;
@@ -355,9 +348,9 @@ LABEL_30:
     if ( Src )
     {
       v45 = (unsigned __int16 *)(v30 + v32);
-      v80 = v45;
-      v46 = v70;
-      v47 = (v70 + 15) & 0xFFF8;
+      v79 = v45;
+      v46 = v69;
+      v47 = (v69 + 15) & 0xFFF8;
       *v45 = v47;
       *(_DWORD *)(v45 + 1) = 12;
       v45[3] = v46;
@@ -367,51 +360,51 @@ LABEL_30:
       memmove(v45 + 4, v33, v46);
       memset((char *)v49 + v50, 0, v48);
       *(_WORD *)(v30 + 4) |= 1u;
-      v51 = v80;
-      v32 = *v80 + v69;
-      v69 = v32;
+      v51 = v79;
+      v32 = *v79 + v68;
+      v68 = v32;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v51;
     }
-    if ( v74 )
+    if ( v73 )
     {
       v52 = (unsigned __int16 *)(v30 + v32);
-      v53 = v64;
-      v54 = (v64 + 15) & 0xFFF8;
+      v53 = v63;
+      v54 = (v63 + 15) & 0xFFF8;
       *v52 = v54;
       *(_DWORD *)(v52 + 1) = 11;
       v52[3] = v53;
-      v86 = v52 + 4;
+      v85 = v52 + 4;
       memset((char *)v52 + v53 + 8, 0, (unsigned __int16)(v54 - v53 - 8));
       *(_WORD *)(v30 + 4) |= 1u;
-      v69 = *v52 + v32;
+      v68 = *v52 + v32;
       if ( v17 )
         v17[2] |= 1u;
     }
     if ( a8 )
     {
-      v34 = (_BYTE *)(v84 + 12);
+      v34 = (_BYTE *)(v83 + 12);
       v35 = a8;
-      v36 = v69;
+      v36 = v68;
       do
       {
         v37 = *((_DWORD *)v34 - 1);
         v38 = 0;
-        if ( (*(_WORD *)(v81 + 98) & 0x4000) != 0 )
+        if ( (*(_WORD *)(v80 + 98) & 0x4000) != 0 )
           v38 = *v34;
         if ( v38 )
         {
           if ( v38 == 1 )
           {
             v43 = *((unsigned int *)v34 - 1);
-            v44 = (char *)v86;
-            memmove(v86, *(const void **)(v34 - 12), v43);
-            v86 = &v44[v43];
+            v44 = (char *)v85;
+            memmove(v85, *(const void **)(v34 - 12), v43);
+            v85 = &v44[v43];
           }
           else if ( v38 == 3 && v37 == 8 )
           {
-            v82 = **(_QWORD **)(v34 - 12);
+            v81 = **(_QWORD **)(v34 - 12);
           }
         }
         else
@@ -424,25 +417,25 @@ LABEL_30:
         --v35;
       }
       while ( v35 );
-      v13 = v76;
+      v13 = v75;
     }
-    v40 = v82;
-    *(_QWORD *)(v30 + 16) = v82;
-    if ( *(_DWORD *)(v87 + 16) != 3 )
+    v40 = v81;
+    *(_QWORD *)(v30 + 16) = v81;
+    if ( *(_DWORD *)(v86 + 16) != 3 )
       v40 = __rdtsc();
     *(_QWORD *)(v30 + 56) = v40;
     v41 = NtCurrentTeb();
     *(_DWORD *)(v30 + 8) = v41->ClientId.UniqueThread;
     *(_DWORD *)(v30 + 12) = v41->ClientId.UniqueProcess;
-    v16 = v79;
-    v11 = v81;
-    v14 = Size_4;
+    v16 = v78;
+    v11 = v80;
+    v14 = v72;
     goto LABEL_54;
   }
   if ( v22 <= 0xFFF8 )
     v13 = *(_DWORD *)(v28 + 212) < v22 ? 234 : 8;
   else
     v13 = 534;
-  _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v75 + 8));
+  _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v74 + 8));
   return v13;
 }

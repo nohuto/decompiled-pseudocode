@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReduceCommitLimits @ 0x140705B5C
+ * XREFs of MiReduceCommitLimits @ 0x14070A82C
  * Callers:
- *     MiReflectCommitRemovedFromPartition @ 0x140709640 (MiReflectCommitRemovedFromPartition.c)
- *     MiTargetedPageFileReductionApc @ 0x14070D818 (MiTargetedPageFileReductionApc.c)
- *     MiCompleteMemoryRemoval @ 0x140865CFC (MiCompleteMemoryRemoval.c)
- *     MiUpdateExistingPageFile @ 0x14086C380 (MiUpdateExistingPageFile.c)
+ *     MiReflectCommitRemovedFromPartition @ 0x14070E2F4 (MiReflectCommitRemovedFromPartition.c)
+ *     MiTargetedPageFileReductionApc @ 0x1407124C8 (MiTargetedPageFileReductionApc.c)
+ *     MiCompleteMemoryRemoval @ 0x14086C0DC (MiCompleteMemoryRemoval.c)
+ *     MiUpdateExistingPageFile @ 0x140872760 (MiUpdateExistingPageFile.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiComputeCommitThresholds @ 0x1404FA2DC (MiComputeCommitThresholds.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiComputeCommitThresholds @ 0x1404F38EC (MiComputeCommitThresholds.c)
  */
 
 void __fastcall MiReduceCommitLimits(__int64 a1, __int64 a2, __int64 a3)

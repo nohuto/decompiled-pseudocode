@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfFeedbackCounterUpdate @ 0x1402DB358
+ * XREFs of PpmPerfFeedbackCounterUpdate @ 0x1402DB548
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmPerfFeedbackCounterUpdate(__int64 a1)

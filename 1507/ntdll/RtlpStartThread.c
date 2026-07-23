@@ -6,7 +6,7 @@
  *     RtlCreateUserThread @ 0x180076510 (RtlCreateUserThread.c)
  */
 
-__int64 RtlpStartThread()
+NTSTATUS __fastcall RtlpStartThread(NTSTATUS (__cdecl *a1)(PVOID), void *a2, HANDLE *a3)
 {
-  return RtlCreateUserThread(-1, 0, 1, 0, 0LL, 0LL);
+  return RtlCreateUserThread((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, 1u, 0, 0LL, 0LL, a1, a2, a3, 0LL);
 }

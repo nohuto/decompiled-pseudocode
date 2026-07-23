@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateKernelStackNode @ 0x1404F9A78
+ * XREFs of MiCreateKernelStackNode @ 0x1404F7358
  * Callers:
- *     MiOutPageSingleKernelStack @ 0x14039F510 (MiOutPageSingleKernelStack.c)
+ *     MiOutPageSingleKernelStack @ 0x140215F40 (MiOutPageSingleKernelStack.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
@@ -28,10 +28,10 @@ __int64 __fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
   *(_QWORD *)(result + 24) = *a2 - 1LL;
   *(_QWORD *)(result + 32) = a2[1];
   *(_WORD *)(result + 40) = *a1;
-  v7 = ExAcquireSpinLockExclusive(&dword_140E35ED8);
-  v8 = (_QWORD *)qword_140E35ED0;
+  v7 = ExAcquireSpinLockExclusive(&dword_140E36018);
+  v8 = (_QWORD *)qword_140E36010;
   v9 = v7;
-  if ( !qword_140E35ED0 )
+  if ( !qword_140E36010 )
     goto LABEL_11;
   v10 = v6[3];
   while ( v10 <= v8[3] && v10 < v8[4] )
@@ -47,7 +47,7 @@ LABEL_9:
     goto LABEL_9;
   v5 = 1;
 LABEL_11:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E35ED0, (unsigned __int64)v8, v5, v6);
-  MiReleaseSpinLockExclusive(&dword_140E35ED8, v9);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E36010, (unsigned __int64)v8, v5, v6);
+  MiReleaseSpinLockExclusive(&dword_140E36018, v9);
   return (__int64)v6;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiProtectPageListLocks @ 0x1406F0A18
+ * XREFs of MiProtectPageListLocks @ 0x1406F5688
  * Callers:
- *     MiInitializePartition @ 0x140869360 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14086F740 (MiInitializePartition.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
  */
 
 char __fastcall MiProtectPageListLocks(__int64 a1)

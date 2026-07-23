@@ -1,17 +1,17 @@
 /*
- * XREFs of KeRequestTerminationThread @ 0x1402C5B58
+ * XREFs of KeRequestTerminationThread @ 0x1403107F4
  * Callers:
- *     KeRequestTerminationProcess @ 0x1407B9F48 (KeRequestTerminationProcess.c)
- *     PspTerminateThreadByPointer @ 0x1409575E0 (PspTerminateThreadByPointer.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     KeRequestTerminationProcess @ 0x1407BCFA8 (KeRequestTerminationProcess.c)
+ *     PspTerminateThreadByPointer @ 0x14094B010 (PspTerminateThreadByPointer.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     KiInsertQueueApc @ 0x14020B070 (KiInsertQueueApc.c)
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     KeAlertThread @ 0x1402C5C40 (KeAlertThread.c)
- *     KeForceResumeThread @ 0x1402C5E5C (KeForceResumeThread.c)
- *     VslRequestSecureThreadExit @ 0x1405C3EA8 (VslRequestSecureThreadExit.c)
+ *     KiInsertQueueApc @ 0x14020B150 (KiInsertQueueApc.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KeAlertThread @ 0x1403108E0 (KeAlertThread.c)
+ *     KeForceResumeThread @ 0x140310AFC (KeForceResumeThread.c)
+ *     VslRequestSecureThreadExit @ 0x1405C6718 (VslRequestSecureThreadExit.c)
  */
 
 void __fastcall KeRequestTerminationThread(__int64 a1)

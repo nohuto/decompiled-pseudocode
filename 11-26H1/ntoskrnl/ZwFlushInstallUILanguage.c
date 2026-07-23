@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwFlushInstallUILanguage @ 0x1407251F0
+ * XREFs of ZwFlushInstallUILanguage @ 0x140729DC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFlushInstallUILanguage(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwFlushInstallUILanguage(LANGID InstallUILanguage, ULONG SetComittedFlag)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(InstallUILanguage);
 }

@@ -56,43 +56,43 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtTraceControl(
-        unsigned int a1,
-        unsigned int *a2,
-        unsigned int a3,
-        volatile signed __int64 *a4,
-        unsigned int a5,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtTraceControl(
+        ETWTRACECONTROLCODE FunctionCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
   unsigned __int64 v7; // rbx
   __int64 v8; // rdx
   __int64 v9; // r9
   char *v10; // r11
-  int Trace; // edi
+  NTSTATUS Trace; // edi
   unsigned int v12; // r12d
   char v13; // r8
   __int64 v14; // r8
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rdx
   unsigned __int64 v17; // rdx
-  _DWORD *v18; // rsi
+  PULONG v18; // rsi
   int v19; // eax
-  unsigned int v20; // r13d
-  unsigned int v21; // r15d
+  ULONG v20; // r13d
+  ULONG v21; // r15d
   _WORD *v22; // r10
   unsigned int *v23; // rcx
   void *v24; // r15
   __int64 v25; // rcx
   _WORD *Pool2; // rax
   unsigned __int64 v28; // r8
-  int TraceGuidInfo; // eax
+  NTSTATUS TraceGuidInfo; // eax
   __int64 v30; // rdx
   __int64 v31; // r8
-  unsigned int *v32; // r10
-  int v33; // r11d
-  int TraceGuidList; // eax
+  ULONG *v32; // r10
+  NTSTATUS v33; // r11d
+  NTSTATUS TraceGuidList; // eax
   void *v35; // rcx
-  int GuidList; // eax
+  NTSTATUS GuidList; // eax
   __int64 Blink_low; // rdx
   __int64 v38; // rcx
   unsigned int *v39; // rcx
@@ -100,14 +100,14 @@ __int64 __fastcall NtTraceControl(
   __int64 v41; // r8
   unsigned int v42; // edx
   unsigned int v43; // [rsp+30h] [rbp-68h] BYREF
-  unsigned int Size; // [rsp+34h] [rbp-64h] BYREF
+  ULONG Size; // [rsp+34h] [rbp-64h] BYREF
   int Size_4; // [rsp+38h] [rbp-60h]
   void *Src; // [rsp+40h] [rbp-58h]
   struct _LIST_ENTRY *Flink; // [rsp+48h] [rbp-50h]
   void *v48; // [rsp+50h] [rbp-48h]
   void *v49; // [rsp+58h] [rbp-40h]
 
-  v7 = a1;
+  v7 = (unsigned int)FunctionCode;
   Src = 0LL;
   Size = 0;
   Flink = PsGetCurrentServerSiloGlobals()[52].Flink;
@@ -122,14 +122,14 @@ __int64 __fastcall NtTraceControl(
       v7 = (unsigned int)v9;
     v14 = 0x7FFFFFFF0000LL;
     if ( !v8 )
-      a3 = (unsigned int)v10;
-    if ( a4 )
+      InputBufferLength = (unsigned int)v10;
+    if ( OutputBuffer )
     {
-      if ( a5 )
+      if ( OutputBufferLength )
       {
-        v15 = (unsigned __int64)a4;
-        v16 = (unsigned __int64)a4 + a5 - 1;
-        if ( v16 >= 0x7FFFFFFF0000LL || (unsigned __int64)a4 > v16 )
+        v15 = (unsigned __int64)OutputBuffer;
+        v16 = (unsigned __int64)OutputBuffer + OutputBufferLength - 1;
+        if ( v16 >= 0x7FFFFFFF0000LL || (unsigned __int64)OutputBuffer > v16 )
           ExRaiseAccessViolation();
         v17 = (v16 & 0xFFFFFFFFFFFFF000uLL) + 4096;
         do
@@ -142,40 +142,40 @@ __int64 __fastcall NtTraceControl(
     }
     else
     {
-      a5 = (unsigned int)v10;
+      OutputBufferLength = (unsigned int)v10;
     }
-    v18 = (_DWORD *)a6;
-    if ( !a6 )
+    v18 = ReturnLength;
+    if ( !ReturnLength )
     {
       Trace = -1073741811;
       Size_4 = -1073741811;
       goto LABEL_42;
     }
-    if ( a6 < 0x7FFFFFFF0000LL )
-      v14 = a6;
+    if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+      v14 = (__int64)ReturnLength;
     *(_DWORD *)v14 = *(_DWORD *)v14;
     Trace = Size_4;
   }
   else
   {
-    v18 = (_DWORD *)a6;
+    v18 = ReturnLength;
   }
   if ( (unsigned int)v7 <= 0x1B )
   {
     v19 = 134238208;
     if ( _bittest(&v19, v7) )
     {
-      v20 = a5;
-      v21 = a3;
+      v20 = OutputBufferLength;
+      v21 = InputBufferLength;
 LABEL_24:
       v22 = Src;
-      v23 = a2;
+      v23 = (unsigned int *)InputBuffer;
       goto LABEL_25;
     }
   }
-  v21 = a3;
-  v20 = a5;
-  if ( !a3 && !a5 )
+  v21 = InputBufferLength;
+  v20 = OutputBufferLength;
+  if ( !InputBufferLength && !OutputBufferLength )
     goto LABEL_24;
   Pool2 = (_WORD *)ExAllocatePool2(0x101uLL);
   v22 = Pool2;
@@ -185,13 +185,13 @@ LABEL_24:
     Trace = -1073741801;
     goto LABEL_42;
   }
-  v23 = a2;
-  if ( a2 )
+  v23 = (unsigned int *)InputBuffer;
+  if ( InputBuffer )
   {
-    memmove(Pool2, a2, a3);
+    memmove(Pool2, InputBuffer, InputBufferLength);
     v22 = Src;
     v10 = 0LL;
-    v23 = a2;
+    v23 = (unsigned int *)InputBuffer;
   }
   else
   {
@@ -542,7 +542,7 @@ LABEL_69:
     goto LABEL_28;
   }
   Trace = (int)v10;
-  EtwpCreateActivityId(a4);
+  EtwpCreateActivityId((volatile signed __int64 *)OutputBuffer);
   v24 = Src;
 LABEL_28:
   if ( Trace >= 0 )
@@ -556,7 +556,7 @@ LABEL_28:
       }
       else
       {
-        memmove((void *)a4, v24, Size);
+        memmove(OutputBuffer, v24, Size);
       }
     }
     *v18 = Size;
@@ -569,5 +569,5 @@ LABEL_28:
 LABEL_42:
   if ( Src )
     ExFreePoolWithTag(Src, 0);
-  return (unsigned int)Trace;
+  return Trace;
 }

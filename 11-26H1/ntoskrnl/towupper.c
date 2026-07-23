@@ -1,9 +1,9 @@
 /*
- * XREFs of towupper @ 0x140537E00
+ * XREFs of towupper @ 0x14053A280
  * Callers:
- *     PfSnParametersVerify @ 0x1407C7914 (PfSnParametersVerify.c)
+ *     PfSnParametersVerify @ 0x1407CA974 (PfSnParametersVerify.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
  */
 
 wint_t __cdecl towupper(wint_t C)

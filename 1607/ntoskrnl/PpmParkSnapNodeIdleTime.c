@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkSnapNodeIdleTime @ 0x14020E258
+ * XREFs of PpmParkSnapNodeIdleTime @ 0x14020E084
  * Callers:
- *     PopAccumulateNonActivatedCpuTime @ 0x140207030 (PopAccumulateNonActivatedCpuTime.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x140206E5C (PopAccumulateNonActivatedCpuTime.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmIdleSnapConcurrencyIdleTime @ 0x1402009C4 (PpmIdleSnapConcurrencyIdleTime.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmIdleSnapConcurrencyIdleTime @ 0x1402007F0 (PpmIdleSnapConcurrencyIdleTime.c)
  */
 
 void __fastcall PpmParkSnapNodeIdleTime(__int64 a1, _QWORD *a2, _QWORD *a3)

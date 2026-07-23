@@ -2,7 +2,7 @@
  * XREFs of RtlpHpLargeLockAcquireShared @ 0x140008208
  * Callers:
  *     RtlpHpLargeAllocSize @ 0x1400080E4 (RtlpHpLargeAllocSize.c)
- *     RtlpHpLargeAllocSetExtraPresent @ 0x1402FE038 (RtlpHpLargeAllocSetExtraPresent.c)
+ *     RtlpHpLargeAllocSetExtraPresent @ 0x1402FE228 (RtlpHpLargeAllocSetExtraPresent.c)
  * Callees:
  *     RtlpHpAcquireLockShared @ 0x140009644 (RtlpHpAcquireLockShared.c)
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLogFailedDriverLoad @ 0x14084E968
+ * XREFs of MiLogFailedDriverLoad @ 0x14084FBC8
  * Callers:
- *     MiResolveImageReferences @ 0x140678FB0 (MiResolveImageReferences.c)
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     MiCreateSectionForDriver @ 0x1406822A0 (MiCreateSectionForDriver.c)
+ *     MiResolveImageReferences @ 0x14067A170 (MiResolveImageReferences.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     MiCreateSectionForDriver @ 0x140683460 (MiCreateSectionForDriver.c)
  * Callees:
  *     MiIsRetryIoStatus @ 0x140022E18 (MiIsRetryIoStatus.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     IoWriteErrorLogEntry @ 0x14016CC70 (IoWriteErrorLogEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     IoAllocateGenericErrorLogEntry @ 0x140282ED8 (IoAllocateGenericErrorLogEntry.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     IoWriteErrorLogEntry @ 0x14016CD70 (IoWriteErrorLogEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x1402830C8 (IoAllocateGenericErrorLogEntry.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
  */
 
-void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const char *a3, NTSTATUS a4)
+void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const CHAR *a3, NTSTATUS a4)
 {
   int v4; // esi
   __int128 v5; // xmm0
@@ -38,7 +38,7 @@ void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2
   size_t v22; // rbx
   char *v23; // rsi
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-49h] BYREF
-  STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF
   __int128 v26; // [rsp+40h] [rbp-29h] BYREF
   __int16 v27; // [rsp+50h] [rbp-19h]
   const wchar_t *v28; // [rsp+58h] [rbp-11h]

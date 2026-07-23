@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDbgInitSystem @ 0x140A8F2C0
+ * XREFs of HalpDbgInitSystem @ 0x140A8F140
  * Callers:
  *     <none>
  * Callees:
- *     KdGetDebugDevice @ 0x1403968D0 (KdGetDebugDevice.c)
- *     HalAcpiGetTable @ 0x1403968E0 (HalAcpiGetTable.c)
+ *     KdGetDebugDevice @ 0x140396AB0 (KdGetDebugDevice.c)
+ *     HalAcpiGetTable @ 0x140396AC0 (HalAcpiGetTable.c)
  *     HalpRegisterKdSupportFunctions @ 0x140B34F54 (HalpRegisterKdSupportFunctions.c)
  *     HalpCopyDebugDescriptor @ 0x140B5D750 (HalpCopyDebugDescriptor.c)
  */

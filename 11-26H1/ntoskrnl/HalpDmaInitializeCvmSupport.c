@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaInitializeCvmSupport @ 0x140CB0B80
+ * XREFs of HalpDmaInitializeCvmSupport @ 0x140CB6BC0
  * Callers:
- *     HalpDmaInit @ 0x140CB0700 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140CB6740 (HalpDmaInit.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x1406DC944 (HviIsHypervisorMicrosoftCompatible.c)
- *     HalpDmaCvmQueryRegistryKeys @ 0x140CB0590 (HalpDmaCvmQueryRegistryKeys.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1406E0BE4 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HalpDmaCvmQueryRegistryKeys @ 0x140CB65D0 (HalpDmaCvmQueryRegistryKeys.c)
  */
 
 __int64 HalpDmaInitializeCvmSupport()
@@ -36,14 +36,14 @@ __int64 HalpDmaInitializeCvmSupport()
         else
 LABEL_8:
           v20 = 0LL;
-        qword_140FBA988 = v20;
+        qword_140FBAD48 = v20;
       }
     }
   }
-  if ( !HalpDmaCvmConfiguration && byte_140FBA981 )
+  if ( !HalpDmaCvmConfiguration && byte_140FBAD41 )
   {
     HalpDmaCvmConfiguration = 1;
-    qword_140FBA988 = 0LL;
+    qword_140FBAD48 = 0LL;
   }
   return 0LL;
 }

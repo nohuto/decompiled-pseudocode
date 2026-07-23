@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpTruncateBins @ 0x1405A818C
+ * XREFs of HvpTruncateBins @ 0x1405A918C
  * Callers:
- *     HvStoreModifiedData @ 0x1405A7438 (HvStoreModifiedData.c)
+ *     HvStoreModifiedData @ 0x1405A8438 (HvStoreModifiedData.c)
  * Callees:
- *     ExIsResourceAcquiredExclusiveLite @ 0x140107CC0 (ExIsResourceAcquiredExclusiveLite.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
- *     HvpMapEntryGetFreeBin @ 0x1405F9C1C (HvpMapEntryGetFreeBin.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
+ *     ExIsResourceAcquiredExclusiveLite @ 0x140107D40 (ExIsResourceAcquiredExclusiveLite.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     HvFreeHivePartial @ 0x1405A9240 (HvFreeHivePartial.c)
+ *     HvpMapEntryGetFreeBin @ 0x1405FAC1C (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
  */
 
 char __fastcall HvpTruncateBins(ULONG_PTR BugCheckParameter2)

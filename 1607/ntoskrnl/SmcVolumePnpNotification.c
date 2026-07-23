@@ -1,11 +1,11 @@
 /*
- * XREFs of SmcVolumePnpNotification @ 0x14069B0F0
+ * XREFs of SmcVolumePnpNotification @ 0x14069B1D4
  * Callers:
  *     <none>
  * Callees:
- *     SmcCacheDelete @ 0x140699EB4 (SmcCacheDelete.c)
- *     SmcCacheDereference @ 0x140699F04 (SmcCacheDereference.c)
- *     SmcCacheReference @ 0x14069A108 (SmcCacheReference.c)
+ *     SmcCacheDelete @ 0x140699F98 (SmcCacheDelete.c)
+ *     SmcCacheDereference @ 0x140699FE8 (SmcCacheDereference.c)
+ *     SmcCacheReference @ 0x14069A1EC (SmcCacheReference.c)
  */
 
 __int64 __fastcall SmcVolumePnpNotification(_QWORD *NotificationStructure, PVOID Context)

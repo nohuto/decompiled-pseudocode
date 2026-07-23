@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetCacheInformation @ 0x140B59730
+ * XREFs of KiSetCacheInformation @ 0x140B5B7B0
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KiSetCacheInformationAmd @ 0x140B59874 (KiSetCacheInformationAmd.c)
- *     KiSetStandardizedCacheInformation @ 0x140B5A508 (KiSetStandardizedCacheInformation.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KiSetCacheInformationAmd @ 0x140B5B8F4 (KiSetCacheInformationAmd.c)
+ *     KiSetStandardizedCacheInformation @ 0x140B5C570 (KiSetStandardizedCacheInformation.c)
  */
 
 __int64 KiSetCacheInformation()

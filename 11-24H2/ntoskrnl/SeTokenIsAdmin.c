@@ -1,16 +1,16 @@
 /*
- * XREFs of SeTokenIsAdmin @ 0x1408E91E0
+ * XREFs of SeTokenIsAdmin @ 0x14085AA10
  * Callers:
- *     IoComputeRedirectionTrustLevel @ 0x1404B5410 (IoComputeRedirectionTrustLevel.c)
- *     SepMandatorySubProcessToken @ 0x1404EF064 (SepMandatorySubProcessToken.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
- *     PspIsContextAdmin @ 0x1408E917C (PspIsContextAdmin.c)
- *     PspDisablePrimaryTokenExchange @ 0x1408FEB00 (PspDisablePrimaryTokenExchange.c)
- *     EtwTiLogSyscallUsage @ 0x140934948 (EtwTiLogSyscallUsage.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x140987584 (MiIsUserQueryVmCallerTrusted.c)
+ *     IoComputeRedirectionTrustLevel @ 0x1404AFCB0 (IoComputeRedirectionTrustLevel.c)
+ *     SepMandatorySubProcessToken @ 0x1404EC31C (SepMandatorySubProcessToken.c)
+ *     PspIsContextAdmin @ 0x14085A9A4 (PspIsContextAdmin.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
+ *     EtwTiLogSyscallUsage @ 0x1408F7468 (EtwTiLogSyscallUsage.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1409213E0 (PspDisablePrimaryTokenExchange.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x14096FD94 (MiIsUserQueryVmCallerTrusted.c)
  * Callees:
- *     SepSidInToken @ 0x1403624E0 (SepSidInToken.c)
- *     SeTokenIsRestricted @ 0x140432500 (SeTokenIsRestricted.c)
+ *     SepSidInToken @ 0x1403CB430 (SepSidInToken.c)
+ *     SeTokenIsRestricted @ 0x140424A30 (SeTokenIsRestricted.c)
  */
 
 BOOLEAN __stdcall SeTokenIsAdmin(PACCESS_TOKEN Token)

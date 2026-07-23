@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoReportButton @ 0x1407DB6C0
+ * XREFs of PdcPoReportButton @ 0x1407DF6D0
  * Callers:
  *     <none>
  * Callees:
- *     PopChangeCapability @ 0x140943114 (PopChangeCapability.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopChangeCapability @ 0x1409BEA8C (PopChangeCapability.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoReportButton(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ __int64 __fastcall PdcPoReportButton(__int64 a1, __int64 a2)
       LOBYTE(v4) = 1;
     else
       v4 = 0LL;
-    PopChangeCapability(&stru_140F10828.WaitBlockFill11[24], v4);
+    PopChangeCapability(&PpmIdlePolicyLock.Padding[1], v4);
   }
   if ( (v3 & 2) != 0 )
   {
@@ -35,7 +35,7 @@ __int64 __fastcall PdcPoReportButton(__int64 a1, __int64 a2)
       LOBYTE(v4) = 1;
     else
       v4 = 0LL;
-    PopChangeCapability(&stru_140F10828.WaitBlockFill11[25], v4);
+    PopChangeCapability((char *)&PpmIdlePolicyLock.Padding[1] + 1, v4);
   }
   if ( (v3 & 4) != 0 )
   {
@@ -43,7 +43,7 @@ __int64 __fastcall PdcPoReportButton(__int64 a1, __int64 a2)
       LOBYTE(v4) = 1;
     else
       v4 = 0LL;
-    PopChangeCapability(&stru_140F10828.WaitBlockFill11[26], v4);
+    PopChangeCapability((char *)&PpmIdlePolicyLock.Padding[1] + 2, v4);
   }
   return PopReleasePolicyLock(v5, v4, v6, v7, v9);
 }

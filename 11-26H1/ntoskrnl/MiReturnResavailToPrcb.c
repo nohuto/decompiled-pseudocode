@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReturnResavailToPrcb @ 0x140319330
+ * XREFs of MiReturnResavailToPrcb @ 0x14031B360
  * Callers:
- *     MiLockVirtualMemoryVa @ 0x140318C10 (MiLockVirtualMemoryVa.c)
+ *     MiLockVirtualMemoryVa @ 0x14031AC40 (MiLockVirtualMemoryVa.c)
  * Callees:
  *     <none>
  */

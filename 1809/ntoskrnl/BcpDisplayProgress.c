@@ -1,15 +1,15 @@
 /*
- * XREFs of BcpDisplayProgress @ 0x140328330
+ * XREFs of BcpDisplayProgress @ 0x140328520
  * Callers:
- *     BcpGetComponentOffsets @ 0x14032852C (BcpGetComponentOffsets.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328924 (BgpFwDisplayBugCheckProgressUpdate.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
+ *     BcpGetComponentOffsets @ 0x14032871C (BcpGetComponentOffsets.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328B14 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328CFC (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
- *     BcpConvertProgressToString @ 0x140327B8C (BcpConvertProgressToString.c)
- *     BcpCursorLessThan @ 0x140327C64 (BcpCursorLessThan.c)
- *     BcpDisplayCriticalString @ 0x140327D54 (BcpDisplayCriticalString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     BgpDisplayCharacterEx @ 0x140327A64 (BgpDisplayCharacterEx.c)
+ *     BcpConvertProgressToString @ 0x140327D7C (BcpConvertProgressToString.c)
+ *     BcpCursorLessThan @ 0x140327E54 (BcpCursorLessThan.c)
+ *     BcpDisplayCriticalString @ 0x140327F44 (BcpDisplayCriticalString.c)
  */
 
 __int64 __fastcall BcpDisplayProgress(unsigned int a1, int a2, unsigned int a3)
@@ -36,40 +36,40 @@ __int64 __fastcall BcpDisplayProgress(unsigned int a1, int a2, unsigned int a3)
   char v25; // [rsp+80h] [rbp+1Fh] BYREF
 
   v5 = a1 == 1;
-  v6 = &stru_14043FAB0;
+  v6 = &stru_140440B70;
   v7 = 9LL * a2;
   if ( !v5 )
-    v6 = &stru_14043FAD0;
-  BcpDisplayCriticalString((__int16 *)v6, dword_140403A70[18 * a2 + 2], a3, a2);
+    v6 = &stru_140440B90;
+  BcpDisplayCriticalString((__int16 *)v6, dword_140404A70[18 * a2 + 2], a3, a2);
   v20 = 0x80000LL;
   v21 = &v25;
   BcpConvertProgressToString(a1, (__int64)&v20);
-  BcpDisplayCriticalString((__int16 *)&v20, dword_140403A70[2 * v7 + 2], v8, a2);
-  v10 = &stru_14043FAC0;
+  BcpDisplayCriticalString((__int16 *)&v20, dword_140404A70[2 * v7 + 2], v8, a2);
+  v10 = &stru_140440B80;
   if ( a1 != 1 )
-    v10 = &stru_14043FAE0;
-  BcpDisplayCriticalString((__int16 *)v10, dword_140403A70[2 * v7 + 2], v9, a2);
+    v10 = &stru_140440BA0;
+  BcpDisplayCriticalString((__int16 *)v10, dword_140404A70[2 * v7 + 2], v9, a2);
   v11 = BcpCursor;
-  v12 = dword_140438740;
+  v12 = dword_140439800;
   v20 = BcpCursor;
-  LODWORD(v21) = dword_140438740;
+  LODWORD(v21) = dword_140439800;
   if ( BcpCursorLessThan(&v20) )
   {
     v13 = v20;
     v14 = HIDWORD(v20);
     v24 = v20;
-    v15 = *(_DWORD *)(*(_QWORD *)(qword_14043FB70 + 24) + 40LL);
+    v15 = *(_DWORD *)(*(_QWORD *)(qword_140440C30 + 24) + 40LL);
     if ( BcpTextBoxLeftEdgeOverride )
       v16 = *(_DWORD *)BcpTextBoxLeftEdgeOverride;
     else
-      v16 = dword_140403A70[2 * v7 + 8] + dword_140403A70[2 * v7 + 4];
+      v16 = dword_140404A70[2 * v7 + 8] + dword_140404A70[2 * v7 + 4];
     if ( BcpTextBoxRightEdgeOverride )
       v17 = *(_DWORD *)BcpTextBoxRightEdgeOverride;
     else
-      v17 = dword_140403A70[2 * v7 + 8] + dword_140403A70[2 * v7 + 6] + dword_140403A70[2 * v7 + 4];
+      v17 = dword_140404A70[2 * v7 + 8] + dword_140404A70[2 * v7 + 6] + dword_140404A70[2 * v7 + 4];
     while ( BcpCursorLessThan(&v24) )
     {
-      if ( (int)BgpDisplayCharacterEx(0x20u, (__int64 *)qword_14043FB70, v13, v14, v15, v15, &v22, &v23, v19) < 0 )
+      if ( (int)BgpDisplayCharacterEx(0x20u, (__int64 *)qword_140440C30, v13, v14, v15, v15, &v22, &v23, v19) < 0 )
         return 0LL;
       v13 += v22;
       LODWORD(v24) = v13;
@@ -82,10 +82,10 @@ __int64 __fastcall BcpDisplayProgress(unsigned int a1, int a2, unsigned int a3)
     }
     v11 = v20;
   }
-  if ( (dword_140405AD0 & 0x1000000) == 0 )
+  if ( (dword_140406AD0 & 0x1000000) == 0 )
   {
     BcpProgressEnd = v11;
-    dword_140405A08 = v12;
+    dword_140406A28 = v12;
   }
   return 0LL;
 }

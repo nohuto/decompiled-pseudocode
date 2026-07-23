@@ -8,11 +8,28 @@
  *     UpcaseUnicodeToSingleByteNHelper @ 0x18006ACE4 (UpcaseUnicodeToSingleByteNHelper.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToOemN(int a1, int a2, int a3, int a4, unsigned int a5)
+NTSTATUS __cdecl RtlUpcaseUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
   if ( NlsOemCodePageIsUTF8 )
-    return UpcaseUnicodeToUTF8NHelper(a1, a2, a3, a4, a5 >> 1);
+    return UpcaseUnicodeToUTF8NHelper(OemString, MaxBytesInOemString, BytesInUnicodeString >> 1);
   if ( NlsMbOemCodePageTag )
-    return UpcaseUnicodeToMultiByteNHelper(a1, a2, a3, a4, a5 >> 1);
-  return UpcaseUnicodeToSingleByteNHelper(a1, a2, a3, a4, a5 >> 1, NlsUnicodeToOemData, NlsOemToUnicodeData);
+    return UpcaseUnicodeToMultiByteNHelper(
+             OemString,
+             MaxBytesInOemString,
+             BytesInOemString,
+             UnicodeString,
+             BytesInUnicodeString >> 1);
+  return UpcaseUnicodeToSingleByteNHelper(
+           (_DWORD)OemString,
+           MaxBytesInOemString,
+           (_DWORD)BytesInOemString,
+           (_DWORD)UnicodeString,
+           BytesInUnicodeString >> 1,
+           NlsUnicodeToOemData,
+           NlsOemToUnicodeData);
 }

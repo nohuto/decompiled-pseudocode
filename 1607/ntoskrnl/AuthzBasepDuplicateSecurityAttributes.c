@@ -1,20 +1,20 @@
 /*
- * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x14000ED90
+ * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x14000E910
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000E3E0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepGetAnonymousToken @ 0x14007F884 (SepGetAnonymousToken.c)
- *     SepValidateAndCopyGlobalEntry @ 0x14021AC1C (SepValidateAndCopyGlobalEntry.c)
- *     SepDuplicateToken @ 0x140412BD0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x14047AFF4 (SepFilterToken.c)
- *     SepDuplicateClaimAttributes @ 0x140695A80 (SepDuplicateClaimAttributes.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000DF60 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepGetAnonymousToken @ 0x14007F904 (SepGetAnonymousToken.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x14021AA48 (SepValidateAndCopyGlobalEntry.c)
+ *     SepDuplicateToken @ 0x140411A90 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x140479EC4 (SepFilterToken.c)
+ *     SepDuplicateClaimAttributes @ 0x140695B64 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     AuthzBasepAllocateSecurityAttribute @ 0x14000F000 (AuthzBasepAllocateSecurityAttribute.c)
- *     AuthzBasepFinaliseSecurityAttributesList @ 0x14000F090 (AuthzBasepFinaliseSecurityAttributesList.c)
- *     AuthzBasepAllocateSecurityAttributeValue @ 0x14000F268 (AuthzBasepAllocateSecurityAttributeValue.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     AuthzBasepAddSecurityAttributeValueToLists @ 0x14007C74C (AuthzBasepAddSecurityAttributeValueToLists.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     AuthzBasepAllocateSecurityAttribute @ 0x14000EB80 (AuthzBasepAllocateSecurityAttribute.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x14000EC10 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributeValue @ 0x14000EDE8 (AuthzBasepAllocateSecurityAttributeValue.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     AuthzBasepAddSecurityAttributeValueToLists @ 0x14007C7CC (AuthzBasepAddSecurityAttributeValueToLists.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

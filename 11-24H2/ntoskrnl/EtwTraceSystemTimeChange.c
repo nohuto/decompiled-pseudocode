@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceSystemTimeChange @ 0x140B6CE94
+ * XREFs of EtwTraceSystemTimeChange @ 0x140B6E734
  * Callers:
- *     PoNotifySystemTimeSet @ 0x1404CA740 (PoNotifySystemTimeSet.c)
+ *     PoNotifySystemTimeSet @ 0x1404C3C60 (PoNotifySystemTimeSet.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD *a4, int a5, int a6, int a7)
@@ -80,7 +80,7 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
 
   v75 = a3;
   v26[0] = 0x20000LL;
-  v26[1] = &word_140B6FE00;
+  v26[1] = &word_140B71E80;
   Process = KeGetCurrentThread()->ApcState.Process;
   ProcessId = (unsigned int)PsGetProcessId(Process);
   LastRebalanceQpc = (unsigned __int16 *)Process[1].LastRebalanceQpc;
@@ -89,9 +89,9 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
   v12 = *a1 - *a2;
   v13 = (unsigned __int64)((unsigned __int128)(v12 * (__int128)0x346DC5D63886594BLL) >> 64) >> 63;
   v31 = v12 / 10000;
-  if ( (unsigned int)dword_140E09128 > 5 )
+  if ( (unsigned int)dword_140E09198 > 5 )
   {
-    LOBYTE(v13) = tlgKeywordOn((__int64)&dword_140E09128, 0x400000000000LL);
+    LOBYTE(v13) = tlgKeywordOn((__int64)&dword_140E09198, 0x400000000000LL);
     if ( (_BYTE)v13 )
     {
       v27 = v15;
@@ -127,8 +127,8 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
       v72 = 4LL;
       v74 = 4LL;
       LOBYTE(v13) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140E09128,
-                      (unsigned __int8 *)byte_14005255D,
+                      (__int64)&dword_140E09198,
+                      (unsigned __int8 *)&byte_140053A27,
                       0LL,
                       0LL,
                       0xDu,

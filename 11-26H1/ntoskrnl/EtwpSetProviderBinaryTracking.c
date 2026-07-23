@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpSetProviderBinaryTracking @ 0x14093BF48
+ * XREFs of EtwpSetProviderBinaryTracking @ 0x140917AE8
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpGetNextGuidEntry @ 0x1409366D0 (EtwpGetNextGuidEntry.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x14093C018 (EtwpTrackGuidEntryRegistrations.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
+ *     EtwpGetNextGuidEntry @ 0x140912280 (EtwpGetNextGuidEntry.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x140917BB8 (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
-__int64 __fastcall EtwpSetProviderBinaryTracking(__int64 a1, unsigned int a2, char a3)
+__int64 __fastcall EtwpSetProviderBinaryTracking(__int64 a1, __int64 a2, char a3)
 {
   unsigned int v5; // ebx
-  unsigned int *v6; // rax
+  __int64 v6; // rax
   struct _KLOCK_ENTRIES *v7; // r9
-  unsigned int *v8; // rdi
+  __int64 v8; // rdi
   _DWORD *i; // rdx
   _QWORD *NextGuidEntry; // rax
   struct _KLOCK_ENTRIES *v12; // r9
@@ -25,13 +25,13 @@ __int64 __fastcall EtwpSetProviderBinaryTracking(__int64 a1, unsigned int a2, ch
   _DWORD *v17; // rsi
 
   v5 = 0;
-  v6 = EtwpAcquireLoggerContextByLoggerId(a1, a2, 0);
+  v6 = EtwpAcquireLoggerContextByLoggerId(a1, a2, 0LL);
   v8 = v6;
   if ( v6 )
   {
     if ( a3 )
     {
-      _InterlockedOr((volatile signed __int32 *)v6 + 204, 0x2000000u);
+      _InterlockedOr((volatile signed __int32 *)(v6 + 816), 0x2000000u);
       for ( i = 0LL; ; i = v13 )
       {
         NextGuidEntry = EtwpGetNextGuidEntry(a1, i, 0, v7);
@@ -52,7 +52,7 @@ __int64 __fastcall EtwpSetProviderBinaryTracking(__int64 a1, unsigned int a2, ch
     }
     else
     {
-      _InterlockedAnd((volatile signed __int32 *)v6 + 204, 0xFDFFFFFF);
+      _InterlockedAnd((volatile signed __int32 *)(v6 + 816), 0xFDFFFFFF);
     }
     EtwpReleaseLoggerContext(v8, 0LL);
   }

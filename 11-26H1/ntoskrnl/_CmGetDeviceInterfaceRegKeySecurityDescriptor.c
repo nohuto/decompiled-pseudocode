@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140B23E1C
+ * XREFs of _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140B2621C
  * Callers:
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x14099FC70 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1409606D0 (_CmOpenDeviceInterfaceRegKeyWorker.c)
  * Callees:
- *     _CmGetRegKeySecurityDescriptor @ 0x140B09878 (_CmGetRegKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _CmGetRegKeySecurityDescriptor @ 0x140B0B638 (_CmGetRegKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceRegKeySecurityDescriptor(__int64 a1, int a2, _QWORD *a3)
 {
-  char *v4; // rcx
+  void *v4; // rcx
   unsigned int v6; // ebx
   int RegKeySecurityDescriptor; // eax
-  char *v9; // [rsp+48h] [rbp+20h] BYREF
+  void *v9; // [rsp+48h] [rbp+20h] BYREF
 
   v4 = 0LL;
   v9 = 0LL;

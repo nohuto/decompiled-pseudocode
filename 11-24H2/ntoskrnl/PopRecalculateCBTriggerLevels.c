@@ -1,13 +1,13 @@
 /*
- * XREFs of PopRecalculateCBTriggerLevels @ 0x140AC903C
+ * XREFs of PopRecalculateCBTriggerLevels @ 0x140AC707C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline @ 0x1405D7C54 (Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline.c)
- *     PopBatteryCheckTrigger @ 0x140A3C298 (PopBatteryCheckTrigger.c)
- *     PopDiagTraceBatteryTriggerFlags @ 0x140A6D788 (PopDiagTraceBatteryTriggerFlags.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline @ 0x1405D51C8 (Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopBatteryCheckTrigger @ 0x140A31A78 (PopBatteryCheckTrigger.c)
+ *     PopDiagTraceBatteryTriggerFlags @ 0x140A66E48 (PopDiagTraceBatteryTriggerFlags.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopRecalculateCBTriggerLevels(__int64 a1, __int64 a2)

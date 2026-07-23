@@ -53,8 +53,8 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
   ULONG v24; // ebx
   unsigned int v25; // edx
   struct _KTHREAD *CurrentThread; // rax
-  struct _RTL_BITMAP *v27; // rax
-  struct _RTL_BITMAP *v28; // r13
+  _RTL_BITMAP *v27; // rax
+  _RTL_BITMAP *v28; // r13
   unsigned int v29; // eax
   ULONG i; // ebx
   unsigned int v31; // r14d
@@ -104,7 +104,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
         v25 = *(unsigned __int8 *)(v11 + 4156);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v27 = (struct _RTL_BITMAP *)EtwpAcquireLoggerContextByLoggerId(v11, v25, 1);
+      v27 = (_RTL_BITMAP *)EtwpAcquireLoggerContextByLoggerId(v11, v25, 1);
       v28 = v27;
       ObjectsSecurityDescriptor = v27;
       if ( !v27 )

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFlushVolumes @ 0x140997CEC
+ * XREFs of PopFlushVolumes @ 0x140998CEC
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwFlushKey @ 0x1403FC0E0 (ZwFlushKey.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
- *     PopFlushVolumeWorker @ 0x140997FA0 (PopFlushVolumeWorker.c)
+ *     PopDiagTraceEventNoPayload @ 0x14024B6D4 (PopDiagTraceEventNoPayload.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwFlushKey @ 0x1403FC2C0 (ZwFlushKey.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
+ *     PopFlushVolumeWorker @ 0x140998FA0 (PopFlushVolumeWorker.c)
  */
 
 void __fastcall PopFlushVolumes(int a1)
@@ -64,7 +64,7 @@ void __fastcall PopFlushVolumes(int a1)
   else
   {
     v2 = PopFlushPolicy;
-    if ( byte_140C23880 )
+    if ( byte_140C23EA0 )
       v2 = 3;
   }
   v3 = v2 | 0x10;
@@ -148,14 +148,14 @@ LABEL_34:
               goto LABEL_34;
             *v20 = v14;
             v14[1] = v20;
-            v21 = (_QWORD *)qword_140C23F08;
-            if ( *(__int64 **)qword_140C23F08 != &PopVolumeDevices )
+            v21 = (_QWORD *)qword_140C23408;
+            if ( *(__int64 **)qword_140C23408 != &PopVolumeDevices )
               goto LABEL_34;
             *v16 = &PopVolumeDevices;
             --v6;
             v16[1] = v21;
             *v21 = v16;
-            qword_140C23F08 = (__int64)v16;
+            qword_140C23408 = (__int64)v16;
           }
         }
       }

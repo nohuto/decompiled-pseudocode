@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpStdExtendLowerWatermark @ 0x1405A9700
+ * XREFs of RtlpStdExtendLowerWatermark @ 0x1405A9C70
  * Callers:
- *     RtlpStdGetSpaceForTrace @ 0x1405A9AA4 (RtlpStdGetSpaceForTrace.c)
+ *     RtlpStdGetSpaceForTrace @ 0x1405AA014 (RtlpStdGetSpaceForTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ZwAllocateVirtualMemory @ 0x14041B060 (ZwAllocateVirtualMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwAllocateVirtualMemory @ 0x14041B3F0 (ZwAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall RtlpStdExtendLowerWatermark(__int64 a1, __int64 a2)
@@ -54,10 +54,13 @@ LABEL_8:
 LABEL_9:
   v8 = *(unsigned __int8 *)(a1 + 8);
   KxReleaseSpinLock((volatile signed __int64 *)a1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));

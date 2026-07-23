@@ -1,78 +1,78 @@
 /*
- * XREFs of RtlStringFromGUIDEx @ 0x14058B238
+ * XREFs of RtlStringFromGUIDEx @ 0x14058C238
  * Callers:
- *     BapdpMarshallBootDataToRegistry @ 0x1401862BC (BapdpMarshallBootDataToRegistry.c)
- *     KsepEvntLogShimsApplied @ 0x14029FC88 (KsepEvntLogShimsApplied.c)
- *     PopSetNewPolicyValue @ 0x14058B120 (PopSetNewPolicyValue.c)
- *     RtlStringFromGUID @ 0x14058B220 (RtlStringFromGUID.c)
- *     CmpInitCmRM @ 0x14067F2E8 (CmpInitCmRM.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1406F3960 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x1406F3FE4 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x1406F6DB0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     PipGenerateContainerID @ 0x140700960 (PipGenerateContainerID.c)
- *     CmpStartRMLog @ 0x14070E314 (CmpStartRMLog.c)
- *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
- *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
- *     BiConvertElementToRegistryData @ 0x140713E94 (BiConvertElementToRegistryData.c)
- *     CmpRecoverEnlistment @ 0x1407F8904 (CmpRecoverEnlistment.c)
- *     CmpAddRemoveRMLogContainer @ 0x1407F8C38 (CmpAddRemoveRMLogContainer.c)
- *     CmpCloneHwProfile @ 0x1407FB5DC (CmpCloneHwProfile.c)
- *     VrpPreLoadKey @ 0x14080B764 (VrpPreLoadKey.c)
- *     IoGetDeviceDirectory @ 0x1408249F0 (IoGetDeviceDirectory.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x14082E968 (PiDevCfgResetDeviceDriverSettings.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x140830640 (PiDevCfgResolveVariableGenerateGuid.c)
- *     PpDevCfgProcessDeviceClass @ 0x1408316D4 (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceReset @ 0x140832180 (PpDevCfgProcessDeviceReset.c)
- *     ExpCreateOutputSIGNATURE @ 0x1408D0398 (ExpCreateOutputSIGNATURE.c)
- *     ExpTranslateEfiPath @ 0x1408D280C (ExpTranslateEfiPath.c)
- *     BiCreateObject @ 0x1408F0BA0 (BiCreateObject.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x1408F4D64 (BiUpdateObjectReferenceInEfiEntry.c)
- *     ConvertDevpropcompkeyToString @ 0x14090425C (ConvertDevpropcompkeyToString.c)
- *     PipInitComputerIds @ 0x1409C8C60 (PipInitComputerIds.c)
+ *     BapdpMarshallBootDataToRegistry @ 0x1401863FC (BapdpMarshallBootDataToRegistry.c)
+ *     KsepEvntLogShimsApplied @ 0x14029FE78 (KsepEvntLogShimsApplied.c)
+ *     PopSetNewPolicyValue @ 0x14058C120 (PopSetNewPolicyValue.c)
+ *     RtlStringFromGUID @ 0x14058C220 (RtlStringFromGUID.c)
+ *     CmpInitCmRM @ 0x1406804A8 (CmpInitCmRM.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406F4C00 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1406F5284 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x1406F8050 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     PipGenerateContainerID @ 0x140701C00 (PipGenerateContainerID.c)
+ *     CmpStartRMLog @ 0x14070F5B4 (CmpStartRMLog.c)
+ *     BcdOpenObject @ 0x1407140C4 (BcdOpenObject.c)
+ *     BcdGetElementDataWithFlags @ 0x1407147F0 (BcdGetElementDataWithFlags.c)
+ *     BiConvertElementToRegistryData @ 0x140715134 (BiConvertElementToRegistryData.c)
+ *     CmpRecoverEnlistment @ 0x1407F9B04 (CmpRecoverEnlistment.c)
+ *     CmpAddRemoveRMLogContainer @ 0x1407F9E38 (CmpAddRemoveRMLogContainer.c)
+ *     CmpCloneHwProfile @ 0x1407FC7DC (CmpCloneHwProfile.c)
+ *     VrpPreLoadKey @ 0x14080C964 (VrpPreLoadKey.c)
+ *     IoGetDeviceDirectory @ 0x140825BF0 (IoGetDeviceDirectory.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x14082FB98 (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x1408318A0 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     PpDevCfgProcessDeviceClass @ 0x140832934 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceReset @ 0x1408333E0 (PpDevCfgProcessDeviceReset.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1408D1658 (ExpCreateOutputSIGNATURE.c)
+ *     ExpTranslateEfiPath @ 0x1408D3ACC (ExpTranslateEfiPath.c)
+ *     BiCreateObject @ 0x1408F1E60 (BiCreateObject.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x1408F6024 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     ConvertDevpropcompkeyToString @ 0x14090551C (ConvertDevpropcompkeyToString.c)
+ *     PipInitComputerIds @ 0x1409C9C60 (PipInitComputerIds.c)
  * Callees:
- *     swprintf_s @ 0x14019A360 (swprintf_s.c)
- *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     swprintf_s @ 0x14019A4A0 (swprintf_s.c)
+ *     ExpAllocateStringRoutine @ 0x1406B33A0 (ExpAllocateStringRoutine.c)
  */
 
-__int64 __fastcall RtlStringFromGUIDEx(unsigned int *a1, __int64 a2, char a3)
+NTSTATUS __cdecl RtlStringFromGUIDEx(PGUID Guid, PUNICODE_STRING GuidString, BOOLEAN AllocateGuidString)
 {
-  __int64 StringRoutine; // rax
-  unsigned __int16 v6; // dx
+  wchar_t *StringRoutine; // rax
+  unsigned __int16 MaximumLength; // dx
 
-  if ( a3 )
+  if ( AllocateGuidString )
   {
-    *(_WORD *)(a2 + 2) = 78;
-    StringRoutine = ExpAllocateStringRoutine(0x4EuLL);
-    *(_QWORD *)(a2 + 8) = StringRoutine;
+    GuidString->MaximumLength = 78;
+    StringRoutine = (wchar_t *)ExpAllocateStringRoutine(0x4EuLL);
+    GuidString->Buffer = StringRoutine;
     if ( StringRoutine )
     {
-      v6 = *(_WORD *)(a2 + 2);
+      MaximumLength = GuidString->MaximumLength;
 LABEL_4:
-      *(_WORD *)a2 = 76;
+      GuidString->Length = 76;
       swprintf_s(
-        *(wchar_t **)(a2 + 8),
-        (unsigned __int64)v6 >> 1,
+        GuidString->Buffer,
+        (unsigned __int64)MaximumLength >> 1,
         L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-        *a1,
-        *((unsigned __int16 *)a1 + 2),
-        *((unsigned __int16 *)a1 + 3),
-        *((unsigned __int8 *)a1 + 8),
-        *((unsigned __int8 *)a1 + 9),
-        *((unsigned __int8 *)a1 + 10),
-        *((unsigned __int8 *)a1 + 11),
-        *((unsigned __int8 *)a1 + 12),
-        *((unsigned __int8 *)a1 + 13),
-        *((unsigned __int8 *)a1 + 14),
-        *((unsigned __int8 *)a1 + 15));
-      return 0LL;
+        Guid->Data1,
+        Guid->Data2,
+        Guid->Data3,
+        Guid->Data4[0],
+        Guid->Data4[1],
+        Guid->Data4[2],
+        Guid->Data4[3],
+        Guid->Data4[4],
+        Guid->Data4[5],
+        Guid->Data4[6],
+        Guid->Data4[7]);
+      return 0;
     }
-    return 3221225495LL;
+    return -1073741801;
   }
   else
   {
-    v6 = *(_WORD *)(a2 + 2);
-    if ( v6 >= 0x4Eu )
+    MaximumLength = GuidString->MaximumLength;
+    if ( MaximumLength >= 0x4Eu )
       goto LABEL_4;
-    return 3221225507LL;
+    return -1073741789;
   }
 }

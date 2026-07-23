@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEmptyPte @ 0x14035D660
+ * XREFs of MiEmptyPte @ 0x14035F400
  * Callers:
  *     <none>
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiWalkVaCheckCommon @ 0x14035D970 (MiWalkVaCheckCommon.c)
- *     MI_WSLE_LOG_ACCESS @ 0x14035DBA4 (MI_WSLE_LOG_ACCESS.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiWalkVaCheckCommon @ 0x14035F710 (MiWalkVaCheckCommon.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x14035F944 (MI_WSLE_LOG_ACCESS.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
  */
 
 __int64 __fastcall MiEmptyPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -117,7 +117,7 @@ LABEL_6:
       if ( (*(_DWORD *)(v14 + 184) & 0xF) == 1 )
         v21 = &MiSystemPartition;
       else
-        v21 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v14 + 174));
+        v21 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v14 + 174));
       if ( v21[4539] )
         MI_WSLE_LOG_ACCESS(v14, a2);
       MiInsertTbFlushEntry(v8, (__int64)(a2 << 25) >> 16, 1LL);

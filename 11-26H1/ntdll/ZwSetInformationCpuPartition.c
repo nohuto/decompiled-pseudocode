@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetInformationCpuPartition @ 0x1801623F0
+ * XREFs of ZwSetInformationCpuPartition @ 0x1801622F0
  * Callers:
  *     <none>
  * Callees:

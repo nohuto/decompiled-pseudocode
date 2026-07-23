@@ -8,5 +8,5 @@
 
 __int64 KeGetClockOwner()
 {
-  return (unsigned int)KiClockTimerOwner;
+  return (unsigned int)dword_140C2B1C0;
 }

@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 ZwCreateMailslotFile()
+NTSTATUS __cdecl ZwCreateMailslotFile(
+        PHANDLE FileHandle,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CreateOptions,
+        ULONG MailslotQuota,
+        ULONG MaximumMessageSize,
+        PLARGE_INTEGER ReadTimeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 166LL;
+  result = 166;
   __asm { syscall; Low latency system call }
   return result;
 }

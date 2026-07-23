@@ -6,7 +6,9 @@
  *     _RtlpCopyExtendedContext@24 @ 0x4B35BC77 (_RtlpCopyExtendedContext@24.c)
  */
 
-int __thiscall RtlCopyExtendedContext(void *this, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlCopyExtendedContext(PCONTEXT_EX Destination, ULONG ContextFlags, PCONTEXT_EX Source)
 {
-  return RtlpCopyExtendedContext(this, a3, a4, this);
+  int v3; // ecx
+
+  return RtlpCopyExtendedContext(v3, ContextFlags, Source, v3);
 }

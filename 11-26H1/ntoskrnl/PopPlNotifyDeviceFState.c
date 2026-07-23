@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPlNotifyDeviceFState @ 0x1403AE02C
+ * XREFs of PopPlNotifyDeviceFState @ 0x1403B7D3C
  * Callers:
- *     PopFxProcessWork @ 0x1403AEEC0 (PopFxProcessWork.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x1403B3140 (PopPepStartComponentIdleStateChangeActivity.c)
- *     PopPluginComponentIdleState @ 0x1404799F0 (PopPluginComponentIdleState.c)
- *     PopPepCompleteComponentIdleState @ 0x140506C08 (PopPepCompleteComponentIdleState.c)
+ *     PopFxProcessWork @ 0x1403B8BD0 (PopFxProcessWork.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1403BCE50 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPluginComponentIdleState @ 0x140473350 (PopPluginComponentIdleState.c)
+ *     PopPepCompleteComponentIdleState @ 0x1405005E4 (PopPepCompleteComponentIdleState.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     PopPlCalculateDevicePowerDraw @ 0x140612524 (PopPlCalculateDevicePowerDraw.c)
- *     PopPlPublishSystemPowerChange @ 0x1406128F0 (PopPlPublishSystemPowerChange.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x140615364 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x140615730 (PopPlPublishSystemPowerChange.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4, char a5)
@@ -77,7 +77,7 @@ void __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned in
       v12 = PopPlCalculateDevicePowerDraw(a1, 0LL, &v23, &v22);
       *(_DWORD *)(v9 + 32) = v12;
       v13 = v12 - v11;
-      if ( (unsigned int)dword_140E07598 > 5 )
+      if ( (unsigned int)dword_140E07560 > 5 )
       {
         v28[5] = 2LL;
         v28[4] = (__int64)&v22;
@@ -110,7 +110,7 @@ void __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned in
         v39 = 4LL;
         v41 = 2LL;
         v43[1] = v17;
-        tlgWriteEx_EtwWriteEx((int)&dword_140E07598, (int)&byte_14005025F, v18, v19, v20, v21, 0xCu, (__int64)v28);
+        tlgWriteEx_EtwWriteEx((int)&dword_140E07560, (int)&byte_1400513D5, v18, v19, v20, v21, 0xCu, (__int64)v28);
       }
       PopPlPublishSystemPowerChange(v10, v13);
       KeReleaseSpinLock((PKSPIN_LOCK)(v10 + 16), *(_BYTE *)(v10 + 24));

@@ -109,13 +109,13 @@
  * 000000014064C5DF: mov     rax, [rsp+98h+Address]
  * 000000014064C5E7: test    rax, rax
  * 000000014064C5EA: jz      short loc_14064C603
- * 000000014064C5EC: mov     edx, dword ptr [rsp+98h+Length]; Length
+ * 000000014064C5EC: mov     edx, [rsp+98h+OutputBufferLength]; Length
  * 000000014064C5F3: mov     r8d, 1; Alignment
  * 000000014064C5F9: mov     rcx, rax; Address
  * 000000014064C5FC: call    ProbeForWrite
  * 000000014064C601: jmp     short loc_14064C60B
- * 000000014064C603: mov     dword ptr [rsp+98h+Length], r15d
- * 000000014064C60B: mov     rax, [rsp+98h+arg_28]
+ * 000000014064C603: mov     [rsp+98h+OutputBufferLength], r15d
+ * 000000014064C60B: mov     rax, [rsp+98h+ReturnLength]
  * 000000014064C613: test    rax, rax
  * 000000014064C616: jz      short loc_14064C62C
  * 000000014064C618: cmp     rax, rbx
@@ -136,11 +136,11 @@
  * 000000014064C64F: mov     eax, 8005000h
  * 000000014064C654: bt      eax, esi
  * 000000014064C657: jnb     short loc_14064C669
- * 000000014064C659: mov     esi, dword ptr [rsp+98h+Length]
+ * 000000014064C659: mov     esi, [rsp+98h+OutputBufferLength]
  * 000000014064C660: mov     ebx, dword ptr [rsp+98h+NumberOfBytes]
  * 000000014064C667: jmp     short loc_14064C6DB
  * 000000014064C669: mov     ebx, dword ptr [rsp+98h+NumberOfBytes]
- * 000000014064C670: mov     esi, dword ptr [rsp+98h+Length]
+ * 000000014064C670: mov     esi, [rsp+98h+OutputBufferLength]
  * 000000014064C677: test    ebx, ebx
  * 000000014064C679: jnz     short loc_14064C67F
  * 000000014064C67B: test    esi, esi
@@ -628,10 +628,10 @@
  * 000000014064CDF0: mov     rdx, rdi; Src
  * 000000014064CDF3: call    memmove
  * 000000014064CDF8: mov     eax, dword ptr [rsp+98h+Size]
- * 000000014064CDFC: mov     rcx, [rsp+98h+arg_28]
+ * 000000014064CDFC: mov     rcx, [rsp+98h+ReturnLength]
  * 000000014064CE04: mov     [rcx], eax
  * 000000014064CE06: jmp     short loc_14064CE10
- * 000000014064CE08: mov     rcx, [rsp+98h+arg_28]
+ * 000000014064CE08: mov     rcx, [rsp+98h+ReturnLength]
  * 000000014064CE10: cmp     ebx, 0C0000023h
  * 000000014064CE16: jnz     short loc_14064CE28
  * 000000014064CE18: lea     eax, [rsi-0Fh]

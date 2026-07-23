@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpWriteAppStateChangeSummary @ 0x14062A95C
+ * XREFs of EtwpWriteAppStateChangeSummary @ 0x1406A42DC
  * Callers:
- *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
- *     EtwTraceAppStateChange @ 0x1406CDBB8 (EtwTraceAppStateChange.c)
+ *     EtwTraceAppStateChange @ 0x1406A3FC0 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x1406F2A40 (EtwTraceProcess.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
- *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     PsGetProcessServerSilo @ 0x14027DFF0 (PsGetProcessServerSilo.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     PsIsHostSilo @ 0x14035F7D0 (PsIsHostSilo.c)
+ *     _tlgWriteAgg @ 0x1403759E4 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwpWriteAppStateChangeSummary(
@@ -337,7 +337,7 @@ char __fastcall EtwpWriteAppStateChangeSummary(
       v137 = 29LL;
       v71 = 50331648LL;
       v139 = 8LL;
-      LOBYTE(v16) = tlgWriteAgg((__int64)&dword_140C02BB8, (unsigned __int8 *)&dword_14002CB1C, v43, 0x24u, &v73);
+      LOBYTE(v16) = tlgWriteAgg((__int64)&dword_140C02BB8, (unsigned __int8 *)&byte_14002CD10, v43, 0x24u, &v73);
     }
   }
   return v16;

@@ -1,181 +1,246 @@
 /*
- * XREFs of SeQuerySigningPolicyWorker @ 0x140A1C1B8
+ * XREFs of SeQuerySigningPolicyWorker @ 0x1409FA8F8
  * Callers:
- *     SeQuerySigningPolicy @ 0x140A1BB40 (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x1409FA0B0 (SeQuerySigningPolicy.c)
  * Callees:
- *     AppModelPolicy_GetPolicy_Internal @ 0x1404944A8 (AppModelPolicy_GetPolicy_Internal.c)
- *     Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline @ 0x1404F4924 (Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     SepIsLockedDown @ 0x14078E628 (SepIsLockedDown.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     SepIsNgenImage @ 0x140A1C41C (SepIsNgenImage.c)
+ *     AppModelPolicy_GetPolicy_Internal @ 0x14048EF38 (AppModelPolicy_GetPolicy_Internal.c)
+ *     Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline @ 0x1404F2264 (Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_CodeIntegrity_TrustedLaunchPolicy__private_IsEnabledDeviceUsageNoInline @ 0x1406057AC (Feature_CodeIntegrity_TrustedLaunchPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     SepIsLockedDown @ 0x14078E558 (SepIsLockedDown.c)
+ *     SepSetTrustedLaunchSigningLevel @ 0x14078EB5C (SepSetTrustedLaunchSigningLevel.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     SepIsNgenImage @ 0x140A3A5D4 (SepIsNgenImage.c)
  */
 
 __int64 __fastcall SeQuerySigningPolicyWorker(
-        void *a1,
+        PACCESS_TOKEN Token,
         __int64 a2,
         char a3,
         unsigned __int8 a4,
         unsigned __int8 a5,
-        unsigned __int8 *a6,
-        unsigned __int8 *a7,
+        char *a6,
+        char *a7,
         unsigned __int8 *a8)
 {
-  unsigned __int8 v8; // di
-  __int64 v12; // rdx
+  __int64 v10; // r13
   int Policy_Internal; // ecx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  char v16; // r15
-  int v17; // r12d
-  int v18; // ebx
-  bool v20; // zf
-  unsigned __int8 v21; // al
-  char v22; // al
-  char v23; // [rsp+30h] [rbp-20h] BYREF
-  _BYTE v24[3]; // [rsp+31h] [rbp-1Fh] BYREF
+  int IsEnabledDeviceUsageNoInline; // eax
+  __int64 v14; // rdx
+  ULONG Flags; // ebx
+  unsigned __int8 v16; // si
+  int v17; // r14d
+  int Origin_low; // r14d
+  bool v19; // zf
+  unsigned __int8 v20; // cl
+  __int64 v21; // rdx
+  char IsNgenImage; // al
+  unsigned __int8 v23; // cl
+  unsigned __int8 v24; // al
+  int v25; // eax
+  __int64 v26; // rdx
+  char v28; // [rsp+30h] [rbp-20h] BYREF
+  char v29; // [rsp+31h] [rbp-1Fh] BYREF
+  _BYTE v30[2]; // [rsp+32h] [rbp-1Eh] BYREF
   PVOID TokenInformation; // [rsp+34h] [rbp-1Ch] BYREF
-  __int64 v26; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v27; // [rsp+48h] [rbp-8h] BYREF
+  _PS_PKG_CLAIM v32; // [rsp+40h] [rbp-10h] BYREF
+  unsigned __int64 v33; // [rsp+48h] [rbp-8h] BYREF
 
-  v8 = a5;
-  v24[0] = 0;
-  v23 = 0;
-  v26 = 0LL;
+  v30[0] = 0;
+  v29 = 0;
+  v28 = 0;
+  v32 = 0LL;
   HIDWORD(TokenInformation) = 0;
-  v27 = 0LL;
-  Policy_Internal = AppModelPolicy_GetPolicy_Internal((__int64)a1, a2, (int *)&TokenInformation + 1, &v26, &v27);
+  v10 = a2;
+  v33 = 0LL;
+  Policy_Internal = AppModelPolicy_GetPolicy_Internal(Token, a2, (int *)&TokenInformation + 1, &v32, &v33);
   if ( Policy_Internal >= 0 )
   {
+    IsEnabledDeviceUsageNoInline = Feature_CodeIntegrity_TrustedLaunchPolicy__private_IsEnabledDeviceUsageNoInline();
+    Flags = v32.Flags;
+    if ( IsEnabledDeviceUsageNoInline
+      && (v32.Flags & 0x200000) != 0
+      && (!qword_140F04C20 || (int)guard_dispatch_icall_no_overrides(Token, &v28) < 0) )
+    {
+      v28 = 0;
+    }
     v16 = 1;
     if ( (unsigned int)(HIDWORD(TokenInformation) - 3014657) > 1
-      || HIDWORD(TokenInformation) == 3014658 && (unsigned int)BYTE4(v26) - 4 > 1 )
+      || HIDWORD(TokenInformation) == 3014658 && (unsigned int)LOBYTE(v32.Origin) - 4 > 1 )
     {
       v17 = a3 & 1;
+      goto LABEL_54;
     }
-    else
+    v17 = a3 & 1;
+    if ( v17 )
     {
-      v17 = a3 & 1;
-      if ( !v17 )
-      {
-        v18 = BYTE4(v26);
-        if ( !BYTE4(v26) || BYTE4(v26) == 1 )
-        {
-          if ( !(unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() || (v26 & 0x200000) == 0 )
-          {
-            *a6 = a5;
-            goto LABEL_16;
-          }
-          return (unsigned int)-1073741790;
-        }
-        if ( BYTE4(v26) == 2 )
-        {
-          *a6 = 8;
-LABEL_16:
-          *a7 = v8;
-LABEL_17:
-          *a8 = 0;
-          return 0;
-        }
-        if ( BYTE4(v26) == 3 )
-        {
-          v22 = 6;
-          goto LABEL_47;
-        }
-        if ( BYTE4(v26) != 4 && BYTE4(v26) != 5 )
-        {
-          if ( BYTE4(v26) != 6 )
-            return 0;
-          if ( !(unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() || (v26 & 0x200000) == 0 )
-          {
-            v20 = a5 == 2;
-LABEL_45:
-            v22 = !v20 ? 0 : 2;
-LABEL_47:
-            *a6 = v22;
-LABEL_49:
-            *a7 = v22;
-            goto LABEL_17;
-          }
-          v20 = a5 == 2;
-          if ( a5 == 2 )
-            goto LABEL_45;
-          return (unsigned int)-1073741790;
-        }
-        if ( a5 && qword_140F04970 && (int)guard_dispatch_icall_no_overrides(&v23, v12, v14, v15) >= 0 && v23 )
-        {
-          v8 = 3;
-        }
-        else if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline()
-               && (v26 & 0x200000) != 0
-               && !a5 )
-        {
-          if ( v18 == 4 )
-            return (unsigned int)-1073741790;
-LABEL_56:
-          *a6 = v16;
-          goto LABEL_16;
-        }
-LABEL_55:
-        v16 = v8;
-        goto LABEL_56;
-      }
       if ( !a4 )
       {
+        Policy_Internal = 0;
         *a6 = 4;
         *a7 = 4;
         *a8 = 18;
-        return 0;
-      }
-    }
-    if ( a2 && (unsigned __int8)SepIsNgenImage(a2) )
-    {
-      LODWORD(TokenInformation) = 0;
-      Policy_Internal = SeQueryInformationToken(a1, TokenIsAppContainer, &TokenInformation);
-      if ( Policy_Internal < 0 )
         return (unsigned int)Policy_Internal;
-      *a6 = 11;
-      if ( !v17 )
+      }
+LABEL_54:
+      if ( v10 )
       {
-        if ( !(_DWORD)TokenInformation )
+        IsNgenImage = SepIsNgenImage(v10);
+        LODWORD(v10) = 0;
+        if ( IsNgenImage )
         {
-          *a7 = a5;
-          *a8 = a5 >= 2u ? 0x21 : 0;
+          LODWORD(TokenInformation) = 0;
+          Policy_Internal = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
+          if ( Policy_Internal < 0 )
+            return (unsigned int)Policy_Internal;
+          *a6 = 11;
+          if ( v17 )
+          {
+            if ( !a4 )
+            {
+              *a7 = (_DWORD)TokenInformation != 0 ? 6 : 8;
+              *a8 = 33;
+              return (unsigned int)v10;
+            }
+LABEL_67:
+            v24 = a4;
+            if ( !a4 )
+              v24 = 18;
+            *a8 = v24;
+            *a6 = SeProtectedMapping[2 * ((unsigned __int64)v24 >> 4)];
+            *a7 = SeProtectedMapping[2 * ((unsigned __int64)*a8 >> 4) + 1];
+            if ( a5 > (unsigned __int8)*a6 )
+              *a6 = a5;
+            if ( a5 > (unsigned __int8)*a7 )
+              *a7 = a5;
+            return (unsigned int)v10;
+          }
+          if ( !(_DWORD)TokenInformation )
+          {
+            *a7 = a5;
+            *a8 = a5 >= 2u ? 0x21 : 0;
+            return (unsigned int)v10;
+          }
+          Policy_Internal = SepIsLockedDown(a5, v30);
+          if ( Policy_Internal < 0 )
+            return (unsigned int)Policy_Internal;
+          if ( v30[0] )
+            v23 = 6;
+          else
+            v23 = a5 != 2 ? 0 : 2;
+          goto LABEL_82;
+        }
+      }
+      if ( v17 )
+        goto LABEL_67;
+      if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() )
+      {
+        v25 = Feature_CodeIntegrity_TrustedLaunchPolicy__private_IsEnabledDeviceUsageNoInline();
+        v23 = a5;
+        if ( v25 )
+        {
+          if ( (Flags & 0x200000) != 0 )
+          {
+            LOBYTE(v26) = v28;
+            SepSetTrustedLaunchSigningLevel(a5, v26, a6, a7);
+LABEL_83:
+            *a8 = v10;
+            return (unsigned int)v10;
+          }
+        }
+        else if ( (Flags & 0x200000) != 0 && !a5 )
+        {
+          *a6 = 1;
+          *a7 = v10;
+          goto LABEL_83;
+        }
+      }
+      else
+      {
+        v23 = a5;
+      }
+      *a6 = v23;
+LABEL_82:
+      *a7 = v23;
+      goto LABEL_83;
+    }
+    Origin_low = LOBYTE(v32.Origin);
+    if ( !LOBYTE(v32.Origin) || LOBYTE(v32.Origin) == 1 )
+    {
+      if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() && (Flags & 0x200000) != 0 )
+        return (unsigned int)-1073741790;
+      v20 = a5;
+    }
+    else
+    {
+      if ( LOBYTE(v32.Origin) == 2 )
+      {
+        *a6 = 8;
+        *a7 = a5;
+        goto LABEL_51;
+      }
+      if ( LOBYTE(v32.Origin) != 3 )
+      {
+        if ( LOBYTE(v32.Origin) != 4 && LOBYTE(v32.Origin) != 5 )
+        {
+          if ( LOBYTE(v32.Origin) != 6 )
+            return 0;
+          if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() && (Flags & 0x200000) != 0 )
+          {
+            v19 = a5 == 2;
+            if ( a5 != 2 )
+              return (unsigned int)-1073741790;
+          }
+          else
+          {
+            v19 = a5 == 2;
+          }
+          v20 = !v19 ? 0 : 2;
+          goto LABEL_50;
+        }
+        if ( a5 && qword_140F04C10 && (int)guard_dispatch_icall_no_overrides(&v29, v14) >= 0 && v29 )
+        {
+          *a6 = 3;
+          *a7 = 3;
+LABEL_51:
+          *a8 = 0;
           return 0;
         }
-        Policy_Internal = SepIsLockedDown(a5, v24);
-        if ( Policy_Internal < 0 )
-          return (unsigned int)Policy_Internal;
-        if ( v24[0] )
-          v22 = 6;
-        else
-          v22 = a5 != 2 ? 0 : 2;
-        goto LABEL_49;
+        if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() )
+        {
+          if ( !(unsigned int)Feature_CodeIntegrity_TrustedLaunchPolicy__private_IsEnabledDeviceUsageNoInline() )
+          {
+            if ( (Flags & 0x200000) == 0 || a5 )
+            {
+              v16 = a5;
+            }
+            else if ( Origin_low == 4 )
+            {
+              return (unsigned int)-1073741790;
+            }
+            *a6 = v16;
+            goto LABEL_44;
+          }
+          if ( (Flags & 0x200000) != 0 )
+          {
+            if ( Origin_low == 4 )
+              return (unsigned int)-1073741790;
+            LOBYTE(v21) = v28;
+            SepSetTrustedLaunchSigningLevel(a5, v21, a6, a7);
+            goto LABEL_51;
+          }
+        }
+        *a6 = a5;
+LABEL_44:
+        *a7 = a5;
+        goto LABEL_51;
       }
-      if ( !a4 )
-      {
-        *a7 = (_DWORD)TokenInformation != 0 ? 6 : 8;
-        *a8 = 33;
-        return 0;
-      }
+      v20 = 6;
     }
-    else if ( !v17 )
-    {
-      if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() && (v26 & 0x200000) != 0 && !a5 )
-        goto LABEL_56;
-      goto LABEL_55;
-    }
-    v21 = a4;
-    if ( !a4 )
-      v21 = 18;
-    *a8 = v21;
-    *a6 = SeProtectedMapping[2 * ((unsigned __int64)v21 >> 4)];
-    *a7 = SeProtectedMapping[2 * ((unsigned __int64)*a8 >> 4) + 1];
-    if ( a5 > *a6 )
-      *a6 = a5;
-    if ( a5 > *a7 )
-      *a7 = a5;
-    return 0;
+LABEL_50:
+    *a6 = v20;
+    *a7 = v20;
+    goto LABEL_51;
   }
   return (unsigned int)Policy_Internal;
 }

@@ -1,10 +1,10 @@
 /*
  * XREFs of KeWriteProtectPAT @ 0x140A69D80
  * Callers:
- *     HaliAcpiSleep @ 0x140390D20 (HaliAcpiSleep.c)
+ *     sub_140390D20 @ 0x140390D20 (sub_140390D20.c)
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x140420AD0 (KiSetUserTbFlushPending.c)
+ *     sub_140420AD0 @ 0x140420AD0 (sub_140420AD0.c)
  */
 
 void __fastcall KeWriteProtectPAT(char a1)
@@ -16,7 +16,7 @@ void __fastcall KeWriteProtectPAT(char a1)
   unsigned __int64 v6; // rax
   unsigned __int64 v7; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( !VslVsmEnabled )
+  if ( !byte_140D06888 )
   {
     v2 = 8LL;
     v7 = __readmsr(0x277u);
@@ -44,12 +44,12 @@ void __fastcall KeWriteProtectPAT(char a1)
       while ( v2 );
     }
     __writemsr(0x277u, v7);
-    if ( KiFlushPcid )
+    if ( byte_140D0688A )
     {
       v4 = __readcr3();
       __writecr3(v4);
-      if ( !KeGetCurrentThread()->ApcState.Process->AddressPolicy )
-        KiSetUserTbFlushPending();
+      if ( !*(_BYTE *)(*((_QWORD *)KeGetCurrentThread() + 23) + 912LL) )
+        sub_140420AD0();
     }
     else
     {

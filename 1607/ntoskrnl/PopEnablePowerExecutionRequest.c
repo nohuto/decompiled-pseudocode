@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEnablePowerExecutionRequest @ 0x14051E148
+ * XREFs of PopEnablePowerExecutionRequest @ 0x1405011B0
  * Callers:
- *     PopExecutionRequiredPowerRequest @ 0x140520970 (PopExecutionRequiredPowerRequest.c)
- *     PopEnableExecutionRequiredPowerRequests @ 0x14057F32C (PopEnableExecutionRequiredPowerRequests.c)
- *     PopEnableSystemToExecutionRequiredPowerRequests @ 0x14066A9F4 (PopEnableSystemToExecutionRequiredPowerRequests.c)
+ *     PopExecutionRequiredPowerRequest @ 0x1405039D8 (PopExecutionRequiredPowerRequest.c)
+ *     PopEnableExecutionRequiredPowerRequests @ 0x14057F7D8 (PopEnableExecutionRequiredPowerRequests.c)
+ *     PopEnableSystemToExecutionRequiredPowerRequests @ 0x14066AAD8 (PopEnableSystemToExecutionRequiredPowerRequests.c)
  * Callees:
- *     PsChargeProcessWakeCounter @ 0x14051E1B0 (PsChargeProcessWakeCounter.c)
+ *     PsChargeProcessWakeCounter @ 0x140501218 (PsChargeProcessWakeCounter.c)
  */
 
 __int64 __fastcall PopEnablePowerExecutionRequest(__int64 a1, char a2)

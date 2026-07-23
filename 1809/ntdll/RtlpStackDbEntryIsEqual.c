@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpStackDbEntryIsEqual @ 0x1801162DC
+ * XREFs of RtlpStackDbEntryIsEqual @ 0x180116278
  * Callers:
- *     RtlpStackDbStackComparitor @ 0x180116C68 (RtlpStackDbStackComparitor.c)
+ *     RtlpStackDbStackComparitor @ 0x180116C04 (RtlpStackDbStackComparitor.c)
  * Callees:
- *     memcmp @ 0x180093CB0 (memcmp.c)
+ *     memcmp @ 0x180093CC0 (memcmp.c)
  */
 
 __int64 __fastcall RtlpStackDbEntryIsEqual(__int64 a1, __int64 a2)

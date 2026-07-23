@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpGetTagName @ 0x1800EA238
+ * XREFs of RtlpGetTagName @ 0x1800EA2F8
  * Callers:
- *     RtlDebugAllocateHeap @ 0x1800917D4 (RtlDebugAllocateHeap.c)
- *     RtlDebugFreeHeap @ 0x180091B60 (RtlDebugFreeHeap.c)
+ *     RtlDebugAllocateHeap @ 0x1800917C4 (RtlDebugAllocateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180091B50 (RtlDebugFreeHeap.c)
  *     RtlDebugReAllocateHeap @ 0x1800FAA84 (RtlDebugReAllocateHeap.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1800CF660 (RtlStringCbPrintfW.c)

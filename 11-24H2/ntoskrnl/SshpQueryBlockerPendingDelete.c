@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpQueryBlockerPendingDelete @ 0x14048F5A0
+ * XREFs of SshpQueryBlockerPendingDelete @ 0x1404897B0
  * Callers:
- *     SshpPurgeBlockersWorker @ 0x140A41310 (SshpPurgeBlockersWorker.c)
+ *     SshpPurgeBlockersWorker @ 0x140A36BF0 (SshpPurgeBlockersWorker.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 bool __fastcall SshpQueryBlockerPendingDelete(PKSPIN_LOCK SpinLock)

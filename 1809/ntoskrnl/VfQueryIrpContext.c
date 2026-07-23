@@ -1,10 +1,10 @@
 /*
- * XREFs of VfQueryIrpContext @ 0x140309CE0
+ * XREFs of VfQueryIrpContext @ 0x140309ED0
  * Callers:
  *     <none>
  * Callees:
- *     ViIsContextIdValid @ 0x140927D94 (ViIsContextIdValid.c)
- *     ViQueryObjectContext @ 0x140927E00 (ViQueryObjectContext.c)
+ *     ViIsContextIdValid @ 0x140928D94 (ViIsContextIdValid.c)
+ *     ViQueryObjectContext @ 0x140928E00 (ViQueryObjectContext.c)
  */
 
 __int64 __fastcall VfQueryIrpContext(__int64 a1, __int64 a2)

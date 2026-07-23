@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprInitializeMappingReserve @ 0x140966274
+ * XREFs of PnprInitializeMappingReserve @ 0x140966474
  * Callers:
- *     PnprAllocateMappingReserves @ 0x1409658E4 (PnprAllocateMappingReserves.c)
+ *     PnprAllocateMappingReserves @ 0x140965AE4 (PnprAllocateMappingReserves.c)
  * Callees:
- *     IoAllocateMdl @ 0x14022E2A0 (IoAllocateMdl.c)
- *     MmAllocateMappingAddressEx @ 0x14086C480 (MmAllocateMappingAddressEx.c)
- *     MmFreeMappingAddress @ 0x14086D770 (MmFreeMappingAddress.c)
+ *     IoAllocateMdl @ 0x14022E3B0 (IoAllocateMdl.c)
+ *     MmAllocateMappingAddressEx @ 0x14086C6C0 (MmAllocateMappingAddressEx.c)
+ *     MmFreeMappingAddress @ 0x14086D9B0 (MmFreeMappingAddress.c)
  */
 
 __int64 __fastcall PnprInitializeMappingReserve(__int16 a1, __int64 a2)

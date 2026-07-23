@@ -1,7 +1,7 @@
 /*
- * XREFs of IopUnmaskInterrupt @ 0x14012556C
+ * XREFs of IopUnmaskInterrupt @ 0x140125ADC
  * Callers:
- *     IoReportInterruptActive @ 0x140125540 (IoReportInterruptActive.c)
+ *     IoReportInterruptActive @ 0x140125AB0 (IoReportInterruptActive.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoFreeErrorLogEntry @ 0x1405CAE50
+ * XREFs of IoFreeErrorLogEntry @ 0x1405CD720
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoFreeErrorLogEntry(PVOID ElEntry)
@@ -20,6 +20,6 @@ void __stdcall IoFreeErrorLogEntry(PVOID ElEntry)
   v3 = (void *)*((_QWORD *)v1 + 4);
   if ( v3 )
     ObfDereferenceObjectWithTag(v3, 0x746C6644u);
-  _InterlockedAdd((volatile signed __int32 *)&IopSessionNotificationLock.QuantumTarget, -*((unsigned __int16 *)v1 + 1));
+  _InterlockedAdd(&IopErrorLogAllocation, -*((unsigned __int16 *)v1 + 1));
   ExFreePoolWithTag(v1, 0);
 }

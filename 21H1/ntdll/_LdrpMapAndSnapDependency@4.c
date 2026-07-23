@@ -17,10 +17,10 @@
  *     _LdrpShouldModuleImportBeRedirected@4 @ 0x4B2E8DE5 (_LdrpShouldModuleImportBeRedirected@4.c)
  */
 
-int *__thiscall LdrpMapAndSnapDependency(int *this)
+void __thiscall LdrpMapAndSnapDependency(_DWORD *this)
 {
-  int *v1; // esi
-  int DllActivationContext; // ebx
+  _DWORD *v1; // esi
+  NTSTATUS DllActivationContext; // ebx
   int ImportDescriptorForSnap; // eax
   int v4; // esi
   _DWORD *v5; // ecx
@@ -28,7 +28,7 @@ int *__thiscall LdrpMapAndSnapDependency(int *this)
   int v7; // edx
   _DWORD *v8; // edi
   bool v9; // zf
-  int *result; // eax
+  PVOID Heap; // eax
   int v11; // eax
   int v12; // edx
   int v13; // esi
@@ -36,17 +36,19 @@ int *__thiscall LdrpMapAndSnapDependency(int *this)
   int v15; // ecx
   char *v16; // eax
   unsigned int v17; // eax
-  int v19; // [esp+10h] [ebp-20h]
-  int v20; // [esp+14h] [ebp-1Ch]
-  int v21; // [esp+18h] [ebp-18h]
-  int v22; // [esp+1Ch] [ebp-14h] BYREF
-  _DWORD *v23; // [esp+20h] [ebp-10h]
-  int v24; // [esp+24h] [ebp-Ch]
-  STRING SourceString; // [esp+28h] [ebp-8h] BYREF
+  int v18; // eax
+  SIZE_T v19; // [esp-4h] [ebp-34h]
+  int v21; // [esp+10h] [ebp-20h]
+  int v22; // [esp+14h] [ebp-1Ch]
+  NTSTATUS v23; // [esp+18h] [ebp-18h]
+  PVOID BaseAddress; // [esp+1Ch] [ebp-14h] BYREF
+  _DWORD *v25; // [esp+20h] [ebp-10h]
+  int v26; // [esp+24h] [ebp-Ch]
+  ANSI_STRING SourceString; // [esp+28h] [ebp-8h] BYREF
   int savedregs; // [esp+30h] [ebp+0h] BYREF
 
   v1 = this;
-  v19 = this[8];
+  v21 = this[8];
   if ( (this[4] & 0x800000) == 0 )
   {
     DllActivationContext = LdrpFindDllActivationContext(this[8]);
@@ -54,17 +56,17 @@ int *__thiscall LdrpMapAndSnapDependency(int *this)
       goto LABEL_39;
   }
   DllActivationContext = LdrpPrepareImportAddressTableForSnap(v1);
-  v21 = DllActivationContext;
+  v23 = DllActivationContext;
   if ( DllActivationContext < 0 )
     goto LABEL_39;
   if ( !v1[15] )
     goto LABEL_31;
-  if ( (unsigned __int8)LdrpShouldModuleImportBeRedirected(v19) )
+  if ( (unsigned __int8)LdrpShouldModuleImportBeRedirected(v21) )
     v1[4] |= 0x2000000u;
   ImportDescriptorForSnap = LdrpGetImportDescriptorForSnap(v1);
   v4 = 0;
-  v24 = ImportDescriptorForSnap;
-  v23 = (_DWORD *)(ImportDescriptorForSnap + 12);
+  v26 = ImportDescriptorForSnap;
+  v25 = (_DWORD *)(ImportDescriptorForSnap + 12);
   if ( !*(_DWORD *)(ImportDescriptorForSnap + 12) )
     goto LABEL_38;
   v5 = (_DWORD *)(ImportDescriptorForSnap + 12);
@@ -75,54 +77,49 @@ int *__thiscall LdrpMapAndSnapDependency(int *this)
     if ( !v7 )
       break;
     ++v4;
-    if ( *(_DWORD *)(v7 + *(_DWORD *)(v19 + 24)) )
+    if ( *(_DWORD *)(v7 + *(_DWORD *)(v21 + 24)) )
       ++v6;
     v5 += 5;
   }
   while ( *v5 );
-  v8 = v23;
+  v8 = v25;
   v9 = v6 == 0;
-  v20 = v6;
-  DllActivationContext = v21;
+  v22 = v6;
+  DllActivationContext = v23;
   if ( v9 )
   {
 LABEL_38:
     v1 = this;
 LABEL_31:
-    result = *(int **)(v19 + 80);
+    v18 = *(_DWORD *)(v21 + 80);
     if ( v1[15] )
     {
-      result[8] = 4;
+      *(_DWORD *)(v18 + 32) = 4;
       if ( v1[7] )
-      {
-        result = (int *)LdrpQueueWork(v1);
-      }
+        LdrpQueueWork(v1);
       else
-      {
-        result = (int *)LdrpSnapModule(v1, (int)&savedregs);
-        DllActivationContext = (int)result;
-      }
+        DllActivationContext = LdrpSnapModule(v1, (int)&savedregs);
     }
     else
     {
-      result[8] = 5;
+      *(_DWORD *)(v18 + 32) = 5;
     }
     goto LABEL_34;
   }
-  result = (int *)RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 4 * v4);
-  this[12] = (int)result;
-  if ( result )
+  LODWORD(v19) = 4 * v4;
+  Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, v19);
+  this[12] = Heap;
+  if ( Heap )
   {
-    v11 = v24;
+    v11 = v26;
     this[13] = v4;
     v1 = this;
-    v22 = 0;
+    BaseAddress = 0;
     this[19] = v11;
-    result = (int *)(v20 + 1);
-    this[14] = v20 + 1;
+    this[14] = v22 + 1;
     if ( *v8 )
     {
-      v12 = v19;
+      v12 = v21;
       v13 = 0;
       do
       {
@@ -147,25 +144,24 @@ LABEL_31:
             SourceString.Length = v17;
             SourceString.MaximumLength = v17 + 1;
           }
-          DllActivationContext = LdrpLoadDependentModule(&SourceString, v19, 0, v13 + this[12], (int)&v22);
+          DllActivationContext = LdrpLoadDependentModule(&SourceString, v21, 0, v13 + this[12], (int)&BaseAddress);
           if ( DllActivationContext < 0 )
             break;
-          v12 = v19;
+          v12 = v21;
         }
         v8 += 5;
         v13 += 4;
       }
       while ( *v8 );
-      result = (int *)v22;
-      if ( v22 )
-        result = (int *)RtlFreeHeap(LdrpHeap, 0, v22);
+      if ( BaseAddress )
+        RtlFreeHeap(LdrpHeap, 0, BaseAddress);
       v1 = this;
     }
     if ( DllActivationContext >= 0 )
     {
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-      v20 = --v1[14];
-      result = (int *)RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+      v22 = --v1[14];
+      RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
     }
   }
   else
@@ -173,14 +169,10 @@ LABEL_31:
     DllActivationContext = -1073741801;
     v1 = this;
   }
-  if ( !v20 )
+  if ( !v22 )
     goto LABEL_31;
 LABEL_34:
   if ( DllActivationContext < 0 )
-  {
 LABEL_39:
-    result = (int *)v1[6];
-    *result = DllActivationContext;
-  }
-  return result;
+    *(_DWORD *)v1[6] = DllActivationContext;
 }

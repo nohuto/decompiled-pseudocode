@@ -10,7 +10,7 @@ __int64 __fastcall RtlGetThreadLangIdByIndex(int a1, unsigned int a2, _DWORD *a3
 {
   __int64 v5; // r9
   struct _KTHREAD *CurrentThread; // rcx
-  _QWORD *Teb; // rcx
+  __int64 v7; // rcx
   unsigned __int64 v8; // rcx
   __int64 v9; // rdx
   unsigned __int64 v10; // r9
@@ -26,11 +26,11 @@ __int64 __fastcall RtlGetThreadLangIdByIndex(int a1, unsigned int a2, _DWORD *a3
   if ( a1 || !a3 )
     return 3221225485LL;
   CurrentThread = KeGetCurrentThread();
-  if ( (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->ApcStateIndex == 1 )
-    Teb = 0LL;
+  if ( (*((_DWORD *)CurrentThread + 29) & 0x400) != 0 || *((_BYTE *)CurrentThread + 586) == 1 )
+    v7 = 0LL;
   else
-    Teb = CurrentThread->Teb;
-  v8 = Teb[762];
+    v7 = *((_QWORD *)CurrentThread + 30);
+  v8 = *(_QWORD *)(v7 + 6096);
   if ( v8 )
   {
     if ( (v8 & 3) != 0 )

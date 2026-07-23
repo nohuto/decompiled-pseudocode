@@ -25,9 +25,9 @@ __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v14; // zf
-  LARGE_INTEGER v15; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp+10h] BYREF
 
-  v15.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v3 = (LARGE_INTEGER *)PopIdleWakeContext;
   v4 = v2;
@@ -40,13 +40,13 @@ __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
       if ( ((v5 >> 1) & 1) != v6 )
       {
         *(_DWORD *)PopIdleWakeContext = (2 * v6) | v5 & 0xFFFFFFFD;
-        RtlGetInterruptTimePrecise(&v15);
-        v7 = v15;
+        RtlGetInterruptTimePrecise(&PerformanceCounter);
+        v7 = PerformanceCounter;
         LowPart = v3->LowPart;
-        v9 = v15.QuadPart - v3[1].QuadPart;
+        v9 = PerformanceCounter.QuadPart - v3[1].QuadPart;
         if ( (v3->LowPart & 8) == 0 )
         {
-          v10 = v15.QuadPart - v3[23].QuadPart;
+          v10 = PerformanceCounter.QuadPart - v3[23].QuadPart;
           if ( v10 > PopIdleWakeSourceSpuriousThresholdQpc )
             v3->LowPart = LowPart | 4;
           PopIdleWakeInsertTimeInterval(

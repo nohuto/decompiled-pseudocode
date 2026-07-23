@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x14024FA80
+ * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x1402513E0
  * Callers:
- *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x14047BB44 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
- *     KeInvalidateRangeAllCaches @ 0x1404B8E20 (KeInvalidateRangeAllCaches.c)
- *     MiFlushCacheMdl @ 0x140516770 (MiFlushCacheMdl.c)
- *     IvtInitializeIdentityMappings @ 0x1405A6C50 (IvtInitializeIdentityMappings.c)
+ *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x1404754B4 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
+ *     KeInvalidateRangeAllCaches @ 0x1404B2650 (KeInvalidateRangeAllCaches.c)
+ *     MiFlushCacheMdl @ 0x1405101E0 (MiFlushCacheMdl.c)
+ *     IvtInitializeIdentityMappings @ 0x1405A9460 (IvtInitializeIdentityMappings.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x14024FCE0 (KeInvalidateAllCaches.c)
+ *     KeInvalidateAllCaches @ 0x140251640 (KeInvalidateAllCaches.c)
  */
 
 char __fastcall KeInvalidateRangeAllCachesNoIpi(__int64 a1, unsigned int a2)

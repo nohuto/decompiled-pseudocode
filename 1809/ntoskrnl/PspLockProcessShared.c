@@ -1,7 +1,7 @@
 /*
- * XREFs of PspLockProcessShared @ 0x140160F7C
+ * XREFs of PspLockProcessShared @ 0x14016107C
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  */

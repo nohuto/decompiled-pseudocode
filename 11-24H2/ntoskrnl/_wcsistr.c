@@ -1,7 +1,7 @@
 /*
- * XREFs of _wcsistr @ 0x140A2B8E4
+ * XREFs of _wcsistr @ 0x140A1EB84
  * Callers:
- *     SubstringMatch @ 0x140A2B87C (SubstringMatch.c)
+ *     SubstringMatch @ 0x140A1EB1C (SubstringMatch.c)
  * Callees:
  *     <none>
  */

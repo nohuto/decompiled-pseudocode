@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsPfnOnSlabStandbyList @ 0x14048DA2C
+ * XREFs of MiIsPfnOnSlabStandbyList @ 0x14048756C
  * Callers:
- *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C007C4 (MiAddPostHibernateZeroPagesToBitmap.c)
+ *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C069D4 (MiAddPostHibernateZeroPagesToBitmap.c)
  * Callees:
  *     <none>
  */

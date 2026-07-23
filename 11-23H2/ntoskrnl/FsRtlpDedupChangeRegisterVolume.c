@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpDedupChangeRegisterVolume @ 0x14093E910
+ * XREFs of FsRtlpDedupChangeRegisterVolume @ 0x14093EB10
  * Callers:
- *     FsRtlDedupChangeInit @ 0x14093E600 (FsRtlDedupChangeInit.c)
+ *     FsRtlDedupChangeInit @ 0x14093E800 (FsRtlDedupChangeInit.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     McTemplateK0jq_EtwWriteTransfer @ 0x14053EFF4 (McTemplateK0jq_EtwWriteTransfer.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x14053F6B4 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -21,7 +21,7 @@ __int64 __fastcall FsRtlpDedupChangeRegisterVolume(__int64 a1, const GUID *a2, u
   unsigned int v11; // edx
   __int128 v12; // xmm0
   __int64 *v13; // rcx
-  __int64 v15; // [rsp+20h] [rbp-28h]
+  void *ExplicitScope; // [rsp+20h] [rbp-28h]
 
   ExAcquireResourceExclusiveLite(&Resource, 1u);
   for ( i = FsRtlDedupChangeData; (__int64 *)i != &FsRtlDedupChangeData; i = *(_QWORD *)i )
@@ -83,15 +83,15 @@ LABEL_22:
   {
     if ( (Microsoft_Windows_Dedup_ChangeEnableBits & 1) != 0 )
     {
-      LODWORD(v15) = *a3;
+      LODWORD(ExplicitScope) = *a3;
       McTemplateK0jq_EtwWriteTransfer(
         MS_Dedup_Change_Provider_Context,
         (const EVENT_DESCRIPTOR *)TieredStorage_NewVolume,
         a2,
         a1,
-        v15);
+        (__int64)ExplicitScope);
     }
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v9;
 }

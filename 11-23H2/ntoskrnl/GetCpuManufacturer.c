@@ -1,7 +1,7 @@
 /*
- * XREFs of GetCpuManufacturer @ 0x1406157B8
+ * XREFs of GetCpuManufacturer @ 0x140615D08
  * Callers:
- *     MicrocodeSetProcMcLog @ 0x1406156BC (MicrocodeSetProcMcLog.c)
+ *     MicrocodeSetProcMcLog @ 0x140615C0C (MicrocodeSetProcMcLog.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpVEPerformOpenAccessCheck @ 0x1405D94F8
+ * XREFs of CmpVEPerformOpenAccessCheck @ 0x1405EA280
  * Callers:
- *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1406DBF40 (CmpCheckOpenAccessOnKeyBody.c)
  * Callees:
- *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
- *     CmpCheckAdminAccess @ 0x1405D9B08 (CmpCheckAdminAccess.c)
- *     CmpIsSystemEntity @ 0x140656AF0 (CmpIsSystemEntity.c)
- *     RtlMapGenericMask @ 0x140702EA0 (RtlMapGenericMask.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405EA3A4 (CmpCheckKeyBodyAccess.c)
+ *     CmpCheckAdminAccess @ 0x1405EA888 (CmpCheckAdminAccess.c)
+ *     CmpIsSystemEntity @ 0x14064B910 (CmpIsSystemEntity.c)
+ *     RtlMapGenericMask @ 0x14071A280 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall CmpVEPerformOpenAccessCheck(
@@ -27,7 +27,7 @@ __int64 __fastcall CmpVEPerformOpenAccessCheck(
     if ( (v8 & 0x10) != 0 )
     {
       LOBYTE(v8) = KeGetCurrentThread()->PreviousMode;
-      if ( !(unsigned __int8)CmpIsSystemEntity(v8, 0LL, a5 + 16)
+      if ( !(unsigned __int8)CmpIsSystemEntity(v8)
         && (int)CmpCheckAdminAccess(
                   AccessState->RemainingDesiredAccess,
                   (PSECURITY_DESCRIPTOR)(*(_QWORD *)(v6 + 88) + 32LL)) >= 0 )

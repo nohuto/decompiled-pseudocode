@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOp_Mov @ 0x1403FB970
+ * XREFs of KiOp_Mov @ 0x1403F54D0
  * Callers:
- *     KiPreprocessFault @ 0x1403FB220 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x1403F4D80 (KiPreprocessFault.c)
  * Callees:
- *     KiOpPciConfigSpaceAccessCommon @ 0x1405C5508 (KiOpPciConfigSpaceAccessCommon.c)
+ *     KiOpPciConfigSpaceAccessCommon @ 0x1405C2C3C (KiOpPciConfigSpaceAccessCommon.c)
  */
 
 __int64 __fastcall KiOp_Mov(__int64 a1)

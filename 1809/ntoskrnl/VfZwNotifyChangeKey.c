@@ -1,12 +1,12 @@
 /*
- * XREFs of VfZwNotifyChangeKey @ 0x140947CC0
+ * XREFs of VfZwNotifyChangeKey @ 0x140948CC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
- *     ViZwCheckVirtualAddress @ 0x14094A784 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x14094A7CC (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
+ *     ViZwCheckVirtualAddress @ 0x14094B784 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x14094B7CC (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwNotifyChangeKey(

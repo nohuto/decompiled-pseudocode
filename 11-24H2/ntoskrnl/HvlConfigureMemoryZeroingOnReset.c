@@ -1,19 +1,16 @@
 /*
- * XREFs of HvlConfigureMemoryZeroingOnReset @ 0x1405823F0
+ * XREFs of HvlConfigureMemoryZeroingOnReset @ 0x14057F770
  * Callers:
- *     HvlPhase1Initialize @ 0x140582A60 (HvlPhase1Initialize.c)
- *     PopShutdownSystem @ 0x140B60044 (PopShutdownSystem.c)
- *     PopHiberCheckResume @ 0x140B6E970 (PopHiberCheckResume.c)
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     HvlPhase1Initialize @ 0x14057FDE0 (HvlPhase1Initialize.c)
+ *     PopShutdownSystem @ 0x140B62104 (PopShutdownSystem.c)
+ *     PopHiberCheckResume @ 0x140B709E0 (PopHiberCheckResume.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     HvlpSetRegister64 @ 0x1404D3CC0 (HvlpSetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1404CCED0 (HvlpSetRegister64.c)
  */
 
-__int64 __fastcall HvlConfigureMemoryZeroingOnReset(char a1)
+void __fastcall HvlConfigureMemoryZeroingOnReset(char a1)
 {
-  __int64 result; // rax
-
   if ( (HvlpFlags & 0x40000) != 0 )
-    return HvlpSetRegister64(624, a1 != 0);
-  return result;
+    HvlpSetRegister64(624, a1 != 0);
 }

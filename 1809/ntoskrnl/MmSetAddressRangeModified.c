@@ -1,9 +1,9 @@
 /*
- * XREFs of MmSetAddressRangeModified @ 0x140134300
+ * XREFs of MmSetAddressRangeModified @ 0x1401343D0
  * Callers:
  *     <none>
  * Callees:
- *     MmSetAddressRangeModifiedEx @ 0x140086780 (MmSetAddressRangeModifiedEx.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140086770 (MmSetAddressRangeModifiedEx.c)
  */
 
 BOOLEAN __stdcall MmSetAddressRangeModified(PVOID Address, SIZE_T Length)

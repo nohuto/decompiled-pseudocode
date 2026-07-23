@@ -26,7 +26,7 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1, __int64 a2, __int64 a3, __int64
   int v19; // eax
   int v20; // eax
   int v21; // eax
-  unsigned __int64 v22; // [rsp+48h] [rbp-C0h] BYREF
+  unsigned __int64 Buffer; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v23; // [rsp+58h] [rbp-B0h] BYREF
   __int64 v24; // [rsp+60h] [rbp-A8h]
   int v25; // [rsp+68h] [rbp-A0h]
@@ -106,7 +106,7 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1, __int64 a2, __int64 a3, __int64
   __int64 v99; // [rsp+240h] [rbp+138h]
   char v100; // [rsp+248h] [rbp+140h]
 
-  v22 = 0LL;
+  Buffer = 0LL;
   v23 = 0LL;
   v24 = 0LL;
   LOBYTE(v25) = 0;
@@ -239,8 +239,8 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1, __int64 a2, __int64 a3, __int64
     ExSoftRebootFlags = v21;
 LABEL_22:
     _InterlockedExchange(&ExSoftRebootState, v6);
-    v22 = __PAIR64__(v6, v10);
-    ZwUpdateWnfStateData((__int64)&WNF_KSR_STATE_TRANSITION, (__int64)&v22);
+    Buffer = __PAIR64__(v6, v10);
+    ZwUpdateWnfStateData(&WNF_KSR_STATE_TRANSITION, &Buffer, 8u, 0LL, 0LL, 0, 0);
     return (unsigned int)v15;
   }
   return 3221225485LL;

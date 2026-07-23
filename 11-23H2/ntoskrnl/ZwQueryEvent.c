@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryEvent @ 0x14041B820
+ * XREFs of ZwQueryEvent @ 0x14041BBB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryEvent(
+        HANDLE EventHandle,
+        EVENT_INFORMATION_CLASS EventInformationClass,
+        PVOID EventInformation,
+        ULONG EventInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(EventHandle);
 }

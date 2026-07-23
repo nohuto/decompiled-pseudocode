@@ -14,7 +14,7 @@
  *     MmFreeSecureKernelPages @ 0x140657F1C (MmFreeSecureKernelPages.c)
  */
 
-__int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 a3)
+void __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 a3)
 {
   KIRQL v5; // si
   _DWORD *v6; // rbx
@@ -24,11 +24,11 @@ __int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 
   int v10; // eax
   bool v11; // zf
   struct _MDL MemoryDescriptorList; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v14; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v13; // [rsp+60h] [rbp-10h] BYREF
 
   MemoryDescriptorList.Next = 0LL;
   MemoryDescriptorList.ByteOffset = 0;
-  v14 = a3;
+  v13 = a3;
   memset(&MemoryDescriptorList.MdlFlags + 1, 0, 28);
   v5 = 0;
   *(_DWORD *)&MemoryDescriptorList.Size = 131128;
@@ -50,10 +50,10 @@ __int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 
   {
     MmUnmapReservedMapping(v6, 0x466D7356u, &MemoryDescriptorList);
     KxReleaseSpinLock((volatile signed __int64 *)&PspIumFreeMappingLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -71,7 +71,7 @@ __int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 
     MmUnmapLockedPages(v6, &MemoryDescriptorList);
   }
   if ( a1 )
-    return PspIumFreePartitionPages(a1, 1, (__int64)&v14);
+    PspIumFreePartitionPages(a1, 1, (__int64)&v13);
   else
-    return MmFreeSecureKernelPages(&MemoryDescriptorList, 0LL);
+    MmFreeSecureKernelPages(&MemoryDescriptorList, 0LL);
 }

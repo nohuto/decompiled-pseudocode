@@ -1,9 +1,9 @@
 /*
- * XREFs of PopThermalIrpComplete @ 0x14014B840
+ * XREFs of PopThermalIrpComplete @ 0x14014BDB0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 __int64 __fastcall PopThermalIrpComplete(__int64 a1, __int64 a2, struct _WORK_QUEUE_ITEM *a3)

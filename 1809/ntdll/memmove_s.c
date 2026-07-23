@@ -1,9 +1,9 @@
 /*
- * XREFs of memmove_s @ 0x18009B160
+ * XREFs of memmove_s @ 0x18009B170
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 

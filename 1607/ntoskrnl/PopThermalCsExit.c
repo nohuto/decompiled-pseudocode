@@ -1,10 +1,10 @@
 /*
- * XREFs of PopThermalCsExit @ 0x1402071A4
+ * XREFs of PopThermalCsExit @ 0x140206FD0
  * Callers:
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     PopThermalStandbyEndTracking @ 0x140124C80 (PopThermalStandbyEndTracking.c)
- *     PopThermalStandbyNotify @ 0x1402071F0 (PopThermalStandbyNotify.c)
+ *     PopThermalStandbyEndTracking @ 0x1401251F0 (PopThermalStandbyEndTracking.c)
+ *     PopThermalStandbyNotify @ 0x14020701C (PopThermalStandbyNotify.c)
  */
 
 __int64 __fastcall PopThermalCsExit(__int64 a1, __int64 a2, __int64 a3)
@@ -14,7 +14,7 @@ __int64 __fastcall PopThermalCsExit(__int64 a1, __int64 a2, __int64 a3)
 
   result = PopThermalStandbyEndTracking(1LL, a2, a3);
   LOBYTE(PopSystemThermalInfo) = 1;
-  if ( dword_140302E04 )
+  if ( dword_140302E64 )
   {
     LOBYTE(v4) = 1;
     result = PopThermalStandbyNotify(v4);

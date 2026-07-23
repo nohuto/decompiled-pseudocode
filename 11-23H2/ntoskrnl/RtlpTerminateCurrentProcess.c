@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpTerminateCurrentProcess @ 0x1409BD508
+ * XREFs of RtlpTerminateCurrentProcess @ 0x1409BD708
  * Callers:
- *     RtlAssert @ 0x1405AA0C0 (RtlAssert.c)
+ *     RtlAssert @ 0x1405AA630 (RtlAssert.c)
  * Callees:
  *     PsTerminateProcess @ 0x140683794 (PsTerminateProcess.c)
  */

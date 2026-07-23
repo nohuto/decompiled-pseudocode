@@ -4,8 +4,8 @@
  *     HalpBlkAddVirtualMapping @ 0x140B91AA0 (HalpBlkAddVirtualMapping.c)
  *     HalpBlkInitializeVirtualAddressSpace @ 0x140B91ECC (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpMap @ 0x14037E228 (HalpMap.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpMap @ 0x14037E3C8 (HalpMap.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HalpAllocPhysicalMemory @ 0x140B4893C (HalpAllocPhysicalMemory.c)
  */
 

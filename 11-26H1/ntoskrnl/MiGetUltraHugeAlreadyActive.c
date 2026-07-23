@@ -1,23 +1,23 @@
 /*
- * XREFs of MiGetUltraHugeAlreadyActive @ 0x140358430
+ * XREFs of MiGetUltraHugeAlreadyActive @ 0x14035A1D0
  * Callers:
- *     MiGetBackgroundHugePageToZero @ 0x1404C2588 (MiGetBackgroundHugePageToZero.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1404BBDD8 (MiGetBackgroundHugePageToZero.c)
  * Callees:
- *     MiJoinHugeContext @ 0x140356AE4 (MiJoinHugeContext.c)
- *     RtlFindClearBits @ 0x140358780 (RtlFindClearBits.c)
- *     MiCompleteJoinHugeContext @ 0x140358B98 (MiCompleteJoinHugeContext.c)
- *     MiSafeLockPageAtDpc @ 0x140358BF8 (MiSafeLockPageAtDpc.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiDereferenceHugeContext @ 0x1404F6860 (MiDereferenceHugeContext.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
+ *     MiJoinHugeContext @ 0x140358884 (MiJoinHugeContext.c)
+ *     RtlFindClearBits @ 0x14035A520 (RtlFindClearBits.c)
+ *     MiCompleteJoinHugeContext @ 0x14035A938 (MiCompleteJoinHugeContext.c)
+ *     MiSafeLockPageAtDpc @ 0x14035A998 (MiSafeLockPageAtDpc.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiDereferenceHugeContext @ 0x1404EFE70 (MiDereferenceHugeContext.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
  */
 
 unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1)
 {
   __int64 v2; // rbx
   __int64 v3; // r12
-  RTL_BITMAP **v4; // r12
-  RTL_BITMAP *i; // r15
+  _RTL_BITMAP **v4; // r12
+  _RTL_BITMAP *i; // r15
   unsigned int **p_Buffer; // rbx
   ULONG ClearBits; // ebp
   __int64 v8; // rcx
@@ -39,8 +39,8 @@ unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1)
       return (unsigned int **)v2;
     MiDereferenceHugeContext(a1);
   }
-  v4 = (RTL_BITMAP **)(v3 + 32);
-  for ( i = *v4; i != (RTL_BITMAP *)v4; i = *(RTL_BITMAP **)&i->SizeOfBitMap )
+  v4 = (_RTL_BITMAP **)(v3 + 32);
+  for ( i = *v4; i != (_RTL_BITMAP *)v4; i = *(_RTL_BITMAP **)&i->SizeOfBitMap )
   {
     p_Buffer = &i[-5].Buffer;
     v18 = 0LL;
@@ -55,7 +55,7 @@ unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1)
         if ( (ClearBits & 7) == 0 )
           goto LABEL_21;
         v10 = v8 - 7;
-        *v9++ |= byte_140017F38[v8];
+        *v9++ |= byte_140018470[v8];
         if ( (unsigned int)(v8 - 7) > 8 )
         {
           RtlSetVolatileMemory(v9, 255, (unsigned __int64)v10 >> 3);
@@ -64,7 +64,7 @@ unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1)
         }
         if ( v10 )
 LABEL_21:
-          *v9 |= byte_140032340[v10];
+          *v9 |= byte_1400327C0[v10];
       }
       else
       {
@@ -73,7 +73,7 @@ LABEL_21:
       v11 = p_Buffer[21];
       if ( *((_BYTE *)p_Buffer + 68) )
       {
-        v17 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * ((unsigned __int64)p_Buffer[21] & 0x3FFFFF);
+        v17 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * ((unsigned __int64)p_Buffer[21] & 0x3FFFFF);
         *(_QWORD *)&v18 = v17;
         MiLockHugePfnAtDpc(v17);
         if ( ((unsigned __int8)p_Buffer[3] & 1) == 0 )
@@ -87,10 +87,10 @@ LABEL_9:
           return &i[-5].Buffer;
         }
         _InterlockedAnd(
-          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                     + 4
-                                    * ((((v17 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-          ~(1 << ((v17 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                    * ((((v17 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+          ~(1 << ((v17 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
       }
       else
       {

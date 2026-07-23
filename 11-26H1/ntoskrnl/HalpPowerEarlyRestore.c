@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPowerEarlyRestore @ 0x1404DFBC0
+ * XREFs of HalpPowerEarlyRestore @ 0x1404D92A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpReenableAcpi @ 0x140C073F0 (HalpReenableAcpi.c)
+ *     HalpReenableAcpi @ 0x140C0D600 (HalpReenableAcpi.c)
  */
 
 __int64 __fastcall HalpPowerEarlyRestore(int a1)

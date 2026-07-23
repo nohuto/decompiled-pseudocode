@@ -12,7 +12,7 @@
 
 void __fastcall KiAltContextWorkQueueAddItem(PLIST_ENTRY ListEntry)
 {
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp+10h] BYREF
 
   ProcNumber = 0;
   if ( !ExInterlockedInsertTailList(&KiAltContextWorkQueue, ListEntry, &Lock) )

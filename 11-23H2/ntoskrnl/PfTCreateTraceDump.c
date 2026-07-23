@@ -1,11 +1,11 @@
 /*
- * XREFs of PfTCreateTraceDump @ 0x14079CBF0
+ * XREFs of PfTCreateTraceDump @ 0x14079CDE0
  * Callers:
- *     PfTGenerateTrace @ 0x14079CBA4 (PfTGenerateTrace.c)
+ *     PfTGenerateTrace @ 0x14079CD94 (PfTGenerateTrace.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PfTFreeBufferList @ 0x14079D390 (PfTFreeBufferList.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PfTFreeBufferList @ 0x14079D580 (PfTFreeBufferList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

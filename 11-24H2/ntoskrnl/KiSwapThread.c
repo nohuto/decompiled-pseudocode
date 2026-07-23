@@ -1,34 +1,34 @@
 /*
- * XREFs of KiSwapThread @ 0x1402A6990
+ * XREFs of KiSwapThread @ 0x1402D60C0
  * Callers:
- *     KeTerminateThread @ 0x1402A6488 (KeTerminateThread.c)
- *     KiInSwapSingleProcess @ 0x1402A67C4 (KiInSwapSingleProcess.c)
- *     KiCommitThreadWait @ 0x140340C20 (KiCommitThreadWait.c)
- *     KiExecuteDpcDelegate @ 0x1405C7080 (KiExecuteDpcDelegate.c)
+ *     KeTerminateThread @ 0x1402D5BB8 (KeTerminateThread.c)
+ *     KiInSwapSingleProcess @ 0x1402D5EF4 (KiInSwapSingleProcess.c)
+ *     KiCommitThreadWait @ 0x140320100 (KiCommitThreadWait.c)
+ *     KiExecuteDpcDelegate @ 0x1405C47B0 (KiExecuteDpcDelegate.c)
  * Callees:
- *     KiAbProcessPostContextSwitch @ 0x14020FA80 (KiAbProcessPostContextSwitch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiAbProcessPreContextSwitch @ 0x140295A00 (KiAbProcessPreContextSwitch.c)
- *     KiSearchForNewThread @ 0x140296D10 (KiSearchForNewThread.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x140297180 (KiSendHeteroRescheduleIntRequest.c)
- *     KiUpdateGroupSchedulingRank @ 0x140299CB0 (KiUpdateGroupSchedulingRank.c)
- *     KiInsertDeferredPreemptionApc @ 0x14030C908 (KiInsertDeferredPreemptionApc.c)
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
- *     KiProcessThreadWaitList @ 0x14031EA20 (KiProcessThreadWaitList.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiStartThreadCycleAccumulation @ 0x14034ED50 (KiStartThreadCycleAccumulation.c)
- *     KiCancelTimer @ 0x1403E3B40 (KiCancelTimer.c)
- *     EtwpLogContextSwapEvent @ 0x140421EE0 (EtwpLogContextSwapEvent.c)
- *     Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x1404457F0 (Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline.c)
- *     KiProcessScbTracingList @ 0x1404540D4 (KiProcessScbTracingList.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1404E6D30 (KiUpdateVPBackingThreadPriority.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     EtwpCoverageSamplerContextSwap @ 0x140652108 (EtwpCoverageSamplerContextSwap.c)
- *     KiSwapContext @ 0x1406B2A60 (KiSwapContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAbProcessPreContextSwitch @ 0x1402A5600 (KiAbProcessPreContextSwitch.c)
+ *     KiSearchForNewThread @ 0x1402A59F0 (KiSearchForNewThread.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x1402A5E60 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiUpdateGroupSchedulingRank @ 0x1402A87A0 (KiUpdateGroupSchedulingRank.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
+ *     KiProcessThreadWaitList @ 0x1402C75B0 (KiProcessThreadWaitList.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1402DB968 (KiInsertDeferredPreemptionApc.c)
+ *     KiCancelTimer @ 0x1402DC730 (KiCancelTimer.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAbProcessPostContextSwitch @ 0x140338DE0 (KiAbProcessPostContextSwitch.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiStartThreadCycleAccumulation @ 0x14036D230 (KiStartThreadCycleAccumulation.c)
+ *     EtwpLogContextSwapEvent @ 0x140415D90 (EtwpLogContextSwapEvent.c)
+ *     Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x14043D9A0 (Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline.c)
+ *     KiProcessScbTracingList @ 0x140449184 (KiProcessScbTracingList.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1404DD430 (KiUpdateVPBackingThreadPriority.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     EtwpCoverageSamplerContextSwap @ 0x140650808 (EtwpCoverageSamplerContextSwap.c)
+ *     KiSwapContext @ 0x1406B3A00 (KiSwapContext.c)
  */
 
 __int64 __fastcall KiSwapThread(ULONG_PTR BugCheckParameter1, __int64 a2, _QWORD *a3)
@@ -86,7 +86,7 @@ __int64 __fastcall KiSwapThread(ULONG_PTR BugCheckParameter1, __int64 a2, _QWORD
 
   v54 = a3;
   if ( *(_QWORD *)(a2 + 11528) )
-    KiProcessThreadWaitList(a2, 1LL);
+    KiProcessThreadWaitList(a2, 1u, 0, 2u);
   KiAbProcessPreContextSwitch((_QWORD *)BugCheckParameter1, 0);
   KiCaptureTotalCyclesCurrentThread(a2, BugCheckParameter1);
   v6 = 0LL;
@@ -222,7 +222,7 @@ LABEL_23:
 LABEL_46:
           v52 = 0LL;
           KiSendHeteroRescheduleIntRequest((_QWORD *)a2);
-          KiAcquirePrcbLocksForIsolationUnit(a2, 0, (unsigned __int64 *)&v52);
+          KiAcquirePrcbLocksForIsolationUnit(a2, 0LL, (unsigned __int64 *)&v52);
           v24 = (_KTHREAD **)(a2 + 24);
 LABEL_52:
           v20 = *(_KTHREAD **)(a2 + 16);
@@ -240,7 +240,7 @@ LABEL_53:
     {
       KiReleasePrcbLocksForIsolationUnit(&v52);
       KiSendHeteroRescheduleIntRequest((_QWORD *)a2);
-      KiAcquirePrcbLocksForIsolationUnit(a2, 0, (unsigned __int64 *)&v52);
+      KiAcquirePrcbLocksForIsolationUnit(a2, 0LL, (unsigned __int64 *)&v52);
       goto LABEL_52;
     }
     goto LABEL_53;
@@ -441,7 +441,7 @@ LABEL_136:
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v39);
     }
     __writecr8(1uLL);
-    KiDeliverApc(0LL, 0LL, 0LL);
+    KiDeliverApc(0, 0LL, 0LL);
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v33);

@@ -18,7 +18,7 @@
 __int64 __fastcall sub_18001FA3C(unsigned __int64 a1, __int64 *a2, _DWORD *a3)
 {
   __int64 v3; // rbx
-  unsigned __int64 v7; // rax
+  unsigned __int64 Root; // rax
   unsigned __int64 v8; // rcx
   unsigned __int64 v9; // rcx
   __int64 v10; // rax
@@ -34,37 +34,37 @@ __int64 __fastcall sub_18001FA3C(unsigned __int64 a1, __int64 *a2, _DWORD *a3)
     }
     else
     {
-      RtlAcquireSRWLockExclusive(&qword_18015D070);
-      v7 = qword_18015D228;
-      if ( (qword_18015D230 & 1) != 0 && qword_18015D228 )
-        v7 = (unsigned __int64)&qword_18015D228 ^ qword_18015D228;
-      while ( v7 )
+      RtlAcquireSRWLockExclusive(&stru_18015D070);
+      Root = (unsigned __int64)stru_18015D228.Root;
+      if ( ((__int64)stru_18015D228.Min & 1) != 0 && stru_18015D228.Root )
+        Root = (unsigned __int64)&stru_18015D228 ^ (unsigned __int64)stru_18015D228.Root;
+      while ( Root )
       {
-        v8 = *(_QWORD *)(v7 - 152);
+        v8 = *(_QWORD *)(Root - 152);
         if ( a1 < v8 )
         {
-          v9 = *(_QWORD *)v7;
+          v9 = *(_QWORD *)Root;
         }
         else
         {
           if ( a1 <= v8 )
           {
-            v3 = v7 - 200;
-            v10 = *(_QWORD *)(v7 - 200 + 152);
+            v3 = Root - 200;
+            v10 = *(_QWORD *)(Root - 200 + 152);
             if ( *(_DWORD *)(v10 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v10 - 56LL) & 0x20) == 0 )
               _InterlockedIncrement((volatile signed __int32 *)(v3 + 276));
             if ( a3 )
               *a3 = *(_DWORD *)(*(_QWORD *)(v3 + 152) + 56LL);
             break;
           }
-          v9 = *(_QWORD *)(v7 + 8);
+          v9 = *(_QWORD *)(Root + 8);
         }
-        if ( (qword_18015D230 & 1) != 0 && v9 )
-          v7 ^= v9;
+        if ( ((__int64)stru_18015D228.Min & 1) != 0 && v9 )
+          Root ^= v9;
         else
-          v7 = v9;
+          Root = v9;
       }
-      RtlReleaseSRWLockExclusive(&qword_18015D070);
+      RtlReleaseSRWLockExclusive(&stru_18015D070);
     }
   }
   *a2 = v3;

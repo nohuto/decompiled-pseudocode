@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLegitimatePageForDriversToMap @ 0x1402FFBEC
+ * XREFs of MiLegitimatePageForDriversToMap @ 0x14030A93C
  * Callers:
- *     MiSetProbePagesAhead @ 0x1402FF9B8 (MiSetProbePagesAhead.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403C8A70 (MmMapLockedPagesWithReservedMapping.c)
- *     MmRotatePhysicalView @ 0x140682910 (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
+ *     MiSetProbePagesAhead @ 0x14030A708 (MiSetProbePagesAhead.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8C10 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmRotatePhysicalView @ 0x1405E48E0 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B860 (MiMapLockedPagesInUserSpace.c)
  * Callees:
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1403F6B08 (MiGetPfnPageSizeIndexUnsynchronized.c)

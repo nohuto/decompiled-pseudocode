@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTscTraceProcessorDelta @ 0x140584134
+ * XREFs of HalpTscTraceProcessorDelta @ 0x140586654
  * Callers:
- *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x140583564 (HalpTscAdvSynchCalculateRemoteDeltas.c)
+ *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x140585A84 (HalpTscAdvSynchCalculateRemoteDeltas.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall HalpTscTraceProcessorDelta(int a1, int a2, __int64 a3, int a4)

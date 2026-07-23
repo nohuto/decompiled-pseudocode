@@ -1,17 +1,17 @@
 /*
- * XREFs of ExSetTimer @ 0x1400FD030
+ * XREFs of ExSetTimer @ 0x1400FD0B0
  * Callers:
- *     EnableFlushTimer @ 0x140127D20 (EnableFlushTimer.c)
- *     RtlpHpScheduleCompaction @ 0x14031EEB4 (RtlpHpScheduleCompaction.c)
- *     WdipTimeoutCheckRoutine @ 0x1406BF450 (WdipTimeoutCheckRoutine.c)
- *     EtwpUpdatePeriodicCaptureState @ 0x1408C034C (EtwpUpdatePeriodicCaptureState.c)
- *     SendCaptureStateNotificationsWorker @ 0x1408C0620 (SendCaptureStateNotificationsWorker.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     EnableFlushTimer @ 0x140127DF0 (EnableFlushTimer.c)
+ *     RtlpHpScheduleCompaction @ 0x14031F0A4 (RtlpHpScheduleCompaction.c)
+ *     WdipTimeoutCheckRoutine @ 0x1406C06F0 (WdipTimeoutCheckRoutine.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x1408C160C (EtwpUpdatePeriodicCaptureState.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1408C18E0 (SendCaptureStateNotificationsWorker.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     ExpCheckForFreedEnhancedTimer @ 0x1400FD0B4 (ExpCheckForFreedEnhancedTimer.c)
- *     ExpTimerSetParametersAreValid @ 0x1400FD0D8 (ExpTimerSetParametersAreValid.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x1400FD134 (ExpCheckForFreedEnhancedTimer.c)
+ *     ExpTimerSetParametersAreValid @ 0x1400FD158 (ExpTimerSetParametersAreValid.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 _BOOL8 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, __int64 a4)

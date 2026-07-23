@@ -1,20 +1,20 @@
 /*
- * XREFs of PopOpenPersistedRegistryKey @ 0x14082228C
+ * XREFs of PopOpenPersistedRegistryKey @ 0x14082258C
  * Callers:
- *     PopLidReliabilityInit @ 0x140389DAC (PopLidReliabilityInit.c)
- *     PopSaveLidReliabilityState @ 0x14098AB68 (PopSaveLidReliabilityState.c)
+ *     PopLidReliabilityInit @ 0x140389F8C (PopLidReliabilityInit.c)
+ *     PopSaveLidReliabilityState @ 0x14098AD68 (PopSaveLidReliabilityState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     RtlGetPersistedStateLocation @ 0x1406C53D0 (RtlGetPersistedStateLocation.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     RtlGetPersistedStateLocation @ 0x1406C5400 (RtlGetPersistedStateLocation.c)
  */
 
 __int64 __fastcall PopOpenPersistedRegistryKey(__int64 a1, HANDLE *a2)
 {
-  int PersistedStateLocation; // ecx
+  NTSTATUS PersistedStateLocation; // ecx
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
-  ULONG v6; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG Disposition; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   WCHAR SourceString[264]; // [rsp+90h] [rbp-70h] BYREF
@@ -27,10 +27,10 @@ __int64 __fastcall PopOpenPersistedRegistryKey(__int64 a1, HANDLE *a2)
                              L"Power",
                              0LL,
                              L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER",
-                             0,
+                             LocationTypeRegistry,
                              SourceString,
                              0x208u,
-                             &v6);
+                             &Disposition);
   if ( PersistedStateLocation >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);

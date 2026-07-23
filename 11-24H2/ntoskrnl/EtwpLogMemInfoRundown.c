@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLogMemInfoRundown @ 0x1407B0C30
+ * XREFs of EtwpLogMemInfoRundown @ 0x1407B1080
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     MmQuerySystemMemoryInformation @ 0x1403D3E68 (MmQuerySystemMemoryInformation.c)
- *     EtwpLogMemInfo @ 0x1403D4060 (EtwpLogMemInfo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpLogMemInfoWs @ 0x1408EE804 (EtwpLogMemInfoWs.c)
+ *     MmQuerySystemMemoryInformation @ 0x140261DE8 (MmQuerySystemMemoryInformation.c)
+ *     EtwpLogMemInfo @ 0x140261FE0 (EtwpLogMemInfo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpLogMemInfoWs @ 0x140860034 (EtwpLogMemInfoWs.c)
  */
 
 __int64 __fastcall EtwpLogMemInfoRundown(__int64 a1)

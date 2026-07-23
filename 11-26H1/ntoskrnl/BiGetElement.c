@@ -1,41 +1,39 @@
 /*
- * XREFs of BiGetElement @ 0x1409D4A9C
+ * XREFs of BiGetElement @ 0x1409A5A7C
  * Callers:
- *     BiGetLocateTarget @ 0x140892EA8 (BiGetLocateTarget.c)
- *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140893620 (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
- *     BiCreateBootEntry @ 0x140893864 (BiCreateBootEntry.c)
- *     BiHandleFirmwareDefaultEntry @ 0x140893F08 (BiHandleFirmwareDefaultEntry.c)
- *     BiUpdateEfiEntry @ 0x1409D298C (BiUpdateEfiEntry.c)
- *     BiExportEfiBootManager @ 0x140B37EA8 (BiExportEfiBootManager.c)
+ *     BiGetLocateTarget @ 0x1408992A8 (BiGetLocateTarget.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140899A20 (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateBootEntry @ 0x140899C64 (BiCreateBootEntry.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x14089A308 (BiHandleFirmwareDefaultEntry.c)
+ *     BiUpdateEfiEntry @ 0x1409A396C (BiUpdateEfiEntry.c)
+ *     BiExportEfiBootManager @ 0x140B3A0B8 (BiExportEfiBootManager.c)
  * Callees:
- *     BcdGetElementData @ 0x1409D4B60 (BcdGetElementData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     BcdGetElementData @ 0x1409A5B40 (BcdGetElementData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiGetElement(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall BiGetElement(HANDLE BcdObjectHandle, ULONG BcdElement, _QWORD *a3, ULONG *a4)
 {
-  unsigned int v6; // ebp
-  int ElementData; // ebx
-  __int64 Pool2; // rax
+  NTSTATUS ElementData; // ebx
+  void *Pool2; // rax
   void *v10; // rdi
-  int v12; // [rsp+50h] [rbp+18h] BYREF
+  ULONG BufferSize; // [rsp+50h] [rbp+18h] BYREF
 
   *a3 = 0LL;
   *a4 = 0;
-  v12 = 0;
-  v6 = a2;
-  ElementData = BcdGetElementData(a1, a2, 0LL, &v12);
+  BufferSize = 0;
+  ElementData = BcdGetElementData(BcdObjectHandle, BcdElement, 0LL, &BufferSize);
   if ( ElementData == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(0x102uLL);
-    v10 = (void *)Pool2;
+    Pool2 = (void *)ExAllocatePool2(0x102uLL);
+    v10 = Pool2;
     if ( Pool2 )
     {
-      ElementData = BcdGetElementData(a1, v6, Pool2, &v12);
+      ElementData = BcdGetElementData(BcdObjectHandle, BcdElement, Pool2, &BufferSize);
       if ( ElementData >= 0 )
       {
-        *a4 = v12;
+        *a4 = BufferSize;
         *a3 = v10;
       }
       else

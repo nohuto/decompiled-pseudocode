@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlStringCchLengthW @ 0x140459140
+ * XREFs of RtlStringCchLengthW @ 0x1404509C0
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x14061E4EC (RtlpIdnToUnicodeWorker.c)
- *     PiCMGenerateDeviceInstance @ 0x1407B0AD8 (PiCMGenerateDeviceInstance.c)
- *     PpmRegisterProfiles @ 0x1407E1B0C (PpmRegisterProfiles.c)
- *     PopPlInitWString @ 0x1407E3018 (PopPlInitWString.c)
- *     TtmNotifyDeviceArrival @ 0x1407E4B20 (TtmNotifyDeviceArrival.c)
- *     RtlpValidAttribute @ 0x140803CE8 (RtlpValidAttribute.c)
- *     SdbpGetMergeRedirectPathInternal @ 0x140881504 (SdbpGetMergeRedirectPathInternal.c)
- *     SdbpSafeAllocAndConcatW @ 0x140881B80 (SdbpSafeAllocAndConcatW.c)
- *     AslPathCombine @ 0x140889530 (AslPathCombine.c)
- *     PnpGetDeviceDependencyList @ 0x140910630 (PnpGetDeviceDependencyList.c)
- *     PiUEventHandleRegistration @ 0x1409D71F0 (PiUEventHandleRegistration.c)
- *     AslStringDuplicate @ 0x1409E3DCC (AslStringDuplicate.c)
- *     PiCMCreateDevice @ 0x140B5A67C (PiCMCreateDevice.c)
+ *     RtlpIdnToUnicodeWorker @ 0x14062153C (RtlpIdnToUnicodeWorker.c)
+ *     PiCMGenerateDeviceInstance @ 0x1407B3B38 (PiCMGenerateDeviceInstance.c)
+ *     PpmRegisterProfiles @ 0x1407E6B9C (PpmRegisterProfiles.c)
+ *     PopPlInitWString @ 0x1407E80A8 (PopPlInitWString.c)
+ *     TtmNotifyDeviceArrival @ 0x1407EA680 (TtmNotifyDeviceArrival.c)
+ *     RtlpValidAttribute @ 0x140809788 (RtlpValidAttribute.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140887904 (SdbpGetMergeRedirectPathInternal.c)
+ *     SdbpSafeAllocAndConcatW @ 0x140887F80 (SdbpSafeAllocAndConcatW.c)
+ *     AslPathCombine @ 0x14088F92C (AslPathCombine.c)
+ *     PiUEventHandleRegistration @ 0x1409A80E0 (PiUEventHandleRegistration.c)
+ *     PnpGetDeviceDependencyList @ 0x1409B2710 (PnpGetDeviceDependencyList.c)
+ *     AslStringDuplicate @ 0x1409D8BA8 (AslStringDuplicate.c)
+ *     PiCMCreateDevice @ 0x140B5D998 (PiCMCreateDevice.c)
  * Callees:
  *     <none>
  */

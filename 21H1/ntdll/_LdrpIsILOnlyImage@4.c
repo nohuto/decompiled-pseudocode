@@ -6,12 +6,12 @@
  *     _RtlImageDirectoryEntryToData@16 @ 0x4B2BDDE0 (_RtlImageDirectoryEntryToData@16.c)
  */
 
-bool __fastcall LdrpIsILOnlyImage(void *a1)
+bool __thiscall LdrpIsILOnlyImage(PVOID BaseOfImage)
 {
   _BYTE *v1; // eax
-  unsigned int v3; // [esp+0h] [ebp-4h] BYREF
+  ULONG Size; // [esp+0h] [ebp-4h] BYREF
 
-  v3 = (unsigned int)a1;
-  v1 = RtlImageDirectoryEntryToData(a1, (int)a1, 1, 14, (int)&v3);
-  return v1 && v3 >= 0x48 && (v1[16] & 1) != 0;
+  Size = (ULONG)BaseOfImage;
+  v1 = RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0xEu, &Size);
+  return v1 && Size >= 0x48 && (v1[16] & 1) != 0;
 }

@@ -118,10 +118,10 @@ void __fastcall HalpFlushMapBuffers(__int64 a1, __int64 a2, __int64 a3, unsigned
       if ( CurrentIrql <= 2u )
       {
         KxReleaseSpinLock((volatile signed __int64 *)(a1 + 312));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v38 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && v19 <= 0xFu && v38 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && v19 <= 0xFu && v38 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -168,10 +168,10 @@ LABEL_8:
     if ( CurrentIrql <= 2u )
     {
       KxReleaseSpinLock((volatile signed __int64 *)(a1 + 312));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && v19 <= 0xFu && v27 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && v19 <= 0xFu && v27 >= 2u )
         {
           v28 = KeGetCurrentPrcb();
           v29 = v28->SchedulerAssist;

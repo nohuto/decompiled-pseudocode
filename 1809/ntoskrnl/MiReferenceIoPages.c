@@ -1,26 +1,26 @@
 /*
- * XREFs of MiReferenceIoPages @ 0x1400E5FAC
+ * XREFs of MiReferenceIoPages @ 0x1400E602C
  * Callers:
  *     MiProbeLockFrame @ 0x140041950 (MiProbeLockFrame.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
- *     MiMapContiguousMemoryLarge @ 0x1401831E4 (MiMapContiguousMemoryLarge.c)
- *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
- *     MiAddLoaderHalIoPte @ 0x1409CF2E0 (MiAddLoaderHalIoPte.c)
+ *     MiMapContiguousMemoryLarge @ 0x140183324 (MiMapContiguousMemoryLarge.c)
+ *     MmRotatePhysicalView @ 0x14066CAD0 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140696CE4 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140755690 (MiMapViewOfPhysicalSection.c)
+ *     MiAddLoaderHalIoPte @ 0x1409D02E0 (MiAddLoaderHalIoPte.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInitializeIoPageNodeArray @ 0x1400E5998 (MiInitializeIoPageNodeArray.c)
- *     MiRemoveUnmappedIoNode @ 0x1400E59D0 (MiRemoveUnmappedIoNode.c)
- *     MiIoSpaceIsConstant @ 0x1400E63B0 (MiIoSpaceIsConstant.c)
- *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiFlushCacheMdl @ 0x1402C3E5C (MiFlushCacheMdl.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializeIoPageNodeArray @ 0x1400E5A18 (MiInitializeIoPageNodeArray.c)
+ *     MiRemoveUnmappedIoNode @ 0x1400E5A50 (MiRemoveUnmappedIoNode.c)
+ *     MiIoSpaceIsConstant @ 0x1400E6430 (MiIoSpaceIsConstant.c)
+ *     MiDereferenceIoPages @ 0x140123704 (MiDereferenceIoPages.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiFlushCacheMdl @ 0x1402C404C (MiFlushCacheMdl.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MiReferenceIoPages(unsigned int a1, __int64 a2, __int64 a3, int a4, _DWORD *a5, _QWORD *a6)
@@ -76,8 +76,8 @@ __int64 __fastcall MiReferenceIoPages(unsigned int a1, __int64 a2, __int64 a3, i
   v39 = 0;
   v8 = a2 & 0xFFFFFFFFFLL;
   v43 = a2 & 0xFFFFFFFFFLL;
-  v44 = (unsigned __int64 *)&qword_14043AD08[a1];
-  v9 = &qword_14043AD18;
+  v44 = (unsigned __int64 *)&qword_14043BDC8[a1];
+  v9 = &qword_14043BDD8;
   v10 = 0LL;
   v11 = 0;
   if ( a1 != 1 )
@@ -96,12 +96,12 @@ __int64 __fastcall MiReferenceIoPages(unsigned int a1, __int64 a2, __int64 a3, i
     if ( IsConstant )
       a4 = *(_DWORD *)(IsConstant + 40);
   }
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_14043AD00);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_14043BDC0);
   v16 = v42;
   if ( !v42 )
   {
 LABEL_39:
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AD00);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BDC0);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
@@ -182,22 +182,22 @@ LABEL_18:
         if ( (v29 & 0x3FFF) != 0 )
         {
           if ( (_DWORD)v30 == a4 )
-            ++dword_14043AD40;
+            ++dword_14043BE00;
           else
-            ++dword_14043AD44;
+            ++dword_14043BE04;
         }
         else
         {
           ++v21[7];
           if ( (_DWORD)v30 == a4 )
           {
-            ++dword_14043AD4C;
+            ++dword_14043BE0C;
           }
           else
           {
             if ( v45 && (v29 & 0xC000) == 0x4000 && !v28 )
             {
-              ++dword_14043AD50;
+              ++dword_14043BE10;
               if ( !v10 )
               {
                 v10 = &v47;
@@ -206,7 +206,7 @@ LABEL_18:
               *v13++ = v8;
               if ( v13 == (unsigned __int64 *)(v10 + 176) )
               {
-                ++dword_14043AD48;
+                ++dword_14043BE08;
                 *(_QWORD *)v10 = 0LL;
                 *((_DWORD *)v10 + 2) = 131248;
                 *((_QWORD *)v10 + 4) = 0LL;
@@ -267,7 +267,7 @@ LABEL_33:
 LABEL_36:
       if ( v10 )
       {
-        ++dword_14043AD48;
+        ++dword_14043BE08;
         *(_QWORD *)v10 = 0LL;
         *((_QWORD *)v10 + 4) = 0LL;
         *((_DWORD *)v10 + 11) = 0;
@@ -291,7 +291,7 @@ LABEL_36:
     MiInitializeIoPageNodeArray((__int64)v21);
     goto LABEL_51;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AD00);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BDC0);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
   {
     v37 = KeGetCurrentPrcb();

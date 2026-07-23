@@ -1,15 +1,15 @@
 /*
- * XREFs of HvApplyLegacyLogFile @ 0x140611F4C
+ * XREFs of HvApplyLegacyLogFile @ 0x140612000
  * Callers:
- *     HvpRecoverData @ 0x1406112B8 (HvpRecoverData.c)
+ *     HvpRecoverData @ 0x14061136C (HvpRecoverData.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvpIsMetadataArrayCoherent @ 0x1401B74E8 (HvpIsMetadataArrayCoherent.c)
- *     HvpGenerateLogMetadata @ 0x1404818B8 (HvpGenerateLogMetadata.c)
- *     HvpRecoverDataReadRoutine @ 0x140611514 (HvpRecoverDataReadRoutine.c)
- *     HvpApplyLogEntry @ 0x140612610 (HvpApplyLogEntry.c)
- *     HvpUpdateRecoveryVector @ 0x1406129E8 (HvpUpdateRecoveryVector.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvpIsMetadataArrayCoherent @ 0x1401B73CC (HvpIsMetadataArrayCoherent.c)
+ *     HvpGenerateLogMetadata @ 0x14048060C (HvpGenerateLogMetadata.c)
+ *     HvpRecoverDataReadRoutine @ 0x1406115C8 (HvpRecoverDataReadRoutine.c)
+ *     HvpApplyLogEntry @ 0x1406126C4 (HvpApplyLogEntry.c)
+ *     HvpUpdateRecoveryVector @ 0x140612A9C (HvpUpdateRecoveryVector.c)
  */
 
 __int64 __fastcall HvApplyLegacyLogFile(ULONG_PTR BugCheckParameter2, __int64 a2, char **a3, __int64 a4)
@@ -23,7 +23,7 @@ __int64 __fastcall HvApplyLegacyLogFile(ULONG_PTR BugCheckParameter2, __int64 a2
   __int64 v13; // rax
   unsigned int v14; // r14d
   int v16; // [rsp+20h] [rbp-50h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-40h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-40h] BYREF
   unsigned int v18[12]; // [rsp+40h] [rbp-30h] BYREF
   char *v19; // [rsp+B0h] [rbp+40h] BYREF
   __int64 v20; // [rsp+B8h] [rbp+48h] BYREF

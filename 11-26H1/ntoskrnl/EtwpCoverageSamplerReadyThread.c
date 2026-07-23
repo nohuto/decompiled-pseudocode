@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCoverageSamplerReadyThread @ 0x140531710
+ * XREFs of EtwpCoverageSamplerReadyThread @ 0x140533BB8
  * Callers:
- *     EtwTraceReadyThread @ 0x140218760 (EtwTraceReadyThread.c)
+ *     EtwTraceReadyThread @ 0x140218A90 (EtwTraceReadyThread.c)
  * Callees:
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
- *     EtwpCovSampCaptureSample @ 0x1406C8944 (EtwpCovSampCaptureSample.c)
+ *     ExSaDecodeHandle @ 0x14030C290 (ExSaDecodeHandle.c)
+ *     EtwpCovSampCaptureSample @ 0x1406CC924 (EtwpCovSampCaptureSample.c)
  */
 
-__int64 __fastcall EtwpCoverageSamplerReadyThread(__int64 a1)
+unsigned __int64 __fastcall EtwpCoverageSamplerReadyThread(struct _LIST_ENTRY *a1)
 {
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rdx
   __int64 v3; // rax
   unsigned __int64 v4; // r11
@@ -23,14 +23,15 @@ __int64 __fastcall EtwpCoverageSamplerReadyThread(__int64 a1)
   signed __int32 v12; // eax
   bool v13; // cc
 
-  result = (__int64)KeGetCurrentThread();
-  if ( *(_QWORD *)ExpSysDbgLock.TracingPrivate[0] != result && *(_QWORD *)ExpSysDbgLock.TracingPrivate[0] != a1 )
+  result = (unsigned __int64)KeGetCurrentThread();
+  if ( ExpSysDbgLock.GlobalUpdateVpThreadPriorityListEntry.Blink->Flink != (struct _LIST_ENTRY *)result
+    && ExpSysDbgLock.GlobalUpdateVpThreadPriorityListEntry.Blink->Flink != a1 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    result = (__int64)KeGetCurrentThread();
+    result = (unsigned __int64)KeGetCurrentThread();
     if ( (_KTHREAD *)result != CurrentPrcb->IdleThread || CurrentPrcb->NestingLevel > 1u )
     {
-      v3 = ExSaDecodeHandle(*(_QWORD *)(ExpSysDbgLock.TracingPrivate[0] + 8));
+      v3 = ExSaDecodeHandle(*(_QWORD *)(ExpSysDbgLock.InGlobalUpdateVpThreadPriorityList + 8));
       v4 = (v3 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
       v5 = *(_DWORD *)(v4 + 0xE0);
       if ( !v5 )

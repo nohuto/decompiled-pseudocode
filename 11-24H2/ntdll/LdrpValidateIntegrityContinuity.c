@@ -1,39 +1,35 @@
 /*
- * XREFs of LdrpValidateIntegrityContinuity @ 0x18010AC88
+ * XREFs of LdrpValidateIntegrityContinuity @ 0x1801058EC
  * Callers:
- *     LdrpMapDllNtFileName @ 0x180071640 (LdrpMapDllNtFileName.c)
+ *     LdrpMapDllNtFileName @ 0x18008DF20 (LdrpMapDllNtFileName.c)
  * Callees:
- *     LdrpSetModuleSigningLevel @ 0x18010AD84 (LdrpSetModuleSigningLevel.c)
- *     LdrpLogIntegrityContinuityTelemetry @ 0x180160578 (LdrpLogIntegrityContinuityTelemetry.c)
- *     NtCompareSigningLevels @ 0x180163080 (NtCompareSigningLevels.c)
+ *     LdrpSetModuleSigningLevel @ 0x1801059E8 (LdrpSetModuleSigningLevel.c)
+ *     LdrpLogIntegrityContinuityTelemetry @ 0x18015E938 (LdrpLogIntegrityContinuityTelemetry.c)
+ *     NtCompareSigningLevels @ 0x180161440 (NtCompareSigningLevels.c)
  */
 
-__int64 __fastcall LdrpValidateIntegrityContinuity(__int64 a1, __int64 a2)
+__int64 __fastcall LdrpValidateIntegrityContinuity(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v2; // esi
-  int v3; // ebx
-  __int64 v5; // rcx
-  int v6; // eax
-  __int64 v7; // rdx
-  int v8; // ebx
-  __int64 v9; // rcx
+  NTSTATUS v4; // esi
+  __int64 v7; // rcx
+  int v8; // eax
+  int v9; // ebx
   int v11; // [rsp+50h] [rbp+8h] BYREF
   char v12; // [rsp+60h] [rbp+18h] BYREF
 
-  v2 = 0;
+  v4 = 0;
   v12 = 0;
   v11 = 0;
-  v3 = a2;
   if ( (*(_DWORD *)(a1 + 32) & 0x400000) != 0
-    || (v5 = *(_QWORD *)(a1 + 48)) != 0
-    && ((*(_DWORD *)(v5 + 280) & 0x8000) != 0
-     || (LOBYTE(v5) = *(_BYTE *)(v5 + 284), LOBYTE(a2) = 12, (int)NtCompareSigningLevels(v5, a2) >= 0)) )
+    || (v7 = *(_QWORD *)(a1 + 48)) != 0
+    && ((*(_DWORD *)(v7 + 280) & 0x8000) != 0 || NtCompareSigningLevels(*(_BYTE *)(v7 + 284), 0xCu) >= 0) )
   {
-    v6 = LdrpSetModuleSigningLevel(v3, *(_QWORD *)(a1 + 56), (unsigned int)&v11, 12, (__int64)&v12);
-    v8 = v6;
-    if ( v6 < 0 )
+    LOBYTE(a4) = 12;
+    v8 = LdrpSetModuleSigningLevel(a2, *(_QWORD *)(a1 + 56), &v11, a4, &v12);
+    v9 = v8;
+    if ( v8 < 0 )
     {
-      if ( v6 == -1073741701 || v6 == -1073740760 || v6 == -1073740285 || v6 == -1058471934 )
+      if ( v8 == -1073741701 || v8 == -1073740760 || v8 == -1073740285 || v8 == -1058471934 )
       {
         *(_BYTE *)(*(_QWORD *)(a1 + 56) + 284LL) = 1;
         goto LABEL_15;
@@ -42,18 +38,15 @@ __int64 __fastcall LdrpValidateIntegrityContinuity(__int64 a1, __int64 a2)
       {
         *(_BYTE *)(*(_QWORD *)(a1 + 56) + 284LL) = 1;
 LABEL_15:
-        v2 = v6;
+        v4 = v8;
       }
 LABEL_16:
-      LdrpLogIntegrityContinuityTelemetry(a1, v8, v11, v2, v12);
-      return (unsigned int)v2;
+      LdrpLogIntegrityContinuityTelemetry(a1, v9, v11, v4, v12);
+      return (unsigned int)v4;
     }
-    v9 = *(_QWORD *)(a1 + 56);
-    LOBYTE(v7) = 12;
-    LOBYTE(v9) = *(_BYTE *)(v9 + 284);
-    v2 = NtCompareSigningLevels(v9, v7);
-    if ( v2 < 0 )
+    v4 = NtCompareSigningLevels(*(_BYTE *)(*(_QWORD *)(a1 + 56) + 284LL), 0xCu);
+    if ( v4 < 0 )
       goto LABEL_16;
   }
-  return (unsigned int)v2;
+  return (unsigned int)v4;
 }

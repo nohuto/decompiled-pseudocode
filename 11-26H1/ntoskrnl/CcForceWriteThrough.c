@@ -1,19 +1,19 @@
 /*
- * XREFs of CcForceWriteThrough @ 0x140222070
+ * XREFs of CcForceWriteThrough @ 0x140223A00
  * Callers:
- *     CcCopyWriteWontFlush @ 0x14026B440 (CcCopyWriteWontFlush.c)
- *     CcMapAndCopyInToCache @ 0x14026D270 (CcMapAndCopyInToCache.c)
- *     CcPrepareMdlWrite @ 0x1404CDA40 (CcPrepareMdlWrite.c)
+ *     CcCopyWriteWontFlush @ 0x14026A9B0 (CcCopyWriteWontFlush.c)
+ *     CcMapAndCopyInToCache @ 0x14026C7E0 (CcMapAndCopyInToCache.c)
+ *     CcPrepareMdlWrite @ 0x1404C7470 (CcPrepareMdlWrite.c)
  * Callees:
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KiRcuReadLock @ 0x1402223BC (KiRcuReadLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     CcCanIWriteStreamEx @ 0x140383E50 (CcCanIWriteStreamEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KiRcuReadLock @ 0x140223D4C (KiRcuReadLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     CcCanIWriteStreamEx @ 0x140385C00 (CcCanIWriteStreamEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcForceWriteThrough(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -43,10 +43,10 @@ __int64 __fastcall CcForceWriteThrough(__int64 a1, __int64 a2, __int64 a3, char 
   __int64 v29; // rdx
   unsigned __int32 v30; // ett
   __int64 v31; // rax
-  struct _LIST_ENTRY *v32; // rcx
-  struct _LIST_ENTRY *i; // rax
-  struct _LIST_ENTRY *v34; // rcx
-  struct _LIST_ENTRY *j; // rax
+  __int64 v32; // rcx
+  unsigned __int64 i; // rax
+  _QWORD *v34; // rcx
+  _QWORD *j; // rax
   signed __int32 v36[8]; // [rsp+0h] [rbp-98h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-58h] BYREF
   int v38; // [rsp+A8h] [rbp+10h]
@@ -90,18 +90,16 @@ __int64 __fastcall CcForceWriteThrough(__int64 a1, __int64 a2, __int64 a3, char 
           v31 = *(_QWORD *)(a1 + 16);
           if ( !v31 )
             v31 = a1;
-          v32 = *(struct _LIST_ENTRY **)(v31 + 8);
-          for ( i = EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-                i != (struct _LIST_ENTRY *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList;
-                i = i->Flink )
+          v32 = *(_QWORD *)(v31 + 8);
+          for ( i = EmpParseLock.KernelWaitTime; (unsigned __int64 *)i != &EmpParseLock.KernelWaitTime; i = *(_QWORD *)i )
           {
-            if ( i[-1].Blink == v32 )
+            if ( *(_QWORD *)(i - 8) == v32 )
             {
-              v34 = i + 12;
-              for ( j = i[12].Flink; j != v34; j = j->Flink )
+              v34 = (_QWORD *)(i + 192);
+              for ( j = *(_QWORD **)(i + 192); j != v34; j = (_QWORD *)*j )
               {
                 LODWORD(v5) = (_DWORD)j - 592;
-                if ( j[-35].Flink == (struct _LIST_ENTRY *)v8 )
+                if ( *(j - 70) == v8 )
                   goto LABEL_12;
               }
               LODWORD(v5) = 0;
@@ -129,7 +127,7 @@ LABEL_12:
           {
             CurrentPrcb->RcuData.GracePeriodNeeded = 0;
             _InterlockedOr(v36, 0);
-            CurrentPrcb->RcuData.GraceSequenceQuiescent = qword_140F24F28;
+            CurrentPrcb->RcuData.GraceSequenceQuiescent = (unsigned __int64)KiDpcCorralLock.WaitBlock[2].Thread;
           }
         }
         v14 = 1;

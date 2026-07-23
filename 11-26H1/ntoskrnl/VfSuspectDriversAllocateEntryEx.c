@@ -1,12 +1,12 @@
 /*
- * XREFs of VfSuspectDriversAllocateEntryEx @ 0x140C388C4
+ * XREFs of VfSuspectDriversAllocateEntryEx @ 0x140C3E8D4
  * Callers:
- *     VfDriverEnableVerifierForAll @ 0x140C20194 (VfDriverEnableVerifierForAll.c)
+ *     VfDriverEnableVerifierForAll @ 0x140C261A0 (VfDriverEnableVerifierForAll.c)
  * Callees:
- *     RtlUShortAdd @ 0x140481650 (RtlUShortAdd.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlUShortAdd @ 0x14047AFC0 (RtlUShortAdd.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 ULONG_PTR __fastcall VfSuspectDriversAllocateEntryEx(__int64 a1)

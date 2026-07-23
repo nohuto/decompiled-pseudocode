@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCopyProtoPtes @ 0x1402AA020
+ * XREFs of MiCopyProtoPtes @ 0x1402A9430
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402AA2EC (MiLockSpecialPurposeMemoryCachedPage.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402A96FC (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall MiCopyProtoPtes(__int64 *a1, unsigned __int64 a2, __int64 a3)
@@ -67,20 +67,20 @@ LABEL_29:
           *(_BYTE *)((v6 >> 3) + a3) &= ~(1 << (v6 & 7));
           goto LABEL_30;
         }
-        if ( !v11 || !qword_140E2D740 || (qword_140E2D740 & v11) != 0 )
+        if ( !v11 || !qword_140E2D8C0 || (qword_140E2D8C0 & v11) != 0 )
         {
           v12 = *v9;
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
             if ( (v11 & 0x10) != 0 )
               v12 = v11 & 0xFFFFFFFFFFFFFFEFuLL;
             else
-              v12 = v11 & qword_140E2D748;
+              v12 = v11 & qword_140E2D8C8;
           }
 LABEL_13:
           v13 = (v12 >> 12) & 0xFFFFFFFFFFLL;
           v14 = 6 * v13;
-          if ( v13 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v13 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+          if ( v13 <= qword_140E2D920 && ((*(_QWORD *)(48 * v13 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
             break;
         }
       }
@@ -121,7 +121,7 @@ LABEL_13:
         break;
       _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
-    if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
     {
       if ( (i & 2) != 0 )
         v16 |= 2u;
@@ -137,7 +137,7 @@ LABEL_13:
     {
       if ( (v18 & 1) == 0 && (v19 & 0x20) != 0 )
       {
-        v20 = (volatile signed __int32 *)&unk_140EF8D2C;
+        v20 = (volatile signed __int32 *)&unk_140EF908C;
         goto LABEL_25;
       }
 LABEL_30:
@@ -151,7 +151,7 @@ LABEL_30:
     }
     break;
   }
-  v20 = (volatile signed __int32 *)&unk_140EF8D30;
+  v20 = (volatile signed __int32 *)&unk_140EF9090;
 LABEL_25:
   _InterlockedIncrement(v20);
   v21 = v6 + 1;

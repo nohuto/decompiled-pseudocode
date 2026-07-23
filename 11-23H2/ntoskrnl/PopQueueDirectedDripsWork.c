@@ -1,13 +1,13 @@
 /*
- * XREFs of PopQueueDirectedDripsWork @ 0x14035E6A4
+ * XREFs of PopQueueDirectedDripsWork @ 0x14035E844
  * Callers:
- *     PopDirectedDripsSetDisengageReason @ 0x14035E5D4 (PopDirectedDripsSetDisengageReason.c)
- *     PopDirectedDripsClearDisengageReason @ 0x14035E638 (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsNotify @ 0x1408754E4 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsIdleResiliencyCallback @ 0x140983630 (PopDirectedDripsIdleResiliencyCallback.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x14035E774 (PopDirectedDripsSetDisengageReason.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14035E7D8 (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsNotify @ 0x140875724 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsIdleResiliencyCallback @ 0x140983830 (PopDirectedDripsIdleResiliencyCallback.c)
  *     PopInitializeDirectedDrips @ 0x140B51F08 (PopInitializeDirectedDrips.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  */
 
 int __fastcall PopQueueDirectedDripsWork(__int64 a1, unsigned __int64 a2)

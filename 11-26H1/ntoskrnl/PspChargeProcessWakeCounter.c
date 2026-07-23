@@ -1,27 +1,27 @@
 /*
- * XREFs of PspChargeProcessWakeCounter @ 0x1409BE2C0
+ * XREFs of PspChargeProcessWakeCounter @ 0x14098F2A0
  * Callers:
- *     AlpcMessageCleanupProcedure @ 0x1409BD190 (AlpcMessageCleanupProcedure.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
- *     PsReleaseProcessWakeCounter @ 0x1409BE200 (PsReleaseProcessWakeCounter.c)
- *     PsChargeProcessWakeCounter @ 0x1409BE250 (PsChargeProcessWakeCounter.c)
- *     AlpcpCancelMessagesByRequestor @ 0x140A69A60 (AlpcpCancelMessagesByRequestor.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140B05900 (PspAdjustKeepAliveCountProcess.c)
+ *     AlpcMessageCleanupProcedure @ 0x14098E170 (AlpcMessageCleanupProcedure.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
+ *     PsReleaseProcessWakeCounter @ 0x14098F1E0 (PsReleaseProcessWakeCounter.c)
+ *     PsChargeProcessWakeCounter @ 0x14098F230 (PsChargeProcessWakeCounter.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140B07994 (PspAdjustKeepAliveCountProcess.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x140B73710 (AlpcpCancelMessagesByRequestor.c)
  * Callees:
- *     PspLockProcessShared @ 0x140276700 (PspLockProcessShared.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     PspUnlockProcessShared @ 0x14027CFB0 (PspUnlockProcessShared.c)
- *     RtlIsZeroMemory @ 0x1404D9FD0 (RtlIsZeroMemory.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     EtwTraceWakeEvent @ 0x14077A2F4 (EtwTraceWakeEvent.c)
- *     PspCheckConditionalWakeCharge @ 0x140A9C4AC (PspCheckConditionalWakeCharge.c)
- *     PspChargeJobWakeCounter @ 0x140AAE650 (PspChargeJobWakeCounter.c)
- *     EtwTraceWakeCounter @ 0x140B4816C (EtwTraceWakeCounter.c)
+ *     PspLockProcessShared @ 0x140275C70 (PspLockProcessShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PspUnlockProcessShared @ 0x14027C520 (PspUnlockProcessShared.c)
+ *     RtlIsZeroMemory @ 0x1404D36B0 (RtlIsZeroMemory.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     EtwTraceWakeEvent @ 0x14077D224 (EtwTraceWakeEvent.c)
+ *     PspCheckConditionalWakeCharge @ 0x140A9F2AC (PspCheckConditionalWakeCharge.c)
+ *     PspChargeJobWakeCounter @ 0x140AAC2B0 (PspChargeJobWakeCounter.c)
+ *     EtwTraceWakeCounter @ 0x140B49EFC (EtwTraceWakeCounter.c)
  */
 
 unsigned __int64 __fastcall PspChargeProcessWakeCounter(
-        __int64 Object,
+        PVOID Object,
         int a2,
         signed int a3,
         __int64 a4,
@@ -66,8 +66,8 @@ unsigned __int64 __fastcall PspChargeProcessWakeCounter(
   v32 = 0;
   v26 = 0;
   CurrentThread = KeGetCurrentThread();
-  PspLockProcessShared(Object, (__int64)CurrentThread);
-  v12 = *(_DWORD **)(Object + 672);
+  PspLockProcessShared((__int64)Object, (__int64)CurrentThread);
+  v12 = (_DWORD *)*((_QWORD *)Object + 84);
   v13 = v27 != 0;
   Objecta = v12;
   if ( !v12 )
@@ -113,7 +113,7 @@ LABEL_24:
   v9 = 1;
   v34 = 1;
 LABEL_2:
-  if ( !a6 || v9 || !RtlIsZeroMemory((_BYTE *)(Object + 1824), 8uLL) )
+  if ( !a6 || v9 || !RtlIsZeroMemory((char *)Object + 1824, 8uLL) )
   {
     if ( v13 )
     {
@@ -124,26 +124,26 @@ LABEL_2:
     {
       v17 = 4 * v8 + 1832;
     }
-    v18 = _InterlockedExchangeAdd((volatile signed __int32 *)(v17 + Object), a5) + a5;
+    v18 = _InterlockedExchangeAdd((volatile signed __int32 *)((char *)Object + v17), a5) + a5;
     v26 = 1;
     v19 = v18 & 0x7FFFFFFF;
     v11 = v18 < 0;
     if ( v18 >= 0 )
       v19 = v18;
     v10 = v19;
-    if ( v13 || RtlIsZeroMemory((_BYTE *)(Object + 1824), 8uLL) )
+    if ( v13 || RtlIsZeroMemory((char *)Object + 1824, 8uLL) )
       goto LABEL_20;
     v25 = 1 << v8;
     if ( a5 > 0 )
     {
-      if ( (v25 & *(_DWORD *)(Object + 1860)) != 0 )
+      if ( (v25 & *((_DWORD *)Object + 465)) != 0 )
       {
         v32 = 1;
         if ( v19 == 1 )
           goto LABEL_20;
       }
     }
-    else if ( (v25 & *(_DWORD *)(Object + 1864)) != 0 && !v19 )
+    else if ( (v25 & *((_DWORD *)Object + 466)) != 0 && !v19 )
     {
       v32 = 1;
       goto LABEL_20;
@@ -153,12 +153,12 @@ LABEL_20:
     v9 = v34;
   }
 LABEL_5:
-  PspUnlockProcessShared(Object, (__int64)CurrentThread);
+  PspUnlockProcessShared((__int64)Object, (__int64)CurrentThread);
   if ( v32 )
   {
-    ZwUpdateWnfStateData(Object + 1824, 0LL);
-    if ( (xmmword_140FBFC10 & 0x400) != 0 && v10 == 1 )
-      EtwTraceWakeEvent(Object, v8);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)Object + 228, 0LL, 0, 0LL, 0LL, 0, 0);
+    if ( (xmmword_140FC0C10 & 0x400) != 0 && v10 == 1 )
+      EtwTraceWakeEvent((__int64)Object, v8);
   }
   if ( a7 )
     *a7 = v10;
@@ -166,7 +166,7 @@ LABEL_5:
   {
     v14 = a4;
     v15 = a5;
-    PspChargeJobWakeCounter(Objecta, v29, Object, a4);
+    PspChargeJobWakeCounter(Objecta, v29, (__int64)Object, a4);
   }
   else
   {
@@ -175,19 +175,19 @@ LABEL_5:
   }
   if ( !v26 )
   {
-    if ( (xmmword_140FBFC10 & 0x200) != 0 )
-      EtwTraceWakeCounter(Object, v13, v8, 0, 0LL, Object, v14);
+    if ( (xmmword_140FC0C10 & 0x200) != 0 )
+      EtwTraceWakeCounter((_DWORD)Object, v13, v8, 0, 0LL, (__int64)Object, v14);
     return 0LL;
   }
-  if ( (xmmword_140FBFC10 & 0x2000) != 0 )
-    EtwTraceWakeCounter(Object, v13, v8, v15, v10, Object, v14);
+  if ( (xmmword_140FC0C10 & 0x2000) != 0 )
+    EtwTraceWakeCounter((_DWORD)Object, v13, v8, v15, v10, (__int64)Object, v14);
   if ( !a6 )
     return 0LL;
   if ( a5 <= 0 )
   {
-    ObDereferenceObjectDeferDeleteWithTag((PVOID)Object, 0x6B577350u);
+    ObDereferenceObjectDeferDeleteWithTag(Object, 0x6B577350u);
     return 0LL;
   }
-  ObfReferenceObjectWithTag((PVOID)Object, 0x6B577350u);
-  return Object | v28;
+  ObfReferenceObjectWithTag(Object, 0x6B577350u);
+  return (unsigned __int64)Object | v28;
 }

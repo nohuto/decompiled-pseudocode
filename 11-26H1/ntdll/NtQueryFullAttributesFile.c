@@ -1,16 +1,18 @@
 /*
- * XREFs of NtQueryFullAttributesFile @ 0x180161970
+ * XREFs of NtQueryFullAttributesFile @ 0x180161870
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryFullAttributesFile()
+NTSTATUS __cdecl NtQueryFullAttributesFile(
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PFILE_NETWORK_OPEN_INFORMATION FileInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 338LL;
+  result = 338;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

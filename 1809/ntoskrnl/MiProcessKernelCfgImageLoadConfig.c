@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProcessKernelCfgImageLoadConfig @ 0x14085BD84
+ * XREFs of MiProcessKernelCfgImageLoadConfig @ 0x14085CFE4
  * Callers:
- *     MiProcessKernelCfgImage @ 0x1400F5564 (MiProcessKernelCfgImage.c)
+ *     MiProcessKernelCfgImage @ 0x1400F55E4 (MiProcessKernelCfgImage.c)
  * Callees:
- *     MiSetImageProtection @ 0x1400DA524 (MiSetImageProtection.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     MiCheckForDiscardableLongJumpTable @ 0x1402C3340 (MiCheckForDiscardableLongJumpTable.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x14084EB8C (MiLogStrongCodeDriverLoadFailure.c)
+ *     MiSetImageProtection @ 0x1400DA5A4 (MiSetImageProtection.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     MiCheckForDiscardableLongJumpTable @ 0x1402C3530 (MiCheckForDiscardableLongJumpTable.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x14084FDEC (MiLogStrongCodeDriverLoadFailure.c)
  */
 
 __int64 __fastcall MiProcessKernelCfgImageLoadConfig(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall MiProcessKernelCfgImageLoadConfig(__int64 a1, __int64 a2)
         if ( a2 && !(unsigned int)MiSetImageProtection(a1, v4[14], 8u, 4u) )
         {
           MiLogStrongCodeDriverLoadFailure("CfgUnwritableLoadConfig", a1);
-          dword_140438DF0 = 103;
+          dword_140439EB0 = 103;
           return 3221225595LL;
         }
         *v6 = guard_check_icall;
@@ -45,7 +45,7 @@ __int64 __fastcall MiProcessKernelCfgImageLoadConfig(__int64 a1, __int64 a2)
         if ( a2 && !(unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v5 + 120), 8u, 4u) )
         {
           MiLogStrongCodeDriverLoadFailure("CfgUnwritableLoadConfig", a1);
-          dword_140438DF0 = 104;
+          dword_140439EB0 = 104;
           return 3221225595LL;
         }
         *v8 = &guard_dispatch_icall;

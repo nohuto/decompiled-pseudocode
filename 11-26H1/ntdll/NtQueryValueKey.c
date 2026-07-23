@@ -1,59 +1,65 @@
 /*
- * XREFs of NtQueryValueKey @ 0x18015F220
+ * XREFs of NtQueryValueKey @ 0x18015F120
  * Callers:
- *     RtlpIsCustomLocale @ 0x180001008 (RtlpIsCustomLocale.c)
- *     RtlpGetUserLocaleName @ 0x180001200 (RtlpGetUserLocaleName.c)
- *     RtlpLoadInstallLanguageFallback @ 0x18000144C (RtlpLoadInstallLanguageFallback.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18000B81C (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x18000BB60 (RtlpMuiRegLoadPreferredUILanguages.c)
- *     RtlpLoadLanguageConfigList @ 0x18000CA10 (RtlpLoadLanguageConfigList.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x18000CFC4 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlCapabilityCheck @ 0x18000DFF0 (RtlCapabilityCheck.c)
- *     _GetOverlayPackageTypeFromKey @ 0x1800331CC (_GetOverlayPackageTypeFromKey.c)
- *     RtlGetPersistedStateLocation @ 0x18003E210 (RtlGetPersistedStateLocation.c)
- *     LdrpCodeAuthzInitialize @ 0x1800454A0 (LdrpCodeAuthzInitialize.c)
- *     EtwpAddLogHeaderToLogFile @ 0x180055750 (EtwpAddLogHeaderToLogFile.c)
- *     EtwpGetCpuSpeedFromRegistry @ 0x180056CDC (EtwpGetCpuSpeedFromRegistry.c)
- *     EtwpQueryRegString @ 0x180056E38 (EtwpQueryRegString.c)
- *     EtwpGetRegDwordValue @ 0x180056FE4 (EtwpGetRegDwordValue.c)
- *     RtlpQueryRegistryValues @ 0x180059B20 (RtlpQueryRegistryValues.c)
- *     ReadUlongFromKey @ 0x18006266C (ReadUlongFromKey.c)
- *     RtlpLookupCurDirSetting @ 0x18009B4AC (RtlpLookupCurDirSetting.c)
- *     RtlQueryImageMitigationPolicy @ 0x1800A39B0 (RtlQueryImageMitigationPolicy.c)
- *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800A48D4 (RtlpGetAssemblyStorageMapRootLocation.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x1800A4ACC (RtlpGetNtProductTypeFromRegistry.c)
- *     LdrAppxHandleIntegrityFailure @ 0x1800C1AB0 (LdrAppxHandleIntegrityFailure.c)
- *     RtlQueryImageFileKeyOption @ 0x1800D3070 (RtlQueryImageFileKeyOption.c)
- *     RtlpProcessIFEOKeyFilter @ 0x1800D3784 (RtlpProcessIFEOKeyFilter.c)
- *     RtlpQueryNlsSystemCodePages @ 0x1800D594C (RtlpQueryNlsSystemCodePages.c)
- *     WerpEscalationReadUlongFromKey @ 0x1800D6DA4 (WerpEscalationReadUlongFromKey.c)
- *     LdrpQueryValueKey @ 0x1800D9FF0 (LdrpQueryValueKey.c)
- *     QueryRegistryValue @ 0x1800DF5EC (QueryRegistryValue.c)
- *     SaferpIsV2PolicyPresent @ 0x1800E4790 (SaferpIsV2PolicyPresent.c)
- *     RtlpNtQueryValueKey @ 0x1800E6050 (RtlpNtQueryValueKey.c)
- *     LdrpInitializeSmtDelayedSleepQueryRegistry @ 0x1800E9D64 (LdrpInitializeSmtDelayedSleepQueryRegistry.c)
- *     LdrpInitializeCriticalSectionExceptionGlobalMitigation @ 0x1800FBA6C (LdrpInitializeCriticalSectionExceptionGlobalMitigation.c)
- *     RtlInitializeRXact @ 0x1800FD2D0 (RtlInitializeRXact.c)
- *     RtlSetImageMitigationPolicy @ 0x180103380 (RtlSetImageMitigationPolicy.c)
- *     RtlpLookupSafeCurDirList @ 0x180106064 (RtlpLookupSafeCurDirList.c)
- *     RtlpGetBootStatusPathFromRegistry @ 0x18010C1AC (RtlpGetBootStatusPathFromRegistry.c)
- *     RtlpAreLegacyDosDeviceNamesEnabled @ 0x1801149C4 (RtlpAreLegacyDosDeviceNamesEnabled.c)
- *     RtlpMuiRegAddAlternateCodePage @ 0x18012487C (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlQueryRegistryValueWithFallback @ 0x1801253C0 (RtlQueryRegistryValueWithFallback.c)
- *     LdrpAppxGetBinaryNameKeyInformation @ 0x180137C60 (LdrpAppxGetBinaryNameKeyInformation.c)
- *     RtlpHpApplyGlobalSegmentHeapConfigurations @ 0x180144FA4 (RtlpHpApplyGlobalSegmentHeapConfigurations.c)
- *     RtlOsDeploymentState @ 0x180148EE0 (RtlOsDeploymentState.c)
- *     RtlQueryValidationRunlevel @ 0x180149310 (RtlQueryValidationRunlevel.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x18014E314 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _GetOverlayPackageTypeFromKey @ 0x18001E32C (_GetOverlayPackageTypeFromKey.c)
+ *     RtlGetPersistedStateLocation @ 0x180028780 (RtlGetPersistedStateLocation.c)
+ *     LdrpCodeAuthzInitialize @ 0x18002FA10 (LdrpCodeAuthzInitialize.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x18003FCD0 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpGetCpuSpeedFromRegistry @ 0x18004125C (EtwpGetCpuSpeedFromRegistry.c)
+ *     EtwpQueryRegString @ 0x1800413B8 (EtwpQueryRegString.c)
+ *     EtwpGetRegDwordValue @ 0x180041564 (EtwpGetRegDwordValue.c)
+ *     RtlpQueryRegistryValues @ 0x1800440A0 (RtlpQueryRegistryValues.c)
+ *     RtlpIsCustomLocale @ 0x18004C740 (RtlpIsCustomLocale.c)
+ *     RtlpGetUserLocaleName @ 0x18004C938 (RtlpGetUserLocaleName.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x18004CB84 (RtlpLoadInstallLanguageFallback.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180056F4C (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x180057290 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpLoadLanguageConfigList @ 0x180058140 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1800586F4 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlCapabilityCheck @ 0x180059720 (RtlCapabilityCheck.c)
+ *     ReadUlongFromKey @ 0x180082ABC (ReadUlongFromKey.c)
+ *     RtlpLookupCurDirSetting @ 0x18009A5DC (RtlpLookupCurDirSetting.c)
+ *     RtlQueryImageMitigationPolicy @ 0x1800A2AE0 (RtlQueryImageMitigationPolicy.c)
+ *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800A3A04 (RtlpGetAssemblyStorageMapRootLocation.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x1800A3BFC (RtlpGetNtProductTypeFromRegistry.c)
+ *     LdrAppxHandleIntegrityFailure @ 0x1800BF760 (LdrAppxHandleIntegrityFailure.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800D1480 (RtlQueryImageFileKeyOption.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x1800D1B94 (RtlpProcessIFEOKeyFilter.c)
+ *     WerpEscalationReadUlongFromKey @ 0x1800D3D64 (WerpEscalationReadUlongFromKey.c)
+ *     LdrpQueryValueKey @ 0x1800D6FB0 (LdrpQueryValueKey.c)
+ *     QueryRegistryValue @ 0x1800DC55C (QueryRegistryValue.c)
+ *     RtlpQueryNlsSystemCodePages @ 0x1800DD69C (RtlpQueryNlsSystemCodePages.c)
+ *     SaferpIsV2PolicyPresent @ 0x1800E2640 (SaferpIsV2PolicyPresent.c)
+ *     RtlpNtQueryValueKey @ 0x1800E4260 (RtlpNtQueryValueKey.c)
+ *     LdrpInitializeSmtDelayedSleepQueryRegistry @ 0x1800E8F74 (LdrpInitializeSmtDelayedSleepQueryRegistry.c)
+ *     LdrpInitializeCriticalSectionExceptionGlobalMitigation @ 0x1800FB1BC (LdrpInitializeCriticalSectionExceptionGlobalMitigation.c)
+ *     RtlInitializeRXact @ 0x1800FCA20 (RtlInitializeRXact.c)
+ *     RtlSetImageMitigationPolicy @ 0x180102700 (RtlSetImageMitigationPolicy.c)
+ *     RtlpLookupSafeCurDirList @ 0x180105A64 (RtlpLookupSafeCurDirList.c)
+ *     RtlpGetBootStatusPathFromRegistry @ 0x18010BCFC (RtlpGetBootStatusPathFromRegistry.c)
+ *     RtlpAreLegacyDosDeviceNamesEnabled @ 0x1801141C0 (RtlpAreLegacyDosDeviceNamesEnabled.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1801245EC (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlQueryRegistryValueWithFallback @ 0x180125130 (RtlQueryRegistryValueWithFallback.c)
+ *     LdrpAppxGetBinaryNameKeyInformation @ 0x1801379D0 (LdrpAppxGetBinaryNameKeyInformation.c)
+ *     RtlpHpApplyGlobalSegmentHeapConfigurations @ 0x180144E54 (RtlpHpApplyGlobalSegmentHeapConfigurations.c)
+ *     RtlOsDeploymentState @ 0x180148D90 (RtlOsDeploymentState.c)
+ *     RtlQueryValidationRunlevel @ 0x1801491C0 (RtlQueryValidationRunlevel.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x18014E1C4 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryValueKey()
+NTSTATUS __cdecl NtQueryValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 23LL;
+  result = 23;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

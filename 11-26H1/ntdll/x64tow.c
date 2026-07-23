@@ -1,8 +1,8 @@
 /*
- * XREFs of x64tow @ 0x180128030
+ * XREFs of x64tow @ 0x180127DA0
  * Callers:
- *     _i64tow @ 0x180127F50 (_i64tow.c)
- *     _ui64tow @ 0x180127FF0 (_ui64tow.c)
+ *     _i64tow @ 0x180127CC0 (_i64tow.c)
+ *     _ui64tow @ 0x180127D60 (_ui64tow.c)
  * Callees:
  *     <none>
  */

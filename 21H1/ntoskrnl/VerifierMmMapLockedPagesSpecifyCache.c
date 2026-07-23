@@ -52,6 +52,6 @@ LABEL_8:
     return v10;
   }
   if ( a2 )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   return 0LL;
 }

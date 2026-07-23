@@ -1,15 +1,15 @@
 /*
- * XREFs of PopConfigureHeteroPolicies @ 0x1407BB0FC
+ * XREFs of PopConfigureHeteroPolicies @ 0x1407BB88C
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x1407BAC0C (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BB39C (PopInitializeHeteroProcessors.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     KeConfigureHeteroPolicy @ 0x1407BB710 (KeConfigureHeteroPolicy.c)
- *     PpmHeteroComputeBias @ 0x1408F1538 (PpmHeteroComputeBias.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     KeConfigureHeteroPolicy @ 0x1407BBEA0 (KeConfigureHeteroPolicy.c)
+ *     PpmHeteroComputeBias @ 0x1408F1698 (PpmHeteroComputeBias.c)
  */
 
 char __fastcall PopConfigureHeteroPolicies(int a1, char a2)
@@ -166,16 +166,16 @@ LABEL_13:
         v16 = PpmMultimediaQosProfile;
         if ( !PpmMultimediaQosProfile )
         {
-          v12 = &PpmCurrentProfile[342 * dword_140C23E8C + 5];
+          v12 = &PpmCurrentProfile[342 * dword_140C2332C + 5];
           HIDWORD(v62) |= 0x1800u;
           goto LABEL_30;
         }
 LABEL_28:
-        v12 = (__int64 *)(v16 + 2736LL * dword_140C23E8C + 40);
+        v12 = (__int64 *)(v16 + 2736LL * dword_140C2332C + 40);
         v62 = *v12;
         goto LABEL_30;
       default:
-        v12 = &PpmCurrentProfile[342 * dword_140C23E8C + 5];
+        v12 = &PpmCurrentProfile[342 * dword_140C2332C + 5];
         HIDWORD(v62) |= 0x1800u;
         goto LABEL_30;
     }
@@ -196,12 +196,12 @@ LABEL_30:
   }
   if ( a2 )
   {
-    dword_140C20BD4 = -1;
-    xmmword_140C20BA4 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
+    dword_140C20BF4 = -1;
+    xmmword_140C20BC4 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
     PopHeteroLegacyOverride = 5;
-    xmmword_140C20BB4 = xmmword_140C20BA4;
-    qword_140C20BCC = 0LL;
-    qword_140C20BC4 = xmmword_140C20BA4;
+    xmmword_140C20BD4 = xmmword_140C20BC4;
+    qword_140C20BEC = 0LL;
+    qword_140C20BE4 = xmmword_140C20BC4;
     RtlInitUnicodeString(&DestinationString_8, L"\\Registry\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
     ObjectAttributes_8.Length = 48;
     ObjectAttributes_8.ObjectName = &DestinationString_8;
@@ -210,7 +210,7 @@ LABEL_30:
     *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
     if ( ZwOpenKey(&DestinationString, 8u, &ObjectAttributes_8) >= 0 )
     {
-      v17 = &off_1409854E8;
+      v17 = &off_1409856C8;
       ObjectAttributes_8.RootDirectory = DestinationString;
       do
       {
@@ -245,7 +245,7 @@ LABEL_30:
     v20 = 2LL;
     do
     {
-      v21 = *(_DWORD *)((char *)&xmmword_140C20BA4 + v18);
+      v21 = *(_DWORD *)((char *)&xmmword_140C20BC4 + v18);
       if ( v21 != 5 )
         *(_DWORD *)((char *)v69 + v18 + 4) = v21;
       v18 += 4LL;
@@ -260,17 +260,17 @@ LABEL_30:
     v22 = PopHeteroLegacyOverride;
   v23 = HIDWORD(v69[2]);
   v24 = *(_DWORD *)&v70[4];
-  if ( (_DWORD)qword_140C20BCC )
-    v23 = qword_140C20BCC;
+  if ( (_DWORD)qword_140C20BEC )
+    v23 = qword_140C20BEC;
   v25 = ResultLength[1];
   HIDWORD(v69[2]) = v23;
   v26 = *(_DWORD *)v70;
-  if ( HIDWORD(qword_140C20BCC) )
-    v26 = HIDWORD(qword_140C20BCC);
+  if ( HIDWORD(qword_140C20BEC) )
+    v26 = HIDWORD(qword_140C20BEC);
   LODWORD(v69[0]) = v22;
   *(_DWORD *)v70 = v26;
-  if ( dword_140C20BD4 != -1 )
-    v24 = dword_140C20BD4;
+  if ( dword_140C20BF4 != -1 )
+    v24 = dword_140C20BF4;
   *(_DWORD *)&v70[4] = v24;
   if ( PpmPerfBootHeteroPolicyOverrideEnabled )
   {

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProcessKernelCfgAddressTakenImports @ 0x140B30D4C
+ * XREFs of MiProcessKernelCfgAddressTakenImports @ 0x140B32F4C
  * Callers:
- *     MiProcessKernelCfgImage @ 0x1404F8C10 (MiProcessKernelCfgImage.c)
- *     MiInitializeKernelCfg @ 0x140CFE970 (MiInitializeKernelCfg.c)
+ *     MiProcessKernelCfgImage @ 0x1404F2220 (MiProcessKernelCfgImage.c)
+ *     MiInitializeKernelCfg @ 0x140D04D10 (MiInitializeKernelCfg.c)
  * Callees:
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MiAcquireLoadLock @ 0x1404AB9EC (MiAcquireLoadLock.c)
- *     MiMarkKernelCfgAddressTakenImports @ 0x140B30DB0 (MiMarkKernelCfgAddressTakenImports.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MiAcquireLoadLock @ 0x1404A507C (MiAcquireLoadLock.c)
+ *     MiMarkKernelCfgAddressTakenImports @ 0x140B32FB0 (MiMarkKernelCfgAddressTakenImports.c)
  */
 
 __int64 __fastcall MiProcessKernelCfgAddressTakenImports(PVOID *a1)

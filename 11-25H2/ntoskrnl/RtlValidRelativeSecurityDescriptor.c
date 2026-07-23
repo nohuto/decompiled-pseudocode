@@ -25,7 +25,7 @@ BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
   unsigned int v10; // edx
   int v11; // eax
   __int64 v12; // rax
-  char *v13; // rcx
+  ACL *v13; // rcx
   __int64 v15; // rax
   unsigned int v16; // ebx
 
@@ -91,12 +91,9 @@ LABEL_20:
         return 0;
       if ( (v12 & 3) != 0 )
         return 0;
-      v13 = (char *)SecurityDescriptorInput + v12;
-      if ( SecurityDescriptorLength - (unsigned int)v12 < *((unsigned __int16 *)v13 + 1)
-        || !(unsigned __int8)RtlValidAcl(v13) )
-      {
+      v13 = (ACL *)((char *)SecurityDescriptorInput + v12);
+      if ( SecurityDescriptorLength - (unsigned int)v12 < v13->AclSize || !RtlValidAcl(v13) )
         return 0;
-      }
     }
   }
   if ( (*((_BYTE *)SecurityDescriptorInput + 2) & 0x10) == 0 )
@@ -111,5 +108,5 @@ LABEL_20:
   v16 = SecurityDescriptorLength - v15;
   if ( v16 < 8 || (v15 & 3) != 0 || v16 < *(unsigned __int16 *)((char *)SecurityDescriptorInput + v15 + 2) )
     return 0;
-  return (unsigned __int8)RtlValidAcl((char *)SecurityDescriptorInput + v15) != 0;
+  return RtlValidAcl((PACL)((char *)SecurityDescriptorInput + v15)) != 0;
 }

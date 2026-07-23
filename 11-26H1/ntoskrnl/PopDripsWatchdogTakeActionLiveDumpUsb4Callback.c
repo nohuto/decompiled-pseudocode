@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDripsWatchdogTakeActionLiveDumpUsb4Callback @ 0x140613E80
+ * XREFs of PopDripsWatchdogTakeActionLiveDumpUsb4Callback @ 0x140616D40
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopDripsWatchdogTakeActionLiveDumpUsb4Callback(

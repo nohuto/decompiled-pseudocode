@@ -1,21 +1,21 @@
 /*
- * XREFs of PspInitPhase1 @ 0x140A4B338
+ * XREFs of PspInitPhase1 @ 0x140A4C338
  * Callers:
- *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140A4D2F8 (PsInitSystem.c)
  * Callees:
- *     strcpy_s @ 0x1403D7D70 (strcpy_s.c)
- *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
- *     VslRegisterSecureSystemProcess @ 0x1404FD404 (VslRegisterSecureSystemProcess.c)
- *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
- *     PspInitializeBackgroundActivityModeratorCallouts @ 0x140A47BDC (PspInitializeBackgroundActivityModeratorCallouts.c)
- *     PspInitializeDesktopActivityModeratorCallouts @ 0x140A47C3C (PspInitializeDesktopActivityModeratorCallouts.c)
- *     PspInitializeHwTraceCallouts @ 0x140A47C94 (PspInitializeHwTraceCallouts.c)
- *     PspInitializeMMCSSCallouts @ 0x140A47CF4 (PspInitializeMMCSSCallouts.c)
- *     PspInitializeOctagonExtensionHost @ 0x140A47D54 (PspInitializeOctagonExtensionHost.c)
- *     PspInitializeSecExtensionHost @ 0x140A47DAC (PspInitializeSecExtensionHost.c)
- *     PspInitializeNetRateControl @ 0x140A47E04 (PspInitializeNetRateControl.c)
+ *     strcpy_s @ 0x1403D7EE0 (strcpy_s.c)
+ *     KeBugCheck @ 0x1403FE0B0 (KeBugCheck.c)
+ *     VslRegisterSecureSystemProcess @ 0x1404FD384 (VslRegisterSecureSystemProcess.c)
+ *     ObInsertObject @ 0x1406AB4A0 (ObInsertObject.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
+ *     PspInitializeBackgroundActivityModeratorCallouts @ 0x140A48BDC (PspInitializeBackgroundActivityModeratorCallouts.c)
+ *     PspInitializeDesktopActivityModeratorCallouts @ 0x140A48C3C (PspInitializeDesktopActivityModeratorCallouts.c)
+ *     PspInitializeHwTraceCallouts @ 0x140A48C94 (PspInitializeHwTraceCallouts.c)
+ *     PspInitializeMMCSSCallouts @ 0x140A48CF4 (PspInitializeMMCSSCallouts.c)
+ *     PspInitializeOctagonExtensionHost @ 0x140A48D54 (PspInitializeOctagonExtensionHost.c)
+ *     PspInitializeSecExtensionHost @ 0x140A48DAC (PspInitializeSecExtensionHost.c)
+ *     PspInitializeNetRateControl @ 0x140A48E04 (PspInitializeNetRateControl.c)
  */
 
 bool PspInitPhase1()

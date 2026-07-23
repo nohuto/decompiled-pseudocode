@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLockPageTablePage @ 0x14031A8E0
+ * XREFs of MiLockPageTablePage @ 0x14031C910
  * Callers:
- *     MiProbeLockFrame @ 0x1402EE600 (MiProbeLockFrame.c)
- *     MiHandleForkValidPrivatePte @ 0x14030ADC0 (MiHandleForkValidPrivatePte.c)
- *     MiLockVirtualMemoryVa @ 0x140318C10 (MiLockVirtualMemoryVa.c)
- *     MiLockPageTableRange @ 0x1404B0CFC (MiLockPageTableRange.c)
+ *     MiProbeLockFrame @ 0x1402D0680 (MiProbeLockFrame.c)
+ *     MiHandleForkValidPrivatePte @ 0x1402ECE40 (MiHandleForkValidPrivatePte.c)
+ *     MiLockVirtualMemoryVa @ 0x14031AC40 (MiLockVirtualMemoryVa.c)
+ *     MiLockPageTableRange @ 0x1404AA38C (MiLockPageTableRange.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiIncrementPageTableLockCheckWrap @ 0x14031ADD0 (MiIncrementPageTableLockCheckWrap.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiIsProtoPoolPfnInNonPagedPool @ 0x14031C220 (MiIsProtoPoolPfnInNonPagedPool.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiIncrementPageTableLockCheckWrap @ 0x14031CE00 (MiIncrementPageTableLockCheckWrap.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiIsProtoPoolPfnInNonPagedPool @ 0x14031E250 (MiIsProtoPoolPfnInNonPagedPool.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
  */
 
 __int64 __fastcall MiLockPageTablePage(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -108,7 +108,7 @@ LABEL_4:
         if ( !v2 )
           v9 = 4LL;
       }
-      v10 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FFLL));
+      v10 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FFLL));
       if ( (ULONG *)v10 == &MiSystemPartition )
       {
         CurrentPrcb = KeGetCurrentPrcb();
@@ -210,7 +210,7 @@ LABEL_35:
         v18 = MiCaptureDirtyBitToPfn(v3);
         _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( v18 )
-          MiReleasePageFileInfo((struct _KEVENT *)v10, v18, 1);
+          MiReleasePageFileInfo((struct _KEVENT *)v10, v18, 1LL);
         v3 = 48 * (*(_QWORD *)(v3 + 40) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
       }
       _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);

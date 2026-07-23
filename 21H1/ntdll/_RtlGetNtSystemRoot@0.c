@@ -14,13 +14,13 @@
  *     <none>
  */
 
-int __stdcall RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
   _DWORD *SharedData; // eax
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    return (int)NtCurrentPeb()->SharedData + 30;
+    return (PWSTR)((char *)NtCurrentPeb()->SharedData + 30);
   else
-    return 2147352624;
+    return (PWSTR)2147352624;
 }

@@ -52,7 +52,7 @@ __int64 __fastcall IopPnPDispatch(struct _DEVICE_OBJECT *a1, IRP *a2)
   __int64 v36; // rdx
   char *v37; // rdi
   char *v38; // rcx
-  int v39; // r9d
+  ULONG v39; // r9d
   char *v40; // r8
   __int16 v41; // dx
   _WORD *v42; // rax
@@ -69,7 +69,7 @@ __int64 __fastcall IopPnPDispatch(struct _DEVICE_OBJECT *a1, IRP *a2)
   LARGE_INTEGER v53; // rdx
   void *v54; // rax
   void *v55[2]; // [rsp+40h] [rbp-10h] BYREF
-  int v56; // [rsp+98h] [rbp+48h] BYREF
+  ULONG v56; // [rsp+98h] [rbp+48h] BYREF
   int v57; // [rsp+A0h] [rbp+50h] BYREF
   int v58; // [rsp+A8h] [rbp+58h] BYREF
 

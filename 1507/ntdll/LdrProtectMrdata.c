@@ -24,33 +24,33 @@
  *     LdrpChangeMrdataProtection @ 0x180036198 (LdrpChangeMrdataProtection.c)
  */
 
-signed __int64 __fastcall LdrProtectMrdata(int a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall LdrProtectMrdata(int a1)
 {
-  int v5; // edi
+  int v2; // edi
 
-  RtlAcquireSRWLockExclusive(&LdrpMrdataLock, a2, a3, a4);
-  v5 = LdrpMrdataUnprotected;
+  RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+  v2 = LdrSystemDllInitBlock.Wow64SharedInformation[13];
   if ( a1 )
   {
-    if ( !LdrpMrdataUnprotected )
+    if ( !LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[13]) )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    --LdrpMrdataUnprotected;
-    if ( v5 == 1 )
+    --LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[13]);
+    if ( v2 == 1 )
       LdrpChangeMrdataProtection(2LL);
   }
   else
   {
-    if ( !LdrpMrdataUnprotected )
+    if ( !LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[13]) )
       LdrpChangeMrdataProtection(4LL);
-    if ( v5 == -1 )
+    if ( v2 == -1 )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    LdrpMrdataUnprotected = v5 + 1;
+    LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[13]) = v2 + 1;
   }
-  return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
 }

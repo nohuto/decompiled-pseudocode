@@ -1,13 +1,13 @@
 /*
- * XREFs of PsMapSystemDlls @ 0x140962ADC
+ * XREFs of PsMapSystemDlls @ 0x140A08964
  * Callers:
- *     MiMapProcessExecutable @ 0x140962988 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x140A08810 (MiMapProcessExecutable.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PspMapSystemDll @ 0x140962C14 (PspMapSystemDll.c)
- *     PsWow64GetProcessNtdllType @ 0x1409EA77C (PsWow64GetProcessNtdllType.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PsWow64GetProcessNtdllType @ 0x1409E6F4C (PsWow64GetProcessNtdllType.c)
+ *     PspMapSystemDll @ 0x140A08A9C (PspMapSystemDll.c)
  */
 
 __int64 __fastcall PsMapSystemDlls(__int64 a1, unsigned int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildStringListString @ 0x140ABC3E4
+ * XREFs of AdtpBuildStringListString @ 0x140AB7404
  * Callers:
- *     AdtpPackageParameters @ 0x1404534B8 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x140448568 (AdtpPackageParameters.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AdtpBuildStringListString(
@@ -50,7 +50,7 @@ __int64 __fastcall AdtpBuildStringListString(
     v14 = (unsigned int)*a5;
     if ( (unsigned int)v14 + v13 >= 0x400 )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v13, 0x6B416553u);
       if ( !Pool2 )
         return 3221225495LL;
       v16 = 1;
@@ -94,7 +94,7 @@ __int64 __fastcall AdtpBuildStringListString(
   else if ( a3 )
   {
     a3[1] = (wchar_t *)4;
-    *a3 = (wchar_t *)byte_14001C518;
+    *a3 = (wchar_t *)byte_14001DF78;
   }
   return 0LL;
 }

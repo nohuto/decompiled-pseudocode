@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLockNestedPageAtDpc @ 0x1401F2B78
+ * XREFs of MiLockNestedPageAtDpc @ 0x1401F29A4
  * Callers:
- *     MiSwapStackPage @ 0x14010BCFC (MiSwapStackPage.c)
+ *     MiSwapStackPage @ 0x140109A7C (MiSwapStackPage.c)
  * Callees:
  *     <none>
  */

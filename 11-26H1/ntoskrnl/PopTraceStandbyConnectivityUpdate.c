@@ -1,13 +1,13 @@
 /*
- * XREFs of PopTraceStandbyConnectivityUpdate @ 0x140B3DAFC
+ * XREFs of PopTraceStandbyConnectivityUpdate @ 0x140B3FBDC
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x1404EA630 (PopNetEvaluationWorkerCallback.c)
- *     PopNetInitialize @ 0x140CD4E38 (PopNetInitialize.c)
+ *     PopNetEvaluationWorkerCallback @ 0x1404E39E0 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetInitialize @ 0x140CDB1D8 (PopNetInitialize.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
@@ -30,9 +30,9 @@ void __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
 
   v16 = a2;
   v15 = a1;
-  if ( (unsigned int)dword_140E07598 > 5
-    && (qword_140E075A8 & 0x400000000000LL) != 0
-    && (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+  if ( (unsigned int)dword_140E07560 > 5
+    && (qword_140E07570 & 0x400000000000LL) != 0
+    && (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
   {
     v2 = a1;
     v9 = &v2;
@@ -43,24 +43,17 @@ void __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
     v12 = 4LL;
     v4 = 0x1000000LL;
     v14 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)&byte_14004B23F, 0LL, 0LL, 5u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)byte_14004B793, 0LL, 0LL, 5u, &v8);
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_STANDBY_CONNECTIVITY_UPDATE) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_STANDBY_CONNECTIVITY_UPDATE) )
     {
       UserData.Ptr = (ULONGLONG)&v15;
       *(_QWORD *)&UserData.Size = 4LL;
       v6 = &v16;
       v7 = 4LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_STANDBY_CONNECTIVITY_UPDATE,
-        0LL,
-        2u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_STANDBY_CONNECTIVITY_UPDATE, 0LL, 2u, &UserData);
     }
   }
 }

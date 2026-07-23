@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCchCatW @ 0x1404BC4A0
+ * XREFs of RtlStringCchCatW @ 0x1404B73B0
  * Callers:
- *     SdbpGetCustomSdbFileName @ 0x140806910 (SdbpGetCustomSdbFileName.c)
- *     AslPathCombine @ 0x140809C70 (AslPathCombine.c)
- *     AslPathToSystemPathBuf @ 0x140809FA0 (AslPathToSystemPathBuf.c)
- *     AslpEnvResolveVars @ 0x14080C178 (AslpEnvResolveVars.c)
- *     AslpFileQueryVersionString @ 0x14080FADC (AslpFileQueryVersionString.c)
- *     SdbpCreateSearchDBContext @ 0x140A85BE4 (SdbpCreateSearchDBContext.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140C3F25C (BapdpProcessVsmKeyBlobs.c)
+ *     SdbpGetCustomSdbFileName @ 0x140807050 (SdbpGetCustomSdbFileName.c)
+ *     AslPathCombine @ 0x14080A3B0 (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x14080A6E0 (AslPathToSystemPathBuf.c)
+ *     AslpEnvResolveVars @ 0x14080C8B8 (AslpEnvResolveVars.c)
+ *     AslpFileQueryVersionString @ 0x14081021C (AslpFileQueryVersionString.c)
+ *     SdbpCreateSearchDBContext @ 0x140A80724 (SdbpCreateSearchDBContext.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140C413AC (BapdpProcessVsmKeyBlobs.c)
  * Callees:
  *     <none>
  */

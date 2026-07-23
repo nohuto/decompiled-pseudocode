@@ -1,15 +1,15 @@
 /*
- * XREFs of IommuHvInitializeSvmLibrary @ 0x14059D61C
+ * XREFs of IommuHvInitializeSvmLibrary @ 0x14059FD9C
  * Callers:
- *     IommupHvInitializeLibrary @ 0x140CB4B44 (IommupHvInitializeLibrary.c)
+ *     IommupHvInitializeLibrary @ 0x140CBAB84 (IommupHvInitializeLibrary.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MmAllocateContiguousNodeMemory @ 0x14034A0F0 (MmAllocateContiguousNodeMemory.c)
- *     HalpInterruptSetIdtEntry @ 0x140594700 (HalpInterruptSetIdtEntry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14034C170 (MmAllocateContiguousNodeMemory.c)
+ *     HalpInterruptSetIdtEntry @ 0x140596E80 (HalpInterruptSetIdtEntry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IommuHvInitializeSvmLibrary(__int64 a1)
@@ -40,8 +40,8 @@ __int64 __fastcall IommuHvInitializeSvmLibrary(__int64 a1)
   {
     if ( i >= (unsigned int)v1 )
     {
-      BYTE5(IommuInterfaceStateChangeCallbackPushLock.StackLimit) = 1;
-      HIDWORD(IommuInterfaceStateChangeCallbackPushLock.StackBase) = v1;
+      BYTE3(IommuInterfaceStateChangeCallbackPushLock.StackLimit) = 1;
+      HIDWORD(IommuInterfaceStateChangeCallbackPushLock.StackLimit) = v1;
       *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.CurrentRunTime = Pool2;
       v13 = (char *)(Pool2 + 4);
       v14 = (unsigned int)v1;

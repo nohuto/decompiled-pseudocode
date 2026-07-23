@@ -4,7 +4,7 @@
  *     sub_140A101C8 @ 0x140A101C8 (sub_140A101C8.c)
  * Callees:
  *     sub_1406E9DE4 @ 0x1406E9DE4 (sub_1406E9DE4.c)
- *     WbVerifyVirtualAddressSignature @ 0x1407E4008 (WbVerifyVirtualAddressSignature.c)
+ *     sub_1407E4008 @ 0x1407E4008 (sub_1407E4008.c)
  *     sub_1407E4280 @ 0x1407E4280 (sub_1407E4280.c)
  *     sub_140A0EE10 @ 0x140A0EE10 (sub_140A0EE10.c)
  */
@@ -32,7 +32,7 @@ __int64 __fastcall sub_140A103F4(__int64 a1, unsigned int *a2)
   v17 = 0LL;
   v7 = (_BYTE *)(*(_QWORD *)(a1 + 32) + (v2 & 0xFFFFFFF));
   Mdl = 0LL;
-  v8 = WbVerifyVirtualAddressSignature(v7, v5 & 0xFFFFFFF, (v4 & 2) == 0);
+  v8 = sub_1407E4008(v7, v5 & 0xFFFFFFF, (v4 & 2) == 0);
   if ( v8 >= 0 )
   {
     v8 = sub_140A0EE10(v7, a2[2] & 0xFFFFFFF, (*a2 & 2) == 0, &Mdl, &v17);

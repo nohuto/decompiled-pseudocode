@@ -1,18 +1,18 @@
 /*
- * XREFs of CcPostDeferredWrites @ 0x1401B1B04
+ * XREFs of CcPostDeferredWrites @ 0x1401B19E8
  * Callers:
- *     CcCanIWrite @ 0x1400209F0 (CcCanIWrite.c)
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
- *     CcNotifyOfMappedWriteComplete @ 0x14008FAB8 (CcNotifyOfMappedWriteComplete.c)
- *     CcFlushCachePriv @ 0x1400E8E10 (CcFlushCachePriv.c)
- *     CcDeductDirtyPagesFromExternalCache @ 0x1401341C8 (CcDeductDirtyPagesFromExternalCache.c)
- *     CcDeferWrite @ 0x1401B1A08 (CcDeferWrite.c)
- *     CcUnpinRepinnedBcb @ 0x1401B1E6C (CcUnpinRepinnedBcb.c)
+ *     CcCanIWrite @ 0x140020570 (CcCanIWrite.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x14008F218 (CcNotifyOfMappedWriteComplete.c)
+ *     CcFlushCachePriv @ 0x1400E6CB0 (CcFlushCachePriv.c)
+ *     CcDeductDirtyPagesFromExternalCache @ 0x140134738 (CcDeductDirtyPagesFromExternalCache.c)
+ *     CcDeferWrite @ 0x1401B18EC (CcDeferWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x1401B1D50 (CcUnpinRepinnedBcb.c)
  * Callees:
- *     CcCanIWriteStream @ 0x140020AA0 (CcCanIWriteStream.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcCanIWriteStream @ 0x140020620 (CcCanIWriteStream.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -21,12 +21,12 @@ void CcPostDeferredWrites()
   unsigned int v0; // ebp
   struct _LIST_ENTRY **p_Blink; // rdi
   KIRQL v2; // al
-  struct _LIST_ENTRY *Flink; // rsi
+  _LIST_ENTRY *Flink; // rsi
   KIRQL v4; // r14
   unsigned int Blink; // edx
   unsigned int v6; // ebx
   struct _LIST_ENTRY *v7; // rdx
-  struct _LIST_ENTRY **v8; // rcx
+  _LIST_ENTRY **v8; // rcx
   struct _KEVENT *v9; // rcx
 
   v0 = 0;
@@ -45,7 +45,7 @@ void CcPostDeferredWrites()
       {
         v0 = v6;
         v7 = Flink->Flink;
-        v8 = (struct _LIST_ENTRY **)p_Blink[4];
+        v8 = (_LIST_ENTRY **)p_Blink[4];
         if ( Flink->Flink->Blink != Flink || *v8 != Flink )
           __fastfail(3u);
         *v8 = v7;

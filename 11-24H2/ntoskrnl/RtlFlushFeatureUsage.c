@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFlushFeatureUsage @ 0x140781C70
+ * XREFs of RtlFlushFeatureUsage @ 0x140781BA0
  * Callers:
  *     <none>
  * Callees:
- *     CmFcManagerFlushFeatureUsage @ 0x140AA8D00 (CmFcManagerFlushFeatureUsage.c)
+ *     CmFcManagerFlushFeatureUsage @ 0x140AA3DAC (CmFcManagerFlushFeatureUsage.c)
  */
 
 __int64 __fastcall RtlFlushFeatureUsage(__int64 a1, __int64 a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of TppWorkInitialize @ 0x18001A6B0
+ * XREFs of TppWorkInitialize @ 0x1800470B0
  * Callers:
- *     TpAllocWork @ 0x18001BE50 (TpAllocWork.c)
- *     TpSimpleTryPost @ 0x18006A740 (TpSimpleTryPost.c)
- *     TpAllocTimer @ 0x18006CE10 (TpAllocTimer.c)
- *     TpAllocWait @ 0x18006E7E0 (TpAllocWait.c)
+ *     TpAllocWork @ 0x180048850 (TpAllocWork.c)
+ *     TpSimpleTryPost @ 0x180086E30 (TpSimpleTryPost.c)
+ *     TpAllocTimer @ 0x1800896F0 (TpAllocTimer.c)
+ *     TpAllocWait @ 0x18008B0C0 (TpAllocWait.c)
  * Callees:
- *     TppCleanupGroupMemberInitialize @ 0x18001A830 (TppCleanupGroupMemberInitialize.c)
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
- *     TppAdjustRunningThreadGoalWithLock @ 0x1800252B4 (TppAdjustRunningThreadGoalWithLock.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     TppCleanupGroupMemberInitialize @ 0x180047230 (TppCleanupGroupMemberInitialize.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x180051CB4 (TppAdjustRunningThreadGoalWithLock.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
 __int64 __fastcall TppWorkInitialize(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
@@ -44,9 +44,9 @@ __int64 __fastcall TppWorkInitialize(__int64 a1, int a2, int a3, int a4, __int64
         v12 = MEMORY[0x7FFE03C0];
       if ( *(_DWORD *)(v8 + 424) != v12 )
       {
-        RtlAcquireSRWLockExclusive(v8 + 72);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v8 + 72));
         TppAdjustRunningThreadGoalWithLock(v8);
-        RtlReleaseSRWLockExclusive(v8 + 72);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v8 + 72));
         Group = v17;
       }
       for ( i = 0; i < TppNumberNodes; ++i )

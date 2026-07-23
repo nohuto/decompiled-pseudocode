@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipCountedToSz @ 0x140612C58
+ * XREFs of WmipCountedToSz @ 0x140613C58
  * Callers:
- *     WmipPrepareWnodeSI @ 0x140612888 (WmipPrepareWnodeSI.c)
- *     WmipAddDataSource @ 0x1407075D0 (WmipAddDataSource.c)
+ *     WmipPrepareWnodeSI @ 0x140613888 (WmipPrepareWnodeSI.c)
+ *     WmipAddDataSource @ 0x140708870 (WmipAddDataSource.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall WmipCountedToSz(unsigned __int16 *a1)

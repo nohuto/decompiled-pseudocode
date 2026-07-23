@@ -72,7 +72,7 @@ __int64 __fastcall MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, _QWORD 
   bool v26; // zf
   int v27; // esi
   unsigned __int8 v28; // cl
-  struct _SLIST_ENTRY *DecayPfn; // rcx
+  _SLIST_ENTRY *DecayPfn; // rcx
   __int64 v30; // r8
   unsigned __int64 v31; // rsi
   unsigned int v32; // r15d

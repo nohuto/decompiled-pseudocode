@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnEndTrace @ 0x140669354
+ * XREFs of PfSnEndTrace @ 0x14066A514
  * Callers:
- *     PfSnEndTraceWorkerThreadRoutine @ 0x140669340 (PfSnEndTraceWorkerThreadRoutine.c)
+ *     PfSnEndTraceWorkerThreadRoutine @ 0x14066A500 (PfSnEndTraceWorkerThreadRoutine.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     PfSnDeactivateTrace @ 0x1400E2404 (PfSnDeactivateTrace.c)
- *     PfFbBufferListFlushStandby @ 0x1400E2728 (PfFbBufferListFlushStandby.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfSnCleanupTrace @ 0x1406695A4 (PfSnCleanupTrace.c)
- *     PfSnBuildDumpFromTrace @ 0x1406696F8 (PfSnBuildDumpFromTrace.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     PfSnDeactivateTrace @ 0x1400E2484 (PfSnDeactivateTrace.c)
+ *     PfFbBufferListFlushStandby @ 0x1400E27A8 (PfFbBufferListFlushStandby.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PfSnCleanupTrace @ 0x14066A764 (PfSnCleanupTrace.c)
+ *     PfSnBuildDumpFromTrace @ 0x14066A8B8 (PfSnBuildDumpFromTrace.c)
  */
 
 __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
@@ -75,7 +75,7 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
     Ptr_high = v4;
   }
   Count_low = SLODWORD(P[41].Count);
-  if ( (int)Count_low >= dword_14043C074 )
+  if ( (int)Count_low >= dword_14043D134 )
   {
     if ( (int)Count_low > 10 )
     {
@@ -109,45 +109,45 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
   ExFreePoolWithTag(P, 0);
   if ( v9 >= 0 )
   {
-    PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_14043BC20);
+    PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_14043CCE0);
     ExAcquireFastMutex(&FastMutex);
-    if ( dword_14043C264 == 1 )
+    if ( dword_14043D324 == 1 )
     {
       KeReleaseGuardedMutex(&FastMutex);
       ExFreePoolWithTag(v8, 0);
     }
     else
     {
-      v10 = qword_14043C220;
-      if ( *(PVOID **)qword_14043C220 != &qword_14043C218 )
+      v10 = qword_14043D2E0;
+      if ( *(PVOID **)qword_14043D2E0 != &qword_14043D2D8 )
 LABEL_29:
         __fastfail(3u);
-      v8[1] = qword_14043C220;
-      *v8 = &qword_14043C218;
+      v8[1] = qword_14043D2E0;
+      *v8 = &qword_14043D2D8;
       *v10 = v8;
-      v11 = dword_14043C260 + 1;
-      qword_14043C220 = v8;
+      v11 = dword_14043D320 + 1;
+      qword_14043D2E0 = v8;
       while ( 1 )
       {
-        dword_14043C260 = v11;
-        if ( v11 <= dword_14043BF0C )
+        dword_14043D320 = v11;
+        if ( v11 <= dword_14043CFCC )
           break;
-        v13 = qword_14043C218;
-        if ( qword_14043C218 == &qword_14043C218 )
+        v13 = qword_14043D2D8;
+        if ( qword_14043D2D8 == &qword_14043D2D8 )
           break;
-        if ( *((PVOID **)qword_14043C218 + 1) != &qword_14043C218 )
+        if ( *((PVOID **)qword_14043D2D8 + 1) != &qword_14043D2D8 )
           goto LABEL_29;
-        v14 = *(_QWORD *)qword_14043C218;
-        if ( *(PVOID *)(*(_QWORD *)qword_14043C218 + 8LL) != qword_14043C218 )
+        v14 = *(_QWORD *)qword_14043D2D8;
+        if ( *(PVOID *)(*(_QWORD *)qword_14043D2D8 + 8LL) != qword_14043D2D8 )
           goto LABEL_29;
-        qword_14043C218 = *(PVOID *)qword_14043C218;
-        *(_QWORD *)(v14 + 8) = &qword_14043C218;
+        qword_14043D2D8 = *(PVOID *)qword_14043D2D8;
+        *(_QWORD *)(v14 + 8) = &qword_14043D2D8;
         ExFreePoolWithTag(v13, 0);
-        v11 = dword_14043C260 - 1;
+        v11 = dword_14043D320 - 1;
       }
       KeReleaseGuardedMutex(&FastMutex);
-      if ( qword_14043C268 )
-        KeSetEvent(qword_14043C268, 0, 0);
+      if ( qword_14043D328 )
+        KeSetEvent(qword_14043D328, 0, 0);
       v9 = 0;
     }
   }

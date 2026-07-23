@@ -3,10 +3,10 @@
  * Callers:
  *     RtlIsNameInExpression @ 0x1800F0890 (RtlIsNameInExpression.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     memcmp @ 0x18009A6A0 (memcmp.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     memcmp @ 0x18009A690 (memcmp.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  *     RtlDoesNameContainWildCards @ 0x1800F083C (RtlDoesNameContainWildCards.c)
  */
@@ -16,7 +16,7 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   unsigned __int16 v4; // bx
   unsigned __int16 *v7; // r12
   unsigned __int16 *v8; // r8
-  unsigned __int64 v9; // r10
+  void *v9; // r10
   unsigned __int16 v10; // r14
   __m128i v12; // xmm0
   unsigned __int16 v13; // r9
@@ -36,7 +36,7 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   int v28; // eax
   __int16 v29; // bp
   __int16 v30; // r12
-  char *Heap; // rax
+  _OWORD *Heap; // rax
   __int128 v32; // xmm1
   char *v33; // rcx
   char *v34; // rax
@@ -57,7 +57,7 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   unsigned int v51; // [rsp+40h] [rbp-A8h]
   int v52; // [rsp+44h] [rbp-A4h]
   char *v54; // [rsp+50h] [rbp-98h]
-  _QWORD v55[2]; // [rsp+58h] [rbp-90h] BYREF
+  _UNICODE_STRING Expression; // [rsp+58h] [rbp-90h] BYREF
   __int64 v56; // [rsp+68h] [rbp-80h]
   _WORD v57[16]; // [rsp+70h] [rbp-78h] BYREF
   char v58; // [rsp+90h] [rbp-58h] BYREF
@@ -79,10 +79,10 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   if ( **((_WORD **)a1 + 1) != 42 )
     goto LABEL_17;
   v12 = *(__m128i *)a1;
-  v55[0] = v12.m128i_i64[0];
-  LOWORD(v55[0]) = v12.m128i_i16[0] - 2;
-  v55[1] = _mm_srli_si128(v12, 8).m128i_u64[0] + 2;
-  if ( RtlDoesNameContainWildCards((unsigned __int16 *)v55) )
+  *(_QWORD *)&Expression.Length = v12.m128i_i64[0];
+  Expression.Length = v12.m128i_i16[0] - 2;
+  Expression.Buffer = (wchar_t *)(_mm_srli_si128(v12, 8).m128i_u64[0] + 2);
+  if ( RtlDoesNameContainWildCards(&Expression) )
   {
     v8 = a1;
 LABEL_17:
@@ -136,17 +136,17 @@ LABEL_19:
         if ( (unsigned int)v25 >= 0xE && !v9 )
         {
           v52 = *v8 >> 1;
-          Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * (unsigned int)(v52 + 1));
-          v9 = (unsigned __int64)Heap;
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * (unsigned int)(v52 + 1));
+          v9 = Heap;
           if ( !Heap )
             RtlRaiseStatus(-1073741801);
           v8 = a1;
           v21 = v49;
-          *(_OWORD *)Heap = *(_OWORD *)v19;
+          *Heap = *(_OWORD *)v19;
           v32 = *((_OWORD *)v19 + 1);
-          v19 = Heap;
-          v33 = &Heap[2 * (2 * v52 + 2)];
-          *((_OWORD *)Heap + 1) = v32;
+          v19 = (char *)Heap;
+          v33 = (char *)Heap + 2 * (unsigned int)(2 * v52 + 2);
+          Heap[1] = v32;
           v34 = v54;
           v18 = v33;
           v54 = v33;
@@ -263,13 +263,13 @@ LABEL_53:
 LABEL_75:
           v43 = *(_WORD *)&v18[2 * (v20 - 1)];
           if ( v9 )
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
           return v43 == v22;
         }
         goto LABEL_19;
       }
       if ( v9 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
       return 0;
     }
     if ( !v44 )

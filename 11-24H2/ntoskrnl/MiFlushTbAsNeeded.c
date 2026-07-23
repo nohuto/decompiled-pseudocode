@@ -1,78 +1,73 @@
 /*
- * XREFs of MiFlushTbAsNeeded @ 0x14023FA90
+ * XREFs of MiFlushTbAsNeeded @ 0x140207BE0
  * Callers:
- *     MiLinkPoolCommitChain @ 0x14023F6A0 (MiLinkPoolCommitChain.c)
+ *     MiLinkPoolCommitChain @ 0x1402077F0 (MiLinkPoolCommitChain.c)
  * Callees:
- *     MiCompareTbFlushTimeStamp @ 0x14023E0A8 (MiCompareTbFlushTimeStamp.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiCompressTbFlushList @ 0x140432A2C (MiCompressTbFlushList.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiCompressTbFlushList @ 0x140215218 (MiCompressTbFlushList.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiCompareTbFlushTimeStamp @ 0x14044D95C (MiCompareTbFlushTimeStamp.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 *__fastcall MiFlushTbAsNeeded(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, int a4)
 {
   int v7; // r15d
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  int v10; // r14d
-  int v11; // r13d
+  int v8; // r14d
+  int v9; // r13d
   __int64 ProcessorFlushList; // rax
-  __int64 *v13; // r12
-  BOOL v14; // ecx
+  __int64 *v11; // r12
+  BOOL v12; // ecx
   unsigned __int64 i; // rsi
-  ULONG_PTR v16; // rbx
-  ULONG_PTR v17; // rbx
-  __int64 v18; // r14
-  unsigned __int64 v19; // rbx
+  ULONG_PTR v14; // rbx
+  ULONG_PTR v15; // rbx
+  __int64 v16; // r14
+  unsigned __int64 v17; // rbx
   int j; // r15d
-  __int64 v21; // r9
-  __int64 *v22; // r10
-  __int64 v23; // rax
-  unsigned __int64 v24; // r8
-  __int64 v25; // rcx
-  __int64 v26; // rax
-  unsigned __int64 *v27; // r10
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
+  __int64 v19; // r9
+  __int64 *v20; // r10
+  __int64 v21; // rax
+  unsigned __int64 v22; // r8
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  unsigned __int64 *v25; // r10
   __int64 *result; // rax
-  bool v32; // al
-  int v33; // eax
-  int v34; // eax
-  BOOL v35; // ecx
-  __int64 v36; // rdx
-  int v37; // r9d
-  int v38; // ecx
-  unsigned __int64 v39; // rcx
-  __int64 v40; // rax
-  __int64 v41; // rcx
-  int v42; // [rsp+30h] [rbp-128h]
-  __int64 v44; // [rsp+40h] [rbp-118h] BYREF
-  BOOL v45; // [rsp+48h] [rbp-110h]
-  int v46; // [rsp+4Ch] [rbp-10Ch]
-  unsigned int v47; // [rsp+50h] [rbp-108h]
-  int v48; // [rsp+54h] [rbp-104h]
-  bool v49; // [rsp+58h] [rbp-100h]
-  __int16 v50; // [rsp+59h] [rbp-FFh]
-  int v51; // [rsp+5Ch] [rbp-FCh]
-  __int64 v52; // [rsp+60h] [rbp-F8h]
-  __int64 v53; // [rsp+68h] [rbp-F0h]
+  bool v27; // al
+  int v28; // eax
+  int v29; // eax
+  BOOL v30; // ecx
+  __int64 v31; // rdx
+  int v32; // r9d
+  int v33; // ecx
+  unsigned __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // rcx
+  int v37; // [rsp+30h] [rbp-128h]
+  __int64 v39; // [rsp+40h] [rbp-118h] BYREF
+  BOOL v40; // [rsp+48h] [rbp-110h]
+  int v41; // [rsp+4Ch] [rbp-10Ch]
+  unsigned int v42; // [rsp+50h] [rbp-108h]
+  int v43; // [rsp+54h] [rbp-104h]
+  bool v44; // [rsp+58h] [rbp-100h]
+  __int16 v45; // [rsp+59h] [rbp-FFh]
+  int v46; // [rsp+5Ch] [rbp-FCh]
+  __int64 v47; // [rsp+60h] [rbp-F8h]
+  __int64 v48; // [rsp+68h] [rbp-F0h]
 
   v7 = a4;
-  memset_0(&v44, 0, 0xC8uLL);
-  v10 = 0;
-  v11 = 0;
-  v42 = 0;
+  memset_0(&v39, 0, 0xC8uLL);
+  v8 = 0;
+  v9 = 0;
+  v37 = 0;
   if ( v7 )
   {
-    ProcessorFlushList = MiGetProcessorFlushList(v9, v8);
-    v13 = (__int64 *)ProcessorFlushList;
+    ProcessorFlushList = MiGetProcessorFlushList();
+    v11 = (__int64 *)ProcessorFlushList;
     *(_DWORD *)(ProcessorFlushList + 16) = 0;
     *(_DWORD *)(ProcessorFlushList + 20) = 1;
     *(_QWORD *)ProcessorFlushList = a1;
@@ -80,15 +75,15 @@ __int64 *__fastcall MiFlushTbAsNeeded(__int64 a1, ULONG_PTR a2, unsigned __int64
     if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0
       || (struct _LIST_ENTRY **)a1 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
     {
-      v14 = (*(_DWORD *)(a1 + 184) & 0xF) == 0;
+      v12 = (*(_DWORD *)(a1 + 184) & 0xF) == 0;
     }
     else
     {
-      v14 = 0;
+      v12 = 0;
       *(_DWORD *)(ProcessorFlushList + 16) |= 9u;
     }
     *(_DWORD *)(ProcessorFlushList + 16) &= 0xFFFFFFDB;
-    *(_DWORD *)(ProcessorFlushList + 8) = v14;
+    *(_DWORD *)(ProcessorFlushList + 8) = v12;
     *(_WORD *)(ProcessorFlushList + 25) = 0;
     *(_DWORD *)(ProcessorFlushList + 28) = 0;
     *(_QWORD *)(ProcessorFlushList + 32) = 0LL;
@@ -96,153 +91,153 @@ __int64 *__fastcall MiFlushTbAsNeeded(__int64 a1, ULONG_PTR a2, unsigned __int64
   }
   else
   {
-    v13 = &v44;
-    v32 = (*(_DWORD *)(a1 + 184) & 0x800) != 0;
-    v46 = 20;
-    v49 = v32;
-    v33 = *(_DWORD *)(a1 + 184);
-    v47 = 8;
-    v48 = 1;
-    v44 = a1;
-    if ( (v33 & 0xF) != 0 || (struct _LIST_ENTRY **)a1 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
+    v11 = &v39;
+    v27 = (*(_DWORD *)(a1 + 184) & 0x800) != 0;
+    v41 = 20;
+    v44 = v27;
+    v28 = *(_DWORD *)(a1 + 184);
+    v42 = 8;
+    v43 = 1;
+    v39 = a1;
+    if ( (v28 & 0xF) != 0 || (struct _LIST_ENTRY **)a1 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
     {
-      v34 = v47;
-      v35 = (*(_DWORD *)(a1 + 184) & 0xF) == 0;
+      v29 = v42;
+      v30 = (*(_DWORD *)(a1 + 184) & 0xF) == 0;
     }
     else
     {
-      v35 = 0;
-      v34 = 9;
+      v30 = 0;
+      v29 = 9;
     }
-    v45 = v35;
-    v47 = v34 & 0xFFFFFFDB;
-    v50 = 0;
-    v51 = 0;
-    v52 = 0LL;
-    v53 = 0LL;
+    v40 = v30;
+    v42 = v29 & 0xFFFFFFDB;
+    v45 = 0;
+    v46 = 0;
+    v47 = 0LL;
+    v48 = 0LL;
   }
   for ( i = 0LL; i < a3; ++i )
   {
-    v16 = *(_QWORD *)a2;
+    v14 = *(_QWORD *)a2;
     if ( (*(_QWORD *)a2 & 0xC01LL) == 0 && (*(_QWORD *)a2 & 0x3E0LL) == 0 )
     {
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
-        if ( (v16 & 0x10) != 0 )
-          v16 &= ~0x10uLL;
+        if ( (v14 & 0x10) != 0 )
+          v14 &= ~0x10uLL;
         else
-          v16 &= ~qword_140E2DB80;
+          v14 &= ~qword_140E2DCC0;
       }
-      v17 = HIDWORD(v16);
+      v15 = HIDWORD(v14);
       *(_QWORD *)a2 = CLFS_LSN_NULL_EXT;
-      if ( (_DWORD)v17 )
+      if ( (_DWORD)v15 )
       {
-        if ( (_DWORD)v17 == v11 )
+        if ( (_DWORD)v15 == v9 )
         {
-          if ( v10 )
+          if ( v8 )
           {
-            v18 = 1LL;
-            v19 = (__int64)(a2 << 25) >> 16;
-            if ( *((_DWORD *)v13 + 2) != 1 )
+            v16 = 1LL;
+            v17 = (__int64)(a2 << 25) >> 16;
+            if ( *((_DWORD *)v11 + 2) != 1 )
             {
-              v38 = *((_DWORD *)v13 + 4);
-              if ( (v38 & 4) == 0 && v19 >= 0xFFFFF68000000000uLL && v19 <= 0xFFFFF6FFFFFFFFFFuLL )
-                *((_DWORD *)v13 + 4) = v38 | 4;
+              v33 = *((_DWORD *)v11 + 4);
+              if ( (v33 & 4) == 0 && v17 >= 0xFFFFF68000000000uLL && v17 <= 0xFFFFF6FFFFFFFFFFuLL )
+                *((_DWORD *)v11 + 4) = v33 | 4;
             }
 LABEL_21:
             for ( j = 0; ; j = 1 )
             {
-              v21 = *((unsigned int *)v13 + 7);
-              if ( (_DWORD)v21 )
+              v19 = *((unsigned int *)v11 + 7);
+              if ( (_DWORD)v19 )
               {
-                if ( (v13[2] & 2) == 0 )
+                if ( (v11[2] & 2) == 0 )
                 {
-                  v22 = &v13[(unsigned int)(v21 - 1)];
-                  v23 = v22[5];
-                  if ( (v23 & 0xC00) == 0 )
+                  v20 = &v11[(unsigned int)(v19 - 1)];
+                  v21 = v20[5];
+                  if ( (v21 & 0xC00) == 0 )
                   {
-                    v24 = v22[5] & 0x3FF;
-                    if ( (v23 & 0xFFFFFFFFFFFFF000uLL) + ((v24 + 1) << 12) == v19
-                      && v24 + v18 > v24
-                      && v24 + v18 <= 0x3FF )
+                    v22 = v20[5] & 0x3FF;
+                    if ( (v21 & 0xFFFFFFFFFFFFF000uLL) + ((v22 + 1) << 12) == v17
+                      && v22 + v16 > v22
+                      && v22 + v16 <= 0x3FF )
                     {
-                      v13[4] += v18;
-                      v22[5] = (v23 + v18) ^ ((v23 + v18) ^ v23) & 0xFFFFFFFFFFFFFC00uLL;
+                      v11[4] += v16;
+                      v20[5] = (v21 + v16) ^ ((v21 + v16) ^ v21) & 0xFFFFFFFFFFFFFC00uLL;
 LABEL_52:
-                      v10 = v42;
+                      v8 = v37;
                       v7 = a4;
                       goto LABEL_14;
                     }
-                    v25 = (unsigned int)(v21 - 1) + 5LL;
-                    v26 = v13[v25];
-                    v27 = (unsigned __int64 *)&v13[v25];
-                    if ( (v26 & 0xFFFFFFFFFFFFF000uLL) == v19 + (v18 << 12) )
+                    v23 = (unsigned int)(v19 - 1) + 5LL;
+                    v24 = v11[v23];
+                    v25 = (unsigned __int64 *)&v11[v23];
+                    if ( (v24 & 0xFFFFFFFFFFFFF000uLL) == v17 + (v16 << 12) )
                     {
-                      v39 = v26 & 0x3FF;
-                      if ( v18 + v39 <= 0x3FF && v18 + v39 > v39 )
+                      v34 = v24 & 0x3FF;
+                      if ( v16 + v34 <= 0x3FF && v16 + v34 > v34 )
                         break;
                     }
                   }
                 }
               }
-              if ( (_DWORD)v21 != *((_DWORD *)v13 + 3) )
+              if ( (_DWORD)v19 != *((_DWORD *)v11 + 3) )
               {
-                while ( v18 )
+                while ( v16 )
                 {
-                  v36 = 1024LL;
-                  if ( (unsigned __int64)(v18 - 1) <= 0x3FF )
-                    v36 = v18;
-                  v13[v21 + 5] = v19 & 0xFFFFFFFFFFFFF000uLL | ((_WORD)v36 - 1) & 0x3FF;
-                  v37 = *((_DWORD *)v13 + 7);
-                  v13[4] += v36;
-                  v21 = (unsigned int)(v37 + 1);
-                  v19 += v36 << 12;
-                  *((_DWORD *)v13 + 7) = v21;
-                  v18 -= v36;
-                  if ( v18 && (_DWORD)v21 == *((_DWORD *)v13 + 3) )
+                  v31 = 1024LL;
+                  if ( (unsigned __int64)(v16 - 1) <= 0x3FF )
+                    v31 = v16;
+                  v11[v19 + 5] = v17 & 0xFFFFFFFFFFFFF000uLL | ((_WORD)v31 - 1) & 0x3FF;
+                  v32 = *((_DWORD *)v11 + 7);
+                  v11[4] += v31;
+                  v19 = (unsigned int)(v32 + 1);
+                  v17 += v31 << 12;
+                  *((_DWORD *)v11 + 7) = v19;
+                  v16 -= v31;
+                  if ( v16 && (_DWORD)v19 == *((_DWORD *)v11 + 3) )
                     goto LABEL_21;
                 }
                 goto LABEL_52;
               }
               if ( j )
               {
-                if ( !*((_BYTE *)v13 + 25) )
-                  *((_BYTE *)v13 + 25) = 1;
+                if ( !*((_BYTE *)v11 + 25) )
+                  *((_BYTE *)v11 + 25) = 1;
                 goto LABEL_52;
               }
-              if ( *((_BYTE *)v13 + 25) )
+              if ( *((_BYTE *)v11 + 25) )
                 goto LABEL_52;
-              qsort(v13 + 5, *((unsigned int *)v13 + 7), 8uLL, MiTbFlushSort);
-              MiCompressTbFlushList(v13);
+              qsort(v11 + 5, *((unsigned int *)v11 + 7), 8uLL, MiTbFlushSort);
+              MiCompressTbFlushList(v11);
             }
-            v13[4] += v18;
-            v40 = v26 - (v18 << 12);
+            v11[4] += v16;
+            v35 = v24 - (v16 << 12);
             v7 = a4;
-            v41 = v40 + v18;
-            v10 = v42;
-            *v27 = v41 ^ (v41 ^ v40) & 0xFFFFFFFFFFFFFC00uLL;
+            v36 = v35 + v16;
+            v8 = v37;
+            *v25 = v36 ^ (v36 ^ v35) & 0xFFFFFFFFFFFFFC00uLL;
           }
         }
         else
         {
-          if ( MiCompareTbFlushTimeStamp((unsigned int)v17) )
+          if ( (unsigned __int8)MiCompareTbFlushTimeStamp((unsigned int)v15) )
           {
-            MiInsertTbFlushEntry(v13, (__int64)(a2 << 25) >> 16, 1LL);
-            v10 = 1;
+            MiInsertTbFlushEntry(v11, (__int64)(a2 << 25) >> 16, 1LL);
+            v8 = 1;
           }
           else
           {
-            v10 = 0;
+            v8 = 0;
           }
-          v42 = v10;
-          v11 = v17;
+          v37 = v8;
+          v9 = v15;
         }
       }
       else
       {
-        v10 = 0;
-        v42 = 0;
-        v11 = 0;
+        v8 = 0;
+        v37 = 0;
+        v9 = 0;
       }
     }
     else if ( !v7 )
@@ -252,9 +247,9 @@ LABEL_52:
 LABEL_14:
     a2 += 8LL;
   }
-  MiFlushTbList(v13, 1LL);
-  result = &v44;
-  if ( v13 != &v44 )
-    return (__int64 *)MiReleaseProcessorFlushList(v29, v28, v30);
+  MiFlushTbList(v11);
+  result = &v39;
+  if ( v11 != &v39 )
+    return (__int64 *)MiReleaseProcessorFlushList();
   return result;
 }

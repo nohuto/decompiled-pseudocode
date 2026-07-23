@@ -24,11 +24,11 @@
 
 void __fastcall MiFreeInPageSupportBlock(PSLIST_ENTRY ListEntry)
 {
-  struct _SLIST_ENTRY *v2; // rcx
-  struct _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY *v4; // rcx
+  _SLIST_ENTRY *v2; // rcx
+  _SLIST_ENTRY *Next; // rcx
+  _SLIST_ENTRY *v4; // rcx
 
-  v2 = (struct _SLIST_ENTRY *)*((_QWORD *)&ListEntry[13].Next + 1);
+  v2 = (_SLIST_ENTRY *)*((_QWORD *)&ListEntry[13].Next + 1);
   if ( v2 == ListEntry && *((struct _KTHREAD **)&ListEntry[9].Next + 1) == KeGetCurrentThread() )
     KeAbPostRelease((ULONG_PTR)v2);
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)&ListEntry[11], 0xFFFFFFFF) == 1 )
@@ -36,7 +36,7 @@ void __fastcall MiFreeInPageSupportBlock(PSLIST_ENTRY ListEntry)
     Next = ListEntry[16].Next;
     if ( Next && Next != &ListEntry[17] )
       ExFreePoolWithTag(Next, 0);
-    v4 = (struct _SLIST_ENTRY *)*((_QWORD *)&ListEntry[13].Next + 1);
+    v4 = (_SLIST_ENTRY *)*((_QWORD *)&ListEntry[13].Next + 1);
     if ( v4 && v4 != ListEntry )
       MiDereferenceInPageAutoBoostLock();
     if ( !(unsigned int)MiInsertInPageBlock(ListEntry) )

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertHugeRangeInPartition @ 0x14068A658
+ * XREFs of MiInsertHugeRangeInPartition @ 0x14068B788
  * Callers:
- *     MiFreePartitionPageRun @ 0x14068A4D0 (MiFreePartitionPageRun.c)
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreePartitionPageRun @ 0x14068B600 (MiFreePartitionPageRun.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiUnlockHugePfn @ 0x1404CF53C (MiUnlockHugePfn.c)
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x140670D7C (MiLockHugePfn.c)
+ *     MiUnlockHugePfn @ 0x1404C8804 (MiUnlockHugePfn.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x140671F4C (MiLockHugePfn.c)
  */
 
 __int64 __fastcall MiInsertHugeRangeInPartition(unsigned __int64 a1, char a2)
@@ -18,7 +18,7 @@ __int64 __fastcall MiInsertHugeRangeInPartition(unsigned __int64 a1, char a2)
   __int64 v6; // rdx
 
   v3 = (a1 >> 18) & 0x3FFFFF;
-  v4 = qword_140E2FFC0 + 8 * v3;
+  v4 = qword_140E30100 + 8 * v3;
   v5 = MiLockHugePfn(v4);
   MiInsertHugeRangeInList(0LL, (unsigned int)v3, a2);
   LOBYTE(v6) = v5;

@@ -29,7 +29,7 @@ __int64 __fastcall PopPowerAggregatorInitialize(int a1)
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-30h] BYREF
   __int128 v12; // [rsp+58h] [rbp-20h]
   int v13; // [rsp+B0h] [rbp+38h] BYREF
-  int v14; // [rsp+B8h] [rbp+40h] BYREF
+  int Buffer; // [rsp+B8h] [rbp+40h] BYREF
   int v15; // [rsp+C0h] [rbp+48h] BYREF
   PVOID P; // [rsp+C8h] [rbp+50h] BYREF
 
@@ -87,10 +87,10 @@ __int64 __fastcall PopPowerAggregatorInitialize(int a1)
   {
     if ( a1 == 3 )
     {
-      v14 = 1;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_BLUETOOTH_STANDBY_POLICY, (__int64)&v14);
+      Buffer = 1;
+      ZwUpdateWnfStateData(&WNF_PO_BLUETOOTH_STANDBY_POLICY, &Buffer, 4u, 0LL, 0LL, 0, 0);
       v15 = 1;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_STANDBY_AUDIO_POLICY, (__int64)&v15);
+      ZwUpdateWnfStateData(&WNF_PO_STANDBY_AUDIO_POLICY, &v15, 4u, 0LL, 0LL, 0, 0);
     }
     return 0;
   }

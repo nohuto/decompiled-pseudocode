@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInitPoolLookasidePointers @ 0x14099C5A8
+ * XREFs of ExInitPoolLookasidePointers @ 0x14099D5A8
  * Callers:
- *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099D160 (KiInitializeBootStructures.c)
  * Callees:
- *     ExInitializeSystemLookasideList @ 0x14099C6E4 (ExInitializeSystemLookasideList.c)
+ *     ExInitializeSystemLookasideList @ 0x14099D6E4 (ExInitializeSystemLookasideList.c)
  */
 
 __int64 ExInitPoolLookasidePointers()
@@ -16,8 +16,8 @@ __int64 ExInitPoolLookasidePointers()
   CurrentPrcb = KeGetCurrentPrcb();
   if ( !CurrentPrcb->Number )
   {
-    qword_140C16AB8 = (__int64)&ExPoolLookasideListHead;
-    qword_140C16AD8 = (__int64)&ExSystemLookasideListHead;
+    qword_140C16AF8 = (__int64)&ExPoolLookasideListHead;
+    qword_140C16AC8 = (__int64)&ExSystemLookasideListHead;
     ExSystemLookasideListHead = (__int64)&ExSystemLookasideListHead;
     ExPoolLookasideListHead = (__int64)&ExPoolLookasideListHead;
     ExInitializeSystemLookasideList(

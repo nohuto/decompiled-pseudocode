@@ -1,11 +1,11 @@
 /*
- * XREFs of PopExecutionRequiredSettingCallback @ 0x14057F2A0
+ * XREFs of PopExecutionRequiredSettingCallback @ 0x14057F74C
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
- *     PopEnableExecutionRequiredPowerRequests @ 0x14057F32C (PopEnableExecutionRequiredPowerRequests.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
+ *     PopEnableExecutionRequiredPowerRequests @ 0x14057F7D8 (PopEnableExecutionRequiredPowerRequests.c)
  */
 
 __int64 __fastcall PopExecutionRequiredSettingCallback(_QWORD *a1, int *a2, int a3)

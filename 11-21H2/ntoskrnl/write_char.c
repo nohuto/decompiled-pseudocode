@@ -1,22 +1,22 @@
 /*
  * XREFs of write_char @ 0x1403E466C
  * Callers:
- *     _woutput_l @ 0x1403E3D1C (_woutput_l.c)
+ *     sub_1403E3D1C @ 0x1403E3D1C (sub_1403E3D1C.c)
  *     write_multi_char @ 0x1403E46C0 (write_multi_char.c)
- *     write_string @ 0x1403E4718 (write_string.c)
+ *     sub_1403E4718 @ 0x1403E4718 (sub_1403E4718.c)
  * Callees:
- *     _fputwc_nolock @ 0x1403E57EC (_fputwc_nolock.c)
+ *     sub_1403E57EC @ 0x1403E57EC (sub_1403E57EC.c)
  */
 
-__int16 __fastcall write_char(wchar_t a1, FILE *a2, _DWORD *a3)
+__int64 __fastcall write_char(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  int flag; // eax
+  __int64 result; // rax
 
-  flag = a2->_flag;
-  if ( (flag & 0x40) == 0 || a2->_base )
+  result = *(unsigned int *)(a2 + 24);
+  if ( (result & 0x40) == 0 || *(_QWORD *)(a2 + 16) )
   {
-    LOWORD(flag) = fputwc_nolock(a1, a2);
-    if ( (_WORD)flag == 0xFFFF && (flag = a2->_flag, (flag & 0x20) != 0) )
+    result = sub_1403E57EC();
+    if ( (_WORD)result == 0xFFFF && (result = *(unsigned int *)(a2 + 24), (result & 0x20) != 0) )
       *a3 = -1;
     else
       ++*a3;
@@ -25,5 +25,5 @@ __int16 __fastcall write_char(wchar_t a1, FILE *a2, _DWORD *a3)
   {
     ++*a3;
   }
-  return flag;
+  return result;
 }

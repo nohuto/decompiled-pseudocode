@@ -5,7 +5,7 @@
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -19,7 +19,7 @@ void __fastcall EmClientRuleDeregisterNotification(PVOID P)
 
   if ( P )
   {
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpDatabaseLock, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C48C70, 0LL);
     for ( i = 0LL; (unsigned int)i < *((_DWORD *)P + 4); *(_QWORD *)(v4 + 8) = v5 )
     {
       _InterlockedAdd(*(volatile signed __int32 **)(*((_QWORD *)P + 1) + 40 * i), 0xFFFFFFFF);
@@ -34,8 +34,8 @@ void __fastcall EmClientRuleDeregisterNotification(PVOID P)
       ObfDereferenceObject(*(PVOID *)P);
     ExFreePoolWithTag(*((PVOID *)P + 1), 0x6C634D45u);
     ExFreePoolWithTag(P, 0x6C634D45u);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpDatabaseLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&EmpDatabaseLock);
-    KeAbPostRelease((ULONG_PTR)&EmpDatabaseLock);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C48C70, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&qword_140C48C70);
+    sub_1402AFC00((ULONG_PTR)&qword_140C48C70);
   }
 }

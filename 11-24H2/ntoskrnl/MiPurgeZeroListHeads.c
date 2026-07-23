@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPurgeZeroListHeads @ 0x1404C6720
+ * XREFs of MiPurgeZeroListHeads @ 0x1404BFB80
  * Callers:
  *     <none>
  * Callees:
- *     MiPurgeZeroListHead @ 0x1404C6774 (MiPurgeZeroListHead.c)
+ *     MiPurgeZeroListHead @ 0x1404BFBD4 (MiPurgeZeroListHead.c)
  */
 
 __int64 __fastcall MiPurgeZeroListHeads(__int64 a1, __int64 a2, __int64 a3, int a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReturnMdlExcess @ 0x140671F10
+ * XREFs of MiReturnMdlExcess @ 0x1406730E0
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
- *     MiReturnMdlCharges @ 0x1403A8ECC (MiReturnMdlCharges.c)
- *     MiInitializeMdlBatchPages @ 0x140413004 (MiInitializeMdlBatchPages.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiInitializeMdlBatchPages @ 0x140393678 (MiInitializeMdlBatchPages.c)
+ *     MiReturnMdlCharges @ 0x140397B54 (MiReturnMdlCharges.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReturnMdlExcess(__int64 a1, __int64 a2)

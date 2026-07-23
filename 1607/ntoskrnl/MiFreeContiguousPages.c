@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFreeContiguousPages @ 0x14011191C
+ * XREFs of MiFreeContiguousPages @ 0x140111E80
  * Callers:
- *     MmFreeContiguousMemory @ 0x14009ABB8 (MmFreeContiguousMemory.c)
- *     MiAllocateContiguousMemory @ 0x14009AF40 (MiAllocateContiguousMemory.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1401E2344 (MmMarkPhysicalMemoryAsBad.c)
- *     MiUseLargeDriverPage @ 0x1404ED9A4 (MiUseLargeDriverPage.c)
- *     MmRemovePhysicalMemory @ 0x140658508 (MmRemovePhysicalMemory.c)
- *     MiRemoveMdlPages @ 0x1406589E8 (MiRemoveMdlPages.c)
- *     MiUnmapLargeDriver @ 0x140662F2C (MiUnmapLargeDriver.c)
+ *     MmFreeContiguousMemory @ 0x14009A3B8 (MmFreeContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x14009A740 (MiAllocateContiguousMemory.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1401E2170 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiUseLargeDriverPage @ 0x1404CFA5C (MiUseLargeDriverPage.c)
+ *     MmRemovePhysicalMemory @ 0x1406585EC (MmRemovePhysicalMemory.c)
+ *     MiRemoveMdlPages @ 0x140658ACC (MiRemoveMdlPages.c)
+ *     MiUnmapLargeDriver @ 0x140663010 (MiUnmapLargeDriver.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiFreeLargePageMemory @ 0x140090970 (MiFreeLargePageMemory.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiFreeLargePageMemory @ 0x1400900D0 (MiFreeLargePageMemory.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
  */
 
 unsigned __int64 __fastcall MiFreeContiguousPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

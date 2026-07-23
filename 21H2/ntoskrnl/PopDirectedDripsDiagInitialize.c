@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsDiagInitialize @ 0x140A40B60
+ * XREFs of PopDirectedDripsDiagInitialize @ 0x140A41B60
  * Callers:
- *     PopDirectedDripsInitializePhase0 @ 0x140A40A88 (PopDirectedDripsInitializePhase0.c)
- *     PopDirectedDripsInitializePhase3 @ 0x140A6DC48 (PopDirectedDripsInitializePhase3.c)
+ *     PopDirectedDripsInitializePhase0 @ 0x140A41A88 (PopDirectedDripsInitializePhase0.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140A6EC48 (PopDirectedDripsInitializePhase3.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     memset @ 0x140414200 (memset.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D254 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 void __fastcall PopDirectedDripsDiagInitialize(int a1)
@@ -22,15 +22,15 @@ void __fastcall PopDirectedDripsDiagInitialize(int a1)
   }
   else
   {
-    RtlInitUnicodeString(&PopDirectedDripsDiagEmptyString, &word_140A75FC0);
+    RtlInitUnicodeString(&PopDirectedDripsDiagEmptyString, &word_140A77190);
     PopDirectedDripsDiagLock = 0LL;
     memset(&PopDirectedDripsDiagSessionContext, 0, 0x210uLL);
-    qword_140C1EBB0 = 0LL;
-    qword_140C1EB98 = (__int64)&qword_140C1EB90;
-    qword_140C1EB90 = &qword_140C1EB90;
-    qword_140C1EB88 = (__int64)&PopDirectedDripsDiagSessionContext;
+    qword_140C1E9F0 = 0LL;
+    qword_140C1E9D8 = (__int64)&qword_140C1E9D0;
+    qword_140C1E9D0 = &qword_140C1E9D0;
+    qword_140C1E9C8 = (__int64)&PopDirectedDripsDiagSessionContext;
     PopDirectedDripsDiagSessionContext = &PopDirectedDripsDiagSessionContext;
-    dword_140C1ED80 = 1;
-    dword_140C1ED84 = 1;
+    dword_140C1EBC0 = 1;
+    dword_140C1EBC4 = 1;
   }
 }

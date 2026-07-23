@@ -1,13 +1,13 @@
 /*
- * XREFs of SmProcessDeleteRequest @ 0x1408198D4
+ * XREFs of SmProcessDeleteRequest @ 0x14081FAE4
  * Callers:
- *     SmSetStoreInformation @ 0x140B2E9E0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x140B307BC (SmSetStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     SmKmStoreDelete @ 0x140B20310 (SmKmStoreDelete.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SmKmStoreDelete @ 0x140B22710 (SmKmStoreDelete.c)
  */
 
 __int64 __fastcall SmProcessDeleteRequest(void *Src, int a2, char a3)

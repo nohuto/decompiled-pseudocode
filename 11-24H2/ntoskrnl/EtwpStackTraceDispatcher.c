@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpStackTraceDispatcher @ 0x1403ED650
+ * XREFs of EtwpStackTraceDispatcher @ 0x1403DD620
  * Callers:
- *     EtwpLogSystemEventUnsafe @ 0x1403274F0 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x140421EE0 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1402D0080 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x140415D90 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     MmCanThreadFault @ 0x14027DC40 (MmCanThreadFault.c)
- *     EtwpTraceStackWalk @ 0x1403EDBD0 (EtwpTraceStackWalk.c)
- *     EtwpQueueApc @ 0x1403EE2B0 (EtwpQueueApc.c)
+ *     MmCanThreadFault @ 0x1402331D0 (MmCanThreadFault.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     EtwpTraceStackWalk @ 0x1403DDBA0 (EtwpTraceStackWalk.c)
+ *     EtwpQueueApc @ 0x1403DE1A0 (EtwpQueueApc.c)
  */
 
 void __fastcall EtwpStackTraceDispatcher(__int64 a1, unsigned int *a2, _KTHREAD *a3, unsigned int a4)
@@ -19,8 +19,10 @@ void __fastcall EtwpStackTraceDispatcher(__int64 a1, unsigned int *a2, _KTHREAD 
   struct _KTHREAD *v11; // r14
   int v12; // ecx
   int v13; // r15d
-  char v14; // al
-  unsigned int v15; // r14d
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  char v16; // al
+  unsigned int v17; // r14d
   unsigned __int8 NestingLevel; // cl
 
   v5 = a4;
@@ -52,7 +54,7 @@ void __fastcall EtwpStackTraceDispatcher(__int64 a1, unsigned int *a2, _KTHREAD 
       goto LABEL_16;
     if ( KeAreInterruptsEnabled() && KeGetCurrentIrql() < 2u )
     {
-      if ( MmCanThreadFault()
+      if ( MmCanThreadFault(v15, v14)
         && !BYTE6(v11[1].Queue)
         && KeGetCurrentThread()->ApcStateIndex != 1
         && (v11->SameThreadTransientFlags & 4) == 0 )
@@ -73,16 +75,16 @@ void __fastcall EtwpStackTraceDispatcher(__int64 a1, unsigned int *a2, _KTHREAD 
     LOBYTE(v12) = 1;
     v10 = 1;
 LABEL_16:
-    v14 = v10;
+    v16 = v10;
     if ( (v5 & 0x1000000) != 0 )
-      v14 = 1;
+      v16 = 1;
     if ( (_BYTE)v12 )
     {
-      if ( v14 )
+      if ( v16 )
       {
         v5 &= ~0x1000u;
-        v15 = (*(_WORD *)(a1 + 818) & 7) + 24;
-        if ( !_interlockedbittestandset((volatile signed __int32 *)&a3->116 + 1, v15)
+        v17 = (*(_WORD *)(a1 + 818) & 7) + 24;
+        if ( !_interlockedbittestandset((volatile signed __int32 *)&a3->116 + 1, v17)
           && (int)EtwpQueueApc(
                     (int)a1 + 832,
                     (_DWORD)a3,
@@ -93,7 +95,7 @@ LABEL_16:
                     a2[1],
                     *a2) < 0 )
         {
-          _interlockedbittestandreset((volatile signed __int32 *)&a3->116 + 1, v15);
+          _interlockedbittestandreset((volatile signed __int32 *)&a3->116 + 1, v17);
         }
       }
     }

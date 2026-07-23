@@ -1,14 +1,14 @@
 /*
- * XREFs of SepSetTokenTrust @ 0x1406A4668
+ * XREFs of SepSetTokenTrust @ 0x1406A5908
  * Callers:
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
- *     SepSetTrustLevelForProcessToken @ 0x1400D9E14 (SepSetTrustLevelForProcessToken.c)
- *     NtOpenThreadTokenEx @ 0x140648880 (NtOpenThreadTokenEx.c)
- *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
- *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
+ *     SepSetTrustLevelForProcessToken @ 0x1400D9E94 (SepSetTrustLevelForProcessToken.c)
+ *     NtOpenThreadTokenEx @ 0x140649A40 (NtOpenThreadTokenEx.c)
+ *     SeCopyClientToken @ 0x14064B034 (SeCopyClientToken.c)
+ *     SepFilterToken @ 0x140658E8C (SepFilterToken.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepDuplicateSid @ 0x140648FA0 (SepDuplicateSid.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepDuplicateSid @ 0x14064A160 (SepDuplicateSid.c)
  */
 
 __int64 __fastcall SepSetTokenTrust(__int64 a1, unsigned __int8 *a2)

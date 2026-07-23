@@ -1,15 +1,15 @@
 /*
- * XREFs of SeQuerySigningPolicy @ 0x14045CA2C
+ * XREFs of SeQuerySigningPolicy @ 0x14045B8FC
  * Callers:
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x1404EB990 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x1404CDA18 (PspCreateProcess.c)
  * Callees:
  *     SeQuerySigningPolicyExt_0 @ 0x1400012E8 (SeQuerySigningPolicyExt_0.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     SepIsMinTCB @ 0x14045CC48 (SepIsMinTCB.c)
- *     RtlRunOnceExecuteOnce @ 0x14045CE04 (RtlRunOnceExecuteOnce.c)
- *     SeCompareSigningLevels @ 0x14045D1E0 (SeCompareSigningLevels.c)
- *     SeQuerySigningPolicyWorker @ 0x14045D1FC (SeQuerySigningPolicyWorker.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     SepIsMinTCB @ 0x14045BB18 (SepIsMinTCB.c)
+ *     RtlRunOnceExecuteOnce @ 0x14045BCD4 (RtlRunOnceExecuteOnce.c)
+ *     SeCompareSigningLevels @ 0x14045C0B0 (SeCompareSigningLevels.c)
+ *     SeQuerySigningPolicyWorker @ 0x14045C0CC (SeQuerySigningPolicyWorker.c)
  */
 
 __int64 __fastcall SeQuerySigningPolicy(

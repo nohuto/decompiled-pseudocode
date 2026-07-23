@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPfIssueCoalescedSupport @ 0x14047E5A4
+ * XREFs of MiPfIssueCoalescedSupport @ 0x1403DAF90
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1402A98D0 (MiPrefetchVirtualMemory.c)
- *     MiPfIssueCoalesceCandidates @ 0x14047E4E8 (MiPfIssueCoalesceCandidates.c)
+ *     MiPrefetchVirtualMemory @ 0x140351B80 (MiPrefetchVirtualMemory.c)
+ *     MiPfIssueCoalesceCandidates @ 0x1403DAED4 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiInitializeInPageSupport @ 0x1402E44F8 (MiInitializeInPageSupport.c)
- *     IoPageReadEx @ 0x140373740 (IoPageReadEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x14025C000 (IoPageReadEx.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiInitializeInPageSupport @ 0x1403DC938 (MiInitializeInPageSupport.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall MiPfIssueCoalescedSupport(signed __int16 **a1, unsigned int a2)
@@ -37,7 +37,7 @@ __int64 __fastcall MiPfIssueCoalescedSupport(signed __int16 **a1, unsigned int a
   v6 = result;
   if ( result )
   {
-    MiInitializeInPageSupport(result, 0, 0LL);
+    MiInitializeInPageSupport(result, 0LL, 0LL);
     v7 = (char *)(v6 + 320);
     v8 = *(_DWORD *)(v6 + 192) | 0x1000000;
     v19 = 0LL;
@@ -78,7 +78,7 @@ __int64 __fastcall MiPfIssueCoalescedSupport(signed __int16 **a1, unsigned int a
           *(_WORD *)(v6 + 282) &= ~0x4000u;
           v15 = *((_DWORD *)v11 + 24) - v5;
           v16 = (unsigned __int64)(8 * (v15 >> 12)) >> 3;
-          memset64(v7, qword_140E37338, v16);
+          memset64(v7, qword_140E37478, v16);
           v7 += 8 * v16;
           v5 += v15;
           v9 += v15;

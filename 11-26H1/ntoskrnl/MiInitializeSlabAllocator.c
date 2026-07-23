@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeSlabAllocator @ 0x140707248
+ * XREFs of MiInitializeSlabAllocator @ 0x14070BF18
  * Callers:
- *     MiInitializeNuma @ 0x1406E3230 (MiInitializeNuma.c)
- *     MiInitializeSlabIdentities @ 0x1407075EC (MiInitializeSlabIdentities.c)
+ *     MiInitializeNuma @ 0x1406E7EDC (MiInitializeNuma.c)
+ *     MiInitializeSlabIdentities @ 0x14070C2BC (MiInitializeSlabIdentities.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiInitializeSlabAllocator(volatile LONG *a1, int a2, unsigned int a3, __int64 a4)

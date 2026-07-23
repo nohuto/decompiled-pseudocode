@@ -1,35 +1,38 @@
 /*
- * XREFs of RtlSetOwnerSecurityDescriptor @ 0x180010F10
+ * XREFs of RtlSetOwnerSecurityDescriptor @ 0x180010F00
  * Callers:
- *     RtlCheckTokenCapability @ 0x18000DDF0 (RtlCheckTokenCapability.c)
- *     RtlCheckTokenMembershipEx @ 0x180011040 (RtlCheckTokenMembershipEx.c)
- *     RtlpSysVolTakeOwnership @ 0x18008B698 (RtlpSysVolTakeOwnership.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008C544 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlCreateAndSetSD @ 0x18008C800 (RtlCreateAndSetSD.c)
- *     RtlCheckSandboxedToken @ 0x1800D4580 (RtlCheckSandboxedToken.c)
+ *     RtlCheckTokenCapability @ 0x18000DDE0 (RtlCheckTokenCapability.c)
+ *     RtlCheckTokenMembershipEx @ 0x180011030 (RtlCheckTokenMembershipEx.c)
+ *     RtlpSysVolTakeOwnership @ 0x18008B688 (RtlpSysVolTakeOwnership.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008C534 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlCreateAndSetSD @ 0x18008C7F0 (RtlCreateAndSetSD.c)
+ *     RtlCheckSandboxedToken @ 0x1800D4640 (RtlCheckSandboxedToken.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetOwnerSecurityDescriptor(__int64 a1, __int64 a2, char a3)
+NTSTATUS __cdecl RtlSetOwnerSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID Owner,
+        BOOLEAN OwnerDefaulted)
 {
   __int16 v4; // cx
-  __int64 v5; // rax
+  PSID v5; // rax
   __int16 v6; // cx
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
-  v4 = *(_WORD *)(a1 + 2);
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  v4 = *((_WORD *)SecurityDescriptor + 1);
   if ( v4 < 0 )
-    return 3221225593LL;
-  *(_QWORD *)(a1 + 8) = 0LL;
-  v5 = *(_QWORD *)(a1 + 8);
-  if ( a2 )
-    v5 = a2;
-  *(_QWORD *)(a1 + 8) = v5;
+    return -1073741703;
+  *((_QWORD *)SecurityDescriptor + 1) = 0LL;
+  v5 = (PSID)*((_QWORD *)SecurityDescriptor + 1);
+  if ( Owner )
+    v5 = Owner;
+  *((_QWORD *)SecurityDescriptor + 1) = v5;
   v6 = v4 & 0xFFFE;
-  *(_WORD *)(a1 + 2) = v6;
-  if ( a3 )
-    *(_WORD *)(a1 + 2) = v6 | 1;
-  return 0LL;
+  *((_WORD *)SecurityDescriptor + 1) = v6;
+  if ( OwnerDefaulted )
+    *((_WORD *)SecurityDescriptor + 1) = v6 | 1;
+  return 0;
 }

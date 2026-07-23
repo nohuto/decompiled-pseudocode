@@ -8,5 +8,5 @@
 
 void __stdcall RtlSecondsSince1980ToTime(ULONG ElapsedSeconds, PLARGE_INTEGER Time)
 {
-  Time->QuadPart = 10000000 * (SecondsToStartOf1980 + ElapsedSeconds);
+  Time->QuadPart = 10000000 * (ElapsedSeconds + 0x2C8DF3700LL);
 }

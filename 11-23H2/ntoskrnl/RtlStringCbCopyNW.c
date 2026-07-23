@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCbCopyNW @ 0x140396D60
+ * XREFs of RtlStringCbCopyNW @ 0x140396F40
  * Callers:
- *     HalpMcEnumerateAndSetPatchConfig @ 0x14051B5D0 (HalpMcEnumerateAndSetPatchConfig.c)
- *     PopDiagGetDriverName @ 0x1405918C4 (PopDiagGetDriverName.c)
- *     LocalConvertSidToStringSidW @ 0x140835E44 (LocalConvertSidToStringSidW.c)
- *     AslPathWildcardFindFirst @ 0x140A55554 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x140A55AAC (AslPathWildcardFindNext.c)
- *     AuthzBasepCopyoutClaimAttributeValues @ 0x140A59E18 (AuthzBasepCopyoutClaimAttributeValues.c)
- *     AuthzBasepCopyoutClaimAttributes @ 0x140A5A04C (AuthzBasepCopyoutClaimAttributes.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x14051BB20 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     PopDiagGetDriverName @ 0x140591DB4 (PopDiagGetDriverName.c)
+ *     LocalConvertSidToStringSidW @ 0x140836144 (LocalConvertSidToStringSidW.c)
+ *     AslPathWildcardFindFirst @ 0x140A55804 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x140A55D5C (AslPathWildcardFindNext.c)
+ *     AuthzBasepCopyoutClaimAttributeValues @ 0x140A5A0C8 (AuthzBasepCopyoutClaimAttributeValues.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x140A5A2FC (AuthzBasepCopyoutClaimAttributes.c)
  * Callees:
  *     <none>
  */

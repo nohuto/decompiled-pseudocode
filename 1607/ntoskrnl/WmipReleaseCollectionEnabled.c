@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipReleaseCollectionEnabled @ 0x14054CF24
+ * XREFs of WmipReleaseCollectionEnabled @ 0x14054D464
  * Callers:
- *     WmipSendEnableRequest @ 0x1404EEB64 (WmipSendEnableRequest.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140532344 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipEnableCollectionForNewGuid @ 0x1405378E8 (WmipEnableCollectionForNewGuid.c)
- *     WmipDoDisableRequest @ 0x1405497BC (WmipDoDisableRequest.c)
+ *     WmipSendEnableRequest @ 0x1404D0C2C (WmipSendEnableRequest.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140532884 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140537E28 (WmipEnableCollectionForNewGuid.c)
+ *     WmipDoDisableRequest @ 0x140549CFC (WmipDoDisableRequest.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  */
 
 LONG __fastcall WmipReleaseCollectionEnabled(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MD5Init @ 0x180119F20
+ * XREFs of MD5Init @ 0x180118150
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptWipeAsm @ 0x180131590 (SymCryptWipeAsm.c)
- *     ScRsa32Compat_Md5ExportAndWipe @ 0x18015BCF4 (ScRsa32Compat_Md5ExportAndWipe.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     SymCryptWipeAsm @ 0x18012F7C0 (SymCryptWipeAsm.c)
+ *     ScRsa32Compat_Md5ExportAndWipe @ 0x18015A0B4 (ScRsa32Compat_Md5ExportAndWipe.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall MD5Init(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MD5Init(__int64 a1)
   memset_thunk_772440563353939046(v3, 0, 0x6CuLL);
   SymCryptWipeAsm(v3, 112LL);
   v4 = 0LL;
-  v6 = xmmword_18019A450;
+  v6 = xmmword_180199580;
   v5 = 0LL;
   v3[0] = 0;
   return ScRsa32Compat_Md5ExportAndWipe(v3, a1);

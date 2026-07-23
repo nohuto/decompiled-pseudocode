@@ -19,13 +19,13 @@ __int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(__int64 a1)
     __fastfail(5u);
   v2 = 0;
   *(_QWORD *)(a1 + 88) = &v2;
-  RtlUnsubscribeWnfStateChangeNotification();
+  RtlUnsubscribeWnfStateChangeNotification((PWNF_USER_CALLBACK)a1);
   v3 = 0;
   do
   {
     if ( byte_1801D4988 )
       break;
-    RtlpWaitOnAddress((unsigned int)&v2, (unsigned int)&v3, 4, 0, (_DWORD)RtlpWaitOnAddressSpinCycleCount, 0LL);
+    RtlpWaitOnAddress(&v2, &v3, 4LL);
     v3 = v2;
   }
   while ( !v2 );

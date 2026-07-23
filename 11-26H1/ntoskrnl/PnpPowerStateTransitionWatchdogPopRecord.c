@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpPowerStateTransitionWatchdogPopRecord @ 0x140B46AD8
+ * XREFs of PnpPowerStateTransitionWatchdogPopRecord @ 0x140B48B08
  * Callers:
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x140B130B4 (PnpSurpriseFailUnsafeDmaDevices.c)
- *     IoBuildPoDeviceNotifyList @ 0x140C04DF0 (IoBuildPoDeviceNotifyList.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x14096EA80 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     IoBuildPoDeviceNotifyList @ 0x140C0B000 (IoBuildPoDeviceNotifyList.c)
  * Callees:
- *     ZwPowerInformation @ 0x140723FD0 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x140728BA0 (ZwPowerInformation.c)
  */
 
 NTSTATUS PnpPowerStateTransitionWatchdogPopRecord()

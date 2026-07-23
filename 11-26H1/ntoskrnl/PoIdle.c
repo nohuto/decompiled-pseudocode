@@ -1,17 +1,17 @@
 /*
- * XREFs of PoIdle @ 0x1403E9FF0
+ * XREFs of PoIdle @ 0x1402F6ED0
  * Callers:
- *     KiIdleLoop @ 0x140728DB0 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x14072D980 (KiIdleLoop.c)
  * Callees:
- *     PpmResetProcessorIdleAccounting @ 0x1403E6434 (PpmResetProcessorIdleAccounting.c)
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
- *     PpmPerfSetProcessorIdle @ 0x1403EAB34 (PpmPerfSetProcessorIdle.c)
- *     PpmWakeClockOwnerIfNeeded @ 0x1403EACD0 (PpmWakeClockOwnerIfNeeded.c)
- *     PpmIdleExecuteTransition @ 0x1403EB78C (PpmIdleExecuteTransition.c)
- *     KeIdleSpecCtrl @ 0x1404A5BB0 (KeIdleSpecCtrl.c)
- *     PpmEventIdleStateChange @ 0x1404D7AFC (PpmEventIdleStateChange.c)
- *     HalProcessorIdle @ 0x140722A90 (HalProcessorIdle.c)
- *     KeExecuteVerw @ 0x14073D300 (KeExecuteVerw.c)
+ *     PpmResetProcessorIdleAccounting @ 0x1402F3314 (PpmResetProcessorIdleAccounting.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
+ *     PpmPerfSetProcessorIdle @ 0x1402F7A14 (PpmPerfSetProcessorIdle.c)
+ *     PpmWakeClockOwnerIfNeeded @ 0x1402F7BB0 (PpmWakeClockOwnerIfNeeded.c)
+ *     PpmIdleExecuteTransition @ 0x1402F87D0 (PpmIdleExecuteTransition.c)
+ *     KeIdleSpecCtrl @ 0x14049F240 (KeIdleSpecCtrl.c)
+ *     PpmEventIdleStateChange @ 0x1404D12CC (PpmEventIdleStateChange.c)
+ *     HalProcessorIdle @ 0x140727660 (HalProcessorIdle.c)
+ *     KeExecuteVerw @ 0x140741F00 (KeExecuteVerw.c)
  */
 
 char __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
@@ -45,7 +45,7 @@ char __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   v20 = 0;
   v15 = 0;
   v13 = 0;
-  result = BYTE1(PpmCurrentProfile[89 * dword_140F106CC + 36]);
+  result = *((_BYTE *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 289);
   LOBYTE(v19) = 0;
   if ( !result )
   {

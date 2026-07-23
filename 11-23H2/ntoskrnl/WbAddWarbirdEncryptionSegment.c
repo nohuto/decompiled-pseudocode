@@ -1,18 +1,18 @@
 /*
- * XREFs of WbAddWarbirdEncryptionSegment @ 0x1407D2138
+ * XREFs of WbAddWarbirdEncryptionSegment @ 0x1407D2408
  * Callers:
- *     WbGetWarbirdEncryptionSegment @ 0x1407D2410 (WbGetWarbirdEncryptionSegment.c)
+ *     WbGetWarbirdEncryptionSegment @ 0x1407D26E0 (WbGetWarbirdEncryptionSegment.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     sub_140763D04 @ 0x140763D04 (sub_140763D04.c)
- *     sub_1407D2580 @ 0x1407D2580 (sub_1407D2580.c)
- *     sub_1407D25B4 @ 0x1407D25B4 (sub_1407D25B4.c)
- *     sub_1407D27A8 @ 0x1407D27A8 (sub_1407D27A8.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     sub_140763EF4 @ 0x140763EF4 (sub_140763EF4.c)
+ *     sub_1407D2850 @ 0x1407D2850 (sub_1407D2850.c)
+ *     sub_1407D2884 @ 0x1407D2884 (sub_1407D2884.c)
+ *     sub_1407D2A78 @ 0x1407D2A78 (sub_1407D2A78.c)
  */
 
 __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD *a3)
@@ -50,24 +50,24 @@ __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD 
     ExfAcquirePushLockExclusiveEx(v4, v9, (__int64)v4);
   if ( v10 )
     *(_BYTE *)(v10 + 18) = 1;
-  v11 = sub_1407D25B4(a1, &v21, &v20, &v19);
+  v11 = sub_1407D2884(a1, &v21, &v20, &v19);
   v13 = v11;
   if ( v11 )
   {
     if ( v11 == -1073741198 )
     {
-      v13 = sub_140763D04(a1 + 136, a2, v12, (__int64)&v21, 0x10u, v19);
+      v13 = sub_140763EF4(a1 + 136, a2, v12, (__int64)&v21, 0x10u, v19);
       if ( v13 >= 0 )
-        v13 = sub_1407D27A8(a2);
+        v13 = sub_1407D2A78(a2);
     }
   }
   else if ( a3 )
   {
-    sub_1407D27A8(v20);
+    sub_1407D2A78(v20);
     v20 = 0LL;
     *a3 = v18;
   }
-  sub_1407D2580(v20);
+  sub_1407D2850(v20);
   v14 = _InterlockedExchangeAdd64((volatile signed __int64 *)v4, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v14 & 2) != 0 && (v14 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)v4);

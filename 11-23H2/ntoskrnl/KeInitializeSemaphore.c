@@ -1,11 +1,11 @@
 /*
- * XREFs of KeInitializeSemaphore @ 0x1402B32F0
+ * XREFs of KeInitializeSemaphore @ 0x1402B3580
  * Callers:
- *     AlpcpInitializePort @ 0x140716728 (AlpcpInitializePort.c)
- *     NtCreateSemaphore @ 0x1407331E0 (NtCreateSemaphore.c)
- *     PspAllocateThread @ 0x1407409D0 (PspAllocateThread.c)
- *     MiInitializeSections @ 0x140837B4C (MiInitializeSections.c)
- *     PopFxInitializeWorkPool @ 0x14084F82C (PopFxInitializeWorkPool.c)
+ *     AlpcpInitializePort @ 0x140716928 (AlpcpInitializePort.c)
+ *     NtCreateSemaphore @ 0x1407333D0 (NtCreateSemaphore.c)
+ *     PspAllocateThread @ 0x140740BC0 (PspAllocateThread.c)
+ *     MiInitializeSections @ 0x140837E4C (MiInitializeSections.c)
+ *     PopFxInitializeWorkPool @ 0x14084FB2C (PopFxInitializeWorkPool.c)
  * Callees:
  *     <none>
  */

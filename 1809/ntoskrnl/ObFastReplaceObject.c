@@ -1,19 +1,19 @@
 /*
- * XREFs of ObFastReplaceObject @ 0x140094924
+ * XREFs of ObFastReplaceObject @ 0x140094864
  * Callers:
- *     MmChangeSectionBackingFile @ 0x14012F9F8 (MmChangeSectionBackingFile.c)
- *     CcChangeBackingFileObject @ 0x140268E64 (CcChangeBackingFileObject.c)
- *     MiCreateImageOrDataSection @ 0x1405DE390 (MiCreateImageOrDataSection.c)
- *     SeDeassignPrimaryToken @ 0x14060895C (SeDeassignPrimaryToken.c)
- *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
- *     MiSegmentDelete @ 0x14061E928 (MiSegmentDelete.c)
- *     SeExchangePrimaryToken @ 0x140748B98 (SeExchangePrimaryToken.c)
- *     PsShutdownSystem @ 0x14088AFA4 (PsShutdownSystem.c)
+ *     MmChangeSectionBackingFile @ 0x14012FAC8 (MmChangeSectionBackingFile.c)
+ *     CcChangeBackingFileObject @ 0x140269054 (CcChangeBackingFileObject.c)
+ *     MiCreateImageOrDataSection @ 0x1405DF390 (MiCreateImageOrDataSection.c)
+ *     SeDeassignPrimaryToken @ 0x14060995C (SeDeassignPrimaryToken.c)
+ *     MiCreateImageFileMap @ 0x14061DEB8 (MiCreateImageFileMap.c)
+ *     MiSegmentDelete @ 0x14061F928 (MiSegmentDelete.c)
+ *     SeExchangePrimaryToken @ 0x140749D88 (SeExchangePrimaryToken.c)
+ *     PsShutdownSystem @ 0x14088C204 (PsShutdownSystem.c)
  * Callees:
  *     ObpTraceObjectDereferenceIfActive @ 0x14001E38C (ObpTraceObjectDereferenceIfActive.c)
- *     ObReferenceObjectExWithTag @ 0x140111ED0 (ObReferenceObjectExWithTag.c)
- *     ObpDeferObjectDeletion @ 0x140125DD0 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ObReferenceObjectExWithTag @ 0x140111F40 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x140125EA0 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ObFastReplaceObject(volatile __int64 *a1, ULONG_PTR a2)

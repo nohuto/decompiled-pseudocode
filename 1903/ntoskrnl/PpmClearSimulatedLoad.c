@@ -11,7 +11,7 @@
  *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PpmClearSimulatedLoad(struct _PROCESSOR_NUMBER *a1)
+__int64 __fastcall PpmClearSimulatedLoad(_PROCESSOR_NUMBER *a1)
 {
   unsigned int v1; // ebx
   ULONG ProcessorIndexFromNumber; // eax

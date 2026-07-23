@@ -15,7 +15,7 @@ __int64 sub_180002EE8()
 
   if ( !qword_18015A258 )
     return 0LL;
-  v0 = *(_QWORD *)(qword_18015A258 + 16);
+  v0 = *((_QWORD *)qword_18015A258 + 2);
   if ( !v0 )
     return 0LL;
   v1 = *(_QWORD *)(v0 + 24);

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCancelIrpsInCurrentThreadList @ 0x1402BB174
+ * XREFs of IopCancelIrpsInCurrentThreadList @ 0x140239384
  * Callers:
- *     IopCancelIrpsInCurrentThreadListApcRoutine @ 0x14069DC80 (IopCancelIrpsInCurrentThreadListApcRoutine.c)
- *     IopCancelIrpsInThreadList @ 0x14069DCC8 (IopCancelIrpsInThreadList.c)
+ *     IopCancelIrpsInCurrentThreadListApcRoutine @ 0x1405FCD50 (IopCancelIrpsInCurrentThreadListApcRoutine.c)
+ *     IopCancelIrpsInThreadList @ 0x1405FCD98 (IopCancelIrpsInThreadList.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     IoCancelIrp @ 0x1402394D0 (IoCancelIrp.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

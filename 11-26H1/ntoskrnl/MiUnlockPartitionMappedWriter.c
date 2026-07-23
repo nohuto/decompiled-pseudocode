@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlockPartitionMappedWriter @ 0x140496C74
+ * XREFs of MiUnlockPartitionMappedWriter @ 0x1404907C4
  * Callers:
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiMappedPageWriter @ 0x140496920 (MiMappedPageWriter.c)
- *     MiDeleteMappedMdls @ 0x1404973CC (MiDeleteMappedMdls.c)
- *     MiAllocateMappedWriterMdls @ 0x1404B64F0 (MiAllocateMappedWriterMdls.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiMappedPageWriter @ 0x140490470 (MiMappedPageWriter.c)
+ *     MiDeleteMappedMdls @ 0x140490F1C (MiDeleteMappedMdls.c)
+ *     MiAllocateMappedWriterMdls @ 0x1404AF940 (MiAllocateMappedWriterMdls.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall MiUnlockPartitionMappedWriter(__int64 a1, __int64 a2)

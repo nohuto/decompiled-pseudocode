@@ -1,25 +1,25 @@
 /*
- * XREFs of TppAllocThreadData @ 0x1800E2250
+ * XREFs of TppAllocThreadData @ 0x1800DFD50
  * Callers:
- *     TppWorkerThread @ 0x18003E5E0 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x180028B50 (TppWorkerThread.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
  */
 
-__int64 __fastcall TppAllocThreadData(_QWORD *a1)
+_DWORD *__fastcall TppAllocThreadData(_QWORD *a1)
 {
   struct _TEB *v2; // rbx
-  __int64 result; // rax
+  _DWORD *result; // rax
   _QWORD *v4; // rdx
 
   *a1 = 0LL;
   v2 = NtCurrentTeb();
-  result = RtlAllocateHeap_0();
-  v4 = (_QWORD *)result;
+  result = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 2883584) | 8, 0x88uLL);
+  v4 = result;
   if ( result )
   {
-    *(_DWORD *)(result + 8) |= 3u;
-    result = MEMORY[0x7FFE03B0];
+    result[2] |= 3u;
+    result = (_DWORD *)MEMORY[0x7FFE03B0];
     v4[3] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
     v2->ThreadPoolData = v4;
     *a1 = v4;

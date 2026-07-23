@@ -1,22 +1,22 @@
 /*
- * XREFs of KeAllocateInterrupt @ 0x140487ED8
+ * XREFs of KeAllocateInterrupt @ 0x140482F48
  * Callers:
- *     IopConnectInterrupt @ 0x140A12470 (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1409C0880 (IopConnectInterrupt.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     MmAllocateIndependentPages @ 0x140A88F50 (MmAllocateIndependentPages.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     MmAllocateIndependentPages @ 0x140A85350 (MmAllocateIndependentPages.c)
  */
 
 PSLIST_ENTRY __fastcall KeAllocateInterrupt(__int64 a1)
 {
-  union _SLIST_HEADER *v1; // rbp
+  _SLIST_HEADER *v1; // rbp
   unsigned int v3; // r14d
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *v5; // rbx
+  _SLIST_ENTRY *v5; // rbx
   __int64 v6; // rsi
 
-  v1 = (union _SLIST_HEADER *)(a1 + 14336);
+  v1 = (_SLIST_HEADER *)(a1 + 14336);
   v3 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 138LL);
   while ( 1 )
   {

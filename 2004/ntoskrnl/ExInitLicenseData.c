@@ -72,7 +72,7 @@ void ExInitLicenseData()
   memset(v20, 0, 32);
   v20[4] = 10800LL;
   v21 = 1;
-  if ( (_DWORD)InitSafeBootMode || InitIsWinPEMode )
+  if ( InitSafeBootMode || InitIsWinPEMode )
     v21 = 0;
   ExpSetKernelDataProtection((__int64)v0, (__int64)v20, -1, 1);
   if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

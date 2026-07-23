@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapFrame @ 0x1402A0B50
+ * XREFs of MiMapFrame @ 0x1402A00A0
  * Callers:
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
- *     MiMapSystemCachePage @ 0x1404FFD9C (MiMapSystemCachePage.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
+ *     MiMapSystemCachePage @ 0x1404F958C (MiMapSystemCachePage.c)
  * Callees:
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
  */
 
 __int64 __fastcall MiMapFrame(unsigned __int64 a1, unsigned __int64 a2)
@@ -13,7 +13,7 @@ __int64 __fastcall MiMapFrame(unsigned __int64 a1, unsigned __int64 a2)
   int v4; // eax
   unsigned __int64 v5; // rbx
 
-  if ( a2 > qword_140E2D7A0 )
+  if ( a2 > qword_140E2D920 )
   {
     v3 = 4LL;
   }
@@ -50,6 +50,6 @@ __int64 __fastcall MiMapFrame(unsigned __int64 a1, unsigned __int64 a2)
     if ( (unsigned __int64)((__int64)(a1 << 25) >> 16) < 0x7FFFFFFF0000LL )
       v5 |= 4uLL;
   }
-  *(_QWORD *)a1 = (BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) & 0x100 ^ (v5 & 0xFAFFFFFFFFFFFEBDuLL | 0x42) | 0xA00000000000000LL;
+  *(_QWORD *)a1 = (BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) & 0x100 ^ (v5 & 0xFAFFFFFFFFFFFEBDuLL | 0x42) | 0xA00000000000000LL;
   return (__int64)(a1 << 25) >> 16;
 }

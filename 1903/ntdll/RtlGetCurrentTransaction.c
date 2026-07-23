@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void *RtlGetCurrentTransaction()
+HANDLE RtlGetCurrentTransaction(void)
 {
   return NtCurrentTeb()->CurrentTransactionHandle;
 }

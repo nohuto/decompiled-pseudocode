@@ -1,10 +1,10 @@
 /*
- * XREFs of _splitpath_helper @ 0x1801222E0
+ * XREFs of _splitpath_helper @ 0x180120510
  * Callers:
- *     _splitpath @ 0x180122250 (_splitpath.c)
+ *     _splitpath @ 0x180120480 (_splitpath.c)
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
- *     strncpy_s @ 0x18012DB60 (strncpy_s.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
+ *     strncpy_s @ 0x18012BD90 (strncpy_s.c)
  */
 
 __int64 __fastcall splitpath_helper(

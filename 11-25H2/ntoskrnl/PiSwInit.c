@@ -33,7 +33,7 @@ __int64 PiSwInit()
   {
     LODWORD(v1) = 3014700;
     *((_QWORD *)&v1 + 1) = L"\\Driver\\SoftwareDevice";
-    return IoCreateDriver(&v1, (unsigned __int64)PiSwPdoDriverEntry);
+    return IoCreateDriver(&v1, PiSwPdoDriverEntry);
   }
   return result;
 }

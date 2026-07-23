@@ -11,35 +11,39 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-_BYTE *__fastcall EtwpNotificationThread(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall EtwpNotificationThread(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WAIT a3)
 {
-  int *Heap; // rdi
+  _BYTE *Heap; // rdi
   char v4; // bp
-  int v7; // ebx
-  __int64 *v8; // r8
-  _BYTE *result; // rax
-  __int64 v10; // [rsp+38h] [rbp-140h] BYREF
-  _BYTE v11[256]; // [rsp+40h] [rbp-138h] BYREF
+  ULONG OutputBufferLength; // esi
+  NTSTATUS v8; // ebx
+  LARGE_INTEGER *v9; // r8
+  ULONG ReturnLength; // [rsp+30h] [rbp-148h] BYREF
+  __int64 v11; // [rsp+38h] [rbp-140h] BYREF
+  _BYTE OutputBuffer[256]; // [rsp+40h] [rbp-138h] BYREF
 
-  v10 = -600000000LL;
-  Heap = (int *)v11;
+  v11 = -600000000LL;
+  ReturnLength = 0;
+  Heap = OutputBuffer;
   v4 = 0;
+  OutputBufferLength = 256;
   while ( 1 )
   {
     while ( 1 )
     {
-      v7 = NtTraceControl(16LL, 0LL, 0LL);
-      if ( v7 < 0 )
+      v8 = NtTraceControl(EtwReceiveNotification, 0LL, 0, Heap, OutputBufferLength, &ReturnLength);
+      if ( v8 < 0 )
         break;
-      EtwDeliverDataBlock(Heap);
-      if ( v7 != 261 )
+      EtwDeliverDataBlock((__int16 *)Heap);
+      if ( v8 != 261 )
         goto LABEL_4;
     }
-    if ( v7 != -1073741789 )
+    if ( v8 != -1073741789 )
       break;
-    if ( Heap != (int *)v11 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
-    Heap = (int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap);
+    if ( Heap != OutputBuffer )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+    OutputBufferLength = ReturnLength;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, ReturnLength);
     if ( !Heap )
     {
       v4 = 1;
@@ -47,15 +51,13 @@ _BYTE *__fastcall EtwpNotificationThread(__int64 a1, __int64 a2, __int64 a3)
     }
   }
 LABEL_4:
-  v8 = &v10;
+  v9 = (LARGE_INTEGER *)&v11;
   if ( !v4 )
-    v8 = 0LL;
-  TpSetWaitEx(a3, a2, v8, 0LL);
-  result = v11;
-  if ( Heap != (int *)v11 )
+    v9 = 0LL;
+  TpSetWaitEx(a3, a2, v9, 0LL);
+  if ( Heap != OutputBuffer )
   {
     if ( Heap )
-      return (_BYTE *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
-  return result;
 }

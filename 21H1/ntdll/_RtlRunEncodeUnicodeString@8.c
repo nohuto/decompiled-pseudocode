@@ -6,58 +6,53 @@
  *     _NtQuerySystemTime@4 @ 0x4B2F2F20 (_NtQuerySystemTime@4.c)
  */
 
-unsigned int __stdcall RtlRunEncodeUnicodeString(char *a1, unsigned __int16 *a2)
+void __cdecl RtlRunEncodeUnicodeString(PUCHAR Seed, PUNICODE_STRING String)
 {
   unsigned int v2; // ebx
-  char v3; // cl
+  UCHAR v3; // cl
   char v4; // al
   unsigned int v5; // ecx
-  unsigned int result; // eax
-  unsigned __int16 v7; // di
+  unsigned __int16 Length; // di
   LARGE_INTEGER SystemTime; // [esp+8h] [ebp-8h] BYREF
 
   v2 = 1;
-  v3 = *a1;
-  if ( !*a1 )
+  v3 = *Seed;
+  if ( !*Seed )
   {
     NtQuerySystemTime(&SystemTime);
     v4 = BYTE1(SystemTime.LowPart);
     v5 = 1;
-    *a1 = BYTE1(SystemTime.LowPart);
+    *Seed = BYTE1(SystemTime.LowPart);
     if ( !v4 )
     {
       do
       {
         if ( v5 >= 8 )
           break;
-        *a1 |= *((_BYTE *)&SystemTime.LowPart + v5++);
+        *Seed |= *((_BYTE *)&SystemTime.LowPart + v5++);
       }
-      while ( !*a1 );
+      while ( !*Seed );
     }
-    v3 = *a1;
-    if ( !*a1 )
+    v3 = *Seed;
+    if ( !*Seed )
     {
-      *a1 = 1;
+      *Seed = 1;
       v3 = 1;
     }
   }
-  result = *a2;
-  v7 = result;
-  if ( (_WORD)result )
+  Length = String->Length;
+  if ( String->Length )
   {
-    result = *((_DWORD *)a2 + 1);
-    *(_BYTE *)result ^= v3 | 0x43;
-    v7 = *a2;
+    *(_BYTE *)String->Buffer ^= v3 | 0x43;
+    Length = String->Length;
   }
-  if ( v7 > 1u )
+  if ( Length > 1u )
   {
     do
     {
-      *(_BYTE *)(*((_DWORD *)a2 + 1) + v2) ^= *a1 ^ *(_BYTE *)(*((_DWORD *)a2 + 1) + v2 - 1);
+      *((_BYTE *)String->Buffer + v2) ^= *Seed ^ *((_BYTE *)String->Buffer + v2 - 1);
       ++v2;
-      result = *a2;
     }
-    while ( v2 < result );
+    while ( v2 < String->Length );
   }
-  return result;
 }

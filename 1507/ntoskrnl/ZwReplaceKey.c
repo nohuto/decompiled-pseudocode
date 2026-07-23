@@ -13,5 +13,5 @@ NTSTATUS __stdcall ZwReplaceKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectAttributes, Key, ReplacedObjectAttributes);
+  return KiServiceInternal(ObjectAttributes);
 }

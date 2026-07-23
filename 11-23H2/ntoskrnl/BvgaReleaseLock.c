@@ -1,15 +1,15 @@
 /*
- * XREFs of BvgaReleaseLock @ 0x14054F430
+ * XREFs of BvgaReleaseLock @ 0x14054FAF0
  * Callers:
- *     BvgaBitBlt @ 0x14054F1D0 (BvgaBitBlt.c)
- *     BvgaDisplayString @ 0x14054F250 (BvgaDisplayString.c)
- *     BvgaEnableBootDriver @ 0x14054F2C0 (BvgaEnableBootDriver.c)
- *     BvgaNotifyDisplayOwnershipLost @ 0x14054F3C0 (BvgaNotifyDisplayOwnershipLost.c)
- *     BvgaSolidColorFill @ 0x14054F570 (BvgaSolidColorFill.c)
- *     BvgaUpdateProgressBar @ 0x14054F630 (BvgaUpdateProgressBar.c)
+ *     BvgaBitBlt @ 0x14054F890 (BvgaBitBlt.c)
+ *     BvgaDisplayString @ 0x14054F910 (BvgaDisplayString.c)
+ *     BvgaEnableBootDriver @ 0x14054F980 (BvgaEnableBootDriver.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x14054FA80 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BvgaSolidColorFill @ 0x14054FC30 (BvgaSolidColorFill.c)
+ *     BvgaUpdateProgressBar @ 0x14054FCF0 (BvgaUpdateProgressBar.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char BvgaReleaseLock()
@@ -24,10 +24,10 @@ char BvgaReleaseLock()
   LOBYTE(v1) = KxReleaseSpinLock((volatile signed __int64 *)&BootDriverLock);
   if ( (unsigned __int8)v0 <= 2u )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v1) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
       {
         LOBYTE(v1) = v1 - 2;
         if ( (unsigned __int8)v1 <= 0xDu )
@@ -38,7 +38,7 @@ char BvgaReleaseLock()
           v4 = (v1 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v1;
           if ( v4 )
-            LOBYTE(v1) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            LOBYTE(v1) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }

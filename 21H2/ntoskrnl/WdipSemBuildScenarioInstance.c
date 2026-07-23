@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemBuildScenarioInstance @ 0x1407886AC
+ * XREFs of WdipSemBuildScenarioInstance @ 0x14078886C
  * Callers:
- *     WdipSemReserveInstanceTableEntry @ 0x1407885D8 (WdipSemReserveInstanceTableEntry.c)
+ *     WdipSemReserveInstanceTableEntry @ 0x140788798 (WdipSemReserveInstanceTableEntry.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     WdipSemFastAllocate @ 0x1407889C0 (WdipSemFastAllocate.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WdipSemFastAllocate @ 0x140788B80 (WdipSemFastAllocate.c)
  */
 
 _QWORD *__fastcall WdipSemBuildScenarioInstance(__int64 a1, __int128 *a2)

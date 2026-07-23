@@ -4,7 +4,7 @@
  *     VerifierKeReleaseInStackQueuedSpinLockForDpc @ 0x1407122B8 (VerifierKeReleaseInStackQueuedSpinLockForDpc.c)
  *     VerifierKeReleaseInStackQueuedSpinLockForDpcNoReboot @ 0x14071232C (VerifierKeReleaseInStackQueuedSpinLockForDpcNoReboot.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierKeReleaseInStackQueuedSpinLockForDpcCommon(ULONG_PTR a1)

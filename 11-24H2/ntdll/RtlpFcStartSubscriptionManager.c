@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFcStartSubscriptionManager @ 0x180097CFC
+ * XREFs of RtlpFcStartSubscriptionManager @ 0x18002CB4C
  * Callers:
- *     RtlpFcEnsureSubscriptionManagerStarted @ 0x180097BBC (RtlpFcEnsureSubscriptionManagerStarted.c)
+ *     RtlpFcEnsureSubscriptionManagerStarted @ 0x18002CA0C (RtlpFcEnsureSubscriptionManagerStarted.c)
  * Callees:
- *     RtlQueryWnfStateDataWithExplicitScope @ 0x180098D70 (RtlQueryWnfStateDataWithExplicitScope.c)
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x1800991AC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlQueryWnfStateDataWithExplicitScope @ 0x18002DBC0 (RtlQueryWnfStateDataWithExplicitScope.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18002DFFC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 RtlpFcStartSubscriptionManager()
@@ -17,18 +17,18 @@ __int64 RtlpFcStartSubscriptionManager()
   v1 = 0;
   v2 = RtlpFcWnfTypeId;
   result = RtlQueryWnfStateDataWithExplicitScope(
-             (unsigned int)&v1,
+             (int)&v1,
              WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
              0,
-             (unsigned int)WinSqmCheckEscalationSetString,
+             (int)WinSqmCheckEscalationSetString,
              0LL,
-             (__int64)&v2);
+             (PCWNF_TYPE_ID)&v2);
   if ( (int)result >= 0 )
     return RtlpSubscribeWnfStateChangeNotificationInternal(
-             (unsigned int)&unk_1801D3D78,
+             (unsigned int)&unk_1801D2D78,
              WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
              v1,
-             (unsigned int)RtlpFcWnfCallback,
+             (unsigned int)&RtlpFcWnfCallback,
              (__int64)&RtlpFcProcessManager,
              0LL,
              0,

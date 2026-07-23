@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpDeleteSiloState @ 0x140608F80
+ * XREFs of ExpDeleteSiloState @ 0x1406094D0
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1409ACE90 (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x1409AD090 (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     sub_1407AEAD8 @ 0x1407AEAD8 (sub_1407AEAD8.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEA50 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     MmUnmapViewInSystemSpace @ 0x1407E0410 (MmUnmapViewInSystemSpace.c)
- *     ExWaitForCallBacks @ 0x1409FB520 (ExWaitForCallBacks.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     sub_1407AECC8 @ 0x1407AECC8 (sub_1407AECC8.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DED20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     MmUnmapViewInSystemSpace @ 0x1407E06E0 (MmUnmapViewInSystemSpace.c)
+ *     ExWaitForCallBacks @ 0x1409FB7B0 (ExWaitForCallBacks.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -49,7 +49,7 @@ void __fastcall ExpDeleteSiloState(PVOID P)
   if ( v6 )
   {
     Pa = *v6;
-    if ( (int)sub_1407AEAD8(&Pa) >= 0 )
+    if ( (int)sub_1407AECC8(&Pa) >= 0 )
       ExFreePoolWithTag(Pa, 0x20534C53u);
     ExFreePoolWithTag(*((PVOID *)P + 5877), 0x20534C53u);
     *((_QWORD *)P + 5877) = 0LL;

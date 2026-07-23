@@ -1,18 +1,18 @@
 /*
- * XREFs of IopCancelAlertedRequest @ 0x1408195EC
+ * XREFs of IopCancelAlertedRequest @ 0x14081A7EC
  * Callers:
- *     IopWaitForSynchronousIo @ 0x1400DDBF0 (IopWaitForSynchronousIo.c)
- *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
- *     NtQueryInformationFile @ 0x14063AA10 (NtQueryInformationFile.c)
- *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
- *     IopSynchronousApiServiceTail @ 0x14065E91C (IopSynchronousApiServiceTail.c)
- *     IoSetInformation @ 0x140701280 (IoSetInformation.c)
+ *     IopWaitForSynchronousIo @ 0x1400DDC70 (IopWaitForSynchronousIo.c)
+ *     NtSetInformationFile @ 0x140100F10 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x14063BA30 (NtQueryInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x14063C640 (IopSynchronousServiceTail.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
+ *     IopSynchronousApiServiceTail @ 0x14065FADC (IopSynchronousApiServiceTail.c)
+ *     IoSetInformation @ 0x140702520 (IoSetInformation.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     IoCancelIrp @ 0x140121F00 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)

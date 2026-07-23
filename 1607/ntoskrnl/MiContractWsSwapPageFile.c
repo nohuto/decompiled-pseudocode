@@ -1,13 +1,13 @@
 /*
- * XREFs of MiContractWsSwapPageFile @ 0x1404F1C0C
+ * XREFs of MiContractWsSwapPageFile @ 0x1404D43A0
  * Callers:
- *     MmInSwapWorkingSet @ 0x1400B72AC (MmInSwapWorkingSet.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14010D37C (MiTrimUnusedPageFileRegionsWorker.c)
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
- *     MmInSwapVirtualAddresses @ 0x140663550 (MmInSwapVirtualAddresses.c)
+ *     MmInSwapWorkingSet @ 0x1400B5144 (MmInSwapWorkingSet.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x14010D8E0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
+ *     MmInSwapVirtualAddresses @ 0x140663634 (MmInSwapVirtualAddresses.c)
  * Callees:
- *     MiWsSwapPageFileNumber @ 0x1400B6F58 (MiWsSwapPageFileNumber.c)
- *     MiNumberWsSwapPagefiles @ 0x1400BE89C (MiNumberWsSwapPagefiles.c)
+ *     MiWsSwapPageFileNumber @ 0x1400B4D80 (MiWsSwapPageFileNumber.c)
+ *     MiNumberWsSwapPagefiles @ 0x1400BC72C (MiNumberWsSwapPagefiles.c)
  */
 
 void __fastcall MiContractWsSwapPageFile(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpVpptInitializePhysicalTimer @ 0x140509E44
+ * XREFs of HalpVpptInitializePhysicalTimer @ 0x14050A394
  * Callers:
- *     HalpTimerInitializeVpptClockTimer @ 0x140508FD4 (HalpTimerInitializeVpptClockTimer.c)
+ *     HalpTimerInitializeVpptClockTimer @ 0x140509524 (HalpTimerInitializeVpptClockTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ExtEnvCriticalFailure @ 0x14051F4D8 (ExtEnvCriticalFailure.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ExtEnvCriticalFailure @ 0x14051FA28 (ExtEnvCriticalFailure.c)
  */
 
 __int64 HalpVpptInitializePhysicalTimer()
@@ -34,10 +34,13 @@ __int64 HalpVpptInitializePhysicalTimer()
   v4 = (unsigned __int8)byte_140C62818;
   v5 = v3;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C62810);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -45,7 +48,7 @@ __int64 HalpVpptInitializePhysicalTimer()
       v10 = (v9 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v9;
       if ( v10 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v4);

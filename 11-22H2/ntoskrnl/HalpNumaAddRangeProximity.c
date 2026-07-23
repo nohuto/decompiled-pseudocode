@@ -86,10 +86,13 @@ __int64 __fastcall HalpNumaAddRangeProximity(unsigned __int64 a1, __int64 a2, in
     }
     LOWORD(v31) = *((_WORD *)HalpNumaMemoryRanges + 8 * v8 + 4);
     ExReleaseSpinLockExclusiveFromDpcLevel(&HalpNumaMemoryRangeLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -117,10 +120,10 @@ LABEL_11:
     {
       HalpNumaMaxMemoryRangeCount -= 5;
       ExReleaseSpinLockExclusiveFromDpcLevel(&HalpNumaMemoryRangeLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v12 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v12 >= 2u )
         {
           v13 = KeGetCurrentPrcb();
           v14 = v13->SchedulerAssist;
@@ -179,10 +182,10 @@ LABEL_21:
   *((_QWORD *)HalpNumaMemoryRanges + v26) = -1LL;
   *((_DWORD *)HalpNumaMemoryRanges + 2 * v26 + 2) = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(&HalpNumaMemoryRangeLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

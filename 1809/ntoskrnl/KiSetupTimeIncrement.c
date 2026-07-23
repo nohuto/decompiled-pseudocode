@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetupTimeIncrement @ 0x140190354
+ * XREFs of KiSetupTimeIncrement @ 0x140190494
  * Callers:
- *     KeInitializeClock @ 0x1409D8C58 (KeInitializeClock.c)
+ *     KeInitializeClock @ 0x1409D9C58 (KeInitializeClock.c)
  * Callees:
- *     RtlGenerateQpcToIncrementConstants @ 0x14016AE54 (RtlGenerateQpcToIncrementConstants.c)
- *     RtlpComputeFraction @ 0x14016AE88 (RtlpComputeFraction.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x14016AF54 (RtlGenerateQpcToIncrementConstants.c)
+ *     RtlpComputeFraction @ 0x14016AF88 (RtlpComputeFraction.c)
  */
 
 __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)

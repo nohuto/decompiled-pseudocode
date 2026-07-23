@@ -28,11 +28,11 @@
  *     <none>
  */
 
-__int64 ZwTerminateProcess()
+NTSTATUS __cdecl ZwTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 44LL;
+  result = 44;
   __asm { syscall; Low latency system call }
   return result;
 }

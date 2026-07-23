@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDripsWatchdogDfxCallback @ 0x14086E2C0
+ * XREFs of PopDripsWatchdogDfxCallback @ 0x14086F520
  * Callers:
  *     <none>
  * Callees:
- *     PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDirectedPowerTransitionSupported @ 0x1402D8464 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDeviceConstraintsEnforced @ 0x1402E7158 (PopDeviceConstraintsEnforced.c)
- *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x140867F84 (PopDirectedDripsMarkCandidateDevice.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x1408695F4 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x14087968C (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1402D77C0 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x1402D8654 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDeviceConstraintsEnforced @ 0x1402E7348 (PopDeviceConstraintsEnforced.c)
+ *     PopDirectedDripsNotify @ 0x14071F9E8 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1408691E4 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x14086A854 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x14087A8EC (PopDripsWatchdogInvokeDeviceCallbacks.c)
  */
 
 void __fastcall PopDripsWatchdogDfxCallback(int *a1)
@@ -28,7 +28,7 @@ void __fastcall PopDripsWatchdogDfxCallback(int *a1)
 
   v1 = *a1;
   v2 = 0;
-  if ( (*a1 & 0x80u) != 0 && ((byte_14043C450 & 1) == 0 || (v1 & 1) != 0) )
+  if ( (*a1 & 0x80u) != 0 && ((byte_14043D510 & 1) == 0 || (v1 & 1) != 0) )
     v2 = 1;
   v4 = 0;
   if ( (v1 & 0x100) != 0 )
@@ -51,7 +51,7 @@ void __fastcall PopDripsWatchdogDfxCallback(int *a1)
       }
       while ( v6 != v5 );
       if ( (v5 & 1) != 0 && PopDirectedDripsEnableV2 )
-        dword_140419168 = 0;
+        dword_14041A248 = 0;
     }
     for ( i = (_QWORD *)v11[0]; i != v11; i = (_QWORD *)*i )
     {

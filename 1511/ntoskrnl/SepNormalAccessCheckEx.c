@@ -27,7 +27,7 @@ void __fastcall SepNormalAccessCheckEx(
         __int64 a9,
         int a10,
         char a11,
-        __int64 a12,
+        char a12,
         char a13,
         _DWORD *a14)
 {
@@ -156,7 +156,7 @@ LABEL_39:
 LABEL_14:
             v31 = a2;
 LABEL_15:
-            if ( (unsigned __int8)SepSidInToken(v31, 0LL, v30, 0LL, v23) )
+            if ( (unsigned __int8)SepSidInToken(v31, 0LL, v30, 0LL, v23, a12) )
               AuthzBasepAddAccessTypeList(v18, v14, 0, v24, *(_DWORD *)(v25 + 4), 0);
             goto LABEL_17;
           }
@@ -178,7 +178,13 @@ LABEL_15:
             if ( v39 )
             {
               if ( a10
-                && (unsigned __int8)SepSidInToken(a2, 0LL, (v38 != 0 ? 0x10 : 0) + 8LL * (v37 & 2) + v25 + 12, 0LL, a11)
+                && (unsigned __int8)SepSidInToken(
+                                      a2,
+                                      0LL,
+                                      (v38 != 0 ? 0x10 : 0) + 8LL * (v37 & 2) + v25 + 12,
+                                      0LL,
+                                      a11,
+                                      a12)
                 && (unsigned __int8)AuthzBasepObjectInTypeList(v39, v18, v14, &v63) )
               {
                 AuthzBasepAddAccessTypeList(v18, v14, v63, v24, *(_DWORD *)(v25 + 4), 0);
@@ -194,7 +200,8 @@ LABEL_15:
                                      0LL,
                                      v25 + 4 * (unsigned int)*(unsigned __int8 *)(v25 + 13) + 8 + 12LL,
                                      0LL,
-                                     v23) )
+                                     v23,
+                                     a12) )
               break;
             v31 = a3;
             v30 = v25 + 12;
@@ -202,7 +209,7 @@ LABEL_15:
           case 1:
 LABEL_60:
             LOBYTE(a4) = 1;
-            if ( (unsigned __int8)SepSidInToken(a2, 0LL, v25 + 8, a4, v23) )
+            if ( (unsigned __int8)SepSidInToken(a2, 0LL, v25 + 8, a4, v23, a12) )
             {
               v41 = *(_DWORD *)(v25 + 4);
               if ( (v41 & *(_DWORD *)(v18 + 24)) != 0 )
@@ -219,7 +226,8 @@ LABEL_60:
                                      0LL,
                                      16LL * (*(_DWORD *)(v25 + 8) & 1) + 8LL * (*(_DWORD *)(v25 + 8) & 2) + v25 + 12,
                                      a4,
-                                     v23) )
+                                     v23,
+                                     a12) )
               break;
             if ( (*(_DWORD *)(v25 + 8) & 1) != 0 )
               v40 = v25 + 12;

@@ -6,18 +6,20 @@
  *     RtlpPopulateContext @ 0x140085FE8 (RtlpPopulateContext.c)
  */
 
-char __fastcall RtlInitStrongEnumerationHashTable(_DWORD *a1, _QWORD *a2)
+BOOLEAN __cdecl RtlInitStrongEnumerationHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  __int64 v3; // rax
-  _QWORD v5[5]; // [rsp+20h] [rbp-28h] BYREF
+  struct _LIST_ENTRY *v3; // rax
+  _LIST_ENTRY *v5; // [rsp+20h] [rbp-28h] BYREF
 
-  v5[0] = 0LL;
-  RtlpPopulateContext(a1, (__int64)v5, 0);
-  a2[1] = 0LL;
-  a2[2] = 0LL;
-  a2[4] = 0LL;
-  v3 = v5[0];
-  a2[3] = v5[0];
-  *a2 = v3;
+  v5 = 0LL;
+  RtlpPopulateContext(HashTable, (__int64)&v5, 0);
+  Enumerator->HashEntry.Linkage.Blink = 0LL;
+  Enumerator->HashEntry.Signature = 0LL;
+  *(_QWORD *)&Enumerator->BucketIndex = 0LL;
+  v3 = v5;
+  Enumerator->ChainHead = v5;
+  Enumerator->HashEntry.Linkage.Flink = v3;
   return 1;
 }

@@ -1,48 +1,47 @@
 /*
- * XREFs of RtlpHpVsContextLockUnlock @ 0x180097148
+ * XREFs of RtlpHpVsContextLockUnlock @ 0x180071A28
  * Callers:
- *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x180096BC0 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
- *     RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x18011E9F0 (RtlpHpUnlockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x1800714A4 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x18011E7A0 (RtlpHpUnlockHeapForProcessCloneOrTerminate.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpVsContextGetSlotInfo @ 0x180097620 (RtlpHpVsContextGetSlotInfo.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpVsContextGetSlotInfo @ 0x1800E09A0 (RtlpHpVsContextGetSlotInfo.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-unsigned __int64 __fastcall RtlpHpVsContextLockUnlock(__int64 a1, int a2)
+void __fastcall RtlpHpVsContextLockUnlock(__int64 a1, int a2)
 {
-  unsigned __int64 result; // rax
-  __int64 v5; // rdx
-  unsigned __int16 *v6; // rbx
-  __int64 v7; // rsi
-  volatile signed __int64 *v8; // rcx
+  unsigned int SlotInfo; // eax
+  unsigned __int16 *v5; // rbx
+  __int64 v6; // rsi
+  unsigned __int64 v7; // rax
+  _RTL_SRWLOCK *v8; // rcx
   _BYTE v9[256]; // [rsp+20h] [rbp-118h] BYREF
 
-  result = RtlpHpVsContextGetSlotInfo(a1, v9);
-  if ( (_DWORD)result )
+  SlotInfo = RtlpHpVsContextGetSlotInfo(a1, v9);
+  if ( SlotInfo )
   {
-    v6 = (unsigned __int16 *)v9;
-    v7 = (unsigned int)result;
+    v5 = (unsigned __int16 *)v9;
+    v6 = SlotInfo;
     do
     {
-      result = (unsigned __int64)*v6 << 6;
+      v7 = (unsigned __int64)*v5 << 6;
       if ( a2 )
       {
-        v8 = (volatile signed __int64 *)(result + a1 + 8);
+        v8 = (_RTL_SRWLOCK *)(v7 + a1 + 8);
         if ( a2 >= 2 )
-          *v8 = 1LL;
+          v8->Value = 1LL;
         if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
-          result = (unsigned __int64)RtlReleaseSRWLockExclusive(v8);
+          RtlReleaseSRWLockExclusive(v8);
       }
       else if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
       {
-        result = RtlAcquireSRWLockExclusive((volatile signed __int64 *)(result + a1 + 8), v5);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v7 + a1 + 8));
       }
-      v6 += 2;
-      --v7;
+      v5 += 2;
+      --v6;
     }
-    while ( v7 );
+    while ( v6 );
   }
-  return result;
 }

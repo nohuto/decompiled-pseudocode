@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFlushRelease @ 0x1403710F0
+ * XREFs of MiFlushRelease @ 0x1402594B0
  * Callers:
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     MmTrimSection @ 0x140370AB4 (MmTrimSection.c)
- *     MiFreeOverlappedFlushEntry @ 0x140371070 (MiFreeOverlappedFlushEntry.c)
- *     MiCommitFileBackedSection @ 0x1408DDC1C (MiCommitFileBackedSection.c)
- *     MmFlushVirtualMemory @ 0x1409D1A4C (MmFlushVirtualMemory.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     MiFreeOverlappedFlushEntry @ 0x14025943C (MiFreeOverlappedFlushEntry.c)
+ *     MmTrimSection @ 0x1404724C4 (MmTrimSection.c)
+ *     MiCommitFileBackedSection @ 0x1409147D8 (MiCommitFileBackedSection.c)
+ *     MmFlushVirtualMemory @ 0x1409C187C (MmFlushVirtualMemory.c)
  * Callees:
- *     MiCheckControlArea @ 0x14020EFD0 (MiCheckControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14036F2F8 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x14036F3BC (MiComputeCrossPartitionSectionCharges.c)
- *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140371780 (MiControlAreaExemptFromCrossPartitionCharges.c)
- *     MiInsertUnusedSubsection @ 0x140371BB0 (MiInsertUnusedSubsection.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404B8B54 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F9F3C (MiUpdateSubsectionCrossPartitionRefs.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140259B40 (MiControlAreaExemptFromCrossPartitionCharges.c)
+ *     MiInsertUnusedSubsection @ 0x140259F70 (MiInsertUnusedSubsection.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14026B278 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckControlArea @ 0x140338330 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404B34A4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x1404C8FF8 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F781C (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiFlushRelease(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -44,20 +44,18 @@ __int64 __fastcall MiFlushRelease(__int64 a1, _QWORD *a2, _QWORD *a3)
   __int64 v27; // rax
   __int64 SubsectionHoldingCrossPartitionReferences; // rax
   int v29; // r11d
-  __int64 *v30; // rcx
-  int v31; // r11d
-  __int64 v32; // rax
+  int v30; // r11d
+  __int64 v31; // rax
+  int v32; // r11d
   int v33; // r11d
-  __int64 *v34; // rcx
-  int v35; // r11d
-  KIRQL v36; // [rsp+70h] [rbp+8h]
-  __int64 v37; // [rsp+78h] [rbp+10h]
+  KIRQL v34; // [rsp+70h] [rbp+8h]
+  __int64 v35; // [rsp+78h] [rbp+10h]
 
   v6 = 0LL;
-  v7 = *((_QWORD *)qword_140E2FF88 + (*(_WORD *)(a1 + 60) & 0x3FF));
-  v37 = v7;
+  v7 = *((_QWORD *)qword_140E300C8 + (*(_WORD *)(a1 + 60) & 0x3FF));
+  v35 = v7;
   v8 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
-  v36 = v8;
+  v34 = v8;
   if ( a2 )
   {
     v9 = 0;
@@ -80,18 +78,18 @@ __int64 __fastcall MiFlushRelease(__int64 a1, _QWORD *a2, _QWORD *a3)
           else
             v23 = v9 < 0
                 ? &MiSystemPartition
-                : (ULONG *)*((_QWORD *)qword_140E2FF88
+                : (ULONG *)*((_QWORD *)qword_140E300C8
                            + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-          if ( v23 != *((ULONG **)qword_140E2FF88 + (*(_WORD *)(v18 + 60) & 0x3FF)) )
+          if ( v23 != *((ULONG **)qword_140E300C8 + (*(_WORD *)(v18 + 60) & 0x3FF)) )
           {
-            SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences((__int64)v10);
+            SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(v10);
             v29 = *(_DWORD *)(MiGetSubsectionHoldingCrossPartitionReferences(SubsectionHoldingCrossPartitionReferences)
                             + 48) & 0x3FFFFFFF;
             if ( v29 != 0x3FFFFFFF )
             {
               MiUpdateSubsectionCrossPartitionRefs(v19, (unsigned int)(v29 - 1));
-              if ( v31 == 1 )
-                v22 = MiComputeCrossPartitionSectionCharges(v30);
+              if ( v30 == 1 )
+                v22 = MiComputeCrossPartitionSectionCharges();
             }
           }
         }
@@ -133,17 +131,17 @@ __int64 __fastcall MiFlushRelease(__int64 a1, _QWORD *a2, _QWORD *a3)
           else
             v26 = v13 < 0
                 ? &MiSystemPartition
-                : (ULONG *)*((_QWORD *)qword_140E2FF88
+                : (ULONG *)*((_QWORD *)qword_140E300C8
                            + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-          if ( v26 != *((ULONG **)qword_140E2FF88 + (*(_WORD *)(v20 + 60) & 0x3FF)) )
+          if ( v26 != *((ULONG **)qword_140E300C8 + (*(_WORD *)(v20 + 60) & 0x3FF)) )
           {
-            v32 = MiGetSubsectionHoldingCrossPartitionReferences((__int64)v14);
-            v33 = *(_DWORD *)(MiGetSubsectionHoldingCrossPartitionReferences(v32) + 48) & 0x3FFFFFFF;
-            if ( v33 != 0x3FFFFFFF )
+            v31 = MiGetSubsectionHoldingCrossPartitionReferences(v14);
+            v32 = *(_DWORD *)(MiGetSubsectionHoldingCrossPartitionReferences(v31) + 48) & 0x3FFFFFFF;
+            if ( v32 != 0x3FFFFFFF )
             {
-              MiUpdateSubsectionCrossPartitionRefs(v21, (unsigned int)(v33 - 1));
-              if ( v35 == 1 )
-                v25 = MiComputeCrossPartitionSectionCharges(v34);
+              MiUpdateSubsectionCrossPartitionRefs(v21, (unsigned int)(v32 - 1));
+              if ( v33 == 1 )
+                v25 = MiComputeCrossPartitionSectionCharges();
             }
           }
         }
@@ -165,9 +163,9 @@ __int64 __fastcall MiFlushRelease(__int64 a1, _QWORD *a2, _QWORD *a3)
         v13 &= ~8u;
     }
     while ( v14 );
-    v8 = v36;
+    v8 = v34;
     v6 = v15 + v11;
-    v7 = v37;
+    v7 = v35;
   }
   --*(_QWORD *)(a1 + 40);
   result = MiCheckControlArea(a1, v8);

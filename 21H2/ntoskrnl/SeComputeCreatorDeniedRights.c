@@ -1,14 +1,14 @@
 /*
- * XREFs of SeComputeCreatorDeniedRights @ 0x14034FC90
+ * XREFs of SeComputeCreatorDeniedRights @ 0x14035A9E0
  * Callers:
- *     ObpAdjustCreatorAccessState @ 0x140662D98 (ObpAdjustCreatorAccessState.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     ObpAdjustCreatorAccessState @ 0x140657BB8 (ObpAdjustCreatorAccessState.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
  * Callees:
- *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
- *     SepTokenIsOwner @ 0x14027E590 (SepTokenIsOwner.c)
- *     RtlpOwnerAcesPresent @ 0x14029C4D0 (RtlpOwnerAcesPresent.c)
- *     SepGetScopedPolicySid @ 0x1405960C8 (SepGetScopedPolicySid.c)
- *     SepRmReferenceFindCap @ 0x140597E54 (SepRmReferenceFindCap.c)
+ *     RtlpOwnerAcesPresent @ 0x140214630 (RtlpOwnerAcesPresent.c)
+ *     SepTokenIsOwner @ 0x14026C530 (SepTokenIsOwner.c)
+ *     SeAccessCheck @ 0x1402AB090 (SeAccessCheck.c)
+ *     SepGetScopedPolicySid @ 0x1405962F8 (SepGetScopedPolicySid.c)
+ *     SepRmReferenceFindCap @ 0x140598084 (SepRmReferenceFindCap.c)
  */
 
 __int64 __fastcall SeComputeCreatorDeniedRights(
@@ -24,7 +24,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   __int64 v12; // rdx
   __int64 v13; // r8
   __int64 v14; // rax
-  __int64 v15; // rcx
+  ACL *v15; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
@@ -70,12 +70,12 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
     {
       if ( v10 >= 0 )
       {
-        v15 = *(_QWORD *)(a4 + 24);
+        v15 = *(ACL **)(a4 + 24);
       }
       else
       {
         v14 = *(unsigned int *)(a4 + 12);
-        v15 = (_DWORD)v14 ? a4 + v14 : 0LL;
+        v15 = (_DWORD)v14 ? (ACL *)(a4 + v14) : 0LL;
       }
     }
     else

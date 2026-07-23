@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpDelayedRemoveWorker @ 0x1404C3D40
+ * XREFs of PnpDelayedRemoveWorker @ 0x1404840F4
  * Callers:
- *     PnpChainDereferenceComplete @ 0x1404C3C20 (PnpChainDereferenceComplete.c)
+ *     PnpChainDereferenceComplete @ 0x140483FD4 (PnpChainDereferenceComplete.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
- *     PipRemoveDevicesInRelationList @ 0x1404C3254 (PipRemoveDevicesInRelationList.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
+ *     PipRemoveDevicesInRelationList @ 0x1404835BC (PipRemoveDevicesInRelationList.c)
  */
 
 void PnpDelayedRemoveWorker()

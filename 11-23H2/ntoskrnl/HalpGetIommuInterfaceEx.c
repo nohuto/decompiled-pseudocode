@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpGetIommuInterfaceEx @ 0x14085C450
+ * XREFs of HalpGetIommuInterfaceEx @ 0x14085C690
  * Callers:
  *     <none>
  * Callees:

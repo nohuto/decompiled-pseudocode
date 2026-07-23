@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpAllocateAndEnableEventWatchdog @ 0x140785740
+ * XREFs of PnpAllocateAndEnableEventWatchdog @ 0x140785930
  * Callers:
- *     PnpDeviceEventWorker @ 0x140786860 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x140786A50 (PnpDeviceEventWorker.c)
  * Callees:
- *     PnpEnableWatchdog @ 0x14078601C (PnpEnableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x14078620C (PnpEnableWatchdog.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-unsigned int __stdcall RtlGetLastNtStatus()
+NTSTATUS RtlGetLastNtStatus(void)
 {
   return NtCurrentTeb()->LastStatusValue;
 }

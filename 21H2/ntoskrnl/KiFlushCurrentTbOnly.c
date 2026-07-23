@@ -1,18 +1,18 @@
 /*
- * XREFs of KiFlushCurrentTbOnly @ 0x14039747C
+ * XREFs of KiFlushCurrentTbOnly @ 0x1403975CC
  * Callers:
- *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
- *     KeFlushCurrentTbOnly @ 0x1403B7498 (KeFlushCurrentTbOnly.c)
+ *     KeFlushTb @ 0x1402D4970 (KeFlushTb.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B7608 (KeFlushCurrentTbOnly.c)
  * Callees:
- *     KiSetUserTbFlushPending @ 0x1403FF4F0 (KiSetUserTbFlushPending.c)
+ *     KiSetUserTbFlushPending @ 0x1403FF6D0 (KiSetUserTbFlushPending.c)
  */
 
-struct _KTHREAD *__fastcall KiFlushCurrentTbOnly(int a1, __int64 a2, __int64 a3, __int64 a4)
+struct _KTHREAD *__fastcall KiFlushCurrentTbOnly(int a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // rax
+  unsigned __int64 v3; // rax
   struct _KTHREAD *result; // rax
   _KPROCESS *Process; // rcx
-  unsigned __int64 v7; // rcx
+  unsigned __int64 v6; // rcx
 
   if ( KiKvaShadow )
   {
@@ -25,12 +25,12 @@ struct _KTHREAD *__fastcall KiFlushCurrentTbOnly(int a1, __int64 a2, __int64 a3,
   }
   if ( !KiFlushPcid )
   {
-    v7 = __readcr4();
-    if ( (v7 & 0x20080) != 0 )
+    v6 = __readcr4();
+    if ( (v6 & 0x20080) != 0 )
     {
-      result = (struct _KTHREAD *)(v7 ^ 0x80);
-      __writecr4(v7 ^ 0x80);
-      __writecr4(v7);
+      result = (struct _KTHREAD *)(v6 ^ 0x80);
+      __writecr4(v6 ^ 0x80);
+      __writecr4(v6);
       return result;
     }
 LABEL_7:
@@ -38,11 +38,11 @@ LABEL_7:
     __writecr3((unsigned __int64)result);
     return result;
   }
-  v4 = __readcr3();
-  __writecr3(v4);
+  v3 = __readcr3();
+  __writecr3(v3);
   result = KeGetCurrentThread();
   Process = result->ApcState.Process;
   if ( !Process->AddressPolicy )
-    return (struct _KTHREAD *)KiSetUserTbFlushPending(Process, 0LL, a3, a4);
+    return (struct _KTHREAD *)KiSetUserTbFlushPending(Process, 0LL, a3);
   return result;
 }

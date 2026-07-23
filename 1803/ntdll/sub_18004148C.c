@@ -13,7 +13,7 @@ __int64 __fastcall sub_18004148C(wchar_t *String1, wchar_t **a2)
   size_t v5; // rbx
   wchar_t *v6; // rax
 
-  NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+  NtSystemRoot = RtlGetNtSystemRoot();
   v5 = -1LL;
   do
     ++v5;

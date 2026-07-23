@@ -6,33 +6,37 @@
  *     RtlAllocateHeap @ 0x180029F40 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, unsigned __int8 a2, _DWORD *a3, __int64 *a4)
+NTSTATUS __cdecl RtlAllocateAndInitializeSidEx(
+        PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
+        UCHAR SubAuthorityCount,
+        PULONG SubAuthorities,
+        PSID *Sid)
 {
   __int64 v8; // rsi
-  __int64 Heap; // rax
-  __int64 v10; // rdx
+  char *Heap; // rax
+  signed __int64 v10; // rdx
 
-  if ( a2 > 0xFu )
-    return 3221225485LL;
-  v8 = a2;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015B268 + 1310720, 4LL * a2 + 8);
+  if ( SubAuthorityCount > 0xFu )
+    return -1073741811;
+  v8 = SubAuthorityCount;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, dword_18015B268 + 1310720, 4LL * SubAuthorityCount + 8);
   if ( !Heap )
-    return 3221225495LL;
-  *(_BYTE *)Heap = 1;
-  *(_DWORD *)(Heap + 2) = *(_DWORD *)a1;
-  *(_WORD *)(Heap + 6) = *(_WORD *)(a1 + 4);
-  *(_BYTE *)(Heap + 1) = a2;
-  if ( a2 )
+    return -1073741801;
+  *Heap = 1;
+  *(_DWORD *)(Heap + 2) = *(_DWORD *)IdentifierAuthority->Value;
+  *((_WORD *)Heap + 3) = *(_WORD *)&IdentifierAuthority->Value[4];
+  Heap[1] = SubAuthorityCount;
+  if ( SubAuthorityCount )
   {
-    v10 = Heap - (_QWORD)a3;
+    v10 = Heap - (char *)SubAuthorities;
     do
     {
-      *(_DWORD *)((char *)a3 + v10 + 8) = *a3;
-      ++a3;
+      *(PULONG)((char *)SubAuthorities + v10 + 8) = *SubAuthorities;
+      ++SubAuthorities;
       --v8;
     }
     while ( v8 );
   }
-  *a4 = Heap;
-  return 0LL;
+  *Sid = Heap;
+  return 0;
 }

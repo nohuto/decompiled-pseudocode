@@ -1,12 +1,12 @@
 /*
- * XREFs of SmpPageWrite @ 0x1402D7A4C
+ * XREFs of SmpPageWrite @ 0x140288D9C
  * Callers:
- *     MiStoreWriteIssue @ 0x1402D7980 (MiStoreWriteIssue.c)
+ *     MiStoreWriteIssue @ 0x140288CD0 (MiStoreWriteIssue.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SmpKeyedStoreReference @ 0x1402D6170 (SmpKeyedStoreReference.c)
- *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x1402D7B74 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     SmpKeyedStoreReference @ 0x1402874C0 (SmpKeyedStoreReference.c)
+ *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x140288EC4 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
  */
 
 __int64 __fastcall SmpPageWrite(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, int a7)
@@ -48,7 +48,7 @@ LABEL_8:
   if ( v10 != -1 )
   {
     v15 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(&SmGlobals, v10 & 0x3FF, a3, a4);
-    ExReleaseRundownProtection_0(v15 + 1);
+    ExReleaseRundownProtection(v15 + 1);
   }
   return v13;
 }

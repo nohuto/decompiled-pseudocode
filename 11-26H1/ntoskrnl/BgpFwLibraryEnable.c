@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpFwLibraryEnable @ 0x140715E2C
+ * XREFs of BgpFwLibraryEnable @ 0x14071AB1C
  * Callers:
- *     BgLibraryEnable @ 0x140715A08 (BgLibraryEnable.c)
- *     BgpFwLibraryInitialize @ 0x140C545B8 (BgpFwLibraryInitialize.c)
+ *     BgLibraryEnable @ 0x14071A6F8 (BgLibraryEnable.c)
+ *     BgpFwLibraryInitialize @ 0x140C5A5B8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     ResFwBackgroundTransition @ 0x140C54F20 (ResFwBackgroundTransition.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     ResFwBackgroundTransition @ 0x140C5AF20 (ResFwBackgroundTransition.c)
  */
 
 __int64 __fastcall BgpFwLibraryEnable(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopUpdateIrpTransferCount @ 0x14028C6A0
+ * XREFs of IopUpdateIrpTransferCount @ 0x14028C930
  * Callers:
- *     IopCopyCompleteReadRequest @ 0x14028C5D0 (IopCopyCompleteReadRequest.c)
- *     IopIoRingCompleteIrp @ 0x1405594DC (IopIoRingCompleteIrp.c)
+ *     IopCopyCompleteReadRequest @ 0x14028C860 (IopCopyCompleteReadRequest.c)
+ *     IopIoRingCompleteIrp @ 0x140559B9C (IopIoRingCompleteIrp.c)
  * Callees:
- *     IopUpdateReadTransferCount @ 0x14028C6C8 (IopUpdateReadTransferCount.c)
- *     IopUpdateOtherTransferCount @ 0x140556538 (IopUpdateOtherTransferCount.c)
- *     IopUpdateWriteTransferCount @ 0x140556570 (IopUpdateWriteTransferCount.c)
+ *     IopUpdateReadTransferCount @ 0x14028C958 (IopUpdateReadTransferCount.c)
+ *     IopUpdateOtherTransferCount @ 0x140556BF8 (IopUpdateOtherTransferCount.c)
+ *     IopUpdateWriteTransferCount @ 0x140556C30 (IopUpdateWriteTransferCount.c)
  */
 
 __int64 __fastcall IopUpdateIrpTransferCount(__int64 a1)

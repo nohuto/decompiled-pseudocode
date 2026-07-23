@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetMatchingDeviceInterfaceList @ 0x14081BAFC
+ * XREFs of _CmGetMatchingDeviceInterfaceList @ 0x14081C23C
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710 (_CmGetMatchingFilteredDeviceInterfaceList.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceInterfaceList(
@@ -43,7 +43,7 @@ __int64 __fastcall CmGetMatchingDeviceInterfaceList(
   v24 = a7;
   if ( v11 )
   {
-    v13 = guard_dispatch_icall_no_overrides(a1, 0LL, 3LL, 4LL);
+    v13 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v13 == -1073741822 )
     {
       v11 = 0LL;
@@ -74,7 +74,7 @@ __int64 __fastcall CmGetMatchingDeviceInterfaceList(
   if ( !v11 )
     return MatchingFilteredDeviceInterfaceList;
   v18[0] = MatchingFilteredDeviceInterfaceList;
-  v15 = guard_dispatch_icall_no_overrides(a1, 0LL, 3LL, 4LL);
+  v15 = guard_dispatch_icall_no_overrides(a1, 0LL);
   if ( v15 == -1073741822 )
     return MatchingFilteredDeviceInterfaceList;
   if ( v15 == -1073741536 )

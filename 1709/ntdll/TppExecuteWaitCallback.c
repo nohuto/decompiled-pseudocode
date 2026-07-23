@@ -17,74 +17,70 @@
  *     _guard_dispatch_icall_nop @ 0x1800A3A60 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TppExecuteWaitCallback(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall TppExecuteWaitCallback(PTP_CALLBACK_INSTANCE Instance, char *a2, unsigned int a3)
 {
   __int64 v6; // rsi
-  __int64 v7; // rdx
+  __int64 v7; // rsi
   __int64 v8; // rcx
-  __int64 v9; // rsi
-  __int64 v10; // rcx
-  __int64 (__fastcall *v11)(__int64, __int64, __int64); // rax
-  __int64 v12; // rdx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
+  void (__fastcall *v9)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WAIT); // rax
+  void *v10; // rdx
   __int64 result; // rax
-  __int64 v16; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v12; // [rsp+48h] [rbp+10h] BYREF
 
   if ( a3 == 258 )
   {
-    result = TppWorkCallbackPrologRelease(a1, a2, 0LL);
+    result = TppWorkCallbackPrologRelease(Instance);
     if ( !(_DWORD)result )
       return result;
     goto LABEL_4;
   }
-  v6 = *(_QWORD *)(a2 + 136);
+  v6 = *((_QWORD *)a2 + 17);
   if ( !v6 )
   {
 LABEL_3:
-    TppCleanupGroupMemberCallbackProlog(a1, a2);
+    TppCleanupGroupMemberCallbackProlog(Instance);
 LABEL_4:
-    v9 = 2147353478LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8, v7) )
-      v10 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v7 = 2147353478LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v10 = 2147353478LL;
-    if ( *(_BYTE *)v10 )
+      v8 = 2147353478LL;
+    if ( *(_BYTE *)v8 )
       RtlpTpETWCallbackStart(
-        *(_QWORD *)(a2 + 144),
-        a2 + 392,
-        *(_QWORD *)(a2 + 80),
-        *(_QWORD *)(a2 + 88),
-        *(_QWORD *)(a2 + 104));
-    TppStartThreadData(&v16, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
-    *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 80);
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 88);
-    v11 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(a2 + 80);
-    v12 = *(_QWORD *)(a2 + 88);
-    if ( v11 == RtlpWnfNotificationThread )
-      RtlpWnfNotificationThread(a1, v12, a2);
+        *((_QWORD *)a2 + 18),
+        (__int64)(a2 + 392),
+        *((_QWORD *)a2 + 10),
+        *((_QWORD *)a2 + 11),
+        *((_QWORD *)a2 + 13));
+    TppStartThreadData(&v12, *((_QWORD *)a2 + 10), *((_QWORD *)a2 + 11), *((_QWORD *)a2 + 13));
+    *((_QWORD *)Instance + 11) = *((_QWORD *)a2 + 10);
+    *((_QWORD *)Instance + 12) = *((_QWORD *)a2 + 11);
+    v9 = (void (__fastcall *)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WAIT))*((_QWORD *)a2 + 10);
+    v10 = (void *)*((_QWORD *)a2 + 11);
+    if ( v9 == RtlpWnfNotificationThread )
+      RtlpWnfNotificationThread(Instance, v10, (PTP_WAIT)a2);
     else
-      ((void (__fastcall *)(__int64, __int64, __int64, _QWORD))v11)(a1, v12, a2, a3);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v14, v13) )
-      v9 = (__int64)NtCurrentPeb()->SharedData + 556;
-    if ( *(_BYTE *)v9 )
+      ((void (__fastcall *)(PTP_CALLBACK_INSTANCE, void *, char *, _QWORD))v9)(Instance, v10, a2, a3);
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( *(_BYTE *)v7 )
       RtlpTpETWCallbackStop(
-        *(_QWORD *)(a2 + 144),
-        a2 + 392,
-        *(_QWORD *)(a2 + 80),
-        *(_QWORD *)(a2 + 88),
-        *(_QWORD *)(a2 + 104));
-    return TppCompleteThreadData(v16);
+        *((_QWORD *)a2 + 18),
+        (__int64)(a2 + 392),
+        *((_QWORD *)a2 + 10),
+        *((_QWORD *)a2 + 11),
+        *((_QWORD *)a2 + 13));
+    return TppCompleteThreadData(v12);
   }
-  if ( (int)LdrAddRefDll(0LL, *(_QWORD *)(a2 + 136)) >= 0 )
+  if ( LdrAddRefDll(0, *((PVOID *)a2 + 17)) >= 0 )
   {
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v6;
+    *((_DWORD *)Instance + 36) |= 0x100u;
+    *((_QWORD *)Instance + 21) = v6;
     goto LABEL_3;
   }
   TppBarrierAdjust(a2 + 56, 0xFFFFFFFFLL, 0LL);
   result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)a2);
   if ( !(_DWORD)result )
-    return (**(__int64 (__fastcall ***)(__int64))(a2 + 8))(a2);
+    return (**((__int64 (__fastcall ***)(char *))a2 + 1))(a2);
   return result;
 }

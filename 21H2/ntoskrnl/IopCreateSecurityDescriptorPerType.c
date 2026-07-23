@@ -1,20 +1,20 @@
 /*
- * XREFs of IopCreateSecurityDescriptorPerType @ 0x14071BA28
+ * XREFs of IopCreateSecurityDescriptorPerType @ 0x1406C9E98
  * Callers:
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14071B950 (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1406C9DC0 (IopCreateDefaultDeviceSecurityDescriptor.c)
  * Callees:
- *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlAddMandatoryAce @ 0x14065B720 (RtlAddMandatoryAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAddMandatoryAce @ 0x140650540 (RtlAddMandatoryAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406CA530 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         int a2,
-        __int64 *a3,
+        ACL **a3,
         int *a4)
 {
   char v4; // di
@@ -26,10 +26,10 @@ NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
   int v13; // edx
   unsigned __int16 v14; // bp
   ACL *PoolWithTag; // rax
-  __int64 v16; // r15
-  __int64 v17; // rdx
+  ACL *v16; // r15
+  ULONG v17; // edx
   int v18; // ecx
-  __int64 v19; // [rsp+20h] [rbp-28h]
+  UCHAR v19; // [rsp+20h] [rbp-28h]
 
   v4 = 0;
   v8 = a2 - 1;
@@ -69,12 +69,12 @@ LABEL_4:
   {
     v14 = 4 * (*((unsigned __int8 *)SeLowMandatorySid + 1) + 6);
     PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v14, 0x65536F49u);
-    v16 = (__int64)PoolWithTag;
+    v16 = PoolWithTag;
     if ( !PoolWithTag )
       return -1073741670;
     RtlCreateAcl(PoolWithTag, v14, 2u);
-    RtlAddMandatoryAce(v16, v17, 0, (__int64)SeLowMandatorySid, v19, 1);
-    RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, v16, 0);
+    RtlAddMandatoryAce(v16, v17, 0, SeLowMandatorySid, v19, 1u);
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, v16, 0);
     *a3 = v16;
   }
   result = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v10, 0);

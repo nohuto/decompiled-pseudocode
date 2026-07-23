@@ -34,7 +34,7 @@ void __stdcall RtlAssert(PVOID VoidFailedAssertion, PVOID VoidFileName, ULONG Li
   int v10; // ecx
   int v11; // ecx
   CHAR Response[16]; // [rsp+40h] [rbp-518h] BYREF
-  struct _CONTEXT ContextRecord; // [rsp+50h] [rbp-508h] BYREF
+  _CONTEXT ContextRecord; // [rsp+50h] [rbp-508h] BYREF
 
   RtlCaptureContext(&ContextRecord);
   if ( !MutableMessage )
@@ -86,6 +86,6 @@ LABEL_15:
     if ( !v11 )
       goto LABEL_17;
     if ( v11 == 4 )
-      ZwTerminateThread(-2LL, 3221225473LL);
+      ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, -1073741823);
   }
 }

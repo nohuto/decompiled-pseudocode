@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFindFirstDebuggerPatch @ 0x14067FA30
+ * XREFs of MiFindFirstDebuggerPatch @ 0x140680C30
  * Callers:
- *     MiDeleteDebuggerPatches @ 0x1404ADAF4 (MiDeleteDebuggerPatches.c)
- *     MiApplyDebuggerPatches @ 0x1404F6A1C (MiApplyDebuggerPatches.c)
+ *     MiDeleteDebuggerPatches @ 0x1404A8408 (MiDeleteDebuggerPatches.c)
+ *     MiApplyDebuggerPatches @ 0x1404F4300 (MiApplyDebuggerPatches.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall MiFindFirstDebuggerPatch(unsigned __int64 a1, int a2, int a3,
   unsigned int v11; // eax
   __int64 v13; // rax
 
-  v4 = dword_140E35AF8;
+  v4 = dword_140E35C38;
   v7 = (a2 & 0xFFFFF) << 10;
   v8 = 0LL;
   while ( (unsigned int)v8 < v4 )
@@ -47,7 +47,7 @@ LABEL_6:
       v8 = (unsigned int)(v9 + 1);
     }
   }
-  if ( (unsigned int)v8 < dword_140E35AF8 )
+  if ( (unsigned int)v8 < dword_140E35C38 )
   {
     _mm_lfence();
     v13 = *((_QWORD *)&MiState + v8 + 4118);

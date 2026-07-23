@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDecrementAndInsertStandbyPages @ 0x140035C70
+ * XREFs of MiDecrementAndInsertStandbyPages @ 0x1400357F0
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x1400492C0 (MmUnmapViewInSystemCache.c)
+ *     MmUnmapViewInSystemCache @ 0x140048E40 (MmUnmapViewInSystemCache.c)
  * Callees:
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiFlushHyperSpace @ 0x14009E1E8 (MiFlushHyperSpace.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiFlushHyperSpace @ 0x14009D9E8 (MiFlushHyperSpace.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 __int64 __fastcall MiDecrementAndInsertStandbyPages(__int64 a1, unsigned int a2, unsigned __int8 a3)
@@ -65,7 +65,7 @@ __int64 __fastcall MiDecrementAndInsertStandbyPages(__int64 a1, unsigned int a2,
       v17 = (unsigned __int64 *)((((((unsigned __int64)CurrentPrcb->HyperPte & 0xFFFFFFFFFFFFF000uLL)
                                   + (((__int64)CurrentPrcb->HyperPte & 0xFFF) << 12)) >> 9) & 0x7FFFFFFFF8LL)
                                - 0x98000000000LL);
-      *v17 = (((unsigned __int16)v15 ^ (unsigned __int16)((unsigned __int8)word_140326AA8 << 8)) & 0x100 ^ v15) & 0xFFFFFFFFFFFFFF3DuLL | 0x42;
+      *v17 = (((unsigned __int16)v15 ^ (unsigned __int16)((unsigned __int8)word_140326AE8 << 8)) & 0x100 ^ v15) & 0xFFFFFFFFFFFFFF3DuLL | 0x42;
       if ( (unsigned int)MiPteInShadowRange(v17, v14) )
         MiWritePteShadow(v18, v20);
       v34 = MI_READ_PTE_LOCK_FREE(v19 + 8 * ((v13 >> 3) & 0x1FF));

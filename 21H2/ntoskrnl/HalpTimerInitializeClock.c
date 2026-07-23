@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerInitializeClock @ 0x1403A8454
+ * XREFs of HalpTimerInitializeClock @ 0x1403A91E4
  * Callers:
- *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
- *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitializeClock @ 0x1403A91E4 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitSystem @ 0x1403A9340 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
- *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
- *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
- *     HalpTimerWaitForPhase0Interrupt @ 0x1403A8560 (HalpTimerWaitForPhase0Interrupt.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpTimerUnmapInterrupt @ 0x1404C0588 (HalpTimerUnmapInterrupt.c)
+ *     HalpSetTimer @ 0x1402F2BCC (HalpSetTimer.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A26D4 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A27FC (HalpInterruptSetIdtEntry.c)
+ *     HalpTimerInitializeClock @ 0x1403A91E4 (HalpTimerInitializeClock.c)
+ *     HalpTimerWaitForPhase0Interrupt @ 0x1403A92F0 (HalpTimerWaitForPhase0Interrupt.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpTimerUnmapInterrupt @ 0x1404C07C8 (HalpTimerUnmapInterrupt.c)
  */
 
 __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

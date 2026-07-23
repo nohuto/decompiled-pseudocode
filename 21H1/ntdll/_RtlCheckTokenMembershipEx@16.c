@@ -20,95 +20,103 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlCheckTokenMembershipEx(void *a1, unsigned __int8 *Src, int a3, _BYTE *a4)
+NTSTATUS __cdecl RtlCheckTokenMembershipEx(HANDLE TokenHandle, PSID SidToCheck, ULONG Flags, PBOOLEAN IsMember)
 {
-  unsigned __int8 *v4; // esi
+  PSID v4; // esi
   int v5; // esi
-  _BYTE v7[20]; // [esp+Ch] [ebp-1C4h] BYREF
-  _DWORD v8[6]; // [esp+20h] [ebp-1B0h] BYREF
-  int v9; // [esp+38h] [ebp-198h] BYREF
-  int v10; // [esp+3Ch] [ebp-194h] BYREF
-  int v11; // [esp+40h] [ebp-190h] BYREF
-  unsigned __int8 *v12; // [esp+44h] [ebp-18Ch]
-  HANDLE Handle; // [esp+48h] [ebp-188h] BYREF
-  HANDLE v14; // [esp+4Ch] [ebp-184h] BYREF
-  _BYTE v15[240]; // [esp+50h] [ebp-180h] BYREF
-  unsigned __int8 v16[72]; // [esp+140h] [ebp-90h] BYREF
+  _BYTE SecurityDescriptor[20]; // [esp+Ch] [ebp-1C4h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+20h] [ebp-1B0h] BYREF
+  ACCESS_MASK GrantedAccess; // [esp+38h] [ebp-198h] BYREF
+  NTSTATUS AccessStatus; // [esp+3Ch] [ebp-194h] BYREF
+  ULONG PrivilegeSetLength; // [esp+40h] [ebp-190h] BYREF
+  PSID v12; // [esp+44h] [ebp-18Ch]
+  HANDLE ExistingTokenHandle; // [esp+48h] [ebp-188h] BYREF
+  HANDLE ClientToken; // [esp+4Ch] [ebp-184h] BYREF
+  ACL Acl; // [esp+50h] [ebp-180h] BYREF
+  unsigned __int8 Sid[72]; // [esp+140h] [ebp-90h] BYREF
   _DWORD v17[2]; // [esp+188h] [ebp-48h] BYREF
   __int16 v18; // [esp+190h] [ebp-40h]
-  _BYTE v19[56]; // [esp+194h] [ebp-3Ch] BYREF
+  _PRIVILEGE_SET PrivilegeSet; // [esp+194h] [ebp-3Ch] BYREF
 
-  v4 = Src;
-  v12 = Src;
-  v14 = 0;
-  *a4 = 0;
-  if ( (a3 & 0xFFFFFFFC) == 0 )
+  v4 = SidToCheck;
+  v12 = SidToCheck;
+  ClientToken = 0;
+  *IsMember = 0;
+  if ( (Flags & 0xFFFFFFFC) == 0 )
   {
-    if ( a1 )
+    if ( TokenHandle )
     {
-      v14 = a1;
+      ClientToken = TokenHandle;
     }
     else
     {
-      v5 = NtOpenThreadTokenEx(-2, 8, 0, 0, &v14);
+      v5 = NtOpenThreadTokenEx((HANDLE)0xFFFFFFFE, 8u, 0, 0, &ClientToken);
       if ( v5 == -1073741700 )
       {
-        v5 = ZwOpenProcessTokenEx(-1, 10, 0, &Handle);
+        v5 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFF, 0xAu, 0, &ExistingTokenHandle);
         if ( v5 < 0 )
           goto LABEL_18;
-        v8[0] = 24;
-        v8[5] = v17;
-        memset(&v8[1], 0, 16);
+        ObjectAttributes.Length = 24;
+        ObjectAttributes.SecurityQualityOfService = v17;
+        memset(&ObjectAttributes.RootDirectory, 0, 16);
         v17[0] = 12;
         v17[1] = 2;
         v18 = 1;
-        v5 = NtDuplicateToken(Handle, 12, v8, 0, 2, &v14);
-        NtClose(Handle);
+        v5 = NtDuplicateToken(ExistingTokenHandle, 0xCu, &ObjectAttributes, 0, TokenImpersonation, &ClientToken);
+        NtClose(ExistingTokenHandle);
       }
       if ( v5 < 0 )
       {
 LABEL_18:
-        if ( v14 )
-          NtClose(v14);
+        if ( ClientToken )
+          NtClose(ClientToken);
         return v5;
       }
       v4 = v12;
     }
-    RtlCreateSecurityDescriptor(v7, 1);
-    RtlSetOwnerSecurityDescriptor(v7, v4, 0);
-    RtlSetGroupSecurityDescriptor(v7, v4, 0);
-    RtlCreateAcl(v15, 236, 2);
-    RtlpAddKnownAce((int)v15, 2u, 0, 1, v4, 0);
-    if ( (a3 & 3) != 0 )
+    RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+    RtlSetOwnerSecurityDescriptor(SecurityDescriptor, v4, 0);
+    RtlSetGroupSecurityDescriptor(SecurityDescriptor, v4, 0);
+    RtlCreateAcl(&Acl, 0xECu, 2u);
+    RtlpAddKnownAce(&Acl, 2u, 0, 1, (unsigned __int8 *)v4, 0);
+    if ( (Flags & 3) != 0 )
     {
-      RtlInitializeSidEx(v16, &RtlpAppPackageAuthority, 2);
-      RtlpAddKnownAce((int)v15, 2u, 0, 1, v16, 0);
+      RtlInitializeSidEx(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u);
+      RtlpAddKnownAce(&Acl, 2u, 0, 1, Sid, 0);
     }
-    if ( (a3 & 2) != 0 )
+    if ( (Flags & 2) != 0 )
     {
-      RtlInitializeSidEx(v16, &RtlpAppPackageAuthority, 2);
-      RtlpAddKnownAce((int)v15, 2u, 0, 1, v16, 0);
+      RtlInitializeSidEx(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u);
+      RtlpAddKnownAce(&Acl, 2u, 0, 1, Sid, 0);
     }
-    RtlSetDaclSecurityDescriptor(v7, 1, v15, 0);
-    v11 = 56;
-    v5 = NtAccessCheck(v7, v14, 1, RtlpCheckTokenMembershipGenericMapping, v19, &v11, &v9, &v10);
+    RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
+    PrivilegeSetLength = 56;
+    v5 = NtAccessCheck(
+           SecurityDescriptor,
+           ClientToken,
+           1u,
+           (PGENERIC_MAPPING)&RtlpCheckTokenMembershipGenericMapping,
+           &PrivilegeSet,
+           &PrivilegeSetLength,
+           &GrantedAccess,
+           &AccessStatus);
     if ( v5 >= 0 )
     {
       v5 = 0;
-      if ( v10 )
+      if ( AccessStatus )
       {
-        if ( v10 == -1073741790 )
+        if ( AccessStatus == -1073741790 )
           goto LABEL_11;
       }
-      else if ( v9 == 1 )
+      else if ( GrantedAccess == 1 )
       {
-        *a4 = 1;
+        *IsMember = 1;
         goto LABEL_11;
       }
-      v5 = v10;
+      v5 = AccessStatus;
     }
 LABEL_11:
-    if ( a1 )
+    if ( TokenHandle )
       return v5;
     goto LABEL_18;
   }

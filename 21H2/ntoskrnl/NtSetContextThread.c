@@ -1,17 +1,17 @@
 /*
- * XREFs of NtSetContextThread @ 0x14090B370
+ * XREFs of NtSetContextThread @ 0x14090B4D0
  * Callers:
  *     <none>
  * Callees:
- *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     IoThreadToProcess @ 0x140224230 (IoThreadToProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PspSetContextThreadInternal @ 0x14063CA8C (PspSetContextThreadInternal.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
+NTSTATUS __cdecl NtSetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
   struct _KTHREAD *CurrentThread; // rbx
   KPROCESSOR_MODE PreviousMode; // si
@@ -25,7 +25,7 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   Thread = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
-  v5 = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, (PVOID *)&Thread, 0LL);
+  v5 = ObReferenceObjectByHandle(ThreadHandle, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, (PVOID *)&Thread, 0LL);
   if ( v5 >= 0 )
   {
     v6 = IoThreadToProcess(CurrentThread);
@@ -40,7 +40,7 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
     }
     else
     {
-      v5 = PspSetContextThreadInternal(v7, a2, PreviousMode, PreviousMode, 1);
+      v5 = PspSetContextThreadInternal(v7, (__int64)ThreadContext, PreviousMode, PreviousMode, 1);
     }
     HalPutDmaAdapter((PADAPTER_OBJECT)v7);
   }
@@ -49,5 +49,5 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
   v9 = v5;
   UserData.Size = 4;
   EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_SETCONTEXTTHREAD, 0LL, 1u, &UserData);
-  return (unsigned int)v5;
+  return v5;
 }

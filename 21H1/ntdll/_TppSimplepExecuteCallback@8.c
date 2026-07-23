@@ -13,7 +13,7 @@
  *     _TppETWCallbackStop@20 @ 0x4B384B22 (_TppETWCallbackStop@20.c)
  */
 
-void __stdcall TppSimplepExecuteCallback(int a1, int a2)
+void __stdcall TppSimplepExecuteCallback(_DWORD *a1, int a2)
 {
   int *v2; // edi
   int v3; // ebx
@@ -38,7 +38,7 @@ void __stdcall TppSimplepExecuteCallback(int a1, int a2)
     if ( *(_BYTE *)v5 )
       TppETWCallbackStart(v2[12], v2[13], v2[15]);
     TppStartThreadData((int *)&v6, v2[12], v2[13], v2[15]);
-    ((void (__thiscall *)(int, int, int))v2[12])(v2[12], a1, v2[13]);
+    ((void (__thiscall *)(int, _DWORD *, int))v2[12])(v2[12], a1, v2[13]);
     if ( RtlGetCurrentServiceSessionId() )
       v3 = (int)NtCurrentPeb()->SharedData + 556;
     if ( *(_BYTE *)v3 )

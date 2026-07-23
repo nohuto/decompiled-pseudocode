@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetLargeVadMappingIndex @ 0x1405299BC
+ * XREFs of MiGetLargeVadMappingIndex @ 0x14052BE50
  * Callers:
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
  */
 
 __int64 __fastcall MiGetLargeVadMappingIndex(__int64 a1, unsigned __int64 a2)

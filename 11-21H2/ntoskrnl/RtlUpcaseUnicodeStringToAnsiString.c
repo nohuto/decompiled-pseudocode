@@ -1,51 +1,63 @@
 /*
  * XREFs of RtlUpcaseUnicodeStringToAnsiString @ 0x1409B58B0
  * Callers:
- *     DifRtlUpcaseUnicodeStringToAnsiStringWrapper @ 0x14061BFB0 (DifRtlUpcaseUnicodeStringToAnsiStringWrapper.c)
+ *     sub_14061BFB0 @ 0x14061BFB0 (sub_14061BFB0.c)
  * Callees:
- *     AllocateOrValidateCharStringBuffer @ 0x1402D7DE0 (AllocateOrValidateCharStringBuffer.c)
+ *     sub_1402D7DE0 @ 0x1402D7DE0 (sub_1402D7DE0.c)
  *     RtlUpcaseUnicodeToMultiByteN @ 0x140759990 (RtlUpcaseUnicodeToMultiByteN.c)
  *     RtlxUnicodeStringToOemSize @ 0x140759A50 (RtlxUnicodeStringToOemSize.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToAnsiString(__int64 a1, const UNICODE_STRING *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToAnsiString(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   ULONG v6; // eax
-  __int64 result; // rax
-  _WORD *v8; // r15
-  PCHAR *v9; // rdi
+  NTSTATUS result; // eax
+  unsigned __int16 *p_MaximumLength; // r15
+  char **p_Buffer; // rdi
   ULONG v10; // edx
-  NTSTATUS v11; // ebx
+  int v11; // ebx
   ULONG BytesInMultiByteString; // [rsp+88h] [rbp+20h] BYREF
 
-  v6 = RtlxUnicodeStringToOemSize(a2);
+  v6 = RtlxUnicodeStringToOemSize(SourceString);
   BytesInMultiByteString = v6;
   if ( v6 > 0xFFFF )
-    return 3221225712LL;
-  v8 = (_WORD *)(a1 + 2);
-  v9 = (PCHAR *)(a1 + 8);
-  result = AllocateOrValidateCharStringBuffer(a3, v6, (__int64 *)(a1 + 8), (_WORD *)(a1 + 2));
-  if ( (int)result >= 0 )
+    return -1073741584;
+  p_MaximumLength = &DestinationString->MaximumLength;
+  p_Buffer = &DestinationString->Buffer;
+  result = sub_1402D7DE0(
+             AllocateDestinationString,
+             v6,
+             (__int64 *)&DestinationString->Buffer,
+             &DestinationString->MaximumLength);
+  if ( result >= 0 )
   {
-    v11 = RtlUpcaseUnicodeToMultiByteN(*v9, (unsigned __int16)*v8, &BytesInMultiByteString, a2->Buffer, a2->Length);
+    v11 = RtlUpcaseUnicodeToMultiByteN(
+            *p_Buffer,
+            *p_MaximumLength,
+            &BytesInMultiByteString,
+            SourceString->Buffer,
+            SourceString->Length);
     if ( v11 >= 0 )
     {
       v10 = BytesInMultiByteString;
-      (*v9)[BytesInMultiByteString] = 0;
-      *(_WORD *)a1 = v10;
+      (*p_Buffer)[BytesInMultiByteString] = 0;
+      DestinationString->Length = v10;
       v11 = 0;
     }
     if ( v11 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        ExFreePoolWithTag(*v9, v10);
-        *v9 = 0LL;
-        *v8 = 0;
+        ExFreePoolWithTag(*p_Buffer, v10);
+        *p_Buffer = 0LL;
+        *p_MaximumLength = 0;
       }
     }
-    return (unsigned int)v11;
+    return v11;
   }
   return result;
 }

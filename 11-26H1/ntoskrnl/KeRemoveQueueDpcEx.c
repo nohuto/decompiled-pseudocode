@@ -1,30 +1,30 @@
 /*
- * XREFs of KeRemoveQueueDpcEx @ 0x140423370
+ * XREFs of KeRemoveQueueDpcEx @ 0x140430460
  * Callers:
- *     KiCheckAndRearmForceIdle @ 0x140336E2C (KiCheckAndRearmForceIdle.c)
- *     EtwpFreeCompression @ 0x140423294 (EtwpFreeCompression.c)
- *     KeRemoveQueueDpc @ 0x140423350 (KeRemoveQueueDpc.c)
- *     KeMaskInterrupt @ 0x140424930 (KeMaskInterrupt.c)
- *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1404C4E10 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
- *     KeClearForceIdle @ 0x1404C533C (KeClearForceIdle.c)
- *     KeSrcuFree @ 0x1405F4FC0 (KeSrcuFree.c)
- *     KiSrcuNotifyWorkerAcquire @ 0x1405F5694 (KiSrcuNotifyWorkerAcquire.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405F9B28 (KiBugCheckRecoveryFreezeOtherProcessors.c)
- *     DifKeRemoveQueueDpcWrapper @ 0x140663D70 (DifKeRemoveQueueDpcWrapper.c)
- *     ExpCancelTimer @ 0x1406CECB0 (ExpCancelTimer.c)
- *     VfWdCheckForSettingsChange @ 0x140C39F50 (VfWdCheckForSettingsChange.c)
+ *     KiCheckAndRearmForceIdle @ 0x140338EAC (KiCheckAndRearmForceIdle.c)
+ *     EtwpFreeCompression @ 0x140430384 (EtwpFreeCompression.c)
+ *     KeRemoveQueueDpc @ 0x140430440 (KeRemoveQueueDpc.c)
+ *     KeMaskInterrupt @ 0x140431A20 (KeMaskInterrupt.c)
+ *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1404BE7C0 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
+ *     KeClearForceIdle @ 0x1404BECEC (KeClearForceIdle.c)
+ *     KeSrcuFree @ 0x1405F7980 (KeSrcuFree.c)
+ *     KiSrcuNotifyWorkerAcquire @ 0x1405F8054 (KiSrcuNotifyWorkerAcquire.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405FC548 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     DifKeRemoveQueueDpcWrapper @ 0x140667950 (DifKeRemoveQueueDpcWrapper.c)
+ *     ExpCancelTimer @ 0x1406D2CE0 (ExpCancelTimer.c)
+ *     VfWdCheckForSettingsChange @ 0x140C3FF60 (VfWdCheckForSettingsChange.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeGenericProcessorCallback @ 0x140379F74 (KeGenericProcessorCallback.c)
- *     KiGetDeepIdleProcessors @ 0x1403EDF4C (KiGetDeepIdleProcessors.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KiSelectDpcData @ 0x140462270 (KiSelectDpcData.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireReleaseDpcData @ 0x1405FAD5C (KiAcquireReleaseDpcData.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KeGenericProcessorCallback @ 0x14037BD24 (KeGenericProcessorCallback.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KiGetDeepIdleProcessors @ 0x140452A7C (KiGetDeepIdleProcessors.c)
+ *     KiSelectDpcData @ 0x14045B230 (KiSelectDpcData.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireReleaseDpcData @ 0x1405FD77C (KiAcquireReleaseDpcData.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall KeRemoveQueueDpcEx(int *a1, char a2)
@@ -60,7 +60,7 @@ char __fastcall KeRemoveQueueDpcEx(int *a1, char a2)
   __int64 v32; // rsi
   unsigned __int16 i; // cx
   _DWORD v35[3]; // [rsp+2Ch] [rbp-DCh] BYREF
-  _QWORD v36[2]; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned __int16 *v36[2]; // [rsp+38h] [rbp-D0h] BYREF
   __int16 v37; // [rsp+48h] [rbp-C0h]
   int v38; // [rsp+4Ah] [rbp-BEh]
   __int16 v39; // [rsp+4Eh] [rbp-BAh]
@@ -159,9 +159,9 @@ char __fastcall KeRemoveQueueDpcEx(int *a1, char a2)
     Group = v28->Group;
     if ( v40.Count > (unsigned __int16)Group )
       v40.Bitmap[Group] &= ~v28->GroupSetMember;
-    v36[1] = v40.Bitmap[0];
+    v36[1] = (unsigned __int16 *)v40.Bitmap[0];
     v37 = 0;
-    v36[0] = &v40;
+    v36[0] = (unsigned __int16 *)&v40;
     while ( !(unsigned int)KeEnumerateNextProcessor(v35, v36) )
     {
       v30 = KiProcessorBlock[v35[0]];

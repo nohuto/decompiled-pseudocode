@@ -6,15 +6,15 @@
  *     _NtUnmapViewOfSection@8 @ 0x4B2F2C20 (_NtUnmapViewOfSection@8.c)
  */
 
-int __stdcall PssNtFreeWalkMarker(int *a1)
+NTSTATUS __stdcall PssNtFreeWalkMarker(int a1)
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
-  if ( *a1 )
+  if ( *(_DWORD *)a1 )
   {
-    result = NtUnmapViewOfSection(-1, *a1);
-    *a1 = 0;
+    result = NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, *(PVOID *)a1);
+    *(_DWORD *)a1 = 0;
   }
-  a1[1] = 0;
+  *(_DWORD *)(a1 + 4) = 0;
   return result;
 }

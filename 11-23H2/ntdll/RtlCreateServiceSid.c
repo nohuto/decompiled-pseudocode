@@ -11,45 +11,43 @@
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlCreateServiceSid(unsigned __int16 *a1, _DWORD *a2, unsigned int *a3)
+NTSTATUS __cdecl RtlCreateServiceSid(PUNICODE_STRING ServiceName, PSID ServiceSid, PULONG ServiceSidLength)
 {
-  unsigned int v4; // eax
-  __int64 result; // rax
-  __int64 v6; // r8
-  int v7; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-39h] BYREF
-  _DWORD v9[24]; // [rsp+30h] [rbp-29h] BYREF
-  _DWORD v10[6]; // [rsp+90h] [rbp+37h] BYREF
+  ULONG v4; // eax
+  NTSTATUS result; // eax
+  int v6; // eax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF
+  _DWORD v8[24]; // [rsp+30h] [rbp-29h] BYREF
+  _DWORD v9[6]; // [rsp+90h] [rbp+37h] BYREF
 
-  if ( !a1 || !a3 )
-    return 3221225485LL;
-  v4 = *a3;
-  *a3 = 32;
+  if ( !ServiceName || !ServiceSidLength )
+    return -1073741811;
+  v4 = *ServiceSidLength;
+  *ServiceSidLength = 32;
   if ( v4 < 0x20 )
-    return 3221225507LL;
-  result = RtlUpcaseUnicodeString(&UnicodeString, a1, 1);
-  if ( (int)result >= 0 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, ServiceName, 1u);
+  if ( result >= 0 )
   {
-    v9[21] = 0;
-    v9[22] = 0;
-    v9[16] = 1732584193;
-    v9[17] = -271733879;
-    v9[18] = -1732584194;
-    v9[19] = 271733878;
-    v9[20] = -1009589776;
-    A_SHAUpdate((__int64)v9, (char *)UnicodeString.Buffer, UnicodeString.Length);
-    A_SHAFinal(v9, (__int64)v10);
-    RtlFreeUnicodeString(&UnicodeString);
-    LOBYTE(v6) = 6;
-    RtlInitializeSid(a2, &RtlpNtAuthority, v6);
-    v7 = v10[0];
-    a2[2] = 80;
-    a2[3] = v7;
-    a2[4] = v10[1];
-    a2[5] = v10[2];
-    a2[6] = v10[3];
-    a2[7] = v10[4];
-    return 0LL;
+    v8[21] = 0;
+    v8[22] = 0;
+    v8[16] = 1732584193;
+    v8[17] = -271733879;
+    v8[18] = -1732584194;
+    v8[19] = 271733878;
+    v8[20] = -1009589776;
+    A_SHAUpdate((__int64)v8, (char *)DestinationString.Buffer, DestinationString.Length);
+    A_SHAFinal(v8, (__int64)v9);
+    RtlFreeUnicodeString(&DestinationString);
+    RtlInitializeSid(ServiceSid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
+    v6 = v9[0];
+    *((_DWORD *)ServiceSid + 2) = 80;
+    *((_DWORD *)ServiceSid + 3) = v6;
+    *((_DWORD *)ServiceSid + 4) = v9[1];
+    *((_DWORD *)ServiceSid + 5) = v9[2];
+    *((_DWORD *)ServiceSid + 6) = v9[3];
+    *((_DWORD *)ServiceSid + 7) = v9[4];
+    return 0;
   }
   return result;
 }

@@ -1,39 +1,36 @@
 /*
  * XREFs of RtlpHpStackTraceRemoveStack @ 0x1800F87F4
  * Callers:
- *     RtlpReAllocateHeapInternal @ 0x180020DD0 (RtlpReAllocateHeapInternal.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x180046F90 (RtlpHpFreeWithExceptionProtection.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x180020DC0 (RtlpReAllocateHeapInternal.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x180046F80 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
  * Callees:
- *     RtlRunOnceExecuteOnce @ 0x18002A760 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002A750 (RtlRunOnceExecuteOnce.c)
  *     RtlpHpStackTraceAllocRemove @ 0x1800F847C (RtlpHpStackTraceAllocRemove.c)
- *     RtlStackDbStackRemove @ 0x180101F28 (RtlStackDbStackRemove.c)
+ *     RtlStackDbStackRemove @ 0x180101E68 (RtlStackDbStackRemove.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceRemoveStack(__int64 a1, char *a2)
+int __fastcall RtlpHpStackTraceRemoveStack(__int64 a1, __int64 a2)
 {
-  volatile signed __int64 *v3; // rcx
-  __int64 result; // rax
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rcx
-  unsigned __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  _RTL_RUN_ONCE *v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  PVOID Context; // [rsp+30h] [rbp+8h] BYREF
 
   if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    v3 = (volatile signed __int64 *)(a1 + 136);
+    v3 = (_RTL_RUN_ONCE *)(a1 + 136);
   else
-    v3 = (volatile signed __int64 *)(a1 + 368);
-  result = RtlRunOnceExecuteOnce(
-             v3,
-             (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpHpPerHeapStackTraceInitialize,
-             0LL,
-             &v8);
-  if ( (int)result >= 0 && v8 )
+    v3 = (_RTL_RUN_ONCE *)(a1 + 368);
+  LODWORD(v4) = RtlRunOnceExecuteOnce(v3, (PRTL_RUN_ONCE_INIT_FN)RtlpHpPerHeapStackTraceInitialize, 0LL, &Context);
+  if ( (int)v4 >= 0 )
   {
-    result = RtlpHpStackTraceAllocRemove(v8, a2, v5, v6);
-    if ( result )
-      return RtlStackDbStackRemove(v7, result);
+    if ( Context )
+    {
+      v4 = RtlpHpStackTraceAllocRemove((PRTL_SRWLOCK)Context, a2);
+      if ( v4 )
+        LODWORD(v4) = RtlStackDbStackRemove(v5, v4);
+    }
   }
-  return result;
+  return v4;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopTranslatorHandlerIo @ 0x14072DAC0
+ * XREFs of IopTranslatorHandlerIo @ 0x14072BAD0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopTranslatorHandlerIo(__int64 a1, _OWORD *a2, __int64 a3, _DWORD *a4, _QWORD *a5)
 {
   _OWORD *Pool2; // rax
 
-  Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL, 0x20uLL, 0x64647050u);
   if ( !Pool2 )
     return 3221225626LL;
   *a4 = 1;

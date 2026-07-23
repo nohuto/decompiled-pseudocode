@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreatePagingFileControlArea @ 0x1409B8144
+ * XREFs of MiCreatePagingFileControlArea @ 0x140989124
  * Callers:
- *     MiCreatePagingFileMap @ 0x1409B88BC (MiCreatePagingFileMap.c)
+ *     MiCreatePagingFileMap @ 0x14098989C (MiCreatePagingFileMap.c)
  * Callees:
- *     MiAllocateProtoPool @ 0x140396B20 (MiAllocateProtoPool.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     Mi4KStartForSubsection @ 0x1404937B0 (Mi4KStartForSubsection.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiAllocateAweInfo @ 0x140877584 (MiAllocateAweInfo.c)
+ *     MiAllocateProtoPool @ 0x1403988A0 (MiAllocateProtoPool.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     Mi4KStartForSubsection @ 0x14048D2FC (Mi4KStartForSubsection.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiAllocateAweInfo @ 0x14087D964 (MiAllocateAweInfo.c)
  */
 
 __int64 __fastcall MiCreatePagingFileControlArea(__int64 *a1)

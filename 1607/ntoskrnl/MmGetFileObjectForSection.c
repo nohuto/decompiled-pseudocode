@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGetFileObjectForSection @ 0x14047144C
+ * XREFs of MmGetFileObjectForSection @ 0x14047031C
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x14007DB60 (FsRtlCreateSectionForDataScan.c)
+ *     FsRtlCreateSectionForDataScan @ 0x14007DBE0 (FsRtlCreateSectionForDataScan.c)
  * Callees:
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
  */
 
 ULONG_PTR __fastcall MmGetFileObjectForSection(__int64 a1)

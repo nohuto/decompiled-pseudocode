@@ -130,7 +130,8 @@ char __fastcall MiRemoveWsle(__int64 a1, unsigned __int64 a2, char a3, int a4, i
   if ( (*(_BYTE *)(a1 + 184) & 7) != 4 )
     goto LABEL_43;
   if ( PsNtosImageBase
-    && (v8 >= PsNtosImageBase && v8 < PsNtosImageEnd || v8 >= (unsigned __int64)PsHalImageBase && v8 < PsHalImageEnd) )
+    && (v8 >= (unsigned __int64)PsNtosImageBase && v8 < PsNtosImageEnd
+     || v8 >= (unsigned __int64)PsHalImageBase && v8 < PsHalImageEnd) )
   {
     LODWORD(xmmword_1403CB5A0) = xmmword_1403CB5A0 - 1;
     goto LABEL_43;

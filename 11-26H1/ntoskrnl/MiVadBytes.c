@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVadBytes @ 0x1404C97A0
+ * XREFs of MiVadBytes @ 0x1404C31C0
  * Callers:
- *     MiAllocateChildVads @ 0x140961AD0 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x140A077C4 (MiAllocateChildVads.c)
  * Callees:
  *     <none>
  */

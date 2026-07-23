@@ -1,29 +1,29 @@
 /*
- * XREFs of PopNotifyConsoleUserPresent @ 0x1409BB660
+ * XREFs of PopNotifyConsoleUserPresent @ 0x1409A1CB0
  * Callers:
- *     PopUserPresentSetWorker @ 0x140492270 (PopUserPresentSetWorker.c)
- *     PopSetSystemAwayMode @ 0x140753DC0 (PopSetSystemAwayMode.c)
- *     NtSetThreadExecutionState @ 0x140AC6F10 (NtSetThreadExecutionState.c)
- *     PopSessionWinlogonNotification @ 0x140ACB1FC (PopSessionWinlogonNotification.c)
+ *     PopUserPresentSetWorker @ 0x14048D0E0 (PopUserPresentSetWorker.c)
+ *     PopSetSystemAwayMode @ 0x1407520E0 (PopSetSystemAwayMode.c)
+ *     NtSetThreadExecutionState @ 0x140AC4920 (NtSetThreadExecutionState.c)
+ *     PopSessionWinlogonNotification @ 0x140AC8DB8 (PopSessionWinlogonNotification.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     RtlGetActiveConsoleId @ 0x14042F190 (RtlGetActiveConsoleId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwPowerInformation @ 0x1406A6FF0 (ZwPowerInformation.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     TtmNotifyConsoleUserPresent @ 0x1409BAC8C (TtmNotifyConsoleUserPresent.c)
- *     PopInvokeWin32CalloutWithWatchdog @ 0x1409BB330 (PopInvokeWin32CalloutWithWatchdog.c)
- *     PopDiagTraceNotifyConsoleUserPresent @ 0x1409BB8E0 (PopDiagTraceNotifyConsoleUserPresent.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
- *     PopDiagTraceWin32kCalloutStart @ 0x1409BD01C (PopDiagTraceWin32kCalloutStart.c)
- *     PopIsStateTransitionBlockingThread @ 0x140B6A160 (PopIsStateTransitionBlockingThread.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     RtlGetActiveConsoleId @ 0x140421360 (RtlGetActiveConsoleId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwPowerInformation @ 0x1406A7F90 (ZwPowerInformation.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1409A12DC (TtmNotifyConsoleUserPresent.c)
+ *     PopInvokeWin32CalloutWithWatchdog @ 0x1409A1980 (PopInvokeWin32CalloutWithWatchdog.c)
+ *     PopDiagTraceNotifyConsoleUserPresent @ 0x1409A1F30 (PopDiagTraceNotifyConsoleUserPresent.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
+ *     PopDiagTraceWin32kCalloutStart @ 0x1409A366C (PopDiagTraceWin32kCalloutStart.c)
+ *     PopIsStateTransitionBlockingThread @ 0x140B6B870 (PopIsStateTransitionBlockingThread.c)
  */
 
 __int64 __fastcall PopNotifyConsoleUserPresent(__int64 a1, unsigned int a2, __int64 a3)
 {
   char v4; // r12
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   int v6; // r15d
   int v7; // r14d
   char IsStateTransitionBlockingThread; // bl

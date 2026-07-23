@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipIncludeStaticNames @ 0x140A0CE94
+ * XREFs of WmipIncludeStaticNames @ 0x140A0C8EC
  * Callers:
- *     WmipProcessEvent @ 0x140A0D184 (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x140A0CBD4 (WmipProcessEvent.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlStringCbCatW @ 0x1404308C4 (RtlStringCbCatW.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     WmipAlign @ 0x1404A4614 (WmipAlign.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     WmipFindGEByGuid @ 0x140A0E624 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     WmipInsertStaticNames @ 0x140A0F2C8 (WmipInsertStaticNames.c)
- *     WmipStaticInstanceNameSize @ 0x140A0F578 (WmipStaticInstanceNameSize.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlStringCbCatW @ 0x14041D8F0 (RtlStringCbCatW.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     WmipAlign @ 0x14049DCA4 (WmipAlign.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     WmipFindGEByGuid @ 0x140A0D800 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipInsertStaticNames @ 0x140A0E4A4 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x140A0E768 (WmipStaticInstanceNameSize.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 unsigned int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)
@@ -56,7 +56,7 @@ unsigned int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int 
     if ( GEByGuid )
     {
       v6 = v3[1];
-      KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+      KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       for ( i = *(_QWORD *)(GEByGuid + 56); i != GEByGuid + 56; i = *(_QWORD *)i )
       {
         if ( *(_DWORD *)(i + 80) == v6 )
@@ -66,7 +66,7 @@ unsigned int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int 
           break;
         }
       }
-      KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+      KeReleaseMutex(&WmipSMMutex, 0);
       WmipUnreferenceEntry(&WmipGEChunkInfo, GEByGuid);
       if ( v4 )
       {

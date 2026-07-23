@@ -1,14 +1,14 @@
 /*
- * XREFs of KeQueryKvaShadowInformation @ 0x140778BF4
+ * XREFs of KeQueryKvaShadowInformation @ 0x14077BA94
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
- *     VslpIumPhase0Initialize @ 0x140CB9CAC (VslpIumPhase0Initialize.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
+ *     VslpIumPhase0Initialize @ 0x140CBFCEC (VslpIumPhase0Initialize.c)
  * Callees:
- *     KeKvaShadowingActive @ 0x1404E6308 (KeKvaShadowingActive.c)
- *     KeQueryImplementedPhysicalBits @ 0x1405F70F0 (KeQueryImplementedPhysicalBits.c)
- *     SpcQueryKvaLeakagePresent @ 0x14071E36C (SpcQueryKvaLeakagePresent.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     KeKvaShadowingActive @ 0x1404DF8A8 (KeKvaShadowingActive.c)
+ *     KeQueryImplementedPhysicalBits @ 0x1405F9AB0 (KeQueryImplementedPhysicalBits.c)
+ *     SpcQueryKvaLeakagePresent @ 0x140722FFC (SpcQueryKvaLeakagePresent.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall KeQueryKvaShadowInformation(void *a1, unsigned int a2, char a3, _DWORD *a4)

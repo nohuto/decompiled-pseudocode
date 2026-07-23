@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLockHiveListShared @ 0x14047D484
+ * XREFs of CmpLockHiveListShared @ 0x14047C1D8
  * Callers:
- *     CmpGetNextFailedUnloadHive @ 0x140083CFC (CmpGetNextFailedUnloadHive.c)
+ *     CmpGetNextFailedUnloadHive @ 0x140081E5C (CmpGetNextFailedUnloadHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 CmpLockHiveListShared()

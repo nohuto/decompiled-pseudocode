@@ -1,9 +1,9 @@
 /*
- * XREFs of VfGetDmaDomain @ 0x140222B8C
+ * XREFs of VfGetDmaDomain @ 0x1402229B8
  * Callers:
  *     <none>
  * Callees:
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfGetDmaDomain(__int64 a1)

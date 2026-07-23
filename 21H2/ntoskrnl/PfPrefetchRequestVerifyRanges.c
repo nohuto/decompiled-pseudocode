@@ -1,9 +1,9 @@
 /*
- * XREFs of PfPrefetchRequestVerifyRanges @ 0x1406C4F0C
+ * XREFs of PfPrefetchRequestVerifyRanges @ 0x1406737FC
  * Callers:
- *     PfPrefetchRequestVerify @ 0x1406C4FF0 (PfPrefetchRequestVerify.c)
+ *     PfPrefetchRequestVerify @ 0x1406738E0 (PfPrefetchRequestVerify.c)
  * Callees:
- *     PfRequestRangeCheck @ 0x1406C52FC (PfRequestRangeCheck.c)
+ *     PfRequestRangeCheck @ 0x140673BEC (PfRequestRangeCheck.c)
  */
 
 __int64 __fastcall PfPrefetchRequestVerifyRanges(__int64 a1, __int64 a2, unsigned int *a3, int a4)

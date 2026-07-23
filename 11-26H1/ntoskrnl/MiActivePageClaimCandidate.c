@@ -1,16 +1,16 @@
 /*
- * XREFs of MiActivePageClaimCandidate @ 0x1402923F0
+ * XREFs of MiActivePageClaimCandidate @ 0x140291950
  * Callers:
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
- *     MiCheckContiguityTradeEligible @ 0x140700448 (MiCheckContiguityTradeEligible.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
+ *     MiCheckContiguityTradeEligible @ 0x140705118 (MiCheckContiguityTradeEligible.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiNoTradePageClaimCandidate @ 0x140292AE0 (MiNoTradePageClaimCandidate.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402F0BC0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiGetBaseResidentPage @ 0x1402F1BA0 (MiGetBaseResidentPage.c)
- *     MiMultiReferenceCountPageClaimCandidate @ 0x1404116D8 (MiMultiReferenceCountPageClaimCandidate.c)
- *     MiMultiShareCountPageClaimCandidate @ 0x1404AA7EC (MiMultiShareCountPageClaimCandidate.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiNoTradePageClaimCandidate @ 0x140292040 (MiNoTradePageClaimCandidate.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402D2C40 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetBaseResidentPage @ 0x1402D3C20 (MiGetBaseResidentPage.c)
+ *     MiMultiReferenceCountPageClaimCandidate @ 0x140410DF8 (MiMultiReferenceCountPageClaimCandidate.c)
+ *     MiMultiShareCountPageClaimCandidate @ 0x1404A3E7C (MiMultiShareCountPageClaimCandidate.c)
  */
 
 __int64 __fastcall MiActivePageClaimCandidate(
@@ -61,9 +61,9 @@ __int64 __fastcall MiActivePageClaimCandidate(
   if ( (v30.m128i_i32[0] & 0x8000000) != 0 )
   {
     if ( a5 )
-      ++dword_140EF8DB8;
+      ++dword_140EF9118;
     else
-      ++dword_140EF8F4C;
+      ++dword_140EF92AC;
     return v9;
   }
   if ( (v30.m128i_i64[1] & 0x10000000000LL) != 0 )
@@ -89,9 +89,9 @@ __int64 __fastcall MiActivePageClaimCandidate(
   if ( (((unsigned __int64)v12 >> 43) & 0x3FF) != *(_WORD *)v6 )
   {
     if ( a5 )
-      ++dword_140EF8D9C;
+      ++dword_140EF90FC;
     else
-      ++dword_140EF8EE0;
+      ++dword_140EF9240;
     return v9;
   }
   if ( (a4 & 0x410000) != 0x410000 && (a3 & 2) == 0 && *(_BYTE *)(v6 + 16486) )
@@ -114,45 +114,45 @@ __int64 __fastcall MiActivePageClaimCandidate(
 LABEL_6:
   if ( v12 < 0 )
   {
-    if ( (v29.m128i_i64[1] & 0x4000000000000000LL) != 0 || v16 == qword_140E2D628 || v16 == qword_140E2D630 )
+    if ( (v29.m128i_i64[1] & 0x4000000000000000LL) != 0 || v16 == qword_140E2D7A8 || v16 == qword_140E2D7B0 )
     {
       if ( a5 )
-        ++dword_140EF8DF8;
+        ++dword_140EF9158;
       else
-        ++dword_140EF8F3C;
+        ++dword_140EF929C;
       return v9;
     }
     if ( v25 && (a2[2].m128i_i64[1] & 0x20000000000000LL) != 0 )
     {
       if ( a5 )
-        ++dword_140EF8DEC;
+        ++dword_140EF914C;
       else
-        ++dword_140EF8F40;
+        ++dword_140EF92A0;
       return v9;
     }
     if ( v30.m128i_i16[0] > 1u || v30.m128i_u16[0] > (v29.m128i_i64[1] & 0x3FFFFFFFFFFFFFFFuLL) )
     {
       if ( a5 )
-        ++dword_140EF8DFC;
+        ++dword_140EF915C;
       else
-        ++dword_140EF8F48;
+        ++dword_140EF92A8;
       return v9;
     }
     if ( (v28.m128i_i8[0] & 1) == 0 )
     {
       if ( a5 )
-        ++dword_140EF8E00;
+        ++dword_140EF9160;
       else
-        ++dword_140EF8F44;
+        ++dword_140EF92A4;
       return v9;
     }
     if ( a2->m128i_i64[1] > 0 && (a2[2].m128i_i64[1] & 0x10000000000LL) == 0 )
     {
       *a6 |= 2u;
       if ( a5 )
-        ++dword_140EF8E04;
+        ++dword_140EF9164;
       else
-        ++dword_140EF8F50;
+        ++dword_140EF92B0;
       return v9;
     }
     return 0LL;
@@ -160,30 +160,30 @@ LABEL_6:
   if ( (((unsigned __int64)v12 >> 60) & 7) == 1 || (v17 = v12 & 0xFFFFFFFFFFLL, v17 == 0x3FFFFFFFFELL) )
   {
     if ( a5 )
-      ++dword_140EF8E20;
+      ++dword_140EF9180;
     else
-      ++dword_140EF8F34;
+      ++dword_140EF9294;
     return v9;
   }
   if ( v16 == -8LL )
   {
     if ( a5 )
-      ++dword_140EF8E10;
+      ++dword_140EF9170;
     else
-      ++dword_140EF8F80;
+      ++dword_140EF92E0;
     return v9;
   }
-  if ( v16 >= 0xFFFF800000000000uLL && byte_140E37A70[((v16 >> 39) & 0x1FF) - 256] == 4 )
+  if ( v16 >= 0xFFFF800000000000uLL && byte_140E37BF0[((v16 >> 39) & 0x1FF) - 256] == 4 )
   {
     if ( a5 )
-      ++dword_140EF8E1C;
+      ++dword_140EF917C;
     else
-      ++dword_140EF8F94;
+      ++dword_140EF92F4;
     return v9;
   }
   if ( v16 < 0xFFFFF68000000000uLL || v16 > 0xFFFFF6FFFFFFFFFFuLL )
   {
-    _InterlockedIncrement(&dword_140EF8F9C);
+    _InterlockedIncrement(&dword_140EF92FC);
     return v9;
   }
   if ( (v28.m128i_i8[0] & 1) == 0 )
@@ -191,9 +191,9 @@ LABEL_6:
   if ( PsInitialSystemProcess && v14 == PsInitialSystemProcess->DirectoryTableBase >> 12 )
   {
     if ( a5 )
-      ++dword_140EF8E3C;
+      ++dword_140EF919C;
     else
-      ++dword_140EF8F08;
+      ++dword_140EF9268;
     return v9;
   }
   v18 = 0xFFFFF6FB40000000uLL;
@@ -211,18 +211,18 @@ LABEL_41:
     if ( v30.m128i_i16[0] > 1u )
     {
       if ( a5 )
-        ++dword_140EF8E40;
+        ++dword_140EF91A0;
       else
-        ++dword_140EF8F0C;
+        ++dword_140EF926C;
     }
     else
     {
       if ( (v29.m128i_i64[1] & 0x3FFFFFFFFFFFFFFFuLL) < 0x10000 )
         return 0LL;
       if ( a5 )
-        ++dword_140EF8E44;
+        ++dword_140EF91A4;
       else
-        ++dword_140EF8F14;
+        ++dword_140EF9274;
     }
     return v9;
   }
@@ -233,17 +233,17 @@ LABEL_41:
       if ( v30.m128i_i16[0] <= 1u )
         return 0LL;
       if ( a5 )
-        ++dword_140EF8E58;
+        ++dword_140EF91B8;
       else
-        ++dword_140EF8F64;
+        ++dword_140EF92C4;
     }
     else if ( a5 )
     {
-      ++dword_140EF8E48;
+      ++dword_140EF91A8;
     }
     else
     {
-      ++dword_140EF8F98;
+      ++dword_140EF92F8;
     }
     return v9;
   }
@@ -252,9 +252,9 @@ LABEL_41:
   if ( (v10.m128i_i64[1] & 0xFFFFFFFFFFLL) == 0 )
   {
     if ( a5 )
-      ++dword_140EF8E60;
+      ++dword_140EF91C0;
     else
-      ++dword_140EF8F30;
+      ++dword_140EF9290;
     return v9;
   }
   if ( v13 <= 1u && v13 <= v15 || !v25 && (int)MiMultiReferenceCountPageClaimCandidate(a2, a5, &v28) >= 0 )

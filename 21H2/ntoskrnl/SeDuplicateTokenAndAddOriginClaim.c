@@ -1,11 +1,11 @@
 /*
- * XREFs of SeDuplicateTokenAndAddOriginClaim @ 0x1409227AC
+ * XREFs of SeDuplicateTokenAndAddOriginClaim @ 0x14092290C
  * Callers:
- *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140699C80 (NtCreateUserProcess.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     SepAddTokenOriginClaim @ 0x140922B50 (SepAddTokenOriginClaim.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     SepAddTokenOriginClaim @ 0x140922CB0 (SepAddTokenOriginClaim.c)
  */
 
 __int64 __fastcall SeDuplicateTokenAndAddOriginClaim(__int64 a1, __int64 a2, unsigned int a3, PADAPTER_OBJECT *a4)

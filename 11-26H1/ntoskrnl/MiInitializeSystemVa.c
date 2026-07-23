@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSystemVa @ 0x140D0AC28
+ * XREFs of MiInitializeSystemVa @ 0x140D10EF8
  * Callers:
- *     MmInitSystem @ 0x140C7FD84 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140C85D84 (MmInitSystem.c)
  * Callees:
- *     MiAssignHalEntropy @ 0x140CF8ED8 (MiAssignHalEntropy.c)
- *     MiAssignTopLevelRanges @ 0x140CF9118 (MiAssignTopLevelRanges.c)
- *     MiRebaseDynamicRelocationRegions @ 0x140CF9848 (MiRebaseDynamicRelocationRegions.c)
- *     MiSetSystemRegionTypes @ 0x140CF9A04 (MiSetSystemRegionTypes.c)
- *     MiInitializeTopLevelBitmap @ 0x140D0ACD8 (MiInitializeTopLevelBitmap.c)
+ *     MiAssignHalEntropy @ 0x140CFF258 (MiAssignHalEntropy.c)
+ *     MiAssignTopLevelRanges @ 0x140CFF498 (MiAssignTopLevelRanges.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x140CFFBC8 (MiRebaseDynamicRelocationRegions.c)
+ *     MiSetSystemRegionTypes @ 0x140CFFD84 (MiSetSystemRegionTypes.c)
+ *     MiInitializeTopLevelBitmap @ 0x140D10FA8 (MiInitializeTopLevelBitmap.c)
  */
 
 __int64 __fastcall MiInitializeSystemVa(__int64 a1)
@@ -45,8 +45,8 @@ LABEL_11:
           MiSetSystemRegionTypes();
           return MiRebaseDynamicRelocationRegions(a1);
         }
-        if ( !LODWORD(stru_140E2EB88.Affinity) )
-          LODWORD(stru_140E2EB88.Affinity) = 1;
+        if ( !LODWORD(stru_140E2ED08.Affinity) )
+          LODWORD(stru_140E2ED08.Affinity) = 1;
         return result;
       }
       v2 >>= 1;

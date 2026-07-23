@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIoRateStartRateControl @ 0x14049B658
+ * XREFs of IopIoRateStartRateControl @ 0x1404951A8
  * Callers:
- *     IoStartIoRateControl @ 0x14049B508 (IoStartIoRateControl.c)
+ *     IoStartIoRateControl @ 0x140495058 (IoStartIoRateControl.c)
  * Callees:
- *     IoDiskIoAttributionQuery @ 0x1402074B4 (IoDiskIoAttributionQuery.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoDiskIoAttributionQuery @ 0x140207594 (IoDiskIoAttributionQuery.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IopIoRateStartRateControl(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _QWORD *a6)
@@ -26,7 +26,7 @@ __int64 __fastcall IopIoRateStartRateControl(__int64 a1, __int64 a2, __int64 a3,
   v12 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
-  if ( ExGetExtensionTable(IopSessionNotificationLock.SListFaultAddress) )
+  if ( ExGetExtensionTable(IopIoRateExtensionHost) )
   {
     IoDiskIoAttributionQuery(a5, &v11, &v9);
     v15 = *((_QWORD *)&v10 + 1) + v12.m128i_i64[0];
@@ -39,7 +39,7 @@ __int64 __fastcall IopIoRateStartRateControl(__int64 a1, __int64 a2, __int64 a3,
       v7 = 0;
       *a6 = 0LL;
     }
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)IopSessionNotificationLock.SListFaultAddress + 11);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 88));
   }
   else
   {

@@ -1,19 +1,19 @@
 /*
- * XREFs of WbAllocateUserMemory @ 0x140690B78
+ * XREFs of WbAllocateUserMemory @ 0x140691D38
  * Callers:
- *     sub_1406901D0 @ 0x1406901D0 (sub_1406901D0.c)
+ *     sub_140691390 @ 0x140691390 (sub_140691390.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     WbAllocateMemoryBlock @ 0x14068FD60 (WbAllocateMemoryBlock.c)
- *     sub_140690DA4 @ 0x140690DA4 (sub_140690DA4.c)
- *     WbFreeMemoryBlock @ 0x140691024 (WbFreeMemoryBlock.c)
- *     sub_14069174C @ 0x14069174C (sub_14069174C.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     WbAllocateMemoryBlock @ 0x140690F20 (WbAllocateMemoryBlock.c)
+ *     sub_140691F64 @ 0x140691F64 (sub_140691F64.c)
+ *     WbFreeMemoryBlock @ 0x1406921E4 (WbFreeMemoryBlock.c)
+ *     sub_14069290C @ 0x14069290C (sub_14069290C.c)
  */
 
 __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3, _QWORD *a4)
@@ -23,13 +23,13 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
   int v8; // esi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v10; // rbx
-  __int64 v11; // rdi
+  PRTL_BALANCED_NODE v11; // rdi
   int v12; // edi
   __int64 v13; // rcx
   struct _KTHREAD *v15; // rax
-  __int64 v16; // rax
+  _RTL_BALANCED_NODE *v16; // rax
   int v17; // r8d
-  __int64 v18; // rdi
+  _RTL_BALANCED_NODE *v18; // rdi
   char v19; // r15
   PVOID *BaseAddress; // [rsp+30h] [rbp-20h] BYREF
   _QWORD v21[3]; // [rsp+38h] [rbp-18h] BYREF
@@ -51,14 +51,14 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v10, v11, (ULONG_PTR)v10);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   v12 = 0;
   if ( *(_DWORD *)(a1 + 188) )
   {
     while ( 1 )
     {
       v6 = *(PVOID **)((unsigned int)(v12 * *(_DWORD *)(a1 + 184)) + *(_QWORD *)(a1 + 200));
-      v8 = sub_140690DA4(v6, a2, v21);
+      v8 = sub_140691F64(v6, a2, v21);
       if ( v8 < 0 )
         goto LABEL_29;
       if ( !v21[0] && (unsigned int)++v12 < *(_DWORD *)(a1 + 188) )
@@ -81,7 +81,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
     if ( v8 < 0 )
       goto LABEL_29;
     v7 = BaseAddress;
-    v8 = sub_140690DA4(BaseAddress, a2, v21);
+    v8 = sub_140691F64(BaseAddress, a2, v21);
     if ( v8 < 0 )
       goto LABEL_17;
     v15 = KeGetCurrentThread();
@@ -91,8 +91,8 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
       ExfAcquirePushLockExclusiveEx(v10, v16, (ULONG_PTR)v10);
     if ( v18 )
-      *(_BYTE *)(v18 + 26) |= 1u;
-    v8 = sub_14069174C((int)a1 + 184, (_DWORD)BaseAddress, v17, (unsigned int)BaseAddress[4], 8, -1);
+      BYTE2(v18[1].Left) |= 1u;
+    v8 = sub_14069290C((int)a1 + 184, (_DWORD)BaseAddress, v17, (unsigned int)BaseAddress[4], 8, -1);
     v19 = _InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v19 & 2) != 0 && (v19 & 4) == 0 )
       ExfTryToWakePushLock((volatile signed __int64 *)v10);

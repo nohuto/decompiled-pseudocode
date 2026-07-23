@@ -16,12 +16,18 @@
  *     RtlEqualSid @ 0x14009DE80 (RtlEqualSid.c)
  */
 
-bool __fastcall SepSidInTokenSidHash(__int64 a1, void *a2, void *a3, char a4, char a5, char a6)
+bool __fastcall SepSidInTokenSidHash(
+        PSID_AND_ATTRIBUTES_HASH SidAttrHash,
+        void *a2,
+        void *a3,
+        char a4,
+        char a5,
+        char a6)
 {
   void *v7; // rbx
-  __int64 v10; // rax
+  PSID_AND_ATTRIBUTES v10; // rax
   bool result; // al
-  int v12; // ecx
+  ULONG Attributes; // ecx
 
   v7 = a3;
   if ( a2 && RtlEqualSid(SePrincipalSelfSid, a3) )
@@ -29,13 +35,13 @@ bool __fastcall SepSidInTokenSidHash(__int64 a1, void *a2, void *a3, char a4, ch
   result = 1;
   if ( !a6 || !RtlEqualSid(SeOwnerRightsSid, v7) )
   {
-    v10 = RtlSidHashLookup(a1, v7);
+    v10 = RtlSidHashLookup(SidAttrHash, v7);
     if ( !v10 )
       return 0;
-    if ( a5 || v10 != *(_QWORD *)(a1 + 8) || (*(_DWORD *)(v10 + 8) & 0x10) != 0 && !a4 )
+    if ( a5 || v10 != SidAttrHash->SidAttr || (v10->Attributes & 0x10) != 0 && !a4 )
     {
-      v12 = *(_DWORD *)(v10 + 8);
-      if ( (v12 & 4) == 0 && (!a4 || (v12 & 0x10) == 0) )
+      Attributes = v10->Attributes;
+      if ( (Attributes & 4) == 0 && (!a4 || (Attributes & 0x10) == 0) )
         return 0;
     }
   }

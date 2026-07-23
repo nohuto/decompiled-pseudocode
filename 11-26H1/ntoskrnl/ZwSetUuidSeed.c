@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetUuidSeed @ 0x140726C70
+ * XREFs of ZwSetUuidSeed @ 0x14072B840
  * Callers:
- *     DifZwSetUuidSeedWrapper @ 0x1406BC870 (DifZwSetUuidSeedWrapper.c)
+ *     DifZwSetUuidSeedWrapper @ 0x1406C0450 (DifZwSetUuidSeedWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetUuidSeed(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetUuidSeed(PCHAR Seed)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Seed);
 }

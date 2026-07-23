@@ -1,14 +1,14 @@
 /*
- * XREFs of KiComputeEffectivePriority @ 0x1402B2790
+ * XREFs of KiComputeEffectivePriority @ 0x1402B2A20
  * Callers:
- *     KiDirectSwitchThread @ 0x1402B18A0 (KiDirectSwitchThread.c)
+ *     KiDirectSwitchThread @ 0x1402B1B30 (KiDirectSwitchThread.c)
  * Callees:
- *     KiComputeHeteroThreadQos @ 0x1402B0DF0 (KiComputeHeteroThreadQos.c)
- *     KiUpdateThreadPriority @ 0x140307B90 (KiUpdateThreadPriority.c)
- *     KiAbQueueAutoBoostDpc @ 0x140307D48 (KiAbQueueAutoBoostDpc.c)
- *     KiScheduleNextForegroundBoost @ 0x1403D41BC (KiScheduleNextForegroundBoost.c)
- *     KiSetSchedulerAssistPriority @ 0x1404104A0 (KiSetSchedulerAssistPriority.c)
- *     KiSetThreadQosLevelUnsafe @ 0x140462658 (KiSetThreadQosLevelUnsafe.c)
+ *     KiComputeHeteroThreadQos @ 0x1402B1080 (KiComputeHeteroThreadQos.c)
+ *     KiUpdateThreadPriority @ 0x140307E20 (KiUpdateThreadPriority.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140307FD8 (KiAbQueueAutoBoostDpc.c)
+ *     KiScheduleNextForegroundBoost @ 0x1403D439C (KiScheduleNextForegroundBoost.c)
+ *     KiSetSchedulerAssistPriority @ 0x140410704 (KiSetSchedulerAssistPriority.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x140462A58 (KiSetThreadQosLevelUnsafe.c)
  */
 
 char __fastcall KiComputeEffectivePriority(__int64 a1, char a2, unsigned __int64 a3, char a4)

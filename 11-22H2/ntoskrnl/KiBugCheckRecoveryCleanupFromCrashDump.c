@@ -10,71 +10,73 @@
  *     KiUpdateBugcheckRecoveryProgress @ 0x14057B908 (KiUpdateBugcheckRecoveryProgress.c)
  */
 
-__int64 __fastcall KiBugCheckRecoveryCleanupFromCrashDump(unsigned __int8 a1, char a2)
+void __fastcall KiBugCheckRecoveryCleanupFromCrashDump(unsigned __int8 a1, char a2)
 {
   unsigned __int64 v3; // rbx
-  __int64 result; // rax
+  unsigned int v4; // eax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v7; // zf
-  struct _KPRCB *v8; // rcx
-  _DWORD *v9; // r8
-  int v10; // ett
-  __int64 v11; // [rsp+20h] [rbp-28h] BYREF
-  int v12; // [rsp+28h] [rbp-20h]
-  __int64 v13; // [rsp+2Ch] [rbp-1Ch]
+  int v8; // eax
+  bool v9; // zf
+  struct _KPRCB *v10; // rcx
+  signed __int32 *v11; // r8
+  signed __int32 v12; // eax
+  signed __int32 v13; // ett
+  __int64 v14; // [rsp+20h] [rbp-28h] BYREF
+  int v15; // [rsp+28h] [rbp-20h]
+  __int64 v16; // [rsp+2Ch] [rbp-1Ch]
 
   v3 = a1;
-  result = KiBugcheckRecoveryDumpPolicy & 0xF;
-  if ( (KiBugcheckRecoveryDumpPolicy & 0xF) != 0 && (unsigned int)result < 3 )
+  v4 = KiBugcheckRecoveryDumpPolicy & 0xF;
+  if ( (KiBugcheckRecoveryDumpPolicy & 0xF) != 0 && v4 < 3 )
   {
-    if ( (_DWORD)result == 2 )
+    if ( v4 == 2 )
     {
       HvlResumeFromRootCrashdump(1);
-      v13 = 0LL;
-      v11 = 1LL;
-      v12 = 99;
-      KiUpdateBugcheckRecoveryProgress(&v11);
+      v16 = 0LL;
+      v14 = 1LL;
+      v15 = 99;
+      KiUpdateBugcheckRecoveryProgress(&v14);
     }
     KiSendThawExecution(1);
-    result = off_140C01CC8[0]();
-    if ( KiIrqlFlags )
+    off_140C01CC8[0]();
+    if ( (_DWORD)KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
+      CurrentIrql = KeGetCurrentIrql();
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
         && (unsigned __int8)v3 <= 0xFu
-        && (unsigned __int8)result >= 2u )
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v7 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v9 = (v8 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v8;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v3);
     if ( a2 )
     {
-      v8 = KeGetCurrentPrcb();
-      v9 = v8->SchedulerAssist;
-      if ( v9 )
+      v10 = KeGetCurrentPrcb();
+      v11 = (signed __int32 *)v10->SchedulerAssist;
+      if ( v11 )
       {
-        _m_prefetchw(v9);
-        LODWORD(result) = *v9;
+        _m_prefetchw(v11);
+        v12 = *v11;
         do
         {
-          v10 = result;
-          result = (unsigned int)_InterlockedCompareExchange(v9, result & 0xFFDFFFFF, result);
+          v13 = v12;
+          v12 = _InterlockedCompareExchange(v11, v12 & 0xFFDFFFFF, v12);
         }
-        while ( v10 != (_DWORD)result );
-        if ( (result & 0x200000) != 0 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)v8);
+        while ( v13 != v12 );
+        if ( (v12 & 0x200000) != 0 )
+          KiRemoveSystemWorkPriorityKick((__int64)v10);
       }
       _enable();
     }
   }
-  return result;
 }

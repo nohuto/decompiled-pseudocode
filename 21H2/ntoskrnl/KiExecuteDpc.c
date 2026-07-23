@@ -1,15 +1,15 @@
 /*
- * XREFs of KiExecuteDpc @ 0x1403B5790
+ * XREFs of KiExecuteDpc @ 0x1403B5900
  * Callers:
  *     <none>
  * Callees:
- *     KiExecuteAllDpcs @ 0x1402472B0 (KiExecuteAllDpcs.c)
- *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     KiTryToEndDpcProcessing @ 0x1402CB828 (KiTryToEndDpcProcessing.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1403B59F4 (KiSetSystemAffinityThreadToProcessor.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     KiTryToEndDpcProcessing @ 0x140249F78 (KiTryToEndDpcProcessing.c)
+ *     KeSetPriorityThread @ 0x140279050 (KeSetPriorityThread.c)
+ *     KiExecuteAllDpcs @ 0x1402EBB00 (KiExecuteAllDpcs.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x1403B5B64 (KiSetSystemAffinityThreadToProcessor.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall __noreturn KiExecuteDpc(__int64 a1)
@@ -27,7 +27,7 @@ void __fastcall __noreturn KiExecuteDpc(__int64 a1)
   while ( 1 )
   {
     v4[0] = 0;
-    KeWaitForGate(a1 + 31616, 5);
+    KeWaitForGate(a1 + 31616, 5u);
     v3 = KeGetCurrentThread();
     --v3->SpecialApcDisable;
     do

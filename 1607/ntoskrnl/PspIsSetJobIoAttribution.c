@@ -1,10 +1,10 @@
 /*
- * XREFs of PspIsSetJobIoAttribution @ 0x1404F2250
+ * XREFs of PspIsSetJobIoAttribution @ 0x1404D49E4
  * Callers:
- *     PspSetJobIoAttribution @ 0x1404F206C (PspSetJobIoAttribution.c)
- *     PspEstablishJobHierarchy @ 0x1404F2FFC (PspEstablishJobHierarchy.c)
+ *     PspSetJobIoAttribution @ 0x1404D4800 (PspSetJobIoAttribution.c)
+ *     PspEstablishJobHierarchy @ 0x1404D5F88 (PspEstablishJobHierarchy.c)
  * Callees:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140467544 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 char __fastcall PspIsSetJobIoAttribution(_QWORD *a1, __int64 a2, char a3)

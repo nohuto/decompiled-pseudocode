@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDecommitPagedPool @ 0x140351CF4
+ * XREFs of MiDecommitPagedPool @ 0x140353D78
  * Callers:
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
  * Callees:
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiUnmapReturnSystemCommit @ 0x140AAA568 (MiUnmapReturnSystemCommit.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiUnmapReturnSystemCommit @ 0x140AA7B48 (MiUnmapReturnSystemCommit.c)
  */
 
 __int64 __fastcall MiDecommitPagedPool(unsigned __int64 a1, int a2, unsigned int a3)
@@ -21,6 +21,6 @@ __int64 __fastcall MiDecommitPagedPool(unsigned __int64 a1, int a2, unsigned int
   v8 = 0LL;
   MiDecommitPages((a1 >> 9) & 0xFFFFFFF8, a2, 0, 0, 0LL, ~(a3 >> 26) & 0x10, 0LL, (__int64)&v5);
   v3 = *((_QWORD *)&v6 + 1);
-  MiUnmapReturnSystemCommit(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (unsigned __int16)word_140E3712E), &v5);
+  MiUnmapReturnSystemCommit(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (unsigned __int16)word_140E372AE), &v5);
   return v3;
 }

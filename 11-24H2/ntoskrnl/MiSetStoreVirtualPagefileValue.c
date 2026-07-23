@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSetStoreVirtualPagefileValue @ 0x14039D920
+ * XREFs of MiSetStoreVirtualPagefileValue @ 0x1402FAC20
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
- *     MiDetermineModifiedPageListHead @ 0x14022D670 (MiDetermineModifiedPageListHead.c)
- *     MiOutSwapWorkingSetPte @ 0x140302690 (MiOutSwapWorkingSetPte.c)
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
- *     MiGatherPagefilePages @ 0x14039C8C8 (MiGatherPagefilePages.c)
- *     MiMoveModifiedPagesToCompressList @ 0x14068BD08 (MiMoveModifiedPagesToCompressList.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
+ *     MiGatherPagefilePages @ 0x1402F9BC8 (MiGatherPagefilePages.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
+ *     MiDetermineModifiedPageListHead @ 0x140300F80 (MiDetermineModifiedPageListHead.c)
+ *     MiOutSwapWorkingSetPte @ 0x140346260 (MiOutSwapWorkingSetPte.c)
+ *     MiMoveModifiedPagesToCompressList @ 0x14068CE38 (MiMoveModifiedPagesToCompressList.c)
  * Callees:
- *     MiMakePageFilePte @ 0x14039F4D8 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140215C78 (MiMakePageFilePte.c)
  */
 
 unsigned __int64 __fastcall MiSetStoreVirtualPagefileValue(__int64 a1, __int64 a2, unsigned int a3)
@@ -71,17 +71,17 @@ unsigned __int64 __fastcall MiSetStoreVirtualPagefileValue(__int64 a1, __int64 a
   if ( v10 )
   {
     v13 = v4 << 32;
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
       if ( (v10 & 0x10) != 0 )
         v14 = (unsigned int)v10 & 0xFFFFFFEF;
       else
-        v14 = ~(_DWORD)qword_140E2DB80 & (unsigned int)v10;
+        v14 = ~(_DWORD)qword_140E2DCC0 & (unsigned int)v10;
       v15 = v14 | v13;
-      if ( (qword_140E2DB80 & v15) != 0 )
+      if ( (qword_140E2DCC0 & v15) != 0 )
         PageFilePte = v15 | 0x10;
       else
-        PageFilePte = qword_140E2DB80 | v15;
+        PageFilePte = qword_140E2DCC0 | v15;
     }
     else
     {

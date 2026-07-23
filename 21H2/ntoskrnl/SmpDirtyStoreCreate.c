@@ -1,12 +1,12 @@
 /*
- * XREFs of SmpDirtyStoreCreate @ 0x140710C28
+ * XREFs of SmpDirtyStoreCreate @ 0x1406BF278
  * Callers:
- *     SmpKeyedStoreCreate @ 0x140710B44 (SmpKeyedStoreCreate.c)
- *     SmpSystemStoreCreate @ 0x1407CEAC0 (SmpSystemStoreCreate.c)
+ *     SmpKeyedStoreCreate @ 0x1406BF194 (SmpKeyedStoreCreate.c)
+ *     SmpSystemStoreCreate @ 0x1407CEC30 (SmpSystemStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SmProcessCreateRequest @ 0x140710D34 (SmProcessCreateRequest.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SmProcessCreateRequest @ 0x1406BF384 (SmProcessCreateRequest.c)
  */
 
 __int64 __fastcall SmpDirtyStoreCreate(__int64 a1, unsigned int a2, int a3, _DWORD *a4)

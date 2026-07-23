@@ -6,7 +6,7 @@
  *     RtlpLocateXStateChunk @ 0x1800845EC (RtlpLocateXStateChunk.c)
  */
 
-unsigned __int64 RtlGetExtendedFeaturesMask()
+ULONG64 __cdecl RtlGetExtendedFeaturesMask(PCONTEXT_EX ContextEx)
 {
-  return *(_QWORD *)RtlpLocateXStateChunk() & 0xFFFFFFFFFFFFFFFCuLL;
+  return *(_QWORD *)RtlpLocateXStateChunk(ContextEx) & 0xFFFFFFFFFFFFFFFCuLL;
 }

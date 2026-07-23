@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlConvertHostPerfCounterToPerfCounter @ 0x1405E7390
+ * XREFs of RtlConvertHostPerfCounterToPerfCounter @ 0x1405E4980
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetMultiTimePrecise @ 0x1404970A0 (RtlGetMultiTimePrecise.c)
+ *     RtlGetMultiTimePrecise @ 0x140491A30 (RtlGetMultiTimePrecise.c)
  */
 
 __int64 __fastcall RtlConvertHostPerfCounterToPerfCounter(LARGE_INTEGER a1, unsigned __int64 a2, _QWORD *a3)

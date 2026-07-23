@@ -31,10 +31,10 @@ __int64 MiSessionCreate()
   unsigned __int32 NewSessionId; // eax
   unsigned __int32 v4; // esi
   unsigned __int64 v5; // rdi
-  _DWORD *Pool; // rax
+  LARGE_INTEGER *Pool; // rax
   __int64 v7; // rbx
   void *CurrentServerSilo; // rax
-  LARGE_INTEGER v9; // [rsp+30h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp-48h] BYREF
   __int64 v10; // [rsp+38h] [rbp-40h] BYREF
   unsigned __int32 v11; // [rsp+40h] [rbp-38h]
   int v12; // [rsp+44h] [rbp-34h]
@@ -58,17 +58,17 @@ LABEL_15:
     MiFreeSessionId(v4);
     return 3221225495LL;
   }
-  Pool = MiAllocatePool(64, 0x340uLL, 0x7353694Du);
+  Pool = (LARGE_INTEGER *)MiAllocatePool(64, 0x340uLL, 0x7353694Du);
   v7 = (__int64)Pool;
   if ( !Pool )
   {
     MiReturnResident((__int64)ProcessPartition, v5);
     goto LABEL_15;
   }
-  Pool[2] = v4;
-  *Pool = 1;
-  Pool[18] = PsDefaultSystemLocaleId;
-  *((_QWORD *)Pool + 99) = RtlGetInterruptTimePrecise(&v9);
+  Pool[1].LowPart = v4;
+  Pool->LowPart = 1;
+  Pool[9].LowPart = PsDefaultSystemLocaleId;
+  Pool[99] = RtlGetInterruptTimePrecise(&PerformanceCounter);
   *(_WORD *)(v7 + 366) = *(_WORD *)ProcessPartition;
   if ( _InterlockedIncrement64((volatile signed __int64 *)(ProcessPartition[25] + 32LL)) <= 1 )
     __fastfail(0xEu);

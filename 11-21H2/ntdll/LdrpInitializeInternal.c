@@ -13,7 +13,7 @@
  *     LdrpLoadPatchedNtdll @ 0x1800E061C (LdrpLoadPatchedNtdll.c)
  */
 
-__int64 __fastcall LdrpInitializeInternal(__int64 a1, __int64 a2)
+__int64 __fastcall LdrpInitializeInternal(__int64 a1, void *a2)
 {
   signed __int32 v4; // eax
   signed __int32 v5; // ebx
@@ -29,12 +29,12 @@ __int64 __fastcall LdrpInitializeInternal(__int64 a1, __int64 a2)
   }
   else
   {
-    ZwCreateEvent(&LdrpHotPatchInitCompleteEvent, 2031619LL, 0LL, 0LL, 0);
+    ZwCreateEvent(&LdrpHotPatchInitCompleteEvent, 0x1F0003u, 0LL, NotificationEvent, 0);
     memset(v7, 0, 0x228uLL);
     LdrpNtdllHotPatchContext = (__int64)v7;
     LdrpInitializeHotPatching();
     if ( LdrpIsHotPatchingEnabled )
-      v7[136] = LdrpLoadPatchedNtdll(a2, v7);
+      v7[136] = LdrpLoadPatchedNtdll(a2);
     LdrpInitializationComplete(&LdrpHotPatchInitialized, &LdrpHotPatchInitCompleteEvent, 5256LL);
   }
   if ( (NtCurrentTeb()->SameTebFlags & 0x4000) == 0 )

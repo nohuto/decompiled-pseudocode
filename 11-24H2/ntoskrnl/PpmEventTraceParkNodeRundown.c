@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceParkNodeRundown @ 0x140A74700
+ * XREFs of PpmEventTraceParkNodeRundown @ 0x140A6EA28
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceParkNodeRundown(__int64 a1)
@@ -57,7 +57,7 @@ void __fastcall PpmEventTraceParkNodeRundown(__int64 a1)
     if ( (_BYTE)v2 )
     {
       v3 = 0LL;
-      v4 = (_QWORD *)(*(_QWORD *)(a1 + 1280) + 32LL);
+      v4 = (_QWORD *)(*(_QWORD *)(a1 + 1288) + 32LL);
       v5 = v2;
       do
       {

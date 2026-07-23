@@ -1,16 +1,16 @@
 /*
- * XREFs of NtMakePermanentObject @ 0x1800A23D0
+ * XREFs of NtMakePermanentObject @ 0x1800A23F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtMakePermanentObject()
+NTSTATUS __cdecl NtMakePermanentObject(HANDLE Handle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 264LL;
+  result = 264;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

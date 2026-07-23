@@ -36,8 +36,8 @@
  *     RtlFreeOemString @ 0x18008D7E0 (RtlFreeOemString.c)
  *     LdrpCorInitialize @ 0x18008E254 (LdrpCorInitialize.c)
  *     LdrpResetAppPackagesPath @ 0x18009EB80 (LdrpResetAppPackagesPath.c)
- *     RtlpEtcGetDwordFromPersistedState @ 0x1800A0024 (RtlpEtcGetDwordFromPersistedState.c)
- *     RtlpGetPersistedRegistryLocation @ 0x1800A0244 (RtlpGetPersistedRegistryLocation.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x18009FFE4 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpGetPersistedRegistryLocation @ 0x1800A0204 (RtlpGetPersistedRegistryLocation.c)
  *     LdrpEnclaveAddDependentModule @ 0x1800D882C (LdrpEnclaveAddDependentModule.c)
  *     LdrpGetProcApphelpCheckModule @ 0x1800DCC84 (LdrpGetProcApphelpCheckModule.c)
  *     LdrpAddRedirectedFunction @ 0x1800E09C4 (LdrpAddRedirectedFunction.c)
@@ -47,12 +47,12 @@
  *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800F72D0 (RtlUpcaseUnicodeStringToAnsiString.c)
  *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800F73F0 (RtlUpcaseUnicodeStringToCountedOemString.c)
  *     RtlpConstructCrossVmObjectPath @ 0x1801029DC (RtlpConstructCrossVmObjectPath.c)
- *     RtlUnicodeStringToUTF8String @ 0x180110EB0 (RtlUnicodeStringToUTF8String.c)
+ *     RtlUnicodeStringToUTF8String @ 0x180110E80 (RtlUnicodeStringToUTF8String.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtdllpFreeStringRoutine(__int64 a1)
+LOGICAL __fastcall NtdllpFreeStringRoutine(void *a1)
 {
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

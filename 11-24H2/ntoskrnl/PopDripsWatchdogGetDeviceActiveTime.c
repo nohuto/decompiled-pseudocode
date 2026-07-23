@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDripsWatchdogGetDeviceActiveTime @ 0x1404C8F64
+ * XREFs of PopDripsWatchdogGetDeviceActiveTime @ 0x1404C2414
  * Callers:
- *     PopDripsWatchdogCallbackHandler @ 0x14075FAE0 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x14075EAE0 (PopDripsWatchdogCallbackHandler.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall PopDripsWatchdogGetDeviceActiveTime(__int64 a1)

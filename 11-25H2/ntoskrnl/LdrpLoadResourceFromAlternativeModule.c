@@ -8,61 +8,59 @@
  *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1409AEF90 (LdrpAccessResourceDataNoMultipleLanguage.c)
  */
 
-__int64 __fastcall LdrpLoadResourceFromAlternativeModule(__int64 a1, __int64 a2, int a3, int a4, __int64 *a5)
+NTSTATUS __fastcall LdrpLoadResourceFromAlternativeModule(void *a1, __int64 a2, int a3, ULONG Flags, _QWORD *a5)
 {
   char v5; // si
-  unsigned __int16 v7; // di
-  __int64 result; // rax
+  LANGID v7; // di
+  NTSTATUS result; // eax
   int v9; // ecx
   unsigned int v10; // ebx
-  __int64 v11; // rdx
-  int v12; // edx
+  int v11; // edx
   unsigned int *i; // rcx
-  __int64 v15; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v16[2]; // [rsp+38h] [rbp-10h] BYREF
+  PVOID ResourceDllBase; // [rsp+30h] [rbp-18h] BYREF
+  ULONG_PTR ResourceOffset[2]; // [rsp+38h] [rbp-10h] BYREF
 
-  v15 = 0LL;
-  v5 = a4;
+  ResourceDllBase = 0LL;
+  v5 = Flags;
   if ( (unsigned int)(a3 - 3) > 1 )
-    return 3221225713LL;
-  if ( (a4 & 0x1000000) != 0 )
+    return -1073741583;
+  if ( (Flags & 0x1000000) != 0 )
     v7 = -3346;
   else
     v7 = *(_WORD *)(a2 + 16);
-  v16[0] = 0LL;
-  result = LdrLoadAlternateResourceModuleEx(a1, v7, &v15, v16, a4);
-  if ( (int)result < 0 )
+  ResourceOffset[0] = 0LL;
+  result = LdrLoadAlternateResourceModuleEx(a1, v7, &ResourceDllBase, ResourceOffset, Flags);
+  if ( result < 0 )
   {
-    if ( (_DWORD)result == -1073741772 || (_DWORD)result == -1073741766 )
-      return 3221946369LL;
+    if ( result == -1073741772 || result == -1073741766 )
+      return -1073020927;
   }
   else
   {
-    v9 = v15;
+    v9 = (int)ResourceDllBase;
     *(_QWORD *)(a2 + 16) = v7;
     result = LdrpSearchResourceSection_U(v9, a2, 3, 33554480, (__int64)a5);
-    if ( (v5 & 0x40) != 0 && (int)result >= 0 )
+    if ( (v5 & 0x40) != 0 && result >= 0 )
     {
-      v16[0] = 0LL;
+      ResourceOffset[0] = 0LL;
       v10 = *(_DWORD *)(a2 + 24);
-      v11 = *a5;
-      if ( v15 && v11 )
+      if ( ResourceDllBase && *a5 )
       {
-        result = LdrpAccessResourceDataNoMultipleLanguage(v15, v11, v16, 0LL);
-        if ( (int)result >= 0 )
+        result = LdrpAccessResourceDataNoMultipleLanguage(ResourceDllBase);
+        if ( result >= 0 )
         {
-          v12 = *(_DWORD *)v16[0];
-          for ( i = (unsigned int *)(v16[0] + 4); v12--; i += 3 )
+          v11 = *(_DWORD *)ResourceOffset[0];
+          for ( i = (unsigned int *)(ResourceOffset[0] + 4); v11--; i += 3 )
           {
             if ( v10 >= *i && v10 <= i[1] )
-              return 0LL;
+              return 0;
           }
-          result = 3221225737LL;
+          result = -1073741559;
         }
       }
       else
       {
-        result = 3221225485LL;
+        result = -1073741811;
       }
       *a5 = 0LL;
     }

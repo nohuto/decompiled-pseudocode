@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x14087E4E0
+ * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x14087F740
  * Callers:
- *     TtmpPushTerminalState @ 0x14087E41C (TtmpPushTerminalState.c)
+ *     TtmpPushTerminalState @ 0x14087F67C (TtmpPushTerminalState.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
  */
 
 void __fastcall TtmpQueueTerminalDisplayStateOntoDevice(__int64 a1, __int64 a2, int a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMakeLinkedListPte @ 0x1401F2740
+ * XREFs of MiMakeLinkedListPte @ 0x1401F256C
  * Callers:
- *     InsertTailListPte @ 0x140017ED0 (InsertTailListPte.c)
- *     RemoveListHeadPte @ 0x14001BEFC (RemoveListHeadPte.c)
- *     MmUnmapViewInSystemCache @ 0x1400492C0 (MmUnmapViewInSystemCache.c)
- *     MmFreeSpecialPool @ 0x1401EC0A4 (MmFreeSpecialPool.c)
- *     InitializeListHeadPte @ 0x1401FDFFC (InitializeListHeadPte.c)
+ *     InsertTailListPte @ 0x140017A50 (InsertTailListPte.c)
+ *     RemoveListHeadPte @ 0x14001BA7C (RemoveListHeadPte.c)
+ *     MmUnmapViewInSystemCache @ 0x140048E40 (MmUnmapViewInSystemCache.c)
+ *     MmFreeSpecialPool @ 0x1401EBED0 (MmFreeSpecialPool.c)
+ *     InitializeListHeadPte @ 0x1401FDE28 (InitializeListHeadPte.c)
  * Callees:
  *     <none>
  */

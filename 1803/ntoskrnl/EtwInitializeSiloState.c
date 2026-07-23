@@ -153,7 +153,7 @@ LABEL_25:
 LABEL_14:
   *(_QWORD *)(v4 + 400) = v4;
   *(_QWORD *)(v4 + 408) = 0LL;
-  *(_OWORD *)(v4 + 48) = SecurityProviderGuid;
+  *(GUID *)(v4 + 48) = SecurityProviderGuid;
   *((_QWORD *)PsGetServerSiloGlobals(a1) + 108) = v4;
   if ( PsIsHostSilo(v21) )
   {

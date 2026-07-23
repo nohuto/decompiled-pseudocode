@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIdleWakeNotifyDevicesActive @ 0x14059D89C
+ * XREFs of PopIdleWakeNotifyDevicesActive @ 0x14059DD8C
  * Callers:
- *     PopFxPlatformStateAvailable @ 0x14058B35C (PopFxPlatformStateAvailable.c)
+ *     PopFxPlatformStateAvailable @ 0x14058B84C (PopFxPlatformStateAvailable.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
@@ -22,9 +22,9 @@ __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v11; // zf
-  LARGE_INTEGER v12; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
-  v12.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v1 = a1;
   v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v3 = PopIdleWakeContext;
@@ -37,9 +37,9 @@ __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
       *(_DWORD *)PopIdleWakeContext = v5 ^ ((unsigned __int8)v1 ^ (unsigned __int8)v5) & 1;
       if ( (((unsigned __int8)v5 ^ ((unsigned __int8)v1 ^ (unsigned __int8)v5) & 1) & 2) == 0 )
       {
-        RtlGetInterruptTimePrecise(&v12);
-        v6 = v12;
-        v7 = v12.QuadPart - v3[1];
+        RtlGetInterruptTimePrecise(&PerformanceCounter);
+        v6 = PerformanceCounter;
+        v7 = PerformanceCounter.QuadPart - v3[1];
         if ( (_BYTE)v1 )
           v3[4] += v7;
         else
@@ -49,10 +49,10 @@ __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopIdleWakeContextLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -22,11 +22,11 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   signed __int32 v7[8]; // [rsp+0h] [rbp-38h] BYREF
 
   _InterlockedOr(v7, 0);
-  if ( word_1801CEFD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
     if ( BytesInUnicodeString )
     {
-      RtlUnicodeToUTF8N(0, 0, (_DWORD)BytesInMultiByteString, (_DWORD)UnicodeString, BytesInUnicodeString);
+      RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, UnicodeString, BytesInUnicodeString);
       return 0;
     }
     *BytesInMultiByteString = 0;
@@ -36,7 +36,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   {
     _InterlockedOr(v7, 0);
     v3 = 0;
-    if ( !word_1801CEF9C )
+    if ( !GlobalRtlNlsState.DBCSCodePage )
     {
       v3 = BytesInUnicodeString >> 1;
 LABEL_5:
@@ -49,7 +49,7 @@ LABEL_5:
     do
     {
       v6 = *UnicodeString++;
-      v3 += (HIBYTE(*(_WORD *)(qword_1801CEFB8 + 2 * v6)) != 0) + 1;
+      v3 += (HIBYTE(*((_WORD *)GlobalRtlNlsState.WideCharTable + v6)) != 0) + 1;
       --v5;
     }
     while ( v5 );

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?StDmInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z @ 0x1404988B0
+ * XREFs of ?StDmInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z @ 0x140492400
  * Callers:
- *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1404987F8 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140492348 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
- *     SmHpChunkHeapInitialize @ 0x140498B20 (SmHpChunkHeapInitialize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SmHpChunkHeapInitialize @ 0x140492670 (SmHpChunkHeapInitialize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmInitialize(__int64 a1)
@@ -37,21 +37,21 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmInitialize(__int64 a1)
   memset_0((void *)(a1 + 1552), 0, 0x60uLL);
   *(_QWORD *)(a1 + 1624) = a1 + 1616;
   *(_QWORD *)(a1 + 1616) = 0LL;
-  *(_DWORD *)(a1 + 1604) = (__int64)((unsigned int)KeMaximumIncrement
+  *(_DWORD *)(a1 + 1604) = (__int64)(KeMaximumIncrement
                                    * (unsigned __int64)(unsigned int)((__int64)MEMORY[0xFFFFF78000000320] >> 12)) >> 17;
   *(_DWORD *)(a1 + 1648) = 0;
   *(_QWORD *)(a1 + 1680) = 0LL;
   memset_0((void *)(a1 + 1688), 0, 0x60uLL);
   *(_QWORD *)(a1 + 1760) = a1 + 1752;
   *(_QWORD *)(a1 + 1752) = 0LL;
-  *(_DWORD *)(a1 + 1740) = (__int64)((unsigned int)KeMaximumIncrement
+  *(_DWORD *)(a1 + 1740) = (__int64)(KeMaximumIncrement
                                    * (unsigned __int64)(unsigned int)((__int64)MEMORY[0xFFFFF78000000320] >> 12)) >> 17;
   *(_DWORD *)(a1 + 1784) = 1;
   *(_QWORD *)(a1 + 1816) = 0LL;
   memset_0((void *)(a1 + 1824), 0, 0x60uLL);
   *(_QWORD *)(a1 + 1896) = a1 + 1888;
   *(_QWORD *)(a1 + 1888) = 0LL;
-  *(_DWORD *)(a1 + 1876) = (__int64)((unsigned int)KeMaximumIncrement
+  *(_DWORD *)(a1 + 1876) = (__int64)(KeMaximumIncrement
                                    * (unsigned __int64)(unsigned int)((__int64)MEMORY[0xFFFFF78000000320] >> 12)) >> 17;
   *(_DWORD *)(a1 + 1784) = 2;
   *(_QWORD *)(a1 + 1816) = 0LL;

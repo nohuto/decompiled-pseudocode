@@ -9,66 +9,66 @@
  *     RtlpGetLastContiguosBase64Position @ 0x1801089FC (RtlpGetLastContiguosBase64Position.c)
  */
 
-__int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a3)
+DWORD __cdecl RtlValidateCorrelationVector(PCORRELATION_VECTOR Vector)
 {
   int LastContiguosBase64Position; // esi
   int CorrelationVectorEndPosition; // eax
-  bool v6; // zf
-  int v7; // esi
-  __int64 v8; // rbx
-  __int64 v9; // rbp
-  int v10; // ecx
-  __int64 v11; // r8
-  _BYTE *v12; // rdx
+  bool v4; // zf
+  int v5; // esi
+  __int64 v6; // rbx
+  __int64 v7; // rbp
+  int v8; // ecx
+  __int64 v9; // r8
+  CHAR *v10; // rdx
 
-  if ( !a1 || (int)RtlpGetCorrelationVectorBufferLength(a1, a2, a3) < 0 )
-    return 3221225485LL;
+  if ( !Vector || (int)RtlpGetCorrelationVectorBufferLength(Vector) < 0 )
+    return -1073741811;
   LastContiguosBase64Position = RtlpGetLastContiguosBase64Position();
-  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition(a1);
-  if ( *a1 == 1 )
+  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition(Vector);
+  if ( Vector->Version == 1 )
   {
-    v6 = LastContiguosBase64Position == 15;
+    v4 = LastContiguosBase64Position == 15;
   }
   else
   {
-    if ( *a1 != 2 )
+    if ( Vector->Version != 2 )
       goto LABEL_8;
-    v6 = LastContiguosBase64Position == 21;
+    v4 = LastContiguosBase64Position == 21;
   }
-  if ( !v6 )
-    return 3221225485LL;
+  if ( !v4 )
+    return -1073741811;
 LABEL_8:
-  v7 = LastContiguosBase64Position + 1;
-  v8 = v7;
-  if ( a1[v7 + 1] != 46 )
-    return 3221225485LL;
-  v9 = CorrelationVectorEndPosition;
-  while ( v8 < v9 )
+  v5 = LastContiguosBase64Position + 1;
+  v6 = v5;
+  if ( Vector->Vector[v5] != 46 )
+    return -1073741811;
+  v7 = CorrelationVectorEndPosition;
+  while ( v6 < v7 )
   {
-    if ( a1[v8 + 1] == 46 )
+    if ( Vector->Vector[v6] == 46 )
     {
-      ++v7;
-      ++v8;
-      v10 = 0;
-      v11 = v7;
-      if ( v8 < v9 )
+      ++v5;
+      ++v6;
+      v8 = 0;
+      v9 = v5;
+      if ( v6 < v7 )
       {
-        v12 = &a1[v8 + 1];
+        v10 = &Vector->Vector[v6];
         do
         {
-          if ( (unsigned __int8)(*v12 - 48) > 9u )
+          if ( (unsigned __int8)(*v10 - 48) > 9u )
             break;
-          ++v7;
-          ++v8;
-          ++v12;
+          ++v5;
+          ++v6;
           ++v10;
+          ++v8;
         }
-        while ( v8 < v9 );
-        if ( v10 && v10 <= 10 && (v10 != 10 || strncmp(&a1[v11 + 1], "2147483647", 0xAuLL) <= 0) )
+        while ( v6 < v7 );
+        if ( v8 && v8 <= 10 && (v8 != 10 || strncmp(&Vector->Vector[v9], "2147483647", 0xAuLL) <= 0) )
           continue;
       }
     }
-    return 3221225485LL;
+    return -1073741811;
   }
-  return 0LL;
+  return 0;
 }

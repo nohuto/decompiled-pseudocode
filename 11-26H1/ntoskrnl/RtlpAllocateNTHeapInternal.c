@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpAllocateNTHeapInternal @ 0x140498638
+ * XREFs of RtlpAllocateNTHeapInternal @ 0x140492188
  * Callers:
- *     RtlAllocateHeapFull @ 0x1406196B8 (RtlAllocateHeapFull.c)
+ *     RtlAllocateHeapFull @ 0x14061C714 (RtlAllocateHeapFull.c)
  * Callees:
- *     RtlpHpVsContextAllocate @ 0x140249DB0 (RtlpHpVsContextAllocate.c)
- *     RtlpCallInterceptRoutine @ 0x1403528A8 (RtlpCallInterceptRoutine.c)
- *     RtlFreeHeap @ 0x14051C3A0 (RtlFreeHeap.c)
- *     RtlpAllocateHeap @ 0x14052125C (RtlpAllocateHeap.c)
- *     RtlpAllocateHeapRaiseException @ 0x14061AF94 (RtlpAllocateHeapRaiseException.c)
- *     RtlpSetupExtendedBlock @ 0x14061D40C (RtlpSetupExtendedBlock.c)
+ *     RtlpHpVsContextAllocate @ 0x14024B710 (RtlpHpVsContextAllocate.c)
+ *     RtlpCallInterceptRoutine @ 0x14035492C (RtlpCallInterceptRoutine.c)
+ *     RtlFreeHeap @ 0x140518F90 (RtlFreeHeap.c)
+ *     RtlpAllocateHeap @ 0x1405238C8 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeapRaiseException @ 0x14061DFE4 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpSetupExtendedBlock @ 0x14062045C (RtlpSetupExtendedBlock.c)
  */
 
 _BYTE *__fastcall RtlpAllocateNTHeapInternal(__int64 HeapHandle, unsigned __int64 a2, unsigned int a3)

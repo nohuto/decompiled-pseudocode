@@ -6,8 +6,8 @@
  *     ZwSetEvent @ 0x18009AC80 (ZwSetEvent.c)
  */
 
-__int64 sub_1800F7710()
+__int64 __fastcall sub_1800F7710(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  ZwSetEvent();
+  ZwSetEvent(*(HANDLE *)(a4 + 16), 0LL);
   return 0LL;
 }

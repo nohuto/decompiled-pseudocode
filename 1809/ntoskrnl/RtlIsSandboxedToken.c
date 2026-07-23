@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlIsSandboxedToken @ 0x14064A330
+ * XREFs of RtlIsSandboxedToken @ 0x14064B4F0
  * Callers:
- *     IopCheckInitiatorHint @ 0x1400A39EC (IopCheckInitiatorHint.c)
- *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
- *     ObpParseSymbolicLinkEx @ 0x1405BBEB0 (ObpParseSymbolicLinkEx.c)
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
- *     NtDuplicateToken @ 0x14064A010 (NtDuplicateToken.c)
- *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
- *     ObpCreateDirectoryObject @ 0x1406ADCDC (ObpCreateDirectoryObject.c)
- *     CmpCheckCreateAccess @ 0x1406B5654 (CmpCheckCreateAccess.c)
- *     ObCreateSymbolicLink @ 0x1406B71FC (ObCreateSymbolicLink.c)
+ *     IopCheckInitiatorHint @ 0x1400A392C (IopCheckInitiatorHint.c)
+ *     NtSetInformationFile @ 0x140100F10 (NtSetInformationFile.c)
+ *     ObpParseSymbolicLinkEx @ 0x1405BCEB0 (ObpParseSymbolicLinkEx.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
+ *     IopXxxControlFile @ 0x1405E9BD0 (IopXxxControlFile.c)
+ *     NtDuplicateToken @ 0x14064B1D0 (NtDuplicateToken.c)
+ *     SepFilterToken @ 0x140658E8C (SepFilterToken.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
+ *     ObpCreateDirectoryObject @ 0x1406AEF7C (ObpCreateDirectoryObject.c)
+ *     CmpCheckCreateAccess @ 0x1406B68F4 (CmpCheckCreateAccess.c)
+ *     ObCreateSymbolicLink @ 0x1406B849C (ObCreateSymbolicLink.c)
  * Callees:
  *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x14004D510 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     SeQueryInformationToken @ 0x14063D370 (SeQueryInformationToken.c)
  */
 
 bool __fastcall RtlIsSandboxedToken(PSECURITY_SUBJECT_CONTEXT SubjectContext, KPROCESSOR_MODE a2)

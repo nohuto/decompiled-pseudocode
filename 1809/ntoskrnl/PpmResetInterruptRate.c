@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmResetInterruptRate @ 0x1402E7240
+ * XREFs of PpmResetInterruptRate @ 0x1402E7430
  * Callers:
  *     <none>
  * Callees:

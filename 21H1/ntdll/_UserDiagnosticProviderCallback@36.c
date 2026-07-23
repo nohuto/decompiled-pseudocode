@@ -6,18 +6,17 @@
  *     <none>
  */
 
-char __stdcall UserDiagnosticProviderCallback(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9)
+void __stdcall UserDiagnosticProviderCallback(
+        LPCGUID a1,
+        ULONG a2,
+        UCHAR a3,
+        ULONGLONG a4,
+        ULONGLONG a5,
+        PEVENT_FILTER_DESCRIPTOR a6,
+        PVOID a7)
 {
-  char result; // al
-
   if ( a2 == 1 )
-  {
     g_isErrorOriginProviderEnabled = 1;
-  }
   else
-  {
-    result = (a2 == 0) - 1;
-    g_isErrorOriginProviderEnabled &= result;
-  }
-  return result;
+    g_isErrorOriginProviderEnabled = a2 == 0 ? 0 : g_isErrorOriginProviderEnabled;
 }

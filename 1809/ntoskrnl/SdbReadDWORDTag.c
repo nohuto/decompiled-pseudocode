@@ -1,23 +1,23 @@
 /*
- * XREFs of SdbReadDWORDTag @ 0x14067CD98
+ * XREFs of SdbReadDWORDTag @ 0x14067DF58
  * Callers:
- *     InitOnceScanIndexes @ 0x14067CFC0 (InitOnceScanIndexes.c)
- *     KsepDbGetDriverShims @ 0x14067D8A4 (KsepDbGetDriverShims.c)
- *     SdbpCheckAllAttributes @ 0x140720344 (SdbpCheckAllAttributes.c)
- *     SdbQueryDataExTagID @ 0x140722984 (SdbQueryDataExTagID.c)
- *     SdbpGetExeEntryFlags @ 0x14072320C (SdbpGetExeEntryFlags.c)
- *     KsepDbGetShimInfo @ 0x140847808 (KsepDbGetShimInfo.c)
- *     KsepDbReadKData @ 0x140847C08 (KsepDbReadKData.c)
- *     SdbpCheckOSKind @ 0x1408E6EF0 (SdbpCheckOSKind.c)
- *     SdbpCheckPackageAttributes @ 0x1408E6F40 (SdbpCheckPackageAttributes.c)
- *     SdbpCheckRuntimePlatform @ 0x1408E71B0 (SdbpCheckRuntimePlatform.c)
- *     SdbpGetDeviceDWORD @ 0x1408E7388 (SdbpGetDeviceDWORD.c)
- *     SdbpGetMatchingTextAttributes @ 0x1408E73D4 (SdbpGetMatchingTextAttributes.c)
- *     SdbpGetRegistryMatchingAttributes @ 0x1408E75FC (SdbpGetRegistryMatchingAttributes.c)
+ *     InitOnceScanIndexes @ 0x14067E180 (InitOnceScanIndexes.c)
+ *     KsepDbGetDriverShims @ 0x14067EA64 (KsepDbGetDriverShims.c)
+ *     SdbpCheckAllAttributes @ 0x1407215E4 (SdbpCheckAllAttributes.c)
+ *     SdbQueryDataExTagID @ 0x140723C24 (SdbQueryDataExTagID.c)
+ *     SdbpGetExeEntryFlags @ 0x1407244AC (SdbpGetExeEntryFlags.c)
+ *     KsepDbGetShimInfo @ 0x140848A68 (KsepDbGetShimInfo.c)
+ *     KsepDbReadKData @ 0x140848E68 (KsepDbReadKData.c)
+ *     SdbpCheckOSKind @ 0x1408E81B0 (SdbpCheckOSKind.c)
+ *     SdbpCheckPackageAttributes @ 0x1408E8200 (SdbpCheckPackageAttributes.c)
+ *     SdbpCheckRuntimePlatform @ 0x1408E8470 (SdbpCheckRuntimePlatform.c)
+ *     SdbpGetDeviceDWORD @ 0x1408E8648 (SdbpGetDeviceDWORD.c)
+ *     SdbpGetMatchingTextAttributes @ 0x1408E8694 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x1408E88BC (SdbpGetRegistryMatchingAttributes.c)
  * Callees:
- *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbpReadTagData @ 0x14067CF40 (SdbpReadTagData.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1405C92BC (SdbGetTagFromTagID.c)
+ *     SdbpReadTagData @ 0x14067E100 (SdbpReadTagData.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbReadDWORDTag(__int64 a1, __int64 a2, unsigned int a3)

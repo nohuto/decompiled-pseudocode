@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwCreateDirectoryObjectWrapper @ 0x1405EE210
+ * XREFs of DifZwCreateDirectoryObjectWrapper @ 0x1405EE780
  * Callers:
  *     <none>
  * Callees:
- *     ZwCreateDirectoryObject @ 0x14041C2A0 (ZwCreateDirectoryObject.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwCreateDirectoryObject @ 0x14041C630 (ZwCreateDirectoryObject.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwCreateDirectoryObjectWrapper(

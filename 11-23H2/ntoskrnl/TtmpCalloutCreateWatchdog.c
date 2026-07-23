@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpCalloutCreateWatchdog @ 0x1409A32EC
+ * XREFs of TtmpCalloutCreateWatchdog @ 0x1409A34EC
  * Callers:
- *     TtmpStartCallout @ 0x1409A3C80 (TtmpStartCallout.c)
+ *     TtmpStartCallout @ 0x1409A3E80 (TtmpStartCallout.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  */
 
 NTSTATUS __fastcall TtmpCalloutCreateWatchdog(__int64 a1)

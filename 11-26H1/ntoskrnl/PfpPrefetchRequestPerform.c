@@ -1,27 +1,27 @@
 /*
- * XREFs of PfpPrefetchRequestPerform @ 0x1409AF298
+ * XREFs of PfpPrefetchRequestPerform @ 0x14098034C
  * Callers:
- *     PfpPrefetchRequest @ 0x1409AF04C (PfpPrefetchRequest.c)
+ *     PfpPrefetchRequest @ 0x140980100 (PfpPrefetchRequest.c)
  * Callees:
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PfpCheckPrefetchAbort @ 0x1404BEB30 (PfpCheckPrefetchAbort.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PfpVolumePrefetchMetadata @ 0x1409AE070 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchVolumesCleanup @ 0x1409AF77C (PfpPrefetchVolumesCleanup.c)
- *     PfpPrefetchRequestPatchOffsets @ 0x1409AF834 (PfpPrefetchRequestPatchOffsets.c)
- *     PfpVolumeOpenAndVerify @ 0x1409AF914 (PfpVolumeOpenAndVerify.c)
- *     PfpPrefetchSharedCleanup @ 0x1409B6F88 (PfpPrefetchSharedCleanup.c)
- *     PfpPrefetchSharedDeref @ 0x1409B706C (PfpPrefetchSharedDeref.c)
- *     PfpPrefetchSharedInitialize @ 0x1409B70A4 (PfpPrefetchSharedInitialize.c)
- *     PfpPrefetchSharedStart @ 0x1409B70EC (PfpPrefetchSharedStart.c)
- *     PfpOpenHandleClose @ 0x1409BA288 (PfpOpenHandleClose.c)
- *     PfpPrefetchPrivatePages @ 0x140A4EC04 (PfpPrefetchPrivatePages.c)
- *     PfpPrefetchFiles @ 0x140A4EEAC (PfpPrefetchFiles.c)
- *     PfpPrefetchFilesTrickle @ 0x140A507FC (PfpPrefetchFilesTrickle.c)
- *     PfpScenCtxPrefetchAbortSet @ 0x140BF88B0 (PfpScenCtxPrefetchAbortSet.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PfpCheckPrefetchAbort @ 0x1404B8380 (PfpCheckPrefetchAbort.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PfpVolumePrefetchMetadata @ 0x14097F124 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchVolumesCleanup @ 0x140980830 (PfpPrefetchVolumesCleanup.c)
+ *     PfpPrefetchRequestPatchOffsets @ 0x1409808E8 (PfpPrefetchRequestPatchOffsets.c)
+ *     PfpVolumeOpenAndVerify @ 0x1409809C8 (PfpVolumeOpenAndVerify.c)
+ *     PfpPrefetchSharedCleanup @ 0x140987F6C (PfpPrefetchSharedCleanup.c)
+ *     PfpPrefetchSharedDeref @ 0x14098804C (PfpPrefetchSharedDeref.c)
+ *     PfpPrefetchSharedInitialize @ 0x140988084 (PfpPrefetchSharedInitialize.c)
+ *     PfpPrefetchSharedStart @ 0x1409880CC (PfpPrefetchSharedStart.c)
+ *     PfpOpenHandleClose @ 0x14098B268 (PfpOpenHandleClose.c)
+ *     PfpPrefetchPrivatePages @ 0x140A57EF4 (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchFiles @ 0x140A5819C (PfpPrefetchFiles.c)
+ *     PfpPrefetchFilesTrickle @ 0x140A59AEC (PfpPrefetchFilesTrickle.c)
+ *     PfpScenCtxPrefetchAbortSet @ 0x140BFE8B0 (PfpScenCtxPrefetchAbortSet.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpPrefetchRequestPerform(__int64 a1)
@@ -88,13 +88,13 @@ __int64 __fastcall PfpPrefetchRequestPerform(__int64 a1)
     v5 = *(unsigned __int8 *)(v26 + 81);
     if ( *(_BYTE *)(v26 + 81) )
     {
-      _InterlockedAdd((volatile signed __int32 *)&stru_140F12D20.Padding[3], 1u);
-      v4 = PfpScenCtxPrefetchAbortSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount, 0);
+      _InterlockedAdd((_DWORD *)&xmmword_140F13528 + 2, 1u);
+      v4 = PfpScenCtxPrefetchAbortSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount, 0);
       if ( v4 < 0 )
       {
 LABEL_56:
-        _InterlockedDecrement((volatile signed __int32 *)&stru_140F12D20.Padding[3]);
-        PfpScenCtxPrefetchAbortSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount, 0);
+        _InterlockedDecrement((_DWORD *)&xmmword_140F13528 + 2);
+        PfpScenCtxPrefetchAbortSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount, 0);
         goto LABEL_13;
       }
       if ( !*(_QWORD *)(v26 + 72) )

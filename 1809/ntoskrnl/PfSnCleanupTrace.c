@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnCleanupTrace @ 0x1406695A4
+ * XREFs of PfSnCleanupTrace @ 0x14066A764
  * Callers:
- *     PfSnBeginTrace @ 0x140668524 (PfSnBeginTrace.c)
- *     PfSnEndTrace @ 0x140669354 (PfSnEndTrace.c)
+ *     PfSnBeginTrace @ 0x1406696E4 (PfSnBeginTrace.c)
+ *     PfSnEndTrace @ 0x14066A514 (PfSnEndTrace.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfSnCleanupTrace(__int64 a1)
@@ -95,5 +95,5 @@ void __fastcall PfSnCleanupTrace(__int64 a1)
   if ( v15 )
     ObfDereferenceObjectWithTag(v15, 0x73576650u);
   if ( (*(_BYTE *)(a1 + 486) & 2) != 0 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_14043C1C0);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_14043D280);
 }

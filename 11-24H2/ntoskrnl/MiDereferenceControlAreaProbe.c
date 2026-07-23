@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDereferenceControlAreaProbe @ 0x14036F6B4
+ * XREFs of MiDereferenceControlAreaProbe @ 0x14043F320
  * Callers:
- *     MiProbeUnlockPage @ 0x14028A3B0 (MiProbeUnlockPage.c)
- *     MiSegmentDelete @ 0x140A131E4 (MiSegmentDelete.c)
+ *     MiProbeUnlockPage @ 0x140299FB0 (MiProbeUnlockPage.c)
+ *     MiSegmentDelete @ 0x140A0B944 (MiSegmentDelete.c)
  * Callees:
- *     MiQueueControlAreaDelete @ 0x14036F638 (MiQueueControlAreaDelete.c)
- *     MiDeleteControlArea @ 0x14036F6E8 (MiDeleteControlArea.c)
+ *     MiDeleteControlArea @ 0x14043F354 (MiDeleteControlArea.c)
+ *     MiQueueControlAreaDelete @ 0x14043F548 (MiQueueControlAreaDelete.c)
  */
 
-int __fastcall MiDereferenceControlAreaProbe(volatile signed __int64 *a1, int a2)
+__int64 __fastcall MiDereferenceControlAreaProbe(volatile signed __int64 *a1, int a2)
 {
-  signed __int64 v2; // rax
+  __int64 result; // rax
 
-  v2 = _InterlockedExchangeAdd64(a1 + 14, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( v2 == 1 )
+  result = _InterlockedExchangeAdd64(a1 + 14, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( result == 1 )
   {
     if ( a2 )
-      LODWORD(v2) = MiQueueControlAreaDelete((__int64)a1);
+      return MiQueueControlAreaDelete();
     else
-      LODWORD(v2) = MiDeleteControlArea((PVOID)a1);
+      return MiDeleteControlArea((PVOID)a1);
   }
-  return v2;
+  return result;
 }

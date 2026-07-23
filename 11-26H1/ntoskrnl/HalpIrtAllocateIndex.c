@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpIrtAllocateIndex @ 0x140784614
+ * XREFs of HalpIrtAllocateIndex @ 0x140787148
  * Callers:
- *     HalpInterruptRemap @ 0x14057BD44 (HalpInterruptRemap.c)
- *     HalpInterruptRemapFixedLines @ 0x14057D558 (HalpInterruptRemapFixedLines.c)
+ *     HalpInterruptRemap @ 0x14057E274 (HalpInterruptRemap.c)
+ *     HalpInterruptRemapFixedLines @ 0x14057FA78 (HalpInterruptRemapFixedLines.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     RtlFindNextForwardRunClear @ 0x14041D9C0 (RtlFindNextForwardRunClear.c)
- *     HalpIommuAllocateRemappingTableEntry @ 0x140587838 (HalpIommuAllocateRemappingTableEntry.c)
- *     HalpIrtAllocateDeviceAperture @ 0x1407844C4 (HalpIrtAllocateDeviceAperture.c)
- *     HalpIrtExtendRemappingRange @ 0x140784988 (HalpIrtExtendRemappingRange.c)
- *     HalpIrtReleaseDeviceAperture @ 0x140784B3C (HalpIrtReleaseDeviceAperture.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     RtlFindNextForwardRunClear @ 0x140415210 (RtlFindNextForwardRunClear.c)
+ *     HalpIommuAllocateRemappingTableEntry @ 0x140589E10 (HalpIommuAllocateRemappingTableEntry.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x140786FF8 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtExtendRemappingRange @ 0x1407874BC (HalpIrtExtendRemappingRange.c)
+ *     HalpIrtReleaseDeviceAperture @ 0x140787670 (HalpIrtReleaseDeviceAperture.c)
  */
 
 __int64 __fastcall HalpIrtAllocateIndex(
@@ -30,7 +30,7 @@ __int64 __fastcall HalpIrtAllocateIndex(
   int v11; // r15d
   unsigned int v12; // r12d
   __int64 v13; // rdx
-  RTL_BITMAP *v14; // r14
+  _RTL_BITMAP *v14; // r14
   ULONG ClearBitsAndSet; // esi
   ULONG v16; // edx
   ULONG NextForwardRunClear; // eax

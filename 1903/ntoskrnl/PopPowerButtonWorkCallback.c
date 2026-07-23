@@ -33,7 +33,7 @@ __int64 PopPowerButtonWorkCallback()
   __int64 v4; // rsi
   struct _KPRCB *v5; // rcx
   __int64 result; // rax
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   ULONG_PTR SessionById; // rax
   int v9; // [rsp+30h] [rbp-58h] BYREF
   __int64 v10; // [rsp+38h] [rbp-50h]

@@ -1,10 +1,10 @@
 /*
- * XREFs of PssNtQuerySnapshot @ 0x180114610
+ * XREFs of PssNtQuerySnapshot @ 0x1801145D0
  * Callers:
  *     <none>
  * Callees:
- *     PssNtValidateDescriptor @ 0x1801148C0 (PssNtValidateDescriptor.c)
- *     PsspQueryInfoClass_PSS_QUERY_PROCESS_INFORMATION @ 0x180116C20 (PsspQueryInfoClass_PSS_QUERY_PROCESS_INFORMATION.c)
+ *     PssNtValidateDescriptor @ 0x180114880 (PssNtValidateDescriptor.c)
+ *     PsspQueryInfoClass_PSS_QUERY_PROCESS_INFORMATION @ 0x180116BE0 (PsspQueryInfoClass_PSS_QUERY_PROCESS_INFORMATION.c)
  */
 
 __int64 __fastcall PssNtQuerySnapshot(__int64 a1, int a2, __int64 a3, int a4)

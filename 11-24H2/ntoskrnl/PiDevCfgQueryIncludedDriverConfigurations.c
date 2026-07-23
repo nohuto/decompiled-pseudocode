@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x140A7E6CC
+ * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x1409C7B64
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x140A7DF0C (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1409C7EF4 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1404C0414 (PnpDuplicateUnicodeString.c)
- *     PiDevCfgPopDriverNodeEntry @ 0x1404CA620 (PiDevCfgPopDriverNodeEntry.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
- *     PiDevCfgGetDriverConfigurationKeyScope @ 0x1405A6C08 (PiDevCfgGetDriverConfigurationKeyScope.c)
- *     PiDevCfgPushDriverNodeEntry @ 0x1405A6E48 (PiDevCfgPushDriverNodeEntry.c)
- *     PiDevCfgAppendMultiSz @ 0x1407286C8 (PiDevCfgAppendMultiSz.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14072AC78 (PiDevCfgQueryIncludedDriverNode.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140A7DF0C (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgFreeDriverNode @ 0x140A9EB68 (PiDevCfgFreeDriverNode.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PnpDuplicateUnicodeString @ 0x1404BBB34 (PnpDuplicateUnicodeString.c)
+ *     PiDevCfgPopDriverNodeEntry @ 0x1404C3B40 (PiDevCfgPopDriverNodeEntry.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x1405A3BF8 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     PiDevCfgPushDriverNodeEntry @ 0x1405A3E38 (PiDevCfgPushDriverNodeEntry.c)
+ *     PiDevCfgAppendMultiSz @ 0x140726258 (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x140728A48 (PiDevCfgQueryIncludedDriverNode.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1409C7EF4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgFreeDriverNode @ 0x140ABF4A0 (PiDevCfgFreeDriverNode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgQueryIncludedDriverConfigurations(__int64 a1)

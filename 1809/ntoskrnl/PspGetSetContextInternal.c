@@ -1,32 +1,32 @@
 /*
- * XREFs of PspGetSetContextInternal @ 0x14061F940
+ * XREFs of PspGetSetContextInternal @ 0x140620940
  * Callers:
- *     PspGetSetContextSpecialApc @ 0x1401C5230 (PspGetSetContextSpecialApc.c)
+ *     PspGetSetContextSpecialApc @ 0x1401C5390 (PspGetSetContextSpecialApc.c)
  * Callees:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0410 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlpIsFrameInBoundsEx @ 0x1400A0610 (RtlpIsFrameInBoundsEx.c)
- *     RtlpVirtualUnwind @ 0x1400A0670 (RtlpVirtualUnwind.c)
- *     PspGetBaseTrapFrame @ 0x1400A0F18 (PspGetBaseTrapFrame.c)
- *     KeVerifyContextXStateCetU @ 0x1400A1C10 (KeVerifyContextXStateCetU.c)
- *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
- *     RtlpGetStackLimits @ 0x1400CAB20 (RtlpGetStackLimits.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpCaptureContext @ 0x1401C54D0 (RtlpCaptureContext.c)
- *     KeDoesTebMatchThread @ 0x14029F9CC (KeDoesTebMatchThread.c)
- *     KeGetCurrentUmsTeb @ 0x14029F9E8 (KeGetCurrentUmsTeb.c)
- *     PspGetContext @ 0x14061FFC8 (PspGetContext.c)
- *     PspSetContext @ 0x140620390 (PspSetContext.c)
- *     RtlCopyContext @ 0x140620E78 (RtlCopyContext.c)
- *     VslGetSetSecureContext @ 0x1408188CC (VslGetSetSecureContext.c)
- *     KeClearUmsThreadKernelLock @ 0x1408452B8 (KeClearUmsThreadKernelLock.c)
- *     KeUpdateUmsThreadState @ 0x1408455A8 (KeUpdateUmsThreadState.c)
- *     KeBuildPrimaryThreadContext @ 0x140845E84 (KeBuildPrimaryThreadContext.c)
- *     KeCopyContextFromUch @ 0x140846168 (KeCopyContextFromUch.c)
- *     KeCopyContextFromUmsContext @ 0x140846424 (KeCopyContextFromUmsContext.c)
- *     KeUpdatePrimaryThreadContext @ 0x140846AC4 (KeUpdatePrimaryThreadContext.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x14088F14C (PspRundownUmsThreadForApcDelivery.c)
- *     PspSetUmsThreadContext @ 0x14088F2FC (PspSetUmsThreadContext.c)
- *     PspSetContextState @ 0x14088F700 (PspSetContextState.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0350 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpIsFrameInBoundsEx @ 0x1400A0550 (RtlpIsFrameInBoundsEx.c)
+ *     RtlpVirtualUnwind @ 0x1400A05B0 (RtlpVirtualUnwind.c)
+ *     PspGetBaseTrapFrame @ 0x1400A0E58 (PspGetBaseTrapFrame.c)
+ *     KeVerifyContextXStateCetU @ 0x1400A1B50 (KeVerifyContextXStateCetU.c)
+ *     RtlGetExtendedContextLength @ 0x1400A1C84 (RtlGetExtendedContextLength.c)
+ *     RtlpGetStackLimits @ 0x1400CAC00 (RtlpGetStackLimits.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpCaptureContext @ 0x1401C5630 (RtlpCaptureContext.c)
+ *     KeDoesTebMatchThread @ 0x14029FBBC (KeDoesTebMatchThread.c)
+ *     KeGetCurrentUmsTeb @ 0x14029FBD8 (KeGetCurrentUmsTeb.c)
+ *     PspGetContext @ 0x140620FC8 (PspGetContext.c)
+ *     PspSetContext @ 0x140621390 (PspSetContext.c)
+ *     RtlCopyContext @ 0x140621E78 (RtlCopyContext.c)
+ *     VslGetSetSecureContext @ 0x140819ACC (VslGetSetSecureContext.c)
+ *     KeClearUmsThreadKernelLock @ 0x140846518 (KeClearUmsThreadKernelLock.c)
+ *     KeUpdateUmsThreadState @ 0x140846808 (KeUpdateUmsThreadState.c)
+ *     KeBuildPrimaryThreadContext @ 0x1408470E4 (KeBuildPrimaryThreadContext.c)
+ *     KeCopyContextFromUch @ 0x1408473C8 (KeCopyContextFromUch.c)
+ *     KeCopyContextFromUmsContext @ 0x140847684 (KeCopyContextFromUmsContext.c)
+ *     KeUpdatePrimaryThreadContext @ 0x140847D24 (KeUpdatePrimaryThreadContext.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x1408903AC (PspRundownUmsThreadForApcDelivery.c)
+ *     PspSetUmsThreadContext @ 0x14089055C (PspSetUmsThreadContext.c)
+ *     PspSetContextState @ 0x140890960 (PspSetContextState.c)
  */
 
 __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
@@ -34,7 +34,7 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v4; // r12
   struct _KTHREAD *CurrentThread; // rdi
   __int64 v6; // rsi
-  unsigned int v7; // r13d
+  ULONG v7; // r13d
   __int64 BaseTrapFrame; // r15
   int SetSecureContext; // eax
   char Reserved1; // al
@@ -59,12 +59,12 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned __int64 v29; // rax
   int v30; // r13d
   int v31; // ecx
-  __int64 v32; // rsi
+  CONTEXT *v32; // rsi
   __int64 v33; // rcx
   char v35[4]; // [rsp+60h] [rbp-A0h] BYREF
   int v36; // [rsp+64h] [rbp-9Ch] BYREF
   int v37; // [rsp+68h] [rbp-98h]
-  unsigned int v38; // [rsp+6Ch] [rbp-94h]
+  ULONG ContextLength; // [rsp+6Ch] [rbp-94h] BYREF
   unsigned __int64 v39; // [rsp+70h] [rbp-90h] BYREF
   unsigned __int64 v40; // [rsp+78h] [rbp-88h] BYREF
   __int64 v41; // [rsp+80h] [rbp-80h] BYREF
@@ -108,13 +108,13 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   {
     if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x200) != 0 )
     {
-      if ( (int)RtlGetExtendedContextLength(v7) < 0 )
+      if ( RtlGetExtendedContextLength(v7, &ContextLength) < 0 )
       {
 LABEL_69:
         *(_DWORD *)(a1 + 92) = -1073741823;
         goto LABEL_70;
       }
-      SetSecureContext = VslGetSetSecureContext(v4, v6, v38);
+      SetSecureContext = VslGetSetSecureContext(v4, v6, ContextLength);
 LABEL_8:
       *(_DWORD *)(a1 + 92) = SetSecureContext;
       goto LABEL_70;
@@ -191,8 +191,8 @@ LABEL_8:
       v25 = 0LL;
       v41 = 0LL;
       memset(v46, 0, sizeof(v46));
-      v44 = *(_OWORD *)&xmmword_140558020;
-      v45 = qword_140558030;
+      v44 = *(_OWORD *)&xmmword_140559020;
+      v45 = qword_140559030;
       RtlpCaptureContext();
       v26 = (unsigned __int64)v50;
       *(_QWORD *)(a1 + 280) = &v49;
@@ -328,11 +328,11 @@ LABEL_41:
     _fxsave((void *)(*(_QWORD *)(a1 + 120) + 256LL));
   if ( CurrentThread[1].WaitBlock[3].Thread && *(_BYTE *)(a1 + 88) == 1 )
   {
-    v32 = *(_QWORD *)(a1 + 120);
+    v32 = *(CONTEXT **)(a1 + 120);
     PspGetContext(BaseTrapFrame, a1 + 128, v32);
     if ( (CurrentThread->Header.Reserved1 & 8) != 0 )
     {
-      RtlCopyContext(v32, *(unsigned int *)(v32 + 48), CurrentThread[1].WaitBlock[3].Thread);
+      RtlCopyContext(v32, v32->ContextFlags, (PCONTEXT)CurrentThread[1].WaitBlock[3].Thread);
       *(_DWORD *)(a1 + 92) = 0;
       goto LABEL_70;
     }

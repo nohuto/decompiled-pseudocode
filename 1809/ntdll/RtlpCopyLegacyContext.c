@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCopyLegacyContext @ 0x18008A768
+ * XREFs of RtlpCopyLegacyContext @ 0x18008A778
  * Callers:
- *     RtlCopyContext @ 0x18008A610 (RtlCopyContext.c)
+ *     RtlCopyContext @ 0x18008A620 (RtlCopyContext.c)
  *     RtlpCopyExtendedContext @ 0x1800F4F74 (RtlpCopyExtendedContext.c)
  *     RtlpLoadUmsDebugRegisterState @ 0x18010C030 (RtlpLoadUmsDebugRegisterState.c)
  *     RtlpSaveUmsDebugRegisterState @ 0x18010C094 (RtlpSaveUmsDebugRegisterState.c)
  * Callees:
- *     RtlpCopyLegacyContextX86 @ 0x18008A788 (RtlpCopyLegacyContextX86.c)
+ *     RtlpCopyLegacyContextX86 @ 0x18008A798 (RtlpCopyLegacyContextX86.c)
  */
 
 __int64 __fastcall RtlpCopyLegacyContext(__int64 a1, __int64 a2, int a3)

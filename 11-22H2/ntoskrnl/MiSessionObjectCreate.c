@@ -72,11 +72,11 @@ int MiSessionObjectCreate()
     v6 = v4;
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((__int64)v4, 2u, 0, 983043, (unsigned __int8 *)SeAliasAdminsSid, 0);
+      Acl = RtlpAddKnownAce(v4, 2u, 0, 983043, (unsigned __int8 *)SeAliasAdminsSid, 0);
       v6 = v4;
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v4, 2u, 0, 983043, (unsigned __int8 *)SeLocalSystemSid, 0);
+        Acl = RtlpAddKnownAce(v4, 2u, 0, 983043, (unsigned __int8 *)SeLocalSystemSid, 0);
         if ( Acl >= 0 )
         {
           Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v4, 0);

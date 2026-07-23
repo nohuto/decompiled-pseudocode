@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPageListCollision @ 0x14048DA4C
+ * XREFs of MiPageListCollision @ 0x14048758C
  * Callers:
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiUnlinkHugeRangeEx @ 0x14048E398 (MiUnlinkHugeRangeEx.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiUnlinkHugeRangeEx @ 0x140487ED8 (MiUnlinkHugeRangeEx.c)
  * Callees:
- *     MiZeroPageWorkMapping @ 0x14029FD70 (MiZeroPageWorkMapping.c)
- *     MiStopPageAccessor @ 0x14048E008 (MiStopPageAccessor.c)
+ *     MiZeroPageWorkMapping @ 0x14029F2C0 (MiZeroPageWorkMapping.c)
+ *     MiStopPageAccessor @ 0x140487B48 (MiStopPageAccessor.c)
  */
 
 unsigned __int64 __fastcall MiPageListCollision(ULONG_PTR a1)

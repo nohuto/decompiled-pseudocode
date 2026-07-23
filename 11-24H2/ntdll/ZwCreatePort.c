@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwCreatePort @ 0x180163440
+ * XREFs of ZwCreatePort @ 0x180161800
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreatePort()
+NTSTATUS __cdecl ZwCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 190LL;
+  result = 190;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

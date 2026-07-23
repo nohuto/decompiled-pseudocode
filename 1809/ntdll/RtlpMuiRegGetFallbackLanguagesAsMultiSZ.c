@@ -4,7 +4,7 @@
  *     RtlGetUILanguageInfo @ 0x1800EEC40 (RtlGetUILanguageInfo.c)
  * Callees:
  *     RtlpMuiRegTryToAppendLangId @ 0x18003F998 (RtlpMuiRegTryToAppendLangId.c)
- *     RtlpMuiRegTryToAppendLanguageName @ 0x180077640 (RtlpMuiRegTryToAppendLanguageName.c)
+ *     RtlpMuiRegTryToAppendLanguageName @ 0x180077650 (RtlpMuiRegTryToAppendLanguageName.c)
  *     RtlpMuiRegGetFallbackLanguageInfoByIndex @ 0x180100458 (RtlpMuiRegGetFallbackLanguageInfoByIndex.c)
  */
 

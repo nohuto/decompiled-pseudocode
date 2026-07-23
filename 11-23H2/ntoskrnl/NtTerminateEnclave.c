@@ -1,31 +1,31 @@
 /*
- * XREFs of NtTerminateEnclave @ 0x140A3F8A0
+ * XREFs of NtTerminateEnclave @ 0x140A3FB50
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiTerminateEnclave @ 0x140A3E8F0 (MiTerminateEnclave.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiTerminateEnclave @ 0x140A3EBA0 (MiTerminateEnclave.c)
  */
 
-__int64 __fastcall NtTerminateEnclave(unsigned __int64 a1, int a2)
+NTSTATUS __cdecl NtTerminateEnclave(PVOID BaseAddress, ULONG Flags)
 {
   __int64 *v5; // rax
   char *v6; // rdi
-  unsigned int v7; // ebx
-  unsigned int v8; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS v7; // ebx
+  NTSTATUS v8; // [rsp+38h] [rbp+10h] BYREF
 
   v8 = 0;
-  if ( (a2 & 0xFFFFFFFA) != 0 )
-    return 3221225712LL;
-  v5 = MiObtainReferencedVadEx(a1, 0, (int *)&v8);
+  if ( (Flags & 0xFFFFFFFA) != 0 )
+    return -1073741584;
+  v5 = MiObtainReferencedVadEx((unsigned __int64)BaseAddress, 0, &v8);
   v6 = (char *)v5;
   if ( !v5 )
     return v8;
   if ( (v5[6] & 0x6200000) == 0x4200000
-    && (*((unsigned int *)v5 + 6) | ((unsigned __int64)*((unsigned __int8 *)v5 + 32) << 32)) << 12 == a1 )
+    && (PVOID)((*((unsigned int *)v5 + 6) | ((unsigned __int64)*((unsigned __int8 *)v5 + 32) << 32)) << 12) == BaseAddress )
   {
-    v7 = MiTerminateEnclave((__int64)KeGetCurrentThread()->ApcState.Process, (__int64)v5, a2);
+    v7 = MiTerminateEnclave((__int64)KeGetCurrentThread()->ApcState.Process, (__int64)v5, Flags);
   }
   else
   {

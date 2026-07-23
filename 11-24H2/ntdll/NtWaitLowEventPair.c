@@ -1,16 +1,16 @@
 /*
- * XREFs of NtWaitLowEventPair @ 0x180165980
+ * XREFs of NtWaitLowEventPair @ 0x180163D40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtWaitLowEventPair()
+NTSTATUS __cdecl NtWaitLowEventPair(HANDLE EventPairHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 488LL;
+  result = 488;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

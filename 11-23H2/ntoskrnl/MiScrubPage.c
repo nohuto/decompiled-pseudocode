@@ -1,18 +1,18 @@
 /*
- * XREFs of MiScrubPage @ 0x14065F0F0
+ * XREFs of MiScrubPage @ 0x14065F640
  * Callers:
- *     MiScrubLargeMappedPage @ 0x14065E43C (MiScrubLargeMappedPage.c)
- *     MiScrubLargePage @ 0x14065E96C (MiScrubLargePage.c)
- *     MiScrubNode @ 0x140A46670 (MiScrubNode.c)
+ *     MiScrubLargeMappedPage @ 0x14065E98C (MiScrubLargeMappedPage.c)
+ *     MiScrubLargePage @ 0x14065EEBC (MiScrubLargePage.c)
+ *     MiScrubNode @ 0x140A46920 (MiScrubNode.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeCopyPage @ 0x1404246E0 (KeCopyPage.c)
- *     RtlScrubMemory @ 0x14067AF98 (RtlScrubMemory.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeCopyPage @ 0x140424A70 (KeCopyPage.c)
+ *     RtlScrubMemory @ 0x14067B4E8 (RtlScrubMemory.c)
  */
 
 __int64 __fastcall MiScrubPage(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3, char a4)

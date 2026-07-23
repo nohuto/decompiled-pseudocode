@@ -1,32 +1,32 @@
 /*
- * XREFs of BiMapEfiDeviceForSpaces @ 0x1404B6A60
+ * XREFs of BiMapEfiDeviceForSpaces @ 0x1404B1240
  * Callers:
- *     BiUpdateBcdObject @ 0x1408157BC (BiUpdateBcdObject.c)
+ *     BiUpdateBcdObject @ 0x140815EFC (BiUpdateBcdObject.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SyspartIsSpace @ 0x140815DD8 (SyspartIsSpace.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     SyspartGetSystemPartition @ 0x140A7FF8C (SyspartGetSystemPartition.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SyspartIsSpace @ 0x140816518 (SyspartIsSpace.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     SyspartGetSystemPartition @ 0x140A7A9EC (SyspartGetSystemPartition.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned int *a3)
 {
   int v3; // eax
   int SystemPartition; // edi
-  __int64 Pool2; // rax
+  void *Pool2; // rax
   void *v8; // rsi
   size_t v9; // r15
   unsigned int v10; // r14d
-  size_t v11; // rbx
+  ULONG_PTR v11; // rbx
   char *v12; // rax
   char *v13; // rbp
   size_t v14; // r8
   void *v15; // rbx
   char v17; // [rsp+60h] [rbp+8h] BYREF
-  size_t Size; // [rsp+78h] [rbp+20h] BYREF
+  size_t Size; // [rsp+78h] [rbp+20h]
 
   v3 = *(_DWORD *)(a1 + 48);
   v17 = 0;
@@ -34,14 +34,14 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
   SystemPartition = 0;
   if ( (v3 & 8) == 0 )
   {
-    SystemPartition = SyspartGetSystemPartition(0LL, 0LL, &Size);
+    SystemPartition = SyspartGetSystemPartition(0LL);
     if ( (int)(SystemPartition + 0x80000000) < 0 || SystemPartition == -1073741789 )
     {
-      Pool2 = ExAllocatePool2(0x102uLL);
-      v8 = (void *)Pool2;
+      Pool2 = (void *)ExAllocatePool2(0x102uLL, (unsigned int)Size, 0x4B444342u);
+      v8 = Pool2;
       if ( Pool2 )
       {
-        SystemPartition = SyspartGetSystemPartition(Pool2, (unsigned int)Size, &Size);
+        SystemPartition = SyspartGetSystemPartition(Pool2);
         if ( SystemPartition >= 0 )
         {
           SystemPartition = SyspartIsSpace(v8, &v17);
@@ -52,7 +52,7 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
               v9 = (unsigned int)Size;
               v10 = Size + 20;
               v11 = (unsigned int)(Size + 20);
-              v12 = (char *)ExAllocatePool2(0x102uLL);
+              v12 = (char *)ExAllocatePool2(0x102uLL, v11, 0x4B444342u);
               v13 = v12;
               if ( v12 )
               {

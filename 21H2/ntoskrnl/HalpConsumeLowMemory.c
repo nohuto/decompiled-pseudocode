@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpConsumeLowMemory @ 0x140A64484
+ * XREFs of HalpConsumeLowMemory @ 0x140A65484
  * Callers:
- *     HalpMmInitSystem @ 0x1409A05D0 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x1409A1500 (HalpMmInitSystem.c)
  * Callees:
  *     <none>
  */

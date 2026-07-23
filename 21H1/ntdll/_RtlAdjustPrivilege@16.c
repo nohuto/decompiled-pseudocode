@@ -10,36 +10,35 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlAdjustPrivilege(int a1, bool a2, char a3, bool *a4)
+NTSTATUS __cdecl RtlAdjustPrivilege(ULONG Privilege, BOOLEAN Enable, BOOLEAN Client, PBOOLEAN WasEnabled)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v5; // esi
-  char v6[4]; // [esp+8h] [ebp-2Ch] BYREF
-  HANDLE Handle; // [esp+Ch] [ebp-28h] BYREF
-  int v8[3]; // [esp+10h] [ebp-24h] BYREF
-  int v9; // [esp+1Ch] [ebp-18h]
-  _DWORD v10[4]; // [esp+20h] [ebp-14h] BYREF
+  ULONG ReturnLength; // [esp+8h] [ebp-2Ch] BYREF
+  HANDLE TokenHandle; // [esp+Ch] [ebp-28h] BYREF
+  _TOKEN_PRIVILEGES PreviousState; // [esp+10h] [ebp-24h] BYREF
+  _TOKEN_PRIVILEGES NewState; // [esp+20h] [ebp-14h] BYREF
 
-  if ( a3 == 1 )
-    result = NtOpenThreadToken(-2, 40, 0, &Handle);
+  if ( Client == 1 )
+    result = NtOpenThreadToken((HANDLE)0xFFFFFFFE, 0x28u, 0, &TokenHandle);
   else
-    result = ZwOpenProcessToken(-1, 40, &Handle);
+    result = ZwOpenProcessToken((HANDLE)0xFFFFFFFF, 0x28u, &TokenHandle);
   if ( result >= 0 )
   {
-    v10[1] = a1;
-    v10[0] = 1;
-    v10[2] = 0;
-    v10[3] = a2 ? 2 : 0;
-    v5 = ZwAdjustPrivilegesToken(Handle, 0, v10, 16, v8, v6);
-    NtClose(Handle);
+    NewState.Privileges[0].Luid.LowPart = Privilege;
+    NewState.PrivilegeCount = 1;
+    NewState.Privileges[0].Luid.HighPart = 0;
+    NewState.Privileges[0].Attributes = Enable != 0 ? 2 : 0;
+    v5 = ZwAdjustPrivilegesToken(TokenHandle, 0, &NewState, 0x10u, &PreviousState, &ReturnLength);
+    NtClose(TokenHandle);
     if ( v5 == 262 )
       v5 = -1073741727;
     if ( v5 >= 0 )
     {
-      if ( v8[0] )
-        *a4 = (v9 & 2) != 0;
+      if ( PreviousState.PrivilegeCount )
+        *WasEnabled = (PreviousState.Privileges[0].Attributes & 2) != 0;
       else
-        *a4 = a2;
+        *WasEnabled = Enable;
     }
     return v5;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpQueryCoverageSamplerInformation @ 0x14095EFC8
+ * XREFs of EtwpQueryCoverageSamplerInformation @ 0x140946A88
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x14095E9DC (EtwQueryPerformanceTraceInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14094649C (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     EtwpCoverageSamplerQueryStatusInformation @ 0x1407B2B58 (EtwpCoverageSamplerQueryStatusInformation.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     EtwpCoverageSamplerQuery @ 0x14095DA30 (EtwpCoverageSamplerQuery.c)
- *     ExCheckFullProcessInformationAccess @ 0x14095F62C (ExCheckFullProcessInformationAccess.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwpCoverageSamplerQueryStatusInformation @ 0x1407B2FA8 (EtwpCoverageSamplerQueryStatusInformation.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     EtwpCoverageSamplerQuery @ 0x1409454F0 (EtwpCoverageSamplerQuery.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1409470EC (ExCheckFullProcessInformationAccess.c)
  */
 
 __int64 __fastcall EtwpQueryCoverageSamplerInformation(__int64 a1, unsigned int a2, KPROCESSOR_MODE a3, _DWORD *a4)
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpQueryCoverageSamplerInformation(__int64 a1, unsigned int 
         v8 = Object;
         if ( StatusInformation >= 0 )
         {
-          StatusInformation = EtwpCoverageSamplerQuery((ULONG_PTR)Object, a1, a2, (__int64)a4);
+          StatusInformation = EtwpCoverageSamplerQuery((ULONG_PTR)Object, a1, a2, a4);
           if ( StatusInformation >= 0 )
             StatusInformation = 0;
         }

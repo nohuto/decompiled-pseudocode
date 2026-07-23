@@ -1,12 +1,12 @@
 /*
- * XREFs of IopRegistryCallback @ 0x1405665CC
+ * XREFs of IopRegistryCallback @ 0x140566B0C
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwNotifyChangeKey @ 0x14015BDC0 (ZwNotifyChangeKey.c)
- *     IopRegistryOpenDeepestPath @ 0x1405666A8 (IopRegistryOpenDeepestPath.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x14015C330 (ZwNotifyChangeKey.c)
+ *     IopRegistryOpenDeepestPath @ 0x140566BE8 (IopRegistryOpenDeepestPath.c)
  */
 
 NTSTATUS __fastcall IopRegistryCallback(unsigned int a1)

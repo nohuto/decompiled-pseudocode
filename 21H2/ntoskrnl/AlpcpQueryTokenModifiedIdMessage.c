@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpQueryTokenModifiedIdMessage @ 0x1408C23EC
+ * XREFs of AlpcpQueryTokenModifiedIdMessage @ 0x1408C254C
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x14062D120 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcQueryInformationMessage @ 0x1405E31B0 (NtAlpcQueryInformationMessage.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x14062D47C (AlpcpGetEffectiveTokenMessage.c)
- *     SeGetTokenControlInformation @ 0x140922AE4 (SeGetTokenControlInformation.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x1405E350C (AlpcpGetEffectiveTokenMessage.c)
+ *     SeGetTokenControlInformation @ 0x140922C44 (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall AlpcpQueryTokenModifiedIdMessage(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4, _DWORD *a5)

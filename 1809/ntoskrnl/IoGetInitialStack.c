@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetInitialStack @ 0x14081C470
+ * XREFs of IoGetInitialStack @ 0x14081D670
  * Callers:
  *     <none>
  * Callees:

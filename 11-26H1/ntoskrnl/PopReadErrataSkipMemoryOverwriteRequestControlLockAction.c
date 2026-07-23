@@ -1,9 +1,9 @@
 /*
- * XREFs of PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140CD602C
+ * XREFs of PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140CDC380
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     EmClientRuleEvaluate @ 0x140C03A80 (EmClientRuleEvaluate.c)
+ *     EmClientRuleEvaluate @ 0x140C09C90 (EmClientRuleEvaluate.c)
  */
 
 __int64 PopReadErrataSkipMemoryOverwriteRequestControlLockAction()
@@ -17,13 +17,13 @@ __int64 PopReadErrataSkipMemoryOverwriteRequestControlLockAction()
   v1[0] = &GUID_EM_RULE_SKIP_MEMORY_OVERWRITE_REQUEST_CONTROL_LOCK_ACTION;
   v2 = 1;
   v3 = v1;
-  PopModernStandbyStateNotify.ApcStateFill[32] = 0;
+  PopErrataSkipMemoryOverwriteRequestControlLockAction = 0;
   result = EmClientRuleEvaluate(
              &GUID_EM_RULE_SKIP_MEMORY_OVERWRITE_REQUEST_CONTROL_LOCK_ACTION_QUERY,
              (__int64)&v3,
              1,
              &v2);
   if ( v2 == 2 )
-    PopModernStandbyStateNotify.ApcStateFill[32] = 1;
+    PopErrataSkipMemoryOverwriteRequestControlLockAction = 1;
   return result;
 }

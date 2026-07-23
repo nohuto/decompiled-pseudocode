@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgEnforceDevicePolicy @ 0x140B1AF84
+ * XREFs of PiDevCfgEnforceDevicePolicy @ 0x140B1D234
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1409894D0 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x140A43BF0 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     PiDevCfgQueryPolicyEnabled @ 0x1407AAAFC (PiDevCfgQueryPolicyEnabled.c)
- *     PiDevCfgQueryPolicyStringList @ 0x1407AAB70 (PiDevCfgQueryPolicyStringList.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     PiDevCfgQueryPolicyEnabled @ 0x1407AD9D8 (PiDevCfgQueryPolicyEnabled.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x1407ADA4C (PiDevCfgQueryPolicyStringList.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgEnforceDevicePolicy(__int64 a1, __int64 a2, const wchar_t *a3)
@@ -193,9 +193,9 @@ LABEL_40:
     goto LABEL_78;
   }
   v22 = 2LL;
-  v23 = (const wchar_t **)(a2 + 32);
+  v23 = (const wchar_t **)(a2 + 48);
   v53 = 2LL;
-  v54 = (const wchar_t **)(a2 + 32);
+  v54 = (const wchar_t **)(a2 + 48);
   do
   {
     v24 = *v23;

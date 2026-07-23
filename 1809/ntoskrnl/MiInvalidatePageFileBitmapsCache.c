@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInvalidatePageFileBitmapsCache @ 0x140124574
+ * XREFs of MiInvalidatePageFileBitmapsCache @ 0x140124644
  * Callers:
- *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
- *     MiAttemptPageFileReductionApc @ 0x1402B7460 (MiAttemptPageFileReductionApc.c)
+ *     MiFindFreePageFileSpace @ 0x14012420C (MiFindFreePageFileSpace.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
+ *     MiAttemptPageFileReductionApc @ 0x1402B7650 (MiAttemptPageFileReductionApc.c)
  * Callees:
  *     MiBitmapsCachedEntryLengthChanged @ 0x140028C34 (MiBitmapsCachedEntryLengthChanged.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
  */
 
 char __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, unsigned __int64 a4)
 {
-  bool v5; // bl
+  BOOLEAN v5; // bl
   unsigned __int64 v8; // rax
   __int64 v9; // rcx
   unsigned __int64 v10; // rdi
@@ -29,16 +29,16 @@ char __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
   __int64 v21; // r8
   __int64 v22; // rax
   unsigned __int64 v23; // rdx
-  bool v24; // r8
+  BOOLEAN v24; // r8
   int v25; // ecx
   unsigned __int64 v26; // rax
-  unsigned __int64 v27; // rcx
+  _RTL_RB_TREE *v27; // rcx
   __int64 v28; // rax
-  unsigned __int64 v29; // rdx
+  __int64 v29; // rdx
   int v30; // r8d
-  unsigned __int64 v31; // rax
+  __int64 v31; // rax
   unsigned int v32; // eax
-  __int64 v33; // rdx
+  unsigned __int64 v33; // rdx
   int v34; // ecx
   __int64 v35; // rsi
 
@@ -56,8 +56,8 @@ LABEL_18:
       v33 = a4;
       if ( !v34 )
       {
-        RtlRbRemoveNode(a1 + 144, a4);
-        RtlRbRemoveNode(a1 + 160, a4 + 24);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)a4);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(a4 + 24));
         v35 = a1 + 176;
         v8 = *(_QWORD *)(v35 + 8);
         if ( *(_QWORD *)v8 == v35 )
@@ -90,7 +90,7 @@ LABEL_18:
             *((_DWORD *)v20 + 13) = v18;
             *((_DWORD *)v20 + 12) = v14;
             *(_DWORD *)(a4 + 52) = v17;
-            MiBitmapsCachedEntryLengthChanged(a1, a4, 0);
+            MiBitmapsCachedEntryLengthChanged((_RTL_RB_TREE *)a1, a4, 0);
             v22 = *(_QWORD *)(a1 + 152);
             v23 = *(_QWORD *)(a1 + 144);
             if ( (v22 & 1) != 0 )
@@ -141,14 +141,14 @@ LABEL_33:
                 v23 = v26;
               }
             }
-            RtlRbInsertNodeEx(a1 + 144, v23, v24, v20);
-            v27 = a1 + 160;
+            RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v23, v24, (PRTL_BALANCED_NODE)v20);
+            v27 = (_RTL_RB_TREE *)(a1 + 160);
             v28 = *(_QWORD *)(a1 + 168);
             v29 = *(_QWORD *)(a1 + 160);
             if ( (v28 & 1) != 0 )
             {
               if ( v29 )
-                v29 ^= v27;
+                v29 ^= (unsigned __int64)v27;
               else
                 v29 = 0LL;
             }
@@ -188,7 +188,7 @@ LABEL_50:
                 v29 = v31;
               }
             }
-            LOBYTE(v8) = RtlRbInsertNodeEx(v27, v29, v5, v20 + 3);
+            LOBYTE(v8) = RtlRbInsertNodeEx(v27, (PRTL_BALANCED_NODE)v29, v5, (PRTL_BALANCED_NODE)v20 + 1);
             return v8;
           }
         }
@@ -213,7 +213,7 @@ LABEL_69:
       *(_DWORD *)(a1 + 140) = v32;
       v33 = a4;
     }
-    LOBYTE(v8) = MiBitmapsCachedEntryLengthChanged(a1, v33, 0);
+    LOBYTE(v8) = MiBitmapsCachedEntryLengthChanged((_RTL_RB_TREE *)a1, v33, 0);
     return v8;
   }
   v8 = a1 + 160;

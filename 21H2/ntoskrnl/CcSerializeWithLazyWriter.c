@@ -1,20 +1,20 @@
 /*
- * XREFs of CcSerializeWithLazyWriter @ 0x1403F03C4
+ * XREFs of CcSerializeWithLazyWriter @ 0x1403F0534
  * Callers:
- *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x1402D13F0 (CcFlushCachePriv.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14022CB20 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcFreeWorkQueueEntry @ 0x1402F6CBC (CcFreeWorkQueueEntry.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D1370 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     CcFreeWorkQueueEntry @ 0x140301A0C (CcFreeWorkQueueEntry.c)
  */
 
 char __fastcall CcSerializeWithLazyWriter(__int64 a1, __int64 a2)
 {
   char v3; // si
   __int64 v4; // rbx
-  struct _SLIST_ENTRY *v6; // rbx
+  _SLIST_ENTRY *v6; // rbx
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v8; // rax
+  _SLIST_ENTRY **v8; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -25,9 +25,9 @@ char __fastcall CcSerializeWithLazyWriter(__int64 a1, __int64 a2)
     v4 = *(_QWORD *)(a2 + 496);
     if ( v4 )
     {
-      v6 = (struct _SLIST_ENTRY *)(v4 & 0xFFFFFFFFFFFFFFFEuLL);
+      v6 = (_SLIST_ENTRY *)(v4 & 0xFFFFFFFFFFFFFFFEuLL);
       Next = v6->Next;
-      if ( *(&v6->Next->Next + 1) != v6 || (v8 = (struct _SLIST_ENTRY **)*((_QWORD *)&v6->Next + 1), *v8 != v6) )
+      if ( *(&v6->Next->Next + 1) != v6 || (v8 = (_SLIST_ENTRY **)*((_QWORD *)&v6->Next + 1), *v8 != v6) )
         __fastfail(3u);
       *v8 = Next;
       *((_QWORD *)&Next->Next + 1) = v8;

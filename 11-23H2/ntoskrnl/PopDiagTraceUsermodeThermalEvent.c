@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceUsermodeThermalEvent @ 0x140992074
+ * XREFs of PopDiagTraceUsermodeThermalEvent @ 0x140992274
  * Callers:
- *     PopThermalProcessUsermodeEvent @ 0x14098ADC8 (PopThermalProcessUsermodeEvent.c)
+ *     PopThermalProcessUsermodeEvent @ 0x14098AFC8 (PopThermalProcessUsermodeEvent.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceUsermodeThermalEvent(__int64 a1)

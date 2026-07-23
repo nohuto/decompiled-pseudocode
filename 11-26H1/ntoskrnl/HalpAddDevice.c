@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpAddDevice @ 0x140781BF0
+ * XREFs of HalpAddDevice @ 0x1407846F0
  * Callers:
- *     HalpDriverEntry @ 0x140781F00 (HalpDriverEntry.c)
+ *     HalpDriverEntry @ 0x140784A00 (HalpDriverEntry.c)
  * Callees:
- *     IoDeleteDevice @ 0x140437BA0 (IoDeleteDevice.c)
- *     IoAttachDeviceToDeviceStack @ 0x14044EE80 (IoAttachDeviceToDeviceStack.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalAcpiGetTable @ 0x140579370 (HalAcpiGetTable.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     HalpAddChildPdo @ 0x140781BC8 (HalpAddChildPdo.c)
- *     HalpInitializeSecondaryInterruptServices @ 0x140783FDC (HalpInitializeSecondaryInterruptServices.c)
- *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
- *     IoCreateDevice @ 0x1409FEBC0 (IoCreateDevice.c)
+ *     IoDeleteDevice @ 0x140426AC0 (IoDeleteDevice.c)
+ *     IoAttachDeviceToDeviceStack @ 0x140446FB0 (IoAttachDeviceToDeviceStack.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalAcpiGetTable @ 0x14057B8A0 (HalAcpiGetTable.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     HalpAddChildPdo @ 0x1407846C8 (HalpAddChildPdo.c)
+ *     HalpInitializeSecondaryInterruptServices @ 0x140786B10 (HalpInitializeSecondaryInterruptServices.c)
+ *     IoCreateDevice @ 0x14091B9C0 (IoCreateDevice.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409AAA90 (IoRegisterPlugPlayNotification.c)
  */
 
 NTSTATUS __fastcall HalpAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT TargetDevice)
@@ -110,12 +110,12 @@ NTSTATUS __fastcall HalpAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT Ta
       v13->Flags &= ~0x80u;
       NotificationEntry = 0LL;
       HalpInitializeSecondaryInterruptServices();
-      KeInitializeEvent((PRKEVENT)&HalpDeviceBlockUnblockPushLock.ReadOperationCount, SynchronizationEvent, 1u);
+      KeInitializeEvent((PRKEVENT)&HalpDeviceBlockUnblockPushLock.AbCompletedIoQoSBoostCount, SynchronizationEvent, 1u);
       IoRegisterPlugPlayNotification(
         EventCategoryDeviceInterfaceChange,
         1u,
         HalpDynamicDeviceInterfaces,
-        (PDRIVER_OBJECT)HalpDeviceBlockUnblockPushLock.WriteTransferCount,
+        (PDRIVER_OBJECT)HalpDeviceBlockUnblockPushLock.GlobalForegroundListEntry.Blink,
         HalpDynamicDeviceInterfaceNotification,
         0LL,
         &NotificationEntry);

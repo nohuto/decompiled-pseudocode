@@ -1,14 +1,14 @@
 /*
- * XREFs of VfPoolInitPhase1 @ 0x140710A3C
+ * XREFs of VfPoolInitPhase1 @ 0x140710A6C
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1407031D4 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140703204 (VfInitSystemNoRebootNeeded.c)
  *     VerifierInitSystem @ 0x1407B9E08 (VerifierInitSystem.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 char *VfPoolInitPhase1()
@@ -20,7 +20,7 @@ char *VfPoolInitPhase1()
   HANDLE ThreadHandle; // [rsp+80h] [rbp+8h] BYREF
   PVOID Object; // [rsp+88h] [rbp+10h] BYREF
 
-  v0 = (char *)&unk_14033EB48;
+  v0 = (char *)&unk_14033EB88;
   do
   {
     KeInitializeEvent((PRKEVENT)v0 - 1, SynchronizationEvent, 0);
@@ -39,8 +39,8 @@ char *VfPoolInitPhase1()
       _InterlockedExchange((volatile __int32 *)v0 + 2, 1);
     }
     v0 += 64;
-    result = byte_14033EBC8;
+    result = byte_14033EC08;
   }
-  while ( (__int64)v0 < (__int64)byte_14033EBC8 );
+  while ( (__int64)v0 < (__int64)byte_14033EC08 );
   return result;
 }

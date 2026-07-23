@@ -21,19 +21,18 @@ char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
   unsigned int v5; // edx
   unsigned int v6; // ecx
   _WORD *v7; // rax
-  void *v8; // rsi
+  unsigned __int16 *Buffer; // rsi
   int Dll; // eax
   __int64 v10; // rcx
-  __int64 v11; // rax
+  PIMAGE_NT_HEADERS v11; // rax
   __int64 v12; // r8
   __int64 v13; // rdx
-  __int64 (__fastcall *v14)(__int64, _QWORD, __int64); // rcx
+  _RTL_DYNAMIC_HASH_TABLE *v14; // rcx
   _DWORD *v15; // rsi
-  int v17; // [rsp+40h] [rbp-C8h] BYREF
-  void *v18; // [rsp+48h] [rbp-C0h]
-  _DWORD *v19; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-B0h] BYREF
-  _QWORD v21[16]; // [rsp+60h] [rbp-A8h] BYREF
+  _UNICODE_STRING Destination; // [rsp+40h] [rbp-C8h] BYREF
+  _DWORD *v18; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v19; // [rsp+58h] [rbp-B0h] BYREF
+  _QWORD v20[16]; // [rsp+60h] [rbp-A8h] BYREF
 
   v2 = 0;
   v3 = 0;
@@ -60,13 +59,13 @@ LABEL_10:
     DbgPrint("AVRF: Cannot load %ws from arbitrary location\n", *(_QWORD *)(a1 + 24), *(_QWORD *)(a1 + 24));
     return 0;
   }
-  v18 = &unk_180147060;
-  v17 = 34078720;
-  RtlAppendUnicodeToString((unsigned __int16 *)&v17, (_WORD *)0x7FFE0030);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v17, (__int16 *)SlashSystem32SlashString);
-  v8 = v18;
-  LdrpInitializeDllPath(0LL, (__int64)v18, v21);
-  Dll = LdrpLoadDll(a1 + 16, (int)v21, 0, 0, (__int64)&v20);
+  Destination.Buffer = (unsigned __int16 *)&unk_180147060;
+  *(_DWORD *)&Destination.Length = 34078720;
+  RtlAppendUnicodeToString(&Destination, (PCWSTR)0x7FFE0030);
+  RtlAppendUnicodeStringToString(&Destination, &SlashSystem32SlashString);
+  Buffer = Destination.Buffer;
+  LdrpInitializeDllPath(0LL, (__int64)Destination.Buffer, v20);
+  Dll = LdrpLoadDll(a1 + 16, (__int64)v20, 0, 0LL, (__int64)&v19);
   if ( Dll < 0 )
   {
     DbgPrint(
@@ -74,31 +73,32 @@ LABEL_10:
       *(_QWORD *)(qword_180145210 + 96),
       *(_QWORD *)(a1 + 24),
       (unsigned int)Dll,
-      v8);
+      Buffer);
     return 0;
   }
-  v10 = v20;
-  *(_QWORD *)(a1 + 32) = v20;
-  v11 = RtlImageNtHeader(*(_QWORD *)(v10 + 48));
+  v10 = v19;
+  *(_QWORD *)(a1 + 32) = v19;
+  v11 = RtlImageNtHeader(*(PVOID *)(v10 + 48));
   if ( v11 )
   {
-    if ( (*(_WORD *)(v11 + 22) & 0x2000) != 0 )
+    if ( (v11->FileHeader.Characteristics & 0x2000) != 0 )
     {
       *(_DWORD *)(*(_QWORD *)(a1 + 32) + 104LL) |= 0x400u;
       v13 = *(_QWORD *)(a1 + 32);
-      v14 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v13 + 56);
+      v14 = *(_RTL_DYNAMIC_HASH_TABLE **)(v13 + 56);
       if ( !v14 )
       {
         DbgPrint("AVRF: cannot find an entry point for provider %ws \n", *(_QWORD *)(a1 + 24), v12);
         return 0;
       }
-      v19 = 0LL;
-      if ( LdrpCallInitRoutine(v14, *(_QWORD *)(v13 + 48), 4u, (__int64)&v19) && (v15 = v19) != 0LL )
+      v18 = 0LL;
+      if ( LdrpCallInitRoutine(v14, *(_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR **)(v13 + 48), 4u, (__int64)&v18)
+        && (v15 = v18) != 0LL )
       {
-        if ( *v19 == 80 )
+        if ( *v18 == 80 )
         {
           if ( (AVrfpDebug & 8) != 0 )
-            DbgPrint("AVRF: initialized provider %ws (descriptor @ %p) \n", *(_QWORD *)(a1 + 24), v19);
+            DbgPrint("AVRF: initialized provider %ws (descriptor @ %p) \n", *(_QWORD *)(a1 + 24), v18);
           *(_QWORD *)(a1 + 40) = *((_QWORD *)v15 + 1);
           *(_QWORD *)(a1 + 48) = *((_QWORD *)v15 + 2);
           *(_QWORD *)(a1 + 56) = *((_QWORD *)v15 + 3);
@@ -115,7 +115,7 @@ LABEL_10:
         else
         {
           v2 = 1;
-          DbgPrint("AVRF: provider %ws passed an invalid descriptor @ %p \n", *(_QWORD *)(a1 + 24), v19);
+          DbgPrint("AVRF: provider %ws passed an invalid descriptor @ %p \n", *(_QWORD *)(a1 + 24), v18);
         }
       }
       else

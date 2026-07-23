@@ -1,13 +1,13 @@
 /*
- * XREFs of PopThermalEventTransitionDisableDeepSleep @ 0x14058F948
+ * XREFs of PopThermalEventTransitionDisableDeepSleep @ 0x14058FE38
  * Callers:
- *     PopThermalProcessUsermodeEvent @ 0x14098ADC8 (PopThermalProcessUsermodeEvent.c)
+ *     PopThermalProcessUsermodeEvent @ 0x14098AFC8 (PopThermalProcessUsermodeEvent.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDeepSleepSetDisengageReason @ 0x14028E848 (PopDeepSleepSetDisengageReason.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14028EAD8 (PopDeepSleepSetDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PopThermalEventTransitionDisableDeepSleep(unsigned int a1)
@@ -22,19 +22,22 @@ void __fastcall PopThermalEventTransitionDisableDeepSleep(unsigned int a1)
   if ( a1 <= 1 )
   {
     v2 = KeAcquireSpinLockRaiseToDpc(&PopThermalEventTransitionContext);
-    if ( byte_140C3C7E8 || a1 < dword_140C3C7EC )
+    if ( byte_140C3C668 || a1 < dword_140C3C66C )
     {
       PopDeepSleepSetDisengageReason(0xAu);
-      dword_140C3C7EC = a1;
-      byte_140C3C7E8 = 0;
-      KeSetTimer2((__int64)&unk_140C3C7F0, a1 != 0 ? -50000000LL : -600000000LL, 0LL, 0LL);
-      byte_140C3C878 = 1;
+      dword_140C3C66C = a1;
+      byte_140C3C668 = 0;
+      KeSetTimer2((__int64)&unk_140C3C670, a1 != 0 ? -50000000LL : -600000000LL, 0LL, 0LL);
+      byte_140C3C6F8 = 1;
     }
     KxReleaseSpinLock((volatile signed __int64 *)&PopThermalEventTransitionContext);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

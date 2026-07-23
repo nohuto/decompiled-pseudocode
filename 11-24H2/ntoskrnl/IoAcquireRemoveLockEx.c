@@ -1,19 +1,19 @@
 /*
- * XREFs of IoAcquireRemoveLockEx @ 0x140429580
+ * XREFs of IoAcquireRemoveLockEx @ 0x14041D6D0
  * Callers:
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1404BAB50 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopFxFindAndReferenceAcpiDevice @ 0x1404BC634 (PopFxFindAndReferenceAcpiDevice.c)
- *     PopFxAcpiForwardNotification @ 0x1405DC4B4 (PopFxAcpiForwardNotification.c)
- *     PopFxAcpiUnregisterDevice @ 0x1405DC790 (PopFxAcpiUnregisterDevice.c)
- *     DifIoAcquireRemoveLockExWrapper @ 0x1406251F0 (DifIoAcquireRemoveLockExWrapper.c)
- *     ViFilterDispatchGeneric @ 0x140B9CFE0 (ViFilterDispatchGeneric.c)
- *     ViFilterDispatchPnp @ 0x140B9D0B0 (ViFilterDispatchPnp.c)
- *     ViFilterDispatchPower @ 0x140B9D270 (ViFilterDispatchPower.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x1404B59F0 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopFxFindAndReferenceAcpiDevice @ 0x1404B779C (PopFxFindAndReferenceAcpiDevice.c)
+ *     PopFxAcpiForwardNotification @ 0x1405D9384 (PopFxAcpiForwardNotification.c)
+ *     PopFxAcpiUnregisterDevice @ 0x1405D9660 (PopFxAcpiUnregisterDevice.c)
+ *     DifIoAcquireRemoveLockExWrapper @ 0x1406237B0 (DifIoAcquireRemoveLockExWrapper.c)
+ *     ViFilterDispatchGeneric @ 0x140B9EFE0 (ViFilterDispatchGeneric.c)
+ *     ViFilterDispatchPnp @ 0x140B9F0B0 (ViFilterDispatchPnp.c)
+ *     ViFilterDispatchPower @ 0x140B9F270 (ViFilterDispatchPower.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoAcquireRemoveLockEx(
@@ -38,7 +38,7 @@ NTSTATUS __stdcall IoAcquireRemoveLockEx(
   {
     if ( RemlockSize == 120 )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 0x28uLL, (ULONG)RemoveLock[1].Common.RemoveEvent.Header.WaitListHead.Flink);
       v11 = (struct _LIST_ENTRY *)Pool2;
       if ( Pool2 )
       {

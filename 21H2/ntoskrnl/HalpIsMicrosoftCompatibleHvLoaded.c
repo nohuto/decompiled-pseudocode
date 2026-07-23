@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98
+ * XREFs of HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A20E8
  * Callers:
- *     HalSocRequestConfigurationData @ 0x1403A1E9C (HalSocRequestConfigurationData.c)
- *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
- *     HalpIsPartitionCpuManager @ 0x1403A81EC (HalpIsPartitionCpuManager.c)
- *     HalMcFinishMicrocode @ 0x1403A8370 (HalMcFinishMicrocode.c)
- *     HalpHvWatchdogDiscover @ 0x1403AC380 (HalpHvWatchdogDiscover.c)
- *     HalpArtAvailable @ 0x1403AC43C (HalpArtAvailable.c)
- *     HalpCmcStartPolling @ 0x1403C5798 (HalpCmcStartPolling.c)
- *     HalpHvIsFrequencyAvailable @ 0x1403CF628 (HalpHvIsFrequencyAvailable.c)
- *     HalpIsHvIptSupported @ 0x1404C239C (HalpIsHvIptSupported.c)
- *     HalpIsHvUsedForReboot @ 0x1404C2404 (HalpIsHvUsedForReboot.c)
- *     HalpInterruptGetIrtInfo @ 0x1407B9474 (HalpInterruptGetIrtInfo.c)
- *     HalpLoadMicrocode @ 0x140866020 (HalpLoadMicrocode.c)
- *     HalpInitializeProfiling @ 0x14099B5DC (HalpInitializeProfiling.c)
- *     HalpMiscGetParameters @ 0x140A6CF88 (HalpMiscGetParameters.c)
+ *     HalSocRequestConfigurationData @ 0x1403A1FEC (HalSocRequestConfigurationData.c)
+ *     HalSocRequestApi @ 0x1403A21EC (HalSocRequestApi.c)
+ *     HalpIsPartitionCpuManager @ 0x1403A8F7C (HalpIsPartitionCpuManager.c)
+ *     HalMcFinishMicrocode @ 0x1403A9100 (HalMcFinishMicrocode.c)
+ *     HalpHvWatchdogDiscover @ 0x1403AD110 (HalpHvWatchdogDiscover.c)
+ *     HalpArtAvailable @ 0x1403AD1CC (HalpArtAvailable.c)
+ *     HalpCmcStartPolling @ 0x1403C5BC8 (HalpCmcStartPolling.c)
+ *     HalpHvIsFrequencyAvailable @ 0x1403CF798 (HalpHvIsFrequencyAvailable.c)
+ *     HalpIsHvIptSupported @ 0x1404C25DC (HalpIsHvIptSupported.c)
+ *     HalpIsHvUsedForReboot @ 0x1404C2644 (HalpIsHvUsedForReboot.c)
+ *     HalpInterruptGetIrtInfo @ 0x1407B9994 (HalpInterruptGetIrtInfo.c)
+ *     HalpLoadMicrocode @ 0x140866180 (HalpLoadMicrocode.c)
+ *     HalpInitializeProfiling @ 0x14099C5DC (HalpInitializeProfiling.c)
+ *     HalpMiscGetParameters @ 0x140A6DF88 (HalpMiscGetParameters.c)
  * Callees:
- *     HalpIsHvPresent @ 0x1403A1FD8 (HalpIsHvPresent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpIsHvPresent @ 0x1403A2128 (HalpIsHvPresent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 bool __fastcall HalpIsMicrosoftCompatibleHvLoaded(__int64 a1)

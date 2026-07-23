@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFreeSlabEntry @ 0x140552BD0
+ * XREFs of MiFreeSlabEntry @ 0x140552E10
  * Callers:
- *     MiFreeSlabEntries @ 0x1402BA910 (MiFreeSlabEntries.c)
+ *     MiFreeSlabEntries @ 0x140238B20 (MiFreeSlabEntries.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
- *     MiSetPfnPageState @ 0x140329F00 (MiSetPfnPageState.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140375928 (MiUpdateSlabPagePlaceholderState.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiFreeLargePageMemory @ 0x1403093A4 (MiFreeLargePageMemory.c)
+ *     MiSetPfnPageState @ 0x140334C50 (MiSetPfnPageState.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x140375478 (MiUpdateSlabPagePlaceholderState.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeSlabEntry(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -67,7 +67,7 @@ void __fastcall MiFreeSlabEntry(__int64 a1, __int64 a2, __int64 a3, _DWORD *Sche
         v10 = 2;
       }
       if ( !v6 )
-        v6 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v11 + 16) >> 39) & 0x3FFLL));
+        v6 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v11 + 16) >> 39) & 0x3FFLL));
       if ( !*(_DWORD *)(a1 + 48) )
         *(_QWORD *)(v11 + 16) &= 0x8FFFFFFFFFFFFFFFuLL;
       v12 = *(_QWORD *)v11 & 0xC000000000000001uLL;
@@ -101,7 +101,7 @@ void __fastcall MiFreeSlabEntry(__int64 a1, __int64 a2, __int64 a3, _DWORD *Sche
   LOBYTE(v18) = 1;
   v19 = v5[3] >> 9;
   v20 = v19 & 0x1F;
-  v21 = (volatile signed __int32 *)(qword_140C52588 + 4 * (v5[3] >> 14));
+  v21 = (volatile signed __int32 *)(qword_140C525C8 + 4 * (v5[3] >> 14));
   if ( (v19 & 0x1F) + 1 <= 0x20 )
   {
     v22 = 1 << v20;

@@ -128,7 +128,7 @@ signed __int64 __fastcall RtlpHpHeapExtendContext(int *a1, __int64 a2)
             {
               *(_BYTE *)(v32 + 32) |= 2u;
               if ( *(__int64 *)(v32 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v32);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v32);
               v33 = *(_DWORD *)(v32 + 88) & 0x1FFFF;
               v34 = *(_DWORD *)(v32 + 88) & 0xFFFE0000;
               *(_BYTE *)(v32 + 25) &= ~1u;
@@ -213,7 +213,7 @@ LABEL_29:
             {
               *(_BYTE *)(v23 + 32) |= 2u;
               if ( *(__int64 *)(v23 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v23);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23);
               v24 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
               v25 = *(_DWORD *)(v23 + 88) & 0xFFFE0000;
               *(_BYTE *)(v23 + 25) &= ~1u;
@@ -302,7 +302,7 @@ LABEL_74:
     }
     v43->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v43->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v37->LockEntries[v42]);
+      KiAbEntryRemoveFromTree(&v37->LockEntries[v42].TreeNode);
     v44 = v43->BoostBitmap.AllFields & 0x1FFFF;
     v45 = v43->BoostBitmap.AllFields & 0xFFFE0000;
     v43->ThreadLocalFlags &= ~1u;

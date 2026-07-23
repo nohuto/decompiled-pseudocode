@@ -1,18 +1,18 @@
 /*
- * XREFs of SmRecordDecompressionFailureDumpPayload @ 0x14060F110
+ * XREFs of SmRecordDecompressionFailureDumpPayload @ 0x14060D6D0
  * Callers:
- *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14060BAE8 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
+ *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14060A0A8 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmRecordDecompressionFailureDumpPayload(
@@ -45,11 +45,11 @@ __int64 __fastcall SmRecordDecompressionFailureDumpPayload(
   v12 = 0;
   v13 = a2;
   Size = a2;
-  v14 = SmAllocEx(a2 + 56LL, 1348627827LL, -1);
+  v14 = SmAllocEx(a2 + 56LL, 0x50626D73u, -1);
   if ( !v14 )
     goto LABEL_2;
   v16 = ((unsigned __int64)(a1 & 0xFFF) + v13 + 4095) >> 12;
-  v17 = (struct _MDL *)SmAllocEx(8 * v16 + 48, 1346530675LL, -1);
+  v17 = (struct _MDL *)SmAllocEx(8 * v16 + 48, 0x50426D73u, -1);
   v10 = v17;
   if ( !v17 )
     goto LABEL_2;
@@ -86,11 +86,11 @@ __int64 __fastcall SmRecordDecompressionFailureDumpPayload(
     *(PHYSICAL_ADDRESS *)(v14 + 40) = v19;
     *(_QWORD *)(v14 + 48) = MmGetPhysicalAddress(BaseAddress).QuadPart / 4096;
     memmove((void *)(v14 + 56), v11, Size);
-    v20 = ExAcquireSpinLockExclusive(&dword_140E28804);
-    v21 = qword_140E28838;
-    qword_140E28838 = v14;
-    dword_140E28840 = *a9;
-    ExReleaseSpinLockExclusive(&dword_140E28804, v20);
+    v20 = ExAcquireSpinLockExclusive(&dword_140E28944);
+    v21 = qword_140E28978;
+    qword_140E28978 = v14;
+    dword_140E28980 = *a9;
+    ExReleaseSpinLockExclusive(&dword_140E28944, v20);
     v14 = v21;
     v15 = 0;
   }

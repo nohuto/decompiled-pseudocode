@@ -10,7 +10,7 @@ void *__fastcall sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Failure(_QW
 {
   unsigned __int16 **v2; // rdi
   _WORD *v3; // rax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
 
   if ( *((_BYTE *)a1 + 80) )
   {

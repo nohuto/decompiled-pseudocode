@@ -1,9 +1,9 @@
 /*
- * XREFs of XpressDecodeCreate @ 0x14032CA1C
+ * XREFs of XpressDecodeCreate @ 0x14032CC0C
  * Callers:
- *     CMFReadCompressedSegment @ 0x1408D8FFC (CMFReadCompressedSegment.c)
+ *     CMFReadCompressedSegment @ 0x1408DA2BC (CMFReadCompressedSegment.c)
  * Callees:
- *     CMFAllocFn @ 0x1408D83C0 (CMFAllocFn.c)
+ *     CMFAllocFn @ 0x1408D9680 (CMFAllocFn.c)
  */
 
 __int64 XpressDecodeCreate()

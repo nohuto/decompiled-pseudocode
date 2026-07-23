@@ -17,11 +17,15 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3, void *a4)
+NTSTATUS __cdecl NtOpenPrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  HANDLE *v5; // rsi
+  PHANDLE v5; // rsi
   KPROCESSOR_MODE AccessMode; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v8; // r9
   struct _KTHREAD *CurrentThread; // rax
   __int64 v10; // rax
@@ -44,35 +48,35 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
   ULONG HandleAttributes; // [rsp+40h] [rbp-38h]
   int HandleAttributesa; // [rsp+40h] [rbp-38h]
   PVOID P; // [rsp+48h] [rbp-30h]
-  unsigned int Pa; // [rsp+48h] [rbp-30h]
+  NTSTATUS Pa; // [rsp+48h] [rbp-30h]
   HANDLE Handle; // [rsp+50h] [rbp-28h] BYREF
 
-  v5 = a1;
+  v5 = NamespaceHandle;
   Handle = 0LL;
   AccessMode = KeGetCurrentThread()->PreviousMode;
   HandleAttributes = 0;
   if ( AccessMode )
   {
-    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      a1 = (HANDLE *)MmUserProbeAddress;
-    *a1 = *a1;
-    if ( a3 )
+    if ( (unsigned __int64)NamespaceHandle >= MmUserProbeAddress )
+      NamespaceHandle = (PHANDLE)MmUserProbeAddress;
+    *NamespaceHandle = *NamespaceHandle;
+    if ( ObjectAttributes )
     {
-      if ( (a3 & 7) != 0 )
+      if ( ((unsigned __int8)ObjectAttributes & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      HandleAttributes = *(_DWORD *)(a3 + 24);
+      HandleAttributes = ObjectAttributes->Attributes;
     }
   }
-  else if ( a3 )
+  else if ( ObjectAttributes )
   {
-    HandleAttributes = *(_DWORD *)(a3 + 24);
+    HandleAttributes = ObjectAttributes->Attributes;
   }
   if ( AccessMode )
     HandleAttributesa = HandleAttributes & 0xDF2;
   else
     HandleAttributesa = HandleAttributes & 0x10FF2;
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -107,7 +111,14 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
       {
         KiCheckForKernelApcDelivery();
       }
-      Pa = ObOpenObjectByPointer(v22, HandleAttributesa, 0LL, a2, ObpDirectoryObjectType, AccessMode, &Handle);
+      Pa = ObOpenObjectByPointer(
+             v22,
+             HandleAttributesa,
+             0LL,
+             DesiredAccess,
+             ObpDirectoryObjectType,
+             AccessMode,
+             &Handle);
       ObfDereferenceObject(v22);
       *v5 = Handle;
       return Pa;
@@ -135,7 +146,7 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
       {
         KiCheckForKernelApcDelivery();
       }
-      return 3221225530LL;
+      return -1073741766;
     }
   }
   return result;

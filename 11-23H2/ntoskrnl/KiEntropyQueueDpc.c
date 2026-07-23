@@ -1,14 +1,14 @@
 /*
- * XREFs of KiEntropyQueueDpc @ 0x14035E7F0
+ * XREFs of KiEntropyQueueDpc @ 0x14035E990
  * Callers:
- *     KiScanInterruptObjectList @ 0x1404206E0 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x1404208C0 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x140420A10 (KiInterruptSubDispatchNoLock.c)
- *     KiInterruptSubDispatchNoLockNoEtw @ 0x140420B60 (KiInterruptSubDispatchNoLockNoEtw.c)
- *     KiHvInterruptSubDispatch @ 0x140426860 (KiHvInterruptSubDispatch.c)
- *     KiVmbusInterruptSubDispatch @ 0x1404269C0 (KiVmbusInterruptSubDispatch.c)
+ *     KiScanInterruptObjectList @ 0x140420A70 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x140420C50 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x140420DA0 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x140420EF0 (KiInterruptSubDispatchNoLockNoEtw.c)
+ *     KiHvInterruptSubDispatch @ 0x140426BF0 (KiHvInterruptSubDispatch.c)
+ *     KiVmbusInterruptSubDispatch @ 0x140426D50 (KiVmbusInterruptSubDispatch.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall KiEntropyQueueDpc(__int64 a1)

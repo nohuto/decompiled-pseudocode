@@ -1,5 +1,5 @@
 /*
- * XREFs of StringCchPrintfW @ 0x1800DE138
+ * XREFs of StringCchPrintfW @ 0x1800DE0F8
  * Callers:
  *     EtwpAddInstanceIdToLogFileName @ 0x1800498BC (EtwpAddInstanceIdToLogFileName.c)
  * Callees:

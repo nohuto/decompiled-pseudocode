@@ -15,186 +15,184 @@
  *     NtSetInformationWorkerFactory @ 0x1800A4460 (NtSetInformationWorkerFactory.c)
  */
 
-signed __int64 TpTrimPools()
+void TpTrimPools()
 {
-  unsigned __int64 v0; // rdx
-  unsigned __int64 v1; // r8
-  unsigned __int64 v2; // r9
-  _UNKNOWN **v3; // r14
-  _UNKNOWN **v4; // rbx
-  volatile signed __int64 *v5; // rbp
-  volatile signed __int64 *v6; // rsi
-  char v7; // r13
-  int v8; // r9d
-  unsigned int v9; // r8d
-  int v10; // eax
-  __int64 Heap; // r12
-  __int64 v12; // r15
-  __int64 v13; // rdi
-  _QWORD **v14; // r8
-  _QWORD *v15; // rdx
+  _UNKNOWN **v0; // r14
+  _UNKNOWN **v1; // rbx
+  _RTL_SRWLOCK *v2; // rbp
+  _RTL_SRWLOCK *v3; // rsi
+  char v4; // r13
+  NTSTATUS v5; // r9d
+  unsigned int v6; // r8d
+  NTSTATUS v7; // eax
+  char *Heap; // r12
+  PVOID *v9; // r15
+  __int64 v10; // rdi
+  _QWORD **v11; // r8
+  _QWORD *v12; // rdx
+  __int64 v13; // rcx
+  _QWORD *v14; // rax
+  unsigned int v15; // ebx
   __int64 v16; // rcx
-  _QWORD *v17; // rax
-  unsigned int v18; // ebx
-  __int64 v19; // rcx
-  unsigned int v20; // r10d
-  __int64 *v21; // rbx
-  __int64 *v23; // rsi
-  __int64 v24; // rdi
-  __int64 v25; // rcx
-  _QWORD *v26; // rax
-  __int64 *v27; // rsi
-  __int64 v28; // rdi
-  __int64 v29; // rcx
-  _QWORD *v30; // rax
-  int v31; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v32; // [rsp+78h] [rbp+10h] BYREF
-  volatile signed __int64 *v33; // [rsp+80h] [rbp+18h]
+  ULONG v17; // r10d
+  PVOID *v18; // rbx
+  void **v19; // rsi
+  void ***v20; // rdi
+  void **v21; // rcx
+  void **v22; // rax
+  void **v23; // rsi
+  void ***v24; // rdi
+  void **v25; // rcx
+  void **v26; // rax
+  int WorkerFactoryInformation; // [rsp+70h] [rbp+8h] BYREF
+  LARGE_INTEGER Timeout; // [rsp+78h] [rbp+10h] BYREF
+  _RTL_SRWLOCK *v29; // [rsp+80h] [rbp+18h]
 
-  v32 = -1000000LL;
+  Timeout.QuadPart = -1000000LL;
   RtlAcquireSRWLockExclusive(&TppPoolpListLock);
-  v3 = (_UNKNOWN **)TppPoolpList;
-  while ( v3 != &TppPoolpList )
+  v0 = (_UNKNOWN **)TppPoolpList;
+  while ( v0 != &TppPoolpList )
   {
-    v4 = v3;
-    v3 = (_UNKNOWN **)*v3;
-    v5 = (volatile signed __int64 *)(v4 - 2);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)v4 - 2, v0, v1, v2);
-    if ( *((_BYTE *)v4 - 7) )
+    v1 = v0;
+    v0 = (_UNKNOWN **)*v0;
+    v2 = (_RTL_SRWLOCK *)(v1 - 2);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)v1 - 2);
+    if ( *((_BYTE *)v1 - 7) )
       goto LABEL_30;
-    v6 = (volatile signed __int64 *)(v4 - 39);
-    v33 = (volatile signed __int64 *)(v4 - 39);
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)v4 - 39);
-    v31 = 0;
-    v7 = 1;
-    if ( (int)NtSetInformationWorkerFactory(*(v4 - 41), 12LL, &v31) >= 0 && v31 )
+    v3 = (_RTL_SRWLOCK *)(v1 - 39);
+    v29 = (_RTL_SRWLOCK *)(v1 - 39);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v1 - 39);
+    WorkerFactoryInformation = 0;
+    v4 = 1;
+    if ( NtSetInformationWorkerFactory(*(v1 - 41), WorkerFactoryTimeoutWaiters, &WorkerFactoryInformation, 4u) >= 0
+      && WorkerFactoryInformation )
     {
-      v8 = 0;
-      v9 = *((_DWORD *)v4 + 13) ^ (*((_DWORD *)v4 + 13) ^ (2 * v31)) & 0xFFE;
-      for ( *((_DWORD *)v4 + 13) = v9; ((v9 >> 11) & 0xFFE) < (v9 & 0xFFE); v8 = v10 )
+      v5 = 0;
+      v6 = *((_DWORD *)v1 + 13) ^ (*((_DWORD *)v1 + 13) ^ (2 * WorkerFactoryInformation)) & 0xFFE;
+      for ( *((_DWORD *)v1 + 13) = v6; ((v6 >> 11) & 0xFFE) < (v6 & 0xFFE); v5 = v7 )
       {
-        if ( v8 == 258 )
+        if ( v5 == 258 )
           break;
-        v10 = RtlSleepConditionVariableSRW(v4 + 8, v4 - 39, &v32, 0LL);
-        v9 = *((_DWORD *)v4 + 13);
+        v7 = RtlSleepConditionVariableSRW((PRTL_CONDITION_VARIABLE)v1 + 8, (PRTL_SRWLOCK)v1 - 39, &Timeout, 0);
+        v6 = *((_DWORD *)v1 + 13);
       }
-      if ( (v9 & 0x7FF000) == 0 )
+      if ( (v6 & 0x7FF000) == 0 )
       {
-        *((_DWORD *)v4 + 13) = v9 & 0xFFFFF001;
+        *((_DWORD *)v1 + 13) = v6 & 0xFFFFF001;
         goto LABEL_29;
       }
-      Heap = RtlAllocateHeap(
-               (__int64)NtCurrentPeb()->ProcessHeap,
-               (TppHeapTag + 786432) | 8u,
-               8 * (((unsigned __int64)v9 >> 12) & 0x7FF));
+      Heap = (char *)RtlAllocateHeap(
+                       NtCurrentPeb()->ProcessHeap,
+                       (TppHeapTag + 786432) | 8,
+                       8 * (((unsigned __int64)v6 >> 12) & 0x7FF));
       if ( !Heap )
       {
-        v23 = (__int64 *)(v4 + 9);
+        v19 = (void **)(v1 + 9);
         while ( 1 )
         {
-          v24 = *v23;
-          if ( (__int64 *)*v23 == v23 )
+          v20 = (void ***)*v19;
+          if ( *v19 == v19 )
             break;
-          v25 = *(_QWORD *)v24;
-          if ( *(_QWORD *)(*(_QWORD *)v24 + 8LL) != v24 || (v26 = *(_QWORD **)(v24 + 8), *v26 != v24) )
+          v21 = *v20;
+          if ( (*v20)[1] != v20 || (v22 = v20[1], *v22 != v20) )
 LABEL_46:
             __fastfail(3u);
-          *v26 = v25;
-          *(_QWORD *)(v25 + 8) = v26;
-          NtClose(*(HANDLE *)(v24 + 16));
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v24);
+          *v22 = v21;
+          v21[1] = v22;
+          NtClose(v20[2]);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v20);
         }
-        *((_DWORD *)v4 + 13) &= 0xFF800001;
+        *((_DWORD *)v1 + 13) &= 0xFF800001;
 LABEL_28:
-        v6 = v33;
+        v3 = v29;
         goto LABEL_29;
       }
-      v12 = RtlAllocateHeap(
-              (__int64)NtCurrentPeb()->ProcessHeap,
-              (TppHeapTag + 786432) | 8u,
-              8LL * ((*((_DWORD *)v4 + 13) >> 12) & 0x7FF));
-      if ( v12 )
+      v9 = (PVOID *)RtlAllocateHeap(
+                      NtCurrentPeb()->ProcessHeap,
+                      (TppHeapTag + 786432) | 8,
+                      8LL * ((*((_DWORD *)v1 + 13) >> 12) & 0x7FF));
+      if ( v9 )
       {
-        v13 = 0LL;
-        v14 = (_QWORD **)(v4 + 9);
+        v10 = 0LL;
+        v11 = (_QWORD **)(v1 + 9);
         while ( 1 )
         {
-          v15 = *v14;
-          if ( *v14 == v14 )
+          v12 = *v11;
+          if ( *v11 == v11 )
             break;
-          *(_QWORD *)(Heap + 8 * v13) = v15[2];
-          *(_QWORD *)(v12 + 8 * v13) = v15;
-          v16 = *v15;
-          if ( *(_QWORD **)(*v15 + 8LL) != v15 )
+          *(_QWORD *)&Heap[8 * v10] = v12[2];
+          v9[v10] = v12;
+          v13 = *v12;
+          if ( *(_QWORD **)(*v12 + 8LL) != v12 )
             goto LABEL_46;
-          v17 = (_QWORD *)v15[1];
-          if ( (_QWORD *)*v17 != v15 )
+          v14 = (_QWORD *)v12[1];
+          if ( (_QWORD *)*v14 != v12 )
             goto LABEL_46;
-          *v17 = v16;
-          v13 = (unsigned int)(v13 + 1);
-          *(_QWORD *)(v16 + 8) = v17;
+          *v14 = v13;
+          v10 = (unsigned int)(v10 + 1);
+          *(_QWORD *)(v13 + 8) = v14;
         }
-        *((_DWORD *)v4 + 13) &= 0xFF800001;
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)v4 - 39);
-        RtlReleaseSRWLockShared((volatile signed __int64 *)v4 - 2);
-        v7 = 0;
-        v18 = 0;
+        *((_DWORD *)v1 + 13) &= 0xFF800001;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v1 - 39);
+        RtlReleaseSRWLockShared((PRTL_SRWLOCK)v1 - 2);
+        v4 = 0;
+        v15 = 0;
         do
         {
-          v19 = v18 << 6;
-          if ( (unsigned int)v19 >= (unsigned int)v13 )
+          v16 = v15 << 6;
+          if ( (unsigned int)v16 >= (unsigned int)v10 )
             break;
-          v20 = (int)v19 + 64 <= (unsigned int)v13 ? 64 : v13 & 0x3F;
-          if ( (unsigned int)NtWaitForMultipleObjects(v20, Heap + 8 * v19, 0LL, 0LL, &v32) == 258 )
+          v17 = (int)v16 + 64 <= (unsigned int)v10 ? 64 : v10 & 0x3F;
+          if ( NtWaitForMultipleObjects(v17, (HANDLE *)&Heap[8 * v16], WaitAll, 0, &Timeout) == 258 )
             break;
-          ++v18;
+          ++v15;
         }
-        while ( v18 <= (unsigned int)v13 >> 6 );
-        if ( (_DWORD)v13 )
+        while ( v15 <= (unsigned int)v10 >> 6 );
+        if ( (_DWORD)v10 )
         {
-          v21 = (__int64 *)v12;
+          v18 = v9;
           do
           {
-            NtClose(*(HANDLE *)((char *)v21 + Heap - v12));
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *v21++);
-            --v13;
+            NtClose(*(PVOID *)((char *)v18 + Heap - (char *)v9));
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *v18++);
+            --v10;
           }
-          while ( v13 );
+          while ( v10 );
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v12);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v9);
       }
       else
       {
-        v27 = (__int64 *)(v4 + 9);
+        v23 = (void **)(v1 + 9);
         while ( 1 )
         {
-          v28 = *v27;
-          if ( (__int64 *)*v27 == v27 )
+          v24 = (void ***)*v23;
+          if ( *v23 == v23 )
             break;
-          v29 = *(_QWORD *)v28;
-          if ( *(_QWORD *)(*(_QWORD *)v28 + 8LL) != v28 )
+          v25 = *v24;
+          if ( (*v24)[1] != v24 )
             goto LABEL_46;
-          v30 = *(_QWORD **)(v28 + 8);
-          if ( *v30 != v28 )
+          v26 = v24[1];
+          if ( *v26 != v24 )
             goto LABEL_46;
-          *v30 = v29;
-          *(_QWORD *)(v29 + 8) = v30;
-          NtClose(*(HANDLE *)(v28 + 16));
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v28);
+          *v26 = v25;
+          v25[1] = v26;
+          NtClose(v24[2]);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v24);
         }
-        *((_DWORD *)v4 + 13) &= 0xFF800001;
+        *((_DWORD *)v1 + 13) &= 0xFF800001;
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
-      if ( v7 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
+      if ( v4 )
         goto LABEL_28;
     }
     else
     {
 LABEL_29:
-      RtlReleaseSRWLockExclusive(v6);
+      RtlReleaseSRWLockExclusive(v3);
 LABEL_30:
-      RtlReleaseSRWLockShared(v5);
+      RtlReleaseSRWLockShared(v2);
     }
   }
-  return RtlReleaseSRWLockExclusive(&TppPoolpListLock);
+  RtlReleaseSRWLockExclusive(&TppPoolpListLock);
 }

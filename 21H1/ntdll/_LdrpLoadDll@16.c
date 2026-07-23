@@ -15,27 +15,26 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall LdrpLoadDll(int a1, int a2)
+int __thiscall LdrpLoadDll(PUNICODE_STRING OriginalName, int a2, int a3)
 {
-  int v2; // ebx
-  int v4; // [esp+Ch] [ebp-114h] BYREF
-  int v5; // [esp+10h] [ebp-110h]
-  _WORD *v6; // [esp+14h] [ebp-10Ch]
-  _WORD v7[130]; // [esp+18h] [ebp-108h] BYREF
+  int v3; // ebx
+  int StackCookie; // [esp+Ch] [ebp-114h] BYREF
+  uintptr_t StackCookie_4; // [esp+10h] [ebp-110h] BYREF
+  _WORD v8[130]; // [esp+18h] [ebp-108h] BYREF
 
-  v2 = a2;
+  v3 = a3;
   LdrpLogDllState(5288);
-  v5 = 0x1000000;
-  v6 = v7;
-  v7[0] = 0;
-  v4 = LdrpPreprocessDllName(0, &a1);
-  if ( v4 >= 0 )
-    LdrpLoadDllInternal(a1, 4, 0, 0, v2, &v4);
-  if ( v7 != v6 )
-    RtlDeleteBoundaryDescriptor(v6);
-  v5 = 0x1000000;
-  v6 = v7;
-  v7[0] = 0;
+  LODWORD(StackCookie_4) = 0x1000000;
+  HIDWORD(StackCookie_4) = v8;
+  v8[0] = 0;
+  StackCookie = LdrpPreprocessDllName(OriginalName, (PUNICODE_STRING)&StackCookie_4, 0, (int)&a2);
+  if ( StackCookie >= 0 )
+    LdrpLoadDllInternal(a2, 4, 0, 0, v3, &StackCookie);
+  if ( v8 != (_WORD *)HIDWORD(StackCookie_4) )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)HIDWORD(StackCookie_4));
+  LODWORD(StackCookie_4) = 0x1000000;
+  HIDWORD(StackCookie_4) = v8;
+  v8[0] = 0;
   LdrpLogDllState(5289);
-  return v4;
+  return StackCookie;
 }

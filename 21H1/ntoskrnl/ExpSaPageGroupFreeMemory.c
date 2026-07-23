@@ -35,7 +35,7 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
   unsigned __int8 v20; // r14
   unsigned int v21; // edx
   __int64 v22; // rcx
-  unsigned __int64 v23; // rdi
+  __int64 v23; // rdi
   __int64 v24; // rdx
   __int64 v25; // rdx
   __int64 v26; // r8
@@ -110,7 +110,7 @@ LABEL_8:
     v17 = !_BitScanReverse((unsigned int *)&v22, v21);
     if ( v17 )
       break;
-    v23 = (unsigned __int64)&v19->LockEntries[v22];
+    v23 = (__int64)&v19->LockEntries[v22];
     v21 &= ~(1 << v22);
     if ( (*(_BYTE *)(v23 + 26) & 1) != 0
       && (*(_DWORD *)(v23 + 32) & 1) == 0
@@ -124,12 +124,12 @@ LABEL_8:
         {
           *(_BYTE *)(v23 + 32) |= 2u;
           if ( *(__int64 *)(v23 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v23);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23);
           v32 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
           *(_DWORD *)(v23 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v23 + 25) &= ~1u;
           *(_QWORD *)(v23 + 32) = 0LL;
-          v24 = (__int64)(v23 - (unsigned __int64)v19->LockEntries) / 96;
+          v24 = (signed __int64)(v23 - (unsigned __int64)v19->LockEntries) / 96;
           if ( v20 == 1 )
             v19->AbEntrySummary |= 1 << v24;
           else

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpInitRandomExVector @ 0x180097F1C
+ * XREFs of RtlpInitRandomExVector @ 0x18002CD6C
  * Callers:
- *     RtlRandomEx @ 0x180097DB0 (RtlRandomEx.c)
+ *     RtlRandomEx @ 0x18002CC00 (RtlRandomEx.c)
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     NtQueryInformationProcess @ 0x180161FB0 (NtQueryInformationProcess.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     NtQueryInformationProcess @ 0x180160370 (NtQueryInformationProcess.c)
  */
 
 __int64 RtlpInitRandomExVector()
 {
-  NTSTATUS v0; // eax
+  int v0; // eax
   __int32 *v1; // r9
   unsigned __int64 v2; // r8
   __int64 v3; // r10
@@ -17,11 +17,11 @@ __int64 RtlpInitRandomExVector()
   int ProcessInformation; // [rsp+58h] [rbp+20h] BYREF
 
   ProcessInformation = 0;
-  v0 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+  v0 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
   if ( v0 < 0 )
     RtlRaiseStatus(v0);
   v1 = RtlpRandomExConstantVector;
-  LODWORD(v2) = dword_1801EA4E8 ^ ProcessInformation;
+  LODWORD(v2) = LdrSystemDllInitBlock.RngData ^ ProcessInformation;
   v3 = 128LL;
   do
   {

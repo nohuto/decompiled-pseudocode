@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceList @ 0x140A1A490
+ * XREFs of _CmGetMatchingFilteredDeviceList @ 0x140A163D4
  * Callers:
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14072A318 (PiDevCfgInitDriverDatabaseCallback.c)
- *     _CmDeleteInstallerClassWorker @ 0x140818B70 (_CmDeleteInstallerClassWorker.c)
- *     PiCMGetDeviceIdList @ 0x140A19E98 (PiCMGetDeviceIdList.c)
- *     IopGetRootDevices @ 0x140A624B8 (IopGetRootDevices.c)
- *     PipResetMatchingFilteredDevices @ 0x140C22040 (PipResetMatchingFilteredDevices.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x140727F68 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1408192B0 (_CmDeleteInstallerClassWorker.c)
+ *     PiCMGetDeviceIdList @ 0x140A15D5C (PiCMGetDeviceIdList.c)
+ *     IopGetRootDevices @ 0x140A5ADB8 (IopGetRootDevices.c)
+ *     PipResetMatchingFilteredDevices @ 0x140C24080 (PipResetMatchingFilteredDevices.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmGetMatchingFilteredDeviceListWorker @ 0x140A1A630 (_CmGetMatchingFilteredDeviceListWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmGetMatchingFilteredDeviceListWorker @ 0x140A16574 (_CmGetMatchingFilteredDeviceListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceList(
@@ -52,7 +52,7 @@ __int64 __fastcall CmGetMatchingFilteredDeviceList(
   v27 = a7;
   if ( v12 )
   {
-    v13 = guard_dispatch_icall_no_overrides(a1, 0LL, 1LL, 16LL);
+    v13 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v13 == -1073741822 )
     {
       v12 = 0LL;
@@ -70,7 +70,7 @@ __int64 __fastcall CmGetMatchingFilteredDeviceList(
   if ( v12 )
   {
     v21[0] = MatchingFilteredDeviceListWorker;
-    v17 = guard_dispatch_icall_no_overrides(a1, 0LL, 1LL, 16LL);
+    v17 = guard_dispatch_icall_no_overrides(a1, 0LL);
     v18 = v17;
     if ( v17 != -1073741822 )
     {

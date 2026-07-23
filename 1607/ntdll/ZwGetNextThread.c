@@ -1,16 +1,22 @@
 /*
  * XREFs of ZwGetNextThread @ 0x1800A8190
  * Callers:
- *     PsspCaptureThreadInformation @ 0x18000526C (PsspCaptureThreadInformation.c)
+ *     PsspCaptureThreadInformation @ 0x180005260 (PsspCaptureThreadInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwGetNextThread()
+NTSTATUS __cdecl ZwGetNextThread(
+        HANDLE ProcessHandle,
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewThreadHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 236LL;
+  result = 236;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

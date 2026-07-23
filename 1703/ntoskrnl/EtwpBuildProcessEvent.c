@@ -23,7 +23,7 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
         _QWORD *a5,
         __int64 a6,
         unsigned int *a7,
-        int *a8,
+        PSIZE_T PackageSize,
         PANSI_STRING DestinationString,
         unsigned __int16 *a10,
         _QWORD *TokenInformation)
@@ -34,27 +34,25 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   unsigned __int64 DirectoryTableBase; // rax
   unsigned __int64 v18; // rax
   unsigned int v19; // ebp
-  PACCESS_TOKEN v20; // rax
-  __int64 v21; // r8
-  void *v22; // rdi
+  PACCESS_TOKEN v20; // rdi
   NTSTATUS InformationToken; // ebx
-  PVOID v24; // rdx
-  int v25; // ecx
-  char *v26; // rbx
+  PVOID v22; // rdx
+  int v23; // ecx
+  char *v24; // rbx
   __int64 Length; // rdi
-  unsigned __int16 v28; // ax
-  __int64 v29; // rax
-  unsigned int v30; // ebp
-  __int64 v31; // rdx
-  int v32; // ecx
-  unsigned int v33; // ecx
-  __int64 v34; // rdx
-  unsigned int v35; // ebp
+  unsigned __int16 v26; // ax
+  __int64 v27; // rax
+  unsigned int v28; // ebp
+  __int64 v29; // rdx
+  int v30; // ecx
+  unsigned int v31; // ecx
+  __int64 v32; // rdx
+  unsigned int v33; // ebp
   unsigned int *result; // rax
-  const UNICODE_STRING *v37; // rdx
+  const UNICODE_STRING *v35; // rdx
   char *Buffer; // rax
-  __int16 v39; // ax
-  __int64 v40; // rcx
+  __int16 v37; // ax
+  __int64 v38; // rcx
 
   RtlInitAnsiString(DestinationString, 0LL);
   v14 = TokenInformation;
@@ -72,8 +70,8 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   v18 = Process[1].ActiveProcessors.Bitmap[7];
   if ( v18 )
   {
-    v39 = *(_WORD *)(v18 + 8);
-    if ( v39 == 332 || v39 == 452 )
+    v37 = *(_WORD *)(v18 + 8);
+    if ( v37 == 332 || v37 == 452 )
       *v16 = 2;
   }
   v19 = 4;
@@ -83,54 +81,52 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   *(_QWORD *)a6 = a4;
   *(_DWORD *)(a6 + 8) = 36;
   v20 = PsReferencePrimaryToken(Process);
-  v21 = a4 + 32;
-  v22 = v20;
-  EtwpQueryTokenPackageInfo(v20, a8, v21);
-  InformationToken = SeQueryInformationToken(v22, TokenUser, (PVOID *)&TokenInformation);
-  ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], (unsigned __int64)v22);
+  EtwpQueryTokenPackageInfo(v20, PackageSize);
+  InformationToken = SeQueryInformationToken(v20, TokenUser, (PVOID *)&TokenInformation);
+  ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], (unsigned __int64)v20);
   if ( InformationToken < 0 )
   {
-    v25 = 4;
-    v24 = &EtwpNull;
+    v23 = 4;
+    v22 = &EtwpNull;
   }
   else
   {
-    v24 = TokenInformation;
+    v22 = TokenInformation;
     *v14 = TokenInformation;
-    v25 = 4 * *(unsigned __int8 *)(*(_QWORD *)v24 + 1LL) + 24;
+    v23 = 4 * *(unsigned __int8 *)(*(_QWORD *)v22 + 1LL) + 24;
   }
-  *(_QWORD *)(a6 + 16) = v24;
+  *(_QWORD *)(a6 + 16) = v22;
   *(_DWORD *)(a6 + 28) = 0;
-  v26 = (char *)&Process[1].ActiveProcessors.Bitmap[12];
+  v24 = (char *)&Process[1].ActiveProcessors.Bitmap[12];
   Length = -1LL;
-  *(_DWORD *)(a6 + 24) = v25;
+  *(_DWORD *)(a6 + 24) = v23;
   do
     ++Length;
-  while ( v26[Length] );
+  while ( v24[Length] );
   if ( (_DWORD)Length == 14 )
   {
-    v37 = (const UNICODE_STRING *)Process[1].ActiveProcessors.Bitmap[15];
-    if ( v37->Length )
+    v35 = (const UNICODE_STRING *)Process[1].ActiveProcessors.Bitmap[15];
+    if ( v35->Length )
     {
-      if ( RtlUnicodeStringToAnsiString(DestinationString, v37, 1u) >= 0 )
+      if ( RtlUnicodeStringToAnsiString(DestinationString, v35, 1u) >= 0 )
       {
         Length = DestinationString->Length;
         Buffer = DestinationString->Buffer;
-        v26 = &Buffer[Length];
-        while ( v26 != Buffer )
+        v24 = &Buffer[Length];
+        while ( v24 != Buffer )
         {
-          if ( *--v26 == 92 )
+          if ( *--v24 == 92 )
           {
-            ++v26;
+            ++v24;
             break;
           }
         }
-        LODWORD(Length) = (_DWORD)Buffer - (_DWORD)v26 + Length;
+        LODWORD(Length) = (_DWORD)Buffer - (_DWORD)v24 + Length;
       }
     }
   }
   *(_DWORD *)(a6 + 40) = Length;
-  *(_QWORD *)(a6 + 32) = v26;
+  *(_QWORD *)(a6 + 32) = v24;
   *(_DWORD *)(a6 + 44) = 0;
   *(_QWORD *)(a6 + 48) = &EtwpNull;
   *(_QWORD *)(a6 + 56) = 1LL;
@@ -144,38 +140,38 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
     if ( a3 )
     {
       EtwpQueryProcessCommandLine(Process, a10);
-      v28 = *a10;
+      v26 = *a10;
       if ( *a10 )
       {
         v19 = 5;
         *(_QWORD *)(a6 + 64) = *((_QWORD *)a10 + 1);
-        *(_QWORD *)(a6 + 72) = v28;
+        *(_QWORD *)(a6 + 72) = v26;
       }
     }
   }
-  v29 = v19;
-  v30 = v19 + 1;
-  v29 *= 2LL;
-  v31 = 2LL * v30;
-  *(_QWORD *)(a6 + 8 * v29) = &EtwpNull;
-  *(_QWORD *)(a6 + 8 * v29 + 8) = 2LL;
-  v32 = *a8;
-  *(_QWORD *)(a6 + 8 * v31) = a8 + 4;
-  *(_DWORD *)(a6 + 8 * v31 + 8) = v32;
-  *(_DWORD *)(a6 + 8 * v31 + 12) = 0;
-  v33 = a8[2];
-  v34 = v30 + 1;
-  v35 = v30 + 2;
-  v34 *= 2LL;
-  *(_QWORD *)(a6 + 8 * v34) = a8 + 68;
-  *(_QWORD *)(a6 + 8 * v34 + 8) = v33;
+  v27 = v19;
+  v28 = v19 + 1;
+  v27 *= 2LL;
+  v29 = 2LL * v28;
+  *(_QWORD *)(a6 + 8 * v27) = &EtwpNull;
+  *(_QWORD *)(a6 + 8 * v27 + 8) = 2LL;
+  v30 = *(_DWORD *)PackageSize;
+  *(_QWORD *)(a6 + 8 * v29) = PackageSize + 2;
+  *(_DWORD *)(a6 + 8 * v29 + 8) = v30;
+  *(_DWORD *)(a6 + 8 * v29 + 12) = 0;
+  v31 = *((_DWORD *)PackageSize + 2);
+  v32 = v28 + 1;
+  v33 = v28 + 2;
+  v32 *= 2LL;
+  *(_QWORD *)(a6 + 8 * v32) = PackageSize + 34;
+  *(_QWORD *)(a6 + 8 * v32 + 8) = v31;
   if ( a2 == 807 )
   {
-    v40 = 2LL * v35++;
-    *(_QWORD *)(a6 + 8 * v40) = (char *)Process + 1680;
-    *(_QWORD *)(a6 + 8 * v40 + 8) = 8LL;
+    v38 = 2LL * v33++;
+    *(_QWORD *)(a6 + 8 * v38) = (char *)Process + 1680;
+    *(_QWORD *)(a6 + 8 * v38 + 8) = 8LL;
   }
   result = a7;
-  *a7 = v35;
+  *a7 = v33;
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of KdpSetCommonState @ 0x14033F15C
+ * XREFs of KdpSetCommonState @ 0x14033F3EC
  * Callers:
  *     KdpReportLoadSymbolsStateChange @ 0x140AB0694 (KdpReportLoadSymbolsStateChange.c)
  *     KdpReportExceptionStateChange @ 0x140AB163C (KdpReportExceptionStateChange.c)

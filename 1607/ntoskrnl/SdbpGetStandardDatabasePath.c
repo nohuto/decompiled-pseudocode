@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpGetStandardDatabasePath @ 0x1406C4894
+ * XREFs of SdbpGetStandardDatabasePath @ 0x1406C49CC
  * Callers:
- *     SdbResolveDatabase @ 0x1406C44AC (SdbResolveDatabase.c)
+ *     SdbResolveDatabase @ 0x1406C45E4 (SdbResolveDatabase.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SdbGetAppPatchDirEx @ 0x1406C440C (SdbGetAppPatchDirEx.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SdbGetAppPatchDirEx @ 0x1406C4544 (SdbGetAppPatchDirEx.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetStandardDatabasePath(__int64 a1, int a2, __int64 a3, wchar_t *a4, int a5)
@@ -49,8 +49,7 @@ __int64 __fastcall SdbpGetStandardDatabasePath(__int64 a1, int a2, __int64 a3, w
           1,
           (unsigned int)"SdbpGetStandardDatabasePath",
           989,
-          (unsigned int)"Cannot get the path for database type 0x%lx",
-          a2);
+          (unsigned int)"Cannot get the path for database type 0x%lx");
         return 0LL;
     }
   }

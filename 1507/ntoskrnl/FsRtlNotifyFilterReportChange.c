@@ -42,7 +42,7 @@ void __stdcall FsRtlNotifyFilterReportChange(
   struct _KTHREAD *v14; // r14
   __int64 v15; // rax
   __int64 v16; // rbx
-  struct _LIST_ENTRY *Flink; // rcx
+  _LIST_ENTRY *Flink; // rcx
   __int64 v18; // rsi
   char v19; // r11
   char v20; // bl
@@ -97,24 +97,24 @@ void __stdcall FsRtlNotifyFilterReportChange(
   int v69; // [rsp+50h] [rbp-E8h]
   ULONG Amount; // [rsp+54h] [rbp-E4h]
   ULONG_PTR Amount_4; // [rsp+58h] [rbp-E0h]
-  STRING OemString; // [rsp+60h] [rbp-D8h] BYREF
+  OEM_STRING OemString; // [rsp+60h] [rbp-D8h] BYREF
   int Length; // [rsp+70h] [rbp-C8h]
   _DWORD *v74; // [rsp+78h] [rbp-C0h]
-  STRING v75; // [rsp+80h] [rbp-B8h] BYREF
+  OEM_STRING v75; // [rsp+80h] [rbp-B8h] BYREF
   int v76; // [rsp+90h] [rbp-A8h]
   int v77; // [rsp+94h] [rbp-A4h]
   unsigned int v78; // [rsp+98h] [rbp-A0h]
   USHORT v79; // [rsp+A0h] [rbp-98h]
   _BYTE v80[14]; // [rsp+A2h] [rbp-96h] BYREF
   ULONG pulResult[2]; // [rsp+B0h] [rbp-88h] BYREF
-  struct _LIST_ENTRY *v82; // [rsp+B8h] [rbp-80h]
+  _LIST_ENTRY *v82; // [rsp+B8h] [rbp-80h]
   _QWORD *v83; // [rsp+C0h] [rbp-78h]
-  struct _LIST_ENTRY *v84; // [rsp+C8h] [rbp-70h]
+  _LIST_ENTRY *v84; // [rsp+C8h] [rbp-70h]
   _WORD v85[4]; // [rsp+D0h] [rbp-68h] BYREF
   char *Buffer; // [rsp+D8h] [rbp-60h]
   _QWORD *v87; // [rsp+E0h] [rbp-58h]
   NTSTATUS v88; // [rsp+ECh] [rbp-4Ch]
-  struct _LIST_ENTRY *v89; // [rsp+148h] [rbp+10h]
+  _LIST_ENTRY *v89; // [rsp+148h] [rbp+10h]
 
   v89 = NotifyList;
   v10 = TargetNameOffset;
@@ -181,7 +181,7 @@ void __stdcall FsRtlNotifyFilterReportChange(
           v85[1] = v22;
           v21 = (PSTRING)v85;
           NormalizedParentName = (PSTRING)v85;
-          Flink = (struct _LIST_ENTRY *)Amount_4;
+          Flink = (_LIST_ENTRY *)Amount_4;
         }
         v24 = *(__int16 **)(v18 + 136);
         v25 = *v24;
@@ -206,7 +206,7 @@ LABEL_139:
           if ( !v28 )
           {
 LABEL_138:
-            Flink = (struct _LIST_ENTRY *)Amount_4;
+            Flink = (_LIST_ENTRY *)Amount_4;
             goto LABEL_139;
           }
         }

@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgUiContinue @ 0x1800CC7B0
+ * XREFs of DbgUiContinue @ 0x1800CC770
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 DbgUiContinue()
+NTSTATUS __cdecl DbgUiContinue(PCLIENT_ID AppClientId, NTSTATUS ContinueStatus)
 {
-  return NtDebugContinue();
+  return NtDebugContinue(NtCurrentTeb()->DbgSsReserved[1], AppClientId, ContinueStatus);
 }

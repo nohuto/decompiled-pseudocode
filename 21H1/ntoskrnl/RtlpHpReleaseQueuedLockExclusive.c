@@ -36,7 +36,7 @@ __int64 __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
   unsigned int v11; // edx
   bool v12; // zf
   __int64 v13; // rcx
-  unsigned __int64 v14; // r14
+  __int64 v14; // r14
   __int64 v15; // rdx
   __int64 v16; // rdx
   __int64 v17; // rcx
@@ -109,7 +109,7 @@ __int64 __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
       goto LABEL_28;
     while ( 1 )
     {
-      v14 = (unsigned __int64)&CurrentThread->LockEntries[v13];
+      v14 = (__int64)&CurrentThread->LockEntries[v13];
       v11 &= ~(1 << v13);
       if ( (*(_BYTE *)(v14 + 26) & 1) != 0
         && (*(_DWORD *)(v14 + 32) & 1) == 0
@@ -134,12 +134,12 @@ LABEL_28:
     {
       *(_BYTE *)(v14 + 32) |= 2u;
       if ( *(__int64 *)(v14 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v14);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v14);
       v25 = *(_DWORD *)(v14 + 88) & 0x1FFFF;
       *(_DWORD *)(v14 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v14 + 25) &= ~1u;
       *(_QWORD *)(v14 + 32) = 0LL;
-      v15 = (__int64)(v14 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+      v15 = (signed __int64)(v14 - (unsigned __int64)CurrentThread->LockEntries) / 96;
       if ( v10 == 1 )
         CurrentThread->AbEntrySummary |= 1 << v15;
       else

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFindNextForwardRunClearEx @ 0x140463DC0
+ * XREFs of RtlFindNextForwardRunClearEx @ 0x1404641C0
  * Callers:
- *     MmQueryMemoryRanges @ 0x14085D580 (MmQueryMemoryRanges.c)
- *     MiDeleteAweInfoPages @ 0x140A41A90 (MiDeleteAweInfoPages.c)
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A9BF90 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
- *     IopLiveDumpPopulateBitmapForDump @ 0x140A9C160 (IopLiveDumpPopulateBitmapForDump.c)
+ *     MmQueryMemoryRanges @ 0x14085D7C0 (MmQueryMemoryRanges.c)
+ *     MiDeleteAweInfoPages @ 0x140A41D40 (MiDeleteAweInfoPages.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A9BE00 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140A9BFD0 (IopLiveDumpPopulateBitmapForDump.c)
  * Callees:
  *     <none>
  */

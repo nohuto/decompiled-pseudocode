@@ -1,24 +1,24 @@
 /*
- * XREFs of MiSetPageProtection @ 0x1404EB458
+ * XREFs of MiSetPageProtection @ 0x1404E4A38
  * Callers:
- *     MmSetPageProtection @ 0x1405096F0 (MmSetPageProtection.c)
- *     MmAllocateIsrStack @ 0x140875DEC (MmAllocateIsrStack.c)
+ *     MmSetPageProtection @ 0x1405031A0 (MmSetPageProtection.c)
+ *     MmAllocateIsrStack @ 0x14087C1D0 (MmAllocateIsrStack.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiLockPageAndSetDirty @ 0x14031A7E4 (MiLockPageAndSetDirty.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiMarkKernelStack @ 0x1403D1CF4 (MiMarkKernelStack.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiLockPageAndSetDirty @ 0x14031C814 (MiLockPageAndSetDirty.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiMarkKernelStack @ 0x1403D4CC4 (MiMarkKernelStack.c)
  */
 
 void __fastcall MiSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -97,7 +97,7 @@ void __fastcall MiSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, in
       }
       else
       {
-        MiLockPageAndSetDirty(v18, 0);
+        MiLockPageAndSetDirty(v18, 0, 0xFFF0000000000FFFuLL);
       }
       ValidPte = v15 | 0x20;
       if ( ValidPte != v13 )

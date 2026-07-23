@@ -1,22 +1,22 @@
 /*
- * XREFs of MiVerifyLargeSectionLayout @ 0x140A67EDC
+ * XREFs of MiVerifyLargeSectionLayout @ 0x140A68EDC
  * Callers:
- *     MiCheckLargePageOk @ 0x140A67C78 (MiCheckLargePageOk.c)
+ *     MiCheckLargePageOk @ 0x140A68C78 (MiCheckLargePageOk.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR *__fastcall MiVerifyLargeSectionLayout(ULONG_PTR BugCheckParameter2)
 {
-  __int64 v2; // rax
+  PIMAGE_NT_HEADERS v2; // rax
   unsigned int v3; // edx
   ULONG_PTR *v4; // r9
   unsigned int v5; // ebp
   int v6; // r10d
-  __int64 v7; // rdi
-  int v8; // r11d
+  PIMAGE_NT_HEADERS v7; // rdi
+  int NumberOfSections; // r11d
   int v9; // r11d
   int v10; // ecx
   unsigned int v11; // edx
@@ -28,18 +28,18 @@ ULONG_PTR *__fastcall MiVerifyLargeSectionLayout(ULONG_PTR BugCheckParameter2)
 
   *(_OWORD *)BugCheckParameter3 = 0LL;
   memset(v16, 0, sizeof(v16));
-  v2 = RtlImageNtHeader(BugCheckParameter2);
+  v2 = RtlImageNtHeader((PVOID)BugCheckParameter2);
   v3 = 0;
   v4 = BugCheckParameter3;
   v5 = 0x40000000;
   v6 = 0;
   v7 = v2;
-  v8 = *(unsigned __int16 *)(v2 + 6);
+  NumberOfSections = v2->FileHeader.NumberOfSections;
   BugCheckParameter3[1] = 0LL;
   *(_OWORD *)&v16[4] = 0LL;
   *(_DWORD *)&v16[20] = 0x40000000;
-  v9 = v8 + 1;
-  LODWORD(BugCheckParameter3[1]) = *(_DWORD *)(v2 + 84);
+  v9 = NumberOfSections + 1;
+  LODWORD(BugCheckParameter3[1]) = v2->OptionalHeader.SizeOfHeaders;
   *(_DWORD *)v16 = BugCheckParameter3[1];
   do
   {
@@ -72,8 +72,8 @@ ULONG_PTR *__fastcall MiVerifyLargeSectionLayout(ULONG_PTR BugCheckParameter2)
     result = BugCheckParameter3;
     if ( v4 == BugCheckParameter3 )
     {
-      result = (ULONG_PTR *)*(unsigned __int16 *)(v7 + 20);
-      v4 = (ULONG_PTR *)((char *)result + v7 + 24);
+      result = (ULONG_PTR *)v7->FileHeader.SizeOfOptionalHeader;
+      v4 = (ULONG_PTR *)((char *)&v7->OptionalHeader.Magic + (_QWORD)result);
     }
     else
     {

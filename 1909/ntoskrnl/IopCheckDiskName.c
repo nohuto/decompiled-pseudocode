@@ -11,7 +11,7 @@
 char __fastcall IopCheckDiskName(const STRING *a1, const STRING *a2, ULONG *a3)
 {
   char v6; // bl
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   *a3 = 0;
   *(_QWORD *)&DestinationString.Length = 0LL;

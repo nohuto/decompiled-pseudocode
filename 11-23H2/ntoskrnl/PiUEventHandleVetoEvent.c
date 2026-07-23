@@ -1,22 +1,22 @@
 /*
- * XREFs of PiUEventHandleVetoEvent @ 0x140882948
+ * XREFs of PiUEventHandleVetoEvent @ 0x140882B88
  * Callers:
- *     PiUEventHandleIoctl @ 0x14077F26C (PiUEventHandleIoctl.c)
+ *     PiUEventHandleIoctl @ 0x14077F45C (PiUEventHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     PsGetProcessImageFileName @ 0x14034E4F0 (PsGetProcessImageFileName.c)
- *     PsLookupProcessByProcessId @ 0x1406FA370 (PsLookupProcessByProcessId.c)
- *     PsGetAllocatedFullProcessImageName @ 0x1407427A8 (PsGetAllocatedFullProcessImageName.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
- *     PiUEventDequeuePendingEventWorker @ 0x14078207C (PiUEventDequeuePendingEventWorker.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     RtlStringCchCopyNW @ 0x1402F815C (RtlStringCchCopyNW.c)
+ *     PsGetProcessImageFileName @ 0x14034E690 (PsGetProcessImageFileName.c)
+ *     PsLookupProcessByProcessId @ 0x1406FA580 (PsLookupProcessByProcessId.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x140742998 (PsGetAllocatedFullProcessImageName.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14078226C (PiUEventDequeuePendingEventWorker.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -35,7 +35,7 @@ __int64 __fastcall PiUEventHandleVetoEvent(__int64 a1, __int64 *a2, int a3, __in
   _DWORD *v15; // rdx
   __int64 v16; // rax
   NTSTATUS v17; // eax
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   __int16 v19; // r11
   PVOID P; // [rsp+20h] [rbp-30h] BYREF
   STRING DestinationString; // [rsp+28h] [rbp-28h] BYREF
@@ -91,7 +91,7 @@ LABEL_7:
                   AllocatedFullProcessImageName < 0) )
             {
               v8 = &v22;
-              RtlInitUnicodeString(&v22, &word_140887DD0);
+              RtlInitUnicodeString(&v22, &word_140888010);
               AllocatedFullProcessImageName = 0;
             }
             else
@@ -103,7 +103,7 @@ LABEL_7:
                 DestinationString = 0LL;
                 ExFreePoolWithTag(P, 0);
                 v8 = &v22;
-                ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)v7);
+                ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)v7);
                 RtlInitAnsiString(&DestinationString, ProcessImageFileName);
                 RtlAnsiStringToUnicodeString(&v22, &DestinationString, 1u);
               }

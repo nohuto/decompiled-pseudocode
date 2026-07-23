@@ -1,8 +1,8 @@
 /*
- * XREFs of CcSetLazyWriteScanQueued @ 0x14006E9FC
+ * XREFs of CcSetLazyWriteScanQueued @ 0x14006E57C
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
- *     CcQueueLazyWriteScanThread @ 0x14013FDAC (CcQueueLazyWriteScanThread.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
+ *     CcQueueLazyWriteScanThread @ 0x14014031C (CcQueueLazyWriteScanThread.c)
  * Callees:
  *     <none>
  */
@@ -27,25 +27,25 @@ void __fastcall CcSetLazyWriteScanQueued(int a1, char a2)
         if ( v5 )
         {
           if ( v5 == 8 )
-            byte_1403231C6 = a2;
+            byte_1403231E6 = a2;
         }
         else
         {
-          byte_1403231C2 = a2;
+          byte_1403231E2 = a2;
         }
       }
       else
       {
-        byte_1403231C3 = a2;
+        byte_1403231E3 = a2;
       }
     }
     else
     {
-      byte_1403231C5 = a2;
+      byte_1403231E5 = a2;
     }
   }
   else
   {
-    byte_1403231C4 = a2;
+    byte_1403231E4 = a2;
   }
 }

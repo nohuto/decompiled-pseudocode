@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPlInitDevices @ 0x1408F9778
+ * XREFs of PopPlInitDevices @ 0x1408F98D8
  * Callers:
- *     PopPlInitPowerPlane @ 0x1408F98F4 (PopPlInitPowerPlane.c)
+ *     PopPlInitPowerPlane @ 0x1408F9A54 (PopPlInitPowerPlane.c)
  * Callees:
- *     PopPlInitDevice @ 0x1408F965C (PopPlInitDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PopPlInitDevice @ 0x1408F97BC (PopPlInitDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitDevices(

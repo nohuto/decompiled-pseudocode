@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkSendSystemDllMessages @ 0x140939F18
+ * XREFs of DbgkSendSystemDllMessages @ 0x1408F541C
  * Callers:
- *     DbgkCreateThread @ 0x1408FED24 (DbgkCreateThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x140939BE0 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpPostFakeThreadMessages @ 0x1408F50E4 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkCreateThread @ 0x140921604 (DbgkCreateThread.c)
  * Callees:
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsQuerySystemDllInfo @ 0x1408FB0A8 (PsQuerySystemDllInfo.c)
- *     PsWow64GetProcessNtdllType @ 0x140908828 (PsWow64GetProcessNtdllType.c)
- *     DbgkpQueueMessage @ 0x140939080 (DbgkpQueueMessage.c)
- *     DbgkpSendApiMessage @ 0x14093A238 (DbgkpSendApiMessage.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsWow64GetProcessNtdllType @ 0x1408DFF44 (PsWow64GetProcessNtdllType.c)
+ *     DbgkpQueueMessage @ 0x1408F3750 (DbgkpQueueMessage.c)
+ *     PsQuerySystemDllInfo @ 0x14091D988 (PsQuerySystemDllInfo.c)
+ *     DbgkpSendApiMessage @ 0x140A5A2C0 (DbgkpSendApiMessage.c)
  */
 
 int __fastcall DbgkSendSystemDllMessages(char *a1, struct _KEVENT *a2, _DWORD *a3)
@@ -24,17 +24,19 @@ int __fastcall DbgkSendSystemDllMessages(char *a1, struct _KEVENT *a2, _DWORD *a
   _DWORD *v7; // rdi
   int i; // esi
   struct _KTHREAD *v9; // rdx
-  unsigned __int64 SListFaultAddress; // rbx
-  unsigned __int64 v11; // rax
-  struct _KTHREAD *v12; // rcx
-  char v14; // [rsp+30h] [rbp-F8h]
+  void *SListFaultAddress; // rbx
+  PIMAGE_NT_HEADERS v11; // rax
+  __int64 v12; // r8
+  __int64 v13; // r9
+  struct _KTHREAD *v14; // rcx
+  char v16; // [rsp+30h] [rbp-F8h]
   wchar_t *Teb; // [rsp+38h] [rbp-F0h]
-  struct _KTHREAD *v16; // [rsp+48h] [rbp-E0h]
+  struct _KTHREAD *v18; // [rsp+48h] [rbp-E0h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-B0h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-80h] BYREF
-  _BYTE v20[48]; // [rsp+B8h] [rbp-70h] BYREF
+  _BYTE v22[48]; // [rsp+B8h] [rbp-70h] BYREF
 
-  memset(v20, 0, sizeof(v20));
+  memset(v22, 0, sizeof(v22));
   IoStatusBlock = 0LL;
   LODWORD(CurrentThread) = 0;
   memset(&ObjectAttributes, 0, 44);
@@ -50,9 +52,9 @@ int __fastcall DbgkSendSystemDllMessages(char *a1, struct _KEVENT *a2, _DWORD *a
   v7 = a3 + 12;
   for ( i = 0; i < 6; ++i )
   {
-    CurrentThread = (struct _KTHREAD *)PsQuerySystemDllInfo(i);
+    CurrentThread = (struct _KTHREAD *)PsQuerySystemDllInfo((unsigned int)i);
     v9 = CurrentThread;
-    v16 = CurrentThread;
+    v18 = CurrentThread;
     if ( CurrentThread )
     {
       if ( i <= 0
@@ -63,43 +65,43 @@ int __fastcall DbgkSendSystemDllMessages(char *a1, struct _KEVENT *a2, _DWORD *a
         *(_OWORD *)v7 = 0LL;
         *((_OWORD *)v7 + 1) = 0LL;
         Teb = 0LL;
-        SListFaultAddress = (unsigned __int64)v9->SListFaultAddress;
+        SListFaultAddress = v9->SListFaultAddress;
         *((_QWORD *)v7 + 1) = SListFaultAddress;
         if ( a1 && i )
         {
-          v14 = 1;
-          KiStackAttachProcess(Process, 0, (__int64)v20);
+          v16 = 1;
+          KiStackAttachProcess(Process, 0, (__int64)v22);
         }
         else
         {
-          v14 = 0;
+          v16 = 0;
         }
         v11 = RtlImageNtHeader(SListFaultAddress);
         if ( v11 )
         {
-          v7[4] = *(_DWORD *)(v11 + 12);
-          v7[5] = *(_DWORD *)(v11 + 16);
+          v7[4] = v11->FileHeader.PointerToSymbolTable;
+          v7[5] = v11->FileHeader.NumberOfSymbols;
         }
         if ( !a1 )
         {
-          v12 = KeGetCurrentThread();
-          if ( (v12->MiscFlags & 0x400) != 0 || v12->ApcStateIndex == 1 )
+          v14 = KeGetCurrentThread();
+          if ( (v14->MiscFlags & 0x400) != 0 || v14->ApcStateIndex == 1 )
             Teb = 0LL;
           else
-            Teb = (wchar_t *)v12->Teb;
+            Teb = (wchar_t *)v14->Teb;
           if ( Teb )
           {
-            RtlStringCbCopyW(Teb + 2356, 0x20AuLL, (NTSTRSAFE_PCWSTR)v16->InitialStack);
+            RtlStringCbCopyW(Teb + 2356, 0x20AuLL, (NTSTRSAFE_PCWSTR)v18->InitialStack);
             *((_QWORD *)Teb + 5) = Teb + 2356;
             *((_QWORD *)v7 + 3) = Teb + 20;
           }
         }
-        if ( v14 )
-          KiUnstackDetachProcess((__int64)v20, 0);
+        if ( v16 )
+          KiUnstackDetachProcess((__int64)v22, 0, v12, v13);
         ObjectAttributes.Length = 48;
         ObjectAttributes.RootDirectory = 0LL;
         ObjectAttributes.Attributes = 1600;
-        ObjectAttributes.ObjectName = (PUNICODE_STRING)&v16->Header.WaitListHead;
+        ObjectAttributes.ObjectName = (PUNICODE_STRING)&v18->Header.WaitListHead;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
         if ( ZwOpenFile((PHANDLE)v7, 0x80100000, &ObjectAttributes, &IoStatusBlock, 7u, 0x20u) < 0 )
           *(_QWORD *)v7 = 0LL;

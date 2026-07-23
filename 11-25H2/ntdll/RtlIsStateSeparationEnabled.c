@@ -6,7 +6,7 @@
  *     <none>
  */
 
-char RtlIsStateSeparationEnabled()
+BOOLEAN RtlIsStateSeparationEnabled(void)
 {
   _DWORD *SharedData; // rax
 

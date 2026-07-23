@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpAutoCompleteLanguageFallback @ 0x1800EFB1C
+ * XREFs of RtlpAutoCompleteLanguageFallback @ 0x1800EFADC
  * Callers:
- *     RtlpSetPreferredUILanguages @ 0x1800F1270 (RtlpSetPreferredUILanguages.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800F1230 (RtlpSetPreferredUILanguages.c)
  * Callees:
  *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18003AA98 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     RtlpGetCompleteLanguageFallback @ 0x1800F060C (RtlpGetCompleteLanguageFallback.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180104BCC (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlpGetCompleteLanguageFallback @ 0x1800F05CC (RtlpGetCompleteLanguageFallback.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180104B8C (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  */
 
 __int64 __fastcall RtlpAutoCompleteLanguageFallback(__int64 a1, const WCHAR *a2)

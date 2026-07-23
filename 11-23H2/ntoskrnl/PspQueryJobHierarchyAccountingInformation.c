@@ -3,11 +3,11 @@
  * Callers:
  *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     PsAddProcessEnergyValues @ 0x1402C08A8 (PsAddProcessEnergyValues.c)
- *     KeQuerySchedulingGroupReadyTime @ 0x140362CF8 (KeQuerySchedulingGroupReadyTime.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     PsAddProcessEnergyValues @ 0x1402C0B38 (PsAddProcessEnergyValues.c)
+ *     KeQuerySchedulingGroupReadyTime @ 0x140362E98 (KeQuerySchedulingGroupReadyTime.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PspUnlockJobConditionally @ 0x1406A30A0 (PspUnlockJobConditionally.c)
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
  *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)

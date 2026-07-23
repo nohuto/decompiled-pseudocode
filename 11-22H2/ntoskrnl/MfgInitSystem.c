@@ -31,7 +31,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
   UNICODE_STRING ValueName; // [rsp+A0h] [rbp-68h] BYREF
   WCHAR pszDest[256]; // [rsp+B8h] [rbp-50h] BYREF
 
-  qword_140C31B10 = 0LL;
+  Data = 0LL;
   ExpManufacturingInformation = 0LL;
   v1 = *(_QWORD *)(a1 + 240);
   inited = 0;
@@ -48,7 +48,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     return (unsigned int)-1073741811;
   DWORD2(ExpManufacturingInformation) = *(_DWORD *)(v1 + 2840);
   Pool2 = (void *)ExAllocatePool2(256LL, WORD5(ExpManufacturingInformation), 0x5067664Du);
-  qword_140C31B10 = Pool2;
+  Data = Pool2;
   if ( Pool2 )
   {
     inited = RtlStringCbCopyW(
@@ -87,7 +87,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     ZwClose(Handle);
     LODWORD(ExpManufacturingInformation) = ExpManufacturingInformation | 1;
     RtlInitUnicodeStringEx(&ValueName, L"LastProfile");
-    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, qword_140C31B10, WORD5(ExpManufacturingInformation));
+    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, Data, WORD5(ExpManufacturingInformation));
     if ( inited < 0 )
       goto LABEL_22;
     inited = RtlInitUnicodeStringEx(&DestinationString, L"Current");

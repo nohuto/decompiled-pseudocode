@@ -28,33 +28,33 @@
  *     sub_180028724 @ 0x180028724 (sub_180028724.c)
  */
 
-__int64 __fastcall sub_1800259B4(int a1)
+void __fastcall sub_1800259B4(int a1)
 {
   int v2; // edi
 
-  RtlAcquireSRWLockExclusive(&qword_18015BF98);
-  v2 = dword_18016F3B0;
+  RtlAcquireSRWLockExclusive(&stru_18015BF98);
+  v2 = LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1];
   if ( a1 )
   {
-    if ( !dword_18016F3B0 )
+    if ( !LODWORD(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) )
     {
-      RtlReleaseSRWLockExclusive(&qword_18015BF98);
+      RtlReleaseSRWLockExclusive(&stru_18015BF98);
       __fastfail(0xEu);
     }
-    --dword_18016F3B0;
+    --LODWORD(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]);
     if ( v2 == 1 )
       sub_180028724(2LL);
   }
   else
   {
-    if ( !dword_18016F3B0 )
+    if ( !LODWORD(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) )
       sub_180028724(4LL);
     if ( v2 == -1 )
     {
-      RtlReleaseSRWLockExclusive(&qword_18015BF98);
+      RtlReleaseSRWLockExclusive(&stru_18015BF98);
       __fastfail(0xEu);
     }
-    dword_18016F3B0 = v2 + 1;
+    LODWORD(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) = v2 + 1;
   }
-  return RtlReleaseSRWLockExclusive(&qword_18015BF98);
+  RtlReleaseSRWLockExclusive(&stru_18015BF98);
 }

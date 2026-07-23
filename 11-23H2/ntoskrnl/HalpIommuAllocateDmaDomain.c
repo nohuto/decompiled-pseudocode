@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpIommuAllocateDmaDomain @ 0x1403A98AC
+ * XREFs of HalpIommuAllocateDmaDomain @ 0x1403A9A8C
  * Callers:
- *     HalpIommuInitializeDmar @ 0x1403A959C (HalpIommuInitializeDmar.c)
- *     IommuDomainCreateEx @ 0x140850BC0 (IommuDomainCreateEx.c)
- *     IommuDomainCreate @ 0x140935690 (IommuDomainCreate.c)
+ *     HalpIommuInitializeDmar @ 0x1403A977C (HalpIommuInitializeDmar.c)
+ *     IommuDomainCreateEx @ 0x140850EC0 (IommuDomainCreateEx.c)
+ *     IommuDomainCreate @ 0x140935890 (IommuDomainCreate.c)
  * Callees:
- *     HalpIommuGetPageTableType @ 0x14037FE50 (HalpIommuGetPageTableType.c)
- *     HalpIommuCreateDmarPageTable @ 0x14037FEA8 (HalpIommuCreateDmarPageTable.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x14040F968 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpIommuDomainMapLogicalRange @ 0x140517D84 (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x140517EA8 (HalpIommuDomainUnmapLogicalRange.c)
- *     HalpIommuFreeDmaDomain @ 0x140518130 (HalpIommuFreeDmaDomain.c)
- *     HalpBuddyAllocatorCreateAllocator @ 0x14053242C (HalpBuddyAllocatorCreateAllocator.c)
+ *     HalpIommuGetPageTableType @ 0x14037FFF0 (HalpIommuGetPageTableType.c)
+ *     HalpIommuCreateDmarPageTable @ 0x140380048 (HalpIommuCreateDmarPageTable.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x14040FB48 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1405182D4 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1405183F8 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuFreeDmaDomain @ 0x140518680 (HalpIommuFreeDmaDomain.c)
+ *     HalpBuddyAllocatorCreateAllocator @ 0x14053297C (HalpBuddyAllocatorCreateAllocator.c)
  */
 
 __int64 __fastcall HalpIommuAllocateDmaDomain(__int64 a1, __int64 a2, _DWORD *a3, __int64 *a4, _QWORD *a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSqmAddToStream @ 0x1404E2894
+ * XREFs of PopSqmAddToStream @ 0x1404DBF74
  * Callers:
- *     PopSqmBatteryUpdate @ 0x1409465DC (PopSqmBatteryUpdate.c)
+ *     PopSqmBatteryUpdate @ 0x1409C1F4C (PopSqmBatteryUpdate.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS __fastcall PopSqmAddToStream(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -37,13 +37,13 @@ NTSTATUS __fastcall PopSqmAddToStream(__int64 a1, __int64 a2, __int64 a3, __int6
   v18 = 4;
   result = (unsigned int)memset_0(v26, 0, sizeof(v26));
   v16 = 11;
-  if ( byte_140E67628 && a4 )
+  if ( PopDiagHandleRegistered && a4 )
   {
     *(_QWORD *)&UserData.Size = 4LL;
     UserData.Ptr = (ULONGLONG)&v16;
     v6 = (const wchar_t **)(a4 + 8);
     v21 = 16LL;
-    v20 = qword_140021D88;
+    v20 = qword_140021558;
     v7 = 0;
     v23 = 4LL;
     v22 = &v17;
@@ -53,7 +53,7 @@ NTSTATUS __fastcall PopSqmAddToStream(__int64 a1, __int64 a2, __int64 a3, __int6
     {
       v8 = 3 * v7;
       v9 = *((_DWORD *)v6 - 2);
-      v10 = &dword_140021D84;
+      v10 = &dword_140021554;
       if ( v9 == 1 )
         v10 = (int *)v6;
       *(&UserData.Ptr + 2 * (unsigned int)(v8 + 4)) = (ULONGLONG)(v6 - 1);
@@ -84,15 +84,7 @@ NTSTATUS __fastcall PopSqmAddToStream(__int64 a1, __int64 a2, __int64 a3, __int6
       *(&UserData.Reserved + 2 * v15) = 0;
     }
     while ( v7 < 4 );
-    return EtwWriteEx(
-             *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-             &PopSqm_Add_StreamRow,
-             0LL,
-             0,
-             0LL,
-             0LL,
-             0x1Fu,
-             &UserData);
+    return EtwWriteEx(PopDiagHandle, &PopSqm_Add_StreamRow, 0LL, 0, 0LL, 0LL, 0x1Fu, &UserData);
   }
   return result;
 }

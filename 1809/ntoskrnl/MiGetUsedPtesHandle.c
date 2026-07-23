@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetUsedPtesHandle @ 0x140098700
+ * XREFs of MiGetUsedPtesHandle @ 0x140098640
  * Callers:
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
- *     MiSplitPrivatePage @ 0x140083B70 (MiSplitPrivatePage.c)
- *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
- *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
- *     MiUpdatePageTableUseCount @ 0x14010FBF8 (MiUpdatePageTableUseCount.c)
- *     MiInsertPhysicalPteMapping @ 0x14010FE80 (MiInsertPhysicalPteMapping.c)
- *     MiUpdatePrivateDemandZeroView @ 0x1402A5BB8 (MiUpdatePrivateDemandZeroView.c)
- *     MiDeleteAwePageTable @ 0x1402B0234 (MiDeleteAwePageTable.c)
- *     MiUpdateAwePageTable @ 0x1402B2148 (MiUpdateAwePageTable.c)
- *     MiCommitHotPatchTable @ 0x1402B93A0 (MiCommitHotPatchTable.c)
- *     MiDeleteLargeUserPde @ 0x1402C74C0 (MiDeleteLargeUserPde.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiProtectPrivateMemory @ 0x140070DB0 (MiProtectPrivateMemory.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiReservePageFileSpaceForPage @ 0x1400817F0 (MiReservePageFileSpaceForPage.c)
+ *     MiSplitPrivatePage @ 0x140083B60 (MiSplitPrivatePage.c)
+ *     MiEvictPageTableLock @ 0x1400982E0 (MiEvictPageTableLock.c)
+ *     MiInPagePageTable @ 0x140098720 (MiInPagePageTable.c)
+ *     MiUpdatePageTableUseCount @ 0x14010FC78 (MiUpdatePageTableUseCount.c)
+ *     MiInsertPhysicalPteMapping @ 0x14010FF00 (MiInsertPhysicalPteMapping.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x1402A5DA8 (MiUpdatePrivateDemandZeroView.c)
+ *     MiDeleteAwePageTable @ 0x1402B0424 (MiDeleteAwePageTable.c)
+ *     MiUpdateAwePageTable @ 0x1402B2338 (MiUpdateAwePageTable.c)
+ *     MiCommitHotPatchTable @ 0x1402B9590 (MiCommitHotPatchTable.c)
+ *     MiDeleteLargeUserPde @ 0x1402C76B0 (MiDeleteLargeUserPde.c)
  * Callees:
  *     <none>
  */

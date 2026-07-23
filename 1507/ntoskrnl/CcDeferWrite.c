@@ -21,7 +21,7 @@ void __stdcall CcDeferWrite(
         BOOLEAN Retrying)
 {
   char *PoolWithTag; // rax
-  struct _LIST_ENTRY *v11; // rdx
+  _LIST_ENTRY *v11; // rdx
   __int64 v12; // rcx
   KIRQL v13; // bl
 
@@ -35,7 +35,7 @@ void __stdcall CcDeferWrite(
     *((_QWORD *)PoolWithTag + 6) = PostRoutine;
     *((_QWORD *)PoolWithTag + 7) = Context1;
     *((_QWORD *)PoolWithTag + 8) = Context2;
-    v11 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
+    v11 = (_LIST_ENTRY *)(PoolWithTag + 24);
     if ( Retrying )
       ExInterlockedInsertHeadList(&CcDeferredWrites, v11, &CcDeferredWriteSpinLock);
     else

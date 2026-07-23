@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlFastCheckLockForWrite @ 0x14024C900
+ * XREFs of FsRtlFastCheckLockForWrite @ 0x14027CF10
  * Callers:
- *     FsRtlCheckLockForWriteAccess @ 0x1403DB780 (FsRtlCheckLockForWriteAccess.c)
+ *     FsRtlCheckLockForWriteAccess @ 0x1403CCA50 (FsRtlCheckLockForWriteAccess.c)
  * Callees:
- *     FsRtlCheckNoExclusiveConflict @ 0x1402479FC (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlCheckNoSharedConflict @ 0x14024B1C0 (FsRtlCheckNoSharedConflict.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     FsRtlCheckNoSharedConflict @ 0x14027B7D0 (FsRtlCheckNoSharedConflict.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x1402E1DD0 (FsRtlCheckNoExclusiveConflict.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
@@ -26,8 +26,8 @@ BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
   _RTL_SPLAY_LINKS *v11; // r14
   unsigned __int64 v12; // rsi
   __int64 v13; // rdx
-  _RTL_SPLAY_LINKS *v15; // r13
-  _RTL_SPLAY_LINKS *v16; // r15
+  PVOID v15; // r13
+  PVOID v16; // r15
   __int64 v17; // rax
   BOOLEAN v18; // bl
   BOOLEAN v19; // al
@@ -57,8 +57,8 @@ BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
     __writecr8(v12);
     return 1;
   }
-  v15 = (_RTL_SPLAY_LINKS *)FileObject;
-  v16 = (_RTL_SPLAY_LINKS *)ProcessId;
+  v15 = FileObject;
+  v16 = ProcessId;
   v17 = *((_QWORD *)FileObject + 15);
   if ( v17
     && (unsigned __int64)v9 >= *(_QWORD *)v17
@@ -73,7 +73,13 @@ BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
   {
     v19 = FsRtlCheckNoSharedConflict((__int64)(LockInformation + 3), v20, &v21);
     if ( v19 == 1 )
-      v19 = FsRtlCheckNoExclusiveConflict((__int64)v10, v20, &v21, Key, v15, v16);
+      v19 = FsRtlCheckNoExclusiveConflict(
+              (_DWORD)v10,
+              (unsigned int)v20,
+              (unsigned int)&v21,
+              Key,
+              (__int64)v15,
+              (__int64)v16);
     v18 = v19;
   }
   KeReleaseSpinLock(v10, v12);

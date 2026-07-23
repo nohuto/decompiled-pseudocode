@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpCompareLogSequenceNumbers @ 0x140862A6C
+ * XREFs of HvpCompareLogSequenceNumbers @ 0x140868E4C
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140ADF748 (HvAnalyzeLogFiles.c)
- *     HvpDetermineLogFileApplicationOrder @ 0x140ADFFB0 (HvpDetermineLogFileApplicationOrder.c)
+ *     HvAnalyzeLogFiles @ 0x140ADCF88 (HvAnalyzeLogFiles.c)
+ *     HvpDetermineLogFileApplicationOrder @ 0x140ADD7F0 (HvpDetermineLogFileApplicationOrder.c)
  * Callees:
  *     <none>
  */

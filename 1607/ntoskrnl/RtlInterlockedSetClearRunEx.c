@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInterlockedSetClearRunEx @ 0x1400DF920
+ * XREFs of RtlInterlockedSetClearRunEx @ 0x1400DD7C0
  * Callers:
- *     MiReplenishBitMap @ 0x140089320 (MiReplenishBitMap.c)
- *     MiAttemptCoalesce @ 0x1400C06A0 (MiAttemptCoalesce.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
+ *     MiReplenishBitMap @ 0x140088A20 (MiReplenishBitMap.c)
+ *     MiAttemptCoalesce @ 0x1400BE530 (MiAttemptCoalesce.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
  * Callees:
  *     <none>
  */

@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpQueryMaximumRegisteredProcessorCount @ 0x140377060
+ * XREFs of HalpQueryMaximumRegisteredProcessorCount @ 0x140377200
  * Callers:
- *     HalEnumerateProcessors @ 0x140376090 (HalEnumerateProcessors.c)
- *     HalpInterruptGetNextProcessorLocalId @ 0x140376958 (HalpInterruptGetNextProcessorLocalId.c)
- *     HalStartNextProcessor @ 0x140376AB0 (HalStartNextProcessor.c)
- *     HalpTimerSelectRoles @ 0x14037A2AC (HalpTimerSelectRoles.c)
- *     HalpTscReserveResources @ 0x1403B1D48 (HalpTscReserveResources.c)
- *     HalStartDynamicProcessor @ 0x140504BF0 (HalStartDynamicProcessor.c)
- *     HalpHvInitMcaStatusMsrCache @ 0x14050B480 (HalpHvInitMcaStatusMsrCache.c)
- *     EmonAllocateResources @ 0x14051CD7C (EmonAllocateResources.c)
- *     HalpTscReportSyncStatus @ 0x140861AF4 (HalpTscReportSyncStatus.c)
+ *     HalEnumerateProcessors @ 0x140376230 (HalEnumerateProcessors.c)
+ *     HalpInterruptGetNextProcessorLocalId @ 0x140376AF8 (HalpInterruptGetNextProcessorLocalId.c)
+ *     HalStartNextProcessor @ 0x140376C50 (HalStartNextProcessor.c)
+ *     HalpTimerSelectRoles @ 0x14037A44C (HalpTimerSelectRoles.c)
+ *     HalpTscReserveResources @ 0x1403B1F28 (HalpTscReserveResources.c)
+ *     HalStartDynamicProcessor @ 0x140505140 (HalStartDynamicProcessor.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x14050B9D0 (HalpHvInitMcaStatusMsrCache.c)
+ *     EmonAllocateResources @ 0x14051D2CC (EmonAllocateResources.c)
+ *     HalpTscReportSyncStatus @ 0x140861D34 (HalpTscReportSyncStatus.c)
  *     EmonInitializeProfiling @ 0x140A896A0 (EmonInitializeProfiling.c)
- *     HalpMcaInitializePcrContext @ 0x140A90488 (HalpMcaInitializePcrContext.c)
- *     EmonCompleteInitializeProfiling @ 0x140A91210 (EmonCompleteInitializeProfiling.c)
- *     HalpDpStartProcessor @ 0x140A97B74 (HalpDpStartProcessor.c)
- *     Amd64InitializeProfiling @ 0x140A98780 (Amd64InitializeProfiling.c)
+ *     HalpMcaInitializePcrContext @ 0x140A90308 (HalpMcaInitializePcrContext.c)
+ *     EmonCompleteInitializeProfiling @ 0x140A91090 (EmonCompleteInitializeProfiling.c)
+ *     HalpDpStartProcessor @ 0x140A979E4 (HalpDpStartProcessor.c)
+ *     Amd64InitializeProfiling @ 0x140A985F0 (Amd64InitializeProfiling.c)
  *     HalpPreAllocateKInterrupts @ 0x140B757EC (HalpPreAllocateKInterrupts.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     HalQueryMaximumProcessorCount @ 0x14037F8A0 (HalQueryMaximumProcessorCount.c)
- *     ZwQueryLicenseValue @ 0x14041D920 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037FA40 (HalQueryMaximumProcessorCount.c)
+ *     ZwQueryLicenseValue @ 0x14041DCB0 (ZwQueryLicenseValue.c)
  */
 
 __int64 HalpQueryMaximumRegisteredProcessorCount()
@@ -29,13 +29,13 @@ __int64 HalpQueryMaximumRegisteredProcessorCount()
   unsigned __int32 MaximumProcessorCount; // ebx
   struct _KPRCB *CurrentPrcb; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int32 v5; // [rsp+60h] [rbp+20h] BYREF
-  int v6; // [rsp+68h] [rbp+28h] BYREF
-  int v7; // [rsp+70h] [rbp+30h] BYREF
+  unsigned __int32 Data; // [rsp+60h] [rbp+20h] BYREF
+  ULONG ResultDataSize; // [rsp+68h] [rbp+28h] BYREF
+  ULONG Type; // [rsp+70h] [rbp+30h] BYREF
 
-  v6 = 0;
-  v7 = 0;
-  v5 = 0;
+  ResultDataSize = 0;
+  Type = 0;
+  Data = 0;
   DestinationString = 0LL;
   _m_prefetchw(&dword_140D0CE44);
   LODWORD(result) = dword_140D0CE44;
@@ -51,12 +51,14 @@ __int64 HalpQueryMaximumRegisteredProcessorCount()
     if ( MaximumProcessorCount > 0x800 )
       MaximumProcessorCount = 2048;
     RtlInitUnicodeString(&DestinationString, L"Kernel-RegisteredProcessors");
-    if ( (int)ZwQueryLicenseValue(&DestinationString, &v7, &v5, 4LL, &v6) >= 0 && v6 == 4 && v7 == 4 )
+    if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) >= 0
+      && ResultDataSize == 4
+      && Type == 4 )
     {
       CurrentPrcb = KeGetCurrentPrcb();
-      v5 *= CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
-      if ( MaximumProcessorCount > v5 )
-        MaximumProcessorCount = v5;
+      Data *= CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
+      if ( MaximumProcessorCount > Data )
+        MaximumProcessorCount = Data;
     }
     result = MaximumProcessorCount;
     _InterlockedExchange(&dword_140D0CE44, MaximumProcessorCount);

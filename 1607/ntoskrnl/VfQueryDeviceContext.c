@@ -1,9 +1,9 @@
 /*
- * XREFs of VfQueryDeviceContext @ 0x1402227F8
+ * XREFs of VfQueryDeviceContext @ 0x140222624
  * Callers:
  *     <none>
  * Callees:
- *     ViIsContextIdValid @ 0x140704A04 (ViIsContextIdValid.c)
+ *     ViIsContextIdValid @ 0x140704A34 (ViIsContextIdValid.c)
  */
 
 __int64 __fastcall VfQueryDeviceContext(__int64 a1, __int64 a2)

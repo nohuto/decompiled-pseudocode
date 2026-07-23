@@ -8,18 +8,18 @@
  *     RtlSectionTableFromVirtualAddress @ 0x14002B11C (RtlSectionTableFromVirtualAddress.c)
  */
 
-__int64 __fastcall RtlAddressInSectionTable(__int64 a1, unsigned __int64 a2, unsigned int a3)
+PVOID __cdecl RtlAddressInSectionTable(PIMAGE_NT_HEADERS NtHeaders, PVOID BaseOfImage, ULONG VirtualAddress)
 {
   __int64 v3; // rdi
-  __int64 v5; // rax
+  PIMAGE_SECTION_HEADER v5; // rax
 
-  v3 = a3;
-  v5 = RtlSectionTableFromVirtualAddress();
+  v3 = VirtualAddress;
+  v5 = RtlSectionTableFromVirtualAddress(NtHeaders, BaseOfImage, VirtualAddress);
   if ( v5
-    && (a2 >= (unsigned __int64)MmHighestUserAddress
-     || v3 + a2 + *(unsigned int *)(v5 + 20) - (unsigned __int64)*(unsigned int *)(v5 + 12) < (unsigned __int64)MmHighestUserAddress) )
+    && (BaseOfImage >= MmHighestUserAddress
+     || (char *)BaseOfImage + v5->PointerToRawData - (unsigned __int64)v5->VirtualAddress + v3 < MmHighestUserAddress) )
   {
-    return v3 + a2 + *(unsigned int *)(v5 + 20) - (unsigned __int64)*(unsigned int *)(v5 + 12);
+    return (char *)BaseOfImage + v5->PointerToRawData - (unsigned __int64)v5->VirtualAddress + v3;
   }
   else
   {

@@ -1,15 +1,15 @@
 /*
- * XREFs of SepCopyTokenIntegrity @ 0x140441970
+ * XREFs of SepCopyTokenIntegrity @ 0x14043A480
  * Callers:
- *     AuthzBasepQueryTokenAttributeAndValues @ 0x1403C9DD0 (AuthzBasepQueryTokenAttributeAndValues.c)
- *     SeQueryTokenIntegrity @ 0x140441958 (SeQueryTokenIntegrity.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     RtlpSetSecurityObject @ 0x1409229F0 (RtlpSetSecurityObject.c)
- *     SeTokenCanImpersonate @ 0x140929184 (SeTokenCanImpersonate.c)
- *     SepCopyTokenLoggingInformation @ 0x140A33D54 (SepCopyTokenLoggingInformation.c)
- *     SepAdjustPrivileges @ 0x140A429A4 (SepAdjustPrivileges.c)
- *     SeIsTokenAssignableToProcess @ 0x140AB7984 (SeIsTokenAssignableToProcess.c)
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x1402FB610 (AuthzBasepQueryTokenAttributeAndValues.c)
+ *     SeQueryTokenIntegrity @ 0x14043A468 (SeQueryTokenIntegrity.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     RtlpSetSecurityObject @ 0x1408FE500 (RtlpSetSecurityObject.c)
+ *     SeTokenCanImpersonate @ 0x140904C94 (SeTokenCanImpersonate.c)
+ *     SepAdjustPrivileges @ 0x1409E1914 (SepAdjustPrivileges.c)
+ *     SepCopyTokenLoggingInformation @ 0x140A4ECB4 (SepCopyTokenLoggingInformation.c)
+ *     SeIsTokenAssignableToProcess @ 0x140AB8FC4 (SeIsTokenAssignableToProcess.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventHgsHardwareTableResonMapTable @ 0x140503884
+ * XREFs of PpmEventHgsHardwareTableResonMapTable @ 0x1404FD154
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PpmEventHgsHardwareTableResonMapTable()
@@ -20,10 +20,7 @@ void PpmEventHgsHardwareTableResonMapTable()
   int v7; // [rsp+40h] [rbp-138h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData[17]; // [rsp+50h] [rbp-128h] BYREF
 
-  if ( PpmEtwRegistered
-    && EtwEventEnabled(
-         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-         &PPM_ETW_WPS_DYNAMIC_UPDATE_REASON_MAP_RUNDOWN) )
+  if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_WPS_DYNAMIC_UPDATE_REASON_MAP_RUNDOWN) )
   {
     v7 = 8;
     UserData[0].Ptr = (ULONGLONG)&v7;
@@ -49,14 +46,6 @@ void PpmEventHgsHardwareTableResonMapTable()
       *(&UserData[0].Reserved + 1 * v6) = 0;
     }
     while ( v1 < 8 );
-    EtwWriteEx(
-      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-      &PPM_ETW_WPS_DYNAMIC_UPDATE_REASON_MAP_RUNDOWN,
-      0LL,
-      0,
-      0LL,
-      0LL,
-      0x11u,
-      UserData);
+    EtwWriteEx(PpmEtwHandle, &PPM_ETW_WPS_DYNAMIC_UPDATE_REASON_MAP_RUNDOWN, 0LL, 0, 0LL, 0LL, 0x11u, UserData);
   }
 }

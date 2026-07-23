@@ -1,26 +1,26 @@
 /*
- * XREFs of PopSleepstudyInitialize @ 0x140A40C80
+ * XREFs of PopSleepstudyInitialize @ 0x140A41C80
  * Callers:
- *     PopDiagSleepStudyInitialize @ 0x140796B90 (PopDiagSleepStudyInitialize.c)
+ *     PopDiagSleepStudyInitialize @ 0x140796D90 (PopDiagSleepStudyInitialize.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     KiInitializeTimer2 @ 0x1402E927C (KiInitializeTimer2.c)
+ *     KiInitializeTimer2 @ 0x14029A5CC (KiInitializeTimer2.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
  */
 
 char PopSleepstudyInitialize()
 {
-  char *v0; // rbx
-  LARGE_INTEGER v2; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER *v0; // rbx
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  qword_140C1E458 = 0LL;
+  qword_140C1E438 = 0LL;
   PopSleepstudySessionLock = 0LL;
-  v0 = (char *)&unk_140C1E518 + 96 * (unsigned int)dword_140C1E510;
-  *(_DWORD *)v0 = 0;
-  *((_DWORD *)v0 + 8) = 1;
-  *((_QWORD *)v0 + 2) = RtlGetInterruptTimePrecise(&v2);
-  stru_140C1E4F0.Parameter = 0LL;
-  stru_140C1E4F0.List.Flink = 0LL;
-  word_140C1E46A = 0;
-  stru_140C1E4F0.WorkerRoutine = (void (__fastcall *)(void *))PopSleepstudyScenarioStopWorker;
-  return KiInitializeTimer2((__int64)&unk_140C1E468, (__int64)PopSleepstudyScenarioStopTimerCallback, 0LL, 8);
+  v0 = (LARGE_INTEGER *)((char *)&unk_140C1E4F8 + 96 * (unsigned int)dword_140C1E4F0);
+  v0->LowPart = 0;
+  v0[4].LowPart = 1;
+  v0[2] = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  stru_140C1E4D0.Parameter = 0LL;
+  stru_140C1E4D0.List.Flink = 0LL;
+  word_140C1E44A = 0;
+  stru_140C1E4D0.WorkerRoutine = (void (__fastcall *)(void *))PopSleepstudyScenarioStopWorker;
+  return KiInitializeTimer2((__int64)&unk_140C1E448, (__int64)PopSleepstudyScenarioStopTimerCallback, 0LL, 8);
 }

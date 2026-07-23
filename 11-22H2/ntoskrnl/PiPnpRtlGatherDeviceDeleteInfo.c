@@ -16,9 +16,9 @@ __int64 __fastcall PiPnpRtlGatherDeviceDeleteInfo(PCWSTR SourceString, __int64 *
   _DWORD *v6; // rdi
   _DWORD *v7; // rax
   _DWORD *v8; // rcx
-  int v9; // edx
+  NTSTATUS v9; // edx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  UNICODE_STRING v11; // [rsp+50h] [rbp-30h] BYREF
+  UNICODE_STRING PnPControlData; // [rsp+50h] [rbp-30h] BYREF
   __int64 v12; // [rsp+60h] [rbp-20h]
   __int64 v13; // [rsp+68h] [rbp-18h]
   __int64 v14; // [rsp+70h] [rbp-10h]
@@ -41,9 +41,9 @@ __int64 __fastcall PiPnpRtlGatherDeviceDeleteInfo(PCWSTR SourceString, __int64 *
   {
     v14 = 0LL;
     v12 = 0LL;
-    v11 = DestinationString;
+    PnPControlData = DestinationString;
     v13 = 0LL;
-    v9 = ZwPlugPlayControl(14LL, (__int64)&v11);
+    v9 = ZwPlugPlayControl(PlugPlayControlDeviceStatus, &PnPControlData, 0x28u);
     if ( v9 >= 0 )
       *v6 = v13;
     v7 = (_DWORD *)*a2;

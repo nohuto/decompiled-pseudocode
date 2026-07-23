@@ -71,7 +71,7 @@ __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
     *(_QWORD *)SecurityDescriptor = 28LL * i;
     Acl = PiAuAllocateAndInitializeSid(
             v7,
-            (struct _SID_IDENTIFIER_AUTHORITY *)BufferLength,
+            (_SID_IDENTIFIER_AUTHORITY *)BufferLength,
             *(_DWORD *)&PiAuSwDeviceCreateSidSubAuthorities[*(_QWORD *)SecurityDescriptor]);
     if ( Acl < 0 )
     {
@@ -101,7 +101,7 @@ LABEL_19:
     v14 = (PVOID *)&SecurityDescriptor[8 * v4 - 8];
     Acl = PiAuAllocateAndInitializeSid(
             v14,
-            (struct _SID_IDENTIFIER_AUTHORITY *)BufferLength,
+            (_SID_IDENTIFIER_AUTHORITY *)BufferLength,
             PiAuLimitedWriteSidSubAuthorities);
     if ( Acl < 0 )
       goto LABEL_18;
@@ -155,7 +155,7 @@ LABEL_18:
     Acl = RtlAddAccessAllowedAceEx(v2, 2u, 0, 0x201E7u, a1[2]);
     if ( Acl >= 0 )
     {
-      Acl = RtlAddAccessDeniedAceEx((int)v2, 2, 0, 983551, a1[3]);
+      Acl = RtlAddAccessDeniedAceEx(v2, 2u, 0, 0xF01FFu, a1[3]);
       if ( Acl >= 0 )
       {
         Acl = RtlAddAccessAllowedAceEx(v2, 2u, 0, 0xF01FFu, *a1);

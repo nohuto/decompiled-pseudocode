@@ -1,20 +1,20 @@
 /*
- * XREFs of MmPrefetchPagesEx @ 0x140662438
+ * XREFs of MmPrefetchPagesEx @ 0x1406635F8
  * Callers:
- *     PfpPrefetchFilesTrickle @ 0x140661F84 (PfpPrefetchFilesTrickle.c)
- *     MmPrefetchPages @ 0x140662420 (MmPrefetchPages.c)
- *     PfSnPrefetchSections @ 0x140662F50 (PfSnPrefetchSections.c)
- *     PfpPrefetchFiles @ 0x140864008 (PfpPrefetchFiles.c)
+ *     PfpPrefetchFilesTrickle @ 0x140663144 (PfpPrefetchFilesTrickle.c)
+ *     MmPrefetchPages @ 0x1406635E0 (MmPrefetchPages.c)
+ *     PfSnPrefetchSections @ 0x140664110 (PfSnPrefetchSections.c)
+ *     PfpPrefetchFiles @ 0x140865268 (PfpPrefetchFiles.c)
  * Callees:
  *     MiPfCompletePrefetchIos @ 0x14001A020 (MiPfCompletePrefetchIos.c)
  *     MiFreeInPageSupportBlock @ 0x14002DC80 (MiFreeInPageSupportBlock.c)
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
- *     MiPfExecuteReadList @ 0x14066279C (MiPfExecuteReadList.c)
- *     MiReleaseReadListResources @ 0x1406628D0 (MiReleaseReadListResources.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
+ *     MiPfExecuteReadList @ 0x14066395C (MiPfExecuteReadList.c)
+ *     MiReleaseReadListResources @ 0x140663A90 (MiReleaseReadListResources.c)
  */
 
 __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, _QWORD *a3)

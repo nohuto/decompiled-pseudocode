@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlMergeRangeLists @ 0x140890320
+ * XREFs of RtlMergeRangeLists @ 0x140891580
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAddRange @ 0x140738790 (RtlpAddRange.c)
- *     RtlCopyRangeList @ 0x140738AF0 (RtlCopyRangeList.c)
- *     RtlpCopyRangeListEntry @ 0x140738B80 (RtlpCopyRangeListEntry.c)
- *     RtlFreeRangeList @ 0x140738E20 (RtlFreeRangeList.c)
+ *     RtlpAddRange @ 0x140739980 (RtlpAddRange.c)
+ *     RtlCopyRangeList @ 0x140739CE0 (RtlCopyRangeList.c)
+ *     RtlpCopyRangeListEntry @ 0x140739D70 (RtlpCopyRangeListEntry.c)
+ *     RtlFreeRangeList @ 0x14073A010 (RtlFreeRangeList.c)
  */
 
 NTSTATUS __stdcall RtlMergeRangeLists(

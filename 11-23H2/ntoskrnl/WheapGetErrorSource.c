@@ -1,21 +1,21 @@
 /*
- * XREFs of WheapGetErrorSource @ 0x140610E98
+ * XREFs of WheapGetErrorSource @ 0x1406113E8
  * Callers:
- *     HalpMcaReportError @ 0x140503748 (HalpMcaReportError.c)
- *     HalHandleNMI @ 0x1405062D0 (HalHandleNMI.c)
- *     KiMcheckAlternateReturn @ 0x140580390 (KiMcheckAlternateReturn.c)
- *     WheapReportBootError @ 0x1406103C8 (WheapReportBootError.c)
- *     WheaErrorSourceGetState @ 0x140610540 (WheaErrorSourceGetState.c)
- *     WheaGetErrorSource @ 0x140610590 (WheaGetErrorSource.c)
- *     WheaReportHwError @ 0x140610630 (WheaReportHwError.c)
- *     WheapAttemptErrorRecovery @ 0x140610C64 (WheapAttemptErrorRecovery.c)
- *     WheaAddHwErrorReportSectionDeviceDriver @ 0x140611100 (WheaAddHwErrorReportSectionDeviceDriver.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x1406113E0 (WheaHwErrorReportSubmitDeviceDriver.c)
- *     WheapFreeDriverPacketBuffer @ 0x1406117F4 (WheapFreeDriverPacketBuffer.c)
- *     WheapGetPreallocatedPacketBuffer @ 0x140611870 (WheapGetPreallocatedPacketBuffer.c)
- *     WheapInitErrorReportDeviceDriver @ 0x140611928 (WheapInitErrorReportDeviceDriver.c)
- *     WheapWmiExecuteErrorSourceMethod @ 0x140613B48 (WheapWmiExecuteErrorSourceMethod.c)
- *     WheaRemoveErrorSource @ 0x140A078C0 (WheaRemoveErrorSource.c)
+ *     HalpMcaReportError @ 0x140503C98 (HalpMcaReportError.c)
+ *     HalHandleNMI @ 0x140506820 (HalHandleNMI.c)
+ *     KiMcheckAlternateReturn @ 0x140580880 (KiMcheckAlternateReturn.c)
+ *     WheapReportBootError @ 0x140610918 (WheapReportBootError.c)
+ *     WheaErrorSourceGetState @ 0x140610A90 (WheaErrorSourceGetState.c)
+ *     WheaGetErrorSource @ 0x140610AE0 (WheaGetErrorSource.c)
+ *     WheaReportHwError @ 0x140610B80 (WheaReportHwError.c)
+ *     WheapAttemptErrorRecovery @ 0x1406111B4 (WheapAttemptErrorRecovery.c)
+ *     WheaAddHwErrorReportSectionDeviceDriver @ 0x140611650 (WheaAddHwErrorReportSectionDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x140611930 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     WheapFreeDriverPacketBuffer @ 0x140611D44 (WheapFreeDriverPacketBuffer.c)
+ *     WheapGetPreallocatedPacketBuffer @ 0x140611DC0 (WheapGetPreallocatedPacketBuffer.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x140611E78 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapWmiExecuteErrorSourceMethod @ 0x140614098 (WheapWmiExecuteErrorSourceMethod.c)
+ *     WheaRemoveErrorSource @ 0x140A07B50 (WheaRemoveErrorSource.c)
  * Callees:
  *     <none>
  */

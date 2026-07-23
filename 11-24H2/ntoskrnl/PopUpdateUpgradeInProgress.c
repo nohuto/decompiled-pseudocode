@@ -1,18 +1,18 @@
 /*
- * XREFs of PopUpdateUpgradeInProgress @ 0x140749A30
+ * XREFs of PopUpdateUpgradeInProgress @ 0x140747D60
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x1406A8870 (ZwNotifyChangeKey.c)
- *     PopLogSleepDisabled @ 0x1409B80F8 (PopLogSleepDisabled.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1409B9950 (PopRemoveReasonRecordByReasonCode.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x1406A9810 (ZwNotifyChangeKey.c)
+ *     PopLogSleepDisabled @ 0x14099E748 (PopLogSleepDisabled.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14099FFA0 (PopRemoveReasonRecordByReasonCode.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 int __fastcall PopUpdateUpgradeInProgress(void *a1)
@@ -65,8 +65,8 @@ int __fastcall PopUpdateUpgradeInProgress(void *a1)
   }
   if ( !a1 && (result = PopLogSleepDisabled(15LL, 8LL, 0LL, 0LL), result < 0)
     || (*(_QWORD *)PopSetupInProgressUpdateWorkItem = 0LL,
-        qword_140F0E290 = (__int64)PopUpdateUpgradeInProgress,
-        qword_140F0E298 = (__int64)KeyHandle,
+        qword_140F0E690 = (__int64)PopUpdateUpgradeInProgress,
+        qword_140F0E698 = (__int64)KeyHandle,
         result = ZwNotifyChangeKey(
                    KeyHandle,
                    0LL,

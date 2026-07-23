@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1405BBBC0
+ * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1405BCBC0
  * Callers:
- *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
+ *     NtSetSecurityObject @ 0x1405BACF0 (NtSetSecurityObject.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1405CB720 (SeQuerySecurityDescriptorInfo.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1405CC720 (SeQuerySecurityDescriptorInfo.c)
  */
 
 __int64 __fastcall ObpAllocateAndQuerySecurityDescriptorInfo(__int64 a1, DWORD a2, void *a3, _QWORD *a4)

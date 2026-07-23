@@ -50,13 +50,13 @@ __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
       v11 = v9;
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v9, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
+        Acl = RtlpAddKnownAce(v9, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
         if ( Acl >= 0 )
         {
           Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v9, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlSetControlSecurityDescriptor(v5, 4096LL, 4096LL);
+            Acl = RtlSetControlSecurityDescriptor(v5, 0x1000u, 0x1000u);
             if ( Acl >= 0 )
             {
               *a1 = v5;

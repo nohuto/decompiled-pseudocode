@@ -1,7 +1,7 @@
 /*
- * XREFs of SeQueryTokenTrustSid @ 0x1401314B8
+ * XREFs of SeQueryTokenTrustSid @ 0x140131588
  * Callers:
- *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
+ *     PsImpersonateClient @ 0x140638B90 (PsImpersonateClient.c)
  * Callees:
  *     <none>
  */

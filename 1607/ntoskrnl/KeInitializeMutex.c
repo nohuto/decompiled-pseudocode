@@ -1,8 +1,8 @@
 /*
- * XREFs of KeInitializeMutex @ 0x140085B70
+ * XREFs of KeInitializeMutex @ 0x140087460
  * Callers:
- *     EtwpInitLoggerContext @ 0x1404931B0 (EtwpInitLoggerContext.c)
- *     KeAllocateCalloutStackEx @ 0x1405416E4 (KeAllocateCalloutStackEx.c)
+ *     EtwpInitLoggerContext @ 0x140493C40 (EtwpInitLoggerContext.c)
+ *     KeAllocateCalloutStackEx @ 0x140541C24 (KeAllocateCalloutStackEx.c)
  * Callees:
  *     <none>
  */

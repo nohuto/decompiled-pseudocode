@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwReadVirtualMemory @ 0x14041B540
+ * XREFs of ZwReadVirtualMemory @ 0x14041B8D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReadVirtualMemory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReadVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

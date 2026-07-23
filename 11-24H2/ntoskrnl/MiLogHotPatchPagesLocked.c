@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogHotPatchPagesLocked @ 0x1407F431C
+ * XREFs of MiLogHotPatchPagesLocked @ 0x1407F4A10
  * Callers:
- *     MiPrepareImagePagesForHotPatch @ 0x14067D29C (MiPrepareImagePagesForHotPatch.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x14067E494 (MiPrepareImagePagesForHotPatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, int a3, int a4, int a5)
@@ -53,14 +53,14 @@ char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, int a3, int a4,
   _UNKNOWN *retaddr; // [rsp+140h] [rbp+38h] BYREF
 
   CurrentThread = (struct _KTHREAD *)&retaddr;
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     CurrentThread = KeGetCurrentThread();
-    v10 = *(_QWORD *)&qword_140E37518;
+    v10 = *(_QWORD *)&qword_140E37658;
     Process = CurrentThread->ApcState.Process;
-    if ( **(_DWORD **)&qword_140E37518 > 5u )
+    if ( **(_DWORD **)&qword_140E37658 > 5u )
     {
-      LOBYTE(CurrentThread) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000020LL);
+      LOBYTE(CurrentThread) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000020LL);
       if ( (_BYTE)CurrentThread )
       {
         v27 = 0;
@@ -97,7 +97,7 @@ char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, int a3, int a4,
         v23 = 0x1000000LL;
         LOBYTE(CurrentThread) = tlgWriteEx_EtwWriteEx(
                                   v10,
-                                  (unsigned __int8 *)&byte_1400576A3,
+                                  (unsigned __int8 *)&byte_140057BC3,
                                   v12,
                                   1u,
                                   v14,

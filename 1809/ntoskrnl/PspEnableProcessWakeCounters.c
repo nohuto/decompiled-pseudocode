@@ -1,5 +1,5 @@
 /*
- * XREFs of PspEnableProcessWakeCounters @ 0x140889A80
+ * XREFs of PspEnableProcessWakeCounters @ 0x14088ACE0
  * Callers:
  *     <none>
  * Callees:

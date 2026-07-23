@@ -81,7 +81,7 @@ char __fastcall CcSetDirtyInMask(__int64 a1, __int64 *a2, unsigned int a3, struc
   struct _KTHREAD *v42; // r9
   unsigned __int64 DeepFreezeStartTime; // rdx
   PSLIST_ENTRY v44; // rbx
-  struct _SLIST_ENTRY *v45; // rax
+  _SLIST_ENTRY *v45; // rax
   __int64 **v46; // rdx
   __int64 *v47; // rcx
   __int64 v48; // rax
@@ -274,7 +274,7 @@ LABEL_17:
       memset(ListEntry, 0, 0x400uLL);
       if ( *(_DWORD *)(v20 + 80) )
       {
-        v45 = *(struct _SLIST_ENTRY **)(v20 + 88);
+        v45 = *(_SLIST_ENTRY **)(v20 + 88);
         *v44 = *v45;
         v44[1] = v45[1];
         v44[2] = v45[2];

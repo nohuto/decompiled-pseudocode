@@ -1,23 +1,23 @@
 /*
- * XREFs of MiNodeZeroConductor @ 0x140B27510
+ * XREFs of MiNodeZeroConductor @ 0x140B29DD0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeInitializeTimerEx @ 0x1404A5F90 (KeInitializeTimerEx.c)
- *     MiZeroNodeConductorWait @ 0x1404F82C8 (MiZeroNodeConductorWait.c)
- *     MiMergeNewProcessAffinity @ 0x1404FED34 (MiMergeNewProcessAffinity.c)
- *     MiZeroNodeExiting @ 0x1405131F4 (MiZeroNodeExiting.c)
- *     MiLockDynamicMemoryExclusive @ 0x1405278F0 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14052A718 (MiUnlockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryNestedExclusive @ 0x1406E96A4 (MiLockDynamicMemoryNestedExclusive.c)
- *     MiUnlockDynamicMemoryNestedExclusive @ 0x1406EA20C (MiUnlockDynamicMemoryNestedExclusive.c)
- *     MiBackgroundZeroTimerExpired @ 0x14070E284 (MiBackgroundZeroTimerExpired.c)
- *     MiPreserveBootDecisions @ 0x14070E678 (MiPreserveBootDecisions.c)
- *     MiStartZeroEngineThreads @ 0x140B276E4 (MiStartZeroEngineThreads.c)
- *     MiInitializeZeroEngines @ 0x140B277AC (MiInitializeZeroEngines.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeInitializeTimerEx @ 0x14049F620 (KeInitializeTimerEx.c)
+ *     MiZeroNodeConductorWait @ 0x1404F18D8 (MiZeroNodeConductorWait.c)
+ *     MiMergeNewProcessAffinity @ 0x1404F8524 (MiMergeNewProcessAffinity.c)
+ *     MiZeroNodeExiting @ 0x14050CC64 (MiZeroNodeExiting.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140529F60 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14052CC38 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryNestedExclusive @ 0x1406EE344 (MiLockDynamicMemoryNestedExclusive.c)
+ *     MiUnlockDynamicMemoryNestedExclusive @ 0x1406EEEAC (MiUnlockDynamicMemoryNestedExclusive.c)
+ *     MiBackgroundZeroTimerExpired @ 0x140712F84 (MiBackgroundZeroTimerExpired.c)
+ *     MiPreserveBootDecisions @ 0x140713378 (MiPreserveBootDecisions.c)
+ *     MiStartZeroEngineThreads @ 0x140B29FA4 (MiStartZeroEngineThreads.c)
+ *     MiInitializeZeroEngines @ 0x140B2A06C (MiInitializeZeroEngines.c)
  */
 
 void __fastcall MiNodeZeroConductor(char *P, __int64 a2, __int64 a3)

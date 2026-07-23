@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 NtRevertContainerImpersonation()
+NTSTATUS NtRevertContainerImpersonation(void)
 {
   return PspRevertContainerImpersonation((__int64)KeGetCurrentThread());
 }

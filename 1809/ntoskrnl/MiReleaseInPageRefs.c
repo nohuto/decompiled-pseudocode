@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReleaseInPageRefs @ 0x140117FA8
+ * XREFs of MiReleaseInPageRefs @ 0x140118018
  * Callers:
- *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
+ *     MiInvalidateCollidedIos @ 0x140117DB8 (MiInvalidateCollidedIos.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReleaseInPageRefs(__int64 a1)
@@ -35,10 +35,10 @@ __int64 __fastcall MiReleaseInPageRefs(__int64 a1)
     }
     __writecr8(v4);
     v5 = *(_QWORD *)(a1 + 16);
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v5 & 0x10) == 0 )
-        v5 &= ~qword_14043A0C0;
+        v5 &= ~qword_14043B180;
     }
     return MiDereferenceControlAreaPfnList(*(_QWORD *)(v5 >> 16), v5 >> 16, v3, 3LL);
   }

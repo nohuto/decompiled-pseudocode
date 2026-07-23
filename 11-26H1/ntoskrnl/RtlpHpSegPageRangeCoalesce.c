@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpSegPageRangeCoalesce @ 0x14034D840
+ * XREFs of RtlpHpSegPageRangeCoalesce @ 0x14034F8C0
  * Callers:
- *     RtlpHpSegContextCompact @ 0x14034742C (RtlpHpSegContextCompact.c)
- *     RtlpHpSegPageRangeShrink @ 0x14034DB40 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegContextCompact @ 0x1403494AC (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14034FBC0 (RtlpHpSegPageRangeShrink.c)
  * Callees:
- *     RtlpHpSegLockAcquire @ 0x14027F770 (RtlpHpSegLockAcquire.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpSegPageRangeCommit @ 0x14034E5D0 (RtlpHpSegPageRangeCommit.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     RtlpHpSegLockAcquire @ 0x14027ECE0 (RtlpHpSegLockAcquire.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpSegPageRangeCommit @ 0x140350650 (RtlpHpSegPageRangeCommit.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, unsigned __int8 *a4)
 {
-  __int64 v5; // r9
+  _RTL_RB_TREE *v5; // r9
   __int64 v9; // r14
   __int64 v10; // rdx
   unsigned int v11; // r15d
@@ -33,7 +33,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, un
   unsigned __int16 v26; // ax
   char v27; // [rsp+60h] [rbp+8h] BYREF
 
-  v5 = a1 + 96;
+  v5 = (_RTL_RB_TREE *)(a1 + 96);
   while ( 1 )
   {
     v9 = 0LL;
@@ -52,14 +52,14 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, un
       v12 += -32LL * *(unsigned __int8 *)(v12 + 26);
     if ( (*(_BYTE *)(v12 + 24) & 1) == 0 && v12 )
     {
-      RtlRbRemoveNode(v5, v12);
+      RtlRbRemoveNode(v5, (PRTL_BALANCED_NODE)v12);
       v13 = (__int16 *)(a1 + 22);
       *(_OWORD *)v12 = 0LL;
       *(_QWORD *)(v12 + 16) = 0LL;
       v26 = ~(unsigned __int16)*(_DWORD *)(v12 + 28);
       *(_DWORD *)v12 = -857879331;
       _InterlockedAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16), -(__int64)v26);
-      v5 = a1 + 96;
+      v5 = (_RTL_RB_TREE *)(a1 + 96);
       *(_BYTE *)(v12 + 31) += *(_BYTE *)(a2 + 31);
       v11 += (unsigned __int16)~*(_WORD *)(v12 + 28);
       *(_WORD *)(v12 + 28) = ~(_WORD)v11;
@@ -75,7 +75,7 @@ LABEL_10:
     *(_BYTE *)(a2 + 24) |= 0x21u;
     if ( v9 )
     {
-      RtlRbRemoveNode(v5, v9);
+      RtlRbRemoveNode(v5, (PRTL_BALANCED_NODE)v9);
       *(_OWORD *)v9 = 0LL;
       *(_QWORD *)(v9 + 16) = 0LL;
       v23 = ~(unsigned __int16)*(_DWORD *)(v9 + 28);
@@ -113,7 +113,7 @@ LABEL_10:
     RtlpHpReleaseLockExclusive((struct _KTHREAD *)(a1 + 64), *(_DWORD *)(a1 + 40) & 1, *a4);
     RtlpHpSegPageRangeCommit(a1, a2, 0, -(*(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9)), 0, (__int64)&v27);
     *a4 = RtlpHpSegLockAcquire(a1, v20, v21, v22);
-    v5 = a1 + 96;
+    v5 = (_RTL_RB_TREE *)(a1 + 96);
     *(_BYTE *)(a2 + 24) &= ~0x20u;
   }
   v18 = 32LL * ((unsigned int)*(unsigned __int8 *)(a2 + 31) - 1);

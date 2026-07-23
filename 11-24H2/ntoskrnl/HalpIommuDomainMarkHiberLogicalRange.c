@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuDomainMarkHiberLogicalRange @ 0x140553C74
+ * XREFs of HalpIommuDomainMarkHiberLogicalRange @ 0x1405515B4
  * Callers:
- *     HalpDmaMarkHiberAdapter @ 0x1404D0F9C (HalpDmaMarkHiberAdapter.c)
+ *     HalpDmaMarkHiberAdapter @ 0x1404C9FDC (HalpDmaMarkHiberAdapter.c)
  * Callees:
- *     HalpIommuDmarPageTableMarkHiberPhase @ 0x14056795C (HalpIommuDmarPageTableMarkHiberPhase.c)
+ *     HalpIommuDmarPageTableMarkHiberPhase @ 0x14056544C (HalpIommuDmarPageTableMarkHiberPhase.c)
  */
 
 __int64 __fastcall HalpIommuDomainMarkHiberLogicalRange(void *a1)

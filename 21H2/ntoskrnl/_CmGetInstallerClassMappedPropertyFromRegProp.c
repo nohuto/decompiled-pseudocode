@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC
+ * XREFs of _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F76C
  * Callers:
- *     _CmGetInstallerClassMappedProperty @ 0x14073EF70 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetInstallerClassCompoundFilters @ 0x14073F41C (_CmGetInstallerClassCompoundFilters.c)
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14097A8F0 (_CmGetInstallerClassCompoundFiltersWorker.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x14097AEA0 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x14073F130 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x14073F5DC (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14097AAD0 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14097B080 (_CmGetInstallerClassMappedPropertyKeys.c)
  * Callees:
- *     _PnpParseIndirectResourceString @ 0x140684510 (_PnpParseIndirectResourceString.c)
- *     _PnpParseIndirectInfString @ 0x1406B109C (_PnpParseIndirectInfString.c)
- *     _CmGetInstallerClassRegProp @ 0x14073F798 (_CmGetInstallerClassRegProp.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _PnpParseIndirectResourceString @ 0x1405DE350 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x14061004C (_PnpParseIndirectInfString.c)
+ *     _CmGetInstallerClassRegProp @ 0x14073F958 (_CmGetInstallerClassRegProp.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegProp(

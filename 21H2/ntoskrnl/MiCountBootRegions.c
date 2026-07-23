@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCountBootRegions @ 0x140A68424
+ * XREFs of MiCountBootRegions @ 0x140A69424
  * Callers:
- *     MiInitializeDynamicVa @ 0x140A6836C (MiInitializeDynamicVa.c)
- *     MiCountBootRegions @ 0x140A68424 (MiCountBootRegions.c)
+ *     MiInitializeDynamicVa @ 0x140A6936C (MiInitializeDynamicVa.c)
+ *     MiCountBootRegions @ 0x140A69424 (MiCountBootRegions.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCountBootRegions @ 0x140A68424 (MiCountBootRegions.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCountBootRegions @ 0x140A69424 (MiCountBootRegions.c)
  */
 
 __int64 __fastcall MiCountBootRegions(unsigned __int64 a1, unsigned __int64 a2, int a3)

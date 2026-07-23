@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReplicatePteChange @ 0x140528570
+ * XREFs of MiReplicatePteChange @ 0x14052ABE0
  * Callers:
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiDeleteSystemPageTable @ 0x140309A60 (MiDeleteSystemPageTable.c)
- *     MiUnlockNestedPageTableWritePte @ 0x140325648 (MiUnlockNestedPageTableWritePte.c)
- *     MiInitializeSystemPageTable @ 0x14033AB8C (MiInitializeSystemPageTable.c)
- *     MiInitializeShadowPageTable @ 0x1408755C4 (MiInitializeShadowPageTable.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiDeleteSystemPageTable @ 0x1402EBAE0 (MiDeleteSystemPageTable.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140327678 (MiUnlockNestedPageTableWritePte.c)
+ *     MiInitializeSystemPageTable @ 0x14033CC0C (MiInitializeSystemPageTable.c)
+ *     MiInitializeShadowPageTable @ 0x14087B9A8 (MiInitializeShadowPageTable.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReplicatePteChangeToProcess @ 0x14070BB80 (MiReplicatePteChangeToProcess.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReplicatePteChangeToProcess @ 0x140710830 (MiReplicatePteChangeToProcess.c)
  */
 
 void __fastcall MiReplicatePteChange(__int64 a1, int a2)
@@ -33,14 +33,14 @@ void __fastcall MiReplicatePteChange(__int64 a1, int a2)
     if ( CurrentIrql == 2 )
     {
       CurrentIrql = 17;
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36080);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36200);
     }
     else
     {
-      ExAcquireSpinLockExclusive(&dword_140E36080);
+      ExAcquireSpinLockExclusive(&dword_140E36200);
     }
   }
-  for ( i = (__int64 *)qword_140E2D618; i != &qword_140E2D618; i = (__int64 *)*i )
+  for ( i = (__int64 *)qword_140E2D798; i != &qword_140E2D798; i = (__int64 *)*i )
   {
     v7 = i - 168;
     if ( (*((_DWORD *)i - 211) & 0x800000) == 0 )
@@ -59,8 +59,8 @@ void __fastcall MiReplicatePteChange(__int64 a1, int a2)
   if ( !a2 )
   {
     if ( CurrentIrql == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36080);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36200);
     else
-      ExReleaseSpinLockExclusive(&dword_140E36080, CurrentIrql);
+      ExReleaseSpinLockExclusive(&dword_140E36200, CurrentIrql);
   }
 }

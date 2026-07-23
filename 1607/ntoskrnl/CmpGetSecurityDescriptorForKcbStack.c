@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetSecurityDescriptorForKcbStack @ 0x1404D888C
+ * XREFs of CmpGetSecurityDescriptorForKcbStack @ 0x1404BBE90
  * Callers:
- *     CmpCheckCreateAccessOnKcbStack @ 0x1400AAA7C (CmpCheckCreateAccessOnKcbStack.c)
- *     CmpCheckKcbStackAccess @ 0x1401B4D80 (CmpCheckKcbStackAccess.c)
- *     CmpCreateTombstone @ 0x1401B6260 (CmpCreateTombstone.c)
+ *     CmpCheckCreateAccessOnKcbStack @ 0x1400A8FFC (CmpCheckCreateAccessOnKcbStack.c)
+ *     CmpCheckKcbStackAccess @ 0x1401B4C64 (CmpCheckKcbStackAccess.c)
+ *     CmpCreateTombstone @ 0x1401B6144 (CmpCreateTombstone.c)
  * Callees:
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140440140 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x14043F010 (CmpGetSecurityCacheEntryForKcbStack.c)
  */
 
 __int64 __fastcall CmpGetSecurityDescriptorForKcbStack(__int64 a1, __int64 a2)

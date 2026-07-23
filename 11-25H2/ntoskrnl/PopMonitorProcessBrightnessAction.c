@@ -25,7 +25,7 @@ __int64 __fastcall PopMonitorProcessBrightnessAction(int a1, int a2)
       memset_0(Src, 0, 0x48uLL);
       Src[0] = 11;
       Src[2] = a2;
-      return PopUmpoSendPowerMessage(Src, 0x48uLL, 0, 0LL);
+      return PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
     }
     if ( v3 != 1 )
       return result;

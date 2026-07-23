@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLogZeroPageDecision @ 0x140351954
+ * XREFs of MiLogZeroPageDecision @ 0x140351AF4
  * Callers:
- *     MiReassessZeroThreads @ 0x1403515FC (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x14035179C (MiReassessZeroThreads.c)
  * Callees:
- *     MiZeroPageLogEntriesMergable @ 0x140351A64 (MiZeroPageLogEntriesMergable.c)
+ *     MiZeroPageLogEntriesMergable @ 0x140351C04 (MiZeroPageLogEntriesMergable.c)
  */
 
 void __fastcall MiLogZeroPageDecision(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int16 a4, char a5)

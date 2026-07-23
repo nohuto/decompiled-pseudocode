@@ -1,17 +1,17 @@
 /*
- * XREFs of MmCommitSessionMappedView @ 0x1408F78F0
+ * XREFs of MmCommitSessionMappedView @ 0x140974B70
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiLocatePagefileSubsection @ 0x1403E4EE0 (MiLocatePagefileSubsection.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiChargeSegmentCommit @ 0x1408F7C78 (MiChargeSegmentCommit.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiLocatePagefileSubsection @ 0x1403D2A80 (MiLocatePagefileSubsection.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiChargeSegmentCommit @ 0x140974EF8 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
@@ -22,29 +22,23 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
   __int64 PteAddress; // r14
   __int64 v7; // rax
   __int64 v8; // r14
-  _QWORD *v9; // rax
+  char *v9; // rax
   signed __int8 v10; // cf
-  _QWORD *v11; // rsi
+  char *v11; // rsi
   _QWORD *v12; // rdx
   unsigned __int64 v13; // r8
   __int64 v14; // rax
   unsigned int *v15; // rcx
   unsigned int *v16; // rax
   unsigned int *v17; // r9
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  bool v20; // zf
-  unsigned __int64 v22; // r10
-  unsigned __int64 v23; // rax
-  unsigned int *v24; // rcx
-  __int64 v25; // r8
-  unsigned __int64 v26; // rdx
-  int v27; // edi
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  unsigned __int64 v32; // [rsp+60h] [rbp+8h] BYREF
+  bool v18; // zf
+  unsigned __int64 v20; // r10
+  unsigned __int64 v21; // rax
+  unsigned int *v22; // rcx
+  __int64 v23; // r8
+  unsigned __int64 v24; // rdx
+  int v25; // edi
+  unsigned __int64 v26; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = a2 + a1;
   if ( v3 <= a1 )
@@ -55,13 +49,13 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
   v7 = MiGetPteAddress(v5);
   --CurrentThread->SpecialApcDisable;
   v8 = ((PteAddress - v7) >> 3) + 1;
-  v9 = KeAbPreAcquire((__int64)&qword_140E35F40, 0LL);
-  v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E35F40, 0LL);
+  v9 = (char *)KeAbPreAcquire((__int64)&qword_140E36080, 0LL);
+  v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E36080, 0LL);
   v11 = v9;
   if ( v10 )
-    ExfAcquirePushLockExclusiveEx(&qword_140E35F40, (__int64)v9, (__int64)&qword_140E35F40);
+    ExfAcquirePushLockExclusiveEx(&qword_140E36080, v9, (__int64)&qword_140E36080);
   if ( v11 )
-    *((_BYTE *)v11 + 10) = 1;
+    v11[10] = 1;
   v12 = P;
   while ( v12 )
   {
@@ -82,50 +76,50 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
   v14 = v12[6];
   if ( *(_QWORD *)(*(_QWORD *)v14 + 64LL) )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E35F40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E35F40);
-    KeAbPostRelease((ULONG_PTR)&qword_140E35F40);
-    v20 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v20 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v31, v30);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E36080, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E36080);
+    KeAbPostRelease((ULONG_PTR)&qword_140E36080);
+    v18 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v18 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
     return 3221225505LL;
   }
   v15 = (unsigned int *)(*(_QWORD *)v14 + 128LL);
-  v32 = v12[3] + ((v5 - (v12[11] & 0xFFFFFFFFFFFFF000uLL)) >> 12);
-  v16 = MiLocatePagefileSubsection(v15, &v32);
+  v26 = v12[3] + ((v5 - (v12[11] & 0xFFFFFFFFFFFFF000uLL)) >> 12);
+  v16 = MiLocatePagefileSubsection(v15, &v26);
   v17 = v16;
   if ( !v16 )
   {
 LABEL_17:
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E35F40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E35F40);
-    KeAbPostRelease((ULONG_PTR)&qword_140E35F40);
-    v20 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v20 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v19, v18);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E36080, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E36080);
+    KeAbPostRelease((ULONG_PTR)&qword_140E36080);
+    v18 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v18 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
     return 3221225712LL;
   }
-  v22 = *((_QWORD *)v16 + 1) + 8 * v32;
-  v23 = v8 + v32;
-  v24 = v17;
-  v25 = v8 + v32;
+  v20 = *((_QWORD *)v16 + 1) + 8 * v26;
+  v21 = v8 + v26;
+  v22 = v17;
+  v23 = v8 + v26;
   while ( 1 )
   {
-    v26 = v24[11];
-    if ( v23 <= v26 )
+    v24 = v22[11];
+    if ( v21 <= v24 )
       break;
-    v24 = (unsigned int *)*((_QWORD *)v24 + 2);
-    v23 = v25 - v26;
-    v25 -= v26;
-    if ( !v24 )
+    v22 = (unsigned int *)*((_QWORD *)v22 + 2);
+    v21 = v23 - v24;
+    v23 -= v24;
+    if ( !v22 )
       goto LABEL_17;
   }
-  v27 = MiChargeSegmentCommit(v17, v22);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E35F40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E35F40);
-  KeAbPostRelease((ULONG_PTR)&qword_140E35F40);
-  v20 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v20 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery(v29, v28);
-  return v27 == 0 ? 0xC000012D : 0;
+  v25 = MiChargeSegmentCommit(v17, v20);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E36080, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E36080);
+  KeAbPostRelease((ULONG_PTR)&qword_140E36080);
+  v18 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v18 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery();
+  return v25 == 0 ? 0xC000012D : 0;
 }

@@ -7,11 +7,11 @@
  *     _guard_dispatch_icall @ 0x1401B3560 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
+LARGE_INTEGER __fastcall EtwpInitializeTimeStamp(__int64 a1)
 {
   void *v2; // rax
   _QWORD *v3; // rdi
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
   int v5; // edx
   __int64 v6; // rcx
   __int64 v7; // [rsp+30h] [rbp+8h] BYREF
@@ -43,12 +43,12 @@ LABEL_5:
   v3 = (_QWORD *)(a1 + 320);
   if ( (*(_DWORD *)(a1 + 832) & 2) != 0 )
   {
-    result = EtwpRefTimeSystem;
+    result.QuadPart = EtwpRefTimeSystem;
     v5 = *(_DWORD *)(a1 + 216);
     *v3 = EtwpRefTimeSystem;
     if ( v5 == 3 )
     {
-      result = EtwpRefTimeCycle;
+      result.QuadPart = EtwpRefTimeCycle;
       *(_QWORD *)(a1 + 328) = EtwpRefTimeCycle;
     }
     else
@@ -62,7 +62,7 @@ LABEL_5:
   else
   {
     *(_QWORD *)(a1 + 328) = (*(__int64 (**)(void))(a1 + 40))();
-    result = KeQuerySystemTimePrecise((__int64 *)(a1 + 320));
+    result = KeQuerySystemTimePrecise((LARGE_INTEGER *)(a1 + 320));
   }
   *(_OWORD *)(a1 + 448) = *(_OWORD *)v3;
   return result;

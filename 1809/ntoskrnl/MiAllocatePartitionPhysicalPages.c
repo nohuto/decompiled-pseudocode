@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocatePartitionPhysicalPages @ 0x14085FE64
+ * XREFs of MiAllocatePartitionPhysicalPages @ 0x1408610C4
  * Callers:
- *     MmManagePartitionMoveMemory @ 0x140860A84 (MmManagePartitionMoveMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x140861CE4 (MmManagePartitionMoveMemory.c)
  * Callees:
  *     MiAllocatePagesForMdl @ 0x140011048 (MiAllocatePagesForMdl.c)
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
- *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x14013DA2C (MiAcquireNonPagedResources.c)
- *     MiFindLargeNodePage @ 0x1402A9004 (MiFindLargeNodePage.c)
- *     MiAddMdlToPartitionTree @ 0x1402D0738 (MiAddMdlToPartitionTree.c)
- *     MiAddRangeToPartitionTree @ 0x1402D0808 (MiAddRangeToPartitionTree.c)
- *     MiFreePartitionTree @ 0x1402D1994 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x1402D1BA4 (MiInsertPartitionPages.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140860828 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiReleaseNonPagedResources @ 0x1400E1968 (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x14013DB2C (MiAcquireNonPagedResources.c)
+ *     MiFindLargeNodePage @ 0x1402A91F4 (MiFindLargeNodePage.c)
+ *     MiAddMdlToPartitionTree @ 0x1402D0928 (MiAddMdlToPartitionTree.c)
+ *     MiAddRangeToPartitionTree @ 0x1402D09F8 (MiAddRangeToPartitionTree.c)
+ *     MiFreePartitionTree @ 0x1402D1B84 (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x1402D1D94 (MiInsertPartitionPages.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140861A88 (MiUpdatePartitionLargePfnBitMap.c)
  */
 
 __int64 __fastcall MiAllocatePartitionPhysicalPages(
@@ -83,7 +83,7 @@ __int64 __fastcall MiAllocatePartitionPhysicalPages(
       break;
     }
     if ( v5 == &MiSystemPartition )
-      _InterlockedExchangeAdd64(&qword_14043B018, v12);
+      _InterlockedExchangeAdd64(&qword_14043C0D8, v12);
     v7 += v12;
     if ( v7 == a3 )
       goto LABEL_17;

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhContextMetadataAllocate @ 0x140346DC4
+ * XREFs of RtlpHpLfhContextMetadataAllocate @ 0x140348E44
  * Callers:
- *     RtlpHpLfhContextSlotAllocate @ 0x140346D68 (RtlpHpLfhContextSlotAllocate.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x140519814 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhContextSlotAllocate @ 0x140348DE8 (RtlpHpLfhContextSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x140513284 (RtlpHpLfhPrivateSlotCreate.c)
  * Callees:
- *     RtlpHpLfhContextUnlockExtension @ 0x140530AB0 (RtlpHpLfhContextUnlockExtension.c)
- *     RtlpHpLfhContextLockExtension @ 0x14053148C (RtlpHpLfhContextLockExtension.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpHpLfhContextUnlockExtension @ 0x140532FB0 (RtlpHpLfhContextUnlockExtension.c)
+ *     RtlpHpLfhContextLockExtension @ 0x14053398C (RtlpHpLfhContextLockExtension.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextMetadataAllocate(_QWORD *a1, __int64 a2, __int64 a3)

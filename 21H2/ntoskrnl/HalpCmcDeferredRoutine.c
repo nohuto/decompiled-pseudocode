@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCmcDeferredRoutine @ 0x1404B99A0
+ * XREFs of HalpCmcDeferredRoutine @ 0x1404B9BE0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  */
 
 void __fastcall HalpCmcDeferredRoutine(__int64 a1, __int64 a2)

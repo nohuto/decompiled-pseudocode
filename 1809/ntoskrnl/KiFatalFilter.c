@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFatalFilter @ 0x14028F3E8
+ * XREFs of KiFatalFilter @ 0x14028F5D8
  * Callers:
- *     KeExpandKernelStackAndCalloutInternal @ 0x1400C9A00 (KeExpandKernelStackAndCalloutInternal.c)
- *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1400C9AE0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KiInitializeKernel @ 0x140572310 (KiInitializeKernel.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn KiFatalFilter(ULONG a1, ULONG_PTR *a2)

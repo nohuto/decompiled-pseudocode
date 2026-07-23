@@ -10,20 +10,20 @@
  *     KiAbOwnerComputeCpuPriorityKey @ 0x1403190CC (KiAbOwnerComputeCpuPriorityKey.c)
  */
 
-char __fastcall KiAbEntryUpdateOwnerTreePosition(__int64 a1, __int64 a2)
+BOOLEAN __fastcall KiAbEntryUpdateOwnerTreePosition(__int64 a1, __int64 a2)
 {
-  char result; // al
+  BOOLEAN result; // al
   __int64 v5; // rbx
-  bool v6; // cl
-  unsigned __int64 v7; // rdx
-  unsigned __int64 v8; // rax
+  BOOLEAN v6; // cl
+  __int64 v7; // rdx
+  __int64 v8; // rax
 
   result = KiAbOwnerComputeCpuPriorityKey(a1);
   if ( *(_BYTE *)(a1 + 48) != result )
   {
     v5 = a2 + 48;
     *(_BYTE *)(a1 + 48) = result;
-    RtlRbRemoveNode((unsigned __int64 *)v5, a1 + 24);
+    RtlRbRemoveNode((PRTL_RB_TREE)v5, (PRTL_BALANCED_NODE)(a1 + 24));
     v6 = 0;
     v7 = *(_QWORD *)v5;
     if ( (*(_BYTE *)(v5 + 8) & 1) != 0 )
@@ -41,11 +41,11 @@ char __fastcall KiAbEntryUpdateOwnerTreePosition(__int64 a1, __int64 a2)
           if ( (*(_BYTE *)(v5 + 8) & 1) != 0 )
           {
             if ( !v8 )
-              return RtlRbInsertNodeEx((unsigned __int64 *)v5, v7, v6, a1 + 24);
+              return RtlRbInsertNodeEx((PRTL_RB_TREE)v5, (PRTL_BALANCED_NODE)v7, v6, (PRTL_BALANCED_NODE)(a1 + 24));
             v8 ^= v7;
           }
           if ( !v8 )
-            return RtlRbInsertNodeEx((unsigned __int64 *)v5, v7, v6, a1 + 24);
+            return RtlRbInsertNodeEx((PRTL_RB_TREE)v5, (PRTL_BALANCED_NODE)v7, v6, (PRTL_BALANCED_NODE)(a1 + 24));
         }
         else
         {
@@ -60,13 +60,13 @@ char __fastcall KiAbEntryUpdateOwnerTreePosition(__int64 a1, __int64 a2)
           {
 LABEL_9:
             v6 = 1;
-            return RtlRbInsertNodeEx((unsigned __int64 *)v5, v7, v6, a1 + 24);
+            return RtlRbInsertNodeEx((PRTL_RB_TREE)v5, (PRTL_BALANCED_NODE)v7, v6, (PRTL_BALANCED_NODE)(a1 + 24));
           }
         }
         v7 = v8;
       }
     }
-    return RtlRbInsertNodeEx((unsigned __int64 *)v5, v7, v6, a1 + 24);
+    return RtlRbInsertNodeEx((PRTL_RB_TREE)v5, (PRTL_BALANCED_NODE)v7, v6, (PRTL_BALANCED_NODE)(a1 + 24));
   }
   return result;
 }

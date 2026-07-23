@@ -1,12 +1,12 @@
 /*
- * XREFs of PipGetDriverKsrGuidRegistryValue @ 0x14079D4B0
+ * XREFs of PipGetDriverKsrGuidRegistryValue @ 0x14079FFF0
  * Callers:
- *     PipGetDriverKsrGuid @ 0x14079D3F0 (PipGetDriverKsrGuid.c)
+ *     PipGetDriverKsrGuid @ 0x14079FF30 (PipGetDriverKsrGuid.c)
  * Callees:
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x140ADE3EC (PnpRegSzToString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     PnpRegSzToString @ 0x140ADB15C (PnpRegSzToString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipGetDriverKsrGuidRegistryValue(void *a1, GUID *a2)

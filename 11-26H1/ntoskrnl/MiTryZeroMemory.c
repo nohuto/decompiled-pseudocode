@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTryZeroMemory @ 0x14045D534
+ * XREFs of MiTryZeroMemory @ 0x140456F34
  * Callers:
- *     MiBackgroundZeroPage @ 0x14045D3B4 (MiBackgroundZeroPage.c)
+ *     MiBackgroundZeroPage @ 0x140456DB4 (MiBackgroundZeroPage.c)
  * Callees:
- *     MiGetZeroingContext @ 0x14045D650 (MiGetZeroingContext.c)
- *     MiAllocateEngineDescriptor @ 0x140514C38 (MiAllocateEngineDescriptor.c)
- *     MiPerformTimedMemoryZeroing @ 0x14051ED50 (MiPerformTimedMemoryZeroing.c)
+ *     MiGetZeroingContext @ 0x140457050 (MiGetZeroingContext.c)
+ *     MiAllocateEngineDescriptor @ 0x14050E6A8 (MiAllocateEngineDescriptor.c)
+ *     MiPerformTimedMemoryZeroing @ 0x1405213F4 (MiPerformTimedMemoryZeroing.c)
  */
 
 __int64 __fastcall MiTryZeroMemory(__int64 a1)

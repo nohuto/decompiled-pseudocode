@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCopyBitMapTailToHead @ 0x1800E4B24
+ * XREFs of RtlpCopyBitMapTailToHead @ 0x1800E4BE4
  * Callers:
- *     RtlCopyBitMap @ 0x1800E3700 (RtlCopyBitMap.c)
+ *     RtlCopyBitMap @ 0x1800E37C0 (RtlCopyBitMap.c)
  * Callees:
  *     memmove @ 0x1800AC980 (memmove.c)
  */

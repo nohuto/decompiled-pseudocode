@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockSlabAllocator @ 0x1404B1440
+ * XREFs of MiLockSlabAllocator @ 0x1404ABCD0
  * Callers:
- *     MiLockMemoryLists @ 0x1404B1210 (MiLockMemoryLists.c)
+ *     MiLockMemoryLists @ 0x1404ABAA0 (MiLockMemoryLists.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiLockSlabAllocator(__int64 a1, __int64 a2, int a3)

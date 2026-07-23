@@ -8,17 +8,15 @@
  *     PiUEventHandleIoctl @ 0x1404A539C (PiUEventHandleIoctl.c)
  */
 
-__int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2, __int64 a3)
+__int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2)
 {
   int Status; // edi
-  IRP *v4; // rbx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi
   UCHAR MajorFunction; // al
-  IRP *v7; // rcx
+  IRP *v6; // rcx
   char *FsContext2; // rcx
 
   Status = a2->IoStatus.Status;
-  v4 = a2;
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   if ( Status >= 0 )
   {
@@ -30,16 +28,15 @@ __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2, __int64 a3)
         FsContext2 = (char *)CurrentStackLocation->FileObject->FsContext2;
         if ( FsContext2 )
         {
-          LOBYTE(a2) = 1;
-          PiUEventFreeClientRegistrationContext(FsContext2, (__int64)a2, a3);
+          PiUEventFreeClientRegistrationContext(FsContext2, 1);
           CurrentStackLocation->FileObject->FsContext2 = 0LL;
         }
         Status = 0;
-        v7 = v4;
-        v4->IoStatus.Status = 0;
+        v6 = a2;
+        a2->IoStatus.Status = 0;
         goto LABEL_9;
       }
-      v7 = a2;
+      v6 = a2;
       if ( MajorFunction == 14 )
         return (unsigned int)PiUEventHandleIoctl(a2);
       if ( MajorFunction != 18 )
@@ -51,12 +48,12 @@ __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2, __int64 a3)
     }
     else
     {
-      v7 = a2;
+      v6 = a2;
       CurrentStackLocation->FileObject->FsContext2 = 0LL;
     }
     a2->IoStatus.Status = 0;
 LABEL_9:
-    IofCompleteRequest(v7, 0);
+    IofCompleteRequest(v6, 0);
   }
   return (unsigned int)Status;
 }

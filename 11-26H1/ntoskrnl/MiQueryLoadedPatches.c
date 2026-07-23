@@ -1,19 +1,19 @@
 /*
- * XREFs of MiQueryLoadedPatches @ 0x140874040
+ * XREFs of MiQueryLoadedPatches @ 0x14087A3A0
  * Callers:
- *     NtManageHotPatch @ 0x140A993D0 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x140A9D550 (NtManageHotPatch.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiFindUserSidHotPatchContext @ 0x14086FCAC (MiFindUserSidHotPatchContext.c)
- *     RtlCopySid @ 0x140A2AE10 (RtlCopySid.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiFindUserSidHotPatchContext @ 0x14087600C (MiFindUserSidHotPatchContext.c)
+ *     RtlCopySid @ 0x140A3DEA0 (RtlCopySid.c)
  */
 
 __int64 __fastcall MiQueryLoadedPatches(
@@ -53,15 +53,15 @@ __int64 __fastcall MiQueryLoadedPatches(
   unsigned __int64 v34; // rax
   _QWORD *j; // rcx
   __int64 v36; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v38; // rcx
+  $241382875694CED3D471BC5892DE3337 *v38; // rcx
 
   CurrentThread = KeGetCurrentThread();
   v6 = a3;
   --CurrentThread->SpecialApcDisable;
   v9 = 0LL;
-  v11 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558, 0LL, 0LL, a4);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E36558.Header.Lock, 0, v11, &stru_140E36558);
+  v11 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8, 0LL, 0LL, a4);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E366D8.Header.Lock, 0, v11, &stru_140E366D8);
   if ( v11 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -80,7 +80,7 @@ __int64 __fastcall MiQueryLoadedPatches(
   }
   else
   {
-    v15 = &xmmword_140E36540;
+    v15 = &xmmword_140E366C0;
     v13 = 96LL;
     v14 = 0;
   }
@@ -197,13 +197,13 @@ LABEL_23:
   }
   v20 = 0;
 LABEL_44:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&stru_140E36558.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140E36558);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&stru_140E366D8.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140E366D8);
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v38 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v38->ApcState.ApcListHead[0].Flink != v38 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v38->ApcState.ApcListHead[0].Flink != v38 )
       KiCheckForKernelApcDelivery((__int64)v38, v36);
   }
   return v20;

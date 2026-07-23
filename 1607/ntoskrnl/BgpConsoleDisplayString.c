@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
  *     AnFwFadeCompletion @ 0x140726D9C (AnFwFadeCompletion.c)
  *     BgpConsoleDisplayCharacterEx @ 0x14072A4F8 (BgpConsoleDisplayCharacterEx.c)
  */
@@ -17,18 +17,18 @@ __int64 __fastcall BgpConsoleDisplayString(unsigned __int16 *a1)
   int v6; // eax
 
   BgpFwAcquireLock();
-  v2 = qword_140329968;
-  if ( qword_140329968 )
+  v2 = qword_140329998;
+  if ( qword_140329998 )
   {
     if ( a1 )
     {
       if ( *a1 )
       {
-        if ( (*(_DWORD *)(qword_140329968 + 8) & 0x10000) != 0 )
+        if ( (*(_DWORD *)(qword_140329998 + 8) & 0x10000) != 0 )
         {
           AnFwFadeCompletion();
-          v2 = qword_140329968;
-          *(_DWORD *)(qword_140329968 + 8) &= ~0x10000u;
+          v2 = qword_140329998;
+          *(_DWORD *)(qword_140329998 + 8) &= ~0x10000u;
         }
         v5 = *a1;
         v3 = 0;
@@ -47,7 +47,7 @@ __int64 __fastcall BgpConsoleDisplayString(unsigned __int16 *a1)
             v5 = *++a1;
             if ( !*a1 )
               break;
-            v2 = qword_140329968;
+            v2 = qword_140329998;
           }
         }
       }

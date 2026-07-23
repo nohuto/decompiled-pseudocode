@@ -15,7 +15,13 @@
  *     ExFreePool @ 0x140B62CB0 (ExFreePool.c)
  */
 
-void __fastcall EtwpWriteProcessEvent(__int64 a1, __int16 a2, _QWORD *a3, int *a4, unsigned __int16 *a5, __int64 a6)
+void __fastcall EtwpWriteProcessEvent(
+        __int64 a1,
+        __int16 a2,
+        _QWORD *a3,
+        ULONG_PTR *a4,
+        unsigned __int16 *a5,
+        __int64 a6)
 {
   char v6; // r14
   char v11; // si

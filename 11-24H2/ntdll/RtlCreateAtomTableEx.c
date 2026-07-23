@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCreateAtomTableEx @ 0x1800AE3E4
+ * XREFs of RtlCreateAtomTableEx @ 0x18007B73C
  * Callers:
- *     RtlCreateAtomTable @ 0x180111010 (RtlCreateAtomTable.c)
+ *     RtlCreateAtomTable @ 0x18010C2D0 (RtlCreateAtomTable.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlCreateAtomTableEx(unsigned int a1, __int64 a2, _QWORD *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall RtlCreateAtomTableEx(unsigned int a1, __int64 a2, _QWORD *a3)
     v7 = v6 + 80;
     if ( v6 + 80 < v6 )
       return 3221225621LL;
-    Atom = (_DWORD *)RtlpAllocateAtom(v6 + 80);
+    Atom = RtlpAllocateAtom(v6 + 80);
     v10 = Atom;
     if ( Atom )
     {

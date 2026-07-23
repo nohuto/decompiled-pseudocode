@@ -1,17 +1,17 @@
 /*
- * XREFs of PspUserThreadStartup @ 0x14076F6E0
+ * XREFs of PspUserThreadStartup @ 0x14076F8D0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PspTerminateThreadByPointer @ 0x14076D980 (PspTerminateThreadByPointer.c)
- *     MmGetSessionLocaleId @ 0x14076F7C4 (MmGetSessionLocaleId.c)
- *     PspNotifyThreadCreation @ 0x14076F800 (PspNotifyThreadCreation.c)
- *     PspDisablePrimaryTokenExchange @ 0x14076F8E0 (PspDisablePrimaryTokenExchange.c)
- *     PspWriteTebIdealProcessor @ 0x14076FA3C (PspWriteTebIdealProcessor.c)
- *     PspInitializeThunkContext @ 0x1407701FC (PspInitializeThunkContext.c)
- *     DbgkCreateMinimalThread @ 0x14093918C (DbgkCreateMinimalThread.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PspTerminateThreadByPointer @ 0x14076DB70 (PspTerminateThreadByPointer.c)
+ *     MmGetSessionLocaleId @ 0x14076F9B4 (MmGetSessionLocaleId.c)
+ *     PspNotifyThreadCreation @ 0x14076F9F0 (PspNotifyThreadCreation.c)
+ *     PspDisablePrimaryTokenExchange @ 0x14076FAD0 (PspDisablePrimaryTokenExchange.c)
+ *     PspWriteTebIdealProcessor @ 0x14076FC2C (PspWriteTebIdealProcessor.c)
+ *     PspInitializeThunkContext @ 0x1407703EC (PspInitializeThunkContext.c)
+ *     DbgkCreateMinimalThread @ 0x14093938C (DbgkCreateMinimalThread.c)
  */
 
 NTSTATUS PspUserThreadStartup()
@@ -28,10 +28,10 @@ NTSTATUS PspUserThreadStartup()
   _DWORD *SchedulerAssist; // rdx
   bool v10; // zf
 
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

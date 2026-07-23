@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpMergeKeyValues @ 0x140608F88
+ * XREFs of CmpMergeKeyValues @ 0x14060903C
  * Callers:
- *     CmpCopySyncTree2 @ 0x140608240 (CmpCopySyncTree2.c)
- *     CmSaveMergedKeys @ 0x14060CE74 (CmSaveMergedKeys.c)
+ *     CmpCopySyncTree2 @ 0x1406082F4 (CmpCopySyncTree2.c)
+ *     CmSaveMergedKeys @ 0x14060CF28 (CmSaveMergedKeys.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpAddValueToListEx @ 0x1403FFCDC (CmpAddValueToListEx.c)
- *     CmpFindNameInList @ 0x140402A54 (CmpFindNameInList.c)
- *     CmpInitializeValueNameString @ 0x14053B414 (CmpInitializeValueNameString.c)
- *     CmpCopyValue @ 0x140608960 (CmpCopyValue.c)
- *     CmpSyncKeyValues @ 0x140609858 (CmpSyncKeyValues.c)
+ *     CmpAddValueToListEx @ 0x1403FEB9C (CmpAddValueToListEx.c)
+ *     CmpFindNameInList @ 0x140401914 (CmpFindNameInList.c)
+ *     CmpInitializeValueNameString @ 0x14053B954 (CmpInitializeValueNameString.c)
+ *     CmpCopyValue @ 0x140608A14 (CmpCopyValue.c)
+ *     CmpSyncKeyValues @ 0x14060990C (CmpSyncKeyValues.c)
  */
 
 char __fastcall CmpMergeKeyValues(__int64 a1, __int64 a2, _DWORD *a3, ULONG_PTR a4, unsigned int a5, __int64 a6)

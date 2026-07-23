@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHyperSpaceSize @ 0x14047F578
+ * XREFs of MiHyperSpaceSize @ 0x140478EE8
  * Callers:
- *     MiInitializePageTradePacket @ 0x140293510 (MiInitializePageTradePacket.c)
- *     MiSystemFault @ 0x1403A4508 (MiSystemFault.c)
- *     MiDeleteVadBitmap @ 0x140AFAF24 (MiDeleteVadBitmap.c)
- *     MiAssignTopLevelRanges @ 0x140CF9118 (MiAssignTopLevelRanges.c)
+ *     MiInitializePageTradePacket @ 0x140292A70 (MiInitializePageTradePacket.c)
+ *     MiSystemFault @ 0x1403A6268 (MiSystemFault.c)
+ *     MiDeleteVadBitmap @ 0x140AFCE30 (MiDeleteVadBitmap.c)
+ *     MiAssignTopLevelRanges @ 0x140CFF498 (MiAssignTopLevelRanges.c)
  * Callees:
  *     <none>
  */
@@ -17,8 +17,8 @@ __int64 MiHyperSpaceSize()
   unsigned __int64 v3; // rdx
   unsigned __int64 v4; // rcx
 
-  result = qword_140E2DE60;
-  if ( !qword_140E2DE60 )
+  result = qword_140E2DFE0;
+  if ( !qword_140E2DFE0 )
   {
     result = 0x10000000LL;
     v1 = 0x4000000LL;
@@ -26,13 +26,13 @@ __int64 MiHyperSpaceSize()
     do
     {
       v3 = (result + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      qword_140E2DE68[1 - v2++] = v3;
+      qword_140E2DFE8[1 - v2++] = v3;
       v4 = (v1 >> 6) + ((v1 & 0x3F) != 0);
       v1 >>= 9;
       result = v3 + 8 * v4;
     }
     while ( v2 < 2 );
-    qword_140E2DE60 = v3 + 8 * v4;
+    qword_140E2DFE0 = v3 + 8 * v4;
   }
   return result;
 }

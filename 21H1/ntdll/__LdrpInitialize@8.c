@@ -26,24 +26,24 @@
  *     _LdrInitializeMrdata@0 @ 0x4B334E89 (_LdrInitializeMrdata@0.c)
  */
 
-int __fastcall _LdrpInitialize(_DWORD *a1, int a2)
+NTSTATUS __fastcall _LdrpInitialize(_DWORD *a1, int a2)
 {
   struct _TEB *v2; // ebx
-  int v3; // esi
-  int result; // eax
+  NTSTATUS v3; // esi
+  NTSTATUS result; // eax
   _PEB *ProcessEnvironmentBlock; // edi
-  int v6; // ecx
+  NTSTATUS v6; // ecx
   char v7; // al
-  int v8; // eax
+  NTSTATUS v8; // eax
   char v9; // cl
-  _DWORD v10[2]; // [esp+10h] [ebp-40h] BYREF
+  LARGE_INTEGER DelayInterval; // [esp+10h] [ebp-40h] BYREF
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // [esp+18h] [ebp-38h]
   $D863D27743E5E2ED943C6432D815D276 *v12; // [esp+1Ch] [ebp-34h]
   struct _TEB *v13; // [esp+20h] [ebp-30h]
   int v14; // [esp+28h] [ebp-28h]
   int v15; // [esp+2Ch] [ebp-24h]
   _DWORD *v16; // [esp+30h] [ebp-20h]
-  int v17; // [esp+34h] [ebp-1Ch]
+  NTSTATUS v17; // [esp+34h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+38h] [ebp-18h]
 
   v14 = a2;
@@ -83,7 +83,7 @@ LABEL_7:
             {
               RtlAcquireSRWLockShared(&LdrpForkActiveLock);
               while ( LdrpForkInProgress )
-                RtlSleepConditionVariableSRW(&LdrpForkConditionVariable, &LdrpForkActiveLock, 0, 1);
+                RtlSleepConditionVariableSRW(&LdrpForkConditionVariable, &LdrpForkActiveLock, 0, 1u);
               RtlReleaseSRWLockShared(&LdrpForkActiveLock);
             }
             result = LdrpInitializeThread(v16);
@@ -119,11 +119,10 @@ LABEL_34:
       if ( (v7 & 0x40) != 0 )
         __debugbreak();
 LABEL_41:
-      v10[0] = -300000;
-      v10[1] = -1;
+      DelayInterval.QuadPart = -300000LL;
       while ( LdrpProcessInitialized == 1 )
       {
-        v8 = ZwDelayExecution(0, v10);
+        v8 = ZwDelayExecution(0, &DelayInterval);
         if ( v8 < 0 )
         {
           v9 = ShowSnaps;
@@ -146,9 +145,9 @@ LABEL_41:
     }
     result = LdrpProcessInitialized;
   }
-  NtCreateEvent(&LdrpInitCompleteEvent, 2031619, 0, 0, 0);
+  NtCreateEvent(&LdrpInitCompleteEvent, 0x1F0003u, 0, NotificationEvent, 0);
   v2->SameTebFlags |= 0x20u;
-  ProcessEnvironmentBlock->LoaderLock = (_RTL_CRITICAL_SECTION *)&LdrpLoaderLock;
+  ProcessEnvironmentBlock->LoaderLock = &LdrpLoaderLock;
   LdrInitState = 0;
   v12 = &ProcessEnvironmentBlock->40;
   _interlockedbittestandset((volatile signed __int32 *)&ProcessEnvironmentBlock->40, 1u);
@@ -231,7 +230,7 @@ LABEL_10:
   }
 LABEL_57:
   LdrpInitializationFailure(v3);
-  result = ZwTerminateProcess(-1, v3);
+  result = ZwTerminateProcess((HANDLE)0xFFFFFFFF, v3);
   if ( !v15 )
     RtlRaiseStatus(v3);
   return result;

@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlStdReleaseStackTrace @ 0x1800F28B0
  * Callers:
- *     RtlLogStackBackTraceEx @ 0x18002B208 (RtlLogStackBackTraceEx.c)
+ *     RtlLogStackBackTraceEx @ 0x18002B1F8 (RtlLogStackBackTraceEx.c)
  *     RtlReleaseStackTrace @ 0x1800F25A0 (RtlReleaseStackTrace.c)
  * Callees:
  *     RtlpInterlockedPushEntrySList @ 0x1800A9D70 (RtlpInterlockedPushEntrySList.c)

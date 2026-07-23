@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckHintedPageFileSpace @ 0x14047143C
+ * XREFs of MiCheckHintedPageFileSpace @ 0x14046ABBC
  * Callers:
- *     MiFindFreePageFileSpace @ 0x140405E3C (MiFindFreePageFileSpace.c)
+ *     MiFindFreePageFileSpace @ 0x1403FEF30 (MiFindFreePageFileSpace.c)
  * Callees:
- *     RtlLengthCurrentClearRunForward @ 0x1404714C8 (RtlLengthCurrentClearRunForward.c)
+ *     RtlLengthCurrentClearRunForward @ 0x14046AC48 (RtlLengthCurrentClearRunForward.c)
  */
 
 __int64 __fastcall MiCheckHintedPageFileSpace(__int64 a1, unsigned int a2, int a3, char a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpMuiRegResizeStringPool @ 0x14082CFE0
+ * XREFs of RtlpMuiRegResizeStringPool @ 0x14082D810
  * Callers:
- *     RtlpMuiRegGetOrAddString @ 0x14082C9D0 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14082D200 (RtlpMuiRegGetOrAddString.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlpMuiRegCreateStringPool @ 0x14082BF0C (RtlpMuiRegCreateStringPool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlpMuiRegCreateStringPool @ 0x14082C73C (RtlpMuiRegCreateStringPool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpMuiRegResizeStringPool(const void **P, __int16 a2, __int16 a3, char a4)

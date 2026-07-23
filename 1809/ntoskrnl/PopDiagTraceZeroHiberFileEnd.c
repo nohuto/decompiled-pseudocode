@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagTraceZeroHiberFileEnd @ 0x14057DF98
+ * XREFs of PopDiagTraceZeroHiberFileEnd @ 0x14057EF98
  * Callers:
- *     PopZeroHiberFile @ 0x14086BDD0 (PopZeroHiberFile.c)
+ *     PopZeroHiberFile @ 0x14086D030 (PopZeroHiberFile.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x140135A60 (PopDiagTraceEventNoPayload.c)
+ *     PopDiagTraceEventNoPayload @ 0x140135B30 (PopDiagTraceEventNoPayload.c)
  */
 
 void PopDiagTraceZeroHiberFileEnd()

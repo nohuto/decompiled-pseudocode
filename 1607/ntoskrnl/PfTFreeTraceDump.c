@@ -1,8 +1,8 @@
 /*
- * XREFs of PfTFreeTraceDump @ 0x1400066F0
+ * XREFs of PfTFreeTraceDump @ 0x140006860
  * Callers:
- *     PfGetCompletedTrace @ 0x1403E6AB4 (PfGetCompletedTrace.c)
- *     PfTTraceListFree @ 0x1403E6E94 (PfTTraceListFree.c)
+ *     PfGetCompletedTrace @ 0x1403E80E4 (PfGetCompletedTrace.c)
+ *     PfTTraceListFree @ 0x1403E84C4 (PfTTraceListFree.c)
  * Callees:
  *     <none>
  */

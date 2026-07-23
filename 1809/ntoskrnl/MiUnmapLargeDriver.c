@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnmapLargeDriver @ 0x14085D97C
+ * XREFs of MiUnmapLargeDriver @ 0x14085EBDC
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiUseLargeDriverPage @ 0x140684420 (MiUseLargeDriverPage.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPdeAddress @ 0x1400EDB64 (MiGetPdeAddress.c)
- *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
- *     MiUnmapLargePages @ 0x1402C5BA4 (MiUnmapLargePages.c)
+ *     MiGetPdeAddress @ 0x1400EDBE4 (MiGetPdeAddress.c)
+ *     MiFreeContiguousPages @ 0x1401231C4 (MiFreeContiguousPages.c)
+ *     MiUnmapLargePages @ 0x1402C5D94 (MiUnmapLargePages.c)
  */
 
 unsigned __int64 __fastcall MiUnmapLargeDriver(unsigned __int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall MiUnmapLargeDriver(unsigned __int64 a1, __int64 a2)
 
   PdeAddress = MiGetPdeAddress(a1);
   v4 = MI_READ_PTE_LOCK_FREE(PdeAddress);
-  v5 = ((unsigned int)dword_140438E34 + 511LL + a2) & 0xFFFFFFFFFFFFFE00uLL;
+  v5 = ((unsigned int)dword_140439EF4 + 511LL + a2) & 0xFFFFFFFFFFFFFE00uLL;
   MiUnmapLargePages(v6, v5 << 12, 12);
   return MiFreeContiguousPages((__int64)&MiSystemPartition, (v4 >> 12) & 0xFFFFFFFFFLL, v5);
 }

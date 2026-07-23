@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateDataFileMap @ 0x1407459E0
+ * XREFs of MiCreateDataFileMap @ 0x140745BD0
  * Callers:
- *     MiCreateNewSection @ 0x1407464F0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1407466E0 (MiCreateNewSection.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInsertSubsectionNode @ 0x1402E3E28 (MiInsertSubsectionNode.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiInsertSubsectionNode @ 0x1402E40B8 (MiInsertSubsectionNode.c)
  *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     FsRtlSetFileSize @ 0x1407EA694 (FsRtlSetFileSize.c)
- *     MiComputeIdealFirstSubsection @ 0x140A33738 (MiComputeIdealFirstSubsection.c)
+ *     FsRtlSetFileSize @ 0x1407EA964 (FsRtlSetFileSize.c)
+ *     MiComputeIdealFirstSubsection @ 0x140A339E8 (MiComputeIdealFirstSubsection.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

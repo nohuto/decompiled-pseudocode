@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlBootStatusItemInfo @ 0x140B05228
+ * XREFs of RtlBootStatusItemInfo @ 0x140B06E38
  * Callers:
- *     RtlCheckBootStatusIntegrity @ 0x140805778 (RtlCheckBootStatusIntegrity.c)
- *     PopBootStatGet @ 0x140B67DA4 (PopBootStatGet.c)
+ *     RtlCheckBootStatusIntegrity @ 0x14080B218 (RtlCheckBootStatusIntegrity.c)
+ *     PopBootStatGet @ 0x140B6AD34 (PopBootStatGet.c)
  * Callees:
  *     <none>
  */

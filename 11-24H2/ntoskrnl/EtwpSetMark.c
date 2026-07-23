@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpSetMark @ 0x1407A9F74
+ * XREFs of EtwpSetMark @ 0x1407AA0B4
  * Callers:
- *     NtTraceEvent @ 0x140325D10 (NtTraceEvent.c)
- *     EtwpLogRefSetAutoMark @ 0x1407B0C94 (EtwpLogRefSetAutoMark.c)
+ *     NtTraceEvent @ 0x1402CE8A0 (NtTraceEvent.c)
+ *     EtwpLogRefSetAutoMark @ 0x1407B10E4 (EtwpLogRefSetAutoMark.c)
  * Callees:
- *     EtwpLogSystemEventUnsafe @ 0x1403274F0 (EtwpLogSystemEventUnsafe.c)
- *     MmEmptyAllWorkingSets @ 0x140678E84 (MmEmptyAllWorkingSets.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MmIdentifyPhysicalMemory @ 0x1407EBB48 (MmIdentifyPhysicalMemory.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1402D0080 (EtwpLogSystemEventUnsafe.c)
+ *     MmEmptyAllWorkingSets @ 0x14067A064 (MmEmptyAllWorkingSets.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MmIdentifyPhysicalMemory @ 0x1407EC118 (MmIdentifyPhysicalMemory.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwpSetMark(unsigned int *a1, _DWORD *a2, unsigned int a3, char a4, KPROCESSOR_MODE PreviousMode)
@@ -19,7 +19,7 @@ __int64 __fastcall EtwpSetMark(unsigned int *a1, _DWORD *a2, unsigned int a3, ch
   _DWORD *v11; // [rsp+48h] [rbp-40h] BYREF
   unsigned int v12; // [rsp+50h] [rbp-38h]
   int v13; // [rsp+54h] [rbp-34h]
-  __int64 *v14; // [rsp+58h] [rbp-30h]
+  int *v14; // [rsp+58h] [rbp-30h]
   int v15; // [rsp+60h] [rbp-28h]
   int v16; // [rsp+64h] [rbp-24h]
 

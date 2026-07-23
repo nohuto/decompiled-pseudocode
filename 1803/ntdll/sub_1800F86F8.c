@@ -13,7 +13,7 @@
  *     sub_1800FAD5C @ 0x1800FAD5C (sub_1800FAD5C.c)
  */
 
-__int64 __fastcall sub_1800F86F8(_QWORD *a1, __int64 a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
+__int64 __fastcall sub_1800F86F8(_QWORD *a1, void *a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
 {
   __int64 result; // rax
   char v10; // cl

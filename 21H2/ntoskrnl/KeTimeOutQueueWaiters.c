@@ -1,62 +1,57 @@
 /*
- * XREFs of KeTimeOutQueueWaiters @ 0x1402871CC
+ * XREFs of KeTimeOutQueueWaiters @ 0x14020436C
  * Callers:
- *     ExpWorkerFactoryManagerThread @ 0x1403B75A0 (ExpWorkerFactoryManagerThread.c)
- *     ExpWorkQueueManagerThread @ 0x1407AF840 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkerFactoryManagerThread @ 0x1403B7710 (ExpWorkerFactoryManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x1407AF9E0 (ExpWorkQueueManagerThread.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiTryUnwaitThread @ 0x140342820 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiTryUnwaitThread @ 0x14034D570 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  */
 
-__int64 __fastcall KeTimeOutQueueWaiters(__int64 a1, unsigned __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
+__int64 __fastcall KeTimeOutQueueWaiters(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
-  unsigned int v5; // ebp
-  unsigned int v6; // r12d
-  int v7; // r13d
-  volatile CCHAR v8; // cl
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // rbx
+  unsigned int v4; // ebp
+  int v6; // r13d
+  volatile CCHAR v7; // cl
+  unsigned __int64 v8; // rbx
   char CurrentIrql; // r15
-  _QWORD *v12; // rdi
-  _QWORD *v13; // rdx
-  __int64 v15; // rax
+  _QWORD *v10; // rdi
+  _QWORD *v11; // rdx
+  __int64 v13; // rax
+  _DWORD *SchedulerAssist; // r9
 
-  v5 = 0;
-  v6 = a3;
-  v7 = MEMORY[0xFFFFF78000000320];
-  v8 = KeNumberProcessorsGroup0[3];
-  v9 = (a2 * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64;
-  v10 = v9 >> v8;
+  v4 = 0;
+  v6 = MEMORY[0xFFFFF78000000320];
+  v7 = KeNumberProcessorsGroup0[1];
+  v8 = (unsigned __int64)((a2 * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v7;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v9 = (-1LL << (CurrentIrql + 1)) & 4;
-    a3 = (unsigned int)v9 | SchedulerAssist[5];
-    SchedulerAssist[5] = a3;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  KiAcquireKobjectLockSafe((volatile signed __int32 *)a1, v9, a3, (__int64)SchedulerAssist);
-  v12 = *(_QWORD **)(a1 + 16);
-  while ( v12 != (_QWORD *)(a1 + 8) && v5 < v6 )
+  KiAcquireKobjectLockSafe(a1);
+  v10 = *(_QWORD **)(a1 + 16);
+  while ( v10 != (_QWORD *)(a1 + 8) && v4 < a3 )
   {
-    v13 = v12;
-    v12 = (_QWORD *)v12[1];
-    if ( *((_BYTE *)v13 + 16) == 3 )
+    v11 = v10;
+    v10 = (_QWORD *)v10[1];
+    if ( *((_BYTE *)v11 + 16) == 3 )
     {
-      if ( v7 - *(_DWORD *)(v13[3] + 436LL) < (unsigned int)v10 )
+      if ( v6 - *(_DWORD *)(v11[3] + 436LL) < (unsigned int)v8 )
         break;
-      v15 = *v13;
-      if ( *(_QWORD **)(*v13 + 8LL) != v13 || (_QWORD *)*v12 != v13 )
+      v13 = *v11;
+      if ( *(_QWORD **)(*v11 + 8LL) != v11 || (_QWORD *)*v10 != v11 )
         __fastfail(3u);
-      *v12 = v15;
-      *(_QWORD *)(v15 + 8) = v12;
-      if ( (unsigned __int8)KiTryUnwaitThread(KeGetCurrentPrcb(), v13, 258LL, 0LL) )
-        ++v5;
+      *v10 = v13;
+      *(_QWORD *)(v13 + 8) = v10;
+      if ( (unsigned __int8)KiTryUnwaitThread(KeGetCurrentPrcb(), v11, 258LL, 0LL) )
+        ++v4;
     }
   }
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   KiExitDispatcher((unsigned int)KeGetCurrentPrcb(), 0, 1, 0, CurrentIrql);
-  return v5;
+  return v4;
 }

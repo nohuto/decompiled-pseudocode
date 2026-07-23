@@ -14,7 +14,7 @@
 
 __int64 __fastcall PspSetupUserShadowStack(
         _KPROCESS *BugCheckParameter1,
-        _DWORD *a2,
+        __int64 a2,
         __int64 a3,
         _BYTE *a4,
         unsigned int a5)
@@ -22,7 +22,7 @@ __int64 __fastcall PspSetupUserShadowStack(
   __int64 result; // rax
   _DWORD *v10; // r9
   int v11; // esi
-  char *ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   __int64 v13; // rax
   unsigned __int64 v14; // [rsp+30h] [rbp-31h] BYREF
   __int64 v15; // [rsp+38h] [rbp-29h] BYREF
@@ -46,14 +46,14 @@ __int64 __fastcall PspSetupUserShadowStack(
     }
     else
     {
-      if ( (a2[12] & 0x100040) == 0x100040 )
+      if ( (*(_DWORD *)(a2 + 48) & 0x100040) == 0x100040 )
       {
-        ExtendedFeature = RtlLocateExtendedFeature(a2 + 308, 0xBu, 0LL);
+        ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a2 + 1232), 0xBu, 0LL);
         if ( ExtendedFeature )
         {
-          *(_QWORD *)((char *)a2 + a2[312] + 1232) |= 0x800uLL;
-          *((_QWORD *)ExtendedFeature + 1) = v15;
-          *(_QWORD *)ExtendedFeature = 1LL;
+          *(_QWORD *)(*(int *)(a2 + 1248) + a2 + 1232) |= 0x800uLL;
+          ExtendedFeature[1] = v15;
+          *ExtendedFeature = 1LL;
         }
       }
       *(_QWORD *)(a3 + 64) = v16;

@@ -3,7 +3,7 @@
  * Callers:
  *     WheaReportHwErrorDeviceDriver @ 0x140A08B90 (WheaReportHwErrorDeviceDriver.c)
  * Callees:
- *     RtlStringCchCopyA @ 0x14024F6E4 (RtlStringCchCopyA.c)
+ *     sub_14024F6E4 @ 0x14024F6E4 (sub_14024F6E4.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     WheaAddHwErrorReportSectionDeviceDriver @ 0x140644110 (WheaAddHwErrorReportSectionDeviceDriver.c)
  *     WheaCreateHwErrorReportDeviceDriver @ 0x140644220 (WheaCreateHwErrorReportDeviceDriver.c)
@@ -23,18 +23,18 @@ __int64 __fastcall WheaReportHwErrorDeviceDriverEx(
         _OWORD *a7,
         __int64 a8,
         __int64 a9,
-        const char *pszSrc)
+        __int64 a10)
 {
   size_t v10; // rsi
   __int64 HwErrorReportDeviceDriver; // rdi
   int v13; // ebx
   void *v15[2]; // [rsp+28h] [rbp-30h] BYREF
-  NTSTRSAFE_PSTR pszDest[2]; // [rsp+38h] [rbp-20h]
+  __int128 v16; // [rsp+38h] [rbp-20h]
   _BYTE *v17; // [rsp+48h] [rbp-10h]
 
   v10 = a4;
   *(_OWORD *)v15 = 0LL;
-  *(_OWORD *)pszDest = 0LL;
+  v16 = 0LL;
   v17 = 0LL;
   HwErrorReportDeviceDriver = WheaCreateHwErrorReportDeviceDriver(a1);
   if ( HwErrorReportDeviceDriver )
@@ -46,10 +46,10 @@ __int64 __fastcall WheaReportHwErrorDeviceDriverEx(
     if ( v13 >= 0 )
     {
       memmove(*(void **)((char *)v15 + 4), a3, v10);
-      *(_OWORD *)pszDest[0] = *a7;
+      *(_OWORD *)v16 = *a7;
       *v17 = 1;
-      if ( pszSrc )
-        RtlStringCchCopyA(pszDest[1], 0x14uLL, pszSrc);
+      if ( a10 )
+        sub_14024F6E4(*((_BYTE **)&v16 + 1), 20LL, a10);
       return (unsigned int)WheaHwErrorReportSubmitDeviceDriver(HwErrorReportDeviceDriver);
     }
     else

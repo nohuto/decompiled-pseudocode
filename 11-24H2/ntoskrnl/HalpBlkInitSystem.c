@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBlkInitSystem @ 0x140C144B8
+ * XREFs of HalpBlkInitSystem @ 0x140C164B8
  * Callers:
- *     HalpProcInitSystem @ 0x140B4D1C0 (HalpProcInitSystem.c)
+ *     HalpProcInitSystem @ 0x140B4F200 (HalpProcInitSystem.c)
  * Callees:
- *     KiInitializeTimer2 @ 0x1403BF498 (KiInitializeTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140C12FAC (HalpBlkInitializeVirtualAddressSpace.c)
+ *     KiInitializeTimer2 @ 0x1403AE058 (KiInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140C14FAC (HalpBlkInitializeVirtualAddressSpace.c)
  */
 
 void __fastcall HalpBlkInitSystem(int a1)
@@ -26,7 +26,7 @@ void __fastcall HalpBlkInitSystem(int a1)
       v1 = HalpBlkInitializeVirtualAddressSpace();
       if ( v1 < 0 )
         KeBugCheckEx(0x1DAu, 1uLL, v1, 0LL, 0LL);
-      word_140F8EA22 = 0;
+      word_140F8EC42 = 0;
       KiInitializeTimer2((unsigned __int64)&HalpBlkWdTimer, (__int64)HalpBlkWdTimerRoutine, 0LL, 8);
       HalpBlkWdWorkItem.Parameter = 0LL;
       HalpBlkWdWorkItem.List.Flink = 0LL;
@@ -39,7 +39,7 @@ void __fastcall HalpBlkInitSystem(int a1)
     {
       v2[0] = 0LL;
       v2[1] = -1LL;
-      KeSetTimer2((__int64)&HalpBlkWdTimer, -30000000LL, 30000000LL, (__int64)v2);
+      KeSetTimer2((__int64)&HalpBlkWdTimer, (LARGE_INTEGER)-30000000LL, 30000000LL, (__int64)v2);
     }
   }
 }

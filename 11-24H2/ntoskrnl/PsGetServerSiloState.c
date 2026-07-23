@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetServerSiloState @ 0x140349D3C
+ * XREFs of PsGetServerSiloState @ 0x1403C377C
  * Callers:
- *     SepQueueWorkItem @ 0x140349B84 (SepQueueWorkItem.c)
- *     PspCompleteServerSiloShutdown @ 0x1407725A8 (PspCompleteServerSiloShutdown.c)
- *     PspCompleteServerSiloShutdownDeferred @ 0x140772600 (PspCompleteServerSiloShutdownDeferred.c)
- *     PspCatchCriticalBreak @ 0x140778EB8 (PspCatchCriticalBreak.c)
+ *     SepQueueWorkItem @ 0x1403C35C4 (SepQueueWorkItem.c)
+ *     PspCompleteServerSiloShutdown @ 0x1407727C8 (PspCompleteServerSiloShutdown.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x140772820 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspCatchCriticalBreak @ 0x140778FB8 (PspCatchCriticalBreak.c)
  * Callees:
  *     <none>
  */

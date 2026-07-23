@@ -7,15 +7,16 @@
  *     ZwTraceControl @ 0x18009E210 (ZwTraceControl.c)
  */
 
-__int64 EtwReplyNotification()
+ULONG __cdecl EtwReplyNotification(PETW_NOTIFICATION_HEADER Notification)
 {
-  ULONG v0; // ebx
-  NTSTATUS v1; // eax
+  ULONG v1; // ebx
+  NTSTATUS v2; // eax
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
-  v0 = 0;
-  v1 = ZwTraceControl();
-  if ( v1 )
-    v0 = RtlNtStatusToDosError(v1);
+  v1 = 0;
+  v2 = ZwTraceControl(EtwSendReplyDataBlock, Notification, Notification->NotificationSize, 0LL, 0, &ReturnLength);
+  if ( v2 )
+    v1 = RtlNtStatusToDosError(v2);
   byte_18015A434 = 1;
-  return v0;
+  return v1;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindLargeNodePage @ 0x1403C99D4
+ * XREFs of MiFindLargeNodePage @ 0x1403D3884
  * Callers:
- *     MiFindContiguousPagesLarge @ 0x1403C97BC (MiFindContiguousPagesLarge.c)
- *     MiPartitionTransferAllocateLargePages @ 0x14087CA30 (MiPartitionTransferAllocateLargePages.c)
+ *     MiFindContiguousPagesLarge @ 0x1403D366C (MiFindContiguousPagesLarge.c)
+ *     MiPartitionTransferAllocateLargePages @ 0x140882E30 (MiPartitionTransferAllocateLargePages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1403C7FF0 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1403D1EE0 (MiGetLargePageDemoteAsNeeded.c)
  */
 
 __int64 __fastcall MiFindLargeNodePage(
@@ -29,7 +29,7 @@ __int64 __fastcall MiFindLargeNodePage(
   if ( a2 >= (unsigned __int16)KeNumberNodes )
   {
     a2 = *(_DWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 34644);
-    v9 = qword_140E2D690 + 4LL * a2 * (unsigned __int16)KeNumberNodes;
+    v9 = qword_140E2D810 + 4LL * a2 * (unsigned __int16)KeNumberNodes;
     v10 = v9 + 4LL * (unsigned __int16)KeNumberNodes;
   }
   else

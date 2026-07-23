@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateBadPfnIdentity @ 0x14062B2EC
+ * XREFs of MiUpdateBadPfnIdentity @ 0x14062B83C
  * Callers:
- *     MmQueryBadAddresses @ 0x140A2FDD8 (MmQueryBadAddresses.c)
+ *     MmQueryBadAddresses @ 0x140A30088 (MmQueryBadAddresses.c)
  * Callees:
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiIsPageInHugePfn @ 0x140336DAC (MiIsPageInHugePfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetPageInHugePageBadStatus @ 0x14061FF0C (MiGetPageInHugePageBadStatus.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiIsPageInHugePfn @ 0x14033703C (MiIsPageInHugePfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPageInHugePageBadStatus @ 0x14062045C (MiGetPageInHugePageBadStatus.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
  */
 
 __int64 __fastcall MiUpdateBadPfnIdentity(unsigned __int64 a1, unsigned __int64 *a2)
@@ -69,10 +69,13 @@ __int64 __fastcall MiUpdateBadPfnIdentity(unsigned __int64 a1, unsigned __int64 
     }
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

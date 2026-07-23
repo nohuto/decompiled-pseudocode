@@ -96,7 +96,7 @@ void __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, _KPROCESS *a3, int a4, P
           VirtualMemory = ZwQueryVirtualMemory(
                             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                             v15,
-                            (MEMORY_INFORMATION_CLASS)3,
+                            MemoryRegionInformation,
                             MemoryInformation,
                             0x30uLL,
                             0LL);
@@ -110,7 +110,7 @@ void __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, _KPROCESS *a3, int a4, P
               if ( ZwQueryVirtualMemory(
                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                      v15,
-                     (MEMORY_INFORMATION_CLASS)2,
+                     MemoryMappedFilenameInformation,
                      Pool2,
                      0x200uLL,
                      0LL) < 0 )

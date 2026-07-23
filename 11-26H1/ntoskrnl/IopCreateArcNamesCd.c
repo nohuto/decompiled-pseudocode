@@ -1,25 +1,25 @@
 /*
- * XREFs of IopCreateArcNamesCd @ 0x140CBC66C
+ * XREFs of IopCreateArcNamesCd @ 0x140CC26E4
  * Callers:
- *     IopCreateArcNames @ 0x140CBC528 (IopCreateArcNames.c)
+ *     IopCreateArcNames @ 0x140CC25A0 (IopCreateArcNames.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14051055C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IoGetConfigurationInformation @ 0x14077EB70 (IoGetConfigurationInformation.c)
- *     IoGetDeviceObjectPointer @ 0x140908800 (IoGetDeviceObjectPointer.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     IoCreateSymbolicLink @ 0x140AB52F0 (IoCreateSymbolicLink.c)
- *     IoBuildSynchronousFsdRequest @ 0x140AD5C20 (IoBuildSynchronousFsdRequest.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     IopFetchConfigurationInformation @ 0x140CBD048 (IopFetchConfigurationInformation.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x140509FCC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     IoGetConfigurationInformation @ 0x140781670 (IoGetConfigurationInformation.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     IoGetDeviceObjectPointer @ 0x140A30960 (IoGetDeviceObjectPointer.c)
+ *     IoCreateSymbolicLink @ 0x140AB6690 (IoCreateSymbolicLink.c)
+ *     IoBuildSynchronousFsdRequest @ 0x140AD2BD0 (IoBuildSynchronousFsdRequest.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     IopFetchConfigurationInformation @ 0x140CC30C0 (IopFetchConfigurationInformation.c)
  */
 
 __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
@@ -67,7 +67,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   __int64 OutputBuffer; // [rsp+100h] [rbp-8h] BYREF
   int v44; // [rsp+108h] [rbp+0h]
   char pszDest[128]; // [rsp+118h] [rbp+10h] BYREF
-  char v46[128]; // [rsp+198h] [rbp+90h] BYREF
+  CHAR v46[128]; // [rsp+198h] [rbp+90h] BYREF
 
   v1 = *(WCHAR ***)(a1 + 232);
   v40 = a1;

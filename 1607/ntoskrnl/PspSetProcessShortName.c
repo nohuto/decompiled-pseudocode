@@ -1,8 +1,8 @@
 /*
- * XREFs of PspSetProcessShortName @ 0x1404D2258
+ * XREFs of PspSetProcessShortName @ 0x1404B5CF8
  * Callers:
- *     PspInitializeFullProcessImageName @ 0x1404D2094 (PspInitializeFullProcessImageName.c)
- *     PspSetMinimalProcessName @ 0x140681AEC (PspSetMinimalProcessName.c)
+ *     PspInitializeFullProcessImageName @ 0x1404B5B34 (PspInitializeFullProcessImageName.c)
+ *     PspSetMinimalProcessName @ 0x140681BD0 (PspSetMinimalProcessName.c)
  * Callees:
  *     <none>
  */

@@ -1,32 +1,32 @@
 /*
- * XREFs of LdrpUnmapModule @ 0x1800067C8
+ * XREFs of LdrpUnmapModule @ 0x1800331C8
  * Callers:
- *     LdrGetProcedureAddressForCaller @ 0x180004FF0 (LdrGetProcedureAddressForCaller.c)
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     LdrpFindOrPrepareLoadingModule @ 0x18000FA80 (LdrpFindOrPrepareLoadingModule.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
- *     LdrpUnloadNode @ 0x18001CA60 (LdrpUnloadNode.c)
- *     LdrpResolveProcedureAddress @ 0x180057F30 (LdrpResolveProcedureAddress.c)
- *     LdrpLoadEnclaveModule @ 0x1800D9218 (LdrpLoadEnclaveModule.c)
+ *     LdrGetProcedureAddressForCaller @ 0x1800319F0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x18003C480 (LdrpFindOrPrepareLoadingModule.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
+ *     LdrpUnloadNode @ 0x180049460 (LdrpUnloadNode.c)
+ *     LdrpResolveProcedureAddress @ 0x18006DB10 (LdrpResolveProcedureAddress.c)
+ *     LdrpLoadEnclaveModule @ 0x1800D4588 (LdrpLoadEnclaveModule.c)
  * Callees:
- *     RtlRemoveInvertedFunctionTable @ 0x180006734 (RtlRemoveInvertedFunctionTable.c)
- *     RtlpInsertOrRemoveScpCfgFunctionTable @ 0x1800068D0 (RtlpInsertOrRemoveScpCfgFunctionTable.c)
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x180033134 (RtlRemoveInvertedFunctionTable.c)
+ *     RtlpInsertOrRemoveScpCfgFunctionTable @ 0x1800332D0 (RtlpInsertOrRemoveScpCfgFunctionTable.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
  */
 
-__int64 __fastcall LdrpUnmapModule(__int64 a1, __int64 a2)
+NTSTATUS __fastcall LdrpUnmapModule(__int64 a1)
 {
-  __int64 v3; // rcx
-  __int64 result; // rax
+  __int64 v2; // rcx
+  NTSTATUS result; // eax
 
-  v3 = *(_QWORD *)(a1 + 48);
-  if ( v3 )
+  v2 = *(_QWORD *)(a1 + 48);
+  if ( v2 )
   {
     if ( (*(_DWORD *)(a1 + 104) & 0x200) != 0 )
-      RtlRemoveInvertedFunctionTable(v3);
+      RtlRemoveInvertedFunctionTable(v2);
     if ( (*(_DWORD *)(a1 + 104) & 0x200000) != 0 )
-      RtlpInsertOrRemoveScpCfgFunctionTable(*(_QWORD *)(a1 + 48), a2, 0LL);
-    result = NtUnmapViewOfSection(-1LL);
+      RtlpInsertOrRemoveScpCfgFunctionTable(*(PVOID *)(a1 + 48));
+    result = NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *(PVOID *)(a1 + 48));
     *(_QWORD *)(a1 + 48) = 0LL;
   }
   return result;

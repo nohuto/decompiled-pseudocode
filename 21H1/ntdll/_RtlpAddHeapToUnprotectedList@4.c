@@ -19,7 +19,9 @@ void __thiscall RtlpAddHeapToUnprotectedList(int this)
   __int16 v6; // ax
   int v7; // eax
   void **Heap; // ecx
-  void **v9; // [esp+Ch] [ebp-4h]
+  SIZE_T v9; // [esp-4h] [ebp-14h]
+  size_t v10; // [esp-4h] [ebp-14h]
+  void **v11; // [esp+Ch] [ebp-4h]
 
   v1 = NtCurrentPeb();
   NumberOfHeaps = v1->NumberOfHeaps;
@@ -31,18 +33,20 @@ void __thiscall RtlpAddHeapToUnprotectedList(int this)
     {
       v7 = 2 * MaximumNumberOfHeaps;
       v1->MaximumNumberOfHeaps = v7;
-      Heap = (void **)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 4 * v7);
-      v9 = Heap;
+      LODWORD(v9) = 4 * v7;
+      Heap = (void **)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
+      v11 = Heap;
       if ( !Heap )
       {
         v1->MaximumNumberOfHeaps = v4;
         return;
       }
-      memcpy(Heap, v1->ProcessHeaps, 4 * v1->NumberOfHeaps);
+      LODWORD(v10) = 4 * v1->NumberOfHeaps;
+      memcpy(Heap, v1->ProcessHeaps, v10);
       if ( (_UNKNOWN *)v1->ProcessHeaps != &RtlpProcessHeapsListBuffer )
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v1->ProcessHeaps);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1->ProcessHeaps);
       NumberOfHeaps = v1->NumberOfHeaps;
-      v1->ProcessHeaps = v9;
+      v1->ProcessHeaps = v11;
     }
     v1->ProcessHeaps[NumberOfHeaps] = (void *)this;
     ++v1->NumberOfHeaps;

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiObtainSessionVa @ 0x1400F72A4
+ * XREFs of MiObtainSessionVa @ 0x1400F7324
  * Callers:
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiExpandPtes @ 0x1400F6414 (MiExpandPtes.c)
- *     MiExpandSpecialPool @ 0x1402AC45C (MiExpandSpecialPool.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
+ *     MiExpandPtes @ 0x1400F6494 (MiExpandPtes.c)
+ *     MiExpandSpecialPool @ 0x1402AC64C (MiExpandSpecialPool.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,9 +12,9 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlFindClearBitsAndSetEx @ 0x14008AB40 (RtlFindClearBitsAndSetEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiObtainSessionVa(unsigned int a1)
@@ -350,7 +350,7 @@ LABEL_116:
     }
     v59->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v59->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v52->LockEntries[v58], SessionId);
+      KiAbEntryRemoveFromTree(&v52->LockEntries[v58].TreeNode, SessionId);
     v64 = 0;
     v64 = v59->BoostBitmap.AllFields & 0x1FFFF;
     v59->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -406,7 +406,7 @@ LABEL_128:
         {
           v28->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v28->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v20->LockEntries[v27], v21);
+            KiAbEntryRemoveFromTree(&v20->LockEntries[v27].TreeNode, v21);
           v65 = 0;
           v65 = v28->BoostBitmap.AllFields & 0x1FFFF;
           v28->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -432,5 +432,5 @@ LABEL_33:
   if ( v24 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)v20->ApcState.ApcListHead[0].Flink != &v20->152 )
     KiCheckForKernelApcDelivery(v30);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
-  return qword_140438F80 + (ClearBitsAndSet << 21);
+  return qword_14043A040 + (ClearBitsAndSet << 21);
 }

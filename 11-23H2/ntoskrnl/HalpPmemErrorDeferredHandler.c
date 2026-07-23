@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPmemErrorDeferredHandler @ 0x140519A1C
+ * XREFs of HalpPmemErrorDeferredHandler @ 0x140519F6C
  * Callers:
- *     HalpErrorDeferredHandler @ 0x140519620 (HalpErrorDeferredHandler.c)
+ *     HalpErrorDeferredHandler @ 0x140519B70 (HalpErrorDeferredHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MmGetPageBadStatus @ 0x14062B490 (MmGetPageBadStatus.c)
- *     WheaAttemptPhysicalPageOffline @ 0x140A07D80 (WheaAttemptPhysicalPageOffline.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MmGetPageBadStatus @ 0x14062B9E0 (MmGetPageBadStatus.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A08030 (WheaAttemptPhysicalPageOffline.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

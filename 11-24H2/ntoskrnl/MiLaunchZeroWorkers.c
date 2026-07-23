@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLaunchZeroWorkers @ 0x140416850
+ * XREFs of MiLaunchZeroWorkers @ 0x140271D90
  * Callers:
- *     MiZeroInParallel @ 0x1404155D0 (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x140271430 (MiZeroInParallel.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     PsReferencePartitionSafe @ 0x1403D4B60 (PsReferencePartitionSafe.c)
- *     MiGetNextAffinityWalker @ 0x140416990 (MiGetNextAffinityWalker.c)
+ *     PsReferencePartitionSafe @ 0x140262AE0 (PsReferencePartitionSafe.c)
+ *     MiGetNextAffinityWalker @ 0x140271ED0 (MiGetNextAffinityWalker.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
  */
 
 char __fastcall MiLaunchZeroWorkers(__int64 a1)
 {
   __int64 v1; // rbp
-  __int64 (__fastcall *v3)(__int64); // r13
+  __int64 (__fastcall *v3)(); // r13
   struct _KTHREAD *CurrentThread; // rcx
   ULONG_PTR v5; // r12
   __int64 v6; // r15
@@ -22,10 +22,9 @@ char __fastcall MiLaunchZeroWorkers(__int64 a1)
   __int64 v10; // rdi
   __int64 v11; // rdi
   __int64 *v12; // rcx
-  int v14; // [rsp+50h] [rbp+8h]
 
   v1 = *(unsigned int *)(a1 + 32);
-  v3 = (__int64 (__fastcall *)(__int64))MiZeroHugeRangeWorker;
+  v3 = MiZeroHugeRangeWorker;
   CurrentThread = KeGetCurrentThread();
   v5 = *(_QWORD *)(a1 + 144);
   v6 = *(_QWORD *)(a1 + 8);
@@ -33,7 +32,6 @@ char __fastcall MiLaunchZeroWorkers(__int64 a1)
     v3 = MiZeroInParallelWorker;
   LODWORD(v7) = KeQueryPriorityThread(CurrentThread) + 32;
   v8 = a1 + 168;
-  v14 = v7;
   v9 = 0;
   v10 = a1 + 168;
   while ( v9 < (unsigned int)v1 )
@@ -76,7 +74,7 @@ char __fastcall MiLaunchZeroWorkers(__int64 a1)
     v11 = v1;
     do
     {
-      LOBYTE(v7) = ExQueueWorkItemToPartition(v8, v14, *(_DWORD *)(a1 + 88), *(_QWORD *)(*(_QWORD *)a1 + 184LL));
+      LOBYTE(v7) = ExQueueWorkItemToPartition(v8);
       v8 += 128LL;
       --v11;
     }

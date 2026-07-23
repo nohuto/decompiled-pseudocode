@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpFindSubkeyInHashByChildCell @ 0x1404A01C8
+ * XREFs of CmpFindSubkeyInHashByChildCell @ 0x1405185D4
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x140438CE0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumberEx @ 0x140437BB0 (CmpFindSubKeyByNumberEx.c)
  * Callees:
- *     CmpHashCompressedComponent @ 0x140087D2C (CmpHashCompressedComponent.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpUnlockHashEntry @ 0x140437EC0 (CmpUnlockHashEntry.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpLockTwoKcbsShared @ 0x140438C20 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x140438FD0 (CmpUnlockTwoKcbs.c)
- *     CmpLockHashEntryShared @ 0x1404A0480 (CmpLockHashEntryShared.c)
- *     CmpReferenceKeyControlBlock @ 0x1404A0538 (CmpReferenceKeyControlBlock.c)
- *     CmpIsKcbLockAllowed @ 0x1404A058C (CmpIsKcbLockAllowed.c)
- *     CmpHashUnicodeComponent @ 0x1404B1340 (CmpHashUnicodeComponent.c)
+ *     CmpHashCompressedComponent @ 0x14010BF1C (CmpHashCompressedComponent.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpUnlockHashEntry @ 0x140436D90 (CmpUnlockHashEntry.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpLockTwoKcbsShared @ 0x140437AF0 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x140437EA0 (CmpUnlockTwoKcbs.c)
+ *     CmpHashUnicodeComponent @ 0x14049B720 (CmpHashUnicodeComponent.c)
+ *     CmpLockHashEntryShared @ 0x14051888C (CmpLockHashEntryShared.c)
+ *     CmpReferenceKeyControlBlock @ 0x140518944 (CmpReferenceKeyControlBlock.c)
+ *     CmpIsKcbLockAllowed @ 0x140518998 (CmpIsKcbLockAllowed.c)
  */
 
 __int64 __fastcall CmpFindSubkeyInHashByChildCell(
@@ -34,18 +34,17 @@ __int64 __fastcall CmpFindSubkeyInHashByChildCell(
   char *v18; // rcx
   __int64 v19; // rcx
   char *v21; // rcx
-  _WORD v22[4]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v23; // [rsp+28h] [rbp-30h]
-  int v24; // [rsp+60h] [rbp+8h] BYREF
-  int v25; // [rsp+64h] [rbp+Ch]
+  __m128i v22; // [rsp+20h] [rbp-38h] BYREF
+  int v23; // [rsp+60h] [rbp+8h] BYREF
+  int v24; // [rsp+64h] [rbp+Ch]
 
   v5 = *(_QWORD *)(a3 + 2800);
   v7 = *(_DWORD *)(a1 + 8);
   v8 = a5;
-  v24 = -1;
-  v25 = 0;
+  v23 = -1;
+  v24 = 0;
   *a5 = 0LL;
-  v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(a3 + 8))(a3, a4, &v24);
+  v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(a3 + 8))(a3, a4, &v23);
   if ( !v12 )
     return 3221225626LL;
   if ( (*(_BYTE *)(v12 + 2) & 0x20) != 0 )
@@ -54,13 +53,13 @@ __int64 __fastcall CmpFindSubkeyInHashByChildCell(
   }
   else
   {
-    v23 = v12 + 76;
-    v22[0] = *(_WORD *)(v12 + 72);
-    v22[1] = v22[0];
-    v13 = CmpHashUnicodeComponent(v22);
+    v22.m128i_i64[1] = v12 + 76;
+    v22.m128i_i16[0] = *(_WORD *)(v12 + 72);
+    v22.m128i_i16[1] = v22.m128i_i16[0];
+    v13 = CmpHashUnicodeComponent(&v22);
   }
   v14 = 37 * v7 + v13;
-  (*(void (__fastcall **)(__int64, int *))(a3 + 16))(a3, &v24);
+  (*(void (__fastcall **)(__int64, int *))(a3 + 16))(a3, &v23);
   CmpUnlockTwoKcbs((char *)a1, a2);
   CmpLockHashEntryShared(*(_QWORD *)(a1 + 24));
   CmpLockTwoKcbsShared(a1, a2);

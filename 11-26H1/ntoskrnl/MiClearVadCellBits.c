@@ -1,10 +1,10 @@
 /*
- * XREFs of MiClearVadCellBits @ 0x140442760
+ * XREFs of MiClearVadCellBits @ 0x14043B270
  * Callers:
- *     MiRemoveVad @ 0x140455D20 (MiRemoveVad.c)
+ *     MiRemoveVad @ 0x14044DF80 (MiRemoveVad.c)
  * Callees:
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     MiVadBitToUserVa @ 0x140A59C50 (MiVadBitToUserVa.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     MiVadBitToUserVa @ 0x140A66BC0 (MiVadBitToUserVa.c)
  */
 
 unsigned __int64 __fastcall MiClearVadCellBits(
@@ -135,13 +135,13 @@ LABEL_21:
       v23 = v19 & 7;
       if ( v18 + v23 <= 8 )
       {
-        v24 = ~(byte_140032340[v18] << v23);
+        v24 = ~(byte_1400327C0[v18] << v23);
       }
       else
       {
         if ( (_DWORD)v23 )
         {
-          *v22++ &= byte_140032340[v23];
+          *v22++ &= byte_1400327C0[v23];
           v18 -= (unsigned int)(8 - v23);
         }
         if ( v18 > 8 )
@@ -154,7 +154,7 @@ LABEL_21:
         }
         if ( !v18 )
           goto LABEL_20;
-        v24 = byte_140017F38[v18];
+        v24 = byte_140018470[v18];
       }
       *v22 &= v24;
 LABEL_20:

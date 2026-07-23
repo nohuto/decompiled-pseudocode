@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpUpdateTagEntry @ 0x1800EADFC
+ * XREFs of RtlpUpdateTagEntry @ 0x1800EAEBC
  * Callers:
- *     RtlpReAllocateHeap @ 0x1800211D0 (RtlpReAllocateHeap.c)
- *     RtlpAllocateHeap @ 0x180025060 (RtlpAllocateHeap.c)
- *     RtlpFreeHeap @ 0x180049370 (RtlpFreeHeap.c)
- *     RtlpGrowBlockInPlace @ 0x18004C470 (RtlpGrowBlockInPlace.c)
+ *     RtlpReAllocateHeap @ 0x1800211C0 (RtlpReAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x180025050 (RtlpAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x180049360 (RtlpFreeHeap.c)
+ *     RtlpGrowBlockInPlace @ 0x18004C460 (RtlpGrowBlockInPlace.c)
  * Callees:
  *     <none>
  */

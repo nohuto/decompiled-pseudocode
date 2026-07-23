@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprReplaceStart @ 0x140835BB8
+ * XREFs of PnprReplaceStart @ 0x140836E18
  * Callers:
- *     PnprInitiateReplaceOperation @ 0x140579814 (PnprInitiateReplaceOperation.c)
+ *     PnprInitiateReplaceOperation @ 0x14057A814 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 PnprReplaceStart()
@@ -33,7 +33,7 @@ __int64 PnprReplaceStart()
   }
   if ( (*(_DWORD *)(PnprContext + 64) & 0x20) != 0 )
     LODWORD(v11[0]) = v1 | 2;
-  v2 = ((__int64 (__fastcall *)(_QWORD *, __int64))off_1403FE3B8[0])(v11, PnprContext + 20872);
+  v2 = ((__int64 (__fastcall *)(_QWORD *, __int64))off_1403FF3B8[0])(v11, PnprContext + 20872);
   if ( v2 >= 0 )
   {
     v6 = PnprContext;

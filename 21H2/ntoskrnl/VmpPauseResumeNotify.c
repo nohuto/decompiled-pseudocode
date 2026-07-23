@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpPauseResumeNotify @ 0x14092F6F4
+ * XREFs of VmpPauseResumeNotify @ 0x14092F854
  * Callers:
- *     VmPauseResumeNotify @ 0x14092F0D0 (VmPauseResumeNotify.c)
+ *     VmPauseResumeNotify @ 0x14092F230 (VmPauseResumeNotify.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
- *     SmStoreExistsForProcess @ 0x1402D6310 (SmStoreExistsForProcess.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
+ *     SmStoreExistsForProcess @ 0x140287660 (SmStoreExistsForProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     MiGetProcessPartition @ 0x1402BF640 (MiGetProcessPartition.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     MmProcessWorkingSetControl @ 0x1406BD464 (MmProcessWorkingSetControl.c)
  */
 
 __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2)
@@ -26,8 +26,11 @@ __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2)
   int v13; // edi
   int v14; // edi
   unsigned int v15; // ecx
-  int v17; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v18; // [rsp+24h] [rbp-Ch]
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  int v20; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v21; // [rsp+24h] [rbp-Ch]
 
   CurrentThread = KeGetCurrentThread();
   v5 = 4;
@@ -58,8 +61,8 @@ __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2)
   if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v6);
   KeAbPostRelease((ULONG_PTR)v6);
-  v18 = 0LL;
-  v17 = 3;
+  v21 = 0LL;
+  v20 = 3;
   if ( a2 )
   {
     for ( i = v9 + 1; ; ++i )
@@ -73,7 +76,7 @@ __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2)
       {
         if ( *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].IdealProcessor[2] << 12 >> 20 > (unsigned __int64)(unsigned int)VmPauseOutswapSizeCapMB )
           continue;
-        v18 = 0LL;
+        v21 = 0LL;
       }
       else
       {
@@ -85,25 +88,25 @@ __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2)
         v11 = 3;
         v12 = (*(_DWORD *)(a1 + 88) & 1) == 0;
         v13 = *(_DWORD *)(a1 + 88) & 1;
-        LODWORD(v18) = 1;
+        LODWORD(v21) = 1;
         if ( !v12 )
           v11 = 35;
-        HIDWORD(v18) = v11;
+        HIDWORD(v21) = v11;
         v14 = 32 * v13 + 3;
         if ( SmStoreExistsForProcess() )
         {
-          HIDWORD(v18) = v14 | 8;
+          HIDWORD(v21) = v14 | 8;
           if ( i == 3 )
-            HIDWORD(v18) = v14 | 0x18;
+            HIDWORD(v21) = v14 | 0x18;
         }
       }
-      v8 = MmProcessWorkingSetControl(0xFFFFFFFFFFFFFFFFuLL, (__int64 *)&v17, 0xCu, 0);
+      v8 = MmProcessWorkingSetControl(0xFFFFFFFFFFFFFFFFuLL, (__int64 *)&v20, 0xCu, 0);
       if ( v8 < 0 )
         goto LABEL_29;
     }
   }
-  v18 = 0x100000000LL;
-  MmProcessWorkingSetControl(0xFFFFFFFFFFFFFFFFuLL, (__int64 *)&v17, 0xCu, 0);
+  v21 = 0x100000000LL;
+  MmProcessWorkingSetControl(0xFFFFFFFFFFFFFFFFuLL, (__int64 *)&v20, 0xCu, 0);
   v5 = 0;
 LABEL_28:
   v8 = 0;
@@ -117,6 +120,6 @@ LABEL_31:
   if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v6);
   KeAbPostRelease((ULONG_PTR)v6);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17, v18);
   return (unsigned int)v8;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxNotifyPreDIrpIssue @ 0x140518984
+ * XREFs of PopFxNotifyPreDIrpIssue @ 0x1405123F4
  * Callers:
- *     PopRequestPowerIrp @ 0x14026FDC4 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x14026F334 (PopRequestPowerIrp.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponent @ 0x14037AB40 (PopFxActivateComponent.c)
- *     PopFxNextParentRelationSafe @ 0x140471270 (PopFxNextParentRelationSafe.c)
- *     PopDiagTraceFxDeviceInvalidTransition @ 0x140608BD8 (PopDiagTraceFxDeviceInvalidTransition.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponent @ 0x14037C8F0 (PopFxActivateComponent.c)
+ *     PopFxNextParentRelationSafe @ 0x14046A9F0 (PopFxNextParentRelationSafe.c)
+ *     PopDiagTraceFxDeviceInvalidTransition @ 0x14060B798 (PopDiagTraceFxDeviceInvalidTransition.c)
  */
 
 bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)

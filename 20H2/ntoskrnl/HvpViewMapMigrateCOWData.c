@@ -8,7 +8,7 @@
  *     HvpAllExceptionsFatalFilter @ 0x140875CDC (HvpAllExceptionsFatalFilter.c)
  */
 
-__int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall HvpViewMapMigrateCOWData(ULONG_PTR a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rdi
   __int64 v7; // r14

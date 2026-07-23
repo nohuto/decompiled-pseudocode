@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetProcessorDomain @ 0x1405148A4
+ * XREFs of MiGetProcessorDomain @ 0x14050E314
  * Callers:
- *     MiInitializeZeroingDomains @ 0x14087F248 (MiInitializeZeroingDomains.c)
+ *     MiInitializeZeroingDomains @ 0x140885648 (MiInitializeZeroingDomains.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of RaspScanConvert @ 0x140386240
+ * XREFs of RaspScanConvert @ 0x140386420
  * Callers:
- *     RaspRasterize @ 0x140385EC0 (RaspRasterize.c)
+ *     RaspRasterize @ 0x1403860A0 (RaspRasterize.c)
  * Callees:
- *     RaspDestroySegmentList @ 0x140385FC0 (RaspDestroySegmentList.c)
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
- *     RaspTestIntersection @ 0x1403866B0 (RaspTestIntersection.c)
- *     BgpFmRoundUp @ 0x140386AAC (BgpFmRoundUp.c)
- *     RaspRectangleCreate @ 0x140386CD4 (RaspRectangleCreate.c)
- *     RaspCreateSegmentList @ 0x1403871FC (RaspCreateSegmentList.c)
- *     RaspAllocateMemory @ 0x1403875CC (RaspAllocateMemory.c)
- *     BgpGxInitializeRectangle @ 0x14038779C (BgpGxInitializeRectangle.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RaspDestroySegmentList @ 0x1403861A0 (RaspDestroySegmentList.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
+ *     RaspTestIntersection @ 0x140386890 (RaspTestIntersection.c)
+ *     BgpFmRoundUp @ 0x140386C8C (BgpFmRoundUp.c)
+ *     RaspRectangleCreate @ 0x140386EB4 (RaspRectangleCreate.c)
+ *     RaspCreateSegmentList @ 0x1403873DC (RaspCreateSegmentList.c)
+ *     RaspAllocateMemory @ 0x1403877AC (RaspAllocateMemory.c)
+ *     BgpGxInitializeRectangle @ 0x14038797C (BgpGxInitializeRectangle.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall RaspScanConvert(

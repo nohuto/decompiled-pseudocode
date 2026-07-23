@@ -6,7 +6,7 @@
  *     NtCompareObjects @ 0x1800A13B0 (NtCompareObjects.c)
  */
 
-bool __fastcall RtlIsCurrentProcess(__int64 a1)
+BOOLEAN __cdecl RtlIsCurrentProcess(HANDLE ProcessHandle)
 {
-  return a1 == -1 || (int)NtCompareObjects(-1LL, a1) >= 0;
+  return ProcessHandle == (HANDLE)-1LL || NtCompareObjects((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessHandle) >= 0;
 }

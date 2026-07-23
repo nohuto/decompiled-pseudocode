@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlClearThreadWorkOnBehalfTicket @ 0x1800E3B80
+ * XREFs of RtlClearThreadWorkOnBehalfTicket @ 0x1800DF150
  * Callers:
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
- *     TppCallbackPerformDeferredWork @ 0x18006A460 (TppCallbackPerformDeferredWork.c)
- *     TpWorkOnBehalfClearTicket @ 0x1800EAB20 (TpWorkOnBehalfClearTicket.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
+ *     TppCallbackPerformDeferredWork @ 0x180086B50 (TppCallbackPerformDeferredWork.c)
+ *     TpWorkOnBehalfClearTicket @ 0x1800E6390 (TpWorkOnBehalfClearTicket.c)
  * Callees:
- *     NtSetInformationThread @ 0x180161E30 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1801601F0 (NtSetInformationThread.c)
  */
 
-__int64 RtlClearThreadWorkOnBehalfTicket()
+NTSTATUS RtlClearThreadWorkOnBehalfTicket()
 {
-  __int64 result; // rax
-  __int64 v1; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  __int64 ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0LL;
+  ThreadInformation = 0LL;
   if ( !*(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket )
-    return 0LL;
-  result = NtSetInformationThread(-2LL, 44LL, &v1);
-  if ( (int)result >= 0 )
-    *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = v1;
+    return 0;
+  result = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, &ThreadInformation, 8u);
+  if ( result >= 0 )
+    *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = ThreadInformation;
   return result;
 }

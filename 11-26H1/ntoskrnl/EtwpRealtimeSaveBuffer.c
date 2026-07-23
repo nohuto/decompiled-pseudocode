@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRealtimeSaveBuffer @ 0x140A15B24
+ * XREFs of EtwpRealtimeSaveBuffer @ 0x140A14D18
  * Callers:
- *     EtwpRealtimeUpdateReferenceTime @ 0x140830040 (EtwpRealtimeUpdateReferenceTime.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x140A13AEC (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpFlushBuffer @ 0x140A14C58 (EtwpFlushBuffer.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x140836280 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x140A12CDC (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpFlushBuffer @ 0x140A13E4C (EtwpFlushBuffer.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     ZwWriteFile @ 0x1407234F0 (ZwWriteFile.c)
- *     EtwpEventWriteTemplateBackingFile @ 0x140825688 (EtwpEventWriteTemplateBackingFile.c)
- *     EtwpEventWriteTemplateAdmin @ 0x140B35598 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ZwWriteFile @ 0x1407280C0 (ZwWriteFile.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x14082B8C8 (EtwpEventWriteTemplateBackingFile.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140B377A8 (EtwpEventWriteTemplateAdmin.c)
  */
 
 __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, _WORD *a2)
@@ -71,7 +71,7 @@ __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, _WORD *a2)
     *(_DWORD *)(a1 + 448) = 2;
     if ( *(int *)(a1 + 16) >= 0 )
       _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
-    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
+    if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_BACKING_FILE_FULL) )
       EtwpEventWriteTemplateBackingFile(
         v13,
         v12,
@@ -87,7 +87,7 @@ LABEL_11:
   {
     ++*(_DWORD *)(a1 + 260);
     *(_DWORD *)(a1 + 448) = 2;
-    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_WRITE_FAILED) )
+    if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_WRITE_FAILED) )
       EtwpEventWriteTemplateAdmin(
         a1 + 368,
         (unsigned int)&ETW_EVENT_WRITE_FAILED,
@@ -112,7 +112,7 @@ LABEL_11:
     if ( v21 <= v20 && *(int *)(a1 + 16) >= 0 )
     {
       _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_BACKING_FILE_FULL) )
         EtwpEventWriteTemplateBackingFile(
           v24,
           v23,

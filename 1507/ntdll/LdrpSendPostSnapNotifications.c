@@ -45,11 +45,12 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
   v2 = 0LL;
   v3 = g_pShimmedModuleList != 0LL;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
-    v2 = (void (__fastcall *)(__int64))(MEMORY[0x7FFE0330] ^ __ROR8__(
-                                                               g_pfnSE_DllLoaded,
-                                                               64 - (MEMORY[0x7FFE0330] & 0x3Fu)));
+    v2 = (void (__fastcall *)(__int64))((unsigned int)MEMORY[0x7FFE0330] ^ __ROR8__(
+                                                                             g_pfnSE_DllLoaded,
+                                                                             64
+                                                                           - ((unsigned __int8)MEMORY[0x7FFE0330] & 0x3Fu)));
   v5 = *(_QWORD *)(v1 + 8);
   Notification = 0;
   if ( v5 != v1 )
@@ -94,7 +95,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
             while ( v10[v15] );
             v14 = v15 + 2;
           }
-          Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
+          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
           if ( Heap )
           {
             if ( g_pShimmedModuleList )
@@ -106,7 +107,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
                 ++v19;
               while ( v10[v19] );
               memmove(&Heap[v18 + 2], v10, 2 * v19);
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)g_pShimmedModuleList);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
               v1 = a1;
             }
             else
@@ -130,7 +131,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
                 2532,
                 (unsigned int)"LdrpCheckModule",
                 0,
-                "Failed to allocated memory for shimmed module list\n");
+                (__int64)"Failed to allocated memory for shimmed module list\n");
               v17 = LdrpDebugFlags;
             }
             if ( (v17 & 0x10) != 0 )
@@ -148,6 +149,6 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
     }
     while ( v5 != v1 );
   }
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   return (unsigned int)Notification;
 }

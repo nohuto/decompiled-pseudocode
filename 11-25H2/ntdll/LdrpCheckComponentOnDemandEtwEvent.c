@@ -21,21 +21,19 @@ char __fastcall LdrpCheckComponentOnDemandEtwEvent(unsigned __int16 *a1)
   wchar_t *v4; // rcx
   char v5; // di
   int v6; // eax
-  HANDLE Handle; // [rsp+30h] [rbp-50h] BYREF
+  HANDLE EventHandle; // [rsp+30h] [rbp-50h] BYREF
   int UniqueProcess; // [rsp+38h] [rbp-48h] BYREF
   int v10; // [rsp+3Ch] [rbp-44h] BYREF
   LARGE_INTEGER Timeout; // [rsp+40h] [rbp-40h] BYREF
-  int *p_UniqueProcess; // [rsp+48h] [rbp-38h] BYREF
-  int v13; // [rsp+50h] [rbp-30h]
-  int v14; // [rsp+54h] [rbp-2Ch]
-  int *v15; // [rsp+58h] [rbp-28h]
-  int v16; // [rsp+60h] [rbp-20h]
-  int v17; // [rsp+64h] [rbp-1Ch]
-  __int64 v18; // [rsp+68h] [rbp-18h]
-  int v19; // [rsp+70h] [rbp-10h]
-  int v20; // [rsp+74h] [rbp-Ch]
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-38h] BYREF
+  int *v13; // [rsp+58h] [rbp-28h]
+  int v14; // [rsp+60h] [rbp-20h]
+  int v15; // [rsp+64h] [rbp-1Ch]
+  __int64 v16; // [rsp+68h] [rbp-18h]
+  int v17; // [rsp+70h] [rbp-10h]
+  int v18; // [rsp+74h] [rbp-Ch]
 
-  Handle = 0LL;
+  EventHandle = 0LL;
   Timeout.QuadPart = 0LL;
   v10 = 1;
   pShimData = 0LL;
@@ -50,42 +48,38 @@ char __fastcall LdrpCheckComponentOnDemandEtwEvent(unsigned __int16 *a1)
     {
       if ( (unsigned __int8)LdrpIsCODServiceEnabled() )
       {
-        if ( (int)ZwCreateEvent(&Handle, 2031619LL, 0LL, 0LL, 0) >= 0 )
+        if ( ZwCreateEvent(&EventHandle, 0x1F0003u, 0LL, NotificationEvent, 0) >= 0 )
         {
-          RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpCODScenarioLock);
+          RtlAcquireSRWLockExclusive(&LdrpCODScenarioLock);
           v3 = 1;
           v5 = 1;
           if ( !LdrpCODScenarioTriggered )
           {
-            pShimData[559] = Handle;
-            v14 = 0;
-            v17 = 0;
-            v20 = 0;
-            p_UniqueProcess = &UniqueProcess;
-            v15 = &v10;
-            v18 = *((_QWORD *)a1 + 1);
+            pShimData[559] = EventHandle;
+            UserData.Reserved = 0;
+            v15 = 0;
+            v18 = 0;
+            UserData.Ptr = (unsigned __int64)&UniqueProcess;
+            v13 = &v10;
+            v16 = *((_QWORD *)a1 + 1);
             v6 = *a1 + 2;
-            v13 = 4;
-            v16 = 4;
-            v19 = v6;
+            UserData.Size = 4;
+            v14 = 4;
+            v17 = v6;
             LdrpCODScenarioTriggered = 1;
-            if ( !(unsigned int)EtwEventWriteNoRegistration(
-                                  (__int64)&UserLoaderGuid,
-                                  &ComponentOnDemand,
-                                  3,
-                                  (__int64)&p_UniqueProcess) )
+            if ( !EtwEventWriteNoRegistration(&UserLoaderGuid, &ComponentOnDemand, 3u, &UserData) )
             {
               Timeout.QuadPart = -100000000LL;
-              NtWaitForSingleObject(Handle, 0, &Timeout);
+              NtWaitForSingleObject(EventHandle, 0, &Timeout);
             }
           }
         }
       }
     }
   }
-  if ( Handle )
+  if ( EventHandle )
   {
-    NtClose(Handle);
+    NtClose(EventHandle);
     pShimData[559] = 0LL;
   }
   if ( v3 )

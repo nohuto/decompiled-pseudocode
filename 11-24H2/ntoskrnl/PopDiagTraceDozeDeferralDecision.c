@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDozeDeferralDecision @ 0x1407560F0
+ * XREFs of PopDiagTraceDozeDeferralDecision @ 0x140754450
  * Callers:
- *     PopDeferDoze @ 0x140754EC8 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x1407531E8 (PopDeferDoze.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDozeDeferralDecision(
@@ -66,13 +66,13 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
   __int64 v53; // [rsp+168h] [rbp+68h]
 
   v7 = a1;
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v18 = v7;
     v26 = &v18;
     v27 = 4LL;
     v28 = &v19;
-    v22 = qword_140F0B1D0;
+    v22 = qword_140F0BA50;
     v30 = &v22;
     v32 = &v23;
     v24 = a5;
@@ -94,13 +94,13 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
     v42 = &v13;
     v14 = PopPlatformRole;
     v44 = &v14;
-    v21 = (unsigned __int8)byte_140F0BB54;
+    v21 = (unsigned __int8)byte_140F0B674;
     v46 = &v21;
-    v15 = byte_140F0BB53;
+    v15 = byte_140F0B673;
     v48 = &v15;
-    v16 = byte_140F0BB78;
+    v16 = byte_140F0B698;
     v50 = &v16;
-    v17 = qword_140F0BB80;
+    v17 = qword_140F0B6A0;
     v52 = &v17;
     v41 = 1LL;
     v43 = 1LL;
@@ -110,8 +110,8 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
     v51 = 1LL;
     v53 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E076F0,
-      (unsigned __int8 *)&byte_140048E57,
+      (__int64)&dword_140E07680,
+      (unsigned __int8 *)byte_140049A03,
       0LL,
       0LL,
       0x11u,

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWriteStandbyLookasideEntry @ 0x14026E7E0
+ * XREFs of MiWriteStandbyLookasideEntry @ 0x140223D70
  * Callers:
- *     MiRebuildStandbyLookasideList @ 0x1403F43F0 (MiRebuildStandbyLookasideList.c)
- *     MiClearEntireStandbyLookasideList @ 0x1403F4924 (MiClearEntireStandbyLookasideList.c)
+ *     MiRebuildStandbyLookasideList @ 0x1403E73E0 (MiRebuildStandbyLookasideList.c)
+ *     MiClearEntireStandbyLookasideList @ 0x1403E7914 (MiClearEntireStandbyLookasideList.c)
  * Callees:
- *     MiSearchChannelTable @ 0x14026F0D4 (MiSearchChannelTable.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiSearchChannelTable @ 0x140224664 (MiSearchChannelTable.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall MiWriteStandbyLookasideEntry(ULONG_PTR *a1, int a2, ULONG_PTR a3)
@@ -45,7 +45,7 @@ void __fastcall MiWriteStandbyLookasideEntry(ULONG_PTR *a1, int a2, ULONG_PTR a3
 
   v3 = *a1;
   *a1 = a3;
-  if ( v3 != -1LL && (v3 < qword_140E35B00 || v3 >= qword_140E35B00 + 2048) )
+  if ( v3 != -1LL && (v3 < qword_140E35C40 || v3 >= qword_140E35C40 + 2048) )
   {
     v5 = 48 * v3;
     v33 = 0LL;
@@ -55,15 +55,15 @@ void __fastcall MiWriteStandbyLookasideEntry(ULONG_PTR *a1, int a2, ULONG_PTR a3
       v7 = -134217729LL;
     v35 = v6 & v7;
     v8 = v5 - 0x220000000000LL;
-    if ( v3 >= qword_140E35B00 && v3 < qword_140E35B00 + 2048 )
+    if ( v3 >= qword_140E35C40 && v3 < qword_140E35C40 + 2048 )
     {
       v10 = 9;
     }
-    else if ( byte_140E3CAE6 )
+    else if ( byte_140E3CC26 )
     {
       v9 = (0xAAAAAAAAAAAAAAABuLL * (v5 >> 4)) >> 9;
-      if ( *(_BYTE *)(qword_140E3D140 + 2 * v9) )
-        v10 = *(unsigned __int8 *)(qword_140E3D140 + 2 * v9) - 1;
+      if ( *(_BYTE *)(qword_140E3D280 + 2 * v9) )
+        v10 = *(unsigned __int8 *)(qword_140E3D280 + 2 * v9) - 1;
       else
         v10 = 9;
     }
@@ -72,11 +72,11 @@ void __fastcall MiWriteStandbyLookasideEntry(ULONG_PTR *a1, int a2, ULONG_PTR a3
       v10 = 9;
     }
     v36 = v10;
-    v31 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
-    v11 = dword_140E2DAC4;
-    if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-      || (v12 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, v3 < *(_QWORD *)v12)
-      || dword_140E2DAC0 != dword_140E2DAC4 && v3 >= *((_QWORD *)v12 + 2) )
+    v31 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
+    v11 = dword_140E2DC04;
+    if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+      || (v12 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, v3 < *(_QWORD *)v12)
+      || dword_140E2DC00 != dword_140E2DC04 && v3 >= *((_QWORD *)v12 + 2) )
     {
       for ( i = 0; ; i = v14 + 1 )
       {
@@ -85,29 +85,29 @@ void __fastcall MiWriteStandbyLookasideEntry(ULONG_PTR *a1, int a2, ULONG_PTR a3
           if ( v11 < i )
             KeBugCheckEx(0x1Au, 0x5180uLL, v3, 0LL, 0LL);
           v14 = (i + v11) >> 1;
-          v12 = (char *)qword_140E2DB20 + 16 * v14;
+          v12 = (char *)qword_140E2DC60 + 16 * v14;
           if ( v3 >= *(_QWORD *)v12 )
             break;
           if ( !v14 )
-            KeBugCheckEx(0x1Au, 0x5180uLL, v3, (ULONG_PTR)qword_140E2DB20, 0LL);
+            KeBugCheckEx(0x1Au, 0x5180uLL, v3, (ULONG_PTR)qword_140E2DC60, 0LL);
           v11 = v14 - 1;
         }
-        if ( v14 == dword_140E2DAC4 || v3 < *((_QWORD *)v12 + 2) )
+        if ( v14 == dword_140E2DC04 || v3 < *((_QWORD *)v12 + 2) )
           break;
       }
-      dword_140E2DAC0 = (i + v11) >> 1;
+      dword_140E2DC00 = (i + v11) >> 1;
       v5 = 48 * v3;
     }
     v15 = *(_DWORD *)(v8 + 32);
     v32 = *((_DWORD *)v12 + 2);
     if ( (v15 & 0x8000000) == 0
       || v8 >= 0xFFFFDE0000000000uLL
-      && v8 < 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL
-      && ((v28 = 0xAAAAAAAAAAAAAAABuLL * (v5 >> 4), v28 < qword_140E35B00) || v28 >= qword_140E35B00 + 2048)
+      && v8 < 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL
+      && ((v28 = 0xAAAAAAAAAAAAAAABuLL * (v5 >> 4), v28 < qword_140E35C40) || v28 >= qword_140E35C40 + 2048)
       && ((BYTE2(v15) & 7) == 6
-       || byte_140E3CAE6
-       && (v29 = v28 >> 9, *(_BYTE *)(qword_140E3D140 + 2 * v29))
-       && *(_BYTE *)(qword_140E3D140 + 2 * v29) != 10) )
+       || byte_140E3CC26
+       && (v29 = v28 >> 9, *(_BYTE *)(qword_140E3D280 + 2 * v29))
+       && *(_BYTE *)(qword_140E3D280 + 2 * v29) != 10) )
     {
       v16 = HIBYTE(v15) & 7;
     }
@@ -115,7 +115,7 @@ void __fastcall MiWriteStandbyLookasideEntry(ULONG_PTR *a1, int a2, ULONG_PTR a3
     {
       v16 = 5;
     }
-    if ( qword_140E2DB28 )
+    if ( qword_140E2DC68 )
     {
       v27 = MiSearchChannelTable(0xAAAAAAAAAAAAAAABuLL * (v5 >> 4));
       v10 = v36;
@@ -130,7 +130,7 @@ void __fastcall MiWriteStandbyLookasideEntry(ULONG_PTR *a1, int a2, ULONG_PTR a3
     if ( v10 < 9 )
     {
       if ( v10 == 8 )
-        BYTE8(v33) = *(_BYTE *)(qword_140E3D140
+        BYTE8(v33) = *(_BYTE *)(qword_140E3D280
                               + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((__int64)(v8 + 0x220000000000LL) >> 4)) >> 9)
                               + 1) & 0x7F;
       else
@@ -186,7 +186,7 @@ void __fastcall MiWriteStandbyLookasideEntry(ULONG_PTR *a1, int a2, ULONG_PTR a3
     *(_QWORD *)(48 * v3 - 0x21FFFFFFFFF0LL) = v35;
   }
 LABEL_43:
-  if ( a3 != -1LL && (a3 < qword_140E35B00 || a3 >= qword_140E35B00 + 2048) )
+  if ( a3 != -1LL && (a3 < qword_140E35C40 || a3 >= qword_140E35C40 + 2048) )
   {
     v25 = *(_QWORD *)(48 * a3 - 0x21FFFFFFFFF0LL);
     v26 = 8LL;

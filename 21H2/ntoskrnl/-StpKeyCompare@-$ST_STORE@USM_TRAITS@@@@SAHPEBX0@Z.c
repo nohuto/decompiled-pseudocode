@@ -1,5 +1,5 @@
 /*
- * XREFs of ?StpKeyCompare@?$ST_STORE@USM_TRAITS@@@@SAHPEBX0@Z @ 0x14059CFA0
+ * XREFs of ?StpKeyCompare@?$ST_STORE@USM_TRAITS@@@@SAHPEBX0@Z @ 0x14059D1D0
  * Callers:
  *     <none>
  * Callees:

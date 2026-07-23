@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaCvmQueryRegistryKeys @ 0x140C104F0
+ * XREFs of HalpDmaCvmQueryRegistryKeys @ 0x140C124F0
  * Callers:
- *     HalpDmaInitializeCvmSupport @ 0x140C10AE4 (HalpDmaInitializeCvmSupport.c)
+ *     HalpDmaInitializeCvmSupport @ 0x140C12AE4 (HalpDmaInitializeCvmSupport.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmGetSystemRoutineAddress @ 0x1408B0D70 (MmGetSystemRoutineAddress.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmGetSystemRoutineAddress @ 0x140906FD0 (MmGetSystemRoutineAddress.c)
  */
 
 __int64 HalpDmaCvmQueryRegistryKeys()
@@ -50,20 +50,20 @@ __int64 HalpDmaCvmQueryRegistryKeys()
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");
   MmGetSystemRoutineAddress(&DestinationString);
-  result = guard_dispatch_icall_no_overrides(2LL, L"HAL\\CVM", v5, 0LL);
+  result = guard_dispatch_icall_no_overrides(2LL, L"HAL\\CVM");
   if ( (int)result >= 0 )
   {
     if ( v1 )
-      byte_140FC0AE1 = 1;
+      byte_140FC0D41 = 1;
     result = v2;
     if ( v2 )
     {
       if ( v2 > 0x8000 )
         result = 0x8000LL;
-      dword_140FC0AE4 = result;
+      dword_140FC0D44 = result;
     }
     if ( v3 )
-      byte_140FC0AE2 = 1;
+      byte_140FC0D42 = 1;
   }
   return result;
 }

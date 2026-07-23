@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpDetermineFinalViewReservationEnd @ 0x14097F3D4
+ * XREFs of HvpDetermineFinalViewReservationEnd @ 0x140967BE4
  * Callers:
- *     HvpViewMapCreateViewsForRegion @ 0x14097F77C (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x140967F8C (HvpViewMapCreateViewsForRegion.c)
  * Callees:
- *     CmSiGetMemoryAllocationGranularity @ 0x1404A933C (CmSiGetMemoryAllocationGranularity.c)
+ *     CmSiGetMemoryAllocationGranularity @ 0x1404A375C (CmSiGetMemoryAllocationGranularity.c)
  */
 
 __int64 __fastcall HvpDetermineFinalViewReservationEnd(__int64 a1)

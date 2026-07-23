@@ -55,11 +55,11 @@ __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, __int64 a2, unsigned int a3, c
 
   v6 = *(_DWORD *)(a2 + 16);
   v33 = *(_DWORD *)(a2 + 20);
-  v9 = *(_QWORD *)a2 == (_QWORD)SecurityProviderGuid;
+  v9 = *(_QWORD *)a2 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v35[0] = 0LL;
   PrimaryToken = 0LL;
   LOBYTE(v36) = 0;
-  if ( v9 && *(_QWORD *)(a2 + 8) == *((_QWORD *)&SecurityProviderGuid + 1) )
+  if ( v9 && *(_QWORD *)(a2 + 8) == *(_QWORD *)SecurityProviderGuid.Data4 )
     return 3221225506LL;
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, a2, (unsigned int)(v6 - 2) > 1);
   if ( GuidEntryByGuid || (GuidEntryByGuid = EtwpAddGuidEntry(a1, a2, (unsigned int)(v6 - 2) > 1)) != 0 )

@@ -11,7 +11,7 @@ LOGICAL __stdcall KeTryToAcquireQueuedSpinLock(KSPIN_LOCK_QUEUE_NUMBER Number, P
 {
   __int64 v2; // r8
   __int64 v3; // r9
-  KIRQL CurrentIrql; // bl
+  UCHAR CurrentIrql; // bl
   char *v6; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
 

@@ -25,18 +25,18 @@ __int64 PopUmpoInitializeChannel()
   ULONG v0; // ebx
   ACL *PoolWithTag; // rax
   ACL *v2; // rsi
-  int Acl; // ebx
+  NTSTATUS Acl; // ebx
   PCALLBACK_OBJECT v4; // rdi
   PCALLBACK_OBJECT CallbackObject; // [rsp+28h] [rbp-89h] BYREF
-  PCALLBACK_OBJECT v7; // [rsp+30h] [rbp-81h] BYREF
+  PCALLBACK_OBJECT PortInformation; // [rsp+30h] [rbp-81h] BYREF
   __int64 v8; // [rsp+38h] [rbp-79h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-71h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-41h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+80h] [rbp-31h] BYREF
-  _QWORD v12[10]; // [rsp+A8h] [rbp-9h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+A8h] [rbp-9h] BYREF
 
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  memset(v12, 0, 0x48uLL);
+  memset(&PortAttributes, 0, sizeof(PortAttributes));
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
@@ -44,7 +44,7 @@ __int64 PopUmpoInitializeChannel()
   PopAlpcClientPort = 0LL;
   PopUmpoPushLock = 0LL;
   CallbackObject = 0LL;
-  v7 = 0LL;
+  PortInformation = 0LL;
   v8 = 0LL;
   PopUmpoAlpcClientConnected = 0;
   v0 = 4 * *((unsigned __int8 *)SeLocalSystemSid + 1) + 28;
@@ -68,12 +68,12 @@ __int64 PopUmpoInitializeChannel()
             ObjectAttributes.RootDirectory = 0LL;
             ObjectAttributes.SecurityQualityOfService = 0LL;
             ObjectAttributes.ObjectName = &DestinationString;
-            v12[2] = 512LL;
+            PortAttributes.MaxMessageLength = 512LL;
             ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
-            LODWORD(v12[0]) = 0x100000;
+            PortAttributes.Flags = 0x100000;
             ObjectAttributes.Length = 48;
             ObjectAttributes.Attributes = 512;
-            Acl = ZwAlpcCreatePort((__int64)&PopAlpcServerPort, (__int64)&ObjectAttributes, (__int64)v12);
+            Acl = ZwAlpcCreatePort(&PopAlpcServerPort, &ObjectAttributes, &PortAttributes);
             if ( Acl >= 0 )
             {
               ObjectAttributes.RootDirectory = 0LL;
@@ -88,8 +88,12 @@ __int64 PopUmpoInitializeChannel()
                 if ( ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)PopUmpoMessageCallback, 0LL) )
                 {
                   v8 = 0LL;
-                  v7 = v4;
-                  Acl = ZwAlpcSetInformation(PopAlpcServerPort, 9LL, (__int64)&v7);
+                  PortInformation = v4;
+                  Acl = ZwAlpcSetInformation(
+                          PopAlpcServerPort,
+                          AlpcRegisterCallbackInformation,
+                          &PortInformation,
+                          0x10u);
                   ObfDereferenceObject(v4);
                   if ( Acl >= 0 )
                   {

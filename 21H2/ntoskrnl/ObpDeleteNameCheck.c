@@ -1,23 +1,23 @@
 /*
- * XREFs of ObpDeleteNameCheck @ 0x14062CBD0
+ * XREFs of ObpDeleteNameCheck @ 0x140663D60
  * Callers:
- *     ObpDereferenceNamedObject @ 0x140263FB8 (ObpDereferenceNamedObject.c)
- *     ObMakeTemporaryObject @ 0x14062C010 (ObMakeTemporaryObject.c)
- *     ObpDecrementHandleCount @ 0x14062CA04 (ObpDecrementHandleCount.c)
- *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
- *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
+ *     ObpDereferenceNamedObject @ 0x14026D018 (ObpDereferenceNamedObject.c)
+ *     ObMakeTemporaryObject @ 0x14061C330 (ObMakeTemporaryObject.c)
+ *     ObOpenObjectByNameEx @ 0x14064AAF0 (ObOpenObjectByNameEx.c)
+ *     ObpDecrementHandleCount @ 0x140663B94 (ObpDecrementHandleCount.c)
+ *     ObpIncrementHandleCountEx @ 0x14070D340 (ObpIncrementHandleCountEx.c)
  * Callees:
- *     ObpReleaseLookupContext @ 0x14027EAD0 (ObpReleaseLookupContext.c)
- *     ObpLockDirectoryExclusive @ 0x1402AB5F0 (ObpLockDirectoryExclusive.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
- *     ObpMarkDirectoryTreeTemporary @ 0x140691A40 (ObpMarkDirectoryTreeTemporary.c)
- *     ObpDeleteSymbolicLinkName @ 0x140691CBC (ObpDeleteSymbolicLinkName.c)
- *     ObpDeleteDirectoryEntry @ 0x14069C480 (ObpDeleteDirectoryEntry.c)
+ *     ObpLockDirectoryExclusive @ 0x140229730 (ObpLockDirectoryExclusive.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObpReleaseLookupContext @ 0x14026CA70 (ObpReleaseLookupContext.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ObpMarkDirectoryTreeTemporary @ 0x1405F18B0 (ObpMarkDirectoryTreeTemporary.c)
+ *     ObpDeleteSymbolicLinkName @ 0x1405F1B2C (ObpDeleteSymbolicLinkName.c)
+ *     ObpDeleteDirectoryEntry @ 0x1405FB640 (ObpDeleteDirectoryEntry.c)
+ *     ObpLookupDirectoryEntryEx @ 0x1406F1554 (ObpLookupDirectoryEntryEx.c)
  */
 
 void __fastcall ObpDeleteNameCheck(__int64 a1)
@@ -91,19 +91,13 @@ void __fastcall ObpDeleteNameCheck(__int64 a1)
           ObpDeleteSymbolicLinkName(a1 + 48);
           v9 = *(struct _DMA_ADAPTER **)v4;
         }
-        v13 = (struct _DMA_ADAPTER *)ObpLookupDirectoryEntryEx(
-                                       v9,
-                                       (unsigned __int16 *)(v4 + 8),
-                                       0,
-                                       0LL,
-                                       0,
-                                       (__int64)v14);
+        v13 = (struct _DMA_ADAPTER *)ObpLookupDirectoryEntryEx(v9, 0, (__int64)v14);
         v11 = v13;
         if ( v12 == ObpDirectoryObjectType )
           ObfReferenceObject(v13);
         else
           v11 = 0LL;
-        ObpDeleteDirectoryEntry(v14);
+        ObpDeleteDirectoryEntry((__int64)v14);
       }
       ObpReleaseLookupContext((__int64)v14);
       ExReleasePushLockEx(a1 + 16, 0LL);

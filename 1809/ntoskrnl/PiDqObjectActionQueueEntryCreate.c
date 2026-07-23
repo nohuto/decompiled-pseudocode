@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDqObjectActionQueueEntryCreate @ 0x1406F9564
+ * XREFs of PiDqObjectActionQueueEntryCreate @ 0x1406FA804
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x1406F9420 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x1406FA6C0 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqObjectActionQueueEntryCreate(volatile signed __int32 *a1, _QWORD *a2)

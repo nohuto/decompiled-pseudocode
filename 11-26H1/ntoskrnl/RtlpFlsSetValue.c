@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFlsSetValue @ 0x140A9BA28
+ * XREFs of RtlpFlsSetValue @ 0x140A9E618
  * Callers:
- *     PsTlsSetValue @ 0x140A9B9D0 (PsTlsSetValue.c)
+ *     PsTlsSetValue @ 0x140A9E5C0 (PsTlsSetValue.c)
  * Callees:
- *     RtlpFlsSetValueSlot @ 0x140A9BAB4 (RtlpFlsSetValueSlot.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlpFlsSetValueSlot @ 0x140A9E6A4 (RtlpFlsSetValueSlot.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall RtlpFlsSetValue(__int64 a1, __int64 *a2, int a3, __int64 a4)

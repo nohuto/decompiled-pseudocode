@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventThermalCapChange @ 0x14059B690
+ * XREFs of PpmEventThermalCapChange @ 0x14059BB80
  * Callers:
- *     PpmRegisterPerfCap @ 0x14058D410 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x14058D900 (PpmRegisterPerfCap.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     PpmEventGetEventDescriptorAndProcessorId @ 0x1402576D0 (PpmEventGetEventDescriptorAndProcessorId.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PpmFireWmiEvent @ 0x140598D98 (PpmFireWmiEvent.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140257790 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PpmFireWmiEvent @ 0x140599288 (PpmFireWmiEvent.c)
  */
 
 char __fastcall PpmEventThermalCapChange(__int64 a1, int a2)

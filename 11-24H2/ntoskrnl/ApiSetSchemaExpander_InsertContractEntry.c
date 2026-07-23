@@ -1,10 +1,10 @@
 /*
- * XREFs of ApiSetSchemaExpander_InsertContractEntry @ 0x140662C94
+ * XREFs of ApiSetSchemaExpander_InsertContractEntry @ 0x140661578
  * Callers:
- *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x140661B20 (ApiSetCompose_ProcessV7Extension_Phase1.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406632E0 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x14066031C (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x140661BC4 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
  * Callees:
- *     ApiSetpInsertHashEntry @ 0x140663870 (ApiSetpInsertHashEntry.c)
+ *     ApiSetpInsertHashEntry @ 0x140662154 (ApiSetpInsertHashEntry.c)
  */
 
 __int64 __fastcall ApiSetSchemaExpander_InsertContractEntry(__int64 a1, __int64 a2, _WORD *a3)

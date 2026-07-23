@@ -1,17 +1,16 @@
 /*
- * XREFs of FsRtlpAttachOplockKey @ 0x14041D800
+ * XREFs of FsRtlpAttachOplockKey @ 0x1403CD800
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1403DA5B0 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140A20DD0 (FsRtlpOplockFsctrlInternal.c)
- *     FsRtlOplockBreakH2 @ 0x140A35490 (FsRtlOplockBreakH2.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1409E0F60 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlOplockBreakH2 @ 0x140A294A0 (FsRtlOplockBreakH2.c)
  * Callees:
- *     IoSetOplockKeyContext @ 0x140247C44 (IoSetOplockKeyContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1408A2A00 (FsRtlFreeExtraCreateParameter.c)
- *     FsRtlFindExtraCreateParameter @ 0x140988560 (FsRtlFindExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x14098D2B0 (IoGetIrpExtraCreateParameter.c)
- *     FsRtlRemoveExtraCreateParameter @ 0x1409A75C0 (FsRtlRemoveExtraCreateParameter.c)
- *     FsRtlAcknowledgeEcp @ 0x140A1AB70 (FsRtlAcknowledgeEcp.c)
+ *     IoSetOplockKeyContext @ 0x1403CE0DC (IoSetOplockKeyContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x1408AB0A0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x140970D40 (FsRtlFindExtraCreateParameter.c)
+ *     IoGetIrpExtraCreateParameter @ 0x140977BD0 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlRemoveExtraCreateParameter @ 0x140990A10 (FsRtlRemoveExtraCreateParameter.c)
+ *     FsRtlAcknowledgeEcp @ 0x140A133B0 (FsRtlAcknowledgeEcp.c)
  */
 
 __int64 __fastcall FsRtlpAttachOplockKey(IRP *a1)
@@ -51,12 +50,12 @@ __int64 __fastcall FsRtlpAttachOplockKey(IRP *a1)
     *(GUID *)ExtraCreateParameter = GUID_ECP_OPLOCK_KEY;
     if ( FsRtlRemoveExtraCreateParameter(v4, (LPCGUID)ExtraCreateParameter, &EcpContext, 0LL) )
       return 0LL;
-    v7 = IoSetOplockKeyContext((__int64)CurrentStackLocation->FileObject, (__int128 *)EcpContext, 1u);
+    v7 = IoSetOplockKeyContext(CurrentStackLocation->FileObject, EcpContext, 1LL);
     FsRtlFreeExtraCreateParameter(EcpContext);
   }
   else
   {
-    v7 = IoSetOplockKeyContext((__int64)CurrentStackLocation->FileObject, (__int128 *)EcpContext, 2u);
+    v7 = IoSetOplockKeyContext(CurrentStackLocation->FileObject, EcpContext, 2LL);
     FsRtlAcknowledgeEcp(EcpContext);
   }
   if ( v7 == -1073741823 )

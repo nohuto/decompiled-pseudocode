@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAlertThreadByThreadIdEx @ 0x140338518
+ * XREFs of KeAlertThreadByThreadIdEx @ 0x1402DE598
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
- *     KeAlertThreadByThreadId @ 0x1404B8BB0 (KeAlertThreadByThreadId.c)
- *     NtAlertThreadByThreadIdEx @ 0x1409A5CD0 (NtAlertThreadByThreadIdEx.c)
+ *     KeAlertThreadByThreadId @ 0x1404B3500 (KeAlertThreadByThreadId.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
+ *     NtAlertThreadByThreadIdEx @ 0x1409892F0 (NtAlertThreadByThreadIdEx.c)
  * Callees:
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiAlertSingleThreadByThreadId @ 0x140337FDC (KiAlertSingleThreadByThreadId.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiAlertSingleThreadByThreadId @ 0x1402DE880 (KiAlertSingleThreadByThreadId.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KeAlertThreadByThreadIdEx(__int64 a1, __int64 a2)
@@ -26,7 +26,7 @@ char __fastcall KeAlertThreadByThreadIdEx(__int64 a1, __int64 a2)
     KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v6 = KiAlertSingleThreadByThreadId((__int64)CurrentPrcb, v3, a2);
+  v6 = KiAlertSingleThreadByThreadId(CurrentPrcb, v3, a2);
   KiExitDispatcher((unsigned __int64)CurrentPrcb, 0LL, 1u, 1u, CurrentIrql);
   return v6;
 }

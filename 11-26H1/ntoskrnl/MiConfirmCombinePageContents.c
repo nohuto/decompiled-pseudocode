@@ -1,12 +1,12 @@
 /*
- * XREFs of MiConfirmCombinePageContents @ 0x140308860
+ * XREFs of MiConfirmCombinePageContents @ 0x1402EA8E0
  * Callers:
- *     MiCombineWithStandbyExisting @ 0x140307CC4 (MiCombineWithStandbyExisting.c)
- *     MiCombineWithExisting @ 0x140308244 (MiCombineWithExisting.c)
+ *     MiCombineWithStandbyExisting @ 0x1402E9D44 (MiCombineWithStandbyExisting.c)
+ *     MiCombineWithExisting @ 0x1402EA2C4 (MiCombineWithExisting.c)
  * Callees:
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiComparePages @ 0x1403088F0 (MiComparePages.c)
- *     MiStandbyPageContentsIntact @ 0x140704094 (MiStandbyPageContentsIntact.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiComparePages @ 0x1402EA970 (MiComparePages.c)
+ *     MiStandbyPageContentsIntact @ 0x140708D64 (MiStandbyPageContentsIntact.c)
  */
 
 __int64 __fastcall MiConfirmCombinePageContents(__int64 a1, __int64 a2)

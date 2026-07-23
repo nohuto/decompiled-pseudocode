@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxComponentPerfWork @ 0x140202788
+ * XREFs of PopFxComponentPerfWork @ 0x1402025B4
  * Callers:
  *     <none>
  * Callees:
- *     PopFxCompleteComponentPerfState @ 0x1402026AC (PopFxCompleteComponentPerfState.c)
+ *     PopFxCompleteComponentPerfState @ 0x1402024D8 (PopFxCompleteComponentPerfState.c)
  */
 
 void __fastcall PopFxComponentPerfWork(volatile signed __int32 *a1)

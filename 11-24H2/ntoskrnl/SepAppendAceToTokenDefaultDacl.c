@@ -1,65 +1,66 @@
 /*
- * XREFs of SepAppendAceToTokenDefaultDacl @ 0x140364418
+ * XREFs of SepAppendAceToTokenDefaultDacl @ 0x1403EAEE8
  * Callers:
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlFindAceBySid @ 0x1403641E0 (RtlFindAceBySid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlAddAce @ 0x14091CC90 (RtlAddAce.c)
- *     RtlAddAccessAllowedAce @ 0x1409A7460 (RtlAddAccessAllowedAce.c)
- *     RtlQueryInformationAcl @ 0x1409E5750 (RtlQueryInformationAcl.c)
- *     SepExpandDynamic @ 0x140A4FCE4 (SepExpandDynamic.c)
- *     SepAppendDefaultDacl @ 0x140A5D034 (SepAppendDefaultDacl.c)
- *     SepFreeDefaultDacl @ 0x140A5FFB8 (SepFreeDefaultDacl.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlFindAceBySid @ 0x1403EB0D0 (RtlFindAceBySid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlAddAce @ 0x140910700 (RtlAddAce.c)
+ *     RtlAddAccessAllowedAce @ 0x140911600 (RtlAddAccessAllowedAce.c)
+ *     RtlQueryInformationAcl @ 0x1409DFFE0 (RtlQueryInformationAcl.c)
+ *     SepExpandDynamic @ 0x140A46A94 (SepExpandDynamic.c)
+ *     SepAppendDefaultDacl @ 0x140A54D64 (SepAppendDefaultDacl.c)
+ *     SepFreeDefaultDacl @ 0x140A58508 (SepFreeDefaultDacl.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepAppendAceToTokenDefaultDacl(__int64 a1, unsigned __int8 *a2)
 {
-  __int64 v2; // rsi
-  int v5; // ebx
+  ACL *v2; // rsi
+  int AclSize; // ebx
   NTSTATUS Acl; // edi
   ULONG v7; // r12d
   ACL *Pool2; // rax
   ACL *v9; // r14
   ULONG v10; // ebx
-  ULONG AclRevision; // [rsp+30h] [rbp-58h] BYREF
+  ULONG AclInformation; // [rsp+30h] [rbp-58h] BYREF
   __int64 v13; // [rsp+38h] [rbp-50h] BYREF
   int v14; // [rsp+40h] [rbp-48h]
 
-  v2 = *(_QWORD *)(a1 + 184);
+  v2 = *(ACL **)(a1 + 184);
   v13 = 0LL;
   v14 = 0;
-  AclRevision = 0;
+  AclInformation = 0;
   if ( !v2 || RtlFindAceBySid(v2, a2, 0LL) )
   {
     return 0;
   }
   else
   {
-    v5 = *(unsigned __int16 *)(v2 + 2);
-    Acl = RtlQueryInformationAcl(v2, &AclRevision, 4LL);
+    AclSize = v2->AclSize;
+    Acl = RtlQueryInformationAcl(v2, &AclInformation, 4u, AclRevisionInformation);
     if ( Acl >= 0 )
     {
-      Acl = RtlQueryInformationAcl(v2, &v13, 12LL);
+      Acl = RtlQueryInformationAcl(v2, &v13, 0xCu, AclSizeInformation);
       if ( Acl >= 0 )
       {
-        v7 = (v5 + 4 * a2[1] + 19) & 0xFFFFFFFC;
-        Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
+        v7 = (AclSize + 4 * a2[1] + 19) & 0xFFFFFFFC;
+        Pool2 = (ACL *)ExAllocatePool2(0x100uLL, v7, 0x63416553u);
         v9 = Pool2;
         if ( Pool2 )
         {
-          v10 = AclRevision;
-          Acl = RtlCreateAcl(Pool2, v7, AclRevision);
+          v10 = AclInformation;
+          Acl = RtlCreateAcl(Pool2, v7, AclInformation);
           if ( Acl >= 0 )
           {
-            if ( (unsigned __int8)(*(_BYTE *)v2 - 2) <= 2u
-              && *(_WORD *)(v2 + 4)
-              && v2 + 8 < v2 + (unsigned __int64)*(unsigned __int16 *)(v2 + 2) )
+            if ( (unsigned __int8)(v2->AclRevision - 2) <= 2u
+              && v2->AceCount
+              && &v2[1] < (ACL *)((char *)v2 + v2->AclSize) )
             {
-              Acl = RtlAddAce(v9, v10, 0, (PVOID)(v2 + 8), HIDWORD(v13) - 8);
+              Acl = RtlAddAce(v9, v10, 0, &v2[1], HIDWORD(v13) - 8);
               if ( Acl >= 0 )
               {
                 Acl = RtlAddAccessAllowedAce(v9, v10, 0x10000000u, a2);

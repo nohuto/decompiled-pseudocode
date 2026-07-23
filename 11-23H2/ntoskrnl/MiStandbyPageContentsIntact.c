@@ -3,13 +3,13 @@
  * Callers:
  *     MiCopyHeaderIfResident @ 0x14020ECB0 (MiCopyHeaderIfResident.c)
  *     MiConfirmCombinePageContents @ 0x140218630 (MiConfirmCombinePageContents.c)
- *     MiCopyDataPageToImagePage @ 0x14028B470 (MiCopyDataPageToImagePage.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiStandbyPageStillCombineCandidate @ 0x14035A4B0 (MiStandbyPageStillCombineCandidate.c)
+ *     MiCopyDataPageToImagePage @ 0x14028B700 (MiCopyDataPageToImagePage.c)
+ *     MiTranslatePageForCopy @ 0x1402EE0D4 (MiTranslatePageForCopy.c)
+ *     MiStandbyPageStillCombineCandidate @ 0x14035A650 (MiStandbyPageStillCombineCandidate.c)
  * Callees:
  *     MiCheckWriteInProgressFault @ 0x140201DD8 (MiCheckWriteInProgressFault.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
  */
 
 __int64 __fastcall MiStandbyPageContentsIntact(__int64 a1)

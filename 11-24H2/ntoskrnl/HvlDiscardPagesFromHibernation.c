@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlDiscardPagesFromHibernation @ 0x14058914C
+ * XREFs of HvlDiscardPagesFromHibernation @ 0x14058642C
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x1405891B4 (HvlDiscardSecurePagesFromHibernation.c)
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x140586494 (HvlDiscardSecurePagesFromHibernation.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
  */
 
 void __fastcall HvlDiscardPagesFromHibernation(PVOID MemoryMap)

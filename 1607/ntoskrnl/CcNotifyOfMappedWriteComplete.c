@@ -1,14 +1,14 @@
 /*
- * XREFs of CcNotifyOfMappedWriteComplete @ 0x14008FAB8
+ * XREFs of CcNotifyOfMappedWriteComplete @ 0x14008F218
  * Callers:
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
  * Callees:
- *     CcDecrementOpenCount @ 0x140073698 (CcDecrementOpenCount.c)
- *     CcIsFatalWriteError @ 0x14008E97C (CcIsFatalWriteError.c)
- *     CcReleaseByteRangeFromWrite @ 0x1400CEE30 (CcReleaseByteRangeFromWrite.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcPostDeferredWrites @ 0x1401B1B04 (CcPostDeferredWrites.c)
+ *     CcDecrementOpenCount @ 0x140073218 (CcDecrementOpenCount.c)
+ *     CcIsFatalWriteError @ 0x14008E0DC (CcIsFatalWriteError.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1400CCCD0 (CcReleaseByteRangeFromWrite.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x1401B19E8 (CcPostDeferredWrites.c)
  */
 
 void __fastcall CcNotifyOfMappedWriteComplete(__int64 a1, __int64 a2, __int64 a3, int a4)

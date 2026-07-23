@@ -1,17 +1,17 @@
 /*
- * XREFs of IopSetDeviceSecurityDescriptors @ 0x140780C90
+ * XREFs of IopSetDeviceSecurityDescriptors @ 0x140780E50
  * Callers:
- *     IopGetSetSecurityObject @ 0x14064F760 (IopGetSetSecurityObject.c)
+ *     IopGetSetSecurityObject @ 0x140644580 (IopGetSetSecurityObject.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopSetDeviceSecurityDescriptor @ 0x14076B26C (IopSetDeviceSecurityDescriptor.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14076B42C (IopSetDeviceSecurityDescriptor.c)
  */
 
 __int64 __fastcall IopSetDeviceSecurityDescriptors(
         struct _DMA_ADAPTER *a1,
         struct _DMA_ADAPTER *a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         POOL_TYPE a5,
         GENERIC_MAPPING *a6)

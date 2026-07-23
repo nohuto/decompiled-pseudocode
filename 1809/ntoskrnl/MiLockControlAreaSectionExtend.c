@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockControlAreaSectionExtend @ 0x140092CE0
+ * XREFs of MiLockControlAreaSectionExtend @ 0x140092C20
  * Callers:
- *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
+ *     MmExtendSection @ 0x14061D8CC (MmExtendSection.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -20,9 +20,9 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
   KIRQL v7; // al
   __int64 **v8; // rbx
   KIRQL v9; // si
-  __int64 v10; // rax
+  PRTL_BALANCED_NODE v10; // rax
   __int64 result; // rax
-  __int64 v12; // rax
+  PRTL_BALANCED_NODE v12; // rax
   __int64 v13; // rdx
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KPRCB *v15; // rcx
@@ -53,7 +53,7 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
         v12 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
         v6 = (_KLOCK_ENTRY *)v12;
         if ( v12 )
-          KeAbPreWait(v12, v13);
+          KeAbPreWait((__int64)v12, v13);
       }
     }
     *(_DWORD *)(a2 + 20) = 0;
@@ -76,13 +76,13 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
     KeWaitForGate(a2 + 16, 18LL);
     if ( v6 )
     {
-      KeAbPreAcquire(BugCheckParameter2, (__int64)v6, 0);
+      KeAbPreAcquire(BugCheckParameter2, &v6->TreeNode, 0);
       KeAbPostReleaseEx(BugCheckParameter2, v6);
     }
   }
   v10 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
   if ( v10 )
-    *(_BYTE *)(v10 + 26) |= 1u;
+    BYTE2(v10[1].Left) |= 1u;
   ExReleaseSpinLockExclusiveFromDpcLevel(v5);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v9 < 2u )
   {

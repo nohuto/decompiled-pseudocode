@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmFindFilterListInflectionPoint @ 0x140B527B8
+ * XREFs of _CmFindFilterListInflectionPoint @ 0x140B55058
  * Callers:
- *     _CmMergeFilterLists @ 0x140B524DC (_CmMergeFilterLists.c)
+ *     _CmMergeFilterLists @ 0x140B54D7C (_CmMergeFilterLists.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     _PnpMultiSzFind @ 0x14089D37C (_PnpMultiSzFind.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     _PnpMultiSzFind @ 0x1408A377C (_PnpMultiSzFind.c)
  */
 
 wchar_t *__fastcall CmFindFilterListInflectionPoint(wchar_t *Str2, wchar_t *Str1, wchar_t *a3)

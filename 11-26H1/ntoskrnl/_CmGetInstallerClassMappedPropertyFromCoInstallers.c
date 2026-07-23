@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140B41B2C
+ * XREFs of _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140B43A1C
  * Callers:
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x14089BAD4 (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmGetInstallerClassMappedProperty @ 0x14091855C (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x1408A1ED4 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x140972FBC (_CmGetInstallerClassMappedProperty.c)
  * Callees:
- *     _PnpCtxRegDeleteValue @ 0x14090B324 (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegDeleteValue @ 0x1409AD448 (_PnpCtxRegDeleteValue.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromCoInstallers(
@@ -22,7 +22,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromCoInstallers(
   unsigned int v8; // ebx
   __int64 v9; // rsi
   int v12; // edi
-  __int64 *v13; // rdx
+  _QWORD *v13; // rdx
   int CachedNodeBaseKey; // eax
   __int64 v15; // rcx
   unsigned int v16; // eax
@@ -47,10 +47,10 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromCoInstallers(
   {
     v12 = 0;
   }
-  v13 = *(__int64 **)(a1 + 200);
+  v13 = *(_QWORD **)(a1 + 200);
   if ( !v13 )
   {
-    v13 = *(__int64 **)(a1 + 88);
+    v13 = *(_QWORD **)(a1 + 88);
     *(_QWORD *)(a1 + 200) = v13;
   }
   CachedNodeBaseKey = PnpCtxGetCachedNodeBaseKey(a1, v13, 13, &v18);

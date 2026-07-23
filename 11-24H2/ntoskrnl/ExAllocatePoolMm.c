@@ -1,38 +1,38 @@
 /*
- * XREFs of ExAllocatePoolMm @ 0x1402ACBC0
+ * XREFs of ExAllocatePoolMm @ 0x1402775A0
  * Callers:
- *     MiGetBackgroundHugePageToZero @ 0x140209AF0 (MiGetBackgroundHugePageToZero.c)
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiComputeIdealDpcGang @ 0x1403A8170 (MiComputeIdealDpcGang.c)
- *     MiLockWorkingSetForLargeMapping @ 0x1404D8A64 (MiLockWorkingSetForLargeMapping.c)
- *     MiInitializeSlabIdentities @ 0x140688308 (MiInitializeSlabIdentities.c)
- *     MiAllocatePrcb @ 0x14068ED80 (MiAllocatePrcb.c)
- *     MiAbsorbPossibleEngineChanges @ 0x14068F0A4 (MiAbsorbPossibleEngineChanges.c)
- *     MiAllocateZeroPageDecisionTraceBuffer @ 0x14068F5A4 (MiAllocateZeroPageDecisionTraceBuffer.c)
- *     MiAllocateAcceleratorDescriptor @ 0x140690914 (MiAllocateAcceleratorDescriptor.c)
- *     MiZeroPageCalibrate @ 0x140693E8C (MiZeroPageCalibrate.c)
- *     MiInitializeScrubPacket @ 0x1407FD6E0 (MiInitializeScrubPacket.c)
- *     MiCreatePerNodeZeroingConductor @ 0x1407FF17C (MiCreatePerNodeZeroingConductor.c)
- *     MiCreateZeroThreadContext @ 0x1407FF2B0 (MiCreateZeroThreadContext.c)
- *     MiInsertSharedCommitNode @ 0x1408E2BF0 (MiInsertSharedCommitNode.c)
- *     MmPrefetchPagesEx @ 0x140955430 (MmPrefetchPagesEx.c)
- *     MiAllocateReadList @ 0x140955F80 (MiAllocateReadList.c)
- *     MiAddSecureEntry @ 0x1409C3F30 (MiAddSecureEntry.c)
- *     MiSecureVad @ 0x1409EA8FC (MiSecureVad.c)
- *     MiCombineAllPhysicalMemory @ 0x1409F24E8 (MiCombineAllPhysicalMemory.c)
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
- *     MiComputeMemoryNodeProcessorAssignments @ 0x140C584A0 (MiComputeMemoryNodeProcessorAssignments.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiComputeIdealDpcGang @ 0x14026F84C (MiComputeIdealDpcGang.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1403310D0 (MiGetBackgroundHugePageToZero.c)
+ *     MiLockWorkingSetForLargeMapping @ 0x1404D1EB4 (MiLockWorkingSetForLargeMapping.c)
+ *     MiInitializeSlabIdentities @ 0x140689438 (MiInitializeSlabIdentities.c)
+ *     MiAllocatePrcb @ 0x14068FE5C (MiAllocatePrcb.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x140690174 (MiAbsorbPossibleEngineChanges.c)
+ *     MiAllocateZeroPageDecisionTraceBuffer @ 0x140690674 (MiAllocateZeroPageDecisionTraceBuffer.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1406919E4 (MiAllocateAcceleratorDescriptor.c)
+ *     MiZeroPageCalibrate @ 0x140694F5C (MiZeroPageCalibrate.c)
+ *     MiInitializeScrubPacket @ 0x1407FDE50 (MiInitializeScrubPacket.c)
+ *     MiCreatePerNodeZeroingConductor @ 0x1407FF8C0 (MiCreatePerNodeZeroingConductor.c)
+ *     MiCreateZeroThreadContext @ 0x1407FF9F4 (MiCreateZeroThreadContext.c)
+ *     MiAddSecureEntry @ 0x1408DC0A0 (MiAddSecureEntry.c)
+ *     MiInsertSharedCommitNode @ 0x1409197A0 (MiInsertSharedCommitNode.c)
+ *     MmPrefetchPagesEx @ 0x140938DE0 (MmPrefetchPagesEx.c)
+ *     MiAllocateReadList @ 0x140939930 (MiAllocateReadList.c)
+ *     MiSecureVad @ 0x1409E51EC (MiSecureVad.c)
+ *     MiCombineAllPhysicalMemory @ 0x1409E6848 (MiCombineAllPhysicalMemory.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
+ *     MiComputeMemoryNodeProcessorAssignments @ 0x140C5A630 (MiComputeMemoryNodeProcessorAssignments.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402ACCF0 (ExpAllocatePoolWithTagFromNode.c)
- *     ExpAllocatePoolWithQuotaTag @ 0x140B72670 (ExpAllocatePoolWithQuotaTag.c)
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402776D0 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExpAllocatePoolWithQuotaTag @ 0x140B74210 (ExpAllocatePoolWithQuotaTag.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  */
 
 __int64 __fastcall ExAllocatePoolMm(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, int a3, ULONG_PTR a4)
 {
   ULONG_PTR v4; // rbx
-  int v5; // ecx
+  NTSTATUS v5; // ecx
   __int64 result; // rax
   ULONG_PTR v7; // r8
   volatile CCHAR v8; // al

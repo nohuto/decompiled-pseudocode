@@ -1,9 +1,9 @@
 /*
- * XREFs of VfPoolInitPhase0 @ 0x1409E0190
+ * XREFs of VfPoolInitPhase0 @ 0x1409E1190
  * Callers:
- *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x1409C7E70 (VfInitVerifierComponents.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
  */
 
 __int64 VfPoolInitPhase0()

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExRegisterCallback @ 0x1403678A0
+ * XREFs of ExRegisterCallback @ 0x140367A40
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4CA0 (HvlPhase2Initialize.c)
- *     DifExRegisterCallbackWrapper @ 0x1405D96A0 (DifExRegisterCallbackWrapper.c)
- *     KeRegisterProcessorChangeCallback @ 0x140822690 (KeRegisterProcessorChangeCallback.c)
- *     HaliInitPowerManagement @ 0x140834A70 (HaliInitPowerManagement.c)
- *     HalpMiscInitializeKsr @ 0x140854AE0 (HalpMiscInitializeKsr.c)
- *     IoRegisterBootDriverCallback @ 0x140863A40 (IoRegisterBootDriverCallback.c)
- *     SeRegisterImageVerificationCallback @ 0x140864F10 (SeRegisterImageVerificationCallback.c)
- *     IoRegisterContainerNotification @ 0x1409481D0 (IoRegisterContainerNotification.c)
+ *     HvlPhase2Initialize @ 0x1403B4E80 (HvlPhase2Initialize.c)
+ *     DifExRegisterCallbackWrapper @ 0x1405D9C10 (DifExRegisterCallbackWrapper.c)
+ *     KeRegisterProcessorChangeCallback @ 0x140822990 (KeRegisterProcessorChangeCallback.c)
+ *     HaliInitPowerManagement @ 0x140834D70 (HaliInitPowerManagement.c)
+ *     HalpMiscInitializeKsr @ 0x140854DE0 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x140863C80 (IoRegisterBootDriverCallback.c)
+ *     SeRegisterImageVerificationCallback @ 0x140865150 (SeRegisterImageVerificationCallback.c)
+ *     IoRegisterContainerNotification @ 0x1409483D0 (IoRegisterContainerNotification.c)
  *     PiCslInitialize @ 0x140B3BC84 (PiCslInitialize.c)
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  *     SshpAlpcInitialize @ 0x140B66D04 (SshpAlpcInitialize.c)
@@ -17,11 +17,11 @@
  *     PopSetupKsrCallbacks @ 0x140B75B90 (PopSetupKsrCallbacks.c)
  *     PiKsrNotifyInitialize @ 0x140B95390 (PiKsrNotifyInitialize.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -70,10 +70,13 @@ PVOID __stdcall ExRegisterCallback(
       *((_QWORD *)CallbackObject + 3) = v7;
     }
     KxReleaseSpinLock((volatile signed __int64 *)CallbackObject + 1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

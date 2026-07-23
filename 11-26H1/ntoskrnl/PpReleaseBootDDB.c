@@ -1,13 +1,13 @@
 /*
- * XREFs of PpReleaseBootDDB @ 0x140776E90
+ * XREFs of PpReleaseBootDDB @ 0x140779D38
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1405257B0 (PnpCompleteSystemStartProcess.c)
+ *     PnpCompleteSystemStartProcess @ 0x140527E20 (PnpCompleteSystemStartProcess.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     SdbReleaseDatabase @ 0x1409E6F28 (SdbReleaseDatabase.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SdbReleaseDatabase @ 0x1409D5F00 (SdbReleaseDatabase.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PpReleaseBootDDB()
@@ -22,9 +22,9 @@ __int64 PpReleaseBootDDB()
   {
     SdbReleaseDatabase();
     PspSiloMonitorLock.TrapFrame = 0LL;
-    ExFreePoolWithTag(*(PVOID *)&PspSiloMonitorLock.PriorityFloorSummary, 0);
+    ExFreePoolWithTag(*(PVOID *)&PspSiloMonitorLock.AbCompletedIoQoSBoostCount, 0);
     v1 = 0;
-    *(_QWORD *)&PspSiloMonitorLock.PriorityFloorSummary = 0LL;
+    *(_QWORD *)&PspSiloMonitorLock.AbCompletedIoQoSBoostCount = 0LL;
   }
   else
   {
@@ -34,8 +34,8 @@ __int64 PpReleaseBootDDB()
   {
     SdbReleaseDatabase();
     PspSiloMonitorLock.WaitBlock[2].WaitListEntry.Blink = 0LL;
-    ExFreePoolWithTag(*(PVOID *)&PspSiloMonitorLock.AbCompletedIoQoSBoostCount, 0);
-    *(_QWORD *)&PspSiloMonitorLock.AbCompletedIoQoSBoostCount = 0LL;
+    ExFreePoolWithTag(*(PVOID *)&PspSiloMonitorLock.PriorityFloorSummary, 0);
+    *(_QWORD *)&PspSiloMonitorLock.PriorityFloorSummary = 0LL;
   }
   ExReleaseResourceLite(&PiDDBLock);
   KeLeaveCriticalRegion();

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetNextName @ 0x140825C74
+ * XREFs of CmpGetNextName @ 0x140825F74
  * Callers:
- *     CmpWalkUnicodeStringPath @ 0x140825BB0 (CmpWalkUnicodeStringPath.c)
+ *     CmpWalkUnicodeStringPath @ 0x140825EB0 (CmpWalkUnicodeStringPath.c)
  *     CmpFindHiveSubKey @ 0x140B590B8 (CmpFindHiveSubKey.c)
  *     CmpGetKnownHivePathNode @ 0x140B98EFC (CmpGetKnownHivePathNode.c)
  * Callees:

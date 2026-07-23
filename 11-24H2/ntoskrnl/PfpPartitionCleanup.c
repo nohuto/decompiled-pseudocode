@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpPartitionCleanup @ 0x1407473B0
+ * XREFs of PfpPartitionCleanup @ 0x1407456A0
  * Callers:
- *     PfpPartitionCreate @ 0x1405CC80C (PfpPartitionCreate.c)
- *     PfDeletePartition @ 0x140747214 (PfDeletePartition.c)
+ *     PfpPartitionCreate @ 0x1405C9F7C (PfpPartitionCreate.c)
+ *     PfDeletePartition @ 0x140745504 (PfDeletePartition.c)
  * Callees:
- *     ExFreeCacheAwareRundownProtection @ 0x140484170 (ExFreeCacheAwareRundownProtection.c)
- *     PfTCleanup @ 0x140746568 (PfTCleanup.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x14047F710 (ExFreeCacheAwareRundownProtection.c)
+ *     PfTCleanup @ 0x140744858 (PfTCleanup.c)
  */
 
 void __fastcall PfpPartitionCleanup(__int64 a1)

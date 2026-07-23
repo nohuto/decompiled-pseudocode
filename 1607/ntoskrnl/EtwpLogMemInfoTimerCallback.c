@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLogMemInfoTimerCallback @ 0x140226878
+ * XREFs of EtwpLogMemInfoTimerCallback @ 0x1402266A4
  * Callers:
  *     <none>
  * Callees:
- *     MmQuerySystemMemoryInformation @ 0x1400B30EC (MmQuerySystemMemoryInformation.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpLogMemInfo @ 0x140226758 (EtwpLogMemInfo.c)
- *     EtwpQueuePerfMemInfoWorkItem @ 0x140226D3C (EtwpQueuePerfMemInfoWorkItem.c)
+ *     MmQuerySystemMemoryInformation @ 0x1400B0F6C (MmQuerySystemMemoryInformation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpLogMemInfo @ 0x140226584 (EtwpLogMemInfo.c)
+ *     EtwpQueuePerfMemInfoWorkItem @ 0x140226B68 (EtwpQueuePerfMemInfoWorkItem.c)
  */
 
 void EtwpLogMemInfoTimerCallback()

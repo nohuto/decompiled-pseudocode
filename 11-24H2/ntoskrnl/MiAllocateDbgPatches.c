@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAllocateDbgPatches @ 0x14067DDF8
+ * XREFs of MiAllocateDbgPatches @ 0x14067EFF8
  * Callers:
- *     MiDbgCopyMemory @ 0x14067E4A8 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x14067F6A8 (MiDbgCopyMemory.c)
  * Callees:
  *     <none>
  */
@@ -22,17 +22,17 @@ __int64 __fastcall MiAllocateDbgPatches(__int16 a1, unsigned int a2, __int64 a3,
     return 3221225485LL;
   v7 = (a1 & 0xFFC) + (*(_DWORD *)(a3 + 48) << 12);
   v8 = ((unsigned __int16)(a1 & 0xFFF) >> 2) - (((a1 & 0xFFF) + a2 - 1) >> 2) + 1;
-  if ( dword_140E31AEC > (unsigned int)dword_140E31AE8 )
-    v9 = dword_140E31AE8 - dword_140E31AEC + 256;
+  if ( dword_140E31C2C > (unsigned int)dword_140E31C28 )
+    v9 = dword_140E31C28 - dword_140E31C2C + 256;
   else
-    v9 = dword_140E31AE8 - dword_140E31AEC;
-  if ( v8 + v9 >= 0x100 || v9 + v8 + dword_140E35AF8 > 0x200 )
+    v9 = dword_140E31C28 - dword_140E31C2C;
+  if ( v8 + v9 >= 0x100 || v9 + v8 + dword_140E35C38 > 0x200 )
     return 3221225473LL;
   for ( ; v8; --v8 )
   {
     v10 = *(_QWORD *)(a3 + 40);
-    LODWORD(v11) = dword_140E31AE8;
-    while ( (_DWORD)v11 != dword_140E31AEC )
+    LODWORD(v11) = dword_140E31C28;
+    while ( (_DWORD)v11 != dword_140E31C2C )
     {
       if ( !(_DWORD)v11 )
         LODWORD(v11) = 256;
@@ -52,11 +52,11 @@ __int64 __fastcall MiAllocateDbgPatches(__int16 a1, unsigned int a2, __int64 a3,
         }
       }
     }
-    v15 = (unsigned int)dword_140E31AE8 + 2LL * (unsigned int)dword_140E31AE8 + 1813;
-    ++dword_140E31AE8;
+    v15 = (unsigned int)dword_140E31C28 + 2LL * (unsigned int)dword_140E31C28 + 1813;
+    ++dword_140E31C28;
     v14 = &MiState + 2 * v15;
-    if ( dword_140E31AE8 == 256 )
-      dword_140E31AE8 = 0;
+    if ( dword_140E31C28 == 256 )
+      dword_140E31C28 = 0;
     *(_QWORD *)v14 = v10;
     v14[2] = v7;
 LABEL_20:

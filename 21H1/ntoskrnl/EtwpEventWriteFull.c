@@ -86,7 +86,7 @@ __int64 __fastcall EtwpEventWriteFull(
   _KPROCESS *Process; // rcx
   __int64 v38; // rcx
   __int64 v40; // rdi
-  struct _SLIST_ENTRY *v41; // r8
+  _SLIST_ENTRY *v41; // r8
   __int64 v43; // rsi
   BOOLEAN v44; // al
   __int64 v45; // rdx
@@ -667,7 +667,7 @@ LABEL_61:
     }
     *((_DWORD *)v157 + 10) = v48;
     v56 = v155;
-    v57 = EtwpReserveTraceBuffer(v155, v48, (__int64)&v175, &v166, 0);
+    v57 = EtwpReserveTraceBuffer((unsigned int *)v155, v48, (__int64)&v175, &v166, 0);
     v58 = (_OWORD *)v57;
     v157 = (_OWORD *)v57;
     if ( v57 )
@@ -1007,7 +1007,7 @@ LABEL_31:
   }
   if ( v143 )
     KeLeaveCriticalRegionThread((__int64)v165, v28, v25, v24);
-  v41 = (struct _SLIST_ENTRY *)Src;
+  v41 = (_SLIST_ENTRY *)Src;
   if ( Src )
   {
     v83 = KeGetCurrentPrcb();
@@ -1024,7 +1024,7 @@ LABEL_31:
     else
     {
       ++v84->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))v84->FreeEx)(v41);
+      ((void (__fastcall *)(_SLIST_ENTRY *))v84->FreeEx)(v41);
     }
   }
   return (unsigned int)v149;

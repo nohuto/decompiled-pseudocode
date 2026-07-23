@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwLoadKey2 @ 0x1401BA1D0
+ * XREFs of ZwLoadKey2 @ 0x1401BA330
  * Callers:
- *     BiLoadHive @ 0x1407112E4 (BiLoadHive.c)
+ *     BiLoadHive @ 0x140712584 (BiLoadHive.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwLoadKey2(
         POBJECT_ATTRIBUTES KeyObjectAttributes,
         POBJECT_ATTRIBUTES FileObjectAttributes,
@@ -14,5 +13,5 @@ NTSTATUS __stdcall ZwLoadKey2(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyObjectAttributes, FileObjectAttributes, *(_QWORD *)&Flags);
+  return KiServiceInternal(KeyObjectAttributes);
 }

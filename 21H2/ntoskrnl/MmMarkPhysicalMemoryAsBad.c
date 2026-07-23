@@ -1,26 +1,26 @@
 /*
- * XREFs of MmMarkPhysicalMemoryAsBad @ 0x14052F930
+ * XREFs of MmMarkPhysicalMemoryAsBad @ 0x14052FB70
  * Callers:
- *     MiScrubNodeLargePageList @ 0x140556E38 (MiScrubNodeLargePageList.c)
- *     WheapAttemptPhysicalPageOffline @ 0x14095D69C (WheapAttemptPhysicalPageOffline.c)
+ *     MiScrubNodeLargePageList @ 0x140557078 (MiScrubNodeLargePageList.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14095D87C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     MiFreeContiguousPages @ 0x140296068 (MiFreeContiguousPages.c)
- *     MiUnlockDynamicMemoryShared @ 0x14029BEF0 (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1402A72BC (MiLockDynamicMemoryShared.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402138C0 (MiUnlockDynamicMemoryShared.c)
+ *     MiFreeContiguousPages @ 0x140217D28 (MiFreeContiguousPages.c)
+ *     MiLockDynamicMemoryShared @ 0x1402253FC (MiLockDynamicMemoryShared.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x1402745B0 (PsReferencePartitionSafe.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiIsPageOnBadList @ 0x14030E2BC (MiIsPageOnBadList.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiIsPageInHugePfn @ 0x1403F391C (MiIsPageInHugePfn.c)
  *     MiMarkHugePfnBad @ 0x1403F39F4 (MiMarkHugePfnBad.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     MiMarkFileOnlyPfnBad @ 0x140541708 (MiMarkFileOnlyPfnBad.c)
- *     MiSetPfnRemovalRequested @ 0x14054F428 (MiSetPfnRemovalRequested.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     MiMarkFileOnlyPfnBad @ 0x140541948 (MiMarkFileOnlyPfnBad.c)
+ *     MiSetPfnRemovalRequested @ 0x14054F668 (MiSetPfnRemovalRequested.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
@@ -93,28 +93,27 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
   __int64 v68; // r8
   _DWORD *v69; // r9
   unsigned __int64 v70; // rsi
-  __int64 v71; // r8
-  unsigned __int8 v72; // al
-  struct _KPRCB *v73; // r10
-  _DWORD *v74; // r9
-  int v75; // eax
-  unsigned __int8 v76; // al
-  struct _KPRCB *v77; // r10
-  _DWORD *v78; // r9
-  int v79; // eax
-  unsigned __int64 v80; // r8
-  struct _KPRCB *v81; // r9
+  unsigned __int8 v71; // al
+  struct _KPRCB *v72; // r10
+  _DWORD *v73; // r9
+  int v74; // eax
+  unsigned __int8 v75; // al
+  struct _KPRCB *v76; // r10
+  _DWORD *v77; // r9
+  int v78; // eax
+  unsigned __int64 v79; // r8
+  struct _KPRCB *v80; // r9
   __int64 CachedResidentAvailable; // rdx
-  signed __int32 v83; // eax
-  __int64 v84; // [rsp+60h] [rbp-68h]
-  unsigned __int64 v85; // [rsp+68h] [rbp-60h]
-  __int64 v86; // [rsp+70h] [rbp-58h] BYREF
-  __int64 v87; // [rsp+78h] [rbp-50h]
-  int v88; // [rsp+D0h] [rbp+8h]
+  signed __int32 v82; // eax
+  __int64 v83; // [rsp+60h] [rbp-68h]
+  unsigned __int64 v84; // [rsp+68h] [rbp-60h]
+  __int64 v85; // [rsp+70h] [rbp-58h] BYREF
+  __int64 v86; // [rsp+78h] [rbp-50h]
+  int v87; // [rsp+D0h] [rbp+8h]
 
   v2 = *a1;
   v3 = *a1;
-  v86 = 0LL;
+  v85 = 0LL;
   if ( (v3 & 0xFFFu) > 1 )
     return 3221225711LL;
   if ( (*a2 & 0xFFF) != 0 )
@@ -122,14 +121,14 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
   if ( (MiFlags & 0x8000000) == 0 )
     return 3221225474LL;
   v5 = *(_QWORD *)a1 >> 12;
-  v87 = *(_QWORD *)a2 >> 12;
-  v6 = v5 + v87;
-  v85 = v5 + v87;
-  if ( v5 >= v5 + v87 )
+  v86 = *(_QWORD *)a2 >> 12;
+  v6 = v5 + v86;
+  v84 = v5 + v86;
+  if ( v5 >= v5 + v86 )
     return 3221225711LL;
   CurrentThread = KeGetCurrentThread();
-  v88 = 0;
-  v84 = (__int64)CurrentThread;
+  v87 = 0;
+  v83 = (__int64)CurrentThread;
   v8 = (((v2 & 1) == 0) << 28) + 739246080;
   v9 = 0;
   MiLockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
@@ -191,7 +190,7 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
       v10 -= 48LL;
       goto LABEL_32;
     }
-    v23 = *(_QWORD *)(qword_140C4E648 + 8 * ((v17 >> 39) & 0x3FF));
+    v23 = *(_QWORD *)(qword_140C4E688 + 8 * ((v17 >> 39) & 0x3FF));
     v24 = PsReferencePartitionSafe(*(_QWORD *)(v23 + 176));
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( !v24 )
@@ -238,7 +237,7 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
     if ( (int)MiAcquireNonPagedResources((ULONG_PTR *)v23, 2uLL, 0LL, 0) < 0 )
       break;
     v36 = (unsigned __int8)MiLockPageInline(v10, v33, v34, v35);
-    if ( *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v10 + 40) >> 39) & 0x3FFLL)) == v23 )
+    if ( *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v10 + 40) >> 39) & 0x3FFLL)) == v23 )
     {
       if ( (v8 & 0x10000000) != 0 )
       {
@@ -271,10 +270,10 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
             }
           }
           __writecr8(v36);
-          MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, v84);
-          ContiguousPages = MiFindContiguousPages(v23, v5, v5, 0LL, 1uLL, 1u, 0x80000000, 0x80000000, v8, 0LL, &v86);
+          MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, v83);
+          ContiguousPages = MiFindContiguousPages(v23, v5, v5, 0LL, 1uLL, 1u, 0x80000000, 0x80000000, v8, 0LL, &v85);
           v9 = 0;
-          MiLockDynamicMemoryShared((__int64)&MiSystemPartition, v84);
+          MiLockDynamicMemoryShared((__int64)&MiSystemPartition, v83);
           if ( (*(_QWORD *)(48 * v5 - 0x57FFFFFFFD8LL) & 0x4000000000000LL) == 0 )
           {
             v9 = -1073741584;
@@ -295,22 +294,21 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
             {
               if ( (KiIrqlFlags & 1) != 0 )
               {
-                v72 = KeGetCurrentIrql();
-                if ( v72 <= 0xFu && (unsigned __int8)v70 <= 0xFu && v72 >= 2u )
+                v71 = KeGetCurrentIrql();
+                if ( v71 <= 0xFu && (unsigned __int8)v70 <= 0xFu && v71 >= 2u )
                 {
-                  v73 = KeGetCurrentPrcb();
-                  v74 = v73->SchedulerAssist;
-                  v75 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v70 + 1));
-                  v15 = (v75 & v74[5]) == 0;
-                  v71 = (unsigned int)v75 & v74[5];
-                  v74[5] = v71;
+                  v72 = KeGetCurrentPrcb();
+                  v73 = v72->SchedulerAssist;
+                  v74 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v70 + 1));
+                  v15 = (v74 & v73[5]) == 0;
+                  v73[5] &= v74;
                   if ( v15 )
-                    KiRemoveSystemWorkPriorityKick((__int64)v73);
+                    KiRemoveSystemWorkPriorityKick((__int64)v72);
                 }
               }
             }
             __writecr8(v70);
-            MiFreeContiguousPages(v5, 1LL, v71);
+            MiFreeContiguousPages(v5, 1uLL);
             goto LABEL_158;
           }
           if ( MiIsPageOnBadList(v10) )
@@ -320,9 +318,9 @@ LABEL_138:
           }
           else if ( (*(_BYTE *)(v10 + 35) & 0x40) != 0 )
           {
-            byte_140C4E7F8 = 1;
+            byte_140C4E838 = 1;
             v9 = 259;
-            v88 = 1;
+            v87 = 1;
             goto LABEL_138;
           }
 LABEL_139:
@@ -331,65 +329,65 @@ LABEL_139:
           {
             if ( (KiIrqlFlags & 1) != 0 )
             {
-              v76 = KeGetCurrentIrql();
-              if ( v76 <= 0xFu && (unsigned __int8)v70 <= 0xFu && v76 >= 2u )
+              v75 = KeGetCurrentIrql();
+              if ( v75 <= 0xFu && (unsigned __int8)v70 <= 0xFu && v75 >= 2u )
               {
-                v77 = KeGetCurrentPrcb();
-                v78 = v77->SchedulerAssist;
-                v79 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v70 + 1));
-                v15 = (v79 & v78[5]) == 0;
-                v78[5] &= v79;
+                v76 = KeGetCurrentPrcb();
+                v77 = v76->SchedulerAssist;
+                v78 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v70 + 1));
+                v15 = (v78 & v77[5]) == 0;
+                v77[5] &= v78;
                 if ( v15 )
-                  KiRemoveSystemWorkPriorityKick((__int64)v77);
+                  KiRemoveSystemWorkPriorityKick((__int64)v76);
               }
             }
           }
           __writecr8(v70);
 LABEL_147:
           MiReturnCommit(v23, 1LL);
-          v80 = 1LL;
+          v79 = 1LL;
           if ( (ULONG_PTR *)v23 != &MiSystemPartition )
             goto LABEL_157;
-          v81 = KeGetCurrentPrcb();
-          CachedResidentAvailable = (int)v81->CachedResidentAvailable;
+          v80 = KeGetCurrentPrcb();
+          CachedResidentAvailable = (int)v80->CachedResidentAvailable;
           if ( (_DWORD)CachedResidentAvailable == -1 )
             goto LABEL_157;
           if ( (unsigned __int64)(CachedResidentAvailable + 1) <= 0x100 )
           {
             do
             {
-              v83 = _InterlockedCompareExchange(
-                      (volatile signed __int32 *)&v81->CachedResidentAvailable,
+              v82 = _InterlockedCompareExchange(
+                      (volatile signed __int32 *)&v80->CachedResidentAvailable,
                       CachedResidentAvailable + 1,
                       CachedResidentAvailable);
-              v15 = (_DWORD)CachedResidentAvailable == v83;
-              LODWORD(CachedResidentAvailable) = v83;
+              v15 = (_DWORD)CachedResidentAvailable == v82;
+              LODWORD(CachedResidentAvailable) = v82;
               if ( v15 )
                 goto LABEL_158;
             }
-            while ( v83 != -1 && (unsigned __int64)(v83 + 1LL) <= 0x100 );
+            while ( v82 != -1 && (unsigned __int64)(v82 + 1LL) <= 0x100 );
           }
           if ( (int)CachedResidentAvailable > 192
             && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                                    (volatile signed __int32 *)&v81->CachedResidentAvailable,
+                                                    (volatile signed __int32 *)&v80->CachedResidentAvailable,
                                                     192,
                                                     CachedResidentAvailable) )
           {
-            v80 = (int)CachedResidentAvailable - 192 + 1LL;
+            v79 = (int)CachedResidentAvailable - 192 + 1LL;
           }
-          if ( v80 )
+          if ( v79 )
 LABEL_157:
-            _InterlockedExchangeAdd64((volatile signed __int64 *)(v23 + 7168), v80);
+            _InterlockedExchangeAdd64((volatile signed __int64 *)(v23 + 7168), v79);
 LABEL_158:
           PsDereferencePartition(*(_QWORD *)(v23 + 176));
           if ( ContiguousPages == -1073741523 || ContiguousPages == -1073741670 )
           {
             v9 = ContiguousPages;
             v14 = ContiguousPages;
-            v6 = v85;
+            v6 = v84;
             goto LABEL_18;
           }
-          v6 = v85;
+          v6 = v84;
           goto LABEL_32;
         }
         _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
@@ -553,7 +551,7 @@ LABEL_69:
     --v5;
     v10 -= 48LL;
 LABEL_32:
-    CurrentThread = (struct _KTHREAD *)v84;
+    CurrentThread = (struct _KTHREAD *)v83;
 LABEL_16:
     ++v5;
     v10 += 48LL;
@@ -567,11 +565,11 @@ LABEL_16:
   v14 = -1073741670;
   PsDereferencePartition(*(_QWORD *)(v23 + 176));
 LABEL_18:
-  MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, v84);
-  if ( v88 == 1 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL);
-  v15 = v87 == 1;
-  *(_QWORD *)a2 = (v87 + v5 - v6) << 12;
+  MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, v83);
+  if ( v87 == 1 )
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
+  v15 = v86 == 1;
+  *(_QWORD *)a2 = (v86 + v5 - v6) << 12;
   if ( v15 )
     return v9;
   return v14;

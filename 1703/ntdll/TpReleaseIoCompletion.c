@@ -8,22 +8,19 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall TpReleaseIoCompletion(__int64 a1)
+void __cdecl TpReleaseIoCompletion(PTP_IO Io)
 {
-  signed __int32 v2; // eax
+  int v2; // eax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
-  v2 = sub_1800176B8((struct _PEB_LDR_DATA *)a1, 1LL, 0LL);
-  if ( v2 )
+  if ( (unsigned int)sub_1800176B8((PPEB_LDR_DATA)Io, 1LL, 0LL) )
   {
-    LOBYTE(v2) = sub_1800144B8(a1, 1LL);
+    LOBYTE(v2) = sub_1800144B8((__int64)Io, 1LL);
     if ( v2 )
     {
-      *(_QWORD *)(a1 + 184) = retaddr;
-      v2 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( v2 == 1 )
-        LOBYTE(v2) = (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+      *((_QWORD *)Io + 23) = retaddr;
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Io, 0xFFFFFFFF) == 1 )
+        (**((void (__fastcall ***)(PTP_IO))Io + 1))(Io);
     }
   }
-  return v2;
 }

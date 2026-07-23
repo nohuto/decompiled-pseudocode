@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAllocateIrpExtension @ 0x14008E634
+ * XREFs of IopAllocateIrpExtension @ 0x14008DD94
  * Callers:
- *     IoPropagateIrpExtensionEx @ 0x14008E500 (IoPropagateIrpExtensionEx.c)
- *     IopSetDiskIoAttributionExtension @ 0x14008E608 (IopSetDiskIoAttributionExtension.c)
- *     IoSetGenericIrpExtension @ 0x140110290 (IoSetGenericIrpExtension.c)
- *     IoSetActivityIdIrp @ 0x140111FD8 (IoSetActivityIdIrp.c)
- *     IoSetFsTrackOffsetState @ 0x1401CA4C8 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x1401CA558 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCallDriver @ 0x1401CA708 (IopPerfCallDriver.c)
- *     ViGetContextPointer @ 0x1407049AC (ViGetContextPointer.c)
+ *     IoPropagateIrpExtensionEx @ 0x14008DC60 (IoPropagateIrpExtensionEx.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14008DD68 (IopSetDiskIoAttributionExtension.c)
+ *     IoSetGenericIrpExtension @ 0x1401107F4 (IoSetGenericIrpExtension.c)
+ *     IoSetActivityIdIrp @ 0x14011253C (IoSetActivityIdIrp.c)
+ *     IoSetFsTrackOffsetState @ 0x1401CA368 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x1401CA3F8 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x1401CA5A8 (IopPerfCallDriver.c)
+ *     ViGetContextPointer @ 0x1407049DC (ViGetContextPointer.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

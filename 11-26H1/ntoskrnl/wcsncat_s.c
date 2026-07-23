@@ -1,15 +1,15 @@
 /*
- * XREFs of wcsncat_s @ 0x14053CB90
+ * XREFs of wcsncat_s @ 0x14053F010
  * Callers:
- *     SddlpUuidFromString @ 0x1407741A8 (SddlpUuidFromString.c)
- *     PnprGetPluginDriverImagePath @ 0x1407AF130 (PnprGetPluginDriverImagePath.c)
- *     ExpConvertArcName @ 0x14083AF04 (ExpConvertArcName.c)
- *     ExpFindArcName @ 0x14083B5E0 (ExpFindArcName.c)
- *     VhdiMountVhdFile @ 0x1408A63B0 (VhdiMountVhdFile.c)
- *     ExpTranslateEfiPath @ 0x140A9512C (ExpTranslateEfiPath.c)
- *     NtLockProductActivationKeys @ 0x140AE5D90 (NtLockProductActivationKeys.c)
+ *     SddlpUuidFromString @ 0x1407771A8 (SddlpUuidFromString.c)
+ *     PnprGetPluginDriverImagePath @ 0x1407B2190 (PnprGetPluginDriverImagePath.c)
+ *     ExpConvertArcName @ 0x140841144 (ExpConvertArcName.c)
+ *     ExpFindArcName @ 0x140841820 (ExpFindArcName.c)
+ *     VhdiMountVhdFile @ 0x1408AC820 (VhdiMountVhdFile.c)
+ *     ExpTranslateEfiPath @ 0x140A2D97C (ExpTranslateEfiPath.c)
+ *     NtLockProductActivationKeys @ 0x140AE3B50 (NtLockProductActivationKeys.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsncat_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)

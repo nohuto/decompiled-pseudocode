@@ -8,12 +8,12 @@
  *     RtlpHpVsChunkComputeCost @ 0x140064B90 (RtlpHpVsChunkComputeCost.c)
  */
 
-unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int *a4)
+__int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
-  unsigned __int64 v4; // rsi
+  __int64 v4; // rsi
   __int64 v6; // rbx
   unsigned int v7; // ebp
-  unsigned __int64 v8; // r15
+  __int64 v8; // r15
   __int64 v9; // r14
   unsigned int v10; // r10d
   unsigned int v11; // ecx
@@ -49,7 +49,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v9 = RtlpHpHeapGlobals ^ v8 ^ *(_QWORD *)v8;
     if ( (v9 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 16);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(v8 + 8));
       v10 = v8 ^ RtlpHpHeapGlobals ^ *(_DWORD *)v8;
       v11 = (v8 - a2 + 4127) & 0xFFFFF000;
       v4 = v8;
@@ -59,7 +59,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
       a1 = v28;
       if ( !v14 )
         v13 = 0;
-      *(_QWORD *)(v28 + 56) -= (unsigned int)(((v8 & 0xFFF) + v12 + 4095) >> 12)
+      *(_QWORD *)(v28 + 56) -= (unsigned int)(((unsigned __int64)(v8 & 0xFFF) + v12 + 4095) >> 12)
                              + (v13 >> 12)
                              - (unsigned int)((unsigned __int64)(v12 + 4095) >> 12)
                              - (unsigned __int16)v10;
@@ -73,7 +73,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v17 = RtlpHpHeapGlobals ^ *(_QWORD *)v16 ^ v16;
     if ( (v17 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 16);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(v16 + 8));
       v18 = v4 + 16 * v7;
       v19 = RtlpHpHeapGlobals ^ *(_DWORD *)v16 ^ v16;
       v20 = 16 * HIWORD(v19);
@@ -98,7 +98,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
       v24 = RtlpHpHeapGlobals ^ *(_QWORD *)v23 ^ v23;
       if ( (v24 & 0xFF000000000000LL) == 0 )
       {
-        RtlRbRemoveNode(a1 + 16);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(v23 + 8));
         v27 = RtlpHpVsChunkComputeCost(v4 + 16LL * v7, a2, &v29, &v30);
         *(_QWORD *)(v28 + 56) -= v29 - (unsigned int)(unsigned __int16)(RtlpHpHeapGlobals ^ *(_WORD *)v23 ^ v23) + v27;
         v7 += WORD1(v24);

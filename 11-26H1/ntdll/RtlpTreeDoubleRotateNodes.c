@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpTreeDoubleRotateNodes @ 0x1800DC8F8
+ * XREFs of RtlpTreeDoubleRotateNodes @ 0x1800D9868
  * Callers:
- *     RtlAvlInsertNodeEx @ 0x180081B40 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x1800DB240 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x180078EE0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1800D8200 (RtlAvlRemoveNode.c)
  * Callees:
- *     RtlpRbReportFatalError @ 0x1801417C8 (RtlpRbReportFatalError.c)
+ *     RtlpRbReportFatalError @ 0x1801416C8 (RtlpRbReportFatalError.c)
  */
 
 __int64 __fastcall RtlpTreeDoubleRotateNodes(_QWORD *a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
@@ -30,16 +30,16 @@ __int64 __fastcall RtlpTreeDoubleRotateNodes(_QWORD *a1, __int64 a2, unsigned __
     v4 = *(_QWORD *)(a3 + 8);
   v6 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
   if ( v6 != a3 )
-    RtlpRbReportFatalError(v6, a3, v4);
+    RtlpRbReportFatalError(v6, a3);
   v7 = *(_QWORD *)(a3 + 8 * (a4 ^ 1LL));
   if ( v7 != v4 )
-    RtlpRbReportFatalError(v7, v4, a3);
+    RtlpRbReportFatalError(v7, v4);
   v8 = *(_QWORD **)(a2 + 8LL * a4);
   if ( v8 != (_QWORD *)a3 )
-    RtlpRbReportFatalError(v8, a3, a2);
+    RtlpRbReportFatalError(v8, a3);
   v9 = *(_QWORD *)(a3 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
   if ( v9 != a2 )
-    RtlpRbReportFatalError(v9, a2, a3);
+    RtlpRbReportFatalError(v9, a2);
   *(_QWORD *)(a2 + 8LL * a4) = v4;
   *(_QWORD *)(v4 + 16) = a2 | *(_DWORD *)(v4 + 16) & 3;
   v10 = *(_QWORD *)(v4 + 8LL * a4);
@@ -47,7 +47,7 @@ __int64 __fastcall RtlpTreeDoubleRotateNodes(_QWORD *a1, __int64 a2, unsigned __
   {
     v11 = *(_QWORD *)(v10 + 16);
     if ( (v11 & 0xFFFFFFFFFFFFFFFCuLL) != v4 )
-      RtlpRbReportFatalError(v11 & 0xFFFFFFFFFFFFFFFCuLL, v4, *(_QWORD *)(v4 + 8LL * a4));
+      RtlpRbReportFatalError(v11 & 0xFFFFFFFFFFFFFFFCuLL, v4);
     *(_QWORD *)(v10 + 16) = a3 | v11 & 3;
   }
   *(_QWORD *)(a3 + 8 * (a4 ^ 1LL)) = v10;
@@ -56,11 +56,11 @@ __int64 __fastcall RtlpTreeDoubleRotateNodes(_QWORD *a1, __int64 a2, unsigned __
   *(_QWORD *)(a3 + 16) |= v4;
   v13 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
   if ( v13 != a2 )
-    RtlpRbReportFatalError(v13, a2, v4);
+    RtlpRbReportFatalError(v13, a2);
   v12 = a4 ^ 1;
   v14 = *(_QWORD *)(a2 + 8LL * a4);
   if ( v14 != v4 )
-    RtlpRbReportFatalError(v14, v4, a2);
+    RtlpRbReportFatalError(v14, v4);
   v15 = *(_QWORD *)(a2 + 16);
   v16 = (_QWORD *)(v15 & 0xFFFFFFFFFFFFFFFCuLL);
   if ( (v15 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
@@ -72,14 +72,14 @@ __int64 __fastcall RtlpTreeDoubleRotateNodes(_QWORD *a1, __int64 a2, unsigned __
     else
     {
       if ( *v16 != a2 )
-        RtlpRbReportFatalError(*v16, a2, *(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL);
+        RtlpRbReportFatalError(*v16, a2);
       *v16 = v4;
     }
   }
   else
   {
     if ( *a1 != a2 )
-      RtlpRbReportFatalError(*a1, a2, a1);
+      RtlpRbReportFatalError(*a1, a2);
     *a1 = v4;
   }
   *(_QWORD *)(v4 + 16) ^= (v15 ^ *(_QWORD *)(v4 + 16)) & 0xFFFFFFFFFFFFFFFCuLL;
@@ -88,7 +88,7 @@ __int64 __fastcall RtlpTreeDoubleRotateNodes(_QWORD *a1, __int64 a2, unsigned __
   {
     v18 = *(_QWORD *)(v17 + 16);
     if ( (v18 & 0xFFFFFFFFFFFFFFFCuLL) != v4 )
-      RtlpRbReportFatalError(v18 & 0xFFFFFFFFFFFFFFFCuLL, v4, *(_QWORD *)(v4 + 8LL * v12));
+      RtlpRbReportFatalError(v18 & 0xFFFFFFFFFFFFFFFCuLL, v4);
     *(_QWORD *)(v17 + 16) = a2 | v18 & 3;
   }
   *(_QWORD *)(a2 + 8LL * a4) = v17;

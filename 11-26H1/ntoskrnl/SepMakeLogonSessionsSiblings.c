@@ -1,12 +1,12 @@
 /*
- * XREFs of SepMakeLogonSessionsSiblings @ 0x140815694
+ * XREFs of SepMakeLogonSessionsSiblings @ 0x14081B844
  * Callers:
- *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x140815A50 (SepRmMakeLogonSessionsSiblingsWrkr.c)
+ *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x14081BC00 (SepRmMakeLogonSessionsSiblingsWrkr.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall SepMakeLogonSessionsSiblings(_DWORD *a1, _DWORD *a2)
@@ -35,21 +35,17 @@ __int64 __fastcall SepMakeLogonSessionsSiblings(_DWORD *a1, _DWORD *a2)
   v7 = v2 >> 28;
   v8 = (unsigned int)(1529154084 * *a1) >> 28;
   v21 = v7;
-  v9 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v8 & 3));
-  v10 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v7 & 3));
+  v9 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v8 & 3));
+  v10 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v7 & 3));
   --CurrentThread->KernelApcDisable;
   if ( (unsigned int)v8 >= (unsigned int)v7 )
   {
-    ExAcquireResourceExclusiveLite(
-      (PERESOURCE)&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + (v7 & 3),
-      1u);
-    v11 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v8 & 3));
+    ExAcquireResourceExclusiveLite((PERESOURCE)&RtlpBootStatHandleLock.SystemAffinityTokenListHead + (v7 & 3), 1u);
+    v11 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v8 & 3));
   }
   else
   {
-    ExAcquireResourceExclusiveLite(
-      (PERESOURCE)&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + (v8 & 3),
-      1u);
+    ExAcquireResourceExclusiveLite((PERESOURCE)&RtlpBootStatHandleLock.SystemAffinityTokenListHead + (v8 & 3), 1u);
     v11 = v10;
   }
   v12 = KeGetCurrentThread();

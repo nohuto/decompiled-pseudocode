@@ -22,8 +22,8 @@ void KiStallBugcheckThread()
   unsigned __int8 v5; // cl
   int v6; // edx
   unsigned __int8 v7; // cl
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-28h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
   Affinity = 0LL;
@@ -41,7 +41,7 @@ void KiStallBugcheckThread()
         __writecr8(2uLL);
       }
       byte_140F0F357 |= 4u;
-      RtlRaiseException((ULONG_PTR)&KiRecoverableBugcheckException);
+      RtlRaiseException(&KiRecoverableBugcheckException);
       __debugbreak();
     }
     __fastfail(4u);

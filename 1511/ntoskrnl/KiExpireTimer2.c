@@ -21,7 +21,7 @@
  *     EtwTraceEnqueueWork @ 0x14020DD68 (EtwTraceEnqueueWork.c)
  */
 
-__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, __int64 InterruptTimePrecise, _DWORD *a4)
+__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, LARGE_INTEGER InterruptTimePrecise, _DWORD *a4)
 {
   __int64 v4; // r13
   int v5; // ebp
@@ -84,7 +84,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, __int64 Inter
   __int64 v64; // [rsp+48h] [rbp-C0h]
   struct _KPRCB *CurrentPrcb; // [rsp+50h] [rbp-B8h]
   struct _KPRCB *v66; // [rsp+58h] [rbp-B0h]
-  char v67[8]; // [rsp+60h] [rbp-A8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp-A8h] BYREF
   _QWORD v68[2]; // [rsp+68h] [rbp-A0h] BYREF
   __int64 v69; // [rsp+78h] [rbp-90h]
   __int64 v70; // [rsp+80h] [rbp-88h]
@@ -119,8 +119,11 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, __int64 Inter
   if ( *(_QWORD *)(a1 + 88) && (*(_BYTE *)(a1 + 1) & 0x20) == 0 )
   {
     if ( (*(_BYTE *)(a1 + 129) & 4) != 0 )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(v67);
-    v29 = KiTimer2ComputeDueTime(InterruptTimePrecise, *(_QWORD *)(a1 + 88), &v59);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v29 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))KiTimer2ComputeDueTime)(
+            (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+            *(_QWORD *)(a1 + 88),
+            &v59);
     v32 = *(_QWORD *)(a1 + 80);
     if ( v32 != -1 )
     {

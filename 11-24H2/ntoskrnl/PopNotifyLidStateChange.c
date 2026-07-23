@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNotifyLidStateChange @ 0x140AAB888
+ * XREFs of PopNotifyLidStateChange @ 0x140AA6AB8
  * Callers:
- *     PdcPoReportLidState @ 0x140AAB860 (PdcPoReportLidState.c)
+ *     PdcPoReportLidState @ 0x140AA6A90 (PdcPoReportLidState.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     PopSetPowerSettingValue @ 0x1409BC864 (PopSetPowerSettingValue.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x140AC7988 (PopPowerAggregatorForceSessionSwitch.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     PopSetPowerSettingValue @ 0x1409A2EB4 (PopSetPowerSettingValue.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x140AC5414 (PopPowerAggregatorForceSessionSwitch.c)
  */
 
 __int64 __fastcall PopNotifyLidStateChange(char a1)

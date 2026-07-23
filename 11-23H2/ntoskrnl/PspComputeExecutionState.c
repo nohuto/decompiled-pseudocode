@@ -1,11 +1,11 @@
 /*
  * XREFs of PspComputeExecutionState @ 0x1406A70DC
  * Callers:
- *     PspSetJobFreezeCountCallback @ 0x14036BD20 (PspSetJobFreezeCountCallback.c)
+ *     PspSetJobFreezeCountCallback @ 0x14036BEC0 (PspSetJobFreezeCountCallback.c)
  *     PspApplyJobChainLimitsToProcess @ 0x1406A6FC4 (PspApplyJobChainLimitsToProcess.c)
- *     PsSwapProcessWorkingSet @ 0x1409AE6AC (PsSwapProcessWorkingSet.c)
+ *     PsSwapProcessWorkingSet @ 0x1409AE8AC (PsSwapProcessWorkingSet.c)
  * Callees:
- *     PspInitializeProcessExecutionState @ 0x1404114F4 (PspInitializeProcessExecutionState.c)
+ *     PspInitializeProcessExecutionState @ 0x140411730 (PspInitializeProcessExecutionState.c)
  */
 
 char PspComputeExecutionState()

@@ -6,11 +6,11 @@
  *     ZwQueryInformationProcess @ 0x1800A5620 (ZwQueryInformationProcess.c)
  */
 
-__int64 __fastcall sub_180107120(__int64 a1, _QWORD *a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __fastcall sub_180107120(void *a1, _QWORD *a2, unsigned int a3, ULONG *ReturnLength)
 {
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 < 0x40 )
-    return 3221225507LL;
+    return -1073741789;
   *a2 = 64LL;
-  return ZwQueryInformationProcess();
+  return ZwQueryInformationProcess(a1, ProcessBasicInformation, a2, 0x40u, ReturnLength);
 }

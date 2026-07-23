@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepShimDatabaseTime @ 0x140AFDC8C
+ * XREFs of KsepShimDatabaseTime @ 0x140AFFCFC
  * Callers:
- *     KsepShimDbChanged @ 0x1404E3604 (KsepShimDbChanged.c)
+ *     KsepShimDbChanged @ 0x1404DCBA4 (KsepShimDbChanged.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
  */
 
 __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
@@ -46,13 +46,11 @@ __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
   v4 = v3;
   if ( v3 < 0 )
   {
-    v6 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v6 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v6 + 4] = v3;
-    StackBase = (char)stru_140E66B30.StackBase;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v6) = 590722;
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v6) = v3;
+    StackBase = (char)stru_140E66D40.StackBase;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v6) = 590722;
     if ( (StackBase & 2) != 0 )
       KsepDebugPrint(0LL, (int)"KSE: ZwOpenFile failed opening DB file!\n");
     KsepLogError(0LL, (__int64)"KSE: ZwOpenFile failed opening DB file!\n");
@@ -63,12 +61,12 @@ __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
     if ( v4 < 0 )
     {
       v8 = ((unsigned __int8)_InterlockedExchangeAdd(
-                               (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                               (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                1u)
           + 1) & 0x3F;
-      *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v8 + 4] = v4;
-      *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v8) = 590735;
-      if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+      *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v8) = v4;
+      *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v8) = 590735;
+      if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
         KsepDebugPrint(0LL, (int)"KSE: ZwQueryInformationFile failed getting DB file!\n");
       KsepLogError(0LL, (__int64)"KSE: ZwQueryInformationFile failed getting DB file!\n");
     }

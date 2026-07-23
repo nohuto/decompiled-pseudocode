@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxReportDevicePoweredOn @ 0x14070CBE0
+ * XREFs of VerifierPoFxReportDevicePoweredOn @ 0x14070CC10
  * Callers:
  *     <none>
  * Callees:

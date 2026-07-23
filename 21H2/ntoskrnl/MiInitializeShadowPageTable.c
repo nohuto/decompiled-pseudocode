@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializeShadowPageTable @ 0x1407A0368
+ * XREFs of MiInitializeShadowPageTable @ 0x1407A0568
  * Callers:
- *     MiMakeShadowPageTableRange @ 0x1407A0274 (MiMakeShadowPageTableRange.c)
+ *     MiMakeShadowPageTableRange @ 0x1407A0474 (MiMakeShadowPageTableRange.c)
  * Callees:
- *     MiVaToPfn @ 0x1402A8874 (MiVaToPfn.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x1402A8920 (MiReadWriteAnyLevelShadowPte.c)
- *     MiInitializePfnForOtherProcess @ 0x1402E5808 (MiInitializePfnForOtherProcess.c)
- *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiReplicatePteChange @ 0x1403A4544 (MiReplicatePteChange.c)
- *     MiMarkPxeAsShadowed @ 0x1403B5E54 (MiMarkPxeAsShadowed.c)
+ *     MiVaToPfn @ 0x1402269B4 (MiVaToPfn.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x140226A60 (MiReadWriteAnyLevelShadowPte.c)
+ *     MiInitializePfnForOtherProcess @ 0x140296B58 (MiInitializePfnForOtherProcess.c)
+ *     MiReadPteShadow @ 0x140310780 (MiReadPteShadow.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiReplicatePteChange @ 0x1403A4694 (MiReplicatePteChange.c)
+ *     MiMarkPxeAsShadowed @ 0x1403B5FC4 (MiMarkPxeAsShadowed.c)
  */
 
 ULONG_PTR __fastcall MiInitializeShadowPageTable(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -86,7 +86,7 @@ LABEL_11:
   {
     if ( a3 == 3 )
       v14 = PsInitialSystemProcess->DirectoryTableBase >> 12;
-    MiInitializePfnForOtherProcess(v8, v4, v14, 2560LL);
+    MiInitializePfnForOtherProcess(v8, v4, v14, 2560);
   }
   result = MiReadWriteAnyLevelShadowPte(v4, a3, 1, v15);
   if ( a3 == 3 )

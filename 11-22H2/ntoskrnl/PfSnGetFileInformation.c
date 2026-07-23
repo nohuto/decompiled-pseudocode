@@ -22,10 +22,10 @@
 __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // esi
-  unsigned __int64 v3; // rbx
+  _RTL_BALANCED_NODE *v3; // rbx
   BOOLEAN v4; // r15
   int v7; // r12d
-  _QWORD *v8; // rax
+  _RTL_BALANCED_NODE **v8; // rax
   unsigned __int64 v9; // rcx
   unsigned __int64 *v10; // r13
   __int64 v11; // rcx
@@ -33,7 +33,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   int v13; // ecx
   unsigned __int64 v14; // rax
   _OWORD *Pool2; // rax
-  unsigned __int64 v17; // r14
+  _OWORD *v17; // r14
   KIRQL v18; // al
   __int64 v19; // rdx
   unsigned __int64 v20; // rcx
@@ -42,7 +42,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   unsigned __int64 v23; // rax
   __int64 v24; // rax
   unsigned __int64 v25; // rdx
-  bool v26; // r8
+  BOOLEAN v26; // r8
   int v27; // ecx
   unsigned __int64 v28; // rax
   unsigned __int8 CurrentIrql; // cl
@@ -61,12 +61,12 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   KIRQL v42; // [rsp+68h] [rbp+10h]
 
   v2 = 0;
-  v3 = a2[3];
+  v3 = (_RTL_BALANCED_NODE *)a2[3];
   v4 = 0;
   v7 = 0;
   if ( (*(_DWORD *)(a2[1] + 52LL) & 0x10) != 0 )
     return 3221225659LL;
-  v8 = (_QWORD *)(a1 + 488);
+  v8 = (_RTL_BALANCED_NODE **)(a1 + 488);
   v9 = a1 + 520;
   if ( (unsigned __int64)v8 >= v9 )
   {
@@ -84,9 +84,9 @@ LABEL_5:
     v13 = v11 & 1;
     while ( v12 )
     {
-      if ( *(_QWORD *)(v12 + 24) <= v3 )
+      if ( *(_QWORD *)(v12 + 24) <= (unsigned __int64)v3 )
       {
-        if ( *(_QWORD *)(v12 + 24) >= v3 )
+        if ( *(_QWORD *)(v12 + 24) >= (unsigned __int64)v3 )
           break;
         v14 = *(_QWORD *)(v12 + 8);
         if ( v13 && v14 )
@@ -106,10 +106,10 @@ LABEL_24:
     }
 LABEL_16:
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v42 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v42 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -127,7 +127,7 @@ LABEL_16:
       return v2;
     }
     Pool2 = (_OWORD *)ExAllocatePool2(64LL, 48LL, 1850762051LL);
-    v17 = (unsigned __int64)Pool2;
+    v17 = Pool2;
     if ( !Pool2 )
     {
       if ( (*(_BYTE *)(a1 + 484) & 2) == 0 )
@@ -138,8 +138,8 @@ LABEL_16:
     Pool2[1] = 0LL;
     Pool2[2] = 0LL;
     ObfReferenceObjectWithTag(a2, 0x746C6644u);
-    *(_QWORD *)(v17 + 40) = a2;
-    *(_QWORD *)(v17 + 24) = v3;
+    *((_QWORD *)v17 + 5) = a2;
+    *((_QWORD *)v17 + 3) = v3;
     v18 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
     v19 = *(_QWORD *)(a1 + 528);
     v20 = *v10;
@@ -153,9 +153,9 @@ LABEL_16:
     v22 = v19 & 1;
     while ( v20 )
     {
-      if ( *(_QWORD *)(v20 + 24) <= v3 )
+      if ( *(_QWORD *)(v20 + 24) <= (unsigned __int64)v3 )
       {
-        if ( *(_QWORD *)(v20 + 24) >= v3 )
+        if ( *(_QWORD *)(v20 + 24) >= (unsigned __int64)v3 )
           goto LABEL_75;
         v23 = *(_QWORD *)(v20 + 8);
         if ( v22 && v23 )
@@ -182,10 +182,10 @@ LABEL_32:
         v2 = -1073741431;
 LABEL_75:
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v34 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v34 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v34 >= 2u )
           {
             v35 = KeGetCurrentPrcb();
             v36 = v35->SchedulerAssist;
@@ -197,8 +197,8 @@ LABEL_75:
           }
         }
         __writecr8(v21);
-        ObfDereferenceObject(*(PVOID *)(v17 + 40));
-        ExFreePoolWithTag((PVOID)v17, 0);
+        ObfDereferenceObject(*((PVOID *)v17 + 5));
+        ExFreePoolWithTag(v17, 0);
         return v2;
       }
       *(_QWORD *)(a1 + 568) = a1;
@@ -206,8 +206,8 @@ LABEL_75:
       v7 = 1;
       *(_QWORD *)(a1 + 544) = 0LL;
     }
-    *(_QWORD *)(v17 + 32) = *(_QWORD *)(a1 + 536);
-    *(_QWORD *)(a1 + 536) = v17 + 32;
+    *((_QWORD *)v17 + 4) = *(_QWORD *)(a1 + 536);
+    *(_QWORD *)(a1 + 536) = v17 + 2;
     v24 = *(_QWORD *)(a1 + 528);
     v25 = *v10;
     if ( (v24 & 1) != 0 )
@@ -225,7 +225,7 @@ LABEL_75:
     {
       while ( 1 )
       {
-        if ( *(_QWORD *)(v25 + 24) <= v3 )
+        if ( *(_QWORD *)(v25 + 24) <= (unsigned __int64)v3 )
         {
           v28 = *(_QWORD *)(v25 + 8);
           if ( v27 )
@@ -257,12 +257,12 @@ LABEL_53:
       }
     }
 LABEL_55:
-    RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 520), v25, v26, v17);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 520), (PRTL_BALANCED_NODE)v25, v26, (PRTL_BALANCED_NODE)v17);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v38 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v38 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v38 >= 2u )
       {
         v39 = KeGetCurrentPrcb();
         v40 = v39->SchedulerAssist;

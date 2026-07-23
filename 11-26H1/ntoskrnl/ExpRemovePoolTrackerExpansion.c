@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpRemovePoolTrackerExpansion @ 0x1403450B0
+ * XREFs of ExpRemovePoolTrackerExpansion @ 0x140347130
  * Callers:
- *     ExRemovePoolTag @ 0x1403447D0 (ExRemovePoolTag.c)
- *     ExpFreeHeapSpecialPool @ 0x140345B28 (ExpFreeHeapSpecialPool.c)
- *     ExInsertPoolTag @ 0x14034AD9C (ExInsertPoolTag.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
- *     ExPoolCleanupExpansionTable @ 0x140522698 (ExPoolCleanupExpansionTable.c)
+ *     ExRemovePoolTag @ 0x140346850 (ExRemovePoolTag.c)
+ *     ExpFreeHeapSpecialPool @ 0x140347BA8 (ExpFreeHeapSpecialPool.c)
+ *     ExInsertPoolTag @ 0x14034CE1C (ExInsertPoolTag.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
+ *     ExPoolCleanupExpansionTable @ 0x140524D04 (ExPoolCleanupExpansionTable.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ void __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, __int64 a3)
   unsigned __int8 CurrentIrql; // di
   __int64 v8; // rdx
   unsigned int i; // edx
-  unsigned __int64 v10; // r8
+  ULONG_PTR v10; // r8
   int v11; // ebp
   __int64 v12; // rdx
   __int64 v13; // rax
@@ -39,7 +39,7 @@ void __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, __int64 a3)
 
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
   v3 = 0LL;
-  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)&stru_140EFEF90.Header.WaitListHead.Blink;
+  LockHandle.LockQueue.Lock = &ExpTaggedPoolLock;
   LockHandle.LockQueue.Next = 0LL;
   v4 = a3;
   v5 = a2;
@@ -52,27 +52,25 @@ void __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, __int64 a3)
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v8 = _InterlockedExchange64((volatile __int64 *)&stru_140EFEF90.Header.WaitListHead.Blink, (__int64)&LockHandle);
+    v8 = _InterlockedExchange64((volatile __int64 *)&ExpTaggedPoolLock, (__int64)&LockHandle);
     if ( v8 )
       KxWaitForLockOwnerShip((volatile signed __int64)&LockHandle, v8, a3);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented(
-      (__int64)&LockHandle,
-      (volatile __int64 *)&stru_140EFEF90.Header.WaitListHead.Blink);
+    KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)&ExpTaggedPoolLock);
   }
   for ( i = 0; ; ++i )
   {
-    if ( (void *)i >= stru_140EFEF90.InitialStack )
+    if ( i >= (unsigned __int64)PoolTrackTableExpansionSize )
     {
 LABEL_21:
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       v15 = -v5;
-      v16 = (volatile signed __int64 *)(*((_QWORD *)&stru_140EFEF90.CurrentRunTime + KeGetPcr()->Prcb.Number)
-                                      + 80LL * (unsigned int)(PoolTrackTableSize - 1));
+      v16 = (volatile signed __int64 *)(*(&stru_140EFF2C0.ThreadLock + KeGetPcr()->Prcb.Number)
+                                      + 80LL * (unsigned int)(LODWORD(stru_140EFF2C0.StackLimit) - 1));
       if ( (v4 & 0x100) != 0 )
       {
         _InterlockedIncrement64(v16 + 6);
@@ -85,7 +83,7 @@ LABEL_21:
       }
       return;
     }
-    v10 = stru_140EFEF90.ThreadLock + 80LL * i;
+    v10 = PoolTrackTableExpansion + 80LL * i;
     if ( *(_DWORD *)v10 == a1 )
       break;
     if ( !*(_DWORD *)v10 )

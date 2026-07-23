@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpCompareNamespaceEntry @ 0x1408E8B70
+ * XREFs of ObpCompareNamespaceEntry @ 0x1408EF130
  * Callers:
- *     ObpLookupNamespaceEntry @ 0x1408E8B0C (ObpLookupNamespaceEntry.c)
+ *     ObpLookupNamespaceEntry @ 0x1408EF0CC (ObpLookupNamespaceEntry.c)
  * Callees:
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x1408E98E8 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x1408EFEA8 (RtlEnumerateBoundaryDescriptorEntries.c)
  */
 
 __int64 __fastcall ObpCompareNamespaceEntry(__int64 a1, __int64 a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpFormatConnectionRequest @ 0x14088B56C
+ * XREFs of AlpcpFormatConnectionRequest @ 0x14089137C
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x14086392C (AlpcpProcessConnectionRequest.c)
- *     NtSecureConnectPort @ 0x14088AF50 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x140867F3C (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x140890D60 (NtSecureConnectPort.c)
  * Callees:
- *     AlpcpValidateConnectionMessage @ 0x14088A814 (AlpcpValidateConnectionMessage.c)
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x14088DB20 (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpCaptureAttributes @ 0x14088F7F0 (AlpcpCaptureAttributes.c)
- *     AlpcpReferenceBlob @ 0x1408966C0 (AlpcpReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     AlpcpMapLegacyPortView @ 0x14093C1C0 (AlpcpMapLegacyPortView.c)
- *     AlpcpAllocateMessage @ 0x14093F9C0 (AlpcpAllocateMessage.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x140892140 (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpAllocateMessage @ 0x140894000 (AlpcpAllocateMessage.c)
+ *     AlpcpCaptureAttributes @ 0x140899420 (AlpcpCaptureAttributes.c)
+ *     AlpcpReferenceBlob @ 0x14089EB60 (AlpcpReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     AlpcpMapLegacyPortView @ 0x1409E98D0 (AlpcpMapLegacyPortView.c)
+ *     AlpcpValidateConnectionMessage @ 0x140A1FFE0 (AlpcpValidateConnectionMessage.c)
  */
 
 __int64 __fastcall AlpcpFormatConnectionRequest(
@@ -28,22 +28,29 @@ __int64 __fastcall AlpcpFormatConnectionRequest(
   char v10; // si
   unsigned __int16 *v11; // r14
   int v12; // r12d
+  __int64 v13; // r15
   __int64 result; // rax
   int v16; // ebx
   ULONG_PTR v17; // rdi
   _WORD *v18; // rcx
-  unsigned __int16 v19; // ax
+  __int16 v19; // ax
   __int16 v20; // dx
   int v21; // r9d
   __int64 v22; // rbp
   ULONG_PTR v23; // rcx
+  _QWORD *v24; // rax
   ULONG_PTR BugCheckParameter2; // [rsp+80h] [rbp+18h] BYREF
 
   v10 = a9;
   v11 = a5;
   v12 = a4;
   BugCheckParameter2 = 0LL;
-  if ( !a4 || (result = AlpcpValidateConnectionMessage(**(_QWORD **)(a3 + 16), a5, a9), (int)result >= 0) )
+  v13 = a3;
+  if ( !a4
+    || (v24 = *(_QWORD **)(a3 + 16),
+        LOBYTE(a3) = a9,
+        result = AlpcpValidateConnectionMessage(*v24, a5, a3),
+        (int)result >= 0) )
   {
     result = AlpcpAllocateMessage(&BugCheckParameter2, 0LL, 0LL);
     v16 = result;
@@ -87,13 +94,13 @@ LABEL_14:
           return (unsigned int)v16;
         }
         v17 = BugCheckParameter2;
-        v16 = AlpcpMapLegacyPortView(a3, a7, BugCheckParameter2 + 104);
+        v16 = AlpcpMapLegacyPortView(v13, a7, BugCheckParameter2 + 104);
         *(_QWORD *)(v17 + 272) = *(_QWORD *)(v22 + 24);
       }
       else
       {
         v17 = BugCheckParameter2;
-        v16 = AlpcpCaptureAttributes(a3, a2, a6, BugCheckParameter2, BugCheckParameter2 + 104);
+        v16 = AlpcpCaptureAttributes(v13, a2, a6, BugCheckParameter2, BugCheckParameter2 + 104);
       }
       if ( v16 < 0 )
         goto LABEL_14;

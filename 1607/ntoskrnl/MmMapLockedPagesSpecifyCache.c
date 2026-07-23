@@ -1,63 +1,63 @@
 /*
- * XREFs of MmMapLockedPagesSpecifyCache @ 0x1400DE220
+ * XREFs of MmMapLockedPagesSpecifyCache @ 0x1400DC0C0
  * Callers:
- *     MiValidateInPage @ 0x1400267B0 (MiValidateInPage.c)
- *     CcCompleteAsyncRead @ 0x14006EAE4 (CcCompleteAsyncRead.c)
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     KeFlushIoBuffers @ 0x14009D3F0 (KeFlushIoBuffers.c)
- *     FsRtlCancelNotify @ 0x1400A20F4 (FsRtlCancelNotify.c)
- *     MiGetWorkingSetInfoList @ 0x1400B79E0 (MiGetWorkingSetInfoList.c)
- *     MiInitializeImageProtos @ 0x1400FD83C (MiInitializeImageProtos.c)
- *     MiGetWorkingSetInfo @ 0x14010F340 (MiGetWorkingSetInfo.c)
- *     MiValidatePagefilePageHash @ 0x140114E00 (MiValidatePagefilePageHash.c)
- *     MiWritePageFileHash @ 0x140115040 (MiWritePageFileHash.c)
- *     MiMapPageFileHash @ 0x140116930 (MiMapPageFileHash.c)
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14011ABA0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
- *     SmFpAllocate @ 0x14011B81C (SmFpAllocate.c)
- *     SmMapPage @ 0x14011BE64 (SmMapPage.c)
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     KiOpPatchCode @ 0x1401DB360 (KiOpPatchCode.c)
- *     MmMapLockedPages @ 0x1401E4010 (MmMapLockedPages.c)
- *     MiFlushFileOnlyMdl @ 0x1401ED6C8 (MiFlushFileOnlyMdl.c)
- *     PspIumAllocatePhysicalPages @ 0x1402100F8 (PspIumAllocatePhysicalPages.c)
- *     PspIumFreePhysicalPages @ 0x140210218 (PspIumFreePhysicalPages.c)
- *     SmPrepareForFatalPageError @ 0x140222168 (SmPrepareForFatalPageError.c)
- *     MdlInvariantPostProcessing1 @ 0x140222F80 (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x14022317C (MdlInvariantPreProcessing1.c)
+ *     MiValidateInPage @ 0x140026330 (MiValidateInPage.c)
+ *     CcCompleteAsyncRead @ 0x14006E664 (CcCompleteAsyncRead.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     KeFlushIoBuffers @ 0x14009CBF0 (KeFlushIoBuffers.c)
+ *     FsRtlCancelNotify @ 0x1400A0A1C (FsRtlCancelNotify.c)
+ *     MiGetWorkingSetInfoList @ 0x1400B5870 (MiGetWorkingSetInfoList.c)
+ *     MiInitializeImageProtos @ 0x1400FB5BC (MiInitializeImageProtos.c)
+ *     MiGetWorkingSetInfo @ 0x14010F8A4 (MiGetWorkingSetInfo.c)
+ *     MiValidatePagefilePageHash @ 0x140115370 (MiValidatePagefilePageHash.c)
+ *     MiWritePageFileHash @ 0x1401155B0 (MiWritePageFileHash.c)
+ *     MiMapPageFileHash @ 0x140116EA0 (MiMapPageFileHash.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14011B110 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     SmFpAllocate @ 0x14011BD8C (SmFpAllocate.c)
+ *     SmMapPage @ 0x14011C3D4 (SmMapPage.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     KiOpPatchCode @ 0x1401DB18C (KiOpPatchCode.c)
+ *     MmMapLockedPages @ 0x1401E3E3C (MmMapLockedPages.c)
+ *     MiFlushFileOnlyMdl @ 0x1401ED4F4 (MiFlushFileOnlyMdl.c)
+ *     PspIumAllocatePhysicalPages @ 0x14020FF24 (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePhysicalPages @ 0x140210044 (PspIumFreePhysicalPages.c)
+ *     SmPrepareForFatalPageError @ 0x140221F94 (SmPrepareForFatalPageError.c)
+ *     MdlInvariantPostProcessing1 @ 0x140222DAC (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x140222FA8 (MdlInvariantPreProcessing1.c)
  *     PopAllocatePages @ 0x1403CB8DC (PopAllocatePages.c)
- *     ExLockUserBuffer @ 0x140499420 (ExLockUserBuffer.c)
- *     FsRtlNotifyFilterReportChange @ 0x1404BF290 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterReportChangeLite @ 0x1404BFD2C (FsRtlNotifyFilterReportChangeLite.c)
- *     FsRtlNotifyCompleteIrp @ 0x1404C0234 (FsRtlNotifyCompleteIrp.c)
- *     AlpcpInitializeCompletionList @ 0x1404DDB10 (AlpcpInitializeCompletionList.c)
- *     MmCopyVirtualMemory @ 0x14050BE60 (MmCopyVirtualMemory.c)
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
- *     IopSetFileObjectIosbRange @ 0x140622BE4 (IopSetFileObjectIosbRange.c)
- *     MiCopyPagesIntoEnclave @ 0x14065E84C (MiCopyPagesIntoEnclave.c)
- *     NtStartProfile @ 0x1406B823C (NtStartProfile.c)
- *     ViAllocateMapRegisterFile @ 0x1407087CC (ViAllocateMapRegisterFile.c)
- *     ViGetMdlBufferSa @ 0x140709814 (ViGetMdlBufferSa.c)
- *     ViMapDoubleBuffer @ 0x140709E7C (ViMapDoubleBuffer.c)
+ *     ExLockUserBuffer @ 0x140499EB0 (ExLockUserBuffer.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1404AAFC0 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChangeLite @ 0x1404ABA5C (FsRtlNotifyFilterReportChangeLite.c)
+ *     FsRtlNotifyCompleteIrp @ 0x1404ABF64 (FsRtlNotifyCompleteIrp.c)
+ *     AlpcpInitializeCompletionList @ 0x1404C1114 (AlpcpInitializeCompletionList.c)
+ *     MmCopyVirtualMemory @ 0x1404EEDF0 (MmCopyVirtualMemory.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
+ *     IopSetFileObjectIosbRange @ 0x140622C98 (IopSetFileObjectIosbRange.c)
+ *     MiCopyPagesIntoEnclave @ 0x14065E930 (MiCopyPagesIntoEnclave.c)
+ *     NtStartProfile @ 0x1406B8374 (NtStartProfile.c)
+ *     ViAllocateMapRegisterFile @ 0x1407087FC (ViAllocateMapRegisterFile.c)
+ *     ViGetMdlBufferSa @ 0x140709844 (ViGetMdlBufferSa.c)
+ *     ViMapDoubleBuffer @ 0x140709EAC (ViMapDoubleBuffer.c)
  *     VerifierMmMapLockedPagesSpecifyCache @ 0x14071C09C (VerifierMmMapLockedPagesSpecifyCache.c)
  *     VfFillAllocatePagesForMdl @ 0x14071C79C (VfFillAllocatePagesForMdl.c)
  *     ResFwGetContext @ 0x140725238 (ResFwGetContext.c)
  *     KiComputeNumaCosts @ 0x1407927E0 (KiComputeNumaCosts.c)
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiZeroAndFlushPtes @ 0x14009B608 (MiZeroAndFlushPtes.c)
- *     MiReferenceIoPages @ 0x14009C300 (MiReferenceIoPages.c)
- *     MiIoSpaceIsConstant @ 0x14009C758 (MiIoSpaceIsConstant.c)
- *     MiMappingHasIoReferences @ 0x14009C774 (MiMappingHasIoReferences.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     MiAssignInitialPageAttribute @ 0x140146D38 (MiAssignInitialPageAttribute.c)
- *     MiShowBadMapper @ 0x1401E14D4 (MiShowBadMapper.c)
- *     MiIssueNoPtesBugcheck @ 0x1401E7418 (MiIssueNoPtesBugcheck.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiInsertPteTracker @ 0x1401FC7EC (MiInsertPteTracker.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiZeroAndFlushPtes @ 0x14009AE08 (MiZeroAndFlushPtes.c)
+ *     MiReferenceIoPages @ 0x14009BB00 (MiReferenceIoPages.c)
+ *     MiIoSpaceIsConstant @ 0x14009BF58 (MiIoSpaceIsConstant.c)
+ *     MiMappingHasIoReferences @ 0x14009BF74 (MiMappingHasIoReferences.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     MiAssignInitialPageAttribute @ 0x1401472A8 (MiAssignInitialPageAttribute.c)
+ *     MiShowBadMapper @ 0x1401E1300 (MiShowBadMapper.c)
+ *     MiIssueNoPtesBugcheck @ 0x1401E7244 (MiIssueNoPtesBugcheck.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiInsertPteTracker @ 0x1401FC618 (MiInsertPteTracker.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -141,13 +141,13 @@ PVOID __stdcall MmMapLockedPagesSpecifyCache(
       v11 = 1;
       v12 = 2048;
     }
-    *(_QWORD *)&CacheType = ((qword_140326AD0 << 9) - qword_1403278B0) << 12;
+    *(_QWORD *)&CacheType = ((qword_140326B10 << 9) - qword_1403278F0) << 12;
     if ( *(_QWORD *)&CacheType < (unsigned __int64)(0x4000000 / v11)
-      && (unsigned int)v9 >= (unsigned __int64)(qword_1403278D0 - v12)
+      && (unsigned int)v9 >= (unsigned __int64)(qword_140327910 - v12)
       && (*((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2) == 0
       && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
     {
-      ++dword_140327898;
+      ++dword_1403278D8;
       return 0LL;
     }
   }
@@ -158,7 +158,7 @@ PVOID __stdcall MmMapLockedPagesSpecifyCache(
     if ( (_DWORD)v9 == -1 )
       return 0LL;
   }
-  v14 = MiReservePtes((__int64)&qword_140327870, v13, *(unsigned __int64 *)&CacheType);
+  v14 = MiReservePtes((__int64)&qword_1403278B0, v13, *(unsigned __int64 *)&CacheType);
   v15 = (_QWORD *)v14;
   if ( !v14 )
   {
@@ -206,33 +206,33 @@ PVOID __stdcall MmMapLockedPagesSpecifyCache(
   v22 = 0x4000000000LL;
   if ( (unsigned __int64)v15 < 0xFFFFF6C000000000uLL )
   {
-    v23 = HIBYTE(word_140326AA8);
+    v23 = HIBYTE(word_140326AE8);
 LABEL_49:
     if ( v23 )
       v21 |= 0x100uLL;
     goto LABEL_51;
   }
-  if ( (unsigned __int64)v15 < (((unsigned __int64)qword_140326910 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL
-    || (v22 = (((unsigned __int64)(qword_140326910 + 0x8000000000LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
+  if ( (unsigned __int64)v15 < (((unsigned __int64)qword_140326950 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL
+    || (v22 = (((unsigned __int64)(qword_140326950 + 0x8000000000LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
         (unsigned __int64)v15 >= v22) )
   {
     if ( (unsigned __int64)v15 < 0xFFFFF6FB40000000uLL
       || (v22 = 0xFFFFF6FB7FFFFFF8uLL, (unsigned __int64)v15 > 0xFFFFF6FB7FFFFFF8uLL) )
     {
-      v22 = (((unsigned __int64)qword_140327F90 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      v22 = (((unsigned __int64)qword_140327FD0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
       if ( (unsigned __int64)v15 < v22
-        || (v22 = (((unsigned __int64)qword_140326CF8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
-            v23 = HIBYTE(word_140326AA8),
+        || (v22 = (((unsigned __int64)qword_140326D38 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
+            v23 = HIBYTE(word_140326AE8),
             (unsigned __int64)v15 > v22) )
       {
-        v23 = (unsigned __int8)word_140326AA8;
+        v23 = (unsigned __int8)word_140326AE8;
       }
       goto LABEL_49;
     }
   }
 LABEL_51:
-  v24 = v21 & 0xFFFFFFFFFFFFFE7FuLL | ((unsigned __int64)(word_140326AA8 & 1) << 8);
-  if ( v21 & 0x800 | ((word_140326AA8 & 1) << 8) & 0x800 )
+  v24 = v21 & 0xFFFFFFFFFFFFFE7FuLL | ((unsigned __int64)(word_140326AE8 & 1) << 8);
+  if ( v21 & 0x800 | ((word_140326AE8 & 1) << 8) & 0x800 )
     v24 |= 0x42uLL;
   v25 = 0LL;
   v48 = 0LL;
@@ -241,7 +241,7 @@ LABEL_51:
   {
     v27 = *v10;
     v28 = v24;
-    if ( *v10 > qword_140326A90
+    if ( *v10 > qword_140326AD0
       || MmPhysicalMemoryBlock && (v22 = *(_QWORD *)(48 * v27 - 0x57FFFFFFFD8LL), (v22 & 0x20000000000000LL) == 0) )
     {
       if ( !v25 )
@@ -274,7 +274,7 @@ LABEL_72:
           v42 = v50;
           v43 = (unsigned __int64)v49;
           MiZeroAndFlushPtes((unsigned __int64)v49);
-          MiReleasePtes((__int64)&qword_140327870, ((v43 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v42);
+          MiReleasePtes((__int64)&qword_1403278B0, ((v43 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v42);
           return 0LL;
         }
         MemoryDescriptorList->MdlFlags |= 0x800u;

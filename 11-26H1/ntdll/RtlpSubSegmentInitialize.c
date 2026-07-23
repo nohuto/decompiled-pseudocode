@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpSubSegmentInitialize @ 0x180074E80
+ * XREFs of RtlpSubSegmentInitialize @ 0x180095A70
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x18001CED0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x180007FA0 (RtlpLowFragHeapAllocFromContext.c)
  * Callees:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     RtlpLogHeapSubSegmentInitialize @ 0x1800752EC (RtlpLogHeapSubSegmentInitialize.c)
- *     RtlpSubSegmentDebugInitialize @ 0x1800753AC (RtlpSubSegmentDebugInitialize.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     RtlpLogHeapSubSegmentInitialize @ 0x180095EDC (RtlpLogHeapSubSegmentInitialize.c)
+ *     RtlpSubSegmentDebugInitialize @ 0x180095F9C (RtlpSubSegmentDebugInitialize.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 struct _PEB *__fastcall RtlpSubSegmentInitialize(
@@ -162,12 +162,12 @@ LABEL_12:
   v33 = BYTE2(v31->HeapThreadData);
   if ( (_BYTE)v33 == HIBYTE(v31->HeapThreadData) )
   {
-    v44 = qword_1801C6F00;
+    v44 = qword_1801C5F00;
     do
     {
       v45 = v44 ^ (v44 >> 12) ^ ((v44 ^ (v44 >> 12)) << 25) ^ ((v44 ^ (v44 >> 12) ^ ((v44 ^ (v44 >> 12)) << 25)) >> 27);
       v46 = v44;
-      v44 = _InterlockedCompareExchange64(&qword_1801C6F00, v45, v44);
+      v44 = _InterlockedCompareExchange64(&qword_1801C5F00, v45, v44);
     }
     while ( v46 != v44 );
     v34 = 29 * v45;
@@ -187,12 +187,12 @@ LABEL_12:
   if ( (RtlpLowFragHeapGlobalFlags & 2) == 0 )
   {
     v35 = BYTE2(NtCurrentTeb()->HeapThreadData);
-    v36 = qword_1801C6F00;
+    v36 = qword_1801C5F00;
     do
     {
       v37 = v36 ^ (v36 >> 12) ^ ((v36 ^ (v36 >> 12)) << 25) ^ ((v36 ^ (v36 >> 12) ^ ((v36 ^ (v36 >> 12)) << 25)) >> 27);
       v38 = v36;
-      v36 = _InterlockedCompareExchange64(&qword_1801C6F00, v37, v36);
+      v36 = _InterlockedCompareExchange64(&qword_1801C5F00, v37, v36);
     }
     while ( v38 != v36 );
     *(_QWORD *)&RtlpLowFragHeapRandomData[8 * (v35 >> 3)] = 0x2545F4914F6CDD1DLL * v37;

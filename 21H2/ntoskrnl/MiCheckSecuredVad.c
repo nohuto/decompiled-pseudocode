@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCheckSecuredVad @ 0x1406623F8
+ * XREFs of MiCheckSecuredVad @ 0x140657218
  * Callers:
- *     MiResetVirtualMemory @ 0x1402C538C (MiResetVirtualMemory.c)
- *     MiFindPlaceholderVadToReplace @ 0x1405551F4 (MiFindPlaceholderVadToReplace.c)
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
- *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x14076DC9C (MiUnmapLockedPagesInUserSpace.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408C87A4 (MiCoalescePlaceholderAllocations.c)
+ *     MiResetVirtualMemory @ 0x140243BEC (MiResetVirtualMemory.c)
+ *     MiFindPlaceholderVadToReplace @ 0x140555434 (MiFindPlaceholderVadToReplace.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140657018 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiUnmapViewOfSection @ 0x140687D60 (MiUnmapViewOfSection.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1406E97C0 (MmProtectVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1407049E0 (MmFreeVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14076DE5C (MiUnmapLockedPagesInUserSpace.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408C8904 (MiCoalescePlaceholderAllocations.c)
  * Callees:
- *     MiComparePteProtections @ 0x14025BA58 (MiComparePteProtections.c)
- *     MiGetVadPageSize @ 0x14055BDB0 (MiGetVadPageSize.c)
+ *     MiComparePteProtections @ 0x14027CFC8 (MiComparePteProtections.c)
+ *     MiGetVadPageSize @ 0x14055BFF0 (MiGetVadPageSize.c)
  */
 
 __int64 __fastcall MiCheckSecuredVad(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, char a5)
@@ -79,10 +79,10 @@ LABEL_14:
   if ( a4 >= 0x55 )
     goto LABEL_14;
   v16 = (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12;
-  if ( v16 != 2147352576 && (v16 != qword_140C4DE48 || !qword_140C4DE48)
+  if ( v16 != 2147352576 && (v16 != qword_140C4DE88 || !qword_140C4DE88)
     || (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 1) != 0 )
   {
-    result = MiComparePteProtections(a1, a2, v9, (_DWORD *)a4, 1);
+    result = MiComparePteProtections(a1, a2, v9, a4, 1);
     v10 = result;
     if ( (int)result < 0 )
       return result;

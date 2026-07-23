@@ -46,7 +46,7 @@ void __fastcall SepNormalAccessCheckEx(
   int v27; // ecx
   char v28; // al
   void *v29; // r8
-  __int64 v30; // rcx
+  _SID_AND_ATTRIBUTES_HASH *v30; // rcx
   __int64 v31; // r11
   __int64 v32; // rbx
   __int64 v33; // r11
@@ -146,7 +146,7 @@ LABEL_10:
             if ( !*(_DWORD *)(v20 + 24) )
               goto LABEL_15;
             v29 = v25 + 8;
-            v30 = a2 + (v18 != 0 ? 504LL : 232LL);
+            v30 = (_SID_AND_ATTRIBUTES_HASH *)(a2 + (v18 != 0 ? 504LL : 232LL));
 LABEL_13:
             if ( SepSidInTokenSidHash(v30, 0LL, v29, 0, v18, a12) )
               AuthzBasepAddAccessTypeList(v20, (unsigned int)v14, 0, v24, *((_DWORD *)v25 + 1), 0);
@@ -171,7 +171,7 @@ LABEL_13:
             }
             if ( a10
               && SepSidInTokenSidHash(
-                   v15 + (v18 != 0 ? 504LL : 232LL),
+                   (PSID_AND_ATTRIBUTES_HASH)(v15 + (v18 != 0 ? 504LL : 232LL)),
                    0LL,
                    &v25[16 * v40 + ((8LL * (v39 & 2)) | 0xC)],
                    0,
@@ -186,7 +186,7 @@ LABEL_119:
             break;
           case 4:
             if ( !SepSidInTokenSidHash(
-                    v15 + (v18 != 0 ? 504LL : 232LL),
+                    (PSID_AND_ATTRIBUTES_HASH)(v15 + (v18 != 0 ? 504LL : 232LL)),
                     0LL,
                     &v25[4 * (unsigned __int8)v25[13] + 20],
                     0,
@@ -194,10 +194,16 @@ LABEL_119:
                     a12) )
               break;
             v29 = v25 + 12;
-            v30 = a3 + (v18 != 0 ? 504LL : 232LL);
+            v30 = (_SID_AND_ATTRIBUTES_HASH *)(a3 + (v18 != 0 ? 504LL : 232LL));
             goto LABEL_13;
           case 1:
-            if ( SepSidInTokenSidHash(v15 + (v18 != 0 ? 504LL : 232LL), 0LL, v25 + 8, 1, v18, a12) )
+            if ( SepSidInTokenSidHash(
+                   (PSID_AND_ATTRIBUTES_HASH)(v15 + (v18 != 0 ? 504LL : 232LL)),
+                   0LL,
+                   v25 + 8,
+                   1,
+                   v18,
+                   a12) )
             {
               v43 = *(_DWORD *)(v20 + 24) & *((_DWORD *)v25 + 1);
               if ( v43 )
@@ -206,7 +212,7 @@ LABEL_119:
             break;
           case 6:
             if ( !SepSidInTokenSidHash(
-                    v15 + (v18 != 0 ? 504LL : 232LL),
+                    (PSID_AND_ATTRIBUTES_HASH)(v15 + (v18 != 0 ? 504LL : 232LL)),
                     0LL,
                     &v25[16 * (*((_DWORD *)v25 + 2) & 1) + ((8LL * (*((_DWORD *)v25 + 2) & 2)) | 0xC)],
                     1,
@@ -294,8 +300,16 @@ LABEL_44:
               goto LABEL_119;
             v42 = v25 + 8;
 LABEL_95:
-            if ( SepSidInTokenSidHash(v15 + (v18 != 0 ? 504LL : 232LL), 0LL, v42, 0, v18, a12) )
+            if ( SepSidInTokenSidHash(
+                   (PSID_AND_ATTRIBUTES_HASH)(v15 + (v18 != 0 ? 504LL : 232LL)),
+                   0LL,
+                   v42,
+                   0,
+                   v18,
+                   a12) )
+            {
               AuthzBasepAddAccessTypeList(v20, (unsigned int)v14, 0, v24, *((_DWORD *)v25 + 1), 0);
+            }
             goto LABEL_119;
           default:
             if ( a13 && v28 == 10 && KeGetCurrentIrql() < 2u )
@@ -324,7 +338,13 @@ LABEL_95:
                   v18,
                   &a7);
                 if ( ((a7 + 1) & 0xFFFFFFFD) == 0
-                  && SepSidInTokenSidHash(v15 + (v18 != 0 ? 504LL : 232LL), 0LL, v25 + 8, 1, v18, a12) )
+                  && SepSidInTokenSidHash(
+                       (PSID_AND_ATTRIBUTES_HASH)(v15 + (v18 != 0 ? 504LL : 232LL)),
+                       0LL,
+                       v25 + 8,
+                       1,
+                       v18,
+                       a12) )
                 {
                   v43 = *(_DWORD *)(v20 + 24) & *((_DWORD *)v25 + 1);
                   if ( v43 )

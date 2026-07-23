@@ -14,5 +14,5 @@ __int64 __fastcall PopUmpoQuerySmartSuspendPrediction(__int64 a1, int a2)
   memset_0(Src, 0, 0x48uLL);
   Src[0] = 18;
   Src[2] = a2;
-  return PopUmpoSendPowerMessage(Src, 0x48uLL, 1, a1);
+  return PopUmpoSendPowerMessage(Src, 0x48uLL, 1);
 }

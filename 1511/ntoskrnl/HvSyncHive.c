@@ -55,7 +55,7 @@ char __fastcall HvSyncHive(ULONG_PTR BugCheckParameter2)
         goto LABEL_18;
       v1 = 1;
     }
-    HvUpdateUnreconciledVector((struct _RTL_BITMAP *)BugCheckParameter2, 0);
+    HvUpdateUnreconciledVector((_RTL_BITMAP *)BugCheckParameter2, 0);
     if ( *(_BYTE *)(BugCheckParameter2 + 174)
       && (int)HvValidateOrInvalidatePrimaryFileHeader(BugCheckParameter2, 0, 0, 0) < 0 )
     {

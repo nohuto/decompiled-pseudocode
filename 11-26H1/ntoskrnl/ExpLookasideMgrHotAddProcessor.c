@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpLookasideMgrHotAddProcessor @ 0x1406CD8AC
+ * XREFs of ExpLookasideMgrHotAddProcessor @ 0x1406D18DC
  * Callers:
- *     ExInitializeProcessor @ 0x1406CB480 (ExInitializeProcessor.c)
+ *     ExInitializeProcessor @ 0x1406CF4B0 (ExInitializeProcessor.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
  */
 
 __int64 __fastcall ExpLookasideMgrHotAddProcessor(__int64 a1)

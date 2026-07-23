@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSetHardwareCounterConfiguration @ 0x1409750C0
+ * XREFs of KeSetHardwareCounterConfiguration @ 0x1409752C0
  * Callers:
  *     <none>
  * Callees:

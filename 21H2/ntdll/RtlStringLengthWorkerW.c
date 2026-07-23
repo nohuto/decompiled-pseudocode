@@ -5,9 +5,9 @@
  *     RtlStringCbCatW @ 0x180047324 (RtlStringCbCatW.c)
  *     RtlpGetPolicyValueForSystemCapability @ 0x18007A428 (RtlpGetPolicyValueForSystemCapability.c)
  *     RtlpGetVolumeHandle @ 0x18008BA5C (RtlpGetVolumeHandle.c)
- *     LdrpAppxGetRemediationRegistryKey @ 0x1800CBB74 (LdrpAppxGetRemediationRegistryKey.c)
- *     RtlpCleanupRegistryKeys @ 0x1800EFC70 (RtlpCleanupRegistryKeys.c)
- *     RtlpQueryDiskSpacePolicy @ 0x180118270 (RtlpQueryDiskSpacePolicy.c)
+ *     LdrpAppxGetRemediationRegistryKey @ 0x1800CBB34 (LdrpAppxGetRemediationRegistryKey.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800EFC30 (RtlpCleanupRegistryKeys.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x180118210 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of KeIsSubsetAffinityEx @ 0x140513640
+ * XREFs of KeIsSubsetAffinityEx @ 0x140513880
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     PpmPerfApplyDomainStates @ 0x1402A0580 (PpmPerfApplyDomainStates.c)
- *     PpmPerfApplyDomainState @ 0x1402A05F0 (PpmPerfApplyDomainState.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566410 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmUpdateIdleDomains @ 0x140567EA0 (PpmUpdateIdleDomains.c)
- *     PsUpdateActiveProcessAffinity @ 0x140907AE4 (PsUpdateActiveProcessAffinity.c)
- *     PspSetProcessAffinitySafe @ 0x1409085C4 (PspSetProcessAffinitySafe.c)
+ *     PpmPerfApplyDomainStates @ 0x14021DB00 (PpmPerfApplyDomainStates.c)
+ *     PpmPerfApplyDomainState @ 0x14021DB70 (PpmPerfApplyDomainState.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566650 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmUpdateIdleDomains @ 0x1405680E0 (PpmUpdateIdleDomains.c)
+ *     PsUpdateActiveProcessAffinity @ 0x140907C44 (PsUpdateActiveProcessAffinity.c)
+ *     PspSetProcessAffinitySafe @ 0x140908724 (PspSetProcessAffinitySafe.c)
  * Callees:
- *     KeAndAffinityEx @ 0x14022A080 (KeAndAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x1403C2250 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeAndAffinityEx @ 0x1402CE930 (KeAndAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x1403C2680 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KeIsSubsetAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2)

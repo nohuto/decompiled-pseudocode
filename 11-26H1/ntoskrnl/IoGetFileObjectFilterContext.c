@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetFileObjectFilterContext @ 0x140448080
+ * XREFs of IoGetFileObjectFilterContext @ 0x140440B70
  * Callers:
- *     IopDeleteFile @ 0x140A1ECD0 (IopDeleteFile.c)
+ *     IopDeleteFile @ 0x140A282F0 (IopDeleteFile.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoGetFileObjectFilterContext(__int64 a1, _QWORD *a2, char a3)
@@ -35,7 +35,7 @@ LABEL_2:
     {
       if ( Pool2 )
       {
-        if ( Pool2 != qword_140019060 )
+        if ( Pool2 != qword_1400137E0 )
           ExFreePoolWithTag(Pool2, 0);
         goto LABEL_2;
       }

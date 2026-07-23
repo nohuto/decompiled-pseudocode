@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpInsertHandleCount @ 0x1409B17B0
+ * XREFs of ObpInsertHandleCount @ 0x14099B270
  * Callers:
- *     ObpLockHandleDataBaseEntry @ 0x1409B1610 (ObpLockHandleDataBaseEntry.c)
+ *     ObpLockHandleDataBaseEntry @ 0x14099B0D0 (ObpLockHandleDataBaseEntry.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x14041AA80 (OBJECT_HEADER_TO_HANDLE_INFO.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x14040AA80 (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall ObpInsertHandleCount(__int64 a1)
@@ -18,7 +18,7 @@ char *__fastcall ObpInsertHandleCount(__int64 a1)
   unsigned int v4; // esi
   int *v5; // r12
   int v6; // ebp
-  int v7; // edi
+  unsigned int v7; // edi
   int *Pool2; // rax
   int *v9; // r14
   char v10; // cl
@@ -48,7 +48,7 @@ char *__fastcall ObpInsertHandleCount(__int64 a1)
     v4 = 16 * v12 + 8;
     v7 = 16 * v6 + 8;
   }
-  Pool2 = (int *)ExAllocatePool2(0x100uLL);
+  Pool2 = (int *)ExAllocatePool2(0x100uLL, v7, 0x6448624Fu);
   v9 = Pool2;
   if ( !Pool2 )
     return 0LL;

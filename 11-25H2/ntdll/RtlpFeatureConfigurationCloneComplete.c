@@ -8,17 +8,17 @@
  *     RtlReleaseSRWLockExclusive @ 0x1800123F0 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpFeatureConfigurationCloneComplete(int a1)
+NTSTATUS __fastcall RtlpFeatureConfigurationCloneComplete(int a1)
 {
   if ( a1 )
   {
     *(_QWORD *)&xmmword_1801D5CE8 = xmmword_1801D5CE8 & 1;
-    qword_1801D5DE0 = 1LL;
-    RtlpFcProcessManager[0] = 1LL;
-    if ( (qword_1801D5DD0 & 3) == 1 )
-      qword_1801D5DD0 = 1LL;
+    SRWLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
+    RtlpFcProcessManager.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
+    if ( ((__int64)stru_1801D5DD0.Ptr & 3) == 1 )
+      stru_1801D5DD0.Value = 1LL;
   }
-  RtlReleaseSRWLockExclusive(&qword_1801D5DE0);
-  RtlReleaseSRWLockExclusive(RtlpFcProcessManager);
-  return RtlRunOnceComplete(&qword_1801D5DD0, 4u, 0LL);
+  RtlReleaseSRWLockExclusive(&SRWLock);
+  RtlReleaseSRWLockExclusive(&RtlpFcProcessManager);
+  return RtlRunOnceComplete(&stru_1801D5DD0, 4u, 0LL);
 }

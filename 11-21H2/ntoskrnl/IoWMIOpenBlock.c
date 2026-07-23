@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
+ *     sub_1402E0198 @ 0x1402E0198 (sub_1402E0198.c)
  *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WmipOpenBlock @ 0x140783428 (WmipOpenBlock.c)
+ *     sub_140783428 @ 0x140783428 (sub_140783428.c)
  */
 
 NTSTATUS __stdcall IoWMIOpenBlock(LPCGUID Guid, ULONG DesiredAccess, PVOID *DataBlockObject)
@@ -44,7 +44,7 @@ NTSTATUS __stdcall IoWMIOpenBlock(LPCGUID Guid, ULONG DesiredAccess, PVOID *Data
   __int64 v36; // [rsp+A0h] [rbp-60h]
   __int128 v37; // [rsp+A8h] [rbp-58h]
   WCHAR SourceString[9]; // [rsp+C0h] [rbp-40h] BYREF
-  wchar_t pszDest[39]; // [rsp+D2h] [rbp-2Eh] BYREF
+  wchar_t v39[39]; // [rsp+D2h] [rbp-2Eh] BYREF
 
   v32 = 0LL;
   v6 = 46LL;
@@ -85,9 +85,9 @@ NTSTATUS __stdcall IoWMIOpenBlock(LPCGUID Guid, ULONG DesiredAccess, PVOID *Data
   v24 = v17;
   v23 = Data3;
   v22 = Data2;
-  RtlStringCchPrintfW(
-    pszDest,
-    0x25uLL,
+  sub_1402E0198(
+    v39,
+    37LL,
     L"%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x",
     Guid->Data1,
     v22,
@@ -110,7 +110,7 @@ NTSTATUS __stdcall IoWMIOpenBlock(LPCGUID Guid, ULONG DesiredAccess, PVOID *Data
     v20 = 2244928;
   else
     v20 = (DesiredAccess & 0x40000) != 0 ? 2244872 : 2244924;
-  result = WmipOpenBlock(v20, 0LL, (__int64)&v34, DesiredAccess, &v32);
+  result = sub_140783428(v20, 0LL, (__int64)&v34, DesiredAccess, &v32);
   if ( result >= 0 )
   {
     *DataBlockObject = v32;

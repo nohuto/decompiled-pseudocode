@@ -1,12 +1,12 @@
 /*
- * XREFs of IoAllocateDriverObjectExtension @ 0x1404AE3E0
+ * XREFs of IoAllocateDriverObjectExtension @ 0x1404A8CF0
  * Callers:
- *     DifIoAllocateDriverObjectExtensionWrapper @ 0x140625520 (DifIoAllocateDriverObjectExtensionWrapper.c)
+ *     DifIoAllocateDriverObjectExtensionWrapper @ 0x140623AE0 (DifIoAllocateDriverObjectExtensionWrapper.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoAllocateDriverObjectExtension(
@@ -26,7 +26,7 @@ NTSTATUS __stdcall IoAllocateDriverObjectExtension(
   v4 = 0;
   if ( DriverObjectExtensionSize > 0xFFFFFFEF )
     return -1073741670;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, DriverObjectExtensionSize + 16LL, 0x76697244u);
   v9 = (struct _DRIVER_OBJECT *)Pool2;
   if ( !Pool2 )
     return -1073741670;

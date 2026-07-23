@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x1404A7338
+ * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x1404A09C8
  * Callers:
- *     LdrpGetRcConfig @ 0x1403DC6CC (LdrpGetRcConfig.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1403DCBD0 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrResGetRCConfig @ 0x140B03754 (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1403DF8BC (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1403DFDC0 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x140B05364 (LdrResGetRCConfig.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1403DD0B0 (KeReleaseMutant.c)
- *     KeReleaseMutantEx @ 0x1403DD130 (KeReleaseMutantEx.c)
- *     LdrpInitMuiCrits @ 0x1403DD614 (LdrpInitMuiCrits.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MmUnmapViewInSystemSpace @ 0x140AE2510 (MmUnmapViewInSystemSpace.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutant @ 0x1403E02A0 (KeReleaseMutant.c)
+ *     KeReleaseMutantEx @ 0x1403E0320 (KeReleaseMutantEx.c)
+ *     LdrpInitMuiCrits @ 0x1403E0804 (LdrpInitMuiCrits.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MmUnmapViewInSystemSpace @ 0x140ADFA00 (MmUnmapViewInSystemSpace.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall LdrpSetAlternateResourceModuleHandle(
@@ -31,7 +31,7 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   unsigned int v13; // ebx
   __int16 v14; // r13
   unsigned __int64 v15; // rax
-  $353D57E818BB6F967B4B818D974CF463 v16; // rsi
+  volatile __int64 v16; // rsi
   unsigned int v17; // edx
   unsigned __int64 v18; // r10
   unsigned __int64 v19; // rcx
@@ -40,13 +40,13 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   _DWORD *v22; // r8
   int v23; // ecx
   int v24; // r9d
-  unsigned int SystemCallNumber; // r8d
+  int WaitBlockList; // r8d
   unsigned __int64 v26; // rcx
-  __int64 v27; // rdx
+  volatile __int64 v27; // rdx
   PVOID v28; // rax
-  $353D57E818BB6F967B4B818D974CF463 v29; // rax
+  volatile __int64 v29; // rax
   unsigned __int64 v30; // rcx
-  __int64 v31; // rdx
+  volatile __int64 WaitStatus; // rdx
   void *Pool2; // rax
   __int16 v33; // ax
   unsigned __int64 v35; // [rsp+70h] [rbp+8h] BYREF
@@ -66,17 +66,17 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   KeWaitForSingleObject(&NormalizationListLock.FirstArgument, Executive, 0, 0, 0LL);
   v13 = 0;
   v14 = a5;
-  while ( v13 < NormalizationListLock.SystemCallNumber )
+  while ( v13 < LODWORD(NormalizationListLock.WaitBlockList) )
   {
     v15 = (unsigned __int64)v13 << 6;
-    if ( *(_DWORD **)(v15 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 8) == a1 )
+    if ( *(_DWORD **)(v15 + NormalizationListLock.WaitStatus + 8) == a1 )
     {
-      if ( (v12 & 2) != 0 && *(_QWORD *)(v15 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 16) )
+      if ( (v12 & 2) != 0 && *(_QWORD *)(v15 + NormalizationListLock.WaitStatus + 16) )
         goto LABEL_65;
       if ( (v12 & 1) != 0
-        && *(_QWORD *)(v15 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 32)
+        && *(_QWORD *)(v15 + NormalizationListLock.WaitStatus + 32)
         && a5
-        && *(_WORD *)(v15 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4)) == a5 )
+        && *(_WORD *)(v15 + NormalizationListLock.WaitStatus) == a5 )
       {
         if ( *a2 != (PVOID)-1LL )
         {
@@ -85,10 +85,10 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
             ZwClose(*a3);
         }
         v30 = (unsigned __int64)v13 << 6;
-        v31 = *(__int64 *)((char *)&NormalizationListLock.116 + 4);
-        *a2 = *(PVOID *)(v30 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 32);
+        WaitStatus = NormalizationListLock.WaitStatus;
+        *a2 = *(PVOID *)(v30 + NormalizationListLock.WaitStatus + 32);
         if ( a3 )
-          *a3 = *(HANDLE *)(v30 + v31 + 40);
+          *a3 = *(HANDLE *)(v30 + WaitStatus + 40);
         goto LABEL_65;
       }
     }
@@ -96,58 +96,58 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   }
   if ( (v12 & 0x10) != 0 )
     goto LABEL_65;
-  v16.0 = *($3C37BCD2CC8A9A13CF8DF3DA08EBA37B *)((char *)&NormalizationListLock.116 + 4);
-  if ( *($353D57E818BB6F967B4B818D974CF463 *)((char *)&NormalizationListLock.116 + 4) )
+  v16 = NormalizationListLock.WaitStatus;
+  if ( NormalizationListLock.WaitStatus )
   {
-    if ( NormalizationListLock.SystemCallNumber >= *(_DWORD *)&NormalizationListLock.WaitRegister.Flags )
+    if ( LODWORD(NormalizationListLock.WaitBlockList) >= *(_DWORD *)&NormalizationListLock.ApcStateFill[40] )
     {
       Pool2 = (void *)ExAllocatePool2(0x100uLL);
-      v16.0 = ($3C37BCD2CC8A9A13CF8DF3DA08EBA37B)Pool2;
+      v16 = (volatile __int64)Pool2;
       if ( !Pool2 )
         goto LABEL_65;
       memmove(
         Pool2,
-        *(const void **)((char *)&NormalizationListLock.116 + 4),
-        (unsigned __int64)*(unsigned int *)&NormalizationListLock.WaitRegister.Flags << 6);
-      ExFreePoolWithTag(*(PVOID *)((char *)&NormalizationListLock.116 + 4), 0);
-      *($353D57E818BB6F967B4B818D974CF463 *)((char *)&NormalizationListLock.116 + 4) = v16;
-      *(_DWORD *)&NormalizationListLock.WaitRegister.Flags += 32;
+        (const void *)NormalizationListLock.WaitStatus,
+        (unsigned __int64)*(unsigned int *)&NormalizationListLock.ApcStateFill[40] << 6);
+      ExFreePoolWithTag((PVOID)NormalizationListLock.WaitStatus, 0);
+      NormalizationListLock.WaitStatus = v16;
+      *(_DWORD *)&NormalizationListLock.ApcStateFill[40] += 32;
     }
   }
   else
   {
-    v29.0 = ($3C37BCD2CC8A9A13CF8DF3DA08EBA37B)ExAllocatePool2(0x100uLL);
-    v16.0 = v29.0;
-    if ( !*(_QWORD *)&v29.0 )
+    v29 = ExAllocatePool2(0x100uLL);
+    v16 = v29;
+    if ( !v29 )
       goto LABEL_65;
-    *($353D57E818BB6F967B4B818D974CF463 *)((char *)&NormalizationListLock.116 + 4) = v29;
-    *(_DWORD *)&NormalizationListLock.WaitRegister.Flags = 32;
+    NormalizationListLock.WaitStatus = v29;
+    *(_DWORD *)&NormalizationListLock.ApcStateFill[40] = 32;
   }
   v17 = 0;
   v18 = v35;
-  while ( v17 < NormalizationListLock.SystemCallNumber )
+  while ( v17 < LODWORD(NormalizationListLock.WaitBlockList) )
   {
     v19 = (unsigned __int64)v17 << 6;
-    if ( *(_QWORD *)(v19 + *(_QWORD *)&v16.0 + 8) == v35 )
+    if ( *(_QWORD *)(v19 + v16 + 8) == v35 )
     {
-      if ( (v12 & 2) != 0 && !*(_QWORD *)(v19 + *(_QWORD *)&v16.0 + 16) )
+      if ( (v12 & 2) != 0 && !*(_QWORD *)(v19 + v16 + 16) )
       {
-        *(_QWORD *)(v19 + *(_QWORD *)&v16.0 + 16) = v36;
-        *(_DWORD *)(v19 + *(_QWORD *)&v16.0 + 56) = a7;
+        *(_QWORD *)(v19 + v16 + 16) = v36;
+        *(_DWORD *)(v19 + v16 + 56) = a7;
         goto LABEL_65;
       }
-      if ( (v12 & 1) != 0 && !*(_QWORD *)(v19 + *(_QWORD *)&v16.0 + 32) )
+      if ( (v12 & 1) != 0 && !*(_QWORD *)(v19 + v16 + 32) )
       {
-        v33 = *(_WORD *)(v19 + *(_QWORD *)&v16.0);
+        v33 = *(_WORD *)(v19 + v16);
         if ( v33 == v14 || !v33 )
         {
-          *(_QWORD *)(v19 + *(_QWORD *)&v16.0 + 32) = *a2;
+          *(_QWORD *)(v19 + v16 + 32) = *a2;
           if ( a3 )
             v11 = *a3;
-          *(_QWORD *)(((unsigned __int64)v17 << 6) + *(_QWORD *)&v16.0 + 40) = v11;
-          *(_WORD *)(((unsigned __int64)v17 << 6) + *(_QWORD *)&v16.0) = v14;
-          *(_DWORD *)(((unsigned __int64)v17 << 6) + *(_QWORD *)&v16.0 + 56) = a7;
-          *(_QWORD *)(((unsigned __int64)v17 << 6) + *(_QWORD *)&v16.0 + 48) = a8;
+          *(_QWORD *)(((unsigned __int64)v17 << 6) + v16 + 40) = v11;
+          *(_WORD *)(((unsigned __int64)v17 << 6) + v16) = v14;
+          *(_DWORD *)(((unsigned __int64)v17 << 6) + v16 + 56) = a7;
+          *(_QWORD *)(((unsigned __int64)v17 << 6) + v16 + 48) = a8;
           goto LABEL_65;
         }
       }
@@ -183,10 +183,10 @@ LABEL_26:
   if ( v22 )
   {
     v24 = v22[22];
-    SystemCallNumber = NormalizationListLock.SystemCallNumber;
-    v26 = (unsigned __int64)NormalizationListLock.SystemCallNumber << 6;
-    v27 = *(__int64 *)((char *)&NormalizationListLock.116 + 4);
-    *(_QWORD *)(v26 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 8) = v18;
+    WaitBlockList = (int)NormalizationListLock.WaitBlockList;
+    v26 = (unsigned __int64)LODWORD(NormalizationListLock.WaitBlockList) << 6;
+    v27 = NormalizationListLock.WaitStatus;
+    *(_QWORD *)(v26 + NormalizationListLock.WaitStatus + 8) = v18;
     *(_QWORD *)(v26 + v27 + 16) = v36;
     if ( (v12 & 1) != 0 )
     {
@@ -209,7 +209,7 @@ LABEL_26:
     *(_WORD *)(v26 + v27) = v14;
     *(_DWORD *)(v26 + v27 + 24) = v24;
     *(_DWORD *)(v26 + v27 + 56) = a7;
-    NormalizationListLock.SystemCallNumber = SystemCallNumber + 1;
+    LODWORD(NormalizationListLock.WaitBlockList) = WaitBlockList + 1;
   }
 LABEL_65:
   KeReleaseMutantEx((struct _KTHREAD *)&NormalizationListLock.FirstArgument, 1LL, 4LL, (LONG *)&v35);

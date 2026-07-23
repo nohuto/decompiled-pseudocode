@@ -1,10 +1,10 @@
 /*
- * XREFs of WbReEncryptWarbirdEncryptionSegment @ 0x1407D27C4
+ * XREFs of WbReEncryptWarbirdEncryptionSegment @ 0x1407D2A94
  * Callers:
- *     WbReEncryptEncryptionSegment @ 0x1407D1EE4 (WbReEncryptEncryptionSegment.c)
+ *     WbReEncryptEncryptionSegment @ 0x1407D21B4 (WbReEncryptEncryptionSegment.c)
  * Callees:
- *     sub_140764848 @ 0x140764848 (sub_140764848.c)
- *     sub_140A4DFAC @ 0x140A4DFAC (sub_140A4DFAC.c)
+ *     sub_140764A38 @ 0x140764A38 (sub_140764A38.c)
+ *     sub_140A4E25C @ 0x140A4E25C (sub_140A4E25C.c)
  */
 
 __int64 __fastcall WbReEncryptWarbirdEncryptionSegment(__int64 a1)
@@ -30,13 +30,13 @@ __int64 __fastcall WbReEncryptWarbirdEncryptionSegment(__int64 a1)
         v6 = *(_DWORD *)(a1 + 48);
         if ( v6 == 1 )
         {
-          v7 = sub_140A4DFAC(a1, 16LL * v5 + *(_QWORD *)(a1 + 56) + 248LL);
+          v7 = sub_140A4E25C(a1, 16LL * v5 + *(_QWORD *)(a1 + 56) + 248LL);
         }
         else
         {
           if ( v6 )
             return (unsigned int)-1073741811;
-          v7 = sub_140764848(a1, (unsigned int *)(*(_QWORD *)(a1 + 56) + 4 * (3LL * v5 + 61)));
+          v7 = sub_140764A38(a1, (unsigned int *)(*(_QWORD *)(a1 + 56) + 4 * (3LL * v5 + 61)));
         }
         v2 = v7;
         if ( v7 < 0 )

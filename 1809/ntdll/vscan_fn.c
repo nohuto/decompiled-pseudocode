@@ -1,10 +1,10 @@
 /*
- * XREFs of vscan_fn @ 0x1800946DC
+ * XREFs of vscan_fn @ 0x1800946EC
  * Callers:
- *     sscanf @ 0x1800946A0 (sscanf.c)
+ *     sscanf @ 0x1800946B0 (sscanf.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall vscan_fn(

@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnPrefetchSections @ 0x140954784
+ * XREFs of PfSnPrefetchSections @ 0x140938134
  * Callers:
- *     PfSnAsyncPrefetchStep @ 0x1409543C4 (PfSnAsyncPrefetchStep.c)
+ *     PfSnAsyncPrefetchStep @ 0x140937D74 (PfSnAsyncPrefetchStep.c)
  * Callees:
- *     ExfAcquireRundownProtection @ 0x140247210 (ExfAcquireRundownProtection.c)
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     ExfWaitForRundownProtectionRelease @ 0x1402C6ABC (ExfWaitForRundownProtectionRelease.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfSnLogPrefetchSectionsStop @ 0x1409549E4 (PfSnLogPrefetchSectionsStop.c)
- *     PfSnPrefetchSectionsCleanup @ 0x140954B40 (PfSnPrefetchSectionsCleanup.c)
- *     PfSnLogPrefetchSectionsStart @ 0x140954C4C (PfSnLogPrefetchSectionsStart.c)
- *     PfSnLogGetReadListsStart @ 0x140954D80 (PfSnLogGetReadListsStart.c)
- *     PfSnLogGetReadListsStop @ 0x140954E8C (PfSnLogGetReadListsStop.c)
- *     MmPrefetchPagesEx @ 0x140955430 (MmPrefetchPagesEx.c)
+ *     ExfWaitForRundownProtectionRelease @ 0x1402BB63C (ExfWaitForRundownProtectionRelease.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     ExfAcquireRundownProtection @ 0x1402F60C0 (ExfAcquireRundownProtection.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfSnLogPrefetchSectionsStop @ 0x140938394 (PfSnLogPrefetchSectionsStop.c)
+ *     PfSnPrefetchSectionsCleanup @ 0x1409384F0 (PfSnPrefetchSectionsCleanup.c)
+ *     PfSnLogPrefetchSectionsStart @ 0x1409385FC (PfSnLogPrefetchSectionsStart.c)
+ *     PfSnLogGetReadListsStart @ 0x140938730 (PfSnLogGetReadListsStart.c)
+ *     PfSnLogGetReadListsStop @ 0x14093883C (PfSnLogGetReadListsStop.c)
+ *     MmPrefetchPagesEx @ 0x140938DE0 (MmPrefetchPagesEx.c)
  */
 
 __int64 __fastcall PfSnPrefetchSections(_QWORD *a1, unsigned int a2, int a3, __int64 a4, unsigned __int64 a5)

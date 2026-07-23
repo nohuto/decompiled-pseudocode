@@ -1,17 +1,17 @@
 /*
- * XREFs of MiTrimAllSystemPagableMemory @ 0x1401EA19C
+ * XREFs of MiTrimAllSystemPagableMemory @ 0x1401E9FC8
  * Callers:
- *     MmTrimAllSystemPagableMemory @ 0x1401EA4F4 (MmTrimAllSystemPagableMemory.c)
- *     MmVerifierTrimMemory @ 0x1407018D8 (MmVerifierTrimMemory.c)
+ *     MmTrimAllSystemPagableMemory @ 0x1401EA320 (MmTrimAllSystemPagableMemory.c)
+ *     MmVerifierTrimMemory @ 0x140701908 (MmVerifierTrimMemory.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeAreInterruptsEnabled @ 0x1400516C0 (KeAreInterruptsEnabled.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiPurgePartitionStandby @ 0x14012093C (MiPurgePartitionStandby.c)
- *     MiEmptyTargetedWorkingSet @ 0x1401E9720 (MiEmptyTargetedWorkingSet.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeAreInterruptsEnabled @ 0x140051240 (KeAreInterruptsEnabled.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiPurgePartitionStandby @ 0x140120EAC (MiPurgePartitionStandby.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1401E954C (MiEmptyTargetedWorkingSet.c)
  */
 
 __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
@@ -41,15 +41,15 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
   KIRQL v25; // di
   int *v26; // rax
 
-  v2 = &unk_140327768;
+  v2 = &unk_1403277A8;
   v3 = 1LL;
-  v4 = (__int64 *)&unk_140326DB8;
+  v4 = (__int64 *)&unk_140326DF8;
   v5 = 3LL;
   if ( !a1 )
   {
     v6 = 0;
-    v7 = &unk_140327768;
-    v8 = (unsigned __int64 *)&unk_140326DB8;
+    v7 = &unk_1403277A8;
+    v8 = (unsigned __int64 *)&unk_140326DF8;
     do
     {
       v3 = *v8;
@@ -68,7 +68,7 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
   CurrentThread = 0LL;
   v11 = 0;
   v12 = 0;
-  if ( _InterlockedIncrement(&dword_140327748) <= 1 && (unsigned __int8)KeAreInterruptsEnabled() )
+  if ( _InterlockedIncrement(&dword_140327788) <= 1 && (unsigned __int8)KeAreInterruptsEnabled() )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
@@ -140,7 +140,7 @@ LABEL_24:
     goto LABEL_23;
   }
 LABEL_31:
-  _InterlockedAdd(&dword_140327748, 0xFFFFFFFF);
+  _InterlockedAdd(&dword_140327788, 0xFFFFFFFF);
   if ( v12 == 1 )
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v11;

@@ -1,18 +1,18 @@
 /*
- * XREFs of TppSimplepExecuteCallback @ 0x1800298E0
+ * XREFs of TppSimplepExecuteCallback @ 0x1800149B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     TppETWCallbackDequeue @ 0x18002A21C (TppETWCallbackDequeue.c)
- *     TppCompleteThreadData @ 0x18002B100 (TppCompleteThreadData.c)
- *     TppWorkCallbackPrologRelease @ 0x180053AB0 (TppWorkCallbackPrologRelease.c)
- *     RtlpTpETWCallbackStart @ 0x180067100 (RtlpTpETWCallbackStart.c)
- *     RtlpTpETWCallbackStop @ 0x18006737C (RtlpTpETWCallbackStop.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     TppETWCallbackDequeue @ 0x180015328 (TppETWCallbackDequeue.c)
+ *     TppCompleteThreadData @ 0x180016200 (TppCompleteThreadData.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003E030 (TppWorkCallbackPrologRelease.c)
+ *     RtlpTpETWCallbackStart @ 0x180087550 (RtlpTpETWCallbackStart.c)
+ *     RtlpTpETWCallbackStop @ 0x1800877CC (RtlpTpETWCallbackStop.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppSimplepExecuteCallback(__int64 a1, __int64 a2)
+__int64 __fastcall TppSimplepExecuteCallback(PTP_CALLBACK_INSTANCE Instance, __int64 a2)
 {
   int v2; // edi
   _QWORD *v3; // rbx
@@ -31,16 +31,16 @@ __int64 __fastcall TppSimplepExecuteCallback(__int64 a1, __int64 a2)
   v2 = a2;
   v3 = (_QWORD *)(a2 - 200);
   v5 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v6 = 2147353478LL;
   if ( *(_BYTE *)v6 )
     TppETWCallbackDequeue(v3[18], v2, v3[10], v3[11], v3[13]);
-  result = TppWorkCallbackPrologRelease(a1, v3, 1LL);
+  result = TppWorkCallbackPrologRelease(Instance);
   if ( (_DWORD)result )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v8 = 2147353478LL;
@@ -67,8 +67,8 @@ __int64 __fastcall TppSimplepExecuteCallback(__int64 a1, __int64 a2)
     {
       v15 = 0LL;
     }
-    ((void (__fastcall *)(__int64, _QWORD))v3[10])(a1, v3[11]);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    ((void (__fastcall *)(PTP_CALLBACK_INSTANCE, _QWORD))v3[10])(Instance, v3[11]);
+    if ( RtlGetCurrentServiceSessionId() )
       v5 = (__int64)NtCurrentPeb()->SharedData + 556;
     if ( *(_BYTE *)v5 )
       RtlpTpETWCallbackStop(v3[18], v2, v3[10], v3[11], v3[13]);

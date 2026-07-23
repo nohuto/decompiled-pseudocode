@@ -6,7 +6,7 @@
  *     _RtlExtendMemoryZone@8 @ 0x4B34D780 (_RtlExtendMemoryZone@8.c)
  */
 
-int __stdcall RtlExtendMemoryBlockLookaside(int a1, int a2)
+NTSTATUS __cdecl RtlExtendMemoryBlockLookaside(PVOID MemoryBlockLookaside, ULONG Increment)
 {
-  return RtlExtendMemoryZone(*(_DWORD *)(a1 + 8), a2);
+  return RtlExtendMemoryZone(*((_DWORD *)MemoryBlockLookaside + 2), Increment);
 }

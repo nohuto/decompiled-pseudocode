@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpQueryID @ 0x140488E8C
+ * XREFs of PnpQueryID @ 0x140511600
  * Callers:
- *     PipProcessStartPhase3 @ 0x1403EEA60 (PipProcessStartPhase3.c)
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x140488964 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PipSetDevNodeFlags @ 0x1403F33A0 (PipSetDevNodeFlags.c)
- *     PnpIrpQueryID @ 0x140488F88 (PnpIrpQueryID.c)
- *     PnpFixupID @ 0x140489004 (PnpFixupID.c)
- *     PipSetDevNodeProblem @ 0x1404C5BDC (PipSetDevNodeProblem.c)
- *     PnpLogEvent @ 0x14062DA98 (PnpLogEvent.c)
- *     PnpSetInvalidIDEvent @ 0x140642EC8 (PnpSetInvalidIDEvent.c)
+ *     PipSetDevNodeFlags @ 0x1403F2264 (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeProblem @ 0x140484270 (PipSetDevNodeProblem.c)
+ *     PnpIrpQueryID @ 0x1405116FC (PnpIrpQueryID.c)
+ *     PnpFixupID @ 0x140511778 (PnpFixupID.c)
+ *     PnpLogEvent @ 0x14062DB4C (PnpLogEvent.c)
+ *     PnpSetInvalidIDEvent @ 0x140642FAC (PnpSetInvalidIDEvent.c)
  */
 
 __int64 __fastcall PnpQueryID(__int64 a1, __int64 a2, PVOID *a3, _DWORD *a4)
@@ -34,7 +34,7 @@ __int64 __fastcall PnpQueryID(__int64 a1, __int64 a2, PVOID *a3, _DWORD *a4)
 LABEL_15:
     if ( ID == -1073479624 || !v7 || v7 == 3 && ID == -1073741670 )
     {
-      PipSetDevNodeProblem(a1, 9LL, (unsigned int)ID);
+      PipSetDevNodeProblem(a1, 9, ID);
       v14 = *(_QWORD *)(a1 + 16);
       if ( (*(_DWORD *)(v14 + 396) & 0x200000) == 0 )
       {

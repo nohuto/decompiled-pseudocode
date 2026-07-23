@@ -1,10 +1,10 @@
 /*
- * XREFs of CmDoVirtualTest @ 0x1404D4AF4
+ * XREFs of CmDoVirtualTest @ 0x1404CE364
  * Callers:
- *     NtRenameKey @ 0x14084F890 (NtRenameKey.c)
- *     NtSetInformationKey @ 0x1408B0310 (NtSetInformationKey.c)
+ *     NtRenameKey @ 0x140855BA0 (NtRenameKey.c)
+ *     NtSetInformationKey @ 0x1408B6800 (NtSetInformationKey.c)
  * Callees:
- *     CmpIsSystemEntity @ 0x1408F4110 (CmpIsSystemEntity.c)
+ *     CmpIsSystemEntity @ 0x1408FA6D0 (CmpIsSystemEntity.c)
  */
 
 bool CmDoVirtualTest()

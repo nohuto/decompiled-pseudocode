@@ -20,7 +20,7 @@ __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, int a3)
   __int64 v6; // rbx
   unsigned int v7; // edx
   __int64 v8; // r9
-  unsigned __int64 v9; // rax
+  __int64 v9; // rax
   int v10; // edi
   unsigned __int16 v11; // ax
   unsigned __int64 v12; // rcx
@@ -70,7 +70,7 @@ LABEL_11:
   }
   else
   {
-    RtlRbRemoveNode(a1 + 96, (unsigned __int64 *)v6);
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v6);
     *(_OWORD *)v6 = 0LL;
     *(_QWORD *)(v6 + 16) = 0LL;
     v11 = ~(unsigned __int16)*(_DWORD *)(v6 + 28);
@@ -95,7 +95,7 @@ LABEL_16:
 LABEL_21:
   v16 = RtlpHpSegPageRangeSplit(v12, v6, v5);
   if ( v16 )
-    RtlpHpSegFreeRangeInsert((__int64 *)a1, v16, 0);
+    RtlpHpSegFreeRangeInsert((_RTL_RB_TREE *)a1, v16, 0);
   *(_BYTE *)(v6 + 24) |= HIBYTE(a3) & 0xC | 1;
   v17 = v5 - 1;
   *(_BYTE *)(32LL * v17 + v6 + 24) |= 1u;

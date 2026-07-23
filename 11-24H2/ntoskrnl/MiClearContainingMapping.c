@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClearContainingMapping @ 0x14045BFFC
+ * XREFs of MiClearContainingMapping @ 0x140451394
  * Callers:
- *     MiDeleteTopLevelPage @ 0x14045BEF4 (MiDeleteTopLevelPage.c)
+ *     MiDeleteTopLevelPage @ 0x14045128C (MiDeleteTopLevelPage.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
  */
 
 ULONG_PTR __fastcall MiClearContainingMapping(__int64 a1)
@@ -21,7 +21,7 @@ ULONG_PTR __fastcall MiClearContainingMapping(__int64 a1)
                                                                               - 0x98000000000LL )
   {
     v4 = ((unsigned int)*(_QWORD *)(a1 + 8) >> 3) & 0x1FF;
-    v5 = MiMapPageInHyperSpaceWorker(v2, 0LL, 0x80000000LL);
+    v5 = MiMapPageInHyperSpaceWorker(v2, 0LL, 0x80000000);
     v6 = *(_QWORD *)(v5 + 8LL * v4);
     if ( (v6 & 1) != 0 )
       *(_QWORD *)(v5 + 8LL * v4) = v6 & 0xFFFFFFFFFFFFFBFEuLL | 0x400;

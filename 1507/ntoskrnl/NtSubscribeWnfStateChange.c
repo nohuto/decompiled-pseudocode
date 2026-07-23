@@ -8,25 +8,39 @@
  *     ExpWnfSubscribeWnfStateChange @ 0x140501F5C (ExpWnfSubscribeWnfStateChange.c)
  */
 
-__int64 __fastcall NtSubscribeWnfStateChange(int a1, int a2, int a3, _QWORD *a4)
+NTSTATUS __cdecl NtSubscribeWnfStateChange(
+        PCWNF_STATE_NAME StateName,
+        WNF_CHANGE_STAMP ChangeStamp,
+        ULONG EventMask,
+        PULONG64 SubscriptionId)
 {
+  int v7; // r15d
   struct _KTHREAD *CurrentThread; // rax
-  int v9; // esi
+  NTSTATUS v9; // esi
   struct _KTHREAD *v10; // rcx
   __int16 v11; // ax
-  __int64 v13; // [rsp+98h] [rbp+20h] BYREF
+  unsigned __int64 v13; // [rsp+98h] [rbp+20h] BYREF
 
+  v7 = (int)StateName;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v13 = 0LL;
-  if ( a4 )
+  if ( SubscriptionId )
   {
-    ProbeForWrite(a4, 8uLL, 1u);
-    *a4 = 0LL;
+    ProbeForWrite(SubscriptionId, 8uLL, 1u);
+    *SubscriptionId = 0LL;
   }
-  v9 = ExpWnfSubscribeWnfStateChange((unsigned __int64)&v13 & -(__int64)(a4 != 0LL), 0, a1, a2, 0LL, 0LL, a3, 1);
-  if ( v9 >= 0 && a4 )
-    *a4 = v13;
+  v9 = ExpWnfSubscribeWnfStateChange(
+         (unsigned __int64)&v13 & -(__int64)(SubscriptionId != 0LL),
+         0,
+         v7,
+         ChangeStamp,
+         0LL,
+         0LL,
+         EventMask,
+         1);
+  if ( v9 >= 0 && SubscriptionId )
+    *SubscriptionId = v13;
   v10 = KeGetCurrentThread();
   v11 = v10->KernelApcDisable + 1;
   v10->KernelApcDisable = v11;
@@ -36,5 +50,5 @@ __int64 __fastcall NtSubscribeWnfStateChange(int a1, int a2, int a3, _QWORD *a4)
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v9;
+  return v9;
 }

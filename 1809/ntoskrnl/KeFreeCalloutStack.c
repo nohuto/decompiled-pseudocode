@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFreeCalloutStack @ 0x140706720
+ * XREFs of KeFreeCalloutStack @ 0x1407079C0
  * Callers:
  *     <none>
  * Callees:
- *     MmDeleteKernelStack @ 0x1400CA4A0 (MmDeleteKernelStack.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MmDeleteKernelStack @ 0x1400CA580 (MmDeleteKernelStack.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeFreeCalloutStack(_BYTE *P)

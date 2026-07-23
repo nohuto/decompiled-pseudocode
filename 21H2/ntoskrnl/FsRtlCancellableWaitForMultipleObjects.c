@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlCancellableWaitForMultipleObjects @ 0x1405FCB60
+ * XREFs of FsRtlCancellableWaitForMultipleObjects @ 0x1406EC2C0
  * Callers:
- *     FsRtlSetKernelEaFile @ 0x140689CB0 (FsRtlSetKernelEaFile.c)
- *     FsRtlQueryKernelEaFile @ 0x140689E50 (FsRtlQueryKernelEaFile.c)
- *     FsRtlKernelFsControlFile @ 0x14068A050 (FsRtlKernelFsControlFile.c)
- *     FsRtlCancellableWaitForSingleObject @ 0x1406B2C90 (FsRtlCancellableWaitForSingleObject.c)
- *     FsRtlQueryInformationFile @ 0x14088C280 (FsRtlQueryInformationFile.c)
+ *     FsRtlSetKernelEaFile @ 0x1405E9140 (FsRtlSetKernelEaFile.c)
+ *     FsRtlQueryKernelEaFile @ 0x1405E92E0 (FsRtlQueryKernelEaFile.c)
+ *     FsRtlKernelFsControlFile @ 0x1405E94E0 (FsRtlKernelFsControlFile.c)
+ *     FsRtlCancellableWaitForSingleObject @ 0x140611D50 (FsRtlCancellableWaitForSingleObject.c)
+ *     FsRtlQueryInformationFile @ 0x14088C3E0 (FsRtlQueryInformationFile.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     KeQueryTimeIncrement @ 0x14024C490 (KeQueryTimeIncrement.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     KeQueryTimeIncrement @ 0x1402F0CE0 (KeQueryTimeIncrement.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __stdcall FsRtlCancellableWaitForMultipleObjects(

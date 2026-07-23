@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMGetDeviceDepth @ 0x140AD6DD0
+ * XREFs of PiCMGetDeviceDepth @ 0x14094D0A0
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x140474950 (PiControlFreeUserModeCallersBuffer.c)
- *     PiCMReturnDepthResultData @ 0x140779204 (PiCMReturnDepthResultData.c)
- *     _CmValidateDeviceName @ 0x14098CC00 (_CmValidateDeviceName.c)
- *     PiCMCaptureObjectInputData @ 0x1409994A8 (PiCMCaptureObjectInputData.c)
- *     PiGetDeviceDepth @ 0x140AD6F94 (PiGetDeviceDepth.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14046E0D0 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiCMReturnDepthResultData @ 0x14077C0A4 (PiCMReturnDepthResultData.c)
+ *     PiGetDeviceDepth @ 0x14094CF54 (PiGetDeviceDepth.c)
+ *     _CmValidateDeviceName @ 0x14094D660 (_CmValidateDeviceName.c)
+ *     PiCMCaptureObjectInputData @ 0x140959F08 (PiCMCaptureObjectInputData.c)
  */
 
-__int64 __fastcall PiCMGetDeviceDepth(void *a1, unsigned int a2, void *a3, unsigned int a4, int a5, _DWORD *a6)
+__int64 __fastcall PiCMGetDeviceDepth(void *a1, __int64 a2, void *a3, unsigned int a4, int a5, _DWORD *a6)
 {
   _DWORD *v6; // r15
   int v9; // edi
@@ -20,7 +20,7 @@ __int64 __fastcall PiCMGetDeviceDepth(void *a1, unsigned int a2, void *a3, unsig
   int inited; // eax
   const WCHAR *v14; // r10
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
-  __int128 v16; // [rsp+40h] [rbp-30h] BYREF
+  __int128 v16; // [rsp+40h] [rbp-30h]
   __int128 v17; // [rsp+50h] [rbp-20h]
   __int64 v18; // [rsp+60h] [rbp-10h]
 
@@ -32,18 +32,18 @@ __int64 __fastcall PiCMGetDeviceDepth(void *a1, unsigned int a2, void *a3, unsig
   LODWORD(a6) = 0;
   v16 = 0LL;
   v17 = 0LL;
-  v11 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v16);
+  v11 = PiCMCaptureObjectInputData(a1);
   if ( v11 >= 0 )
   {
     if ( (_QWORD)v17 && *(_QWORD *)((char *)&v16 + 4) == 0x100000000LL && !HIDWORD(v17) && a3 && a4 >= 0xC )
     {
-      inited = CmValidateDeviceName(v10, (_WORD *)v17);
+      inited = CmValidateDeviceName(v10, v17);
       if ( inited >= 0 )
       {
         inited = RtlInitUnicodeStringEx(&DestinationString, v14);
         if ( inited >= 0 )
         {
-          inited = PiGetDeviceDepth(&DestinationString, &a6);
+          inited = PiGetDeviceDepth((__int64)&DestinationString, &a6);
           v9 = (int)a6;
         }
       }

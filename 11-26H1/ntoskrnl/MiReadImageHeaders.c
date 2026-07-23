@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReadImageHeaders @ 0x140A577D8
+ * XREFs of MiReadImageHeaders @ 0x140A64D58
  * Callers:
- *     MiCreateImageMapSectionHeaders @ 0x140A55B2C (MiCreateImageMapSectionHeaders.c)
- *     MiCreateImageMapReadNtHeader @ 0x140A55D18 (MiCreateImageMapReadNtHeader.c)
- *     MiCreateImageMapHeader @ 0x140A55DDC (MiCreateImageMapHeader.c)
+ *     MiCreateImageMapSectionHeaders @ 0x140A630B4 (MiCreateImageMapSectionHeaders.c)
+ *     MiCreateImageMapReadNtHeader @ 0x140A632A0 (MiCreateImageMapReadNtHeader.c)
+ *     MiCreateImageMapHeader @ 0x140A63364 (MiCreateImageMapHeader.c)
  * Callees:
- *     MiPageRead @ 0x14026B708 (MiPageRead.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     MiIsRetryIoStatus @ 0x14046DB90 (MiIsRetryIoStatus.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCopyFromDirectMapExtent @ 0x140776A04 (MiCopyFromDirectMapExtent.c)
+ *     MiPageRead @ 0x14026AC78 (MiPageRead.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     MiIsRetryIoStatus @ 0x140467310 (MiIsRetryIoStatus.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCopyFromDirectMapExtent @ 0x1407798AC (MiCopyFromDirectMapExtent.c)
  */
 
 __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, _DWORD *a2, __int64 a3, __int64 a4)
@@ -55,7 +55,7 @@ __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, _DWORD *a2, __int
   }
   if ( v10 < 0 )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 32;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 32;
     if ( !MiIsRetryIoStatus(v10, 0LL) && v10 != -1073741740 && v10 != -1073741209 )
       return (unsigned int)-1073741792;
   }

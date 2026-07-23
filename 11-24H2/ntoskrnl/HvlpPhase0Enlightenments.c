@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpPhase0Enlightenments @ 0x14058BF18
+ * XREFs of HvlpPhase0Enlightenments @ 0x140589208
  * Callers:
- *     HvlRestoreEnlightenment @ 0x14058308C (HvlRestoreEnlightenment.c)
- *     HvlPhase0Initialize @ 0x14070E848 (HvlPhase0Initialize.c)
+ *     HvlRestoreEnlightenment @ 0x14058040C (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x14070C3D8 (HvlPhase0Initialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     HvlpGetRegister64 @ 0x1403D6DD0 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x1404D3CC0 (HvlpSetRegister64.c)
- *     HvlpAllocateEarlyPages @ 0x14058C13C (HvlpAllocateEarlyPages.c)
- *     HvlpMapEarlyPages @ 0x14058C264 (HvlpMapEarlyPages.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     HvlpGetRegister64 @ 0x1403BC420 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1404CCED0 (HvlpSetRegister64.c)
+ *     HvlpAllocateEarlyPages @ 0x14058942C (HvlpAllocateEarlyPages.c)
+ *     HvlpMapEarlyPages @ 0x140589554 (HvlpMapEarlyPages.c)
  */
 
 __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
   __int64 v3; // rdx
   unsigned __int64 v4; // rbx
   unsigned __int64 v6; // [rsp+30h] [rbp+8h] BYREF
-  unsigned __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
   v7 = 0LL;
   v1 = 0LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepSkipDriverUnloadEventDriverLoad @ 0x1405FF91C
+ * XREFs of KsepSkipDriverUnloadEventDriverLoad @ 0x14060236C
  * Callers:
- *     KseSkipDriverUnloadHookDriverTargeted @ 0x1405FF8E0 (KseSkipDriverUnloadHookDriverTargeted.c)
+ *     KseSkipDriverUnloadHookDriverTargeted @ 0x140602330 (KseSkipDriverUnloadHookDriverTargeted.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall KsepSkipDriverUnloadEventDriverLoad(unsigned __int16 *a1, __int64 a2, int a3, int a4, char a5)
@@ -30,9 +30,9 @@ char __fastcall KsepSkipDriverUnloadEventDriverLoad(unsigned __int16 *a1, __int6
   v21 = a4;
   v20 = a3;
   v19 = a2;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    LOBYTE(v5) = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseSkipDriverUnloadEventDriverLoad);
+    LOBYTE(v5) = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseSkipDriverUnloadEventDriverLoad);
     if ( (_BYTE)v5 )
     {
       UserData.Ptr = *((_QWORD *)a1 + 1);
@@ -48,7 +48,7 @@ char __fastcall KsepSkipDriverUnloadEventDriverLoad(unsigned __int16 *a1, __int6
       v15 = 4LL;
       v17 = 4LL;
       LOBYTE(v5) = EtwWriteEx(
-                     (REGHANDLE)stru_140E66B30.StackLimit,
+                     (REGHANDLE)stru_140E66D40.StackLimit,
                      &KseSkipDriverUnloadEventDriverLoad,
                      0LL,
                      0,

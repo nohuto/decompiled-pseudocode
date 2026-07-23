@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFindSubKeyInRoot @ 0x1405D4F64
+ * XREFs of CmpFindSubKeyInRoot @ 0x1405D5F64
  * Callers:
- *     CmpMarkIndexDirty @ 0x1405AD40C (CmpMarkIndexDirty.c)
- *     CmpRemoveSubKeyFromList @ 0x1405AE780 (CmpRemoveSubKeyFromList.c)
- *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
- *     CmpSelectLeaf @ 0x140700060 (CmpSelectLeaf.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpMarkIndexDirty @ 0x1405AE40C (CmpMarkIndexDirty.c)
+ *     CmpRemoveSubKeyFromList @ 0x1405AF780 (CmpRemoveSubKeyFromList.c)
+ *     CmpWalkOneLevel @ 0x1405D5560 (CmpWalkOneLevel.c)
+ *     CmpSelectLeaf @ 0x140701300 (CmpSelectLeaf.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073E2EC (CmpFindSubKeyByNameWithStatus.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpCompareInIndex @ 0x1405D51D0 (CmpCompareInIndex.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpCompareInIndex @ 0x1405D61D0 (CmpCompareInIndex.c)
  */
 
 __int64 __fastcall CmpFindSubKeyInRoot(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned int *a5)

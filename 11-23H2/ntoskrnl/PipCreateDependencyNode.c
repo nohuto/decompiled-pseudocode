@@ -1,12 +1,12 @@
 /*
- * XREFs of PipCreateDependencyNode @ 0x140837FA0
+ * XREFs of PipCreateDependencyNode @ 0x1408382A0
  * Callers:
- *     IoResolveDependency @ 0x140398140 (IoResolveDependency.c)
- *     PipSetDependency @ 0x140837D44 (PipSetDependency.c)
- *     IoDuplicateDependency @ 0x140954170 (IoDuplicateDependency.c)
+ *     IoResolveDependency @ 0x140398320 (IoResolveDependency.c)
+ *     PipSetDependency @ 0x140838044 (PipSetDependency.c)
+ *     IoDuplicateDependency @ 0x140954370 (IoDuplicateDependency.c)
  * Callees:
- *     PipAddBindingId @ 0x140837F1C (PipAddBindingId.c)
- *     PipDeleteDependencyNode @ 0x1409545D8 (PipDeleteDependencyNode.c)
+ *     PipAddBindingId @ 0x14083821C (PipAddBindingId.c)
+ *     PipDeleteDependencyNode @ 0x1409547D8 (PipDeleteDependencyNode.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

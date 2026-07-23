@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSetIntervalProfile @ 0x14052A364
+ * XREFs of KeSetIntervalProfile @ 0x14052A8A4
  * Callers:
- *     EtwpEnableKernelTrace @ 0x140495E58 (EtwpEnableKernelTrace.c)
- *     NtSetIntervalProfile @ 0x14052A318 (NtSetIntervalProfile.c)
+ *     EtwpEnableKernelTrace @ 0x1404968E8 (EtwpEnableKernelTrace.c)
+ *     NtSetIntervalProfile @ 0x14052A858 (NtSetIntervalProfile.c)
  *     KiInitializeCacheErrataSupport @ 0x1407D0270 (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     KeGenericProcessorCallback @ 0x1400CA714 (KeGenericProcessorCallback.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiSanitizeProfileInterval @ 0x1401D9064 (KiSanitizeProfileInterval.c)
- *     KeQueryIntervalProfile @ 0x14052A2D0 (KeQueryIntervalProfile.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     KeGenericProcessorCallback @ 0x1400C85B4 (KeGenericProcessorCallback.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiSanitizeProfileInterval @ 0x1401D8E90 (KiSanitizeProfileInterval.c)
+ *     KeQueryIntervalProfile @ 0x14052A810 (KeQueryIntervalProfile.c)
  */
 
 void __fastcall KeSetIntervalProfile(int a1, int a2)

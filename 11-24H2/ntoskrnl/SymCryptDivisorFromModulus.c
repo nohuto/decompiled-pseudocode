@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptDivisorFromModulus @ 0x140523754
+ * XREFs of SymCryptDivisorFromModulus @ 0x14052106C
  * Callers:
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x140521068 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptEckeySetValue @ 0x140522F10 (SymCryptEckeySetValue.c)
- *     SymCryptRsaCoreDecCrt @ 0x140524C9C (SymCryptRsaCoreDecCrt.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14051E938 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptEckeySetValue @ 0x140520824 (SymCryptEckeySetValue.c)
+ *     SymCryptRsaCoreDecCrt @ 0x1405225B4 (SymCryptRsaCoreDecCrt.c)
  * Callees:
- *     SymCryptFdefDivisorFromModulus @ 0x1405357E4 (SymCryptFdefDivisorFromModulus.c)
+ *     SymCryptFdefDivisorFromModulus @ 0x14052FC84 (SymCryptFdefDivisorFromModulus.c)
  */
 
 __int64 SymCryptDivisorFromModulus()

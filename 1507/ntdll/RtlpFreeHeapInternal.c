@@ -15,7 +15,7 @@
  *     RtlpValidateLFHBlock @ 0x1800F0B70 (RtlpValidateLFHBlock.c)
  */
 
-_BOOL8 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, int a3)
+_BOOL8 __fastcall RtlpFreeHeapInternal(_BYTE *BaseAddress, unsigned __int64 a2, ULONG a3)
 {
   unsigned __int64 v4; // rsi
   unsigned __int64 v6; // rbx
@@ -38,18 +38,18 @@ _BOOL8 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, int a3)
 
   v4 = a2;
   v6 = 0LL;
-  if ( *(_DWORD *)(a1 + 16) != -571548178 )
+  if ( *((_DWORD *)BaseAddress + 4) != -571548178 )
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) == 0 )
+    if ( (*((_DWORD *)BaseAddress + 29) & 0x1000000) == 0 )
     {
       v9 = 1;
-      if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+      if ( (BaseAddress[120] & 1) != 0 )
       {
-        v6 = (unsigned __int64)RtlpProbeUserBufferSafe(a1, a2);
+        v6 = (unsigned __int64)RtlpProbeUserBufferSafe((int)BaseAddress, a2);
       }
       else if ( (a2 & 0xF) != 0 )
       {
-        RtlpLogHeapFailure(9, a1, a2, 0LL, 0LL, 0LL);
+        RtlpLogHeapFailure(9, (__int64)BaseAddress, a2, 0LL, 0LL, 0LL);
       }
       else
       {
@@ -59,7 +59,7 @@ _BOOL8 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, int a3)
           v6 -= 16LL * *(unsigned __int8 *)(v6 + 14);
         if ( (*(_BYTE *)(v6 + 15) & 0x3F) == 0 )
         {
-          RtlpLogHeapFailure(8, a1, v6, 0LL, 0LL, 0LL);
+          RtlpLogHeapFailure(8, (__int64)BaseAddress, v6, 0LL, 0LL, 0LL);
           v6 = 0LL;
         }
       }
@@ -69,13 +69,13 @@ _BOOL8 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, int a3)
       {
         if ( *(char *)(v6 + 15) >= 0 )
         {
-          if ( *(_DWORD *)(a1 + 124) )
+          if ( *((_DWORD *)BaseAddress + 31) )
           {
-            v22 = *(_DWORD *)(a1 + 136) ^ *(_DWORD *)(v6 + 8);
+            v22 = *((_DWORD *)BaseAddress + 34) ^ *(_DWORD *)(v6 + 8);
             if ( HIBYTE(v22) != (BYTE2(v22) ^ (unsigned __int8)(BYTE1(v22) ^ v22)) )
             {
 LABEL_51:
-              RtlpLogHeapFailure(3, a1, v6, v4, 0LL, 0LL);
+              RtlpLogHeapFailure(3, (__int64)BaseAddress, v6, v4, 0LL, 0LL);
 LABEL_21:
               NtCurrentTeb()->LastStatusValue = -1073741811;
               v11 = NtCurrentTeb();
@@ -87,18 +87,18 @@ LABEL_21:
         }
         else
         {
-          v12 = RtlpValidateLFHBlock(a1, v6);
+          v12 = RtlpValidateLFHBlock(BaseAddress, v6);
         }
         if ( !v12 )
           goto LABEL_51;
         if ( *(char *)(v6 + 15) >= 0 )
         {
-          if ( *(_DWORD *)(a1 + 124) )
+          if ( *((_DWORD *)BaseAddress + 31) )
           {
             v15 = *(_DWORD *)(v6 + 8);
             LOWORD(v23) = v15;
-            if ( (v15 & *(_DWORD *)(a1 + 124)) != 0 )
-              v23 = *(_DWORD *)(a1 + 136) ^ v15;
+            if ( (v15 & *((_DWORD *)BaseAddress + 31)) != 0 )
+              v23 = *((_DWORD *)BaseAddress + 34) ^ v15;
             v16 = v23;
           }
           else
@@ -109,20 +109,20 @@ LABEL_21:
         }
         else
         {
-          v13 = *(_WORD *)(v6 + 8) ^ (unsigned __int16)(RtlpLFHKey ^ a1 ^ (v6 >> 4))
+          v13 = *(_WORD *)(v6 + 8) ^ (unsigned __int16)(RtlpLFHKey ^ (unsigned __int16)BaseAddress ^ (v6 >> 4))
               ? 0LL
               : *(_QWORD *)(v6
-                          - ((unsigned __int64)(*(_DWORD *)(v6 + 8) ^ (unsigned int)RtlpLFHKey ^ (unsigned int)a1 ^ (unsigned int)(v6 >> 4)) >> 12));
+                          - ((unsigned __int64)(*(_DWORD *)(v6 + 8) ^ (unsigned int)RtlpLFHKey ^ (unsigned int)BaseAddress ^ (unsigned int)(v6 >> 4)) >> 12));
           v14 = *(unsigned __int16 *)(v13 + 36);
         }
         if ( *(_BYTE *)(v6 + 15) == 4 )
         {
-          if ( *(_DWORD *)(a1 + 124) )
+          if ( *((_DWORD *)BaseAddress + 31) )
           {
             v17 = *(_DWORD *)(v6 + 8);
             LOWORD(v24) = v17;
-            if ( (v17 & *(_DWORD *)(a1 + 124)) != 0 )
-              v24 = *(_DWORD *)(a1 + 136) ^ v17;
+            if ( (v17 & *((_DWORD *)BaseAddress + 31)) != 0 )
+              v24 = *((_DWORD *)BaseAddress + 34) ^ v17;
             v18 = v24;
           }
           else
@@ -142,22 +142,26 @@ LABEL_21:
         if ( (a3 & 0x3C000102) == 0 )
         {
           v20 = *(_BYTE *)(v4 - 16 + 15) == 5 ? v4 - 16LL * *(unsigned __int8 *)(v4 - 16 + 14) : 0LL;
-          if ( (int)RtlpCallInterceptRoutine(*(_DWORD *)(v4 - 8), a1, v4, 3u, v20) < 0 )
+          if ( (int)RtlpCallInterceptRoutine(*(_DWORD *)(v4 - 8), (__int64)BaseAddress, v4, 3u, v20) < 0 )
             goto LABEL_21;
         }
       }
       if ( *(char *)(v6 + 15) < 0 )
       {
-        RtlpLowFragHeapFree(a1, v6, a3);
+        RtlpLowFragHeapFree((int)BaseAddress, v6, a3);
         return v9;
       }
     }
-    return (BOOL)(unsigned __int8)RtlpFreeHeap(a1, a3 | 2u, v6, v4);
+    return (BOOL)(unsigned __int8)RtlpFreeHeap(BaseAddress, a3 | 2, (_QWORD *)v6, v4);
   }
-  if ( (RtlpHpAppCompatFlags & 2) != 0 && a2 && !((_WORD)a2 ? 0 : RtlSparseBitmapCtxCheckBitsInternal(a1, a2 >> 16)) )
+  if ( (RtlpHpAppCompatFlags & 2) != 0
+    && a2
+    && !((_WORD)a2 ? 0 : RtlSparseBitmapCtxCheckBitsInternal((__int64)BaseAddress, a2 >> 16)) )
+  {
     v4 -= 16LL;
+  }
   v8 = RtlpHpConvertFlagsToSegmentFlags(a3);
-  v9 = RtlpHpFreeHeap((_DWORD *)a1, v4, v8 & 0x11000001);
+  v9 = RtlpHpFreeHeap((__int64)BaseAddress, v4, v8 & 0x11000001);
   if ( !v9 )
   {
     NtCurrentTeb()->LastStatusValue = -1073741811;

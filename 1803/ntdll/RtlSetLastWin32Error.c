@@ -25,30 +25,29 @@
  *     __security_check_cookie @ 0x18008B0F0 (__security_check_cookie.c)
  */
 
-struct _TEB *__fastcall RtlSetLastWin32Error(unsigned int a1)
+void __cdecl RtlSetLastWin32Error(LONG Win32Error)
 {
-  struct _TEB *result; // rax
+  struct _TEB *v1; // rax
   bool v2; // zf
   _QWORD v3[2]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned int v4; // [rsp+50h] [rbp+8h] BYREF
+  LONG v4; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = a1;
-  result = NtCurrentTeb();
-  if ( dword_18015D7AC && a1 == dword_18015D7AC )
+  v4 = Win32Error;
+  v1 = NtCurrentTeb();
+  if ( dword_18015D7AC && Win32Error == dword_18015D7AC )
     __debugbreak();
-  if ( result->LastErrorValue != a1 )
+  if ( v1->LastErrorValue != Win32Error )
   {
     v2 = byte_18015D434 == 0;
-    result->LastErrorValue = a1;
+    v1->LastErrorValue = Win32Error;
     if ( !v2 )
     {
       if ( v4 )
       {
         v3[0] = &v4;
         v3[1] = 4LL;
-        return (struct _TEB *)EtwEventWrite(qword_18015AA68, (int)&unk_180123F40, 1, (__int64)v3);
+        EtwEventWrite(RegHandle, &EventDescriptor, 1u, (PEVENT_DATA_DESCRIPTOR)v3);
       }
     }
   }
-  return result;
 }

@@ -15,7 +15,7 @@
  *     MiAllocateFileExtents @ 0x1408CBF10 (MiAllocateFileExtents.c)
  */
 
-__int64 __fastcall MiFaultGetFileExtents(__int64 a1, struct _SLIST_ENTRY *a2)
+__int64 __fastcall MiFaultGetFileExtents(__int64 a1, _SLIST_ENTRY *a2)
 {
   ULONG_PTR Next; // rdi
   __int64 v5; // r14

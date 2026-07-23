@@ -6,7 +6,7 @@
  *     <none>
  */
 
-char RtlQueryProcessPlaceholderCompatibilityMode()
+CHAR RtlQueryProcessPlaceholderCompatibilityMode(void)
 {
   unsigned __int64 v0; // rax
 

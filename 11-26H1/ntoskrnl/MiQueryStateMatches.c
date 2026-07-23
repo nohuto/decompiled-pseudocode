@@ -1,7 +1,7 @@
 /*
- * XREFs of MiQueryStateMatches @ 0x1404D72D8
+ * XREFs of MiQueryStateMatches @ 0x1404D0AA8
  * Callers:
- *     MiQueryVadForVaAttributes @ 0x140305C54 (MiQueryVadForVaAttributes.c)
+ *     MiQueryVadForVaAttributes @ 0x1402E7CD4 (MiQueryVadForVaAttributes.c)
  * Callees:
  *     <none>
  */

@@ -9,64 +9,64 @@
  *     RtlTryAcquireSRWLockShared @ 0x1800806D0 (RtlTryAcquireSRWLockShared.c)
  */
 
-_QWORD *__fastcall EtwpFindRegistration(__int64 a1, __int16 a2)
+_RTL_SRWLOCK *__fastcall EtwpFindRegistration(__int64 a1, __int16 a2)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 Root; // rbx
   int v3; // esi
-  _QWORD *i; // rdi
+  _RTL_SRWLOCK *i; // rdi
   int v5; // eax
   unsigned __int64 v6; // rax
-  _QWORD **v8; // rax
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rcx
+  _RTL_SRWLOCK **Value; // rax
+  _RTL_SRWLOCK *v9; // rcx
+  _RTL_SRWLOCK *v10; // rcx
   __int64 v11; // [rsp+20h] [rbp-18h] BYREF
   __int16 v12; // [rsp+28h] [rbp-10h]
 
   v11 = a1;
   v12 = a2;
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  v2 = EtwpRegistrationTable;
-  if ( (qword_18017AF28 & 1) != 0 && EtwpRegistrationTable )
-    v2 = (unsigned __int64)&EtwpRegistrationTable ^ EtwpRegistrationTable;
-  v3 = qword_18017AF28 & 1;
+  Root = (unsigned __int64)EtwpRegistrationTable.Root;
+  if ( (*(_BYTE *)&EtwpRegistrationTable.0 & 1) != 0 && EtwpRegistrationTable.Root )
+    Root = (unsigned __int64)&EtwpRegistrationTable ^ (unsigned __int64)EtwpRegistrationTable.Root;
+  v3 = *(_BYTE *)&EtwpRegistrationTable.0 & 1;
   i = 0LL;
-  while ( v2 )
+  while ( Root )
   {
-    v5 = EtwpRegistrationCompare(&v11, v2);
+    v5 = EtwpRegistrationCompare(&v11, Root);
     if ( v5 < 0 )
       goto LABEL_10;
     if ( v5 <= 0 )
     {
-      i = (_QWORD *)v2;
+      i = (_RTL_SRWLOCK *)Root;
 LABEL_10:
-      v6 = *(_QWORD *)v2;
+      v6 = *(_QWORD *)Root;
       goto LABEL_11;
     }
-    v6 = *(_QWORD *)(v2 + 8);
+    v6 = *(_QWORD *)(Root + 8);
 LABEL_11:
     if ( v3 && v6 )
-      v2 ^= v6;
+      Root ^= v6;
     else
-      v2 = v6;
+      Root = v6;
   }
   if ( i )
   {
-    while ( !(unsigned __int8)RtlTryAcquireSRWLockShared(i + 9) )
+    while ( !RtlTryAcquireSRWLockShared(i + 9) )
     {
-      v8 = (_QWORD **)i[1];
+      Value = (_RTL_SRWLOCK **)i[1].Value;
       v9 = i;
-      if ( v8 )
+      if ( Value )
       {
-        v10 = *v8;
-        for ( i = (_QWORD *)i[1]; v10; v10 = (_QWORD *)*v10 )
+        v10 = *Value;
+        for ( i = (_RTL_SRWLOCK *)i[1].Value; v10; v10 = (_RTL_SRWLOCK *)v10->Value )
           i = v10;
       }
       else
       {
         while ( 1 )
         {
-          i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
-          if ( !i || (_QWORD *)*i == v9 )
+          i = (_RTL_SRWLOCK *)(i[2].Value & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !i || (_RTL_SRWLOCK *)i->Value == v9 )
             break;
           v9 = i;
         }

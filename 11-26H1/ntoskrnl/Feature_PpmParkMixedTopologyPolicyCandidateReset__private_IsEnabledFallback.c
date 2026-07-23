@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledFallback @ 0x14060F094
+ * XREFs of Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledFallback @ 0x1406122F8
  * Callers:
- *     Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledDeviceUsageNoInline @ 0x14060F058 (Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledDeviceUsageNoInline @ 0x1406122BC (Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledFallback(

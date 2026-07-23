@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpIommuLeaveDmaDomain @ 0x14058DE4C
+ * XREFs of HalpIommuLeaveDmaDomain @ 0x1405905CC
  * Callers:
- *     HalpIommuBlockDevice @ 0x1404FF510 (HalpIommuBlockDevice.c)
- *     IommuDomainAttachDeviceEx @ 0x14059ED10 (IommuDomainAttachDeviceEx.c)
- *     IommuDomainDetachDevice @ 0x14059EEF0 (IommuDomainDetachDevice.c)
- *     IommuDomainDetachDeviceEx @ 0x14059F030 (IommuDomainDetachDeviceEx.c)
+ *     HalpIommuBlockDevice @ 0x1404F8D00 (HalpIommuBlockDevice.c)
+ *     IommuDomainAttachDeviceEx @ 0x1405A14F0 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDevice @ 0x1405A16E0 (IommuDomainDetachDevice.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405A1820 (IommuDomainDetachDeviceEx.c)
  * Callees:
- *     HalpIommuGetHardwareDomain @ 0x140513EE4 (HalpIommuGetHardwareDomain.c)
- *     HalpIommuIsInPermanentPassthrough @ 0x140530BDC (HalpIommuIsInPermanentPassthrough.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpIommuAttachDeviceDomain @ 0x14058BB60 (HalpIommuAttachDeviceDomain.c)
- *     HalpIommuDereferenceHardwareDomain @ 0x14058D580 (HalpIommuDereferenceHardwareDomain.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuGetHardwareDomain @ 0x14050D954 (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuIsInPermanentPassthrough @ 0x1405330DC (HalpIommuIsInPermanentPassthrough.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpIommuAttachDeviceDomain @ 0x14058E2E0 (HalpIommuAttachDeviceDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x14058FD00 (HalpIommuDereferenceHardwareDomain.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuLeaveDmaDomain(__int64 a1, ULONG_PTR a2)

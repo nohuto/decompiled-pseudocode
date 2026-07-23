@@ -38,7 +38,7 @@ __int64 __fastcall AuthzBasepDeviceMemberOf(__int64 a1, __int64 a2, char a3, cha
     memmove(v18, v17[4], v13);
     v14 = *(_QWORD *)(a2 + 1096);
     if ( v14 )
-      v15 = SepSidInTokenSidHash(v14 + 32 + (a4 != 0 ? 0x110 : 0), 0LL, v18, a3, a4, 0, 0);
+      v15 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v14 + 32 + (a4 != 0 ? 0x110 : 0)), 0LL, v18, a3, a4, 0, 0);
     else
       v15 = 0;
     if ( a5 )

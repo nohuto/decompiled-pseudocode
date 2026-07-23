@@ -21,11 +21,9 @@ __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
   __int64 v6; // rax
   __int64 v7; // [rsp+30h] [rbp-F8h] BYREF
   _OWORD MemoryInformation[3]; // [rsp+38h] [rbp-F0h] BYREF
-  ULONG_PTR v9[3]; // [rsp+70h] [rbp-B8h] BYREF
-  int v10; // [rsp+88h] [rbp-A0h]
-  __int64 v11; // [rsp+90h] [rbp-98h]
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+70h] [rbp-B8h] BYREF
 
-  memset_0(v9, 0, 0x98uLL);
+  memset_0(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   memset(MemoryInformation, 0, sizeof(MemoryInformation));
   if ( ((unsigned __int8)BaseAddress & 7) != 0 )
     ExRaiseDatatypeMisalignment();
@@ -37,7 +35,7 @@ __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
     updated = ZwQueryVirtualMemory(
                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                 BaseAddress,
-                (MEMORY_INFORMATION_CLASS)3,
+                MemoryRegionInformation,
                 MemoryInformation,
                 0x30uLL,
                 0LL);
@@ -56,14 +54,15 @@ __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
   if ( updated < 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    v9[2] = 0LL;
-    v9[0] = 0x1C0000409LL;
-    v10 = 1;
-    v9[1] = 0LL;
-    v11 = updated;
+    ExceptionRecord.ExceptionFlags = 1;
+    ExceptionRecord.ExceptionAddress = 0LL;
+    ExceptionRecord.ExceptionCode = -1073740791;
+    ExceptionRecord.NumberParameters = 1;
+    ExceptionRecord.ExceptionRecord = 0LL;
+    ExceptionRecord.ExceptionInformation[0] = updated;
     BaseTrapFrame = PspGetBaseTrapFrame((__int64)CurrentThread, 0LL);
     v6 = PspGetBaseTrapFrame((__int64)CurrentThread, 0LL);
-    KiDispatchException((NTSTATUS *)v9, v6 - 320, BaseTrapFrame, 1, 0);
+    KiDispatchException(&ExceptionRecord, v6 - 320, BaseTrapFrame, 1, 0);
   }
   return (unsigned int)updated;
 }

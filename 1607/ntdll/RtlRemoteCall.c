@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtWriteVirtualMemory @ 0x1800A6B60 (NtWriteVirtualMemory.c)
  *     ZwResumeThread @ 0x1800A6E60 (ZwResumeThread.c)
  *     ZwGetContextThread @ 0x1800A80D0 (ZwGetContextThread.c)
@@ -12,60 +12,73 @@
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall RtlRemoteCall(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, void *Src, char a6, char a7)
+NTSTATUS __cdecl RtlRemoteCall(
+        HANDLE ProcessHandle,
+        HANDLE ThreadHandle,
+        PVOID CallSite,
+        ULONG ArgumentCount,
+        PULONG_PTR Arguments,
+        BOOLEAN PassContext,
+        BOOLEAN AlreadySuspended)
 {
   __int64 v8; // rsi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int ContextThread; // r14d
-  int v11; // r15d
-  __int64 *v12; // rcx
-  unsigned int v13; // esi
-  __int64 v14; // [rsp+C8h] [rbp-38h]
-  __int64 v15; // [rsp+100h] [rbp+0h] BYREF
-  char v16; // [rsp+108h] [rbp+8h] BYREF
-  __int64 v17; // [rsp+128h] [rbp+28h]
+  DWORD64 Rax; // rax
+  DWORD64 v14; // r14
+  int v15; // r15d
+  DWORD64 *p_R12; // rcx
+  NTSTATUS v17; // esi
+  struct _CONTEXT ThreadContext; // [rsp+30h] [rbp-D0h] BYREF
 
-  v8 = a4;
-  if ( qword_180163310 )
-    return 3221225474LL;
-  if ( a4 > 4 )
-    return 3221225485LL;
-  if ( a7 || (result = NtSuspendThread(), (int)result >= 0) )
+  v8 = ArgumentCount;
+  if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
+    return -1073741822;
+  if ( ArgumentCount > 4 )
+    return -1073741811;
+  if ( AlreadySuspended || (result = NtSuspendThread(ThreadHandle, 0LL), result >= 0) )
   {
-    ContextThread = ZwGetContextThread();
+    ThreadContext.ContextFlags = 1048587;
+    ContextThread = ZwGetContextThread(ThreadHandle, &ThreadContext);
     if ( ContextThread < 0 )
     {
-      if ( !a7 )
-        ZwResumeThread();
-      return (unsigned int)ContextThread;
+      if ( !AlreadySuspended )
+        ZwResumeThread(ThreadHandle, 0LL);
+      return ContextThread;
     }
-    v11 = NtWriteVirtualMemory();
-    if ( v11 < 0 )
+    Rax = ThreadContext.Rax;
+    if ( AlreadySuspended )
+      Rax = 257LL;
+    v14 = ThreadContext.Rsp - 1232;
+    ThreadContext.Rax = Rax;
+    v15 = NtWriteVirtualMemory(ProcessHandle, (PVOID)(ThreadContext.Rsp - 1232), &ThreadContext, 0x4D0uLL, 0LL);
+    if ( v15 < 0 )
     {
-      if ( !a7 )
-        ZwResumeThread();
-      return (unsigned int)v11;
+      if ( !AlreadySuspended )
+        ZwResumeThread(ThreadHandle, 0LL);
+      return v15;
     }
-    if ( a6 )
+    ThreadContext.Rsp = v14;
+    if ( PassContext )
     {
-      v15 = v14 - 1232;
+      ThreadContext.R11 = v14;
       if ( (_DWORD)v8 )
       {
-        v12 = (__int64 *)&v16;
-LABEL_20:
-        memmove(v12, Src, 8 * v8);
+        p_R12 = &ThreadContext.R12;
+LABEL_22:
+        memmove(p_R12, Arguments, 8 * v8);
       }
     }
     else if ( (_DWORD)v8 )
     {
-      v12 = &v15;
-      goto LABEL_20;
+      p_R12 = &ThreadContext.R11;
+      goto LABEL_22;
     }
-    v17 = a3;
-    v13 = NtSetContextThread();
-    if ( !a7 )
-      ZwResumeThread();
-    return v13;
+    ThreadContext.Rip = (DWORD64)CallSite;
+    v17 = NtSetContextThread(ThreadHandle, &ThreadContext);
+    if ( !AlreadySuspended )
+      ZwResumeThread(ThreadHandle, 0LL);
+    return v17;
   }
   return result;
 }

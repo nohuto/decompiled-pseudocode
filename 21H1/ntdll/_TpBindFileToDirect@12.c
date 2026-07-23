@@ -10,17 +10,17 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __fastcall TpBindFileToDirect(int a1, int a2, int a3)
+NTSTATUS __fastcall TpBindFileToDirect(HANDLE FileHandle, int a2, int a3)
 {
-  int result; // eax
-  _BYTE v4[8]; // [esp+4h] [ebp-10h] BYREF
-  _DWORD v5[2]; // [esp+Ch] [ebp-8h] BYREF
+  NTSTATUS result; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+4h] [ebp-10h] BYREF
+  _DWORD FileInformation[2]; // [esp+Ch] [ebp-8h] BYREF
 
-  if ( !a1 || !a2 || !a3 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !FileHandle || !a2 || !a3 || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
-  v5[0] = *(_DWORD *)(a3 + 40);
-  v5[1] = a2;
-  result = ZwSetInformationFile(a1, v4, v5, 8, 30);
+  FileInformation[0] = *(_DWORD *)(a3 + 40);
+  FileInformation[1] = a2;
+  result = ZwSetInformationFile(FileHandle, &IoStatusBlock, FileInformation, 8u, FileCompletionInformation);
   if ( result >= 0 )
   {
     TpAdjustBindingCount(a3, 1u);

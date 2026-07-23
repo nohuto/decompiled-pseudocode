@@ -15,7 +15,7 @@
 __int64 __fastcall ExpWnfReadStateData(__int64 a1, _DWORD *a2, void *a3, unsigned int a4, _DWORD *a5)
 {
   unsigned __int64 *v9; // rbx
-  __int64 v10; // rdi
+  PRTL_BALANCED_NODE v10; // rdi
   _DWORD *v11; // rdx
   unsigned int v12; // eax
   unsigned int v14; // [rsp+20h] [rbp-58h]
@@ -26,7 +26,7 @@ __int64 __fastcall ExpWnfReadStateData(__int64 a1, _DWORD *a2, void *a3, unsigne
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v9, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v9, v10, (ULONG_PTR)v9);
   if ( v10 )
-    *(_BYTE *)(v10 + 26) |= 1u;
+    BYTE2(v10[1].Left) |= 1u;
   v11 = *(_DWORD **)(a1 + 88);
   if ( !v11 )
   {

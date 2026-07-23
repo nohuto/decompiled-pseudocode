@@ -1,35 +1,35 @@
 /*
- * XREFs of PiDevCfgProcessDevice @ 0x140AD089C
+ * XREFs of PiDevCfgProcessDevice @ 0x140AE7A3C
  * Callers:
- *     PpDevCfgProcessDevice @ 0x140B4491C (PpDevCfgProcessDevice.c)
+ *     PpDevCfgProcessDevice @ 0x140B466DC (PpDevCfgProcessDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PnpDiagnosticTraceObject @ 0x140493A8C (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1404E091C (PnpDiagnosticTraceObjectWithStatus.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PnpUpdateRebootRequiredReason @ 0x1407A4B70 (PnpUpdateRebootRequiredReason.c)
- *     PiDevCfgMigrateRootDevice @ 0x1407AA1AC (PiDevCfgMigrateRootDevice.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x1407AAE54 (PiDevCfgRequestDriverConfigurations.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x1407B4FF4 (PiAuditDeviceEnableDisableRequest.c)
- *     _CmSetDeviceRegProp @ 0x14090A0E8 (_CmSetDeviceRegProp.c)
- *     PipSetDevNodeUserFlags @ 0x14090E790 (PipSetDevNodeUserFlags.c)
- *     PipClearDevNodeUserFlags @ 0x14090F028 (PipClearDevNodeUserFlags.c)
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     PiDevCfgConfigureDevice @ 0x1409894D0 (PiDevCfgConfigureDevice.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     PiPnpRtlSetObjectProperty @ 0x1409DBA24 (PiPnpRtlSetObjectProperty.c)
- *     _CmIsRootEnumeratedDevice @ 0x1409DC040 (_CmIsRootEnumeratedDevice.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140A435C0 (SeAuditingWithTokenForSubcategory.c)
- *     PiDevCfgFreeDriverNode @ 0x140ACF14C (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgFindDeviceDriver @ 0x140ACF544 (PiDevCfgFindDeviceDriver.c)
- *     PiDevCfgFreeDeviceContext @ 0x140AD11C4 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgInitDeviceContext @ 0x140AD1214 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgLogDeviceConfigured @ 0x140AD1378 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgQueryObjectProperties @ 0x140AD2A4C (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgSetObjectProperty @ 0x140B0DF70 (PiDevCfgSetObjectProperty.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PnpDiagnosticTraceObject @ 0x14048D5DC (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1404D9FFC (PnpDiagnosticTraceObjectWithStatus.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PnpUpdateRebootRequiredReason @ 0x1407A76B0 (PnpUpdateRebootRequiredReason.c)
+ *     PiDevCfgMigrateRootDevice @ 0x1407ACE1C (PiDevCfgMigrateRootDevice.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x1407ADE78 (PiDevCfgRequestDriverConfigurations.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x1407B8054 (PiAuditDeviceEnableDisableRequest.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     _CmSetDeviceRegProp @ 0x1409AC6A0 (_CmSetDeviceRegProp.c)
+ *     PipSetDevNodeUserFlags @ 0x1409B08C0 (PipSetDevNodeUserFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x1409B1158 (PipClearDevNodeUserFlags.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1409FE320 (SeAuditingWithTokenForSubcategory.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140A18C74 (PiPnpRtlSetObjectProperty.c)
+ *     _CmIsRootEnumeratedDevice @ 0x140A19290 (_CmIsRootEnumeratedDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x140A43BF0 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgFreeDriverNode @ 0x140AE6B84 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgFindDeviceDriver @ 0x140AE6D34 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgFreeDeviceContext @ 0x140AE836C (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x140AE83CC (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140AE8544 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgQueryObjectProperties @ 0x140AE9D80 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgSetObjectProperty @ 0x140B0F6C0 (PiDevCfgSetObjectProperty.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 __int64 __fastcall PiDevCfgProcessDevice(__int64 a1, char *a2, char a3)
@@ -60,7 +60,7 @@ __int64 __fastcall PiDevCfgProcessDevice(__int64 a1, char *a2, char a3)
   __int64 v29; // rcx
   __int64 v30; // rax
   __int64 v31; // r8
-  __int64 v32; // rdx
+  int v32; // edx
   char v33; // bl
   __int64 v34; // rdx
   int v35; // eax
@@ -87,23 +87,23 @@ __int64 __fastcall PiDevCfgProcessDevice(__int64 a1, char *a2, char a3)
   int v56; // [rsp+D0h] [rbp-30h] BYREF
   PCWSTR SourceString; // [rsp+D8h] [rbp-28h]
   __int64 v58; // [rsp+E0h] [rbp-20h]
-  UNICODE_STRING DestinationString; // [rsp+120h] [rbp+20h] BYREF
-  __int64 *v60; // [rsp+130h] [rbp+30h] BYREF
-  int v61; // [rsp+138h] [rbp+38h]
-  PVOID *v62; // [rsp+140h] [rbp+40h]
-  int v63; // [rsp+14Ch] [rbp+4Ch]
-  int v64; // [rsp+150h] [rbp+50h]
-  __int64 *v65; // [rsp+158h] [rbp+58h]
-  int v66; // [rsp+160h] [rbp+60h]
-  PVOID *v67; // [rsp+168h] [rbp+68h]
-  int v68; // [rsp+174h] [rbp+74h]
-  int v69; // [rsp+178h] [rbp+78h]
-  char v70; // [rsp+1D0h] [rbp+D0h]
-  char *v72; // [rsp+1D8h] [rbp+D8h]
-  char v74; // [rsp+1E8h] [rbp+E8h]
+  UNICODE_STRING DestinationString; // [rsp+130h] [rbp+30h] BYREF
+  __int64 *v60; // [rsp+140h] [rbp+40h] BYREF
+  int v61; // [rsp+148h] [rbp+48h]
+  PVOID *v62; // [rsp+150h] [rbp+50h]
+  int v63; // [rsp+15Ch] [rbp+5Ch]
+  int v64; // [rsp+160h] [rbp+60h]
+  __int64 *v65; // [rsp+168h] [rbp+68h]
+  int v66; // [rsp+170h] [rbp+70h]
+  PVOID *v67; // [rsp+178h] [rbp+78h]
+  int v68; // [rsp+184h] [rbp+84h]
+  int v69; // [rsp+188h] [rbp+88h]
+  char v70; // [rsp+1E0h] [rbp+E0h]
+  char *v72; // [rsp+1E8h] [rbp+E8h]
+  char v74; // [rsp+1F8h] [rbp+F8h]
 
   v55 = 0LL;
-  memset_0(&v56, 0, 0x48uLL);
+  memset_0(&v56, 0, 0x58uLL);
   P[0] = 0LL;
   v5 = 0;
   P[1] = 0LL;
@@ -169,7 +169,7 @@ __int64 __fastcall PiDevCfgProcessDevice(__int64 a1, char *a2, char a3)
         goto LABEL_15;
       }
 LABEL_8:
-      inited = PiDevCfgFindDeviceDriver((__int64)&v56, (const WCHAR *)P[1], &v47);
+      inited = PiDevCfgFindDeviceDriver((__int64)&v56, (wchar_t *)P[1], &v47);
       if ( inited >= 0 )
       {
         if ( v54[1] )
@@ -316,7 +316,7 @@ LABEL_21:
             {
               v28 = *(unsigned int *)(a1 + 404);
               if ( (_DWORD)v28 == 1 || (unsigned int)v28 <= 0x38 && (v29 = 0x100000010040000LL, _bittest64(&v29, v28)) )
-                PipClearDevNodeProblem(a1, v19);
+                PipClearDevNodeProblem(a1);
             }
             v24 = *(_DWORD *)(a1 + 300);
             if ( v24 == 772 || v24 == 788 || v24 == 771 )
@@ -326,14 +326,14 @@ LABEL_21:
               {
                 if ( (v25 & 0x2000) != 0 && *(_DWORD *)(a1 + 404) == 14 && (v46 & 0x70) == 0 )
                 {
-                  PipClearDevNodeProblem(a1, v19);
+                  PipClearDevNodeProblem(a1);
                   PipClearDevNodeUserFlags(a1, 4);
                 }
               }
               else if ( (v46 & 0x70) == 0 || PnpBootMode )
               {
                 if ( (v5 & 0x40) != 0 )
-                  PipSetDevNodeProblem(a1, 28LL, v8);
+                  PipSetDevNodeProblem(a1, 28, v8);
               }
               else
               {
@@ -360,7 +360,7 @@ LABEL_21:
                   v50 = v30 | 0x200;
                 }
                 PnpUpdateRebootRequiredReason(*(_QWORD *)(a1 + 48), v19, v31);
-                PipSetDevNodeProblem(a1, 14LL, -1073741102);
+                PipSetDevNodeProblem(a1, 14, -1073741102);
                 PipSetDevNodeUserFlags(a1, 4u);
               }
             }
@@ -369,8 +369,8 @@ LABEL_21:
           }
           else if ( v20 )
           {
-            v32 = *(unsigned int *)(a1 + 404);
-            if ( (_DWORD)v32 == 1 || (_DWORD)v32 == 18 )
+            v32 = *(_DWORD *)(a1 + 404);
+            if ( v32 == 1 || v32 == 18 )
               PipSetDevNodeProblem(a1, v32, inited);
           }
           if ( v70 || v5 )

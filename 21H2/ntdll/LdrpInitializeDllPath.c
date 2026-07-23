@@ -10,23 +10,23 @@
  *     LdrpInitializeImportRedirection @ 0x180082514 (LdrpInitializeImportRedirection.c)
  *     LdrpCorInitialize @ 0x1800832C4 (LdrpCorInitialize.c)
  *     LdrpLoadWow64 @ 0x180083824 (LdrpLoadWow64.c)
- *     LdrLoadEnclaveModule @ 0x1800CCFC0 (LdrLoadEnclaveModule.c)
- *     LdrpGetProcApphelpCheckModule @ 0x1800D0920 (LdrpGetProcApphelpCheckModule.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     AVrfpLoadAndInitializeProvider @ 0x1800DADA8 (AVrfpLoadAndInitializeProvider.c)
+ *     LdrLoadEnclaveModule @ 0x1800CCF80 (LdrLoadEnclaveModule.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x1800D08E0 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x1800DAD68 (AVrfpLoadAndInitializeProvider.c)
  * Callees:
  *     LdrpLogDllStateEx2 @ 0x1800116AC (LdrpLogDllStateEx2.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
  */
 
-void __fastcall LdrpInitializeDllPath(void *a1, __int64 a2, __int64 *a3)
+void __fastcall LdrpInitializeDllPath(const WCHAR *a1, const WCHAR *a2, const WCHAR **a3)
 {
   __int64 v6; // rcx
   bool v7; // zf
 
   memset(a3, 0, 0x80uLL);
-  if ( (a2 & 1) == 0 && a2 )
+  if ( ((unsigned __int8)a2 & 1) == 0 && a2 )
   {
     v7 = (LdrpDebugFlags & 5) == 0;
     *a3 = a2;
@@ -42,7 +42,7 @@ void __fastcall LdrpInitializeDllPath(void *a1, __int64 a2, __int64 *a3)
   }
   else
   {
-    a3[4] = (__int64)a1;
-    *((_DWORD *)a3 + 6) = a2 & 0xFFFFFFFE;
+    a3[4] = a1;
+    *((_DWORD *)a3 + 6) = (unsigned int)a2 & 0xFFFFFFFE;
   }
 }

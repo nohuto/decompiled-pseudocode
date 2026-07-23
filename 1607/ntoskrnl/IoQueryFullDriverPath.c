@@ -1,5 +1,5 @@
 /*
- * XREFs of IoQueryFullDriverPath @ 0x1401C9A34
+ * XREFs of IoQueryFullDriverPath @ 0x1401C98D4
  * Callers:
  *     <none>
  * Callees:

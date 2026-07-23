@@ -4,11 +4,11 @@
  *     SeConvertStringSidToSid @ 0x14020BA20 (SeConvertStringSidToSid.c)
  *     LocalGetSidForString @ 0x14069E1D0 (LocalGetSidForString.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     wcstoul @ 0x1403DBEF0 (wcstoul.c)
- *     wcstoxq @ 0x1403DC0BC (wcstoxq.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     wcstoul @ 0x1403DC0D0 (wcstoul.c)
+ *     wcstoxq @ 0x1403DC29C (wcstoxq.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

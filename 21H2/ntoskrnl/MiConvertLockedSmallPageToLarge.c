@@ -1,11 +1,11 @@
 /*
  * XREFs of MiConvertLockedSmallPageToLarge @ 0x1403F606C
  * Callers:
- *     MiDeleteClusterPage @ 0x14032B830 (MiDeleteClusterPage.c)
+ *     MiDeleteClusterPage @ 0x140336580 (MiDeleteClusterPage.c)
  *     MiConvertSmallPageRangeToLarge @ 0x1403F6180 (MiConvertSmallPageRangeToLarge.c)
  * Callees:
- *     MiSetPfnTbFlushStamp @ 0x140240160 (MiSetPfnTbFlushStamp.c)
- *     MiSetPfnNodeBlinkHigh @ 0x1402B6514 (MiSetPfnNodeBlinkHigh.c)
+ *     MiSetPfnNodeBlinkHigh @ 0x1402346F4 (MiSetPfnNodeBlinkHigh.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E49B0 (MiSetPfnTbFlushStamp.c)
  */
 
 char __fastcall MiConvertLockedSmallPageToLarge(__int64 a1, __int64 a2, char a3, int a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CarEtwCrashEvent @ 0x1406488CC
+ * XREFs of CarEtwCrashEvent @ 0x14064C4AC
  * Callers:
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char CarEtwCrashEvent()
@@ -42,18 +42,18 @@ char CarEtwCrashEvent()
   __int64 v27; // [rsp+F0h] [rbp-10h]
   __int64 v28; // [rsp+F8h] [rbp-8h]
 
-  v0 = dword_140E08EA8;
-  result = dword_140E08EA8 && tlgKeywordOn((__int64)&dword_140E08EA8, 0x800000000000LL);
+  v0 = dword_140E08E50;
+  result = dword_140E08E50 && tlgKeywordOn((__int64)&dword_140E08E50, 0x800000000000LL);
   if ( CarLogInitialized && result && v0 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E08EA8, 0x800000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E08E50, 0x800000000000LL);
     if ( result )
     {
       v7 = 0;
       v13 = &v7;
       v8 = *(_DWORD *)(v2 + 56);
       v15 = &v8;
-      v9 = *(_DWORD *)&stru_140F066E8.WaitBlockFill11[40];
+      v9 = CarTipTag;
       v17 = &v9;
       v19 = &v6;
       v14 = 4LL;
@@ -73,8 +73,8 @@ char CarEtwCrashEvent()
       v26 = 4LL;
       v28 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E08EA8,
-               (unsigned __int8 *)byte_140052D45,
+               (__int64)&dword_140E08E50,
+               (unsigned __int8 *)byte_140053AFD,
                0LL,
                0LL,
                0xBu,

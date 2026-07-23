@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMarkPrivateImageCfgBits @ 0x140713DA4
+ * XREFs of MiMarkPrivateImageCfgBits @ 0x1406C23F4
  * Callers:
- *     MiMarkProcessCfgBits @ 0x14061BF08 (MiMarkProcessCfgBits.c)
+ *     MiMarkProcessCfgBits @ 0x140685B78 (MiMarkProcessCfgBits.c)
  * Callees:
- *     MiVadMapsLargeImage @ 0x14021CC20 (MiVadMapsLargeImage.c)
- *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
- *     MiGetControlAreaLoadConfig @ 0x14035F2D8 (MiGetControlAreaLoadConfig.c)
- *     MiPopulateCfgBitMap @ 0x14061FDB8 (MiPopulateCfgBitMap.c)
- *     MiMarkPrivateOpenCfgBits @ 0x1406A9198 (MiMarkPrivateOpenCfgBits.c)
+ *     MiGetControlAreaLoadConfig @ 0x1402A4208 (MiGetControlAreaLoadConfig.c)
+ *     MiVadMapsLargeImage @ 0x1402C1520 (MiVadMapsLargeImage.c)
+ *     MiLocateVadEvent @ 0x140309104 (MiLocateVadEvent.c)
+ *     MiMarkPrivateOpenCfgBits @ 0x140607118 (MiMarkPrivateOpenCfgBits.c)
+ *     MiPopulateCfgBitMap @ 0x140689A28 (MiPopulateCfgBitMap.c)
  */
 
 __int64 __fastcall MiMarkPrivateImageCfgBits(_QWORD *a1, __int64 a2, __int64 a3)
@@ -32,10 +32,10 @@ __int64 __fastcall MiMarkPrivateImageCfgBits(_QWORD *a1, __int64 a2, __int64 a3)
   v8 = (*(unsigned int *)(a3 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a3 + 32) << 32)) << 12;
   if ( MiVadMapsLargeImage(a3) )
   {
-    result = MiMarkPrivateOpenCfgBits(a1, v8, v7, 0);
+    result = MiMarkPrivateOpenCfgBits((int)a1, v8, v7, 0);
     if ( (int)result < 0 )
       return result;
-    v8 += (unsigned __int64)*(unsigned __int8 *)(MiLocateVadEvent(a3, 16LL) + 8) << 16;
+    v8 += (unsigned __int64)*(unsigned __int8 *)(MiLocateVadEvent(a3) + 8) << 16;
     v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 24), -1LL, -1LL);
     v9 = 1;
     v16 = v8

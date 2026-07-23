@@ -1,8 +1,8 @@
 /*
- * XREFs of IommuGetLeastMaximumSupportedAsidValue @ 0x14059C464
+ * XREFs of IommuGetLeastMaximumSupportedAsidValue @ 0x14059EBE4
  * Callers:
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
- *     IommuGetConfiguration @ 0x140CB4AA0 (IommuGetConfiguration.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommuGetConfiguration @ 0x140CBAAE0 (IommuGetConfiguration.c)
  * Callees:
  *     <none>
  */

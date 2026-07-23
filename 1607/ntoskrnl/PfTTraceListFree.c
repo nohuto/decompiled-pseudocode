@@ -1,10 +1,10 @@
 /*
- * XREFs of PfTTraceListFree @ 0x1403E6E94
+ * XREFs of PfTTraceListFree @ 0x1403E84C4
  * Callers:
- *     PfTTraceListAdd @ 0x1403E6D38 (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x140669770 (PfTCleanup.c)
+ *     PfTTraceListAdd @ 0x1403E8368 (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x140669854 (PfTCleanup.c)
  * Callees:
- *     PfTFreeTraceDump @ 0x1400066F0 (PfTFreeTraceDump.c)
+ *     PfTFreeTraceDump @ 0x140006860 (PfTFreeTraceDump.c)
  */
 
 void __fastcall PfTTraceListFree(__int64 **a1)

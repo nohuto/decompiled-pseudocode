@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAdaptiveWnfCallback @ 0x14075F680
+ * XREFs of PopAdaptiveWnfCallback @ 0x14075E620
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopAdaptiveConsoleSessionOverrideClear @ 0x14075F1BC (PopAdaptiveConsoleSessionOverrideClear.c)
- *     PopAdaptiveConsoleSessionOverrideTrigger @ 0x14075F23C (PopAdaptiveConsoleSessionOverrideTrigger.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x140A30168 (PopAcquireAdaptiveLock.c)
- *     ExQueryWnfStateData @ 0x140A3BB60 (ExQueryWnfStateData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopAdaptiveConsoleSessionOverrideClear @ 0x14075E15C (PopAdaptiveConsoleSessionOverrideClear.c)
+ *     PopAdaptiveConsoleSessionOverrideTrigger @ 0x14075E1DC (PopAdaptiveConsoleSessionOverrideTrigger.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x140A24C58 (PopAcquireAdaptiveLock.c)
+ *     ExQueryWnfStateData @ 0x140A31340 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopAdaptiveWnfCallback(__int64 a1, _QWORD *a2)

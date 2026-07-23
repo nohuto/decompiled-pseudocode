@@ -1,38 +1,38 @@
 /*
- * XREFs of ExDupHandleTable @ 0x140971D40
+ * XREFs of ExDupHandleTable @ 0x1409BD030
  * Callers:
- *     ObInitProcess @ 0x140971938 (ObInitProcess.c)
+ *     ObInitProcess @ 0x1409BCC28 (ObInitProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
- *     ExpUpdateDebugInfo @ 0x14092C6E0 (ExpUpdateDebugInfo.c)
- *     ExpGetHandleExtraInfo @ 0x14092C97C (ExpGetHandleExtraInfo.c)
- *     ObpIncrementHandleCountEx @ 0x14092E8D0 (ObpIncrementHandleCountEx.c)
- *     ExpFreeHandleTable @ 0x1409588DC (ExpFreeHandleTable.c)
- *     ExCreateHandleTable @ 0x140971AEC (ExCreateHandleTable.c)
- *     ExpAllocateHandleTable @ 0x140971C08 (ExpAllocateHandleTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x140972494 (ExpAllocateHandleTableEntrySlow.c)
- *     ExUnlockHandleTableEntry @ 0x140A33080 (ExUnlockHandleTableEntry.c)
- *     ExpSetHandleExtraInfo @ 0x140A905AC (ExpSetHandleExtraInfo.c)
- *     EtwTraceDuplicateHandle @ 0x140AD7038 (EtwTraceDuplicateHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpUpdateDebugInfo @ 0x140908210 (ExpUpdateDebugInfo.c)
+ *     ExpGetHandleExtraInfo @ 0x1409084AC (ExpGetHandleExtraInfo.c)
+ *     ObpIncrementHandleCountEx @ 0x14090A400 (ObpIncrementHandleCountEx.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
+ *     ExCreateHandleTable @ 0x1409BCDDC (ExCreateHandleTable.c)
+ *     ExpAllocateHandleTable @ 0x1409BCEF8 (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x1409BD784 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpFreeHandleTable @ 0x1409BE364 (ExpFreeHandleTable.c)
+ *     ExUnlockHandleTableEntry @ 0x140A4DFE0 (ExUnlockHandleTableEntry.c)
+ *     ExpSetHandleExtraInfo @ 0x140A950FC (ExpSetHandleExtraInfo.c)
+ *     EtwTraceDuplicateHandle @ 0x140AD3AE0 (EtwTraceDuplicateHandle.c)
  */
 
-__int64 __fastcall ExDupHandleTable(ULONG_PTR a1, volatile __int64 *a2, unsigned int a3, _BYTE *a4, __int64 *a5)
+__int64 __fastcall ExDupHandleTable(ULONG_PTR a1, volatile __int64 *a2, unsigned int a3, _BYTE *a4, PVOID *a5)
 {
   unsigned __int64 v5; // rax
   unsigned __int64 v6; // rdi
-  __int64 *v7; // r13
+  PVOID *v7; // r13
   _BYTE *v8; // r12
   unsigned int v9; // r15d
   unsigned int *v10; // rbx
@@ -42,7 +42,7 @@ __int64 __fastcall ExDupHandleTable(ULONG_PTR a1, volatile __int64 *a2, unsigned
   __int64 v14; // rdx
   int v15; // r8d
   __int64 v16; // rax
-  __int64 v17; // rcx
+  _BYTE *v17; // rcx
   unsigned int v19; // r11d
   int v20; // ebp
   _QWORD *v21; // r14
@@ -56,11 +56,11 @@ __int64 __fastcall ExDupHandleTable(ULONG_PTR a1, volatile __int64 *a2, unsigned
   __int64 v29; // r13
   __int64 v30; // r13
   unsigned int j; // esi
-  __int64 v32; // rax
+  char *v32; // rax
   _QWORD *v33; // rcx
   __int64 v34; // r12
   __int64 *v35; // r15
-  __int64 v36; // rcx
+  _BYTE *v36; // rcx
   AutoBoost *v37; // rax
   void *v38; // rdx
   AutoBoost *v39; // rbx
@@ -71,7 +71,7 @@ __int64 __fastcall ExDupHandleTable(ULONG_PTR a1, volatile __int64 *a2, unsigned
   __int64 v44; // r10
   struct _KLOCK_ENTRIES *v45; // r13
   int v46; // eax
-  __int64 v47; // rcx
+  _QWORD *v47; // rcx
   unsigned int i; // edx
   unsigned __int64 v49; // r8
   unsigned __int64 v50; // rax
@@ -83,7 +83,7 @@ __int64 __fastcall ExDupHandleTable(ULONG_PTR a1, volatile __int64 *a2, unsigned
   __int64 v56; // [rsp+50h] [rbp-78h]
   unsigned __int64 v57; // [rsp+58h] [rbp-70h]
   unsigned __int64 HandlePointer; // [rsp+60h] [rbp-68h]
-  __int64 v59; // [rsp+68h] [rbp-60h]
+  char *v59; // [rsp+68h] [rbp-60h]
   struct _KTHREAD *CurrentThread; // [rsp+70h] [rbp-58h]
   ULONG_PTR BugCheckParameter1; // [rsp+D0h] [rbp+8h]
 
@@ -162,13 +162,13 @@ LABEL_12:
   if ( !v11 )
   {
     HandleTable = ExCreateHandleTable(a1, 1);
-    *a5 = HandleTable;
+    *a5 = (PVOID)HandleTable;
     if ( HandleTable )
       return 0LL;
     return 3221225626LL;
   }
   v16 = ExpAllocateHandleTable(a1, 0);
-  *a5 = v16;
+  *a5 = (PVOID)v16;
   if ( !v16 )
     return 3221225626LL;
   while ( 1 )
@@ -178,19 +178,19 @@ LABEL_12:
       break;
     if ( !(unsigned __int8)ExpAllocateHandleTableEntrySlow(v17, 0LL) )
     {
-      ExpFreeHandleTable((_QWORD *)*a5);
+      ExpFreeHandleTable(*a5);
       *a5 = 0LL;
       return 3221225626LL;
     }
   }
-  *(_BYTE *)(v17 + 44) |= 8u;
+  v17[44] |= 8u;
   v19 = 0;
   v20 = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v59 = *a5;
+  v59 = (char *)*a5;
   v53 = 0;
-  v21 = (_QWORD *)(v59 + 72);
+  v21 = v59 + 72;
   do
   {
     v22 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
@@ -225,7 +225,7 @@ LABEL_27:
       v30 = 0LL;
       goto LABEL_31;
     }
-    v28 = *(_QWORD *)(*v7 + 8);
+    v28 = *((_QWORD *)*v7 + 1);
     if ( (v28 & 3) == 1 )
     {
       v29 = *(_QWORD *)(v28 + 8 * v23 - 1);
@@ -309,7 +309,7 @@ LABEL_39:
         v20 = ObpIncrementHandleCountEx(3u, (__int64)&v54, (struct _KPROCESS *)BugCheckParameter1, v45, 0, 0, 0LL);
         if ( v20 >= 0 )
         {
-          if ( (xmmword_140FBFC10 & 0x40) != 0 )
+          if ( (xmmword_140FC0C10 & 0x40) != 0 )
             EtwTraceDuplicateHandle(
               v6 + 4 * j,
               v6 + 4 * j,
@@ -342,21 +342,21 @@ LABEL_36:
         v32 = v59;
         v33 = (_QWORD *)(v30 + 16LL * j);
         *v21 = v33;
-        *(_QWORD *)(v32 + 80) = v33;
+        *((_QWORD *)v32 + 10) = v33;
         v21 = v33 + 1;
         *v33 = 0LL;
         goto LABEL_37;
       }
       v47 = *a5;
-      ++*(_DWORD *)(*a5 + 88);
+      ++*((_DWORD *)*a5 + 22);
       if ( a3 )
       {
         v22 = v53;
         if ( v53 < a3 - 1 )
           v22 = ++v53;
       }
-      if ( *(_QWORD *)(v47 + 96) )
-        ExpUpdateDebugInfo(v47, (__int64)KeGetCurrentThread(), v6 + 4 * j, 1);
+      if ( v47[12] )
+        ExpUpdateDebugInfo((__int64)v47, (__int64)KeGetCurrentThread(), v6 + 4 * j, 1);
 LABEL_37:
       v19 = v53;
       v8 = a4;
@@ -370,13 +370,13 @@ LABEL_37:
   *v21 = 0LL;
   if ( v20 < 0 )
   {
-    *(_BYTE *)(v36 + 44) |= 4u;
-    *(_QWORD *)(v36 + 32) = v36 + 24;
-    *(_QWORD *)(v36 + 24) = v36 + 24;
+    v36[44] |= 4u;
+    *((_QWORD *)v36 + 4) = v36 + 24;
+    *((_QWORD *)v36 + 3) = v36 + 24;
   }
   else
   {
-    *(_DWORD *)(v36 + 92) = *(_DWORD *)(v36 + 88);
+    *((_DWORD *)v36 + 23) = *((_DWORD *)v36 + 22);
     v37 = (AutoBoost *)KeAbPreAcquire((__int64)&PspSiloMonitorLock.StackBase, 0LL, 0LL, (struct _KLOCK_ENTRIES *)v23);
     v39 = v37;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&PspSiloMonitorLock.StackBase, 0LL) )
@@ -392,7 +392,7 @@ LABEL_37:
         *((_BYTE *)v39 + 10) = 1;
     }
     AutoBoostThreadState = (_KSWAPPABLE_PAGE **)PspSiloMonitorLock.AutoBoostThreadState;
-    v41 = (_KSWAPPABLE_PAGE ***)(*a5 + 24);
+    v41 = (_KSWAPPABLE_PAGE ***)((char *)*a5 + 24);
     if ( *(struct _KTHREAD **)PspSiloMonitorLock.AutoBoostThreadState != (struct _KTHREAD *)&PspSiloMonitorLock.SchedulerSharedSwappablePage )
       __fastfail(3u);
     *v41 = &PspSiloMonitorLock.SchedulerSharedSwappablePage;

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlDestroyQueryDebugBuffer @ 0x180044B40
+ * XREFs of RtlDestroyQueryDebugBuffer @ 0x180105520
  * Callers:
- *     RtlpQueryProcessDebugInformationFromWow64 @ 0x180133E60 (RtlpQueryProcessDebugInformationFromWow64.c)
+ *     RtlpQueryProcessDebugInformationFromWow64 @ 0x180132090 (RtlpQueryProcessDebugInformationFromWow64.c)
  * Callees:
- *     RtlpChangeQueryDebugBufferTarget @ 0x180045670 (RtlpChangeQueryDebugBufferTarget.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
+ *     RtlpChangeQueryDebugBufferTarget @ 0x180029600 (RtlpChangeQueryDebugBufferTarget.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
  */
 
-__int64 __fastcall RtlDestroyQueryDebugBuffer(HANDLE *a1)
+NTSTATUS __cdecl RtlDestroyQueryDebugBuffer(PRTL_DEBUG_INFORMATION Buffer)
 {
-  RtlpChangeQueryDebugBufferTarget(a1, 0LL, 0LL, 0LL);
-  NtClose(*a1);
-  NtUnmapViewOfSection(-1LL);
-  return 0LL;
+  RtlpChangeQueryDebugBufferTarget((__int64)Buffer, 0LL, 0, 0LL);
+  NtClose(Buffer->SectionHandleClient);
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, Buffer);
+  return 0;
 }

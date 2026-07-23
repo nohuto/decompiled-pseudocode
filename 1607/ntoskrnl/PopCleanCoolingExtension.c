@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCleanCoolingExtension @ 0x14066B8F0
+ * XREFs of PopCleanCoolingExtension @ 0x14066B9D4
  * Callers:
- *     PopAssociateThermalRequest @ 0x14056C5C0 (PopAssociateThermalRequest.c)
- *     PopDeactiveThermalRequest @ 0x14066BA80 (PopDeactiveThermalRequest.c)
+ *     PopAssociateThermalRequest @ 0x14056CB00 (PopAssociateThermalRequest.c)
+ *     PopDeactiveThermalRequest @ 0x14066BB64 (PopDeactiveThermalRequest.c)
  * Callees:
- *     PnpUnregisterPlugPlayNotification @ 0x140111A40 (PnpUnregisterPlugPlayNotification.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x140111FA4 (PnpUnregisterPlugPlayNotification.c)
  */
 
 void __fastcall PopCleanCoolingExtension(__int64 a1)

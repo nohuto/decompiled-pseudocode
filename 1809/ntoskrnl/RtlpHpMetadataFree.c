@@ -3,8 +3,8 @@
  * Callers:
  *     RtlpHpLargeFree @ 0x140007D8C (RtlpHpLargeFree.c)
  *     RtlpHpLargeAlloc @ 0x140009ED8 (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapDestroy @ 0x1401544C4 (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1402FE114 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1401545C4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1402FE304 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
  *     RtlpHpFreeHeap @ 0x140007BC0 (RtlpHpFreeHeap.c)
  *     RtlpHpMetadataHeapCtxGet @ 0x140009E90 (RtlpHpMetadataHeapCtxGet.c)

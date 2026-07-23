@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpExTimerAttributesAreValid @ 0x1403BF45C
+ * XREFs of ExpExTimerAttributesAreValid @ 0x1403AE01C
  * Callers:
- *     ExAllocateTimerInternal2 @ 0x1403BF320 (ExAllocateTimerInternal2.c)
- *     NtCreateTimer2 @ 0x140A20AE0 (NtCreateTimer2.c)
+ *     ExAllocateTimerInternal2 @ 0x1403ADEE0 (ExAllocateTimerInternal2.c)
+ *     NtCreateTimer2 @ 0x140A16910 (NtCreateTimer2.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ char __fastcall ExpExTimerAttributesAreValid(int a1)
     v2 = a1 & 0xE;
     for ( i = 0; i < 6; ++i )
     {
-      if ( v2 == *((_DWORD *)qword_140038CA0 + i) )
+      if ( v2 == *((_DWORD *)qword_140039110 + i) )
         return 1;
     }
   }

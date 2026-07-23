@@ -2,17 +2,17 @@
  * XREFs of PpmSnapPerformanceAccumulation @ 0x14005BDC0
  * Callers:
  *     PpmCheckSnapAllDeliveredPerformance @ 0x14005B980 (PpmCheckSnapAllDeliveredPerformance.c)
- *     PpmPerfSnapDeliveredPerformance @ 0x14010BA40 (PpmPerfSnapDeliveredPerformance.c)
- *     PoGetPerfStateAndParkingInfo @ 0x140131CA4 (PoGetPerfStateAndParkingInfo.c)
- *     PpmResetPerfTimes @ 0x14017680C (PpmResetPerfTimes.c)
- *     PpmCapturePerformanceDistributionCallback @ 0x1402E3050 (PpmCapturePerformanceDistributionCallback.c)
- *     PpmGetThroughputInfoCallback @ 0x1402E32A0 (PpmGetThroughputInfoCallback.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x14010BAC0 (PpmPerfSnapDeliveredPerformance.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x140131D74 (PoGetPerfStateAndParkingInfo.c)
+ *     PpmResetPerfTimes @ 0x14017690C (PpmResetPerfTimes.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x1402E3240 (PpmCapturePerformanceDistributionCallback.c)
+ *     PpmGetThroughputInfoCallback @ 0x1402E3490 (PpmGetThroughputInfoCallback.c)
  * Callees:
  *     PpmUpdatePerformanceFeedback @ 0x14005FA00 (PpmUpdatePerformanceFeedback.c)
- *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     PpmConvertTime @ 0x1400A7C54 (PpmConvertTime.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 char __fastcall PpmSnapPerformanceAccumulation(
@@ -65,8 +65,8 @@ char __fastcall PpmSnapPerformanceAccumulation(
       if ( a1[3003].LowPart == 3 )
       {
         v27 = a1[3082];
-        v10.QuadPart = *(_QWORD *)(v27.QuadPart + 8LL * DWORD2(xmmword_1404DDA68)) >> 1;
-        if ( (*(_QWORD *)(v27.QuadPart + 8LL * DWORD2(xmmword_1404DDA68)) & 1) == 0 )
+        v10.QuadPart = *(_QWORD *)(v27.QuadPart + 8LL * DWORD2(xmmword_1404DEB68)) >> 1;
+        if ( (*(_QWORD *)(v27.QuadPart + 8LL * DWORD2(xmmword_1404DEB68)) & 1) == 0 )
           v10.QuadPart = 0LL;
       }
     }
@@ -171,8 +171,8 @@ char __fastcall PpmSnapPerformanceAccumulation(
     {
       if ( a1[3003].LowPart == 3 )
       {
-        v21 = *(_QWORD *)(a1[3082].QuadPart + 8LL * DWORD2(xmmword_1404DDA68)) >> 1;
-        if ( (*(_QWORD *)(a1[3082].QuadPart + 8LL * DWORD2(xmmword_1404DDA68)) & 1) == 0 )
+        v21 = *(_QWORD *)(a1[3082].QuadPart + 8LL * DWORD2(xmmword_1404DEB68)) >> 1;
+        if ( (*(_QWORD *)(a1[3082].QuadPart + 8LL * DWORD2(xmmword_1404DEB68)) & 1) == 0 )
           v21 = 0LL;
       }
     }

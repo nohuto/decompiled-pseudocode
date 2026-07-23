@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCountSetBitsAffinityEx @ 0x1400C8A70
+ * XREFs of KeCountSetBitsAffinityEx @ 0x1400C6910
  * Callers:
- *     KeFlushProcessWriteBuffers @ 0x1400C892C (KeFlushProcessWriteBuffers.c)
- *     PpmParkUnblockIdle @ 0x1400D520C (PpmParkUnblockIdle.c)
- *     PpmParkReportParkedCores @ 0x1400D5250 (PpmParkReportParkedCores.c)
- *     PpmParkReportUnparkedCores @ 0x1400D5294 (PpmParkReportUnparkedCores.c)
- *     PpmPerfApplyProcessorStates @ 0x14012F1C0 (PpmPerfApplyProcessorStates.c)
- *     KeSynchronizeAddressPolicy @ 0x1401D232C (KeSynchronizeAddressPolicy.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400C67CC (KeFlushProcessWriteBuffers.c)
+ *     PpmParkUnblockIdle @ 0x1400D30AC (PpmParkUnblockIdle.c)
+ *     PpmParkReportParkedCores @ 0x1400D30F0 (PpmParkReportParkedCores.c)
+ *     PpmParkReportUnparkedCores @ 0x1400D3134 (PpmParkReportUnparkedCores.c)
+ *     PpmPerfApplyProcessorStates @ 0x14012F730 (PpmPerfApplyProcessorStates.c)
+ *     KeSynchronizeAddressPolicy @ 0x1401D2158 (KeSynchronizeAddressPolicy.c)
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
- *     PpmIdleInitializeConcurrency @ 0x14056A4B0 (PpmIdleInitializeConcurrency.c)
+ *     PpmIdleInitializeConcurrency @ 0x14056A9F0 (PpmIdleInitializeConcurrency.c)
  * Callees:
  *     <none>
  */

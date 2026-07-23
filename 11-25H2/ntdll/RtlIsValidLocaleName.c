@@ -11,24 +11,31 @@
  *     RtlpGetCustomCultureData @ 0x180118940 (RtlpGetCustomCultureData.c)
  */
 
-char __fastcall RtlIsValidLocaleName(wchar_t *String, int a2)
+// local variable allocation has failed, the output may be wrong!
+BOOLEAN __cdecl RtlIsValidLocaleName(PCWSTR LocaleName, ULONG Flags)
 {
-  char v2; // di
+  __int64 v2; // r8
+  ULONG *v3; // r9
+  char v4; // di
   int NameIndex; // eax
 
-  v2 = a2;
-  if ( !String || (a2 & 0xFFFFFFFD) != 0 || !pTblPtrs && !RtlpLoadNlsData() )
+  v4 = Flags;
+  if ( !LocaleName
+    || (Flags & 0xFFFFFFFD) != 0
+    || !pTblPtrs && !RtlpLoadNlsData((__int64)LocaleName, *(__int64 *)&Flags, v2, v3) )
+  {
     return 0;
-  NameIndex = RtlpNlsGetNameIndex((__int64)String);
+  }
+  NameIndex = RtlpNlsGetNameIndex((__int64)LocaleName);
   if ( NameIndex < 0 )
   {
-    if ( !(unsigned __int8)RtlpIsCustomLocale(String)
-      || (v2 & 2) == 0 && (int)RtlpGetCustomCultureData(String, 0LL, 0LL, 0LL) < 0 )
+    if ( !(unsigned __int8)RtlpIsCustomLocale((wchar_t *)LocaleName)
+      || (v4 & 2) == 0 && (int)RtlpGetCustomCultureData(LocaleName, 0LL, 0LL, 0LL) < 0 )
     {
       return 0;
     }
   }
-  else if ( (v2 & 2) == 0 )
+  else if ( (v4 & 2) == 0 )
   {
     _mm_lfence();
     if ( (*(_BYTE *)(*(unsigned __int16 *)(pTblPtrs + 48)

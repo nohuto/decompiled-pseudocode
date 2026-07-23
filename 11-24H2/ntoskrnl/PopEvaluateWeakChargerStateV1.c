@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEvaluateWeakChargerStateV1 @ 0x14075B2D4
+ * XREFs of PopEvaluateWeakChargerStateV1 @ 0x140759DB0
  * Callers:
- *     PopBatteryWorker @ 0x140AC7D70 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x140AC5DB0 (PopBatteryWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopEvaluateWeakChargerStateV1(char a1, __int16 a2)
@@ -20,8 +20,8 @@ __int64 __fastcall PopEvaluateWeakChargerStateV1(char a1, __int16 a2)
   char v8; // bl
   char v9; // r8
   int v10; // r10d
-  unsigned __int8 v12; // [rsp+48h] [rbp-C0h] BYREF
-  char v13; // [rsp+49h] [rbp-BFh] BYREF
+  unsigned __int8 Buffer; // [rsp+48h] [rbp-C0h] BYREF
+  char Buffer_1; // [rsp+49h] [rbp-BFh] BYREF
   char v14; // [rsp+4Ah] [rbp-BEh] BYREF
   char v15; // [rsp+4Bh] [rbp-BDh] BYREF
   int v16; // [rsp+4Ch] [rbp-BCh] BYREF
@@ -31,7 +31,7 @@ __int64 __fastcall PopEvaluateWeakChargerStateV1(char a1, __int16 a2)
   int v20; // [rsp+5Ch] [rbp-ACh] BYREF
   __int64 v21; // [rsp+60h] [rbp-A8h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+68h] [rbp-A0h] BYREF
-  char *v23; // [rsp+88h] [rbp-80h]
+  char *p_Buffer_1; // [rsp+88h] [rbp-80h]
   __int64 v24; // [rsp+90h] [rbp-78h]
   int *v25; // [rsp+98h] [rbp-70h]
   __int64 v26; // [rsp+A0h] [rbp-68h]
@@ -50,8 +50,8 @@ __int64 __fastcall PopEvaluateWeakChargerStateV1(char a1, __int16 a2)
   __int64 *v39; // [rsp+108h] [rbp+0h]
   __int64 v40; // [rsp+110h] [rbp+8h]
 
-  PopAcquireRwLockExclusive(&PopWeakChargerLock);
-  v12 = 0;
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock);
+  Buffer = 0;
   v4 = 0;
   if ( PopWeakChargerNotificationUsbStack == -1 )
   {
@@ -83,20 +83,20 @@ __int64 __fastcall PopEvaluateWeakChargerStateV1(char a1, __int16 a2)
       if ( PopWeakChargerNotificationUsbStack )
       {
         v4 = 2;
-        v12 = 2;
+        Buffer = 2;
       }
       if ( PopWeakChargerNotificationBatteryMiniport == 1 )
       {
         v4 |= 1u;
 LABEL_16:
-        v12 = v4;
+        Buffer = v4;
       }
     }
   }
   else if ( PopWeakChargerNotificationBatteryMiniport == 1 )
   {
     v4 = 1;
-    v12 = 1;
+    Buffer = 1;
   }
 LABEL_19:
   if ( PopWeakChargerCompositeState == v4 )
@@ -106,13 +106,13 @@ LABEL_19:
   else
   {
     v8 = 1;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_RECONCILED_WEAK_CHARGER, (__int64)&v12);
-    PopWeakChargerCompositeState = v12;
+    ZwUpdateWnfStateData(&WNF_PO_RECONCILED_WEAK_CHARGER, &Buffer, 1u, 0LL, 0LL, 0, 0);
+    PopWeakChargerCompositeState = Buffer;
   }
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
-    v13 = v9;
-    v23 = &v13;
+    Buffer_1 = v9;
+    p_Buffer_1 = &Buffer_1;
     v18 = PopWeakChargerNotificationBatteryMiniport;
     v24 = 1LL;
     v25 = &v18;
@@ -139,12 +139,12 @@ LABEL_19:
     v21 = 0x1000000LL;
     v40 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E076F0,
-      (unsigned __int8 *)byte_14004BBAB,
+      (__int64)&dword_140E07680,
+      (unsigned __int8 *)&dword_14004D094,
       0LL,
       0LL,
       0xBu,
       &v22);
   }
-  return PopReleaseRwLock((signed __int64 *)&PopWeakChargerLock);
+  return PopReleaseRwLock(&PopWeakChargerLock);
 }

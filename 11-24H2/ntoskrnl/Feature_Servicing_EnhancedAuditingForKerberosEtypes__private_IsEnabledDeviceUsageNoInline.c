@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledDeviceUsageNoInline @ 0x140696F3C
+ * XREFs of Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledDeviceUsageNoInline @ 0x140697FBC
  * Callers:
- *     AdtpWriteToEtw @ 0x140AE821C (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtw @ 0x140AEB4C0 (AdtpWriteToEtw.c)
  * Callees:
- *     Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledFallback @ 0x140696F74 (Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledFallback.c)
+ *     Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledFallback @ 0x140697FF4 (Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledDeviceUsageNoInline()

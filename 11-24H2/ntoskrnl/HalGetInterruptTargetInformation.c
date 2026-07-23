@@ -1,10 +1,10 @@
 /*
- * XREFs of HalGetInterruptTargetInformation @ 0x1404B7620
+ * XREFs of HalGetInterruptTargetInformation @ 0x1404B1E00
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
- *     HalpInterruptIsMsiSupported @ 0x1404B778C (HalpInterruptIsMsiSupported.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptIsMsiSupported @ 0x1404B1F6C (HalpInterruptIsMsiSupported.c)
  */
 
 __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
@@ -62,7 +62,7 @@ __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
           *(_DWORD *)(a3 + 4) = *(_DWORD *)(v10 + 16);
           v12 = 3LL * *(unsigned int *)(v10 + 20);
           if ( v8 == 1
-            || (v13 = qword_140FC2B48[*(unsigned __int16 *)(v10 + 16)], _bittest64(&v13, *(unsigned __int8 *)(v10 + 18))) )
+            || (v13 = qword_140FC2DA8[*(unsigned __int16 *)(v10 + 16)], _bittest64(&v13, *(unsigned __int8 *)(v10 + 18))) )
           {
             *(_DWORD *)(a3 + 12) = 0;
             *(_DWORD *)(a3 + 20) = 1;
@@ -87,7 +87,7 @@ __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
   }
   else
   {
-    HalpInterruptSetProblemEx(0LL, 19, 0, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 0x1DDu);
+    HalpInterruptSetProblemEx(0LL, 19, 0, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 0x1E0u);
     return 3221225485LL;
   }
   return result;

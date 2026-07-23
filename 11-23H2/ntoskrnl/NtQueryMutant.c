@@ -1,20 +1,25 @@
 /*
- * XREFs of NtQueryMutant @ 0x140A05810
+ * XREFs of NtQueryMutant @ 0x140A05AA0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeQueryOwnerMutant @ 0x14057374C (KeQueryOwnerMutant.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeQueryOwnerMutant @ 0x140573C8C (KeQueryOwnerMutant.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtQueryMutant(HANDLE Handle, int a2, CLIENT_ID *a3, unsigned int a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtQueryMutant(
+        HANDLE MutantHandle,
+        MUTANT_INFORMATION_CLASS MutantInformationClass,
+        PVOID MutantInformation,
+        ULONG MutantInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r14
-  _DWORD *v10; // rbx
+  PULONG v10; // rbx
   __int64 v11; // rcx
-  NTSTATUS v12; // esi
+  int v12; // esi
   int v13; // r8d
   char v14; // al
   bool v15; // cl
@@ -22,50 +27,50 @@ __int64 __fastcall NtQueryMutant(HANDLE Handle, int a2, CLIENT_ID *a3, unsigned 
   CLIENT_ID ClientId; // [rsp+38h] [rbp-30h] BYREF
 
   ClientId = 0LL;
-  if ( !a2 )
+  if ( MutantInformationClass == MutantBasicInformation )
   {
-    if ( a4 == 8 )
+    if ( MutantInformationLength == 8 )
       goto LABEL_7;
-    return 3221225476LL;
+    return -1073741820;
   }
-  if ( a2 != 1 )
-    return 3221225475LL;
-  if ( a4 != 16 )
-    return 3221225476LL;
+  if ( MutantInformationClass != MutantOwnerInformation )
+    return -1073741821;
+  if ( MutantInformationLength != 16 )
+    return -1073741820;
 LABEL_7:
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, a4, 4u);
-    v10 = (_DWORD *)a5;
-    if ( a5 )
+    ProbeForWrite(MutantInformation, MutantInformationLength, 4u);
+    v10 = ReturnLength;
+    if ( ReturnLength )
     {
       v11 = 0x7FFFFFFF0000LL;
-      if ( a5 < 0x7FFFFFFF0000LL )
-        v11 = a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v11 = (__int64)ReturnLength;
       *(_DWORD *)v11 = *(_DWORD *)v11;
     }
   }
   else
   {
-    v10 = (_DWORD *)a5;
+    v10 = ReturnLength;
   }
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 1u, ExMutantObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(MutantHandle, 1u, ExMutantObjectType, PreviousMode, &Object, 0LL);
   if ( v12 >= 0 )
   {
-    if ( a2 )
+    if ( MutantInformationClass )
     {
       KeQueryOwnerMutant((PKMUTANT)Object, &ClientId);
       if ( PreviousMode )
       {
-        *a3 = ClientId;
+        *(CLIENT_ID *)MutantInformation = ClientId;
         if ( v10 )
           *v10 = 16;
       }
       else
       {
-        *a3 = ClientId;
+        *(CLIENT_ID *)MutantInformation = ClientId;
         if ( v10 )
           *v10 = 16;
       }
@@ -77,22 +82,22 @@ LABEL_7:
       v15 = *((_QWORD *)Object + 5) == (_QWORD)KeGetCurrentThread();
       if ( PreviousMode )
       {
-        LODWORD(a3->UniqueProcess) = v13;
-        BYTE4(a3->UniqueProcess) = v15;
-        BYTE5(a3->UniqueProcess) = v14;
+        *(_DWORD *)MutantInformation = v13;
+        *((_BYTE *)MutantInformation + 4) = v15;
+        *((_BYTE *)MutantInformation + 5) = v14;
         if ( v10 )
           *v10 = 8;
       }
       else
       {
-        LODWORD(a3->UniqueProcess) = v13;
-        BYTE4(a3->UniqueProcess) = v15;
-        BYTE5(a3->UniqueProcess) = v14;
+        *(_DWORD *)MutantInformation = v13;
+        *((_BYTE *)MutantInformation + 4) = v15;
+        *((_BYTE *)MutantInformation + 5) = v14;
         if ( v10 )
           *v10 = 8;
       }
     }
     ObfDereferenceObject(Object);
   }
-  return (unsigned int)v12;
+  return v12;
 }

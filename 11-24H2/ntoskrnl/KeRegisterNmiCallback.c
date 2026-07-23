@@ -1,11 +1,11 @@
 /*
- * XREFs of KeRegisterNmiCallback @ 0x1405B0B90
+ * XREFs of KeRegisterNmiCallback @ 0x1405ADB00
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 PVOID __stdcall KeRegisterNmiCallback(PNMI_CALLBACK CallbackRoutine, PVOID Context)
@@ -14,7 +14,7 @@ PVOID __stdcall KeRegisterNmiCallback(PNMI_CALLBACK CallbackRoutine, PVOID Conte
   PVOID result; // rax
   KIRQL v6; // al
 
-  Pool2 = (PVOID *)ExAllocatePool2(0x40uLL);
+  Pool2 = (PVOID *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x494D4E4Bu);
   result = 0LL;
   if ( Pool2 )
   {

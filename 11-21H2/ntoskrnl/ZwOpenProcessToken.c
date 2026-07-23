@@ -1,14 +1,15 @@
 /*
  * XREFs of ZwOpenProcessToken @ 0x14041DD40
  * Callers:
- *     DifZwOpenProcessTokenWrapper @ 0x140622350 (DifZwOpenProcessTokenWrapper.c)
+ *     sub_140622350 @ 0x140622350 (sub_140622350.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenProcessToken(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwOpenProcessToken(HANDLE ProcessHandle, ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ProcessHandle, *(_QWORD *)&DesiredAccess);
 }

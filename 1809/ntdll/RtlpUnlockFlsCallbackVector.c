@@ -8,12 +8,11 @@
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpUnlockFlsCallbackVector(int a1)
+void __fastcall RtlpUnlockFlsCallbackVector(int a1)
 {
   struct _PEB *v1; // rdi
   __int64 v3; // rbx
   __int64 v4; // rsi
-  signed __int64 result; // rax
 
   v1 = NtCurrentPeb();
   if ( v1->FlsCallback )
@@ -24,11 +23,10 @@ signed __int64 __fastcall RtlpUnlockFlsCallbackVector(int a1)
     {
       if ( a1 )
         *(_QWORD *)((char *)v1->FlsCallback + v3 + 8) = 1LL;
-      result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)((char *)v1->FlsCallback + v3 + 8));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)((char *)v1->FlsCallback + v3 + 8));
       v3 -= 16LL;
       --v4;
     }
     while ( v4 );
   }
-  return result;
 }

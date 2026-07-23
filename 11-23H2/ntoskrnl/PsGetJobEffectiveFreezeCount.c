@@ -1,8 +1,8 @@
 /*
- * XREFs of PsGetJobEffectiveFreezeCount @ 0x1405A3CD8
+ * XREFs of PsGetJobEffectiveFreezeCount @ 0x1405A41C8
  * Callers:
- *     AlpcpDispatchConnectionRequest @ 0x140716058 (AlpcpDispatchConnectionRequest.c)
- *     AlpcpDispatchNewMessage @ 0x1407398D0 (AlpcpDispatchNewMessage.c)
+ *     AlpcpDispatchConnectionRequest @ 0x140716258 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpDispatchNewMessage @ 0x140739AC0 (AlpcpDispatchNewMessage.c)
  * Callees:
  *     <none>
  */

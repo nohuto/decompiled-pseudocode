@@ -1,30 +1,30 @@
 /*
- * XREFs of MmUnmapIoSpace @ 0x14009B4B0
+ * XREFs of MmUnmapIoSpace @ 0x14009ACB0
  * Callers:
- *     MmFreeContiguousMemory @ 0x14009ABB8 (MmFreeContiguousMemory.c)
- *     MiAllocateContiguousMemory @ 0x14009AF40 (MiAllocateContiguousMemory.c)
- *     BgpFwLibraryEnable @ 0x140126FDC (BgpFwLibraryEnable.c)
- *     WmipFirmwareTableHandler @ 0x14022496C (WmipFirmwareTableHandler.c)
+ *     MmFreeContiguousMemory @ 0x14009A3B8 (MmFreeContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x14009A740 (MiAllocateContiguousMemory.c)
+ *     BgpFwLibraryEnable @ 0x14012754C (BgpFwLibraryEnable.c)
+ *     WmipFirmwareTableHandler @ 0x140224798 (WmipFirmwareTableHandler.c)
  *     PopGetHwConfigurationSignature @ 0x1403D21C4 (PopGetHwConfigurationSignature.c)
- *     WmipGetSMBiosTableData @ 0x1404BE7E0 (WmipGetSMBiosTableData.c)
- *     ExpGetSystemPlatformBinary @ 0x14057C53C (ExpGetSystemPlatformBinary.c)
- *     HvlDeleteProcessor @ 0x1406203EC (HvlDeleteProcessor.c)
- *     WmipFindSMBiosStructure @ 0x14069D294 (WmipFindSMBiosStructure.c)
- *     WmipFindSysIdTable @ 0x14069D3B8 (WmipFindSysIdTable.c)
- *     WmipGetSMBiosEventlog @ 0x14069D4A4 (WmipGetSMBiosEventlog.c)
- *     WmipGetSysIds @ 0x14069D690 (WmipGetSysIds.c)
- *     WmipParseSysIdTable @ 0x14069D940 (WmipParseSysIdTable.c)
+ *     WmipGetSMBiosTableData @ 0x1404AA510 (WmipGetSMBiosTableData.c)
+ *     ExpGetSystemPlatformBinary @ 0x14057C9E8 (ExpGetSystemPlatformBinary.c)
+ *     HvlDeleteProcessor @ 0x1406204A0 (HvlDeleteProcessor.c)
+ *     WmipFindSMBiosStructure @ 0x14069D378 (WmipFindSMBiosStructure.c)
+ *     WmipFindSysIdTable @ 0x14069D49C (WmipFindSysIdTable.c)
+ *     WmipGetSMBiosEventlog @ 0x14069D588 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x14069D774 (WmipGetSysIds.c)
+ *     WmipParseSysIdTable @ 0x14069DA24 (WmipParseSysIdTable.c)
  *     PipInitComputerIds @ 0x140799740 (PipInitComputerIds.c)
  * Callees:
- *     MiMappingHasIoTracker @ 0x140025E08 (MiMappingHasIoTracker.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiInsertCachedPte @ 0x1400525F0 (MiInsertCachedPte.c)
- *     MiZeroAndFlushPtes @ 0x14009B608 (MiZeroAndFlushPtes.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiUnmapLargePages @ 0x1401F5944 (MiUnmapLargePages.c)
- *     MiRemovePteTracker @ 0x1401FC9F0 (MiRemovePteTracker.c)
+ *     MiMappingHasIoTracker @ 0x140025988 (MiMappingHasIoTracker.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiInsertCachedPte @ 0x140052170 (MiInsertCachedPte.c)
+ *     MiZeroAndFlushPtes @ 0x14009AE08 (MiZeroAndFlushPtes.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiUnmapLargePages @ 0x1401F5770 (MiUnmapLargePages.c)
+ *     MiRemovePteTracker @ 0x1401FC81C (MiRemovePteTracker.c)
  */
 
 void __stdcall MmUnmapIoSpace(PVOID BaseAddress, SIZE_T NumberOfBytes)
@@ -78,14 +78,14 @@ void __stdcall MmUnmapIoSpace(PVOID BaseAddress, SIZE_T NumberOfBytes)
       }
       v8 -= 8LL * v10;
     }
-    if ( (unsigned int)MiInsertCachedPte((__int64)&qword_140327870, (_QWORD *)v8, v9) != 1 )
+    if ( (unsigned int)MiInsertCachedPte((__int64)&qword_1403278B0, (_QWORD *)v8, v9) != 1 )
 LABEL_17:
       MiUnmapLargePages(BaseAddress, NumberOfBytes, 9LL, v8);
   }
   else
   {
     MiReleasePtes(
-      (__int64)&qword_140327870,
+      (__int64)&qword_1403278B0,
       (((unsigned __int64)BaseAddress >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
       v4);
   }

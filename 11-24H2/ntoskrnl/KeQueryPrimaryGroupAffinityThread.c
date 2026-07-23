@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryPrimaryGroupAffinityThread @ 0x1404ACDC0
+ * XREFs of KeQueryPrimaryGroupAffinityThread @ 0x1404A7360
  * Callers:
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
- *     NtGetCurrentProcessorNumber @ 0x140A7DD80 (NtGetCurrentProcessorNumber.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
+ *     NtGetCurrentProcessorNumber @ 0x140A78080 (NtGetCurrentProcessorNumber.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402067B0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402A1A20 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1402D1150 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14032DD90 (KiReleaseThreadLockLowerIrql.c)
  */
 
 __int64 __fastcall KeQueryPrimaryGroupAffinityThread(__int64 a1, __int64 a2)

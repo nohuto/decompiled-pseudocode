@@ -1,5 +1,5 @@
 /*
- * XREFs of nullsub_18 @ 0x1404FD103
+ * XREFs of nullsub_18 @ 0x14005A950
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void nullsub_18()
 {
-  ;
+  __asm { iretq }
 }

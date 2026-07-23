@@ -1,10 +1,10 @@
 /*
- * XREFs of IopEnumerateRelations @ 0x140AEAAAC
+ * XREFs of IopEnumerateRelations @ 0x140AED59C
  * Callers:
- *     PnpFinalizeDeviceRemovalForReset @ 0x1407A2BCC (PnpFinalizeDeviceRemovalForReset.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpFinalizeDeviceRemovalForReset @ 0x1407A570C (PnpFinalizeDeviceRemovalForReset.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PipDeviceObjectListElementAt @ 0x140AEAB48 (PipDeviceObjectListElementAt.c)
+ *     PipDeviceObjectListElementAt @ 0x140AED638 (PipDeviceObjectListElementAt.c)
  */
 
 bool __fastcall IopEnumerateRelations(__int64 a1, int *a2, _QWORD *a3, _DWORD *a4, _DWORD *a5)

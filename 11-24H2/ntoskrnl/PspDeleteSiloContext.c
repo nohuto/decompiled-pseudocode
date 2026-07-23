@@ -1,30 +1,29 @@
 /*
- * XREFs of PspDeleteSiloContext @ 0x140A96830
+ * XREFs of PspDeleteSiloContext @ 0x140A93060
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PspDeleteSiloContext(__int64 a1, __int64 a2, unsigned __int8 *a3, __int64 a4)
+__int64 __fastcall PspDeleteSiloContext(__int64 a1)
 {
-  _QWORD *v4; // rdx
-  __int64 v5; // rax
+  _QWORD *v1; // rdx
+  __int64 v2; // rax
   __int64 result; // rax
 
-  v4 = (_QWORD *)(a1 - 48);
+  v1 = (_QWORD *)(a1 - 48);
   if ( (*(_BYTE *)(a1 - 48 + 26) & 0x40) != 0 )
   {
-    a3 = ObpInfoMaskToOffset;
-    v4 = (_QWORD *)((char *)v4 - ObpInfoMaskToOffset[*(_BYTE *)(a1 - 48 + 26) & 0x7F]);
-    v5 = *v4 + 40LL;
+    v1 = (_QWORD *)((char *)v1 - ObpInfoMaskToOffset[*(_BYTE *)(a1 - 48 + 26) & 0x7F]);
+    v2 = *v1 + 40LL;
   }
   else
   {
-    v5 = 8LL;
+    v2 = 8LL;
   }
-  result = *(_QWORD *)v5;
+  result = *(_QWORD *)v2;
   if ( result )
-    return guard_dispatch_icall_no_overrides(a1, v4, a3, a4);
+    return guard_dispatch_icall_no_overrides(a1, v1);
   return result;
 }

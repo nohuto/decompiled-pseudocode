@@ -1,20 +1,20 @@
 /*
- * XREFs of KiUpdateVPBackingThreadPriority @ 0x1404E6D30
+ * XREFs of KiUpdateVPBackingThreadPriority @ 0x1404DD430
  * Callers:
- *     KiTryToUpdateVPBackingThreadPriorityBeforePreemption @ 0x1402550F0 (KiTryToUpdateVPBackingThreadPriorityBeforePreemption.c)
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     KiSwapThread @ 0x1402A6990 (KiSwapThread.c)
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
- *     KeYieldExecution @ 0x14033C510 (KeYieldExecution.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
+ *     KiTryToUpdateVPBackingThreadPriorityBeforePreemption @ 0x140285700 (KiTryToUpdateVPBackingThreadPriorityBeforePreemption.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
+ *     KiSwapThread @ 0x1402D60C0 (KiSwapThread.c)
+ *     KeYieldExecution @ 0x14031B9F0 (KeYieldExecution.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
  * Callees:
- *     KiReadGuestSchedulerAssistPriority @ 0x14030EBE4 (KiReadGuestSchedulerAssistPriority.c)
- *     KiUpdateThreadPriority @ 0x140429720 (KiUpdateThreadPriority.c)
- *     EtwTraceXSchedulerPriorityUpdate @ 0x1404C83A8 (EtwTraceXSchedulerPriorityUpdate.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x1404E9670 (KiUpdateThreadQosGroupingSummaries.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x1405C5094 (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1402D8644 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiUpdateThreadPriority @ 0x1402E0E50 (KiUpdateThreadPriority.c)
+ *     EtwTraceXSchedulerPriorityUpdate @ 0x1404C1AE8 (EtwTraceXSchedulerPriorityUpdate.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x1404E0370 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x1405C275C (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
  */
 
 char __fastcall KiUpdateVPBackingThreadPriority(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, char a4)
@@ -190,7 +190,7 @@ LABEL_50:
 LABEL_52:
   if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 )
     _InterlockedAnd(*(volatile signed __int32 **)(BugCheckParameter1 + 968), 0xFFEFFFFF);
-  if ( v17 != v21 && (BYTE4(xmmword_140FC5B10) & 0x20) != 0 )
+  if ( v17 != v21 && (BYTE4(xmmword_140FC6B50) & 0x20) != 0 )
     EtwTraceXSchedulerPriorityUpdate(BugCheckParameter1, v17, v11, v21, (char *)&v39);
   return 1;
 }

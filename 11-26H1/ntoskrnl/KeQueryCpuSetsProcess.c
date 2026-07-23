@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryCpuSetsProcess @ 0x140462EDC
+ * XREFs of KeQueryCpuSetsProcess @ 0x14045BE9C
  * Callers:
- *     KiCpuPartitionCheckAffinitization @ 0x1405F416C (KiCpuPartitionCheckAffinitization.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405F6B2C (KiCpuPartitionCheckAffinitization.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     KiAcquireProcessLockShared @ 0x140463000 (KiAcquireProcessLockShared.c)
- *     KiReleaseProcessLockShared @ 0x1404630A4 (KiReleaseProcessLockShared.c)
- *     KiQueryCpuSetsProcessWithLock @ 0x140463100 (KiQueryCpuSetsProcessWithLock.c)
+ *     KiAcquireProcessLockShared @ 0x14045BFC0 (KiAcquireProcessLockShared.c)
+ *     KiReleaseProcessLockShared @ 0x14045C064 (KiReleaseProcessLockShared.c)
+ *     KiQueryCpuSetsProcessWithLock @ 0x14045C0C0 (KiQueryCpuSetsProcessWithLock.c)
  */
 
 __int64 __fastcall KeQueryCpuSetsProcess(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

@@ -3,17 +3,17 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
  *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     PopFxAddRefDevice @ 0x140355350 (PopFxAddRefDevice.c)
- *     PopFxIdleComponent @ 0x140355830 (PopFxIdleComponent.c)
- *     PopFxActivateComponent @ 0x1403BA340 (PopFxActivateComponent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxNextComponentChildRelationSafe @ 0x1404198CC (PopFxNextComponentChildRelationSafe.c)
- *     PopFxNextComponentParentRelationSafe @ 0x1404199A4 (PopFxNextComponentParentRelationSafe.c)
+ *     sub_140355350 @ 0x140355350 (sub_140355350.c)
+ *     sub_140355830 @ 0x140355830 (sub_140355830.c)
+ *     sub_1403BA340 @ 0x1403BA340 (sub_1403BA340.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_1404198CC @ 0x1404198CC (sub_1404198CC.c)
+ *     sub_1404199A4 @ 0x1404199A4 (sub_1404199A4.c)
  */
 
 __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -27,12 +27,12 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
   unsigned __int64 v11; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *SchedulerAssist; // r8
+  __int64 v14; // r8
   int v15; // eax
   bool v16; // zf
   unsigned __int8 v17; // al
   struct _KPRCB *v18; // r10
-  _DWORD *v19; // r9
+  __int64 v19; // r9
   int v20; // eax
   unsigned int v21; // r8d
   unsigned int v22; // edx
@@ -46,13 +46,13 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
   KSPIN_LOCK *v31; // rdx
   unsigned __int8 v32; // al
   struct _KPRCB *v33; // r10
-  _DWORD *v34; // r9
+  __int64 v34; // r9
   int v35; // eax
   unsigned __int64 v36; // r12
   __int64 v37; // rdx
   unsigned __int8 v38; // al
   struct _KPRCB *v39; // r10
-  _DWORD *v40; // r9
+  __int64 v40; // r9
   int v41; // eax
   char v42; // [rsp+20h] [rbp-48h]
   __int64 i; // [rsp+28h] [rbp-40h] BYREF
@@ -79,42 +79,42 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
   if ( !v10 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-    if ( KiIrqlFlags )
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = *((_QWORD *)CurrentPrcb + 4375);
           v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-          v16 = (v15 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v15;
+          v16 = (v15 & *(_DWORD *)(v14 + 20)) == 0;
+          *(_DWORD *)(v14 + 20) &= v15;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            sub_140418E4C((__int64)CurrentPrcb);
         }
       }
     }
     __writecr8(v11);
     return (unsigned int)-1073741583;
   }
-  PopFxAddRefDevice(v10);
+  sub_140355350(v10);
   ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       v17 = KeGetCurrentIrql();
       if ( v17 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v17 >= 2u )
       {
         v18 = KeGetCurrentPrcb();
-        v19 = v18->SchedulerAssist;
+        v19 = *((_QWORD *)v18 + 4375);
         v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-        v16 = (v20 & v19[5]) == 0;
-        v19[5] &= v20;
+        v16 = (v20 & *(_DWORD *)(v19 + 20)) == 0;
+        *(_DWORD *)(v19 + 20) &= v20;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick((__int64)v18);
+          sub_140418E4C((__int64)v18);
       }
     }
   }
@@ -136,12 +136,12 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
   }
   if ( v23 )
   {
-    PopFxActivateComponent(v6, v44, 1, 0);
+    sub_1403BA340(v6, v44, 1, 0);
     v26 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v44 + 128));
     v27 = (KSPIN_LOCK *)i;
     v28 = v26;
     v42 = 0;
-    while ( (unsigned __int8)PopFxNextComponentParentRelationSafe(v44, (__int64)v27, (__int64)&i) )
+    while ( (unsigned __int8)sub_1404199A4(v44, (__int64)v27, (__int64)&i) )
     {
       v27 = (KSPIN_LOCK *)i;
       if ( *(_QWORD *)(i + 24) == v23 )
@@ -158,25 +158,25 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
         v27[8] = (KSPIN_LOCK)(v27 + 7);
         *v29 = v29;
         v42 = 1;
-        KxReleaseSpinLock(v27 + 1);
+        KeReleaseSpinLockFromDpcLevel(v27 + 1);
         break;
       }
     }
-    KxReleaseSpinLock((PKSPIN_LOCK)(v44 + 128));
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)(v44 + 128));
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         v32 = KeGetCurrentIrql();
         if ( v32 <= 0xFu && (unsigned __int8)v28 <= 0xFu && v32 >= 2u )
         {
           v33 = KeGetCurrentPrcb();
-          v34 = v33->SchedulerAssist;
+          v34 = *((_QWORD *)v33 + 4375);
           v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v28 + 1));
-          v16 = (v35 & v34[5]) == 0;
-          v34[5] &= v35;
+          v16 = (v35 & *(_DWORD *)(v34 + 20)) == 0;
+          *(_DWORD *)(v34 + 20) &= v35;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick((__int64)v33);
+            sub_140418E4C((__int64)v33);
         }
       }
     }
@@ -185,35 +185,35 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
     {
       v36 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v23 + 128));
       v37 = 0LL;
-      for ( i = 0LL; PopFxNextComponentChildRelationSafe(v23, v37, &i); v37 = i )
+      for ( i = 0LL; sub_1404198CC(v23, v37, &i); v37 = i )
         ;
-      KxReleaseSpinLock((PKSPIN_LOCK)(v23 + 128));
-      if ( KiIrqlFlags )
+      KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)(v23 + 128));
+      if ( dword_140D06B08 )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( (dword_140D06B08 & 1) != 0 )
         {
           v38 = KeGetCurrentIrql();
           if ( v38 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v38 >= 2u )
           {
             v39 = KeGetCurrentPrcb();
-            v40 = v39->SchedulerAssist;
+            v40 = *((_QWORD *)v39 + 4375);
             v41 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v36 + 1));
-            v16 = (v41 & v40[5]) == 0;
-            v40[5] &= v41;
+            v16 = (v41 & *(_DWORD *)(v40 + 20)) == 0;
+            *(_DWORD *)(v40 + 20) &= v41;
             if ( v16 )
-              KiRemoveSystemWorkPriorityKick((__int64)v39);
+              sub_140418E4C((__int64)v39);
           }
         }
       }
       __writecr8(v36);
-      PopFxIdleComponent(v10, *(unsigned int *)(v23 + 16), 2);
+      sub_140355830(v10, *(unsigned int *)(v23 + 16), 2);
       v6 = BugCheckParameter2;
     }
     else
     {
       v4 = -1073741811;
     }
-    PopFxIdleComponent(v6, *(unsigned int *)(v44 + 16), 2);
+    sub_140355830(v6, *(unsigned int *)(v44 + 16), 2);
   }
   else
   {

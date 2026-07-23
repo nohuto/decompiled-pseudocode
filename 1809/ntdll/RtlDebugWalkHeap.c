@@ -15,6 +15,6 @@ char __fastcall RtlDebugWalkHeap(_DWORD *a1)
 
   v2 = 0;
   if ( RtlpCheckHeapSignature(a1, "RtlWalkHeap") )
-    return RtlpValidateHeap(a1, 0LL);
+    return RtlpValidateHeap(a1);
   return v2;
 }

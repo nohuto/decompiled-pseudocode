@@ -69,7 +69,7 @@ __int64 __fastcall PiUEventNotifyUserMode(__int64 a1)
   __int64 v36; // rcx
   __int64 v37; // r8
   char v38; // [rsp+50h] [rbp-19h]
-  int v39; // [rsp+54h] [rbp-15h] BYREF
+  int Buffer; // [rsp+54h] [rbp-15h] BYREF
   const wchar_t *v40; // [rsp+58h] [rbp-11h] BYREF
   __int64 v41; // [rsp+60h] [rbp-9h] BYREF
   const WCHAR *v42; // [rsp+68h] [rbp-1h] BYREF
@@ -122,7 +122,7 @@ __int64 __fastcall PiUEventNotifyUserMode(__int64 a1)
         v4 = v14 + 1;
       }
     }
-    v39 = *(_DWORD *)(a1 + 156) + 80 + 2 * v4;
+    Buffer = *(_DWORD *)(a1 + 156) + 80 + 2 * v4;
     Pool2 = ExAllocatePool2(0x100uLL);
     if ( !Pool2 )
       return (unsigned int)-1073741670;
@@ -242,8 +242,8 @@ LABEL_70:
       pszSrc[1] = *(STRSAFE_PCNZWCH *)(Pool2 + 24);
       Timeout.QuadPart = -10000 * (unsigned __int16)PiUEventSyncTimeoutMs;
       v23 = KeWaitForMultipleObjects(2u, (PVOID *)pszSrc, WaitAny, Executive, 0, 1u, &Timeout, 0LL);
-      v39 = 0;
-      ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)&v39);
+      Buffer = 0;
+      ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, &Buffer, 4u, 0LL, 0LL, 0, 0);
       if ( v23 )
       {
         if ( v23 == 1 )

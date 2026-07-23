@@ -35,7 +35,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeStoreEvictKeys(__int64 a1, uns
   unsigned int SessionId; // edx
   unsigned __int8 v17; // r14
   unsigned int v18; // r8d
-  unsigned __int64 v19; // rdi
+  __int64 v19; // rdi
   bool v20; // zf
   __int64 v21; // rcx
   __int64 v22; // rdx
@@ -130,7 +130,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeStoreEvictKeys(__int64 a1, uns
     v20 = !_BitScanReverse((unsigned int *)&v21, v18);
     if ( v20 )
       goto LABEL_26;
-    v19 = (unsigned __int64)&v15->LockEntries[v21];
+    v19 = (__int64)&v15->LockEntries[v21];
     v18 &= ~(1 << v21);
     if ( (*(_BYTE *)(v19 + 26) & 1) != 0
       && (*(_DWORD *)(v19 + 32) & 1) == 0
@@ -151,12 +151,12 @@ LABEL_26:
   }
   *(_BYTE *)(v19 + 32) |= 2u;
   if ( *(__int64 *)(v19 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v19);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
   v28 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
   *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v19 + 25) &= ~1u;
   *(_QWORD *)(v19 + 32) = 0LL;
-  v22 = (__int64)(v19 - (unsigned __int64)v15->LockEntries) / 96;
+  v22 = (signed __int64)(v19 - (unsigned __int64)v15->LockEntries) / 96;
   if ( v17 == 1 )
     v15->AbEntrySummary |= 1 << v22;
   else

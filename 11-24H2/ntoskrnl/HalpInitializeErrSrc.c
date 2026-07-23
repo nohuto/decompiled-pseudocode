@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInitializeErrSrc @ 0x140B4BB90
+ * XREFs of HalpInitializeErrSrc @ 0x140B4DBD0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInitializeNMI @ 0x140543E54 (HalpInitializeNMI.c)
- *     HalpInitializeCmc @ 0x140B4BAE8 (HalpInitializeCmc.c)
- *     HalpInitializeMce @ 0x140B4BBE4 (HalpInitializeMce.c)
- *     HalpInitializeGenericErrorSource @ 0x140B4E2D4 (HalpInitializeGenericErrorSource.c)
+ *     HalpInitializeNMI @ 0x1405417A4 (HalpInitializeNMI.c)
+ *     HalpInitializeCmc @ 0x140B4DB28 (HalpInitializeCmc.c)
+ *     HalpInitializeMce @ 0x140B4DC24 (HalpInitializeMce.c)
+ *     HalpInitializeGenericErrorSource @ 0x140B50324 (HalpInitializeGenericErrorSource.c)
  */
 
 __int64 __fastcall HalpInitializeErrSrc(__int64 a1, _DWORD *a2)

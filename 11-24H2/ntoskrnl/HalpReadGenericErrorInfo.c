@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpReadGenericErrorInfo @ 0x1404A0228
+ * XREFs of HalpReadGenericErrorInfo @ 0x14049A8A8
  * Callers:
- *     HalpCheckAndReportGhes @ 0x1404A01CC (HalpCheckAndReportGhes.c)
+ *     HalpCheckAndReportGhes @ 0x14049A84C (HalpCheckAndReportGhes.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HalpExtractGenericErrorData @ 0x1405546F4 (HalpExtractGenericErrorData.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HalpExtractGenericErrorData @ 0x140552034 (HalpExtractGenericErrorData.c)
  */
 
 __int64 __fastcall HalpReadGenericErrorInfo(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall HalpReadGenericErrorInfo(__int64 a1)
   v3 = *(_DWORD **)(a1 + 56);
   if ( !v3 )
   {
-    v5 = MmMapIoSpaceEx(*v2, *(unsigned int *)(a1 + 48), 0x204u);
+    v5 = MmMapIoSpaceEx(*v2, *(unsigned int *)(a1 + 48), 516LL);
     *(_QWORD *)(a1 + 56) = v5;
     v3 = (_DWORD *)v5;
     if ( !v5 )

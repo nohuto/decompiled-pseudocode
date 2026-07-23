@@ -7,7 +7,7 @@
  *     IopAcquireReferencesFromIoAttributionHandle @ 0x14020C5B0 (IopAcquireReferencesFromIoAttributionHandle.c)
  *     IoDiskIoAttributionDereference @ 0x14020C878 (IoDiskIoAttributionDereference.c)
  *     PsIoRateControlReference @ 0x14020C8C8 (PsIoRateControlReference.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
  */
 
 __int64 __fastcall IoGetIoRateControl(

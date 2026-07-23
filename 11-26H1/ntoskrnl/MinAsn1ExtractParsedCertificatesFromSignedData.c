@@ -1,11 +1,11 @@
 /*
- * XREFs of MinAsn1ExtractParsedCertificatesFromSignedData @ 0x1408A47BC
+ * XREFs of MinAsn1ExtractParsedCertificatesFromSignedData @ 0x1408AABCC
  * Callers:
- *     MincrypK_ParseCertificateChainWithPolicy2 @ 0x1408A1970 (MincrypK_ParseCertificateChainWithPolicy2.c)
+ *     MincrypK_ParseCertificateChainWithPolicy2 @ 0x1408A7D80 (MincrypK_ParseCertificateChainWithPolicy2.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MinAsn1ParseSignedData @ 0x1408A35AC (MinAsn1ParseSignedData.c)
- *     MinAsn1ParseSignedDataCertificatesEx @ 0x1408A35F0 (MinAsn1ParseSignedDataCertificatesEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MinAsn1ParseSignedData @ 0x1408A99BC (MinAsn1ParseSignedData.c)
+ *     MinAsn1ParseSignedDataCertificatesEx @ 0x1408A9A00 (MinAsn1ParseSignedDataCertificatesEx.c)
  */
 
 __int64 __fastcall MinAsn1ExtractParsedCertificatesFromSignedData(int a1, int a2, unsigned int *a3, __int64 a4)

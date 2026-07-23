@@ -1,10 +1,10 @@
 /*
- * XREFs of XmEmulateInterrupt @ 0x1403BE43C
+ * XREFs of XmEmulateInterrupt @ 0x1403BE61C
  * Callers:
- *     x86BiosExecuteInterruptShadowed @ 0x1403BE3E0 (x86BiosExecuteInterruptShadowed.c)
+ *     x86BiosExecuteInterruptShadowed @ 0x1403BE5C0 (x86BiosExecuteInterruptShadowed.c)
  * Callees:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
- *     x86BiosTranslateAddress @ 0x1403BEFC0 (x86BiosTranslateAddress.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
+ *     x86BiosTranslateAddress @ 0x1403BF1A0 (x86BiosTranslateAddress.c)
  */
 
 __int64 __fastcall XmEmulateInterrupt(unsigned __int8 a1, __int64 a2)

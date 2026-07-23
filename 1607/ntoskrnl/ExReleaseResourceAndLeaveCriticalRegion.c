@@ -1,10 +1,10 @@
 /*
- * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x140068100
+ * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x140067C80
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
  */
 
 void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)

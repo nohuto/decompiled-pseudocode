@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetNextIdleSearchTargetInGeneration @ 0x1403F5680
+ * XREFs of KiGetNextIdleSearchTargetInGeneration @ 0x1403EBAC0
  * Callers:
- *     KiSearchForNewThreadsWithinSearchContext @ 0x1404E9D80 (KiSearchForNewThreadsWithinSearchContext.c)
+ *     KiSearchForNewThreadsWithinSearchContext @ 0x1404E0D30 (KiSearchForNewThreadsWithinSearchContext.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiGetNextIdleSearchTargetInGeneration(
@@ -70,7 +70,7 @@ LABEL_14:
         v15 >>= (unsigned __int8)v24 + 1;
       }
       v25 = v22 - 1;
-      v26 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * *(unsigned __int16 *)(v16 + 136) + v25)];
+      v26 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * *(unsigned __int16 *)(v16 + 136) + v25)];
       if ( v14 == _InterlockedCompareExchange64(
                     (volatile signed __int64 *)(v13 + 8),
                     v14 & ~*(_QWORD *)(v26 + 36416),
@@ -108,16 +108,16 @@ LABEL_7:
   v21 = v18 - 1;
   if ( !_interlockedbittestandreset64((volatile signed __int32 *)v13, v21) )
     goto LABEL_10;
-  if ( !KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * *(unsigned __int16 *)(v16 + 136) + v21)] )
+  if ( !KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * *(unsigned __int16 *)(v16 + 136) + v21)] )
     KeBugCheckEx(
       0x200u,
       2uLL,
       v21 | ((unsigned __int64)*(unsigned __int16 *)(v16 + 136) << 8),
-      *((unsigned int *)qword_140F21E78 + 64 * *(unsigned __int16 *)(v16 + 136) + v21),
+      *((unsigned int *)qword_140F22998 + 64 * *(unsigned __int16 *)(v16 + 136) + v21),
       0LL);
   v27 = 0LL;
   v28 = 1;
-  v10 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * *(unsigned __int16 *)(v16 + 136) + v21)];
+  v10 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * *(unsigned __int16 *)(v16 + 136) + v21)];
 LABEL_19:
   *a4 = v11;
   *a5 = v10;

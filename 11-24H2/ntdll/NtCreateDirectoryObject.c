@@ -1,16 +1,19 @@
 /*
- * XREFs of NtCreateDirectoryObject @ 0x180163200
+ * XREFs of NtCreateDirectoryObject @ 0x1801615C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateDirectoryObject()
+NTSTATUS __cdecl NtCreateDirectoryObject(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 172LL;
+  result = 172;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

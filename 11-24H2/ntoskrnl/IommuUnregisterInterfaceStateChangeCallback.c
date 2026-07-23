@@ -1,14 +1,14 @@
 /*
- * XREFs of IommuUnregisterInterfaceStateChangeCallback @ 0x1405672D0
+ * XREFs of IommuUnregisterInterfaceStateChangeCallback @ 0x140564E60
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall IommuUnregisterInterfaceStateChangeCallback(__int64 a1, __int64 a2)
@@ -16,12 +16,12 @@ __int64 __fastcall IommuUnregisterInterfaceStateChangeCallback(__int64 a1, __int
   unsigned __int64 *v2; // rdi
   __int64 v5; // rsi
   unsigned int v6; // r14d
-  _QWORD *v7; // rax
-  _QWORD *v8; // rbx
+  char *v7; // rax
+  char *v8; // rbx
   __int64 v9; // rax
-  _QWORD *v10; // rax
+  char *v10; // rax
   signed __int8 v11; // cf
-  _QWORD *v12; // rsi
+  char *v12; // rsi
   _QWORD *v13; // rax
   __int64 v14; // r8
   _QWORD *v15; // rdx
@@ -30,25 +30,25 @@ __int64 __fastcall IommuUnregisterInterfaceStateChangeCallback(__int64 a1, __int
   v2 = (unsigned __int64 *)(a2 + 416);
   v5 = 0LL;
   v6 = 0;
-  v7 = KeAbPreAcquire(a2 + 416, 0LL);
+  v7 = (char *)KeAbPreAcquire(a2 + 416, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v2, (__int64)v7, (__int64)v2);
+    ExfAcquirePushLockExclusiveEx(v2, v7, (__int64)v2);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v9 = *(_QWORD *)(a2 + 80);
   if ( v9 && *(_QWORD *)(v9 + 16) == a1 )
   {
-    v10 = KeAbPreAcquire((__int64)&IommuInterfaceStateChangeCallbackPushLock, 0LL);
+    v10 = (char *)KeAbPreAcquire((__int64)&IommuInterfaceStateChangeCallbackPushLock, 0LL);
     v11 = _interlockedbittestandset64((volatile signed __int32 *)&IommuInterfaceStateChangeCallbackPushLock, 0LL);
     v12 = v10;
     if ( v11 )
       ExfAcquirePushLockExclusiveEx(
         &IommuInterfaceStateChangeCallbackPushLock,
-        (__int64)v10,
+        v10,
         (__int64)&IommuInterfaceStateChangeCallbackPushLock);
     if ( v12 )
-      *((_BYTE *)v12 + 10) = 1;
+      v12[10] = 1;
     v13 = *(_QWORD **)(a2 + 80);
     v14 = *v13;
     if ( *(_QWORD **)(*v13 + 8LL) != v13 || (v15 = (_QWORD *)v13[1], (_QWORD *)*v15 != v13) )

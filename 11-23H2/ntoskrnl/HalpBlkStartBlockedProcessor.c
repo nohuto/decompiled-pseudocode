@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBlkStartBlockedProcessor @ 0x140A986CC
+ * XREFs of HalpBlkStartBlockedProcessor @ 0x140A9853C
  * Callers:
- *     HalpInterruptStartBlockedProcessors @ 0x14051AA54 (HalpInterruptStartBlockedProcessors.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x14051AFA4 (HalpInterruptStartBlockedProcessors.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HalpInterruptStartProcessor @ 0x140A88D4C (HalpInterruptStartProcessor.c)
- *     HalpBlkInitializeProcessorState @ 0x140A984CC (HalpBlkInitializeProcessorState.c)
+ *     HalpBlkInitializeProcessorState @ 0x140A9833C (HalpBlkInitializeProcessorState.c)
  */
 
 __int64 __fastcall HalpBlkStartBlockedProcessor(int a1, unsigned int a2)

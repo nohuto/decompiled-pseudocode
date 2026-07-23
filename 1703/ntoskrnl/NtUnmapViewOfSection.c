@@ -8,5 +8,5 @@
 
 NTSTATUS __stdcall NtUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  return NtUnmapViewOfSectionEx(ProcessHandle, BaseAddress, 0LL);
+  return NtUnmapViewOfSectionEx(ProcessHandle, BaseAddress, 0);
 }

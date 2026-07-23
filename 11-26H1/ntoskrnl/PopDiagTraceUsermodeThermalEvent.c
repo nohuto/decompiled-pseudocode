@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceUsermodeThermalEvent @ 0x140B44D90
+ * XREFs of PopDiagTraceUsermodeThermalEvent @ 0x140B46DCC
  * Callers:
- *     PopThermalProcessUsermodeEvent @ 0x140B44A20 (PopThermalProcessUsermodeEvent.c)
+ *     PopThermalProcessUsermodeEvent @ 0x140B46A5C (PopThermalProcessUsermodeEvent.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceUsermodeThermalEvent(__int64 a1)
@@ -22,9 +22,9 @@ void __fastcall PopDiagTraceUsermodeThermalEvent(__int64 a1)
   __int64 v11; // [rsp+70h] [rbp+37h]
   __int64 v12; // [rsp+78h] [rbp+3Fh]
 
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_THERMAL_EVENT) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_EVENT) )
     {
       *(_QWORD *)&UserData.Size = 2LL;
       v4 = a1 + 14;
@@ -38,12 +38,7 @@ void __fastcall PopDiagTraceUsermodeThermalEvent(__int64 a1)
       v8 = 4LL;
       v10 = 4LL;
       v12 = 4LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_THERMAL_EVENT,
-        0LL,
-        5u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_THERMAL_EVENT, 0LL, 5u, &UserData);
     }
   }
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x1409665F8
+ * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x14094F088
  * Callers:
- *     NtEnumerateDriverEntries @ 0x1407BDBD0 (NtEnumerateDriverEntries.c)
- *     NtEnumerateSystemEnvironmentValuesEx @ 0x1407BE030 (NtEnumerateSystemEnvironmentValuesEx.c)
- *     NtEnumerateBootEntries @ 0x140965240 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x1407BE020 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateSystemEnvironmentValuesEx @ 0x1407BE480 (NtEnumerateSystemEnvironmentValuesEx.c)
+ *     NtEnumerateBootEntries @ 0x14094DCD0 (NtEnumerateBootEntries.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     IopOpenSystemVariableDevice @ 0x140967120 (IopOpenSystemVariableDevice.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     IopOpenSystemVariableDevice @ 0x14094FBB0 (IopOpenSystemVariableDevice.c)
  */
 
-__int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall IoEnumerateEnvironmentVariablesEx(int a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   int v7; // ebx
   PVOID v8; // rdi
@@ -42,7 +42,7 @@ __int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2
   if ( v7 >= 0 )
   {
     v8 = Object;
-    v7 = guard_dispatch_icall_no_overrides(Object, DeviceObject, a1, a2);
+    v7 = guard_dispatch_icall_no_overrides(Object, DeviceObject);
     if ( v8 )
       ObfDereferenceObject(v8);
   }
@@ -64,7 +64,13 @@ __int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2
     LODWORD(Object) = a1;
     LODWORD(v13) = v7;
     v25 = 1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06EB8, (unsigned __int8 *)&byte_1400461F7, 0LL, 0LL, 6u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140E06EB8,
+      (unsigned __int8 *)&dword_140046574,
+      0LL,
+      0LL,
+      6u,
+      &v14);
   }
   return (unsigned int)v7;
 }

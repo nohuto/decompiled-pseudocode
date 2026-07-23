@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCovIsLoadedModulePresent @ 0x1406B6E50
+ * XREFs of ExpCovIsLoadedModulePresent @ 0x1406B6F88
  * Callers:
- *     ExpCovQueryInfoCallBack @ 0x1406B7134 (ExpCovQueryInfoCallBack.c)
- *     ExpCovResetInfoCallBack @ 0x1406B79F4 (ExpCovResetInfoCallBack.c)
+ *     ExpCovQueryInfoCallBack @ 0x1406B726C (ExpCovQueryInfoCallBack.c)
+ *     ExpCovResetInfoCallBack @ 0x1406B7B2C (ExpCovResetInfoCallBack.c)
  * Callees:
- *     ExpCovIsModulePresent @ 0x1406B6E80 (ExpCovIsModulePresent.c)
+ *     ExpCovIsModulePresent @ 0x1406B6FB8 (ExpCovIsModulePresent.c)
  */
 
 char __fastcall ExpCovIsLoadedModulePresent(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

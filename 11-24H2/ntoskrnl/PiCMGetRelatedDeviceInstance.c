@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMGetRelatedDeviceInstance @ 0x1408BE750
+ * XREFs of PiCMGetRelatedDeviceInstance @ 0x1408BC0A0
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     StringExHandleOtherFlagsW @ 0x14041DE80 (StringExHandleOtherFlagsW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     PiCMCaptureObjectInputData @ 0x1408BEB90 (PiCMCaptureObjectInputData.c)
- *     PiGetRelatedDevice @ 0x1408BEE58 (PiGetRelatedDevice.c)
- *     PiCMReturnBufferResultData @ 0x1408C5620 (PiCMReturnBufferResultData.c)
- *     _CmGetDeviceParent @ 0x140926998 (_CmGetDeviceParent.c)
- *     _CmIsRootDevice @ 0x140926C14 (_CmIsRootDevice.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     StringExHandleOtherFlagsW @ 0x140412250 (StringExHandleOtherFlagsW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     PiCMCaptureObjectInputData @ 0x1408BC4E0 (PiCMCaptureObjectInputData.c)
+ *     PiGetRelatedDevice @ 0x1408BC818 (PiGetRelatedDevice.c)
+ *     PiCMReturnBufferResultData @ 0x1408C3020 (PiCMReturnBufferResultData.c)
+ *     _CmGetDeviceParent @ 0x140928AD8 (_CmGetDeviceParent.c)
+ *     _CmIsRootDevice @ 0x140928D54 (_CmIsRootDevice.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetRelatedDeviceInstance(
@@ -76,7 +76,7 @@ __int64 __fastcall PiCMGetRelatedDeviceInstance(
     v14 = a4 - 20;
   if ( v14 )
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v14, 0x34706E50u);
     if ( !Pool2 )
       inited = -1073741670;
     if ( inited < 0 )
@@ -158,7 +158,7 @@ LABEL_47:
   if ( inited >= 0 )
   {
     v33 = 400;
-    v26 = ExAllocatePool2(0x100uLL);
+    v26 = ExAllocatePool2(0x100uLL, 0x190uLL, 0x34706E50u);
     v10 = (_BYTE *)v26;
     if ( !v26 )
     {

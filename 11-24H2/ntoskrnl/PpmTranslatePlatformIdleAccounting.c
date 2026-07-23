@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmTranslatePlatformIdleAccounting @ 0x14032D708
+ * XREFs of PpmTranslatePlatformIdleAccounting @ 0x1404A7454
  * Callers:
- *     PpmEventTracePlatformIdleAccounting @ 0x140A9E804 (PpmEventTracePlatformIdleAccounting.c)
+ *     PpmEventTracePlatformIdleAccounting @ 0x140A99D74 (PpmEventTracePlatformIdleAccounting.c)
  * Callees:
- *     PpmConvertTimeTo @ 0x14032D92C (PpmConvertTimeTo.c)
+ *     PpmConvertTimeTo @ 0x140370A00 (PpmConvertTimeTo.c)
  */
 
 __int64 __fastcall PpmTranslatePlatformIdleAccounting(__int64 a1, __int64 a2)
@@ -38,17 +38,17 @@ __int64 __fastcall PpmTranslatePlatformIdleAccounting(__int64 a1, __int64 a2)
       *(_DWORD *)(v6 - 4) = *(_DWORD *)v8;
       *(_DWORD *)v6 = *(_DWORD *)(v8 - 4);
       *(_DWORD *)(v6 + 12) = *(_DWORD *)(v8 + 36);
-      *(_QWORD *)(v6 + 16) = PpmConvertTimeTo(*(_QWORD *)(v8 + 28), 1000000LL);
-      *(_DWORD *)(v6 + 8) = PpmConvertTimeTo(*(_QWORD *)(v8 + 20), 1000000LL);
-      *(_DWORD *)(v6 + 4) = PpmConvertTimeTo(*(_QWORD *)(v8 + 12), 1000000LL);
+      *(_QWORD *)(v6 + 16) = PpmConvertTimeTo(*(_QWORD *)(v8 + 28), 0xF4240uLL);
+      *(_DWORD *)(v6 + 8) = PpmConvertTimeTo(*(_QWORD *)(v8 + 20), 0xF4240uLL);
+      *(_DWORD *)(v6 + 4) = PpmConvertTimeTo(*(_QWORD *)(v8 + 12), 0xF4240uLL);
       v10 = (_DWORD *)(v6 + 44);
       v11 = v8 + 204;
       v12 = 26LL;
       do
       {
-        *(_QWORD *)(v10 - 3) = PpmConvertTimeTo(*(_QWORD *)(v11 - 16), 1000000LL);
-        *(v10 - 1) = PpmConvertTimeTo(*(_QWORD *)(v11 - 8), 1000000LL);
-        *v10 = PpmConvertTimeTo(*(_QWORD *)v11, 1000000LL);
+        *(_QWORD *)(v10 - 3) = PpmConvertTimeTo(*(_QWORD *)(v11 - 16), 0xF4240uLL);
+        *(v10 - 1) = PpmConvertTimeTo(*(_QWORD *)(v11 - 8), 0xF4240uLL);
+        *v10 = PpmConvertTimeTo(*(_QWORD *)v11, 0xF4240uLL);
         v10 += 6;
         result = *(unsigned int *)(v11 + 8);
         v11 += 32LL;

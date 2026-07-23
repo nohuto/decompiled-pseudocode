@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetDriverEntryOrder @ 0x1406A97F0
+ * XREFs of ZwSetDriverEntryOrder @ 0x1406AA790
  * Callers:
- *     DifZwSetDriverEntryOrderWrapper @ 0x140647CE0 (DifZwSetDriverEntryOrderWrapper.c)
+ *     DifZwSetDriverEntryOrderWrapper @ 0x1406462A0 (DifZwSetDriverEntryOrderWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetDriverEntryOrder(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetDriverEntryOrder(PULONG Ids, ULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Ids);
 }

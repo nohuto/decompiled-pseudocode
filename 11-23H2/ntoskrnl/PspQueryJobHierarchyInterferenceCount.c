@@ -1,5 +1,5 @@
 /*
- * XREFs of PspQueryJobHierarchyInterferenceCount @ 0x1409B2630
+ * XREFs of PspQueryJobHierarchyInterferenceCount @ 0x1409B2830
  * Callers:
  *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
  * Callees:

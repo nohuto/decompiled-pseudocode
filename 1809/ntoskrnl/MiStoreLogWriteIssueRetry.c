@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogWriteIssueRetry @ 0x1402C4244
+ * XREFs of MiStoreLogWriteIssueRetry @ 0x1402C4434
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CCA0 (MiStoreWriteModifiedPages.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiStoreLogWriteIssueRetry(__int64 a1, int a2, int a3, __int64 a4, int a5)
@@ -72,7 +72,7 @@ void __fastcall MiStoreLogWriteIssueRetry(__int64 a1, int a2, int a3, __int64 a4
       v31 = 4;
       v34 = 4;
       v37 = 4;
-      TlgWriteEx(v9, &unk_14036E634, v7, v8, v12, v13, 8u, &pData);
+      TlgWriteEx(v9, &unk_14036F6CA, v7, v8, v12, v13, 8u, &pData);
     }
   }
 }

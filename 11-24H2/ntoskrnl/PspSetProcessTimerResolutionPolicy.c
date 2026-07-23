@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetProcessTimerResolutionPolicy @ 0x1409B1F30
+ * XREFs of PspSetProcessTimerResolutionPolicy @ 0x1409A9280
  * Callers:
  *     <none>
  * Callees:
- *     ExUpdateTimerResolutionPolicy @ 0x1409B1F4C (ExUpdateTimerResolutionPolicy.c)
+ *     ExUpdateTimerResolutionPolicy @ 0x1409A929C (ExUpdateTimerResolutionPolicy.c)
  */
 
 __int64 __fastcall PspSetProcessTimerResolutionPolicy(__int64 a1, __int64 a2)

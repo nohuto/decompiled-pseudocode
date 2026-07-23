@@ -51,32 +51,32 @@ void __fastcall __noreturn TppWorkerThread(__int64 a1)
   __int64 v4; // rdx
   char v5; // r8
   signed __int64 v6; // rtt
-  struct _PEB *v7; // rbx
-  _LIST_ENTRY *Blink; // rcx
-  _QWORD *v9; // rbx
-  __int64 v10; // rdi
-  _OWORD *Heap; // rax
-  int v12; // ecx
+  _RTL_SRWLOCK *v7; // rbx
+  struct _PEB **Blink; // rcx
+  PPORT_MESSAGE AlpcSendMessage; // rbx
+  PPORT_MESSAGE v10; // rdi
+  char *Heap; // rax
+  NTSTATUS v12; // ecx
   int v13; // eax
   __int64 v14; // rbx
   __int64 v15; // rdi
-  __int64 v16; // r14
+  __int64 AlpcSendMessagePort_low; // r14
   int v17; // eax
   int v18; // eax
-  int v19; // edx
+  ULONG v19; // edx
   int v20; // edx
-  int v21; // ecx
-  int v22; // ecx
+  NTSTATUS v21; // ecx
+  NTSTATUS v22; // ecx
   __int64 v23; // rcx
   unsigned __int16 v24; // r15
   unsigned __int16 v25; // r12
   __int64 v26; // rcx
-  int v27; // edi
+  ULONG v27; // edi
   signed __int64 v28; // rax
   signed __int64 v29; // rtt
-  struct _PEB *v30; // rbx
-  __int64 v31; // rax
-  __int64 v32; // rdx
+  _RTL_SRWLOCK *v30; // rbx
+  PVOID AlpcSendMessagePort; // rax
+  PPORT_MESSAGE v32; // rdx
   char v33; // [rsp+31h] [rbp-2B7h] BYREF
   char v34; // [rsp+32h] [rbp-2B6h]
   char v35; // [rsp+33h] [rbp-2B5h]
@@ -86,20 +86,20 @@ void __fastcall __noreturn TppWorkerThread(__int64 a1)
   char v39; // [rsp+37h] [rbp-2B1h]
   bool v40; // [rsp+38h] [rbp-2B0h]
   int v41; // [rsp+3Ch] [rbp-2ACh]
-  int v42; // [rsp+40h] [rbp-2A8h]
-  unsigned int v43; // [rsp+44h] [rbp-2A4h]
-  int v44; // [rsp+48h] [rbp-2A0h] BYREF
+  NTSTATUS v42; // [rsp+40h] [rbp-2A8h]
+  ULONG Count; // [rsp+44h] [rbp-2A4h]
+  ULONG PacketsReturned; // [rsp+48h] [rbp-2A0h] BYREF
   __int64 v45; // [rsp+50h] [rbp-298h]
   struct _PEB *v46; // [rsp+58h] [rbp-290h]
   signed __int64 v47; // [rsp+60h] [rbp-288h]
-  _QWORD *v48; // [rsp+68h] [rbp-280h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp-280h] BYREF
   signed __int64 v49; // [rsp+70h] [rbp-278h]
-  _OWORD *v50; // [rsp+78h] [rbp-270h]
+  PFILE_IO_COMPLETION_INFORMATION MiniPackets; // [rsp+78h] [rbp-270h]
   int v51; // [rsp+80h] [rbp-268h] BYREF
-  int v52; // [rsp+88h] [rbp-260h] BYREF
+  int WorkerFactoryInformation; // [rsp+88h] [rbp-260h] BYREF
   HANDLE v53; // [rsp+90h] [rbp-258h] BYREF
-  void (__fastcall ***v54)(char *); // [rsp+98h] [rbp-250h] BYREF
-  int v55; // [rsp+A0h] [rbp-248h]
+  void (__fastcall ***v54)(PVOID *); // [rsp+98h] [rbp-250h] BYREF
+  ULONG v55; // [rsp+A0h] [rbp-248h]
   __int64 v56; // [rsp+B8h] [rbp-230h]
   struct _TEB *v57; // [rsp+D0h] [rbp-218h]
   struct _TEB *v58; // [rsp+D8h] [rbp-210h]
@@ -109,8 +109,8 @@ void __fastcall __noreturn TppWorkerThread(__int64 a1)
   struct _TEB *v62; // [rsp+100h] [rbp-1E8h]
   struct _TEB *v63; // [rsp+108h] [rbp-1E0h]
   struct _TEB *v64; // [rsp+110h] [rbp-1D8h]
-  _OWORD v65[23]; // [rsp+130h] [rbp-1B8h] BYREF
-  _QWORD v66[2]; // [rsp+2A0h] [rbp-48h] BYREF
+  _WORKER_FACTORY_DEFERRED_WORK DeferredWork[15]; // [rsp+130h] [rbp-1B8h] BYREF
+  _QWORD ThreadInformation[2]; // [rsp+2A0h] [rbp-48h] BYREF
 
   v47 = a1;
   v53 = 0LL;
@@ -122,92 +122,101 @@ void __fastcall __noreturn TppWorkerThread(__int64 a1)
   v33 = 0;
   v39 = 0;
   v37 = 0;
-  v48 = 0LL;
+  BaseAddress = 0LL;
   v41 = 0;
   RtlRegisterThreadWithCsrss();
   v46 = NtCurrentPeb();
   TppCritSetThread(&v53);
-  TppAllocThreadData(&v48);
-  if ( v48 )
-    *v48 = v65;
-  memset(v65, 0, 0x168uLL);
-  RtlAcquireSRWLockShared(a1 + 368);
+  TppAllocThreadData(&BaseAddress);
+  if ( BaseAddress )
+    *(_QWORD *)BaseAddress = DeferredWork;
+  memset(DeferredWork, 0, sizeof(DeferredWork));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 368));
   if ( *(_BYTE *)(a1 + 377) )
   {
     v42 = -1073741558;
   }
   else
   {
-    v42 = NtWorkerFactoryWorkerReady(*(_QWORD *)(a1 + 56));
+    v42 = NtWorkerFactoryWorkerReady(*(HANDLE *)(a1 + 56));
     if ( v42 >= 0 )
     {
       _InterlockedIncrement((volatile signed __int32 *)a1);
       v2 = v38;
 LABEL_17:
-      RtlReleaseSRWLockShared(a1 + 368);
+      RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 368));
       if ( v2 )
         goto LABEL_105;
-      TppPoolAddWorker(a1, (__int64)v65);
+      TppPoolAddWorker((_RTL_SRWLOCK *)a1, (__int64)DeferredWork);
       v36 = 1;
-      v7 = v46;
-      RtlAcquireSRWLockExclusive(&v46->TppWorkerpListLock);
-      Blink = v46->TppWorkerpList.Blink;
-      if ( Blink->Flink != &v46->TppWorkerpList )
+      v7 = (_RTL_SRWLOCK *)v46;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)&v46->TppWorkerpListLock);
+      Blink = (struct _PEB **)v46->TppWorkerpList.Blink;
+      if ( *Blink != (struct _PEB *)&v46->TppWorkerpList )
         __fastfail(3u);
-      *(_QWORD *)&v65[0] = &v46->TppWorkerpList;
-      *((_QWORD *)&v65[0] + 1) = Blink;
-      Blink->Flink = (_LIST_ENTRY *)v65;
-      v7->TppWorkerpList.Blink = (_LIST_ENTRY *)v65;
+      DeferredWork[0].AlpcSendMessage = (PPORT_MESSAGE)&v46->TppWorkerpList;
+      DeferredWork[0].AlpcSendMessagePort = Blink;
+      *Blink = (struct _PEB *)DeferredWork;
+      v7[115].Value = (unsigned __int64)DeferredWork;
       v35 = 1;
-      RtlReleaseSRWLockExclusive(&v7->TppWorkerpListLock);
-      memset((char *)&v65[3] + 8, 0, 0xF8uLL);
+      RtlReleaseSRWLockExclusive(v7 + 113);
+      memset(&DeferredWork[2].AlpcSendMessagePort, 0, 0xF8uLL);
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 416));
       v34 = 1;
-      TppGetCurrentThreadNumaNode(a1, (char *)&v65[21] + 8, 0LL);
+      TppGetCurrentThreadNumaNode(a1, &DeferredWork[14].AlpcSendMessagePort, 0LL);
       while ( 1 )
       {
 LABEL_21:
         v41 = 0;
-        memset(&v65[19], 0, 32);
-        v9 = *(_QWORD **)&v65[21];
-        v43 = 16;
-        if ( *(_QWORD *)&v65[21] )
+        *(_OWORD *)&DeferredWork[12].AlpcSendMessageFlags = 0LL;
+        *(_OWORD *)&DeferredWork[13].AlpcSendMessagePort = 0LL;
+        AlpcSendMessage = DeferredWork[14].AlpcSendMessage;
+        Count = 16;
+        if ( DeferredWork[14].AlpcSendMessage )
         {
-          if ( *(_DWORD *)(*(_QWORD *)&v65[21] + 8LL) != 1 )
+          if ( LODWORD(DeferredWork[14].AlpcSendMessage->DoNotUseThisField) != 1 )
             goto LABEL_86;
-          v10 = *(_QWORD *)&v65[21];
-          memset(**(void ***)&v65[21], 0, 56LL * *(unsigned int *)(*(_QWORD *)&v65[21] + 12LL));
-          v43 = *(_DWORD *)(v10 + 12);
-          Heap = (_OWORD *)*v9;
+          v10 = DeferredWork[14].AlpcSendMessage;
+          memset(
+            *(void **)DeferredWork[14].AlpcSendMessage,
+            0,
+            56LL * HIDWORD(DeferredWork[14].AlpcSendMessage->DoNotUseThisField));
+          Count = HIDWORD(v10->DoNotUseThisField);
+          Heap = *(char **)&AlpcSendMessage->u1.s1.DataLength;
         }
         else
         {
           v55 = TppHeapTag + 3145728;
-          Heap = (_OWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 3145728) | 8u, 912LL);
+          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 3145728) | 8, 0x390uLL);
           if ( !Heap )
           {
 LABEL_86:
-            v43 = 1;
-            Heap = &v65[19];
+            Count = 1;
+            Heap = (char *)&DeferredWork[12].AlpcSendMessageFlags;
             goto LABEL_24;
           }
           *((_QWORD *)Heap + 112) = Heap;
           *((_DWORD *)Heap + 226) = 1;
           *((_DWORD *)Heap + 227) = 16;
-          *(_QWORD *)&v65[21] = Heap + 56;
-          v43 = 16;
+          DeferredWork[14].AlpcSendMessage = (PPORT_MESSAGE)(Heap + 896);
+          Count = 16;
         }
 LABEL_24:
-        v50 = Heap;
-        v44 = 0;
-        v12 = ZwWaitForWorkViaWorkerFactory(*(_QWORD *)(a1 + 56), Heap, v43, &v44, (char *)&v65[16] + 8);
+        MiniPackets = (PFILE_IO_COMPLETION_INFORMATION)Heap;
+        PacketsReturned = 0;
+        v12 = ZwWaitForWorkViaWorkerFactory(
+                *(HANDLE *)(a1 + 56),
+                (PFILE_IO_COMPLETION_INFORMATION)Heap,
+                Count,
+                &PacketsReturned,
+                &DeferredWork[11]);
         v42 = v12;
         if ( v12 )
-          v44 = 0;
-        if ( (BYTE12(v65[17]) & 1) != 0 )
+          PacketsReturned = 0;
+        if ( (DeferredWork[11].Flags & 1) != 0 )
         {
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, *((_QWORD *)&v65[16] + 1));
-          HIDWORD(v65[17]) &= ~1u;
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, DeferredWork[11].AlpcSendMessage);
+          DeferredWork[11].Flags &= ~1u;
           v12 = v42;
         }
         if ( v12 )
@@ -235,29 +244,36 @@ LABEL_24:
             v13 = MEMORY[0x7FFE03C0];
           if ( *(_DWORD *)(a1 + 424) != v13 )
           {
-            RtlAcquireSRWLockExclusive(a1 + 72);
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
             TppAdjustRunningThreadGoalWithLock(a1);
-            RtlReleaseSRWLockExclusive(a1 + 72);
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
           }
-          if ( (unsigned __int8)TppPrepareDirectParams((unsigned int)v65, (_DWORD)v50, v44, v43, a1, (__int64)&v33) )
+          if ( (unsigned __int8)TppPrepareDirectParams(
+                                  (unsigned int)DeferredWork,
+                                  (_DWORD)MiniPackets,
+                                  PacketsReturned,
+                                  Count,
+                                  a1,
+                                  (__int64)&v33) )
             goto LABEL_105;
           if ( !v33 )
           {
-            v14 = *(_QWORD *)&v65[19];
-            if ( *(_QWORD *)&v65[19] )
+            v14 = *(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags;
+            if ( *(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags )
             {
-              v56 = *(_QWORD *)&v65[19];
-              *(_QWORD *)&v65[9] = *(_QWORD *)(*(_QWORD *)&v65[19] + 56LL);
-              *((_QWORD *)&v65[9] + 1) = *(_QWORD *)&v65[19];
-              v51 = *(unsigned __int8 *)(*(_QWORD *)&v65[19] + 68LL);
-              v15 = *(unsigned int *)(*(_QWORD *)&v65[19] + 64LL);
-              v16 = DWORD2(v65[21]);
+              v56 = *(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags;
+              DeferredWork[6].AlpcSendMessage = *(PPORT_MESSAGE *)(*(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags
+                                                                 + 56LL);
+              DeferredWork[6].AlpcSendMessagePort = *(PVOID *)&DeferredWork[12].AlpcSendMessageFlags;
+              v51 = *(unsigned __int8 *)(*(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags + 68LL);
+              v15 = *(unsigned int *)(*(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags + 64LL);
+              AlpcSendMessagePort_low = LODWORD(DeferredWork[14].AlpcSendMessagePort);
               v17 = *(_DWORD *)(a1 + 428);
-              if ( (_DWORD)v15 == DWORD2(v65[21]) )
+              if ( (_DWORD)v15 == LODWORD(DeferredWork[14].AlpcSendMessagePort) )
               {
-                if ( v17 == -1 && !LOBYTE(v65[22]) )
+                if ( v17 == -1 && !LOBYTE(DeferredWork[14].AlpcSendMessageFlags) )
                 {
-                  LOBYTE(v65[22]) = 1;
+                  LOBYTE(DeferredWork[14].AlpcSendMessageFlags) = 1;
                   _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4 * v15));
                 }
               }
@@ -265,103 +281,107 @@ LABEL_24:
               {
                 if ( v17 == -1 )
                 {
-                  if ( LOBYTE(v65[22]) )
-                    _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * DWORD2(v65[21])));
+                  if ( LOBYTE(DeferredWork[14].AlpcSendMessageFlags) )
+                    _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40)
+                                                                    + 4LL
+                                                                    * LODWORD(DeferredWork[14].AlpcSendMessagePort)));
                   else
-                    LOBYTE(v65[22]) = 1;
+                    LOBYTE(DeferredWork[14].AlpcSendMessageFlags) = 1;
                   _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4 * v15));
                 }
-                DWORD2(v65[21]) = v15;
+                LODWORD(DeferredWork[14].AlpcSendMessagePort) = v15;
                 v23 = *(_QWORD *)(a1 + 48);
                 v24 = *(_WORD *)(16 * v15 + v23 + 8);
-                v25 = *(_WORD *)(v23 + 16 * v16 + 8);
-                if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+                v25 = *(_WORD *)(v23 + 16 * AlpcSendMessagePort_low + 8);
+                if ( RtlGetCurrentServiceSessionId() )
                   v26 = (__int64)NtCurrentPeb()->SharedData + 556;
                 else
                   v26 = 2147353478LL;
                 if ( *(_BYTE *)v26 )
-                  TppETWWorkerNodeSwitch(a1, v16, v15, v25, v24);
+                  TppETWWorkerNodeSwitch(a1, AlpcSendMessagePort_low, v15, v25, v24);
                 if ( v25 != v24 )
                 {
-                  v66[1] = v24;
-                  v66[0] = 0LL;
-                  NtSetInformationThread(-2LL, 30LL, v66, 16LL);
-                  NtSetInformationThread(-2LL, 13LL, &v51, 4LL);
+                  ThreadInformation[1] = v24;
+                  ThreadInformation[0] = 0LL;
+                  NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, ThreadInformation, 0x10u);
+                  NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessor, &v51, 4u);
                 }
               }
               v57 = NtCurrentTeb();
-              v65[18] = v57->ActivityId;
-              if ( *((_QWORD *)&v65[11] + 1) && (*(_BYTE *)(*((_QWORD *)&v65[11] + 1) + 436LL) & 1) == 0 )
+              *(_GUID *)&DeferredWork[12].AlpcSendMessage = v57->ActivityId;
+              if ( *(_QWORD *)&DeferredWork[7].AlpcSendMessageFlags
+                && (*(_BYTE *)(*(_QWORD *)&DeferredWork[7].AlpcSendMessageFlags + 436LL) & 1) == 0 )
               {
-                v27 = LODWORD(v65[10]) | 8;
-                LODWORD(v65[10]) |= 8u;
+                v27 = DeferredWork[6].AlpcSendMessageFlags | 8;
+                DeferredWork[6].AlpcSendMessageFlags |= 8u;
                 v58 = NtCurrentTeb();
                 if ( v58->IsImpersonating )
                 {
                   v27 |= 4u;
-                  LODWORD(v65[10]) = v27;
+                  DeferredWork[6].AlpcSendMessageFlags = v27;
                 }
                 if ( TppCheckForTransactions() )
                 {
                   v27 |= 0x10u;
-                  LODWORD(v65[10]) = v27;
+                  DeferredWork[6].AlpcSendMessageFlags = v27;
                 }
-                if ( (unsigned int)RtlIsCriticalSectionLockedByThread(NtCurrentPeb()->LoaderLock) )
-                  LODWORD(v65[10]) = v27 | 0x20;
+                if ( RtlIsCriticalSectionLockedByThread(NtCurrentPeb()->LoaderLock) )
+                  DeferredWork[6].AlpcSendMessageFlags = v27 | 0x20;
                 v59 = NtCurrentTeb();
                 if ( v59->PreferredLanguages )
-                  LODWORD(v65[10]) |= 0x40u;
+                  DeferredWork[6].AlpcSendMessageFlags |= 0x40u;
                 v60 = NtCurrentTeb();
                 if ( v60->SavedPriorityState )
-                  LODWORD(v65[10]) |= 0x80u;
+                  DeferredWork[6].AlpcSendMessageFlags |= 0x80u;
               }
-              (*(void (__fastcall **)(char *, __int64, _QWORD, _OWORD *))(v14 + 56))(
-                (char *)&v65[3] + 8,
+              (*(void (__fastcall **)(PVOID *, __int64, PPORT_MESSAGE, PVOID *))(v14 + 56))(
+                &DeferredWork[2].AlpcSendMessagePort,
                 v56,
-                *((_QWORD *)&v65[19] + 1),
-                &v65[20]);
+                DeferredWork[13].AlpcSendMessage,
+                &DeferredWork[13].AlpcSendMessagePort);
               goto LABEL_40;
             }
             while ( 1 )
             {
-              if ( !(unsigned int)TppWorkerFindTask(a1, v65, &v54) )
+              if ( !(unsigned int)TppWorkerFindTask(a1, DeferredWork, &v54) )
                 goto LABEL_105;
-              if ( (BYTE12(v65[17]) & 1) != 0 )
+              if ( (DeferredWork[11].Flags & 1) != 0 )
               {
-                TppCallbackSendAndDestroyAlpcMessage((char *)&v65[3] + 8, v4);
-                HIDWORD(v65[17]) &= ~1u;
+                TppCallbackSendAndDestroyAlpcMessage(&DeferredWork[2].AlpcSendMessagePort, v4);
+                DeferredWork[11].Flags &= ~1u;
               }
-              *(_QWORD *)&v65[2] = v54;
-              *(_QWORD *)&v65[9] = **v54;
-              *((_QWORD *)&v65[9] + 1) = v54;
-              *((_QWORD *)&v65[11] + 1) = *(_QWORD *)&v65[3];
+              DeferredWork[1].AlpcSendMessagePort = v54;
+              DeferredWork[6].AlpcSendMessage = (PPORT_MESSAGE)**v54;
+              DeferredWork[6].AlpcSendMessagePort = v54;
+              *(_QWORD *)&DeferredWork[7].AlpcSendMessageFlags = DeferredWork[2].AlpcSendMessage;
               v61 = NtCurrentTeb();
-              v65[18] = v61->ActivityId;
-              if ( *(_QWORD *)&v65[3] && (*(_BYTE *)(*(_QWORD *)&v65[3] + 436LL) & 1) == 0 )
+              *(_GUID *)&DeferredWork[12].AlpcSendMessage = v61->ActivityId;
+              if ( DeferredWork[2].AlpcSendMessage
+                && (*(_BYTE *)(&DeferredWork[2].AlpcSendMessage[10].CallbackId + 1) & 1) == 0 )
               {
-                v19 = LODWORD(v65[10]) | 8;
-                LODWORD(v65[10]) |= 8u;
+                v19 = DeferredWork[6].AlpcSendMessageFlags | 8;
+                DeferredWork[6].AlpcSendMessageFlags |= 8u;
                 v62 = NtCurrentTeb();
                 if ( v62->IsImpersonating )
-                  LODWORD(v65[10]) = v19 | 4;
+                  DeferredWork[6].AlpcSendMessageFlags = v19 | 4;
                 if ( TppCheckForTransactions() )
-                  LODWORD(v65[10]) = v20 | 0x10;
+                  DeferredWork[6].AlpcSendMessageFlags = v20 | 0x10;
                 if ( NtCurrentPeb()->LoaderLock->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
-                  LODWORD(v65[10]) |= 0x20u;
+                  DeferredWork[6].AlpcSendMessageFlags |= 0x20u;
                 v63 = NtCurrentTeb();
                 if ( v63->PreferredLanguages )
-                  LODWORD(v65[10]) |= 0x40u;
+                  DeferredWork[6].AlpcSendMessageFlags |= 0x40u;
                 v64 = NtCurrentTeb();
                 if ( v64->SavedPriorityState )
-                  LODWORD(v65[10]) |= 0x80u;
+                  DeferredWork[6].AlpcSendMessageFlags |= 0x80u;
               }
-              (**v54)((char *)&v65[3] + 8);
+              (**v54)(&DeferredWork[2].AlpcSendMessagePort);
 LABEL_40:
-              if ( (BYTE4(v65[8]) & 4) != 0 )
+              if ( (BYTE4(DeferredWork[5].AlpcSendMessagePort) & 4) != 0 )
                 v39 = 1;
-              v40 = LODWORD(v65[8]) == 4;
-              TppCallbackEpilog((char *)&v65[3] + 8);
-              *(_QWORD *)&v65[2] = 0LL;
+              v40 = LODWORD(DeferredWork[5].AlpcSendMessagePort) == 4;
+              TppCallbackEpilog(&DeferredWork[2].AlpcSendMessagePort);
+              DeferredWork[1].AlpcSendMessagePort = 0LL;
               if ( v39 )
                 break;
               v18 = *(_DWORD *)(a1 + 440);
@@ -369,9 +389,9 @@ LABEL_40:
                 v18 = MEMORY[0x7FFE03C0];
               if ( *(_DWORD *)(a1 + 424) != v18 )
               {
-                RtlAcquireSRWLockExclusive(a1 + 72);
+                RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
                 TppAdjustRunningThreadGoalWithLock(a1);
-                RtlReleaseSRWLockExclusive(a1 + 72);
+                RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
               }
               _m_prefetchw((const void *)(a1 + 8));
               v3 = *(_QWORD *)(a1 + 8);
@@ -411,35 +431,42 @@ LABEL_40:
               v47 = v28;
             }
             while ( v29 != v28 );
-            v52 = 3;
-            NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 9LL, &v52);
+            WorkerFactoryInformation = 3;
+            NtSetInformationWorkerFactory(
+              *(HANDLE *)(a1 + 56),
+              WorkerFactoryCallbackType,
+              &WorkerFactoryInformation,
+              4u);
 LABEL_105:
-            if ( (BYTE12(v65[17]) & 1) != 0 )
+            if ( (DeferredWork[11].Flags & 1) != 0 )
             {
-              TppCallbackSendAndDestroyAlpcMessage((char *)&v65[3] + 8, v4);
-              HIDWORD(v65[17]) &= ~1u;
+              TppCallbackSendAndDestroyAlpcMessage(&DeferredWork[2].AlpcSendMessagePort, v4);
+              DeferredWork[11].Flags &= ~1u;
             }
             if ( v34 )
               _InterlockedDecrement((volatile signed __int32 *)(a1 + 416));
             if ( v35 )
             {
-              v30 = v46;
-              RtlAcquireSRWLockExclusive(&v46->TppWorkerpListLock);
-              v31 = *((_QWORD *)&v65[0] + 1);
-              v32 = *(_QWORD *)&v65[0];
-              if ( *(_OWORD **)(*(_QWORD *)&v65[0] + 8LL) != v65 || **((_OWORD ***)&v65[0] + 1) != v65 )
+              v30 = (_RTL_SRWLOCK *)v46;
+              RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)&v46->TppWorkerpListLock);
+              AlpcSendMessagePort = DeferredWork[0].AlpcSendMessagePort;
+              v32 = DeferredWork[0].AlpcSendMessage;
+              if ( DeferredWork[0].AlpcSendMessage->ClientId.UniqueProcess != DeferredWork
+                || *(_WORKER_FACTORY_DEFERRED_WORK **)DeferredWork[0].AlpcSendMessagePort != DeferredWork )
+              {
                 __fastfail(3u);
-              **((_QWORD **)&v65[0] + 1) = *(_QWORD *)&v65[0];
-              *(_QWORD *)(v32 + 8) = v31;
-              RtlReleaseSRWLockExclusive(&v30->TppWorkerpListLock);
+              }
+              *(_QWORD *)DeferredWork[0].AlpcSendMessagePort = DeferredWork[0].AlpcSendMessage;
+              v32->ClientId.UniqueProcess = AlpcSendMessagePort;
+              RtlReleaseSRWLockExclusive(v30 + 113);
             }
             if ( v36 )
             {
-              TppPoolRemoveWorker(v65, v4);
+              TppPoolRemoveWorker(DeferredWork, v4);
               if ( v37 )
                 TppPoolUpdateTrimmedWorker(a1);
             }
-            if ( a1 == TppPoolpGlobalPool )
+            if ( (PVOID)a1 == TppPoolpGlobalPool )
             {
               TppPoolpDereferenceGlobalPool(&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
             }
@@ -449,11 +476,11 @@ LABEL_105:
             }
             else if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
             {
-              TppPoolpFree(a1, v4);
+              TppPoolpFree((PVOID)a1);
             }
             TppCritResetThread(v53, v4);
-            TppFreeThreadData(v48);
-            TppFreeDirectParamsCache(v65);
+            TppFreeThreadData(BaseAddress);
+            TppFreeDirectParamsCache(DeferredWork);
             v42 = 0;
             RtlExitUserThread(0);
           }

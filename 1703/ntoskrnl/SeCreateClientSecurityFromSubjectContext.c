@@ -21,27 +21,27 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
   int v10; // r8d
   int v11; // r14d
   NTSTATUS ClientSecurity; // edi
-  __int64 v14; // rbp
-  char v15; // [rsp+A0h] [rbp+8h] BYREF
+  void *v14; // rbp
+  BOOLEAN DominatesTrust; // [rsp+A0h] [rbp+8h] BYREF
   BOOLEAN v16; // [rsp+B0h] [rbp+18h]
 
   v16 = ServerIsRemote;
   ClientToken = SubjectContext->ClientToken;
   v5 = 0;
   v6 = 0LL;
-  v15 = 0;
+  DominatesTrust = 0;
   if ( !ClientToken )
     ClientToken = SubjectContext->PrimaryToken;
   ObfReferenceObject(ClientToken);
   if ( SubjectContext->ClientToken )
   {
     v11 = 2;
-    v14 = *((_QWORD *)SubjectContext->PrimaryToken + 138);
-    RtlSidDominatesForTrust(v14, *((_QWORD *)SubjectContext->ClientToken + 138), &v15);
-    if ( !v15 )
+    v14 = (void *)*((_QWORD *)SubjectContext->PrimaryToken + 138);
+    RtlSidDominatesForTrust(v14, *((PSID *)SubjectContext->ClientToken + 138), &DominatesTrust);
+    if ( !DominatesTrust )
     {
       v5 = 1;
-      v6 = v14;
+      v6 = (__int64)v14;
     }
   }
   else

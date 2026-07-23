@@ -1,7 +1,7 @@
 /*
- * XREFs of MayBeLocaleName @ 0x180122E14
+ * XREFs of MayBeLocaleName @ 0x180122B84
  * Callers:
- *     LdrpFusionManifestCodePages @ 0x1800D55E8 (LdrpFusionManifestCodePages.c)
+ *     LdrpFusionManifestCodePages @ 0x1800DD338 (LdrpFusionManifestCodePages.c)
  * Callees:
  *     <none>
  */

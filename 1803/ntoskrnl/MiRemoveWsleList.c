@@ -142,7 +142,7 @@ __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, char *a3, unsigned _
     if ( (*(_BYTE *)(a1 + 184) & 7) != 4 )
       goto LABEL_10;
     if ( PsNtosImageBase
-      && (v22 < PsNtosImageEnd && v22 >= PsNtosImageBase
+      && (v22 < PsNtosImageEnd && v22 >= (unsigned __int64)PsNtosImageBase
        || v22 < PsHalImageEnd && v22 >= (unsigned __int64)PsHalImageBase) )
     {
       LODWORD(v75) = ++v14;

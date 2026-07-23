@@ -1,16 +1,20 @@
 /*
- * XREFs of NtSetInformationEnlistment @ 0x1800A34B0
+ * XREFs of NtSetInformationEnlistment @ 0x1800A34D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationEnlistment()
+NTSTATUS __cdecl NtSetInformationEnlistment(
+        HANDLE EnlistmentHandle,
+        ENLISTMENT_INFORMATION_CLASS EnlistmentInformationClass,
+        PVOID EnlistmentInformation,
+        ULONG EnlistmentInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 399LL;
+  result = 399;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

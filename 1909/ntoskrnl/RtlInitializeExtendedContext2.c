@@ -12,26 +12,30 @@
  *     memset @ 0x1401D77C0 (memset.c)
  */
 
-__int64 __fastcall RtlInitializeExtendedContext2(__int64 a1, unsigned int a2, _QWORD *a3, __int64 a4)
+NTSTATUS __cdecl RtlInitializeExtendedContext2(
+        PCONTEXT Context,
+        ULONG ContextFlags,
+        PCONTEXT_EX *ContextEx,
+        ULONG64 EnabledExtendedFeatures)
 {
-  _DWORD *v6; // rbx
-  __int64 result; // rax
+  _CONTEXT_EX *v6; // rbx
+  NTSTATUS result; // eax
   int v8; // r10d
   __int64 v9; // r11
   _DWORD *v10; // rcx
-  int v11; // ecx
-  unsigned int v12; // ebp
-  unsigned int v13; // edi
+  ULONG Length; // ecx
+  ULONG v12; // ebp
+  LONG v13; // edi
   _BYTE v14[40]; // [rsp+20h] [rbp-28h] BYREF
 
   v6 = 0LL;
-  result = RtlpValidateContextFlags(a2, v14);
-  if ( (int)result < 0 )
+  result = RtlpValidateContextFlags(ContextFlags, v14);
+  if ( result < 0 )
     return result;
   if ( (v8 & 0x10000) != 0 )
   {
     v10 = (_DWORD *)((v9 + 3) & 0xFFFFFFFFFFFFFFFCuLL);
-    v6 = v10 + 179;
+    v6 = (_CONTEXT_EX *)(v10 + 179);
 LABEL_13:
     *v10 = v8;
     goto LABEL_5;
@@ -41,47 +45,47 @@ LABEL_13:
     if ( (v8 & 0x200000) != 0 )
     {
       v10 = (_DWORD *)((v9 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
-      v6 = v10 + 104;
+      v6 = (_CONTEXT_EX *)(v10 + 104);
     }
     else
     {
       if ( (v8 & 0x400000) == 0 )
         goto LABEL_6;
       v10 = (_DWORD *)((v9 + 15) & 0xFFFFFFFFFFFFFFF0uLL);
-      v6 = v10 + 228;
+      v6 = (_CONTEXT_EX *)(v10 + 228);
     }
     goto LABEL_13;
   }
   v10 = (_DWORD *)((v9 + 15) & 0xFFFFFFFFFFFFFFF0uLL);
   v10[12] = v8;
-  v6 = v10 + 308;
+  v6 = (_CONTEXT_EX *)(v10 + 308);
 LABEL_5:
-  v6[3] = (_DWORD)v6 - (_DWORD)v10;
+  v6->Legacy.Length = (_DWORD)v6 - (_DWORD)v10;
 LABEL_6:
-  v11 = v6[3];
-  v6[2] = -v11;
-  *v6 = -v11;
-  v6[1] = v11 + 24;
+  Length = v6->Legacy.Length;
+  v6->Legacy.Offset = -Length;
+  v6->All.Offset = -Length;
+  v6->All.Length = Length + 24;
   if ( (v8 & 0x10020) != 65568 && (v8 & 0x10000) != 0 )
-    v6[3] = 204;
+    v6->Legacy.Length = 204;
   if ( (v14[0] & 2) != 0 )
   {
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-      a4 &= MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL;
-    v12 = RtlpGetEntireXStateAreaLength(a4) - 512;
-    memset((void *)(((unsigned __int64)v6 + 87) & 0xFFFFFFFFFFFFFFC0uLL), 0, v12);
+      EnabledExtendedFeatures &= MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL;
+    v12 = RtlpGetEntireXStateAreaLength(EnabledExtendedFeatures) - 512;
+    memset((void *)(((unsigned __int64)&v6[2].XState.Length + 3) & 0xFFFFFFFFFFFFFFC0uLL), 0, v12);
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-      *(_QWORD *)((((unsigned __int64)v6 + 87) & 0xFFFFFFFFFFFFFFC0uLL) + 8) = a4 | 0x8000000000000000uLL;
+      *(_QWORD *)((((unsigned __int64)&v6[2].XState.Length + 3) & 0xFFFFFFFFFFFFFFC0uLL) + 8) = EnabledExtendedFeatures | 0x8000000000000000uLL;
     v13 = (((_DWORD)v6 + 87) & 0xFFFFFFC0) - (_DWORD)v6;
-    v6[5] = v12;
-    v6[4] = v13;
-    v6[1] = v12 + v13 - *v6;
+    v6->XState.Length = v12;
+    v6->XState.Offset = v13;
+    v6->All.Length = v12 + v13 - v6->All.Offset;
   }
   else
   {
-    v6[5] = 0;
-    v6[4] = 25;
+    v6->XState.Length = 0;
+    v6->XState.Offset = 25;
   }
-  *a3 = v6;
-  return 0LL;
+  *ContextEx = v6;
+  return 0;
 }

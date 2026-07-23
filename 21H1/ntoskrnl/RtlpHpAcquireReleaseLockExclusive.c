@@ -22,9 +22,9 @@ __int64 __fastcall RtlpHpAcquireReleaseLockExclusive(ULONG_PTR BugCheckParameter
   struct _KTHREAD *CurrentThread; // rax
   char v4; // al
   struct _KTHREAD *v5; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v7; // r14
-  __int64 v8; // r8
+  unsigned int v8; // r8d
   bool v9; // zf
   __int64 v10; // rcx
   __int64 v11; // rdi
@@ -76,23 +76,23 @@ __int64 __fastcall RtlpHpAcquireReleaseLockExclusive(ULONG_PTR BugCheckParameter
     v23 = 0;
     v5 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)v5->ApcState.Process);
+      SessionId = MmGetSessionIdEx((__int64)v5->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --v5->SpecialApcDisable;
     v7 = ++v5->AbAllocationRegionCount;
-    LODWORD(v8) = ((char)v5->AbEntrySummary | (char)v5->AbOrphanedEntrySummary) ^ 0x3F;
+    v8 = ((char)v5->AbEntrySummary | (char)v5->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v9 = !_BitScanReverse((unsigned int *)&v10, v8);
       if ( v9 )
         break;
       v11 = (__int64)&v5->LockEntries[v10];
-      v8 = ~(1 << v10) & (unsigned int)v8;
+      v8 &= ~(1 << v10);
       if ( (*(_BYTE *)(v11 + 26) & 1) != 0
         && (*(_DWORD *)(v11 + 32) & 1) == 0
         && (*(_QWORD *)(v11 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v11 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v11 + 40) == SessionId )
       {
         *(_BYTE *)(v11 + 26) &= ~1u;
         if ( *(_QWORD *)(v11 + 32) )
@@ -101,7 +101,7 @@ __int64 __fastcall RtlpHpAcquireReleaseLockExclusive(ULONG_PTR BugCheckParameter
           {
             *(_BYTE *)(v11 + 32) |= 2u;
             if ( *(__int64 *)(v11 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v11, SessionId, v8);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11);
             v12 = *(_DWORD *)(v11 + 88) & 0x1FFFF;
             v13 = *(_DWORD *)(v11 + 88) & 0xFFFE0000;
             *(_BYTE *)(v11 + 25) &= ~1u;
@@ -120,7 +120,7 @@ __int64 __fastcall RtlpHpAcquireReleaseLockExclusive(ULONG_PTR BugCheckParameter
       }
     }
     if ( (*((_DWORD *)&v5->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v5, BugCheckParameter2, (unsigned int)SessionId, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)v5, BugCheckParameter2, SessionId, 0LL);
 LABEL_17:
     --v5->AbAllocationRegionCount;
     KiAbThreadRemoveBoosts((ULONG_PTR)v5, BugCheckParameter2, &v23);

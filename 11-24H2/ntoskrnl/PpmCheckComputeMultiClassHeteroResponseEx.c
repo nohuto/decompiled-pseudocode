@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DFBD4
+ * XREFs of PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DD1F4
  * Callers:
- *     PpmCheckComputeHeteroResponseEx @ 0x1405DF774 (PpmCheckComputeHeteroResponseEx.c)
+ *     PpmCheckComputeHeteroResponseEx @ 0x1405DC8E0 (PpmCheckComputeHeteroResponseEx.c)
  * Callees:
- *     PpmParkCalculateUnparkCount @ 0x140423BD0 (PpmParkCalculateUnparkCount.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404ED1C8 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
- *     PpmEventTraceHeteroResponseEx @ 0x1405DED44 (PpmEventTraceHeteroResponseEx.c)
- *     PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DEFC0 (PpmEventTraceMultiClassHeteroResponseEx.c)
- *     PpmHeteroComputeCoreParkingUtilitiesEx @ 0x1405E0088 (PpmHeteroComputeCoreParkingUtilitiesEx.c)
- *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405E0230 (PpmHeteroComputeMultiClassUnparkCountEx.c)
- *     PpmHeteroComputeUnparkCountEx @ 0x1405E05AC (PpmHeteroComputeUnparkCountEx.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417A80 (PpmParkCalculateUnparkCount.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404E49EC (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ *     PpmEventTraceHeteroResponseEx @ 0x1405DBBC4 (PpmEventTraceHeteroResponseEx.c)
+ *     PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DC0EC (PpmEventTraceMultiClassHeteroResponseEx.c)
+ *     PpmHeteroComputeCoreParkingUtilitiesEx @ 0x1405DD6A8 (PpmHeteroComputeCoreParkingUtilitiesEx.c)
+ *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405DD850 (PpmHeteroComputeMultiClassUnparkCountEx.c)
+ *     PpmHeteroComputeUnparkCountEx @ 0x1405DDBCC (PpmHeteroComputeUnparkCountEx.c)
  */
 
 char PpmCheckComputeMultiClassHeteroResponseEx()
@@ -18,7 +18,7 @@ char PpmCheckComputeMultiClassHeteroResponseEx()
   void *v1; // r13
   unsigned int v2; // r15d
   __int64 *v3; // r14
-  void *v4; // rcx
+  __int64 v4; // rcx
   int v5; // esi
   __int64 v6; // rdi
   int v7; // edx
@@ -42,7 +42,7 @@ char PpmCheckComputeMultiClassHeteroResponseEx()
   int v25; // ebp
   bool v26; // zf
   int v27; // esi
-  void *v28; // r12
+  __int64 v28; // r12
   __int64 v29; // r9
   __int64 v30; // r10
   __int64 v31; // r8
@@ -69,24 +69,24 @@ char PpmCheckComputeMultiClassHeteroResponseEx()
   char v53; // [rsp+C0h] [rbp+8h]
   int v54; // [rsp+C8h] [rbp+10h] BYREF
   __int64 *v55; // [rsp+D0h] [rbp+18h]
-  void *v56; // [rsp+D8h] [rbp+20h]
+  __int64 v56; // [rsp+D8h] [rbp+20h]
 
   v0 = 0;
   v1 = PpmHeteroPerfCheckUtilities;
   v2 = 0;
-  v3 = &PpmCurrentProfile[0][61 * dword_140F0BA4C + 5];
+  v3 = &PpmCurrentProfile[0][61 * dword_140F0B38C + 5];
   v49 = 0LL;
-  v4 = Base;
-  v56 = Base;
+  v4 = qword_140F06570;
+  v56 = qword_140F06570;
   v51 = 0LL;
   v55 = v3;
-  v50 = (_QWORD *)qword_140F06268;
+  v50 = (_QWORD *)qword_140F06568;
   if ( PpmParkNumNodes )
   {
     while ( 1 )
     {
       v5 = 0;
-      v6 = PpmParkNodes + 1288LL * v2;
+      v6 = PpmParkNodes + 1296LL * v2;
       if ( PpmHeteroHgsParkingEnabled || *(_BYTE *)(v6 + 1185) )
         break;
 LABEL_32:
@@ -98,7 +98,7 @@ LABEL_32:
     v9 = 0;
     if ( (unsigned __int8)v7 > 1u )
     {
-      v10 = (_WORD *)(*(_QWORD *)(v6 + 1280) + 640LL);
+      v10 = (_WORD *)(*(_QWORD *)(v6 + 1288) + 640LL);
       v11 = (unsigned int)(v7 - 1);
       do
       {
@@ -113,7 +113,7 @@ LABEL_32:
     if ( PpmHeteroHgsParkingEnabled )
     {
       v9 = *(_WORD *)(v6 + 10);
-      v8 = *(unsigned __int16 *)(*(_QWORD *)(v6 + 1280) + 648LL);
+      v8 = *(unsigned __int16 *)(*(_QWORD *)(v6 + 1288) + 648LL);
     }
     PpmHeteroComputeCoreParkingUtilitiesEx(0LL, v6 + 48, v1, v4, &v51, &v49);
     v12 = *(unsigned __int16 *)(v6 + 10);
@@ -141,17 +141,7 @@ LABEL_32:
       while ( (_DWORD)v12 );
       v52 = v13;
     }
-    v21 = PpmHeteroComputeUnparkCountEx(
-            0,
-            (_DWORD)v3,
-            v13,
-            (_DWORD)v1,
-            (__int64)v16,
-            (__int64)v56,
-            v49,
-            v8,
-            v9,
-            (__int64)&v54);
+    v21 = PpmHeteroComputeUnparkCountEx(0, (_DWORD)v3, v13, (_DWORD)v1, (__int64)v16, v56, v49, v8, v9, (__int64)&v54);
     v53 = 0;
     if ( *(char *)(v6 + 1188) == v21 )
     {
@@ -183,8 +173,8 @@ LABEL_26:
         if ( !v26 )
         {
           v5 |= 0x80u;
-          *(_WORD *)(*(_QWORD *)(v6 + 1280) + 648LL) = *(_WORD *)(*(_QWORD *)(v6 + 1280) + 646LL);
-          *(_WORD *)(v6 + 1256) = *(_WORD *)(*(_QWORD *)(v6 + 1280) + 646LL);
+          *(_WORD *)(*(_QWORD *)(v6 + 1288) + 648LL) = *(_WORD *)(*(_QWORD *)(v6 + 1288) + 646LL);
+          *(_WORD *)(v6 + 1264) = *(_WORD *)(*(_QWORD *)(v6 + 1288) + 646LL);
         }
         v27 = v5 | 1;
         v46 = v8;
@@ -193,7 +183,7 @@ LABEL_26:
           0,
           (unsigned __int16 *)(v6 + 48),
           (ULONGLONG)v1,
-          (ULONGLONG)v56,
+          v56,
           v49,
           v46,
           v21,
@@ -208,7 +198,7 @@ LABEL_26:
         {
           v48 = v24;
           v3 = v55;
-          PpmHeteroComputeMultiClassUnparkCountEx(v6, (_DWORD)v55, (_DWORD)v1, (_DWORD)v28, v25, v48, v53);
+          PpmHeteroComputeMultiClassUnparkCountEx(v6, (_DWORD)v55, (_DWORD)v1, v28, v25, v48, v53);
           v27 |= 0x100u;
         }
         LODWORD(v47) = v27;
@@ -226,7 +216,7 @@ LABEL_26:
       v5 |= 0x40u;
     }
     v24 = 1;
-    *(_WORD *)(*(_QWORD *)(v6 + 1280) + 646LL) = v54;
+    *(_WORD *)(*(_QWORD *)(v6 + 1288) + 646LL) = v54;
     goto LABEL_26;
   }
 LABEL_33:
@@ -244,7 +234,7 @@ LABEL_33:
         if ( v32 > 1 )
         {
           v33 = v32 - 1;
-          v34 = (unsigned __int16 *)(*(_QWORD *)(v31 + 102) + 646LL);
+          v34 = (unsigned __int16 *)(*(_QWORD *)(v31 + 110) + 646LL);
           do
           {
             v35 = *v34;
@@ -255,7 +245,7 @@ LABEL_33:
           while ( v33 );
         }
         v36 = *(unsigned __int16 *)(v31 - 2);
-        v37 = *(unsigned __int16 **)(v31 + 102);
+        v37 = *(unsigned __int16 **)(v31 + 110);
         v38 = *(_WORD *)(v31 - 2);
         if ( (unsigned int)v29 < v36 )
           v38 = v29;
@@ -270,7 +260,7 @@ LABEL_33:
           v40 = 0;
           if ( *(_BYTE *)(v31 - 1166) )
           {
-            v41 = *(_QWORD *)(v31 + 102);
+            v41 = *(_QWORD *)(v31 + 110);
             while ( 1 )
             {
               v42 = 640LL * v40;
@@ -285,7 +275,7 @@ LABEL_33:
         }
       }
 LABEL_52:
-      v31 += 1288LL;
+      v31 += 1296LL;
       --v30;
     }
     while ( v30 );
@@ -296,8 +286,8 @@ LABEL_52:
     {
       PpmEventTraceMultiClassHeteroResponseUpdate(
         0LL,
-        *(char **)(PpmParkNodes + 1288LL * v0 + 1280),
-        *(_QWORD *)(PpmParkNodes + 1288LL * v0 + 1192),
+        *(char **)(PpmParkNodes + 1296LL * v0 + 1288),
+        *(_QWORD *)(PpmParkNodes + 1296LL * v0 + 1192),
         v29);
       ++v0;
     }

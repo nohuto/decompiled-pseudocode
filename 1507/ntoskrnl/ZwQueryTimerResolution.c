@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwQueryTimerResolution(PULONG MinimumResolution, PULONG Maxim
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(MinimumResolution, MaximumResolution, ActualResolution);
+  return KiServiceInternal(MinimumResolution);
 }

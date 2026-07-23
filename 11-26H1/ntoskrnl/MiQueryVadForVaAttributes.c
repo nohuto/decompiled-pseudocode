@@ -1,21 +1,21 @@
 /*
- * XREFs of MiQueryVadForVaAttributes @ 0x140305C54
+ * XREFs of MiQueryVadForVaAttributes @ 0x1402E7CD4
  * Callers:
- *     MiQueryAddressState @ 0x140305180 (MiQueryAddressState.c)
+ *     MiQueryAddressState @ 0x1402E7200 (MiQueryAddressState.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiGetAweVadPartition @ 0x1403BC184 (MiGetAweVadPartition.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiGetImageProtoProtection @ 0x14043C1D0 (MiGetImageProtoProtection.c)
- *     MiSkipEntirePagefileRegions @ 0x140476990 (MiSkipEntirePagefileRegions.c)
- *     MiSkipFractionalPagefileRegion @ 0x1404A5F00 (MiSkipFractionalPagefileRegion.c)
- *     MiQueryStateMatches @ 0x1404D72D8 (MiQueryStateMatches.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiGetAweVadPartition @ 0x1403C5FF4 (MiGetAweVadPartition.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiGetImageProtoProtection @ 0x14042EA80 (MiGetImageProtoProtection.c)
+ *     MiSkipEntirePagefileRegions @ 0x140470110 (MiSkipEntirePagefileRegions.c)
+ *     MiSkipFractionalPagefileRegion @ 0x14049F590 (MiSkipFractionalPagefileRegion.c)
+ *     MiQueryStateMatches @ 0x1404D0AA8 (MiQueryStateMatches.c)
  */
 
 char __fastcall MiQueryVadForVaAttributes(__int64 a1, int *a2)
@@ -102,7 +102,7 @@ char __fastcall MiQueryVadForVaAttributes(__int64 a1, int *a2)
   v10 = *(_QWORD *)(v6 + 80);
   v11 = v2 >> 12;
   v41 = v11;
-  *((_WORD *)a2 + 2) = **(_WORD **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)v10 + 60LL) & 0x3FF));
+  *((_WORD *)a2 + 2) = **(_WORD **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)v10 + 60LL) & 0x3FF));
   ProtoPteAddress = MiGetProtoPteAddress(v6, v11, 0xCu, &v40);
   v14 = 0;
   v15 = ProtoPteAddress;

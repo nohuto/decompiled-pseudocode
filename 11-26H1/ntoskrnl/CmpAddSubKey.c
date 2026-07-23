@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAddSubKey @ 0x1408BFCB4
+ * XREFs of CmpAddSubKey @ 0x1408C6284
  * Callers:
- *     CmpCreateTombstone @ 0x1406E2950 (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x1406E6C30 (CmpCreateTombstone.c)
  * Callees:
- *     CmpAddSubKeyEx @ 0x1408C04BC (CmpAddSubKeyEx.c)
+ *     CmpAddSubKeyEx @ 0x1408C6A8C (CmpAddSubKeyEx.c)
  */
 
 __int64 __fastcall CmpAddSubKey(ULONG_PTR a1)

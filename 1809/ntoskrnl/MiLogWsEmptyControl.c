@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogWsEmptyControl @ 0x1402CB9A0
+ * XREFs of MiLogWsEmptyControl @ 0x1402CBB90
  * Callers:
- *     MmProcessWorkingSetControl @ 0x14085ED80 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x14085FFE0 (MmProcessWorkingSetControl.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     MiFillLogProcessInfo @ 0x1401310F4 (MiFillLogProcessInfo.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     MiFillLogProcessInfo @ 0x1401311C4 (MiFillLogProcessInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogWsEmptyControl(__int64 a1)
@@ -56,7 +56,7 @@ void __fastcall MiLogWsEmptyControl(__int64 a1)
         v19 = 4;
         v22 = 4;
         v21 = &v11;
-        TlgWriteEx(v6, &unk_14036E81F, v5, (ULONG)v6, v7, v8, 6u, &pData);
+        TlgWriteEx(v6, &unk_14036F7AF, v5, (ULONG)v6, v7, v8, 6u, &pData);
       }
     }
   }

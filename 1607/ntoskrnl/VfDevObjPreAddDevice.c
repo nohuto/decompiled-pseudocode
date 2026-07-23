@@ -1,9 +1,9 @@
 /*
- * XREFs of VfDevObjPreAddDevice @ 0x14070D7C8
+ * XREFs of VfDevObjPreAddDevice @ 0x14070D7F8
  * Callers:
- *     PpvUtilCallAddDevice @ 0x14012FA18 (PpvUtilCallAddDevice.c)
+ *     PpvUtilCallAddDevice @ 0x14012FF88 (PpvUtilCallAddDevice.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x1400B4230 (MmIsDriverVerifying.c)
+ *     MmIsDriverVerifying @ 0x1400B20B0 (MmIsDriverVerifying.c)
  *     VfFilterAttach @ 0x14071AB04 (VfFilterAttach.c)
  */
 

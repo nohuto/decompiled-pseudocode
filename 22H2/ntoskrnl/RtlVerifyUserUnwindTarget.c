@@ -29,7 +29,7 @@ __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int6
   v17 = 0LL;
   v16 = 0LL;
   Key = 0;
-  result = RtlGetImageBaseAndLoadConfig(a1, &v16, (__int64 *)&v17);
+  result = RtlGetImageBaseAndLoadConfig(a1, (PVOID *)&v16, (__int64 *)&v17);
   if ( (int)result >= 0 )
   {
     v7 = v17;

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiGetFreeOrZeroPage @ 0x14003DC80
+ * XREFs of MiGetFreeOrZeroPage @ 0x14003D800
  * Callers:
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiGetFreeOrZeroPage @ 0x14003DC80 (MiGetFreeOrZeroPage.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiGetFreeOrZeroPage @ 0x14003D800 (MiGetFreeOrZeroPage.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetFreeOrZeroPage @ 0x14003DC80 (MiGetFreeOrZeroPage.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MiSlistGetFreePage @ 0x140061478 (MiSlistGetFreePage.c)
- *     MiRemoveAnyPage @ 0x140064740 (MiRemoveAnyPage.c)
- *     MiInsertLargePageInFreeOrZeroList @ 0x140064EF0 (MiInsertLargePageInFreeOrZeroList.c)
- *     MiNodeFreeZeroPages @ 0x1400665F0 (MiNodeFreeZeroPages.c)
- *     MiPageAvailable @ 0x14008A428 (MiPageAvailable.c)
- *     MiReplenishFromNodeLargePages @ 0x14008A4D0 (MiReplenishFromNodeLargePages.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400C0DDC (MiNodeLargeFreeZeroPages.c)
- *     KeCheckForZeroPage @ 0x140161DA0 (KeCheckForZeroPage.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     MiPageNotZero @ 0x1401F2C8C (MiPageNotZero.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
- *     MiGetNodeStandbyPageCount @ 0x1401F321C (MiGetNodeStandbyPageCount.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiGetFreeOrZeroPage @ 0x14003D800 (MiGetFreeOrZeroPage.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MiSlistGetFreePage @ 0x140060FF8 (MiSlistGetFreePage.c)
+ *     MiRemoveAnyPage @ 0x1400642C0 (MiRemoveAnyPage.c)
+ *     MiInsertLargePageInFreeOrZeroList @ 0x140064A70 (MiInsertLargePageInFreeOrZeroList.c)
+ *     MiNodeFreeZeroPages @ 0x140066170 (MiNodeFreeZeroPages.c)
+ *     MiPageAvailable @ 0x140089B28 (MiPageAvailable.c)
+ *     MiReplenishFromNodeLargePages @ 0x140089BD0 (MiReplenishFromNodeLargePages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400BEC6C (MiNodeLargeFreeZeroPages.c)
+ *     KeCheckForZeroPage @ 0x140162310 (KeCheckForZeroPage.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     MiPageNotZero @ 0x1401F2AB8 (MiPageNotZero.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
+ *     MiGetNodeStandbyPageCount @ 0x1401F3048 (MiGetNodeStandbyPageCount.c)
  */
 
 __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int a3)
@@ -29,7 +29,7 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
   unsigned __int8 *v3; // rbp
   __int16 v4; // r10
   __int64 v5; // rdi
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_HEADER *v6; // rcx
   unsigned __int64 FreePage; // rbx
   PSLIST_ENTRY v8; // rax
   _QWORD *p_Next; // rsi
@@ -39,11 +39,11 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
   _QWORD *v13; // rax
   bool v14; // zf
   __int64 v15; // rsi
-  union _SLIST_HEADER *v16; // rcx
+  _SLIST_HEADER *v16; // rcx
   PSLIST_ENTRY v17; // rax
   _QWORD *v18; // r8
   __int64 v19; // r9
-  union _SLIST_HEADER *v20; // rcx
+  _SLIST_HEADER *v20; // rcx
   PSLIST_ENTRY v21; // rax
   _QWORD *v22; // rsi
   __int64 v23; // rax
@@ -76,7 +76,7 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
   v5 = a1;
   if ( (a3 & 2) != 0 )
   {
-    v6 = (union _SLIST_HEADER *)(*(_QWORD *)(a1 + 1744) + 16LL * a2);
+    v6 = (_SLIST_HEADER *)(*(_QWORD *)(a1 + 1744) + 16LL * a2);
     if ( LOWORD(v6->Alignment) )
     {
       v8 = RtlpInterlockedPopEntrySList(v6);
@@ -88,7 +88,7 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
         if ( (MiFlags & 0x80u) != 0
           && FreePage < 0x200000
           && (*(_BYTE *)(48 * FreePage - 0x57FFFFFFFDDLL) & 0x40) == 0
-          && (++dword_140327120 & MmPageValidationFrequency) == 0 )
+          && (++dword_140327160 & MmPageValidationFrequency) == 0 )
         {
           if ( KeGetCurrentPrcb()->HyperPte )
           {
@@ -147,7 +147,7 @@ LABEL_23:
   else
   {
     v15 = 16LL * a2;
-    v16 = (union _SLIST_HEADER *)(v15 + *(_QWORD *)(a1 + 1752));
+    v16 = (_SLIST_HEADER *)(v15 + *(_QWORD *)(a1 + 1752));
     if ( LOWORD(v16->Alignment) )
     {
       v17 = RtlpInterlockedPopEntrySList(v16);
@@ -161,7 +161,7 @@ LABEL_23:
           return FreePage;
       }
     }
-    v20 = (union _SLIST_HEADER *)(v15 + *(_QWORD *)(v5 + 1744));
+    v20 = (_SLIST_HEADER *)(v15 + *(_QWORD *)(v5 + 1744));
     if ( LOWORD(v20->Alignment) )
     {
       v21 = RtlpInterlockedPopEntrySList(v20);
@@ -173,7 +173,7 @@ LABEL_23:
         if ( (MiFlags & 0x80u) != 0
           && FreePage < 0x200000
           && (*(_BYTE *)(48 * FreePage - 0x57FFFFFFFDDLL) & 0x40) == 0
-          && (++dword_140327120 & MmPageValidationFrequency) == 0 )
+          && (++dword_140327160 & MmPageValidationFrequency) == 0 )
         {
           if ( KeGetCurrentPrcb()->HyperPte )
           {
@@ -202,7 +202,7 @@ LABEL_40:
   }
 LABEL_41:
   v24 = 0;
-  v25 = a2 >> byte_1403269C9;
+  v25 = a2 >> byte_140326A09;
   *(_DWORD *)(((unsigned __int64)&v45 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18) = v25;
   v26 = *(_QWORD *)(v5 + 48) + 2184 * v25;
   v27 = (unsigned int)MmNumberOfChannels <= 1;
@@ -211,7 +211,7 @@ LABEL_41:
   if ( !v27 )
   {
     v26 = *(_QWORD *)(((unsigned __int64)&v45 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
-    v24 = (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a2 >> byte_1403269D8));
+    v24 = (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (a2 >> byte_140326A18));
     *(_DWORD *)(((unsigned __int64)&v45 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = v24;
   }
   v28 = a3;

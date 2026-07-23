@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiZeroPhysicalPage @ 0x14010A488 (MiZeroPhysicalPage.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiZeroPhysicalPage @ 0x140108208 (MiZeroPhysicalPage.c)
  */
 
 ULONG_PTR MiComputeOptimalZeroPath()
@@ -81,7 +81,7 @@ ULONG_PTR MiComputeOptimalZeroPath()
     {
       v43 = 0LL;
       v7 = &v39;
-      v34 = (unsigned __int64 *)&unk_140326A70;
+      v34 = (unsigned __int64 *)&unk_140326AB0;
       v33 = &v39;
       v8 = 0LL;
       v35 = 2LL;
@@ -129,7 +129,7 @@ ULONG_PTR MiComputeOptimalZeroPath()
         v23 = v19;
         v24 = v37;
         if ( v23 / 3 < 9 * (v37 / 0xA) )
-          dword_140326A24[4 * v9] = 1;
+          dword_140326A64[4 * v9] = 1;
         v8 = v22 + 8;
         *(v16 - 1) = v24;
         v7 = v17 + 1;

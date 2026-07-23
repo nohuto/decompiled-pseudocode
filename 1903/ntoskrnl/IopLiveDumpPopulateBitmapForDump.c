@@ -12,10 +12,10 @@
 void __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
 {
   __int64 v1; // r15
-  unsigned __int64 *v2; // r13
+  _RTL_BITMAP_EX *v2; // r13
   unsigned __int64 v4; // r14
-  unsigned __int64 *v5; // rsi
-  unsigned __int64 SetBits; // rdi
+  _RTL_BITMAP_EX *v5; // rsi
+  ULONG64 SetBits; // rdi
   unsigned __int64 v7; // r14
   unsigned __int64 v8; // r15
   unsigned __int64 v9; // r12
@@ -26,14 +26,14 @@ void __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
   __int64 v14; // [rsp+28h] [rbp-40h]
   ULONG_PTR BugCheckParameter2[5]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v16; // [rsp+58h] [rbp-10h]
-  unsigned __int64 v17; // [rsp+B0h] [rbp+48h] BYREF
+  ULONG64 v17; // [rsp+B0h] [rbp+48h] BYREF
   unsigned __int64 v18; // [rsp+B8h] [rbp+50h] BYREF
   unsigned __int64 NextForwardRunClear; // [rsp+C0h] [rbp+58h]
-  unsigned __int64 v20; // [rsp+C8h] [rbp+60h]
+  ULONG64 v20; // [rsp+C8h] [rbp+60h]
 
   v1 = a1 + 368;
   v16 = 0LL;
-  v2 = (unsigned __int64 *)(a1 + 424);
+  v2 = (_RTL_BITMAP_EX *)(a1 + 424);
   BugCheckParameter2[3] = 0LL;
   BugCheckParameter2[4] = 0LL;
   BugCheckParameter2[0] = 0LL;
@@ -99,7 +99,7 @@ void __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
       while ( SetBits < v20 );
     }
     if ( v5 == v2 && (*(_DWORD *)(a1 + 40) & 4) != 0 )
-      v5 = (unsigned __int64 *)(a1 + 464);
+      v5 = (_RTL_BITMAP_EX *)(a1 + 464);
     else
       v5 = 0LL;
   }

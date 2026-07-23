@@ -1,13 +1,13 @@
 /*
- * XREFs of PopEnableSystemSleepCheckpoint @ 0x140996DEC
+ * XREFs of PopEnableSystemSleepCheckpoint @ 0x140996FEC
  * Callers:
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     PopTraceSleepCheckpointInitFailure @ 0x140992AE8 (PopTraceSleepCheckpointInitFailure.c)
- *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140996F30 (PopIsDetailedSleepReliabilityDiagEnabled.c)
- *     NtQueryEnvironmentVariableInfoEx @ 0x1409FF560 (NtQueryEnvironmentVariableInfoEx.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140AAA5F4 (PopCheckpointSystemSleepUnsafe.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     PopTraceSleepCheckpointInitFailure @ 0x140992CE8 (PopTraceSleepCheckpointInitFailure.c)
+ *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140997130 (PopIsDetailedSleepReliabilityDiagEnabled.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x1409FF7F0 (NtQueryEnvironmentVariableInfoEx.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140AAA464 (PopCheckpointSystemSleepUnsafe.c)
  */
 
 __int64 PopEnableSystemSleepCheckpoint()
@@ -16,10 +16,10 @@ __int64 PopEnableSystemSleepCheckpoint()
   __int32 v1; // eax
   int v2; // edi
   __int32 v3; // eax
-  __int64 InterruptTimePrecise; // rbp
-  unsigned __int64 v5; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rbp
+  LONGLONG v5; // rax
   unsigned __int64 v7; // [rsp+50h] [rbp+8h] BYREF
-  LARGE_INTEGER v8; // [rsp+58h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp+10h] BYREF
   __int64 v9; // [rsp+60h] [rbp+18h] BYREF
   __int64 v10; // [rsp+68h] [rbp+20h] BYREF
 
@@ -27,7 +27,7 @@ __int64 PopEnableSystemSleepCheckpoint()
   v0 = 0;
   v10 = 0LL;
   v7 = 0LL;
-  v8.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   PopCheckpointSystemSleepEnabled = 0;
   _InterlockedExchange(&PopSleepCheckpointStatus, 0);
   if ( PopCheckpointSystemSleepEnabledReg )
@@ -39,12 +39,12 @@ LABEL_2:
     v1 = 4;
     goto LABEL_8;
   }
-  if ( !byte_140C3DA34 || (BYTE8(PopBsdPowerTransitionAtBoot) & 0xF0) == 0 )
+  if ( !byte_140C3DA14 || (BYTE8(PopBsdPowerTransitionAtBoot) & 0xF0) == 0 )
     return (unsigned int)-1073741271;
   v1 = 1;
 LABEL_8:
   _InterlockedExchange(&PopSleepCheckpointStatus, v1);
-  if ( dword_140C31B10 != 2 )
+  if ( dword_140C31AB0 != 2 )
   {
     v2 = -1073741822;
     v3 = 8;
@@ -62,7 +62,7 @@ LABEL_15:
     v3 = 9;
     goto LABEL_15;
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v8);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v2 = PopCheckpointSystemSleepUnsafe(0LL);
   if ( v2 < 0 )
   {
@@ -70,8 +70,8 @@ LABEL_14:
     v3 = 15;
     goto LABEL_15;
   }
-  v5 = RtlGetInterruptTimePrecise(&v8) - InterruptTimePrecise;
-  if ( v0 && v5 > 0x186A0 )
+  v5 = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) - InterruptTimePrecise.QuadPart;
+  if ( v0 && (unsigned __int64)v5 > 0x186A0 )
   {
     v2 = 258;
     _InterlockedExchange(&PopSleepCheckpointStatus, 10);

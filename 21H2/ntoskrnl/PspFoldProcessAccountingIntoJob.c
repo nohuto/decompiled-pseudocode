@@ -1,13 +1,13 @@
 /*
- * XREFs of PspFoldProcessAccountingIntoJob @ 0x1406AD32C
+ * XREFs of PspFoldProcessAccountingIntoJob @ 0x14060BA1C
  * Callers:
- *     PspRemoveProcessFromJobChain @ 0x140616398 (PspRemoveProcessFromJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x14067FFF8 (PspRemoveProcessFromJobChain.c)
  * Callees:
- *     PoEnergyEstimationEnabled @ 0x140205710 (PoEnergyEstimationEnabled.c)
- *     PsAddProcessEnergyValues @ 0x1402548F0 (PsAddProcessEnergyValues.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsQueryProcessEnergyValues @ 0x1405E92D0 (PsQueryProcessEnergyValues.c)
+ *     PsAddProcessEnergyValues @ 0x140275E60 (PsAddProcessEnergyValues.c)
+ *     PoEnergyEstimationEnabled @ 0x1402AA040 (PoEnergyEstimationEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsQueryProcessEnergyValues @ 0x1406D8A30 (PsQueryProcessEnergyValues.c)
  */
 
 char __fastcall PspFoldProcessAccountingIntoJob(__int64 a1, __int64 a2, __int64 *a3)
@@ -21,7 +21,7 @@ char __fastcall PspFoldProcessAccountingIntoJob(__int64 a1, __int64 a2, __int64 
   char result; // al
   unsigned __int64 v13; // rax
   unsigned __int64 v14; // rcx
-  _OWORD v15[27]; // [rsp+20h] [rbp-1C8h] BYREF
+  _BYTE v15[432]; // [rsp+20h] [rbp-1C8h] BYREF
 
   memset(v15, 0, sizeof(v15));
   v6 = a3[1];
@@ -69,7 +69,7 @@ char __fastcall PspFoldProcessAccountingIntoJob(__int64 a1, __int64 a2, __int64 
   result = PoEnergyEstimationEnabled();
   if ( result )
   {
-    PsQueryProcessEnergyValues((_QWORD *)a2, v15);
+    PsQueryProcessEnergyValues(a2, v15);
     return PsAddProcessEnergyValues(*(_QWORD *)(a1 + 1328), (__int64)v15);
   }
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of SecureDump_LogErrorEvent @ 0x14055E488
+ * XREFs of SecureDump_LogErrorEvent @ 0x14055EB48
  * Callers:
- *     SecureDump_PrepareForInit @ 0x1403B0384 (SecureDump_PrepareForInit.c)
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055DBB4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_LoadCertAndProvisionKey @ 0x14055E140 (SecureDump_LoadCertAndProvisionKey.c)
- *     SecureDump_SymmetricEncryptionSetup @ 0x14055E694 (SecureDump_SymmetricEncryptionSetup.c)
+ *     SecureDump_PrepareForInit @ 0x1403B0564 (SecureDump_PrepareForInit.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055E274 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_LoadCertAndProvisionKey @ 0x14055E800 (SecureDump_LoadCertAndProvisionKey.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x14055ED54 (SecureDump_SymmetricEncryptionSetup.c)
  * Callees:
- *     McTemplateK0q_EtwWriteTransfer @ 0x140554980 (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x140555040 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall SecureDump_LogErrorEvent(int a1, __int64 a2, __int64 a3)

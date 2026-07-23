@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlpHpSegLfhVsFree @ 0x1402B41B0
+ * XREFs of RtlpHpSegLfhVsFree @ 0x14035CC90
  * Callers:
- *     RtlpHpVsSubsegmentFree @ 0x1402B415C (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentFree @ 0x1402B4ED8 (RtlpHpLfhSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentCreate @ 0x1402B52CC (RtlpHpLfhSubsegmentCreate.c)
- *     RtlpHpVsSubsegmentCreate @ 0x1402C03D4 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsSubsegmentFree @ 0x14035CC40 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x140367D08 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x1403D996C (RtlpHpLfhSubsegmentFree.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhContextFree @ 0x1402B3130 (RtlpHpLfhContextFree.c)
- *     RtlpHpSegFreeInternal @ 0x1402B33D0 (RtlpHpSegFreeInternal.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhContextFree @ 0x14035BCF0 (RtlpHpLfhContextFree.c)
+ *     RtlpHpSegFreeInternal @ 0x14035BF90 (RtlpHpSegFreeInternal.c)
  */
 
 void __fastcall RtlpHpSegLfhVsFree(__int64 a1, ULONG_PTR a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceModernStandbyStateNotification @ 0x1407D3818
+ * XREFs of PopDiagTraceModernStandbyStateNotification @ 0x1407D6998
  * Callers:
- *     PopModernStandbyNotificationCallback @ 0x1407DD6F0 (PopModernStandbyNotificationCallback.c)
+ *     PopModernStandbyNotificationCallback @ 0x1407E1D20 (PopModernStandbyNotificationCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceModernStandbyStateNotification(int a1, int a2, int a3, int a4, __int64 a5, char a6)
@@ -33,11 +33,9 @@ char __fastcall PopDiagTraceModernStandbyStateNotification(int a1, int a2, int a
   v22 = a3;
   v21 = a2;
   v20 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v6) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_MODERN_STANTDY_NOTIFICATION);
+    LOBYTE(v6) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_MODERN_STANTDY_NOTIFICATION);
     if ( (_BYTE)v6 )
     {
       UserData.Ptr = (ULONGLONG)&v20;
@@ -52,12 +50,7 @@ char __fastcall PopDiagTraceModernStandbyStateNotification(int a1, int a2, int a
       v14 = 4LL;
       v16 = 16LL;
       v18 = 4LL;
-      LOBYTE(v6) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_MODERN_STANTDY_NOTIFICATION,
-                     0LL,
-                     6u,
-                     &UserData);
+      LOBYTE(v6) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_MODERN_STANTDY_NOTIFICATION, 0LL, 6u, &UserData);
     }
   }
   return (char)v6;

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopIncrementCompletionContextUsageCountAndReadData @ 0x14043E370
+ * XREFs of IopIncrementCompletionContextUsageCountAndReadData @ 0x140433F90
  * Callers:
- *     IopCompleteRequest @ 0x1402A5AC0 (IopCompleteRequest.c)
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
- *     NtLockFile @ 0x1409D2BE0 (NtLockFile.c)
+ *     IopCompleteRequest @ 0x1402D51F0 (IopCompleteRequest.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x1409C2A10 (NtLockFile.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopIncrementCompletionContextUsageCountAndReadData(

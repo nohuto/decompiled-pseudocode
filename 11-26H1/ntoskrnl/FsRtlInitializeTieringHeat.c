@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlInitializeTieringHeat @ 0x1407904F8
+ * XREFs of FsRtlInitializeTieringHeat @ 0x140793028
  * Callers:
- *     FsRtlInitSystem @ 0x140CB8A6C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140CBEAB0 (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
  */
 
 NTSTATUS FsRtlInitializeTieringHeat()
 {
-  *(_QWORD *)&VslpReservedTransferLock.AbCompletedIoQoSBoostCount = &VslpReservedTransferLock.PriorityFloorSummary;
-  *(_QWORD *)&VslpReservedTransferLock.PriorityFloorSummary = &VslpReservedTransferLock.PriorityFloorSummary;
-  return ExInitializeResourceLite((PERESOURCE)&VslpReservedTransferLock.ForegroundLossTime);
+  VslpReservedTransferLock.OtherOperationCount = (__int64)&VslpReservedTransferLock.WriteOperationCount;
+  VslpReservedTransferLock.WriteOperationCount = (__int64)&VslpReservedTransferLock.WriteOperationCount;
+  return ExInitializeResourceLite((PERESOURCE)&VslpReservedTransferLock.ReadTransferCount);
 }

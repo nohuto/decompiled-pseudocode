@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeZeroGroup @ 0x140415664
+ * XREFs of MiInitializeZeroGroup @ 0x1402714C4
  * Callers:
- *     MiZeroInParallel @ 0x1404155D0 (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x140271430 (MiZeroInParallel.c)
  * Callees:
- *     MiQuantifyZeroWork @ 0x1404158F8 (MiQuantifyZeroWork.c)
- *     MiInitializeAffinityWalker @ 0x140415948 (MiInitializeAffinityWalker.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiGetZeroingDescriptors @ 0x140685A24 (MiGetZeroingDescriptors.c)
+ *     MiQuantifyZeroWork @ 0x140271758 (MiQuantifyZeroWork.c)
+ *     MiInitializeAffinityWalker @ 0x1402717A8 (MiInitializeAffinityWalker.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiGetZeroingDescriptors @ 0x140686B54 (MiGetZeroingDescriptors.c)
  */
 
 char __fastcall MiInitializeZeroGroup(__int64 a1)

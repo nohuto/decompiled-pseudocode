@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpFindDllActivationContext @ 0x180076FB8
+ * XREFs of LdrpFindDllActivationContext @ 0x180076FA8
  * Callers:
- *     LdrpMapAndSnapDependency @ 0x180016434 (LdrpMapAndSnapDependency.c)
+ *     LdrpMapAndSnapDependency @ 0x180016424 (LdrpMapAndSnapDependency.c)
  * Callees:
- *     RtlReleaseActivationContext @ 0x18003B790 (RtlReleaseActivationContext.c)
+ *     RtlReleaseActivationContext @ 0x18003B780 (RtlReleaseActivationContext.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
 __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
@@ -15,7 +15,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
   _WORD *v4; // rdx
   int v5; // eax
   __int64 v6; // rax
-  volatile signed __int32 *v8; // rcx
+  _ACTIVATION_CONTEXT *v8; // rcx
   __int64 v9; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -58,7 +58,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
       v6 = v9;
       if ( v9 )
       {
-        v8 = (volatile signed __int32 *)a1[17];
+        v8 = (_ACTIVATION_CONTEXT *)a1[17];
         if ( v8 )
         {
           RtlReleaseActivationContext(v8);

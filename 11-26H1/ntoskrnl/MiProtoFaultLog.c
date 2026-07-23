@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProtoFaultLog @ 0x140457240
+ * XREFs of MiProtoFaultLog @ 0x14044EAB0
  * Callers:
- *     MiCompleteProtoPteFault @ 0x1402D8E50 (MiCompleteProtoPteFault.c)
+ *     MiCompleteProtoPteFault @ 0x1402BAC10 (MiCompleteProtoPteFault.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
- *     PfSnLogPageFault @ 0x140374EF0 (PfSnLogPageFault.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
+ *     PfSnLogPageFault @ 0x140376CA0 (PfSnLogPageFault.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall MiProtoFaultLog(__int64 a1)
@@ -80,7 +80,7 @@ LABEL_12:
   v9 = *(_QWORD *)(v4 + 64) & 0xFFFFFFFFFFFFFFF0uLL;
   if ( v9 )
     ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(v4 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd((volatile signed __int32 *)(v4 + 72), 0xBFFFFFFF);
     _InterlockedDecrement((volatile signed __int32 *)(v4 + 72));

@@ -6,28 +6,28 @@
  *     ZwWaitForSingleObject @ 0x18009C760 (ZwWaitForSingleObject.c)
  */
 
-__int64 __fastcall RtlDequeueUmsCompletionListItems(volatile __int64 **a1, _QWORD *a2, __int64 *a3)
+NTSTATUS __fastcall RtlDequeueUmsCompletionListItems(__int64 a1, LARGE_INTEGER *a2, __int64 *a3)
 {
-  __int64 result; // rax
-  volatile __int64 *v6; // rbp
-  __int64 v7; // rcx
+  NTSTATUS result; // eax
+  volatile __int64 *v7; // rbp
+  __int64 v8; // rcx
 
-  result = 0LL;
+  result = 0;
   if ( !a1 || !a3 )
-    return 3221225485LL;
-  v6 = *a1;
+    return -1073741811;
+  v7 = *(volatile __int64 **)a1;
   *a3 = 0LL;
   while ( 1 )
   {
-    v7 = _InterlockedExchange64(v6, 0LL);
-    if ( v7 )
+    v8 = _InterlockedExchange64(v7, 0LL);
+    if ( v8 )
       break;
-    if ( a2 && !*a2 )
-      return 258LL;
-    result = ZwWaitForSingleObject();
-    if ( (_DWORD)result )
+    if ( a2 && !a2->QuadPart )
+      return 258;
+    result = ZwWaitForSingleObject(*(HANDLE *)(a1 + 8), 0, a2);
+    if ( result )
       return result;
   }
-  *a3 = v7;
+  *a3 = v8;
   return result;
 }

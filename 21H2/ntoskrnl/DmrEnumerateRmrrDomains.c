@@ -1,15 +1,15 @@
 /*
- * XREFs of DmrEnumerateRmrrDomains @ 0x1404E8770
+ * XREFs of DmrEnumerateRmrrDomains @ 0x1404E89B0
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x1404E740C (HalpIvtProcessDrhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E764C (HalpIvtProcessDrhdEntry.c)
  * Callees:
- *     DmrFindDrhdForDeviceScope @ 0x1404E837C (DmrFindDrhdForDeviceScope.c)
- *     DmrCheckPathMatch @ 0x1404E8458 (DmrCheckPathMatch.c)
- *     DmrGetNextDeviceScope @ 0x1404E85D4 (DmrGetNextDeviceScope.c)
- *     DmrGetNextRemappingStructure @ 0x1404E861C (DmrGetNextRemappingStructure.c)
- *     DmrFreeRmrrTree @ 0x1404E88B4 (DmrFreeRmrrTree.c)
- *     DmrpRmrrTreeAddNewScope @ 0x1404E8938 (DmrpRmrrTreeAddNewScope.c)
- *     DmrpRmrrTreeAddRegionToDevice @ 0x1404E89D8 (DmrpRmrrTreeAddRegionToDevice.c)
+ *     DmrFindDrhdForDeviceScope @ 0x1404E85BC (DmrFindDrhdForDeviceScope.c)
+ *     DmrCheckPathMatch @ 0x1404E8698 (DmrCheckPathMatch.c)
+ *     DmrGetNextDeviceScope @ 0x1404E8814 (DmrGetNextDeviceScope.c)
+ *     DmrGetNextRemappingStructure @ 0x1404E885C (DmrGetNextRemappingStructure.c)
+ *     DmrFreeRmrrTree @ 0x1404E8AF4 (DmrFreeRmrrTree.c)
+ *     DmrpRmrrTreeAddNewScope @ 0x1404E8B78 (DmrpRmrrTreeAddNewScope.c)
+ *     DmrpRmrrTreeAddRegionToDevice @ 0x1404E8C18 (DmrpRmrrTreeAddRegionToDevice.c)
  */
 
 __int64 __fastcall DmrEnumerateRmrrDomains(unsigned __int64 a1, __int64 a2, __int64 a3)

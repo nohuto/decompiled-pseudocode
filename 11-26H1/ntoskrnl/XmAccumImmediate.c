@@ -1,13 +1,13 @@
 /*
- * XREFs of XmAccumImmediate @ 0x1404A88C0
+ * XREFs of XmAccumImmediate @ 0x1404A1F50
  * Callers:
  *     <none>
  * Callees:
- *     XmGetWordImmediate @ 0x1404A8610 (XmGetWordImmediate.c)
- *     XmSetDataType @ 0x1404A8920 (XmSetDataType.c)
- *     XmSetDestinationValue @ 0x1404A8950 (XmSetDestinationValue.c)
- *     XmGetCodeByte @ 0x1404A8AE0 (XmGetCodeByte.c)
- *     XmGetLongImmediate @ 0x140531404 (XmGetLongImmediate.c)
+ *     XmGetWordImmediate @ 0x1404A1CA0 (XmGetWordImmediate.c)
+ *     XmSetDataType @ 0x1404A1FB0 (XmSetDataType.c)
+ *     XmSetDestinationValue @ 0x1404A1FE0 (XmSetDestinationValue.c)
+ *     XmGetCodeByte @ 0x1404A2170 (XmGetCodeByte.c)
+ *     XmGetLongImmediate @ 0x140533904 (XmGetLongImmediate.c)
  */
 
 __int64 __fastcall XmAccumImmediate(__int64 a1)

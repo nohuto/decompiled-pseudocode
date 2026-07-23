@@ -1,7 +1,7 @@
 /*
- * XREFs of IopIsStandardFsctlIoControlCode @ 0x14046DCB0
+ * XREFs of IopIsStandardFsctlIoControlCode @ 0x140467430
  * Callers:
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
  * Callees:
  *     <none>
  */

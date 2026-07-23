@@ -1,25 +1,25 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0
+ * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x14022F9A0
  * Callers:
- *     MiUnlockLoaderEntry @ 0x1402920D8 (MiUnlockLoaderEntry.c)
- *     FsRtlRemovePerFileObjectContext @ 0x1402FD3D0 (FsRtlRemovePerFileObjectContext.c)
- *     FsRtlInsertPerFileObjectContext @ 0x1402FD4C0 (FsRtlInsertPerFileObjectContext.c)
- *     FsRtlInsertPerFileContext @ 0x140363C90 (FsRtlInsertPerFileContext.c)
- *     FsRtlRemovePerFileContext @ 0x14053CFB0 (FsRtlRemovePerFileContext.c)
- *     FsRtlRemovePerStreamContext @ 0x14053D0B0 (FsRtlRemovePerStreamContext.c)
- *     MiFreePhysicalPages @ 0x14064A540 (MiFreePhysicalPages.c)
- *     MiUnlockAwePagesExclusive @ 0x14064BE08 (MiUnlockAwePagesExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14064BE88 (MiUnlockAweVadsExclusive.c)
- *     FsRtlTeardownPerStreamContexts @ 0x1407913C0 (FsRtlTeardownPerStreamContexts.c)
- *     FsRtlTeardownPerFileContexts @ 0x1407BAE20 (FsRtlTeardownPerFileContexts.c)
+ *     MiUnlockLoaderEntry @ 0x140292368 (MiUnlockLoaderEntry.c)
+ *     FsRtlRemovePerFileObjectContext @ 0x1402FD660 (FsRtlRemovePerFileObjectContext.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x1402FD750 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlInsertPerFileContext @ 0x140363E30 (FsRtlInsertPerFileContext.c)
+ *     FsRtlRemovePerFileContext @ 0x14053D500 (FsRtlRemovePerFileContext.c)
+ *     FsRtlRemovePerStreamContext @ 0x14053D600 (FsRtlRemovePerStreamContext.c)
+ *     MiFreePhysicalPages @ 0x14064AA90 (MiFreePhysicalPages.c)
+ *     MiUnlockAwePagesExclusive @ 0x14064C358 (MiUnlockAwePagesExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14064C3D8 (MiUnlockAweVadsExclusive.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x1407915B0 (FsRtlTeardownPerStreamContexts.c)
+ *     FsRtlTeardownPerFileContexts @ 0x1407BB0F0 (FsRtlTeardownPerFileContexts.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KiAbEntryRemoveFromTree @ 0x14024B550 (KiAbEntryRemoveFromTree.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140317E40 (KiAbThreadRemoveBoostsSlow.c)
- *     ExpReleaseFannedOutPushLockExclusive @ 0x1403CFCC0 (ExpReleaseFannedOutPushLockExclusive.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14024B620 (KiAbEntryRemoveFromTree.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1403180D0 (KiAbThreadRemoveBoostsSlow.c)
+ *     ExpReleaseFannedOutPushLockExclusive @ 0x1403CFEA0 (ExpReleaseFannedOutPushLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 signed __int32 __fastcall ExReleaseAutoExpandPushLockExclusive(

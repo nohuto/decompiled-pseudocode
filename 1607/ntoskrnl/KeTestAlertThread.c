@@ -1,12 +1,12 @@
 /*
- * XREFs of KeTestAlertThread @ 0x1400CD08C
+ * XREFs of KeTestAlertThread @ 0x1400CAF2C
  * Callers:
- *     KiDeliverApc @ 0x14005DBD0 (KiDeliverApc.c)
- *     KiContinueEx @ 0x1400CC8AC (KiContinueEx.c)
- *     NtTestAlert @ 0x14050BAE8 (NtTestAlert.c)
- *     DbgkpSendErrorMessage @ 0x14061A524 (DbgkpSendErrorMessage.c)
+ *     KiDeliverApc @ 0x14005D750 (KiDeliverApc.c)
+ *     KiContinueEx @ 0x1400CA74C (KiContinueEx.c)
+ *     NtTestAlert @ 0x1404EEA78 (NtTestAlert.c)
+ *     DbgkpSendErrorMessage @ 0x14061A5D8 (DbgkpSendErrorMessage.c)
  * Callees:
- *     KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C (KiAcquireThreadLockRaiseToDpc.c)
  */
 
 unsigned __int8 __fastcall KeTestAlertThread(char a1)

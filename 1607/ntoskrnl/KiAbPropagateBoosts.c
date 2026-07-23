@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbPropagateBoosts @ 0x14006BB1C
+ * XREFs of KiAbPropagateBoosts @ 0x14006B69C
  * Callers:
- *     KiAbDeferredProcessingWorker @ 0x14006BA54 (KiAbDeferredProcessingWorker.c)
+ *     KiAbDeferredProcessingWorker @ 0x14006B5D4 (KiAbDeferredProcessingWorker.c)
  * Callees:
- *     KiAbProcessThreadLocks @ 0x14006BBA8 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessThreadLocks @ 0x14006B728 (KiAbProcessThreadLocks.c)
  */
 
 __int64 __fastcall KiAbPropagateBoosts(__int64 *a1, __int64 a2, __int64 a3)

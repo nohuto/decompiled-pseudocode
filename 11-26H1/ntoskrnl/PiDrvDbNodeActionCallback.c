@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDrvDbNodeActionCallback @ 0x140A781E0
+ * XREFs of PiDrvDbNodeActionCallback @ 0x140A80C80
  * Callers:
  *     <none>
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     PiDrvDbLoadNode @ 0x140A78308 (PiDrvDbLoadNode.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     PiDrvDbLoadNode @ 0x140A80DA8 (PiDrvDbLoadNode.c)
  */
 
 __int64 __fastcall PiDrvDbNodeActionCallback(__int64 a1, __int64 a2, int a3, int a4, _QWORD *a5, __int64 a6)
@@ -18,8 +18,6 @@ __int64 __fastcall PiDrvDbNodeActionCallback(__int64 a1, __int64 a2, int a3, int
   _QWORD *v9; // r14
   struct _KTHREAD *CurrentThread; // rax
   __int64 v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // r8
 
   v6 = 0;
   if ( (*(_DWORD *)(a6 + 64) & 4) == 0 )
@@ -55,7 +53,7 @@ __int64 __fastcall PiDrvDbNodeActionCallback(__int64 a1, __int64 a2, int a3, int
     }
     *v9 = 0LL;
     ExReleaseResourceLite((PERESOURCE)(a6 + 88));
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return v6;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIntSteerLogState @ 0x1403552B4
+ * XREFs of KiIntSteerLogState @ 0x1402B2FE4
  * Callers:
- *     KeIntSteerPeriodic @ 0x1403534C4 (KeIntSteerPeriodic.c)
- *     KiIntSteerLogStatus @ 0x140354250 (KiIntSteerLogStatus.c)
- *     KiIntSteerConnect @ 0x1403B7680 (KiIntSteerConnect.c)
- *     KiIntSteerDisable @ 0x1403BA9C0 (KiIntSteerDisable.c)
+ *     KiIntSteerLogStatus @ 0x1402AF804 (KiIntSteerLogStatus.c)
+ *     KeIntSteerPeriodic @ 0x1402B1294 (KeIntSteerPeriodic.c)
+ *     KiIntSteerConnect @ 0x1402B3934 (KiIntSteerConnect.c)
+ *     KiIntSteerDisable @ 0x14037432C (KiIntSteerDisable.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     KiIntSteerEtwEventEnabled @ 0x1403536D8 (KiIntSteerEtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     KiIntSteerEtwEventEnabled @ 0x1402B14A8 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall KiIntSteerLogState(__int64 a1, const EVENT_DESCRIPTOR *a2)
@@ -32,7 +32,7 @@ char __fastcall KiIntSteerLogState(__int64 a1, const EVENT_DESCRIPTOR *a2)
   __int64 v20; // [rsp+B0h] [rbp+37h]
   __int64 v21; // [rsp+B8h] [rbp+3Fh]
 
-  result = KiIntSteerEtwEventEnabled((__int64)a2);
+  result = KiIntSteerEtwEventEnabled((__int64)a2, (__int64)a2);
   if ( result )
   {
     v5 = *(_QWORD *)(a1 + 16);

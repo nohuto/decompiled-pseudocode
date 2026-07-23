@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpPoolMgrScheduleLookasideRebalance @ 0x140433CBC
+ * XREFs of ExpPoolMgrScheduleLookasideRebalance @ 0x140428D8C
  * Callers:
- *     ExHeapLookasideRebalance @ 0x140433A10 (ExHeapLookasideRebalance.c)
+ *     ExHeapLookasideRebalance @ 0x140428AE0 (ExHeapLookasideRebalance.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall ExpPoolMgrScheduleLookasideRebalance(__int64 a1)

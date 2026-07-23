@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipEnumerateGuids @ 0x1408B35A0
+ * XREFs of WmipEnumerateGuids @ 0x1408B4800
  * Callers:
- *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406AB080 (WmipIoControl.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     WmipGetGuidPropertiesFromGuidEntry @ 0x1408B36A8 (WmipGetGuidPropertiesFromGuidEntry.c)
+ *     WmipGetGuidPropertiesFromGuidEntry @ 0x1408B4908 (WmipGetGuidPropertiesFromGuidEntry.c)
  */
 
 __int64 __fastcall WmipEnumerateGuids(int a1, _DWORD *a2, int a3, _DWORD *a4)

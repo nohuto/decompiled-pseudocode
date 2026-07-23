@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x1407AA49C
+ * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x1407AA69C
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     RtlpFindRegTziForCurrentYear @ 0x1403B7EC4 (RtlpFindRegTziForCurrentYear.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA5E0 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlpRegTziFormatToTzi @ 0x1407AA76C (RtlpRegTziFormatToTzi.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1403B8034 (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA7E0 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpRegTziFormatToTzi @ 0x1407AA96C (RtlpRegTziFormatToTzi.c)
  */
 
 char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
@@ -55,7 +55,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
   memset(v25, 0, sizeof(v25));
   if ( (int)RtlpGetDynamicTimeZoneInfoHandle((NTSTRSAFE_PCWSTR)Buf2 + 86) >= 0 )
   {
-    if ( (int)RtlpFindRegTziForCurrentYear((__int64)v25, 0LL, a2) >= 0 )
+    if ( (int)RtlpFindRegTziForCurrentYear(v25, 0LL, a2) >= 0 )
     {
       v6 = *((_OWORD *)Buf2 + 1);
       Buf1 = *(_OWORD *)Buf2;

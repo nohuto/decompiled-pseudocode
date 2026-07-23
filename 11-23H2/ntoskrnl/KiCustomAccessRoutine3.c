@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCustomAccessRoutine3 @ 0x14042B490
+ * XREFs of KiCustomAccessRoutine3 @ 0x14042B820
  * Callers:
- *     PopThermalZoneDpc @ 0x1403CCBC0 (PopThermalZoneDpc.c)
+ *     PopThermalZoneDpc @ 0x1403CCDA0 (PopThermalZoneDpc.c)
  * Callees:
- *     KiCustomRecurseRoutine3 @ 0x14042B470 (KiCustomRecurseRoutine3.c)
+ *     KiCustomRecurseRoutine3 @ 0x14042B800 (KiCustomRecurseRoutine3.c)
  */
 
 __int64 __fastcall KiCustomAccessRoutine3(unsigned int *a1)

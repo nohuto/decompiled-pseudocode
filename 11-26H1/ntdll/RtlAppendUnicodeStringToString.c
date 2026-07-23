@@ -1,43 +1,43 @@
 /*
- * XREFs of RtlAppendUnicodeStringToString @ 0x180058DC0
+ * XREFs of RtlAppendUnicodeStringToString @ 0x180043340
  * Callers:
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18000B504 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     RtlpGetMUIRedirectedFilePathInternal @ 0x1800335D0 (RtlpGetMUIRedirectedFilePathInternal.c)
- *     RtlpGetTokenNamedObjectPath @ 0x180058660 (RtlpGetTokenNamedObjectPath.c)
- *     RtlpGetRegistryHandle @ 0x18005A6B8 (RtlpGetRegistryHandle.c)
- *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x18005AAC0 (AVrfOpenCurrentUserImageFileOptionsKey.c)
- *     LdrpFindKnownDll @ 0x180082BE0 (LdrpFindKnownDll.c)
- *     LdrpLoadWow64 @ 0x180086710 (LdrpLoadWow64.c)
- *     LdrpInitializePerUserWindowsDirectory @ 0x1800989AC (LdrpInitializePerUserWindowsDirectory.c)
- *     LdrpSearchPath @ 0x180098BBC (LdrpSearchPath.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     AVrfpLoadAndInitializeProvider @ 0x180106D68 (AVrfpLoadAndInitializeProvider.c)
- *     AvrfMiniLoadDll @ 0x180116838 (AvrfMiniLoadDll.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x180118DB0 (LdrpInitializeNtdllDataTableEntry.c)
- *     AVrfpFormatCurrentUserKeyPath @ 0x18011E79C (AVrfpFormatCurrentUserKeyPath.c)
- *     RtlpConstructCrossVmObjectPath @ 0x18014611C (RtlpConstructCrossVmObjectPath.c)
+ *     RtlpGetMUIRedirectedFilePathInternal @ 0x18001E730 (RtlpGetMUIRedirectedFilePathInternal.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x180042BE0 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpGetRegistryHandle @ 0x180044C38 (RtlpGetRegistryHandle.c)
+ *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x180045040 (AVrfOpenCurrentUserImageFileOptionsKey.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180056C34 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     LdrpFindKnownDll @ 0x180079F80 (LdrpFindKnownDll.c)
+ *     LdrpLoadWow64 @ 0x18007DAB0 (LdrpLoadWow64.c)
+ *     LdrpInitializePerUserWindowsDirectory @ 0x180097AD8 (LdrpInitializePerUserWindowsDirectory.c)
+ *     LdrpSearchPath @ 0x180097CEC (LdrpSearchPath.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x180106768 (AVrfpLoadAndInitializeProvider.c)
+ *     AvrfMiniLoadDll @ 0x180116018 (AvrfMiniLoadDll.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x180118B60 (LdrpInitializeNtdllDataTableEntry.c)
+ *     AVrfpFormatCurrentUserKeyPath @ 0x18011E54C (AVrfpFormatCurrentUserKeyPath.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x180145FCC (RtlpConstructCrossVmObjectPath.c)
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendUnicodeStringToString(unsigned __int16 *a1, const void **a2)
+NTSTATUS __cdecl RtlAppendUnicodeStringToString(PUNICODE_STRING Destination, PCUNICODE_STRING Source)
 {
-  unsigned int v2; // esi
+  unsigned int Length; // esi
   unsigned __int64 v4; // rcx
-  void *v5; // r14
+  wchar_t *v5; // r14
 
-  v2 = *(unsigned __int16 *)a2;
-  if ( !(_WORD)v2 )
-    return 0LL;
-  v4 = *a1;
-  if ( (unsigned int)v4 + v2 <= a1[1] )
+  Length = Source->Length;
+  if ( !(_WORD)Length )
+    return 0;
+  v4 = Destination->Length;
+  if ( (unsigned int)v4 + Length <= Destination->MaximumLength )
   {
-    v5 = (void *)(*((_QWORD *)a1 + 1) + 2 * (v4 >> 1));
-    memmove(v5, a2[1], *(unsigned __int16 *)a2);
-    *a1 += v2;
-    if ( (unsigned int)*a1 + 1 < a1[1] )
-      *((_WORD *)v5 + ((unsigned __int64)v2 >> 1)) = 0;
-    return 0LL;
+    v5 = &Destination->Buffer[v4 >> 1];
+    memmove(v5, Source->Buffer, Source->Length);
+    Destination->Length += Length;
+    if ( (unsigned int)Destination->Length + 1 < Destination->MaximumLength )
+      v5[(unsigned __int64)Length >> 1] = 0;
+    return 0;
   }
-  return 3221225507LL;
+  return -1073741789;
 }

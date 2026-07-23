@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpSetProcMergedLangList @ 0x18010B414
+ * XREFs of RtlpSetProcMergedLangList @ 0x1801061B4
  * Callers:
- *     RtlGetThreadPreferredUILanguages @ 0x180037120 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x1800173A0 (RtlGetThreadPreferredUILanguages.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlpInitMuiCriticalSection @ 0x18007CC94 (RtlpInitMuiCriticalSection.c)
+ *     RtlpInitMuiCriticalSection @ 0x1800115D4 (RtlpInitMuiCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
  */
 
 __int64 __fastcall RtlpSetProcMergedLangList(__int64 a1, __int64 a2)
@@ -15,14 +15,14 @@ __int64 __fastcall RtlpSetProcMergedLangList(__int64 a1, __int64 a2)
   if ( !*(_QWORD *)(a1 + 96) )
   {
     RtlpInitMuiCriticalSection();
-    RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     if ( !*(_QWORD *)(a1 + 96) )
     {
       *(_DWORD *)(a2 + 40) |= 0x40u;
       *(_DWORD *)a1 |= 0x200u;
       *(_QWORD *)(a1 + 96) = a2;
     }
-    RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
   }
   return 0LL;
 }

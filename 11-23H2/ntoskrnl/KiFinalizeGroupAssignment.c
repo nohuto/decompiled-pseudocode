@@ -1,5 +1,5 @@
 /*
- * XREFs of KiFinalizeGroupAssignment @ 0x1403AA4F0
+ * XREFs of KiFinalizeGroupAssignment @ 0x1403AA6D0
  * Callers:
  *     KiPerformGroupConfiguration @ 0x140B69430 (KiPerformGroupConfiguration.c)
  * Callees:

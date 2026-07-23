@@ -20,14 +20,15 @@
  *     EtwTraceJob @ 0x1408DBB24 (EtwTraceJob.c)
  */
 
-__int64 __fastcall NtCreateJobObject(__int64 *a1, int a2, int a3)
+NTSTATUS __cdecl NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
+  int v3; // r13d
   struct _KTHREAD *CurrentThread; // r14
   unsigned __int8 PreviousMode; // si
   __int64 v7; // rcx
   char v8; // r12
   unsigned int v9; // ebx
-  int inserted; // esi
+  NTSTATUS inserted; // esi
   size_t v11; // r8
   PRKEVENT v12; // rbx
   struct _KEVENT *v13; // rax
@@ -41,6 +42,7 @@ __int64 __fastcall NtCreateJobObject(__int64 *a1, int a2, int a3)
   LARGE_INTEGER Interval; // [rsp+68h] [rbp-40h] BYREF
   unsigned int Blink; // [rsp+C8h] [rbp+20h]
 
+  v3 = (int)ObjectAttributes;
   Event = 0LL;
   v21 = 0LL;
   Blink = 0;
@@ -49,14 +51,14 @@ __int64 __fastcall NtCreateJobObject(__int64 *a1, int a2, int a3)
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)JobHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)JobHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  *a1 = 0LL;
+  *JobHandle = 0LL;
   v8 = PoEnergyEstimationEnabled();
   v9 = v8 != 0 ? 2272 : 1832;
-  inserted = ObCreateObjectEx(PreviousMode, PsJobType, a3, PreviousMode, v19, v9, 0, v9, &Event, 0LL);
+  inserted = ObCreateObjectEx(PreviousMode, PsJobType, v3, PreviousMode, v19, v9, 0, v9, &Event, 0LL);
   if ( inserted < 0 )
   {
     v12 = Event;
@@ -135,10 +137,10 @@ __int64 __fastcall NtCreateJobObject(__int64 *a1, int a2, int a3)
     if ( inserted >= 0 )
     {
       PsReferenceSiloContext(v12);
-      inserted = ObInsertObjectEx((char *)v12, 0LL, a2, 0, 0, 0LL, (__int64)&v21);
+      inserted = ObInsertObjectEx((char *)v12, 0LL, DesiredAccess, 0, 0, 0LL, (__int64)&v21);
       if ( inserted >= 0 )
       {
-        *a1 = v21;
+        *JobHandle = (HANDLE)v21;
         goto LABEL_21;
       }
       v17 = v12;
@@ -151,5 +153,5 @@ LABEL_21:
     EtwTraceJob(v12, Blink, (unsigned int)inserted, 1824LL);
   if ( v12 )
     ObfDereferenceObject(v12);
-  return (unsigned int)inserted;
+  return inserted;
 }

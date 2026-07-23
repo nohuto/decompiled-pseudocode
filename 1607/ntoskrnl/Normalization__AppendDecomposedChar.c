@@ -1,9 +1,9 @@
 /*
- * XREFs of Normalization__AppendDecomposedChar @ 0x14068A798
+ * XREFs of Normalization__AppendDecomposedChar @ 0x14068A87C
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x14068B660 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x14068B744 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     Normalization__NormalizeCharacter @ 0x14068B660 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x14068B744 (Normalization__NormalizeCharacter.c)
  */
 
 __int64 __fastcall Normalization__AppendDecomposedChar(__int64 a1, int a2, __int64 a3)

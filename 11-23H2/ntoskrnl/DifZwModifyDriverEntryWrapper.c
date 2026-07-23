@@ -1,15 +1,15 @@
 /*
- * XREFs of DifZwModifyDriverEntryWrapper @ 0x1405F1240
+ * XREFs of DifZwModifyDriverEntryWrapper @ 0x1405F17B0
  * Callers:
  *     <none>
  * Callees:
- *     ZwModifyDriverEntry @ 0x14041D120 (ZwModifyDriverEntry.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwModifyDriverEntry @ 0x14041D4B0 (ZwModifyDriverEntry.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwModifyDriverEntryWrapper(__int64 a1)
+NTSTATUS __fastcall DifZwModifyDriverEntryWrapper(PEFI_DRIVER_ENTRY DriverEntry)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -20,7 +20,7 @@ __int64 __fastcall DifZwModifyDriverEntryWrapper(__int64 a1)
   int v8; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v12; // rdi
   _QWORD *v13; // rbx
   __int128 v14; // [rsp+20h] [rbp-20h] BYREF
@@ -58,14 +58,14 @@ LABEL_8:
   }
   *(_QWORD *)&v14 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v14 + 1) = a1;
+  *((_QWORD *)&v14 + 1) = DriverEntry;
   for ( i = (__int64 *)v7[4]; i != v7 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v14);
   }
 LABEL_17:
-  result = ZwModifyDriverEntry(a1, v3);
+  result = ZwModifyDriverEntry(DriverEntry);
   LODWORD(v15) = result;
   if ( v7 )
   {
@@ -80,7 +80,7 @@ LABEL_17:
         v13 = (_QWORD *)*v13;
       }
       while ( v13 != v12 );
-      return (unsigned int)v15;
+      return v15;
     }
   }
   return result;

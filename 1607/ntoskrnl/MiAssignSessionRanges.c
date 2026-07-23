@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitializeSystemVa @ 0x1407AA428 (MiInitializeSystemVa.c)
  * Callees:
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 MiAssignSessionRanges()
@@ -29,7 +29,7 @@ __int64 MiAssignSessionRanges()
   __int64 result; // rax
   unsigned __int64 v15; // rbx
   __int64 v16; // [rsp+28h] [rbp-99h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-91h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-91h] BYREF
   _QWORD v18[12]; // [rsp+48h] [rbp-79h] BYREF
   _BYTE v19[64]; // [rsp+A8h] [rbp-19h] BYREF
 
@@ -47,7 +47,7 @@ __int64 MiAssignSessionRanges()
     v18[v2 + 2] = 0x2000000000LL;
   }
   while ( (int)v1 < 2 );
-  v3 = qword_140327FC0;
+  v3 = qword_140328000;
   v4 = 3 * v1;
   LODWORD(v18[v4]) = v1;
   v5 = v1 + 1;
@@ -90,12 +90,12 @@ __int64 MiAssignSessionRanges()
     v7 += 3;
     v8 = ((_WORD)v12 + (_WORD)ClearBitsAndSet + (unsigned __int8)ExGenRandom(1)) & 0x1FF;
   }
-  qword_1403268C0 = v18[1];
-  qword_1403268C8 = v18[4];
-  qword_140326900 = v18[10];
-  qword_140326910 = v16;
-  qword_140326908 = v18[10] + 8 * v0;
+  qword_140326900 = v18[1];
+  qword_140326908 = v18[4];
+  qword_140326940 = v18[10];
+  qword_140326950 = v16;
+  qword_140326948 = v18[10] + 8 * v0;
   result = v18[7];
-  qword_140326918 = v18[7];
+  qword_140326958 = v18[7];
   return result;
 }

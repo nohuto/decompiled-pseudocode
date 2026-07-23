@@ -84,11 +84,11 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   __int64 v17; // rcx
   LIST_ENTRY *p_WaitListHead; // rbx
   struct _KTHREAD *Thread; // rcx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   _QWORD *v22; // r12
   _QWORD *v23; // rax
   _QWORD *v24; // r15
-  union _RTL_RUN_ONCE *v25; // rax
+  _RTL_RUN_ONCE *v25; // rax
   PACCESS_TOKEN v26; // rbx
   void *v27; // rcx
   signed __int64 v28; // rax

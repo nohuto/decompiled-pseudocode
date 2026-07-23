@@ -1,19 +1,19 @@
 /*
- * XREFs of BgpTxtDisplayCharacter @ 0x140127284
+ * XREFs of BgpTxtDisplayCharacter @ 0x1401277F4
  * Callers:
- *     BgpDisplayCharacterEx @ 0x140239538 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x14023941C (BgpDisplayCharacterEx.c)
  *     AnFwpProgressAnimationManual @ 0x1407253F8 (AnFwpProgressAnimationManual.c)
  *     AnFwpProgressIndicatorTimer @ 0x1407271D8 (AnFwpProgressIndicatorTimer.c)
  *     AnFwDisplayProgressIndicator @ 0x140727494 (AnFwDisplayProgressIndicator.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     TxtpGetCacheEntry @ 0x1401274A4 (TxtpGetCacheEntry.c)
- *     BgpGxDrawRectangle @ 0x140127524 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x140127790 (BgpGetBitsPerPixel.c)
- *     BgpRasPrintGlyph @ 0x1401277B0 (BgpRasPrintGlyph.c)
- *     BgpGxFillRectangle @ 0x140127D68 (BgpGxFillRectangle.c)
- *     BgpFoGetTextMetrics @ 0x140127E00 (BgpFoGetTextMetrics.c)
- *     BgpGxConvertRectangleEx @ 0x1402395E0 (BgpGxConvertRectangleEx.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     TxtpGetCacheEntry @ 0x140127A14 (TxtpGetCacheEntry.c)
+ *     BgpGxDrawRectangle @ 0x140127A94 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x140127D00 (BgpGetBitsPerPixel.c)
+ *     BgpRasPrintGlyph @ 0x140127D20 (BgpRasPrintGlyph.c)
+ *     BgpGxFillRectangle @ 0x1401282D8 (BgpGxFillRectangle.c)
+ *     BgpFoGetTextMetrics @ 0x140128370 (BgpFoGetTextMetrics.c)
+ *     BgpGxConvertRectangleEx @ 0x1402394C4 (BgpGxConvertRectangleEx.c)
  *     TxtpAddCacheEntry @ 0x1407275FC (TxtpAddCacheEntry.c)
  *     BgpGxRectangleDestroy @ 0x1407276C0 (BgpGxRectangleDestroy.c)
  *     BgpGxBlendRectangle @ 0x14072AD60 (BgpGxBlendRectangle.c)

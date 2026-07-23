@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitWeakEnumerationHashTable @ 0x1402EFCD0
+ * XREFs of RtlInitWeakEnumerationHashTable @ 0x1402EFEC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitEnumerationHashTable @ 0x1400DA280 (RtlInitEnumerationHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1400DA300 (RtlInitEnumerationHashTable.c)
  */
 
 BOOLEAN __stdcall RtlInitWeakEnumerationHashTable(

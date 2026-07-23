@@ -1,14 +1,14 @@
 /*
- * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x1404E2F28
+ * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x1404C5E8C
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x1404688C0 (PspEnforceLimitsJobPostCallback.c)
- *     PspJobClose @ 0x1404E2DE8 (PspJobClose.c)
- *     NtTerminateJobObject @ 0x1404E2EBC (NtTerminateJobObject.c)
- *     PsTerminateServerSilo @ 0x14067E178 (PsTerminateServerSilo.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140467790 (PspEnforceLimitsJobPostCallback.c)
+ *     PspJobClose @ 0x1404C5D4C (PspJobClose.c)
+ *     NtTerminateJobObject @ 0x1404C5E20 (NtTerminateJobObject.c)
+ *     PsTerminateServerSilo @ 0x14067E25C (PsTerminateServerSilo.c)
  * Callees:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspEvaluateAndNotifyEmptyJob @ 0x140469F64 (PspEvaluateAndNotifyEmptyJob.c)
- *     EtwTraceJob @ 0x1406A179C (EtwTraceJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140467544 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140468E34 (PspEvaluateAndNotifyEmptyJob.c)
+ *     EtwTraceJob @ 0x1406A18D4 (EtwTraceJob.c)
  */
 
 char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned int a2, char a3)

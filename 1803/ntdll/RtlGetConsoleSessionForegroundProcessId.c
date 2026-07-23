@@ -6,10 +6,10 @@
  *     RtlGetCurrentServiceSessionId @ 0x180017410 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 RtlGetConsoleSessionForegroundProcessId()
+ULONGLONG RtlGetConsoleSessionForegroundProcessId(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    return *((_QWORD *)NtCurrentPeb()->HotpatchInformation + 1);
+  if ( RtlGetCurrentServiceSessionId() )
+    return NtCurrentPeb()->SharedData->ConsoleSessionForegroundProcessId;
   else
     return MEMORY[0x7FFE0338];
 }

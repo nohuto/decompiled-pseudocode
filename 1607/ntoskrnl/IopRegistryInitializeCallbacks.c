@@ -1,11 +1,11 @@
 /*
- * XREFs of IopRegistryInitializeCallbacks @ 0x1405664C8
+ * XREFs of IopRegistryInitializeCallbacks @ 0x140566A08
  * Callers:
  *     IoInitSystem @ 0x1407936BC (IoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwNotifyChangeKey @ 0x14015BDC0 (ZwNotifyChangeKey.c)
- *     IopRegistryOpenDeepestPath @ 0x1405666A8 (IopRegistryOpenDeepestPath.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwNotifyChangeKey @ 0x14015C330 (ZwNotifyChangeKey.c)
+ *     IopRegistryOpenDeepestPath @ 0x140566BE8 (IopRegistryOpenDeepestPath.c)
  */
 
 __int64 IopRegistryInitializeCallbacks()

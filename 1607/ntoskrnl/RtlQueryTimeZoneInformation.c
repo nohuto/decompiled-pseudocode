@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryTimeZoneInformation @ 0x140688598
+ * XREFs of RtlQueryTimeZoneInformation @ 0x14068867C
  * Callers:
  *     <none>
  * Callees:

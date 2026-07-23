@@ -1,10 +1,10 @@
 /*
- * XREFs of MiEvaluateProcessor @ 0x1403E9E14
+ * XREFs of MiEvaluateProcessor @ 0x1402F6CF4
  * Callers:
- *     MiEvaluateProcessorGroups @ 0x1403E9BE4 (MiEvaluateProcessorGroups.c)
+ *     MiEvaluateProcessorGroups @ 0x1402F6AC4 (MiEvaluateProcessorGroups.c)
  * Callees:
- *     MiObtainParkedCoreMasks @ 0x1403E9CF8 (MiObtainParkedCoreMasks.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403E9FB0 (KeFindFirstSetRightGroupAffinity.c)
+ *     MiObtainParkedCoreMasks @ 0x1402F6BD8 (MiObtainParkedCoreMasks.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402F6E90 (KeFindFirstSetRightGroupAffinity.c)
  */
 
 __int64 __fastcall MiEvaluateProcessor(__int64 a1, __int64 a2, __int128 *a3)

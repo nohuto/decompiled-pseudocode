@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpVerifyRenameKeyLogRecord @ 0x140605C00
+ * XREFs of CmpVerifyRenameKeyLogRecord @ 0x140605CB4
  * Callers:
- *     CmpVerifyLogRecord @ 0x140605B40 (CmpVerifyLogRecord.c)
+ *     CmpVerifyLogRecord @ 0x140605BF4 (CmpVerifyLogRecord.c)
  * Callees:
  *     <none>
  */

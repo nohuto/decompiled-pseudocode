@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTiLogReadWriteVm @ 0x1406A5B94
+ * XREFs of EtwTiLogReadWriteVm @ 0x1406A5CCC
  * Callers:
- *     MiReadWriteVirtualMemory @ 0x14050BC60 (MiReadWriteVirtualMemory.c)
+ *     MiReadWriteVirtualMemory @ 0x1404EEBF0 (MiReadWriteVirtualMemory.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1400B7664 (EtwProviderEnabled.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpTiFillProcessIdentity @ 0x14017196C (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x140171A18 (EtwpTiFillThreadIdentity.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x1400B54FC (EtwProviderEnabled.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpTiFillProcessIdentity @ 0x140171E6C (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x140171F18 (EtwpTiFillThreadIdentity.c)
  */
 
 char __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, __int64 a3, int a4, char a5, char a6)

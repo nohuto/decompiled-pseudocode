@@ -1,14 +1,14 @@
 /*
- * XREFs of KeAddTriageDumpDataBlock @ 0x1405B1660
+ * XREFs of KeAddTriageDumpDataBlock @ 0x1405AE5D0
  * Callers:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     PopWatchdogDumpControlRoutine @ 0x1405E11B0 (PopWatchdogDumpControlRoutine.c)
- *     IopInitializeTriageDumpData @ 0x140711420 (IopInitializeTriageDumpData.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     PopWatchdogDumpControlRoutine @ 0x1405DE7D0 (PopWatchdogDumpControlRoutine.c)
+ *     IopInitializeTriageDumpData @ 0x14070EFB0 (IopInitializeTriageDumpData.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1404AB6BC (KiIsAddressRangeValid.c)
- *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsageNoInline @ 0x1405B1608 (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsageNoInline.c)
- *     KiAddTriageDumpDataBlock @ 0x1405B2A64 (KiAddTriageDumpDataBlock.c)
- *     KiValidateTriageDumpDataArray @ 0x1405B454C (KiValidateTriageDumpDataArray.c)
+ *     KiIsAddressRangeValid @ 0x1404A5A08 (KiIsAddressRangeValid.c)
+ *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsageNoInline @ 0x1405AE578 (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsageNoInline.c)
+ *     KiAddTriageDumpDataBlock @ 0x1405AF9D8 (KiAddTriageDumpDataBlock.c)
+ *     KiValidateTriageDumpDataArray @ 0x1405B14D0 (KiValidateTriageDumpDataArray.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

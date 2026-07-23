@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer @ 0x14032E3C8
+ * XREFs of McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer @ 0x14049BF4C
  * Callers:
- *     CcPostVolumeTelemetry @ 0x1404C405C (CcPostVolumeTelemetry.c)
+ *     CcPostVolumeTelemetry @ 0x14040C990 (CcPostVolumeTelemetry.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer(
+NTSTATUS __fastcall McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -73,7 +73,7 @@ __int64 __fastcall McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         char a63)
 {
   char a64; // [rsp+6F8h] [rbp+5F8h] BYREF
-  _BYTE v65[16]; // [rsp+30h] [rbp-D0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v65; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v66; // [rsp+40h] [rbp-C0h]
   __int64 v67; // [rsp+48h] [rbp-B8h]
   char *v68; // [rsp+50h] [rbp-B0h]
@@ -371,5 +371,10 @@ __int64 __fastcall McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   v209 = 8LL;
   v211 = 8LL;
   v213 = 8LL;
-  return McGenEventWrite_EtwWriteTransfer(&MS_KernelCc_Provider_Context, CcEvt_CacheVolumeReadLatencies, 0LL, 75LL, v65);
+  return McGenEventWrite_EtwWriteTransfer(
+           MS_KernelCc_Provider_Context,
+           (const EVENT_DESCRIPTOR *)CcEvt_CacheVolumeReadLatencies,
+           0LL,
+           0x4Bu,
+           &v65);
 }

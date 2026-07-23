@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwFilterBootOption()
+NTSTATUS __cdecl ZwFilterBootOption(
+        FILTER_BOOT_OPTION_OPERATION FilterOperation,
+        ULONG ObjectType,
+        ULONG ElementType,
+        PVOID Data,
+        ULONG DataSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 212LL;
+  result = 212;
   __asm { syscall; Low latency system call }
   return result;
 }

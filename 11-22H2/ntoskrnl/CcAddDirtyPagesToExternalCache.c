@@ -43,10 +43,10 @@ __int64 __fastcall CcAddDirtyPagesToExternalCache(__int64 a1, unsigned __int64 a
       CcChargeDirtyPagesInternal(0LL, 0LL, 0LL, v7, (_BYTE *)v6, v2);
       result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && LockHandle.OldIrql <= 0xFu
           && (unsigned __int8)result >= 2u )

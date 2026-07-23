@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpScanEnvironment @ 0x18009DA10
+ * XREFs of RtlpScanEnvironment @ 0x18009CB40
  * Callers:
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpInsertEnvironmentHashTableEntry @ 0x18009DE60 (RtlpInsertEnvironmentHashTableEntry.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpInsertEnvironmentHashTableEntry @ 0x18009CF90 (RtlpInsertEnvironmentHashTableEntry.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpScanEnvironment(
@@ -46,13 +46,13 @@ __int64 __fastcall RtlpScanEnvironment(
   __int64 v34; // [rsp+20h] [rbp-58h]
   unsigned __int16 *v35; // [rsp+80h] [rbp+8h]
 
-  v7 = qword_1801C6038;
+  v7 = qword_1801C5038;
   v8 = &a2[a3];
   v9 = a7;
   v10 = a2;
   v35 = v8;
   v12 = 0;
-  v34 = qword_1801C6038;
+  v34 = qword_1801C5038;
   while ( 2 )
   {
     while ( 2 )
@@ -61,8 +61,8 @@ __int64 __fastcall RtlpScanEnvironment(
       {
         if ( v9 )
         {
-          *((_QWORD *)&xmmword_1801CB850 + 1) = a1;
-          LOBYTE(xmmword_1801CB850) = 1;
+          *((_QWORD *)&xmmword_1801CA890 + 1) = a1;
+          LOBYTE(xmmword_1801CA890) = 1;
         }
         return 3221225728LL;
       }
@@ -160,7 +160,7 @@ LABEL_18:
     v21 = v19 + 1;
     v22 = v20;
     v23 = v19 - v13;
-    if ( !a7 || *((_QWORD *)&xmmword_1801CB850 + 1) >= (unsigned __int64)a1 )
+    if ( !a7 || *((_QWORD *)&xmmword_1801CA890 + 1) >= (unsigned __int64)a1 )
       goto LABEL_24;
     if ( !NtCurrentPeb()->ProcessHeap )
     {
@@ -172,7 +172,7 @@ LABEL_44:
       a7 = 0;
       goto LABEL_25;
     }
-    Heap_0 = (_QWORD *)RtlAllocateHeap_0();
+    Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
     v25 = Heap_0;
     if ( !Heap_0 )
     {
@@ -199,15 +199,15 @@ LABEL_44:
         LOWORD(v28) = v28 - 32;
         goto LABEL_40;
       }
-      if ( qword_1801C6038 && (unsigned __int16)v28 >= 0xC0u )
+      if ( qword_1801C5038 && (unsigned __int16)v28 >= 0xC0u )
       {
-        v29 = *(_WORD *)(qword_1801C6038
+        v29 = *(_WORD *)(qword_1801C5038
                        + 2
                        * ((v28 & 0xF)
-                        + *(unsigned __int16 *)(qword_1801C6038
+                        + *(unsigned __int16 *)(qword_1801C5038
                                               + 2LL
                                               * (((unsigned __int8)v28 >> 4)
-                                               + (unsigned int)*(unsigned __int16 *)(qword_1801C6038 + 2 * (v28 >> 8))))))
+                                               + (unsigned int)*(unsigned __int16 *)(qword_1801C5038 + 2 * (v28 >> 8))))))
             + v28;
         LOWORD(v28) = v29;
       }
@@ -229,11 +229,11 @@ LABEL_42:
     {
       v8 = v35;
       v12 = 0;
-      *((_QWORD *)&xmmword_1801CB850 + 1) = a1;
+      *((_QWORD *)&xmmword_1801CA890 + 1) = a1;
     }
     else
     {
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v25);
       v12 = 0;
       if ( inserted != -1073741771 )
         goto LABEL_44;

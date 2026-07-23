@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCreateSectionForDriver @ 0x140AEBC54
+ * XREFs of MiCreateSectionForDriver @ 0x140AEEB60
  * Callers:
- *     MiObtainSectionForDriver @ 0x140AEB960 (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x140AEE86C (MiObtainSectionForDriver.c)
  * Callees:
- *     MiCreateSystemSection @ 0x14038A4C0 (MiCreateSystemSection.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     KeComputeSha256 @ 0x1404D8A40 (KeComputeSha256.c)
- *     MiGetBaseNameFromImageFileName @ 0x1404E2C3C (MiGetBaseNameFromImageFileName.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     MiLogFailedDriverLoad @ 0x140B518F0 (MiLogFailedDriverLoad.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     KdPullRemoteFile @ 0x140C133B8 (KdPullRemoteFile.c)
+ *     MiCreateSystemSection @ 0x14038C270 (MiCreateSystemSection.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     KeComputeSha256 @ 0x1404D2210 (KeComputeSha256.c)
+ *     MiGetBaseNameFromImageFileName @ 0x1404DC2B0 (MiGetBaseNameFromImageFileName.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     MiLogFailedDriverLoad @ 0x140B54190 (MiLogFailedDriverLoad.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     KdPullRemoteFile @ 0x140C193B8 (KdPullRemoteFile.c)
  */
 
 __int64 __fastcall MiCreateSectionForDriver(UNICODE_STRING *p_DestinationString, __int64 a2, int a3, _QWORD *a4)
@@ -52,7 +52,7 @@ __int64 __fastcall MiCreateSectionForDriver(UNICODE_STRING *p_DestinationString,
   v7 = a2;
   *(&ObjectAttributes.Attributes + 1) = 0;
   v8 = 8;
-  stru_140E2D150.SchedulerApcFill3[8] = 1;
+  stru_140E2D2D0.SchedulerApcFill3[8] = 1;
   FileHandle = 0LL;
   Source = 0LL;
   IoStatusBlock = 0LL;
@@ -95,7 +95,7 @@ __int64 __fastcall MiCreateSectionForDriver(UNICODE_STRING *p_DestinationString,
       if ( Pool2 )
       {
         KeComputeSha256((__int64)p_DestinationString->Buffer, p_DestinationString->Length, (__int64)v29);
-        RtlCopyUnicodeString(&DestinationString, &stru_14000EB48);
+        RtlCopyUnicodeString(&DestinationString, &stru_14000EE38);
         v15 = v29;
         v4 = 32LL;
         do
@@ -138,7 +138,7 @@ __int64 __fastcall MiCreateSectionForDriver(UNICODE_STRING *p_DestinationString,
   v19 = ((unsigned int)a3 >> 27) & 8;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
-  if ( (stru_140E36558.QuantumTarget & 0x400000000LL) == 0 )
+  if ( (stru_140E366D8.QuantumTarget & 0x400000000LL) == 0 )
     v8 = v19;
   ObjectAttributes.Attributes = 576;
   ObjectAttributes.ObjectName = 0LL;

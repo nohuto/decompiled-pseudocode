@@ -125,8 +125,8 @@ __int64 __fastcall InitBootProcessor(unsigned int *a1)
   unsigned __int8 v64[16]; // [rsp+A8h] [rbp-60h] BYREF
   int v65; // [rsp+B8h] [rbp-50h]
   _LDR_RESOURCE_INFO ResourceInfo; // [rsp+118h] [rbp+10h] BYREF
-  char pszDest[256]; // [rsp+138h] [rbp+30h] BYREF
-  char Source[64]; // [rsp+238h] [rbp+130h] BYREF
+  CHAR pszDest[256]; // [rsp+138h] [rbp+30h] BYREF
+  CHAR Source[64]; // [rsp+238h] [rbp+130h] BYREF
 
   v1 = *a1;
   if ( *(_QWORD *)a1 != 10LL || a1[2] != 328 )

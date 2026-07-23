@@ -14,7 +14,7 @@
  *     RtlReleaseSRWLockExclusive @ 0x180033470 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
+void __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
 {
   __int64 DebugInfo; // rax
   __int64 v3; // rdx
@@ -23,7 +23,6 @@ __int64 __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
   volatile signed __int64 v6; // rbx
   signed __int64 *v7; // rax
   signed __int64 v8; // rbx
-  __int64 result; // rax
 
   DebugInfo = RtlpAllocateDebugInfo();
   v4 = DebugInfo;
@@ -50,17 +49,15 @@ __int64 __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
         __fastfail(3u);
       *v7 = v8;
       off_180143120 = (_UNKNOWN **)v8;
-      return RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
+      RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
     }
     else
     {
-      return RtlpFreeDebugInfo(v4);
+      RtlpFreeDebugInfo(v4);
     }
   }
   else
   {
-    result = 1LL;
     _InterlockedAdd(&RtlFailedCriticalDebugAllocations, 1u);
   }
-  return result;
 }

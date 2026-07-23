@@ -1,10 +1,10 @@
 /*
- * XREFs of ExEnterCriticalRegionAndAcquireFastMutexUnsafe @ 0x14002C030
+ * XREFs of ExEnterCriticalRegionAndAcquireFastMutexUnsafe @ 0x14002BBB0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExpAcquireFastMutexContended @ 0x1400C7E28 (ExpAcquireFastMutexContended.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExpAcquireFastMutexContended @ 0x1400C5CC8 (ExpAcquireFastMutexContended.c)
  */
 
 __int64 __fastcall ExEnterCriticalRegionAndAcquireFastMutexUnsafe(ULONG_PTR BugCheckParameter2)

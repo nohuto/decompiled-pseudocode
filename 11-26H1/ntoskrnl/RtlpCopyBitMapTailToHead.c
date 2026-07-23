@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCopyBitMapTailToHead @ 0x140493208
+ * XREFs of RtlpCopyBitMapTailToHead @ 0x14048D044
  * Callers:
- *     RtlCopyBitMap @ 0x140492FF0 (RtlCopyBitMap.c)
+ *     RtlCopyBitMap @ 0x14048CE30 (RtlCopyBitMap.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void *__fastcall RtlpCopyBitMapTailToHead(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   _QWORD *v4; // rsi
   unsigned __int64 v5; // r14
-  const void **v6; // rdi
+  const void **v6; // rbx
   unsigned __int64 v7; // r11
   unsigned __int64 v8; // r10
   __int64 v9; // r8
@@ -19,10 +19,10 @@ void *__fastcall RtlpCopyBitMapTailToHead(__int64 a1, __int64 a2, unsigned int a
   void *result; // rax
   int *v13; // r9
   int v14; // ebp
-  char v15; // di
+  char v15; // bl
   int *v16; // r9
-  unsigned int v17; // edi
-  int v18; // edi
+  unsigned int v17; // ebx
+  int v18; // ebx
   size_t v19; // r11
 
   v4 = (_QWORD *)(a2 + 8);

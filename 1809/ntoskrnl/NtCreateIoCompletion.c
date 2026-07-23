@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateIoCompletion @ 0x1406A64A0
+ * XREFs of NtCreateIoCompletion @ 0x1406A7740
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeQueue @ 0x1401219D0 (KeInitializeQueue.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     KeInitializeQueue @ 0x140121AA0 (KeInitializeQueue.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall NtCreateIoCompletion(

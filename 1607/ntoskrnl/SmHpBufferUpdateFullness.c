@@ -1,10 +1,10 @@
 /*
- * XREFs of SmHpBufferUpdateFullness @ 0x140118158
+ * XREFs of SmHpBufferUpdateFullness @ 0x1401186C8
  * Callers:
- *     SmHpBufferAlloc @ 0x14011595C (SmHpBufferAlloc.c)
- *     SmHpChunkFree @ 0x1401175F4 (SmHpChunkFree.c)
- *     SmHpChunkAlloc @ 0x1401180C8 (SmHpChunkAlloc.c)
- *     SmHpBufferCleanup @ 0x14021FD64 (SmHpBufferCleanup.c)
+ *     SmHpBufferAlloc @ 0x140115ECC (SmHpBufferAlloc.c)
+ *     SmHpChunkFree @ 0x140117B64 (SmHpChunkFree.c)
+ *     SmHpChunkAlloc @ 0x140118638 (SmHpChunkAlloc.c)
+ *     SmHpBufferCleanup @ 0x14021FB90 (SmHpBufferCleanup.c)
  * Callees:
  *     <none>
  */

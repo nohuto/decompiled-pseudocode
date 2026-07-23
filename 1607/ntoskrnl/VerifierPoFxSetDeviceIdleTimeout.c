@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxSetDeviceIdleTimeout @ 0x14070CC00
+ * XREFs of VerifierPoFxSetDeviceIdleTimeout @ 0x14070CC30
  * Callers:
  *     <none>
  * Callees:

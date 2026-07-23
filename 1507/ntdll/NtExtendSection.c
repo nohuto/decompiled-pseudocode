@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtExtendSection()
+NTSTATUS __cdecl NtExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewSectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 211LL;
+  result = 211;
   __asm { syscall; Low latency system call }
   return result;
 }

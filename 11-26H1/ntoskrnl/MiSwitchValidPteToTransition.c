@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSwitchValidPteToTransition @ 0x14030ED40
+ * XREFs of MiSwitchValidPteToTransition @ 0x1402F0DC0
  * Callers:
- *     MiSwitchToTransition @ 0x1402A2130 (MiSwitchToTransition.c)
+ *     MiSwitchToTransition @ 0x1402A1680 (MiSwitchToTransition.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x1402F0540 (ExAcquireRundownProtectionCacheAware.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiUpdateProtectionMask @ 0x140303850 (MiUpdateProtectionMask.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x14049754C (MiCaptureWriteWatchDirtyBit.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x1402D25C0 (ExAcquireRundownProtectionCacheAware.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiUpdateProtectionMask @ 0x1402E58D0 (MiUpdateProtectionMask.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14049109C (MiCaptureWriteWatchDirtyBit.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR *__fastcall MiSwitchValidPteToTransition(__int64 a1, ULONG_PTR *a2)
@@ -48,7 +48,7 @@ ULONG_PTR *__fastcall MiSwitchValidPteToTransition(__int64 a1, ULONG_PTR *a2)
       KeBugCheckEx(0x1Au, 0x41200uLL, (ULONG_PTR)v4, *v4, *(_QWORD *)a1);
     v8 = (v7 >> 12) & 0xFFFFFFFFFFLL;
     BugCheckParameter4 = 48 * v8 - 0x220000000000LL;
-    if ( v8 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v8 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+    if ( v8 <= qword_140E2D920 && ((*(_QWORD *)(48 * v8 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
     {
       if ( (ULONG_PTR *)(*(_QWORD *)(BugCheckParameter4 + 8) | 0x8000000000000000uLL) == v4 )
         KeBugCheckEx(0x1Au, 0x6080uLL, (ULONG_PTR)v4, v7, BugCheckParameter4);

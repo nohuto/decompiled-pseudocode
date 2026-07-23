@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpStartRuntimeStackTrace @ 0x140668404
+ * XREFs of ObpStartRuntimeStackTrace @ 0x1406684E8
  * Callers:
- *     ObSetRefTraceInformation @ 0x14066769C (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x140667780 (ObSetRefTraceInformation.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObpInitStackAndObjectTables @ 0x140667D9C (ObpInitStackAndObjectTables.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ObpInitStackAndObjectTables @ 0x140667E80 (ObpInitStackAndObjectTables.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
@@ -139,9 +139,9 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     Buffer = ObpRuntimeTraceProcessName.Buffer;
     ObpRuntimeTraceProcessName = *(UNICODE_STRING *)P;
     ObpRuntimeTracePoolTags = v25[0];
-    xmmword_1403051F0 = v25[1];
-    xmmword_140305200 = v25[2];
-    xmmword_140305210 = v25[3];
+    xmmword_140305230 = v25[1];
+    xmmword_140305240 = v25[2];
+    xmmword_140305250 = v25[3];
     ObpRuntimeTraceFlags = v3 | v17 & 0xFFFFFF8E | 2;
     ObpTraceFlags = v3 | v17 & 0xFFFFFF8E | 2;
     ObpTracePoolTags = (unsigned __int64)&ObpRuntimeTracePoolTags & -(__int64)((v3 & 0x10) != 0);

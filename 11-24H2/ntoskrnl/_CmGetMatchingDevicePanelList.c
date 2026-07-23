@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetMatchingDevicePanelList @ 0x14081D610
+ * XREFs of _CmGetMatchingDevicePanelList @ 0x14081DD50
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x14081FF10 (_PnpDispatchDevicePanel.c)
+ *     _PnpDispatchDevicePanel @ 0x140820650 (_PnpDispatchDevicePanel.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmGetMatchingDevicePanelListWorker @ 0x14081D770 (_CmGetMatchingDevicePanelListWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmGetMatchingDevicePanelListWorker @ 0x14081DEB0 (_CmGetMatchingDevicePanelListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingDevicePanelList(
@@ -43,7 +43,7 @@ __int64 __fastcall CmGetMatchingDevicePanelList(
   v25 = a7;
   if ( v11 )
   {
-    v12 = guard_dispatch_icall_no_overrides(a1, 0LL, 6LL, 4LL);
+    v12 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v12 == -1073741822 )
     {
       v11 = 0LL;
@@ -61,7 +61,7 @@ __int64 __fastcall CmGetMatchingDevicePanelList(
   if ( !v11 )
     return v14;
   v19[0] = MatchingDevicePanelListWorker;
-  v15 = guard_dispatch_icall_no_overrides(a1, 0LL, 6LL, 4LL);
+  v15 = guard_dispatch_icall_no_overrides(a1, 0LL);
   v16 = v15;
   if ( v15 == -1073741822 )
     return v14;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuAddDebuggerException @ 0x1403A9DB8
+ * XREFs of HalpIommuAddDebuggerException @ 0x1403A9F98
  * Callers:
- *     HalpIommuPopulateExceptionList @ 0x1403A9D9C (HalpIommuPopulateExceptionList.c)
+ *     HalpIommuPopulateExceptionList @ 0x1403A9F7C (HalpIommuPopulateExceptionList.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14037DB08 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037DCA8 (HalpMmAllocateMemoryInternal.c)
  */
 
 __int64 HalpIommuAddDebuggerException()

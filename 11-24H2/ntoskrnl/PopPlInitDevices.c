@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPlInitDevices @ 0x14076549C
+ * XREFs of PopPlInitDevices @ 0x140764E6C
  * Callers:
- *     PopPlInitPowerPlane @ 0x140765618 (PopPlInitPowerPlane.c)
+ *     PopPlInitPowerPlane @ 0x140764FE8 (PopPlInitPowerPlane.c)
  * Callees:
- *     PopPlInitDevice @ 0x140765394 (PopPlInitDevice.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopPlInitDevice @ 0x140764D64 (PopPlInitDevice.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitDevices(
@@ -36,7 +36,7 @@ __int64 __fastcall PopPlInitDevices(
   {
     if ( a2 + 44 * a3 <= a5 )
     {
-      Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+      Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 8 * a3, 0x6C506F50u);
       if ( Pool2 )
       {
         inited = 0;

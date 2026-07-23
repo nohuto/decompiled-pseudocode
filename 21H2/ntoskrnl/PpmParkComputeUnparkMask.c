@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkComputeUnparkMask @ 0x14057D0EC
+ * XREFs of PpmParkComputeUnparkMask @ 0x14057D32C
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1402AE4A0 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x14022C800 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmHeteroRestrictToFavoredClass @ 0x1405782E8 (PpmHeteroRestrictToFavoredClass.c)
- *     PpmEventParkNodePreference @ 0x140579EC8 (PpmEventParkNodePreference.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmHeteroRestrictToFavoredClass @ 0x140578528 (PpmHeteroRestrictToFavoredClass.c)
+ *     PpmEventParkNodePreference @ 0x14057A108 (PpmEventParkNodePreference.c)
  */
 
 __int64 __fastcall PpmParkComputeUnparkMask(

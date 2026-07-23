@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLargePageFreeToZero @ 0x14009B4E0
+ * XREFs of MiLargePageFreeToZero @ 0x14009B420
  * Callers:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     MiQueueLargeFreeZeroRebuild @ 0x14009D1D0 (MiQueueLargeFreeZeroRebuild.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     MiQueueLargeFreeZeroRebuild @ 0x14009D110 (MiQueueLargeFreeZeroRebuild.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
  */
 
 __int64 __fastcall MiLargePageFreeToZero(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, char a4)
@@ -75,7 +75,7 @@ __int64 __fastcall MiLargePageFreeToZero(ULONG_PTR BugCheckParameter2, unsigned 
   v7 = MiLargePageSizes[a2];
   v8 = *(_QWORD *)(v6 + 40);
   v9 = 1984 * (v8 >> 58);
-  v10 = *(_QWORD *)(qword_14043A748 + 8 * ((v8 >> 40) & 0x3FF));
+  v10 = *(_QWORD *)(qword_14043B808 + 8 * ((v8 >> 40) & 0x3FF));
   v11 = v8 >> 36;
   v12 = *(_QWORD *)(v10 + 16) + v9;
   v51 = 0LL;
@@ -112,10 +112,10 @@ __int64 __fastcall MiLargePageFreeToZero(ULONG_PTR BugCheckParameter2, unsigned 
   *(_QWORD *)(v6 + 16) = MiSwizzleInvalidPte(128LL);
   if ( a4 )
   {
-    if ( dword_14043A76C == 1 )
+    if ( dword_14043B82C == 1 )
     {
       v36 = BugCheckParameter2 & 0x1F;
-      v37 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (BugCheckParameter2 >> 5));
+      v37 = (volatile signed __int32 *)(qword_14043B888 + 4 * (BugCheckParameter2 >> 5));
       if ( v36 + v7 > 0x20 )
       {
         if ( (BugCheckParameter2 & 0x1F) != 0 )
@@ -176,7 +176,7 @@ __int64 __fastcall MiLargePageFreeToZero(ULONG_PTR BugCheckParameter2, unsigned 
       while ( v45 != 1 );
     }
   }
-  if ( (MiFlags & 0x80u) != 0 && (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+  if ( (MiFlags & 0x80u) != 0 && (++dword_14043B92C & MmPageValidationFrequency) == 0 )
   {
     MiArePageContentsZero(BugCheckParameter2);
     v18 = v4;
@@ -189,16 +189,16 @@ __int64 __fastcall MiLargePageFreeToZero(ULONG_PTR BugCheckParameter2, unsigned 
   if ( BugCheckParameter2 < 0x100000 )
     v24 = 12LL;
   v25 = v11 & 3;
-  v26 = 24 * (BugCheckParameter2 / v21 % (unsigned int)dword_14043A100[v18]);
+  v26 = 24 * (BugCheckParameter2 / v21 % (unsigned int)dword_14043B1C0[v18]);
   v27 = *(_QWORD *)(v23 + 8 * (v24 + v25) + 144);
   --*(_QWORD *)(v26 + v27 + 16);
   --*(_QWORD *)(v12 + 8 * (v25 + v22 + v24) + 16);
   _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 2240), -(__int64)v7);
   v28 = 1;
-  if ( dword_14043A76C != 1 )
+  if ( dword_14043B82C != 1 )
     goto LABEL_13;
   v46 = v7;
-  v47 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (BugCheckParameter2 >> 5));
+  v47 = (volatile signed __int32 *)(qword_14043B888 + 4 * (BugCheckParameter2 >> 5));
   v54 = BugCheckParameter2 & 0x1F;
   if ( v54 + v7 <= 0x20 )
   {

@@ -3,8 +3,8 @@
  * Callers:
  *     RtlSetThreadPreferredUILanguages @ 0x18003EC50 (RtlSetThreadPreferredUILanguages.c)
  *     RtlSetProcessPreferredUILanguages @ 0x180089D80 (RtlSetProcessPreferredUILanguages.c)
- *     RtlpConvertCultureNamesToLCIDs @ 0x1800F0160 (RtlpConvertCultureNamesToLCIDs.c)
- *     RtlpConvertLCIDsToCultureNames @ 0x1800F0370 (RtlpConvertLCIDsToCultureNames.c)
+ *     RtlpConvertCultureNamesToLCIDs @ 0x1800F0120 (RtlpConvertCultureNamesToLCIDs.c)
+ *     RtlpConvertLCIDsToCultureNames @ 0x1800F0330 (RtlpConvertLCIDsToCultureNames.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x18003B284 (RtlStringCchLengthW.c)
  */

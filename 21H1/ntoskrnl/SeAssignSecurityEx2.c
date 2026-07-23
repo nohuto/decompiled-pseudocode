@@ -19,7 +19,7 @@ __int64 __fastcall SeAssignSecurityEx2(
         __int64 a8,
         __int64 a9)
 {
-  int v10; // ecx
+  UCHAR v10; // cl
   __int64 *v11; // r9
   __int64 v13; // [rsp+78h] [rbp+20h] BYREF
 
@@ -36,5 +36,5 @@ __int64 __fastcall SeAssignSecurityEx2(
     v10 = 0;
     LODWORD(v11) = 0;
   }
-  return RtlpNewSecurityObject(a1, a2, a3, (_DWORD)v11, v10, a5, a6, a8, a9, (__int64)a7);
+  return RtlpNewSecurityObject(a1, a2, a3, (int)v11, v10, a5, a6, a8, a9, (__int64)a7);
 }

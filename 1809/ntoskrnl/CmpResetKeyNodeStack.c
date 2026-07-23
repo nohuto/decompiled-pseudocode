@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpResetKeyNodeStack @ 0x1407FA358
+ * XREFs of CmpResetKeyNodeStack @ 0x1407FB558
  * Callers:
- *     CmpSubtreeEnumeratorReset @ 0x1407FA8D4 (CmpSubtreeEnumeratorReset.c)
- *     CmpKeyEnumStackReset @ 0x1407FF980 (CmpKeyEnumStackReset.c)
+ *     CmpSubtreeEnumeratorReset @ 0x1407FBAD4 (CmpSubtreeEnumeratorReset.c)
+ *     CmpKeyEnumStackReset @ 0x140800B80 (CmpKeyEnumStackReset.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FB218 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 void __fastcall CmpResetKeyNodeStack(__int16 *a1)

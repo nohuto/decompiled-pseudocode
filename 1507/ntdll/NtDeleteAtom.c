@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDeleteAtom()
+NTSTATUS __cdecl NtDeleteAtom(RTL_ATOM Atom)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 193LL;
+  result = 193;
   __asm { syscall; Low latency system call }
   return result;
 }

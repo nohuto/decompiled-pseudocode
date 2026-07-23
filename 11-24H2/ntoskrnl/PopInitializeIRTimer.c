@@ -1,11 +1,11 @@
 /*
- * XREFs of PopInitializeIRTimer @ 0x1405CCE3C
+ * XREFs of PopInitializeIRTimer @ 0x1405CA5AC
  * Callers:
- *     PopAdaptiveStandbyInitialize @ 0x1407617F8 (PopAdaptiveStandbyInitialize.c)
- *     PopNetInitialize @ 0x140C31EF4 (PopNetInitialize.c)
+ *     PopAdaptiveStandbyInitialize @ 0x140760B64 (PopAdaptiveStandbyInitialize.c)
+ *     PopNetInitialize @ 0x140C34034 (PopNetInitialize.c)
  * Callees:
- *     KeInitializeIRTimer @ 0x1404C1B3C (KeInitializeIRTimer.c)
- *     PopInitializeWorkItem @ 0x1407493D8 (PopInitializeWorkItem.c)
+ *     KeInitializeIRTimer @ 0x1404BD12C (KeInitializeIRTimer.c)
+ *     PopInitializeWorkItem @ 0x140747708 (PopInitializeWorkItem.c)
  */
 
 __int64 __fastcall PopInitializeIRTimer(

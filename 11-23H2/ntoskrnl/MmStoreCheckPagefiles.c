@@ -1,8 +1,8 @@
 /*
- * XREFs of MmStoreCheckPagefiles @ 0x140834374
+ * XREFs of MmStoreCheckPagefiles @ 0x140834674
  * Callers:
- *     SmFirstTimeInit @ 0x1407B7D14 (SmFirstTimeInit.c)
- *     MmStoreRegister @ 0x140832E04 (MmStoreRegister.c)
+ *     SmFirstTimeInit @ 0x1407B7FF4 (SmFirstTimeInit.c)
+ *     MmStoreRegister @ 0x140833104 (MmStoreRegister.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of SeExamineSacl @ 0x1409F8430
+ * XREFs of SeExamineSacl @ 0x140A60F70
  * Callers:
- *     CmpExamineSaclForAuditEvent @ 0x14085B068 (CmpExamineSaclForAuditEvent.c)
- *     ObpCheckObjectReference @ 0x1408EE834 (ObpCheckObjectReference.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     NtOpenObjectAuditAlarm @ 0x1409F7550 (NtOpenObjectAuditAlarm.c)
- *     SeExamineGlobalSacl @ 0x1409F8758 (SeExamineGlobalSacl.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409F8930 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140B09DB0 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B64ACC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     CmpExamineSaclForAuditEvent @ 0x14086135C (CmpExamineSaclForAuditEvent.c)
+ *     ObpCheckObjectReference @ 0x1408F4DF4 (ObpCheckObjectReference.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     NtOpenObjectAuditAlarm @ 0x140A60090 (NtOpenObjectAuditAlarm.c)
+ *     SeExamineGlobalSacl @ 0x140A61298 (SeExamineGlobalSacl.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140A61470 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140B0BB70 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B67B6C (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
- *     SepSidInToken @ 0x1402AFC70 (SepSidInToken.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1403CDD60 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x14048B6E4 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402FBC90 (AuthzBasepEvaluateAceCondition.c)
+ *     SepSidInToken @ 0x1403DB410 (SepSidInToken.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140485224 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall SeExamineSacl(
@@ -79,7 +79,7 @@ void __stdcall SeExamineSacl(
         v18 = memcmp(v15, SeAnonymousLogonSid, 4LL * *((unsigned __int8 *)SeAnonymousLogonSid + 1) + 8);
         v12 = ResourceSacl;
         if ( !v18 )
-          v9 = 4 * HIBYTE(RtlpBootStatHandleLock.StateSaveArea->ControlWord) + 8;
+          v9 = 4 * *(unsigned __int8 *)(*(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags + 1LL) + 8;
       }
       v16 = 0;
       v17 = Sacl + 1;
@@ -111,7 +111,7 @@ LABEL_14:
               v33 = v22;
               if ( v12 && !v8 )
               {
-                AuthzBasepInitializeResourceClaimsFromSacl((__int64)v12, (__int64 *)&v32);
+                AuthzBasepInitializeResourceClaimsFromSacl((__int64)v12, &v32);
                 v22 = v33;
                 v21 = v17 + 1;
                 v8 = v32;
@@ -150,8 +150,8 @@ LABEL_14:
               if ( ((v30 + 1) & 0xFFFFFFFD) != 0
                 || !SepSidInToken((__int64)Token, 0LL, (unsigned __int8 *)&v17[1], 1, 0, 0)
                 && (!v9
-                 || RtlpBootStatHandleLock.StateSaveArea->ControlWord != *(_WORD *)&v17[1].AclRevision
-                 || memcmp(RtlpBootStatHandleLock.StateSaveArea, &v17[1], v9)) )
+                 || **(_WORD **)&RtlpBootStatHandleLock.WaitRegister.Flags != *(_WORD *)&v17[1].AclRevision
+                 || memcmp(*(const void **)&RtlpBootStatHandleLock.WaitRegister.Flags, &v17[1], v9)) )
               {
                 goto LABEL_13;
               }
@@ -170,8 +170,8 @@ LABEL_12:
             }
             if ( !SepSidInToken((__int64)Token, 0LL, (unsigned __int8 *)&v17[1], 1, 0, 0)
               && (!v9
-               || RtlpBootStatHandleLock.StateSaveArea->ControlWord != *(_WORD *)&v17[1].AclRevision
-               || memcmp(RtlpBootStatHandleLock.StateSaveArea, &v17[1], v9)) )
+               || **(_WORD **)&RtlpBootStatHandleLock.WaitRegister.Flags != *(_WORD *)&v17[1].AclRevision
+               || memcmp(*(const void **)&RtlpBootStatHandleLock.WaitRegister.Flags, &v17[1], v9)) )
             {
               goto LABEL_13;
             }

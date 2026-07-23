@@ -2,7 +2,7 @@
  * XREFs of RtlGuardRestoreContext @ 0x18006EDE0
  * Callers:
  *     RtlUnwindEx @ 0x180030600 (RtlUnwindEx.c)
- *     KiUserExceptionDispatcher @ 0x1800A1500 (KiUserExceptionDispatcher.c)
+ *     KiUserExceptionDispatcher @ 0x1800A14C0 (KiUserExceptionDispatcher.c)
  * Callees:
  *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x1800334E8 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
  *     LdrControlFlowGuardEnforced @ 0x180033520 (LdrControlFlowGuardEnforced.c)
@@ -16,9 +16,11 @@
 void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
 {
   unsigned __int64 v4; // rsi
-  __int64 v5; // rcx
-  BOOL v6; // eax
-  unsigned __int64 v7; // rcx
+  int v5; // eax
+  int v6; // eax
+  BOOL v7; // eax
+  unsigned __int64 v8; // rcx
+  int v9; // eax
 
   if ( ExceptionRecord )
   {
@@ -26,32 +28,35 @@ void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RE
     {
       case 0x80000026:
         v4 = ExceptionRecord->ExceptionInformation[0];
-        if ( (unsigned int)LdrControlFlowGuardEnforced()
-          && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v4 + 16)) )
-        {
+        LOBYTE(v5) = LdrControlFlowGuardEnforced();
+        if ( v5 && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v4 + 16)) )
           goto LABEL_14;
-        }
-        if ( ((*((_QWORD *)&xmmword_180181390 + 1) >> 60) & 3) != 1 )
-          RtlGuardCheckLongJumpTarget(*(_QWORD *)(v4 + 80), 0LL, 0LL);
+        if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
+          RtlGuardCheckLongJumpTarget(*(PVOID *)(v4 + 80), 0, 0LL);
         goto LABEL_6;
       case 0x80000029:
-        if ( ExceptionRecord->NumberParameters && (unsigned int)LdrControlFlowGuardEnforced() )
+        if ( ExceptionRecord->NumberParameters )
         {
-          v6 = LdrControlFlowGuardEnforcedWithExportSuppression(v5);
-          v7 = ExceptionRecord->ExceptionInformation[0];
+          LOBYTE(v6) = LdrControlFlowGuardEnforced();
           if ( v6 )
-            LdrpValidateUserCallTargetES(v7);
-          else
-            LdrpValidateUserCallTarget(v7);
+          {
+            v7 = LdrControlFlowGuardEnforcedWithExportSuppression();
+            v8 = ExceptionRecord->ExceptionInformation[0];
+            if ( v7 )
+              LdrpValidateUserCallTargetES(v8);
+            else
+              LdrpValidateUserCallTarget(v8);
+          }
         }
         break;
       case 0xC0000027:
-        if ( ((*((_QWORD *)&xmmword_180181390 + 1) >> 60) & 3) != 1 )
-          RtlGuardCheckExceptionHandler(ContextRecord->Rip, 0LL, 0LL);
+        if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
+          RtlGuardCheckExceptionHandler((PVOID)ContextRecord->Rip);
         goto LABEL_6;
     }
   }
-  if ( (unsigned int)LdrControlFlowGuardEnforced() && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+  LOBYTE(v9) = LdrControlFlowGuardEnforced();
+  if ( v9 && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
 LABEL_14:
     __fastfail(0xDu);
 LABEL_6:

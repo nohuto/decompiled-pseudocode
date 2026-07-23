@@ -12,8 +12,8 @@
 
 __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // r13
-  int v4; // r9d
+  LARGE_INTEGER v3; // r13
+  ULONG v4; // r9d
   __int64 v7; // rcx
   int v8; // ebx
   _QWORD *v10; // r15
@@ -24,11 +24,11 @@ __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64
   PEPROCESS v15; // rcx
   _QWORD *v16; // rax
   PETHREAD *v17; // rcx
-  int v18; // edx
+  ULONG v18; // edx
   PETHREAD Thread; // [rsp+30h] [rbp-48h] BYREF
   PEPROCESS Process; // [rsp+98h] [rbp+20h] BYREF
 
-  v3 = 0LL;
+  v3.QuadPart = 0LL;
   v4 = 0;
   if ( !a2 )
     return (unsigned int)-1073741811;
@@ -82,14 +82,19 @@ __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64
       v14 = v17;
       if ( *(_QWORD *)(a2 + 48) )
       {
-        v3 = *(_QWORD *)(a2 + 48);
+        v3 = *(LARGE_INTEGER *)(a2 + 48);
         v4 = v18;
       }
     }
   }
   if ( !v13 || !CurrentThread )
     return (unsigned int)-1073741811;
-  v8 = PopPushPowerStateTransitionRecordWithCallback((__int64)v13, (__int64)CurrentThread, *(_QWORD *)(a2 + 32), v4, v3);
+  v8 = PopPushPowerStateTransitionRecordWithCallback(
+         (LARGE_INTEGER)v13,
+         (LONGLONG)CurrentThread,
+         *(LARGE_INTEGER *)(a2 + 32),
+         v4,
+         v3);
   if ( a1 == 1 && *v10 && *v14 )
   {
     ObfDereferenceObject(v13);

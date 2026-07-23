@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmap @ 0x1409C96A0
+ * XREFs of MiUpdateCfgSystemWideBitmap @ 0x14099A680
  * Callers:
- *     MiUpdateImageSystemWideBitmaps @ 0x1409CA3E4 (MiUpdateImageSystemWideBitmaps.c)
+ *     MiUpdateImageSystemWideBitmaps @ 0x14099B3C4 (MiUpdateImageSystemWideBitmaps.c)
  * Callees:
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1409C9790 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiGetImageWowSubsystemIndex @ 0x1409C9B80 (MiGetImageWowSubsystemIndex.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14099A770 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiGetImageWowSubsystemIndex @ 0x14099AB60 (MiGetImageWowSubsystemIndex.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2, __int64 a3)
@@ -26,7 +26,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2,
   Flink_low = 0LL;
   if ( (*(_DWORD *)(*(_QWORD *)(*a1 + 56) + 76LL) & 0x40) != 0 )
   {
-    Flink_low = LODWORD(stru_140E2D150.QueueListEntry.Flink);
+    Flink_low = LODWORD(stru_140E2D2D0.QueueListEntry.Flink);
     v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 24), -1LL, -1LL);
   }
   v9 = 2 * (a2 >> 4);
@@ -36,9 +36,9 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2,
         + (unsigned __int64)(unsigned int)Flink_low) >> 4);
   do
   {
-    LODWORD(v12) = *(_DWORD *)&stru_140E2D150.WaitBlockFill11[16];
+    LODWORD(v12) = *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[16];
     if ( *(__int16 *)(v3 + 12) < 0 )
-      v12 = *((_QWORD *)&stru_140E2D150.Queue
+      v12 = *((_QWORD *)&stru_140E2D2D0.Queue
             + 8 * (unsigned __int64)(unsigned int)MiGetImageWowSubsystemIndex(v3, Flink_low, v6));
     result = MiUpdateCfgSystemWideBitmapWorker(v12, a3, v9, v11, v14, v7);
     if ( (int)result < 0 )

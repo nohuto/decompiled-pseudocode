@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlpIsLFHZoneAllocation @ 0x180049DB0
+ * XREFs of RtlpIsLFHZoneAllocation @ 0x18005F990
  * Callers:
- *     RtlpWalkLFHBlock @ 0x180049500 (RtlpWalkLFHBlock.c)
+ *     RtlpWalkLFHBlock @ 0x18005F0E0 (RtlpWalkLFHBlock.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-char __fastcall RtlpIsLFHZoneAllocation(__int64 a1, unsigned __int64 a2)
+char __fastcall RtlpIsLFHZoneAllocation(PRTL_SRWLOCK SRWLock, unsigned __int64 a2)
 {
-  _QWORD *i; // rax
+  _RTL_SRWLOCK *i; // rax
 
-  RtlAcquireSRWLockExclusive(a1);
-  for ( i = *(_QWORD **)(a1 + 8); ; i = (_QWORD *)*i )
+  RtlAcquireSRWLockExclusive(SRWLock);
+  for ( i = (_RTL_SRWLOCK *)SRWLock[1].Value; ; i = (_RTL_SRWLOCK *)i->Value )
   {
-    if ( i == (_QWORD *)(a1 + 8) )
+    if ( i == &SRWLock[1] )
     {
-      RtlReleaseSRWLockExclusive(a1);
+      RtlReleaseSRWLockExclusive(SRWLock);
       return 0;
     }
-    if ( a2 >= (unsigned __int64)i && a2 < (unsigned __int64)(i + 126) )
+    if ( a2 >= (unsigned __int64)i && a2 < (unsigned __int64)&i[126] )
       break;
   }
-  RtlReleaseSRWLockExclusive(a1);
+  RtlReleaseSRWLockExclusive(SRWLock);
   return 1;
 }

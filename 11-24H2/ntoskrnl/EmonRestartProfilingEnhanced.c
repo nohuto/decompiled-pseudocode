@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonRestartProfilingEnhanced @ 0x140B4F600
+ * XREFs of EmonRestartProfilingEnhanced @ 0x140B51650
  * Callers:
  *     <none>
  * Callees:
- *     EmonRestartProfilingInternalEnhanced @ 0x14055E0E0 (EmonRestartProfilingInternalEnhanced.c)
+ *     EmonRestartProfilingInternalEnhanced @ 0x14055BD10 (EmonRestartProfilingInternalEnhanced.c)
  */
 
 unsigned __int64 __fastcall EmonRestartProfilingEnhanced()

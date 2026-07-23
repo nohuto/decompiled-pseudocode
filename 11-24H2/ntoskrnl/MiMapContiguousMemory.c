@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMapContiguousMemory @ 0x1402E9A9C
+ * XREFs of MiMapContiguousMemory @ 0x14034B0DC
  * Callers:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     MiAllocateContiguousMemory @ 0x14041182C (MiAllocateContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x140395A6C (MiAllocateContiguousMemory.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MiMappingHasIoReferences @ 0x14026347C (MiMappingHasIoReferences.c)
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x140290A30 (MiFillSystemPtes.c)
- *     MiProtectionToCacheAttribute @ 0x1402EF870 (MiProtectionToCacheAttribute.c)
- *     MiMapContiguousMemoryLarge @ 0x1403A6D44 (MiMapContiguousMemoryLarge.c)
- *     KasanTrackAddress @ 0x140459A10 (KasanTrackAddress.c)
- *     MiSanitizePage @ 0x140467A44 (MiSanitizePage.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiInsertPteTracker @ 0x1406913D4 (MiInsertPteTracker.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiProtectionToCacheAttribute @ 0x140253A30 (MiProtectionToCacheAttribute.c)
+ *     MiMapContiguousMemoryLarge @ 0x14026BE10 (MiMapContiguousMemoryLarge.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MiMappingHasIoReferences @ 0x140292CEC (MiMappingHasIoReferences.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1402A0630 (MiFillSystemPtes.c)
+ *     KasanTrackAddress @ 0x14044E740 (KasanTrackAddress.c)
+ *     MiSanitizePage @ 0x14045F4E4 (MiSanitizePage.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiInsertPteTracker @ 0x1406924A4 (MiInsertPteTracker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiMapContiguousMemory(
@@ -29,9 +29,9 @@ unsigned __int64 __fastcall MiMapContiguousMemory(
   unsigned int v5; // r13d
   unsigned __int64 v8; // rcx
   unsigned __int64 v9; // r14
-  __int64 v10; // rax
+  unsigned __int64 v10; // rax
   int v11; // r8d
-  __int64 v12; // r10
+  unsigned __int64 v12; // r10
   unsigned __int64 v13; // r11
   __int64 *v14; // rsi
   ULONG_PTR v15; // rax
@@ -48,14 +48,14 @@ unsigned __int64 __fastcall MiMapContiguousMemory(
   unsigned __int64 v27; // rcx
   _BYTE *v28; // rbx
   size_t v29; // rdi
-  __int64 v30; // rax
+  unsigned __int64 v30; // rax
   unsigned int v31; // eax
   int v32; // [rsp+30h] [rbp-71h] BYREF
   int v33; // [rsp+34h] [rbp-6Dh]
   unsigned int v34; // [rsp+38h] [rbp-69h]
   ULONG_PTR BugCheckParameter4; // [rsp+40h] [rbp-61h]
   unsigned __int64 v36; // [rsp+48h] [rbp-59h]
-  __int64 v37; // [rsp+50h] [rbp-51h]
+  unsigned __int64 v37; // [rsp+50h] [rbp-51h]
   unsigned __int64 v38; // [rsp+58h] [rbp-49h]
   unsigned __int64 v39; // [rsp+60h] [rbp-41h]
   __int64 v40; // [rsp+68h] [rbp-39h]
@@ -95,7 +95,7 @@ unsigned __int64 __fastcall MiMapContiguousMemory(
   v36 = 0LL;
   if ( (a1 & 0x1FFFFF) == 0 && a2 >= 0x200000 && (v11 & 1) == 0 && v9 == v12 )
   {
-    v30 = MiMapContiguousMemoryLarge(v10, v12, v5, v11, (__int64)&v32);
+    v30 = MiMapContiguousMemoryLarge(v10, v12, v5, v11, &v32);
     v36 = v30;
     v19 = v30;
     if ( v30 )
@@ -114,9 +114,9 @@ unsigned __int64 __fastcall MiMapContiguousMemory(
     ++v9;
   if ( v9 > v13 )
     return 0LL;
-  v14 = (__int64 *)&unk_140E35D80;
+  v14 = (__int64 *)&unk_140E35EC0;
   if ( (v5 & 0x18) == 0 )
-    v14 = &qword_140E37568;
+    v14 = &qword_140E376A8;
   v15 = MiReservePtes((__int64)v14, v9);
   v16 = v15;
   if ( !v15 )
@@ -136,7 +136,7 @@ LABEL_19:
   v22 = v32 & 1;
   if ( (v32 & 1) != 0 )
     MiMappingHasIoReferences(v19);
-  if ( (dword_140FC41FC & 1) != 0 )
+  if ( (dword_140FC51FC & 1) != 0 )
   {
     v41[0] = 0LL;
     v41[1] = 0LL;
@@ -157,8 +157,8 @@ LABEL_19:
     MiUnmapContiguousMemory(v18, v23, 0);
     return 0LL;
   }
-  v25 = byte_140FCDC28;
-  if ( byte_140FCDC28 )
+  v25 = byte_140FCECA8;
+  if ( byte_140FCECA8 )
   {
     if ( v18 < 0xFFFF800000000000uLL )
       KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v18, 0LL);

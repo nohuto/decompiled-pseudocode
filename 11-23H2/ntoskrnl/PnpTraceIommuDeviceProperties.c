@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceIommuDeviceProperties @ 0x14096BE6C
+ * XREFs of PnpTraceIommuDeviceProperties @ 0x14096C06C
  * Callers:
- *     PiIommuAllocateExtension @ 0x14084180C (PiIommuAllocateExtension.c)
+ *     PiIommuAllocateExtension @ 0x140841B0C (PiIommuAllocateExtension.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void PnpTraceIommuDeviceProperties()
@@ -39,7 +39,7 @@ void PnpTraceIommuDeviceProperties()
       v6 = 8LL;
       v8 = 2LL;
       v12 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03918, (unsigned __int8 *)byte_14002CA20, 0LL, 0LL, 6u, &v4);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03918, (unsigned __int8 *)byte_14002CB08, 0LL, 0LL, 6u, &v4);
     }
   }
 }

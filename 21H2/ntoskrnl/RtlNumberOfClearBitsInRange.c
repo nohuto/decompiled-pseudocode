@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlNumberOfClearBitsInRange @ 0x140587E80
+ * XREFs of RtlNumberOfClearBitsInRange @ 0x1405880B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlNumberOfSetBitsInRange @ 0x140588050 (RtlNumberOfSetBitsInRange.c)
+ *     RtlNumberOfSetBitsInRange @ 0x140588280 (RtlNumberOfSetBitsInRange.c)
  */
 
-__int64 __fastcall RtlNumberOfClearBitsInRange(__int64 a1, __int64 a2, int a3)
+ULONG __cdecl RtlNumberOfClearBitsInRange(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
-  int v4; // eax
+  ULONG v4; // eax
 
-  v4 = RtlNumberOfSetBitsInRange();
+  v4 = RtlNumberOfSetBitsInRange(BitMapHeader, StartingIndex, Length);
   if ( v4 == -1 )
-    return 0xFFFFFFFFLL;
+    return -1;
   else
-    return (unsigned int)(a3 - v4);
+    return Length - v4;
 }

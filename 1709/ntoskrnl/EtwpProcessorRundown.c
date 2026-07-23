@@ -17,7 +17,7 @@
 
 void __fastcall EtwpProcessorRundown(__int64 a1)
 {
-  struct _PROCESSOR_NUMBER *PoolWithTag; // rdi
+  _PROCESSOR_NUMBER *PoolWithTag; // rdi
   ULONG ActiveProcessorCount; // eax
   __int64 v4; // rbx
   unsigned int v5; // r8d
@@ -42,16 +42,16 @@ void __fastcall EtwpProcessorRundown(__int64 a1)
   unsigned int *v24; // [rsp+440h] [rbp+340h] BYREF
   int v25; // [rsp+448h] [rbp+348h]
   int v26; // [rsp+44Ch] [rbp+34Ch]
-  struct _PROCESSOR_NUMBER *v27; // [rsp+450h] [rbp+350h]
+  _PROCESSOR_NUMBER *v27; // [rsp+450h] [rbp+350h]
   int v28; // [rsp+458h] [rbp+358h]
   int v29; // [rsp+45Ch] [rbp+35Ch]
 
-  PoolWithTag = (struct _PROCESSOR_NUMBER *)P;
+  PoolWithTag = (_PROCESSOR_NUMBER *)P;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   v20 = ActiveProcessorCount;
   if ( ActiveProcessorCount > 0x20 )
   {
-    PoolWithTag = (struct _PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, 4LL * ActiveProcessorCount, 0x74777445u);
+    PoolWithTag = (_PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, 4LL * ActiveProcessorCount, 0x74777445u);
     if ( !PoolWithTag )
       goto LABEL_8;
     ActiveProcessorCount = v20;
@@ -76,7 +76,7 @@ void __fastcall EtwpProcessorRundown(__int64 a1)
   v25 = 4;
   v27 = PoolWithTag;
   EtwpLogKernelEvent((__int64)&v24, v6, v5, 2u, 0xB1Bu, 0x401802u);
-  if ( PoolWithTag != (struct _PROCESSOR_NUMBER *)P )
+  if ( PoolWithTag != (_PROCESSOR_NUMBER *)P )
     ExFreePoolWithTag(PoolWithTag, 0);
 LABEL_8:
   ActiveGroupCount = KeQueryActiveGroupCount();
@@ -98,7 +98,7 @@ LABEL_8:
   v26 = 0;
   v29 = 0;
   v24 = (unsigned int *)&v22;
-  v27 = (struct _PROCESSOR_NUMBER *)P;
+  v27 = (_PROCESSOR_NUMBER *)P;
   v28 = 8 * v8;
   v25 = 4;
   EtwpLogKernelEvent((__int64)&v24, v13, v12, 2u, 0xB1Au, 0x401802u);
@@ -123,7 +123,7 @@ LABEL_8:
   v19 = *(_QWORD *)(a1 + 2256);
   v24 = &v21;
   v28 = 16 * v17;
-  v27 = (struct _PROCESSOR_NUMBER *)P;
+  v27 = (_PROCESSOR_NUMBER *)P;
   v25 = 4;
   EtwpLogKernelEvent((__int64)&v24, v19, v18, 2u, 0xB18u, 0x401802u);
 }

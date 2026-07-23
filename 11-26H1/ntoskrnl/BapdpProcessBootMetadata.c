@@ -1,10 +1,10 @@
 /*
- * XREFs of BapdpProcessBootMetadata @ 0x140CE25C0
+ * XREFs of BapdpProcessBootMetadata @ 0x140CE8960
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     BapdpQueryData @ 0x140CE2FFC (BapdpQueryData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     BapdpQueryData @ 0x140CE939C (BapdpQueryData.c)
  */
 
 ULONG_PTR BapdpProcessBootMetadata()
@@ -12,7 +12,7 @@ ULONG_PTR BapdpProcessBootMetadata()
   __int64 v0; // rcx
   ULONG_PTR result; // rax
   __int64 v2; // rcx
-  struct _LIST_ENTRY *v3; // rbx
+  void *v3; // rbx
   _DWORD v4[4]; // [rsp+30h] [rbp-10h] BYREF
   _DWORD *v5; // [rsp+50h] [rbp+10h] BYREF
 
@@ -23,11 +23,11 @@ ULONG_PTR BapdpProcessBootMetadata()
   ExSoftRebootFlags = 0;
   ExSoftRebootState = 0;
   ExBootLoaderMetadata = 0LL;
-  *(_QWORD *)&ExpSysDbgLock.SavedApcStateFill[40] = 0LL;
+  ExpSysDbgLock.SchedulerApc.NormalContext = 0LL;
   v5 = 0LL;
   if ( (int)KsrGetFirmwareInformation(&v5) >= 0 && v5 && *v5 >= 8u && (v5[81] & 1) != 0 )
     ExSoftRebootFlags |= 0x10000000u;
-  if ( (ExpSysDbgLock.SchedulerApcFill5[72] & 4) != 0 )
+  if ( ((__int64)ExpSysDbgLock.MutantListHead.Flink & 4) != 0 )
   {
     ExSoftRebootState = 2;
     ExSoftRebootFlags = 2;
@@ -37,13 +37,13 @@ ULONG_PTR BapdpProcessBootMetadata()
   if ( (_DWORD)result == -1073741789 )
   {
     result = ExAllocatePool2(256LL, (unsigned int)v5 + 4LL, 0x64506142u);
-    v3 = (struct _LIST_ENTRY *)result;
+    v3 = (void *)result;
     if ( result )
     {
       BapdpQueryData(v2, v4, 0LL, result + 4, &v5, 0LL);
       result = (unsigned int)v5;
-      *(_DWORD *)&ExpSysDbgLock.SavedApcStateFill[32] = (_DWORD)v5;
-      ExpSysDbgLock.SavedApcState.ApcListHead[1].Blink = v3;
+      *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[72] = (_DWORD)v5;
+      ExpSysDbgLock.SchedulerApc.SystemArgument1 = v3;
     }
   }
   return result;

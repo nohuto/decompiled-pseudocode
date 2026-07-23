@@ -53,13 +53,13 @@ __int64 __fastcall HalpAllocatePmcCounterSetEx(
   __int64 v33; // rax
   unsigned int v35; // [rsp+40h] [rbp-A8h]
   _DWORD *v37; // [rsp+48h] [rbp-A0h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-90h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-90h] BYREF
   __int64 v39; // [rsp+68h] [rbp-80h]
   __int64 v40; // [rsp+70h] [rbp-78h]
   __int64 v41; // [rsp+78h] [rbp-70h]
   _DWORD *v42; // [rsp+80h] [rbp-68h]
   _DWORD *v43; // [rsp+88h] [rbp-60h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-58h] BYREF
 
   v6 = a5;
   v7 = a3;

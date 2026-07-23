@@ -23,10 +23,10 @@ __int64 __fastcall sub_180104A3C(unsigned __int16 *a1)
   const wchar_t **v10; // rsi
   const wchar_t *v11; // r12
   __int64 v12; // rax
-  int v14; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-C8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG_PTR PackageSize; // [rsp+38h] [rbp-C8h] BYREF
   _QWORD v16[6]; // [rsp+40h] [rbp-C0h] BYREF
-  wchar_t String1[128]; // [rsp+70h] [rbp-90h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+70h] [rbp-90h] BYREF
 
   v1 = NtCurrentPeb();
   v16[0] = L"svchost.exe";
@@ -38,7 +38,7 @@ __int64 __fastcall sub_180104A3C(unsigned __int16 *a1)
   v16[5] = L"lsass.exe";
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
     goto LABEL_21;
-  if ( RtlGetNtProductType(&v14) && v14 != 1 )
+  if ( RtlGetNtProductType(&NtProductType) && NtProductType != NtProductWinNt )
     return v3;
   if ( (v1->BitField & 0x10) != 0 )
   {
@@ -86,9 +86,9 @@ LABEL_21:
       ++v4;
     }
 LABEL_19:
-    v15 = 256LL;
-    if ( (int)RtlQueryPackageIdentity(-4, (int)String1, (int)&v15, 0, 0LL, 0LL) < 0
-      || wcsnicmp(String1, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
+    PackageSize = 256LL;
+    if ( RtlQueryPackageIdentity((HANDLE)0xFFFFFFFFFFFFFFFCLL, PackageFullName, &PackageSize, 0LL, 0LL, 0LL) < 0
+      || wcsnicmp(PackageFullName, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
     {
       return v3;
     }

@@ -9,7 +9,7 @@
 
 bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
 {
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   WCHAR *v3; // rcx
   WCHAR *v4; // rdi
   WCHAR v5; // bx
@@ -20,7 +20,7 @@ bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
   {
     NtSystemRoot = RtlGetNtSystemRoot();
     v3 = *(WCHAR **)(a1 + 8);
-    v4 = (WCHAR *)NtSystemRoot;
+    v4 = NtSystemRoot;
     if ( v3[5] == 58 && v3[6] == 92 )
     {
       v5 = RtlUpcaseUnicodeChar(v3[4]);

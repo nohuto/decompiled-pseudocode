@@ -1,19 +1,19 @@
 /*
- * XREFs of IommuMapDevice @ 0x1404D8E90
+ * XREFs of IommuMapDevice @ 0x1404D90D0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     IommupHvGetDeviceCapabilities @ 0x1404D9F44 (IommupHvGetDeviceCapabilities.c)
- *     IommupHvUnmapDevice @ 0x1404DA330 (IommupHvUnmapDevice.c)
- *     HalpIommuLocateFromDevice @ 0x140765500 (HalpIommuLocateFromDevice.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IommupHvGetDeviceCapabilities @ 0x1404DA184 (IommupHvGetDeviceCapabilities.c)
+ *     IommupHvUnmapDevice @ 0x1404DA570 (IommupHvUnmapDevice.c)
+ *     HalpIommuLocateFromDevice @ 0x1407656C0 (HalpIommuLocateFromDevice.c)
  */
 
 __int64 __fastcall IommuMapDevice(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -82,7 +82,7 @@ __int64 __fastcall IommuMapDevice(__int64 a1, __int64 a2, __int64 a3, __int64 *a
       return (unsigned int)DeviceCapabilities;
     v4 = v42;
     v5 = v43;
-    v12 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))qword_140C4A280)(
+    v12 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))qword_140C4A2C0)(
             (unsigned int)v43,
             *(unsigned int *)(*(_QWORD *)v6 + 16LL),
             *v42,

@@ -9,30 +9,30 @@
  *     EtwTraceJob @ 0x140935D98 (EtwTraceJob.c)
  */
 
-__int64 __fastcall NtTerminateJobObject(void *a1)
+NTSTATUS __cdecl NtTerminateJobObject(HANDLE JobHandle, NTSTATUS ExitStatus)
 {
-  NTSTATUS v1; // eax
-  unsigned int v2; // ebx
+  NTSTATUS v2; // eax
+  NTSTATUS v3; // ebx
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
 
   DmaAdapter = 0LL;
-  v1 = ObReferenceObjectByHandle(
-         a1,
+  v2 = ObReferenceObjectByHandle(
+         JobHandle,
          8u,
          (POBJECT_TYPE)PsJobType,
          KeGetCurrentThread()->PreviousMode,
          (PVOID *)&DmaAdapter,
          0LL);
-  v2 = v1;
-  if ( v1 < 0 )
+  v3 = v2;
+  if ( v2 < 0 )
   {
     if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-      EtwTraceJob(0LL, 0LL, (unsigned int)v1, 1825LL);
+      EtwTraceJob(0LL, 0LL, (unsigned int)v2, 1825LL);
   }
   else
   {
     PspTerminateAllProcessesInJobHierarchy((PRKEVENT)DmaAdapter);
     HalPutDmaAdapter(DmaAdapter);
   }
-  return v2;
+  return v3;
 }

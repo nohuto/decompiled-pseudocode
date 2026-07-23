@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampStrideSamplerInitialize @ 0x1408C7A70
+ * XREFs of EtwpCovSampStrideSamplerInitialize @ 0x1408C8D30
  * Callers:
- *     EtwpCovSampCaptureContextStart @ 0x1408C3D80 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1408C5040 (EtwpCovSampCaptureContextStart.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall EtwpCovSampStrideSamplerInitialize(_DWORD *a1, unsigned int a2, unsigned int a3)

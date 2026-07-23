@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSelectIdleProcessor @ 0x14034AC10
+ * XREFs of KiSelectIdleProcessor @ 0x1403690F0
  * Callers:
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
  * Callees:
- *     KiFindRankBiasedIdleSmtSet @ 0x14034A6A0 (KiFindRankBiasedIdleSmtSet.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x14034B700 (KiReduceByEffectiveIdleSmtSet.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x140368B7C (KiFindRankBiasedIdleSmtSet.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x140369BE0 (KiReduceByEffectiveIdleSmtSet.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiSelectIdleProcessor(_WORD *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char *a6)
@@ -56,7 +56,7 @@ __int64 __fastcall KiSelectIdleProcessor(_WORD *a1, __int64 a2, __int64 a3, __in
     _BitScanForward64((unsigned __int64 *)&v25, v23);
     v27 = (v25 + *(_BYTE *)(a3 + 209) - v26) & 0x3F;
     _BitScanForward64((unsigned __int64 *)&v25, __ROR8__(v24, v27));
-    v6 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * (_DWORD)v21 + (((_BYTE)v25 + v27) & 0x3Fu))];
+    v6 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * (_DWORD)v21 + (((_BYTE)v25 + v27) & 0x3Fu))];
 LABEL_2:
     memset_0(v33, 0, sizeof(v33));
     v11 = *(unsigned __int16 *)(a4 + 136);
@@ -114,7 +114,7 @@ LABEL_6:
         }
         v29 = *(_BYTE *)(v6 + 209);
         _BitScanForward64(&v30, __ROR8__(v28, v29));
-        return KiProcessorBlock[*((unsigned int *)qword_140F21E78
+        return KiProcessorBlock[*((unsigned int *)qword_140F22998
                                 + 64 * *(unsigned __int8 *)(v6 + 208)
                                 + (((unsigned __int8)v30 + v29) & 0x3F))];
       }

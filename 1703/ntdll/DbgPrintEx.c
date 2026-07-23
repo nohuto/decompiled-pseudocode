@@ -44,10 +44,10 @@
  *     sub_18005FF34 @ 0x18005FF34 (sub_18005FF34.c)
  */
 
-__int64 DbgPrintEx(int a1, int a2, const char *a3, ...)
+ULONG DbgPrintEx(ULONG ComponentId, ULONG Level, PCSTR Format, ...)
 {
   va_list va; // [rsp+58h] [rbp+20h] BYREF
 
-  va_start(va, a3);
-  return sub_18005FF34((unsigned int)&unk_1801150C2, a1, a2, (_DWORD)a3, (__int64)va, 1);
+  va_start(va, Format);
+  return sub_18005FF34(&dword_1801150C2, ComponentId, Level, Format, (__int64 *)va, 1);
 }

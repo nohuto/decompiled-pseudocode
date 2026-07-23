@@ -1,21 +1,21 @@
 /*
- * XREFs of KsepDbCacheReadDevice @ 0x140534FDC
+ * XREFs of KsepDbCacheReadDevice @ 0x14053551C
  * Callers:
- *     KseQueryDeviceData @ 0x140534C50 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x140652334 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x140535190 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x140652418 (KseQueryDeviceDataList.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x140084D74 (KsepPoolAllocatePaged.c)
- *     KseShimDatabaseClose @ 0x140484800 (KseShimDatabaseClose.c)
- *     SdbGetDatabaseMatchEx @ 0x140484B38 (SdbGetDatabaseMatchEx.c)
- *     KseShimDatabaseOpen @ 0x14048558C (KseShimDatabaseOpen.c)
- *     KsepStringDuplicate @ 0x140485730 (KsepStringDuplicate.c)
- *     SdbFindNextTag @ 0x1404E791C (SdbFindNextTag.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     KsepCacheDeviceFree @ 0x140535148 (KsepCacheDeviceFree.c)
- *     KsepDbReadKFlag @ 0x140573B74 (KsepDbReadKFlag.c)
- *     KsepCacheDeviceInsertData @ 0x14057E248 (KsepCacheDeviceInsertData.c)
- *     SdbTagRefToTagID @ 0x14057F0D4 (SdbTagRefToTagID.c)
- *     KsepDbReadKData @ 0x140652B08 (KsepDbReadKData.c)
+ *     KsepPoolAllocatePaged @ 0x14010B37C (KsepPoolAllocatePaged.c)
+ *     SdbFindNextTag @ 0x1404C9CA8 (SdbFindNextTag.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     KseShimDatabaseClose @ 0x140513B88 (KseShimDatabaseClose.c)
+ *     SdbGetDatabaseMatchEx @ 0x140513EC0 (SdbGetDatabaseMatchEx.c)
+ *     KseShimDatabaseOpen @ 0x140514914 (KseShimDatabaseOpen.c)
+ *     KsepStringDuplicate @ 0x140514AB8 (KsepStringDuplicate.c)
+ *     KsepCacheDeviceFree @ 0x140535688 (KsepCacheDeviceFree.c)
+ *     KsepDbReadKFlag @ 0x1405740B4 (KsepDbReadKFlag.c)
+ *     KsepCacheDeviceInsertData @ 0x14057E6F4 (KsepCacheDeviceInsertData.c)
+ *     SdbTagRefToTagID @ 0x14057F580 (SdbTagRefToTagID.c)
+ *     KsepDbReadKData @ 0x140652BEC (KsepDbReadKData.c)
  */
 
 __int64 __fastcall KsepDbCacheReadDevice(wchar_t *a1, _QWORD *a2)

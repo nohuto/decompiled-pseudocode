@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputeTrimAmount @ 0x1401E951C
+ * XREFs of MiComputeTrimAmount @ 0x1401E9348
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x1400CDCA0 (MiTrimOrAgeWorkingSet.c)
- *     MiForcedTrim @ 0x1401E97D0 (MiForcedTrim.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1400CBB40 (MiTrimOrAgeWorkingSet.c)
+ *     MiForcedTrim @ 0x1401E95FC (MiForcedTrim.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 unsigned __int64 __fastcall MiComputeTrimAmount(__int64 a1, __int64 a2)

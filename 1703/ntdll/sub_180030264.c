@@ -16,14 +16,14 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_180030264(unsigned __int64 a1, __int64 *a2, _DWORD *a3)
+__int64 __fastcall sub_180030264(ULONG_PTR a1, __int64 *a2, _DWORD *a3)
 {
   __int64 v3; // rbx
-  __int64 v7; // rax
-  unsigned __int64 v8; // rdx
+  unsigned __int64 Root; // rax
+  ULONG_PTR v8; // rdx
   int v9; // ecx
-  __int64 v10; // rcx
-  __int64 v11; // rax
+  unsigned __int64 v10; // rcx
+  _RTL_BALANCED_NODE *v11; // rax
 
   v3 = 0LL;
   if ( a1 )
@@ -36,44 +36,44 @@ __int64 __fastcall sub_180030264(unsigned __int64 a1, __int64 *a2, _DWORD *a3)
     }
     else
     {
-      RtlAcquireSRWLockExclusive(&qword_18015C040);
-      v7 = qword_18015C208;
-      if ( qword_18015C208 )
+      RtlAcquireSRWLockExclusive(&stru_18015C040);
+      Root = (unsigned __int64)stru_18015C208.Root;
+      if ( stru_18015C208.Root )
       {
         do
         {
-          v8 = *(_QWORD *)(v7 - 152);
+          v8 = *(_QWORD *)(Root - 152);
           if ( a1 < v8 )
             v9 = -1;
           else
             v9 = a1 > v8;
           if ( v9 < 0 )
           {
-            v10 = *(_QWORD *)v7;
+            v10 = *(_QWORD *)Root;
           }
           else
           {
             if ( v9 <= 0 )
               break;
-            v10 = *(_QWORD *)(v7 + 8);
+            v10 = *(_QWORD *)(Root + 8);
           }
-          if ( (byte_18015C210 & 1) != 0 && v10 )
-            v7 ^= v10;
+          if ( ((__int64)stru_18015C208.Min & 1) != 0 && v10 )
+            Root ^= v10;
           else
-            v7 = v10;
+            Root = v10;
         }
-        while ( v7 );
-        if ( v7 )
+        while ( Root );
+        if ( Root )
         {
-          v3 = v7 - 200;
-          v11 = *(_QWORD *)(v7 - 200 + 152);
-          if ( *(_DWORD *)(v11 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v11 - 56LL) & 0x20) == 0 )
+          v3 = Root - 200;
+          v11 = *(_RTL_BALANCED_NODE **)(Root - 200 + 152);
+          if ( LODWORD(v11[1].Children[0]) != -1 && (*(_BYTE *)&v11->Children[0][-3].16 & 0x20) == 0 )
             _InterlockedIncrement((volatile signed __int32 *)(v3 + 276));
           if ( a3 )
             *a3 = *(_DWORD *)(*(_QWORD *)(v3 + 152) + 56LL);
         }
       }
-      RtlReleaseSRWLockExclusive(&qword_18015C040);
+      RtlReleaseSRWLockExclusive(&stru_18015C040);
     }
   }
   *a2 = v3;

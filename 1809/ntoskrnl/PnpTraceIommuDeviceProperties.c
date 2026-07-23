@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceIommuDeviceProperties @ 0x140839B28
+ * XREFs of PnpTraceIommuDeviceProperties @ 0x14083AD88
  * Callers:
- *     PiIommuAllocateExtension @ 0x140750538 (PiIommuAllocateExtension.c)
+ *     PiIommuAllocateExtension @ 0x140751728 (PiIommuAllocateExtension.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PnpTraceIommuDeviceProperties()
@@ -21,9 +21,9 @@ void PnpTraceIommuDeviceProperties()
   int *v8; // [rsp+80h] [rbp+37h]
   __int64 v9; // [rsp+88h] [rbp+3Fh]
 
-  if ( stru_1403FFBC8.LevelPlus1 > 5 )
+  if ( stru_140400BC8.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL) )
     {
       v2 = v0;
       v4 = v7;
@@ -33,7 +33,7 @@ void PnpTraceIommuDeviceProperties()
       v5 = 2LL;
       v7[1] = 0;
       v9 = 4LL;
-      TlgWrite(&stru_1403FFBC8, &unk_14036D393, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_140400BC8, &unk_14036E399, 0LL, 0LL, 5u, &pData);
     }
   }
 }

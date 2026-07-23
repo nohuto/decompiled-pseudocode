@@ -3,8 +3,8 @@
  * Callers:
  *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1403DB598 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
  * Callees:
- *     RtlSetBitsEx @ 0x1400179FC (RtlSetBitsEx.c)
- *     MmTryIdentifyPage @ 0x1401E55C8 (MmTryIdentifyPage.c)
+ *     RtlSetBitsEx @ 0x14001757C (RtlSetBitsEx.c)
+ *     MmTryIdentifyPage @ 0x1401E53F4 (MmTryIdentifyPage.c)
  */
 
 void __fastcall IopLiveDumpFilterAndMarkPage(unsigned __int64 a1, __int64 a2)

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRollbackTransaction()
+NTSTATUS __cdecl ZwRollbackTransaction(HANDLE TransactionHandle, BOOLEAN Wait)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 357LL;
+  result = 357;
   __asm { syscall; Low latency system call }
   return result;
 }

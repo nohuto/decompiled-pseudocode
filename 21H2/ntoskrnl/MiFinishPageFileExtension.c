@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFinishPageFileExtension @ 0x1405435F0
+ * XREFs of MiFinishPageFileExtension @ 0x140543830
  * Callers:
- *     MiAttemptPageFileExtension @ 0x1408D0304 (MiAttemptPageFileExtension.c)
+ *     MiAttemptPageFileExtension @ 0x1408D0464 (MiAttemptPageFileExtension.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiCoalescePageFileBitmapsCache @ 0x140267EB0 (MiCoalescePageFileBitmapsCache.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiUpdateReserveClusterInfo @ 0x1403BFA7C (MiUpdateReserveClusterInfo.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140255E50 (MiCoalescePageFileBitmapsCache.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MiUpdateReserveClusterInfo @ 0x1403BFEA8 (MiUpdateReserveClusterInfo.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

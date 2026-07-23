@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReleaseCommitForResetPages @ 0x1406E4EA0
+ * XREFs of MiReleaseCommitForResetPages @ 0x1406E9B50
  * Callers:
- *     MmOutSwapProcess @ 0x14049A5C8 (MmOutSwapProcess.c)
+ *     MmOutSwapProcess @ 0x140494118 (MmOutSwapProcess.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     KeForceAttachProcess @ 0x14045D2E0 (KeForceAttachProcess.c)
- *     MiGetFirstVad @ 0x1404B80E0 (MiGetFirstVad.c)
- *     MiIsVadEligibleForCommitRelease @ 0x1405327D4 (MiIsVadEligibleForCommitRelease.c)
- *     MiLogResetPagesCommitRelease @ 0x1406E473C (MiLogResetPagesCommitRelease.c)
- *     MiWalkResetCommitPages @ 0x1406E531C (MiWalkResetCommitPages.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     KeForceAttachProcess @ 0x140456CE0 (KeForceAttachProcess.c)
+ *     MiGetFirstVad @ 0x1404B1910 (MiGetFirstVad.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x140534C74 (MiIsVadEligibleForCommitRelease.c)
+ *     MiLogResetPagesCommitRelease @ 0x1406E93EC (MiLogResetPagesCommitRelease.c)
+ *     MiWalkResetCommitPages @ 0x1406E9FCC (MiWalkResetCommitPages.c)
  */
 
 LONG __fastcall MiReleaseCommitForResetPages(__int64 a1)
@@ -45,8 +45,8 @@ LONG __fastcall MiReleaseCommitForResetPages(__int64 a1)
   KeForceAttachProcess((_KPROCESS *)a1, 0LL, 0);
   if ( (*(_DWORD *)(a1 + 1208) & 0xF) == 1 )
   {
-    v5 = (__int64 *)&unk_140E37808;
-    v6 = (__int64 *)&unk_140E37820;
+    v5 = (__int64 *)&unk_140E37988;
+    v6 = (__int64 *)&unk_140E379A0;
   }
   else
   {
@@ -72,7 +72,7 @@ LONG __fastcall MiReleaseCommitForResetPages(__int64 a1)
   }
   v13 = _InterlockedExchange64((volatile __int64 *)(a1 + 1232), 0LL);
   if ( v13 )
-    MiReturnCommit(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 1198)), v13, 0);
+    MiReturnCommit(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 1198)), v13, 0);
   v14 = MiLockWorkingSetExclusive(a1 + 1024, v2, v3);
   v15 = *(_QWORD *)(v8 + 32);
   v16 = v14;
@@ -86,9 +86,9 @@ LONG __fastcall MiReleaseCommitForResetPages(__int64 a1)
   *(_QWORD *)(v8 + 32) = v19;
   *v5 = v13 + v17;
   MiUnlockWorkingSetExclusive(a1 + 1024, v16);
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 4LL) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 4LL) )
   {
     MiLogResetPagesCommitRelease();
   }

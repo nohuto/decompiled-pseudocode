@@ -1,0 +1,43 @@
+/*
+ * XREFs of sub_14055A67C @ 0x14055A67C
+ * Callers:
+ *     sub_14055A870 @ 0x14055A870 (sub_14055A870.c)
+ *     sub_14055A8B4 @ 0x14055A8B4 (sub_14055A8B4.c)
+ *     sub_14055A93C @ 0x14055A93C (sub_14055A93C.c)
+ *     sub_14055AA68 @ 0x14055AA68 (sub_14055AA68.c)
+ *     sub_14055ABF4 @ 0x14055ABF4 (sub_14055ABF4.c)
+ *     sub_14055AD48 @ 0x14055AD48 (sub_14055AD48.c)
+ *     sub_14055AE94 @ 0x14055AE94 (sub_14055AE94.c)
+ *     sub_14055AFE8 @ 0x14055AFE8 (sub_14055AFE8.c)
+ *     sub_14055B0E8 @ 0x14055B0E8 (sub_14055B0E8.c)
+ *     sub_14055B244 @ 0x14055B244 (sub_14055B244.c)
+ *     sub_14055B428 @ 0x14055B428 (sub_14055B428.c)
+ *     sub_14055B568 @ 0x14055B568 (sub_14055B568.c)
+ *     sub_14055B654 @ 0x14055B654 (sub_14055B654.c)
+ *     sub_14055B7B0 @ 0x14055B7B0 (sub_14055B7B0.c)
+ *     sub_14055B814 @ 0x14055B814 (sub_14055B814.c)
+ *     sub_14055B970 @ 0x14055B970 (sub_14055B970.c)
+ *     sub_14055BACC @ 0x14055BACC (sub_14055BACC.c)
+ *     sub_14055BB24 @ 0x14055BB24 (sub_14055BB24.c)
+ *     sub_14055BB7C @ 0x14055BB7C (sub_14055BB7C.c)
+ *     sub_14055BBDC @ 0x14055BBDC (sub_14055BBDC.c)
+ *     sub_14055BC94 @ 0x14055BC94 (sub_14055BC94.c)
+ *     sub_14055BD18 @ 0x14055BD18 (sub_14055BD18.c)
+ *     sub_14055BE90 @ 0x14055BE90 (sub_14055BE90.c)
+ *     sub_14055BF14 @ 0x14055BF14 (sub_14055BF14.c)
+ *     sub_14055BFA8 @ 0x14055BFA8 (sub_14055BFA8.c)
+ *     sub_14055C000 @ 0x14055C000 (sub_14055C000.c)
+ *     sub_14055C058 @ 0x14055C058 (sub_14055C058.c)
+ *     sub_140860B90 @ 0x140860B90 (sub_140860B90.c)
+ *     sub_14093A0B8 @ 0x14093A0B8 (sub_14093A0B8.c)
+ *     sub_14093CC30 @ 0x14093CC30 (sub_14093CC30.c)
+ *     sub_14093D200 @ 0x14093D200 (sub_14093D200.c)
+ *     sub_140A659E0 @ 0x140A659E0 (sub_140A659E0.c)
+ * Callees:
+ *     <none>
+ */
+
+bool sub_14055A67C()
+{
+  return qword_140D00A98 && dword_140D00A94;
+}

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlPcToFileHeader @ 0x180037670
+ * XREFs of RtlPcToFileHeader @ 0x180037660
  * Callers:
- *     RtlGuardCheckImageBase @ 0x180030064 (RtlGuardCheckImageBase.c)
- *     RtlGuardCheckLongJumpTarget @ 0x180039AF0 (RtlGuardCheckLongJumpTarget.c)
- *     RtlQueueWorkItem @ 0x180039CF0 (RtlQueueWorkItem.c)
- *     RtlQueryInformationActivationContext @ 0x18003DAF0 (RtlQueryInformationActivationContext.c)
- *     EtwpProviderArrivalCallback @ 0x180079858 (EtwpProviderArrivalCallback.c)
+ *     RtlGuardCheckImageBase @ 0x180030054 (RtlGuardCheckImageBase.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x180039AE0 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlQueueWorkItem @ 0x180039CE0 (RtlQueueWorkItem.c)
+ *     RtlQueryInformationActivationContext @ 0x18003DAE0 (RtlQueryInformationActivationContext.c)
+ *     EtwpProviderArrivalCallback @ 0x180079848 (EtwpProviderArrivalCallback.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1800362F0 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1800362E0 (RtlpxLookupFunctionTable.c)
  */
 
 PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)

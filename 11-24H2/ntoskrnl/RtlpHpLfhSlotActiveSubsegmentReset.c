@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSlotActiveSubsegmentReset @ 0x1404597B8
+ * XREFs of RtlpHpLfhSlotActiveSubsegmentReset @ 0x14044E4E8
  * Callers:
- *     RtlpHpLfhOwnerCompact @ 0x1402B461C (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x140606D74 (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1404322C0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x140604374 (RtlpHpLfhPrivateSlotShutdown.c)
  * Callees:
- *     RtlpHpLfhSubsegmentReserveBlock @ 0x1404597FC (RtlpHpLfhSubsegmentReserveBlock.c)
+ *     RtlpHpLfhSubsegmentReserveBlock @ 0x14044E52C (RtlpHpLfhSubsegmentReserveBlock.c)
  */
 
 __int64 __fastcall RtlpHpLfhSlotActiveSubsegmentReset(__int64 a1)

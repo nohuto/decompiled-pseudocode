@@ -1,32 +1,32 @@
 /*
- * XREFs of MiFreeInitializationCode @ 0x140AC9178
+ * XREFs of MiFreeInitializationCode @ 0x140ACB290
  * Callers:
- *     MiFreeDriverInitialization @ 0x140AC90AC (MiFreeDriverInitialization.c)
- *     MiFreeKernelPadSections @ 0x140CFFD44 (MiFreeKernelPadSections.c)
- *     MmDiscardDriverSection @ 0x140D01280 (MmDiscardDriverSection.c)
+ *     MiFreeDriverInitialization @ 0x140ACB1C4 (MiFreeDriverInitialization.c)
+ *     MiFreeKernelPadSections @ 0x140D060E4 (MiFreeKernelPadSections.c)
+ *     MmDiscardDriverSection @ 0x140D07620 (MmDiscardDriverSection.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiVaToPfnEx @ 0x14024DF10 (MiVaToPfnEx.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiGetControlAreaPartition @ 0x140457F60 (MiGetControlAreaPartition.c)
- *     KeReservePrivilegedPages @ 0x1404F64F4 (KeReservePrivilegedPages.c)
- *     MiGetExtendedLoaderBitmap @ 0x1404FE2CC (MiGetExtendedLoaderBitmap.c)
- *     MiBadRefCount @ 0x1405067A4 (MiBadRefCount.c)
- *     MiFreeLargeInitializationCodePages @ 0x140520698 (MiFreeLargeInitializationCodePages.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiUnmapReturnCharges @ 0x140AC855C (MiUnmapReturnCharges.c)
- *     MiFreeBootDriverPages @ 0x140D0AE50 (MiFreeBootDriverPages.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiVaToPfnEx @ 0x14024F870 (MiVaToPfnEx.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiGetControlAreaPartition @ 0x14044F7D0 (MiGetControlAreaPartition.c)
+ *     KeReservePrivilegedPages @ 0x1404EFB04 (KeReservePrivilegedPages.c)
+ *     MiGetExtendedLoaderBitmap @ 0x1404F780C (MiGetExtendedLoaderBitmap.c)
+ *     MiBadRefCount @ 0x140500054 (MiBadRefCount.c)
+ *     MiFreeLargeInitializationCodePages @ 0x140522D3C (MiFreeLargeInitializationCodePages.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiUnmapReturnCharges @ 0x140ACA14C (MiUnmapReturnCharges.c)
+ *     MiFreeBootDriverPages @ 0x140D11120 (MiFreeBootDriverPages.c)
  */
 
-__int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall MiFreeInitializationCode(_QWORD *a1, __int64 a2, __int64 a3, int a4)
 {
-  unsigned __int64 v4; // rdi
+  PVOID v4; // rdi
   __int64 v5; // rsi
   unsigned __int64 v6; // r14
   __int64 v7; // r12
@@ -39,7 +39,7 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, __int64 a2, __i
   __int64 v14; // rcx
   __int64 result; // rax
   unsigned __int64 v16; // rax
-  RTL_BITMAP *ExtendedLoaderBitmap; // rax
+  _RTL_BITMAP *ExtendedLoaderBitmap; // rax
   unsigned __int64 v18; // rsi
   __int64 v19; // rax
   __int64 v20; // r15
@@ -58,25 +58,25 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, __int64 a2, __i
   v25 = 0LL;
   v26 = 0LL;
   if ( !a4 )
-    v4 = *(_QWORD *)(a1 + 48);
+    v4 = (PVOID)a1[6];
   v5 = 0LL;
   if ( !a4 )
-    v5 = a1;
+    v5 = (__int64)a1;
   v6 = a2 << 25 >> 16;
   v7 = ((a3 - a2) >> 3) + 1;
   v8 = v7;
-  PteAddress = MiGetPteAddress(v4);
+  PteAddress = MiGetPteAddress((unsigned __int64)v4);
   v11 = (v10 - PteAddress) >> 3;
   if ( v5 )
   {
-    ExtendedLoaderBitmap = (RTL_BITMAP *)MiGetExtendedLoaderBitmap(v5);
+    ExtendedLoaderBitmap = (_RTL_BITMAP *)MiGetExtendedLoaderBitmap(v5);
     RtlClearBits(ExtendedLoaderBitmap, v11, v7);
   }
   for ( i = 0LL; !(_DWORD)i; i = 1LL )
   {
-    if ( *(_QWORD *)(*((_QWORD *)&MiState + i + 463) + 48LL) == v4 )
+    if ( *(PVOID *)(*((_QWORD *)&MiState + i + 463) + 48LL) == v4 )
     {
-      RtlSetBitsEx((__int64)&stru_140E2D150.SchedulerApc.Reserved[1], (unsigned int)v11, v7);
+      RtlSetBitsEx((__int64)&stru_140E2D2D0.SchedulerApc.Reserved[1], (unsigned int)v11, v7);
       break;
     }
   }
@@ -105,8 +105,8 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, __int64 a2, __i
       v18 += v22 << 12;
       v8 -= v22;
     }
-    _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[72], -(int)v7);
-    _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.320, -v7);
+    _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[72], -(int)v7);
+    _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.320, -v7);
     *((_QWORD *)&v25 + 1) = v7;
     *(_QWORD *)&v24 = v7;
     MiUnmapReturnCharges((__int64)&MiSystemPartition, (unsigned __int64 *)&v24);
@@ -122,13 +122,13 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, __int64 a2, __i
     MiDecommitPages(a2, v7, v14, 0LL, 0LL, 0, 0LL, (__int64)&v24);
     if ( v4 == PsNtosImageBase || v4 == PsHalImageBase )
     {
-      _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.320, -*((_QWORD *)&v25 + 1));
-      _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[80], v24 - DWORD2(v25));
+      _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.320, -*((_QWORD *)&v25 + 1));
+      _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[80], v24 - DWORD2(v25));
     }
     else
     {
-      _InterlockedAdd((volatile signed __int32 *)&stru_140E36558.WaitBlockFill11[16], -DWORD2(v25));
-      _InterlockedExchangeAdd((volatile signed __int32 *)&stru_140E2D150.UserTime, v24 - DWORD2(v25));
+      _InterlockedAdd((volatile signed __int32 *)&stru_140E366D8.WaitBlockFill11[16], -DWORD2(v25));
+      _InterlockedExchangeAdd((volatile signed __int32 *)&stru_140E2D2D0.UserTime, v24 - DWORD2(v25));
     }
     *(_QWORD *)&v24 = *((_QWORD *)&v25 + 1);
     MiReturnResident((__int64)ControlAreaPartition, *((unsigned __int64 *)&v25 + 1));

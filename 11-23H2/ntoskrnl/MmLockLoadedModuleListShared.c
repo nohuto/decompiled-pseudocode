@@ -1,14 +1,14 @@
 /*
- * XREFs of MmLockLoadedModuleListShared @ 0x1403399A0
+ * XREFs of MmLockLoadedModuleListShared @ 0x140339C30
  * Callers:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     MiAddWorkingSetEntries @ 0x14026BD20 (MiAddWorkingSetEntries.c)
- *     RtlpxLookupFunctionTable @ 0x1402A3C80 (RtlpxLookupFunctionTable.c)
- *     MiIsDriverPage @ 0x1403398C0 (MiIsDriverPage.c)
- *     RtlPcToFileName @ 0x1403AA390 (RtlPcToFileName.c)
- *     MiIsAddressInDriverView @ 0x140633EBC (MiIsAddressInDriverView.c)
+ *     MiAddWorkingSetEntries @ 0x14026BFB0 (MiAddWorkingSetEntries.c)
+ *     RtlpxLookupFunctionTable @ 0x1402A3F10 (RtlpxLookupFunctionTable.c)
+ *     MiIsDriverPage @ 0x140339B50 (MiIsDriverPage.c)
+ *     RtlPcToFileName @ 0x1403AA570 (RtlPcToFileName.c)
+ *     MiIsAddressInDriverView @ 0x14063440C (MiIsAddressInDriverView.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 void __fastcall MmLockLoadedModuleListShared(unsigned __int8 *a1)
@@ -23,9 +23,9 @@ void __fastcall MmLockLoadedModuleListShared(unsigned __int8 *a1)
   {
     v3 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v3 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v3 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v3 == 15 )

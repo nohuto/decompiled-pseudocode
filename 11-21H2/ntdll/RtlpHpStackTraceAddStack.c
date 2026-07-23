@@ -15,24 +15,23 @@
  *     RtlStackDbStackRemove @ 0x180127BBC (RtlStackDbStackRemove.c)
  */
 
-signed __int64 __fastcall RtlpHpStackTraceAddStack(__int64 a1, __int64 a2)
+void __fastcall RtlpHpStackTraceAddStack(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx
   PVOID *v5; // rax
   __int64 v6; // rax
   __int64 v7; // rdi
-  signed __int64 result; // rax
-  __int128 v9; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v10; // [rsp+50h] [rbp+18h] BYREF
+  __int128 v8; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
 
   v4 = 0LL;
   RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext);
   if ( (dword_18017AE98 & 1) != 0
     && (dword_18017AE98 & 2) != 0
-    && (int)RtlpHpStackTraceHeapGetContext(a1, 1LL, &v10) >= 0 )
+    && (int)RtlpHpStackTraceHeapGetContext(a1, 1LL, &v9) >= 0 )
   {
-    v9 = RtlpHpEnvHandle;
-    v5 = (PVOID *)RtlpHpMetadataAlloc(0x600uLL, 0x600uLL, 0, &v9);
+    v8 = RtlpHpEnvHandle;
+    v5 = (PVOID *)RtlpHpMetadataAlloc(0x600uLL, 0x600uLL, 0, &v8);
     v4 = (__int64)v5;
     if ( v5 )
     {
@@ -42,17 +41,16 @@ signed __int64 __fastcall RtlpHpStackTraceAddStack(__int64 a1, __int64 a2)
         v7 = v6;
         if ( v6 )
         {
-          if ( !(unsigned int)RtlpHpStackTraceAllocAdd(v10, a2, v6) )
+          if ( !(unsigned int)RtlpHpStackTraceAllocAdd(v9, a2, v6) )
             RtlStackDbStackRemove(&qword_18017AEA0, v7);
         }
       }
     }
   }
-  result = RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
   if ( v4 )
   {
-    v9 = RtlpHpEnvHandle;
-    return RtlpHpMetadataFree(v4, &v9);
+    v8 = RtlpHpEnvHandle;
+    RtlpHpMetadataFree(v4, &v8);
   }
-  return result;
 }

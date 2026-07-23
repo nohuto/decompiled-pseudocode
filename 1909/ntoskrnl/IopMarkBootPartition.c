@@ -31,7 +31,7 @@ __int64 __fastcall IopMarkBootPartition(__int64 a1, __int64 a2, UNICODE_STRING *
   __int64 v11; // rcx
   int v13; // edx
   HANDLE FileHandle; // [rsp+30h] [rbp-D0h] BYREF
-  STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
+  _STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-B8h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
@@ -95,7 +95,7 @@ __int64 __fastcall IopMarkBootPartition(__int64 a1, __int64 a2, UNICODE_STRING *
           ObfDereferenceObjectWithTag(v7, 0x746C6644u);
           ObfDereferenceObjectWithTag(v10, 0x746C6644u);
           IopAssignBootDriveLetter();
-          v6 = IopCreateUnicodeFromAnsiBuffer(&UnicodeString, *(const char **)(a1 + 208));
+          v6 = IopCreateUnicodeFromAnsiBuffer(&UnicodeString, *(const CHAR **)(a1 + 208));
           if ( v6 >= 0 )
           {
             IopStoreSystemPartitionInformation(v11, &UnicodeString);

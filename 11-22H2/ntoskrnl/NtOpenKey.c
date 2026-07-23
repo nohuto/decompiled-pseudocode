@@ -12,17 +12,17 @@
  *     CmOpenKey @ 0x1406E2B10 (CmOpenKey.c)
  */
 
-__int64 NtOpenKey()
+NTSTATUS __cdecl NtOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 v0; // r8
-  int v1; // r10d
-  HANDLE *v2; // r11
-  unsigned int v3; // r8d
-  __int64 v5[3]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v3; // r8
+  int v4; // r10d
+  HANDLE *v5; // r11
+  NTSTATUS v6; // r8d
+  __int64 v8[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  *(_OWORD *)v5 = 0LL;
-  CmpInitializeThreadInfo((__int64)v5);
-  CmOpenKey(v2, v1, v0, 0, 0LL, KeGetCurrentThread()->PreviousMode);
-  CmCleanupThreadInfo(v5);
-  return v3;
+  *(_OWORD *)v8 = 0LL;
+  CmpInitializeThreadInfo((__int64)v8);
+  CmOpenKey(v5, v4, v3, 0, 0LL, KeGetCurrentThread()->PreviousMode);
+  CmCleanupThreadInfo(v8);
+  return v6;
 }

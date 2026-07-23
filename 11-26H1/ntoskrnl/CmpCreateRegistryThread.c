@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCreateRegistryThread @ 0x140856F70
+ * XREFs of CmpCreateRegistryThread @ 0x14085D308
  * Callers:
- *     CmpInitializeSystemHivesLoad @ 0x14084B198 (CmpInitializeSystemHivesLoad.c)
- *     CmCompleteRegistryInitialization @ 0x14084E49C (CmCompleteRegistryInitialization.c)
- *     CmpInitializeRegistryProcess @ 0x140857024 (CmpInitializeRegistryProcess.c)
- *     CmpInitializeLazyWriters @ 0x14085CCE4 (CmpInitializeLazyWriters.c)
- *     CmpHiveCachePopulateHiveEntry @ 0x140862118 (CmpHiveCachePopulateHiveEntry.c)
+ *     CmpInitializeSystemHivesLoad @ 0x1408514A8 (CmpInitializeSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1408547AC (CmCompleteRegistryInitialization.c)
+ *     CmpInitializeRegistryProcess @ 0x14085D3B4 (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeLazyWriters @ 0x140862FD4 (CmpInitializeLazyWriters.c)
+ *     CmpHiveCachePopulateHiveEntry @ 0x1408684F8 (CmpHiveCachePopulateHiveEntry.c)
  * Callees:
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall CmpCreateRegistryThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -20,5 +20,5 @@ __int64 __fastcall CmpCreateRegistryThread(__int64 a1, __int64 a2, __int64 a3, _
   v5[2] = 0LL;
   v5[3] = 512LL;
   v6 = 0LL;
-  return PsCreateSystemThreadEx(a1, 0x1FFFFFLL, v5, CmpFreezeListLock.Teb, 0LL, a3, a4, 0LL, 0LL);
+  return PsCreateSystemThreadEx(a1, 0x1FFFFFLL, v5, CmpFreezeListLock.ThreadLock, 0LL, a3, a4, 0LL, 0LL);
 }

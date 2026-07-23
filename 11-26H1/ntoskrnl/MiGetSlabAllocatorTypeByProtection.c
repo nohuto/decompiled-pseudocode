@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetSlabAllocatorTypeByProtection @ 0x1404C9E3C
+ * XREFs of MiGetSlabAllocatorTypeByProtection @ 0x1404C386C
  * Callers:
- *     MiUseSlabAllocator @ 0x140373DF4 (MiUseSlabAllocator.c)
+ *     MiUseSlabAllocator @ 0x140375BA4 (MiUseSlabAllocator.c)
  * Callees:
  *     <none>
  */

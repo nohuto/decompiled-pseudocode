@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetProcessInheritedFromUniqueProcessId @ 0x140486A00
+ * XREFs of PsGetProcessInheritedFromUniqueProcessId @ 0x140480370
  * Callers:
- *     PsChargeProcessWakeCounter @ 0x1409BE250 (PsChargeProcessWakeCounter.c)
+ *     PsChargeProcessWakeCounter @ 0x14098F230 (PsChargeProcessWakeCounter.c)
  * Callees:
  *     <none>
  */

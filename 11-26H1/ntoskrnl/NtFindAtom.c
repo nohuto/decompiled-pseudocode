@@ -1,72 +1,72 @@
 /*
- * XREFs of NtFindAtom @ 0x1408417F0
+ * XREFs of NtFindAtom @ 0x140847A30
  * Callers:
- *     DifNtFindAtomWrapper @ 0x140677B60 (DifNtFindAtomWrapper.c)
+ *     DifNtFindAtomWrapper @ 0x14067B740 (DifNtFindAtomWrapper.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     RtlLookupAtomInAtomTable @ 0x14091A550 (RtlLookupAtomInAtomTable.c)
- *     PsInvokeWin32Callout @ 0x140A41140 (PsInvokeWin32Callout.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlLookupAtomInAtomTable @ 0x140974FB0 (RtlLookupAtomInAtomTable.c)
+ *     PsInvokeWin32Callout @ 0x1409FCB60 (PsInvokeWin32Callout.c)
  */
 
-__int64 __fastcall NtFindAtom(_WORD *Src, size_t Size, unsigned __int16 *a3)
+NTSTATUS __cdecl NtFindAtom(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
   size_t v4; // rbx
-  __int64 v6; // r12
-  __int64 result; // rax
+  PVOID v6; // r12
+  NTSTATUS result; // eax
   char PreviousMode; // r14
-  _WORD *v9; // r15
+  WCHAR *v9; // r15
   __int16 UShortFromUser; // ax
-  __int16 Srca[6]; // [rsp+24h] [rbp-274h] BYREF
+  USHORT Atoma[6]; // [rsp+24h] [rbp-274h] BYREF
   __int128 v12; // [rsp+30h] [rbp-268h] BYREF
-  __int64 v13; // [rsp+40h] [rbp-258h]
+  PVOID AtomTableHandle; // [rsp+40h] [rbp-258h]
   _WORD *v14; // [rsp+48h] [rbp-250h]
   _WORD v15[256]; // [rsp+50h] [rbp-248h] BYREF
 
-  v4 = (unsigned int)Size;
+  v4 = Length;
   v12 = 0LL;
-  v13 = 0LL;
+  AtomTableHandle = 0LL;
   PsInvokeWin32Callout(2LL, &v12, 0LL, 0LL);
-  v6 = v13;
-  if ( !v13 )
-    return 3221225506LL;
+  v6 = AtomTableHandle;
+  if ( !AtomTableHandle )
+    return -1073741790;
   if ( (unsigned int)v4 > 0x1FE )
-    return 3221225485LL;
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v9 = Src;
+  v9 = AtomName;
   if ( PreviousMode )
   {
-    if ( a3 )
+    if ( Atom )
     {
-      UShortFromUser = RtlReadUShortFromUser(a3);
-      RtlWriteUShortToUser(a3, UShortFromUser);
+      UShortFromUser = RtlReadUShortFromUser(Atom);
+      RtlWriteUShortToUser(Atom, UShortFromUser);
     }
-    if ( Src )
+    if ( AtomName )
     {
       v9 = v15;
       v14 = v15;
-      if ( (_DWORD)v4 && ((unsigned __int8)Src & 1) != 0 )
+      if ( (_DWORD)v4 && ((unsigned __int8)AtomName & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      RtlCopyFromUser(v15, Src, v4);
+      RtlCopyFromUser(v15, AtomName, v4);
       v15[v4 >> 1] = 0;
     }
   }
-  Srca[0] = 0;
-  result = RtlLookupAtomInAtomTable(v6, v9, Srca);
-  if ( (int)result >= 0 )
+  Atoma[0] = 0;
+  result = RtlLookupAtomInAtomTable(v6, v9, Atoma);
+  if ( result >= 0 )
   {
-    if ( a3 )
+    if ( Atom )
     {
       if ( PreviousMode )
-        RtlWriteUShortToUser(a3, Srca[0]);
+        RtlWriteUShortToUser(Atom, Atoma[0]);
       else
-        RtlCopyVolatileMemory(a3, Srca, 2uLL);
+        RtlCopyVolatileMemory(Atom, Atoma, 2uLL);
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

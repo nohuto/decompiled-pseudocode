@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgLogDeviceStarted @ 0x14063A21C
+ * XREFs of PiDevCfgLogDeviceStarted @ 0x14063A2D0
  * Callers:
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x1400097B8 (PipIsDevNodeDNStarted.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PnpGetLogString @ 0x1401CF4AC (PnpGetLogString.c)
- *     Template_zzjzzzqq @ 0x1401CFA8C (Template_zzjzzzqq.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     PiDevCfgQueryObjectProperties @ 0x14057A954 (PiDevCfgQueryObjectProperties.c)
+ *     PipIsDevNodeDNStarted @ 0x14000932C (PipIsDevNodeDNStarted.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PnpGetLogString @ 0x1401CF240 (PnpGetLogString.c)
+ *     Template_zzjzzzqq @ 0x1401CF8B8 (Template_zzjzzzqq.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14057AE94 (PiDevCfgQueryObjectProperties.c)
  */
 
 void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)

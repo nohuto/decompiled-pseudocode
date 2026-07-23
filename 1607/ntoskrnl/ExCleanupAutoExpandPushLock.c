@@ -1,7 +1,7 @@
 /*
- * XREFs of ExCleanupAutoExpandPushLock @ 0x14009CDFC
+ * XREFs of ExCleanupAutoExpandPushLock @ 0x14009C5FC
  * Callers:
- *     MiDeletePhysicalProcessPages @ 0x14065C48C (MiDeletePhysicalProcessPages.c)
+ *     MiDeletePhysicalProcessPages @ 0x14065C570 (MiDeletePhysicalProcessPages.c)
  * Callees:
  *     <none>
  */

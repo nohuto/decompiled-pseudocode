@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryInterruptPartitionCount @ 0x1404969E0
+ * XREFs of KeQueryInterruptPartitionCount @ 0x140491370
  * Callers:
  *     <none>
  * Callees:

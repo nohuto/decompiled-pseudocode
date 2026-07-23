@@ -1,32 +1,32 @@
 /*
- * XREFs of SeSubProcessToken @ 0x14064EA4C
+ * XREFs of SeSubProcessToken @ 0x14064FC0C
  * Callers:
- *     PspInitializeProcessSecurity @ 0x14064E814 (PspInitializeProcessSecurity.c)
+ *     PspInitializeProcessSecurity @ 0x14064F9D4 (PspInitializeProcessSecurity.c)
  * Callees:
  *     SepCreateAccessStateFromSubjectContext @ 0x14004D710 (SepCreateAccessStateFromSubjectContext.c)
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     SepSetTrustLevelForProcessToken @ 0x1400D9E14 (SepSetTrustLevelForProcessToken.c)
- *     SepMandatorySubProcessToken @ 0x1400D9E94 (SepMandatorySubProcessToken.c)
- *     SepDesktopAppxSubProcessToken @ 0x1400DA020 (SepDesktopAppxSubProcessToken.c)
- *     SepSetTokenBnoIsolation @ 0x1400DA14C (SepSetTokenBnoIsolation.c)
- *     SeTokenGetNoChildProcessRestricted @ 0x1400DA1E4 (SeTokenGetNoChildProcessRestricted.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x1402FFFFC (SeTokenIsNoChildProcessRestrictionEnforced.c)
- *     SepSetTokenAllApplicationPackagesPolicy @ 0x1403001F4 (SepSetTokenAllApplicationPackagesPolicy.c)
- *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1405DF038 (SepDereferenceLowBoxNumberEntry.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
- *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
- *     SepSetProcessUniqueAttribute @ 0x14064EE94 (SepSetProcessUniqueAttribute.c)
- *     SepSetTokenSessionById @ 0x14064FD7C (SepSetTokenSessionById.c)
- *     SepSetTokenLowboxNumber @ 0x14065C0E4 (SepSetTokenLowboxNumber.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x1406D5BBC (EtwTimLogProhibitChildProcessCreation.c)
- *     SepAddTokenOriginClaim @ 0x1408A1D68 (SepAddTokenOriginClaim.c)
+ *     SepSetTrustLevelForProcessToken @ 0x1400D9E94 (SepSetTrustLevelForProcessToken.c)
+ *     SepMandatorySubProcessToken @ 0x1400D9F14 (SepMandatorySubProcessToken.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1400DA0A0 (SepDesktopAppxSubProcessToken.c)
+ *     SepSetTokenBnoIsolation @ 0x1400DA1CC (SepSetTokenBnoIsolation.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x1400DA264 (SeTokenGetNoChildProcessRestricted.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x1403001EC (SeTokenIsNoChildProcessRestrictionEnforced.c)
+ *     SepSetTokenAllApplicationPackagesPolicy @ 0x1403003E4 (SepSetTokenAllApplicationPackagesPolicy.c)
+ *     SepFinalizeTokenAcls @ 0x140583ABC (SepFinalizeTokenAcls.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1405E0038 (SepDereferenceLowBoxNumberEntry.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessState @ 0x140613230 (SeCreateAccessState.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     PsReferenceEffectiveToken @ 0x14064A470 (PsReferenceEffectiveToken.c)
+ *     SepDuplicateToken @ 0x14064A640 (SepDuplicateToken.c)
+ *     SepSetProcessUniqueAttribute @ 0x140650054 (SepSetProcessUniqueAttribute.c)
+ *     SepSetTokenSessionById @ 0x140650F3C (SepSetTokenSessionById.c)
+ *     SepSetTokenLowboxNumber @ 0x14065D2A4 (SepSetTokenLowboxNumber.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x1406D6E5C (EtwTimLogProhibitChildProcessCreation.c)
+ *     SepAddTokenOriginClaim @ 0x1408A2FC8 (SepAddTokenOriginClaim.c)
  */
 
 __int64 __fastcall SeSubProcessToken(
@@ -163,7 +163,7 @@ __int64 __fastcall SeSubProcessToken(
     if ( inserted >= 0 )
     {
       v14 = v32 & 2;
-      inserted = SepDesktopAppxSubProcessToken((__int64)v13, a1, *(_DWORD *)(a6 + 4), &v25, &v26);
+      inserted = SepDesktopAppxSubProcessToken((PERESOURCE *)v13, a1, *(_DWORD *)(a6 + 4), &v25, &v26);
       if ( inserted >= 0 )
       {
         inserted = SepMandatorySubProcessToken((_DWORD *)(v34 & -(__int64)(v14 != 0)), (__int64)v13, a1, &v35);

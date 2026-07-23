@@ -1,238 +1,248 @@
 /*
- * XREFs of NtAlpcSetInformation @ 0x1406D1BB0
+ * XREFs of NtAlpcSetInformation @ 0x1406A8E90
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpInitializeCompletionList @ 0x14067EC00 (AlpcpInitializeCompletionList.c)
- *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1406930B0 (AlpcpAdjustCompletionListConcurrencyCount.c)
- *     AlpcpFreeCompletionList @ 0x1406C38D4 (AlpcpFreeCompletionList.c)
- *     AlpcpAssociateIoCompletionPort @ 0x1406D1FC4 (AlpcpAssociateIoCompletionPort.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpInitializeCompletionList @ 0x1405D96A0 (AlpcpInitializeCompletionList.c)
+ *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1405F2740 (AlpcpAdjustCompletionListConcurrencyCount.c)
+ *     AlpcpFreeCompletionList @ 0x1406224B4 (AlpcpFreeCompletionList.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x1406A92A4 (AlpcpAssociateIoCompletionPort.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, unsigned int a4)
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   size_t v4; // r15
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
   struct _KTHREAD *CurrentThread; // rax
-  int v8; // r14d
-  NTSTATUS v9; // edi
+  int v11; // r14d
+  signed int v12; // edi
   KPROCESSOR_MODE PreviousMode; // di
-  __int64 v11; // r13
-  unsigned __int32 *v12; // r12
-  int v13; // esi
-  int v14; // esi
-  int v15; // esi
-  int v16; // esi
-  int v17; // esi
-  int v18; // esi
-  int v19; // esi
-  _DWORD *v20; // rdi
-  volatile signed __int64 *v21; // rsi
-  ULONG_PTR v22; // rcx
-  _QWORD *v23; // rdi
+  __int64 v14; // r13
+  unsigned __int32 *v15; // r12
+  __int32 v16; // esi
+  __int32 v17; // esi
+  __int32 v18; // esi
+  __int32 v19; // esi
+  int v20; // esi
+  int v21; // esi
+  int v22; // esi
+  _DWORD *v23; // rdi
   volatile signed __int64 *v24; // rsi
   ULONG_PTR v25; // rcx
   _QWORD *v26; // rdi
-  signed __int64 *v27; // rbx
-  _QWORD *v28; // rsi
-  volatile signed __int64 *v29; // rdi
-  char *v30; // rdx
-  __m128i v31; // xmm0
-  NTSTATUS v32; // eax
-  KPROCESSOR_MODE v34; // [rsp+30h] [rbp-C8h]
+  volatile signed __int64 *v27; // rsi
+  ULONG_PTR v28; // rcx
+  _QWORD *v29; // rdi
+  signed __int64 *v30; // rbx
+  _QWORD *v31; // rsi
+  volatile signed __int64 *v32; // rdi
+  char *v33; // rdx
+  __m128i v34; // xmm0
+  signed int v35; // eax
+  KPROCESSOR_MODE v37; // [rsp+30h] [rbp-C8h]
   PVOID Object; // [rsp+38h] [rbp-C0h] BYREF
-  unsigned __int64 v36; // [rsp+40h] [rbp-B8h]
+  unsigned __int32 *v39; // [rsp+40h] [rbp-B8h]
   HANDLE Handle; // [rsp+48h] [rbp-B0h]
-  _QWORD *v38; // [rsp+50h] [rbp-A8h]
-  _QWORD v39[10]; // [rsp+60h] [rbp-98h] BYREF
+  unsigned __int32 *v41; // [rsp+50h] [rbp-A8h]
+  _QWORD v42[10]; // [rsp+60h] [rbp-98h] BYREF
 
-  v4 = a4;
-  Handle = a1;
-  v36 = a3;
-  memset(v39, 0, 0x48uLL);
+  v4 = Length;
+  Handle = PortHandle;
+  v39 = (unsigned __int32 *)PortInformation;
+  memset(v42, 0, 0x48uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v8 = 0;
-  if ( a1 && (v36 || a2 == 7 || a2 == 10) )
+  v11 = 0;
+  if ( PortHandle
+    && (v39
+     || PortInformationClass == AlpcUnregisterCompletionListInformation
+     || PortInformationClass == AlpcCompletionListRundownInformation) )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
-    v34 = PreviousMode;
-    v11 = v36;
-    v12 = (unsigned __int32 *)v36;
-    v38 = (_QWORD *)v36;
+    v37 = PreviousMode;
+    v14 = (__int64)v39;
+    v15 = v39;
+    v41 = v39;
     if ( (_DWORD)v4 && PreviousMode )
     {
       if ( (unsigned int)v4 > 0x48 )
       {
-        v9 = -1073741820;
+        v12 = -1073741820;
         goto LABEL_65;
       }
-      if ( v36 >= 0x7FFFFFFF0000LL )
-        v11 = 0x7FFFFFFF0000LL;
-      v36 = v11;
-      memmove(v39, (const void *)v11, v4);
-      v12 = (unsigned __int32 *)v39;
-      v38 = v39;
+      if ( (unsigned __int64)v39 >= 0x7FFFFFFF0000LL )
+        v14 = 0x7FFFFFFF0000LL;
+      v39 = (unsigned __int32 *)v14;
+      memmove(v42, (const void *)v14, v4);
+      v15 = (unsigned __int32 *)v42;
+      v41 = (unsigned __int32 *)v42;
     }
     Object = 0LL;
-    v9 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
-    if ( v9 < 0 )
+    v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    if ( v12 < 0 )
       goto LABEL_65;
-    v13 = a2 - 1;
-    if ( v13 )
+    v16 = PortInformationClass - 1;
+    if ( v16 )
     {
-      v14 = v13 - 1;
-      if ( v14 )
+      v17 = v16 - 1;
+      if ( v17 )
       {
-        v15 = v14 - 3;
-        if ( !v15 )
+        v18 = v17 - 3;
+        if ( !v18 )
         {
-          v9 = (_DWORD)v4 != 16 ? 0xC000000D : 0;
+          v12 = (_DWORD)v4 != 16 ? 0xC000000D : 0;
           goto LABEL_64;
         }
-        v16 = v15 - 1;
-        if ( v16 )
+        v19 = v18 - 1;
+        if ( v19 )
         {
-          v17 = v16 - 1;
-          if ( v17 )
+          v20 = v19 - 1;
+          if ( v20 )
           {
-            v18 = v17 - 1;
-            if ( !v18 )
+            v21 = v20 - 1;
+            if ( !v21 )
             {
-              if ( (_DWORD)v4 == 4 && *v12 )
+              if ( (_DWORD)v4 == 4 && *v15 )
               {
-                v26 = Object;
-                v27 = (signed __int64 *)((char *)Object + 352);
+                v29 = Object;
+                v30 = (signed __int64 *)((char *)Object + 352);
                 ExAcquirePushLockSharedEx((ULONG_PTR)Object + 352, 0LL);
-                if ( v26[45] )
+                if ( v29[45] )
                 {
-                  AlpcpAdjustCompletionListConcurrencyCount((__int64)v26, *v12);
-                  v9 = 0;
+                  AlpcpAdjustCompletionListConcurrencyCount((__int64)v29, *v15);
+                  v12 = 0;
                 }
                 else
                 {
-                  v9 = -1073741811;
+                  v12 = -1073741811;
                 }
-                if ( _InterlockedCompareExchange64(v27, 0LL, 17LL) != 17 )
-                  ExfReleasePushLockShared(v27);
-                v22 = (ULONG_PTR)v27;
+                if ( _InterlockedCompareExchange64(v30, 0LL, 17LL) != 17 )
+                  ExfReleasePushLockShared(v30);
+                v25 = (ULONG_PTR)v30;
                 goto LABEL_29;
               }
 LABEL_52:
-              v9 = -1073741811;
+              v12 = -1073741811;
               goto LABEL_64;
             }
-            v19 = v18 - 1;
-            if ( v19 )
+            v22 = v21 - 1;
+            if ( v22 )
             {
-              if ( v19 == 1 && !(_DWORD)v4 )
+              if ( v22 == 1 && !(_DWORD)v4 )
               {
-                v20 = Object;
-                v21 = (volatile signed __int64 *)((char *)Object + 352);
+                v23 = Object;
+                v24 = (volatile signed __int64 *)((char *)Object + 352);
                 ExAcquirePushLockExclusiveEx((ULONG_PTR)Object + 352, 0LL);
-                if ( *((_QWORD *)v20 + 45) )
+                if ( *((_QWORD *)v23 + 45) )
                 {
-                  v20[104] &= ~0x10000u;
-                  v9 = 0;
+                  v23[104] &= ~0x10000u;
+                  v12 = 0;
                 }
                 else
                 {
-                  v9 = -1073741811;
+                  v12 = -1073741811;
                 }
-                if ( (_InterlockedExchangeAdd64(v21, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-                  ExfTryToWakePushLock(v21);
-                v22 = (ULONG_PTR)v21;
+                if ( (_InterlockedExchangeAdd64(v24, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+                  ExfTryToWakePushLock(v24);
+                v25 = (ULONG_PTR)v24;
 LABEL_29:
-                KeAbPostRelease(v22);
+                KeAbPostRelease(v25);
 LABEL_64:
                 HalPutDmaAdapter((PADAPTER_OBJECT)Object);
                 goto LABEL_65;
               }
               goto LABEL_52;
             }
-            if ( v34 )
+            if ( v37 )
               goto LABEL_52;
-            ObfReferenceObject(*(PVOID *)v11);
-            v23 = Object;
-            v24 = (volatile signed __int64 *)((char *)Object + 352);
+            ObfReferenceObject(*(PVOID *)v14);
+            v26 = Object;
+            v27 = (volatile signed __int64 *)((char *)Object + 352);
             ExAcquirePushLockExclusiveEx((ULONG_PTR)Object + 352, 0LL);
-            v23[46] = *(_QWORD *)v11;
-            v23[47] = *(_QWORD *)(v11 + 8);
-            if ( (_InterlockedExchangeAdd64(v24, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock(v24);
-            v25 = (ULONG_PTR)v24;
+            v26[46] = *(_QWORD *)v14;
+            v26[47] = *(_QWORD *)(v14 + 8);
+            if ( (_InterlockedExchangeAdd64(v27, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock(v27);
+            v28 = (ULONG_PTR)v27;
           }
           else
           {
             if ( (_DWORD)v4 )
               goto LABEL_52;
-            v28 = Object;
-            v29 = (volatile signed __int64 *)((char *)Object + 352);
+            v31 = Object;
+            v32 = (volatile signed __int64 *)((char *)Object + 352);
             ExAcquirePushLockExclusiveEx((ULONG_PTR)Object + 352, 0LL);
-            if ( v28[45] )
-              AlpcpFreeCompletionList((__int64)v28);
-            if ( (_InterlockedExchangeAdd64(v29, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock(v29);
-            v25 = (ULONG_PTR)v29;
+            if ( v31[45] )
+              AlpcpFreeCompletionList((__int64)v31);
+            if ( (_InterlockedExchangeAdd64(v32, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock(v32);
+            v28 = (ULONG_PTR)v32;
           }
-          KeAbPostRelease(v25);
-          v9 = 0;
+          KeAbPostRelease(v28);
+          v12 = 0;
           goto LABEL_64;
         }
         if ( (*((_DWORD *)Object + 104) & 6) != 2 )
           goto LABEL_52;
         if ( (_DWORD)v4 == 16 )
         {
-          v31 = *(__m128i *)v12;
-          v12 = (unsigned __int32 *)v39;
-          v30 = (char *)v31.m128i_u32[0];
-          v39[0] = v31.m128i_u32[0];
-          LODWORD(v39[1]) = v31.m128i_i32[1];
-          *(_QWORD *)((char *)&v39[1] + 4) = _mm_srli_si128(v31, 8).m128i_u64[0];
-          v8 = 1;
+          v34 = *(__m128i *)v15;
+          v15 = (unsigned __int32 *)v42;
+          v33 = (char *)v34.m128i_u32[0];
+          v42[0] = v34.m128i_u32[0];
+          LODWORD(v42[1]) = v34.m128i_i32[1];
+          *(_QWORD *)((char *)&v42[1] + 4) = _mm_srli_si128(v34, 8).m128i_u64[0];
+          v11 = 1;
         }
         else
         {
           if ( (_DWORD)v4 != 24 )
             goto LABEL_52;
-          v30 = *(char **)v12;
+          v33 = *(char **)v15;
         }
-        v32 = AlpcpInitializeCompletionList((__int64)Object, v30, v12[2], v12[3], v12[4], v8);
+        v35 = AlpcpInitializeCompletionList((__int64)Object, v33, v15[2], v15[3], v15[4], v11);
 LABEL_59:
-        v9 = v32;
+        v12 = v35;
         goto LABEL_64;
       }
       if ( (_DWORD)v4 == 16 )
       {
-        v32 = AlpcpAssociateIoCompletionPort(Object, *((_QWORD *)v12 + 1), *(_QWORD *)v12);
+        v35 = AlpcpAssociateIoCompletionPort(Object, *((_QWORD *)v15 + 1), *(_QWORD *)v15);
         goto LABEL_59;
       }
     }
     else if ( (_DWORD)v4 == 72 )
     {
-      if ( (*v12 & 0xFC00FFFF) == 0 )
+      if ( (*v15 & 0xFC00FFFF) == 0 )
       {
-        *((_DWORD *)Object + 64) ^= (*((_DWORD *)Object + 64) ^ *v12) & 0x20000;
+        *((_DWORD *)Object + 64) ^= (*((_DWORD *)Object + 64) ^ *v15) & 0x20000;
         goto LABEL_64;
       }
       goto LABEL_52;
     }
-    v9 = -1073741820;
+    v12 = -1073741820;
     goto LABEL_64;
   }
-  v9 = -1073741811;
+  v12 = -1073741811;
 LABEL_65:
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v9;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
+  return v12;
 }

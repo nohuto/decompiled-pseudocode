@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryKsrPersistentMemorySize @ 0x140952740
+ * XREFs of IoQueryKsrPersistentMemorySize @ 0x140952940
  * Callers:
  *     <none>
  * Callees:
- *     IoQueryKsrPersistentMemorySizeEx @ 0x140952770 (IoQueryKsrPersistentMemorySizeEx.c)
+ *     IoQueryKsrPersistentMemorySizeEx @ 0x140952970 (IoQueryKsrPersistentMemorySizeEx.c)
  */
 
 __int64 __fastcall IoQueryKsrPersistentMemorySize(__int64 a1, __int64 a2, __int64 a3)

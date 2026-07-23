@@ -7,9 +7,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetSystemTime(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER PreviousTime)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SystemTime);
 }

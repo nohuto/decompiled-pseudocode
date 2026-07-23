@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhBucketActivate @ 0x1800A4F80
+ * XREFs of RtlpHpLfhBucketActivate @ 0x1800D68F0
  * Callers:
- *     RtlpHpLfhBucketCheckAndUpdate @ 0x1800A4EB0 (RtlpHpLfhBucketCheckAndUpdate.c)
+ *     RtlpHpLfhBucketCheckAndUpdate @ 0x1800D6820 (RtlpHpLfhBucketCheckAndUpdate.c)
  * Callees:
- *     RtlpHpSegLfhExtendContext @ 0x1800A5130 (RtlpHpSegLfhExtendContext.c)
- *     RtlpHpLfhSlotInitialize @ 0x1800A5140 (RtlpHpLfhSlotInitialize.c)
- *     RtlpHpLfhBucketInitialize @ 0x1800A51A8 (RtlpHpLfhBucketInitialize.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpHpSegLfhExtendContext @ 0x1800D6AA0 (RtlpHpSegLfhExtendContext.c)
+ *     RtlpHpLfhSlotInitialize @ 0x1800D6AB0 (RtlpHpLfhSlotInitialize.c)
+ *     RtlpHpLfhBucketInitialize @ 0x1800D6B18 (RtlpHpLfhBucketInitialize.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 char __fastcall RtlpHpLfhBucketActivate(__int64 a1, unsigned int a2)

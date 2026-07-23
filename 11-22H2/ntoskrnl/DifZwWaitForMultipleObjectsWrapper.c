@@ -9,7 +9,12 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwWaitForMultipleObjectsWrapper(unsigned int a1, __int64 a2, int a3, char a4, __int64 a5)
+NTSTATUS __fastcall DifZwWaitForMultipleObjectsWrapper(
+        ULONG Count,
+        HANDLE Handles[],
+        WAIT_TYPE WaitType,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -20,7 +25,7 @@ __int64 __fastcall DifZwWaitForMultipleObjectsWrapper(unsigned int a1, __int64 a
   int v15; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v19; // rdi
   _QWORD *v20; // rbx
   __int128 v21; // [rsp+30h] [rbp-30h] BYREF
@@ -60,18 +65,18 @@ LABEL_8:
   }
   *(_QWORD *)&v21 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v21 + 1) = a5;
-  LODWORD(v23) = a1;
-  *((_QWORD *)&v22 + 1) = a2;
-  DWORD1(v22) = a3;
-  LOBYTE(v22) = a4;
+  *((_QWORD *)&v21 + 1) = Timeout;
+  LODWORD(v23) = Count;
+  *((_QWORD *)&v22 + 1) = Handles;
+  DWORD1(v22) = WaitType;
+  LOBYTE(v22) = Alertable;
   for ( i = (__int64 *)v14[4]; i != v14 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v21);
   }
 LABEL_17:
-  result = ZwWaitForMultipleObjects(a1, a2);
+  result = ZwWaitForMultipleObjects(Count, Handles, WaitType, Alertable, Timeout);
   HIDWORD(v23) = result;
   if ( v14 )
   {

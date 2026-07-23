@@ -7,64 +7,64 @@
  *     RtlUnicodeToUTF8N @ 0x18006B850 (RtlUnicodeToUTF8N.c)
  */
 
-__int64 __fastcall RtlUnicodeToCustomCPN(
-        __int64 a1,
-        _BYTE *a2,
-        unsigned int a3,
-        unsigned int *a4,
-        unsigned __int16 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlUnicodeToCustomCPN(
+        PCPTABLEINFO CustomCP,
+        PCH CustomCPString,
+        ULONG MaxBytesInCustomCPString,
+        PULONG BytesInCustomCPString,
+        PWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v6; // r10d
-  _BYTE *v7; // r11
-  unsigned int v8; // eax
-  unsigned int v9; // edx
-  __int64 v10; // rbx
-  __int64 v12; // rsi
-  unsigned __int16 *v13; // rdi
+  ULONG v6; // r10d
+  PCH v7; // r11
+  ULONG v8; // eax
+  ULONG v9; // edx
+  _BYTE *v10; // rbx
+  _WORD *WideCharTable; // rsi
+  PWCH v13; // rdi
   __int64 v14; // rcx
   __int16 v15; // r8
-  unsigned __int16 *v16; // r8
+  PWCH v16; // r8
   __int64 v17; // r9
   __int64 v18; // rcx
-  char *v19; // r8
-  unsigned int v20; // ebx
+  ULONG *v19; // r8
+  NTSTATUS v20; // ebx
   unsigned int v21; // ecx
   char v22; // [rsp+40h] [rbp+8h] BYREF
 
-  v6 = a3;
-  v7 = a2;
-  if ( !a1 || *(_WORD *)a1 == 0xFDE9 )
+  v6 = MaxBytesInCustomCPString;
+  v7 = CustomCPString;
+  if ( !CustomCP || CustomCP->CodePage == 0xFDE9 )
   {
-    v19 = &v22;
-    if ( a4 )
-      v19 = (char *)a4;
+    v19 = (ULONG *)&v22;
+    if ( BytesInCustomCPString )
+      v19 = BytesInCustomCPString;
     v20 = 0;
-    if ( a6 )
+    if ( BytesInUnicodeString )
     {
-      if ( (unsigned int)RtlUnicodeToUTF8N((_DWORD)a2, v6, (_DWORD)v19, (_DWORD)a5, a6) == -1073741789 )
-        return (unsigned int)-2147483643;
+      if ( RtlUnicodeToUTF8N(CustomCPString, v6, v19, UnicodeString, BytesInUnicodeString) == -1073741789 )
+        return -2147483643;
       return v20;
     }
     else
     {
-      *(_DWORD *)v19 = 0;
-      return 0LL;
+      *v19 = 0;
+      return 0;
     }
   }
   else
   {
-    v8 = a6 >> 1;
-    if ( *(_WORD *)(a1 + 12) )
+    v8 = BytesInUnicodeString >> 1;
+    if ( CustomCP->DBCSCodePage )
     {
-      v12 = *(_QWORD *)(a1 + 40);
+      WideCharTable = CustomCP->WideCharTable;
       if ( v8 )
       {
-        v13 = a5;
+        v13 = UnicodeString;
         while ( v6 )
         {
           v14 = *v13++;
-          v15 = *(_WORD *)(v12 + 2 * v14);
+          v15 = WideCharTable[v14];
           if ( HIBYTE(v15) )
           {
             v21 = v6--;
@@ -79,27 +79,27 @@ __int64 __fastcall RtlUnicodeToCustomCPN(
             break;
         }
       }
-      if ( a4 )
-        *a4 = (_DWORD)v7 - (_DWORD)a2;
+      if ( BytesInCustomCPString )
+        *BytesInCustomCPString = (_DWORD)v7 - (_DWORD)CustomCPString;
     }
     else
     {
-      v9 = a3;
-      if ( v8 < a3 )
-        v9 = a6 >> 1;
-      if ( a4 )
-        *a4 = v9;
-      v10 = *(_QWORD *)(a1 + 40);
+      v9 = MaxBytesInCustomCPString;
+      if ( v8 < MaxBytesInCustomCPString )
+        v9 = BytesInUnicodeString >> 1;
+      if ( BytesInCustomCPString )
+        *BytesInCustomCPString = v9;
+      v10 = CustomCP->WideCharTable;
       if ( v9 )
       {
-        v16 = a5;
+        v16 = UnicodeString;
         v17 = v9;
         do
         {
           v18 = *v16;
           ++v7;
           ++v16;
-          *(v7 - 1) = *(_BYTE *)(v18 + v10);
+          *(v7 - 1) = v10[v18];
           --v17;
         }
         while ( v17 );

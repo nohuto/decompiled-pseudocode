@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelperCreateLibrary @ 0x140AA0330
+ * XREFs of SleepstudyHelperCreateLibrary @ 0x140A9B6C0
  * Callers:
- *     PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140C2EB68 (PopUserShutdownInitializeSleepstudyDiagnostics.c)
+ *     PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140C30C88 (PopUserShutdownInitializeSleepstudyDiagnostics.c)
  * Callees:
- *     SleepstudyHelperCreateLibraryEx @ 0x1404B06D0 (SleepstudyHelperCreateLibraryEx.c)
+ *     SleepstudyHelperCreateLibraryEx @ 0x1404AAF60 (SleepstudyHelperCreateLibraryEx.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateLibrary(int a1, _QWORD *a2)

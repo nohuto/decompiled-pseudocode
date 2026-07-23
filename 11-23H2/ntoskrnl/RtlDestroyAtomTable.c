@@ -1,18 +1,18 @@
 /*
  * XREFs of RtlDestroyAtomTable @ 0x14069EB40
  * Callers:
- *     RtlDereferenceAtomTable @ 0x14036EE60 (RtlDereferenceAtomTable.c)
+ *     RtlDereferenceAtomTable @ 0x14036F000 (RtlDereferenceAtomTable.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
  *     ExpRemoveHandleTable @ 0x14068EB88 (ExpRemoveHandleTable.c)
  *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
- *     RtlpLockAtomTable @ 0x1407180D0 (RtlpLockAtomTable.c)
+ *     RtlpLockAtomTable @ 0x1407182D0 (RtlpLockAtomTable.c)
  */
 
-__int64 __fastcall RtlDestroyAtomTable(__int64 a1)
+NTSTATUS __cdecl RtlDestroyAtomTable(PVOID AtomTableHandle)
 {
   unsigned int v2; // r12d
   _QWORD **i; // r14
@@ -23,12 +23,12 @@ __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
   _QWORD *v9; // rcx
   _QWORD *v10; // rax
 
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4), 0xFFFFFFFF) != 1 )
-    return 0LL;
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)AtomTableHandle + 1, 0xFFFFFFFF) != 1 )
+    return 0;
   if ( (unsigned __int8)RtlpLockAtomTable() )
   {
     v2 = 0;
-    for ( i = (_QWORD **)(a1 + 32); v2 < *(_DWORD *)(a1 + 28); ++v2 )
+    for ( i = (_QWORD **)((char *)AtomTableHandle + 32); v2 < *((_DWORD *)AtomTableHandle + 7); ++v2 )
     {
       v4 = *i;
       *i++ = 0LL;
@@ -54,19 +54,19 @@ __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
         RtlpFreeAtom(v5);
       }
     }
-    *(_DWORD *)a1 = 0;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 8));
-    KeAbPostRelease(a1 + 8);
+    *(_DWORD *)AtomTableHandle = 0;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)AtomTableHandle + 1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)AtomTableHandle + 1);
+    KeAbPostRelease((ULONG_PTR)AtomTableHandle + 8);
     KeLeaveCriticalRegion();
-    v6 = *(_QWORD **)(a1 + 16);
+    v6 = (_QWORD *)*((_QWORD *)AtomTableHandle + 2);
     ExpRemoveHandleTable((__int64)v6);
     ExpFreeHandleTable(v6);
-    *(_OWORD *)a1 = 0LL;
-    *(_OWORD *)(a1 + 16) = 0LL;
-    *(_QWORD *)(a1 + 32) = 0LL;
-    RtlpFreeAtom(a1);
-    return 0LL;
+    *(_OWORD *)AtomTableHandle = 0LL;
+    *((_OWORD *)AtomTableHandle + 1) = 0LL;
+    *((_QWORD *)AtomTableHandle + 4) = 0LL;
+    RtlpFreeAtom(AtomTableHandle);
+    return 0;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

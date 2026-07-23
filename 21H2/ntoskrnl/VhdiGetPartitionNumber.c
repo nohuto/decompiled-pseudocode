@@ -1,7 +1,7 @@
 /*
- * XREFs of VhdiGetPartitionNumber @ 0x140A9477C
+ * XREFs of VhdiGetPartitionNumber @ 0x140A9577C
  * Callers:
- *     VhdiInitializeBootDisk @ 0x140A94990 (VhdiInitializeBootDisk.c)
+ *     VhdiInitializeBootDisk @ 0x140A95990 (VhdiInitializeBootDisk.c)
  * Callees:
  *     <none>
  */

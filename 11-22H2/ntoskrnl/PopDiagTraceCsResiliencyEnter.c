@@ -10,15 +10,16 @@
  *     PopIsRemoteDesktopEnabled @ 0x140980C14 (PopIsRemoteDesktopEnabled.c)
  */
 
-__int64 __fastcall PopDiagTraceCsResiliencyEnter(__int64 a1, char a2, __int128 *a3)
+void __fastcall PopDiagTraceCsResiliencyEnter(__int64 a1, char a2, __int128 *a3)
 {
   char IsRemoteDesktopEnabled; // bl
   unsigned __int64 v7; // r14
   int v8; // eax
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
+  int v11; // eax
   _DWORD *SchedulerAssist; // r8
-  bool v12; // zf
+  bool v13; // zf
 
   IsRemoteDesktopEnabled = PopIsRemoteDesktopEnabled();
   v7 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
@@ -37,24 +38,23 @@ __int64 __fastcall PopDiagTraceCsResiliencyEnter(__int64 a1, char a2, __int128 *
   byte_140C3CB10 = IsRemoteDesktopEnabled;
   byte_140C3CAE8 = a2;
   xmmword_140C3CAF0 = *a3;
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v7 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v12 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v13 = (v11 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v11;
+      if ( v13 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v7);
-  return result;
 }

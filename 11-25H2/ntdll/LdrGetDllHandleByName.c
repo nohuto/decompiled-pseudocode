@@ -9,31 +9,36 @@
  *     LdrpFatalExceptionFilter @ 0x18015F850 (LdrpFatalExceptionFilter.c)
  */
 
-__int64 __fastcall LdrGetDllHandleByName(int a1, int a2, _QWORD *a3)
+NTSTATUS __cdecl LdrGetDllHandleByName(PUNICODE_STRING BaseDllName, PUNICODE_STRING FullDllName, PVOID *DllHandle)
 {
-  int LoadedDllByName; // ebx
-  __int64 v5; // rdi
-  __int64 v7; // [rsp+38h] [rbp-10h] BYREF
+  NTSTATUS LoadedDllByName; // ebx
+  PVOID v5; // rdi
+  PVOID BaseAddress; // [rsp+38h] [rbp-10h] BYREF
   int v8; // [rsp+68h] [rbp+20h] BYREF
 
-  v7 = 0LL;
+  BaseAddress = 0LL;
   v8 = 0;
-  LoadedDllByName = LdrpFindLoadedDllByName(a1, a2, 0, (unsigned int)&v7, (__int64)&v8);
+  LoadedDllByName = LdrpFindLoadedDllByName(
+                      (_DWORD)BaseDllName,
+                      (_DWORD)FullDllName,
+                      0,
+                      (unsigned int)&BaseAddress,
+                      (__int64)&v8);
   if ( LoadedDllByName >= 0 )
   {
     if ( v8 < 7 )
     {
       LoadedDllByName = -1073741515;
-      v5 = v7;
+      v5 = BaseAddress;
     }
     else
     {
-      v5 = v7;
-      LoadedDllByName = LdrpIncrementModuleLoadCount(v7);
+      v5 = BaseAddress;
+      LoadedDllByName = LdrpIncrementModuleLoadCount((__int64)BaseAddress);
       if ( LoadedDllByName >= 0 )
-        *a3 = *(_QWORD *)(v5 + 48);
+        *DllHandle = (PVOID)*((_QWORD *)v5 + 6);
     }
-    LdrpDereferenceModule(v5);
+    LdrpDereferenceModule((char *)v5);
   }
-  return (unsigned int)LoadedDllByName;
+  return LoadedDllByName;
 }

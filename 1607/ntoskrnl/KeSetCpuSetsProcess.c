@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetCpuSetsProcess @ 0x1401D7720
+ * XREFs of KeSetCpuSetsProcess @ 0x1401D754C
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     KiAcquireProcessLockExclusive @ 0x1400F2F50 (KiAcquireProcessLockExclusive.c)
- *     KiValidateCpuSetMasks @ 0x140111198 (KiValidateCpuSetMasks.c)
- *     KiGetProcessCpuSetMaskPointer @ 0x1401D7AC4 (KiGetProcessCpuSetMaskPointer.c)
- *     KiUpdateThreadCpuSets @ 0x1401D7B0C (KiUpdateThreadCpuSets.c)
- *     KiWriteCpuSetMasks @ 0x1401D7BB4 (KiWriteCpuSetMasks.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     KiAcquireProcessLockExclusive @ 0x1400F0DA0 (KiAcquireProcessLockExclusive.c)
+ *     KiValidateCpuSetMasks @ 0x1401116FC (KiValidateCpuSetMasks.c)
+ *     KiGetProcessCpuSetMaskPointer @ 0x1401D78F0 (KiGetProcessCpuSetMaskPointer.c)
+ *     KiUpdateThreadCpuSets @ 0x1401D7938 (KiUpdateThreadCpuSets.c)
+ *     KiWriteCpuSetMasks @ 0x1401D79E0 (KiWriteCpuSetMasks.c)
  */
 
 __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, char *a3)

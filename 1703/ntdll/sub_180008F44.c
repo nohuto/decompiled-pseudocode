@@ -10,19 +10,16 @@
  *     RtlReleaseSRWLockShared @ 0x180028DE0 (RtlReleaseSRWLockShared.c)
  */
 
-__int64 __fastcall sub_180008F44(__int64 a1, __int64 a2, char a3)
+void __fastcall sub_180008F44(_RTL_SRWLOCK *a1, __int64 a2, char a3)
 {
   int v4; // esi
-  __int64 result; // rax
-  __int64 v6; // rdi
+  __int64 v5; // rdi
 
   v4 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared(a1 + 48);
-  result = sub_180009380(a1);
-  v6 = result;
+    RtlAcquireSRWLockShared(a1 + 6);
+  v5 = sub_180009380(a1);
   if ( !v4 )
-    result = RtlReleaseSRWLockShared(a1 + 48);
-  *(_QWORD *)(v6 + 32) |= 1uLL;
-  return result;
+    RtlReleaseSRWLockShared(a1 + 6);
+  *(_QWORD *)(v5 + 32) |= 1uLL;
 }

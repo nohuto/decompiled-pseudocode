@@ -4,71 +4,71 @@
  *     <none>
  * Callees:
  *     RtlpImageDirectoryEntryToDataEx @ 0x180007188 (RtlpImageDirectoryEntryToDataEx.c)
- *     LdrpCompareResourceNamesWithValidation @ 0x18009EF7C (LdrpCompareResourceNamesWithValidation.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x18009EF8C (LdrpCompareResourceNamesWithValidation.c)
  */
 
-__int64 __fastcall LdrEnumResources(
-        unsigned __int64 a1,
-        const wchar_t **a2,
-        unsigned int a3,
-        unsigned int *a4,
-        __int64 a5)
+NTSTATUS __cdecl LdrEnumResources(
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        ULONG *ResourceCount,
+        PLDR_ENUM_RESOURCE_ENTRY Resources)
 {
   unsigned int v5; // r13d
-  unsigned int v7; // esi
+  ULONG v7; // esi
   const wchar_t **v8; // r14
-  unsigned int v9; // edi
-  int v10; // eax
+  ULONG v9; // edi
+  NTSTATUS v10; // eax
   __int64 v11; // rbx
   int v13; // ecx
   int *v14; // r15
   int v15; // eax
-  unsigned int v16; // ebp
+  NTSTATUS v16; // ebp
   bool v17; // zf
   unsigned int v18; // ecx
   int v19; // eax
   __int64 v20; // rax
-  __int64 v21; // rdi
+  ULONG_PTR v21; // rdi
   int *v22; // rbp
   int v23; // edx
   int v24; // eax
   unsigned int v25; // edx
   int v26; // eax
   __int64 v27; // rax
-  __int64 v28; // rsi
+  ULONG_PTR v28; // rsi
   int *v29; // r14
-  __int64 v30; // rcx
+  ULONG_PTR v30; // rcx
   __int64 v31; // r8
-  __int64 v32; // rdx
-  __int64 v33; // r9
+  unsigned __int64 v32; // rdx
+  PLDR_ENUM_RESOURCE_ENTRY v33; // r9
   char v34; // [rsp+30h] [rbp-78h] BYREF
   _BYTE v35[3]; // [rsp+31h] [rbp-77h] BYREF
   unsigned int v36; // [rsp+34h] [rbp-74h]
   unsigned int v37; // [rsp+38h] [rbp-70h]
-  unsigned int v38; // [rsp+3Ch] [rbp-6Ch]
-  unsigned int v39; // [rsp+40h] [rbp-68h]
+  ULONG v38; // [rsp+3Ch] [rbp-6Ch]
+  ULONG v39; // [rsp+40h] [rbp-68h]
   unsigned int v40; // [rsp+44h] [rbp-64h]
   int v41; // [rsp+48h] [rbp-60h]
   int v42; // [rsp+4Ch] [rbp-5Ch]
   __int64 v43[11]; // [rsp+50h] [rbp-58h] BYREF
-  int v47; // [rsp+C8h] [rbp+20h] BYREF
+  unsigned int v47; // [rsp+C8h] [rbp+20h] BYREF
 
   v5 = 0;
-  v7 = a3;
-  v8 = a2;
+  v7 = Level;
+  v8 = (const wchar_t **)ResourceInfo;
   v9 = 0;
   v38 = 0;
-  if ( a5 )
-    v39 = *a4;
+  if ( Resources )
+    v39 = *ResourceCount;
   else
     v39 = 0;
-  *a4 = 0;
-  v10 = RtlpImageDirectoryEntryToDataEx(a1, 1, 2u, &v47, v43);
+  *ResourceCount = 0;
+  v10 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)DllHandle, 1, 2u, &v47, v43);
   v11 = v43[0];
   if ( v10 < 0 )
     v11 = 0LL;
   if ( !v11 )
-    return 3221225609LL;
+    return -1073741687;
   v13 = *(unsigned __int16 *)(v11 + 14);
   v14 = (int *)(v11 + 16);
   v15 = *(unsigned __int16 *)(v11 + 12);
@@ -81,7 +81,7 @@ __int64 __fastcall LdrEnumResources(
   if ( v17 )
   {
 LABEL_39:
-    *a4 = v9;
+    *ResourceCount = v9;
     return v16;
   }
   while ( v7 )
@@ -103,7 +103,7 @@ LABEL_37:
   if ( (int)v20 < 0 )
   {
     v21 = (unsigned int)*v14;
-    if ( (int)v21 >= 0 )
+    if ( (v21 & 0x80000000) == 0LL )
     {
       v21 = (unsigned __int16)v21;
     }
@@ -128,9 +128,9 @@ LABEL_37:
         {
           v27 = (unsigned int)v22[1];
           if ( (int)v27 >= 0 )
-            return 3221225595LL;
+            return -1073741701;
           v28 = (unsigned int)*v22;
-          if ( (int)v28 >= 0 )
+          if ( (v28 & 0x80000000) == 0LL )
           {
             v28 = (unsigned __int16)v28;
           }
@@ -146,12 +146,19 @@ LABEL_37:
           {
             do
             {
-              if ( a3 <= 2 || !(unsigned int)LdrpCompareResourceNamesWithValidation(0LL, 0LL, a2[2], v11, v29, v35) )
+              if ( Level <= 2
+                || !(unsigned int)LdrpCompareResourceNamesWithValidation(
+                                    0LL,
+                                    0LL,
+                                    (const wchar_t *)ResourceInfo->Language,
+                                    v11,
+                                    v29,
+                                    v35) )
               {
                 if ( v29[1] < 0 )
-                  return 3221225595LL;
+                  return -1073741701;
                 v30 = (unsigned int)*v29;
-                if ( (int)v30 >= 0 )
+                if ( (v30 & 0x80000000) == 0LL )
                 {
                   v30 = (unsigned __int16)v30;
                 }
@@ -161,19 +168,19 @@ LABEL_37:
                   v30 += v11;
                 }
                 v31 = (unsigned int)v29[1];
-                v32 = 5LL * v38++;
+                v32 = v38++;
                 if ( v38 > v39 )
                 {
                   v42 = -1073741820;
                 }
                 else
                 {
-                  v33 = a5;
-                  *(_QWORD *)(a5 + 8 * v32) = v21;
-                  *(_QWORD *)(v33 + 8 * v32 + 8) = v28;
-                  *(_QWORD *)(v33 + 8 * v32 + 16) = v30;
-                  *(_QWORD *)(v33 + 8 * v32 + 24) = a1 + *(unsigned int *)(v31 + v11);
-                  *(_QWORD *)(v33 + 8 * v32 + 32) = *(unsigned int *)(v31 + v11 + 4);
+                  v33 = Resources;
+                  Resources[v32].Path[0].NameOrId = v21;
+                  v33[v32].Path[1].NameOrId = v28;
+                  v33[v32].Path[2].NameOrId = v30;
+                  v33[v32].Data = (char *)DllHandle + *(unsigned int *)(v31 + v11);
+                  *(_QWORD *)&v33[v32].Size = *(unsigned int *)(v31 + v11 + 4);
                 }
               }
               ++v5;
@@ -182,9 +189,9 @@ LABEL_37:
             while ( v5 < LODWORD(v43[0]) );
             v25 = v36;
           }
-          v8 = a2;
+          v8 = (const wchar_t **)ResourceInfo;
           v5 = 0;
-          v7 = a3;
+          v7 = Level;
         }
         v22 += 2;
         ++v40;
@@ -194,5 +201,5 @@ LABEL_37:
     }
     goto LABEL_37;
   }
-  return 3221225595LL;
+  return -1073741701;
 }

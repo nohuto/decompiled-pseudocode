@@ -1,25 +1,25 @@
 /*
- * XREFs of DifZwUpdateWnfStateDataWrapper @ 0x1406BECE0
+ * XREFs of DifZwUpdateWnfStateDataWrapper @ 0x1406C28C0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwUpdateWnfStateDataWrapper(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        int a7)
+        const WNF_STATE_NAME *a1,
+        const void *a2,
+        ULONG a3,
+        const WNF_TYPE_ID *a4,
+        void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp,
+        LOGICAL CheckStamp)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v11; // rdx
@@ -32,13 +32,13 @@ __int64 __fastcall DifZwUpdateWnfStateDataWrapper(
   BOOLEAN v18; // di
   __int128 *j; // rbx
   PVOID v21; // [rsp+40h] [rbp-40h] BYREF
-  int v22; // [rsp+48h] [rbp-38h]
-  int v23; // [rsp+4Ch] [rbp-34h]
-  __int64 v24; // [rsp+50h] [rbp-30h]
-  __int64 v25; // [rsp+58h] [rbp-28h]
-  unsigned int v26; // [rsp+60h] [rbp-20h]
-  __int64 v27; // [rsp+68h] [rbp-18h]
-  __int64 v28; // [rsp+70h] [rbp-10h]
+  LOGICAL v22; // [rsp+48h] [rbp-38h]
+  WNF_CHANGE_STAMP v23; // [rsp+4Ch] [rbp-34h]
+  void *v24; // [rsp+50h] [rbp-30h]
+  const WNF_TYPE_ID *v25; // [rsp+58h] [rbp-28h]
+  ULONG v26; // [rsp+60h] [rbp-20h]
+  const void *v27; // [rsp+68h] [rbp-18h]
+  const WNF_STATE_NAME *v28; // [rsp+70h] [rbp-10h]
   unsigned int updated; // [rsp+78h] [rbp-8h]
   void *retaddr; // [rsp+A8h] [rbp+28h]
 
@@ -62,9 +62,9 @@ __int64 __fastcall DifZwUpdateWnfStateDataWrapper(
 LABEL_7:
   v15 = 0;
   v28 = a1;
-  v24 = a5;
-  v23 = a6;
-  v22 = a7;
+  v24 = ExplicitScope;
+  v23 = MatchingChangeStamp;
+  v22 = CheckStamp;
   v27 = a2;
   v26 = a3;
   v25 = a4;
@@ -80,7 +80,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  updated = ZwUpdateWnfStateData(a1, a2, a3, a4, a5, a6, a7);
+  updated = ZwUpdateWnfStateData(a1, a2, a3, a4, ExplicitScope, MatchingChangeStamp, CheckStamp);
   if ( v12 )
   {
     if ( (v18 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

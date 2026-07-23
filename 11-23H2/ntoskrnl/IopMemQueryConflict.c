@@ -1,10 +1,10 @@
 /*
- * XREFs of IopMemQueryConflict @ 0x140959FB0
+ * XREFs of IopMemQueryConflict @ 0x14095A1B0
  * Callers:
  *     <none>
  * Callees:
- *     ArbQueryConflict @ 0x140936320 (ArbQueryConflict.c)
- *     IopIsPciRootBus @ 0x140959EA0 (IopIsPciRootBus.c)
+ *     ArbQueryConflict @ 0x140936520 (ArbQueryConflict.c)
+ *     IopIsPciRootBus @ 0x14095A0A0 (IopIsPciRootBus.c)
  */
 
 __int64 __fastcall IopMemQueryConflict(__int64 a1, __int64 a2)

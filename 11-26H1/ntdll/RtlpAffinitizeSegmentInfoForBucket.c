@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpAffinitizeSegmentInfoForBucket @ 0x180071E44
+ * XREFs of RtlpAffinitizeSegmentInfoForBucket @ 0x1800952F8
  * Callers:
- *     RtlpLocalInfoAllocFromCache @ 0x18001B870 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpLowFragHeapAllocFromContext @ 0x18001CED0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180006940 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x180007FA0 (RtlpLowFragHeapAllocFromContext.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpExtendLowFragHeapSegment @ 0x180072098 (RtlpExtendLowFragHeapSegment.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpExtendLowFragHeapSegment @ 0x18009554C (RtlpExtendLowFragHeapSegment.c)
  */
 
 __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
   v14 = 0LL;
   if ( v2 && (v5 = RtlpAffinityState[0], LODWORD(RtlpAffinityState[0]) > 1) )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
     if ( *(_QWORD *)(a1 + 8 * v4 + 2224) )
     {
       v8 = -1073741302;
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
         *(_QWORD *)(a1 + 8 * v4 + 2224) = v9;
       }
     }
-    RtlLeaveCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
   }
   else
   {

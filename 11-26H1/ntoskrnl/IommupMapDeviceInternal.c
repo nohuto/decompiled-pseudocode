@@ -1,21 +1,21 @@
 /*
- * XREFs of IommupMapDeviceInternal @ 0x14059D094
+ * XREFs of IommupMapDeviceInternal @ 0x14059F814
  * Callers:
- *     IommuMapDevice @ 0x14059C5B0 (IommuMapDevice.c)
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommuMapDevice @ 0x14059ED30 (IommuMapDevice.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     IommupHvGetDeviceSvmCapabilities @ 0x14059E400 (IommupHvGetDeviceSvmCapabilities.c)
- *     IommupHvMapDevice @ 0x14059E7BC (IommupHvMapDevice.c)
- *     IommupHvUnmapDevice @ 0x14059E9A0 (IommupHvUnmapDevice.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IommupHvGetDeviceSvmCapabilities @ 0x1405A0BD8 (IommupHvGetDeviceSvmCapabilities.c)
+ *     IommupHvMapDevice @ 0x1405A0F9C (IommupHvMapDevice.c)
+ *     IommupHvUnmapDevice @ 0x1405A1180 (IommupHvUnmapDevice.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IommupMapDeviceInternal(KSPIN_LOCK *a1, __int64 a2, _DWORD *a3)

@@ -54,7 +54,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(char *Address, SIZE_T Lengt
   unsigned int v11; // r12d
   int v12; // r13d
   int v13; // esi
-  unsigned int v14; // edi
+  ULONG v14; // edi
   unsigned int v15; // edx
   struct _KTHREAD *v16; // rax
   unsigned int *v17; // rax
@@ -117,7 +117,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(char *Address, SIZE_T Lengt
   int v76; // [rsp+60h] [rbp-188h]
   unsigned int v77; // [rsp+64h] [rbp-184h]
   int v78; // [rsp+68h] [rbp-180h]
-  unsigned int v79; // [rsp+6Ch] [rbp-17Ch]
+  ULONG v79; // [rsp+6Ch] [rbp-17Ch]
   __int128 v80; // [rsp+70h] [rbp-178h] BYREF
   wchar_t *Src[2]; // [rsp+80h] [rbp-168h]
   _DWORD v82[68]; // [rsp+90h] [rbp-158h] BYREF
@@ -405,7 +405,7 @@ LABEL_130:
       }
       if ( v4 < 0x10 )
         return 3221225476LL;
-      result = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+      result = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
       if ( (int)result < 0 )
         return result;
       if ( SeSinglePrivilegeCheck(SeSystemProfilePrivilege, AccessMode) )
@@ -481,7 +481,7 @@ LABEL_159:
           v14 = *((_DWORD *)Address + 1);
           v79 = v14;
           KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
-          v9 = NtSetIntervalProfile(v14, 0LL);
+          v9 = NtSetIntervalProfile(v14, ProfileTime);
           if ( v9 >= 0 )
             EtwpProfileInterval = v14;
           goto LABEL_32;
@@ -492,7 +492,7 @@ LABEL_159:
     case 5:
       if ( ((v4 - 16) & 0xFFFFFFFB) == 0 )
       {
-        result = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+        result = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
         v9 = result;
         if ( (int)result < 0 )
           return result;
@@ -536,7 +536,7 @@ LABEL_159:
     {
       if ( v4 == 16 )
       {
-        result = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+        result = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
         v9 = result;
         if ( (int)result < 0 )
           return result;

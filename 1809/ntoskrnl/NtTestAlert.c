@@ -1,9 +1,9 @@
 /*
- * XREFs of NtTestAlert @ 0x1406237C0
+ * XREFs of NtTestAlert @ 0x1406247C0
  * Callers:
  *     <none>
  * Callees:
- *     KeTestAlertThread @ 0x1400A26D0 (KeTestAlertThread.c)
+ *     KeTestAlertThread @ 0x1400A2610 (KeTestAlertThread.c)
  */
 
 NTSTATUS NtTestAlert(void)

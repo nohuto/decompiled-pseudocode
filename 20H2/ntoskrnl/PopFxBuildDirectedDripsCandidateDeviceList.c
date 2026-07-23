@@ -24,7 +24,7 @@ char __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)
   unsigned int SessionId; // edx
   unsigned __int8 v8; // si
   unsigned int v9; // r8d
-  unsigned __int64 v10; // rdi
+  __int64 v10; // rdi
   bool v11; // zf
   __int64 v12; // rcx
   int v13; // eax
@@ -71,7 +71,7 @@ char __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)
     v11 = !_BitScanReverse((unsigned int *)&v12, v9);
     if ( v11 )
       goto LABEL_20;
-    v10 = (unsigned __int64)&v6->LockEntries[v12];
+    v10 = (__int64)&v6->LockEntries[v12];
     v9 &= ~(1 << v12);
     if ( (*(_BYTE *)(v10 + 26) & 1) != 0
       && (*(_DWORD *)(v10 + 32) & 1) == 0
@@ -92,14 +92,14 @@ LABEL_20:
   }
   *(_BYTE *)(v10 + 32) |= 2u;
   if ( *(__int64 *)(v10 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v10);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
   v13 = *(_DWORD *)(v10 + 88) & 0x1FFFF;
   v14 = *(_DWORD *)(v10 + 88) & 0xFFFE0000;
   *(_BYTE *)(v10 + 25) &= ~1u;
   v19 = v13;
   *(_DWORD *)(v10 + 88) = v14;
   *(_QWORD *)(v10 + 32) = 0LL;
-  v15 = (__int64)(v10 - (unsigned __int64)v6->LockEntries) / 96;
+  v15 = (signed __int64)(v10 - (unsigned __int64)v6->LockEntries) / 96;
   if ( v8 == 1 )
     v6->AbEntrySummary |= 1 << v15;
   else

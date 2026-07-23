@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlIsSandboxedToken @ 0x140412A10
+ * XREFs of RtlIsSandboxedToken @ 0x1404118D0
  * Callers:
- *     NtSetInformationFile @ 0x140079360 (NtSetInformationFile.c)
- *     IopCheckInitiatorHint @ 0x14009CF4C (IopCheckInitiatorHint.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     NtDuplicateToken @ 0x1404126D0 (NtDuplicateToken.c)
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     IopXxxControlFile @ 0x140443F00 (IopXxxControlFile.c)
- *     ObpCreateDirectoryObject @ 0x140470CE4 (ObpCreateDirectoryObject.c)
- *     NtCreateSymbolicLinkObject @ 0x140473B2C (NtCreateSymbolicLinkObject.c)
- *     ObpParseSymbolicLinkEx @ 0x140476170 (ObpParseSymbolicLinkEx.c)
- *     SepFilterToken @ 0x14047AFF4 (SepFilterToken.c)
- *     CmpCheckCreateAccess @ 0x1404D87DC (CmpCheckCreateAccess.c)
+ *     NtSetInformationFile @ 0x1400793E0 (NtSetInformationFile.c)
+ *     IopCheckInitiatorHint @ 0x14009C74C (IopCheckInitiatorHint.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     NtDuplicateToken @ 0x140411590 (NtDuplicateToken.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     IopXxxControlFile @ 0x140442DD0 (IopXxxControlFile.c)
+ *     ObpCreateDirectoryObject @ 0x14046FBB4 (ObpCreateDirectoryObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x1404729FC (NtCreateSymbolicLinkObject.c)
+ *     ObpParseSymbolicLinkEx @ 0x140475040 (ObpParseSymbolicLinkEx.c)
+ *     SepFilterToken @ 0x140479EC4 (SepFilterToken.c)
+ *     CmpCheckCreateAccess @ 0x1404BBDE0 (CmpCheckCreateAccess.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
  */
 
 bool __fastcall RtlIsSandboxedToken(PSECURITY_SUBJECT_CONTEXT SubjectContext, KPROCESSOR_MODE a2)

@@ -3,8 +3,8 @@
  * Callers:
  *     VfFaultsInjectResourceFailure @ 0x140710DF0 (VfFaultsInjectResourceFailure.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140084730 (RtlCaptureStackBackTrace.c)
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     RtlCaptureStackBackTrace @ 0x140082890 (RtlCaptureStackBackTrace.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  */
 
 void __fastcall ViFaultsInjectionNotification(int a1)
@@ -13,7 +13,7 @@ void __fastcall ViFaultsInjectionNotification(int a1)
   USHORT v3; // ax
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  ++dword_14030722C;
+  ++dword_14030726C;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(retaddr, 148LL);
   if ( ViFaultTraces )

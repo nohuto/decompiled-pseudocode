@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventHgsCoresUnparkedCount @ 0x1404ECF2C
+ * XREFs of PpmEventHgsCoresUnparkedCount @ 0x1404E4750
  * Callers:
- *     PpmParkCalculateUnparkCount @ 0x140423BD0 (PpmParkCalculateUnparkCount.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417A80 (PpmParkCalculateUnparkCount.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventHgsCoresUnparkedCountEx @ 0x1405DDA78 (PpmEventHgsCoresUnparkedCountEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventHgsCoresUnparkedCountEx @ 0x1405DA8F8 (PpmEventHgsCoresUnparkedCountEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventHgsCoresUnparkedCount(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -51,9 +51,9 @@ char __fastcall PpmEventHgsCoresUnparkedCount(__int64 a1, __int64 a2, __int64 a3
       v7 = ((unsigned int)PpmHeteroHgsContainmentState >> 3) & 1;
       UserData.Ptr = a1 + 4;
       v9 = a1 + 16;
-      v12 = a1 + 1260;
-      v15 = a1 + 1256;
-      v18 = a1 + 1258;
+      v12 = a1 + 1268;
+      v15 = a1 + 1264;
+      v18 = a1 + 1266;
       v21 = &v7;
       v16 = 1;
       v19 = 1;

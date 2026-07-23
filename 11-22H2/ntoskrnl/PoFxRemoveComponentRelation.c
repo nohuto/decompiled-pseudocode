@@ -79,10 +79,13 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
   if ( !v9 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 88));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -98,10 +101,10 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
   }
   PopFxAddRefDevice(*(_QWORD *)(v7 + 80));
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 88));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;
@@ -160,10 +163,10 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
       }
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v44 + 128));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v32 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v32 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v32 >= 2u )
       {
         v33 = KeGetCurrentPrcb();
         v34 = v33->SchedulerAssist;
@@ -182,10 +185,10 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
       for ( i = 0LL; PopFxNextComponentChildRelationSafe(v22, v37, &i); v37 = i )
         ;
       KxReleaseSpinLock((volatile signed __int64 *)(v22 + 128));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v38 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v38 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v38 >= 2u )
         {
           v39 = KeGetCurrentPrcb();
           v40 = v39->SchedulerAssist;

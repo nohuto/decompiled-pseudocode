@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpApplyFunctionPatch @ 0x14067AEEC
+ * XREFs of RtlpApplyFunctionPatch @ 0x14067B43C
  * Callers:
- *     RtlApplyHotPatch @ 0x140AAD770 (RtlApplyHotPatch.c)
+ *     RtlApplyHotPatch @ 0x140AAD5E0 (RtlApplyHotPatch.c)
  * Callees:
  *     <none>
  */

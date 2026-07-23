@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTranslateSubsectionState @ 0x14047129C
+ * XREFs of MiTranslateSubsectionState @ 0x14043F5C4
  * Callers:
- *     MiPrepareToFlushSubsection @ 0x14036F8DC (MiPrepareToFlushSubsection.c)
+ *     MiPrepareToFlushSubsection @ 0x14043F1F4 (MiPrepareToFlushSubsection.c)
  * Callees:
  *     <none>
  */

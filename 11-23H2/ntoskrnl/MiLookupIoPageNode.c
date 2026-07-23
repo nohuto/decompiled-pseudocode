@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLookupIoPageNode @ 0x1403B0938
+ * XREFs of MiLookupIoPageNode @ 0x1403B0B18
  * Callers:
- *     MiInsertPhysicalPteMapping @ 0x1402F1714 (MiInsertPhysicalPteMapping.c)
- *     MiMapMdlCommon @ 0x1403A7570 (MiMapMdlCommon.c)
- *     MmGetCacheAttributeEx @ 0x14061ECA0 (MmGetCacheAttributeEx.c)
- *     MmProtectMdlSystemAddress @ 0x14061EDD0 (MmProtectMdlSystemAddress.c)
+ *     MiInsertPhysicalPteMapping @ 0x1402F19A4 (MiInsertPhysicalPteMapping.c)
+ *     MiMapMdlCommon @ 0x1403A7750 (MiMapMdlCommon.c)
+ *     MmGetCacheAttributeEx @ 0x14061F1F0 (MmGetCacheAttributeEx.c)
+ *     MmProtectMdlSystemAddress @ 0x14061F320 (MmProtectMdlSystemAddress.c)
  * Callees:
- *     MiUnlockIoPfnTree @ 0x140336454 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x140336C50 (MiLockIoPfnTree.c)
- *     MiIoSpaceGetBounds @ 0x140336CF0 (MiIoSpaceGetBounds.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockIoPfnTree @ 0x1403366E4 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x140336EE0 (MiLockIoPfnTree.c)
+ *     MiIoSpaceGetBounds @ 0x140336F80 (MiIoSpaceGetBounds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiLookupIoPageNode(ULONG_PTR BugCheckParameter2, int a2)
@@ -35,7 +35,7 @@ __int64 __fastcall MiLookupIoPageNode(ULONG_PTR BugCheckParameter2, int a2)
   v19 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v12) = 4;
@@ -81,10 +81,10 @@ __int64 __fastcall MiLookupIoPageNode(ULONG_PTR BugCheckParameter2, int a2)
   }
   else
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= v6 && CurrentIrql <= v6 && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= v6 && CurrentIrql <= v6 && v13 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v15 = CurrentPrcb->SchedulerAssist;

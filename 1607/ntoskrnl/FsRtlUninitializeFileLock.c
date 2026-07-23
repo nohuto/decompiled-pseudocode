@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlUninitializeFileLock @ 0x1400B414C
+ * XREFs of FsRtlUninitializeFileLock @ 0x1400B1FCC
  * Callers:
- *     FsRtlFreeFileLock @ 0x1400B4128 (FsRtlFreeFileLock.c)
+ *     FsRtlFreeFileLock @ 0x1400B1FA8 (FsRtlFreeFileLock.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     IoAcquireCancelSpinLock @ 0x140078440 (IoAcquireCancelSpinLock.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     RtlDeleteNoSplay @ 0x1400C4A90 (RtlDeleteNoSplay.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     FsRtlCompleteLockIrpReal @ 0x140132D70 (FsRtlCompleteLockIrpReal.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     IoAcquireCancelSpinLock @ 0x1400784C0 (IoAcquireCancelSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     RtlDeleteNoSplay @ 0x1400C2930 (RtlDeleteNoSplay.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1401332E0 (FsRtlCompleteLockIrpReal.c)
  */
 
 void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
@@ -21,7 +21,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
   _QWORD *v4; // rsi
   PRTL_SPLAY_LINKS *v5; // rsi
   PRTL_SPLAY_LINKS v6; // rdi
-  struct _RTL_SPLAY_LINKS *v7; // rdi
+  _RTL_SPLAY_LINKS *v7; // rdi
   _RTL_SPLAY_LINKS *Parent; // rdx
   _QWORD *v9; // rdi
   __int64 v10; // rsi
@@ -36,7 +36,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
     v4 = LockInformation + 32;
     while ( *v4 )
     {
-      v7 = (struct _RTL_SPLAY_LINKS *)(*v4 - 24LL);
+      v7 = (_RTL_SPLAY_LINKS *)(*v4 - 24LL);
       while ( v7->Parent )
       {
         Parent = v7->Parent;

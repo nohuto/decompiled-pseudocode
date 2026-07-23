@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateCrossVmMutant @ 0x140841F90
+ * XREFs of NtCreateCrossVmMutant @ 0x140847FC0
  * Callers:
- *     DifNtCreateCrossVmMutantWrapper @ 0x14066FF50 (DifNtCreateCrossVmMutantWrapper.c)
+ *     DifNtCreateCrossVmMutantWrapper @ 0x140673B30 (DifNtCreateCrossVmMutantWrapper.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ExpCreateCrossVmMutant @ 0x140846188 (ExpCreateCrossVmMutant.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ExpCreateCrossVmMutant @ 0x14084C3E0 (ExpCreateCrossVmMutant.c)
  */
 
 __int64 __fastcall NtCreateCrossVmMutant(_QWORD *a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14071B610
+ * XREFs of ?SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1407202A0
  * Callers:
  *     <none>
  * Callees:
- *     ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14071C510 (-SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
+ *     ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1407211A0 (-SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
  */
 
 void __fastcall SC_DISK::SaveStorageProperty(
@@ -19,16 +19,16 @@ void __fastcall SC_DISK::SaveStorageProperty(
   {
     switch ( a2 )
     {
-      case '9':
+      case StorageAdapterSerialNumberProperty:
         v4 = 320LL;
         break;
-      case ':':
+      case StorageDeviceLocationProperty:
         v4 = 344LL;
         break;
-      case '<':
+      case StorageDeviceZonedDeviceProperty:
         v4 = 384LL;
         break;
-      case 'A':
+      case StorageFruIdProperty:
         PspUserApcKernelRoutine(a3);
         return;
       default:

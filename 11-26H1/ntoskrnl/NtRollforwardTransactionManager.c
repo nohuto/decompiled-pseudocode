@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRollforwardTransactionManager @ 0x1405348F0
+ * XREFs of NtRollforwardTransactionManager @ 0x140536D30
  * Callers:
  *     <none>
  * Callees:

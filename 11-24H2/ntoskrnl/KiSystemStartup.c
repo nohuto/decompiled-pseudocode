@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSystemStartup @ 0x140B4B3A0
+ * XREFs of KiSystemStartup @ 0x140B4D3E0
  * Callers:
  *     <none>
  * Callees:
- *     KzSetIrqlUnsafe @ 0x1405B7800 (KzSetIrqlUnsafe.c)
- *     KiIdleLoop @ 0x1406ABC30 (KiIdleLoop.c)
- *     KiInitializeXSaveConfiguration @ 0x140B56AA0 (KiInitializeXSaveConfiguration.c)
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
- *     KiInitializeKernelShadowStacks @ 0x140B591E0 (KiInitializeKernelShadowStacks.c)
- *     KdInitSystem @ 0x140B75E30 (KdInitSystem.c)
- *     KasanInitSystem @ 0x140C26690 (KasanInitSystem.c)
+ *     KzSetIrqlUnsafe @ 0x1405B4DD0 (KzSetIrqlUnsafe.c)
+ *     KiIdleLoop @ 0x1406ACBD0 (KiIdleLoop.c)
+ *     KiInitializeXSaveConfiguration @ 0x140B58B20 (KiInitializeXSaveConfiguration.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
+ *     KiInitializeKernelShadowStacks @ 0x140B5B260 (KiInitializeKernelShadowStacks.c)
+ *     KdInitSystem @ 0x140B77E30 (KdInitSystem.c)
+ *     KasanInitSystem @ 0x140C286E0 (KasanInitSystem.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

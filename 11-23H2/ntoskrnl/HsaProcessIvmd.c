@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaProcessIvmd @ 0x14053095C
+ * XREFs of HsaProcessIvmd @ 0x140530EAC
  * Callers:
- *     HalpIommuProcessIvhdEntry @ 0x14052E664 (HalpIommuProcessIvhdEntry.c)
+ *     HalpIommuProcessIvhdEntry @ 0x14052EBB4 (HalpIommuProcessIvhdEntry.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
- *     IvmdFindDeviceEntry @ 0x1405315F8 (IvmdFindDeviceEntry.c)
- *     IvmdProcessRange @ 0x140531698 (IvmdProcessRange.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
+ *     IvmdFindDeviceEntry @ 0x140531B48 (IvmdFindDeviceEntry.c)
+ *     IvmdProcessRange @ 0x140531BE8 (IvmdProcessRange.c)
  */
 
 __int64 __fastcall HsaProcessIvmd(__int64 a1, unsigned __int64 a2, _BYTE *a3, __int64 *a4)

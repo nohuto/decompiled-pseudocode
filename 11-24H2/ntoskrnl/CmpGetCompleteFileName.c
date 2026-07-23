@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetCompleteFileName @ 0x140930524
+ * XREFs of CmpGetCompleteFileName @ 0x140932664
  * Callers:
- *     CmpOpenHiveFile @ 0x14092FE64 (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x140931FA4 (CmpOpenHiveFile.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiAllocateMemory @ 0x140485138 (CmSiAllocateMemory.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiAllocateMemory @ 0x14048071C (CmSiAllocateMemory.c)
  */
 
 __int64 __fastcall CmpGetCompleteFileName(UNICODE_STRING *Source, int a2, __int64 a3, UNICODE_STRING *a4)
@@ -26,7 +26,7 @@ __int64 __fastcall CmpGetCompleteFileName(UNICODE_STRING *Source, int a2, __int6
       ++v10;
     while ( v8[v10] );
     v11 = Source->Length + 2 * (v10 + 1);
-    Memory = CmSiAllocateMemory();
+    Memory = CmSiAllocateMemory(v11, 0x62774D43u);
     a4->Buffer = (wchar_t *)Memory;
     if ( Memory )
     {

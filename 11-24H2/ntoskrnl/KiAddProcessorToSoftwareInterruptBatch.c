@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAddProcessorToSoftwareInterruptBatch @ 0x14030BBBC
+ * XREFs of KiAddProcessorToSoftwareInterruptBatch @ 0x1402DAC1C
  * Callers:
- *     KiGroupSchedulingGenerationEnd @ 0x14030B428 (KiGroupSchedulingGenerationEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1402DA488 (KiGroupSchedulingGenerationEnd.c)
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
  */
 
 char __fastcall KiAddProcessorToSoftwareInterruptBatch(__int64 a1, __int64 a2)

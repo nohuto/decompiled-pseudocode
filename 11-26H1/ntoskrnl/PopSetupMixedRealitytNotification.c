@@ -1,19 +1,19 @@
 /*
- * XREFs of PopSetupMixedRealitytNotification @ 0x1407C86CC
+ * XREFs of PopSetupMixedRealitytNotification @ 0x1407CB72C
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     ExSubscribeWnfStateChange @ 0x140948A90 (ExSubscribeWnfStateChange.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     ExSubscribeWnfStateChange @ 0x1409C4400 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupMixedRealitytNotification()
 {
-  unsigned __int64 v1; // [rsp+50h] [rbp+8h] BYREF
+  unsigned __int64 Buffer; // [rsp+50h] [rbp+8h] BYREF
   char v2; // [rsp+58h] [rbp+10h] BYREF
 
-  v1 = 0xFFFFFFFF00000001uLL;
-  ZwUpdateWnfStateData((__int64)&WNF_SEB_MIXED_REALITY, (__int64)&v1);
+  Buffer = 0xFFFFFFFF00000001uLL;
+  ZwUpdateWnfStateData(&WNF_SEB_MIXED_REALITY, &Buffer, 8u, 0LL, 0LL, 0, 0);
   return ExSubscribeWnfStateChange(
            (unsigned int)&v2,
            (unsigned int)&WNF_SEB_MIXED_REALITY,

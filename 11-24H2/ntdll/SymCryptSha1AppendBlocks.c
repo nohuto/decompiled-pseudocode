@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptSha1AppendBlocks @ 0x180158F00
+ * XREFs of SymCryptSha1AppendBlocks @ 0x1801572C0
  * Callers:
- *     SymCryptSha1Result @ 0x18015A100 (SymCryptSha1Result.c)
+ *     SymCryptSha1Result @ 0x1801584C0 (SymCryptSha1Result.c)
  * Callees:
  *     <none>
  */

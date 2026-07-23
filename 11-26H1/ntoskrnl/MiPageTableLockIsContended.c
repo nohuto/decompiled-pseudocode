@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPageTableLockIsContended @ 0x140306820
+ * XREFs of MiPageTableLockIsContended @ 0x1402E88A0
  * Callers:
- *     MiQueryAddressState @ 0x140305180 (MiQueryAddressState.c)
- *     MiProbePacketContended @ 0x140306770 (MiProbePacketContended.c)
- *     MiLockVirtualMemoryGoodCitizen @ 0x140306B00 (MiLockVirtualMemoryGoodCitizen.c)
- *     MiSharePagesYield @ 0x1403070E0 (MiSharePagesYield.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140312684 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiInsertViewOfPhysicalSection @ 0x140315954 (MiInsertViewOfPhysicalSection.c)
- *     MiDecommitRemoveEnclaveAcquireLocks @ 0x140341128 (MiDecommitRemoveEnclaveAcquireLocks.c)
- *     MiCommitEnclavePages @ 0x140341288 (MiCommitEnclavePages.c)
- *     MiAddPagesToEnclave @ 0x1403414DC (MiAddPagesToEnclave.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14036672C (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
- *     MiVadRangeIsIoSpace @ 0x1404F4AF0 (MiVadRangeIsIoSpace.c)
- *     MiProtectEnclavePages @ 0x140519CE0 (MiProtectEnclavePages.c)
- *     MiScrubLargeMappedPage @ 0x14070C03C (MiScrubLargeMappedPage.c)
+ *     MiQueryAddressState @ 0x1402E7200 (MiQueryAddressState.c)
+ *     MiProbePacketContended @ 0x1402E87F0 (MiProbePacketContended.c)
+ *     MiLockVirtualMemoryGoodCitizen @ 0x1402E8B80 (MiLockVirtualMemoryGoodCitizen.c)
+ *     MiSharePagesYield @ 0x1402E9160 (MiSharePagesYield.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403146B4 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140317984 (MiInsertViewOfPhysicalSection.c)
+ *     MiDecommitRemoveEnclaveAcquireLocks @ 0x1403431A8 (MiDecommitRemoveEnclaveAcquireLocks.c)
+ *     MiCommitEnclavePages @ 0x140343308 (MiCommitEnclavePages.c)
+ *     MiAddPagesToEnclave @ 0x14034355C (MiAddPagesToEnclave.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1403684CC (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
+ *     MiVadRangeIsIoSpace @ 0x1404EE0D0 (MiVadRangeIsIoSpace.c)
+ *     MiProtectEnclavePages @ 0x140513750 (MiProtectEnclavePages.c)
+ *     MiScrubLargeMappedPage @ 0x140710CEC (MiScrubLargeMappedPage.c)
  * Callees:
  *     <none>
  */
@@ -64,7 +64,7 @@ __int64 __fastcall MiPageTableLockIsContended(__int64 a1, unsigned __int64 a2)
   {
     if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
     {
-      return (*(_DWORD *)&stru_140E2D930.PriorityFloorCounts[4
+      return (*(_DWORD *)&stru_140E2DAB0.PriorityFloorCounts[4
                                                            * ((unsigned __int64)(2
                                                                                * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3)) >> 5)
                                                            + 4] >> ((2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F) >> 1) & 1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSetSecurityAttributesToken @ 0x14068D1A0
+ * XREFs of SeSetSecurityAttributesToken @ 0x14068D284
  * Callers:
  *     <none>
  * Callees:
- *     SepInternalSetSecurityAttributesToken @ 0x14021973C (SepInternalSetSecurityAttributesToken.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x140219568 (SepInternalSetSecurityAttributesToken.c)
  */
 
 __int64 __fastcall SeSetSecurityAttributesToken(void *a1, KPROCESSOR_MODE a2, _DWORD *a3, __int64 a4)

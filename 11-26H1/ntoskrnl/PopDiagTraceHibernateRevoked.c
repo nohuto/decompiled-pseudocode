@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceHibernateRevoked @ 0x1407D377C
+ * XREFs of PopDiagTraceHibernateRevoked @ 0x1407D68FC
  * Callers:
- *     PopValidateWinresume @ 0x1407D0A04 (PopValidateWinresume.c)
+ *     PopValidateWinresume @ 0x1407D3AA4 (PopValidateWinresume.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceHibernateRevoked(int a1, int a2, int a3)
@@ -22,7 +22,7 @@ NTSTATUS __fastcall PopDiagTraceHibernateRevoked(int a1, int a2, int a3)
   v11 = a3;
   v10 = a2;
   v9 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
     UserData.Ptr = (ULONGLONG)&v9;
     *(_QWORD *)&UserData.Size = 4LL;
@@ -30,12 +30,7 @@ NTSTATUS __fastcall PopDiagTraceHibernateRevoked(int a1, int a2, int a3)
     v6 = 4LL;
     v7 = &v11;
     v8 = 4LL;
-    return EtwWrite(
-             *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-             &POP_ETW_EVENT_HIBERNATE_REVOKED,
-             0LL,
-             3u,
-             &UserData);
+    return EtwWrite(PopDiagHandle, &POP_ETW_EVENT_HIBERNATE_REVOKED, 0LL, 3u, &UserData);
   }
   return result;
 }

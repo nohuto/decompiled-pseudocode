@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampSampleBufferProcess @ 0x1409022F4
+ * XREFs of EtwpCovSampSampleBufferProcess @ 0x140924BD4
  * Callers:
- *     EtwpCovSampCaptureWorkerThread @ 0x1407B24B0 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x1407B2900 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     EtwpCovSampContextAddAddresses @ 0x140900100 (EtwpCovSampContextAddAddresses.c)
- *     EtwpCovSampReleaseSamplerRundown @ 0x140900574 (EtwpCovSampReleaseSamplerRundown.c)
- *     EtwpCovSampStackHashCheck @ 0x14090090C (EtwpCovSampStackHashCheck.c)
- *     EtwpCovSampContextAddSamples @ 0x140900C90 (EtwpCovSampContextAddSamples.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x140900FE0 (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampContextAddAddresses @ 0x1409229E0 (EtwpCovSampContextAddAddresses.c)
+ *     EtwpCovSampReleaseSamplerRundown @ 0x140922E54 (EtwpCovSampReleaseSamplerRundown.c)
+ *     EtwpCovSampStackHashCheck @ 0x1409231EC (EtwpCovSampStackHashCheck.c)
+ *     EtwpCovSampContextAddSamples @ 0x140923570 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1409238C0 (EtwpCovSampAcquireSamplerRundown.c)
  */
 
 __int64 __fastcall EtwpCovSampSampleBufferProcess(ULONG_PTR *a1, _DWORD *a2)

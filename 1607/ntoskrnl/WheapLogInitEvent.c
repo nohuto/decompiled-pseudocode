@@ -1,80 +1,51 @@
 /*
- * XREFs of WheapLogInitEvent @ 0x14057AC08
+ * XREFs of WheapLogInitEvent @ 0x14057B148
  * Callers:
  *     WheaInitialize @ 0x1407A0948 (WheaInitialize.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
 void WheapLogInitEvent()
 {
-  char *PoolWithTag; // rbx
-  __int64 *v1; // r8
-  int i; // r9d
-  __int64 v3; // rcx
-  __int64 *v4; // rax
-  char *v5; // rdx
-  __int128 v6; // xmm1
+  PVOID PoolWithTag; // rax
+  void *v1; // rbx
   struct _DRIVER_OBJECT *DriverObject; // rdi
-  int v8; // [rsp+30h] [rbp-9h] BYREF
-  int v9; // [rsp+34h] [rbp-5h] BYREF
+  unsigned int Size; // [rsp+30h] [rbp-9h] BYREF
+  int Size_4; // [rsp+34h] [rbp-5h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp+7h] BYREF
-  int *v11; // [rsp+50h] [rbp+17h]
-  __int64 v12; // [rsp+58h] [rbp+1Fh]
-  int *v13; // [rsp+60h] [rbp+27h]
-  __int64 v14; // [rsp+68h] [rbp+2Fh]
-  char *v15; // [rsp+70h] [rbp+37h]
-  int v16; // [rsp+78h] [rbp+3Fh]
-  int v17; // [rsp+7Ch] [rbp+43h]
+  int *p_Size_4; // [rsp+50h] [rbp+17h]
+  __int64 v7; // [rsp+58h] [rbp+1Fh]
+  unsigned int *p_Size; // [rsp+60h] [rbp+27h]
+  __int64 v9; // [rsp+68h] [rbp+2Fh]
+  void *v10; // [rsp+70h] [rbp+37h]
+  unsigned int v11; // [rsp+78h] [rbp+3Fh]
+  int v12; // [rsp+7Ch] [rbp+43h]
 
-  v8 = 1064 * dword_140329934;
-  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(1064 * dword_140329934), 0x61656857u);
+  Size = 1064 * dword_140329964;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(1064 * dword_140329964), 0x61656857u);
+  v1 = PoolWithTag;
   if ( PoolWithTag )
   {
-    v1 = (__int64 *)qword_140329938;
-    for ( i = 0; v1 != &qword_140329938; v1 = (__int64 *)*v1 )
-    {
-      v3 = 8LL;
-      v4 = v1;
-      v5 = &PoolWithTag[1064 * i];
-      do
-      {
-        *(_OWORD *)v5 = *(_OWORD *)v4;
-        *((_OWORD *)v5 + 1) = *((_OWORD *)v4 + 1);
-        *((_OWORD *)v5 + 2) = *((_OWORD *)v4 + 2);
-        *((_OWORD *)v5 + 3) = *((_OWORD *)v4 + 3);
-        *((_OWORD *)v5 + 4) = *((_OWORD *)v4 + 4);
-        *((_OWORD *)v5 + 5) = *((_OWORD *)v4 + 5);
-        *((_OWORD *)v5 + 6) = *((_OWORD *)v4 + 6);
-        v5 += 128;
-        v6 = *((_OWORD *)v4 + 7);
-        v4 += 16;
-        *((_OWORD *)v5 - 1) = v6;
-        --v3;
-      }
-      while ( v3 );
-      ++i;
-      *(_OWORD *)v5 = *(_OWORD *)v4;
-      *((_OWORD *)v5 + 1) = *((_OWORD *)v4 + 1);
-      *((_QWORD *)v5 + 4) = v4[4];
-    }
+    memset(PoolWithTag, 0, Size);
+    v12 = 0;
     DriverObject = WheapDispatchPtr.DriverObject;
-    UserData.Ptr = (ULONGLONG)&dword_140329934;
+    UserData.Ptr = (ULONGLONG)&dword_140329964;
     *(_QWORD *)&UserData.Size = 4LL;
-    v11 = &v9;
-    v9 = 10;
-    v13 = &v8;
-    v16 = v8;
-    v12 = 4LL;
-    v14 = 4LL;
-    v15 = PoolWithTag;
-    v17 = 0;
+    p_Size_4 = &Size_4;
+    p_Size = &Size;
+    v11 = Size;
+    Size_4 = 10;
+    v7 = 4LL;
+    v9 = 4LL;
+    v10 = v1;
     if ( EtwEventEnabled((REGHANDLE)WheapDispatchPtr.DriverObject, &EVENT_WHEA_INIT_OP) == 1 )
       EtwWrite((REGHANDLE)DriverObject, &EVENT_WHEA_INIT_OP, 0LL, 4u, &UserData);
-    ExFreePoolWithTag(PoolWithTag, 0x61656857u);
+    ExFreePoolWithTag(v1, 0x61656857u);
   }
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of HvCheckHive @ 0x14098A9C0
+ * XREFs of HvCheckHive @ 0x1409740B0
  * Callers:
- *     CmCheckRegistry @ 0x140AE33E0 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x140AE4CC0 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     HvCheckBin @ 0x14098AC00 (HvCheckBin.c)
- *     HvMoveLayoutStats @ 0x14098AF34 (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x14098AF50 (HvAddToLayoutStats.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140BB9770 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140BB9790 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140BB98D0 (HvpGetBinContextInitialize.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     HvCheckBin @ 0x1409742F0 (HvCheckBin.c)
+ *     HvMoveLayoutStats @ 0x140974624 (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x140974640 (HvAddToLayoutStats.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140BBB770 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140BBB790 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140BBB8D0 (HvpGetBinContextInitialize.c)
  */
 
-__int64 __fastcall HvCheckHive(__int64 a1, int a2, __int64 a3, RTL_BITMAP *a4, __int64 a5, __int64 a6)
+__int64 __fastcall HvCheckHive(__int64 a1, int a2, __int64 a3, _RTL_BITMAP *a4, __int64 a5, __int64 a6)
 {
   __int64 v8; // r13
   int v9; // r8d

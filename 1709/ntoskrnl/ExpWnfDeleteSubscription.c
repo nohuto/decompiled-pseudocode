@@ -19,20 +19,20 @@
 void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2)
 {
   struct _SINGLE_LIST_ENTRY *Next; // r14
-  unsigned __int64 v4; // rax
-  unsigned __int64 v5; // rsi
+  PRTL_BALANCED_NODE v4; // rax
+  PRTL_BALANCED_NODE v5; // rsi
   unsigned __int64 Count; // rbp
   unsigned __int64 v7; // rsi
   int v8; // r12d
   int v9; // r13d
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rbp
+  PRTL_BALANCED_NODE v10; // rax
+  PRTL_BALANCED_NODE v11; // rbp
   struct _EX_RUNDOWN_REF **v12; // rdx
   PVOID *v13; // rcx
   struct _EX_RUNDOWN_REF **v14; // rdx
   PVOID *v15; // rcx
-  unsigned __int64 v16; // rax
-  unsigned __int64 v17; // r15
+  PRTL_BALANCED_NODE v16; // rax
+  PRTL_BALANCED_NODE v17; // r15
   int v18; // ecx
   int v19; // r15d
   struct _EX_RUNDOWN_REF **v20; // rdx
@@ -45,9 +45,9 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2
     v4 = KeAbPreAcquire((ULONG_PTR)&Next[10], 0LL, 0);
     v5 = v4;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&Next[10], 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[10], v4, (__int16 *)&Next[10]);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[10], (__int64)v4, (__int16 *)&Next[10]);
     if ( v5 )
-      *(_BYTE *)(v5 + 26) |= 1u;
+      BYTE2(v5[1].Left) |= 1u;
   }
   Count = P[5].Count;
   v23 = Count;
@@ -61,9 +61,9 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2
       v10 = KeAbPreAcquire(v7 + 112, 0LL, 0);
       v11 = v10;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 112), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v7 + 112), v10, (__int16 *)(v7 + 112));
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v7 + 112), (__int64)v10, (__int16 *)(v7 + 112));
       if ( v11 )
-        *(_BYTE *)(v11 + 26) |= 1u;
+        BYTE2(v11[1].Left) |= 1u;
       v12 = (struct _EX_RUNDOWN_REF **)P[8].Count;
       if ( v12[1] != &P[8] || (v13 = (PVOID *)P[9].Count, *v13 != &P[8]) )
         __fastfail(3u);
@@ -81,9 +81,9 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2
     v16 = KeAbPreAcquire((ULONG_PTR)&Next[13], 0LL, 0);
     v17 = v16;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&Next[13], 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[13], v16, (__int16 *)&Next[13]);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[13], (__int64)v16, (__int16 *)&Next[13]);
     if ( v17 )
-      *(_BYTE *)(v17 + 26) |= 1u;
+      BYTE2(v17[1].Left) |= 1u;
     v18 = P[15].Count;
     if ( v18 == 1 || (PEPROCESS)P[5].Count != PsInitialSystemProcess && v18 )
     {

@@ -1,8 +1,8 @@
 /*
- * XREFs of longest_match @ 0x180155928
+ * XREFs of longest_match @ 0x1801557F8
  * Callers:
- *     deflate_fast @ 0x1801227A0 (deflate_fast.c)
- *     deflate_slow @ 0x180154D30 (deflate_slow.c)
+ *     deflate_fast @ 0x180122510 (deflate_fast.c)
+ *     deflate_slow @ 0x180154C00 (deflate_slow.c)
  * Callees:
  *     <none>
  */

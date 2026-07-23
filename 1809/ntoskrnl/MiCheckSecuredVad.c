@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCheckSecuredVad @ 0x140618974
+ * XREFs of MiCheckSecuredVad @ 0x140619974
  * Callers:
- *     MiResetVirtualMemory @ 0x140132AD4 (MiResetVirtualMemory.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x140139814 (MiUnmapLockedPagesInUserSpace.c)
- *     MiFindPlaceholderVadToReplace @ 0x1402C4D48 (MiFindPlaceholderVadToReplace.c)
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
- *     MmFreeVirtualMemory @ 0x1405EF4F0 (MmFreeVirtualMemory.c)
- *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408519F8 (MiCoalescePlaceholderAllocations.c)
+ *     MiResetVirtualMemory @ 0x140132BA4 (MiResetVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140139914 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiFindPlaceholderVadToReplace @ 0x1402C4F38 (MiFindPlaceholderVadToReplace.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1405EEFD0 (MmProtectVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1405F04F0 (MmFreeVirtualMemory.c)
+ *     MiUnmapViewOfSection @ 0x1406181B0 (MiUnmapViewOfSection.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140619664 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140852C58 (MiCoalescePlaceholderAllocations.c)
  * Callees:
- *     MiComparePteProtections @ 0x1400883A8 (MiComparePteProtections.c)
+ *     MiComparePteProtections @ 0x140088398 (MiComparePteProtections.c)
  */
 
 __int64 __fastcall MiCheckSecuredVad(ULONG_PTR a1, unsigned __int64 a2, __int64 a3, unsigned int a4, char a5)
@@ -76,7 +76,7 @@ LABEL_13:
   if ( a4 >= 0x55 )
     goto LABEL_13;
   v16 = (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12;
-  if ( v16 != 2147352576 && (v16 != qword_14043A008 || !qword_14043A008)
+  if ( v16 != 2147352576 && (v16 != qword_14043B0C8 || !qword_14043B0C8)
     || (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000LL) != 0 )
   {
     result = MiComparePteProtections(a1, a2, v6, a4, 1);

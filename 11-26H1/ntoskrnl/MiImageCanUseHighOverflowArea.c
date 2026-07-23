@@ -1,8 +1,8 @@
 /*
- * XREFs of MiImageCanUseHighOverflowArea @ 0x140B49BF0
+ * XREFs of MiImageCanUseHighOverflowArea @ 0x140B4B980
  * Callers:
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
- *     MiSelectOverflowDllBase @ 0x140B49A0C (MiSelectOverflowDllBase.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
+ *     MiSelectOverflowDllBase @ 0x140B4B79C (MiSelectOverflowDllBase.c)
  * Callees:
  *     <none>
  */

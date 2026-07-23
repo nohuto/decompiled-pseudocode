@@ -1,7 +1,7 @@
 /*
- * XREFs of CcGetPrivateVolumeCacheMap @ 0x14035C16C
+ * XREFs of CcGetPrivateVolumeCacheMap @ 0x14035C30C
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
  * Callees:
  *     <none>
  */

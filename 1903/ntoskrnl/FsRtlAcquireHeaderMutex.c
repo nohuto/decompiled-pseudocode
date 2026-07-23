@@ -10,7 +10,7 @@
 volatile signed __int32 *__fastcall FsRtlAcquireHeaderMutex(__int64 a1, volatile signed __int32 *a2)
 {
   ULONG_PTR v2; // rdi
-  __int64 v3; // rbx
+  PRTL_BALANCED_NODE v3; // rbx
   unsigned __int8 CurrentIrql; // si
   volatile signed __int32 *result; // rax
 
@@ -19,9 +19,9 @@ volatile signed __int32 *__fastcall FsRtlAcquireHeaderMutex(__int64 a1, volatile
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset((volatile signed __int32 *)v2, 0) )
-    ExpAcquireFastMutexContended(v2);
+    ExpAcquireFastMutexContended(v2, v3);
   if ( v3 )
-    *(_BYTE *)(v3 + 26) |= 1u;
+    BYTE2(v3[1].Left) |= 1u;
   *(_QWORD *)(v2 + 8) = KeGetCurrentThread();
   *(_DWORD *)(v2 + 48) = CurrentIrql;
   result = a2;

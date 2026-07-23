@@ -1,15 +1,15 @@
 /*
- * XREFs of Amd64RemoveProfileSource @ 0x1405A4AC0
+ * XREFs of Amd64RemoveProfileSource @ 0x1405A72D0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     HalpRemoveProfileSourceFromList @ 0x1405807B8 (HalpRemoveProfileSourceFromList.c)
- *     Amd64IsProfileBeingUsed @ 0x1405A448C (Amd64IsProfileBeingUsed.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpRemoveProfileSourceFromList @ 0x140582CD8 (HalpRemoveProfileSourceFromList.c)
+ *     Amd64IsProfileBeingUsed @ 0x1405A6C9C (Amd64IsProfileBeingUsed.c)
  */
 
 __int64 __fastcall Amd64RemoveProfileSource(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfDriverIsKernelImageAddress @ 0x140928128
+ * XREFs of VfDriverIsKernelImageAddress @ 0x140929128
  * Callers:
- *     VfPendingShouldForce @ 0x140933994 (VfPendingShouldForce.c)
- *     VfTargetDriversGetVerifierData @ 0x1409349E8 (VfTargetDriversGetVerifierData.c)
- *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
- *     VfCheckUserHandle @ 0x14093901C (VfCheckUserHandle.c)
+ *     VfPendingShouldForce @ 0x140934994 (VfPendingShouldForce.c)
+ *     VfTargetDriversGetVerifierData @ 0x1409359E8 (VfTargetDriversGetVerifierData.c)
+ *     ViTargetIncrementCounter @ 0x14093607C (ViTargetIncrementCounter.c)
+ *     VfCheckUserHandle @ 0x14093A01C (VfCheckUserHandle.c)
  * Callees:
  *     <none>
  */

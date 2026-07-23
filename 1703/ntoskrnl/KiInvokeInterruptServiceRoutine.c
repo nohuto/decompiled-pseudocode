@@ -82,7 +82,7 @@ bool __fastcall KiInvokeInterruptServiceRoutine(__int64 a1, unsigned __int8 a2, 
   }
   *(_QWORD *)(a1 + 152) = KeGetCurrentThread();
   if ( v8 )
-    EtwGetKernelTraceTimestamp(v24, (char *)0x20004000);
+    EtwGetKernelTraceTimestamp(v24, 0x20004000u);
   v10 = KiCallInterruptServiceRoutine(a1, v7);
   v11 = v10;
   if ( v8 )

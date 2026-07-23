@@ -1,9 +1,9 @@
 /*
- * XREFs of PopWakeInfoDereference @ 0x14012580C
+ * XREFs of PopWakeInfoDereference @ 0x140125D7C
  * Callers:
- *     PopTimeoutWakeTracking @ 0x140125690 (PopTimeoutWakeTracking.c)
- *     PopDereferenceWakeInfos @ 0x1401257A4 (PopDereferenceWakeInfos.c)
- *     PopUpdateWakeSourceWorker @ 0x140205A18 (PopUpdateWakeSourceWorker.c)
+ *     PopTimeoutWakeTracking @ 0x140125C00 (PopTimeoutWakeTracking.c)
+ *     PopDereferenceWakeInfos @ 0x140125D14 (PopDereferenceWakeInfos.c)
+ *     PopUpdateWakeSourceWorker @ 0x140205844 (PopUpdateWakeSourceWorker.c)
  *     PopNewWakeInfo @ 0x1403D0BE4 (PopNewWakeInfo.c)
  * Callees:
  *     <none>

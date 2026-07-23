@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMemoryErrorDeferredHandler @ 0x14058F0C8
+ * XREFs of HalpMemoryErrorDeferredHandler @ 0x140591848
  * Callers:
- *     HalpErrorDeferredHandler @ 0x14058EE00 (HalpErrorDeferredHandler.c)
+ *     HalpErrorDeferredHandler @ 0x140591580 (HalpErrorDeferredHandler.c)
  * Callees:
- *     HalpHvInvokeWheaErrorNotificationCallback @ 0x140585D34 (HalpHvInvokeWheaErrorNotificationCallback.c)
- *     HalpHvSetMachineCheckRecoveryState @ 0x140585DF8 (HalpHvSetMachineCheckRecoveryState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     WheaAttemptClearPoison @ 0x140847FF0 (WheaAttemptClearPoison.c)
- *     WheaAttemptPhysicalPageOffline @ 0x1408480E0 (WheaAttemptPhysicalPageOffline.c)
+ *     HalpHvInvokeWheaErrorNotificationCallback @ 0x140588254 (HalpHvInvokeWheaErrorNotificationCallback.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x140588318 (HalpHvSetMachineCheckRecoveryState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     WheaAttemptClearPoison @ 0x14084E2C0 (WheaAttemptClearPoison.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14084E3B0 (WheaAttemptPhysicalPageOffline.c)
  */
 
 void *__fastcall HalpMemoryErrorDeferredHandler(__int64 a1)
@@ -48,8 +48,8 @@ void *__fastcall HalpMemoryErrorDeferredHandler(__int64 a1)
   {
     if ( !*(_QWORD *)(a1 + 6184) )
     {
-      result = (void *)qword_140FBB0C8;
-      if ( qword_140FBB0C8 )
+      result = (void *)qword_140FBB468;
+      if ( qword_140FBB468 )
         return (void *)guard_dispatch_icall_no_overrides(v9, v8);
     }
   }

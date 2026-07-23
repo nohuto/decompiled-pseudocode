@@ -1,9 +1,9 @@
 /*
- * XREFs of PopClosePowerRequestObject @ 0x14051E684
+ * XREFs of PopClosePowerRequestObject @ 0x1405016EC
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerRequestCleanUp @ 0x1400FB1B4 (PopPowerRequestCleanUp.c)
+ *     PopPowerRequestCleanUp @ 0x1400F8F40 (PopPowerRequestCleanUp.c)
  */
 
 void __fastcall PopClosePowerRequestObject(__int64 a1, _BYTE *a2, __int64 a3, __int64 a4)

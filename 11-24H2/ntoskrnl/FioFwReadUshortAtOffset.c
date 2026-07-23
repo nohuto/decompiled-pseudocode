@@ -1,14 +1,14 @@
 /*
- * XREFs of FioFwReadUshortAtOffset @ 0x1404F8754
+ * XREFs of FioFwReadUshortAtOffset @ 0x1404F6034
  * Callers:
- *     RaspInitializeGlyphData @ 0x14046612C (RaspInitializeGlyphData.c)
- *     RaspGetCompositeGlyphList @ 0x14069AECC (RaspGetCompositeGlyphList.c)
- *     RaspLoadBearings @ 0x14069B820 (RaspLoadBearings.c)
- *     RaspLoadCompositeGlyphData @ 0x14069B994 (RaspLoadCompositeGlyphData.c)
- *     RaspLoadGlyphData @ 0x14069BB90 (RaspLoadGlyphData.c)
- *     RaspMapGlyphIndexToLocation @ 0x14069BD2C (RaspMapGlyphIndexToLocation.c)
+ *     RaspInitializeGlyphData @ 0x14045DA88 (RaspInitializeGlyphData.c)
+ *     RaspGetCompositeGlyphList @ 0x14069BF4C (RaspGetCompositeGlyphList.c)
+ *     RaspLoadBearings @ 0x14069C8A0 (RaspLoadBearings.c)
+ *     RaspLoadCompositeGlyphData @ 0x14069CA14 (RaspLoadCompositeGlyphData.c)
+ *     RaspLoadGlyphData @ 0x14069CC10 (RaspLoadGlyphData.c)
+ *     RaspMapGlyphIndexToLocation @ 0x14069CDAC (RaspMapGlyphIndexToLocation.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x1404665BC (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x14045DF18 (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall FioFwReadUshortAtOffset(__int64 a1, unsigned int a2, _WORD *a3)

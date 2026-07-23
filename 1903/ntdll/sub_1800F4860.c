@@ -20,7 +20,7 @@ char sub_1800F4860()
   v4 = 0LL;
   v3 = sub_1800F4580;
   v2 = 5;
-  result = RtlQueryHeapInformation(0LL, 2, v1, 0x58uLL, 0LL);
+  result = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)2, v1, 0x58uLL, 0LL);
   if ( qword_1801669B0 )
     result = sub_1800F46F8(qword_1801669B0, 1LL);
   qword_1801669B0 = 0LL;

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRollbackComplete()
+NTSTATUS __cdecl ZwRollbackComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 355LL;
+  result = 355;
   __asm { syscall; Low latency system call }
   return result;
 }

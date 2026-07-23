@@ -1,23 +1,23 @@
 /*
- * XREFs of ObCheckRefTraceProcess @ 0x140607974
+ * XREFs of ObCheckRefTraceProcess @ 0x140697404
  * Callers:
- *     PspInsertProcess @ 0x140607710 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x1406971A0 (PspInsertProcess.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     PsGetProcessImageFileName @ 0x1402BDD90 (PsGetProcessImageFileName.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     PsGetProcessImageFileName @ 0x14023C3D0 (PsGetProcessImageFileName.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1406DD340 (RtlPrefixUnicodeString.c)
  */
 
 NTSTATUS __fastcall ObCheckRefTraceProcess(__int64 a1)
 {
   NTSTATUS result; // eax
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   struct _KTHREAD *CurrentThread; // rax
   STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING String1; // [rsp+30h] [rbp-18h] BYREF
@@ -26,7 +26,7 @@ NTSTATUS __fastcall ObCheckRefTraceProcess(__int64 a1)
   String1 = 0LL;
   if ( (ObpTraceFlags & 0x20) == 0 )
     return 0;
-  ProcessImageFileName = (const char *)PsGetProcessImageFileName(a1);
+  ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName(a1);
   RtlInitAnsiString(&DestinationString, ProcessImageFileName);
   if ( !DestinationString.Length )
     return 0;

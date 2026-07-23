@@ -1,10 +1,10 @@
 /*
- * XREFs of IoWMICompleteRequest @ 0x140682674
+ * XREFs of IoWMICompleteRequest @ 0x1405E4044
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x140682580 (WmipQueryWmiDataBlock.c)
- *     IoWMISystemControl @ 0x1406BFA04 (IoWMISystemControl.c)
+ *     WmipQueryWmiDataBlock @ 0x1405E3F50 (WmipQueryWmiDataBlock.c)
+ *     IoWMISystemControl @ 0x14061E914 (IoWMISystemControl.c)
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall IoWMICompleteRequest(__int64 a1, __int64 a2, IRP *a3, int a4, int a5)

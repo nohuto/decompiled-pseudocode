@@ -1,14 +1,14 @@
 /*
- * XREFs of KiPerformHeteroSoftParkElection @ 0x1402017A8
+ * XREFs of KiPerformHeteroSoftParkElection @ 0x140329E98
  * Callers:
- *     KiPerformSoftParkElectionRound @ 0x140201740 (KiPerformSoftParkElectionRound.c)
+ *     KiPerformSoftParkElectionRound @ 0x140329E30 (KiPerformSoftParkElectionRound.c)
  * Callees:
- *     KiTallyHeteroSoftParkElectionVotes @ 0x1402018D0 (KiTallyHeteroSoftParkElectionVotes.c)
- *     KiDoesHeteroSoftParkElectionHaveWinner @ 0x140201AB0 (KiDoesHeteroSoftParkElectionHaveWinner.c)
- *     KiEliminateLowVoteSoftParkCandidates @ 0x140201FDC (KiEliminateLowVoteSoftParkCandidates.c)
- *     KiBuildShareCountListForSubNodeByAffinity @ 0x14020212C (KiBuildShareCountListForSubNodeByAffinity.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x140329FC0 (KiTallyHeteroSoftParkElectionVotes.c)
+ *     KiDoesHeteroSoftParkElectionHaveWinner @ 0x14032A1A0 (KiDoesHeteroSoftParkElectionHaveWinner.c)
+ *     KiEliminateLowVoteSoftParkCandidates @ 0x14032A6CC (KiEliminateLowVoteSoftParkCandidates.c)
+ *     KiBuildShareCountListForSubNodeByAffinity @ 0x14032A81C (KiBuildShareCountListForSubNodeByAffinity.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiPerformHeteroSoftParkElection(__int64 a1, int a2, __int64 a3, int a4, __int64 a5)

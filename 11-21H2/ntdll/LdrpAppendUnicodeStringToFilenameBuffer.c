@@ -20,7 +20,7 @@ __int64 __fastcall LdrpAppendUnicodeStringToFilenameBuffer(unsigned __int16 *a1,
   unsigned int v7; // esi
   unsigned int v9; // esi
   __int64 v10; // rdi
-  void *StringRoutine; // rax
+  PVOID StringRoutine; // rax
 
   v3 = *a2;
   v5 = 0;
@@ -44,7 +44,7 @@ LABEL_3:
       v9 = 65534;
     if ( *((unsigned __int16 **)a1 + 1) == a1 + 8 )
     {
-      StringRoutine = (void *)NtdllpAllocateStringRoutine(v9);
+      StringRoutine = NtdllpAllocateStringRoutine(v9);
       v10 = (__int64)StringRoutine;
       if ( !StringRoutine )
         return (unsigned int)-1073741801;

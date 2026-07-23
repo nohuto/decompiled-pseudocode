@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCallDriverWithTracing @ 0x1403538A0
+ * XREFs of IoCallDriverWithTracing @ 0x14035E5F0
  * Callers:
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
  * Callees:
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall IoCallDriverWithTracing(struct _DEVICE_OBJECT *a1, __int64 a2)

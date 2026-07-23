@@ -18,30 +18,30 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtQuerySystemEnvironmentValue(
-        UNICODE_STRING *a1,
-        volatile void *a2,
-        unsigned __int16 a3,
-        unsigned __int16 *a4)
+NTSTATUS __cdecl NtQuerySystemEnvironmentValue(
+        PUNICODE_STRING VariableName,
+        PWSTR VariableValue,
+        USHORT ValueLength,
+        PUSHORT ReturnLength)
 {
   __int64 v7; // rbx
   unsigned __int16 v8; // ax
   wchar_t *v10; // rdx
   ULONG v11; // eax
   unsigned __int16 v12; // bx
-  NTSTATUS v13; // ebx
+  int v13; // ebx
   PVOID PoolWithTag; // rdi
   struct _KTHREAD *v15; // rax
   int EnvironmentVariable; // ebx
   __int64 v17; // rdx
   __int64 v18; // r8
   __int64 v19; // r9
-  unsigned int v20; // ebx
+  NTSTATUS v20; // ebx
   KPROCESSOR_MODE PreviousMode; // [rsp+20h] [rbp-68h]
   UNICODE_STRING UnicodeString; // [rsp+28h] [rbp-60h] BYREF
-  STRING DestinationString; // [rsp+38h] [rbp-50h] BYREF
+  _STRING DestinationString; // [rsp+38h] [rbp-50h] BYREF
   ULONG v24; // [rsp+48h] [rbp-40h]
-  unsigned int v25; // [rsp+4Ch] [rbp-3Ch]
+  int v25; // [rsp+4Ch] [rbp-3Ch]
   PVOID P; // [rsp+58h] [rbp-30h]
   struct _KTHREAD *CurrentThread; // [rsp+68h] [rbp-20h]
 
@@ -53,38 +53,38 @@ __int64 __fastcall NtQuerySystemEnvironmentValue(
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a1 & 3) != 0 )
+    if ( ((unsigned __int8)VariableName & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v7 = 0x7FFFFFFF0000LL;
-    UnicodeString = *a1;
+    UnicodeString = *VariableName;
     v8 = _mm_cvtsi128_si32((__m128i)UnicodeString);
     if ( !v8 )
-      return 3221225477LL;
+      return -1073741819;
     if ( ((__int64)UnicodeString.Buffer & 1) != 0 )
       ExRaiseDatatypeMisalignment();
     v10 = (wchar_t *)((char *)UnicodeString.Buffer + v8);
     if ( (unsigned __int64)v10 > 0x7FFFFFFF0000LL || v10 < UnicodeString.Buffer )
       MEMORY[0x7FFFFFFF0000] = 0;
-    ProbeForWrite(a2, a3, 2u);
-    if ( a4 )
+    ProbeForWrite(VariableValue, ValueLength, 2u);
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-        v7 = (__int64)a4;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v7 = (__int64)ReturnLength;
       *(_WORD *)v7 = *(_WORD *)v7;
     }
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    UnicodeString = *a1;
+    UnicodeString = *VariableName;
   }
   v11 = RtlxUnicodeStringToAnsiSize(&UnicodeString);
   v12 = v11;
   v24 = v11;
   DestinationString.Buffer = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x72766E45u);
   if ( !DestinationString.Buffer )
-    return 3221225626LL;
+    return -1073741670;
   DestinationString.MaximumLength = v12;
   v13 = RtlUnicodeStringToAnsiString(&DestinationString, &UnicodeString, 0);
   v25 = v13;
@@ -104,18 +104,18 @@ __int64 __fastcall NtQuerySystemEnvironmentValue(
       if ( EnvironmentVariable )
       {
         ExFreePoolWithTag(PoolWithTag, 0);
-        return 3221225473LL;
+        return -1073741823;
       }
       else
       {
         RtlInitAnsiString(&DestinationString, (PCSZ)PoolWithTag);
-        UnicodeString.Buffer = (wchar_t *)a2;
-        UnicodeString.MaximumLength = a3;
+        UnicodeString.Buffer = VariableValue;
+        UnicodeString.MaximumLength = ValueLength;
         UnicodeString.Length = 0;
         v20 = RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 0);
         v25 = v20;
-        if ( a4 )
-          *a4 = UnicodeString.Length;
+        if ( ReturnLength )
+          *ReturnLength = UnicodeString.Length;
         ExFreePoolWithTag(PoolWithTag, 0);
         return v20;
       }
@@ -123,12 +123,12 @@ __int64 __fastcall NtQuerySystemEnvironmentValue(
     else
     {
       ExFreePoolWithTag(DestinationString.Buffer, 0);
-      return 3221225626LL;
+      return -1073741670;
     }
   }
   else
   {
     ExFreePoolWithTag(DestinationString.Buffer, 0);
-    return (unsigned int)v13;
+    return v13;
   }
 }

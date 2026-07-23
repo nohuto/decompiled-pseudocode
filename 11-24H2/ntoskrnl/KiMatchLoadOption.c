@@ -1,10 +1,10 @@
 /*
- * XREFs of KiMatchLoadOption @ 0x140B57128
+ * XREFs of KiMatchLoadOption @ 0x140B591A8
  * Callers:
- *     KiParseLoadOptions @ 0x140B57170 (KiParseLoadOptions.c)
+ *     KiParseLoadOptions @ 0x140B591F0 (KiParseLoadOptions.c)
  * Callees:
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     _atoi64 @ 0x1404FDBB0 (_atoi64.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     _atoi64 @ 0x1404FB470 (_atoi64.c)
  */
 
 char __fastcall KiMatchLoadOption(const char *a1, const char *a2, __int64 a3, __int64 *a4)

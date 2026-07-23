@@ -1,26 +1,26 @@
 /*
- * XREFs of PiIsDriverBlocked @ 0x140A250AC
+ * XREFs of PiIsDriverBlocked @ 0x140A3814C
  * Callers:
- *     PiLookupInDDB @ 0x140A25D58 (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x140A38DF8 (PiLookupInDDB.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14041D934 (VslGetNestedPageProtectionFlags.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeIsKernelCetEnabled @ 0x140483900 (KeIsKernelCetEnabled.c)
- *     ExIsProcessorFeaturePresent @ 0x1404BF830 (ExIsProcessorFeaturePresent.c)
- *     wcsrchr @ 0x140538350 (wcsrchr.c)
- *     Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline @ 0x1405DAE78 (Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PiIsHVCIEnabled @ 0x1407A59C4 (PiIsHVCIEnabled.c)
- *     PiNotifyCiDriverBlocked @ 0x1407A5A10 (PiNotifyCiDriverBlocked.c)
- *     PnpTraceDriverBlocked @ 0x1407B1AD8 (PnpTraceDriverBlocked.c)
- *     SdbQueryDataEx @ 0x140881E28 (SdbQueryDataEx.c)
- *     SdbReadEntryInformation @ 0x1408822F8 (SdbReadEntryInformation.c)
- *     SdbGetDatabaseMatch @ 0x1409E31A8 (SdbGetDatabaseMatch.c)
- *     PiUpdateDriverDBCache @ 0x140A24D48 (PiUpdateDriverDBCache.c)
- *     PnpLogEvent @ 0x140AA4138 (PnpLogEvent.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140415184 (VslGetNestedPageProtectionFlags.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeIsKernelCetEnabled @ 0x14047D230 (KeIsKernelCetEnabled.c)
+ *     ExIsProcessorFeaturePresent @ 0x1404B9080 (ExIsProcessorFeaturePresent.c)
+ *     wcsrchr @ 0x14053A7D0 (wcsrchr.c)
+ *     Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline @ 0x1405DD678 (Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PiIsHVCIEnabled @ 0x1407A8574 (PiIsHVCIEnabled.c)
+ *     PiNotifyCiDriverBlocked @ 0x1407A85C0 (PiNotifyCiDriverBlocked.c)
+ *     PnpTraceDriverBlocked @ 0x1407B4B38 (PnpTraceDriverBlocked.c)
+ *     SdbQueryDataEx @ 0x140888228 (SdbQueryDataEx.c)
+ *     SdbReadEntryInformation @ 0x1408886F8 (SdbReadEntryInformation.c)
+ *     PiUpdateDriverDBCache @ 0x140A37858 (PiUpdateDriverDBCache.c)
+ *     PnpLogEvent @ 0x140A37B48 (PnpLogEvent.c)
+ *     SdbGetDatabaseMatch @ 0x140A37C6C (SdbGetDatabaseMatch.c)
  */
 
-__int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int128 *a5)
+__int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, void *a3, unsigned int a4, __int128 *a5)
 {
   _WORD *v6; // rdx
   unsigned int DatabaseMatch; // eax
@@ -37,7 +37,7 @@ __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigne
   int v20; // [rsp+44h] [rbp-4Dh] BYREF
   int v21; // [rsp+48h] [rbp-49h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-41h] BYREF
-  unsigned __int64 v23; // [rsp+60h] [rbp-31h]
+  void *v23; // [rsp+60h] [rbp-31h]
   __int128 v24[2]; // [rsp+68h] [rbp-29h] BYREF
   __int64 v25; // [rsp+88h] [rbp-9h]
 
@@ -46,7 +46,7 @@ __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigne
   v6 = *(_WORD **)(a2 + 8);
   v23 = a3;
   memset(v24, 0, sizeof(v24));
-  DatabaseMatch = SdbGetDatabaseMatch(a1, v6, a3, a3, a4);
+  DatabaseMatch = SdbGetDatabaseMatch(a1, v6, (__int64)a3, (__int64)a3, a4);
   v10 = DatabaseMatch;
   if ( !DatabaseMatch )
   {
@@ -124,7 +124,7 @@ LABEL_24:
     PiLoggedErrorEventsMask |= 0x100u;
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, L"READ DRIVER ID FAILED");
-    PnpLogEvent(&DestinationString, 0LL, 3221226349LL, 0LL, 0);
+    PnpLogEvent((const void **)&DestinationString, 0LL, -1073740947, 0LL, 0);
   }
   if ( v11 == -1073740949 || v11 == -1073740948 )
   {
@@ -132,7 +132,7 @@ LABEL_24:
     v15 = v14 ? v14 + 1 : *(const WCHAR **)(a2 + 8);
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, v15);
-    PnpLogEvent(&DestinationString, 0LL, v11, v24, 16);
+    PnpLogEvent((const void **)&DestinationString, 0LL, v11, v24, 0x10u);
     PnpTraceDriverBlocked();
     if ( v11 == -1073740949 )
       goto LABEL_38;

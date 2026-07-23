@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     BvgaUpdateProgressBar @ 0x14054F630 (BvgaUpdateProgressBar.c)
+ *     BvgaUpdateProgressBar @ 0x14054FCF0 (BvgaUpdateProgressBar.c)
  */
 
 char BvgaIndicateProgress()

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTscAdvSynchToTarget @ 0x14050A368
+ * XREFs of HalpTscAdvSynchToTarget @ 0x14050A8B8
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x14038D300 (HalpTscAdvSynchLeader.c)
+ *     HalpTscAdvSynchLeader @ 0x14038D4E0 (HalpTscAdvSynchLeader.c)
  * Callees:
- *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14038D86C (HalpTscAdvSynchCalculateRemoteDelta.c)
- *     HalpTscTraceProcessorSynchronization @ 0x14038DAB4 (HalpTscTraceProcessorSynchronization.c)
- *     HalpTscAdvSynchSkewCounter @ 0x14050A340 (HalpTscAdvSynchSkewCounter.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14038DA4C (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscTraceProcessorSynchronization @ 0x14038DC94 (HalpTscTraceProcessorSynchronization.c)
+ *     HalpTscAdvSynchSkewCounter @ 0x14050A890 (HalpTscAdvSynchSkewCounter.c)
  */
 
 __int64 __fastcall HalpTscAdvSynchToTarget(unsigned int a1)

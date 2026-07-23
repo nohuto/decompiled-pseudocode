@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpSegPageRangeCommit @ 0x14034E5D0
+ * XREFs of RtlpHpSegPageRangeCommit @ 0x140350650
  * Callers:
- *     RtlpHpSegAlloc @ 0x14034B0CC (RtlpHpSegAlloc.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x14034D840 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpSegSuballocatorCommit @ 0x1404B8EE0 (RtlpHpSegSuballocatorCommit.c)
- *     RtlpHpSegSuballocatorDecommit @ 0x1404C1B60 (RtlpHpSegSuballocatorDecommit.c)
- *     RtlpHpMetadataCommit @ 0x1404DF41C (RtlpHpMetadataCommit.c)
+ *     RtlpHpSegAlloc @ 0x14034D14C (RtlpHpSegAlloc.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14034F8C0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegSuballocatorCommit @ 0x1404B2710 (RtlpHpSegSuballocatorCommit.c)
+ *     RtlpHpSegSuballocatorDecommit @ 0x1404BB3B0 (RtlpHpSegSuballocatorDecommit.c)
+ *     RtlpHpMetadataCommit @ 0x1404D8AFC (RtlpHpMetadataCommit.c)
  * Callees:
- *     RtlpHpSegMgrCommit @ 0x14034EB50 (RtlpHpSegMgrCommit.c)
- *     RtlpLogHeapDecommit @ 0x14052DA4C (RtlpLogHeapDecommit.c)
- *     RtlpLogHeapCommit @ 0x14052DAC4 (RtlpLogHeapCommit.c)
+ *     RtlpHpSegMgrCommit @ 0x140350BD0 (RtlpHpSegMgrCommit.c)
+ *     RtlpLogHeapDecommit @ 0x14052FF6C (RtlpLogHeapDecommit.c)
+ *     RtlpLogHeapCommit @ 0x14052FFE4 (RtlpLogHeapCommit.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeCommit(

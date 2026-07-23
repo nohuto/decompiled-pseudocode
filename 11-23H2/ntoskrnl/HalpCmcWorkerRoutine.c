@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpCmcWorkerRoutine @ 0x14081E6F0
+ * XREFs of HalpCmcWorkerRoutine @ 0x14081E9C0
  * Callers:
  *     <none>
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     HalpCmcPollProcessor @ 0x140380398 (HalpCmcPollProcessor.c)
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpCmcPollProcessor @ 0x140380538 (HalpCmcPollProcessor.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     HalpCmciInit @ 0x140A8A70C (HalpCmciInit.c)
  */
 
@@ -20,7 +20,7 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
   ULONG v4; // r14d
   int *v5; // r12
   unsigned int v6; // edx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v8; // r15
   unsigned int v9; // eax
   __int64 v10; // rdx
@@ -30,11 +30,11 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
   unsigned int v14; // edx
   bool v15; // cf
   unsigned int v16; // eax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
   __int128 Src; // [rsp+30h] [rbp-50h] BYREF
   __int128 v19; // [rsp+40h] [rbp-40h]
   __int128 v20; // [rsp+50h] [rbp-30h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
 
   ++*(_DWORD *)(a1 + 184);
   Affinity = 0LL;

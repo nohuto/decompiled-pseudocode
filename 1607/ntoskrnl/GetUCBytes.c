@@ -1,8 +1,8 @@
 /*
- * XREFs of GetUCBytes @ 0x14021855C
+ * XREFs of GetUCBytes @ 0x140218388
  * Callers:
- *     RtlpLogHeapContractEvent @ 0x140218F1C (RtlpLogHeapContractEvent.c)
- *     RtlpLogHeapExtendEvent @ 0x14021914C (RtlpLogHeapExtendEvent.c)
+ *     RtlpLogHeapContractEvent @ 0x140218D48 (RtlpLogHeapContractEvent.c)
+ *     RtlpLogHeapExtendEvent @ 0x140218F78 (RtlpLogHeapExtendEvent.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of wcsncpy @ 0x1405381E0
+ * XREFs of wcsncpy @ 0x14053A660
  * Callers:
- *     __asan_wrap_wcsncpy @ 0x1405E2DD0 (__asan_wrap_wcsncpy.c)
+ *     __asan_wrap_wcsncpy @ 0x1405E5740 (__asan_wrap_wcsncpy.c)
  * Callees:
- *     wcsnlen @ 0x140538260 (wcsnlen.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     wcsnlen @ 0x14053A6E0 (wcsnlen.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 wchar_t *__cdecl wcsncpy(wchar_t *Dest, const wchar_t *Source, size_t Count)

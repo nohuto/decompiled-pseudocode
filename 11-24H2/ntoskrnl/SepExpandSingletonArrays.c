@@ -1,14 +1,14 @@
 /*
- * XREFs of SepExpandSingletonArrays @ 0x1404B520C
+ * XREFs of SepExpandSingletonArrays @ 0x1404AFA0C
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x140A330CC (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x140A270DC (SepAddLuidToIndexEntry.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 SepExpandSingletonArrays()
@@ -21,13 +21,13 @@ __int64 SepExpandSingletonArrays()
   PEX_SPIN_LOCK v5; // rdi
   void *v6; // rbx
 
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
+  Pool2 = (void *)ExAllocatePool2(0x40uLL, 0x600uLL, 0x74446553u);
   v1 = Pool2;
   if ( Pool2 )
   {
     memset_0(Pool2, 0, 0x600uLL);
     v2 = ExAcquireSpinLockExclusive(SepSingletonGlobal);
-    v3 = (_QWORD *)ExAllocatePool2(0x40uLL);
+    v3 = (_QWORD *)ExAllocatePool2(0x40uLL, 8LL * (unsigned int)(*((_DWORD *)SepSingletonGlobal + 1) + 1), 0x74446553u);
     v4 = v3;
     if ( v3 )
     {

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpStdGetSpaceForTrace @ 0x1405862D0
+ * XREFs of RtlpStdGetSpaceForTrace @ 0x140586500
  * Callers:
- *     RtlpStdLogCapturedStackTrace @ 0x140586390 (RtlpStdLogCapturedStackTrace.c)
+ *     RtlpStdLogCapturedStackTrace @ 0x1405865C0 (RtlpStdLogCapturedStackTrace.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpStdExtendLowerWatermark @ 0x140585F1C (RtlpStdExtendLowerWatermark.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpStdExtendLowerWatermark @ 0x14058614C (RtlpStdExtendLowerWatermark.c)
  */
 
-struct _SLIST_ENTRY *__fastcall RtlpStdGetSpaceForTrace(volatile signed __int32 *SpinLock, unsigned __int16 a2)
+_SLIST_ENTRY *__fastcall RtlpStdGetSpaceForTrace(volatile signed __int32 *SpinLock, unsigned __int16 a2)
 {
   __int64 v2; // rsi
   unsigned int i; // ebx
@@ -35,5 +35,5 @@ struct _SLIST_ENTRY *__fastcall RtlpStdGetSpaceForTrace(volatile signed __int32 
       LOWORD(v8) = 31;
     *(_WORD *)(v7 + 8) = ((_WORD)v8 << 11) | *(_WORD *)(v7 + 8) & 0x7FF;
   }
-  return (struct _SLIST_ENTRY *)v7;
+  return (_SLIST_ENTRY *)v7;
 }

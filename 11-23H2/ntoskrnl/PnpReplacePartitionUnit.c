@@ -1,41 +1,41 @@
 /*
- * XREFs of PnpReplacePartitionUnit @ 0x140964AF0
+ * XREFs of PnpReplacePartitionUnit @ 0x140964CF0
  * Callers:
- *     IoReplacePartitionUnit @ 0x140954C40 (IoReplacePartitionUnit.c)
+ *     IoReplacePartitionUnit @ 0x140954E40 (IoReplacePartitionUnit.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     KeFindFirstSetLeftAffinityEx @ 0x1403382C0 (KeFindFirstSetLeftAffinityEx.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PnprQueryReplaceFeatures @ 0x1405630A8 (PnprQueryReplaceFeatures.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     KeFindFirstSetLeftAffinityEx @ 0x140338550 (KeFindFirstSetLeftAffinityEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PnprQueryReplaceFeatures @ 0x140563768 (PnprQueryReplaceFeatures.c)
  *     MmUnloadSystemImage @ 0x140696020 (MmUnloadSystemImage.c)
- *     PnprAllocateMappingReserves @ 0x1409658E4 (PnprAllocateMappingReserves.c)
- *     PnprCollectResources @ 0x140965A6C (PnprCollectResources.c)
- *     PnprFreeMappingReserve @ 0x140965DEC (PnprFreeMappingReserve.c)
- *     PnprIdentifyUnits @ 0x14096605C (PnprIdentifyUnits.c)
- *     PnprLegacyDeviceDriversPresent @ 0x140966514 (PnprLegacyDeviceDriversPresent.c)
- *     PnprLoadPluginDriver @ 0x140966568 (PnprLoadPluginDriver.c)
- *     PnprLockPagesForReplace @ 0x1409666E0 (PnprLockPagesForReplace.c)
- *     PnprLogFailureEvent @ 0x140966714 (PnprLogFailureEvent.c)
- *     PnprLogStartEvent @ 0x140966840 (PnprLogStartEvent.c)
- *     PnprLogSuccessEvent @ 0x140966914 (PnprLogSuccessEvent.c)
- *     PnprMmConstruct @ 0x140966D08 (PnprMmConstruct.c)
- *     PnprMmFree @ 0x140966E14 (PnprMmFree.c)
- *     PnprUnlockPagesForReplace @ 0x140966FD4 (PnprUnlockPagesForReplace.c)
- *     PnprGetMillisecondCounter @ 0x140A9C8B4 (PnprGetMillisecondCounter.c)
- *     PnprInitiateReplaceOperation @ 0x140A9C914 (PnprInitiateReplaceOperation.c)
- *     PnprQuiesceDevices @ 0x140A9D304 (PnprQuiesceDevices.c)
- *     PnprWakeDevices @ 0x140A9DF9C (PnprWakeDevices.c)
+ *     PnprAllocateMappingReserves @ 0x140965AE4 (PnprAllocateMappingReserves.c)
+ *     PnprCollectResources @ 0x140965C6C (PnprCollectResources.c)
+ *     PnprFreeMappingReserve @ 0x140965FEC (PnprFreeMappingReserve.c)
+ *     PnprIdentifyUnits @ 0x14096625C (PnprIdentifyUnits.c)
+ *     PnprLegacyDeviceDriversPresent @ 0x140966714 (PnprLegacyDeviceDriversPresent.c)
+ *     PnprLoadPluginDriver @ 0x140966768 (PnprLoadPluginDriver.c)
+ *     PnprLockPagesForReplace @ 0x1409668E0 (PnprLockPagesForReplace.c)
+ *     PnprLogFailureEvent @ 0x140966914 (PnprLogFailureEvent.c)
+ *     PnprLogStartEvent @ 0x140966A40 (PnprLogStartEvent.c)
+ *     PnprLogSuccessEvent @ 0x140966B14 (PnprLogSuccessEvent.c)
+ *     PnprMmConstruct @ 0x140966F08 (PnprMmConstruct.c)
+ *     PnprMmFree @ 0x140967014 (PnprMmFree.c)
+ *     PnprUnlockPagesForReplace @ 0x1409671D4 (PnprUnlockPagesForReplace.c)
+ *     PnprGetMillisecondCounter @ 0x140A9C724 (PnprGetMillisecondCounter.c)
+ *     PnprInitiateReplaceOperation @ 0x140A9C784 (PnprInitiateReplaceOperation.c)
+ *     PnprQuiesceDevices @ 0x140A9D174 (PnprQuiesceDevices.c)
+ *     PnprWakeDevices @ 0x140A9DE0C (PnprWakeDevices.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -120,9 +120,9 @@ LONG __fastcall PnpReplacePartitionUnit(ULONG_PTR *a1)
   void *v76; // rcx
   void *v77; // rcx
   ULONG Affinity; // [rsp+38h] [rbp-D0h]
-  struct _GROUP_AFFINITY Affinity_8; // [rsp+40h] [rbp-C8h] BYREF
+  _GROUP_AFFINITY Affinity_8; // [rsp+40h] [rbp-C8h] BYREF
   ULONG_PTR *PreviousAffinity; // [rsp+50h] [rbp-B8h]
-  struct _GROUP_AFFINITY PreviousAffinity_8; // [rsp+58h] [rbp-B0h] BYREF
+  _GROUP_AFFINITY PreviousAffinity_8; // [rsp+58h] [rbp-B0h] BYREF
   _OWORD v83[3]; // [rsp+68h] [rbp-A0h] BYREF
   __int64 v84; // [rsp+98h] [rbp-70h]
   int v85; // [rsp+A0h] [rbp-68h]

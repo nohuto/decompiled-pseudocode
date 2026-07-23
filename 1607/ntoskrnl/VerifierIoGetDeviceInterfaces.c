@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoGetDeviceInterfaces @ 0x14070C7CC
+ * XREFs of VerifierIoGetDeviceInterfaces @ 0x14070C7FC
  * Callers:
  *     <none>
  * Callees:

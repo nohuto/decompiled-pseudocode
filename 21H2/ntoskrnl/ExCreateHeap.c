@@ -1,11 +1,11 @@
 /*
- * XREFs of ExCreateHeap @ 0x14039D748
+ * XREFs of ExCreateHeap @ 0x14039D898
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x14039D5C4 (ExInitializeSessionHeapManager.c)
- *     ExInitializePoolHeapManagement @ 0x1403C3924 (ExInitializePoolHeapManagement.c)
- *     ExInitializePagedHeaps @ 0x1403C3B30 (ExInitializePagedHeaps.c)
+ *     ExInitializeSessionHeapManager @ 0x14039D714 (ExInitializeSessionHeapManager.c)
+ *     ExInitializePoolHeapManagement @ 0x1403C3D54 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePagedHeaps @ 0x1403C3F60 (ExInitializePagedHeaps.c)
  * Callees:
- *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037AA74 (RtlpHpHeapCreate.c)
  */
 
 __int64 __fastcall ExCreateHeap(__int128 *a1, __int64 a2, __int64 *a3)

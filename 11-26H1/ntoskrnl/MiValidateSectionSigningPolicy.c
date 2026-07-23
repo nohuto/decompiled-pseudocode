@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateSectionSigningPolicy @ 0x1409CB78C
+ * XREFs of MiValidateSectionSigningPolicy @ 0x14099C76C
  * Callers:
- *     MiValidateExistingImage @ 0x140A56F88 (MiValidateExistingImage.c)
- *     MiReleaseImageSection @ 0x140A579A4 (MiReleaseImageSection.c)
+ *     MiValidateExistingImage @ 0x140A64508 (MiValidateExistingImage.c)
+ *     MiReleaseImageSection @ 0x140A64F24 (MiReleaseImageSection.c)
  * Callees:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
- *     SeCompareSigningLevels @ 0x140A88910 (SeCompareSigningLevels.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x140B259AC (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
+ *     SeCompareSigningLevels @ 0x140A8FB90 (SeCompareSigningLevels.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x140B27C0C (EtwTimLogProhibitNonMicrosoftBinaries.c)
  */
 
 __int64 __fastcall MiValidateSectionSigningPolicy(
@@ -47,7 +47,7 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
     if ( v18 < 0 )
     {
       v17 = (unsigned int)(a1 != 1) + 1;
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = (a1 != 1) + 1;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = (a1 != 1) + 1;
     }
     v21 = *(_BYTE *)(*(_QWORD *)a3 + 15LL);
     if ( (a7 & 2) != 0 && v18 < 0 )

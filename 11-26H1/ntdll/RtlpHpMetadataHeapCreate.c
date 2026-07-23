@@ -1,19 +1,17 @@
 /*
- * XREFs of RtlpHpMetadataHeapCreate @ 0x18008DE20
+ * XREFs of RtlpHpMetadataHeapCreate @ 0x180104920
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpHeapCreate @ 0x18008DE64 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x180104964 (RtlpHpHeapCreate.c)
  */
 
-bool __fastcall RtlpHpMetadataHeapCreate(__int64 a1, __int128 *a2)
+bool __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  __int64 v3; // rdx
-  __int128 v5; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_RUN_ONCE v4; // rdx
 
-  v5 = *a2;
-  v3 = RtlpHpHeapCreate(37748736LL, 0LL, 0LL, &v5);
-  if ( v3 )
-    *(_QWORD *)(a1 - 8) = v3;
-  return v3 != 0;
+  v4.Value = RtlpHpHeapCreate(37748736);
+  if ( v4.Value )
+    a1[-1].Ptr = v4.Ptr;
+  return v4.Value != 0;
 }

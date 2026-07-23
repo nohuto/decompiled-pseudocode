@@ -1,38 +1,38 @@
 /*
- * XREFs of MiIssueFlushTbEntire @ 0x140250040
+ * XREFs of MiIssueFlushTbEntire @ 0x1402519A0
  * Callers:
- *     MiGetHighestUltraLevel @ 0x14024EE20 (MiGetHighestUltraLevel.c)
- *     MiInsertCachedPte @ 0x1402821D0 (MiInsertCachedPte.c)
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
- *     MiGetWsAndMakePageTablesNx @ 0x140441A60 (MiGetWsAndMakePageTablesNx.c)
- *     MiDecrementAweMapCount @ 0x14048007C (MiDecrementAweMapCount.c)
- *     MiGeneratePteDeleteLazyStamp @ 0x140526874 (MiGeneratePteDeleteLazyStamp.c)
- *     MiDeleteUnmappedSystemCacheViews @ 0x1406F5A18 (MiDeleteUnmappedSystemCacheViews.c)
- *     MiApplyLazyStampToAwePtes @ 0x1407009EC (MiApplyLazyStampToAwePtes.c)
- *     MiCalibrateTbFlush @ 0x14070DF04 (MiCalibrateTbFlush.c)
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
- *     MiZeroBootMappings @ 0x140CF4038 (MiZeroBootMappings.c)
- *     MxInitializePfnsForValidMappings @ 0x140CF70A8 (MxInitializePfnsForValidMappings.c)
- *     MxSwitchToPfns @ 0x140CF8360 (MxSwitchToPfns.c)
+ *     MiGetHighestUltraLevel @ 0x140250780 (MiGetHighestUltraLevel.c)
+ *     MiInsertCachedPte @ 0x140281740 (MiInsertCachedPte.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x14043A570 (MiGetWsAndMakePageTablesNx.c)
+ *     MiDecrementAweMapCount @ 0x1404799BC (MiDecrementAweMapCount.c)
+ *     MiGeneratePteDeleteLazyStamp @ 0x140528EE4 (MiGeneratePteDeleteLazyStamp.c)
+ *     MiDeleteUnmappedSystemCacheViews @ 0x1406FA688 (MiDeleteUnmappedSystemCacheViews.c)
+ *     MiApplyLazyStampToAwePtes @ 0x1407056BC (MiApplyLazyStampToAwePtes.c)
+ *     MiCalibrateTbFlush @ 0x140712BB4 (MiCalibrateTbFlush.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
+ *     MiZeroBootMappings @ 0x140CFA3B8 (MiZeroBootMappings.c)
+ *     MxInitializePfnsForValidMappings @ 0x140CFD428 (MxInitializePfnsForValidMappings.c)
+ *     MxSwitchToPfns @ 0x140CFE6E0 (MxSwitchToPfns.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeFlushCurrentTbOnly @ 0x140250688 (KeFlushCurrentTbOnly.c)
- *     HvlpFastFlushAddressSpaceTb @ 0x140250E04 (HvlpFastFlushAddressSpaceTb.c)
- *     KxFlushNonGlobalTb @ 0x140250FF0 (KxFlushNonGlobalTb.c)
- *     KxSetTimeStampBusy @ 0x140251194 (KxSetTimeStampBusy.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x140251218 (HvlpUseExtendedProcessorSetHypercalls.c)
- *     KxFlushEntireTb @ 0x14025128C (KxFlushEntireTb.c)
- *     VmpFlushTb @ 0x1402519C4 (VmpFlushTb.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x1403E65B8 (HvlpSlowFlushAddressSpaceTbEx.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1403E6A1C (HvlpFastFlushAddressSpaceTbEx.c)
- *     KiIsFlushEntire @ 0x140430D04 (KiIsFlushEntire.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140469420 (HvlpSlowFlushAddressSpaceTb.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1407284C0 (KiSetUserTbFlushPending.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeFlushCurrentTbOnly @ 0x140251FE8 (KeFlushCurrentTbOnly.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x140252764 (HvlpFastFlushAddressSpaceTb.c)
+ *     KxFlushNonGlobalTb @ 0x140252950 (KxFlushNonGlobalTb.c)
+ *     KxSetTimeStampBusy @ 0x140252AF4 (KxSetTimeStampBusy.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x140252B78 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     KxFlushEntireTb @ 0x140252BEC (KxFlushEntireTb.c)
+ *     VmpFlushTb @ 0x140253324 (VmpFlushTb.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1402F3498 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1402F38FC (HvlpFastFlushAddressSpaceTbEx.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     KiIsFlushEntire @ 0x14041DD34 (KiIsFlushEntire.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404629F0 (HvlpSlowFlushAddressSpaceTb.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x14072D090 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiIssueFlushTbEntire(_KPROCESS *i, volatile _KAFFINITY_EX *ActiveProcessors, unsigned __int64 a3)
@@ -40,14 +40,14 @@ __int64 __fastcall MiIssueFlushTbEntire(_KPROCESS *i, volatile _KAFFINITY_EX *Ac
   unsigned int v3; // edi
   int v4; // ebx
   __int64 result; // rax
-  _KDPC *Dpc; // rcx
+  _ULARGE_INTEGER DueTime; // rcx
   volatile _KAFFINITY_EX *v7; // rbp
   unsigned __int8 CurrentIrql; // si
   struct _KPRCB *CurrentPrcb; // r9
   unsigned __int64 v10; // rcx
   unsigned __int8 v11; // di
   _KPROCESS *v12; // rcx
-  _KDPC *v13; // rbx
+  _ULARGE_INTEGER v13; // rbx
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // r9
   unsigned __int8 v16; // si
@@ -303,14 +303,14 @@ LABEL_40:
     v12 = KeGetCurrentThread()->ApcState.Process;
     if ( v4 == 1 )
     {
-      v13 = (_KDPC *)v12[4].Padding[1];
+      v13 = (_ULARGE_INTEGER)v12[4].Padding[1];
       if ( v12[3].ActiveGroupPadding[1] )
       {
         guard_dispatch_icall_no_overrides(v12[3].ActiveGroupPadding[1], 0LL, 0LL);
-        if ( !v13 )
+        if ( !v13.QuadPart )
           goto LABEL_10;
       }
-      else if ( !v13 )
+      else if ( !v13.QuadPart )
       {
 LABEL_10:
         if ( KiIrqlFlags )
@@ -319,13 +319,16 @@ LABEL_10:
         __writecr8(v11);
         return result;
       }
-      Dpc = v13;
+      DueTime = v13;
     }
     else
     {
-      Dpc = ExSaPageGroupDescriptorArrayLock.Timer.Dpc;
+      DueTime = ExSaPageGroupDescriptorArrayLock.Timer.DueTime;
     }
-    guard_dispatch_icall_no_overrides(Dpc, 0LL, 0LL);
+    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))guard_dispatch_icall_no_overrides)(
+      (_ULARGE_INTEGER)DueTime.QuadPart,
+      0LL,
+      0LL);
     goto LABEL_10;
   }
   return result;

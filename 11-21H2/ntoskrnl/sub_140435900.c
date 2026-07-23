@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140435900 @ 0x140435900
  * Callers:
- *     KiFlushBhbDuringTrapEntryOrExitAlderLake @ 0x1404358C0 (KiFlushBhbDuringTrapEntryOrExitAlderLake.c)
+ *     sub_1404357C0 @ 0x1404357C0 (sub_1404357C0.c)
  *     sub_140435940 @ 0x140435940 (sub_140435940.c)
  * Callees:
  *     sub_140435940 @ 0x140435940 (sub_140435940.c)

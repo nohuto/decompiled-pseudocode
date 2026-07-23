@@ -138,13 +138,7 @@ __int64 __fastcall PiDevCfgGetKeySecurityDescriptor(HANDLE Handle, _QWORD *a2)
                   GroupSecurityDescriptor = RtlAddAce(v3, 2u, 0, AceList, AceListLength);
                   if ( GroupSecurityDescriptor >= 0 )
                   {
-                    GroupSecurityDescriptor = RtlpAddKnownAce(
-                                                (__int64)v3,
-                                                2u,
-                                                2,
-                                                983103,
-                                                (unsigned __int8 *)SeLocalSystemSid,
-                                                0);
+                    GroupSecurityDescriptor = RtlpAddKnownAce(v3, 2u, 2, 983103, (unsigned __int8 *)SeLocalSystemSid, 0);
                     if ( GroupSecurityDescriptor >= 0 )
                     {
                       GroupSecurityDescriptor = RtlCreateSecurityDescriptor(AbsoluteSecurityDescriptor, 1u);

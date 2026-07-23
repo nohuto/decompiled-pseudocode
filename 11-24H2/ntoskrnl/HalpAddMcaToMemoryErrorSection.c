@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAddMcaToMemoryErrorSection @ 0x14053E5A4
+ * XREFs of HalpAddMcaToMemoryErrorSection @ 0x14053BEA4
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x14053F058 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x14053C958 (HalpCreateMcaMemoryErrorRecord.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpAddMcaToMemoryErrorSection(__int64 a1, _QWORD *a2)

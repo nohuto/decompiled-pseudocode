@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSrcuCompareGraceSequence @ 0x1404D9AC0
+ * XREFs of KiSrcuCompareGraceSequence @ 0x1404D31A0
  * Callers:
- *     KiSrcuReportQuiescent @ 0x1404628BC (KiSrcuReportQuiescent.c)
- *     KiRcuReportQuiescentState @ 0x1404D99B8 (KiRcuReportQuiescentState.c)
- *     KiRcuFlushCompleted @ 0x140503B7C (KiRcuFlushCompleted.c)
- *     KiSrcuFlushCompleted @ 0x14052EB44 (KiSrcuFlushCompleted.c)
- *     KiRcuRebalance @ 0x1405F014C (KiRcuRebalance.c)
- *     KiSrcuRebalance @ 0x1405F5B18 (KiSrcuRebalance.c)
+ *     KiSrcuReportQuiescent @ 0x14045B87C (KiSrcuReportQuiescent.c)
+ *     KiRcuReportQuiescentState @ 0x1404D3098 (KiRcuReportQuiescentState.c)
+ *     KiRcuFlushCompleted @ 0x1404FD44C (KiRcuFlushCompleted.c)
+ *     KiSrcuFlushCompleted @ 0x140531064 (KiSrcuFlushCompleted.c)
+ *     KiRcuRebalance @ 0x1405F2ABC (KiRcuRebalance.c)
+ *     KiSrcuRebalance @ 0x1405F84D8 (KiSrcuRebalance.c)
  * Callees:
  *     <none>
  */

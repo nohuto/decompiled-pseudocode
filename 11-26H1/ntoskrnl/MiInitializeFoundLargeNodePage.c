@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeFoundLargeNodePage @ 0x1406EACFC
+ * XREFs of MiInitializeFoundLargeNodePage @ 0x1406EF99C
  * Callers:
- *     MiFindContiguousPagesLarge @ 0x1403C97BC (MiFindContiguousPagesLarge.c)
+ *     MiFindContiguousPagesLarge @ 0x1403D366C (MiFindContiguousPagesLarge.c)
  * Callees:
- *     MiConvertActiveLargePageToSmall @ 0x140206BB8 (MiConvertActiveLargePageToSmall.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiSetPfnOwnedAndActive @ 0x14033B05C (MiSetPfnOwnedAndActive.c)
+ *     MiConvertActiveLargePageToSmall @ 0x140206C98 (MiConvertActiveLargePageToSmall.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiSetPfnOwnedAndActive @ 0x14033D0DC (MiSetPfnOwnedAndActive.c)
  */
 
 __int64 __fastcall MiInitializeFoundLargeNodePage(__int64 a1, int a2, char a3)

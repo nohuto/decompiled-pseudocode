@@ -1,29 +1,29 @@
 /*
- * XREFs of KiCompleteKernelInit @ 0x140B55C50
+ * XREFs of KiCompleteKernelInit @ 0x140B57CA0
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     KiBuildShareCountListForSubNodeByAffinity @ 0x14020212C (KiBuildShareCountListForSubNodeByAffinity.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeInitializeTimer2 @ 0x1403BF2C0 (KeInitializeTimer2.c)
- *     KiUpdateThreadPriority @ 0x140429720 (KiUpdateThreadPriority.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140467D20 (KeRegisterBugCheckReasonCallback.c)
- *     KeAttachProcess @ 0x14047B6B0 (KeAttachProcess.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x1404E9670 (KiUpdateThreadQosGroupingSummaries.c)
- *     KiSetProcessorIdle @ 0x1404EA0F8 (KiSetProcessorIdle.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiAcquirePrcbLocksForGroupAffinity @ 0x1405B0C30 (KiAcquirePrcbLocksForGroupAffinity.c)
- *     KiReleasePrcbLocksForGroupAffinity @ 0x1405B10F0 (KiReleasePrcbLocksForGroupAffinity.c)
- *     Feature_Servicing_ISRStatsInTriageDumps__private_IsEnabledDeviceUsageNoInline @ 0x1405B5090 (Feature_Servicing_ISRStatsInTriageDumps__private_IsEnabledDeviceUsageNoInline.c)
- *     KiInitializeProcessorXSaveStructures @ 0x1405B8BB4 (KiInitializeProcessorXSaveStructures.c)
- *     KiWriteRankListMembersUnderLock @ 0x1405C7B48 (KiWriteRankListMembersUnderLock.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KiAddCpuToSystemCpuPartition @ 0x140B57C80 (KiAddCpuToSystemCpuPartition.c)
- *     KiCreateCpuSetForProcessor @ 0x140B57D30 (KiCreateCpuSetForProcessor.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiUpdateThreadPriority @ 0x1402E0E50 (KiUpdateThreadPriority.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiBuildShareCountListForSubNodeByAffinity @ 0x14032A81C (KiBuildShareCountListForSubNodeByAffinity.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeInitializeTimer2 @ 0x1403ADE80 (KeInitializeTimer2.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1404606D0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeAttachProcess @ 0x140477330 (KeAttachProcess.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x1404E0370 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiSetProcessorIdle @ 0x1404E10A8 (KiSetProcessorIdle.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquirePrcbLocksForGroupAffinity @ 0x1405ADBA0 (KiAcquirePrcbLocksForGroupAffinity.c)
+ *     KiReleasePrcbLocksForGroupAffinity @ 0x1405AE060 (KiReleasePrcbLocksForGroupAffinity.c)
+ *     Feature_Servicing_ISRStatsInTriageDumps__private_IsEnabledDeviceUsageNoInline @ 0x1405B2304 (Feature_Servicing_ISRStatsInTriageDumps__private_IsEnabledDeviceUsageNoInline.c)
+ *     KiInitializeProcessorXSaveStructures @ 0x1405B61F4 (KiInitializeProcessorXSaveStructures.c)
+ *     KiWriteRankListMembersUnderLock @ 0x1405C5278 (KiWriteRankListMembersUnderLock.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KiAddCpuToSystemCpuPartition @ 0x140B59D00 (KiAddCpuToSystemCpuPartition.c)
+ *     KiCreateCpuSetForProcessor @ 0x140B59DB0 (KiCreateCpuSetForProcessor.c)
  */
 
 __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
@@ -63,15 +63,15 @@ __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
   KeAttachProcess(PsInitialSystemProcess);
   if ( !a3 )
   {
-    qword_140F222B8 = 0LL;
-    qword_140F222B0 = (__int64)&qword_140F222A8;
-    qword_140F222A8 = (__int64)&qword_140F222A8;
-    KeInitializeTimer2((__int64)&KiForegroundState, (__int64)KiForegroundTimerCallback, 0LL, 8LL);
-    KeInitializeDpc(&stru_140F22228, (PKDEFERRED_ROUTINE)KiProcessPendingForegroundBoosts, 0LL);
-    KeInitializeDpc(&stru_140F22268, (PKDEFERRED_ROUTINE)KiTriggerForegroundBoostDpc, 0LL);
+    qword_140F224F8 = 0LL;
+    qword_140F224F0 = (__int64)&qword_140F224E8;
+    qword_140F224E8 = (__int64)&qword_140F224E8;
+    KeInitializeTimer2((__int64)&KiForegroundState);
+    KeInitializeDpc(&stru_140F22468, (PKDEFERRED_ROUTINE)KiProcessPendingForegroundBoosts, 0LL);
+    KeInitializeDpc(&stru_140F224A8, (PKDEFERRED_ROUTINE)KiTriggerForegroundBoostDpc, 0LL);
     KeInitializeDpc(&KiUpdateVpThreadPriorityDpc, (PKDEFERRED_ROUTINE)KiUpdateVpBackingThreadPriorityDpcRoutine, 0LL);
     KiUpdateVpThreadPriorityDpc.Importance = 2;
-    qword_140F223C8 = (__int64)&KiUpdateVpThreadPriorityListHead;
+    qword_140F22508 = (__int64)&KiUpdateVpThreadPriorityListHead;
     KiUpdateVpThreadPriorityListHead = (__int64)&KiUpdateVpThreadPriorityListHead;
     KiUpdateVpThreadPriorityLock = 0LL;
     KeQueryPerformanceCounter(PerformanceFrequency);
@@ -119,7 +119,7 @@ __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
     2u);
   KiWriteRankListMembersUnderLock((unsigned __int8 *)(v8 + 576), (__int64)v18, *(_QWORD *)(a1 + 36472));
   KiReleasePrcbLocksForGroupAffinity((__int64)PerformanceFrequency);
-  KiAcquirePrcbLocksForIsolationUnit(a1, 0, (unsigned __int64 *)v17);
+  KiAcquirePrcbLocksForIsolationUnit(a1, 0LL, (unsigned __int64 *)v17);
   if ( !*(_QWORD *)(a1 + 16) )
   {
     v3 = 1;

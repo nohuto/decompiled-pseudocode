@@ -1,7 +1,7 @@
 /*
  * XREFs of IoDisconnectInterruptEx @ 0x140816A20
  * Callers:
- *     DifIoDisconnectInterruptExWrapper @ 0x14060EAB0 (DifIoDisconnectInterruptExWrapper.c)
+ *     sub_14060EAB0 @ 0x14060EAB0 (sub_14060EAB0.c)
  * Callees:
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)

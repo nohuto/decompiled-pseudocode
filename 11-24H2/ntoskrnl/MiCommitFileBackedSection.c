@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCommitFileBackedSection @ 0x1408DDC1C
+ * XREFs of MiCommitFileBackedSection @ 0x1409147D8
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiStartingOffset @ 0x140244020 (MiStartingOffset.c)
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     MiMakeProtectionMask @ 0x1402EAF70 (MiMakeProtectionMask.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MiFlushRelease @ 0x1403710F0 (MiFlushRelease.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     MiFlushAcquire @ 0x140489CC0 (MiFlushAcquire.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiCheckSecuredVad @ 0x1408DD998 (MiCheckSecuredVad.c)
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
+ *     MiStartingOffset @ 0x14020C7B0 (MiStartingOffset.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     MiFlushRelease @ 0x1402594B0 (MiFlushRelease.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     MiMakeProtectionMask @ 0x14034C5B0 (MiMakeProtectionMask.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     MiFlushAcquire @ 0x140484FBC (MiFlushAcquire.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiCheckSecuredVad @ 0x1408DBE18 (MiCheckSecuredVad.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
  */
 
 __int64 __fastcall MiCommitFileBackedSection(__int64 a1, ULONG_PTR a2, __int64 a3)

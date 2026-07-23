@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFreeThreadCycleTable @ 0x140BF3BF0
+ * XREFs of KiFreeThreadCycleTable @ 0x140BF9BF0
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiFreeThreadCycleTable(__int64 a1)

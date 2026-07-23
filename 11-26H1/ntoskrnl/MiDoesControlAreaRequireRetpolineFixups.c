@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDoesControlAreaRequireRetpolineFixups @ 0x1404F5C34
+ * XREFs of MiDoesControlAreaRequireRetpolineFixups @ 0x1404EF1F4
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3C35C (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3E5DC (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
  *     <none>
  */

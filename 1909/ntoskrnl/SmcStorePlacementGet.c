@@ -23,7 +23,7 @@ __int64 __fastcall SmcStorePlacementGet(__int64 a1, ULONG a2, __int64 a3)
   signed int v15; // ebx
   int v16; // esi
   signed int v17; // eax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
   BitMapHeader.SizeOfBitMap = *(_DWORD *)(a1 + 8);

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiWriteSharedDemandZeroPte @ 0x14049AC34
+ * XREFs of MiWriteSharedDemandZeroPte @ 0x140494784
  * Callers:
- *     MiHandleForkZeroPte @ 0x14030AD68 (MiHandleForkZeroPte.c)
- *     MiHandleForkDemandZeroPte @ 0x14049AABC (MiHandleForkDemandZeroPte.c)
+ *     MiHandleForkZeroPte @ 0x1402ECDE8 (MiHandleForkZeroPte.c)
+ *     MiHandleForkDemandZeroPte @ 0x14049460C (MiHandleForkDemandZeroPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiGetCloneCharges @ 0x140369494 (MiGetCloneCharges.c)
- *     MiLockCloneBlockAtDpc @ 0x14036A800 (MiLockCloneBlockAtDpc.c)
- *     MiUpdateCloneReducedCommit @ 0x14049AD5C (MiUpdateCloneReducedCommit.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiGetCloneCharges @ 0x14036B234 (MiGetCloneCharges.c)
+ *     MiLockCloneBlockAtDpc @ 0x14036C5A0 (MiLockCloneBlockAtDpc.c)
+ *     MiUpdateCloneReducedCommit @ 0x1404948AC (MiUpdateCloneReducedCommit.c)
  */
 
 __int64 __fastcall MiWriteSharedDemandZeroPte(_QWORD *a1, unsigned __int64 *a2, __int64 *a3)
@@ -34,7 +34,7 @@ __int64 __fastcall MiWriteSharedDemandZeroPte(_QWORD *a1, unsigned __int64 *a2, 
   v10 = *(_DWORD *)(a1[33] + 48LL);
   if ( !v8 )
   {
-    result = MiGetCloneCharges(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v3 + 1198)), 2);
+    result = MiGetCloneCharges(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v3 + 1198)), 2);
     if ( !(_DWORD)result )
     {
       _InterlockedAnd64(v9, 0x7FFFFFFFFFFFFFFFuLL);

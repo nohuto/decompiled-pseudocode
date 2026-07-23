@@ -1,9 +1,9 @@
 /*
- * XREFs of CmInitSystem0 @ 0x1409CCCF0
+ * XREFs of CmInitSystem0 @ 0x1409CDCF0
  * Callers:
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
- *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
+ *     CmpGetSystemControlValues @ 0x1409CF008 (CmpGetSystemControlValues.c)
  */
 
 __int64 **__fastcall CmInitSystem0(__int64 a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPfOptimizeMdl @ 0x140AB5C08
+ * XREFs of MiPfOptimizeMdl @ 0x140AB6FA8
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
  * Callees:
- *     MiFreeInPageSupportBlock @ 0x14031D5D8 (MiFreeInPageSupportBlock.c)
- *     MiReduceMdl @ 0x140472980 (MiReduceMdl.c)
+ *     MiFreeInPageSupportBlock @ 0x14031F608 (MiFreeInPageSupportBlock.c)
+ *     MiReduceMdl @ 0x14046C100 (MiReduceMdl.c)
  */
 
 void __fastcall MiPfOptimizeMdl(__int64 a1, __int64 *a2, int a3)

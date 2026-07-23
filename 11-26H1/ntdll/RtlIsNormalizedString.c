@@ -1,39 +1,43 @@
 /*
- * XREFs of RtlIsNormalizedString @ 0x1800AF240
+ * XREFs of RtlIsNormalizedString @ 0x1800AE370
  * Callers:
  *     <none>
  * Callees:
- *     Normalization__IsNormalized @ 0x1800ADD10 (Normalization__IsNormalized.c)
- *     RtlpGetNormalization @ 0x1800AE430 (RtlpGetNormalization.c)
+ *     Normalization__IsNormalized @ 0x1800ACE40 (Normalization__IsNormalized.c)
+ *     RtlpGetNormalization @ 0x1800AD560 (RtlpGetNormalization.c)
  */
 
-__int64 __fastcall RtlIsNormalizedString(unsigned int a1, unsigned __int16 *a2, int a3, _BYTE *a4)
+NTSTATUS __cdecl RtlIsNormalizedString(
+        ULONG NormForm,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PBOOLEAN Normalized)
 {
-  int v5; // edi
+  LONG v5; // edi
   __int64 v7; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v9; // [rsp+48h] [rbp+10h] BYREF
 
   v9 = 0LL;
-  v5 = a3;
-  if ( !a2 )
-    return 3221225485LL;
-  if ( !a4 )
-    return 3221225485LL;
+  v5 = SourceStringLength;
+  if ( !SourceString )
+    return -1073741811;
+  if ( !Normalized )
+    return -1073741811;
   v7 = -1LL;
-  if ( a3 < -1 || !a1 )
-    return 3221225485LL;
-  result = RtlpGetNormalization(a1, &v9);
-  if ( (int)result >= 0 )
+  if ( SourceStringLength < -1 || !NormForm )
+    return -1073741811;
+  result = RtlpGetNormalization(NormForm, &v9);
+  if ( result >= 0 )
   {
     if ( v5 == -1 )
     {
       do
         ++v7;
-      while ( a2[v7] );
+      while ( SourceString[v7] );
       v5 = v7 + 1;
     }
-    return Normalization__IsNormalized(v9, a2, v5, a4);
+    return Normalization__IsNormalized(v9, (unsigned __int16 *)SourceString, v5, Normalized);
   }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateSectionSigningPolicy @ 0x140714144
+ * XREFs of MiValidateSectionSigningPolicy @ 0x1406C2794
  * Callers:
- *     MiCreateNewSection @ 0x1406D2BC0 (MiCreateNewSection.c)
- *     MiValidateExistingImage @ 0x140713E5C (MiValidateExistingImage.c)
+ *     MiCreateNewSection @ 0x1406A9EA0 (MiCreateNewSection.c)
+ *     MiValidateExistingImage @ 0x1406C24AC (MiValidateExistingImage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x14093C0C8 (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MiValidateSectionCreate @ 0x1406C32C0 (MiValidateSectionCreate.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x14093C298 (EtwTimLogProhibitNonMicrosoftBinaries.c)
  */
 
 __int64 __fastcall MiValidateSectionSigningPolicy(
@@ -27,7 +27,7 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
   __int64 v17; // rdx
   __int64 v18; // rcx
   int v19; // ebx
-  int v20; // r8d
+  __int64 v20; // r8
   int v21; // r9d
   int v22; // ecx
   __int64 v23; // [rsp+20h] [rbp-38h]
@@ -44,7 +44,7 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
   if ( v19 < 0 )
   {
     v18 = (unsigned int)(a1 != 1) + 1;
-    dword_140C4CC18 = (a1 != 1) + 1;
+    dword_140C4CC58 = (a1 != 1) + 1;
   }
   if ( a7 == 1 && v19 < 0 )
   {
@@ -62,11 +62,11 @@ LABEL_20:
   {
     if ( v19 < 0 )
       return 0;
-    if ( qword_140C1DB00 )
+    if ( qword_140C1DB20 )
     {
       LOBYTE(v17) = a11;
       LOBYTE(v18) = *(_BYTE *)(*(_QWORD *)a3 + 15LL) >> 4;
-      if ( (unsigned int)qword_140C1DB00(v18, v17) )
+      if ( (unsigned int)qword_140C1DB20(v18, v17, v20) )
         return (unsigned int)v19;
     }
     LOBYTE(v20) = a11;

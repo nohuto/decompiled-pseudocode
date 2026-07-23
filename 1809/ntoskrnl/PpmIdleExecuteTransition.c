@@ -9,32 +9,32 @@
  *     KeAccumulateTicks @ 0x1400601D0 (KeAccumulateTicks.c)
  *     KeResumeClockTimerFromIdle @ 0x140060910 (KeResumeClockTimerFromIdle.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     KePrepareClockTimerForIdle @ 0x1400FC870 (KePrepareClockTimerForIdle.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x1401754E0 (PpmPerfArbitratorApplyProcessorState.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiSetUserTbFlushPending @ 0x1401BD130 (KiSetUserTbFlushPending.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KdCallPowerHandlers @ 0x14028BE58 (KdCallPowerHandlers.c)
- *     KdPowerTransitionEx @ 0x14028C200 (KdPowerTransitionEx.c)
- *     KeQueryWakeSource @ 0x14028EF1C (KeQueryWakeSource.c)
- *     KeWakeProcessor @ 0x140293C90 (KeWakeProcessor.c)
- *     KeUpdatePendingQosRequest @ 0x140297FF4 (KeUpdatePendingQosRequest.c)
- *     PpmIdleCompleteExitLatencyTrace @ 0x1402D49D0 (PpmIdleCompleteExitLatencyTrace.c)
- *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4EB0 (PpmIdleRecheckCoordinatedIdleMask.c)
- *     PpmIdleSetSynchronizationState @ 0x1402D5160 (PpmIdleSetSynchronizationState.c)
- *     PpmIdleTransitionStall @ 0x1402D5318 (PpmIdleTransitionStall.c)
- *     PpmIdleUpdateConcurrency @ 0x1402D53B8 (PpmIdleUpdateConcurrency.c)
- *     PpmTestAndLockProcessor @ 0x1402D5CC8 (PpmTestAndLockProcessor.c)
- *     PpmPerfFeedbackCounterUpdate @ 0x1402DB358 (PpmPerfFeedbackCounterUpdate.c)
- *     PpmEventEnterPlatformIdleState @ 0x1402E5684 (PpmEventEnterPlatformIdleState.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     PpmConvertTime @ 0x1400A7C54 (PpmConvertTime.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDAF0 (KeRemoveProcessorAffinityEx.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     KePrepareClockTimerForIdle @ 0x1400FC8F0 (KePrepareClockTimerForIdle.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1401755E0 (PpmPerfArbitratorApplyProcessorState.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiSetUserTbFlushPending @ 0x1401BD290 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KdCallPowerHandlers @ 0x14028C048 (KdCallPowerHandlers.c)
+ *     KdPowerTransitionEx @ 0x14028C3F0 (KdPowerTransitionEx.c)
+ *     KeQueryWakeSource @ 0x14028F10C (KeQueryWakeSource.c)
+ *     KeWakeProcessor @ 0x140293E80 (KeWakeProcessor.c)
+ *     KeUpdatePendingQosRequest @ 0x1402981E4 (KeUpdatePendingQosRequest.c)
+ *     PpmIdleCompleteExitLatencyTrace @ 0x1402D4BC0 (PpmIdleCompleteExitLatencyTrace.c)
+ *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D50A0 (PpmIdleRecheckCoordinatedIdleMask.c)
+ *     PpmIdleSetSynchronizationState @ 0x1402D5350 (PpmIdleSetSynchronizationState.c)
+ *     PpmIdleTransitionStall @ 0x1402D5508 (PpmIdleTransitionStall.c)
+ *     PpmIdleUpdateConcurrency @ 0x1402D55A8 (PpmIdleUpdateConcurrency.c)
+ *     PpmTestAndLockProcessor @ 0x1402D5EB8 (PpmTestAndLockProcessor.c)
+ *     PpmPerfFeedbackCounterUpdate @ 0x1402DB548 (PpmPerfFeedbackCounterUpdate.c)
+ *     PpmEventEnterPlatformIdleState @ 0x1402E5874 (PpmEventEnterPlatformIdleState.c)
  */
 
 __int64 __fastcall PpmIdleExecuteTransition(
@@ -440,7 +440,7 @@ LABEL_54:
       }
       if ( *(_BYTE *)(v152 + 7) )
       {
-        v44 = HIDWORD(PpmCurrentProfile[341 * dword_1404180CC + 23]);
+        v44 = HIDWORD(PpmCurrentProfile[341 * dword_14041918C + 23]);
         if ( v42 >= a7 + (unsigned __int64)(unsigned int)(10 * v44) )
           v42 = a7 + (unsigned int)(10 * v44);
       }
@@ -515,7 +515,7 @@ LABEL_54:
     if ( v38 )
     {
 LABEL_96:
-      v11 = ((__int64 (__fastcall *)(_QWORD))off_1403FE480[0])((unsigned int)SpinLock);
+      v11 = ((__int64 (__fastcall *)(_QWORD))off_1403FF480[0])((unsigned int)SpinLock);
       v148 = v11;
       if ( *(_DWORD *)(v10 + 11800) )
       {
@@ -552,12 +552,12 @@ LABEL_99:
         v62 = KiClockTimerOwner;
         if ( (CurrentPrcb->PendingTickFlags & 1) != 0 )
         {
-          off_1403FE5C8[0]();
+          off_1403FF5C8[0]();
           CurrentPrcb->PendingTickFlags &= ~1u;
           v60 = v141;
         }
         if ( CurrentPrcb->Number == v62 )
-          ++dword_140421668;
+          ++dword_140422708;
         if ( CurrentPrcb->ClockOwner )
           CurrentPrcb->ClockOwner = 0;
       }
@@ -628,8 +628,8 @@ LABEL_120:
         {
           v74 = PpmPlatformStates + 384LL * a3;
           PpmEventEnterPlatformIdleState(a3);
-          if ( !qword_14043C480 && a3 == dword_14043C4C0 )
-            _InterlockedCompareExchange64(&qword_14043C480, MEMORY[0xFFFFF78000000008], 0LL);
+          if ( !qword_14043D540 && a3 == dword_14043D580 )
+            _InterlockedCompareExchange64(&qword_14043D540, MEMORY[0xFFFFF78000000008], 0LL);
           if ( a5 )
           {
             *(_BYTE *)(PpmPlatformStates + 56) = 1;
@@ -684,8 +684,8 @@ LABEL_120:
           DeepSleep = 0;
           if ( *(_BYTE *)(v161 + 1056) >= 2u && (HvlEnlightenments & 4) == 0 )
           {
-            v80 = byte_1404039C8;
-            if ( byte_1404039C8 == -1 )
+            v80 = byte_1404049C8;
+            if ( byte_1404049C8 == -1 )
             {
               _RAX = 1LL;
               __asm { cpuid }
@@ -704,7 +704,7 @@ LABEL_120:
                 v176 = _RCX;
                 v177 = _RDX;
               }
-              byte_1404039C8 = v80;
+              byte_1404049C8 = v80;
             }
             if ( !v80 )
             {
@@ -719,12 +719,12 @@ LABEL_120:
                 v91->DeepSleep = 1;
                 _InterlockedOr64(
                   (volatile signed __int64 *)(8LL * ((unsigned int)KiProcessorIndexToNumberMappingTable[Number] >> 6)
-                                            + 4306024
+                                            + 4310280
                                             + 0x140000000LL),
                   1LL << (KiProcessorIndexToNumberMappingTable[Number] & 0x3F));
                 if ( !v91->DeepSleep )
                 {
-                  v93 = 8LL * ((unsigned int)KiProcessorIndexToNumberMappingTable[v91->Number] >> 6) + 4306024;
+                  v93 = 8LL * ((unsigned int)KiProcessorIndexToNumberMappingTable[v91->Number] >> 6) + 4310280;
                   _InterlockedAnd64(
                     (volatile signed __int64 *)(v93 + 0x140000000LL),
                     ~(1LL << (KiProcessorIndexToNumberMappingTable[v91->Number] & 0x3F)));
@@ -823,7 +823,7 @@ LABEL_120:
           v108 = v107->Number;
           v107->DeepSleep = 0;
           _InterlockedAnd64(
-            &qword_14041B468[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v108] >> 6],
+            &qword_14041C508[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v108] >> 6],
             ~(1LL << (KiProcessorIndexToNumberMappingTable[v108] & 0x3F)));
           v109 = __readcr4();
           if ( (v109 & 0x20080) != 0 )
@@ -936,7 +936,7 @@ LABEL_237:
       else
         v121 = 0LL;
       KeResumeClockTimerFromIdle(v121);
-      off_1403FE490();
+      off_1403FF490();
       KeAccumulateTicks(v10, *(_DWORD *)(v10 + 11892), MEMORY[0xFFFFF78000000320], 0, 0);
       goto LABEL_243;
     }
@@ -958,7 +958,7 @@ LABEL_32:
   v28 = 0;
 LABEL_243:
   LOBYTE(v19) = 1;
-  ((void (__fastcall *)(unsigned __int64))off_1403FE6E8[0])(v19);
+  ((void (__fastcall *)(unsigned __int64))off_1403FF6E8[0])(v19);
   if ( v145 )
   {
     _interlockedbittestandreset64(

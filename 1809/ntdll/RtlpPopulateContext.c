@@ -5,7 +5,7 @@
  *     RtlInitStrongEnumerationHashTable @ 0x18006FF20 (RtlInitStrongEnumerationHashTable.c)
  *     RtlInsertEntryHashTable @ 0x18006FF60 (RtlInsertEntryHashTable.c)
  *     RtlLookupEntryHashTable @ 0x18006FFF0 (RtlLookupEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x1800806A0 (RtlRemoveEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x1800806B0 (RtlRemoveEntryHashTable.c)
  * Callees:
  *     RtlpGetChainHead @ 0x180070210 (RtlpGetChainHead.c)
  */

@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpGetCrimsonStackKey @ 0x1404CC8C8
+ * XREFs of EtwpGetCrimsonStackKey @ 0x1404C5C9C
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     EtwpDereferenceStackEntry @ 0x14032A8D0 (EtwpDereferenceStackEntry.c)
- *     KxTryToAcquireSpinLock @ 0x1404633C8 (KxTryToAcquireSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     EtwpDereferenceStackEntry @ 0x1403DEC00 (EtwpDereferenceStackEntry.c)
+ *     KxTryToAcquireSpinLock @ 0x140459EB8 (KxTryToAcquireSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 char __fastcall EtwpGetCrimsonStackKey(__int64 a1, __int64 a2, PSLIST_ENTRY *a3)
 {
   char v3; // di
-  union _SLIST_HEADER *v5; // r12
+  _SLIST_HEADER *v5; // r12
   unsigned int v6; // ebp
-  struct _SLIST_ENTRY *v7; // r15
+  _SLIST_ENTRY *v7; // r15
   unsigned int v8; // r13d
   unsigned __int64 v9; // r8
   unsigned int v10; // r9d
@@ -38,29 +38,29 @@ char __fastcall EtwpGetCrimsonStackKey(__int64 a1, __int64 a2, PSLIST_ENTRY *a3)
   _SLIST_ENTRY *v22; // rax
   PSLIST_ENTRY *v23; // rcx
   PSLIST_ENTRY v24; // rax
-  struct _SLIST_ENTRY **v25; // rax
+  _SLIST_ENTRY **v25; // rax
   unsigned int v26; // ebx
-  union _SLIST_HEADER *v27; // rax
+  _SLIST_HEADER *v27; // rax
   PSLIST_ENTRY v28; // r14
   PSLIST_ENTRY v29; // rax
   PSLIST_ENTRY v30; // r13
   unsigned int v31; // r12d
-  struct _SLIST_ENTRY *v32; // rbx
+  _SLIST_ENTRY *v32; // rbx
   PSLIST_ENTRY *v33; // rax
-  union _SLIST_HEADER *v35; // [rsp+28h] [rbp-70h]
+  _SLIST_HEADER *v35; // [rsp+28h] [rbp-70h]
   unsigned int v36; // [rsp+30h] [rbp-68h]
   KIRQL NewIrql; // [rsp+38h] [rbp-60h]
-  struct _SLIST_ENTRY *ListEntry; // [rsp+40h] [rbp-58h]
+  _SLIST_ENTRY *ListEntry; // [rsp+40h] [rbp-58h]
   char *v39; // [rsp+48h] [rbp-50h]
   unsigned int v40; // [rsp+A0h] [rbp+8h]
-  union _SLIST_HEADER *v41; // [rsp+A0h] [rbp+8h]
+  _SLIST_HEADER *v41; // [rsp+A0h] [rbp+8h]
   unsigned int v44; // [rsp+B8h] [rbp+20h]
 
   v3 = 0;
   *a3 = 0LL;
   if ( (*(_DWORD *)(a1 + 820) & 1) != 0 )
   {
-    v5 = *(union _SLIST_HEADER **)(a1 + 1056);
+    v5 = *(_SLIST_HEADER **)(a1 + 1056);
     v6 = ((unsigned int)*(unsigned __int16 *)(a2 + 6) - 8) >> 3;
     v7 = 0LL;
     v8 = 0;
@@ -154,15 +154,15 @@ LABEL_25:
       }
       if ( v15 == 4 )
       {
-        v7 = (struct _SLIST_ENTRY *)*((_QWORD *)v16 + 1);
+        v7 = (_SLIST_ENTRY *)*((_QWORD *)v16 + 1);
         ListEntry = v7;
         if ( (char *)v7->Next != v16 )
           goto LABEL_53;
-        v25 = (struct _SLIST_ENTRY **)*((_QWORD *)&v7->Next + 1);
+        v25 = (_SLIST_ENTRY **)*((_QWORD *)&v7->Next + 1);
         if ( *v25 != v7 )
           goto LABEL_53;
         *((_QWORD *)v16 + 1) = v25;
-        *v25 = (struct _SLIST_ENTRY *)v16;
+        *v25 = (_SLIST_ENTRY *)v16;
       }
       i = 0LL;
       v26 = 0;

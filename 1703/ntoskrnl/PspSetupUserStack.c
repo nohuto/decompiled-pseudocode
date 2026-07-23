@@ -12,10 +12,10 @@
  *     RtlCreateUserStack @ 0x1405165A8 (RtlCreateUserStack.c)
  */
 
-__int64 __fastcall PspSetupUserStack(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, unsigned int a5)
+__int64 __fastcall PspSetupUserStack(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   char v5; // bl
-  unsigned __int64 v10; // rsi
+  SIZE_T v10; // rsi
   int UserStack; // esi
   __int64 v12; // r15
   void *v14; // rax
@@ -34,22 +34,28 @@ __int64 __fastcall PspSetupUserStack(__int64 a1, __int64 a2, _QWORD *a3, __int64
   if ( a5 )
     v10 = ((unsigned __int64)a5 << 56) | 0x1000;
   KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)&v18);
-  UserStack = RtlCreateUserStack(*(_QWORD *)(a4 + 16), *(_QWORD *)(a4 + 24), *(_QWORD *)(a4 + 8), v10, v15, a3);
+  UserStack = RtlCreateUserStack(
+                *(_QWORD *)(a4 + 16),
+                *(_QWORD *)(a4 + 24),
+                *(_QWORD *)(a4 + 8),
+                v10,
+                v15,
+                (PINITIAL_TEB)a3);
   if ( UserStack < 0 )
     goto LABEL_14;
   if ( (*(_DWORD *)(a1 + 768) & 0x20000) != 0 )
     v12 = 0LL;
   else
     v12 = 16 * (unsigned int)(ExGenRandom(1) & 0x7F);
-  if ( !*(_QWORD *)(a1 + 1064) || (UserStack = PspWow64SetupCpuArea(a3 + 2, a1), UserStack >= 0) )
+  if ( !*(_QWORD *)(a1 + 1064) || (UserStack = PspWow64SetupCpuArea((unsigned __int64 *)(a3 + 16), a1), UserStack >= 0) )
   {
-    *(_QWORD *)(a2 + 152) = a3[2] - v12 - 40;
+    *(_QWORD *)(a2 + 152) = *(_QWORD *)(a3 + 16) - v12 - 40;
     KiUnstackDetachProcess(&v18, 0LL);
 LABEL_9:
     *(_BYTE *)a4 = (2 * v5) | *(_BYTE *)a4 & 0xFD;
     return 0LL;
   }
-  v14 = (void *)a3[4];
+  v14 = *(void **)(a3 + 32);
   RegionSize = 0LL;
   BaseAddress = v14;
   ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);

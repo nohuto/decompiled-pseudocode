@@ -1,35 +1,35 @@
 /*
- * XREFs of LdrpIsSubstringFound @ 0x18015C118
+ * XREFs of LdrpIsSubstringFound @ 0x18015BFD8
  * Callers:
- *     LdrpIsVerifierActivationFilterMatched @ 0x1800D1F10 (LdrpIsVerifierActivationFilterMatched.c)
+ *     LdrpIsVerifierActivationFilterMatched @ 0x1800CF680 (LdrpIsVerifierActivationFilterMatched.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     RtlCompareUnicodeStrings @ 0x180083D00 (RtlCompareUnicodeStrings.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     RtlCompareUnicodeStrings @ 0x18007B0A0 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall LdrpIsSubstringFound(unsigned __int16 *a1, unsigned __int16 *a2)
+__int64 __fastcall LdrpIsSubstringFound(unsigned __int16 *a1, PCWCH *a2)
 {
   unsigned int v4; // edi
   unsigned __int64 i; // rbx
 
   v4 = 0;
   LdrpLogInternal(
-    (int)"minkernel\\ldr\\ldrinit.c",
-    9197,
+    "minkernel\\ldr\\ldrinit.c",
+    9193,
     (__int64)"LdrpIsSubstringFound",
     2,
     "Searching for \"%wZ\" in \"%wZ\"\n",
     a2,
     a1);
-  if ( *a1 >= *a2 )
+  if ( *a1 >= *(_WORD *)a2 )
   {
-    for ( i = (*a1 - (unsigned __int64)*a2) >> 1;
-          (unsigned int)RtlCompareUnicodeStrings(
-                          (unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2 * i),
-                          (unsigned __int64)*a2 >> 1,
-                          *((_BYTE **)a2 + 1),
-                          (unsigned __int64)*a2 >> 1,
-                          1);
+    for ( i = (*a1 - (unsigned __int64)*(unsigned __int16 *)a2) >> 1;
+          RtlCompareUnicodeStrings(
+            (PCWCH)(*((_QWORD *)a1 + 1) + 2 * i),
+            (unsigned __int64)*(unsigned __int16 *)a2 >> 1,
+            a2[1],
+            (unsigned __int64)*(unsigned __int16 *)a2 >> 1,
+            1u);
           --i )
     {
       if ( !i )

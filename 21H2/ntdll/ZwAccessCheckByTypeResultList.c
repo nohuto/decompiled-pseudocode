@@ -1,16 +1,27 @@
 /*
- * XREFs of ZwAccessCheckByTypeResultList @ 0x18009E2B0
+ * XREFs of ZwAccessCheckByTypeResultList @ 0x18009E270
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAccessCheckByTypeResultList()
+NTSTATUS __cdecl ZwAccessCheckByTypeResultList(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID PrincipalSelfSid,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_TYPE_LIST ObjectTypeList,
+        ULONG ObjectTypeListLength,
+        PGENERIC_MAPPING GenericMapping,
+        PPRIVILEGE_SET PrivilegeSet,
+        PULONG PrivilegeSetLength,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 100LL;
+  result = 100;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

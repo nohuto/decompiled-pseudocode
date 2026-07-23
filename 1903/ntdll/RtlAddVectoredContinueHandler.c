@@ -6,7 +6,7 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlAddVectoredContinueHandler(int a1, __int64 a2)
+PVOID __cdecl RtlAddVectoredContinueHandler(ULONG First, PVECTORED_EXCEPTION_HANDLER Handler)
 {
-  return sub_18007F8D0(a1, a2, 1u);
+  return sub_18007F8D0(First, (__int64)Handler, 1u);
 }

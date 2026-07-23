@@ -1,8 +1,8 @@
 /*
- * XREFs of VfMajorIsValidIrpStatus @ 0x14070E55C
+ * XREFs of VfMajorIsValidIrpStatus @ 0x14070E58C
  * Callers:
- *     ViGenericVerifyIrpStackDownward @ 0x140703950 (ViGenericVerifyIrpStackDownward.c)
- *     ViGenericVerifyIrpStackUpward @ 0x140703B4C (ViGenericVerifyIrpStackUpward.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x140703980 (ViGenericVerifyIrpStackDownward.c)
+ *     ViGenericVerifyIrpStackUpward @ 0x140703B7C (ViGenericVerifyIrpStackUpward.c)
  * Callees:
  *     <none>
  */

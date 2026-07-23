@@ -17,13 +17,13 @@
 
 void __fastcall PiDqQueryFreeActiveData(__int64 a1)
 {
-  struct _RTL_AVL_TABLE *i; // rcx
+  _RTL_AVL_TABLE *i; // rcx
   __int64 v3; // rbx
   void *v4; // rcx
   _QWORD *v5; // rcx
   __int64 v6; // rax
 
-  for ( i = (struct _RTL_AVL_TABLE *)(a1 + 72); !RtlIsGenericTableEmptyAvl(i); i = (struct _RTL_AVL_TABLE *)(a1 + 72) )
+  for ( i = (_RTL_AVL_TABLE *)(a1 + 72); !RtlIsGenericTableEmptyAvl(i); i = (_RTL_AVL_TABLE *)(a1 + 72) )
     PiDqQueryDeleteObjectFromResultSet(a1, *(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL));
   v3 = a1 + 192;
   while ( *(_QWORD *)v3 != v3 )

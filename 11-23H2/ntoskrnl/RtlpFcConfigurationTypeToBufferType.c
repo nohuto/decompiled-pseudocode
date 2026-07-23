@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcConfigurationTypeToBufferType @ 0x1409C7F60
+ * XREFs of RtlpFcConfigurationTypeToBufferType @ 0x1409C8160
  * Callers:
- *     RtlQueryAllInternalFeatureConfigurations @ 0x1404115C0 (RtlQueryAllInternalFeatureConfigurations.c)
+ *     RtlQueryAllInternalFeatureConfigurations @ 0x140411800 (RtlQueryAllInternalFeatureConfigurations.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptAffinityIsSteerable @ 0x1403B879C
+ * XREFs of HalpInterruptAffinityIsSteerable @ 0x1402B482C
  * Callers:
- *     HalGetMessageRoutingInfo @ 0x1403B81B0 (HalGetMessageRoutingInfo.c)
+ *     HalGetMessageRoutingInfo @ 0x1402B4240 (HalGetMessageRoutingInfo.c)
  * Callees:
- *     KeQueryInterruptPartitionInformation @ 0x1403B8860 (KeQueryInterruptPartitionInformation.c)
+ *     KeQueryInterruptPartitionInformation @ 0x1402B48F0 (KeQueryInterruptPartitionInformation.c)
  */
 
 __int64 __fastcall HalpInterruptAffinityIsSteerable(__int64 a1, bool *a2)

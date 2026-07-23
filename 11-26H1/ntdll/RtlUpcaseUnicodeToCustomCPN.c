@@ -1,33 +1,33 @@
 /*
- * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x18013C500
+ * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x18013C3C0
  * Callers:
  *     <none>
  * Callees:
- *     NLS_UPCASE @ 0x180036DE0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x180021F40 (NLS_UPCASE.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
-        __int64 a1,
-        int a2,
-        unsigned int a3,
-        unsigned int *a4,
-        unsigned __int16 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlUpcaseUnicodeToCustomCPN(
+        PCPTABLEINFO CustomCP,
+        PCH CustomCPString,
+        ULONG MaxBytesInCustomCPString,
+        PULONG BytesInCustomCPString,
+        PWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v7; // ebx
-  unsigned int *v8; // r14
-  unsigned int v9; // edi
+  ULONG v7; // ebx
+  PULONG v8; // r14
+  ULONG v9; // edi
   _BYTE *v10; // r11
-  unsigned int v11; // eax
-  __int64 v12; // r14
-  unsigned __int16 *v13; // rbp
+  ULONG v11; // eax
+  _BYTE *v12; // r14
+  PWCH v13; // rbp
   __int64 v14; // r15
   unsigned __int16 v15; // ax
   _BYTE *v16; // r11
-  __int64 v17; // r15
+  unsigned __int16 *DBCSOffsets; // r15
   int v18; // r12d
-  __int64 v19; // r13
-  unsigned __int16 *v20; // rbp
+  _WORD *WideCharTable; // r13
+  PWCH v20; // rbp
   __int64 v21; // r12
   __int64 v22; // rax
   unsigned __int64 v23; // rax
@@ -36,35 +36,37 @@ __int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
   int v26; // edx
   __int16 v27; // dx
   unsigned int v28; // eax
+  int v30; // [rsp+20h] [rbp-48h]
   __int64 v31; // [rsp+70h] [rbp+8h]
 
-  v7 = a6 >> 1;
-  v8 = a4;
-  v9 = a3;
-  v31 = qword_1801C6038;
-  LODWORD(v10) = a2;
-  if ( *(_WORD *)(a1 + 12) )
+  v7 = BytesInUnicodeString >> 1;
+  v8 = BytesInCustomCPString;
+  v9 = MaxBytesInCustomCPString;
+  v31 = qword_1801C5038;
+  LODWORD(v10) = (_DWORD)CustomCPString;
+  if ( CustomCP->DBCSCodePage )
   {
-    v17 = *(_QWORD *)(a1 + 56);
-    v18 = a2;
-    v19 = *(_QWORD *)(a1 + 40);
+    DBCSOffsets = CustomCP->DBCSOffsets;
+    v18 = (int)CustomCPString;
+    WideCharTable = CustomCP->WideCharTable;
+    v30 = (int)CustomCPString;
     if ( v7 )
     {
-      v20 = a5;
-      v21 = qword_1801C6038;
+      v20 = UnicodeString;
+      v21 = qword_1801C5038;
       do
       {
         if ( !v9 )
           break;
         v22 = *v20++;
-        v23 = *(unsigned __int16 *)(v19 + 2 * v22);
+        v23 = (unsigned __int16)WideCharTable[v22];
         v24 = (unsigned __int8)v23;
         v25 = v23 >> 8;
-        if ( *(_WORD *)(v17 + 2 * v25) )
-          v26 = *(unsigned __int16 *)(v17 + 2 * (*(unsigned __int16 *)(v17 + 2 * v25) + v24));
+        if ( DBCSOffsets[v25] )
+          v26 = DBCSOffsets[DBCSOffsets[v25] + v24];
         else
-          v26 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 2 * v24);
-        v27 = *(_WORD *)(v19 + 2LL * (unsigned __int16)NLS_UPCASE(v21, v26));
+          v26 = CustomCP->MultiByteTable[v24];
+        v27 = WideCharTable[(unsigned __int16)NLS_UPCASE(v21, v26)];
         if ( HIBYTE(v27) )
         {
           v28 = v9--;
@@ -78,32 +80,32 @@ __int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
         --v7;
       }
       while ( v7 );
-      v8 = a4;
-      v18 = a2;
+      v8 = BytesInCustomCPString;
+      v18 = v30;
     }
     if ( v8 )
       *v8 = (_DWORD)v10 - v18;
   }
   else
   {
-    v11 = a3;
-    if ( v7 < a3 )
-      v11 = a6 >> 1;
-    if ( a4 )
-      *a4 = v11;
-    v12 = *(_QWORD *)(a1 + 40);
+    v11 = MaxBytesInCustomCPString;
+    if ( v7 < MaxBytesInCustomCPString )
+      v11 = BytesInUnicodeString >> 1;
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = v11;
+    v12 = CustomCP->WideCharTable;
     if ( v11 )
     {
-      v13 = a5;
+      v13 = UnicodeString;
       v14 = v11;
       do
       {
-        v15 = NLS_UPCASE(v31, *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*v13++ + v12)));
-        *v16 = *(_BYTE *)(v15 + v12);
+        v15 = NLS_UPCASE(v31, CustomCP->MultiByteTable[(unsigned __int8)v12[*v13++]]);
+        *v16 = v12[v15];
         --v14;
       }
       while ( v14 );
-      v9 = a3;
+      v9 = MaxBytesInCustomCPString;
     }
   }
   return v9 < v7 ? 0x80000005 : 0;

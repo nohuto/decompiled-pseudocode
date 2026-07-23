@@ -1,33 +1,33 @@
 /*
- * XREFs of EtwRegisterTraceGuidsW @ 0x180058E60
+ * XREFs of EtwRegisterTraceGuidsW @ 0x1800433E0
  * Callers:
- *     EtwRegisterTraceGuidsA @ 0x18005AD40 (EtwRegisterTraceGuidsA.c)
+ *     EtwRegisterTraceGuidsA @ 0x1800452C0 (EtwRegisterTraceGuidsA.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlSetLastWin32Error @ 0x180056610 (RtlSetLastWin32Error.c)
- *     EtwNotificationRegister @ 0x1800571C0 (EtwNotificationRegister.c)
- *     EtwpCreateRegGuidsContext @ 0x180058F60 (EtwpCreateRegGuidsContext.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlSetLastWin32Error @ 0x180040B90 (RtlSetLastWin32Error.c)
+ *     EtwNotificationRegister @ 0x180041740 (EtwNotificationRegister.c)
+ *     EtwpCreateRegGuidsContext @ 0x1800434E0 (EtwpCreateRegGuidsContext.c)
  */
 
 __int64 __fastcall EtwRegisterTraceGuidsW(
-        _SLIST_ENTRY *a1,
+        PETW_NOTIFICATION_CALLBACK Callback,
         int a2,
-        struct _SLIST_ENTRY *a3,
+        GUID *a3,
         unsigned int a4,
         __int64 a5,
         int a6,
         int a7,
-        _QWORD *a8)
+        ULONGLONG *a8)
 {
-  _QWORD *v9; // rdi
-  struct _SLIST_ENTRY v10; // xmm0
-  __int64 RegGuidsContext; // rsi
-  unsigned int LastErrorValue; // ebx
-  struct _SLIST_ENTRY v14; // [rsp+30h] [rbp-18h] BYREF
-  unsigned __int64 v15; // [rsp+50h] [rbp+8h] BYREF
+  ULONGLONG *v9; // rdi
+  GUID v10; // xmm0
+  void *RegGuidsContext; // rsi
+  unsigned __int32 LastErrorValue; // ebx
+  GUID Guid; // [rsp+30h] [rbp-18h] BYREF
+  ULONGLONG RegHandle; // [rsp+50h] [rbp+8h] BYREF
 
-  v15 = 0LL;
-  if ( a1 )
+  RegHandle = 0LL;
+  if ( Callback )
   {
     v9 = a8;
     if ( a8 )
@@ -36,17 +36,17 @@ __int64 __fastcall EtwRegisterTraceGuidsW(
       {
         v10 = *a3;
         *a8 = 0LL;
-        v14 = v10;
-        RegGuidsContext = EtwpCreateRegGuidsContext((_DWORD)a1, a2, (unsigned int)&v14, a4, a5);
+        Guid = v10;
+        RegGuidsContext = (void *)EtwpCreateRegGuidsContext((_DWORD)Callback, a2, (unsigned int)&Guid, a4, a5);
         if ( RegGuidsContext )
         {
-          LastErrorValue = EtwNotificationRegister(&v14, 2, a1, RegGuidsContext, &v15);
+          LastErrorValue = EtwNotificationRegister(&Guid, 2u, Callback, RegGuidsContext, &RegHandle);
           if ( !LastErrorValue )
           {
-            *v9 = v15;
+            *v9 = RegHandle;
             return LastErrorValue;
           }
-          RtlFreeHeap_0();
+          RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, RegGuidsContext);
         }
         else
         {
@@ -59,6 +59,6 @@ __int64 __fastcall EtwRegisterTraceGuidsW(
       }
     }
   }
-  RtlSetLastWin32Error(0x57u);
+  RtlSetLastWin32Error(87);
   return 87LL;
 }

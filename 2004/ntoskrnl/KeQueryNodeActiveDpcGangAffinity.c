@@ -6,7 +6,7 @@
  *     KeQueryNodeActiveAffinity @ 0x1402DE440 (KeQueryNodeActiveAffinity.c)
  */
 
-void __fastcall KeQueryNodeActiveDpcGangAffinity(USHORT a1, struct _GROUP_AFFINITY *a2, USHORT *a3)
+void __fastcall KeQueryNodeActiveDpcGangAffinity(USHORT a1, _GROUP_AFFINITY *a2, USHORT *a3)
 {
   KeQueryNodeActiveAffinity(a1, a2, a3);
 }

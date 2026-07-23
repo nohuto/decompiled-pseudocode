@@ -3,9 +3,9 @@
  * Callers:
  *     MiFindLargestLoaderDescriptor @ 0x140B42A54 (MiFindLargestLoaderDescriptor.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     MxComputePfnPagesNeeded @ 0x140B436E0 (MxComputePfnPagesNeeded.c)
  */
 

@@ -78,7 +78,7 @@ __int64 __fastcall EtwpPreInitializeSiloState(__int64 a1, unsigned int a2)
     while ( v12 );
     v6[54] = 0LL;
     v6[52] = (__int64)v6;
-    *((_OWORD *)v6 + 4) = SecurityProviderGuid;
+    *((GUID *)v6 + 4) = SecurityProviderGuid;
     *((_QWORD *)PsGetServerSiloGlobals(a1) + 104) = v6;
   }
   else

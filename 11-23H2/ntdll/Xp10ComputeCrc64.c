@@ -1,7 +1,7 @@
 /*
- * XREFs of Xp10ComputeCrc64 @ 0x18011DB88
+ * XREFs of Xp10ComputeCrc64 @ 0x18011DB58
  * Callers:
- *     Xp10ComputeAndWriteCrc @ 0x18011DAA0 (Xp10ComputeAndWriteCrc.c)
+ *     Xp10ComputeAndWriteCrc @ 0x18011DA70 (Xp10ComputeAndWriteCrc.c)
  * Callees:
  *     <none>
  */

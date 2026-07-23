@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSetupRealModeResume @ 0x1403FA120
+ * XREFs of HalpSetupRealModeResume @ 0x1403FA300
  * Callers:
- *     HaliAcpiSleep @ 0x140385F30 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140386080 (HaliAcpiSleep.c)
  * Callees:
- *     HalpInterruptBuildStartupStub @ 0x1403A1580 (HalpInterruptBuildStartupStub.c)
- *     KeSaveStateForHibernate @ 0x1403FEED0 (KeSaveStateForHibernate.c)
+ *     HalpInterruptBuildStartupStub @ 0x1403A16D0 (HalpInterruptBuildStartupStub.c)
+ *     KeSaveStateForHibernate @ 0x1403FF0B0 (KeSaveStateForHibernate.c)
  */
 
 __int64 __fastcall HalpSetupRealModeResume(_QWORD *a1, int a2)

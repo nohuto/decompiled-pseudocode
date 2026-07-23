@@ -10,16 +10,16 @@
 
 char RtlpHeapTrkSyncWithDiagnoser()
 {
-  _QWORD v1[3]; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v2; // [rsp+50h] [rbp+8h] BYREF
+  HANDLE Handles[3]; // [rsp+30h] [rbp-18h] BYREF
+  LARGE_INTEGER Timeout; // [rsp+50h] [rbp+8h] BYREF
 
   if ( TrkContext )
   {
-    v1[0] = *(_QWORD *)(TrkContext + 8);
-    v1[1] = *(_QWORD *)(TrkContext + 24);
-    v2 = -100000000LL;
-    ZwSetEvent(*(_QWORD *)(TrkContext + 16), 0LL);
-    if ( (unsigned int)NtWaitForMultipleObjects(2LL, v1, 1LL, 0LL, &v2) == 1 )
+    Handles[0] = *((HANDLE *)TrkContext + 1);
+    Handles[1] = *((HANDLE *)TrkContext + 3);
+    Timeout.QuadPart = -100000000LL;
+    ZwSetEvent(*((HANDLE *)TrkContext + 2), 0LL);
+    if ( NtWaitForMultipleObjects(2u, Handles, WaitAny, 0, &Timeout) == 1 )
       return 1;
   }
   byte_1801D0868 = 1;

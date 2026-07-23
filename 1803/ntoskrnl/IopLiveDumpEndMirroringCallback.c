@@ -103,7 +103,7 @@ __int64 __fastcall IopLiveDumpEndMirroringCallback(int a1)
           else
           {
             IoFillDumpHeader(
-              *(enum _NT_PRODUCT_TYPE **)(v1 + 384),
+              *(_NT_PRODUCT_TYPE **)(v1 + 384),
               6,
               *(_DWORD *)v1,
               *(_QWORD *)(v1 + 8),

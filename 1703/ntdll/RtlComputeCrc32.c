@@ -6,19 +6,20 @@
  *     <none>
  */
 
-__int64 __fastcall RtlComputeCrc32(int a1, _BYTE *a2, unsigned int a3)
+ULONG32 __cdecl RtlComputeCrc32(ULONG32 PartialCrc, PVOID Buffer, ULONG Length)
 {
-  unsigned int v4; // r9d
+  ULONG32 v4; // r9d
   __int64 v5; // r11
   unsigned __int8 v6; // dl
 
-  v4 = ~a1;
-  if ( a3 )
+  v4 = ~PartialCrc;
+  if ( Length )
   {
-    v5 = a3;
+    v5 = Length;
     do
     {
-      v6 = *a2++ ^ v4;
+      v6 = *(_BYTE *)Buffer ^ v4;
+      Buffer = (char *)Buffer + 1;
       v4 = (v4 >> 8) ^ dword_18011A1D0[v6];
       --v5;
     }

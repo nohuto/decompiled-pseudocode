@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptEcpointDouble @ 0x140567F7C
+ * XREFs of SymCryptEcpointDouble @ 0x140567130
  * Callers:
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140563700 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x140563C20 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptPrecomputation @ 0x14056426C (SymCryptPrecomputation.c)
- *     SymCryptShortWeierstrassAdd @ 0x1405664C0 (SymCryptShortWeierstrassAdd.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140565AF0 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x140566010 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptPrecomputation @ 0x14056665C (SymCryptPrecomputation.c)
+ *     SymCryptShortWeierstrassAdd @ 0x140574120 (SymCryptShortWeierstrassAdd.c)
  * Callees:
  *     <none>
  */

@@ -3,7 +3,7 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
  *     KiShadowProcessorAllocation @ 0x1403DE0E8 (KiShadowProcessorAllocation.c)
  */
 

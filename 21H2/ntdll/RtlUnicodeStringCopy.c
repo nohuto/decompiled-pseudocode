@@ -2,7 +2,7 @@
  * XREFs of RtlUnicodeStringCopy @ 0x18006A328
  * Callers:
  *     RtlGetFullPathName_Ustr @ 0x18001B430 (RtlGetFullPathName_Ustr.c)
- *     RtlpEnsureTailingSlashAndAddToList @ 0x1800DEFA4 (RtlpEnsureTailingSlashAndAddToList.c)
+ *     RtlpEnsureTailingSlashAndAddToList @ 0x1800DEF64 (RtlpEnsureTailingSlashAndAddToList.c)
  * Callees:
  *     RtlWideCharArrayCopyWorker @ 0x18006A3B0 (RtlWideCharArrayCopyWorker.c)
  *     RtlUnicodeStringValidateSrcWorker @ 0x18006A414 (RtlUnicodeStringValidateSrcWorker.c)

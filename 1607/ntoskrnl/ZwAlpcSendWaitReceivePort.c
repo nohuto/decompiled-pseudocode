@@ -1,17 +1,25 @@
 /*
- * XREFs of ZwAlpcSendWaitReceivePort @ 0x14015AD80
+ * XREFs of ZwAlpcSendWaitReceivePort @ 0x14015B2F0
  * Callers:
- *     PopUmpoProcessMessages @ 0x140009EEC (PopUmpoProcessMessages.c)
- *     PopUmpoSendPowerMessage @ 0x1400FB738 (PopUmpoSendPowerMessage.c)
- *     PopMonitorProcessLoop @ 0x14057E790 (PopMonitorProcessLoop.c)
- *     DbgkpSendErrorMessage @ 0x14061A524 (DbgkpSendErrorMessage.c)
+ *     PopUmpoProcessMessages @ 0x140009A6C (PopUmpoProcessMessages.c)
+ *     PopUmpoSendPowerMessage @ 0x1400F94C4 (PopUmpoSendPowerMessage.c)
+ *     PopMonitorProcessLoop @ 0x14057EC3C (PopMonitorProcessLoop.c)
+ *     DbgkpSendErrorMessage @ 0x14061A5D8 (DbgkpSendErrorMessage.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcSendWaitReceivePort(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

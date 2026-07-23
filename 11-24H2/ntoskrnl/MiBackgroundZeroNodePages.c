@@ -1,19 +1,19 @@
 /*
- * XREFs of MiBackgroundZeroNodePages @ 0x1403C6F60
+ * XREFs of MiBackgroundZeroNodePages @ 0x140412BA0
  * Callers:
  *     <none>
  * Callees:
- *     MiZeroThreadContextSetExiting @ 0x140209DA4 (MiZeroThreadContextSetExiting.c)
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MiDeleteZeroThreadContext @ 0x1403C6608 (MiDeleteZeroThreadContext.c)
- *     MiSelectBestZeroingProcessor @ 0x1403C7C00 (MiSelectBestZeroingProcessor.c)
- *     MiDecrementZeroEngineThread @ 0x1403C7E68 (MiDecrementZeroEngineThread.c)
- *     MiDereferenceAnyActiveHugeContext @ 0x1403C7EE0 (MiDereferenceAnyActiveHugeContext.c)
- *     MiRemoveThreadFromEngineLists @ 0x1403C81EC (MiRemoveThreadFromEngineLists.c)
- *     MiSignalZeroingPassComplete @ 0x14068FE80 (MiSignalZeroingPassComplete.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     MiZeroThreadContextSetExiting @ 0x140331384 (MiZeroThreadContextSetExiting.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
+ *     MiDeleteZeroThreadContext @ 0x140412560 (MiDeleteZeroThreadContext.c)
+ *     MiSelectBestZeroingProcessor @ 0x140413840 (MiSelectBestZeroingProcessor.c)
+ *     MiDecrementZeroEngineThread @ 0x140413AA8 (MiDecrementZeroEngineThread.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x140413B20 (MiDereferenceAnyActiveHugeContext.c)
+ *     MiRemoveThreadFromEngineLists @ 0x140413E2C (MiRemoveThreadFromEngineLists.c)
+ *     MiSignalZeroingPassComplete @ 0x140690F50 (MiSignalZeroingPassComplete.c)
  */
 
 void __fastcall MiBackgroundZeroNodePages(_QWORD *P)
@@ -42,7 +42,7 @@ void __fastcall MiBackgroundZeroNodePages(_QWORD *P)
     P[41] = CurrentThread;
   }
   MiReleaseSpinLockExclusive(v6, v7);
-  MiSelectBestZeroingProcessor(v1, P, 0LL, 1LL);
+  MiSelectBestZeroingProcessor(v1, P, 0LL);
   v8 = ExAcquireSpinLockExclusive(v6);
   *((_DWORD *)P + 96) |= 1u;
   if ( (P[48] & 0x10) != 0 )

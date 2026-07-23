@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerRequestUnrevokeRequests @ 0x1404B4CB0
+ * XREFs of PopPowerRequestUnrevokeRequests @ 0x1404AF4B0
  * Callers:
- *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A3BCEC (PopPowerRequestHandleExecutionEnablementUpdate.c)
- *     PopPowerRequestNotifyTtmSessionInitialized @ 0x140AB8240 (PopPowerRequestNotifyTtmSessionInitialized.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A314CC (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopPowerRequestNotifyTtmSessionInitialized @ 0x140AB2704 (PopPowerRequestNotifyTtmSessionInitialized.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14046C0C4 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x140464D44 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
  */
 
 void __fastcall PopPowerRequestUnrevokeRequests(int a1)

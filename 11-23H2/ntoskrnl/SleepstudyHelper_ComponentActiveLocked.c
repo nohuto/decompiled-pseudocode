@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelper_ComponentActiveLocked @ 0x14032D5B0
+ * XREFs of SleepstudyHelper_ComponentActiveLocked @ 0x14032D840
  * Callers:
- *     SleepstudyHelper_ComponentActive @ 0x14032D540 (SleepstudyHelper_ComponentActive.c)
+ *     SleepstudyHelper_ComponentActive @ 0x14032D7D0 (SleepstudyHelper_ComponentActive.c)
  * Callees:
- *     SshpSetBlockerActive @ 0x14032D7B8 (SshpSetBlockerActive.c)
+ *     SshpSetBlockerActive @ 0x14032DA48 (SshpSetBlockerActive.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ComponentActiveLocked(__int64 a1, __int64 a2)

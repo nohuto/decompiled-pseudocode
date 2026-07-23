@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetBlockSizeEx @ 0x18005FCA4
+ * XREFs of RtlpGetBlockSizeEx @ 0x18005FC94
  * Callers:
- *     RtlCreateProcessParametersEx @ 0x18005E900 (RtlCreateProcessParametersEx.c)
- *     RtlpInitEnvironmentBlock @ 0x18005EE48 (RtlpInitEnvironmentBlock.c)
- *     RtlCreateEnvironmentEx @ 0x18005EF20 (RtlCreateEnvironmentEx.c)
+ *     RtlCreateProcessParametersEx @ 0x18005E8F0 (RtlCreateProcessParametersEx.c)
+ *     RtlpInitEnvironmentBlock @ 0x18005EE38 (RtlpInitEnvironmentBlock.c)
+ *     RtlCreateEnvironmentEx @ 0x18005EF10 (RtlCreateEnvironmentEx.c)
  * Callees:
  *     <none>
  */

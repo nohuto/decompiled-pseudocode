@@ -13,7 +13,7 @@
 __int64 __fastcall EtwpQueueReply(PRKQUEUE Queue, unsigned int *a2)
 {
   int v3; // edi
-  struct _LIST_ENTRY *PoolWithTag; // rax
+  _LIST_ENTRY *PoolWithTag; // rax
   struct _LIST_ENTRY *v6; // [rsp+38h] [rbp+10h] BYREF
 
   v6 = 0LL;
@@ -24,7 +24,7 @@ __int64 __fastcall EtwpQueueReply(PRKQUEUE Queue, unsigned int *a2)
   }
   else
   {
-    PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x72777445u);
+    PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x72777445u);
     if ( PoolWithTag )
     {
       *PoolWithTag = 0LL;

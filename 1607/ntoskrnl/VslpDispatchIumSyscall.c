@@ -1,7 +1,7 @@
 /*
- * XREFs of VslpDispatchIumSyscall @ 0x140159C30
+ * XREFs of VslpDispatchIumSyscall @ 0x14015A1A0
  * Callers:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCopyCell @ 0x1404EC0FC
+ * XREFs of CmpCopyCell @ 0x1404CE184
  * Callers:
- *     CmpPromoteSingleKeyFromKeyNodeStacks @ 0x1401B376C (CmpPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpCopyKeyPartial @ 0x1404EBDEC (CmpCopyKeyPartial.c)
- *     CmpLightWeightCreateSetValueData @ 0x14053B4E8 (CmpLightWeightCreateSetValueData.c)
- *     CmpCopyValue @ 0x140608960 (CmpCopyValue.c)
- *     CmpSyncKeyValues @ 0x140609858 (CmpSyncKeyValues.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x14060F280 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpPromoteSingleKeyFromKeyNodeStacks @ 0x1401B3650 (CmpPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpCopyKeyPartial @ 0x1404CDE74 (CmpCopyKeyPartial.c)
+ *     CmpLightWeightCreateSetValueData @ 0x14053BA28 (CmpLightWeightCreateSetValueData.c)
+ *     CmpCopyValue @ 0x140608A14 (CmpCopyValue.c)
+ *     CmpSyncKeyValues @ 0x14060990C (CmpSyncKeyValues.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14060F334 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     HvAllocateCell @ 0x140401D3C (HvAllocateCell.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvAllocateCell @ 0x140400BFC (HvAllocateCell.c)
  */
 
 __int64 __fastcall CmpCopyCell(__int64 a1, __int64 a2, ULONG_PTR a3, unsigned int a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitFunctionOverrideCapabilities @ 0x140809EC4
+ * XREFs of RtlInitFunctionOverrideCapabilities @ 0x14080F954
  * Callers:
- *     MiInitializeFunctionOverrides @ 0x140CF351C (MiInitializeFunctionOverrides.c)
+ *     MiInitializeFunctionOverrides @ 0x140CF989C (MiInitializeFunctionOverrides.c)
  * Callees:
- *     RtlpInitFunctionOverrideCapabilities @ 0x14080F35C (RtlpInitFunctionOverrideCapabilities.c)
+ *     RtlpInitFunctionOverrideCapabilities @ 0x140814DEC (RtlpInitFunctionOverrideCapabilities.c)
  */
 
 char __fastcall RtlInitFunctionOverrideCapabilities(_BYTE *a1, __int64 a2, __int64 a3)

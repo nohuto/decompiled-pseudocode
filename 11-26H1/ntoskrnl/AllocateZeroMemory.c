@@ -1,11 +1,11 @@
 /*
- * XREFs of AllocateZeroMemory @ 0x14071E37C
+ * XREFs of AllocateZeroMemory @ 0x14072300C
  * Callers:
- *     FseInitializeGovernedFeaturesEffectiveStates @ 0x1408A4DD8 (FseInitializeGovernedFeaturesEffectiveStates.c)
- *     FsepPropagateGovernedFeatureEffectiveState @ 0x1408A4E88 (FsepPropagateGovernedFeatureEffectiveState.c)
+ *     FseInitializeGovernedFeaturesEffectiveStates @ 0x1408AB1E8 (FseInitializeGovernedFeaturesEffectiveStates.c)
+ *     FsepPropagateGovernedFeatureEffectiveState @ 0x1408AB298 (FsepPropagateGovernedFeatureEffectiveState.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AllocateZeroMemory(_QWORD *a1, size_t a2)

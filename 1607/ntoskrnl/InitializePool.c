@@ -3,12 +3,12 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MmGetNumberOfPhysicalPages @ 0x1404145C8 (MmGetNumberOfPhysicalPages.c)
- *     MmAllocateIndependentPages @ 0x1404E6034 (MmAllocateIndependentPages.c)
- *     ExInitializePoolDescriptor @ 0x140536204 (ExInitializePoolDescriptor.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140413488 (MmGetNumberOfPhysicalPages.c)
+ *     MmAllocateIndependentPages @ 0x1404C8A68 (MmAllocateIndependentPages.c)
+ *     ExInitializePoolDescriptor @ 0x140536744 (ExInitializePoolDescriptor.c)
  *     ExpSeedHotTags @ 0x1407B4510 (ExpSeedHotTags.c)
  *     InitializePagedPool @ 0x1407B47A0 (InitializePagedPool.c)
  */
@@ -116,7 +116,7 @@ LABEL_13:
     ExpTaggedPoolLock = 0LL;
     PoolVector[0] = (__int64)&NonPagedPoolDescriptor;
     ExInitializePoolDescriptor((__int64)&NonPagedPoolDescriptor, 512, 0);
-    ExInitializePoolDescriptor((__int64)&unk_14033CA00, 0, 0);
+    ExInitializePoolDescriptor((__int64)&unk_14033CA40, 0, 0);
     return 1LL;
   }
   while ( 1 )

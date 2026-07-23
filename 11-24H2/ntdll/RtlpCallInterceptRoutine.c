@@ -1,111 +1,116 @@
 /*
- * XREFs of RtlpCallInterceptRoutine @ 0x1800280E0
+ * XREFs of RtlpCallInterceptRoutine @ 0x180054AE0
  * Callers:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpAllocateNTHeapInternal @ 0x1800283A0 (RtlpAllocateNTHeapInternal.c)
- *     RtlpHpFreeHeapSlow @ 0x18002B6C4 (RtlpHpFreeHeapSlow.c)
- *     RtlpFreeNTHeapInternal @ 0x18002BD80 (RtlpFreeNTHeapInternal.c)
- *     RtlDestroyHeap @ 0x18008F580 (RtlDestroyHeap.c)
- *     RtlpReAllocateHeapInternal @ 0x1800A1040 (RtlpReAllocateHeapInternal.c)
- *     RtlpHpAllocateHeapSlow @ 0x1800ACEF0 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReAllocateHeapSlow @ 0x18011C8F0 (RtlpHpReAllocateHeapSlow.c)
- *     RtlpSetHeapDebuggingInformation @ 0x180142AE0 (RtlpSetHeapDebuggingInformation.c)
+ *     RtlDestroyHeap @ 0x1800280C0 (RtlDestroyHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpAllocateNTHeapInternal @ 0x180054DA0 (RtlpAllocateNTHeapInternal.c)
+ *     RtlpHpFreeHeapSlow @ 0x1800580C4 (RtlpHpFreeHeapSlow.c)
+ *     RtlpFreeNTHeapInternal @ 0x180058780 (RtlpFreeNTHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x18005AF10 (RtlpReAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapSlow @ 0x18009FA50 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x18011AB20 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpSetHeapDebuggingInformation @ 0x180140E90 (RtlpSetHeapDebuggingInformation.c)
  * Callees:
- *     RtlpHeapTrkTrackAdd @ 0x18003C7F0 (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkTrackRemove @ 0x18003C8D0 (RtlpHeapTrkTrackRemove.c)
- *     RtlpHeapTrkInterceptor @ 0x18003CA10 (RtlpHeapTrkInterceptor.c)
- *     RtlpStackTraceDatabaseLogPrefix @ 0x1800F7C30 (RtlpStackTraceDatabaseLogPrefix.c)
- *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FB208 (RtlpHeapTrkTrackRemoveHeap.c)
- *     NtQueryPerformanceCounter @ 0x1801622B0 (NtQueryPerformanceCounter.c)
- *     RtlGetCurrentProcessorNumberEx @ 0x180166270 (RtlGetCurrentProcessorNumberEx.c)
+ *     RtlpHeapTrkTrackAdd @ 0x18001CA70 (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkTrackRemove @ 0x18001CB50 (RtlpHeapTrkTrackRemove.c)
+ *     RtlpHeapTrkInterceptor @ 0x18001CC90 (RtlpHeapTrkInterceptor.c)
+ *     RtlpStackTraceDatabaseLogPrefix @ 0x1800F27A0 (RtlpStackTraceDatabaseLogPrefix.c)
+ *     RtlpHeapTrkTrackRemoveHeap @ 0x1800F6138 (RtlpHeapTrkTrackRemoveHeap.c)
+ *     NtQueryPerformanceCounter @ 0x180160670 (NtQueryPerformanceCounter.c)
+ *     RtlGetCurrentProcessorNumberEx @ 0x180164630 (RtlGetCurrentProcessorNumberEx.c)
  */
 
-__int64 __fastcall RtlpCallInterceptRoutine(int a1, __int64 a2, unsigned __int64 a3, unsigned int a4, __int64 a5)
+__int64 __fastcall RtlpCallInterceptRoutine(int a1, PVOID a2, unsigned __int64 a3, int a4)
 {
-  unsigned __int16 v6; // cx
-  __int64 (__fastcall *v7)(); // rax
-  unsigned int v8; // ebx
-  unsigned __int64 v10; // rdi
-  unsigned __int8 v11; // dl
-  __int64 v12; // r8
-  signed __int32 v13; // r9d
-  unsigned __int64 v14; // rdx
-  __int64 v15; // rdx
-  __int64 v16; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v17; // [rsp+28h] [rbp-10h] BYREF
-  int v18; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int16 v5; // cx
+  unsigned int (__fastcall *v6)(PVOID, unsigned __int64, int); // rax
+  unsigned int v7; // ebx
+  unsigned __int64 v9; // rdi
+  unsigned __int8 Number; // dl
+  __int64 v11; // r8
+  signed __int32 v12; // r9d
+  unsigned __int64 v13; // rdx
+  __int64 v14; // rdx
+  LARGE_INTEGER v15; // [rsp+20h] [rbp-18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+28h] [rbp-10h] BYREF
+  _PROCESSOR_NUMBER ProcessorNumber; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 )
     return 3221225473LL;
-  v6 = a1 - 1;
-  if ( v6 >= 2u )
+  v5 = a1 - 1;
+  if ( v5 >= 2u )
     return 3221225473LL;
-  v7 = RtlpInterceptorRoutines[v6];
-  if ( (char *)v7 != (char *)RtlpHeapTrkInterceptor )
-    return ((unsigned int (__fastcall *)(__int64, unsigned __int64, _QWORD, __int64))v7)(a2, a3, a4, a5);
-  v8 = 0;
-  v18 = 0;
-  if ( a2 == qword_1801CE808 || dword_1801CE840 == 1 )
-    return v8;
+  v6 = (unsigned int (__fastcall *)(PVOID, unsigned __int64, int))RtlpInterceptorRoutines[v5];
+  if ( (char *)v6 != (char *)RtlpHeapTrkInterceptor )
+    return v6(a2, a3, a4);
+  v7 = 0;
+  ProcessorNumber = 0;
+  if ( a2 == HeapHandle || dword_1801CD838 == 1 )
+    return v7;
   switch ( a4 )
   {
-    case 2u:
+    case 2:
       goto LABEL_12;
-    case 3u:
-    case 5u:
+    case 3:
+    case 5:
       if ( !a3 )
-        return v8;
-      RtlpHeapTrkTrackRemove(a2, (a3 >> 3) | 0xE000000000000000uLL);
+        return v7;
+      RtlpHeapTrkTrackRemove((__int64)a2, (a3 >> 3) | 0xE000000000000000uLL);
       return 0LL;
-    case 6u:
+    case 6:
 LABEL_12:
       if ( !a3 )
-        return v8;
-      v10 = (a3 >> 3) | 0xE000000000000000uLL;
-      if ( dword_1801CE290 == 1 )
+        return v7;
+      v9 = (a3 >> 3) | 0xE000000000000000uLL;
+      if ( dword_1801CD290 == 1 )
       {
-        RtlpHeapTrkTrackAdd(a2, v10);
+        RtlpHeapTrkTrackAdd((__int64)a2, v9);
         return 0LL;
       }
       else
       {
-        if ( dword_1801CE290 != 2 )
-          return v8;
-        RtlGetCurrentProcessorNumberEx(&v18);
-        v11 = BYTE2(v18);
-        if ( BYTE2(v18) >= (unsigned int)dword_1801CE7F8 )
-          v11 = 0;
-        BYTE2(v18) = v11;
-        v12 = 8LL * v11;
-        v13 = **(_DWORD **)(v12 + qword_1801CE848);
-        v14 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
-        if ( (unsigned int)(v14 - v13) >= 0x3E8
-          && v13 == _InterlockedCompareExchange(*(volatile signed __int32 **)(v12 + qword_1801CE848), v14, v13) )
+        if ( dword_1801CD290 != 2 )
+          return v7;
+        RtlGetCurrentProcessorNumberEx(&ProcessorNumber);
+        Number = ProcessorNumber.Number;
+        if ( ProcessorNumber.Number >= (unsigned int)dword_1801CD7F0 )
+          Number = 0;
+        ProcessorNumber.Number = Number;
+        v11 = 8LL * Number;
+        v12 = **(_DWORD **)(v11 + qword_1801CD840);
+        v13 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
+        if ( (unsigned int)(v13 - v12) >= 0x3E8
+          && v12 == _InterlockedCompareExchange(*(volatile signed __int32 **)(v11 + qword_1801CD840), v13, v12) )
         {
-          _InterlockedExchange64((volatile __int64 *)(*(_QWORD *)(v12 + qword_1801CE848) + 8LL), qword_1801CE838 / 100);
+          _InterlockedExchange64(
+            (volatile __int64 *)(*(_QWORD *)(v11 + qword_1801CD840) + 8LL),
+            PerformanceFrequency.QuadPart / 100);
         }
-        v15 = *(_QWORD *)(qword_1801CE848 + 8LL * BYTE2(v18));
-        if ( *(__int64 *)(v15 + 8) > 0 )
+        v14 = *(_QWORD *)(qword_1801CD840 + 8LL * ProcessorNumber.Number);
+        if ( *(__int64 *)(v14 + 8) > 0 )
         {
-          v17 = 0LL;
-          v16 = 0LL;
-          NtQueryPerformanceCounter(&v17, 0LL);
-          RtlpHeapTrkTrackAdd(a2, v10);
-          NtQueryPerformanceCounter(&v16, 0LL);
-          v16 -= v17;
-          _InterlockedAdd64((volatile signed __int64 *)(*(_QWORD *)(qword_1801CE848 + 8LL * BYTE2(v18)) + 8LL), ~v16);
-          _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(qword_1801CE848 + 8LL * BYTE2(v18)) + 16LL));
+          PerformanceCounter.QuadPart = 0LL;
+          v15.QuadPart = 0LL;
+          NtQueryPerformanceCounter(&PerformanceCounter, 0LL);
+          RtlpHeapTrkTrackAdd((__int64)a2, v9);
+          NtQueryPerformanceCounter(&v15, 0LL);
+          v15.QuadPart -= PerformanceCounter.QuadPart;
+          _InterlockedAdd64(
+            (volatile signed __int64 *)(*(_QWORD *)(qword_1801CD840 + 8LL * ProcessorNumber.Number) + 8LL),
+            ~v15.QuadPart);
+          _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(qword_1801CD840 + 8LL * ProcessorNumber.Number)
+                                                            + 16LL));
         }
         else
         {
-          _InterlockedIncrement64((volatile signed __int64 *)(v15 + 24));
+          _InterlockedIncrement64((volatile signed __int64 *)(v14 + 24));
         }
         return 0LL;
       }
-    case 8u:
+    case 8:
       RtlpHeapTrkTrackRemoveHeap(a2);
       return 0LL;
     default:
-      return v8;
+      return v7;
   }
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x1406DF138
+ * XREFs of _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x1406DF270
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x1406DEF10 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x1406DF048 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedPropertyFromCoInstallers(
         __int64 *a1,
-        __int64 a2,
+        const WCHAR *a2,
         __int64 a3,
         int a4,
-        __int64 a5,
+        void *a5,
         ULONG a6)
 {
   __int64 result; // rax
@@ -26,7 +26,7 @@ __int64 __fastcall CmSetInstallerClassMappedPropertyFromCoInstallers(
   result = PnpCtxGetCachedContextBaseKey(a1, 11, (__int64 *)&v10);
   if ( (int)result >= 0 )
   {
-    v9 = PnpCtxRegSetValue(v8, v10, a2, 7LL, a5, a6);
+    v9 = PnpCtxRegSetValue(v8, v10, a2, 7u, a5, a6);
     if ( v9 == -1073741444 )
     {
       return 3221225701LL;

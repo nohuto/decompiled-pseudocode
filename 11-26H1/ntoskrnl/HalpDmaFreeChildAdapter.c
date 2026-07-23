@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpDmaFreeChildAdapter @ 0x14050FED0
+ * XREFs of HalpDmaFreeChildAdapter @ 0x140509940
  * Callers:
  *     <none>
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     HalpDmaFreeCrashdumpRegistersInternal @ 0x1404EFF74 (HalpDmaFreeCrashdumpRegistersInternal.c)
- *     CvmDebugLog @ 0x140532568 (CvmDebugLog.c)
- *     HalpDmaReturnPageToSource @ 0x140532A6C (HalpDmaReturnPageToSource.c)
- *     HalpLeaveDmaDomain @ 0x14058AE1C (HalpLeaveDmaDomain.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpDmaCvmMakeMdlDevicePrivate @ 0x14078309C (HalpDmaCvmMakeMdlDevicePrivate.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     HalpDmaFreeCrashdumpRegistersInternal @ 0x1404E9554 (HalpDmaFreeCrashdumpRegistersInternal.c)
+ *     CvmDebugLog @ 0x140534A08 (CvmDebugLog.c)
+ *     HalpDmaReturnPageToSource @ 0x140534F0C (HalpDmaReturnPageToSource.c)
+ *     HalpLeaveDmaDomain @ 0x14058D5A4 (HalpLeaveDmaDomain.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDmaCvmMakeMdlDevicePrivate @ 0x140785BD0 (HalpDmaCvmMakeMdlDevicePrivate.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpDmaFreeChildAdapter(__int64 a1, __int64 a2)

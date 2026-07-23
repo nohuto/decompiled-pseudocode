@@ -10,85 +10,95 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlLoadString(
-        wchar_t *a1,
-        unsigned __int16 a2,
-        wchar_t *a3,
-        int a4,
-        _QWORD *a5,
-        _WORD *a6,
-        __int64 a7,
-        __int64 a8)
+NTSTATUS __cdecl RtlLoadString(
+        PVOID DllHandle,
+        ULONG StringId,
+        PCWSTR StringLanguage,
+        ULONG Flags,
+        PCWSTR *ReturnString,
+        PUSHORT ReturnStringLen,
+        PWSTR ReturnLanguageName,
+        PULONG ReturnLanguageLen)
 {
   unsigned int v8; // r10d
   __int64 v9; // r15
   unsigned __int16 v11; // bx
   char v12; // si
-  int v13; // r8d
+  NTSTATUS v13; // r8d
   unsigned __int64 v14; // r9
   int v15; // edi
   unsigned __int64 v16; // r9
-  __int16 v17; // dx
-  unsigned __int64 v19; // [rsp+48h] [rbp-80h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-78h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-70h] BYREF
-  _QWORD *v22; // [rsp+60h] [rbp-68h]
-  _WORD *v23; // [rsp+68h] [rbp-60h]
-  _QWORD v24[4]; // [rsp+70h] [rbp-58h] BYREF
+  USHORT v17; // dx
+  DWORD lcid; // [rsp+40h] [rbp-88h] BYREF
+  __int64 v20; // [rsp+48h] [rbp-80h] BYREF
+  __int64 v21; // [rsp+50h] [rbp-78h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-70h] BYREF
+  PCWSTR *v23; // [rsp+60h] [rbp-68h]
+  PUSHORT v24; // [rsp+68h] [rbp-60h]
+  _QWORD Src[4]; // [rsp+70h] [rbp-58h] BYREF
 
-  v8 = (unsigned int)a3;
-  v9 = a2;
-  v22 = a5;
-  v23 = a6;
+  v8 = (unsigned int)StringLanguage;
+  v9 = (unsigned __int16)StringId;
+  v23 = ReturnString;
+  v24 = ReturnStringLen;
   v11 = 0;
+  v22 = 0LL;
   v21 = 0LL;
-  v20 = 0LL;
-  v12 = a4 & 1;
-  if ( !a1 || !a5 || (a4 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  if ( !v12 || !a7 && !a8 )
+  lcid = 0;
+  v12 = Flags & 1;
+  if ( !DllHandle || !ReturnString || (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  if ( !v12 || !ReturnLanguageName && !ReturnLanguageLen )
   {
-    if ( (unsigned int)a3 <= 0xFFFF )
+    if ( (unsigned int)StringLanguage <= 0xFFFF )
       goto LABEL_8;
-    if ( *a3 )
+    if ( *StringLanguage )
     {
-      if ( (int)RtlLocaleNameToLcid(a3) < 0 )
-        return 3221225485LL;
-      v8 = 0;
+      if ( RtlLocaleNameToLcid(StringLanguage, &lcid, 3u) < 0 )
+        return -1073741811;
+      v8 = (unsigned __int16)lcid;
+      lcid = (unsigned __int16)lcid;
     }
     else
     {
       v8 = 0;
+      lcid = 0;
     }
 LABEL_8:
-    v24[0] = 6LL;
-    v24[1] = ((unsigned int)v9 >> 4) + 1;
-    v24[2] = v8;
-    v24[3] = v9;
-    v19 = 0LL;
+    Src[0] = 6LL;
+    Src[1] = ((unsigned int)v9 >> 4) + 1;
+    Src[2] = v8;
+    Src[3] = v9;
+    v20 = 0LL;
     if ( v12 )
     {
-      v13 = LdrpSearchResourceSection_U((_DWORD)a1, (unsigned int)v24, 4, 1, (__int64)&v21);
+      v13 = LdrpSearchResourceSection_U(DllHandle, (__int64)&v22);
       if ( v13 < 0 )
-        return (unsigned int)v13;
-      v13 = LdrpAccessResourceData(a1, v21, &v20, 0LL);
-      v14 = v19;
+        return v13;
+      v13 = LdrpAccessResourceData(DllHandle);
+      v14 = v20;
     }
     else
     {
-      v13 = LdrResSearchResource(a1, v24, (__int64)&v20, (__int64)&v19, a7, a8);
-      v14 = v19;
-      if ( v13 >= 0 && v19 > 0xFFFF )
-        return (unsigned int)-1073741701;
+      v13 = LdrResSearchResource(
+              DllHandle,
+              Src,
+              (__int64)&v21,
+              (__int64)&v20,
+              (__int64)ReturnLanguageName,
+              (__int64)ReturnLanguageLen);
+      v14 = v20;
+      if ( v13 >= 0 && (unsigned __int64)v20 > 0xFFFF )
+        return -1073741701;
     }
-    if ( v13 < 0 || !v20 )
-      return (unsigned int)v13;
+    if ( v13 < 0 || !v21 )
+      return v13;
     v15 = v9 & 0xF;
     v16 = v14 >> 1;
-    v19 = v16;
+    v20 = v16;
     while ( 1 )
     {
-      v17 = *(_WORD *)(v20 + 2LL * v11);
+      v17 = *(_WORD *)(v21 + 2LL * v11);
       v11 += v17 + 1;
       if ( !v12 && v11 > v16 )
         break;
@@ -96,13 +106,13 @@ LABEL_8:
       {
         if ( v11 && v17 )
           v11 -= v17;
-        *v22 = v20 + 2LL * v11;
-        if ( v23 )
-          *v23 = v17;
-        return (unsigned int)v13;
+        *v23 = (PCWSTR)(v21 + 2LL * v11);
+        if ( v24 )
+          *v24 = v17;
+        return v13;
       }
     }
-    return (unsigned int)-1073741701;
+    return -1073741701;
   }
-  return 3221225659LL;
+  return -1073741637;
 }

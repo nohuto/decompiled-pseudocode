@@ -1,28 +1,28 @@
 /*
- * XREFs of PoRegisterPowerSettingCallback @ 0x1403F2E38
+ * XREFs of PoRegisterPowerSettingCallback @ 0x1403F1CFC
  * Callers:
- *     HvlpRegisterPowerPolicyCallbacks @ 0x1401BF7F4 (HvlpRegisterPowerPolicyCallbacks.c)
- *     PopSetPowerSettingValue @ 0x1403F80D0 (PopSetPowerSettingValue.c)
- *     CmpInitializeLazyWriters @ 0x14056F44C (CmpInitializeLazyWriters.c)
- *     PopIdleInitAoAcDozeS4Timer @ 0x14056F558 (PopIdleInitAoAcDozeS4Timer.c)
- *     TtmInit @ 0x14057FD28 (TtmInit.c)
- *     TtmInitCurrentSession @ 0x1406786B8 (TtmInitCurrentSession.c)
+ *     HvlpRegisterPowerPolicyCallbacks @ 0x1401BF6D8 (HvlpRegisterPowerPolicyCallbacks.c)
+ *     PopSetPowerSettingValue @ 0x1403F6F90 (PopSetPowerSettingValue.c)
+ *     CmpInitializeLazyWriters @ 0x14056F98C (CmpInitializeLazyWriters.c)
+ *     PopIdleInitAoAcDozeS4Timer @ 0x14056FA98 (PopIdleInitAoAcDozeS4Timer.c)
+ *     TtmInit @ 0x1405801D4 (TtmInit.c)
+ *     TtmInitCurrentSession @ 0x14067879C (TtmInitCurrentSession.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  *     PopInitializePowerSettingCallbacks @ 0x1407B65A4 (PopInitializePowerSettingCallbacks.c)
  *     PpmInfoRegisterCallbacks @ 0x1407B6678 (PpmInfoRegisterCallbacks.c)
  * Callees:
- *     PopSetNotificationWork @ 0x140008A40 (PopSetNotificationWork.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     RtlPcToFileName @ 0x1401486E8 (RtlPcToFileName.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopEnsureErratumSubscribed @ 0x14020568C (PopEnsureErratumSubscribed.c)
+ *     PopSetNotificationWork @ 0x1400085B4 (PopSetNotificationWork.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     RtlPcToFileName @ 0x140148C58 (RtlPcToFileName.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopEnsureErratumSubscribed @ 0x1402054B8 (PopEnsureErratumSubscribed.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     EmClientRuleEvaluate @ 0x1403C8598 (EmClientRuleEvaluate.c)
- *     PopFindPowerSettingConfiguration @ 0x1403F853C (PopFindPowerSettingConfiguration.c)
- *     PopStateIsSessionSpecific @ 0x1403F862C (PopStateIsSessionSpecific.c)
+ *     PopFindPowerSettingConfiguration @ 0x1403F73FC (PopFindPowerSettingConfiguration.c)
+ *     PopStateIsSessionSpecific @ 0x1403F74EC (PopStateIsSessionSpecific.c)
  */
 
 NTSTATUS __stdcall PoRegisterPowerSettingCallback(
@@ -58,7 +58,7 @@ NTSTATUS __stdcall PoRegisterPowerSettingCallback(
 
   v27 = DeviceObject;
   v7 = SettingGuid;
-  v24 = dword_140303E0C;
+  v24 = dword_140303D4C;
   v8 = 0;
   if ( (unsigned __int8)PopStateIsSessionSpecific(SettingGuid) )
     return -1073741811;
@@ -131,13 +131,13 @@ LABEL_25:
     }
     else
     {
-      v21 = (_QWORD *)qword_1403031E8;
-      if ( *(__int64 **)qword_1403031E8 != &PopRegisteredPowerSettingCallbacks )
+      v21 = (_QWORD *)qword_140304048;
+      if ( *(__int64 **)qword_140304048 != &PopRegisteredPowerSettingCallbacks )
         __fastfail(3u);
       *(_QWORD *)v12 = &PopRegisteredPowerSettingCallbacks;
       *((_QWORD *)v12 + 1) = v21;
       *v21 = v12;
-      qword_1403031E8 = (__int64)v12;
+      qword_140304048 = (__int64)v12;
     }
     v19 = 0;
     v8 = (unsigned int)PopOsInitPhase >= 3;

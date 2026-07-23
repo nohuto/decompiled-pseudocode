@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14032B700
+ * XREFs of ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14032B8F0
  * Callers:
- *     ?SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14016A0D0 (-SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
+ *     ?SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14016A1D0 (-SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
  * Callees:
- *     ?ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ @ 0x14032B538 (-ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ.c)
- *     ?ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ @ 0x14032B640 (-ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C2880 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ @ 0x14032B728 (-ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ.c)
+ *     ?ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ @ 0x14032B830 (-ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C3B20 (-Free@SC_ENV@@SAXPEAX@Z.c)
  */
 
 void __fastcall SC_DEVICE::SaveStorageProperty(
@@ -29,7 +29,7 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
       case StorageMiniportProperty:
         v6 = 184LL;
         break;
-      case StorageDeviceFaultDomainProperty:
+      case StorageAdapterCryptoProperty|StorageDeviceIdProperty:
         v6 = 168LL;
         break;
       default:
@@ -47,7 +47,7 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
   a3 = 0LL;
   if ( a2 )
   {
-    if ( a2 == StorageDeviceFaultDomainProperty )
+    if ( a2 == (StorageAdapterCryptoProperty|StorageDeviceIdProperty) )
       SC_DEVICE::ExtractFaultDomainIds(this);
     return;
   }

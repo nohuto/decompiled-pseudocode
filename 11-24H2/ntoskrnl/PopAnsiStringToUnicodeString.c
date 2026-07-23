@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAnsiStringToUnicodeString @ 0x140A63150
+ * XREFs of PopAnsiStringToUnicodeString @ 0x140A5BA50
  * Callers:
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A24BE4 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A18BD4 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
- *     RtlAnsiStringToUnicodeString @ 0x1408ADC70 (RtlAnsiStringToUnicodeString.c)
- *     RtlMultiByteToUnicodeSize @ 0x1408AE950 (RtlMultiByteToUnicodeSize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140903ED0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlMultiByteToUnicodeSize @ 0x140904BB0 (RtlMultiByteToUnicodeSize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PopAnsiStringToUnicodeString(
@@ -18,7 +18,7 @@ NTSTATUS __fastcall PopAnsiStringToUnicodeString(
   ULONG Length; // r8d
   char *Buffer; // rdx
   PVOID *p_Buffer; // rbx
-  unsigned __int16 v9; // bp
+  unsigned int v9; // ebp
   wchar_t **v10; // r14
   __int64 Pool2; // r15
   wchar_t **v12; // rsi
@@ -31,7 +31,7 @@ NTSTATUS __fastcall PopAnsiStringToUnicodeString(
   v14 = 0;
   RtlMultiByteToUnicodeSize(&v14, Buffer, Length);
   p_Buffer = (PVOID *)&DestinationString->Buffer;
-  v9 = -1;
+  v9 = 0xFFFF;
   if ( v14 + 2 > 0xFFFF )
   {
     if ( *p_Buffer )
@@ -53,7 +53,7 @@ LABEL_3:
     goto LABEL_5;
   v10 = &DestinationString->Buffer;
 LABEL_4:
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v9, 0x54515750u);
   v12 = &DestinationString->Buffer;
   if ( Pool2 )
   {

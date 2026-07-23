@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeDelayExecutionThreadWrapper @ 0x1405E2DF0
+ * XREFs of DifKeDelayExecutionThreadWrapper @ 0x1405E3360
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifKeDelayExecutionThreadWrapper(KPROCESSOR_MODE a1, BOOLEAN a2, LARGE_INTEGER *a3)

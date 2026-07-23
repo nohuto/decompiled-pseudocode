@@ -99,12 +99,12 @@ PSLIST_ENTRY __fastcall CcSetDirtyInMask(__int64 a1, __int64 *a2, unsigned int a
   struct _KTHREAD *v59; // r9
   unsigned __int64 v60; // rcx
   PSLIST_ENTRY v61; // rdi
-  struct _SLIST_ENTRY *v62; // rax
+  _SLIST_ENTRY *v62; // rax
   PSLIST_ENTRY v63; // rax
   PSLIST_ENTRY *v64; // rdx
-  struct _SLIST_ENTRY *v65; // rcx
-  struct _SLIST_ENTRY *v66; // rcx
-  struct _SLIST_ENTRY **v67; // rdx
+  _SLIST_ENTRY *v65; // rcx
+  _SLIST_ENTRY *v66; // rcx
+  _SLIST_ENTRY **v67; // rdx
   int v68; // eax
   signed __int32 v69; // eax
   int v70; // eax
@@ -214,15 +214,12 @@ LABEL_15:
   {
     if ( *(_QWORD *)(a1 + 32) > 0x300000uLL )
     {
-      ++CcBitmapLookasideList.L.TotalAllocates;
-      result = RtlpInterlockedPopEntrySList(&CcBitmapLookasideList.L.ListHead);
+      ++unk_1403D1D54;
+      result = RtlpInterlockedPopEntrySList(&CcBitmapLookasideList);
       if ( !result )
       {
-        ++CcBitmapLookasideList.L.AllocateMisses;
-        result = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))CcBitmapLookasideList.L.AllocateEx)(
-                                 (unsigned int)CcBitmapLookasideList.L.Type,
-                                 CcBitmapLookasideList.L.Size,
-                                 CcBitmapLookasideList.L.Tag);
+        ++unk_1403D1D58;
+        result = (PSLIST_ENTRY)unk_1403D1D70(unk_1403D1D64, unk_1403D1D6C, unk_1403D1D68);
         if ( !result )
         {
           ++CcDbgNumberOfFailedBitmapAllocations;
@@ -293,7 +290,7 @@ LABEL_34:
       memset(ListEntry, 0, 0x400uLL);
       if ( LODWORD(v28[5].Next) )
       {
-        v62 = (struct _SLIST_ENTRY *)*((_QWORD *)&v28[5].Next + 1);
+        v62 = (_SLIST_ENTRY *)*((_QWORD *)&v28[5].Next + 1);
         *v61 = *v62;
         v61[1] = v62[1];
         v61[2] = v62[2];
@@ -316,7 +313,7 @@ LABEL_34:
       v66 = v28 + 9;
       v28[7].Next = (_SLIST_ENTRY *)0x7FFFFFFFFFFFFFFFLL;
       *((_DWORD *)&v28[7].Next + 2) = -1;
-      v67 = (struct _SLIST_ENTRY **)*((_QWORD *)&v28[1].Next + 1);
+      v67 = (_SLIST_ENTRY **)*((_QWORD *)&v28[1].Next + 1);
       if ( *v67 != v63 )
         __fastfail(3u);
       v66->Next = v63;
@@ -630,15 +627,15 @@ LABEL_182:
 LABEL_89:
   if ( ListEntry )
   {
-    ++CcBitmapLookasideList.L.TotalFrees;
-    if ( LOWORD(CcBitmapLookasideList.L.ListHead.Alignment) >= CcBitmapLookasideList.L.Depth )
+    ++unk_1403D1D5C;
+    if ( LOWORD(CcBitmapLookasideList.Alignment) >= unk_1403D1D50 )
     {
-      ++CcBitmapLookasideList.L.FreeMisses;
-      return (PSLIST_ENTRY)((__int64 (*)(void))CcBitmapLookasideList.L.FreeEx)();
+      ++unk_1403D1D60;
+      return (PSLIST_ENTRY)unk_1403D1D78();
     }
     else
     {
-      return RtlpInterlockedPushEntrySList(&CcBitmapLookasideList.L.ListHead, ListEntry);
+      return RtlpInterlockedPushEntrySList(&CcBitmapLookasideList, ListEntry);
     }
   }
   return result;

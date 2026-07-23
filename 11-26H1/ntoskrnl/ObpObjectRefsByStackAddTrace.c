@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpObjectRefsByStackAddTrace @ 0x140AB6310
+ * XREFs of ObpObjectRefsByStackAddTrace @ 0x140AB76B0
  * Callers:
- *     ObpPushRefDerefInfoNoLock @ 0x1407702BC (ObpPushRefDerefInfoNoLock.c)
+ *     ObpPushRefDerefInfoNoLock @ 0x1407732BC (ObpPushRefDerefInfoNoLock.c)
  * Callees:
- *     ObpTraceAllocateMemory @ 0x14052F738 (ObpTraceAllocateMemory.c)
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     ObpStackDbAllocRoutine @ 0x1407C51B0 (ObpStackDbAllocRoutine.c)
- *     ObpStackDbFreeRoutine @ 0x1407C51D0 (ObpStackDbFreeRoutine.c)
- *     ObpGetObjectRefsByStack @ 0x140AB6664 (ObpGetObjectRefsByStack.c)
+ *     ObpTraceAllocateMemory @ 0x140531C58 (ObpTraceAllocateMemory.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     ObpStackDbAllocRoutine @ 0x1407C8210 (ObpStackDbAllocRoutine.c)
+ *     ObpStackDbFreeRoutine @ 0x1407C8230 (ObpStackDbFreeRoutine.c)
+ *     ObpGetObjectRefsByStack @ 0x140AB7A04 (ObpGetObjectRefsByStack.c)
  */
 
 void __fastcall ObpObjectRefsByStackAddTrace(__int64 a1, __int16 a2, unsigned int a3, __int64 a4)
@@ -21,7 +21,7 @@ void __fastcall ObpObjectRefsByStackAddTrace(__int64 a1, __int16 a2, unsigned in
   __int64 v11; // r8
   _QWORD *v12; // rsi
   _QWORD *v13; // rax
-  __int64 Memory; // rax
+  unsigned __int64 Memory; // rax
   __int64 v15; // rbx
   __int64 v16; // rcx
   __int64 v17; // rdx
@@ -38,7 +38,7 @@ void __fastcall ObpObjectRefsByStackAddTrace(__int64 a1, __int16 a2, unsigned in
   void *v28; // rcx
   _QWORD *v29; // r10
   __int64 v30; // rdx
-  __int64 v31; // rax
+  unsigned __int64 v31; // rax
   unsigned int v32; // edi
   __int64 v33; // rbx
   char *v34; // r8

@@ -8,7 +8,7 @@
  *     RtlInitializeCriticalSectionEx @ 0x180061C40 (RtlInitializeCriticalSectionEx.c)
  *     RtlQueryResourcePolicy @ 0x180062630 (RtlQueryResourcePolicy.c)
  *     RtlGetSuiteMask @ 0x180062DA0 (RtlGetSuiteMask.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlpHpOverrideGCInterval @ 0x1800F3A14 (RtlpHpOverrideGCInterval.c)
  *     RtlpGetModifiedProcessCookie @ 0x180103CA4 (RtlpGetModifiedProcessCookie.c)
@@ -45,7 +45,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   v4 = RtlpHpLfhPerfFlags;
   if ( (RtlpHpLfhPerfFlags & 0x40) != 0 )
   {
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
     RtlpHpOverrideGCInterval(a1);
     v4 = RtlpHpLfhPerfFlags;
   }
@@ -53,7 +53,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   if ( (int)RtlQueryResourcePolicy(0, 0, (__int64)&v9, 4LL) >= 0 && v9 > 10 )
   {
     RtlpHpLfhPerfFlags |= 0x60u;
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
   }
   if ( (RtlpLowFragHeapGlobalFlags & 8) != 0 )
     RtlpHpHeapFeatures &= ~1u;
@@ -75,7 +75,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   v2->NumberOfHeaps = 0;
   RtlpDisableBreakOnFailureCookie = v7 != 0 ? v6 : 0;
   v2->ProcessHeaps = (void **)&RtlpProcessHeapsListBuffer;
-  RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, 0, 0x10000000);
+  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
   RtlpHeapKey = RtlpHeapGenerateRandomValue64();
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {

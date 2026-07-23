@@ -1,10 +1,9 @@
 /*
- * XREFs of ?KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140205220
+ * XREFs of ?KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14032C800
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140203248 (PpmHeteroUpdateHgsConfiguration.c)
- *     KeFlushQueuedDpcs @ 0x140204EA0 (KeFlushQueuedDpcs.c)
- *     KiComputeCpuSetAffinity @ 0x14029B010 (KiComputeCpuSetAffinity.c)
- *     KeAndAffinityEx @ 0x1404FA5F0 (KeAndAffinityEx.c)
+ *     KiComputeCpuSetAffinity @ 0x1402A9B00 (KiComputeCpuSetAffinity.c)
+ *     KeFlushQueuedDpcs @ 0x14032C480 (KeFlushQueuedDpcs.c)
+ *     KeAndAffinityEx @ 0x1404F7ED0 (KeAndAffinityEx.c)
  * Callees:
  *     <none>
  */

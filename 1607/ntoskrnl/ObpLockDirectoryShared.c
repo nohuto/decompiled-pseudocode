@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpLockDirectoryShared @ 0x1400EE448
+ * XREFs of ObpLockDirectoryShared @ 0x1400EC2BC
  * Callers:
- *     ObpLookupDirectoryEntryEx @ 0x14040CEF0 (ObpLookupDirectoryEntryEx.c)
- *     ObpLookupDirectoryUsingHash @ 0x14040D044 (ObpLookupDirectoryUsingHash.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
- *     NtQueryDirectoryObject @ 0x1404B0580 (NtQueryDirectoryObject.c)
+ *     ObpLookupDirectoryEntryEx @ 0x14040BDB0 (ObpLookupDirectoryEntryEx.c)
+ *     ObpLookupDirectoryUsingHash @ 0x14040BF04 (ObpLookupDirectoryUsingHash.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
+ *     NtQueryDirectoryObject @ 0x14049A960 (NtQueryDirectoryObject.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall ObpLockDirectoryShared(__int64 a1, unsigned __int64 *a2)

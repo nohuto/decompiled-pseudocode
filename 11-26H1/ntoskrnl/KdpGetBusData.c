@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpGetBusData @ 0x140C13FF0
+ * XREFs of KdpGetBusData @ 0x140C19FF0
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpSysReadBusData @ 0x140C15344 (KdpSysReadBusData.c)
+ *     KdpSysReadBusData @ 0x140C1B344 (KdpSysReadBusData.c)
  */
 
 __int64 __fastcall KdpGetBusData(_DWORD *a1, __int64 a2, __int64 a3)

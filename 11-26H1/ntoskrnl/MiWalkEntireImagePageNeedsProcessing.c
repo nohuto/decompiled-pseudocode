@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWalkEntireImagePageNeedsProcessing @ 0x140B5EB50
+ * XREFs of MiWalkEntireImagePageNeedsProcessing @ 0x140B61CD0
  * Callers:
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
- *     MiWalkImageMakePageHot @ 0x140705660 (MiWalkImageMakePageHot.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
+ *     MiWalkImageMakePageHot @ 0x14070A330 (MiWalkImageMakePageHot.c)
  * Callees:
- *     MiDoesPageRequireImportLinkingFixups @ 0x140480DF4 (MiDoesPageRequireImportLinkingFixups.c)
- *     MiPageHasRelocations @ 0x1409CF740 (MiPageHasRelocations.c)
+ *     MiDoesPageRequireImportLinkingFixups @ 0x14047A764 (MiDoesPageRequireImportLinkingFixups.c)
+ *     MiPageHasRelocations @ 0x1409A0720 (MiPageHasRelocations.c)
  */
 
 __int64 __fastcall MiWalkEntireImagePageNeedsProcessing(__int64 a1, unsigned int a2, char a3)

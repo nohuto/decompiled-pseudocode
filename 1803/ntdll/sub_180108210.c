@@ -13,35 +13,45 @@
  *     ZwSetInformationWorkerFactory @ 0x18009DD90 (ZwSetInformationWorkerFactory.c)
  */
 
-signed __int64 __fastcall sub_180108210(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall sub_180108210(__int64 a1)
 {
-  int v4; // edi
-  int v6; // eax
-  __int16 v7; // r8
-  signed __int64 v8; // rax
-  signed __int64 v9; // rtt
+  unsigned int v1; // edi
+  int v3; // eax
+  __int16 v4; // r8
+  signed __int64 v5; // rax
+  signed __int64 v6; // rtt
+  bool v7; // cf
+  int v8; // edi
+  void *v9; // rcx
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
   signed __int64 v11; // [rsp+38h] [rbp+10h]
 
-  v4 = MEMORY[0x7FFE03C0];
-  RtlAcquireSRWLockExclusive(a1 + 72, a2, a3, a4);
-  v6 = *(_DWORD *)(a1 + 424);
-  if ( v4 != v6 )
+  v1 = MEMORY[0x7FFE03C0];
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
+  v3 = *(_DWORD *)(a1 + 424);
+  if ( v1 != v3 )
   {
-    *(_DWORD *)(a1 + 424) = v4;
-    v7 = v4 - v6;
+    *(_DWORD *)(a1 + 424) = v1;
+    v4 = v1 - v3;
     _m_prefetchw((const void *)(a1 + 8));
-    v8 = *(_QWORD *)(a1 + 8);
-    HIDWORD(v11) = HIDWORD(v8);
+    v5 = *(_QWORD *)(a1 + 8);
+    v11 = v5;
     do
     {
-      LODWORD(v11) = v8 ^ (unsigned __int16)(v8 ^ (v8 + v7));
-      v9 = v8;
-      v8 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v11, v8);
-      HIDWORD(v11) = HIDWORD(v8);
+      LODWORD(v11) = v5 ^ (unsigned __int16)(v5 ^ (v5 + v4));
+      v6 = v5;
+      v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v11, v5);
+      v11 = v5;
     }
-    while ( v9 != v8 );
-    ZwSetInformationWorkerFactory();
+    while ( v6 != v5 );
+    v7 = v1 < 4;
+    v8 = v1 + 1;
+    if ( v7 )
+      v8 = 4;
+    v9 = *(void **)(a1 + 56);
+    WorkerFactoryInformation = v8;
+    ZwSetInformationWorkerFactory(v9, WorkerFactoryAdjustThreadGoal, &WorkerFactoryInformation, 4u);
     sub_1800593D8(a1);
   }
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
 }

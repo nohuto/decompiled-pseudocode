@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmStartIllegalProcessorThrottleLogging @ 0x140365C70
+ * XREFs of PpmStartIllegalProcessorThrottleLogging @ 0x140365E20
  * Callers:
  *     <none>
  * Callees:

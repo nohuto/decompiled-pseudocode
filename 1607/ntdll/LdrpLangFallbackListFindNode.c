@@ -1,31 +1,30 @@
 /*
- * XREFs of LdrpLangFallbackListFindNode @ 0x180043CE0
+ * XREFs of LdrpLangFallbackListFindNode @ 0x180043CD0
  * Callers:
- *     LdrpLangFallbackListAppendNode @ 0x180043BE0 (LdrpLangFallbackListAppendNode.c)
+ *     LdrpLangFallbackListAppendNode @ 0x180043BD0 (LdrpLangFallbackListAppendNode.c)
  * Callees:
- *     RtlpMuiRegGetOrAddStringToPool @ 0x180043E7C (RtlpMuiRegGetOrAddStringToPool.c)
- *     RtlCultureNameToLCID @ 0x180043F70 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetOrAddStringToPool @ 0x180043E6C (RtlpMuiRegGetOrAddStringToPool.c)
+ *     RtlCultureNameToLCID @ 0x180043F60 (RtlCultureNameToLCID.c)
  */
 
-__int64 __fastcall LdrpLangFallbackListFindNode(__int64 a1, __int64 a2, _WORD *a3, _WORD *a4)
+__int64 __fastcall LdrpLangFallbackListFindNode(__int64 a1, __int64 a2, wchar_t *a3, _WORD *a4)
 {
   __int64 v8; // rax
   unsigned __int64 v9; // rax
   __int16 v10; // dx
-  int v11; // esi
+  DWORD v11; // esi
   int v12; // eax
   __int16 v13; // cx
   __int64 v15; // r9
   __int64 v16; // r8
   __int64 v17; // r10
   bool v18; // zf
-  _WORD v19[4]; // [rsp+20h] [rbp-38h] BYREF
-  _WORD *v20; // [rsp+28h] [rbp-30h]
-  int v21; // [rsp+60h] [rbp+8h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
 
   if ( a1 && a2 && a3 && a4 )
   {
-    v20 = a3;
+    String.Buffer = a3;
     *a4 = -1;
     v8 = -1LL;
     do
@@ -34,15 +33,15 @@ __int64 __fastcall LdrpLangFallbackListFindNode(__int64 a1, __int64 a2, _WORD *a
     v9 = 2 * v8;
     if ( v9 >= 0xFFFE )
       LOWORD(v9) = -4;
-    v19[0] = v9;
-    v19[1] = v9 + 2;
-    if ( !(unsigned __int8)RtlCultureNameToLCID(v19, &v21) )
+    String.Length = v9;
+    String.MaximumLength = v9 + 2;
+    if ( !RtlCultureNameToLCID(&String, &Lcid) )
       return 3221225524LL;
     v10 = -1;
-    v11 = ((v21 - 4096) & 0xFFFFFBFF) != 0 ? v21 : 0;
+    v11 = ((Lcid - 4096) & 0xFFFFFBFF) != 0 ? Lcid : 0;
     if ( *a3 )
     {
-      v10 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(a1 + 32), a3, 0LL, &v21);
+      v10 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(a1 + 32), a3, 0LL, &Lcid);
       if ( v10 < 0 )
         goto LABEL_27;
       v12 = 0;

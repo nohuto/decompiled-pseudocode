@@ -1,18 +1,18 @@
 /*
- * XREFs of SiGetSystemDeviceName @ 0x1406B4A08
+ * XREFs of SiGetSystemDeviceName @ 0x140613E88
  * Callers:
- *     SyspartDirectGetSystemPartition @ 0x1406B49E0 (SyspartDirectGetSystemPartition.c)
- *     SyspartDirectGetSystemDisk @ 0x14077BE10 (SyspartDirectGetSystemDisk.c)
- *     SyspartGetFirmwarePartition @ 0x140785FF8 (SyspartGetFirmwarePartition.c)
- *     SyspartDirectGetFirmwareSystemPartition @ 0x14078E9A0 (SyspartDirectGetFirmwareSystemPartition.c)
- *     IopFindSystemDevice @ 0x14089B014 (IopFindSystemDevice.c)
- *     SyspartGetSystemPartition @ 0x1409735A0 (SyspartGetSystemPartition.c)
+ *     SyspartDirectGetSystemPartition @ 0x140613E60 (SyspartDirectGetSystemPartition.c)
+ *     SyspartDirectGetSystemDisk @ 0x14077BFD0 (SyspartDirectGetSystemDisk.c)
+ *     SyspartGetFirmwarePartition @ 0x1407861B8 (SyspartGetFirmwarePartition.c)
+ *     SyspartDirectGetFirmwareSystemPartition @ 0x14078EB60 (SyspartDirectGetFirmwareSystemPartition.c)
+ *     IopFindSystemDevice @ 0x14089B174 (IopFindSystemDevice.c)
+ *     SyspartGetSystemPartition @ 0x140973780 (SyspartGetSystemPartition.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetSystemDeviceName(
@@ -28,16 +28,16 @@ __int64 __fastcall SiGetSystemDeviceName(
   void *Src; // [rsp+20h] [rbp-68h] BYREF
   unsigned int v14; // [rsp+28h] [rbp-60h]
   unsigned int *v15; // [rsp+30h] [rbp-58h]
-  __int128 v16; // [rsp+38h] [rbp-50h] BYREF
+  __int128 SystemInformation; // [rsp+38h] [rbp-50h] BYREF
   __int128 v17; // [rsp+48h] [rbp-40h]
 
   v15 = a4;
   *a4 = 0;
   Src = 0LL;
-  v16 = 0LL;
+  SystemInformation = 0LL;
   v17 = 0LL;
   v8 = 1;
-  if ( (int)ZwQuerySystemInformation(90LL, (__int64)&v16) >= 0 )
+  if ( ZwQuerySystemInformation(SystemBootEnvironmentInformation, &SystemInformation, 0x20u, 0LL) >= 0 )
   {
     v8 = 0;
     if ( (int)v17 < 3 )

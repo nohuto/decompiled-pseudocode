@@ -1,18 +1,18 @@
 /*
- * XREFs of ExInterlockedRemoveHeadList @ 0x14032F2F0
+ * XREFs of ExInterlockedRemoveHeadList @ 0x14032F580
  * Callers:
- *     PopFxProcessWorkPool @ 0x140310FF4 (PopFxProcessWorkPool.c)
- *     KiAltReturnWorkerRoutine @ 0x140580340 (KiAltReturnWorkerRoutine.c)
- *     WheapWorkQueueWorkerRoutine @ 0x140613A10 (WheapWorkQueueWorkerRoutine.c)
- *     WmipEventNotification @ 0x1408559F0 (WmipEventNotification.c)
+ *     PopFxProcessWorkPool @ 0x140311284 (PopFxProcessWorkPool.c)
+ *     KiAltReturnWorkerRoutine @ 0x140580830 (KiAltReturnWorkerRoutine.c)
+ *     WheapWorkQueueWorkerRoutine @ 0x140613F60 (WheapWorkQueueWorkerRoutine.c)
+ *     WmipEventNotification @ 0x140855CF0 (WmipEventNotification.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
-  struct _LIST_ENTRY *Flink; // r14
+  _LIST_ENTRY *Flink; // r14
   volatile signed __int32 *SchedulerAssist; // rcx
   struct _LIST_ENTRY *v6; // rax
   struct _KPRCB *v7; // rcx

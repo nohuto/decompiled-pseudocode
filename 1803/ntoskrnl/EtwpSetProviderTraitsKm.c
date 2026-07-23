@@ -13,8 +13,8 @@
 __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int16 a3)
 {
   unsigned int v6; // ebp
-  _QWORD *PoolWithTag; // rax
-  _QWORD *v8; // rbx
+  _RTL_BALANCED_NODE *PoolWithTag; // rax
+  _RTL_BALANCED_NODE *Node; // rbx
   unsigned int v9; // ebx
   __int64 v11; // rdx
   __int64 v12; // rcx
@@ -32,20 +32,20 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int
   else
   {
     v6 = a3;
-    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)a3 + 28, 0x54777445u);
-    v8 = PoolWithTag;
+    PoolWithTag = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)a3 + 28, 0x54777445u);
+    Node = PoolWithTag;
     if ( PoolWithTag )
     {
-      memmove((char *)PoolWithTag + 28, Src, a3);
+      memmove((char *)&PoolWithTag[1].Left + 4, Src, a3);
       v9 = EtwpSetProviderTraitsCommon(
              0LL,
              0,
              (unsigned int *)&v14,
              a1,
-             v8,
+             Node,
              v6,
              &EtwpProviderTraitsKmMutex,
-             (__int64)&EtwpProviderTraitsKmTree);
+             &EtwpProviderTraitsKmTree);
       if ( !v9 )
         return v9;
     }

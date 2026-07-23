@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcUpdateInitializeBSP @ 0x140593D68
+ * XREFs of HalpMcUpdateInitializeBSP @ 0x1405964E8
  * Callers:
- *     HalpProcInitSystem @ 0x140BEB320 (HalpProcInitSystem.c)
+ *     HalpProcInitSystem @ 0x140BF1320 (HalpProcInitSystem.c)
  * Callees:
- *     HalpGetCurrentMicrocodePlatform @ 0x1405930D4 (HalpGetCurrentMicrocodePlatform.c)
- *     PrExtControlOperations @ 0x1406DCA28 (PrExtControlOperations.c)
- *     HalpMcExportAndChargeNeededData @ 0x1407851F4 (HalpMcExportAndChargeNeededData.c)
+ *     HalpGetCurrentMicrocodePlatform @ 0x140595854 (HalpGetCurrentMicrocodePlatform.c)
+ *     PrExtControlOperations @ 0x1406E0CC8 (PrExtControlOperations.c)
+ *     HalpMcExportAndChargeNeededData @ 0x140787D24 (HalpMcExportAndChargeNeededData.c)
  */
 
 __int64 __fastcall HalpMcUpdateInitializeBSP(__int64 a1)

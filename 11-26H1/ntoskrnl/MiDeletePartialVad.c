@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeletePartialVad @ 0x1403BCC54
+ * XREFs of MiDeletePartialVad @ 0x1403C6AC4
  * Callers:
- *     MiFreeVadRange @ 0x1403BC958 (MiFreeVadRange.c)
+ *     MiFreeVadRange @ 0x1403C67C8 (MiFreeVadRange.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiPerformVadSplitting @ 0x140315B44 (MiPerformVadSplitting.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiComputeVadCharges @ 0x1404C4640 (MiComputeVadCharges.c)
- *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x14070D064 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiUnmapVad @ 0x1409C3B30 (MiUnmapVad.c)
- *     MiAllocateSplitVads @ 0x140AC04EC (MiAllocateSplitVads.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiPerformVadSplitting @ 0x140317B74 (MiPerformVadSplitting.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiComputeVadCharges @ 0x1404BDF20 (MiComputeVadCharges.c)
+ *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x140711D14 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline.c)
+ *     MiUnmapVad @ 0x140994B10 (MiUnmapVad.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiAllocateSplitVads @ 0x140AC258C (MiAllocateSplitVads.c)
  */
 
 __int64 __fastcall MiDeletePartialVad(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, int a4)
@@ -67,7 +67,7 @@ __int64 __fastcall MiDeletePartialVad(ULONG_PTR BugCheckParameter2, __int64 a2, 
     if ( IsEnabledDeviceUsageNoInline )
     {
       if ( v12 )
-        MiReturnResident(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(Process + 1198)), v12);
+        MiReturnResident(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(Process + 1198)), v12);
     }
     return 0LL;
   }

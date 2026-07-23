@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFindRegTziForCurrentYear @ 0x1800B7044
+ * XREFs of RtlpFindRegTziForCurrentYear @ 0x1800838E4
  * Callers:
- *     RtlpCheckDynamicTimeZoneInformation @ 0x1800B5CD0 (RtlpCheckDynamicTimeZoneInformation.c)
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x180082570 (RtlpCheckDynamicTimeZoneInformation.c)
  * Callees:
- *     RtlpQueryRegistryValues @ 0x1800B6140 (RtlpQueryRegistryValues.c)
- *     _itow_s @ 0x18012C900 (_itow_s.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpQueryRegistryValues @ 0x1800829E0 (RtlpQueryRegistryValues.c)
+ *     _itow_s @ 0x18012AB30 (_itow_s.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, const wchar_t *a2, __int16 a3)

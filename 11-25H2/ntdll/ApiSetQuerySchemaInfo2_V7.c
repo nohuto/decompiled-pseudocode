@@ -11,14 +11,14 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, char *a2, int *a3)
+__int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, const WCHAR *a2, int *a3)
 {
-  char *v4; // r12
+  const WCHAR *v4; // r12
   __int64 v5; // rbx
   unsigned int v6; // edi
   unsigned __int64 v7; // r10
   int v8; // r9d
-  char *v9; // r8
+  const WCHAR *v9; // r8
   char v10; // cl
   __int16 v11; // ax
   int v12; // ecx
@@ -38,13 +38,12 @@ __int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, char *a2, int *a3)
   __int64 v27; // r11
   char v28; // cl
   __int64 v29; // rcx
-  __int64 v30; // rcx
+  RTL_FEATURE_ID v30; // ecx
   _BYTE v31[8]; // [rsp+20h] [rbp-50h] BYREF
   __int128 v32; // [rsp+28h] [rbp-48h] BYREF
   __int128 v33; // [rsp+38h] [rbp-38h]
-  __int64 v34; // [rsp+48h] [rbp-28h] BYREF
-  __int64 v35; // [rsp+50h] [rbp-20h] BYREF
-  int v36; // [rsp+58h] [rbp-18h]
+  ULONGLONG ChangeStamp; // [rsp+48h] [rbp-28h] BYREF
+  _RTL_FEATURE_CONFIGURATION FeatureConfiguration; // [rsp+50h] [rbp-20h] BYREF
 
   *a3 = 240;
   v4 = a2;
@@ -63,19 +62,19 @@ __int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, char *a2, int *a3)
   v7 = -1LL;
   do
     ++v7;
-  while ( a2[v7] );
+  while ( *((_BYTE *)a2 + v7) );
   if ( v7 > 0xFFFF )
     return 3221225485LL;
   v8 = 10;
   v9 = a2;
   do
   {
-    if ( !*v9 )
+    if ( !*(_BYTE *)v9 )
       goto LABEL_19;
-    v10 = *v9 + 32;
-    if ( (unsigned __int8)(*v9 - 65) > 0x19u )
-      v10 = *v9;
-    if ( v9["schemaext-" - a2] != v10 )
+    v10 = *(_BYTE *)v9 + 32;
+    if ( (unsigned __int8)(*(_BYTE *)v9 - 65) > 0x19u )
+      v10 = *(_BYTE *)v9;
+    if ( *((_BYTE *)v9 + "schemaext-" - (char *)a2) != v10 )
     {
 LABEL_19:
       v32 = 0LL;
@@ -95,10 +94,10 @@ LABEL_19:
           v27 = WORD1(v33);
           do
           {
-            v28 = *v4 + 32;
-            if ( (unsigned __int8)(*v4 - 65) > 0x19u )
-              v28 = *v4;
-            ++v4;
+            v28 = *(_BYTE *)v4 + 32;
+            if ( (unsigned __int8)(*(_BYTE *)v4 - 65) > 0x19u )
+              v28 = *(_BYTE *)v4;
+            v4 = (const WCHAR *)((char *)v4 + 1);
             v24 = v28 + *(unsigned __int8 *)(v5 + 67) * v24;
             --v27;
           }
@@ -120,16 +119,16 @@ LABEL_19:
               *a3 = 243;
               return v6;
             }
-            v30 = *(unsigned int *)(v26 + 8);
-            if ( (_DWORD)v30 )
+            v30 = *(_DWORD *)(v26 + 8);
+            if ( v30 )
             {
-              v34 = 0LL;
-              v35 = 0LL;
-              v36 = 0;
-              if ( (unsigned int)RtlQueryFeatureConfiguration(v30, 0, &v34, (__int64)&v35)
-                || !v34
-                || (_DWORD)v35 != *(_DWORD *)(v26 + 8)
-                || (BYTE4(v35) & 0x30) != 0x20 )
+              ChangeStamp = 0LL;
+              *(_QWORD *)&FeatureConfiguration.FeatureId = 0LL;
+              FeatureConfiguration.VariantPayload = 0;
+              if ( RtlQueryFeatureConfiguration(v30, RtlFeatureConfigurationBoot, &ChangeStamp, &FeatureConfiguration)
+                || !ChangeStamp
+                || FeatureConfiguration.FeatureId != *(_DWORD *)(v26 + 8)
+                || (FeatureConfiguration.Flags & 0x30) != 0x20 )
               {
                 *a3 = 244;
                 return v6;
@@ -159,11 +158,11 @@ LABEL_45:
           v18 = WORD1(v33);
           do
           {
-            v19 = *v4 + 32;
-            if ( (unsigned __int8)(*v4 - 65) > 0x19u )
-              v19 = *v4;
+            v19 = *(_BYTE *)v4 + 32;
+            if ( (unsigned __int8)(*(_BYTE *)v4 - 65) > 0x19u )
+              v19 = *(_BYTE *)v4;
             v14 = (unsigned int)v19;
-            ++v4;
+            v4 = (const WCHAR *)((char *)v4 + 1);
             v15 = v14 + *(unsigned __int8 *)(v5 + 79) * v15;
             --v18;
           }
@@ -191,13 +190,13 @@ LABEL_36:
       *a3 = 245;
       return v6;
     }
-    ++v9;
+    v9 = (const WCHAR *)((char *)v9 + 1);
     --v8;
   }
   while ( v8 > 0 );
   v32 = 0LL;
   v33 = 0LL;
-  if ( !(unsigned __int8)ApiSetpGetExtensionNameKeyInfo(a2, (unsigned __int16)v7, 0LL, &v32) )
+  if ( !(unsigned __int8)ApiSetpGetExtensionNameKeyInfo(a2) )
     return 3221225485LL;
   v11 = ApiSetpSearchForSectionIndex_V7(v5, v5 + 80, &v32);
   v12 = 0;

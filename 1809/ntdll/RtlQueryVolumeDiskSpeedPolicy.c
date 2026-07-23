@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlQueryVolumeDiskSpeedPolicy @ 0x18008E88C
+ * XREFs of RtlQueryVolumeDiskSpeedPolicy @ 0x18008E89C
  * Callers:
- *     RtlpDiskSpeedInitialize @ 0x18008E820 (RtlpDiskSpeedInitialize.c)
+ *     RtlpDiskSpeedInitialize @ 0x18008E830 (RtlpDiskSpeedInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtDeviceIoControlFile @ 0x1800A03C0 (NtDeviceIoControlFile.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtDeviceIoControlFile @ 0x1800A03E0 (NtDeviceIoControlFile.c)
  */
 
 NTSTATUS __fastcall RtlQueryVolumeDiskSpeedPolicy(void *a1, _DWORD *a2)
 {
   NTSTATUS result; // eax
-  struct _IO_STATUS_BLOCK v4; // [rsp+50h] [rbp-48h] BYREF
+  _IO_STATUS_BLOCK v4; // [rsp+50h] [rbp-48h] BYREF
   _DWORD v5[4]; // [rsp+60h] [rbp-38h] BYREF
   __int64 v6; // [rsp+70h] [rbp-28h] BYREF
   int v7; // [rsp+78h] [rbp-20h]

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopBsdPowerTransitionToParam1 @ 0x14075CB10
+ * XREFs of PopBsdPowerTransitionToParam1 @ 0x14075BAB0
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405D83A0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x1405D58C0 (PopPowerButtonWorkCallback.c)
  * Callees:
  *     <none>
  */

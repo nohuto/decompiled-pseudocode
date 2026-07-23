@@ -1,22 +1,22 @@
 /*
- * XREFs of SeAuditingWithTokenForSubcategory @ 0x140A435C0
+ * XREFs of SeAuditingWithTokenForSubcategory @ 0x1409FE320
  * Callers:
- *     SeExchangePrimaryToken @ 0x140814B78 (SeExchangePrimaryToken.c)
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     ObCompleteObjectDuplication @ 0x1409714E0 (ObCompleteObjectDuplication.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x14098D0F4 (PiPnpRtlSetDeviceRegProperty.c)
- *     PiPnpRtlSetObjectProperty @ 0x1409DBA24 (PiPnpRtlSetObjectProperty.c)
- *     PspExitLastThread @ 0x140A41964 (PspExitLastThread.c)
- *     SepAdtTokenRightAdjusted @ 0x140A4325C (SepAdtTokenRightAdjusted.c)
- *     PiDevCfgProcessDevice @ 0x140AD089C (PiDevCfgProcessDevice.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B64ACC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeExchangePrimaryToken @ 0x14081AC68 (SeExchangePrimaryToken.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x14094DB54 (PiPnpRtlSetDeviceRegProperty.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     ObCompleteObjectDuplication @ 0x1409BB650 (ObCompleteObjectDuplication.c)
+ *     PspExitLastThread @ 0x1409FD314 (PspExitLastThread.c)
+ *     SepAdtTokenRightAdjusted @ 0x1409FDFBC (SepAdtTokenRightAdjusted.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140A18C74 (PiPnpRtlSetObjectProperty.c)
+ *     PiDevCfgProcessDevice @ 0x140AE7A3C (PiDevCfgProcessDevice.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B67B6C (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
- *     SepAuditingForSubCategory @ 0x1404C210C (SepAuditingForSubCategory.c)
- *     SepAdtIncorporatePerUserPolicy @ 0x140813628 (SepAdtIncorporatePerUserPolicy.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
+ *     SepAuditingForSubCategory @ 0x1404BB95C (SepAuditingForSubCategory.c)
+ *     SepAdtIncorporatePerUserPolicy @ 0x140819488 (SepAdtIncorporatePerUserPolicy.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
  */
 
 char __fastcall SeAuditingWithTokenForSubcategory(int a1, void *a2)
@@ -29,7 +29,7 @@ char __fastcall SeAuditingWithTokenForSubcategory(int a1, void *a2)
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   v3 = (unsigned int)(a1 - 100);
   v7 = SepAuditingForSubCategory(a1, 1);
-  if ( *((_DWORD *)&SepRmCapTableLock.RelativeTimerBias + v3) )
+  if ( *(&SepRmCapTableLock.Timer.DueTime.LowPart + v3) )
   {
     if ( a2 )
     {

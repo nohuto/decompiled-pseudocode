@@ -1,16 +1,16 @@
 /*
- * XREFs of MiParseImageCfgBits @ 0x1405256E0
+ * XREFs of MiParseImageCfgBits @ 0x140508740
  * Callers:
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiCompressRvaList @ 0x14042F860 (MiCompressRvaList.c)
- *     MiLogRelocationRva @ 0x140525BF0 (MiLogRelocationRva.c)
+ *     MiCompressRvaList @ 0x14042E730 (MiCompressRvaList.c)
+ *     MiLogRelocationRva @ 0x140508C50 (MiLogRelocationRva.c)
  */
 
 __int64 __fastcall MiParseImageCfgBits(__int64 a1, __int64 a2, unsigned int a3, __int64 *a4, __int64 a5, _QWORD *a6)
@@ -168,7 +168,7 @@ LABEL_9:
           if ( v24 + v25 <= v24 || v24 + v25 > *((unsigned int *)a4 + 4) || (int)v25 + 4 < (unsigned int)v25 )
           {
             v28 = -1073741819;
-            dword_1403267A8 = 5;
+            dword_1403267E8 = 5;
           }
           else
           {
@@ -193,7 +193,7 @@ LABEL_9:
                     break;
                   if ( v31 && v32 < v30 )
                   {
-                    dword_1403267A8 = 9;
+                    dword_1403267E8 = 9;
                     goto LABEL_61;
                   }
                   v30 = *(unsigned int *)((char *)v9 + v31);
@@ -201,7 +201,7 @@ LABEL_9:
                   if ( v31 >= (unsigned int)v25 )
                     goto LABEL_31;
                 }
-                dword_1403267A8 = 8;
+                dword_1403267E8 = 8;
 LABEL_61:
                 v28 = -1073741701;
               }
@@ -217,7 +217,7 @@ LABEL_31:
                   if ( v39 + 4 < v39 )
                   {
                     v28 = -1073741789;
-                    dword_1403267A8 = 10;
+                    dword_1403267E8 = 10;
                   }
                   else
                   {
@@ -226,7 +226,7 @@ LABEL_31:
                     if ( !v35 )
                     {
                       v28 = -1073741670;
-                      dword_1403267A8 = 11;
+                      dword_1403267E8 = 11;
                       v10 = 0LL;
                       goto LABEL_37;
                     }
@@ -238,13 +238,13 @@ LABEL_31:
               goto LABEL_36;
             }
             v28 = -1073741670;
-            dword_1403267A8 = 6;
+            dword_1403267E8 = 6;
           }
         }
         else
         {
           v28 = -1073741819;
-          dword_1403267A8 = 4;
+          dword_1403267E8 = 4;
         }
       }
       else

@@ -1,9 +1,9 @@
 /*
- * XREFs of XmInt1aReadConfigRegister @ 0x1405791FC
+ * XREFs of XmInt1aReadConfigRegister @ 0x14057668C
  * Callers:
- *     XmExecuteInt1a @ 0x140578F24 (XmExecuteInt1a.c)
+ *     XmExecuteInt1a @ 0x1405763B4 (XmExecuteInt1a.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall XmInt1aReadConfigRegister(__int64 a1)
@@ -13,9 +13,7 @@ char __fastcall XmInt1aReadConfigRegister(__int64 a1)
   unsigned __int8 v4; // al
   unsigned __int8 v5; // dl
   int v6; // eax
-  int v8; // [rsp+40h] [rbp+8h] BYREF
 
-  v8 = 0;
   v2 = *(_BYTE *)(a1 + 24);
   v3 = -121;
   v4 = *(_BYTE *)(a1 + 36);
@@ -34,26 +32,22 @@ LABEL_6:
 LABEL_7:
     v5 = v4;
   }
-  v6 = guard_dispatch_icall_no_overrides(
-         *(unsigned __int8 *)(a1 + 37),
-         (v5 >> 3) | (32 * (v5 & 7u)),
-         &v8,
-         *(unsigned __int16 *)(a1 + 52));
+  v6 = guard_dispatch_icall_no_overrides(*(unsigned __int8 *)(a1 + 37), (v5 >> 3) | (32 * (v5 & 7u)));
   if ( v6 )
   {
     switch ( *(_BYTE *)(a1 + 24) )
     {
       case 8:
-        LOBYTE(v6) = v8;
-        *(_BYTE *)(a1 + 28) = v8;
+        LOBYTE(v6) = 0;
+        *(_BYTE *)(a1 + 28) = 0;
         break;
       case 9:
-        LOBYTE(v6) = v8;
-        *(_WORD *)(a1 + 28) = v8;
+        LOBYTE(v6) = 0;
+        *(_WORD *)(a1 + 28) = 0;
         break;
       case 0xA:
-        LOBYTE(v6) = v8;
-        *(_DWORD *)(a1 + 28) = v8;
+        LOBYTE(v6) = 0;
+        *(_DWORD *)(a1 + 28) = 0;
         break;
     }
     *(_DWORD *)(a1 + 16) &= ~1u;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MmMapViewOfSectionEx @ 0x1404BCA5C
+ * XREFs of MmMapViewOfSectionEx @ 0x1404B623C
  * Callers:
- *     VmMapSectionExecuteNoAcg @ 0x14081BBB0 (VmMapSectionExecuteNoAcg.c)
- *     MiMapProcessExecutable @ 0x140962988 (MiMapProcessExecutable.c)
- *     PspMapSystemDll @ 0x140962C14 (PspMapSystemDll.c)
- *     MiMapSecurePureReserveView @ 0x140AC4500 (MiMapSecurePureReserveView.c)
- *     MiMapImageForEnclaveUse @ 0x140B5ED58 (MiMapImageForEnclaveUse.c)
+ *     VmMapSectionExecuteNoAcg @ 0x140821DC0 (VmMapSectionExecuteNoAcg.c)
+ *     MiMapProcessExecutable @ 0x140A08810 (MiMapProcessExecutable.c)
+ *     PspMapSystemDll @ 0x140A08A9C (PspMapSystemDll.c)
+ *     MiMapSecurePureReserveView @ 0x140AC6170 (MiMapSecurePureReserveView.c)
+ *     MiMapImageForEnclaveUse @ 0x140B61ED8 (MiMapImageForEnclaveUse.c)
  * Callees:
- *     MiMapViewOfSectionExCommon @ 0x1409F1570 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x1409EDD40 (MiMapViewOfSectionExCommon.c)
  */
 
 __int64 __fastcall MmMapViewOfSectionEx(

@@ -1,13 +1,13 @@
 /*
- * XREFs of SddlpUuidFromString @ 0x140796C80
+ * XREFs of SddlpUuidFromString @ 0x140796D90
  * Callers:
- *     LocalGetAclForString @ 0x140865750 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x140869D60 (LocalGetAclForString.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcsncat_s @ 0x140504870 (wcsncat_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcsncat_s @ 0x140502130 (wcsncat_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
  */
 
 _BOOL8 __fastcall SddlpUuidFromString(wchar_t *SourceString, GUID *Guid)

@@ -2,12 +2,12 @@
  * XREFs of RtlUnicodeToMultiByteN @ 0x1406A04A0
  * Callers:
  *     wcstombs @ 0x1403E35A0 (wcstombs.c)
- *     _wctomb_s_l @ 0x1403E38B4 (_wctomb_s_l.c)
- *     _safecrt_wctomb_s @ 0x1403E82B8 (_safecrt_wctomb_s.c)
+ *     sub_1403E38B4 @ 0x1403E38B4 (sub_1403E38B4.c)
+ *     sub_1403E82B8 @ 0x1403E82B8 (sub_1403E82B8.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  *     RtlUnicodeToUTF8N @ 0x140759F40 (RtlUnicodeToUTF8N.c)
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     sub_1407CDA20 @ 0x1407CDA20 (sub_1407CDA20.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteN(
@@ -17,9 +17,9 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteN(
         PCWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
-  struct _CPTABLEINFO *v9; // rax
+  _CPTABLEINFO *v9; // rax
   PCHAR v10; // rdx
-  char *CurrentServerSiloGlobals; // rax
+  char *v11; // rax
   ULONG v12; // r8d
   _BYTE *v13; // r8
   __int64 v14; // rdx
@@ -32,17 +32,17 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteN(
   signed __int32 v22[8]; // [rsp+0h] [rbp-38h] BYREF
   char v23; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
+  if ( (unsigned __int8)sub_1407CDA20(0LL) )
   {
-    v9 = &Utf8TableInfo;
+    v9 = &CustomCP;
     LODWORD(v10) = (_DWORD)MultiByteString;
   }
   else
   {
     _InterlockedOr(v22, 0);
-    CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
+    v11 = (char *)sub_140347DB0();
     LODWORD(v10) = (_DWORD)MultiByteString;
-    v9 = (struct _CPTABLEINFO *)(CurrentServerSiloGlobals + 1064);
+    v9 = (_CPTABLEINFO *)(v11 + 1064);
     if ( !v9 )
     {
 LABEL_23:

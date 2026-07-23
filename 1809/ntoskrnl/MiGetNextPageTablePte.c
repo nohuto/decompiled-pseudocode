@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetNextPageTablePte @ 0x140070A30
+ * XREFs of MiGetNextPageTablePte @ 0x140070A20
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14006EE70 (MiWalkPageTablesRecursively.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiReleaseWalkLocks @ 0x140122798 (MiReleaseWalkLocks.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiReleaseWalkLocks @ 0x140122868 (MiReleaseWalkLocks.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AB1E0 (MiFlushAllFilesystemPages.c)
  */
 
 __int64 __fastcall MiGetNextPageTablePte(int *a1, __int64 *a2, __int64 a3)
@@ -95,9 +95,9 @@ __int64 __fastcall MiGetNextPageTablePte(int *a1, __int64 *a2, __int64 a3)
   if ( (v5 & 0x80u) == 0LL )
   {
     if ( (v8 & 0x200) == 0
-      || qword_14043AE28 == (PVOID)qword_14043AE30
+      || qword_14043BEE8 == (PVOID)qword_14043BEF0
       || (v19 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v20),
-          (PVOID)((v19 >> 12) & 0xFFFFFFFFFLL) != *(&qword_14043AE28 + v4)) )
+          (PVOID)((v19 >> 12) & 0xFFFFFFFFFLL) != *(&qword_14043BEE8 + v4)) )
     {
       if ( (int)v4 > *((unsigned __int8 *)a1 + 10) )
         return 2LL;

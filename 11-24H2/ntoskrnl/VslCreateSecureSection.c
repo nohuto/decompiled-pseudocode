@@ -1,14 +1,14 @@
 /*
- * XREFs of VslCreateSecureSection @ 0x140A5B480
+ * XREFs of VslCreateSecureSection @ 0x140A52D90
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     MmSizeOfMdl @ 0x140458550 (MmSizeOfMdl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     MmSizeOfMdl @ 0x14044DA00 (MmSizeOfMdl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslCreateSecureSection(_QWORD *a1, __int64 a2, struct _MDL *a3, int a4, int a5)
@@ -41,7 +41,7 @@ __int64 __fastcall VslCreateSecureSection(_QWORD *a1, __int64 a2, struct _MDL *a
     v18 = v12[7];
     v14 = *(_QWORD *)(a2 + 368);
     v15 = a4;
-    v11 = VslpEnterIumSecureMode(2u, 68LL, 0, (__int64)v13);
+    v11 = VslpEnterIumSecureMode(2u, 0x44u, 0, (__int64)v13);
     VslpUnlockPagesForTransfer(v12);
     if ( v11 >= 0 )
       *a1 = v17;

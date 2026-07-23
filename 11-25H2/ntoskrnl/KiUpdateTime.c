@@ -134,7 +134,7 @@ LABEL_11:
   if ( v20 <= 0 )
   {
     v35 = 1LL;
-    v20 += (unsigned int)KeMaximumIncrement;
+    v20 += KeMaximumIncrement;
     if ( v20 <= 0 )
     {
       v36 = ((unsigned __int64)(((unsigned __int64)-v20

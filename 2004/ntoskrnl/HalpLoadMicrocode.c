@@ -36,8 +36,8 @@ __int64 __fastcall HalpLoadMicrocode(__int64 a1)
   __int64 v13; // rcx
   __int64 v14; // r8
   unsigned int v16; // [rsp+20h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   v16 = 0;
   Affinity = 0LL;

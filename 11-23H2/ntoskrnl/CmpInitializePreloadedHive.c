@@ -3,15 +3,15 @@
  * Callers:
  *     CmpInitializePreloadedHives @ 0x140B3695C (CmpInitializePreloadedHives.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
- *     CmpSetupLoggingState @ 0x14080E6CC (CmpSetupLoggingState.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
+ *     CmpSetupLoggingState @ 0x14080E99C (CmpSetupLoggingState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140B98234 (CmpGetSystemRelativeRegistryHiveFilePath.c)
@@ -159,13 +159,13 @@ LABEL_15:
   v16 = CmpLinkHiveToMaster((__int64)&v26, 0LL, v24, 0, 0x200u, 0, 0LL, a2, 0LL, 0LL, 1, BugCheckParameter3);
   if ( v16 < 0 )
     KeBugCheckEx(0x74u, 3uLL, 7uLL, v24, v16);
-  v17 = (_QWORD *)qword_140C148B8;
+  v17 = (_QWORD *)qword_140C14858;
   v18 = (_QWORD *)(v24 + 1624);
-  if ( *(__int64 **)qword_140C148B8 != &CmpPreloadedHivesList )
+  if ( *(__int64 **)qword_140C14858 != &CmpPreloadedHivesList )
     __fastfail(3u);
   *v18 = &CmpPreloadedHivesList;
   v18[1] = v17;
   *v17 = v18;
-  qword_140C148B8 = (__int64)v18;
+  qword_140C14858 = (__int64)v18;
   return 0LL;
 }

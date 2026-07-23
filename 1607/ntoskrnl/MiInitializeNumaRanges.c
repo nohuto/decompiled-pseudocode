@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeNumaRanges @ 0x1400B5C68
+ * XREFs of MiInitializeNumaRanges @ 0x1400B3A90
  * Callers:
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
  */
 
 __int64 MiInitializeNumaRanges()
@@ -63,12 +63,12 @@ __int64 MiInitializeNumaRanges()
       v13 = 0LL;
       v3 = 0;
 LABEL_11:
-      v4 = ExAcquireSpinLockExclusive(&dword_1403266B0);
-      v2 = (void *)qword_1403269C0;
+      v4 = ExAcquireSpinLockExclusive(&dword_1403266F0);
+      v2 = (void *)qword_140326A00;
       v5 = v4;
-      if ( qword_1403269C0 && !byte_1403269C8 )
+      if ( qword_140326A00 && !byte_140326A08 )
       {
-        byte_1403269C8 = 1;
+        byte_140326A08 = 1;
         v2 = 0LL;
       }
       v6 = (__int64)v13;
@@ -91,9 +91,9 @@ LABEL_11:
           while ( *(_QWORD *)(v11 + v6) != -1LL );
         }
       }
-      dword_1403269B8 = 0;
-      qword_1403269C0 = v6;
-      ExReleaseSpinLockExclusive(&dword_1403266B0, v5);
+      dword_1403269F8 = 0;
+      qword_140326A00 = v6;
+      ExReleaseSpinLockExclusive(&dword_1403266F0, v5);
       break;
     }
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v1, 0x20206D4Du);

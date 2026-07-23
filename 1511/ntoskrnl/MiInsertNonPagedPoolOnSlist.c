@@ -13,7 +13,7 @@
  *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401D1940 (MI_INTERLOCKED_EXCHANGE_PTE.c)
  */
 
-__int64 __fastcall MiInsertNonPagedPoolOnSlist(struct _SLIST_ENTRY *a1, unsigned __int64 a2)
+__int64 __fastcall MiInsertNonPagedPoolOnSlist(_SLIST_ENTRY *a1, unsigned __int64 a2)
 {
   __int64 v3; // rsi
   __int64 v5; // r12
@@ -27,7 +27,7 @@ __int64 __fastcall MiInsertNonPagedPoolOnSlist(struct _SLIST_ENTRY *a1, unsigned
   unsigned int v13; // r13d
   __int64 v14; // rax
   __int64 v15; // r14
-  union _SLIST_HEADER *v16; // r14
+  _SLIST_HEADER *v16; // r14
   int v17; // ebp
   unsigned __int64 v18; // r15
   char v19; // bl

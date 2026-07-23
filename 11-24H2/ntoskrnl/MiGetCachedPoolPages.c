@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetCachedPoolPages @ 0x14049F260
+ * XREFs of MiGetCachedPoolPages @ 0x14049A090
  * Callers:
- *     MiGetPoolPages @ 0x1402E9F58 (MiGetPoolPages.c)
+ *     MiGetPoolPages @ 0x14034B598 (MiGetPoolPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiFillPhysicalPages @ 0x14021EFA0 (MiFillPhysicalPages.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiSplitPageChain @ 0x14049F35C (MiSplitPageChain.c)
+ *     MiFillPhysicalPages @ 0x14024BCF0 (MiFillPhysicalPages.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSplitPageChain @ 0x14049A18C (MiSplitPageChain.c)
  */
 
 __int64 __fastcall MiGetCachedPoolPages(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiGetCachedPoolPages(__int64 a1)
   __int64 v7; // r8
   _QWORD *v9; // rsi
 
-  v2 = qword_140E2DAF8 + 384LL * *(unsigned int *)(a1 + 96);
+  v2 = qword_140E2DC38 + 384LL * *(unsigned int *)(a1 + 96);
   if ( *(_BYTE *)(a1 + 102) == 2 )
   {
     *(_BYTE *)(a1 + 103) = 17;

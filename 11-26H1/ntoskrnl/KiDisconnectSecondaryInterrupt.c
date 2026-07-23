@@ -1,14 +1,14 @@
 /*
- * XREFs of KiDisconnectSecondaryInterrupt @ 0x140424278
+ * XREFs of KiDisconnectSecondaryInterrupt @ 0x140431368
  * Callers:
- *     KeDisconnectInterrupt @ 0x140423CA0 (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x140430D90 (KeDisconnectInterrupt.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     KiReleaseSecondaryPassiveConnectLock @ 0x1404231A8 (KiReleaseSecondaryPassiveConnectLock.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x1404231CC (KiAcquireSecondaryPassiveConnectLock.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x1404238CC (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiDisconnectInterruptCommon @ 0x140423DC4 (KiDisconnectInterruptCommon.c)
- *     HalDisableInterrupt @ 0x1404240E0 (HalDisableInterrupt.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     KiReleaseSecondaryPassiveConnectLock @ 0x140430298 (KiReleaseSecondaryPassiveConnectLock.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x1404302BC (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x1404309BC (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiDisconnectInterruptCommon @ 0x140430EB4 (KiDisconnectInterruptCommon.c)
+ *     HalDisableInterrupt @ 0x1404311D0 (HalDisableInterrupt.c)
  */
 
 __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
   v3 = (unsigned int)(*(_DWORD *)(a1 + 88) - 256);
   v10 = 0;
   v5 = 0;
-  v6 = (KSPIN_LOCK *)&KiDpcCorralLock.WaitBlock[2].WaitListEntry.Flink[3 * v3];
+  v6 = (KSPIN_LOCK *)(KiDpcCorralLock.Timer.DueTime.QuadPart + 48 * v3);
   KiAcquireSecondaryPassiveConnectLock((__int64)v6);
   KiAcquireSecondaryInterruptConnectLock(v6, &v10);
   if ( *(_BYTE *)(a1 + 95) )

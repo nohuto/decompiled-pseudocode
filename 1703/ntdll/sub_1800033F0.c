@@ -12,13 +12,13 @@
 __int64 sub_1800033F0()
 {
   __int64 result; // rax
-  __int64 v1; // rbx
+  void *v1; // rbx
   __int64 v2; // rdi
   unsigned int v3; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = 0;
-  result = sub_18005DC24(320, -1, (unsigned int)&v3, 0, 0LL);
-  v1 = result;
+  result = sub_18005DC24(320, -1, (int)&v3, 0, 0LL);
+  v1 = (void *)result;
   if ( result )
   {
     v2 = sub_180003454(result, v3, 3LL);

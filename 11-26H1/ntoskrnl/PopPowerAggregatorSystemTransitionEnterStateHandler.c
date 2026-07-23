@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140A37360
+ * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x1409F2F20
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x1404E6C14 (PopGetMonitorReasonFromPowerEventId.c)
- *     PopPowerRequestRevokeRequestsForSleep @ 0x140A37300 (PopPowerRequestRevokeRequestsForSleep.c)
- *     PopSuspendResumePdc @ 0x140A37334 (PopSuspendResumePdc.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140A38D30 (PopPowerAggregatorSetCurrentState.c)
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopGetMonitorReasonFromPowerEventId @ 0x1404E00B4 (PopGetMonitorReasonFromPowerEventId.c)
+ *     PopPowerRequestRevokeRequestsForSleep @ 0x1409F2EC0 (PopPowerRequestRevokeRequestsForSleep.c)
+ *     PopSuspendResumePdc @ 0x1409F2EF4 (PopSuspendResumePdc.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x1409F48F0 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a
     v3 = MonitorReasonFromPowerEventId & 0xFFFFFF;
     LODWORD(v13[0]) = 5;
     PopPowerAggregatorSetCurrentState(a1, v13);
-    PopReleaseRwLock(&PopPowerAggregatorLock);
+    PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
     PopSuspendResumePdc(1LL, v4);
     PopPowerRequestRevokeRequestsForSleep(v6, v5, v7, v8);
     KeSetEvent((PRKEVENT)(a1 + 264), 0, 0);

@@ -1,11 +1,11 @@
 /*
- * XREFs of CcPinRead @ 0x1406383B0
+ * XREFs of CcPinRead @ 0x1406393D0
  * Callers:
  *     <none>
  * Callees:
- *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
- *     CcUnpinData @ 0x1405DEDF0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x140706ED0 (CcAllocateObcb.c)
+ *     CcPinFileData @ 0x1400AE210 (CcPinFileData.c)
+ *     CcUnpinData @ 0x1405DFDF0 (CcUnpinData.c)
+ *     CcAllocateObcb @ 0x140708170 (CcAllocateObcb.c)
  */
 
 BOOLEAN __stdcall CcPinRead(

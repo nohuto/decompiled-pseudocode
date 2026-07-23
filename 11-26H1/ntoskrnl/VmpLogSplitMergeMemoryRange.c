@@ -1,19 +1,19 @@
 /*
- * XREFs of VmpLogSplitMergeMemoryRange @ 0x14081EA20
+ * XREFs of VmpLogSplitMergeMemoryRange @ 0x140824C30
  * Callers:
- *     VmSplitMemoryRange @ 0x140B1D5D0 (VmSplitMemoryRange.c)
- *     VmMergeMemoryRanges @ 0x140B21780 (VmMergeMemoryRanges.c)
+ *     VmSplitMemoryRange @ 0x140B1F750 (VmSplitMemoryRange.c)
+ *     VmMergeMemoryRanges @ 0x140B23B80 (VmMergeMemoryRanges.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall VmpLogSplitMergeMemoryRange(__int64 a1, int a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   _UNKNOWN **v5; // rax
-  unsigned __int64 QuantumTarget; // rbx
+  void *InitialStack; // rbx
   __int64 v9; // r8
   unsigned __int8 *v10; // rdx
   unsigned int *v11; // rax
@@ -35,18 +35,18 @@ char __fastcall VmpLogSplitMergeMemoryRange(__int64 a1, int a2, __int64 a3, __in
   _UNKNOWN *retaddr; // [rsp+E0h] [rbp+57h] BYREF
 
   v5 = &retaddr;
-  QuantumTarget = stru_140F066E8.QuantumTarget;
+  InitialStack = stru_140F06A28.InitialStack;
   if ( a2 )
   {
-    if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u )
+    if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u )
     {
-      LOBYTE(v5) = tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL);
+      LOBYTE(v5) = tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL);
       if ( (_BYTE)v5 )
       {
         ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
         v24 = v18;
         p_ProcessId = &ProcessId;
-        v10 = (unsigned __int8 *)&byte_1400535FF;
+        v10 = (unsigned __int8 *)qword_140053FC8;
         v17 = a3;
         v22 = &v17;
         v16 = a5;
@@ -58,19 +58,19 @@ LABEL_8:
         v23 = 8LL;
         v25 = 8LL;
         v27 = 4LL;
-        LOBYTE(v5) = tlgWriteEx_EtwWriteEx(QuantumTarget, v10, v9, 0, v13, v14, 6u, &v19);
+        LOBYTE(v5) = tlgWriteEx_EtwWriteEx((__int64)InitialStack, v10, v9, 0, v13, v14, 6u, &v19);
       }
     }
   }
-  else if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u )
+  else if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u )
   {
-    LOBYTE(v5) = tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL);
+    LOBYTE(v5) = tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL);
     if ( (_BYTE)v5 )
     {
       v16 = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
       v24 = &v17;
       p_ProcessId = &v16;
-      v10 = (unsigned __int8 *)&byte_140052FDD;
+      v10 = (unsigned __int8 *)&byte_1400544BD;
       v18[0] = a3;
       v22 = v18;
       ProcessId = a5;

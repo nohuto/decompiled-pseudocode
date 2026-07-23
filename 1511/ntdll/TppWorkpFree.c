@@ -7,8 +7,8 @@
  *     RtlFreeHeap @ 0x1800207C0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall TppWorkpFree(__int64 a1)
+LOGICAL __fastcall TppWorkpFree(PVOID BaseAddress)
 {
   TppCleanupGroupMemberDestroy();
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
 }

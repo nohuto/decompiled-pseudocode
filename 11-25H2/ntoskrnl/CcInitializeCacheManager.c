@@ -93,7 +93,7 @@ LABEL_12:
   CcBcbTrimNotificationListLock.Owner = 0LL;
   CcBcbTrimNotificationListLock.Contention = 0;
   LOWORD(CcBcbTrimNotificationListLock.Event.Header.Lock) = 1;
-  CcIdleDelayTick = 0x989680u / KeMaximumIncrement;
+  CcIdleDelayTick = 0x989680 / KeMaximumIncrement;
   qword_140F8DFC8 = (__int64)&CcVolumeCacheMapList;
   CcVolumeCacheMapList = (__int64)&CcVolumeCacheMapList;
   CcBcbTrimNotificationListLock.Event.Header.WaitListHead.Blink = &CcBcbTrimNotificationListLock.Event.Header.WaitListHead;
@@ -144,26 +144,8 @@ LABEL_12:
     1817600835,
     0,
     0);
-  ExInitializeLookasideListExInternal(
-    &CcSharedCacheMapLookasideList.L.ListHead,
-    0LL,
-    0LL,
-    512,
-    1,
-    0x268uLL,
-    1666409283,
-    0,
-    0);
-  ExInitializeLookasideListExInternal(
-    &CcPrivateCacheMapLookasideList.L.ListHead,
-    0LL,
-    0LL,
-    512,
-    0,
-    0x78uLL,
-    1666212675,
-    0,
-    0);
+  ExInitializeLookasideListExInternal(&CcSharedCacheMapLookasideList, 0LL, 0LL, 512, 1, 0x268uLL, 1666409283, 0, 0);
+  ExInitializeLookasideListExInternal(&CcPrivateCacheMapLookasideList, 0LL, 0LL, 512, 0, 0x78uLL, 1666212675, 0, 0);
   CcExternalCacheListLock = 0LL;
   qword_140F8E088 = (__int64)&CcExternalCacheList;
   CcExternalCacheList = (__int64)&CcExternalCacheList;

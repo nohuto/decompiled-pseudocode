@@ -8,19 +8,25 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __fastcall ReadUlongFromKey(int a1, const WCHAR *a2, _DWORD *a3)
+NTSTATUS __fastcall ReadUlongFromKey(HANDLE KeyHandle, PCWSTR SourceString, _DWORD *a3)
 {
-  int result; // eax
-  UNICODE_STRING DestinationString; // [esp+8h] [ebp-24h] BYREF
-  _BYTE v6[4]; // [esp+10h] [ebp-1Ch] BYREF
-  _BYTE v7[4]; // [esp+14h] [ebp-18h] BYREF
+  NTSTATUS result; // eax
+  _UNICODE_STRING DestinationString; // [esp+8h] [ebp-24h] BYREF
+  ULONG ResultLength; // [esp+10h] [ebp-1Ch] BYREF
+  _BYTE KeyValueInformation[4]; // [esp+14h] [ebp-18h] BYREF
   int v8; // [esp+18h] [ebp-14h]
   int v9; // [esp+1Ch] [ebp-10h]
   int v10; // [esp+20h] [ebp-Ch]
 
   *a3 = 0;
-  RtlInitUnicodeString(&DestinationString, a2);
-  result = ZwQueryValueKey(a1, (int)&DestinationString, 2, (int)v7, 20, (int)v6);
+  RtlInitUnicodeString(&DestinationString, SourceString);
+  result = ZwQueryValueKey(
+             KeyHandle,
+             &DestinationString,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x14u,
+             &ResultLength);
   if ( result >= 0 )
   {
     if ( v8 == 4 && v9 == 4 )

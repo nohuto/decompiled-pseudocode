@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpGetBitsPerPixel @ 0x140385500
+ * XREFs of BgpGetBitsPerPixel @ 0x1403856E0
  * Callers:
- *     BgpGxProcessQrCodeBitmap @ 0x140384B58 (BgpGxProcessQrCodeBitmap.c)
- *     BgpTxtDisplayCharacter @ 0x140384F88 (BgpTxtDisplayCharacter.c)
- *     BgpGxDrawRectangle @ 0x14038524C (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x1403852DC (GxpWriteFrameBufferPixels.c)
- *     BgpClearScreen @ 0x140671AF0 (BgpClearScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1406730C4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x140384D38 (BgpGxProcessQrCodeBitmap.c)
+ *     BgpTxtDisplayCharacter @ 0x140385168 (BgpTxtDisplayCharacter.c)
+ *     BgpGxDrawRectangle @ 0x14038542C (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x1403854BC (GxpWriteFrameBufferPixels.c)
+ *     BgpClearScreen @ 0x140672040 (BgpClearScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140673614 (BgpFwDisplayBugCheckScreen.c)
  *     LogFwReport @ 0x140AEC0F4 (LogFwReport.c)
  *     BgpGxReadRectangle @ 0x140AEC4D8 (BgpGxReadRectangle.c)
  *     GxpReadFrameBufferPixels @ 0x140AEC548 (GxpReadFrameBufferPixels.c)

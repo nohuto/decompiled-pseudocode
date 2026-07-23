@@ -1,9 +1,9 @@
 /*
  * XREFs of sub_1406A7498 @ 0x1406A7498
  * Callers:
- *     ExpDeleteSiloState @ 0x140639B54 (ExpDeleteSiloState.c)
- *     ExpSetKernelDataProtection @ 0x1406A71F0 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x1406A73E0 (ExpGetKernelDataProtection.c)
+ *     sub_140639B54 @ 0x140639B54 (sub_140639B54.c)
+ *     ntoskrnl_20 @ 0x1406A71F0 (ntoskrnl_20.c)
+ *     ntoskrnl_21 @ 0x1406A73E0 (ntoskrnl_21.c)
  * Callees:
  *     sub_1406A74E4 @ 0x1406A74E4 (sub_1406A74E4.c)
  */

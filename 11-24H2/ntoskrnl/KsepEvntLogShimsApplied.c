@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepEvntLogShimsApplied @ 0x1405CA6B4
+ * XREFs of KsepEvntLogShimsApplied @ 0x1405C7DDC
  * Callers:
- *     KseDriverLoadImage @ 0x140959DBC (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x14094187C (KseDriverLoadImage.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     KsepPoolAllocatePaged @ 0x1404A03F0 (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlStringFromGUIDEx @ 0x1409BCE20 (RtlStringFromGUIDEx.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     KsepPoolAllocatePaged @ 0x14049AA70 (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlStringFromGUIDEx @ 0x1409A3470 (RtlStringFromGUIDEx.c)
  */
 
 void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsigned int a3)
@@ -19,7 +19,7 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
   unsigned __int16 v6; // r14
   UNICODE_STRING *Paged; // rax
   UNICODE_STRING *v8; // rsi
-  char *v9; // rdi
+  wchar_t *p_Length; // rdi
   UNICODE_STRING *v10; // rbx
   unsigned __int16 *v11; // r15
   wchar_t *Buffer; // rbx
@@ -48,15 +48,15 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
     v8 = Paged;
     if ( Paged )
     {
-      v9 = (char *)&Paged[v15];
+      p_Length = &Paged[v15].Length;
       do
       {
         v10 = &v8[v3];
         *v10 = 0LL;
-        v10->Buffer = (wchar_t *)v9;
-        v9 += 78;
+        v10->Buffer = p_Length;
+        p_Length += 39;
         v10->MaximumLength = 78;
-        RtlStringFromGUIDEx(a2 + 80LL * v3++, v10, 0LL);
+        RtlStringFromGUIDEx((PGUID)(a2 + 80LL * v3++), v10, 0);
         v6 += v10->Length + 4;
       }
       while ( v3 < v15 );

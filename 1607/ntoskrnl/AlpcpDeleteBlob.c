@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpDeleteBlob @ 0x14040BDA8
+ * XREFs of AlpcpDeleteBlob @ 0x14040AC68
  * Callers:
- *     AlpcpFlushResourcesPort @ 0x14040AA74 (AlpcpFlushResourcesPort.c)
- *     AlpcpDeleteView @ 0x14040BD7C (AlpcpDeleteView.c)
- *     NtAlpcCreateSecurityContext @ 0x14040BFE0 (NtAlpcCreateSecurityContext.c)
- *     NtAlpcDeleteSecurityContext @ 0x14040C190 (NtAlpcDeleteSecurityContext.c)
- *     AlpcpCaptureSecurityAttribute @ 0x14044D650 (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpMapLegacyPortView @ 0x1404724E8 (AlpcpMapLegacyPortView.c)
- *     NtAlpcCreatePortSection @ 0x1404726B8 (NtAlpcCreatePortSection.c)
- *     NtAlpcDeletePortSection @ 0x1404D22F4 (NtAlpcDeletePortSection.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1404D6340 (AlpcpCaptureSecurityAttributeInternal.c)
- *     NtAlpcDeleteResourceReserve @ 0x140655584 (NtAlpcDeleteResourceReserve.c)
+ *     AlpcpFlushResourcesPort @ 0x140409934 (AlpcpFlushResourcesPort.c)
+ *     AlpcpDeleteView @ 0x14040AC3C (AlpcpDeleteView.c)
+ *     NtAlpcCreateSecurityContext @ 0x14040AEA0 (NtAlpcCreateSecurityContext.c)
+ *     NtAlpcDeleteSecurityContext @ 0x14040B050 (NtAlpcDeleteSecurityContext.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x14044C520 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpMapLegacyPortView @ 0x1404713B8 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcCreatePortSection @ 0x140471588 (NtAlpcCreatePortSection.c)
+ *     NtAlpcDeletePortSection @ 0x1404B5D94 (NtAlpcDeletePortSection.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x1404B9944 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     NtAlpcDeleteResourceReserve @ 0x140655668 (NtAlpcDeleteResourceReserve.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 char __fastcall AlpcpDeleteBlob(__int64 a1)

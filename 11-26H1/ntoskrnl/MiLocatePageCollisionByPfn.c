@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLocatePageCollisionByPfn @ 0x14028B258
+ * XREFs of MiLocatePageCollisionByPfn @ 0x14028A7B8
  * Callers:
- *     MiReplenishPageSlist @ 0x14028A710 (MiReplenishPageSlist.c)
- *     MiPageFreeToZero @ 0x14028C220 (MiPageFreeToZero.c)
- *     MiStopPageAccessor @ 0x14048E008 (MiStopPageAccessor.c)
- *     MiStopHugePageAccessor @ 0x14048E1B4 (MiStopHugePageAccessor.c)
+ *     MiReplenishPageSlist @ 0x140289C70 (MiReplenishPageSlist.c)
+ *     MiPageFreeToZero @ 0x14028B780 (MiPageFreeToZero.c)
+ *     MiStopPageAccessor @ 0x140487B48 (MiStopPageAccessor.c)
+ *     MiStopHugePageAccessor @ 0x140487CF4 (MiStopHugePageAccessor.c)
  * Callees:
  *     <none>
  */

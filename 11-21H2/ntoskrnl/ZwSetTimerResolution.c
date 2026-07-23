@@ -1,14 +1,15 @@
 /*
  * XREFs of ZwSetTimerResolution @ 0x14041EEC0
  * Callers:
- *     ExCleanTimerResolutionRequest @ 0x14025D2C4 (ExCleanTimerResolutionRequest.c)
+ *     sub_14025D2C4 @ 0x14025D2C4 (sub_14025D2C4.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetTimerResolution(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution, PULONG ActualTime)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(*(_QWORD *)&DesiredTime, SetResolution);
 }

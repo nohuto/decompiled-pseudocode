@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpDeleteRealTimeConnectionObject @ 0x1404F0120
+ * XREFs of EtwpDeleteRealTimeConnectionObject @ 0x1404D2214
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  */
 
 LONG_PTR __fastcall EtwpDeleteRealTimeConnectionObject(HANDLE *a1)

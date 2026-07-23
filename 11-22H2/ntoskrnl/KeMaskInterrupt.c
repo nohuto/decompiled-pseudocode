@@ -43,8 +43,8 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   _DWORD *v30; // r8
   int v31; // eax
   unsigned __int8 v32[4]; // [rsp+30h] [rbp-20h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-1Ch] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-1Ch] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   PreviousAffinity = 0LL;
   v32[0] = 0;
@@ -80,7 +80,7 @@ LABEL_15:
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -113,10 +113,10 @@ LABEL_15:
     v17 = 0;
   }
 LABEL_13:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v23 = CurrentPrcb->SchedulerAssist;
@@ -135,7 +135,7 @@ LABEL_13:
   {
     KiAcquireInterruptConnectLock(*(unsigned int *)(v26 + 96), v32, &PreviousAffinity);
     ProcessorNumberFromIndex = KiMaskInterruptInternal(*(unsigned int *)(v26 + 88), (unsigned int)v12);
-    if ( KiIrqlFlags && (v27 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v27 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && (v27 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v27 <= 0xFu )
     {
       v28 = v32[0];
       if ( v32[0] <= 0xFu && v27 >= 2u )

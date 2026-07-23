@@ -1,13 +1,13 @@
 /*
- * XREFs of SiGetDeviceNumberInformation @ 0x140894984
+ * XREFs of SiGetDeviceNumberInformation @ 0x14089AD84
  * Callers:
- *     SiDisambiguateSystemDevice @ 0x140894E70 (SiDisambiguateSystemDevice.c)
- *     SiGetEspFromFirmware @ 0x1408950EC (SiGetEspFromFirmware.c)
+ *     SiDisambiguateSystemDevice @ 0x14089B270 (SiDisambiguateSystemDevice.c)
+ *     SiGetEspFromFirmware @ 0x14089B4EC (SiGetEspFromFirmware.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     SiOpenDevice @ 0x140AE154C (SiOpenDevice.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     SiOpenDevice @ 0x140ADEA3C (SiOpenDevice.c)
  */
 
 __int64 __fastcall SiGetDeviceNumberInformation(const WCHAR *a1, _DWORD *a2, _DWORD *a3)

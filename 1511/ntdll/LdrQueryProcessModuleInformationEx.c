@@ -20,45 +20,46 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(
         char a2,
         _DWORD *a3,
         unsigned int a4,
-        unsigned int *a5)
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
   _QWORD *v6; // r12
   unsigned int v7; // r15d
   unsigned int v8; // edi
   _DWORD *v9; // rax
   unsigned __int64 v10; // rsi
-  unsigned int *v11; // rdx
+  PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v11; // rdx
   int v12; // r14d
-  void (*v13)(void); // rbx
-  __int64 (__fastcall *v14)(); // rbx
+  _RTL_DYNAMIC_HASH_TABLE *v13; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *v14; // rbx
   int ModuleInfoFromLdrEntry; // eax
-  __int64 v16; // r12
-  __int64 (__fastcall *v17)(_QWORD *, __int64, __int64 *); // rbx
-  __int64 v18; // rdx
-  __int64 v19; // rbx
-  int v20; // eax
-  unsigned int v21; // ecx
-  __int64 (__fastcall *v22)(_DWORD, _DWORD, int, _DWORD, char); // r12
-  _DWORD *v23; // rbx
-  __int64 (__fastcall *v24)(_QWORD *, __int64, __int64 *); // r12
-  int v25; // r8d
-  void (*v26)(void); // rbx
-  _QWORD *v28; // [rsp+38h] [rbp-A0h]
-  _DWORD *v29; // [rsp+48h] [rbp-90h]
-  __int64 v30; // [rsp+50h] [rbp-88h] BYREF
-  BOOL v31; // [rsp+58h] [rbp-80h]
-  _QWORD v32[2]; // [rsp+60h] [rbp-78h] BYREF
-  __int64 v33; // [rsp+70h] [rbp-68h] BYREF
-  int v34; // [rsp+78h] [rbp-60h]
-  _QWORD v35[11]; // [rsp+80h] [rbp-58h] BYREF
-  int v36; // [rsp+E0h] [rbp+8h]
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *v16; // rdx
+  __int64 v17; // r12
+  _RTL_DYNAMIC_HASH_TABLE *v18; // rbx
+  __int64 v19; // rdx
+  __int64 v20; // rbx
+  int v21; // eax
+  unsigned int v22; // ecx
+  __int64 (__fastcall *v23)(_DWORD, _DWORD, int, _DWORD, char); // r12
+  _DWORD *v24; // rbx
+  __int64 (__fastcall *v25)(_QWORD *, __int64, __int64 *); // r12
+  int v26; // r8d
+  _RTL_DYNAMIC_HASH_TABLE *v27; // rbx
+  _QWORD *v29; // [rsp+38h] [rbp-A0h]
+  _DWORD *v30; // [rsp+48h] [rbp-90h]
+  __int64 v31; // [rsp+50h] [rbp-88h] BYREF
+  BOOL v32; // [rsp+58h] [rbp-80h]
+  _QWORD v33[2]; // [rsp+60h] [rbp-78h] BYREF
+  __int64 v34; // [rsp+70h] [rbp-68h] BYREF
+  int v35; // [rsp+78h] [rbp-60h]
+  _QWORD v36[11]; // [rsp+80h] [rbp-58h] BYREF
+  int v37; // [rsp+E0h] [rbp+8h]
 
   v6 = a1;
-  v28 = a1;
+  v29 = a1;
   v7 = 8;
-  v35[0] = 0LL;
-  v35[1] = &LdrpProtectedCopyMemory;
-  v35[2] = LdrpQueryInformationCurrentProcess;
+  v36[0] = 0LL;
+  v36[1] = &LdrpProtectedCopyMemory;
+  v36[2] = LdrpQueryInformationCurrentProcess;
   if ( a4 >= 8 )
   {
     *a3 = 0;
@@ -70,45 +71,45 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(
     v8 = -1073741820;
     v9 = 0LL;
   }
-  v29 = v9;
+  v30 = v9;
   if ( !a1 || (a2 & 2) != 0 )
   {
-    v6 = v35;
-    v28 = v35;
+    v6 = v36;
+    v29 = v36;
   }
   v10 = 0LL;
-  v11 = a5;
+  v11 = Enumerator;
   while ( 1 )
   {
-    v32[1] = v10;
+    v33[1] = v10;
     if ( v10 >= (unsigned __int64)((a2 & 1) != 0) + 1 )
       return v8;
-    v36 = 10240;
+    v37 = 10240;
     v12 = 1;
     if ( v11 )
-      *v11 = v7;
+      LODWORD(v11->HashEntry.Linkage.Flink) = v7;
     if ( (a2 & 2) != 0 )
     {
-      v13 = (void (*)(void))funcs_18006C80B[5 * v10];
-      _guard_check_icall_fptr();
-      v13();
+      v13 = (_RTL_DYNAMIC_HASH_TABLE *)funcs_18006C80B[5 * v10];
+      ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(v13, v11);
+      ((void (*)(void))v13)();
     }
-    v14 = funcs_18006C835[5 * v10];
-    _guard_check_icall_fptr();
-    ModuleInfoFromLdrEntry = ((__int64 (__fastcall *)(_QWORD *, _QWORD *, __int64 *))v14)(v6, v32, &v33);
+    v14 = (_RTL_DYNAMIC_HASH_TABLE *)funcs_18006C835[5 * v10];
+    ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(v14, v11);
+    ModuleInfoFromLdrEntry = ((__int64 (__fastcall *)(_QWORD *, _QWORD *, __int64 *))v14)(v6, v33, &v34);
     if ( ModuleInfoFromLdrEntry < 0 )
       goto LABEL_32;
-    v16 = v32[0];
-    if ( !v32[0] )
+    v17 = v33[0];
+    if ( !v33[0] )
     {
-      v6 = v28;
+      v6 = v29;
       goto LABEL_34;
     }
-    v17 = (__int64 (__fastcall *)(_QWORD *, __int64, __int64 *))*(&funcs_18006C879 + 5 * v10);
-    _guard_check_icall_fptr();
-    v18 = v16;
-    v6 = v28;
-    ModuleInfoFromLdrEntry = v17(v28, v18, &v30);
+    v18 = (_RTL_DYNAMIC_HASH_TABLE *)*(&funcs_18006C879 + 5 * v10);
+    ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(v18, v16);
+    v19 = v17;
+    v6 = v29;
+    ModuleInfoFromLdrEntry = ((__int64 (__fastcall *)(_QWORD *, __int64, __int64 *))v18)(v29, v19, &v31);
     if ( ModuleInfoFromLdrEntry < 0 )
     {
 LABEL_32:
@@ -118,64 +119,68 @@ LABEL_32:
     {
       while ( 1 )
       {
-        v19 = v30;
-        if ( v30 == v32[0] )
+        v20 = v31;
+        if ( v31 == v33[0] )
           break;
-        v20 = v36;
-        if ( !v36 )
+        v21 = v37;
+        if ( !v37 )
         {
           v8 = -1073741271;
           break;
         }
-        --v36;
-        v34 = v20 - 1;
+        --v37;
+        v35 = v21 - 1;
         v7 += 296 * v12;
         v12 = 1;
-        v31 = 1;
-        v21 = a4;
+        v32 = 1;
+        v22 = a4;
         if ( a4 < v7 )
         {
           v8 = -1073741820;
         }
         else
         {
-          v22 = *(&funcs_18006CA0C + 5 * v10);
-          if ( v22 == LdrQueryModuleInfoFromLdrEntry )
+          v23 = *(&funcs_18006CA0C + 5 * v10);
+          if ( v23 == LdrQueryModuleInfoFromLdrEntry )
           {
-            v23 = v29;
-            v6 = v28;
-            ModuleInfoFromLdrEntry = LdrQueryModuleInfoFromLdrEntry((_DWORD)v28, (_DWORD)v29, v30, v33, a2);
+            v24 = v30;
+            v6 = v29;
+            ModuleInfoFromLdrEntry = LdrQueryModuleInfoFromLdrEntry((_DWORD)v29, (_DWORD)v30, v31, v34, a2);
           }
           else
           {
-            _guard_check_icall_fptr();
-            v25 = v19;
-            v23 = v29;
-            ModuleInfoFromLdrEntry = v22((_DWORD)v28, (_DWORD)v29, v25, v33, a2);
-            v6 = v28;
+            ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+              (PRTL_DYNAMIC_HASH_TABLE)*(&funcs_18006CA0C + 5 * v10),
+              v16);
+            v26 = v20;
+            v24 = v30;
+            ModuleInfoFromLdrEntry = v23((_DWORD)v29, (_DWORD)v30, v26, v34, a2);
+            v6 = v29;
           }
           if ( ModuleInfoFromLdrEntry < 0 )
             goto LABEL_32;
-          v31 = *((_QWORD *)v23 + 2) != 0LL;
-          v12 = v31;
-          v29 = &v23[74 * v31];
-          v35[3] = v29;
-          v19 = v30;
-          v21 = a4;
+          v32 = *((_QWORD *)v24 + 2) != 0LL;
+          v12 = v32;
+          v30 = &v24[74 * v32];
+          v36[3] = v30;
+          v20 = v31;
+          v22 = a4;
         }
-        if ( a3 && v21 >= 0x130 )
+        if ( a3 && v22 >= 0x130 )
           *a3 += v12;
-        v24 = (__int64 (__fastcall *)(_QWORD *, __int64, __int64 *))*(&funcs_18006C879 + 5 * v10);
-        if ( (char *)v24 == (char *)LdrQueryNextListEntry )
+        v25 = (__int64 (__fastcall *)(_QWORD *, __int64, __int64 *))*(&funcs_18006C879 + 5 * v10);
+        if ( (char *)v25 == (char *)LdrQueryNextListEntry )
         {
-          v6 = v28;
-          ModuleInfoFromLdrEntry = LdrQueryNextListEntry(v28, v19, &v30);
+          v6 = v29;
+          ModuleInfoFromLdrEntry = LdrQueryNextListEntry(v29, v20, &v31);
         }
         else
         {
-          _guard_check_icall_fptr();
-          ModuleInfoFromLdrEntry = v24(v28, v19, &v30);
-          v6 = v28;
+          ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+            (PRTL_DYNAMIC_HASH_TABLE)*(&funcs_18006C879 + 5 * v10),
+            v16);
+          ModuleInfoFromLdrEntry = v25(v29, v20, &v31);
+          v6 = v29;
         }
         if ( ModuleInfoFromLdrEntry < 0 )
           goto LABEL_32;
@@ -184,13 +189,13 @@ LABEL_32:
 LABEL_34:
     if ( (a2 & 2) != 0 )
     {
-      v26 = (void (*)(void))funcs_18006CA4C[5 * v10];
-      _guard_check_icall_fptr();
-      v26();
+      v27 = (_RTL_DYNAMIC_HASH_TABLE *)funcs_18006CA4C[5 * v10];
+      ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(v27, v16);
+      ((void (*)(void))v27)();
     }
-    v11 = a5;
-    if ( a5 )
-      *a5 = v7;
+    v11 = Enumerator;
+    if ( Enumerator )
+      LODWORD(Enumerator->HashEntry.Linkage.Flink) = v7;
     ++v10;
   }
 }

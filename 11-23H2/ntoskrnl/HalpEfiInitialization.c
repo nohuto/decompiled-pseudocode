@@ -3,8 +3,8 @@
  * Callers:
  *     HalpFirmwareInitDiscard @ 0x140B6BAB0 (HalpFirmwareInitDiscard.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x140354A70 (KeRegisterBugCheckReasonCallback.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140354C10 (KeRegisterBugCheckReasonCallback.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpEfiInitialization(__int64 a1)

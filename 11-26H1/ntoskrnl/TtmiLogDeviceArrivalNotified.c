@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceArrivalNotified @ 0x1407E89BC
+ * XREFs of TtmiLogDeviceArrivalNotified @ 0x1407EE51C
  * Callers:
- *     TtmNotifyDeviceArrival @ 0x1407E4B20 (TtmNotifyDeviceArrival.c)
+ *     TtmNotifyDeviceArrival @ 0x1407EA680 (TtmNotifyDeviceArrival.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
  */
 
 char __fastcall TtmiLogDeviceArrivalNotified(int a1, __int64 a2, int a3, int a4, int a5)
@@ -37,9 +37,9 @@ char __fastcall TtmiLogDeviceArrivalNotified(int a1, __int64 a2, int a3, int a4,
   _UNKNOWN *retaddr; // [rsp+F0h] [rbp+57h] BYREF
 
   v5 = &retaddr;
-  if ( (unsigned int)dword_140FD58A8 > 5 )
+  if ( (unsigned int)dword_140FD68B8 > 5 )
   {
-    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140FD58A8, 1LL);
+    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140FD68B8, 1LL);
     if ( (_BYTE)v5 )
     {
       SessionId = TtmiGetSessionId(v11, v10, v12);
@@ -61,8 +61,8 @@ char __fastcall TtmiLogDeviceArrivalNotified(int a1, __int64 a2, int a3, int a4,
       v30 = 4LL;
       v32 = 4LL;
       LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD58A8,
-                     (unsigned __int8 *)byte_14005173F,
+                     (__int64)&dword_140FD68B8,
+                     (unsigned __int8 *)&word_1400521D6,
                      0LL,
                      0LL,
                      8u,

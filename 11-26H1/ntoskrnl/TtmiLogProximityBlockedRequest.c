@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogProximityBlockedRequest @ 0x1407E9B38
+ * XREFs of TtmiLogProximityBlockedRequest @ 0x1407EF698
  * Callers:
- *     TtmiSetPendingOnOffRequest @ 0x1407EC370 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiSetPendingOnOffRequest @ 0x1407F1ED4 (TtmiSetPendingOnOffRequest.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
  */
 
 char __fastcall TtmiLogProximityBlockedRequest(char a1, int a2, int a3)
@@ -34,9 +34,9 @@ char __fastcall TtmiLogProximityBlockedRequest(char a1, int a2, int a3)
 
   v3 = &retaddr;
   v25 = a3;
-  if ( (unsigned int)dword_140FD58A8 > 5 )
+  if ( (unsigned int)dword_140FD68B8 > 5 )
   {
-    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140FD58A8, 1LL);
+    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140FD68B8, 1LL);
     if ( (_BYTE)v3 )
     {
       SessionId = TtmiGetSessionId(v7, v6, v8);
@@ -53,8 +53,8 @@ char __fastcall TtmiLogProximityBlockedRequest(char a1, int a2, int a3)
       v21 = 2LL;
       v23 = 4LL;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD58A8,
-                     (unsigned __int8 *)byte_1400523E1,
+                     (__int64)&dword_140FD68B8,
+                     (unsigned __int8 *)byte_1400530A7,
                      0LL,
                      0LL,
                      7u,

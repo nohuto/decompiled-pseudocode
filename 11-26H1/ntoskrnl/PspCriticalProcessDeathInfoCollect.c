@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCriticalProcessDeathInfoCollect @ 0x1407FAC80
+ * XREFs of PspCriticalProcessDeathInfoCollect @ 0x1408006B0
  * Callers:
- *     PspCatchCriticalBreak @ 0x1407FA818 (PspCatchCriticalBreak.c)
+ *     PspCatchCriticalBreak @ 0x140800248 (PspCatchCriticalBreak.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024D7A0 (KeRegisterBugCheckReasonCallback.c)
- *     KeInitializeTriageDumpDataArray @ 0x1404F12A0 (KeInitializeTriageDumpDataArray.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspCriticalProcessDeathInfoCollectScheduleApc @ 0x1407FAD64 (PspCriticalProcessDeathInfoCollectScheduleApc.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14024F100 (KeRegisterBugCheckReasonCallback.c)
+ *     KeInitializeTriageDumpDataArray @ 0x1404EA880 (KeInitializeTriageDumpDataArray.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspCriticalProcessDeathInfoCollectScheduleApc @ 0x140800794 (PspCriticalProcessDeathInfoCollectScheduleApc.c)
  */
 
 BOOLEAN __fastcall PspCriticalProcessDeathInfoCollect(__int64 a1, int a2, __int64 a3, _DWORD *a4)

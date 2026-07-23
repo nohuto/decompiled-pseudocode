@@ -1,15 +1,15 @@
 /*
- * XREFs of SaferpIsDllAllowed @ 0x1800F04FC
+ * XREFs of SaferpIsDllAllowed @ 0x1800EB17C
  * Callers:
- *     LdrpCodeAuthzCheckDllAllowedSrpV2 @ 0x1800F0380 (LdrpCodeAuthzCheckDllAllowedSrpV2.c)
+ *     LdrpCodeAuthzCheckDllAllowedSrpV2 @ 0x1800EB000 (LdrpCodeAuthzCheckDllAllowedSrpV2.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     NtDeviceIoControlFile @ 0x180161D70 (NtDeviceIoControlFile.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenFile @ 0x1801622F0 (NtOpenFile.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     NtDeviceIoControlFile @ 0x180160130 (NtDeviceIoControlFile.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenFile @ 0x1801606B0 (NtOpenFile.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
@@ -20,8 +20,8 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
   _WORD *Heap; // rax
   _WORD *InputBuffer; // rdi
   _QWORD v10[2]; // [rsp+50h] [rbp-19h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-9h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
   NTSTATUS OutputBuffer; // [rsp+E0h] [rbp+77h] BYREF
   HANDLE FileHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
@@ -45,7 +45,7 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
   else
   {
     InputBufferLength = *(unsigned __int16 *)a2 + 10;
-    Heap = (_WORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, InputBufferLength);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, InputBufferLength);
     InputBuffer = Heap;
     if ( Heap )
     {
@@ -69,7 +69,7 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
              4u);
       if ( v5 >= 0 )
         v5 = OutputBuffer;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)InputBuffer);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, InputBuffer);
     }
     else
     {

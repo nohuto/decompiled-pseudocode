@@ -1,30 +1,30 @@
 /*
- * XREFs of NtLockFile @ 0x1405FA000
+ * XREFs of NtLockFile @ 0x1405FB000
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IopSetLockOperationProcess @ 0x14008C654 (IopSetLockOperationProcess.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14008C794 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     IopAcquireFastLock_0 @ 0x1400DD9D4 (IopAcquireFastLock_0.c)
- *     IoSetIoCompletionEx2 @ 0x1400FD5E8 (IoSetIoCompletionEx2.c)
- *     IopVerifierExAllocatePoolWithQuota_2 @ 0x14013FC3C (IopVerifierExAllocatePoolWithQuota_2.c)
- *     IopDecrementCompletionContextUsageCount @ 0x1401B3F8C (IopDecrementCompletionContextUsageCount.c)
- *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1401B4004 (IopIncrementCompletionContextUsageCountAndReadData.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x1408193B4 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x140819B28 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
- *     VfFastIoCheckState @ 0x140928F74 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x14092904C (VfFastIoSnapState.c)
+ *     IopSetLockOperationProcess @ 0x14008C644 (IopSetLockOperationProcess.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14008C784 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     IopReferenceFileObject @ 0x14008C7DC (IopReferenceFileObject.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     IopAcquireFastLock_0 @ 0x1400DDA54 (IopAcquireFastLock_0.c)
+ *     IoSetIoCompletionEx2 @ 0x1400FD668 (IoSetIoCompletionEx2.c)
+ *     IopVerifierExAllocatePoolWithQuota_2 @ 0x14013FD3C (IopVerifierExAllocatePoolWithQuota_2.c)
+ *     IopDecrementCompletionContextUsageCount @ 0x1401B3E2C (IopDecrementCompletionContextUsageCount.c)
+ *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1401B3EA4 (IopIncrementCompletionContextUsageCountAndReadData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopAcquireFileObjectLock @ 0x1405A4480 (IopAcquireFileObjectLock.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     IopSynchronousServiceTail @ 0x14063C640 (IopSynchronousServiceTail.c)
+ *     IopAllocateIrpCleanup @ 0x14081A5B4 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x14081AD28 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
+ *     VfFastIoCheckState @ 0x140929F74 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x14092A04C (VfFastIoSnapState.c)
  */
 
 NTSTATUS __stdcall NtLockFile(

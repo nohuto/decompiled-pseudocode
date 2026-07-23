@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtQueryPortInformationProcess()
+NTSTATUS NtQueryPortInformationProcess(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 319LL;
+  result = 319;
   __asm { syscall; Low latency system call }
   return result;
 }

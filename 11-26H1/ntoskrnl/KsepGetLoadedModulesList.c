@@ -1,42 +1,47 @@
 /*
- * XREFs of KsepGetLoadedModulesList @ 0x1407BE654
+ * XREFs of KsepGetLoadedModulesList @ 0x1407C16B4
  * Callers:
- *     KseRegisterShimEx @ 0x1407BCFE0 (KseRegisterShimEx.c)
- *     KsepResolveApplicableShimsForDriver @ 0x1407BDDD4 (KsepResolveApplicableShimsForDriver.c)
+ *     KseRegisterShimEx @ 0x1407C0040 (KseRegisterShimEx.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1407C0E34 (KsepResolveApplicableShimsForDriver.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1404DE51C (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
+ *     KsepPoolAllocatePaged @ 0x1404D7BFC (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
  */
 
-__int64 __fastcall KsepGetLoadedModulesList(_QWORD *a1)
+__int64 __fastcall KsepGetLoadedModulesList(int **a1)
 {
-  __int64 Paged; // rax
-  void *v4; // rdi
-  int SystemInformation; // eax
-  unsigned int v6; // ebx
+  ULONG i; // ebx
+  int *Paged; // rax
+  int *v5; // rdi
+  NTSTATUS v6; // eax
+  int v7; // ebp
+  unsigned int v8; // ebx
+  ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
 
+  ReturnLength = 0;
   if ( !a1 )
     return 3221225485LL;
-  while ( 1 )
+  for ( i = 304; ; i = 296 * v7 + 8 )
   {
-    Paged = KsepPoolAllocatePaged();
-    v4 = (void *)Paged;
+    Paged = (int *)KsepPoolAllocatePaged();
+    v5 = Paged;
     if ( !Paged )
       break;
-    SystemInformation = ZwQuerySystemInformation(11LL, Paged);
-    v6 = SystemInformation;
-    if ( SystemInformation >= 0 )
+    v6 = ZwQuerySystemInformation(SystemModuleInformation, Paged, i, &ReturnLength);
+    v7 = *v5;
+    v8 = v6;
+    if ( v6 >= 0 )
     {
-      *a1 = v4;
-      return v6;
+      *a1 = v5;
+      return v8;
     }
-    if ( SystemInformation != -1073741820 )
+    if ( v6 != -1073741820 )
     {
-      KsepPoolFreePaged(v4);
-      return v6;
+      KsepPoolFreePaged(v5);
+      return v8;
     }
-    KsepPoolFreePaged(v4);
+    KsepPoolFreePaged(v5);
   }
   return (unsigned int)-1073741670;
 }

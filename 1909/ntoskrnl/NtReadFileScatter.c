@@ -75,7 +75,7 @@ NTSTATUS __stdcall NtReadFileScatter(
   PVOID v42; // rcx
   struct _KTHREAD *v43; // rax
   __int64 v44; // rbx
-  __int64 v45; // rax
+  PRTL_BALANCED_NODE v45; // rax
   KPROCESSOR_MODE AccessMode; // [rsp+40h] [rbp-98h]
   _BYTE v47[15]; // [rsp+41h] [rbp-97h] BYREF
   PVOID P; // [rsp+50h] [rbp-88h]
@@ -270,7 +270,7 @@ LABEL_105:
   else
   {
     if ( v45 )
-      *(_BYTE *)(v45 + 26) |= 1u;
+      BYTE2(v45[1].Left) |= 1u;
     v13 = *(_QWORD *)&v47[7];
     ObfReferenceObject(*(PVOID *)&v47[7]);
     v30 = 0;

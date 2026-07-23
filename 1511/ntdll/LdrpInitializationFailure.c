@@ -10,12 +10,16 @@
  *     LdrpLogFatalLdrEtwEvent @ 0x1800CA204 (LdrpLogFatalLdrEtwEvent.c)
  */
 
-void *__fastcall LdrpInitializationFailure(int a1)
+NTSTATUS __fastcall LdrpInitializationFailure(int a1)
 {
   char v1; // al
-  void *result; // rax
+  unsigned __int64 v2; // rbx
+  NTSTATUS result; // eax
+  ULONG Response; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 Parameters; // [rsp+50h] [rbp+18h] BYREF
 
   v1 = LdrpDebugFlags;
+  v2 = a1;
   if ( (LdrpDebugFlags & 3) != 0 )
   {
     LdrpLogDbgPrint(
@@ -31,6 +35,9 @@ void *__fastcall LdrpInitializationFailure(int a1)
     __debugbreak();
   result = LdrpLogFatalLdrEtwEvent((const void **)&NtCurrentPeb()->ProcessParameters->ImagePathName, &LdrFatalInitError);
   if ( !LdrpFatalHardErrorCount )
-    return (void *)NtRaiseHardError();
+  {
+    Parameters = v2;
+    return NtRaiseHardError(-1073741499, 1u, 0, &Parameters, 1u, &Response);
+  }
   return result;
 }

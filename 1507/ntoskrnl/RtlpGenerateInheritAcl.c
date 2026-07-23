@@ -21,7 +21,7 @@ __int64 __fastcall RtlpGenerateInheritAcl(
         int a11,
         char a12,
         _DWORD *a13,
-        __int64 a14,
+        PACL Acl,
         _BYTE *a15)
 {
   unsigned __int16 *v15; // rbx
@@ -48,7 +48,7 @@ __int64 __fastcall RtlpGenerateInheritAcl(
       {
         if ( a11 == 3 )
         {
-          if ( RtlFindAceByType(a14, 17, 0LL) )
+          if ( RtlFindAceByType(Acl, 0x11u, 0LL) )
           {
 LABEL_12:
             if ( !v24 )
@@ -68,7 +68,7 @@ LABEL_4:
                      a9,
                      a10,
                      (__int64)&v22,
-                     a14,
+                     (__int64)Acl,
                      (__int64)v23,
                      (__int64)&v21);
           if ( (_DWORD)result == -1073741789 )

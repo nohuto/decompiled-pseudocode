@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsSetDisengageReason @ 0x14037A544
+ * XREFs of PopDirectedDripsSetDisengageReason @ 0x14037A094
  * Callers:
- *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
- *     PopDirectedDripsNotifyPnpActionQueueEvent @ 0x14037A354 (PopDirectedDripsNotifyPnpActionQueueEvent.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x140568B4C (PopDirectedDripsStartDisengageTimer.c)
- *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
- *     PopDripsWatchdogCallbackWorker @ 0x1408EEF80 (PopDripsWatchdogCallbackWorker.c)
+ *     PnpRequestDeviceAction @ 0x1403703A4 (PnpRequestDeviceAction.c)
+ *     PopDirectedDripsNotifyPnpActionQueueEvent @ 0x140379EA4 (PopDirectedDripsNotifyPnpActionQueueEvent.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140568D8C (PopDirectedDripsStartDisengageTimer.c)
+ *     PopDirectedDripsNotify @ 0x14078DCD8 (PopDirectedDripsNotify.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1408EF0E0 (PopDripsWatchdogCallbackWorker.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x14037A5A8 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x14037A0F8 (PopQueueDirectedDripsWork.c)
  */
 
 __int64 __fastcall PopDirectedDripsSetDisengageReason(char a1)
@@ -19,8 +19,8 @@ __int64 __fastcall PopDirectedDripsSetDisengageReason(char a1)
   int v5; // ett
 
   v1 = 1 << a1;
-  _m_prefetchw(&dword_140C24CA4);
-  v2 = _InterlockedOr(&dword_140C24CA4, 1 << a1);
+  _m_prefetchw(&dword_140C24D04);
+  v2 = _InterlockedOr(&dword_140C24D04, 1 << a1);
   _m_prefetchw(&PopDirectedDripsState);
   LODWORD(result) = PopDirectedDripsState.HandleAttributes;
   do

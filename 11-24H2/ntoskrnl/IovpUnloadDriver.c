@@ -1,20 +1,20 @@
 /*
- * XREFs of IovpUnloadDriver @ 0x140B82AF8
+ * XREFs of IovpUnloadDriver @ 0x140B84AF8
  * Callers:
- *     IovUnloadDrivers @ 0x140B8278C (IovUnloadDrivers.c)
+ *     IovUnloadDrivers @ 0x140B8478C (IovUnloadDrivers.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     PsAttachSiloToCurrentThread @ 0x14043CF50 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140444750 (PsDetachSiloFromCurrentThread.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     IopCheckUnloadDriver @ 0x1404D2CBC (IopCheckUnloadDriver.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObMakeTemporaryObject @ 0x140A68350 (ObMakeTemporaryObject.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     PsAttachSiloToCurrentThread @ 0x14042FBB0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14043A1F0 (PsDetachSiloFromCurrentThread.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     IopCheckUnloadDriver @ 0x1404CBE7C (IopCheckUnloadDriver.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObMakeTemporaryObject @ 0x1409B9330 (ObMakeTemporaryObject.c)
  */
 
 __int64 __fastcall IovpUnloadDriver(_QWORD *Object)
@@ -22,34 +22,32 @@ __int64 __fastcall IovpUnloadDriver(_QWORD *Object)
   struct _LIST_ENTRY *v3; // rax
   struct _LIST_ENTRY *v4; // rbx
   __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
   struct _WORK_QUEUE_ITEM WorkItem; // [rsp+30h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-30h] BYREF
-  _QWORD *v10; // [rsp+68h] [rbp-18h]
-  char v11; // [rsp+90h] [rbp+10h] BYREF
+  _QWORD *v8; // [rsp+68h] [rbp-18h]
+  char v9; // [rsp+90h] [rbp+10h] BYREF
 
-  v11 = 0;
+  v9 = 0;
   if ( !Object[13] )
     return 3221225488LL;
   PsReferenceSiloContext(Object);
-  if ( (int)IopCheckUnloadDriver(Object, &v11) >= 0 )
+  if ( (int)IopCheckUnloadDriver(Object, &v9) >= 0 )
     return 259LL;
   ObfDereferenceObject(Object);
-  if ( !v11 )
+  if ( !v9 )
     return 259LL;
   if ( KeGetCurrentThread()->ApcState.Process == PsInitialSystemProcess )
   {
     v3 = (struct _LIST_ENTRY *)PdcCreateWatchdogAroundClientCall();
     v4 = PsAttachSiloToCurrentThread(v3);
-    guard_dispatch_icall_no_overrides(Object, v5, v6, v7);
+    guard_dispatch_icall_no_overrides(Object, v5);
     PsDetachSiloFromCurrentThread(v4);
   }
   else
   {
     memset_0(&WorkItem, 0, 0x50uLL);
     KeInitializeEvent(&Event, NotificationEvent, 0);
-    v10 = Object;
+    v8 = Object;
     WorkItem.WorkerRoutine = (void (__fastcall *)(void *))IopLoadUnloadDriver;
     WorkItem.List.Flink = 0LL;
     WorkItem.Parameter = &WorkItem;

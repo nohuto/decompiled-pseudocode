@@ -15,41 +15,40 @@
 __int64 __fastcall CmpAddRemoveRMLogContainer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   ULONG_PTR v5; // rax
-  UNICODE_STRING *v6; // r14
-  int v7; // ebx
+  UNICODE_STRING *p_UnicodeString; // r14
+  NTSTATUS v7; // ebx
   unsigned int i; // esi
   int v9; // eax
-  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-9h] BYREF
-  UNICODE_STRING v12; // [rsp+58h] [rbp+7h] BYREF
+  UNICODE_STRING GuidString; // [rsp+48h] [rbp-9h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp+7h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v13; // [rsp+68h] [rbp+17h] BYREF
 
-  *(_QWORD *)&v12.Length = 0LL;
-  v12.Buffer = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   if ( (PVOID)a1 == CmRmSystem )
   {
     v5 = qword_140E09990;
-    v6 = (UNICODE_STRING *)&CmpLogPath;
+    p_UnicodeString = (UNICODE_STRING *)&CmpLogPath;
   }
   else
   {
-    v7 = CmpQueryNameString(*(_QWORD *)(*(_QWORD *)(a1 + 80) + 1544LL), &v12, a3, a4);
+    v7 = CmpQueryNameString(*(_QWORD *)(*(_QWORD *)(a1 + 80) + 1544LL), &UnicodeString, a3, a4);
     if ( v7 < 0 )
       goto LABEL_19;
     v5 = *(_QWORD *)(a1 + 80);
-    v6 = &v12;
+    p_UnicodeString = &UnicodeString;
   }
-  LOBYTE(a3) = 1;
-  v7 = RtlStringFromGUIDEx(*(_QWORD *)(v5 + 64) + 112LL, &UnicodeString, a3);
+  v7 = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(v5 + 64) + 112LL), &GuidString, 1u);
   if ( v7 >= 0 )
   {
     for ( i = *(_DWORD *)(a1 + 68); i < 0x100; ++i )
     {
       v9 = CmpAddRemoveContainerToCLFSLog(
              *(PLOG_FILE_OBJECT *)(a1 + 88),
-             v6,
-             &UnicodeString,
+             p_UnicodeString,
+             &GuidString,
              &CmpLogExt,
              &CmpContainerSuffix,
              i,
@@ -73,10 +72,10 @@ __int64 __fastcall CmpAddRemoveRMLogContainer(__int64 a1, __int64 a2, __int64 a3
     v7 = -1073741670;
   }
 LABEL_17:
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
+LABEL_19:
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-LABEL_19:
-  if ( v12.Buffer )
-    RtlFreeAnsiString(&v12);
   return (unsigned int)v7;
 }

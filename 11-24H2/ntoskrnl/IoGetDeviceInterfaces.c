@@ -1,16 +1,16 @@
 /*
- * XREFs of IoGetDeviceInterfaces @ 0x140966D40
+ * XREFs of IoGetDeviceInterfaces @ 0x14094F7D0
  * Callers:
- *     PnprIsMemoryDevice @ 0x14072FAC0 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x14072FB78 (PnprIsProcessorDevice.c)
- *     IopOpenSystemVariableDevice @ 0x140967120 (IopOpenSystemVariableDevice.c)
- *     PfSnOpenVolumesForPrefetch @ 0x14096BF6C (PfSnOpenVolumesForPrefetch.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
- *     IopFetchConfigurationInformation @ 0x140C1C7F8 (IopFetchConfigurationInformation.c)
+ *     PnprIsMemoryDevice @ 0x14072DAD0 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x14072DB88 (PnprIsProcessorDevice.c)
+ *     IopOpenSystemVariableDevice @ 0x14094FBB0 (IopOpenSystemVariableDevice.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1409549CC (PfSnOpenVolumesForPrefetch.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
+ *     IopFetchConfigurationInformation @ 0x140C1E838 (IopFetchConfigurationInformation.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceInterfaces(

@@ -40,7 +40,7 @@ void __fastcall CcAsyncReadWorker(_DWORD *StartContext)
   __int64 v17; // rcx
   __int64 v18; // rdi
   _QWORD *v19; // r8
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rbx
+  _SLIST_ENTRY *NextWorkQueueEntry; // rbx
   _SLIST_ENTRY *v21; // rcx
   _SLIST_ENTRY *v22; // rdx
   __int64 v23; // rcx
@@ -189,7 +189,7 @@ LABEL_52:
         ExAcquirePushLockExclusiveEx((ULONG_PTR)BugCheckParameter2, 0LL);
         goto LABEL_38;
       }
-      NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v17, v6, v19);
+      NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry(v17, v6, v19);
       ExReleasePushLockEx(BugCheckParameter2, 0LL);
       if ( !CcAsyncReadPrefetch((__int64)NextWorkQueueEntry) )
         goto LABEL_34;

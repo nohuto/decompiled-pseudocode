@@ -9,12 +9,11 @@
  *     NLS_UPCASE @ 0x180041758 (NLS_UPCASE.c)
  */
 
-__int64 __fastcall RtlpFindEnvironmentHashEntry(__int64 a1, unsigned __int16 *a2, int a3)
+__int64 __fastcall RtlpFindEnvironmentHashEntry(__int64 a1, const WCHAR *a2, SIZE_T a3)
 {
-  int v4; // r14d
-  unsigned __int16 *v6; // r11
+  const WCHAR *v6; // r11
   __int64 v7; // r9
-  unsigned __int64 v8; // rbx
+  const WCHAR *v8; // rbx
   __int64 v9; // rdi
   unsigned __int8 v10; // al
   __int64 v11; // r9
@@ -25,20 +24,19 @@ __int64 __fastcall RtlpFindEnvironmentHashEntry(__int64 a1, unsigned __int16 *a2
   __int64 v16; // rdi
   __int64 v18; // [rsp+60h] [rbp+8h]
 
-  v4 = (int)a2;
   v6 = a2;
   v7 = 314159LL;
-  v8 = (unsigned __int64)&a2[a3];
-  if ( (unsigned __int64)a2 < v8 )
+  v8 = &a2[(unsigned int)a3];
+  if ( a2 < v8 )
   {
     v9 = qword_1801776F8;
     do
     {
       v10 = NLS_UPCASE(v9, *v6);
-      v6 = (unsigned __int16 *)(v12 + 2);
+      v6 = (const WCHAR *)(v12 + 2);
       v7 = 37 * (v10 + 37 * v11);
     }
-    while ( (unsigned __int64)v6 < v8 );
+    while ( v6 < v8 );
   }
   v13 = *(_DWORD *)(a1 + 4);
   v14 = 0LL;
@@ -68,7 +66,7 @@ LABEL_8:
         break;
       if ( v16 == (v15 & *(_QWORD *)(v14 + 8)) )
       {
-        if ( (unsigned int)RtlCompareUnicodeStrings(*(_QWORD *)(v14 + 16), *(_QWORD *)(v14 + 32), v4, a3, 1) )
+        if ( RtlCompareUnicodeStrings(*(PCWCH *)(v14 + 16), *(_QWORD *)(v14 + 32), a2, a3, 1u) )
           goto LABEL_5;
         return v14;
       }

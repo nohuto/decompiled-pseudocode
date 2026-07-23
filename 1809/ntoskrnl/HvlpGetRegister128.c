@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpGetRegister128 @ 0x140278A7C
+ * XREFs of HvlpGetRegister128 @ 0x140278C6C
  * Callers:
- *     HvlSvmGetSystemCapabilities @ 0x140275E40 (HvlSvmGetSystemCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x140278CB4 (HvlpDetermineEnlightenments.c)
+ *     HvlSvmGetSystemCapabilities @ 0x140276030 (HvlSvmGetSystemCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x140278EA4 (HvlpDetermineEnlightenments.c)
  * Callees:
- *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x1402EDA30 (RtlRaiseException.c)
  */
 
 void __fastcall HvlpGetRegister128(int a1, _DWORD *a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of IoQueryDeviceNodeDirectedDripsFlags @ 0x14028B330
+ * XREFs of IoQueryDeviceNodeDirectedDripsFlags @ 0x14028B520
  * Callers:
- *     PopReadyParentSleep @ 0x14056CC30 (PopReadyParentSleep.c)
- *     PopQueryCurrentBroadcastProperties @ 0x14086F564 (PopQueryCurrentBroadcastProperties.c)
+ *     PopReadyParentSleep @ 0x14056DC30 (PopReadyParentSleep.c)
+ *     PopQueryCurrentBroadcastProperties @ 0x1408707C4 (PopQueryCurrentBroadcastProperties.c)
  * Callees:
  *     <none>
  */

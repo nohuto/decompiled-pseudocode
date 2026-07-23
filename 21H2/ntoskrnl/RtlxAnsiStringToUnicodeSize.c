@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlxAnsiStringToUnicodeSize @ 0x14062C7D0
+ * XREFs of RtlxAnsiStringToUnicodeSize @ 0x140663960
  * Callers:
- *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x1405C6868 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
- *     PopAnsiStringToUnicodeString @ 0x14062BF48 (PopAnsiStringToUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     AslStringAnsiToUnicode @ 0x140967884 (AslStringAnsiToUnicode.c)
+ *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x1405C6A98 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     PopAnsiStringToUnicodeString @ 0x140670B70 (PopAnsiStringToUnicodeString.c)
+ *     AslStringAnsiToUnicode @ 0x140967A64 (AslStringAnsiToUnicode.c)
  * Callees:
- *     RtlMultiByteToUnicodeSize @ 0x14062C800 (RtlMultiByteToUnicodeSize.c)
+ *     RtlMultiByteToUnicodeSize @ 0x140663990 (RtlMultiByteToUnicodeSize.c)
  */
 
 ULONG __stdcall RtlxAnsiStringToUnicodeSize(PCANSI_STRING AnsiString)

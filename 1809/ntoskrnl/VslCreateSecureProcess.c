@@ -1,11 +1,11 @@
 /*
- * XREFs of VslCreateSecureProcess @ 0x140818080
+ * XREFs of VslCreateSecureProcess @ 0x140819280
  * Callers:
- *     KeInitializeProcess @ 0x14064BB60 (KeInitializeProcess.c)
- *     VslCreateEnclave @ 0x140817F4C (VslCreateEnclave.c)
+ *     KeInitializeProcess @ 0x14064CD20 (KeInitializeProcess.c)
+ *     VslCreateEnclave @ 0x14081914C (VslCreateEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslCreateSecureProcess(__int64 a1, __int64 a2, _QWORD *a3)

@@ -31,21 +31,16 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   ULONGLONG *v9; // r14
   __int64 v10; // r13
   volatile signed __int64 *v11; // rsi
-  __int64 v12; // r8
-  ULONGLONG v13; // rax
+  ULONGLONG v12; // rax
   ULONGLONG i; // rdi
-  ULONGLONG v15; // rdx
-  __int64 v16; // r15
+  ULONGLONG v14; // rdx
+  UNICODE_STRING *v15; // r15
   ULONGLONG pullResult; // [rsp+40h] [rbp-40h] BYREF
-  int v19; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-30h]
-  __int64 v21; // [rsp+58h] [rbp-28h]
-  int v22; // [rsp+60h] [rbp-20h]
-  __int128 v23; // [rsp+68h] [rbp-18h]
-  __int64 v24; // [rsp+C8h] [rbp+48h] BYREF
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+C8h] [rbp+48h] BYREF
 
   Object = 0LL;
-  v24 = 0LL;
+  v19 = 0LL;
   a6 = 0LL;
   if ( a2 < 8 )
     return (unsigned int)-1073741811;
@@ -55,16 +50,16 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
     JobSilo = PsGetJobSilo((__int64)Object);
     if ( JobSilo >= 0 )
     {
-      PermanentSiloContext = PsGetPermanentSiloContext(a6, gVregSiloContextSlot, (unsigned __int64 *)&v24);
+      PermanentSiloContext = PsGetPermanentSiloContext(a6, gVregSiloContextSlot, (unsigned __int64 *)&v19);
       JobSilo = PermanentSiloContext;
       if ( PermanentSiloContext >= 0 )
       {
         CurrentThread = KeGetCurrentThread();
-        v9 = (ULONGLONG *)v24;
+        v9 = (ULONGLONG *)v19;
         --CurrentThread->KernelApcDisable;
-        v10 = v24;
-        v11 = (volatile signed __int64 *)(v24 + 16);
-        ExAcquirePushLockExclusiveEx(v24 + 16, 0LL);
+        v10 = v19;
+        v11 = (volatile signed __int64 *)(v19 + 16);
+        ExAcquirePushLockExclusiveEx(v19 + 16, 0LL);
         if ( *(_DWORD *)(v10 + 84) )
         {
           JobSilo = -1073741738;
@@ -74,28 +69,28 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
           KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
           goto LABEL_25;
         }
-        v13 = v9[6];
-        for ( i = 0LL; i < v13; v13 = v9[6] )
+        v12 = v9[6];
+        for ( i = 0LL; i < v12; v12 = v9[6] )
         {
-          v15 = 0LL;
-          if ( i < v13 )
+          v14 = 0LL;
+          if ( i < v12 )
           {
-            if ( ULongLongMult(v9[5], i, &pullResult) < 0 || (v15 = v9[9] + pullResult, v15 < v9[9]) )
-              v15 = 0LL;
+            if ( ULongLongMult(v9[5], i, &pullResult) < 0 || (v14 = v9[9] + pullResult, v14 < v9[9]) )
+              v14 = 0LL;
           }
-          v16 = *(_QWORD *)v15;
-          if ( *(int *)(*(_QWORD *)v15 + 48LL) >= 0 )
+          v15 = *(UNICODE_STRING **)v14;
+          if ( *(int *)(*(_QWORD *)v14 + 48LL) >= 0 )
           {
             ++i;
           }
           else
           {
-            v20 = 0LL;
-            v21 = v16 + 16;
-            v19 = 48;
-            v22 = 576;
-            v23 = 0LL;
-            ZwUnloadKey2((__int64)&v19, 1LL, v12);
+            TargetKey.RootDirectory = 0LL;
+            TargetKey.ObjectName = v15 + 1;
+            TargetKey.Length = 48;
+            TargetKey.Attributes = 576;
+            *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+            ZwUnloadKey2(&TargetKey, 1u);
             VrpDestroyNamespaceNode(v10);
           }
         }

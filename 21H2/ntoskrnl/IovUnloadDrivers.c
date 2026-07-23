@@ -1,13 +1,13 @@
 /*
- * XREFs of IovUnloadDrivers @ 0x1409C52F0
+ * XREFs of IovUnloadDrivers @ 0x1409C62F0
  * Callers:
- *     IoShutdownSystem @ 0x1409AADD8 (IoShutdownSystem.c)
+ *     IoShutdownSystem @ 0x1409ABD08 (IoShutdownSystem.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwDelayExecution @ 0x1403FAA20 (ZwDelayExecution.c)
- *     ObEnumerateObjectsByType @ 0x1408DD3AC (ObEnumerateObjectsByType.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     IovpUnloadDriver @ 0x1409C5A18 (IovpUnloadDriver.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwDelayExecution @ 0x1403FAC00 (ZwDelayExecution.c)
+ *     ObEnumerateObjectsByType @ 0x1408DD50C (ObEnumerateObjectsByType.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     IovpUnloadDriver @ 0x1409C6A18 (IovpUnloadDriver.c)
  */
 
 __int64 IovUnloadDrivers()
@@ -22,8 +22,7 @@ __int64 IovUnloadDrivers()
   struct _DMA_ADAPTER *v8; // rcx
   PVOID *v9; // rdi
   struct _DMA_ADAPTER *v10; // rcx
-  int v11; // [rsp+40h] [rbp+8h] BYREF
-  int v12; // [rsp+44h] [rbp+Ch]
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !PopShutdownCleanly )
     return 3221225473LL;
@@ -73,9 +72,8 @@ __int64 IovUnloadDrivers()
     }
     if ( v5 )
     {
-      v12 = -1;
-      v11 = -100000000;
-      ZwDelayExecution(0LL, (__int64)&v11);
+      DelayInterval.QuadPart = -100000000LL;
+      ZwDelayExecution(0, &DelayInterval);
       v4 = 1;
     }
     v1 = v6;

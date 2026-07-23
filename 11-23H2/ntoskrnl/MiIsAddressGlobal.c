@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIsAddressGlobal @ 0x140347B28
+ * XREFs of MiIsAddressGlobal @ 0x140347DB8
  * Callers:
- *     MiResolveTransitionFault @ 0x1402624D0 (MiResolveTransitionFault.c)
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
+ *     MiResolveTransitionFault @ 0x140262760 (MiResolveTransitionFault.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
  */
 
 __int64 __fastcall MiIsAddressGlobal(unsigned __int64 a1)

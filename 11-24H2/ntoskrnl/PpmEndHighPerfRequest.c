@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmEndHighPerfRequest @ 0x14046BC44
+ * XREFs of PpmEndHighPerfRequest @ 0x1404648C4
  * Callers:
- *     PopSetupHighPerfPowerRequest @ 0x140748E30 (PopSetupHighPerfPowerRequest.c)
- *     PopSwitchUpdateUserShutdownScenarioState @ 0x140754120 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopIssueActionRequest @ 0x140A87C34 (PopIssueActionRequest.c)
- *     PoClearBroadcast @ 0x140A8BD00 (PoClearBroadcast.c)
- *     PdcPoPerfOverride @ 0x140A9568C (PdcPoPerfOverride.c)
+ *     PopSetupHighPerfPowerRequest @ 0x140747120 (PopSetupHighPerfPowerRequest.c)
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x140752440 (PopSwitchUpdateUserShutdownScenarioState.c)
+ *     PopIssueActionRequest @ 0x140A84124 (PopIssueActionRequest.c)
+ *     PoClearBroadcast @ 0x140A881F0 (PoClearBroadcast.c)
+ *     PdcPoPerfOverride @ 0x140A91EBC (PdcPoPerfOverride.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     PopPowerRequestReferenceRelease @ 0x14046BD60 (PopPowerRequestReferenceRelease.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     PopPowerRequestReferenceRelease @ 0x1404649E0 (PopPowerRequestReferenceRelease.c)
  */
 
 void __fastcall PpmEndHighPerfRequest(int a1)

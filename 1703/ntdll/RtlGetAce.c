@@ -6,23 +6,23 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetAce(__int64 a1, unsigned int a2, __int64 a3)
+NTSTATUS __cdecl RtlGetAce(PACL Acl, ULONG AceIndex, PVOID *Ace)
 {
-  unsigned int v4; // edx
+  ULONG v4; // edx
 
-  if ( (unsigned __int8)(*(_BYTE *)a1 - 2) <= 2u && a2 < *(unsigned __int16 *)(a1 + 4) )
+  if ( (unsigned __int8)(Acl->AclRevision - 2) <= 2u && AceIndex < Acl->AceCount )
   {
     v4 = 0;
-    *(_QWORD *)a3 = a1 + 8;
-    if ( !a2 )
-      return *(_QWORD *)a3 >= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) ? 0xC000000D : 0;
-    while ( *(_QWORD *)a3 < a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+    *Ace = &Acl[1];
+    if ( !AceIndex )
+      return *Ace >= (char *)Acl + Acl->AclSize ? 0xC000000D : 0;
+    while ( *Ace < (char *)Acl + Acl->AclSize )
     {
       ++v4;
-      *(_QWORD *)a3 += *(unsigned __int16 *)(*(_QWORD *)a3 + 2LL);
-      if ( v4 >= a2 )
-        return *(_QWORD *)a3 >= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) ? 0xC000000D : 0;
+      *Ace = (char *)*Ace + *((unsigned __int16 *)*Ace + 1);
+      if ( v4 >= AceIndex )
+        return *Ace >= (char *)Acl + Acl->AclSize ? 0xC000000D : 0;
     }
   }
-  return 3221225485LL;
+  return -1073741811;
 }

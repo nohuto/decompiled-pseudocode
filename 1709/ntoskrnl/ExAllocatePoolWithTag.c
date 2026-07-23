@@ -1820,7 +1820,7 @@ PVOID __stdcall ExAllocatePoolWithTag(POOL_TYPE PoolType, SIZE_T NumberOfBytes, 
   struct _KPRCB *v121; // [rsp+30h] [rbp-69h]
   int v122; // [rsp+30h] [rbp-69h]
   __int64 v123; // [rsp+38h] [rbp-61h]
-  __int64 v124; // [rsp+38h] [rbp-61h]
+  char *v124; // [rsp+38h] [rbp-61h]
   __int64 v125; // [rsp+38h] [rbp-61h]
   struct _KLOCK_QUEUE_HANDLE v126; // [rsp+40h] [rbp-59h] BYREF
   struct _KPRCB *v127; // [rsp+58h] [rbp-41h]
@@ -2070,14 +2070,14 @@ LABEL_91:
             v57 = 96 * v56 + 800;
             v41 = (struct _KTHREAD *)((char *)CurrentThread + v57) == 0LL;
             v58 = (char *)CurrentThread + v57;
-            v124 = (__int64)v58;
+            v124 = v58;
             if ( !v41 )
             {
               if ( (unsigned __int64)v42 >= 0xFFFF800000000000uLL
                 && byte_1403899D0[(((unsigned __int64)v42 >> 39) & 0x1FF) - 256] == 1 )
               {
                 SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
-                v58 = (char *)v124;
+                v58 = v124;
               }
               else
               {
@@ -2114,9 +2114,9 @@ LABEL_96:
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(1uLL);
           if ( !_interlockedbittestandreset(v42, 0) )
-            ExpAcquireFastMutexContended(v8 + 8, v124);
+            ExpAcquireFastMutexContended(v8 + 8, (PRTL_BALANCED_NODE)v124);
           if ( v124 )
-            *(_BYTE *)(v124 + 26) |= 1u;
+            v124[26] |= 1u;
           *(_QWORD *)(v8 + 16) = KeGetCurrentThread();
           *(_DWORD *)(v8 + 56) = CurrentIrql;
           PsBoostThreadIo((__int64)KeGetCurrentThread(), 0LL);

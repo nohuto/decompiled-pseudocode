@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAcquireRundownProtectionEx @ 0x140375100
+ * XREFs of ExAcquireRundownProtectionEx @ 0x140376EB0
  * Callers:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
- *     PfSnReferenceProcessTrace @ 0x140374C1C (PfSnReferenceProcessTrace.c)
- *     PfSnLogPageFault @ 0x140374EF0 (PfSnLogPageFault.c)
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     PfSnAddProcessTrace @ 0x140530B6C (PfSnAddProcessTrace.c)
- *     SmHwAcceleratorParitionCtxCreate @ 0x14081B58C (SmHwAcceleratorParitionCtxCreate.c)
- *     PspRundownProcess @ 0x140B39B8C (PspRundownProcess.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
+ *     PfSnReferenceProcessTrace @ 0x1403769CC (PfSnReferenceProcessTrace.c)
+ *     PfSnLogPageFault @ 0x140376CA0 (PfSnLogPageFault.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     PfSnAddProcessTrace @ 0x14053306C (PfSnAddProcessTrace.c)
+ *     SmHwAcceleratorParitionCtxCreate @ 0x14082179C (SmHwAcceleratorParitionCtxCreate.c)
+ *     PspRundownProcess @ 0x140B3BD9C (PspRundownProcess.c)
  * Callees:
  *     <none>
  */

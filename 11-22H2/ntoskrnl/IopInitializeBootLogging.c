@@ -26,10 +26,10 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
   unsigned __int16 Length; // ax
   unsigned __int16 v12; // ax
   PVOID *i; // rbx
-  STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int16 *v15; // [rsp+70h] [rbp+30h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+70h] [rbp+30h] BYREF
 
-  v15 = 0LL;
+  MessageEntry = 0LL;
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
   if ( !qword_140D53028 )
   {
@@ -41,13 +41,13 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
       ExAcquireResourceExclusiveLite((PERESOURCE)&qword_140D53028[4], 1u);
       v5 = *(_QWORD *)(a1 + 16);
       v6 = -1LL;
-      if ( (int)RtlFindMessage(*(_QWORD *)(v5 + 48), 0xBu, 0, 0xB5u, &v15) >= 0 )
+      if ( RtlFindMessage(*(PVOID *)(v5 + 48), 0xBu, 0, 0xB5u, &MessageEntry) >= 0 )
       {
         v7 = -1LL;
-        SourceString.Buffer = (char *)(v15 + 2);
+        SourceString.Buffer = (char *)MessageEntry->Text;
         do
           ++v7;
-        while ( *((_BYTE *)v15 + v7 + 4) );
+        while ( MessageEntry->Text[v7] );
         SourceString.Length = v7;
         SourceString.MaximumLength = v7 + 1;
         RtlAnsiStringToUnicodeString(qword_140D53028, &SourceString, 1u);
@@ -59,16 +59,16 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
           v8->Buffer[(unsigned __int64)v9 >> 1] = 0;
         }
       }
-      if ( (int)RtlFindMessage(*(_QWORD *)(v5 + 48), 0xBu, 0, 0xB6u, &v15) < 0 )
+      if ( RtlFindMessage(*(PVOID *)(v5 + 48), 0xBu, 0, 0xB6u, &MessageEntry) < 0 )
       {
         v10 = qword_140D53028;
       }
       else
       {
-        SourceString.Buffer = (char *)(v15 + 2);
+        SourceString.Buffer = (char *)MessageEntry->Text;
         do
           ++v6;
-        while ( *((_BYTE *)v15 + v6 + 4) );
+        while ( MessageEntry->Text[v6] );
         SourceString.Length = v6;
         SourceString.MaximumLength = v6 + 1;
         RtlAnsiStringToUnicodeString(qword_140D53028 + 1, &SourceString, 1u);
@@ -81,7 +81,7 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
           v10[1].Buffer[(unsigned __int64)v12 >> 1] = 0;
         }
       }
-      RtlCreateUnicodeStringFromAsciiz(v10 + 3, (const char *)(a2 + 1));
+      RtlCreateUnicodeStringFromAsciiz(v10 + 3, (PCSTR)(a2 + 1));
       ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
       for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
         IopBootLog((PCUNICODE_STRING)(i + 9), 1);

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpQueryKeyDataFromCache @ 0x1408C0940
+ * XREFs of CmpQueryKeyDataFromCache @ 0x1408C6F10
  * Callers:
- *     CmpQueryKeyData @ 0x1408C0840 (CmpQueryKeyData.c)
- *     CmQueryKey @ 0x1408C5660 (CmQueryKey.c)
+ *     CmpQueryKeyData @ 0x1408C6E10 (CmpQueryKeyData.c)
+ *     CmQueryKey @ 0x1408CBC30 (CmQueryKey.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmEqualTrans @ 0x1408BC9D0 (CmEqualTrans.c)
- *     CmGetVisibleSubkeyCount @ 0x1408BCA28 (CmGetVisibleSubkeyCount.c)
- *     CmpIsKeyDeleted @ 0x1408C1E30 (CmpIsKeyDeleted.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmListGetNextElement @ 0x140C58A70 (CmListGetNextElement.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmEqualTrans @ 0x1408C2FA0 (CmEqualTrans.c)
+ *     CmGetVisibleSubkeyCount @ 0x1408C2FF8 (CmGetVisibleSubkeyCount.c)
+ *     CmpIsKeyDeleted @ 0x1408C8400 (CmpIsKeyDeleted.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmListGetNextElement @ 0x140C5EA70 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromCache(__int64 a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, __int64 a6)

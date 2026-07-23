@@ -1,9 +1,9 @@
 /*
  * XREFs of _i64tow_s @ 0x1403E60B0
  * Callers:
- *     LocalGetStringForRelativeAttribute @ 0x1409D3004 (LocalGetStringForRelativeAttribute.c)
+ *     sub_1409D3004 @ 0x1409D3004 (sub_1409D3004.c)
  * Callees:
- *     x64tow_s @ 0x1403E614C (x64tow_s.c)
+ *     sub_1403E614C @ 0x1403E614C (sub_1403E614C.c)
  */
 
 errno_t __cdecl i64tow_s(__int64 Val, wchar_t *DstBuf, size_t SizeInWords, int Radix)
@@ -13,5 +13,5 @@ errno_t __cdecl i64tow_s(__int64 Val, wchar_t *DstBuf, size_t SizeInWords, int R
   v4 = 0;
   if ( Radix == 10 )
     v4 = Val < 0;
-  return x64tow_s(Val, (_DWORD)DstBuf, SizeInWords, Radix, v4);
+  return sub_1403E614C(Val, (_DWORD)DstBuf, SizeInWords, Radix, v4);
 }

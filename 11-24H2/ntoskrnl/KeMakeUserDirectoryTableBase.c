@@ -1,7 +1,7 @@
 /*
- * XREFs of KeMakeUserDirectoryTableBase @ 0x14049A814
+ * XREFs of KeMakeUserDirectoryTableBase @ 0x1404951F8
  * Callers:
- *     MiAllocateProcessShadow @ 0x140A5A1B0 (MiAllocateProcessShadow.c)
+ *     MiAllocateProcessShadow @ 0x140A51A70 (MiAllocateProcessShadow.c)
  * Callees:
  *     <none>
  */

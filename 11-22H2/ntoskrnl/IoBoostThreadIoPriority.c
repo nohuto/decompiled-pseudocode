@@ -105,10 +105,13 @@ void __fastcall IoBoostThreadIoPriority(volatile signed __int64 *a1, int a2, int
       if ( (a3 & 0x40000000) == 0 )
       {
         KxReleaseSpinLock(v6);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v7 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -125,10 +128,10 @@ void __fastcall IoBoostThreadIoPriority(volatile signed __int64 *a1, int a2, int
       v5 = 1;
     }
     KxReleaseSpinLock(v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v40 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v40 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v40 >= 2u )
       {
         v41 = KeGetCurrentPrcb();
         v42 = v41->SchedulerAssist;
@@ -248,10 +251,10 @@ LABEL_20:
   v15 = v49;
 LABEL_22:
   KxReleaseSpinLock(a1 + 187);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v45 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && v15 <= 0xFu && v45 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu && v15 <= 0xFu && v45 >= 2u )
     {
       v46 = KeGetCurrentPrcb();
       v47 = v46->SchedulerAssist;

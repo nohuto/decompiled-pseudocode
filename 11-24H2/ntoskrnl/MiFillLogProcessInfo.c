@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFillLogProcessInfo @ 0x140446A08
+ * XREFs of MiFillLogProcessInfo @ 0x14043EDB8
  * Callers:
- *     MiLogHotPatchOperation @ 0x1407F3824 (MiLogHotPatchOperation.c)
- *     MiLogHotPatchOperationStatus @ 0x1407F3CA4 (MiLogHotPatchOperationStatus.c)
- *     MiLogHotPatchRundown @ 0x1407F44C4 (MiLogHotPatchRundown.c)
+ *     MiLogHotPatchOperation @ 0x1407F3E18 (MiLogHotPatchOperation.c)
+ *     MiLogHotPatchOperationStatus @ 0x1407F4298 (MiLogHotPatchOperationStatus.c)
+ *     MiLogHotPatchRundown @ 0x1407F4BB8 (MiLogHotPatchRundown.c)
  * Callees:
  *     <none>
  */

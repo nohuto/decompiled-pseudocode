@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxSetComponentWake @ 0x14070CBF8
+ * XREFs of VerifierPoFxSetComponentWake @ 0x14070CC28
  * Callers:
  *     <none>
  * Callees:

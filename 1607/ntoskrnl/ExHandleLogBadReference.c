@@ -1,20 +1,20 @@
 /*
- * XREFs of ExHandleLogBadReference @ 0x14022CA54
+ * XREFs of ExHandleLogBadReference @ 0x14022C880
  * Callers:
- *     ObpReferenceObjectByHandle @ 0x140447040 (ObpReferenceObjectByHandle.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     ObWaitForMultipleObjects @ 0x14044EDD0 (ObWaitForMultipleObjects.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
- *     ExMapHandleToPointerEx @ 0x1404A3D90 (ExMapHandleToPointerEx.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     ObpCloseHandle @ 0x14050C774 (ObpCloseHandle.c)
- *     AlpcpLookupMessage @ 0x14050E300 (AlpcpLookupMessage.c)
+ *     ObpReferenceObjectByHandle @ 0x140445F10 (ObpReferenceObjectByHandle.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     ObWaitForMultipleObjects @ 0x14044DCA0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     ObpCloseHandle @ 0x1404EF704 (ObpCloseHandle.c)
+ *     AlpcpLookupMessage @ 0x1404F1290 (AlpcpLookupMessage.c)
+ *     ExMapHandleToPointerEx @ 0x14051C190 (ExMapHandleToPointerEx.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeRaiseUserException @ 0x1401D3828 (KeRaiseUserException.c)
- *     ExpUpdateDebugInfo @ 0x1406AD814 (ExpUpdateDebugInfo.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeRaiseUserException @ 0x1401D3654 (KeRaiseUserException.c)
+ *     ExpUpdateDebugInfo @ 0x1406AD94C (ExpUpdateDebugInfo.c)
  */
 
 void __fastcall ExHandleLogBadReference(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1, char a3)

@@ -58,7 +58,7 @@ __int64 __fastcall EtwpNotifyGuid(_DWORD *Src, char a2)
   }
   v7 = 128;
   v8 = 0;
-  result = EtwpCheckGuidAccess(PrivateLoggerSecurityGuid, 0x80u, 0LL);
+  result = EtwpCheckGuidAccess(&PrivateLoggerSecurityGuid.Data1, 0x80u, 0LL);
   if ( (int)result >= 0 )
   {
 LABEL_4:

@@ -14,100 +14,146 @@
  *     RtlRaiseException @ 0x14030D3B0 (RtlRaiseException.c)
  */
 
-/*
- * Hex-Rays decompilation failed for HvlpSetRegister64 @ 0x140548ED0
- * Reason: Hex-Rays returned no pseudocode for 0x140548ED0
- * Fallback: raw IDA disassembly follows.
- *
- * 0000000140548ED0: sub     rsp, 28h
- * 0000000140548ED4: mov     eax, 0A0002h
- * 0000000140548ED9: mov     r8d, ecx
- * 0000000140548EDC: cmp     ecx, eax
- * 0000000140548EDE: jg      loc_140548F7E
- * 0000000140548EE4: jz      loc_140548FB0
- * 0000000140548EEA: mov     eax, 90002h
- * 0000000140548EEF: cmp     ecx, eax
- * 0000000140548EF1: jg      short loc_140548F43
- * 0000000140548EF3: jz      short loc_140548F3C
- * 0000000140548EF5: sub     ecx, 210h
- * 0000000140548EFB: jz      short loc_140548F33
- * 0000000140548EFD: sub     ecx, 1
- * 0000000140548F00: jz      short loc_140548F33
- * 0000000140548F02: sub     ecx, 1
- * 0000000140548F05: jz      short loc_140548F33
- * 0000000140548F07: sub     ecx, 1
- * 0000000140548F0A: jz      short loc_140548F33
- * 0000000140548F0C: sub     ecx, 1
- * 0000000140548F0F: jz      short loc_140548F33
- * 0000000140548F11: sub     ecx, 1
- * 0000000140548F14: jz      short loc_140548F29
- * 0000000140548F16: cmp     ecx, 5Bh ; '['
- * 0000000140548F19: jnz     loc_140548FE7
- * 0000000140548F1F: mov     ecx, 40000116h
- * 0000000140548F24: jmp     loc_140548FB7
- * 0000000140548F29: mov     ecx, 40000105h
- * 0000000140548F2E: jmp     loc_140548FB7
- * 0000000140548F33: lea     ecx, [r8+3FFFFEF0h]
- * 0000000140548F3A: jmp     short loc_140548FB7
- * 0000000140548F3C: mov     ecx, 40000000h
- * 0000000140548F41: jmp     short loc_140548FB7
- * 0000000140548F43: sub     ecx, 90007h
- * 0000000140548F49: jz      short loc_140548F77
- * 0000000140548F4B: sub     ecx, 0Ch
- * 0000000140548F4E: jz      short loc_140548F70
- * 0000000140548F50: sub     ecx, 4
- * 0000000140548F53: jz      short loc_140548F69
- * 0000000140548F55: sub     ecx, 4
- * 0000000140548F58: jz      short loc_140548F62
- * 0000000140548F5A: sub     ecx, 0FFE5h
- * 0000000140548F60: jmp     short loc_140548FA9
- * 0000000140548F62: mov     ecx, 400000C2h
- * 0000000140548F67: jmp     short loc_140548FB7
- * 0000000140548F69: mov     ecx, 40000021h
- * 0000000140548F6E: jmp     short loc_140548FB7
- * 0000000140548F70: mov     ecx, 40000073h
- * 0000000140548F75: jmp     short loc_140548FB7
- * 0000000140548F77: mov     ecx, 40000004h
- * 0000000140548F7C: jmp     short loc_140548FB7
- * 0000000140548F7E: mov     eax, 0A000Ah
- * 0000000140548F83: cmp     r8d, eax
- * 0000000140548F86: jg      short loc_140548FC6
- * 0000000140548F88: jz      short loc_140548FB0
- * 0000000140548F8A: sub     ecx, 0A0003h
- * 0000000140548F90: jz      short loc_140548FB0
- * 0000000140548F92: sub     ecx, 1
- * 0000000140548F95: jz      short loc_140548FB0
- * 0000000140548F97: sub     ecx, 1
- * 0000000140548F9A: jz      short loc_140548FB0
- * 0000000140548F9C: sub     ecx, 1
- * 0000000140548F9F: jz      short loc_140548FB0
- * 0000000140548FA1: sub     ecx, 1
- * 0000000140548FA4: jz      short loc_140548FB0
- * 0000000140548FA6: sub     ecx, 1
- * 0000000140548FA9: jz      short loc_140548FB0
- * 0000000140548FAB: cmp     ecx, 1
- * 0000000140548FAE: jnz     short loc_140548FE7
- * 0000000140548FB0: lea     ecx, [r8+3FF60090h]
- * 0000000140548FB7: mov     rax, rdx
- * 0000000140548FBA: shr     rdx, 20h
- * 0000000140548FBE: wrmsr
- * 0000000140548FC0: add     rsp, 28h
- * 0000000140548FC4: retn
- * 0000000140548FC6: sub     ecx, 0A000Bh
- * 0000000140548FCC: jz      short loc_140548FB0
- * 0000000140548FCE: sub     ecx, 1
- * 0000000140548FD1: jz      short loc_140548FB0
- * 0000000140548FD3: sub     ecx, 1
- * 0000000140548FD6: jz      short loc_140548FB0
- * 0000000140548FD8: sub     ecx, 1
- * 0000000140548FDB: jz      short loc_140548FB0
- * 0000000140548FDD: sub     ecx, 1
- * 0000000140548FE0: jz      short loc_140548FB0
- * 0000000140548FE2: cmp     ecx, 4
- * 0000000140548FE5: jz      short loc_140548FF5
- * 0000000140548FE7: lea     rcx, qword_140C0D0D0; ULONG_PTR
- * 0000000140548FEE: call    RtlRaiseException
- * 0000000140548FF3: jmp     short loc_140548FC0
- * 0000000140548FF5: mov     ecx, 40000083h
- * 0000000140548FFA: jmp     short loc_140548FB7
- */
+void __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
+{
+  int v3; // ecx
+  int v4; // ecx
+  int v5; // ecx
+  int v6; // ecx
+  int v7; // ecx
+  int v8; // ecx
+  unsigned int v9; // ecx
+  int v10; // ecx
+  int v11; // ecx
+  int v12; // ecx
+  int v13; // ecx
+  bool v14; // zf
+  int v15; // ecx
+  int v16; // ecx
+  int v17; // ecx
+  int v18; // ecx
+  int v19; // ecx
+  int v20; // ecx
+  int v21; // ecx
+  int v22; // ecx
+  int v23; // ecx
+  int v24; // ecx
+  int v25; // ecx
+
+  if ( a1 > 655362 )
+  {
+    if ( a1 > 655370 )
+    {
+      v21 = a1 - 655371;
+      if ( v21 )
+      {
+        v22 = v21 - 1;
+        if ( v22 )
+        {
+          v23 = v22 - 1;
+          if ( v23 )
+          {
+            v24 = v23 - 1;
+            if ( v24 )
+            {
+              v25 = v24 - 1;
+              if ( v25 )
+              {
+                if ( v25 == 4 )
+                {
+                  v9 = 1073741955;
+                  goto LABEL_36;
+                }
+                goto LABEL_43;
+              }
+            }
+          }
+        }
+      }
+LABEL_35:
+      v9 = a1 + 1073086608;
+      goto LABEL_36;
+    }
+    if ( a1 == 655370 )
+      goto LABEL_35;
+    v16 = a1 - 655363;
+    if ( !v16 )
+      goto LABEL_35;
+    v17 = v16 - 1;
+    if ( !v17 )
+      goto LABEL_35;
+    v18 = v17 - 1;
+    if ( !v18 )
+      goto LABEL_35;
+    v19 = v18 - 1;
+    if ( !v19 )
+      goto LABEL_35;
+    v20 = v19 - 1;
+    if ( !v20 )
+      goto LABEL_35;
+    v15 = v20 - 1;
+    v14 = v15 == 0;
+LABEL_33:
+    if ( !v14 && v15 != 1 )
+      goto LABEL_43;
+    goto LABEL_35;
+  }
+  if ( a1 == 655362 )
+    goto LABEL_35;
+  if ( a1 > 589826 )
+  {
+    v10 = a1 - 589831;
+    if ( !v10 )
+    {
+      v9 = 1073741828;
+      goto LABEL_36;
+    }
+    v11 = v10 - 12;
+    if ( !v11 )
+    {
+      v9 = 1073741939;
+      goto LABEL_36;
+    }
+    v12 = v11 - 4;
+    if ( !v12 )
+    {
+      v9 = 1073741857;
+      goto LABEL_36;
+    }
+    v13 = v12 - 4;
+    if ( !v13 )
+    {
+      v9 = 1073742018;
+      goto LABEL_36;
+    }
+    v15 = v13 - 65509;
+    v14 = v15 == 0;
+    goto LABEL_33;
+  }
+  if ( a1 == 589826 )
+  {
+    v9 = 0x40000000;
+    goto LABEL_36;
+  }
+  v3 = a1 - 528;
+  if ( !v3 || (v4 = v3 - 1) == 0 || (v5 = v4 - 1) == 0 || (v6 = v5 - 1) == 0 || (v7 = v6 - 1) == 0 )
+  {
+    v9 = a1 + 1073741552;
+    goto LABEL_36;
+  }
+  v8 = v7 - 1;
+  if ( !v8 )
+  {
+    v9 = 1073742085;
+    goto LABEL_36;
+  }
+  if ( v8 == 91 )
+  {
+    v9 = 1073742102;
+LABEL_36:
+    __writemsr(v9, a2);
+    return;
+  }
+LABEL_43:
+  RtlRaiseException(&ExceptionRecord);
+}

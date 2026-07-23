@@ -1,17 +1,17 @@
 /*
- * XREFs of KiInitializeContextThread @ 0x140278B0C
+ * XREFs of KiInitializeContextThread @ 0x140266AAC
  * Callers:
- *     KeInitThread @ 0x14098F2E0 (KeInitThread.c)
+ *     KeInitThread @ 0x140990D94 (KeInitThread.c)
  * Callees:
- *     KiSetSwitchingNpxState @ 0x140278DC4 (KiSetSwitchingNpxState.c)
- *     KxContextToKframes @ 0x140279000 (KxContextToKframes.c)
- *     RtlLocateExtendedFeature2 @ 0x140381600 (RtlLocateExtendedFeature2.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlLocateSupervisorFeature @ 0x14058CFC0 (RtlLocateSupervisorFeature.c)
+ *     KiSetSwitchingNpxState @ 0x140266D64 (KiSetSwitchingNpxState.c)
+ *     KxContextToKframes @ 0x140266FA0 (KxContextToKframes.c)
+ *     RtlLocateExtendedFeature2 @ 0x140381150 (RtlLocateExtendedFeature2.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlLocateSupervisorFeature @ 0x14058D1F0 (RtlLocateSupervisorFeature.c)
  */
 
-__int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+_OWORD *__fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v5; // rbx
   unsigned __int64 v7; // rdi
@@ -35,7 +35,7 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3,
   __int128 v25; // xmm0
   __int128 v26; // xmm1
   __int128 v27; // xmm0
-  __int64 result; // rax
+  _OWORD *result; // rax
   unsigned __int64 v29; // rdx
   __int64 ExtendedFeature2; // rax
   _BYTE v34[48]; // [rsp+50h] [rbp-508h] BYREF
@@ -120,12 +120,12 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3,
     *(_QWORD *)(v7 - 56) = 0LL;
   }
   *(_BYTE *)(a1 + 562) = KiSetSwitchingNpxState(a1, v9);
-  result = v21 + 128;
+  result = (_OWORD *)(v21 + 128);
   *(_BYTE *)(v24 + 40) = 1;
   *(_QWORD *)(v24 + 48) = v21 + 128;
   if ( MEMORY[0xFFFFF780000003D8] )
   {
-    result = MEMORY[0xFFFFF780000003EC];
+    result = (_OWORD *)MEMORY[0xFFFFF780000003EC];
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
     {
       v29 = 0x8000000000000003uLL;
@@ -140,8 +140,8 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3,
         }
         *(_QWORD *)(v7 + 512) |= 0x800uLL;
         *(_QWORD *)(v7 + 520) = v29 | 0x800;
-        result = RtlLocateSupervisorFeature(v7 + 512, 11LL, 0LL);
-        *(_OWORD *)result = *v10;
+        result = RtlLocateSupervisorFeature((PXSAVE_AREA_HEADER)(v7 + 512), 0xBu, 0LL);
+        *result = *v10;
       }
     }
   }

@@ -6,18 +6,28 @@
  *     ZwAllocateVirtualMemory @ 0x1800A03C0 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 RtlCSparseBitmapStart()
+NTSTATUS RtlCSparseBitmapStart()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR v2; // [rsp+48h] [rbp+10h] BYREF
 
-  result = ZwAllocateVirtualMemory();
-  if ( (int)result >= 0 )
+  RegionSize = 4096LL;
+  v2 = 33558528LL;
+  result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &v2, 0x2000u, 4u);
+  if ( result >= 0 )
   {
-    RtlpHpAllocTrackerBitmap = qword_18015D6A8 + 0x2000000;
+    RtlpHpAllocTrackerBitmap = (char *)BaseAddress + 0x2000000;
     qword_18015D6B0 = 0x10000000LL;
-    result = ZwAllocateVirtualMemory();
-    if ( (int)result >= 0 )
-      return 0LL;
+    result = ZwAllocateVirtualMemory(
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               &RtlpHpAllocTrackerBitmap,
+               0LL,
+               &RegionSize,
+               0x1000u,
+               4u);
+    if ( result >= 0 )
+      return 0;
   }
   return result;
 }

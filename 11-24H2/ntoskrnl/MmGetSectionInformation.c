@@ -1,18 +1,18 @@
 /*
- * XREFs of MmGetSectionInformation @ 0x14093C550
+ * XREFs of MmGetSectionInformation @ 0x1409E9C60
  * Callers:
- *     PspLocateSystemDll @ 0x140771E70 (PspLocateSystemDll.c)
- *     DbgkpSendErrorMessage @ 0x14093A900 (DbgkpSendErrorMessage.c)
- *     AlpcpMapLegacyPortView @ 0x14093C1C0 (AlpcpMapLegacyPortView.c)
- *     NtQuerySection @ 0x14093C3B0 (NtQuerySection.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspLocateSystemDll @ 0x140772090 (PspLocateSystemDll.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     DbgkpSendErrorMessage @ 0x1409E93F0 (DbgkpSendErrorMessage.c)
+ *     AlpcpMapLegacyPortView @ 0x1409E98D0 (AlpcpMapLegacyPortView.c)
+ *     NtQuerySection @ 0x1409E9AC0 (NtQuerySection.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiAweControlArea @ 0x140440AA0 (MiAweControlArea.c)
- *     MiGetControlAreaLoadConfig @ 0x140464454 (MiGetControlAreaLoadConfig.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiRelocateAmount @ 0x140A7FDB4 (MiRelocateAmount.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiAweControlArea @ 0x140437570 (MiAweControlArea.c)
+ *     MiGetControlAreaLoadConfig @ 0x14045AB84 (MiGetControlAreaLoadConfig.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiRelocateAmount @ 0x140A7A814 (MiRelocateAmount.c)
  */
 
 __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
@@ -90,7 +90,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
           v15 = v11[3];
           if ( (v9[14] & 0x20000000) != 0 )
           {
-            *(_QWORD *)&v32[0] = qword_140E2DA40 | LOWORD(v32[0]);
+            *(_QWORD *)&v32[0] = qword_140E2DB80 | LOWORD(v32[0]);
             v12 = v32[0];
           }
           if ( a2 == 4 )
@@ -171,7 +171,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
         if ( a2 == 2 )
         {
           if ( (v24[14] & 0x20000000) != 0 )
-            v23 += qword_140E2DA40 - *(_QWORD *)(*(_QWORD *)v24 + 32LL);
+            v23 += qword_140E2DB80 - *(_QWORD *)(*(_QWORD *)v24 + 32LL);
           *(_QWORD *)a3 = v23;
         }
         else

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlDedupChangeUninit @ 0x14070CAB0
+ * XREFs of FsRtlDedupChangeUninit @ 0x14070A650
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     McTemplateK0jjq_EtwWriteTransfer @ 0x140581A1C (McTemplateK0jjq_EtwWriteTransfer.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     McTemplateK0jjq_EtwWriteTransfer @ 0x14057ED9C (McTemplateK0jjq_EtwWriteTransfer.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlDedupChangeUninit(_DWORD *a1, _QWORD *a2, __int64 a3)

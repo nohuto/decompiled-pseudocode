@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDetermineDefragmentSlabIdentity @ 0x14068775C
+ * XREFs of MiDetermineDefragmentSlabIdentity @ 0x14068888C
  * Callers:
- *     MiEstablishDefragSlabEntries @ 0x14068781C (MiEstablishDefragSlabEntries.c)
+ *     MiEstablishDefragSlabEntries @ 0x14068894C (MiEstablishDefragSlabEntries.c)
  * Callees:
- *     MiEnumerateSlabAllocatorsEx @ 0x14046A884 (MiEnumerateSlabAllocatorsEx.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14046321C (MiEnumerateSlabAllocatorsEx.c)
  */
 
 __int64 __fastcall MiDetermineDefragmentSlabIdentity(__int64 a1)
 {
   unsigned __int8 *v1; // rdi
   unsigned __int8 i; // si
-  __int64 v4; // r9
+  unsigned int v4; // r9d
   __int64 v5; // rcx
   unsigned __int64 v6; // r9
   unsigned __int64 *v7; // rdx
@@ -24,7 +24,7 @@ __int64 __fastcall MiDetermineDefragmentSlabIdentity(__int64 a1)
   {
     for ( i = 0; i <= 0x40u; ++i )
     {
-      v4 = *(unsigned int *)(a1 + 68);
+      v4 = *(_DWORD *)(a1 + 68);
       v5 = *(_QWORD *)a1;
       v11 = *(_DWORD *)(a1 + 72);
       *v1 = i;

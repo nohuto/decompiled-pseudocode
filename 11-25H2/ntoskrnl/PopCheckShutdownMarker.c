@@ -28,7 +28,7 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
   int SystemBootStatus; // eax
   int *v5; // r9
   __int64 v6; // r10
-  _DWORD *v7; // r8
+  WNF_STATE_NAME *v7; // r8
   unsigned __int64 v8; // r8
   __int64 v9; // r9
   unsigned __int64 v10; // r8
@@ -46,9 +46,9 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
   int v22; // [rsp+58h] [rbp-B0h] BYREF
   int v23; // [rsp+5Ch] [rbp-ACh] BYREF
   int v24; // [rsp+60h] [rbp-A8h] BYREF
-  int v25; // [rsp+64h] [rbp-A4h] BYREF
+  int Buffer; // [rsp+64h] [rbp-A4h] BYREF
   __int64 v26; // [rsp+68h] [rbp-A0h] BYREF
-  _QWORD v27[3]; // [rsp+70h] [rbp-98h] BYREF
+  WNF_STATE_NAME StateName[3]; // [rsp+70h] [rbp-98h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v28; // [rsp+88h] [rbp-80h] BYREF
   __int64 v29; // [rsp+A8h] [rbp-60h]
   __int64 v30; // [rsp+B0h] [rbp-58h]
@@ -85,7 +85,7 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 240);
   v16 = 0;
-  *(_OWORD *)&v27[1] = 0LL;
+  *(_OWORD *)StateName[1].Data = 0LL;
   v3 = *(_BYTE *)(v1 + 132);
   v49 = 14;
   v50 = &PopBsdPhysicalPowerButtonInfo;
@@ -106,12 +106,12 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
   {
     v5 = &v49;
     v6 = 4LL;
-    v7 = &v27[1];
+    v7 = &StateName[1];
     do
     {
-      if ( !*v7 )
+      if ( !v7->Data[0] )
         dword_140E66E94 |= 1 << *(_BYTE *)v5;
-      ++v7;
+      v7 = (WNF_STATE_NAME *)((char *)v7 + 4);
       v5 += 6;
       --v6;
     }
@@ -188,9 +188,9 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
     *(_QWORD *)&PopBsdPowerTransitionAtBoot = PopBsdPhysicalPowerButtonInfoAtBoot;
   }
   PopAutoChkCausedReboot = (BYTE14(PopBsdPowerTransition) & 0x10) != 0;
-  v27[0] = WNF_PO_PREVIOUS_SHUTDOWN_STATE;
-  v25 = BYTE8(PopBsdPowerTransitionAtBoot) & 1;
-  result = ZwUpdateWnfStateData((__int64)v27, (__int64)&v25);
+  StateName[0] = (WNF_STATE_NAME)WNF_PO_PREVIOUS_SHUTDOWN_STATE;
+  Buffer = BYTE8(PopBsdPowerTransitionAtBoot) & 1;
+  result = ZwUpdateWnfStateData(StateName, &Buffer, 4u, 0LL, 0LL, 0, 0);
   if ( (PopSimulate & 0x400) != 0 )
   {
     WORD6(PopBsdPowerTransitionAtBoot) = 1;
@@ -272,16 +272,16 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
     qword_140E66ED8 = (__int64)&PopBsdPowerTransitionExtensionAtBoot;
     dword_140E66EF0 = ExBootAppErrorDiagCode;
     dword_140E66EF4 = ExBootAppFailureStatus;
-    ZwQuerySystemInformation(90LL, (__int64)&unk_140E66EF8);
+    ZwQuerySystemInformation(SystemBootEnvironmentInformation, &unk_140E66EF8, 0x20u, 0LL);
     dword_140E66F58 = 7;
     qword_140E66F60 = (__int64)&PopFirmwareResetReason;
-    if ( (int)ZwQuerySystemInformationEx(72LL, (__int64)&dword_140E66F58) >= 0 )
+    if ( ZwQuerySystemInformationEx(SystemWatchdogTimerInformation, &dword_140E66F58, 4u, &dword_140E66F58, 8u, 0LL) >= 0 )
     {
       dword_140E66F50 = dword_140E66F5C;
       if ( dword_140E66F5C )
       {
         dword_140E66F58 = 8;
-        if ( (int)ZwQuerySystemInformationEx(72LL, (__int64)&dword_140E66F58) >= 0 )
+        if ( ZwQuerySystemInformationEx(SystemWatchdogTimerInformation, &dword_140E66F58, 4u, &dword_140E66F58, 8u, 0LL) >= 0 )
           dword_140E66F54 = dword_140E66F5C;
       }
     }

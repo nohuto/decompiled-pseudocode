@@ -1,97 +1,95 @@
 /*
- * XREFs of LdrpSearchPath @ 0x1800754F0
+ * XREFs of LdrpSearchPath @ 0x180091DD0
  * Callers:
- *     LdrpFindLoadedDllInternal @ 0x1800036C0 (LdrpFindLoadedDllInternal.c)
- *     LdrpFindLoadedDll @ 0x18000A400 (LdrpFindLoadedDll.c)
- *     LdrpMapDllSearchPath @ 0x180074F30 (LdrpMapDllSearchPath.c)
+ *     LdrpFindLoadedDll @ 0x180036E00 (LdrpFindLoadedDll.c)
+ *     LdrpMapDllSearchPath @ 0x180091810 (LdrpMapDllSearchPath.c)
+ *     LdrpFindLoadedDllInternal @ 0x1800C73E0 (LdrpFindLoadedDllInternal.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     EtwEventWriteNoRegistration @ 0x180066310 (EtwEventWriteNoRegistration.c)
- *     RtlCompareUnicodeStrings @ 0x180072550 (RtlCompareUnicodeStrings.c)
- *     RtlAppendUnicodeStringToString @ 0x180075AB0 (RtlAppendUnicodeStringToString.c)
- *     LdrpResolveDllName @ 0x180075B50 (LdrpResolveDllName.c)
- *     LdrpAllocateUnicodeString @ 0x1800760E0 (LdrpAllocateUnicodeString.c)
- *     LdrpIsSecurityEtwLoggingEnabled @ 0x18007616C (LdrpIsSecurityEtwLoggingEnabled.c)
- *     LdrpComputeLazyDllPath @ 0x180083D90 (LdrpComputeLazyDllPath.c)
- *     RtlCopyUnicodeString @ 0x1800DC080 (RtlCopyUnicodeString.c)
- *     LdrpSaveLocationsSearched @ 0x180110310 (LdrpSaveLocationsSearched.c)
- *     RtlpLookupSafeCurDirList @ 0x1801146A8 (RtlpLookupSafeCurDirList.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     LdrpComputeLazyDllPath @ 0x180005C40 (LdrpComputeLazyDllPath.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlCompareUnicodeStrings @ 0x18008EE30 (RtlCompareUnicodeStrings.c)
+ *     RtlAppendUnicodeStringToString @ 0x180092390 (RtlAppendUnicodeStringToString.c)
+ *     LdrpResolveDllName @ 0x180092430 (LdrpResolveDllName.c)
+ *     LdrpAllocateUnicodeString @ 0x1800929C0 (LdrpAllocateUnicodeString.c)
+ *     LdrpIsSecurityEtwLoggingEnabled @ 0x180092A4C (LdrpIsSecurityEtwLoggingEnabled.c)
+ *     EtwEventWriteNoRegistration @ 0x1800AE4F0 (EtwEventWriteNoRegistration.c)
+ *     RtlCopyUnicodeString @ 0x1800D7160 (RtlCopyUnicodeString.c)
+ *     LdrpSaveLocationsSearched @ 0x18010B430 (LdrpSaveLocationsSearched.c)
+ *     RtlpLookupSafeCurDirList @ 0x18010F9B4 (RtlpLookupSafeCurDirList.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall LdrpSearchPath(
-        unsigned __int16 *a1,
-        __int16 **a2,
+        PCUNICODE_STRING Source,
+        wchar_t **a2,
         char a3,
-        __int16 **a4,
+        wchar_t **a4,
         _WORD *a5,
         __int64 a6,
-        unsigned __int16 *a7,
+        const UNICODE_STRING *a7,
         bool *a8,
         __int64 a9)
 {
-  unsigned __int16 *v12; // r14
+  const UNICODE_STRING *v12; // r14
   unsigned int v13; // edx
-  __int16 *v14; // r9
-  __int16 *v15; // rcx
-  __int16 v16; // ax
+  wchar_t *v14; // r9
+  wchar_t *v15; // rcx
+  wchar_t v16; // ax
   int v17; // r8d
-  __int16 v18; // ax
-  int UnicodeString; // edi
-  _WORD *v20; // rbp
-  __int16 *v21; // r15
-  __int16 *v22; // rbx
-  __int16 v23; // ax
-  _WORD *v24; // rcx
+  wchar_t v18; // ax
+  int v19; // edi
+  wchar_t *Buffer; // rbp
+  wchar_t *v21; // r15
+  wchar_t *v22; // rbx
+  wchar_t v23; // ax
+  wchar_t *v24; // rcx
   bool v25; // si
   __int16 v26; // ax
   int v27; // eax
-  unsigned __int16 *v28; // rsi
+  _QWORD *v28; // rsi
   __int64 v29; // rsi
-  int v31; // eax
+  unsigned int v31; // eax
   int v32; // eax
-  int v33; // eax
-  __int128 *v34; // rdx
+  int Length; // eax
+  const EVENT_DESCRIPTOR *v34; // rdx
   __int64 *v35; // rax
   __int64 *v36; // r14
   __int64 *i; // rsi
-  __int64 Heap; // rax
-  __int64 v39; // rsi
+  _UNICODE_STRING *Heap; // rax
+  _UNICODE_STRING *v39; // rsi
   unsigned __int16 v40; // cx
-  char v42[16]; // [rsp+40h] [rbp-B8h] BYREF
-  unsigned __int16 *v43; // [rsp+50h] [rbp-A8h]
+  _UNICODE_STRING Destination; // [rsp+40h] [rbp-B8h] BYREF
+  PCUNICODE_STRING v43; // [rsp+50h] [rbp-A8h]
   _WORD *v44; // [rsp+58h] [rbp-A0h]
-  unsigned __int16 *v45; // [rsp+60h] [rbp-98h]
+  PVOID BaseAddress; // [rsp+60h] [rbp-98h]
   __int64 v46; // [rsp+68h] [rbp-90h]
   bool *v47; // [rsp+70h] [rbp-88h]
   __int64 v48; // [rsp+78h] [rbp-80h]
-  __int64 v49; // [rsp+80h] [rbp-78h] BYREF
-  int v50; // [rsp+88h] [rbp-70h]
-  int v51; // [rsp+8Ch] [rbp-6Ch]
-  __int64 v52; // [rsp+90h] [rbp-68h]
-  int v53; // [rsp+98h] [rbp-60h]
-  int v54; // [rsp+9Ch] [rbp-5Ch]
-  __int64 v55; // [rsp+A0h] [rbp-58h]
-  int v56; // [rsp+A8h] [rbp-50h]
-  int v57; // [rsp+ACh] [rbp-4Ch]
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+80h] [rbp-78h] BYREF
+  __int64 v50; // [rsp+90h] [rbp-68h]
+  int v51; // [rsp+98h] [rbp-60h]
+  int v52; // [rsp+9Ch] [rbp-5Ch]
+  wchar_t *v53; // [rsp+A0h] [rbp-58h]
+  int v54; // [rsp+A8h] [rbp-50h]
+  int v55; // [rsp+ACh] [rbp-4Ch]
 
   v44 = a5;
   v46 = a6;
-  v12 = a1;
+  v12 = Source;
   v47 = a8;
   v48 = a9;
-  v43 = a1;
-  *(_OWORD *)v42 = 0LL;
-  v45 = 0LL;
-  LdrpLogInternal((__int64)"minkernel\\ldr\\ldrfind.c", 1212, (__int64)"LdrpSearchPath", 3, "DLL name: %wZ\n", (char)a1);
-  LdrpLogInternal((__int64)"minkernel\\ldr\\ldrfind.c", 1213, (__int64)"LdrpSearchPath", 5, "%wZ\n", (char)v12);
+  v43 = Source;
+  Destination = 0LL;
+  BaseAddress = 0LL;
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1212, (__int64)"LdrpSearchPath", 3, "DLL name: %wZ\n", Source);
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1213, (__int64)"LdrpSearchPath", 5, "%wZ\n", v12);
   if ( !*a2 )
   {
-    UnicodeString = LdrpComputeLazyDllPath(a2);
-    if ( UnicodeString < 0 )
+    v19 = LdrpComputeLazyDllPath((__int64)a2);
+    if ( v19 < 0 )
       goto LABEL_47;
   }
   v13 = 0;
@@ -140,10 +138,10 @@ LABEL_7:
     }
   }
   while ( v14 == a2[2] && !a3 );
-  UnicodeString = LdrpAllocateUnicodeString(v42, *v12 + 2 + v13);
-  if ( UnicodeString < 0 )
+  v19 = LdrpAllocateUnicodeString(&Destination, v12->Length + 2 + v13);
+  if ( v19 < 0 )
     goto LABEL_47;
-  v20 = *(_WORD **)&v42[8];
+  Buffer = Destination.Buffer;
   if ( a4 && (v21 = *a4) != 0LL )
   {
     v22 = a4[1];
@@ -168,7 +166,7 @@ LABEL_7:
       }
       else
       {
-        v24 = v20;
+        v24 = Buffer;
         v25 = v22 == a2[1];
         do
         {
@@ -179,7 +177,7 @@ LABEL_7:
           v23 = *v22;
         }
         while ( *v22 );
-        if ( v24 != v20 )
+        if ( v24 != Buffer )
         {
           v26 = *(v24 - 1);
           if ( v26 != 92 && v26 != 47 )
@@ -187,10 +185,10 @@ LABEL_7:
             *v24 = 92;
             LOWORD(v24) = (_WORD)v24 + 2;
           }
-          *(_WORD *)v42 = (_WORD)v24 - (_WORD)v20;
-          RtlAppendUnicodeStringToString(v42, v12);
-          v27 = LdrpResolveDllName((char)v42, 0);
-          UnicodeString = v27;
+          Destination.Length = (_WORD)v24 - (_WORD)Buffer;
+          RtlAppendUnicodeStringToString(&Destination, v12);
+          v27 = LdrpResolveDllName((unsigned int)&Destination, (_DWORD)v44, v46, (_DWORD)a7, 0);
+          v19 = v27;
           if ( v25 )
           {
             if ( v27 >= 0 )
@@ -202,28 +200,23 @@ LABEL_7:
                 for ( i = (__int64 *)*v35; i != v36; i = (__int64 *)*i )
                 {
                   v40 = *((_WORD *)i + 8) >> 1;
-                  if ( (unsigned __int16)(*a7 >> 1) > v40
-                    && !(unsigned int)RtlCompareUnicodeStrings(
-                                        *((unsigned __int16 **)a7 + 1),
-                                        v40,
-                                        (_BYTE *)i[3],
-                                        v40,
-                                        1) )
+                  if ( (unsigned __int16)(a7->Length >> 1) > v40
+                    && !RtlCompareUnicodeStrings(a7->Buffer, v40, (PCWCH)i[3], v40, 1u) )
                   {
                     goto LABEL_38;
                   }
                 }
               }
-              Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, *a7 + 18LL);
-              v45 = (unsigned __int16 *)Heap;
+              Heap = (_UNICODE_STRING *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, a7->Length + 18LL);
+              BaseAddress = Heap;
               v39 = Heap;
               if ( Heap )
               {
-                *(_WORD *)Heap = 0;
-                *(_WORD *)(Heap + 2) = *a7;
-                *(_QWORD *)(Heap + 8) = Heap + 16;
+                Heap->Length = 0;
+                Heap->MaximumLength = a7->Length;
+                Heap->Buffer = &Heap[1].Length;
                 RtlCopyUnicodeString(Heap, a7);
-                *(_WORD *)(*(_QWORD *)(v39 + 8) + 2 * ((unsigned __int64)*a7 >> 1)) = 0;
+                v39->Buffer[(unsigned __int64)a7->Length >> 1] = 0;
               }
               v12 = v43;
               goto LABEL_35;
@@ -245,48 +238,48 @@ LABEL_35:
     v21 = *a2;
     v22 = *a2;
   }
-  UnicodeString = -1073741515;
+  v19 = -1073741515;
 LABEL_38:
-  v28 = v45;
-  if ( v45 )
+  v28 = BaseAddress;
+  if ( BaseAddress )
   {
-    if ( UnicodeString < 0
-      || (unsigned int)RtlCompareUnicodeStrings(
-                         *((unsigned __int16 **)a7 + 1),
-                         (unsigned __int64)*a7 >> 1,
-                         *((_BYTE **)v45 + 1),
-                         (unsigned __int64)*v45 >> 1,
-                         1) )
+    if ( v19 < 0
+      || RtlCompareUnicodeStrings(
+           a7->Buffer,
+           (unsigned __int64)a7->Length >> 1,
+           *((PCWCH *)BaseAddress + 1),
+           (unsigned __int64)*(unsigned __int16 *)BaseAddress >> 1,
+           1u) )
     {
-      v49 = *(_QWORD *)(LdrpImageEntry + 80);
+      UserData.Ptr = *(_QWORD *)(LdrpImageEntry + 80);
       v31 = *(unsigned __int16 *)(LdrpImageEntry + 72) + 2;
-      v51 = 0;
-      v50 = v31;
-      v52 = *((_QWORD *)v28 + 1);
-      v32 = *v28 + 2;
-      v54 = 0;
-      v53 = v32;
-      if ( UnicodeString >= 0 )
+      UserData.Reserved = 0;
+      UserData.Size = v31;
+      v50 = v28[1];
+      v32 = *(unsigned __int16 *)v28 + 2;
+      v52 = 0;
+      v51 = v32;
+      if ( v19 >= 0 )
       {
-        v55 = *((_QWORD *)a7 + 1);
-        v33 = *a7;
-        v57 = 0;
-        v56 = v33 + 2;
+        v53 = a7->Buffer;
+        Length = a7->Length;
+        v55 = 0;
+        v54 = Length + 2;
       }
-      v34 = (__int128 *)"\v";
-      if ( UnicodeString < 0 )
-        v34 = (__int128 *)&CurDirDllLoadFailureError;
-      EtwEventWriteNoRegistration((__int64)&UserLoaderGuid, v34, (UnicodeString >> 31) + 3, (__int64)&v49);
+      v34 = (const EVENT_DESCRIPTOR *)"\v";
+      if ( v19 < 0 )
+        v34 = &CurDirDllLoadFailureError;
+      EtwEventWriteNoRegistration(&UserLoaderGuid, v34, (v19 >> 31) + 3, &UserData);
     }
-    RtlFreeHeap(LdrpHeap, 0, (unsigned __int64)v28);
+    RtlFreeHeap(LdrpHeap, 0, v28);
   }
-  if ( *(_QWORD *)&v42[8] )
+  if ( Destination.Buffer )
   {
-    RtlpSysVolFree(*(__int64 *)&v42[8]);
-    *(_QWORD *)&v42[8] = 0LL;
+    RtlpSysVolFree(Destination.Buffer);
+    Destination.Buffer = 0LL;
   }
-  *(_DWORD *)v42 = 0;
-  if ( UnicodeString >= 0 )
+  *(_DWORD *)&Destination.Length = 0;
+  if ( v19 >= 0 )
   {
     if ( a4 )
     {
@@ -300,13 +293,7 @@ LABEL_38:
   if ( v48 && (unsigned __int8)LdrpIsSecurityEtwLoggingEnabled() )
     LdrpSaveLocationsSearched(a2, v22, v29);
 LABEL_47:
-  LdrpLogInternal(
-    (__int64)"minkernel\\ldr\\ldrfind.c",
-    1533,
-    (__int64)"LdrpSearchPath",
-    4,
-    "Status: 0x%08lx\n",
-    UnicodeString);
-  LdrpLogInternal((__int64)"minkernel\\ldr\\ldrfind.c", 1534, (__int64)"LdrpSearchPath", 6, "%x\n", UnicodeString);
-  return (unsigned int)UnicodeString;
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1533, (__int64)"LdrpSearchPath", 4, "Status: 0x%08lx\n", v19);
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1534, (__int64)"LdrpSearchPath", 6, "%x\n", v19);
+  return (unsigned int)v19;
 }

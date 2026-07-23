@@ -34,7 +34,7 @@ __int64 __fastcall HvlSvmCreatePrQueue(int a1, int a2, unsigned __int64 a3, int 
   v13 = v5;
   while ( 1 )
   {
-    v6 = HvcallFastExtended(65703LL, (__int64)v10, 32LL, 0LL, 0);
+    v6 = HvcallFastExtended(65703LL, (__int64)v10, 0x20u, 0, 0);
     if ( (HvlpFlags & 2) == 0 || !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v6, v6) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v7, v6, v8) < 0 )

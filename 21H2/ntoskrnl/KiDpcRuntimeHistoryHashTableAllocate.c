@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDpcRuntimeHistoryHashTableAllocate @ 0x140522BF4
+ * XREFs of KiDpcRuntimeHistoryHashTableAllocate @ 0x140522E34
  * Callers:
- *     KiInsertNewDpcRuntime @ 0x140522C18 (KiInsertNewDpcRuntime.c)
+ *     KiInsertNewDpcRuntime @ 0x140522E58 (KiInsertNewDpcRuntime.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall KiDpcRuntimeHistoryHashTableAllocate(SIZE_T NumberOfBytes)

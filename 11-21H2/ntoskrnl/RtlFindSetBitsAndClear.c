@@ -8,15 +8,15 @@
 
 ULONG __stdcall RtlFindSetBitsAndClear(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
-  unsigned int SizeOfBitMap; // r13d
+  ULONG SizeOfBitMap; // r13d
   ULONG v4; // esi
-  unsigned int *Buffer; // r10
+  PULONG Buffer; // r10
   ULONG v8; // ebx
-  unsigned int v9; // r9d
+  ULONG v9; // r9d
   ULONG v10; // ebx
   __int64 v11; // rcx
   int v12; // r15d
-  unsigned int v13; // r8d
+  ULONG v13; // r8d
   ULONG v14; // edx
   char *v15; // r14
   unsigned int v16; // r8d
@@ -34,7 +34,7 @@ ULONG __stdcall RtlFindSetBitsAndClear(PRTL_BITMAP BitMapHeader, ULONG NumberToF
   char *v28; // rcx
   unsigned int v29; // r9d
   __int64 v30; // rcx
-  unsigned int v31; // r9d
+  ULONG v31; // r9d
   int v32; // ecx
   char *v33; // rdi
   __int64 v34; // rax
@@ -49,7 +49,7 @@ ULONG __stdcall RtlFindSetBitsAndClear(PRTL_BITMAP BitMapHeader, ULONG NumberToF
   unsigned __int64 v43; // rax
   __int64 v45; // [rsp+70h] [rbp+8h]
   int v46; // [rsp+78h] [rbp+10h]
-  unsigned int *v48; // [rsp+88h] [rbp+20h]
+  ULONG *v48; // [rsp+88h] [rbp+20h]
 
   SizeOfBitMap = BitMapHeader->SizeOfBitMap;
   v4 = HintIndex;

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlCharToInteger @ 0x140ADC490
+ * XREFs of RtlCharToInteger @ 0x140AD99E0
  * Callers:
- *     IopCheckDiskName @ 0x1405CB648 (IopCheckDiskName.c)
- *     EmpParseTargetRuleStringIndexList @ 0x140CB7484 (EmpParseTargetRuleStringIndexList.c)
+ *     IopCheckDiskName @ 0x1405CDF18 (IopCheckDiskName.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x140CBD4C8 (EmpParseTargetRuleStringIndexList.c)
  * Callees:
  *     <none>
  */
@@ -10,10 +10,10 @@
 NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
 {
   PCSZ v5; // r9
-  char v6; // al
-  const char *v7; // rdx
+  CHAR v6; // al
+  const CHAR *v7; // rdx
   char v8; // cl
-  char v9; // bl
+  CHAR v9; // bl
   PCSZ v10; // rax
   int v11; // edx
   int v12; // r8d

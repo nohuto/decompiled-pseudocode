@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreeCallbackObjectContexts @ 0x1405FB518
+ * XREFs of CmpFreeCallbackObjectContexts @ 0x1405FB5CC
  * Callers:
- *     CmpDeleteKeyObject @ 0x14043C400 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x14043B2D0 (CmpDeleteKeyObject.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x1401598C0 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x140159E30 (ExfUnblockPushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpLockContextListExclusive @ 0x140603BBC (CmpLockContextListExclusive.c)
- *     CmpUnlockContextList @ 0x140603DB8 (CmpUnlockContextList.c)
+ *     CmpLockContextListExclusive @ 0x140603C70 (CmpLockContextListExclusive.c)
+ *     CmpUnlockContextList @ 0x140603E6C (CmpUnlockContextList.c)
  */
 
 PVOID *__fastcall CmpFreeCallbackObjectContexts(__int64 a1)

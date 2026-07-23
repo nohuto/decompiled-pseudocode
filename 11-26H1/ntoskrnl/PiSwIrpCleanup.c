@@ -1,24 +1,24 @@
 /*
- * XREFs of PiSwIrpCleanup @ 0x140A7AF04
+ * XREFs of PiSwIrpCleanup @ 0x140A8C048
  * Callers:
- *     PiSwDispatch @ 0x140A7B430 (PiSwDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x140A7B9C8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwDispatch @ 0x140A8C570 (PiSwDispatch.c)
+ *     PiSwIrpStartCreateWorker @ 0x140A8CB08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14049E7E8 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x140525230 (McTemplateK0zz_EtwWriteTransfer.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DC438 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PiCMDeleteDeviceWorker @ 0x1407B0854 (PiCMDeleteDeviceWorker.c)
- *     PiSwLock @ 0x14090DC3C (PiSwLock.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwCloseDevice @ 0x140A7B100 (PiSwCloseDevice.c)
- *     PiSwCloseDescendants @ 0x140A7CAE0 (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x140B23A48 (PiSwFindSwDevice.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x140498338 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405278A0 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DECE8 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PiCMDeleteDeviceWorker @ 0x1407B38B4 (PiCMDeleteDeviceWorker.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwLock @ 0x1409AFD6C (PiSwLock.c)
+ *     PiSwCloseDevice @ 0x140A8C244 (PiSwCloseDevice.c)
+ *     PiSwCloseDescendants @ 0x140A8DCF8 (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x140B25E48 (PiSwFindSwDevice.c)
  */
 
 void __fastcall PiSwIrpCleanup(__int64 a1, __int64 a2, __int64 a3)
@@ -39,7 +39,7 @@ void __fastcall PiSwIrpCleanup(__int64 a1, __int64 a2, __int64 a3)
 
   v3 = 0LL;
   DestinationString = 0LL;
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zz_EtwWriteTransfer(
       a1,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_IrpClose_Start,
@@ -88,11 +88,11 @@ LABEL_13:
   if ( v6 && (*(_DWORD *)(a1 + 204) & 1) != 0 )
   {
     v11 = *(_WORD *)(a1 + 72) <= 2u ? 3221226078LL : (unsigned int)PiCMDeleteDeviceWorker(*(PCWSTR *)(a1 + 80));
-    if ( (byte_140EF3DCC & 0x40) != 0 )
+    if ( (byte_140EF412C & 0x40) != 0 )
     {
-      v13 = &word_140B814F0;
-      v14 = &word_140B814F0;
-      v15 = &word_140B814F0;
+      v13 = &word_140B8A320;
+      v14 = &word_140B8A320;
+      v15 = &word_140B8A320;
       if ( *(_QWORD *)(a1 + 80) )
         v14 = *(const wchar_t **)(a1 + 80);
       if ( *(_QWORD *)(a1 + 16) )
@@ -115,7 +115,7 @@ LABEL_13:
     v3->IoStatus.Information = 0LL;
     IofCompleteRequest(v3, 0);
   }
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zzd_EtwWriteTransfer(
       v11,
       (__int64)KMPnPEvt_SwDevice_IrpClose_Stop,

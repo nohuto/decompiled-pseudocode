@@ -21,36 +21,34 @@
  *     sub_18010F1C4 @ 0x18010F1C4 (sub_18010F1C4.c)
  */
 
-__int64 __fastcall sub_180032F0C(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall sub_180032F0C(_DWORD *Instance, __int64 a2, int a3)
 {
-  unsigned __int64 v3; // rsi
+  void *v3; // rsi
   int v4; // r12d
-  __int64 v8; // rcx
+  unsigned __int32 v8; // ecx
   signed __int32 v9; // eax
   int v10; // r15d
   int v11; // ebp
   unsigned __int32 v12; // ecx
-  unsigned __int32 v13; // eax
+  signed __int32 v13; // eax
   signed __int32 v14; // ett
-  signed __int32 v15; // eax
-  signed __int32 v16; // ett
-  __int64 v17; // rcx
-  void **v18; // rbx
-  __int64 v20; // rcx
+  void *v15; // rcx
+  _QWORD *v16; // rbx
+  __int64 v18; // rcx
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
-  __int64 v22; // [rsp+68h] [rbp+10h] BYREF
+  PVOID Cookie; // [rsp+68h] [rbp+10h] BYREF
 
-  v3 = *(_QWORD *)(a2 + 136);
+  v3 = *(void **)(a2 + 136);
   v4 = 0;
-  v22 = 0LL;
+  Cookie = 0LL;
   if ( v3 )
-    LdrLockLoaderLock(0LL, 0LL, &v22);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   _m_prefetchw((const void *)(a2 + 232));
-  LODWORD(v8) = *(_DWORD *)(a2 + 232);
+  v8 = *(_DWORD *)(a2 + 232);
   do
   {
     v9 = v8;
-    if ( (unsigned int)v8 < 2 )
+    if ( v8 < 2 )
     {
       v10 = 0;
       v11 = 0;
@@ -60,23 +58,21 @@ __int64 __fastcall sub_180032F0C(__int64 a1, __int64 a2, int a3)
     {
       v10 = 1;
       v11 = 1;
-      v12 = v8 & 1 | (2 * ((unsigned int)v8 >> 1) - 2);
+      v12 = v8 & 1 | (2 * (v8 >> 1) - 2);
       if ( v12 < 2 )
       {
         v11 = 0;
         v12 |= 1u;
       }
     }
-    v14 = v9;
-    v13 = _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 232), v12, v9);
-    v8 = v13;
+    v8 = _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 232), v12, v9);
   }
-  while ( v14 != v13 );
+  while ( v9 != v8 );
   if ( v3 )
   {
     if ( v10 )
     {
-      if ( (int)LdrAddRefDll(0, v3) < 0 )
+      if ( LdrAddRefDll(0, v3) < 0 )
       {
         v10 = 0;
         v11 = 0;
@@ -84,11 +80,11 @@ __int64 __fastcall sub_180032F0C(__int64 a1, __int64 a2, int a3)
       }
       else
       {
-        *(_DWORD *)(a1 + 144) |= 0x100u;
-        *(_QWORD *)(a1 + 168) = v3;
+        Instance[36] |= 0x100u;
+        *((_QWORD *)Instance + 21) = v3;
       }
     }
-    LdrUnlockLoaderLock(0LL, v22);
+    LdrUnlockLoaderLock(0, Cookie);
     if ( v4 )
     {
       sub_180066BBC(a2 + 56, 0xFFFFFFFFLL);
@@ -98,27 +94,27 @@ __int64 __fastcall sub_180032F0C(__int64 a1, __int64 a2, int a3)
   if ( v11 )
   {
     _InterlockedExchangeAdd((volatile signed __int32 *)a2, 2u);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8) )
-      v20 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v18 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
-      v20 = 2147353478LL;
-    if ( *(_BYTE *)v20 )
+      v18 = 2147353478LL;
+    if ( *(_BYTE *)v18 )
       sub_18010F1C4(*(_QWORD *)(a2 + 144), a2 + 200, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
-    sub_1800318A8(a2 + 200, *(_QWORD *)(a2 + 144), *(unsigned int *)(a2 + 192), 0LL);
+    sub_1800318A8(a2 + 200, *(_RTL_SRWLOCK **)(a2 + 144), *(unsigned int *)(a2 + 192), 0LL);
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)a2, 0xFFFFFFFF) == 1 )
       (**(void (__fastcall ***)(__int64))(a2 + 8))(a2);
   }
   if ( a3 )
   {
     _m_prefetchw((const void *)(a2 + 168));
-    v15 = *(_DWORD *)(a2 + 168);
+    v13 = *(_DWORD *)(a2 + 168);
     do
     {
-      v16 = v15;
-      v15 = _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 168), v15 | 0x10000, v15);
+      v14 = v13;
+      v13 = _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 168), v13 | 0x10000, v13);
     }
-    while ( v16 != v15 );
-    if ( (v15 & 0x30000) == 0 )
+    while ( v14 != v13 );
+    if ( (v13 & 0x30000) == 0 )
     {
       *(_QWORD *)(a2 + 184) = retaddr;
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)a2, 0xFFFFFFFF) == 1 )
@@ -129,25 +125,29 @@ __int64 __fastcall sub_180032F0C(__int64 a1, __int64 a2, int a3)
   {
     if ( (unsigned __int64)(*(_QWORD *)(a2 + 96) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
-      *(_QWORD *)a1 = 72LL;
-      *(_DWORD *)(a1 + 8) = 1;
-      RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 + 96));
-      *(_BYTE *)(a1 + 76) |= 1u;
+      *(_QWORD *)Instance = 72LL;
+      Instance[2] = 1;
+      RtlActivateActivationContextUnsafeFast((__int64)Instance, *(_QWORD *)(a2 + 96));
+      *((_BYTE *)Instance + 76) |= 1u;
     }
-    *(_DWORD *)(a1 + 144) |= 0x240u;
-    *(_QWORD *)(a1 + 184) = a2;
+    Instance[36] |= 0x240u;
+    *((_QWORD *)Instance + 23) = a2;
     if ( (*(_DWORD *)(a2 + 168) & 3) == 1 )
-      TpCallbackMayRunLong(a1);
-    v17 = *(_QWORD *)(a2 + 104);
-    if ( v17 )
+      TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
+    v15 = *(void **)(a2 + 104);
+    if ( v15 )
     {
-      *(_QWORD *)(a1 + 80) = v17;
-      RtlSetThreadSubProcessTag(v17);
+      *((_QWORD *)Instance + 10) = v15;
+      RtlSetThreadSubProcessTag(v15);
     }
-    NtCurrentTeb()->ActivityId = *(struct _GUID *)(a2 + 112);
-    v18 = (void **)(a2 + 128);
-    if ( v18 && NtCurrentTeb()->SystemReserved1[53] != *v18 && (int)ZwSetInformationThread(-2LL, 44LL, v18) >= 0 )
-      NtCurrentTeb()->SystemReserved1[53] = *v18;
+    NtCurrentTeb()->ActivityId = *(GUID *)(a2 + 112);
+    v16 = (_QWORD *)(a2 + 128);
+    if ( v16
+      && *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket != *v16
+      && ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v16, 8u) >= 0 )
+    {
+      *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v16;
+    }
     return 1LL;
   }
   else

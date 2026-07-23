@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEmptyWorkingSetHelper @ 0x14013FFE8
+ * XREFs of MiEmptyWorkingSetHelper @ 0x1401400E8
  * Callers:
- *     MiEmptyPte @ 0x14013FFA0 (MiEmptyPte.c)
- *     MiUpdateOldPteWorker @ 0x1402B40E0 (MiUpdateOldPteWorker.c)
+ *     MiEmptyPte @ 0x1401400A0 (MiEmptyPte.c)
+ *     MiUpdateOldPteWorker @ 0x1402B42D0 (MiUpdateOldPteWorker.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWalkVaCheckCommon @ 0x140087E1C (MiWalkVaCheckCommon.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiWalkVaCheckCommon @ 0x140087E0C (MiWalkVaCheckCommon.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140088034 (MI_WSLE_LOG_ACCESS.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetHelper(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall MiEmptyWorkingSetHelper(__int64 a1, unsigned __int64 a2, __in
   {
     return 0LL;
   }
-  if ( dword_14043A8E8 )
+  if ( dword_14043B9A8 )
     MI_WSLE_LOG_ACCESS(a1, (_BYTE *)a2);
   MiInsertTbFlushEntry(a3, v6, 1LL, 0);
   if ( *(_DWORD *)(a3 + 12) == *(_DWORD *)(a3 + 8) )

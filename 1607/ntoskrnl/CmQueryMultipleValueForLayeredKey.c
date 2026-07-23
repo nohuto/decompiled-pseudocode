@@ -1,23 +1,23 @@
 /*
- * XREFs of CmQueryMultipleValueForLayeredKey @ 0x1401B4234
+ * XREFs of CmQueryMultipleValueForLayeredKey @ 0x1401B4118
  * Callers:
- *     CmQueryMultipleValueKey @ 0x140402254 (CmQueryMultipleValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x140401114 (CmQueryMultipleValueKey.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpGetKeyNodeForKcb @ 0x140402930 (CmpGetKeyNodeForKcb.c)
- *     CmpFindNameInListWithStatus @ 0x140402B1C (CmpFindNameInListWithStatus.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1404044AC (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpUnlockKcbStack @ 0x140404820 (CmpUnlockKcbStack.c)
- *     CmpCleanupKcbStack @ 0x140404934 (CmpCleanupKcbStack.c)
- *     CmpInitializeKcbStack @ 0x140404944 (CmpInitializeKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140404FE8 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpLockKcbStackShared @ 0x140432F60 (CmpLockKcbStackShared.c)
- *     CmpGetKcbAtLayerHeight @ 0x1404400C0 (CmpGetKcbAtLayerHeight.c)
- *     CmpGetEffectiveKcbSemantics @ 0x1404401F0 (CmpGetEffectiveKcbSemantics.c)
- *     CmpGetValueData @ 0x140442F60 (CmpGetValueData.c)
- *     CmpReleaseKeyNodeForKcb @ 0x1404BD440 (CmpReleaseKeyNodeForKcb.c)
- *     CmpIsValueTombstone @ 0x1404EB778 (CmpIsValueTombstone.c)
+ *     CmpGetKeyNodeForKcb @ 0x1404017F0 (CmpGetKeyNodeForKcb.c)
+ *     CmpFindNameInListWithStatus @ 0x1404019DC (CmpFindNameInListWithStatus.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x14040336C (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpUnlockKcbStack @ 0x1404036E0 (CmpUnlockKcbStack.c)
+ *     CmpCleanupKcbStack @ 0x1404037F4 (CmpCleanupKcbStack.c)
+ *     CmpInitializeKcbStack @ 0x140403804 (CmpInitializeKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140403EA8 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockKcbStackShared @ 0x140431E30 (CmpLockKcbStackShared.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14043EF90 (CmpGetKcbAtLayerHeight.c)
+ *     CmpGetEffectiveKcbSemantics @ 0x14043F0C0 (CmpGetEffectiveKcbSemantics.c)
+ *     CmpGetValueData @ 0x140441E30 (CmpGetValueData.c)
+ *     CmpReleaseKeyNodeForKcb @ 0x1404A9170 (CmpReleaseKeyNodeForKcb.c)
+ *     CmpIsValueTombstone @ 0x1404CD800 (CmpIsValueTombstone.c)
  */
 
 __int64 __fastcall CmQueryMultipleValueForLayeredKey(

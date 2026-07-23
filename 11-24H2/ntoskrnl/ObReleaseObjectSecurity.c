@@ -1,15 +1,15 @@
 /*
- * XREFs of ObReleaseObjectSecurity @ 0x1409D22E0
+ * XREFs of ObReleaseObjectSecurity @ 0x1409C2110
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x140363E20 (SepSetProcessTrustLabelAceForToken.c)
- *     DifObReleaseObjectSecurityWrapper @ 0x140636540 (DifObReleaseObjectSecurityWrapper.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403EB390 (SepSetProcessTrustLabelAceForToken.c)
+ *     DifObReleaseObjectSecurityWrapper @ 0x140634B00 (DifObReleaseObjectSecurityWrapper.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ObReleaseObjectSecurity(PSECURITY_DESCRIPTOR SecurityDescriptor, BOOLEAN MemoryAllocated)
@@ -20,8 +20,8 @@ void __stdcall ObReleaseObjectSecurity(PSECURITY_DESCRIPTOR SecurityDescriptor, 
   struct _KTHREAD *CurrentThread; // r14
   unsigned __int64 *v6; // rsi
   volatile signed __int64 *v7; // rdi
-  _QWORD *v8; // rax
-  _QWORD *v9; // rbp
+  char *v8; // rax
+  char *v9; // rbp
   signed __int64 v10; // rcx
   bool v11; // cc
   signed __int64 v12; // rcx
@@ -51,12 +51,12 @@ void __stdcall ObReleaseObjectSecurity(PSECURITY_DESCRIPTOR SecurityDescriptor, 
       v6 = (unsigned __int64 *)((char *)&ObsSecurityDescriptorCache + 16 * (unsigned __int8)*((_DWORD *)v2 + 4));
       --CurrentThread->KernelApcDisable;
       v7 = (volatile signed __int64 *)(v6 + 1);
-      v8 = KeAbPreAcquire((__int64)v6, 0LL);
+      v8 = (char *)KeAbPreAcquire((__int64)v6, 0LL);
       v9 = v8;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v6, (__int64)v8, (__int64)v6);
+        ExfAcquirePushLockExclusiveEx(v6, v8, (__int64)v6);
       if ( v9 )
-        *((_BYTE *)v9 + 10) = 1;
+        v9[10] = 1;
       v10 = _InterlockedExchangeAdd64(v2 + 1, 0xFFFFFFFFFFFFFFFFuLL);
       v11 = v10 <= 1;
       v12 = v10 - 1;

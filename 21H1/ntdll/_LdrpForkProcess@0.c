@@ -11,8 +11,8 @@ int __stdcall LdrpForkProcess()
   struct _PEB *v0; // eax
 
   v0 = NtCurrentPeb();
-  LdrpForkActiveLock = 0;
-  LdrpForkConditionVariable = 0;
+  LdrpForkActiveLock.0 = 0;
+  LdrpForkConditionVariable.Ptr = 0;
   v0->InheritedAddressSpace = 0;
   if ( v0->BeingDebugged )
     LdrpDoDebuggerBreak();

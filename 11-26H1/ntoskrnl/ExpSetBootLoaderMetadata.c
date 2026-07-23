@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpSetBootLoaderMetadata @ 0x1406CAC98
+ * XREFs of ExpSetBootLoaderMetadata @ 0x1406CECC8
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExSystemExceptionFilter @ 0x140836A60 (ExSystemExceptionFilter.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x14083CCA0 (ExSystemExceptionFilter.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpSetBootLoaderMetadata(void *Src, size_t Size, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -28,13 +28,13 @@ __int64 __fastcall ExpSetBootLoaderMetadata(void *Src, size_t Size, __int64 a3, 
   v4 = (unsigned int)Size;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.SavedApcStateFill[40], 0LL, 0LL, a4);
+  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.SchedulerApc.NormalContext, 0LL, 0LL, a4);
   v9 = v7;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock.SavedApcStateFill[40], 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock.SchedulerApcFill5[56], 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&ExpSysDbgLock.SavedApcStateFill[40],
+      (unsigned __int64 *)&ExpSysDbgLock.SchedulerApc.NormalContext,
       v7,
-      (__int64)&ExpSysDbgLock.SavedApcStateFill[40]);
+      (__int64)&ExpSysDbgLock.SchedulerApc.NormalContext);
   v10 = 0;
   if ( v9 )
   {
@@ -78,10 +78,10 @@ LABEL_15:
   }
 LABEL_16:
   if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&ExpSysDbgLock.SavedApcStateFill[40],
+          (volatile signed __int64 *)&ExpSysDbgLock.SchedulerApc.NormalContext,
           0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.SavedApcStateFill[40]);
-  KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.SavedApcStateFill[40]);
+    ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.SchedulerApc.NormalContext);
+  KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.SchedulerApc.NormalContext);
   KeLeaveCriticalRegion();
   return v10;
 }

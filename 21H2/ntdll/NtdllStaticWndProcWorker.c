@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllStaticWndProcWorker @ 0x18009D600
+ * XREFs of NtdllStaticWndProcWorker @ 0x18009D5C0
  * Callers:
  *     <none>
  * Callees:

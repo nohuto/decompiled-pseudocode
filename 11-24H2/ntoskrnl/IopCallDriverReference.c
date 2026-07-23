@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCallDriverReference @ 0x140373E80
+ * XREFs of IopCallDriverReference @ 0x14025C740
  * Callers:
- *     NtSetInformationFile @ 0x1403C34C0 (NtSetInformationFile.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
+ *     NtSetInformationFile @ 0x1403B2080 (NtSetInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3, _QWORD *a4, int a5)
@@ -111,7 +111,7 @@ __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp,
   if ( !a3 )
   {
     if ( ObpTraceFlags )
-      ObpPushStackInfo((__int64)(a4 - 6), 0, 1u, 0x746C6644u);
+      ObpPushStackInfo((_DWORD)a4 - 48);
     v21 = _InterlockedExchangeAdd64(a4 - 6, 0xFFFFFFFFFFFFFFFFuLL);
     v22 = v21 <= 1;
     BugCheckParameter4 = v21 - 1;

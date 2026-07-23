@@ -1,12 +1,12 @@
 /*
- * XREFs of PsChargeSharedPoolQuota @ 0x14098D090
+ * XREFs of PsChargeSharedPoolQuota @ 0x1409779B0
  * Callers:
- *     PspAllocateRateControl @ 0x14098CF58 (PspAllocateRateControl.c)
- *     RtlpAllocateAtom @ 0x14098D004 (RtlpAllocateAtom.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspAllocateRateControl @ 0x140977878 (PspAllocateRateControl.c)
+ *     RtlpAllocateAtom @ 0x140977924 (RtlpAllocateAtom.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     PspChargeQuota @ 0x14024B520 (PspChargeQuota.c)
- *     PspReturnQuota @ 0x14024C640 (PspReturnQuota.c)
+ *     PspChargeQuota @ 0x14027BB30 (PspChargeQuota.c)
+ *     PspReturnQuota @ 0x14027CC50 (PspReturnQuota.c)
  */
 
 __int64 __fastcall PsChargeSharedPoolQuota(__int64 a1, ULONG_PTR a2, unsigned __int64 a3)

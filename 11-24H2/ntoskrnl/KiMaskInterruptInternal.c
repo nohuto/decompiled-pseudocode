@@ -1,38 +1,36 @@
 /*
- * XREFs of KiMaskInterruptInternal @ 0x14049C998
+ * XREFs of KiMaskInterruptInternal @ 0x1402B5354
  * Callers:
- *     KeMaskInterrupt @ 0x1403B748C (KeMaskInterrupt.c)
- *     ?KiMaskInterruptDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1405BD100 (-KiMaskInterruptDpc@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     KeMaskInterrupt @ 0x1402B3740 (KeMaskInterrupt.c)
+ *     ?KiMaskInterruptDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1405BA730 (-KiMaskInterruptDpc@@YAXPEAU_KDPC@@PEAX11@Z.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall KiMaskInterruptInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiMaskInterruptInternal(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // ebx
-  _DWORD *v5; // rax
-  __int64 v6; // r8
-  __int64 v7; // r9
-  _DWORD *v9; // rcx
+  unsigned int v2; // ebx
+  _DWORD *v3; // rax
+  _DWORD *v5; // rcx
 
-  v4 = a2;
-  v5 = KeGetCurrentPrcb()->InterruptObject[(unsigned __int8)guard_dispatch_icall_no_overrides(a1, a2, a3, a4)];
-  if ( !v5 )
+  v2 = a2;
+  v3 = KeGetCurrentPrcb()->InterruptObject[(unsigned __int8)guard_dispatch_icall_no_overrides(a1, a2)];
+  if ( !v3 )
     return 2147483685LL;
-  if ( *((__int64 (__fastcall **)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))v5
+  if ( *((__int64 (__fastcall **)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))v3
        + 10) == KiChainedDispatch )
   {
-    v9 = v5 + 2;
-    while ( (v9[24] & 1) != 0 )
+    v5 = v3 + 2;
+    while ( (v5[24] & 1) != 0 )
     {
-      v9 = *(_DWORD **)v9;
-      if ( v9 == v5 + 2 )
-        return guard_dispatch_icall_no_overrides(v4, 0LL, v6, v7);
+      v5 = *(_DWORD **)v5;
+      if ( v5 == v3 + 2 )
+        return guard_dispatch_icall_no_overrides(v2, 0LL);
     }
   }
-  else if ( (v5[26] & 1) != 0 )
+  else if ( (v3[26] & 1) != 0 )
   {
-    return guard_dispatch_icall_no_overrides(v4, 0LL, v6, v7);
+    return guard_dispatch_icall_no_overrides(v2, 0LL);
   }
   return 296LL;
 }

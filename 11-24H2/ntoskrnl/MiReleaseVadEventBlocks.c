@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReleaseVadEventBlocks @ 0x1409B0550
+ * XREFs of MiReleaseVadEventBlocks @ 0x14099A250
  * Callers:
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiRemoveVadCharges @ 0x1409B0374 (MiRemoveVadCharges.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiRemoveVadCharges @ 0x14099A074 (MiRemoveVadCharges.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiFreeInPageSupportBlock @ 0x1402EEC40 (MiFreeInPageSupportBlock.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiGetVadWakeList @ 0x14044CC20 (MiGetVadWakeList.c)
- *     MiFreeAweView @ 0x1406F5720 (MiFreeAweView.c)
- *     MiFreeVadEventBitmapCharges @ 0x1409B06EC (MiFreeVadEventBitmapCharges.c)
- *     MiFreePlaceholderVadEvent @ 0x1409B073C (MiFreePlaceholderVadEvent.c)
- *     MiFreeLargePageView @ 0x1409B0830 (MiFreeLargePageView.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiFreeInPageSupportBlock @ 0x140427430 (MiFreeInPageSupportBlock.c)
+ *     MiGetVadWakeList @ 0x140443B20 (MiGetVadWakeList.c)
+ *     MiFreeAweView @ 0x1406F3720 (MiFreeAweView.c)
+ *     MiFreeVadEventBitmapCharges @ 0x14099A3EC (MiFreeVadEventBitmapCharges.c)
+ *     MiFreePlaceholderVadEvent @ 0x14099A43C (MiFreePlaceholderVadEvent.c)
+ *     MiFreeLargePageView @ 0x14099A530 (MiFreeLargePageView.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReleaseVadEventBlocks(__int64 a1, int a2)
@@ -23,7 +23,7 @@ void __fastcall MiReleaseVadEventBlocks(__int64 a1, int a2)
   unsigned __int64 VadWakeList; // r14
   int v8; // ecx
   unsigned __int64 v9; // r12
-  struct _SLIST_ENTRY *v10; // rcx
+  _SLIST_ENTRY *v10; // rcx
 
   v3 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -41,7 +41,7 @@ void __fastcall MiReleaseVadEventBlocks(__int64 a1, int a2)
       }
       if ( (*(_DWORD *)(VadWakeList + 80) & 8) != 0 )
       {
-        v10 = *(struct _SLIST_ENTRY **)(VadWakeList + 8);
+        v10 = *(_SLIST_ENTRY **)(VadWakeList + 8);
         if ( v10 )
           MiFreeInPageSupportBlock(v10);
         PsReturnProcessNonPagedPoolQuota((ULONG_PTR)KeGetCurrentThread()->ApcState.Process, 0x218uLL);

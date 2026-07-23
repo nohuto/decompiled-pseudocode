@@ -1,13 +1,13 @@
 /*
- * XREFs of KiConfigureProcessorBlock @ 0x140B55FA8
+ * XREFs of KiConfigureProcessorBlock @ 0x140B57FF8
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140B575C0 (KiInitializeDynamicProcessorDpc.c)
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140B59640 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     KeIsEmptyGroupMask @ 0x140208940 (KeIsEmptyGroupMask.c)
- *     KiGetSubNodeForGroup @ 0x14044C2CC (KiGetSubNodeForGroup.c)
- *     KeSetBitGroupMask @ 0x1404BE850 (KeSetBitGroupMask.c)
+ *     KeIsEmptyGroupMask @ 0x14032FF20 (KeIsEmptyGroupMask.c)
+ *     KiGetSubNodeForGroup @ 0x1404431CC (KiGetSubNodeForGroup.c)
+ *     KeSetBitGroupMask @ 0x1404B9A10 (KeSetBitGroupMask.c)
  */
 
 __int64 __fastcall KiConfigureProcessorBlock(__int64 a1)
@@ -35,9 +35,9 @@ __int64 __fastcall KiConfigureProcessorBlock(__int64 a1)
   *(_QWORD *)(v1 + 128) = v5;
   *(_BYTE *)(v1 + 124) = v3;
   _BitScanReverse64(&v6, v5);
-  *(_DWORD *)(v1 + 176) = *((_DWORD *)qword_140F21E78 + 64 * v4 + (unsigned int)v3);
+  *(_DWORD *)(v1 + 176) = *((_DWORD *)qword_140F22998 + 64 * v4 + (unsigned int)v3);
   result = v5 - 1;
-  *(_DWORD *)(v1 + 180) = *((_DWORD *)qword_140F21E78 + 64 * v4 + (unsigned int)v6);
+  *(_DWORD *)(v1 + 180) = *((_DWORD *)qword_140F22998 + 64 * v4 + (unsigned int)v6);
   if ( ((v5 - 1) & v5) == 0 )
   {
     v8 = *(unsigned __int16 *)(v1 + 138);

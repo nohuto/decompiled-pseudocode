@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefModDivPow2 @ 0x1405359F8
+ * XREFs of SymCryptFdefModDivPow2 @ 0x14052FE98
  * Callers:
- *     SymCryptModDivPow2 @ 0x140523B7C (SymCryptModDivPow2.c)
+ *     SymCryptModDivPow2 @ 0x140521494 (SymCryptModDivPow2.c)
  * Callees:
- *     SymCryptFdefModDivSmallPow2 @ 0x140535A78 (SymCryptFdefModDivSmallPow2.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     SymCryptFdefModDivSmallPow2 @ 0x14052FF18 (SymCryptFdefModDivSmallPow2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 _UNKNOWN **__fastcall SymCryptFdefModDivPow2(__int64 a1, const void *a2, unsigned int a3, void *a4)

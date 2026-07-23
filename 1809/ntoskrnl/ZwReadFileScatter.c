@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwReadFileScatter @ 0x1401B8750
+ * XREFs of ZwReadFileScatter @ 0x1401B88B0
  * Callers:
  *     <none>
  * Callees:
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwReadFileScatter(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, UserApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

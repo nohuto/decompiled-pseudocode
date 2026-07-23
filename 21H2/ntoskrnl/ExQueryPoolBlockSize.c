@@ -1,11 +1,11 @@
 /*
- * XREFs of ExQueryPoolBlockSize @ 0x1403CDD00
+ * XREFs of ExQueryPoolBlockSize @ 0x1403CDE70
  * Callers:
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
  * Callees:
- *     ExpGetBilledProcess @ 0x1402AEC88 (ExpGetBilledProcess.c)
- *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
- *     ExpHpIsSpecialPoolHeap @ 0x1403CDD4C (ExpHpIsSpecialPoolHeap.c)
+ *     ExpGetBilledProcess @ 0x14022CFE8 (ExpGetBilledProcess.c)
+ *     ExGetHeapFromVA @ 0x1403059CC (ExGetHeapFromVA.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x1403CDEBC (ExpHpIsSpecialPoolHeap.c)
  */
 
 SIZE_T __stdcall ExQueryPoolBlockSize(PVOID PoolBlock, PBOOLEAN QuotaCharged)

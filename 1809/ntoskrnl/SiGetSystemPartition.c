@@ -1,10 +1,10 @@
 /*
- * XREFs of SiGetSystemPartition @ 0x1406AE730
+ * XREFs of SiGetSystemPartition @ 0x1406AF9D0
  * Callers:
  *     <none>
  * Callees:
- *     SiGetFirmwareSystemPartition @ 0x1406AE780 (SiGetFirmwareSystemPartition.c)
- *     SiGetBootDeviceName @ 0x1406AE8A4 (SiGetBootDeviceName.c)
+ *     SiGetFirmwareSystemPartition @ 0x1406AFA20 (SiGetFirmwareSystemPartition.c)
+ *     SiGetBootDeviceName @ 0x1406AFB44 (SiGetBootDeviceName.c)
  */
 
 __int64 __fastcall SiGetSystemPartition(unsigned int a1, __int64 a2)

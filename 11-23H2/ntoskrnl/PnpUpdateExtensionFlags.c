@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpUpdateExtensionFlags @ 0x1403D4444
+ * XREFs of PnpUpdateExtensionFlags @ 0x1403D4624
  * Callers:
- *     PnpIsChainDereferenced @ 0x1403D42E0 (PnpIsChainDereferenced.c)
+ *     PnpIsChainDereferenced @ 0x1403D44C0 (PnpIsChainDereferenced.c)
  * Callees:
  *     <none>
  */

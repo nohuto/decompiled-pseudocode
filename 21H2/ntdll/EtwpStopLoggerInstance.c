@@ -7,7 +7,7 @@
  *     EtwpDisableTraceProviders @ 0x180044FF4 (EtwpDisableTraceProviders.c)
  *     EtwpSendSessionNotification @ 0x1800481EC (EtwpSendSessionNotification.c)
  *     RtlWakeAllConditionVariable @ 0x18004C9D0 (RtlWakeAllConditionVariable.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
  */
 
 __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)
     *(_QWORD *)(a1 + 560) = 0LL;
   }
   _InterlockedExchange64((volatile __int64 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(a1 + 20)), 3LL);
-  RtlWakeAllConditionVariable((volatile signed __int64 *)(a1 + 80));
+  RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 80));
   EtwpSendSessionNotification(a1, 2, *(_DWORD *)(a1 + 40));
   return 0LL;
 }

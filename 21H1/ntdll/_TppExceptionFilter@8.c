@@ -10,27 +10,29 @@
  *     _RtlUnhandledExceptionFilter2@8 @ 0x4B3686E0 (_RtlUnhandledExceptionFilter2@8.c)
  */
 
-int __thiscall TppExceptionFilter(const void **this)
+LONG __thiscall TppExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
-  int v1; // edx
+  PULONG v1; // edx
   int v2; // esi
-  int InformationProcess; // eax
-  int (__thiscall *v5)(_DWORD, const void **); // esi
-  int v7; // [esp+8h] [ebp-4h] BYREF
+  int v4; // eax
+  int (__thiscall *v5)(_DWORD, PEXCEPTION_POINTERS); // esi
+  ULONG *ProcessInformation; // [esp+8h] [ebp-4h] BYREF
 
   v1 = `RtlpGetCookieValue'::`2'::CookieValue;
   v2 = RtlpUnhandledExceptionFilter;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    InformationProcess = ZwQueryInformationProcess(-1, 36, (int)&v7, 4, 0);
-    if ( InformationProcess < 0 )
-      RtlRaiseStatus(InformationProcess);
-    v1 = v7;
-    `RtlpGetCookieValue'::`2'::CookieValue = v7;
+    v4 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+    if ( v4 < 0 )
+      RtlRaiseStatus(v4);
+    v1 = ProcessInformation;
+    `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  v5 = (int (__thiscall *)(_DWORD, const void **))(v1 ^ __ROR4__(v2, 32 - (v1 & 0x1F)));
+  v5 = (int (__thiscall *)(_DWORD, PEXCEPTION_POINTERS))((unsigned int)v1 ^ __ROR4__(
+                                                                              v2,
+                                                                              32 - ((unsigned __int8)v1 & 0x1F)));
   if ( v5 )
-    return v5(v5, this);
+    return v5(v5, ExceptionPointers);
   else
-    return RtlUnhandledExceptionFilter2(this, (int)&dword_4B2850A4);
+    return RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&dword_4B2850A4);
 }

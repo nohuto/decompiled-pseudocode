@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteCachedKernelShadowStack @ 0x140644354
+ * XREFs of MiDeleteCachedKernelShadowStack @ 0x1406448A4
  * Callers:
  *     MiAdjustCachedStacks @ 0x14021E8BC (MiAdjustCachedStacks.c)
  *     MiPruneCachedStackList @ 0x14021EB00 (MiPruneCachedStackList.c)
- *     MiEmptyKernelStackCache @ 0x140644790 (MiEmptyKernelStackCache.c)
- *     MiRemoveNonIdealCachedStacks @ 0x140644F8C (MiRemoveNonIdealCachedStacks.c)
+ *     MiEmptyKernelStackCache @ 0x140644CE0 (MiEmptyKernelStackCache.c)
+ *     MiRemoveNonIdealCachedStacks @ 0x1406454DC (MiRemoveNonIdealCachedStacks.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     MiDeleteKernelShadowStack @ 0x1406443C4 (MiDeleteKernelShadowStack.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     MiDeleteKernelShadowStack @ 0x140644914 (MiDeleteKernelShadowStack.c)
  */
 
-PSLIST_ENTRY __fastcall MiDeleteCachedKernelShadowStack(union _SLIST_HEADER *a1, struct _SLIST_ENTRY *a2, int a3)
+PSLIST_ENTRY __fastcall MiDeleteCachedKernelShadowStack(_SLIST_HEADER *a1, _SLIST_ENTRY *a2, int a3)
 {
   PSLIST_ENTRY result; // rax
 

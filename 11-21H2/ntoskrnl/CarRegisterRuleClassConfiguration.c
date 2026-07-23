@@ -3,7 +3,7 @@
  * Callers:
  *     CarRegisterDefaultRuleClassConfiguration @ 0x140603CB0 (CarRegisterDefaultRuleClassConfiguration.c)
  * Callees:
- *     CarCreateRuleClassConfigurationEntry @ 0x140603564 (CarCreateRuleClassConfigurationEntry.c)
+ *     sub_140603564 @ 0x140603564 (sub_140603564.c)
  *     CarDeregisterRuleClassConfiguration @ 0x1406037F0 (CarDeregisterRuleClassConfiguration.c)
  */
 
@@ -20,7 +20,7 @@ __int64 __fastcall CarRegisterRuleClassConfiguration(__int64 a1)
   if ( a1 )
   {
     CarDeregisterRuleClassConfiguration(*(unsigned int *)(a1 + 4));
-    v2 = CarCreateRuleClassConfigurationEntry(&v8);
+    v2 = sub_140603564(&v8);
     if ( v2 >= 0 )
     {
       v3 = v8;
@@ -35,9 +35,9 @@ __int64 __fastcall CarRegisterRuleClassConfiguration(__int64 a1)
       v5 = (_QWORD *)v3 + 11;
       *v4 = v4;
       v6 = (_QWORD *)qword_140C1A8E8;
-      if ( *(__int64 **)qword_140C1A8E8 != &CarConfigurationEntries )
+      if ( *(__int64 **)qword_140C1A8E8 != &qword_140C1A8E0 )
         __fastfail(3u);
-      *v5 = &CarConfigurationEntries;
+      *v5 = &qword_140C1A8E0;
       v5[1] = v6;
       *v6 = v5;
       qword_140C1A8E8 = (__int64)v5;

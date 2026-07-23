@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializePageChainHead @ 0x14041CF00
+ * XREFs of MiInitializePageChainHead @ 0x140411530
  * Callers:
- *     MiCaptureSparsePages @ 0x1407FA6FC (MiCaptureSparsePages.c)
- *     MiAllocateReadList @ 0x140955F80 (MiAllocateReadList.c)
+ *     MiCaptureSparsePages @ 0x1407FAE6C (MiCaptureSparsePages.c)
+ *     MiAllocateReadList @ 0x140939930 (MiAllocateReadList.c)
  * Callees:
  *     <none>
  */

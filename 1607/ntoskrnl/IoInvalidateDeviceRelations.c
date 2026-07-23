@@ -1,32 +1,31 @@
 /*
- * XREFs of IoInvalidateDeviceRelations @ 0x14009ECD4
+ * XREFs of IoInvalidateDeviceRelations @ 0x140085F2C
  * Callers:
- *     PiSwProcessRemove @ 0x1404C36B0 (PiSwProcessRemove.c)
- *     PiSwCloseDevice @ 0x1404C3900 (PiSwCloseDevice.c)
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
- *     PiSwProcessParentStartIrp @ 0x1404C8128 (PiSwProcessParentStartIrp.c)
- *     IopPnPDispatch @ 0x1404E7998 (IopPnPDispatch.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x140641FDC (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiSwProcessRemove @ 0x140483A18 (PiSwProcessRemove.c)
+ *     PiSwCloseDevice @ 0x140483C1C (PiSwCloseDevice.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
+ *     IopPnPDispatch @ 0x1404C9D24 (IopPnPDispatch.c)
+ *     PiSwProcessParentStartIrp @ 0x1404CFB84 (PiSwProcessParentStartIrp.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1406420C0 (PiProfileUpdateDeviceTreeCallback.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_RELATION_TYPE Type)
 {
   _DWORD *DeviceNode; // rcx
-  int v4; // edx
   struct _DRIVER_OBJECT *DriverObject; // rcx
   UNICODE_STRING *p_DriverName; // rcx
-  char *v7; // rcx
-  unsigned __int16 *v8; // rdi
-  _WORD *v9; // rcx
-  __int64 v10; // rax
-  __int64 v11; // rcx
+  char *v6; // rcx
+  unsigned __int16 *v7; // rdi
+  _WORD *v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rcx
 
   if ( !DeviceObject )
-    goto LABEL_26;
+    goto LABEL_21;
   DeviceNode = DeviceObject->DeviceObjectExtension->DeviceNode;
   if ( !DeviceNode || (DeviceNode[99] & 0x20000) != 0 )
   {
@@ -44,56 +43,35 @@ void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_R
           DeviceObject->DriverObject->DriverName.Length);
       }
     }
-    v7 = (char *)DeviceObject->DeviceObjectExtension->DeviceNode;
-    if ( v7 )
+    v6 = (char *)DeviceObject->DeviceObjectExtension->DeviceNode;
+    if ( v6 )
     {
-      v8 = (unsigned __int16 *)(v7 + 40);
-      IoAddTriageDumpDataBlock(v7, 720LL);
+      v7 = (unsigned __int16 *)(v6 + 40);
+      IoAddTriageDumpDataBlock(v6, 720LL);
+      if ( *v7 )
+      {
+        IoAddTriageDumpDataBlock(v7, 2LL);
+        IoAddTriageDumpDataBlock(*((_QWORD *)v7 + 1), *v7);
+      }
+      v8 = (char *)DeviceObject->DeviceObjectExtension->DeviceNode + 56;
       if ( *v8 )
       {
         IoAddTriageDumpDataBlock(v8, 2LL);
-        IoAddTriageDumpDataBlock(*((_QWORD *)v8 + 1), *v8);
-      }
-      v9 = (char *)DeviceObject->DeviceObjectExtension->DeviceNode + 56;
-      if ( *v9 )
-      {
-        IoAddTriageDumpDataBlock(v9, 2LL);
         IoAddTriageDumpDataBlock(
           *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 8),
           *((unsigned __int16 *)DeviceObject->DeviceObjectExtension->DeviceNode + 28));
       }
-      v10 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-      if ( v10 )
+      v9 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
+      if ( v9 && *(_WORD *)(v9 + 56) )
       {
-        if ( *(_WORD *)(v10 + 56) )
-        {
-          IoAddTriageDumpDataBlock(v10 + 56, 2LL);
-          v11 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-          IoAddTriageDumpDataBlock(*(_QWORD *)(v11 + 64), *(unsigned __int16 *)(v11 + 56));
-        }
+        IoAddTriageDumpDataBlock(v9 + 56, 2LL);
+        v10 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
+        IoAddTriageDumpDataBlock(*(_QWORD *)(v10 + 64), *(unsigned __int16 *)(v10 + 56));
       }
     }
-LABEL_26:
+LABEL_21:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)DeviceObject, 0LL, 0LL);
   }
-  switch ( Type )
-  {
-    case BusRelations:
-      goto LABEL_8;
-    case EjectionRelations:
-      v4 = 20;
-      goto LABEL_9;
-    case PowerRelations:
-      v4 = 5;
-      goto LABEL_9;
-    case SingleBusRelations:
-LABEL_8:
-      v4 = 9 - (Type != BusRelations);
-LABEL_9:
-      PnpRequestDeviceAction(DeviceObject, v4, 0, 0LL, 0LL, 0LL);
-      return;
-    case TransportRelations:
-      v4 = 19;
-      goto LABEL_9;
-  }
+  if ( (unsigned int)Type <= PowerRelations || Type == SingleBusRelations || Type == TransportRelations )
+    PnpRequestDeviceAction(DeviceObject, 0LL, 0LL);
 }

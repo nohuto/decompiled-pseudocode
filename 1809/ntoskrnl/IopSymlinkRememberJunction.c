@@ -1,20 +1,20 @@
 /*
- * XREFs of IopSymlinkRememberJunction @ 0x1406ABE58
+ * XREFs of IopSymlinkRememberJunction @ 0x1406AD0F8
  * Callers:
- *     IopSymlinkProcessReparse @ 0x1406AC210 (IopSymlinkProcessReparse.c)
- *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
+ *     IopSymlinkProcessReparse @ 0x1406AD4B0 (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x1406AD50C (IopGraftName.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     IopSymlinkGetMostRecentlyUsedName @ 0x14012585C (IopSymlinkGetMostRecentlyUsedName.c)
- *     IopSymlinkGetECP @ 0x140125878 (IopSymlinkGetECP.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopSymlinkUpdateECP @ 0x1406ABCB0 (IopSymlinkUpdateECP.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x1406ABE14 (IopSymlinkFreeRelatedMountPointChain.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x1406AC060 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x1406AC8C0 (IopSymlinkGetRelatedMountPoint.c)
- *     IopGetRelatedFileName @ 0x140819C0C (IopGetRelatedFileName.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x14012592C (IopSymlinkGetMostRecentlyUsedName.c)
+ *     IopSymlinkGetECP @ 0x140125948 (IopSymlinkGetECP.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopSymlinkUpdateECP @ 0x1406ACF50 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x1406AD0B4 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x1406AD300 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x1406ADB60 (IopSymlinkGetRelatedMountPoint.c)
+ *     IopGetRelatedFileName @ 0x14081AE0C (IopGetRelatedFileName.c)
  */
 
 __int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, __int64 a3, UNICODE_STRING *a4)

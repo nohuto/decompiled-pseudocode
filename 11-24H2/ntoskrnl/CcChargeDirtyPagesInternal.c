@@ -1,16 +1,16 @@
 /*
- * XREFs of CcChargeDirtyPagesInternal @ 0x14044B950
+ * XREFs of CcChargeDirtyPagesInternal @ 0x140442A90
  * Callers:
- *     CcSetDirtyPinnedData @ 0x1402AB6C0 (CcSetDirtyPinnedData.c)
- *     CcSetDirtyInMask @ 0x1404614E0 (CcSetDirtyInMask.c)
- *     CcAddDirtyPagesToExternalCache @ 0x1404B4F00 (CcAddDirtyPagesToExternalCache.c)
- *     CcUpdateExternalCacheInfoEx @ 0x14057AD00 (CcUpdateExternalCacheInfoEx.c)
+ *     CcSetDirtyPinnedData @ 0x1402769E0 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyInMask @ 0x140456AF0 (CcSetDirtyInMask.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x1404AF700 (CcAddDirtyPagesToExternalCache.c)
+ *     CcUpdateExternalCacheInfoEx @ 0x140578190 (CcUpdateExternalCacheInfoEx.c)
  * Callees:
- *     CcNotifyWriteBehindInternal @ 0x1402CF16C (CcNotifyWriteBehindInternal.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     CcNotifyWriteBehindVolume @ 0x14043CB2C (CcNotifyWriteBehindVolume.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1404A08EC (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     CcNotifyWriteBehindInternal @ 0x1402638AC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindVolume @ 0x1402650BC (CcNotifyWriteBehindVolume.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14049AF6C (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall CcChargeDirtyPagesInternal(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5, __int64 a6)

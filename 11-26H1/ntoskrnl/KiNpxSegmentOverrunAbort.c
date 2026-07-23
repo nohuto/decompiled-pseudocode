@@ -1,13 +1,13 @@
 /*
- * XREFs of KiNpxSegmentOverrunAbort @ 0x140735D80
+ * XREFs of KiNpxSegmentOverrunAbort @ 0x14073A980
  * Callers:
- *     KiNpxSegmentOverrunAbortShadow @ 0x140C595C0 (KiNpxSegmentOverrunAbortShadow.c)
+ *     KiNpxSegmentOverrunAbortShadow @ 0x140C5F5C0 (KiNpxSegmentOverrunAbortShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x140446060 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x140533CB0 (KiSaveDebugRegisterState.c)
- *     KiNpxSegmentOverrunAbort @ 0x140735D80 (KiNpxSegmentOverrunAbort.c)
- *     KiBugCheckDispatch @ 0x14073C4C0 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x14073CF80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14043EB60 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x140536130 (KiSaveDebugRegisterState.c)
+ *     KiNpxSegmentOverrunAbort @ 0x14073A980 (KiNpxSegmentOverrunAbort.c)
+ *     KiBugCheckDispatch @ 0x1407410C0 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140741B80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiNpxSegmentOverrunAbort(__int64 a1, __int64 _RDX)
@@ -61,7 +61,7 @@ void __fastcall __noreturn KiNpxSegmentOverrunAbort(__int64 a1, __int64 _RDX)
       LODWORD(_RDX) = (unsigned __int8)_RDX;
     }
     if ( (_RDX & 2) != 0 )
-      JUMPOUT(0x140735FE5LL);
+      JUMPOUT(0x14073ABE5LL);
     if ( (_RDX & 0x80) != 0 )
     {
       _mm_lfence();

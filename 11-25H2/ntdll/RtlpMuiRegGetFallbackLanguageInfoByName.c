@@ -27,11 +27,11 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByName(
   __int64 v15; // rcx
   __int64 v16; // rax
   __int64 result; // rax
-  int v18; // [rsp+30h] [rbp-38h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
+  DWORD Lcid; // [rsp+30h] [rbp-38h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
   __int16 v20; // [rsp+70h] [rbp+8h] BYREF
 
-  v18 = 0;
+  Lcid = 0;
   v20 = 0;
   DestinationString = 0LL;
   if ( !a1 )
@@ -76,10 +76,10 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByName(
     }
   }
   if ( a4
-    && (RtlInitUnicodeString(&DestinationString, a3), RtlCultureNameToLCID(&DestinationString.Length, &v18))
-    && v18 != 4096 )
+    && (RtlInitUnicodeString(&DestinationString, a3), RtlCultureNameToLCID(&DestinationString, &Lcid))
+    && Lcid != 4096 )
   {
-    return RtlpMuiRegGetFallbackLanguageInfoByLangId(a1, a2, v18, 0, v9);
+    return RtlpMuiRegGetFallbackLanguageInfoByLangId(a1, a2, Lcid, 0, v9);
   }
   else
   {

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMoveHibernateHugeRangesFreeToZeroCallback @ 0x1406ED210
+ * XREFs of MiMoveHibernateHugeRangesFreeToZeroCallback @ 0x1406F1EB0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiIsPageInHugePfn @ 0x1403138E0 (MiIsPageInHugePfn.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiUpdatePageMoveInProgressInternal @ 0x1404448A0 (MiUpdatePageMoveInProgressInternal.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiLockHugeRangeColorHeadAtDpc @ 0x14048E350 (MiLockHugeRangeColorHeadAtDpc.c)
- *     MiUnlinkHugeRangeEx @ 0x14048E398 (MiUnlinkHugeRangeEx.c)
- *     MiInsertHugeRangeInList @ 0x14048E66C (MiInsertHugeRangeInList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiIsPageInHugePfn @ 0x140315910 (MiIsPageInHugePfn.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiUpdatePageMoveInProgressInternal @ 0x14043D3B0 (MiUpdatePageMoveInProgressInternal.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiLockHugeRangeColorHeadAtDpc @ 0x140487E90 (MiLockHugeRangeColorHeadAtDpc.c)
+ *     MiUnlinkHugeRangeEx @ 0x140487ED8 (MiUnlinkHugeRangeEx.c)
+ *     MiInsertHugeRangeInList @ 0x1404881AC (MiInsertHugeRangeInList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiMoveHibernateHugeRangesFreeToZeroCallback(__int64 a1, __int64 a2, __int64 a3)
@@ -39,7 +39,7 @@ __int64 __fastcall MiMoveHibernateHugeRangesFreeToZeroCallback(__int64 a1, __int
   v6 = 0LL;
   v7 = a3;
   CurrentIrql = 17;
-  v9 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v3);
+  v9 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v3);
   if ( a3 )
   {
     do
@@ -63,10 +63,10 @@ __int64 __fastcall MiMoveHibernateHugeRangesFreeToZeroCallback(__int64 a1, __int
             if ( (*v9 & 7) == 2 )
             {
               v12 = v3 & 0x3FFFFF;
-              if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3
-                && (struct _LIST_ENTRY *)v12 < stru_140E2EB88.WaitBlock[2].WaitListEntry.Flink
+              if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3
+                && (struct _LIST_ENTRY *)v12 < stru_140E2ED08.WaitBlock[2].WaitListEntry.Flink
                 && _bittest64(
-                     (const signed __int64 *)stru_140E2EB88.WaitBlock[2].WaitListEntry.Blink + ((v3 & 0x3FFFFF) >> 6),
+                     (const signed __int64 *)stru_140E2ED08.WaitBlock[2].WaitListEntry.Blink + ((v3 & 0x3FFFFF) >> 6),
                      v3 & 0x3F) )
               {
                 v13 = *(_QWORD *)(v11 + 16) + 56320LL * (unsigned int)MiPageToNode(v12 << 18);
@@ -87,10 +87,10 @@ __int64 __fastcall MiMoveHibernateHugeRangesFreeToZeroCallback(__int64 a1, __int
           }
         }
         _InterlockedAnd(
-          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                     + 4
-                                    * (((((__int64)v9 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-          ~(1 << (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                    * (((((__int64)v9 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+          ~(1 << (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
         if ( (++v4 & 0x3F) == 0 && KeShouldYieldProcessor() )
         {
           if ( v6 )

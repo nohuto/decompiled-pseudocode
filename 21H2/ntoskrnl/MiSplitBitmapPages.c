@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSplitBitmapPages @ 0x1402B40F0
+ * XREFs of MiSplitBitmapPages @ 0x1402322A0
  * Callers:
- *     MiExpandPtes @ 0x1402B3298 (MiExpandPtes.c)
- *     MiExtendDynamicBitMap @ 0x1403C984C (MiExtendDynamicBitMap.c)
- *     MiSplitMirrorBitMap @ 0x1407776D0 (MiSplitMirrorBitMap.c)
- *     MiSplitPfnBitMaps @ 0x1407B9774 (MiSplitPfnBitMaps.c)
- *     MiMarkRetpolineBits @ 0x1408D0CB4 (MiMarkRetpolineBits.c)
- *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
- *     MxMarkActiveDriverBits @ 0x140A68218 (MxMarkActiveDriverBits.c)
+ *     MiExpandPtes @ 0x140231448 (MiExpandPtes.c)
+ *     MiExtendDynamicBitMap @ 0x1403C99EC (MiExtendDynamicBitMap.c)
+ *     MiSplitMirrorBitMap @ 0x140777890 (MiSplitMirrorBitMap.c)
+ *     MiSplitPfnBitMaps @ 0x1407B9C94 (MiSplitPfnBitMaps.c)
+ *     MiMarkRetpolineBits @ 0x1408D0E14 (MiMarkRetpolineBits.c)
+ *     MiInitializeDriverImages @ 0x140A4F6F4 (MiInitializeDriverImages.c)
+ *     MxMarkActiveDriverBits @ 0x140A69218 (MxMarkActiveDriverBits.c)
  * Callees:
- *     MiMakeZeroedPageTables @ 0x14039DE40 (MiMakeZeroedPageTables.c)
+ *     MiMakeZeroedPageTables @ 0x14039DF90 (MiMakeZeroedPageTables.c)
  */
 
 __int64 __fastcall MiSplitBitmapPages(int a1, unsigned __int64 a2, __int64 a3)

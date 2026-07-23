@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpTransUowIsEqual @ 0x140872DAC
+ * XREFs of CmpTransUowIsEqual @ 0x140872F0C
  * Callers:
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
- *     CmpSearchForTrans @ 0x14076704C (CmpSearchForTrans.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
+ *     CmpSearchForTrans @ 0x14076720C (CmpSearchForTrans.c)
  * Callees:
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
  */
 
 bool __fastcall CmpTransUowIsEqual(const void *a1, const void *a2)

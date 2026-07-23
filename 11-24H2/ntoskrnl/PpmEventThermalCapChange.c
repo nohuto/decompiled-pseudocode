@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventThermalCapChange @ 0x140425004
+ * XREFs of PpmEventThermalCapChange @ 0x140418EB4
  * Callers:
- *     PpmRegisterPerfCap @ 0x1404249F0 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x1404188A0 (PpmRegisterPerfCap.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmFireWmiEvent @ 0x1405D7EF8 (PpmFireWmiEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmFireWmiEvent @ 0x1405D5478 (PpmFireWmiEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventThermalCapChange(__int64 a1, int a2)
@@ -36,7 +36,7 @@ char __fastcall PpmEventThermalCapChange(__int64 a1, int a2)
   {
     v11 = *(_QWORD *)(a1 - 35048);
     LODWORD(v10) = a2;
-    if ( (xmmword_140FC5B10 & 0x8000) != 0 )
+    if ( (xmmword_140FC6B50 & 0x8000) != 0 )
     {
       v14 = 0;
       v12 = &v10;

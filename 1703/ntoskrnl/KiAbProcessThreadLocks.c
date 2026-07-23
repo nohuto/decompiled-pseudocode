@@ -32,11 +32,11 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int 
   __int64 v10; // r12
   unsigned int v11; // r13d
   __int64 v12; // rcx
-  unsigned __int64 v13; // rbx
+  __int64 v13; // rbx
   __int64 v14; // rax
   bool v15; // zf
   int v16; // r14d
-  __int64 LockedHeadEntry; // rax
+  char *LockedHeadEntry; // rax
   __int64 v18; // rdi
   __int64 v19; // rax
   char v20; // si
@@ -94,16 +94,16 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int 
 LABEL_11:
             v16 = 0;
             v29 = 0;
-            LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v13, v9, (__int64)&LockHandle);
-            v18 = LockedHeadEntry;
+            LockedHeadEntry = KiAbEntryGetLockedHeadEntry((char *)v13, v9, &LockHandle);
+            v18 = (__int64)LockedHeadEntry;
             if ( LockedHeadEntry )
             {
               if ( (*(_BYTE *)(v13 + 25) & 1) != 0 )
               {
                 if ( v8 )
                 {
-                  if ( v13 != LockedHeadEntry )
-                    KiAbEntryUpdateWaiterTreePosition(v13, LockedHeadEntry);
+                  if ( (char *)v13 != LockedHeadEntry )
+                    KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v13, (_RTL_RB_TREE *)LockedHeadEntry);
                   v19 = *(_QWORD *)(v18 + 56);
                   if ( v19 )
                     v20 = *(_BYTE *)(v19 + 48);
@@ -162,15 +162,15 @@ LABEL_34:
               {
                 if ( !v7 )
                   goto LABEL_34;
-                if ( v13 != LockedHeadEntry )
-                  KiAbEntryUpdateOwnerTreePosition(v13, LockedHeadEntry);
+                if ( (char *)v13 != LockedHeadEntry )
+                  KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v13);
                 KiAbDetermineMaxWaiterPriority(v18, &v31);
                 if ( v31 )
                 {
                   if ( (unsigned int)KiAbSetMinimumThreadPriority(v13, (unsigned int)&v31, a5, a6, a7, (__int64)&v29)
                     && v13 != v18 )
                   {
-                    KiAbEntryUpdateOwnerTreePosition(v13, v18);
+                    KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v13);
                   }
                   v16 = v29;
                   goto LABEL_34;

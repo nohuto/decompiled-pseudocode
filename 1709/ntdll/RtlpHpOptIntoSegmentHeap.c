@@ -10,38 +10,37 @@
  *     _wcsnicmp @ 0x1800926C0 (_wcsnicmp.c)
  */
 
-__int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1, __int64 a2)
+__int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1)
 {
-  struct _PEB *v2; // rsi
-  unsigned int v4; // ebx
-  __int64 v5; // rdx
-  unsigned int v6; // eax
-  unsigned __int64 v7; // rdx
+  struct _PEB *v1; // rsi
+  unsigned int v3; // ebx
+  unsigned int v4; // eax
+  unsigned __int64 v5; // rdx
   _WORD *i; // rcx
-  const wchar_t *v9; // r14
-  unsigned int v10; // edi
-  size_t v11; // r15
-  const wchar_t **v12; // rsi
-  const wchar_t *v13; // r12
-  __int64 v14; // rax
-  int v16; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v17; // [rsp+38h] [rbp-C8h] BYREF
-  _QWORD v18[6]; // [rsp+40h] [rbp-C0h] BYREF
-  wchar_t String1[128]; // [rsp+70h] [rbp-90h] BYREF
+  const wchar_t *v7; // r14
+  unsigned int v8; // edi
+  size_t v9; // r15
+  const wchar_t **v10; // rsi
+  const wchar_t *v11; // r12
+  __int64 v12; // rax
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG_PTR PackageSize; // [rsp+38h] [rbp-C8h] BYREF
+  _QWORD v16[6]; // [rsp+40h] [rbp-C0h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+70h] [rbp-90h] BYREF
 
-  v2 = NtCurrentPeb();
-  v18[0] = L"svchost.exe";
-  v4 = 0;
-  v18[1] = L"runtimebroker.exe";
-  v18[2] = L"csrss.exe";
-  v18[3] = L"smss.exe";
-  v18[4] = L"services.exe";
-  v18[5] = L"lsass.exe";
-  if ( (RtlGetSuiteMask((__int64)a1, a2) & 0x10000) != 0 )
+  v1 = NtCurrentPeb();
+  v16[0] = L"svchost.exe";
+  v3 = 0;
+  v16[1] = L"runtimebroker.exe";
+  v16[2] = L"csrss.exe";
+  v16[3] = L"smss.exe";
+  v16[4] = L"services.exe";
+  v16[5] = L"lsass.exe";
+  if ( (RtlGetSuiteMask() & 0x10000) != 0 )
     goto LABEL_21;
-  if ( RtlGetNtProductType(&v16, v5) && v16 != 1 )
-    return v4;
-  if ( (v2->BitField & 0x10) != 0 )
+  if ( RtlGetNtProductType(&NtProductType) && NtProductType != NtProductWinNt )
+    return v3;
+  if ( (v1->BitField & 0x10) != 0 )
   {
 LABEL_21:
     RtlpHpAppCompatFlags &= 0xFFFFFFFC;
@@ -49,51 +48,51 @@ LABEL_21:
   }
   if ( a1 )
   {
-    v6 = 0;
-    v7 = *((_QWORD *)a1 + 1);
-    for ( i = (_WORD *)(v7 + 2 * (((unsigned __int64)*a1 >> 1) - 1)); (unsigned __int64)i > v7; --i )
+    v4 = 0;
+    v5 = *((_QWORD *)a1 + 1);
+    for ( i = (_WORD *)(v5 + 2 * (((unsigned __int64)*a1 >> 1) - 1)); (unsigned __int64)i > v5; --i )
     {
       if ( *i == 92 )
       {
-        if ( v6 )
+        if ( v4 )
         {
-          v9 = i + 1;
+          v7 = i + 1;
           if ( i != (_WORD *)-2LL )
           {
-            v10 = 0;
-            v11 = v6;
-            v12 = (const wchar_t **)v18;
+            v8 = 0;
+            v9 = v4;
+            v10 = (const wchar_t **)v16;
             while ( 1 )
             {
-              v13 = *v12;
-              if ( !wcsnicmp(v9, *v12, v11) )
+              v11 = *v10;
+              if ( !wcsnicmp(v7, *v10, v9) )
               {
-                v14 = -1LL;
+                v12 = -1LL;
                 do
-                  ++v14;
-                while ( v13[v14] );
-                if ( v11 == v14 )
+                  ++v12;
+                while ( v11[v12] );
+                if ( v9 == v12 )
                   goto LABEL_21;
               }
+              ++v8;
               ++v10;
-              ++v12;
-              if ( v10 >= 6 )
+              if ( v8 >= 6 )
                 goto LABEL_19;
             }
           }
         }
         break;
       }
-      ++v6;
+      ++v4;
     }
 LABEL_19:
-    v17 = 256LL;
-    if ( (int)RtlQueryPackageIdentity(-4, (int)String1, (int)&v17, 0, 0LL, 0LL) < 0
-      || wcsnicmp(String1, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
+    PackageSize = 256LL;
+    if ( RtlQueryPackageIdentity((HANDLE)0xFFFFFFFFFFFFFFFCLL, PackageFullName, &PackageSize, 0LL, 0LL, 0LL) < 0
+      || wcsnicmp(PackageFullName, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
     {
-      return v4;
+      return v3;
     }
     goto LABEL_21;
   }
-  return v4;
+  return v3;
 }

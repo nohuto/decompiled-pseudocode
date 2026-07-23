@@ -29,29 +29,26 @@ char __thiscall LdrpCheckForSecuROMImage(int this)
   unsigned int v12; // ecx
   _DWORD *Config; // eax
   _DWORD *v14; // esi
-  int v16; // [esp+10h] [ebp-88h] BYREF
-  int v17; // [esp+14h] [ebp-84h]
+  LARGE_INTEGER ByteOffset; // [esp+10h] [ebp-88h] BYREF
   HANDLE FileHandle; // [esp+1Ch] [ebp-7Ch] BYREF
-  int v19; // [esp+20h] [ebp-78h] BYREF
-  int v20; // [esp+24h] [ebp-74h]
-  unsigned int v21; // [esp+2Ch] [ebp-6Ch] BYREF
-  int v22; // [esp+30h] [ebp-68h] BYREF
-  char *v23; // [esp+34h] [ebp-64h]
-  int v24; // [esp+38h] [ebp-60h] BYREF
-  _DWORD *v25; // [esp+3Ch] [ebp-5Ch] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+40h] [ebp-58h] BYREF
-  unsigned __int16 v27; // [esp+48h] [ebp-50h] BYREF
-  int v28; // [esp+4Ch] [ebp-4Ch]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+50h] [ebp-48h] BYREF
-  char v30[40]; // [esp+68h] [ebp-30h] BYREF
-  unsigned int v31; // [esp+90h] [ebp-8h]
+  unsigned int v18; // [esp+20h] [ebp-78h] BYREF
+  int v19; // [esp+24h] [ebp-74h]
+  unsigned int Buffer; // [esp+2Ch] [ebp-6Ch] BYREF
+  ULONG_PTR RegionSize; // [esp+30h] [ebp-68h] BYREF
+  ULONG OldProtect; // [esp+38h] [ebp-60h] BYREF
+  PVOID BaseAddress; // [esp+3Ch] [ebp-5Ch] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+40h] [ebp-58h] BYREF
+  _UNICODE_STRING NtFileName; // [esp+48h] [ebp-50h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+50h] [ebp-48h] BYREF
+  char ProcessInformation[40]; // [esp+68h] [ebp-30h] BYREF
+  unsigned int v28; // [esp+90h] [ebp-8h]
 
   ImageBaseAddress = (char *)NtCurrentPeb()->ImageBaseAddress;
   v2 = 0;
   v3 = 0;
   v4 = *(unsigned __int16 *)(this + 6);
   v5 = *(unsigned __int16 *)(this + 20) + 44;
-  v23 = ImageBaseAddress;
+  HIDWORD(RegionSize) = ImageBaseAddress;
   if ( v4 )
   {
     v6 = (_DWORD *)(this + v5);
@@ -63,7 +60,7 @@ char __thiscall LdrpCheckForSecuROMImage(int this)
       --v4;
     }
     while ( v4 );
-    ImageBaseAddress = v23;
+    ImageBaseAddress = (char *)HIDWORD(RegionSize);
   }
   v7 = *(_DWORD *)(this + 172);
   if ( v7 )
@@ -86,78 +83,72 @@ char __thiscall LdrpCheckForSecuROMImage(int this)
   v10 = *(_DWORD *)(this + 156);
   if ( v10 && v10 + *(_DWORD *)(this + 152) > v3 )
     v3 = v10 + *(_DWORD *)(this + 152);
-  if ( ZwQueryInformationProcess(-1, 37, (int)v30, 48, 0) >= 0
-    && v3 + 0x2000 < v31
-    && RtlDosPathNameToNtPathName_U(*(_DWORD *)(LdrpImageEntry + 40), &v27, 0, 0) )
+  if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessImageInformation, ProcessInformation, 0x30u, 0) >= 0
+    && v3 + 0x2000 < v28
+    && RtlDosPathNameToNtPathName_U(*(PCWSTR *)(LdrpImageEntry + 40), &NtFileName, 0, 0) )
   {
     ObjectAttributes.RootDirectory = 0;
     ObjectAttributes.SecurityDescriptor = 0;
     ObjectAttributes.SecurityQualityOfService = 0;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v27;
+    ObjectAttributes.ObjectName = &NtFileName;
     ObjectAttributes.Length = 24;
     ObjectAttributes.Attributes = 64;
     if ( NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u) < 0 )
     {
 LABEL_44:
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v28);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, NtFileName.Buffer);
       return v2;
     }
-    v17 = 0;
-    v16 = v31 - 4;
-    if ( NtReadFile((int)FileHandle, 0, 0, 0, (int)&IoStatusBlock, (int)&v21, 4, (int)&v16, 0) >= 0 )
+    ByteOffset.QuadPart = v28 - 4;
+    if ( NtReadFile(FileHandle, 0, 0, 0, &IoStatusBlock, &Buffer, 4u, &ByteOffset, 0) >= 0 )
     {
-      v11 = v21;
-      v12 = v31;
-      if ( v21 >= 4 && v21 + 4 <= v31 )
+      v11 = Buffer;
+      v12 = v28;
+      if ( Buffer >= 4 && Buffer + 4 <= v28 )
       {
-        v16 = v21 - 4;
-        v17 = 0;
-        if ( NtReadFile((int)FileHandle, 0, 0, 0, (int)&IoStatusBlock, (int)&v19, 8, (int)&v16, 0) < 0 )
+        ByteOffset.QuadPart = Buffer - 4;
+        if ( NtReadFile(FileHandle, 0, 0, 0, &IoStatusBlock, &v18, 8u, &ByteOffset, 0) < 0 )
           goto LABEL_43;
-        if ( v20 == 1147429953 )
+        if ( v19 == 1147429953 )
           goto LABEL_39;
-        v12 = v31;
-        if ( v19 + 4 <= v31 )
+        v12 = v28;
+        if ( v18 + 4 <= v28 )
         {
-          v16 = v19;
-          v17 = 0;
-          if ( NtReadFile((int)FileHandle, 0, 0, 0, (int)&IoStatusBlock, (int)&v19, 4, (int)&v16, 0) < 0 )
+          ByteOffset.QuadPart = v18;
+          if ( NtReadFile(FileHandle, 0, 0, 0, &IoStatusBlock, &v18, 4u, &ByteOffset, 0) < 0 )
             goto LABEL_43;
-          if ( v19 == 1147429953 )
+          if ( v18 == 1147429953 )
             goto LABEL_39;
-          v12 = v31;
+          v12 = v28;
         }
-        v11 = v21;
+        v11 = Buffer;
       }
       if ( v11 + 12 <= v12 )
       {
-        v16 = v12 - v11 - 12;
-        v17 = 0;
-        if ( NtReadFile((int)FileHandle, 0, 0, 0, (int)&IoStatusBlock, (int)&v19, 8, (int)&v16, 0) >= 0 )
+        ByteOffset.QuadPart = v12 - v11 - 12;
+        if ( NtReadFile(FileHandle, 0, 0, 0, &IoStatusBlock, &v18, 8u, &ByteOffset, 0) >= 0 )
         {
-          if ( v20 == 1147429953
-            || v19 + 4 <= v31
-            && (v16 = v19,
-                v17 = 0,
-                NtReadFile((int)FileHandle, 0, 0, 0, (int)&IoStatusBlock, (int)&v19, 4, (int)&v16, 0) >= 0)
-            && v19 == 1147429953 )
+          if ( v19 == 1147429953
+            || v18 + 4 <= v28
+            && (ByteOffset.QuadPart = v18, NtReadFile(FileHandle, 0, 0, 0, &IoStatusBlock, &v18, 4u, &ByteOffset, 0) >= 0)
+            && v18 == 1147429953 )
           {
 LABEL_39:
             v2 = 1;
-            v22 = 0;
-            Config = LdrImageDirectoryEntryToLoadConfig(v23);
+            LODWORD(RegionSize) = 0;
+            Config = LdrImageDirectoryEntryToLoadConfig((PVOID)HIDWORD(RegionSize));
             v14 = Config;
             if ( Config )
             {
               if ( *Config >= 0x48u )
               {
-                v25 = Config;
-                v22 = *Config;
-                if ( ZwProtectVirtualMemory(-1, (int)&v25, (int)&v22, 4, (int)&v24) >= 0 )
+                BaseAddress = Config;
+                LODWORD(RegionSize) = *Config;
+                if ( ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 4u, &OldProtect) >= 0 )
                 {
                   v14[16] = 0;
                   v14[17] = 0;
-                  ZwProtectVirtualMemory(-1, (int)&v25, (int)&v22, v24, (int)&v24);
+                  ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, OldProtect, &OldProtect);
                 }
               }
             }

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlLockHeapManagerForCloning @ 0x180141950
+ * XREFs of RtlLockHeapManagerForCloning @ 0x18013FB40
  * Callers:
- *     RtlCloneUserProcess @ 0x18015F270 (RtlCloneUserProcess.c)
- *     RtlPrepareForProcessCloning @ 0x18015F730 (RtlPrepareForProcessCloning.c)
+ *     RtlCloneUserProcess @ 0x18015D630 (RtlCloneUserProcess.c)
+ *     RtlPrepareForProcessCloning @ 0x18015DAF0 (RtlPrepareForProcessCloning.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlpGetNextProcessHeapDescriptor @ 0x1800EA720 (RtlpGetNextProcessHeapDescriptor.c)
- *     RtlpCSparseBitmapLock @ 0x1800F6210 (RtlpCSparseBitmapLock.c)
- *     RtlpGetPreviousProcessHeapDescriptor @ 0x180142674 (RtlpGetPreviousProcessHeapDescriptor.c)
- *     RtlpLockHeapForClone @ 0x180142A28 (RtlpLockHeapForClone.c)
- *     RtlpUnlockHeapForClone @ 0x180142C0C (RtlpUnlockHeapForClone.c)
- *     RtlpFlsClonePrepare @ 0x18014B6AC (RtlpFlsClonePrepare.c)
- *     RtlpHpUnlockHeapManagerForClone @ 0x18014CC94 (RtlpHpUnlockHeapManagerForClone.c)
+ *     RtlpReleaseHeapListLock @ 0x18002AA6C (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x18002AAB4 (RtlpAcquireHeapListLock.c)
+ *     RtlpGetNextProcessHeapDescriptor @ 0x1800E5F90 (RtlpGetNextProcessHeapDescriptor.c)
+ *     RtlpCSparseBitmapLock @ 0x1800F0770 (RtlpCSparseBitmapLock.c)
+ *     RtlpGetPreviousProcessHeapDescriptor @ 0x180140824 (RtlpGetPreviousProcessHeapDescriptor.c)
+ *     RtlpLockHeapForClone @ 0x180140BD8 (RtlpLockHeapForClone.c)
+ *     RtlpUnlockHeapForClone @ 0x180140FBC (RtlpUnlockHeapForClone.c)
+ *     RtlpFlsClonePrepare @ 0x180149A5C (RtlpFlsClonePrepare.c)
+ *     RtlpHpUnlockHeapManagerForClone @ 0x18014B05C (RtlpHpUnlockHeapManagerForClone.c)
  */
 
 __int64 RtlLockHeapManagerForCloning()
@@ -25,8 +25,8 @@ __int64 RtlLockHeapManagerForCloning()
   __int64 **v5; // rbx
   _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
-  RtlpCSparseBitmapLock((__int64)&unk_1801CE930, (volatile signed __int32 **)1, (unsigned __int64)v7);
+  RtlpAcquireHeapListLock();
+  RtlpCSparseBitmapLock((_RTL_SRWLOCK *)BaseAddress, 1, (__int64)v7);
   RtlpFlsClonePrepare(&RtlpHpEnvFlsContext);
   v0 = 0LL;
   do
@@ -49,6 +49,6 @@ __int64 RtlLockHeapManagerForCloning()
     v0 = v5;
   }
   RtlpHpUnlockHeapManagerForClone(0LL);
-  RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+  RtlpReleaseHeapListLock(0);
   return (unsigned int)v3;
 }

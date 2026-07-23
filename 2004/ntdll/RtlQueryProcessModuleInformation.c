@@ -10,14 +10,14 @@
  *     RtlpDeCommitQueryDebugInfo @ 0x1800D8B3C (RtlpDeCommitQueryDebugInfo.c)
  */
 
-__int64 __fastcall RtlQueryProcessModuleInformation(_QWORD *a1, unsigned int a2, __int64 a3)
+__int64 __fastcall RtlQueryProcessModuleInformation(_QWORD *a1, unsigned int a2, _RTL_DEBUG_INFORMATION *a3)
 {
   unsigned __int64 v5; // rdi
   int v6; // r15d
   unsigned int ProcessModuleInformationEx2; // eax
   unsigned int v8; // r10d
-  _WORD *DebugInfo; // rax
-  _WORD *v10; // rbx
+  _RTL_PROCESS_MODULES *DebugInfo; // rax
+  _RTL_PROCESS_MODULES *v10; // rbx
   int v11; // eax
   unsigned int v13; // [rsp+50h] [rbp+8h] BYREF
   size_t Size; // [rsp+58h] [rbp+10h] BYREF
@@ -31,7 +31,7 @@ __int64 __fastcall RtlQueryProcessModuleInformation(_QWORD *a1, unsigned int a2,
   v8 = ProcessModuleInformationEx2;
   if ( ProcessModuleInformationEx2 == -1073741820 )
   {
-    DebugInfo = (_WORD *)RtlpCommitQueryDebugInfo(a3, (unsigned int)Size);
+    DebugInfo = (_RTL_PROCESS_MODULES *)RtlpCommitQueryDebugInfo(a3, (unsigned int)Size);
     v10 = DebugInfo;
     if ( DebugInfo )
     {
@@ -42,7 +42,7 @@ __int64 __fastcall RtlQueryProcessModuleInformation(_QWORD *a1, unsigned int a2,
         v11 = LdrQueryProcessModuleInformationEx(a1, v5, v10, Size, &v13);
       if ( v11 >= 0 )
       {
-        *(_QWORD *)(a3 + 96) = v10;
+        a3->Modules = v10;
         return 0LL;
       }
       RtlpDeCommitQueryDebugInfo(a3, v10, (unsigned int)Size);

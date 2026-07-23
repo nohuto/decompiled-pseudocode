@@ -1,16 +1,16 @@
 /*
  * XREFs of ViKeIrqlLogCommon @ 0x140712F64
  * Callers:
- *     VerifierKeReleaseQueuedSpinLock @ 0x14070CA54 (VerifierKeReleaseQueuedSpinLock.c)
+ *     VerifierKeReleaseQueuedSpinLock @ 0x14070CA84 (VerifierKeReleaseQueuedSpinLock.c)
  *     VerifierKeLowerIrql @ 0x140712154 (VerifierKeLowerIrql.c)
  *     VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x140712258 (VerifierKeReleaseInStackQueuedSpinLockCommon.c)
  *     VerifierKeReleaseSpinLock @ 0x1407124FC (VerifierKeReleaseSpinLock.c)
- *     VerifierPortKeReleaseSpinLock @ 0x14071263C (VerifierPortKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLock @ 0x140712B24 (VerifierPortKeReleaseSpinLock.c)
  *     VerifierPortKeReleaseSpinLockNoXdv @ 0x140712B6C (VerifierPortKeReleaseSpinLockNoXdv.c)
  *     VfKeIrqlLogRaise @ 0x140712D1C (VfKeIrqlLogRaise.c)
  *     VerifierExReleaseFastMutex @ 0x14071A228 (VerifierExReleaseFastMutex.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140084730 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140082890 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall ViKeIrqlLogCommon(__int64 a1, ULONG a2)

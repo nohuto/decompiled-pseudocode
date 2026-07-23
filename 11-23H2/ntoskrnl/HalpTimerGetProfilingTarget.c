@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerGetProfilingTarget @ 0x14050A8D8
+ * XREFs of HalpTimerGetProfilingTarget @ 0x14050AE28
  * Callers:
- *     HalpQueryProfileSource @ 0x140507B1C (HalpQueryProfileSource.c)
+ *     HalpQueryProfileSource @ 0x14050806C (HalpQueryProfileSource.c)
  * Callees:
  *     <none>
  */

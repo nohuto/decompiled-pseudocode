@@ -6,11 +6,18 @@
  *     <none>
  */
 
-__int64 ZwGetWriteWatch()
+NTSTATUS __cdecl ZwGetWriteWatch(
+        HANDLE ProcessHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        SIZE_T RegionSize,
+        PVOID *UserAddressArray,
+        PULONG_PTR EntriesInUserAddressArray,
+        PULONG Granularity)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 236LL;
+  result = 236;
   __asm { syscall; Low latency system call }
   return result;
 }

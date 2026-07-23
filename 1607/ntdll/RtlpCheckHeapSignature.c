@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCheckHeapSignature @ 0x180019D84
+ * XREFs of RtlpCheckHeapSignature @ 0x180019D74
  * Callers:
- *     RtlLockHeap @ 0x180019AC0 (RtlLockHeap.c)
- *     RtlUnlockHeap @ 0x180019E50 (RtlUnlockHeap.c)
- *     RtlValidateHeap @ 0x180076860 (RtlValidateHeap.c)
- *     RtlDebugAllocateHeap @ 0x1800917D4 (RtlDebugAllocateHeap.c)
- *     RtlDebugFreeHeap @ 0x180091B60 (RtlDebugFreeHeap.c)
+ *     RtlLockHeap @ 0x180019AB0 (RtlLockHeap.c)
+ *     RtlUnlockHeap @ 0x180019E40 (RtlUnlockHeap.c)
+ *     RtlValidateHeap @ 0x180076850 (RtlValidateHeap.c)
+ *     RtlDebugAllocateHeap @ 0x1800917C4 (RtlDebugAllocateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180091B50 (RtlDebugFreeHeap.c)
  *     RtlDebugCompactHeap @ 0x1800FA14C (RtlDebugCompactHeap.c)
  *     RtlDebugCreateTagHeap @ 0x1800FA590 (RtlDebugCreateTagHeap.c)
  *     RtlDebugDestroyHeap @ 0x1800FA6D4 (RtlDebugDestroyHeap.c)
@@ -18,7 +18,7 @@
  *     RtlDebugWalkHeap @ 0x1800FB4C8 (RtlDebugWalkHeap.c)
  *     RtlDebugZeroHeap @ 0x1800FB554 (RtlDebugZeroHeap.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     RtlpBreakPointHeap @ 0x1800FB678 (RtlpBreakPointHeap.c)
  */
 

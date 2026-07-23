@@ -1,12 +1,12 @@
 /*
- * XREFs of MmAreMdlPagesLocked @ 0x140701990
+ * XREFs of MmAreMdlPagesLocked @ 0x1407019C0
  * Callers:
- *     VERIFY_BUFFER_LOCKED @ 0x140705EFC (VERIFY_BUFFER_LOCKED.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140705F2C (VERIFY_BUFFER_LOCKED.c)
  * Callees:
- *     MiIsPfn @ 0x14000FBA0 (MiIsPfn.c)
- *     MiGetPdeAddress @ 0x1400AB5EC (MiGetPdeAddress.c)
- *     MiLockPage @ 0x1401593D8 (MiLockPage.c)
- *     MiUnlockPage @ 0x1401F2B80 (MiUnlockPage.c)
+ *     MiIsPfn @ 0x14000F720 (MiIsPfn.c)
+ *     MiGetPdeAddress @ 0x1400847A4 (MiGetPdeAddress.c)
+ *     MiLockPage @ 0x140159948 (MiLockPage.c)
+ *     MiUnlockPage @ 0x1401F29AC (MiUnlockPage.c)
  */
 
 __int64 __fastcall MmAreMdlPagesLocked(__int64 a1)
@@ -33,14 +33,14 @@ LABEL_23:
       return 1LL;
   }
   v6 = 48 * v5 - 0x58000000000LL;
-  if ( dword_140327060 == 2 )
+  if ( dword_1403270A0 == 2 )
   {
     v8 = 17;
   }
   else
   {
     v7 = MiLockPage(48 * v5 - 0x58000000000LL);
-    v4 = qword_140326C30;
+    v4 = qword_140326C70;
     v8 = v7;
   }
   v9 = *(unsigned __int16 *)(v6 + 32);
@@ -50,12 +50,12 @@ LABEL_23:
     || (unsigned __int16)v9 > 1u
     || !*(_QWORD *)v6
     || (v10 = (__int64)(*(_QWORD *)(v6 + 8) << 25) >> 16, (*(_BYTE *)(v6 + 34) & 7) == 6)
-    && v10 >= qword_140327F20[0]
-    && v10 < qword_140327F20[0] + 0x100000000000LL
+    && v10 >= qword_140327F60[0]
+    && v10 < qword_140327F60[0] + 0x100000000000LL
     || v10
     && v4
     && v10 >= v4
-    && v10 < v4 + (qword_140326C10 << 21)
+    && v10 < v4 + (qword_140326C50 << 21)
     && (*(_BYTE *)(48 * ((*(_QWORD *)MiGetPdeAddress(v10) >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFDALL) & 0xF0) == 0xD0 )
   {
     if ( v8 != 17 )

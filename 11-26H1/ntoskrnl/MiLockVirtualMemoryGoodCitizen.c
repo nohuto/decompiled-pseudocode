@@ -1,17 +1,17 @@
 /*
- * XREFs of MiLockVirtualMemoryGoodCitizen @ 0x140306B00
+ * XREFs of MiLockVirtualMemoryGoodCitizen @ 0x1402E8B80
  * Callers:
- *     MiLockVirtualMemoryRevert @ 0x140306D38 (MiLockVirtualMemoryRevert.c)
- *     NtLockVirtualMemory @ 0x140318600 (NtLockVirtualMemory.c)
- *     MiTrimUnlockedVirtualAddreses @ 0x14035CA40 (MiTrimUnlockedVirtualAddreses.c)
- *     MiUnlockVirtualAddreses @ 0x1404AA608 (MiUnlockVirtualAddreses.c)
+ *     MiLockVirtualMemoryRevert @ 0x1402E8DB8 (MiLockVirtualMemoryRevert.c)
+ *     NtLockVirtualMemory @ 0x14031A630 (NtLockVirtualMemory.c)
+ *     MiTrimUnlockedVirtualAddreses @ 0x14035E7E0 (MiTrimUnlockedVirtualAddreses.c)
+ *     MiUnlockVirtualAddreses @ 0x1404A3C98 (MiUnlockVirtualAddreses.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiLockVirtualMemoryGoodCitizen(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall MiLockVirtualMemoryGoodCitizen(__int64 a1, __int64 a2)
   v6 = *(_DWORD *)(v2 + 184) & 0xF;
   if ( v6 == 5 || v6 <= 4u )
   {
-    v7 = &qword_140E37800;
+    v7 = &qword_140E37980;
     if ( (*(_DWORD *)(v2 + 184) & 0xF) != 1 )
       v7 = (__int64 *)(v2 + 192);
     v8 = *v7;

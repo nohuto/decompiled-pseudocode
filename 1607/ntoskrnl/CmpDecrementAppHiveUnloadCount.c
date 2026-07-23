@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpDecrementAppHiveUnloadCount @ 0x140087508
+ * XREFs of CmpDecrementAppHiveUnloadCount @ 0x14010B700
  * Callers:
- *     CmpLateUnloadHiveWorker @ 0x14049F6F4 (CmpLateUnloadHiveWorker.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     NtUnloadKey2 @ 0x140549F84 (NtUnloadKey2.c)
+ *     CmpLateUnloadHiveWorker @ 0x140517B00 (CmpLateUnloadHiveWorker.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     NtUnloadKey2 @ 0x14054A4C4 (NtUnloadKey2.c)
  * Callees:
  *     <none>
  */

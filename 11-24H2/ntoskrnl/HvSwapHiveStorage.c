@@ -1,9 +1,9 @@
 /*
- * XREFs of HvSwapHiveStorage @ 0x1407DF758
+ * XREFs of HvSwapHiveStorage @ 0x1407DFCA8
  * Callers:
- *     CmpSwapHiveStorage @ 0x1407DE77C (CmpSwapHiveStorage.c)
+ *     CmpSwapHiveStorage @ 0x1407DECCC (CmpSwapHiveStorage.c)
  * Callees:
- *     HvpSwapDual @ 0x1407DFD18 (HvpSwapDual.c)
+ *     HvpSwapDual @ 0x1407E0268 (HvpSwapDual.c)
  */
 
 __int64 __fastcall HvSwapHiveStorage(__int64 a1, __int64 a2)

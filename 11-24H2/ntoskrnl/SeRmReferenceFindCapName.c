@@ -1,12 +1,12 @@
 /*
- * XREFs of SeRmReferenceFindCapName @ 0x1404D3DF4
+ * XREFs of SeRmReferenceFindCapName @ 0x1404CD004
  * Callers:
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140696FE4 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x140698064 (AdtpBuildContextFromSecurityDescriptor.c)
  * Callees:
- *     SepRmReferenceFindCap @ 0x140454FA4 (SepRmReferenceFindCap.c)
- *     SepValidateCAPID @ 0x1404F909C (SepValidateCAPID.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     SepRmReferenceFindCap @ 0x1403B562C (SepRmReferenceFindCap.c)
+ *     SepValidateCAPID @ 0x1404F697C (SepValidateCAPID.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
@@ -14,13 +14,13 @@ __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
   int v3; // edi
   PSID *v4; // r14
   char *v5; // rsi
-  int v6; // r13d
+  unsigned int v6; // r13d
   __int64 Pool2; // r15
   int v8; // ebx
   int v10; // ebp
-  __int64 v11; // r8
   int Cap; // eax
-  unsigned int v13; // eax
+  unsigned int v12; // eax
+  __int64 v13; // rdx
   unsigned __int16 **v14; // r8
   __int64 v15; // r9
   unsigned __int16 *v16; // rax
@@ -53,16 +53,17 @@ __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
     ++v4;
     if ( v8 )
     {
-      Cap = SepRmReferenceFindCap(Sid1, (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)&v26, v11);
+      Cap = SepRmReferenceFindCap(Sid1, (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)&v26);
       v5 = v26;
       v10 = Cap;
       if ( Cap >= 0 )
       {
-        v13 = *((_DWORD *)v26 + 15);
-        if ( v13 )
+        v12 = *((_DWORD *)v26 + 15);
+        v13 = v12;
+        if ( v12 )
         {
           v14 = (unsigned __int16 **)(v26 + 64);
-          v15 = v13;
+          v15 = v12;
           do
           {
             v16 = *v14++;
@@ -74,7 +75,7 @@ __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
           }
           while ( v15 );
         }
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, v6 + 16 * v13, 0x70536553u);
         if ( Pool2 )
         {
           v18 = 0;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpFreeAsid @ 0x14060D830
+ * XREFs of ExpFreeAsid @ 0x14060DD80
  * Callers:
- *     ExFreeSvmAsid @ 0x140366B6C (ExFreeSvmAsid.c)
- *     IommupPasidDeviceDelete @ 0x14050E7F4 (IommupPasidDeviceDelete.c)
- *     ExFreeAsid @ 0x14060D078 (ExFreeAsid.c)
- *     ExpAssignPasid @ 0x140A01750 (ExpAssignPasid.c)
+ *     ExFreeSvmAsid @ 0x140366D0C (ExFreeSvmAsid.c)
+ *     IommupPasidDeviceDelete @ 0x14050ED44 (IommupPasidDeviceDelete.c)
+ *     ExFreeAsid @ 0x14060D5C8 (ExFreeAsid.c)
+ *     ExpAssignPasid @ 0x140A019E0 (ExpAssignPasid.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
@@ -42,10 +42,10 @@ LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
   }
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
   OldIrql = v12.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v12.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

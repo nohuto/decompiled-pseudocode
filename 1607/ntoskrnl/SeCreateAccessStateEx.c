@@ -1,12 +1,12 @@
 /*
- * XREFs of SeCreateAccessStateEx @ 0x1404D339C
+ * XREFs of SeCreateAccessStateEx @ 0x1404B6E3C
  * Callers:
- *     CmpCheckKeySecurityDescriptorAccess @ 0x1401B4DB0 (CmpCheckKeySecurityDescriptorAccess.c)
- *     PspInsertProcess @ 0x14045F5C0 (PspInsertProcess.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x1401B4C94 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     PspInsertProcess @ 0x14045E490 (PspInsertProcess.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
  * Callees:
- *     SepCreateAccessStateFromSubjectContext @ 0x14000F860 (SepCreateAccessStateFromSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x14041F830 (SeCaptureSubjectContextEx.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14000F3E0 (SepCreateAccessStateFromSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x14041E6F0 (SeCaptureSubjectContextEx.c)
  */
 
 __int64 __fastcall SeCreateAccessStateEx(

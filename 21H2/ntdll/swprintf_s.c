@@ -6,7 +6,7 @@
  *     RtlStringFromGUIDEx @ 0x18006B070 (RtlStringFromGUIDEx.c)
  *     RtlIpv4AddressToStringExW @ 0x18007C230 (RtlIpv4AddressToStringExW.c)
  *     RtlIpv4AddressToStringW @ 0x18007C300 (RtlIpv4AddressToStringW.c)
- *     RtlEthernetAddressToStringW @ 0x1800FBF40 (RtlEthernetAddressToStringW.c)
+ *     RtlEthernetAddressToStringW @ 0x1800FBF00 (RtlEthernetAddressToStringW.c)
  * Callees:
  *     vswprintf_s @ 0x180098190 (vswprintf_s.c)
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiChangePagingFileMaximum @ 0x1406F88B0
+ * XREFs of MiChangePagingFileMaximum @ 0x1406FD580
  * Callers:
- *     MiAttemptChangePagingFileMaximum @ 0x1406F866C (MiAttemptChangePagingFileMaximum.c)
- *     MiTargetedPageFileReductionApc @ 0x14070D818 (MiTargetedPageFileReductionApc.c)
+ *     MiAttemptChangePagingFileMaximum @ 0x1406FD33C (MiAttemptChangePagingFileMaximum.c)
+ *     MiTargetedPageFileReductionApc @ 0x1407124C8 (MiTargetedPageFileReductionApc.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14040A44C (MiDerefPageFileSpaceBitmaps.c)
- *     RtlCopyBitMap @ 0x140492FF0 (RtlCopyBitMap.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14040353C (MiDerefPageFileSpaceBitmaps.c)
+ *     RtlCopyBitMap @ 0x14048CE30 (RtlCopyBitMap.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -60,16 +60,16 @@ void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
     v28 = v9;
     v10 = ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v11 = *(_DWORD *)(v8 + 8);
-    v12 = (((unsigned int)dword_140E35F4C * (unsigned __int64)v11) >> 12)
-        + ((((unsigned int)dword_140E35F4C * (unsigned __int64)v11) & 0xFFF) != 0);
+    v12 = (((unsigned int)dword_140E360CC * (unsigned __int64)v11) >> 12)
+        + ((((unsigned int)dword_140E360CC * (unsigned __int64)v11) & 0xFFF) != 0);
     v13 = *(_DWORD *)(a2 + 8);
     v30 = v12;
     if ( v11 >= v13 )
-      v14 = (((unsigned int)dword_140E35F4C * (unsigned __int64)v13) >> 12)
-          + ((((unsigned int)dword_140E35F4C * (unsigned __int64)v13) & 0xFFF) != 0);
+      v14 = (((unsigned int)dword_140E360CC * (unsigned __int64)v13) >> 12)
+          + ((((unsigned int)dword_140E360CC * (unsigned __int64)v13) & 0xFFF) != 0);
     else
-      v14 = (((unsigned int)dword_140E35F4C * (unsigned __int64)v11) >> 12)
-          + ((((unsigned int)dword_140E35F4C * (unsigned __int64)v11) & 0xFFF) != 0);
+      v14 = (((unsigned int)dword_140E360CC * (unsigned __int64)v11) >> 12)
+          + ((((unsigned int)dword_140E360CC * (unsigned __int64)v11) & 0xFFF) != 0);
     if ( v14 )
     {
       v15 = (_QWORD *)v10;
@@ -94,8 +94,8 @@ void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
     v30 = 0LL;
     v14 = 0LL;
   }
-  RtlCopyBitMap((unsigned int *)(v8 + 8), a2 + 8, 0);
-  RtlCopyBitMap((unsigned int *)(v8 + 24), a2 + 24, 0);
+  RtlCopyBitMap((PRTL_BITMAP)(v8 + 8), (PRTL_BITMAP)(a2 + 8), 0);
+  RtlCopyBitMap((PRTL_BITMAP)(v8 + 24), (PRTL_BITMAP)(a2 + 24), 0);
   *(_DWORD *)(a1 + 4) = *(_DWORD *)(a2 + 8);
   v18 = *(_OWORD *)(v8 + 16);
   v24[1] = *(int **)(v8 + 8);
@@ -167,6 +167,6 @@ void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
       v9 = v28;
       LODWORD(v12) = v30;
     }
-    MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, v9, v12);
+    MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, v9, v12);
   }
 }

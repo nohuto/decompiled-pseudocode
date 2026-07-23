@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMapMemoryDumpMdl @ 0x1404C370C
+ * XREFs of MiMapMemoryDumpMdl @ 0x1404BCF5C
  * Callers:
- *     MmMapMemoryDumpMdl @ 0x1404C36D0 (MmMapMemoryDumpMdl.c)
- *     MmMapMemoryDumpMdlEx2 @ 0x14051ABE4 (MmMapMemoryDumpMdlEx2.c)
- *     MmMapMemoryDumpMdlEx @ 0x1406F6C20 (MmMapMemoryDumpMdlEx.c)
+ *     MmMapMemoryDumpMdl @ 0x1404BCF20 (MmMapMemoryDumpMdl.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x140514654 (MmMapMemoryDumpMdlEx2.c)
+ *     MmMapMemoryDumpMdlEx @ 0x1406FB890 (MmMapMemoryDumpMdlEx.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiMapMemoryDumpMdl(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)
@@ -40,7 +40,7 @@ unsigned __int64 __fastcall MiMapMemoryDumpMdl(unsigned __int64 a1, __int64 a2, 
   v10 = a1 & 0xFFFFFFFFFFFFF000uLL;
   v11 = (__int64 *)(a3 + 48);
   v12 = v9;
-  MiInitializeTbFlushList((__int64)v20, (__int64)&unk_140E371C0, 20, 9, 1);
+  MiInitializeTbFlushList((__int64)v20, (__int64)&unk_140E37340, 20, 9, 1);
   do
   {
     if ( *v12 )

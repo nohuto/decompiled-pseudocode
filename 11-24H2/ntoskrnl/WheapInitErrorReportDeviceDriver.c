@@ -1,17 +1,17 @@
 /*
- * XREFs of WheapInitErrorReportDeviceDriver @ 0x14065C848
+ * XREFs of WheapInitErrorReportDeviceDriver @ 0x14065AF68
  * Callers:
- *     WheaCreateHwErrorReportDeviceDriver @ 0x14065C0E0 (WheaCreateHwErrorReportDeviceDriver.c)
+ *     WheaCreateHwErrorReportDeviceDriver @ 0x14065A800 (WheaCreateHwErrorReportDeviceDriver.c)
  * Callees:
- *     WheapGetErrorSource @ 0x14042E7A8 (WheapGetErrorSource.c)
- *     RtlStringCchCopyA @ 0x140458158 (RtlStringCchCopyA.c)
- *     WheapErrDescIsDeviceDriver @ 0x14065C6E4 (WheapErrDescIsDeviceDriver.c)
- *     WheapGetPreallocatedPacketBuffer @ 0x14065C794 (WheapGetPreallocatedPacketBuffer.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WheapGetErrorSource @ 0x1404204D8 (WheapGetErrorSource.c)
+ *     RtlStringCchCopyA @ 0x14044D468 (RtlStringCchCopyA.c)
+ *     WheapErrDescIsDeviceDriver @ 0x14065AE04 (WheapErrDescIsDeviceDriver.c)
+ *     WheapGetPreallocatedPacketBuffer @ 0x14065AEB4 (WheapGetPreallocatedPacketBuffer.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheapInitErrorReportDeviceDriver(unsigned int a1, void **a2)
@@ -75,10 +75,10 @@ LABEL_20:
     if ( KeGetCurrentIrql() < 2u )
     {
       v12 = (unsigned int)v11;
-      Pool2 = (volatile signed __int32 *)ExAllocatePool2(0x42uLL);
+      Pool2 = (volatile signed __int32 *)ExAllocatePool2(0x42uLL, (unsigned int)v11, 0x41454857u);
       if ( !Pool2 )
         goto LABEL_13;
-      v14 = ExAllocatePool2(0x42uLL);
+      v14 = ExAllocatePool2(0x42uLL, 0x68uLL, 0x41454857u);
       *a2 = (void *)v14;
       if ( !v14 )
         goto LABEL_13;

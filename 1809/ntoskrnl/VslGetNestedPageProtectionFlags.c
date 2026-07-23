@@ -1,22 +1,22 @@
 /*
- * XREFs of VslGetNestedPageProtectionFlags @ 0x14018DD50
+ * XREFs of VslGetNestedPageProtectionFlags @ 0x14018DE90
  * Callers:
- *     KiDetermineRetpolineEnablement @ 0x1401930DC (KiDetermineRetpolineEnablement.c)
- *     HvlGetEnlightenmentInfo @ 0x140273D80 (HvlGetEnlightenmentInfo.c)
- *     HvlpDetermineEnlightenments @ 0x140278CB4 (HvlpDetermineEnlightenments.c)
- *     RtlGuardCheckLongJumpTarget @ 0x1402F6718 (RtlGuardCheckLongJumpTarget.c)
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     PsLocateSystemDlls @ 0x1407560B8 (PsLocateSystemDlls.c)
- *     ExpIsKernelCfgActive @ 0x1408CBA80 (ExpIsKernelCfgActive.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
- *     MmInitSystem @ 0x1409BC4E4 (MmInitSystem.c)
- *     KiIsKernelCfgActive @ 0x1409D5B94 (KiIsKernelCfgActive.c)
- *     KiAreCodePatchesAllowed @ 0x1409D5BB0 (KiAreCodePatchesAllowed.c)
+ *     KiDetermineRetpolineEnablement @ 0x14019321C (KiDetermineRetpolineEnablement.c)
+ *     HvlGetEnlightenmentInfo @ 0x140273F70 (HvlGetEnlightenmentInfo.c)
+ *     HvlpDetermineEnlightenments @ 0x140278EA4 (HvlpDetermineEnlightenments.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1402F6908 (RtlGuardCheckLongJumpTarget.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     PsLocateSystemDlls @ 0x1407572A8 (PsLocateSystemDlls.c)
+ *     ExpIsKernelCfgActive @ 0x1408CCD40 (ExpIsKernelCfgActive.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
+ *     MmInitSystem @ 0x1409BD4E4 (MmInitSystem.c)
+ *     KiIsKernelCfgActive @ 0x1409D6B94 (KiIsKernelCfgActive.c)
+ *     KiAreCodePatchesAllowed @ 0x1409D6BB0 (KiAreCodePatchesAllowed.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x14012A014 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14012A0E4 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 VslGetNestedPageProtectionFlags()

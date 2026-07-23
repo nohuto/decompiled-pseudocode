@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_OfflineDumpRedaction__private_IsEnabledDeviceUsageNoInline @ 0x1405BFD34
+ * XREFs of Feature_OfflineDumpRedaction__private_IsEnabledDeviceUsageNoInline @ 0x1405C25A4
  * Callers:
- *     HvlpInitializeHvCrashdump @ 0x1405C0B08 (HvlpInitializeHvCrashdump.c)
+ *     HvlpInitializeHvCrashdump @ 0x1405C3378 (HvlpInitializeHvCrashdump.c)
  * Callees:
- *     Feature_OfflineDumpRedaction__private_IsEnabledFallback @ 0x1405BFD70 (Feature_OfflineDumpRedaction__private_IsEnabledFallback.c)
+ *     Feature_OfflineDumpRedaction__private_IsEnabledFallback @ 0x1405C25E0 (Feature_OfflineDumpRedaction__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_OfflineDumpRedaction__private_IsEnabledDeviceUsageNoInline()

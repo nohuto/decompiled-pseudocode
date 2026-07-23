@@ -1,18 +1,18 @@
 /*
- * XREFs of KiCopyXStateArea @ 0x140519F90
+ * XREFs of KiCopyXStateArea @ 0x14051A1D0
  * Callers:
- *     KeContextFromKframes @ 0x140273B00 (KeContextFromKframes.c)
- *     KxContextToKframes @ 0x140279000 (KxContextToKframes.c)
- *     PspGetContext @ 0x140649FC4 (PspGetContext.c)
- *     PspSetContext @ 0x14064A390 (PspSetContext.c)
- *     KeCopyContextFromUch @ 0x1408BE180 (KeCopyContextFromUch.c)
- *     KeCopyContextFromUmsContext @ 0x1408BE43C (KeCopyContextFromUmsContext.c)
- *     KeCopyContextToUch @ 0x1408BE5F0 (KeCopyContextToUch.c)
- *     KeCopyContextToUmsContext @ 0x1408BE85C (KeCopyContextToUmsContext.c)
- *     KiCopyUchToStagingArea @ 0x1408BEED8 (KiCopyUchToStagingArea.c)
- *     KiRestoreUchFromUmsContext @ 0x1408BF028 (KiRestoreUchFromUmsContext.c)
+ *     KeContextFromKframes @ 0x140261AA0 (KeContextFromKframes.c)
+ *     KxContextToKframes @ 0x140266FA0 (KxContextToKframes.c)
+ *     PspGetContext @ 0x14063EDE4 (PspGetContext.c)
+ *     PspSetContext @ 0x14063F1B0 (PspSetContext.c)
+ *     KeCopyContextFromUch @ 0x1408BE2E0 (KeCopyContextFromUch.c)
+ *     KeCopyContextFromUmsContext @ 0x1408BE59C (KeCopyContextFromUmsContext.c)
+ *     KeCopyContextToUch @ 0x1408BE750 (KeCopyContextToUch.c)
+ *     KeCopyContextToUmsContext @ 0x1408BE9BC (KeCopyContextToUmsContext.c)
+ *     KiCopyUchToStagingArea @ 0x1408BF038 (KiCopyUchToStagingArea.c)
+ *     KiRestoreUchFromUmsContext @ 0x1408BF188 (KiRestoreUchFromUmsContext.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 void __fastcall KiCopyXStateArea(__int64 a1, __int64 a2, __int64 a3)

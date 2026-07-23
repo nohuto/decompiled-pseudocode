@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetProcessorInformation @ 0x1405F4958
+ * XREFs of KiGetProcessorInformation @ 0x1405F7318
  * Callers:
- *     KiIntersectFeaturesWithPolicy @ 0x140BF4930 (KiIntersectFeaturesWithPolicy.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x140BFA930 (KiIntersectFeaturesWithPolicy.c)
  * Callees:
  *     <none>
  */

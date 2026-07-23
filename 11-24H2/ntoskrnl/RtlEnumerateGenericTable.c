@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlEnumerateGenericTable @ 0x1402483A0
+ * XREFs of RtlEnumerateGenericTable @ 0x1402E25E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRealSuccessor @ 0x140248410 (RtlRealSuccessor.c)
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x1402E2650 (RtlRealSuccessor.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTable(PRTL_GENERIC_TABLE Table, BOOLEAN Restart)
 {
   PRTL_SPLAY_LINKS TableRoot; // rbx
   PRTL_SPLAY_LINKS v4; // rax
-  RTL_SPLAY_LINKS *v5; // rcx
+  _RTL_SPLAY_LINKS *v5; // rcx
   _RTL_SPLAY_LINKS *i; // rax
 
   TableRoot = Table->TableRoot;

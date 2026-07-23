@@ -11,9 +11,9 @@
  *     RtlpHpVsSlotAddSubsegment @ 0x18011CBEC (RtlpHpVsSlotAddSubsegment.c)
  */
 
-_DWORD *__fastcall RtlpHpVsSlotAllocate(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, __int64 a5)
+_DWORD *__fastcall RtlpHpVsSlotAllocate(__int64 a1, _RTL_SRWLOCK *a2, unsigned int a3, unsigned int a4, __int64 a5)
 {
-  __int64 v5; // rdi
+  unsigned __int64 v5; // rdi
   unsigned int v6; // r11d
   __int64 v10; // rbx
   unsigned __int64 v11; // rcx
@@ -35,7 +35,7 @@ _DWORD *__fastcall RtlpHpVsSlotAllocate(__int64 a1, __int64 a2, unsigned int a3,
   unsigned __int64 v27; // rdx
   unsigned __int64 v28; // r8
 
-  v5 = a2 + 16;
+  v5 = (unsigned __int64)&a2[2];
   v6 = a4;
   v10 = 0LL;
   while ( 2 )
@@ -91,12 +91,12 @@ LABEL_33:
               {
                 if ( (*(_BYTE *)(a1 + 4) & 1) != 0 && ((unsigned __int64)(v16 + 8) & 0xFFF) != 0 )
                   --a3;
-                if ( (unsigned int)RtlpHpVsChunkSplit(a1, a2, v28, (unsigned __int64)(v12 - 2), a3, a5) )
+                if ( (unsigned int)RtlpHpVsChunkSplit(a1, (__int64)a2, v28, (unsigned __int64)(v12 - 2), a3, a5) )
                   return v16;
               }
               if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
               {
-                RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(a5 + 8));
+                RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a5 + 8));
                 *(_QWORD *)(a5 + 8) = 0LL;
               }
               return (_DWORD *)v10;
@@ -127,7 +127,7 @@ LABEL_33:
       goto LABEL_24;
     if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(a5 + 8));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a5 + 8));
       *(_QWORD *)(a5 + 8) = 0LL;
     }
     v15 = RtlpHpVsSubsegmentCreate(a1, a3);
@@ -135,8 +135,8 @@ LABEL_33:
     {
       if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
       {
-        *(_QWORD *)(a5 + 8) = a2 + 8;
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 8));
+        *(_QWORD *)(a5 + 8) = a2 + 1;
+        RtlAcquireSRWLockExclusive(a2 + 1);
       }
       RtlpHpVsSlotAddSubsegment(a1, a2, v15);
       v6 = a4;

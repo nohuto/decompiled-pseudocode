@@ -1,12 +1,12 @@
 /*
  * XREFs of IoGetInitialStack @ 0x140936440
  * Callers:
- *     DifIoGetInitialStackWrapper @ 0x14060F7E0 (DifIoGetInitialStackWrapper.c)
+ *     sub_14060F7E0 @ 0x14060F7E0 (sub_14060F7E0.c)
  * Callees:
  *     <none>
  */
 
 PVOID IoGetInitialStack(void)
 {
-  return KeGetCurrentThread()->InitialStack;
+  return (PVOID)*((_QWORD *)KeGetCurrentThread() + 5);
 }

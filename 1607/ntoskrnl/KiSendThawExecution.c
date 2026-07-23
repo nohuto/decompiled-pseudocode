@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSendThawExecution @ 0x14008313C
+ * XREFs of KiSendThawExecution @ 0x140083DBC
  * Callers:
- *     KeThawExecution @ 0x1400825DC (KeThawExecution.c)
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
+ *     KeThawExecution @ 0x140083258 (KeThawExecution.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
  * Callees:
- *     KiSetDebuggerOwner @ 0x1400832A0 (KiSetDebuggerOwner.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiSetDebuggerOwner @ 0x140083F20 (KiSetDebuggerOwner.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall KiSendThawExecution(char a1)

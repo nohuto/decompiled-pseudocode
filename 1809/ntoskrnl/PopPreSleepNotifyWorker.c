@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPreSleepNotifyWorker @ 0x140877780
+ * XREFs of PopPreSleepNotifyWorker @ 0x1408789E0
  * Callers:
  *     <none>
  * Callees:
- *     PopOkayToQueueNextWorkItem @ 0x14013BA40 (PopOkayToQueueNextWorkItem.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14013BB40 (PopOkayToQueueNextWorkItem.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
  */
 
 __int64 PopPreSleepNotifyWorker()
 {
   ++PopPreSleepWnfPayload;
-  ZwUpdateWnfStateData((__int64)&WNF_PO_PRESLEEP_NOTIFICATION, (__int64)&PopPreSleepWnfPayload, 8LL);
+  ZwUpdateWnfStateData(&WNF_PO_PRESLEEP_NOTIFICATION, &PopPreSleepWnfPayload, 8u, 0LL, 0LL, 0, 0);
   return PopOkayToQueueNextWorkItem((__int64)&PopPreSleepNotifyWorkItem);
 }

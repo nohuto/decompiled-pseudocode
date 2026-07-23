@@ -7,36 +7,36 @@
  *     <none>
  */
 
-int __stdcall RtlNumberOfSetBits(_DWORD *a1)
+ULONG __cdecl RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
 {
-  int v1; // ebx
+  unsigned int v1; // ebx
   unsigned int v2; // esi
   unsigned int v3; // ecx
   unsigned int v4; // edx
-  int v5; // edi
+  ULONG v5; // edi
   int v6; // esi
   unsigned int v7; // ecx
   int v8; // ebx
-  char *v9; // esi
+  unsigned int *v9; // esi
   char v10; // al
-  int *v11; // esi
+  unsigned int *v11; // esi
   int v12; // ebx
   char *v13; // eax
   char v14; // cl
   int v16; // [esp+Ch] [ebp-18h]
-  int v17; // [esp+10h] [ebp-14h]
+  unsigned int v17; // [esp+10h] [ebp-14h]
   unsigned int v18; // [esp+14h] [ebp-10h]
   unsigned int v19; // [esp+18h] [ebp-Ch]
   unsigned int v20; // [esp+18h] [ebp-Ch]
   int v21; // [esp+1Ch] [ebp-8h]
-  int *v22; // [esp+20h] [ebp-4h]
+  unsigned int *Buffer; // [esp+20h] [ebp-4h]
 
-  v1 = *a1 & 7;
-  v2 = *a1 >> 3;
-  v22 = (int *)a1[1];
+  v1 = BitMapHeader->SizeOfBitMap & 7;
+  v2 = BitMapHeader->SizeOfBitMap >> 3;
+  Buffer = BitMapHeader->Buffer;
   v17 = v1;
   v3 = v2 + (v1 != 0);
-  v4 = 4 - ((unsigned __int8)v22 & 3);
+  v4 = 4 - ((unsigned __int8)Buffer & 3);
   v5 = 0;
   v18 = v3;
   if ( v4 > v2 )
@@ -59,10 +59,11 @@ int __stdcall RtlNumberOfSetBits(_DWORD *a1)
   v8 = 0;
   if ( v4 )
   {
-    v9 = (char *)a1[1];
+    v9 = BitMapHeader->Buffer;
     do
     {
-      v10 = *v9++;
+      v10 = *(_BYTE *)v9;
+      v9 = (unsigned int *)((char *)v9 + 1);
       if ( v8 == v18 - 1 && v17 )
         v10 &= byte_4B288988[v17];
       ++v8;
@@ -71,12 +72,12 @@ int __stdcall RtlNumberOfSetBits(_DWORD *a1)
     }
     while ( v4 );
     v7 = v19;
-    v22 = (int *)v9;
+    Buffer = v9;
     v6 = v21;
   }
   if ( v7 )
   {
-    v11 = v22;
+    v11 = Buffer;
     v20 = ((v7 - 1) >> 2) + 1;
     v16 = v8 + 4 * v20;
     do
@@ -90,12 +91,12 @@ int __stdcall RtlNumberOfSetBits(_DWORD *a1)
     }
     while ( v20 );
     v8 = v16;
-    v22 = v11;
+    Buffer = v11;
     v6 = v21;
   }
   if ( v6 )
   {
-    v13 = (char *)v22;
+    v13 = (char *)Buffer;
     do
     {
       v14 = *v13++;

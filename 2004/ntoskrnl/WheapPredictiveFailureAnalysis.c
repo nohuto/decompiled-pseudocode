@@ -69,7 +69,7 @@ LABEL_13:
       }
       else
       {
-        v10 = KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0LL);
+        v10 = KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0);
         v14 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
         v15 = v10;
         if ( v14 )

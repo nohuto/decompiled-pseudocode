@@ -1,12 +1,16 @@
 /*
- * XREFs of NtOpenKeyEx @ 0x140415470
+ * XREFs of NtOpenKeyEx @ 0x140414330
  * Callers:
  *     <none>
  * Callees:
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
  */
 
-__int64 __fastcall NtOpenKeyEx(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl NtOpenKeyEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions)
 {
-  return CmOpenKey(a1, a2, a3, a4, 0LL);
+  return CmOpenKey((_DWORD)KeyHandle, DesiredAccess, (_DWORD)ObjectAttributes, OpenOptions, 0LL);
 }

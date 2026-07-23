@@ -1,12 +1,12 @@
 /*
- * XREFs of PopClearShutdownMarker @ 0x14077C918
+ * XREFs of PopClearShutdownMarker @ 0x14077F40C
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140C04AB0 (PopUnlockAfterSleepWorker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140C0ACC0 (PopUnlockAfterSleepWorker.c)
  * Callees:
  *     <none>
  */
 
 void PopClearShutdownMarker()
 {
-  *(_DWORD *)&stru_140E66FF0.SavedApcStateFill[16] = 0;
+  HIDWORD(stru_140E67200.OtherOperationCount) = 0;
 }

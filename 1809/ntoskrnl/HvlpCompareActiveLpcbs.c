@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlpCompareActiveLpcbs @ 0x1401B3D20
+ * XREFs of HvlpCompareActiveLpcbs @ 0x1401B3BC0
  * Callers:
  *     <none>
  * Callees:

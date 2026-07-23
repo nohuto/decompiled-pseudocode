@@ -20,96 +20,106 @@
  *     _RtlpDestroyExecutionRequiredRequest@4 @ 0x4B36FCC4 (_RtlpDestroyExecutionRequiredRequest@4.c)
  */
 
-int __fastcall RtlpHeapPerformCrossProcessQuery(int a1, int *a2)
+NTSTATUS __fastcall RtlpHeapPerformCrossProcessQuery(HANDLE ProcessHandle, HANDLE *a2)
 {
-  int v2; // edi
+  HANDLE v2; // edi
   HANDLE v3; // ebx
   int v4; // ecx
-  int VirtualMemory; // esi
-  int *v6; // eax
+  NTSTATUS VirtualMemory; // esi
+  PHANDLE v6; // eax
   HANDLE v7; // edi
-  int v9; // eax
-  void *v10; // [esp+Ch] [ebp-24h] BYREF
-  HANDLE Handle; // [esp+10h] [ebp-20h] BYREF
-  int v12; // [esp+14h] [ebp-1Ch]
-  int *v13; // [esp+18h] [ebp-18h]
-  HANDLE v14; // [esp+1Ch] [ebp-14h] BYREF
-  int v15; // [esp+20h] [ebp-10h] BYREF
-  int v16; // [esp+24h] [ebp-Ch] BYREF
-  int v17; // [esp+28h] [ebp-8h] BYREF
+  int ExecutionRequiredRequest; // eax
+  ULONG_PTR v10; // [esp-10h] [ebp-40h]
+  SIZE_T v11; // [esp-8h] [ebp-38h]
+  SIZE_T v12; // [esp-8h] [ebp-38h]
+  ULONG v13; // [esp+0h] [ebp-30h]
+  ULONG_PTR *v14; // [esp+0h] [ebp-30h]
+  ULONG_PTR *v15; // [esp+0h] [ebp-30h]
+  PVOID BaseAddress; // [esp+Ch] [ebp-24h] BYREF
+  HANDLE ThreadHandle; // [esp+10h] [ebp-20h] BYREF
+  HANDLE ProcessHandlea; // [esp+14h] [ebp-1Ch]
+  PHANDLE TargetHandle; // [esp+18h] [ebp-18h]
+  HANDLE Handle; // [esp+1Ch] [ebp-14h]
+  int v21; // [esp+20h] [ebp-10h] BYREF
+  ULONG_PTR RegionSize; // [esp+24h] [ebp-Ch] BYREF
 
-  v2 = a1;
-  v13 = a2;
-  v12 = a1;
-  v10 = 0;
-  Handle = 0;
+  v2 = ProcessHandle;
+  TargetHandle = a2;
+  ProcessHandlea = ProcessHandle;
+  BaseAddress = 0;
+  HIDWORD(v10) = &RegionSize;
+  LODWORD(v10) = 0;
+  ThreadHandle = 0;
   v3 = 0;
-  v16 = 72;
-  v14 = 0;
-  VirtualMemory = NtAllocateVirtualMemory(a1, (int)&v10, 0, (int)&v16, 12288, 4);
+  LODWORD(RegionSize) = 72;
+  Handle = 0;
+  VirtualMemory = NtAllocateVirtualMemory(ProcessHandle, &BaseAddress, v10, (PSIZE_T)0x3000, 4u, v13);
   if ( VirtualMemory >= 0 )
   {
     VirtualMemory = RtlpCreateUserThreadEx(
                       v2,
                       0,
                       3,
-                      0,
-                      0,
+                      0LL,
                       0,
                       v4,
-                      (int)RtlpExtendedHeapInformationWorkerThread,
-                      v10,
-                      &Handle,
-                      &v17);
+                      (NTSTATUS (__cdecl *)(PVOID))RtlpExtendedHeapInformationWorkerThread,
+                      BaseAddress,
+                      &ThreadHandle,
+                      (_DWORD *)&RegionSize + 1);
     if ( VirtualMemory >= 0 )
     {
-      v6 = v13;
-      if ( *v13 )
+      v6 = TargetHandle;
+      if ( *TargetHandle )
       {
-        VirtualMemory = ZwDuplicateObject(-1, *v13, v2, (int)v13, 983071, 0, 0);
+        VirtualMemory = ZwDuplicateObject((HANDLE)0xFFFFFFFF, *TargetHandle, v2, TargetHandle, 0xF001Fu, 0, 0);
         if ( VirtualMemory < 0 )
           goto LABEL_9;
-        v6 = v13;
+        v6 = TargetHandle;
       }
-      VirtualMemory = NtWriteVirtualMemory(v2, (int)v10, (int)v6, 72, (int)&v15);
+      HIDWORD(v11) = &v21;
+      LODWORD(v11) = 72;
+      VirtualMemory = NtWriteVirtualMemory(v2, BaseAddress, v6, v11, v14);
       if ( VirtualMemory >= 0 )
       {
-        if ( v15 == 72 )
+        if ( v21 == 72 )
         {
-          v9 = RtlpCreateExecutionRequiredRequest(v2, &v14);
-          v7 = Handle;
-          VirtualMemory = v9;
-          if ( v9 < 0 || (VirtualMemory = ZwResumeThread((int)Handle, 0), VirtualMemory < 0) )
+          ExecutionRequiredRequest = RtlpCreateExecutionRequiredRequest(v2);
+          v7 = ThreadHandle;
+          VirtualMemory = ExecutionRequiredRequest;
+          if ( ExecutionRequiredRequest < 0 || (VirtualMemory = ZwResumeThread(ThreadHandle, 0), VirtualMemory < 0) )
           {
-            v3 = v14;
+            v3 = Handle;
           }
           else
           {
-            ZwWaitForSingleObject((int)v7, 0, 0);
-            v3 = v14;
-            if ( v14 )
+            ZwWaitForSingleObject(v7, 0, 0);
+            v3 = Handle;
+            if ( Handle )
             {
-              RtlpDestroyExecutionRequiredRequest(v14);
+              RtlpDestroyExecutionRequiredRequest(Handle);
               v3 = 0;
             }
             NtClose(v7);
             v7 = 0;
-            VirtualMemory = NtReadVirtualMemory(v12, (int)v10, (int)v13, 72, (int)&v15);
+            HIDWORD(v12) = &v21;
+            LODWORD(v12) = 72;
+            VirtualMemory = NtReadVirtualMemory(ProcessHandlea, BaseAddress, TargetHandle, v12, v15);
             if ( VirtualMemory < 0 )
               goto LABEL_12;
-            if ( v15 != 72 )
+            if ( v21 != 72 )
             {
               VirtualMemory = -2147483635;
 LABEL_12:
-              v2 = v12;
+              v2 = ProcessHandlea;
               goto LABEL_13;
             }
-            VirtualMemory = v13[6];
+            VirtualMemory = (NTSTATUS)TargetHandle[6];
           }
 LABEL_10:
           if ( v7 )
           {
-            ZwTerminateThread((int)v7, 0);
+            ZwTerminateThread(v7, 0);
             NtClose(v7);
           }
           goto LABEL_12;
@@ -118,12 +128,12 @@ LABEL_10:
       }
     }
 LABEL_9:
-    v7 = Handle;
+    v7 = ThreadHandle;
     goto LABEL_10;
   }
 LABEL_13:
-  if ( v10 )
-    NtFreeVirtualMemory(v2, (int)&v10, (int)&v16, 0x8000);
+  if ( BaseAddress )
+    NtFreeVirtualMemory(v2, &BaseAddress, &RegionSize, 0x8000u);
   if ( v3 )
     RtlpDestroyExecutionRequiredRequest(v3);
   return VirtualMemory;

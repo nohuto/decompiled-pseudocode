@@ -9,31 +9,31 @@
  *     _LdrpDereferenceModule@4 @ 0x4B2CD3B1 (_LdrpDereferenceModule@4.c)
  */
 
-int __stdcall LdrQueryModuleServiceTags(unsigned int a1, int a2, unsigned int *a3)
+NTSTATUS __cdecl LdrQueryModuleServiceTags(PVOID DllHandle, PULONG ServiceTagBuffer, PULONG BufferSize)
 {
-  int result; // eax
-  unsigned int v4; // esi
-  unsigned int v5; // edi
+  NTSTATUS result; // eax
+  ULONG v4; // esi
+  ULONG v5; // edi
   _DWORD *i; // ecx
-  int v7; // ecx
+  char *v7; // ecx
   int v8; // [esp+0h] [ebp-8h] BYREF
-  int v9; // [esp+4h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+4h] [ebp-4h] BYREF
 
-  result = LdrpFindLoadedDllByHandle(a1, &v9, &v8);
+  result = LdrpFindLoadedDllByHandle((_RTL_BALANCED_NODE *)DllHandle, (volatile signed __int32 **)&BaseAddress, &v8);
   if ( result >= 0 )
   {
     RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
     v4 = 0;
-    v5 = *a3;
-    for ( i = *(_DWORD **)(*(_DWORD *)(v9 + 80) + 8); i; ++v4 )
+    v5 = *BufferSize;
+    for ( i = *(_DWORD **)(*((_DWORD *)BaseAddress + 20) + 8); i; ++v4 )
     {
       if ( v4 < v5 )
-        *(_DWORD *)(a2 + 4 * v4) = i[1];
+        ServiceTagBuffer[v4] = i[1];
       i = (_DWORD *)*i;
     }
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-    v7 = v9;
-    *a3 = v4;
+    v7 = (char *)BaseAddress;
+    *BufferSize = v4;
     LdrpDereferenceModule(v7);
     return v5 < v4 ? 0xC0000023 : 0;
   }

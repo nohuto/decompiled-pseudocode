@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetRecoveryInformation @ 0x1405250E0
+ * XREFs of KiGetRecoveryInformation @ 0x140525320
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x140524D84 (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x140524FC4 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
  */
 
 struct _KPRCB *__fastcall KiGetRecoveryInformation(__int64 a1)

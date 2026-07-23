@@ -1,15 +1,15 @@
 /*
- * XREFs of NtThawRegistry @ 0x1401B3194
+ * XREFs of NtThawRegistry @ 0x1401B3078
  * Callers:
  *     <none>
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 NtThawRegistry()
+NTSTATUS NtThawRegistry(void)
 {
   if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
     return CmThawRegistry();
   else
-    return 3221225569LL;
+    return -1073741727;
 }

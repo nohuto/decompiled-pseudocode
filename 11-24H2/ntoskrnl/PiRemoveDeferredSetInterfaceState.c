@@ -1,10 +1,10 @@
 /*
- * XREFs of PiRemoveDeferredSetInterfaceState @ 0x140A957EC
+ * XREFs of PiRemoveDeferredSetInterfaceState @ 0x140A9201C
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1408B42D4 (IopProcessSetInterfaceState.c)
+ *     IopProcessSetInterfaceState @ 0x1408B1BC4 (IopProcessSetInterfaceState.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiRemoveDeferredSetInterfaceState(UNICODE_STRING *a1, const UNICODE_STRING *a2)

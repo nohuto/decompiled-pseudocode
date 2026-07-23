@@ -9,18 +9,18 @@
  *     RtlpInterlockedPushEntrySList @ 0x1403FDDA0 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall ViGrowPoolAllocation(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall ViGrowPoolAllocation(_SLIST_HEADER *a1)
 {
-  struct _SLIST_ENTRY *PoolWithTagPriority; // rax
-  union _SLIST_HEADER *v3; // rdi
-  struct _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *PoolWithTagPriority; // rax
+  _SLIST_HEADER *v3; // rdi
+  _SLIST_ENTRY *v4; // rbx
   __int64 v6; // rsi
 
-  PoolWithTagPriority = (struct _SLIST_ENTRY *)ExAllocatePoolWithTagPriority(
-                                                 (POOL_TYPE)640,
-                                                 0x1000uLL,
-                                                 0x70706556u,
-                                                 HighPoolPriority);
+  PoolWithTagPriority = (_SLIST_ENTRY *)ExAllocatePoolWithTagPriority(
+                                          (POOL_TYPE)640,
+                                          0x1000uLL,
+                                          0x70706556u,
+                                          HighPoolPriority);
   v3 = a1 + 5;
   v4 = PoolWithTagPriority;
   if ( !PoolWithTagPriority )

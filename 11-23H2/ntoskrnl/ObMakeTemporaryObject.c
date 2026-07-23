@@ -1,22 +1,22 @@
 /*
- * XREFs of ObMakeTemporaryObject @ 0x1407E0C90
+ * XREFs of ObMakeTemporaryObject @ 0x1407E0F60
  * Callers:
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     IopCompleteUnloadOrDelete @ 0x140305300 (IopCompleteUnloadOrDelete.c)
- *     IopLoadDriver @ 0x1407945D8 (IopLoadDriver.c)
- *     NtMakeTemporaryObject @ 0x1407E0C10 (NtMakeTemporaryObject.c)
- *     IoCreateDriver @ 0x140810200 (IoCreateDriver.c)
- *     IopUnloadDriver @ 0x140857938 (IopUnloadDriver.c)
- *     IoDeleteDriver @ 0x140947320 (IoDeleteDriver.c)
- *     ObShutdownSystem @ 0x14097AE00 (ObShutdownSystem.c)
- *     ObpDirectoryTeardownCallback @ 0x140A73F90 (ObpDirectoryTeardownCallback.c)
- *     IovpUnloadDriver @ 0x140AC1EB8 (IovpUnloadDriver.c)
+ *     IoDeleteDevice @ 0x1403050A0 (IoDeleteDevice.c)
+ *     IopCompleteUnloadOrDelete @ 0x140305590 (IopCompleteUnloadOrDelete.c)
+ *     IopLoadDriver @ 0x1407947C8 (IopLoadDriver.c)
+ *     NtMakeTemporaryObject @ 0x1407E0EE0 (NtMakeTemporaryObject.c)
+ *     IoCreateDriver @ 0x1408104D0 (IoCreateDriver.c)
+ *     IopUnloadDriver @ 0x140857B78 (IopUnloadDriver.c)
+ *     IoDeleteDriver @ 0x140947520 (IoDeleteDriver.c)
+ *     ObShutdownSystem @ 0x14097B000 (ObShutdownSystem.c)
+ *     ObpDirectoryTeardownCallback @ 0x140A74240 (ObpDirectoryTeardownCallback.c)
+ *     IovpUnloadDriver @ 0x140AC1EA8 (IovpUnloadDriver.c)
  *     IopInitializeBuiltinDriver @ 0x140B3DB64 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObpDeleteNameCheck @ 0x140740140 (ObpDeleteNameCheck.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObpDeleteNameCheck @ 0x140740330 (ObpDeleteNameCheck.c)
  */
 
 void __stdcall ObMakeTemporaryObject(PVOID Object)

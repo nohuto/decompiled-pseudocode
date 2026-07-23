@@ -1,10 +1,10 @@
 /*
- * XREFs of x64toa_s @ 0x1403DE4EC
+ * XREFs of x64toa_s @ 0x1403DE6CC
  * Callers:
- *     _i64toa_s @ 0x1403DE450 (_i64toa_s.c)
- *     _ui64toa_s @ 0x1403DE4B0 (_ui64toa_s.c)
+ *     _i64toa_s @ 0x1403DE630 (_i64toa_s.c)
+ *     _ui64toa_s @ 0x1403DE690 (_ui64toa_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
  */
 
 __int64 __fastcall x64toa_s(unsigned __int64 a1, char *a2, unsigned __int64 a3, unsigned int a4, int a5)

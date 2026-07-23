@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlSendSyntheticClusterIpi @ 0x140390430
+ * XREFs of HvlSendSyntheticClusterIpi @ 0x140390580
  * Callers:
  *     <none>
  * Callees:
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x14039048C (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x1404F769C (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1404F791C (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x1403905DC (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1404F761C (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1404F789C (HvlpSlowSendSyntheticClusterIpiEx.c)
  */
 
 __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

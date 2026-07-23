@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHeapFindListLookupEntry @ 0x1405F35F8
+ * XREFs of RtlpHeapFindListLookupEntry @ 0x1405F0C38
  * Callers:
- *     RtlpFindEntry @ 0x1405F3434 (RtlpFindEntry.c)
- *     RtlpFindUCREntry @ 0x1405F34A8 (RtlpFindUCREntry.c)
+ *     RtlpFindEntry @ 0x1405F0A74 (RtlpFindEntry.c)
+ *     RtlpFindUCREntry @ 0x1405F0AE8 (RtlpFindUCREntry.c)
  * Callees:
- *     RtlpHeapListCompare @ 0x1405F3794 (RtlpHeapListCompare.c)
+ *     RtlpHeapListCompare @ 0x1405F0DD4 (RtlpHeapListCompare.c)
  */
 
 _QWORD *__fastcall RtlpHeapFindListLookupEntry(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)

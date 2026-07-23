@@ -1,10 +1,10 @@
 /*
- * XREFs of AslpFileVerStringBlockGetValue @ 0x14088F2B8
+ * XREFs of AslpFileVerStringBlockGetValue @ 0x1408956B4
  * Callers:
- *     AslpFileQueryVersionString @ 0x1409E3618 (AslpFileQueryVersionString.c)
+ *     AslpFileQueryVersionString @ 0x140B46780 (AslpFileQueryVersionString.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14047EE24 (RtlStringCbLengthW.c)
- *     AslpFileVerBlockGetValueOffset @ 0x1404E69FC (AslpFileVerBlockGetValueOffset.c)
+ *     RtlStringCbLengthW @ 0x140478794 (RtlStringCbLengthW.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1404DFE9C (AslpFileVerBlockGetValueOffset.c)
  */
 
 __int64 __fastcall AslpFileVerStringBlockGetValue(const wchar_t **a1, size_t *a2, __int64 a3, unsigned __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInitCallbacks @ 0x1407D19C0
+ * XREFs of CmpInitCallbacks @ 0x1407D1EB0
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     CmInitializeProcessorCallbacks @ 0x1407D145C (CmInitializeProcessorCallbacks.c)
- *     ExInitializeSystemLookasideList @ 0x140B6E3BC (ExInitializeSystemLookasideList.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     CmInitializeProcessorCallbacks @ 0x1407D194C (CmInitializeProcessorCallbacks.c)
+ *     ExInitializeSystemLookasideList @ 0x140B6FF6C (ExInitializeSystemLookasideList.c)
  */
 
 __int64 CmpInitCallbacks()
@@ -16,7 +16,7 @@ __int64 CmpInitCallbacks()
 
   v0 = 0;
   CmpCallBackCount = 0;
-  qword_140EF7798 = (__int64)&CallbackListHead;
+  qword_140EF7A08 = (__int64)&CallbackListHead;
   CallbackListHead = (__int64)&CallbackListHead;
   CmpCallbackListLock = 0LL;
   CmpContextListLock = 0LL;

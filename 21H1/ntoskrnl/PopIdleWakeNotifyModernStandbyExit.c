@@ -34,7 +34,7 @@ void PopIdleWakeNotifyModernStandbyExit()
   unsigned int i; // edi
   __int16 v12; // [rsp+38h] [rbp-D0h] BYREF
   __int16 v13; // [rsp+3Ch] [rbp-CCh] BYREF
-  LARGE_INTEGER v14; // [rsp+40h] [rbp-C8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp-C8h] BYREF
   __int64 v15; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v16; // [rsp+50h] [rbp-B8h] BYREF
   PVOID v17[84]; // [rsp+58h] [rbp-B0h] BYREF
@@ -60,7 +60,7 @@ void PopIdleWakeNotifyModernStandbyExit()
   _BYTE v37[48]; // [rsp+378h] [rbp+270h] BYREF
 
   v0 = PopWnfCsEnterScenarioId;
-  v14.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   memset(v17, 0, sizeof(v17));
   v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v2 = (char *)PopIdleWakeContext;
@@ -87,7 +87,7 @@ void PopIdleWakeNotifyModernStandbyExit()
   __writecr8(v3);
   if ( v2 )
   {
-    RtlGetInterruptTimePrecise(&v14);
+    RtlGetInterruptTimePrecise(&PerformanceCounter);
     PopIdleWakeStopActiveIntervalAccounting(v2);
     PopIdleWakeConvertIntervalBucketsTo(6LL, v2 + 232, v37, 1000LL);
     if ( (unsigned int)dword_140C021E8 > 5 && tlgKeywordOn((__int64)&dword_140C021E8, 0x400000000000LL) )

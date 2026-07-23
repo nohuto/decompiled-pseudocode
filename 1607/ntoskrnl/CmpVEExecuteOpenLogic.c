@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpVEExecuteOpenLogic @ 0x1404402B0
+ * XREFs of CmpVEExecuteOpenLogic @ 0x14043F180
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     CmpUnblockHiveWrites @ 0x1403E13D8 (CmpUnblockHiveWrites.c)
  *     CmpBlockHiveWrites @ 0x1403E141C (CmpBlockHiveWrites.c)
- *     CmpIsKeyDeleted @ 0x140405030 (CmpIsKeyDeleted.c)
- *     CmpIsSystemEntity @ 0x14040F144 (CmpIsSystemEntity.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmVirtualKCBToRealPath @ 0x14060035C (CmVirtualKCBToRealPath.c)
- *     CmpFindPathByNameEx @ 0x140601014 (CmpFindPathByNameEx.c)
- *     CmpUpgradeKcbLockToExclusive @ 0x140603E84 (CmpUpgradeKcbLockToExclusive.c)
+ *     CmpIsKeyDeleted @ 0x140403EF0 (CmpIsKeyDeleted.c)
+ *     CmpIsSystemEntity @ 0x14040E004 (CmpIsSystemEntity.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmVirtualKCBToRealPath @ 0x140600410 (CmVirtualKCBToRealPath.c)
+ *     CmpFindPathByNameEx @ 0x1406010C8 (CmpFindPathByNameEx.c)
+ *     CmpUpgradeKcbLockToExclusive @ 0x140603F38 (CmpUpgradeKcbLockToExclusive.c)
  */
 
 __int64 __fastcall CmpVEExecuteOpenLogic(__int64 a1, _DWORD *a2, char a3, __int64 a4)

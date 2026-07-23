@@ -1,29 +1,29 @@
 /*
- * XREFs of KiCommitThreadWait @ 0x140241F20
+ * XREFs of KiCommitThreadWait @ 0x140241FF0
  * Callers:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KeRemoveQueueEx @ 0x1402AA040 (KeRemoveQueueEx.c)
- *     KeRemovePriQueue @ 0x1402BF0B0 (KeRemovePriQueue.c)
- *     KeWaitForAlertByThreadId @ 0x1402C17A4 (KeWaitForAlertByThreadId.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     KiWaitForAllObjects @ 0x14034AEFC (KiWaitForAllObjects.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KeRemoveQueueEx @ 0x1402AA2D0 (KeRemoveQueueEx.c)
+ *     KeRemovePriQueue @ 0x1402BF340 (KeRemovePriQueue.c)
+ *     KeWaitForAlertByThreadId @ 0x1402C1A34 (KeWaitForAlertByThreadId.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     KiWaitForAllObjects @ 0x14034B09C (KiWaitForAllObjects.c)
  * Callees:
  *     KiDecrementProcessStackCount @ 0x140222CF4 (KiDecrementProcessStackCount.c)
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiTimerWaitTest @ 0x140252EF0 (KiTimerWaitTest.c)
- *     KiComputeDueTime @ 0x140253770 (KiComputeDueTime.c)
- *     KiInsertTimerTable @ 0x140253830 (KiInsertTimerTable.c)
- *     KiProcessThreadWaitList @ 0x140253DC0 (KiProcessThreadWaitList.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiExitThreadWait @ 0x1402BBC90 (KiExitThreadWait.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x14030B448 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiActivateWaiterPriQueue @ 0x14030BC4C (KiActivateWaiterPriQueue.c)
- *     KiIncrementConcurrencyCount @ 0x140361D5C (KiIncrementConcurrencyCount.c)
- *     KiTraceSetTimer @ 0x140462A80 (KiTraceSetTimer.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiTimerWaitTest @ 0x140252FB0 (KiTimerWaitTest.c)
+ *     KiComputeDueTime @ 0x140253830 (KiComputeDueTime.c)
+ *     KiInsertTimerTable @ 0x1402538F0 (KiInsertTimerTable.c)
+ *     KiProcessThreadWaitList @ 0x140253E80 (KiProcessThreadWaitList.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiExitThreadWait @ 0x1402BBF20 (KiExitThreadWait.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14030B6D8 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterPriQueue @ 0x14030BEDC (KiActivateWaiterPriQueue.c)
+ *     KiIncrementConcurrencyCount @ 0x140361EFC (KiIncrementConcurrencyCount.c)
+ *     KiTraceSetTimer @ 0x140462E80 (KiTraceSetTimer.c)
  */
 
 struct _KPRCB *__fastcall KiCommitThreadWait(ULONG_PTR a1, __int64 *a2, __int64 a3, __int64 a4, _QWORD *a5)
@@ -181,7 +181,7 @@ LABEL_16:
         KiDecrementProcessStackCount(*(_QWORD *)(a1 + 184));
       *(_BYTE *)(a1 + 565) = 0;
       if ( !v9 )
-        return KiSwapThread(a1, (__int64)CurrentPrcb, a5, v5);
+        return KiSwapThread(a1, (ULONG_PTR)CurrentPrcb, a5, v5);
       if ( v9 == 2 )
       {
         v22 = v51 + MEMORY[0xFFFFF780000003B0] + *(_QWORD *)(a1 + 248);
@@ -217,11 +217,11 @@ LABEL_16:
         {
           _InterlockedAnd((volatile signed __int32 *)v6, 0xFFFFFF7F);
         }
-        return KiSwapThread(a1, (__int64)CurrentPrcb, a5, v5);
+        return KiSwapThread(a1, (ULONG_PTR)CurrentPrcb, a5, v5);
       }
 LABEL_87:
       KiTimerWaitTest(CurrentPrcb, v6, 0LL);
-      return KiSwapThread(a1, (__int64)CurrentPrcb, a5, v5);
+      return KiSwapThread(a1, (ULONG_PTR)CurrentPrcb, a5, v5);
     }
     if ( (*v16 & 0x7F) == 0x15 )
     {

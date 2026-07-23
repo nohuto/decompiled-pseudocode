@@ -1,24 +1,24 @@
 /*
- * XREFs of MiLockVadRange @ 0x1404F38DC
+ * XREFs of MiLockVadRange @ 0x1404D6868
  * Callers:
- *     MmAssignProcessToJob @ 0x1400B934C (MmAssignProcessToJob.c)
- *     NtUnlockVirtualMemory @ 0x1400BA2E0 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
- *     MiCloneProcessAddressSpace @ 0x1405278F8 (MiCloneProcessAddressSpace.c)
+ *     MmAssignProcessToJob @ 0x1400B71DC (MmAssignProcessToJob.c)
+ *     NtUnlockVirtualMemory @ 0x1400B8170 (NtUnlockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
+ *     MiCloneProcessAddressSpace @ 0x14050A958 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BED0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiVadDeleted @ 0x14002C370 (MiVadDeleted.c)
- *     MiReferenceVad @ 0x14002C37C (MiReferenceVad.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x1401F53F0 (UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED.c)
- *     MiWaitForVadDeletion @ 0x1401F7718 (MiWaitForVadDeletion.c)
- *     MiVadIsCfgBitmap @ 0x1404F3B20 (MiVadIsCfgBitmap.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BA50 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiVadDeleted @ 0x14002BEF0 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14002BEFC (MiReferenceVad.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x1401F521C (UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED.c)
+ *     MiWaitForVadDeletion @ 0x1401F7544 (MiWaitForVadDeletion.c)
+ *     MiVadIsCfgBitmap @ 0x1404D6AAC (MiVadIsCfgBitmap.c)
  */
 
 __int64 __fastcall MiLockVadRange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

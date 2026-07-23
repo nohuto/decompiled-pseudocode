@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpCleanupEcps @ 0x14060C8C0
+ * XREFs of FsRtlpCleanupEcps @ 0x14069C370
  * Callers:
- *     NtQueryFullAttributesFile @ 0x14060C400 (NtQueryFullAttributesFile.c)
- *     NtQueryAttributesFile @ 0x14060C690 (NtQueryAttributesFile.c)
- *     IopCleanupExtraCreateParameters @ 0x1406C3DD4 (IopCleanupExtraCreateParameters.c)
- *     IopFastQueryNetworkAttributes @ 0x140894148 (IopFastQueryNetworkAttributes.c)
+ *     IopCleanupExtraCreateParameters @ 0x1406229B4 (IopCleanupExtraCreateParameters.c)
+ *     NtQueryFullAttributesFile @ 0x14069BEB0 (NtQueryFullAttributesFile.c)
+ *     NtQueryAttributesFile @ 0x14069C140 (NtQueryAttributesFile.c)
+ *     IopFastQueryNetworkAttributes @ 0x1408942A8 (IopFastQueryNetworkAttributes.c)
  * Callees:
- *     FsRtlFreeExtraCreateParameterList @ 0x14060C920 (FsRtlFreeExtraCreateParameterList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14069C3D0 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14069C490 (FsRtlFreeExtraCreateParameter.c)
  */
 
 char __fastcall FsRtlpCleanupEcps(struct _ECP_LIST *a1)

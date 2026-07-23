@@ -1,17 +1,17 @@
 /*
- * XREFs of ExSetTimer @ 0x1403C1FC0
+ * XREFs of ExSetTimer @ 0x1403B0B80
  * Callers:
- *     CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x1404FABB8 (CmFcpManagerArmFeatureUsageProviderFlushTimer.c)
- *     CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x140668740 (CmFcpManagerArmFeatureUsageProviderPublishTimer.c)
- *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x14066879C (CmFcpManagerArmFeatureUsageRetryTimer.c)
- *     HalpRegisterPmuNotification @ 0x140702C0C (HalpRegisterPmuNotification.c)
- *     EtwpUpdatePeriodicCaptureState @ 0x1407AD74C (EtwpUpdatePeriodicCaptureState.c)
- *     SendCaptureStateNotificationsWorker @ 0x1407ADA30 (SendCaptureStateNotificationsWorker.c)
- *     WdipTimeoutCheckRoutine @ 0x140A47800 (WdipTimeoutCheckRoutine.c)
- *     sub_140BE10B0 @ 0x140BE10B0 (sub_140BE10B0.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x1404F8498 (CmFcpManagerArmFeatureUsageProviderFlushTimer.c)
+ *     CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x140667030 (CmFcpManagerArmFeatureUsageProviderPublishTimer.c)
+ *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x14066708C (CmFcpManagerArmFeatureUsageRetryTimer.c)
+ *     HalpRegisterPmuNotification @ 0x14070084C (HalpRegisterPmuNotification.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x1407ADBA0 (EtwpUpdatePeriodicCaptureState.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1407ADE80 (SendCaptureStateNotificationsWorker.c)
+ *     WdipTimeoutCheckRoutine @ 0x140A3D620 (WdipTimeoutCheckRoutine.c)
+ *     sub_140BE30B0 @ 0x140BE30B0 (sub_140BE30B0.c)
  * Callees:
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, signed __int64 a2, signed __int64 a3, ULONG_PTR a4)

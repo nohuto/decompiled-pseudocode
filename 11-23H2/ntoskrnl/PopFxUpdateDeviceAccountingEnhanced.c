@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxUpdateDeviceAccountingEnhanced @ 0x14058C1D8
+ * XREFs of PopFxUpdateDeviceAccountingEnhanced @ 0x14058C6C8
  * Callers:
- *     PopPepDeviceDState @ 0x14028DB5C (PopPepDeviceDState.c)
+ *     PopPepDeviceDState @ 0x14028DDEC (PopPepDeviceDState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxUpdateAccountingActiveTime @ 0x140313170 (PopFxUpdateAccountingActiveTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140313400 (PopFxUpdateAccountingActiveTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxUpdateDeviceAccountingEnhanced(__int64 a1, unsigned int a2, int a3)
@@ -42,10 +42,10 @@ __int64 __fastcall PopFxUpdateDeviceAccountingEnhanced(__int64 a1, unsigned int 
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v6 <= 0xFu
       && (unsigned __int8)result >= 2u )

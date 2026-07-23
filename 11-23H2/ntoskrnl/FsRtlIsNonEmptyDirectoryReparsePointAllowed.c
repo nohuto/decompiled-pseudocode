@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140361EB0
+ * XREFs of FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140362050
  * Callers:
  *     <none>
  * Callees:
- *     RtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140361ED0 (RtlIsNonEmptyDirectoryReparsePointAllowed.c)
+ *     RtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140362070 (RtlIsNonEmptyDirectoryReparsePointAllowed.c)
  */
 
-__int64 FsRtlIsNonEmptyDirectoryReparsePointAllowed()
+BOOLEAN __fastcall FsRtlIsNonEmptyDirectoryReparsePointAllowed(ULONG a1)
 {
-  return RtlIsNonEmptyDirectoryReparsePointAllowed();
+  return RtlIsNonEmptyDirectoryReparsePointAllowed(a1);
 }

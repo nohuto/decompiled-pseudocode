@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInitializePoolHeapManagement @ 0x14018D278
+ * XREFs of ExInitializePoolHeapManagement @ 0x14018D3B8
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
- *     ExCreateHeap @ 0x140170228 (ExCreateHeap.c)
- *     ExpDetermineLargePagePolicy @ 0x14018D4A8 (ExpDetermineLargePagePolicy.c)
- *     RtlHpKInitializeHeapManager @ 0x14018D548 (RtlHpKInitializeHeapManager.c)
- *     RtlpDynamicLookasideInitialize @ 0x1401B7B78 (RtlpDynamicLookasideInitialize.c)
+ *     ExCreateHeap @ 0x140170328 (ExCreateHeap.c)
+ *     ExpDetermineLargePagePolicy @ 0x14018D5E8 (ExpDetermineLargePagePolicy.c)
+ *     RtlHpKInitializeHeapManager @ 0x14018D688 (RtlHpKInitializeHeapManager.c)
+ *     RtlpDynamicLookasideInitialize @ 0x1401B7CD8 (RtlpDynamicLookasideInitialize.c)
  */
 
 __int64 ExInitializePoolHeapManagement()
@@ -56,13 +56,13 @@ __int64 ExInitializePoolHeapManagement()
       RtlpHpLfhPerfFlags = 1279;
       ExpDetermineLargePagePolicy(&v15);
       v3 = 0;
-      if ( dword_140443408 )
+      if ( dword_1404444C8 )
       {
         v4 = v15;
         while ( 1 )
         {
           v5 = 0LL;
-          v6 = (_QWORD *)((char *)&unk_140443440 + 8384 * v3);
+          v6 = (_QWORD *)((char *)&unk_140444500 + 8384 * v3);
           v13 = 0x103uLL;
           if ( *((_QWORD *)&v15 + 1) )
             v5 = 0x4000000LL;
@@ -90,7 +90,7 @@ __int64 ExInitializePoolHeapManagement()
             break;
           ++v3;
           *v6 = v17;
-          if ( v3 >= dword_140443408 )
+          if ( v3 >= dword_1404444C8 )
             goto LABEL_20;
         }
       }
@@ -106,7 +106,7 @@ LABEL_20:
           *(_DWORD *)(v17 + 816) |= 2u;
           *(_BYTE *)(v10 + 269) |= 8u;
           *(_BYTE *)(v10 + 461) |= 8u;
-          qword_1404C6448 = v10;
+          qword_1404C7508 = v10;
           v2 = ExCreateHeap(&v14, 0x40000000LL, &v17);
           if ( v2 >= 0 )
           {
@@ -114,7 +114,7 @@ LABEL_20:
             *(_DWORD *)(v17 + 816) |= 2u;
             *(_BYTE *)(v11 + 269) |= 8u;
             *(_BYTE *)(v11 + 461) |= 8u;
-            qword_1404C6440[0] = v11;
+            qword_1404C7500[0] = v11;
           }
         }
       }

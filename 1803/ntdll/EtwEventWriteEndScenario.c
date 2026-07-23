@@ -11,26 +11,32 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall EtwEventWriteEndScenario(unsigned __int64 a1, _OWORD *a2, unsigned int a3, __int64 a4)
+ULONG __cdecl EtwEventWriteEndScenario(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  __int64 result; // rax
-  struct _GUID ActivityId; // xmm1
-  _QWORD v10[6]; // [rsp+38h] [rbp-50h] BYREF
+  ULONG result; // eax
+  GUID ActivityId; // xmm1
+  ULONG ReturnLength; // [rsp+30h] [rbp-58h] BYREF
+  _QWORD InputBuffer[6]; // [rsp+38h] [rbp-50h] BYREF
 
-  if ( !a2 )
-    return 87LL;
-  if ( !EtwEventEnabled(a1, (__int64)a2) )
-    return 6LL;
-  memset(v10, 0, sizeof(v10));
-  result = sub_180004868(a1, v10);
-  if ( !(_DWORD)result )
+  ReturnLength = 0;
+  if ( !EventDescriptor )
+    return 87;
+  if ( !EtwEventEnabled(RegHandle, EventDescriptor) )
+    return 6;
+  memset(InputBuffer, 0, sizeof(InputBuffer));
+  result = sub_180004868(RegHandle, InputBuffer);
+  if ( !result )
   {
-    *(_OWORD *)&v10[1] = *a2;
+    *(EVENT_DESCRIPTOR *)&InputBuffer[1] = *EventDescriptor;
     ActivityId = NtCurrentTeb()->ActivityId;
-    LODWORD(v10[5]) = 11;
-    *(struct _GUID *)&v10[3] = ActivityId;
-    ZwTraceControl(13LL, v10, 48LL);
-    return EtwEventWrite(a1, a2, a3, a4);
+    LODWORD(InputBuffer[5]) = 11;
+    *(GUID *)&InputBuffer[3] = ActivityId;
+    ZwTraceControl(EtwWdiScenarioCode, InputBuffer, 0x30u, 0LL, 0, &ReturnLength);
+    return EtwEventWrite(RegHandle, EventDescriptor, UserDataCount, UserData);
   }
   return result;
 }

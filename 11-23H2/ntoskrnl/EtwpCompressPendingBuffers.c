@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCompressPendingBuffers @ 0x1406024E4
+ * XREFs of EtwpCompressPendingBuffers @ 0x140602A34
  * Callers:
- *     EtwpBufferingModeCompressionFlush @ 0x1406020F8 (EtwpBufferingModeCompressionFlush.c)
- *     EtwpCompressionProc @ 0x140602650 (EtwpCompressionProc.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x140602648 (EtwpBufferingModeCompressionFlush.c)
+ *     EtwpCompressionProc @ 0x140602BA0 (EtwpCompressionProc.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     EtwpCompressBuffer @ 0x140602160 (EtwpCompressBuffer.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140602708 (EtwpDequeueBufferPendingCompression.c)
- *     EtwpRotateCompressionTargetIfNeeded @ 0x140602B24 (EtwpRotateCompressionTargetIfNeeded.c)
- *     EtwpCompleteBuffer @ 0x1407FD9A8 (EtwpCompleteBuffer.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     EtwpCompressBuffer @ 0x1406026B0 (EtwpCompressBuffer.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x140602C58 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x140603074 (EtwpRotateCompressionTargetIfNeeded.c)
+ *     EtwpCompleteBuffer @ 0x1407FDC78 (EtwpCompleteBuffer.c)
  */
 
 signed __int32 __fastcall EtwpCompressPendingBuffers(__int64 a1)

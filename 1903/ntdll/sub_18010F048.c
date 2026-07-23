@@ -7,8 +7,8 @@
  *     RtlReportException @ 0x1800DB920 (RtlReportException.c)
  */
 
-__int64 __fastcall sub_18010F048(__int64 *a1)
+__int64 __fastcall sub_18010F048(__int64 a1)
 {
-  RtlReportException(*a1, a1[1], 3u);
+  RtlReportException(*(PEXCEPTION_RECORD *)a1, *(PCONTEXT *)(a1 + 8), 3u);
   return 0LL;
 }

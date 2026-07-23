@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAddExpansionNonPagedPool @ 0x14017F9CC
+ * XREFs of MiAddExpansionNonPagedPool @ 0x14017FB0C
  * Callers:
- *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
- *     MiInitializeNonPagedPool @ 0x1409BD0D4 (MiInitializeNonPagedPool.c)
- *     MxConsumeLargePageSlush @ 0x1409BD51C (MxConsumeLargePageSlush.c)
+ *     MiFreeInitializationCode @ 0x1406C8ABC (MiFreeInitializationCode.c)
+ *     MiInitializeNonPagedPool @ 0x1409BE0D4 (MiInitializeNonPagedPool.c)
+ *     MxConsumeLargePageSlush @ 0x1409BE51C (MxConsumeLargePageSlush.c)
  * Callees:
  *     MiReturnPhysicalPoolPages @ 0x140025380 (MiReturnPhysicalPoolPages.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)

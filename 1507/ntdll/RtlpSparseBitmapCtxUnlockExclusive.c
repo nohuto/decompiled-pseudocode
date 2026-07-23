@@ -8,11 +8,8 @@
  *     RtlReleaseSRWLockExclusive @ 0x180033470 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpSparseBitmapCtxUnlockExclusive(__int64 a1, volatile signed __int64 *a2)
+void __fastcall RtlpSparseBitmapCtxUnlockExclusive(__int64 a1, _RTL_SRWLOCK *a2)
 {
-  signed __int64 result; // rax
-
   if ( (*(_BYTE *)(a1 + 72) & 4) == 0 )
-    return RtlReleaseSRWLockExclusive(a2);
-  return result;
+    RtlReleaseSRWLockExclusive(a2);
 }

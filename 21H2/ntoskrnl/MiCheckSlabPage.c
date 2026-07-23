@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckSlabPage @ 0x14037CFD0
+ * XREFs of MiCheckSlabPage @ 0x14037CB20
  * Callers:
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
- *     MiFinalizeImageHeaderPage @ 0x1402E7BEC (MiFinalizeImageHeaderPage.c)
+ *     MiMakeDriverPagesPrivate @ 0x140298244 (MiMakeDriverPagesPrivate.c)
+ *     MiFinalizeImageHeaderPage @ 0x140298F3C (MiFinalizeImageHeaderPage.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     MiGetSlabAllocator @ 0x1402E824C (MiGetSlabAllocator.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiCompareSlabEntry @ 0x140379C58 (MiCompareSlabEntry.c)
+ *     MiGetSlabAllocator @ 0x14029959C (MiGetSlabAllocator.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiCompareSlabEntry @ 0x1403797A8 (MiCompareSlabEntry.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -33,7 +33,7 @@ __int64 __fastcall MiCheckSlabPage(__int64 a1, int a2, char a3)
   __int64 v21; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = (unsigned __int128)((a1 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
-  v5 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
+  v5 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
   v21 = ((unsigned __int64)v4 >> 63) + (v4 >> 3);
   SlabAllocator = MiGetSlabAllocator(v5, a2, a3);
   v7 = (volatile LONG *)(SlabAllocator + 16);

@@ -36,7 +36,7 @@ __int64 __fastcall MiExpandNonPagedPool(
 {
   __int64 v9; // rdx
   __int64 v10; // r8
-  union _SLIST_HEADER *v11; // rbx
+  _SLIST_HEADER *v11; // rbx
   int v12; // r9d
   unsigned __int64 v13; // r8
   unsigned __int64 v14; // r8

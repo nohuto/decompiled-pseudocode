@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400E3668
+ * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400E36E8
  * Callers:
- *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x14066BFB4 (SmProcessCreateRequest.c)
  * Callees:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2BA0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     SmKmStoreHelperStart @ 0x1400E3A74 (SmKmStoreHelperStart.c)
- *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1400E3B00 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
- *     SmAcquireReleaseCharges @ 0x1400E3D04 (SmAcquireReleaseCharges.c)
- *     SmFpPreAllocate @ 0x14018E608 (SmFpPreAllocate.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     SmKmFileInfoDuplicate @ 0x1408AC9E8 (SmKmFileInfoDuplicate.c)
- *     SmKmFileInfoInit @ 0x1408ACC28 (SmKmFileInfoInit.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2C20 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     SmKmStoreHelperStart @ 0x1400E3AF4 (SmKmStoreHelperStart.c)
+ *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1400E3B80 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
+ *     SmAcquireReleaseCharges @ 0x1400E3D84 (SmAcquireReleaseCharges.c)
+ *     SmFpPreAllocate @ 0x14018E748 (SmFpPreAllocate.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     SmKmFileInfoDuplicate @ 0x1408ADC48 (SmKmFileInfoDuplicate.c)
+ *     SmKmFileInfoInit @ 0x1408ADE88 (SmKmFileInfoInit.c)
  */
 
 int __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, int **a2)
@@ -126,8 +126,8 @@ LABEL_39:
     if ( result < 0 )
       return result;
     if ( (*(_BYTE *)(a1 + 6021) & 8) != 0 )
-      *(_QWORD *)(a1 + 6336) = &unk_14055B3F8;
-    *(_QWORD *)(a1 + 6464) = &dword_14055B410;
+      *(_QWORD *)(a1 + 6336) = &unk_14055C3F8;
+    *(_QWORD *)(a1 + 6464) = &dword_14055C410;
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x6C526D73u);
     *(_QWORD *)(a1 + 6224) = PoolWithTag;
     if ( !PoolWithTag )

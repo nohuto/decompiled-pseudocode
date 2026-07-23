@@ -1,12 +1,12 @@
 /*
- * XREFs of EnableFlushTimer @ 0x1400FAE98
+ * XREFs of EnableFlushTimer @ 0x1400F8C24
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x14009EF40 (InsertEventEntryInLookUpTable.c)
- *     FlushWorkItemRoutineKernelMode @ 0x1400AF00C (FlushWorkItemRoutineKernelMode.c)
- *     FlushTimerCallbackKernelMode @ 0x1400B5C08 (FlushTimerCallbackKernelMode.c)
+ *     InsertEventEntryInLookUpTable @ 0x140085234 (InsertEventEntryInLookUpTable.c)
+ *     FlushWorkItemRoutineKernelMode @ 0x1400AD574 (FlushWorkItemRoutineKernelMode.c)
+ *     FlushTimerCallbackKernelMode @ 0x1400B3A30 (FlushTimerCallbackKernelMode.c)
  * Callees:
- *     ExSetTimer @ 0x1400F9D24 (ExSetTimer.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     ExSetTimer @ 0x1400F7AB0 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall EnableFlushTimer(ULONG_PTR a1, unsigned int a2)

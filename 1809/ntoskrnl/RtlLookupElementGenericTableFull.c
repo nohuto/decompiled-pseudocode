@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLookupElementGenericTableFull @ 0x1402F3010
+ * XREFs of RtlLookupElementGenericTableFull @ 0x1402F3200
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     FindNodeOrParent_0 @ 0x14008EEB4 (FindNodeOrParent_0.c)
+ *     RtlSplay @ 0x14008D5A0 (RtlSplay.c)
+ *     FindNodeOrParent_0 @ 0x14008EDD4 (FindNodeOrParent_0.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTableFull(

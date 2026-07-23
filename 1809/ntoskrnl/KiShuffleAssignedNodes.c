@@ -1,7 +1,7 @@
 /*
- * XREFs of KiShuffleAssignedNodes @ 0x1409F68D8
+ * XREFs of KiShuffleAssignedNodes @ 0x1409F78D8
  * Callers:
- *     KiPerformGroupConfiguration @ 0x1409B65EC (KiPerformGroupConfiguration.c)
+ *     KiPerformGroupConfiguration @ 0x1409B75EC (KiPerformGroupConfiguration.c)
  * Callees:
  *     <none>
  */

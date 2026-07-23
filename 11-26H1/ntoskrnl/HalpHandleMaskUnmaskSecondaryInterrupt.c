@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14042683C
+ * XREFs of HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14043394C
  * Callers:
- *     HalpMaskInterrupt @ 0x140426960 (HalpMaskInterrupt.c)
- *     HalpUnmaskInterrupt @ 0x140426AB0 (HalpUnmaskInterrupt.c)
+ *     HalpMaskInterrupt @ 0x140433A70 (HalpMaskInterrupt.c)
+ *     HalpUnmaskInterrupt @ 0x140433BC0 (HalpUnmaskInterrupt.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     HalpFindSecondaryIcEntry @ 0x140426CC8 (HalpFindSecondaryIcEntry.c)
- *     HalpInsertSecondarySignalList @ 0x14058F77C (HalpInsertSecondarySignalList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     HalpFindSecondaryIcEntry @ 0x140433DD8 (HalpFindSecondaryIcEntry.c)
+ *     HalpInsertSecondarySignalList @ 0x140591EFC (HalpInsertSecondarySignalList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpHandleMaskUnmaskSecondaryInterrupt(unsigned int a1, unsigned int a2, char a3)

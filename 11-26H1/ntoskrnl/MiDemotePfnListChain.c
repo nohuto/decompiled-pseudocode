@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDemotePfnListChain @ 0x1407117C4
+ * XREFs of MiDemotePfnListChain @ 0x1407164C4
  * Callers:
- *     MiCreateSlabEntry @ 0x140206284 (MiCreateSlabEntry.c)
- *     MiMapUserLargePages @ 0x14030FD60 (MiMapUserLargePages.c)
- *     MiPopLargePfnList @ 0x1404ECC38 (MiPopLargePfnList.c)
- *     MiMakeLargePageTable @ 0x14052B10C (MiMakeLargePageTable.c)
- *     MiMakeMdlPfnsDesiredSize @ 0x1406EEA20 (MiMakeMdlPfnsDesiredSize.c)
- *     MiFillUserPhysicalMdl @ 0x1407014E4 (MiFillUserPhysicalMdl.c)
+ *     MiCreateSlabEntry @ 0x140206364 (MiCreateSlabEntry.c)
+ *     MiMapUserLargePages @ 0x1402F1DE0 (MiMapUserLargePages.c)
+ *     MiPopLargePfnList @ 0x1404E6218 (MiPopLargePfnList.c)
+ *     MiMakeLargePageTable @ 0x14052D62C (MiMakeLargePageTable.c)
+ *     MiMakeMdlPfnsDesiredSize @ 0x1406F36C0 (MiMakeMdlPfnsDesiredSize.c)
+ *     MiFillUserPhysicalMdl @ 0x1407061B4 (MiFillUserPhysicalMdl.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiUpdateDemotedSubPage @ 0x140434C10 (MiUpdateDemotedSubPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiUpdateDemotedSubPage @ 0x14042BCD0 (MiUpdateDemotedSubPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
@@ -74,7 +74,7 @@ __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
         v11 = 2;
       v12 = (__int64)((unsigned __int128)(v7 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
       MiUpdateLargePageBitMap(
-        *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL)),
+        *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL)),
         (v12 >> 63) + v12,
         v8,
         v11);
@@ -117,7 +117,7 @@ __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
             KeYieldProcessorEx(&v27);
           while ( *(__int64 *)v22 < 0 );
         }
-        MiUpdateDemotedSubPage(v9, v18, v13);
+        MiUpdateDemotedSubPage(v9, v18, (unsigned int)v13);
         if ( v18 != v9 )
         {
           *(_DWORD *)(v22 + 8) = *(_DWORD *)(v22 + 8) & 0xFFF8FFFF | 0x50000;

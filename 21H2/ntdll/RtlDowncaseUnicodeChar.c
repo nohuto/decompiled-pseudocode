@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlDowncaseUnicodeChar @ 0x1800EB390
+ * XREFs of RtlDowncaseUnicodeChar @ 0x1800EB350
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-unsigned __int16 __fastcall RtlDowncaseUnicodeChar(unsigned __int16 a1)
+WCHAR __cdecl RtlDowncaseUnicodeChar(WCHAR SourceCharacter)
 {
-  return NLS_DOWNCASE(a1);
+  return NLS_DOWNCASE(SourceCharacter);
 }

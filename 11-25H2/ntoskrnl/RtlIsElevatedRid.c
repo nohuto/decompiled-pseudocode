@@ -8,24 +8,24 @@
  *     RtlSubAuthorityCountSid @ 0x140461BC0 (RtlSubAuthorityCountSid.c)
  */
 
-char __fastcall RtlIsElevatedRid(__int64 a1)
+BOOLEAN __cdecl RtlIsElevatedRid(PSID_AND_ATTRIBUTES SidAttr)
 {
-  PSID v1; // rbx
+  PSID Sid; // rbx
   int v2; // edi
   ULONG v3; // edx
   __int64 i; // rax
 
-  if ( a1 )
+  if ( SidAttr )
   {
-    if ( (*(_DWORD *)(a1 + 8) & 0x30) == 0 )
+    if ( (SidAttr->Attributes & 0x30) == 0 )
     {
-      v1 = *(PSID *)a1;
-      v2 = *RtlSubAuthorityCountSid(*(PSID *)a1);
+      Sid = SidAttr->Sid;
+      v2 = *RtlSubAuthorityCountSid(SidAttr->Sid);
       if ( (_BYTE)v2 )
       {
-        if ( *RtlSubAuthoritySid(v1, 0) - 80 > 0x1F )
+        if ( *RtlSubAuthoritySid(Sid, 0) - 80 > 0x1F )
         {
-          v3 = *RtlSubAuthoritySid(v1, v2 - 1);
+          v3 = *RtlSubAuthoritySid(Sid, v2 - 1);
           for ( i = 0LL; (unsigned int)i < 0x13; i = (unsigned int)(i + 1) )
           {
             if ( v3 == *((_DWORD *)qword_14002B290 + i) )

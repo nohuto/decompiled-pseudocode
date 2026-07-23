@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
- *     BgpGxDrawRectangle @ 0x140127524 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x140127790 (BgpGetBitsPerPixel.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
+ *     BgpGxDrawRectangle @ 0x140127A94 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x140127D00 (BgpGetBitsPerPixel.c)
  *     LogFwStat @ 0x140727310 (LogFwStat.c)
  */
 
@@ -77,7 +77,7 @@ void __fastcall AnFwpFadeAnimationTimer(
 
   BgpFwAcquireLock();
   v4 = 0;
-  if ( byte_140328C11 )
+  if ( byte_140328C51 )
   {
     LogFwStat(1LL, 6LL, 0LL);
     LogFwStat(1LL, 4LL, 0LL);
@@ -261,9 +261,9 @@ void __fastcall AnFwpFadeAnimationTimer(
     }
     else
     {
-      byte_140328C11 = 0;
-      KeCancelTimer(&stru_140340460);
-      KeSetEvent(&stru_1403404A0, 0, 0);
+      byte_140328C51 = 0;
+      KeCancelTimer(&stru_1403404A0);
+      KeSetEvent(&stru_1403404E0, 0, 0);
     }
   }
   BgpFwReleaseLock();

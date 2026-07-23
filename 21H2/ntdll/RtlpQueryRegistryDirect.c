@@ -4,7 +4,7 @@
  *     RtlpCallQueryRegistryRoutine @ 0x180045FC4 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
  *     NtdllpAllocateStringRoutine @ 0x18006EBE0 (NtdllpAllocateStringRoutine.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, size_t a3, unsigned int *a4)

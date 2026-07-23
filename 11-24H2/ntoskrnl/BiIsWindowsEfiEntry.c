@@ -1,10 +1,10 @@
 /*
- * XREFs of BiIsWindowsEfiEntry @ 0x1409BFB4C
+ * XREFs of BiIsWindowsEfiEntry @ 0x1409A619C
  * Callers:
- *     BiGetObjectReferenceFromEfiEntry @ 0x1409BFAAC (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1409A60FC (BiGetObjectReferenceFromEfiEntry.c)
  * Callees:
- *     wcsnlen @ 0x140500090 (wcsnlen.c)
- *     strncmp @ 0x1406BFB20 (strncmp.c)
+ *     wcsnlen @ 0x1404FD950 (wcsnlen.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
  */
 
 bool __fastcall BiIsWindowsEfiEntry(__int64 a1)

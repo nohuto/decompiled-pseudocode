@@ -1,11 +1,11 @@
 /*
- * XREFs of VslCreateSecureAllocation @ 0x1404B3780
+ * XREFs of VslCreateSecureAllocation @ 0x1404ADFF0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslCreateSecureAllocation(__int64 a1, _QWORD *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall VslCreateSecureAllocation(__int64 a1, _QWORD *a2)
 
   memset_0(v5, 0, 0x68uLL);
   v6 = a1;
-  result = VslpEnterIumSecureMode(2u, 22LL, 0, (__int64)v5);
+  result = VslpEnterIumSecureMode(2u, 0x16u, 0, (__int64)v5);
   if ( (int)result >= 0 )
     *a2 = v7;
   return result;

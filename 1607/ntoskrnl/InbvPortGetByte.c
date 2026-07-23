@@ -1,5 +1,5 @@
 /*
- * XREFs of InbvPortGetByte @ 0x14023DE00
+ * XREFs of InbvPortGetByte @ 0x14023DCE4
  * Callers:
  *     HdlspDispatch @ 0x140722DE0 (HdlspDispatch.c)
  *     HdlspGetLine @ 0x140723450 (HdlspGetLine.c)

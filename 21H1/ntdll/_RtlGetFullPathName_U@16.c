@@ -7,13 +7,12 @@
  *     _RtlGetFullPathName_UEx@20 @ 0x4B2D22F0 (_RtlGetFullPathName_UEx@20.c)
  */
 
-int __thiscall RtlGetFullPathName_U(void *this, _WORD *a2, size_t a3, _WORD *a4, _DWORD *a5)
+ULONG __cdecl RtlGetFullPathName_U(PCWSTR FileName, ULONG BufferLength, PWSTR Buffer, PWSTR *FilePart)
 {
-  int v6; // [esp+0h] [ebp-4h] BYREF
+  ULONG BytesRequired; // [esp+0h] [ebp-4h] BYREF
 
-  v6 = (int)this;
-  if ( RtlGetFullPathName_UEx(a2, a3, a4, a5, (unsigned int *)&v6) < 0 )
+  if ( RtlGetFullPathName_UEx(FileName, BufferLength, Buffer, FilePart, &BytesRequired) < 0 )
     return 0;
   else
-    return v6;
+    return BytesRequired;
 }

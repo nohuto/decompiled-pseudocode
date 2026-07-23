@@ -1,14 +1,14 @@
 /*
- * XREFs of KiFloatingErrorFault @ 0x140737900
+ * XREFs of KiFloatingErrorFault @ 0x14073C500
  * Callers:
- *     KiFloatingErrorFaultShadow @ 0x140C598C0 (KiFloatingErrorFaultShadow.c)
+ *     KiFloatingErrorFaultShadow @ 0x140C5F8C0 (KiFloatingErrorFaultShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x140446060 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x140533CB0 (KiSaveDebugRegisterState.c)
- *     KiFloatingErrorFault @ 0x140737900 (KiFloatingErrorFault.c)
- *     KiBugCheckDispatch @ 0x14073C4C0 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x14073C540 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x14073CF80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14043EB60 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x140536130 (KiSaveDebugRegisterState.c)
+ *     KiFloatingErrorFault @ 0x14073C500 (KiFloatingErrorFault.c)
+ *     KiBugCheckDispatch @ 0x1407410C0 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x140741140 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140741B80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiFloatingErrorFault(__int64 a1, __int64 _RDX)
@@ -67,7 +67,7 @@ void __fastcall __noreturn KiFloatingErrorFault(__int64 a1, __int64 _RDX)
       LODWORD(_RDX) = (unsigned __int8)_RDX;
     }
     if ( (_RDX & 2) != 0 )
-      JUMPOUT(0x140737B65LL);
+      JUMPOUT(0x14073C765LL);
     if ( (_RDX & 0x80) != 0 )
     {
       _mm_lfence();

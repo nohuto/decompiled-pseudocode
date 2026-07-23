@@ -1,12 +1,12 @@
 /*
- * XREFs of SmpDirtyStoreCreate @ 0x14066B4EC
+ * XREFs of SmpDirtyStoreCreate @ 0x14066C6AC
  * Callers:
- *     SmpKeyedStoreCreate @ 0x14066B5F8 (SmpKeyedStoreCreate.c)
- *     SmpSystemStoreCreate @ 0x14075EB28 (SmpSystemStoreCreate.c)
+ *     SmpKeyedStoreCreate @ 0x14066C7B8 (SmpKeyedStoreCreate.c)
+ *     SmpSystemStoreCreate @ 0x14075FD18 (SmpSystemStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SmProcessCreateRequest @ 0x14066BFB4 (SmProcessCreateRequest.c)
  */
 
 __int64 __fastcall SmpDirtyStoreCreate(__int64 a1, unsigned int a2, int a3, _DWORD *a4)
@@ -25,12 +25,12 @@ __int64 __fastcall SmpDirtyStoreCreate(__int64 a1, unsigned int a2, int a3, _DWO
   v12[0] = ((a3 & 1) << 9) | 0x106;
   v8 = 0;
   if ( a3 )
-    v9 = (dword_14055B180 & 0xC) == 8;
+    v9 = (dword_14055C180 & 0xC) == 8;
   else
-    v9 = (dword_14055B180 & 3) == 2;
+    v9 = (dword_14055C180 & 3) == 2;
   LOBYTE(v8) = v9;
   v10 = (8 * v4) & 0x7FFFFFFFFFFFLL;
-  v12[2] = v12[2] & 0xFFF4FF00 | ((dword_14055B180 & 0x10 | 0x40) << 12) & 0xFFF5FFFF | (((16 * v8) | dword_14055B180 & 0x40) << 13);
+  v12[2] = v12[2] & 0xFFF4FF00 | ((dword_14055C180 & 0x10 | 0x40) << 12) & 0xFFF5FFFF | (((16 * v8) | dword_14055C180 & 0x40) << 13);
   if ( v10 >= 0x40000 )
     LODWORD(v10) = 0x40000;
   v12[5] = v10;

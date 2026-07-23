@@ -1,10 +1,10 @@
 /*
- * XREFs of MmLockPagableDataSection @ 0x1406AD5B0
+ * XREFs of MmLockPagableDataSection @ 0x1406AD5E0
  * Callers:
- *     DifMmLockPagableDataSectionWrapper @ 0x1405E7300 (DifMmLockPagableDataSectionWrapper.c)
- *     HalpPowerInitSystem @ 0x140A90A30 (HalpPowerInitSystem.c)
- *     VfInitDifWithoutReboot @ 0x140AC2C34 (VfInitDifWithoutReboot.c)
- *     VfInitSystemNoRebootNeeded @ 0x140AC2D18 (VfInitSystemNoRebootNeeded.c)
+ *     DifMmLockPagableDataSectionWrapper @ 0x1405E7870 (DifMmLockPagableDataSectionWrapper.c)
+ *     HalpPowerInitSystem @ 0x140A908B0 (HalpPowerInitSystem.c)
+ *     VfInitDifWithoutReboot @ 0x140AC2C24 (VfInitDifWithoutReboot.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140AC2D08 (VfInitSystemNoRebootNeeded.c)
  *     BgkpLockBgfxCodeSection @ 0x140AEEB60 (BgkpLockBgfxCodeSection.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  *     HeadlessInit @ 0x140B533F0 (HeadlessInit.c)
@@ -12,22 +12,22 @@
  * Callees:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     MiLockPagableImageSection @ 0x14025A7E0 (MiLockPagableImageSection.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     MiLockPagableImageSection @ 0x14025AA70 (MiLockPagableImageSection.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmLockPagableDataSection(PVOID AddressWithinSection)
 {
   struct _KTHREAD *CurrentThread; // rbp
   void *v3; // rbx
-  __int64 v4; // rcx
+  _BYTE *v4; // rcx
   char *v5; // rsi
-  __int64 v6; // rax
-  unsigned int v7; // r10d
+  PIMAGE_NT_HEADERS v6; // rax
+  unsigned int NumberOfSections; // r10d
   _DWORD *v8; // rdx
   int v9; // ecx
   unsigned __int64 v10; // r8
@@ -39,13 +39,13 @@ PVOID __stdcall MmLockPagableDataSection(PVOID AddressWithinSection)
   v3 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
-  v4 = MiLookupDataTableEntry((unsigned __int64)AddressWithinSection, 0)[6];
-  v5 = (char *)AddressWithinSection - v4;
+  v4 = (_BYTE *)MiLookupDataTableEntry((unsigned __int64)AddressWithinSection, 0)[6];
+  v5 = (char *)((_BYTE *)AddressWithinSection - v4);
   v6 = RtlImageNtHeader(v4);
-  v7 = *(unsigned __int16 *)(v6 + 6);
-  v8 = (_DWORD *)(*(unsigned __int16 *)(v6 + 20) + v6 + 24);
+  NumberOfSections = v6->FileHeader.NumberOfSections;
+  v8 = (_DWORD *)((char *)&v6->OptionalHeader.Magic + v6->FileHeader.SizeOfOptionalHeader);
   v9 = 0;
-  if ( *(_WORD *)(v6 + 6) )
+  if ( v6->FileHeader.NumberOfSections )
   {
     while ( 1 )
     {
@@ -59,7 +59,7 @@ PVOID __stdcall MmLockPagableDataSection(PVOID AddressWithinSection)
           break;
       }
       v8 += 10;
-      if ( ++v9 >= v7 )
+      if ( ++v9 >= NumberOfSections )
         goto LABEL_10;
     }
     v3 = v8;

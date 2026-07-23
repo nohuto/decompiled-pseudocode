@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpTraceInitializeDumpStackFailure @ 0x140552D88
+ * XREFs of IopDumpTraceInitializeDumpStackFailure @ 0x140553448
  * Callers:
- *     IoInitializeDumpStack @ 0x14055079C (IoInitializeDumpStack.c)
+ *     IoInitializeDumpStack @ 0x140550E5C (IoInitializeDumpStack.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopDumpIsTracingEnabled @ 0x140552848 (IopDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopDumpIsTracingEnabled @ 0x140552F08 (IopDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopDumpTraceInitializeDumpStackFailure(int a1)
@@ -42,9 +42,9 @@ char __fastcall IopDumpTraceInitializeDumpStackFailure(int a1)
                1u,
                &UserData);
   }
-  if ( (unsigned int)dword_140C062E8 > 5 )
+  if ( (unsigned int)dword_140C062A8 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140C062E8, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C062A8, 0x400000000000LL);
     if ( result )
     {
       v8 = 0;
@@ -56,8 +56,8 @@ char __fastcall IopDumpTraceInitializeDumpStackFailure(int a1)
       v7 = 8;
       v10 = 4;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140C062E8,
-               (unsigned __int8 *)&dword_14002B57C,
+               (__int64)&dword_140C062A8,
+               (unsigned __int8 *)&dword_14002B664,
                0LL,
                0LL,
                4u,

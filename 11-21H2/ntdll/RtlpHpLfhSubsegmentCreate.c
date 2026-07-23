@@ -116,7 +116,7 @@ LABEL_21:
     v20 = 1 << v16;
 LABEL_23:
   if ( (v5 & 1) == 0 )
-    RtlAcquireSRWLockShared(a1 + 72);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 72));
   v23 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, char *, char *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 8)))(
           *(_QWORD *)a1,
           v20,
@@ -177,6 +177,6 @@ LABEL_23:
     v27 = 0LL;
   }
   if ( (v5 & 1) == 0 )
-    RtlReleaseSRWLockShared(a1 + 72);
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 72));
   return v27;
 }

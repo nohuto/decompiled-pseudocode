@@ -1,7 +1,7 @@
 /*
  * XREFs of IoAllowExecution @ 0x140019D84
  * Callers:
- *     MiCreateImageOrDataSection @ 0x1405DE390 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x1405DF390 (MiCreateImageOrDataSection.c)
  * Callees:
  *     IopGetDevicePDO @ 0x140019CF4 (IopGetDevicePDO.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)

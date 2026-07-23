@@ -6,31 +6,28 @@
  *     <none>
  */
 
-__int64 __fastcall RtlAddAuditAccessObjectAce(
-        char *a1,
-        unsigned int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        __int64 a12)
+NTSTATUS __cdecl RtlAddAuditAccessObjectAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PGUID ObjectTypeGuid,
+        PGUID InheritedObjectTypeGuid,
+        PSID Sid,
+        BOOLEAN AuditSuccess,
+        BOOLEAN AuditFailure)
 {
-  int v12; // eax
-  int v13; // r8d
+  ULONG v9; // eax
+  int v10; // r8d
 
-  v12 = a3 | 0x40;
-  if ( !(_BYTE)a8 )
-    v12 = a3;
-  v13 = v12 | 0x80;
-  if ( !(_BYTE)a9 )
-    v13 = v12;
-  if ( !a5 && !a6 )
-    return sub_180014974(a1, a2, v13, a4, a7, 2);
-  LOBYTE(a8) = 7;
-  return sub_18008817C((_DWORD)a1, a2, v13, a4, a5, a6, a7, a8, a9, a10, a11, a12);
+  v9 = AceFlags | 0x40;
+  if ( !AuditSuccess )
+    v9 = AceFlags;
+  v10 = v9 | 0x80;
+  if ( !AuditFailure )
+    v10 = v9;
+  if ( ObjectTypeGuid || InheritedObjectTypeGuid )
+    return sub_18008817C(Acl, (__int64)ObjectTypeGuid, (__int64)InheritedObjectTypeGuid, Sid, 7);
+  else
+    return sub_180014974(Acl, AceRevision, v10, AccessMask, (unsigned __int8 *)Sid, 2);
 }

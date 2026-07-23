@@ -1,21 +1,21 @@
 /*
- * XREFs of KseDriverUnloadImage @ 0x140546854
+ * XREFs of KseDriverUnloadImage @ 0x140546D94
  * Callers:
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     KsepLogInfo @ 0x140084DC8 (KsepLogInfo.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     RtlAssert @ 0x140213458 (RtlAssert.c)
- *     KsepDbFreeDriverShims @ 0x140484914 (KsepDbFreeDriverShims.c)
- *     KsepIsModuleShimmed @ 0x140485CC8 (KsepIsModuleShimmed.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     KsepLogInfo @ 0x14010B3D0 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x140213284 (RtlAssert.c)
+ *     KsepDbFreeDriverShims @ 0x140513C9C (KsepDbFreeDriverShims.c)
+ *     KsepIsModuleShimmed @ 0x140515050 (KsepIsModuleShimmed.c)
  */
 
 __int64 __fastcall KseDriverUnloadImage(__int64 a1)
@@ -51,7 +51,7 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
 
   if ( !a1 )
     return 3221225485LL;
-  if ( dword_140328EF4 != 2 )
+  if ( dword_140328F34 != 2 )
     return 3221225659LL;
   if ( (KseEngine & 1) != 0 )
     return 3221225659LL;
@@ -62,11 +62,11 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F20, 0LL, 0);
-    v6 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F20, 0LL);
+    v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F60, 0LL, 0);
+    v6 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F60, 0LL);
     v7 = v5;
     if ( v6 )
-      ExfAcquirePushLockExclusiveEx(&qword_140328F20, v5, (ULONG_PTR)&qword_140328F20);
+      ExfAcquirePushLockExclusiveEx(&qword_140328F60, v5, (ULONG_PTR)&qword_140328F60);
     if ( v7 )
       v7[26] |= 1u;
     v8 = (_QWORD *)v30;
@@ -91,7 +91,7 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
         {
           v15 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
           v16 = KsepDebugFlag;
-          dword_140307424[2 * v15] = -1073740768;
+          dword_140307464[2 * v15] = -1073740768;
           KsepHistoryErrors[2 * v15] = 460150;
           if ( (v16 & 4) != 0 )
             RtlAssert("RegisteredShim->RefCount > 0", "minkernel\\ntos\\kshim\\kseloader.c", 0x576u, 0LL);
@@ -117,9 +117,9 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
       __fastfail(3u);
     *v20 = v19;
     *(_QWORD *)(v19 + 8) = v20;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-    KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+    KeAbPostRelease((ULONG_PTR)&qword_140328F60);
     KeLeaveCriticalRegion();
     v21 = 0LL;
     if ( *i )

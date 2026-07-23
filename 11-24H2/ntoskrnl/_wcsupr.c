@@ -1,11 +1,11 @@
 /*
- * XREFs of _wcsupr @ 0x1404FE6D0
+ * XREFs of _wcsupr @ 0x1404FBF90
  * Callers:
- *     PfTFiNotifyVolumeCreateCallback @ 0x1404566F0 (PfTFiNotifyVolumeCreateCallback.c)
- *     PfTFiNotifyFileStreamCreateCallback @ 0x140456870 (PfTFiNotifyFileStreamCreateCallback.c)
- *     PfSnParametersRead @ 0x140747CD0 (PfSnParametersRead.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140815B48 (BiUpdateObjectReferenceInEfiEntry.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1409BFAAC (BiGetObjectReferenceFromEfiEntry.c)
+ *     PfTFiNotifyVolumeCreateCallback @ 0x14044B6C0 (PfTFiNotifyVolumeCreateCallback.c)
+ *     PfTFiNotifyFileStreamCreateCallback @ 0x14044B840 (PfTFiNotifyFileStreamCreateCallback.c)
+ *     PfSnParametersRead @ 0x140745FC0 (PfSnParametersRead.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140816288 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1409A60FC (BiGetObjectReferenceFromEfiEntry.c)
  * Callees:
  *     <none>
  */

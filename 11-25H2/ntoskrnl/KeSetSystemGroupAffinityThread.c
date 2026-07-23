@@ -75,7 +75,7 @@ void __stdcall KeSetSystemGroupAffinityThread(PGROUP_AFFINITY Affinity, PGROUP_A
   struct _SINGLE_LIST_ENTRY *Next; // rcx
   unsigned __int16 i; // cx
   unsigned __int64 v15; // rdx
-  struct _GROUP_AFFINITY v16; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY v16; // [rsp+30h] [rbp-38h] BYREF
   __int64 v17; // [rsp+70h] [rbp+8h] BYREF
 
   v3 = Affinity;

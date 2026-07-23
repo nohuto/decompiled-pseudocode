@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpValueEnumStackStartFromKeyNodeStack @ 0x140462AF8
+ * XREFs of CmpValueEnumStackStartFromKeyNodeStack @ 0x140458108
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x140462930 (CmpGetValueCountForKeyNodeStack.c)
- *     CmpValueEnumStackStartFromKcbStack @ 0x1409145DC (CmpValueEnumStackStartFromKcbStack.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140914AE0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x140457F40 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpValueEnumStackStartFromKcbStack @ 0x14090804C (CmpValueEnumStackStartFromKcbStack.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140908550 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     CmpValueEnumStackEntryStart @ 0x140462BF4 (CmpValueEnumStackEntryStart.c)
- *     CmpValueEnumStackEntryInitialize @ 0x1404923D4 (CmpValueEnumStackEntryInitialize.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14090B944 (CmpValueEnumStackGetEntryAtLayerHeight.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140916CB8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140916F14 (CmpGetEffectiveKeyNodeSemantics.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     CmpValueEnumStackEntryStart @ 0x140458204 (CmpValueEnumStackEntryStart.c)
+ *     CmpValueEnumStackEntryInitialize @ 0x14048D244 (CmpValueEnumStackEntryInitialize.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x1408E3064 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14090A728 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14090A984 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmpValueEnumStackStartFromKeyNodeStack(__int64 a1, __int16 *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall CmpValueEnumStackStartFromKeyNodeStack(__int64 a1, __int16 *a
   v2 = 0;
   if ( *a2 >= 2 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 32LL * (__int16)(*a2 - 1), 0x30374D43u);
     *(_QWORD *)(a1 + 80) = Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741670;

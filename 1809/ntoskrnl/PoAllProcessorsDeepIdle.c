@@ -1,8 +1,8 @@
 /*
- * XREFs of PoAllProcessorsDeepIdle @ 0x1400FCB94
+ * XREFs of PoAllProcessorsDeepIdle @ 0x1400FCC14
  * Callers:
- *     KePrepareClockTimerForIdle @ 0x1400FC870 (KePrepareClockTimerForIdle.c)
- *     PpmIdleEvaluateConstraints @ 0x140180694 (PpmIdleEvaluateConstraints.c)
+ *     KePrepareClockTimerForIdle @ 0x1400FC8F0 (KePrepareClockTimerForIdle.c)
+ *     PpmIdleEvaluateConstraints @ 0x1401807D4 (PpmIdleEvaluateConstraints.c)
  * Callees:
  *     MmGetNextNode @ 0x140061FC0 (MmGetNextNode.c)
  */
@@ -28,7 +28,7 @@ char PoAllProcessorsDeepIdle()
     NextNode = MmGetNextNode(v2, &v7);
     if ( NextNode == -1 )
       break;
-    v6 = *(_QWORD *)(v4 + 8LL * NextNode + 5612416);
+    v6 = *(_QWORD *)(v4 + 8LL * NextNode + 5616512);
     if ( *(_QWORD *)(v6 + 64) != *(_QWORD *)(v6 + 136) )
       return 0;
   }

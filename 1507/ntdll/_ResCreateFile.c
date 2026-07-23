@@ -15,96 +15,91 @@
  *     BaseIsThisAConsoleName @ 0x1800F8DC0 (BaseIsThisAConsoleName.c)
  */
 
-__int64 __fastcall ResCreateFile(__int64 a1, int a2)
+__int64 __fastcall ResCreateFile(PCWSTR DosFileName, int a2, ULONG a3)
 {
-  int inited; // eax
-  NTSTATUS v5; // ecx
-  ULONG v6; // ecx
-  int v8; // edi
-  unsigned __int64 v9; // r14
-  __int64 v10; // rax
-  NTSTATUS File; // ebx
-  ULONG v12; // eax
-  __int128 v13; // [rsp+60h] [rbp-81h] BYREF
-  __int64 v14; // [rsp+70h] [rbp-71h]
-  __int128 v15; // [rsp+78h] [rbp-69h] BYREF
-  __int64 v16; // [rsp+88h] [rbp-59h]
-  int v17; // [rsp+98h] [rbp-49h]
-  __int64 v18; // [rsp+A0h] [rbp-41h]
-  __int128 *v19; // [rsp+A8h] [rbp-39h]
-  int v20; // [rsp+B0h] [rbp-31h]
-  __int64 v21; // [rsp+B8h] [rbp-29h]
-  _DWORD *v22; // [rsp+C0h] [rbp-21h]
-  _DWORD v23[2]; // [rsp+D8h] [rbp-9h] BYREF
-  __int16 v24; // [rsp+E0h] [rbp-1h]
+  NTSTATUS inited; // eax
+  NTSTATUS v7; // ecx
+  LONG v8; // ecx
+  int v10; // edi
+  unsigned __int16 *Buffer; // r14
+  HANDLE ContainingDirectory; // rax
+  int v13; // ebx
+  LONG v14; // eax
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-81h] BYREF
+  HANDLE FileHandle; // [rsp+70h] [rbp-71h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+78h] [rbp-69h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-49h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+C8h] [rbp-19h] BYREF
+  _DWORD v20[2]; // [rsp+D8h] [rbp-9h] BYREF
+  __int16 v21; // [rsp+E0h] [rbp-1h]
 
-  inited = RtlInitUnicodeStringEx((__int64)&v13, a1);
+  inited = RtlInitUnicodeStringEx(&DestinationString, DosFileName);
   if ( inited < 0 )
   {
-    v5 = inited;
+    v7 = inited;
 LABEL_3:
-    v6 = RtlNtStatusToDosError(v5);
+    v8 = RtlNtStatusToDosError(v7);
     goto LABEL_4;
   }
-  if ( (unsigned __int16)v13 <= 1u
-    || (v8 = 1, *(_WORD *)(a1 + 2 * ((unsigned __int64)(unsigned __int16)v13 >> 1) - 2) != 92) )
+  if ( DestinationString.Length <= 1u
+    || (v10 = 1, DosFileName[((unsigned __int64)DestinationString.Length >> 1) - 1] != 92) )
   {
-    v8 = 0;
+    v10 = 0;
   }
-  if ( BaseIsThisAConsoleName((unsigned __int16 *)&v13, a2) )
+  if ( BaseIsThisAConsoleName(&DestinationString.Length, a2) )
   {
-    v5 = -1073741790;
+    v7 = -1073741790;
     goto LABEL_3;
   }
-  if ( !RtlDosPathNameToRelativeNtPathName_U(a1, (int)&v13, 0LL, (__int64)&v15) )
+  if ( !RtlDosPathNameToRelativeNtPathName_U(DosFileName, &DestinationString, 0LL, &RelativeName) )
   {
-    v6 = 3;
+    v8 = 3;
     goto LABEL_4;
   }
-  v9 = *((_QWORD *)&v13 + 1);
-  if ( (_WORD)v15 )
+  Buffer = DestinationString.Buffer;
+  if ( RelativeName.RelativeName.Length )
   {
-    v10 = v16;
-    v13 = v15;
+    ContainingDirectory = RelativeName.ContainingDirectory;
+    DestinationString = RelativeName.RelativeName;
   }
   else
   {
-    v10 = 0LL;
-    v16 = 0LL;
+    ContainingDirectory = 0LL;
+    RelativeName.ContainingDirectory = 0LL;
   }
-  v18 = v10;
-  v19 = &v13;
-  v22 = v23;
-  v17 = 48;
-  v20 = 64;
-  v21 = 0LL;
-  v24 = 257;
-  v23[1] = 2;
-  v23[0] = 12;
-  File = ZwCreateFile();
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0LL);
-  RtlReleaseRelativeName((__int64)&v15);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
-  if ( File < 0 )
+  ObjectAttributes.RootDirectory = ContainingDirectory;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.SecurityQualityOfService = v20;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0LL;
+  v21 = 257;
+  v20[1] = 2;
+  v20[0] = 12;
+  v13 = ZwCreateFile(&FileHandle, a2 | 0x100080, &ObjectAttributes, &IoStatusBlock, 0LL, 0, a3, 1u, 0x60u, 0LL, 0);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, 0LL);
+  RtlReleaseRelativeName(&RelativeName);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+  if ( v13 < 0 )
   {
-    v12 = RtlNtStatusToDosError(File);
-    RtlSetLastWin32Error(v12);
-    if ( File == -1073741771 )
+    v14 = RtlNtStatusToDosError(v13);
+    RtlSetLastWin32Error(v14);
+    if ( v13 == -1073741771 )
     {
-      v6 = 80;
+      v8 = 80;
     }
     else
     {
-      if ( File != -1073741638 )
+      if ( v13 != -1073741638 )
         return -1LL;
-      v6 = 3;
-      if ( !v8 )
-        v6 = 5;
+      v8 = 3;
+      if ( !v10 )
+        v8 = 5;
     }
 LABEL_4:
-    RtlSetLastWin32Error(v6);
+    RtlSetLastWin32Error(v8);
     return -1LL;
   }
   RtlSetLastWin32Error(0);
-  return v14;
+  return (__int64)FileHandle;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpDestroyNamespaceNodeList @ 0x140614C00
+ * XREFs of VrpDestroyNamespaceNodeList @ 0x140614CB4
  * Callers:
- *     VrpCleanupNamespace @ 0x140612E20 (VrpCleanupNamespace.c)
+ *     VrpCleanupNamespace @ 0x140612ED4 (VrpCleanupNamespace.c)
  * Callees:
- *     ULongLongMult @ 0x1401B7584 (ULongLongMult.c)
+ *     ULongLongMult @ 0x1401B7468 (ULongLongMult.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VrpDestroyNamespaceNode @ 0x140614978 (VrpDestroyNamespaceNode.c)
+ *     VrpDestroyNamespaceNode @ 0x140614A2C (VrpDestroyNamespaceNode.c)
  */
 
 void *__fastcall VrpDestroyNamespaceNodeList(ULONGLONG *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAcpiGetAllTablesDispatch @ 0x1403BB2A0
+ * XREFs of HalAcpiGetAllTablesDispatch @ 0x1403BB410
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetAllTables @ 0x1403BB4BC (HalpAcpiGetAllTables.c)
+ *     HalpAcpiGetAllTables @ 0x1403BB62C (HalpAcpiGetAllTables.c)
  */
 
 __int64 HalAcpiGetAllTablesDispatch()

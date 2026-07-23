@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAddPageToHeatRanges @ 0x140491458
+ * XREFs of MiAddPageToHeatRanges @ 0x14048AFA8
  * Callers:
- *     MiGetPerfectColorHeadPage @ 0x140289A30 (MiGetPerfectColorHeadPage.c)
- *     MmSetPfnListInfo @ 0x1402F21D0 (MmSetPfnListInfo.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     MiMakeTransitionHeatBatch @ 0x14050A470 (MiMakeTransitionHeatBatch.c)
- *     MiMarkZeroedPageCold @ 0x14070E5E0 (MiMarkZeroedPageCold.c)
+ *     MiGetPerfectColorHeadPage @ 0x140288F90 (MiGetPerfectColorHeadPage.c)
+ *     MmSetPfnListInfo @ 0x1402D4250 (MmSetPfnListInfo.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     MiMakeTransitionHeatBatch @ 0x140503EE0 (MiMakeTransitionHeatBatch.c)
+ *     MiMarkZeroedPageCold @ 0x1407132E0 (MiMarkZeroedPageCold.c)
  * Callees:
  *     <none>
  */

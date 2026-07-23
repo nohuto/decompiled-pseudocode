@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceIdleResiliencyStart @ 0x1404DA0E0
+ * XREFs of PopDiagTraceIdleResiliencyStart @ 0x1404D37C0
  * Callers:
- *     PopDeepSleepEvaluateCallback @ 0x1404DA020 (PopDeepSleepEvaluateCallback.c)
+ *     PopDeepSleepEvaluateCallback @ 0x1404D3700 (PopDeepSleepEvaluateCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceIdleResiliencyStart(__int64 a1, int a2, unsigned __int64 a3)
@@ -21,7 +21,7 @@ NTSTATUS __fastcall PopDiagTraceIdleResiliencyStart(__int64 a1, int a2, unsigned
 
   v11 = a3;
   v10 = a2;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
     v4 = 0LL;
     if ( a3 >= 0xFFFFFFFF )
@@ -32,15 +32,7 @@ NTSTATUS __fastcall PopDiagTraceIdleResiliencyStart(__int64 a1, int a2, unsigned
     v7 = 4LL;
     v8 = &v11;
     v9 = 4LL;
-    return EtwWriteEx(
-             *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-             &POP_ETW_IDLE_RESILIENCY_START,
-             0LL,
-             0,
-             0LL,
-             0LL,
-             3u,
-             &UserData);
+    return EtwWriteEx(PopDiagHandle, &POP_ETW_IDLE_RESILIENCY_START, 0LL, 0, 0LL, 0LL, 3u, &UserData);
   }
   return result;
 }

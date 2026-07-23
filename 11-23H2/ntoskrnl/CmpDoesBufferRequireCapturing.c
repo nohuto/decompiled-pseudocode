@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDoesBufferRequireCapturing @ 0x1406D31CC
+ * XREFs of CmpDoesBufferRequireCapturing @ 0x1406D31FC
  * Callers:
- *     CmpCaptureKeyValueArray @ 0x1406D2418 (CmpCaptureKeyValueArray.c)
- *     NtSetValueKey @ 0x1406D2A00 (NtSetValueKey.c)
- *     NtDeleteValueKey @ 0x14070EA40 (NtDeleteValueKey.c)
- *     NtRenameKey @ 0x140A0DFB0 (NtRenameKey.c)
+ *     CmpCaptureKeyValueArray @ 0x1406D2448 (CmpCaptureKeyValueArray.c)
+ *     NtSetValueKey @ 0x1406D2A30 (NtSetValueKey.c)
+ *     NtDeleteValueKey @ 0x14070EC50 (NtDeleteValueKey.c)
+ *     NtRenameKey @ 0x140A0E260 (NtRenameKey.c)
  * Callees:
- *     CmpIsBufferGloballyVisible @ 0x14073E690 (CmpIsBufferGloballyVisible.c)
+ *     CmpIsBufferGloballyVisible @ 0x14073E880 (CmpIsBufferGloballyVisible.c)
  */
 
 bool __fastcall CmpDoesBufferRequireCapturing(int a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCompressChunks @ 0x140890620
+ * XREFs of RtlCompressChunks @ 0x140891880
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompressBuffer @ 0x14012BE90 (RtlCompressBuffer.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     RtlCompressBuffer @ 0x14012BF60 (RtlCompressBuffer.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 NTSTATUS __stdcall RtlCompressChunks(

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpLightWeightCommitSetUserFlagsUoW @ 0x14060EA98
+ * XREFs of CmpLightWeightCommitSetUserFlagsUoW @ 0x14060EB4C
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  * Callees:
  *     <none>
  */

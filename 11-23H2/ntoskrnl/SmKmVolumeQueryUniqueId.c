@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmVolumeQueryUniqueId @ 0x1409DA798
+ * XREFs of SmKmVolumeQueryUniqueId @ 0x1409DA998
  * Callers:
- *     SmKmEtwAppendProductName @ 0x1405CB38C (SmKmEtwAppendProductName.c)
- *     SmcCacheStart @ 0x1409DAF1C (SmcCacheStart.c)
+ *     SmKmEtwAppendProductName @ 0x1405CB8FC (SmKmEtwAppendProductName.c)
+ *     SmcCacheStart @ 0x1409DB11C (SmcCacheStart.c)
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     SmSanitizeString @ 0x1405CA73C (SmSanitizeString.c)
- *     SmKmSendDeviceControl @ 0x1409D9534 (SmKmSendDeviceControl.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SmSanitizeString @ 0x1405CACAC (SmSanitizeString.c)
+ *     SmKmSendDeviceControl @ 0x1409D9734 (SmKmSendDeviceControl.c)
  */
 
 __int64 __fastcall SmKmVolumeQueryUniqueId(struct _DEVICE_OBJECT *a1, unsigned __int16 *a2, ULONG a3)

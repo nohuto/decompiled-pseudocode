@@ -10,11 +10,16 @@
  *     <none>
  */
 
-__int64 ZwSetInformationFile()
+NTSTATUS __cdecl ZwSetInformationFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 39LL;
+  result = 39;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of SymCryptMlDsaSelftest @ 0x140563120
+ * XREFs of SymCryptMlDsaSelftest @ 0x140565630
  * Callers:
- *     SymCryptMlDsakeySetValue @ 0x14055E310 (SymCryptMlDsakeySetValue.c)
+ *     SymCryptMlDsakeySetValue @ 0x140560834 (SymCryptMlDsakeySetValue.c)
  * Callees:
- *     SymCryptRestoreXmm @ 0x1404D58B4 (SymCryptRestoreXmm.c)
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
- *     SymCryptMlDsaVerify @ 0x14055DD70 (SymCryptMlDsaVerify.c)
- *     SymCryptMlDsakeyAllocate @ 0x14055E1CC (SymCryptMlDsakeyAllocate.c)
- *     SymCryptMlDsakeyFree @ 0x14055E274 (SymCryptMlDsakeyFree.c)
- *     SymCryptMlDsakeyGetValue @ 0x14055E29C (SymCryptMlDsakeyGetValue.c)
- *     SymCryptMlDsakeySetValue @ 0x14055E310 (SymCryptMlDsakeySetValue.c)
- *     SymCryptFatal @ 0x1405E5578 (SymCryptFatal.c)
- *     SymCryptCallbackAlloc @ 0x140722890 (SymCryptCallbackAlloc.c)
- *     SymCryptCallbackFree @ 0x1407228C8 (SymCryptCallbackFree.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     SymCryptRestoreXmm @ 0x1404CF078 (SymCryptRestoreXmm.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaVerify @ 0x140560288 (SymCryptMlDsaVerify.c)
+ *     SymCryptMlDsakeyAllocate @ 0x1405606F0 (SymCryptMlDsakeyAllocate.c)
+ *     SymCryptMlDsakeyFree @ 0x140560798 (SymCryptMlDsakeyFree.c)
+ *     SymCryptMlDsakeyGetValue @ 0x1405607C0 (SymCryptMlDsakeyGetValue.c)
+ *     SymCryptMlDsakeySetValue @ 0x140560834 (SymCryptMlDsakeySetValue.c)
+ *     SymCryptFatal @ 0x1405E7EE8 (SymCryptFatal.c)
+ *     SymCryptCallbackAlloc @ 0x140727460 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x140727498 (SymCryptCallbackFree.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 __int64 SymCryptMlDsaSelftest()

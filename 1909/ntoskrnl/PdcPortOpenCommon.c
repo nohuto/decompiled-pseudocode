@@ -62,7 +62,7 @@ LABEL_11:
   LODWORD(InputBuffer[0]) = 1;
   InputBuffer[1] = v19;
   InputBuffer[2] = v14;
-  v16 = ZwPowerInformation(VerifySystemPolicyDc|0x40, InputBuffer, 0xA8u, 0LL, 0);
+  v16 = ZwPowerInformation(PdcInvocation, InputBuffer, 0xA8u, 0LL, 0);
   if ( v16 >= 0 )
   {
     *a9 = v14;

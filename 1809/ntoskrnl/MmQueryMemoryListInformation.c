@@ -1,21 +1,21 @@
 /*
- * XREFs of MmQueryMemoryListInformation @ 0x1400A89D0
+ * XREFs of MmQueryMemoryListInformation @ 0x1400A8910
  * Callers:
- *     PfpMemoryListQuery @ 0x140160AE0 (PfpMemoryListQuery.c)
- *     EtwpLogMemInfo @ 0x140310F20 (EtwpLogMemInfo.c)
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     PfpPfnPrioRequest @ 0x14062A220 (PfpPfnPrioRequest.c)
- *     PfpVolumePrefetchMetadata @ 0x14065D004 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchDirectoryStream @ 0x14065D3CC (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchFilesTrickle @ 0x140661F84 (PfpPrefetchFilesTrickle.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x1406622FC (PfpUpdateRepurposedByPrefetch.c)
- *     PfSnCheckActionsNeeded @ 0x140667E3C (PfSnCheckActionsNeeded.c)
- *     PfpPrefetchPrivatePages @ 0x14086438C (PfpPrefetchPrivatePages.c)
+ *     PfpMemoryListQuery @ 0x140160BE0 (PfpMemoryListQuery.c)
+ *     EtwpLogMemInfo @ 0x140311110 (EtwpLogMemInfo.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     PfpPfnPrioRequest @ 0x14062B240 (PfpPfnPrioRequest.c)
+ *     PfpVolumePrefetchMetadata @ 0x14065E1C4 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchDirectoryStream @ 0x14065E58C (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchFilesTrickle @ 0x140663144 (PfpPrefetchFilesTrickle.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x1406634BC (PfpUpdateRepurposedByPrefetch.c)
+ *     PfSnCheckActionsNeeded @ 0x140668FFC (PfSnCheckActionsNeeded.c)
+ *     PfpPrefetchPrivatePages @ 0x1408655EC (PfpPrefetchPrivatePages.c)
  * Callees:
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x140090C28 (PsReferencePartitionSafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmQueryMemoryListInformation(
@@ -81,7 +81,7 @@ __int64 __fastcall MmQueryMemoryListInformation(
   {
     if ( BugCheckParameter2 == (ULONG_PTR **)-1LL )
     {
-      v7 = *(ULONG_PTR **)(qword_14043A748
+      v7 = *(ULONG_PTR **)(qword_14043B808
                          + 8LL * *((unsigned __int16 *)&KeGetCurrentThread()->ApcState.Process[1].SecureState.Flags + 3));
     }
     else

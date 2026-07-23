@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestTableDeleteEntry @ 0x1409BAB80
+ * XREFs of PopPowerRequestTableDeleteEntry @ 0x1409A11D0
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestDelete @ 0x1409BAA40 (PopPowerRequestDelete.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestDelete @ 0x1409A1090 (PopPowerRequestDelete.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
  */
 
 BOOLEAN __fastcall PopPowerRequestTableDeleteEntry(int a1)

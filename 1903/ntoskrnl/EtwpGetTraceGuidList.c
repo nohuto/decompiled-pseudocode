@@ -6,7 +6,7 @@
  *     EtwpGetNextGuidEntry @ 0x140665CEC (EtwpGetNextGuidEntry.c)
  */
 
-__int64 __fastcall EtwpGetTraceGuidList(__int64 a1, _OWORD *a2, _DWORD *a3)
+__int64 __fastcall EtwpGetTraceGuidList(__int64 a1, GUID *a2, _DWORD *a3)
 {
   unsigned int v3; // ebx
   unsigned int v4; // esi
@@ -14,7 +14,7 @@ __int64 __fastcall EtwpGetTraceGuidList(__int64 a1, _OWORD *a2, _DWORD *a3)
   __int64 i; // rbp
   signed __int64 v9; // rcx
   signed __int64 *NextGuidEntry; // rax
-  _OWORD **v11; // rcx
+  GUID **v11; // rcx
   __int64 v12; // rdx
 
   v3 = 0;
@@ -25,17 +25,17 @@ __int64 __fastcall EtwpGetTraceGuidList(__int64 a1, _OWORD *a2, _DWORD *a3)
     NextGuidEntry = EtwpGetNextGuidEntry(a1, v6, 0);
     if ( !NextGuidEntry )
       break;
-    v9 = NextGuidEntry[5] - PrivateLoggerNotificationGuid;
+    v9 = NextGuidEntry[5] - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
     if ( !v9 )
-      v9 = NextGuidEntry[6] - *((_QWORD *)&PrivateLoggerNotificationGuid + 1);
+      v9 = NextGuidEntry[6] - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
     if ( v9 )
     {
       if ( ++v3 <= v4 )
-        *a2++ = *(_OWORD *)(NextGuidEntry + 5);
+        *a2++ = *(GUID *)(NextGuidEntry + 5);
     }
     v6 = NextGuidEntry;
   }
-  v11 = (_OWORD **)&EtwpUmglProviders;
+  v11 = &EtwpUmglProviders;
   v12 = 10LL;
   do
   {

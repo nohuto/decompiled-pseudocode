@@ -11,7 +11,7 @@
  *     RtlSetProtectedPolicy @ 0x180081550 (RtlSetProtectedPolicy.c)
  *     RtlpAddVectoredHandler @ 0x1800820B0 (RtlpAddVectoredHandler.c)
  *     RtlpRemoveVectoredHandler @ 0x1800828A0 (RtlpRemoveVectoredHandler.c)
- *     RtlGrowFunctionTable @ 0x1800E0BD0 (RtlGrowFunctionTable.c)
+ *     RtlGrowFunctionTable @ 0x1800E0B90 (RtlGrowFunctionTable.c)
  * Callees:
  *     RtlpProtectHeap @ 0x18000E1C0 (RtlpProtectHeap.c)
  *     RtlpMoveHeapBetweenLists @ 0x18000E2A8 (RtlpMoveHeapBetweenLists.c)
@@ -19,39 +19,38 @@
  *     RtlpHpHeapValidateProtection @ 0x18000EE64 (RtlpHpHeapValidateProtection.c)
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
- *     RtlpHpHeapProtect @ 0x18010E444 (RtlpHpHeapProtect.c)
+ *     RtlpHpHeapProtect @ 0x18010E404 (RtlpHpHeapProtect.c)
  */
 
-void __fastcall RtlProtectHeap(_DWORD *a1, char a2)
+void __cdecl RtlProtectHeap(PVOID HeapHandle, BOOLEAN MakeReadOnly)
 {
-  __int64 v4; // r8
-  unsigned int HeapProtection; // eax
-  unsigned int v6; // edi
+  ULONG HeapProtection; // eax
+  ULONG v5; // edi
+  int v6; // eax
   int v7; // eax
-  int v8; // eax
 
-  if ( a1[4] == -571548178 || (a1[29] & 0x1000000) == 0 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 || (*((_DWORD *)HeapHandle + 29) & 0x1000000) == 0 )
   {
     RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
-    if ( a1[4] == -571548178 )
-      HeapProtection = RtlpHpHeapValidateProtection(a1, (a1[5] & 0x40000000) != 0 ? 64 : 4, v4);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      HeapProtection = RtlpHpHeapValidateProtection(HeapHandle);
     else
-      HeapProtection = RtlpGetHeapProtection(a1, 1LL);
-    v6 = HeapProtection;
-    if ( a2 )
+      HeapProtection = RtlpGetHeapProtection(HeapHandle, 1LL);
+    v5 = HeapProtection;
+    if ( MakeReadOnly )
     {
-      RtlpMoveHeapBetweenLists(a1, 1LL, 2LL);
-      v7 = 2;
-      if ( v6 == 64 )
-        v7 = 32;
-      v6 = v7;
+      RtlpMoveHeapBetweenLists(HeapHandle, 1LL, 2LL);
+      v6 = 2;
+      if ( v5 == 64 )
+        v6 = 32;
+      v5 = v6;
     }
-    if ( a1[4] == -571548178 )
-      v8 = RtlpHpHeapProtect(a1, v6);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      v7 = RtlpHpHeapProtect(HeapHandle, v5);
     else
-      v8 = RtlpProtectHeap(a1, v6);
-    if ( v8 >= 0 && !a2 )
-      RtlpMoveHeapBetweenLists(a1, 2LL, 1LL);
+      v7 = RtlpProtectHeap(HeapHandle, v5);
+    if ( v7 >= 0 && !MakeReadOnly )
+      RtlpMoveHeapBetweenLists(HeapHandle, 2LL, 1LL);
     RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   }
 }

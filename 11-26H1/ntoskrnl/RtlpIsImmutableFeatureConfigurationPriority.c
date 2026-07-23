@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpIsImmutableFeatureConfigurationPriority @ 0x140624B08
+ * XREFs of RtlpIsImmutableFeatureConfigurationPriority @ 0x140627B58
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x140B19608 (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x140B1BA58 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
  *     <none>
  */

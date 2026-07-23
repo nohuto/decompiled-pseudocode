@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaInitSystem @ 0x140A90960
+ * XREFs of HalpDmaInitSystem @ 0x140A907E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaInitPowerManagement @ 0x14039C15C (HalpDmaInitPowerManagement.c)
+ *     HalpDmaInitPowerManagement @ 0x14039C33C (HalpDmaInitPowerManagement.c)
  *     HalpDmaInitEarly @ 0x140B604AC (HalpDmaInitEarly.c)
  *     HalpDmaInitDiscard @ 0x140B60550 (HalpDmaInitDiscard.c)
  *     HalpDmaInit @ 0x140B605F8 (HalpDmaInit.c)

@@ -11,7 +11,7 @@
  *     BiTranslateObjectIdentifier @ 0x140710D14 (BiTranslateObjectIdentifier.c)
  */
 
-__int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, __int64 a2, PVOID *a3, unsigned int *a4)
+__int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3, unsigned int *a4)
 {
   int Element; // eax
   unsigned int v9; // ebx

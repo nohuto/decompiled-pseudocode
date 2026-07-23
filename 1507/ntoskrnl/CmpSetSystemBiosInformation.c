@@ -34,23 +34,23 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
   __int64 v12; // rdx
   PVOID v13; // rcx
   unsigned int v14; // ebx
-  char *v15; // rbx
+  CHAR *v15; // rbx
   __int64 Table; // rax
   HANDLE v17; // r12
   wchar_t *v18; // rbx
   unsigned __int16 v19; // di
   unsigned int v20; // edx
-  char *v21; // r8
+  CHAR *v21; // r8
   PVOID BaseAddress; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING ValueName; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING String2; // [rsp+78h] [rbp-88h] BYREF
-  STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
+  _STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
   LARGE_INTEGER SectionOffset; // [rsp+98h] [rbp-68h] BYREF
   __int64 v28; // [rsp+A0h] [rbp-60h]
   ULONG_PTR ViewSize; // [rsp+A8h] [rbp-58h] BYREF
   HANDLE KeyHandle; // [rsp+B0h] [rbp-50h]
-  char SourceString[128]; // [rsp+C0h] [rbp-40h] BYREF
+  CHAR SourceString[128]; // [rsp+C0h] [rbp-40h] BYREF
 
   v3 = a1;
   v28 = a1;
@@ -148,7 +148,7 @@ LABEL_22:
           if ( !Table )
             continue;
           v20 = 0;
-          v21 = (char *)(Table + 10);
+          v21 = (CHAR *)(Table + 10);
           do
           {
             if ( !*v21 )

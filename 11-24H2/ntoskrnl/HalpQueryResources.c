@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryResources @ 0x1406FEF30
+ * XREFs of HalpQueryResources @ 0x1406FCB70
  * Callers:
- *     HalpDispatchPnp @ 0x140A78F20 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140A73220 (HalpDispatchPnp.c)
  * Callees:
- *     HalConvertDeviceIdtToIrql @ 0x1406FD8E0 (HalConvertDeviceIdtToIrql.c)
- *     HalpQueryAcpiResourceRequirements @ 0x1407026A8 (HalpQueryAcpiResourceRequirements.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalConvertDeviceIdtToIrql @ 0x1406FB520 (HalConvertDeviceIdtToIrql.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407002E8 (HalpQueryAcpiResourceRequirements.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpQueryResources(__int64 a1, _QWORD *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall HalpQueryResources(__int64 a1, _QWORD *a2)
     if ( (int)result < 0 )
       return result;
     v6 = P;
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (unsigned int)(20 * *((_DWORD *)P + 9) + 39), 0x706C6148u);
     v8 = Pool2;
     if ( !Pool2 )
     {

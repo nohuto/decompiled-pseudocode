@@ -13,9 +13,12 @@ bool __stdcall RtlpInitializeLeakDetection()
   unsigned int *v1; // esi
   unsigned int v2; // eax
   unsigned int v3; // ecx
-  int v5; // [esp-Ch] [ebp-10h]
+  PVOID v5; // [esp-Ch] [ebp-10h]
+  SIZE_T v6; // [esp-4h] [ebp-8h]
+  SIZE_T v7; // [esp-4h] [ebp-8h]
 
-  Heap = (unsigned int *)RtlAllocateHeap(RtlpLeakHeap, 0, 1072);
+  LODWORD(v6) = 1072;
+  Heap = (unsigned int *)RtlAllocateHeap(RtlpLeakHeap, 0, v6);
   v1 = Heap;
   RtlpProcessMemoryMap = (int)Heap;
   if ( !Heap )
@@ -33,8 +36,9 @@ bool __stdcall RtlpInitializeLeakDetection()
   }
   while ( v2 >= v3 );
   v1[2] = -1;
+  LODWORD(v7) = 81920;
   v5 = RtlpLeakHeap;
   *v1 = v3;
-  RtlpTempBlocks = (void *)RtlAllocateHeap(v5, 0, 81920);
+  RtlpTempBlocks = RtlAllocateHeap(v5, 0, v7);
   return RtlpTempBlocks != 0;
 }

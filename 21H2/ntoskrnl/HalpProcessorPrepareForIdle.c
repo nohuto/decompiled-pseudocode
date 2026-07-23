@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpProcessorPrepareForIdle @ 0x14029C060
+ * XREFs of HalpProcessorPrepareForIdle @ 0x140213A30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpProcessorPrepareForIdle()

@@ -8,12 +8,12 @@
  *     EtwpTraceCachedStack @ 0x14025849C (EtwpTraceCachedStack.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, union _SLIST_HEADER *a2)
+PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, _SLIST_HEADER *a2)
 {
   PSLIST_ENTRY v3; // rdi
   PSLIST_ENTRY result; // rax
-  union _SLIST_HEADER *v5; // rsi
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_HEADER *v5; // rsi
+  _SLIST_ENTRY *Next; // rbx
 
   v3 = ListEntry;
   result = (PSLIST_ENTRY)(unsigned int)_InterlockedExchangeAdd(

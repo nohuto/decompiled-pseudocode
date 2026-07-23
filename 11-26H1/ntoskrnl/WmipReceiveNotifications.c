@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipReceiveNotifications @ 0x1403DB2FC
+ * XREFs of WmipReceiveNotifications @ 0x1403DE4EC
  * Callers:
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseMutantEx @ 0x1403DD130 (KeReleaseMutantEx.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     WmipClearIrpObjectList @ 0x1403FEABC (WmipClearIrpObjectList.c)
- *     WmipCompleteGuidIrpWithError @ 0x1404C964C (WmipCompleteGuidIrpWithError.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     WmipCopyFromEventQueues @ 0x140AEDBF0 (WmipCopyFromEventQueues.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseMutantEx @ 0x1403E0320 (KeReleaseMutantEx.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     WmipClearIrpObjectList @ 0x1403FB2AC (WmipClearIrpObjectList.c)
+ *     WmipCompleteGuidIrpWithError @ 0x1404C306C (WmipCompleteGuidIrpWithError.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     WmipCopyFromEventQueues @ 0x140AF0B88 (WmipCopyFromEventQueues.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipReceiveNotifications(unsigned int *a1, int *a2, __int64 a3)
@@ -74,7 +74,7 @@ __int64 __fastcall WmipReceiveNotifications(unsigned int *a1, int *a2, __int64 a
   {
     Pool2 = P;
   }
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v8 = 0LL;
   v39 = 0;
   v9 = 0;
@@ -219,7 +219,7 @@ LABEL_15:
     *v42 = 0;
   }
 LABEL_28:
-  KeReleaseMutantEx((struct _KTHREAD *)&EtwpSecurityLock.IoSelfBoostsEntry);
+  KeReleaseMutantEx((struct _KTHREAD *)&WmipSMMutex);
   if ( (_DWORD)v12 )
   {
     v27 = (PVOID *)Pool2;

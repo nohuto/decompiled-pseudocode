@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepTriggerActivity @ 0x1403AFA10
+ * XREFs of PopPepTriggerActivity @ 0x1403B9720
  * Callers:
- *     PopPepProcessEvent @ 0x1403AFCF0 (PopPepProcessEvent.c)
- *     PopPepComponentSetLatency @ 0x1403B1784 (PopPepComponentSetLatency.c)
- *     PopPepUpdateIdleState @ 0x1403B19D8 (PopPepUpdateIdleState.c)
- *     PopPepTriggerComponentActivatingActivity @ 0x1403B1A40 (PopPepTriggerComponentActivatingActivity.c)
- *     PopPepCompleteComponentActiveActivity @ 0x1403B1C40 (PopPepCompleteComponentActiveActivity.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403B20A0 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepSurprisePowerOn @ 0x1403B755C (PopPepSurprisePowerOn.c)
- *     PopPepTriggerComponentIdleStateChangeActivity @ 0x14048C220 (PopPepTriggerComponentIdleStateChangeActivity.c)
+ *     PopPepProcessEvent @ 0x1403B9A00 (PopPepProcessEvent.c)
+ *     PopPepComponentSetLatency @ 0x1403BB494 (PopPepComponentSetLatency.c)
+ *     PopPepUpdateIdleState @ 0x1403BB6E8 (PopPepUpdateIdleState.c)
+ *     PopPepTriggerComponentActivatingActivity @ 0x1403BB750 (PopPepTriggerComponentActivatingActivity.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x1403BB950 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403BBDB0 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepSurprisePowerOn @ 0x1403C145C (PopPepSurprisePowerOn.c)
+ *     PopPepTriggerComponentIdleStateChangeActivity @ 0x140485D60 (PopPepTriggerComponentIdleStateChangeActivity.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPepTriggerActivity(__int64 a1, __int64 a2, signed int a3, unsigned int a4)

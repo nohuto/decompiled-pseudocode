@@ -1,19 +1,19 @@
 /*
- * XREFs of HvStoreModifiedData @ 0x1405A7438
+ * XREFs of HvStoreModifiedData @ 0x1405A8438
  * Callers:
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     RtlMergeBitMaps @ 0x14000FA94 (RtlMergeBitMaps.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     HvpGenerateLogEntry @ 0x1405A7860 (HvpGenerateLogEntry.c)
- *     HvpFindNextDirtyBlock @ 0x1405A7B38 (HvpFindNextDirtyBlock.c)
- *     HvpTruncateBins @ 0x1405A818C (HvpTruncateBins.c)
- *     HvResetDirtyData @ 0x1405A86E4 (HvResetDirtyData.c)
- *     HvpCountSetRangesInVector @ 0x1405DF8D4 (HvpCountSetRangesInVector.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     HvpGenerateLogEntry @ 0x1405A8860 (HvpGenerateLogEntry.c)
+ *     HvpFindNextDirtyBlock @ 0x1405A8B38 (HvpFindNextDirtyBlock.c)
+ *     HvpTruncateBins @ 0x1405A918C (HvpTruncateBins.c)
+ *     HvResetDirtyData @ 0x1405A96E4 (HvResetDirtyData.c)
+ *     HvpCountSetRangesInVector @ 0x1405E08D4 (HvpCountSetRangesInVector.c)
  */
 
 __int64 __fastcall HvStoreModifiedData(ULONG_PTR BugCheckParameter2, char a2, char a3)
@@ -53,7 +53,7 @@ __int64 __fastcall HvStoreModifiedData(ULONG_PTR BugCheckParameter2, char a2, ch
   unsigned int v37; // [rsp+60h] [rbp-9h]
   __int64 v38; // [rsp+68h] [rbp-1h] BYREF
   void *v39; // [rsp+70h] [rbp+7h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+78h] [rbp+Fh] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+78h] [rbp+Fh] BYREF
   SIZE_T NumberOfBytes; // [rsp+88h] [rbp+1Fh]
   unsigned int v42; // [rsp+D0h] [rbp+67h]
   PVOID P; // [rsp+E8h] [rbp+7Fh] BYREF

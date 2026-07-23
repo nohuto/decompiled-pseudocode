@@ -153,7 +153,7 @@ __int64 __fastcall MmCheckCachedPageStates(unsigned __int64 a1, __int64 a2, unsi
   bool v94; // zf
   __int64 v95; // rax
   unsigned __int64 v96; // rbx
-  struct _SLIST_ENTRY *TransitionHeatBatch; // rsi
+  _SLIST_ENTRY *TransitionHeatBatch; // rsi
   __int64 v98; // r8
   __int64 v99; // r9
   __int64 v100; // rax
@@ -916,17 +916,13 @@ LABEL_238:
         v95 = *(_QWORD *)(v91 + 16) >> 3;
       if ( (v95 & 1) != 0 )
       {
-        TransitionHeatBatch = (struct _SLIST_ENTRY *)MiMakeTransitionHeatBatch(
-                                                       v91,
-                                                       0LL,
-                                                       ((__int64)(v189 - v10) >> 3) + 1,
-                                                       v6);
+        TransitionHeatBatch = (_SLIST_ENTRY *)MiMakeTransitionHeatBatch(v91, 0LL, ((__int64)(v189 - v10) >> 3) + 1, v6);
         if ( TransitionHeatBatch )
         {
           _InterlockedAnd64((volatile signed __int64 *)(v91 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           MiUnlockProtoPoolPage(v9, v178, v98, v99);
           v178 = 17;
-          if ( TransitionHeatBatch == (struct _SLIST_ENTRY *)-1LL )
+          if ( TransitionHeatBatch == (_SLIST_ENTRY *)-1LL )
           {
             MiReplenishTransitionPageHeatList();
           }

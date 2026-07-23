@@ -1,25 +1,25 @@
 /*
- * XREFs of LdrResGetRCConfig @ 0x140B03754
+ * XREFs of LdrResGetRCConfig @ 0x140B05364
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1403DAAE8 (LdrpResSearchResourceMappedFile.c)
- *     LdrpVerifyAlternateResourceModuleEx @ 0x1406186F8 (LdrpVerifyAlternateResourceModuleEx.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1403DDCD8 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x14061B748 (LdrpVerifyAlternateResourceModuleEx.c)
  * Callees:
- *     LdrpResSearchResourceMappedFile @ 0x1403DAAE8 (LdrpResSearchResourceMappedFile.c)
- *     LdrpGetFromMUIMemCache @ 0x1403DCE10 (LdrpGetFromMUIMemCache.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1404A7338 (LdrpSetAlternateResourceModuleHandle.c)
- *     CheckOneBitValidFlag @ 0x140619648 (CheckOneBitValidFlag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     LdrpResGetMappingSize @ 0x140A9B310 (LdrpResGetMappingSize.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1403DDCD8 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpGetFromMUIMemCache @ 0x1403E0000 (LdrpGetFromMUIMemCache.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x1404A09C8 (LdrpSetAlternateResourceModuleHandle.c)
+ *     CheckOneBitValidFlag @ 0x14061C648 (CheckOneBitValidFlag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     LdrpResGetMappingSize @ 0x1409E6340 (LdrpResGetMappingSize.c)
  */
 
-int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int a4, char a5)
+NTSTATUS __fastcall LdrResGetRCConfig(void *a1, ULONG64 a2, unsigned int **a3, int a4, char a5)
 {
   int v8; // edi
   unsigned int *v9; // rax
   __int64 v10; // r13
   int v11; // edi
-  int result; // eax
-  __int64 v13; // rsi
+  NTSTATUS result; // eax
+  unsigned __int64 v13; // rsi
   int v14; // ecx
   unsigned int *v15; // r8
   __int64 v16; // rdx
@@ -44,13 +44,13 @@ int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int 
   char v35; // r9
   int v36; // ecx
   unsigned int *v37; // [rsp+58h] [rbp-80h] BYREF
-  __int64 v38; // [rsp+60h] [rbp-78h] BYREF
-  __int64 v39; // [rsp+68h] [rbp-70h]
+  ULONG64 v38; // [rsp+60h] [rbp-78h] BYREF
+  void *v39; // [rsp+68h] [rbp-70h]
   __int64 v40[2]; // [rsp+70h] [rbp-68h] BYREF
   const wchar_t *v41[3]; // [rsp+80h] [rbp-58h] BYREF
 
   v39 = a1;
-  v40[1] = a1;
+  v40[1] = (__int64)a1;
   v41[0] = L"MUI";
   v41[1] = (const wchar_t *)1;
   v41[2] = 0LL;
@@ -65,7 +65,7 @@ int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int 
     v10 = -1LL;
     goto LABEL_13;
   }
-  v9 = LdrpGetFromMUIMemCache(a1, 0, 0LL, 8);
+  v9 = LdrpGetFromMUIMemCache((unsigned __int64)a1, 0, 0LL, 8);
   v37 = v9;
   v10 = -1LL;
   if ( v9 == (unsigned int *)-1LL )
@@ -79,9 +79,9 @@ int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int 
   }
   a1 = v39;
 LABEL_13:
-  if ( a2 || v8 || (result = LdrpResGetMappingSize(a1, (unsigned __int64 *)&v38, a4), result >= 0) )
+  if ( a2 || v8 || (result = LdrpResGetMappingSize((__int64)a1, &v38, a4), result >= 0) )
   {
-    v13 = v39;
+    v13 = (unsigned __int64)v39;
     v14 = LdrpResSearchResourceMappedFile(v39, v38, v8 != 0 ? 8240 : 4144, v41, 3, &v37, v40, 0LL, 0LL);
     if ( v14 < 0 )
     {

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLockPageListAndFirstPage @ 0x140369804
+ * XREFs of MiLockPageListAndFirstPage @ 0x14036B5A4
  * Callers:
- *     MiGetRepurposedSlabStandbyPage @ 0x140369680 (MiGetRepurposedSlabStandbyPage.c)
+ *     MiGetRepurposedSlabStandbyPage @ 0x14036B420 (MiGetRepurposedSlabStandbyPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiReleasePageListLock @ 0x140369F10 (MiReleasePageListLock.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiReleasePageListLock @ 0x14036BCB0 (MiReleasePageListLock.c)
  */
 
 __int64 __fastcall MiLockPageListAndFirstPage(volatile LONG *a1, __int64 a2)

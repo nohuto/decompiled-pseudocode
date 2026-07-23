@@ -7,12 +7,12 @@
  *     RtlInitUnicodeStringEx @ 0x180018130 (RtlInitUnicodeStringEx.c)
  */
 
-__int64 __fastcall RtlIsDosDeviceName_U(__int64 a1)
+ULONG __cdecl RtlIsDosDeviceName_U(PCWSTR DosFileName)
 {
-  __m128i v2; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( (int)RtlInitUnicodeStringEx((__int64)&v2, a1) < 0 )
-    return 0LL;
+  if ( RtlInitUnicodeStringEx(&DestinationString, DosFileName) < 0 )
+    return 0;
   else
-    return RtlpIsDosDeviceName_Ustr(&v2);
+    return RtlpIsDosDeviceName_Ustr((__m128i *)&DestinationString);
 }

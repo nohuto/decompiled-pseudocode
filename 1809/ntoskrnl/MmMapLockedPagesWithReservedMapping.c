@@ -1,20 +1,20 @@
 /*
- * XREFs of MmMapLockedPagesWithReservedMapping @ 0x14018E920
+ * XREFs of MmMapLockedPagesWithReservedMapping @ 0x14018EA60
  * Callers:
- *     SmFpAllocate @ 0x14014BA74 (SmFpAllocate.c)
- *     sub_1401AD7E0 @ 0x1401AD7E0 (sub_1401AD7E0.c)
- *     PnprCopyReservedMapping @ 0x140289F80 (PnprCopyReservedMapping.c)
- *     PspIumFreePhysicalPages @ 0x1402EB92C (PspIumFreePhysicalPages.c)
- *     PnprMapPhysicalPages @ 0x140579BCC (PnprMapPhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1408CA4DC (EtwpSavePersistedLogger.c)
+ *     SmFpAllocate @ 0x14014BB74 (SmFpAllocate.c)
+ *     sub_1401AD920 @ 0x1401AD920 (sub_1401AD920.c)
+ *     PnprCopyReservedMapping @ 0x14028A170 (PnprCopyReservedMapping.c)
+ *     PspIumFreePhysicalPages @ 0x1402EBB1C (PspIumFreePhysicalPages.c)
+ *     PnprMapPhysicalPages @ 0x14057ABCC (PnprMapPhysicalPages.c)
+ *     EtwpSavePersistedLogger @ 0x1408CB79C (EtwpSavePersistedLogger.c)
  * Callees:
  *     MiLegitimatePageForDriversToMap @ 0x1400298DC (MiLegitimatePageForDriversToMap.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     MiMapMdlCommon @ 0x14018EAF4 (MiMapMdlCommon.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     MiMapMdlCommon @ 0x14018EC34 (MiMapMdlCommon.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmMapLockedPagesWithReservedMapping(
@@ -45,8 +45,8 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
   v7 = (((LODWORD(MemoryDescriptorList->StartVa) + MemoryDescriptorList->ByteOffset) & 0xFFF)
       + (unsigned __int64)MemoryDescriptorList->ByteCount
       + 4095) >> 12;
-  v9 = ExAcquireSpinLockShared(&dword_14043AC80);
-  v10 = qword_14043AC88;
+  v9 = ExAcquireSpinLockShared(&dword_14043BD40);
+  v10 = qword_14043BD48;
   v11 = (unsigned __int64)MappingAddress & 0xFFFFFFFFFFFFF000uLL;
   v12 = v9;
   while ( 1 )
@@ -64,7 +64,7 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
       break;
     v10 = *(_QWORD *)(v10 + 8);
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_14043AC80);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_14043BD40);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v12 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

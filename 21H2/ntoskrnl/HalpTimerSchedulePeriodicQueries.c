@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerSchedulePeriodicQueries @ 0x1403CE86C
+ * XREFs of HalpTimerSchedulePeriodicQueries @ 0x1403CE9DC
  * Callers:
- *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
- *     HalpTscFallbackToPlatformSource @ 0x1404C1698 (HalpTscFallbackToPlatformSource.c)
+ *     HalpTimerInitSystem @ 0x1403A9340 (HalpTimerInitSystem.c)
+ *     HalpTscFallbackToPlatformSource @ 0x1404C18D8 (HalpTscFallbackToPlatformSource.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
  */
 
 __int64 HalpTimerSchedulePeriodicQueries()

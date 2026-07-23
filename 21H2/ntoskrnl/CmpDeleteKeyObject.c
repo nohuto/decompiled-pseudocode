@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpDeleteKeyObject @ 0x1406675C0
+ * XREFs of CmpDeleteKeyObject @ 0x14065C3E0
  * Callers:
  *     <none>
  * Callees:
- *     CmpWaitForLateUnloadWorker @ 0x14027EEF8 (CmpWaitForLateUnloadWorker.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExIsResourceAcquiredSharedLite @ 0x14034FE80 (ExIsResourceAcquiredSharedLite.c)
- *     CmpInitializeDelayDerefContext @ 0x1403510E8 (CmpInitializeDelayDerefContext.c)
- *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
+ *     CmpWaitForLateUnloadWorker @ 0x14026CE98 (CmpWaitForLateUnloadWorker.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14035ABD0 (ExIsResourceAcquiredSharedLite.c)
+ *     CmpInitializeDelayDerefContext @ 0x14035BE38 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x14035BE50 (CmpDrainDelayDerefContext.c)
  *     CmpFreeCallbackObjectContexts @ 0x1405D6B4C (CmpFreeCallbackObjectContexts.c)
  *     CmpFireCleanupNotifications @ 0x1405D82F4 (CmpFireCleanupNotifications.c)
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     CmPostCallbackNotification @ 0x1406677D0 (CmPostCallbackNotification.c)
- *     CmpSignalDeferredPosts @ 0x140667890 (CmpSignalDeferredPosts.c)
- *     DelistKeyBodyFromKCB @ 0x140667930 (DelistKeyBodyFromKCB.c)
- *     CmpCallCallBacks @ 0x140667A2C (CmpCallCallBacks.c)
- *     CmpFlushNotify @ 0x14066AE8C (CmpFlushNotify.c)
- *     CmpTransDereferenceTransaction @ 0x1406A32E0 (CmpTransDereferenceTransaction.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x14087AB38 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpTransDereferenceTransaction @ 0x1405DEFE0 (CmpTransDereferenceTransaction.c)
+ *     CmPostCallbackNotification @ 0x14065C5F0 (CmPostCallbackNotification.c)
+ *     CmpSignalDeferredPosts @ 0x14065C6B0 (CmpSignalDeferredPosts.c)
+ *     DelistKeyBodyFromKCB @ 0x14065C750 (DelistKeyBodyFromKCB.c)
+ *     CmpCallCallBacks @ 0x14065C84C (CmpCallCallBacks.c)
+ *     CmpFlushNotify @ 0x14065FCAC (CmpFlushNotify.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x14087AC98 (CmpKeyEnumStackFreeResumeContext.c)
  */
 
 void __fastcall CmpDeleteKeyObject(__int64 a1)

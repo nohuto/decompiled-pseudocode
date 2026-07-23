@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCheckForFreedEnhancedTimer @ 0x1403AA888
+ * XREFs of ExpCheckForFreedEnhancedTimer @ 0x1403B4498
  * Callers:
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     WdtpArmTimer @ 0x1403AA03C (WdtpArmTimer.c)
- *     ExCancelTimer @ 0x1403AA0D0 (ExCancelTimer.c)
- *     ExDeleteTimer @ 0x1403AABC0 (ExDeleteTimer.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     WdtpArmTimer @ 0x1403B3C4C (WdtpArmTimer.c)
+ *     ExCancelTimer @ 0x1403B3CE0 (ExCancelTimer.c)
+ *     ExDeleteTimer @ 0x1403B48D0 (ExDeleteTimer.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall ExpCheckForFreedEnhancedTimer(ULONG_PTR BugCheckParameter1)

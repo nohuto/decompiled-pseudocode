@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSetPmcProfileSource @ 0x1408B8AF8
+ * XREFs of EtwpSetPmcProfileSource @ 0x1408B9DB8
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KeInitializeProfileCallback @ 0x14084452C (KeInitializeProfileCallback.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     KeInitializeProfileCallback @ 0x14084578C (KeInitializeProfileCallback.c)
  */
 
 __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
@@ -28,16 +28,16 @@ __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
   }
   else
   {
-    if ( qword_14040A388 )
+    if ( qword_14040B408 )
     {
-      ExFreePoolWithTag(qword_14040A388, 0);
-      qword_14040A388 = 0LL;
+      ExFreePoolWithTag(qword_14040B408, 0);
+      qword_14040B408 = 0LL;
       EtwpPmcProfile = 0;
     }
     v6 = v2;
-    qword_14040A388 = ExAllocatePoolWithTag(NonPagedPoolNx, 248 * v2, 0x58777445u);
-    v7 = qword_14040A388;
-    if ( qword_14040A388 )
+    qword_14040B408 = ExAllocatePoolWithTag(NonPagedPoolNx, 248 * v2, 0x58777445u);
+    v7 = qword_14040B408;
+    if ( qword_14040B408 )
     {
       EtwpPmcProfile = v2;
       if ( (_DWORD)v2 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimWorkingSetTail @ 0x14034FD10
+ * XREFs of MiTrimWorkingSetTail @ 0x14034FEB0
  * Callers:
- *     MiTrimPte @ 0x1402E3630 (MiTrimPte.c)
+ *     MiTrimPte @ 0x1402E38C0 (MiTrimPte.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
- *     MiTrimmedEnough @ 0x1402E3814 (MiTrimmedEnough.c)
- *     MiTrimWorkingSetBuildup @ 0x14034FDC0 (MiTrimWorkingSetBuildup.c)
- *     MiProcessVmAccessedInfo @ 0x14046BFBE (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x14046C08C (MiQueryEPTAccessedState.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
+ *     MiTrimmedEnough @ 0x1402E3AA4 (MiTrimmedEnough.c)
+ *     MiTrimWorkingSetBuildup @ 0x14034FF60 (MiTrimWorkingSetBuildup.c)
+ *     MiProcessVmAccessedInfo @ 0x14046C3BE (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x14046C48C (MiQueryEPTAccessedState.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetTail(__int64 a1)

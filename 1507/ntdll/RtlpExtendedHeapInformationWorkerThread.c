@@ -12,50 +12,60 @@
  *     RtlpHpVirtQueryHeaps @ 0x1800EB6B4 (RtlpHpVirtQueryHeaps.c)
  */
 
-void __fastcall __noreturn RtlpExtendedHeapInformationWorkerThread(__int64 a1)
+void __fastcall __noreturn RtlpExtendedHeapInformationWorkerThread(char *a1)
 {
-  _QWORD *v1; // rdi
-  _QWORD *v3; // r14
-  int HeapInformation; // esi
+  SIZE_T *ViewSize; // rdi
+  PVOID *v3; // r14
+  NTSTATUS v4; // esi
   int v5; // ebp
-  _QWORD v6[15]; // [rsp+50h] [rbp-78h] BYREF
+  _QWORD HeapInformation[15]; // [rsp+50h] [rbp-78h] BYREF
 
-  v1 = (_QWORD *)(a1 + 56);
-  if ( *(_DWORD *)(a1 + 24) == 0x40000000 )
-    *v1 = *(_QWORD *)(a1 + 8);
+  ViewSize = (SIZE_T *)(a1 + 56);
+  if ( *((_DWORD *)a1 + 6) == 0x40000000 )
+    *ViewSize = *((_QWORD *)a1 + 1);
   else
-    *v1 = 0x10000LL;
-  v3 = (_QWORD *)(a1 + 48);
-  *(_QWORD *)(a1 + 64) = 0LL;
-  HeapInformation = ZwMapViewOfSection();
-  if ( HeapInformation >= 0 )
+    *ViewSize = 0x10000LL;
+  v3 = (PVOID *)(a1 + 48);
+  *((_QWORD *)a1 + 8) = 0LL;
+  v4 = ZwMapViewOfSection(
+         *(HANDLE *)a1,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         (PVOID *)a1 + 6,
+         0LL,
+         *ViewSize,
+         (PLARGE_INTEGER)a1 + 8,
+         ViewSize,
+         ViewUnmap,
+         0,
+         4u);
+  if ( v4 >= 0 )
   {
-    *(_QWORD *)(a1 + 72) = 0LL;
-    *(_QWORD *)(a1 + 32) = 0LL;
-    *(_DWORD *)(a1 + 40) = 0;
-    *(_DWORD *)(a1 + 28) = 0;
-    v5 = *(_DWORD *)(a1 + 24);
+    *((_QWORD *)a1 + 9) = 0LL;
+    *((_QWORD *)a1 + 4) = 0LL;
+    *((_DWORD *)a1 + 10) = 0;
+    *((_DWORD *)a1 + 7) = 0;
+    v5 = *((_DWORD *)a1 + 6);
     if ( v5 == 0x40000000 )
     {
-      *(_QWORD *)(*v3 + 8LL) = -1LL;
-      *(_DWORD *)(a1 + 28) = RtlpHpVirtQueryHeaps(*v3, *v1, a1 + 32);
+      *((_QWORD *)*v3 + 1) = -1LL;
+      *((_DWORD *)a1 + 7) = RtlpHpVirtQueryHeaps(*v3, *ViewSize, a1 + 32);
     }
     else
     {
-      memset(v6, 0, 0x58uLL);
-      v6[1] = *(_QWORD *)(a1 + 16);
-      v6[0] = -1LL;
-      v6[3] = RtlpExtendedHeapInformationWorkerCallback;
-      LODWORD(v6[2]) = v5;
-      v6[4] = a1;
-      HeapInformation = RtlQueryHeapInformation(0LL, 2, v6, 0x58uLL, 0LL);
-      if ( HeapInformation >= 0 && *(int *)(a1 + 28) < 0 )
-        HeapInformation = *(_DWORD *)(a1 + 28);
+      memset(HeapInformation, 0, 0x58uLL);
+      HeapInformation[1] = *((_QWORD *)a1 + 2);
+      HeapInformation[0] = -1LL;
+      HeapInformation[3] = RtlpExtendedHeapInformationWorkerCallback;
+      LODWORD(HeapInformation[2]) = v5;
+      HeapInformation[4] = a1;
+      v4 = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)2, HeapInformation, 0x58uLL, 0LL);
+      if ( v4 >= 0 && *((int *)a1 + 7) < 0 )
+        v4 = *((_DWORD *)a1 + 7);
     }
   }
   if ( *v3 )
-    NtUnmapViewOfSection();
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v3);
   NtClose(*(HANDLE *)a1);
-  *(_DWORD *)(a1 + 28) = HeapInformation;
+  *((_DWORD *)a1 + 7) = v4;
   RtlExitUserThread(0);
 }

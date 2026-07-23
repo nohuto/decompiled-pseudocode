@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAllocateUuids @ 0x1406B9844
+ * XREFs of ExpAllocateUuids @ 0x140618F04
  * Callers:
- *     NtAllocateUuids @ 0x1406B9660 (NtAllocateUuids.c)
- *     ExpUuidGetValues @ 0x1407D3654 (ExpUuidGetValues.c)
+ *     NtAllocateUuids @ 0x140618D20 (NtAllocateUuids.c)
+ *     ExpUuidGetValues @ 0x1407D37C4 (ExpUuidGetValues.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     ExpUuidLoadSequenceNumber @ 0x1407CF68C (ExpUuidLoadSequenceNumber.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     ExpUuidLoadSequenceNumber @ 0x1407CF7FC (ExpUuidLoadSequenceNumber.c)
  */
 
 __int64 __fastcall ExpAllocateUuids(__int64 a1, unsigned int *a2, _DWORD *a3)

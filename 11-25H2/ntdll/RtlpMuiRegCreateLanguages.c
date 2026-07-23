@@ -6,9 +6,9 @@
  *     _SafeAllocBlob @ 0x1800E8BB0 (_SafeAllocBlob.c)
  */
 
-__int64 RtlpMuiRegCreateLanguages()
+_QWORD *RtlpMuiRegCreateLanguages()
 {
-  __int64 result; // rax
+  _QWORD *result; // rax
   unsigned int v1; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0;
@@ -16,8 +16,8 @@ __int64 RtlpMuiRegCreateLanguages()
   if ( result )
   {
     *(_DWORD *)result = v1;
-    *(_QWORD *)(result + 16) = result + 24;
-    *(_DWORD *)(result + 4) = 4;
+    result[2] = result + 3;
+    *((_DWORD *)result + 1) = 4;
   }
   return result;
 }

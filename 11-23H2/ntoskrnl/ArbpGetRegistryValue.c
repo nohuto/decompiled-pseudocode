@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbpGetRegistryValue @ 0x140814028
+ * XREFs of ArbpGetRegistryValue @ 0x1408142F8
  * Callers:
- *     ArbAddInaccessibleAllocationRange @ 0x140813554 (ArbAddInaccessibleAllocationRange.c)
- *     ArbBuildAssignmentOrdering @ 0x140813A78 (ArbBuildAssignmentOrdering.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x1408142C4 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x140813824 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbBuildAssignmentOrdering @ 0x140813D48 (ArbBuildAssignmentOrdering.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x140814594 (ArbAddMmConfigRangeAsBootReserved.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

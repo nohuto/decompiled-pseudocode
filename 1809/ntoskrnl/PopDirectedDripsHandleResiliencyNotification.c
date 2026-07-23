@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsHandleResiliencyNotification @ 0x140867BF8
+ * XREFs of PopDirectedDripsHandleResiliencyNotification @ 0x140868E58
  * Callers:
- *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
+ *     PopDirectedDripsProcessWork @ 0x140869698 (PopDirectedDripsProcessWork.c)
  * Callees:
  *     PopDeepSleepClearDisengageReason @ 0x140004E80 (PopDeepSleepClearDisengageReason.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
- *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PopQueueWorkItem @ 0x140138DC8 (PopQueueWorkItem.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x1408693B8 (PopDirectedDripsNotifyDrivers.c)
  */
 
 __int64 __fastcall PopDirectedDripsHandleResiliencyNotification(__int64 a1)

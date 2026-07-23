@@ -1,16 +1,16 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey @ 0x1404CB300
+ * XREFs of OpenGlobalizationUserSettingsKey @ 0x1404C4820
  * Callers:
- *     ExpSetPendingUILanguage @ 0x140A70D00 (ExpSetPendingUILanguage.c)
- *     NtSetDefaultLocale @ 0x140A968F0 (NtSetDefaultLocale.c)
+ *     ExpSetPendingUILanguage @ 0x140A6A190 (ExpSetPendingUILanguage.c)
+ *     NtSetDefaultLocale @ 0x140A93120 (NtSetDefaultLocale.c)
  * Callees:
- *     GetGlobalizationUserModelType @ 0x14065ABAC (GetGlobalizationUserModelType.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14065ABEC (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14065AE8C (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     RtlOpenCurrentUser @ 0x1407820C0 (RtlOpenCurrentUser.c)
+ *     GetGlobalizationUserModelType @ 0x1406592CC (GetGlobalizationUserModelType.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14065930C (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1406595AC (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlOpenCurrentUser @ 0x140781FF0 (RtlOpenCurrentUser.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *a3)
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *a3)
 {
   int GlobalizationUserModelType; // eax
   __int64 v6; // rdx
@@ -19,7 +19,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *
 
   v8 = a1;
   if ( !a3 )
-    return 3221225485LL;
+    return -1073741811;
   GlobalizationUserModelType = GetGlobalizationUserModelType();
   if ( GlobalizationUserModelType == 1 )
     return RtlOpenCurrentUser(8u, a3);
@@ -27,7 +27,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *
   if ( GlobalizationUserModelType == 2 )
     return OpenGlobalizationUserSettingsKey_ForSingleUserModel(v7, a3);
   if ( GlobalizationUserModelType != 3 )
-    return 3221225701LL;
+    return -1073741595;
   v8 = 0;
   return OpenGlobalizationUserSettingsKey_ForMua(v7, v6, a3, &v8);
 }

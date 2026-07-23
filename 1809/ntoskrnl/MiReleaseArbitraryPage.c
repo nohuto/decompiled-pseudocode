@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReleaseArbitraryPage @ 0x140111C80
+ * XREFs of MiReleaseArbitraryPage @ 0x140111CF0
  * Callers:
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
+ *     MiCombinePte @ 0x140088F00 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D5450 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReleaseArbitraryPage(_QWORD *SchedulerAssist, __int64 a2, __int64 a3)
@@ -51,7 +51,7 @@ LABEL_4:
     *v7 = v6;
     goto LABEL_5;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v6 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v6 & 1) != 0 )
     v6 |= 0x8000000000000000uLL;
   *v7 = v6;
   MiWritePteShadow(v7);

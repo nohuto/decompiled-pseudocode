@@ -1,17 +1,17 @@
 /*
- * XREFs of HvDuplicateCell @ 0x1407D74D0
+ * XREFs of HvDuplicateCell @ 0x1407D77A0
  * Callers:
- *     CmpCloneKCBValueListForTrans @ 0x1407D73EC (CmpCloneKCBValueListForTrans.c)
- *     CmpDuplicateIndex @ 0x140A23200 (CmpDuplicateIndex.c)
+ *     CmpCloneKCBValueListForTrans @ 0x1407D76BC (CmpCloneKCBValueListForTrans.c)
+ *     CmpDuplicateIndex @ 0x140A234B0 (CmpDuplicateIndex.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     HvAllocateCell @ 0x14070A3C8 (HvAllocateCell.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     HvAllocateCell @ 0x14070A5D8 (HvAllocateCell.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall HvDuplicateCell(

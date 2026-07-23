@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfApplyLatencyHints @ 0x1402B7BE0
+ * XREFs of PpmPerfApplyLatencyHints @ 0x140235DC0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfApplyLatencyHint @ 0x14037C594 (PpmPerfApplyLatencyHint.c)
+ *     PpmPerfApplyLatencyHint @ 0x14037C0E4 (PpmPerfApplyLatencyHint.c)
  */
 
 char PpmPerfApplyLatencyHints()

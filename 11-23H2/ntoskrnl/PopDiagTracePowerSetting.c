@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerSetting @ 0x1407DE730
+ * XREFs of PopDiagTracePowerSetting @ 0x1407DEA00
  * Callers:
- *     PopTracePowerSettingChange @ 0x1407DE710 (PopTracePowerSettingChange.c)
- *     PopDiagTraceControlCallback @ 0x1408629E0 (PopDiagTraceControlCallback.c)
+ *     PopTracePowerSettingChange @ 0x1407DE9E0 (PopTracePowerSettingChange.c)
+ *     PopDiagTraceControlCallback @ 0x140862C20 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTracePowerSetting(char a1, ULONGLONG a2, int a3, __int64 a4)

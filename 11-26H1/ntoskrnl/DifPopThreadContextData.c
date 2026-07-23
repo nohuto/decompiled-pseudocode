@@ -1,11 +1,11 @@
 /*
- * XREFs of DifPopThreadContextData @ 0x14064A7A0
+ * XREFs of DifPopThreadContextData @ 0x14064E380
  * Callers:
  *     <none>
  * Callees:
- *     DifPushSegment @ 0x14064D11C (DifPushSegment.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     DifPushSegment @ 0x140650CFC (DifPushSegment.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall DifPopThreadContextData(int a1, void *a2, unsigned int a3)
@@ -28,12 +28,12 @@ char __fastcall DifPopThreadContextData(int a1, void *a2, unsigned int a3)
           memmove(a2, *(const void **)(v5 + 8), a3);
         ExFreePoolWithTag(*(PVOID *)(v5 + 8), 0x4E666944u);
         *(_QWORD *)(v5 + 8) = 0LL;
-        DifPushSegment(&stru_140E27B08.SchedulerApcFill5[48]);
+        DifPushSegment(&stru_140E27C48.InGlobalForegroundList);
         v3 = 1;
       }
       if ( !v4[1] && !*v4 )
       {
-        DifPushSegment(&stru_140E27B08.792);
+        DifPushSegment(&stru_140E27C48.792);
         *(_QWORD *)&KeGetCurrentThread()[1].WaitBlockFill11[64] = 0LL;
       }
     }

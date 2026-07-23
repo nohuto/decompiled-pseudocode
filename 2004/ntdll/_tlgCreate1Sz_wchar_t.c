@@ -7,7 +7,7 @@
  *     <none>
  */
 
-void __fastcall tlgCreate1Sz_wchar_t(__int64 a1, _WORD *a2)
+void __fastcall tlgCreate1Sz_wchar_t(__int64 a1, const WCHAR *a2)
 {
   __int64 v2; // rax
   int v3; // r8d
@@ -22,7 +22,7 @@ void __fastcall tlgCreate1Sz_wchar_t(__int64 a1, _WORD *a2)
   }
   else
   {
-    a2 = &unk_180121374;
+    a2 = &word_180121374;
     v3 = 2;
   }
   *(_QWORD *)a1 = a2;

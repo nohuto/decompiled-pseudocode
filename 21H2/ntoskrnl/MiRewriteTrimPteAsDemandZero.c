@@ -1,136 +1,126 @@
 /*
- * XREFs of MiRewriteTrimPteAsDemandZero @ 0x140269EA8
+ * XREFs of MiRewriteTrimPteAsDemandZero @ 0x140257E48
  * Callers:
- *     MiWsleFree @ 0x140327ED0 (MiWsleFree.c)
+ *     MiWsleFree @ 0x140332C20 (MiWsleFree.c)
  * Callees:
- *     MiSetNonResidentPteHeat @ 0x14023E7B0 (MiSetNonResidentPteHeat.c)
- *     MiDecrementShareCount @ 0x1402401C0 (MiDecrementShareCount.c)
- *     MiTransferSoftwarePte @ 0x14026A0D8 (MiTransferSoftwarePte.c)
- *     MiLockNestedPageAtDpcInline @ 0x14026AF90 (MiLockNestedPageAtDpcInline.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiTransferSoftwarePte @ 0x140258078 (MiTransferSoftwarePte.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140258F30 (MiLockNestedPageAtDpcInline.c)
+ *     MiSetNonResidentPteHeat @ 0x1402E3000 (MiSetNonResidentPteHeat.c)
+ *     MiDecrementShareCount @ 0x1402E4A10 (MiDecrementShareCount.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14033C800 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140353660 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
-__int64 __fastcall MiRewriteTrimPteAsDemandZero(__int64 a1, _QWORD *a2)
+char __fastcall MiRewriteTrimPteAsDemandZero(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // r10
   unsigned __int64 v5; // rbx
   __int16 v6; // r10
   __int64 v7; // rdx
   unsigned __int64 v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // r9
-  int v11; // esi
-  __int64 result; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
+  int v9; // esi
+  struct _KTHREAD *CurrentThread; // rax
+  bool v11; // zf
+  __int64 v12; // rcx
+  __int64 v13; // rsi
+  int v14; // ebp
+  unsigned __int64 *v15; // rdi
+  __int64 v16; // rdx
   bool v17; // zf
-  __int64 v18; // rcx
-  __int64 v19; // rsi
-  int v20; // ebp
-  unsigned __int64 *v21; // rdi
-  __int64 v22; // rdx
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  bool v27; // zf
-  unsigned __int64 v28; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v19; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = a2[2];
   if ( (v2 & 2) != 0 )
   {
-    v7 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((a2[5] >> 39) & 0x3FFLL))
+    v7 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * ((a2[5] >> 39) & 0x3FFLL))
                    + 8LL * ((unsigned __int16)v2 >> 12)
                    + 6944);
-    if ( qword_140C4DF40 && (v2 & 0x10) == 0 )
-      v2 &= ~qword_140C4DF40;
+    if ( qword_140C4DF80 && (v2 & 0x10) == 0 )
+      v2 &= ~qword_140C4DF80;
     v5 = MiTransferSoftwarePte(a2[2], v7, HIDWORD(v2), 2LL);
   }
   else
   {
-    v28 = a2[2];
-    MiSetNonResidentPteHeat(&v28, 0);
-    v5 = v28;
+    v19 = a2[2];
+    MiSetNonResidentPteHeat(&v19, 0LL);
+    v5 = v19;
     if ( (v6 & 0x400) == 0 )
     {
-      v5 = v28 & 0xFFFFFFFFFFFFFFF9uLL;
-      v28 &= 0xFFFFFFFFFFFFFFF9uLL;
+      v5 = v19 & 0xFFFFFFFFFFFFFFF9uLL;
+      v19 &= 0xFFFFFFFFFFFFFFF9uLL;
     }
   }
   v8 = a2[1] | 0x8000000000000000uLL;
   if ( !(unsigned int)MI_PFN_IS_PROTO(a2) )
   {
-    v11 = 0;
-    result = MiPteInShadowRange(v8, v9);
-    if ( (_DWORD)result )
+    v9 = 0;
+    LODWORD(CurrentThread) = MiPteInShadowRange(v8);
+    if ( (_DWORD)CurrentThread )
     {
-      result = MiPteHasShadow(v14, v13, v15, v16);
-      if ( (_DWORD)result )
+      LODWORD(CurrentThread) = MiPteHasShadow();
+      if ( (_DWORD)CurrentThread )
       {
-        v11 = 1;
-        if ( !HIBYTE(word_140C4E008) )
+        v9 = 1;
+        if ( !HIBYTE(word_140C4E048) )
         {
-          v17 = (v5 & 1) == 0;
+          v11 = (v5 & 1) == 0;
           goto LABEL_15;
         }
       }
       else
       {
-        result = (__int64)KeGetCurrentThread();
-        if ( (*(_DWORD *)(*(_QWORD *)(result + 184) + 2172LL) & 0x1000) != 0 )
+        CurrentThread = KeGetCurrentThread();
+        if ( (HIDWORD(CurrentThread->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
         {
-          v17 = (v5 & 1) == 0;
+          v11 = (v5 & 1) == 0;
 LABEL_15:
-          if ( !v17 )
+          if ( !v11 )
             v5 |= 0x8000000000000000uLL;
         }
       }
     }
     *(_QWORD *)v8 = v5;
-    if ( v11 )
-      result = MiWritePteShadow(v8, v5);
+    if ( v9 )
+      LOBYTE(CurrentThread) = MiWritePteShadow(v8, v5);
     if ( (*(_BYTE *)(a1 + 184) & 7) == 0 )
-      return _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 - 392), 0xFFFFFFFFFFFFFFFFuLL);
-    return result;
+      LOBYTE(CurrentThread) = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 - 392), 0xFFFFFFFFFFFFFFFFuLL);
+    return (char)CurrentThread;
   }
-  v18 = a2[5] & 0xFFFFFFFFFLL;
-  v19 = 48 * v18 - 0x58000000000LL;
-  v20 = 0;
-  v21 = (unsigned __int64 *)(MiMapPageInHyperSpaceWorker(v18, 0LL, 0x80000000LL, v10) + 8 * ((v8 >> 3) & 0x1FF));
-  if ( (unsigned int)MiPteInShadowRange(v21, v22) )
+  v12 = a2[5] & 0xFFFFFFFFFLL;
+  v13 = 48 * v12 - 0x58000000000LL;
+  v14 = 0;
+  v15 = (unsigned __int64 *)(MiMapPageInHyperSpaceWorker(v12, 0LL, 0x80000000LL) + 8 * ((v8 >> 3) & 0x1FF));
+  if ( (unsigned int)MiPteInShadowRange(v15) )
   {
-    if ( (unsigned int)MiPteHasShadow(v24, v23, v25, v26) )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v20 = 1;
-      if ( !HIBYTE(word_140C4E008) )
+      v14 = 1;
+      if ( !HIBYTE(word_140C4E048) )
       {
-        v27 = (v5 & 1) == 0;
+        v17 = (v5 & 1) == 0;
         goto LABEL_27;
       }
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
     {
-      v27 = (v5 & 1) == 0;
+      v17 = (v5 & 1) == 0;
 LABEL_27:
-      if ( !v27 )
+      if ( !v17 )
         v5 |= 0x8000000000000000uLL;
     }
   }
-  *v21 = v5;
-  if ( v20 )
-    MiWritePteShadow(v21, v5);
-  LOBYTE(v23) = 17;
-  MiUnmapPageInHyperSpaceWorker(v21, v23, 0x80000000LL);
-  MiLockNestedPageAtDpcInline(v19);
-  MiDecrementShareCount(v19);
-  result = 0x7FFFFFFFFFFFFFFFLL;
-  _InterlockedAnd64((volatile signed __int64 *)(v19 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  return result;
+  *v15 = v5;
+  if ( v14 )
+    MiWritePteShadow((__int64)v15, v5);
+  LOBYTE(v16) = 17;
+  MiUnmapPageInHyperSpaceWorker(v15, v16, 0x80000000LL);
+  MiLockNestedPageAtDpcInline(v13);
+  MiDecrementShareCount(v13);
+  LOBYTE(CurrentThread) = -1;
+  _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  return (char)CurrentThread;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwFreeGenericTableEntry @ 0x140B46050
+ * XREFs of PiSwFreeGenericTableEntry @ 0x140B48080
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwFreeGenericTableEntry(__int64 a1, void *a2)

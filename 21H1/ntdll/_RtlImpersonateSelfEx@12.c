@@ -11,39 +11,42 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)
+NTSTATUS __cdecl RtlImpersonateSelfEx(
+        SECURITY_IMPERSONATION_LEVEL ImpersonationLevel,
+        ACCESS_MASK AdditionalAccess,
+        PHANDLE ThreadToken)
 {
   int v3; // esi
-  _DWORD v5[6]; // [esp+10h] [ebp-34h] BYREF
-  HANDLE v6; // [esp+28h] [ebp-1Ch] BYREF
-  HANDLE Handle; // [esp+2Ch] [ebp-18h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-34h] BYREF
+  HANDLE TokenHandle; // [esp+28h] [ebp-1Ch] BYREF
+  HANDLE NewTokenHandle; // [esp+2Ch] [ebp-18h] BYREF
   _DWORD v8[2]; // [esp+30h] [ebp-14h] BYREF
   __int16 v9; // [esp+38h] [ebp-Ch]
 
-  if ( !a3 && a2 )
+  if ( !ThreadToken && AdditionalAccess )
     return -1073741584;
-  v8[1] = a1;
-  v5[0] = 24;
-  v5[5] = v8;
-  v5[1] = 0;
-  v5[3] = 512;
-  v5[2] = 0;
-  v5[4] = 0;
+  v8[1] = ImpersonationLevel;
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.SecurityQualityOfService = v8;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.ObjectName = 0;
+  ObjectAttributes.SecurityDescriptor = 0;
   v8[0] = 12;
   v9 = 1;
-  v3 = ZwOpenProcessTokenEx(-1, 2, 512, &v6);
+  v3 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFF, 2u, 0x200u, &TokenHandle);
   if ( v3 >= 0 )
   {
-    v3 = NtDuplicateToken(v6, a2 | 4, v5, 0, 2, &Handle);
+    v3 = NtDuplicateToken(TokenHandle, AdditionalAccess | 4, &ObjectAttributes, 0, TokenImpersonation, &NewTokenHandle);
     if ( v3 >= 0 )
     {
-      v3 = ZwSetInformationThread(-2, 5, &Handle, 4);
-      if ( v3 >= 0 && a3 )
-        *a3 = Handle;
+      v3 = ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, &NewTokenHandle, 4u);
+      if ( v3 >= 0 && ThreadToken )
+        *ThreadToken = NewTokenHandle;
       else
-        NtClose(Handle);
+        NtClose(NewTokenHandle);
     }
-    NtClose(v6);
+    NtClose(TokenHandle);
   }
   return v3;
 }

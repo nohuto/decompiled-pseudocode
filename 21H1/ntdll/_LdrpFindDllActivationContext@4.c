@@ -58,7 +58,7 @@ int __thiscall LdrpFindDllActivationContext(int this)
     {
       if ( *(_DWORD *)(this + 72) )
       {
-        RtlReleaseActivationContext(*(volatile signed __int32 **)(this + 72));
+        RtlReleaseActivationContext(*(PACTIVATION_CONTEXT *)(this + 72));
         v5 = v7;
       }
       *(_DWORD *)(this + 72) = v5;

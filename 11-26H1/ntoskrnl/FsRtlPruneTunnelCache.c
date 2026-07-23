@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlPruneTunnelCache @ 0x1409E16F0
+ * XREFs of FsRtlPruneTunnelCache @ 0x1409DE700
  * Callers:
- *     FsRtlFindInTunnelCacheEx @ 0x1409E1060 (FsRtlFindInTunnelCacheEx.c)
- *     FsRtlAddToTunnelCacheEx @ 0x1409E1210 (FsRtlAddToTunnelCacheEx.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x1409DE060 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x1409DE220 (FsRtlAddToTunnelCacheEx.c)
  * Callees:
- *     RtlDelete @ 0x1402BF430 (RtlDelete.c)
- *     FsRtlFreeTunnelNode @ 0x1403B6610 (FsRtlFreeTunnelNode.c)
- *     RtlDeleteNoSplay @ 0x1403B6670 (RtlDeleteNoSplay.c)
+ *     RtlDelete @ 0x14030A0F0 (RtlDelete.c)
+ *     FsRtlFreeTunnelNode @ 0x1403C0510 (FsRtlFreeTunnelNode.c)
+ *     RtlDeleteNoSplay @ 0x1403C0570 (RtlDeleteNoSplay.c)
  */
 
 __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 *a2)
@@ -20,11 +20,11 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 *a2)
   char *v9; // r14
   __int64 v10; // rax
   __int64 result; // rax
-  RTL_SPLAY_LINKS *v12; // rcx
+  _RTL_SPLAY_LINKS *v12; // rcx
   __int64 v13; // rcx
   char **v14; // rax
   char *v15; // rbx
-  RTL_SPLAY_LINKS *v16; // rdi
+  _RTL_SPLAY_LINKS *v16; // rdi
   __int64 v17; // rcx
   char **v18; // rax
 
@@ -41,7 +41,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 *a2)
     v10 = *((_QWORD *)v9 + 2);
     if ( v10 >= v7 && v10 <= v5 )
       break;
-    v12 = (RTL_SPLAY_LINKS *)(v9 - 24);
+    v12 = (_RTL_SPLAY_LINKS *)(v9 - 24);
     if ( v4 )
     {
       *(_QWORD *)(a1 + 56) = RtlDelete(v12);
@@ -69,7 +69,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 *a2)
     while ( 1 )
     {
       v15 = *i;
-      v16 = (RTL_SPLAY_LINKS *)(*i - 24);
+      v16 = (_RTL_SPLAY_LINKS *)(*i - 24);
       if ( v4 )
       {
         *(_QWORD *)(a1 + 56) = RtlDelete(v16);

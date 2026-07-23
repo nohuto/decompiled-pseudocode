@@ -1,21 +1,21 @@
 /*
  * XREFs of ExBlockOnAddressPushLock @ 0x140369460
  * Callers:
- *     CmpWaitForLateUnloadWorker @ 0x1402A4298 (CmpWaitForLateUnloadWorker.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x1405F3A90 (RtlpCSparseBitmapWaitOnAddress.c)
- *     CmpTransSearchAddTrans @ 0x14067F520 (CmpTransSearchAddTrans.c)
- *     CmpRollbackLightWeightTransaction @ 0x1406E25B0 (CmpRollbackLightWeightTransaction.c)
- *     CmLoadAppKey @ 0x14071A870 (CmLoadAppKey.c)
- *     PopBatteryUpdateCurrentState @ 0x1407ED964 (PopBatteryUpdateCurrentState.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1407ED9FC (ExpBlockOnLockedHandleEntry.c)
- *     MiLockImageSection @ 0x1407EDA2C (MiLockImageSection.c)
- *     RtlUpdateSwapReference @ 0x1408331DC (RtlUpdateSwapReference.c)
+ *     sub_1402A4298 @ 0x1402A4298 (sub_1402A4298.c)
+ *     sub_1405F3A90 @ 0x1405F3A90 (sub_1405F3A90.c)
+ *     sub_14067F520 @ 0x14067F520 (sub_14067F520.c)
+ *     sub_1406E25B0 @ 0x1406E25B0 (sub_1406E25B0.c)
+ *     sub_14071A870 @ 0x14071A870 (sub_14071A870.c)
+ *     sub_1407ED964 @ 0x1407ED964 (sub_1407ED964.c)
+ *     sub_1407ED9FC @ 0x1407ED9FC (sub_1407ED9FC.c)
+ *     sub_1407EDA2C @ 0x1407EDA2C (sub_1407EDA2C.c)
+ *     sub_1408331DC @ 0x1408331DC (sub_1408331DC.c)
  *     CmUnRegisterCallback @ 0x14090FD60 (CmUnRegisterCallback.c)
- *     PsSetVmProcessorHostProcess @ 0x1409AF410 (PsSetVmProcessorHostProcess.c)
+ *     sub_1409AF410 @ 0x1409AF410 (sub_1409AF410.c)
  * Callees:
  *     ExBlockPushLock @ 0x140369520 (ExBlockPushLock.c)
  *     ExTimedWaitForUnblockPushLock @ 0x140369540 (ExTimedWaitForUnblockPushLock.c)
- *     ExpUnblockPushLock @ 0x140369634 (ExpUnblockPushLock.c)
+ *     sub_140369634 @ 0x140369634 (sub_140369634.c)
  *     memset @ 0x140435E00 (memset.c)
  */
 
@@ -61,6 +61,6 @@ __int64 __fastcall ExBlockOnAddressPushLock(__int64 a1, _QWORD *a2, _QWORD *a3, 
   if ( v12 )
     return ExTimedWaitForUnblockPushLock(a1, v14, a5);
 LABEL_8:
-  ExpUnblockPushLock(a1, v14, 0LL);
+  sub_140369634(a1, v14, 0LL);
   return 0LL;
 }

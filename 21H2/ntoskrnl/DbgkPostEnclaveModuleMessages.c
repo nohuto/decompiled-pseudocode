@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkPostEnclaveModuleMessages @ 0x1404EDEF0
+ * XREFs of DbgkPostEnclaveModuleMessages @ 0x1404EE130
  * Callers:
- *     DbgkpPostModuleMessages @ 0x1408852A0 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140885400 (DbgkpPostModuleMessages.c)
  * Callees:
- *     DbgkPostModuleMessage @ 0x1404EDF6C (DbgkPostModuleMessage.c)
+ *     DbgkPostModuleMessage @ 0x1404EE1AC (DbgkPostModuleMessage.c)
  */
 
 __int64 __fastcall DbgkPostEnclaveModuleMessages(PVOID Object, PVOID a2, PRKEVENT a3, __int64 a4, unsigned int a5)

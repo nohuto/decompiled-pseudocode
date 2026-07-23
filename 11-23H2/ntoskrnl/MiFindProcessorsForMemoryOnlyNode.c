@@ -4,7 +4,7 @@
  *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140B9A3E4 (MiReassignProcessorsToMemoryOnlyNodes.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     MiGetEngineType @ 0x14039955C (MiGetEngineType.c)
+ *     MiGetEngineType @ 0x14039973C (MiGetEngineType.c)
  */
 
 __int64 __fastcall MiFindProcessorsForMemoryOnlyNode(unsigned int a1, unsigned int a2)

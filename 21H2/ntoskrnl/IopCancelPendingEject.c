@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCancelPendingEject @ 0x1408B2978
+ * XREFs of IopCancelPendingEject @ 0x1408B2AD8
  * Callers:
- *     PnpProcessRelation @ 0x1407374AC (PnpProcessRelation.c)
+ *     PnpProcessRelation @ 0x14073766C (PnpProcessRelation.c)
  * Callees:
- *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     IoCancelIrp @ 0x1402394D0 (IoCancelIrp.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
  */
 
 void __fastcall IopCancelPendingEject(__int64 a1)

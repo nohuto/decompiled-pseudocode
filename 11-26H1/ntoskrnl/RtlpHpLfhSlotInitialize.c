@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhSlotInitialize @ 0x140346430
+ * XREFs of RtlpHpLfhSlotInitialize @ 0x1403484B0
  * Callers:
- *     RtlpHpLfhBucketActivate @ 0x140345DF4 (RtlpHpLfhBucketActivate.c)
- *     RtlpHpLfhContextSlotAllocate @ 0x140346D68 (RtlpHpLfhContextSlotAllocate.c)
+ *     RtlpHpLfhBucketActivate @ 0x140347E74 (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpLfhContextSlotAllocate @ 0x140348DE8 (RtlpHpLfhContextSlotAllocate.c)
  * Callees:
- *     RtlpHpLfhOwnerInitialize @ 0x140346490 (RtlpHpLfhOwnerInitialize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpHpLfhOwnerInitialize @ 0x140348510 (RtlpHpLfhOwnerInitialize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpLfhSlotInitialize(__int64 a1, unsigned __int8 *a2, __int64 a3)

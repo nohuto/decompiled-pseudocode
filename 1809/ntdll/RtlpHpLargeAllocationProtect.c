@@ -3,16 +3,24 @@
  * Callers:
  *     RtlpHpHeapProtect @ 0x18010C7A4 (RtlpHpHeapProtect.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1800A0740 (ZwQueryVirtualMemory.c)
- *     ZwProtectVirtualMemory @ 0x1800A0CE0 (ZwProtectVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1800A0760 (ZwQueryVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x1800A0D00 (ZwProtectVirtualMemory.c)
  */
 
-__int64 RtlpHpLargeAllocationProtect()
+int __fastcall RtlpHpLargeAllocationProtect(__int64 a1, ULONG a2)
 {
-  __int64 result; // rax
+  int result; // eax
+  _QWORD v4[7]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG OldProtect; // [rsp+70h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+80h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp+20h] BYREF
 
-  result = ZwQueryVirtualMemory();
-  if ( (int)result >= 0 )
-    return ZwProtectVirtualMemory();
+  BaseAddress = (PVOID)(*(_QWORD *)(a1 + 24) & 0xFFFFFFFFFFFF0000uLL);
+  result = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, MemoryBasicInformation, v4, 0x30uLL, 0LL);
+  if ( result >= 0 )
+  {
+    RegionSize = v4[3];
+    return ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, a2, &OldProtect);
+  }
   return result;
 }

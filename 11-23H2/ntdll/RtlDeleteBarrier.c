@@ -7,16 +7,16 @@
  *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlDeleteBarrier(__int64 a1)
+NTSTATUS __cdecl RtlDeleteBarrier(PRTL_BARRIER Barrier)
 {
-  unsigned __int64 v1; // rbx
-  signed __int64 result; // rax
+  _RTL_SRWLOCK *v1; // rbx
+  NTSTATUS result; // eax
 
-  v1 = (a1 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+  v1 = (_RTL_SRWLOCK *)(((unsigned __int64)&Barrier->Reserved2 + 3) & 0xFFFFFFFFFFFFFFF8uLL);
   if ( v1 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(v1 + 8));
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v1 + 8));
+    RtlAcquireSRWLockExclusive(v1 + 1);
+    RtlReleaseSRWLockExclusive(v1 + 1);
   }
   return result;
 }

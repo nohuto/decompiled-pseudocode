@@ -9,37 +9,33 @@
  *     RtlRbInsertNodeEx @ 0x140034FA0 (RtlRbInsertNodeEx.c)
  */
 
-__int64 __fastcall KiAbEntryUpdateOwnerTreePosition(__int64 a1, __int64 a2)
+BOOLEAN __fastcall KiAbEntryUpdateOwnerTreePosition(PRTL_BALANCED_NODE Node, _RTL_RB_TREE *a2)
 {
-  __int64 result; // rax
-  char *v5; // rdx
-  char v6; // al
-  __int64 v7; // r8
-  char *v8; // rcx
+  BOOLEAN result; // al
+  _RTL_BALANCED_NODE *Root; // rdx
+  BOOLEAN v6; // al
+  _RTL_BALANCED_NODE *v7; // rcx
 
   result = KiAbOwnerComputeCpuPriorityKey();
-  if ( *(_BYTE *)(a1 + 48) == (_BYTE)result )
+  if ( LOBYTE(Node[2].Children[0]) == result )
     return result;
-  *(_BYTE *)(a1 + 48) = result;
-  RtlRbRemoveNode(a2 + 48, a1);
-  v5 = *(char **)(a2 + 48);
+  LOBYTE(Node[2].Children[0]) = result;
+  RtlRbRemoveNode(a2 + 3, Node);
+  Root = a2[3].Root;
   v6 = 0;
-  v7 = *(char *)(a1 + 48);
-  if ( !v5 )
-    goto LABEL_3;
-  while ( v5[48] > (char)v7 )
+  if ( !Root )
+    return RtlRbInsertNodeEx(a2 + 3, Root, v6, Node);
+  while ( SLOBYTE(Root[2].Children[0]) > SLOBYTE(Node[2].Children[0]) )
   {
-    v8 = *(char **)v5;
-    if ( !*(_QWORD *)v5 )
-      goto LABEL_3;
+    v7 = Root->Children[0];
+    if ( !Root->Children[0] )
+      return RtlRbInsertNodeEx(a2 + 3, Root, v6, Node);
 LABEL_8:
-    v5 = v8;
+    Root = v7;
   }
-  v8 = (char *)*((_QWORD *)v5 + 1);
-  if ( v8 )
+  v7 = Root->Children[1];
+  if ( v7 )
     goto LABEL_8;
   v6 = 1;
-LABEL_3:
-  LOBYTE(v7) = v6;
-  return RtlRbInsertNodeEx(a2 + 48, v5, v7, a1);
+  return RtlRbInsertNodeEx(a2 + 3, Root, v6, Node);
 }

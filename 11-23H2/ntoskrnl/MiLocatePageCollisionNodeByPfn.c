@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLocatePageCollisionNodeByPfn @ 0x14064F384
+ * XREFs of MiLocatePageCollisionNodeByPfn @ 0x14064F8D4
  * Callers:
- *     MiStopPageAccessor @ 0x1403688EC (MiStopPageAccessor.c)
+ *     MiStopPageAccessor @ 0x140368A8C (MiStopPageAccessor.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiLocatePageCollisionNodeByPfn(ULONG_PTR *BugCheckParameter2)

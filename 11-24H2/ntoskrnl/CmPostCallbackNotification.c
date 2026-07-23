@@ -1,10 +1,10 @@
 /*
- * XREFs of CmPostCallbackNotification @ 0x140847B20
+ * XREFs of CmPostCallbackNotification @ 0x140843DE0
  * Callers:
- *     CmpDoQueryKeyName @ 0x14041EA20 (CmpDoQueryKeyName.c)
+ *     CmpDoQueryKeyName @ 0x140414760 (CmpDoQueryKeyName.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
  */
 
 __int64 __fastcall CmPostCallbackNotification(int a1, __int64 a2, unsigned int a3, __int64 a4, _QWORD *a5)

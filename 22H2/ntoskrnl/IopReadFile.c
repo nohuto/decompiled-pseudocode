@@ -205,7 +205,7 @@ LABEL_39:
   {
     v27 = KeGetCurrentThread();
     --v27->KernelApcDisable;
-    v28 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter->Lock, 0LL, 0LL);
+    v28 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter->Lock, 0LL, 0);
     LOBYTE(v47[0]) = 0;
     if ( _InterlockedExchange((volatile __int32 *)&DmaAdapter->Busy, 1) )
     {
@@ -326,7 +326,7 @@ LABEL_34:
       {
         Mdl = IoAllocateMdl(Address, Length, 0, 1u, v13);
         if ( !Mdl )
-          RtlRaiseStatus(0xC000009A);
+          RtlRaiseStatus(-1073741670);
         v41 = 0;
         if ( !a11 )
           v41 = AccessMode;

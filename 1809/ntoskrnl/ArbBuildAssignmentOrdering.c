@@ -1,22 +1,22 @@
 /*
- * XREFs of ArbBuildAssignmentOrdering @ 0x140739438
+ * XREFs of ArbBuildAssignmentOrdering @ 0x14073A628
  * Callers:
- *     ArbInitializeArbiterInstance @ 0x14073911C (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x14073A30C (ArbInitializeArbiterInstance.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ArbAddOrdering @ 0x1407398E8 (ArbAddOrdering.c)
- *     ArbpGetRegistryValue @ 0x1407399C4 (ArbpGetRegistryValue.c)
- *     ArbInitializeOrderingList @ 0x140739A84 (ArbInitializeOrderingList.c)
- *     ArbFreeOrderingList @ 0x140739ADC (ArbFreeOrderingList.c)
- *     ArbPruneOrdering @ 0x140739B14 (ArbPruneOrdering.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ArbAddOrdering @ 0x14073AAD8 (ArbAddOrdering.c)
+ *     ArbpGetRegistryValue @ 0x14073ABB4 (ArbpGetRegistryValue.c)
+ *     ArbInitializeOrderingList @ 0x14073AC74 (ArbInitializeOrderingList.c)
+ *     ArbFreeOrderingList @ 0x14073ACCC (ArbFreeOrderingList.c)
+ *     ArbPruneOrdering @ 0x14073AD04 (ArbPruneOrdering.c)
  */
 
 __int64 __fastcall ArbBuildAssignmentOrdering(

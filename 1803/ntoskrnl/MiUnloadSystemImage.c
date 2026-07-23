@@ -257,7 +257,7 @@ LABEL_37:
   }
   if ( *(_QWORD *)BugCheckParameter2 )
   {
-    MiProcessLoaderEntry((int *)BugCheckParameter2, 0);
+    MiProcessLoaderEntry((_QWORD *)BugCheckParameter2, 0);
     if ( (PerfGlobalGroupMask[0] & 4) != 0 )
       EtwpTraceImageUnload(
         (unsigned __int16 *)(BugCheckParameter2 + 72),

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetProcessIoPriorityLimitCallback @ 0x140B025A0
+ * XREFs of PspSetProcessIoPriorityLimitCallback @ 0x140B042D0
  * Callers:
- *     PspSetProcessBackgroundCountCallback @ 0x140B02580 (PspSetProcessBackgroundCountCallback.c)
+ *     PspSetProcessBackgroundCountCallback @ 0x140B042B0 (PspSetProcessBackgroundCountCallback.c)
  * Callees:
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140204BFC (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140204CDC (PspNotifyProcessEffectiveIoLimitChanged.c)
  */
 
 __int64 __fastcall PspSetProcessIoPriorityLimitCallback(__int64 a1, unsigned int *a2)

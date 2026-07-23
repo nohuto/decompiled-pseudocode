@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpAnalyzeSingleLogFile @ 0x1409847EC
+ * XREFs of HvpAnalyzeSingleLogFile @ 0x14096CFFC
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140983108 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x14096B918 (HvAnalyzeLogFiles.c)
  * Callees:
- *     HvpIncrementalLogFileEnumeratorAdvance @ 0x140A88758 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ *     HvpIncrementalLogFileEnumeratorAdvance @ 0x140A84C48 (HvpIncrementalLogFileEnumeratorAdvance.c)
  */
 
 __int64 __fastcall HvpAnalyzeSingleLogFile(__int64 a1, _DWORD *a2, __int64 a3)

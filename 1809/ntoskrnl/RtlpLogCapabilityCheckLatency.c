@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLogCapabilityCheckLatency @ 0x14089A378
+ * XREFs of RtlpLogCapabilityCheckLatency @ 0x14089B5D8
  * Callers:
- *     RtlCapabilityCheck @ 0x1408938C0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x140894B20 (RtlCapabilityCheck.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x14060E910 (RtlRunOnceExecuteOnce.c)
  */
 
 char __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, char a4, char a5, char a6)
@@ -42,9 +42,9 @@ char __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, c
              (PRTL_RUN_ONCE_INIT_FN)RtlpCapChkTelemetryRunOnce,
              0LL,
              0LL);
-  if ( a1 && a2 && *a1 && *a2 && RtlpPerformanceCounterFrequency.QuadPart && stru_140401B10.LevelPlus1 > 5 )
+  if ( a1 && a2 && *a1 && *a2 && RtlpPerformanceCounterFrequency.QuadPart && stru_140402B10.LevelPlus1 > 5 )
   {
-    result = TlgKeywordOn(&stru_140401B10, 0x200000000000uLL);
+    result = TlgKeywordOn(&stru_140402B10, 0x200000000000uLL);
     if ( result )
     {
       v22 = 0;
@@ -67,7 +67,7 @@ char __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, c
       v27 = 1;
       v30 = 1;
       v33 = 1;
-      return TlgWrite(&stru_140401B10, &unk_140372BFC, 0LL, 0LL, 7u, &pData);
+      return TlgWrite(&stru_140402B10, &unk_140373B8C, 0LL, 0LL, 7u, &pData);
     }
   }
   return result;

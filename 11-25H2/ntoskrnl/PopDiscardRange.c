@@ -7,7 +7,7 @@
  *     RtlSetBits @ 0x140339430 (RtlSetBits.c)
  */
 
-void __fastcall PopDiscardRange(RTL_BITMAP *a1, ULONG a2, ULONG a3)
+void __fastcall PopDiscardRange(_RTL_BITMAP *a1, ULONG a2, ULONG a3)
 {
   RtlSetBits(a1 + 3, a2, a3);
 }

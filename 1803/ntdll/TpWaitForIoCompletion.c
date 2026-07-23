@@ -9,39 +9,29 @@
  *     sub_180108770 @ 0x180108770 (sub_180108770.c)
  */
 
-struct _PEB *__fastcall TpWaitForIoCompletion(__int64 a1, __int32 a2)
+void __cdecl TpWaitForIoCompletion(PTP_IO Io, LOGICAL CancelPendingCallbacks)
 {
-  struct _PEB *result; // rax
-  __int64 v5; // r9
-  __int64 v6; // rcx
+  __int64 v4; // rcx
 
-  result = (struct _PEB *)sub_180025900((struct _PEB_LDR_DATA *)a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)sub_180025900((PPEB_LDR_DATA)Io, 0LL, 0LL) )
   {
-    if ( a2 )
-      a2 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
-    result = (struct _PEB *)sub_180055584((volatile signed __int64 *)(a1 + 56), -a2, (unsigned __int64 *)1, v5);
-    if ( a2 )
+    if ( CancelPendingCallbacks )
+      CancelPendingCallbacks = _InterlockedExchange((volatile __int32 *)Io + 70, 0);
+    sub_180055584((_RTL_SRWLOCK *)Io + 7, -CancelPendingCallbacks, 1);
+    if ( CancelPendingCallbacks )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
-      {
-        result = NtCurrentPeb();
-        v6 = (__int64)result->HotpatchInformation + 556;
-      }
+      if ( RtlGetCurrentServiceSessionId() )
+        v4 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
       else
-      {
-        v6 = 2147353478LL;
-      }
-      if ( *(_BYTE *)v6 )
-        return (struct _PEB *)sub_180108770(
-                                *(_QWORD *)(a1 + 144),
-                                (int)a1 + 200,
-                                (int)a1 + 80,
-                                *(_QWORD *)(a1 + 88),
-                                *(_QWORD *)(a1 + 104),
-                                a2);
+        v4 = 2147353478LL;
+      if ( *(_BYTE *)v4 )
+        sub_180108770(
+          *((_QWORD *)Io + 18),
+          (_DWORD)Io + 200,
+          (_DWORD)Io + 80,
+          *((_QWORD *)Io + 11),
+          *((_QWORD *)Io + 13),
+          CancelPendingCallbacks);
     }
   }
-  return result;
 }

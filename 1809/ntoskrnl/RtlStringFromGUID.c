@@ -1,20 +1,17 @@
 /*
- * XREFs of RtlStringFromGUID @ 0x14058B220
+ * XREFs of RtlStringFromGUID @ 0x14058C220
  * Callers:
- *     PipHardwareConfigInit @ 0x1409C63FC (PipHardwareConfigInit.c)
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
- *     SepSecureBootSetRegistryKey @ 0x1409DC258 (SepSecureBootSetRegistryKey.c)
- *     PiInitFirmwareResources @ 0x1409DF1D0 (PiInitFirmwareResources.c)
- *     BapdpRegisterFwUpdateResults @ 0x1409F8DD8 (BapdpRegisterFwUpdateResults.c)
- *     RamdiskStart @ 0x1409F9D4C (RamdiskStart.c)
+ *     PipHardwareConfigInit @ 0x1409C73FC (PipHardwareConfigInit.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
+ *     SepSecureBootSetRegistryKey @ 0x1409DD258 (SepSecureBootSetRegistryKey.c)
+ *     PiInitFirmwareResources @ 0x1409E01D0 (PiInitFirmwareResources.c)
+ *     BapdpRegisterFwUpdateResults @ 0x1409F9DD8 (BapdpRegisterFwUpdateResults.c)
+ *     RamdiskStart @ 0x1409FAD4C (RamdiskStart.c)
  * Callees:
- *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
+ *     RtlStringFromGUIDEx @ 0x14058C238 (RtlStringFromGUIDEx.c)
  */
 
 NTSTATUS __stdcall RtlStringFromGUID(const GUID *const Guid, PUNICODE_STRING GuidString)
 {
-  char v2; // r8
-
-  v2 = 1;
-  return RtlStringFromGUIDEx(Guid, GuidString, v2);
+  return RtlStringFromGUIDEx((PGUID)Guid, GuidString, 1u);
 }

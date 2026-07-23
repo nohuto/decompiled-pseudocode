@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAddPagesToEnclave @ 0x14065E1EC
+ * XREFs of MiAddPagesToEnclave @ 0x14065E2D0
  * Callers:
- *     MiCommitEnclavePages @ 0x14065E734 (MiCommitEnclavePages.c)
+ *     MiCommitEnclavePages @ 0x14065E818 (MiCommitEnclavePages.c)
  * Callees:
- *     MiGetPteFromCopyList @ 0x140034B80 (MiGetPteFromCopyList.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiReleasePteCopyList @ 0x140107034 (MiReleasePteCopyList.c)
- *     MiCreatePteCopyList @ 0x140107178 (MiCreatePteCopyList.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiInitializeEnclavePfn @ 0x1401F059C (MiInitializeEnclavePfn.c)
- *     MiReserveEnclavePages @ 0x1401F0638 (MiReserveEnclavePages.c)
- *     MiReturnEnclavePage @ 0x1401F06EC (MiReturnEnclavePage.c)
- *     MiGetPageForEnclave @ 0x14065F514 (MiGetPageForEnclave.c)
- *     KeAddEnclavePage @ 0x1406E5BA4 (KeAddEnclavePage.c)
+ *     MiGetPteFromCopyList @ 0x140034700 (MiGetPteFromCopyList.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiReleasePteCopyList @ 0x140104DB4 (MiReleasePteCopyList.c)
+ *     MiCreatePteCopyList @ 0x140104EF8 (MiCreatePteCopyList.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiInitializeEnclavePfn @ 0x1401F03C8 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x1401F0464 (MiReserveEnclavePages.c)
+ *     MiReturnEnclavePage @ 0x1401F0518 (MiReturnEnclavePage.c)
+ *     MiGetPageForEnclave @ 0x14065F5F8 (MiGetPageForEnclave.c)
+ *     KeAddEnclavePage @ 0x1406E5CDC (KeAddEnclavePage.c)
  */
 
 __int64 __fastcall MiAddPagesToEnclave(
@@ -60,11 +60,11 @@ __int64 __fastcall MiAddPagesToEnclave(
   v8 = ((__int64)(a4 - a3) >> 3) + 1;
   if ( v5 >= v8 || (result = MiReserveEnclavePages(a1, a2, v8 - v5), (int)result >= 0) )
   {
-    v10 = (_QWORD *)MiReservePtes((__int64)&qword_140327870, 1uLL, a3);
+    v10 = (_QWORD *)MiReservePtes((__int64)&qword_1403278B0, 1uLL, a3);
     v11 = (unsigned __int64)v10;
     if ( v10 )
     {
-      *v10 = MiMakeValidKernelPte(qword_1403276A0, 1, (unsigned __int64)v10);
+      *v10 = MiMakeValidKernelPte(qword_1403276E0, 1, (unsigned __int64)v10);
       v28 = MiPteInShadowRange(v11);
       if ( v28 )
         MiWritePteShadow(v13, v12);
@@ -114,9 +114,9 @@ LABEL_27:
             MiInitializeEnclavePfn(BugCheckParameter2, v6, a5);
             v23 = 16 * (v22 & 0xFFFFFFFFFLL);
             v24 = MmProtectToPteMask[a5] & 0xFFFFFFFFFFFFFF7FuLL;
-            v25 = v24 | ((v23 | HIBYTE(word_140326AA8) & 1) << 8) | 0x25;
+            v25 = v24 | ((v23 | HIBYTE(word_140326AE8) & 1) << 8) | 0x25;
             if ( (a5 & 4) != 0 )
-              v25 = v24 | ((v23 | HIBYTE(word_140326AA8) & 1) << 8) | 0x67;
+              v25 = v24 | ((v23 | HIBYTE(word_140326AE8) & 1) << 8) | 0x67;
             *(_QWORD *)v6 = v25;
             if ( MiPteInShadowRange(v6) )
               MiWritePteShadow(v27, v26);
@@ -139,7 +139,7 @@ LABEL_27:
       *(_QWORD *)v11 = 0LL;
       if ( v28 )
         MiWritePteShadow(v11, 0LL);
-      MiReleasePtes((__int64)&qword_140327870, v11, 1u);
+      MiReleasePtes((__int64)&qword_1403278B0, v11, 1u);
       return (unsigned int)v14;
     }
     else

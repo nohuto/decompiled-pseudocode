@@ -1,11 +1,11 @@
 /*
- * XREFs of QatSubmitWorkToCpu @ 0x1406E10B0
+ * XREFs of QatSubmitWorkToCpu @ 0x1406E5330
  * Callers:
- *     AccelpSiovInternalOperationHandler @ 0x140511B88 (AccelpSiovInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x14050B5F8 (AccelpSiovInternalOperationHandler.c)
  * Callees:
- *     RtlDecompressBufferEx @ 0x14046A3B0 (RtlDecompressBufferEx.c)
- *     RtlCompressBuffer @ 0x14046A480 (RtlCompressBuffer.c)
- *     crc32 @ 0x1404843B4 (crc32.c)
+ *     RtlDecompressBufferEx @ 0x140463B30 (RtlDecompressBufferEx.c)
+ *     RtlCompressBuffer @ 0x140463C00 (RtlCompressBuffer.c)
+ *     crc32 @ 0x14047DD24 (crc32.c)
  */
 
 __int64 __fastcall QatSubmitWorkToCpu(__int64 a1, __int64 a2, __int64 a3)
@@ -15,8 +15,8 @@ __int64 __fastcall QatSubmitWorkToCpu(__int64 a1, __int64 a2, __int64 a3)
   int v6; // ecx
   unsigned __int64 v7; // rdi
   int v8; // ecx
-  __int16 v9; // r10
-  int v10; // eax
+  USHORT v9; // r10
+  NTSTATUS v10; // eax
   ULONG v11; // r8d
   __int64 v12; // rdx
   char v13; // al
@@ -76,7 +76,14 @@ __int64 __fastcall QatSubmitWorkToCpu(__int64 a1, __int64 a2, __int64 a3)
         *(_BYTE *)(a2 + 4) = -13;
         return v4;
       }
-      v10 = RtlDecompressBufferEx(v9, *(_QWORD *)(v7 + 40), *(_DWORD *)(v7 + 60));
+      v10 = RtlDecompressBufferEx(
+              v9,
+              *(PUCHAR *)(v7 + 40),
+              *(_DWORD *)(v7 + 60),
+              *(PUCHAR *)(v7 + 32),
+              *(_DWORD *)(v7 + 48),
+              &FinalCompressedSize,
+              *(PVOID *)(a3 + 64));
       v4 = v10;
       if ( v10 >= 0 )
       {

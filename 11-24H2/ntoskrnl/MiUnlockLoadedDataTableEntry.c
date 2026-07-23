@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlockLoadedDataTableEntry @ 0x1402C6EA4
+ * XREFs of MiUnlockLoadedDataTableEntry @ 0x1402BBA24
  * Callers:
- *     LdrpKrnGetDataTableEntry @ 0x1402C830C (LdrpKrnGetDataTableEntry.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x1404F64C4 (MmVerifyCallbackFunctionCheckFlags.c)
- *     MmProtectDriverSection @ 0x14066B7C0 (MmProtectDriverSection.c)
- *     MmWriteSystemImageTracepoint @ 0x14067DBF0 (MmWriteSystemImageTracepoint.c)
- *     MmDiscardDriverSection @ 0x140C5BF00 (MmDiscardDriverSection.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1402BA56C (LdrpKrnGetDataTableEntry.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1404F3DC4 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     MmProtectDriverSection @ 0x14066C990 (MmProtectDriverSection.c)
+ *     MmWriteSystemImageTracepoint @ 0x14067EDF0 (MmWriteSystemImageTracepoint.c)
+ *     MmDiscardDriverSection @ 0x140C5E090 (MmDiscardDriverSection.c)
  * Callees:
- *     MiReleaseLoadLock @ 0x1402C7310 (MiReleaseLoadLock.c)
- *     MiUnlockLoaderEntry @ 0x1402C7468 (MiUnlockLoaderEntry.c)
+ *     MiReleaseLoadLock @ 0x1402BBE90 (MiReleaseLoadLock.c)
+ *     MiUnlockLoaderEntry @ 0x1402BBFE8 (MiUnlockLoaderEntry.c)
  */
 
 __int64 __fastcall MiUnlockLoadedDataTableEntry(__int64 a1, int a2)

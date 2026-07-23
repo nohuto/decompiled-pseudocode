@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140804410
+ * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140805610
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140695BDC (CmpProcessLightWeightUOW.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpMarkValueDataDirty @ 0x1405AE578 (CmpMarkValueDataDirty.c)
- *     CmpInitializeValueNameString @ 0x1405AF46C (CmpInitializeValueNameString.c)
- *     CmpRemoveValueFromList @ 0x1405AF4E8 (CmpRemoveValueFromList.c)
- *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpLightWeightUpdateSharedSetValueData @ 0x140693878 (CmpLightWeightUpdateSharedSetValueData.c)
- *     CmpLightWeightCreateSetValueData @ 0x140695608 (CmpLightWeightCreateSetValueData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpMarkValueDataDirty @ 0x1405AF578 (CmpMarkValueDataDirty.c)
+ *     CmpInitializeValueNameString @ 0x1405B046C (CmpInitializeValueNameString.c)
+ *     CmpRemoveValueFromList @ 0x1405B04E8 (CmpRemoveValueFromList.c)
+ *     CmpFindNameInList @ 0x1405D162C (CmpFindNameInList.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
+ *     CmpLightWeightUpdateSharedSetValueData @ 0x140694A38 (CmpLightWeightUpdateSharedSetValueData.c)
+ *     CmpLightWeightCreateSetValueData @ 0x1406967C8 (CmpLightWeightCreateSetValueData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareDeleteValueKeyUoW(__int64 a1)

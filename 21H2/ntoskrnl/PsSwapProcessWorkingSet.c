@@ -1,16 +1,16 @@
 /*
- * XREFs of PsSwapProcessWorkingSet @ 0x1409079E0
+ * XREFs of PsSwapProcessWorkingSet @ 0x140907B40
  * Callers:
- *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x1406BD464 (MmProcessWorkingSetControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     PspRequestProcessExecutionState @ 0x140605920 (PspRequestProcessExecutionState.c)
- *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     PspRequestProcessExecutionState @ 0x1406F5050 (PspRequestProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x1406F5340 (PspChangeProcessExecutionState.c)
  */
 
 __int64 __fastcall PsSwapProcessWorkingSet(PEPROCESS Process, char a2)
@@ -21,10 +21,10 @@ __int64 __fastcall PsSwapProcessWorkingSet(PEPROCESS Process, char a2)
   unsigned __int64 v7; // r14
   unsigned int v8; // eax
   int v9; // edi
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  _DWORD *v12; // r9
-  unsigned int v13; // ebx
+  unsigned int v10; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
 
   CurrentThread = KeGetCurrentThread();
   v5 = 0;
@@ -49,7 +49,7 @@ __int64 __fastcall PsSwapProcessWorkingSet(PEPROCESS Process, char a2)
   if ( _InterlockedCompareExchange64(p_Lock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(p_Lock);
   KeAbPostRelease((ULONG_PTR)p_Lock);
-  v13 = PspChangeProcessExecutionState(Process, v10, v11, v12);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  return v13;
+  v10 = PspChangeProcessExecutionState(Process);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v11, v12, v13);
+  return v10;
 }

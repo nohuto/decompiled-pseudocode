@@ -1,16 +1,16 @@
 /*
- * XREFs of PiInitializeDDB @ 0x140A25EE0
+ * XREFs of PiInitializeDDB @ 0x140A38F80
  * Callers:
- *     PiLookupInDDB @ 0x140A25D58 (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x140A38DF8 (PiLookupInDDB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1407238F0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x140723930 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x140723D30 (ZwCreateSection.c)
- *     SdbInitDatabaseInMemory @ 0x1409E62EC (SdbInitDatabaseInMemory.c)
- *     PnpLogEvent @ 0x140AA4138 (PnpLogEvent.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1407284C0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140728500 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140728900 (ZwCreateSection.c)
+ *     SdbInitDatabaseInMemory @ 0x1409D6974 (SdbInitDatabaseInMemory.c)
+ *     PnpLogEvent @ 0x140A37B48 (PnpLogEvent.c)
  */
 
 __int64 __fastcall PiInitializeDDB(PCWSTR SourceString, char a2, __int64 a3)
@@ -108,7 +108,7 @@ LABEL_23:
     PiLoggedErrorEventsMask = v7;
     v12 = 0LL;
     RtlInitUnicodeString(&v12, v8);
-    PnpLogEvent(&v12, 0LL, 3221226349LL, 0LL, 0);
+    PnpLogEvent((const void **)&v12, 0LL, -1073740947, 0LL, 0);
   }
 LABEL_3:
   if ( BaseAddress )

@@ -12,13 +12,13 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiReturnFreeZeroPage @ 0x14008229C (MiReturnFreeZeroPage.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     MiReturnFreeZeroPage @ 0x14008228C (MiReturnFreeZeroPage.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14009BA00 (MiInsertLargePageInNodeListHelper.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103CD0 (ExfTryAcquirePushLockShared.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 __int64 __fastcall MiCoalesceFreePages(__int64 a1)
@@ -83,7 +83,7 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1)
     v50 = a1 & 0xFFFFFFFFFFFFFFF0uLL;
     v2 = *(_BYTE *)(v48 + 34) & 7;
     v3 = 6 * (a1 & 0xFFFFFFFFFFFFFFF0uLL);
-    v4 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v48 + 40) >> 40) & 0x3FFLL));
+    v4 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v48 + 40) >> 40) & 0x3FFLL));
     v53 = v4;
     v5 = 48 * (a1 & 0xFFFFFFFFFFFFFFF0uLL) - 0x58000000000LL;
     v6 = v5 + 768;
@@ -94,7 +94,7 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1)
     {
       if ( v7 <= 0xFFFFFFFFFLL
         && ((*v9 >> 53) & 1) != 0
-        && *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v8 + 6) >> 40) & 0x3FFLL)) == v4
+        && *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v8 + 6) >> 40) & 0x3FFLL)) == v4
         && (*(_BYTE *)v8 & 7u) <= 1 )
       {
         v10 = 0;
@@ -169,14 +169,14 @@ LABEL_56:
             }
             if ( v13 <= 0xFFFFFFFFFLL
               && ((*v27 >> 53) & 1) != 0
-              && *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v25 + 40) >> 40) & 0x3FFLL)) == v28
+              && *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v25 + 40) >> 40) & 0x3FFLL)) == v28
               && (*(_BYTE *)(v25 + 34) & 7u) <= 1
               && !_interlockedbittestandset64((volatile signed __int32 *)(v25 + 24), 0x3FuLL) )
             {
               if ( (*(_BYTE *)(v25 + 34) & 7u) <= 1 )
               {
                 v30 = *(_QWORD *)(v25 + 40);
-                if ( *(_QWORD *)(qword_14043A748 + 8 * ((v30 >> 40) & 0x3FF)) == v28 )
+                if ( *(_QWORD *)(qword_14043B808 + 8 * ((v30 >> 40) & 0x3FF)) == v28 )
                 {
                   v31 = v30 & 0xFFFFFFFFFLL;
                   v32 = MiLargePageContainingFrames;
@@ -231,8 +231,8 @@ LABEL_61:
           do
           {
             v43 = *(_QWORD *)(v40 + 16);
-            if ( qword_14043A0C0 && (v43 & 0x10) == 0 )
-              v43 &= ~qword_14043A0C0;
+            if ( qword_14043B180 && (v43 & 0x10) == 0 )
+              v43 &= ~qword_14043B180;
             *(_QWORD *)(v40 + 16) = v39;
             if ( HIDWORD(v43) == 4294967293 )
               *(_QWORD *)(v40 + 16) = MiUpdatePageFileHighInPte(v39, 4294967293LL);

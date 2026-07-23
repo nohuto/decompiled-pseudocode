@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosCall @ 0x140396390
+ * XREFs of x86BiosCall @ 0x1403964E0
  * Callers:
- *     HalpBiosDisplayReset @ 0x1404B6D20 (HalpBiosDisplayReset.c)
+ *     HalpBiosDisplayReset @ 0x1404B6F60 (HalpBiosDisplayReset.c)
  * Callees:
- *     x86BiosExecuteInterruptShadowed @ 0x1403963E0 (x86BiosExecuteInterruptShadowed.c)
+ *     x86BiosExecuteInterruptShadowed @ 0x140396530 (x86BiosExecuteInterruptShadowed.c)
  */
 
 bool x86BiosCall()

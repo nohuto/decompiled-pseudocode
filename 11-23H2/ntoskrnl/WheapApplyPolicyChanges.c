@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapApplyPolicyChanges @ 0x140A09364
+ * XREFs of WheapApplyPolicyChanges @ 0x140A09614
  * Callers:
- *     WheapPfaReset @ 0x140A08E80 (WheapPfaReset.c)
+ *     WheapPfaReset @ 0x140A09130 (WheapPfaReset.c)
  * Callees:
- *     HalWheaUpdateCmciPolicy @ 0x1403AD330 (HalWheaUpdateCmciPolicy.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
+ *     HalWheaUpdateCmciPolicy @ 0x1403AD510 (HalWheaUpdateCmciPolicy.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
  */
 
 void WheapApplyPolicyChanges()
@@ -34,7 +34,7 @@ void WheapApplyPolicyChanges()
       goto LABEL_44;
     if ( v2 >= 80 )
       _report_rangecheckfailure();
-    v3 = (unsigned int *)(&off_140A7A0E8)[v2];
+    v3 = (unsigned int *)(&off_140A7A398)[v2];
     WheaRegPolicyTableChanged[v1] = 0;
     if ( v0 <= 0xA )
     {

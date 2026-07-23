@@ -1,12 +1,12 @@
 /*
- * XREFs of KeValidateBugCheckCallbackRecord @ 0x1401D4ECC
+ * XREFs of KeValidateBugCheckCallbackRecord @ 0x1401D4CF8
  * Callers:
- *     IopDumpCallAddPagesCallbacks @ 0x1401C7164 (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x1401C7288 (IopDumpCallRemovePagesCallbacks.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x1401D5610 (KiInvokeBugCheckEntryCallbacks.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x1401C7004 (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x1401C7128 (IopDumpCallRemovePagesCallbacks.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1401D543C (KiInvokeBugCheckEntryCallbacks.c)
  *     IopLiveDumpCallRemovePagesCallbacks @ 0x1403DA4D0 (IopLiveDumpCallRemovePagesCallbacks.c)
  * Callees:
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
  */
 
 bool __fastcall KeValidateBugCheckCallbackRecord(__int64 a1, int a2, _QWORD *a3)

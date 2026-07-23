@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtAlertResumeThreadWrapper @ 0x14066ADE0
+ * XREFs of DifNtAlertResumeThreadWrapper @ 0x14066E9C0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtAlertResumeThread @ 0x1407FCE80 (NtAlertResumeThread.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtAlertResumeThread @ 0x1408028B0 (NtAlertResumeThread.c)
  */
 
-__int64 __fastcall DifNtAlertResumeThreadWrapper(ULONG_PTR a1, __int64 a2)
+__int64 __fastcall DifNtAlertResumeThreadWrapper(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -43,8 +43,8 @@ __int64 __fastcall DifNtAlertResumeThreadWrapper(ULONG_PTR a1, __int64 a2)
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v8 = 0;
-    *(_QWORD *)&v16 = a1;
-    *((_QWORD *)&v15 + 1) = a2;
+    *(_QWORD *)&v16 = ThreadHandle;
+    *((_QWORD *)&v15 + 1) = PreviousSuspendCount;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -57,7 +57,7 @@ __int64 __fastcall DifNtAlertResumeThreadWrapper(ULONG_PTR a1, __int64 a2)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v16) = NtAlertResumeThread(a1);
+  DWORD2(v16) = NtAlertResumeThread(ThreadHandle, PreviousSuspendCount);
   if ( v6 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

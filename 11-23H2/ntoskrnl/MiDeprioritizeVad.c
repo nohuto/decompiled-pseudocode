@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeprioritizeVad @ 0x1403C6E3C
+ * XREFs of MiDeprioritizeVad @ 0x1403C701C
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A23F0 (MiReferenceControlAreaFileWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiTryLockVad @ 0x1403C6F18 (MiTryLockVad.c)
- *     MiDeprioritizeVirtualAddresses @ 0x14062D6CC (MiDeprioritizeVirtualAddresses.c)
- *     PfCheckDeprioritizeFile @ 0x1407607B4 (PfCheckDeprioritizeFile.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1402A2680 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiTryLockVad @ 0x1403C70F8 (MiTryLockVad.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14062DC1C (MiDeprioritizeVirtualAddresses.c)
+ *     PfCheckDeprioritizeFile @ 0x1407609A4 (PfCheckDeprioritizeFile.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

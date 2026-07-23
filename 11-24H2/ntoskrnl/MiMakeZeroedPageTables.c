@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMakeZeroedPageTables @ 0x1403A582C
+ * XREFs of MiMakeZeroedPageTables @ 0x14026CB1C
  * Callers:
- *     MiSplitBitmapPages @ 0x1403A52F4 (MiSplitBitmapPages.c)
- *     MiExpandPtes @ 0x1403A5438 (MiExpandPtes.c)
- *     MiExpandSystemCache @ 0x1403A7378 (MiExpandSystemCache.c)
- *     MiInitializeDynamicBitmap @ 0x1406794B8 (MiInitializeDynamicBitmap.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1407F13E8 (MiApplyHotPatchToLoadedDriver.c)
- *     MiExpandPartitionIds @ 0x1407FBF28 (MiExpandPartitionIds.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A3E36C (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiReserveExistingDriverPtes @ 0x140A71AD8 (MiReserveExistingDriverPtes.c)
- *     MiReserveDriverPtes @ 0x140AB636C (MiReserveDriverPtes.c)
- *     MiInitializeKernelCfg @ 0x140C598DC (MiInitializeKernelCfg.c)
- *     MiCreateTopLevelUltraMappings @ 0x140C5C384 (MiCreateTopLevelUltraMappings.c)
+ *     MiExpandSystemCache @ 0x14026B918 (MiExpandSystemCache.c)
+ *     MiSplitBitmapPages @ 0x14026C5E4 (MiSplitBitmapPages.c)
+ *     MiExpandPtes @ 0x14026C728 (MiExpandPtes.c)
+ *     MiInitializeDynamicBitmap @ 0x14067A698 (MiInitializeDynamicBitmap.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1407F19B8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiExpandPartitionIds @ 0x1407FC698 (MiExpandPartitionIds.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A33C7C (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiReserveDriverPtes @ 0x140A555D0 (MiReserveDriverPtes.c)
+ *     MiReserveExistingDriverPtes @ 0x140A6AEB8 (MiReserveExistingDriverPtes.c)
+ *     MiInitializeKernelCfg @ 0x140C5BA6C (MiInitializeKernelCfg.c)
+ *     MiCreateTopLevelUltraMappings @ 0x140C5E514 (MiCreateTopLevelUltraMappings.c)
  * Callees:
- *     MiMakeZeroedPageTablesEx @ 0x1403A62E0 (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x14026D5D0 (MiMakeZeroedPageTablesEx.c)
  */
 
 __int64 __fastcall MiMakeZeroedPageTables(int a1, int a2, int a3, int a4)

@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpIncrementCellReferenceCount @ 0x14002D6BC
+ * XREFs of HvpIncrementCellReferenceCount @ 0x14002D23C
  * Callers:
- *     HvpMapEntryGetBlockAddress @ 0x14002D380 (HvpMapEntryGetBlockAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryGetBlockAddress @ 0x14002CF00 (HvpMapEntryGetBlockAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
  * Callees:
  *     <none>
  */

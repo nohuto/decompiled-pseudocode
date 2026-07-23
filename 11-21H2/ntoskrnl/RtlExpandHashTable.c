@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x140206F60 (RtlpGetChainHead.c)
- *     RtlpAllocateSecondLevelDir @ 0x14021FC98 (RtlpAllocateSecondLevelDir.c)
+ *     sub_140206F60 @ 0x140206F60 (sub_140206F60.c)
+ *     sub_14021FC98 @ 0x14021FC98 (sub_14021FC98.c)
  *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
@@ -12,25 +12,25 @@
 
 BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  unsigned int TableSize; // edx
+  ULONG TableSize; // edx
   unsigned int v3; // ecx
   unsigned int v4; // esi
   __int64 v5; // r14
-  void **v6; // rdi
+  PVOID *v6; // rdi
   __int64 Pivot; // rdx
-  _QWORD *ChainHead; // rax
+  _QWORD *v8; // rax
   _QWORD *v9; // r9
   __int64 v10; // r10
   _QWORD *v11; // rdx
   _QWORD *v12; // r8
   _QWORD *v13; // r10
   int v14; // eax
-  unsigned int DivisorMask; // edx
+  ULONG DivisorMask; // edx
   __int64 v17; // rax
   _QWORD *v18; // rcx
   _QWORD *v19; // rax
-  __int64 SecondLevelDir; // rax
-  void *Directory; // rbp
+  __int64 v20; // rax
+  PVOID Directory; // rbp
   _QWORD *PoolWithTag; // rax
   _QWORD *v23; // rdi
 
@@ -51,13 +51,13 @@ BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     *v23 = Directory;
     HashTable->Directory = v23;
   }
-  v6 = (void **)HashTable->Directory;
+  v6 = (PVOID *)HashTable->Directory;
   if ( !v6[v5] )
   {
-    SecondLevelDir = RtlpAllocateSecondLevelDir((unsigned int)v5);
-    if ( SecondLevelDir )
+    v20 = sub_14021FC98((unsigned int)v5);
+    if ( v20 )
     {
-      v6[v5] = (void *)SecondLevelDir;
+      v6[v5] = (PVOID)v20;
       goto LABEL_5;
     }
     if ( HashTable->TableSize == 128 )
@@ -70,16 +70,16 @@ BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 LABEL_5:
   Pivot = HashTable->Pivot;
   ++HashTable->TableSize;
-  ChainHead = (_QWORD *)RtlpGetChainHead(HashTable, Pivot);
+  v8 = (_QWORD *)sub_140206F60(HashTable, Pivot);
   ++HashTable->Pivot;
-  v9 = ChainHead;
+  v9 = v8;
   v11 = (_QWORD *)(v10 + 16LL * v4);
   v11[1] = v11;
   *v11 = v11;
-  v12 = (_QWORD *)*ChainHead;
-  if ( (_QWORD *)*ChainHead != ChainHead )
+  v12 = (_QWORD *)*v8;
+  if ( (_QWORD *)*v8 != v8 )
   {
-    v13 = ChainHead;
+    v13 = v8;
     do
     {
       v14 = *((_DWORD *)v12 + 4) >> HashTable->Shift;

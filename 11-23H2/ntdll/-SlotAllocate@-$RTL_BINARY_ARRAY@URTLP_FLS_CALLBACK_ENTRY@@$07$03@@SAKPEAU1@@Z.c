@@ -24,7 +24,7 @@ __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotAllocate(u
     v4 = 1 << v2;
     if ( !*a1 )
     {
-      Heap = (_OWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 24 * v4 + 8);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 24 * v4 + 8);
       v3 = (unsigned int *)Heap;
       if ( !Heap )
         return (unsigned int)-1;

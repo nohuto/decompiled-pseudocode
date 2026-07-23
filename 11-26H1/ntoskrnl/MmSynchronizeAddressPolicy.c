@@ -1,10 +1,10 @@
 /*
- * XREFs of MmSynchronizeAddressPolicy @ 0x140B256A0
+ * XREFs of MmSynchronizeAddressPolicy @ 0x140B27900
  * Callers:
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     PspDisablePrimaryTokenExchange @ 0x1409EB314 (PspDisablePrimaryTokenExchange.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1409E7AE4 (PspDisablePrimaryTokenExchange.c)
  * Callees:
- *     MiDeleteProcessShadow @ 0x140483DCC (MiDeleteProcessShadow.c)
+ *     MiDeleteProcessShadow @ 0x14047D73C (MiDeleteProcessShadow.c)
  */
 
 void __fastcall MmSynchronizeAddressPolicy(struct _KPROCESS *a1)

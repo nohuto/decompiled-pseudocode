@@ -9,43 +9,43 @@
  *     SeCompareSigningLevels @ 0x140545CB0 (SeCompareSigningLevels.c)
  */
 
-__int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall SeGetImageRequiredSigningLevel(PVOID Object, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
 {
-  NTSTATUS IsUntrustedObject; // edi
+  NTSTATUS v5; // edi
   char v6; // bl
   _KPROCESS *Process; // rcx
   char v10; // [rsp+30h] [rbp-18h] BYREF
   char v11; // [rsp+31h] [rbp-17h] BYREF
-  _BYTE v12[22]; // [rsp+32h] [rbp-16h] BYREF
+  BOOLEAN IsUntrustedObject[22]; // [rsp+32h] [rbp-16h] BYREF
 
-  IsUntrustedObject = 0;
+  v5 = 0;
   v6 = a3;
   if ( qword_140348BF0 )
-    return (unsigned int)((__int64 (__fastcall *)(__int64, __int64, __int64))qword_140348BF0)(a1, a2, a3);
+    return (unsigned int)((__int64 (__fastcall *)(PVOID, __int64, __int64))qword_140348BF0)(Object, a2, a3);
   if ( (unsigned int)SeCompareSigningLevels()
     || (unsigned __int8)SeILSigningPolicy >= 2u
     || (Process = KeGetCurrentThread()->ApcState.Process, (Process[2].ActiveProcessors.Bitmap[0] & 0x70000) != 0)
     || v6 != 6 )
   {
     *a5 = v6;
-    return (unsigned int)IsUntrustedObject;
+    return (unsigned int)v5;
   }
   if ( (Process[2].ActiveProcessors.Bitmap[0] & 0x200000000000LL) != 0 )
     goto LABEL_15;
   if ( !qword_140348BB8 )
     return (unsigned int)-1073741823;
-  IsUntrustedObject = qword_140348BB8(a1, &v10, &v11);
-  if ( IsUntrustedObject >= 0 )
+  v5 = qword_140348BB8(Object, &v10, &v11);
+  if ( v5 >= 0 )
   {
     if ( !v10 && !v11 )
     {
-      IsUntrustedObject = RtlIsUntrustedObject(0LL, a1, v12);
-      if ( IsUntrustedObject >= 0 )
-        *a5 = v12[0] != 0 ? 6 : 0;
-      return (unsigned int)IsUntrustedObject;
+      v5 = RtlIsUntrustedObject(0LL, Object, IsUntrustedObject);
+      if ( v5 >= 0 )
+        *a5 = IsUntrustedObject[0] != 0 ? 6 : 0;
+      return (unsigned int)v5;
     }
 LABEL_15:
     *a5 = 6;
   }
-  return (unsigned int)IsUntrustedObject;
+  return (unsigned int)v5;
 }

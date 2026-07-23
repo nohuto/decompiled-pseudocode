@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 NtQueryQuotaInformationFile()
+NTSTATUS __cdecl NtQueryQuotaInformationFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        PVOID SidList,
+        ULONG SidListLength,
+        PSID StartSid,
+        BOOLEAN RestartScan)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 320LL;
+  result = 320;
   __asm { syscall; Low latency system call }
   return result;
 }

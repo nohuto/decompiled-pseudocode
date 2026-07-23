@@ -57,7 +57,7 @@ char __fastcall KeDispatchSecondaryInterrupt(int a1, unsigned int a2, __int64 a3
         KiInsertQueueDpc((ULONG_PTR)&KiSecondarySignalDpc, 0LL, 0LL, 0LL, 0);
       }
       KxReleaseSpinLock((volatile signed __int64 *)&KiSecondarySignalListLock);
-      if ( KiIrqlFlags && (v9 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v9 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && (v9 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v9 <= 0xFu )
       {
         v10 = v15;
         if ( v15 <= 0xFu && v9 >= 2u )

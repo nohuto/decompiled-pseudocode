@@ -1,29 +1,33 @@
 /*
- * XREFs of RtlpHpSegPageRangeCommit @ 0x180043488
+ * XREFs of RtlpHpSegPageRangeCommit @ 0x180043478
  * Callers:
- *     RtlpHpSegAlloc @ 0x18003E7CC (RtlpHpSegAlloc.c)
- *     RtlpHpSegLfhVsCommit @ 0x180043420 (RtlpHpSegLfhVsCommit.c)
+ *     RtlpHpSegAlloc @ 0x18003E7BC (RtlpHpSegAlloc.c)
+ *     RtlpHpSegLfhVsCommit @ 0x180043410 (RtlpHpSegLfhVsCommit.c)
  * Callees:
- *     RtlpGetHeapProtection @ 0x1800436E4 (RtlpGetHeapProtection.c)
+ *     RtlpGetHeapProtection @ 0x1800436D4 (RtlpGetHeapProtection.c)
  *     ZwAllocateVirtualMemory @ 0x1800A6720 (ZwAllocateVirtualMemory.c)
  *     RtlpLogHeapCommit @ 0x1800F90C8 (RtlpLogHeapCommit.c)
  */
 
-__int64 __fastcall RtlpHpSegPageRangeCommit(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+NTSTATUS __fastcall RtlpHpSegPageRangeCommit(
+        volatile signed __int64 *BaseAddress,
+        __int64 a2,
+        __int64 a3,
+        unsigned int a4)
 {
   unsigned __int64 v4; // rbx
   __int64 v5; // rdi
   __int64 v6; // r10
   int v7; // esi
   unsigned int v10; // edi
-  int HeapProtection; // eax
-  __int64 result; // rax
+  ULONG Protect; // eax
+  NTSTATUS result; // eax
   char *v13; // rdx
   unsigned __int64 v14; // rcx
   char v15; // al
   char v16; // al
-  unsigned __int64 v17[5]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v18; // [rsp+70h] [rbp+18h] BYREF
+  PVOID BaseAddressa; // [rsp+30h] [rbp-28h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp+18h] BYREF
   int v19; // [rsp+78h] [rbp+20h]
 
   v4 = 0LL;
@@ -47,13 +51,14 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(__int64 a1, __int64 a2, __int64 a3, 
     v10 = v4 ? ((__int64)(v5 - v4) >> 5) + 1 : v19;
     if ( v7 )
     {
-      v17[0] = (v4 & 0xFFFFFFFFFFF00000uLL) + ((unsigned int)((__int64)(v4 - (v4 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12);
-      v18 = v10 << 12;
-      HeapProtection = RtlpGetHeapProtection(a1, 1LL);
-      result = ZwAllocateVirtualMemory(-1LL, v17, 0LL, &v18, 4096, HeapProtection);
-      if ( (int)result < 0 )
+      BaseAddressa = (PVOID)((v4 & 0xFFFFFFFFFFF00000uLL)
+                           + ((unsigned int)((__int64)(v4 - (v4 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12));
+      RegionSize = v10 << 12;
+      Protect = RtlpGetHeapProtection((PVOID)BaseAddress);
+      result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, Protect);
+      if ( result < 0 )
         return result;
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), v7);
+      _InterlockedExchangeAdd64(BaseAddress + 1, v7);
       if ( v4 < v4 + 32LL * v10 )
       {
         v13 = (char *)(v4 + 24);
@@ -75,9 +80,9 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(__int64 a1, __int64 a2, __int64 a3, 
       if ( MEMORY[0x7FFE0380] )
       {
         if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-          RtlpLogHeapCommit(a1, v17[0], v18, 10LL);
+          RtlpLogHeapCommit(BaseAddress, BaseAddressa, RegionSize, 10LL);
       }
     }
   }
-  return 0LL;
+  return 0;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpPossibleDeadlock @ 0x1800E9268
+ * XREFs of RtlpPossibleDeadlock @ 0x1800E9228
  * Callers:
  *     RtlpWaitOnCriticalSection @ 0x180064970 (RtlpWaitOnCriticalSection.c)
  *     RtlAcquireResourceShared @ 0x180065FB0 (RtlAcquireResourceShared.c)
@@ -7,20 +7,20 @@
  * Callees:
  *     RtlRaiseException @ 0x1800520D0 (RtlRaiseException.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtQueryInformationProcess @ 0x18009D960 (NtQueryInformationProcess.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlCaptureContext @ 0x1800A17A0 (RtlCaptureContext.c)
- *     RtlReportExceptionHelper @ 0x1800DD040 (RtlReportExceptionHelper.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     NtQueryInformationProcess @ 0x18009D920 (NtQueryInformationProcess.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlCaptureContext @ 0x1800A1760 (RtlCaptureContext.c)
+ *     RtlReportExceptionHelper @ 0x1800DD000 (RtlReportExceptionHelper.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
 void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
 {
   __int64 v2; // rdi
   unsigned int v3; // edx
-  NTSTATUS v4; // eax
+  int v4; // eax
   __int64 v5; // rdi
-  __int64 (__fastcall *v6)(__int64); // rcx
+  LONG (__cdecl *v6)(PEXCEPTION_POINTERS); // rcx
   int v7; // edi
   signed __int32 v8; // ecx
   int v9; // eax
@@ -36,14 +36,14 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
   v3 = `RtlpGetCookieValue'::`2'::CookieValue;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v4 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+    v4 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
     if ( v4 < 0 )
-      RtlRaiseStatus((unsigned int)v4);
+      RtlRaiseStatus(v4);
     v3 = ProcessInformation;
     `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
   v5 = __ROR8__(v2, 64 - (v3 & 0x3F));
-  v6 = (__int64 (__fastcall *)(__int64))(v5 ^ v3);
+  v6 = (LONG (__cdecl *)(PEXCEPTION_POINTERS))(v5 ^ v3);
   if ( v3 == v5 )
     v6 = RtlUnhandledExceptionFilter;
   v12[1] = v6;
@@ -65,7 +65,7 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
     v12[0] = 0LL;
     if ( !LdrpIsSecureProcess )
     {
-      if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)37, v13, 0x40u, 0LL) >= 0
+      if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessImageInformation, v13, 0x40u, 0LL) >= 0
         && v14 == 1 )
       {
         v12[0] = -300000000LL;

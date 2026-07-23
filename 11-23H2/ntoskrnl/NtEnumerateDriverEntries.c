@@ -1,34 +1,34 @@
 /*
- * XREFs of NtEnumerateDriverEntries @ 0x1409FEBC0
+ * XREFs of NtEnumerateDriverEntries @ 0x1409FEE50
  * Callers:
  *     <none>
  * Callees:
  *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     ExpSafeWcslen @ 0x14083E104 (ExpSafeWcslen.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x14083EA20 (IoEnumerateEnvironmentVariablesEx.c)
- *     ExpTranslateDriverEntryNameToId @ 0x1409FE098 (ExpTranslateDriverEntryNameToId.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     ExpSafeWcslen @ 0x14083E404 (ExpSafeWcslen.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14083ED20 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x1409FE328 (ExpTranslateDriverEntryNameToId.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
 {
-  _DWORD *v2; // r14
+  PULONG v2; // r14
   unsigned int *v4; // r15
-  __int64 result; // rax
+  NTSTATUS result; // eax
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v7; // rcx
   unsigned int v8; // edi
   _DWORD *v9; // rsi
-  unsigned int v10; // ebx
+  NTSTATUS v10; // ebx
   _DWORD *v11; // r13
   struct _KTHREAD *v12; // rax
   int v13; // r12d
@@ -57,7 +57,7 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   unsigned int v36; // [rsp+40h] [rbp-98h]
   unsigned int v37; // [rsp+44h] [rbp-94h]
   unsigned int v38; // [rsp+48h] [rbp-90h]
-  unsigned int v39; // [rsp+4Ch] [rbp-8Ch]
+  NTSTATUS v39; // [rsp+4Ch] [rbp-8Ch]
   _DWORD *v40; // [rsp+50h] [rbp-88h] BYREF
   PVOID P; // [rsp+58h] [rbp-80h] BYREF
   unsigned __int64 v42; // [rsp+60h] [rbp-78h]
@@ -68,34 +68,35 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   struct _KTHREAD *CurrentThread; // [rsp+98h] [rbp-40h]
   unsigned int v49; // [rsp+F8h] [rbp+20h] BYREF
 
-  v2 = a2;
+  v2 = BufferLength;
   v40 = 0LL;
   P = 0LL;
   v4 = 0LL;
-  if ( dword_140C31B10 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+  if ( dword_140C31AB0 != 2 )
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a2;
+    if ( (unsigned __int64)BufferLength < 0x7FFFFFFF0000LL )
+      v7 = (__int64)BufferLength;
     *(_DWORD *)v7 = *(_DWORD *)v7;
-    v8 = Address != 0 ? *a2 : 0;
+    v8 = Buffer != 0LL ? *BufferLength : 0;
     if ( v8 )
-      ProbeForWrite((volatile void *)Address, v8, 4u);
+      ProbeForWrite(Buffer, v8, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v8 = Address != 0 ? *a2 : 0;
+    v8 = Buffer != 0LL ? *BufferLength : 0;
   }
   if ( !v8
-    || (result = ExLockUserBuffer(Address, v8, PreviousMode, IoWriteAccess, &v40, (struct _MDL **)&P), (int)result >= 0) )
+    || (result = ExLockUserBuffer((unsigned __int64)Buffer, v8, PreviousMode, IoWriteAccess, &v40, (struct _MDL **)&P),
+        result >= 0) )
   {
     v9 = v40;
     v10 = 0;
@@ -146,7 +147,7 @@ LABEL_49:
       v33 = *v15;
       if ( !(_DWORD)v33 )
       {
-        v2 = a2;
+        v2 = BufferLength;
         if ( v11 )
           *v11 = 0;
 LABEL_53:

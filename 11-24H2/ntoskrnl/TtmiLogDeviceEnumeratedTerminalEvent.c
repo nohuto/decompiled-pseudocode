@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiLogDeviceEnumeratedTerminalEvent @ 0x14076C6C0
+ * XREFs of TtmiLogDeviceEnumeratedTerminalEvent @ 0x14076C8E0
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x1407694B8 (TtmpPublishDeviceEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x1407696D8 (TtmpPublishDeviceEvent.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceEnumeratedTerminalEvent(int a1, int a2, int a3, int a4, const wchar_t *a5)
@@ -39,9 +39,9 @@ char __fastcall TtmiLogDeviceEnumeratedTerminalEvent(int a1, int a2, int a3, int
   _UNKNOWN *retaddr; // [rsp+100h] [rbp+57h] BYREF
 
   v5 = &retaddr;
-  if ( (unsigned int)dword_140FD78B8 > 5 )
+  if ( (unsigned int)dword_140FD88C8 > 5 )
   {
-    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140FD78B8, 1LL);
+    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140FD88C8, 1LL);
     if ( (_BYTE)v5 )
     {
       SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -67,8 +67,8 @@ char __fastcall TtmiLogDeviceEnumeratedTerminalEvent(int a1, int a2, int a3, int
       v16 = a4;
       tlgCreate1Sz_wchar_t((__int64)v33, a5);
       LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD78B8,
-                     (unsigned __int8 *)word_140050AEA,
+                     (__int64)&dword_140FD88C8,
+                     (unsigned __int8 *)qword_140050530,
                      0LL,
                      0LL,
                      8u,

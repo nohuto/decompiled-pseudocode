@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSetJobLimitsJobPreCallback @ 0x1404F2414
+ * XREFs of PspSetJobLimitsJobPreCallback @ 0x1404D53A0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     PspSetEffectiveJobLimits @ 0x1404F2444 (PspSetEffectiveJobLimits.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     PspSetEffectiveJobLimits @ 0x1404D53D0 (PspSetEffectiveJobLimits.c)
  */
 
 __int64 __fastcall PspSetJobLimitsJobPreCallback(__int64 a1, __int64 a2)

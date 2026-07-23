@@ -11,18 +11,18 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __thiscall EtwpCreateFile(PCWSTR SourceString, int a2, _BYTE *a3, int a4, HANDLE *a5)
+NTSTATUS __thiscall EtwpCreateFile(PCWSTR SourceString, int a2, _BYTE *a3, int a4, HANDLE *a5)
 {
   bool v6; // bl
-  int v7; // esi
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+Ch] [ebp-6Ch] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+24h] [ebp-54h] BYREF
-  UNICODE_STRING DestinationString; // [esp+2Ch] [ebp-4Ch] BYREF
-  UNICODE_STRING UnicodeString; // [esp+34h] [ebp-44h] BYREF
+  NTSTATUS v7; // esi
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+Ch] [ebp-6Ch] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+24h] [ebp-54h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+2Ch] [ebp-4Ch] BYREF
+  _UNICODE_STRING UnicodeString; // [esp+34h] [ebp-44h] BYREF
   HANDLE *v13; // [esp+3Ch] [ebp-3Ch]
   ULONG CreateDisposition; // [esp+40h] [ebp-38h]
   HANDLE FileHandle; // [esp+44h] [ebp-34h] BYREF
-  _DWORD v16[11]; // [esp+48h] [ebp-30h] BYREF
+  _DWORD FileInformation[11]; // [esp+48h] [ebp-30h] BYREF
 
   *a5 = 0;
   v13 = a5;
@@ -32,7 +32,7 @@ int __thiscall EtwpCreateFile(PCWSTR SourceString, int a2, _BYTE *a3, int a4, HA
   v6 = 0;
   if ( DestinationString.Length > 1u )
     v6 = SourceString[(DestinationString.Length >> 1) - 1] == 92;
-  v7 = RtlpDosPathNameToRelativeNtPathName_U(0, (int)DestinationString.Buffer, &UnicodeString.Length, 0, 0);
+  v7 = RtlpDosPathNameToRelativeNtPathName_U(0, (const WCHAR *)DestinationString.Buffer, &UnicodeString, 0, 0);
   if ( v7 >= 0 )
   {
     ObjectAttributes.Length = 24;
@@ -59,9 +59,9 @@ int __thiscall EtwpCreateFile(PCWSTR SourceString, int a2, _BYTE *a3, int a4, HA
         *a3 = 0;
       if ( !v6 )
       {
-        memset(v16, 0, 0x28u);
-        v16[8] = 0x2000;
-        v7 = ZwSetInformationFile(FileHandle, &IoStatusBlock, v16, 40, 4);
+        memset(FileInformation, 0, 0x28u);
+        FileInformation[8] = 0x2000;
+        v7 = ZwSetInformationFile(FileHandle, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
       }
       *v13 = FileHandle;
     }

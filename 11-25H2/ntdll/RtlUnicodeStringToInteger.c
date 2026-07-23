@@ -17,32 +17,32 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUnicodeStringToInteger(unsigned __int16 *a1, unsigned int a2, int *a3)
+NTSTATUS __cdecl RtlUnicodeStringToInteger(PUNICODE_STRING String, ULONG Base, PULONG Value)
 {
-  int v5; // eax
-  unsigned int v6; // esi
-  unsigned int v7; // edx
-  unsigned __int16 *v8; // r10
+  ULONG v5; // eax
+  NTSTATUS v6; // esi
+  unsigned int Length; // edx
+  wchar_t *Buffer; // r10
   unsigned int v9; // r8d
   unsigned __int16 v10; // di
   unsigned __int16 v12; // dx
-  unsigned __int16 *v13; // rcx
+  wchar_t *v13; // rcx
   unsigned int v14; // ebx
   int v15; // r11d
-  unsigned int v16; // edx
+  ULONG v16; // edx
   __int16 v18; // dx
 
   v5 = 0;
   v6 = 0;
-  v7 = *a1;
-  if ( !(_WORD)v7 || (v7 & 1) != 0 )
+  Length = String->Length;
+  if ( !(_WORD)Length || (Length & 1) != 0 )
     goto LABEL_22;
-  v8 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  v9 = v7 >> 1;
+  Buffer = String->Buffer;
+  v9 = Length >> 1;
   v10 = 0;
   while ( v9-- )
   {
-    v10 = *v8++;
+    v10 = *Buffer++;
     if ( v10 > 0x20u )
       break;
     if ( !v9 )
@@ -57,48 +57,48 @@ __int64 __fastcall RtlUnicodeStringToInteger(unsigned __int16 *a1, unsigned int 
     if ( v9 )
     {
       --v9;
-      v12 = *v8++;
+      v12 = *Buffer++;
     }
     else
     {
       v12 = 0;
     }
   }
-  v13 = v8;
+  v13 = Buffer;
   v14 = v9;
-  if ( !a2 )
+  if ( !Base )
   {
-    a2 = 10;
+    Base = 10;
     v15 = 0;
     if ( v12 == 48 )
     {
       if ( !v9 )
         goto LABEL_29;
       --v9;
-      v18 = *v8++;
+      v18 = *Buffer++;
       switch ( v18 )
       {
         case 'x':
-          a2 = 16;
+          Base = 16;
           v15 = 4;
           break;
         case 'o':
-          a2 = 8;
+          Base = 8;
           v15 = 3;
           break;
         case 'b':
-          a2 = 2;
+          Base = 2;
           v15 = 1;
           break;
         default:
           v9 = v14;
-          v8 = v13;
+          Buffer = v13;
           break;
       }
       if ( v9 )
       {
         --v9;
-        v12 = *v8++;
+        v12 = *Buffer++;
       }
       else
       {
@@ -108,9 +108,9 @@ LABEL_29:
     }
     goto LABEL_10;
   }
-  if ( a2 != 10 )
+  if ( Base != 10 )
   {
-    switch ( a2 )
+    switch ( Base )
     {
       case 2u:
         v15 = 1;
@@ -147,17 +147,17 @@ LABEL_10:
     {
       v16 = v12 - 48;
     }
-    if ( v16 >= a2 )
+    if ( v16 >= Base )
       break;
-    v5 = v15 ? v16 | (v5 << v15) : v16 + a2 * v5;
+    v5 = v15 ? v16 | (v5 << v15) : v16 + Base * v5;
     if ( !v9 )
       break;
     --v9;
-    v12 = *v8++;
+    v12 = *Buffer++;
   }
   if ( v10 == 45 )
     v5 = -v5;
 LABEL_20:
-  *a3 = v5;
+  *Value = v5;
   return v6;
 }

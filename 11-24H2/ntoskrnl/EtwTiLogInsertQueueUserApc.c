@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTiLogInsertQueueUserApc @ 0x1403D32E4
+ * XREFs of EtwTiLogInsertQueueUserApc @ 0x140262B38
  * Callers:
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwpTiVadQueryEventWrite @ 0x1403D3680 (EtwpTiVadQueryEventWrite.c)
- *     EtwProviderEnabled @ 0x1403D47F0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x1403D4B94 (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwProviderEnabled @ 0x140262770 (EtwProviderEnabled.c)
+ *     EtwpTiVadQueryEventWrite @ 0x140262ED4 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x1402633C0 (EtwpTiFillProcessIdentity.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
@@ -85,7 +85,7 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
         && ((KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0
          || EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x20000000000uLL)) )
       {
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, 0x2A0uLL, 0x6E734954u);
         v13 = (struct _EVENT_DATA_DESCRIPTOR *)Pool2;
         if ( Pool2 )
         {

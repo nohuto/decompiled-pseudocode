@@ -10,49 +10,43 @@
  *     _guard_dispatch_icall_nop @ 0x1800A3A60 (_guard_dispatch_icall_nop.c)
  */
 
-signed __int64 __fastcall TppDirectExecuteCallback(_QWORD *a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall TppDirectExecuteCallback(__int64 a1, _RTL_SRWLOCK *a2)
 {
-  unsigned __int64 v6; // rsi
-  _QWORD *v7; // rdi
-  __int64 v8; // rax
-  __int64 v9; // rbx
-  signed __int64 result; // rax
-  __int64 v11; // r8
-  __int128 v12; // [rsp+30h] [rbp-38h]
-  __int128 v13; // [rsp+40h] [rbp-28h] BYREF
+  _RTL_SRWLOCK *v4; // rsi
+  unsigned __int64 *Value; // rdi
+  unsigned __int64 v6; // rax
+  _RTL_SRWLOCK *v7; // rbx
+  unsigned __int64 v8; // r8
+  __int128 v9; // [rsp+30h] [rbp-38h]
+  __int128 v10; // [rsp+40h] [rbp-28h] BYREF
 
-  RtlAcquireSRWLockExclusive(a2 + 32, a2, a3, a4);
-  v6 = a2 + 40;
-  if ( *(_QWORD *)v6 == v6 )
+  RtlAcquireSRWLockExclusive(a2 + 4);
+  v4 = a2 + 5;
+  if ( (_RTL_SRWLOCK *)v4->Value == v4 )
   {
-    v7 = 0LL;
+    Value = 0LL;
   }
   else
   {
-    v7 = *(_QWORD **)v6;
-    if ( *(_QWORD *)(*(_QWORD *)v6 + 8LL) != v6 || (v8 = *v7, *(_QWORD **)(*v7 + 8LL) != v7) )
+    Value = (unsigned __int64 *)v4->Value;
+    if ( *(_RTL_SRWLOCK **)(v4->Value + 8) != v4 || (v6 = *Value, *(unsigned __int64 **)(*Value + 8) != Value) )
       __fastfail(3u);
-    *(_QWORD *)v6 = v8;
-    *(_QWORD *)(v8 + 8) = v6;
+    v4->Value = v6;
+    *(_QWORD *)(v6 + 8) = v4;
   }
-  v9 = *(_QWORD *)v6;
-  result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 32));
-  if ( v9 != v6 )
-    result = TpPostTask(a2, a1[16], 1LL, 0LL);
-  if ( v7 )
+  v7 = (_RTL_SRWLOCK *)v4->Value;
+  RtlReleaseSRWLockExclusive(a2 + 4);
+  if ( v7 != v4 )
+    TpPostTask((__int64)a2, *(char **)(a1 + 128), 1, 0LL);
+  if ( Value )
   {
-    v12 = *((_OWORD *)v7 - 2);
-    v13 = *((_OWORD *)v7 - 1);
-    v11 = v7[2];
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 8), 0xFFFFFFFF) == 1 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 3145728, *(_QWORD *)v11);
-    a1[11] = *(_QWORD *)(a2 + 56);
-    a1[12] = a2;
-    return (*(__int64 (__fastcall **)(_QWORD *, unsigned __int64, _QWORD, __int128 *))(a2 + 56))(
-             a1,
-             a2,
-             *((_QWORD *)&v12 + 1),
-             &v13);
+    v9 = *((_OWORD *)Value - 2);
+    v10 = *((_OWORD *)Value - 1);
+    v8 = Value[2];
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v8 + 8), 0xFFFFFFFF) == 1 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3145728, *(PVOID *)v8);
+    *(_RTL_SRWLOCK *)(a1 + 88) = a2[7];
+    *(_QWORD *)(a1 + 96) = a2;
+    ((void (__fastcall *)(__int64, _RTL_SRWLOCK *, _QWORD, __int128 *))a2[7].Value)(a1, a2, *((_QWORD *)&v9 + 1), &v10);
   }
-  return result;
 }

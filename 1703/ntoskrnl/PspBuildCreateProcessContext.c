@@ -49,10 +49,10 @@ __int64 __fastcall PspBuildCreateProcessContext(__int64 *a1, char a2, int a3, __
   int v29; // edx
   int v30; // eax
   _BYTE *v31; // rax
-  struct _PROCESSOR_NUMBER *v32; // rax
+  _PROCESSOR_NUMBER *v32; // rax
   ULONG ProcessorIndexFromNumber; // eax
   bool v34; // zf
-  unsigned __int8 v35; // cl
+  PS_PROTECTION v35; // cl
   _DWORD *v36; // rax
   int v37; // eax
   int v38; // eax
@@ -118,7 +118,7 @@ __int64 __fastcall PspBuildCreateProcessContext(__int64 *a1, char a2, int a3, __
   unsigned __int64 v99; // [rsp+68h] [rbp-1A0h]
   unsigned __int64 v100; // [rsp+68h] [rbp-1A0h]
   unsigned __int64 v101; // [rsp+68h] [rbp-1A0h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+74h] [rbp-194h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+74h] [rbp-194h] BYREF
   int v103; // [rsp+78h] [rbp-190h]
   char *v104; // [rsp+80h] [rbp-188h]
   __int64 v105; // [rsp+90h] [rbp-178h]
@@ -139,7 +139,7 @@ __int64 __fastcall PspBuildCreateProcessContext(__int64 *a1, char a2, int a3, __
   _DWORD *v120; // [rsp+110h] [rbp-F8h]
   __int64 v121; // [rsp+118h] [rbp-F0h]
   _DWORD *v122; // [rsp+120h] [rbp-E8h]
-  struct _PROCESSOR_NUMBER *v123; // [rsp+128h] [rbp-E0h]
+  _PROCESSOR_NUMBER *v123; // [rsp+128h] [rbp-E0h]
   _OWORD *v124; // [rsp+130h] [rbp-D8h]
   unsigned __int64 v125; // [rsp+138h] [rbp-D0h]
   char *v126; // [rsp+140h] [rbp-C8h]
@@ -606,8 +606,8 @@ LABEL_30:
               goto LABEL_154;
             if ( v6[1] != 1LL )
               goto LABEL_154;
-            v35 = *((_BYTE *)v6 + 16);
-            *(_BYTE *)(a4 + 376) = v35;
+            v35.Level = *((_BYTE *)v6 + 16);
+            *(PS_PROTECTION *)(a4 + 376) = v35;
             if ( !RtlValidProcessProtection(v35) )
               goto LABEL_154;
           }
@@ -668,7 +668,7 @@ LABEL_30:
   {
     if ( !a3 || v6[1] != 4LL )
       goto LABEL_154;
-    v32 = (struct _PROCESSOR_NUMBER *)v6[2];
+    v32 = (_PROCESSOR_NUMBER *)v6[2];
     v123 = v32;
     if ( v5 )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaControllerInitializeController @ 0x1405167A0
+ * XREFs of HalpDmaControllerInitializeController @ 0x140516CF0
  * Callers:
- *     HalpDmaInitializeControllers @ 0x14039C688 (HalpDmaInitializeControllers.c)
+ *     HalpDmaInitializeControllers @ 0x14039C868 (HalpDmaInitializeControllers.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     MmAllocateContiguousNodeMemory @ 0x1403B9C20 (MmAllocateContiguousNodeMemory.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B9E00 (MmAllocateContiguousNodeMemory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpDmaControllerInitializeController(__int64 a1)

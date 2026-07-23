@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoDetachDeviceWrapper @ 0x1405DEEF0
+ * XREFs of DifIoDetachDeviceWrapper @ 0x1405DF460
  * Callers:
  *     <none>
  * Callees:
- *     IoDetachDevice @ 0x140365FE0 (IoDetachDevice.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     IoDetachDevice @ 0x140366180 (IoDetachDevice.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoDetachDeviceWrapper(PDEVICE_OBJECT TargetDevice)

@@ -11,7 +11,7 @@
  *     RtlpHpUnlockHeapManagerForClone @ 0x18014E244 (RtlpHpUnlockHeapManagerForClone.c)
  */
 
-__int64 __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
+NTSTATUS __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
 {
   __int64 **i; // rcx
   __int64 PreviousProcessHeapDescriptor; // rbx
@@ -22,14 +22,14 @@ __int64 __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
   void *UniqueThread; // rcx
 
   if ( a1 )
-    qword_1801D0268 = 0LL;
+    Context = 0LL;
   for ( i = 0LL; ; i = (__int64 **)PreviousProcessHeapDescriptor )
   {
     NextProcessHeapDescriptor = RtlpGetNextProcessHeapDescriptor(i);
     PreviousProcessHeapDescriptor = (__int64)NextProcessHeapDescriptor;
     if ( !NextProcessHeapDescriptor )
       break;
-    if ( !a1 || (unsigned int)RtlpIsHeapAccessibleInClone(NextProcessHeapDescriptor[2]) )
+    if ( !a1 || (unsigned int)RtlpIsHeapAccessibleInClone((PVOID)NextProcessHeapDescriptor[2]) )
     {
       RtlpUnlockHeapForClone(*(_QWORD *)(PreviousProcessHeapDescriptor + 16), a1);
     }
@@ -47,11 +47,11 @@ __int64 __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
   if ( a1 )
   {
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_1801D6018 = 0LL;
-    qword_1801D6010 = (__int64)UniqueThread;
-    dword_1801D6008 = -2;
-    dword_1801D600C = 1;
+    RtlpProcessHeapsLock.LockSemaphore = 0LL;
+    RtlpProcessHeapsLock.OwningThread = UniqueThread;
+    RtlpProcessHeapsLock.LockCount = -2;
+    RtlpProcessHeapsLock.RecursionCount = 1;
   }
   RtlpHpUnlockHeapManagerForClone(a1);
-  return RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+  return RtlLeaveCriticalSection(&RtlpProcessHeapsLock);
 }

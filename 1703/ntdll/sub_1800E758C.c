@@ -15,7 +15,7 @@ void __fastcall sub_1800E758C(ULONG_PTR a1)
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-B8h] BYREF
 
-  RtlDecodePointer(qword_18015B2C0);
+  RtlDecodePointer(Ptr);
   ExceptionRecord.ExceptionCode = -1073741420;
   ExceptionRecord.ExceptionFlags = 0;
   ExceptionRecord.ExceptionRecord = 0LL;

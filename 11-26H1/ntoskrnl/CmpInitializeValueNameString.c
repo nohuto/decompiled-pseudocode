@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInitializeValueNameString @ 0x1408BF5E4
+ * XREFs of CmpInitializeValueNameString @ 0x1408C5BB4
  * Callers:
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1408BEED0 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1408BF13C (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpMergeKeyValues @ 0x140B2BDE4 (CmpMergeKeyValues.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1408C54A0 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1408C570C (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpMergeKeyValues @ 0x140B2DE64 (CmpMergeKeyValues.c)
  * Callees:
- *     CmSiBugCheck @ 0x140532864 (CmSiBugCheck.c)
- *     CmpCopyCompressedName @ 0x1408C1D10 (CmpCopyCompressedName.c)
+ *     CmSiBugCheck @ 0x140534D04 (CmSiBugCheck.c)
+ *     CmpCopyCompressedName @ 0x1408C82E0 (CmpCopyCompressedName.c)
  */
 
 __int64 __fastcall CmpInitializeValueNameString(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3)

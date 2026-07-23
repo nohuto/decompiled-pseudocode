@@ -1,7 +1,7 @@
 /*
- * XREFs of PoUninitializeStopWatch @ 0x14057FB60
+ * XREFs of PoUninitializeStopWatch @ 0x14057FDA0
  * Callers:
- *     PopAvlDeleteStatsForPowerRequest @ 0x14062DB80 (PopAvlDeleteStatsForPowerRequest.c)
+ *     PopAvlDeleteStatsForPowerRequest @ 0x140670FF8 (PopAvlDeleteStatsForPowerRequest.c)
  * Callees:
  *     <none>
  */

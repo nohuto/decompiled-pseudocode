@@ -1,10 +1,10 @@
 /*
- * XREFs of PlugPlayGetDeviceProperty @ 0x1406BBBC0
+ * XREFs of PlugPlayGetDeviceProperty @ 0x14061AC40
  * Callers:
- *     PiPnpRtlGetDeviceNtPropertyRoutine @ 0x1406BBB80 (PiPnpRtlGetDeviceNtPropertyRoutine.c)
+ *     PiPnpRtlGetDeviceNtPropertyRoutine @ 0x14061AC00 (PiPnpRtlGetDeviceNtPropertyRoutine.c)
  * Callees:
- *     ZwPlugPlayControl @ 0x1403FCA00 (ZwPlugPlayControl.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ZwPlugPlayControl @ 0x1403FCBE0 (ZwPlugPlayControl.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall PlugPlayGetDeviceProperty(
@@ -16,7 +16,7 @@ __int64 __fastcall PlugPlayGetDeviceProperty(
         int a6)
 {
   __int128 v8; // xmm0
-  int v9; // esi
+  NTSTATUS v9; // esi
   unsigned int v10; // ecx
   __int128 v12; // [rsp+20h] [rbp-38h] BYREF
   int v13; // [rsp+30h] [rbp-28h]
@@ -34,7 +34,7 @@ __int64 __fastcall PlugPlayGetDeviceProperty(
     v13 = a2;
     v12 = v8;
     v16 = a4;
-    v9 = ZwPlugPlayControl(10LL, (__int64)&v12);
+    v9 = ZwPlugPlayControl(PlugPlayControlProperty, &v12, 0x28u);
     if ( v9 < 0 )
     {
       if ( v9 != -1073741789 )

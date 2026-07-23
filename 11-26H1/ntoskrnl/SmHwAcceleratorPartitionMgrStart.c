@@ -1,13 +1,13 @@
 /*
- * XREFs of SmHwAcceleratorPartitionMgrStart @ 0x14081B974
+ * XREFs of SmHwAcceleratorPartitionMgrStart @ 0x140821B84
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14063CDAC (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14064098C (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SmHwAcceleratorMgrPartitionRegister @ 0x14081B298 (SmHwAcceleratorMgrPartitionRegister.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SmHwAcceleratorMgrPartitionRegister @ 0x1408214A8 (SmHwAcceleratorMgrPartitionRegister.c)
  */
 
 __int64 __fastcall SmHwAcceleratorPartitionMgrStart(struct _LIST_ENTRY *a1, struct _KTHREAD *a2, _KPROCESS *a3)

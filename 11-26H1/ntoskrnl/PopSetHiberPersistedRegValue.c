@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSetHiberPersistedRegValue @ 0x140B19CC0
+ * XREFs of PopSetHiberPersistedRegValue @ 0x140B1C110
  * Callers:
- *     PopSetHiberFileType @ 0x140777454 (PopSetHiberFileType.c)
- *     PopSetHiberFileSize @ 0x1407D0888 (PopSetHiberFileSize.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     PopSetHiberFileType @ 0x14077A2FC (PopSetHiberFileType.c)
+ *     PopSetHiberFileSize @ 0x1407D3928 (PopSetHiberFileSize.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall PopSetHiberPersistedRegValue(int a1, int a2, int *a3)
@@ -31,9 +31,9 @@ __int64 __fastcall PopSetHiberPersistedRegValue(int a1, int a2, int *a3)
   *(&ObjectAttributes.Attributes + 1) = 0;
   ValueName = 0LL;
   DestinationString = 0LL;
-  if ( stru_140F11D08.WaitListEntry.Blink )
+  if ( PopHibernatePersistedRegLocation )
   {
-    RtlInitUnicodeString(&DestinationString, (PCWSTR)stru_140F11D08.WaitListEntry.Blink);
+    RtlInitUnicodeString(&DestinationString, PopHibernatePersistedRegLocation);
     ObjectAttributes.ObjectName = &DestinationString;
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;

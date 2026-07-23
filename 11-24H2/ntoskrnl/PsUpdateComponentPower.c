@@ -1,10 +1,10 @@
 /*
- * XREFs of PsUpdateComponentPower @ 0x14042D9F0
+ * XREFs of PsUpdateComponentPower @ 0x14041F720
  * Callers:
- *     PspApplyJobChainLimitsToProcess @ 0x1408E7DA0 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetProcessEnergyTrackingStateCallback @ 0x140A7DA70 (PspSetProcessEnergyTrackingStateCallback.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x1408D85E4 (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetProcessEnergyTrackingStateCallback @ 0x140A77D70 (PspSetProcessEnergyTrackingStateCallback.c)
  * Callees:
- *     PoEnergyContextUpdateComponentPower @ 0x1409048E0 (PoEnergyContextUpdateComponentPower.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x14099B564 (PoEnergyContextUpdateComponentPower.c)
  */
 
 void __fastcall PsUpdateComponentPower(PEPROCESS a1, unsigned int a2, unsigned __int64 a3)

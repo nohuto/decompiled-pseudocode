@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRebuildLargePages @ 0x1403D2300
+ * XREFs of MiRebuildLargePages @ 0x1403F6DC0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiRebuildLargePage @ 0x1403D2BAC (MiRebuildLargePage.c)
- *     MiNodeFreeZeroPages @ 0x1403D3160 (MiNodeFreeZeroPages.c)
- *     MiGetNodeStandbyPageCount @ 0x1403D329C (MiGetNodeStandbyPageCount.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiNodeFreeZeroPages @ 0x14033FC00 (MiNodeFreeZeroPages.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MiRebuildLargePage @ 0x1403F7120 (MiRebuildLargePage.c)
+ *     MiGetNodeStandbyPageCount @ 0x1403F76CC (MiGetNodeStandbyPageCount.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiRebuildLargePages(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -105,8 +105,7 @@ void __fastcall MiRebuildLargePages(ULONG_PTR BugCheckParameter2, __int64 a2)
     v22 = 0LL;
     do
     {
-      LOBYTE(v17) = v21;
-      v23 = MiNodeFreeZeroPages(v4, v17, 0LL);
+      v23 = MiNodeFreeZeroPages(v4, v21, 0);
       v18 = MmNumberOfChannels;
       v22 += v23;
       ++v21;
@@ -127,7 +126,7 @@ void __fastcall MiRebuildLargePages(ULONG_PTR BugCheckParameter2, __int64 a2)
     {
       do
       {
-        NodeStandbyPageCount = MiGetNodeStandbyPageCount(v38, (unsigned int)v6, v14, v12);
+        NodeStandbyPageCount = MiGetNodeStandbyPageCount(v38, (unsigned int)v6, v14);
         v24 = NodeStandbyPageCount + v26;
         LOBYTE(v14) = (_BYTE)v14 + 1;
       }

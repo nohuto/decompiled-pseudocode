@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCCSwapFlush @ 0x140217500
+ * XREFs of EtwpCCSwapFlush @ 0x140217830
  * Callers:
- *     EtwpCCSwapTrace @ 0x140217180 (EtwpCCSwapTrace.c)
+ *     EtwpCCSwapTrace @ 0x1402174B0 (EtwpCCSwapTrace.c)
  * Callees:
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218100 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpCloseLogger @ 0x140218150 (EtwpCloseLogger.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218430 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpCloseLogger @ 0x140218480 (EtwpCloseLogger.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpCCSwapFlush(_DWORD *a1, __int64 a2, __int64 a3)

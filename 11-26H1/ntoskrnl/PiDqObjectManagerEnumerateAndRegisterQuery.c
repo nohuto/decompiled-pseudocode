@@ -1,35 +1,35 @@
 /*
- * XREFs of PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14098EA84
+ * XREFs of PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14094F4E4
  * Callers:
- *     PiDqQuerySerializeActionQueue @ 0x14098E76C (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14094F1CC (PiDqQuerySerializeActionQueue.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _PnpStringFromGuid @ 0x14090F21C (_PnpStringFromGuid.c)
- *     ConstraintEval @ 0x14098E0C4 (ConstraintEval.c)
- *     PiDqQueryLock @ 0x14098FDD0 (PiDqQueryLock.c)
- *     PiDqQueryUnlock @ 0x14098FE44 (PiDqQueryUnlock.c)
- *     PiDqQueryFreeActiveData @ 0x140990044 (PiDqQueryFreeActiveData.c)
- *     PiDmGetObject @ 0x1409A2D70 (PiDmGetObject.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1409A3F50 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     PiDmEnumObjectsWithCallback @ 0x1409A718C (PiDmEnumObjectsWithCallback.c)
- *     PiDmObjectIsEnumerable @ 0x1409A748C (PiDmObjectIsEnumerable.c)
- *     PiDqQueryEnumObject @ 0x1409A83F4 (PiDqQueryEnumObject.c)
- *     PiDqQueryAppendActionEntry @ 0x1409A8588 (PiDqQueryAppendActionEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ConstraintEval @ 0x14094EB24 (ConstraintEval.c)
+ *     PiDqQueryLock @ 0x140950830 (PiDqQueryLock.c)
+ *     PiDqQueryUnlock @ 0x1409508A4 (PiDqQueryUnlock.c)
+ *     PiDqQueryFreeActiveData @ 0x140950AA4 (PiDqQueryFreeActiveData.c)
+ *     PiDmGetObject @ 0x1409637D0 (PiDmGetObject.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1409649B0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140967BEC (PiDmEnumObjectsWithCallback.c)
+ *     PiDmObjectIsEnumerable @ 0x140967EEC (PiDmObjectIsEnumerable.c)
+ *     PiDqQueryEnumObject @ 0x140968E04 (PiDqQueryEnumObject.c)
+ *     PiDqQueryAppendActionEntry @ 0x140968F98 (PiDqQueryAppendActionEntry.c)
+ *     _PnpStringFromGuid @ 0x1409B134C (_PnpStringFromGuid.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDqObjectManagerEnumerateAndRegisterQuery(PERESOURCE Resource, KSPIN_LOCK a2)
 {
   __int64 v2; // rax
   int EnumObject; // ebx
-  wchar_t *v6; // r12
+  _BYTE *v6; // r12
   __int64 v7; // rdx
   int v8; // ecx
   int v9; // ecx
@@ -60,8 +60,8 @@ __int64 __fastcall PiDqObjectManagerEnumerateAndRegisterQuery(PERESOURCE Resourc
   __int128 v35; // [rsp+50h] [rbp-89h]
   _OWORD v36[2]; // [rsp+60h] [rbp-79h] BYREF
   __int128 v37; // [rsp+80h] [rbp-59h]
-  int *v38; // [rsp+90h] [rbp-49h]
-  wchar_t v39[40]; // [rsp+A0h] [rbp-39h] BYREF
+  _BYTE *v38; // [rsp+90h] [rbp-49h]
+  _BYTE v39[80]; // [rsp+A0h] [rbp-39h] BYREF
 
   v2 = *(_QWORD *)(a2 + 24);
   P = 0LL;
@@ -219,7 +219,7 @@ LABEL_60:
         }
         else if ( DWORD2(v37) == 18 )
         {
-          v6 = (wchar_t *)v38;
+          v6 = v38;
         }
         v22 = PiDmGetObject(*((unsigned int *)v16 + 6), v6, &P);
         EnumObject = v22;

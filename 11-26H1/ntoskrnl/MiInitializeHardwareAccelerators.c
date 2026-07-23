@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeHardwareAccelerators @ 0x140D014CC
+ * XREFs of MiInitializeHardwareAccelerators @ 0x140D0786C
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     MiRegisterForHardwareAcceleratorChanges @ 0x140D01528 (MiRegisterForHardwareAcceleratorChanges.c)
+ *     MiRegisterForHardwareAcceleratorChanges @ 0x140D078C8 (MiRegisterForHardwareAcceleratorChanges.c)
  */
 
 void __fastcall MiInitializeHardwareAccelerators(int a1)
@@ -15,10 +15,10 @@ void __fastcall MiInitializeHardwareAccelerators(int a1)
   if ( a1 == 1 )
   {
     v1 = 64LL;
-    qword_140E36510 = (__int64)&P;
+    qword_140E36690 = (__int64)&P;
     P = &P;
-    v2 = &unk_140E36100;
-    v3 = (char *)&unk_140E36100;
+    v2 = &unk_140E36280;
+    v3 = (char *)&unk_140E36280;
     do
     {
       v2[1] = v3;

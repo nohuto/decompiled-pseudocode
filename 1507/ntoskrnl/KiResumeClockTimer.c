@@ -17,7 +17,7 @@ void KiResumeClockTimer()
   int v1; // ebx
   __int64 v2; // [rsp+30h] [rbp+8h] BYREF
   __int64 v3; // [rsp+38h] [rbp+10h] BYREF
-  LARGE_INTEGER v4; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = 0LL;
   v0 = 0;
@@ -43,6 +43,7 @@ void KiResumeClockTimer()
     if ( v1 == 2 )
       LOBYTE(v1) = _InterlockedExchange(&KiClockState, 0);
     KiEventClockStateChange(0, v1, &v2, &v3);
-    KiClockTimerNextTickTime = RtlGetInterruptTimePrecise(&v4) + (unsigned int)KeTimeIncrement;
+    KiClockTimerNextTickTime = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+                             + (unsigned int)KeTimeIncrement;
   }
 }

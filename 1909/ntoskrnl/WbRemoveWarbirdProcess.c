@@ -19,12 +19,12 @@
 __int64 __fastcall WbRemoveWarbirdProcess(int a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v3; // rbx
+  PRTL_BALANCED_NODE v3; // rbx
   int v4; // ebx
   struct _KTHREAD *v6; // rax
-  __int64 v7; // rax
+  _RTL_BALANCED_NODE *v7; // rax
   signed __int8 v8; // cf
-  __int64 v9; // rbx
+  _RTL_BALANCED_NODE *v9; // rbx
   char v10; // di
   __int64 v11; // [rsp+68h] [rbp+10h] BYREF
 
@@ -35,7 +35,7 @@ __int64 __fastcall WbRemoveWarbirdProcess(int a1)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14046B5B8, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(&qword_14046B5B8, v3, (ULONG_PTR)&qword_14046B5B8);
   if ( v3 )
-    *(_BYTE *)(v3 + 26) |= 1u;
+    BYTE2(v3[1].Left) |= 1u;
   v4 = sub_1405CB190(a1, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14046B5B8, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&qword_14046B5B8);
@@ -51,7 +51,7 @@ __int64 __fastcall WbRemoveWarbirdProcess(int a1)
     if ( v8 )
       ExfAcquirePushLockExclusiveEx(&qword_14046B5B8, v7, (ULONG_PTR)&qword_14046B5B8);
     if ( v9 )
-      *(_BYTE *)(v9 + 26) |= 1u;
+      BYTE2(v9[1].Left) |= 1u;
     v4 = sub_1406D57EC((unsigned int)&qword_14046B590, a1, 8, -1, (__int64)&v11);
     v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14046B5B8, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v10 & 2) != 0 && (v10 & 4) == 0 )

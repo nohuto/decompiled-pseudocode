@@ -1,17 +1,17 @@
 /*
- * XREFs of PopBatteryUpdateAlarms @ 0x140943228
+ * XREFs of PopBatteryUpdateAlarms @ 0x1409BEBA0
  * Callers:
- *     PopBatteryAlarmPowerSettingCallback @ 0x1407CC7E0 (PopBatteryAlarmPowerSettingCallback.c)
- *     PopBatteryApplyCompositeState @ 0x140946EB0 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryAlarmPowerSettingCallback @ 0x1407CF880 (PopBatteryAlarmPowerSettingCallback.c)
+ *     PopBatteryApplyCompositeState @ 0x1409C2820 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     PopGetPowerSettingValue @ 0x1404CF78C (PopGetPowerSettingValue.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopApplyPolicy @ 0x140944018 (PopApplyPolicy.c)
+ *     PopGetPowerSettingValue @ 0x1404C91BC (PopGetPowerSettingValue.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopApplyPolicy @ 0x1409BF988 (PopApplyPolicy.c)
  */
 
 __int64 __fastcall PopBatteryUpdateAlarms(char a1, __int64 a2)
 {
-  signed int v2; // r15d
+  signed int Next_high; // r15d
   char v3; // r14
   __int64 v4; // rcx
   __int128 v5; // xmm0
@@ -43,37 +43,37 @@ __int64 __fastcall PopBatteryUpdateAlarms(char a1, __int64 a2)
   _OWORD v32[8]; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v33; // [rsp+120h] [rbp+20h]
 
-  v2 = dword_140F106CC;
+  Next_high = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v3 = a1;
   LOBYTE(v29) = a1;
   v4 = 128LL;
   LODWORD(v30) = 0;
-  v5 = *(_OWORD *)qword_140F105C0;
+  v5 = *(_OWORD *)PpmIdlePolicyLock.WriteOperationCount;
   HIDWORD(v29) = 0;
-  v6 = *((_OWORD *)qword_140F105C0 + 1);
+  v6 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 16);
   v31[0] = v5;
-  v7 = *((_OWORD *)qword_140F105C0 + 2);
+  v7 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 32);
   v31[1] = v6;
-  v8 = *((_OWORD *)qword_140F105C0 + 3);
+  v8 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 48);
   v31[2] = v7;
-  v9 = *((_OWORD *)qword_140F105C0 + 4);
+  v9 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 64);
   v31[3] = v8;
-  v10 = *((_OWORD *)qword_140F105C0 + 5);
+  v10 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 80);
   v31[4] = v9;
-  v11 = *((_OWORD *)qword_140F105C0 + 6);
+  v11 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 96);
   v31[5] = v10;
   v32[0] = v11;
-  v32[1] = *((_OWORD *)qword_140F105C0 + 7);
-  v12 = *((_OWORD *)qword_140F105C0 + 9);
-  v32[2] = *((_OWORD *)qword_140F105C0 + 8);
-  v13 = *((_OWORD *)qword_140F105C0 + 10);
+  v32[1] = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 112);
+  v12 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 144);
+  v32[2] = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 128);
+  v13 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 160);
   v32[3] = v12;
-  v14 = *((_OWORD *)qword_140F105C0 + 11);
+  v14 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 176);
   v32[4] = v13;
-  v15 = *((_OWORD *)qword_140F105C0 + 12);
+  v15 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 192);
   v32[5] = v14;
-  v16 = *((_OWORD *)qword_140F105C0 + 13);
-  v17 = *((_QWORD *)qword_140F105C0 + 28);
+  v16 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 208);
+  v17 = *(_QWORD *)(PpmIdlePolicyLock.WriteOperationCount + 224);
   v32[6] = v15;
   v32[7] = v16;
   v33 = v17;
@@ -93,7 +93,7 @@ __int64 __fastcall PopBatteryUpdateAlarms(char a1, __int64 a2)
       if ( (int)PopGetPowerSettingValue(
                   (__int64)GUIDS_BATTERY_DISCHARGE_ACTION[v21],
                   a2,
-                  v2,
+                  Next_high,
                   (char *)&v29 + 4,
                   4u,
                   (unsigned int *)&v30) >= 0 )
@@ -108,7 +108,7 @@ __int64 __fastcall PopBatteryUpdateAlarms(char a1, __int64 a2)
       if ( (int)PopGetPowerSettingValue(
                   (__int64)GUIDS_BATTERY_DISCHARGE_LEVEL[v21],
                   v22,
-                  v2,
+                  Next_high,
                   (char *)&v29 + 4,
                   4u,
                   (unsigned int *)&v30) >= 0 )
@@ -121,7 +121,7 @@ __int64 __fastcall PopBatteryUpdateAlarms(char a1, __int64 a2)
       if ( (int)PopGetPowerSettingValue(
                   (__int64)GUIDS_BATTERY_DISCHARGE_FLAGS[v21],
                   v23,
-                  v2,
+                  Next_high,
                   (char *)&v29 + 4,
                   4u,
                   (unsigned int *)&v30) >= 0 )

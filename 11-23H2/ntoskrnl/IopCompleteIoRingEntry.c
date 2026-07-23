@@ -1,21 +1,21 @@
 /*
- * XREFs of IopCompleteIoRingEntry @ 0x14055935C
+ * XREFs of IopCompleteIoRingEntry @ 0x140559A1C
  * Callers:
- *     IopIoRingCompleteIrp @ 0x1405594DC (IopIoRingCompleteIrp.c)
- *     IopIoRingDispatchCancel @ 0x14094927C (IopIoRingDispatchCancel.c)
- *     IopIoRingDispatchFlush @ 0x14094933C (IopIoRingDispatchFlush.c)
- *     IopIoRingDispatchRead @ 0x14094941C (IopIoRingDispatchRead.c)
- *     IopIoRingDispatchRegisterBuffers @ 0x140949590 (IopIoRingDispatchRegisterBuffers.c)
- *     IopIoRingDispatchRegisterFiles @ 0x1409499B0 (IopIoRingDispatchRegisterFiles.c)
- *     IopIoRingDispatchWrite @ 0x140949C64 (IopIoRingDispatchWrite.c)
- *     IopProcessIoRingEntry @ 0x140949F78 (IopProcessIoRingEntry.c)
+ *     IopIoRingCompleteIrp @ 0x140559B9C (IopIoRingCompleteIrp.c)
+ *     IopIoRingDispatchCancel @ 0x14094947C (IopIoRingDispatchCancel.c)
+ *     IopIoRingDispatchFlush @ 0x14094953C (IopIoRingDispatchFlush.c)
+ *     IopIoRingDispatchRead @ 0x14094961C (IopIoRingDispatchRead.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x140949790 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterFiles @ 0x140949BB0 (IopIoRingDispatchRegisterFiles.c)
+ *     IopIoRingDispatchWrite @ 0x140949E64 (IopIoRingDispatchWrite.c)
+ *     IopProcessIoRingEntry @ 0x14094A178 (IopProcessIoRingEntry.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR __fastcall IopCompleteIoRingEntry(__int64 a1, __int64 a2, _OWORD *a3, KPRIORITY a4)
@@ -76,10 +76,13 @@ LONG_PTR __fastcall IopCompleteIoRingEntry(__int64 a1, __int64 a2, _OWORD *a3, K
   if ( v8 )
     KeSetEvent(v8, a4, 0);
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v12 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -87,7 +90,7 @@ LONG_PTR __fastcall IopCompleteIoRingEntry(__int64 a1, __int64 a2, _OWORD *a3, K
       v21 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v21 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v12);

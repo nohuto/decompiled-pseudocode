@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpLogImportRedirectionTelemetry @ 0x18016046C
+ * XREFs of LdrpLogImportRedirectionTelemetry @ 0x18015E82C
  * Callers:
- *     LdrpInitializeImportRedirection @ 0x1800FA988 (LdrpInitializeImportRedirection.c)
+ *     LdrpInitializeImportRedirection @ 0x1800F56E8 (LdrpInitializeImportRedirection.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x180051AD4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlRunOnceExecuteOnce @ 0x180098200 (RtlRunOnceExecuteOnce.c)
- *     _tlgKeywordOn @ 0x18010D208 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002D050 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x1800676B4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1801081C8 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
@@ -14,7 +14,7 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
   struct _PEB *v1; // rax
   __int64 v3; // rcx
   __int64 v4; // r9
-  _BYTE v6[32]; // [rsp+30h] [rbp-19h] BYREF
+  _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-19h] BYREF
   _DWORD *v7; // [rsp+50h] [rbp+7h]
   int v8; // [rsp+58h] [rbp+Fh]
   int v9; // [rsp+5Ch] [rbp+13h]
@@ -29,14 +29,10 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
   v1 = NtCurrentPeb();
   if ( v1->ProcessHeap )
   {
-    LOBYTE(v1) = RtlRunOnceExecuteOnce(
-                   &LibLoaderTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LibLoaderTelemetryInitOnce,
-                   0LL,
-                   0LL);
-    if ( (unsigned int)dword_1801CC948 > 5 )
+    LOBYTE(v1) = RtlRunOnceExecuteOnce(&LibLoaderTelemetryInitRunOnce, LibLoaderTelemetryInitOnce, 0LL, 0LL);
+    if ( (unsigned int)dword_1801CB948 > 5 )
     {
-      LOBYTE(v1) = tlgKeywordOn((__int64)&dword_1801CC948, 0x200000000000LL);
+      LOBYTE(v1) = tlgKeywordOn((__int64)&dword_1801CB948, 0x200000000000LL);
       if ( (_BYTE)v1 )
       {
         v9 = 0;
@@ -51,7 +47,7 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
         v16[0] = *(unsigned __int16 *)(LdrpImageEntry + 72);
         v8 = 2;
         v13 = 2;
-        LOBYTE(v1) = tlgWriteTransfer_EtwEventWriteTransfer(v3, byte_1801A2CF6, 2LL, v4, 6, (__int64)v6);
+        LOBYTE(v1) = tlgWriteTransfer_EtwEventWriteTransfer(v3, (unsigned __int8 *)dword_1801A1E96, 2LL, v4, 6u, &v6);
       }
     }
   }

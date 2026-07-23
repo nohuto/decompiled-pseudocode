@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpParseChannelCount @ 0x140568100
+ * XREFs of HalpParseChannelCount @ 0x140565BF0
  * Callers:
- *     HalpGetNumaProcMemoryCount @ 0x140C1146C (HalpGetNumaProcMemoryCount.c)
- *     HalpInitializeConfigurationFromMadt @ 0x140C11680 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140C13460 (HalpGetNumaProcMemoryCount.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140C13674 (HalpInitializeConfigurationFromMadt.c)
  * Callees:
  *     <none>
  */

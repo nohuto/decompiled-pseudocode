@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWalkPageTablesRecursivelyNoSynch @ 0x140326D88
+ * XREFs of MiWalkPageTablesRecursivelyNoSynch @ 0x140328DB8
  * Callers:
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiWalkPageTablesRecursivelyNoSynch @ 0x140326D88 (MiWalkPageTablesRecursivelyNoSynch.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiWalkPageTablesRecursivelyNoSynch @ 0x140328DB8 (MiWalkPageTablesRecursivelyNoSynch.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiWalkPageTablesRecursivelyNoSynch @ 0x140326D88 (MiWalkPageTablesRecursivelyNoSynch.c)
- *     KdCheckForDebugBreak @ 0x140487E4C (KdCheckForDebugBreak.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiWalkPageTablesRecursivelyNoSynch @ 0x140328DB8 (MiWalkPageTablesRecursivelyNoSynch.c)
+ *     KdCheckForDebugBreak @ 0x14048198C (KdCheckForDebugBreak.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiWalkPageTablesRecursivelyNoSynch(unsigned int *a1, volatile unsigned __int64 a2, __int64 a3)
@@ -72,10 +72,10 @@ __int64 __fastcall MiWalkPageTablesRecursivelyNoSynch(unsigned int *a1, volatile
       a2 = *a1;
       v13 = (v8 >> 12) & 0xFFFFFFFFFFLL;
       if ( ((a2 & 0x100) == 0
-         || qword_140E36000 == (PVOID)qword_140E36018
+         || qword_140E36180 == (PVOID)qword_140E36198
          || v13 != *(_QWORD *)&v4[2 * v3 + 9888]
          || !_bittest64(&MiFlags, 0x1Fu))
-        && ((a2 & 0x200) == 0 || qword_140E36000 == (PVOID)qword_140E36018 || v13 != *(_QWORD *)&v4[2 * v3 + 9902]) )
+        && ((a2 & 0x200) == 0 || qword_140E36180 == (PVOID)qword_140E36198 || v13 != *(_QWORD *)&v4[2 * v3 + 9902]) )
       {
         if ( (v8 & 0x20) == 0 && (_DWORD)v3 )
         {

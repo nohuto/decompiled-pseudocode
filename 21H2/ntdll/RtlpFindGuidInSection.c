@@ -5,7 +5,7 @@
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     bsearch @ 0x18008F3C0 (bsearch.c)
- *     RtlCompareMemory @ 0x1800A1FF0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1800A1FB0 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall RtlpFindGuidInSection(__int64 a1, _DWORD *a2, unsigned int *a3)

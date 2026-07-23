@@ -1,19 +1,19 @@
 /*
- * XREFs of IopPnPDispatch @ 0x1404E7998
+ * XREFs of IopPnPDispatch @ 0x1404C9D24
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     IoInvalidateDeviceRelations @ 0x14009ECD4 (IoInvalidateDeviceRelations.c)
- *     IopPnPCompleteRequest @ 0x1400B0DF8 (IopPnPCompleteRequest.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     IoInvalidateDeviceRelations @ 0x140085F2C (IoInvalidateDeviceRelations.c)
+ *     IopPnPCompleteRequest @ 0x1400AEE68 (IopPnPCompleteRequest.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopGetRootDevices @ 0x14049DC40 (IopGetRootDevices.c)
- *     PnpGetDeviceResourcesFromRegistry @ 0x1404C8D70 (PnpGetDeviceResourcesFromRegistry.c)
- *     PiGetDeviceRegProperty @ 0x1404F9894 (PiGetDeviceRegProperty.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
+ *     PiGetDeviceRegProperty @ 0x1404DC820 (PiGetDeviceRegProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x14050F164 (PnpGetDeviceResourcesFromRegistry.c)
+ *     IopGetRootDevices @ 0x14051604C (IopGetRootDevices.c)
  */
 
 __int64 __fastcall IopPnPDispatch(PVOID Object, IRP *a2)
@@ -38,7 +38,7 @@ __int64 __fastcall IopPnPDispatch(PVOID Object, IRP *a2)
   int Length; // eax
   _OWORD *v22; // rax
   int v23; // edx
-  char *v24; // r12
+  char *Src; // r12
   char *v25; // rcx
   unsigned int v26; // r8d
   char *v27; // rdx
@@ -50,7 +50,7 @@ __int64 __fastcall IopPnPDispatch(PVOID Object, IRP *a2)
   __int64 v33; // rbx
   int v34; // edx
   int v35; // edx
-  char v36; // r8
+  int v36; // r8d
   PIO_SECURITY_CONTEXT v37; // rbx
   __int64 v38; // rdx
   int v40[2]; // [rsp+40h] [rbp-10h] BYREF
@@ -212,7 +212,7 @@ LABEL_35:
     v35 = 0;
     v36 = 4;
 LABEL_101:
-    RootDevices = PnpGetDeviceResourcesFromRegistry((__int64)Object, v35, v36, (void **)v40, &NumberOfBytes);
+    RootDevices = PnpGetDeviceResourcesFromRegistry((int)Object, v35, v36, (int)v40, &NumberOfBytes);
     if ( RootDevices != -1073741772 )
       goto LABEL_12;
     goto LABEL_111;
@@ -263,22 +263,22 @@ LABEL_101:
                           (PULONG)&NumberOfBytes);
           if ( RootDevices == -1073741789 )
           {
-            v24 = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
-            if ( v24 )
+            Src = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
+            if ( Src )
             {
               RootDevices = PiGetDeviceRegProperty(
                               *(_QWORD *)(v20 + 48),
                               v23,
                               7,
                               (unsigned int)(CurrentStackLocation->Parameters.Read.Length != 1) + 2,
-                              v24,
+                              Src,
                               (PULONG)&NumberOfBytes);
-              v25 = v24;
+              v25 = Src;
               if ( RootDevices >= 0 )
               {
                 v26 = NumberOfBytes;
                 v27 = 0LL;
-                if ( v24 < &v24[2 * ((unsigned __int64)(unsigned int)NumberOfBytes >> 1)] )
+                if ( Src < &Src[2 * ((unsigned __int64)(unsigned int)NumberOfBytes >> 1)] )
                 {
                   do
                   {
@@ -299,13 +299,13 @@ LABEL_101:
                     }
                     v25 += 2;
                   }
-                  while ( v25 < &v24[2 * ((unsigned __int64)v26 >> 1)] );
+                  while ( v25 < &Src[2 * ((unsigned __int64)v26 >> 1)] );
                 }
-                Information = v24;
+                Information = Src;
               }
               else
               {
-                ExFreePoolWithTag(v24, 0);
+                ExFreePoolWithTag(Src, 0);
               }
             }
             else

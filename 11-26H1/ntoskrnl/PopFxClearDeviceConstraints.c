@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxClearDeviceConstraints @ 0x1404E2030
+ * XREFs of PopFxClearDeviceConstraints @ 0x1404DB710
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxReferenceDevice @ 0x1403948D4 (PopFxReferenceDevice.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     PoFxIdleDevice @ 0x1404B2604 (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x1404D5290 (PopFxActivateDevice.c)
- *     PopFxReinitializeAccountingInstance @ 0x1404E23A0 (PopFxReinitializeAccountingInstance.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1404E2438 (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPepClearDripsDeviceVetoMask @ 0x140611444 (PopPepClearDripsDeviceVetoMask.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxReferenceDevice @ 0x140396654 (PopFxReferenceDevice.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     PoFxIdleDevice @ 0x1404ABB10 (PoFxIdleDevice.c)
+ *     PopFxActivateDevice @ 0x1404CEB00 (PopFxActivateDevice.c)
+ *     PopFxReinitializeAccountingInstance @ 0x1404DBA80 (PopFxReinitializeAccountingInstance.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1404DBB18 (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPepClearDripsDeviceVetoMask @ 0x140614284 (PopPepClearDripsDeviceVetoMask.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopFxClearDeviceConstraints(ULONG_PTR BugCheckParameter2)
@@ -68,7 +68,7 @@ __int64 __fastcall PopFxClearDeviceConstraints(ULONG_PTR BugCheckParameter2)
     }
     PopFxDereferenceDevice(BugCheckParameter2, 2);
     if ( !v2 )
-      ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0LL, 0LL, 0LL, 0, 0);
+      ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v2;
 }

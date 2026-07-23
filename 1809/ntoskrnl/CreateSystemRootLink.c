@@ -1,15 +1,15 @@
 /*
- * XREFs of CreateSystemRootLink @ 0x1409DA774
+ * XREFs of CreateSystemRootLink @ 0x1409DB774
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtCreateDirectoryObject @ 0x1406ADCC0 (NtCreateDirectoryObject.c)
- *     NtCreateSymbolicLinkObject @ 0x1406B6F00 (NtCreateSymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtCreateDirectoryObject @ 0x1406AEF60 (NtCreateDirectoryObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x1406B81A0 (NtCreateSymbolicLinkObject.c)
  */
 
 __int64 __fastcall CreateSystemRootLink(_QWORD *a1)

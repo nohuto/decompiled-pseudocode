@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAllocateUuids @ 0x1406C5EC0
+ * XREFs of NtAllocateUuids @ 0x1406C7160
  * Callers:
  *     <none>
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1406C606C (ExpUuidSaveSequenceNumberIf.c)
- *     ExpAllocateUuids @ 0x1406C6098 (ExpAllocateUuids.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1406C730C (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpAllocateUuids @ 0x1406C7338 (ExpAllocateUuids.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Sequence, PUCHAR Seed)
@@ -20,8 +20,8 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
   __int64 v10; // rcx
   __int64 v11; // rcx
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 v13; // rax
-  __int64 v14; // rdi
+  _RTL_BALANCED_NODE *v13; // rax
+  _RTL_BALANCED_NODE *v14; // rdi
   __int64 v15; // rdx
   __int64 v16; // rcx
   NTSTATUS v17; // edi
@@ -66,7 +66,7 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
     ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v13, (ULONG_PTR)&ExpUuidLock);
   if ( v14 )
-    *(_BYTE *)(v14 + 26) |= 1u;
+    BYTE2(v14[1].Left) |= 1u;
   v17 = ExpAllocateUuids(v24, &v22, &v23);
   if ( v17 < 0 )
   {
@@ -85,11 +85,11 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
       ExfTryToWakePushLock((volatile signed __int64 *)&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-    *Time = (union _ULARGE_INTEGER)v24[0];
+    *Time = (ULARGE_INTEGER)v24[0];
     *Range = v22;
     *Sequence = v23;
-    *(_DWORD *)Seed = *(int *)((char *)&dword_14096D27C + 2);
-    *((_WORD *)Seed + 2) = HIWORD(dword_14096D280);
+    *(_DWORD *)Seed = *(int *)((char *)&dword_14096E27C + 2);
+    *((_WORD *)Seed + 2) = HIWORD(dword_14096E280);
     return v19 == 0 ? 0x40020056 : 0;
   }
 }

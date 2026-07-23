@@ -1,9 +1,9 @@
 /*
- * XREFs of KePopulateContinuationContext @ 0x1403E5874
+ * XREFs of KePopulateContinuationContext @ 0x1403D3414
  * Callers:
- *     KiInitializeUserApc @ 0x1403E5264 (KiInitializeUserApc.c)
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
- *     PspInitializeThunkContext @ 0x1408FE308 (PspInitializeThunkContext.c)
+ *     KiInitializeUserApc @ 0x1403D2E04 (KiInitializeUserApc.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
+ *     PspInitializeThunkContext @ 0x140920BE8 (PspInitializeThunkContext.c)
  * Callees:
  *     <none>
  */

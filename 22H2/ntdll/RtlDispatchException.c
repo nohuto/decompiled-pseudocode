@@ -22,18 +22,18 @@
  *     RtlRaiseStatus @ 0x180102540 (RtlRaiseStatus.c)
  */
 
-char __fastcall RtlDispatchException(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord)
 {
-  char v2; // bl
-  __int64 v3; // r15
-  int v5; // edi
+  BOOLEAN v2; // bl
+  PCONTEXT v3; // r15
+  unsigned int v5; // edi
   int v6; // r13d
-  __int64 v7; // r12
+  ULONG64 v7; // r12
   unsigned __int64 v8; // rcx
   unsigned __int64 v9; // rcx
   void *v10; // rsp
   void *v11; // rsp
-  ULONG64 v12; // r15
+  ULONG64 Rip; // r15
   struct _UNWIND_HISTORY_TABLE *p_HistoryTable; // rax
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v14; // rax
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v15; // r13
@@ -44,7 +44,7 @@ char __fastcall RtlDispatchException(__int64 a1, __int64 a2)
   ULONG64 v20; // r8
   __int64 v21; // r13
   int v22; // edx
-  unsigned __int64 v23; // r12
+  PCONTEXT_EX v23; // r12
   int v24; // edx
   int v25; // edx
   ULONG64 v26; // r12
@@ -54,83 +54,83 @@ char __fastcall RtlDispatchException(__int64 a1, __int64 a2)
   _BYTE *v31; // r9
   int v32; // ecx
   __int64 v33; // rax
-  char ContextRecord; // [rsp+40h] [rbp+0h] BYREF
-  PUNWIND_HISTORY_TABLE v35; // [rsp+48h] [rbp+8h] BYREF
+  char v34; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength[2]; // [rsp+48h] [rbp+8h] BYREF
   unsigned __int64 EstablisherFrame; // [rsp+50h] [rbp+10h] BYREF
   unsigned __int64 ImageBase; // [rsp+58h] [rbp+18h] BYREF
   PVOID HandlerData; // [rsp+60h] [rbp+20h] BYREF
-  unsigned __int64 v39; // [rsp+68h] [rbp+28h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+68h] [rbp+28h] BYREF
   char v40[8]; // [rsp+70h] [rbp+30h] BYREF
   char v41[8]; // [rsp+78h] [rbp+38h] BYREF
-  __int64 v42; // [rsp+80h] [rbp+40h]
+  PCONTEXT v42; // [rsp+80h] [rbp+40h]
   ULONG64 ControlPc; // [rsp+90h] [rbp+50h] BYREF
   ULONG64 v44; // [rsp+98h] [rbp+58h]
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+A0h] [rbp+60h]
-  unsigned __int64 v46; // [rsp+A8h] [rbp+68h]
-  char *p_ContextRecord; // [rsp+B8h] [rbp+78h]
-  EXCEPTION_ROUTINE *v48; // [rsp+C0h] [rbp+80h]
+  _CONTEXT_EX *v46; // [rsp+A8h] [rbp+68h]
+  char *v47; // [rsp+B8h] [rbp+78h]
+  EXCEPTION_DISPOSITION (__cdecl *v48)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+C0h] [rbp+80h]
   _BYTE *v49; // [rsp+C8h] [rbp+88h]
   struct _UNWIND_HISTORY_TABLE *v50; // [rsp+D0h] [rbp+90h]
   DWORD64 *v51; // [rsp+D8h] [rbp+98h]
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+E0h] [rbp+A0h] BYREF
 
   v2 = 0;
-  v3 = a2;
-  v42 = a2;
-  ContextRecord = 0;
+  v3 = ContextRecord;
+  v42 = ContextRecord;
+  v34 = 0;
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x800000) != 0 )
   {
-    ContextRecord = 1;
+    v34 = 1;
     RtlpLogExceptionDispatch();
   }
-  if ( (unsigned __int8)RtlpCallVectoredHandlers(a1, v3, 0LL) )
+  if ( (unsigned __int8)RtlpCallVectoredHandlers(ExceptionRecord, v3, 0LL) )
     goto LABEL_30;
-  v5 = *(_DWORD *)(a1 + 4) & 1;
+  v5 = ExceptionRecord->ExceptionFlags & 1;
   if ( !(unsigned __int8)RtlpGetStackLimits(v41, v40) )
   {
     v5 |= 8u;
 LABEL_51:
-    *(_DWORD *)(a1 + 4) = v5;
+    ExceptionRecord->ExceptionFlags = v5;
     goto LABEL_31;
   }
   RtlpSanitizeContext(v3);
   v6 = 0;
   v7 = 0LL;
-  if ( ((*((_QWORD *)&xmmword_180181390 + 1) >> 60) & 3) == 1 )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) == 1 )
   {
     v6 = 64;
     v7 = 2048LL;
   }
-  RtlGetExtendedContextLength2((unsigned int)(v6 + 1048587), &v35, v7);
-  v8 = (unsigned int)v35 + 15LL;
-  if ( v8 <= (unsigned int)v35 )
+  RtlGetExtendedContextLength2(v6 + 1048587, ContextLength, v7);
+  v8 = ContextLength[0] + 15LL;
+  if ( v8 <= ContextLength[0] )
     v8 = 0xFFFFFFFFFFFFFF0LL;
   v9 = v8 & 0xFFFFFFFFFFFFFFF0uLL;
   v10 = alloca(v9);
   v11 = alloca(v9);
-  RtlInitializeExtendedContext2(&ContextRecord, (unsigned int)(v6 + 1048587), &v39, v7);
-  RtlpCopyContext((__int64)&ContextRecord, v3);
-  v12 = *(_QWORD *)(v3 + 248);
+  RtlInitializeExtendedContext2((PCONTEXT)&v34, v6 + 1048587, &ContextEx, v7);
+  RtlpCopyContext((__int64)&v34, (__int64)v3);
+  Rip = v3->Rip;
   p_HistoryTable = &HistoryTable;
   HistoryTable.LowAddress = -1LL;
-  v35 = &HistoryTable;
-  v39 = 0LL;
+  *(_QWORD *)ContextLength = &HistoryTable;
+  ContextEx = 0LL;
   HistoryTable.Count = 0;
   *(_DWORD *)&HistoryTable.LocalHint = 0x1000000;
   HistoryTable.HighAddress = 0LL;
   while ( 1 )
   {
-    v14 = RtlLookupFunctionEntry(v12, &ImageBase, p_HistoryTable);
+    v14 = RtlLookupFunctionEntry(Rip, &ImageBase, p_HistoryTable);
     v15 = v14;
     if ( !v14 )
     {
-      if ( v12 == *v51 )
+      if ( Rip == *v51 )
         goto LABEL_50;
       HistoryTable.Entry[4].ImageBase = *v51++;
-      RtlpPopUserShadowStack(&ContextRecord);
+      RtlpPopUserShadowStack(&v34);
       goto LABEL_13;
     }
-    v16 = RtlVirtualUnwind(1u, ImageBase, v12, v14, (PCONTEXT)&ContextRecord, &HandlerData, &EstablisherFrame, 0LL);
+    v16 = RtlVirtualUnwind(1u, ImageBase, Rip, v14, (PCONTEXT)&v34, &HandlerData, &EstablisherFrame, 0LL);
     if ( !(unsigned __int8)RtlpIsFrameInBounds(v41, EstablisherFrame, v40) )
     {
       v5 |= 8u;
@@ -141,10 +141,10 @@ LABEL_50:
     if ( v16 )
       break;
 LABEL_13:
-    v12 = HistoryTable.Entry[4].ImageBase;
+    Rip = HistoryTable.Entry[4].ImageBase;
     if ( !(unsigned __int8)RtlpIsFrameInBounds(v41, v51, v40) )
       goto LABEL_50;
-    p_HistoryTable = v35;
+    p_HistoryTable = *(struct _UNWIND_HISTORY_TABLE **)ContextLength;
   }
   v18 = HandlerData;
   v19 = 0;
@@ -154,30 +154,30 @@ LABEL_13:
     v49 = v18;
     FunctionEntry = v15;
     v21 = 0LL;
-    v50 = v35;
-    *(_DWORD *)(a1 + 4) = v5;
-    ControlPc = v12;
+    v50 = *(struct _UNWIND_HISTORY_TABLE **)ContextLength;
+    ExceptionRecord->ExceptionFlags = v5;
+    ControlPc = Rip;
     v44 = v20;
-    v46 = v17;
-    p_ContextRecord = &ContextRecord;
+    v46 = (_CONTEXT_EX *)v17;
+    v47 = &v34;
     v48 = v16;
     LODWORD(v51) = v19;
-    if ( ContextRecord )
+    if ( v34 )
     {
-      v29 = RtlpLogExceptionHandler(a1, &ContextRecord, v12, v16);
+      v29 = RtlpLogExceptionHandler(ExceptionRecord, &v34, Rip, v16);
       v17 = EstablisherFrame;
       v21 = v29;
     }
     v3 = v42;
-    v22 = RtlpExecuteHandlerForException(a1, v17, v42, &ControlPc);
+    v22 = RtlpExecuteHandlerForException(ExceptionRecord, v17, v42, &ControlPc);
     if ( v21 )
       *(_DWORD *)(v21 + 1396) = v22;
-    v23 = v39;
-    v5 |= *(_DWORD *)(a1 + 4) & 1;
-    if ( v39 == EstablisherFrame )
+    v23 = ContextEx;
+    v5 |= ExceptionRecord->ExceptionFlags & 1;
+    if ( ContextEx == (PCONTEXT_EX)EstablisherFrame )
     {
       v5 &= ~0x10u;
-      v39 = 0LL;
+      ContextEx = 0LL;
       v23 = 0LL;
     }
     if ( !v22 )
@@ -190,23 +190,23 @@ LABEL_13:
     {
       v5 |= 0x10u;
       if ( v46 > v23 )
-        v39 = v46;
+        ContextEx = v46;
       goto LABEL_13;
     }
     if ( v25 != 1 )
-      RtlRaiseStatus(3221225510LL);
+      RtlRaiseStatus(-1073741786);
     v26 = v44;
-    v12 = ControlPc;
+    Rip = ControlPc;
     v15 = FunctionEntry;
     ImageBase = v44;
-    RtlpCopyContext((__int64)&ContextRecord, (__int64)p_ContextRecord);
-    v27 = RtlVirtualUnwind(1u, v26, v12, v15, (PCONTEXT)&ContextRecord, &HandlerData, &EstablisherFrame, 0LL);
-    v17 = v46;
+    RtlpCopyContext((__int64)&v34, (__int64)v47);
+    v27 = RtlVirtualUnwind(1u, v26, Rip, v15, (PCONTEXT)&v34, &HandlerData, &EstablisherFrame, 0LL);
+    v17 = (unsigned __int64)v46;
     v16 = v27;
-    EstablisherFrame = v46;
-    if ( ((*((_QWORD *)&xmmword_180181390 + 1) >> 12) & 3) == 1 )
+    EstablisherFrame = (unsigned __int64)v46;
+    if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
     {
-      v30 = RtlLookupFunctionEntry(v12, &ImageBase, v35);
+      v30 = RtlLookupFunctionEntry(Rip, &ImageBase, *(PUNWIND_HISTORY_TABLE *)ContextLength);
       v15 = v30;
       if ( v30 != FunctionEntry )
         goto LABEL_46;
@@ -238,14 +238,14 @@ LABEL_46:
       v20 = ImageBase;
       HandlerData = v49;
     }
-    v35 = v50;
+    *(_QWORD *)ContextLength = v50;
     v19 = (int)v51;
   }
   if ( (v5 & 1) != 0 )
-    RtlRaiseStatus(3221225509LL);
+    RtlRaiseStatus(-1073741787);
 LABEL_30:
   v2 = 1;
 LABEL_31:
-  RtlpCallVectoredHandlers(a1, v3, 1LL);
+  RtlpCallVectoredHandlers(ExceptionRecord, v3, 1LL);
   return v2;
 }

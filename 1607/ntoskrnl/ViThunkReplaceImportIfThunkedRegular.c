@@ -1,10 +1,10 @@
 /*
- * XREFs of ViThunkReplaceImportIfThunkedRegular @ 0x14070FD34
+ * XREFs of ViThunkReplaceImportIfThunkedRegular @ 0x14070FD64
  * Callers:
- *     ViThunkApplyMandatoryThunksCurrentSession @ 0x14070F700 (ViThunkApplyMandatoryThunksCurrentSession.c)
- *     ViThunkReplaceAllThunkedImports @ 0x14070FB64 (ViThunkReplaceAllThunkedImports.c)
+ *     ViThunkApplyMandatoryThunksCurrentSession @ 0x14070F730 (ViThunkApplyMandatoryThunksCurrentSession.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x14070FB94 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x1401E5FA8 (MmReplaceImportEntry.c)
+ *     MmReplaceImportEntry @ 0x1401E5DD4 (MmReplaceImportEntry.c)
  */
 
 __int64 __fastcall ViThunkReplaceImportIfThunkedRegular(__int64 *a1, _QWORD *a2)

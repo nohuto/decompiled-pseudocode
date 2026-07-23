@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpReAllocateHeap @ 0x18004377C
+ * XREFs of RtlpHpReAllocateHeap @ 0x18004376C
  * Callers:
- *     RtlpReAllocateHeapInternal @ 0x180020DD0 (RtlpReAllocateHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x180020DC0 (RtlpReAllocateHeapInternal.c)
  * Callees:
- *     RtlpHpExtrasGet @ 0x18002926C (RtlpHpExtrasGet.c)
- *     RtlpHpSegReAlloc @ 0x180043284 (RtlpHpSegReAlloc.c)
- *     RtlpHpReallocComputeSizes @ 0x180043A24 (RtlpHpReallocComputeSizes.c)
- *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCB4 (RtlSparseBitmapCtxCheckBitsInternal.c)
- *     RtlpHpLargeReAlloc @ 0x180051838 (RtlpHpLargeReAlloc.c)
- *     RtlpCallInterceptRoutine @ 0x180090F54 (RtlpCallInterceptRoutine.c)
+ *     RtlpHpExtrasGet @ 0x18002925C (RtlpHpExtrasGet.c)
+ *     RtlpHpSegReAlloc @ 0x180043274 (RtlpHpSegReAlloc.c)
+ *     RtlpHpReallocComputeSizes @ 0x180043A14 (RtlpHpReallocComputeSizes.c)
+ *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCA4 (RtlSparseBitmapCtxCheckBitsInternal.c)
+ *     RtlpHpLargeReAlloc @ 0x180051828 (RtlpHpLargeReAlloc.c)
+ *     RtlpCallInterceptRoutine @ 0x180090F44 (RtlpCallInterceptRoutine.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
 __int64 __fastcall RtlpHpReAllocateHeap(
-        __int64 a1,
+        _DWORD *a1,
         int a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
@@ -37,17 +37,17 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   unsigned __int64 v24; // [rsp+48h] [rbp-40h]
   unsigned __int64 v25; // [rsp+50h] [rbp-38h]
 
-  v7 = (a2 | *(_DWORD *)(a1 + 20)) & 0x93000F0B;
+  v7 = (a2 | a1[5]) & 0x93000F0B;
   v8 = a3;
   if ( a4 > 0x7FFFFFFFFFFFFFFFLL )
     return 0LL;
-  if ( !(unsigned int)RtlpHpReallocComputeSizes(a1, a3, a4, v7, v23) || v25 < a4 )
+  if ( !(unsigned int)RtlpHpReallocComputeSizes((int)a1, a3, a4, v7, v23) || v25 < a4 )
     return -1LL;
   v10 = 0LL;
   v11 = v23[0];
   if ( a6 )
   {
-    v18 = (_WORD *)RtlpHpExtrasGet(a1, v8, v7, a5);
+    v18 = (_WORD *)RtlpHpExtrasGet((__int64)a1, v8, v7, a5);
     v10 = (unsigned __int64)v18;
     if ( v18 )
       *a6 = *v18;
@@ -63,9 +63,9 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   v12 = 0;
   if ( (v7 & 0x1000000) == 0 )
   {
-    if ( *(_DWORD *)(a1 + 32) )
+    if ( a1[8] )
     {
-      if ( v10 || (v10 = RtlpHpExtrasGet(a1, v8, v7, 0LL)) != 0 )
+      if ( v10 || (v10 = RtlpHpExtrasGet((__int64)a1, v8, v7, 0LL)) != 0 )
       {
         v12 = *(_BYTE *)(v10 + 2) & 0xF;
         if ( (*(_BYTE *)(v10 + 2) & 0xF) != 0 )
@@ -84,7 +84,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(
           {
             v19 = v8;
           }
-          if ( (int)RtlpCallInterceptRoutine(v12, a1, v19, 5, v10 + 16) < 0 )
+          if ( (int)RtlpCallInterceptRoutine(v12, (_DWORD)a1, v19, 5, v10 + 16) < 0 )
             return -1LL;
         }
       }
@@ -109,13 +109,13 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   {
     if ( (unsigned __int64)(v15 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
       v8 = v15;
-    v20 = RtlpHpExtrasGet(a1, v8, v7, 0LL);
+    v20 = RtlpHpExtrasGet((__int64)a1, v8, v7, 0LL);
     if ( (RtlpHpAppCompatFlags & 2) != 0
       && !((_WORD)v8 ? 0 : RtlSparseBitmapCtxCheckBitsInternal(&RtlpHpLargeAllocationBitmap, v8 >> 16, 1LL)) )
     {
       LODWORD(v8) = v8 + 16;
     }
-    RtlpCallInterceptRoutine(v12, a1, v8, 6, v20 + 16);
+    RtlpCallInterceptRoutine(v12, (_DWORD)a1, v8, 6, v20 + 16);
   }
   if ( (unsigned __int64)(v15 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
   {

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B080
+ * XREFs of CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B5C0
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpSwapValueInList @ 0x1400B4ADC (CmpSwapValueInList.c)
+ *     CmpSwapValueInList @ 0x1400B2914 (CmpSwapValueInList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpAddValueToListEx @ 0x1403FFCDC (CmpAddValueToListEx.c)
- *     CmpMarkValueDataDirty @ 0x140400474 (CmpMarkValueDataDirty.c)
- *     CmpFreeValue @ 0x140401680 (CmpFreeValue.c)
- *     CmpAddValueKeyNew @ 0x140401BC8 (CmpAddValueKeyNew.c)
- *     CmpFindNameInList @ 0x140402A54 (CmpFindNameInList.c)
- *     CmpGetValueData @ 0x140442F60 (CmpGetValueData.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpInitializeValueNameString @ 0x14053B414 (CmpInitializeValueNameString.c)
- *     CmpLightWeightUpdateSharedSetValueData @ 0x14053B4A0 (CmpLightWeightUpdateSharedSetValueData.c)
- *     CmpLightWeightCreateSetValueData @ 0x14053B4E8 (CmpLightWeightCreateSetValueData.c)
+ *     CmpAddValueToListEx @ 0x1403FEB9C (CmpAddValueToListEx.c)
+ *     CmpMarkValueDataDirty @ 0x1403FF334 (CmpMarkValueDataDirty.c)
+ *     CmpFreeValue @ 0x140400540 (CmpFreeValue.c)
+ *     CmpAddValueKeyNew @ 0x140400A88 (CmpAddValueKeyNew.c)
+ *     CmpFindNameInList @ 0x140401914 (CmpFindNameInList.c)
+ *     CmpGetValueData @ 0x140441E30 (CmpGetValueData.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpInitializeValueNameString @ 0x14053B954 (CmpInitializeValueNameString.c)
+ *     CmpLightWeightUpdateSharedSetValueData @ 0x14053B9E0 (CmpLightWeightUpdateSharedSetValueData.c)
+ *     CmpLightWeightCreateSetValueData @ 0x14053BA28 (CmpLightWeightCreateSetValueData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareSetValueKeyUoW(__int64 a1)

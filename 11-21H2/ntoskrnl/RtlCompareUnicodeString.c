@@ -1,46 +1,46 @@
 /*
  * XREFs of RtlCompareUnicodeString @ 0x1407CAA80
  * Callers:
- *     AuthzBasepCompareUnicodeStringOperands @ 0x140218F84 (AuthzBasepCompareUnicodeStringOperands.c)
- *     FsRtlCompareNodeAndKey @ 0x14021D7F0 (FsRtlCompareNodeAndKey.c)
- *     ApiSetQuerySchemaInfo @ 0x140251458 (ApiSetQuerySchemaInfo.c)
- *     KsepCacheHwIdEqual @ 0x14025D250 (KsepCacheHwIdEqual.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x14025E12C (SepVerifyDesktopAppPolicyOverrideCaller.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1403BA6E0 (PopFxFindAcpiDeviceByUniqueId.c)
- *     IopEliminateBogusConflict @ 0x140564E78 (IopEliminateBogusConflict.c)
- *     RtlpCapabilityCheckSystemCapability @ 0x140660EF4 (RtlpCapabilityCheckSystemCapability.c)
- *     CmpCheckLexicographicalOrder @ 0x14069B700 (CmpCheckLexicographicalOrder.c)
- *     PnpCompareInstancePath @ 0x1406BBFA0 (PnpCompareInstancePath.c)
- *     RtlpProcessIFEOKeyFilter @ 0x1406C2EE8 (RtlpProcessIFEOKeyFilter.c)
- *     PiCompareDDBCacheEntries @ 0x1406DAD90 (PiCompareDDBCacheEntries.c)
- *     PopPowerRequestStatsDatabaseCompare @ 0x1406E0600 (PopPowerRequestStatsDatabaseCompare.c)
- *     PiSwBusRelationsCompareInstancePath @ 0x1406E65D0 (PiSwBusRelationsCompareInstancePath.c)
- *     ExCovReadjustUnloadedModuleEntry @ 0x1406EB634 (ExCovReadjustUnloadedModuleEntry.c)
- *     CmpFindNameInListCellWithStatus @ 0x140722280 (CmpFindNameInListCellWithStatus.c)
- *     SepCaptureTokenSecurityAttributesInformation @ 0x140754108 (SepCaptureTokenSecurityAttributesInformation.c)
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     CmpCompareInIndex @ 0x1407C4180 (CmpCompareInIndex.c)
- *     CmpDoCompareKeyName @ 0x1407C4460 (CmpDoCompareKeyName.c)
- *     CmpFindSubKeyInRoot @ 0x1407C5F80 (CmpFindSubKeyInRoot.c)
- *     PiDevCfgResolveVariableExpression @ 0x140804350 (PiDevCfgResolveVariableExpression.c)
- *     CmpLoadSystemVersionData @ 0x140836AA4 (CmpLoadSystemVersionData.c)
- *     PopConnectToPolicyDevice @ 0x140858D04 (PopConnectToPolicyDevice.c)
- *     KsepCacheDeviceEqual @ 0x140861700 (KsepCacheDeviceEqual.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140882966 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SepRmGlobalSaclFind @ 0x140882B96 (SepRmGlobalSaclFind.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140921EA0 (CmpSortedValueEnumStackValueCompareFunction.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14094B864 (PiDevCfgFindDeviceMigrationNode.c)
- *     IopExecuteHardwareProfileChange @ 0x14095E13C (IopExecuteHardwareProfileChange.c)
- *     SepAdtStagingEvent @ 0x1409C9C64 (SepAdtStagingEvent.c)
- *     WmipCheckSMBiosSysInfoString @ 0x1409DC2AC (WmipCheckSMBiosSysInfoString.c)
- *     ExpCovIsModulePresent @ 0x140A031C4 (ExpCovIsModulePresent.c)
- *     ExpCovQueryHypervisorInformation @ 0x140A032A0 (ExpCovQueryHypervisorInformation.c)
- *     KiHwPolicyFindDriverImage @ 0x140AFACD8 (KiHwPolicyFindDriverImage.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
- *     CmpSetSystemBiosInformation @ 0x140B17BA4 (CmpSetSystemBiosInformation.c)
+ *     sub_140218F84 @ 0x140218F84 (sub_140218F84.c)
+ *     sub_14021D7F0 @ 0x14021D7F0 (sub_14021D7F0.c)
+ *     sub_140251458 @ 0x140251458 (sub_140251458.c)
+ *     sub_14025D250 @ 0x14025D250 (sub_14025D250.c)
+ *     sub_14025E12C @ 0x14025E12C (sub_14025E12C.c)
+ *     sub_1403BA6E0 @ 0x1403BA6E0 (sub_1403BA6E0.c)
+ *     sub_140564E78 @ 0x140564E78 (sub_140564E78.c)
+ *     sub_140660EF4 @ 0x140660EF4 (sub_140660EF4.c)
+ *     sub_14069B700 @ 0x14069B700 (sub_14069B700.c)
+ *     sub_1406BBFA0 @ 0x1406BBFA0 (sub_1406BBFA0.c)
+ *     sub_1406C2EE8 @ 0x1406C2EE8 (sub_1406C2EE8.c)
+ *     sub_1406DAD90 @ 0x1406DAD90 (sub_1406DAD90.c)
+ *     sub_1406E0600 @ 0x1406E0600 (sub_1406E0600.c)
+ *     sub_1406E65D0 @ 0x1406E65D0 (sub_1406E65D0.c)
+ *     sub_1406EB634 @ 0x1406EB634 (sub_1406EB634.c)
+ *     sub_140722280 @ 0x140722280 (sub_140722280.c)
+ *     sub_140754108 @ 0x140754108 (sub_140754108.c)
+ *     sub_1407702BC @ 0x1407702BC (sub_1407702BC.c)
+ *     sub_1407C4180 @ 0x1407C4180 (sub_1407C4180.c)
+ *     sub_1407C4460 @ 0x1407C4460 (sub_1407C4460.c)
+ *     sub_1407C5F80 @ 0x1407C5F80 (sub_1407C5F80.c)
+ *     sub_140804350 @ 0x140804350 (sub_140804350.c)
+ *     sub_140836AA4 @ 0x140836AA4 (sub_140836AA4.c)
+ *     sub_140858D04 @ 0x140858D04 (sub_140858D04.c)
+ *     sub_140861700 @ 0x140861700 (sub_140861700.c)
+ *     sub_140882966 @ 0x140882966 (sub_140882966.c)
+ *     sub_140882B96 @ 0x140882B96 (sub_140882B96.c)
+ *     sub_140921EA0 @ 0x140921EA0 (sub_140921EA0.c)
+ *     sub_14094B864 @ 0x14094B864 (sub_14094B864.c)
+ *     sub_14095E13C @ 0x14095E13C (sub_14095E13C.c)
+ *     sub_1409C9C64 @ 0x1409C9C64 (sub_1409C9C64.c)
+ *     sub_1409DC2AC @ 0x1409DC2AC (sub_1409DC2AC.c)
+ *     sub_140A031C4 @ 0x140A031C4 (sub_140A031C4.c)
+ *     sub_140A032A0 @ 0x140A032A0 (sub_140A032A0.c)
+ *     sub_140AFACD8 @ 0x140AFACD8 (sub_140AFACD8.c)
+ *     sub_140B114E8 @ 0x140B114E8 (sub_140B114E8.c)
+ *     sub_140B17BA4 @ 0x140B17BA4 (sub_140B17BA4.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_1403477B0 @ 0x1403477B0 (sub_1403477B0.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
 LONG __stdcall RtlCompareUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive)
@@ -62,7 +62,7 @@ LONG __stdcall RtlCompareUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRIN
   Buffer = String2->Buffer;
   v4 = (unsigned __int64)String2->Length >> 1;
   v5 = (unsigned __int64)String1->Length >> 1;
-  v6 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 154);
+  v6 = *((_QWORD *)sub_140347DB0() + 154);
   v9 = v5;
   if ( v5 > v4 )
     v9 = v4;
@@ -76,7 +76,7 @@ LONG __stdcall RtlCompareUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRIN
     {
       if ( *v8 != *(unsigned __int16 *)((char *)v8 + v11) )
       {
-        v13 = NLS_UPCASE(v6, *v8);
+        v13 = sub_1403477B0(v6, *v8);
         if ( (unsigned int)v14 >= 0x61 )
         {
           if ( (unsigned int)v14 > 0x7A )

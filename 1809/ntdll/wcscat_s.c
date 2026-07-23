@@ -1,10 +1,10 @@
 /*
- * XREFs of wcscat_s @ 0x18009B830
+ * XREFs of wcscat_s @ 0x18009B840
  * Callers:
  *     BuildOverlayFilePath @ 0x180032EB0 (BuildOverlayFilePath.c)
  *     RtlConvertSidToUnicodeString @ 0x180040940 (RtlConvertSidToUnicodeString.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wcscat_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_t *Source)

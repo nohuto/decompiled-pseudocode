@@ -1,19 +1,19 @@
 /*
- * XREFs of MmRelocatePfnList @ 0x140932988
+ * XREFs of MmRelocatePfnList @ 0x1408F754C
  * Callers:
- *     PfpPfnPrioRequest @ 0x1409334C4 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x1408F5FDC (PfpPfnPrioRequest.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     MiClaimPhysicalRun @ 0x14022B3F0 (MiClaimPhysicalRun.c)
- *     MiAdjustCachedStacks @ 0x140269740 (MiAdjustCachedStacks.c)
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiPfnsWorthTrying @ 0x140305B00 (MiPfnsWorthTrying.c)
- *     MiIdentifyPfnWrapper @ 0x140307340 (MiIdentifyPfnWrapper.c)
- *     MiMakeColor @ 0x140437510 (MiMakeColor.c)
- *     MiIsPfn @ 0x14045A380 (MiIsPfn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiAdjustCachedStacks @ 0x1402AF604 (MiAdjustCachedStacks.c)
+ *     MiClaimPhysicalRun @ 0x1402FED00 (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x14030F9E0 (MiPfnsWorthTrying.c)
+ *     MiIdentifyPfnWrapper @ 0x140311220 (MiIdentifyPfnWrapper.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     MiMakeColor @ 0x140429F90 (MiMakeColor.c)
+ *     MiIsPfn @ 0x14044F7D0 (MiIsPfn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -69,7 +69,7 @@ __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, un
         Color = MiMakeColor(
                   v5,
                   v4,
-                  v10 % (unsigned int)dword_140E2DBCC,
+                  v10 % (unsigned int)dword_140E2DD0C,
                   3,
                   (unsigned __int8)BYTE2(*(_DWORD *)(48 * v10 - 0x220000000000LL + 32)) >> 6);
         *(_QWORD *)&v17 = -1LL;
@@ -77,7 +77,7 @@ __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, un
                 (__int64)&MiSystemPartition,
                 v10,
                 1LL,
-                qword_140E2DBE0,
+                qword_140E2DD20,
                 (__int64)v18,
                 4210688,
                 Color,

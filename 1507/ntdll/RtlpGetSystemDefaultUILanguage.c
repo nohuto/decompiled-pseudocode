@@ -12,38 +12,41 @@
  *     NtQueryInstallUILanguage @ 0x180094C70 (NtQueryInstallUILanguage.c)
  */
 
-__int64 __fastcall RtlpGetSystemDefaultUILanguage(_WORD *a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlpGetSystemDefaultUILanguage(LANGID DefaultUILanguageId, PLCID Lcid)
 {
-  __int64 v2; // rbx
+  PLCID v2; // rbx
+  LANGID *v3; // rsi
   int v4; // edi
   int v6; // eax
-  __int16 v7; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+50h] [rbp+18h] BYREF
+  LANGID InstallUILanguageId; // [rsp+40h] [rbp+8h] BYREF
+  DWORD *v8; // [rsp+50h] [rbp+18h] BYREF
 
-  v2 = a2;
-  v7 = 0;
+  v2 = Lcid;
+  InstallUILanguageId = 0;
+  v3 = (LANGID *)DefaultUILanguageId;
   v8 = 0LL;
   v4 = 0;
-  if ( a1 )
+  if ( DefaultUILanguageId )
   {
-    *a1 = 0;
-    if ( !a2 && (v6 = RtlpCreateProcessRegistryInfo(&v8), v2 = v8, v4 = v6, v6 < 0)
-      || (!v2 || !*(_WORD *)(v2 + 4) ? (v4 = -1073741595) : (v7 = *(_WORD *)(v2 + 4)), v4 < 0) )
+    *(_WORD *)DefaultUILanguageId = 0;
+    if ( !Lcid && (v6 = RtlpCreateProcessRegistryInfo(&v8), v2 = v8, v4 = v6, v6 < 0)
+      || (!v2 || !*((_WORD *)v2 + 2) ? (v4 = -1073741595) : (InstallUILanguageId = *((_WORD *)v2 + 2)), v4 < 0) )
     {
-      v4 = NtQueryInstallUILanguage(&v7);
+      v4 = NtQueryInstallUILanguage(&InstallUILanguageId);
       if ( v4 < 0 )
-        return (unsigned int)v4;
-      if ( (int)NtIsUILanguageComitted() >= 0 )
+        return v4;
+      if ( NtIsUILanguageComitted() >= 0 )
       {
         if ( v2 )
         {
-          RtlpLoadInstallLanguageFallback(v2, v2 + 6, v2 + 8);
-          *(_WORD *)(v2 + 4) = v7;
+          RtlpLoadInstallLanguageFallback(v2, (char *)v2 + 6, v2 + 2);
+          *((_WORD *)v2 + 2) = InstallUILanguageId;
         }
       }
     }
-    *a1 = v7;
-    return (unsigned int)v4;
+    *v3 = InstallUILanguageId;
+    return v4;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

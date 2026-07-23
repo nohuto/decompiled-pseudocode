@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDecrementCompletionContextUsageCount @ 0x14047D0F8
+ * XREFs of IopDecrementCompletionContextUsageCount @ 0x140476A68
  * Callers:
- *     IopCompleteRequest @ 0x14045B5C0 (IopCompleteRequest.c)
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
- *     NtLockFile @ 0x140B6ECE0 (NtLockFile.c)
+ *     IopCompleteRequest @ 0x140454DF0 (IopCompleteRequest.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x140B720D0 (NtLockFile.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int8 __fastcall IopDecrementCompletionContextUsageCount(ULONG_PTR BugCheckParameter1)
@@ -26,7 +26,7 @@ unsigned __int8 __fastcall IopDecrementCompletionContextUsageCount(ULONG_PTR Bug
   v5 = result;
   BugCheckParameter4 = *(_QWORD *)(v4 + 16);
   *(_QWORD *)(v4 + 16) = BugCheckParameter4 - 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     _InterlockedAnd64(v1, 0LL);
   else
     result = KiReleaseSpinLockInstrumented(v1, retaddr);

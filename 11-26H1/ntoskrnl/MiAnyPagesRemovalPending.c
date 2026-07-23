@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAnyPagesRemovalPending @ 0x140434D64
+ * XREFs of MiAnyPagesRemovalPending @ 0x14042BE24
  * Callers:
- *     MiInsertDemotedPages @ 0x1404346F0 (MiInsertDemotedPages.c)
- *     MiUpdateDemotedSubPage @ 0x140434C10 (MiUpdateDemotedSubPage.c)
- *     MiSetPfnRemovalRequested @ 0x1406F1D98 (MiSetPfnRemovalRequested.c)
+ *     MiInsertDemotedPages @ 0x14042B7D0 (MiInsertDemotedPages.c)
+ *     MiUpdateDemotedSubPage @ 0x14042BCD0 (MiUpdateDemotedSubPage.c)
+ *     MiSetPfnRemovalRequested @ 0x1406F6A08 (MiSetPfnRemovalRequested.c)
  * Callees:
  *     <none>
  */

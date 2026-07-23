@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmAllocateMdlForLock @ 0x1403944B0
+ * XREFs of SmKmAllocateMdlForLock @ 0x140396230
  * Callers:
- *     SmFpAllocate @ 0x14035D180 (SmFpAllocate.c)
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     SmFpPreAllocate @ 0x1403EFFC0 (SmFpPreAllocate.c)
+ *     SmFpAllocate @ 0x14035EF20 (SmFpAllocate.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     SmFpPreAllocate @ 0x1403E9990 (SmFpPreAllocate.c)
  * Callees:
- *     MmChargeResources @ 0x140394570 (MmChargeResources.c)
- *     SmAcquireReleaseCharges @ 0x140394610 (SmAcquireReleaseCharges.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     MmChargeResources @ 0x1403962F0 (MmChargeResources.c)
+ *     SmAcquireReleaseCharges @ 0x140396390 (SmAcquireReleaseCharges.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall SmKmAllocateMdlForLock(__int64 a1, unsigned __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall SmKmAllocateMdlForLock(__int64 a1, unsigned __int64 a2)
   if ( (unsigned int)MmChargeResources(*(_QWORD *)(a1 + 2208), a2 >> 12, 3LL) )
   {
     v5 = (a2 + 4095) >> 12;
-    Pool3 = ExAllocatePool3(64LL, 8 * v5 + 48, 1280339315LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+    Pool3 = ExAllocatePool3(64LL, 8 * v5 + 48, 1280339315LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
     if ( Pool3 )
     {
       *(_QWORD *)Pool3 = 0LL;

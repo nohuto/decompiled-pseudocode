@@ -1,12 +1,19 @@
 /*
- * XREFs of NtUpdateWnfStateData @ 0x1408AC540
+ * XREFs of NtUpdateWnfStateData @ 0x1409027A0
  * Callers:
- *     SepSecureBootCheckForUpdates @ 0x140C3ABBC (SepSecureBootCheckForUpdates.c)
+ *     SepSecureBootCheckForUpdates @ 0x140C3CD14 (SepSecureBootCheckForUpdates.c)
  * Callees:
- *     ExpNtUpdateWnfStateData @ 0x1408AC580 (ExpNtUpdateWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x1409027E0 (ExpNtUpdateWnfStateData.c)
  */
 
-__int64 __fastcall NtUpdateWnfStateData(void *a1, __int64 a2, __int64 a3, __int64 a4, void *a5, int a6, int a7)
+NTSTATUS __cdecl NtUpdateWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        const void *Buffer,
+        ULONG Length,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp,
+        LOGICAL CheckStamp)
 {
-  return ExpNtUpdateWnfStateData(a1, a5, a6, a7, 1);
+  return ExpNtUpdateWnfStateData((void *)StateName, (void *)ExplicitScope, MatchingChangeStamp, CheckStamp, 1);
 }

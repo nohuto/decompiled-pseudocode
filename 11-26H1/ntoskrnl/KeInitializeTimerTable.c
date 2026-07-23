@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInitializeTimerTable @ 0x140B24A18
+ * XREFs of KeInitializeTimerTable @ 0x140B26EB8
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KiInitializeTimer2Data @ 0x1405F7EDC (KiInitializeTimer2Data.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     KiInitializeForceIdle @ 0x140B24B54 (KiInitializeForceIdle.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KiInitializeTimer2Data @ 0x1405FA8FC (KiInitializeTimer2Data.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiInitializeForceIdle @ 0x140B26FF4 (KiInitializeForceIdle.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KeInitializeTimerTable(__int64 a1, __int64 a2)

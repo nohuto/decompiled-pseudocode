@@ -1,10 +1,10 @@
 /*
- * XREFs of KcsaniTelemetryThread @ 0x1405AF410
+ * XREFs of KcsaniTelemetryThread @ 0x1405AC380
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KcsanReportTelemetry @ 0x1405AE360 (KcsanReportTelemetry.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KcsanReportTelemetry @ 0x1405AB2D0 (KcsanReportTelemetry.c)
  */
 
 void __fastcall __noreturn KcsaniTelemetryThread(PVOID StartContext)

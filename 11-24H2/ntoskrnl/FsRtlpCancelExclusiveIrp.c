@@ -1,32 +1,27 @@
 /*
- * XREFs of FsRtlpCancelExclusiveIrp @ 0x140580A94
+ * XREFs of FsRtlpCancelExclusiveIrp @ 0x14057DEC0
  * Callers:
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404E0638 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1404E4608 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpExclusiveIrpCancelRoutine @ 0x140580D60 (FsRtlpExclusiveIrpCancelRoutine.c)
- *     FsRtlpGrantAnyOplockFromExclusive @ 0x140580DB0 (FsRtlpGrantAnyOplockFromExclusive.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404D9C50 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1404DAE94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpExclusiveIrpCancelRoutine @ 0x14057E180 (FsRtlpExclusiveIrpCancelRoutine.c)
+ *     FsRtlpGrantAnyOplockFromExclusive @ 0x14057E1D0 (FsRtlpGrantAnyOplockFromExclusive.c)
  * Callees:
- *     FsRtlpClearOwner @ 0x1402601A4 (FsRtlpClearOwner.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14033091C (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x14047FCA8 (FsRtlpModifyThreadPriorities.c)
- *     Feature_5645_7108__private_IsEnabledDeviceUsageNoInline @ 0x1404F48B4 (Feature_5645_7108__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_5466_1379__private_IsEnabledDeviceUsageNoInline @ 0x14057F78C (Feature_5466_1379__private_IsEnabledDeviceUsageNoInline.c)
- *     FsRtlpSyncWithAckTimeout @ 0x14058178C (FsRtlpSyncWithAckTimeout.c)
- *     FsRtlpOplockPerfSendData @ 0x14070BDB4 (FsRtlpOplockPerfSendData.c)
+ *     FsRtlpClearOwner @ 0x1402907B4 (FsRtlpClearOwner.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402B9194 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x14047A8E8 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpSyncWithAckTimeout @ 0x14057EB0C (FsRtlpSyncWithAckTimeout.c)
+ *     FsRtlpOplockPerfSendData @ 0x140709948 (FsRtlpOplockPerfSendData.c)
  */
 
 void __fastcall FsRtlpCancelExclusiveIrp(__int64 a1, char a2, char a3)
 {
   __int64 v5; // rbx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  _QWORD *v9; // rcx
+  _QWORD *v6; // rcx
 
   v5 = *(_QWORD *)(a1 + 56);
   _InterlockedExchange64((volatile __int64 *)(a1 + 104), 0LL);
@@ -35,7 +30,7 @@ void __fastcall FsRtlpCancelExclusiveIrp(__int64 a1, char a2, char a3)
     ExAcquireFastMutex(*(PKGUARDED_MUTEX *)(v5 + 152));
   if ( *(_QWORD *)v5 && *(_BYTE *)(*(_QWORD *)v5 + 68LL) )
   {
-    FsRtlpModifyThreadPriorities(v5, 0LL, 0LL);
+    FsRtlpModifyThreadPriorities(v5, 0LL, 0);
     FsRtlpClearOwner(v5, 0LL);
     *(_BYTE *)(v5 + 32) = 0;
     if ( *(_QWORD *)(*(_QWORD *)v5 + 56LL) == v5 )
@@ -45,21 +40,17 @@ void __fastcall FsRtlpCancelExclusiveIrp(__int64 a1, char a2, char a3)
     *(_QWORD *)v5 = 0LL;
     ObfDereferenceObjectWithTag(*(PVOID *)(v5 + 8), 0x746C6644u);
     *(_QWORD *)(v5 + 8) = 0LL;
-    Feature_5645_7108__private_IsEnabledDeviceUsageNoInline();
     *(_DWORD *)(v5 + 144) = *(_DWORD *)(v5 + 144) & 0x20 | 1;
     if ( a3 )
     {
-      if ( (unsigned int)Feature_5466_1379__private_IsEnabledDeviceUsageNoInline() )
-      {
-        FsRtlpSyncWithAckTimeout(v5 + 176);
-        FsRtlpOplockPerfSendData(v5 + 160);
-      }
+      FsRtlpSyncWithAckTimeout(v5 + 176);
+      FsRtlpOplockPerfSendData(v5 + 160);
       while ( 1 )
       {
-        v9 = *(_QWORD **)(v5 + 88);
-        if ( v9 == (_QWORD *)(v5 + 88) )
+        v6 = *(_QWORD **)(v5 + 88);
+        if ( v6 == (_QWORD *)(v5 + 88) )
           break;
-        FsRtlpRemoveAndCompleteWaitingIrp(v9, v6, v7, v8);
+        FsRtlpRemoveAndCompleteWaitingIrp(v6);
       }
     }
   }

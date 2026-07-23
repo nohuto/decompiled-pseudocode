@@ -1,11 +1,11 @@
 /*
- * XREFs of IopIoRingDispatchReadScatter @ 0x14071673C
+ * XREFs of IopIoRingDispatchReadScatter @ 0x1407142CC
  * Callers:
- *     IopProcessIoRingEntry @ 0x1406F7A58 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x1406F5A58 (IopProcessIoRingEntry.c)
  * Callees:
- *     IopCompleteIoRingEntry @ 0x1403C5F20 (IopCompleteIoRingEntry.c)
- *     IopReadFileScatter @ 0x140A8E968 (IopReadFileScatter.c)
- *     IopIoRingReferenceFileObject @ 0x140ABAC5C (IopIoRingReferenceFileObject.c)
+ *     IopCompleteIoRingEntry @ 0x1403B4AE0 (IopCompleteIoRingEntry.c)
+ *     IopReadFileScatter @ 0x140A8AFD8 (IopReadFileScatter.c)
+ *     IopIoRingReferenceFileObject @ 0x140AB5C7C (IopIoRingReferenceFileObject.c)
  */
 
 int __fastcall IopIoRingDispatchReadScatter(PVOID a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSkipEntirePagefileRegions @ 0x140476990
+ * XREFs of MiSkipEntirePagefileRegions @ 0x140470110
  * Callers:
- *     MiQueryVadForVaAttributes @ 0x140305C54 (MiQueryVadForVaAttributes.c)
+ *     MiQueryVadForVaAttributes @ 0x1402E7CD4 (MiQueryVadForVaAttributes.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,23 @@
 /*
- * XREFs of NtQueryInformationWorkerFactory @ 0x14022F8E4
+ * XREFs of NtQueryInformationWorkerFactory @ 0x14022F710
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x1404BBBFC (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ExSystemExceptionFilter @ 0x1404A792C (ExSystemExceptionFilter.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
@@ -25,32 +30,32 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsig
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+C0h] [rbp-38h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 != 7 )
+  if ( WorkerFactoryInformationClass != WorkerFactoryBasicInformation )
     return -1073741821;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v10 = a3;
-    if ( a3 >= 0x7FFFFFFF0000LL )
+    v10 = (__int64)WorkerFactoryInformation;
+    if ( (unsigned __int64)WorkerFactoryInformation >= 0x7FFFFFFF0000LL )
       v10 = 0x7FFFFFFF0000LL;
     *(_BYTE *)v10 = *(_BYTE *)v10;
     *(_BYTE *)(v10 + 119) = *(_BYTE *)(v10 + 119);
-    v11 = (__int64)a5;
-    if ( a5 )
+    v11 = (__int64)ReturnLength;
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+      if ( (unsigned __int64)ReturnLength >= 0x7FFFFFFF0000LL )
         v11 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v11 = 120;
     }
   }
-  else if ( a5 )
+  else if ( ReturnLength )
   {
-    *a5 = 120;
+    *ReturnLength = 120;
   }
-  if ( a4 != 120 )
+  if ( WorkerFactoryInformationLength != 120 )
     return -1073741820;
-  result = ObReferenceObjectByHandle(Handle, 8u, ExpWorkerFactoryObjectType, PreviousMode, Object, 0LL);
+  result = ObReferenceObjectByHandle(WorkerFactoryHandle, 8u, ExpWorkerFactoryObjectType, PreviousMode, Object, 0LL);
   if ( result >= 0 )
   {
     memset(&Object[2], 0, 0x78uLL);
@@ -78,14 +83,14 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsig
     LODWORD(Object[16]) = *((_DWORD *)v12 + 40);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     ObfDereferenceObjectWithTag(v12, 0x746C6644u);
-    *(_OWORD *)a3 = 0LL;
-    *(_OWORD *)(a3 + 16) = *(_OWORD *)&Object[4];
-    *(_OWORD *)(a3 + 32) = *(_OWORD *)&Object[6];
-    *(_OWORD *)(a3 + 48) = *(_OWORD *)&Object[8];
-    *(_OWORD *)(a3 + 64) = *(_OWORD *)&Object[10];
-    *(_OWORD *)(a3 + 80) = *(_OWORD *)&Object[12];
-    *(_OWORD *)(a3 + 96) = *(_OWORD *)&Object[14];
-    *(PVOID *)(a3 + 112) = Object[16];
+    *(_OWORD *)WorkerFactoryInformation = 0LL;
+    *((_OWORD *)WorkerFactoryInformation + 1) = *(_OWORD *)&Object[4];
+    *((_OWORD *)WorkerFactoryInformation + 2) = *(_OWORD *)&Object[6];
+    *((_OWORD *)WorkerFactoryInformation + 3) = *(_OWORD *)&Object[8];
+    *((_OWORD *)WorkerFactoryInformation + 4) = *(_OWORD *)&Object[10];
+    *((_OWORD *)WorkerFactoryInformation + 5) = *(_OWORD *)&Object[12];
+    *((_OWORD *)WorkerFactoryInformation + 6) = *(_OWORD *)&Object[14];
+    *((PVOID *)WorkerFactoryInformation + 14) = Object[16];
     return 0;
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceFileIo @ 0x140227114
+ * XREFs of EtwpTraceFileIo @ 0x140226F40
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     EtwpFileProvTrace @ 0x1402264EC (EtwpFileProvTrace.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     EtwpFileProvTrace @ 0x140226318 (EtwpFileProvTrace.c)
  */
 
 __int64 __fastcall EtwpTraceFileIo(
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpTraceFileIo(
   __int64 result; // rax
 
   v8 = (int)a1;
-  if ( (dword_1402FD540 & 0x6000000) != 0 )
+  if ( (dword_1402FD520 & 0x6000000) != 0 )
     EtwpFileProvTrace(a1, a2, a4, a5);
   result = 1102LL;
   if ( a4 != 1102 )

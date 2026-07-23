@@ -1,9 +1,9 @@
 /*
- * XREFs of IntpInitClassContext @ 0x140D02060
+ * XREFs of IntpInitClassContext @ 0x140D08400
  * Callers:
- *     IntPartCreate @ 0x140D02274 (IntPartCreate.c)
+ *     IntPartCreate @ 0x140D08614 (IntPartCreate.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 ULONG_PTR __fastcall IntpInitClassContext(_BYTE *a1, unsigned __int8 a2, unsigned int *a3)

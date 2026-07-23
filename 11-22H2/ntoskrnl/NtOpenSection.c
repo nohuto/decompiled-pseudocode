@@ -6,24 +6,31 @@
  *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall NtOpenSection(_QWORD *a1, int a2, int a3)
+NTSTATUS __cdecl NtOpenSection(PHANDLE SectionHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   int v3; // r10d
   __int64 v6; // rdx
-  __int64 result; // rax
-  _QWORD v8[3]; // [rsp+40h] [rbp-18h] BYREF
+  NTSTATUS result; // eax
+  void *v8; // [rsp+40h] [rbp-18h] BYREF
 
-  v3 = a3;
-  v8[0] = 0LL;
-  LOBYTE(a3) = KeGetCurrentThread()->PreviousMode;
-  if ( (_BYTE)a3 )
+  v3 = (int)ObjectAttributes;
+  v8 = 0LL;
+  LOBYTE(ObjectAttributes) = KeGetCurrentThread()->PreviousMode;
+  if ( (_BYTE)ObjectAttributes )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a1;
+    if ( (unsigned __int64)SectionHandle < 0x7FFFFFFF0000LL )
+      v6 = (__int64)SectionHandle;
     *(_QWORD *)v6 = *(_QWORD *)v6;
   }
-  result = ObOpenObjectByName(v3, (_DWORD)MmSectionObjectType, a3, 0, a2, 0LL, (__int64)v8);
-  *a1 = v8[0];
+  result = ObOpenObjectByName(
+             v3,
+             (_DWORD)MmSectionObjectType,
+             (_DWORD)ObjectAttributes,
+             0,
+             DesiredAccess,
+             0LL,
+             (__int64)&v8);
+  *SectionHandle = v8;
   return result;
 }

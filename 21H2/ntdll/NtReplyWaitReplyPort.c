@@ -1,16 +1,16 @@
 /*
- * XREFs of NtReplyWaitReplyPort @ 0x1800A0530
+ * XREFs of NtReplyWaitReplyPort @ 0x1800A04F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtReplyWaitReplyPort()
+NTSTATUS __cdecl NtReplyWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE ReplyMessage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 376LL;
+  result = 376;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

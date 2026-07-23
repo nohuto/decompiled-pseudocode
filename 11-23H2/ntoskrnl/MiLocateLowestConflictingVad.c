@@ -1,8 +1,8 @@
 /*
  * XREFs of MiLocateLowestConflictingVad @ 0x140223334
  * Callers:
- *     MiUpdateVadBits @ 0x1406B2E28 (MiUpdateVadBits.c)
- *     MiExpandVadBitMap @ 0x1406B2EB0 (MiExpandVadBitMap.c)
+ *     MiUpdateVadBits @ 0x1406B2E58 (MiUpdateVadBits.c)
+ *     MiExpandVadBitMap @ 0x1406B2EE0 (MiExpandVadBitMap.c)
  * Callees:
  *     MiCheckForConflictingVad @ 0x140214E40 (MiCheckForConflictingVad.c)
  */

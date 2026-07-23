@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateTimeAssist @ 0x1402AB2E0
+ * XREFs of KiUpdateTimeAssist @ 0x140229420
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x140224BE0 (KeResumeClockTimerFromIdle.c)
- *     KeSynchronizeTimeToQpc @ 0x140386AB0 (KeSynchronizeTimeToQpc.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C94E0 (KeResumeClockTimerFromIdle.c)
+ *     KeSynchronizeTimeToQpc @ 0x140386C00 (KeSynchronizeTimeToQpc.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KiComputeNewSystemTime @ 0x1402AB4A8 (KiComputeNewSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x1402AB51C (RtlWriteAcquireTickLock.c)
+ *     KiComputeNewSystemTime @ 0x1402295E8 (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x14022965C (RtlWriteAcquireTickLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall KiUpdateTimeAssist(__int64 a1, __int64 a2, __int64 a3)
@@ -53,10 +53,10 @@ __int64 __fastcall KiUpdateTimeAssist(__int64 a1, __int64 a2, __int64 a3)
   *(_QWORD *)a3 = MEMORY[0xFFFFF78000000320];
   if ( v13 <= 0 )
   {
-    v13 += (unsigned int)KeMaximumIncrement;
+    v13 += KeMaximumIncrement;
     if ( v13 <= 0 )
     {
-      v15 = KeNumberProcessorsGroup0[3];
+      v15 = KeNumberProcessorsGroup0[1];
       v10 = ((unsigned __int64)(((unsigned __int64)-v13
                                * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v15)
           + 2;

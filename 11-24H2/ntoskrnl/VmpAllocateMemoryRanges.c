@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpAllocateMemoryRanges @ 0x140A5D6C0
+ * XREFs of VmpAllocateMemoryRanges @ 0x140A55AE0
  * Callers:
- *     VmpSplitMemoryRange @ 0x1403AB5D4 (VmpSplitMemoryRange.c)
- *     VmCreateMemoryRange @ 0x14079EA00 (VmCreateMemoryRange.c)
- *     VmPreallocateForRangeCreate @ 0x140A5D640 (VmPreallocateForRangeCreate.c)
+ *     VmpSplitMemoryRange @ 0x140399CE8 (VmpSplitMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x14079EB10 (VmCreateMemoryRange.c)
+ *     VmPreallocateForRangeCreate @ 0x140A55A60 (VmPreallocateForRangeCreate.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     VmpFreeMemoryRanges @ 0x140A5D7A4 (VmpFreeMemoryRanges.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     VmpFreeMemoryRanges @ 0x140A55BC4 (VmpFreeMemoryRanges.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 _QWORD *__fastcall VmpAllocateMemoryRanges(unsigned __int64 a1)
@@ -22,7 +22,7 @@ _QWORD *__fastcall VmpAllocateMemoryRanges(unsigned __int64 a1)
   _QWORD *v9; // rax
 
   v1 = 0LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x50uLL, 0x72566D56u);
   v4 = Pool2;
   if ( Pool2 )
   {
@@ -36,7 +36,7 @@ _QWORD *__fastcall VmpAllocateMemoryRanges(unsigned __int64 a1)
     {
       if ( v6 >= a1 )
         return v4;
-      v7 = (_QWORD *)ExAllocatePool2(0x40uLL);
+      v7 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x48uLL, 0x72476D56u);
       v8 = v7;
       if ( !v7 )
         break;

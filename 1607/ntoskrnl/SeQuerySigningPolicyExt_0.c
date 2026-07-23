@@ -1,7 +1,7 @@
 /*
  * XREFs of SeQuerySigningPolicyExt_0 @ 0x1400012E8
  * Callers:
- *     SeQuerySigningPolicy @ 0x14045CA2C (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x14045B8FC (SeQuerySigningPolicy.c)
  * Callees:
  *     <none>
  */

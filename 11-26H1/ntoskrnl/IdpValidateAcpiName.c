@@ -1,7 +1,7 @@
 /*
- * XREFs of IdpValidateAcpiName @ 0x140895B9C
+ * XREFs of IdpValidateAcpiName @ 0x14089BF9C
  * Callers:
- *     IidValidateDeviceId @ 0x14077F07C (IidValidateDeviceId.c)
+ *     IidValidateDeviceId @ 0x140781B7C (IidValidateDeviceId.c)
  * Callees:
  *     <none>
  */

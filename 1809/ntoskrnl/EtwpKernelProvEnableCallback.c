@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpKernelProvEnableCallback @ 0x140763A30
+ * XREFs of EtwpKernelProvEnableCallback @ 0x140764C20
  * Callers:
  *     <none>
  * Callees:
- *     SeEtwEnableCallback @ 0x1401935A4 (SeEtwEnableCallback.c)
+ *     SeEtwEnableCallback @ 0x1401936E4 (SeEtwEnableCallback.c)
  */
 
 void __fastcall EtwpKernelProvEnableCallback(

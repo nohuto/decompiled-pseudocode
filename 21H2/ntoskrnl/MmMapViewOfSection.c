@@ -1,21 +1,21 @@
 /*
- * XREFs of MmMapViewOfSection @ 0x140612470
+ * XREFs of MmMapViewOfSection @ 0x1406A1F20
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
- *     PspMapView @ 0x1405841DC (PspMapView.c)
- *     PspMapSiloSharedDataView @ 0x140611C68 (PspMapSiloSharedDataView.c)
- *     MmMapApiSetView @ 0x140611CA0 (MmMapApiSetView.c)
- *     MmCreatePeb @ 0x140611D98 (MmCreatePeb.c)
- *     NtInitializeNlsFiles @ 0x140612AA0 (NtInitializeNlsFiles.c)
- *     AlpcpCreateView @ 0x140660B40 (AlpcpCreateView.c)
- *     NtGetNlsSectionPtr @ 0x1406B9930 (NtGetNlsSectionPtr.c)
- *     EtwpCoverageEnsureUserModeView @ 0x140771C44 (EtwpCoverageEnsureUserModeView.c)
- *     MiMapImageForEnclaveUse @ 0x1408D39BC (MiMapImageForEnclaveUse.c)
- *     NtMapCMFModule @ 0x140959B20 (NtMapCMFModule.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
+ *     PspMapView @ 0x14058440C (PspMapView.c)
+ *     NtGetNlsSectionPtr @ 0x14060EE10 (NtGetNlsSectionPtr.c)
+ *     AlpcpCreateView @ 0x140655960 (AlpcpCreateView.c)
+ *     PspMapSiloSharedDataView @ 0x1406A1718 (PspMapSiloSharedDataView.c)
+ *     MmMapApiSetView @ 0x1406A1750 (MmMapApiSetView.c)
+ *     MmCreatePeb @ 0x1406A1848 (MmCreatePeb.c)
+ *     NtInitializeNlsFiles @ 0x1406A2550 (NtInitializeNlsFiles.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x140771E04 (EtwpCoverageEnsureUserModeView.c)
+ *     MiMapImageForEnclaveUse @ 0x1408D3B1C (MiMapImageForEnclaveUse.c)
+ *     NtMapCMFModule @ 0x140959CF0 (NtMapCMFModule.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     MiMapViewOfSection @ 0x1406EBA30 (MiMapViewOfSection.c)
- *     MiMapParametersInitialize @ 0x1406EBFB0 (MiMapParametersInitialize.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiMapViewOfSection @ 0x140702E10 (MiMapViewOfSection.c)
+ *     MiMapParametersInitialize @ 0x140703390 (MiMapParametersInitialize.c)
  */
 
 __int64 __fastcall MmMapViewOfSection(
@@ -41,9 +41,9 @@ __int64 __fastcall MmMapViewOfSection(
     if ( (int)result < 0 )
     {
       if ( *a3 )
-        ++dword_140C4E7E4;
+        ++dword_140C4E824;
       else
-        ++dword_140C4E7E0;
+        ++dword_140C4E820;
     }
     else
     {

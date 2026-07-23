@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceWorkingSetInSwapStoreFail @ 0x1404F1954
+ * XREFs of EtwTraceWorkingSetInSwapStoreFail @ 0x1404D3A48
  * Callers:
- *     MiInSwapStoreWorker @ 0x1404F18A4 (MiInSwapStoreWorker.c)
+ *     MiInSwapStoreWorker @ 0x1404D3998 (MiInSwapStoreWorker.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     PsGetProcessId @ 0x140085488 (PsGetProcessId.c)
- *     EtwProviderEnabled @ 0x1400B7664 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     PsGetProcessId @ 0x140086D74 (PsGetProcessId.c)
+ *     EtwProviderEnabled @ 0x1400B54FC (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceWorkingSetInSwapStoreFail(PEPROCESS Process, int a2)

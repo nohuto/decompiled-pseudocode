@@ -1,13 +1,13 @@
 /*
- * XREFs of MiConvertPrivateToProto @ 0x140307A8C
+ * XREFs of MiConvertPrivateToProto @ 0x1402E9B0C
  * Callers:
- *     MiSharePages @ 0x140306F88 (MiSharePages.c)
+ *     MiSharePages @ 0x1402E9008 (MiSharePages.c)
  * Callees:
- *     MiCreateCombineAnchor @ 0x140307B54 (MiCreateCombineAnchor.c)
- *     MiSharePageGetFlushList @ 0x140307C58 (MiSharePageGetFlushList.c)
- *     MiCombineWithExisting @ 0x140308244 (MiCombineWithExisting.c)
- *     MiCombineInitialInstance @ 0x1403093AC (MiCombineInitialInstance.c)
- *     MiDecrementCombinedPteEx @ 0x14036A1BC (MiDecrementCombinedPteEx.c)
+ *     MiCreateCombineAnchor @ 0x1402E9BD4 (MiCreateCombineAnchor.c)
+ *     MiSharePageGetFlushList @ 0x1402E9CD8 (MiSharePageGetFlushList.c)
+ *     MiCombineWithExisting @ 0x1402EA2C4 (MiCombineWithExisting.c)
+ *     MiCombineInitialInstance @ 0x1402EB42C (MiCombineInitialInstance.c)
+ *     MiDecrementCombinedPteEx @ 0x14036BF5C (MiDecrementCombinedPteEx.c)
  */
 
 __int64 __fastcall MiConvertPrivateToProto(__int64 *a1, _QWORD *a2)

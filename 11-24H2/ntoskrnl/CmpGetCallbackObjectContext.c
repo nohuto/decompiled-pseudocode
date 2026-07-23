@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpGetCallbackObjectContext @ 0x1409508E0
+ * XREFs of CmpGetCallbackObjectContext @ 0x140940B60
  * Callers:
- *     CmpCallbackFillObjectContext @ 0x1408487F0 (CmpCallbackFillObjectContext.c)
+ *     CmpCallbackFillObjectContext @ 0x140844AB0 (CmpCallbackFillObjectContext.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, _QWORD *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, _QWORD *a2)
   __int64 v3; // rbx
   _QWORD *v5; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v7; // rbp
+  char *v7; // rbp
   _QWORD *i; // rax
   __int64 v9; // rcx
   signed __int64 v10; // rdx
@@ -31,11 +31,11 @@ __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, _QWORD *a2)
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+  v7 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v7, (__int64)&CmpContextListLock);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   for ( i = (_QWORD *)*v5; i != v5; i = (_QWORD *)*i )
   {
     v9 = i[4];

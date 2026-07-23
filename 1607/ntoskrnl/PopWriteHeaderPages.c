@@ -3,11 +3,11 @@
  * Callers:
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  * Callees:
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     tcpxsum @ 0x140166AC0 (tcpxsum.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x140167030 (tcpxsum.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     PopWriteHiberPages @ 0x1403CBF00 (PopWriteHiberPages.c)
  */
 

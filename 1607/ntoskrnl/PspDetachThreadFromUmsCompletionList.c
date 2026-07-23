@@ -1,7 +1,7 @@
 /*
- * XREFs of PspDetachThreadFromUmsCompletionList @ 0x14020F4EC
+ * XREFs of PspDetachThreadFromUmsCompletionList @ 0x14020F318
  * Callers:
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
  *     <none>
  */

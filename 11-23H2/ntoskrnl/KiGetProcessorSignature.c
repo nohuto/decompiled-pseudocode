@@ -4,7 +4,7 @@
  *     KiInitializeBootStructures @ 0x140A8B590 (KiInitializeBootStructures.c)
  *     KiSetFeatureBits @ 0x140A8D4C4 (KiSetFeatureBits.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     KiGetCpuVendor @ 0x140A888A0 (KiGetCpuVendor.c)
  */
 

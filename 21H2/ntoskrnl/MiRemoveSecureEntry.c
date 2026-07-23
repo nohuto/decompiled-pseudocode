@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveSecureEntry @ 0x14025B5E0
+ * XREFs of MiRemoveSecureEntry @ 0x14027CB50
  * Callers:
- *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x14076DC9C (MiUnmapLockedPagesInUserSpace.c)
+ *     MmUnsecureVirtualMemory @ 0x1406893D0 (MmUnsecureVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14076DE5C (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiSetVadFlags @ 0x14025B8C0 (MiSetVadFlags.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x14061F8F4 (MiUnsecureVirtualMemoryAgainstWrites.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiSetVadFlags @ 0x14027CE30 (MiSetVadFlags.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x140689564 (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, __int64 *BugCheckParameter3)
@@ -19,7 +19,7 @@ void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, __int64 *BugCh
   unsigned int v5; // ebx
   int v6; // ebp
   _KPROCESS *Process; // r15
-  LONG *SharedVm; // rdi
+  __int64 SharedVm; // rdi
   KIRQL v9; // al
   __int64 *i; // rdx
 
@@ -27,9 +27,9 @@ void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, __int64 *BugCh
   v5 = 0;
   v6 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
-  v9 = ExAcquireSpinLockExclusive(SharedVm);
-  SharedVm[1] = 0;
+  SharedVm = MiGetSharedVm(&Process[1].ActiveProcessorsPadding[6], BugCheckParameter3);
+  v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
+  *(_DWORD *)(SharedVm + 4) = 0;
   for ( i = *v2; i; i = (__int64 *)*i )
   {
     if ( *((_DWORD *)i + 16) == 2 && v5 <= 1 )
@@ -43,7 +43,7 @@ void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, __int64 *BugCh
       break;
     v2 = (__int64 **)i;
   }
-  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], v9);
+  MiUnlockWorkingSetExclusive(&Process[1].ActiveProcessorsPadding[6], v9);
   if ( !v6 )
     KeBugCheckEx(0x1Au, 0x15001uLL, BugCheckParameter2, (ULONG_PTR)BugCheckParameter3, 0LL);
   if ( (BugCheckParameter3[1] & 0x10) != 0 )

@@ -131,12 +131,12 @@ LABEL_6:
     {
       if ( v7 )
       {
-        KiResetClockInterval((__int64)&KiHRTimerClockRequest);
+        KiResetClockInterval(&KiHRTimerClockRequest);
         v11 = 0;
       }
       else
       {
-        KiSetClockInterval(KiHrIncrement, 0, (unsigned __int64)&KiHRTimerClockRequest);
+        KiSetClockInterval(KiHrIncrement, 0, (__int64)&KiHRTimerClockRequest);
         v9 = KiHrIncrement;
         v11 = 1;
       }

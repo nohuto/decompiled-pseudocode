@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x180152FF0
+ * XREFs of RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x180152EC0
  * Callers:
- *     RtlQueryAllInternalFeatureConfigurations @ 0x180148B60 (RtlQueryAllInternalFeatureConfigurations.c)
- *     RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x180148C10 (RtlQueryAllInternalRuntimeFeatureConfigurations.c)
+ *     RtlQueryAllInternalFeatureConfigurations @ 0x180148A10 (RtlQueryAllInternalFeatureConfigurations.c)
+ *     RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x180148AC0 (RtlQueryAllInternalRuntimeFeatureConfigurations.c)
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
- *     RtlpFcConfigurationTypeToBufferType @ 0x18016F744 (RtlpFcConfigurationTypeToBufferType.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     RtlpFcConfigurationTypeToBufferType @ 0x18016E744 (RtlpFcConfigurationTypeToBufferType.c)
  */
 
 __int64 __fastcall RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet(__int64 a1, unsigned int a2)

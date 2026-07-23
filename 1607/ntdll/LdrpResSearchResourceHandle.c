@@ -1,23 +1,23 @@
 /*
- * XREFs of LdrpResSearchResourceHandle @ 0x1800DD4C0
+ * XREFs of LdrpResSearchResourceHandle @ 0x1800DD580
  * Callers:
- *     LdrResSearchResource @ 0x180039310 (LdrResSearchResource.c)
+ *     LdrResSearchResource @ 0x180039300 (LdrResSearchResource.c)
  * Callees:
- *     LdrResFallbackLangList @ 0x18000FD94 (LdrResFallbackLangList.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x1800381DC (LdrpResSearchResourceInsideDirectory.c)
- *     RtlLcidToLocaleName @ 0x180042E80 (RtlLcidToLocaleName.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     LdrResFallbackLangList @ 0x18000FD84 (LdrResFallbackLangList.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1800381CC (LdrpResSearchResourceInsideDirectory.c)
+ *     RtlLcidToLocaleName @ 0x180042E70 (RtlLcidToLocaleName.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  *     memset @ 0x1800ACCC0 (memset.c)
- *     LdrpTraceLoadMUIDll @ 0x1800DC874 (LdrpTraceLoadMUIDll.c)
- *     LdrpResFileSize @ 0x1800DD040 (LdrpResFileSize.c)
- *     LdrpResReadFile @ 0x1800DD404 (LdrpResReadFile.c)
- *     LdrpResSetFilePointer @ 0x1800DDAF0 (LdrpResSetFilePointer.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800DC934 (LdrpTraceLoadMUIDll.c)
+ *     LdrpResFileSize @ 0x1800DD100 (LdrpResFileSize.c)
+ *     LdrpResReadFile @ 0x1800DD4C4 (LdrpResReadFile.c)
+ *     LdrpResSetFilePointer @ 0x1800DDBB0 (LdrpResSetFilePointer.c)
  */
 
-__int64 __fastcall LdrpResSearchResourceHandle(
+int __fastcall LdrpResSearchResourceHandle(
         char *Handle,
         int a2,
         _QWORD *a3,
@@ -28,15 +28,15 @@ __int64 __fastcall LdrpResSearchResourceHandle(
         __int64 a8)
 {
   __int16 v8; // bx
-  unsigned __int64 v10; // r12
-  __int64 result; // rax
+  _DWORD *v10; // r12
+  int result; // eax
   int File; // edi
   unsigned int v13; // ebx
   int v14; // ecx
   unsigned __int16 v15; // cx
   unsigned int v16; // r14d
-  unsigned int v17; // edi
-  __int64 Heap; // rax
+  ULONG v17; // edi
+  _DWORD *Heap; // rax
   _DWORD *v19; // rbx
   int v20; // edx
   unsigned int v21; // ecx
@@ -58,23 +58,21 @@ __int64 __fastcall LdrpResSearchResourceHandle(
   void *v37; // [rsp+C0h] [rbp-478h]
   int v38; // [rsp+C8h] [rbp-470h] BYREF
   const wchar_t *v39; // [rsp+D0h] [rbp-468h]
-  _BYTE v40[2]; // [rsp+D8h] [rbp-460h] BYREF
-  __int16 v41; // [rsp+DAh] [rbp-45Eh]
-  _WORD *v42; // [rsp+E0h] [rbp-458h]
-  int v43; // [rsp+F0h] [rbp-448h] BYREF
-  __int16 v44; // [rsp+F4h] [rbp-444h]
-  unsigned __int16 v45; // [rsp+F6h] [rbp-442h]
-  unsigned __int16 v46; // [rsp+104h] [rbp-434h]
-  __int16 v47; // [rsp+108h] [rbp-430h]
-  unsigned int v48; // [rsp+164h] [rbp-3D4h]
-  unsigned int v49; // [rsp+174h] [rbp-3C4h]
-  unsigned int v50; // [rsp+178h] [rbp-3C0h]
-  int v51; // [rsp+17Ch] [rbp-3BCh]
-  unsigned int v52; // [rsp+188h] [rbp-3B0h]
-  int v53; // [rsp+18Ch] [rbp-3ACh]
-  _WORD v54[30]; // [rsp+200h] [rbp-338h] BYREF
-  unsigned int v55; // [rsp+23Ch] [rbp-2FCh]
-  unsigned __int16 v56[264]; // [rsp+240h] [rbp-2F8h] BYREF
+  _UNICODE_STRING LocaleName; // [rsp+D8h] [rbp-460h] BYREF
+  int v41; // [rsp+F0h] [rbp-448h] BYREF
+  __int16 v42; // [rsp+F4h] [rbp-444h]
+  unsigned __int16 v43; // [rsp+F6h] [rbp-442h]
+  unsigned __int16 v44; // [rsp+104h] [rbp-434h]
+  __int16 v45; // [rsp+108h] [rbp-430h]
+  unsigned int v46; // [rsp+164h] [rbp-3D4h]
+  unsigned int v47; // [rsp+174h] [rbp-3C4h]
+  unsigned int v48; // [rsp+178h] [rbp-3C0h]
+  int v49; // [rsp+17Ch] [rbp-3BCh]
+  unsigned int v50; // [rsp+188h] [rbp-3B0h]
+  int v51; // [rsp+18Ch] [rbp-3ACh]
+  __int16 v52[30]; // [rsp+200h] [rbp-338h] BYREF
+  unsigned int v53; // [rsp+23Ch] [rbp-2FCh]
+  unsigned __int16 v54[264]; // [rsp+240h] [rbp-2F8h] BYREF
   _WORD Src[88]; // [rsp+450h] [rbp-E8h] BYREF
 
   v29 = a4;
@@ -91,7 +89,7 @@ __int64 __fastcall LdrpResSearchResourceHandle(
   v39 = L"LdrpResSearchResourceHandle Exit";
   memset(Src, 0, 0xACuLL);
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
-    LdrpTraceLoadMUIDll((unsigned __int16 *)v33);
+    LdrpTraceLoadMUIDll((unsigned __int16 *)v33, MEMORY[0x7FFE0384]);
   v10 = 0LL;
   if ( (unsigned __int64)(Handle - 1) > 0xFFFFFFFFFFFFFFFDuLL )
   {
@@ -99,40 +97,40 @@ __int64 __fastcall LdrpResSearchResourceHandle(
     goto LABEL_9;
   }
   v30 = v8 & 0x1000;
-  result = LdrpResFileSize((__int64)Handle, &v31);
-  if ( (int)result < 0 && (v8 & 0x1000) != 0 )
+  result = LdrpResFileSize(Handle, &v31);
+  if ( result < 0 && (v8 & 0x1000) != 0 )
     return result;
-  result = LdrpResReadFile(Handle, 0LL, (__int64)v54, 64);
-  if ( (int)result < 0 )
+  result = LdrpResReadFile(Handle, 0LL, v52, 0x40u);
+  if ( result < 0 )
     return result;
-  if ( v54[0] != 23117 )
+  if ( v52[0] != 23117 )
     goto LABEL_8;
-  v13 = v55;
+  v13 = v53;
   if ( v30 )
   {
-    if ( (unsigned __int64)v55 + 264 < v55
-      || v55 > 0x10000000
-      || v55 + 264 < v55
-      || (unsigned __int64)v55 + 264 >= (unsigned int)v31 )
+    if ( (unsigned __int64)v53 + 264 < v53
+      || v53 > 0x10000000
+      || v53 + 264 < v53
+      || (unsigned __int64)v53 + 264 >= (unsigned int)v31 )
     {
       goto LABEL_8;
     }
   }
-  result = LdrpResReadFile(Handle, v55, (__int64)&v43, 264);
-  if ( (int)result < 0 )
+  result = LdrpResReadFile(Handle, v53, &v41, 0x108u);
+  if ( result < 0 )
     return result;
-  if ( v43 != 17744 )
+  if ( v41 != 17744 )
     goto LABEL_8;
-  if ( v47 != 267 )
+  if ( v45 != 267 )
   {
-    if ( v47 != 523 || v44 != 512 && v44 != -31132 )
+    if ( v45 != 523 || v42 != 512 && v42 != -31132 )
       goto LABEL_8;
-    if ( v49 > 2 && v53 )
+    if ( v47 > 2 && v51 )
     {
-      v15 = v46;
-      if ( v46 >= 0x88u )
+      v15 = v44;
+      if ( v44 >= 0x88u )
       {
-        v16 = v52;
+        v16 = v50;
         goto LABEL_26;
       }
 LABEL_8:
@@ -145,29 +143,29 @@ LABEL_22:
     File = -1073741687;
     goto LABEL_9;
   }
-  if ( v44 != 332 )
+  if ( v42 != 332 )
   {
-    if ( (unsigned __int16)(v44 - 448) > 4u )
+    if ( (unsigned __int16)(v42 - 448) > 4u )
       goto LABEL_8;
     v14 = 21;
-    if ( !_bittest(&v14, (unsigned __int16)(v44 - 448)) )
+    if ( !_bittest(&v14, (unsigned __int16)(v42 - 448)) )
       goto LABEL_8;
   }
-  if ( v48 <= 2 || !v51 )
+  if ( v46 <= 2 || !v49 )
     goto LABEL_22;
-  v15 = v46;
-  if ( v46 < 0x78u )
+  v15 = v44;
+  if ( v44 < 0x78u )
     goto LABEL_8;
-  v16 = v50;
+  v16 = v48;
 LABEL_26:
   if ( !v16 )
-    return 3221225609LL;
-  if ( !v45 )
+    return -1073741687;
+  if ( !v43 )
     goto LABEL_8;
-  v17 = 40 * v45;
+  v17 = 40 * v43;
   if ( v13 + v17 + v15 + 24 > (unsigned int)v31 )
     goto LABEL_8;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v17);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
   v10 = Heap;
   v33[0] = Heap;
   if ( !Heap )
@@ -175,13 +173,13 @@ LABEL_26:
     File = -1073741801;
     goto LABEL_9;
   }
-  File = LdrpResReadFile(Handle, v13 + v46 + 24, Heap, v17);
+  File = LdrpResReadFile(Handle, v13 + v44 + 24, Heap, v17);
   v26 = File;
   if ( File < 0 )
     goto LABEL_65;
-  v19 = (_DWORD *)v10;
+  v19 = v10;
   v20 = 0;
-  if ( v45 )
+  if ( v43 )
   {
     do
     {
@@ -191,9 +189,9 @@ LABEL_26:
       v19 += 10;
       ++v20;
     }
-    while ( v20 < v45 );
+    while ( v20 < v43 );
   }
-  if ( v20 >= v45 )
+  if ( v20 >= v43 )
     goto LABEL_8;
   v22 = v16 + (unsigned int)v19[5] - (unsigned __int64)(unsigned int)v19[3];
   if ( v22 )
@@ -204,15 +202,15 @@ LABEL_26:
     {
       if ( v29 == 3 )
       {
-        v56[0] = 0;
+        v54[0] = 0;
         if ( (v28 & 0x20) != 0 )
         {
-          v56[0] = 1;
-          v56[2] = 0;
+          v54[0] = 1;
+          v54[2] = 0;
         }
         else
         {
-          File = LdrResFallbackLangList(0LL, 0, *((_WORD *)v32 + 8), v28, v56);
+          File = LdrResFallbackLangList(0LL, 0LL, *((_WORD *)v32 + 8), v28, v54);
           v26 = File;
           if ( File < 0 && v30 )
             goto LABEL_65;
@@ -224,11 +222,11 @@ LABEL_26:
                Handle,
                (unsigned int)v31,
                v22,
-               (__int64)&v43,
+               (__int64)&v41,
                (__int64)v19,
                v32,
                v29,
-               (__int64)v56,
+               (__int64)v54,
                v35,
                v34,
                v28,
@@ -241,9 +239,9 @@ LABEL_26:
         {
           if ( v27 )
           {
-            v42 = Src;
-            v41 = 172;
-            File = RtlLcidToLocaleName(v27, (__int64)v40, 2, 0);
+            LocaleName.Buffer = Src;
+            LocaleName.MaximumLength = 172;
+            File = RtlLcidToLocaleName(v27, &LocaleName, 2u, 0);
             v26 = File;
             if ( File < 0 )
               goto LABEL_65;
@@ -281,10 +279,10 @@ LABEL_26:
 LABEL_65:
   if ( v10 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
     File = v26;
   }
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
-    LdrpTraceLoadMUIDll((unsigned __int16 *)&v38);
-  return (unsigned int)File;
+    LdrpTraceLoadMUIDll((unsigned __int16 *)&v38, MEMORY[0x7FFE0384]);
+  return File;
 }

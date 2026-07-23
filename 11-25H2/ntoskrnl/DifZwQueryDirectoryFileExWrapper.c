@@ -13,16 +13,16 @@
  */
 
 __int64 __fastcall DifZwQueryDirectoryFileExWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        int a7,
-        unsigned int a8,
-        unsigned int a9,
-        __int64 a10)
+        void *a1,
+        void *a2,
+        void (__stdcall *a3)(PVOID ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved),
+        void *a4,
+        struct _IO_STATUS_BLOCK *IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass,
+        ULONG QueryFlags,
+        UNICODE_STRING *FileName)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v14; // rsi
@@ -33,20 +33,20 @@ __int64 __fastcall DifZwQueryDirectoryFileExWrapper(
   BOOLEAN v19; // di
   _QWORD **v20; // rsi
   _QWORD *j; // rbx
-  PVOID v23; // [rsp+58h] [rbp-59h] BYREF
-  __int64 v24; // [rsp+60h] [rbp-51h]
-  unsigned __int64 v25; // [rsp+68h] [rbp-49h]
-  int v26; // [rsp+70h] [rbp-41h]
-  __int64 v27; // [rsp+78h] [rbp-39h]
-  __int64 v28; // [rsp+80h] [rbp-31h]
-  __int64 v29; // [rsp+88h] [rbp-29h]
-  __int64 v30; // [rsp+90h] [rbp-21h]
-  __int64 v31; // [rsp+98h] [rbp-19h]
-  __int64 v32; // [rsp+A0h] [rbp-11h]
+  _QWORD v23[2]; // [rsp+58h] [rbp-59h] BYREF
+  ULONG v24; // [rsp+68h] [rbp-49h]
+  FILE_INFORMATION_CLASS v25; // [rsp+6Ch] [rbp-45h]
+  ULONG v26; // [rsp+70h] [rbp-41h]
+  PVOID v27; // [rsp+78h] [rbp-39h]
+  struct _IO_STATUS_BLOCK *v28; // [rsp+80h] [rbp-31h]
+  void *v29; // [rsp+88h] [rbp-29h]
+  void (__stdcall *v30)(PVOID, PIO_STATUS_BLOCK, ULONG); // [rsp+90h] [rbp-21h]
+  void *v31; // [rsp+98h] [rbp-19h]
+  void *v32; // [rsp+A0h] [rbp-11h]
   unsigned int DirectoryFile; // [rsp+A8h] [rbp-9h]
   void *retaddr; // [rsp+E0h] [rbp+2Fh]
 
-  memset_0(&v23, 0, 0x58uLL);
+  memset_0(v23, 0, 0x58uLL);
   APIThunkContextById = DifGetAPIThunkContextById(56);
   v14 = APIThunkContextById;
   if ( !APIThunkContextById )
@@ -62,15 +62,16 @@ __int64 __fastcall DifZwQueryDirectoryFileExWrapper(
       goto LABEL_7;
     ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
   }
-  v23 = ReturnAddressForWrappers;
+  v23[0] = ReturnAddressForWrappers;
 LABEL_7:
   v17 = 0;
   v32 = a1;
-  v28 = a5;
-  v27 = a6;
-  v26 = a7;
-  v25 = __PAIR64__(a8, a9);
-  v24 = a10;
+  v28 = IoStatusBlock;
+  v27 = FileInformation;
+  v26 = Length;
+  v25 = FileInformationClass;
+  v24 = QueryFlags;
+  v23[1] = FileName;
   v31 = a2;
   v30 = a3;
   v29 = a4;
@@ -80,7 +81,7 @@ LABEL_7:
     for ( i = (__int64 *)v14[4]; i != v14 + 4; i = (__int64 *)*i )
     {
       if ( i != (__int64 *)16 )
-        guard_dispatch_icall_no_overrides(&v23);
+        guard_dispatch_icall_no_overrides(v23);
     }
     if ( v17 )
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
@@ -91,22 +92,12 @@ LABEL_17:
                     a2,
                     a3,
                     a4,
-                    a5,
-                    a6,
-                    a7,
-                    a8,
-                    a9,
-                    a10,
-                    v23,
-                    v24,
-                    v25,
-                    v26,
-                    v27,
-                    v28,
-                    v29,
-                    v30,
-                    v31,
-                    v32);
+                    IoStatusBlock,
+                    FileInformation,
+                    Length,
+                    FileInformationClass,
+                    QueryFlags,
+                    FileName);
   if ( v14 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
@@ -116,7 +107,7 @@ LABEL_17:
       for ( j = *v20; j != v20; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v23);
+          guard_dispatch_icall_no_overrides(v23);
       }
       if ( v19 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);

@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvPortInitialize @ 0x14071E810
+ * XREFs of InbvPortInitialize @ 0x1407234A0
  * Callers:
- *     HdlspEnableTerminal @ 0x140C4C9D4 (HdlspEnableTerminal.c)
+ *     HdlspEnableTerminal @ 0x140C529D4 (HdlspEnableTerminal.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall InbvPortInitialize(int a1, unsigned int a2, __int64 a3, _DWORD *a4, char a5, unsigned __int8 a6)
@@ -12,7 +12,7 @@ char __fastcall InbvPortInitialize(int a1, unsigned int a2, __int64 a3, _DWORD *
   unsigned __int8 v6; // r11
   unsigned int v8; // r8d
   __int64 v11; // rbp
-  __int64 *v12; // r14
+  unsigned __int64 *v12; // r14
   char v13; // di
   int v14; // eax
 
@@ -23,7 +23,7 @@ char __fastcall InbvPortInitialize(int a1, unsigned int a2, __int64 a3, _DWORD *
   if ( v8 > 4 )
     return 0;
   v11 = v8 - 1;
-  v12 = (__int64 *)&WheapPfaLock.1008 + 5 * v11;
+  v12 = &WheapPfaLock.Spare35[5 * v11 + 2];
   if ( *v12 )
     return 0;
   if ( a6 )
@@ -56,7 +56,7 @@ LABEL_12:
   v14 = 19200;
   if ( a1 )
     v14 = a1;
-  *((_DWORD *)&WheapPfaLock.InGlobalUpdateVpThreadPriorityList + 10 * v11) = v14;
+  *((_DWORD *)&WheapPfaLock.SystemAffinityTokenListHead.Next + 10 * v11) = v14;
   *a4 = v11;
-  return guard_dispatch_icall_no_overrides(0LL, (char *)&WheapPfaLock.1008 + 40 * v11);
+  return guard_dispatch_icall_no_overrides(0LL, &WheapPfaLock.Spare35[5 * v11 + 2]);
 }

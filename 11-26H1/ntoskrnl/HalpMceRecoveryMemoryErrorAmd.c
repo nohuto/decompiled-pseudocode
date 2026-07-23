@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMceRecoveryMemoryErrorAmd @ 0x14058E840
+ * XREFs of HalpMceRecoveryMemoryErrorAmd @ 0x140590FC0
  * Callers:
- *     HalpMceRecoveryMemoryError @ 0x14058E81C (HalpMceRecoveryMemoryError.c)
+ *     HalpMceRecoveryMemoryError @ 0x140590F9C (HalpMceRecoveryMemoryError.c)
  * Callees:
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x140585138 (HalpHvMceConsumedMemoryErrorRecovery.c)
- *     HalpMceMemoryErrorRecovery @ 0x14058E528 (HalpMceMemoryErrorRecovery.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x140587658 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMceMemoryErrorRecovery @ 0x140590CA8 (HalpMceMemoryErrorRecovery.c)
  */
 
 __int64 __fastcall HalpMceRecoveryMemoryErrorAmd(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall HalpMceRecoveryMemoryErrorAmd(__int64 a1)
     v2 = 1;
     v4 = *(_QWORD *)(a1 + 48) & ~((1LL << HIBYTE(*(_QWORD *)(a1 + 48))) - 1) & 0xFFFFFFFFFFFFFFLL;
   }
-  if ( BYTE4(HalpDeviceBlockUnblockPushLock.SchedulerAssist) )
+  if ( BYTE1(HalpDeviceBlockUnblockPushLock.OtherTransferCount) )
   {
     v6 = HalpHvMceConsumedMemoryErrorRecovery(*(unsigned int *)(a1 + 16), v4, v3, (v1 & 2) != 0, v1 & 1);
     if ( v6 >= 0 )

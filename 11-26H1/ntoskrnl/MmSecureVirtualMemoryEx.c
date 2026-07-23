@@ -1,14 +1,14 @@
 /*
- * XREFs of MmSecureVirtualMemoryEx @ 0x140777750
+ * XREFs of MmSecureVirtualMemoryEx @ 0x14077A5F0
  * Callers:
- *     VmpSecureMemoryForPin @ 0x14081DB10 (VmpSecureMemoryForPin.c)
- *     MmSecureVirtualMemory @ 0x140AB0320 (MmSecureVirtualMemory.c)
- *     VmSecureBackingMemory @ 0x140B3F1F0 (VmSecureBackingMemory.c)
+ *     VmpSecureMemoryForPin @ 0x140823D20 (VmpSecureMemoryForPin.c)
+ *     MmSecureVirtualMemory @ 0x140AADF70 (MmSecureVirtualMemory.c)
+ *     VmSecureBackingMemory @ 0x140B41220 (VmSecureBackingMemory.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiSecureVad @ 0x140B4F310 (MiSecureVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiSecureVad @ 0x140B51BA0 (MiSecureVad.c)
  */
 
 __int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, unsigned int a3, int a4)
@@ -58,7 +58,7 @@ __int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, unsi
         v15 = MiSecureVad(v11, v7, v6, v12, a4, (__int64)v14);
         MiUnlockAndDereferenceVad(v10);
         if ( v15 >= 0 )
-          return qword_140E2D640 ^ v14[0];
+          return qword_140E2D7C0 ^ v14[0];
       }
     }
   }

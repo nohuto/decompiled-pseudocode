@@ -1,29 +1,30 @@
 /*
- * XREFs of PspJobClose @ 0x1406B5A00
+ * XREFs of PspJobClose @ 0x140614EC0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockJobMemoryLimitsExclusive @ 0x1406140A8 (PspUnlockJobMemoryLimitsExclusive.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1406B5B68 (PspTerminateAllProcessesInJobHierarchy.c)
- *     PspBeginSiloTeardown @ 0x140905EE8 (PspBeginSiloTeardown.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140615028 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x14067DD08 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406823D4 (PspLockJobExclusive.c)
+ *     PspBeginSiloTeardown @ 0x140906048 (PspBeginSiloTeardown.c)
  */
 
-void __fastcall PspJobClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+LONG_PTR __fastcall PspJobClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   char v4; // di
   struct _KTHREAD *CurrentThread; // rsi
   void *v7; // rdi
+  LONG_PTR result; // rax
 
   v4 = 1;
   if ( a4 <= 1 )
   {
     CurrentThread = KeGetCurrentThread();
     _InterlockedOr((volatile signed __int32 *)(a2 + 1320), 1u);
-    PspLockJobExclusive(a2, (__int64)CurrentThread);
+    PspLockJobExclusive(a2, CurrentThread);
     if ( (*(_DWORD *)(a2 + 256) & 0x2000) != 0 )
     {
       if ( _interlockedbittestandset((volatile signed __int32 *)(a2 + 1320), 0x1Du)
@@ -31,9 +32,9 @@ void __fastcall PspJobClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64
       {
         v4 = 0;
       }
-      PspUnlockJob(a2, (__int64)CurrentThread);
-      PspTerminateAllProcessesInJobHierarchy((PRKEVENT)a2);
-      PspLockJobExclusive(a2, (__int64)CurrentThread);
+      PspUnlockJob(a2, CurrentThread);
+      PspTerminateAllProcessesInJobHierarchy((PVOID)a2);
+      PspLockJobExclusive(a2, CurrentThread);
       if ( v4 )
         PspBeginSiloTeardown(a2);
     }
@@ -41,8 +42,9 @@ void __fastcall PspJobClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64
     v7 = *(void **)(a2 + 456);
     *(_QWORD *)(a2 + 456) = 0LL;
     PspUnlockJobMemoryLimitsExclusive(a2, 0LL, 0LL);
-    PspUnlockJob(a2, (__int64)CurrentThread);
+    result = PspUnlockJob(a2, CurrentThread);
     if ( v7 )
-      ObfDereferenceObjectWithTag(v7, 0x624A7350u);
+      return ObfDereferenceObjectWithTag(v7, 0x624A7350u);
   }
+  return result;
 }

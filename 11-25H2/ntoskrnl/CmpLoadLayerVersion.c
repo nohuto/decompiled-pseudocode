@@ -40,7 +40,7 @@ NTSTATUS __fastcall CmpLoadLayerVersion(_DWORD *a1, void *a2, UNICODE_STRING *a3
   HANDLE v30; // r8
   int v31; // eax
   HANDLE v32; // rcx
-  STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+B0h] [rbp+40h] BYREF
   int v36; // [rsp+B8h] [rbp+48h] BYREF

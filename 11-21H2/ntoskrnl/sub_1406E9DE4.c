@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_1406E9DE4 @ 0x1406E9DE4
  * Callers:
- *     WbFreeMemoryBlock @ 0x1407E4374 (WbFreeMemoryBlock.c)
+ *     sub_1407E4374 @ 0x1407E4374 (sub_1407E4374.c)
  *     sub_140A0F4D4 @ 0x140A0F4D4 (sub_140A0F4D4.c)
  *     sub_140A0F68C @ 0x140A0F68C (sub_140A0F68C.c)
  *     sub_140A102DC @ 0x140A102DC (sub_140A102DC.c)

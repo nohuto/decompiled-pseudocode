@@ -9,57 +9,56 @@
  *     RtlRbInsertNodeEx @ 0x14004A340 (RtlRbInsertNodeEx.c)
  */
 
-void __fastcall KiAbEntryUpdateWaiterTreePosition(unsigned __int64 a1, __int64 a2)
+char __fastcall KiAbEntryUpdateWaiterTreePosition(PRTL_BALANCED_NODE Node, _RTL_RB_TREE *a2)
 {
-  char v3; // al
-  __int64 v4; // rdi
-  bool v5; // cl
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // rax
+  char result; // al
+  _RTL_RB_TREE *v4; // rdi
+  BOOLEAN v5; // cl
+  _RTL_BALANCED_NODE *Root; // rdx
+  _RTL_BALANCED_NODE *v7; // rax
 
-  v3 = *(_BYTE *)(a1 - 16LL * *(unsigned __int8 *)(a1 + 24) + 195);
-  if ( v3 > 15 )
-    v3 = 15;
-  if ( *(_BYTE *)(a1 + 48) == v3 )
-    return;
-  v4 = a2 + 64;
-  *(_BYTE *)(a1 + 48) = v3;
-  RtlRbRemoveNode(a2 + 64, (unsigned __int64 *)a1);
+  result = ((_BYTE *)&Node[8].Left - 16 * LOBYTE(Node[1].Children[0]))[3];
+  if ( result > 15 )
+    result = 15;
+  if ( LOBYTE(Node[2].Children[0]) == result )
+    return result;
+  v4 = a2 + 4;
+  LOBYTE(Node[2].Children[0]) = result;
+  RtlRbRemoveNode(a2 + 4, Node);
   v5 = 0;
-  v6 = *(_QWORD *)v4;
-  if ( !*(_QWORD *)v4 )
-    goto LABEL_9;
+  Root = v4->Root;
+  if ( !v4->Root )
+    return RtlRbInsertNodeEx(v4, Root, v5, Node);
   while ( 1 )
   {
-    if ( *(_BYTE *)(v6 + 48) < *(_BYTE *)(a1 + 48) )
+    if ( SLOBYTE(Root[2].Children[0]) < SLOBYTE(Node[2].Children[0]) )
     {
-      v7 = *(_QWORD *)v6;
-      if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
+      v7 = Root->Children[0];
+      if ( (*(_BYTE *)&v4->0 & 1) != 0 )
       {
         if ( !v7 )
-          goto LABEL_9;
-        v7 ^= v6;
+          return RtlRbInsertNodeEx(v4, Root, v5, Node);
+        v7 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v7);
       }
       if ( !v7 )
-        goto LABEL_9;
+        return RtlRbInsertNodeEx(v4, Root, v5, Node);
       goto LABEL_12;
     }
-    v7 = *(_QWORD *)(v6 + 8);
-    if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
+    v7 = Root->Children[1];
+    if ( (*(_BYTE *)&v4->0 & 1) != 0 )
       break;
 LABEL_7:
     if ( !v7 )
       goto LABEL_8;
 LABEL_12:
-    v6 = v7;
+    Root = v7;
   }
   if ( v7 )
   {
-    v7 ^= v6;
+    v7 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v7);
     goto LABEL_7;
   }
 LABEL_8:
   v5 = 1;
-LABEL_9:
-  RtlRbInsertNodeEx(v4, v6, v5, a1);
+  return RtlRbInsertNodeEx(v4, Root, v5, Node);
 }

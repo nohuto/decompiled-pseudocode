@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFreeTemporaryStacks @ 0x1405BC470
+ * XREFs of KiFreeTemporaryStacks @ 0x1405B9AA0
  * Callers:
  *     <none>
  * Callees:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
  */
 
 void __fastcall KiFreeTemporaryStacks(

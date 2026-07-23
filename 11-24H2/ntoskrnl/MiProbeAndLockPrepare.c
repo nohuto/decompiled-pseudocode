@@ -1,18 +1,18 @@
 /*
- * XREFs of MiProbeAndLockPrepare @ 0x140282460
+ * XREFs of MiProbeAndLockPrepare @ 0x1402379F0
  * Callers:
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MmStoreProbeAndLockPages @ 0x140284E70 (MmStoreProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x140286070 (MmProbeAndLockSelectedPages.c)
- *     MiProbeAndLockPages @ 0x140420120 (MiProbeAndLockPages.c)
- *     IopProbeAndLockPages_0 @ 0x140438384 (IopProbeAndLockPages_0.c)
- *     MmLockPhysicalPagesByVa @ 0x1407EA9A0 (MmLockPhysicalPagesByVa.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     MmStoreProbeAndLockPages @ 0x1402E9990 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140390AC0 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPages @ 0x140415B10 (MiProbeAndLockPages.c)
+ *     IopProbeAndLockPages_0 @ 0x14042AF44 (IopProbeAndLockPages_0.c)
+ *     MmLockPhysicalPagesByVa @ 0x1407EAF70 (MmLockPhysicalPagesByVa.c)
  * Callees:
- *     MiVadPureReserve @ 0x140236380 (MiVadPureReserve.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiInitializeProbePacketVm @ 0x1402C38D0 (MiInitializeProbePacketVm.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiChargeFullProcessCommitment @ 0x1408E3010 (MiChargeFullProcessCommitment.c)
+ *     MiInitializeProbePacketVm @ 0x14020AD30 (MiInitializeProbePacketVm.c)
+ *     MiVadPureReserve @ 0x140210510 (MiVadPureReserve.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiChargeFullProcessCommitment @ 0x140919BC0 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiProbeAndLockPrepare(
@@ -59,7 +59,7 @@ __int64 __fastcall MiProbeAndLockPrepare(
   {
     if ( !a4 || (v15 = a4 + a3 - 1, v15 < a3) || v15 > 0x7FFFFFFEFFFFLL )
     {
-      ++dword_140E30100;
+      ++dword_140E30240;
       return 3221225477LL;
     }
   }
@@ -121,7 +121,7 @@ __int64 __fastcall MiProbeAndLockPrepare(
         MiUnlockAndDereferenceVad((PVOID)v24);
         return 3221225496LL;
       }
-      a6 = MiChargeFullProcessCommitment(*(_QWORD *)(a1 + 88), v19);
+      a6 = MiChargeFullProcessCommitment(*(_QWORD *)(a1 + 88));
       if ( a6 < 0 )
       {
         MiUnlockAndDereferenceVad((PVOID)v24);

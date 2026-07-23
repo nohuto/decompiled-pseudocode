@@ -3,17 +3,17 @@
  * Callers:
  *     MiCreateEnclaveRegions @ 0x140B45444 (MiCreateEnclaveRegions.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeCreateEnclaveMetadataPage @ 0x1405705A0 (KeCreateEnclaveMetadataPage.c)
- *     MiAllocateEnclavePages @ 0x140646D98 (MiAllocateEnclavePages.c)
- *     MiReturnEnclavePage @ 0x140648A0C (MiReturnEnclavePage.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeCreateEnclaveMetadataPage @ 0x140570AE0 (KeCreateEnclaveMetadataPage.c)
+ *     MiAllocateEnclavePages @ 0x1406472E8 (MiAllocateEnclavePages.c)
+ *     MiReturnEnclavePage @ 0x140648F5C (MiReturnEnclavePage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

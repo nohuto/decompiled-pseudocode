@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpSafeAllocAndConcatW @ 0x140881B80
+ * XREFs of SdbpSafeAllocAndConcatW @ 0x140887F80
  * Callers:
- *     SdbpGetMergeRedirectPathInternal @ 0x140881504 (SdbpGetMergeRedirectPathInternal.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140887904 (SdbpGetMergeRedirectPathInternal.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x140459140 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyNW @ 0x14048B010 (RtlStringCchCopyNW.c)
- *     RtlStringCchCatNW @ 0x14063BBD8 (RtlStringCchCatNW.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     RtlStringCchLengthW @ 0x1404509C0 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyNW @ 0x140484B50 (RtlStringCchCopyNW.c)
+ *     RtlStringCchCatNW @ 0x14063F6D8 (RtlStringCchCatNW.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
 __int64 __fastcall SdbpSafeAllocAndConcatW(

@@ -12,7 +12,7 @@
  *     memcmp @ 0x140189130 (memcmp.c)
  */
 
-__int64 __fastcall RtlSidDominates(char *Buf1, char *Buf2, char *a3)
+NTSTATUS __cdecl RtlSidDominates(PSID Sid1, PSID Sid2, PBOOLEAN Dominates)
 {
   int v4; // r9d
   int v7; // eax
@@ -21,39 +21,39 @@ __int64 __fastcall RtlSidDominates(char *Buf1, char *Buf2, char *a3)
   __int16 v10; // si
   int v11; // eax
   int v12; // ecx
-  char v13; // al
+  BOOLEAN v13; // al
   unsigned int v15; // edx
 
-  *a3 = 0;
-  v4 = *(_DWORD *)(Buf1 + 2);
+  *Dominates = 0;
+  v4 = *(_DWORD *)((char *)Sid1 + 2);
   if ( !v4 )
-    v4 = *((unsigned __int16 *)Buf1 + 3) - 4096;
+    v4 = *((unsigned __int16 *)Sid1 + 3) - 4096;
   if ( !v4 )
   {
-    v7 = *(_DWORD *)(Buf2 + 2);
+    v7 = *(_DWORD *)((char *)Sid2 + 2);
     if ( !v7 )
-      v7 = *((unsigned __int16 *)Buf2 + 3) - 4096;
+      v7 = *((unsigned __int16 *)Sid2 + 3) - 4096;
     if ( !v7 )
     {
-      v8 = *(_WORD *)Buf1;
-      v9 = (unsigned __int8)HIBYTE(*(_WORD *)Buf1);
-      v10 = HIBYTE(*(_WORD *)Buf2);
-      if ( *(_WORD *)Buf1 == *(_WORD *)Buf2 )
+      v8 = *(_WORD *)Sid1;
+      v9 = (unsigned __int8)HIBYTE(*(_WORD *)Sid1);
+      v10 = HIBYTE(*(_WORD *)Sid2);
+      if ( *(_WORD *)Sid1 == *(_WORD *)Sid2 )
       {
-        v11 = memcmp(Buf1, Buf2, 4 * (unsigned int)HIBYTE(v8) + 8);
+        v11 = memcmp(Sid1, Sid2, 4 * (unsigned int)HIBYTE(v8) + 8);
         v12 = v9;
         if ( !v11 )
           goto LABEL_9;
       }
       else
       {
-        v12 = (unsigned __int8)HIBYTE(*(_WORD *)Buf1);
+        v12 = (unsigned __int8)HIBYTE(*(_WORD *)Sid1);
       }
       if ( (_BYTE)v9 )
-        v15 = *(_DWORD *)&Buf1[4 * (v12 - 1) + 8];
+        v15 = *((_DWORD *)Sid1 + (unsigned int)(v12 - 1) + 2);
       else
         v15 = 0;
-      if ( (_BYTE)v10 && v15 < *(_DWORD *)&Buf2[4 * (unsigned __int8)v10 + 4] )
+      if ( (_BYTE)v10 && v15 < *((_DWORD *)Sid2 + (unsigned int)(unsigned __int8)v10 + 1) )
       {
         v13 = 0;
         goto LABEL_10;
@@ -61,9 +61,9 @@ __int64 __fastcall RtlSidDominates(char *Buf1, char *Buf2, char *a3)
 LABEL_9:
       v13 = 1;
 LABEL_10:
-      *a3 = v13;
-      return 0LL;
+      *Dominates = v13;
+      return 0;
     }
   }
-  return 3221225485LL;
+  return -1073741811;
 }

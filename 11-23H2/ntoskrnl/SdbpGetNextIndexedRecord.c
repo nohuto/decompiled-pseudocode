@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbpGetNextIndexedRecord @ 0x140849FD4
+ * XREFs of SdbpGetNextIndexedRecord @ 0x14084A2D4
  * Callers:
- *     SdbFindNextStringIndexedTag @ 0x140849EE4 (SdbFindNextStringIndexedTag.c)
- *     SdbpFindMatchingName @ 0x140849F28 (SdbpFindMatchingName.c)
- *     SdbMergeIsEntryUpdated @ 0x140A536DC (SdbMergeIsEntryUpdated.c)
+ *     SdbFindNextStringIndexedTag @ 0x14084A1E4 (SdbFindNextStringIndexedTag.c)
+ *     SdbpFindMatchingName @ 0x14084A228 (SdbpFindMatchingName.c)
+ *     SdbMergeIsEntryUpdated @ 0x140A5398C (SdbMergeIsEntryUpdated.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetMappedTagData @ 0x14074098C (SdbpGetMappedTagData.c)
- *     SdbpGetNextTagId @ 0x140757A90 (SdbpGetNextTagId.c)
- *     SdbGetTagDataSize @ 0x140757B90 (SdbGetTagDataSize.c)
- *     SdbGetTagFromTagID @ 0x140757C80 (SdbGetTagFromTagID.c)
+ *     SdbpGetMappedTagData @ 0x140740B7C (SdbpGetMappedTagData.c)
+ *     SdbpGetNextTagId @ 0x140757C80 (SdbpGetNextTagId.c)
+ *     SdbGetTagDataSize @ 0x140757D80 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x140757E70 (SdbGetTagFromTagID.c)
  */
 
 __int64 __fastcall SdbpGetNextIndexedRecord(__int64 a1, unsigned int a2, _DWORD *a3)

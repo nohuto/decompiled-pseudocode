@@ -1,20 +1,20 @@
 /*
- * XREFs of CmKeyBodyRemapToVirtual @ 0x140A17F74
+ * XREFs of CmKeyBodyRemapToVirtual @ 0x140A18224
  * Callers:
- *     NtDeleteValueKey @ 0x14070EA40 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x14070FCB0 (NtDeleteKey.c)
+ *     NtDeleteValueKey @ 0x14070EC50 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x14070FEC0 (NtDeleteKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232270 (SepDeleteAccessState.c)
- *     KCBNeedsVirtualImage @ 0x14034798C (KCBNeedsVirtualImage.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140232340 (SepDeleteAccessState.c)
+ *     KCBNeedsVirtualImage @ 0x140347C1C (KCBNeedsVirtualImage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     CmpCleanupParseContext @ 0x140692A84 (CmpCleanupParseContext.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     SeCreateAccessStateFromSubjectContext @ 0x1409C9F68 (SeCreateAccessStateFromSubjectContext.c)
- *     CmpReparseToVirtualPath @ 0x140A19F04 (CmpReparseToVirtualPath.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     SeCreateAccessStateFromSubjectContext @ 0x1409CA168 (SeCreateAccessStateFromSubjectContext.c)
+ *     CmpReparseToVirtualPath @ 0x140A1A1B4 (CmpReparseToVirtualPath.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x140AF5160 (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)

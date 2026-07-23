@@ -1,59 +1,57 @@
 /*
- * XREFs of RtlCreateVirtualAccountSid @ 0x1800D0580
+ * XREFs of RtlCreateVirtualAccountSid @ 0x1800CDAF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlUpcaseUnicodeString @ 0x1800D06E0 (RtlUpcaseUnicodeString.c)
- *     SymCryptSha1Append @ 0x180158ED0 (SymCryptSha1Append.c)
- *     SymCryptSha1Init @ 0x18015A0D0 (SymCryptSha1Init.c)
- *     SymCryptSha1Result @ 0x18015A100 (SymCryptSha1Result.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlUpcaseUnicodeString @ 0x1800CDC50 (RtlUpcaseUnicodeString.c)
+ *     SymCryptSha1Append @ 0x180157290 (SymCryptSha1Append.c)
+ *     SymCryptSha1Init @ 0x180158490 (SymCryptSha1Init.c)
+ *     SymCryptSha1Result @ 0x1801584C0 (SymCryptSha1Result.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlCreateVirtualAccountSid(__int64 a1, int a2, __int64 a3, unsigned int *a4)
+NTSTATUS __cdecl RtlCreateVirtualAccountSid(PUNICODE_STRING Name, ULONG BaseSubAuthority, PSID Sid, PULONG SidLength)
 {
-  __int64 v8; // r8
-  unsigned int v9; // eax
-  __int64 result; // rax
-  __int64 v11; // rdi
-  int v12; // eax
-  __int128 v13; // [rsp+20h] [rbp-C8h] BYREF
-  _BYTE v14[4]; // [rsp+30h] [rbp-B8h] BYREF
-  int v15; // [rsp+34h] [rbp-B4h]
-  _DWORD v16[6]; // [rsp+B0h] [rbp-38h] BYREF
+  ULONG v8; // eax
+  NTSTATUS result; // eax
+  wchar_t *Buffer; // rdi
+  int v11; // eax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-C8h] BYREF
+  _BYTE v13[4]; // [rsp+30h] [rbp-B8h] BYREF
+  int v14; // [rsp+34h] [rbp-B4h]
+  _DWORD v15[6]; // [rsp+B0h] [rbp-38h] BYREF
 
-  v15 = 0;
-  v13 = 0LL;
-  memset_thunk_772440563353939046(v14, 0, 0x7CuLL);
-  if ( !a1 || !a4 || (unsigned int)(a2 - 80) > 0x1F )
-    return 3221225485LL;
-  v9 = *a4;
-  *a4 = 32;
-  if ( v9 < 0x20 )
-    return 3221225507LL;
-  LOBYTE(v8) = 1;
-  result = RtlUpcaseUnicodeString(&v13, a1, v8);
-  if ( (int)result >= 0 )
+  v14 = 0;
+  DestinationString = 0LL;
+  memset_thunk_772440563353939046(v13, 0, 0x7CuLL);
+  if ( !Name || !SidLength || BaseSubAuthority - 80 > 0x1F )
+    return -1073741811;
+  v8 = *SidLength;
+  *SidLength = 32;
+  if ( v8 < 0x20 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, Name, 1u);
+  if ( result >= 0 )
   {
-    SymCryptSha1Init(v14);
-    v11 = *((_QWORD *)&v13 + 1);
-    SymCryptSha1Append(v14, *((_QWORD *)&v13 + 1), (unsigned __int16)v13);
-    SymCryptSha1Result(v14, v16);
-    if ( v11 )
-      RtlpSysVolFree(v11);
-    *(_WORD *)a3 = 1537;
-    *(_DWORD *)(a3 + 2) = RtlpNtAuthority;
-    *(_WORD *)(a3 + 6) = 1280;
-    v12 = v16[0];
-    *(_DWORD *)(a3 + 8) = a2;
-    *(_DWORD *)(a3 + 12) = v12;
-    *(_DWORD *)(a3 + 16) = v16[1];
-    *(_DWORD *)(a3 + 20) = v16[2];
-    *(_DWORD *)(a3 + 24) = v16[3];
-    *(_DWORD *)(a3 + 28) = v16[4];
-    return 0LL;
+    SymCryptSha1Init(v13);
+    Buffer = DestinationString.Buffer;
+    SymCryptSha1Append(v13, DestinationString.Buffer, DestinationString.Length);
+    SymCryptSha1Result(v13, v15);
+    if ( Buffer )
+      RtlpSysVolFree(Buffer);
+    *(_WORD *)Sid = 1537;
+    *(_DWORD *)((char *)Sid + 2) = RtlpNtAuthority;
+    *((_WORD *)Sid + 3) = 1280;
+    v11 = v15[0];
+    *((_DWORD *)Sid + 2) = BaseSubAuthority;
+    *((_DWORD *)Sid + 3) = v11;
+    *((_DWORD *)Sid + 4) = v15[1];
+    *((_DWORD *)Sid + 5) = v15[2];
+    *((_DWORD *)Sid + 6) = v15[3];
+    *((_DWORD *)Sid + 7) = v15[4];
+    return 0;
   }
   return result;
 }

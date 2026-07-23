@@ -1,19 +1,19 @@
 /*
- * XREFs of PspFreezeJobTree @ 0x1407F8824
+ * XREFs of PspFreezeJobTree @ 0x1407FE324
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     PspFreezeJobTree @ 0x1407F8824 (PspFreezeJobTree.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     PspFreezeJobTree @ 0x1407FE324 (PspFreezeJobTree.c)
  * Callees:
- *     ExAcquireFastResourceExclusive @ 0x140275660 (ExAcquireFastResourceExclusive.c)
- *     ExReleaseFastResourceExclusive @ 0x1404912F0 (ExReleaseFastResourceExclusive.c)
- *     RtlIsZeroMemory @ 0x1404D9FD0 (RtlIsZeroMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspDispatchWakeNotification @ 0x1407F7B94 (PspDispatchWakeNotification.c)
- *     PspFreezeJobTree @ 0x1407F8824 (PspFreezeJobTree.c)
- *     PspLockJobAndRootExclusive @ 0x1407F8DE0 (PspLockJobAndRootExclusive.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14095A350 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspComputeReportWakeFilter @ 0x140B11E2C (PspComputeReportWakeFilter.c)
+ *     ExAcquireFastResourceExclusive @ 0x140274BD0 (ExAcquireFastResourceExclusive.c)
+ *     ExReleaseFastResourceExclusive @ 0x14048AE40 (ExReleaseFastResourceExclusive.c)
+ *     RtlIsZeroMemory @ 0x1404D36B0 (RtlIsZeroMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspDispatchWakeNotification @ 0x1407FD6F0 (PspDispatchWakeNotification.c)
+ *     PspFreezeJobTree @ 0x1407FE324 (PspFreezeJobTree.c)
+ *     PspLockJobAndRootExclusive @ 0x1407FE8E0 (PspLockJobAndRootExclusive.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1409FFC10 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspComputeReportWakeFilter @ 0x140B13BAC (PspComputeReportWakeFilter.c)
  */
 
 __int64 __fastcall PspFreezeJobTree(__int64 a1, __int64 a2)
@@ -99,7 +99,7 @@ LABEL_22:
 LABEL_14:
   if ( (v13 & 2) != 0 )
   {
-    if ( !RtlIsZeroMemory((_BYTE *)(a1 + 1108), 8uLL) )
+    if ( !RtlIsZeroMemory((PVOID)(a1 + 1108), 8uLL) )
     {
       LOBYTE(v8) = 1;
       PspComputeReportWakeFilter(a1, v19, a2 + 8, v8);

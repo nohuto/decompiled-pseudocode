@@ -108,7 +108,7 @@ __int64 __fastcall sub_18010AE38(__int64 a1, unsigned int *a2)
     v6 = *v3 + 37 * v6;
   }
 LABEL_19:
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 40));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 40));
   v16 = 0LL;
   while ( 1 )
   {
@@ -152,11 +152,11 @@ LABEL_31:
   {
     if ( !(unsigned int)sub_18010ADA8((volatile signed __int32 *)(v16 + 16)) )
       v16 = 0LL;
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 40));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 40));
     return v16;
   }
 LABEL_35:
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 40));
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 40));
   v20 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(a1 + 48))(8 * *a2 + 24, *(_QWORD *)(a1 + 64));
   if ( !v20 )
     return 0LL;
@@ -168,7 +168,7 @@ LABEL_35:
   *(_BYTE *)(v20 + 19) = *(_BYTE *)a2;
   *(_QWORD *)(v20 + 8) = v6;
   memmove((void *)(v20 + 24), *((const void **)a2 + 1), 8LL * *a2);
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   v16 = 0LL;
   while ( 1 )
   {
@@ -305,7 +305,7 @@ LABEL_74:
   }
   v16 = 0LL;
 LABEL_75:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   if ( v20 )
     (*(void (__fastcall **)(__int64, _QWORD))(a1 + 56))(v20, *(_QWORD *)(a1 + 64));
   return v16;

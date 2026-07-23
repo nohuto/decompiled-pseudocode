@@ -14,7 +14,7 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
 {
   __int64 *v1; // r14
   char v2; // r12
-  __int64 v3; // r15
+  void *v3; // r15
   int v4; // edi
   __int64 result; // rax
   int v7; // edx
@@ -31,14 +31,14 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
   char v18; // bp
   int v19; // eax
   int v20; // ecx
-  char v21; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v22; // [rsp+98h] [rbp+10h]
+  __int64 v21; // [rsp+90h] [rbp+8h] BYREF
+  PVOID Object; // [rsp+98h] [rbp+10h]
 
   v1 = (__int64 *)*((_QWORD *)a1 + 8);
   v2 = 0;
-  v3 = *((_QWORD *)a1 + 7);
+  v3 = (void *)*((_QWORD *)a1 + 7);
   v4 = 0;
-  v22 = v3;
+  Object = v3;
   if ( (v1[7] & 0x800) != 0 && (*a1 & 0x40000) != 0 )
   {
     dword_140E2D4B8 = 12;
@@ -81,8 +81,8 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
     Flink = (int)KeGetCurrentThread()->ApcState.Process[4].ThreadListHead.Flink;
     v14 = *((_BYTE *)a1 + 24);
     v15 = *(_BYTE *)(v9 + 15) & 0xF;
-    v21 = 0;
-    result = SeGetImageRequiredSigningLevel(v22, v10, v14, v15, &v21);
+    LOBYTE(v21) = 0;
+    result = SeGetImageRequiredSigningLevel(Object, v10, v14, v15, (char *)&v21);
     if ( (int)result < 0 )
     {
       dword_140E2D4B8 = 14;
@@ -105,7 +105,7 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
         v2 = 6;
       }
     }
-    LODWORD(v3) = v22;
+    LODWORD(v3) = (_DWORD)Object;
     *v12 = v21;
   }
   if ( (v11 & 0x40000) != 0 )
@@ -140,7 +140,7 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
   }
   result = MiValidateSectionSigningPolicy(
              1,
-             v3,
+             (_DWORD)v3,
              (_DWORD)v1,
              a1[42],
              *((_QWORD *)a1 + 20),

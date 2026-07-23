@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpDisableTraceProviders @ 0x14040B4EC
+ * XREFs of EtwpDisableTraceProviders @ 0x14040A3AC
  * Callers:
- *     EtwpStopLoggerInstance @ 0x140493B50 (EtwpStopLoggerInstance.c)
+ *     EtwpStopLoggerInstance @ 0x1404945E0 (EtwpStopLoggerInstance.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14040AED0 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpGetNextGuidEntry @ 0x14040C2A4 (EtwpGetNextGuidEntry.c)
- *     PsEnumProcesses @ 0x14049895C (PsEnumProcesses.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140409D90 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpGetNextGuidEntry @ 0x14040B164 (EtwpGetNextGuidEntry.c)
+ *     PsEnumProcesses @ 0x1404993EC (PsEnumProcesses.c)
  */
 
 int __fastcall EtwpDisableTraceProviders(__int64 a1, int a2)

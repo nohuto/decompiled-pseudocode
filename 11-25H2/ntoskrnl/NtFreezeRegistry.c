@@ -12,21 +12,21 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtFreezeRegistry(unsigned int a1)
+NTSTATUS __cdecl NtFreezeRegistry(ULONG TimeOutInSeconds)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
   __int128 v4; // [rsp+20h] [rbp-58h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-48h] BYREF
 
   v4 = 0LL;
   memset(&ApcState, 0, sizeof(ApcState));
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v4);
-  if ( a1 <= 0x384 )
+  if ( TimeOutInSeconds <= 0x384 )
   {
     if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
     {
       CmpAttachToRegistryProcess(&ApcState);
-      v2 = CmFreezeRegistry(a1);
+      v2 = CmFreezeRegistry(TimeOutInSeconds);
       CmpDetachFromRegistryProcess(&ApcState);
     }
     else

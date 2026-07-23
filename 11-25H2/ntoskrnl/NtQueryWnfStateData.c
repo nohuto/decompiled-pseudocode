@@ -25,26 +25,26 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryWnfStateData(
-        __int64 *Src,
-        __int128 *a2,
-        unsigned int *a3,
-        _DWORD *a4,
-        char *a5,
-        unsigned int *a6)
+NTSTATUS __cdecl NtQueryWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        PWNF_CHANGE_STAMP ChangeStamp,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
-  unsigned __int64 v6; // r10
+  PCWNF_TYPE_ID v6; // r10
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r9
   int v9; // r14d
   __int64 v10; // r12
-  __int64 v11; // rbx
+  WNF_STATE_NAME v11; // rbx
   unsigned __int64 v12; // r11
   unsigned __int64 v13; // rdx
   unsigned __int64 v14; // r8
   int v15; // eax
   int v16; // eax
-  int StateData; // esi
+  NTSTATUS StateData; // esi
   __int64 v18; // rdx
   __int64 v19; // rcx
   __int64 v20; // rax
@@ -53,7 +53,7 @@ __int64 __fastcall NtQueryWnfStateData(
   unsigned __int64 v23; // rcx
   unsigned __int64 v24; // rdx
   unsigned __int64 v25; // rdx
-  unsigned int *v26; // r10
+  const void *v26; // r10
   PVOID *v27; // rax
   char v28; // r15
   unsigned int v29; // ecx
@@ -64,7 +64,7 @@ __int64 __fastcall NtQueryWnfStateData(
   unsigned __int64 v34; // rbx
   int v35; // eax
   _QWORD *Count; // rdx
-  unsigned int *v37; // rax
+  PULONG v37; // rax
   int v38; // r14d
   int v39; // r14d
   void *Ptr; // rbx
@@ -74,7 +74,7 @@ __int64 __fastcall NtQueryWnfStateData(
   int PreviouslyGrantedAccess; // [rsp+20h] [rbp-168h]
   char v46; // [rsp+50h] [rbp-138h]
   int v47; // [rsp+5Ch] [rbp-12Ch]
-  PEPROCESS Srcb; // [rsp+60h] [rbp-128h]
+  PEPROCESS Srca; // [rsp+60h] [rbp-128h]
   unsigned int v50; // [rsp+68h] [rbp-120h]
   struct _EX_RUNDOWN_REF *v51; // [rsp+70h] [rbp-118h] BYREF
   NTSTATUS AccessStatus; // [rsp+78h] [rbp-110h] BYREF
@@ -82,15 +82,15 @@ __int64 __fastcall NtQueryWnfStateData(
   PVOID P; // [rsp+88h] [rbp-100h] BYREF
   PVOID Object[2]; // [rsp+90h] [rbp-F8h] BYREF
   unsigned __int64 v56; // [rsp+A0h] [rbp-E8h]
-  __int128 *v57; // [rsp+A8h] [rbp-E0h]
-  unsigned int *v58; // [rsp+B0h] [rbp-D8h]
+  PCWNF_TYPE_ID v57; // [rsp+A8h] [rbp-E0h]
+  PULONG v58; // [rsp+B0h] [rbp-D8h]
   int v59[2]; // [rsp+B8h] [rbp-D0h] BYREF
   int v60; // [rsp+C0h] [rbp-C8h]
   int v61; // [rsp+C4h] [rbp-C4h]
   int v62; // [rsp+C8h] [rbp-C0h]
   ACCESS_MASK GrantedAccess; // [rsp+CCh] [rbp-BCh] BYREF
-  __int64 v64; // [rsp+D0h] [rbp-B8h] BYREF
-  _DWORD *v65; // [rsp+D8h] [rbp-B0h]
+  WNF_STATE_NAME v64; // [rsp+D0h] [rbp-B8h] BYREF
+  PWNF_CHANGE_STAMP v65; // [rsp+D8h] [rbp-B0h]
   unsigned __int64 v66; // [rsp+E0h] [rbp-A8h]
   char *v67; // [rsp+E8h] [rbp-A0h]
   unsigned __int64 v68; // [rsp+F0h] [rbp-98h]
@@ -98,11 +98,11 @@ __int64 __fastcall NtQueryWnfStateData(
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+110h] [rbp-78h] BYREF
   __int128 v71; // [rsp+130h] [rbp-58h] BYREF
 
-  v65 = a4;
-  v6 = (unsigned __int64)a2;
-  v66 = (unsigned __int64)a2;
-  v58 = a6;
-  v67 = a5;
+  v65 = ChangeStamp;
+  v6 = TypeId;
+  v66 = (unsigned __int64)TypeId;
+  v58 = BufferSize;
+  v67 = (char *)Buffer;
   v71 = 0LL;
   Sid = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -114,26 +114,26 @@ __int64 __fastcall NtQueryWnfStateData(
   v51 = 0LL;
   v9 = 0;
   *(_OWORD *)Object = 0LL;
-  v57 = a2;
+  v57 = TypeId;
   v64 = 0LL;
   v10 = 0x7FFFFFFF0000LL;
   if ( PreviousMode )
   {
     v30 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)Src < 0x7FFFFFFF0000LL )
-      v30 = (__int64)Src;
+    if ( (unsigned __int64)StateName < 0x7FFFFFFF0000LL )
+      v30 = (__int64)StateName;
     RtlCopyVolatileMemory(&v64, (const void *)v30, 8uLL);
     v11 = v64;
     PreviousMode = v46;
-    v6 = v66;
+    v6 = (PCWNF_TYPE_ID)v66;
   }
   else
   {
-    v11 = *Src;
-    v64 = *Src;
+    v11 = *StateName;
+    v64 = *StateName;
   }
-  v56 = v11 ^ 0x41C64E6DA3BC0074LL;
-  if ( (((unsigned __int8)v11 ^ 0x74) & 0xF) != 1 )
+  v56 = *(_QWORD *)&v11 ^ 0x41C64E6DA3BC0074LL;
+  if ( ((LOBYTE(v11.Data[0]) ^ 0x74) & 0xF) != 1 )
   {
     StateData = -1073741811;
 LABEL_61:
@@ -166,10 +166,10 @@ LABEL_47:
     if ( v6 )
     {
       v18 = 0x7FFFFFFF0000LL;
-      if ( v6 < 0x7FFFFFFF0000LL )
-        v18 = v6;
+      if ( (unsigned __int64)v6 < 0x7FFFFFFF0000LL )
+        v18 = (__int64)v6;
       RtlCopyVolatileMemory(&v71, (const void *)v18, 0x10uLL);
-      v57 = &v71;
+      v57 = (PCWNF_TYPE_ID)&v71;
       PreviousMode = v46;
       LOBYTE(v14) = v66;
       LOBYTE(v12) = v68;
@@ -209,8 +209,8 @@ LABEL_47:
   v62 = v14 & 3;
   v9 = v12 & 0xF;
   v47 = v9;
-  v26 = a3;
-  if ( !a3 )
+  v26 = ExplicitScope;
+  if ( !ExplicitScope )
   {
     Sid = 0LL;
     goto LABEL_64;
@@ -225,19 +225,19 @@ LABEL_52:
   {
     if ( PreviousMode )
     {
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a3;
+      if ( (unsigned __int64)ExplicitScope < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ExplicitScope;
       v29 = *(_DWORD *)v10;
       LODWORD(Object[1]) = *(_DWORD *)v10;
       v9 = v12 & 0xF;
     }
     else
     {
-      v29 = *a3;
-      LODWORD(Object[1]) = *a3;
+      v29 = *(_DWORD *)ExplicitScope;
+      LODWORD(Object[1]) = *(_DWORD *)ExplicitScope;
     }
     Object[0] = (PVOID)PsGetSessionById(v29);
-    v26 = a3;
+    v26 = ExplicitScope;
     if ( Object[0] )
     {
       Sid = &Object[1];
@@ -251,7 +251,7 @@ LABEL_52:
     if ( v9 == 3 )
     {
       StateData = ObpReferenceObjectByHandleWithTag(
-                    (ULONG_PTR)a3,
+                    (ULONG_PTR)ExplicitScope,
                     0,
                     (__int64)PsProcessType,
                     PreviousMode,
@@ -259,7 +259,7 @@ LABEL_52:
                     Object,
                     0LL,
                     0LL);
-      v26 = a3;
+      v26 = ExplicitScope;
       if ( StateData < 0 )
         goto LABEL_43;
       v27 = Object;
@@ -267,8 +267,8 @@ LABEL_52:
     }
     goto LABEL_52;
   }
-  StateData = SeCaptureSid(a3, PreviouslyGrantedAccess, 0, (__int64)Object);
-  v26 = a3;
+  StateData = SeCaptureSid((void *)ExplicitScope, PreviouslyGrantedAccess, 0, (__int64)Object);
+  v26 = ExplicitScope;
   if ( StateData >= 0 )
   {
     v27 = (PVOID *)Object[0];
@@ -311,7 +311,7 @@ LABEL_93:
     LODWORD(v32) = 0;
     Process = PsInitialSystemProcess;
   }
-  Srcb = Process;
+  Srca = Process;
   StateData = ExpWnfResolveScopeInstance((int)v59, (int)Process, (int)v32, v9, Sid);
   if ( StateData < 0 )
     goto LABEL_93;
@@ -353,9 +353,9 @@ LABEL_118:
         StateData = -1073741811;
         goto LABEL_74;
       }
-      v44 = *Count - *(_QWORD *)v57;
-      if ( *Count == *(_QWORD *)v57 )
-        v44 = Count[1] - *((_QWORD *)v57 + 1);
+      v44 = *Count - *(_QWORD *)&v57->TypeId.Data1;
+      if ( *Count == *(_QWORD *)&v57->TypeId.Data1 )
+        v44 = Count[1] - *(_QWORD *)v57->TypeId.Data4;
       StateData = -1073741811;
       if ( !v44 )
 LABEL_73:
@@ -376,7 +376,7 @@ LABEL_89:
     goto LABEL_89;
   if ( v9 == 5 || (v69 & 1) != 0 )
   {
-    StateData = ExpWnfCreateNameInstance(*(__int64 *)v59, v56, (__int64)P, (unsigned __int64)Srcb, &v51);
+    StateData = ExpWnfCreateNameInstance(*(__int64 *)v59, v56, (__int64)P, (unsigned __int64)Srca, &v51);
     ExFreePoolWithTag(P, 0x20666E57u);
     P = 0LL;
     goto LABEL_74;
@@ -407,7 +407,7 @@ LABEL_79:
   {
     v42 = Object[0];
     if ( !Object[0] )
-      return (unsigned int)StateData;
+      return StateData;
     v43 = 2035381072;
     goto LABEL_98;
   }
@@ -429,5 +429,5 @@ LABEL_98:
   {
     ExFreePoolWithTag(Object[0], 0);
   }
-  return (unsigned int)StateData;
+  return StateData;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAcceptNewAccelerators @ 0x140800064
+ * XREFs of MiAcceptNewAccelerators @ 0x1408007A4
  * Callers:
- *     MmAcceleratorCallbackRoutine @ 0x140800220 (MmAcceleratorCallbackRoutine.c)
+ *     MmAcceleratorCallbackRoutine @ 0x140800960 (MmAcceleratorCallbackRoutine.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiSignalNewAcceleratorsAvailable @ 0x140690CD4 (MiSignalNewAcceleratorsAvailable.c)
- *     MiQueryAcceleratorHandle @ 0x140800170 (MiQueryAcceleratorHandle.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiSignalNewAcceleratorsAvailable @ 0x140691DA4 (MiSignalNewAcceleratorsAvailable.c)
+ *     MiQueryAcceleratorHandle @ 0x1408008B0 (MiQueryAcceleratorHandle.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiAcceptNewAccelerators(__int64 a1)
@@ -35,12 +35,12 @@ void __fastcall MiAcceptNewAccelerators(__int64 a1)
     v4 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8 * v2);
     if ( (int)MiQueryAcceleratorHandle(v4, &v8, &v9) < 0 )
     {
-      byte_140E37456 = 1;
+      byte_140E37596 = 1;
       goto LABEL_11;
     }
     if ( v8 >= (unsigned __int16)KeNumberNodes )
     {
-      byte_140E37457 = 1;
+      byte_140E37597 = 1;
 LABEL_11:
       ExFreePoolWithTag(Pool, 0);
       goto LABEL_13;
@@ -57,7 +57,7 @@ LABEL_11:
     *v5 = Pool;
     v7 = (__int64 **)Pool;
   }
-  byte_140E37455 = 1;
+  byte_140E37595 = 1;
 LABEL_13:
   if ( v6 != (__int64 *)&v6 )
     MiSignalNewAcceleratorsAvailable((__int64 *)&v6);

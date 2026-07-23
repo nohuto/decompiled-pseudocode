@@ -1,15 +1,16 @@
 /*
- * XREFs of ZwDeleteBootEntry @ 0x14041C840
+ * XREFs of ZwDeleteBootEntry @ 0x14041CBD0
  * Callers:
- *     DifZwDeleteBootEntryWrapper @ 0x1405EF440 (DifZwDeleteBootEntryWrapper.c)
- *     BiDeleteBootEntry @ 0x140A5E310 (BiDeleteBootEntry.c)
+ *     DifZwDeleteBootEntryWrapper @ 0x1405EF9B0 (DifZwDeleteBootEntryWrapper.c)
+ *     BiDeleteBootEntry @ 0x140A5E5C0 (BiDeleteBootEntry.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDeleteBootEntry(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwDeleteBootEntry(ULONG Id)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&Id);
 }

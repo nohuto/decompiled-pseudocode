@@ -1,14 +1,14 @@
 /*
- * XREFs of MiProcessLoaderEntry @ 0x140084B4C
+ * XREFs of MiProcessLoaderEntry @ 0x140082CAC
  * Callers:
- *     MiConstructLoaderEntry @ 0x140482408 (MiConstructLoaderEntry.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x14048115C (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  * Callees:
- *     RtlInsertInvertedFunctionTable @ 0x140084A5C (RtlInsertInvertedFunctionTable.c)
- *     MiAcquireResourceExclusiveLite @ 0x140084C38 (MiAcquireResourceExclusiveLite.c)
- *     MmUnlockLoadedModuleListExclusive @ 0x140084C98 (MmUnlockLoadedModuleListExclusive.c)
- *     MmLockLoadedModuleListExclusive @ 0x140084CB8 (MmLockLoadedModuleListExclusive.c)
- *     RtlRemoveInvertedFunctionTable @ 0x14012E504 (RtlRemoveInvertedFunctionTable.c)
+ *     RtlInsertInvertedFunctionTable @ 0x140082BBC (RtlInsertInvertedFunctionTable.c)
+ *     MiAcquireResourceExclusiveLite @ 0x140082D98 (MiAcquireResourceExclusiveLite.c)
+ *     MmUnlockLoadedModuleListExclusive @ 0x140082DF8 (MmUnlockLoadedModuleListExclusive.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140082E18 (MmLockLoadedModuleListExclusive.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x14012EA74 (RtlRemoveInvertedFunctionTable.c)
  */
 
 __int64 __fastcall MiProcessLoaderEntry(int *a1, int a2)

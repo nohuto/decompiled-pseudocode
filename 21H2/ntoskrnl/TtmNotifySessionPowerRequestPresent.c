@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmNotifySessionPowerRequestPresent @ 0x1408FED50
+ * XREFs of TtmNotifySessionPowerRequestPresent @ 0x1408FEEB0
  * Callers:
- *     PopNotifySessionUserPowerRequestAttributed @ 0x1408E1930 (PopNotifySessionUserPowerRequestAttributed.c)
- *     PopNotifySessionUserPowerRequestsPresent @ 0x1408E19F4 (PopNotifySessionUserPowerRequestsPresent.c)
+ *     PopNotifySessionUserPowerRequestAttributed @ 0x1408E1A90 (PopNotifySessionUserPowerRequestAttributed.c)
+ *     PopNotifySessionUserPowerRequestsPresent @ 0x1408E1B54 (PopNotifySessionUserPowerRequestsPresent.c)
  * Callees:
- *     TtmpInsertPowerRequestToSession @ 0x1408FFB48 (TtmpInsertPowerRequestToSession.c)
- *     TtmpUpdatePowerRequestAttribute @ 0x140900520 (TtmpUpdatePowerRequestAttribute.c)
- *     TtmiLogSessionPowerRequestAcknowledged @ 0x140903EEC (TtmiLogSessionPowerRequestAcknowledged.c)
+ *     TtmpInsertPowerRequestToSession @ 0x1408FFCA8 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpUpdatePowerRequestAttribute @ 0x140900680 (TtmpUpdatePowerRequestAttribute.c)
+ *     TtmiLogSessionPowerRequestAcknowledged @ 0x14090404C (TtmiLogSessionPowerRequestAcknowledged.c)
  */
 
 __int64 __fastcall TtmNotifySessionPowerRequestPresent(int a1, int a2, int a3, int a4, __int64 a5, int a6, char a7)

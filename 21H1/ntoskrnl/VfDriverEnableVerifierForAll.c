@@ -19,14 +19,14 @@ __int64 VfDriverEnableVerifierForAll()
 {
   int v0; // edi
   PVOID *i; // rbx
-  unsigned __int64 v2; // rbp
+  PVOID v2; // rbp
   int v3; // eax
   __int64 Entry; // rax
   void *v5; // rsi
   int v7; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp+10h] BYREF
 
-  v8 = 0LL;
+  OutHeaders = 0LL;
   v0 = 0;
   v7 = 0;
   VfDriverLock();
@@ -35,9 +35,9 @@ __int64 VfDriverEnableVerifierForAll()
   {
     if ( !(unsigned int)VfUtilIsProtectedDriver((PCUNICODE_STRING)(i + 11)) )
     {
-      v2 = (unsigned __int64)i[6];
-      LOBYTE(v3) = MmIsSessionAddress(v2);
-      if ( v3 || (int)RtlImageNtHeaderEx(1, v2, 0LL, &v8) >= 0 )
+      v2 = i[6];
+      LOBYTE(v3) = MmIsSessionAddress((unsigned __int64)v2);
+      if ( v3 || RtlImageNtHeaderEx(1u, v2, 0LL, &OutHeaders) >= 0 )
       {
         Entry = VfSuspectDriversAllocateEntry(i + 11);
         v5 = (void *)Entry;

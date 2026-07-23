@@ -1,28 +1,28 @@
 /*
- * XREFs of AnFwDisplayFade @ 0x14094EBA8
+ * XREFs of AnFwDisplayFade @ 0x14094FBA8
  * Callers:
- *     BgDisplayFade @ 0x14094E608 (BgDisplayFade.c)
+ *     BgDisplayFade @ 0x14094F608 (BgDisplayFade.c)
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     BgpGxRectangleSize @ 0x14016ECD4 (BgpGxRectangleSize.c)
- *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
- *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
- *     BgpGxConvertRectangleEx @ 0x14016F3C8 (BgpGxConvertRectangleEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
- *     BgpGxParseBitmap @ 0x14094E848 (BgpGxParseBitmap.c)
- *     BgpGxReadRectangle @ 0x14094E98C (BgpGxReadRectangle.c)
- *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
- *     BgpGxFindSubRectangle @ 0x14094F240 (BgpGxFindSubRectangle.c)
- *     LogFwStat @ 0x14094F754 (LogFwStat.c)
- *     BgpTxtGetRegionContext @ 0x14094F8BC (BgpTxtGetRegionContext.c)
- *     BgpGxRectangleCreate @ 0x14095021C (BgpGxRectangleCreate.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140950424 (AnFwDisableBackgroundUpdateTimer.c)
- *     AnFwpDisableProgressTimer @ 0x140950440 (AnFwpDisableProgressTimer.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     BgpGxRectangleSize @ 0x14016EDD4 (BgpGxRectangleSize.c)
+ *     BgpFwFreeMemory @ 0x14016EDEC (BgpFwFreeMemory.c)
+ *     BgpGetBitsPerPixel @ 0x14016F2E0 (BgpGetBitsPerPixel.c)
+ *     BgpGxConvertRectangleEx @ 0x14016F4C8 (BgpGxConvertRectangleEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     BgpClearScreen @ 0x140327904 (BgpClearScreen.c)
+ *     BgpGxParseBitmap @ 0x14094F848 (BgpGxParseBitmap.c)
+ *     BgpGxReadRectangle @ 0x14094F98C (BgpGxReadRectangle.c)
+ *     BgpGxRectangleDestroy @ 0x14095021C (BgpGxRectangleDestroy.c)
+ *     BgpGxFindSubRectangle @ 0x140950240 (BgpGxFindSubRectangle.c)
+ *     LogFwStat @ 0x140950754 (LogFwStat.c)
+ *     BgpTxtGetRegionContext @ 0x1409508BC (BgpTxtGetRegionContext.c)
+ *     BgpGxRectangleCreate @ 0x14095121C (BgpGxRectangleCreate.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140951424 (AnFwDisableBackgroundUpdateTimer.c)
+ *     AnFwpDisableProgressTimer @ 0x140951440 (AnFwpDisableProgressTimer.c)
  */
 
 __int64 AnFwDisplayFade()
@@ -89,24 +89,24 @@ __int64 AnFwDisplayFade()
   v39 = 0LL;
   v42 = 0LL;
   v44 = 0LL;
-  if ( (dword_140405AD0 & 0x2000) != 0 )
+  if ( (dword_140406AD0 & 0x2000) != 0 )
     return (unsigned int)SubRectangle;
-  if ( (dword_140405AD0 & 0x200000) != 0 )
+  if ( (dword_140406AD0 & 0x200000) != 0 )
     goto LABEL_69;
-  RegionContext = BgpTxtGetRegionContext(qword_140405B90);
-  v7 = BgpTxtGetRegionContext(qword_140405B98);
+  RegionContext = BgpTxtGetRegionContext(qword_140406B90);
+  v7 = BgpTxtGetRegionContext(qword_140406B98);
   v8 = v7;
   if ( !RegionContext || !v7 )
   {
     SubRectangle = -1073741670;
     goto LABEL_36;
   }
-  xmmword_140403A00 = *(_OWORD *)RegionContext;
-  qword_140403A10 = *(_QWORD *)(RegionContext + 16);
-  dword_140403A18 = *(_DWORD *)(RegionContext + 24);
-  xmmword_140403A38 = *(_OWORD *)v7;
-  qword_140403A48 = *(_QWORD *)(v7 + 16);
-  dword_140403A50 = *(_DWORD *)(v7 + 24);
+  xmmword_140404A00 = *(_OWORD *)RegionContext;
+  qword_140404A10 = *(_QWORD *)(RegionContext + 16);
+  dword_140404A18 = *(_DWORD *)(RegionContext + 24);
+  xmmword_140404A38 = *(_OWORD *)v7;
+  qword_140404A48 = *(_QWORD *)(v7 + 16);
+  dword_140404A50 = *(_DWORD *)(v7 + 24);
   BgpFwFreeMemory(RegionContext);
   BgpFwFreeMemory(v8);
   AnFwpDisableProgressTimer();
@@ -116,13 +116,13 @@ __int64 AnFwDisplayFade()
   BitsPerPixel = BgpGetBitsPerPixel();
   v9 = BitsPerPixel;
   LogFwStat(1LL, 5LL, 0LL);
-  if ( !qword_140405B18 )
+  if ( !qword_140406B18 )
   {
     v37 = 1;
     goto LABEL_13;
   }
   v37 = 0;
-  v10 = BgpGxParseBitmap((__int64)qword_140405B18, &v39);
+  v10 = BgpGxParseBitmap((__int64)qword_140406B18, &v39);
   v1 = v39;
   SubRectangle = v10;
   if ( v10 < 0 )
@@ -163,28 +163,28 @@ LABEL_69:
   }
 LABEL_10:
   v13 = BgpGxRectangleSize(*v1, v1[1], v9);
-  v14 = qword_140405B2C + dword_140405B34;
-  v15 = HIDWORD(qword_140405B2C) + dword_140405B38;
-  v16 = xmmword_140403A00 + DWORD2(xmmword_140403A00);
+  v14 = qword_140406B2C + dword_140406B34;
+  v15 = HIDWORD(qword_140406B2C) + dword_140406B38;
+  v16 = xmmword_140404A00 + DWORD2(xmmword_140404A00);
   v5 += ((v13 + 15) & 0xFFFFFFF0) + 32 + 2 * (((v13 + 15) & 0xFFFFFFF0) + 32);
-  v17 = DWORD1(xmmword_140403A00) + HIDWORD(xmmword_140403A00);
-  if ( (unsigned int)xmmword_140403A00 <= (int)qword_140405B2C + dword_140405B34
-    && (unsigned int)xmmword_140403A00 >= (unsigned int)qword_140405B2C
-    && DWORD1(xmmword_140403A00) >= HIDWORD(qword_140405B2C)
-    && DWORD1(xmmword_140403A00) <= v15 )
+  v17 = DWORD1(xmmword_140404A00) + HIDWORD(xmmword_140404A00);
+  if ( (unsigned int)xmmword_140404A00 <= (int)qword_140406B2C + dword_140406B34
+    && (unsigned int)xmmword_140404A00 >= (unsigned int)qword_140406B2C
+    && DWORD1(xmmword_140404A00) >= HIDWORD(qword_140406B2C)
+    && DWORD1(xmmword_140404A00) <= v15 )
   {
-    if ( v16 < (unsigned int)qword_140405B2C || v16 > v14 || v17 < HIDWORD(qword_140405B2C) || v17 > v15 )
+    if ( v16 < (unsigned int)qword_140406B2C || v16 > v14 || v17 < HIDWORD(qword_140406B2C) || v17 > v15 )
       goto LABEL_51;
     v34 = 1;
   }
-  v18 = xmmword_140403A38 + DWORD2(xmmword_140403A38);
-  v19 = DWORD1(xmmword_140403A38) + HIDWORD(xmmword_140403A38);
-  if ( (unsigned int)xmmword_140403A38 >= (unsigned int)qword_140405B2C
-    && (unsigned int)xmmword_140403A38 <= v14
-    && DWORD1(xmmword_140403A38) >= HIDWORD(qword_140405B2C)
-    && DWORD1(xmmword_140403A38) <= v15 )
+  v18 = xmmword_140404A38 + DWORD2(xmmword_140404A38);
+  v19 = DWORD1(xmmword_140404A38) + HIDWORD(xmmword_140404A38);
+  if ( (unsigned int)xmmword_140404A38 >= (unsigned int)qword_140406B2C
+    && (unsigned int)xmmword_140404A38 <= v14
+    && DWORD1(xmmword_140404A38) >= HIDWORD(qword_140406B2C)
+    && DWORD1(xmmword_140404A38) <= v15 )
   {
-    if ( v18 >= (unsigned int)qword_140405B2C && v18 <= v14 && v19 >= HIDWORD(qword_140405B2C) && v19 <= v15 )
+    if ( v18 >= (unsigned int)qword_140406B2C && v18 <= v14 && v19 >= HIDWORD(qword_140406B2C) && v19 <= v15 )
     {
       v35 = 1;
       goto LABEL_12;
@@ -197,7 +197,7 @@ LABEL_12:
   if ( !v34 )
   {
 LABEL_13:
-    Rectangle = BgpGxReadRectangle(v40, (__int64)&xmmword_140403A00);
+    Rectangle = BgpGxReadRectangle(v40, (__int64)&xmmword_140404A00);
     v0 = v40[0];
     SubRectangle = Rectangle;
     if ( Rectangle < 0 )
@@ -210,7 +210,7 @@ LABEL_13:
   }
   if ( !v35 )
   {
-    v24 = BgpGxReadRectangle(&v42, (__int64)&xmmword_140403A38);
+    v24 = BgpGxReadRectangle(&v42, (__int64)&xmmword_140404A38);
     v2 = v42;
     SubRectangle = v24;
     if ( v24 < 0 )
@@ -218,14 +218,14 @@ LABEL_13:
     v25 = BgpGxRectangleSize(*v42, v42[1], BitsPerPixel);
     v5 += 2 * (((v25 + 15) & 0xFFFFFFF0) + 32) + ((v25 + 15) & 0xFFFFFFF0) + 32;
   }
-  v26 = qword_140405B2C;
-  v27 = HIDWORD(qword_140405C50);
-  v42 = (int *)qword_140405B2C;
+  v26 = qword_140406B2C;
+  v27 = HIDWORD(qword_140406C50);
+  v42 = (int *)qword_140406B2C;
   if ( !v37 )
   {
     SubRectangle = BgpGxFindSubRectangle(
                      (_DWORD)v1,
-                     HIDWORD(qword_140405C50),
+                     HIDWORD(qword_140406C50),
                      (unsigned int)v40,
                      (unsigned int)&v39,
                      (__int64)&v36);
@@ -264,8 +264,8 @@ LABEL_13:
       else
       {
         v43 = (_DWORD *)v40[0];
-        LODWORD(xmmword_140403A00) = (_DWORD)v39 + xmmword_140403A00;
-        DWORD1(xmmword_140403A00) += HIDWORD(v39);
+        LODWORD(xmmword_140404A00) = (_DWORD)v39 + xmmword_140404A00;
+        DWORD1(xmmword_140404A00) += HIDWORD(v39);
       }
     }
   }
@@ -284,8 +284,8 @@ LABEL_13:
       }
       else
       {
-        LODWORD(xmmword_140403A38) = (_DWORD)v39 + xmmword_140403A38;
-        DWORD1(xmmword_140403A38) += HIDWORD(v39);
+        LODWORD(xmmword_140404A38) = (_DWORD)v39 + xmmword_140404A38;
+        DWORD1(xmmword_140404A38) += HIDWORD(v39);
         v2 = (int *)v40[0];
       }
     }
@@ -322,26 +322,26 @@ LABEL_13:
     memset(*(void **)(v44 + 24), 0, *(unsigned int *)(v44 + 12));
 LABEL_35:
     LogFwStat(0LL, 5LL, 0LL);
-    dword_1404039E4 = 0;
-    byte_1404039F0 = v34;
-    byte_1404039F1 = v35;
-    byte_1404039F2 = v37;
-    qword_140403A20 = v45;
-    qword_140403A30 = v46;
-    qword_140403A60 = v44;
-    dword_1404039E0 = 100;
-    qword_1404039E8 = v26;
-    qword_1404039F8 = v0;
-    qword_140403A28 = (__int64)v1;
-    qword_140403A58 = (__int64)v2;
-    KeResetEvent(&stru_1404DBDD0);
+    dword_1404049E4 = 0;
+    byte_1404049F0 = v34;
+    byte_1404049F1 = v35;
+    byte_1404049F2 = v37;
+    qword_140404A20 = v45;
+    qword_140404A30 = v46;
+    qword_140404A60 = v44;
+    dword_1404049E0 = 100;
+    qword_1404049E8 = v26;
+    qword_1404049F8 = v0;
+    qword_140404A28 = (__int64)v1;
+    qword_140404A58 = (__int64)v2;
+    KeResetEvent(&stru_1404DCE90);
     KeInitializeTimerEx(&Timer, NotificationTimer);
-    KeInitializeDpc(&stru_1404DBD10, AnFwpFadeAnimationTimer, 0LL);
-    byte_1404C64E1 = 1;
+    KeInitializeDpc(&stru_1404DCDD0, AnFwpFadeAnimationTimer, 0LL);
+    byte_1404C75A1 = 1;
     LogFwStat(1LL, 7LL, 0LL);
-    KeSetCoalescableTimer(&Timer, 0LL, 0x1Eu, 0, &stru_1404DBD10);
-    dword_140405AD0 |= 0x2000u;
-    dword_140405AEC = v5;
+    KeSetCoalescableTimer(&Timer, 0LL, 0x1Eu, 0, &stru_1404DCDD0);
+    dword_140406AD0 |= 0x2000u;
+    dword_140406AEC = v5;
   }
 LABEL_36:
   if ( v38 )

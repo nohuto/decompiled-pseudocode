@@ -1,7 +1,7 @@
 /*
- * XREFs of XSaveSHelper @ 0x1401C6400
+ * XREFs of XSaveSHelper @ 0x1401C6560
  * Callers:
- *     RtlXSaveS @ 0x140141D20 (RtlXSaveS.c)
+ *     RtlXSaveS @ 0x140141E20 (RtlXSaveS.c)
  * Callees:
  *     <none>
  */

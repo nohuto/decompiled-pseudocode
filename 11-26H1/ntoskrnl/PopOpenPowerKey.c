@@ -1,15 +1,16 @@
 /*
- * XREFs of PopOpenPowerKey @ 0x1404E7CA4
+ * XREFs of PopOpenPowerKey @ 0x1404E1064
  * Callers:
- *     PoGetLightestSystemStateForEject @ 0x1407C89C8 (PoGetLightestSystemStateForEject.c)
- *     PopResetCurrentPolicies @ 0x140943130 (PopResetCurrentPolicies.c)
- *     PopEnableHiberFile @ 0x14094353C (PopEnableHiberFile.c)
- *     PopApplyPolicy @ 0x140944018 (PopApplyPolicy.c)
- *     PopReadSystemAwayModePolicy @ 0x140A36FA8 (PopReadSystemAwayModePolicy.c)
- *     PopDiagTraceHiberStats @ 0x140AF5348 (PopDiagTraceHiberStats.c)
- *     PopReadHiberbootPolicy @ 0x140B222E0 (PopReadHiberbootPolicy.c)
+ *     PoGetLightestSystemStateForEject @ 0x1407CBA68 (PoGetLightestSystemStateForEject.c)
+ *     PopBatteryTestExemptPolicyRegKeyAccess @ 0x1407DB50C (PopBatteryTestExemptPolicyRegKeyAccess.c)
+ *     PopResetCurrentPolicies @ 0x1409BEAA8 (PopResetCurrentPolicies.c)
+ *     PopEnableHiberFile @ 0x1409BEEB4 (PopEnableHiberFile.c)
+ *     PopApplyPolicy @ 0x1409BF988 (PopApplyPolicy.c)
+ *     PopReadSystemAwayModePolicy @ 0x1409F2B60 (PopReadSystemAwayModePolicy.c)
+ *     PopDiagTraceHiberStats @ 0x140AF79E8 (PopDiagTraceHiberStats.c)
+ *     PopReadHiberbootPolicy @ 0x140B246E0 (PopReadHiberbootPolicy.c)
  * Callees:
- *     PopOpenKey @ 0x1404E7CC0 (PopOpenKey.c)
+ *     PopOpenKey @ 0x1404E1080 (PopOpenKey.c)
  */
 
 __int64 __fastcall PopOpenPowerKey(__int64 a1)

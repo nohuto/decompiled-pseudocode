@@ -1,10 +1,10 @@
 /*
- * XREFs of KiValidateCpuSetMasks @ 0x140117A94
+ * XREFs of KiValidateCpuSetMasks @ 0x140117B04
  * Callers:
- *     KeSetSystemAllowedCpuSets @ 0x14011499C (KeSetSystemAllowedCpuSets.c)
- *     KeSetCpuSetsProcess @ 0x14018C654 (KeSetCpuSetsProcess.c)
- *     KeSetSelectedCpuSetsThread @ 0x140296A80 (KeSetSelectedCpuSetsThread.c)
- *     KeSetTagCpuSets @ 0x140296DE8 (KeSetTagCpuSets.c)
+ *     KeSetSystemAllowedCpuSets @ 0x140114A0C (KeSetSystemAllowedCpuSets.c)
+ *     KeSetCpuSetsProcess @ 0x14018C794 (KeSetCpuSetsProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140296C70 (KeSetSelectedCpuSetsThread.c)
+ *     KeSetTagCpuSets @ 0x140296FD8 (KeSetTagCpuSets.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall KiValidateCpuSetMasks(char *a1, unsigned int a2)
     v2 = 0;
     if ( !a2 )
       return 0LL;
-    v4 = (char *)qword_1405416A8 - a1;
+    v4 = (char *)qword_1405426A8 - a1;
     while ( (~*(_QWORD *)&a1[v4] & *(_QWORD *)a1) == 0LL )
     {
       ++v2;

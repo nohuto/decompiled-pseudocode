@@ -59,7 +59,7 @@ __int64 __fastcall MmCreateKernelStack(int *a1)
   int v28; // ecx
   __int64 v29; // rax
   bool v30; // zf
-  union _SLIST_HEADER *v31; // rax
+  _SLIST_HEADER *v31; // rax
   PSLIST_ENTRY v32; // rax
   ULONG_PTR Next; // r9
   ULONG_PTR v34; // r12
@@ -86,7 +86,7 @@ __int64 __fastcall MmCreateKernelStack(int *a1)
   char *v55; // rcx
   void *v56; // rcx
   __int64 v57; // [rsp+30h] [rbp-B8h]
-  union _SLIST_HEADER *ListHead; // [rsp+38h] [rbp-B0h]
+  _SLIST_HEADER *ListHead; // [rsp+38h] [rbp-B0h]
   PSLIST_HEADER ListHeada; // [rsp+38h] [rbp-B0h]
   char v60; // [rsp+40h] [rbp-A8h] BYREF
   __int128 v61; // [rsp+50h] [rbp-98h] BYREF
@@ -266,7 +266,7 @@ LABEL_42:
         {
           v29 = 48 * (v26 + 319LL);
           v30 = v8 + v29 == 0;
-          v31 = (union _SLIST_HEADER *)(v8 + v29);
+          v31 = (_SLIST_HEADER *)(v8 + v29);
           ListHead = v31;
           if ( !v30 )
           {

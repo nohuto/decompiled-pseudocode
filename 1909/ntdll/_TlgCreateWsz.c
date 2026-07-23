@@ -21,7 +21,7 @@ void __stdcall TlgCreateWsz(PEVENT_DATA_DESCRIPTOR pDesc, LPCWSTR pwsz)
   }
   pDesc->Reserved = 0;
   if ( !pwsz )
-    pwsz = (LPCWSTR)&unk_18011C2FC;
+    pwsz = &word_18011C2FC;
   pDesc->Ptr = (unsigned __int64)pwsz;
   pDesc->Size = 2 * v2 + 2;
 }

@@ -15,9 +15,9 @@
  *     IsRegistryKeyLocked @ 0x14083A2B4 (IsRegistryKeyLocked.c)
  */
 
-NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
+NTSTATUS __cdecl NtLockProductActivationKeys(ULONG *pPrivateVer, ULONG *pSafeMode)
 {
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   __int16 v4; // r8
   unsigned __int64 i; // rdx
   __int16 v6; // cx
@@ -28,29 +28,28 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   int v11; // r14d
   unsigned __int64 v12; // r11
   NTSTATUS result; // eax
-  int v14; // edi
+  NTSTATUS v14; // edi
   ULONG v15; // r14d
   NTSTATUS k; // eax
   NTSTATUS v17; // esi
   NTSTATUS v18; // eax
-  __int64 v19; // rdx
-  int v20; // esi
-  __int64 v21; // rcx
-  char v22[4]; // [rsp+30h] [rbp-908h] BYREF
+  NTSTATUS v19; // esi
+  __int64 v20; // rcx
+  char v21[4]; // [rsp+30h] [rbp-908h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-904h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-900h] BYREF
   HANDLE KeyHandle; // [rsp+40h] [rbp-8F8h] BYREF
-  OBJECT_ATTRIBUTES v26; // [rsp+48h] [rbp-8F0h] BYREF
+  OBJECT_ATTRIBUTES v25; // [rsp+48h] [rbp-8F0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-8C0h] BYREF
-  UNICODE_STRING v28; // [rsp+88h] [rbp-8B0h] BYREF
+  UNICODE_STRING v27; // [rsp+88h] [rbp-8B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-8A0h] BYREF
   WCHAR SourceString[8]; // [rsp+C8h] [rbp-870h] BYREF
-  __int128 v31; // [rsp+D8h] [rbp-860h]
-  __int128 v32; // [rsp+E8h] [rbp-850h]
-  __int64 v33; // [rsp+F8h] [rbp-840h]
-  int v34; // [rsp+100h] [rbp-838h]
+  __int128 v30; // [rsp+D8h] [rbp-860h]
+  __int128 v31; // [rsp+E8h] [rbp-850h]
+  __int64 v32; // [rsp+F8h] [rbp-840h]
+  int v33; // [rsp+100h] [rbp-838h]
   _BYTE KeyInformation[12]; // [rsp+110h] [rbp-828h] BYREF
-  unsigned int v36; // [rsp+11Ch] [rbp-81Ch]
+  unsigned int v35; // [rsp+11Ch] [rbp-81Ch]
   wchar_t Src[504]; // [rsp+120h] [rbp-818h] BYREF
   wchar_t Dst[512]; // [rsp+510h] [rbp-428h] BYREF
 
@@ -61,10 +60,10 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   KeyHandle = 0LL;
   ResultLength = 0;
   *(_OWORD *)SourceString = xmmword_140020810;
-  v31 = xmmword_140020820;
-  v32 = xmmword_140020830;
-  v33 = 0x2C7EFB57828734DALL;
-  v34 = 593434642;
+  v30 = xmmword_140020820;
+  v31 = xmmword_140020830;
+  v32 = 0x2C7EFB57828734DALL;
+  v33 = 593434642;
   v4 = -21647;
   for ( i = 0LL; i < 0x1E; ++i )
   {
@@ -95,18 +94,18 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   RtlInitUnicodeString(&DestinationString, SourceString);
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( a2 )
+    if ( pSafeMode )
     {
-      v21 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-        v21 = (__int64)a2;
-      *(_DWORD *)v21 = *(_DWORD *)v21;
-      *a2 = InitSafeBootMode;
+      v20 = 0x7FFFFFFF0000LL;
+      if ( (unsigned __int64)pSafeMode < 0x7FFFFFFF0000LL )
+        v20 = (__int64)pSafeMode;
+      *(_DWORD *)v20 = *(_DWORD *)v20;
+      *pSafeMode = InitSafeBootMode;
     }
   }
-  else if ( a2 )
+  else if ( pSafeMode )
   {
-    *a2 = InitSafeBootMode;
+    *pSafeMode = InitSafeBootMode;
   }
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -125,44 +124,44 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
       v17 = k;
       if ( k == -2147483622 )
         break;
-      v28 = 0LL;
-      memset(&v26, 0, 44);
+      v27 = 0LL;
+      memset(&v25, 0, 44);
       Handle = 0LL;
       if ( k < 0 )
       {
         v14 = k;
         break;
       }
-      if ( v36 + 64 > 0x400 )
+      if ( v35 + 64 > 0x400 )
       {
         v14 = -1073741801;
       }
       else
       {
         wcscpy_s(Dst, 0x200uLL, SourceString);
-        wcsncat_s(Dst, 0x200uLL, Src, (unsigned __int64)v36 >> 1);
+        wcsncat_s(Dst, 0x200uLL, Src, (unsigned __int64)v35 >> 1);
         wcscat_s(Dst, 0x200uLL, L"\\");
-        RtlInitUnicodeString(&v28, Dst);
-        v26.Length = 48;
-        v26.RootDirectory = 0LL;
-        v26.Attributes = 576;
-        v26.ObjectName = &v28;
-        *(_OWORD *)&v26.SecurityDescriptor = 0LL;
-        v18 = ZwOpenKey(&Handle, 0x20019u, &v26);
+        RtlInitUnicodeString(&v27, Dst);
+        v25.Length = 48;
+        v25.RootDirectory = 0LL;
+        v25.Attributes = 576;
+        v25.ObjectName = &v27;
+        *(_OWORD *)&v25.SecurityDescriptor = 0LL;
+        v18 = ZwOpenKey(&Handle, 0x20019u, &v25);
         if ( v18 < 0 )
         {
           v14 = v18;
         }
         else
         {
-          v22[0] = 0;
-          v20 = IsRegistryKeyLocked(Handle, v22);
-          if ( v20 >= 0 && !v22[0] )
-            v20 = ZwLockRegistryKey((__int64)Handle, v19);
+          v21[0] = 0;
+          v19 = IsRegistryKeyLocked(Handle, v21);
+          if ( v19 >= 0 && !v21[0] )
+            v19 = ZwLockRegistryKey(Handle);
           ZwClose(Handle);
-          if ( v20 >= 0 )
-            v20 = v14;
-          v14 = v20;
+          if ( v19 >= 0 )
+            v19 = v14;
+          v14 = v19;
         }
         ++v15;
       }

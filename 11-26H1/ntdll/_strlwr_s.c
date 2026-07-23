@@ -1,10 +1,10 @@
 /*
- * XREFs of _strlwr_s @ 0x180128870
+ * XREFs of _strlwr_s @ 0x1801285E0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     strnlen @ 0x18012CA80 (strnlen.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     strnlen @ 0x18012C7F0 (strnlen.c)
  */
 
 errno_t __cdecl strlwr_s(char *String, size_t Size)

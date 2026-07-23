@@ -1,12 +1,12 @@
 /*
- * XREFs of KIsUnlockSettingEnabled @ 0x1406B7BD8
+ * XREFs of KIsUnlockSettingEnabled @ 0x1406170E8
  * Callers:
- *     ExQueryFastCacheDevLicense @ 0x1406B7B70 (ExQueryFastCacheDevLicense.c)
+ *     ExQueryFastCacheDevLicense @ 0x140617080 (ExQueryFastCacheDevLicense.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x1402C9DF8 (CmIsStateSeparationEnabled.c)
- *     AppModelFreeUnicodeString @ 0x1402C9E0C (AppModelFreeUnicodeString.c)
- *     KGetUnlockSetting @ 0x1406B7CE8 (KGetUnlockSetting.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1406BC0F0 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     CmIsStateSeparationEnabled @ 0x1402486E8 (CmIsStateSeparationEnabled.c)
+ *     AppModelFreeUnicodeString @ 0x1402486FC (AppModelFreeUnicodeString.c)
+ *     KGetUnlockSetting @ 0x1406171F8 (KGetUnlockSetting.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x14061B258 (KGetAppModelStateSeparatedRegKeyPath.c)
  */
 
 __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
@@ -14,8 +14,8 @@ __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
   int v4; // ebx
   _QWORD v6[2]; // [rsp+20h] [rbp-40h] BYREF
   _QWORD v7[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v8; // [rsp+40h] [rbp-20h] BYREF
-  __int128 v9; // [rsp+50h] [rbp-10h] BYREF
+  UNICODE_STRING v8; // [rsp+40h] [rbp-20h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
 
   v7[0] = 9830548LL;
   v6[0] = 7733364LL;
@@ -23,18 +23,24 @@ __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
   *a2 = 0xFFFF;
   v7[1] = L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock";
   v8 = 0LL;
-  v9 = 0LL;
-  v4 = KGetAppModelStateSeparatedRegKeyPath(L"AppxPolicies");
+  DestinationString = 0LL;
+  v4 = KGetAppModelStateSeparatedRegKeyPath(
+         L"AppxPolicies",
+         L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx",
+         &DestinationString);
   if ( v4 >= 0 )
   {
-    v4 = KGetUnlockSetting(&v9, a1, a2);
+    v4 = KGetUnlockSetting(&DestinationString, a1, a2);
     if ( v4 >= 0 )
     {
       if ( CmIsStateSeparationEnabled() && *a2 == 0xFFFF )
         v4 = KGetUnlockSetting(v6, a1, a2);
       if ( v4 >= 0 && *a2 == 0xFFFF )
       {
-        v4 = KGetAppModelStateSeparatedRegKeyPath(L"AppModelUnlock");
+        v4 = KGetAppModelStateSeparatedRegKeyPath(
+               L"AppModelUnlock",
+               L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock",
+               &v8);
         if ( v4 >= 0 )
         {
           v4 = KGetUnlockSetting(&v8, a1, a2);
@@ -45,6 +51,6 @@ __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
     }
   }
   AppModelFreeUnicodeString((__int64)&v8);
-  AppModelFreeUnicodeString((__int64)&v9);
+  AppModelFreeUnicodeString((__int64)&DestinationString);
   return (unsigned int)v4;
 }

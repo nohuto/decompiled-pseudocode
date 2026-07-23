@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWnfCaptureScopeInstanceId @ 0x1409ECF70
+ * XREFs of ExpWnfCaptureScopeInstanceId @ 0x1409E62A0
  * Callers:
- *     ExpNtDeleteWnfStateData @ 0x1407BF7A8 (ExpNtDeleteWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x140AE3050 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407BFBF8 (ExpNtDeleteWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x140AE4930 (NtQueryWnfStateNameInformation.c)
  * Callees:
- *     PsGetSessionById @ 0x140349430 (PsGetSessionById.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeCaptureSid @ 0x140864EF8 (SeCaptureSid.c)
+ *     PsGetSessionById @ 0x1403C2E70 (PsGetSessionById.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeCaptureSid @ 0x140869508 (SeCaptureSid.c)
  */
 
 __int64 __fastcall ExpWnfCaptureScopeInstanceId(int a1, _BYTE *a2, __int64 a3, __int64 a4, __int64 a5)

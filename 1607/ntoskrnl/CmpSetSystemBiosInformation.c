@@ -3,18 +3,18 @@
  * Callers:
  *     CmpInitializeMachineDependentConfiguration @ 0x1407AC8B4 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwMapViewOfSection @ 0x14015A180 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14015A1C0 (ZwUnmapViewOfSection.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwMapViewOfSection @ 0x14015A6F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x14015A730 (ZwUnmapViewOfSection.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
  *     CmpGetBiosVersion @ 0x1407AD364 (CmpGetBiosVersion.c)
  *     CmpGetBiosDate @ 0x1407AD538 (CmpGetBiosDate.c)
  *     CmpGetAcpiBiosVersion @ 0x1407AD738 (CmpGetAcpiBiosVersion.c)
@@ -41,12 +41,12 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
   UNICODE_STRING ValueName; // [rsp+68h] [rbp-98h] BYREF
   LARGE_INTEGER SectionOffset; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING String2; // [rsp+80h] [rbp-80h] BYREF
-  STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
+  _STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
   ULONG_PTR ViewSize; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v24; // [rsp+A8h] [rbp-58h]
   PVOID Data; // [rsp+B0h] [rbp-50h]
   HANDLE KeyHandle; // [rsp+B8h] [rbp-48h]
-  char SourceString[128]; // [rsp+C0h] [rbp-40h] BYREF
+  CHAR SourceString[128]; // [rsp+C0h] [rbp-40h] BYREF
 
   v24 = a1;
   KeyHandle = a3;

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInsertChildVads @ 0x14085E6F0
+ * XREFs of MiInsertChildVads @ 0x14085F950
  * Callers:
- *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x14085EC58 (MiAllocateChildVads.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -9,13 +9,13 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiGetWsAndInsertVad @ 0x140063E20 (MiGetWsAndInsertVad.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiUpControlAreaRefs @ 0x1402A3450 (MiUpControlAreaRefs.c)
- *     MiCommitPageTableRangesForVad @ 0x1402BA15C (MiCommitPageTableRangesForVad.c)
- *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
- *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
+ *     MiGetWsAndInsertVad @ 0x140063E10 (MiGetWsAndInsertVad.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiUpControlAreaRefs @ 0x1402A3640 (MiUpControlAreaRefs.c)
+ *     MiCommitPageTableRangesForVad @ 0x1402BA34C (MiCommitPageTableRangesForVad.c)
+ *     MiInsertVadCharges @ 0x1405F2E60 (MiInsertVadCharges.c)
+ *     MiDeletePartialCloneVads @ 0x14085F728 (MiDeletePartialCloneVads.c)
  */
 
 __int64 __fastcall MiInsertChildVads(__int64 a1, __int64 a2)
@@ -87,12 +87,12 @@ LABEL_22:
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->SpecialApcDisable;
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140438BD0, 0LL);
+          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140439C90, 0LL);
           v14 = *(_QWORD *)(***(_QWORD ***)(v5 + 72) + 32LL);
           ++*(_DWORD *)(v14 + 8);
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140438BD0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140438BD0);
-          KeAbPostRelease((ULONG_PTR)&qword_140438BD0);
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140439C90, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140439C90);
+          KeAbPostRelease((ULONG_PTR)&qword_140439C90);
           KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
         }
       }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDIrpAfterSx @ 0x1403D9F9C
+ * XREFs of PopDiagTraceDIrpAfterSx @ 0x1403CC400
  * Callers:
- *     PoHandleIrp @ 0x1403D99EC (PoHandleIrp.c)
+ *     PoHandleIrp @ 0x1403CBD64 (PoHandleIrp.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     RtlStringCbCopyNW @ 0x1403D9E84 (RtlStringCbCopyNW.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     RtlStringCbCopyNW @ 0x1403CC204 (RtlStringCbCopyNW.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
@@ -37,10 +37,10 @@ char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
   v6 = pszDest;
   if ( v5 < 0 )
     v6 = (wchar_t *)&SourceString;
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
-    if ( (qword_140E07700 & 0x400000000000LL) == 0
-      || (LOBYTE(v5) = 1, (qword_140E07708 & 0x400000000000LL) != qword_140E07708) )
+    if ( (qword_140E07690 & 0x400000000000LL) == 0
+      || (LOBYTE(v5) = 1, (qword_140E07698 & 0x400000000000LL) != qword_140E07698) )
     {
       LOBYTE(v5) = 0;
     }
@@ -53,7 +53,7 @@ char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
       v12 = 0x1000000LL;
       v15 = &v12;
       v16 = 8LL;
-      LOBYTE(v5) = tlgWriteEx_EtwWriteEx((int)&dword_140E076F0, (int)&byte_14004AC40, v7, 1, v9, v10, 5u, (__int64)v13);
+      LOBYTE(v5) = tlgWriteEx_EtwWriteEx((int)&dword_140E07680, (int)&byte_14004B82B, v7, 1, v9, v10, 5u, (__int64)v13);
     }
   }
   return v5;

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeNewImageSectionProtos @ 0x140356D90
+ * XREFs of MiInitializeNewImageSectionProtos @ 0x140356F30
  * Callers:
- *     MiSectionCreated @ 0x140287B34 (MiSectionCreated.c)
+ *     MiSectionCreated @ 0x140287DC4 (MiSectionCreated.c)
  * Callees:
  *     MiReturnPfnReferenceCount @ 0x14020DC40 (MiReturnPfnReferenceCount.c)
  *     MiLockLeafPage @ 0x140218410 (MiLockLeafPage.c)
  *     MiInitializeTransitionPfn @ 0x14021AF58 (MiInitializeTransitionPfn.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiReferenceControlAreaPfn @ 0x14025B320 (MiReferenceControlAreaPfn.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPageForce @ 0x1402DDFD4 (MiLockProtoPoolPageForce.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiReferenceControlAreaPfn @ 0x14025B5B0 (MiReferenceControlAreaPfn.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPageForce @ 0x1402DE264 (MiLockProtoPoolPageForce.c)
  */
 
 void __fastcall MiInitializeNewImageSectionProtos(__int64 a1, __int64 *a2)

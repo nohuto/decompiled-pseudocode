@@ -1,13 +1,13 @@
 /*
- * XREFs of IoSetActivityIdIrp @ 0x140454CF0
+ * XREFs of IoSetActivityIdIrp @ 0x140449B90
  * Callers:
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     IoMakeAssociatedIrpPriv @ 0x140374CE8 (IoMakeAssociatedIrpPriv.c)
- *     IopInitActivityIdIrp @ 0x140454AF0 (IopInitActivityIdIrp.c)
+ *     IoMakeAssociatedIrpPriv @ 0x14025D5A8 (IoMakeAssociatedIrpPriv.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
+ *     IopInitActivityIdIrp @ 0x140449990 (IopInitActivityIdIrp.c)
  * Callees:
- *     IopFreeIrpExtension @ 0x14031B360 (IopFreeIrpExtension.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IopFreeIrpExtension @ 0x1402C3EF0 (IopFreeIrpExtension.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IoSetActivityIdIrp(__int64 a1, _OWORD *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall IoSetActivityIdIrp(__int64 a1, _OWORD *a2)
       v4[1] |= 1u;
       goto LABEL_5;
     }
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x58707249u);
     v4 = (_WORD *)Pool2;
     if ( Pool2 )
     {
@@ -59,7 +59,7 @@ LABEL_5:
   }
   else
   {
-    v7 = (_WORD *)ExAllocatePool2(0x40uLL);
+    v7 = (_WORD *)ExAllocatePool2(0x40uLL, 0x50uLL, 0x58707249u);
     v4 = v7;
     if ( v7 )
     {

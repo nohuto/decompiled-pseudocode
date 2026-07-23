@@ -20,7 +20,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
   HANDLE UniqueProcess; // r14
   int v6; // ecx
   int v8; // ecx
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   unsigned __int64 v10; // rax
   int v11; // eax
   __int64 v12; // rdx
@@ -109,7 +109,7 @@ LABEL_16:
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v9 = NtOpenSession(&ClientId, 983043, (__int64)&ObjectAttributes);
+  v9 = NtOpenSession(&ClientId.UniqueProcess, 0xF0003u, &ObjectAttributes);
   if ( v9 >= 0 )
   {
     *(_QWORD *)(a2 + 8) = ClientId.UniqueProcess;

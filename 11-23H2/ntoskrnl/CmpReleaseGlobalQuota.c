@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpReleaseGlobalQuota @ 0x140709928
+ * XREFs of CmpReleaseGlobalQuota @ 0x140709B38
  * Callers:
- *     CmpAllocateForNonPagedHive @ 0x140616510 (CmpAllocateForNonPagedHive.c)
- *     CmpAllocate @ 0x140702F30 (CmpAllocate.c)
- *     HvFreeHivePartial @ 0x1407071A8 (HvFreeHivePartial.c)
- *     HvHiveCleanup @ 0x1407096D0 (HvHiveCleanup.c)
- *     CmpFree @ 0x140709900 (CmpFree.c)
- *     CmpDeleteHive @ 0x14074E6D4 (CmpDeleteHive.c)
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14074F794 (HvpRemapAndEnlistHiveBins.c)
- *     HvpDropPagedBins @ 0x140827034 (HvpDropPagedBins.c)
- *     HvpAllocateNonPagedBin @ 0x140A2A17C (HvpAllocateNonPagedBin.c)
+ *     CmpAllocateForNonPagedHive @ 0x140616A60 (CmpAllocateForNonPagedHive.c)
+ *     CmpAllocate @ 0x140703140 (CmpAllocate.c)
+ *     HvFreeHivePartial @ 0x1407073B8 (HvFreeHivePartial.c)
+ *     HvHiveCleanup @ 0x1407098E0 (HvHiveCleanup.c)
+ *     CmpFree @ 0x140709B10 (CmpFree.c)
+ *     CmpDeleteHive @ 0x14074E8C4 (CmpDeleteHive.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14074F984 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpDropPagedBins @ 0x140827334 (HvpDropPagedBins.c)
+ *     HvpAllocateNonPagedBin @ 0x140A2A42C (HvpAllocateNonPagedBin.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpReleaseGlobalQuota(unsigned int a1)

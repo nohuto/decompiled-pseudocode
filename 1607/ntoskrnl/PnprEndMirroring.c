@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     PnprQuiesce @ 0x1401D05D4 (PnprQuiesce.c)
- *     PnprSwap @ 0x1401D0914 (PnprSwap.c)
+ *     PnprQuiesce @ 0x1401D0400 (PnprQuiesce.c)
+ *     PnprSwap @ 0x1401D0740 (PnprSwap.c)
  *     xHalDpMaskLevelTriggeredInterrupts @ 0x1403D6AF0 (xHalDpMaskLevelTriggeredInterrupts.c)
  *     PnprWakeProcessors @ 0x1403DCEB4 (PnprWakeProcessors.c)
  */

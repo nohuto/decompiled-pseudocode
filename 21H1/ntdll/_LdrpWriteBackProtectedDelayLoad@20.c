@@ -11,45 +11,46 @@
  *     _LdrpUnsuppressAddressTakenIat@12 @ 0x4B3345D2 (_LdrpUnsuppressAddressTakenIat@12.c)
  */
 
-signed __int32 __fastcall LdrpWriteBackProtectedDelayLoad(int a1, int a2, int a3, int a4, int a5)
+void __fastcall LdrpWriteBackProtectedDelayLoad(_RTL_SRWLOCK *a1, char *a2, int a3, int a4, int a5)
 {
   int v5; // esi
-  _DWORD *v7; // eax
+  char *v7; // eax
   int v8; // ecx
-  int v10; // eax
-  char v11; // cl
-  volatile signed __int32 *v12; // [esp+Ch] [ebp-18h]
-  _BYTE v14[4]; // [esp+14h] [ebp-10h] BYREF
-  int v15; // [esp+18h] [ebp-Ch]
-  int v16; // [esp+1Ch] [ebp-8h] BYREF
-  int v17; // [esp+20h] [ebp-4h] BYREF
+  int v9; // eax
+  char v10; // cl
+  _RTL_SRWLOCK *SRWLock; // [esp+Ch] [ebp-18h]
+  ULONG OldProtect; // [esp+14h] [ebp-10h] BYREF
+  int v14; // [esp+18h] [ebp-Ch]
+  PVOID BaseAddress; // [esp+1Ch] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+20h] [ebp-4h] BYREF
 
   v5 = a4;
-  v15 = 4 * a4;
-  v17 = 4 * a4;
-  v16 = a2;
-  v12 = (volatile signed __int32 *)(a1 + 76);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 76));
-  if ( *(_DWORD *)(a2 + 4 * a5) != *(_DWORD *)(a3 + 4 * a5) && (int)ZwProtectVirtualMemory(-1, &v16, &v17, 4, v14) >= 0 )
+  v14 = 4 * a4;
+  LODWORD(RegionSize) = 4 * a4;
+  BaseAddress = a2;
+  SRWLock = a1 + 19;
+  RtlAcquireSRWLockExclusive(a1 + 19);
+  if ( *(_DWORD *)&a2[4 * a5] != *(_DWORD *)(a3 + 4 * a5)
+    && ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 4u, &OldProtect) >= 0 )
   {
     if ( a4 )
     {
-      v7 = (_DWORD *)(a2 + v15);
+      v7 = &a2[v14];
       do
       {
-        --v7;
+        v7 -= 4;
         --v5;
-        v8 = *(_DWORD *)((char *)v7 + a3 - a2);
+        v8 = *(_DWORD *)&v7[a3 - (_DWORD)a2];
         if ( v8 )
-          *v7 = v8;
+          *(_DWORD *)v7 = v8;
       }
       while ( v5 );
     }
-    ZwProtectVirtualMemory(-1, &v16, &v17, 2, v14);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 2u, &OldProtect);
     if ( LdrControlFlowGuardEnforcedWithExportSuppression() )
     {
-      v10 = LdrpUnsuppressAddressTakenIat(a2 + v15 - *(_DWORD *)(a1 + 24) - 4);
-      v11 = ShowSnaps;
+      v9 = LdrpUnsuppressAddressTakenIat(a1[6].Ptr, (int)&a2[v14 - a1[6].Value - 4]);
+      v10 = ShowSnaps;
       if ( (ShowSnaps & 3) != 0 )
       {
         LdrpLogDbgPrint(
@@ -59,13 +60,13 @@ signed __int32 __fastcall LdrpWriteBackProtectedDelayLoad(int a1, int a2, int a3
           0,
           "LdrpWriteBackProtectedDelayLoad:Unable to unsuppress the export suppressed functions that is imported in the D"
           "LL based at 0x%p.Status = 0x%x\n",
-          *(const void **)(a1 + 24),
-          v10);
-        v11 = ShowSnaps;
+          a1[6].Ptr,
+          v9);
+        v10 = ShowSnaps;
       }
-      if ( (v11 & 0x10) != 0 )
+      if ( (v10 & 0x10) != 0 )
         __debugbreak();
     }
   }
-  return RtlReleaseSRWLockExclusive(v12);
+  RtlReleaseSRWLockExclusive(SRWLock);
 }

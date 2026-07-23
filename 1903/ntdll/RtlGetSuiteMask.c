@@ -14,10 +14,10 @@
  *     RtlGetCurrentServiceSessionId @ 0x180040780 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 __fastcall RtlGetSuiteMask(__int64 a1)
+ULONG RtlGetSuiteMask(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1) )
-    return *((unsigned int *)NtCurrentPeb()->HotpatchInformation + 5);
+  if ( RtlGetCurrentServiceSessionId() )
+    return NtCurrentPeb()->SharedData->SuiteMask;
   else
     return MEMORY[0x7FFE02D0];
 }

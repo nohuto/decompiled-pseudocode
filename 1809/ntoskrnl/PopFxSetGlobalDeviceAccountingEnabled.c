@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x1402D9A28
+ * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x1402D9C18
  * Callers:
- *     PopFxPauseDeviceAccounting @ 0x1402D8A1C (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x1402D9498 (PopFxResumeDeviceAccounting.c)
+ *     PopFxPauseDeviceAccounting @ 0x1402D8C0C (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x1402D9688 (PopFxResumeDeviceAccounting.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x1402DA2E0 (PopFxUpdateGlobalDeviceAccountingInfo.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x1402DA4D0 (PopFxUpdateGlobalDeviceAccountingInfo.c)
  */
 
 __int64 __fastcall PopFxSetGlobalDeviceAccountingEnabled(char a1)
@@ -20,15 +20,15 @@ __int64 __fastcall PopFxSetGlobalDeviceAccountingEnabled(char a1)
   if ( a1 )
   {
     if ( PopFxGlobalDeviceAccountingInfo )
-      qword_140418EA8 = MEMORY[0xFFFFF78000000008];
+      qword_140419F88 = MEMORY[0xFFFFF78000000008];
     else
-      *(_QWORD *)&xmmword_140418EC0 = xmmword_140418EC0 + 1;
+      *(_QWORD *)&xmmword_140419FA0 = xmmword_140419FA0 + 1;
   }
   else if ( PopFxGlobalDeviceAccountingInfo )
   {
     PopFxUpdateGlobalDeviceAccountingInfo(MEMORY[0xFFFFF78000000008], 1200000000LL);
   }
-  byte_140418EA1 = a1;
+  byte_140419F81 = a1;
   KxReleaseSpinLock(&PopFxGlobalDeviceAccountingLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )
   {

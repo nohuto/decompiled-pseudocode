@@ -19,8 +19,8 @@ __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
   __int64 v2; // rbp
   unsigned __int64 *v4; // rdi
   KIRQL v5; // r14
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // rsi
+  __int64 v6; // rax
+  __int64 v7; // rsi
   const EVENT_DESCRIPTOR *v8; // rsi
   unsigned int v9; // eax
   unsigned int v10; // ebp
@@ -31,7 +31,7 @@ __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
     return 0LL;
   v4 = (unsigned __int64 *)(a1 + 272);
   v5 = 0;
-  v6 = KeAbPreAcquire(a1 + 272);
+  v6 = KeAbPreAcquire(a1 + 272, 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
     ExfAcquirePushLockExclusiveEx(v4, v6, (__int16 *)v4);

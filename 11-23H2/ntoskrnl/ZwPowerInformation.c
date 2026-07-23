@@ -1,19 +1,19 @@
 /*
- * XREFs of ZwPowerInformation @ 0x14041B940
+ * XREFs of ZwPowerInformation @ 0x14041BCD0
  * Callers:
- *     HalpSetShutdownResetHandler @ 0x140506BE4 (HalpSetShutdownResetHandler.c)
- *     DifZwPowerInformationWrapper @ 0x1405F2F80 (DifZwPowerInformationWrapper.c)
- *     RtlpSystemBootStatusRequest @ 0x1407A658C (RtlpSystemBootStatusRequest.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1407AA01C (PopDisarmIdlePhaseWatchdog.c)
- *     PopInvokeWin32Callout @ 0x1407D38BC (PopInvokeWin32Callout.c)
- *     RtlpRecordBootStatusData @ 0x1407ECB80 (RtlpRecordBootStatusData.c)
- *     PdcPortOpenCommon @ 0x140856118 (PdcPortOpenCommon.c)
- *     RtlCheckSystemBootStatusIntegrity @ 0x14085C2A0 (RtlCheckSystemBootStatusIntegrity.c)
- *     HaliAcpiMachineStateInit @ 0x14085E050 (HaliAcpiMachineStateInit.c)
- *     PopArmIdlePhaseWatchdog @ 0x140883874 (PopArmIdlePhaseWatchdog.c)
- *     PoGetLightestSystemStateForEject @ 0x140980470 (PoGetLightestSystemStateForEject.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x1409AF7E4 (PspRecordCrashedProcessIntoBlackbox.c)
- *     RtlRestoreSystemBootStatusDefaults @ 0x1409BDC70 (RtlRestoreSystemBootStatusDefaults.c)
+ *     HalpSetShutdownResetHandler @ 0x140507134 (HalpSetShutdownResetHandler.c)
+ *     DifZwPowerInformationWrapper @ 0x1405F34F0 (DifZwPowerInformationWrapper.c)
+ *     RtlpSystemBootStatusRequest @ 0x1407A677C (RtlpSystemBootStatusRequest.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1407AA20C (PopDisarmIdlePhaseWatchdog.c)
+ *     PopInvokeWin32Callout @ 0x1407D3B8C (PopInvokeWin32Callout.c)
+ *     RtlpRecordBootStatusData @ 0x1407ECE50 (RtlpRecordBootStatusData.c)
+ *     PdcPortOpenCommon @ 0x140856418 (PdcPortOpenCommon.c)
+ *     RtlCheckSystemBootStatusIntegrity @ 0x14085C4E0 (RtlCheckSystemBootStatusIntegrity.c)
+ *     HaliAcpiMachineStateInit @ 0x14085E290 (HaliAcpiMachineStateInit.c)
+ *     PopArmIdlePhaseWatchdog @ 0x140883AB4 (PopArmIdlePhaseWatchdog.c)
+ *     PoGetLightestSystemStateForEject @ 0x140980670 (PoGetLightestSystemStateForEject.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x1409AF9E4 (PspRecordCrashedProcessIntoBlackbox.c)
+ *     RtlRestoreSystemBootStatusDefaults @ 0x1409BDE70 (RtlRestoreSystemBootStatusDefaults.c)
  *     PopCreateIdlePhaseWatchdog @ 0x140B75398 (PopCreateIdlePhaseWatchdog.c)
  * Callees:
  *     <none>
@@ -29,5 +29,5 @@ NTSTATUS __stdcall ZwPowerInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&InformationLevel, InputBuffer);
+  return KiServiceInternal(*(_QWORD *)&InformationLevel);
 }

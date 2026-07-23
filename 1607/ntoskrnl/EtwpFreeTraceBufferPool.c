@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpFreeTraceBufferPool @ 0x1404936AC
+ * XREFs of EtwpFreeTraceBufferPool @ 0x14049413C
  * Callers:
- *     EtwpStartLogger @ 0x14048EE94 (EtwpStartLogger.c)
- *     EtwpFreeLoggerContext @ 0x140493844 (EtwpFreeLoggerContext.c)
+ *     EtwpStartLogger @ 0x14048F924 (EtwpStartLogger.c)
+ *     EtwpFreeLoggerContext @ 0x1404942D4 (EtwpFreeLoggerContext.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14008560C (EtwpQueryUsedProcessorCount.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     EtwpDequeueBuffer @ 0x1400ED754 (EtwpDequeueBuffer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140086EF8 (EtwpQueryUsedProcessorCount.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     EtwpDequeueBuffer @ 0x1400EB5C4 (EtwpDequeueBuffer.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -105,6 +105,6 @@ LABEL_17:
     *(_QWORD *)(v17 + 8) = v15;
     ExFreePoolWithTag(v16, 0);
   }
-  _InterlockedExchangeAdd(&dword_1402FD834[a1[75] & 1], -(i * a1[1]));
+  _InterlockedExchangeAdd(&dword_1402FD814[a1[75] & 1], -(i * a1[1]));
   return 0LL;
 }

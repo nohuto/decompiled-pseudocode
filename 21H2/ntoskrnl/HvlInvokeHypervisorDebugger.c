@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlInvokeHypervisorDebugger @ 0x1404F1AC0
+ * XREFs of HvlInvokeHypervisorDebugger @ 0x1404F1A40
  * Callers:
- *     KeAccumulateTicks @ 0x140224410 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1402C8D10 (KeAccumulateTicks.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
  */
 
 __int64 HvlInvokeHypervisorDebugger()

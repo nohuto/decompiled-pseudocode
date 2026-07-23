@@ -559,7 +559,7 @@ LABEL_112:
     v100 = (unsigned __int64)&qword_14042BBD0 & 0x3F;
     v130 = (unsigned __int64)&qword_14042BBD0 & 0x3F;
     RtlImageNtHeader((PVOID)0x140000000LL);
-    RtlCaptureImageExceptionValues(0x140000000uLL, &v138, (int)&v127);
+    RtlCaptureImageExceptionValues(0x140000000uLL, (__int64)&v138, (__int64)&v127);
     v101 = v138;
     v102 = 0x140000000uLL;
     LODWORD(v127) = (unsigned int)v127 / 0xC;

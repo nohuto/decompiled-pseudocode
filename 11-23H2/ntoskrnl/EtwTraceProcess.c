@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTraceProcess @ 0x140754EFC
+ * XREFs of EtwTraceProcess @ 0x1407550EC
  * Callers:
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     PspExitProcess @ 0x140751434 (PspExitProcess.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     PspExitProcess @ 0x140751624 (PspExitProcess.c)
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpEnumerateAddressSpace @ 0x1406ADAFC (EtwpEnumerateAddressSpace.c)
- *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x140751958 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
- *     EtwpWriteProcessStarted @ 0x140753B50 (EtwpWriteProcessStarted.c)
- *     EtwpInitStateChangeInfo @ 0x140753DE4 (EtwpInitStateChangeInfo.c)
- *     EtwpWriteAppStateChangeSummary @ 0x140753EA0 (EtwpWriteAppStateChangeSummary.c)
- *     EtwpWriteProcessEvent @ 0x1407550DC (EtwpWriteProcessEvent.c)
- *     EtwpWriteAppStateChange @ 0x1407E3078 (EtwpWriteAppStateChange.c)
- *     EtwpLogProcessPerfCtrs @ 0x1409E6150 (EtwpLogProcessPerfCtrs.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpEnumerateAddressSpace @ 0x1406ADB2C (EtwpEnumerateAddressSpace.c)
+ *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x140751B48 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
+ *     EtwpWriteProcessStarted @ 0x140753D40 (EtwpWriteProcessStarted.c)
+ *     EtwpInitStateChangeInfo @ 0x140753FD4 (EtwpInitStateChangeInfo.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x140754090 (EtwpWriteAppStateChangeSummary.c)
+ *     EtwpWriteProcessEvent @ 0x1407552CC (EtwpWriteProcessEvent.c)
+ *     EtwpWriteAppStateChange @ 0x1407E3348 (EtwpWriteAppStateChange.c)
+ *     EtwpLogProcessPerfCtrs @ 0x1409E63E0 (EtwpLogProcessPerfCtrs.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

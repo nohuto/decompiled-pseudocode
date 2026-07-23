@@ -88,7 +88,7 @@ __int64 __fastcall CcSetDirtyInMask(__int64 a1, __int64 *a2, unsigned int a3, st
   __int64 v49; // rcx
   struct _KTHREAD *v50; // r10
   unsigned __int64 v51; // rcx
-  struct _SLIST_ENTRY *v52; // rax
+  _SLIST_ENTRY *v52; // rax
   __int64 v53; // rax
   __int64 **v54; // rdx
   __int64 *v55; // rcx
@@ -234,7 +234,7 @@ LABEL_24:
     v22 = KeGetCurrentIrql();
     __writecr8(1uLL);
     if ( !_interlockedbittestandreset(v15, 0) )
-      ExpAcquireFastMutexContended(a1 + 280);
+      ExpAcquireFastMutexContended(a1 + 280, (PRTL_BALANCED_NODE)v19);
     if ( v19 )
       *(_BYTE *)(v19 + 26) |= 1u;
     *(_QWORD *)(a1 + 288) = KeGetCurrentThread();
@@ -534,7 +534,7 @@ LABEL_78:
     memset(ListEntry, 0, 0x400uLL);
     if ( *(_DWORD *)(v23 + 80) )
     {
-      v52 = *(struct _SLIST_ENTRY **)(v23 + 88);
+      v52 = *(_SLIST_ENTRY **)(v23 + 88);
       *ListEntry = *v52;
       ListEntry[1] = v52[1];
       ListEntry[2] = v52[2];

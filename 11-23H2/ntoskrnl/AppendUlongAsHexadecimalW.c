@@ -1,9 +1,9 @@
 /*
- * XREFs of AppendUlongAsHexadecimalW @ 0x1405D5498
+ * XREFs of AppendUlongAsHexadecimalW @ 0x1405D5A08
  * Callers:
- *     CarCreateViolationHashString @ 0x1405D555C (CarCreateViolationHashString.c)
+ *     CarCreateViolationHashString @ 0x1405D5ACC (CarCreateViolationHashString.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall AppendUlongAsHexadecimalW(__int64 a1, int a2)

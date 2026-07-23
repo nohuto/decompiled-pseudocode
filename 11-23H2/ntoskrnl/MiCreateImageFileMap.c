@@ -1,7 +1,7 @@
 /*
  * XREFs of MiCreateImageFileMap @ 0x1406A8928
  * Callers:
- *     MiCreateNewSection @ 0x1407464F0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1407466E0 (MiCreateNewSection.c)
  * Callees:
  *     MiInitializeImageHeaderPage @ 0x14020DCA0 (MiInitializeImageHeaderPage.c)
  *     MiLegacyImageArchitecture @ 0x14020EC68 (MiLegacyImageArchitecture.c)
@@ -11,22 +11,22 @@
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
  *     MiInitializeImageProtos @ 0x14021A200 (MiInitializeImageProtos.c)
  *     MiUpdateSystemProtoPtesTree @ 0x14021BF30 (MiUpdateSystemProtoPtesTree.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     CcZeroEndOfLastPage @ 0x1402A22E8 (CcZeroEndOfLastPage.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     PsIsCurrentThreadPrefetching @ 0x1403476A0 (PsIsCurrentThreadPrefetching.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MiEnableImageDirectMap @ 0x14063CC50 (MiEnableImageDirectMap.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     CcZeroEndOfLastPage @ 0x1402A2578 (CcZeroEndOfLastPage.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     PsIsCurrentThreadPrefetching @ 0x140347930 (PsIsCurrentThreadPrefetching.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MiEnableImageDirectMap @ 0x14063D1A0 (MiEnableImageDirectMap.c)
  *     MiDeleteImageCreationMdls @ 0x1406A7448 (MiDeleteImageCreationMdls.c)
  *     MiReadImageHeaders @ 0x1406A79B8 (MiReadImageHeaders.c)
  *     MiCreateMdl @ 0x1406A8F3C (MiCreateMdl.c)
  *     MiVerifyImageHeader @ 0x1406A9074 (MiVerifyImageHeader.c)
  *     MiBuildImageControlArea @ 0x1406A9D30 (MiBuildImageControlArea.c)
  *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     MiLogCreateImageFileMapFailure @ 0x140A2F524 (MiLogCreateImageFileMapFailure.c)
- *     MiAllocateEntireImageFileExtents @ 0x140A32F24 (MiAllocateEntireImageFileExtents.c)
- *     MiDeleteFileExtentList @ 0x140A33E10 (MiDeleteFileExtentList.c)
+ *     MiLogCreateImageFileMapFailure @ 0x140A2F7D4 (MiLogCreateImageFileMapFailure.c)
+ *     MiAllocateEntireImageFileExtents @ 0x140A331D4 (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteFileExtentList @ 0x140A340C0 (MiDeleteFileExtentList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -466,8 +466,8 @@ LABEL_56:
       {
         ImageHeaders = -1073741701;
         MiLogCreateImageFileMapFailure(v34, v37, *(unsigned int *)(v28 + 64), DWORD1(v86));
-        if ( qword_140C37A78 )
-          qword_140C37A78(v37, *(unsigned int *)(a7 + 64), DWORD1(v86));
+        if ( qword_140C37A18 )
+          qword_140C37A18(v37, *(unsigned int *)(a7 + 64), DWORD1(v86));
         dword_140C65810 = 55;
         goto LABEL_94;
       }

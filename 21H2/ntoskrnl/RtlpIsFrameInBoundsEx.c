@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpIsFrameInBoundsEx @ 0x140277828
+ * XREFs of RtlpIsFrameInBoundsEx @ 0x1402657C8
  * Callers:
- *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x14063E6D0 (PspGetSetContextInternal.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x140277230 (KeQueryCurrentStackInformation.c)
- *     KeGetNextKernelStackSegment @ 0x1402E4B28 (KeGetNextKernelStackSegment.c)
+ *     KeQueryCurrentStackInformation @ 0x1402651D0 (KeQueryCurrentStackInformation.c)
+ *     KeGetNextKernelStackSegment @ 0x140295E78 (KeGetNextKernelStackSegment.c)
  */
 
 char __fastcall RtlpIsFrameInBoundsEx(

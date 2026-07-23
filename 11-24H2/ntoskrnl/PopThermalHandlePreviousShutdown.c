@@ -1,21 +1,21 @@
 /*
- * XREFs of PopThermalHandlePreviousShutdown @ 0x14075433C
+ * XREFs of PopThermalHandlePreviousShutdown @ 0x14075265C
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopOpenThermalLoggingKey @ 0x1404C1D4C (PopOpenThermalLoggingKey.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopOpenThermalLoggingKey @ 0x1404BD33C (PopOpenThermalLoggingKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PopThermalHandlePreviousShutdown()
@@ -92,7 +92,7 @@ void PopThermalHandlePreviousShutdown()
       Pool2 = 0LL;
       if ( ZwQueryValueKey(v0, &v12, KeyValuePartialInformation, 0LL, 0, Data) == -1073741789 )
       {
-        Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
+        Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, Data[0] + 2LL, 0x6D726854u);
         if ( Pool2 )
         {
           if ( ZwQueryValueKey(v0, &v12, KeyValuePartialInformation, Pool2, Data[0], Data) >= 0
@@ -116,7 +116,7 @@ void PopThermalHandlePreviousShutdown()
             ZwSetValueKey(v6, &v14, 0, 0xBu, &v11, 8u);
           ZwClose(v6);
         }
-        ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL);
+        ZwUpdateWnfStateData(&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
         if ( (unsigned int)dword_140E07728 > 5 && tlgKeywordOn((__int64)&dword_140E07728, 0x800000000000LL) )
         {
           tlgCreate1Sz_wchar_t((__int64)v19, v4);
@@ -131,7 +131,7 @@ void PopThermalHandlePreviousShutdown()
           v25 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E07728,
-            (unsigned __int8 *)word_14004887A,
+            (unsigned __int8 *)word_140048C7A,
             0LL,
             0LL,
             6u,

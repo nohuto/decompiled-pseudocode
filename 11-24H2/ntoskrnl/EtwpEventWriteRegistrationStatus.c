@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpEventWriteRegistrationStatus @ 0x1407A7600
+ * XREFs of EtwpEventWriteRegistrationStatus @ 0x1407A7740
  * Callers:
- *     EtwpSetProviderTraitsUm @ 0x140836014 (EtwpSetProviderTraitsUm.c)
- *     EtwpSetProviderTraitsKm @ 0x140A889E8 (EtwpSetProviderTraitsKm.c)
+ *     EtwpSetProviderTraitsKm @ 0x1409F66EC (EtwpSetProviderTraitsKm.c)
+ *     EtwpSetProviderTraitsUm @ 0x1409F67DC (EtwpSetProviderTraitsUm.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteRegistrationStatus(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

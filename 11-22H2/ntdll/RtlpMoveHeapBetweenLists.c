@@ -19,12 +19,12 @@ void __fastcall RtlpMoveHeapBetweenLists(__int64 a1, int a2, int a3, int a4)
 {
   int v8; // edi
   int v9; // ebx
-  signed __int32 v10; // edi
-  __int64 DeferredCriticalSectionEvent; // rbx
+  signed __int32 LockCount; // edi
+  void *LockSemaphore; // rbx
   unsigned int v12; // [rsp+48h] [rbp+10h] BYREF
 
   if ( !a4 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   if ( a2 )
   {
     v8 = a2 - 1;
@@ -51,26 +51,29 @@ void __fastcall RtlpMoveHeapBetweenLists(__int64 a1, int a2, int a3, int a4)
       RtlpAddHeapToUnprotectedList(a1);
     }
   }
-  if ( !a4 && !--dword_180182FCC )
+  if ( !a4 && !--RtlpProcessHeapsListLock.RecursionCount )
   {
-    qword_180182FD0 = 0LL;
-    v10 = _InterlockedCompareExchange(&dword_180182FC8, -1, -2);
-    if ( v10 != -2 )
+    RtlpProcessHeapsListLock.OwningThread = 0LL;
+    LockCount = _InterlockedCompareExchange(&RtlpProcessHeapsListLock.LockCount, -1, -2);
+    if ( LockCount != -2 )
     {
-      if ( (dword_180182FC8 & 1) != 0 )
+      if ( (RtlpProcessHeapsListLock.LockCount & 1) != 0 )
         RtlpNotOwnerCriticalSection(&RtlpProcessHeapsListLock);
-      DeferredCriticalSectionEvent = qword_180182FD8;
-      if ( !qword_180182FD8 )
-        DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
+      LockSemaphore = RtlpProcessHeapsListLock.LockSemaphore;
+      if ( !RtlpProcessHeapsListLock.LockSemaphore )
+        LockSemaphore = (void *)RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
       v12 = 0;
-      while ( v10 != _InterlockedCompareExchange(&dword_180182FC8, (v10 & 2 | 1) + v10, v10) )
+      while ( LockCount != _InterlockedCompareExchange(
+                             &RtlpProcessHeapsListLock.LockCount,
+                             (LockCount & 2 | 1) + LockCount,
+                             LockCount) )
       {
         RtlBackoff(&v12);
-        _m_prefetchw(&dword_180182FC8);
-        v10 = dword_180182FC8;
+        _m_prefetchw(&RtlpProcessHeapsListLock.LockCount);
+        LockCount = RtlpProcessHeapsListLock.LockCount;
       }
-      if ( (v10 & 2) != 0 )
-        RtlpUnWaitCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, DeferredCriticalSectionEvent);
+      if ( (LockCount & 2) != 0 )
+        RtlpUnWaitCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, LockSemaphore);
     }
   }
 }

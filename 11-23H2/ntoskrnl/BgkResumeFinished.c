@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkResumeFinished @ 0x140A99A38
+ * XREFs of BgkResumeFinished @ 0x140A998A8
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403ADB80 (BgkNotifyDisplayOwnershipChange.c)
- *     PopFreeHiberContext @ 0x1409885F0 (PopFreeHiberContext.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403ADD60 (BgkNotifyDisplayOwnershipChange.c)
+ *     PopFreeHiberContext @ 0x1409887F0 (PopFreeHiberContext.c)
  * Callees:
  *     BgkpUnlockBgfxCodeSection @ 0x140AEF590 (BgkpUnlockBgfxCodeSection.c)
- *     BgFreeContext @ 0x140AF1228 (BgFreeContext.c)
+ *     BgFreeContext @ 0x140AF1238 (BgFreeContext.c)
  */
 
 __int64 BgkResumeFinished()

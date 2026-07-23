@@ -105,10 +105,13 @@ __int64 __fastcall MmOutSwapProcess(struct _EPROCESS *a1)
     p_Vm->Instance.ExitOutswapGate = (_KGATE *)&v37;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -129,10 +132,10 @@ __int64 __fastcall MmOutSwapProcess(struct _EPROCESS *a1)
 LABEL_56:
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v32 = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_64;
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || (unsigned __int8)result > 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || (unsigned __int8)result > 0xFu )
       goto LABEL_64;
     v33 = LockHandle.OldIrql <= 0xFu;
     goto LABEL_60;
@@ -148,10 +151,10 @@ LABEL_56:
   p_WorkingSetExpansionLinks->Flink = 0LL;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v15 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;
@@ -232,10 +235,10 @@ LABEL_41:
   _InterlockedAnd64((volatile signed __int64 *)(v22 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v32 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)result <= 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)result <= 0xFu )
     {
       v33 = LockHandle.OldIrql <= 0xFu;
 LABEL_60:

@@ -1,8 +1,8 @@
 /*
- * XREFs of PspRequestProcessExecutionState @ 0x140A8B914
+ * XREFs of PspRequestProcessExecutionState @ 0x140A87E04
  * Callers:
- *     PspSetProcessFreezeStateCallback @ 0x1403E3850 (PspSetProcessFreezeStateCallback.c)
- *     PsSwapProcessWorkingSet @ 0x140774624 (PsSwapProcessWorkingSet.c)
+ *     PspSetProcessFreezeStateCallback @ 0x14046B9E0 (PspSetProcessFreezeStateCallback.c)
+ *     PsSwapProcessWorkingSet @ 0x140774844 (PsSwapProcessWorkingSet.c)
  * Callees:
  *     <none>
  */

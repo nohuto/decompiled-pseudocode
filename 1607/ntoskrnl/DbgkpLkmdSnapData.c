@@ -1,8 +1,8 @@
 /*
- * XREFs of DbgkpLkmdSnapData @ 0x1401B75F4
+ * XREFs of DbgkpLkmdSnapData @ 0x1401B74D8
  * Callers:
- *     DbgkCaptureLiveDump @ 0x14061ADEC (DbgkCaptureLiveDump.c)
- *     DbgkpLkmdSnapPendingIrps @ 0x14061B50C (DbgkpLkmdSnapPendingIrps.c)
+ *     DbgkCaptureLiveDump @ 0x14061AEA0 (DbgkCaptureLiveDump.c)
+ *     DbgkpLkmdSnapPendingIrps @ 0x14061B5C0 (DbgkpLkmdSnapPendingIrps.c)
  * Callees:
  *     <none>
  */

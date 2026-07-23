@@ -1,10 +1,10 @@
 /*
- * XREFs of SPCallServerHandleCheckLicense @ 0x1406C8470
+ * XREFs of SPCallServerHandleCheckLicense @ 0x1406C9710
  * Callers:
- *     sub_140685840 @ 0x140685840 (sub_140685840.c)
+ *     sub_140686A00 @ 0x140686A00 (sub_140686A00.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleCheckLicense(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -133,8 +133,8 @@ LABEL_75:
 LABEL_37:
     if ( v13 >= 0 )
     {
-      if ( qword_14096D3F8 )
-        v23 = qword_14096D3F8(v22);
+      if ( qword_14096E3F8 )
+        v23 = qword_14096E3F8(v22);
       else
         v23 = -1073741637;
       v24 = -1;

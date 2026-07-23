@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_1445264698__private_IsEnabledDeviceUsage @ 0x1403F93A4
+ * XREFs of Feature_1445264698__private_IsEnabledDeviceUsage @ 0x1403F9524
  * Callers:
- *     EtwpSetProviderTraitsCommon @ 0x14064323C (EtwpSetProviderTraitsCommon.c)
+ *     EtwpSetProviderTraitsCommon @ 0x14063804C (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     Feature_1445264698__private_IsEnabledFallback @ 0x1403F93DC (Feature_1445264698__private_IsEnabledFallback.c)
+ *     Feature_1445264698__private_IsEnabledFallback @ 0x1403F955C (Feature_1445264698__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_1445264698__private_IsEnabledDeviceUsage()

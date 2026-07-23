@@ -4,31 +4,16 @@
  *     FsRtlMdlReadEx @ 0x1406E4C10 (FsRtlMdlReadEx.c)
  * Callees:
  *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-char __fastcall FsRtlMdlRead(
-        struct _FILE_OBJECT *a1,
-        __int64 a2,
-        unsigned int a3,
-        unsigned int a4,
-        __int64 a5,
-        __int64 a6)
+char __fastcall FsRtlMdlRead(struct _FILE_OBJECT *a1, __int64 a2)
 {
-  PDEVICE_OBJECT RelatedDeviceObject; // rcx
   PFAST_IO_DISPATCH FastIoDispatch; // r11
-  __int64 (__fastcall *MdlRead)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD); // rax
 
-  RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
-  FastIoDispatch = RelatedDeviceObject->DriverObject->FastIoDispatch;
-  if ( FastIoDispatch
-    && FastIoDispatch->SizeOfFastIoDispatch > 0x80
-    && (MdlRead = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))FastIoDispatch->MdlRead) != 0LL )
-  {
-    return MdlRead(a1, a2, a3, a4, a5, a6, RelatedDeviceObject);
-  }
+  FastIoDispatch = IoGetRelatedDeviceObject(a1)->DriverObject->FastIoDispatch;
+  if ( FastIoDispatch && FastIoDispatch->SizeOfFastIoDispatch > 0x80 && FastIoDispatch->MdlRead )
+    return sub_14042A5E0(a1, a2);
   else
-  {
     return 0;
-  }
 }

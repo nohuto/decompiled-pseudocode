@@ -6,8 +6,10 @@
  *     CmUnloadKey @ 0x1406A219C (CmUnloadKey.c)
  */
 
-__int64 __fastcall NtUnloadKeyEx(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtUnloadKeyEx(POBJECT_ATTRIBUTES TargetKey, HANDLE Event)
 {
-  LOBYTE(a3) = 1;
-  return CmUnloadKey(a1, 0LL, a3, a2);
+  char v2; // r8
+
+  v2 = 1;
+  return CmUnloadKey(TargetKey, 0LL, v2, Event);
 }

@@ -27,7 +27,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateFile(
         PHANDLE FileHandle,
         ACCESS_MASK DesiredAccess,
@@ -43,5 +42,5 @@ NTSTATUS __stdcall ZwCreateFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(FileHandle);
 }

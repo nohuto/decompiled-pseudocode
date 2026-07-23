@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrSetDllManifestProber @ 0x1801056B0
+ * XREFs of LdrSetDllManifestProber @ 0x180104F00
  * Callers:
  *     <none>
  * Callees:

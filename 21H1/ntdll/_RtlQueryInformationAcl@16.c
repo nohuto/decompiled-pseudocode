@@ -6,45 +6,49 @@
  *     _RtlFirstFreeAce@8 @ 0x4B2D7F40 (_RtlFirstFreeAce@8.c)
  */
 
-int __stdcall RtlQueryInformationAcl(unsigned __int8 *a1, _DWORD *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlQueryInformationAcl(
+        PACL Acl,
+        PVOID AclInformation,
+        ULONG AclInformationLength,
+        ACL_INFORMATION_CLASS AclInformationClass)
 {
-  unsigned int v4; // edx
-  unsigned int v5; // edx
-  unsigned int v6; // eax
-  unsigned int v8; // [esp+4h] [ebp-4h] BYREF
+  _BYTE *v4; // edx
+  int v5; // edx
+  int v6; // eax
+  PVOID FirstFree; // [esp+4h] [ebp-4h] BYREF
 
-  if ( (unsigned __int8)(*a1 - 2) <= 2u )
+  if ( (unsigned __int8)(Acl->AclRevision - 2) <= 2u )
   {
-    if ( a4 == 1 )
+    if ( AclInformationClass == AclRevisionInformation )
     {
-      if ( a3 >= 4 )
+      if ( AclInformationLength >= 4 )
       {
-        *a2 = *a1;
+        *(_DWORD *)AclInformation = Acl->AclRevision;
         return 0;
       }
     }
     else
     {
-      if ( a4 != 2 )
+      if ( AclInformationClass != AclSizeInformation )
         return -1073741821;
-      if ( a3 >= 0xC )
+      if ( AclInformationLength >= 0xC )
       {
-        if ( RtlFirstFreeAce((int)a1, &v8) )
+        if ( RtlFirstFreeAce(Acl, &FirstFree) )
         {
-          v4 = v8;
-          *a2 = *((unsigned __int16 *)a1 + 2);
+          v4 = FirstFree;
+          *(_DWORD *)AclInformation = Acl->AceCount;
           if ( v4 )
           {
-            v5 = v4 - (_DWORD)a1;
-            a2[1] = v5;
-            v6 = *((unsigned __int16 *)a1 + 1) - v5;
+            v5 = v4 - (_BYTE *)Acl;
+            *((_DWORD *)AclInformation + 1) = v5;
+            v6 = Acl->AclSize - v5;
           }
           else
           {
-            a2[1] = *((unsigned __int16 *)a1 + 1);
+            *((_DWORD *)AclInformation + 1) = Acl->AclSize;
             v6 = 0;
           }
-          a2[2] = v6;
+          *((_DWORD *)AclInformation + 2) = v6;
           return 0;
         }
         return -1073741811;

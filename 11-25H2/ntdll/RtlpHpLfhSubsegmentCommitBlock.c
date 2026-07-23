@@ -36,47 +36,39 @@ __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, unsigned __int64 a
   unsigned int v20; // r13d
   __int64 v21; // r15
   unsigned __int64 v22; // rbx
-  __int64 v23; // r11
-  unsigned __int64 v24; // r8
-  char v25; // cl
-  unsigned __int64 v26; // rdx
-  unsigned __int64 v27; // rdx
-  __int64 v28; // r9
-  char v29; // cl
-  unsigned __int64 v30; // r9
-  int v31; // edi
-  char v32; // cl
-  __int64 v33; // rdx
-  __int64 v34; // r10
-  signed __int16 *v35; // r9
-  signed __int16 *v36; // r11
-  int v37; // edi
-  int v38; // r8d
-  signed __int16 v39; // dx
-  bool v40; // zf
-  signed __int16 v41; // ax
-  unsigned __int64 v42; // rdi
-  char v43; // al
-  unsigned int v44; // [rsp+30h] [rbp-58h]
-  __int64 v45; // [rsp+38h] [rbp-50h]
-  _QWORD v46[9]; // [rsp+40h] [rbp-48h] BYREF
-  int v48; // [rsp+98h] [rbp+10h] BYREF
-  unsigned int v49; // [rsp+A0h] [rbp+18h] BYREF
-  int v50; // [rsp+A8h] [rbp+20h] BYREF
+  int v23; // edi
+  char v24; // cl
+  __int64 v25; // rdx
+  __int64 v26; // r10
+  signed __int16 *v27; // r9
+  signed __int16 *v28; // r11
+  int v29; // edi
+  int v30; // r8d
+  signed __int16 v31; // dx
+  bool v32; // zf
+  signed __int16 v33; // ax
+  unsigned __int64 v34; // rdi
+  char v35; // al
+  unsigned int v36; // [rsp+30h] [rbp-58h]
+  __int64 v37; // [rsp+38h] [rbp-50h]
+  _MEMORY_RANGE_ENTRY VirtualAddresses; // [rsp+40h] [rbp-48h] BYREF
+  int v40; // [rsp+98h] [rbp+10h] BYREF
+  unsigned int VmInformation; // [rsp+A0h] [rbp+18h] BYREF
+  int v42; // [rsp+A8h] [rbp+20h] BYREF
 
-  v49 = a3;
+  VmInformation = a3;
   v3 = *(_BYTE *)(a2 + 38);
-  v48 = 0;
+  v40 = 0;
   v5 = 0;
   v6 = a3 >> 12 >> v3;
   v7 = *(unsigned __int8 *)(a2 + 24);
-  v44 = (unsigned __int16)qword_1801CFEC8 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)(a2 >> 12);
+  v36 = (unsigned __int16)qword_1801CFEC8 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)(a2 >> 12);
   v8 = 2 * v6;
-  v9 = ((a3 + v44 - 1) >> 12 >> v3) - (unsigned int)v6 + 1;
+  v9 = ((a3 + v36 - 1) >> 12 >> v3) - (unsigned int)v6 + 1;
   v10 = (signed __int16 *)(2 * v6 + a2 + 8 * v7);
   _m_prefetchw(v10);
   v11 = &v10[v9];
-  LODWORD(v45) = 0;
+  LODWORD(v37) = 0;
   v12 = 0;
   v13 = -1;
   if ( v10 >= v11 )
@@ -96,12 +88,12 @@ __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, unsigned __int64 a
       if ( v5 )
         break;
       v5 = 1;
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 56));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 56));
     }
     if ( v14 )
     {
       ++v12;
-      v45 = v8 >> 1;
+      v37 = v8 >> 1;
       if ( v13 == -1 )
         v13 = v8 >> 1;
     }
@@ -120,123 +112,99 @@ LABEL_5:
   if ( v13 == -1 )
   {
     if ( v5 )
-      RtlReleaseSRWLockExclusive(a2 + 56);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 56));
     return 0LL;
   }
   v17 = *(_BYTE *)(a2 + 38);
   v18 = *(_QWORD *)a1;
-  v19 = ((_DWORD)v45 - v13 + 1) << 12;
+  v19 = ((_DWORD)v37 - v13 + 1) << 12;
   v20 = v13 << 12 << v17;
   v21 = (unsigned int)(v19 << v17);
   v22 = a2 + v20;
-  if ( (__int64 (__fastcall *)(__int64 *, __int64, unsigned int, _DWORD *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24)) == RtlpHpSegLfhVsCommit )
+  if ( (__int64 (__fastcall *)(int, __int64, __int64, _DWORD *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24)) == RtlpHpSegLfhVsCommit )
   {
-    v23 = *(_QWORD *)v18;
-    v24 = *(_QWORD *)v18 & v22;
-    v50 = 0;
-    if ( v18 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(v24 + 16) ^ v24
-      || (v25 = *(_BYTE *)(v18 + 8),
-          v26 = v24 + 32LL * ((unsigned int)(v22 - v24) >> v25),
-          v27 = -32LL * *(unsigned __int8 *)(v26 + 26) + v26,
-          v28 = (__int64)(v27 - v24) >> 5 << v25,
-          v29 = *(_BYTE *)(v27 + 24),
-          v30 = v24 + v28,
-          (v29 & 3) != 3)
-      || v30 != v22 && (v29 & 0xCu) < 8 )
-    {
-      v27 = 0LL;
-    }
-    v31 = RtlpHpSegPageRangeCommit(
-            v18,
-            v27,
-            ((unsigned int)v22
-           - (((unsigned int)v27 & (unsigned int)v23)
-            + (unsigned int)((__int64)(v27 - (v27 & v23)) >> 5 << *(_BYTE *)(v18 + 8)))) >> 12,
-            (unsigned int)v21 >> 12,
-            0,
-            (__int64)&v50);
-    if ( v31 >= 0 )
-      v48 = v50 << 12;
+    v42 = 0;
+    v23 = RtlpHpSegPageRangeCommit(v18, 0, (__int64)&v42);
+    if ( v23 >= 0 )
+      v40 = v42 << 12;
   }
   else
   {
-    v31 = ((__int64 (__fastcall *)(_QWORD, unsigned __int64, _QWORD, int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24)))(
+    v23 = ((__int64 (__fastcall *)(_QWORD, unsigned __int64, _QWORD, int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24)))(
             *(_QWORD *)a1,
             a2 + v20,
             (unsigned int)v21,
-            &v48);
+            &v40);
   }
-  if ( v31 >= 0 )
+  if ( v23 >= 0 )
   {
-    v32 = *(_BYTE *)(a2 + 38);
-    v33 = v20 >> 12 >> v32;
-    v34 = 2 * v33;
-    v35 = (signed __int16 *)(2 * v33 + a2 + 8LL * *(unsigned __int8 *)(a2 + 24));
-    _m_prefetchw(v35);
-    v36 = &v35[(((unsigned int)v21 + v20 - 1) >> 12 >> v32) - (unsigned int)v33 + 1];
-    v37 = -1;
-    v38 = 0;
-    if ( v35 >= v36 )
-      goto LABEL_37;
+    v24 = *(_BYTE *)(a2 + 38);
+    v25 = v20 >> 12 >> v24;
+    v26 = 2 * v25;
+    v27 = (signed __int16 *)(2 * v25 + a2 + 8LL * *(unsigned __int8 *)(a2 + 24));
+    _m_prefetchw(v27);
+    v28 = &v27[(((unsigned int)v21 + v20 - 1) >> 12 >> v24) - (unsigned int)v25 + 1];
+    v29 = -1;
+    v30 = 0;
+    if ( v27 >= v28 )
+      goto LABEL_32;
     do
     {
-      v39 = *v35;
-      while ( v39 > 0 )
+      v31 = *v27;
+      while ( v31 > 0 )
       {
-        v41 = _InterlockedCompareExchange16(v35, v39 + 1, v39);
-        v40 = v39 == v41;
-        v39 = v41;
-        if ( v40 )
-          goto LABEL_33;
+        v33 = _InterlockedCompareExchange16(v27, v31 + 1, v31);
+        v32 = v31 == v33;
+        v31 = v33;
+        if ( v32 )
+          goto LABEL_28;
       }
-      if ( v39 )
+      if ( v31 )
       {
-        ++v38;
-        if ( v37 == -1 )
-          v37 = v34 >> 1;
+        ++v30;
+        if ( v29 == -1 )
+          v29 = v26 >> 1;
       }
       else
       {
-        --v38;
+        --v30;
       }
-      *v35 = v39 + 1;
-LABEL_33:
-      ++v35;
-      v34 += 2LL;
+      *v27 = v31 + 1;
+LABEL_28:
+      ++v27;
+      v26 += 2LL;
     }
-    while ( v35 < v36 );
-    if ( v38 )
-      RtlpHpLfhContextUpdateFreeCommitCount(a1, a2, (v38 << 12 << *(_BYTE *)(a2 + 38)) / 4096);
-    if ( v37 == -1 )
-LABEL_37:
-      RtlReleaseSRWLockExclusive(a2 + 56);
-    v42 = v21 + v22;
-    v43 = 3;
-    if ( !v48 )
-      v43 = 2;
+    while ( v27 < v28 );
+    if ( v30 )
+      RtlpHpLfhContextUpdateFreeCommitCount(a1, a2, (v30 << 12 << *(_BYTE *)(a2 + 38)) / 4096);
+    if ( v29 == -1 )
+LABEL_32:
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 56));
+    v34 = v21 + v22;
+    v35 = 3;
+    if ( !v40 )
+      v35 = 2;
     if ( (RtlpHpLfhPerfFlags & 2) != 0 )
     {
-      if ( (v43 & 1) != 0 )
+      if ( (v35 & 1) != 0 )
       {
-        v46[1] = (unsigned int)v21;
-        v46[0] = a2 + v20;
-        v49 = 1;
-        ((void (__fastcall *)(__int64, _QWORD, __int64, _QWORD *, unsigned int *, int, unsigned int, __int64))ZwSetInformationVirtualMemory)(
-          -1LL,
-          0LL,
-          1LL,
-          v46,
-          &v49,
-          4,
-          v44,
-          v45);
+        VirtualAddresses.NumberOfBytes = (unsigned int)v21;
+        VirtualAddresses.VirtualAddress = (PVOID)(a2 + v20);
+        VmInformation = 1;
+        ZwSetInformationVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          VmPrefetchInformation,
+          1uLL,
+          &VirtualAddresses,
+          &VmInformation,
+          4u);
       }
-      for ( ; v22 < v42; v22 += 4096LL )
+      for ( ; v22 < v34; v22 += 4096LL )
         ;
     }
     return 0LL;
   }
-  RtlpHpLfhSubsegmentDecBlockCounts(a1, a2, v49, v44);
-  RtlReleaseSRWLockExclusive(a2 + 56);
-  return (unsigned int)v31;
+  RtlpHpLfhSubsegmentDecBlockCounts(a1, a2, VmInformation, v36);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 56));
+  return (unsigned int)v23;
 }

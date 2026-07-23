@@ -1,29 +1,29 @@
 /*
- * XREFs of PsGetAllocatedFullProcessImageNameEx @ 0x1409FABB0
+ * XREFs of PsGetAllocatedFullProcessImageNameEx @ 0x14091F7B0
  * Callers:
- *     SeAuditFipsCryptoSelftests @ 0x1408127E0 (SeAuditFipsCryptoSelftests.c)
- *     SeAuditProcessExit @ 0x1408129B0 (SeAuditProcessExit.c)
- *     SeAuditSystemTimeChange @ 0x140812B38 (SeAuditSystemTimeChange.c)
- *     SepAuditAssignPrimaryToken @ 0x140813228 (SepAuditAssignPrimaryToken.c)
- *     CmpReportAuditVirtualizationEvent @ 0x14085B480 (CmpReportAuditVirtualizationEvent.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140932AB0 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     ExProcessCounterSetCallback @ 0x140969300 (ExProcessCounterSetCallback.c)
- *     SeAuditProcessCreation @ 0x140983DEC (SeAuditProcessCreation.c)
- *     SeAuditTransactionStateChange @ 0x1409F8C00 (SeAuditTransactionStateChange.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409F9204 (SepAdtCloseObjectAuditAlarm.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409F9DCC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409FA180 (SepAdtDeleteObjectAuditAlarm.c)
- *     SeOperationAuditAlarm @ 0x1409FA6B0 (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409FAF0C (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409FB6F8 (SepAdtStagingEvent.c)
- *     SepQueryNameString @ 0x1409FBF48 (SepQueryNameString.c)
- *     SepAdtTokenRightAdjusted @ 0x140A4325C (SepAdtTokenRightAdjusted.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B64ACC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeAuditFipsCryptoSelftests @ 0x140818640 (SeAuditFipsCryptoSelftests.c)
+ *     SeAuditProcessExit @ 0x140818810 (SeAuditProcessExit.c)
+ *     SeAuditSystemTimeChange @ 0x140818998 (SeAuditSystemTimeChange.c)
+ *     SepAuditAssignPrimaryToken @ 0x140819088 (SepAuditAssignPrimaryToken.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140861774 (CmpReportAuditVirtualizationEvent.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14090E660 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091D6BC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     ExProcessCounterSetCallback @ 0x14091D960 (ExProcessCounterSetCallback.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED80 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SeOperationAuditAlarm @ 0x14091F2B0 (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091FB0C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x1409202F8 (SepAdtStagingEvent.c)
+ *     SepQueryNameString @ 0x140920B48 (SepQueryNameString.c)
+ *     SeAuditProcessCreation @ 0x140945DFC (SeAuditProcessCreation.c)
+ *     SepAdtTokenRightAdjusted @ 0x1409FDFBC (SepAdtTokenRightAdjusted.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x140A9EE24 (SepAdtCloseObjectAuditAlarm.c)
+ *     SeAuditTransactionStateChange @ 0x140B33F70 (SeAuditTransactionStateChange.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B67B6C (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PsGetAllocatedFullProcessImageNameEx(__int64 a1, __int64 *a2)
@@ -32,7 +32,7 @@ __int64 __fastcall PsGetAllocatedFullProcessImageNameEx(__int64 a1, __int64 *a2)
   __int64 Pool2; // rax
   __int64 v5; // rbx
 
-  if ( *(_QWORD *)(a1 + 1600) && (_QWORD)xmmword_140F0A060 )
+  if ( *(_QWORD *)(a1 + 1600) && *(_QWORD *)&PsAltSystemCallRegistrationLock.WaitRegister.Flags )
     return guard_dispatch_icall_no_overrides(a1, (__int64)a2);
   v3 = *(_QWORD *)(a1 + 848);
   if ( !v3 )

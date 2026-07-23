@@ -1,30 +1,30 @@
 /*
- * XREFs of HalpDmaAllocateMapRegisters @ 0x14045BF9E
+ * XREFs of HalpDmaAllocateMapRegisters @ 0x14045C39E
  * Callers:
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403AEEB0 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalAllocateAdapterChannelV2 @ 0x14045D0E8 (HalAllocateAdapterChannelV2.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045D7EE (HalpDmaProcessMapRegisterQueueV2.c)
- *     IoFreeAdapterChannelV2 @ 0x14045D8D0 (IoFreeAdapterChannelV2.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514EBC (HalpAllocateDmaResourcesInternal.c)
- *     HalpAllocateMapRegisters @ 0x140933640 (HalpAllocateMapRegisters.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403AF090 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalAllocateAdapterChannelV2 @ 0x14045D4E8 (HalAllocateAdapterChannelV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045DBEE (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeAdapterChannelV2 @ 0x14045DCD0 (IoFreeAdapterChannelV2.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14051540C (HalpAllocateDmaResourcesInternal.c)
+ *     HalpAllocateMapRegisters @ 0x140933840 (HalpAllocateMapRegisters.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x14039C28C (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaGetTranslationEntries @ 0x14039C4FC (HalpDmaGetTranslationEntries.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14045B35A (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045B3AE (HalpDmaAllocateScatterPagesFromScatterPool.c)
- *     HalpDmaPrependTranslations @ 0x14045C7B6 (HalpDmaPrependTranslations.c)
- *     HalpDmaReturnPageToOwner @ 0x14045C896 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050100C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
- *     HalpDmaAllocateContiguousMemory @ 0x140510410 (HalpDmaAllocateContiguousMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x14039C46C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaGetTranslationEntries @ 0x14039C6DC (HalpDmaGetTranslationEntries.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14045B75A (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045B7AE (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaPrependTranslations @ 0x14045CBB6 (HalpDmaPrependTranslations.c)
+ *     HalpDmaReturnPageToOwner @ 0x14045CC96 (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050155C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x140510960 (HalpDmaAllocateContiguousMemory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -267,10 +267,13 @@ LABEL_34:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v34 = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -279,7 +282,7 @@ LABEL_34:
       v40 = (v39 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v39;
       if ( v40 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

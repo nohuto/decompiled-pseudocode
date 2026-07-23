@@ -1,13 +1,13 @@
 /*
- * XREFs of PoCreateThermalRequest @ 0x14074BDA0
+ * XREFs of PoCreateThermalRequest @ 0x14074A0D0
  * Callers:
  *     <none>
  * Callees:
- *     PoDestroyReasonContext @ 0x140331BA4 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x140331D38 (PoCaptureReasonContext.c)
- *     PopAssociateThermalRequest @ 0x14074C028 (PopAssociateThermalRequest.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PoDestroyReasonContext @ 0x1402BC528 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1402BC6B8 (PoCaptureReasonContext.c)
+ *     PopAssociateThermalRequest @ 0x14074A358 (PopAssociateThermalRequest.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoCreateThermalRequest(_QWORD *a1, __int64 a2, __int64 a3, __int128 *a4, int a5)
@@ -30,7 +30,7 @@ __int64 __fastcall PoCreateThermalRequest(_QWORD *a1, __int64 a2, __int64 a3, __
     v9 = PoCaptureReasonContext(a4, 0LL, a3, 1, 0LL, (PVOID *)&v15);
     if ( v9 >= 0 )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 0x240uLL, 0x6C6F4350u);
       v6 = (_QWORD *)Pool2;
       if ( Pool2 )
       {

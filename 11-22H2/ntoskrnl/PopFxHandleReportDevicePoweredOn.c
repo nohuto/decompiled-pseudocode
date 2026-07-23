@@ -61,7 +61,7 @@ void __fastcall PopFxHandleReportDevicePoweredOn(ULONG_PTR BugCheckParameter3)
   while ( v13 != v12 );
   if ( (v12 & 2) != 0 )
   {
-    PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (struct _LIST_ENTRY *)(BugCheckParameter3 + 1208));
+    PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (_LIST_ENTRY *)(BugCheckParameter3 + 1208));
   }
   else
   {
@@ -121,10 +121,13 @@ LABEL_2:
         v9 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 48) + 280LL);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopLogDisabledSleepReason @ 0x1409B9550
+ * XREFs of PopLogDisabledSleepReason @ 0x14099FBA0
  * Callers:
- *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
+ *     PopFilterCapabilities @ 0x14099F88C (PopFilterCapabilities.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PopLogSleepDisabled @ 0x1409B80F8 (PopLogSleepDisabled.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1409B9950 (PopRemoveReasonRecordByReasonCode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PopLogSleepDisabled @ 0x14099E748 (PopLogSleepDisabled.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14099FFA0 (PopRemoveReasonRecordByReasonCode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PopLogDisabledSleepReason()
@@ -17,7 +17,7 @@ __int64 PopLogDisabledSleepReason()
   int v1; // edi
   unsigned int v2; // esi
   __int64 v3; // rax
-  size_t v5; // rbp
+  ULONG_PTR v5; // rbp
   void *Pool2; // rax
   void *v7; // rsi
   __int64 v8; // rcx
@@ -41,7 +41,7 @@ __int64 PopLogDisabledSleepReason()
     if ( v1 )
     {
       v5 = 8LL * v2;
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, v5, 0x66756263u);
       v7 = Pool2;
       if ( Pool2 )
       {

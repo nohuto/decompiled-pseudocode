@@ -1,27 +1,27 @@
 /*
- * XREFs of MiClearPfnImageVerified @ 0x140082954
+ * XREFs of MiClearPfnImageVerified @ 0x140082944
  * Callers:
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
- *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
- *     MiDeleteClusterSection @ 0x140081F00 (MiDeleteClusterSection.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
- *     MiDeletePerSessionProtos @ 0x140136FA4 (MiDeletePerSessionProtos.c)
- *     MiDeleteClusterPage @ 0x1402C622C (MiDeleteClusterPage.c)
- *     MmChangeImageProtection @ 0x140651760 (MmChangeImageProtection.c)
- *     MiTradeBootImagePage @ 0x1409B86AC (MiTradeBootImagePage.c)
+ *     MiGatherMappedPages @ 0x14007E6A0 (MiGatherMappedPages.c)
+ *     MiRestoreTransitionPte @ 0x140081000 (MiRestoreTransitionPte.c)
+ *     MiDeleteClusterSection @ 0x140081EF0 (MiDeleteClusterSection.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiStealPage @ 0x1400EBFC4 (MiStealPage.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BC04 (MiReferencePageForModifiedWrite.c)
+ *     MiDeletePerSessionProtos @ 0x1401370A4 (MiDeletePerSessionProtos.c)
+ *     MiDeleteClusterPage @ 0x1402C641C (MiDeleteClusterPage.c)
+ *     MmChangeImageProtection @ 0x140652920 (MmChangeImageProtection.c)
+ *     MiTradeBootImagePage @ 0x1409B96AC (MiTradeBootImagePage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
+ *     MiGetPagePrivilege @ 0x1400B29B0 (MiGetPagePrivilege.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KeSetPagePrivilege @ 0x14028DE10 (KeSetPagePrivilege.c)
  */
 
 char __fastcall MiClearPfnImageVerified(ULONG_PTR BugCheckParameter2, char a2)

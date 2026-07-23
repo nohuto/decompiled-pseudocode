@@ -1,9 +1,9 @@
 /*
- * XREFs of DifGetPluginPerDriverData @ 0x14064ABD0
+ * XREFs of DifGetPluginPerDriverData @ 0x14064E7B0
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140C46B58 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x140C4CB68 (VfTargetDriversGetVerifierData.c)
  */
 
 __int64 __fastcall DifGetPluginPerDriverData(int a1, __int64 a2)

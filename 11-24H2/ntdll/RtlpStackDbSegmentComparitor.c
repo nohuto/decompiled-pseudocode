@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpStackDbSegmentComparitor @ 0x18015DB80
+ * XREFs of RtlpStackDbSegmentComparitor @ 0x18015BF40
  * Callers:
- *     RtlpStackDbSegmentFindOrCreate @ 0x18015DBBC (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x18015BF7C (RtlpStackDbSegmentFindOrCreate.c)
  * Callees:
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
 _BOOL8 __fastcall RtlpStackDbSegmentComparitor(__int64 a1, unsigned int *a2)

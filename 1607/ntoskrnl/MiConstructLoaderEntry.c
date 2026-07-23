@@ -1,26 +1,26 @@
 /*
- * XREFs of MiConstructLoaderEntry @ 0x140482408
+ * XREFs of MiConstructLoaderEntry @ 0x14048115C
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  *     MiInitializeLoadedModuleList @ 0x1407B1234 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MiManageSubsectionView @ 0x140013D20 (MiManageSubsectionView.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     MiProcessLoaderEntry @ 0x140084B4C (MiProcessLoaderEntry.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiManageSubsectionView @ 0x1400138A0 (MiManageSubsectionView.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiProcessLoaderEntry @ 0x140082CAC (MiProcessLoaderEntry.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiCaptureImageExceptionValues @ 0x14048218C (MiCaptureImageExceptionValues.c)
- *     ExpCovGetSectionInfo @ 0x140483984 (ExpCovGetSectionInfo.c)
- *     MiLockdownSections @ 0x1404839E0 (MiLockdownSections.c)
- *     ExCovReadjustUnloadedModuleEntry @ 0x1405474F4 (ExCovReadjustUnloadedModuleEntry.c)
+ *     MiCaptureImageExceptionValues @ 0x140480EE0 (MiCaptureImageExceptionValues.c)
+ *     ExpCovGetSectionInfo @ 0x1404826D8 (ExpCovGetSectionInfo.c)
+ *     MiLockdownSections @ 0x140482734 (MiLockdownSections.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x140547A34 (ExCovReadjustUnloadedModuleEntry.c)
  */
 
 __int64 __fastcall MiConstructLoaderEntry(__int64 a1, const void **a2, const void **a3, int a4, int a5, __int64 *a6)

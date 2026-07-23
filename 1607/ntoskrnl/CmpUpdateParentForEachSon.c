@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpUpdateParentForEachSon @ 0x14060B25C
+ * XREFs of CmpUpdateParentForEachSon @ 0x14060B310
  * Callers:
- *     CmMoveKey @ 0x1405FCFA8 (CmMoveKey.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x14060E7D8 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmMoveKey @ 0x1405FD05C (CmMoveKey.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14060E88C (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     CmpFindSubKeyByNumber @ 0x1404386C0 (CmpFindSubKeyByNumber.c)
- *     CmpMarkAllChildrenDirty @ 0x14060A860 (CmpMarkAllChildrenDirty.c)
+ *     CmpFindSubKeyByNumber @ 0x140437590 (CmpFindSubKeyByNumber.c)
+ *     CmpMarkAllChildrenDirty @ 0x14060A914 (CmpMarkAllChildrenDirty.c)
  */
 
 char __fastcall CmpUpdateParentForEachSon(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)

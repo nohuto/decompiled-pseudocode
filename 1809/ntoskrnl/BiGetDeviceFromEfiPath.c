@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetDeviceFromEfiPath @ 0x1408F3AFC
+ * XREFs of BiGetDeviceFromEfiPath @ 0x1408F4DBC
  * Callers:
- *     BiCreateMergedBootEntry @ 0x1408F2F78 (BiCreateMergedBootEntry.c)
- *     BiUpdateBcdObject @ 0x1408F48E8 (BiUpdateBcdObject.c)
+ *     BiCreateMergedBootEntry @ 0x1408F4238 (BiCreateMergedBootEntry.c)
+ *     BiUpdateBcdObject @ 0x1408F5BA8 (BiUpdateBcdObject.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiTranslateFilePath @ 0x1408F4788 (BiTranslateFilePath.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiTranslateFilePath @ 0x1408F5A48 (BiTranslateFilePath.c)
  */
 
 __int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, unsigned int *a3)
@@ -16,8 +16,8 @@ __int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, unsigned int *a
   int v5; // ebx
   char *i; // rbx
   unsigned int v7; // ebx
-  struct _FILE_PATH *PoolWithTag; // rax
-  struct _FILE_PATH *v9; // rsi
+  _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *v9; // rsi
   unsigned int v10; // ebp
   unsigned int v11; // r15d
   _DWORD *v12; // rax
@@ -36,7 +36,7 @@ __int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, unsigned int *a
       ;
     }
     v7 = (_DWORD)i - (_DWORD)Src;
-    PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v7 + 16, 0x4B444342u);
+    PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v7 + 16, 0x4B444342u);
     v9 = PoolWithTag;
     if ( PoolWithTag )
     {

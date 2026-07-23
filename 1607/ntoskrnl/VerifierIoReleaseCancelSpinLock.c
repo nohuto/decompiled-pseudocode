@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoReleaseCancelSpinLock @ 0x14070C874
+ * XREFs of VerifierIoReleaseCancelSpinLock @ 0x14070C8A4
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckZeroFreeRebalance @ 0x140318D50
+ * XREFs of MiCheckZeroFreeRebalance @ 0x140323AA0
  * Callers:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
- *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
- *     MiNodeLargeFreeZeroPages @ 0x140318E40 (MiNodeLargeFreeZeroPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PsReferencePartitionSafe @ 0x1402745B0 (PsReferencePartitionSafe.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1403025FC (ExQueueWorkItemToPartition.c)
+ *     MiNodeLargeFreeZeroPages @ 0x140323B90 (MiNodeLargeFreeZeroPages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetNodeStandbyPageCount @ 0x140550758 (MiGetNodeStandbyPageCount.c)
+ *     MiGetNodeStandbyPageCount @ 0x140550998 (MiGetNodeStandbyPageCount.c)
  */
 
 unsigned __int64 __fastcall MiCheckZeroFreeRebalance(__int64 a1, unsigned int a2)
@@ -34,11 +34,11 @@ unsigned __int64 __fastcall MiCheckZeroFreeRebalance(__int64 a1, unsigned int a2
 
   v2 = MmNumberOfChannels;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v19 = a2 >> byte_140C4DE8C;
-  v3 = *(_QWORD *)(a1 + 16) + 4544LL * (a2 >> byte_140C4DE8C);
+  v19 = a2 >> byte_140C4DECC;
+  v3 = *(_QWORD *)(a1 + 16) + 4544LL * (a2 >> byte_140C4DECC);
   v18 = 0;
   if ( (unsigned int)MmNumberOfChannels > 1 )
-    v18 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_140C4DE8D);
+    v18 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_140C4DECD);
   v4 = (__int64 *)(v3 + 4128);
   result = 0LL;
   v6 = 0;
@@ -61,7 +61,7 @@ unsigned __int64 __fastcall MiCheckZeroFreeRebalance(__int64 a1, unsigned int a2
       result = *(unsigned int *)(a1 + 4);
       if ( (result & 1) == 0 )
       {
-        KeAcquireInStackQueuedSpinLock(&qword_140C4E600, &LockHandle);
+        KeAcquireInStackQueuedSpinLock(&qword_140C4E640, &LockHandle);
         if ( *(_QWORD *)(a1 + 6320) || (*(_DWORD *)(a1 + 4) & 1) != 0 )
         {
           v11 = 0;

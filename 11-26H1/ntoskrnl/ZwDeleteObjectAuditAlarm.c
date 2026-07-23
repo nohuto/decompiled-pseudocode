@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwDeleteObjectAuditAlarm @ 0x140724F90
+ * XREFs of ZwDeleteObjectAuditAlarm @ 0x140729B60
  * Callers:
- *     DifZwDeleteObjectAuditAlarmWrapper @ 0x1406A41E0 (DifZwDeleteObjectAuditAlarmWrapper.c)
+ *     DifZwDeleteObjectAuditAlarmWrapper @ 0x1406A7DC0 (DifZwDeleteObjectAuditAlarmWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDeleteObjectAuditAlarm(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwDeleteObjectAuditAlarm(PUNICODE_STRING SubsystemName, PVOID HandleId, BOOLEAN GenerateOnClose)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SubsystemName);
 }

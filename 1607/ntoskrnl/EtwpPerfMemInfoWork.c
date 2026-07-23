@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpPerfMemInfoWork @ 0x1406A2848
+ * XREFs of EtwpPerfMemInfoWork @ 0x1406A2980
  * Callers:
  *     <none>
  * Callees:

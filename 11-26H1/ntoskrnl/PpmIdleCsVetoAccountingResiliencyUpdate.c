@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleCsVetoAccountingResiliencyUpdate @ 0x14042C844
+ * XREFs of PpmIdleCsVetoAccountingResiliencyUpdate @ 0x140420F14
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x14042C8CC (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140420F9C (PpmIdleCsVetoAccountingUpdateBlock.c)
  */
 
 void __fastcall PpmIdleCsVetoAccountingResiliencyUpdate(char a1)
@@ -21,7 +21,7 @@ void __fastcall PpmIdleCsVetoAccountingResiliencyUpdate(char a1)
   v1 = 0;
   if ( PpmPlatformStates )
   {
-    v3 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.KcsanThread);
+    v3 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
     v4 = PpmPlatformStates;
     v5 = v3;
     if ( *(_DWORD *)PpmPlatformStates )
@@ -39,6 +39,6 @@ void __fastcall PpmIdleCsVetoAccountingResiliencyUpdate(char a1)
       }
       while ( v1 < *(_DWORD *)PpmPlatformStates );
     }
-    KeReleaseSpinLock(&stru_140F10070.KcsanThread, v5);
+    KeReleaseSpinLock(&PpmIdleVetoLock, v5);
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlStdReleaseStackTrace @ 0x18010F650
+ * XREFs of RtlStdReleaseStackTrace @ 0x18010F620
  * Callers:
  *     RtlDeleteCriticalSection @ 0x18005ACD0 (RtlDeleteCriticalSection.c)
  *     RtlInitializeResource @ 0x18005C9D0 (RtlInitializeResource.c)
  *     RtlpAddDebugInfoToCriticalSection @ 0x18005CB50 (RtlpAddDebugInfoToCriticalSection.c)
  *     RtlLogStackBackTraceEx @ 0x18005CDB4 (RtlLogStackBackTraceEx.c)
- *     RtlReleaseStackTrace @ 0x18010F350 (RtlReleaseStackTrace.c)
+ *     RtlReleaseStackTrace @ 0x18010F320 (RtlReleaseStackTrace.c)
  * Callees:
  *     RtlpInterlockedPushEntrySList @ 0x1800A4C80 (RtlpInterlockedPushEntrySList.c)
- *     RtlpStdLockAcquire @ 0x18010FBA4 (RtlpStdLockAcquire.c)
- *     RtlpStdLockRelease @ 0x18010FBC4 (RtlpStdLockRelease.c)
+ *     RtlpStdLockAcquire @ 0x18010FB74 (RtlpStdLockAcquire.c)
+ *     RtlpStdLockRelease @ 0x18010FB94 (RtlpStdLockRelease.c)
  */
 
 __int64 __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)

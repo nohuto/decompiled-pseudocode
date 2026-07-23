@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReturnPhysicalPoolPages @ 0x140098380
+ * XREFs of MiReturnPhysicalPoolPages @ 0x140097B80
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
- *     MiFindNonPagedPoolPages @ 0x1400E7060 (MiFindNonPagedPoolPages.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
+ *     MiFindNonPagedPoolPages @ 0x1400E4F00 (MiFindNonPagedPoolPages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiReturnNonPagedPoolCharges @ 0x140098570 (MiReturnNonPagedPoolCharges.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReturnNonPagedPoolCharges @ 0x140097D70 (MiReturnNonPagedPoolCharges.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1)
   __int64 v8; // rdx
   unsigned __int8 v10; // al
   char v11; // cl
-  union _SLIST_HEADER *v12; // rbx
+  _SLIST_HEADER *v12; // rbx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+28h] [rbp-70h] BYREF
   _QWORD v14[3]; // [rsp+40h] [rbp-58h] BYREF
   __int64 v15; // [rsp+58h] [rbp-40h]
@@ -74,7 +74,7 @@ __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1)
   while ( v6 );
   if ( v4 )
   {
-    v12 = &qword_1403269B0[26 * v5];
+    v12 = &qword_1403269F0[26 * v5];
     KeAcquireInStackQueuedSpinLock(&v12[19].Region, &LockHandle);
     *v3 = v12[20].Alignment;
     v12[19].Alignment += v4;

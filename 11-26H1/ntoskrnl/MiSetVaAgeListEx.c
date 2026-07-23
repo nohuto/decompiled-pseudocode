@@ -1,35 +1,35 @@
 /*
- * XREFs of MiSetVaAgeListEx @ 0x14029D300
+ * XREFs of MiSetVaAgeListEx @ 0x14029C850
  * Callers:
- *     MiActOnValidPte @ 0x140297138 (MiActOnValidPte.c)
- *     MiUpdateWsleAge @ 0x14029C120 (MiUpdateWsleAge.c)
- *     MiResetAccessBitPteWorker @ 0x14029C4C8 (MiResetAccessBitPteWorker.c)
- *     MiResetAccessBitPte @ 0x14029C890 (MiResetAccessBitPte.c)
- *     MiSetVaAgeList @ 0x14029CF70 (MiSetVaAgeList.c)
- *     MiFlushDeferredAgingBucket @ 0x14029CF90 (MiFlushDeferredAgingBucket.c)
- *     MiProcessWsInSwapFault @ 0x14029EFBC (MiProcessWsInSwapFault.c)
- *     MiAgePteWorker @ 0x1402FF060 (MiAgePteWorker.c)
- *     MiClearPteAccessed @ 0x1402FF9B0 (MiClearPteAccessed.c)
- *     MiLockVirtualMemoryVa @ 0x140318C10 (MiLockVirtualMemoryVa.c)
- *     MiUnlockWsle @ 0x140324658 (MiUnlockWsle.c)
+ *     MiActOnValidPte @ 0x140296698 (MiActOnValidPte.c)
+ *     MiUpdateWsleAge @ 0x14029B680 (MiUpdateWsleAge.c)
+ *     MiResetAccessBitPteWorker @ 0x14029BA28 (MiResetAccessBitPteWorker.c)
+ *     MiResetAccessBitPte @ 0x14029BDF0 (MiResetAccessBitPte.c)
+ *     MiSetVaAgeList @ 0x14029C4D0 (MiSetVaAgeList.c)
+ *     MiFlushDeferredAgingBucket @ 0x14029C4F0 (MiFlushDeferredAgingBucket.c)
+ *     MiProcessWsInSwapFault @ 0x14029E50C (MiProcessWsInSwapFault.c)
+ *     MiAgePteWorker @ 0x1402E10E0 (MiAgePteWorker.c)
+ *     MiClearPteAccessed @ 0x1402E1A30 (MiClearPteAccessed.c)
+ *     MiLockVirtualMemoryVa @ 0x14031AC40 (MiLockVirtualMemoryVa.c)
+ *     MiUnlockWsle @ 0x140326688 (MiUnlockWsle.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiLowPriorityWsleAdded @ 0x14029E1A8 (MiLowPriorityWsleAdded.c)
- *     MiRebuildPageTableAges @ 0x14029E1F0 (MiRebuildPageTableAges.c)
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1402EAE10 (MiUpdateWorkingSetAgeDistribution.c)
- *     MiInsertActivePageTableLinksTail @ 0x1402EC620 (MiInsertActivePageTableLinksTail.c)
- *     MiRemoveActivePageTableLinks @ 0x1402EC880 (MiRemoveActivePageTableLinks.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiUnlockWorkingSetCoreExclusive @ 0x1402FE650 (MiUnlockWorkingSetCoreExclusive.c)
- *     MiLockWorkingSetCoreExclusive @ 0x1402FE7B0 (MiLockWorkingSetCoreExclusive.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiLowPriorityWsleAdded @ 0x14029D6F8 (MiLowPriorityWsleAdded.c)
+ *     MiRebuildPageTableAges @ 0x14029D740 (MiRebuildPageTableAges.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1402CCE50 (MiUpdateWorkingSetAgeDistribution.c)
+ *     MiInsertActivePageTableLinksTail @ 0x1402CE660 (MiInsertActivePageTableLinksTail.c)
+ *     MiRemoveActivePageTableLinks @ 0x1402CE8C0 (MiRemoveActivePageTableLinks.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiUnlockWorkingSetCoreExclusive @ 0x1402E06D0 (MiUnlockWorkingSetCoreExclusive.c)
+ *     MiLockWorkingSetCoreExclusive @ 0x1402E0830 (MiLockWorkingSetCoreExclusive.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiSetVaAgeListEx(__int64 a1, unsigned __int64 a2, unsigned int a3, unsigned __int8 a4, char a5)
@@ -145,10 +145,10 @@ __int64 __fastcall MiSetVaAgeListEx(__int64 a1, unsigned __int64 a2, unsigned in
   if ( (a5 & 1) == 0 )
   {
     if ( (*(_DWORD *)(v6 + 184) & 0xF) == 1 )
-      v13 = &unk_140E37840;
+      v13 = &unk_140E379C0;
     else
       v13 = (_DWORD *)(v6 + 256);
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       _m_prefetchw(v13);
       v14 = *v13 & 0x7FFFFFFF;
@@ -400,10 +400,10 @@ LABEL_68:
         else
         {
           if ( (*(_DWORD *)(v6 + 184) & 0xF) == 1 )
-            v45 = (volatile signed __int32 *)&unk_140E37840;
+            v45 = (volatile signed __int32 *)&unk_140E379C0;
           else
             v45 = (volatile signed __int32 *)(v6 + 256);
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           {
             _InterlockedAnd(v45, 0xBFFFFFFF);
             _InterlockedDecrement(v45);

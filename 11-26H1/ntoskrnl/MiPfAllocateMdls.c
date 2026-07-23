@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPfAllocateMdls @ 0x140A526F0
+ * XREFs of MiPfAllocateMdls @ 0x140A5B9E0
  * Callers:
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
  * Callees:
- *     MiFreeInPageSupportBlock @ 0x14031D5D8 (MiFreeInPageSupportBlock.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
- *     MiEndingOffsetWithLock @ 0x14036D000 (MiEndingOffsetWithLock.c)
- *     MiGetSharedProtos @ 0x140372BD8 (MiGetSharedProtos.c)
- *     MmCreateMdl @ 0x140396D90 (MmCreateMdl.c)
- *     MiGetInPageSupportBlock @ 0x140396FF0 (MiGetInPageSupportBlock.c)
- *     MiSetInPagePriority @ 0x140490468 (MiSetInPagePriority.c)
+ *     MiFreeInPageSupportBlock @ 0x14031F608 (MiFreeInPageSupportBlock.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
+ *     MiEndingOffsetWithLock @ 0x14036EDA0 (MiEndingOffsetWithLock.c)
+ *     MiGetSharedProtos @ 0x140374988 (MiGetSharedProtos.c)
+ *     MmCreateMdl @ 0x140398B10 (MmCreateMdl.c)
+ *     MiGetInPageSupportBlock @ 0x140398D70 (MiGetInPageSupportBlock.c)
+ *     MiSetInPagePriority @ 0x140489F18 (MiSetInPagePriority.c)
  */
 
 __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, __int64 a3, volatile signed __int64 *a4)
@@ -105,7 +105,7 @@ __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, __int64 a3, vol
         v33 = v18 & 0xFFFFFFFFFFFFFFFCuLL;
         if ( v8 )
         {
-          if ( (__int64)(v33 - v17) >> 3 > dword_140E35F54 )
+          if ( (__int64)(v33 - v17) >> 3 > dword_140E360D4 )
           {
 LABEL_15:
             --v9;
@@ -130,7 +130,7 @@ LABEL_15:
       v19 = v18 & 0xFFFFFFFFFFFFFFFCuLL;
       if ( v8 )
       {
-        if ( (__int64)(v19 - v17) >> 3 > dword_140E35F54 )
+        if ( (__int64)(v19 - v17) >> 3 > dword_140E360D4 )
           goto LABEL_15;
       }
       else

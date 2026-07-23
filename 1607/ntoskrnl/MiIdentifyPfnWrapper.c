@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIdentifyPfnWrapper @ 0x14000FBF0
+ * XREFs of MiIdentifyPfnWrapper @ 0x14000F770
  * Callers:
- *     MiGetWorkingSetInfoEx @ 0x14010F4B0 (MiGetWorkingSetInfoEx.c)
- *     MiLogAllocateWsleEvent @ 0x1401E28A4 (MiLogAllocateWsleEvent.c)
- *     PfpPfnPrioRequest @ 0x14041B450 (PfpPfnPrioRequest.c)
- *     MmIdentifyPhysicalMemory @ 0x140658E18 (MmIdentifyPhysicalMemory.c)
- *     MmRelocatePfnList @ 0x1406646F8 (MmRelocatePfnList.c)
+ *     MiGetWorkingSetInfoEx @ 0x14010FA14 (MiGetWorkingSetInfoEx.c)
+ *     MiLogAllocateWsleEvent @ 0x1401E26D0 (MiLogAllocateWsleEvent.c)
+ *     PfpPfnPrioRequest @ 0x14041A310 (PfpPfnPrioRequest.c)
+ *     MmIdentifyPhysicalMemory @ 0x140658EFC (MmIdentifyPhysicalMemory.c)
+ *     MmRelocatePfnList @ 0x1406647DC (MmRelocatePfnList.c)
  * Callees:
- *     MiIdentifyPfn @ 0x14000FC90 (MiIdentifyPfn.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     MiIdentifyPfn @ 0x14000F810 (MiIdentifyPfn.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiIdentifyPfnWrapper(__int64 a1, __int64 a2)

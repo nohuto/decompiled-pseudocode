@@ -2,9 +2,9 @@
  * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x18003AFAC
  * Callers:
  *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x18003ACBC (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x180103D78 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x180104320 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegValidateConfigNode @ 0x180105C78 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x180103D38 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1801042E0 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x180105C38 (RtlpMuiRegValidateConfigNode.c)
  * Callees:
  *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x18003B104 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
  *     RtlCultureNameToLCID @ 0x18003B850 (RtlCultureNameToLCID.c)
@@ -20,8 +20,8 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int
   _WORD *v11; // rdx
   __int64 v12; // r8
   const WCHAR *v13; // rdx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  __int16 v15; // [rsp+40h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  DWORD Lcid; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = 0;
   v5 = (__int16)a3;
@@ -43,9 +43,9 @@ LABEL_13:
     if ( !v13 )
       return (unsigned int)-1073741772;
     RtlInitUnicodeString(&DestinationString, v13);
-    if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v15) )
+    if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       return (unsigned int)-1073741772;
-    LOWORD(v5) = v15;
+    LOWORD(v5) = Lcid;
     a2 = 1;
     LOBYTE(a3) = 0;
 LABEL_3:

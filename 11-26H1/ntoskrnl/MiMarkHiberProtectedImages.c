@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMarkHiberProtectedImages @ 0x1406EFB0C
+ * XREFs of MiMarkHiberProtectedImages @ 0x1406F477C
  * Callers:
- *     MmMarkHiberPhase @ 0x140C01120 (MmMarkHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x140C07330 (MmMarkHiberPhase.c)
  * Callees:
- *     MmMarkImageForHiberPhase @ 0x140C014C8 (MmMarkImageForHiberPhase.c)
+ *     MmMarkImageForHiberPhase @ 0x140C076D8 (MmMarkImageForHiberPhase.c)
  */
 
 __int64 MiMarkHiberProtectedImages()

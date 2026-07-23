@@ -8,57 +8,51 @@
  *     RtlFreeHeap @ 0x180027690 (RtlFreeHeap.c)
  */
 
-signed __int64 __fastcall LdrpCleanupThreadTlsData(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void LdrpCleanupThreadTlsData()
 {
-  __int64 v4; // rdi
-  void **v5; // rsi
+  _QWORD *v0; // rdi
+  _QWORD *v1; // rsi
   unsigned __int64 UniqueThread; // r14
-  volatile signed __int64 *v7; // rbx
-  void **v8; // rax
-  signed __int64 result; // rax
-  _QWORD *v10; // rcx
-  __int64 v11; // rbx
+  _RTL_SRWLOCK *v3; // rbx
+  _QWORD *Value; // rax
+  _QWORD *v5; // rcx
+  _QWORD *v6; // rbx
 
-  v4 = 0LL;
-  v5 = 0LL;
+  v0 = 0LL;
+  v1 = 0LL;
   UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
-  v7 = (volatile signed __int64 *)((char *)&LdrpDelayedTlsReclaimTable + 16 * ((UniqueThread >> 2) & 0xF));
-  RtlAcquireSRWLockExclusive((unsigned __int64)(v7 + 1), a2, a3, a4);
-  v8 = (void **)*v7;
-  if ( *v7 )
+  v3 = (_RTL_SRWLOCK *)((char *)&LdrpDelayedTlsReclaimTable + 16 * ((UniqueThread >> 2) & 0xF));
+  RtlAcquireSRWLockExclusive(v3 + 1);
+  Value = (_QWORD *)v3->Value;
+  if ( v3->Value )
   {
     do
     {
-      v10 = v8[1];
-      if ( *v8 == (void *)UniqueThread )
+      v5 = (_QWORD *)Value[1];
+      if ( *Value == UniqueThread )
       {
-        if ( v5 )
-          v5[1] = v10;
+        if ( v1 )
+          v1[1] = v5;
         else
-          *v7 = (volatile signed __int64)v10;
-        v8[1] = (void *)v4;
-        v4 = (__int64)v8;
-        v8 = v5;
+          v3->Value = (unsigned __int64)v5;
+        Value[1] = v0;
+        v0 = Value;
+        Value = v1;
       }
-      v5 = v8;
-      v8 = (void **)v10;
+      v1 = Value;
+      Value = v5;
     }
-    while ( v10 );
+    while ( v5 );
   }
-  result = RtlReleaseSRWLockExclusive(v7 + 1);
-  if ( v4 )
+  RtlReleaseSRWLockExclusive(v3 + 1);
+  if ( v0 )
   {
     do
     {
-      v11 = *(_QWORD *)(v4 + 8);
-      result = RtlFreeHeap(LdrpTlsHeap, 0, v4);
-      v4 = v11;
+      v6 = (_QWORD *)v0[1];
+      RtlFreeHeap(LdrpTlsHeap, 0, v0);
+      v0 = v6;
     }
-    while ( v11 );
+    while ( v6 );
   }
-  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpDeleteTimer @ 0x140127950
+ * XREFs of ExpDeleteTimer @ 0x140127A20
  * Callers:
  *     <none>
  * Callees:
@@ -8,12 +8,12 @@
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsRemoveVirtualizedTimer @ 0x1401279FC (PsRemoveVirtualizedTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsRemoveVirtualizedTimer @ 0x140127ACC (PsRemoveVirtualizedTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
@@ -24,9 +24,9 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
   KIRQL v5; // bl
   struct _KTHREAD *CurrentThread; // r15
   _QWORD *v8; // r14
-  __int64 v9; // rax
+  _RTL_BALANCED_NODE *v9; // rax
   signed __int8 v10; // cf
-  __int64 v11; // rbp
+  _RTL_BALANCED_NODE *v11; // rbp
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rax
   struct _KPRCB *CurrentPrcb; // rcx
@@ -43,7 +43,7 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
     if ( v10 )
       ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v9, (ULONG_PTR)&ExpWakeTimerLock);
     if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
     Flink = p_WaitListHead->Flink;
     Blink = p_WaitListHead->Blink;
     if ( p_WaitListHead->Flink->Blink != p_WaitListHead || Blink->Flink != p_WaitListHead )

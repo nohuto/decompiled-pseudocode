@@ -13,22 +13,22 @@ __int64 __fastcall HvlSetSystemSleepProperty(int a1, char a2, char a3)
 {
   char v5; // r15
   char v6; // r14
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _DWORD *HypercallCachedPages; // rbx
   PHYSICAL_ADDRESS Next; // rsi
   PSLIST_ENTRY v10; // rax
-  struct _SLIST_ENTRY *v11; // rbp
+  _SLIST_ENTRY *v11; // rbp
   __int16 v12; // bx
   __int64 v13; // rax
   struct _KPRCB *v14; // rcx
-  union _SLIST_HEADER *v17; // [rsp+30h] [rbp-98h]
-  struct _SLIST_ENTRY *v18; // [rsp+38h] [rbp-90h]
+  _SLIST_HEADER *v17; // [rsp+30h] [rbp-98h]
+  _SLIST_ENTRY *v18; // [rsp+38h] [rbp-90h]
   _BYTE v19[7]; // [rsp+48h] [rbp-80h] BYREF
   _BYTE v20[89]; // [rsp+6Fh] [rbp-59h] BYREF
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v10 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     HypercallCachedPages = v10;
     if ( v10 )

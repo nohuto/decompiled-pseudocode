@@ -68,7 +68,7 @@ LABEL_7:
   KiAbThreadRemoveBoosts((ULONG_PTR)v3, BugCheckParameter2, &v10);
   result = KiLeaveGuardedRegionUnsafe((__int64)v3);
   if ( !_interlockedbittestandreset((volatile signed __int32 *)BugCheckParameter2, 0) )
-    result = ExpAcquireFastMutexContended(BugCheckParameter2, v4);
+    result = ExpAcquireFastMutexContended(BugCheckParameter2, (PRTL_BALANCED_NODE)v4);
   if ( v4 )
     *(_BYTE *)(v4 + 26) |= 1u;
   *(_QWORD *)(BugCheckParameter2 + 8) = v3;

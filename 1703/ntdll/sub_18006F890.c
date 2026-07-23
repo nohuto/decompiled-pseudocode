@@ -11,34 +11,34 @@
  *     sub_180070068 @ 0x180070068 (sub_180070068.c)
  */
 
-__int64 __fastcall sub_18006F890(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall sub_18006F890(__int64 a1, unsigned int **a2)
 {
-  __int64 *v4; // rax
-  unsigned __int64 v5; // rbx
+  unsigned int *v4; // rax
+  unsigned int *v5; // rbx
   __int64 v6; // rcx
-  _QWORD *v7; // rax
+  unsigned int **v7; // rax
 
   if ( !a2 )
-    RtlAcquireSRWLockExclusive(&qword_18015C0D8);
-  v4 = (__int64 *)sub_180070068(a1);
-  v5 = (unsigned __int64)v4;
+    RtlAcquireSRWLockExclusive(&stru_18015C0D8);
+  v4 = (unsigned int *)sub_180070068(a1);
+  v5 = v4;
   if ( v4 )
   {
-    v6 = *v4;
-    v7 = (_QWORD *)v4[1];
-    if ( *(_QWORD *)(v6 + 8) != v5 || *v7 != v5 )
+    v6 = *(_QWORD *)v4;
+    v7 = (unsigned int **)*((_QWORD *)v4 + 1);
+    if ( *(unsigned int **)(v6 + 8) != v5 || *v7 != v5 )
       __fastfail(3u);
-    *v7 = v6;
+    *v7 = (unsigned int *)v6;
     *(_QWORD *)(v6 + 8) = v7;
-    _bittestandreset((signed __int32 *)Src, *(_DWORD *)(v5 + 64));
+    _bittestandreset((signed __int32 *)BitMapHeader.Buffer, v5[16]);
   }
   if ( !a2 )
-    RtlReleaseSRWLockExclusive(&qword_18015C0D8);
+    RtlReleaseSRWLockExclusive(&stru_18015C0D8);
   if ( !v5 )
     return 3221226021LL;
   if ( a2 )
     *a2 = v5;
   else
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   return 0LL;
 }

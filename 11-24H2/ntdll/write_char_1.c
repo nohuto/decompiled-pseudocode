@@ -1,11 +1,11 @@
 /*
- * XREFs of write_char_1 @ 0x18012ED88
+ * XREFs of write_char_1 @ 0x18012CFB8
  * Callers:
- *     _output_s @ 0x18012E310 (_output_s.c)
- *     write_multi_char_1 @ 0x18012EDD8 (write_multi_char_1.c)
- *     write_string_1 @ 0x18012EE30 (write_string_1.c)
+ *     _output_s @ 0x18012C540 (_output_s.c)
+ *     write_multi_char_1 @ 0x18012D008 (write_multi_char_1.c)
+ *     write_string_1 @ 0x18012D060 (write_string_1.c)
  * Callees:
- *     _flsbuf_s @ 0x180131450 (_flsbuf_s.c)
+ *     _flsbuf_s @ 0x18012F680 (_flsbuf_s.c)
  */
 
 __int64 __fastcall write_char_1(unsigned __int8 a1, __int64 a2, _DWORD *a3)

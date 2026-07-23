@@ -1,12 +1,12 @@
 /*
- * XREFs of PsQuerySectionSignatureInformation @ 0x140935450
+ * XREFs of PsQuerySectionSignatureInformation @ 0x140A19CA0
  * Callers:
- *     PsCheckProcessFileSigningLevel @ 0x1407761B0 (PsCheckProcessFileSigningLevel.c)
- *     PsConvertToGuiThread @ 0x140935290 (PsConvertToGuiThread.c)
+ *     PsCheckProcessFileSigningLevel @ 0x1407763D0 (PsCheckProcessFileSigningLevel.c)
+ *     PsConvertToGuiThread @ 0x140AC9700 (PsConvertToGuiThread.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
  */
 
 __int64 __fastcall PsQuerySectionSignatureInformation(_KPROCESS *a1, _BYTE *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PsQuerySectionSignatureInformation(_KPROCESS *a1, _BYTE *a2)
 
   p_Blink = (struct _EX_RUNDOWN_REF *)&a1[1].ProfileListHead.Blink;
   v3 = 0;
-  if ( a1 == KeGetCurrentThread()->Process || (v3 = ExAcquireRundownProtection(p_Blink)) != 0 )
+  if ( a1 == KeGetCurrentThread()->Process || (v3 = ExAcquireRundownProtection_0(p_Blink)) != 0 )
   {
     v6 = a1[1].Padding[4];
     if ( v6 )

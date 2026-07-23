@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDecommitHandlePageFileFormatPte @ 0x140289270
+ * XREFs of MiDecommitHandlePageFileFormatPte @ 0x140298E70
  * Callers:
- *     MiDecommitPages @ 0x140288300 (MiDecommitPages.c)
- *     MiDeleteVa @ 0x1402DB780 (MiDeleteVa.c)
+ *     MiDeleteVa @ 0x14023D060 (MiDeleteVa.c)
+ *     MiDecommitPages @ 0x140297F00 (MiDecommitPages.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402C6590 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiTransferSoftwarePte @ 0x14039F300 (MiTransferSoftwarePte.c)
- *     MiReleasePageFileSpace @ 0x1403E4F90 (MiReleasePageFileSpace.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiTransferSoftwarePte @ 0x140215AA0 (MiTransferSoftwarePte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x140269980 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiReleasePageFileSpace @ 0x1403D2B30 (MiReleasePageFileSpace.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDecommitHandlePageFileFormatPte(__int64 a1, ULONG_PTR a2)
@@ -17,12 +17,12 @@ __int64 __fastcall MiDecommitHandlePageFileFormatPte(__int64 a1, ULONG_PTR a2)
   unsigned int v3; // r15d
   ULONG_PTR v4; // rbx
   int v6; // ecx
-  __int64 v7; // rdi
+  unsigned __int64 v7; // rdi
   unsigned __int64 v8; // rbp
   __int64 v9; // r12
   unsigned __int16 v10; // ax
   __int16 v11; // dx
-  unsigned __int64 v12; // r8
+  __int64 v12; // r8
   ULONG_PTR v14; // [rsp+68h] [rbp+10h] BYREF
 
   v14 = a2;
@@ -90,14 +90,14 @@ __int64 __fastcall MiDecommitHandlePageFileFormatPte(__int64 a1, ULONG_PTR a2)
         {
           v4 = v14;
           v3 = 0;
-          v12 = v14;
-          if ( qword_140E2DB80 && (v14 & 0x10) == 0 )
-            v12 = v14 & ~qword_140E2DB80;
+          HIDWORD(v12) = HIDWORD(v14);
+          if ( qword_140E2DCC0 && (v14 & 0x10) == 0 )
+            v12 = v14 & ~qword_140E2DCC0;
           v7 = MiTransferSoftwarePte(
                  *(_QWORD *)(a1 + 168),
                  *(_QWORD *)(v9 + 8LL * ((unsigned __int16)v14 >> 12) + 18528),
                  HIDWORD(v12),
-                 2LL);
+                 2);
         }
       }
     }

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReleasePageFileSpace @ 0x140303154
+ * XREFs of MiReleasePageFileSpace @ 0x14030DEA4
  * Callers:
- *     MiDeletePteRun @ 0x140236C60 (MiDeletePteRun.c)
- *     MiActOnPte @ 0x14023C5F0 (MiActOnPte.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402696C0 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiDeletePerSessionProtos @ 0x1402CF174 (MiDeletePerSessionProtos.c)
- *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
- *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
- *     MiRemoveMappedPtes @ 0x140308500 (MiRemoveMappedPtes.c)
- *     MiPfnReferenceCountIsZero @ 0x140325DF0 (MiPfnReferenceCountIsZero.c)
- *     MiWsleFlush @ 0x1403274F0 (MiWsleFlush.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
- *     MiDeleteMergedPte @ 0x140366E48 (MiDeleteMergedPte.c)
- *     MiPurgeImageSection @ 0x1403A53C4 (MiPurgeImageSection.c)
+ *     MiDeletePerSessionProtos @ 0x14024D674 (MiDeletePerSessionProtos.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140257660 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiDeletePteRun @ 0x1402DB4B0 (MiDeletePteRun.c)
+ *     MiActOnPte @ 0x1402E0E40 (MiActOnPte.c)
+ *     MiDeleteClusterSection @ 0x14030B130 (MiDeleteClusterSection.c)
+ *     MiDeleteSystemPagableVm @ 0x1403107D0 (MiDeleteSystemPagableVm.c)
+ *     MiRemoveMappedPtes @ 0x140313250 (MiRemoveMappedPtes.c)
+ *     MiPfnReferenceCountIsZero @ 0x140330B40 (MiPfnReferenceCountIsZero.c)
+ *     MiWsleFlush @ 0x140332240 (MiWsleFlush.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
+ *     MiDeleteMergedPte @ 0x140366FF8 (MiDeleteMergedPte.c)
+ *     MiPurgeImageSection @ 0x1403A5514 (MiPurgeImageSection.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
- *     MiCapturePageFileInfoInline @ 0x1402A2CF0 (MiCapturePageFileInfoInline.c)
+ *     MiCapturePageFileInfoInline @ 0x140220130 (MiCapturePageFileInfoInline.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
  */
 
 __int64 __fastcall MiReleasePageFileSpace(__int64 a1, unsigned __int64 a2, int a3)

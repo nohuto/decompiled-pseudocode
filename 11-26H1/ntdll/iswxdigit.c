@@ -1,5 +1,5 @@
 /*
- * XREFs of iswxdigit @ 0x18012ADD0
+ * XREFs of iswxdigit @ 0x18012AB40
  * Callers:
  *     <none>
  * Callees:

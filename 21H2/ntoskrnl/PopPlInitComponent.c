@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPlInitComponent @ 0x1408F944C
+ * XREFs of PopPlInitComponent @ 0x1408F95AC
  * Callers:
- *     PopPlInitComponents @ 0x1408F9528 (PopPlInitComponents.c)
+ *     PopPlInitComponents @ 0x1408F9688 (PopPlInitComponents.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitComponent(__int64 a1, __int128 *a2, __int64 a3, unsigned __int64 a4, char **a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAcquireInterruptSpinLock @ 0x140476B00
+ * XREFs of KeAcquireInterruptSpinLock @ 0x140470280
  * Callers:
  *     <none>
  * Callees:
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 KIRQL __stdcall KeAcquireInterruptSpinLock(PKINTERRUPT Interrupt)
@@ -29,7 +29,7 @@ KIRQL __stdcall KeAcquireInterruptSpinLock(PKINTERRUPT Interrupt)
     KiRaiseIrqlProcessIrqlFlags(Interrupt, SynchronizeIrql);
   }
   ActualLock = (volatile signed __int32 *)v2->ActualLock;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     if ( _interlockedbittestandset64(ActualLock, 0LL) )
       KxWaitForSpinLockAndAcquire(ActualLock);

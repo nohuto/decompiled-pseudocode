@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMIAllocateInstanceIds @ 0x1407A37A0
+ * XREFs of IoWMIAllocateInstanceIds @ 0x1407A38B0
  * Callers:
- *     DifIoWMIAllocateInstanceIdsWrapper @ 0x14062B6F0 (DifIoWMIAllocateInstanceIdsWrapper.c)
+ *     DifIoWMIAllocateInstanceIdsWrapper @ 0x140629CB0 (DifIoWMIAllocateInstanceIdsWrapper.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoWMIAllocateInstanceIds(LPCGUID Guid, ULONG InstanceCount, ULONG *FirstInstanceId)
@@ -52,7 +52,7 @@ LABEL_4:
     KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
     return 0;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0xA8uLL, 0x69696D57u);
   v14 = (_QWORD *)Pool2;
   if ( Pool2 )
   {

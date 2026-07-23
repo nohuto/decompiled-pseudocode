@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlpHpTagContextGetTag @ 0x1800F7674
  * Callers:
- *     RtlpHpTagAllocateHeap @ 0x1800871F0 (RtlpHpTagAllocateHeap.c)
+ *     RtlpHpTagAllocateHeap @ 0x1800871E0 (RtlpHpTagAllocateHeap.c)
  * Callees:
- *     RtlpHpTagContextAllocateTag @ 0x180050C04 (RtlpHpTagContextAllocateTag.c)
- *     RtlpHpTagContextFindMapping @ 0x180050DDC (RtlpHpTagContextFindMapping.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpHpTagContextAllocateTag @ 0x180050BF4 (RtlpHpTagContextAllocateTag.c)
+ *     RtlpHpTagContextFindMapping @ 0x180050DCC (RtlpHpTagContextFindMapping.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpTagContextGetTag(__int64 a1, unsigned __int64 a2)

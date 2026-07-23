@@ -28,15 +28,15 @@ char __fastcall sub_180024FBC(__int64 a1, int a2, int a3)
   char v13; // [rsp+48h] [rbp-38h]
 
   v5 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   else
     v6 = 2147353476LL;
   if ( *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
     v7 = 2147353477LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v11 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
     else
       v11 = 2147353477LL;
     if ( (*(_BYTE *)v11 & 0x20) != 0 )
@@ -50,12 +50,12 @@ char __fastcall sub_180024FBC(__int64 a1, int a2, int a3)
     v7 = 2147353477LL;
   }
   v13 = _guard_dispatch_icall_fptr();
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v5 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v5 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   if ( *(_BYTE *)v5 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
     if ( (*(_BYTE *)v7 & 0x20) != 0 )
     {
       LOBYTE(v12) = -1;

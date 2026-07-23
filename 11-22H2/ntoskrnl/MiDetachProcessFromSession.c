@@ -87,10 +87,10 @@ LABEL_7:
   }
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v18);
   OldIrql = v18.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v18.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

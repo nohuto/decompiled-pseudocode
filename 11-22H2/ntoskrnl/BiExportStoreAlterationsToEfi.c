@@ -10,7 +10,7 @@
  *     BiExportEfiBootManager @ 0x140A5E63C (BiExportEfiBootManager.c)
  */
 
-__int64 __fastcall BiExportStoreAlterationsToEfi(_QWORD *a1)
+__int64 __fastcall BiExportStoreAlterationsToEfi(_QWORD *BcdStoreHandle)
 {
   __int64 v2; // rdx
   int v3; // ebx
@@ -21,14 +21,14 @@ __int64 __fastcall BiExportStoreAlterationsToEfi(_QWORD *a1)
   BiLogMessage(2LL, L"Exporting store alterations to efi");
   v7[1] = v7;
   v7[0] = v7;
-  v3 = BiBuildIdentifierList(a1, v2, (__int64)v7);
+  v3 = BiBuildIdentifierList(BcdStoreHandle, v2, (__int64)v7);
   if ( v3 < 0 )
     goto LABEL_6;
-  v4 = BiExportBcdObjects((__int64)a1, (__int64 *)v7);
+  v4 = BiExportBcdObjects(BcdStoreHandle, (const GUID **)v7);
   if ( v4 < 0 )
     v3 = v4;
   v5 = v3;
-  v3 = BiExportEfiBootManager((__int64)a1, (__int64)v7);
+  v3 = BiExportEfiBootManager(BcdStoreHandle, (__int64)v7);
   if ( v3 < 0 || (v3 = v5, v5 < 0) )
 LABEL_6:
     BiLogMessage(4LL, L"BiExportStoreAlterationsToEfi failed %x", (unsigned int)v3);

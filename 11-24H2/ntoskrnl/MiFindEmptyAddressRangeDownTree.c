@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindEmptyAddressRangeDownTree @ 0x1408E2120
+ * XREFs of MiFindEmptyAddressRangeDownTree @ 0x140918CD0
  * Callers:
- *     MiSelectUserAddress @ 0x1408E15D0 (MiSelectUserAddress.c)
- *     MiFinishCreateSection @ 0x140941784 (MiFinishCreateSection.c)
+ *     MiSelectUserAddress @ 0x140918180 (MiSelectUserAddress.c)
+ *     MiFinishCreateSection @ 0x14098B9F0 (MiFinishCreateSection.c)
  * Callees:
- *     MiUpdateVadStartVpn @ 0x140449454 (MiUpdateVadStartVpn.c)
- *     MiHonorRangeStraddleRequirement @ 0x140459C68 (MiHonorRangeStraddleRequirement.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiUpdateVadStartVpn @ 0x140441BA4 (MiUpdateVadStartVpn.c)
+ *     MiHonorRangeStraddleRequirement @ 0x14044EA18 (MiHonorRangeStraddleRequirement.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRangeDownTree(

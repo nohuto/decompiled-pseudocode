@@ -55,7 +55,7 @@ LABEL_7:
     v16 = v6;
     if ( j >= 0xA )
       break;
-    v17 = LOBYTE((&EtwpUmglProviders)[2 * j + 1]);
+    v17 = *((unsigned __int8 *)&(&EtwpUmglProviders)[2 * j] + 8);
     if ( *(_BYTE *)(v14 + 2 * v17) )
     {
       if ( ++v6 > 0x71C71C7 )
@@ -63,7 +63,7 @@ LABEL_7:
       if ( v6 <= a3 )
       {
         v18 = 9 * v16;
-        *(_OWORD *)(a2 + 4 * v18) = *(_OWORD *)&(*(&EtwpUmglProviders)[2 * j])[0];
+        *(GUID *)(a2 + 4 * v18) = *(&EtwpUmglProviders)[2 * j];
         *(_DWORD *)(a2 + 4 * v18 + 20) = *(unsigned __int8 *)(v14 + 2 * v17);
         *(_DWORD *)(a2 + 4 * v18 + 28) = *(unsigned __int8 *)(v14 + 2 * v17 + 1);
         *(_DWORD *)(a2 + 4 * v18 + 24) = 0;

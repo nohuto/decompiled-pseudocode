@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     IoGetIoPriorityHint @ 0x140221E10 (IoGetIoPriorityHint.c)
- *     PsGetIoPriorityThread @ 0x14033D760 (PsGetIoPriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_14033D760 @ 0x14033D760 (sub_14033D760.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 NTSTATUS __stdcall IoRetrievePriorityInfo(
@@ -17,17 +17,17 @@ NTSTATUS __stdcall IoRetrievePriorityInfo(
   int v4; // r14d
   int v5; // ebp
   _DWORD *FileObjectExtension; // rax
-  _IO_PRIORITY_HINT IoPriorityThread; // edx
-  unsigned int BasePriority; // eax
-  unsigned int v11; // edx
+  IO_PRIORITY_HINT v9; // edx
+  ULONG v10; // eax
+  ULONG v11; // edx
   int v13; // edx
   unsigned __int8 CurrentIrql; // di
   struct _KPRCB *CurrentPrcb; // rax
-  _KSCHEDULING_GROUP *volatile SchedulingGroup; // rcx
-  char *i; // rcx
-  _DWORD *SchedulerAssist; // r9
+  __int64 v16; // rcx
+  __int64 i; // rcx
+  __int64 v18; // r9
   struct _KPRCB *v19; // r9
-  _DWORD *v20; // r8
+  __int64 v20; // r8
   int v21; // eax
   bool v22; // zf
 
@@ -44,37 +44,37 @@ NTSTATUS __stdcall IoRetrievePriorityInfo(
         v13 = FileObjectExtension[20];
         if ( v13 )
         {
-          IoPriorityThread = v13 - 1;
+          v9 = v13 - 1;
         }
         else
         {
           if ( !Thread )
             goto LABEL_42;
-          IoPriorityThread = (unsigned int)PsGetIoPriorityThread((__int64)Thread);
+          v9 = (unsigned int)sub_14033D760((__int64)Thread);
         }
         goto LABEL_7;
       }
       if ( Thread )
       {
-        IoPriorityThread = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 9) & 7;
-        if ( (Thread->Process[1].DirectoryTableBase & 0x10000000000000LL) != 0 )
+        v9 = (*((_DWORD *)Thread + 344) >> 9) & 7;
+        if ( (*(_DWORD *)(*((_QWORD *)Thread + 68) + 1124LL) & 0x100000) != 0 )
         {
-          IoPriorityThread = IoPriorityVeryLow;
+          v9 = IoPriorityVeryLow;
         }
-        else if ( (unsigned int)IoPriorityThread >= IoPriorityNormal )
+        else if ( (unsigned int)v9 >= IoPriorityNormal )
         {
 LABEL_7:
-          PriorityInfo->IoPriority = IoPriorityThread;
+          PriorityInfo->IoPriority = v9;
           goto LABEL_8;
         }
-        if ( Thread == KeGetCurrentThread() && LODWORD(Thread[1].Timer.TimerListEntry.Flink) )
-          IoPriorityThread = IoPriorityNormal;
+        if ( Thread == KeGetCurrentThread() && *((_DWORD *)Thread + 360) )
+          v9 = IoPriorityNormal;
         goto LABEL_7;
       }
     }
     else if ( Thread )
     {
-      PriorityInfo->IoPriority = PsGetIoPriorityThread((__int64)Thread);
+      PriorityInfo->IoPriority = sub_14033D760((__int64)Thread);
       goto LABEL_9;
     }
 LABEL_42:
@@ -86,54 +86,54 @@ LABEL_8:
   if ( !Thread )
     goto LABEL_42;
 LABEL_9:
-  if ( Thread->Priority >= 16 || !Thread->SchedulingGroup )
+  if ( *((char *)Thread + 195) >= 16 || !*((_QWORD *)Thread + 13) )
     goto LABEL_11;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    v18 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+    *(_DWORD *)(v18 + 20) |= (-1 << (CurrentIrql + 1)) & 4;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  SchedulingGroup = Thread->SchedulingGroup;
-  if ( SchedulingGroup )
+  v16 = *((_QWORD *)Thread + 13);
+  if ( v16 )
   {
-    for ( i = (char *)SchedulingGroup + CurrentPrcb->ScbOffset; i; i = (char *)*((_QWORD *)i + 51) )
+    for ( i = *((unsigned int *)CurrentPrcb + 54) + v16; i; i = *(_QWORD *)(i + 408) )
     {
-      v4 = ((unsigned __int8)i[112] >> 3) & 1;
+      v4 = (*(unsigned __int8 *)(i + 112) >> 3) & 1;
       if ( v4 )
         break;
     }
   }
   if ( CurrentIrql < 2u )
   {
-    if ( KiIrqlFlags )
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
+      if ( (dword_140D06B08 & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
       {
         v19 = KeGetCurrentPrcb();
-        v20 = v19->SchedulerAssist;
+        v20 = *((_QWORD *)v19 + 4375);
         v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v22 = (v21 & v20[5]) == 0;
-        v20[5] &= v21;
+        v22 = (v21 & *(_DWORD *)(v20 + 20)) == 0;
+        *(_DWORD *)(v20 + 20) &= v21;
         if ( v22 )
-          KiRemoveSystemWorkPriorityKick(v19);
+          sub_140418E4C(v19);
       }
     }
     __writecr8(CurrentIrql);
   }
   if ( v4 )
-    BasePriority = 1;
+    v10 = 1;
   else
 LABEL_11:
-    BasePriority = Thread->BasePriority;
-  PriorityInfo->ThreadPriority = BasePriority;
-  v11 = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 12) & 7;
-  if ( (Thread->Process[1].DirectoryTableBase & 0x10000000000000LL) != 0 )
+    v10 = *((char *)Thread + 563);
+  PriorityInfo->ThreadPriority = v10;
+  v11 = (*((_DWORD *)Thread + 344) >> 12) & 7;
+  if ( (*(_DWORD *)(*((_QWORD *)Thread + 68) + 1124LL) & 0x100000) != 0 )
   {
     if ( v11 < 2 )
-      v5 = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 12) & 7;
+      v5 = (*((_DWORD *)Thread + 344) >> 12) & 7;
     v11 = v5;
   }
   PriorityInfo->PagePriority = v11;

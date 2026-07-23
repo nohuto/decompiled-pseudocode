@@ -13,57 +13,106 @@
  *     NtQueryValueKey @ 0x18009D0F0 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(__int64 a1, _QWORD *a2)
+__int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ACCESS_MASK DesiredAccess, PHANDLE KeyHandle)
 {
-  int v3; // ebx
-  UNICODE_STRING v5; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v6[2]; // [rsp+68h] [rbp-98h] BYREF
-  UNICODE_STRING v7; // [rsp+78h] [rbp-88h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  int v9; // [rsp+98h] [rbp-68h]
-  __int64 v10; // [rsp+A0h] [rbp-60h]
-  UNICODE_STRING *p_DestinationString; // [rsp+A8h] [rbp-58h]
-  int v12; // [rsp+B0h] [rbp-50h]
-  __int128 v13; // [rsp+B8h] [rbp-48h]
-  int v14; // [rsp+C8h] [rbp-38h]
-  __int64 v15; // [rsp+D0h] [rbp-30h]
-  UNICODE_STRING *v16; // [rsp+D8h] [rbp-28h]
-  int v17; // [rsp+E0h] [rbp-20h]
-  __int128 v18; // [rsp+E8h] [rbp-18h]
+  NTSTATUS v4; // ebx
+  NTSTATUS v5; // eax
+  WCHAR *Heap; // rsi
+  HANDLE v7; // rax
+  HANDLE v8; // rax
+  HANDLE v10; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING SourceString; // [rsp+38h] [rbp-C8h] BYREF
+  _UNICODE_STRING v12; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING v13; // [rsp+58h] [rbp-A8h] BYREF
+  _UNICODE_STRING v14; // [rsp+68h] [rbp-98h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+78h] [rbp-88h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
+  _OBJECT_ATTRIBUTES v18; // [rsp+C8h] [rbp-38h] BYREF
+  _OBJECT_ATTRIBUTES v19; // [rsp+F8h] [rbp-8h] BYREF
+  ULONG ResultLength; // [rsp+160h] [rbp+60h] BYREF
+  HANDLE KeyHandlea; // [rsp+168h] [rbp+68h] BYREF
 
   if ( dword_18016F514 )
   {
     RtlInitUnicodeString(&DestinationString, &word_18016BA60);
-    v10 = 0LL;
-    p_DestinationString = &DestinationString;
-    v9 = 48;
-    v12 = 576;
-    v13 = 0LL;
-    return (unsigned int)ZwOpenKey();
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    return (unsigned int)ZwOpenKey(KeyHandle, DesiredAccess, &ObjectAttributes);
   }
-  else
+  KeyHandlea = 0LL;
+  RtlInitUnicodeString(&v13, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CommonGlobUserSettings\\");
+  v18.RootDirectory = 0LL;
+  v18.ObjectName = &v13;
+  v18.Length = 48;
+  v18.Attributes = 576;
+  *(_OWORD *)&v18.SecurityDescriptor = 0LL;
+  v4 = ZwOpenKey(&KeyHandlea, DesiredAccess, &v18);
+  if ( v4 >= 0 )
   {
-    RtlInitUnicodeString(&v5, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CommonGlobUserSettings\\");
-    v15 = 0LL;
-    v16 = &v5;
-    v14 = 48;
-    v17 = 576;
-    v18 = 0LL;
-    v3 = ZwOpenKey();
-    if ( v3 >= 0 )
+    ResultLength = 0;
+    RtlInitUnicodeString(&ValueName, L"RedirectedKey");
+    v5 = ZwQueryValueKey(KeyHandlea, &ValueName, KeyValuePartialInformation, 0LL, 0, &ResultLength);
+    if ( !ResultLength || v5 != -1073741789 && v5 != -2147483643 )
     {
-      RtlInitUnicodeString(&v7, L"RedirectedKey");
-      ZwQueryValueKey();
-      v6[0] = 11141120LL;
-      v6[1] = &word_18016BA60;
-      if ( v5.Length <= 0xAAu )
+      *(_QWORD *)&v14.Length = 11141120LL;
+      v14.Buffer = &word_18016BA60;
+      if ( v13.Length <= 0xAAu )
       {
-        RtlCopyUnicodeString((unsigned __int16 *)v6, &v5.Length);
+        RtlCopyUnicodeString(&v14, &v13);
         dword_18016F514 = 1;
       }
-      v3 = 0;
-      *a2 = 0LL;
+      v8 = KeyHandlea;
+      KeyHandlea = 0LL;
+      v4 = 0;
+      *KeyHandle = v8;
+      goto LABEL_21;
     }
+    Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, ResultLength);
+    if ( Heap )
+    {
+      v4 = ZwQueryValueKey(KeyHandlea, &ValueName, KeyValuePartialInformation, Heap, ResultLength, &ResultLength);
+      if ( v4 >= 0 )
+      {
+        if ( *((_DWORD *)Heap + 1) != 1 )
+        {
+          v7 = KeyHandlea;
+          KeyHandlea = 0LL;
+LABEL_15:
+          *KeyHandle = v7;
+          goto LABEL_16;
+        }
+        RtlInitUnicodeString(&SourceString, Heap + 6);
+        v19.RootDirectory = 0LL;
+        v19.ObjectName = &SourceString;
+        v19.Length = 48;
+        v19.Attributes = 576;
+        *(_OWORD *)&v19.SecurityDescriptor = 0LL;
+        v4 = ZwOpenKey(&v10, DesiredAccess, &v19);
+        if ( v4 >= 0 )
+        {
+          *(_QWORD *)&v12.Length = 11141120LL;
+          v12.Buffer = &word_18016BA60;
+          if ( SourceString.Length <= 0xAAu )
+          {
+            RtlCopyUnicodeString(&v12, &SourceString);
+            dword_18016F514 = 1;
+          }
+          v7 = v10;
+          goto LABEL_15;
+        }
+      }
+LABEL_16:
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      goto LABEL_21;
+    }
+    v4 = -1073741801;
   }
-  return (unsigned int)v3;
+LABEL_21:
+  if ( KeyHandlea )
+    ZwClose(KeyHandlea);
+  return (unsigned int)v4;
 }

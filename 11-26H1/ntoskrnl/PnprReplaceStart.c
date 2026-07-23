@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprReplaceStart @ 0x1407B0104
+ * XREFs of PnprReplaceStart @ 0x1407B3164
  * Callers:
- *     PnprInitiateReplaceOperation @ 0x140BF1744 (PnprInitiateReplaceOperation.c)
+ *     PnprInitiateReplaceOperation @ 0x140BF7744 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 PnprReplaceStart()
@@ -55,7 +55,7 @@ __int64 PnprReplaceStart()
         v7 = PnprContext;
         v8 = *(_DWORD *)(PnprContext + 33288);
         if ( !v8 )
-          v8 = 2762;
+          v8 = 2554;
         *(_DWORD *)(PnprContext + 33288) = v8;
         v9 = *(_DWORD *)(v7 + 33292);
         if ( !v9 )
@@ -69,7 +69,7 @@ __int64 PnprReplaceStart()
     v3 = PnprContext;
     v4 = *(_DWORD *)(PnprContext + 33288);
     if ( !v4 )
-      v4 = 2736;
+      v4 = 2528;
     v5 = *(_DWORD *)(PnprContext + 33292);
     *(_DWORD *)(PnprContext + 33288) = v4;
     if ( !v5 )

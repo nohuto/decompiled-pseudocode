@@ -1,10 +1,10 @@
 /*
- * XREFs of NtDeviceIoControlFile @ 0x1408F5E30
+ * XREFs of NtDeviceIoControlFile @ 0x140925DC0
  * Callers:
- *     DifNtDeviceIoControlFileWrapper @ 0x140676100 (DifNtDeviceIoControlFileWrapper.c)
- *     PopFlushVolumeWorker @ 0x140C06A60 (PopFlushVolumeWorker.c)
+ *     DifNtDeviceIoControlFileWrapper @ 0x140679CE0 (DifNtDeviceIoControlFileWrapper.c)
+ *     PopFlushVolumeWorker @ 0x140C0CC70 (PopFlushVolumeWorker.c)
  * Callees:
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
  */
 
 NTSTATUS __stdcall NtDeviceIoControlFile(

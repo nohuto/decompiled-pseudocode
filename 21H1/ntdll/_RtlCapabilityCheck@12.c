@@ -18,148 +18,149 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __stdcall RtlCapabilityCheck(int a1, unsigned __int16 *a2, char *a3)
+NTSTATUS __cdecl RtlCapabilityCheck(HANDLE TokenHandle, PUNICODE_STRING CapabilityName, PBOOLEAN HasCapability)
 {
-  char v3; // bl
+  BOOLEAN v3; // bl
   int v4; // esi
   bool v5; // zf
-  char v6; // bl
-  _BYTE v8[7]; // [esp+11h] [ebp-DFh] BYREF
-  int v9; // [esp+18h] [ebp-D8h] BYREF
-  __int16 v10; // [esp+1Ch] [ebp-D4h]
-  int v11; // [esp+20h] [ebp-D0h] BYREF
-  HANDLE Handle; // [esp+24h] [ebp-CCh] BYREF
-  int v13; // [esp+28h] [ebp-C8h] BYREF
-  unsigned __int16 *v14; // [esp+2Ch] [ebp-C4h]
-  int v15; // [esp+30h] [ebp-C0h]
-  int v16; // [esp+34h] [ebp-BCh]
-  UNICODE_STRING DestinationString; // [esp+38h] [ebp-B8h] BYREF
-  _DWORD v18[2]; // [esp+40h] [ebp-B0h] BYREF
-  _DWORD v19[3]; // [esp+48h] [ebp-A8h] BYREF
-  _DWORD v20[6]; // [esp+54h] [ebp-9Ch] BYREF
-  _BYTE v21[4]; // [esp+6Ch] [ebp-84h] BYREF
-  _BYTE v22[16]; // [esp+70h] [ebp-80h] BYREF
-  unsigned __int8 v23[8]; // [esp+80h] [ebp-70h] BYREF
-  int v24; // [esp+88h] [ebp-68h]
-  int v25; // [esp+8Ch] [ebp-64h]
-  unsigned __int8 Src[44]; // [esp+90h] [ebp-60h] BYREF
-  char v27[48]; // [esp+BCh] [ebp-34h] BYREF
+  BOOLEAN v6; // bl
+  BOOLEAN v8; // [esp+11h] [ebp-DFh] BYREF
+  BOOLEAN IsMember; // [esp+12h] [ebp-DEh] BYREF
+  BOOLEAN v10; // [esp+13h] [ebp-DDh] BYREF
+  HANDLE v11; // [esp+14h] [ebp-DCh]
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [esp+18h] [ebp-D8h] BYREF
+  BOOLEAN v13[4]; // [esp+20h] [ebp-D0h] BYREF
+  HANDLE KeyHandle; // [esp+24h] [ebp-CCh] BYREF
+  BOOLEAN v15[4]; // [esp+28h] [ebp-C8h] BYREF
+  PUNICODE_STRING ValueName; // [esp+2Ch] [ebp-C4h]
+  int v17; // [esp+30h] [ebp-C0h]
+  int v18; // [esp+34h] [ebp-BCh]
+  _UNICODE_STRING DestinationString; // [esp+38h] [ebp-B8h] BYREF
+  LARGE_INTEGER v20; // [esp+40h] [ebp-B0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [esp+48h] [ebp-A8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+54h] [ebp-9Ch] BYREF
+  ULONG ResultLength; // [esp+6Ch] [ebp-84h] BYREF
+  _BYTE KeyValueInformation[16]; // [esp+70h] [ebp-80h] BYREF
+  _BYTE Sid[8]; // [esp+80h] [ebp-70h] BYREF
+  int v26; // [esp+88h] [ebp-68h]
+  int v27; // [esp+8Ch] [ebp-64h]
+  _BYTE CapabilityGroupSid[44]; // [esp+90h] [ebp-60h] BYREF
+  _BYTE CapabilitySid[48]; // [esp+BCh] [ebp-34h] BYREF
 
-  *(_DWORD *)&v8[3] = a1;
+  v11 = TokenHandle;
   v3 = 0;
-  v15 = (int)a3;
-  v14 = a2;
-  memset(v22, 0, sizeof(v22));
+  v17 = (int)HasCapability;
+  ValueName = CapabilityName;
+  memset(KeyValueInformation, 0, sizeof(KeyValueInformation));
   *(_DWORD *)&DestinationString.Length = 0;
   DestinationString.Buffer = 0;
-  Handle = 0;
-  LOBYTE(v16) = 0;
-  v9 = 0;
-  v10 = 1280;
-  LOBYTE(v11) = 0;
-  v8[0] = 0;
-  LOBYTE(v13) = 0;
-  *(_WORD *)&v8[1] = 0;
-  v19[0] = 0;
-  v19[1] = 0;
-  v18[0] = 0;
-  v18[1] = 0;
-  RtlQueryPerformanceCounter(v19);
-  if ( !a2 || !v15 )
+  KeyHandle = 0;
+  LOBYTE(v18) = 0;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+  v10 = 0;
+  v13[0] = 0;
+  v8 = 0;
+  v15[0] = 0;
+  IsMember = 0;
+  PerformanceCounter.QuadPart = 0LL;
+  v20.QuadPart = 0LL;
+  RtlQueryPerformanceCounter(&PerformanceCounter);
+  if ( !CapabilityName || !v17 )
   {
     v4 = -1073741811;
     goto LABEL_26;
   }
-  *(_BYTE *)v15 = 0;
-  v4 = RtlDeriveCapabilitySidsFromName(a2, (char *)Src, v27);
+  *(_BYTE *)v17 = 0;
+  v4 = RtlDeriveCapabilitySidsFromName(CapabilityName, CapabilityGroupSid, CapabilitySid);
   if ( v4 < 0 )
     goto LABEL_26;
   if ( !RtlIsMultiSessionSku()
     || (RtlInitUnicodeString(
           &DestinationString,
           L"\\Registry\\Machine\\Software\\Microsoft\\SecurityManager\\AdminCapabilities"),
-        v20[0] = 24,
-        v20[2] = &DestinationString,
-        v20[1] = 0,
-        v20[3] = 64,
-        v20[4] = 0,
-        v20[5] = 0,
-        (int)ZwOpenKey(&Handle, 0x80000000, v20) < 0)
-    || (int)ZwQueryValueKey(Handle, v14, 2, v22, 16, v21) < 0 )
+        ObjectAttributes.Length = 24,
+        ObjectAttributes.ObjectName = &DestinationString,
+        ObjectAttributes.RootDirectory = 0,
+        ObjectAttributes.Attributes = 64,
+        ObjectAttributes.SecurityDescriptor = 0,
+        ObjectAttributes.SecurityQualityOfService = 0,
+        ZwOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes) < 0)
+    || ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, KeyValueInformation, 0x10u, &ResultLength) < 0 )
   {
-    v4 = RtlCheckTokenMembershipEx(*(void **)&v8[3], Src, 2, &v8[1]);
+    v4 = RtlCheckTokenMembershipEx(v11, CapabilityGroupSid, 2u, &IsMember);
     if ( v4 < 0 )
       goto LABEL_26;
-    if ( !v8[1] )
+    if ( !IsMember )
     {
-      RtlInitializeSid((int)v23, (int)&v9, 1u);
-      v24 = 18;
-      v4 = RtlCheckTokenMembershipEx(*(void **)&v8[3], v23, 0, v8);
+      RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+      v26 = 18;
+      v4 = RtlCheckTokenMembershipEx(v11, Sid, 0, &v8);
       if ( v4 < 0 )
         goto LABEL_26;
-      if ( !v8[0] )
+      if ( !v8 )
       {
-        RtlInitializeSid((int)v23, (int)&v9, 2u);
-        v24 = 32;
-        v25 = 544;
-        v4 = RtlCheckTokenMembershipEx(*(void **)&v8[3], v23, 0, &v11);
+        RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
+        v26 = 32;
+        v27 = 544;
+        v4 = RtlCheckTokenMembershipEx(v11, Sid, 0, v13);
         if ( v4 < 0 )
           goto LABEL_26;
-        v3 = v11;
-        if ( !(_BYTE)v11 )
+        v3 = v13[0];
+        if ( !v13[0] )
         {
-          RtlInitializeSid((int)v23, (int)&v9, 1u);
-          v24 = 4;
-          v4 = RtlCheckTokenMembershipEx(*(void **)&v8[3], v23, 2, &v13);
+          RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+          v26 = 4;
+          v4 = RtlCheckTokenMembershipEx(v11, Sid, 2u, v15);
           if ( v4 < 0 )
             goto LABEL_26;
-          if ( !(_BYTE)v13 )
+          if ( !v15[0] )
             goto LABEL_17;
         }
       }
     }
     goto LABEL_15;
   }
-  LOBYTE(v16) = 1;
-  RtlInitializeSid((int)v23, (int)&v9, 1u);
-  v24 = 18;
-  v4 = RtlCheckTokenMembershipEx(*(void **)&v8[3], v23, 0, v8);
+  LOBYTE(v18) = 1;
+  RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+  v26 = 18;
+  v4 = RtlCheckTokenMembershipEx(v11, Sid, 0, &v8);
   if ( v4 < 0 )
     goto LABEL_26;
-  if ( v8[0] )
+  if ( v8 )
     goto LABEL_15;
-  RtlInitializeSid((int)v23, (int)&v9, 2u);
-  v24 = 32;
-  v25 = 544;
-  v4 = RtlCheckTokenMembershipEx(*(void **)&v8[3], v23, 0, &v11);
+  RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
+  v26 = 32;
+  v27 = 544;
+  v4 = RtlCheckTokenMembershipEx(v11, Sid, 0, v13);
   if ( v4 < 0 )
     goto LABEL_26;
-  v3 = v11;
-  if ( (_BYTE)v11 )
+  v3 = v13[0];
+  if ( v13[0] )
   {
 LABEL_15:
-    v4 = RtlCheckTokenCapability(*(_DWORD *)&v8[3], v27, &v8[2]);
+    v4 = RtlCheckTokenCapability(v11, CapabilitySid, &v10);
     if ( v4 >= 0 )
     {
-      *a3 = v8[2];
+      *HasCapability = v10;
       goto LABEL_17;
     }
 LABEL_26:
-    v6 = v8[0];
+    v6 = v8;
     goto LABEL_21;
   }
 LABEL_17:
-  if ( !*a3 )
+  if ( !*HasCapability )
     goto LABEL_26;
   v5 = v3 == 0;
-  v6 = v8[0];
-  if ( v5 && !v8[0] )
-    v4 = RtlpCapabilityCheckSystemCapability(*(int *)&v8[3], (int)a3);
+  v6 = v8;
+  if ( v5 && !v8 )
+    v4 = RtlpCapabilityCheckSystemCapability(v11, (int)HasCapability);
 LABEL_21:
-  if ( Handle )
-    NtClose(Handle);
-  RtlQueryPerformanceCounter(v18);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
+  RtlQueryPerformanceCounter(&v20);
   if ( !v6 )
-    RtlpLogCapabilityCheckLatency(v11, v13, v16, *a3);
+    RtlpLogCapabilityCheckLatency(v13[0], v15[0], v18, *HasCapability);
   return v4;
 }

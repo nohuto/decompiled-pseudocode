@@ -11,31 +11,31 @@
  *     RtlpAtomMapAtomToHandleEntry @ 0x1406383F0 (RtlpAtomMapAtomToHandleEntry.c)
  */
 
-__int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int16 a2)
+NTSTATUS __cdecl RtlPinAtomInAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
   int v4; // eax
   unsigned __int64 v5; // rax
   __int64 *v6; // rax
-  unsigned int v8; // [rsp+20h] [rbp-28h]
+  NTSTATUS v8; // [rsp+20h] [rbp-28h]
 
-  if ( !RtlpLockAtomTable((_DWORD *)a1) )
-    return 3221225485LL;
+  if ( !RtlpLockAtomTable(AtomTableHandle) )
+    return -1073741811;
   v4 = -1073741816;
   v8 = -1073741816;
-  if ( a2 < 0xC000u )
+  if ( Atom < 0xC000u )
   {
-    if ( a2 )
+    if ( Atom )
       v4 = 0;
     v8 = v4;
   }
   else
   {
-    v5 = RtlpAtomMapAtomToHandleEntry(a1, a2 & 0x3FFF);
+    v5 = RtlpAtomMapAtomToHandleEntry((__int64)AtomTableHandle, Atom & 0x3FFF);
     if ( v5 )
     {
-      if ( *(_WORD *)(v5 + 10) == a2 )
+      if ( *(_WORD *)(v5 + 10) == Atom )
       {
-        v6 = RtlpLookupLowBox(a1, v5, 0);
+        v6 = RtlpLookupLowBox((__int64)AtomTableHandle, v5, 0);
         if ( v6 )
         {
           v8 = 0;
@@ -44,9 +44,9 @@ __int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int16 a2)
       }
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(a1 + 8);
-  KeAbPostRelease(a1 + 8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)AtomTableHandle + 1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((char *)AtomTableHandle + 8);
+  KeAbPostRelease((ULONG_PTR)AtomTableHandle + 8);
   KeLeaveCriticalRegion();
   return v8;
 }

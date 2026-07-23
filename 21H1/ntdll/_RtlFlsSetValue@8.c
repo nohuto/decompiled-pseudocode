@@ -9,10 +9,10 @@
  *     ?ChunkAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SGPAURTL_BINARY_ARRAY_CHUNK@1@PAU1@K@Z @ 0x4B2DBF63 (-ChunkAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SGPAURTL_BINARY_ARRAY_CHUNK@1@PAU1@K@Z.c)
  */
 
-int __stdcall RtlFlsSetValue(unsigned int a1, int a2)
+NTSTATUS __cdecl RtlFlsSetValue(ULONG FlsIndex, PVOID FlsData)
 {
   struct _TEB *v2; // esi
-  _DWORD *FlsData; // ebx
+  _DWORD *v3; // ebx
   unsigned int v4; // edi
   unsigned int v5; // edx
   int v6; // esi
@@ -20,16 +20,18 @@ int __stdcall RtlFlsSetValue(unsigned int a1, int a2)
   int v8; // edx
   _DWORD *Heap; // eax
   _DWORD *v11; // eax
+  SIZE_T v12; // [esp-4h] [ebp-10h]
 
   v2 = NtCurrentTeb();
-  if ( a1 && a1 < 0xFF0 )
+  if ( FlsIndex && FlsIndex < 0xFF0 )
   {
-    FlsData = v2->FlsData;
-    v4 = a1 + 16;
-    if ( !FlsData )
+    v3 = v2->FlsData;
+    v4 = FlsIndex + 16;
+    if ( !v3 )
     {
-      Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 40);
-      FlsData = Heap;
+      LODWORD(v12) = 40;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
+      v3 = Heap;
       if ( !Heap )
         return -1073741801;
       *Heap = 0;
@@ -43,23 +45,23 @@ int __stdcall RtlFlsSetValue(unsigned int a1, int a2)
       Heap[8] = 0;
       Heap[9] = 0;
       v2->FlsData = Heap;
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+      RtlAcquireSRWLockExclusive(&RtlpFlsContext);
       v11 = (_DWORD *)dword_4B3A66F8;
       if ( *(int **)dword_4B3A66F8 != &dword_4B3A66F4 )
         __fastfail(3u);
-      *FlsData = &dword_4B3A66F4;
-      FlsData[1] = v11;
-      *v11 = FlsData;
-      dword_4B3A66F8 = (int)FlsData;
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+      *v3 = &dword_4B3A66F4;
+      v3[1] = v11;
+      *v11 = v3;
+      dword_4B3A66F8 = (int)v3;
+      RtlReleaseSRWLockExclusive(&RtlpFlsContext);
     }
     _BitScanReverse(&v5, v4);
-    v6 = FlsData[v5 - 2];
+    v6 = v3[v5 - 2];
     v7 = v4 ^ (1 << v5);
     v8 = v5 - 4;
-    if ( v6 || (v6 = RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::ChunkAllocate(FlsData + 2, v8)) != 0 )
+    if ( v6 || (v6 = RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::ChunkAllocate(v3 + 2, v8)) != 0 )
     {
-      *(_DWORD *)(v6 + 4 * v7 + 4) = a2;
+      *(_DWORD *)(v6 + 4 * v7 + 4) = FlsData;
       return 0;
     }
     return -1073741801;

@@ -9,23 +9,27 @@
  *     ExRaiseDatatypeMisalignment @ 0x14071ED60 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, unsigned __int64 a3, int a4)
+NTSTATUS __cdecl NtSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // r15
-  NTSTATUS v8; // ebx
+  int v8; // ebx
   _DWORD *v9; // rsi
-  int v10; // r14d
+  __int32 v10; // r14d
   int v11; // eax
   int v12; // ecx
   PVOID Object[3]; // [rsp+38h] [rbp-30h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v8 = ObReferenceObjectByHandle(a1, 2u, ObpSymbolicLinkObjectType, PreviousMode, Object, 0LL);
+  v8 = ObReferenceObjectByHandle(LinkHandle, 2u, ObpSymbolicLinkObjectType, PreviousMode, Object, 0LL);
   v9 = Object[0];
   Object[1] = Object[0];
   if ( v8 >= 0 )
   {
-    v10 = a2 - 1;
+    v10 = SymbolicLinkInformationClass - 1;
     if ( v10 )
     {
       if ( v10 != 1 )
@@ -33,23 +37,26 @@ __int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, unsigned __int
         v8 = -1073741821;
 LABEL_30:
         ObfDereferenceObject(v9);
-        return (unsigned int)v8;
+        return v8;
       }
-      if ( a4 == 4 )
+      if ( SymbolicLinkInformationLength == 4 )
       {
         if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
         {
           if ( PreviousMode )
           {
-            if ( (a3 & 3) != 0 )
+            if ( ((unsigned __int8)SymbolicLinkInformation & 3) != 0 )
               ExRaiseDatatypeMisalignment();
-            if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+            if ( (unsigned __int64)SymbolicLinkInformation + 4 > 0x7FFFFFFF0000LL
+              || (char *)SymbolicLinkInformation + 4 < SymbolicLinkInformation )
+            {
               MEMORY[0x7FFFFFFF0000] = 0;
-            v11 = *(_DWORD *)a3;
+            }
+            v11 = *(_DWORD *)SymbolicLinkInformation;
           }
           else
           {
-            v11 = *(_DWORD *)a3;
+            v11 = *(_DWORD *)SymbolicLinkInformation;
           }
           v9[7] |= 8u;
           v9[8] = v11;
@@ -59,21 +66,24 @@ LABEL_30:
         goto LABEL_29;
       }
     }
-    else if ( a4 == 4 )
+    else if ( SymbolicLinkInformationLength == 4 )
     {
       if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
       {
         if ( PreviousMode )
         {
-          if ( (a3 & 3) != 0 )
+          if ( ((unsigned __int8)SymbolicLinkInformation & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+          if ( (unsigned __int64)SymbolicLinkInformation + 4 > 0x7FFFFFFF0000LL
+            || (char *)SymbolicLinkInformation + 4 < SymbolicLinkInformation )
+          {
             MEMORY[0x7FFFFFFF0000] = 0;
-          v12 = *(_DWORD *)a3;
+          }
+          v12 = *(_DWORD *)SymbolicLinkInformation;
         }
         else
         {
-          v12 = *(_DWORD *)a3;
+          v12 = *(_DWORD *)SymbolicLinkInformation;
         }
         v9[7] |= 1u;
         if ( v12 )
@@ -87,5 +97,5 @@ LABEL_29:
     v8 = -1073741820;
     goto LABEL_30;
   }
-  return (unsigned int)v8;
+  return v8;
 }

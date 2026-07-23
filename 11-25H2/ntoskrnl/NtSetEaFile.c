@@ -26,36 +26,36 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetEaFile(void *a1, unsigned __int64 a2, void *a3, ULONG a4)
+NTSTATUS __cdecl NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock, PVOID Buffer, ULONG Length)
 {
   size_t v4; // rbx
   struct _KEVENT *v8; // r15
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v10; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _FILE_OBJECT *v12; // r14
   char v13; // di
   struct _KTHREAD *v14; // rax
   PFILE_OBJECT v15; // rbx
   __int64 *v16; // rax
-  unsigned int v17; // ebx
+  NTSTATUS v17; // ebx
   __int64 v18; // rdx
   IRP *v19; // rax
   IRP *Irp; // rsi
   KPROCESSOR_MODE v21; // di
-  struct _IO_STATUS_BLOCK *v22; // rax
+  PIO_STATUS_BLOCK v22; // rax
   struct _KEVENT *v23; // rcx
   __int64 v24; // rax
   ULONG Flags; // ecx
   char v26; // bl
   struct _KEVENT *Pool2; // rax
-  struct _FILE_FULL_EA_INFORMATION *v28; // rdi
-  NTSTATUS v29; // eax
+  _FILE_FULL_EA_INFORMATION *v28; // rdi
+  int v29; // eax
   struct _MDL *Mdl; // rcx
   char v31; // [rsp+40h] [rbp-78h] BYREF
   KPROCESSOR_MODE v32; // [rsp+41h] [rbp-77h]
   char v33; // [rsp+42h] [rbp-76h]
-  unsigned int v34; // [rsp+44h] [rbp-74h]
+  NTSTATUS v34; // [rsp+44h] [rbp-74h]
   PFILE_OBJECT FileObject; // [rsp+48h] [rbp-70h] BYREF
   ULONG ErrorOffset; // [rsp+50h] [rbp-68h] BYREF
   ULONG *p_Flags; // [rsp+58h] [rbp-60h]
@@ -65,7 +65,7 @@ __int64 __fastcall NtSetEaFile(void *a1, unsigned __int64 a2, void *a3, ULONG a4
   struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp-40h]
   __int128 v42; // [rsp+80h] [rbp-38h] BYREF
 
-  v4 = a4;
+  v4 = Length;
   FileObject = 0LL;
   v8 = 0LL;
   P = 0LL;
@@ -76,15 +76,15 @@ __int64 __fastcall NtSetEaFile(void *a1, unsigned __int64 a2, void *a3, ULONG a4
   if ( PreviousMode )
   {
     v10 = 0x7FFFFFFF0000LL;
-    if ( a2 < 0x7FFFFFFF0000LL )
-      v10 = a2;
+    if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
+      v10 = (__int64)IoStatusBlock;
     *(_DWORD *)v10 = *(_DWORD *)v10;
-    if ( a4 && ((unsigned __int8)a3 & 3) != 0 )
+    if ( Length && ((unsigned __int8)Buffer & 3) != 0 )
       ExRaiseDatatypeMisalignment();
   }
-  result = IopReferenceFileObject(a1, 0x10u, PreviousMode, (PVOID *)&FileObject, 0LL);
+  result = IopReferenceFileObject(FileHandle, 0x10u, PreviousMode, (PVOID *)&FileObject, 0LL);
   v34 = result;
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v12 = FileObject;
     p_Flags = &FileObject->Flags;
@@ -118,7 +118,7 @@ __int64 __fastcall NtSetEaFile(void *a1, unsigned __int64 a2, void *a3, ULONG a4
       if ( !v31 )
       {
         v31 = 1;
-        v4 = a4;
+        v4 = Length;
         goto LABEL_15;
       }
     }
@@ -146,13 +146,13 @@ LABEL_15:
           v19->RequestorMode = v32;
           if ( v31 )
           {
-            v22 = (struct _IO_STATUS_BLOCK *)a2;
+            v22 = IoStatusBlock;
             v23 = 0LL;
           }
           else
           {
             v19->Flags = 4;
-            v22 = (struct _IO_STATUS_BLOCK *)&v42;
+            v22 = (PIO_STATUS_BLOCK)&v42;
             v23 = v8;
           }
           Irp->UserEvent = v23;
@@ -169,17 +169,17 @@ LABEL_15:
             if ( (_DWORD)v4 )
             {
               v33 = 0;
-              v28 = (struct _FILE_FULL_EA_INFORMATION *)ExAllocatePool2(0x61uLL);
+              v28 = (_FILE_FULL_EA_INFORMATION *)ExAllocatePool2(0x61uLL);
               Irp->AssociatedIrp.MasterIrp = (struct _IRP *)v28;
-              memmove(v28, a3, v4);
-              LODWORD(v4) = a4;
-              v29 = IoCheckEaBufferValidity(v28, a4, &ErrorOffset);
+              memmove(v28, Buffer, v4);
+              LODWORD(v4) = Length;
+              v29 = IoCheckEaBufferValidity(v28, Length, &ErrorOffset);
               v34 = v29;
               if ( v29 < 0 )
               {
                 v33 = 1;
-                *(_DWORD *)a2 = v29;
-                *(_QWORD *)(a2 + 8) = ErrorOffset;
+                IoStatusBlock->Status = v29;
+                IoStatusBlock->Information = ErrorOffset;
                 RtlRaiseStatus(v29);
               }
               Irp->Flags |= 0x30u;
@@ -195,7 +195,7 @@ LABEL_15:
           {
             if ( (_DWORD)v4 )
             {
-              Mdl = IoAllocateMdl(a3, v4, 0, 1u, Irp);
+              Mdl = IoAllocateMdl(Buffer, v4, 0, 1u, Irp);
               if ( !Mdl )
                 RtlRaiseStatus(-1073741670);
               IopProbeAndLockPages_1(Mdl, v21, IoReadAccess, (__int64)RelatedDeviceObject, *(unsigned __int8 *)p_Flags);
@@ -204,20 +204,20 @@ LABEL_15:
           }
           else
           {
-            Irp->UserBuffer = a3;
+            Irp->UserBuffer = Buffer;
           }
           *(_DWORD *)(v24 + 8) = v4;
           v26 = v31;
           result = IopSynchronousServiceTail(RelatedDeviceObject, (__int64)Irp, (__int64)v12, 0, v21, v31, 2u);
           if ( !v26 )
-            return IopSynchronousApiServiceTail(result, v8, Irp, v21, (unsigned int *)&v42, (_OWORD *)a2);
+            return IopSynchronousApiServiceTail(result, v8, Irp, v21, (unsigned int *)&v42, IoStatusBlock);
         }
         else
         {
           if ( (*p_Flags & 2) == 0 )
             ExFreePoolWithTag(v8, 0);
           IopAllocateIrpCleanup(v12, 0LL);
-          return 3221225626LL;
+          return -1073741670;
         }
         return result;
       }

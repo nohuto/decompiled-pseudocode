@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpViewMapAddressForFileOffset @ 0x140581884
+ * XREFs of HvpViewMapAddressForFileOffset @ 0x140581D34
  * Callers:
- *     HvpMapHiveImageFromSystemCache @ 0x1401B72D8 (HvpMapHiveImageFromSystemCache.c)
+ *     HvpMapHiveImageFromSystemCache @ 0x1401B71BC (HvpMapHiveImageFromSystemCache.c)
  * Callees:
  *     <none>
  */

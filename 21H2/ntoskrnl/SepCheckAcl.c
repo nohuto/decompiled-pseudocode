@@ -1,15 +1,15 @@
 /*
- * XREFs of SepCheckAcl @ 0x1405DBD24
+ * XREFs of SepCheckAcl @ 0x1406CB4A4
  * Callers:
- *     SeCaptureAcl @ 0x1405DBC10 (SeCaptureAcl.c)
+ *     SeCaptureAcl @ 0x1406CB390 (SeCaptureAcl.c)
  * Callees:
- *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x1406513E0 (RtlValidAcl.c)
  */
 
-char __fastcall SepCheckAcl(__int64 a1, unsigned int a2)
+BOOLEAN __fastcall SepCheckAcl(ACL *a1, unsigned int a2)
 {
-  if ( a2 >= 8 && a2 == *(unsigned __int16 *)(a1 + 2) )
-    return RtlValidAcl();
+  if ( a2 >= 8 && a2 == a1->AclSize )
+    return RtlValidAcl(a1);
   else
     return 0;
 }

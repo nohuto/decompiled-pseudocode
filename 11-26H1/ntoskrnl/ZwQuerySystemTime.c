@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwQuerySystemTime @ 0x140723F30
+ * XREFs of ZwQuerySystemTime @ 0x140728B00
  * Callers:
- *     DifZwQuerySystemTimeWrapper @ 0x1406B4810 (DifZwQuerySystemTimeWrapper.c)
+ *     DifZwQuerySystemTimeWrapper @ 0x1406B83F0 (DifZwQuerySystemTimeWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySystemTime(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQuerySystemTime(PLARGE_INTEGER SystemTime)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SystemTime);
 }

@@ -9,39 +9,41 @@
  *     NtQueryValueKey @ 0x1800A53A0 (NtQueryValueKey.c)
  */
 
-NTSTATUS RtlpHpApplySegmentHeapConfigurations()
+int RtlpHpApplySegmentHeapConfigurations()
 {
-  NTSTATUS result; // eax
-  HANDLE Handle; // [rsp+30h] [rbp-9h] BYREF
-  _BYTE v2[8]; // [rsp+38h] [rbp-1h] BYREF
-  int v3; // [rsp+40h] [rbp+7h] BYREF
-  __int64 v4; // [rsp+48h] [rbp+Fh]
-  void *v5; // [rsp+50h] [rbp+17h]
-  int v6; // [rsp+58h] [rbp+1Fh]
-  __int128 v7; // [rsp+60h] [rbp+27h]
-  _BYTE v8[8]; // [rsp+70h] [rbp+37h] BYREF
-  int v9; // [rsp+78h] [rbp+3Fh]
-  int v10; // [rsp+7Ch] [rbp+43h]
+  int result; // eax
+  HANDLE KeyHandle; // [rsp+30h] [rbp-9h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp+7h] BYREF
+  _BYTE KeyValueInformation[8]; // [rsp+70h] [rbp+37h] BYREF
+  int v5; // [rsp+78h] [rbp+3Fh]
+  int v6; // [rsp+7Ch] [rbp+43h]
 
-  Handle = 0LL;
-  v4 = 0LL;
-  v5 = &unk_1801065E0;
-  v3 = 48;
-  v6 = 64;
-  v7 = 0LL;
-  result = NtOpenKey(&Handle, 1LL, &v3);
+  KeyHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_1801065E0;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = NtOpenKey(&KeyHandle, 1u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    result = NtQueryValueKey(Handle, &unk_1801065F0, 2LL, v8, 20, v2);
-    if ( result >= 0 && v9 == 4 )
+    result = NtQueryValueKey(
+               KeyHandle,
+               (PUNICODE_STRING)&stru_1801065F0,
+               KeyValuePartialInformation,
+               KeyValueInformation,
+               0x14u,
+               &ResultLength);
+    if ( result >= 0 && v5 == 4 )
     {
-      if ( v10 )
+      if ( v6 )
         RtlpLowFragHeapGlobalFlags |= 0x10u;
       else
         RtlpLowFragHeapGlobalFlags |= 8u;
     }
   }
-  if ( Handle )
-    return NtClose(Handle);
+  if ( KeyHandle )
+    return NtClose(KeyHandle);
   return result;
 }

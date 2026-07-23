@@ -61,7 +61,9 @@ unsigned int __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)
           v5 = v13;
         }
         KxReleaseSpinLock((volatile signed __int64 *)v12);
-        if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags
+          && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+          && CurrentIrql <= 0xFu )
         {
           v15 = v20;
           if ( v20 <= 0xFu && CurrentIrql >= 2u )

@@ -1,5 +1,5 @@
 /*
- * XREFs of IvtConfigureSettings @ 0x140BEFBF0
+ * XREFs of IvtConfigureSettings @ 0x140BF5BF0
  * Callers:
  *     <none>
  * Callees:

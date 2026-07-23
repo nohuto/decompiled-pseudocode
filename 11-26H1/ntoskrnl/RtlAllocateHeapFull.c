@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAllocateHeapFull @ 0x1406196B8
+ * XREFs of RtlAllocateHeapFull @ 0x14061C714
  * Callers:
- *     RtlAllocateHeap @ 0x14051C360 (RtlAllocateHeap.c)
- *     RtlAllocateHeapExport @ 0x140619688 (RtlAllocateHeapExport.c)
+ *     RtlAllocateHeap @ 0x140518F50 (RtlAllocateHeap.c)
+ *     RtlAllocateHeapExport @ 0x14061C6E4 (RtlAllocateHeapExport.c)
  * Callees:
- *     RtlpAllocateNTHeapInternal @ 0x140498638 (RtlpAllocateNTHeapInternal.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpHeapFatalExceptionFilter @ 0x14061985C (RtlpHeapFatalExceptionFilter.c)
+ *     RtlpAllocateNTHeapInternal @ 0x140492188 (RtlpAllocateNTHeapInternal.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x14061C8AC (RtlpHeapFatalExceptionFilter.c)
  */
 
 _BYTE *__fastcall RtlAllocateHeapFull(_DWORD *HeapHandle, unsigned int a2, unsigned __int64 a3)

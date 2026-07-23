@@ -1,13 +1,13 @@
 /*
- * XREFs of MiArbitraryCodeBlocked @ 0x140629364
+ * XREFs of MiArbitraryCodeBlocked @ 0x1406907CC
  * Callers:
- *     MiAllowProtectionChange @ 0x14025F698 (MiAllowProtectionChange.c)
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiMapViewOfSection @ 0x1406EBA30 (MiMapViewOfSection.c)
+ *     MiAllowProtectionChange @ 0x14027E54C (MiAllowProtectionChange.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiMapViewOfSection @ 0x140702E10 (MiMapViewOfSection.c)
  * Callees:
- *     EtwTraceMemoryAcg @ 0x14025F7E8 (EtwTraceMemoryAcg.c)
- *     EtwTimLogProhibitDynamicCode @ 0x14093BD78 (EtwTimLogProhibitDynamicCode.c)
+ *     EtwTraceMemoryAcg @ 0x14027E69C (EtwTraceMemoryAcg.c)
+ *     EtwTimLogProhibitDynamicCode @ 0x14093BF48 (EtwTimLogProhibitDynamicCode.c)
  */
 
 __int64 __fastcall MiArbitraryCodeBlocked(__int64 a1)

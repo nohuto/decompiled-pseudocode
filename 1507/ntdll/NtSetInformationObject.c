@@ -7,11 +7,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationObject()
+NTSTATUS __cdecl NtSetInformationObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 92LL;
+  result = 92;
   __asm { syscall; Low latency system call }
   return result;
 }

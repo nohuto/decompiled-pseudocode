@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpInsertFreeBlock @ 0x180026CC0
+ * XREFs of RtlpInsertFreeBlock @ 0x180011D90
  * Callers:
- *     RtlpAllocateHeap @ 0x18001E7C0 (RtlpAllocateHeap.c)
- *     RtlpExtendHeap @ 0x180022EF0 (RtlpExtendHeap.c)
- *     RtlpFreeHeap @ 0x1800233D0 (RtlpFreeHeap.c)
- *     RtlpDeCommitFreeBlock @ 0x180025C70 (RtlpDeCommitFreeBlock.c)
- *     RtlpCreateSplitBlock @ 0x180028890 (RtlpCreateSplitBlock.c)
- *     RtlpInitializeHeapSegment @ 0x18007BEF8 (RtlpInitializeHeapSegment.c)
- *     RtlpCoalesceHeap @ 0x180104954 (RtlpCoalesceHeap.c)
+ *     RtlpAllocateHeap @ 0x180009890 (RtlpAllocateHeap.c)
+ *     RtlpExtendHeap @ 0x18000DFC0 (RtlpExtendHeap.c)
+ *     RtlpFreeHeap @ 0x18000E4A0 (RtlpFreeHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010D40 (RtlpDeCommitFreeBlock.c)
+ *     RtlpCreateSplitBlock @ 0x180013960 (RtlpCreateSplitBlock.c)
+ *     RtlpInitializeHeapSegment @ 0x18006A718 (RtlpInitializeHeapSegment.c)
+ *     RtlpCoalesceHeap @ 0x180103CD4 (RtlpCoalesceHeap.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x1800274C0 (RtlpHeapHandleError.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpHeapHandleError @ 0x180012590 (RtlpHeapHandleError.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 void __fastcall RtlpInsertFreeBlock(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3)

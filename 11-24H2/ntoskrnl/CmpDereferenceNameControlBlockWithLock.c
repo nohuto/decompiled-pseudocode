@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x140870E00
+ * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x140875130
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpCloneToUnbackedKcb @ 0x1407DAAC8 (CmpCloneToUnbackedKcb.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1408704E0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14087DE20 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpCloneToUnbackedKcb @ 0x1407DB018 (CmpCloneToUnbackedKcb.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140874810 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCreateKeyControlBlock @ 0x140875AF0 (CmpCreateKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140881CD0 (CmpDereferenceKeyControlBlockWithLock.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
  */
 
 __int64 __fastcall CmpDereferenceNameControlBlockWithLock(_WORD *a1)
@@ -20,8 +20,8 @@ __int64 __fastcall CmpDereferenceNameControlBlockWithLock(_WORD *a1)
   char *v1; // r15
   __int64 v3; // rdi
   unsigned __int64 *v4; // rsi
-  _QWORD *v5; // rax
-  _QWORD *v6; // rbx
+  char *v5; // rax
+  char *v6; // rbx
   unsigned int v7; // eax
   __int64 *i; // rcx
   __int64 v9; // rax
@@ -34,12 +34,12 @@ __int64 __fastcall CmpDereferenceNameControlBlockWithLock(_WORD *a1)
   v3 = 16LL
      * (((unsigned __int16)(-30045 * (a1[4] ^ (*((_DWORD *)a1 + 2) >> 9))) ^ (unsigned __int16)((unsigned __int64)(unsigned int)(101027 * (*((_DWORD *)a1 + 2) ^ (*((_DWORD *)a1 + 2) >> 9))) >> 9)) & 0x7FF);
   v4 = (unsigned __int64 *)((char *)CmpNameCacheTable + v3);
-  v5 = KeAbPreAcquire((__int64)CmpNameCacheTable + v3, 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)CmpNameCacheTable + v3, 0LL);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v4, (__int64)v5, (__int64)v4);
+    ExfAcquirePushLockExclusiveEx(v4, v5, (__int64)v4);
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   v7 = *(_DWORD *)a1 & 1 | (2 * (*(_DWORD *)a1 >> 1) - 2);
   *(_DWORD *)a1 = v7;
   if ( v7 < 2 )

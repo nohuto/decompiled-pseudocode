@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmProfileAcDcUpdate @ 0x14099D57C
+ * XREFs of PpmProfileAcDcUpdate @ 0x14099D77C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870480 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1408706C0 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140992E4C (PpmCompareAndApplyPolicySettings.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x14099304C (PpmCompareAndApplyPolicySettings.c)
  */
 
 void PpmProfileAcDcUpdate()
@@ -17,7 +17,7 @@ void PpmProfileAcDcUpdate()
   __int64 v4; // rcx
   __int64 v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v0 = dword_140C3D86C;
+  v0 = dword_140C3D96C;
   v1 = 0LL;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);

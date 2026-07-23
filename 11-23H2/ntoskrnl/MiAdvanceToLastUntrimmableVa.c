@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAdvanceToLastUntrimmableVa @ 0x14035835C
+ * XREFs of MiAdvanceToLastUntrimmableVa @ 0x1403584FC
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14025C170 (MiWalkPageTablesRecursively.c)
- *     MiComputePxeWalkAction @ 0x14025CD40 (MiComputePxeWalkAction.c)
+ *     MiWalkPageTablesRecursively @ 0x14025C400 (MiWalkPageTablesRecursively.c)
+ *     MiComputePxeWalkAction @ 0x14025CFD0 (MiComputePxeWalkAction.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
  */
 
 unsigned __int64 __fastcall MiAdvanceToLastUntrimmableVa(unsigned __int64 a1)

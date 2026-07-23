@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCapturePfnVm @ 0x1401F7D38
+ * XREFs of MiCapturePfnVm @ 0x1401F7B64
  * Callers:
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     ObReferenceObjectSafeWithTag @ 0x14006ADC0 (ObReferenceObjectSafeWithTag.c)
- *     MiGetTopLevelPfn @ 0x14010A970 (MiGetTopLevelPfn.c)
- *     MiAttachToOwningSession @ 0x14010C45C (MiAttachToOwningSession.c)
- *     MiIsStoreProcess @ 0x14010CE84 (MiIsStoreProcess.c)
- *     MiCombineCandidate @ 0x1401F7E78 (MiCombineCandidate.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14006A940 (ObReferenceObjectSafeWithTag.c)
+ *     MiGetTopLevelPfn @ 0x1401086F0 (MiGetTopLevelPfn.c)
+ *     MiAttachToOwningSession @ 0x14010A1DC (MiAttachToOwningSession.c)
+ *     MiIsStoreProcess @ 0x14010AC04 (MiIsStoreProcess.c)
+ *     MiCombineCandidate @ 0x1401F7CA4 (MiCombineCandidate.c)
  */
 
 char *__fastcall MiCapturePfnVm(__int64 a1, __int64 a2, __int64 *a3, unsigned __int64 *a4, int *a5)

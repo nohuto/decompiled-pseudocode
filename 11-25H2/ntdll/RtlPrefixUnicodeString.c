@@ -11,27 +11,27 @@
  *     memcmp @ 0x180168C50 (memcmp.c)
  */
 
-bool __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
+BOOLEAN __cdecl RtlPrefixUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  __int64 v3; // r9
-  unsigned __int16 *v4; // rcx
-  unsigned __int16 *v5; // r11
-  __int64 v6; // rbx
+  __int64 Length; // r9
+  wchar_t *Buffer; // rcx
+  wchar_t *v5; // r11
+  char *v6; // rbx
   unsigned __int64 v7; // r9
   unsigned __int64 v8; // r10
 
-  v3 = *a1;
-  v4 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  if ( *(_WORD *)a2 < (unsigned __int16)v3 )
+  Length = String1->Length;
+  Buffer = String1->Buffer;
+  if ( String2->Length < (unsigned __int16)Length )
     return 0;
-  v5 = (unsigned __int16 *)((char *)v4 + v3);
-  if ( !a3 )
-    return memcmp(v4, *(const void **)(a2 + 8), (unsigned int)v3) == 0;
-  v6 = *(_QWORD *)(a2 + 8) - (_QWORD)v4;
-  while ( v4 < v5 )
+  v5 = (wchar_t *)((char *)Buffer + Length);
+  if ( !CaseInSensitive )
+    return memcmp(Buffer, String2->Buffer, (unsigned int)Length) == 0;
+  v6 = (char *)((char *)String2->Buffer - (char *)Buffer);
+  while ( Buffer < v5 )
   {
-    v7 = *v4;
-    v8 = *(unsigned __int16 *)((char *)v4 + v6);
+    v7 = *Buffer;
+    v8 = *(unsigned __int16 *)((char *)Buffer + (_QWORD)v6);
     if ( (_WORD)v7 != (_WORD)v8 )
     {
       if ( (unsigned int)v7 >= 0x61 )
@@ -80,7 +80,7 @@ bool __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3
       if ( (_WORD)v7 != (_WORD)v8 )
         return 0;
     }
-    ++v4;
+    ++Buffer;
   }
   return 1;
 }

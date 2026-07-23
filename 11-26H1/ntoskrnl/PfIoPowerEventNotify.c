@@ -1,10 +1,10 @@
 /*
- * XREFs of PfIoPowerEventNotify @ 0x1407C5738
+ * XREFs of PfIoPowerEventNotify @ 0x1407C8798
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x14077595C (PopUmpoProcessPowerMessage.c)
- *     PopUmpoSendLegacyEvent @ 0x140B33664 (PopUmpoSendLegacyEvent.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407DF428 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoSendLegacyEvent @ 0x140B35AB4 (PopUmpoSendLegacyEvent.c)
  * Callees:
- *     PfPowerActionNotify @ 0x140C071B0 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x140C0D3C0 (PfPowerActionNotify.c)
  */
 
 __int64 __fastcall PfIoPowerEventNotify(int a1, __int64 a2, unsigned int a3)

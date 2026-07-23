@@ -12,10 +12,9 @@
  *     TtmNotifyConsoleUserPresent @ 0x1408FE934 (TtmNotifyConsoleUserPresent.c)
  */
 
-void __fastcall PopNotifyConsoleUserPresent(__int64 a1, __int64 a2, unsigned int a3)
+void __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsigned int a3)
 {
-  unsigned __int8 v4; // di
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   int v6; // [rsp+20h] [rbp-30h] BYREF
   char v7; // [rsp+24h] [rbp-2Ch]
   __int16 v8; // [rsp+25h] [rbp-2Bh]
@@ -26,11 +25,10 @@ void __fastcall PopNotifyConsoleUserPresent(__int64 a1, __int64 a2, unsigned int
   int v13; // [rsp+38h] [rbp-18h]
   int v14; // [rsp+3Ch] [rbp-14h]
   __int64 v15; // [rsp+40h] [rbp-10h]
-  unsigned int v16; // [rsp+78h] [rbp+28h] BYREF
+  ULONG v16; // [rsp+78h] [rbp+28h] BYREF
   __int64 v17; // [rsp+88h] [rbp+38h] BYREF
 
   LOBYTE(v16) = a2;
-  v4 = a1;
   v8 = 0;
   v9 = 0;
   v11 = 0;
@@ -38,7 +36,7 @@ void __fastcall PopNotifyConsoleUserPresent(__int64 a1, __int64 a2, unsigned int
   v17 = 0LL;
   if ( PsWin32CalloutsEstablished )
   {
-    ActiveConsoleId = RtlGetActiveConsoleId(a1, a2);
+    ActiveConsoleId = RtlGetActiveConsoleId();
     v16 = ActiveConsoleId;
     if ( ActiveConsoleId != -1 )
     {
@@ -48,7 +46,7 @@ void __fastcall PopNotifyConsoleUserPresent(__int64 a1, __int64 a2, unsigned int
       }
       else
       {
-        LOWORD(v17) = v4;
+        LOWORD(v17) = a1;
         v12 = &v17;
         HIDWORD(v17) = a3;
         v6 = 1;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCopyPageTablePageContents @ 0x14033CFD0
+ * XREFs of MiCopyPageTablePageContents @ 0x14033F050
  * Callers:
- *     MiReplacePageTablePage @ 0x14033C35C (MiReplacePageTablePage.c)
+ *     MiReplacePageTablePage @ 0x14033E3DC (MiReplacePageTablePage.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiIsPdeOrAboveAccessible @ 0x1404892CC (MiIsPdeOrAboveAccessible.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiIsPdeOrAboveAccessible @ 0x140482E0C (MiIsPdeOrAboveAccessible.c)
  */
 
 __int64 __fastcall MiCopyPageTablePageContents(__int64 a1, _QWORD *a2)
@@ -65,11 +65,11 @@ __int64 __fastcall MiCopyPageTablePageContents(__int64 a1, _QWORD *a2)
         else
         {
           v15 = (PteShadow >> 12) & 0xFFFFFFFFFFLL;
-          if ( v15 == qword_140E36038 )
+          if ( v15 == qword_140E361B8 )
           {
             ++*(_DWORD *)(a1 + 16);
           }
-          else if ( v15 <= qword_140E2D7A0 )
+          else if ( v15 <= qword_140E2D920 )
           {
             if ( (*(_QWORD *)(48 * v15 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
             {
@@ -108,7 +108,7 @@ LABEL_6:
       && v16 <= v8
       && !(unsigned int)MiIsPdeOrAboveAccessible(v2, PteShadow, 0xFFFFF68000000000uLL) )
     {
-      _InterlockedIncrement(&dword_140EF8D24);
+      _InterlockedIncrement(&dword_140EF9084);
       return 3221225473LL;
     }
     v17 = MiLockTransitionLeafPageEx(v2);
@@ -126,7 +126,7 @@ LABEL_6:
     v8 = 0xFFFFF6FFFFFFFFFFuLL;
     goto LABEL_5;
   }
-  _InterlockedIncrement(&dword_140EF8D20);
+  _InterlockedIncrement(&dword_140EF9080);
   _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return 3221225473LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpCreatePort @ 0x1405E0F24
+ * XREFs of AlpcpCreatePort @ 0x1406D0684
  * Callers:
- *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
- *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
- *     AlpcpCreateConnectionPort @ 0x1406AA7A8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateConnectionPort @ 0x140608E98 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateClientPort @ 0x1406CFCAC (AlpcpCreateClientPort.c)
+ *     AlpcpAcceptConnectPort @ 0x1406D079C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
  */
 
 __int64 __fastcall AlpcpCreatePort(int a1, int a2, void **a3)

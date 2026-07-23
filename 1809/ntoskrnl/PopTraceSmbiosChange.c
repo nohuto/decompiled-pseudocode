@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSmbiosChange @ 0x1402E26D4
+ * XREFs of PopTraceSmbiosChange @ 0x1402E28C4
  * Callers:
- *     PopUpdateSmbiosData @ 0x1406DDD24 (PopUpdateSmbiosData.c)
+ *     PopUpdateSmbiosData @ 0x1406DEFC4 (PopUpdateSmbiosData.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceSmbiosChange(__int64 a1, int a2)
@@ -51,7 +51,7 @@ void __fastcall PopTraceSmbiosChange(__int64 a1, int a2)
       v15 = 4;
       v18 = 8;
       v21 = 4;
-      TlgWrite(&pCallbackContext, &unk_14037060D, 0LL, 0LL, 6u, &pData);
+      TlgWrite(&pCallbackContext, &unk_140371608, 0LL, 0LL, 6u, &pData);
     }
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmHvSnapPerformanceAccumulation @ 0x14057C4E0
+ * XREFs of PpmHvSnapPerformanceAccumulation @ 0x14057C720
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140220810 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140220BD0 (PpmCheckSnapAllDeliveredPerformance.c)
- *     PpmResetPerfTimes @ 0x1403C22F0 (PpmResetPerfTimes.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x1402C5110 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x1402C54D0 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmResetPerfTimes @ 0x1403C2720 (PpmResetPerfTimes.c)
  * Callees:
- *     HvlGetReferenceTime @ 0x14038DFAC (HvlGetReferenceTime.c)
- *     HvlpGetLpcbByLpIndex @ 0x140390CF8 (HvlpGetLpcbByLpIndex.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvlGetStatsUpdateCounter @ 0x1404F7D90 (HvlGetStatsUpdateCounter.c)
+ *     HvlGetReferenceTime @ 0x14038E0FC (HvlGetReferenceTime.c)
+ *     HvlpGetLpcbByLpIndex @ 0x140390E48 (HvlpGetLpcbByLpIndex.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvlGetStatsUpdateCounter @ 0x1404F7D10 (HvlGetStatsUpdateCounter.c)
  */
 
 char __fastcall PpmHvSnapPerformanceAccumulation(_QWORD *a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -48,8 +48,8 @@ char __fastcall PpmHvSnapPerformanceAccumulation(_QWORD *a1, __int64 a2, __int64
     if ( LpcbByLpIndex )
     {
       v9 = *((_QWORD *)LpcbByLpIndex + 4);
-      v8 = *(_QWORD *)(v9 + 8LL * (unsigned int)qword_140CED580);
-      v24 = *(_QWORD *)(v9 + 8LL * HIDWORD(qword_140CED580));
+      v8 = *(_QWORD *)(v9 + 8LL * (unsigned int)qword_140CED5C0);
+      v24 = *(_QWORD *)(v9 + 8LL * HIDWORD(qword_140CED5C0));
     }
     else
     {

@@ -115,12 +115,12 @@ char __fastcall CcSetDirtyInMask(struct _FAST_MUTEX *a1, __int64 *a2, unsigned i
   __int64 v74; // rdx
   _DWORD *v75; // rcx
   _DWORD *v76; // rcx
-  struct _SLIST_ENTRY *v77; // rax
+  _SLIST_ENTRY *v77; // rax
   PSLIST_ENTRY *v78; // rdx
-  struct _SLIST_ENTRY *v79; // rcx
+  _SLIST_ENTRY *v79; // rcx
   PSLIST_ENTRY v80; // rax
-  struct _SLIST_ENTRY *v81; // rcx
-  struct _SLIST_ENTRY **v82; // rdx
+  _SLIST_ENTRY *v81; // rcx
+  _SLIST_ENTRY **v82; // rdx
   int v83; // eax
   int v84; // eax
   signed __int32 v85; // eax
@@ -334,7 +334,7 @@ LABEL_27:
       v28 = KeGetCurrentIrql();
       __writecr8(1uLL);
       if ( !_interlockedbittestandreset(&v21->Count, 0) )
-        ExpAcquireFastMutexContended((ULONG_PTR)&v5[5]);
+        ExpAcquireFastMutexContended((ULONG_PTR)&v5[5], (PRTL_BALANCED_NODE)v25);
       if ( v25 )
         *(_BYTE *)(v25 + 26) |= 1u;
       v5[5].Owner = KeGetCurrentThread();
@@ -360,7 +360,7 @@ LABEL_27:
       memset(v6, 0, 0x400uLL);
       if ( LODWORD(v29[5].Next) )
       {
-        v77 = (struct _SLIST_ENTRY *)*((_QWORD *)&v29[5].Next + 1);
+        v77 = (_SLIST_ENTRY *)*((_QWORD *)&v29[5].Next + 1);
         *v6 = *v77;
         v6[1] = v77[1];
         v6[2] = v77[2];
@@ -384,7 +384,7 @@ LABEL_27:
       v81 = v29 + 9;
       v29[7].Next = (_SLIST_ENTRY *)0x7FFFFFFFFFFFFFFFLL;
       *((_DWORD *)&v29[7].Next + 2) = -1;
-      v82 = (struct _SLIST_ENTRY **)*((_QWORD *)&v29[1].Next + 1);
+      v82 = (_SLIST_ENTRY **)*((_QWORD *)&v29[1].Next + 1);
       if ( *v82 != v80 )
         goto LABEL_249;
       v81->Next = v80;

@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpCodeAuthzCheckDllAllowed @ 0x180072B08
+ * XREFs of LdrpCodeAuthzCheckDllAllowed @ 0x18008F3E8
  * Callers:
- *     LdrpMapDllNtFileName @ 0x180071640 (LdrpMapDllNtFileName.c)
+ *     LdrpMapDllNtFileName @ 0x18008DF20 (LdrpMapDllNtFileName.c)
  * Callees:
  *     <none>
  */

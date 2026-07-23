@@ -1,16 +1,16 @@
 /*
- * XREFs of PsMultiResumeThread @ 0x140309D88
+ * XREFs of PsMultiResumeThread @ 0x14030A018
  * Callers:
- *     NtResumeThread @ 0x1407C0620 (NtResumeThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x140937784 (DbgkpPostFakeThreadMessages.c)
- *     DbgkpWakeTarget @ 0x140938438 (DbgkpWakeTarget.c)
- *     DbgkUserReportWorkRoutine @ 0x140939C40 (DbgkUserReportWorkRoutine.c)
- *     NtChangeThreadState @ 0x1409AFEC0 (NtChangeThreadState.c)
- *     PspDeleteThreadStateChange @ 0x1409B1120 (PspDeleteThreadStateChange.c)
- *     PsResumeThread @ 0x1409B6080 (PsResumeThread.c)
+ *     NtResumeThread @ 0x1407C08F0 (NtResumeThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140937984 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x140938638 (DbgkpWakeTarget.c)
+ *     DbgkUserReportWorkRoutine @ 0x140939E40 (DbgkUserReportWorkRoutine.c)
+ *     NtChangeThreadState @ 0x1409B00C0 (NtChangeThreadState.c)
+ *     PspDeleteThreadStateChange @ 0x1409B1320 (PspDeleteThreadStateChange.c)
+ *     PsResumeThread @ 0x1409B6280 (PsResumeThread.c)
  * Callees:
- *     KeResumeThread @ 0x14030A22C (KeResumeThread.c)
- *     EtwTiLogSuspendResumeThread @ 0x1408A78C4 (EtwTiLogSuspendResumeThread.c)
+ *     KeResumeThread @ 0x14030A4BC (KeResumeThread.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1408A7B14 (EtwTiLogSuspendResumeThread.c)
  */
 
 __int64 __fastcall PsMultiResumeThread(__int64 a1, unsigned int *a2, unsigned int a3)

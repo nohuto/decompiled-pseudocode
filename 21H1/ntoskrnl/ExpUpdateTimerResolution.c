@@ -28,7 +28,7 @@ __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
   struct _KPRCB *v15; // r10
   _DWORD *v16; // r8
   int v17; // eax
-  unsigned int v18; // [rsp+38h] [rbp+10h] BYREF
+  ULONG v18; // [rsp+38h] [rbp+10h] BYREF
 
   v18 = a2;
   if ( a3 )
@@ -52,7 +52,7 @@ __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
     v18 = KeMaximumIncrement;
     if ( ExpKernelResolutionCount )
     {
-      if ( ExpKernelRequestedTimerResolution < (unsigned int)KeMaximumIncrement )
+      if ( ExpKernelRequestedTimerResolution < KeMaximumIncrement )
         a2 = ExpKernelRequestedTimerResolution;
       v18 = a2;
     }

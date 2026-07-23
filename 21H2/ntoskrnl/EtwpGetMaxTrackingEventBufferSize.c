@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpGetMaxTrackingEventBufferSize @ 0x1406BC610
+ * XREFs of EtwpGetMaxTrackingEventBufferSize @ 0x14061B780
  * Callers:
- *     EtwpRealtimeNotifyConsumers @ 0x1406BC504 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpSendDbgId @ 0x14093CD50 (EtwpSendDbgId.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x14061B674 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpSendDbgId @ 0x14093CF20 (EtwpSendDbgId.c)
  * Callees:
  *     <none>
  */

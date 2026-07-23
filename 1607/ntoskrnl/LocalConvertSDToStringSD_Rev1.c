@@ -1,22 +1,22 @@
 /*
- * XREFs of LocalConvertSDToStringSD_Rev1 @ 0x1406CAE68
+ * XREFs of LocalConvertSDToStringSD_Rev1 @ 0x1406CAFA0
  * Callers:
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140235A58 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140235884 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140009CC4 (RtlGetDaclSecurityDescriptor.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     RtlGetSaclSecurityDescriptor @ 0x1403F6FEC (RtlGetSaclSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x140489DD8 (RtlGetOwnerSecurityDescriptor.c)
- *     RtlNtStatusToDosError @ 0x1404BAE20 (RtlNtStatusToDosError.c)
- *     SddlpFree @ 0x1404D6ABC (SddlpFree.c)
- *     SddlpAlloc @ 0x1404D7574 (SddlpAlloc.c)
- *     RtlGetControlSecurityDescriptor @ 0x1404EAC00 (RtlGetControlSecurityDescriptor.c)
- *     RtlGetGroupSecurityDescriptor @ 0x140543158 (RtlGetGroupSecurityDescriptor.c)
- *     LocalConvertAclToString @ 0x1406CA388 (LocalConvertAclToString.c)
- *     LocalGetStringForControl @ 0x1406CB6F8 (LocalGetStringForControl.c)
- *     LocalGetStringForSid @ 0x1406CB818 (LocalGetStringForSid.c)
- *     SddlFilterSacl @ 0x1406CC260 (SddlFilterSacl.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140009844 (RtlGetDaclSecurityDescriptor.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1403F5EAC (RtlGetSaclSecurityDescriptor.c)
+ *     RtlNtStatusToDosError @ 0x1404A6B50 (RtlNtStatusToDosError.c)
+ *     SddlpFree @ 0x1404BA0C0 (SddlpFree.c)
+ *     SddlpAlloc @ 0x1404BAB78 (SddlpAlloc.c)
+ *     RtlGetControlSecurityDescriptor @ 0x1404CCE04 (RtlGetControlSecurityDescriptor.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1404D5328 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x140543698 (RtlGetGroupSecurityDescriptor.c)
+ *     LocalConvertAclToString @ 0x1406CA4C0 (LocalConvertAclToString.c)
+ *     LocalGetStringForControl @ 0x1406CB830 (LocalGetStringForControl.c)
+ *     LocalGetStringForSid @ 0x1406CB950 (LocalGetStringForSid.c)
+ *     SddlFilterSacl @ 0x1406CC398 (SddlFilterSacl.c)
  */
 
 ULONG __fastcall LocalConvertSDToStringSD_Rev1(

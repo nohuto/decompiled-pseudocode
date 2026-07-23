@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateHugeIoRanges @ 0x140C535FC
+ * XREFs of MiCreateHugeIoRanges @ 0x140C5578C
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiAddPartitionHugeRange @ 0x14066F778 (MiAddPartitionHugeRange.c)
- *     MiInitializeHugePfnDatabase @ 0x140670B90 (MiInitializeHugePfnDatabase.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiAddPartitionHugeRange @ 0x140670948 (MiAddPartitionHugeRange.c)
+ *     MiInitializeHugePfnDatabase @ 0x140671D60 (MiInitializeHugePfnDatabase.c)
  */
 
 unsigned __int64 __fastcall MiCreateHugeIoRanges(__int64 a1)

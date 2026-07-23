@@ -1,11 +1,11 @@
 /*
- * XREFs of SepCompareClaimAttributes @ 0x1407C7378
+ * XREFs of SepCompareClaimAttributes @ 0x1407C7648
  * Callers:
- *     NtCompareTokens @ 0x1407C70C0 (NtCompareTokens.c)
- *     SepSetTokenClaims @ 0x1407CF3B8 (SepSetTokenClaims.c)
+ *     NtCompareTokens @ 0x1407C7390 (NtCompareTokens.c)
+ *     SepSetTokenClaims @ 0x1407CF688 (SepSetTokenClaims.c)
  * Callees:
- *     SepCompareSidAndAttributeArrays @ 0x1407C73D0 (SepCompareSidAndAttributeArrays.c)
- *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A59DA4 (AuthzBasepCompareSecurityAttributesInformation.c)
+ *     SepCompareSidAndAttributeArrays @ 0x1407C76A0 (SepCompareSidAndAttributeArrays.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A5A054 (AuthzBasepCompareSecurityAttributesInformation.c)
  */
 
 bool __fastcall SepCompareClaimAttributes(unsigned int *a1, unsigned int *a2)

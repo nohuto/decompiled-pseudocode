@@ -88,7 +88,7 @@ LABEL_29:
               *(void **)(*(_QWORD *)(a1 + 240) + 80LL),
               *(unsigned int *)(*(_QWORD *)(a1 + 240) + 88LL)) < 0 )
     return 3221225473LL;
-  if ( !(_DWORD)InitSafeBootMode && (v7 = *(_QWORD *)(a1 + 240), *(_QWORD *)(v7 + 64)) && *(_DWORD *)(v7 + 72) )
+  if ( !InitSafeBootMode && (v7 = *(_QWORD *)(a1 + 240), *(_QWORD *)(v7 + 64)) && *(_DWORD *)(v7 + 72) )
   {
     matched = KsepEngineInitialize(&KseEngine);
     if ( matched >= 0 )
@@ -106,7 +106,7 @@ LABEL_29:
   {
     if ( ViVerifierEnabled )
       dword_140C505E8 |= 0x40u;
-    if ( (_DWORD)InitSafeBootMode )
+    if ( InitSafeBootMode )
       dword_140C505E8 |= 0x100u;
     v8 = *(_QWORD *)(a1 + 240);
     if ( !*(_QWORD *)(v8 + 64) || !*(_DWORD *)(v8 + 72) )

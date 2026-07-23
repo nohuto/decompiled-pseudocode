@@ -1,42 +1,42 @@
 /*
- * XREFs of ExpQuerySystemPerformanceInformation @ 0x140A5C194
+ * XREFs of ExpQuerySystemPerformanceInformation @ 0x140A69154
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetNumberOfFreeSystemPtes @ 0x1402A5DB8 (MmGetNumberOfFreeSystemPtes.c)
- *     MiFreePoolPagesLeft @ 0x14047E2B4 (MiFreePoolPagesLeft.c)
- *     MmGetTotalCommitLimit @ 0x140491830 (MmGetTotalCommitLimit.c)
- *     MmGetPeakCommitment @ 0x140491850 (MmGetPeakCommitment.c)
- *     MmGetTotalCommittedPages @ 0x1404919A0 (MmGetTotalCommittedPages.c)
- *     MmGetAvailablePages @ 0x1404933C8 (MmGetAvailablePages.c)
- *     MmGetResidentAvailablePages @ 0x14049462C (MmGetResidentAvailablePages.c)
- *     MiMaximumCommitmentAvailable @ 0x140497DCC (MiMaximumCommitmentAvailable.c)
- *     MmGetSharedCommit @ 0x1404A6B94 (MmGetSharedCommit.c)
- *     MmGetProcessPartitionId @ 0x1404A9E18 (MmGetProcessPartitionId.c)
- *     ExQueryPoolUsage @ 0x1404AB0A8 (ExQueryPoolUsage.c)
- *     MmGetWorkingSetLeafSize @ 0x1404AF464 (MmGetWorkingSetLeafSize.c)
- *     MmGetSystemPageCounts @ 0x1404D9990 (MmGetSystemPageCounts.c)
- *     MmGetMdlPagesAllocated @ 0x1404DA40C (MmGetMdlPagesAllocated.c)
- *     MmGetContiguousPagesAllocated @ 0x1404DB1AC (MmGetContiguousPagesAllocated.c)
- *     MmGetSystemPageTableCommit @ 0x1404DBDFC (MmGetSystemPageTableCommit.c)
- *     MmGetPfnDatabaseCommit @ 0x1404DBE0C (MmGetPfnDatabaseCommit.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     PsQueryRuntimeProcess @ 0x140A5C9B0 (PsQueryRuntimeProcess.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x1402A51B0 (MmGetNumberOfFreeSystemPtes.c)
+ *     MiFreePoolPagesLeft @ 0x140477C24 (MiFreePoolPagesLeft.c)
+ *     MmGetTotalCommitLimit @ 0x14048B380 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x14048B3A0 (MmGetPeakCommitment.c)
+ *     MmGetTotalCommittedPages @ 0x14048B4F0 (MmGetTotalCommittedPages.c)
+ *     MmGetAvailablePages @ 0x14048C960 (MmGetAvailablePages.c)
+ *     MmGetResidentAvailablePages @ 0x14048E17C (MmGetResidentAvailablePages.c)
+ *     MiMaximumCommitmentAvailable @ 0x14049191C (MiMaximumCommitmentAvailable.c)
+ *     MmGetSharedCommit @ 0x1404A0224 (MmGetSharedCommit.c)
+ *     MmGetProcessPartitionId @ 0x1404A34A8 (MmGetProcessPartitionId.c)
+ *     ExQueryPoolUsage @ 0x1404A4738 (ExQueryPoolUsage.c)
+ *     MmGetWorkingSetLeafSize @ 0x1404A8AF4 (MmGetWorkingSetLeafSize.c)
+ *     MmGetSystemPageCounts @ 0x1404D3070 (MmGetSystemPageCounts.c)
+ *     MmGetMdlPagesAllocated @ 0x1404D3AEC (MmGetMdlPagesAllocated.c)
+ *     MmGetContiguousPagesAllocated @ 0x1404D488C (MmGetContiguousPagesAllocated.c)
+ *     MmGetSystemPageTableCommit @ 0x1404D54DC (MmGetSystemPageTableCommit.c)
+ *     MmGetPfnDatabaseCommit @ 0x1404D54EC (MmGetPfnDatabaseCommit.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     PsQueryRuntimeProcess @ 0x140A69970 (PsQueryRuntimeProcess.c)
  */
 
 __int64 __fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2, int a3, char a4)
 {
   void *v4; // r13
   __int64 v5; // rdi
-  ULONG v6; // esi
-  LARGE_INTEGER v7; // rax
+  int v6; // esi
+  unsigned __int64 v7; // rax
   ULONG v8; // r14d
   LARGE_INTEGER v9; // rcx
   ULONG v10; // r15d
-  LARGE_INTEGER v11; // rdx
+  __int64 SchedulerAssistLastYieldBoostTime; // rdx
   __int64 v12; // r10
   __int64 *v13; // rbx
   __int64 *v14; // r11
@@ -104,7 +104,7 @@ __int64 __fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a
   _QWORD Src[4]; // [rsp+90h] [rbp-1C8h] BYREF
   ULONG v78; // [rsp+B0h] [rbp-1A8h]
   ULONG v79; // [rsp+B4h] [rbp-1A4h]
-  ULONG v80; // [rsp+B8h] [rbp-1A0h]
+  int v80; // [rsp+B8h] [rbp-1A0h]
   int v81; // [rsp+BCh] [rbp-19Ch]
   unsigned int v82; // [rsp+C0h] [rbp-198h]
   int v83; // [rsp+C4h] [rbp-194h]
@@ -172,12 +172,12 @@ __int64 __fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a
   v5 = a1;
   memset_0(Src, 0, 0x178uLL);
   v76 = 0LL;
-  v6 = IoOtherOperationCount;
-  v7 = IoOtherTransferCount;
+  v6 = IopPerfIoTrackingLock.Padding[4];
+  v7 = IopPerfIoTrackingLock.Padding[0];
   v8 = IoReadOperationCount;
   v9 = IoReadTransferCount;
   v10 = IoWriteOperationCount;
-  v11 = IoWriteTransferCount;
+  SchedulerAssistLastYieldBoostTime = IopPerfIoTrackingLock.SchedulerAssistLastYieldBoostTime;
   v12 = (unsigned int)v5;
   v13 = KiProcessorBlock;
   if ( (_DWORD)v5 )
@@ -187,18 +187,18 @@ __int64 __fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a
     do
     {
       v6 += *(_DWORD *)(*v14 + 11620);
-      v7.QuadPart += *(_QWORD *)(*v14 + 11640);
+      v7 += *(_QWORD *)(*v14 + 11640);
       v8 += *(_DWORD *)(*v14 + 11612);
       v9.QuadPart += *(_QWORD *)(*v14 + 11624);
       v10 += *(_DWORD *)(*v14 + 11616);
-      v11.QuadPart += *(_QWORD *)(*v14++ + 11632);
+      SchedulerAssistLastYieldBoostTime += *(_QWORD *)(*v14++ + 11632);
       --v15;
     }
     while ( v15 );
   }
   Src[1] = v9.QuadPart;
-  Src[2] = v11.QuadPart;
-  Src[3] = v7.QuadPart;
+  Src[2] = SchedulerAssistLastYieldBoostTime;
+  Src[3] = v7;
   v78 = v8;
   v79 = v10;
   v80 = v6;
@@ -324,7 +324,7 @@ __int64 __fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a
   if ( v50 > v49 )
     LODWORD(v50) = v49;
   v110 = v50;
-  Src[0] = PsQueryRuntimeProcess(PsIdleProcess, &v73) * (unsigned int)KeMaximumIncrement;
+  Src[0] = PsQueryRuntimeProcess(PsIdleProcess, &v73) * KeMaximumIncrement;
   ExQueryPoolUsage(
     (int)&v98,
     (int)&v99,
@@ -342,8 +342,8 @@ __int64 __fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a
   v54 = 0;
   v55 = 0;
   v116 = 0;
-  v56 = *(_DWORD *)&EmpParseLock.PriorityFloorCounts[16];
-  v117 = *(_DWORD *)&EmpParseLock.PriorityFloorCounts[16];
+  v56 = *(_DWORD *)&EmpParseLock.PriorityFloorCounts[28];
+  v117 = *(_DWORD *)&EmpParseLock.PriorityFloorCounts[28];
   v57 = 0;
   v118 = 0LL;
   v58 = 0;

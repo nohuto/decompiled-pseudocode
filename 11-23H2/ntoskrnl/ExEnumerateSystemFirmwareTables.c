@@ -1,10 +1,10 @@
 /*
- * XREFs of ExEnumerateSystemFirmwareTables @ 0x1409F5CE0
+ * XREFs of ExEnumerateSystemFirmwareTables @ 0x1409F5F70
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077E8E0 (ExpGetSystemFirmwareTableInformation.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14077EAD0 (ExpGetSystemFirmwareTableInformation.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

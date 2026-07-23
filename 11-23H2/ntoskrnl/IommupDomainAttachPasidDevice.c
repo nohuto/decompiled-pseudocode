@@ -1,21 +1,21 @@
 /*
- * XREFs of IommupDomainAttachPasidDevice @ 0x14050E190
+ * XREFs of IommupDomainAttachPasidDevice @ 0x14050E6E0
  * Callers:
- *     IommuDomainAttachDeviceEx @ 0x140525910 (IommuDomainAttachDeviceEx.c)
- *     IommuDomainAttachPasidDevice @ 0x1409355E0 (IommuDomainAttachPasidDevice.c)
+ *     IommuDomainAttachDeviceEx @ 0x140525E60 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainAttachPasidDevice @ 0x1409357E0 (IommuDomainAttachPasidDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpIommuGetDmarptRootAddress @ 0x14037FE10 (HalpIommuGetDmarptRootAddress.c)
- *     HalpIommuGetHardwareDomain @ 0x1403A964C (HalpIommuGetHardwareDomain.c)
- *     HalpIommuDereferenceHardwareDomain @ 0x140517AEC (HalpIommuDereferenceHardwareDomain.c)
- *     IommuDisableDevicePasid @ 0x140522070 (IommuDisableDevicePasid.c)
- *     IommuEnableDevicePasid @ 0x140522460 (IommuEnableDevicePasid.c)
- *     IommuSetAddressSpace @ 0x140523810 (IommuSetAddressSpace.c)
- *     IommupHvAttachPasidDeviceDomain @ 0x14052454C (IommupHvAttachPasidDeviceDomain.c)
- *     IommupHvAttachPasidSubDeviceDomain @ 0x1405246AC (IommupHvAttachPasidSubDeviceDomain.c)
- *     IommupHvDetachPasidDeviceDomain @ 0x1405248E4 (IommupHvDetachPasidDeviceDomain.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x14037FFB0 (HalpIommuGetDmarptRootAddress.c)
+ *     HalpIommuGetHardwareDomain @ 0x1403A982C (HalpIommuGetHardwareDomain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x14051803C (HalpIommuDereferenceHardwareDomain.c)
+ *     IommuDisableDevicePasid @ 0x1405225C0 (IommuDisableDevicePasid.c)
+ *     IommuEnableDevicePasid @ 0x1405229B0 (IommuEnableDevicePasid.c)
+ *     IommuSetAddressSpace @ 0x140523D60 (IommuSetAddressSpace.c)
+ *     IommupHvAttachPasidDeviceDomain @ 0x140524A9C (IommupHvAttachPasidDeviceDomain.c)
+ *     IommupHvAttachPasidSubDeviceDomain @ 0x140524BFC (IommupHvAttachPasidSubDeviceDomain.c)
+ *     IommupHvDetachPasidDeviceDomain @ 0x140524E34 (IommupHvDetachPasidDeviceDomain.c)
  */
 
 __int64 __fastcall IommupDomainAttachPasidDevice(__int64 a1, __int64 a2)
@@ -108,10 +108,13 @@ LABEL_20:
     *v12 = v13;
     *(_QWORD *)(a1 + 80) = v13;
     KxReleaseSpinLock((volatile signed __int64 *)(a1 + 88));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -119,7 +122,7 @@ LABEL_20:
         v7 = (v17 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v17;
         if ( v7 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         v10 = v31;
       }
     }
@@ -157,10 +160,10 @@ LABEL_52:
     *v23 = v21;
     v21[1] = (__int64)v23;
     KxReleaseSpinLock((volatile signed __int64 *)(a1 + 88));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v24 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v24 >= 2u )
       {
         v25 = KeGetCurrentPrcb();
         v26 = v25->SchedulerAssist;
@@ -168,7 +171,7 @@ LABEL_52:
         v7 = (v27 & v26[5]) == 0;
         v26[5] &= v27;
         if ( v7 )
-          KiRemoveSystemWorkPriorityKick(v25);
+          KiRemoveSystemWorkPriorityKick((__int64)v25);
       }
     }
     __writecr8(v22);

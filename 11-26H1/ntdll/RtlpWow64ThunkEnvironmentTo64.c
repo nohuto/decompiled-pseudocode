@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlpWow64ThunkEnvironmentTo64 @ 0x18009E490
+ * XREFs of RtlpWow64ThunkEnvironmentTo64 @ 0x18009D5C0
  * Callers:
- *     RtlpInitEnvironmentBlock @ 0x1800A0498 (RtlpInitEnvironmentBlock.c)
+ *     RtlpInitEnvironmentBlock @ 0x18009F5C8 (RtlpInitEnvironmentBlock.c)
  * Callees:
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
- *     RtlSetEnvironmentVar @ 0x18009E600 (RtlSetEnvironmentVar.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
+ *     RtlSetEnvironmentVar @ 0x18009D730 (RtlSetEnvironmentVar.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 RtlpWow64ThunkEnvironmentTo64()
+NTSTATUS RtlpWow64ThunkEnvironmentTo64()
 {
   _BYTE *v0; // rbx
   __int64 v1; // rsi
   const wchar_t *v2; // rdi
   size_t v3; // rax
-  size_t v4; // r14
-  __int64 result; // rax
+  SIZE_T v4; // r14
+  NTSTATUS result; // eax
   unsigned __int16 v6; // bp
   const wchar_t *v7; // rdi
   size_t v8; // rax
-  __int128 v9; // [rsp+30h] [rbp-248h] BYREF
-  _WORD v10[264]; // [rsp+40h] [rbp-238h] BYREF
+  ULONG_PTR ReturnLength[2]; // [rsp+30h] [rbp-248h] BYREF
+  WCHAR Value[264]; // [rsp+40h] [rbp-238h] BYREF
 
-  v0 = &unk_180171B70;
+  v0 = &unk_180170B00;
   v1 = 3LL;
   do
   {
     v2 = (const wchar_t *)*((_QWORD *)v0 - 2);
     LOWORD(v3) = 0;
-    v9 = 0LL;
+    *(_OWORD *)ReturnLength = 0LL;
     if ( v2 )
     {
       v3 = 2 * wcslen(v2);
@@ -37,18 +37,18 @@ __int64 RtlpWow64ThunkEnvironmentTo64()
         LOWORD(v3) = -4;
     }
     v4 = (unsigned __int64)(unsigned __int16)v3 >> 1;
-    *(_QWORD *)&v9 = 0LL;
-    result = RtlQueryEnvironmentVariable(0LL, v2, v4, v10, 0x104uLL, (unsigned __int64 *)&v9);
-    if ( (unsigned __int64)v9 <= 0x7FFF && (_DWORD)result != -1073741789 )
+    ReturnLength[0] = 0LL;
+    result = RtlQueryEnvironmentVariable(0LL, v2, v4, Value, 0x104uLL, ReturnLength);
+    if ( ReturnLength[0] <= 0x7FFF && result != -1073741789 )
     {
-      v6 = 2 * v9;
-      if ( (int)result >= 0 )
+      v6 = 2 * LOWORD(ReturnLength[0]);
+      if ( result >= 0 )
       {
         if ( !*v0 )
           RtlSetEnvironmentVar(0LL, v2, v4, 0LL, 0LL);
         v7 = (const wchar_t *)*((_QWORD *)v0 - 4);
         LOWORD(v8) = 0;
-        v9 = 0LL;
+        *(_OWORD *)ReturnLength = 0LL;
         if ( v7 )
         {
           v8 = 2 * wcslen(v7);
@@ -59,7 +59,7 @@ __int64 RtlpWow64ThunkEnvironmentTo64()
                    0LL,
                    v7,
                    (unsigned __int64)(unsigned __int16)v8 >> 1,
-                   v10,
+                   Value,
                    (unsigned __int64)v6 >> 1);
       }
     }

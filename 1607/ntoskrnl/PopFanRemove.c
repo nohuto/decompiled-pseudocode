@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFanRemove @ 0x140673028
+ * XREFs of PopFanRemove @ 0x14067310C
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoCancelIrp @ 0x1400A2054 (IoCancelIrp.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoCancelIrp @ 0x1400A097C (IoCancelIrp.c)
  */
 
 NTSTATUS __fastcall PopFanRemove(__int64 a1)

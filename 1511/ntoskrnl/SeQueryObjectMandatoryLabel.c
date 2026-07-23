@@ -18,8 +18,8 @@ __int64 __fastcall SeQueryObjectMandatoryLabel(__int64 a1, ULONG *a2)
   __int16 v6; // ax
   PSID v7; // rsi
   __int64 v8; // rax
-  char *v9; // rcx
-  unsigned __int8 *AceByType; // rax
+  ACL *v9; // rcx
+  char *AceByType; // rax
   PUCHAR v11; // rax
   BOOLEAN v12; // dl
   BOOLEAN MemoryAllocated; // [rsp+48h] [rbp+10h] BYREF
@@ -36,18 +36,18 @@ __int64 __fastcall SeQueryObjectMandatoryLabel(__int64 a1, ULONG *a2)
     goto LABEL_3;
   if ( v6 >= 0 )
   {
-    v9 = (char *)*((_QWORD *)SecurityDescriptor + 3);
+    v9 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
     goto LABEL_8;
   }
   v8 = *((unsigned int *)SecurityDescriptor + 3);
   if ( (_DWORD)v8 )
   {
-    v9 = (char *)SecurityDescriptor + v8;
+    v9 = (ACL *)((char *)SecurityDescriptor + v8);
 LABEL_8:
     v7 = SepDefaultMandatorySid;
     if ( v9 )
     {
-      AceByType = RtlFindAceByType((__int64)v9, 17, 0LL);
+      AceByType = (char *)RtlFindAceByType(v9, 0x11u, 0LL);
       if ( AceByType )
       {
         if ( (AceByType[1] & 8) == 0 )

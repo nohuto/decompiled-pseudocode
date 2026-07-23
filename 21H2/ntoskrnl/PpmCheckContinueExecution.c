@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmCheckContinueExecution @ 0x14022B780
+ * XREFs of PpmCheckContinueExecution @ 0x1402D0030
  * Callers:
- *     PpmPerfAction @ 0x140220770 (PpmPerfAction.c)
- *     PpmPerfControlActionCallback @ 0x14056E7B0 (PpmPerfControlActionCallback.c)
+ *     PpmPerfAction @ 0x1402C5070 (PpmPerfAction.c)
+ *     PpmPerfControlActionCallback @ 0x14056E9F0 (PpmPerfControlActionCallback.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x14022A190 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
- *     PoCopyDeepIdleMask @ 0x1402EC870 (PoCopyDeepIdleMask.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeFindFirstSetRightAffinityEx @ 0x140513590 (KeFindFirstSetRightAffinityEx.c)
+ *     PoCopyDeepIdleMask @ 0x14029DBC0 (PoCopyDeepIdleMask.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x1402CEA40 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     KeSubtractAffinityEx @ 0x1402CFF20 (KeSubtractAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x1405137D0 (KeFindFirstSetRightAffinityEx.c)
  */
 
 __int64 PpmCheckContinueExecution()
@@ -34,7 +34,7 @@ __int64 PpmCheckContinueExecution()
       v3 = (unsigned __int16 *)&PpmCachedSystemAllowedCpuSet;
     LOWORD(Number) = KeFindFirstSetRightAffinityEx(v3);
   }
-  if ( !qword_140C21098 )
-    word_140C21062 = Number + 1280;
+  if ( !qword_140C210B8 )
+    word_140C21082 = Number + 1280;
   return KiInsertQueueDpc((ULONG_PTR)&PpmCheckDpc, 0LL, 0LL, 0LL, 0);
 }

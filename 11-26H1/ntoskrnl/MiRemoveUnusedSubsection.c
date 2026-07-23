@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveUnusedSubsection @ 0x14030C19C
+ * XREFs of MiRemoveUnusedSubsection @ 0x1402EE21C
  * Callers:
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiDereferenceControlAreaPfnList @ 0x14030A130 (MiDereferenceControlAreaPfnList.c)
- *     MiIncrementSubsectionViewCount @ 0x14030BE90 (MiIncrementSubsectionViewCount.c)
- *     MiReferenceSubsection @ 0x14030BFE0 (MiReferenceSubsection.c)
- *     MiDeleteTransitionPte @ 0x14033E7F0 (MiDeleteTransitionPte.c)
- *     MiReferenceActiveSubsection @ 0x14045AE40 (MiReferenceActiveSubsection.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402EC1B0 (MiDereferenceControlAreaPfnList.c)
+ *     MiIncrementSubsectionViewCount @ 0x1402EDF10 (MiIncrementSubsectionViewCount.c)
+ *     MiReferenceSubsection @ 0x1402EE060 (MiReferenceSubsection.c)
+ *     MiDeleteTransitionPte @ 0x140340870 (MiDeleteTransitionPte.c)
+ *     MiReferenceActiveSubsection @ 0x140454670 (MiReferenceActiveSubsection.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkUnusedSubsection @ 0x14030C21C (MiUnlinkUnusedSubsection.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkUnusedSubsection @ 0x1402EE29C (MiUnlinkUnusedSubsection.c)
  */
 
 __int64 __fastcall MiRemoveUnusedSubsection(__int64 a1)
@@ -19,13 +19,13 @@ __int64 __fastcall MiRemoveUnusedSubsection(__int64 a1)
   __int64 result; // rax
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
+  v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v2 + 2112));
   result = MiUnlinkUnusedSubsection(a1);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
   {
-    result = LODWORD(stru_140F11D08.WaitStatus);
-    if ( !LODWORD(stru_140F11D08.WaitStatus) )
+    result = (unsigned int)PopHibernateInProgress;
+    if ( !PopHibernateInProgress )
       return ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v2 + 2112), retaddr);
   }
   *(_DWORD *)(v2 + 2112) = 0;

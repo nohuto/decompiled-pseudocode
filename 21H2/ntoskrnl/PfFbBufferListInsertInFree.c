@@ -1,21 +1,21 @@
 /*
- * XREFs of PfFbBufferListInsertInFree @ 0x1402D4690
+ * XREFs of PfFbBufferListInsertInFree @ 0x140273370
  * Callers:
- *     PfTFullEventListAdd @ 0x1402B7E4C (PfTFullEventListAdd.c)
- *     PfFbBufferListAllocateTemporary @ 0x1402C9B44 (PfFbBufferListAllocateTemporary.c)
- *     PfFbBufferListFlushStandby @ 0x1402D4738 (PfFbBufferListFlushStandby.c)
- *     PfFbBufferListAllocate @ 0x1403C5024 (PfFbBufferListAllocate.c)
- *     PfpRepurposeNameLoggingTrace @ 0x1406C7914 (PfpRepurposeNameLoggingTrace.c)
- *     PfpFlushEventBuffers @ 0x1406CA380 (PfpFlushEventBuffers.c)
- *     PfTCleanup @ 0x1408E03BC (PfTCleanup.c)
+ *     PfTFullEventListAdd @ 0x14023602C (PfTFullEventListAdd.c)
+ *     PfFbBufferListAllocateTemporary @ 0x140248434 (PfFbBufferListAllocateTemporary.c)
+ *     PfFbBufferListFlushStandby @ 0x140273418 (PfFbBufferListFlushStandby.c)
+ *     PfFbBufferListAllocate @ 0x1403C5454 (PfFbBufferListAllocate.c)
+ *     PfpRepurposeNameLoggingTrace @ 0x140676204 (PfpRepurposeNameLoggingTrace.c)
+ *     PfpFlushEventBuffers @ 0x140678C70 (PfpFlushEventBuffers.c)
+ *     PfTCleanup @ 0x1408E051C (PfTCleanup.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_ENTRY *P, int a3, int a4, int a5)
+void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, _SLIST_ENTRY *P, int a3, int a4, int a5)
 {
   _SLIST_ENTRY *v7; // r8
   __int64 v8; // rcx
@@ -28,7 +28,7 @@ void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_E
   }
   else
   {
-    v7 = (struct _SLIST_ENTRY *)((char *)P + a3);
+    v7 = (_SLIST_ENTRY *)((char *)P + a3);
     P[1].Next = RunRef;
     P[2].Next = v7;
     v8 = *((unsigned int *)&RunRef[4].Next + 3);
@@ -40,5 +40,5 @@ void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_E
     RtlpInterlockedPushEntrySList((PSLIST_HEADER)&RunRef[1], P);
   }
   if ( a5 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)RunRef);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)RunRef);
 }

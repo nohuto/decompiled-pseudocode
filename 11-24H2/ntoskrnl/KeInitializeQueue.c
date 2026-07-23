@@ -1,13 +1,13 @@
 /*
- * XREFs of KeInitializeQueue @ 0x140475830
+ * XREFs of KeInitializeQueue @ 0x1404717A0
  * Callers:
- *     NtCreateIoCompletion @ 0x140A22900 (NtCreateIoCompletion.c)
- *     EtwpCreateUmReplyObject @ 0x140A762A0 (EtwpCreateUmReplyObject.c)
- *     FsRtlInitializeWorkerThread @ 0x140C194A8 (FsRtlInitializeWorkerThread.c)
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
- *     ExpWorkerFactoryInitialization @ 0x140C436D8 (ExpWorkerFactoryInitialization.c)
+ *     NtCreateIoCompletion @ 0x140A16D10 (NtCreateIoCompletion.c)
+ *     EtwpCreateUmReplyObject @ 0x140A703BC (EtwpCreateUmReplyObject.c)
+ *     FsRtlInitializeWorkerThread @ 0x140C1B49C (FsRtlInitializeWorkerThread.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
+ *     ExpWorkerFactoryInitialization @ 0x140C45D44 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
  */
 
 void __stdcall KeInitializeQueue(PRKQUEUE Queue, ULONG Count)

@@ -1,40 +1,40 @@
 /*
- * XREFs of AlpcpAcceptConnectPort @ 0x1405E103C
+ * XREFs of AlpcpAcceptConnectPort @ 0x1406D079C
  * Callers:
- *     NtAlpcAcceptConnectPort @ 0x1405DF9C0 (NtAlpcAcceptConnectPort.c)
- *     NtAcceptConnectPort @ 0x1406B8080 (NtAcceptConnectPort.c)
+ *     NtAcceptConnectPort @ 0x140617590 (NtAcceptConnectPort.c)
+ *     NtAlpcAcceptConnectPort @ 0x1406CF120 (NtAlpcAcceptConnectPort.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x1405E0284 (AlpcpProbeAndCaptureMessageHeader.c)
- *     AlpcpSetOwnerProcessPort @ 0x1405E098C (AlpcpSetOwnerProcessPort.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x1405E0B04 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcpInitializePort @ 0x1405E0D98 (AlpcpInitializePort.c)
- *     AlpcpCreatePort @ 0x1405E0F24 (AlpcpCreatePort.c)
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x1405E0F88 (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpDispatchMessage @ 0x1405E1004 (AlpcpDispatchMessage.c)
- *     AlpcpValidateConnectionMessage @ 0x1405E1B94 (AlpcpValidateConnectionMessage.c)
- *     AlpcpFlushResourcesPort @ 0x1405E220C (AlpcpFlushResourcesPort.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
- *     AlpcpReleaseAttributes @ 0x1405E39F0 (AlpcpReleaseAttributes.c)
- *     AlpcpCaptureAttributes @ 0x1405E6290 (AlpcpCaptureAttributes.c)
- *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
- *     PsDereferencePrimaryToken @ 0x1406B4570 (PsDereferencePrimaryToken.c)
- *     AlpcpMapLegacyPortView @ 0x1406D2148 (AlpcpMapLegacyPortView.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     AlpcpMapLegacyPortRemoteView @ 0x1407702F0 (AlpcpMapLegacyPortRemoteView.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsDereferencePrimaryToken @ 0x140613740 (PsDereferencePrimaryToken.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpMapLegacyPortView @ 0x1406A9428 (AlpcpMapLegacyPortView.c)
+ *     PsReleaseProcessWakeCounter @ 0x1406CE130 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1406CF9E4 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpSetOwnerProcessPort @ 0x1406D00EC (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x1406D0264 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpInitializePort @ 0x1406D04F8 (AlpcpInitializePort.c)
+ *     AlpcpCreatePort @ 0x1406D0684 (AlpcpCreatePort.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x1406D06E8 (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpDispatchMessage @ 0x1406D0764 (AlpcpDispatchMessage.c)
+ *     AlpcpValidateConnectionMessage @ 0x1406D12F4 (AlpcpValidateConnectionMessage.c)
+ *     AlpcpFlushResourcesPort @ 0x1406D196C (AlpcpFlushResourcesPort.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
+ *     AlpcpReleaseAttributes @ 0x1406D3150 (AlpcpReleaseAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x1406D59F0 (AlpcpCaptureAttributes.c)
+ *     AlpcpLookupMessage @ 0x1406D5FD0 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x1407704B0 (AlpcpMapLegacyPortRemoteView.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall AlpcpAcceptConnectPort(
@@ -110,7 +110,7 @@ NTSTATUS __fastcall AlpcpAcceptConnectPort(
   _BYTE *v70; // [rsp+E0h] [rbp-1A8h]
   __int64 v71; // [rsp+E8h] [rbp-1A0h]
   _OWORD *v72; // [rsp+F0h] [rbp-198h]
-  __m128i v73; // [rsp+F8h] [rbp-190h]
+  __m128i v73; // [rsp+F8h] [rbp-190h] BYREF
   __int128 v74; // [rsp+108h] [rbp-180h]
   __int128 v75; // [rsp+118h] [rbp-170h]
   __int128 v76; // [rsp+128h] [rbp-160h]
@@ -425,7 +425,7 @@ LABEL_124:
   {
     v78 = 0LL;
     v79 = 0LL;
-    inserted = AlpcpMapLegacyPortView(v57);
+    inserted = AlpcpMapLegacyPortView(v57, (__int64)&v73, (__int64)v80);
     if ( inserted >= 0 )
     {
       inserted = AlpcpMapLegacyPortRemoteView((PVOID)v39);

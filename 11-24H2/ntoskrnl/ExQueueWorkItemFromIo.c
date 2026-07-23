@@ -1,19 +1,19 @@
 /*
- * XREFs of ExQueueWorkItemFromIo @ 0x140323D10
+ * XREFs of ExQueueWorkItemFromIo @ 0x1402CC8A0
  * Callers:
- *     IoQueueWorkItem @ 0x14029F560 (IoQueueWorkItem.c)
- *     IoQueueWorkItemEx @ 0x14043B330 (IoQueueWorkItemEx.c)
+ *     IoQueueWorkItemEx @ 0x1402F05B0 (IoQueueWorkItemEx.c)
+ *     IoQueueWorkItem @ 0x1403AA020 (IoQueueWorkItem.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiWakePriQueueWaiter @ 0x1403248F0 (KiWakePriQueueWaiter.c)
- *     KeIsThreadRunning @ 0x1403BE4C8 (KeIsThreadRunning.c)
- *     EtwTracePriQEnqueueWork @ 0x1404C9BC0 (EtwTracePriQEnqueueWork.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     EtwTracePriQEnqueueFailed @ 0x14064DCC0 (EtwTracePriQEnqueueFailed.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiWakePriQueueWaiter @ 0x1402CD480 (KiWakePriQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x1403AD158 (KeIsThreadRunning.c)
+ *     EtwTracePriQEnqueueWork @ 0x1404C3070 (EtwTracePriQEnqueueWork.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     EtwTracePriQEnqueueFailed @ 0x14064C2D0 (EtwTracePriQEnqueueFailed.c)
  */
 
 __int64 __fastcall ExQueueWorkItemFromIo(_QWORD *BugCheckParameter2, int a2)
@@ -200,7 +200,7 @@ LABEL_39:
     if ( ++v7 == (unsigned __int16)KeNumberNodes )
       v11 = -1;
     else
-      v11 = *(_DWORD *)(qword_140E2DAD0 + 4LL * (v10 * (unsigned __int16)KeNumberNodes + v7));
+      v11 = *(_DWORD *)(qword_140E2DC10 + 4LL * (v10 * (unsigned __int16)KeNumberNodes + v7));
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

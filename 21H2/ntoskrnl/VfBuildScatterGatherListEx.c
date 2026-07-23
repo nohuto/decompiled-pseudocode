@@ -1,17 +1,17 @@
 /*
- * XREFs of VfBuildScatterGatherListEx @ 0x1409CB360
+ * XREFs of VfBuildScatterGatherListEx @ 0x1409CC360
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
- *     DECREMENT_SCATTER_GATHER_LISTS @ 0x1409C9E00 (DECREMENT_SCATTER_GATHER_LISTS.c)
- *     VERIFY_BUFFER_LOCKED @ 0x1409CA060 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_IRQL @ 0x1409CA0EC (VF_ASSERT_IRQL.c)
- *     ViCheckMdlLength @ 0x1409CDC54 (ViCheckMdlLength.c)
- *     ViGetAdapterInformationInternal @ 0x1409CE748 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
- *     ViHalPreprocessOptions @ 0x1409CEC60 (ViHalPreprocessOptions.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405A2024 (VfReportIssueWithOptions.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x1409CAE00 (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x1409CB060 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_IRQL @ 0x1409CB0EC (VF_ASSERT_IRQL.c)
+ *     ViCheckMdlLength @ 0x1409CEC54 (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CF748 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CFA50 (ViGetRealDmaOperation.c)
+ *     ViHalPreprocessOptions @ 0x1409CFC60 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall VfBuildScatterGatherListEx(
@@ -53,13 +53,13 @@ __int64 __fastcall VfBuildScatterGatherListEx(
     {
       v22 = v21;
       ViHalPreprocessOptions(
-        byte_140C12E74,
+        byte_140C12E54,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v21,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v22, 0LL, 0LL, byte_140C12E74);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v22, 0LL, 0LL, byte_140C12E54);
     }
   }
   v23 = RealDmaOperation(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15);

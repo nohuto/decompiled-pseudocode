@@ -1,10 +1,10 @@
 /*
  * XREFs of sub_140B38B4C @ 0x140B38B4C
  * Callers:
- *     ExInitLicenseData @ 0x14080EF78 (ExInitLicenseData.c)
+ *     ExInitLicenseData @ 0x14080F248 (ExInitLicenseData.c)
  * Callees:
- *     KeQueryTimeIncrement @ 0x140311AD0 (KeQueryTimeIncrement.c)
- *     KiInitializeMutant @ 0x14033ADEC (KiInitializeMutant.c)
+ *     KeQueryTimeIncrement @ 0x140311D60 (KeQueryTimeIncrement.c)
+ *     KiInitializeMutant @ 0x14033B07C (KiInitializeMutant.c)
  */
 
 unsigned __int64 sub_140B38B4C()

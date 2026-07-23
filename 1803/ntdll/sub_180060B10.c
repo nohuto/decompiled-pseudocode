@@ -24,7 +24,7 @@ __int64 __fastcall sub_180060B10(__int64 a1, __int64 a2)
   bool v7; // zf
   char v8; // r14
   _QWORD *v9; // rsi
-  unsigned int NumberOfHeaps; // ecx
+  ULONG NumberOfHeaps; // ecx
   __int64 v11; // rax
   _DWORD *v12; // rax
   int v13; // ecx
@@ -180,7 +180,7 @@ __int64 __fastcall sub_180060B10(__int64 a1, __int64 a2)
           v49[2] = v27;
           v49[3] = *(_QWORD *)(v27 + 32);
           LODWORD(v49[4]) = 1;
-          HIDWORD(v49[4]) = sub_18002AE30(a1, 0);
+          HIDWORD(v49[4]) = sub_18002AE30((_DWORD *)a1, 0);
         }
         result = v43(v49, v42);
         if ( (int)result < 0 )
@@ -336,7 +336,7 @@ LABEL_85:
       v21 = v46[0] + LODWORD(v46[3]);
       v44 = v46[0];
       v45 = v21;
-      v25 = sub_18002AE30(a1, 0);
+      v25 = sub_18002AE30((_DWORD *)a1, 0);
       v40 = v25;
     }
     else

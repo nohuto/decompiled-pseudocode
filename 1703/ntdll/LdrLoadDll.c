@@ -15,38 +15,44 @@
  *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
  */
 
-__int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl LdrLoadDll(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
-  int v8; // ebx
+  ULONG v8; // ebx
   int v9; // r9d
-  int v10; // ebx
-  unsigned __int64 v11; // rcx
-  unsigned __int64 v13; // [rsp+30h] [rbp-C8h] BYREF
-  _QWORD v14[15]; // [rsp+40h] [rbp-B8h] BYREF
+  NTSTATUS v10; // ebx
+  char *v11; // rcx
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-C8h] BYREF
+  PWSTR Path[15]; // [rsp+40h] [rbp-B8h] BYREF
   char v15; // [rsp+BCh] [rbp-3Ch]
 
   if ( (dword_180155A10 & 9) != 0 )
-    sub_1800D5274((unsigned int)"minkernel\\ntdll\\ldrapi.c", 144, (unsigned int)"LdrLoadDll", 3, "DLL name: %wZ\n", a3);
-  if ( (dword_180158674 & 4) == 0 && (a1 & 0x401) == 0x401 )
-    return 3221225485LL;
-  if ( !a2 )
+    sub_1800D5274(
+      (unsigned int)"minkernel\\ntdll\\ldrapi.c",
+      144,
+      (unsigned int)"LdrLoadDll",
+      3,
+      "DLL name: %wZ\n",
+      DllName);
+  if ( (dword_180158674 & 4) == 0 && ((unsigned __int16)DllPath & 0x401) == 0x401LL )
+    return -1073741811;
+  if ( !DllCharacteristics )
   {
     v8 = 0;
 LABEL_6:
-    sub_18003BE90(*(_QWORD *)(a3 + 8), a1, v14);
+    sub_18003BE90(DllName->Buffer, DllPath, Path);
     LOBYTE(v9) = 1;
-    v10 = sub_18003C350(a3, (unsigned int)v14, v8, v9, (__int64)&v13);
+    v10 = sub_18003C350((_DWORD)DllName, (unsigned int)Path, v8, v9, (__int64)BaseAddress);
     if ( v15 )
-      RtlReleasePath(v14[0]);
+      RtlReleasePath(Path[0]);
     if ( v10 >= 0 )
     {
-      v11 = v13;
-      *a4 = *(_QWORD *)(v13 + 48);
+      v11 = (char *)BaseAddress[0];
+      *DllHandle = (PVOID)*((_QWORD *)BaseAddress[0] + 6);
       sub_18003015C(v11);
     }
     goto LABEL_10;
   }
-  v8 = *a2;
+  v8 = *DllCharacteristics;
   if ( (v8 & 4) == 0 || (dword_180158674 & 8) != 0 )
     goto LABEL_6;
   if ( (dword_180155A10 & 3) != 0 )
@@ -68,5 +74,5 @@ LABEL_10:
       4,
       "Status: 0x%08lx\n",
       v10);
-  return (unsigned int)v10;
+  return v10;
 }

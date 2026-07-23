@@ -39,7 +39,9 @@ __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
       v4 = *(_QWORD *)(v6 + 8) == v6 + 8;
   }
   KxReleaseSpinLock((volatile signed __int64 *)v5);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v8 = v15;
     if ( v15 <= 0xFu && CurrentIrql >= 2u )

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLbrStartRecording @ 0x140866E70
+ * XREFs of HalpLbrStartRecording @ 0x140866FD0
  * Callers:
  *     <none>
  * Callees:
- *     HalpLbrConfigurationWorker @ 0x140866DBC (HalpLbrConfigurationWorker.c)
+ *     HalpLbrConfigurationWorker @ 0x140866F1C (HalpLbrConfigurationWorker.c)
  */
 
 __int64 __fastcall HalpLbrStartRecording(int a1, int *a2)

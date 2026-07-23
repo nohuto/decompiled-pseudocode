@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxDeviceCriticalRegionEnter @ 0x1405D0E60
+ * XREFs of PopFxDeviceCriticalRegionEnter @ 0x1405CE580
  * Callers:
- *     PopFxCompleteComponentActivation @ 0x140317240 (PopFxCompleteComponentActivation.c)
- *     PopFxIdleWorker @ 0x1403B4B50 (PopFxIdleWorker.c)
- *     PopFxActivateComponentWorker @ 0x1403B6358 (PopFxActivateComponentWorker.c)
- *     PopFxIdleWorkerTail @ 0x1404EB37C (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponentWorker @ 0x1402AE658 (PopFxActivateComponentWorker.c)
+ *     PopFxCompleteComponentActivation @ 0x1402BFDF0 (PopFxCompleteComponentActivation.c)
+ *     PopFxIdleWorker @ 0x1403A9020 (PopFxIdleWorker.c)
+ *     PopFxIdleWorkerTail @ 0x1404E22FC (PopFxIdleWorkerTail.c)
  * Callees:
  *     <none>
  */

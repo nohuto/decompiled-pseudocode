@@ -52,7 +52,7 @@ __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigne
   {
     v11 = 0;
 LABEL_38:
-    PiUpdateDriverDBCache(a2, v23, v9, v11, (__int64)v24);
+    PiUpdateDriverDBCache(a2, v23, v9, v11, v24);
     if ( v11 + 1073740949 <= 1 )
     {
       if ( a5 )

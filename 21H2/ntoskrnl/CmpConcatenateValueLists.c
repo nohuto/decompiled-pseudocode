@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpConcatenateValueLists @ 0x140878380
+ * XREFs of CmpConcatenateValueLists @ 0x1408784E0
  * Callers:
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1407292B0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140729760 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HvAllocateCell @ 0x1407207E4 (HvAllocateCell.c)
  */
 
 __int64 __fastcall CmpConcatenateValueLists(ULONG_PTR a1, unsigned int *a2, unsigned int *a3, int a4, unsigned int *a5)

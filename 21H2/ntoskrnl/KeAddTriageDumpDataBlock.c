@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAddTriageDumpDataBlock @ 0x1403CA0D0
+ * XREFs of KeAddTriageDumpDataBlock @ 0x1403CA270
  * Callers:
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     RtlMarkHiberPhase @ 0x140592CE4 (RtlMarkHiberPhase.c)
- *     IopInitializeTriageDumpData @ 0x1407C9158 (IopInitializeTriageDumpData.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     RtlMarkHiberPhase @ 0x140592F14 (RtlMarkHiberPhase.c)
+ *     IopInitializeTriageDumpData @ 0x1407C9478 (IopInitializeTriageDumpData.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403CA18C (KiValidateTriageDumpDataArray.c)
- *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403CA32C (KiValidateTriageDumpDataArray.c)
+ *     KiIsAddressRangeValid @ 0x1403CA40C (KiIsAddressRangeValid.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

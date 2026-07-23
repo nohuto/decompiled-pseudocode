@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwpRegisterUMGuid @ 0x14040E5E0
+ * XREFs of EtwpRegisterUMGuid @ 0x14040D4A0
  * Callers:
- *     NtTraceControl @ 0x14040DD40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x14040CC00 (NtTraceControl.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     EtwpAddUmRegEntry @ 0x14040DADC (EtwpAddUmRegEntry.c)
- *     EtwpApplyScopeFilters @ 0x14040DC88 (EtwpApplyScopeFilters.c)
- *     EtwpFindGuidEntryByGuid @ 0x14040E490 (EtwpFindGuidEntryByGuid.c)
- *     EtwpGetSchematizedFilterSize @ 0x14040E9B0 (EtwpGetSchematizedFilterSize.c)
- *     EtwpUnreferenceGuidEntry @ 0x14040ED4C (EtwpUnreferenceGuidEntry.c)
- *     EtwpAccessCheck @ 0x14040EFCC (EtwpAccessCheck.c)
- *     EtwpAddGuidEntry @ 0x14048D600 (EtwpAddGuidEntry.c)
- *     EtwpUpdateEnableMask @ 0x14048FFF8 (EtwpUpdateEnableMask.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x140491D20 (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpProviderArrivalCallback @ 0x1404D0D5C (EtwpProviderArrivalCallback.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x1406A430C (EtwpEventWriteTemplateSessAndProv.c)
- *     EtwpCopySchematizedFilters @ 0x1406A8D30 (EtwpCopySchematizedFilters.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     EtwpAddUmRegEntry @ 0x14040C99C (EtwpAddUmRegEntry.c)
+ *     EtwpApplyScopeFilters @ 0x14040CB48 (EtwpApplyScopeFilters.c)
+ *     EtwpFindGuidEntryByGuid @ 0x14040D350 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpGetSchematizedFilterSize @ 0x14040D870 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpUnreferenceGuidEntry @ 0x14040DC0C (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAccessCheck @ 0x14040DE8C (EtwpAccessCheck.c)
+ *     EtwpAddGuidEntry @ 0x14048E090 (EtwpAddGuidEntry.c)
+ *     EtwpUpdateEnableMask @ 0x140490A88 (EtwpUpdateEnableMask.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1404927B0 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpProviderArrivalCallback @ 0x1404B47FC (EtwpProviderArrivalCallback.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x1406A4444 (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpCopySchematizedFilters @ 0x1406A8E68 (EtwpCopySchematizedFilters.c)
  */
 
 __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, __int64 a2, unsigned int a3, char a4, unsigned int *a5)
@@ -71,12 +71,12 @@ __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, __int64 a2, unsigned int a3, c
   v5 = 0LL;
   v6 = *(_DWORD *)(a2 + 16);
   v37 = *(_DWORD *)(a2 + 20);
-  v10 = *(_QWORD *)a2 - SecurityProviderGuid;
-  v9 = *(_QWORD *)a2 == (_QWORD)SecurityProviderGuid;
+  v10 = *(_QWORD *)a2 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  v9 = *(_QWORD *)a2 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v40[0] = 0LL;
   Object = 0LL;
   if ( v9 )
-    v10 = *(_QWORD *)(a2 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+    v10 = *(_QWORD *)(a2 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v10 )
     return 3221225506LL;
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, (_DWORD *)a2, (unsigned int)(v6 - 2) > 1);

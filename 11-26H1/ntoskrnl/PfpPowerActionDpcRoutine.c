@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpPowerActionDpcRoutine @ 0x1405FFD60
+ * XREFs of PfpPowerActionDpcRoutine @ 0x140602810
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpPowerActionDpcRoutine(
@@ -21,11 +21,11 @@ void __fastcall PfpPowerActionDpcRoutine(
 
   v4 = DeferredContext[40];
   v5 = DeferredContext;
-  KxAcquireSpinLock(&stru_140E66B30.InGlobalUpdateVpThreadPriorityList);
+  KxAcquireSpinLock(&stru_140E66D40.InGlobalUpdateVpThreadPriorityList);
   v6 = *((_DWORD *)v5 + 41);
   if ( v4 )
   {
-    if ( stru_140E66B30.SchedulerAssistPriorityFloor == v6 && stru_140E66B30.UserWaitTime )
+    if ( stru_140E66D40.SchedulerAssistPriorityFloor == v6 && stru_140E66D40.UserWaitTime )
     {
       *((_QWORD *)v5 + 19) = v5;
       *((_QWORD *)v5 + 18) = PfpServiceMainThreadUnboost;
@@ -34,11 +34,11 @@ void __fastcall PfpPowerActionDpcRoutine(
       v5 = 0LL;
     }
   }
-  else if ( stru_140E66B30.RealtimePriorityFloor == v6 )
+  else if ( stru_140E66D40.RealtimePriorityFloor == v6 )
   {
-    _InterlockedAnd((_DWORD *)&stru_140F12D20.Padding[2] + 1, 0xFFFFFFFE);
+    _InterlockedAnd((_DWORD *)&xmmword_140F13528 + 1, 0xFFFFFFFE);
   }
-  KxReleaseSpinLock(&stru_140E66B30.InGlobalUpdateVpThreadPriorityList);
+  KxReleaseSpinLock(&stru_140E66D40.InGlobalUpdateVpThreadPriorityList);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
 }

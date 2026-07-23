@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpGenerateAppHiveSecurityDescriptor @ 0x1407DCFBC
+ * XREFs of CmpGenerateAppHiveSecurityDescriptor @ 0x1407DD50C
  * Callers:
- *     CmpCreateHiveRootCell @ 0x140AA6F78 (CmpCreateHiveRootCell.c)
+ *     CmpCreateHiveRootCell @ 0x140AA2078 (CmpCreateHiveRootCell.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14085CB30 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140862B50 (RtlAbsoluteToSelfRelativeSD.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     RtlAddMandatoryAce @ 0x14091D840 (RtlAddMandatoryAce.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x140A07B00 (RtlSetSaclSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140A23FB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1408588A0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140867160 (RtlAbsoluteToSelfRelativeSD.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     RtlAddMandatoryAce @ 0x1409112B0 (RtlAddMandatoryAce.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140A04030 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140A18380 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall CmpGenerateAppHiveSecurityDescriptor(__int64 a1)
@@ -24,22 +24,20 @@ void *__fastcall CmpGenerateAppHiveSecurityDescriptor(__int64 a1)
   void *v1; // rbx
   void *v2; // rdi
   void *v3; // rbx
-  __int64 v4; // rdx
   void *Pool2; // rax
-  int Src; // [rsp+20h] [rbp-E0h]
   ULONG BufferLength; // [rsp+30h] [rbp-D0h] BYREF
   PVOID P; // [rsp+38h] [rbp-C8h] BYREF
   PVOID TokenInformation; // [rsp+40h] [rbp-C0h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v12; // [rsp+68h] [rbp-98h]
-  ACL v13; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v10; // [rsp+68h] [rbp-98h]
+  ACL Sacl; // [rsp+70h] [rbp-90h] BYREF
   ACL Acl; // [rsp+D0h] [rbp-30h] BYREF
 
   v1 = *(void **)(a1 + 16);
   memset_0(&Acl, 0, 0xECuLL);
-  v12 = 0LL;
+  v10 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  memset_0(&v13, 0, 0x54uLL);
+  memset_0(&Sacl, 0, 0x54uLL);
   P = 0LL;
   v2 = 0LL;
   TokenInformation = 0LL;
@@ -56,14 +54,12 @@ void *__fastcall CmpGenerateAppHiveSecurityDescriptor(__int64 a1)
     RtlpAddKnownAce((int)&Acl, 2, 2, 983103, SeAllAppPackagesSid, 0);
     RtlpAddKnownAce((int)&Acl, 2, 2, 983103, SeRestrictedSid, 0);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    RtlCreateAcl(&v13, 0x54u, 2u);
-    LOBYTE(Src) = 17;
-    RtlAddMandatoryAce(&v13, 2LL, 0LL, SeLowMandatorySid, Src, 1);
-    LOBYTE(v4) = 1;
-    RtlSetSaclSecurityDescriptor(SecurityDescriptor, v4, &v13, 0LL);
+    RtlCreateAcl(&Sacl, 0x54u, 2u);
+    RtlAddMandatoryAce(&Sacl, 2u, 0, SeLowMandatorySid, 0x11u, 1u);
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, &Sacl, 0);
     BufferLength = 0;
     RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, 0LL, &BufferLength);
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, BufferLength, 0x65536D43u);
     v2 = Pool2;
     if ( Pool2 )
       RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, Pool2, &BufferLength);

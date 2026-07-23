@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnLogPageFaultCommon @ 0x1400EF560
+ * XREFs of PfSnLogPageFaultCommon @ 0x1400ED3E0
  * Callers:
- *     MiMakeSystemCacheRangeValid @ 0x140031890 (MiMakeSystemCacheRangeValid.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     PfFileInfoNotify @ 0x1400EEAD0 (PfFileInfoNotify.c)
- *     PfSnLogPageFault @ 0x1400FDE20 (PfSnLogPageFault.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140031410 (MiMakeSystemCacheRangeValid.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     PfFileInfoNotify @ 0x1400EC950 (PfFileInfoNotify.c)
+ *     PfSnLogPageFault @ 0x1400FBBA0 (PfSnLogPageFault.c)
  * Callees:
- *     PfSnGetFileInformation @ 0x140037630 (PfSnGetFileInformation.c)
- *     PfSnTraceGetLogEntry @ 0x1400EF6D0 (PfSnTraceGetLogEntry.c)
+ *     PfSnGetFileInformation @ 0x1400371B0 (PfSnGetFileInformation.c)
+ *     PfSnTraceGetLogEntry @ 0x1400ED550 (PfSnTraceGetLogEntry.c)
  */
 
 __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, _QWORD *a2, __int64 a3, unsigned __int64 a4, char a5)
@@ -38,8 +38,8 @@ __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, _QWORD *a2, __int64 a3, un
     if ( (a5 & 2) != 0 )
       v10 = 3;
   }
-  v11 = dword_14033B810;
-  if ( dword_14033B810 != *(_DWORD *)(a1 + 404) && (int)PfSnTraceGetLogEntry(a1, 1LL, &v16, v8) >= 0 )
+  v11 = dword_14033B850;
+  if ( dword_14033B850 != *(_DWORD *)(a1 + 404) && (int)PfSnTraceGetLogEntry(a1, 1LL, &v16, v8) >= 0 )
   {
     v14 = v16;
     *v16 = *v16 & 0xFFFFFFFFFFFFFFF8uLL | 2;

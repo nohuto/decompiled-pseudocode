@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpCallAssignedToTerminal @ 0x1407E5580
+ * XREFs of TtmpCallAssignedToTerminal @ 0x1407EB0E0
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1407E52B0 (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionDeviceListWorker @ 0x1407EAE10 (TtmiSessionDeviceListWorker.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     TtmpStartCallout @ 0x1407E60BC (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1407E6244 (TtmpStopCallout.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     TtmpStartCallout @ 0x1407EBC1C (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1407EBDA4 (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 void __fastcall TtmpCallAssignedToTerminal(int a1, __int64 a2)

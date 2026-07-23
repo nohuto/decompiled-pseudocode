@@ -1,19 +1,19 @@
 /*
- * XREFs of IopSendMessageToTrackService @ 0x1408920C0
+ * XREFs of IopSendMessageToTrackService @ 0x140892220
  * Callers:
- *     IopTrackLink @ 0x1406809F0 (IopTrackLink.c)
+ *     IopTrackLink @ 0x1405DBA34 (IopTrackLink.c)
  * Callees:
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     LpcSendWaitReceivePort @ 0x1406AFDD0 (LpcSendWaitReceivePort.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     LpcSendWaitReceivePort @ 0x14060E670 (LpcSendWaitReceivePort.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64 a3)
@@ -29,7 +29,7 @@ NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64
   unsigned int v14; // eax
   size_t v15; // r8
   NTSTATUS v16; // eax
-  unsigned __int64 v17; // [rsp+30h] [rbp-148h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-148h] BYREF
   _BYTE v18[40]; // [rsp+40h] [rbp-138h] BYREF
   int v19; // [rsp+68h] [rbp-110h]
 
@@ -53,12 +53,12 @@ NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64
         IopLinkTrackingPacket.List.Flink = 0LL;
         IopLinkTrackingPacket.WorkerRoutine = (void (__fastcall *)(void *))IopConnectLinkTrackingPort;
         IopLinkTrackingPacket.Parameter = &IopLinkTrackingPacket;
-        KeResetEvent(&stru_140C45EE0);
+        KeResetEvent(&stru_140C45F00);
         ExQueueWorkItem(&IopLinkTrackingPacket, DelayedWorkQueue);
-        v9 = KeWaitForSingleObject(&stru_140C45EE0, Executive, PreviousMode, 0, 0LL);
+        v9 = KeWaitForSingleObject(&stru_140C45F00, Executive, PreviousMode, 0, 0LL);
         v10 = v9;
-        if ( v9 != 192 && v9 != 257 && dword_140C45EF8 < 0 )
-          v10 = dword_140C45EF8;
+        if ( v9 != 192 && v9 != 257 && dword_140C45F18 < 0 )
+          v10 = dword_140C45F18;
         KeSetEvent(&IopLinkTrackingPortObject, 0, 0);
         if ( v10 )
           return v10;
@@ -95,13 +95,7 @@ NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64
     }
     *v12 = 12058768LL;
     v17 = 256LL;
-    v16 = LpcSendWaitReceivePort(
-            (__int64)IopLinkTrackingServiceObject,
-            0x20000,
-            (__int128 *)v12,
-            (unsigned __int64)v18,
-            &v17,
-            0LL);
+    v16 = LpcSendWaitReceivePort((int)IopLinkTrackingServiceObject, 0x20000, (int)v12, (__int64)v18, (__int64)&v17, 0LL);
     v10 = v16;
     if ( v16 != -1073741769 && v16 != -1073740029
       || (v10 = KeWaitForSingleObject(&IopLinkTrackingPortObject, Executive, PreviousMode, 0, 0LL),

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlAddAce @ 0x1409F4690
+ * XREFs of RtlAddAce @ 0x1409E03E0
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x14025EEEC (SepAppendAceToTokenDefaultDacl.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x140260160 (SepSetProcessTrustLabelAceForToken.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14043282C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     LocalGetAclForString @ 0x1409243B0 (LocalGetAclForString.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140A74998 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1404050D0 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x140406340 (SepSetProcessTrustLabelAceForToken.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14041F85C (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     LocalGetAclForString @ 0x1408FFEC0 (LocalGetAclForString.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140A49800 (PiDevCfgGetKeySecurityDescriptor.c)
  * Callees:
- *     RtlpValidCompoundAce @ 0x14077D224 (RtlpValidCompoundAce.c)
- *     RtlpValidAccessFilterAce @ 0x14077D294 (RtlpValidAccessFilterAce.c)
- *     RtlpValidAttributeAce @ 0x1409F4FA0 (RtlpValidAttributeAce.c)
- *     RtlpValidObjectAce @ 0x1409F5148 (RtlpValidObjectAce.c)
+ *     RtlpValidCompoundAce @ 0x14077FD24 (RtlpValidCompoundAce.c)
+ *     RtlpValidAccessFilterAce @ 0x14077FD94 (RtlpValidAccessFilterAce.c)
+ *     RtlpValidAttributeAce @ 0x1409E0CF0 (RtlpValidAttributeAce.c)
+ *     RtlpValidObjectAce @ 0x1409E0E98 (RtlpValidObjectAce.c)
  */
 
 NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex, PVOID AceList, ULONG AceListLength)

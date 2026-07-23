@@ -21,7 +21,7 @@ __int64 __fastcall ViThunkAdjustExportAddressIfHooked(
   char *v12; // rax
   int v13; // r9d
   int v14; // ecx
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   Buffer = 0LL;
   v6 = 0;

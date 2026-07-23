@@ -1,5 +1,5 @@
 /*
- * XREFs of KiUpdateChildrenCpuTarget @ 0x14057D500
+ * XREFs of KiUpdateChildrenCpuTarget @ 0x14057D9F0
  * Callers:
  *     KiUpdateCpuTargetByWeight @ 0x14020572C (KiUpdateCpuTargetByWeight.c)
  *     KiUpdateCpuTargetByRate @ 0x1402058E8 (KiUpdateCpuTargetByRate.c)

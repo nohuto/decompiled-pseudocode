@@ -14,8 +14,8 @@ void __fastcall KiDynamicProcessorInitialization(__int64 a1)
 {
   __int64 v1; // rax
   unsigned int v3; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   v1 = *(unsigned int *)(a1 + 36);
   Affinity = 0LL;

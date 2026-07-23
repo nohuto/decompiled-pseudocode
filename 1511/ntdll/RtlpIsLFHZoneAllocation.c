@@ -7,22 +7,22 @@
  *     RtlAcquireSRWLockExclusive @ 0x18002DA60 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpIsLFHZoneAllocation(unsigned __int64 a1, char *a2, __int64 a3, __int64 a4)
+char __fastcall RtlpIsLFHZoneAllocation(PRTL_SRWLOCK SRWLock, unsigned __int64 a2)
 {
-  char *i; // r8
-  char v7; // bl
+  _RTL_SRWLOCK *i; // r8
+  char v5; // bl
 
-  RtlAcquireSRWLockExclusive(a1, a2, a3, a4);
-  for ( i = *(char **)(a1 + 8); i != (char *)(a1 + 8); i = *(char **)i )
+  RtlAcquireSRWLockExclusive(SRWLock);
+  for ( i = (_RTL_SRWLOCK *)SRWLock[1].Value; i != &SRWLock[1]; i = (_RTL_SRWLOCK *)i->Value )
   {
-    if ( a2 >= i && a2 < i + 1008 )
+    if ( a2 >= (unsigned __int64)i && a2 < (unsigned __int64)&i[126] )
     {
-      v7 = 1;
+      v5 = 1;
       goto LABEL_8;
     }
   }
-  v7 = 0;
+  v5 = 0;
 LABEL_8:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-  return v7;
+  RtlReleaseSRWLockExclusive(SRWLock);
+  return v5;
 }

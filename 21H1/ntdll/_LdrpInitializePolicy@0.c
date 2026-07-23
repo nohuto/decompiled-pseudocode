@@ -12,19 +12,19 @@
 char __stdcall LdrpInitializePolicy()
 {
   struct _PEB *v0; // esi
-  UNICODE_STRING *p_DllPath; // edi
+  _UNICODE_STRING *p_DllPath; // edi
   int v2; // eax
   int v4; // [esp+Ch] [ebp-54h] BYREF
-  _BYTE v5[8]; // [esp+10h] [ebp-50h] BYREF
-  _BYTE v6[8]; // [esp+18h] [ebp-48h] BYREF
-  _BYTE v7[8]; // [esp+20h] [ebp-40h] BYREF
-  _BYTE v8[8]; // [esp+28h] [ebp-38h] BYREF
-  _BYTE v9[8]; // [esp+30h] [ebp-30h] BYREF
-  _BYTE v10[8]; // [esp+38h] [ebp-28h] BYREF
-  _BYTE v11[8]; // [esp+40h] [ebp-20h] BYREF
-  _BYTE v12[8]; // [esp+48h] [ebp-18h] BYREF
-  _BYTE v13[8]; // [esp+50h] [ebp-10h] BYREF
-  _BYTE v14[8]; // [esp+58h] [ebp-8h] BYREF
+  unsigned __int64 AttributesPresent; // [esp+10h] [ebp-50h] BYREF
+  _PS_PKG_CLAIM PkgClaim; // [esp+18h] [ebp-48h] BYREF
+  unsigned __int64 v7; // [esp+20h] [ebp-40h] BYREF
+  _PS_PKG_CLAIM v8; // [esp+28h] [ebp-38h] BYREF
+  unsigned __int64 v9; // [esp+30h] [ebp-30h] BYREF
+  _PS_PKG_CLAIM v10; // [esp+38h] [ebp-28h] BYREF
+  unsigned __int64 v11; // [esp+40h] [ebp-20h] BYREF
+  _PS_PKG_CLAIM v12; // [esp+48h] [ebp-18h] BYREF
+  unsigned __int64 v13; // [esp+50h] [ebp-10h] BYREF
+  _PS_PKG_CLAIM v14; // [esp+58h] [ebp-8h] BYREF
 
   v0 = NtCurrentPeb();
   p_DllPath = &v0->ProcessParameters->DllPath;
@@ -36,17 +36,17 @@ char __stdcall LdrpInitializePolicy()
     LdrpAppPackagesPath = *p_DllPath;
     LdrpOriginalAppPackagesPath = LdrpAppPackagesPath;
     LdrpPolicyBits = 41;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(&v4, v6, v5) < 0 || v4 == 262145 )
-      LdrSetDefaultDllDirectories(4096);
+    if ( AppModelPolicy_GetPolicy_Internal((int)&v4, &PkgClaim, &AttributesPresent) < 0 || v4 == 262145 )
+      LdrSetDefaultDllDirectories(0x1000u);
     else
       LdrpPolicyBits &= ~1u;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(&v4, v8, v7) >= 0 && v4 == 458753 )
+    if ( AppModelPolicy_GetPolicy_Internal((int)&v4, &v8, &v7) >= 0 && v4 == 458753 )
       LdrpPolicyBits |= 2u;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(&v4, v10, v9) >= 0 && v4 == 1245185 )
+    if ( AppModelPolicy_GetPolicy_Internal((int)&v4, &v10, &v9) >= 0 && v4 == 1245185 )
       LdrpPolicyBits |= 0x40u;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(&v4, v12, v11) >= 0 && v4 == 2097153 )
+    if ( AppModelPolicy_GetPolicy_Internal((int)&v4, &v12, &v11) >= 0 && v4 == 2097153 )
       LdrpPolicyBits |= 4u;
-    v2 = AppModelPolicy_GetPolicy_Internal(&v4, v14, v13) | 0x10000000;
+    v2 = AppModelPolicy_GetPolicy_Internal((int)&v4, &v14, &v13) | 0x10000000;
     if ( v2 >= 0 && v4 == 3538945 )
       LdrpPolicyBits |= 0x100u;
   }

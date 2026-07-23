@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventAutonomousModeChange @ 0x14060DF10
+ * XREFs of PpmEventAutonomousModeChange @ 0x140611010
  * Callers:
- *     PpmUpdateTargetProcessorPolicy @ 0x1404E92BC (PpmUpdateTargetProcessorPolicy.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x1404E266C (PpmUpdateTargetProcessorPolicy.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventGetEventDescriptorAndProcessorId @ 0x14044F8A0 (PpmEventGetEventDescriptorAndProcessorId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x1404479D0 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventAutonomousModeChange(__int64 a1, int a2)
@@ -30,22 +30,12 @@ char __fastcall PpmEventAutonomousModeChange(__int64 a1, int a2)
   v3 = EventDescriptorAndProcessorId;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(EventDescriptorAndProcessorId) = EtwEventEnabled(
-                                              (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                                              EventDescriptorAndProcessorId);
+    LOBYTE(EventDescriptorAndProcessorId) = EtwEventEnabled(PpmEtwHandle, EventDescriptorAndProcessorId);
     if ( (_BYTE)EventDescriptorAndProcessorId )
     {
       v7 = &v9;
       v8 = 4LL;
-      LOBYTE(EventDescriptorAndProcessorId) = EtwWriteEx(
-                                                (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                                                v3,
-                                                0LL,
-                                                0,
-                                                0LL,
-                                                0LL,
-                                                2u,
-                                                &UserData);
+      LOBYTE(EventDescriptorAndProcessorId) = EtwWriteEx(PpmEtwHandle, v3, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
   return (char)EventDescriptorAndProcessorId;

@@ -1,16 +1,16 @@
 /*
- * XREFs of IoConnectInterruptEx @ 0x140761BD0
+ * XREFs of IoConnectInterruptEx @ 0x140761D90
  * Callers:
- *     HalpInterruptConnect @ 0x1404BB438 (HalpInterruptConnect.c)
+ *     HalpInterruptConnect @ 0x1404BB678 (HalpInterruptConnect.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopConnectMessageBasedInterrupt @ 0x140761E54 (IopConnectMessageBasedInterrupt.c)
- *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x1407628FC (IopGetInterruptConnectionData.c)
- *     IopConnectLineBasedInterrupt @ 0x1407C98D4 (IopConnectLineBasedInterrupt.c)
- *     IopConnectInterruptFullySpecified @ 0x1407CBD80 (IopConnectInterruptFullySpecified.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140762014 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectInterrupt @ 0x14076238C (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x140762ABC (IopGetInterruptConnectionData.c)
+ *     IopConnectLineBasedInterrupt @ 0x1407C9BF4 (IopConnectLineBasedInterrupt.c)
+ *     IopConnectInterruptFullySpecified @ 0x1407CBEF0 (IopConnectInterruptFullySpecified.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoConnectInterruptEx(PIO_CONNECT_INTERRUPT_PARAMETERS Parameters)

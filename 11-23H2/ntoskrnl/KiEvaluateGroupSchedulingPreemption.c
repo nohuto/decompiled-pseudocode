@@ -1,14 +1,14 @@
 /*
- * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x1402B3000
+ * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x1402B3290
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiDoesThreadDominateRescheduleContextEntry @ 0x140243810 (KiDoesThreadDominateRescheduleContextEntry.c)
- *     KiDirectSwitchThread @ 0x1402B18A0 (KiDirectSwitchThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiDoesThreadDominateRescheduleContextEntry @ 0x1402438E0 (KiDoesThreadDominateRescheduleContextEntry.c)
+ *     KiDirectSwitchThread @ 0x1402B1B30 (KiDirectSwitchThread.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x1402B3240 (KiGetThreadEffectiveRankNonZero.c)
- *     KiShouldPreemptionBeDeferred @ 0x140307870 (KiShouldPreemptionBeDeferred.c)
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14030909C (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiGetComparisonRanks @ 0x140369738 (KiGetComparisonRanks.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1402B34D0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiShouldPreemptionBeDeferred @ 0x140307B00 (KiShouldPreemptionBeDeferred.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x14030932C (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiGetComparisonRanks @ 0x1403698D8 (KiGetComparisonRanks.c)
  */
 
 bool __fastcall KiEvaluateGroupSchedulingPreemption(__int64 *a1, __int64 a2, int a3, _QWORD *a4)

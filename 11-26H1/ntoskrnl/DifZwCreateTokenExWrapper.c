@@ -1,35 +1,35 @@
 /*
- * XREFs of DifZwCreateTokenExWrapper @ 0x1406A2920
+ * XREFs of DifZwCreateTokenExWrapper @ 0x1406A6500
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCreateTokenEx @ 0x140724DB0 (ZwCreateTokenEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCreateTokenEx @ 0x140729980 (ZwCreateTokenEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwCreateTokenExWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        __int64 a12,
-        __int64 a13,
-        __int64 a14,
-        __int64 a15,
-        __int64 a16,
-        __int64 a17)
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        TOKEN_TYPE a4,
+        struct _LUID *AuthenticationId,
+        LARGE_INTEGER *ExpirationTime,
+        _TOKEN_USER *User,
+        struct _TOKEN_GROUPS *Groups,
+        struct _TOKEN_PRIVILEGES *Privileges,
+        _TOKEN_SECURITY_ATTRIBUTES_INFORMATION *UserAttributes,
+        _TOKEN_SECURITY_ATTRIBUTES_INFORMATION *DeviceAttributes,
+        struct _TOKEN_GROUPS *DeviceGroups,
+        _TOKEN_MANDATORY_POLICY *MandatoryPolicy,
+        _TOKEN_OWNER *Owner,
+        _TOKEN_PRIMARY_GROUP *PrimaryGroup,
+        _TOKEN_DEFAULT_DACL *DefaultDacl,
+        struct _TOKEN_SOURCE *Source)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v21; // rdx
@@ -43,10 +43,10 @@ __int64 __fastcall DifZwCreateTokenExWrapper(
   _QWORD **v29; // rsi
   _QWORD *j; // rbx
   _QWORD v32[14]; // [rsp+98h] [rbp-80h] BYREF
-  unsigned int v33; // [rsp+108h] [rbp-10h]
-  __int64 v34; // [rsp+110h] [rbp-8h]
-  unsigned int v35; // [rsp+118h] [rbp+0h]
-  __int64 v36; // [rsp+120h] [rbp+8h]
+  TOKEN_TYPE v33; // [rsp+108h] [rbp-10h]
+  OBJECT_ATTRIBUTES *v34; // [rsp+110h] [rbp-8h]
+  ACCESS_MASK v35; // [rsp+118h] [rbp+0h]
+  HANDLE *v36; // [rsp+120h] [rbp+8h]
   unsigned int Token; // [rsp+128h] [rbp+10h]
   void *retaddr; // [rsp+160h] [rbp+48h]
 
@@ -70,19 +70,19 @@ __int64 __fastcall DifZwCreateTokenExWrapper(
 LABEL_7:
   v25 = 0;
   v36 = a1;
-  v32[13] = a5;
-  v32[12] = a6;
-  v32[11] = a7;
-  v32[10] = a8;
-  v32[9] = a9;
-  v32[8] = a10;
-  v32[7] = a11;
-  v32[6] = a12;
-  v32[5] = a13;
-  v32[4] = a14;
-  v32[3] = a15;
-  v32[2] = a16;
-  v32[1] = a17;
+  v32[13] = AuthenticationId;
+  v32[12] = ExpirationTime;
+  v32[11] = User;
+  v32[10] = Groups;
+  v32[9] = Privileges;
+  v32[8] = UserAttributes;
+  v32[7] = DeviceAttributes;
+  v32[6] = DeviceGroups;
+  v32[5] = MandatoryPolicy;
+  v32[4] = Owner;
+  v32[3] = PrimaryGroup;
+  v32[2] = DefaultDacl;
+  v32[1] = Source;
   v35 = a2;
   v34 = a3;
   v33 = a4;
@@ -98,7 +98,24 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  Token = ZwCreateTokenEx(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17);
+  Token = ZwCreateTokenEx(
+            a1,
+            a2,
+            a3,
+            a4,
+            AuthenticationId,
+            ExpirationTime,
+            User,
+            Groups,
+            Privileges,
+            UserAttributes,
+            DeviceAttributes,
+            DeviceGroups,
+            MandatoryPolicy,
+            Owner,
+            PrimaryGroup,
+            DefaultDacl,
+            Source);
   if ( v22 )
   {
     if ( (v28 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

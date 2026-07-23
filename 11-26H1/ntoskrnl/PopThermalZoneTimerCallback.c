@@ -1,9 +1,9 @@
 /*
- * XREFs of PopThermalZoneTimerCallback @ 0x14049B920
+ * XREFs of PopThermalZoneTimerCallback @ 0x140495470
  * Callers:
  *     <none>
  * Callees:
- *     IoCancelIrp @ 0x14049B940 (IoCancelIrp.c)
+ *     IoCancelIrp @ 0x140495490 (IoCancelIrp.c)
  */
 
 BOOLEAN __fastcall PopThermalZoneTimerCallback(__int64 a1, __int64 a2)

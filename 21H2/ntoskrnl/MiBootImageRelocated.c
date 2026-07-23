@@ -1,10 +1,10 @@
 /*
- * XREFs of MiBootImageRelocated @ 0x140A92B80
+ * XREFs of MiBootImageRelocated @ 0x140A93B80
  * Callers:
- *     MiHandleBootImage @ 0x140A4FB14 (MiHandleBootImage.c)
+ *     MiHandleBootImage @ 0x140A50B14 (MiHandleBootImage.c)
  * Callees:
- *     VslReserveProtectedPages @ 0x14077D350 (VslReserveProtectedPages.c)
- *     MiUpdateThunks @ 0x140A92C6C (MiUpdateThunks.c)
+ *     VslReserveProtectedPages @ 0x14077D510 (VslReserveProtectedPages.c)
+ *     MiUpdateThunks @ 0x140A93C6C (MiUpdateThunks.c)
  */
 
 NTSTATUS __fastcall MiBootImageRelocated(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)

@@ -5,7 +5,7 @@
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  * Callees:
  *     RtlpWaitOnCriticalSection @ 0x18005EA34 (RtlpWaitOnCriticalSection.c)
- *     RtlpInitializeStaticCriticalSection @ 0x180086770 (RtlpInitializeStaticCriticalSection.c)
+ *     RtlpInitializeStaticCriticalSection @ 0x180086780 (RtlpInitializeStaticCriticalSection.c)
  */
 
 __int64 __fastcall RtlpEnterCriticalSectionContended(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

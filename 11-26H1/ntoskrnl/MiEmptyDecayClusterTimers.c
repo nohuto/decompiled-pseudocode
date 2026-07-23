@@ -1,20 +1,20 @@
 /*
- * XREFs of MiEmptyDecayClusterTimers @ 0x1402994DC
+ * XREFs of MiEmptyDecayClusterTimers @ 0x140298A3C
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiRelinkStandbyPage @ 0x140299860 (MiRelinkStandbyPage.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiDecayNodeNowEmpty @ 0x140462438 (MiDecayNodeNowEmpty.c)
- *     MiUnlinkDecayClusterTimer @ 0x140462634 (MiUnlinkDecayClusterTimer.c)
- *     MiRelinkDecayClusterTimer @ 0x140480A78 (MiRelinkDecayClusterTimer.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiRelinkStandbyPage @ 0x140298DC0 (MiRelinkStandbyPage.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiDecayNodeNowEmpty @ 0x14045B3F8 (MiDecayNodeNowEmpty.c)
+ *     MiUnlinkDecayClusterTimer @ 0x14045B5F4 (MiUnlinkDecayClusterTimer.c)
+ *     MiRelinkDecayClusterTimer @ 0x14047A3B8 (MiRelinkDecayClusterTimer.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 ULONG64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
@@ -58,10 +58,10 @@ ULONG64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
     LOBYTE(v4) = CurrentIrql;
     KiRaiseIrqlProcessIrqlFlags(v4, v3);
   }
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E347D0);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34950);
   if ( *(_QWORD *)(a1 + 8 * v6 + 16448) >> 33 != 0x7FFFFFFFLL )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E347D0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34950);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
@@ -81,24 +81,24 @@ LABEL_3:
           KiRaiseIrqlProcessIrqlFlags(v4, v3);
         }
         ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(a1 + 4120));
-        ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E347D0);
+        ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34950);
         v9 = *(_QWORD *)(a1 + 8 * v6 + 16448) >> 33;
         if ( v9 == 0x7FFFFFFF )
         {
           *(_DWORD *)(a1 + 16480) = v7;
-          ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E347D0);
+          ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34950);
           ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 4120));
           if ( KiIrqlFlags )
             KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v8);
           result = v8;
           goto LABEL_29;
         }
-        v10 = v9 + qword_140E347B0;
-        v11 = 48 * (v9 + qword_140E347B0) - 0x220000000000LL;
+        v10 = v9 + qword_140E34930;
+        v11 = 48 * (v9 + qword_140E34930) - 0x220000000000LL;
         v12 = (volatile signed __int64 *)(v11 + 24);
         if ( !_interlockedbittestandset64((volatile signed __int32 *)(v11 + 24), 0x3FuLL) )
           break;
-        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E347D0);
+        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34950);
         ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 4120));
         if ( KiIrqlFlags )
           goto LABEL_22;
@@ -107,22 +107,22 @@ LABEL_23:
 LABEL_24:
         __writecr8(v8);
       }
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E347D0 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E34950 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E347D0, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34950, retaddr);
       v13 = *(_QWORD *)(v11 + 16);
-      if ( qword_140E2D740 && (v13 & 0x10) == 0 )
-        v13 &= qword_140E2D748;
+      if ( qword_140E2D8C0 && (v13 & 0x10) == 0 )
+        v13 &= qword_140E2D8C8;
       v14 = (v13 >> 12) & 0xFFFFFFFFFFLL;
       if ( v14 == v10 )
       {
         if ( (*(_DWORD *)(v11 + 32) & 0x8000000) != 0 )
         {
-          ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E347D0);
+          ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34950);
           MiUnlinkDecayClusterTimer(v11);
           MiRelinkDecayClusterTimer(v11, v7);
-          ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E347D0);
+          ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34950);
         }
         else
         {
@@ -159,7 +159,7 @@ LABEL_22:
     }
   }
   *(_DWORD *)(a1 + 16480) = v7;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E347D0);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34950);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   result = CurrentIrql;

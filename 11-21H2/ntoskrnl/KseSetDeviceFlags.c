@@ -6,9 +6,9 @@
  *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
  *     ZwClose @ 0x14041B940 (ZwClose.c)
  *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     KsepStringFree @ 0x14075CDC4 (KsepStringFree.c)
- *     KsepStringTransform @ 0x1407ED3AC (KsepStringTransform.c)
- *     KsepRegistryCreateKey @ 0x1409651B8 (KsepRegistryCreateKey.c)
+ *     sub_14075CDC4 @ 0x14075CDC4 (sub_14075CDC4.c)
+ *     sub_1407ED3AC @ 0x1407ED3AC (sub_1407ED3AC.c)
+ *     sub_1409651B8 @ 0x1409651B8 (sub_1409651B8.c)
  */
 
 __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
@@ -27,26 +27,20 @@ __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
   Handle = 0LL;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
-  if ( dword_140C54EF4 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_140C54EF4 != 2 || (dword_140C54EF0 & 2) != 0 )
   {
     v4 = -1073741823;
   }
   else if ( a1 && a2 )
   {
-    v4 = KsepStringTransform((__int64)&v7, a1);
+    v4 = sub_1407ED3AC((__int64)&v7, a1);
     if ( v4 < 0 )
       goto LABEL_15;
     v5 = v8;
-    v4 = KsepRegistryCreateKey(
-           L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility\\Device",
-           v8,
-           &Handle);
+    v4 = sub_1409651B8(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility\\Device", v8, &Handle);
     if ( v4 == -1073741772 )
     {
-      v4 = KsepRegistryCreateKey(
-             L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility",
-             L"Device",
-             &Handle);
+      v4 = sub_1409651B8(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility", L"Device", &Handle);
       if ( v4 < 0 )
         goto LABEL_15;
       if ( Handle )
@@ -56,10 +50,7 @@ __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
         v5 = v8;
       }
       Handle = 0LL;
-      v4 = KsepRegistryCreateKey(
-             L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility\\Device",
-             v5,
-             &Handle);
+      v4 = sub_1409651B8(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility\\Device", v5, &Handle);
     }
     if ( v4 >= 0 )
     {
@@ -72,7 +63,7 @@ __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
     v4 = -1073741811;
   }
 LABEL_15:
-  KsepStringFree((__int64)&v7);
+  sub_14075CDC4((__int64)&v7);
   if ( Handle )
   {
     ZwClose(Handle);

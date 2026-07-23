@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpCompareModuleMappingInfo @ 0x180031754
+ * XREFs of LdrpCompareModuleMappingInfo @ 0x180031744
  * Callers:
- *     LdrpFindLoadedDllByMappingLockHeld @ 0x180031534 (LdrpFindLoadedDllByMappingLockHeld.c)
- *     LdrpInsertModuleToIndexLockHeld @ 0x180031810 (LdrpInsertModuleToIndexLockHeld.c)
+ *     LdrpFindLoadedDllByMappingLockHeld @ 0x180031524 (LdrpFindLoadedDllByMappingLockHeld.c)
+ *     LdrpInsertModuleToIndexLockHeld @ 0x180031800 (LdrpInsertModuleToIndexLockHeld.c)
  * Callees:
  *     <none>
  */

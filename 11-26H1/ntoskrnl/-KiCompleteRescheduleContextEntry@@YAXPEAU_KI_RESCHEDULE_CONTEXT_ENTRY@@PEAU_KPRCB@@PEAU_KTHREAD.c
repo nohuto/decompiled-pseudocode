@@ -1,16 +1,16 @@
 /*
- * XREFs of ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022DEE0
+ * XREFs of ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022F870
  * Callers:
- *     KiAttemptToStealStandbyThread @ 0x14022B800 (KiAttemptToStealStandbyThread.c)
- *     KiHandleDeferredPreemption @ 0x14022E730 (KiHandleDeferredPreemption.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140237654 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiAdjustCoreIsolationReasonThread @ 0x1404D3414 (KiAdjustCoreIsolationReasonThread.c)
- *     KiApplyForegroundBoostThread @ 0x140521D48 (KiApplyForegroundBoostThread.c)
- *     KiFinalizeCoreControlBlockAssignment @ 0x1405EB014 (KiFinalizeCoreControlBlockAssignment.c)
- *     KiForceParkDutyCycleDpcCallback @ 0x1405F8980 (KiForceParkDutyCycleDpcCallback.c)
+ *     KiAttemptToStealStandbyThread @ 0x14022D190 (KiAttemptToStealStandbyThread.c)
+ *     KiHandleDeferredPreemption @ 0x1402300C0 (KiHandleDeferredPreemption.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140238FB4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiAdjustCoreIsolationReasonThread @ 0x1404CCC84 (KiAdjustCoreIsolationReasonThread.c)
+ *     KiApplyForegroundBoostThread @ 0x1405243B4 (KiApplyForegroundBoostThread.c)
+ *     KiFinalizeCoreControlBlockAssignment @ 0x1405ED984 (KiFinalizeCoreControlBlockAssignment.c)
+ *     KiForceParkDutyCycleDpcCallback @ 0x1405FB3A0 (KiForceParkDutyCycleDpcCallback.c)
  * Callees:
- *     EtwTraceScheduleThread @ 0x1402467D0 (EtwTraceScheduleThread.c)
- *     EtwTraceXSchedulerPriorityKickSend @ 0x140527744 (EtwTraceXSchedulerPriorityKickSend.c)
+ *     EtwTraceScheduleThread @ 0x140248130 (EtwTraceScheduleThread.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x140529DB4 (EtwTraceXSchedulerPriorityKickSend.c)
  */
 
 void __fastcall KiCompleteRescheduleContextEntry(
@@ -56,8 +56,8 @@ void __fastcall KiCompleteRescheduleContextEntry(
       if ( SingleTargetIndex == Prcb->Number )
         goto LABEL_6;
       a2->DeferredDispatchInterrupts.TargetType = 2;
-      v12 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * SingleTargetIndex) & 0x3F;
-      v13 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * SingleTargetIndex) >> 6;
+      v12 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + SingleTargetIndex) & 0x3F;
+      v13 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + SingleTargetIndex) >> 6;
       if ( a2->DeferredDispatchInterrupts.MultipleTargetAffinity.Count > (unsigned int)v13 )
         goto LABEL_16;
       if ( a2->DeferredDispatchInterrupts.MultipleTargetAffinity.Size > (unsigned int)v13 )
@@ -100,8 +100,8 @@ LABEL_5:
       if ( v18 == Prcb->Number )
         goto LABEL_6;
       a2->DeferredDispatchInterrupts.TargetType = 2;
-      v19 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v18) & 0x3F;
-      v20 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v18) >> 6;
+      v19 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v18) & 0x3F;
+      v20 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v18) >> 6;
       if ( a2->DeferredDispatchInterrupts.MultipleTargetAffinity.Count > (unsigned int)v20 )
         goto LABEL_23;
       if ( a2->DeferredDispatchInterrupts.MultipleTargetAffinity.Size > (unsigned int)v20 )
@@ -151,7 +151,7 @@ LABEL_6:
               LODWORD(Number) = (unsigned __int8)HvlpVirtualProcessorMapping[2 * (unsigned int)Number + 1] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * Number] << 6);
             }
             v26[2] = Number;
-            if ( (BYTE4(xmmword_140FBFC10) & 0x20) != 0 )
+            if ( (BYTE4(xmmword_140FC0C10) & 0x20) != 0 )
               EtwTraceXSchedulerPriorityKickSend(Prcb->Number, 2LL, a3);
             __writemsr(0x400000C2u, (unsigned int)Number);
           }

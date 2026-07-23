@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAddPagesToCompressedPageSet @ 0x140AA18B4
+ * XREFs of PopAddPagesToCompressedPageSet @ 0x140AA1724
  * Callers:
- *     PopCompressHiberBlocks @ 0x140AA1F74 (PopCompressHiberBlocks.c)
- *     PopWriteHiberImage @ 0x140AA589C (PopWriteHiberImage.c)
+ *     PopCompressHiberBlocks @ 0x140AA1DE4 (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140AA570C (PopWriteHiberImage.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlCompressBufferProgress @ 0x1405B2628 (RtlCompressBufferProgress.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlCompressBufferProgress @ 0x1405B2B98 (RtlCompressBufferProgress.c)
  */
 
 const void *__fastcall PopAddPagesToCompressedPageSet(
@@ -47,10 +47,10 @@ const void *__fastcall PopAddPagesToCompressedPageSet(
     {
       v13 = a4;
       v14 = *(_DWORD *)(a2 + 120);
-      v15 = *((_QWORD *)qword_140C3CE58 + 5) - *((_QWORD *)qword_140C3CE58 + 7);
-      if ( v14 && (v16 = *(_DWORD *)(a2 + 124), (int)(100 * v16 / v14) <= dword_140C3CE04) )
+      v15 = *((_QWORD *)qword_140C3CFF8 + 5) - *((_QWORD *)qword_140C3CFF8 + 7);
+      if ( v14 && (v16 = *(_DWORD *)(a2 + 124), (int)(100 * v16 / v14) <= dword_140C3CFA4) )
       {
-        v17 = *((_DWORD *)qword_140C3CE58 + 2);
+        v17 = *((_DWORD *)qword_140C3CFF8 + 2);
         if ( v15 >= (__int64)((unsigned __int64)v17 >> 1) )
         {
           *(_DWORD *)(a2 + 124) = v16 + 1;
@@ -60,7 +60,7 @@ const void *__fastcall PopAddPagesToCompressedPageSet(
       }
       else
       {
-        LOBYTE(v7) = v15 >= (__int64)((unsigned __int64)*((unsigned int *)qword_140C3CE58 + 2) >> 1);
+        LOBYTE(v7) = v15 >= (__int64)((unsigned __int64)*((unsigned int *)qword_140C3CFF8 + 2) >> 1);
       }
       *(_DWORD *)(a2 + 120) = v14 + 1;
     }

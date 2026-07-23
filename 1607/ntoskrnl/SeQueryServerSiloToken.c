@@ -1,12 +1,12 @@
 /*
  * XREFs of SeQueryServerSiloToken @ 0x1403E2044
  * Callers:
- *     SepCreateClientSecurityEx @ 0x140412280 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x140692638 (SepUpdateSiloInClientSecurity.c)
+ *     SepCreateClientSecurityEx @ 0x140411140 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x14069271C (SepUpdateSiloInClientSecurity.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall SeQueryServerSiloToken(__int64 a1, _QWORD *a2)

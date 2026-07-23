@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetLeafPfnBuddy @ 0x14038BFDC
+ * XREFs of MiGetLeafPfnBuddy @ 0x14038C1BC
  * Callers:
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x14038BEE0 (MiInitializeLargeMdlLeafPfns.c)
- *     MiSwapStackPage @ 0x140399F3C (MiSwapStackPage.c)
- *     MiCanStealKernelStack @ 0x14039A23C (MiCanStealKernelStack.c)
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
- *     MiLogMdlRangeEvent @ 0x1406234A0 (MiLogMdlRangeEvent.c)
- *     MiGetPfnPidSafe @ 0x1406266E4 (MiGetPfnPidSafe.c)
- *     MiDoStackCopy @ 0x14062CDA0 (MiDoStackCopy.c)
- *     MiJumpStackTarget @ 0x14062CF80 (MiJumpStackTarget.c)
- *     MiDeleteVadAwePtes @ 0x140649968 (MiDeleteVadAwePtes.c)
- *     MiFreePhysicalPageChain @ 0x14064A170 (MiFreePhysicalPageChain.c)
- *     MiFreePhysicalPages @ 0x14064A540 (MiFreePhysicalPages.c)
- *     MiDeleteSubsectionLargePages @ 0x14064EDA8 (MiDeleteSubsectionLargePages.c)
- *     MiFreeLargePages @ 0x140668250 (MiFreeLargePages.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x14038C0C0 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiSwapStackPage @ 0x14039A11C (MiSwapStackPage.c)
+ *     MiCanStealKernelStack @ 0x14039A41C (MiCanStealKernelStack.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
+ *     MiLogMdlRangeEvent @ 0x1406239F0 (MiLogMdlRangeEvent.c)
+ *     MiGetPfnPidSafe @ 0x140626C34 (MiGetPfnPidSafe.c)
+ *     MiDoStackCopy @ 0x14062D2F0 (MiDoStackCopy.c)
+ *     MiJumpStackTarget @ 0x14062D4D0 (MiJumpStackTarget.c)
+ *     MiDeleteVadAwePtes @ 0x140649EB8 (MiDeleteVadAwePtes.c)
+ *     MiFreePhysicalPageChain @ 0x14064A6C0 (MiFreePhysicalPageChain.c)
+ *     MiFreePhysicalPages @ 0x14064AA90 (MiFreePhysicalPages.c)
+ *     MiDeleteSubsectionLargePages @ 0x14064F2F8 (MiDeleteSubsectionLargePages.c)
+ *     MiFreeLargePages @ 0x1406687A0 (MiFreeLargePages.c)
  * Callees:
  *     <none>
  */

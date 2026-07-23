@@ -16,6 +16,6 @@ NTSTATUS __stdcall LdrFindResourceDirectory_U(
            (char *)BaseAddress,
            (__int64 *)ResourceInfo,
            Level,
-           2,
+           2u,
            (unsigned int **)ResourceDirectory);
 }

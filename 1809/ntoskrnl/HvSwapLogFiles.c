@@ -1,12 +1,12 @@
 /*
- * XREFs of HvSwapLogFiles @ 0x1406C963C
+ * XREFs of HvSwapLogFiles @ 0x1406CA8DC
  * Callers:
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1405A60DC (HvGetEffectiveLogSizeCapForHive.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1405A62AC (HvpLogTypeToLogArrayIndex.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1405A70DC (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x1405A72AC (HvpLogTypeToLogArrayIndex.c)
  */
 
 __int64 __fastcall HvSwapLogFiles(__int64 a1)
@@ -59,7 +59,7 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
   v5 = *(_DWORD *)(a1 + 168) - *(_DWORD *)(a1 + 172);
   v6 = MEMORY[0xFFFFF78000000014];
   v7 = *(_DWORD *)(a1 + 8LL * v2 + 1800);
-  if ( stru_1403FFAA0.LevelPlus1 > 5 )
+  if ( stru_140400AA0.LevelPlus1 > 5 )
   {
     v12 = *(_DWORD *)(a1 + 272);
     v8 = *(_DWORD *)(a1 + 184);
@@ -95,7 +95,7 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
     v36 = 4;
     v39 = 4;
     v42 = 8;
-    TlgWrite(&stru_1403FFAA0, &unk_14036C643, 0LL, 0LL, 0xAu, &pData);
+    TlgWrite(&stru_140400AA0, &unk_14036D5D3, 0LL, 0LL, 0xAu, &pData);
   }
   *(_DWORD *)(a1 + 164) = 5 - (*(_DWORD *)(a1 + 164) != 4);
   result = *(unsigned int *)(a1 + 168);

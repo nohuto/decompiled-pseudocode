@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetJobFreezeCountCallback @ 0x14036BD20
+ * XREFs of PspSetJobFreezeCountCallback @ 0x14036BEC0
  * Callers:
  *     <none>
  * Callees:

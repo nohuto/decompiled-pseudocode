@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlAddActionToRXact @ 0x1800869A0
+ * XREFs of RtlAddActionToRXact @ 0x180086990
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlAddAttributeActionToRXact @ 0x180086A20 (RtlAddAttributeActionToRXact.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlAddAttributeActionToRXact @ 0x180086A10 (RtlAddAttributeActionToRXact.c)
  */
 
 __int64 __fastcall RtlAddActionToRXact(int a1, int a2, int a3, int a4, void *Src, size_t a6)
 {
   size_t Size; // [rsp+38h] [rbp-20h]
-  UNICODE_STRING v12; // [rsp+40h] [rbp-18h] BYREF
+  _UNICODE_STRING v12; // [rsp+40h] [rbp-18h] BYREF
 
   RtlInitUnicodeString(&v12, 0LL);
   LODWORD(Size) = a6;

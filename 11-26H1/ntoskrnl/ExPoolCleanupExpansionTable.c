@@ -1,13 +1,13 @@
 /*
- * XREFs of ExPoolCleanupExpansionTable @ 0x140522698
+ * XREFs of ExPoolCleanupExpansionTable @ 0x140524D04
  * Callers:
- *     ExpInsertPoolTrackerExpansion @ 0x1403C08E4 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x1403CA7E4 (ExpInsertPoolTrackerExpansion.c)
  * Callees:
- *     ExpPoolTrackerReturnLimit @ 0x140344FF0 (ExpPoolTrackerReturnLimit.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1403450B0 (ExpRemovePoolTrackerExpansion.c)
- *     ExFreeHeapPages @ 0x140346358 (ExFreeHeapPages.c)
- *     EtwTracePool @ 0x1403C0B34 (EtwTracePool.c)
- *     ExpPoolFlagsToPoolType @ 0x140C10F50 (ExpPoolFlagsToPoolType.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140347070 (ExpPoolTrackerReturnLimit.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140347130 (ExpRemovePoolTrackerExpansion.c)
+ *     ExFreeHeapPages @ 0x1403483D8 (ExFreeHeapPages.c)
+ *     EtwTracePool @ 0x1403CAA34 (EtwTracePool.c)
+ *     ExpPoolFlagsToPoolType @ 0x140C16F50 (ExpPoolFlagsToPoolType.c)
  */
 
 __int64 __fastcall ExPoolCleanupExpansionTable(ULONG_PTR BugCheckParameter3, unsigned __int64 a2)
@@ -45,16 +45,16 @@ __int64 __fastcall ExPoolCleanupExpansionTable(ULONG_PTR BugCheckParameter3, uns
     }
   }
   LODWORD(v4) = KeGetPcr()->Prcb.Number;
-  StackBase = (int)stru_140EFEF90.StackBase;
-  v7 = (__int64)stru_140EFEF90.StackBase & 0x40DEDA5;
-  v8 = (__int64)stru_140EFEF90.StackBase & 0x40DEDA5;
-  v9 = *((_QWORD *)&stru_140EFEF90.CurrentRunTime + v4);
+  StackBase = (int)stru_140EFF2C0.StackBase;
+  v7 = (__int64)stru_140EFF2C0.StackBase & 0x40DEDA5;
+  v8 = (__int64)stru_140EFF2C0.StackBase & 0x40DEDA5;
+  v9 = *(&stru_140EFF2C0.ThreadLock + v4);
   while ( 1 )
   {
     v10 = v9 + 80 * v7;
     if ( *(_DWORD *)v10 == 1819242320 )
       break;
-    if ( *(_DWORD *)v10 || (v11 = *(_DWORD *)(PoolTrackTable + 80 * v7)) == 0 )
+    if ( *(_DWORD *)v10 || (v11 = *(_DWORD *)(stru_140EFF2C0.QuantumTarget + 80 * v7)) == 0 )
     {
       v7 = StackBase & (unsigned int)(v7 + 1);
       if ( (_DWORD)v7 == v8 )
@@ -66,7 +66,7 @@ __int64 __fastcall ExPoolCleanupExpansionTable(ULONG_PTR BugCheckParameter3, uns
     else
     {
       *(_DWORD *)v10 = v11;
-      v12 = *(_QWORD *)(PoolTrackTable + 80 * v7 + 72);
+      v12 = *(_QWORD *)(stru_140EFF2C0.QuantumTarget + 80 * v7 + 72);
       if ( v12 )
         *(_QWORD *)(v10 + 72) = v12;
     }

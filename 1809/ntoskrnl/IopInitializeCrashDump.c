@@ -1,17 +1,17 @@
 /*
- * XREFs of IopInitializeCrashDump @ 0x14074D034
+ * XREFs of IopInitializeCrashDump @ 0x14074E224
  * Callers:
- *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x14074CFA0 (IoInitializeCrashDump.c)
- *     IopInitCrashDumpRegCallback @ 0x1409D2F70 (IopInitCrashDumpRegCallback.c)
+ *     IoConfigureCrashDump @ 0x1401885EC (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x14074E190 (IoInitializeCrashDump.c)
+ *     IopInitCrashDumpRegCallback @ 0x1409D3F70 (IopInitCrashDumpRegCallback.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IopLoadCrashdumpDriver @ 0x14017817C (IopLoadCrashdumpDriver.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1401885C8 (SecureDump_GetSecureDumpSettings.c)
- *     IopReadDumpRegistry @ 0x140188614 (IopReadDumpRegistry.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14071DE80 (FsRtlIssueFileNotificationFsctl.c)
+ *     IopLoadCrashdumpDriver @ 0x14017827C (IopLoadCrashdumpDriver.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140188708 (SecureDump_GetSecureDumpSettings.c)
+ *     IopReadDumpRegistry @ 0x140188754 (IopReadDumpRegistry.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14071F120 (FsRtlIssueFileNotificationFsctl.c)
  */
 
 char __fastcall IopInitializeCrashDump(unsigned int *Handle, __int128 *a2)
@@ -38,16 +38,16 @@ char __fastcall IopInitializeCrashDump(unsigned int *Handle, __int128 *a2)
       && (int)SecureDump_GetSecureDumpSettings((__int64)&v7) >= 0 )
     {
       if ( !(_BYTE)v7
-        || qword_14043C828
+        || qword_14043D8E8
         && (v11 = *(_QWORD *)((char *)&v7 + 4),
             v12 = BYTE1(v7),
             v9 = SecureDump_Get_SecureDumpHeader,
             v10 = SecureDump_Encrypt_DmpData,
             v8 = 40,
-            (int)qword_14043C828(&v8) >= 0) )
+            (int)qword_14043D8E8(&v8) >= 0) )
       {
         v7 = *a2;
-        if ( (int)((__int64 (__fastcall *)(unsigned int *, __int64 *, __int128 *))qword_14043C7C8)(
+        if ( (int)((__int64 (__fastcall *)(unsigned int *, __int64 *, __int128 *))qword_14043D888)(
                     Handle,
                     &CrashdmpDumpBlock,
                     &v7) >= 0 )

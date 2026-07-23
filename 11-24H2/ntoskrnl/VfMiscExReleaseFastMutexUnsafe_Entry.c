@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscExReleaseFastMutexUnsafe_Entry @ 0x140B9DA10
+ * XREFs of VfMiscExReleaseFastMutexUnsafe_Entry @ 0x140B9FA10
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscExCheckAPCsDisabled @ 0x140B9F4E8 (ViMiscExCheckAPCsDisabled.c)
+ *     ViMiscExCheckAPCsDisabled @ 0x140BA14E8 (ViMiscExCheckAPCsDisabled.c)
  */
 
 __int64 __fastcall VfMiscExReleaseFastMutexUnsafe_Entry(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SddlpReAlloc @ 0x1406CC3F0
+ * XREFs of SddlpReAlloc @ 0x1406CC528
  * Callers:
- *     GetOperandValue @ 0x1406CCF20 (GetOperandValue.c)
- *     GetPrintableOperandValue @ 0x1406CD89C (GetPrintableOperandValue.c)
+ *     GetOperandValue @ 0x1406CD058 (GetOperandValue.c)
+ *     GetPrintableOperandValue @ 0x1406CD9D4 (GetPrintableOperandValue.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

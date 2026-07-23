@@ -1,23 +1,23 @@
 /*
- * XREFs of MiReleasePageListLock @ 0x1402262E0
+ * XREFs of MiReleasePageListLock @ 0x140218800
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x140220F00 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiReplaceTransitionPage @ 0x140224B14 (MiReplaceTransitionPage.c)
- *     MiSynchronizeFastPageInsert @ 0x14022D9F0 (MiSynchronizeFastPageInsert.c)
- *     MiUnlinkPageFromBadList @ 0x14039398C (MiUnlinkPageFromBadList.c)
- *     MiGetRepurposedSlabStandbyPage @ 0x1403A18E8 (MiGetRepurposedSlabStandbyPage.c)
- *     MiUpdatePageAttributeStamp @ 0x1404767D4 (MiUpdatePageAttributeStamp.c)
- *     MiRepointPteAtExtendedStandby @ 0x140684E78 (MiRepointPteAtExtendedStandby.c)
+ *     MiGetRepurposedSlabStandbyPage @ 0x140218448 (MiGetRepurposedSlabStandbyPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14024DC50 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiReplaceTransitionPage @ 0x140251EC4 (MiReplaceTransitionPage.c)
+ *     MiSynchronizeFastPageInsert @ 0x140301300 (MiSynchronizeFastPageInsert.c)
+ *     MiUpdatePageAttributeStamp @ 0x1403F034C (MiUpdatePageAttributeStamp.c)
+ *     MiUnlinkPageFromBadList @ 0x1403F6AAC (MiUnlinkPageFromBadList.c)
+ *     MiRepointPteAtExtendedStandby @ 0x140685FA4 (MiRepointPteAtExtendedStandby.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall MiReleasePageListLock(__int64 a1, __int64 a2)
+__int64 __fastcall MiReleasePageListLock(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
-  volatile signed __int32 *v3; // rcx
-  _DWORD *v4; // rcx
+  volatile signed __int32 *v5; // rcx
+  _DWORD *v6; // rcx
   void *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( *(_BYTE *)a2 )
@@ -46,29 +46,29 @@ __int64 __fastcall MiReleasePageListLock(__int64 a1, __int64 a2)
       _InterlockedAnd64((volatile signed __int64 *)(result + 24), 0x7FFFFFFFFFFFFFFFuLL);
       *(_BYTE *)(a2 + 96) = 0;
     }
-    v3 = (volatile signed __int32 *)(a1 + 32);
+    v5 = (volatile signed __int32 *)(a1 + 32);
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
       || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     {
-      _InterlockedAnd(v3, 0xBFFFFFFF);
-      _InterlockedDecrement(v3);
+      _InterlockedAnd(v5, 0xBFFFFFFF);
+      _InterlockedDecrement(v5);
     }
     else
     {
-      return ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v3, retaddr);
+      return ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v5, retaddr, 0x7FFFFFFFFFFFFFFFLL, a4);
     }
   }
   else
   {
-    v4 = (_DWORD *)(a1 + 32);
+    v6 = (_DWORD *)(a1 + 32);
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
       || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     {
-      *v4 = 0;
+      *v6 = 0;
     }
     else
     {
-      return ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v4, retaddr);
+      return ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v6, retaddr);
     }
   }
   return result;

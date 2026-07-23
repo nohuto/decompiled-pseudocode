@@ -21,19 +21,23 @@
  *     AlpcpFreeCompletionList @ 0x1404C584C (AlpcpFreeCompletionList.c)
  */
 
-__int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, PVOID *a3, unsigned int a4)
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v7; // esi
   KPROCESSOR_MODE PreviousMode; // di
   PVOID *v9; // r13
   __int64 *v10; // r12
-  NTSTATUS v11; // edi
-  int v12; // r14d
-  int v13; // r14d
-  NTSTATUS v14; // eax
-  int v16; // r14d
-  int v17; // r14d
+  signed int v11; // edi
+  __int32 v12; // r14d
+  __int32 v13; // r14d
+  signed int v14; // eax
+  __int32 v16; // r14d
+  __int32 v17; // r14d
   int v18; // r14d
   int v19; // r14d
   unsigned __int64 *v20; // rbx
@@ -61,12 +65,15 @@ __int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, PVOID *a3, unsigned i
   __int32 v42; // [rsp+68h] [rbp-90h]
   unsigned __int64 v43; // [rsp+6Ch] [rbp-8Ch]
 
-  Handle = a1;
-  v38 = a3;
+  Handle = PortHandle;
+  v38 = (PVOID *)PortInformation;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v7 = 0;
-  if ( !a1 || !v38 && a2 != 7 && a2 != 10 )
+  if ( !PortHandle
+    || !v38
+    && PortInformationClass != AlpcUnregisterCompletionListInformation
+    && PortInformationClass != AlpcCompletionListRundownInformation )
   {
     v11 = -1073741811;
     goto LABEL_16;
@@ -76,9 +83,9 @@ __int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, PVOID *a3, unsigned i
   v9 = v38;
   v10 = (__int64 *)v38;
   v40 = v38;
-  if ( a4 && PreviousMode )
+  if ( Length && PreviousMode )
   {
-    if ( a4 > 0x48 )
+    if ( Length > 0x48 )
     {
       v11 = -1073741820;
       goto LABEL_16;
@@ -86,18 +93,18 @@ __int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, PVOID *a3, unsigned i
     if ( (unsigned __int64)v38 >= MmUserProbeAddress )
       v9 = (PVOID *)MmUserProbeAddress;
     v38 = v9;
-    memmove(&v41, v9, a4);
+    memmove(&v41, v9, Length);
     v10 = &v41;
     v40 = (PVOID *)&v41;
-    a1 = Handle;
+    PortHandle = Handle;
   }
-  v11 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v11 >= 0 )
   {
-    v12 = a2 - 1;
+    v12 = PortInformationClass - 1;
     if ( !v12 )
     {
-      if ( a4 != 72 )
+      if ( Length != 72 )
         goto LABEL_79;
       v23 = *(_DWORD *)v10;
       if ( (*(_DWORD *)v10 & 0xFE00FFFF) == 0 && ((v23 ^ *((_DWORD *)Object + 64)) & 0x40000) == 0 )
@@ -110,7 +117,7 @@ __int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, PVOID *a3, unsigned i
     v13 = v12 - 1;
     if ( !v13 )
     {
-      if ( a4 == 16 )
+      if ( Length == 16 )
       {
         v14 = AlpcpAssociateIoCompletionPort(Object, (void *)v10[1], *v10);
 LABEL_14:
@@ -126,7 +133,7 @@ LABEL_79:
     v16 = v13 - 3;
     if ( !v16 )
     {
-      v11 = a4 != 16 ? 0xC000000D : 0;
+      v11 = Length != 16 ? 0xC000000D : 0;
       goto LABEL_15;
     }
     v17 = v16 - 1;
@@ -138,7 +145,7 @@ LABEL_79:
         v19 = v18 - 1;
         if ( !v19 )
         {
-          if ( a4 == 4 && *(_DWORD *)v10 )
+          if ( Length == 4 && *(_DWORD *)v10 )
           {
             v20 = (unsigned __int64 *)((char *)Object + 352);
             v21 = KeAbPreAcquire((ULONG_PTR)Object + 352, 0LL, 0LL);
@@ -167,7 +174,7 @@ LABEL_32:
         v24 = v19 - 1;
         if ( v24 )
         {
-          if ( v24 == 1 && !a4 )
+          if ( v24 == 1 && !Length )
           {
             v25 = (unsigned __int64 *)((char *)Object + 352);
             v26 = KeAbPreAcquire((ULONG_PTR)Object + 352, 0LL, 0LL);
@@ -209,7 +216,7 @@ LABEL_32:
       }
       else
       {
-        if ( a4 )
+        if ( Length )
           goto LABEL_77;
         v28 = (unsigned __int64 *)((char *)Object + 352);
         v29 = KeAbPreAcquire((ULONG_PTR)Object + 352, 0LL, 0LL);
@@ -229,9 +236,9 @@ LABEL_32:
     }
     if ( (*((_DWORD *)Object + 104) & 6) == 2 )
     {
-      if ( a4 != 24 )
+      if ( Length != 24 )
       {
-        if ( a4 != 16 )
+        if ( Length != 16 )
           goto LABEL_77;
         v35 = *(__m128i *)v10;
         v10 = &v41;
@@ -255,5 +262,5 @@ LABEL_77:
   }
 LABEL_16:
   KeLeaveCriticalRegion();
-  return (unsigned int)v11;
+  return v11;
 }

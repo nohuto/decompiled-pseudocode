@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpDoAllocateCell @ 0x1405FB690
+ * XREFs of HvpDoAllocateCell @ 0x1405FC690
  * Callers:
- *     HvReallocateCell @ 0x1405AD9CC (HvReallocateCell.c)
- *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
+ *     HvReallocateCell @ 0x1405AE9CC (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x1405FCE54 (HvAllocateCell.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvpDelistFreeCell @ 0x1405ADE60 (HvpDelistFreeCell.c)
- *     HvpFindFreeCell @ 0x1405F9A70 (HvpFindFreeCell.c)
- *     HvpEnlistFreeCell @ 0x1405FAF0C (HvpEnlistFreeCell.c)
- *     HvpRemoveFreeCellHint @ 0x1405FBB90 (HvpRemoveFreeCellHint.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     HvpDelistFreeCell @ 0x1405AEE60 (HvpDelistFreeCell.c)
+ *     HvpFindFreeCell @ 0x1405FAA70 (HvpFindFreeCell.c)
+ *     HvpEnlistFreeCell @ 0x1405FBF0C (HvpEnlistFreeCell.c)
+ *     HvpRemoveFreeCellHint @ 0x1405FCB90 (HvpRemoveFreeCellHint.c)
  */
 
 __int64 __fastcall HvpDoAllocateCell(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3, _QWORD *a4, __int64 *a5)

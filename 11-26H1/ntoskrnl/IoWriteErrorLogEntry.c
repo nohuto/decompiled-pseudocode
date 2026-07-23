@@ -1,28 +1,28 @@
 /*
- * XREFs of IoWriteErrorLogEntry @ 0x1404E5DA0
+ * XREFs of IoWriteErrorLogEntry @ 0x1404DF340
  * Callers:
- *     IopDisassociateThreadIrp @ 0x14051FFD0 (IopDisassociateThreadIrp.c)
- *     DifIoWriteErrorLogEntryWrapper @ 0x14065F3F0 (DifIoWriteErrorLogEntryWrapper.c)
- *     IopLogBlockedDriverEvent @ 0x140795180 (IopLogBlockedDriverEvent.c)
- *     MiBadMemoryLogger @ 0x140869EF0 (MiBadMemoryLogger.c)
- *     PnpLogEvent @ 0x140AA4138 (PnpLogEvent.c)
- *     MiLogFailedDriverLoad @ 0x140B518F0 (MiLogFailedDriverLoad.c)
- *     FsRtlLogCcFlushError @ 0x140B57700 (FsRtlLogCcFlushError.c)
+ *     IopDisassociateThreadIrp @ 0x140522674 (IopDisassociateThreadIrp.c)
+ *     DifIoWriteErrorLogEntryWrapper @ 0x140662FD0 (DifIoWriteErrorLogEntryWrapper.c)
+ *     IopLogBlockedDriverEvent @ 0x140797CB0 (IopLogBlockedDriverEvent.c)
+ *     MiBadMemoryLogger @ 0x1408702D0 (MiBadMemoryLogger.c)
+ *     PnpLogEvent @ 0x140A37B48 (PnpLogEvent.c)
+ *     MiLogFailedDriverLoad @ 0x140B54190 (MiLogFailedDriverLoad.c)
+ *     FsRtlLogCcFlushError @ 0x140B5A650 (FsRtlLogCcFlushError.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
 {
   char *v1; // rbx
   KIRQL v2; // al
-  void **v3; // rcx
+  _KAFFINITY_EX ****v3; // rcx
   KIRQL v4; // di
-  void ***v5; // rbx
+  _KAFFINITY_EX ***v5; // rbx
   bool v6; // zf
   void *v7; // rcx
   void *v8; // rcx
@@ -36,25 +36,23 @@ void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
     v8 = (void *)*((_QWORD *)v1 + 4);
     if ( v8 )
       ObfDereferenceObjectWithTag(v8, 0x746C6644u);
-    _InterlockedAdd(
-      (volatile signed __int32 *)&IopSessionNotificationLock.QuantumTarget,
-      -*((unsigned __int16 *)v1 + 1));
+    _InterlockedAdd(&IopErrorLogAllocation, -*((unsigned __int16 *)v1 + 1));
     ExFreePoolWithTag(v1, 0);
   }
   else
   {
     *((_QWORD *)v1 + 5) = MEMORY[0xFFFFF78000000014];
     v2 = KeAcquireSpinLockRaiseToDpc(&IopErrorLogLock);
-    v3 = *(void ***)&IopSessionNotificationLock.ResourceIndex;
+    v3 = *(_KAFFINITY_EX *****)&IopPerfIoTrackingLock.AffinityPrimaryGroup;
     v4 = v2;
-    v5 = (void ***)(v1 + 8);
-    if ( **(struct _KTHREAD ***)&IopSessionNotificationLock.ResourceIndex != (struct _KTHREAD *)&IopSessionNotificationLock.IptSaveArea )
+    v5 = (_KAFFINITY_EX ***)(v1 + 8);
+    if ( **(struct _KTHREAD ***)&IopPerfIoTrackingLock.AffinityPrimaryGroup != (struct _KTHREAD *)&IopPerfIoTrackingLock.Affinity )
       __fastfail(3u);
     v6 = IopErrorLogSessionPending == 0;
-    *v5 = &IopSessionNotificationLock.IptSaveArea;
-    v5[1] = v3;
+    *v5 = &IopPerfIoTrackingLock.Affinity;
+    v5[1] = (_KAFFINITY_EX **)v3;
     *v3 = v5;
-    *(_QWORD *)&IopSessionNotificationLock.ResourceIndex = v5;
+    *(_QWORD *)&IopPerfIoTrackingLock.AffinityPrimaryGroup = v5;
     if ( v6 )
     {
       IopErrorLogSessionPending = 1;

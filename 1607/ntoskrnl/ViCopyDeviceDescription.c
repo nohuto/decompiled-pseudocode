@@ -1,10 +1,10 @@
 /*
- * XREFs of ViCopyDeviceDescription @ 0x140709184
+ * XREFs of ViCopyDeviceDescription @ 0x1407091B4
  * Callers:
- *     ViHookDmaAdapter @ 0x140709C74 (ViHookDmaAdapter.c)
+ *     ViHookDmaAdapter @ 0x140709CA4 (ViHookDmaAdapter.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall ViCopyDeviceDescription(__int64 a1, int *a2)

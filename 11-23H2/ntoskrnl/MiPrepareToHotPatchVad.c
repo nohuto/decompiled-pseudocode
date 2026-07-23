@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPrepareToHotPatchVad @ 0x140A3AEEC
+ * XREFs of MiPrepareToHotPatchVad @ 0x140A3B19C
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     MiVadDeleted @ 0x140275410 (MiVadDeleted.c)
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     MiBeginHoldingDirtyFaults @ 0x140641BF4 (MiBeginHoldingDirtyFaults.c)
- *     MiInitializeImageHotPatchContext @ 0x140A37884 (MiInitializeImageHotPatchContext.c)
- *     MiPrepareToHotPatchImage @ 0x140A3A908 (MiPrepareToHotPatchImage.c)
+ *     MiVadDeleted @ 0x1402756A0 (MiVadDeleted.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     MiBeginHoldingDirtyFaults @ 0x140642144 (MiBeginHoldingDirtyFaults.c)
+ *     MiInitializeImageHotPatchContext @ 0x140A37B34 (MiInitializeImageHotPatchContext.c)
+ *     MiPrepareToHotPatchImage @ 0x140A3ABB8 (MiPrepareToHotPatchImage.c)
  */
 
 __int64 __fastcall MiPrepareToHotPatchVad(

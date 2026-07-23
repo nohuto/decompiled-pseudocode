@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpFlushMessagesByRequestor @ 0x1406B41E4
+ * XREFs of AlpcpFlushMessagesByRequestor @ 0x1406133B4
  * Callers:
- *     AlpcpFlushMessagesPort @ 0x1405E2314 (AlpcpFlushMessagesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x1406D1A74 (AlpcpFlushMessagesPort.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1406D0224 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
  */
 
-char __fastcall AlpcpFlushMessagesByRequestor(__int64 a1, __int64 a2, ULONG_PTR *a3, unsigned int a4)
+char __fastcall AlpcpFlushMessagesByRequestor(__int64 a1, volatile signed __int64 *a2, ULONG_PTR *a3, unsigned int a4)
 {
   __int64 v8; // rax
   ULONG_PTR i; // rdi
@@ -22,15 +22,15 @@ char __fastcall AlpcpFlushMessagesByRequestor(__int64 a1, __int64 a2, ULONG_PTR 
 
   if ( a4 <= 2 )
   {
-    v8 = 136LL;
+    v8 = 17LL;
   }
   else
   {
-    v8 = 176LL;
+    v8 = 22LL;
     if ( a4 != 3 )
-      v8 = 200LL;
+      v8 = 25LL;
   }
-  ExAcquirePushLockExclusiveEx(v8 + a2, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&a2[v8], 0LL);
 LABEL_5:
   for ( i = *a3; (ULONG_PTR *)i != a3; i = *(_QWORD *)i )
   {
@@ -40,13 +40,13 @@ LABEL_5:
       if ( a4 > 2 )
       {
         if ( a4 == 3 )
-          v12 = (volatile signed __int64 *)(a2 + 176);
+          v12 = a2 + 22;
         else
-          v12 = (volatile signed __int64 *)(a2 + 200);
+          v12 = a2 + 25;
       }
       else
       {
-        v12 = (volatile signed __int64 *)(a2 + 136);
+        v12 = a2 + 17;
       }
       if ( (_InterlockedExchangeAdd64(v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v12);
@@ -54,33 +54,33 @@ LABEL_5:
       AlpcpLockForCachedReferenceBlob(i);
       --*(_WORD *)(i - 30);
       if ( *(_QWORD *)(i + 24) == a1 )
-        AlpcpCancelMessage(a2, i, 0x10000);
+        AlpcpCancelMessage(a2, i, 0x10000LL);
       else
         AlpcpUnlockMessage(i);
       if ( a4 > 2 )
       {
-        v13 = 176LL;
+        v13 = 22LL;
         if ( a4 != 3 )
-          v13 = 200LL;
+          v13 = 25LL;
       }
       else
       {
-        v13 = 136LL;
+        v13 = 17LL;
       }
-      ExAcquirePushLockExclusiveEx(v13 + a2, 0LL);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&a2[v13], 0LL);
       goto LABEL_5;
     }
   }
   if ( a4 > 2 )
   {
     if ( a4 == 3 )
-      v10 = (volatile signed __int64 *)(a2 + 176);
+      v10 = a2 + 22;
     else
-      v10 = (volatile signed __int64 *)(a2 + 200);
+      v10 = a2 + 25;
   }
   else
   {
-    v10 = (volatile signed __int64 *)(a2 + 136);
+    v10 = a2 + 17;
   }
   if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v10);

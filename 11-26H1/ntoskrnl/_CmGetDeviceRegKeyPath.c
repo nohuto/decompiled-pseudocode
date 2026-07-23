@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetDeviceRegKeyPath @ 0x140994330
+ * XREFs of _CmGetDeviceRegKeyPath @ 0x140954D90
  * Callers:
- *     PiDqGetRelativeObjectRegPath @ 0x1409927A0 (PiDqGetRelativeObjectRegPath.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A2A8BC (_CmDeleteDeviceRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x140953200 (PiDqGetRelativeObjectRegPath.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x140A3D94C (_CmDeleteDeviceRegKeyWorker.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     _CmGetDeviceHardwareKeyPath @ 0x1409928FC (_CmGetDeviceHardwareKeyPath.c)
- *     _CmGetDeviceSoftwareKeyPath @ 0x140995E20 (_CmGetDeviceSoftwareKeyPath.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     _CmGetDeviceHardwareKeyPath @ 0x14095335C (_CmGetDeviceHardwareKeyPath.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x140956880 (_CmGetDeviceSoftwareKeyPath.c)
  */
 
 NTSTATUS __fastcall CmGetDeviceRegKeyPath(

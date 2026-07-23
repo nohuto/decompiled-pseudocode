@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlCharToInteger @ 0x1408252E0
+ * XREFs of RtlCharToInteger @ 0x1408255E0
  * Callers:
- *     IopCheckDiskName @ 0x14038B294 (IopCheckDiskName.c)
+ *     IopCheckDiskName @ 0x14038B474 (IopCheckDiskName.c)
  *     EmpParseTargetRuleStringIndexList @ 0x140B56C6C (EmpParseTargetRuleStringIndexList.c)
  * Callees:
  *     <none>
@@ -11,16 +11,16 @@ NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
 {
   ULONG v4; // r10d
   PCSZ v5; // r9
-  char v6; // r11
-  char *v7; // r9
-  char v8; // cl
-  char *v9; // rax
+  CHAR v6; // r11
+  CHAR *v7; // r9
+  CHAR v8; // cl
+  CHAR *v9; // rax
   int v10; // edx
   int v11; // r8d
   unsigned int v12; // eax
   ULONG v13; // eax
   PCSZ v15; // rcx
-  char *v16; // r9
+  CHAR *v16; // r9
 
   v4 = Base;
   v5 = String;
@@ -36,12 +36,12 @@ NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
       if ( *v5 > 32 )
         goto LABEL_2;
     }
-    v7 = (char *)v15;
+    v7 = (CHAR *)v15;
   }
   else
   {
 LABEL_2:
-    v7 = (char *)(v5 + 1);
+    v7 = (CHAR *)(v5 + 1);
   }
   v8 = v6;
   if ( ((v6 - 43) & 0xFD) == 0 )

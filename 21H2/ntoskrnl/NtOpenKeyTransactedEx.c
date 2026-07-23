@@ -1,67 +1,82 @@
 /*
- * XREFs of NtOpenKeyTransactedEx @ 0x1406A2EF0
+ * XREFs of NtOpenKeyTransactedEx @ 0x1405DEBF0
  * Callers:
- *     NtOpenKeyTransacted @ 0x140868560 (NtOpenKeyTransacted.c)
+ *     NtOpenKeyTransacted @ 0x1408686C0 (NtOpenKeyTransacted.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     CmOpenKey @ 0x140655330 (CmOpenKey.c)
- *     CmpTransDereferenceTransaction @ 0x1406A32E0 (CmpTransDereferenceTransaction.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     CmpTransDereferenceTransaction @ 0x1405DEFE0 (CmpTransDereferenceTransaction.c)
+ *     CmOpenKey @ 0x14064A150 (CmOpenKey.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
+  int v7; // ebp
+  int v9; // r15d
   BOOLEAN v10; // al
-  struct _KTHREAD *v11; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  struct _KTHREAD *v14; // rcx
   KPROCESSOR_MODE PreviousMode; // r9
-  NTSTATUS v13; // eax
-  __int64 v14; // rbx
-  int v15; // edi
   NTSTATUS v16; // eax
+  __int64 v17; // rbx
+  NTSTATUS v18; // edi
+  NTSTATUS v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
-  PVOID v19; // [rsp+38h] [rbp-20h] BYREF
+  PVOID v25; // [rsp+38h] [rbp-20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
+  v7 = (int)ObjectAttributes;
+  v9 = (int)KeyHandle;
   --CurrentThread->KernelApcDisable;
-  v10 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-  v11 = KeGetCurrentThread();
+  v10 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  v14 = KeGetCurrentThread();
   if ( !v10 )
   {
-    KeLeaveCriticalRegionThread((__int64)v11);
-    return (unsigned int)-1073741431;
+    KeLeaveCriticalRegionThread((__int64)v14, v11, v12, v13);
+    return -1073741431;
   }
-  PreviousMode = v11->PreviousMode;
+  PreviousMode = v14->PreviousMode;
   Object = 0LL;
-  v13 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
-  v14 = (__int64)Object;
-  v15 = v13;
-  if ( v13 == -1073741788 )
+  v16 = ObReferenceObjectByHandle(TransactionHandle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
+  v17 = (__int64)Object;
+  v18 = v16;
+  if ( v16 == -1073741788 )
   {
-    v19 = 0LL;
-    v16 = ObReferenceObjectByHandle(
-            Handle,
+    v25 = 0LL;
+    v19 = ObReferenceObjectByHandle(
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
-            &v19,
+            &v25,
             0LL);
-    v14 = (__int64)v19;
-    v15 = v16;
+    v17 = (__int64)v25;
+    v18 = v19;
     goto LABEL_4;
   }
-  if ( v13 >= 0 )
+  if ( v16 >= 0 )
   {
-    v14 = (unsigned __int64)Object | 1;
+    v17 = (unsigned __int64)Object | 1;
 LABEL_4:
-    if ( v15 >= 0 )
-      v15 = CmOpenKey(a1, a2, a3, a4, v14);
+    if ( v18 >= 0 )
+      v18 = CmOpenKey(v9, DesiredAccess, v7, OpenOptions, v17);
   }
-  if ( v14 )
-    CmpTransDereferenceTransaction(v14);
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v15;
+  if ( v17 )
+    CmpTransDereferenceTransaction(v17);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v20, v21, v22);
+  return v18;
 }

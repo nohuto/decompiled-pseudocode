@@ -6,7 +6,7 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall IopAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+__int64 __fastcall IopAllocateGenericTableEntry(_RTL_AVL_TABLE *a1, unsigned int a2)
 {
-  return ExAllocatePool2(256LL, ByteSize, 1700032329LL);
+  return ExAllocatePool2(256LL, a2, 1700032329LL);
 }

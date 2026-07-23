@@ -1,13 +1,13 @@
 /*
- * XREFs of EmonInitializeProfilingEnhanced @ 0x140B4EED0
+ * XREFs of EmonInitializeProfilingEnhanced @ 0x140B50F20
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     EmonFreeCounterEnhanced @ 0x14055B7EC (EmonFreeCounterEnhanced.c)
- *     EmonInitializeProfilingBSP @ 0x14055BA58 (EmonInitializeProfilingBSP.c)
- *     EmonSetAllocatedCounters @ 0x14055E6E4 (EmonSetAllocatedCounters.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     EmonFreeCounterEnhanced @ 0x14055941C (EmonFreeCounterEnhanced.c)
+ *     EmonInitializeProfilingBSP @ 0x140559688 (EmonInitializeProfilingBSP.c)
+ *     EmonSetAllocatedCounters @ 0x14055C314 (EmonSetAllocatedCounters.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 EmonInitializeProfilingEnhanced()

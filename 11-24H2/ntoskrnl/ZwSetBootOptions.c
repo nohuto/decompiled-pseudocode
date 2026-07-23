@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwSetBootOptions @ 0x1406A96F0
+ * XREFs of ZwSetBootOptions @ 0x1406AA690
  * Callers:
- *     DifZwSetBootOptionsWrapper @ 0x140647B70 (DifZwSetBootOptionsWrapper.c)
- *     BiSetBootOptions @ 0x1408156BC (BiSetBootOptions.c)
+ *     DifZwSetBootOptionsWrapper @ 0x140646130 (DifZwSetBootOptionsWrapper.c)
+ *     BiSetBootOptions @ 0x140815DFC (BiSetBootOptions.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetBootOptions(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(BootOptions);
 }

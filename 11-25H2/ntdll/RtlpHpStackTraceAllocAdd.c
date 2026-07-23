@@ -41,7 +41,7 @@ __int64 __fastcall RtlpHpStackTraceAllocAdd(__int64 a1, __int64 a2, __int64 a3)
     return 0;
   v6[1] = a2;
   v6[2] = a3;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   v8 = a1 + 16;
   *(_DWORD *)a1 = NtCurrentTeb()->ClientId.UniqueThread;
   v9 = (int *)(a1 + 20);
@@ -137,7 +137,7 @@ LABEL_25:
   v7 = 0;
 LABEL_26:
   *(_DWORD *)a1 = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   if ( v6 )
   {
     v25[0] = RtlpHpEnvHandle;

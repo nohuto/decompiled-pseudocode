@@ -3,7 +3,7 @@
  * Callers:
  *     HalpBlkInitSystem @ 0x140B48F28 (HalpBlkInitSystem.c)
  * Callees:
- *     KiInitializeTimer2 @ 0x14031E51C (KiInitializeTimer2.c)
+ *     KiInitializeTimer2 @ 0x14031E7AC (KiInitializeTimer2.c)
  */
 
 ULONG_PTR (*HalpBlkWdInitialize())()

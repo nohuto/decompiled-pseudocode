@@ -21,8 +21,8 @@
 __int64 __fastcall CmpWaitOnHiveWriteQueue(__int64 a1, ULONG_PTR a2)
 {
   REGHANDLE v4; // rbx
-  __int64 v5; // rax
-  __int64 v6; // rbx
+  PRTL_BALANCED_NODE v5; // rax
+  _RTL_BALANCED_NODE *v6; // rbx
   _KLOCK_ENTRY *v7; // rax
   REGHANDLE v8; // rbx
   struct _KEVENT Event; // [rsp+30h] [rbp-50h] BYREF
@@ -47,7 +47,7 @@ __int64 __fastcall CmpWaitOnHiveWriteQueue(__int64 a1, ULONG_PTR a2)
   v5 = KeAbPreAcquire(a2, 0LL, 0);
   v6 = v5;
   if ( v5 )
-    KeAbPreWait(v5);
+    KeAbPreWait((__int64)v5);
   KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
   if ( v6 )
   {

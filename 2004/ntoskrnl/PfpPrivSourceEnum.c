@@ -33,7 +33,7 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   unsigned __int64 v7; // r15
   _DWORD *v8; // rdi
   SIZE_T v9; // rax
-  int SystemInformation; // edi
+  int v10; // edi
   int IsAppContainerOrIdentifyLevelContext; // eax
   struct _DMA_ADAPTER *i; // rcx
   __int64 NextSession; // rax
@@ -69,13 +69,13 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   __int128 v44; // [rsp+100h] [rbp-128h] BYREF
   __int128 v45; // [rsp+110h] [rbp-118h]
   __int128 v46; // [rsp+120h] [rbp-108h] BYREF
-  _QWORD v47[8]; // [rsp+140h] [rbp-E8h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+140h] [rbp-E8h] BYREF
   __int128 v48; // [rsp+180h] [rbp-A8h]
 
   v36 = a3;
   v38 = a1;
   v40 = a3;
-  memset(v47, 0, sizeof(v47));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   v46 = 0LL;
   v41 = 0LL;
   v42 = 0LL;
@@ -95,7 +95,7 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   v9 = *(unsigned int *)(a1 + 24);
   if ( (unsigned int)v9 < 0x10 )
   {
-    SystemInformation = -1073741789;
+    v10 = -1073741789;
     goto LABEL_63;
   }
   if ( a2 )
@@ -104,7 +104,7 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   v8[2] = 0;
   if ( (_DWORD)v48 != 8 || (DWORD1(v48) & 0xFFFFFFF8) != 0 || (BYTE4(v48) & 3) == 3 )
   {
-    SystemInformation = -1073741811;
+    v10 = -1073741811;
     goto LABEL_63;
   }
   if ( SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a2) )
@@ -114,7 +114,7 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   else
   {
     IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL, &v28);
-    SystemInformation = IsAppContainerOrIdentifyLevelContext;
+    v10 = IsAppContainerOrIdentifyLevelContext;
     if ( IsAppContainerOrIdentifyLevelContext == -1073741659 )
     {
       v28 = 1;
@@ -148,14 +148,14 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   }
   if ( *((_QWORD *)&v32 + 1) > 0xFFFFFFFFuLL || (v16 = 96LL * *((_QWORD *)&v32 + 1) + 16, v16 > 0xFFFFFFFF) )
   {
-    SystemInformation = -1073741670;
+    v10 = -1073741670;
     goto LABEL_63;
   }
   LODWORD(v7) = 96 * DWORD2(v32) + 16;
   v17 = *(_DWORD *)(v38 + 24);
   if ( (unsigned int)v16 > v17 )
   {
-    SystemInformation = -1073741789;
+    v10 = -1073741789;
     goto LABEL_63;
   }
   HIDWORD(v33) = (v17 - 16) / 0x60;
@@ -164,19 +164,19 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   {
     memset(v34, 0, sizeof(v34));
     RtlStringCbCopyA((NTSTRSAFE_PSTR)&v34[6] + 4, 0x10uLL, "KernelSpace");
-    SystemInformation = ZwQuerySystemInformation(119LL, (__int64)v47);
-    if ( SystemInformation < 0 )
+    v10 = ZwQuerySystemInformation(SystemPagedPoolInformationEx, SystemInformation, 0x40u, 0LL);
+    if ( v10 < 0 )
       goto LABEL_63;
-    SystemInformation = MmQuerySystemMemoryInformation(&v46);
-    if ( SystemInformation < 0 )
+    v10 = MmQuerySystemMemoryInformation(&v46);
+    if ( v10 < 0 )
       goto LABEL_63;
-    v34[4] = v47[0] >> 12;
+    v34[4] = SystemInformation[0] >> 12;
     v18 = v46;
-    if ( (unsigned __int64)v46 <= v47[0] >> 12 )
-      v18 = v47[0] >> 12;
+    if ( (unsigned __int64)v46 <= SystemInformation[0] >> 12 )
+      v18 = SystemInformation[0] >> 12;
     v34[5] = v18;
-    SystemInformation = PfpPrivSourceAdd(&v32, v34);
-    if ( SystemInformation < 0 )
+    v10 = PfpPrivSourceAdd(&v32, v34);
+    if ( v10 < 0 )
       goto LABEL_63;
     for ( k = 0LL; ; k = (struct _DMA_ADAPTER *)v5 )
     {
@@ -194,8 +194,8 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
       v34[9] = *((_QWORD *)&v42 + 1);
       v34[5] = v42;
       RtlStringCbCopyA((NTSTRSAFE_PSTR)&v34[6] + 4, 0x10uLL, "Session");
-      SystemInformation = PfpPrivSourceAdd(&v32, v34);
-      if ( SystemInformation < 0 )
+      v10 = PfpPrivSourceAdd(&v32, v34);
+      if ( v10 < 0 )
         goto LABEL_63;
     }
   }
@@ -251,8 +251,8 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
         {
           v34[9] = v35 >> 12;
         }
-        SystemInformation = PfpPrivSourceAdd(&v32, v34);
-        if ( SystemInformation < 0 )
+        v10 = PfpPrivSourceAdd(&v32, v34);
+        if ( v10 < 0 )
           goto LABEL_63;
         v20 = v31;
       }
@@ -261,13 +261,13 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
     while ( v6 );
   }
   LODWORD(v7) = 96 * v33 + 16;
-  SystemInformation = 0;
+  v10 = 0;
 LABEL_63:
   if ( v5 )
     HalPutDmaAdapter((PADAPTER_OBJECT)v5);
   if ( v6 )
     ObfDereferenceObjectWithTag((PVOID)v6, 0x6E457350u);
-  if ( SystemInformation == -1073741789 )
+  if ( v10 == -1073741789 )
   {
     v26 = *((_QWORD *)&v32 + 1);
     if ( (unsigned __int64)(unsigned int)(v33 + 1) > *((_QWORD *)&v32 + 1) )
@@ -276,9 +276,9 @@ LABEL_63:
     if ( v7 > 0xFFFFFFFF )
     {
       LODWORD(v7) = 0;
-      SystemInformation = -1073741670;
+      v10 = -1073741670;
     }
   }
   *v36 = v7;
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v10;
 }

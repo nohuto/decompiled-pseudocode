@@ -1,32 +1,32 @@
 /*
- * XREFs of MiUnmapViewOfSectionPrepare @ 0x1409C40F0
+ * XREFs of MiUnmapViewOfSectionPrepare @ 0x1409950D0
  * Callers:
- *     NtUnmapViewOfSectionEx @ 0x1409C38B0 (NtUnmapViewOfSectionEx.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1409C3E60 (NtUnmapViewOfSection.c)
+ *     NtUnmapViewOfSectionEx @ 0x140994890 (NtUnmapViewOfSectionEx.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x140994E40 (NtUnmapViewOfSection.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiVadMapsLargeImage @ 0x1403BC004 (MiVadMapsLargeImage.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiReadVadFlags2 @ 0x14047A070 (MiReadVadFlags2.c)
- *     MiUpdateVadStartVpn @ 0x14049B0E4 (MiUpdateVadStartVpn.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
- *     MiCheckSystemDllUnmap @ 0x1409E8DCC (MiCheckSystemDllUnmap.c)
- *     PerfLogImageUnload @ 0x140AB9C84 (PerfLogImageUnload.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiVadMapsLargeImage @ 0x1403C5E74 (MiVadMapsLargeImage.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiReadVadFlags2 @ 0x1404739E0 (MiReadVadFlags2.c)
+ *     MiUpdateVadStartVpn @ 0x140494C34 (MiUpdateVadStartVpn.c)
+ *     MiCheckSystemDllUnmap @ 0x1409E6908 (MiCheckSystemDllUnmap.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
+ *     PerfLogImageUnload @ 0x140ABB148 (PerfLogImageUnload.c)
  */
 
 __int64 __fastcall MiUnmapViewOfSectionPrepare(
         __int64 a1,
         unsigned __int64 a2,
         int a3,
-        ULONG_PTR *a4,
+        __int64 *a4,
         __int64 a5,
         struct _KTHREAD *a6)
 {
@@ -37,11 +37,11 @@ __int64 __fastcall MiUnmapViewOfSectionPrepare(
   unsigned __int64 v11; // r14
   int v12; // ebp
   ULONG_PTR v13; // rax
-  ULONG_PTR v14; // rdi
+  __int64 v14; // rdi
   int VadFlags; // eax
   __int64 v16; // rdx
   unsigned __int64 v17; // rsi
-  __int64 v18; // r14
+  unsigned __int64 v18; // r14
   __int64 v19; // rbp
   __int64 v20; // rsi
   __int64 result; // rax
@@ -102,7 +102,13 @@ LABEL_15:
          + 1) << 12;
     if ( (VadFlags & 2) != 0 && (*(_DWORD *)(a1 + 500) & 0x20) == 0 )
     {
-      v38 = MiCheckSecuredVad(v14, v17, v18, 0x55u, a6->PreviousMode, 0LL);
+      v38 = MiCheckSecuredVad(
+              v14,
+              v17,
+              (*(_DWORD *)(v14 + 28) - *(_DWORD *)(v14 + 24) + 1) << 12,
+              85,
+              a6->PreviousMode,
+              0LL);
       if ( (v38 & 0x80000000) != 0 )
         goto LABEL_15;
     }
@@ -143,7 +149,7 @@ LABEL_15:
             v18 = *(_QWORD *)(v24 + 32) << 12,
             (v20 += (unsigned __int64)*(unsigned __int8 *)(v24 + 24) << 16) != 0) )
       {
-        if ( (PerfGlobalGroupMask[0] & 4) != 0 )
+        if ( (PerfGlobalGroupMask & 4) != 0 )
         {
           if ( *(_QWORD *)(v25 + 464) )
           {

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1400671B0
+ * XREFs of KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140066D30
  * Callers:
- *     MiInsertLargePageInNodeListHelper @ 0x14001B760 (MiInsertLargePageInNodeListHelper.c)
- *     MiCoalesceFreeLargePages @ 0x1401FCC90 (MiCoalesceFreeLargePages.c)
- *     MiRebuildLargePages @ 0x1401FDB30 (MiRebuildLargePages.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14001B2E0 (MiInsertLargePageInNodeListHelper.c)
+ *     MiCoalesceFreeLargePages @ 0x1401FCABC (MiCoalesceFreeLargePages.c)
+ *     MiRebuildLargePages @ 0x1401FD95C (MiRebuildLargePages.c)
  *     PnprMirrorMarkedPages @ 0x1403DC208 (PnprMirrorMarkedPages.c)
  * Callees:
  *     <none>

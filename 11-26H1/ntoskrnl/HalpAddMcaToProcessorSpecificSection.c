@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAddMcaToProcessorSpecificSection @ 0x140452B9C
+ * XREFs of HalpAddMcaToProcessorSpecificSection @ 0x14044ACCC
  * Callers:
- *     HalpCreateMcaProcessorErrorRecord @ 0x140452784 (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x14044A8B4 (HalpCreateMcaProcessorErrorRecord.c)
  * Callees:
- *     HalpWheaGetApicId @ 0x140454160 (HalpWheaGetApicId.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpWheaGetApicId @ 0x14044C290 (HalpWheaGetApicId.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpAddMcaToProcessorSpecificSection(__int64 a1, GUID *a2, unsigned int *a3)

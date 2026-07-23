@@ -12,15 +12,15 @@
  *     SeQuerySecurityAttributesToken @ 0x1409F23F0 (SeQuerySecurityAttributesToken.c)
  */
 
-NTSTATUS __fastcall RtlQueryPackageClaims(
-        __int64 a1,
-        wchar_t *a2,
-        size_t *a3,
-        wchar_t *a4,
-        size_t *a5,
-        GUID *Guid,
-        _QWORD *a7,
-        _QWORD *a8)
+NTSTATUS __cdecl RtlQueryPackageClaims(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PGUID DynamicId,
+        PPS_PKG_CLAIM PkgClaim,
+        PULONG64 AttributesPresent)
 {
   unsigned __int8 v10; // r14
   int v11; // esi
@@ -44,17 +44,17 @@ NTSTATUS __fastcall RtlQueryPackageClaims(
   int v29; // [rsp+74h] [rbp-8Ch]
   __int64 v30; // [rsp+78h] [rbp-88h]
 
-  pszDest = a2;
-  *(_QWORD *)v23 = a1;
-  v27 = a5;
+  pszDest = PackageFullName;
+  *(_QWORD *)v23 = TokenHandle;
+  v27 = AppIdSize;
   v25 = 0LL;
   memset_0(v28, 0, 0x330uLL);
   ppszDestEnd = 0LL;
-  if ( a8 )
-    *a8 = 0LL;
+  if ( AttributesPresent )
+    *AttributesPresent = 0LL;
   v10 = 1;
   v11 = 1;
-  if ( a7 || a8 )
+  if ( PkgClaim || AttributesPresent )
     v11 = 2;
   LODWORD(dwFlags) = 816;
   result = SeQuerySecurityAttributesToken(v23[0], (int)&qword_140002C50, v11, v28, dwFlags, (__int64)&v22);
@@ -78,19 +78,19 @@ NTSTATUS __fastcall RtlQueryPackageClaims(
   if ( !v29 )
     return -1073741275;
   v14 = v30;
-  if ( a7 )
+  if ( PkgClaim )
   {
     if ( v10 )
-      *a7 = **(_QWORD **)(v30 + 72);
+      *PkgClaim = **(PPS_PKG_CLAIM *)(v30 + 72);
     else
-      *a7 = 0LL;
+      *PkgClaim = 0LL;
   }
-  if ( a8 )
+  if ( AttributesPresent )
   {
-    *a8 |= (2LL * v10) | 1;
+    *AttributesPresent |= (2LL * v10) | 1;
     LODWORD(dwFlagsa) = 0;
     if ( (unsigned int)SeQuerySecurityAttributesToken(v13, (int)&qword_140002C70, 1, 0LL, dwFlagsa, (__int64)&v22) == -1073741789 )
-      *a8 |= 4uLL;
+      *AttributesPresent |= 4uLL;
     LODWORD(dwFlagsb) = 0;
     SecurityAttributesToken = SeQuerySecurityAttributesToken(
                                 v13,
@@ -101,16 +101,16 @@ NTSTATUS __fastcall RtlQueryPackageClaims(
                                 (__int64)&v22);
     v14 = v30;
     if ( SecurityAttributesToken == -1073741789 )
-      *a8 |= 8uLL;
+      *AttributesPresent |= 8uLL;
   }
   v15 = pszDest;
   if ( pszDest )
   {
-    if ( a3 )
+    if ( PackageSize )
     {
       result = RtlStringCbPrintfExW(
                  pszDest,
-                 *a3,
+                 *PackageSize,
                  &ppszDestEnd,
                  (size_t *)&pszDest,
                  0x800u,
@@ -120,30 +120,30 @@ NTSTATUS __fastcall RtlQueryPackageClaims(
       if ( result < 0 )
         return result;
       v14 = v30;
-      *a3 = (char *)ppszDestEnd - (char *)v15 + 2;
+      *PackageSize = (char *)ppszDestEnd - (char *)v15 + 2;
       goto LABEL_22;
     }
     return -1073741811;
   }
   v16 = 0;
-  if ( a3 )
+  if ( PackageSize )
     return -1073741811;
 LABEL_22:
-  if ( a4 )
+  if ( AppId )
   {
     v17 = v27;
-    result = RtlStringCbPrintfExW(a4, *v27, &v25, 0LL, 0x800u, L"%wZ", *(_QWORD *)(v14 + 32) + 16LL);
+    result = RtlStringCbPrintfExW(AppId, *v27, &v25, 0LL, 0x800u, L"%wZ", *(_QWORD *)(v14 + 32) + 16LL);
     v16 = result;
     if ( result < 0 )
       return result;
     v14 = v30;
-    *v17 = (char *)v25 - (char *)a4 + 2;
+    *v17 = (char *)v25 - (char *)AppId + 2;
   }
-  if ( Guid )
+  if ( DynamicId )
   {
-    *Guid = 0LL;
+    *DynamicId = 0LL;
     if ( *(_DWORD *)(v14 + 24) > 3u )
-      RtlGUIDFromString((PCUNICODE_STRING)(*(_QWORD *)(v14 + 32) + 48LL), Guid);
+      RtlGUIDFromString((PCUNICODE_STRING)(*(_QWORD *)(v14 + 32) + 48LL), DynamicId);
   }
   return v16;
 }

@@ -1,18 +1,23 @@
 /*
- * XREFs of LdrForkMrdata @ 0x180131D0C
+ * XREFs of LdrForkMrdata @ 0x18012FF3C
  * Callers:
- *     RtlCloneUserProcess @ 0x18015F270 (RtlCloneUserProcess.c)
- *     RtlCompleteProcessCloning @ 0x18015F580 (RtlCompleteProcessCloning.c)
- *     RtlPrepareForProcessCloning @ 0x18015F730 (RtlPrepareForProcessCloning.c)
+ *     RtlCloneUserProcess @ 0x18015D630 (RtlCloneUserProcess.c)
+ *     RtlCompleteProcessCloning @ 0x18015D940 (RtlCompleteProcessCloning.c)
+ *     RtlPrepareForProcessCloning @ 0x18015DAF0 (RtlPrepareForProcessCloning.c)
  * Callees:
  *     <none>
  */
 
-struct _TEB *__fastcall LdrForkMrdata(int a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __fastcall LdrForkMrdata(int a1)
 {
-  if ( !a1 )
-    return RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock, a2, a3);
-  if ( a1 == 1 )
-    LdrpMrdataLock = 1LL;
-  return (struct _TEB *)RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  if ( a1 )
+  {
+    if ( a1 == 1 )
+      LdrpMrdataLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
+    RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  }
+  else
+  {
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+  }
 }

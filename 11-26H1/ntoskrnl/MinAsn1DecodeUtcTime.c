@@ -1,12 +1,12 @@
 /*
- * XREFs of MinAsn1DecodeUtcTime @ 0x1408A4588
+ * XREFs of MinAsn1DecodeUtcTime @ 0x1408AA998
  * Callers:
- *     MinAsn1DecodeTime @ 0x1408A4510 (MinAsn1DecodeTime.c)
+ *     MinAsn1DecodeTime @ 0x1408AA920 (MinAsn1DecodeTime.c)
  * Callees:
- *     atoi @ 0x140535D60 (atoi.c)
- *     isdigit @ 0x140536BA0 (isdigit.c)
- *     I_MinAsn1CalculateTimeOffset @ 0x1408A3E0C (I_MinAsn1CalculateTimeOffset.c)
- *     I_MinAsn1ConvertTime @ 0x1408A3EFC (I_MinAsn1ConvertTime.c)
+ *     atoi @ 0x1405381E0 (atoi.c)
+ *     isdigit @ 0x140539020 (isdigit.c)
+ *     I_MinAsn1CalculateTimeOffset @ 0x1408AA21C (I_MinAsn1CalculateTimeOffset.c)
+ *     I_MinAsn1ConvertTime @ 0x1408AA30C (I_MinAsn1ConvertTime.c)
  */
 
 bool __fastcall MinAsn1DecodeUtcTime(__int64 a1, LARGE_INTEGER *a2)

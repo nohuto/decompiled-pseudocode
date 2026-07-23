@@ -1,32 +1,32 @@
 /*
- * XREFs of PsReferencePartitionSystemProcess @ 0x140A51CF0
+ * XREFs of PsReferencePartitionSystemProcess @ 0x140A48DC0
  * Callers:
- *     ExSwapinWorkerThreads @ 0x140A51B34 (ExSwapinWorkerThreads.c)
+ *     ExSwapinWorkerThreads @ 0x140A48C04 (ExSwapinWorkerThreads.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall PsReferencePartitionSystemProcess(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v3; // rbx
-  _QWORD *v6; // rdi
+  char *v6; // rdi
   PVOID v7; // rcx
   unsigned int v8; // edi
 
   CurrentThread = KeGetCurrentThread();
   v3 = (signed __int64 *)(a1 + 112);
   --CurrentThread->KernelApcDisable;
-  v6 = KeAbPreAcquire(a1 + 112, 0LL);
+  v6 = (char *)KeAbPreAcquire(a1 + 112, 0LL);
   if ( _InterlockedCompareExchange64(v3, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v3, 0, v6, (__int64)v3);
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   v7 = *(PVOID *)(a1 + 120);
   if ( v7 == MmBadPointer )
   {

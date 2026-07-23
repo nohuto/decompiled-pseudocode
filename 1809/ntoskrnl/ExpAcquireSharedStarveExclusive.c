@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpAcquireSharedStarveExclusive @ 0x1400B1A10
+ * XREFs of ExpAcquireSharedStarveExclusive @ 0x1400B1950
  * Callers:
- *     ExAcquireSharedStarveExclusive @ 0x1400AE0A0 (ExAcquireSharedStarveExclusive.c)
- *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1400ADFE0 (ExAcquireSharedStarveExclusive.c)
+ *     CcPinFileData @ 0x1400AE210 (CcPinFileData.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpApplyPrewaitBoost @ 0x1400D1BD8 (ExpApplyPrewaitBoost.c)
- *     ExpFindEmptyEntry @ 0x140108214 (ExpFindEmptyEntry.c)
- *     ExpBoostIoAfterAcquire @ 0x140108270 (ExpBoostIoAfterAcquire.c)
- *     ExpFindCurrentThread @ 0x1401083C0 (ExpFindCurrentThread.c)
- *     ExpWaitForResource @ 0x1401138F0 (ExpWaitForResource.c)
- *     ExpGetThreadResourceHint @ 0x1401143A0 (ExpGetThreadResourceHint.c)
- *     ExpTryAcquireResourceSharedStarveExclusive @ 0x14012E538 (ExpTryAcquireResourceSharedStarveExclusive.c)
- *     ExpPrepareToWaitForResourceShared @ 0x140137E00 (ExpPrepareToWaitForResourceShared.c)
- *     PerfLogExecutiveResourceAcquire @ 0x140313480 (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceWait @ 0x140313948 (PerfLogExecutiveResourceWait.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpApplyPrewaitBoost @ 0x1400D1C58 (ExpApplyPrewaitBoost.c)
+ *     ExpFindEmptyEntry @ 0x140108294 (ExpFindEmptyEntry.c)
+ *     ExpBoostIoAfterAcquire @ 0x1401082F0 (ExpBoostIoAfterAcquire.c)
+ *     ExpFindCurrentThread @ 0x140108440 (ExpFindCurrentThread.c)
+ *     ExpWaitForResource @ 0x140113960 (ExpWaitForResource.c)
+ *     ExpGetThreadResourceHint @ 0x140114410 (ExpGetThreadResourceHint.c)
+ *     ExpTryAcquireResourceSharedStarveExclusive @ 0x14012E608 (ExpTryAcquireResourceSharedStarveExclusive.c)
+ *     ExpPrepareToWaitForResourceShared @ 0x140137F00 (ExpPrepareToWaitForResourceShared.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x140313670 (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x140313B38 (PerfLogExecutiveResourceWait.c)
  */
 
 char __fastcall ExpAcquireSharedStarveExclusive(__int64 a1, char a2)

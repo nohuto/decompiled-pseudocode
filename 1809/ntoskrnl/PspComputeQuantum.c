@@ -1,8 +1,8 @@
 /*
- * XREFs of PspComputeQuantum @ 0x14064B318
+ * XREFs of PspComputeQuantum @ 0x14064C4D8
  * Callers:
- *     PspComputeQuantumAndPriority @ 0x14064B270 (PspComputeQuantumAndPriority.c)
- *     PsChangeQuantumTable @ 0x14071BFC8 (PsChangeQuantumTable.c)
+ *     PspComputeQuantumAndPriority @ 0x14064C430 (PspComputeQuantumAndPriority.c)
+ *     PsChangeQuantumTable @ 0x14071D268 (PsChangeQuantumTable.c)
  * Callees:
  *     <none>
  */

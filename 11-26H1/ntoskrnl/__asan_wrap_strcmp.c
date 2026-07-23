@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_wrap_strcmp @ 0x1405E1CC0
+ * XREFs of __asan_wrap_strcmp @ 0x1405E4630
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
  */
 
 __int64 __fastcall _asan_wrap_strcmp(unsigned __int8 *BugCheckParameter1, ULONG_PTR a2)

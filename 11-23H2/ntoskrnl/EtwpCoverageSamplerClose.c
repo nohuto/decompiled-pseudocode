@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCoverageSamplerClose @ 0x1409F3020
+ * XREFs of EtwpCoverageSamplerClose @ 0x1409F32B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     EtwpCoverageSamplerStop @ 0x1409F36C4 (EtwpCoverageSamplerStop.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     EtwpCoverageSamplerStop @ 0x1409F3954 (EtwpCoverageSamplerStop.c)
  */
 
 void __fastcall EtwpCoverageSamplerClose(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -22,14 +22,14 @@ void __fastcall EtwpCoverageSamplerClose(__int64 a1, __int64 a2, __int64 a3, __i
     v6 = 0;
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&EtwpCovSampGlobals, 0LL);
-    qword_140C31CA8 = (__int64)KeGetCurrentThread();
+    qword_140C31C48 = (__int64)KeGetCurrentThread();
     v7 = *(_DWORD *)(a2 + 1728);
     if ( (v7 & 1) == 0 )
     {
       v6 = 1;
       *(_DWORD *)(a2 + 1728) = v7 | 1;
     }
-    qword_140C31CA8 = 0LL;
+    qword_140C31C48 = 0LL;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCovSampGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCovSampGlobals);
     KeAbPostRelease((ULONG_PTR)&EtwpCovSampGlobals);

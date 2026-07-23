@@ -55,12 +55,14 @@
 
 void __stdcall __noreturn TppRaiseInvalidParameter()
 {
+  size_t v0; // [esp-4h] [ebp-84h]
   EXCEPTION_RECORD ExceptionRecord; // [esp+10h] [ebp-70h] BYREF
   CPPEH_RECORD ms_exc; // [esp+68h] [ebp-18h]
 
-  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+  LODWORD(v0) = 80;
+  memset(&ExceptionRecord, 0, v0);
   ExceptionRecord.ExceptionCode = -1073741811;
-  RtlSetLastWin32Error((struct _TEB *)0x57);
+  RtlSetLastWin32Error(87);
   ms_exc.registration.TryLevel = 0;
   RtlRaiseException(&ExceptionRecord);
 }

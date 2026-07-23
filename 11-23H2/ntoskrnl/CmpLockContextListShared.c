@@ -2,11 +2,11 @@
  * XREFs of CmpLockContextListShared @ 0x14068F348
  * Callers:
  *     CmSetCallbackObjectContext @ 0x14068F0A0 (CmSetCallbackObjectContext.c)
- *     CmpCallbackFillObjectContext @ 0x1406E8CF0 (CmpCallbackFillObjectContext.c)
- *     CmpGetCallbackObjectContext @ 0x1407AF530 (CmpGetCallbackObjectContext.c)
+ *     CmpCallbackFillObjectContext @ 0x1406E8D20 (CmpCallbackFillObjectContext.c)
+ *     CmpGetCallbackObjectContext @ 0x1407AF720 (CmpGetCallbackObjectContext.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 CmpLockContextListShared()

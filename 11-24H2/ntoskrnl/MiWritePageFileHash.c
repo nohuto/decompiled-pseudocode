@@ -1,24 +1,24 @@
 /*
- * XREFs of MiWritePageFileHash @ 0x14039E350
+ * XREFs of MiWritePageFileHash @ 0x140426540
  * Callers:
- *     MiMapPageFileHash @ 0x140486688 (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x140425FA8 (MiMapPageFileHash.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiGetPagingFileOffset @ 0x1402E5A60 (MiGetPagingFileOffset.c)
- *     MiIsPfnOriginalPteLost @ 0x14039D8FC (MiIsPfnOriginalPteLost.c)
- *     MiWriteEntirePageHashEntry @ 0x14039E750 (MiWriteEntirePageHashEntry.c)
- *     MiTransferSoftwarePte @ 0x14039F300 (MiTransferSoftwarePte.c)
- *     MiComputePageHash @ 0x140434B10 (MiComputePageHash.c)
- *     MiPageHashBugCheck @ 0x1406912B8 (MiPageHashBugCheck.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiTransferSoftwarePte @ 0x140215AA0 (MiTransferSoftwarePte.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiIsPfnOriginalPteLost @ 0x1402FABFC (MiIsPfnOriginalPteLost.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetPagingFileOffset @ 0x140341C00 (MiGetPagingFileOffset.c)
+ *     MiWriteEntirePageHashEntry @ 0x140426940 (MiWriteEntirePageHashEntry.c)
+ *     MiComputePageHash @ 0x140426970 (MiComputePageHash.c)
+ *     MiPageHashBugCheck @ 0x140692388 (MiPageHashBugCheck.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-__int64 __fastcall MiWritePageFileHash(__int64 a1, _QWORD *a2, int a3, unsigned int a4)
+__int64 __fastcall MiWritePageFileHash(__int64 a1, _QWORD *a2, int a3, __int64 a4)
 {
   unsigned int v4; // ebx
   __int64 v5; // r12
@@ -51,6 +51,7 @@ __int64 __fastcall MiWritePageFileHash(__int64 a1, _QWORD *a2, int a3, unsigned 
   __int64 v33; // [rsp+38h] [rbp-170h]
   unsigned int v35; // [rsp+48h] [rbp-160h]
   BOOL v36; // [rsp+4Ch] [rbp-15Ch]
+  unsigned int v37; // [rsp+50h] [rbp-158h]
   _DWORD *v38; // [rsp+58h] [rbp-150h]
   _BYTE v39[256]; // [rsp+60h] [rbp-148h] BYREF
 
@@ -61,8 +62,9 @@ __int64 __fastcall MiWritePageFileHash(__int64 a1, _QWORD *a2, int a3, unsigned 
   v33 = 0LL;
   v31 = 17;
   v7 = 0;
-  result = a4;
-  v10 = dword_140E37290 != 0;
+  result = (unsigned int)a4;
+  v37 = a4;
+  v10 = dword_140E373D0 != 0;
   v11 = a3;
   v36 = v10;
   for ( i = 0; ; ++i )
@@ -78,7 +80,7 @@ __int64 __fastcall MiWritePageFileHash(__int64 a1, _QWORD *a2, int a3, unsigned 
         *(_DWORD *)&v39[16 * v4 + 4] = 0;
       }
       v13 = *a2;
-      if ( *a2 == qword_140E37378 )
+      if ( *a2 == qword_140E374B8 )
       {
         ++v4;
         goto LABEL_10;
@@ -105,12 +107,12 @@ LABEL_10:
       else
       {
         v33 = 48 * v13 - 0x220000000000LL;
-        v31 = MiLockPageInline(v33);
+        v31 = MiLockPageInline(v33, 1LL, 0xFFFFDE0000000000uLL, a4);
       }
       v16 = *(_QWORD *)(v15 + 8);
       if ( (*(_QWORD *)(v15 + 40) & 0xFFFFFFFFFFLL) == v13 )
         v16 = 0xFFFFF6FB7DBEDF68uLL;
-      MiTransferSoftwarePte(CLFS_LSN_NULL_EXT, a1, v4 + v32, 1LL);
+      MiTransferSoftwarePte(CLFS_LSN_NULL_EXT, a1, v4 + v32, 1);
       if ( (unsigned int)MiIsPfnOriginalPteLost(v15) )
       {
         v14 = 0;
@@ -121,7 +123,7 @@ LABEL_10:
         v17 = v18 ^ (v18 ^ v17) & 0xFFFFFFFFFFFFFC1FuLL;
       }
       v19 = (v17 >> 5) & 0x1F;
-      if ( (dword_140FC4200 & 1) == 0 && (_DWORD)v19 != 31 )
+      if ( (dword_140FC5200 & 1) == 0 && (_DWORD)v19 != 31 )
       {
         if ( (unsigned int)v19 >> 3 == 3 )
         {
@@ -166,13 +168,13 @@ LABEL_30:
       v22 = ExAcquireSpinLockExclusive(v21);
     }
     v23 = v36;
-    v24 = *(_QWORD *)(a1 + 184) + (unsigned int)(dword_140E3728C * v11);
+    v24 = *(_QWORD *)(a1 + 184) + (unsigned int)(dword_140E373CC * v11);
     for ( j = 0; j < v4; j = v27 + 1 )
     {
-      if ( (*(_DWORD *)v24 > 1u || v23 && (*(_BYTE *)(v24 + 8) & 1) != 0) && !dword_140E30154 )
+      if ( (*(_DWORD *)v24 > 1u || v23 && (*(_BYTE *)(v24 + 8) & 1) != 0) && !dword_140E30294 )
         MiPageHashBugCheck(0x60uLL, v11 + j, (int)&v39[16 * j]);
       MiWriteEntirePageHashEntry(v24, &v39[16 * j]);
-      v24 = (unsigned int)dword_140E3728C + v26;
+      v24 = (unsigned int)dword_140E373CC + v26;
     }
     MiReleaseSpinLockExclusive(v21, v22);
     v11 += v4;
@@ -185,7 +187,7 @@ LABEL_30:
         v29 = v31;
         do
         {
-          if ( *v28 != qword_140E37378 )
+          if ( *v28 != qword_140E374B8 )
           {
             v30 = 48LL * *v28 - 0x220000000000LL;
             if ( v30 == v5 )
@@ -216,7 +218,7 @@ LABEL_12:
     v10 = v36;
     ++a2;
     v6 = a1;
-    result = a4;
+    result = v37;
   }
   return result;
 }

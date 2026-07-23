@@ -1,10 +1,10 @@
 /*
- * XREFs of KasanMarkAddressInvalid @ 0x1405651C0
+ * XREFs of KasanMarkAddressInvalid @ 0x140565880
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KasanMarkAddressInvalid(

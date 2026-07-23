@@ -15,9 +15,9 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatAsSingle(__int64 a1, unsigned __in
   __int64 result; // rax
   unsigned __int8 v6; // cl
   __int64 v7; // rdx
-  __int64 (__fastcall *v8)(__int64 *, __int64, unsigned int, _DWORD *); // rax
+  __int64 (__fastcall *v8)(int, __int64, __int64, _DWORD *); // rax
   __int64 v9; // r8
-  __int64 *v10; // rcx
+  __int64 v10; // rcx
   int v11; // [rsp+50h] [rbp+18h] BYREF
   int v12; // [rsp+58h] [rbp+20h] BYREF
 
@@ -30,9 +30,9 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatAsSingle(__int64 a1, unsigned __in
   if ( !v11
     || ((v6 = a2[38],
          v7 = (__int64)&a2[v11 << 12 << v6],
-         v8 = (__int64 (__fastcall *)(__int64 *, __int64, unsigned int, _DWORD *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24)),
+         v8 = (__int64 (__fastcall *)(int, __int64, __int64, _DWORD *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24)),
          v9 = ((unsigned int)a2[39] - v11) << 12 << v6,
-         v10 = *(__int64 **)a1,
+         v10 = *(_QWORD *)a1,
          v8 != RtlpHpSegLfhVsCommit)
       ? (result = v8(v10, v7, v9, 0LL))
       : (result = RtlpHpSegLfhVsCommit(v10, v7, v9, 0LL)),

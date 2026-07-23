@@ -1,11 +1,11 @@
 /*
- * XREFs of __remainder_piby2 @ 0x18009EB24
+ * XREFs of __remainder_piby2 @ 0x18009EB14
  * Callers:
  *     cos @ 0x180099640 (cos.c)
  *     sin @ 0x180099A60 (sin.c)
- *     tan @ 0x18009BEE0 (tan.c)
+ *     tan @ 0x18009BED0 (tan.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall _remainder_piby2(double a1, double *a2, double *a3, int *a4)

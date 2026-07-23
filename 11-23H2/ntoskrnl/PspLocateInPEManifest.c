@@ -1,16 +1,16 @@
 /*
- * XREFs of PspLocateInPEManifest @ 0x1407A2A40
+ * XREFs of PspLocateInPEManifest @ 0x1407A2C30
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x1407A125C (PspSetupUserProcessAddressSpace.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1407A144C (PspSetupUserProcessAddressSpace.c)
  * Callees:
- *     LdrResSearchResource @ 0x140759C40 (LdrResSearchResource.c)
- *     MmCheckImageMapping @ 0x1407A5920 (MmCheckImageMapping.c)
+ *     LdrResSearchResource @ 0x140759E30 (LdrResSearchResource.c)
+ *     MmCheckImageMapping @ 0x1407A5B10 (MmCheckImageMapping.c)
  */
 
 __int64 __fastcall PspLocateInPEManifest(__int64 a1, __int64 a2)
 {
   bool v2; // zf
-  ULONGLONG v4; // r10
+  unsigned __int64 v4; // r10
   __int64 result; // rax
   int v6; // eax
   __int16 v7; // ax

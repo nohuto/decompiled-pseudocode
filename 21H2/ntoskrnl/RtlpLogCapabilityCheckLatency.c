@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLogCapabilityCheckLatency @ 0x14091B674
+ * XREFs of RtlpLogCapabilityCheckLatency @ 0x14091B7D4
  * Callers:
- *     RtlCapabilityCheck @ 0x140913350 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x1409134B0 (RtlCapabilityCheck.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlRunOnceExecuteOnce @ 0x14068A9B0 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x1405E9E40 (RtlRunOnceExecuteOnce.c)
  */
 
 signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, char a4, char a5, char a6)
@@ -49,9 +49,9 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
             result = _InterlockedDecrement16(&TelemetryEventThrottle);
             if ( !result )
             {
-              if ( (unsigned int)dword_140C0EF10 > 5 )
+              if ( (unsigned int)dword_140C0EF20 > 5 )
               {
-                if ( tlgKeywordOn((__int64)&dword_140C0EF10, 0x200000000000LL) )
+                if ( tlgKeywordOn((__int64)&dword_140C0EF20, 0x200000000000LL) )
                 {
                   v12 = 1000000LL * (*a2 - *a1);
                   v20 = 8LL;
@@ -70,8 +70,8 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
                   v26 = 1LL;
                   v28 = 1LL;
                   tlgWriteTransfer_EtwWriteTransfer(
-                    (__int64)&dword_140C0EF10,
-                    (unsigned __int8 *)byte_14002C2E1,
+                    (__int64)&dword_140C0EF20,
+                    (unsigned __int8 *)byte_14002C3A1,
                     0LL,
                     v11,
                     7u,

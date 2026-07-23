@@ -1,40 +1,40 @@
 /*
- * XREFs of WheapReportDeferredLiveDumps @ 0x1408496B4
+ * XREFs of WheapReportDeferredLiveDumps @ 0x14084F9C4
  * Callers:
- *     WheaCrashDumpInitializationComplete @ 0x140849650 (WheaCrashDumpInitializationComplete.c)
+ *     WheaCrashDumpInitializationComplete @ 0x14084F960 (WheaCrashDumpInitializationComplete.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     WheapReportLiveDump @ 0x1408497BC (WheapReportLiveDump.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     WheapReportLiveDump @ 0x14084FACC (WheapReportLiveDump.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 WheapReportDeferredLiveDumps()
 {
-  struct _LIST_ENTRY *v0; // rbx
-  struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *v2; // rcx
+  void *v0; // rbx
+  void *v1; // rax
+  __int64 v2; // rcx
   bool v3; // di
   unsigned int v4; // esi
-  struct _LIST_ENTRY *v5; // rax
+  __int64 v5; // rax
 
   v0 = 0LL;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpCallbackListLock.UserAffinity);
-  Flink = CmpCallbackListLock.QueueListEntry.Flink;
-  if ( CmpCallbackListLock.QueueListEntry.Flink != &CmpCallbackListLock.QueueListEntry )
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpContextListLock.Process);
+  v1 = *(void **)&CmpContextListLock.ThreadFlags2;
+  if ( *(struct _KTHREAD **)&CmpContextListLock.ThreadFlags2 != (struct _KTHREAD *)&CmpContextListLock.512 )
   {
-    if ( CmpCallbackListLock.QueueListEntry.Flink->Blink != &CmpCallbackListLock.QueueListEntry
-      || (v2 = CmpCallbackListLock.QueueListEntry.Flink->Flink,
-          CmpCallbackListLock.QueueListEntry.Flink->Flink->Blink != CmpCallbackListLock.QueueListEntry.Flink) )
+    if ( *(struct _KTHREAD **)(*(_QWORD *)&CmpContextListLock.ThreadFlags2 + 8LL) != (struct _KTHREAD *)&CmpContextListLock.512
+      || (v2 = **(_QWORD **)&CmpContextListLock.ThreadFlags2,
+          *(_QWORD *)(**(_QWORD **)&CmpContextListLock.ThreadFlags2 + 8LL) != *(_QWORD *)&CmpContextListLock.ThreadFlags2) )
     {
 LABEL_18:
       __fastfail(3u);
     }
-    CmpCallbackListLock.QueueListEntry.Flink = CmpCallbackListLock.QueueListEntry.Flink->Flink;
-    v0 = Flink;
-    v2->Blink = &CmpCallbackListLock.QueueListEntry;
+    *(_QWORD *)&CmpContextListLock.ThreadFlags2 = **(_QWORD **)&CmpContextListLock.ThreadFlags2;
+    v0 = v1;
+    *(_QWORD *)(v2 + 8) = &CmpContextListLock.512;
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpCallbackListLock.UserAffinity);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpContextListLock.Process);
   v3 = 0;
   v4 = 0;
   while ( v0 )
@@ -44,23 +44,23 @@ LABEL_18:
     ExFreePoolWithTag(v0, 0x61656857u);
     if ( !v3 )
       v3 = v4 != 0;
-    ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpCallbackListLock.UserAffinity);
-    v0 = CmpCallbackListLock.QueueListEntry.Flink;
-    if ( CmpCallbackListLock.QueueListEntry.Flink == &CmpCallbackListLock.QueueListEntry )
+    ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpContextListLock.Process);
+    v0 = *(void **)&CmpContextListLock.ThreadFlags2;
+    if ( *(struct _KTHREAD **)&CmpContextListLock.ThreadFlags2 == (struct _KTHREAD *)&CmpContextListLock.512 )
     {
       v0 = 0LL;
     }
     else
     {
-      if ( CmpCallbackListLock.QueueListEntry.Flink->Blink != &CmpCallbackListLock.QueueListEntry )
+      if ( *(struct _KTHREAD **)(*(_QWORD *)&CmpContextListLock.ThreadFlags2 + 8LL) != (struct _KTHREAD *)&CmpContextListLock.512 )
         goto LABEL_18;
-      v5 = CmpCallbackListLock.QueueListEntry.Flink->Flink;
-      if ( CmpCallbackListLock.QueueListEntry.Flink->Flink->Blink != CmpCallbackListLock.QueueListEntry.Flink )
+      v5 = **(_QWORD **)&CmpContextListLock.ThreadFlags2;
+      if ( *(_QWORD *)(**(_QWORD **)&CmpContextListLock.ThreadFlags2 + 8LL) != *(_QWORD *)&CmpContextListLock.ThreadFlags2 )
         goto LABEL_18;
-      CmpCallbackListLock.QueueListEntry.Flink = CmpCallbackListLock.QueueListEntry.Flink->Flink;
-      v5->Blink = &CmpCallbackListLock.QueueListEntry;
+      *(_QWORD *)&CmpContextListLock.ThreadFlags2 = **(_QWORD **)&CmpContextListLock.ThreadFlags2;
+      *(_QWORD *)(v5 + 8) = &CmpContextListLock.512;
     }
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpCallbackListLock.UserAffinity);
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpContextListLock.Process);
   }
   return v4;
 }

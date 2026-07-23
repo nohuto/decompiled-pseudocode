@@ -1,15 +1,15 @@
 /*
- * XREFs of PsSuspendThread @ 0x140507C94
+ * XREFs of PsSuspendThread @ 0x1404EAC24
  * Callers:
- *     NtSuspendThread @ 0x140507BE0 (NtSuspendThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x14061874C (DbgkpPostFakeThreadMessages.c)
- *     PsSuspendProcess @ 0x14068202C (PsSuspendProcess.c)
+ *     NtSuspendThread @ 0x1404EAB70 (NtSuspendThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140618800 (DbgkpPostFakeThreadMessages.c)
+ *     PsSuspendProcess @ 0x140682110 (PsSuspendProcess.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSuspendThread @ 0x1400C98A8 (KeSuspendThread.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     EtwTiLogSuspendResumeThread @ 0x1406A6110 (EtwTiLogSuspendResumeThread.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSuspendThread @ 0x1400C7748 (KeSuspendThread.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1406A6248 (EtwTiLogSuspendResumeThread.c)
  */
 
 __int64 __fastcall PsSuspendThread(__int64 a1, _DWORD *a2)

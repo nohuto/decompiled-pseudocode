@@ -1,11 +1,11 @@
 /*
- * XREFs of PspAddPartitionToGlobalList @ 0x1401908F4
+ * XREFs of PspAddPartitionToGlobalList @ 0x140190A34
  * Callers:
- *     PspAllocatePartition @ 0x14075CA48 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x14075DC38 (PspAllocatePartition.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspAddPartitionToGlobalList(__int64 a1)
@@ -17,14 +17,14 @@ __int64 __fastcall PspAddPartitionToGlobalList(__int64 a1)
   struct _KPRCB *CurrentPrcb; // rcx
 
   v2 = ExAcquireSpinLockExclusive(&PspActivePartitionListLock);
-  v3 = off_140400260;
+  v3 = off_140401260;
   v4 = a1 + 40;
-  if ( *off_140400260 != (_UNKNOWN *)&PspActivePartitionListHead )
+  if ( *off_140401260 != (_UNKNOWN *)&PspActivePartitionListHead )
     __fastfail(3u);
   *(_QWORD *)v4 = &PspActivePartitionListHead;
   *(_QWORD *)(v4 + 8) = v3;
   *v3 = v4;
-  off_140400260 = (_UNKNOWN **)v4;
+  off_140401260 = (_UNKNOWN **)v4;
   ExReleaseSpinLockExclusiveFromDpcLevel(&PspActivePartitionListLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )
   {

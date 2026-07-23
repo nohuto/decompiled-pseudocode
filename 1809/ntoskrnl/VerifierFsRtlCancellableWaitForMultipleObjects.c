@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierFsRtlCancellableWaitForMultipleObjects @ 0x140931040
+ * XREFs of VerifierFsRtlCancellableWaitForMultipleObjects @ 0x140932040
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierFsRtlCancellableWaitForMultipleObjects(__int64 a1, __int64 a2)

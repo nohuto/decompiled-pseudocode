@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationSymbolicLink(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(LinkHandle);
 }

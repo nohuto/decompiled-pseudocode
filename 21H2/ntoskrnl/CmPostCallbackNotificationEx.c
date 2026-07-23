@@ -1,21 +1,21 @@
 /*
- * XREFs of CmPostCallbackNotificationEx @ 0x1406F8480
+ * XREFs of CmPostCallbackNotificationEx @ 0x14070F860
  * Callers:
- *     NtSetValueKey @ 0x140663DC0 (NtSetValueKey.c)
- *     CmpSecurityMethod @ 0x140665120 (CmpSecurityMethod.c)
- *     NtDeleteValueKey @ 0x140669100 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x14066C210 (NtDeleteKey.c)
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
- *     NtQueryMultipleValueKey @ 0x1406A1E20 (NtQueryMultipleValueKey.c)
- *     NtFlushKey @ 0x1406B3C40 (NtFlushKey.c)
- *     CmpParseKey @ 0x1406F8C10 (CmpParseKey.c)
- *     NtSaveKeyEx @ 0x140728950 (NtSaveKeyEx.c)
- *     NtRenameKey @ 0x140868C30 (NtRenameKey.c)
- *     NtReplaceKey @ 0x140869140 (NtReplaceKey.c)
- *     NtRestoreKey @ 0x1408694D0 (NtRestoreKey.c)
+ *     NtQueryMultipleValueKey @ 0x140601D50 (NtQueryMultipleValueKey.c)
+ *     NtFlushKey @ 0x140612E10 (NtFlushKey.c)
+ *     NtSetValueKey @ 0x140658BE0 (NtSetValueKey.c)
+ *     CmpSecurityMethod @ 0x140659F40 (CmpSecurityMethod.c)
+ *     NtDeleteValueKey @ 0x14065DF20 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x140661030 (NtDeleteKey.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
+ *     CmpParseKey @ 0x14070FFF0 (CmpParseKey.c)
+ *     NtSaveKeyEx @ 0x140728E00 (NtSaveKeyEx.c)
+ *     NtRenameKey @ 0x140868D90 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x1408692A0 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x140869630 (NtRestoreKey.c)
  * Callees:
- *     ExIsResourceAcquiredSharedLite @ 0x14034FE80 (ExIsResourceAcquiredSharedLite.c)
- *     CmpCallCallBacksEx @ 0x1406F3440 (CmpCallCallBacksEx.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14035ABD0 (ExIsResourceAcquiredSharedLite.c)
+ *     CmpCallCallBacksEx @ 0x14070A820 (CmpCallCallBacksEx.c)
  */
 
 __int64 __fastcall CmPostCallbackNotificationEx(
@@ -26,7 +26,7 @@ __int64 __fastcall CmPostCallbackNotificationEx(
         __int64 a5,
         _QWORD *a6)
 {
-  struct _SLIST_ENTRY *v10; // r8
+  _SLIST_ENTRY *v10; // r8
   _QWORD v12[2]; // [rsp+40h] [rbp-58h] BYREF
   __int64 v13; // [rsp+50h] [rbp-48h] BYREF
   unsigned int v14; // [rsp+58h] [rbp-40h]
@@ -41,7 +41,7 @@ __int64 __fastcall CmPostCallbackNotificationEx(
     return a3;
   v15 = 0;
   v12[0] = &v13;
-  v10 = (struct _SLIST_ENTRY *)v12;
+  v10 = (_SLIST_ENTRY *)v12;
   v19 = 0LL;
   v20 = 0;
   if ( !a5 )

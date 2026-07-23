@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIncreaseNonPagedPoolUsage @ 0x1401035FC
+ * XREFs of MiIncreaseNonPagedPoolUsage @ 0x14010137C
  * Callers:
- *     MiScanLeafNonPagedPool @ 0x14001ADE0 (MiScanLeafNonPagedPool.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
+ *     MiScanLeafNonPagedPool @ 0x14001A960 (MiScanLeafNonPagedPool.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
  * Callees:
- *     MiCountNonPagedPool @ 0x140103CBC (MiCountNonPagedPool.c)
+ *     MiCountNonPagedPool @ 0x140101A3C (MiCountNonPagedPool.c)
  */
 
 __int64 __fastcall MiIncreaseNonPagedPoolUsage(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -25,6 +25,6 @@ __int64 __fastcall MiIncreaseNonPagedPoolUsage(__int64 a1, int a2, __int64 a3, _
   *(_QWORD *)(a1 + 280) += a4;
   if ( (unsigned __int64)MiCountNonPagedPool(a4, 1LL) >= 0x300 )
     return 0LL;
-  ++dword_1403264D4;
+  ++dword_140326514;
   return 1LL;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpKeyEnumStackNotifyPromotion @ 0x1409148B0
+ * XREFs of CmpKeyEnumStackNotifyPromotion @ 0x140908320
  * Callers:
- *     CmpPartialPromoteSubkeys @ 0x1407E3D00 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteSubtree @ 0x140914928 (CmpPromoteSubtree.c)
+ *     CmpPartialPromoteSubkeys @ 0x1407E4250 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteSubtree @ 0x140908398 (CmpPromoteSubtree.c)
  * Callees:
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     CmpKeyEnumStackEntryNotifyPromotion @ 0x140915004 (CmpKeyEnumStackEntryNotifyPromotion.c)
- *     CmpKeyNodeStackEntryReset @ 0x1409169DC (CmpKeyNodeStackEntryReset.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140916C2C (CmpKeyEnumStackGetEntryAtLayerHeight.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140916CB8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     CmpKeyEnumStackEntryNotifyPromotion @ 0x140908A74 (CmpKeyEnumStackEntryNotifyPromotion.c)
+ *     CmpKeyNodeStackEntryReset @ 0x14090A44C (CmpKeyNodeStackEntryReset.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14090A69C (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14090A728 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackNotifyPromotion(unsigned __int16 *a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdatePageFileList @ 0x140188158
+ * XREFs of MiUpdatePageFileList @ 0x140188298
  * Callers:
- *     MiIncreaseCommitLimits @ 0x140187E88 (MiIncreaseCommitLimits.c)
- *     MiInsertPageFileInList @ 0x14074C910 (MiInsertPageFileInList.c)
- *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
+ *     MiIncreaseCommitLimits @ 0x140187FC8 (MiIncreaseCommitLimits.c)
+ *     MiInsertPageFileInList @ 0x14074DB00 (MiInsertPageFileInList.c)
+ *     MiDeletePagefile @ 0x140854350 (MiDeletePagefile.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUpdatePageFileList(__int64 a1, int a2)
@@ -25,17 +25,17 @@ void __fastcall MiUpdatePageFileList(__int64 a1, int a2)
   if ( !*(_QWORD *)(a1 + 56) )
     return;
   v4 = (unsigned __int64 *)(a1 + 264);
-  v5 = ExAcquireSpinLockExclusive(&dword_14043AD78);
+  v5 = ExAcquireSpinLockExclusive(&dword_14043BE38);
   if ( !a2 )
   {
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_14043AD70, v4);
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_14043BE30, v4);
     goto LABEL_8;
   }
   v6 = *(_QWORD *)(a1 + 56);
   *(_WORD *)(a1 + 204) |= 0x100u;
   v7 = 0;
-  v8 = (_QWORD *)qword_14043AD70;
-  if ( !qword_14043AD70 )
+  v8 = (_QWORD *)qword_14043BE30;
+  if ( !qword_14043BE30 )
     goto LABEL_7;
   while ( v6 >= *(v8 - 26) )
   {
@@ -53,9 +53,9 @@ LABEL_11:
     goto LABEL_11;
   v7 = 0;
 LABEL_7:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_14043AD70, (unsigned __int64)v8, v7, v4);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_14043BE30, (unsigned __int64)v8, v7, v4);
 LABEL_8:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AD78);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BE38);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v5 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

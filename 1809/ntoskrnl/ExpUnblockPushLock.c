@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpUnblockPushLock @ 0x140111B80
+ * XREFs of ExpUnblockPushLock @ 0x140111BF0
  * Callers:
  *     RtlpCSparseBitmapPageDecommit @ 0x140008938 (RtlpCSparseBitmapPageDecommit.c)
  *     CmpTryToRundownHive @ 0x14000FCAC (CmpTryToRundownHive.c)
- *     ExSweepSingleHandle @ 0x14008D88C (ExSweepSingleHandle.c)
- *     MiUnlockImageSection @ 0x140097F18 (MiUnlockImageSection.c)
- *     ExBlockOnAddressPushLock @ 0x140111A10 (ExBlockOnAddressPushLock.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140111AE0 (ExTimedWaitForUnblockPushLock.c)
- *     CmpDecrementAppHiveUnloadCount @ 0x14013765C (CmpDecrementAppHiveUnloadCount.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     IopCheckHandleForRevocation @ 0x140284AA0 (IopCheckHandleForRevocation.c)
- *     PspHandleTableWalker @ 0x1402E9FE0 (PspHandleTableWalker.c)
- *     ExUnblockOnAddressPushLockEx @ 0x14031AF90 (ExUnblockOnAddressPushLockEx.c)
+ *     ExSweepSingleHandle @ 0x14008D7CC (ExSweepSingleHandle.c)
+ *     MiUnlockImageSection @ 0x140097E58 (MiUnlockImageSection.c)
+ *     ExBlockOnAddressPushLock @ 0x140111A80 (ExBlockOnAddressPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x140111B50 (ExTimedWaitForUnblockPushLock.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x14013775C (CmpDecrementAppHiveUnloadCount.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     IopCheckHandleForRevocation @ 0x140284C90 (IopCheckHandleForRevocation.c)
+ *     PspHandleTableWalker @ 0x1402EA1D0 (PspHandleTableWalker.c)
+ *     ExUnblockOnAddressPushLockEx @ 0x14031B180 (ExUnblockOnAddressPushLockEx.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140111AE0 (ExTimedWaitForUnblockPushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x140111B50 (ExTimedWaitForUnblockPushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall ExpUnblockPushLock(volatile __int64 *a1, void *a2, char a3)

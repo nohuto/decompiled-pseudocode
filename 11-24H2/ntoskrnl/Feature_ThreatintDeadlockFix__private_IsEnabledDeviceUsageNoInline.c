@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_ThreatintDeadlockFix__private_IsEnabledDeviceUsageNoInline @ 0x14064FF78
+ * XREFs of Feature_ThreatintDeadlockFix__private_IsEnabledDeviceUsageNoInline @ 0x14064E5BC
  * Callers:
- *     EtwTimLogBlockNonCetBinaries @ 0x1407AB488 (EtwTimLogBlockNonCetBinaries.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1407AC0C4 (EtwTimLogProhibitLowILImageMap.c)
- *     EtwpTimLogMitigationForProcess @ 0x140A6DB4C (EtwpTimLogMitigationForProcess.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x140AD9A3C (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     EtwTimLogBlockNonCetBinaries @ 0x1407AB958 (EtwTimLogBlockNonCetBinaries.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1407AC594 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwpTimLogMitigationForProcess @ 0x140A63DF0 (EtwpTimLogMitigationForProcess.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x140ADB280 (EtwTimLogProhibitNonMicrosoftBinaries.c)
  * Callees:
- *     Feature_ThreatintDeadlockFix__private_IsEnabledFallback @ 0x14064FFB0 (Feature_ThreatintDeadlockFix__private_IsEnabledFallback.c)
+ *     Feature_ThreatintDeadlockFix__private_IsEnabledFallback @ 0x14064E5F4 (Feature_ThreatintDeadlockFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ThreatintDeadlockFix__private_IsEnabledDeviceUsageNoInline()

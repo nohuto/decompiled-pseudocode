@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVsSlotAllocate @ 0x180012E08
+ * XREFs of RtlpHpVsSlotAllocate @ 0x18005E538
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x180012CA4 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x18005E3D4 (RtlpHpVsContextAllocate.c)
  * Callees:
- *     RtlpHpVsSlotAddSubsegment @ 0x1800130E0 (RtlpHpVsSlotAddSubsegment.c)
- *     RtlpHpVsSubsegmentCreate @ 0x1800131A4 (RtlpHpVsSubsegmentCreate.c)
- *     RtlpHpVsChunkSplit @ 0x180013304 (RtlpHpVsChunkSplit.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpVsSlotAddSubsegment @ 0x18005E810 (RtlpHpVsSlotAddSubsegment.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x18005E8D4 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsChunkSplit @ 0x18005EA34 (RtlpHpVsChunkSplit.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 _QWORD *__fastcall RtlpHpVsSlotAllocate(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, __int64 a5)
@@ -27,7 +27,6 @@ _QWORD *__fastcall RtlpHpVsSlotAllocate(__int64 a1, __int64 a2, unsigned int a3,
   __int64 v19; // rdi
   int v20; // ecx
   unsigned __int64 v21; // r8
-  __int64 v22; // rdx
 
   v5 = a2 + 16;
   v6 = a4;
@@ -97,7 +96,7 @@ LABEL_27:
             }
             if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
             {
-              RtlReleaseSRWLockExclusive(*(_QWORD *)(a5 + 8), v22);
+              RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a5 + 8));
               *(_QWORD *)(a5 + 8) = 0LL;
             }
             return (_QWORD *)v10;
@@ -118,7 +117,7 @@ LABEL_27:
     }
     if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive(*(_QWORD *)(a5 + 8), 0LL);
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a5 + 8));
       *(_QWORD *)(a5 + 8) = 0LL;
     }
     v19 = RtlpHpVsSubsegmentCreate(a1, a3, v13);
@@ -127,7 +126,7 @@ LABEL_27:
       if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
       {
         *(_QWORD *)(a5 + 8) = a2 + 8;
-        RtlAcquireSRWLockExclusive(a2 + 8);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 8));
       }
       RtlpHpVsSlotAddSubsegment(a1, a2, v19);
       v6 = a4;

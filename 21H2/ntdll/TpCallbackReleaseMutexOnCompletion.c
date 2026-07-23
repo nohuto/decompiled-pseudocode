@@ -1,21 +1,22 @@
 /*
- * XREFs of TpCallbackReleaseMutexOnCompletion @ 0x180112220
+ * XREFs of TpCallbackReleaseMutexOnCompletion @ 0x1801121E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall TpCallbackReleaseMutexOnCompletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl TpCallbackReleaseMutexOnCompletion(PTP_CALLBACK_INSTANCE Instance, HANDLE Mutex)
 {
-  __int64 result; // rax
+  __int64 v2; // r8
 
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  result = a2 - 1;
-  if ( (unsigned __int64)(a2 - 1) > 0xFFFFFFFFFFFFFFFDuLL || *(_DWORD *)(a1 + 152) )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  *(_DWORD *)(a1 + 144) |= 2u;
-  *(_DWORD *)(a1 + 152) = a2;
-  return result;
+  if ( !Instance || (char *)Mutex - 1 > (char *)0xFFFFFFFFFFFFFFFDLL || *((_DWORD *)Instance + 38) )
+  {
+    TppRaiseInvalidParameter(Instance, Mutex, v2);
+  }
+  else
+  {
+    *((_DWORD *)Instance + 36) |= 2u;
+    *((_DWORD *)Instance + 38) = (_DWORD)Mutex;
+  }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeHyperPteDemandZero @ 0x1403495B4
+ * XREFs of MiMakeHyperPteDemandZero @ 0x140349844
  * Callers:
- *     MiMakeHyperRangeAccessible @ 0x1402776B0 (MiMakeHyperRangeAccessible.c)
- *     MiFillHyperPtes @ 0x140349430 (MiFillHyperPtes.c)
+ *     MiMakeHyperRangeAccessible @ 0x140277940 (MiMakeHyperRangeAccessible.c)
+ *     MiFillHyperPtes @ 0x1403496C0 (MiFillHyperPtes.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
  */
 
 void __fastcall MiMakeHyperPteDemandZero(__int64 a1, __int64 a2, __int64 a3)

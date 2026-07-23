@@ -18,32 +18,32 @@
  *     _EtwEventWriteTransfer@28 @ 0x4B2E3CA0 (_EtwEventWriteTransfer@28.c)
  */
 
-int __fastcall _tlgWriteTransfer_EtwEventWriteTransfer(
-        _DWORD *a1,
+ULONG __fastcall _tlgWriteTransfer_EtwEventWriteTransfer(
+        int a1,
         unsigned __int8 *a2,
         int a3,
         int a4,
-        int a5,
-        _DWORD *a6)
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
   int v6; // eax
   unsigned __int16 *v7; // edx
-  _DWORD v9[6]; // [esp+8h] [ebp-18h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [esp+8h] [ebp-18h] BYREF
+  int v10; // [esp+1Ch] [ebp-4h]
 
-  v9[0] = *a2 << 24;
-  v9[1] = *(unsigned __int16 *)(a2 + 1);
-  v9[2] = *(_DWORD *)(a2 + 3);
+  *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
+  LODWORD(EventDescriptor.Keyword) = *(_DWORD *)(a2 + 3);
   v6 = *(_DWORD *)(a2 + 7);
   v7 = (unsigned __int16 *)(a2 + 11);
-  v9[3] = v6;
-  *a6 = a1[1];
-  a6[1] = 0;
-  a6[2] = *(unsigned __int16 *)a1[1];
-  a6[3] = 2;
-  a6[4] = v7;
-  a6[5] = 0;
-  a6[6] = *v7;
-  a6[7] = 1;
-  v9[5] = &_TraceLoggingMetadataEnd - (const UINT8 *)&_TraceLoggingMetadata;
-  return EtwEventWriteTransfer(a1[6], a1[7], (int)v9, 0, 0, a5, (int)a6);
+  HIDWORD(EventDescriptor.Keyword) = v6;
+  UserData->Ptr = *(unsigned int *)(a1 + 4);
+  UserData->Size = **(unsigned __int16 **)(a1 + 4);
+  UserData->Reserved = 2;
+  LODWORD(UserData[1].Ptr) = v7;
+  HIDWORD(UserData[1].Ptr) = 0;
+  UserData[1].Size = *v7;
+  UserData[1].Reserved = 1;
+  v10 = &_TraceLoggingMetadataEnd - (const UINT8 *)&_TraceLoggingMetadata;
+  return EtwEventWriteTransfer(*(_QWORD *)(a1 + 24), &EventDescriptor, 0, 0, UserDataCount, UserData);
 }

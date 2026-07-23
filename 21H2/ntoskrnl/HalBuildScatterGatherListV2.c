@@ -1,14 +1,14 @@
 /*
- * XREFs of HalBuildScatterGatherListV2 @ 0x14028E2A0
+ * XREFs of HalBuildScatterGatherListV2 @ 0x14020B440
  * Callers:
- *     HalGetScatterGatherList @ 0x1402B6240 (HalGetScatterGatherList.c)
+ *     HalGetScatterGatherList @ 0x140234420 (HalGetScatterGatherList.c)
  * Callees:
- *     HalpCalculateScatterGatherListSize @ 0x14028E560 (HalpCalculateScatterGatherListSize.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalAllocateAdapterChannel @ 0x1404B8AA0 (HalAllocateAdapterChannel.c)
- *     HalpDmaFlushBuffer @ 0x1404C755C (HalpDmaFlushBuffer.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalpCalculateScatterGatherListSize @ 0x14020B700 (HalpCalculateScatterGatherListSize.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalAllocateAdapterChannel @ 0x1404B8CE0 (HalAllocateAdapterChannel.c)
+ *     HalpDmaFlushBuffer @ 0x1404C779C (HalpDmaFlushBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalBuildScatterGatherListV2(

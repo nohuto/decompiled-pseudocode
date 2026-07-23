@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetSubsectionBase @ 0x1400B4BB8
+ * XREFs of MiSetSubsectionBase @ 0x1400B29F0
  * Callers:
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  * Callees:
- *     MiIncrementSubsectionViewCount @ 0x14002CF20 (MiIncrementSubsectionViewCount.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x14002CAA0 (MiIncrementSubsectionViewCount.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiSetSubsectionBase(__int64 a1, __int64 a2)

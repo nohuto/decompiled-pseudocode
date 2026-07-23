@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPageHasRelocations @ 0x1406B130C
+ * XREFs of MiPageHasRelocations @ 0x1406B133C
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiWalkEntireImagePageNeedsProcessing @ 0x1406560D0 (MiWalkEntireImagePageNeedsProcessing.c)
- *     MiRevertRelocatedImagePfn @ 0x1406B1250 (MiRevertRelocatedImagePfn.c)
- *     MiCreateFileOnlyImageFixupList @ 0x140A339DC (MiCreateFileOnlyImageFixupList.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiWalkEntireImagePageNeedsProcessing @ 0x140656620 (MiWalkEntireImagePageNeedsProcessing.c)
+ *     MiRevertRelocatedImagePfn @ 0x1406B1280 (MiRevertRelocatedImagePfn.c)
+ *     MiCreateFileOnlyImageFixupList @ 0x140A33C8C (MiCreateFileOnlyImageFixupList.c)
  * Callees:
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     RtlDoesRequireFunctionOverrideFixups @ 0x14067BD68 (RtlDoesRequireFunctionOverrideFixups.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x14067C2B8 (RtlDoesRequireFunctionOverrideFixups.c)
  */
 
 __int64 __fastcall MiPageHasRelocations(__int64 *a1, unsigned int a2, char a3)

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiJumpStackTarget @ 0x1403E4C40
+ * XREFs of MiJumpStackTarget @ 0x1403E7E30
  * Callers:
- *     MiDoStackCopy @ 0x1403E4A60 (MiDoStackCopy.c)
+ *     MiDoStackCopy @ 0x1403E7C50 (MiDoStackCopy.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     KeCanUseHaltOnAddress @ 0x1403E5790 (KeCanUseHaltOnAddress.c)
- *     KiHaltOnAddress @ 0x1403E57E8 (KiHaltOnAddress.c)
- *     MiCanStealKernelStack @ 0x140415D64 (MiCanStealKernelStack.c)
- *     MiTryLockPageTableUnordered @ 0x140415E30 (MiTryLockPageTableUnordered.c)
- *     MiCheckSameSlabType @ 0x140415E50 (MiCheckSameSlabType.c)
- *     MiTradeStackPageFast @ 0x140415F18 (MiTradeStackPageFast.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
- *     MiStackTheftFreezeProcessors @ 0x1406F355C (MiStackTheftFreezeProcessors.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiTryLockPageTableUnordered @ 0x1402FCF54 (MiTryLockPageTableUnordered.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     KeCanUseHaltOnAddress @ 0x1403E8980 (KeCanUseHaltOnAddress.c)
+ *     KiHaltOnAddress @ 0x1403E89D8 (KiHaltOnAddress.c)
+ *     MiCanStealKernelStack @ 0x14040A394 (MiCanStealKernelStack.c)
+ *     MiCheckSameSlabType @ 0x14040A460 (MiCheckSameSlabType.c)
+ *     MiTradeStackPageFast @ 0x14040A528 (MiTradeStackPageFast.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
+ *     MiStackTheftFreezeProcessors @ 0x1406F81CC (MiStackTheftFreezeProcessors.c)
  */
 
 volatile signed __int32 *__fastcall MiJumpStackTarget(_QWORD *a1)
@@ -54,7 +54,7 @@ volatile signed __int32 *__fastcall MiJumpStackTarget(_QWORD *a1)
   __int64 v28; // rbx
   __int64 v29; // r12
   __int64 v30; // r15
-  unsigned __int64 v31; // rdi
+  __int64 v31; // rdi
   unsigned __int16 v32; // bp
   unsigned __int64 v33; // rdx
   __int64 v34; // r14
@@ -167,7 +167,7 @@ volatile signed __int32 *__fastcall MiJumpStackTarget(_QWORD *a1)
                 {
                   if ( v31 )
                   {
-                    v39 = byte_140E2D689 & 1;
+                    v39 = byte_140E2D809 & 1;
                     if ( *(_QWORD *)(v1 + 48) )
                     {
                       MiRemoveLockedPageChargeAndDecRef(v28);

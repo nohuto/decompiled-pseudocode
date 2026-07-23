@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpWakeConditionVariable @ 0x18004A970
+ * XREFs of RtlpWakeConditionVariable @ 0x180060550
  * Callers:
- *     RtlSleepConditionVariableCS @ 0x180013330 (RtlSleepConditionVariableCS.c)
- *     RtlSleepConditionVariableSRW @ 0x180049EB0 (RtlSleepConditionVariableSRW.c)
- *     RtlpWakeSingle @ 0x18004A820 (RtlpWakeSingle.c)
+ *     RtlSleepConditionVariableCS @ 0x18003FD30 (RtlSleepConditionVariableCS.c)
+ *     RtlSleepConditionVariableSRW @ 0x18005FA90 (RtlSleepConditionVariableSRW.c)
+ *     RtlpWakeSingle @ 0x180060400 (RtlpWakeSingle.c)
  * Callees:
- *     RtlpQueueWaitBlockToSRWLock @ 0x18004AC20 (RtlpQueueWaitBlockToSRWLock.c)
- *     ZwAlertThreadByThreadId @ 0x180162AA0 (ZwAlertThreadByThreadId.c)
+ *     RtlpQueueWaitBlockToSRWLock @ 0x180060800 (RtlpQueueWaitBlockToSRWLock.c)
+ *     ZwAlertThreadByThreadId @ 0x180160E60 (ZwAlertThreadByThreadId.c)
  */
 
 char __fastcall RtlpWakeConditionVariable(volatile __int64 *a1, signed __int64 a2, int a3)
@@ -96,7 +96,7 @@ LABEL_13:
         if ( !v15 || (LOBYTE(v8) = RtlpQueueWaitBlockToSRWLock(v17, v15, v9, i), !(_BYTE)v8) )
         {
           _InterlockedOr(v13 + 9, 4u);
-          LOBYTE(v8) = ZwAlertThreadByThreadId(*((_QWORD *)v17 + 3), v15, v9, i);
+          LOBYTE(v8) = ZwAlertThreadByThreadId(*((HANDLE *)v17 + 3));
         }
       }
       v13 = v14;

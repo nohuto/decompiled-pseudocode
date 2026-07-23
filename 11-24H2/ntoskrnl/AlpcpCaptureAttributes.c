@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpCaptureAttributes @ 0x14088F7F0
+ * XREFs of AlpcpCaptureAttributes @ 0x140899420
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x14088B56C (AlpcpFormatConnectionRequest.c)
- *     AlpcpSendMessage @ 0x14088E810 (AlpcpSendMessage.c)
- *     AlpcpAcceptConnectPort @ 0x1409F4F00 (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x14089137C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpSendMessage @ 0x140898440 (AlpcpSendMessage.c)
+ *     AlpcpAcceptConnectPort @ 0x140A1ED20 (AlpcpAcceptConnectPort.c)
  * Callees:
- *     AlpcpCaptureSecurityAttribute @ 0x14088DE30 (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpReleaseAttributes @ 0x140890220 (AlpcpReleaseAttributes.c)
- *     AlpcpCaptureContextAttribute @ 0x140890E20 (AlpcpCaptureContextAttribute.c)
- *     AlpcpCaptureViewAttribute @ 0x140894028 (AlpcpCaptureViewAttribute.c)
- *     AlpcpCaptureSecurityAttribute32 @ 0x140894358 (AlpcpCaptureSecurityAttribute32.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     AlpcpCaptureHandleAttribute @ 0x14093EF00 (AlpcpCaptureHandleAttribute.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1409C4310 (AlpcpCaptureWorkOnBehalfAttribute.c)
- *     AlpcpCaptureDirectAttribute @ 0x1409FFFB0 (AlpcpCaptureDirectAttribute.c)
- *     AlpcpCaptureContextAttribute32 @ 0x140A0B948 (AlpcpCaptureContextAttribute32.c)
- *     AlpcpCaptureDirectAttribute32 @ 0x140A204F8 (AlpcpCaptureDirectAttribute32.c)
- *     AlpcpCaptureViewAttribute32 @ 0x140A4D0B8 (AlpcpCaptureViewAttribute32.c)
- *     AlpcpCaptureHandleAttribute32 @ 0x140AA1248 (AlpcpCaptureHandleAttribute32.c)
+ *     AlpcpCaptureHandleAttribute @ 0x140893540 (AlpcpCaptureHandleAttribute.c)
+ *     AlpcpCaptureViewAttribute @ 0x140895F40 (AlpcpCaptureViewAttribute.c)
+ *     AlpcpReleaseAttributes @ 0x140899E50 (AlpcpReleaseAttributes.c)
+ *     AlpcpCaptureContextAttribute @ 0x14089A410 (AlpcpCaptureContextAttribute.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x1409C12C0 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1409C1630 (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     AlpcpCaptureDirectAttribute @ 0x1409F9818 (AlpcpCaptureDirectAttribute.c)
+ *     AlpcpCaptureContextAttribute32 @ 0x140A0AB88 (AlpcpCaptureContextAttribute32.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x140A0C624 (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureDirectAttribute32 @ 0x140A155F8 (AlpcpCaptureDirectAttribute32.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x140A43C48 (AlpcpCaptureViewAttribute32.c)
+ *     AlpcpCaptureHandleAttribute32 @ 0x140A9C5D8 (AlpcpCaptureHandleAttribute32.c)
  */
 
 __int64 __fastcall AlpcpCaptureAttributes(__int64 a1, SIZE_T a2, int *a3, __int64 a4, __int64 a5)
@@ -50,15 +50,13 @@ __int64 __fastcall AlpcpCaptureAttributes(__int64 a1, SIZE_T a2, int *a3, __int6
   int v32; // ecx
   int v33; // eax
   int v34; // ecx
-  __int64 v35; // rcx
-  __int64 v36; // rax
-  signed int v37; // r15d
+  signed int v35; // r15d
+  int v36; // eax
+  int v37; // ecx
   int v38; // eax
   int v39; // ecx
-  int v40; // eax
-  int v41; // ecx
-  __int64 v42; // rcx
-  __int64 v43; // rax
+  __int64 v40; // rcx
+  __int64 v41; // rax
 
   v7 = a2;
   v8 = a1;
@@ -192,32 +190,32 @@ LABEL_4:
     }
     if ( (v10 & 0x10000000) != 0 )
     {
-      v42 = (((int)(v9 & 0xE0000000) >> 31) & 0xC) + 24LL;
+      v40 = (((int)(v9 & 0xE0000000) >> 31) & 0xC) + 24LL;
       if ( (v9 & 0x40000000) == 0 )
-        v42 = (((int)(v9 & 0xE0000000) >> 31) & 0xC) + 8LL;
-      v43 = v42 + 20;
+        v40 = (((int)(v9 & 0xE0000000) >> 31) & 0xC) + 8LL;
+      v41 = v40 + 20;
       if ( (v9 & 0x20000000) == 0 )
-        v43 = v42;
-      v11 = AlpcpCaptureHandleAttribute32((char *)a3 + v43, a5);
+        v41 = v40;
+      v11 = AlpcpCaptureHandleAttribute32((char *)a3 + v41, a5);
       if ( v11 < 0 )
         goto LABEL_15;
     }
     if ( (v10 & 0x4000000) != 0 )
     {
-      v37 = v9 & 0xF8000000;
-      v38 = ((v37 >> 31) & 0xC) + 24;
-      if ( (v37 & 0x40000000) == 0 )
-        v38 = ((v37 >> 31) & 0xC) + 8;
-      v39 = v38 + 20;
-      if ( (v37 & 0x20000000) == 0 )
+      v35 = v9 & 0xF8000000;
+      v36 = ((v35 >> 31) & 0xC) + 24;
+      if ( (v35 & 0x40000000) == 0 )
+        v36 = ((v35 >> 31) & 0xC) + 8;
+      v37 = v36 + 20;
+      if ( (v35 & 0x20000000) == 0 )
+        v37 = v36;
+      v38 = v37 + 16;
+      if ( (v35 & 0x10000000) == 0 )
+        v38 = v37;
+      v39 = v38 + 24;
+      if ( (v35 & 0x8000000) == 0 )
         v39 = v38;
-      v40 = v39 + 16;
-      if ( (v37 & 0x10000000) == 0 )
-        v40 = v39;
-      v41 = v40 + 24;
-      if ( (v37 & 0x8000000) == 0 )
-        v41 = v40;
-      v11 = AlpcpCaptureDirectAttribute32((int)a3 + v41, a2, a5, v7, v10);
+      v11 = AlpcpCaptureDirectAttribute32((int)a3 + v39, a2, a5, v7, v10);
       if ( v11 < 0 )
         goto LABEL_15;
     }
@@ -232,7 +230,7 @@ LABEL_7:
     {
       v11 = AlpcpCaptureViewAttribute(
               v8,
-              (char *)a3 + (((__int64)(v9 & 0xFFFFFFFF80000000uLL) >> 63) & 0x18) + 8,
+              (__int128 *)((char *)a3 + (((__int64)(v9 & 0xFFFFFFFF80000000uLL) >> 63) & 0x18) + 8),
               a4,
               a5);
       if ( v11 < 0 )
@@ -249,13 +247,7 @@ LABEL_7:
     }
     if ( (v10 & 0x10000000) != 0 )
     {
-      v35 = (((int)(v9 & 0xE0000000) >> 31) & 0x18) + 40LL;
-      if ( (v9 & 0x40000000) == 0 )
-        v35 = (((int)(v9 & 0xE0000000) >> 31) & 0x18) + 8LL;
-      v36 = v35 + 32;
-      if ( (v9 & 0x20000000) == 0 )
-        v36 = v35;
-      v11 = AlpcpCaptureHandleAttribute((char *)a3 + v36, a5);
+      v11 = AlpcpCaptureHandleAttribute();
       if ( v11 < 0 )
         goto LABEL_15;
     }
@@ -292,6 +284,6 @@ LABEL_74:
   }
 LABEL_15:
   if ( v11 < 0 )
-    AlpcpReleaseAttributes(a5);
+    AlpcpReleaseAttributes(0LL, a5);
   return (unsigned int)v11;
 }

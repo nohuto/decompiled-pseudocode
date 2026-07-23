@@ -31,10 +31,10 @@ __int64 __fastcall SbpUpdateCacheWithCurrentImpl(__int64 a1, __int64 a2)
   unsigned int v22; // esi
   _DWORD *v23; // rcx
   __int64 v24; // rdi
-  _DWORD v25[72]; // [rsp+20h] [rbp-168h] BYREF
+  _OSVERSIONINFOEXW VersionInformation; // [rsp+20h] [rbp-168h] BYREF
 
-  memset(v25, 0, 0x11CuLL);
-  if ( (int)RtlGetVersion(v25) < 0 )
+  memset(&VersionInformation, 0, sizeof(VersionInformation));
+  if ( RtlGetVersion(&VersionInformation) < 0 )
     return 0LL;
   v4 = &unk_180118286;
   v5 = 0LL;
@@ -42,13 +42,13 @@ __int64 __fastcall SbpUpdateCacheWithCurrentImpl(__int64 a1, __int64 a2)
   while ( 1 )
   {
     v7 = *(v4 - 1);
-    v8 = LOWORD(v25[1]) < v7;
-    v9 = LOWORD(v25[1]) == v7;
-    if ( LOWORD(v25[1]) <= v7 )
+    v8 = LOWORD(VersionInformation.dwMajorVersion) < v7;
+    v9 = LOWORD(VersionInformation.dwMajorVersion) == v7;
+    if ( LOWORD(VersionInformation.dwMajorVersion) <= v7 )
     {
-      if ( LOWORD(v25[1]) != v7 )
+      if ( LOWORD(VersionInformation.dwMajorVersion) != v7 )
         goto LABEL_37;
-      if ( LOWORD(v25[2]) < *v4 )
+      if ( LOWORD(VersionInformation.dwMinorVersion) < *v4 )
         break;
     }
     v6 = v5;
@@ -58,10 +58,10 @@ LABEL_5:
     if ( v5 >= 5 )
       goto LABEL_6;
   }
-  v8 = LOWORD(v25[1]) < v7;
-  v9 = LOWORD(v25[1]) == v7;
+  v8 = LOWORD(VersionInformation.dwMajorVersion) < v7;
+  v9 = LOWORD(VersionInformation.dwMajorVersion) == v7;
 LABEL_37:
-  if ( !v8 && (!v9 || LOWORD(v25[2]) >= *v4) )
+  if ( !v8 && (!v9 || LOWORD(VersionInformation.dwMinorVersion) >= *v4) )
     goto LABEL_5;
 LABEL_6:
   if ( v6 == -1 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of _RtlpMuiRegInitAnyLanguage @ 0x140845764
+ * XREFs of _RtlpMuiRegInitAnyLanguage @ 0x140845A64
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x140844B80 (RtlpMuiRegAddLanguageByName.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x140A75360 (_RtlpMuiRegAddBaseLanguage.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x140844E80 (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x140A75610 (_RtlpMuiRegAddBaseLanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlCultureNameToLCID @ 0x1408257A0 (RtlCultureNameToLCID.c)
- *     _RtlpMuiRegAddNeutralLanguage @ 0x140845840 (_RtlpMuiRegAddNeutralLanguage.c)
- *     RtlpMuiRegGetOrAddString @ 0x140845868 (RtlpMuiRegGetOrAddString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x140825AA0 (RtlCultureNameToLCID.c)
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x140845B40 (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlpMuiRegGetOrAddString @ 0x140845B68 (RtlpMuiRegGetOrAddString.c)
  */
 
 __int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, const WCHAR *a3, __int16 a4)
@@ -16,21 +16,21 @@ __int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, const WCHAR
   int v9; // eax
   unsigned int v10; // r8d
   __int16 v12[2]; // [rsp+20h] [rbp-28h] BYREF
-  int v13; // [rsp+24h] [rbp-24h] BYREF
+  DWORD Lcid; // [rsp+24h] [rbp-24h] BYREF
   UNICODE_STRING DestinationString; // [rsp+28h] [rbp-20h] BYREF
 
   DestinationString = 0LL;
-  v13 = 0;
+  Lcid = 0;
   v12[0] = -1;
   RtlInitUnicodeString(&DestinationString, a3);
-  if ( RtlCultureNameToLCID(&DestinationString.Length, &v13) )
+  if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
   {
     LOBYTE(v8) = 1;
     v9 = RtlpMuiRegGetOrAddString(a1, a3, v8, v12);
     v10 = v9;
     if ( v9 >= 0 )
     {
-      *(_WORD *)(a2 + 4) = v13;
+      *(_WORD *)(a2 + 4) = Lcid;
       *(_WORD *)(a2 + 6) = v12[0];
       *(_WORD *)a2 = a4;
       *(_WORD *)(a2 + 2) = 0;

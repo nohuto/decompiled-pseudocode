@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlFastUnlockSingleShared @ 0x140359208
+ * XREFs of FsRtlFastUnlockSingleShared @ 0x140363F58
  * Callers:
- *     FsRtlFastUnlockSingle @ 0x140358E80 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateRemoveLock @ 0x1404EFF40 (FsRtlPrivateRemoveLock.c)
+ *     FsRtlFastUnlockSingle @ 0x140363BD0 (FsRtlFastUnlockSingle.c)
+ *     FsRtlPrivateRemoveLock @ 0x1404EFEC0 (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14029FDB4 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlSplitLocks @ 0x1402A0228 (FsRtlSplitLocks.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x140359430 (FsRtlFindFirstOverlappingSharedNode.c)
- *     RtlDelete @ 0x140359960 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x140359A00 (FsRtlPrivateResetLowestLockOffset.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14021D334 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlSplitLocks @ 0x14021D7A8 (FsRtlSplitLocks.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x140364180 (FsRtlFindFirstOverlappingSharedNode.c)
+ *     RtlDelete @ 0x1403646B0 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x140364750 (FsRtlPrivateResetLowestLockOffset.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleShared(
@@ -34,7 +34,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   unsigned int v15; // edi
   unsigned __int64 v16; // rbp
   __int64 FirstOverlappingSharedNode; // rax
-  RTL_SPLAY_LINKS *v18; // r9
+  _RTL_SPLAY_LINKS *v18; // r9
   _RTL_SPLAY_LINKS *v19; // rsi
   _RTL_SPLAY_LINKS *v20; // rax
   _RTL_SPLAY_LINKS *Parent; // r14
@@ -78,7 +78,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
                                    (unsigned int)&v42,
                                    0,
                                    0LL);
-    v18 = (RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
+    v18 = (_RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
     if ( FirstOverlappingSharedNode )
     {
       v19 = (_RTL_SPLAY_LINKS *)(FirstOverlappingSharedNode - 24);

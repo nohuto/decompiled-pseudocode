@@ -1,28 +1,46 @@
 /*
- * XREFs of NtSetIoCompletionEx @ 0x140646330
+ * XREFs of NtSetIoCompletionEx @ 0x140647350
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoSetIoCompletionEx @ 0x1400C6330 (IoSetIoCompletionEx.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     IoSetIoCompletionEx @ 0x1400C6270 (IoSetIoCompletionEx.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtSetIoCompletionEx(void *a1, void *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
+NTSTATUS __cdecl NtSetIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        HANDLE IoCompletionPacketHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
   NTSTATUS result; // eax
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   signed __int32 v11; // eax
   _DWORD *v12; // rsi
-  __int64 v13; // r8
+  PVOID v13; // r8
   PVOID v14; // rdi
   PVOID v15; // [rsp+40h] [rbp-18h] BYREF
   PVOID Object; // [rsp+48h] [rbp-10h] BYREF
 
-  result = ObReferenceObjectByHandle(a1, 2u, IoCompletionObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             IoCompletionHandle,
+             2u,
+             IoCompletionObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             &Object,
+             0LL);
   if ( result < 0 )
     return result;
-  v10 = ObReferenceObjectByHandle(a2, 2u, ObjectType, KeGetCurrentThread()->PreviousMode, &v15, 0LL);
+  v10 = ObReferenceObjectByHandle(
+          IoCompletionPacketHandle,
+          2u,
+          ObjectType,
+          KeGetCurrentThread()->PreviousMode,
+          &v15,
+          0LL);
   if ( v10 < 0 )
   {
     v14 = Object;
@@ -39,9 +57,16 @@ LABEL_11:
       ObfDereferenceObject(v12);
     goto LABEL_5;
   }
-  v13 = a4;
+  v13 = ApcContext;
   v14 = Object;
-  v10 = IoSetIoCompletionEx((__int64)Object, a3, v13, a5, a6, 0, (__int64)v15 + 8);
+  v10 = IoSetIoCompletionEx(
+          (__int64)Object,
+          (__int64)KeyContext,
+          (__int64)v13,
+          IoStatus,
+          IoStatusInformation,
+          0,
+          (__int64)v15 + 8);
   if ( v10 < 0 )
   {
     *v12 = 0;

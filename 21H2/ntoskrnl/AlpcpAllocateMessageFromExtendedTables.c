@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpAllocateMessageFromExtendedTables @ 0x1408C2DD0
+ * XREFs of AlpcpAllocateMessageFromExtendedTables @ 0x1408C2F30
  * Callers:
- *     AlpcpAllocateMessageFunction @ 0x1406A5430 (AlpcpAllocateMessageFunction.c)
+ *     AlpcpAllocateMessageFunction @ 0x140603060 (AlpcpAllocateMessageFunction.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
- *     ExpRemoveHandleTable @ 0x140604524 (ExpRemoveHandleTable.c)
- *     ExCreateHandleTable @ 0x14062B4B8 (ExCreateHandleTable.c)
- *     ExCreateHandleEx @ 0x14062D820 (ExCreateHandleEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExCreateHandleEx @ 0x1405E38B0 (ExCreateHandleEx.c)
+ *     ExCreateHandleTable @ 0x140622DE8 (ExCreateHandleTable.c)
+ *     ExpFreeHandleTable @ 0x1406F3AA8 (ExpFreeHandleTable.c)
+ *     ExpRemoveHandleTable @ 0x1406F3C54 (ExpRemoveHandleTable.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall AlpcpAllocateMessageFromExtendedTables(__int64 a1)
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall AlpcpAllocateMessageFromExtendedTables(__int64 a1)
   unsigned int v4; // edi
   __int64 i; // rsi
   _QWORD *v6; // rbx
-  _QWORD *HandleTable; // rax
+  __int64 HandleTable; // rax
   __int64 Handle; // rax
 
   if ( !AlpcpSecondaryMessageTables )
@@ -39,16 +39,16 @@ unsigned __int64 __fastcall AlpcpAllocateMessageFromExtendedTables(__int64 a1)
     v6 = *(_QWORD **)(i + AlpcpSecondaryMessageTables);
     if ( !v6 )
     {
-      HandleTable = ExCreateHandleTable(0LL, 0);
-      v6 = HandleTable;
+      HandleTable = ExCreateHandleTable(0LL, 0LL);
+      v6 = (_QWORD *)HandleTable;
       if ( !HandleTable )
         return 0LL;
       if ( _InterlockedCompareExchange64(
              (volatile signed __int64 *)(AlpcpSecondaryMessageTables + 8LL * v4),
-             (signed __int64)HandleTable,
+             HandleTable,
              0LL) )
       {
-        ExpRemoveHandleTable((__int64)HandleTable);
+        ExpRemoveHandleTable(HandleTable);
         ExpFreeHandleTable(v6);
         v6 = *(_QWORD **)(i + AlpcpSecondaryMessageTables);
       }

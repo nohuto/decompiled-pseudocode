@@ -6,14 +6,24 @@
  *     sub_180009D9C @ 0x180009D9C (sub_180009D9C.c)
  */
 
-__int64 __fastcall RtlSubscribeWnfStateChangeNotification(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        int a7)
+NTSTATUS __cdecl RtlSubscribeWnfStateChangeNotification(
+        PVOID *SubscriptionHandle,
+        WNF_STATE_NAME StateName,
+        WNF_CHANGE_STAMP ChangeStamp,
+        PWNF_USER_CALLBACK Callback,
+        PVOID CallbackContext,
+        PCWNF_TYPE_ID TypeId,
+        ULONG SerializationGroup,
+        ULONG Flags)
 {
-  return sub_180009D9C(a1, a2, a3, a4, a5, a6, a7, 4, 17);
+  return sub_180009D9C(
+           (_DWORD)SubscriptionHandle,
+           StateName.Data[0],
+           ChangeStamp,
+           (_DWORD)Callback,
+           (__int64)CallbackContext,
+           (__int64)TypeId,
+           SerializationGroup,
+           4,
+           17);
 }

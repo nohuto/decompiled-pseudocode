@@ -1,13 +1,13 @@
 /*
- * XREFs of VfErrorReport7 @ 0x14070EA1C
+ * XREFs of VfErrorReport7 @ 0x14070EA4C
  * Callers:
- *     PpvUtilFailDriver @ 0x1401D10B8 (PpvUtilFailDriver.c)
+ *     PpvUtilFailDriver @ 0x1401D0EE4 (PpvUtilFailDriver.c)
  * Callees:
- *     RtlStringCbPrintfA @ 0x140139A14 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     ViErrorDisplayDescription @ 0x14070EB74 (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x14070EBC4 (ViErrorFinishReport.c)
+ *     RtlStringCbPrintfA @ 0x140139F84 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     ViErrorDisplayDescription @ 0x14070EBA4 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x14070EBF4 (ViErrorFinishReport.c)
  */
 
 __int64 __fastcall VfErrorReport7(__int64 a1, const void *a2, const void *a3, const void *a4)

@@ -1,36 +1,36 @@
 /*
- * XREFs of AuthzBasepFindSecurityAttribute @ 0x140357E50
+ * XREFs of AuthzBasepFindSecurityAttribute @ 0x1403B8830
  * Callers:
- *     AuthzBasepAddSecurityAttribute @ 0x140357B4C (AuthzBasepAddSecurityAttribute.c)
- *     AuthzBasepDeleteSecurityAttribute @ 0x140357C3C (AuthzBasepDeleteSecurityAttribute.c)
- *     AuthzBasepCompareSecurityAttributesInformation @ 0x14081071C (AuthzBasepCompareSecurityAttributesInformation.c)
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140A239DC (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x1403B8958 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x1403B8A94 (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x140810E5C (AuthzBasepCompareSecurityAttributesInformation.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140A17DEC (AuthzBasepCompareLegacySecurityAttributesInformation.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x140357D50 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140357F14 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B88F4 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B8930 (AuthzBasepEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
-const UNICODE_STRING *__fastcall AuthzBasepFindSecurityAttribute(__int64 a1, const UNICODE_STRING *a2)
+__int64 *__fastcall AuthzBasepFindSecurityAttribute(__int64 a1, const UNICODE_STRING *a2)
 {
-  const UNICODE_STRING *v2; // rbx
-  const UNICODE_STRING *v3; // rdi
+  _QWORD *v2; // rbx
+  _QWORD *v3; // rdi
   __int64 v4; // rsi
-  const UNICODE_STRING *v6; // rbp
+  __int64 *v6; // rbp
   char v7; // r15
   __int64 *i; // rdi
   const UNICODE_STRING *v11; // rcx
   BOOLEAN v12; // al
 
-  v2 = *(const UNICODE_STRING **)(a1 + 8);
-  v3 = (const UNICODE_STRING *)(a1 + 8);
+  v2 = *(_QWORD **)(a1 + 8);
+  v3 = (_QWORD *)(a1 + 8);
   v4 = 0LL;
   v6 = 0LL;
   v7 = 0;
   while ( v2 != v3 )
   {
     v6 = v2;
-    v11 = v2 + 2;
+    v11 = (const UNICODE_STRING *)(v2 + 4);
     if ( KeGetCurrentIrql() >= 2u )
       v12 = AuthzBasepEqualUnicodeStringCaseSensitive(v11, a2);
     else
@@ -41,16 +41,16 @@ LABEL_12:
       v7 = 1;
       goto LABEL_5;
     }
-    v2 = *(const UNICODE_STRING **)&v2->Length;
+    v2 = (_QWORD *)*v2;
   }
   for ( i = *(__int64 **)(a1 + 32); i != (__int64 *)(a1 + 32); i = (__int64 *)*i )
   {
-    v6 = (const UNICODE_STRING *)(i - 2);
-    if ( (i[5] & 1) == 0 && AuthzBasepEqualUnicodeString(v6 + 2, a2) )
+    v6 = i - 2;
+    if ( (i[5] & 1) == 0 && (unsigned __int8)AuthzBasepEqualUnicodeString(v6 + 4, a2) )
       goto LABEL_12;
   }
 LABEL_5:
   if ( v7 )
     return v6;
-  return (const UNICODE_STRING *)v4;
+  return (__int64 *)v4;
 }

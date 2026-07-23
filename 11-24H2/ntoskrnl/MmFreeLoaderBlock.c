@@ -1,12 +1,12 @@
 /*
- * XREFs of MmFreeLoaderBlock @ 0x140C4E7EC
+ * XREFs of MmFreeLoaderBlock @ 0x140C5097C
  * Callers:
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiDeleteBootRange @ 0x140669130 (MiDeleteBootRange.c)
- *     MiPageBootRegistry @ 0x140669520 (MiPageBootRegistry.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiDeleteBootRange @ 0x14066A308 (MiDeleteBootRange.c)
+ *     MiPageBootRegistry @ 0x14066A6F8 (MiPageBootRegistry.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void MmFreeLoaderBlock()

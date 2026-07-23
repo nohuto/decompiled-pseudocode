@@ -1,13 +1,13 @@
 /*
- * XREFs of PspStorageMakeSlotReadOnly @ 0x140682B3C
+ * XREFs of PspStorageMakeSlotReadOnly @ 0x140682C20
  * Callers:
- *     PsMakeSiloContextPermanent @ 0x14067DFC4 (PsMakeSiloContextPermanent.c)
+ *     PsMakeSiloContextPermanent @ 0x14067E0A8 (PsMakeSiloContextPermanent.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     PspGetStorageArray @ 0x14055FB58 (PspGetStorageArray.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     PspGetStorageArray @ 0x140560098 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PspStorageMakeSlotReadOnly(__int64 a1, unsigned int a2)

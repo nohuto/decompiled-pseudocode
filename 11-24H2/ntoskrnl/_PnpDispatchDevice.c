@@ -1,23 +1,23 @@
 /*
- * XREFs of _PnpDispatchDevice @ 0x1408CDBB0
+ * XREFs of _PnpDispatchDevice @ 0x1408CB5A0
  * Callers:
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectPropertyWorker @ 0x1408CD660 (_PnpGetObjectPropertyWorker.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1408CB050 (_PnpGetObjectPropertyWorker.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x14044D63C (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmDeleteDevice @ 0x140818298 (_CmDeleteDevice.c)
- *     _CmValidateDeviceName @ 0x1408B8070 (_CmValidateDeviceName.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _CmSetDeviceMappedProperty @ 0x140995AA0 (_CmSetDeviceMappedProperty.c)
- *     _CmGetMatchingDeviceList @ 0x1409B328C (_CmGetMatchingDeviceList.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x1409B44A8 (_CmGetDeviceMappedPropertyKeys.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409B5B50 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1409B6034 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     _CmCreateDevice @ 0x1409D41D8 (_CmCreateDevice.c)
- *     _CmGetDeviceMappedPropertyLocales @ 0x140A4DC04 (_CmGetDeviceMappedPropertyLocales.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x14044453C (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmDeleteDevice @ 0x1408189D8 (_CmDeleteDevice.c)
+ *     _CmValidateDeviceName @ 0x1408B59E0 (_CmValidateDeviceName.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _CmSetDeviceMappedProperty @ 0x140980AE0 (_CmSetDeviceMappedProperty.c)
+ *     _CmGetMatchingDeviceList @ 0x1409AA61C (_CmGetMatchingDeviceList.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x1409AB838 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409ACEE0 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1409AD3C4 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmCreateDevice @ 0x1409C4008 (_CmCreateDevice.c)
+ *     _CmGetDeviceMappedPropertyLocales @ 0x140A44794 (_CmGetDeviceMappedPropertyLocales.c)
  */
 
 __int64 __fastcall PnpDispatchDevice(__int64 a1, _WORD *a2, __int64 a3, int a4, _DWORD *a5)
@@ -98,7 +98,7 @@ __int64 __fastcall PnpDispatchDevice(__int64 a1, _WORD *a2, __int64 a3, int a4, 
       {
         if ( j >= 2 )
           goto LABEL_23;
-        v24 = (__int64)*(&off_140B3B930 + 4 * j);
+        v24 = (__int64)*(&off_140B3D6F0 + 4 * j);
         if ( *(_DWORD *)(v14 + 16) == *(_DWORD *)(v24 + 16) )
         {
           v26 = *(_QWORD *)v14 - *(_QWORD *)v24;
@@ -122,7 +122,7 @@ __int64 __fastcall PnpDispatchDevice(__int64 a1, _WORD *a2, __int64 a3, int a4, 
 LABEL_23:
         while ( (unsigned int)v5 < 0x1C )
         {
-          v25 = (__int64)*(&off_140B3DD70 + 2 * (unsigned int)v5);
+          v25 = (__int64)*(&off_140B3FB70 + 2 * (unsigned int)v5);
           if ( *(_DWORD *)(v14 + 16) == *(_DWORD *)(v25 + 16) )
           {
             v20 = *(_QWORD *)v14 - *(_QWORD *)v25;

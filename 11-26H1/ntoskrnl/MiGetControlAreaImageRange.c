@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetControlAreaImageRange @ 0x1404DCB28
+ * XREFs of MiGetControlAreaImageRange @ 0x1404D6208
  * Callers:
- *     MiFreeRelocations @ 0x140AAA400 (MiFreeRelocations.c)
+ *     MiFreeRelocations @ 0x140AA79E0 (MiFreeRelocations.c)
  * Callees:
  *     <none>
  */

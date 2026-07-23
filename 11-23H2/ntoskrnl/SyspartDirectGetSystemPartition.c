@@ -1,9 +1,9 @@
 /*
- * XREFs of SyspartDirectGetSystemPartition @ 0x1407D3330
+ * XREFs of SyspartDirectGetSystemPartition @ 0x1407D3600
  * Callers:
  *     <none>
  * Callees:
- *     SiGetSystemDeviceName @ 0x1407D3358 (SiGetSystemDeviceName.c)
+ *     SiGetSystemDeviceName @ 0x1407D3628 (SiGetSystemDeviceName.c)
  */
 
 __int64 __fastcall SyspartDirectGetSystemPartition(__int64 a1, unsigned int a2, __int64 a3)

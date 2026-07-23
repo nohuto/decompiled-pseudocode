@@ -1,22 +1,22 @@
 /*
- * XREFs of KeAbCrossThreadDelete @ 0x1405C3BDC
+ * XREFs of KeAbCrossThreadDelete @ 0x1405C11AC
  * Callers:
- *     KeDeleteMutant @ 0x14041BA48 (KeDeleteMutant.c)
+ *     KeDeleteMutant @ 0x14040F588 (KeDeleteMutant.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402067B0 (KiReleaseThreadLockLowerIrql.c)
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402A1A20 (KiAcquireThreadLockRaiseToDpc.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiReleaseThreadStateLock @ 0x1403B27B0 (KiReleaseThreadStateLock.c)
- *     KiAbCrossThreadRelease @ 0x1403D86A8 (KiAbCrossThreadRelease.c)
- *     KeAbThreadAreAllEntriesFree @ 0x1403EFA50 (KeAbThreadAreAllEntriesFree.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1402D1150 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAbCrossThreadRelease @ 0x1402F2188 (KiAbCrossThreadRelease.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14032DD90 (KiReleaseThreadLockLowerIrql.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiReleaseThreadStateLock @ 0x1403A0FC0 (KiReleaseThreadStateLock.c)
+ *     KeAbThreadAreAllEntriesFree @ 0x1403E29D0 (KeAbThreadAreAllEntriesFree.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
@@ -105,7 +105,7 @@ LABEL_17:
           if ( (int)v16 >= 0 )
           {
             v3 = KiProcessorBlock[v16];
-            KiAcquirePrcbLocksForIsolationUnit(v3, 0, (unsigned __int64 *)&v27);
+            KiAcquirePrcbLocksForIsolationUnit(v3, 0LL, (unsigned __int64 *)&v27);
             if ( a2 == *(_QWORD *)(v3 + 8) )
               goto LABEL_47;
             if ( *(_BYTE *)(a2 + 388) == 2 && *(_DWORD *)(a2 + 536) == (_DWORD)v16 )
@@ -131,7 +131,7 @@ LABEL_17:
           if ( (int)v17 >= 0 )
           {
             v3 = KiProcessorBlock[v17];
-            KiAcquirePrcbLocksForIsolationUnit(v3, 0, (unsigned __int64 *)&v27);
+            KiAcquirePrcbLocksForIsolationUnit(v3, 0LL, (unsigned __int64 *)&v27);
             if ( a2 == *(_QWORD *)(v3 + 16) )
               goto LABEL_47;
             if ( *(_BYTE *)(a2 + 388) == 3 && *(_DWORD *)(a2 + 536) == (_DWORD)v17 )
@@ -145,7 +145,7 @@ LABEL_17:
       if ( (int)v18 < 0 )
         break;
       v3 = KiProcessorBlock[v18];
-      KiAcquirePrcbLocksForIsolationUnit(v3, 0, (unsigned __int64 *)&v27);
+      KiAcquirePrcbLocksForIsolationUnit(v3, 0LL, (unsigned __int64 *)&v27);
       if ( *(_BYTE *)(a2 + 388) == 1 && *(_DWORD *)(a2 + 536) == (_DWORD)v18 )
         goto LABEL_47;
 LABEL_46:
@@ -246,5 +246,5 @@ LABEL_53:
   *(_BYTE *)v8 = v11;
 LABEL_54:
   _InterlockedOr(v25, 0);
-  return KiAbCrossThreadRelease(a1, v8, a2);
+  return KiAbCrossThreadRelease(a1, v8, a2, v6);
 }

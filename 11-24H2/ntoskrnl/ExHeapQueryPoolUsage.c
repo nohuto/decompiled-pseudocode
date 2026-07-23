@@ -1,7 +1,7 @@
 /*
- * XREFs of ExHeapQueryPoolUsage @ 0x140471060
+ * XREFs of ExHeapQueryPoolUsage @ 0x14046B7D8
  * Callers:
- *     ExQueryPoolUsage @ 0x14047101C (ExQueryPoolUsage.c)
+ *     ExQueryPoolUsage @ 0x14046B794 (ExQueryPoolUsage.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ _DWORD *__fastcall ExHeapQueryPoolUsage(
 
   *a1 = 0;
   v8 = 0;
-  for ( *a2 = 0; v8 < dword_140E6BC10; ++v8 )
+  for ( *a2 = 0; v8 < dword_140E6BE10; ++v8 )
   {
     v12 = 8384LL * v8;
     v13 = 2LL;

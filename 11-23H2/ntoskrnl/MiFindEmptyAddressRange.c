@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindEmptyAddressRange @ 0x14071FEA0
+ * XREFs of MiFindEmptyAddressRange @ 0x1407200A0
  * Callers:
- *     MiSelectUserAddress @ 0x14071FCC0 (MiSelectUserAddress.c)
+ *     MiSelectUserAddress @ 0x14071FEC0 (MiSelectUserAddress.c)
  * Callees:
- *     RtlFindClearBitsEx @ 0x14029C460 (RtlFindClearBitsEx.c)
- *     MiExpandVadBitMap @ 0x1406B2EB0 (MiExpandVadBitMap.c)
- *     MiFindEmptyAddressRangeInTree @ 0x1407BAAC4 (MiFindEmptyAddressRangeInTree.c)
- *     MiFindClearVadBitsAligned @ 0x1407BEDC8 (MiFindClearVadBitsAligned.c)
+ *     RtlFindClearBitsEx @ 0x14029C6F0 (RtlFindClearBitsEx.c)
+ *     MiExpandVadBitMap @ 0x1406B2EE0 (MiExpandVadBitMap.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x1407BAD94 (MiFindEmptyAddressRangeInTree.c)
+ *     MiFindClearVadBitsAligned @ 0x1407BF098 (MiFindClearVadBitsAligned.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRange(

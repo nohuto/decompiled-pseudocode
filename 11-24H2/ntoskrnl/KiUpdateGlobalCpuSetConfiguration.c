@@ -1,27 +1,27 @@
 /*
- * XREFs of KiUpdateGlobalCpuSetConfiguration @ 0x1403C9208
+ * XREFs of KiUpdateGlobalCpuSetConfiguration @ 0x1403A3DA8
  * Callers:
- *     KeCpuSetReportParkedProcessors @ 0x1403C8A00 (KeCpuSetReportParkedProcessors.c)
+ *     KeCpuSetReportParkedProcessors @ 0x1403A35A0 (KeCpuSetReportParkedProcessors.c)
  * Callees:
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402979F0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiCommitRescheduleContext @ 0x140299450 (KiCommitRescheduleContext.c)
- *     KiCheckThreadAffinity @ 0x140299C80 (KiCheckThreadAffinity.c)
- *     KiComputeThreadAffinity @ 0x14029AC34 (KiComputeThreadAffinity.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     EtwTraceThreadAffinity @ 0x1403B3E48 (EtwTraceThreadAffinity.c)
- *     KiIsThreadStateControlledByProcessor @ 0x1403C9620 (KiIsThreadStateControlledByProcessor.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage @ 0x1403C9F68 (Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage.c)
- *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x1403CA100 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
- *     ?KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@EE@Z @ 0x1403CBFC0 (-KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHRE.c)
- *     EtwTraceIdealProcessor @ 0x1404B1DCC (EtwTraceIdealProcessor.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x1402A6730 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiCommitRescheduleContext @ 0x1402A7F40 (KiCommitRescheduleContext.c)
+ *     KiCheckThreadAffinity @ 0x1402A8770 (KiCheckThreadAffinity.c)
+ *     KiComputeThreadAffinity @ 0x1402A9724 (KiComputeThreadAffinity.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402E1220 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     EtwTraceThreadAffinity @ 0x1403A2658 (EtwTraceThreadAffinity.c)
+ *     KiIsThreadStateControlledByProcessor @ 0x1403A41C0 (KiIsThreadStateControlledByProcessor.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage @ 0x1403A4B08 (Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage.c)
+ *     ?KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@EE@Z @ 0x1403BC7F0 (-KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHRE.c)
+ *     EtwTraceIdealProcessor @ 0x1404AC65C (EtwTraceIdealProcessor.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiUpdateGlobalCpuSetConfiguration(struct _SINGLE_LIST_ENTRY *a1)
@@ -73,7 +73,7 @@ __int64 __fastcall KiUpdateGlobalCpuSetConfiguration(struct _SINGLE_LIST_ENTRY *
     v4->IdleThread->AffinityVersion = KiCpuSetSequence;
     while ( 1 )
     {
-      KiAcquirePrcbLocksForIsolationUnit((__int64)v4, 1, (unsigned __int64 *)&v35);
+      KiAcquirePrcbLocksForIsolationUnit((__int64)v4, 1LL, (unsigned __int64 *)&v35);
       CurrentThread = (__int64)v4->CurrentThread;
       if ( !_interlockedbittestandset64((volatile signed __int32 *)(CurrentThread + 64), 0LL) )
         break;
@@ -97,7 +97,7 @@ __int64 __fastcall KiUpdateGlobalCpuSetConfiguration(struct _SINGLE_LIST_ENTRY *
         }
         while ( *(_QWORD *)(CurrentThread + 64) );
       }
-      KiAcquirePrcbLocksForIsolationUnit((__int64)v4, 1, (unsigned __int64 *)&v35);
+      KiAcquirePrcbLocksForIsolationUnit((__int64)v4, 1LL, (unsigned __int64 *)&v35);
       _InterlockedDecrement16((volatile signed __int16 *)(CurrentThread + 868));
       if ( (_KTHREAD *)CurrentThread == v4->CurrentThread )
         break;
@@ -188,7 +188,7 @@ LABEL_32:
     if ( v7 )
       goto LABEL_32;
 LABEL_7:
-    v10 = (xmmword_140FC5B10 & 0x8000000) != 0 && v6 != v8;
+    v10 = (xmmword_140FC6B50 & 0x8000000) != 0 && v6 != v8;
     if ( v34 || v10 )
       _InterlockedAdd16((volatile signed __int16 *)(CurrentThread + 868), 1u);
     KiReleasePrcbLocksForIsolationUnit(&v35);
@@ -215,7 +215,7 @@ LABEL_7:
       if ( v10 )
       {
 LABEL_48:
-        if ( (xmmword_140FC5B10 & 0x8000000) != 0 )
+        if ( (xmmword_140FC6B50 & 0x8000000) != 0 )
           EtwTraceIdealProcessor(CurrentThread, 1350LL);
       }
       _InterlockedDecrement16((volatile signed __int16 *)(CurrentThread + 868));

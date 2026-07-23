@@ -1,34 +1,34 @@
 /*
- * XREFs of MiExpandFlushMdl @ 0x1402BAC80
+ * XREFs of MiExpandFlushMdl @ 0x140238E90
  * Callers:
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
-__int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2)
+__int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // rdi
-  __int64 v4; // rbx
-  PVOID Pool; // rax
-  __int64 v6; // rsi
+  __int64 v4; // rdi
+  __int64 v6; // rbx
+  void *Pool; // rax
+  __int64 v8; // rsi
   __int64 result; // rax
 
-  v2 = Src[10];
-  if ( (_DWORD)v2 == 1048574 )
+  v4 = Src[10];
+  if ( (_DWORD)v4 == 1048574 )
     return 0LL;
-  v4 = (unsigned int)(2 * v2);
-  if ( (unsigned int)v4 <= (unsigned int)v2 || (unsigned int)v4 > 0xFFFFE )
+  v6 = (unsigned int)(2 * v4);
+  if ( (unsigned int)v6 <= (unsigned int)v4 || (unsigned int)v6 > 0xFFFFE )
     return 0LL;
-  if ( (unsigned int)v4 > a2 )
-    v4 = a2;
-  Pool = MiAllocatePool(64, 8 * v4 + 48, 0x6C466D4Du);
-  v6 = (__int64)Pool;
+  if ( (unsigned int)v6 > a2 )
+    v6 = a2;
+  Pool = (void *)MiAllocatePool(64LL, 8 * v6 + 48, 1816554829LL, a4);
+  v8 = (__int64)Pool;
   if ( !Pool )
     return 0LL;
-  memmove(Pool, Src, 8 * v2 + 48);
-  result = v6;
-  *(_DWORD *)(v6 + 44) = v4;
+  memmove(Pool, Src, 8 * v4 + 48);
+  result = v8;
+  *(_DWORD *)(v8 + 44) = v6;
   return result;
 }

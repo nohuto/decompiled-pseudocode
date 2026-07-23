@@ -39,7 +39,7 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-B0h] BYREF
   PVOID BaseAddress; // [rsp+60h] [rbp-A0h] BYREF
   UNICODE_STRING ValueName; // [rsp+68h] [rbp-98h] BYREF
-  STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
+  _STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
   LARGE_INTEGER SectionOffset; // [rsp+88h] [rbp-78h] BYREF
   UNICODE_STRING String2; // [rsp+90h] [rbp-70h] BYREF
   ULONG_PTR ViewSize; // [rsp+A0h] [rbp-60h] BYREF
@@ -47,7 +47,7 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
   __int64 v25; // [rsp+B0h] [rbp-50h]
   PVOID Data; // [rsp+B8h] [rbp-48h]
   HANDLE KeyHandle; // [rsp+C0h] [rbp-40h]
-  char SourceString[128]; // [rsp+D0h] [rbp-30h] BYREF
+  CHAR SourceString[128]; // [rsp+D0h] [rbp-30h] BYREF
 
   v25 = a1;
   *(_QWORD *)&DestinationString.Length = 0LL;

@@ -1,19 +1,25 @@
 /*
- * XREFs of ZwQueryWnfStateData @ 0x140726210
+ * XREFs of ZwQueryWnfStateData @ 0x14072ADE0
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x14061F790 (RtlRaiseCustomSystemEventTrigger.c)
- *     DifZwQueryWnfStateDataWrapper @ 0x1406B5000 (DifZwQueryWnfStateDataWrapper.c)
- *     UcpRetrieveCurrentConfigSettings @ 0x140712F38 (UcpRetrieveCurrentConfigSettings.c)
- *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
- *     CmFcpManagerPublishChangeNotifications @ 0x140ABF21C (CmFcpManagerPublishChangeNotifications.c)
- *     RtlpFcNotifyFeatureUsageTarget @ 0x140ABFE1C (RtlpFcNotifyFeatureUsageTarget.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1406227E0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     DifZwQueryWnfStateDataWrapper @ 0x1406B8BE0 (DifZwQueryWnfStateDataWrapper.c)
+ *     UcpRetrieveCurrentConfigSettings @ 0x140717C30 (UcpRetrieveCurrentConfigSettings.c)
+ *     PopBatteryWorker @ 0x1407DB910 (PopBatteryWorker.c)
+ *     CmFcpManagerPublishChangeNotifications @ 0x140AC12BC (CmFcpManagerPublishChangeNotifications.c)
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x140AC1EBC (RtlpFcNotifyFeatureUsageTarget.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryWnfStateData(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        PWNF_CHANGE_STAMP ChangeStamp,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

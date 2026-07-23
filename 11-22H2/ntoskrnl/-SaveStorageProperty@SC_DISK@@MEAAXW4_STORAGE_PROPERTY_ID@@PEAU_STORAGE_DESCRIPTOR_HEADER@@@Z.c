@@ -19,16 +19,16 @@ void __fastcall SC_DISK::SaveStorageProperty(
   {
     switch ( a2 )
     {
-      case '9':
+      case StorageAdapterSerialNumberProperty:
         v4 = 320LL;
         break;
-      case ':':
+      case StorageDeviceLocationProperty:
         v4 = 344LL;
         break;
-      case '<':
+      case StorageDeviceZonedDeviceProperty:
         v4 = 384LL;
         break;
-      case 'A':
+      case StorageFruIdProperty:
         return;
       default:
         goto LABEL_18;

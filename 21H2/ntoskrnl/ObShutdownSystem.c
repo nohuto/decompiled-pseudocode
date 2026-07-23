@@ -1,20 +1,20 @@
 /*
- * XREFs of ObShutdownSystem @ 0x1408DC490
+ * XREFs of ObShutdownSystem @ 0x1408DC5F0
  * Callers:
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
- *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
+ *     PopGracefulShutdown @ 0x1409B1E90 (PopGracefulShutdown.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ObMakeTemporaryObject @ 0x14062C010 (ObMakeTemporaryObject.c)
- *     ObReferenceObjectByName @ 0x140661100 (ObReferenceObjectByName.c)
- *     ExEnumHandleTable @ 0x140685A70 (ExEnumHandleTable.c)
- *     ObpDeleteSymbolicLinkName @ 0x140691CBC (ObpDeleteSymbolicLinkName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExEnumHandleTable @ 0x1405E3DF0 (ExEnumHandleTable.c)
+ *     ObpDeleteSymbolicLinkName @ 0x1405F1B2C (ObpDeleteSymbolicLinkName.c)
+ *     ObMakeTemporaryObject @ 0x14061C330 (ObMakeTemporaryObject.c)
+ *     ObReferenceObjectByName @ 0x140655F20 (ObReferenceObjectByName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObShutdownSystem(int a1)
@@ -37,26 +37,29 @@ void __fastcall ObShutdownSystem(int a1)
   char v16; // cl
   __int64 v17; // r12
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int16 *v19; // rcx
-  struct _DMA_ADAPTER **v20; // rcx
-  int v21; // [rsp+40h] [rbp-38h]
-  unsigned __int16 *v22; // [rsp+50h] [rbp-28h]
-  struct _OBJECT_TYPE *v23; // [rsp+58h] [rbp-20h]
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  unsigned __int16 *v22; // rcx
+  struct _DMA_ADAPTER **v23; // rcx
+  int v24; // [rsp+40h] [rbp-38h]
+  unsigned __int16 *v25; // [rsp+50h] [rbp-28h]
+  struct _OBJECT_TYPE *v26; // [rsp+58h] [rbp-20h]
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-18h] BYREF
-  int v25; // [rsp+C0h] [rbp+48h]
-  int v26; // [rsp+C8h] [rbp+50h]
-  int v27; // [rsp+D0h] [rbp+58h] BYREF
+  int v28; // [rsp+C0h] [rbp+48h]
+  int v29; // [rsp+C8h] [rbp+50h]
+  int v30; // [rsp+D0h] [rbp+58h] BYREF
   PVOID Object; // [rsp+D8h] [rbp+60h] BYREF
 
   if ( a1 )
   {
     if ( a1 == 1 )
     {
-      v27 = 0;
+      v30 = 0;
       ExEnumHandleTable(
         PsInitialSystemProcess[1].AffinityPadding[8],
-        (__int64 (__fastcall *)(__int64, __int64 *, _QWORD, __int64))ObpShutdownCloseHandleProcedure,
-        (__int64)&v27,
+        (__int64 (__fastcall *)(__int64, __int64 *, __int64, __int64))ObpShutdownCloseHandleProcedure,
+        (__int64)&v30,
         0LL);
     }
     else
@@ -124,7 +127,7 @@ void __fastcall ObShutdownSystem(int a1)
   else
   {
     v4 = (struct _DMA_ADAPTER *)ObpRootDirectoryObject;
-    v25 = 1;
+    v28 = 1;
     v5 = 0LL;
     v6 = 1;
     v7 = 1;
@@ -135,18 +138,18 @@ LABEL_15:
       {
         v8 = 0LL;
 LABEL_16:
-        v26 = v8;
+        v29 = v8;
         if ( (unsigned int)v8 < 0x25 )
         {
           v9 = &v4->Version + 4 * v8;
           v10 = *(unsigned __int16 **)v9;
           v11 = v9;
-          v22 = v9;
+          v25 = v9;
           while ( 1 )
           {
             if ( !v10 )
             {
-              v8 = (unsigned int)(v26 + 1);
+              v8 = (unsigned int)(v29 + 1);
               goto LABEL_16;
             }
             v12 = (struct _DMA_ADAPTER *)*((_QWORD *)v10 + 1);
@@ -154,7 +157,7 @@ LABEL_16:
             v14 = v5;
             v15 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(v12[-2].DmaOperations) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v12 - 48) >> 8)];
             v16 = BYTE2(v12[-2].DmaOperations);
-            v23 = v15;
+            v26 = v15;
             if ( (v16 & 2) != 0 )
             {
               v17 = (__int64)&v12[-3] - ObpInfoMaskToOffset[v16 & 3];
@@ -170,7 +173,7 @@ LABEL_16:
               {
                 v7 = v6;
                 v11 = v9;
-                v25 = v6;
+                v28 = v6;
               }
               else
               {
@@ -197,41 +200,41 @@ LABEL_16:
               ExAcquirePushLockExclusiveEx((ULONG_PTR)&v12[-2], 0LL);
               BYTE3(v12[-2].DmaOperations) &= ~0x10u;
               ExReleasePushLockEx((ULONG_PTR)&v12[-2], 0LL);
-              KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-              v19 = *(unsigned __int16 **)v11;
+              KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v19, v20, v21);
+              v22 = *(unsigned __int16 **)v11;
               if ( v12[-3].DmaOperations )
               {
-                v7 = v25;
+                v7 = v28;
                 v11 = *(unsigned __int16 **)v11;
               }
               else
               {
-                *(_QWORD *)v11 = *(_QWORD *)v19;
-                ExFreePoolWithTag(v19, 0);
-                if ( (v23->TypeInfo.ObjectTypeFlags & 8) == 0 )
+                *(_QWORD *)v11 = *(_QWORD *)v22;
+                ExFreePoolWithTag(v22, 0);
+                if ( (v26->TypeInfo.ObjectTypeFlags & 8) == 0 )
                 {
-                  LOBYTE(v21) = 0;
-                  v23->TypeInfo.SecurityProcedure(
+                  LOBYTE(v24) = 0;
+                  v26->TypeInfo.SecurityProcedure(
                     v12,
                     DeleteSecurityDescriptor,
                     0LL,
                     0LL,
                     0LL,
                     (void **)&v12[-1].DmaOperations,
-                    v23->TypeInfo.PoolType,
+                    v26->TypeInfo.PoolType,
                     0LL,
-                    v21);
+                    v24);
                 }
-                if ( v23 == ObpSymbolicLinkObjectType )
+                if ( v26 == ObpSymbolicLinkObjectType )
                 {
                   v7 = v6;
-                  v25 = v6;
+                  v28 = v6;
                   ObpDeleteSymbolicLinkName((__int64)v12);
-                  v11 = v22;
+                  v11 = v25;
                 }
                 else
                 {
-                  v7 = v25;
+                  v7 = v28;
                 }
                 ExFreePoolWithTag(*(PVOID *)(v17 + 16), 0);
                 *(_QWORD *)(v17 + 16) = 0LL;
@@ -240,19 +243,19 @@ LABEL_16:
                 HalPutDmaAdapter(v12);
                 HalPutDmaAdapter(v4);
               }
-              v9 = v22;
+              v9 = v25;
             }
             v10 = *(unsigned __int16 **)v11;
           }
         }
         --v6;
         if ( (BYTE2(v4[-2].DmaOperations) & 2) != 0 )
-          v20 = (struct _DMA_ADAPTER **)((char *)&v4[-3] - ObpInfoMaskToOffset[BYTE2(v4[-2].DmaOperations) & 3]);
+          v23 = (struct _DMA_ADAPTER **)((char *)&v4[-3] - ObpInfoMaskToOffset[BYTE2(v4[-2].DmaOperations) & 3]);
         else
-          v20 = 0LL;
+          v23 = 0LL;
         v5 = v4;
-        v4 = *v20;
-        if ( *v20 )
+        v4 = *v23;
+        if ( *v23 )
           continue;
         break;
       }

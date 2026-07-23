@@ -195,9 +195,9 @@ LABEL_33:
     }
     v18 = v40;
     v19 = v41;
-    if ( v17 > (unsigned int)KeMaximumIncrement )
+    if ( v17 > KeMaximumIncrement )
     {
-      v20 = v17 / (unsigned int)KeMaximumIncrement;
+      v20 = v17 / KeMaximumIncrement;
       v18 = v20 + v40 - 1;
       v19 = v20 + v41 - 1;
     }
@@ -213,7 +213,7 @@ LABEL_18:
     if ( v36 && v37 )
       *(_QWORD *)a2 += *(_QWORD *)(a2 + 8) + *(_QWORD *)(a2 + 16) + *(_QWORD *)(a2 + 24);
     else
-      *(_QWORD *)a2 = v18 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      *(_QWORD *)a2 = v18 * (unsigned __int64)KeMaximumIncrement;
   }
   if ( a3 )
   {

@@ -3,8 +3,8 @@
  * Callers:
  *     InbvDriverInitialize @ 0x140B52524 (InbvDriverInitialize.c)
  * Callees:
- *     BgkpTryEnableConsole @ 0x140388268 (BgkpTryEnableConsole.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     BgkpTryEnableConsole @ 0x140388448 (BgkpTryEnableConsole.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     BgLibraryInitialize @ 0x140AEE57C (BgLibraryInitialize.c)
  *     BgConsoleGetInterface @ 0x140AEE5EC (BgConsoleGetInterface.c)
  *     BgkDestroy @ 0x140AEEA68 (BgkDestroy.c)

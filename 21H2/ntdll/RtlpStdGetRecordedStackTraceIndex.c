@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x180101830
+ * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x1801017F0
  * Callers:
  *     RtlLogStackBackTraceEx @ 0x180011AA0 (RtlLogStackBackTraceEx.c)
  * Callees:
- *     RtlpStdExtendUpperWatermark @ 0x180101754 (RtlpStdExtendUpperWatermark.c)
- *     RtlpStdLockAcquire @ 0x1801019A8 (RtlpStdLockAcquire.c)
- *     RtlpStdLockRelease @ 0x1801019C8 (RtlpStdLockRelease.c)
+ *     RtlpStdExtendUpperWatermark @ 0x180101714 (RtlpStdExtendUpperWatermark.c)
+ *     RtlpStdLockAcquire @ 0x180101968 (RtlpStdLockAcquire.c)
+ *     RtlpStdLockRelease @ 0x180101988 (RtlpStdLockRelease.c)
  */
 
 __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int16 *a2)
@@ -14,8 +14,9 @@ __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int1
   __int64 v5; // r8
   _DWORD *v6; // rdx
   __int64 v7; // rsi
-  _QWORD *v8; // rax
-  __int64 v9; // rbx
+  void *v8; // rdx
+  _QWORD *v9; // rax
+  __int64 v10; // rbx
 
   v4 = 0;
   if ( a2[7] )
@@ -34,23 +35,23 @@ __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int1
   RtlpStdLockAcquire(v7);
   if ( a2[6] || a2[5] )
   {
-    LODWORD(v9) = a2[6] + (a2[5] << 16);
+    LODWORD(v10) = a2[6] + (a2[5] << 16);
   }
   else
   {
-    v8 = (_QWORD *)RtlpStdExtendUpperWatermark(a1);
-    if ( v8 )
+    v9 = (_QWORD *)RtlpStdExtendUpperWatermark(a1, v8);
+    if ( v9 )
     {
-      *v8 = a2;
-      v9 = (__int64)(*(_QWORD *)(a1 + 184) - (_QWORD)v8) >> 3;
-      a2[6] = v9;
-      a2[5] = WORD1(v9);
+      *v9 = a2;
+      v10 = (__int64)(*(_QWORD *)(a1 + 184) - (_QWORD)v9) >> 3;
+      a2[6] = v10;
+      a2[5] = WORD1(v10);
     }
     else
     {
-      LODWORD(v9) = 0;
+      LODWORD(v10) = 0;
     }
   }
   RtlpStdLockRelease(v7);
-  return (unsigned int)v9;
+  return (unsigned int)v10;
 }

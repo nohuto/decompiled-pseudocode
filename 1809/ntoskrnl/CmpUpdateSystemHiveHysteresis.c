@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpUpdateSystemHiveHysteresis @ 0x1405A24F4
+ * XREFs of CmpUpdateSystemHiveHysteresis @ 0x1405A34F4
  * Callers:
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x1405A9240 (HvFreeHivePartial.c)
  * Callees:
- *     CmpDoQueueSystemHiveHysteresis @ 0x1407EC684 (CmpDoQueueSystemHiveHysteresis.c)
+ *     CmpDoQueueSystemHiveHysteresis @ 0x1407ED884 (CmpDoQueueSystemHiveHysteresis.c)
  */
 
 void __fastcall CmpUpdateSystemHiveHysteresis(__int64 a1, unsigned int a2, unsigned int a3)
@@ -13,7 +13,7 @@ void __fastcall CmpUpdateSystemHiveHysteresis(__int64 a1, unsigned int a2, unsig
   unsigned int v5; // eax
   __int64 v6; // rdx
 
-  if ( a1 == qword_1403FEFF0 && CmpSystemHiveHysteresisCallback )
+  if ( a1 == qword_1403FFFF0 && CmpSystemHiveHysteresisCallback )
   {
     v4 = a2 + 4096;
     v6 = 100 * (a2 + 4096) % CmSystemHiveLimitSize;

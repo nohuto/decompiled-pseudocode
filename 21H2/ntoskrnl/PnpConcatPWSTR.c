@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpConcatPWSTR @ 0x1406A9C64
+ * XREFs of PnpConcatPWSTR @ 0x140607BE4
  * Callers:
- *     PiDqOpenUserObjectRegKey @ 0x1406A98B8 (PiDqOpenUserObjectRegKey.c)
- *     PiSwStopDestroy @ 0x140738C44 (PiSwStopDestroy.c)
- *     PipCheckForDenyExecute @ 0x140748B10 (PipCheckForDenyExecute.c)
- *     PiSwInstanceInfoInit @ 0x14074E340 (PiSwInstanceInfoInit.c)
- *     PiSwGetChildPdo @ 0x14077093C (PiSwGetChildPdo.c)
+ *     PiDqOpenUserObjectRegKey @ 0x140607838 (PiDqOpenUserObjectRegKey.c)
+ *     PiSwStopDestroy @ 0x140738E04 (PiSwStopDestroy.c)
+ *     PipCheckForDenyExecute @ 0x140748CD0 (PipCheckForDenyExecute.c)
+ *     PiSwInstanceInfoInit @ 0x14074E500 (PiSwInstanceInfoInit.c)
+ *     PiSwGetChildPdo @ 0x140770AFC (PiSwGetChildPdo.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
- *     RtlStringCbCatW @ 0x140265118 (RtlStringCbCatW.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchLengthW @ 0x140252F04 (RtlStringCchLengthW.c)
+ *     RtlStringCbCatW @ 0x1402531A8 (RtlStringCbCatW.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpConcatPWSTR(size_t cchMax, ULONG Tag, PVOID *a3, unsigned __int64 a4)

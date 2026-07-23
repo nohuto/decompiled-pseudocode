@@ -40,7 +40,7 @@ __int64 __fastcall ExpGetSystemWriteConstraintInformation(int *a1)
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-140h] BYREF
   BOOL v24; // [rsp+68h] [rbp-130h]
   UNICODE_STRING v25; // [rsp+70h] [rbp-128h] BYREF
-  _WORD *NtSystemRoot; // [rsp+80h] [rbp-118h]
+  PWSTR NtSystemRoot; // [rsp+80h] [rbp-118h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-108h] BYREF
   _BYTE v28[80]; // [rsp+C0h] [rbp-D8h] BYREF
   _BYTE v29[80]; // [rsp+110h] [rbp-88h] BYREF
@@ -107,7 +107,7 @@ LABEL_2:
   }
   else
   {
-    NtSystemRoot = (_WORD *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v9 = v20;
     if ( v20 )
     {

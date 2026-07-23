@@ -156,7 +156,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
         if ( (v41 & 1) != 0 )
           v41 = (unsigned int)(v41 + 1);
         if ( (unsigned int)++v24 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
         v23 = (char *)(a2 + *(unsigned int *)&v23[2 * v41 + 12]);
         if ( a3 <= 0x7FFFFFFEFFFFLL && ((unsigned __int8)v23 & 3) != 0 )
           goto LABEL_69;

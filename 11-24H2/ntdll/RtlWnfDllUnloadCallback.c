@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWnfDllUnloadCallback @ 0x1801133A0
+ * XREFs of RtlWnfDllUnloadCallback @ 0x18010E5F0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlWnfDllUnloadCallback(unsigned __int64 a1)
+NTSTATUS __cdecl RtlWnfDllUnloadCallback(PVOID DllBase)
 {
-  return LdrUnloadDll(a1);
+  return LdrUnloadDll(DllBase);
 }

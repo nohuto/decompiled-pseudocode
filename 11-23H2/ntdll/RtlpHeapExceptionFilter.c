@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHeapExceptionFilter @ 0x1801228D8
+ * XREFs of RtlpHeapExceptionFilter @ 0x1801228A8
  * Callers:
  *     RtlpHpFreeWithExceptionProtection @ 0x18003B150 (RtlpHpFreeWithExceptionProtection.c)
  *     RtlpHpAllocWithExceptionProtection @ 0x18003E210 (RtlpHpAllocWithExceptionProtection.c)
@@ -25,9 +25,9 @@
  *     RtlDebugSizeHeap @ 0x180107838 (RtlDebugSizeHeap.c)
  *     RtlDebugWalkHeap @ 0x180107AE8 (RtlDebugWalkHeap.c)
  *     RtlDebugZeroHeap @ 0x180107B78 (RtlDebugZeroHeap.c)
- *     RtlpAnalyzeHeapFailure @ 0x1801163D4 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHpHeapHandleError @ 0x1801169C0 (RtlpHpHeapHandleError.c)
- *     RtlpHpSegGetDescriptorValidateSafe @ 0x1801236BC (RtlpHpSegGetDescriptorValidateSafe.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1801163A4 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHpHeapHandleError @ 0x180116990 (RtlpHpHeapHandleError.c)
+ *     RtlpHpSegGetDescriptorValidateSafe @ 0x18012368C (RtlpHpSegGetDescriptorValidateSafe.c)
  * Callees:
  *     <none>
  */

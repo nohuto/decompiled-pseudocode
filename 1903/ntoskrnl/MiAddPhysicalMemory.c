@@ -179,7 +179,7 @@ LABEL_59:
           if ( (v17 & 4) == 0 )
             MiEnableNewPfns(v9, v11, v17);
           if ( (MiFlags & 0x10000000) != 0 )
-            ZwUpdateWnfStateData((__int64)&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0LL);
+            ZwUpdateWnfStateData(&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0, 0LL, 0LL, 0, 0);
           KePulseEvent(qword_1404685C0, 0, 0);
         }
         v21 = 0;

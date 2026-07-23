@@ -1,22 +1,22 @@
 /*
- * XREFs of KiTimerWaitTest @ 0x140252EF0
+ * XREFs of KiTimerWaitTest @ 0x140252FB0
  * Callers:
- *     KiCommitThreadWait @ 0x140241F20 (KiCommitThreadWait.c)
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     KiProcessExpiredTimerList @ 0x140252B50 (KiProcessExpiredTimerList.c)
- *     KeSetTimerEx @ 0x140253590 (KeSetTimerEx.c)
- *     KiResumeThread @ 0x14030ACF8 (KiResumeThread.c)
- *     KiAdjustTimerDueTimes @ 0x14039A5E4 (KiAdjustTimerDueTimes.c)
+ *     KiCommitThreadWait @ 0x140241FF0 (KiCommitThreadWait.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     KiProcessExpiredTimerList @ 0x140252C10 (KiProcessExpiredTimerList.c)
+ *     KeSetTimerEx @ 0x140253650 (KeSetTimerEx.c)
+ *     KiResumeThread @ 0x14030AF88 (KiResumeThread.c)
+ *     KiAdjustTimerDueTimes @ 0x14039A7C4 (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiInsertTimerTable @ 0x140253830 (KiInsertTimerTable.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     PsTimerResolutionActive @ 0x140255200 (PsTimerResolutionActive.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertTimerTable @ 0x1402538F0 (KiInsertTimerTable.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     PsTimerResolutionActive @ 0x1402552C0 (PsTimerResolutionActive.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 ULONG_PTR __fastcall KiTimerWaitTest(__int64 a1, __int64 a2, __int64 a3)
@@ -166,7 +166,7 @@ LABEL_4:
           *(_QWORD *)v16 = 0LL;
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 2 )
@@ -262,7 +262,7 @@ LABEL_32:
         *(_QWORD *)v21 = 0LL;
         v38 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v38 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu )
         {
           v44 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v38 == 2 )

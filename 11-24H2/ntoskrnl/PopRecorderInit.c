@@ -1,9 +1,9 @@
 /*
- * XREFs of PopRecorderInit @ 0x140C32368
+ * XREFs of PopRecorderInit @ 0x140C344A8
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x140467D20 (KeRegisterBugCheckReasonCallback.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1404606D0 (KeRegisterBugCheckReasonCallback.c)
  */
 
 BOOLEAN PopRecorderInit()
@@ -13,7 +13,7 @@ BOOLEAN PopRecorderInit()
 
   PopBlackBoxLock = 0LL;
   PopBootStatLock = 0LL;
-  for ( i = 0LL; i < 312; i += 13LL )
+  for ( i = 0LL; i < 325; i += 13LL )
   {
     byte_140E07824[i * 8] = 0;
     result = KeRegisterBugCheckReasonCallback(

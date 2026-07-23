@@ -7,34 +7,37 @@
  *     RtlNormalizeProcessParams @ 0x18008B360 (RtlNormalizeProcessParams.c)
  */
 
-__int64 __fastcall RtlCreateUserProcessEx(__int64 a1, __int64 a2, char a3, __int64 a4, void *a5)
+NTSTATUS __cdecl RtlCreateUserProcessEx(
+        PUNICODE_STRING NtImagePathName,
+        PRTL_USER_PROCESS_PARAMETERS ProcessParameters,
+        BOOLEAN InheritHandles,
+        PRTL_USER_PROCESS_EXTENDED_PARAMETERS ProcessExtendedParameters,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  int v7; // edi
-  __int64 v8; // rax
-  int v9; // r9d
+  PRTL_USER_PROCESS_PARAMETERS v8; // rax
+  unsigned int Flags; // r9d
   int v10; // edx
-  int v11; // ecx
-  int v12; // r8d
+  unsigned int v11; // ecx
+  __int64 v12; // r8
 
-  v7 = a1;
-  if ( !a1 )
-    return 3221225485LL;
-  if ( !a2 )
-    return 3221225485LL;
-  v8 = RtlNormalizeProcessParams(a2);
+  if ( !NtImagePathName )
+    return -1073741811;
+  if ( !ProcessParameters )
+    return -1073741811;
+  v8 = RtlNormalizeProcessParams(ProcessParameters);
   if ( !v8 )
-    return 3221225485LL;
-  if ( !a3 )
-    *(_QWORD *)(v8 + 72) = 0LL;
-  v9 = *(_DWORD *)(v8 + 8);
-  v10 = (a3 != 0 ? 4 : 0) | 0x80;
-  if ( (v9 & 0x40000) == 0 )
-    v10 = a3 != 0 ? 4 : 0;
+    return -1073741811;
+  if ( !InheritHandles )
+    v8->CurrentDirectory.Handle = 0LL;
+  Flags = v8->Flags;
+  v10 = (InheritHandles != 0 ? 4 : 0) | 0x80;
+  if ( (Flags & 0x40000) == 0 )
+    v10 = InheritHandles != 0 ? 4 : 0;
   v11 = v10 | 0x40;
-  if ( (v9 & 0x400000) == 0 )
+  if ( (Flags & 0x400000) == 0 )
     v11 = v10;
   v12 = v11 | 0x40000;
-  if ( (v9 & 0x800000) == 0 )
+  if ( (Flags & 0x800000) == 0 )
     v12 = v11;
-  return RtlpCreateUserProcess(v7, v8, v12, 1, a4, a5);
+  return RtlpCreateUserProcess(NtImagePathName, v8, v12, 1LL, ProcessExtendedParameters, ProcessInformation);
 }

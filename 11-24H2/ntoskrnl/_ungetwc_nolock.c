@@ -1,10 +1,10 @@
 /*
- * XREFs of _ungetwc_nolock @ 0x140507C30
+ * XREFs of _ungetwc_nolock @ 0x1405054F0
  * Callers:
- *     ReadString_0 @ 0x140506CE0 (ReadString_0.c)
- *     _winput_s @ 0x1405071A8 (_winput_s.c)
+ *     ReadString_0 @ 0x1405045A0 (ReadString_0.c)
+ *     _winput_s @ 0x140504A68 (_winput_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
  */
 
 wint_t __cdecl ungetwc_nolock(wint_t Ch, FILE *File)

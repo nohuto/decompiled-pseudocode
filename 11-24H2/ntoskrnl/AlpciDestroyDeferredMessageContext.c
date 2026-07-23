@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpciDestroyDeferredMessageContext @ 0x1409DE970
+ * XREFs of AlpciDestroyDeferredMessageContext @ 0x1409D8720
  * Callers:
- *     ExpWorkerFactoryFinishDeferredWork @ 0x1402A41B0 (ExpWorkerFactoryFinishDeferredWork.c)
+ *     ExpWorkerFactoryFinishDeferredWork @ 0x1402D38E0 (ExpWorkerFactoryFinishDeferredWork.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
  */
 
 __int64 __fastcall AlpciDestroyDeferredMessageContext(__int64 a1)

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiObtainSystemCacheView @ 0x14029FE90
+ * XREFs of MiObtainSystemCacheView @ 0x1402A0120
  * Callers:
- *     MmMapViewInSystemCache @ 0x14029F630 (MmMapViewInSystemCache.c)
- *     MmReserveViewInSystemCache @ 0x140843700 (MmReserveViewInSystemCache.c)
+ *     MmMapViewInSystemCache @ 0x14029F8C0 (MmMapViewInSystemCache.c)
+ *     MmReserveViewInSystemCache @ 0x140843A00 (MmReserveViewInSystemCache.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     MiReleaseSystemCacheView @ 0x1402A0140 (MiReleaseSystemCacheView.c)
- *     MiRebalanceSystemCacheFreedViews @ 0x1402A0310 (MiRebalanceSystemCacheFreedViews.c)
- *     MiGetSystemCacheRegionsToFree @ 0x1402A0AA8 (MiGetSystemCacheRegionsToFree.c)
- *     MiConsumeSystemCachePde @ 0x1403536AC (MiConsumeSystemCachePde.c)
- *     MiExpandSystemCache @ 0x140355838 (MiExpandSystemCache.c)
- *     MiConsumeSystemCacheTbFlushNeededView @ 0x140361250 (MiConsumeSystemCacheTbFlushNeededView.c)
- *     MiLateInitializeSystemCache @ 0x1403ADE78 (MiLateInitializeSystemCache.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1403D4058 (MiReturnSystemCacheRegionsToKva.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     CcUnmapInactiveViews @ 0x140538278 (CcUnmapInactiveViews.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReadyReservedView @ 0x14062EE90 (MiReadyReservedView.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     MiReleaseSystemCacheView @ 0x1402A03D0 (MiReleaseSystemCacheView.c)
+ *     MiRebalanceSystemCacheFreedViews @ 0x1402A05A0 (MiRebalanceSystemCacheFreedViews.c)
+ *     MiGetSystemCacheRegionsToFree @ 0x1402A0D38 (MiGetSystemCacheRegionsToFree.c)
+ *     MiConsumeSystemCachePde @ 0x14035384C (MiConsumeSystemCachePde.c)
+ *     MiExpandSystemCache @ 0x1403559D8 (MiExpandSystemCache.c)
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1403613F0 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiLateInitializeSystemCache @ 0x1403AE058 (MiLateInitializeSystemCache.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x1403D4238 (MiReturnSystemCacheRegionsToKva.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     CcUnmapInactiveViews @ 0x1405387C8 (CcUnmapInactiveViews.c)
+ *     MiReadyReservedView @ 0x14062F3E0 (MiReadyReservedView.c)
  */
 
 __int64 __fastcall MiObtainSystemCacheView(__int64 a1)
@@ -68,7 +68,7 @@ __int64 __fastcall MiObtainSystemCacheView(__int64 a1)
   LockHandle.LockQueue.Next = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -92,10 +92,10 @@ __int64 __fastcall MiObtainSystemCacheView(__int64 a1)
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v18 = CurrentPrcb->SchedulerAssist;
@@ -130,10 +130,10 @@ LABEL_10:
     MiGetSystemCacheRegionsToFree(a1, v31);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v10 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v25 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && LockHandle.OldIrql <= 0xFu && v25 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && LockHandle.OldIrql <= 0xFu && v25 >= 2u )
       {
         v26 = KeGetCurrentPrcb();
         v27 = v26->SchedulerAssist;
@@ -158,10 +158,10 @@ LABEL_10:
     goto LABEL_10;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v14 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && LockHandle.OldIrql <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && LockHandle.OldIrql <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

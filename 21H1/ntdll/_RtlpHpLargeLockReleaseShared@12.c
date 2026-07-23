@@ -6,11 +6,8 @@
  *     _RtlReleaseSRWLockShared@4 @ 0x4B2B52B0 (_RtlReleaseSRWLockShared@4.c)
  */
 
-int __fastcall RtlpHpLargeLockReleaseShared(int a1, char a2, int a3)
+void __fastcall RtlpHpLargeLockReleaseShared(_RTL_SRWLOCK *a1, char a2, int a3)
 {
-  int result; // eax
-
   if ( (a2 & 1) == 0 )
-    return RtlReleaseSRWLockShared((volatile signed __int32 *)(a1 + 64));
-  return result;
+    RtlReleaseSRWLockShared(a1 + 16);
 }

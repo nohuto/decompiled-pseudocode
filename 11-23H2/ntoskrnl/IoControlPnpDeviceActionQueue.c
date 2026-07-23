@@ -1,12 +1,12 @@
 /*
- * XREFs of IoControlPnpDeviceActionQueue @ 0x1403C3E7C
+ * XREFs of IoControlPnpDeviceActionQueue @ 0x1403C405C
  * Callers:
- *     WmipRegistrationWorker @ 0x14086F0C0 (WmipRegistrationWorker.c)
- *     PopDiagDeviceRundownWorker @ 0x1408A5A10 (PopDiagDeviceRundownWorker.c)
- *     PopDirectedDripsInitializeBroadcast @ 0x1409836E8 (PopDirectedDripsInitializeBroadcast.c)
+ *     WmipRegistrationWorker @ 0x14086F300 (WmipRegistrationWorker.c)
+ *     PopDiagDeviceRundownWorker @ 0x1408A5C60 (PopDiagDeviceRundownWorker.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1409838E8 (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     PnpLockDeviceActionQueue @ 0x1403C3E9C (PnpLockDeviceActionQueue.c)
- *     PnpUnlockDeviceActionQueue @ 0x1403C3F14 (PnpUnlockDeviceActionQueue.c)
+ *     PnpLockDeviceActionQueue @ 0x1403C407C (PnpLockDeviceActionQueue.c)
+ *     PnpUnlockDeviceActionQueue @ 0x1403C40F4 (PnpUnlockDeviceActionQueue.c)
  */
 
 __int64 __fastcall IoControlPnpDeviceActionQueue(char a1)

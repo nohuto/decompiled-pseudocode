@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhBlockBitmapInitialize @ 0x14034BB58
+ * XREFs of RtlpHpLfhBlockBitmapInitialize @ 0x14034DBD8
  * Callers:
- *     RtlpHpLfhSubsegmentInitialize @ 0x14034B4F0 (RtlpHpLfhSubsegmentInitialize.c)
- *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034BF30 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x14034D570 (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034DFB0 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpLfhBlockBitmapInitialize(void *a1, unsigned int a2)

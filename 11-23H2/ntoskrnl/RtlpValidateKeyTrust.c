@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidateKeyTrust @ 0x1407D93B4
+ * XREFs of RtlpValidateKeyTrust @ 0x1407D9684
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x1406C5ED4 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x1406C5F04 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     ZwQueryKey @ 0x14041B020 (ZwQueryKey.c)
+ *     ZwQueryKey @ 0x14041B3B0 (ZwQueryKey.c)
  */
 
 __int64 __fastcall RtlpValidateKeyTrust(void *a1, __int16 a2)

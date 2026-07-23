@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiLibpKcsIpmiMessagePack @ 0x1406A07AC
+ * XREFs of IpmiLibpKcsIpmiMessagePack @ 0x1406A18B4
  * Callers:
- *     IpmiLibpKcsRequestAndReceive @ 0x1406A03A0 (IpmiLibpKcsRequestAndReceive.c)
+ *     IpmiLibpKcsRequestAndReceive @ 0x1406A14A4 (IpmiLibpKcsRequestAndReceive.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall IpmiLibpKcsIpmiMessagePack(unsigned __int16 *a1, __int64 a2)

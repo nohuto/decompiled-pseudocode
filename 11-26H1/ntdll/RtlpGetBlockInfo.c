@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetBlockInfo @ 0x1800C4DA0
+ * XREFs of RtlpGetBlockInfo @ 0x1800C2560
  * Callers:
- *     RtlpPushPageDescriptor @ 0x1800C47F4 (RtlpPushPageDescriptor.c)
- *     RtlpScanHeapAllocBlocks @ 0x1800C497C (RtlpScanHeapAllocBlocks.c)
- *     RtlpGetHeapBlock @ 0x1800C4CF0 (RtlpGetHeapBlock.c)
+ *     RtlpPushPageDescriptor @ 0x1800C1FB4 (RtlpPushPageDescriptor.c)
+ *     RtlpScanHeapAllocBlocks @ 0x1800C213C (RtlpScanHeapAllocBlocks.c)
+ *     RtlpGetHeapBlock @ 0x1800C24B0 (RtlpGetHeapBlock.c)
  * Callees:
  *     <none>
  */

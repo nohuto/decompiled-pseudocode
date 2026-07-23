@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeWalkBounds @ 0x14025D3EC
+ * XREFs of MiInitializeWalkBounds @ 0x14025D67C
  * Callers:
- *     MiWalkPageTables @ 0x14025BD00 (MiWalkPageTables.c)
+ *     MiWalkPageTables @ 0x14025BF90 (MiWalkPageTables.c)
  * Callees:
- *     MiHyperSpaceSize @ 0x14025D514 (MiHyperSpaceSize.c)
+ *     MiHyperSpaceSize @ 0x14025D7A4 (MiHyperSpaceSize.c)
  */
 
 __int64 __fastcall MiInitializeWalkBounds(__int64 a1, _QWORD *a2)

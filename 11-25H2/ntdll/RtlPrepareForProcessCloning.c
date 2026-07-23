@@ -23,7 +23,7 @@
 __int64 RtlPrepareForProcessCloning()
 {
   __int64 result; // rax
-  volatile signed __int32 *v1; // rbx
+  _RTL_SRWLOCK *v1; // rbx
   __int64 v2; // rdi
   int v3; // ebx
 
@@ -31,27 +31,27 @@ __int64 RtlPrepareForProcessCloning()
     return 3221225876LL;
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
-  RtlpFlsClonePrepare((__int64)&RtlpFlsContext);
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
+  RtlpFlsClonePrepare(&RtlpFlsContext);
+  RtlEnterCriticalSection(&FastPebLock);
   RtlAcquireSRWLockShared(&LdrpTlsLock);
-  v1 = (volatile signed __int32 *)&unk_1801D44F8;
+  v1 = &stru_1801D44F8;
   v2 = 16LL;
   do
   {
     RtlAcquireSRWLockExclusive(v1);
-    v1 += 4;
+    v1 += 2;
     --v2;
   }
   while ( v2 );
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpProtectedPoliciesSRWLock);
+  RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   LdrForkMrdata(0);
   RtlpFeatureConfigurationClonePrepare();
   v3 = RtlLockHeapManagerForCloning();
   if ( v3 >= 0 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlCriticalSectionLock);
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpForkActiveLock);
+    RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
+    RtlAcquireSRWLockExclusive(&LdrpForkActiveLock);
     result = 0LL;
     LdrpForkInProgress = 1;
   }
@@ -61,7 +61,7 @@ __int64 RtlPrepareForProcessCloning()
     LdrForkMrdata(2);
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
     LdrpUnlockTlsDelayedReclaimTable(0LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
     RtlpFlsCloneComplete((__int64)&RtlpFlsContext, 0);
     LdrpCompleteProcessCloning(0LL);
     return (unsigned int)v3;

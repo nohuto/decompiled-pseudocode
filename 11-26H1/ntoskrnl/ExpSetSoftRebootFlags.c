@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpSetSoftRebootFlags @ 0x1406CADF8
+ * XREFs of ExpSetSoftRebootFlags @ 0x1406CEE28
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ExpSetSoftRebootFlags(int a1)
@@ -25,7 +25,7 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   int v15; // eax
   int v16; // eax
   int v17; // eax
-  unsigned __int64 v19; // [rsp+48h] [rbp-C0h] BYREF
+  unsigned __int64 Buffer; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v20; // [rsp+58h] [rbp-B0h] BYREF
   __int64 v21; // [rsp+60h] [rbp-A8h]
   int v22; // [rsp+68h] [rbp-A0h]
@@ -105,7 +105,7 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   __int64 v96; // [rsp+240h] [rbp+138h]
   char v97; // [rsp+248h] [rbp+140h]
 
-  v19 = 0LL;
+  Buffer = 0LL;
   v20 = 0LL;
   v21 = 0LL;
   LOBYTE(v22) = 0;
@@ -233,8 +233,8 @@ LABEL_21:
             ExSoftRebootFlags = v17;
           }
           _InterlockedExchange(&ExSoftRebootState, v4);
-          v19 = __PAIR64__(v4, v8);
-          ZwUpdateWnfStateData(&WNF_KSR_STATE_TRANSITION, &v19, 8LL, 0LL, 0LL, 0, 0);
+          Buffer = __PAIR64__(v4, v8);
+          ZwUpdateWnfStateData(&WNF_KSR_STATE_TRANSITION, &Buffer, 8u, 0LL, 0LL, 0, 0);
         }
         return (unsigned int)v11;
       }

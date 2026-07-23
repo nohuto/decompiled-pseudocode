@@ -1,11 +1,11 @@
 /*
- * XREFs of PspInitializeSyscallProvider @ 0x1405A4C00
+ * XREFs of PspInitializeSyscallProvider @ 0x1405A5170
  * Callers:
- *     PsRegisterSyscallProvider @ 0x1409B4560 (PsRegisterSyscallProvider.c)
+ *     PsRegisterSyscallProvider @ 0x1409B4760 (PsRegisterSyscallProvider.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall PspInitializeSyscallProvider(__int64 a1, void *a2, __int128 *a3, __int64 a4)

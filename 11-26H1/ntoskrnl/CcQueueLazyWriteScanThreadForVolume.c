@@ -1,19 +1,19 @@
 /*
- * XREFs of CcQueueLazyWriteScanThreadForVolume @ 0x140387470
+ * XREFs of CcQueueLazyWriteScanThreadForVolume @ 0x140389220
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x1403863F0 (CcPostWorkQueue.c)
- *     CcIsLazyWriteScanQueuedInternal @ 0x140387740 (CcIsLazyWriteScanQueuedInternal.c)
- *     CcSetLazyWriteScanQueuedInternal @ 0x14038778C (CcSetLazyWriteScanQueuedInternal.c)
- *     CcAllocateWorkQueueEntry @ 0x140387B50 (CcAllocateWorkQueueEntry.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     CcPostWorkQueueSpecial @ 0x1404EEB44 (CcPostWorkQueueSpecial.c)
- *     CcNotifyExternalCachesInternal @ 0x140506DEC (CcNotifyExternalCachesInternal.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcPostWorkQueue @ 0x1403881A0 (CcPostWorkQueue.c)
+ *     CcIsLazyWriteScanQueuedInternal @ 0x1403894F0 (CcIsLazyWriteScanQueuedInternal.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x14038953C (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcAllocateWorkQueueEntry @ 0x140389900 (CcAllocateWorkQueueEntry.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     CcPostWorkQueueSpecial @ 0x1404E8124 (CcPostWorkQueueSpecial.c)
+ *     CcNotifyExternalCachesInternal @ 0x1405007BC (CcNotifyExternalCachesInternal.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall CcQueueLazyWriteScanThreadForVolume(_QWORD *StartContext)
@@ -75,7 +75,7 @@ LABEL_6:
     v8 = StartContext[8];
     if ( !v8 )
       KeBugCheckEx(0x34u, 0x6B7uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-    if ( LODWORD(EmpParseLock.GlobalForegroundListEntry.Flink)
+    if ( LODWORD(EmpParseLock.ReadOperationCount)
       && ((_QWORD *)StartContext[156] != StartContext + 156 || (_QWORD *)StartContext[158] != StartContext + 158) )
     {
       CcNotifyExternalCachesInternal(v3, v1, StartContext);
@@ -93,7 +93,7 @@ LABEL_20:
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       if ( (int)CcAllocateWorkQueueEntry(v1, StartContext, v8, &v20) < 0 )
       {
-        ++HIDWORD(EmpParseLock.KernelShadowStackInitial);
+        ++LODWORD(EmpParseLock.Spare35[0]);
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 768), &LockHandle);
         v19 = v3;
         *((_BYTE *)StartContext + 985) = 0;

@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpDisableUserModeNotifications @ 0x140288A34
+ * XREFs of PnpDisableUserModeNotifications @ 0x140288C24
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1402846C0 (IoRevokeHandlesForProcess.c)
+ *     IoRevokeHandlesForProcess @ 0x1402848B0 (IoRevokeHandlesForProcess.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)

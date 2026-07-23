@@ -9,13 +9,13 @@
  *     RtlxOemStringToUnicodeSize @ 0x1800E90E0 (RtlxOemStringToUnicodeSize.c)
  */
 
-__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(const void **a1, STRING *a2)
+__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(const void **a1, const ANSI_STRING *a2)
 {
   int FileNameBufferIfNeeded; // edi
   int v5; // eax
   __int16 v6; // dx
   __int64 v7; // rcx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   FileNameBufferIfNeeded = 0;
   if ( a2->Length )

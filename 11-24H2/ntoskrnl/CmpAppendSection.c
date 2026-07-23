@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAppendSection @ 0x140C17FE8
+ * XREFs of CmpAppendSection @ 0x140C19FE8
  * Callers:
- *     CmpParseInfBuffer @ 0x140C185C4 (CmpParseInfBuffer.c)
+ *     CmpParseInfBuffer @ 0x140C1A5C4 (CmpParseInfBuffer.c)
  * Callees:
- *     _stricmp @ 0x1404FE0B0 (_stricmp.c)
- *     _strnicmp @ 0x1404FE160 (_strnicmp.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _stricmp @ 0x1404FB970 (_stricmp.c)
+ *     _strnicmp @ 0x1404FBA20 (_strnicmp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CmpAppendSection(__int64 a1, __int64 a2, char a3)
@@ -14,7 +14,7 @@ char __fastcall CmpAppendSection(__int64 a1, __int64 a2, char a3)
   _QWORD *v6; // rbx
   const char *v7; // rcx
   _QWORD *v8; // rax
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   char result; // al
 
   if ( a1 && a2 )

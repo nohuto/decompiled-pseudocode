@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpDecodePreallocationRangeHandle @ 0x14079F1DC
+ * XREFs of VmpDecodePreallocationRangeHandle @ 0x14079F2EC
  * Callers:
- *     VmCreateMemoryRange @ 0x14079EA00 (VmCreateMemoryRange.c)
- *     VmFreePreallocationForRangeCreate @ 0x14079EBF0 (VmFreePreallocationForRangeCreate.c)
+ *     VmCreateMemoryRange @ 0x14079EB10 (VmCreateMemoryRange.c)
+ *     VmFreePreallocationForRangeCreate @ 0x14079ED00 (VmFreePreallocationForRangeCreate.c)
  * Callees:
  *     <none>
  */

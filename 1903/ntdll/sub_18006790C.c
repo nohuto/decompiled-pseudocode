@@ -21,7 +21,7 @@
 __int64 __fastcall sub_18006790C(__int64 a1, __int64 a2, char a3)
 {
   struct _PEB *v4; // rsi
-  unsigned int i; // ebx
+  ULONG i; // ebx
   unsigned int j; // ebx
   __int64 k; // rax
   int v9; // [rsp+20h] [rbp-28h]
@@ -30,7 +30,7 @@ __int64 __fastcall sub_18006790C(__int64 a1, __int64 a2, char a3)
   v4 = NtCurrentPeb();
   v10 = 0;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&unk_180163BE0);
+    RtlEnterCriticalSection(&stru_180163BE0);
   for ( i = 0; i < v4->NumberOfHeaps; ++i )
   {
     v10 = _guard_dispatch_icall_fptr();
@@ -60,6 +60,6 @@ __int64 __fastcall sub_18006790C(__int64 a1, __int64 a2, char a3)
   }
 LABEL_18:
   if ( (a3 & 1) == 0 )
-    RtlLeaveCriticalSection((__int64)&unk_180163BE0);
+    RtlLeaveCriticalSection(&stru_180163BE0);
   return (unsigned int)v10;
 }

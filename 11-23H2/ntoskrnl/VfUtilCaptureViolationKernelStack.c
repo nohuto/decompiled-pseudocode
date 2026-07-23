@@ -1,14 +1,14 @@
 /*
- * XREFs of VfUtilCaptureViolationKernelStack @ 0x140AC24C0
+ * XREFs of VfUtilCaptureViolationKernelStack @ 0x140AC24B0
  * Callers:
- *     CarWriteLivedump @ 0x1405D5CA0 (CarWriteLivedump.c)
+ *     CarWriteLivedump @ 0x1405D6210 (CarWriteLivedump.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x14034E9B0 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x14041F130 (KeGetCurrentStackPointer.c)
- *     RtlCaptureContext @ 0x140428FD0 (RtlCaptureContext.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryCurrentStackInformation @ 0x14034EB50 (KeQueryCurrentStackInformation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeGetCurrentStackPointer @ 0x14041F4C0 (KeGetCurrentStackPointer.c)
+ *     RtlCaptureContext @ 0x140429360 (RtlCaptureContext.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall VfUtilCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD *a2)
@@ -37,7 +37,7 @@ char __fastcall VfUtilCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD
   v5 = 1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -62,10 +62,10 @@ char __fastcall VfUtilCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD
     *a2 = &VfRuleViolationStackSavedArea;
     ContextRecord->Rsp = (unsigned __int64)&VfRuleViolationStackSavedArea + v10;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;

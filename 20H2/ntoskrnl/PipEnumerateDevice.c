@@ -31,7 +31,7 @@ __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)
   if ( a2
     || (PnpAsyncOptions & 2) == 0
     || (*(_DWORD *)(a1 + 396) & 0x800000) != 0
-    || (_DWORD)InitSafeBootMode
+    || InitSafeBootMode
     || (v5 = PnpDeviceCompletionRequestCreate(a1, 781LL)) == 0 )
   {
     if ( a3 && (*(_DWORD *)(a1 + 396) & 0x800000) != 0 )

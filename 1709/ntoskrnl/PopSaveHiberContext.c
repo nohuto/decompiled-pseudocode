@@ -51,7 +51,7 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3, __
   unsigned int v13; // r8d
   _DWORD *v14; // rcx
   _DWORD *v15; // rdx
-  struct _RTL_BITMAP *v16; // rcx
+  _RTL_BITMAP *v16; // rcx
   __int64 v17; // rdx
   __int64 v18; // rcx
   unsigned __int64 v19; // rbx
@@ -235,12 +235,12 @@ LABEL_27:
   }
   if ( byte_140365B41 )
   {
-    v16 = (struct _RTL_BITMAP *)(Address + 32);
+    v16 = (_RTL_BITMAP *)(Address + 32);
   }
   else
   {
-    RtlCopyBitMap((int *)Address + 12, (__int64)(Address + 32), 0);
-    v16 = (struct _RTL_BITMAP *)(Address + 48);
+    RtlCopyBitMap((PRTL_BITMAP)Address + 3, (PRTL_BITMAP)Address + 2, 0);
+    v16 = (_RTL_BITMAP *)(Address + 48);
   }
   RtlSetAllBits(v16);
   v17 = *((_QWORD *)Address + 21);

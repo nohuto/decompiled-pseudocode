@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpQueryProfileSource @ 0x140507B1C
+ * XREFs of HalpQueryProfileSource @ 0x14050806C
  * Callers:
- *     HalpQueryProfileInformation @ 0x140865438 (HalpQueryProfileInformation.c)
+ *     HalpQueryProfileInformation @ 0x140865678 (HalpQueryProfileInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     HalpGetProfileDescriptor @ 0x14037B540 (HalpGetProfileDescriptor.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledDeviceUsage @ 0x14040F824 (Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledDeviceUsage.c)
- *     HalpTimerGetProfilingTarget @ 0x14050A8D8 (HalpTimerGetProfilingTarget.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     HalpGetProfileDescriptor @ 0x14037B6E0 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledDeviceUsage @ 0x14040FA04 (Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledDeviceUsage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpTimerGetProfilingTarget @ 0x14050AE28 (HalpTimerGetProfilingTarget.c)
  */
 
 __int64 __fastcall HalpQueryProfileSource(unsigned int a1, __int64 a2, _DWORD *a3)
@@ -66,10 +66,13 @@ LABEL_29:
     *v18 = ProfilingTarget;
     *(_QWORD *)(a2 + 16) = *(_QWORD *)(v14 + 296);
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -77,17 +80,17 @@ LABEL_29:
         v12 = (v22 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v22;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v6);
     goto LABEL_29;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v8 >= 2u )
     {
       v9 = KeGetCurrentPrcb();
       v10 = v9->SchedulerAssist;
@@ -95,7 +98,7 @@ LABEL_29:
       v12 = (v11 & v10[5]) == 0;
       v10[5] &= v11;
       if ( v12 )
-        KiRemoveSystemWorkPriorityKick(v9);
+        KiRemoveSystemWorkPriorityKick((__int64)v9);
     }
   }
   __writecr8(v6);

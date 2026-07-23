@@ -3,7 +3,7 @@
  * Callers:
  *     RtlDeleteElementGenericTableAvlEx @ 0x18005CD60 (RtlDeleteElementGenericTableAvlEx.c)
  *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x18008A640 (RtlLookupFirstMatchingElementGenericTableAvl.c)
- *     RtlGetElementGenericTableAvl @ 0x1800F7A90 (RtlGetElementGenericTableAvl.c)
+ *     RtlGetElementGenericTableAvl @ 0x1800F7A50 (RtlGetElementGenericTableAvl.c)
  * Callees:
  *     <none>
  */

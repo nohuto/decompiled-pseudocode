@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDeleteTimer2 @ 0x140685820
+ * XREFs of ExpDeleteTimer2 @ 0x1406869E0
  * Callers:
  *     <none>
  * Callees:
- *     KeDisableTimer2 @ 0x1400FB154 (KeDisableTimer2.c)
+ *     KeDisableTimer2 @ 0x1400FB1D4 (KeDisableTimer2.c)
  */
 
 char __fastcall ExpDeleteTimer2(__int64 a1)

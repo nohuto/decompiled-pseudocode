@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x140715FB4
+ * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x1406C4604
  * Callers:
- *     SepGetCachedHandlesEntry @ 0x140717DC4 (SepGetCachedHandlesEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x1406C6414 (SepGetCachedHandlesEntry.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     RtlCopySid @ 0x14071E2B0 (RtlCopySid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepAllocateAndInitializeCachedHandleEntry(int *a1, _QWORD *a2)

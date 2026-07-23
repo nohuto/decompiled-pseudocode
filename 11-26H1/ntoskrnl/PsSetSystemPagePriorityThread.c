@@ -1,11 +1,11 @@
 /*
- * XREFs of PsSetSystemPagePriorityThread @ 0x140480008
+ * XREFs of PsSetSystemPagePriorityThread @ 0x140479948
  * Callers:
- *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020F02C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
- *     MiValidateSectionMap @ 0x1409CBB1C (MiValidateSectionMap.c)
- *     MiRelocateMapImage @ 0x1409CBD3C (MiRelocateMapImage.c)
+ *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020F10C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
+ *     MiValidateSectionMap @ 0x14099CAFC (MiValidateSectionMap.c)
+ *     MiRelocateMapImage @ 0x14099CD1C (MiRelocateMapImage.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
  */
 
 __int64 __fastcall PsSetSystemPagePriorityThread(__int64 a1, int a2)

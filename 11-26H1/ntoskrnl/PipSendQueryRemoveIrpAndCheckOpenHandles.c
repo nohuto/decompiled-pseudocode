@@ -1,18 +1,18 @@
 /*
- * XREFs of PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407B8904
+ * XREFs of PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407BB964
  * Callers:
- *     PiProcessQueryAndCancelRemoval @ 0x1409135AC (PiProcessQueryAndCancelRemoval.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x1409B568C (PiProcessQueryAndCancelRemoval.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x14026F260 (IoGetDeviceAttachmentBaseRef.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PnpIsChainDereferenced @ 0x1404E2DA8 (PnpIsChainDereferenced.c)
- *     PnpCollectOpenHandles @ 0x1407AD7B4 (PnpCollectOpenHandles.c)
- *     PnpFreeVetoInformation @ 0x1407AD854 (PnpFreeVetoInformation.c)
- *     PnpDeleteLockedDeviceNodes @ 0x140A89F58 (PnpDeleteLockedDeviceNodes.c)
- *     PnpLogVetoInformation @ 0x140B45874 (PnpLogVetoInformation.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x14026E7D0 (IoGetDeviceAttachmentBaseRef.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PnpIsChainDereferenced @ 0x1404DC41C (PnpIsChainDereferenced.c)
+ *     PnpCollectOpenHandles @ 0x1407B0814 (PnpCollectOpenHandles.c)
+ *     PnpFreeVetoInformation @ 0x1407B08B4 (PnpFreeVetoInformation.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1409B6D78 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpLogVetoInformation @ 0x140B478A4 (PnpLogVetoInformation.c)
  */
 
 __int64 __fastcall PipSendQueryRemoveIrpAndCheckOpenHandles(

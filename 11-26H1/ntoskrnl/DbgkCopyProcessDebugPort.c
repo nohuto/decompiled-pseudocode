@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkCopyProcessDebugPort @ 0x1409845B8
+ * XREFs of DbgkCopyProcessDebugPort @ 0x1409465C8
  * Callers:
- *     PspInsertProcess @ 0x140983A9C (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x140945AAC (PspInsertProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     DbgkpMarkProcessPeb @ 0x140775AB4 (DbgkpMarkProcessPeb.c)
- *     PsTestProtectedProcessIncompatibility @ 0x140985588 (PsTestProtectedProcessIncompatibility.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     DbgkpMarkProcessPeb @ 0x14077895C (DbgkpMarkProcessPeb.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x140947588 (PsTestProtectedProcessIncompatibility.c)
  */
 
 __int64 __fastcall DbgkCopyProcessDebugPort(PRKPROCESS PROCESS, __int64 a2, void *a3, char *a4)
@@ -38,7 +38,7 @@ __int64 __fastcall DbgkCopyProcessDebugPort(PRKPROCESS PROCESS, __int64 a2, void
   {
     if ( !*(_QWORD *)(a2 + 776) )
       goto LABEL_3;
-    ExAcquireFastMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
+    ExAcquireFastMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
     v6 = *(_QWORD *)(a2 + 776);
     if ( v6 )
     {
@@ -47,7 +47,7 @@ __int64 __fastcall DbgkCopyProcessDebugPort(PRKPROCESS PROCESS, __int64 a2, void
       else
         PsReferenceSiloContext(*(void **)(a2 + 776));
     }
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
     if ( !v6 )
       goto LABEL_3;
   }

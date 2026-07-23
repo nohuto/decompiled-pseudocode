@@ -1,16 +1,16 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockShared @ 0x14028F230
+ * XREFs of ExAcquireAutoExpandPushLockShared @ 0x14020C3D0
  * Callers:
- *     MiLockAwePagesShared @ 0x14054CFDC (MiLockAwePagesShared.c)
- *     MiLockAweVadsShared @ 0x14054D038 (MiLockAweVadsShared.c)
+ *     MiLockAwePagesShared @ 0x14054D21C (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x14054D278 (MiLockAweVadsShared.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     ExpAcquireFannedOutPushLockShared @ 0x140390B40 (ExpAcquireFannedOutPushLockShared.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F921C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     ExpAcquireFannedOutPushLockShared @ 0x140390C90 (ExpAcquireFannedOutPushLockShared.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F9348 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -21,10 +21,9 @@ ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParamet
   __int64 v6; // rax
   char v7; // cl
   int SessionId; // eax
-  __int64 v9; // rcx
-  bool v10; // zf
-  int v11; // eax
-  ULONG_PTR v12; // rbx
+  bool v9; // zf
+  int v10; // eax
+  ULONG_PTR v11; // rbx
   unsigned __int8 AbOrphanedEntrySummary; // al
 
   v2 = 0LL;
@@ -57,7 +56,7 @@ ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParamet
     if ( v2 )
     {
       if ( BugCheckParameter2 >= 0xFFFF800000000000uLL
-        && byte_140C4F9C8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
+        && byte_140C4FA08[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
       {
         SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
       }
@@ -70,11 +69,11 @@ ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParamet
 LABEL_10:
       --CurrentThread->AbAllocationRegionCount;
       KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
-      v10 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v10
+      v9 = CurrentThread->SpecialApcDisable++ == -1;
+      if ( v9
         && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(v9);
+        KiCheckForKernelApcDelivery();
       }
       goto LABEL_13;
     }
@@ -83,20 +82,20 @@ LABEL_27:
     goto LABEL_10;
   }
 LABEL_13:
-  v11 = *(_DWORD *)(BugCheckParameter2 + 8);
-  if ( (v11 & 1) != 0 )
+  v10 = *(_DWORD *)(BugCheckParameter2 + 8);
+  if ( (v10 & 1) != 0 )
   {
-    v12 = ExpAcquireFannedOutPushLockShared(v11 & 0xFFFFFFF8, v2, BugCheckParameter2);
+    v11 = ExpAcquireFannedOutPushLockShared(v10 & 0xFFFFFFF8, v2, BugCheckParameter2);
   }
   else
   {
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(BugCheckParameter2, v2, BugCheckParameter2);
-    v12 = BugCheckParameter2 | 1;
+    v11 = BugCheckParameter2 | 1;
   }
   if ( !v4 )
-    v12 |= 2uLL;
+    v11 |= 2uLL;
   if ( v2 )
     *(_BYTE *)(v2 + 26) |= 1u;
-  return v12;
+  return v11;
 }

@@ -55,11 +55,7 @@ void __fastcall SmKmStoreTerminateWorker(_DWORD *P)
   v18 = v25;
   SystemInformation = 0x800000001LL;
   v25[0] = v25[0] & 0xFFFFFF00 | 1;
-  if ( ZwQuerySystemInformation(
-         SystemVerifierFaultsInformation|SystemLocksInformation,
-         &SystemInformation,
-         0x18u,
-         &ReturnLength) >= 0
+  if ( ZwQuerySystemInformation(SystemStoreInformation, &SystemInformation, 0x18u, &ReturnLength) >= 0
     && (SystemInformation = 0xD00000001LL,
         v18 = v26,
         LODWORD(v19) = 1128,
@@ -71,11 +67,7 @@ void __fastcall SmKmStoreTerminateWorker(_DWORD *P)
     while ( 1 )
     {
       v26[1] = v25[v2 + 1];
-      if ( ZwQuerySystemInformation(
-             SystemVerifierFaultsInformation|SystemLocksInformation,
-             &SystemInformation,
-             0x18u,
-             &ReturnLength) >= 0 )
+      if ( ZwQuerySystemInformation(SystemStoreInformation, &SystemInformation, 0x18u, &ReturnLength) >= 0 )
       {
         v3 = 0;
         if ( v26[4] )
@@ -128,7 +120,7 @@ LABEL_9:
     LODWORD(v19) = 8;
     v21[0] = 1;
     v21[1] = v25[v2 + 1];
-    if ( ZwSetSystemInformation(SystemVerifierFaultsInformation|SystemLocksInformation, &SystemInformation, 0x18uLL) >= 0 )
+    if ( ZwSetSystemInformation(SystemStoreInformation, &SystemInformation, 0x18uLL) >= 0 )
     {
       if ( v6 )
       {

@@ -1,8 +1,8 @@
 /*
- * XREFs of PnpSerializeBoot @ 0x140192DB8
+ * XREFs of PnpSerializeBoot @ 0x140192EF8
  * Callers:
- *     NtSerializeBoot @ 0x140761F70 (NtSerializeBoot.c)
- *     IoInitSystem @ 0x1409D2354 (IoInitSystem.c)
+ *     NtSerializeBoot @ 0x140763160 (NtSerializeBoot.c)
+ *     IoInitSystem @ 0x1409D3354 (IoInitSystem.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  */

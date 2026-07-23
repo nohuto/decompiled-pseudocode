@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpCmcPollProcessor @ 0x140453548
+ * XREFs of HalpCmcPollProcessor @ 0x14044B678
  * Callers:
- *     HalpCmciPollProcessor @ 0x140453AE4 (HalpCmciPollProcessor.c)
- *     HalpCmcWorkerRoutine @ 0x140AD4340 (HalpCmcWorkerRoutine.c)
+ *     HalpCmciPollProcessor @ 0x14044BC14 (HalpCmciPollProcessor.c)
+ *     HalpCmcWorkerRoutine @ 0x140AD17A0 (HalpCmcWorkerRoutine.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeQueryDpcWatchdogInformation @ 0x14043AE30 (KeQueryDpcWatchdogInformation.c)
- *     HalpMcaReadErrorPresence @ 0x1404537F4 (HalpMcaReadErrorPresence.c)
- *     HalpGetCpuVendor @ 0x140453A00 (HalpGetCpuVendor.c)
- *     HalpMcaReadError @ 0x140453B40 (HalpMcaReadError.c)
- *     HalpMcaClearError @ 0x140453EC4 (HalpMcaClearError.c)
- *     HalpMcaReportError @ 0x140453F00 (HalpMcaReportError.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpCmcIsDpcTimeRunningLow @ 0x14057AAAC (HalpCmcIsDpcTimeRunningLow.c)
- *     HalpCmcLogPollingTimeoutEvent @ 0x14057AB04 (HalpCmcLogPollingTimeoutEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeQueryDpcWatchdogInformation @ 0x14042D6E0 (KeQueryDpcWatchdogInformation.c)
+ *     HalpMcaReadErrorPresence @ 0x14044B924 (HalpMcaReadErrorPresence.c)
+ *     HalpGetCpuVendor @ 0x14044BB30 (HalpGetCpuVendor.c)
+ *     HalpMcaReadError @ 0x14044BC70 (HalpMcaReadError.c)
+ *     HalpMcaClearError @ 0x14044BFF4 (HalpMcaClearError.c)
+ *     HalpMcaReportError @ 0x14044C030 (HalpMcaReportError.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpCmcIsDpcTimeRunningLow @ 0x14057CFDC (HalpCmcIsDpcTimeRunningLow.c)
+ *     HalpCmcLogPollingTimeoutEvent @ 0x14057D034 (HalpCmcLogPollingTimeoutEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpCmcPollProcessor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSetUmsThreadContext @ 0x14088F2FC
+ * XREFs of PspSetUmsThreadContext @ 0x14089055C
  * Callers:
- *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDD0 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspGetSetContextInternal @ 0x140620940 (PspGetSetContextInternal.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x140890030 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
- *     KeCopyContextToUch @ 0x1408465D8 (KeCopyContextToUch.c)
- *     KeCopyContextToUmsContext @ 0x140846844 (KeCopyContextToUmsContext.c)
+ *     KeCopyContextToUch @ 0x140847838 (KeCopyContextToUch.c)
+ *     KeCopyContextToUmsContext @ 0x140847AA4 (KeCopyContextToUmsContext.c)
  */
 
 __int64 __fastcall PspSetUmsThreadContext(__int64 a1, __int64 a2, _DWORD *a3)

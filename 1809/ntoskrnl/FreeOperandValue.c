@@ -1,10 +1,10 @@
 /*
- * XREFs of FreeOperandValue @ 0x1408A7338
+ * XREFs of FreeOperandValue @ 0x1408A8598
  * Callers:
- *     GetOperandValue @ 0x1408A7838 (GetOperandValue.c)
- *     LocalGetConditionForString @ 0x1408A8BCC (LocalGetConditionForString.c)
+ *     GetOperandValue @ 0x1408A8A98 (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x1408A9E2C (LocalGetConditionForString.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FreeOperandValue(_QWORD *P)

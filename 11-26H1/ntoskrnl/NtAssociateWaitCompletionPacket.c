@@ -1,43 +1,39 @@
 /*
- * XREFs of NtAssociateWaitCompletionPacket @ 0x14051B900
+ * XREFs of NtAssociateWaitCompletionPacket @ 0x140515EB0
  * Callers:
- *     DifNtAssociateWaitCompletionPacketWrapper @ 0x14066DCB0 (DifNtAssociateWaitCompletionPacketWrapper.c)
+ *     DifNtAssociateWaitCompletionPacketWrapper @ 0x140671890 (DifNtAssociateWaitCompletionPacketWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObGetAssociatedWaitObject @ 0x1403AAA70 (ObGetAssociatedWaitObject.c)
- *     KeRegisterObjectNotification @ 0x1403DF824 (KeRegisterObjectNotification.c)
- *     Feature_4132124986__private_IsEnabledDeviceUsageNoInline @ 0x1405CB8AC (Feature_4132124986__private_IsEnabledDeviceUsageNoInline.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObGetAssociatedWaitObject @ 0x1403B4780 (ObGetAssociatedWaitObject.c)
+ *     KeRegisterObjectNotification @ 0x1403E2A14 (KeRegisterObjectNotification.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAssociateWaitCompletionPacket(
-        void *a1,
-        void *a2,
-        void *a3,
-        KSPIN_LOCK a4,
-        KSPIN_LOCK a5,
-        int a6,
-        KSPIN_LOCK a7,
-        char *a8)
+NTSTATUS __cdecl NtAssociateWaitCompletionPacket(
+        HANDLE WaitCompletionPacketHandle,
+        HANDLE IoCompletionHandle,
+        HANDLE TargetObjectHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation,
+        PBOOLEAN AlreadySignaled)
 {
   KIRQL v8; // r12
   char v9; // r13
   PVOID v10; // r15
   PVOID v11; // r14
-  NTSTATUS v12; // esi
+  int v12; // esi
   KSPIN_LOCK *v13; // rdi
   __int16 *AssociatedWaitObject; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // rcx
-  char v18; // di
-  __int64 v19; // rdx
+  BOOLEAN v15; // di
+  __int64 v16; // rdx
   char AccessMode; // [rsp+30h] [rbp-58h]
   PVOID Object[2]; // [rsp+38h] [rbp-50h] BYREF
-  __int16 *v23; // [rsp+48h] [rbp-40h]
+  __int16 *v20; // [rsp+48h] [rbp-40h]
   PKSPIN_LOCK SpinLock; // [rsp+50h] [rbp-38h]
 
   v8 = 0;
@@ -46,23 +42,29 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
   v11 = 0LL;
   AccessMode = KeGetCurrentThread()->PreviousMode;
   Object[0] = 0LL;
-  v12 = ObReferenceObjectByHandle(a1, 1u, IopWaitCompletionPacketObjectType, AccessMode, Object, 0LL);
+  v12 = ObReferenceObjectByHandle(
+          WaitCompletionPacketHandle,
+          1u,
+          IopWaitCompletionPacketObjectType,
+          AccessMode,
+          Object,
+          0LL);
   v13 = (KSPIN_LOCK *)Object[0];
   if ( v12 >= 0 )
   {
     Object[0] = 0LL;
-    v12 = ObReferenceObjectByHandle(a2, 2u, IoCompletionObjectType, AccessMode, Object, 0LL);
+    v12 = ObReferenceObjectByHandle(IoCompletionHandle, 2u, IoCompletionObjectType, AccessMode, Object, 0LL);
     v10 = Object[0];
     if ( v12 >= 0 )
     {
       Object[0] = 0LL;
-      v12 = ObReferenceObjectByHandle(a3, 0x100000u, 0LL, AccessMode, Object, 0LL);
+      v12 = ObReferenceObjectByHandle(TargetObjectHandle, 0x100000u, 0LL, AccessMode, Object, 0LL);
       v11 = Object[0];
       LODWORD(Object[0]) = v12;
       if ( v12 >= 0 )
       {
         AssociatedWaitObject = ObGetAssociatedWaitObject((__int64)v11);
-        v23 = AssociatedWaitObject;
+        v20 = AssociatedWaitObject;
         if ( !AssociatedWaitObject
           || (*(_BYTE *)AssociatedWaitObject & 0x7F) == 2
           || (*(_BYTE *)AssociatedWaitObject & 0x7F) == 4 )
@@ -74,38 +76,36 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
           v9 = 1;
           SpinLock = v13 + 12;
           v8 = KeAcquireSpinLockRaiseToDpc(v13 + 12);
-          LOBYTE(v17) = *((_BYTE *)v13 + 104);
-          if ( (_BYTE)v17 )
+          if ( *((_BYTE *)v13 + 104) )
           {
             v12 = -1073741585;
           }
-          else if ( (unsigned int)Feature_4132124986__private_IsEnabledDeviceUsageNoInline(v17, v15, v16)
-                 && *((_BYTE *)v13 + 105) )
+          else if ( *((_BYTE *)v13 + 105) )
           {
             v12 = -1073700861;
           }
           else
           {
             *((_BYTE *)v13 + 104) = 1;
-            v13[6] = a4;
-            v13[7] = a5;
-            *((_DWORD *)v13 + 18) = a6;
-            v13[8] = a7;
+            v13[6] = (KSPIN_LOCK)KeyContext;
+            v13[7] = (KSPIN_LOCK)ApcContext;
+            *((_DWORD *)v13 + 18) = IoStatus;
+            v13[8] = IoStatusInformation;
             v13[10] = (KSPIN_LOCK)v11;
             v13[11] = (KSPIN_LOCK)v10;
-            v18 = KeRegisterObjectNotification((__int64)v23, (__int64)v10, (__int64)v13);
+            v15 = KeRegisterObjectNotification((__int64)v20, (__int64)v10, (__int64)v13);
             KeReleaseSpinLock(SpinLock, v8);
             v9 = 0;
-            if ( a8 )
+            if ( AlreadySignaled )
             {
               if ( AccessMode )
               {
-                LOBYTE(v19) = v18;
-                RtlWriteUCharToUser(a8, v19);
+                LOBYTE(v16) = v15;
+                RtlWriteUCharToUser(AlreadySignaled, v16);
               }
               else
               {
-                *a8 = v18;
+                *AlreadySignaled = v15;
               }
             }
             v10 = 0LL;
@@ -124,5 +124,5 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
     ObfDereferenceObjectWithTag(v11, 0x746C6644u);
   if ( v13 )
     ObfDereferenceObjectWithTag(v13, 0x746C6644u);
-  return (unsigned int)v12;
+  return v12;
 }

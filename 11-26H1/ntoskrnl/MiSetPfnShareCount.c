@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSetPfnShareCount @ 0x1403C40E4
+ * XREFs of MiSetPfnShareCount @ 0x1403CDFF0
  * Callers:
- *     MiFreeLargeZeroPages @ 0x1402A5600 (MiFreeLargeZeroPages.c)
- *     MiZeroAndReleasePages @ 0x1403C3C14 (MiZeroAndReleasePages.c)
- *     MiMakeShadowPageTableRange @ 0x140875858 (MiMakeShadowPageTableRange.c)
+ *     MiFreeLargeZeroPages @ 0x1402A4B50 (MiFreeLargeZeroPages.c)
+ *     MiZeroAndReleasePages @ 0x1403CDB20 (MiZeroAndReleasePages.c)
+ *     MiMakeShadowPageTableRange @ 0x14087BC3C (MiMakeShadowPageTableRange.c)
  * Callees:
  *     <none>
  */

@@ -23,8 +23,8 @@ void __fastcall EmonReleaseReservedCounters(int a1, unsigned __int64 a2)
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v13; // r8
   int v14; // eax
-  struct _GROUP_AFFINITY v15; // [rsp+28h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-20h] BYREF
+  _GROUP_AFFINITY v15; // [rsp+28h] [rbp-30h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-20h] BYREF
 
   v3 = (unsigned int)(a1 * EmonNumberCounters);
   v15 = 0LL;

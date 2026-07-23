@@ -1,42 +1,42 @@
 /*
- * XREFs of PfSetSuperfetchInformation @ 0x140B5DB14
+ * XREFs of PfSetSuperfetchInformation @ 0x140B60C94
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     PfpPartitionDereferenceParent @ 0x140381780 (PfpPartitionDereferenceParent.c)
- *     PfpPartitionRundownProtectionRelease @ 0x14044F9A8 (PfpPartitionRundownProtectionRelease.c)
- *     PfpPartitionRundownProtectionAcquire @ 0x1404B2034 (PfpPartitionRundownProtectionAcquire.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     PfTSetTraceWorkerPriority @ 0x1405FFF44 (PfTSetTraceWorkerPriority.c)
- *     MmSetAgingOptions @ 0x1406F7E5C (MmSetAgingOptions.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     PfGenerateTrace @ 0x1407794E8 (PfGenerateTrace.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     PfTCleanup @ 0x1407C6254 (PfTCleanup.c)
- *     PfTInitialize @ 0x1407C65A4 (PfTInitialize.c)
- *     PfTStart @ 0x1407C67E4 (PfTStart.c)
- *     PfpPartitionFindOrCreate @ 0x1407C70D8 (PfpPartitionFindOrCreate.c)
- *     PfpSetParameter @ 0x1407C7FA8 (PfpSetParameter.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PfpPrefetchRequest @ 0x1409AF04C (PfpPrefetchRequest.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     EtwTiLogSyscallUsage @ 0x140A53288 (EtwTiLogSyscallUsage.c)
- *     PfpPfnPrioRequest @ 0x140A5345C (PfpPfnPrioRequest.c)
- *     PfpPartitionFindByHandle @ 0x140A53E50 (PfpPartitionFindByHandle.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
- *     PfpDeprioritizeOldPagesInWs @ 0x140AEF1A0 (PfpDeprioritizeOldPagesInWs.c)
- *     PfpRpControlRequest @ 0x140B02D24 (PfpRpControlRequest.c)
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
- *     PfpLogEventRequest @ 0x140B4F4BC (PfpLogEventRequest.c)
- *     PfpPartitionAccessTraceLockAcquire @ 0x140BE95B0 (PfpPartitionAccessTraceLockAcquire.c)
- *     PfpScenCtxPrefetchStateSet @ 0x140BF89BC (PfpScenCtxPrefetchStateSet.c)
- *     PfpScenCtxServiceThreadSet @ 0x140BF8D14 (PfpScenCtxServiceThreadSet.c)
- *     PfpPartitionAccessTraceLockRelease @ 0x140BF90AC (PfpPartitionAccessTraceLockRelease.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PfpPartitionDereferenceParent @ 0x140383530 (PfpPartitionDereferenceParent.c)
+ *     PfpPartitionRundownProtectionRelease @ 0x140447AD8 (PfpPartitionRundownProtectionRelease.c)
+ *     PfpPartitionRundownProtectionAcquire @ 0x1404AB540 (PfpPartitionRundownProtectionAcquire.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     PfTSetTraceWorkerPriority @ 0x1406029F4 (PfTSetTraceWorkerPriority.c)
+ *     MmSetAgingOptions @ 0x1406FCB28 (MmSetAgingOptions.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     PfGenerateTrace @ 0x14077C418 (PfGenerateTrace.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     PfTCleanup @ 0x1407C92B4 (PfTCleanup.c)
+ *     PfTInitialize @ 0x1407C9604 (PfTInitialize.c)
+ *     PfTStart @ 0x1407C9844 (PfTStart.c)
+ *     PfpPartitionFindOrCreate @ 0x1407CA138 (PfpPartitionFindOrCreate.c)
+ *     PfpSetParameter @ 0x1407CB008 (PfpSetParameter.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PfpPrefetchRequest @ 0x140980100 (PfpPrefetchRequest.c)
+ *     EtwTiLogSyscallUsage @ 0x140A5C578 (EtwTiLogSyscallUsage.c)
+ *     PfpPfnPrioRequest @ 0x140A5C74C (PfpPfnPrioRequest.c)
+ *     PfpPartitionFindByHandle @ 0x140A5D140 (PfpPartitionFindByHandle.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
+ *     PfpDeprioritizeOldPagesInWs @ 0x140AF2140 (PfpDeprioritizeOldPagesInWs.c)
+ *     PfpRpControlRequest @ 0x140B04938 (PfpRpControlRequest.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
+ *     PfpLogEventRequest @ 0x140B51D4C (PfpLogEventRequest.c)
+ *     PfpPartitionAccessTraceLockAcquire @ 0x140BEF5B0 (PfpPartitionAccessTraceLockAcquire.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140BFE9BC (PfpScenCtxPrefetchStateSet.c)
+ *     PfpScenCtxServiceThreadSet @ 0x140BFED14 (PfpScenCtxServiceThreadSet.c)
+ *     PfpPartitionAccessTraceLockRelease @ 0x140BFF0AC (PfpPartitionAccessTraceLockRelease.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, void *a2, int a3, KPROCESSOR_MODE a4)
@@ -146,10 +146,10 @@ __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, void *a2, int a3, KPRO
         {
           RtlCopyVolatileMemory(&v25, (const void *)Address[0], 4uLL);
         }
-        v26 = v25 + HIDWORD(stru_140E66B30.WriteOperationCount);
-        v7 = PfpSetParameter(stru_140E66B30.WaitBlock[1].WaitListEntry.Blink, L"BaseTime", v19, &v26, 4u);
+        v26 = v25 + HIDWORD(stru_140E66D40.WriteOperationCount);
+        v7 = PfpSetParameter(stru_140E66D40.WaitBlock[1].WaitListEntry.Blink, L"BaseTime", v19, &v26, 4u);
         if ( v7 >= 0 )
-          HIDWORD(stru_140E66B30.WriteOperationCount) = v26;
+          HIDWORD(stru_140E66D40.WriteOperationCount) = v26;
         goto LABEL_139;
       case 0x12:
         if ( LODWORD(Address[1]) != 32 )
@@ -168,12 +168,12 @@ __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, void *a2, int a3, KPRO
         {
           if ( DWORD1(Src) || !*((_QWORD *)&v38 + 1) )
           {
-            v7 = PsReferencePartitionByHandle(v38, 2031619LL, a4, 0x74506650u, &v28);
+            v7 = PsReferencePartitionByHandle(v38, 2031619, a4, 0x74506650u, &v28);
             if ( v7 >= 0 )
             {
               v7 = PfpPartitionFindOrCreate(
                      (PEX_RUNDOWN_REF_CACHE_AWARE **)v22,
-                     (__int64)&stru_140E66B30.WaitBlock[1],
+                     (__int64)&stru_140E66D40.WaitBlock[1],
                      v28);
               if ( v7 >= 0 )
               {
@@ -212,7 +212,7 @@ __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, void *a2, int a3, KPRO
                       RtlCopyVolatileMemory((void *)Address[0], &Src, 0x20uLL);
                     }
                   }
-                  PfpScenCtxServiceThreadSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
+                  PfpScenCtxServiceThreadSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
                   if ( v34 )
                     PfpPartitionRundownProtectionRelease(v34);
                   v34 = 0LL;
@@ -406,7 +406,7 @@ LABEL_19:
           }
           if ( (_WORD)v29 == 1 && (unsigned int)(HIDWORD(v29) - 1) <= 4 )
           {
-            v8 = PfpScenCtxPrefetchStateSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
+            v8 = PfpScenCtxPrefetchStateSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
 LABEL_76:
             v7 = v8;
             goto LABEL_139;

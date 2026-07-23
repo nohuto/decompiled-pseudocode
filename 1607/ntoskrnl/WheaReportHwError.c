@@ -1,18 +1,18 @@
 /*
- * XREFs of WheaReportHwError @ 0x1402301D4
+ * XREFs of WheaReportHwError @ 0x140230000
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     WheapAddToDumpFile @ 0x1402304CC (WheapAddToDumpFile.c)
- *     WheapAllocErrorRecord @ 0x140230508 (WheapAllocErrorRecord.c)
- *     WheapApplyThresholdChecks @ 0x1402305B0 (WheapApplyThresholdChecks.c)
- *     WheapAttemptErrorRecovery @ 0x1402306A8 (WheapAttemptErrorRecovery.c)
- *     WheapCompressErrorRecord @ 0x14023075C (WheapCompressErrorRecord.c)
- *     WheapFreeErrorRecord @ 0x140230884 (WheapFreeErrorRecord.c)
- *     WheapGetErrorSource @ 0x1402308A8 (WheapGetErrorSource.c)
- *     WheapGenerateETWEvents @ 0x1402310E8 (WheapGenerateETWEvents.c)
- *     WheapWorkQueueAddItem @ 0x1402312A0 (WheapWorkQueueAddItem.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     WheapAddToDumpFile @ 0x1402302F8 (WheapAddToDumpFile.c)
+ *     WheapAllocErrorRecord @ 0x140230334 (WheapAllocErrorRecord.c)
+ *     WheapApplyThresholdChecks @ 0x1402303DC (WheapApplyThresholdChecks.c)
+ *     WheapAttemptErrorRecovery @ 0x1402304D4 (WheapAttemptErrorRecovery.c)
+ *     WheapCompressErrorRecord @ 0x140230588 (WheapCompressErrorRecord.c)
+ *     WheapFreeErrorRecord @ 0x1402306B0 (WheapFreeErrorRecord.c)
+ *     WheapGetErrorSource @ 0x1402306D4 (WheapGetErrorSource.c)
+ *     WheapGenerateETWEvents @ 0x140230F14 (WheapGenerateETWEvents.c)
+ *     WheapWorkQueueAddItem @ 0x1402310CC (WheapWorkQueueAddItem.c)
  */
 
 __int64 __fastcall WheaReportHwError(__int64 a1)
@@ -68,7 +68,7 @@ __int64 __fastcall WheaReportHwError(__int64 a1)
   v14 = (unsigned int)(v17 - 40);
   *(_DWORD *)(v11 + 24) ^= (*(_DWORD *)(v11 + 24) ^ (*(_DWORD *)(a1 + 12) >> 2)) & 4;
   *(_DWORD *)(v11 + 24) ^= (*(_DWORD *)(v11 + 24) ^ (*(_DWORD *)(a1 + 12) >> 2)) & 8;
-  v15 = (*((__int64 (__fastcall **)(__int64, __int64, __int64, __int64, _QWORD))&unk_140341600 + 6 * *(int *)(v10 + 40)))(
+  v15 = (*((__int64 (__fastcall **)(__int64, __int64, __int64, __int64, _QWORD))&unk_140341640 + 6 * *(int *)(v10 + 40)))(
           v10 + 89,
           a1,
           v11 + 40,

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiInSwapSingleProcess @ 0x1402C79E4
+ * XREFs of KiInSwapSingleProcess @ 0x140312684
  * Callers:
- *     KeReadyThread @ 0x14022F420 (KeReadyThread.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     KiAttachProcess @ 0x1402C76D0 (KiAttachProcess.c)
+ *     KeReadyThread @ 0x140230DB0 (KeReadyThread.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     KiAttachProcess @ 0x140312370 (KiAttachProcess.c)
  * Callees:
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MmNotifyProcessInSwapTrigger @ 0x1402C7BAC (MmNotifyProcessInSwapTrigger.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MmNotifyProcessInSwapTrigger @ 0x14031284C (MmNotifyProcessInSwapTrigger.c)
  */
 
 char __fastcall KiInSwapSingleProcess(LegacyAutoBoost *this, __int64 a2, __int64 a3)
@@ -23,9 +23,9 @@ char __fastcall KiInSwapSingleProcess(LegacyAutoBoost *this, __int64 a2, __int64
   _QWORD *v9; // rdx
   _QWORD *v10; // rax
   struct _KPRCB *CurrentPrcb; // rdx
-  unsigned __int64 *v13; // rdi
-  unsigned __int64 AffinityVersion; // rax
-  unsigned __int64 v15; // rcx
+  signed __int64 *v13; // rdi
+  signed __int64 v14; // rax
+  signed __int64 v15; // rcx
 
   v4 = (unsigned __int8)a3;
   v6 = 1;
@@ -73,21 +73,18 @@ char __fastcall KiInSwapSingleProcess(LegacyAutoBoost *this, __int64 a2, __int64
     if ( v7 )
     {
       MmNotifyProcessInSwapTrigger(a2);
-      v13 = (unsigned __int64 *)(a2 + 120);
-      _m_prefetchw(&KiSupervisorXStateFeaturesLock.AffinityVersion);
-      AffinityVersion = KiSupervisorXStateFeaturesLock.AffinityVersion;
+      v13 = (signed __int64 *)(a2 + 120);
+      _m_prefetchw(&qword_140F26B90);
+      v14 = qword_140F26B90;
       do
       {
-        *v13 = AffinityVersion;
-        v15 = AffinityVersion;
-        AffinityVersion = _InterlockedCompareExchange64(
-                            (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.AffinityVersion,
-                            (signed __int64)v13,
-                            AffinityVersion);
+        *v13 = v14;
+        v15 = v14;
+        v14 = _InterlockedCompareExchange64(&qword_140F26B90, (signed __int64)v13, v14);
       }
-      while ( AffinityVersion != v15 );
-      if ( !AffinityVersion )
-        KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.StackLimit, 10, 0);
+      while ( v14 != v15 );
+      if ( !v14 )
+        KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry, 10, 0);
     }
     CurrentPrcb = KeGetCurrentPrcb();
     if ( this == (LegacyAutoBoost *)CurrentPrcb->CurrentThread )

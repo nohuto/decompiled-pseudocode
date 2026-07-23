@@ -25,7 +25,7 @@ void PopEvaluateInputSuppressionAction()
   int v6; // ecx
   int v7; // r8d
   int v8; // r9d
-  BOOL v9; // [rsp+40h] [rbp-48h] BYREF
+  BOOL Buffer; // [rsp+40h] [rbp-48h] BYREF
   GUID v10; // [rsp+48h] [rbp-40h] BYREF
   BOOL v11; // [rsp+58h] [rbp-30h]
 
@@ -56,12 +56,12 @@ void PopEvaluateInputSuppressionAction()
       LOBYTE(v5) = v2;
       LOBYTE(v6) = v1;
       PopTraceInputSuppressionActionUpdate(v6, v5, v7, v8);
-      ZwUpdateWnfStateData((__int64)&WNF_PO_INPUT_SUPPRESS_NOTIFICATION_EX, (__int64)&PopInputSuppressionRequired, 4LL);
+      ZwUpdateWnfStateData(&WNF_PO_INPUT_SUPPRESS_NOTIFICATION_EX, &PopInputSuppressionRequired, 4u, 0LL, 0LL, 0, 0);
       if ( PopEnableInputSuppression )
       {
-        v9 = PopInputSuppressionRequired == 1;
-        ZwUpdateWnfStateData((__int64)&WNF_PO_INPUT_SUPPRESS_NOTIFICATION, (__int64)&v9, 4LL);
-        v11 = v9;
+        Buffer = PopInputSuppressionRequired == 1;
+        ZwUpdateWnfStateData(&WNF_PO_INPUT_SUPPRESS_NOTIFICATION, &Buffer, 4u, 0LL, 0LL, 0, 0);
+        v11 = Buffer;
         v10 = GUID_INPUT_SUPPRESS_REQUESTED;
         PopBroadcastSessionInfo(0LL, 20LL, &v10);
       }

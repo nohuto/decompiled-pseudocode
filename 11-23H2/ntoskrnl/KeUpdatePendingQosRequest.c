@@ -1,16 +1,16 @@
 /*
- * XREFs of KeUpdatePendingQosRequest @ 0x14046147C
+ * XREFs of KeUpdatePendingQosRequest @ 0x14046187C
  * Callers:
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
- *     PoIdle @ 0x1402C4B60 (PoIdle.c)
- *     KiUpdateRunTime @ 0x1402C74E0 (KiUpdateRunTime.c)
- *     KeCheckAndApplyBamQos @ 0x140461370 (KeCheckAndApplyBamQos.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
+ *     PoIdle @ 0x1402C4DF0 (PoIdle.c)
+ *     KiUpdateRunTime @ 0x1402C7770 (KiUpdateRunTime.c)
+ *     KeCheckAndApplyBamQos @ 0x140461770 (KeCheckAndApplyBamQos.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiSetClockTimer @ 0x1402C2598 (KiSetClockTimer.c)
- *     KiCancelClockTimer @ 0x140340C70 (KiCancelClockTimer.c)
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x140462680 (KiSetVirtualHeteroClockIntervalRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiSetClockTimer @ 0x1402C2828 (KiSetClockTimer.c)
+ *     KiCancelClockTimer @ 0x140340F00 (KiCancelClockTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x140462A80 (KiSetVirtualHeteroClockIntervalRequest.c)
  */
 
 __int64 __fastcall KeUpdatePendingQosRequest(__int64 a1)
@@ -59,7 +59,7 @@ LABEL_5:
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -77,10 +77,10 @@ LABEL_5:
   {
     KiCancelClockTimer(a1, 6LL, 0);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = CurrentPrcb->SchedulerAssist;
@@ -88,7 +88,7 @@ LABEL_5:
       v4 = (v11 & v10[5]) == 0;
       v10[5] &= v11;
       if ( v4 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

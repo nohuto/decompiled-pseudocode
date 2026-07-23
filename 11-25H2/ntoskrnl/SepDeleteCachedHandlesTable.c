@@ -23,10 +23,10 @@ __int64 __fastcall SepDeleteCachedHandlesTable(ULONG_PTR BugCheckParameter2)
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v5; // rax
   __int64 *v6; // rbp
-  struct _RTL_DYNAMIC_HASH_TABLE *v7; // rcx
+  _RTL_DYNAMIC_HASH_TABLE *v7; // rcx
   int v8; // eax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v9; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
   BOOLEAN v11; // [rsp+60h] [rbp+8h] BYREF
 
   result = 0LL;
@@ -42,7 +42,7 @@ __int64 __fastcall SepDeleteCachedHandlesTable(ULONG_PTR BugCheckParameter2)
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v5, BugCheckParameter2);
     if ( v6 )
       *((_BYTE *)v6 + 10) = 1;
-    v7 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(BugCheckParameter2 + 8);
+    v7 = *(_RTL_DYNAMIC_HASH_TABLE **)(BugCheckParameter2 + 8);
     if ( v7 )
     {
       RtlInitWeakEnumerationHashTable(v7, &Enumerator);

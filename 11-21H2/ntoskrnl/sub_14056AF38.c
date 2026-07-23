@@ -1,0 +1,29 @@
+/*
+ * XREFs of sub_14056AF38 @ 0x14056AF38
+ * Callers:
+ *     sub_1403FB1CC @ 0x1403FB1CC (sub_1403FB1CC.c)
+ *     sub_1403FB2A4 @ 0x1403FB2A4 (sub_1403FB2A4.c)
+ *     sub_1403FDD40 @ 0x1403FDD40 (sub_1403FDD40.c)
+ *     sub_1403FDE00 @ 0x1403FDE00 (sub_1403FDE00.c)
+ *     sub_1403FE0B0 @ 0x1403FE0B0 (sub_1403FE0B0.c)
+ *     sub_140400E04 @ 0x140400E04 (sub_140400E04.c)
+ *     sub_1404019F4 @ 0x1404019F4 (sub_1404019F4.c)
+ *     sub_1404055F4 @ 0x1404055F4 (sub_1404055F4.c)
+ *     sub_14040721C @ 0x14040721C (sub_14040721C.c)
+ *     sub_14040B088 @ 0x14040B088 (sub_14040B088.c)
+ *     sub_14040BCF0 @ 0x14040BCF0 (sub_14040BCF0.c)
+ *     sub_14040BDF0 @ 0x14040BDF0 (sub_14040BDF0.c)
+ *     sub_14040C7CC @ 0x14040C7CC (sub_14040C7CC.c)
+ *     sub_14040CC4C @ 0x14040CC4C (sub_14040CC4C.c)
+ *     sub_14040CFD4 @ 0x14040CFD4 (sub_14040CFD4.c)
+ *     sub_14040D018 @ 0x14040D018 (sub_14040D018.c)
+ *     sub_14040D260 @ 0x14040D260 (sub_14040D260.c)
+ *     sub_14040D570 @ 0x14040D570 (sub_14040D570.c)
+ * Callees:
+ *     sub_1403FB1A0 @ 0x1403FB1A0 (sub_1403FB1A0.c)
+ */
+
+void __fastcall __noreturn sub_14056AF38(ULONG_PTR a1)
+{
+  sub_1403FB1A0(a1);
+}

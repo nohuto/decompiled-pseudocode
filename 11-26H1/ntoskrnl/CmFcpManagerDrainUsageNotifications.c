@@ -1,16 +1,16 @@
 /*
- * XREFs of CmFcpManagerDrainUsageNotifications @ 0x140ABFB10
+ * XREFs of CmFcpManagerDrainUsageNotifications @ 0x140AC1BB0
  * Callers:
- *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x140860B28 (CmFcManagerDrainAllFeatureUsageNotifications.c)
- *     CmFcpManagerRetryUsageNotificationsWorker @ 0x1408618F0 (CmFcpManagerRetryUsageNotificationsWorker.c)
- *     CmFcpManagerSoftwareHiveReady @ 0x1408619C0 (CmFcpManagerSoftwareHiveReady.c)
- *     CmFcpManagerDrainUsageNotificationsWorker @ 0x140ABFA50 (CmFcpManagerDrainUsageNotificationsWorker.c)
+ *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x140866E18 (CmFcManagerDrainAllFeatureUsageNotifications.c)
+ *     CmFcpManagerRetryUsageNotificationsWorker @ 0x140867CD0 (CmFcpManagerRetryUsageNotificationsWorker.c)
+ *     CmFcpManagerSoftwareHiveReady @ 0x140867DA0 (CmFcpManagerSoftwareHiveReady.c)
+ *     CmFcpManagerDrainUsageNotificationsWorker @ 0x140AC1AF0 (CmFcpManagerDrainUsageNotificationsWorker.c)
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404CC294 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D88A8 (RtlpFcBufferManagerReferenceBuffers.c)
- *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x1406E2C80 (CmFcpManagerArmFeatureUsageRetryTimer.c)
- *     RtlUpdateSwapReference @ 0x140ABFBBC (RtlUpdateSwapReference.c)
- *     RtlpFcDrainDelayedUsageReportBuffer @ 0x140ABFC3C (RtlpFcDrainDelayedUsageReportBuffer.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404C5CC4 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D2078 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x1406E6F60 (CmFcpManagerArmFeatureUsageRetryTimer.c)
+ *     RtlUpdateSwapReference @ 0x140AC1C5C (RtlUpdateSwapReference.c)
+ *     RtlpFcDrainDelayedUsageReportBuffer @ 0x140AC1CDC (RtlpFcDrainDelayedUsageReportBuffer.c)
  */
 
 __int64 __fastcall CmFcpManagerDrainUsageNotifications(__int64 a1, char a2)

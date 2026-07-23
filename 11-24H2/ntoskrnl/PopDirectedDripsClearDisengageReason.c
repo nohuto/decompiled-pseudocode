@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsClearDisengageReason @ 0x14046C80C
+ * XREFs of PopDirectedDripsClearDisengageReason @ 0x1404673AC
  * Callers:
- *     PnpRemoveDeviceActionRequests @ 0x14046C600 (PnpRemoveDeviceActionRequests.c)
- *     PnpDeviceActionWorker @ 0x14046CD70 (PnpDeviceActionWorker.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405A7280 (PnpRemoveDeviceActionRequestFromQueue.c)
- *     PopDirectedDripsDisengageTimerCallback @ 0x1405CF990 (PopDirectedDripsDisengageTimerCallback.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x140759514 (PopPowerAggregatorEngageModernStandby.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14075FC80 (PopDripsWatchdogCallbackWorker.c)
- *     PopDirectedDripsNotify @ 0x140A69400 (PopDirectedDripsNotify.c)
+ *     PnpRemoveDeviceActionRequests @ 0x1404671A0 (PnpRemoveDeviceActionRequests.c)
+ *     PnpDeviceActionWorker @ 0x140467910 (PnpDeviceActionWorker.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405A4270 (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PopDirectedDripsDisengageTimerCallback @ 0x1405CD0B0 (PopDirectedDripsDisengageTimerCallback.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140757974 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14075EC80 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDirectedDripsNotify @ 0x140A627B0 (PopDirectedDripsNotify.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x14046D734 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x1404682D4 (PopQueueDirectedDripsWork.c)
  */
 
 __int64 __fastcall PopDirectedDripsClearDisengageReason(char a1)
@@ -21,8 +21,8 @@ __int64 __fastcall PopDirectedDripsClearDisengageReason(char a1)
   int v5; // ett
 
   v1 = 1 << a1;
-  _m_prefetchw(&dword_140F0DDB8);
-  v2 = _InterlockedAnd(&dword_140F0DDB8, ~(1 << a1));
+  _m_prefetchw(&dword_140F0E058);
+  v2 = _InterlockedAnd(&dword_140F0E058, ~(1 << a1));
   _m_prefetchw(&PopDirectedDripsState);
   LODWORD(result) = PopDirectedDripsState.HandleAttributes;
   do

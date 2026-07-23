@@ -38,11 +38,21 @@
  *     <none>
  */
 
-__int64 ZwMapViewOfSection()
+NTSTATUS __cdecl ZwMapViewOfSection(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        SIZE_T CommitSize,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        SECTION_INHERIT InheritDisposition,
+        ULONG AllocationType,
+        ULONG Win32Protect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 40LL;
+  result = 40;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

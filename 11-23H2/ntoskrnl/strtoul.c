@@ -1,5 +1,5 @@
 /*
- * XREFs of strtoul @ 0x1403D8E38
+ * XREFs of strtoul @ 0x1403D9018
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  *     EmpParseCallbacks @ 0x140B55CAC (EmpParseCallbacks.c)
@@ -8,7 +8,7 @@
  *     EmpCacheBiosDate @ 0x140B57728 (EmpCacheBiosDate.c)
  *     CmpGetBiosDate @ 0x140B9847C (CmpGetBiosDate.c)
  * Callees:
- *     strtoxlX @ 0x1403D8BB0 (strtoxlX.c)
+ *     strtoxlX @ 0x1403D8D90 (strtoxlX.c)
  */
 
 unsigned int __cdecl strtoul(const char *Str, char **EndPtr, int Radix)

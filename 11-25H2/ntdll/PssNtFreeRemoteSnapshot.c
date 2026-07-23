@@ -10,68 +10,68 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall PssNtFreeRemoteSnapshot(__int64 a1, __int64 a2)
+NTSTATUS __fastcall PssNtFreeRemoteSnapshot(HANDLE ProcessHandle, PVOID *BaseAddress)
 {
-  __int64 result; // rax
-  __int64 v5; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v6; // [rsp+48h] [rbp-B8h] BYREF
-  int v7; // [rsp+50h] [rbp-B0h] BYREF
+  NTSTATUS result; // eax
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-C0h] BYREF
+  PVOID BaseAddressa; // [rsp+48h] [rbp-B8h] BYREF
+  int Buffer; // [rsp+50h] [rbp-B0h] BYREF
   int v8; // [rsp+54h] [rbp-ACh]
-  __int64 v9; // [rsp+3B8h] [rbp+2B8h]
-  __int64 v10; // [rsp+3D0h] [rbp+2D0h]
-  __int64 v11; // [rsp+3E8h] [rbp+2E8h]
-  __int64 v12; // [rsp+400h] [rbp+300h]
-  __int64 v13; // [rsp+420h] [rbp+320h]
-  __int64 v14; // [rsp+440h] [rbp+340h]
+  HANDLE v9; // [rsp+3B8h] [rbp+2B8h]
+  HANDLE v10; // [rsp+3D0h] [rbp+2D0h]
+  HANDLE v11; // [rsp+3E8h] [rbp+2E8h]
+  HANDLE v12; // [rsp+400h] [rbp+300h]
+  HANDLE v13; // [rsp+420h] [rbp+320h]
+  HANDLE SourceHandle; // [rsp+440h] [rbp+340h]
 
-  memset_thunk_772440563353939046(&v7, 0, 0x478uLL);
-  v6 = 0LL;
-  v5 = 0LL;
-  result = ZwReadVirtualMemory(a1, a2, &v7, 1144LL, &v5);
-  if ( (int)result >= 0 )
+  memset_thunk_772440563353939046(&Buffer, 0, 0x478uLL);
+  BaseAddressa = 0LL;
+  RegionSize = 0LL;
+  result = ZwReadVirtualMemory(ProcessHandle, BaseAddress, &Buffer, 0x478uLL, &RegionSize);
+  if ( result >= 0 )
   {
-    if ( v5 == 1144 )
+    if ( RegionSize == 1144 )
     {
-      if ( v7 == 1146311504 )
+      if ( Buffer == 1146311504 )
       {
         if ( (v8 & 1) == 0 || (v8 & 2) != 0 )
         {
-          return 3221225659LL;
+          return -1073741637;
         }
         else
         {
           if ( (v8 & 4) != 0 )
           {
-            v6 = *(_QWORD *)(a2 + 904);
-            v5 = 0LL;
-            ZwFreeVirtualMemory(a1, &v6, &v5, 0x8000LL);
+            BaseAddressa = BaseAddress[113];
+            RegionSize = 0LL;
+            ZwFreeVirtualMemory(ProcessHandle, &BaseAddressa, &RegionSize, 0x8000u);
           }
-          if ( v14 )
-            ZwDuplicateObject(a1, v14, 0LL, 0LL, 0, 0, 1);
+          if ( SourceHandle )
+            ZwDuplicateObject(ProcessHandle, SourceHandle, 0LL, 0LL, 0, 0, 1u);
           if ( v13 )
-            ZwDuplicateObject(a1, v13, 0LL, 0LL, 0, 0, 1);
+            ZwDuplicateObject(ProcessHandle, v13, 0LL, 0LL, 0, 0, 1u);
           if ( v11 )
-            ZwDuplicateObject(a1, v11, 0LL, 0LL, 0, 0, 1);
+            ZwDuplicateObject(ProcessHandle, v11, 0LL, 0LL, 0, 0, 1u);
           if ( v12 )
-            ZwDuplicateObject(a1, v12, 0LL, 0LL, 0, 0, 1);
+            ZwDuplicateObject(ProcessHandle, v12, 0LL, 0LL, 0, 0, 1u);
           if ( v10 )
-            ZwDuplicateObject(a1, v10, 0LL, 0LL, 0, 0, 1);
+            ZwDuplicateObject(ProcessHandle, v10, 0LL, 0LL, 0, 0, 1u);
           if ( v9 )
-            ZwDuplicateObject(a1, v9, 0LL, 0LL, 0, 0, 1);
-          v6 = a2;
-          v5 = 0LL;
-          ZwFreeVirtualMemory(a1, &v6, &v5, 0x8000LL);
-          return 0LL;
+            ZwDuplicateObject(ProcessHandle, v9, 0LL, 0LL, 0, 0, 1u);
+          BaseAddressa = BaseAddress;
+          RegionSize = 0LL;
+          ZwFreeVirtualMemory(ProcessHandle, &BaseAddressa, &RegionSize, 0x8000u);
+          return 0;
         }
       }
       else
       {
-        return 3221225480LL;
+        return -1073741816;
       }
     }
     else
     {
-      return 2147483661LL;
+      return -2147483635;
     }
   }
   return result;

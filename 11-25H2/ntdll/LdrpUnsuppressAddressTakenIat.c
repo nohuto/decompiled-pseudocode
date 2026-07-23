@@ -16,33 +16,34 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall LdrpUnsuppressAddressTakenIat(char *BaseOfImage, unsigned int a2, unsigned int a3)
 {
-  __int64 v5; // r12
-  unsigned int v6; // ebx
+  char *v5; // r12
+  unsigned __int32 v6; // ebx
   __int64 Config; // rax
   unsigned int v8; // r14d
   unsigned int *v9; // rsi
   rsize_t v10; // rdx
   unsigned int v11; // r14d
   unsigned int v12; // r13d
-  __int64 v14; // rdi
-  unsigned int v15; // eax
-  __int64 v16; // r12
-  int v17; // [rsp+30h] [rbp-40h] BYREF
+  int v14; // eax
+  __int64 v15; // rdi
+  unsigned int v16; // eax
+  void *v17; // r12
+  int v18; // [rsp+30h] [rbp-40h] BYREF
   unsigned int *Context; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+40h] [rbp-30h] BYREF
-  unsigned __int64 v20; // [rsp+48h] [rbp-28h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp-30h] BYREF
+  char *v21; // [rsp+48h] [rbp-28h]
   __int128 Key; // [rsp+50h] [rbp-20h] BYREF
 
-  v20 = a1;
-  v19 = 0LL;
-  v17 = 0;
-  v5 = a1;
+  v21 = BaseOfImage;
+  OutHeaders = 0LL;
+  v18 = 0;
+  v5 = BaseOfImage;
   Context = 0LL;
   v6 = 0;
   Key = 0LL;
-  RtlImageNtHeaderEx(3, a1, 0LL, &v19);
+  RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders);
   Config = LdrImageDirectoryEntryToLoadConfig(v5);
   if ( Config )
   {
@@ -50,7 +51,7 @@ __int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned i
     {
       if ( *(_QWORD *)(Config + 168) )
       {
-        if ( (*(_WORD *)(v19 + 94) & 0x4000) != 0 )
+        if ( (OutHeaders->OptionalHeader.DllCharacteristics & 0x4000) != 0 )
         {
           v8 = *(_DWORD *)(Config + 144);
           if ( (v8 & 0x4000) != 0 )
@@ -73,21 +74,22 @@ __int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned i
               {
                 v9 = Context;
 LABEL_20:
-                LODWORD(v14) = 0;
-                while ( (unsigned int)v14 < a3 && (unsigned int)v14 < v12 )
+                LODWORD(v15) = 0;
+                while ( (unsigned int)v15 < a3 && (unsigned int)v15 < v12 )
                 {
-                  v15 = v14;
-                  v14 = *v9;
-                  if ( v15 >= (unsigned int)v14 )
-                    return (unsigned int)-1073741701;
-                  v16 = *(_QWORD *)(v14 + v5);
-                  if ( (unsigned int)RtlValidateUserCallTarget(v16, &v17) != 1 && (v17 & 0x10) != 0 )
+                  v16 = v15;
+                  v15 = *v9;
+                  if ( v16 >= (unsigned int)v15 )
+                    return (unsigned __int32)-1073741701;
+                  v17 = *(void **)&v5[v15];
+                  if ( (unsigned int)RtlValidateUserCallTarget((__int64)v17, &v18) != 1 && (v18 & 0x10) != 0 )
                   {
-                    if ( LdrControlFlowGuardEnforced() )
+                    LOBYTE(v14) = LdrControlFlowGuardEnforced();
+                    if ( v14 )
                     {
-                      if ( RtlGuardIsExportSuppressedAddress(v16) != 1 )
-                        return (unsigned int)-1073741811;
-                      v6 = RtlpGuardGrantSuppressedCallAccess(v16, 4u);
+                      if ( RtlGuardIsExportSuppressedAddress(v17) != 1 )
+                        return (unsigned __int32)-1073741811;
+                      v6 = RtlpGuardGrantSuppressedCallAccess((__int64)v17, 4u);
                       if ( (v6 & 0x80000000) != 0 )
                         return v6;
                     }
@@ -96,7 +98,7 @@ LABEL_20:
                       v6 = 0;
                     }
                   }
-                  v5 = v20;
+                  v5 = v21;
                   v9 = (unsigned int *)((char *)v9 + v11);
                 }
                 return v6;

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x18009F788
+ * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x18009F7A8
  * Callers:
  *     RtlpHpVsContextAllocate @ 0x18001E414 (RtlpHpVsContextAllocate.c)
  *     RtlpHpVsChunkSplit @ 0x18001E480 (RtlpHpVsChunkSplit.c)
@@ -10,11 +10,8 @@
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHpReleaseQueuedLockExclusive(__int64 a1, __int64 a2)
+void __fastcall RtlpHpReleaseQueuedLockExclusive(__int64 a1, __int64 a2)
 {
-  signed __int64 result; // rax
-
-  result = RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(a2 + 8));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a2 + 8));
   *(_QWORD *)(a2 + 8) = 0LL;
-  return result;
 }

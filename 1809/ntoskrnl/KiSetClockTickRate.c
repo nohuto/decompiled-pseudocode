@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetClockTickRate @ 0x1400FCDD4
+ * XREFs of KiSetClockTickRate @ 0x1400FCE54
  * Callers:
- *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD10 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD90 (KiSetClockIntervalToMinimumRequested.c)
  * Callees:
- *     KiEventClockStateChange @ 0x1400FCF34 (KiEventClockStateChange.c)
- *     KiSetPendingTick @ 0x1400FCF74 (KiSetPendingTick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiEventClockStateChange @ 0x1400FCFB4 (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x1400FCFF4 (KiSetPendingTick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiSetClockTickRate(unsigned int a1, char a2)
@@ -25,12 +25,12 @@ __int64 __fastcall KiSetClockTickRate(unsigned int a1, char a2)
   KiLastRequestedTimeIncrement = a1;
   if ( a2 )
   {
-    ((void (__fastcall *)(__int64, _QWORD, unsigned int *))off_1403FE5D0[0])(1LL, a1, &v11);
+    ((void (__fastcall *)(__int64, _QWORD, unsigned int *))off_1403FF5D0[0])(1LL, a1, &v11);
     v6 = 1;
   }
   else
   {
-    ((void (__fastcall *)(_QWORD, _QWORD, unsigned int *))off_1403FE5D0[0])(0LL, a1, &v11);
+    ((void (__fastcall *)(_QWORD, _QWORD, unsigned int *))off_1403FF5D0[0])(0LL, a1, &v11);
     v6 = 0;
   }
   LOBYTE(v5) = 1;
@@ -42,14 +42,14 @@ __int64 __fastcall KiSetClockTickRate(unsigned int a1, char a2)
   KeTimeIncrement = v11;
   v7.QuadPart = MEMORY[0xFFFFF78000000008];
   KiClockTimerNextTickTime = MEMORY[0xFFFFF78000000008] + v11;
-  if ( v11 < dword_140421694 )
-    dword_140421694 = v11;
-  if ( v11 > dword_140421690 )
-    dword_140421690 = v11;
-  if ( a1 < dword_14042169C )
-    dword_14042169C = a1;
-  if ( a1 > dword_140421698 )
-    dword_140421698 = a1;
+  if ( v11 < dword_140422734 )
+    dword_140422734 = v11;
+  if ( v11 > dword_140422730 )
+    dword_140422730 = v11;
+  if ( a1 < dword_14042273C )
+    dword_14042273C = a1;
+  if ( a1 > dword_140422738 )
+    dword_140422738 = a1;
   v8 = (LARGE_INTEGER *)((char *)&KiClockIncrementTrace + 32 * (unsigned int)KiClockIncrementTraceCount);
   KiClockIncrementTraceCount = ((_BYTE)KiClockIncrementTraceCount + 1) & 0xF;
   v9 = KiLastRequestedTimeIncrement;

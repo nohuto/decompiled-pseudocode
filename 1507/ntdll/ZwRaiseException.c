@@ -12,11 +12,11 @@
  *     <none>
  */
 
-__int64 ZwRaiseException()
+NTSTATUS __cdecl ZwRaiseException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, BOOLEAN FirstChance)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 332LL;
+  result = 332;
   __asm { syscall; Low latency system call }
   return result;
 }

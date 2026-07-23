@@ -14,9 +14,9 @@ __int64 __fastcall RtlpWnfMarkFailure(__int64 a1, int a2, unsigned int a3)
   unsigned int v9; // edx
   __int64 result; // rax
   __int64 v11; // rcx
-  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+30h] [rbp+8h] BYREF
 
-  ZwQuerySystemTime(&v12);
+  ZwQuerySystemTime(&SystemTime);
   if ( *(_DWORD *)(a1 + 148) < a3 )
   {
     *(_DWORD *)(a1 + 136) = 0;
@@ -44,7 +44,7 @@ LABEL_11:
   }
   result = *(unsigned int *)(a1 + 140);
   *(_DWORD *)(a1 + 120) = 1;
-  v11 = v12 + 10000 * result;
+  v11 = SystemTime.QuadPart + 10000 * result;
   ++*(_DWORD *)(a1 + 136);
   *(_QWORD *)(a1 + 128) = v11;
   return result;

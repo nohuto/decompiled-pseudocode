@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorNotifyDisplayPoweredOn @ 0x140B462E8
+ * XREFs of PopPowerAggregatorNotifyDisplayPoweredOn @ 0x140B48318
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorScheduleWorker @ 0x140ABB41C (PopPowerAggregatorScheduleWorker.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140ABC8DC (PopPowerAggregatorScheduleWorker.c)
  */
 
 __int64 __fastcall PopPowerAggregatorNotifyDisplayPoweredOn(
@@ -16,10 +16,10 @@ __int64 __fastcall PopPowerAggregatorNotifyDisplayPoweredOn(
         struct _KLOCK_ENTRIES *a4)
 {
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, a2, a3, a4);
-  if ( LODWORD(PopPowerAggregatorLock.CycleTime) == 2 )
+  if ( (_DWORD)xmmword_140F0D8F8 == 2 )
   {
-    LOBYTE(PopPowerAggregatorLock.KernelStack) = 1;
-    PopPowerAggregatorScheduleWorker((__int64)&PopPowerAggregatorLock.Header.WaitListHead.Blink);
+    LOBYTE(xmmword_140F0D908) = 1;
+    PopPowerAggregatorScheduleWorker((__int64)PopPowerAggregatorContext);
   }
-  return PopReleaseRwLock(&PopPowerAggregatorLock);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
 }

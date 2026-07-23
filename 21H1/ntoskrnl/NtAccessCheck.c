@@ -6,15 +6,27 @@
  *     SeAccessCheckByType @ 0x1402582D0 (SeAccessCheckByType.c)
  */
 
-__int64 __fastcall NtAccessCheck(
-        int a1,
-        int a2,
-        int a3,
-        __int64 a4,
-        volatile void *a5,
-        int *a6,
-        __int64 a7,
-        volatile void *a8)
+NTSTATUS __cdecl NtAccessCheck(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PGENERIC_MAPPING GenericMapping,
+        PPRIVILEGE_SET PrivilegeSet,
+        PULONG PrivilegeSetLength,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus)
 {
-  return SeAccessCheckByType(a1, 0, a2, a3, 0LL, 0, a4, a5, a6, a7, a8, 0);
+  return SeAccessCheckByType(
+           (int)SecurityDescriptor,
+           0,
+           (int)ClientToken,
+           DesiredAccess,
+           0LL,
+           0,
+           (__int64)GenericMapping,
+           PrivilegeSet,
+           (int *)PrivilegeSetLength,
+           (__int64)GrantedAccess,
+           AccessStatus,
+           0);
 }

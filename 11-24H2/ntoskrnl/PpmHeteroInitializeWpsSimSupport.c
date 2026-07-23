@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroInitializeWpsSimSupport @ 0x140C33B90
+ * XREFs of PpmHeteroInitializeWpsSimSupport @ 0x140C35CD0
  * Callers:
- *     PoInitHeteroDetection @ 0x140C2D09C (PoInitHeteroDetection.c)
+ *     PoInitHeteroDetection @ 0x140C2F1BC (PoInitHeteroDetection.c)
  * Callees:
  *     <none>
  */

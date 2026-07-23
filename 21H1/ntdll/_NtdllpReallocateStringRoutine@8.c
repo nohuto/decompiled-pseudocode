@@ -9,7 +9,10 @@
  *     _RtlReAllocateHeap@16 @ 0x4B2C26C0 (_RtlReAllocateHeap@16.c)
  */
 
-int __stdcall NtdllpReallocateStringRoutine(int a1, int a2)
+PVOID __stdcall NtdllpReallocateStringRoutine(SIZE_T Size)
 {
-  return RtlReAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, a2, a1);
+  SIZE_T _FFFFFFFC; // [esp-4h] [ebp-4h]
+
+  LODWORD(_FFFFFFFC) = Size;
+  return RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)HIDWORD(Size), _FFFFFFFC);
 }

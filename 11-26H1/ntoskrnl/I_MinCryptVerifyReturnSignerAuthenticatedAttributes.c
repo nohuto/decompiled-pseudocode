@@ -1,10 +1,10 @@
 /*
- * XREFs of I_MinCryptVerifyReturnSignerAuthenticatedAttributes @ 0x1408A2958
+ * XREFs of I_MinCryptVerifyReturnSignerAuthenticatedAttributes @ 0x1408A8D68
  * Callers:
- *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A2AC4 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A8ED4 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     I_MinCryptVerifyHashSignerAuthenticatedAttributes @ 0x1408A2728 (I_MinCryptVerifyHashSignerAuthenticatedAttributes.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     I_MinCryptVerifyHashSignerAuthenticatedAttributes @ 0x1408A8B38 (I_MinCryptVerifyHashSignerAuthenticatedAttributes.c)
  */
 
 __int64 __fastcall I_MinCryptVerifyReturnSignerAuthenticatedAttributes(

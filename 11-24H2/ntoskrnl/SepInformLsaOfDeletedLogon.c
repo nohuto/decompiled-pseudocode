@@ -1,12 +1,12 @@
 /*
- * XREFs of SepInformLsaOfDeletedLogon @ 0x140AAB6E4
+ * XREFs of SepInformLsaOfDeletedLogon @ 0x140AA6914
  * Callers:
- *     SepDeReferenceLogonSession @ 0x140AD8BA4 (SepDeReferenceLogonSession.c)
+ *     SepDeReferenceLogonSession @ 0x140AD7224 (SepDeReferenceLogonSession.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     SepQueueWorkItem @ 0x140349B84 (SepQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     SepQueueWorkItem @ 0x1403C35C4 (SepQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepInformLsaOfDeletedLogon(__int64 *a1, void *a2, __int64 a3)
@@ -15,7 +15,7 @@ void __fastcall SepInformLsaOfDeletedLogon(__int64 *a1, void *a2, __int64 a3)
   __int64 v6; // rax
 
   Pool2 = a3;
-  if ( a3 || (Pool2 = ExAllocatePool2(0x100uLL)) != 0 )
+  if ( a3 || (Pool2 = ExAllocatePool2(0x100uLL, 0x40uLL, 0x774C6553u)) != 0 )
   {
     v6 = *a1;
     *(_QWORD *)(Pool2 + 40) = 0LL;

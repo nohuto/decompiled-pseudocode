@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwLockRegistryKey @ 0x1406A86D0
+ * XREFs of ZwLockRegistryKey @ 0x1406A9670
  * Callers:
- *     SepZwLockRegistryKey @ 0x14078EC30 (SepZwLockRegistryKey.c)
- *     NtLockProductActivationKeys @ 0x140A3C920 (NtLockProductActivationKeys.c)
+ *     SepZwLockRegistryKey @ 0x14078EC00 (SepZwLockRegistryKey.c)
+ *     NtLockProductActivationKeys @ 0x140A32230 (NtLockProductActivationKeys.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwLockRegistryKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwLockRegistryKey(HANDLE KeyHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(KeyHandle);
 }

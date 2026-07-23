@@ -1,9 +1,9 @@
 /*
- * XREFs of CMFFreeFn @ 0x140B2F610
+ * XREFs of CMFFreeFn @ 0x140B313F0
  * Callers:
- *     XpressDecodeClose @ 0x14071F5EC (XpressDecodeClose.c)
+ *     XpressDecodeClose @ 0x14072420C (XpressDecodeClose.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CMFFreeFn(__int64 a1, void *a2)

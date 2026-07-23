@@ -1,12 +1,12 @@
 /*
- * XREFs of KeCancelTimerInternal @ 0x1404B95AC
+ * XREFs of KeCancelTimerInternal @ 0x1404B2DDC
  * Callers:
- *     ExpTimerPause @ 0x1404B94C0 (ExpTimerPause.c)
- *     DifKeCancelTimerInternalWrapper @ 0x140660800 (DifKeCancelTimerInternalWrapper.c)
- *     ExpTimerAdjust @ 0x1406CF460 (ExpTimerAdjust.c)
+ *     ExpTimerPause @ 0x1404B2CF0 (ExpTimerPause.c)
+ *     DifKeCancelTimerInternalWrapper @ 0x1406643E0 (DifKeCancelTimerInternalWrapper.c)
+ *     ExpTimerAdjust @ 0x1406D3490 (ExpTimerAdjust.c)
  * Callees:
- *     KiDecodeTolerableDelayValue @ 0x1403ACEEC (KiDecodeTolerableDelayValue.c)
- *     KiCancelTimer @ 0x1403AD2D0 (KiCancelTimer.c)
+ *     KiDecodeTolerableDelayValue @ 0x1403B6BFC (KiDecodeTolerableDelayValue.c)
+ *     KiCancelTimer @ 0x1403B6FE0 (KiCancelTimer.c)
  */
 
 char __fastcall KeCancelTimerInternal(__int64 a1, _QWORD *a2, _DWORD *a3, unsigned int *a4)

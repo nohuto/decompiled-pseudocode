@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreePartitionPhysicalPages @ 0x1407FC0FC
+ * XREFs of MiFreePartitionPhysicalPages @ 0x1407FC86C
  * Callers:
- *     MiDeletePartitionResources @ 0x1407FBD44 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x1407FC4B4 (MiDeletePartitionResources.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiIncreaseCommitLimits @ 0x14068620C (MiIncreaseCommitLimits.c)
- *     MiReturnPartitionPagesToParent @ 0x14068B28C (MiReturnPartitionPagesToParent.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiIncreaseCommitLimits @ 0x14068733C (MiIncreaseCommitLimits.c)
+ *     MiReturnPartitionPagesToParent @ 0x14068C3BC (MiReturnPartitionPagesToParent.c)
  */
 
 void __fastcall MiFreePartitionPhysicalPages(_QWORD *a1, ULONG *a2)

@@ -1,24 +1,24 @@
 /*
  * XREFs of SeCreateClientSecurityEx @ 0x1407275D0
  * Callers:
- *     AlpcpGetEffectiveTokenMessage @ 0x14066B514 (AlpcpGetEffectiveTokenMessage.c)
- *     AlpcpExposeTokenAttribute @ 0x1407A9720 (AlpcpExposeTokenAttribute.c)
- *     AlpcpImpersonateMessage @ 0x1407B0C70 (AlpcpImpersonateMessage.c)
+ *     sub_14066B514 @ 0x14066B514 (sub_14066B514.c)
+ *     sub_1407A9720 @ 0x1407A9720 (sub_1407A9720.c)
+ *     sub_1407B0C70 @ 0x1407B0C70 (sub_1407B0C70.c)
  * Callees:
  *     PsIsHostSilo @ 0x1402A6DF0 (PsIsHostSilo.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
  *     PsGetCurrentServerSilo @ 0x1402F61B0 (PsGetCurrentServerSilo.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1402F8EF0 (SepReconcileTrustSidWithProcessProtection.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     SepCreateClientSecurityEx @ 0x140727350 (SepCreateClientSecurityEx.c)
- *     PsReferenceImpersonationTokenEx @ 0x14072A6B0 (PsReferenceImpersonationTokenEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x1409CC028 (SepUpdateSiloInClientSecurity.c)
+ *     sub_1402F8EF0 @ 0x1402F8EF0 (sub_1402F8EF0.c)
+ *     sub_140347920 @ 0x140347920 (sub_140347920.c)
+ *     sub_140727350 @ 0x140727350 (sub_140727350.c)
+ *     sub_14072A6B0 @ 0x14072A6B0 (sub_14072A6B0.c)
+ *     sub_1409CC028 @ 0x1409CC028 (sub_1409CC028.c)
  */
 
 __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, char a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 Process; // rdi
+  __int64 v9; // rdi
   _QWORD *v10; // rsi
   int v11; // r14d
   char v12; // r15
@@ -40,10 +40,10 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, char a3, __i
   v18 = 0;
   v21 = 0LL;
   if ( (struct _KTHREAD *)a1 == CurrentThread )
-    Process = (__int64)CurrentThread->ApcState.Process;
+    v9 = *((_QWORD *)CurrentThread + 23);
   else
-    Process = *(_QWORD *)(a1 + 544);
-  v10 = (_QWORD *)PsReferenceImpersonationTokenEx(a1, 0LL, 1665361235LL, v19, &v17, &v20, &v22);
+    v9 = *(_QWORD *)(a1 + 544);
+  v10 = (_QWORD *)sub_14072A6B0(a1, 0LL, 1665361235LL, v19, &v17, &v20, &v22);
   if ( v10 )
   {
     v12 = v17;
@@ -51,13 +51,13 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, char a3, __i
   }
   else
   {
-    v10 = (_QWORD *)PsReferencePrimaryTokenWithTag(Process, 0x63436553u);
+    v10 = (_QWORD *)sub_140347920(v9, 0x63436553u);
     v11 = 1;
     v12 = 0;
-    v22 = *(_BYTE *)(Process + 2170);
+    v22 = *(_BYTE *)(v9 + 2170);
   }
-  SepReconcileTrustSidWithProcessProtection(v10[138], (__int64)&v22, &v18, &v21);
-  result = SepCreateClientSecurityEx(v10, a2, a3, v11, v12, v20, 1, a1, v18, v21, a4);
+  sub_1402F8EF0(v10[138], (__int64)&v22, &v18, &v21);
+  result = sub_140727350(v10, a2, a3, v11, v12, v20, 1, a1, v18, v21, a4);
   v14 = result;
   if ( (int)result < 0 || !*(_BYTE *)(a4 + 8) )
   {
@@ -69,7 +69,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, char a3, __i
   CurrentServerSilo = PsGetCurrentServerSilo();
   if ( PsIsHostSilo(CurrentServerSilo) )
     return v14;
-  result = SepUpdateSiloInClientSecurity(a4, CurrentServerSilo);
+  result = sub_1409CC028(a4, CurrentServerSilo);
   v16 = result;
   if ( (int)result < 0 )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpCreateEvent @ 0x1407487C0
+ * XREFs of PfpCreateEvent @ 0x140746AB0
  * Callers:
- *     PfSnInitializePrefetcher @ 0x140C2CADC (PfSnInitializePrefetcher.c)
- *     PfpParametersInitialize @ 0x140C2CD40 (PfpParametersInitialize.c)
+ *     PfSnInitializePrefetcher @ 0x140C2EBFC (PfSnInitializePrefetcher.c)
+ *     PfpParametersInitialize @ 0x140C2EE60 (PfpParametersInitialize.c)
  * Callees:
- *     PfpCreateEventInternal @ 0x1407487E0 (PfpCreateEventInternal.c)
+ *     PfpCreateEventInternal @ 0x140746AD0 (PfpCreateEventInternal.c)
  */
 
 __int64 __fastcall PfpCreateEvent(__int64 a1, __int64 a2, __int64 a3)

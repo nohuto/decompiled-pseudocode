@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpSingleStringCheck @ 0x140A69464
+ * XREFs of ExpSingleStringCheck @ 0x140A6A464
  * Callers:
- *     ExpStringCheck @ 0x140A69180 (ExpStringCheck.c)
+ *     ExpStringCheck @ 0x140A6A180 (ExpStringCheck.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlComputeCrc32 @ 0x1402A2690 (RtlComputeCrc32.c)
+ *     RtlComputeCrc32 @ 0x14021FAD0 (RtlComputeCrc32.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall ExpSingleStringCheck(PCWSTR SourceString)
+ULONG32 __fastcall ExpSingleStringCheck(PCWSTR SourceString)
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  return RtlComputeCrc32(0, (char *)DestinationString.Buffer, DestinationString.Length);
+  return RtlComputeCrc32(0, DestinationString.Buffer, DestinationString.Length);
 }

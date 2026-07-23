@@ -1,11 +1,11 @@
 /*
- * XREFs of KiUpdateSpeculationControl @ 0x1401DA084
+ * XREFs of KiUpdateSpeculationControl @ 0x1401D9EB0
  * Callers:
- *     SwapContext @ 0x140166000 (SwapContext.c)
- *     KeOptimizeSpecCtrlSettings @ 0x1401D90FC (KeOptimizeSpecCtrlSettings.c)
+ *     SwapContext @ 0x140166570 (SwapContext.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1401D8F28 (KeOptimizeSpecCtrlSettings.c)
  * Callees:
- *     KiFlushCurrentRsb @ 0x1401710C0 (KiFlushCurrentRsb.c)
- *     KiUpdateSpecCtrlEnhancedIBRS @ 0x1401D9F1C (KiUpdateSpecCtrlEnhancedIBRS.c)
+ *     KiFlushCurrentRsb @ 0x1401715C0 (KiFlushCurrentRsb.c)
+ *     KiUpdateSpecCtrlEnhancedIBRS @ 0x1401D9D48 (KiUpdateSpecCtrlEnhancedIBRS.c)
  */
 
 __int64 __fastcall KiUpdateSpeculationControl(__int64 a1)

@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwDebugActiveProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwDebugActiveProcess(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

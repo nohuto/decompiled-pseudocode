@@ -16,22 +16,22 @@ char LdrpTryAcquireLoaderLock()
   int v3; // r8d
   int v4; // r9d
   char *v5; // rcx
-  int v6; // ebx
-  unsigned int CurrentServiceSessionId; // eax
+  LOGICAL v6; // ebx
+  ULONG CurrentServiceSessionId; // eax
   int v8; // r8d
   int v9; // r9d
   int v11; // r8d
   int v12; // r9d
 
   v0 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v1 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v1 = 2147353476LL;
   v2 = 2147353477LL;
   if ( *(_BYTE *)v1 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v5 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    v5 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( (*v5 & 0x20) != 0 )
     {
       LOBYTE(v4) = -1;
@@ -39,15 +39,15 @@ char LdrpTryAcquireLoaderLock()
       LdrpLogEtwEvent(5248, -1, v3, v4, 0LL, 0LL);
     }
   }
-  v6 = RtlTryEnterCriticalSection((__int64)&LdrpLoaderLock);
-  CurrentServiceSessionId = (unsigned int)RtlGetCurrentServiceSessionId();
+  v6 = RtlTryEnterCriticalSection(&LdrpLoaderLock);
+  CurrentServiceSessionId = RtlGetCurrentServiceSessionId();
   if ( v6 )
   {
     if ( CurrentServiceSessionId )
       v0 = (__int64)NtCurrentPeb()->SharedData + 554;
     if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v2 = (__int64)NtCurrentPeb()->SharedData + 555;
       if ( (*(_BYTE *)v2 & 0x20) != 0 )
       {
@@ -64,7 +64,7 @@ char LdrpTryAcquireLoaderLock()
       v0 = (__int64)NtCurrentPeb()->SharedData + 554;
     if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v2 = (__int64)NtCurrentPeb()->SharedData + 555;
       if ( (*(_BYTE *)v2 & 0x20) != 0 )
       {

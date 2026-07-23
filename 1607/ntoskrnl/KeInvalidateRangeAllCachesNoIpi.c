@@ -1,11 +1,11 @@
 /*
- * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x14001DC50
+ * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x14001D7D0
  * Callers:
- *     MiFlushCacheForAttributeChange @ 0x14001D8F4 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateRangeAllCaches @ 0x1401D6C2C (KeInvalidateRangeAllCaches.c)
+ *     MiFlushCacheForAttributeChange @ 0x14001D474 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateRangeAllCaches @ 0x1401D6A58 (KeInvalidateRangeAllCaches.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x1400B5930 (KeInvalidateAllCaches.c)
- *     KiFlushCacheLines @ 0x140161ED0 (KiFlushCacheLines.c)
+ *     KeInvalidateAllCaches @ 0x1400B3758 (KeInvalidateAllCaches.c)
+ *     KiFlushCacheLines @ 0x140162440 (KiFlushCacheLines.c)
  */
 
 char __fastcall KeInvalidateRangeAllCachesNoIpi(__int64 a1, unsigned int a2)

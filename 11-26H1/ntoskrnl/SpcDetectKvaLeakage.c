@@ -1,13 +1,13 @@
 /*
- * XREFs of SpcDetectKvaLeakage @ 0x140C01E7C
+ * XREFs of SpcDetectKvaLeakage @ 0x140C0808C
  * Callers:
- *     KiDetectKvaLeakage @ 0x1405F7100 (KiDetectKvaLeakage.c)
+ *     KiDetectKvaLeakage @ 0x1405F9AC0 (KiDetectKvaLeakage.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     SpcIsFbClearSupported @ 0x14071E288 (SpcIsFbClearSupported.c)
- *     SpcIsHyperVCr3RspErrataPresent @ 0x14071E2B0 (SpcIsHyperVCr3RspErrataPresent.c)
- *     RtlGetCpuMaxPhysicalBits @ 0x140BFED2C (RtlGetCpuMaxPhysicalBits.c)
- *     RtlGetProcessorSignature @ 0x140BFEEB4 (RtlGetProcessorSignature.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     SpcIsFbClearSupported @ 0x140722F18 (SpcIsFbClearSupported.c)
+ *     SpcIsHyperVCr3RspErrataPresent @ 0x140722F40 (SpcIsHyperVCr3RspErrataPresent.c)
+ *     RtlGetCpuMaxPhysicalBits @ 0x140C04F34 (RtlGetCpuMaxPhysicalBits.c)
+ *     RtlGetProcessorSignature @ 0x140C050BC (RtlGetProcessorSignature.c)
  */
 
 unsigned __int64 __fastcall SpcDetectKvaLeakage(ULONG_PTR BugCheckParameter2, _BYTE *a2)
@@ -52,12 +52,12 @@ LABEL_35:
     if ( !(_DWORD)v2 )
     {
 LABEL_27:
-      if ( !HIDWORD(WheapPfaLock.OtherTransferCount) )
-        HIDWORD(WheapPfaLock.OtherTransferCount) = 2;
+      if ( !WheapPfaLock.SchedulerAssistPriorityFloor )
+        WheapPfaLock.SchedulerAssistPriorityFloor = 2;
       goto LABEL_29;
     }
 LABEL_36:
-    if ( !HIDWORD(WheapPfaLock.OtherTransferCount) )
+    if ( !WheapPfaLock.SchedulerAssistPriorityFloor )
       KeBugCheckEx(0x5Du, 0x4B56414CuLL, 0LL, 0LL, 0LL);
     goto LABEL_29;
   }
@@ -73,7 +73,7 @@ LABEL_36:
   {
     if ( !(_DWORD)v2 )
     {
-      HIDWORD(WheapPfaLock.OtherTransferCount) = 1;
+      WheapPfaLock.SchedulerAssistPriorityFloor = 1;
       goto LABEL_27;
     }
     goto LABEL_36;
@@ -81,16 +81,16 @@ LABEL_36:
 LABEL_15:
   if ( *a2 )
   {
-    HIDWORD(WheapPfaLock.OtherTransferCount) = 1;
+    WheapPfaLock.SchedulerAssistPriorityFloor = 1;
   }
   else if ( (_DWORD)v2 || (result = SpcIsHyperVCr3RspErrataPresent(), (_DWORD)result) || a2[4] || !a2[2] && !a2[1] )
   {
-    if ( !LOBYTE(WheapPfaLock.OtherTransferCount) )
+    if ( !LOBYTE(WheapPfaLock.RealtimePriorityFloor) )
       return result;
   }
   else
   {
-    LOBYTE(WheapPfaLock.OtherTransferCount) = 1;
+    LOBYTE(WheapPfaLock.RealtimePriorityFloor) = 1;
   }
 LABEL_29:
   if ( v17 != 2 || (KeFeatureBits2 & 0x10) != 0 )
@@ -103,7 +103,7 @@ LABEL_29:
     result = RtlGetCpuMaxPhysicalBits();
     if ( (_DWORD)v2 )
     {
-      if ( (_DWORD)result != LODWORD(gLoadedDiffHivesLock.StackBase) && !LOBYTE(WheapPfaLock.OtherTransferCount) )
+      if ( (_DWORD)result != LODWORD(gLoadedDiffHivesLock.StackBase) && !LOBYTE(WheapPfaLock.RealtimePriorityFloor) )
         KeBugCheckEx(0x5Du, 0x4C315446uLL, v2, (int)result, SLODWORD(gLoadedDiffHivesLock.StackBase));
     }
     else

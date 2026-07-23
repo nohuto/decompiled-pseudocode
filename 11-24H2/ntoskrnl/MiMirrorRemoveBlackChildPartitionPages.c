@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMirrorRemoveBlackChildPartitionPages @ 0x140672D70
+ * XREFs of MiMirrorRemoveBlackChildPartitionPages @ 0x140673F40
  * Callers:
  *     <none>
  * Callees:
- *     MiMirrorOmitPagesFromCopy @ 0x1404293F0 (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x14041D540 (MiMirrorOmitPagesFromCopy.c)
  */
 
 ULONG *__fastcall MiMirrorRemoveBlackChildPartitionPages(__int64 a1, __int64 *a2)

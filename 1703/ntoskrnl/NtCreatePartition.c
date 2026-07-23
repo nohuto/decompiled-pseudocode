@@ -9,48 +9,55 @@
  *     MiCreatePartition @ 0x1406BC9B0 (MiCreatePartition.c)
  */
 
-NTSTATUS __fastcall NtCreatePartition(void *a1, __int64 *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl NtCreatePartition(
+        HANDLE ParentPartitionHandle,
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG PreferredNode)
 {
+  int v5; // r15d
   char PreviousMode; // si
-  __int64 v8; // r8
-  int v9; // edi
-  ULONG_PTR **v10; // rbx
+  __int64 v9; // r8
+  NTSTATUS v10; // edi
+  ULONG_PTR **v11; // rbx
   NTSTATUS result; // eax
   PVOID Object; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v13; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-28h] BYREF
 
+  v5 = (int)ObjectAttributes;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a2;
-    *(_QWORD *)v8 = *(_QWORD *)v8;
+    v9 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)PartitionHandle < 0x7FFFFFFF0000LL )
+      v9 = (__int64)PartitionHandle;
+    *(_QWORD *)v9 = *(_QWORD *)v9;
   }
-  v9 = 0;
-  v10 = 0LL;
-  if ( a1 )
+  v10 = 0;
+  v11 = 0LL;
+  if ( ParentPartitionHandle )
   {
-    result = ObReferenceObjectByHandle(a1, 2u, MmPartitionObjectType, PreviousMode, &Object, 0LL);
-    v9 = result;
-    v10 = (ULONG_PTR **)Object;
+    result = ObReferenceObjectByHandle(ParentPartitionHandle, 2u, MmPartitionObjectType, PreviousMode, &Object, 0LL);
+    v10 = result;
+    v11 = (ULONG_PTR **)Object;
     if ( result < 0 )
       return result;
     if ( *(ULONG_PTR **)Object == &MiSystemPartition )
     {
       ObfDereferenceObject(Object);
-      v10 = 0LL;
+      v11 = 0LL;
     }
   }
   if ( !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, PreviousMode) )
-    v9 = -1073741727;
-  if ( v9 >= 0 )
+    v10 = -1073741727;
+  if ( v10 >= 0 )
   {
-    v9 = MiCreatePartition(v10, a3, a4, PreviousMode, &v13);
-    if ( v9 >= 0 )
-      *a2 = v13;
+    v10 = MiCreatePartition(v11, DesiredAccess, v5, PreviousMode, &v14);
+    if ( v10 >= 0 )
+      *PartitionHandle = (HANDLE)v14;
   }
-  if ( v10 )
-    ObfDereferenceObject(v10);
-  return v9;
+  if ( v11 )
+    ObfDereferenceObject(v11);
+  return v10;
 }

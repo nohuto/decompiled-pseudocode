@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetPteMappingPair @ 0x1401FCBF4
+ * XREFs of MiGetPteMappingPair @ 0x1401FCA20
  * Callers:
- *     MiSlowRotateCopy @ 0x1401E8A48 (MiSlowRotateCopy.c)
+ *     MiSlowRotateCopy @ 0x1401E8874 (MiSlowRotateCopy.c)
  * Callees:
- *     MiAllocateHyperSpace @ 0x14009E16C (MiAllocateHyperSpace.c)
- *     MiCreatePteCopyList @ 0x140107178 (MiCreatePteCopyList.c)
+ *     MiAllocateHyperSpace @ 0x14009D96C (MiAllocateHyperSpace.c)
+ *     MiCreatePteCopyList @ 0x140104EF8 (MiCreatePteCopyList.c)
  */
 
 ULONG_PTR __fastcall MiGetPteMappingPair(int a1, unsigned __int64 a2)

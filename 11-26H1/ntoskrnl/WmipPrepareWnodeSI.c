@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipPrepareWnodeSI @ 0x140A0F5E4
+ * XREFs of WmipPrepareWnodeSI @ 0x140A0E7D4
  * Callers:
- *     WmipQuerySetExecuteSI @ 0x140A0E7F8 (WmipQuerySetExecuteSI.c)
+ *     WmipQuerySetExecuteSI @ 0x140A0D9D4 (WmipQuerySetExecuteSI.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     _wtoi @ 0x1405368D0 (_wtoi.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     WmipCountedToSz @ 0x140A0D7C0 (WmipCountedToSz.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     WmipIsNumber @ 0x140AF7E54 (WmipIsNumber.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     _wtoi @ 0x140538D50 (_wtoi.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     WmipCountedToSz @ 0x140A0D210 (WmipCountedToSz.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     WmipIsNumber @ 0x140AFA4F4 (WmipIsNumber.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipPrepareWnodeSI(
@@ -92,7 +92,7 @@ __int64 __fastcall WmipPrepareWnodeSI(
         v40 = v14;
         v43 = *a4;
         v8 = *a4;
-        KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+        KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
         if ( *(_DWORD *)(v10 + 36) )
         {
           v15 = v10 + 56;
@@ -232,7 +232,7 @@ LABEL_16:
           v12 = -1073741055;
         }
         ExFreePoolWithTag(v13, 0);
-        KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+        KeReleaseMutex(&WmipSMMutex, 0);
         v9 = v43;
         v7 = a3;
       }

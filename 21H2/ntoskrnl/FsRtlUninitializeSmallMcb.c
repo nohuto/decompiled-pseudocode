@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlUninitializeSmallMcb @ 0x140A110D0
+ * XREFs of FsRtlUninitializeSmallMcb @ 0x140A120D0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlMdlReadCompleteDevEx @ 0x1409F8010 (FsRtlMdlReadCompleteDevEx.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x1409F9010 (FsRtlMdlReadCompleteDevEx.c)
  */
 
 __int64 __fastcall FsRtlUninitializeSmallMcb(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall FsRtlUninitializeSmallMcb(__int64 a1)
     v2 = (__int64 (__fastcall *)())((char *)v2 + 8);
   }
   while ( (unsigned __int64)v2 < (unsigned __int64)FsRtlUninitializeSmallMcb );
-  v9 = (unsigned __int64 *)&loc_140A11156;
+  v9 = (unsigned __int64 *)&loc_140A12156;
   do
   {
     v10 = *v9 ^ v7;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeSlabIdentities @ 0x140688308
+ * XREFs of MiInitializeSlabIdentities @ 0x140689438
  * Callers:
- *     MiCreateSlabIdentity @ 0x140686A04 (MiCreateSlabIdentity.c)
+ *     MiCreateSlabIdentity @ 0x140687B34 (MiCreateSlabIdentity.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
- *     MiInitializeSlabAllocator @ 0x140687F8C (MiInitializeSlabAllocator.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
+ *     MiInitializeSlabAllocator @ 0x1406890BC (MiInitializeSlabAllocator.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInitializeSlabIdentities(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAllocateXStateContext @ 0x1403E62A0
+ * XREFs of KeAllocateXStateContext @ 0x1403D3E40
  * Callers:
- *     KiSaveExtendedAndSupervisorState @ 0x1403E5F5C (KiSaveExtendedAndSupervisorState.c)
- *     VfCtxInit @ 0x140BA1D84 (VfCtxInit.c)
+ *     KiSaveExtendedAndSupervisorState @ 0x1403D3AFC (KiSaveExtendedAndSupervisorState.c)
+ *     VfCtxInit @ 0x140BA3D84 (VfCtxInit.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KeAllocateXStateContext(__int64 a1, __int64 a2, unsigned int a3)
@@ -17,11 +17,9 @@ __int64 __fastcall KeAllocateXStateContext(__int64 a1, __int64 a2, unsigned int 
   _GENERAL_LOOKASIDE *P; // rdi
   _DWORD *Pool2; // rcx
   _GENERAL_LOOKASIDE *L; // rdi
-  __int64 v9; // r9
   __int64 Size; // rdx
-  __int64 Tag; // r8
   __int64 Type; // rcx
-  unsigned __int64 v13; // rcx
+  unsigned __int64 v11; // rcx
 
   v3 = 576;
   *(_BYTE *)(a1 + 12) = 0;
@@ -41,10 +39,9 @@ __int64 __fastcall KeAllocateXStateContext(__int64 a1, __int64 a2, unsigned int 
     Pool2 = RtlpInterlockedPopEntrySList(&L->ListHead);
     if ( Pool2
       || (Size = L->Size,
-          Tag = L->Tag,
           Type = (unsigned int)L->Type,
           ++L->AllocateMisses,
-          (Pool2 = (_DWORD *)guard_dispatch_icall_no_overrides(Type, Size, Tag, v9)) != 0LL) )
+          (Pool2 = (_DWORD *)guard_dispatch_icall_no_overrides(Type, Size)) != 0LL) )
     {
 LABEL_7:
       *Pool2 = CurrentPrcb->Number;
@@ -53,14 +50,14 @@ LABEL_7:
   }
   else
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x42uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x42uLL, (unsigned int)(v3 + 63), 0x76615358u);
   }
   *(_QWORD *)(a1 + 24) = Pool2;
   if ( !Pool2 )
     return 3221225495LL;
   *(_DWORD *)(a1 + 8) = v3;
-  v13 = ((unsigned __int64)Pool2 + 63) & 0xFFFFFFFFFFFFFFC0uLL;
-  *(_QWORD *)(a1 + 16) = v13;
-  memset_0((void *)(v13 + 512), 0, 0x40uLL);
+  v11 = ((unsigned __int64)Pool2 + 63) & 0xFFFFFFFFFFFFFFC0uLL;
+  *(_QWORD *)(a1 + 16) = v11;
+  memset_0((void *)(v11 + 512), 0, 0x40uLL);
   return 0LL;
 }

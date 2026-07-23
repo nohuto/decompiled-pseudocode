@@ -6,7 +6,7 @@
  *     _RtlpStackDbEntryIsEqual@8 @ 0x4B38AA48 (_RtlpStackDbEntryIsEqual@8.c)
  */
 
-BOOL __stdcall RtlpStackDbStackComparitor(int a1, _DWORD *a2)
+BOOL __userpurge RtlpStackDbStackComparitor@<eax>(int a1@<esi>, int a2, _DWORD *a3)
 {
-  return RtlpStackDbEntryIsEqual(a1, a2);
+  return RtlpStackDbEntryIsEqual(a3, a2, a1) != 0;
 }

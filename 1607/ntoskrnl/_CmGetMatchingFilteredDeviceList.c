@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceList @ 0x1404DD2A0
+ * XREFs of _CmGetMatchingFilteredDeviceList @ 0x1404C08A4
  * Callers:
- *     IopGetRootDevices @ 0x14049DC40 (IopGetRootDevices.c)
- *     PiCMGetDeviceIdList @ 0x1404DD06C (PiCMGetDeviceIdList.c)
- *     _CmDeleteInstallerClassWorker @ 0x1406D8F74 (_CmDeleteInstallerClassWorker.c)
+ *     PiCMGetDeviceIdList @ 0x1404C0670 (PiCMGetDeviceIdList.c)
+ *     IopGetRootDevices @ 0x14051604C (IopGetRootDevices.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1406D90AC (_CmDeleteInstallerClassWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _CmGetMatchingFilteredDeviceListWorker @ 0x1406DB920 (_CmGetMatchingFilteredDeviceListWorker.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _CmGetMatchingFilteredDeviceListWorker @ 0x1406DBA58 (_CmGetMatchingFilteredDeviceListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceList(

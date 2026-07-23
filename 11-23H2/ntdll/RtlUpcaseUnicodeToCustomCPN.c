@@ -6,28 +6,28 @@
  *     NLS_UPCASE @ 0x1800154D8 (NLS_UPCASE.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
-        __int64 a1,
-        int a2,
-        unsigned int a3,
-        unsigned int *a4,
-        unsigned __int16 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlUpcaseUnicodeToCustomCPN(
+        PCPTABLEINFO CustomCP,
+        PCH CustomCPString,
+        ULONG MaxBytesInCustomCPString,
+        PULONG BytesInCustomCPString,
+        PWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v7; // ebx
-  unsigned int *v8; // r14
-  unsigned int v9; // edi
+  ULONG v7; // ebx
+  PULONG v8; // r14
+  ULONG v9; // edi
   _BYTE *v10; // r11
-  unsigned int v11; // eax
-  __int64 v12; // r14
-  unsigned __int16 *v13; // rbp
+  ULONG v11; // eax
+  _BYTE *v12; // r14
+  PWCH v13; // rbp
   __int64 v14; // r15
   unsigned __int16 v15; // ax
   _BYTE *v16; // r11
-  __int64 v17; // r15
+  unsigned __int16 *DBCSOffsets; // r15
   int v18; // r12d
-  __int64 v19; // r13
-  unsigned __int16 *v20; // rbp
+  _WORD *WideCharTable; // r13
+  PWCH v20; // rbp
   __int64 v21; // r12
   __int64 v22; // rax
   unsigned __int16 v23; // dx
@@ -35,36 +35,36 @@ __int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
   int v25; // edx
   __int16 v26; // dx
   unsigned int v27; // eax
+  int v29; // [rsp+20h] [rbp-48h]
   __int64 v30; // [rsp+70h] [rbp+8h]
 
-  v7 = a6 >> 1;
-  v8 = a4;
-  v9 = a3;
+  v7 = BytesInUnicodeString >> 1;
+  v8 = BytesInCustomCPString;
+  v9 = MaxBytesInCustomCPString;
   v30 = qword_180184808;
-  LODWORD(v10) = a2;
-  if ( *(_WORD *)(a1 + 12) )
+  LODWORD(v10) = (_DWORD)CustomCPString;
+  if ( CustomCP->DBCSCodePage )
   {
-    v17 = *(_QWORD *)(a1 + 56);
-    v18 = a2;
-    v19 = *(_QWORD *)(a1 + 40);
+    DBCSOffsets = CustomCP->DBCSOffsets;
+    v18 = (int)CustomCPString;
+    WideCharTable = CustomCP->WideCharTable;
+    v29 = (int)CustomCPString;
     if ( v7 )
     {
-      v20 = a5;
+      v20 = UnicodeString;
       v21 = qword_180184808;
       do
       {
         if ( !v9 )
           break;
         v22 = *v20++;
-        v23 = *(_WORD *)(v19 + 2 * v22);
+        v23 = WideCharTable[v22];
         v24 = (unsigned __int64)v23 >> 8;
-        if ( *(_WORD *)(v17 + 2 * v24) )
-          v25 = *(unsigned __int16 *)(v17
-                                    + 2
-                                    * ((unsigned __int8)v23 + (unsigned __int64)*(unsigned __int16 *)(v17 + 2 * v24)));
+        if ( DBCSOffsets[v24] )
+          v25 = DBCSOffsets[(unsigned __int8)v23 + (unsigned __int64)DBCSOffsets[v24]];
         else
-          v25 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 2LL * (unsigned __int8)v23);
-        v26 = *(_WORD *)(v19 + 2LL * (unsigned __int16)NLS_UPCASE(v21, v25));
+          v25 = CustomCP->MultiByteTable[(unsigned __int8)v23];
+        v26 = WideCharTable[(unsigned __int16)NLS_UPCASE(v21, v25)];
         if ( HIBYTE(v26) )
         {
           v27 = v9--;
@@ -78,32 +78,32 @@ __int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
         --v7;
       }
       while ( v7 );
-      v8 = a4;
-      v18 = a2;
+      v8 = BytesInCustomCPString;
+      v18 = v29;
     }
     if ( v8 )
       *v8 = (_DWORD)v10 - v18;
   }
   else
   {
-    v11 = a3;
-    if ( v7 < a3 )
-      v11 = a6 >> 1;
-    if ( a4 )
-      *a4 = v11;
-    v12 = *(_QWORD *)(a1 + 40);
+    v11 = MaxBytesInCustomCPString;
+    if ( v7 < MaxBytesInCustomCPString )
+      v11 = BytesInUnicodeString >> 1;
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = v11;
+    v12 = CustomCP->WideCharTable;
     if ( v11 )
     {
-      v13 = a5;
+      v13 = UnicodeString;
       v14 = v11;
       do
       {
-        v15 = NLS_UPCASE(v30, *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*v13++ + v12)));
-        *v16 = *(_BYTE *)(v15 + v12);
+        v15 = NLS_UPCASE(v30, CustomCP->MultiByteTable[(unsigned __int8)v12[*v13++]]);
+        *v16 = v12[v15];
         --v14;
       }
       while ( v14 );
-      v9 = a3;
+      v9 = MaxBytesInCustomCPString;
     }
   }
   return v9 < v7 ? 0x80000005 : 0;

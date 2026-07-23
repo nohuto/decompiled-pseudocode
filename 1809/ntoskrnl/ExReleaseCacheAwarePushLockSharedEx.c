@@ -9,8 +9,8 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KiAbThreadClearAcquiredLockEntry @ 0x14004F0C0 (KiAbThreadClearAcquiredLockEntry.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -53,7 +53,7 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParamet
     {
       *(_BYTE *)(v9 + 32) |= 2u;
       if ( *(__int64 *)(v9 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v9, v10);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v9, v10);
       v13 = *(_DWORD *)(v12 + 88) & 0x1FFFF;
       v14 = *(_DWORD *)(v12 + 88) & 0xFFFE0000;
       *(_BYTE *)(v12 + 25) &= ~1u;

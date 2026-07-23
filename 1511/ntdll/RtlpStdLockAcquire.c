@@ -10,9 +10,9 @@
  *     RtlAcquireSRWLockExclusive @ 0x18002DA60 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpStdLockAcquire(unsigned __int64 a1, char *a2, __int64 a3, __int64 a4)
+char __fastcall RtlpStdLockAcquire(_RTL_SRWLOCK *a1)
 {
   if ( !byte_180145248 )
-    RtlAcquireSRWLockExclusive(a1, a2, a3, a4);
+    RtlAcquireSRWLockExclusive(a1);
   return 1;
 }

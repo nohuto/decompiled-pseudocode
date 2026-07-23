@@ -1,11 +1,11 @@
 /*
- * XREFs of IoDeleteDriver @ 0x1407963D0
+ * XREFs of IoDeleteDriver @ 0x140798F00
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObMakeTemporaryObject @ 0x140B01A40 (ObMakeTemporaryObject.c)
- *     EtwTiLogDriverObjectUnLoad @ 0x140B2BA00 (EtwTiLogDriverObjectUnLoad.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObMakeTemporaryObject @ 0x140B03770 (ObMakeTemporaryObject.c)
+ *     EtwTiLogDriverObjectUnLoad @ 0x140B2DA80 (EtwTiLogDriverObjectUnLoad.c)
  */
 
 LONG_PTR __fastcall IoDeleteDriver(char *Object)

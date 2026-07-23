@@ -10,13 +10,13 @@
  *     RtlpComputeLangListCheckSum @ 0x18003ACBC (RtlpComputeLangListCheckSum.c)
  *     LdrLoadAlternateResourceModuleEx @ 0x18003E950 (LdrLoadAlternateResourceModuleEx.c)
  *     WerpGlobalFlagsForProcess @ 0x18006D8F0 (WerpGlobalFlagsForProcess.c)
- *     CompatCachepLookupCdb @ 0x180077890 (CompatCachepLookupCdb.c)
- *     RtlpOpenImageFileOptionsKeyEx @ 0x180079268 (RtlpOpenImageFileOptionsKeyEx.c)
- *     RtlpProcessIFEOKeyFilter @ 0x18007948C (RtlpProcessIFEOKeyFilter.c)
- *     RtlIsDosDeviceName_U @ 0x18007C5B0 (RtlIsDosDeviceName_U.c)
- *     RtlQueryImageFileKeyOption @ 0x18007ECC0 (RtlQueryImageFileKeyOption.c)
- *     LdrGetKnownDllSectionHandle @ 0x180087AD0 (LdrGetKnownDllSectionHandle.c)
- *     RtlDosSearchPath_U @ 0x18008DB30 (RtlDosSearchPath_U.c)
+ *     CompatCachepLookupCdb @ 0x1800778A0 (CompatCachepLookupCdb.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x180079278 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x18007949C (RtlpProcessIFEOKeyFilter.c)
+ *     RtlIsDosDeviceName_U @ 0x18007C5C0 (RtlIsDosDeviceName_U.c)
+ *     RtlQueryImageFileKeyOption @ 0x18007ECD0 (RtlQueryImageFileKeyOption.c)
+ *     LdrGetKnownDllSectionHandle @ 0x180087AE0 (LdrGetKnownDllSectionHandle.c)
+ *     RtlDosSearchPath_U @ 0x18008DB40 (RtlDosSearchPath_U.c)
  *     LdrpInitializeApplicationVerifierPackage @ 0x1800D2B8C (LdrpInitializeApplicationVerifierPackage.c)
  *     LdrpInitializeExecutionOptions @ 0x1800D30E0 (LdrpInitializeExecutionOptions.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
@@ -32,25 +32,25 @@
  *     <none>
  */
 
-__int64 __fastcall RtlInitUnicodeStringEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlInitUnicodeStringEx(PUNICODE_STRING DestinationString, PCWSTR SourceString)
 {
   unsigned __int64 v2; // rax
-  __int16 v3; // ax
+  unsigned __int16 v3; // ax
 
-  *(_QWORD *)a1 = 0LL;
-  *(_QWORD *)(a1 + 8) = a2;
-  if ( !a2 )
-    return 0LL;
+  *(_QWORD *)&DestinationString->Length = 0LL;
+  DestinationString->Buffer = (wchar_t *)SourceString;
+  if ( !SourceString )
+    return 0;
   v2 = -1LL;
   do
     ++v2;
-  while ( *(_WORD *)(a2 + 2 * v2) );
+  while ( SourceString[v2] );
   if ( v2 <= 0x7FFE )
   {
     v3 = 2 * v2;
-    *(_WORD *)a1 = v3;
-    *(_WORD *)(a1 + 2) = v3 + 2;
-    return 0LL;
+    DestinationString->Length = v3;
+    DestinationString->MaximumLength = v3 + 2;
+    return 0;
   }
-  return 3221225734LL;
+  return -1073741562;
 }

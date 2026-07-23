@@ -15,8 +15,8 @@
  *     RtlpIsAddressInIgnoreRegion @ 0x14059046C (RtlpIsAddressInIgnoreRegion.c)
  */
 
-__int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
-        __int64 a1,
+int __fastcall RtlPerformRetpolineRelocationsOnImageEx(
+        char *BaseOfImage,
         __int64 a2,
         unsigned int a3,
         __int64 a4,
@@ -26,14 +26,14 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
         __int64 a8,
         unsigned int a9)
 {
-  unsigned __int64 v9; // r13
+  char *v9; // r13
   __int64 v10; // r14
   unsigned __int64 v11; // rbx
   __int64 v12; // r12
   unsigned __int64 v13; // rsi
   unsigned __int64 v14; // r15
-  __int64 result; // rax
-  unsigned __int64 v17; // rcx
+  int result; // eax
+  char *v17; // rcx
   unsigned __int64 v18; // rdx
   unsigned __int64 v19; // rcx
   unsigned __int64 v20; // r13
@@ -56,40 +56,44 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
   unsigned __int64 v38; // [rsp+50h] [rbp-81h]
   unsigned __int64 v39; // [rsp+50h] [rbp-81h]
   unsigned __int64 v40; // [rsp+60h] [rbp-71h]
-  _OWORD v41[3]; // [rsp+70h] [rbp-61h] BYREF
-  unsigned __int64 v42; // [rsp+A0h] [rbp-31h] BYREF
-  int v43; // [rsp+A8h] [rbp-29h]
-  __int16 v44; // [rsp+ACh] [rbp-25h]
-  unsigned __int64 v45; // [rsp+B0h] [rbp-21h] BYREF
-  int v46; // [rsp+B8h] [rbp-19h]
-  __int16 v47; // [rsp+BCh] [rbp-15h]
+  __int64 v41[2]; // [rsp+70h] [rbp-61h] BYREF
+  __int128 v42; // [rsp+80h] [rbp-51h]
+  __int128 v43; // [rsp+90h] [rbp-41h]
+  unsigned __int64 v44; // [rsp+A0h] [rbp-31h] BYREF
+  int v45; // [rsp+A8h] [rbp-29h]
+  __int16 v46; // [rsp+ACh] [rbp-25h]
+  char *v47; // [rsp+B0h] [rbp-21h] BYREF
+  int v48; // [rsp+B8h] [rbp-19h]
+  __int16 v49; // [rsp+BCh] [rbp-15h]
 
-  LODWORD(v42) = 0;
-  v9 = a1;
+  LODWORD(v44) = 0;
+  v9 = BaseOfImage;
   v10 = a7;
   v11 = 0LL;
   v12 = a8;
   v13 = 0LL;
-  v45 = a1;
+  v47 = BaseOfImage;
   v14 = 0LL;
-  memset(v41, 0, sizeof(v41));
+  *(_OWORD *)v41 = 0LL;
+  v42 = 0LL;
+  v43 = 0LL;
   result = RtlpCaptureRetpolineBinaryInfoForImage(
-             a1,
+             BaseOfImage,
              a2,
              a3,
              a4 & -(__int64)(a6 != 0),
              (_DWORD *)(a5 & -(__int64)(a6 != 0)),
              (__int64)v41);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    result = RtlpCaptureDynamicRelocationTableRva(v9, a3, &v42);
-    if ( (int)result >= 0 )
+    result = RtlpCaptureDynamicRelocationTableRva(v9, a3, (int *)&v44);
+    if ( result >= 0 )
     {
-      v17 = v9 + (unsigned int)v42;
-      v18 = *(unsigned int *)(v17 + 4) + v17 + 8;
-      v19 = v17 + 8;
+      v17 = &v9[(unsigned int)v44];
+      v18 = (unsigned __int64)&v17[*((unsigned int *)v17 + 1) + 8];
+      v19 = (unsigned __int64)(v17 + 8);
       if ( v19 >= v18 )
-        return 3221225659LL;
+        return -1073741637;
       do
       {
         switch ( *(_QWORD *)v19 )
@@ -112,7 +116,7 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
       {
         v20 = *(unsigned int *)(v11 + 8) + v11 + 12;
         v21 = (unsigned int *)(v11 + 12);
-        v42 = v20;
+        v44 = v20;
         if ( (unsigned __int64)v21 < v20 )
         {
           v22 = a3;
@@ -124,7 +128,7 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
               v24 = v21 + 2;
               if ( (unsigned __int64)(v21 + 2) < v23 )
               {
-                v25 = v45;
+                v25 = (unsigned __int64)v47;
                 do
                 {
                   if ( (*v24 & 0xFFF) != 0 || v24 == v21 + 2 )
@@ -132,7 +136,7 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
                   ++v24;
                 }
                 while ( (unsigned __int64)v24 < v23 );
-                v20 = v42;
+                v20 = v44;
               }
               v12 = a8;
               v10 = a7;
@@ -148,7 +152,7 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
       else if ( !v13 )
       {
         if ( !v14 )
-          return 3221225659LL;
+          return -1073741637;
         goto LABEL_44;
       }
       v26 = *(unsigned int *)(v13 + 8) + v13 + 12;
@@ -164,17 +168,17 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
             v29 = v27 + 2;
             if ( (unsigned __int64)(v27 + 2) < v28 )
             {
-              v30 = v45;
+              v30 = (unsigned __int64)v47;
               do
               {
                 if ( (*(_WORD *)v29 & 0xFFF) != 0 || v29 == v27 + 2 )
                 {
                   v31 = (*(_WORD *)v29 & 0xFFF) + *v27;
-                  v42 = 0LL;
-                  v43 = 0;
-                  v44 = 0;
-                  RtlpConstructIndirectRelocationFixup(v31, (unsigned int)v41, a5, (_DWORD)v29, a6, (__int64)&v42);
-                  RtlpApplyGenericRetpolineFixup(v30, a3, &v42, v31);
+                  v44 = 0LL;
+                  v45 = 0;
+                  v46 = 0;
+                  RtlpConstructIndirectRelocationFixup(v31, (unsigned int)v41, a5, (_DWORD)v29, a6, (__int64)&v44);
+                  RtlpApplyGenericRetpolineFixup(v30, a3, &v44, v31);
                 }
                 v29 = (unsigned int *)((char *)v29 + 2);
               }
@@ -191,8 +195,8 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
       }
 LABEL_42:
       if ( !v14 )
-        return 0LL;
-      v9 = v45;
+        return 0;
+      v9 = v47;
 LABEL_44:
       v32 = *(unsigned int *)(v14 + 8) + v14 + 12;
       v33 = (unsigned int *)(v14 + 12);
@@ -210,11 +214,11 @@ LABEL_44:
               if ( (*(_WORD *)v35 & 0xFFF) != 0 || v35 == v33 + 2 )
               {
                 v36 = (*(_WORD *)v35 & 0xFFF) + *v33;
-                v45 = 0LL;
-                v46 = 0;
-                v47 = 0;
-                RtlpConstructSwitchJumpRelocationFixup(v36, (unsigned int)v41, a5, (_DWORD)v35, a6, (__int64)&v45);
-                RtlpApplyGenericRetpolineFixup(v9, a3, &v45, v36);
+                v47 = 0LL;
+                v48 = 0;
+                v49 = 0;
+                RtlpConstructSwitchJumpRelocationFixup(v36, (unsigned int)v41, a5, (_DWORD)v35, a6, (__int64)&v47);
+                RtlpApplyGenericRetpolineFixup((unsigned __int64)v9, a3, &v47, v36);
               }
               v35 = (unsigned int *)((char *)v35 + 2);
             }
@@ -225,7 +229,7 @@ LABEL_44:
         }
         v33 = (unsigned int *)((char *)v33 + v33[1]);
       }
-      return 0LL;
+      return 0;
     }
   }
   return result;

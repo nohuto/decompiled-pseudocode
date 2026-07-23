@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpQueryProfileSource @ 0x1404E6824
+ * XREFs of HalpQueryProfileSource @ 0x140435CE8
  * Callers:
- *     HalpQueryProfileInformation @ 0x140B19488 (HalpQueryProfileInformation.c)
+ *     HalpQueryProfileInformation @ 0x140B1B8D8 (HalpQueryProfileInformation.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
  */
 
 __int64 __fastcall HalpQueryProfileSource(unsigned int a1, __int64 a2, _DWORD *a3)

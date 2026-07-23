@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmKeyGenStart @ 0x1406987B4
+ * XREFs of SmKmKeyGenStart @ 0x140698898
  * Callers:
- *     SmcCacheManagerStart @ 0x140699F7C (SmcCacheManagerStart.c)
+ *     SmcCacheManagerStart @ 0x14069A060 (SmcCacheManagerStart.c)
  * Callees:
- *     SmAlloc @ 0x14000215C (SmAlloc.c)
- *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x14022032C (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     SmAlloc @ 0x1400022D0 (SmAlloc.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x140220158 (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall SmKmKeyGenStart(__int64 a1, const struct _UNICODE_STRING *a2)

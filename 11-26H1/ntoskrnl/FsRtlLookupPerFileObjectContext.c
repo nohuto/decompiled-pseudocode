@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlLookupPerFileObjectContext @ 0x1402C1430
+ * XREFs of FsRtlLookupPerFileObjectContext @ 0x14030C0F0
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x14027A640 (ExReleaseAutoExpandPushLockShared.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x140279BB0 (ExReleaseAutoExpandPushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExSaDecodeHandle @ 0x14030C290 (ExSaDecodeHandle.c)
  */
 
 PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlLookupPerFileObjectContext(
@@ -26,8 +26,6 @@ PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlLookupPerFileObjectContext(
   ULONG_PTR v14; // rbx
   struct _FSRTL_PER_FILEOBJECT_CONTEXT **v15; // rdi
   struct _FSRTL_PER_FILEOBJECT_CONTEXT *i; // rax
-  __int64 v17; // rdx
-  __int64 v18; // r8
 
   if ( !FileObject )
     return 0LL;
@@ -94,6 +92,6 @@ LABEL_18:
     v10 = *v15;
   }
   ExReleaseAutoExpandPushLockShared(v14, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v17, v18);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v10;
 }

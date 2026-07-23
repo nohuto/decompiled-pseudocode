@@ -173,7 +173,7 @@ LABEL_15:
     v27 = (volatile signed __int64 *)(v26 + 184);
     v64 = 1;
     v51 = 1;
-    v28 = KeAbPreAcquire(v26 + 184);
+    v28 = KeAbPreAcquire(v26 + 184, 0LL);
     if ( !_InterlockedCompareExchange64(v27, 17LL, 0LL) || (unsigned __int8)ExfTryAcquirePushLockShared(v27) )
     {
       if ( v28 )

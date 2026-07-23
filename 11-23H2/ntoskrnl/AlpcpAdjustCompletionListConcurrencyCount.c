@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpAdjustCompletionListConcurrencyCount @ 0x1409795A8
+ * XREFs of AlpcpAdjustCompletionListConcurrencyCount @ 0x1409797A8
  * Callers:
- *     NtAlpcSetInformation @ 0x1407857F0 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x1407859E0 (NtAlpcSetInformation.c)
  * Callees:
- *     AlpcpQueueIoCompletionPort @ 0x14031A760 (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpQueueIoCompletionPort @ 0x14031A9F0 (AlpcpQueueIoCompletionPort.c)
  */
 
 int __fastcall AlpcpAdjustCompletionListConcurrencyCount(_QWORD *a1, unsigned __int32 a2)

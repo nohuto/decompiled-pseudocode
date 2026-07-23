@@ -1,9 +1,9 @@
 /*
- * XREFs of KiMaskInterruptDpc @ 0x1401D6AE8
+ * XREFs of KiMaskInterruptDpc @ 0x1401D6914
  * Callers:
  *     <none>
  * Callees:
- *     KiMaskInterruptInternal @ 0x1401241BC (KiMaskInterruptInternal.c)
+ *     KiMaskInterruptInternal @ 0x14012472C (KiMaskInterruptInternal.c)
  */
 
 __int64 __fastcall KiMaskInterruptDpc(__int64 a1, __int64 a2, char a3)

@@ -19,7 +19,7 @@
  *     sub_18010ABC4 @ 0x18010ABC4 (sub_18010ABC4.c)
  */
 
-unsigned int *__fastcall sub_18004FB14(__int64 a1)
+int __fastcall sub_18004FB14(__int64 a1)
 {
   __int64 v1; // rbx
   bool v2; // zf
@@ -33,22 +33,22 @@ unsigned int *__fastcall sub_18004FB14(__int64 a1)
   unsigned __int64 v11; // rdi
   __int128 v12; // xmm0
   __int64 v13; // rcx
-  unsigned int *result; // rax
+  struct _PEB *v14; // rax
   __int64 v15; // rbx
-  __int64 v16; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   __int64 v17; // r11
-  __int64 v18; // rcx
-  __int64 v19; // [rsp+20h] [rbp-29h] BYREF
-  __int64 v20; // [rsp+28h] [rbp-21h] BYREF
-  __int128 v21; // [rsp+30h] [rbp-19h] BYREF
-  __int128 v22; // [rsp+40h] [rbp-9h] BYREF
-  __int128 v23; // [rsp+50h] [rbp+7h] BYREF
-  _BYTE v24[6]; // [rsp+60h] [rbp+17h] BYREF
-  __int16 v25; // [rsp+66h] [rbp+1Dh]
-  __int64 v26; // [rsp+80h] [rbp+37h]
+  void *v18; // rcx
+  PVOID BaseAddress; // [rsp+20h] [rbp-29h] BYREF
+  ULONG_PTR RegionSize; // [rsp+28h] [rbp-21h] BYREF
+  __int128 v22; // [rsp+30h] [rbp-19h] BYREF
+  __int128 v23; // [rsp+40h] [rbp-9h] BYREF
+  __int128 v24; // [rsp+50h] [rbp+7h] BYREF
+  _BYTE Fields[6]; // [rsp+60h] [rbp+17h] BYREF
+  __int16 v26; // [rsp+66h] [rbp+1Dh]
+  PVOID v27; // [rsp+80h] [rbp+37h]
 
   v1 = a1 + 72;
-  v19 = a1;
+  BaseAddress = (PVOID)a1;
   v2 = (*(_BYTE *)(a1 + 80) & 1) == 0;
   v4 = *(_QWORD *)(a1 + 72);
   if ( !v2 && v4 )
@@ -94,59 +94,59 @@ unsigned int *__fastcall sub_18004FB14(__int64 a1)
   *(_QWORD *)(v1 + 8) = 0LL;
   if ( (v5 & 1) != 0 )
     *(_BYTE *)(v1 + 8) = 1;
-  v11 = v19 + 672;
+  v11 = (unsigned __int64)BaseAddress + 672;
   while ( *(_QWORD *)v11 )
   {
-    sub_180051450(v19 + 640, v11 ^ *(_QWORD *)v11);
-    sub_180051408(v19 + 640, v17, 1LL);
+    sub_180051450((char *)BaseAddress + 640, v11 ^ *(_QWORD *)v11);
+    sub_180051408((char *)BaseAddress + 640, v17, 1LL);
   }
-  sub_180050BFC(v19 + 832);
-  sub_18004FD48(v19 + 256);
-  sub_18004FD48(v19 + 448);
-  v12 = *(_OWORD *)v19;
-  v20 = *(_QWORD *)(v19 + 248) - v19;
-  v2 = (*(_BYTE *)(v19 + 30) & 1) == 0;
-  v21 = v12;
+  sub_180050BFC((char *)BaseAddress + 832);
+  sub_18004FD48((char *)BaseAddress + 256);
+  sub_18004FD48((char *)BaseAddress + 448);
+  v12 = *(_OWORD *)BaseAddress;
+  RegionSize = *((_QWORD *)BaseAddress + 31) - (_QWORD)BaseAddress;
+  v2 = (*((_BYTE *)BaseAddress + 30) & 1) == 0;
+  v22 = v12;
   if ( v2 )
   {
-    v23 = *(_OWORD *)v19;
-    sub_180048170((unsigned __int64 *)&v19, (unsigned __int64 *)&v20, BYTE1(v21) < 2u ? 16809984 : 0x8000, &v23);
+    v24 = *(_OWORD *)BaseAddress;
+    sub_180048170(&BaseAddress, &RegionSize, BYTE1(v22) < 2u ? 16809984 : 0x8000, &v24);
   }
   else
   {
-    v22 = *(_OWORD *)v19;
-    sub_18004F690(v19, &v22);
+    v23 = *(_OWORD *)BaseAddress;
+    sub_18004F690((__int64)BaseAddress, &v23);
   }
-  sub_18004CCF0(&v21, 0);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v13 = (__int64)NtCurrentPeb()->HotpatchInformation + 558;
+  sub_18004CCF0(&v22, 0);
+  if ( RtlGetCurrentServiceSessionId() )
+    v13 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[4];
   else
     v13 = 2147353480LL;
   if ( *(_BYTE *)v13 )
-    sub_1801014C4(v19);
-  result = RtlGetCurrentServiceSessionId();
+    sub_1801014C4(BaseAddress);
+  LODWORD(v14) = RtlGetCurrentServiceSessionId();
   v15 = 2147353472LL;
-  if ( (_DWORD)result )
+  if ( (_DWORD)v14 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v16 = *((_QWORD *)result + 18) + 550LL;
+    v14 = NtCurrentPeb();
+    UserModeGlobalLogger = (__int64)v14->SharedData->UserModeGlobalLogger;
   }
   else
   {
-    v16 = 2147353472LL;
+    UserModeGlobalLogger = 2147353472LL;
   }
-  if ( *(_BYTE *)v16 )
+  if ( *(_BYTE *)UserModeGlobalLogger )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 1) != 0 )
+    v14 = NtCurrentPeb();
+    if ( (v14->TracingFlags & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-      v18 = *(unsigned __int8 *)v15;
-      v26 = v19;
-      v25 = 4131;
-      return (unsigned int *)ZwTraceEvent(v18, 1026LL, 8LL, v24);
+      if ( RtlGetCurrentServiceSessionId() )
+        v15 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+      v18 = (void *)*(unsigned __int8 *)v15;
+      v27 = BaseAddress;
+      v26 = 4131;
+      LODWORD(v14) = ZwTraceEvent(v18, 0x402u, 8u, Fields);
     }
   }
-  return result;
+  return (int)v14;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCapturePfnPageFileInfoInline @ 0x14036D370
+ * XREFs of MiCapturePfnPageFileInfoInline @ 0x140269E70
  * Callers:
- *     MiMigratePfn @ 0x14022C0A0 (MiMigratePfn.c)
- *     MiAbandonPrivatePfn @ 0x14036D268 (MiAbandonPrivatePfn.c)
- *     MiSetPagesModified @ 0x140492C90 (MiSetPagesModified.c)
+ *     MiAbandonPrivatePfn @ 0x140269D68 (MiAbandonPrivatePfn.c)
+ *     MiMigratePfn @ 0x1402FF9B0 (MiMigratePfn.c)
+ *     MiSetPagesModified @ 0x1403DA5EC (MiSetPagesModified.c)
  * Callees:
- *     MiClearPageFileReservation @ 0x140213DEC (MiClearPageFileReservation.c)
+ *     MiClearPageFileReservation @ 0x14030714C (MiClearPageFileReservation.c)
  */
 
 __int64 __fastcall MiCapturePfnPageFileInfoInline(__int64 a1, int a2, int a3)

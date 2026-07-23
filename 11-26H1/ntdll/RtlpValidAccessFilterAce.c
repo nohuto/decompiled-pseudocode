@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpValidAccessFilterAce @ 0x180122DB8
+ * XREFs of RtlpValidAccessFilterAce @ 0x180122B28
  * Callers:
- *     RtlValidAcl @ 0x18003D180 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x1800276F0 (RtlValidAcl.c)
  * Callees:
  *     <none>
  */

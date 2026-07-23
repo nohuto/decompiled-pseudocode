@@ -18,103 +18,110 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpFileIsWin32WithRCManifest(const wchar_t *a1)
+char __fastcall RtlpFileIsWin32WithRCManifest(PCWSTR SourceString)
 {
   char v1; // di
   char v2; // r14
-  __int64 v3; // rbx
-  __int64 v4; // rdx
-  int v5; // esi
-  __int64 v6; // r9
-  int v7; // ebx
-  unsigned __int64 v8; // rbx
-  unsigned __int64 v10; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
-  HANDLE v12; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v13; // [rsp+78h] [rbp-88h] BYREF
-  unsigned int *v14; // [rsp+88h] [rbp-78h] BYREF
-  _DWORD *v15; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v16; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v17; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 v18; // [rsp+B0h] [rbp-50h] BYREF
-  __int128 v19; // [rsp+B8h] [rbp-48h] BYREF
-  __int128 v20; // [rsp+C8h] [rbp-38h]
-  __int128 v21; // [rsp+D8h] [rbp-28h] BYREF
-  __int128 v22; // [rsp+E8h] [rbp-18h]
-  __int128 v23; // [rsp+F8h] [rbp-8h]
-  __int128 v24; // [rsp+108h] [rbp+8h] BYREF
-  _QWORD v25[3]; // [rsp+118h] [rbp+18h] BYREF
+  PVOID v3; // rbx
+  unsigned __int64 ContainingDirectory; // rdx
+  NTSTATUS v5; // esi
+  NTSTATUS v6; // ebx
+  unsigned __int64 v7; // rbx
+  PVOID BaseOfImage; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE SectionHandle; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE FileHandle; // [rsp+70h] [rbp-90h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v13; // [rsp+88h] [rbp-78h] BYREF
+  char *v14; // [rsp+90h] [rbp-70h] BYREF
+  PVOID BaseAddress[2]; // [rsp+98h] [rbp-68h] BYREF
+  ULONG_PTR ViewSize; // [rsp+A8h] [rbp-58h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+B0h] [rbp-50h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+B8h] [rbp-48h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-28h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+108h] [rbp+8h] BYREF
+  _QWORD v21[3]; // [rsp+118h] [rbp+18h] BYREF
 
   v1 = 0;
-  v17 = 0LL;
-  v12 = 0LL;
-  Handle = 0LL;
+  ViewSize = 0LL;
+  FileHandle = 0LL;
+  SectionHandle = 0LL;
   v2 = 0;
-  v10 = 0LL;
-  v15 = 0LL;
-  v18 = 0LL;
-  v16 = 0LL;
-  *(_QWORD *)&v23 = 0LL;
-  v21 = 0LL;
-  DWORD2(v23) = 0;
-  v22 = 0LL;
+  BaseOfImage = 0LL;
   v14 = 0LL;
-  v24 = 0LL;
-  v19 = 0LL;
-  v20 = 0LL;
+  SectionOffset.QuadPart = 0LL;
+  *(_OWORD *)BaseAddress = 0LL;
+  memset(&ObjectAttributes, 0, 44);
   v13 = 0LL;
-  if ( (int)RtlInitUnicodeStringEx((__int64)&v13, a1) >= 0
+  IoStatusBlock = 0LL;
+  memset(&RelativeName, 0, sizeof(RelativeName));
+  DestinationString = 0LL;
+  if ( RtlInitUnicodeStringEx(&DestinationString, SourceString) >= 0
     && (int)RtlpDosPathNameToRelativeNtPathName(
               2,
-              (unsigned __int16 *)&v13,
+              &DestinationString.Length,
               0LL,
-              (unsigned __int16 *)&v16,
+              (unsigned __int16 *)BaseAddress,
               0LL,
               0LL,
-              (__int64)&v19) >= 0 )
+              (__int64)&RelativeName) >= 0 )
   {
-    v3 = *((_QWORD *)&v16 + 1);
-    if ( (_WORD)v19 )
+    v3 = BaseAddress[1];
+    if ( RelativeName.RelativeName.Length )
     {
-      v4 = v20;
-      v16 = v19;
+      ContainingDirectory = (unsigned __int64)RelativeName.ContainingDirectory;
+      *(UNICODE_STRING *)BaseAddress = RelativeName.RelativeName;
     }
     else
     {
-      v4 = 0LL;
-      *(_QWORD *)&v20 = 0LL;
+      ContainingDirectory = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
     }
-    LODWORD(v21) = 48;
-    DWORD2(v22) = 64;
-    *((_QWORD *)&v21 + 1) = v4 & -(__int64)(v3 != 0);
-    *(_QWORD *)&v22 = &v16;
-    v23 = 0LL;
-    v5 = ZwCreateFile(&v12, 2148532352LL, &v21, &v24, 0LL, 0, 5, 1, 0, 0LL, 0);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.RootDirectory = (HANDLE)(ContainingDirectory & -(__int64)(v3 != 0LL));
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)BaseAddress;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v5 = ZwCreateFile(&FileHandle, 0x80100080, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 5u, 1u, 0, 0LL, 0);
     if ( v3 )
     {
-      RtlReleaseRelativeName((__int64)&v19);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3, v6);
+      RtlReleaseRelativeName(&RelativeName);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
     }
     if ( v5 >= 0 )
     {
       v2 = 1;
-      if ( (int)NtCreateSection(&Handle, 983045LL, 0LL) >= 0 )
+      if ( NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, 2u, 0x8000000u, FileHandle) >= 0 )
       {
-        v7 = ZwMapViewOfSection(Handle, -1LL, &v10, 0LL, 0LL, &v18, &v17, 1, 0, 8);
-        NtClose(Handle);
-        if ( v7 >= 0 )
+        v6 = ZwMapViewOfSection(
+               SectionHandle,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               &BaseOfImage,
+               0LL,
+               0LL,
+               &SectionOffset,
+               &ViewSize,
+               ViewShare,
+               0,
+               8u);
+        NtClose(SectionHandle);
+        if ( v6 >= 0 )
         {
-          *(_QWORD *)&v13 = 0LL;
-          RtlImageNtHeaderEx(1, v10, 0LL, &v13);
-          if ( (_QWORD)v13 )
+          *(_QWORD *)&DestinationString.Length = 0LL;
+          RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, (PIMAGE_NT_HEADERS *)&DestinationString);
+          if ( *(_QWORD *)&DestinationString.Length )
           {
-            v25[0] = L"MUI";
-            v25[1] = 1LL;
-            v8 = v10 | 1;
-            v25[2] = 0LL;
-            if ( (int)LdrpSearchResourceSection_U(v10 | 1, (__int64)v25, 3u, 0x30u, (unsigned __int64 *)&v14) >= 0
-              && (int)LdrpAccessResourceDataNoMultipleLanguage(v8, v14, (unsigned __int64 *)&v15, &v13) >= 0
-              && *v15 == -20054323 )
+            v21[0] = L"MUI";
+            v21[1] = 1LL;
+            v7 = (unsigned __int64)BaseOfImage | 1;
+            v21[2] = 0LL;
+            if ( (int)LdrpSearchResourceSection_U(
+                        (PVOID)((unsigned __int64)BaseOfImage | 1),
+                        (__int64)v21,
+                        3u,
+                        0x30u,
+                        (__int64)&v13) >= 0
+              && (int)LdrpAccessResourceDataNoMultipleLanguage(v7, (unsigned int *)v13, &v14, &DestinationString) >= 0
+              && *(_DWORD *)v14 == -20054323 )
             {
               v1 = 1;
             }
@@ -123,9 +130,9 @@ char __fastcall RtlpFileIsWin32WithRCManifest(const wchar_t *a1)
       }
     }
   }
-  if ( v10 )
-    NtUnmapViewOfSection(-1LL);
+  if ( BaseOfImage )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseOfImage);
   if ( v2 )
-    NtClose(v12);
+    NtClose(FileHandle);
   return v1;
 }

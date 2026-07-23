@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpRealtimeFlushSavedBuffers @ 0x140A14AD4
+ * XREFs of EtwpRealtimeFlushSavedBuffers @ 0x140A13CC8
  * Callers:
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
  * Callees:
- *     EtwpRealtimeResetReferenceTime @ 0x14083000C (EtwpRealtimeResetReferenceTime.c)
- *     EtwpRealtimeDeliverBuffer @ 0x140A14E40 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpSendSessionNotification @ 0x140A1545C (EtwpSendSessionNotification.c)
- *     EtwpRealtimeRestoreBuffer @ 0x140A16B3C (EtwpRealtimeRestoreBuffer.c)
- *     EtwpRealtimeZeroTruncateLogfile @ 0x140B4476C (EtwpRealtimeZeroTruncateLogfile.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x14083624C (EtwpRealtimeResetReferenceTime.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140A14034 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpSendSessionNotification @ 0x140A14650 (EtwpSendSessionNotification.c)
+ *     EtwpRealtimeRestoreBuffer @ 0x140A14F98 (EtwpRealtimeRestoreBuffer.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x140B4652C (EtwpRealtimeZeroTruncateLogfile.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRealtimeFlushSavedBuffers(__int64 a1)

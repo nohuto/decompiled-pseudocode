@@ -1,26 +1,27 @@
 /*
- * XREFs of KiBeginThreadAccountingPeriod @ 0x140288A40
+ * XREFs of KiBeginThreadAccountingPeriod @ 0x140205BE0
  * Callers:
- *     KiChainedDispatch @ 0x1403FF5C0 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x1403FFF40 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x140400330 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x140400720 (KiInterruptDispatchNoLockNoEtw.c)
- *     KiInterruptDispatchNoEOI @ 0x140400B10 (KiInterruptDispatchNoEOI.c)
- *     KiSpuriousDispatchNoEOI @ 0x140400F00 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x140401B40 (KxIsrLinkage.c)
- *     KiHvInterruptDispatch @ 0x1404044B0 (KiHvInterruptDispatch.c)
- *     KiVmbusInterruptDispatch @ 0x1404048B0 (KiVmbusInterruptDispatch.c)
- *     KiSwInterrupt @ 0x140404F60 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x140405CF0 (KiIpiInterrupt.c)
- *     SwapContext @ 0x1404067C0 (SwapContext.c)
+ *     KiChainedDispatch @ 0x1403FF7A0 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x140400120 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x140400510 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140400900 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x140400CF0 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1404010E0 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x140401D20 (KxIsrLinkage.c)
+ *     KiHvInterruptDispatch @ 0x140404690 (KiHvInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x140404A90 (KiVmbusInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x140405140 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x140405ED0 (KiIpiInterrupt.c)
+ *     SwapContext @ 0x1404069A0 (SwapContext.c)
  * Callees:
- *     KiInsertDeferredPreemptionApc @ 0x14027A5E4 (KiInsertDeferredPreemptionApc.c)
- *     KiBeginCounterAccumulation @ 0x14051BDB0 (KiBeginCounterAccumulation.c)
+ *     KiInsertDeferredPreemptionApc @ 0x140268584 (KiInsertDeferredPreemptionApc.c)
+ *     KiBeginCounterAccumulation @ 0x14051BFF0 (KiBeginCounterAccumulation.c)
  */
 
-void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, __int64 a3, __int64 a4)
+void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rbx
+  char v6; // r9
   __int64 Size; // r8
   __int64 v8; // rdx
   __int64 v9; // rax
@@ -34,12 +35,12 @@ void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, _
   CurrentThread = a2;
   if ( a2 )
   {
-    LOBYTE(a4) = 1;
+    v6 = 1;
   }
   else
   {
     CurrentThread = KeGetCurrentThread();
-    LOBYTE(a4) = 0;
+    v6 = 0;
   }
   Size = CurrentThread->Header.Size;
   if ( (Size & 0x10) != 0 )
@@ -79,7 +80,7 @@ void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, _
       SchedulerAssist[64] = 1;
   }
   *(_BYTE *)(a1 + 32) = 0;
-  if ( (_BYTE)a4 )
+  if ( v6 )
   {
     if ( (Size & 0x36) == 0 )
     {
@@ -113,7 +114,7 @@ void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, _
         }
       }
       LOBYTE(Size) = 1;
-      KiInsertDeferredPreemptionApc(a1, (__int64)CurrentThread, Size, a4);
+      KiInsertDeferredPreemptionApc(a1, CurrentThread, Size);
     }
   }
   else if ( (Size & 2) != 0 )

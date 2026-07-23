@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapGenerateETWErrorRecordLarge @ 0x14065E290
+ * XREFs of WheapGenerateETWErrorRecordLarge @ 0x14065CA60
  * Callers:
- *     WheapGenerateETWEvents @ 0x1404780BC (WheapGenerateETWEvents.c)
+ *     WheapGenerateETWEvents @ 0x1404746BC (WheapGenerateETWEvents.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall WheapGenerateETWErrorRecordLarge(__int64 a1)
@@ -56,7 +56,7 @@ unsigned __int64 __fastcall WheapGenerateETWErrorRecordLarge(__int64 a1)
       v11 = 4;
       v14 = 4;
       v16 = v4;
-      EtwWriteEx(WheapEtwHandle, &EVENT_WHEA_ERROR_PART, 0LL, 0, 0LL, 0LL, 4u, &UserData);
+      EtwWriteEx((REGHANDLE)WheapDispatchPtr.Dpc.DpcData, &EVENT_WHEA_ERROR_PART, 0LL, 0, 0LL, 0LL, 4u, &UserData);
       result = v7;
       v3 += v7;
       v4 += v7;

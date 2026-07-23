@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSinglePhaseReject()
+NTSTATUS __cdecl ZwSinglePhaseReject(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 411LL;
+  result = 411;
   __asm { syscall; Low latency system call }
   return result;
 }

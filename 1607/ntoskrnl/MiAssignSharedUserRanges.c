@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAssignSharedUserRanges @ 0x14013D1A0
+ * XREFs of MiAssignSharedUserRanges @ 0x14013D710
  * Callers:
  *     MiInitializeSystemVa @ 0x1407AA428 (MiInitializeSystemVa.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiSystemWorkingSetStructureSize @ 0x1405547C0 (MiSystemWorkingSetStructureSize.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiSystemWorkingSetStructureSize @ 0x140554D00 (MiSystemWorkingSetStructureSize.c)
  */
 
 __int64 __fastcall MiAssignSharedUserRanges(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall MiAssignSharedUserRanges(__int64 a1)
   __int64 v3; // rsi
   __int16 v4; // ax
   __int64 result; // rax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-39h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-39h] BYREF
   int v7; // [rsp+38h] [rbp-29h]
   _DWORD v8[11]; // [rsp+3Ch] [rbp-25h] BYREF
   _BYTE v9[64]; // [rsp+68h] [rbp+7h] BYREF

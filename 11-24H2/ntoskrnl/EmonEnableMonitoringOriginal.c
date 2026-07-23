@@ -1,14 +1,14 @@
 /*
- * XREFs of EmonEnableMonitoringOriginal @ 0x14055B3C0
+ * XREFs of EmonEnableMonitoringOriginal @ 0x140558FF0
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     HalpGetProfileDescriptor @ 0x1404B0FE4 (HalpGetProfileDescriptor.c)
- *     EmonAllocateCounterOriginal @ 0x14055ABCC (EmonAllocateCounterOriginal.c)
- *     EmonConfigureCounter @ 0x14055AF10 (EmonConfigureCounter.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     HalpGetProfileDescriptor @ 0x1404AB874 (HalpGetProfileDescriptor.c)
+ *     EmonAllocateCounterOriginal @ 0x1405587FC (EmonAllocateCounterOriginal.c)
+ *     EmonConfigureCounter @ 0x140558B40 (EmonConfigureCounter.c)
  */
 
 __int64 __fastcall EmonEnableMonitoringOriginal(int a1, int a2, _DWORD *a3, int *a4, int *a5, int *a6)

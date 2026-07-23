@@ -1,7 +1,7 @@
 /*
- * XREFs of PsIsProcessLoggingEnabled @ 0x14020F14C
+ * XREFs of PsIsProcessLoggingEnabled @ 0x14020EF78
  * Callers:
- *     MiReadWriteVirtualMemory @ 0x14050BC60 (MiReadWriteVirtualMemory.c)
+ *     MiReadWriteVirtualMemory @ 0x1404EEBF0 (MiReadWriteVirtualMemory.c)
  * Callees:
  *     <none>
  */

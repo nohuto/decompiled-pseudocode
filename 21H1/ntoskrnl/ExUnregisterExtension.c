@@ -28,7 +28,7 @@ __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   p_Count = &a1[9].Count;
-  v4 = KeAbPreAcquire((ULONG_PTR)&a1[9], 0LL, 0LL);
+  v4 = KeAbPreAcquire((ULONG_PTR)&a1[9], 0LL, 0);
   v5 = v4;
   if ( _interlockedbittestandset64((volatile signed __int32 *)p_Count, 0LL) )
     ExfAcquirePushLockExclusiveEx(p_Count, v4, (ULONG_PTR)p_Count);

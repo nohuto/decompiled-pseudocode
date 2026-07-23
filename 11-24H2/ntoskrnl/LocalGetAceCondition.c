@@ -1,11 +1,11 @@
 /*
- * XREFs of LocalGetAceCondition @ 0x1408615D4
+ * XREFs of LocalGetAceCondition @ 0x140865BE0
  * Callers:
- *     LocalConvertAclToString @ 0x140860920 (LocalConvertAclToString.c)
+ *     LocalConvertAclToString @ 0x140864F2C (LocalConvertAclToString.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     LocalpGetStringForCondition @ 0x140861744 (LocalpGetStringForCondition.c)
- *     LocalGetStringForRelativeAttribute @ 0x140AAA0A0 (LocalGetStringForRelativeAttribute.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     LocalpGetStringForCondition @ 0x140865D50 (LocalpGetStringForCondition.c)
+ *     LocalGetStringForRelativeAttribute @ 0x140AA5150 (LocalGetStringForRelativeAttribute.c)
  */
 
 __int64 __fastcall LocalGetAceCondition(

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFindNameInListCellWithStatus @ 0x140666030
+ * XREFs of CmpFindNameInListCellWithStatus @ 0x14065AE50
  * Callers:
- *     CmpFindNameInListWithStatus @ 0x140665F7C (CmpFindNameInListWithStatus.c)
- *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BAD4 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ *     CmpFindNameInListWithStatus @ 0x14065AD9C (CmpFindNameInListWithStatus.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BC34 (CmpValueEnumStackMatchingValueInUpperLayer.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
- *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
- *     CmpCompareTwoCompressedNames @ 0x140875E28 (CmpCompareTwoCompressedNames.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlCompareUnicodeString @ 0x1406DDA80 (RtlCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1406DDE80 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140875F88 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpFindNameInListCellWithStatus(
@@ -24,7 +24,7 @@ __int64 __fastcall CmpFindNameInListCellWithStatus(
   unsigned int *v11; // r14
   int v12; // edi
   __int64 v13; // rax
-  __int64 v14; // r9
+  unsigned __int16 v14; // r9
   wchar_t *v15; // rbx
   unsigned __int16 v16; // r10
   unsigned __int16 *Buffer; // r11
@@ -33,26 +33,22 @@ __int64 __fastcall CmpFindNameInListCellWithStatus(
   int v20; // edi
   __int64 result; // rax
   LONG v22; // eax
-  int v23; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v24; // [rsp+24h] [rbp-44h]
-  __int16 v25; // [rsp+26h] [rbp-42h]
+  __int64 v23; // [rsp+20h] [rbp-48h] BYREF
   UNICODE_STRING String2; // [rsp+28h] [rbp-40h] BYREF
-  int v28; // [rsp+90h] [rbp+28h]
+  int v26; // [rsp+90h] [rbp+28h]
 
-  v25 = 0;
-  v23 = -1;
-  v24 = 0;
+  v23 = 0xFFFFFFFFLL;
   *(_DWORD *)(&String2.MaximumLength + 1) = 0;
   if ( a3 )
   {
     v10 = 0;
     v11 = a2;
     v12 = a5 & 0x10000;
-    v28 = a5 & 0x10000;
+    v26 = a5 & 0x10000;
     while ( 1 )
     {
-      v13 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(a1 + 8))(a1, *v11, &v23);
-      v14 = *(unsigned __int16 *)(v13 + 2);
+      v13 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(a1 + 8))(a1, *v11, &v23);
+      v14 = *(_WORD *)(v13 + 2);
       v15 = (wchar_t *)(v13 + 20);
       LOBYTE(v13) = *(_BYTE *)(v13 + 16);
       String2.Buffer = v15;
@@ -62,14 +58,14 @@ __int64 __fastcall CmpFindNameInListCellWithStatus(
       {
         if ( v12 )
         {
-          v22 = CmpCompareTwoCompressedNames(a4->Buffer, a4->Length, v15, v14);
+          v22 = CmpCompareTwoCompressedNames(a4->Buffer, a4->Length, v15);
           goto LABEL_31;
         }
         v16 = a4->Length >> 1;
         Buffer = a4->Buffer;
         if ( v16 )
         {
-          while ( (_WORD)v14 )
+          while ( v14 )
           {
             v18 = *Buffer++;
             v19 = *(unsigned __int8 *)v15;
@@ -94,12 +90,12 @@ __int64 __fastcall CmpFindNameInListCellWithStatus(
               if ( v20 )
                 goto LABEL_13;
             }
-            LOWORD(v14) = v14 - 1;
+            --v14;
             if ( !--v16 )
               break;
           }
         }
-        v20 = v16 - (unsigned __int16)v14;
+        v20 = v16 - v14;
       }
       else
       {
@@ -110,10 +106,15 @@ LABEL_31:
           v20 = v22;
           goto LABEL_13;
         }
-        v20 = -(int)CmpCompareCompressedName((__int64)&String2, (unsigned __int8 *)a4->Buffer, a4->Length, 0);
+        v20 = -(int)((__int64 (__fastcall *)(UNICODE_STRING *, wchar_t *, _QWORD, _QWORD, __int64))CmpCompareCompressedName)(
+                      &String2,
+                      a4->Buffer,
+                      a4->Length,
+                      0LL,
+                      v23);
       }
 LABEL_13:
-      (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v23);
+      (*(void (__fastcall **)(__int64, __int64 *))(a1 + 16))(a1, &v23);
       if ( !v20 )
       {
         result = 0LL;
@@ -122,7 +123,7 @@ LABEL_13:
           *a6 = v10;
         return result;
       }
-      v12 = v28;
+      v12 = v26;
       ++v10;
       ++v11;
       if ( v10 >= a3 )

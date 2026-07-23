@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpCmciInitializeErrorPacket @ 0x140454B28
+ * XREFs of HalpCmciInitializeErrorPacket @ 0x14044CC58
  * Callers:
- *     HalpInitializeCmc @ 0x140BE9DA8 (HalpInitializeCmc.c)
- *     HalpCmciInit @ 0x140C08ECC (HalpCmciInit.c)
+ *     HalpInitializeCmc @ 0x140BEFDA8 (HalpInitializeCmc.c)
+ *     HalpCmciInit @ 0x140C0F0DC (HalpCmciInit.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpGetMcaPcrContext @ 0x140453A54 (HalpGetMcaPcrContext.c)
- *     HalpCmcInitializeErrorPacketContents @ 0x140454C00 (HalpCmcInitializeErrorPacketContents.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpGetMcaPcrContext @ 0x14044BB84 (HalpGetMcaPcrContext.c)
+ *     HalpCmcInitializeErrorPacketContents @ 0x14044CD30 (HalpCmcInitializeErrorPacketContents.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpCmciInitializeErrorPacket(__int64 a1, __int64 a2)

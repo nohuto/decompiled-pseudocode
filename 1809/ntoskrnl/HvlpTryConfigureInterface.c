@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpTryConfigureInterface @ 0x14017C368
+ * XREFs of HvlpTryConfigureInterface @ 0x14017C468
  * Callers:
- *     HvlRestoreEnlightenment @ 0x140271118 (HvlRestoreEnlightenment.c)
- *     HvlPhase0Initialize @ 0x1407259C8 (HvlPhase0Initialize.c)
- *     HvlEnableVsmCalls @ 0x1409DF548 (HvlEnableVsmCalls.c)
+ *     HvlRestoreEnlightenment @ 0x140271308 (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x140726C68 (HvlPhase0Initialize.c)
+ *     HvlEnableVsmCalls @ 0x1409E0548 (HvlEnableVsmCalls.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     HviGetHypervisorFeatures @ 0x14017D710 (HviGetHypervisorFeatures.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x14017DBD0 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     HviGetHypervisorFeatures @ 0x14017D850 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14017DD10 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)
@@ -50,7 +50,7 @@ __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)
   if ( (_BYTE)v2 || v5 )
   {
     QuadPart = v7 & 0xFFFFFFFFFFFFF000uLL;
-    v4 = (__int64 (*)())((__int64 (__fastcall *)(unsigned __int64, __int64))qword_1403FE460)(
+    v4 = (__int64 (*)())((__int64 (__fastcall *)(unsigned __int64, __int64))qword_1403FF460)(
                           v7 & 0xFFFFFFFFFFFFF000uLL,
                           1LL);
     if ( v4 )
@@ -65,7 +65,7 @@ __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)
       QuadPart = PhysicalAddress.QuadPart;
       goto LABEL_14;
     }
-    v4 = (__int64 (*)())((__int64 (__fastcall *)(__int64, __int64, unsigned __int64 *))qword_1403FE458)(
+    v4 = (__int64 (*)())((__int64 (__fastcall *)(__int64, __int64, unsigned __int64 *))qword_1403FF458)(
                           a1,
                           1LL,
                           &QuadPart);

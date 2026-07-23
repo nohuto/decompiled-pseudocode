@@ -1,14 +1,14 @@
 /*
- * XREFs of VfPoolInitPhase1 @ 0x1409E0220
+ * XREFs of VfPoolInitPhase1 @ 0x1409E1220
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1409C6D40 (VfInitSystemNoRebootNeeded.c)
- *     ViInitSystemPhase1 @ 0x140A6FD8C (ViInitSystemPhase1.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C7D40 (VfInitSystemNoRebootNeeded.c)
+ *     ViInitSystemPhase1 @ 0x140A70D8C (ViInitSystemPhase1.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 unsigned __int64 VfPoolInitPhase1()
@@ -26,7 +26,7 @@ unsigned __int64 VfPoolInitPhase1()
   result = (unsigned int)MmVerifierData;
   if ( (MmVerifierData & 0x400000) == 0 || (MmVerifierData & 1) != 0 )
   {
-    v1 = (char *)&unk_140CECCE8;
+    v1 = (char *)&unk_140CECD28;
     do
     {
       KeInitializeEvent((PRKEVENT)v1 - 1, SynchronizationEvent, 0);
@@ -53,9 +53,9 @@ unsigned __int64 VfPoolInitPhase1()
         _InterlockedExchange((volatile __int32 *)v1 + 2, 1);
       }
       v1 += 64;
-      result = (unsigned __int64)byte_140CECD68;
+      result = (unsigned __int64)byte_140CECDA8;
     }
-    while ( (__int64)v1 < (__int64)byte_140CECD68 );
+    while ( (__int64)v1 < (__int64)byte_140CECDA8 );
   }
   return result;
 }

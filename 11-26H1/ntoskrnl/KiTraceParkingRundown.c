@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTraceParkingRundown @ 0x1405F8C7C
+ * XREFs of KiTraceParkingRundown @ 0x1405FB69C
  * Callers:
- *     KeEtwRundown @ 0x1405E48E8 (KeEtwRundown.c)
+ *     KeEtwRundown @ 0x1405E7258 (KeEtwRundown.c)
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwTraceForceParkTransition @ 0x1406C4910 (EtwTraceForceParkTransition.c)
- *     EtwTraceParkTransition @ 0x1406C4C6C (EtwTraceParkTransition.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTraceForceParkTransition @ 0x1406C8550 (EtwTraceForceParkTransition.c)
+ *     EtwTraceParkTransition @ 0x1406C88AC (EtwTraceParkTransition.c)
  */
 
 void __fastcall KiTraceParkingRundown(char a1)

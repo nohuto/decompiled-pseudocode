@@ -1,8 +1,8 @@
 /*
- * XREFs of ApiSetValidateSchemaHeader_V7 @ 0x14066119C
+ * XREFs of ApiSetValidateSchemaHeader_V7 @ 0x14065F97C
  * Callers:
- *     ApiSetValidateSchemaFormat_V7 @ 0x140661150 (ApiSetValidateSchemaFormat_V7.c)
- *     ApiSetComposeSchema_V7 @ 0x14066169C (ApiSetComposeSchema_V7.c)
+ *     ApiSetValidateSchemaFormat_V7 @ 0x14065F930 (ApiSetValidateSchemaFormat_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x14065FE98 (ApiSetComposeSchema_V7.c)
  * Callees:
  *     <none>
  */

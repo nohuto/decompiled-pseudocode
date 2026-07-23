@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepCompleteActivity @ 0x1400FFC40
+ * XREFs of PopPepCompleteActivity @ 0x1400FFCC0
  * Callers:
- *     PopPepProcessEvent @ 0x1400FF5B4 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x1400FF634 (PopPepProcessEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1402D76B0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPepCompleteActivity(__int64 a1, __int64 a2, signed int a3)

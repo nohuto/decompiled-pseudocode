@@ -1,24 +1,24 @@
 /*
- * XREFs of MiClearPfnReuseFields @ 0x14031A250
+ * XREFs of MiClearPfnReuseFields @ 0x14031C280
  * Callers:
- *     MiReplaceTransitionPageFinish @ 0x140294918 (MiReplaceTransitionPageFinish.c)
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiRelinkStandbyPage @ 0x140299860 (MiRelinkStandbyPage.c)
- *     MiReuseStandbyPage @ 0x1402AA32C (MiReuseStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiInsertFreeZeroPage @ 0x1402DCE70 (MiInsertFreeZeroPage.c)
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiDeleteSectionCluster @ 0x140318360 (MiDeleteSectionCluster.c)
- *     MiWsleFree @ 0x140319990 (MiWsleFree.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     MiZeroAndReleasePages @ 0x1403C3C14 (MiZeroAndReleasePages.c)
- *     MiDeleteClusterPage @ 0x1403C6268 (MiDeleteClusterPage.c)
- *     MiTradeStackPageFast @ 0x140415F18 (MiTradeStackPageFast.c)
- *     MiTradePageReleaseLocks @ 0x14046F85C (MiTradePageReleaseLocks.c)
- *     MiPreInitializeSystemImagePage @ 0x140520188 (MiPreInitializeSystemImagePage.c)
- *     MiAddExpansionNonPagedPool @ 0x140520A60 (MiAddExpansionNonPagedPool.c)
- *     MiWritePteHighLevelIsr @ 0x1406F2D80 (MiWritePteHighLevelIsr.c)
- *     MiTradeIsolatedThreadStackPage @ 0x1406F3688 (MiTradeIsolatedThreadStackPage.c)
+ *     MiReplaceTransitionPageFinish @ 0x140293E78 (MiReplaceTransitionPageFinish.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiRelinkStandbyPage @ 0x140298DC0 (MiRelinkStandbyPage.c)
+ *     MiReuseStandbyPage @ 0x1402A973C (MiReuseStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiInsertFreeZeroPage @ 0x1402BEC30 (MiInsertFreeZeroPage.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiDeleteSectionCluster @ 0x14031A390 (MiDeleteSectionCluster.c)
+ *     MiWsleFree @ 0x14031B9C0 (MiWsleFree.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     MiZeroAndReleasePages @ 0x1403CDB20 (MiZeroAndReleasePages.c)
+ *     MiDeleteClusterPage @ 0x1403D0168 (MiDeleteClusterPage.c)
+ *     MiTradeStackPageFast @ 0x14040A528 (MiTradeStackPageFast.c)
+ *     MiTradePageReleaseLocks @ 0x140468FDC (MiTradePageReleaseLocks.c)
+ *     MiPreInitializeSystemImagePage @ 0x14052282C (MiPreInitializeSystemImagePage.c)
+ *     MiAddExpansionNonPagedPool @ 0x140523104 (MiAddExpansionNonPagedPool.c)
+ *     MiWritePteHighLevelIsr @ 0x1406F79F0 (MiWritePteHighLevelIsr.c)
+ *     MiTradeIsolatedThreadStackPage @ 0x1406F82F8 (MiTradeIsolatedThreadStackPage.c)
  * Callees:
  *     <none>
  */

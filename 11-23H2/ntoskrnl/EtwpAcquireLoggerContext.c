@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpAcquireLoggerContext @ 0x1407F8A40
+ * XREFs of EtwpAcquireLoggerContext @ 0x1407F8D10
  * Callers:
- *     EtwpTransitionToRealtime @ 0x1405FF588 (EtwpTransitionToRealtime.c)
- *     EtwpFlushTrace @ 0x1407F59F8 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x1407F7F7C (EtwpUpdateTrace.c)
- *     EtwpStopTrace @ 0x1407F8284 (EtwpStopTrace.c)
- *     EtwpQueryTrace @ 0x1407F8920 (EtwpQueryTrace.c)
- *     EtwpIncrementTraceFile @ 0x1409E7F30 (EtwpIncrementTraceFile.c)
+ *     EtwpTransitionToRealtime @ 0x1405FFAF8 (EtwpTransitionToRealtime.c)
+ *     EtwpFlushTrace @ 0x1407F5CC8 (EtwpFlushTrace.c)
+ *     EtwpUpdateTrace @ 0x1407F824C (EtwpUpdateTrace.c)
+ *     EtwpStopTrace @ 0x1407F8554 (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x1407F8BF0 (EtwpQueryTrace.c)
+ *     EtwpIncrementTraceFile @ 0x1409E81C0 (EtwpIncrementTraceFile.c)
  * Callees:
- *     EtwpAcquireLoggerContextByLoggerName @ 0x1406BD7EC (EtwpAcquireLoggerContextByLoggerName.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     EtwpCaptureString @ 0x1407FAC30 (EtwpCaptureString.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x1406BD81C (EtwpAcquireLoggerContextByLoggerName.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     EtwpCaptureString @ 0x1407FAF00 (EtwpCaptureString.c)
  */
 
 __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, _QWORD *a3)
@@ -26,9 +26,9 @@ __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, _QWORD *a3)
   v4 = (unsigned __int8 *)(a1 + 4232);
   *a3 = 0LL;
   v7 = -1;
-  v8 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
+  v8 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
   if ( !v8 )
-    v8 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
+    v8 = *(_QWORD *)(a2 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v8 )
     v7 = *v4;
   if ( v7 != *v4 && *(_WORD *)(a2 + 144) )

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIpv4StringToAddressExW @ 0x1800BA200
+ * XREFs of RtlIpv4StringToAddressExW @ 0x1800B1FC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlIpv4StringToAddressW @ 0x1800BBF50 (RtlIpv4StringToAddressW.c)
- *     iswctype @ 0x180124B20 (iswctype.c)
+ *     RtlIpv4StringToAddressW @ 0x1800B3D10 (RtlIpv4StringToAddressW.c)
+ *     iswctype @ 0x180122D50 (iswctype.c)
  */
 
 LONG __stdcall RtlIpv4StringToAddressExW(PCWSTR AddressString, BOOLEAN Strict, struct in_addr *Address, PUSHORT Port)

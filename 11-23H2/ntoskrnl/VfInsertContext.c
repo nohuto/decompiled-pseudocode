@@ -1,14 +1,14 @@
 /*
- * XREFs of VfInsertContext @ 0x1405CE440
+ * XREFs of VfInsertContext @ 0x1405CE9B0
  * Callers:
  *     <none>
  * Callees:
- *     ViAllocateContextTable @ 0x140AC401C (ViAllocateContextTable.c)
- *     ViFreeContextTable @ 0x140AC405C (ViFreeContextTable.c)
- *     ViGetContextPointer @ 0x140AC407C (ViGetContextPointer.c)
- *     ViIsContextIdValid @ 0x140AC40CC (ViIsContextIdValid.c)
- *     ViLockContextPointer @ 0x140AC40EC (ViLockContextPointer.c)
- *     ViUnlockContextPointer @ 0x140AC419C (ViUnlockContextPointer.c)
+ *     ViAllocateContextTable @ 0x140AC400C (ViAllocateContextTable.c)
+ *     ViFreeContextTable @ 0x140AC404C (ViFreeContextTable.c)
+ *     ViGetContextPointer @ 0x140AC406C (ViGetContextPointer.c)
+ *     ViIsContextIdValid @ 0x140AC40BC (ViIsContextIdValid.c)
+ *     ViLockContextPointer @ 0x140AC40DC (ViLockContextPointer.c)
+ *     ViUnlockContextPointer @ 0x140AC418C (ViUnlockContextPointer.c)
  */
 
 __int64 __fastcall VfInsertContext(unsigned __int16 *a1)

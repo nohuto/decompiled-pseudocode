@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceDfxPowerStateFailure @ 0x140611E64
+ * XREFs of PopDirectedDripsDiagTraceDfxPowerStateFailure @ 0x140614CA4
  * Callers:
- *     PopFxEnforceDirectedPowerTransition @ 0x140604EE8 (PopFxEnforceDirectedPowerTransition.c)
+ *     PopFxEnforceDirectedPowerTransition @ 0x1406079E8 (PopFxEnforceDirectedPowerTransition.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDirectedDripsDiagTraceDfxPowerStateFailure(__int64 a1)
@@ -24,11 +24,9 @@ void __fastcall PopDirectedDripsDiagTraceDfxPowerStateFailure(__int64 a1)
   __int64 v12; // [rsp+B0h] [rbp+67h] BYREF
 
   v12 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_DIRECTED_FX_POWER_STATE_FAILURE) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_FX_POWER_STATE_FAILURE) )
     {
       v1 = *(_QWORD *)(v12 + 48);
       v3 = *(unsigned __int16 *)(v1 + 40) >> 1;
@@ -42,15 +40,7 @@ void __fastcall PopDirectedDripsDiagTraceDfxPowerStateFailure(__int64 a1)
       v9 = *(_QWORD *)(v1 + 48);
       v10 = v2;
       v11 = 0;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_DIRECTED_FX_POWER_STATE_FAILURE,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        4u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_FX_POWER_STATE_FAILURE, 0LL, 0, 0LL, 0LL, 4u, &UserData);
     }
   }
 }

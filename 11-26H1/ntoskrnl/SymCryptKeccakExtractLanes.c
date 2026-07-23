@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptKeccakExtractLanes @ 0x140575B10
+ * XREFs of SymCryptKeccakExtractLanes @ 0x140577FC0
  * Callers:
- *     SymCryptKeccakExtract @ 0x1405759D4 (SymCryptKeccakExtract.c)
+ *     SymCryptKeccakExtract @ 0x140577E84 (SymCryptKeccakExtract.c)
  * Callees:
- *     SymCryptKeccakPermute @ 0x140575BC0 (SymCryptKeccakPermute.c)
+ *     SymCryptKeccakPermute @ 0x140578070 (SymCryptKeccakPermute.c)
  */
 
 void __fastcall SymCryptKeccakExtractLanes(__int64 a1, __int64 a2, unsigned __int64 a3)

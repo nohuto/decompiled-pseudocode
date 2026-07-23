@@ -1,33 +1,33 @@
 /*
- * XREFs of IopConnectInterrupt @ 0x140A98890
+ * XREFs of IopConnectInterrupt @ 0x140A9CA10
  * Callers:
- *     IopConnectInterruptFullySpecified @ 0x14079F708 (IopConnectInterruptFullySpecified.c)
- *     IopConnectLineBasedInterrupt @ 0x140A97D7C (IopConnectLineBasedInterrupt.c)
- *     IoConnectInterruptEx @ 0x140A98030 (IoConnectInterruptEx.c)
- *     IopConnectMessageBasedInterrupt @ 0x140A990F0 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectInterruptFullySpecified @ 0x1407A2248 (IopConnectInterruptFullySpecified.c)
+ *     IopConnectLineBasedInterrupt @ 0x140A9BEFC (IopConnectLineBasedInterrupt.c)
+ *     IoConnectInterruptEx @ 0x140A9C1B0 (IoConnectInterruptEx.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140A9D270 (IopConnectMessageBasedInterrupt.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeInterruptEx @ 0x1404B4A00 (KeInitializeInterruptEx.c)
- *     KeQueryActiveGroupCount @ 0x1404BB3D0 (KeQueryActiveGroupCount.c)
- *     KeAllocateInterrupt @ 0x1404C278C (KeAllocateInterrupt.c)
- *     KeFreeInterrupt @ 0x1404D4B34 (KeFreeInterrupt.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1407A3BB8 (IopDestroyPassiveInterruptBlock.c)
- *     IopDestroyActiveConnectBlock @ 0x140A98D4C (IopDestroyActiveConnectBlock.c)
- *     IopInitializeActiveConnectBlock @ 0x140A98EA4 (IopInitializeActiveConnectBlock.c)
- *     PnpTraceInterruptConnection @ 0x140A98FBC (PnpTraceInterruptConnection.c)
- *     IopAllocatePassiveInterruptBlock @ 0x140A99270 (IopAllocatePassiveInterruptBlock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeQueryActiveGroupCount @ 0x1404B4BB0 (KeQueryActiveGroupCount.c)
+ *     KeAllocateInterrupt @ 0x1404BBFDC (KeAllocateInterrupt.c)
+ *     KeFreeInterrupt @ 0x1404CE3A4 (KeFreeInterrupt.c)
+ *     KeInitializeInterruptEx @ 0x140516588 (KeInitializeInterruptEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1407A66F8 (IopDestroyPassiveInterruptBlock.c)
+ *     IopDestroyActiveConnectBlock @ 0x140A9CECC (IopDestroyActiveConnectBlock.c)
+ *     IopInitializeActiveConnectBlock @ 0x140A9D024 (IopInitializeActiveConnectBlock.c)
+ *     PnpTraceInterruptConnection @ 0x140A9D13C (PnpTraceInterruptConnection.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x140A9D3F0 (IopAllocatePassiveInterruptBlock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopConnectInterrupt(
@@ -74,7 +74,7 @@ __int64 __fastcall IopConnectInterrupt(
   __int64 v44; // rax
   __int64 v45; // rcx
   int v46; // [rsp+70h] [rbp-98h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+88h] [rbp-80h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+88h] [rbp-80h] BYREF
   unsigned __int16 v48; // [rsp+8Ch] [rbp-7Ch]
   int v49; // [rsp+90h] [rbp-78h]
   unsigned int v50; // [rsp+94h] [rbp-74h]
@@ -103,7 +103,7 @@ __int64 __fastcall IopConnectInterrupt(
   v49 = v15;
   v51 = v14;
   v48 = epi16;
-  v17 = *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * epi16 + 4) & v14.m128i_i64[0];
+  v17 = *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * epi16 + 4) & v14.m128i_i64[0];
   v64 = *(_BYTE *)(a11 + 16);
   v51.m128i_i64[0] = v17;
   if ( !*(_DWORD *)(a11 + 8)
@@ -116,7 +116,7 @@ __int64 __fastcall IopConnectInterrupt(
   v61 = a8 == 0;
   if ( epi16 < KeQueryActiveGroupCount()
     && v17
-    && (v17 & *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * epi16 + 4)) == v17
+    && (v17 & *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * epi16 + 4)) == v17
     && !(v51.m128i_i16[7] | (unsigned __int16)(v51.m128i_i16[6] | v51.m128i_i16[5]))
     && (LOBYTE(v29) = __popcnt(v17), (_BYTE)v29) )
   {

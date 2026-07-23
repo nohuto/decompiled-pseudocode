@@ -1,21 +1,21 @@
 /*
- * XREFs of SeCreateClientSecurityEx @ 0x1408974A0
+ * XREFs of SeCreateClientSecurityEx @ 0x14089FB40
  * Callers:
- *     NtAlpcImpersonateClientOfPort @ 0x140896970 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x14089F010 (NtAlpcImpersonateClientOfPort.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1403597C0 (SepReconcileTrustSidWithProcessProtection.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     SepCreateClientSecurityEx @ 0x140897AC0 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x140ABC0A8 (SepUpdateSiloInClientSecurity.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1403E3A30 (SepReconcileTrustSidWithProcessProtection.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     SepCreateClientSecurityEx @ 0x1408A0160 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x140AB70C8 (SepUpdateSiloInClientSecurity.c)
  */
 
 __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, unsigned __int8 a3, __int64 a4)
@@ -24,12 +24,12 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, unsigned __i
   char v5; // di
   struct _KTHREAD *CurrentThread; // rax
   __int64 Process; // r14
-  __int64 *v11; // rsi
+  PSID *v11; // rsi
   int v12; // r15d
   __int64 result; // rax
   unsigned int v14; // edi
   signed __int64 *v15; // r15
-  _QWORD *v16; // rsi
+  char *v16; // rsi
   unsigned __int64 CurrentServerSilo; // rbx
   unsigned int v18; // ebx
   char v19[8]; // [rsp+60h] [rbp-68h] BYREF
@@ -56,14 +56,14 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, unsigned __i
   v21 = *(_QWORD *)(a1 + 544);
   v22 = KeGetCurrentThread();
   --v22->KernelApcDisable;
-  v16 = KeAbPreAcquire(a1 + 1424, 0LL);
+  v16 = (char *)KeAbPreAcquire(a1 + 1424, 0LL);
   if ( _InterlockedCompareExchange64(v15, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v15, 0, v16, (__int64)v15);
   if ( v16 )
-    *((_BYTE *)v16 + 10) = 1;
+    v16[10] = 1;
   if ( (*(_DWORD *)(a1 + 1440) & 8) != 0 )
   {
-    v11 = (__int64 *)(*(_QWORD *)(a1 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);
+    v11 = (PSID *)(*(_QWORD *)(a1 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);
     ObfReferenceObjectWithTag(v11, 0x63436553u);
     v4 = *(_DWORD *)(a1 + 1336) & 3;
     v5 = (*(_BYTE *)(a1 + 1336) & 4) != 0;
@@ -84,7 +84,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, unsigned __i
   else
   {
 LABEL_4:
-    v11 = (__int64 *)PsReferencePrimaryTokenWithTag(Process, 0x63436553u);
+    v11 = (PSID *)PsReferencePrimaryTokenWithTag(Process, 0x63436553u);
     v23 = *(_BYTE *)(Process + 1530);
     v5 = 0;
     v12 = 1;

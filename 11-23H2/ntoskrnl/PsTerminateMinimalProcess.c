@@ -1,14 +1,14 @@
 /*
- * XREFs of PsTerminateMinimalProcess @ 0x1409B3850
+ * XREFs of PsTerminateMinimalProcess @ 0x1409B3A50
  * Callers:
- *     SmTerminateStoreProcess @ 0x1405C9BE8 (SmTerminateStoreProcess.c)
- *     PspTeardownPartition @ 0x1409B66B0 (PspTeardownPartition.c)
- *     VmTerminateMemoryProcess @ 0x1409DCBC0 (VmTerminateMemoryProcess.c)
+ *     SmTerminateStoreProcess @ 0x1405CA158 (SmTerminateStoreProcess.c)
+ *     PspTeardownPartition @ 0x1409B68B0 (PspTeardownPartition.c)
+ *     VmTerminateMemoryProcess @ 0x1409DCDC0 (VmTerminateMemoryProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
  */
 

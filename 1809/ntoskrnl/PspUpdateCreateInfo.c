@@ -1,11 +1,11 @@
 /*
- * XREFs of PspUpdateCreateInfo @ 0x14060D104
+ * XREFs of PspUpdateCreateInfo @ 0x14060E104
  * Callers:
- *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     NtCreateUserProcess @ 0x14060B950 (NtCreateUserProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PspPropagateHandle @ 0x14060D310 (PspPropagateHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PspPropagateHandle @ 0x14060E310 (PspPropagateHandle.c)
  */
 
 __int64 __fastcall PspUpdateCreateInfo(int a1, __int64 a2, __int64 a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiChangePageAttributeLargeFreeZeroPage @ 0x1404A2E44
+ * XREFs of MiChangePageAttributeLargeFreeZeroPage @ 0x14049DD64
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x140308844 (MiCoalesceFreeLargePages.c)
+ *     MiCoalesceFreeLargePages @ 0x140312724 (MiCoalesceFreeLargePages.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiSafeLockPageAtDpc @ 0x1403072A0 (MiSafeLockPageAtDpc.c)
- *     MiLargePfnPromoteCandidate @ 0x1403087D0 (MiLargePfnPromoteCandidate.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiUpdatePageMoveInProgressInternal @ 0x14043A010 (MiUpdatePageMoveInProgressInternal.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiInsertPossiblyBadPage @ 0x140683470 (MiInsertPossiblyBadPage.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSafeLockPageAtDpc @ 0x140311180 (MiSafeLockPageAtDpc.c)
+ *     MiLargePfnPromoteCandidate @ 0x1403126B0 (MiLargePfnPromoteCandidate.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiUpdatePageMoveInProgressInternal @ 0x14042CA30 (MiUpdatePageMoveInProgressInternal.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiInsertPossiblyBadPage @ 0x14068461C (MiInsertPossiblyBadPage.c)
  */
 
 __int64 __fastcall MiChangePageAttributeLargeFreeZeroPage(
@@ -48,7 +48,7 @@ __int64 __fastcall MiChangePageAttributeLargeFreeZeroPage(
   }
   if ( MiSafeLockPageAtDpc(v8) == 17 )
     goto LABEL_14;
-  v11 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+  v11 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
   if ( !MiLargePfnPromoteCandidate(v11, a1, v6) )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
@@ -66,7 +66,7 @@ LABEL_14:
     v12 = 1;
     v14 = *(_QWORD *)(v11 + 16) + 57216LL * (unsigned int)MiPageToNode(v8);
     MiUpdatePageMoveInProgressInternal(v14, 1u, 1, 0);
-    MiUnlinkFreeOrZeroedPage(v8, 0LL, 0LL);
+    MiUnlinkFreeOrZeroedPage(v8, 0LL, 0);
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     MiChangePageAttribute(a1, a3);
     v15 = ((*(_QWORD *)(a1 + 16) & 0x3E0LL) != 0) + 1;

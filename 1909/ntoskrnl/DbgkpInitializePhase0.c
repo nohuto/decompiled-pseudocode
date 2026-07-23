@@ -15,8 +15,8 @@ void DbgkpInitializePhase0()
   char *ServerSiloState; // rax
   int v1; // edx
   __int64 v2; // rbx
-  union _RTL_RUN_ONCE *v3; // rcx
-  union _RTL_RUN_ONCE *v4; // rcx
+  _RTL_RUN_ONCE *v3; // rcx
+  _RTL_RUN_ONCE *v4; // rcx
   __int128 v5; // [rsp+20h] [rbp-49h]
   UNICODE_STRING v6; // [rsp+30h] [rbp-39h] BYREF
   _QWORD v7[16]; // [rsp+40h] [rbp-29h] BYREF

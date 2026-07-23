@@ -21,28 +21,24 @@ __int64 __fastcall SbUpdateSwitchContextBasedOnDll(__int64 a1, _DWORD *a2)
   _DWORD *pShimData; // rcx
   _OWORD *v6; // r15
   int v7; // r11d
-  __int64 v8; // r9
-  __int64 v9; // r8
-  __int64 v10; // rax
-  _QWORD *v11; // r14
-  __int64 v12; // rax
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  _DWORD *v17; // r11
-  __int64 v18; // rax
-  signed __int32 v19; // ecx
-  __int128 v20; // xmm0
-  signed __int32 v21; // ecx
-  int v22; // ecx
-  int v23; // edx
-  _DWORD *v24; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v25; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v26; // [rsp+40h] [rbp-10h] BYREF
-  _DWORD *v27; // [rsp+88h] [rbp+38h] BYREF
-  __int64 v28; // [rsp+98h] [rbp+48h] BYREF
+  _DWORD *v8; // r8
+  __int64 v9; // rax
+  _QWORD *v10; // r14
+  __int64 v11; // rax
+  __int64 v13; // rcx
+  _DWORD *v14; // r11
+  __int64 v15; // rax
+  signed __int32 v16; // ecx
+  __int128 v17; // xmm0
+  signed __int32 v18; // ecx
+  REGHANDLE v19; // rcx
+  _DWORD *v20; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v21; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v22; // [rsp+40h] [rbp-10h] BYREF
+  _DWORD *v23; // [rsp+88h] [rbp+38h] BYREF
+  REGHANDLE RegHandle; // [rsp+98h] [rbp+48h] BYREF
 
-  v27 = a2;
+  v23 = a2;
   v3 = 0;
   v4 = 0LL;
   pShimData = NtCurrentPeb()->pShimData;
@@ -52,100 +48,98 @@ __int64 __fastcall SbUpdateSwitchContextBasedOnDll(__int64 a1, _DWORD *a2)
     if ( pShimData == (_DWORD *)-2016LL || !pShimData[516] )
       v4 = 0LL;
   }
-  v28 = 0LL;
-  v25 = 0LL;
-  v24 = 0LL;
-  v26 = 0LL;
-  v27 = 0LL;
+  RegHandle = 0LL;
+  v21 = 0LL;
+  v20 = 0LL;
+  v22 = 0LL;
+  v23 = 0LL;
   if ( v4 && a1 )
   {
-    SbGetContextDetailsById(4LL, &v25);
+    SbGetContextDetailsById(4LL, &v21);
     if ( !*((_DWORD *)v4 + 2) )
       return 1;
     v6 = v4 + 64;
-    SbGetContextDetailsByGuid(v4 + 64, &v24);
+    SbGetContextDetailsByGuid(v4 + 64, &v20);
     if ( v7 )
     {
       v3 = 1;
       if ( v7 == 1 )
       {
-        v14 = *(_QWORD *)(a1 + 192);
-        if ( v14 )
+        v13 = *(_QWORD *)(a1 + 192);
+        if ( v13 )
         {
-          SbGetContextDetailsByGuid(v14, &v27);
-          v17 = v27;
-          v18 = 0LL;
-          while ( *((_DWORD *)&SbDynamicContextDllCount + 2 * v18) != *v27 )
+          SbGetContextDetailsByGuid(v13, &v23);
+          v14 = v23;
+          v15 = 0LL;
+          while ( *((_DWORD *)&SbDynamicContextDllCount + 2 * v15) != *v23 )
           {
-            if ( (unsigned __int64)++v18 >= 5 )
+            if ( (unsigned __int64)++v15 >= 5 )
             {
-              v19 = 0;
+              v16 = 0;
               goto LABEL_22;
             }
           }
-          v21 = _InterlockedExchangeAdd((volatile signed __int32 *)&SbDynamicContextDllCount + 2 * v18 + 1, 0xFFFFFFFF);
-          v17 = v27;
-          v19 = v21 - 1;
+          v18 = _InterlockedExchangeAdd((volatile signed __int32 *)&SbDynamicContextDllCount + 2 * v15 + 1, 0xFFFFFFFF);
+          v14 = v23;
+          v16 = v18 - 1;
 LABEL_22:
-          if ( !v19 && v24 == v17 )
+          if ( !v16 && v20 == v14 )
           {
-            RtlAcquireSRWLockExclusive(&SbpContextLock, (char *)&SbDynamicContextDllCount, v15, v16);
-            if ( (unsigned int)SbpRecalculateDynamicContext(&v26) == 1 )
-              v20 = *(_OWORD *)(v26 + 4);
+            RtlAcquireSRWLockExclusive(&SbpContextLock);
+            if ( (unsigned int)SbpRecalculateDynamicContext(&v22) == 1 )
+              v17 = *(_OWORD *)(v22 + 4);
             else
-              v20 = *((_OWORD *)v4 + 3);
-            *v6 = v20;
+              v17 = *((_OWORD *)v4 + 3);
+            *v6 = v17;
             ++*(_QWORD *)v4;
-            if ( !(unsigned int)SbObtainTraceHandle(&v28) )
+            if ( !(unsigned int)SbObtainTraceHandle(&RegHandle) )
               goto LABEL_27;
-            v22 = v28;
-            if ( !v28 )
+            v19 = RegHandle;
+            if ( !RegHandle )
               goto LABEL_27;
-            v23 = (_DWORD)v4 + 64;
-            goto LABEL_41;
+LABEL_40:
+            SbpTraceContextUpdate(v19, *(_QWORD *)(a1 + 80));
+LABEL_27:
+            ++*(_QWORD *)v4;
+            RtlReleaseSRWLockExclusive(&SbpContextLock);
           }
         }
       }
     }
     else
     {
-      v3 = SbpDetermineDllContext(*(_QWORD *)(a1 + 48), &v27);
+      v3 = SbpDetermineDllContext(*(PACTIVATION_CONTEXT *)(a1 + 48), &v23);
       if ( v3 )
       {
-        v9 = (__int64)v27;
-        v10 = 0LL;
-        v11 = v27 + 1;
-        *(_QWORD *)(a1 + 192) = v27 + 1;
+        v8 = v23;
+        v9 = 0LL;
+        v10 = v23 + 1;
+        *(_QWORD *)(a1 + 192) = v23 + 1;
         v3 = 1;
-        while ( *((_DWORD *)&SbDynamicContextDllCount + 2 * v10) != *(_DWORD *)v9 )
+        while ( *((_DWORD *)&SbDynamicContextDllCount + 2 * v9) != *v8 )
         {
-          if ( (unsigned __int64)++v10 >= 5 )
+          if ( (unsigned __int64)++v9 >= 5 )
             goto LABEL_12;
         }
-        _InterlockedAdd((volatile signed __int32 *)&SbDynamicContextDllCount + 2 * v10 + 1, 1u);
-        v9 = (__int64)v27;
+        _InterlockedAdd((volatile signed __int32 *)&SbDynamicContextDllCount + 2 * v9 + 1, 1u);
+        v8 = v23;
 LABEL_12:
-        v12 = *v11 - *(_QWORD *)(v25 + 4);
-        if ( *v11 == *(_QWORD *)(v25 + 4) )
-          v12 = v11[1] - *(_QWORD *)(v25 + 12);
-        if ( v12
-          && *(_DWORD *)v9 < *v24
-          && (*(unsigned __int16 *)(v9 + 22) | ((unsigned __int64)*(unsigned __int16 *)(v9 + 20) << 16)) >= *((_QWORD *)v4 + 5) )
+        v11 = *v10 - *(_QWORD *)(v21 + 4);
+        if ( *v10 == *(_QWORD *)(v21 + 4) )
+          v11 = v10[1] - *(_QWORD *)(v21 + 12);
+        if ( v11
+          && *v8 < *v20
+          && (*((unsigned __int16 *)v8 + 11) | ((unsigned __int64)*((unsigned __int16 *)v8 + 10) << 16)) >= *((_QWORD *)v4 + 5) )
         {
-          RtlAcquireSRWLockExclusive(&SbpContextLock, (char *)&SbDynamicContextDllCount, v9, v8);
+          RtlAcquireSRWLockExclusive(&SbpContextLock);
           ++*(_QWORD *)v4;
-          *v6 = *(_OWORD *)v11;
-          if ( !(unsigned int)SbObtainTraceHandle(&v28) )
+          *v6 = *(_OWORD *)v10;
+          if ( !(unsigned int)SbObtainTraceHandle(&RegHandle) )
             goto LABEL_27;
-          v22 = v28;
-          if ( !v28 )
+          v19 = RegHandle;
+          if ( !RegHandle )
             goto LABEL_27;
-          v23 = (int)v11;
-LABEL_41:
-          SbpTraceContextUpdate(v22, v23, 1, *(unsigned __int16 *)(a1 + 72), *(_QWORD *)(a1 + 80));
-LABEL_27:
-          ++*(_QWORD *)v4;
-          RtlReleaseSRWLockExclusive(&SbpContextLock);
+          goto LABEL_40;
         }
       }
     }

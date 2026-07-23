@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpCaptureViewAttributeInternal @ 0x140661E7C
+ * XREFs of AlpcpCaptureViewAttributeInternal @ 0x140656C9C
  * Callers:
- *     AlpcpCaptureViewAttribute @ 0x140661E2C (AlpcpCaptureViewAttribute.c)
- *     AlpcpCaptureViewAttribute32 @ 0x1406B834C (AlpcpCaptureViewAttribute32.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x14061776C (AlpcpCaptureViewAttribute32.c)
+ *     AlpcpCaptureViewAttribute @ 0x140656C4C (AlpcpCaptureViewAttribute.c)
  * Callees:
- *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcReferenceBlobByHandle @ 0x140660940 (AlpcReferenceBlobByHandle.c)
- *     AlpcpPrepareViewForDelivery @ 0x140661FB8 (AlpcpPrepareViewForDelivery.c)
- *     AlpcpLocateSectionView @ 0x14066209C (AlpcpLocateSectionView.c)
- *     AlpcpDeleteView @ 0x140662558 (AlpcpDeleteView.c)
+ *     AlpcReferenceBlobByHandle @ 0x140655760 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpPrepareViewForDelivery @ 0x140656DD8 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpLocateSectionView @ 0x140656EBC (AlpcpLocateSectionView.c)
+ *     AlpcpDeleteView @ 0x140657378 (AlpcpDeleteView.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1406D0224 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1406D6FE0 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcpCaptureViewAttributeInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -37,7 +37,7 @@ __int64 __fastcall AlpcpCaptureViewAttributeInternal(__int64 a1, __int64 a2, __i
     AlpcpUnlockBlob(*(_QWORD *)(v8 + 16));
     if ( (*(_DWORD *)a2 & 0x10000) != 0 )
       AlpcpDeleteView(v8);
-    AlpcpDereferenceBlobEx(v8, 1);
+    AlpcpDereferenceBlobEx(v8);
   }
   *(_DWORD *)(a3 + 40) &= ~0x4000u;
   v9 = *(_QWORD *)(a2 + 8);
@@ -59,10 +59,10 @@ __int64 __fastcall AlpcpCaptureViewAttributeInternal(__int64 a1, __int64 a2, __i
     v15 = BugCheckParameter2;
     v14 = AlpcpPrepareViewForDelivery(BugCheckParameter2);
     if ( v14 < 0 )
-      AlpcpDereferenceBlobEx(v15, 1);
+      AlpcpDereferenceBlobEx(v15);
     else
       *(_QWORD *)(a4 + 40) = v15;
   }
-  AlpcpDereferenceBlobEx(v13, 1);
+  AlpcpDereferenceBlobEx(v13);
   return (unsigned int)v14;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAcquireSecondarySignalListLock @ 0x1405719B8
+ * XREFs of KiAcquireSecondarySignalListLock @ 0x140571EF8
  * Callers:
- *     KeDispatchSecondaryInterrupt @ 0x1403A2EC0 (KeDispatchSecondaryInterrupt.c)
- *     KiProcessSecondarySignalList @ 0x140571DB0 (KiProcessSecondarySignalList.c)
+ *     KeDispatchSecondaryInterrupt @ 0x1403A30A0 (KeDispatchSecondaryInterrupt.c)
+ *     KiProcessSecondarySignalList @ 0x1405722F0 (KiProcessSecondarySignalList.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
  */
 
 void __fastcall KiAcquireSecondarySignalListLock(unsigned __int8 *a1)
@@ -15,7 +15,7 @@ void __fastcall KiAcquireSecondarySignalListLock(unsigned __int8 *a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )

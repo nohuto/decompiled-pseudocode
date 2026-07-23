@@ -1,5 +1,5 @@
 /*
- * XREFs of KdSetEventLoggingPresent @ 0x1409B7420
+ * XREFs of KdSetEventLoggingPresent @ 0x1409B8420
  * Callers:
  *     <none>
  * Callees:

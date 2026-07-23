@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGenerateSecureCookie @ 0x140762854
+ * XREFs of MiGenerateSecureCookie @ 0x140763A44
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
  */

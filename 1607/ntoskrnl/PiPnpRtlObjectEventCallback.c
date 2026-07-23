@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlObjectEventCallback @ 0x140505374
+ * XREFs of PiPnpRtlObjectEventCallback @ 0x1404E8304
  * Callers:
  *     <none>
  * Callees:
- *     PiPnpRtlObjectEventWorker @ 0x14050470C (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1404E769C (PiPnpRtlObjectEventWorker.c)
  */
 
 void __fastcall PiPnpRtlObjectEventCallback(__int64 a1, wchar_t *a2, int a3, int a4, __int64 a5)

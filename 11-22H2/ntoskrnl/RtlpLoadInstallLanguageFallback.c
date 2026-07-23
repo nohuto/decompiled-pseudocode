@@ -27,11 +27,11 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
   __int64 v14; // [rsp+30h] [rbp-20h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  int v17; // [rsp+80h] [rbp+30h] BYREF
+  DWORD Lcid; // [rsp+80h] [rbp+30h] BYREF
   int v18; // [rsp+98h] [rbp+48h]
 
   Handle = 0LL;
-  v17 = 0;
+  Lcid = 0;
   v5 = 0LL;
   DestinationString = 0LL;
   if ( a1 && a2 && a3 )
@@ -73,15 +73,15 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
             ++v11;
           }
           RtlInitUnicodeString(&DestinationString, v5);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *a2 = v17;
+            *a2 = Lcid;
             if ( *v11 )
             {
               RtlInitUnicodeString(&DestinationString, v11);
-              if ( RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v17;
+                *a3 = Lcid;
               }
               else
               {

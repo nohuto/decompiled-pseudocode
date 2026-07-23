@@ -1,24 +1,24 @@
 /*
- * XREFs of ExCreateHandleEx @ 0x14084CE30
+ * XREFs of ExCreateHandleEx @ 0x1408490F0
  * Callers:
- *     AlpcpAllocateMessageFromExtendedTables @ 0x140741C20 (AlpcpAllocateMessageFromExtendedTables.c)
- *     NtCreateJobObject @ 0x1408EAB60 (NtCreateJobObject.c)
- *     AlpcpAllocateMessageFunction @ 0x14093FEE0 (AlpcpAllocateMessageFunction.c)
- *     ObCompleteObjectDuplication @ 0x140940288 (ObCompleteObjectDuplication.c)
- *     RtlpInsertStringAtom @ 0x140989E7C (RtlpInsertStringAtom.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
- *     ExCreateHandle @ 0x140A264F4 (ExCreateHandle.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x14073FB50 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     NtCreateJobObject @ 0x14085C390 (NtCreateJobObject.c)
+ *     AlpcpAllocateMessageFunction @ 0x140894520 (AlpcpAllocateMessageFunction.c)
+ *     ObCompleteObjectDuplication @ 0x1408948C8 (ObCompleteObjectDuplication.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
+ *     ExCreateHandle @ 0x140A1AF74 (ExCreateHandle.c)
+ *     RtlpInsertStringAtom @ 0x140A249F0 (RtlpInsertStringAtom.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExpUpdateDebugInfo @ 0x14084D2F4 (ExpUpdateDebugInfo.c)
- *     ExpFreeTablePagedPool @ 0x14084D4E4 (ExpFreeTablePagedPool.c)
- *     ExpGetHandleExtraInfo @ 0x14084D528 (ExpGetHandleExtraInfo.c)
- *     ExpAllocateTablePagedPool @ 0x14093BCFC (ExpAllocateTablePagedPool.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x14093CBE8 (ExpAllocateHandleTableEntrySlow.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExpUpdateDebugInfo @ 0x1408495B4 (ExpUpdateDebugInfo.c)
+ *     ExpFreeTablePagedPool @ 0x1408497A4 (ExpFreeTablePagedPool.c)
+ *     ExpGetHandleExtraInfo @ 0x1408497E8 (ExpGetHandleExtraInfo.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x14094D498 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateTablePagedPool @ 0x14094D7D0 (ExpAllocateTablePagedPool.c)
  */
 
 __int64 __fastcall ExCreateHandleEx(unsigned int *a1, __int64 a2, int a3, char a4, _DWORD *a5)
@@ -31,8 +31,8 @@ __int64 __fastcall ExCreateHandleEx(unsigned int *a1, __int64 a2, int a3, char a
   unsigned int v11; // ebp
   unsigned int v12; // r13d
   ULONG_PTR v13; // rsi
-  _QWORD *v14; // rax
-  _QWORD *v15; // r15
+  char *v14; // rax
+  char *v15; // r15
   unsigned __int64 *v16; // r15
   unsigned __int64 v17; // rax
   int v18; // eax
@@ -48,13 +48,13 @@ __int64 __fastcall ExCreateHandleEx(unsigned int *a1, __int64 a2, int a3, char a
   char v29; // si
   unsigned int v30; // eax
   ULONG_PTR v31; // rbx
-  _QWORD *v32; // rax
-  _QWORD *v33; // rbp
+  char *v32; // rax
+  char *v33; // rbp
   unsigned __int64 v34; // rax
   __int64 v35; // rax
   char HandleTableEntrySlow; // r13
-  _QWORD *v37; // rax
-  _QWORD *v38; // rbp
+  char *v37; // rax
+  char *v38; // rbp
   unsigned __int64 v39; // [rsp+20h] [rbp-48h]
   unsigned __int64 v40; // [rsp+28h] [rbp-40h]
   int v41; // [rsp+70h] [rbp+8h]
@@ -90,12 +90,12 @@ LABEL_7:
       if ( v11 >= v10 )
       {
         HandleTableEntrySlow = 1;
-        v37 = KeAbPreAcquire((__int64)(a1 + 14), 0LL);
+        v37 = (char *)KeAbPreAcquire((__int64)(a1 + 14), 0LL);
         v38 = v37;
         if ( _interlockedbittestandset64((volatile signed __int32 *)a1 + 14, 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1 + 7, (__int64)v37, (__int64)(a1 + 14));
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1 + 7, v37, (__int64)(a1 + 14));
         if ( v38 )
-          *((_BYTE *)v38 + 10) = 1;
+          v38[10] = 1;
         if ( v41 == *a1 )
           HandleTableEntrySlow = ExpAllocateHandleTableEntrySlow(a1, &a1[16 * v44 + 16]);
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)a1 + 7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -111,12 +111,12 @@ LABEL_7:
       v13 = (ULONG_PTR)&a1[16 * Number + 16];
       if ( *(_QWORD *)(v13 + 8) )
       {
-        v14 = KeAbPreAcquire((__int64)&a1[16 * Number + 16], 0LL);
+        v14 = (char *)KeAbPreAcquire((__int64)&a1[16 * Number + 16], 0LL);
         v15 = v14;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v13, 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v13, (__int64)v14, v13);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v13, v14, v13);
         if ( v15 )
-          *((_BYTE *)v15 + 10) = 1;
+          v15[10] = 1;
         v16 = *(unsigned __int64 **)(v13 + 8);
         if ( v16 )
         {
@@ -211,12 +211,12 @@ LABEL_44:
     else
       v30 = KeGetPcr()->Prcb.Number;
     v31 = (ULONG_PTR)&a1[16 * v30 + 16];
-    v32 = KeAbPreAcquire(v31, 0LL);
+    v32 = (char *)KeAbPreAcquire(v31, 0LL);
     v33 = v32;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v31, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v31, (__int64)v32, v31);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v31, v32, v31);
     if ( v33 )
-      *((_BYTE *)v33 + 10) = 1;
+      v33[10] = 1;
     if ( v29 )
     {
       v35 = *(_QWORD *)(v31 + 16);

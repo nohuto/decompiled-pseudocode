@@ -18,18 +18,18 @@
  *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall EtwDeliverDataBlock(__int64 a1)
+__int64 __fastcall EtwDeliverDataBlock(PETW_NOTIFICATION_HEADER Notification)
 {
-  unsigned int v2; // r14d
+  ULONG v2; // r14d
   char v3; // r12
   char v4; // r13
   char v5; // si
   char v6; // r15
   bool v7; // zf
-  __int64 v8; // rax
+  _RTL_SRWLOCK *v8; // rax
   __int64 v9; // rdi
   char v10; // r15
-  __int64 v11; // r13
+  ULONGLONG v11; // r13
   char *v12; // rsi
   __int64 v14; // rax
   char v15; // dl
@@ -40,12 +40,12 @@ __int64 __fastcall EtwDeliverDataBlock(__int64 a1)
   __int64 v20; // rax
   _BYTE *v21; // rcx
   char *v22; // r8
-  int v23; // [rsp+30h] [rbp-18h]
+  ULONG Timeout; // [rsp+30h] [rbp-18h]
   _QWORD v24[2]; // [rsp+38h] [rbp-10h] BYREF
   char v25; // [rsp+90h] [rbp+48h]
   char v26; // [rsp+98h] [rbp+50h] BYREF
-  char v27; // [rsp+A0h] [rbp+58h]
-  unsigned int v28; // [rsp+A8h] [rbp+60h] BYREF
+  BOOLEAN ReplyRequested; // [rsp+A0h] [rbp+58h]
+  ULONG v28; // [rsp+A8h] [rbp+60h] BYREF
 
   v24[0] = 0LL;
   v2 = 0;
@@ -54,27 +54,27 @@ __int64 __fastcall EtwDeliverDataBlock(__int64 a1)
   v26 = 0;
   v4 = 0;
   v5 = 0;
-  v27 = *(_BYTE *)(a1 + 12);
+  ReplyRequested = Notification->ReplyRequested;
   v6 = 0;
-  v23 = *(_DWORD *)(a1 + 16);
-  v7 = *(_DWORD *)a1 == 3;
+  Timeout = Notification->Timeout;
+  v7 = Notification->NotificationType == EtwNotificationTypeEnable;
   v25 = 0;
   byte_18016352C = 0;
-  if ( v7 && *(__int16 *)(a1 + 78) < 0 )
+  if ( v7 && (Notification[1].NotificationSize & 0x80000000) != 0 )
   {
     v6 = 1;
-    *(_DWORD *)(a1 + 24) = -1;
+    LODWORD(Notification->Reserved2) = -1;
   }
-  if ( *(_DWORD *)(a1 + 24) != -1 )
+  if ( LODWORD(Notification->Reserved2) != -1 )
   {
-    v8 = sub_18000844C(a1 + 40, *(unsigned __int16 *)(a1 + 24));
-    v9 = v8;
+    v8 = (_RTL_SRWLOCK *)sub_18000844C(&Notification->DestinationGuid, LOWORD(Notification->Reserved2));
+    v9 = (__int64)v8;
     if ( v8 )
     {
-      RtlAcquireSRWLockExclusive(v8 + 64);
+      RtlAcquireSRWLockExclusive(v8 + 8);
       v10 = 1;
       *(_DWORD *)(v9 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
-      sub_180008510(v9, a1, v24, &v28, &v26);
+      sub_180008510(v9, Notification, v24, &v28, &v26);
       v11 = v24[0];
       v2 = v28;
       v3 = v26;
@@ -97,14 +97,14 @@ LABEL_22:
       if ( qword_180163510 )
       {
         v11 = *(_QWORD *)(qword_180163510 + 88);
-        if ( *(_DWORD *)(a1 + 72) != 2 )
+        if ( Notification[1].NotificationType != EtwNotificationTypeLegacyEnable )
         {
-          v12 = (char *)sub_18000AB50((void *)(a1 + 40));
+          v12 = (char *)sub_18000AB50(&Notification->DestinationGuid);
           if ( v12 )
             goto LABEL_28;
-          if ( *(_DWORD *)(a1 + 72) )
+          if ( Notification[1].NotificationType )
           {
-            v12 = sub_180005F8C((_OWORD *)(a1 + 40));
+            v12 = sub_180005F8C(&Notification->DestinationGuid.Data1);
             if ( !v12 )
             {
               v10 = v25;
@@ -112,7 +112,7 @@ LABEL_22:
             }
 LABEL_28:
             sub_1800062DC((__int64)v12);
-            v15 = *(_BYTE *)(a1 + 78);
+            v15 = BYTE2(Notification[1].NotificationSize);
             v16 = v12 + 78;
             v17 = 0;
             v18 = 0;
@@ -130,7 +130,7 @@ LABEL_28:
 LABEL_32:
             if ( !v19 )
             {
-              if ( !*(_DWORD *)(a1 + 72) )
+              if ( !Notification[1].NotificationType )
                 goto LABEL_40;
               v20 = 0LL;
               v21 = v12 + 76;
@@ -152,19 +152,19 @@ LABEL_37:
               v22[22] = v15;
               sub_18000630C((__int64)v12);
             }
-            *(_QWORD *)v19 = *(_QWORD *)(a1 + 96);
-            *((_QWORD *)v19 + 1) = *(_QWORD *)(a1 + 88);
-            v19[21] = *(_BYTE *)(a1 + 76);
-            *((_DWORD *)v19 + 4) = *(_DWORD *)(a1 + 80);
-            v19[20] = *(_DWORD *)(a1 + 72) != v17;
+            *(_QWORD *)v19 = Notification[1].Reserved2;
+            *((_QWORD *)v19 + 1) = *(_QWORD *)&Notification[1].Timeout;
+            v19[21] = Notification[1].NotificationSize;
+            *((_DWORD *)v19 + 4) = Notification[1].Offset;
+            v19[20] = Notification[1].NotificationType != v17;
 LABEL_40:
-            if ( *(_BYTE *)(a1 + 107) == 1 )
+            if ( HIBYTE(Notification[1].TargetPID) == 1 )
             {
-              *((_QWORD *)v12 + 19) = *(_QWORD *)(a1 + 104);
-              *((_DWORD *)v12 + 40) = *(_DWORD *)(a1 + 72);
+              *((_QWORD *)v12 + 19) = *(_QWORD *)&Notification[1].TargetPID;
+              *((_DWORD *)v12 + 40) = Notification[1].NotificationType;
             }
             *((_DWORD *)v12 + 12) = v17;
-            RtlReleaseSRWLockExclusive(v12 + 40);
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v12 + 5);
             sub_180006330((__int64)v12);
             v10 = v25;
             v5 = 1;
@@ -184,23 +184,23 @@ LABEL_7:
   }
   do
   {
-    v14 = *(_QWORD *)(a1 + 40) - *(_QWORD *)(v9 + 32);
+    v14 = *(_QWORD *)&Notification->DestinationGuid.Data1 - *(_QWORD *)(v9 + 32);
     if ( !v14 )
-      v14 = *(_QWORD *)(a1 + 48) - *(_QWORD *)(v9 + 40);
+      v14 = *(_QWORD *)Notification->DestinationGuid.Data4 - *(_QWORD *)(v9 + 40);
     if ( v14 )
       goto LABEL_20;
     if ( *(_DWORD *)(v9 + 80) != LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
     {
-      RtlAcquireSRWLockExclusive(v9 + 64);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v9 + 64));
       v4 = 1;
       *(_DWORD *)(v9 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
     }
-    if ( (unsigned __int8)sub_180008510(v9, a1, v24, &v28, &v26) )
+    if ( (unsigned __int8)sub_180008510(v9, Notification, v24, &v28, &v26) )
       break;
     if ( v4 )
     {
       *(_DWORD *)(v9 + 80) = 0;
-      RtlReleaseSRWLockExclusive(v9 + 64);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v9 + 64));
       v4 = 0;
     }
 LABEL_20:
@@ -215,29 +215,29 @@ LABEL_20:
   v11 = v24[0];
   v10 = v25;
 LABEL_9:
-  if ( v27 == 1 && !byte_18016352C )
+  if ( ReplyRequested == 1 && !byte_18016352C )
   {
     if ( v2 )
     {
-      *(_DWORD *)a1 = 1;
+      Notification->NotificationType = EtwNotificationTypeNoReply;
 LABEL_58:
-      *(_DWORD *)(a1 + 4) = 72;
+      Notification->NotificationSize = 72;
     }
-    else if ( *(_DWORD *)a1 == 3 )
+    else if ( Notification->NotificationType == EtwNotificationTypeEnable )
     {
       goto LABEL_58;
     }
-    *(_DWORD *)(a1 + 16) = v23;
-    *(_BYTE *)(a1 + 12) = 0;
-    *(_QWORD *)(a1 + 24) = v11;
-    v2 = EtwReplyNotification(a1);
+    Notification->Timeout = Timeout;
+    Notification->ReplyRequested = 0;
+    Notification->Reserved2 = v11;
+    v2 = EtwReplyNotification(Notification);
   }
 LABEL_10:
   if ( v10 )
   {
     *(_DWORD *)(v9 + 80) = (_DWORD)v12;
-    RtlReleaseSRWLockExclusive(v9 + 64);
-    RtlReleaseSRWLockShared(v9 + 72);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v9 + 64));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(v9 + 72));
   }
   return v2;
 }

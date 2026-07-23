@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFreeVirtualMemory @ 0x1408DBC38
+ * XREFs of MiFreeVirtualMemory @ 0x1408D9E68
  * Callers:
- *     MmCommitDecommitSecuredMemory @ 0x1407EDC74 (MmCommitDecommitSecuredMemory.c)
- *     MmFreeVirtualMemory @ 0x1408DB8A0 (MmFreeVirtualMemory.c)
+ *     MmCommitDecommitSecuredMemory @ 0x1407EE244 (MmCommitDecommitSecuredMemory.c)
+ *     MmFreeVirtualMemory @ 0x1408D9AD0 (MmFreeVirtualMemory.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiFreeVadRange @ 0x1403CDBD8 (MiFreeVadRange.c)
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     MiDeleteEmptyPageTables @ 0x140405978 (MiDeleteEmptyPageTables.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140405E18 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiGetVadPageSize @ 0x1404272B0 (MiGetVadPageSize.c)
- *     MiDecommitRegion @ 0x1408DC180 (MiDecommitRegion.c)
- *     MiDecommitEnclavePages @ 0x1408DC578 (MiDecommitEnclavePages.c)
- *     PerfInfoLogVirtualFree @ 0x1408DC5E8 (PerfInfoLogVirtualFree.c)
- *     MiCheckSecuredVad @ 0x1408DD998 (MiCheckSecuredVad.c)
+ *     MiFreeVadRange @ 0x14026731C (MiFreeVadRange.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiDeleteEmptyPageTables @ 0x1403C7ED4 (MiDeleteEmptyPageTables.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x1403C8374 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiGetVadPageSize @ 0x14041B130 (MiGetVadPageSize.c)
+ *     MiDecommitRegion @ 0x1408DA3B0 (MiDecommitRegion.c)
+ *     MiDecommitEnclavePages @ 0x1408DA7A8 (MiDecommitEnclavePages.c)
+ *     PerfInfoLogVirtualFree @ 0x1408DA818 (PerfInfoLogVirtualFree.c)
+ *     MiCheckSecuredVad @ 0x1408DBE18 (MiCheckSecuredVad.c)
  */
 
 __int64 __fastcall MiFreeVirtualMemory(
@@ -163,7 +163,7 @@ LABEL_23:
           MiUnlockAndDereferenceVad((PVOID)a2);
           if ( v38 )
             MiDeleteEmptyPageTables(*a3, *a4, 0);
-          if ( (WORD2(PerfGlobalGroupMask) & 0x8000) != 0 )
+          if ( (WORD2(PerfGlobalGroupMask[0]) & 0x8000) != 0 )
             PerfInfoLogVirtualFree(*a3, v27, a1);
           return 0LL;
         }

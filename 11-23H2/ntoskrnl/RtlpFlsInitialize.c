@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpFlsInitialize @ 0x14084C1E4
+ * XREFs of RtlpFlsInitialize @ 0x14084C4E4
  * Callers:
  *     PspTlsInitialize @ 0x140B66B84 (PspTlsInitialize.c)
  * Callees:

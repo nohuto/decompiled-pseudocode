@@ -1,14 +1,14 @@
 /*
- * XREFs of KiEpfDrainCompletionQueue @ 0x1405C34CC
+ * XREFs of KiEpfDrainCompletionQueue @ 0x1405C0A9C
  * Callers:
- *     KiEpfCompletionDpcRoutine @ 0x1405C34B0 (KiEpfCompletionDpcRoutine.c)
- *     KiEpfHandleNotification @ 0x1405C3550 (KiEpfHandleNotification.c)
- *     HvlNotifyPageHeat @ 0x1406A10E8 (HvlNotifyPageHeat.c)
- *     KiEpfInitialize @ 0x140C29DF0 (KiEpfInitialize.c)
+ *     KiEpfCompletionDpcRoutine @ 0x1405C0A80 (KiEpfCompletionDpcRoutine.c)
+ *     KiEpfHandleNotification @ 0x1405C0B20 (KiEpfHandleNotification.c)
+ *     HvlNotifyPageHeat @ 0x1406A2140 (HvlNotifyPageHeat.c)
+ *     KiEpfInitialize @ 0x140C2BF10 (KiEpfInitialize.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiEpfComplete @ 0x1405C33B8 (KiEpfComplete.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiEpfComplete @ 0x1405C0988 (KiEpfComplete.c)
  */
 
 void KiEpfDrainCompletionQueue()

@@ -1,17 +1,17 @@
 /*
- * XREFs of SleepstudyHelperCreateLibraryEx @ 0x1404ED710
+ * XREFs of SleepstudyHelperCreateLibraryEx @ 0x1404E6CF0
  * Callers:
- *     SleepstudyHelper_Initialize @ 0x140B3C170 (SleepstudyHelper_Initialize.c)
- *     SleepstudyHelperCreateLibrary @ 0x140B45EF0 (SleepstudyHelperCreateLibrary.c)
- *     PopPowerRequestStatsInitialize @ 0x140CD6B54 (PopPowerRequestStatsInitialize.c)
- *     PopSleepstudyInitialize @ 0x140D09A38 (PopSleepstudyInitialize.c)
+ *     SleepstudyHelper_Initialize @ 0x140B3E3F0 (SleepstudyHelper_Initialize.c)
+ *     SleepstudyHelperCreateLibrary @ 0x140B47F20 (SleepstudyHelperCreateLibrary.c)
+ *     PopPowerRequestStatsInitialize @ 0x140CDCEA8 (PopPowerRequestStatsInitialize.c)
+ *     PopSleepstudyInitialize @ 0x140D0FD08 (PopSleepstudyInitialize.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140905BD0 (CmpVolumeManagerLockContextListExclusive.c)
- *     SshpCacheInitializeLibraryCache @ 0x140B43D74 (SshpCacheInitializeLibraryCache.c)
- *     CmSiRWLockInitialize @ 0x140B60560 (CmSiRWLockInitialize.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x140A2E304 (CmpVolumeManagerLockContextListExclusive.c)
+ *     SshpCacheInitializeLibraryCache @ 0x140B45C64 (SshpCacheInitializeLibraryCache.c)
+ *     CmSiRWLockInitialize @ 0x140B63600 (CmSiRWLockInitialize.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateLibraryEx(_DWORD *a1, _QWORD *a2)
@@ -36,13 +36,13 @@ __int64 __fastcall SleepstudyHelperCreateLibraryEx(_DWORD *a1, _QWORD *a2)
         Pool2[21] = Pool2 + 21;
         SshpCacheInitializeLibraryCache(Pool2);
         CmpVolumeManagerLockContextListExclusive(&SshpLibraryListLock);
-        v7 = (_QWORD *)qword_140F0A988;
-        if ( *(PVOID **)qword_140F0A988 != &SshpLibraryList )
+        v7 = (_QWORD *)qword_140F0AD28;
+        if ( *(PVOID **)qword_140F0AD28 != &SshpLibraryList )
           __fastfail(3u);
-        Pool2[1] = qword_140F0A988;
+        Pool2[1] = qword_140F0AD28;
         *Pool2 = &SshpLibraryList;
         *v7 = Pool2;
-        qword_140F0A988 = (__int64)Pool2;
+        qword_140F0AD28 = (__int64)Pool2;
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&SshpLibraryListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock((volatile signed __int64 *)&SshpLibraryListLock);
         KeAbPostRelease((unsigned __int64)&SshpLibraryListLock);

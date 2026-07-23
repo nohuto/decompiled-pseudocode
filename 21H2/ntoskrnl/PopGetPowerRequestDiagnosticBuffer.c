@@ -1,9 +1,9 @@
 /*
- * XREFs of PopGetPowerRequestDiagnosticBuffer @ 0x1408E18F0
+ * XREFs of PopGetPowerRequestDiagnosticBuffer @ 0x1408E1A50
  * Callers:
- *     PopUmpoSendPowerRequestCreate @ 0x1408F2698 (PopUmpoSendPowerRequestCreate.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x1408F27F8 (PopUmpoSendPowerRequestCreate.c)
  * Callees:
- *     PoStoreDiagnosticContext @ 0x14038AC9C (PoStoreDiagnosticContext.c)
+ *     PoStoreDiagnosticContext @ 0x14038ADEC (PoStoreDiagnosticContext.c)
  */
 
 __int64 __fastcall PopGetPowerRequestDiagnosticBuffer(int a1, unsigned __int64 *a2, unsigned __int64 *a3)

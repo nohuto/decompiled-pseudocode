@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCommitCR3Worker @ 0x1409995EC
+ * XREFs of HalpCommitCR3Worker @ 0x14099A5EC
  * Callers:
- *     HalpCommitCR3Worker @ 0x1409995EC (HalpCommitCR3Worker.c)
- *     HalpMmBuildTiledMemoryMap @ 0x14099A1BC (HalpMmBuildTiledMemoryMap.c)
+ *     HalpCommitCR3Worker @ 0x14099A5EC (HalpCommitCR3Worker.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099B1BC (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     HalpCommitCR3Worker @ 0x1409995EC (HalpCommitCR3Worker.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     HalpCommitCR3Worker @ 0x14099A5EC (HalpCommitCR3Worker.c)
  */
 
 void __fastcall HalpCommitCR3Worker(void **a1, unsigned int a2)

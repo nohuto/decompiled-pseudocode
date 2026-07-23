@@ -1,70 +1,72 @@
 /*
- * XREFs of MiDeleteUltraMapContext @ 0x1402E6634
+ * XREFs of MiDeleteUltraMapContext @ 0x140297984
  * Callers:
- *     MiReclaimUnusedUltraMdlMaps @ 0x140271C40 (MiReclaimUnusedUltraMdlMaps.c)
- *     MiDeleteUltraThreadContext @ 0x1402E65FC (MiDeleteUltraThreadContext.c)
- *     MiGetUltraMdlContext @ 0x14055F368 (MiGetUltraMdlContext.c)
+ *     MiReclaimUnusedUltraMdlMaps @ 0x14025FBE0 (MiReclaimUnusedUltraMdlMaps.c)
+ *     MiDeleteUltraThreadContext @ 0x14029794C (MiDeleteUltraThreadContext.c)
+ *     MiGetUltraMdlContext @ 0x14055F5A8 (MiGetUltraMdlContext.c)
  * Callees:
- *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
- *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiReleaseFreshPage @ 0x140297AC4 (MiReleaseFreshPage.c)
+ *     MiGetUltraMapping @ 0x1402D8F50 (MiGetUltraMapping.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
  */
 
-void __fastcall MiDeleteUltraMapContext(__int64 a1, unsigned int a2)
+void __fastcall MiDeleteUltraMapContext(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi
   __int64 v4; // r8
-  _QWORD *v5; // rsi
-  unsigned __int64 v6; // rbx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  _QWORD *v7; // rsi
+  unsigned __int64 v8; // rbx
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
-  bool v9; // zf
-  signed __int32 v10; // eax
+  bool v11; // zf
+  signed __int32 v12; // eax
 
   if ( *(_BYTE *)(a1 + 24) )
   {
     v3 = 2LL;
-    v4 = a2 > 2 ? 1LL : MiLargePageSizes[a2];
-    MiGetUltraMapping((unsigned __int64 *)a1, a2, v4, 2);
-    _InterlockedDecrement(&dword_140C4EC2C);
-    v5 = (_QWORD *)(a1 + 8);
-    v6 = 0LL;
+    v4 = (unsigned int)a2 > 2 ? 1LL : MiLargePageSizes[(unsigned int)a2];
+    MiGetUltraMapping(a1, a2, v4, 2LL);
+    _InterlockedDecrement(&dword_140C4EC6C);
+    v7 = (_QWORD *)(a1 + 8);
+    v8 = 0LL;
     do
     {
-      if ( *v5 != -1LL )
+      if ( *v7 != -1LL )
       {
-        MiReleaseFreshPage(48LL * *v5 - 0x58000000000LL);
-        ++v6;
-        *v5 = -1LL;
+        MiReleaseFreshPage(48LL * *v7 - 0x58000000000LL);
+        ++v8;
+        *v7 = -1LL;
       }
-      ++v5;
+      ++v7;
       --v3;
     }
     while ( v3 );
     *(_BYTE *)(a1 + 24) = 0;
-    if ( v6 )
+    if ( v8 )
     {
-      MiReturnCommit(&MiSystemPartition, v6);
+      MiReturnCommit(&MiSystemPartition, v8, v5, v6);
       CurrentPrcb = KeGetCurrentPrcb();
       CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
       if ( (_DWORD)CachedResidentAvailable != -1 )
       {
-        if ( v6 + CachedResidentAvailable <= 0x100 )
+        if ( v8 + CachedResidentAvailable <= 0x100 )
         {
           do
           {
-            if ( v6 >= 0x80000 )
+            if ( v8 >= 0x80000 )
               break;
-            v10 = _InterlockedCompareExchange(
+            v12 = _InterlockedCompareExchange(
                     (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                    CachedResidentAvailable + v6,
+                    CachedResidentAvailable + v8,
                     CachedResidentAvailable);
-            v9 = (_DWORD)CachedResidentAvailable == v10;
-            LODWORD(CachedResidentAvailable) = v10;
-            if ( v9 )
+            v11 = (_DWORD)CachedResidentAvailable == v12;
+            LODWORD(CachedResidentAvailable) = v12;
+            if ( v11 )
               return;
           }
-          while ( v10 != -1 && v6 + v10 <= 0x100 );
+          while ( v12 != -1 && v8 + v12 <= 0x100 );
         }
         if ( (int)CachedResidentAvailable > 192
           && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -72,11 +74,11 @@ void __fastcall MiDeleteUltraMapContext(__int64 a1, unsigned int a2)
                                                   192,
                                                   CachedResidentAvailable) )
         {
-          v6 += (int)CachedResidentAvailable - 192;
+          v8 += (int)CachedResidentAvailable - 192;
         }
       }
-      if ( v6 )
-        _InterlockedExchangeAdd64(&qword_140C52980, v6);
+      if ( v8 )
+        _InterlockedExchangeAdd64(&qword_140C529C0, v8);
     }
   }
 }

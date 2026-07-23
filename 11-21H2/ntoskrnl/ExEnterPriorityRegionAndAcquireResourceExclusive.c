@@ -1,19 +1,19 @@
 /*
  * XREFs of ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x14063D1F0
  * Callers:
- *     DifExEnterPriorityRegionAndAcquireResourceExclusiveWrapper @ 0x1406083A0 (DifExEnterPriorityRegionAndAcquireResourceExclusiveWrapper.c)
+ *     sub_1406083A0 @ 0x1406083A0 (sub_1406083A0.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
+ *     sub_1402ACD80 @ 0x1402ACD80 (sub_1402ACD80.c)
  *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
  */
 
-PVOID __fastcall ExEnterPriorityRegionAndAcquireResourceExclusive(PERESOURCE Resource)
+__int64 __fastcall ExEnterPriorityRegionAndAcquireResourceExclusive(PERESOURCE Resource)
 {
   struct _KTHREAD *CurrentThread; // rdi
 
   CurrentThread = KeGetCurrentThread();
-  PsBoostThreadIoEx((__int64)CurrentThread, 0, 0, 0LL);
-  --CurrentThread->KernelApcDisable;
+  sub_1402ACD80((__int64)CurrentThread, 0, 0, 0LL);
+  --*((_WORD *)CurrentThread + 242);
   ExAcquireResourceExclusiveLite(Resource, 1u);
-  return CurrentThread->WaitBlock[2].SparePtr;
+  return *((_QWORD *)CurrentThread + 57);
 }

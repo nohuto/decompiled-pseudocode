@@ -9,7 +9,7 @@
  *     _LdrpProcessWork@8 @ 0x4B2CE6E8 (_LdrpProcessWork@8.c)
  */
 
-void __stdcall LdrpWorkCallback(int a1, int a2, int a3)
+void __stdcall LdrpWorkCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WORK a3)
 {
   int *v3; // esi
   int v4; // eax

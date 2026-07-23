@@ -1,12 +1,12 @@
 /*
- * XREFs of UcpLogUnexpectedCodePathEvent @ 0x140694B40
+ * XREFs of UcpLogUnexpectedCodePathEvent @ 0x140695C10
  * Callers:
- *     UcInitialize @ 0x140694538 (UcInitialize.c)
- *     UcpLogEventGenerateDump @ 0x140694AAC (UcpLogEventGenerateDump.c)
+ *     UcInitialize @ 0x140695608 (UcInitialize.c)
+ *     UcpLogEventGenerateDump @ 0x140695B7C (UcpLogEventGenerateDump.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void UcpLogUnexpectedCodePathEvent()
@@ -32,7 +32,7 @@ void UcpLogUnexpectedCodePathEvent()
   int *v18; // [rsp+B0h] [rbp+37h]
   __int64 v19; // [rsp+B8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140E0A020 > 4 && tlgKeywordOn((__int64)&dword_140E0A020, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E0A090 > 4 && tlgKeywordOn((__int64)&dword_140E0A090, 0x400000000000LL) )
   {
     v8 = *v0;
     v10 = &v8;
@@ -50,6 +50,6 @@ void UcpLogUnexpectedCodePathEvent()
     v7 = CurrentIrql;
     v18 = &v7;
     v19 = v2;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A020, (unsigned __int8 *)byte_140058A45, 0LL, 0LL, 7u, &v9);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A090, (unsigned __int8 *)word_1400595EA, 0LL, 0LL, 7u, &v9);
   }
 }

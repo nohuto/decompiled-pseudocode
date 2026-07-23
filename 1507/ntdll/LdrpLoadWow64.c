@@ -11,65 +11,73 @@
  *     LdrpLogDbgPrint @ 0x1800BC478 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpLoadWow64(__int64 a1)
+__int64 __fastcall LdrpLoadWow64(PCUNICODE_STRING Source)
 {
-  int v1; // ebx
-  unsigned int v2; // edi
-  _UNKNOWN **i; // rbx
-  int ProcedureAddress; // esi
-  char v6; // cl
-  char v7; // al
-  int v8; // [rsp+40h] [rbp-248h] BYREF
-  char *v9; // [rsp+48h] [rbp-240h]
-  char v10; // [rsp+50h] [rbp-238h] BYREF
+  NTSTATUS v1; // eax
+  unsigned __int32 v2; // ebx
+  unsigned int v3; // edi
+  PANSI_STRING *i; // rbx
+  NTSTATUS ProcedureAddress; // esi
+  char v7; // cl
+  char v8; // al
+  NTSTATUS v9; // [rsp+30h] [rbp-258h]
+  NTSTATUS v10; // [rsp+38h] [rbp-250h]
+  _UNICODE_STRING Destination; // [rsp+40h] [rbp-248h] BYREF
+  char v12; // [rsp+50h] [rbp-238h] BYREF
 
-  v8 = 34078720;
-  v9 = &v10;
-  RtlAppendUnicodeStringToString(&v8, a1);
-  RtlAppendUnicodeToString(&v8, L"wow64.dll");
-  v1 = LdrLoadDll(0LL, 0LL, &v8, &Wow64Handle);
+  *(_DWORD *)&Destination.Length = 34078720;
+  Destination.Buffer = (unsigned __int16 *)&v12;
+  RtlAppendUnicodeStringToString(&Destination, Source);
+  RtlAppendUnicodeToString(&Destination, L"wow64.dll");
+  v1 = LdrLoadDll(0LL, 0LL, &Destination, &Wow64Handle);
+  v2 = v1;
   if ( v1 < 0 )
   {
-    v6 = LdrpDebugFlags;
+    v7 = LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) != 0 )
     {
+      v9 = v1;
       LdrpLogDbgPrint(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         2925,
         (unsigned int)"LdrpLoadWow64",
         0,
         (__int64)"Loading WOW64 image management DLL \"%wZ\" failed with status 0x%08lx\n",
-        (char)&v8);
-      v6 = LdrpDebugFlags;
+        &Destination,
+        v9);
+      v7 = LdrpDebugFlags;
     }
-    if ( (v6 & 0x10) != 0 )
+    if ( (v7 & 0x10) != 0 )
       __debugbreak();
-    return (unsigned int)v1;
+    return v2;
   }
   else
   {
-    v2 = 0;
-    for ( i = &off_180105BD0; ; i += 2 )
+    v3 = 0;
+    for ( i = (PANSI_STRING *)&off_180105BD0; ; i += 2 )
     {
-      ProcedureAddress = LdrGetProcedureAddress(Wow64Handle, *i, 0LL, i[1]);
+      ProcedureAddress = LdrGetProcedureAddress(Wow64Handle, *i, 0, (PVOID *)i[1]);
       if ( ProcedureAddress < 0 )
         break;
-      if ( ++v2 >= 5 )
+      if ( ++v3 >= 5 )
         return (unsigned int)ProcedureAddress;
     }
-    v7 = LdrpDebugFlags;
+    v8 = LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) != 0 )
     {
+      v10 = ProcedureAddress;
       LdrpLogDbgPrint(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         2946,
         (unsigned int)"LdrpLoadWow64",
         0,
         (__int64)"Locating procedure \"%Z\" in WOW64 image management DLL \"%wZ\" failed with status 0x%08lx\n",
-        (char)*(&off_180105BD0 + 2 * v2));
-      v7 = LdrpDebugFlags;
+        *(&off_180105BD0 + 2 * v3),
+        &Destination,
+        v10);
+      v8 = LdrpDebugFlags;
     }
-    if ( (v7 & 0x10) != 0 )
+    if ( (v8 & 0x10) != 0 )
       __debugbreak();
     return (unsigned int)ProcedureAddress;
   }

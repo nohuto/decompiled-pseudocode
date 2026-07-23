@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlpRegisterStackTrace @ 0x1800F7CE0
+ * XREFs of RtlpRegisterStackTrace @ 0x1800F2850
  * Callers:
- *     RtlpStackTraceDatabaseLogPrefix @ 0x1800F7C30 (RtlpStackTraceDatabaseLogPrefix.c)
+ *     RtlpStackTraceDatabaseLogPrefix @ 0x1800F27A0 (RtlpStackTraceDatabaseLogPrefix.c)
  * Callees:
- *     RtlExtendMemoryZone @ 0x1800F7EE0 (RtlExtendMemoryZone.c)
- *     RtlpInitializeStackTraceLog @ 0x18011F3EC (RtlpInitializeStackTraceLog.c)
- *     RtlpInterlockedPushEntrySList @ 0x180165A40 (RtlpInterlockedPushEntrySList.c)
- *     RtlCompareMemory @ 0x180165F10 (RtlCompareMemory.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     RtlAllocateMemoryBlockLookaside @ 0x180170010 (RtlAllocateMemoryBlockLookaside.c)
+ *     RtlExtendMemoryZone @ 0x1800F2A50 (RtlExtendMemoryZone.c)
+ *     RtlpInitializeStackTraceLog @ 0x18011D61C (RtlpInitializeStackTraceLog.c)
+ *     RtlpInterlockedPushEntrySList @ 0x180163E00 (RtlpInterlockedPushEntrySList.c)
+ *     RtlCompareMemory @ 0x1801642D0 (RtlCompareMemory.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     RtlAllocateMemoryBlockLookaside @ 0x18016F010 (RtlAllocateMemoryBlockLookaside.c)
  */
 
 _DWORD *__fastcall RtlpRegisterStackTrace(unsigned int a1, const void *a2, unsigned int a3)
 {
   __int64 v3; // r9
   __int64 v5; // rdi
-  signed __int64 *v7; // r14
+  __int64 v7; // r14
   _DWORD *v8; // rsi
-  signed __int64 v10; // rbp
+  _QWORD *v10; // rbp
   _QWORD *v11; // rsi
   _QWORD *v12; // rcx
   _QWORD *v13; // r8
   _QWORD *v14; // r12
   _QWORD *v15; // rax
   _QWORD *v16; // rdx
-  signed __int64 v17; // rbx
-  _QWORD *v18; // [rsp+68h] [rbp+20h] BYREF
+  _DWORD *v17; // rbx
+  PVOID Block; // [rsp+68h] [rbp+20h] BYREF
 
   v3 = RtlpHeapStackTraceLog;
   v5 = a1;
@@ -33,54 +33,57 @@ _DWORD *__fastcall RtlpRegisterStackTrace(unsigned int a1, const void *a2, unsig
   {
     if ( (_DWORD)v5 )
     {
-      v7 = (signed __int64 *)(v3 + 16 * (a3 % 0x191 + 1LL));
-      v8 = (_DWORD *)v7[1];
+      v7 = v3 + 16 * (a3 % 0x191 + 1LL);
+      v8 = *(_DWORD **)(v7 + 8);
       if ( v8 && v8[2] == a3 && v8[3] == (_DWORD)v5 && RtlCompareMemory(a2, v8 + 4, 8 * v5) == 8 * v5 )
         return v8;
       while ( 1 )
       {
-        v10 = *v7;
-        v11 = (_QWORD *)v10;
-        v18 = (_QWORD *)*v7;
-        v12 = (_QWORD *)v10;
-        v13 = (_QWORD *)v10;
-        v14 = (_QWORD *)v10;
-        v15 = (_QWORD *)v10;
-        v16 = (_QWORD *)v10;
+        v10 = *(_QWORD **)v7;
+        v11 = v10;
+        Block = *(PVOID *)v7;
+        v12 = v10;
+        v13 = v10;
+        v14 = v10;
+        v15 = v10;
+        v16 = v10;
         while ( v12 )
         {
           if ( *((_DWORD *)v15 + 2) == a3
             && *((_DWORD *)v16 + 3) == (_DWORD)v5
             && RtlCompareMemory(a2, v13 + 2, 8 * v5) == 8 * v5 )
           {
-            v7[1] = (signed __int64)v11;
+            *(_QWORD *)(v7 + 8) = v11;
             return v14;
           }
           v11 = (_QWORD *)*v11;
           v15 = v11;
-          v18 = v11;
+          Block = v11;
           v12 = v11;
           v13 = v11;
           v14 = v11;
           v16 = v11;
         }
-        if ( (int)RtlAllocateMemoryBlockLookaside(*(_QWORD *)RtlpHeapStackTraceLog, 8 * v5 + 16, &v18) < 0
+        if ( RtlAllocateMemoryBlockLookaside(*(PVOID *)RtlpHeapStackTraceLog, 8 * v5 + 16, &Block) < 0
           && ((int)RtlExtendMemoryZone(*(_QWORD *)(*(_QWORD *)RtlpHeapStackTraceLog + 16LL), 0x10000LL) < 0
-           || (int)RtlAllocateMemoryBlockLookaside(*(_QWORD *)RtlpHeapStackTraceLog, 8 * v5 + 16, &v18) < 0) )
+           || RtlAllocateMemoryBlockLookaside(*(PVOID *)RtlpHeapStackTraceLog, 8 * v5 + 16, &Block) < 0) )
         {
           break;
         }
-        v17 = (signed __int64)v18;
-        *((_DWORD *)v18 + 2) = a3;
-        *(_DWORD *)(v17 + 12) = v5;
+        v17 = Block;
+        *((_DWORD *)Block + 2) = a3;
+        v17[3] = v5;
         *(_QWORD *)v17 = v10;
-        memmove((void *)(v17 + 16), a2, 8 * v5);
-        if ( v10 == _InterlockedCompareExchange64(v7, v17, v10) )
+        memmove(v17 + 4, a2, 8 * v5);
+        if ( v10 == (_QWORD *)_InterlockedCompareExchange64(
+                                (volatile signed __int64 *)v7,
+                                (signed __int64)v17,
+                                (signed __int64)v10) )
         {
           _InterlockedIncrement((volatile signed __int32 *)(RtlpHeapStackTraceLog + 8));
-          return v18;
+          return Block;
         }
-        RtlpInterlockedPushEntrySList(*(v18 - 2), v18 - 6);
+        RtlpInterlockedPushEntrySList(*((_QWORD *)Block - 2), (char *)Block - 48);
       }
     }
   }

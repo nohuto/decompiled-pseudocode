@@ -1,27 +1,27 @@
 /*
- * XREFs of IopLiveDumpAllocAndInitResources @ 0x14094C56C
+ * XREFs of IopLiveDumpAllocAndInitResources @ 0x14094C76C
  * Callers:
- *     IoCaptureLiveDump @ 0x14094B9E8 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x14094BBE8 (IoCaptureLiveDump.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlClearAllBitsEx @ 0x14033D1F0 (RtlClearAllBitsEx.c)
- *     VslIsSecureKernelRunning @ 0x14036EF30 (VslIsSecureKernelRunning.c)
- *     IopGetPhysicalMemoryBlock @ 0x1403963D0 (IopGetPhysicalMemoryBlock.c)
- *     RtlSetAllBitsEx @ 0x1403B4E70 (RtlSetAllBitsEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559D3C (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x140559DB4 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpTraceBufferAllocation @ 0x14055A158 (IopLiveDumpTraceBufferAllocation.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x14094CBF4 (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpAllocateExtraBuffers @ 0x14094D1A0 (IopLiveDumpAllocateExtraBuffers.c)
- *     IopLiveDumpAllocateIptBuffers @ 0x14094DBA8 (IopLiveDumpAllocateIptBuffers.c)
- *     IopLiveDumpAllocateMappingResources @ 0x14094DD88 (IopLiveDumpAllocateMappingResources.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094DF14 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpExcludeProtectedProcesses @ 0x14094DFA8 (IopLiveDumpExcludeProtectedProcesses.c)
- *     IopLiveDumpReleaseResources @ 0x14094EE18 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x140A9B19C (IopLiveDumpEstimateMemoryPages.c)
- *     IopLiveDumpResetCorralContext @ 0x140A9C518 (IopLiveDumpResetCorralContext.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlClearAllBitsEx @ 0x14033D480 (RtlClearAllBitsEx.c)
+ *     VslIsSecureKernelRunning @ 0x14036F0D0 (VslIsSecureKernelRunning.c)
+ *     IopGetPhysicalMemoryBlock @ 0x1403965B0 (IopGetPhysicalMemoryBlock.c)
+ *     RtlSetAllBitsEx @ 0x1403B5050 (RtlSetAllBitsEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055A3FC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x14055A474 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpTraceBufferAllocation @ 0x14055A818 (IopLiveDumpTraceBufferAllocation.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x14094CDF4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x14094D3A0 (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpAllocateIptBuffers @ 0x14094DDA8 (IopLiveDumpAllocateIptBuffers.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x14094DF88 (IopLiveDumpAllocateMappingResources.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094E114 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpExcludeProtectedProcesses @ 0x14094E1A8 (IopLiveDumpExcludeProtectedProcesses.c)
+ *     IopLiveDumpReleaseResources @ 0x14094F018 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9B00C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpResetCorralContext @ 0x140A9C388 (IopLiveDumpResetCorralContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -147,7 +147,7 @@ LABEL_16:
       *(_QWORD *)(v16 + 8240) = v17;
       *(_QWORD *)(a1 + 544) = v17;
       *(_QWORD *)(a1 + 552) = v16 + 8248;
-      RtlClearAllBitsEx(a1 + 544);
+      RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 544));
       IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 560), *(_QWORD *)(a1 + 568));
       v18 = ExAllocatePool2(64LL, (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL, 1886217292LL);
       *(_QWORD *)(a1 + 648) = v18;
@@ -300,7 +300,7 @@ LABEL_46:
     v63 = &v45;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C03870,
-      (unsigned __int8 *)byte_14002C07B,
+      (unsigned __int8 *)byte_14002C163,
       (const GUID *)(a1 + 968),
       (const GUID *)(a1 + 952),
       0xBu,

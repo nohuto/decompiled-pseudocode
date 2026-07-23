@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpReportResourceUsage @ 0x140A39D8C
+ * XREFs of HalpReportResourceUsage @ 0x140A3AD8C
  * Callers:
- *     HalReportResourceUsage @ 0x140A3CE50 (HalReportResourceUsage.c)
+ *     HalReportResourceUsage @ 0x140A3DE50 (HalReportResourceUsage.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     HalTranslateBusAddress @ 0x1403A5A60 (HalTranslateBusAddress.c)
- *     RtlCmEncodeMemIoResource @ 0x1403AD4E0 (RtlCmEncodeMemIoResource.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpClaimDebugResource @ 0x1404BF1A8 (HalpClaimDebugResource.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     HalpGetResourceSortValue @ 0x140A3A30C (HalpGetResourceSortValue.c)
- *     IoReportHalResourceUsage @ 0x140A3A810 (IoReportHalResourceUsage.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     HalTranslateBusAddress @ 0x1403A5BB0 (HalTranslateBusAddress.c)
+ *     RtlCmEncodeMemIoResource @ 0x1403AD630 (RtlCmEncodeMemIoResource.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpClaimDebugResource @ 0x1404BF3E8 (HalpClaimDebugResource.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     HalpGetResourceSortValue @ 0x140A3B30C (HalpGetResourceSortValue.c)
+ *     IoReportHalResourceUsage @ 0x140A3B810 (IoReportHalResourceUsage.c)
  */
 
 void __fastcall HalpReportResourceUsage(__int64 a1)

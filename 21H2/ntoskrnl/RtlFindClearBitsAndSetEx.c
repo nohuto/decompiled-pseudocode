@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlFindClearBitsAndSetEx @ 0x1402793D0
+ * XREFs of RtlFindClearBitsAndSetEx @ 0x140267370
  * Callers:
- *     MiObtainSessionVa @ 0x1402B41B4 (MiObtainSessionVa.c)
- *     RtlpHpFixedVsAllocate @ 0x1402D1E30 (RtlpHpFixedVsAllocate.c)
- *     ExpSaPageGroupAllocateMemory @ 0x140391A3C (ExpSaPageGroupAllocateMemory.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x14064C180 (MiAllocateFromSubAllocatedRegion.c)
- *     MiObtainRelocationBits @ 0x140714818 (MiObtainRelocationBits.c)
+ *     MiObtainSessionVa @ 0x140232364 (MiObtainSessionVa.c)
+ *     RtlpHpFixedVsAllocate @ 0x140250200 (RtlpHpFixedVsAllocate.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x140391B8C (ExpSaPageGroupAllocateMemory.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x140640FA0 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiObtainRelocationBits @ 0x1406C2E68 (MiObtainRelocationBits.c)
  * Callees:
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
  */
 
 unsigned __int64 __fastcall RtlFindClearBitsAndSetEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)

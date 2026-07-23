@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSelectNodeForAffinity @ 0x1403B54B8
+ * XREFs of KeSelectNodeForAffinity @ 0x1403B5698
  * Callers:
  *     KiSetIdealNodeProcessByGroup @ 0x140223B54 (KiSetIdealNodeProcessByGroup.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     KeInitializeProcess @ 0x1406B66E8 (KeInitializeProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
+ *     KeInitializeProcess @ 0x1406B6898 (KeInitializeProcess.c)
  * Callees:
  *     <none>
  */

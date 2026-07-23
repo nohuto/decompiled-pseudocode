@@ -1,11 +1,12 @@
 /*
- * XREFs of RtlPcToFilePath @ 0x140A8F850
+ * XREFs of RtlPcToFilePath @ 0x140A15C50
  * Callers:
- *     KitLogFeatureUsage @ 0x140659AE0 (KitLogFeatureUsage.c)
+ *     KitLogFeatureUsage @ 0x140658180 (KitLogFeatureUsage.c)
+ *     EtwpProviderArrivalCallback @ 0x140A3B8FC (EtwpProviderArrivalCallback.c)
  * Callees:
- *     MmLockLoadedDataTableEntryShared @ 0x1402C85E8 (MmLockLoadedDataTableEntryShared.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     MmUnlockLoadedDataTableEntryShared @ 0x1404B4344 (MmUnlockLoadedDataTableEntryShared.c)
+ *     MmLockLoadedDataTableEntryShared @ 0x1402BA46C (MmLockLoadedDataTableEntryShared.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     MmUnlockLoadedDataTableEntryShared @ 0x1404AEB90 (MmUnlockLoadedDataTableEntryShared.c)
  */
 
 __int64 __fastcall RtlPcToFilePath(__int64 a1, UNICODE_STRING *a2)

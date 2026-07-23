@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOpComputeLinearAddress @ 0x1401DB170
+ * XREFs of KiOpComputeLinearAddress @ 0x1401DAF9C
  * Callers:
- *     KiOpRetrieveRegMemAddress @ 0x1401DB500 (KiOpRetrieveRegMemAddress.c)
+ *     KiOpRetrieveRegMemAddress @ 0x1401DB32C (KiOpRetrieveRegMemAddress.c)
  * Callees:
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
  */
 
 __int64 __fastcall KiOpComputeLinearAddress(__int64 a1, __int64 *a2)

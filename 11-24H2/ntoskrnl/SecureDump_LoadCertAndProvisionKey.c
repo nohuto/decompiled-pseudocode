@@ -1,18 +1,18 @@
 /*
- * XREFs of SecureDump_LoadCertAndProvisionKey @ 0x1405A1E04
+ * XREFs of SecureDump_LoadCertAndProvisionKey @ 0x14059ED44
  * Callers:
- *     SecureDump_ProvisionCrashDumpKey @ 0x1405A23C8 (SecureDump_ProvisionCrashDumpKey.c)
+ *     SecureDump_ProvisionCrashDumpKey @ 0x14059F308 (SecureDump_ProvisionCrashDumpKey.c)
  * Callees:
- *     SecureDump_ConvertBinaryToHexString @ 0x1405A1500 (SecureDump_ConvertBinaryToHexString.c)
- *     SecureDump_LogErrorEvent @ 0x1405A214C (SecureDump_LogErrorEvent.c)
- *     SecureDump_ValidateAmeCertChain @ 0x1405A28B0 (SecureDump_ValidateAmeCertChain.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1406A64D0 (ZwReadFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SecureDump_ConvertBinaryToHexString @ 0x14059E440 (SecureDump_ConvertBinaryToHexString.c)
+ *     SecureDump_LogErrorEvent @ 0x14059F08C (SecureDump_LogErrorEvent.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x14059F7F0 (SecureDump_ValidateAmeCertChain.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1406A7470 (ZwReadFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SecureDump_LoadCertAndProvisionKey(UNICODE_STRING *a1, _QWORD *a2, int *a3, _QWORD *a4, __int64 a5)
@@ -96,7 +96,7 @@ LABEL_35:
     v9 = -1073741701;
     goto LABEL_35;
   }
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
+  Pool2 = (void *)ExAllocatePool2(0x40uLL, DWORD2(FileInformation), 0x706D6453u);
   if ( Pool2 )
   {
     v9 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Pool2, Length, &ByteOffset, 0LL);
@@ -104,7 +104,7 @@ LABEL_35:
       goto LABEL_33;
     if ( IoStatusBlock.Information == v12 )
     {
-      v14 = ExAllocatePool2(0x40uLL);
+      v14 = ExAllocatePool2(0x40uLL, 0x48uLL, 0x706D6453u);
       v6 = v14;
       if ( v14 )
       {
@@ -126,7 +126,7 @@ LABEL_35:
         v5 = 0LL;
         *v23 = v15;
         LODWORD(v18) = 4 * *(unsigned __int8 *)(v6 + 4) + 2;
-        v16 = ExAllocatePool2(0x40uLL);
+        v16 = ExAllocatePool2(0x40uLL, (unsigned int)v18, 0x706D6453u);
         v7 = (void *)v16;
         if ( v16 )
         {

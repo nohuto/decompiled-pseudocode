@@ -1,7 +1,7 @@
 /*
- * XREFs of KiStartReadyQueueEnumeratorForRescheduleContext @ 0x1402BBF30
+ * XREFs of KiStartReadyQueueEnumeratorForRescheduleContext @ 0x140306BF0
  * Callers:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
  * Callees:
  *     <none>
  */

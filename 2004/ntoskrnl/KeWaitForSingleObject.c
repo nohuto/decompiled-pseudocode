@@ -819,7 +819,7 @@ LABEL_21:
     CurrentThread->WaitBlockCount = 1;
     if ( WaitMode )
     {
-      v68 = KeAbPreAcquire((ULONG_PTR)Object, 0LL, 0LL);
+      v68 = KeAbPreAcquire((ULONG_PTR)Object, 0LL, 0);
       LODWORD(v9) = QuadPart;
       v24 = v68;
       v21 = Timeouta;
@@ -838,7 +838,7 @@ LABEL_21:
     LODWORD(WaitStatus) = KiCommitThreadWait((_DWORD)CurrentThread, (int)CurrentThread + 320, v21, v9, (__int64)&v112);
     if ( v24 )
     {
-      v69 = KeAbPreAcquire((ULONG_PTR)Object, v24, 0LL);
+      v69 = KeAbPreAcquire((ULONG_PTR)Object, v24, 0);
       if ( (WaitStatus & 0xFFFFFF7F) != 0 )
       {
         KeAbPostReleaseEx((ULONG_PTR)Object);
@@ -870,7 +870,7 @@ LABEL_21:
   {
     _InterlockedAnd((volatile signed __int32 *)Object, 0xFFFFFF7F);
     KiFastExitThreadWait(v18, CurrentThread, v13, v9);
-    RtlRaiseStatus(3221225873LL);
+    RtlRaiseStatus(-1073741423);
   }
   v32 = v31 - 1;
   *((_DWORD *)Object + 1) = v32;
@@ -1138,7 +1138,7 @@ LABEL_201:
   if ( AbWaitObject )
   {
     CurrentThread->AbWaitObject = 0LL;
-    v75 = KeAbPreAcquire(AbWaitObject, 0LL, 1LL);
+    v75 = KeAbPreAcquire(AbWaitObject, 0LL, 1);
     if ( v75 )
       *(_BYTE *)(v75 + 26) |= 1u;
   }

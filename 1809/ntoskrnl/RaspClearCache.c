@@ -1,12 +1,12 @@
 /*
- * XREFs of RaspClearCache @ 0x14095054C
+ * XREFs of RaspClearCache @ 0x14095154C
  * Callers:
- *     ResFwFreeContext @ 0x14094E218 (ResFwFreeContext.c)
- *     AnFwpDisableProgressTimer @ 0x140950440 (AnFwpDisableProgressTimer.c)
- *     BgpTxtDestroyRegion @ 0x14095101C (BgpTxtDestroyRegion.c)
- *     AnFwDisplayProgressIndicator @ 0x14095129C (AnFwDisplayProgressIndicator.c)
+ *     ResFwFreeContext @ 0x14094F218 (ResFwFreeContext.c)
+ *     AnFwpDisableProgressTimer @ 0x140951440 (AnFwpDisableProgressTimer.c)
+ *     BgpTxtDestroyRegion @ 0x14095201C (BgpTxtDestroyRegion.c)
+ *     AnFwDisplayProgressIndicator @ 0x14095229C (AnFwDisplayProgressIndicator.c)
  * Callees:
- *     RaspDestroyCachedBitmap @ 0x140951630 (RaspDestroyCachedBitmap.c)
+ *     RaspDestroyCachedBitmap @ 0x140952630 (RaspDestroyCachedBitmap.c)
  */
 
 __int64 *RaspClearCache()
@@ -26,6 +26,6 @@ __int64 *RaspClearCache()
       break;
     RaspDestroyCachedBitmap(result);
   }
-  dword_1404059D4 = 0;
+  dword_1404069D4 = 0;
   return result;
 }

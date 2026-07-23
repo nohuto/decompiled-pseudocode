@@ -1,33 +1,33 @@
 /*
- * XREFs of ExUninitializeDeviceAts @ 0x140657E2C
+ * XREFs of ExUninitializeDeviceAts @ 0x14065652C
  * Callers:
- *     PiIommuUninitializeDeviceAts @ 0x1404C1094 (PiIommuUninitializeDeviceAts.c)
+ *     PiIommuUninitializeDeviceAts @ 0x1404BC67C (PiIommuUninitializeDeviceAts.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExpAtsDereferenceDevice @ 0x140657F9C (ExpAtsDereferenceDevice.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExpAtsDereferenceDevice @ 0x14065669C (ExpAtsDereferenceDevice.c)
  */
 
 __int64 __fastcall ExUninitializeDeviceAts(PVOID a1)
 {
   unsigned int v1; // ebx
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rdi
+  char *v5; // rdi
   PVOID *i; // rcx
 
   v1 = 0;
   if ( a1 )
   {
-    v3 = KeAbPreAcquire((__int64)&ExpAtsSvmDeviceListLock, 0LL);
+    v3 = (char *)KeAbPreAcquire((__int64)&ExpAtsSvmDeviceListLock, 0LL);
     v4 = _interlockedbittestandset64((volatile signed __int32 *)&ExpAtsSvmDeviceListLock, 0LL);
     v5 = v3;
     if ( v4 )
-      ExfAcquirePushLockExclusiveEx(&ExpAtsSvmDeviceListLock, (__int64)v3, (__int64)&ExpAtsSvmDeviceListLock);
+      ExfAcquirePushLockExclusiveEx(&ExpAtsSvmDeviceListLock, v3, (__int64)&ExpAtsSvmDeviceListLock);
     if ( v5 )
-      *((_BYTE *)v5 + 10) = 1;
+      v5[10] = 1;
     for ( i = (PVOID *)ExpAtsSvmDevices; i != &ExpAtsSvmDevices; i = (PVOID *)*i )
     {
       if ( i[3] == a1 )

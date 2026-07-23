@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiLogSessionDeviceAssignmentPolicySet @ 0x1407EA384
+ * XREFs of TtmiLogSessionDeviceAssignmentPolicySet @ 0x1407EFEE4
  * Callers:
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1407E8180 (TtmpDispatchSetDefaultDeviceAssignment.c)
- *     TtmInitCurrentSession @ 0x140A3A0D4 (TtmInitCurrentSession.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1407EDCE0 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmInitCurrentSession @ 0x1409F5CD4 (TtmInitCurrentSession.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
  */
 
 void __fastcall TtmiLogSessionDeviceAssignmentPolicySet(char a1)
@@ -23,7 +23,7 @@ void __fastcall TtmiLogSessionDeviceAssignmentPolicySet(char a1)
   char *v10; // [rsp+70h] [rbp-28h]
   __int64 v11; // [rsp+78h] [rbp-20h]
 
-  if ( (unsigned int)dword_140FD58A8 > 5 && tlgKeywordOn((__int64)&dword_140FD58A8, 1LL) )
+  if ( (unsigned int)dword_140FD68B8 > 5 && tlgKeywordOn((__int64)&dword_140FD68B8, 1LL) )
   {
     SessionId = TtmiGetSessionId(v3, v2, v4);
     v5 = a1;
@@ -31,6 +31,6 @@ void __fastcall TtmiLogSessionDeviceAssignmentPolicySet(char a1)
     p_SessionId = &SessionId;
     v11 = 1LL;
     v10 = &v5;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD58A8, (unsigned __int8 *)byte_140051175, 0LL, 0LL, 4u, &v7);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD68B8, (unsigned __int8 *)&qword_1400533D0, 0LL, 0LL, 4u, &v7);
   }
 }

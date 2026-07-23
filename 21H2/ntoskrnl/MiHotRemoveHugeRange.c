@@ -1,18 +1,18 @@
 /*
- * XREFs of MiHotRemoveHugeRange @ 0x140532CF8
+ * XREFs of MiHotRemoveHugeRange @ 0x140532F38
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x140560AE0 (MiActOnPartitionNodePages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiHugePfnPartition @ 0x1403F38E8 (MiHugePfnPartition.c)
  *     MiMakeEntireHugePfnGood @ 0x1403F394C (MiMakeEntireHugePfnGood.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiHotRemoveHugeRange(unsigned __int64 a1, unsigned __int64 a2)
@@ -50,7 +50,7 @@ void __fastcall MiHotRemoveHugeRange(unsigned __int64 a1, unsigned __int64 a2)
   v3 = v2;
   memset(&LockHandle, 0, sizeof(LockHandle));
   v4 = a2 >> 18;
-  v5 = (unsigned __int64 *)(qword_140C4E670 + 8 * v2);
+  v5 = (unsigned __int64 *)(qword_140C4E6B0 + 8 * v2);
   v6 = MiHugePfnPartition(v5);
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v6 + 4128), &LockHandle);
   if ( !v4 )
@@ -113,9 +113,9 @@ LABEL_14:
     }
   }
   __writecr8(OldIrql);
-  v20 = (void *)(qword_140C4E670 + 8 * v2);
-  KeAcquireInStackQueuedSpinLock(&qword_140C4E680, &LockHandle);
-  RtlClearBitsEx((__int64)&qword_140C4E660, v2, v4);
+  v20 = (void *)(qword_140C4E6B0 + 8 * v2);
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E6C0, &LockHandle);
+  RtlClearBitsEx((__int64)&qword_140C4E6A0, v2, v4);
   if ( v4 )
     memset(v20, 0, 8 * v4);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

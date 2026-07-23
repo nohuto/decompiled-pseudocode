@@ -1,27 +1,17 @@
 /*
- * XREFs of PiIommuSaveDeviceAtsSettings @ 0x14077EF50
+ * XREFs of PiIommuSaveDeviceAtsSettings @ 0x140781A50
  * Callers:
- *     PiDmaGuardProcessPreAddDevice @ 0x140915648 (PiDmaGuardProcessPreAddDevice.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x1409700B4 (PiDmaGuardProcessPreAddDevice.c)
  * Callees:
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
  */
 
-__int64 __fastcall PiIommuSaveDeviceAtsSettings(__int64 a1, int a2)
+__int64 __fastcall PiIommuSaveDeviceAtsSettings(__int64 a1)
 {
-  __int64 v3; // rdx
-  char v5; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v1; // rdx
+  char v3; // [rsp+60h] [rbp+8h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 48);
-  v5 = (unsigned __int8)((*(_BYTE *)(*(_QWORD *)(a1 + 720) + 16LL) >> 2) | *(_BYTE *)(*(_QWORD *)(a1 + 720) + 16LL) & 0x40) >> 5;
-  return PnpSetObjectProperty(
-           PiPnpRtlCtx,
-           v3,
-           1,
-           a2,
-           0LL,
-           (__int64)DEVPKEY_Device_AtsSettings,
-           4099,
-           (__int64)&v5,
-           1,
-           0);
+  v1 = *(_QWORD *)(a1 + 48);
+  v3 = (unsigned __int8)((*(_BYTE *)(*(_QWORD *)(a1 + 720) + 16LL) >> 2) | *(_BYTE *)(*(_QWORD *)(a1 + 720) + 16LL) & 0x40) >> 5;
+  return PnpSetObjectProperty(PiPnpRtlCtx, v1, 1, 0LL, (__int64)DEVPKEY_Device_AtsSettings, 4099, (__int64)&v3, 1, 0);
 }

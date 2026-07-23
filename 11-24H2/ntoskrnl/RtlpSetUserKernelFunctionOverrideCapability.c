@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpSetUserKernelFunctionOverrideCapability @ 0x140787E48
+ * XREFs of RtlpSetUserKernelFunctionOverrideCapability @ 0x140787D78
  * Callers:
- *     RtlpInitFunctionOverrideCapabilities @ 0x14078D6B8 (RtlpInitFunctionOverrideCapabilities.c)
+ *     RtlpInitFunctionOverrideCapabilities @ 0x14078D5E8 (RtlpInitFunctionOverrideCapabilities.c)
  * Callees:
- *     RtlpSetFunctionOverrideCapability @ 0x140787E08 (RtlpSetFunctionOverrideCapability.c)
+ *     RtlpSetFunctionOverrideCapability @ 0x140787D38 (RtlpSetFunctionOverrideCapability.c)
  */
 
 char __fastcall RtlpSetUserKernelFunctionOverrideCapability(unsigned int a1, __int64 a2)

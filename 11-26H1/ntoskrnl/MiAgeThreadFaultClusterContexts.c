@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAgeThreadFaultClusterContexts @ 0x14046DE80
+ * XREFs of MiAgeThreadFaultClusterContexts @ 0x140467600
  * Callers:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiAgeThreadFaultClusterBlock @ 0x14046DF8C (MiAgeThreadFaultClusterBlock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiAgeThreadFaultClusterBlock @ 0x14046770C (MiAgeThreadFaultClusterBlock.c)
  */
 
 __int64 __fastcall MiAgeThreadFaultClusterContexts(__int64 a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -43,7 +43,7 @@ __int64 __fastcall MiAgeThreadFaultClusterContexts(__int64 a1, int a2, __int64 a
     ExfReleasePushLockShared(v4);
   KeAbPostRelease((unsigned __int64)v4);
   if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
   {
     KiCheckForKernelApcDelivery(v10, v9);
   }

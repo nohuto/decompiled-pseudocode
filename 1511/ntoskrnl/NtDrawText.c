@@ -10,49 +10,49 @@
  *     BgkDrawText @ 0x1406DE14C (BgkDrawText.c)
  */
 
-__int64 __fastcall NtDrawText(int *a1)
+NTSTATUS __cdecl NtDrawText(PUNICODE_STRING Text)
 {
-  unsigned int v2; // esi
-  void *v3; // rdi
+  NTSTATUS v2; // esi
+  wchar_t *v3; // rdi
   KPROCESSOR_MODE PreviousMode; // r15
   int v6; // eax
-  void *v7; // r14
+  wchar_t *Buffer; // r14
   ULONG64 v8; // rcx
-  PVOID PoolWithTag; // rax
+  wchar_t *PoolWithTag; // rax
   int v10; // [rsp+20h] [rbp-28h] BYREF
-  void *v11; // [rsp+28h] [rbp-20h]
+  wchar_t *v11; // [rsp+28h] [rbp-20h]
   int v12; // [rsp+58h] [rbp+10h]
 
   v2 = 0;
   v3 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-    return 3221225569LL;
-  if ( !a1 )
-    return 3221225485LL;
+    return -1073741727;
+  if ( !Text )
+    return -1073741811;
   if ( !PreviousMode )
     goto LABEL_17;
-  if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    a1 = (int *)MmUserProbeAddress;
-  v6 = *a1;
-  v12 = *a1;
-  v10 = *a1;
-  v7 = (void *)*((_QWORD *)a1 + 1);
-  v11 = v7;
-  if ( !v7 || !HIWORD(v6) )
+  if ( (unsigned __int64)Text >= MmUserProbeAddress )
+    Text = (PUNICODE_STRING)MmUserProbeAddress;
+  v6 = *(_DWORD *)&Text->Length;
+  v12 = *(_DWORD *)&Text->Length;
+  v10 = *(_DWORD *)&Text->Length;
+  Buffer = Text->Buffer;
+  v11 = Buffer;
+  if ( !Buffer || !HIWORD(v6) )
     goto LABEL_18;
-  v8 = (ULONG64)v7 + HIWORD(v12);
-  if ( v8 > MmUserProbeAddress || v8 < (unsigned __int64)v7 )
+  v8 = (ULONG64)Buffer + HIWORD(v12);
+  if ( v8 > MmUserProbeAddress || v8 < (unsigned __int64)Buffer )
     *(_BYTE *)MmUserProbeAddress = 0;
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, HIWORD(v12), 0x67727453u);
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, HIWORD(v12), 0x67727453u);
   v3 = PoolWithTag;
   if ( PoolWithTag )
   {
-    memmove(PoolWithTag, v7, HIWORD(v12));
+    memmove(PoolWithTag, Buffer, HIWORD(v12));
     v11 = v3;
-    a1 = &v10;
+    Text = (PUNICODE_STRING)&v10;
 LABEL_17:
-    v2 = BgkDrawText(*((_QWORD *)a1 + 1));
+    v2 = BgkDrawText(Text->Buffer);
     goto LABEL_18;
   }
   v2 = -1073741801;

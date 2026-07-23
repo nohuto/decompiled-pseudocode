@@ -1,11 +1,11 @@
 /*
- * XREFs of CcGetVacbFromFreeList @ 0x14029F538
+ * XREFs of CcGetVacbFromFreeList @ 0x14029F7C8
  * Callers:
- *     CcGetVacbMiss @ 0x14029F110 (CcGetVacbMiss.c)
- *     CcInitializePartitionVacbs @ 0x1403A0810 (CcInitializePartitionVacbs.c)
+ *     CcGetVacbMiss @ 0x14029F3A0 (CcGetVacbMiss.c)
+ *     CcInitializePartitionVacbs @ 0x1403A09F0 (CcInitializePartitionVacbs.c)
  * Callees:
- *     CcReferenceVacbArray @ 0x14029F5EC (CcReferenceVacbArray.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     CcReferenceVacbArray @ 0x14029F87C (CcReferenceVacbArray.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 *__fastcall CcGetVacbFromFreeList(__int64 a1, char a2)

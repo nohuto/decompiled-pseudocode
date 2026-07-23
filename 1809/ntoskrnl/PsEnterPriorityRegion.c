@@ -1,9 +1,9 @@
 /*
- * XREFs of PsEnterPriorityRegion @ 0x1400BBF10
+ * XREFs of PsEnterPriorityRegion @ 0x1400BBE50
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x1400BBF90 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoEx @ 0x1400BBED0 (PsBoostThreadIoEx.c)
  */
 
 __int64 PsEnterPriorityRegion()

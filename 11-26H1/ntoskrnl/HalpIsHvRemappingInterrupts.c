@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIsHvRemappingInterrupts @ 0x140781180
+ * XREFs of HalpIsHvRemappingInterrupts @ 0x140783C80
  * Callers:
- *     HalpInitializeInterruptsBspLate @ 0x14057D120 (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsBspLate @ 0x14057F640 (HalpInitializeInterruptsBspLate.c)
  * Callees:
  *     <none>
  */
 
 bool HalpIsHvRemappingInterrupts()
 {
-  return qword_140FBB068 != 0;
+  return qword_140FBB408 != 0;
 }

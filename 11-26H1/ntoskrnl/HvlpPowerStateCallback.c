@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpPowerStateCallback @ 0x1404EE8A0
+ * XREFs of HvlpPowerStateCallback @ 0x1404E7E80
  * Callers:
  *     <none>
  * Callees:
- *     HvlpCheckTscSync @ 0x1404EE8C4 (HvlpCheckTscSync.c)
+ *     HvlpCheckTscSync @ 0x1404E7EA4 (HvlpCheckTscSync.c)
  */
 
 void __fastcall HvlpPowerStateCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

@@ -1,19 +1,19 @@
 /*
  * XREFs of RtlGetNtSystemRoot @ 0x140761D60
  * Callers:
- *     ObpUseSystemDeviceMap @ 0x140659150 (ObpUseSystemDeviceMap.c)
- *     MiDriverLoadSucceeded @ 0x140761234 (MiDriverLoadSucceeded.c)
- *     SdbpGetProcessHistory @ 0x140A13308 (SdbpGetProcessHistory.c)
- *     AslEnvVarQuery @ 0x140A17E60 (AslEnvVarQuery.c)
+ *     sub_140659150 @ 0x140659150 (sub_140659150.c)
+ *     sub_140761234 @ 0x140761234 (sub_140761234.c)
+ *     sub_140A13308 @ 0x140A13308 (sub_140A13308.c)
+ *     sub_140A17E60 @ 0x140A17E60 (sub_140A17E60.c)
  * Callees:
  *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
-__int64 RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return *((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 30LL;
+    return (PWSTR)(*((_QWORD *)sub_140347DB0() + 165) + 30LL);
   else
-    return 0xFFFFF78000000030uLL;
+    return (PWSTR)0xFFFFF78000000030LL;
 }

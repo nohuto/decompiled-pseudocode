@@ -1,35 +1,35 @@
 /*
- * XREFs of MiDemoteValidLargePageOneLevel @ 0x140683AC8
+ * XREFs of MiDemoteValidLargePageOneLevel @ 0x140684C24
  * Callers:
- *     MiPfnRangeIsZero @ 0x14066E2AC (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x14066F480 (MiPfnRangeIsZero.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140266854 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     MiUnlinkPageChainHead @ 0x1402E8490 (MiUnlinkPageChainHead.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiTransformValidPteInPlace @ 0x14039404C (MiTransformValidPteInPlace.c)
- *     MiInitializePfnForOtherProcess @ 0x140396C84 (MiInitializePfnForOtherProcess.c)
- *     MiGetPageTablePages @ 0x14039E9BC (MiGetPageTablePages.c)
- *     MiUpdateLargePageBitMap @ 0x1403A29EC (MiUpdateLargePageBitMap.c)
- *     MiInsertLargeTbFlushEntry @ 0x1403A4A2C (MiInsertLargeTbFlushEntry.c)
- *     MiInitializeColorBase @ 0x1403A671C (MiInitializeColorBase.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiConvertLargePfnToSmall @ 0x14041F790 (MiConvertLargePfnToSmall.c)
- *     MiUpdateDemotedSubPage @ 0x14042FB30 (MiUpdateDemotedSubPage.c)
- *     MiInitializeUsedPtesCount @ 0x14043E260 (MiInitializeUsedPtesCount.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiUpdateLargePageBitMap @ 0x140219EE0 (MiUpdateLargePageBitMap.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14021C25C (MiInsertLargeTbFlushEntry.c)
+ *     MiGetPageTablePages @ 0x14021CA98 (MiGetPageTablePages.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiInitializeColorBase @ 0x14026DA0C (MiInitializeColorBase.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiConvertLargePfnToSmall @ 0x1402EE180 (MiConvertLargePfnToSmall.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402EEA94 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiUpdateDemotedSubPage @ 0x1402EF390 (MiUpdateDemotedSubPage.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiUnlinkPageChainHead @ 0x140349AD0 (MiUnlinkPageChainHead.c)
+ *     MiTransformValidPteInPlace @ 0x14038D668 (MiTransformValidPteInPlace.c)
+ *     MiInitializePfnForOtherProcess @ 0x14038FF2C (MiInitializePfnForOtherProcess.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiInitializeUsedPtesCount @ 0x140432950 (MiInitializeUsedPtesCount.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
@@ -135,7 +135,7 @@ __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
   v56 = 3;
   v11 = MiPageToNode(v9);
   MiInitializeColorBase(a1, v11 + 1, (__int64)v57);
-  if ( (int)MiGetPageTablePages((__int64)v54, 1uLL, 2, (__int64)&v52) < 0 )
+  if ( (int)MiGetPageTablePages((__int64)v54, 1uLL, 2u, (__int64)&v52) < 0 )
     return 0LL;
   v13 = MiUnlinkPageChainHead((__int64)&v52);
   v49 = v13;
@@ -151,14 +151,14 @@ __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
   v51 = v3 << 25;
   ValidPte = MiMakeValidPte((__int64)(v3 << 25) >> 16, v9, v15);
   v17 = ValidPte;
-  if ( ((unsigned __int8)(1 << (v2 - 1)) & (unsigned __int8)byte_140E2DAC9) != 0 )
+  if ( ((unsigned __int8)(1 << (v2 - 1)) & (unsigned __int8)byte_140E2DC09) != 0 )
     v17 = ValidPte & 0xFFFFFFFFFFFFFFDFuLL;
-  v47 = MiMapPageInHyperSpaceWorker(v43, v38, 0x80000000LL);
+  v47 = MiMapPageInHyperSpaceWorker(v43, v38, 0x80000000);
   v18 = v47;
   do
   {
     if ( _bittest64(&MiFlags, 0x24u) && (v17 & 0x20) == 0 && v18 >= 0xFFFFF6C000000000uLL )
-      MiCheckLinearProtectedPteAccessedBit(v18, v17, 128);
+      MiCheckLinearProtectedPteAccessedBit(v18, v17, 128LL);
     *(_QWORD *)v18 = v17;
     v18 += 8LL;
     v17 = (v17 + (v4 << 12)) ^ ((v17 + (v4 << 12)) ^ v17) & 0xFFF0000000000FFFuLL;
@@ -169,7 +169,7 @@ __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
   v20 = MiMakeValidPte(v3, v45, ((_DWORD)v42 << 21) & 0x20000000 | 0x88000004);
   v21 = v43;
   v22 = v20;
-  MiInitializePfnForOtherProcess(v43, v3, v48, 2560);
+  MiInitializePfnForOtherProcess(v43, v3, v48, 2560LL);
   LODWORD(v42) = 0;
   v23 = (__int64)v49;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v23 + 24), 0x3FuLL) )
@@ -220,7 +220,7 @@ __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
       if ( (*(_QWORD *)(v36 + 16) & 0x10000000000LL) != 0 )
       {
         if ( v32 == 1 )
-          MiConvertLargePfnToSmall(v28, v33, 0);
+          MiConvertLargePfnToSmall(v28, v33, 0LL);
         else
           MiUpdateDemotedSubPage(v28, v33, v30);
       }
@@ -233,7 +233,7 @@ __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
   }
   while ( v41 );
   if ( v32 == 1 )
-    MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v45, v44 >> 12, 6);
+    MiUpdateLargePageBitMap((unsigned __int64)&MiSystemPartition, v45, v44 >> 12, 6);
   if ( ProcessorFlushList )
   {
     MiFlushTbList((__int64)ProcessorFlushList);

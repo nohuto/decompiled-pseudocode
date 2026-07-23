@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtUnmapViewOfSectionEx()
+NTSTATUS __cdecl NtUnmapViewOfSectionEx(HANDLE ProcessHandle, PVOID BaseAddress, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 431LL;
+  result = 431;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -8,25 +8,21 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028090 (RtlAcquireSRWLockExclusive.c)
  */
 
-volatile signed __int64 *__fastcall sub_180089000(
-        volatile signed __int64 *a1,
-        unsigned __int64 a2,
-        unsigned __int64 *a3,
-        __int64 a4)
+_RTL_SRWLOCK *__fastcall sub_180089000(_RTL_SRWLOCK *a1)
 {
-  volatile signed __int64 *v5; // rdi
-  volatile signed __int64 v6; // rax
-  volatile signed __int64 *result; // rax
+  _RTL_SRWLOCK *Ptr; // rdi
+  _QWORD *v3; // rax
+  _RTL_SRWLOCK *result; // rax
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)(a1 + 2), a2, a3, a4);
-  v5 = (volatile signed __int64 *)*a1;
-  if ( *(volatile signed __int64 **)(*a1 + 8) != a1 || (v6 = *v5, *(volatile signed __int64 **)(*v5 + 8) != v5) )
+  RtlAcquireSRWLockExclusive(a1 + 2);
+  Ptr = (_RTL_SRWLOCK *)a1->Ptr;
+  if ( *((_RTL_SRWLOCK **)a1->Ptr + 1) != a1 || (v3 = Ptr->Ptr, *((_RTL_SRWLOCK **)Ptr->Ptr + 1) != Ptr) )
     __fastfail(3u);
-  *a1 = v6;
-  *(_QWORD *)(v6 + 8) = a1;
+  a1->Ptr = v3;
+  v3[1] = a1;
   RtlReleaseSRWLockExclusive(a1 + 2);
   result = 0LL;
-  if ( v5 != a1 )
-    return v5;
+  if ( Ptr != a1 )
+    return Ptr;
   return result;
 }

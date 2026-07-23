@@ -1,8 +1,8 @@
 /*
- * XREFs of _wchartodigit @ 0x14050261C
+ * XREFs of _wchartodigit @ 0x1404FFEDC
  * Callers:
- *     wcstoxlX @ 0x140500544 (wcstoxlX.c)
- *     wcstoxq @ 0x1405009A4 (wcstoxq.c)
+ *     wcstoxlX @ 0x1404FDE04 (wcstoxlX.c)
+ *     wcstoxq @ 0x1404FE264 (wcstoxq.c)
  * Callees:
  *     <none>
  */

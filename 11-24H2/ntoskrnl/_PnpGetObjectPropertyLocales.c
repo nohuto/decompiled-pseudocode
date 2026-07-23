@@ -1,17 +1,17 @@
 /*
- * XREFs of _PnpGetObjectPropertyLocales @ 0x140995138
+ * XREFs of _PnpGetObjectPropertyLocales @ 0x140980178
  * Callers:
- *     PiDqPnPGetObjectPropertyLocales @ 0x140995028 (PiDqPnPGetObjectPropertyLocales.c)
+ *     PiDqPnPGetObjectPropertyLocales @ 0x140980068 (PiDqPnPGetObjectPropertyLocales.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpGetObjectPropertyLocalesWorker @ 0x1409952A8 (_PnpGetObjectPropertyLocalesWorker.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x1409802E8 (_PnpGetObjectPropertyLocalesWorker.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyLocales(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        int a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
@@ -45,7 +45,7 @@ __int64 __fastcall PnpGetObjectPropertyLocales(
   v21 = a4;
   if ( v12 )
   {
-    v13 = guard_dispatch_icall_no_overrides(v8, a2, a3, 7LL);
+    v13 = guard_dispatch_icall_no_overrides(v8, a2);
     if ( v13 == -1073741822 )
     {
       v12 = 0LL;
@@ -63,7 +63,7 @@ __int64 __fastcall PnpGetObjectPropertyLocales(
   if ( !v12 )
     return v15;
   v20[0] = ObjectPropertyLocalesWorker;
-  v17 = guard_dispatch_icall_no_overrides(v8, a2, a3, 7LL);
+  v17 = guard_dispatch_icall_no_overrides(v8, a2);
   v18 = v17;
   if ( v17 == -1073741822 )
     return v15;

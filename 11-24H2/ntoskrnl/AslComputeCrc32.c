@@ -1,9 +1,9 @@
 /*
- * XREFs of AslComputeCrc32 @ 0x14080866C
+ * XREFs of AslComputeCrc32 @ 0x140808DAC
  * Callers:
- *     AslpFileGetCrcChecksum @ 0x14080D24C (AslpFileGetCrcChecksum.c)
- *     AslpFileGetCrcChecksumBoot @ 0x14080D344 (AslpFileGetCrcChecksumBoot.c)
- *     AslpFileLargeGetCrcChecksum @ 0x140810244 (AslpFileLargeGetCrcChecksum.c)
+ *     AslpFileGetCrcChecksum @ 0x14080D98C (AslpFileGetCrcChecksum.c)
+ *     AslpFileGetCrcChecksumBoot @ 0x14080DA84 (AslpFileGetCrcChecksumBoot.c)
+ *     AslpFileLargeGetCrcChecksum @ 0x140810984 (AslpFileLargeGetCrcChecksum.c)
  * Callees:
  *     <none>
  */

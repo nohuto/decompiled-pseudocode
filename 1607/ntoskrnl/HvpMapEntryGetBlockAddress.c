@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpMapEntryGetBlockAddress @ 0x14002D380
+ * XREFs of HvpMapEntryGetBlockAddress @ 0x14002CF00
  * Callers:
- *     HvpGetCellPaged @ 0x14043FC60 (HvpGetCellPaged.c)
- *     HvpFindNextDirtyBlock @ 0x1404815C8 (HvpFindNextDirtyBlock.c)
- *     HvpCopyModifiedData @ 0x1406128AC (HvpCopyModifiedData.c)
+ *     HvpGetCellPaged @ 0x14043EB30 (HvpGetCellPaged.c)
+ *     HvpFindNextDirtyBlock @ 0x14048031C (HvpFindNextDirtyBlock.c)
+ *     HvpCopyModifiedData @ 0x140612960 (HvpCopyModifiedData.c)
  * Callees:
- *     HvpIncrementCellReferenceCount @ 0x14002D6BC (HvpIncrementCellReferenceCount.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
+ *     HvpIncrementCellReferenceCount @ 0x14002D23C (HvpIncrementCellReferenceCount.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
  */
 
 unsigned __int64 __fastcall HvpMapEntryGetBlockAddress(__int64 a1, struct _EX_RUNDOWN_REF *a2, _WORD *a3)

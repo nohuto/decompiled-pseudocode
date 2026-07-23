@@ -1,14 +1,14 @@
 /*
- * XREFs of KiVpBackingThreadYieldExecution @ 0x1402385C4
+ * XREFs of KiVpBackingThreadYieldExecution @ 0x140239F24
  * Callers:
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiSetPriorityBoost @ 0x1403BFA08 (KiSetPriorityBoost.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiSetPriorityBoost @ 0x1403C9908 (KiSetPriorityBoost.c)
  */
 
 char __fastcall KiVpBackingThreadYieldExecution(__int64 a1)
@@ -39,7 +39,7 @@ char __fastcall KiVpBackingThreadYieldExecution(__int64 a1)
     if ( PerformanceCounter.QuadPart >= v5
       && v5 == _InterlockedCompareExchange64(
                  (volatile signed __int64 *)(v1 + 248),
-                 (signed __int64)stru_140FC01F0.SavedApcState.ApcListHead[1].Blink + PerformanceCounter.QuadPart,
+                 (signed __int64)stru_140FC11F0.SavedApcState.ApcListHead[1].Blink + PerformanceCounter.QuadPart,
                  v5) )
     {
       ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v1 + 64));
@@ -81,8 +81,8 @@ char __fastcall KiVpBackingThreadYieldExecution(__int64 a1)
         LOBYTE(v9) = 2;
         KiProcessDeferredReadyList(KeGetCurrentPrcb(), &v12, v9);
         ++*(_DWORD *)(v1 + 244);
-        _InterlockedAdd((volatile signed __int32 *)&stru_140FC01F0.SavedApcStateFill[32], 1u);
-        _InterlockedAdd((volatile signed __int32 *)&stru_140FC01F0.SavedApcStateFill[36], v2);
+        _InterlockedAdd((volatile signed __int32 *)&stru_140FC11F0.SavedApcStateFill[16], 1u);
+        _InterlockedAdd((volatile signed __int32 *)&stru_140FC11F0.SavedApcStateFill[20], v2);
       }
       return 0;
     }

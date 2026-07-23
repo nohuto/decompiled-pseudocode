@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaInitSystem @ 0x140BEBA70
+ * XREFs of HalpDmaInitSystem @ 0x140BF1A70
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaInitPowerManagement @ 0x14058B824 (HalpDmaInitPowerManagement.c)
- *     HalpDmaFinalizeDoubleBufferingDisposition @ 0x140CADBF4 (HalpDmaFinalizeDoubleBufferingDisposition.c)
- *     HalpDmaInitDiscard @ 0x140CB0054 (HalpDmaInitDiscard.c)
- *     HalpDmaInit @ 0x140CB0700 (HalpDmaInit.c)
- *     HalpDmaInitEarly @ 0x140CB08F0 (HalpDmaInitEarly.c)
+ *     HalpDmaInitPowerManagement @ 0x14058DFA4 (HalpDmaInitPowerManagement.c)
+ *     HalpDmaFinalizeDoubleBufferingDisposition @ 0x140CB3C34 (HalpDmaFinalizeDoubleBufferingDisposition.c)
+ *     HalpDmaInitDiscard @ 0x140CB6094 (HalpDmaInitDiscard.c)
+ *     HalpDmaInit @ 0x140CB6740 (HalpDmaInit.c)
+ *     HalpDmaInitEarly @ 0x140CB6930 (HalpDmaInitEarly.c)
  */
 
 __int64 __fastcall HalpDmaInitSystem(int a1, __int64 a2, __int64 a3)
@@ -28,13 +28,13 @@ __int64 __fastcall HalpDmaInitSystem(int a1, __int64 a2, __int64 a3)
     if ( !v5 )
     {
       HalpDmaHibernateAdaptersLock = 0LL;
-      qword_140FBA7C8 = (__int64)&HalpDmaControllers;
+      qword_140FBAB88 = (__int64)&HalpDmaControllers;
       HalpDmaControllers = (__int64)&HalpDmaControllers;
-      qword_140FBD1E8 = (__int64)&HalpDmaHibernateAdapters;
+      qword_140FBD588 = (__int64)&HalpDmaHibernateAdapters;
       HalpDmaHibernateAdapters = (__int64)&HalpDmaHibernateAdapters;
-      qword_140FBD1F8 = (__int64)&HalpDmaShadowDumpAdapters;
+      qword_140FBD578 = (__int64)&HalpDmaShadowDumpAdapters;
       HalpDmaShadowDumpAdapters = (__int64)&HalpDmaShadowDumpAdapters;
-      qword_140FBD1B8 = (__int64)&HalpDmaPdoList;
+      qword_140FBD548 = (__int64)&HalpDmaPdoList;
       HalpDmaPdoList = (__int64)&HalpDmaPdoList;
       HalpDmaShadowDumpAdaptersLock = 0LL;
       HalpDmaPdoListLock = 0LL;

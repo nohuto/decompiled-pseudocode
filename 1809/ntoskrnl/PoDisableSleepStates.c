@@ -1,11 +1,11 @@
 /*
- * XREFs of PoDisableSleepStates @ 0x1408689C0
+ * XREFs of PoDisableSleepStates @ 0x140869C20
  * Callers:
- *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
+ *     PoInitHiberServices @ 0x140746E80 (PoInitHiberServices.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PoDisableSleepStates(int a1, int a2, _QWORD *a3)
@@ -24,13 +24,13 @@ __int64 __fastcall PoDisableSleepStates(int a1, int a2, _QWORD *a3)
     *((_DWORD *)PoolWithTag + 4) = a1;
     *((_DWORD *)PoolWithTag + 5) = a2;
     ExAcquireFastMutex(&PopDisableSleepMutex);
-    v8 = (_QWORD *)qword_140419058;
-    if ( *(__int64 **)qword_140419058 != &PopDisableSleepList )
+    v8 = (_QWORD *)qword_14041A168;
+    if ( *(__int64 **)qword_14041A168 != &PopDisableSleepList )
       __fastfail(3u);
     *PoolWithTag = &PopDisableSleepList;
     PoolWithTag[1] = v8;
     *v8 = PoolWithTag;
-    qword_140419058 = (__int64)PoolWithTag;
+    qword_14041A168 = (__int64)PoolWithTag;
     KeReleaseGuardedMutex(&PopDisableSleepMutex);
     *a3 = PoolWithTag;
   }

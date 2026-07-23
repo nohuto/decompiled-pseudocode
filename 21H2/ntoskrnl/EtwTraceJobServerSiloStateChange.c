@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceJobServerSiloStateChange @ 0x14093601C
+ * XREFs of EtwTraceJobServerSiloStateChange @ 0x1409361EC
  * Callers:
- *     PspConvertSiloToServerSilo @ 0x140906054 (PspConvertSiloToServerSilo.c)
- *     PspMarkServerSiloAsTerminating @ 0x14090B730 (PspMarkServerSiloAsTerminating.c)
- *     PspNotifyServerSiloCreation @ 0x14090B7DC (PspNotifyServerSiloCreation.c)
- *     PspNotifyServerSiloTermination @ 0x14090B8E4 (PspNotifyServerSiloTermination.c)
+ *     PspConvertSiloToServerSilo @ 0x1409061B4 (PspConvertSiloToServerSilo.c)
+ *     PspMarkServerSiloAsTerminating @ 0x14090B890 (PspMarkServerSiloAsTerminating.c)
+ *     PspNotifyServerSiloCreation @ 0x14090B93C (PspNotifyServerSiloCreation.c)
+ *     PspNotifyServerSiloTermination @ 0x14090BA44 (PspNotifyServerSiloTermination.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceJobServerSiloStateChange(__int64 a1, int a2)

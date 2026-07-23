@@ -1,7 +1,7 @@
 /*
- * XREFs of PiConfigureDevice @ 0x1406496A8
+ * XREFs of PiConfigureDevice @ 0x14064978C
  * Callers:
- *     PnpDeviceActionWorker @ 0x1400AFA3C (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1400865A0 (PnpDeviceActionWorker.c)
  * Callees:
  *     <none>
  */

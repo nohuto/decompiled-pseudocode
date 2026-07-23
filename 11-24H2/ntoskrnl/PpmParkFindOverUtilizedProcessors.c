@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmParkFindOverUtilizedProcessors @ 0x1403542F4
+ * XREFs of PpmParkFindOverUtilizedProcessors @ 0x1402AF768
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1404EDA40 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1404E5250 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmParkFindOverUtilizedProcessors(__int64 a1, unsigned int a2)
@@ -26,7 +26,7 @@ LABEL_2:
     {
       _BitScanForward64(&v7, v4);
       v4 &= ~(1LL << v7);
-      Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v2 + (unsigned __int8)v7));
+      Prcb = KeGetPrcb(*((unsigned int *)qword_140F22998 + 64 * (unsigned __int16)v2 + (unsigned __int8)v7));
       if ( *(_DWORD *)(Prcb + 35292) >= a2 )
         v3 |= *(_QWORD *)(Prcb + 200);
       goto LABEL_2;

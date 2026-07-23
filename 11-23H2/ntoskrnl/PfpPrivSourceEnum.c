@@ -1,28 +1,28 @@
 /*
- * XREFs of PfpPrivSourceEnum @ 0x1407417B0
+ * XREFs of PfpPrivSourceEnum @ 0x1407419A0
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14075D918 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14075DB08 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     SmStoreExistsForProcess @ 0x140344A94 (SmStoreExistsForProcess.c)
- *     RtlStringCbCopyA @ 0x140348078 (RtlStringCbCopyA.c)
- *     MmGetNextSession @ 0x14035ECF0 (MmGetNextSession.c)
- *     MiFillSessionWorkingSetEntry @ 0x140367730 (MiFillSessionWorkingSetEntry.c)
- *     MmQuerySystemMemoryInformation @ 0x140368708 (MmQuerySystemMemoryInformation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041B420 (ZwQuerySystemInformation.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MmQueryProcessWorkingSetSwapPages @ 0x140653184 (MmQueryProcessWorkingSetSwapPages.c)
- *     PsQueryProcessAttributes @ 0x14071DE14 (PsQueryProcessAttributes.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     ExGetNextProcess @ 0x140742978 (ExGetNextProcess.c)
- *     PsGetProcessDeepFreezeStats @ 0x140751884 (PsGetProcessDeepFreezeStats.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A5BE0 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     PfpPrivSourceAdd @ 0x1407C31C8 (PfpPrivSourceAdd.c)
- *     SmProcessQueryStoreStats @ 0x1408A6994 (SmProcessQueryStoreStats.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     SmStoreExistsForProcess @ 0x140344D24 (SmStoreExistsForProcess.c)
+ *     RtlStringCbCopyA @ 0x140348308 (RtlStringCbCopyA.c)
+ *     MmGetNextSession @ 0x14035EE90 (MmGetNextSession.c)
+ *     MiFillSessionWorkingSetEntry @ 0x1403678D0 (MiFillSessionWorkingSetEntry.c)
+ *     MmQuerySystemMemoryInformation @ 0x1403688A8 (MmQuerySystemMemoryInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x14041B7B0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x1406536D4 (MmQueryProcessWorkingSetSwapPages.c)
+ *     PsQueryProcessAttributes @ 0x14071E014 (PsQueryProcessAttributes.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     ExGetNextProcess @ 0x140742B68 (ExGetNextProcess.c)
+ *     PsGetProcessDeepFreezeStats @ 0x140751A74 (PsGetProcessDeepFreezeStats.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A5DD0 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     PfpPrivSourceAdd @ 0x1407C3498 (PfpPrivSourceAdd.c)
+ *     SmProcessQueryStoreStats @ 0x1408A6BE4 (SmProcessQueryStoreStats.c)
  */
 
 __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
@@ -38,7 +38,7 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   __int64 NextProcess; // rax
   unsigned __int64 v14; // rcx
   unsigned int v15; // eax
-  int SystemInformation; // ebx
+  int v16; // ebx
   __int64 v17; // rax
   __int64 *k; // rcx
   int v19; // ebx
@@ -65,13 +65,13 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   __int128 v41; // [rsp+100h] [rbp-128h] BYREF
   __int128 v42; // [rsp+110h] [rbp-118h]
   __int128 v43; // [rsp+120h] [rbp-108h] BYREF
-  _QWORD v44[8]; // [rsp+140h] [rbp-E8h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+140h] [rbp-E8h] BYREF
   __int128 v45; // [rsp+180h] [rbp-A8h]
 
   v33 = a3;
   v34 = a1;
   v37 = a3;
-  memset(v44, 0, sizeof(v44));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   v43 = 0LL;
   v38 = 0LL;
   v39 = 0LL;
@@ -91,7 +91,7 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   v9 = *(_DWORD *)(a1 + 24);
   if ( v9 < 0x10 )
   {
-    SystemInformation = -1073741789;
+    v16 = -1073741789;
     goto LABEL_45;
   }
   if ( a2 )
@@ -100,13 +100,13 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   v8[2] = 0;
   if ( (_DWORD)v45 != 8 || (DWORD1(v45) & 0xFFFFFFF8) != 0 || (BYTE4(v45) & 3) == 3 )
   {
-    SystemInformation = -1073741811;
+    v16 = -1073741811;
     goto LABEL_45;
   }
   if ( !SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a2) )
   {
     IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL);
-    SystemInformation = IsAppContainerOrIdentifyLevelContext;
+    v16 = IsAppContainerOrIdentifyLevelContext;
     if ( IsAppContainerOrIdentifyLevelContext == -1073741659 )
     {
       v26 = 1;
@@ -135,14 +135,14 @@ LABEL_11:
   }
   if ( *((_QWORD *)&v29 + 1) > 0xFFFFFFFFuLL || (v14 = 96LL * *((_QWORD *)&v29 + 1) + 16, v14 > 0xFFFFFFFF) )
   {
-    SystemInformation = -1073741670;
+    v16 = -1073741670;
     goto LABEL_45;
   }
   LODWORD(v7) = 96 * DWORD2(v29) + 16;
   v15 = *(_DWORD *)(v34 + 24);
   if ( (unsigned int)v14 > v15 )
   {
-    SystemInformation = -1073741789;
+    v16 = -1073741789;
     goto LABEL_45;
   }
   HIDWORD(v30) = (v15 - 16) / 0x60;
@@ -153,19 +153,19 @@ LABEL_11:
     HIDWORD(v31[0]) = -1;
     v31[3] = 0xFFFFFFFFLL;
     RtlStringCbCopyA((NTSTRSAFE_PSTR)&v31[6] + 4, 0x10uLL, "KernelSpace");
-    SystemInformation = ZwQuerySystemInformation(119LL, (__int64)v44);
-    if ( SystemInformation < 0 )
+    v16 = ZwQuerySystemInformation(SystemPagedPoolInformationEx, SystemInformation, 0x40u, 0LL);
+    if ( v16 < 0 )
       goto LABEL_45;
-    SystemInformation = MmQuerySystemMemoryInformation(&v43);
-    if ( SystemInformation < 0 )
+    v16 = MmQuerySystemMemoryInformation(&v43);
+    if ( v16 < 0 )
       goto LABEL_45;
-    v31[4] = v44[0] >> 12;
+    v31[4] = SystemInformation[0] >> 12;
     v17 = v43;
-    if ( (unsigned __int64)v43 <= v44[0] >> 12 )
-      v17 = v44[0] >> 12;
+    if ( (unsigned __int64)v43 <= SystemInformation[0] >> 12 )
+      v17 = SystemInformation[0] >> 12;
     v31[5] = v17;
-    SystemInformation = PfpPrivSourceAdd(&v29, v31);
-    if ( SystemInformation < 0 )
+    v16 = PfpPrivSourceAdd(&v29, v31);
+    if ( v16 < 0 )
       goto LABEL_45;
     for ( k = 0LL; ; k = v5 )
     {
@@ -182,8 +182,8 @@ LABEL_11:
       v31[9] = *((_QWORD *)&v39 + 1);
       v31[5] = v39;
       RtlStringCbCopyA((NTSTRSAFE_PSTR)&v31[6] + 4, 0x10uLL, "Session");
-      SystemInformation = PfpPrivSourceAdd(&v29, v31);
-      if ( SystemInformation < 0 )
+      v16 = PfpPrivSourceAdd(&v29, v31);
+      if ( v16 < 0 )
         goto LABEL_45;
     }
   }
@@ -236,8 +236,8 @@ LABEL_11:
         {
           v31[9] = v32 >> 12;
         }
-        SystemInformation = PfpPrivSourceAdd(&v29, v31);
-        if ( SystemInformation < 0 )
+        v16 = PfpPrivSourceAdd(&v29, v31);
+        if ( v16 < 0 )
           goto LABEL_45;
         v19 = v28;
       }
@@ -246,13 +246,13 @@ LABEL_11:
     while ( v6 );
   }
   LODWORD(v7) = 96 * v30 + 16;
-  SystemInformation = 0;
+  v16 = 0;
 LABEL_45:
   if ( v5 )
     ObfDereferenceObject(v5);
   if ( v6 )
     ObfDereferenceObjectWithTag((PVOID)v6, 0x6E457350u);
-  if ( SystemInformation == -1073741789 )
+  if ( v16 == -1073741789 )
   {
     v24 = *((_QWORD *)&v29 + 1);
     if ( (unsigned __int64)(unsigned int)(v30 + 1) > *((_QWORD *)&v29 + 1) )
@@ -261,9 +261,9 @@ LABEL_45:
     if ( v7 > 0xFFFFFFFF )
     {
       LODWORD(v7) = 0;
-      SystemInformation = -1073741670;
+      v16 = -1073741670;
     }
   }
   *v33 = v7;
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v16;
 }

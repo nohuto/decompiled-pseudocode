@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerTransitionEnd @ 0x140AB95B4
+ * XREFs of PopDiagTracePowerTransitionEnd @ 0x140AB4674
  * Callers:
- *     PopIssueActionRequest @ 0x140A87C34 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140A84124 (PopIssueActionRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopQueryMostRecentWakeSourceInfo @ 0x1407514F0 (PopQueryMostRecentWakeSourceInfo.c)
- *     EtwWriteEndScenario @ 0x140A476E0 (EtwWriteEndScenario.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x14074F810 (PopQueryMostRecentWakeSourceInfo.c)
+ *     EtwWriteEndScenario @ 0x140A3D500 (EtwWriteEndScenario.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerTransitionEnd(int a1)

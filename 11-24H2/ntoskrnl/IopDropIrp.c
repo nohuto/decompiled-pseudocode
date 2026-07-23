@@ -1,19 +1,19 @@
 /*
- * XREFs of IopDropIrp @ 0x1403C5110
+ * XREFs of IopDropIrp @ 0x1403B3CD0
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x140268580 (IopCopyCompleteReadIrp.c)
- *     IopCopyCompleteReadRequest @ 0x140268870 (IopCopyCompleteReadRequest.c)
- *     IoRemoveIoCompletion @ 0x1402A4220 (IoRemoveIoCompletion.c)
- *     IopIoRingCompleteIrp @ 0x1403C5DA0 (IopIoRingCompleteIrp.c)
- *     IopfCompleteRequest @ 0x1403DBB10 (IopfCompleteRequest.c)
- *     IopFreeCompletionListPackets @ 0x1409A7128 (IopFreeCompletionListPackets.c)
+ *     IopCopyCompleteReadIrp @ 0x14025FA30 (IopCopyCompleteReadIrp.c)
+ *     IopCopyCompleteReadRequest @ 0x14025FD20 (IopCopyCompleteReadRequest.c)
+ *     IoRemoveIoCompletion @ 0x1402D3950 (IoRemoveIoCompletion.c)
+ *     IopIoRingCompleteIrp @ 0x1403B4960 (IopIoRingCompleteIrp.c)
+ *     IopfCompleteRequest @ 0x1403CCDE0 (IopfCompleteRequest.c)
+ *     IopFreeCompletionListPackets @ 0x1409905F8 (IopFreeCompletionListPackets.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     IopDequeueIrpFromFileObject @ 0x14031A230 (IopDequeueIrpFromFileObject.c)
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObDereferenceObjectExWithTag @ 0x1403C5220 (ObDereferenceObjectExWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     IopDequeueIrpFromFileObject @ 0x1402C2DC0 (IopDequeueIrpFromFileObject.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObDereferenceObjectExWithTag @ 0x1403B3DE0 (ObDereferenceObjectExWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDropIrp(PIRP Irp, ULONG_PTR a2)

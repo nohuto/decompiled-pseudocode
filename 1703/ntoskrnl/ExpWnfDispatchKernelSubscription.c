@@ -21,30 +21,30 @@ __int64 ExpWnfDispatchKernelSubscription()
 {
   struct _SINGLE_LIST_ENTRY *Next; // r13
   volatile signed __int64 *v1; // rdi
-  _BYTE *v2; // rax
-  _BYTE *v3; // rbx
+  PRTL_BALANCED_NODE v2; // rax
+  PRTL_BALANCED_NODE v3; // rbx
   struct _SINGLE_LIST_ENTRY *v4; // rbp
   struct _SINGLE_LIST_ENTRY v5; // rdx
   struct _SINGLE_LIST_ENTRY *v6; // rcx
   volatile signed __int64 *v7; // r15
   unsigned int Next_high; // r14d
-  __int64 v9; // rsi
+  PRTL_BALANCED_NODE v9; // rsi
   struct _SINGLE_LIST_ENTRY *v10; // rsi
   unsigned int v11; // eax
   struct _SINGLE_LIST_ENTRY *v12; // rdx
   __int64 Next_low; // r9
-  _BYTE *v14; // rax
-  _BYTE *v15; // rsi
+  PRTL_BALANCED_NODE v14; // rax
+  PRTL_BALANCED_NODE v15; // rsi
   __int64 v17; // [rsp+48h] [rbp-40h] BYREF
 
   Next = PsInitialSystemProcess[2].SwapListEntry.Next;
   v1 = (volatile signed __int64 *)&Next[13];
-  v2 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&Next[13], 0LL, 0LL);
+  v2 = KeAbPreAcquire((ULONG_PTR)&Next[13], 0LL, 0);
   v3 = v2;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&Next[13], 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[13], v2, (ULONG_PTR)&Next[13]);
   if ( v3 )
-    v3[26] |= 1u;
+    BYTE2(v3[1].Left) |= 1u;
   while ( 1 )
   {
     v4 = Next[14].Next;
@@ -66,11 +66,11 @@ __int64 ExpWnfDispatchKernelSubscription()
       if ( (_InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)&Next[13]);
       KeAbPostRelease((ULONG_PTR)&Next[13]);
-      v9 = KeAbPreAcquire((ULONG_PTR)&Next[10], 0LL, 0LL);
+      v9 = KeAbPreAcquire((ULONG_PTR)&Next[10], 0LL, 0);
       if ( _InterlockedCompareExchange64(v7, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx((signed __int64 *)&Next[10], v9, (ULONG_PTR)&Next[10]);
       if ( v9 )
-        *(_BYTE *)(v9 + 26) |= 1u;
+        BYTE2(v9[1].Left) |= 1u;
       v10 = v4[-7].Next;
       if ( !v10
         || (v10 = (struct _SINGLE_LIST_ENTRY *)(-(__int64)(ExAcquireRundownProtection((PEX_RUNDOWN_REF)&v10[1]) != 0) & (unsigned __int64)v10)) == 0LL )
@@ -120,12 +120,12 @@ __int64 ExpWnfDispatchKernelSubscription()
       }
       if ( v10 )
         ExReleaseRundownProtection((PEX_RUNDOWN_REF)&v10[1]);
-      v14 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&Next[13], 0LL, 0LL);
+      v14 = KeAbPreAcquire((ULONG_PTR)&Next[13], 0LL, 0);
       v15 = v14;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
         ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[13], v14, (ULONG_PTR)&Next[13]);
       if ( v15 )
-        v15[26] |= 1u;
+        BYTE2(v15[1].Left) |= 1u;
     }
     while ( HIDWORD(v4[2].Next) );
     LODWORD(v4[2].Next) = 0;

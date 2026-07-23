@@ -1,12 +1,12 @@
 /*
- * XREFs of KiLoadDirectoryTableBase @ 0x1400981E0
+ * XREFs of KiLoadDirectoryTableBase @ 0x1400979E0
  * Callers:
- *     KiAttachProcess @ 0x1400CD4F0 (KiAttachProcess.c)
- *     KiSwapDirectoryTableBaseTarget @ 0x1401DAFE4 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiAttachProcess @ 0x1400CB390 (KiAttachProcess.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x1401DAE10 (KiSwapDirectoryTableBaseTarget.c)
  *     PopHandleNextState @ 0x1403CC8F0 (PopHandleNextState.c)
  * Callees:
- *     HvlSwitchVirtualAddressSpace @ 0x1401C1588 (HvlSwitchVirtualAddressSpace.c)
- *     KiSetAddressPolicy @ 0x1401D907C (KiSetAddressPolicy.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1401C146C (HvlSwitchVirtualAddressSpace.c)
+ *     KiSetAddressPolicy @ 0x1401D8EA8 (KiSetAddressPolicy.c)
  */
 
 unsigned __int64 __fastcall KiLoadDirectoryTableBase(__int64 a1, unsigned __int64 a2)

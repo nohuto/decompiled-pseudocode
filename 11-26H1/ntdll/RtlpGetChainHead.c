@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetChainHead @ 0x1800D8D50
+ * XREFs of RtlpGetChainHead @ 0x1800D5D10
  * Callers:
- *     RtlStronglyEnumerateEntryHashTable @ 0x1800D8990 (RtlStronglyEnumerateEntryHashTable.c)
- *     RtlContractHashTable @ 0x1800D8A00 (RtlContractHashTable.c)
- *     RtlExpandHashTable @ 0x1800D8B60 (RtlExpandHashTable.c)
+ *     RtlStronglyEnumerateEntryHashTable @ 0x1800D5950 (RtlStronglyEnumerateEntryHashTable.c)
+ *     RtlContractHashTable @ 0x1800D59C0 (RtlContractHashTable.c)
+ *     RtlExpandHashTable @ 0x1800D5B20 (RtlExpandHashTable.c)
  * Callees:
  *     <none>
  */

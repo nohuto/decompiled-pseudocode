@@ -1,39 +1,35 @@
 /*
- * XREFs of SleepstudyHelper_ComponentInactive @ 0x140257560
+ * XREFs of SleepstudyHelper_ComponentInactive @ 0x140518190
  * Callers:
  *     <none>
  * Callees:
- *     SshpSetBlockerActive @ 0x1402566E4 (SshpSetBlockerActive.c)
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x140257660 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpSetBlockerActive @ 0x140258074 (SshpSetBlockerActive.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ComponentInactive(PKSPIN_LOCK SpinLock)
 {
   unsigned int v1; // edi
-  KIRQL v4; // al
-  int v5; // ecx
-  KIRQL v6; // si
-  bool v7; // zf
+  KIRQL v3; // si
+  int v4; // eax
+  bool v5; // zf
 
   v1 = 0;
   if ( SpinLock )
   {
-    if ( !(unsigned int)Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline()
-      || SpinLock != PsAltSystemCallRegistrationLock.Spare35 )
+    if ( SpinLock != (PKSPIN_LOCK)&unk_140F0A850 )
     {
-      v4 = KeAcquireSpinLockRaiseToDpc(SpinLock);
-      v5 = *((_DWORD *)SpinLock + 2);
-      v6 = v4;
-      if ( (v5 & 0x10) != 0 )
+      v3 = KeAcquireSpinLockRaiseToDpc(SpinLock);
+      v4 = *((_DWORD *)SpinLock + 2);
+      if ( (v4 & 0x10) != 0 )
       {
-        v7 = (*((_DWORD *)SpinLock + 5))-- == 1;
-        *((_DWORD *)SpinLock + 2) = v5 & 0xFFFFFFEF;
-        if ( v7 )
+        v5 = (*((_DWORD *)SpinLock + 5))-- == 1;
+        *((_DWORD *)SpinLock + 2) = v4 & 0xFFFFFFEF;
+        if ( v5 )
           SshpSetBlockerActive((__int64)SpinLock, 0LL);
       }
-      KeReleaseSpinLock(SpinLock, v6);
+      KeReleaseSpinLock(SpinLock, v3);
     }
   }
   else

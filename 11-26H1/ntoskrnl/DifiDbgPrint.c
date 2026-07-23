@@ -1,13 +1,13 @@
 /*
- * XREFs of DifiDbgPrint @ 0x14064C7F0
+ * XREFs of DifiDbgPrint @ 0x1406503D0
  * Callers:
- *     CarHandleEtwEvent @ 0x140649078 (CarHandleEtwEvent.c)
- *     CarInitLogging @ 0x140649174 (CarInitLogging.c)
- *     DifRegisterPlugin @ 0x14064BBB0 (DifRegisterPlugin.c)
- *     CarInitiateBugcheck @ 0x14064CADC (CarInitiateBugcheck.c)
- *     CarLiveDump @ 0x14064CB60 (CarLiveDump.c)
+ *     CarHandleEtwEvent @ 0x14064CC58 (CarHandleEtwEvent.c)
+ *     CarInitLogging @ 0x14064CD54 (CarInitLogging.c)
+ *     DifRegisterPlugin @ 0x14064F790 (DifRegisterPlugin.c)
+ *     CarInitiateBugcheck @ 0x1406506BC (CarInitiateBugcheck.c)
+ *     CarLiveDump @ 0x140650740 (CarLiveDump.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x1403975BC (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x14039933C (vDbgPrintExWithPrefixInternal.c)
  */
 
 __int64 DifiDbgPrint(const char *a1, ...)

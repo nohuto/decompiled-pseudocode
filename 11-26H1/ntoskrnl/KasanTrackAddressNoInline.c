@@ -1,18 +1,18 @@
 /*
- * XREFs of KasanTrackAddressNoInline @ 0x140532270
+ * XREFs of KasanTrackAddressNoInline @ 0x140534710
  * Callers:
- *     RtlpHpVsSubsegmentCreate @ 0x14024ACAC (RtlpHpVsSubsegmentCreate.c)
- *     MiMapContiguousMemory @ 0x140363E10 (MiMapContiguousMemory.c)
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
- *     MiCreateKernelStackSlow @ 0x1403D1640 (MiCreateKernelStackSlow.c)
- *     KcsanMarkAddressIgnored @ 0x1404F7F60 (KcsanMarkAddressIgnored.c)
- *     KasanDriverLoadImageInternal @ 0x140523630 (KasanDriverLoadImageInternal.c)
- *     MmAllocateIsrStack @ 0x140875DEC (MmAllocateIsrStack.c)
- *     KasanInitSystem @ 0x140CC7D20 (KasanInitSystem.c)
- *     MiInitializeSharedUserData @ 0x140CF1F60 (MiInitializeSharedUserData.c)
- *     MiInitializeKasan @ 0x140CF35B0 (MiInitializeKasan.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x14024C60C (RtlpHpVsSubsegmentCreate.c)
+ *     MiMapContiguousMemory @ 0x140365BB0 (MiMapContiguousMemory.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
+ *     MiCreateKernelStackSlow @ 0x1403D4610 (MiCreateKernelStackSlow.c)
+ *     KcsanMarkAddressIgnored @ 0x1404F1570 (KcsanMarkAddressIgnored.c)
+ *     KasanDriverLoadImageInternal @ 0x140525CA0 (KasanDriverLoadImageInternal.c)
+ *     MmAllocateIsrStack @ 0x14087C1D0 (MmAllocateIsrStack.c)
+ *     KasanInitSystem @ 0x140CCDE10 (KasanInitSystem.c)
+ *     MiInitializeSharedUserData @ 0x140CF82E0 (MiInitializeSharedUserData.c)
+ *     MiInitializeKasan @ 0x140CF9930 (MiInitializeKasan.c)
  * Callees:
- *     MmKasanCommitRegion @ 0x14052A8A4 (MmKasanCommitRegion.c)
+ *     MmKasanCommitRegion @ 0x14052CDC4 (MmKasanCommitRegion.c)
  */
 
 __int64 __fastcall KasanTrackAddressNoInline(unsigned __int64 a1, __int64 a2, unsigned int a3)

@@ -11,21 +11,21 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __thiscall LdrpMapDllRetry(_DWORD *this)
+NTSTATUS __thiscall LdrpMapDllRetry(_DWORD *this)
 {
   int v2; // ecx
-  int *v3; // ebx
-  int ExistingModule; // esi
+  _UNICODE_STRING *v3; // ebx
+  NTSTATUS ExistingModule; // esi
   int v6; // [esp+Ch] [ebp-114h] BYREF
   int v7; // [esp+10h] [ebp-110h] BYREF
-  _WORD *v8; // [esp+14h] [ebp-10Ch]
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [esp+14h] [ebp-10Ch]
   _WORD v9[130]; // [esp+18h] [ebp-108h] BYREF
 
   v7 = 0x1000000;
-  v8 = v9;
+  BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v9;
   v9[0] = 0;
   v2 = this[8];
-  v3 = (int *)(v2 + 36);
+  v3 = (_UNICODE_STRING *)(v2 + 36);
   ExistingModule = LdrpFindExistingModule(this[4], *(_DWORD *)(v2 + 144), &v6);
   if ( v6 )
   {
@@ -37,7 +37,7 @@ int __thiscall LdrpMapDllRetry(_DWORD *this)
     if ( ExistingModule >= 0 )
       ExistingModule = LdrpMapDllNtFileName(this, &v7);
   }
-  if ( v9 != v8 )
-    RtlDeleteBoundaryDescriptor((int)v8);
+  if ( v9 != (_WORD *)BoundaryDescriptor )
+    RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
   return ExistingModule;
 }

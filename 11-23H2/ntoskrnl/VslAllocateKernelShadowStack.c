@@ -1,11 +1,11 @@
 /*
- * XREFs of VslAllocateKernelShadowStack @ 0x14094175C
+ * XREFs of VslAllocateKernelShadowStack @ 0x14094195C
  * Callers:
- *     MmCreateKernelShadowStack @ 0x14064512C (MmCreateKernelShadowStack.c)
+ *     MmCreateKernelShadowStack @ 0x14064567C (MmCreateKernelShadowStack.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslAllocateKernelShadowStack(__int64 a1, __int64 a2, int a3, _QWORD *a4, int a5, _QWORD *a6)

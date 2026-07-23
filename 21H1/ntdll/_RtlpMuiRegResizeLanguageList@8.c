@@ -6,7 +6,7 @@
  *     _SafeReallocBlob @ 0x4B36D0C0 (_SafeReallocBlob.c)
  */
 
-int __fastcall RtlpMuiRegResizeLanguageList(int a1, int a2)
+int __fastcall RtlpMuiRegResizeLanguageList(unsigned __int16 *a1, int a2)
 {
   int v2; // esi
   int result; // eax
@@ -18,9 +18,9 @@ int __fastcall RtlpMuiRegResizeLanguageList(int a1, int a2)
     v2 = 4;
   if ( !a1 )
     return 0;
-  if ( v2 < *(unsigned __int16 *)(a1 + 4) )
+  if ( v2 < a1[2] )
     return 0;
-  result = SafeReallocBlob(v2, 6, a1, a1, &v4);
+  result = SafeReallocBlob(a1, v2, 6, (int)a1, (int)a1, (int)&v4);
   if ( !result )
     return 0;
   *(_DWORD *)result = v4;

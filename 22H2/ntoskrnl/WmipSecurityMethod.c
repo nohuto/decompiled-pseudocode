@@ -19,7 +19,7 @@
 __int64 __fastcall WmipSecurityMethod(
         __int64 a1,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         __int64 a5,
         __int64 a6,

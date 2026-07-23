@@ -22,7 +22,7 @@ __int64 __fastcall sub_18001E658(char *a1, unsigned int a2, unsigned int a3, uns
   unsigned __int64 v16; // rcx
   __int64 v17; // rdx
   __int64 v18; // rcx
-  __int16 HeapVirtualAffinity_high; // di
+  __int16 HeapData_high; // di
   unsigned __int64 v20; // rbx
   __int64 v21; // rdx
   __int64 v22; // rcx
@@ -73,10 +73,10 @@ __int64 __fastcall sub_18001E658(char *a1, unsigned int a2, unsigned int a3, uns
   v18 = v9 & 0x3F;
   if ( (v9 & 0x3F) != 0 )
     *(_QWORD *)&a1[8 * (v9 >> 6) + 48] |= ~((1LL << v18) - 1);
-  HeapVirtualAffinity_high = HIWORD(NtCurrentTeb()->HeapVirtualAffinity);
+  HeapData_high = HIWORD(NtCurrentTeb()->HeapData);
   v20 = (unsigned __int64)(unsigned int)sub_18001EBF0(v18, v17) << 32;
   v23 = v20 | (unsigned int)sub_18001EBF0(v22, v21);
-  result = (unsigned __int8)HeapVirtualAffinity_high >> 3;
+  result = (unsigned __int8)HeapData_high >> 3;
   *(_QWORD *)&byte_18015A460[8 * result] = v23 & 0x7F7F7F7F7F7F7F7FLL;
   return result;
 }

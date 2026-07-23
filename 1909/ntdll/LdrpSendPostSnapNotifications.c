@@ -45,7 +45,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
   v3 = g_pShimmedModuleList != 0LL;
   v22 = v3;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
   {
     v5 = MEMORY[0x7FFE0330];
@@ -87,7 +87,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
             v14 = v13 + g_pShimmedModuleListLength + 1;
           else
             v14 = v13 + 2;
-          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 2 * v14);
+          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
           if ( Heap )
           {
             if ( g_pShimmedModuleList )
@@ -99,7 +99,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
                 ++v18;
               while ( v10[v18] );
               memmove(&Heap[v17 + 2], v10, 2 * v18);
-              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, g_pShimmedModuleList);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
               v1 = a1;
             }
             else

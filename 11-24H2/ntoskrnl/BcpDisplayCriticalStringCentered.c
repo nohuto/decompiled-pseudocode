@@ -1,16 +1,16 @@
 /*
- * XREFs of BcpDisplayCriticalStringCentered @ 0x140698E30
+ * XREFs of BcpDisplayCriticalStringCentered @ 0x140699EB0
  * Callers:
- *     BcpDisplayErrorInformationModernized @ 0x140699454 (BcpDisplayErrorInformationModernized.c)
- *     BcpDisplayProgressModernized @ 0x140699A04 (BcpDisplayProgressModernized.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14069A6B0 (BgpFwDisplayBugCheckScreenModernized.c)
+ *     BcpDisplayErrorInformationModernized @ 0x14069A4D4 (BcpDisplayErrorInformationModernized.c)
+ *     BcpDisplayProgressModernized @ 0x14069AA84 (BcpDisplayProgressModernized.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14069B730 (BgpFwDisplayBugCheckScreenModernized.c)
  * Callees:
- *     RtlULongSub @ 0x140497418 (RtlULongSub.c)
- *     BgpDisplayCharacterEx @ 0x140697F6C (BgpDisplayCharacterEx.c)
- *     BgpFoGetStringAdvanceWidth @ 0x1406986E8 (BgpFoGetStringAdvanceWidth.c)
- *     BcpPrintSpaces @ 0x140699F68 (BcpPrintSpaces.c)
- *     BcpSetCursorPosition @ 0x14069A0C8 (BcpSetCursorPosition.c)
- *     BgpRasGetGlyphAdvanceWidth @ 0x14069AC00 (BgpRasGetGlyphAdvanceWidth.c)
+ *     RtlULongSub @ 0x140491DA8 (RtlULongSub.c)
+ *     BgpDisplayCharacterEx @ 0x140698FEC (BgpDisplayCharacterEx.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x140699768 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpPrintSpaces @ 0x14069AFE8 (BcpPrintSpaces.c)
+ *     BcpSetCursorPosition @ 0x14069B148 (BcpSetCursorPosition.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x14069BC80 (BgpRasGetGlyphAdvanceWidth.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalStringCentered(_WORD *a1, int a2, unsigned int a3, int a4)
@@ -64,31 +64,31 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(_WORD *a1, int a2, unsigned 
   v48 = 0;
   v46 = 0;
   v41 = 0;
-  v5 = *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 16);
+  v5 = *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 16);
   if ( BcpTextBoxLeftEdgeOverride )
   {
     v6 = *(_DWORD *)BcpTextBoxLeftEdgeOverride;
-    v7 = *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 80);
+    v7 = *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 80);
   }
   else
   {
-    v7 = *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 80);
+    v7 = *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 80);
     v6 = v5 + v7;
   }
   v40 = v6;
   if ( BcpTextBoxRightEdgeOverride )
     v8 = *(_DWORD *)BcpTextBoxRightEdgeOverride;
   else
-    v8 = v7 + v5 + *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 24);
+    v8 = v7 + v5 + *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 24);
   v9 = *(&BcpCursor + 1);
   v10 = BcpCursor;
-  v11 = dword_140EEFAE8;
-  v12 = *(_QWORD *)(qword_140E3EAA0 + 24);
+  v11 = dword_140EEFD38;
+  v12 = *(_QWORD *)(qword_140E3EBE0 + 24);
   *(_QWORD *)pulResult = *(_QWORD *)&BcpCursor;
-  v43 = dword_140EEFAE8;
+  v43 = dword_140EEFD38;
   *(_DWORD *)(v12 + 56) = a2;
-  *(_DWORD *)(qword_140E3EAA0 + 8) = a2;
-  v13 = *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 80) + *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 16);
+  *(_DWORD *)(qword_140E3EBE0 + 8) = a2;
+  v13 = *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 80) + *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 16);
   BcpSetCursorPosition(v13, v9, 0LL);
   v15 = (unsigned int *)(v14 + 40);
   LOBYTE(v47) = v16;
@@ -156,14 +156,14 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(_WORD *a1, int a2, unsigned 
             {
               if ( v13 < v8 )
               {
-                LODWORD(v26) = BcpPrintSpaces(qword_140E3EAA0, v13, v8, v9, v41, (__int64)&v46);
+                LODWORD(v26) = BcpPrintSpaces(qword_140E3EBE0, v13, v8, v9, v41, (__int64)&v46);
                 if ( (int)v26 < 0 )
                   goto LABEL_43;
                 if ( v19 < v46 )
                   v19 = v46;
               }
               v13 = v40;
-              v31 = v19 + *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 40);
+              v31 = v19 + *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 40);
               v19 = 0;
               v9 += v31;
               break;
@@ -187,7 +187,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(_WORD *a1, int a2, unsigned 
         break;
       if ( v13 < v8 )
       {
-        v33 = BcpPrintSpaces(qword_140E3EAA0, v13, v8, v9, v41, (__int64)&v46);
+        v33 = BcpPrintSpaces(qword_140E3EBE0, v13, v8, v9, v41, (__int64)&v46);
         v21 = 0;
         if ( v33 < 0 )
           goto LABEL_43;
@@ -195,7 +195,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(_WORD *a1, int a2, unsigned 
           v19 = v46;
       }
       v13 = v40;
-      v9 += v19 + *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 40);
+      v9 += v19 + *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 40);
       v19 = 0;
       if ( *(_WORD *)(**(_QWORD **)pulResult + 2LL * v24) != 32 )
       {
@@ -203,7 +203,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(_WORD *a1, int a2, unsigned 
 LABEL_39:
         v35 = BgpDisplayCharacterEx(
                 *(_WORD *)(*v34 + 2LL * v24),
-                (__int64 *)qword_140E3EAA0,
+                (__int64 *)qword_140E3EBE0,
                 v13,
                 v9,
                 v41,

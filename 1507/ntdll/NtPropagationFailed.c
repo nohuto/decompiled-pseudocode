@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtPropagationFailed()
+NTSTATUS __cdecl NtPropagationFailed(HANDLE ResourceManagerHandle, ULONG RequestCookie, NTSTATUS PropStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 294LL;
+  result = 294;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopApplyLegacyPowerRequestFlags @ 0x1404A61E0
+ * XREFs of PopApplyLegacyPowerRequestFlags @ 0x14049F870
  * Callers:
- *     PoRegisterSystemState @ 0x140436880 (PoRegisterSystemState.c)
- *     NtSetThreadExecutionState @ 0x1407D2150 (NtSetThreadExecutionState.c)
+ *     PoRegisterSystemState @ 0x140425810 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x1407D51F0 (NtSetThreadExecutionState.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PopPowerRequestReferenceAcquire @ 0x1404A6310 (PopPowerRequestReferenceAcquire.c)
- *     PopPowerRequestReferenceRelease @ 0x1404A64A0 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x1404A66E8 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     PopQueueWorkItem @ 0x1404CEE60 (PopQueueWorkItem.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14049F9A0 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestReferenceRelease @ 0x14049FB30 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14049FD78 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     PopQueueWorkItem @ 0x1404C8890 (PopQueueWorkItem.c)
  */
 
 void __fastcall PopApplyLegacyPowerRequestFlags(PVOID Object, char a2, char a3)
@@ -57,13 +57,13 @@ void __fastcall PopApplyLegacyPowerRequestFlags(PVOID Object, char a2, char a3)
   }
   if ( v3 )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F12D20.Header.WaitListHead.Blink, &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F12EA0.QueuedScb, &LockHandle);
     v8 = *((_DWORD *)Object + 7);
     if ( (v8 & v3) != 0 )
     {
       *((_DWORD *)Object + 7) = v8 & ~v3;
       PopPowerRequestEvaluatePendingRequestStatus(Object);
-      PopQueueWorkItem(&stru_140F12D20.SystemCallNumber, 0LL);
+      PopQueueWorkItem(&stru_140F12EA0.KernelWaitTime, 0LL);
     }
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   }

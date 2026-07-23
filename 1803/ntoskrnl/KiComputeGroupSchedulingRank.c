@@ -67,9 +67,9 @@ LABEL_3:
   if ( (v10 & 1) != 0 )
   {
     if ( (v10 & 2) != 0 )
-      KiRemoveSchedulingGroupQueue((__int64)a2, a3, 1);
+      KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a2, a3, 1);
     else
-      KiResortScbQueue((__int64)a2, a3, 1);
+      KiResortScbQueue((_RTL_RB_TREE *)a2, a3, 1);
   }
   result = *(unsigned __int8 *)(a3 + 112);
   if ( (result & 4) != 0 && !a2->GroupSchedulingOverQuota )

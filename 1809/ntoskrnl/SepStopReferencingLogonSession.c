@@ -1,9 +1,9 @@
 /*
- * XREFs of SepStopReferencingLogonSession @ 0x1405BD9C8
+ * XREFs of SepStopReferencingLogonSession @ 0x1405BE9C8
  * Callers:
- *     SepLinkLogonSessions @ 0x140176E18 (SepLinkLogonSessions.c)
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
- *     SepSetLogonSessionToken @ 0x1406D01F0 (SepSetLogonSessionToken.c)
+ *     SepLinkLogonSessions @ 0x140176F18 (SepLinkLogonSessions.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
+ *     SepSetLogonSessionToken @ 0x1406D1490 (SepSetLogonSessionToken.c)
  * Callees:
  *     SepDeReferenceLogonSessionDirect @ 0x1400140A0 (SepDeReferenceLogonSessionDirect.c)
  *     SepConvertToOwnTokenClaims @ 0x1400140D8 (SepConvertToOwnTokenClaims.c)

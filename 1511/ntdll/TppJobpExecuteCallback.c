@@ -13,10 +13,10 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall TppJobpExecuteCallback(_QWORD *Instance, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi
-  unsigned __int64 *v9; // r14
+  _RTL_SRWLOCK *v9; // r14
   signed __int64 v10; // rax
   __int64 v11; // rbx
   __int64 v12; // rbx
@@ -24,8 +24,8 @@ void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int
 
   v5 = a2 + 72;
   _InterlockedIncrement((volatile signed __int32 *)(a2 + 72));
-  v9 = (unsigned __int64 *)(a2 + 128);
-  TppBarrierAdjust((unsigned __int64 *)(a2 + 128), 1, 0);
+  v9 = (_RTL_SRWLOCK *)(a2 + 128);
+  TppBarrierAdjust((_RTL_SRWLOCK *)(a2 + 128), 1, 0);
   v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 272), 2uLL) + 2;
   if ( (v10 & 1) != 0 )
   {
@@ -38,7 +38,7 @@ void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int
     if ( !v11 )
     {
 LABEL_3:
-      TppCleanupGroupMemberCallbackProlog(a1, v5);
+      TppCleanupGroupMemberCallbackProlog(Instance, v5);
       if ( MEMORY[0x7FFE0386] )
         RtlpTpETWCallbackStart(
           *(_QWORD *)(a2 + 208),
@@ -47,11 +47,11 @@ LABEL_3:
           *(_QWORD *)(a2 + 160),
           *(_QWORD *)(a2 + 176));
       TppStartThreadData(&v13, *(_QWORD *)(a2 + 152), *(_QWORD *)(a2 + 160), *(_QWORD *)(a2 + 176));
-      *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 152);
+      Instance[11] = *(_QWORD *)(a2 + 152);
       v12 = *(_QWORD *)(a2 + 160);
-      *(_QWORD *)(a1 + 96) = v12;
-      (*(void (__fastcall **)(__int64, __int64, __int64, _QWORD, __int64, _DWORD))(a2 + 152))(
-        a1,
+      Instance[12] = v12;
+      (*(void (__fastcall **)(_QWORD *, __int64, __int64, _QWORD, __int64, _DWORD))(a2 + 152))(
+        Instance,
         v12,
         a2,
         *(_QWORD *)(a4 + 8),
@@ -67,10 +67,10 @@ LABEL_3:
       TppCompleteThreadData(v13);
       return;
     }
-    if ( (int)LdrAddRefDll(0, *(_QWORD *)(a2 + 200)) >= 0 )
+    if ( LdrAddRefDll(0, *(PVOID *)(a2 + 200)) >= 0 )
     {
-      *(_DWORD *)(a1 + 144) |= 0x100u;
-      *(_QWORD *)(a1 + 168) = v11;
+      *((_DWORD *)Instance + 36) |= 0x100u;
+      Instance[21] = v11;
       goto LABEL_3;
     }
   }

@@ -31,7 +31,10 @@ void __fastcall PopThermalZoneRemove(__int64 a1)
   __int64 v4; // rdx
   __int64 v5; // rcx
   __int64 v6; // r8
-  void *v7; // rcx
+  __int64 v7; // r9
+  void *v8; // rcx
+  __int64 v9; // [rsp+20h] [rbp-18h]
+  __int64 v10; // [rsp+28h] [rbp-10h]
 
   *(_BYTE *)(a1 + 66) = 1;
   IoCancelIrp(*(PIRP *)(a1 + 56));
@@ -76,10 +79,10 @@ void __fastcall PopThermalZoneRemove(__int64 a1)
       BYTE13(PopCapabilities) = 0;
       PopResetCurrentPolicies();
     }
-    PopReleasePolicyLock(v5, v4, v6);
+    PopReleasePolicyLock(v5, v4, v6, v7, v9, v10);
   }
   PopThermalUpdateTelemetryClientCount(0);
-  v7 = *(void **)(a1 + 1048);
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0);
+  v8 = *(void **)(a1 + 1048);
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
 }

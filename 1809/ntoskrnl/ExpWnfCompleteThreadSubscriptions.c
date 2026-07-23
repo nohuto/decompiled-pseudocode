@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpWnfCompleteThreadSubscriptions @ 0x14060E8D0
+ * XREFs of ExpWnfCompleteThreadSubscriptions @ 0x14060F8D0
  * Callers:
- *     NtGetCompleteWnfStateSubscription @ 0x14060E4A0 (NtGetCompleteWnfStateSubscription.c)
+ *     NtGetCompleteWnfStateSubscription @ 0x14060F4A0 (NtGetCompleteWnfStateSubscription.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -9,12 +9,12 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpCaptureWnfStateName @ 0x14060F868 (ExpCaptureWnfStateName.c)
- *     ExpWnfLookupNameInstance @ 0x14060F8E0 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x14060F9EC (ExpWnfResolveScopeInstance.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExpCaptureWnfStateName @ 0x140610868 (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x1406108E0 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x1406109EC (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406119F8 (ExpWnfNotifyNameSubscribers.c)
  */
 
 __int64 __fastcall ExpWnfCompleteThreadSubscriptions(_QWORD *a1, __int64 a2, __int64 a3, int a4, int a5)
@@ -22,9 +22,9 @@ __int64 __fastcall ExpWnfCompleteThreadSubscriptions(_QWORD *a1, __int64 a2, __i
   struct _EX_RUNDOWN_REF *v8; // rbp
   int v9; // r13d
   char v10; // r8
-  __int64 v11; // rbx
-  __int64 v12; // rax
-  __int64 v13; // rbx
+  PRTL_BALANCED_NODE v11; // rbx
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // rbx
   __int64 *v14; // rbx
   int v15; // eax
   __int64 *v16; // rcx
@@ -44,13 +44,13 @@ __int64 __fastcall ExpWnfCompleteThreadSubscriptions(_QWORD *a1, __int64 a2, __i
   if ( _InterlockedCompareExchange64(a1 + 10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(a1 + 10, v11, (ULONG_PTR)(a1 + 10));
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   v12 = KeAbPreAcquire((ULONG_PTR)(a1 + 13), 0LL, 0);
   v13 = v12;
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1 + 26, 0LL) )
     ExfAcquirePushLockExclusiveEx(a1 + 13, v12, (ULONG_PTR)(a1 + 13));
   if ( v13 )
-    *(_BYTE *)(v13 + 26) |= 1u;
+    BYTE2(v13[1].Left) |= 1u;
   v14 = (__int64 *)a1[14];
   if ( v14 != a1 + 14 )
   {

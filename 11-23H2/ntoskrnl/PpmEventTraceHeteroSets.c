@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmEventTraceHeteroSets @ 0x14082D474
+ * XREFs of PpmEventTraceHeteroSets @ 0x14082D774
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
- *     PpmEventTraceControlCallback @ 0x140864C90 (PpmEventTraceControlCallback.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
+ *     PpmEventTraceControlCallback @ 0x140864ED0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     KeIsMultiCoreClassesEnabled @ 0x140255F40 (KeIsMultiCoreClassesEnabled.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BFC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x140392450 (KeInitializeSchedulerSubNodeEnumerationContext.c)
- *     KeGetHeteroPolicies @ 0x140392468 (KeGetHeteroPolicies.c)
- *     KeGetHeteroSetByPolicy @ 0x140392518 (KeGetHeteroSetByPolicy.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeGetHeteroSetByQoS @ 0x14056C3F8 (KeGetHeteroSetByQoS.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x140256000 (KeIsMultiCoreClassesEnabled.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1E8C (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x140392630 (KeInitializeSchedulerSubNodeEnumerationContext.c)
+ *     KeGetHeteroPolicies @ 0x140392648 (KeGetHeteroPolicies.c)
+ *     KeGetHeteroSetByPolicy @ 0x1403926F8 (KeGetHeteroSetByPolicy.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeGetHeteroSetByQoS @ 0x14056CAB8 (KeGetHeteroSetByQoS.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

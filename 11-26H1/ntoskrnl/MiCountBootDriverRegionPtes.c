@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCountBootDriverRegionPtes @ 0x140CF9530
+ * XREFs of MiCountBootDriverRegionPtes @ 0x140CFF8B0
  * Callers:
  *     <none>
  * Callees:

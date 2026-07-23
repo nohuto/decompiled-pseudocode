@@ -20,7 +20,7 @@ LABEL_6:
   }
   if ( (RtlGetSuiteMask() & 0x10000) == 0 )
   {
-    RtlRunOnceExecuteOnce((int)&RtlpDiskSpeedInit, RtlpDiskSpeedInitialize, 0, 0);
+    RtlRunOnceExecuteOnce(&RtlpDiskSpeedInit, (PRTL_RUN_ONCE_INIT_FN)RtlpDiskSpeedInitialize, 0, 0);
     v2 = RtlpDiskSpeedPolicy;
     goto LABEL_6;
   }

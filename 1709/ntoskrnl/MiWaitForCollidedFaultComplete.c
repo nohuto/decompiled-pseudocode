@@ -39,10 +39,10 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
   __int64 *v7; // r15
   __int64 PteShadow; // rax
   _DWORD *v13; // r14
-  unsigned __int64 v14; // rbp
+  _RTL_BALANCED_NODE *v14; // rbp
   ULONG_PTR v15; // rbx
   LONG *v16; // rcx
-  __int64 v17; // rax
+  PRTL_BALANCED_NODE v17; // rax
   unsigned __int64 v18; // rdx
   LONG *SharedVm; // rbx
   unsigned int v21; // ebx
@@ -96,13 +96,13 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
     v17 = KeAbPreAcquire(v15, 0LL, 0);
     v14 = v17;
     if ( v17 )
-      KeAbPreWait(v17);
+      KeAbPreWait((__int64)v17);
   }
   KeWaitForSingleObject((PVOID)(v15 + 56), WrPageIn, 0, 0, 0LL);
   if ( v14 )
   {
     KeAbPreAcquire(v15, v14, 0);
-    KeAbPostReleaseEx(v15, v14);
+    KeAbPostReleaseEx(v15, (unsigned __int64)v14);
   }
   MiFreeInPageSupportBlock((char *)v15, v18);
   if ( a4 )

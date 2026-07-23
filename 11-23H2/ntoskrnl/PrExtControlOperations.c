@@ -1,11 +1,11 @@
 /*
- * XREFs of PrExtControlOperations @ 0x140615588
+ * XREFs of PrExtControlOperations @ 0x140615AD8
  * Callers:
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MicrocodeSetProcMcLog @ 0x1406156BC (MicrocodeSetProcMcLog.c)
- *     RtlFindExportedRoutineByName @ 0x1406AD3F0 (RtlFindExportedRoutineByName.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MicrocodeSetProcMcLog @ 0x140615C0C (MicrocodeSetProcMcLog.c)
+ *     RtlFindExportedRoutineByName @ 0x1406AD420 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall PrExtControlOperations(int a1, __int64 a2, int a3)
@@ -56,9 +56,9 @@ __int64 __fastcall PrExtControlOperations(int a1, __int64 a2, int a3)
       if ( a2 )
       {
         MCUpdateRegistryData = *(_OWORD *)a2;
-        xmmword_140C14930 = *(_OWORD *)(a2 + 16);
-        qword_140C14940 = *(_QWORD *)(a2 + 32);
-        dword_140C14948 = *(_DWORD *)(a2 + 40);
+        xmmword_140C148D0 = *(_OWORD *)(a2 + 16);
+        qword_140C148E0 = *(_QWORD *)(a2 + 32);
+        dword_140C148E8 = *(_DWORD *)(a2 + 40);
         return v7;
       }
     }
@@ -74,7 +74,7 @@ __int64 __fastcall PrExtControlOperations(int a1, __int64 a2, int a3)
       if ( v9 == 1 )
       {
         ExportedRoutineByName = (unsigned int (__fastcall *)(__int64))RtlFindExportedRoutineByName(
-                                                                        a2,
+                                                                        (PVOID)a2,
                                                                         "UcpUpdateControls");
         if ( ExportedRoutineByName )
         {
@@ -98,7 +98,9 @@ __int64 __fastcall PrExtControlOperations(int a1, __int64 a2, int a3)
     v17[1] = v14;
     MicrocodeSetProcMcLog(v17, v15, v13);
   }
-  ExportedRoutineByName = (unsigned int (__fastcall *)(__int64))RtlFindExportedRoutineByName(a2, "UcpUpdateControls");
+  ExportedRoutineByName = (unsigned int (__fastcall *)(__int64))RtlFindExportedRoutineByName(
+                                                                  (PVOID)a2,
+                                                                  "UcpUpdateControls");
   if ( ExportedRoutineByName )
   {
     v11 = 0LL;

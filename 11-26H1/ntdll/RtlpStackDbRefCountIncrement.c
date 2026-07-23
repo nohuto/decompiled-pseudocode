@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpStackDbRefCountIncrement @ 0x180121888
+ * XREFs of RtlpStackDbRefCountIncrement @ 0x180121624
  * Callers:
- *     RtlpStackDbSegmentFindOrCreate @ 0x1800FFE04 (RtlpStackDbSegmentFindOrCreate.c)
- *     RtlStackDbStackAdd @ 0x18011FC7C (RtlStackDbStackAdd.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x1800FF554 (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlStackDbStackAdd @ 0x18011FA2C (RtlStackDbStackAdd.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of WheapProcessOfflineList @ 0x1406D8C30
+ * XREFs of WheapProcessOfflineList @ 0x1406DCDC0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     MmGetPageBadStatus @ 0x1406F2340 (MmGetPageBadStatus.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WheapPushPendingOfflineWrapper @ 0x14084A4E8 (WheapPushPendingOfflineWrapper.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     MmGetPageBadStatus @ 0x1406F6FB0 (MmGetPageBadStatus.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WheapPushPendingOfflineWrapper @ 0x1408507F8 (WheapPushPendingOfflineWrapper.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 WheapProcessOfflineList()
 {
   KIRQL v0; // al
-  struct _SINGLE_LIST_ENTRY *SparePtr; // rbx
-  struct _SINGLE_LIST_ENTRY *v2; // rsi
+  _SINGLE_LIST_ENTRY *Object; // rbx
+  _SINGLE_LIST_ENTRY *v2; // rsi
   struct _SINGLE_LIST_ENTRY *Next; // rdi
   int PageBadStatus; // eax
   struct _SINGLE_LIST_ENTRY *v6; // [rsp+20h] [rbp-40h] BYREF
@@ -27,15 +27,15 @@ __int64 WheapProcessOfflineList()
   Src = 0LL;
   v9 = 0LL;
   v8 = 0LL;
-  v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&CmpCallbackListLock.WaitBlock[1]);
-  SparePtr = (struct _SINGLE_LIST_ENTRY *)CmpCallbackListLock.WaitBlock[0].SparePtr;
-  CmpCallbackListLock.WaitBlock[0].SparePtr = 0LL;
-  *(_DWORD *)&CmpCallbackListLock.WaitBlockFill11[56] = 0;
-  KeReleaseSpinLock((PKSPIN_LOCK)&CmpCallbackListLock.WaitBlock[1], v0);
-  while ( SparePtr )
+  v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&CmpContextListLock.WaitBlock[0].SparePtr);
+  Object = (_SINGLE_LIST_ENTRY *)CmpContextListLock.WaitBlock[0].Object;
+  CmpContextListLock.WaitBlock[0].Object = 0LL;
+  *(_DWORD *)&CmpContextListLock.WaitBlockFill11[48] = 0;
+  KeReleaseSpinLock((PKSPIN_LOCK)&CmpContextListLock.WaitBlock[0].SparePtr, v0);
+  while ( Object )
   {
-    v2 = SparePtr;
-    SparePtr = SparePtr->Next;
+    v2 = Object;
+    Object = Object->Next;
     Next = v2[1].Next;
     v6 = Next;
     PageBadStatus = MmGetPageBadStatus(&v6);
@@ -57,7 +57,7 @@ __int64 WheapProcessOfflineList()
     {
 LABEL_4:
       ExFreePoolWithTag(v2, 0x61656857u);
-      _InterlockedDecrement((volatile signed __int32 *)&CmpCallbackListLock.WaitBlockFill11[72]);
+      _InterlockedDecrement((volatile signed __int32 *)&CmpContextListLock.WaitBlockFill11[64]);
     }
   }
   return 0LL;

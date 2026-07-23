@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpWerDeferredWriteRoutine @ 0x14061C1BC
+ * XREFs of DbgkpWerDeferredWriteRoutine @ 0x14061C270
  * Callers:
  *     <none>
  * Callees:
  *     WerLiveKernelSubmitReport_0 @ 0x140001310 (WerLiveKernelSubmitReport_0.c)
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     DbgkpWerCleanupContext @ 0x14061C01C (DbgkpWerCleanupContext.c)
- *     IoWriteDeferredLiveDumpData @ 0x14062651C (IoWriteDeferredLiveDumpData.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     DbgkpWerCleanupContext @ 0x14061C0D0 (DbgkpWerCleanupContext.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1406265D0 (IoWriteDeferredLiveDumpData.c)
  */
 
 __int64 __fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)

@@ -1,27 +1,27 @@
 /*
- * XREFs of PnpGetDevicePropertyData @ 0x1405869C8
+ * XREFs of PnpGetDevicePropertyData @ 0x1405879C8
  * Callers:
- *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x140587930 (IoGetDevicePropertyData.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     PnpCompareInterruptInformation @ 0x14071D404 (PnpCompareInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
+ *     PnpCompareInterruptInformation @ 0x14071E6A4 (PnpCompareInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x140897850 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpGetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         unsigned int a5,
         void *a6,
-        unsigned int *a7,
+        _DWORD *a7,
         __int64 a8)
 {
   __int64 v11; // rbx
@@ -29,13 +29,12 @@ __int64 __fastcall PnpGetDevicePropertyData(
   unsigned int ObjectProperty; // ebx
   __int64 v15; // rax
   unsigned int *v16; // rdx
-  __int64 v17; // [rsp+60h] [rbp-108h] BYREF
-  _BYTE *v18; // [rsp+68h] [rbp-100h]
-  _BYTE v19[176]; // [rsp+70h] [rbp-F8h] BYREF
+  UNICODE_STRING String; // [rsp+60h] [rbp-108h] BYREF
+  _BYTE v18[176]; // [rsp+70h] [rbp-F8h] BYREF
 
-  memset(v19, 0, 0xAAuLL);
-  v17 = 0LL;
-  v18 = 0LL;
+  memset(v18, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
+  String.Buffer = 0LL;
   if ( a1 )
     v11 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
   else
@@ -44,14 +43,14 @@ __int64 __fastcall PnpGetDevicePropertyData(
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    LODWORD(v17) = 11141120;
-    v18 = v19;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v17) )
+    *(_DWORD *)&String.Length = 11141120;
+    String.Buffer = (wchar_t *)v18;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v18 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -61,7 +60,7 @@ __int64 __fastcall PnpGetDevicePropertyData(
                      *(_QWORD *)(v11 + 48),
                      1,
                      0,
-                     (__int64)v18,
+                     (__int64)String.Buffer,
                      a2,
                      a8,
                      (__int64)a6,
@@ -99,7 +98,7 @@ __int64 __fastcall PnpGetDevicePropertyData(
       }
       else if ( !ObjectProperty )
       {
-        PnpCompareInterruptInformation(a1, a6, *a7);
+        PnpCompareInterruptInformation(a1, a6, (unsigned int)*a7);
       }
     }
   }

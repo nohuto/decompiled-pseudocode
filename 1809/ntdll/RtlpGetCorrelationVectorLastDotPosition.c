@@ -1,40 +1,40 @@
 /*
- * XREFs of RtlpGetCorrelationVectorLastDotPosition @ 0x180087ED4
+ * XREFs of RtlpGetCorrelationVectorLastDotPosition @ 0x180087EE4
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x180087DF0 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x180087E00 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     RtlpGetCorrelationVectorBufferLength @ 0x180087F20 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x180087F30 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
-__int64 __fastcall RtlpGetCorrelationVectorLastDotPosition(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpGetCorrelationVectorLastDotPosition(__int64 a1)
 {
   int CorrelationVectorBufferLength; // eax
-  unsigned int v3; // r8d
-  int v4; // r9d
-  __int64 v5; // r10
-  __int64 v6; // r11
-  __int64 v7; // rax
-  char v8; // dl
-  int v9; // ecx
+  unsigned int v2; // r8d
+  int v3; // r9d
+  __int64 v4; // r10
+  __int64 v5; // r11
+  __int64 v6; // rax
+  char v7; // dl
+  int v8; // ecx
 
-  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(a1, a2, 0xFFFFFFFFLL);
-  v6 = CorrelationVectorBufferLength;
+  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(a1);
+  v5 = CorrelationVectorBufferLength;
   if ( CorrelationVectorBufferLength > 0 )
   {
-    v7 = 0LL;
+    v6 = 0LL;
     do
     {
-      v8 = *(_BYTE *)(v5 + v7 + 1);
-      v9 = v4;
-      if ( !v8 )
+      v7 = *(_BYTE *)(v4 + v6 + 1);
+      v8 = v3;
+      if ( !v7 )
         break;
-      ++v4;
-      ++v7;
-      if ( v8 != 46 )
-        v9 = v3;
-      v3 = v9;
+      ++v3;
+      ++v6;
+      if ( v7 != 46 )
+        v8 = v2;
+      v2 = v8;
     }
-    while ( v7 < v6 );
+    while ( v6 < v5 );
   }
-  return v3;
+  return v2;
 }

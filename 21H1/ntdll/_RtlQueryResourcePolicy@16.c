@@ -14,7 +14,7 @@
 
 int __stdcall RtlQueryResourcePolicy(int a1, int a2, int a3, int a4)
 {
-  int v5; // eax
+  PWSTR v5; // eax
   const wchar_t *NtSystemRoot; // eax
 
   if ( !a3 || a2 )
@@ -33,7 +33,7 @@ int __stdcall RtlQueryResourcePolicy(int a1, int a2, int a3, int a4)
         NtSystemRoot = L"C:\\data\\programs\\windowsapps";
       else
         NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
-      return RtlpQueryDiskSpacePolicy(NtSystemRoot, a3);
+      return RtlpQueryDiskSpacePolicy(NtSystemRoot);
     case 2:
       if ( a4 != 4 )
         return -1073741811;

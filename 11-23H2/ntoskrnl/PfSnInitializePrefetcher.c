@@ -3,10 +3,10 @@
  * Callers:
  *     PfInitializeSuperfetch @ 0x140B617C0 (PfInitializeSuperfetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     PfpCreateEvent @ 0x140846CB4 (PfpCreateEvent.c)
- *     PfSnPrefetchCacheCtxInitialize @ 0x140846ED8 (PfSnPrefetchCacheCtxInitialize.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     PfpCreateEvent @ 0x140846FB4 (PfpCreateEvent.c)
+ *     PfSnPrefetchCacheCtxInitialize @ 0x1408471D8 (PfSnPrefetchCacheCtxInitialize.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -55,10 +55,10 @@ __int64 PfSnInitializePrefetcher()
     *(_QWORD *)(Pool2 + 128) = 0LL;
     KiSetTimerEx(Pool2, -6000000000LL, 0, 0, Pool2 + 64);
   }
-  qword_140C6A718 = 0LL;
-  xmmword_140C6A720 = 0LL;
+  Parent.Root = 0LL;
+  *(_OWORD *)&Parent.0 = 0LL;
   result = 0LL;
-  qword_140C6A730 = 0LL;
+  Tree.Min = 0LL;
   qword_140C6A738 = 0LL;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryInformationCpuPartition @ 0x140775CD0
+ * XREFs of NtQueryInformationCpuPartition @ 0x140775EF0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeQueryMaximumGroupCount @ 0x140480670 (KeQueryMaximumGroupCount.c)
- *     KeQueryCpuPartitionAffinity @ 0x1405BFB24 (KeQueryCpuPartitionAffinity.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PspReferenceCpuPartitionByHandle @ 0x140776EF0 (PspReferenceCpuPartitionByHandle.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeQueryMaximumGroupCount @ 0x14047B1D0 (KeQueryMaximumGroupCount.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1405BD154 (KeQueryCpuPartitionAffinity.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x140777110 (PspReferenceCpuPartitionByHandle.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtQueryInformationCpuPartition(
@@ -60,7 +60,7 @@ __int64 __fastcall NtQueryInformationCpuPartition(
       MaximumGroupCount = KeQueryMaximumGroupCount();
       if ( v14 < MaximumGroupCount )
         MaximumGroupCount = v14;
-      Pool2 = (void *)ExAllocatePool2(0x101uLL);
+      Pool2 = (void *)ExAllocatePool2(0x101uLL, 16LL * MaximumGroupCount, 0x50707350u);
       v8 = Pool2;
       v18 = Pool2;
       if ( Pool2 )

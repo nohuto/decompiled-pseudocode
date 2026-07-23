@@ -1,26 +1,26 @@
 /*
- * XREFs of MiReturnPhysicalPoolPages @ 0x14051DF40
+ * XREFs of MiReturnPhysicalPoolPages @ 0x140520550
  * Callers:
- *     MiFreeNonPagedPoolPages @ 0x1403632E0 (MiFreeNonPagedPoolPages.c)
- *     MiReturnExcessPoolCommit @ 0x140365894 (MiReturnExcessPoolCommit.c)
- *     MiGetPoolPages @ 0x140365A30 (MiGetPoolPages.c)
- *     MiAddExpansionNonPagedPool @ 0x140520A60 (MiAddExpansionNonPagedPool.c)
+ *     MiFreeNonPagedPoolPages @ 0x140365080 (MiFreeNonPagedPoolPages.c)
+ *     MiReturnExcessPoolCommit @ 0x140367634 (MiReturnExcessPoolCommit.c)
+ *     MiGetPoolPages @ 0x1403677D0 (MiGetPoolPages.c)
+ *     MiAddExpansionNonPagedPool @ 0x140523104 (MiAddExpansionNonPagedPool.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiReturnPoolCharges @ 0x14036D218 (MiReturnPoolCharges.c)
- *     MiAppendPageChain @ 0x1404578A0 (MiAppendPageChain.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiReturnPoolCharges @ 0x14036EFB8 (MiReturnPoolCharges.c)
+ *     MiAppendPageChain @ 0x14044F110 (MiAppendPageChain.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiReturnPhysicalPoolPages(unsigned __int64 a1, __int64 a2)
@@ -167,9 +167,9 @@ LABEL_21:
     __writecr8(CurrentIrql);
     if ( v25 )
     {
-      v19 = qword_140E2D6B8;
+      v19 = qword_140E2D838;
       v20 = 384 * v5;
-      v21 = (volatile LONG *)(384 * v5 + qword_140E2D6B8 + 72);
+      v21 = (volatile LONG *)(384 * v5 + qword_140E2D838 + 72);
       if ( CurrentIrql == 2 )
       {
         v22 = 17;

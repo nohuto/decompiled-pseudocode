@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetIoSessionState @ 0x14071DE64
+ * XREFs of MmGetIoSessionState @ 0x14071F104
  * Callers:
- *     IoGetContainerInformation @ 0x14071DE00 (IoGetContainerInformation.c)
+ *     IoGetContainerInformation @ 0x14071F0A0 (IoGetContainerInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAddSecureEntry @ 0x14061F7C0
+ * XREFs of MiAddSecureEntry @ 0x140689430
  * Callers:
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiSecureVad @ 0x14061F6B0 (MiSecureVad.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MiAllocateVad @ 0x140711E88 (MiAllocateVad.c)
- *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
- *     MiCloneNoChange @ 0x1408C8688 (MiCloneNoChange.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1405FE4DC (MiAllocateNewSubAllocatedRegion.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140657018 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiSecureVad @ 0x140689320 (MiSecureVad.c)
+ *     MiAllocateVad @ 0x1406C04D8 (MiAllocateVad.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B860 (MiMapLockedPagesInUserSpace.c)
+ *     MiCloneNoChange @ 0x1408C87E8 (MiCloneNoChange.c)
  * Callees:
- *     MiSetVadFlags @ 0x14025B8C0 (MiSetVadFlags.c)
- *     MiInsertVadEvent @ 0x14025B9BC (MiInsertVadEvent.c)
- *     MiLocateExclusiveSecure @ 0x14025C250 (MiLocateExclusiveSecure.c)
- *     MmGetCurrentProcessorColor @ 0x14029C1F0 (MmGetCurrentProcessorColor.c)
- *     ExAllocatePoolMm @ 0x14033B3B0 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140214350 (MmGetCurrentProcessorColor.c)
+ *     MiSetVadFlags @ 0x14027CE30 (MiSetVadFlags.c)
+ *     MiInsertVadEvent @ 0x14027CF2C (MiInsertVadEvent.c)
+ *     MiLocateExclusiveSecure @ 0x14027D7C0 (MiLocateExclusiveSecure.c)
+ *     ExAllocatePoolMm @ 0x140346100 (ExAllocatePoolMm.c)
  */
 
 _DWORD *__fastcall MiAddSecureEntry(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
@@ -23,7 +23,6 @@ _DWORD *__fastcall MiAddSecureEntry(__int64 a1, __int64 a2, __int64 a3, int a4, 
   int v9; // eax
   _DWORD *PoolMm; // rax
   _DWORD *v11; // rbx
-  _DWORD *v12; // r9
 
   if ( (*(_DWORD *)(a1 + 48) & 8) != 0 && ((a5 & 1) != 0 || MiLocateExclusiveSecure(a1)) )
     return 0LL;
@@ -78,7 +77,7 @@ LABEL_8:
   }
   if ( (a4 & 0x20000000) != 0 )
     PoolMm[2] = a2 | 0x100;
-  MiInsertVadEvent(a1, PoolMm, 1);
-  MiSetVadFlags(a1, 1LL, 1LL, v12);
+  MiInsertVadEvent(a1, (__int64 *)PoolMm, 1);
+  MiSetVadFlags(a1, 1, 1);
   return v11;
 }

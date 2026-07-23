@@ -1,12 +1,12 @@
 /*
- * XREFs of SepIsImageInMinTcbList @ 0x140A88634
+ * XREFs of SepIsImageInMinTcbList @ 0x14097A150
  * Callers:
- *     SepIsMinTCB @ 0x14091E9C8 (SepIsMinTCB.c)
- *     SepIsSystemAppTCB @ 0x140A28568 (SepIsSystemAppTCB.c)
+ *     SepIsMinTCB @ 0x140979428 (SepIsMinTCB.c)
+ *     SepIsSystemAppTCB @ 0x140A3B608 (SepIsSystemAppTCB.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     SeCompareSigningLevels @ 0x140A88910 (SeCompareSigningLevels.c)
- *     SepCheckAndSetAuditModeForProcess @ 0x140A88938 (SepCheckAndSetAuditModeForProcess.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     SeCompareSigningLevels @ 0x140A8FB90 (SeCompareSigningLevels.c)
+ *     SepCheckAndSetAuditModeForProcess @ 0x140B5CD50 (SepCheckAndSetAuditModeForProcess.c)
  */
 
 __int64 __fastcall SepIsImageInMinTcbList(
@@ -41,7 +41,7 @@ __int64 __fastcall SepIsImageInMinTcbList(
     if ( RtlEqualUnicodeString(a3, (PCUNICODE_STRING)v15, 1u) )
     {
       v19 = *(_DWORD *)(v15 + 20);
-      if ( !v19 || v19 == *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] )
+      if ( !v19 || v19 == LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) )
         break;
     }
   }

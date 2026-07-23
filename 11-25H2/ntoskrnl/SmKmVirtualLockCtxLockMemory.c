@@ -13,7 +13,7 @@
  *     ZwLockVirtualMemory @ 0x14069D420 (ZwLockVirtualMemory.c)
  */
 
-__int64 __fastcall SmKmVirtualLockCtxLockMemory(signed __int64 *BugCheckParameter2, __int64 a2, __int64 a3)
+__int64 __fastcall SmKmVirtualLockCtxLockMemory(signed __int64 *BugCheckParameter2, void *a2, ULONG_PTR a3)
 {
   int v4; // ebp
   struct _KTHREAD *CurrentThread; // rax
@@ -22,14 +22,14 @@ __int64 __fastcall SmKmVirtualLockCtxLockMemory(signed __int64 *BugCheckParamete
   signed __int64 v8; // rax
   unsigned __int64 i; // rdx
   signed __int64 v10; // rtt
-  int v11; // eax
+  NTSTATUS v11; // eax
   int v12; // edi
   unsigned __int64 v13; // rdi
-  __int64 v15; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v16; // [rsp+70h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp+18h] BYREF
 
-  v16 = a3;
-  v15 = a2;
+  RegionSize = a3;
+  BaseAddress = a2;
   v4 = 0;
   while ( 1 )
   {
@@ -44,7 +44,7 @@ __int64 __fastcall SmKmVirtualLockCtxLockMemory(signed __int64 *BugCheckParamete
     if ( !v4 )
     {
       v8 = BugCheckParameter2[1];
-      for ( i = v8 + v16; i <= *v7; i = v16 + v8 )
+      for ( i = v8 + RegionSize; i <= *v7; i = RegionSize + v8 )
       {
         v10 = v8;
         v8 = _InterlockedCompareExchange64(BugCheckParameter2 + 1, i, v8);
@@ -57,7 +57,7 @@ __int64 __fastcall SmKmVirtualLockCtxLockMemory(signed __int64 *BugCheckParamete
       goto LABEL_14;
     }
 LABEL_12:
-    v11 = ZwLockVirtualMemory(-1LL, &v15, &v16, 1LL);
+    v11 = ZwLockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
     v12 = v11;
     if ( v11 >= 0 )
       break;
@@ -69,7 +69,7 @@ LABEL_14:
       ExfReleasePushLockShared(BugCheckParameter2);
     KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
     KeLeaveCriticalRegion();
-    v12 = SmKmVirtualLockContextIncreaseWsMin((unsigned __int64 *)BugCheckParameter2, v16, v13);
+    v12 = SmKmVirtualLockContextIncreaseWsMin((unsigned __int64 *)BugCheckParameter2, RegionSize, v13);
     if ( v12 < 0 )
       goto LABEL_22;
   }

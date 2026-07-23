@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFwFreeMemory @ 0x1403860A0
+ * XREFs of BgpFwFreeMemory @ 0x140386280
  * Callers:
- *     BgpFwQueryBootGraphicsInformation @ 0x140384D44 (BgpFwQueryBootGraphicsInformation.c)
- *     RaspFreeMemory @ 0x140386084 (RaspFreeMemory.c)
- *     RaspScanConvert @ 0x140386240 (RaspScanConvert.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x140384F24 (BgpFwQueryBootGraphicsInformation.c)
+ *     RaspFreeMemory @ 0x140386264 (RaspFreeMemory.c)
+ *     RaspScanConvert @ 0x140386420 (RaspScanConvert.c)
  *     BgpFwLibraryDisable @ 0x140AEC1EC (BgpFwLibraryDisable.c)
  *     FopFreeMappingTable @ 0x140AEC2E8 (FopFreeMappingTable.c)
  *     FopFreeFontData @ 0x140AEC314 (FopFreeFontData.c)
@@ -23,7 +23,7 @@
  *     BgConsoleDestroyInterface @ 0x140AEF504 (BgConsoleDestroyInterface.c)
  *     BgpDisplayCharacterDestroyContext @ 0x140AEF564 (BgpDisplayCharacterDestroyContext.c)
  *     AnFwpDisableProgressTimer @ 0x140AEF610 (AnFwpDisableProgressTimer.c)
- *     ResFwFreeContext @ 0x140AF1ED4 (ResFwFreeContext.c)
+ *     ResFwFreeContext @ 0x140AF1EE4 (ResFwFreeContext.c)
  *     BgpBcInitializeCriticalMode @ 0x140B9C3E8 (BgpBcInitializeCriticalMode.c)
  *     FopReadNamingTable @ 0x140B9C740 (FopReadNamingTable.c)
  *     FopReadMappingTable @ 0x140B9CAAC (FopReadMappingTable.c)
@@ -31,9 +31,9 @@
  *     FopReadCmapTable @ 0x140B9CE00 (FopReadCmapTable.c)
  *     BgpFoInitialize @ 0x140B9D09C (BgpFoInitialize.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -53,8 +53,8 @@ void __fastcall BgpFwFreeMemory(__int64 a1)
   {
     v9 = a1 - 24 - qword_140C70D50 - 8;
     RtlClearBits(&stru_140C70D60, v9, *(_DWORD *)(a1 - 16));
-    if ( v9 < HintIndex )
-      HintIndex = v9;
+    if ( v9 < dword_140C70D58 )
+      dword_140C70D58 = v9;
   }
   else
   {

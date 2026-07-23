@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAllocateUnicodeString @ 0x1403F2594
+ * XREFs of IopAllocateUnicodeString @ 0x1403F1458
  * Callers:
- *     IopBuildGlobalSymbolicLinkString @ 0x1403F2484 (IopBuildGlobalSymbolicLinkString.c)
- *     PiDeferSetInterfaceState @ 0x1404ECF18 (PiDeferSetInterfaceState.c)
- *     PnpConcatenateUnicodeStrings @ 0x140538568 (PnpConcatenateUnicodeStrings.c)
- *     IoRequestDeviceRemovalForReset @ 0x14062C4DC (IoRequestDeviceRemovalForReset.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x1403F1348 (IopBuildGlobalSymbolicLinkString.c)
+ *     PiDeferSetInterfaceState @ 0x1404CF084 (PiDeferSetInterfaceState.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140538AA8 (PnpConcatenateUnicodeStrings.c)
+ *     IoRequestDeviceRemovalForReset @ 0x14062C590 (IoRequestDeviceRemovalForReset.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

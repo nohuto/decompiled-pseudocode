@@ -24,7 +24,7 @@ ULONG_PTR __fastcall MiAllocatePoolPages(unsigned int a1, unsigned __int64 a2)
   unsigned __int64 v3; // rbx
   __int64 v4; // rsi
   __int64 v5; // rcx
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_HEADER *v6; // rcx
   PSLIST_ENTRY v7; // rax
   ULONG_PTR result; // rax
   unsigned __int64 NonPagedPoolVa; // rbp

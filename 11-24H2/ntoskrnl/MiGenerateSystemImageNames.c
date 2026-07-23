@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGenerateSystemImageNames @ 0x140ABF64C
+ * XREFs of MiGenerateSystemImageNames @ 0x140ABA72C
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x1407F13E8 (MiApplyHotPatchToLoadedDriver.c)
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1407F19B8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     MiGetBaseNameFromImageFileName @ 0x1404CD914 (MiGetBaseNameFromImageFileName.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     MiGetBaseNameFromImageFileName @ 0x1404C6CE4 (MiGetBaseNameFromImageFileName.c)
  */
 
 __int64 __fastcall MiGenerateSystemImageNames(

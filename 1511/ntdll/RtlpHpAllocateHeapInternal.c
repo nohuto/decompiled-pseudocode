@@ -28,7 +28,12 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, size_t a2, unsigned __int64 a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall RtlpHpAllocateHeapInternal(
+        _RTL_SRWLOCK *a1,
+        size_t a2,
+        unsigned __int64 a3,
+        unsigned int a4,
+        _DWORD *a5)
 {
   unsigned int v5; // edi
   unsigned __int64 v6; // rbp
@@ -40,7 +45,7 @@ __int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, size_t a2, unsigned __
   __int64 v12; // rdi
   unsigned __int64 v13; // rax
   __int64 v14; // r12
-  __int64 v15; // r14
+  _RTL_SRWLOCK *v15; // r14
   char CurrentProcessorNumber; // al
   unsigned int v17; // ecx
   unsigned int v18; // eax
@@ -52,8 +57,8 @@ __int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, size_t a2, unsigned __
   unsigned __int16 v24; // ax
   unsigned __int16 v25; // cx
   int v26; // ecx
-  volatile signed __int64 *v27; // rcx
-  volatile signed __int64 *v28; // rcx
+  _RTL_SRWLOCK *v27; // rcx
+  _RTL_SRWLOCK *v28; // rcx
   __int64 **v29; // rbx
   _QWORD *v30; // rbx
   struct _TEB *v31; // r8
@@ -82,20 +87,20 @@ __int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, size_t a2, unsigned __
   unsigned int v54; // [rsp+44h] [rbp-74h]
   int v55; // [rsp+48h] [rbp-70h]
   unsigned int v56; // [rsp+4Ch] [rbp-6Ch]
-  __int64 v57; // [rsp+50h] [rbp-68h]
+  _RTL_SRWLOCK *v57; // [rsp+50h] [rbp-68h]
   unsigned int v58; // [rsp+58h] [rbp-60h]
   _QWORD v59[3]; // [rsp+60h] [rbp-58h] BYREF
-  __int64 v60; // [rsp+C0h] [rbp+8h]
+  _RTL_SRWLOCK *BaseAddress; // [rsp+C0h] [rbp+8h]
   size_t Size; // [rsp+C8h] [rbp+10h]
 
   Size = a2;
-  v60 = a1;
+  BaseAddress = a1;
   v5 = a4;
   v6 = a3;
   if ( a3 > 0x3FF0 )
     goto LABEL_83;
-  v7 = a1 + 272;
-  v52 = a1 + 272;
+  v7 = (__int64)&a1[34];
+  v52 = (unsigned __int64)&a1[34];
   v8 = a3;
   if ( (_DWORD)a2 != (_DWORD)a3 )
     v8 = a3 + 2;
@@ -104,7 +109,7 @@ __int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, size_t a2, unsigned __
   if ( (*(_QWORD *)(v10 + 192) & 1) == 0 )
   {
 LABEL_12:
-    v15 = *(_QWORD *)(v10 + 192);
+    v15 = *(_RTL_SRWLOCK **)(v10 + 192);
     v57 = v15;
     CurrentProcessorNumber = RtlGetCurrentProcessorNumber();
     v17 = *(unsigned __int8 *)(v7 + 56);
@@ -120,23 +125,23 @@ LABEL_12:
     v19 = 0;
     v20 = 0LL;
     v21 = 1;
-    v22 = *(_QWORD *)(*(_QWORD *)(v15 + 104) + 8LL * *(unsigned __int8 *)(*(_QWORD *)(v15 + 96) + v18));
-    RtlAcquireSRWLockShared(v22 + 16);
+    v22 = *(_QWORD *)(v15[13].Value + 8LL * *(unsigned __int8 *)(v15[12].Value + v18));
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(v22 + 16));
     while ( 1 )
     {
       while ( !*(_QWORD *)(v22 + 8) )
       {
-        v28 = (volatile signed __int64 *)(v22 + 16);
+        v28 = (_RTL_SRWLOCK *)(v22 + 16);
         if ( v21 == 2 )
           RtlReleaseSRWLockExclusive(v28);
         else
           RtlReleaseSRWLockShared(v28);
-        v29 = (__int64 **)(v15 + 24);
+        v29 = (__int64 **)&v15[3];
         if ( *v29 == (__int64 *)v29
-          || ((RtlAcquireSRWLockExclusive(v15 + 16), *v29 != (__int64 *)v29)
-            ? (v20 = RtlpHpLfhOwnerMoveSubsegment(v15, *v29, 2))
+          || ((RtlAcquireSRWLockExclusive(v15 + 2), *v29 != (__int64 *)v29)
+            ? (v20 = RtlpHpLfhOwnerMoveSubsegment((__int64)v15, *v29, 2))
             : (v20 = 0LL),
-              RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v15 + 16)),
+              RtlReleaseSRWLockExclusive(v15 + 2),
               v5 = a4,
               !v20) )
         {
@@ -146,7 +151,7 @@ LABEL_12:
             goto LABEL_72;
         }
         v21 = 2;
-        RtlAcquireSRWLockExclusive(v22 + 16);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v22 + 16));
         RtlpHpLfhSubsegmentSetOwner(v20, v22);
         if ( *(_QWORD *)(v22 + 8) && *((_WORD *)v20 + 16) == *((_WORD *)v20 + 17) )
           v20[2] = 0LL;
@@ -182,7 +187,7 @@ LABEL_12:
       }
       v23 = 0LL;
 LABEL_28:
-      v27 = (volatile signed __int64 *)(v22 + 16);
+      v27 = (_RTL_SRWLOCK *)(v22 + 16);
       if ( v21 == 2 )
         RtlReleaseSRWLockExclusive(v27);
       else
@@ -190,7 +195,7 @@ LABEL_28:
       if ( v23 )
         break;
       v21 = 2;
-      RtlAcquireSRWLockExclusive(v22 + 16);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v22 + 16));
       v15 = v57;
     }
     v31 = NtCurrentTeb();
@@ -249,7 +254,7 @@ LABEL_28:
           }
           v43 = 0;
         }
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v23 + 24));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v23 + 24));
         if ( v43 < 0 )
         {
           if ( v53 != -1 )
@@ -315,20 +320,19 @@ LABEL_80:
     *a5 = 2;
     return result;
   }
-  v5 = a4;
   a2 = Size;
-  a1 = v60;
+  a1 = BaseAddress;
 LABEL_83:
   if ( v6 > 0x20000 )
   {
     if ( v6 > 0x7F000 )
-      result = RtlpHpLargeAlloc(a1, a2, v6, v5);
+      result = RtlpHpLargeAlloc(a1);
     else
-      result = RtlpHpSegAlloc(a1, a2, v6, v5);
+      result = RtlpHpSegAlloc(a1, a2);
   }
   else
   {
-    result = RtlpHpVsContextAllocate(a1 + 168, a2, (unsigned int)v6, v5);
+    result = RtlpHpVsContextAllocate(a1 + 21, a2);
   }
   *a5 = 3;
   return result;

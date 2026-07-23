@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsThreadImpersonating @ 0x14054A958
+ * XREFs of PsIsThreadImpersonating @ 0x14054AE98
  * Callers:
  *     <none>
  * Callees:

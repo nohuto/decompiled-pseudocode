@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogPeriodicTelemetryForSlabAllocator @ 0x1403D0AA0
+ * XREFs of MiLogPeriodicTelemetryForSlabAllocator @ 0x1403D0C80
  * Callers:
  *     <none>
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     InsertEventEntryInLookUpTable @ 0x140212F60 (InsertEventEntryInLookUpTable.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 MiLogPeriodicTelemetryForSlabAllocator()
@@ -109,7 +109,7 @@ __int64 MiLogPeriodicTelemetryForSlabAllocator()
       *(_DWORD *)&EventDescriptor.Id = 184549376;
       EventDescriptor.Keyword = 0x400000000400LL;
       UserData.Size = *(unsigned __int16 *)UserData.Ptr;
-      v35 = byte_140039DCB;
+      v35 = byte_140039EB3;
       UserData.Reserved = 2;
       v36 = 431;
       v37 = 1;
@@ -117,13 +117,13 @@ __int64 MiLogPeriodicTelemetryForSlabAllocator()
       if ( *(void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(v1 + 40) == TlgAggregateInternalRegisteredProviderEtwCallback )
       {
         v3 = 0;
-        v4 = byte_140039DCD;
+        v4 = byte_140039EB5;
         do
           v5 = *v4++;
         while ( v5 < 0 );
         while ( *v4++ )
           ;
-        while ( v4 < (char *)&word_140039F7A )
+        while ( v4 < (char *)&word_14003A062 )
         {
           while ( *v4++ )
             ;

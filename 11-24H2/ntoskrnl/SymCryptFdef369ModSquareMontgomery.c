@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdef369ModSquareMontgomery @ 0x140538DE0
+ * XREFs of SymCryptFdef369ModSquareMontgomery @ 0x140533280
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptFdef369ModMulMontgomery @ 0x140538C80 (SymCryptFdef369ModMulMontgomery.c)
+ *     SymCryptFdef369ModMulMontgomery @ 0x140533120 (SymCryptFdef369ModMulMontgomery.c)
  */
 
 __int64 __fastcall SymCryptFdef369ModSquareMontgomery(__int64 a1, int a2, __int64 a3, __int64 a4)

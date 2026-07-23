@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     RtlGetCurrentUmsThread @ 0x180067210 (RtlGetCurrentUmsThread.c)
- *     ZwRaiseException @ 0x1800A2EB0 (ZwRaiseException.c)
- *     RtlpUmsPrimaryContextWrap @ 0x1800A50D0 (RtlpUmsPrimaryContextWrap.c)
+ *     ZwRaiseException @ 0x1800A2ED0 (ZwRaiseException.c)
+ *     RtlpUmsPrimaryContextWrap @ 0x1800A50F0 (RtlpUmsPrimaryContextWrap.c)
  *     RtlpAttachThreadToUmsCompletionList @ 0x1800F68D0 (RtlpAttachThreadToUmsCompletionList.c)
  *     RtlpDetachThreadFromUmsCompletionList @ 0x1800F6994 (RtlpDetachThreadFromUmsCompletionList.c)
  *     RtlpSaveUmsDebugRegisterState @ 0x18010C094 (RtlpSaveUmsDebugRegisterState.c)

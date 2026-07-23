@@ -86,7 +86,7 @@ __int64 __fastcall PspExitThread(int a1)
   unsigned __int64 v25; // rbx
   struct _KTHREAD *Thread; // rcx
   ULONG_PTR LastXStateSaveDebugInfo; // r9
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v30; // rcx
   struct _KTHREAD *v31; // rax
   struct _LIST_ENTRY *v32; // rbx

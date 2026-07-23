@@ -264,7 +264,7 @@ __int64 __fastcall CmpParseKey(
   ULONG_PTR v194[2]; // [rsp+130h] [rbp+20h] BYREF
   UNICODE_STRING v195; // [rsp+140h] [rbp+30h] BYREF
   __int64 v196; // [rsp+150h] [rbp+40h] BYREF
-  struct _SLIST_ENTRY *v197; // [rsp+158h] [rbp+48h] BYREF
+  _SLIST_ENTRY *v197; // [rsp+158h] [rbp+48h] BYREF
   PVOID TokenInformation; // [rsp+160h] [rbp+50h] BYREF
   _QWORD v199[2]; // [rsp+168h] [rbp+58h] BYREF
   int v200; // [rsp+178h] [rbp+68h]

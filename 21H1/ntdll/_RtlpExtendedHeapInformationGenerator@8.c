@@ -30,6 +30,7 @@ int __stdcall RtlpExtendedHeapInformationGenerator(_DWORD *a1, _DWORD *a2)
   int v22; // ecx
   int v23; // eax
   _DWORD *v24; // ecx
+  size_t v25; // [esp-4h] [ebp-10h]
 
   if ( *a1 == 1 )
   {
@@ -79,7 +80,8 @@ int __stdcall RtlpExtendedHeapInformationGenerator(_DWORD *a1, _DWORD *a2)
         v11 = a1[1] - 8;
         if ( (unsigned int)&v9[v11] >= v11 && (unsigned int)&v9[v11] <= a2[11] )
         {
-          memcpy(v9, a1 + 2, a1[1] - 8);
+          LODWORD(v25) = a1[1] - 8;
+          memcpy(v9, a1 + 2, v25);
           v12 = a2[8];
           if ( !v12 )
             v12 = a2[7];

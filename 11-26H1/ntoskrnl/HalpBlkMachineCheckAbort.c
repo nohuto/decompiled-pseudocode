@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkMachineCheckAbort @ 0x140C7DB80
+ * XREFs of HalpBlkMachineCheckAbort @ 0x140C83B80
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkHandleMachineCheckAbort @ 0x140C7C400 (HalpBlkHandleMachineCheckAbort.c)
- *     HalpBlkMceFastForward @ 0x140C7C510 (HalpBlkMceFastForward.c)
+ *     HalpBlkHandleMachineCheckAbort @ 0x140C82400 (HalpBlkHandleMachineCheckAbort.c)
+ *     HalpBlkMceFastForward @ 0x140C82510 (HalpBlkMceFastForward.c)
  */
 
 // positive sp value has been detected, the output may be wrong!

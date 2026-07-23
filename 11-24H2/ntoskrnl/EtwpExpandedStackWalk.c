@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpExpandedStackWalk @ 0x14027C190
+ * XREFs of EtwpExpandedStackWalk @ 0x140231720
  * Callers:
  *     <none>
  * Callees:
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
  */
 
 ULONG __fastcall EtwpExpandedStackWalk(__int64 a1)

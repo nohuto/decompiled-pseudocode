@@ -9,19 +9,25 @@
  *     RtlpWnfETWEventPublish @ 0x1800DDDB4 (RtlpWnfETWEventPublish.c)
  */
 
-__int64 __fastcall RtlTestAndPublishWnfStateData(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall RtlTestAndPublishWnfStateData(
+        WNF_STATE_NAME a1,
+        const WNF_TYPE_ID *a2,
+        const void *a3,
+        ULONG a4,
+        void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp)
 {
-  int updated; // ebx
-  __int64 v6; // rdx
-  __int64 v8; // [rsp+40h] [rbp-28h] BYREF
+  NTSTATUS updated; // ebx
+  __int64 v8; // rdx
+  WNF_STATE_NAME StateName; // [rsp+40h] [rbp-28h] BYREF
 
-  v8 = a1;
-  updated = ZwUpdateWnfStateData(&v8, a3, a4, a2);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v6 = (__int64)NtCurrentPeb()->SharedData + 564;
+  StateName = a1;
+  updated = ZwUpdateWnfStateData(&StateName, a3, a4, a2, ExplicitScope, MatchingChangeStamp, 1u);
+  if ( RtlGetCurrentServiceSessionId() )
+    v8 = (__int64)NtCurrentPeb()->SharedData + 564;
   else
-    v6 = 2147353486LL;
-  if ( *(_BYTE *)v6 && updated >= 0 )
-    RtlpWnfETWEventPublish(v8, a4);
+    v8 = 2147353486LL;
+  if ( *(_BYTE *)v8 && updated >= 0 )
+    ((void (__fastcall *)(_QWORD, _QWORD))RtlpWnfETWEventPublish)(StateName, a4);
   return (unsigned int)updated;
 }

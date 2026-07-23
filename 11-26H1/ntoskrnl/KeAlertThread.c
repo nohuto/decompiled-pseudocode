@@ -1,16 +1,16 @@
 /*
- * XREFs of KeAlertThread @ 0x1402C5C40
+ * XREFs of KeAlertThread @ 0x1403108E0
  * Callers:
- *     KeRequestTerminationThread @ 0x1402C5B58 (KeRequestTerminationThread.c)
- *     IoDecrementKeepAliveCount @ 0x1404C7930 (IoDecrementKeepAliveCount.c)
- *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x1404CE370 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
- *     KeAlertResumeThread @ 0x1405EBF70 (KeAlertResumeThread.c)
- *     NtAlertThread @ 0x140B1B8F0 (NtAlertThread.c)
+ *     KeRequestTerminationThread @ 0x1403107F4 (KeRequestTerminationThread.c)
+ *     IoDecrementKeepAliveCount @ 0x1404C1670 (IoDecrementKeepAliveCount.c)
+ *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x1404C7DA0 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
+ *     KeAlertResumeThread @ 0x1405EE8E0 (KeAlertResumeThread.c)
+ *     NtAlertThread @ 0x140B1DB00 (NtAlertThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiAlertThread @ 0x14052E3A8 (KiAlertThread.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAlertThread @ 0x1405308C8 (KiAlertThread.c)
  */
 
 char __fastcall KeAlertThread(__int64 a1, __int64 a2, __int64 a3)

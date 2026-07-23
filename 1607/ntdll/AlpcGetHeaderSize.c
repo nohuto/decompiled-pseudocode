@@ -1,30 +1,30 @@
 /*
- * XREFs of AlpcGetHeaderSize @ 0x180076F10
+ * XREFs of AlpcGetHeaderSize @ 0x180076F00
  * Callers:
- *     AlpcInitializeMessageAttribute @ 0x180076E70 (AlpcInitializeMessageAttribute.c)
- *     AlpcGetMessageAttribute @ 0x180076ED0 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x180076E60 (AlpcInitializeMessageAttribute.c)
+ *     AlpcGetMessageAttribute @ 0x180076EC0 (AlpcGetMessageAttribute.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AlpcGetHeaderSize(int a1)
+ULONG __cdecl AlpcGetHeaderSize(ULONG Flags)
 {
-  __int64 result; // rax
+  ULONG result; // eax
 
-  result = 8LL;
-  if ( a1 < 0 )
-    result = 32LL;
-  if ( (a1 & 0x40000000) != 0 )
-    result = (unsigned int)(result + 32);
-  if ( (a1 & 0x20000000) != 0 )
-    result = (unsigned int)(result + 32);
-  if ( (a1 & 0x10000000) != 0 )
-    result = (unsigned int)(result + 24);
-  if ( (a1 & 0x8000000) != 0 )
-    result = (unsigned int)(result + 24);
-  if ( (a1 & 0x4000000) != 0 )
-    result = (unsigned int)(result + 8);
-  if ( (a1 & 0x2000000) != 0 )
-    return (unsigned int)(result + 8);
+  result = 8;
+  if ( (Flags & 0x80000000) != 0 )
+    result = 32;
+  if ( (Flags & 0x40000000) != 0 )
+    result += 32;
+  if ( (Flags & 0x20000000) != 0 )
+    result += 32;
+  if ( (Flags & 0x10000000) != 0 )
+    result += 24;
+  if ( (Flags & 0x8000000) != 0 )
+    result += 24;
+  if ( (Flags & 0x4000000) != 0 )
+    result += 8;
+  if ( (Flags & 0x2000000) != 0 )
+    result += 8;
   return result;
 }

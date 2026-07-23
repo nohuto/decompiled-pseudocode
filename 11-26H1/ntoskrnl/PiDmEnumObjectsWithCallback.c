@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDmEnumObjectsWithCallback @ 0x1409A718C
+ * XREFs of PiDmEnumObjectsWithCallback @ 0x140967BEC
  * Callers:
- *     PiDmListInit @ 0x1407A7550 (PiDmListInit.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14098EA84 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmGetObjectList @ 0x140AB0C18 (PiDmGetObjectList.c)
- *     PpDevCfgInit @ 0x140CC642C (PpDevCfgInit.c)
+ *     PiDmListInit @ 0x1407AA100 (PiDmListInit.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14094F4E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDmGetObjectList @ 0x140AAEBFC (PiDmGetObjectList.c)
+ *     PpDevCfgInit @ 0x140CCC50C (PpDevCfgInit.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1403B80D0 (RtlEnumerateGenericTableLikeADirectory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     CmpUnlockSiloKeyLockTracker @ 0x1409A604C (CmpUnlockSiloKeyLockTracker.c)
- *     PiDmObjectAcquireSharedLock @ 0x1409A7358 (PiDmObjectAcquireSharedLock.c)
- *     PiDmObjectManagerReleaseLock @ 0x1409D90A4 (PiDmObjectManagerReleaseLock.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1409D90D0 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x1409D911C (PiDmObjectManagerAcquireSharedLock.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1403C1FD0 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140966AAC (CmpUnlockSiloKeyLockTracker.c)
+ *     PiDmObjectAcquireSharedLock @ 0x140967DB8 (PiDmObjectAcquireSharedLock.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1409A9F94 (PiDmObjectManagerReleaseLock.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1409A9FC0 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1409AA00C (PiDmObjectManagerAcquireSharedLock.c)
  */
 
 __int64 __fastcall PiDmEnumObjectsWithCallback(unsigned int a1, __int64 a2, __int64 a3)
@@ -31,29 +31,27 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(unsigned int a1, __int64 a2, __in
   char v10; // bl
   struct _KTHREAD *CurrentThread; // rcx
   __int64 *v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
   ULONG DeleteCount; // [rsp+44h] [rbp-75h] BYREF
   PVOID P; // [rsp+48h] [rbp-71h] BYREF
   PVOID RestartKey[2]; // [rsp+50h] [rbp-69h] BYREF
-  _BYTE v19[16]; // [rsp+60h] [rbp-59h] BYREF
-  const wchar_t *v20; // [rsp+70h] [rbp-49h]
-  int v21; // [rsp+78h] [rbp-41h]
-  unsigned int v22; // [rsp+7Ch] [rbp-3Dh]
+  _BYTE v17[16]; // [rsp+60h] [rbp-59h] BYREF
+  const wchar_t *v18; // [rsp+70h] [rbp-49h]
+  int v19; // [rsp+78h] [rbp-41h]
+  unsigned int v20; // [rsp+7Ch] [rbp-3Dh]
 
   v3 = 0LL;
   v6 = 0;
-  memset_0(v19, 0, 0x70uLL);
+  memset_0(v17, 0, 0x70uLL);
   RestartKey[0] = 0LL;
-  P = v19;
+  P = v17;
   DeleteCount = 0;
   ObjectManagerForObjectType = PiDmGetObjectManagerForObjectType(a1);
-  v22 = a1;
-  v21 = 0;
+  v20 = a1;
+  v19 = 0;
   v8 = L"\\\\?\\";
   if ( a1 != 3 )
-    v8 = &word_140B814F0;
-  v20 = v8;
+    v8 = &word_140B8A320;
+  v18 = v8;
   PiDmObjectManagerAcquireSharedLock(ObjectManagerForObjectType);
   v9 = (__int64 *)RtlEnumerateGenericTableLikeADirectory(
                     (PRTL_AVL_TABLE)(ObjectManagerForObjectType + 104),
@@ -103,7 +101,7 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(unsigned int a1, __int64 a2, __in
       v3 = 0LL;
     }
     ExReleaseResourceLite((PERESOURCE)ObjectManagerForObjectType);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     PiDmObjectRelease((unsigned int *)P);
   }
   return (unsigned int)v6;

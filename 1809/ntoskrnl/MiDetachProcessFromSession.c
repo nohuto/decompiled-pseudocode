@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDetachProcessFromSession @ 0x1401257A8
+ * XREFs of MiDetachProcessFromSession @ 0x140125878
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     MiDereferenceSessionFinal @ 0x1406E05B8 (MiDereferenceSessionFinal.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14006D570 (MiTrimOrAgeWorkingSet.c)
+ *     MiDereferenceSessionFinal @ 0x1406E1858 (MiDereferenceSessionFinal.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDetachProcessFromSession(int a1)
@@ -23,14 +23,14 @@ __int64 __fastcall MiDetachProcessFromSession(int a1)
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v2 = (__int64 *)(8 * (((unsigned __int64)qword_140439FC0 >> 39) & 0x1FF) - 0x90482413000LL);
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  v2 = (__int64 *)(8 * (((unsigned __int64)qword_14043B080 >> 39) & 0x1FF) - 0x90482413000LL);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   if ( MiPteInShadowRange((unsigned __int64)v2) )
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
       v4 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_2;
       v7 = (v3 & 1) == 0;
     }

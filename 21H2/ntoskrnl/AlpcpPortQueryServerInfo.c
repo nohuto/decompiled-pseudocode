@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpPortQueryServerInfo @ 0x1408C3100
+ * XREFs of AlpcpPortQueryServerInfo @ 0x1408C3260
  * Callers:
- *     NtAlpcQueryInformation @ 0x140681F90 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x1405DCFD0 (NtAlpcQueryInformation.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     AlpcpDereferenceProcess @ 0x1408C23B0 (AlpcpDereferenceProcess.c)
- *     AlpcpLockPortShared @ 0x1408C23CC (AlpcpLockPortShared.c)
- *     AlpcpReferenceProcess @ 0x1408C24D4 (AlpcpReferenceProcess.c)
- *     AlpcpUnlockPortShared @ 0x1408C24F0 (AlpcpUnlockPortShared.c)
- *     AlpcpLockCommunicationInfoShared @ 0x1408C2EF0 (AlpcpLockCommunicationInfoShared.c)
- *     AlpcpUnlockCommunicationInfoShared @ 0x1408C2F2C (AlpcpUnlockCommunicationInfoShared.c)
- *     AlpcpGetPortNameInformation @ 0x1408C3048 (AlpcpGetPortNameInformation.c)
- *     AlpcpReferenceMessageByWaitingThread @ 0x1408C36B8 (AlpcpReferenceMessageByWaitingThread.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1406D0224 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpDereferenceProcess @ 0x1408C2510 (AlpcpDereferenceProcess.c)
+ *     AlpcpLockPortShared @ 0x1408C252C (AlpcpLockPortShared.c)
+ *     AlpcpReferenceProcess @ 0x1408C2634 (AlpcpReferenceProcess.c)
+ *     AlpcpUnlockPortShared @ 0x1408C2650 (AlpcpUnlockPortShared.c)
+ *     AlpcpLockCommunicationInfoShared @ 0x1408C3050 (AlpcpLockCommunicationInfoShared.c)
+ *     AlpcpUnlockCommunicationInfoShared @ 0x1408C308C (AlpcpUnlockCommunicationInfoShared.c)
+ *     AlpcpGetPortNameInformation @ 0x1408C31A8 (AlpcpGetPortNameInformation.c)
+ *     AlpcpReferenceMessageByWaitingThread @ 0x1408C3818 (AlpcpReferenceMessageByWaitingThread.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall AlpcpPortQueryServerInfo(

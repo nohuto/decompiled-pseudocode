@@ -9,11 +9,8 @@
 
 int _snscanf_s(const char *const Buffer, const size_t BufferCount, const char *const Format, ...)
 {
-  va_list va; // [esp+14h] [ebp+14h] BYREF
-
-  va_start(va, Format);
-  if ( Format )
-    return _sinput_s(Buffer, BufferCount, Format, va);
+  if ( HIDWORD(BufferCount) )
+    return _sinput_s(Buffer, BufferCount, HIDWORD(BufferCount), &Format);
   _invalid_parameter();
   return -1;
 }

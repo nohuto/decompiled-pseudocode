@@ -1,61 +1,62 @@
 /*
- * XREFs of RtlRemovePrivileges @ 0x1800880F0
+ * XREFs of RtlRemovePrivileges @ 0x1800880E0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQueryInformationToken @ 0x1800A6840 (NtQueryInformationToken.c)
  *     NtAdjustPrivilegesToken @ 0x1800A6C40 (NtAdjustPrivilegesToken.c)
  */
 
-__int64 __fastcall RtlRemovePrivileges(__int64 a1, _DWORD *a2, unsigned int a3)
+NTSTATUS __cdecl RtlRemovePrivileges(HANDLE TokenHandle, PULONG PrivilegesToKeep, ULONG PrivilegeCount)
 {
   __int64 v3; // rbx
-  unsigned int v4; // r9d
-  __int64 result; // rax
-  unsigned int v7; // edx
+  ULONG v4; // r9d
+  NTSTATUS result; // eax
+  DWORD v7; // edx
   __int64 i; // rcx
-  unsigned __int64 v9; // r9
-  _DWORD v10[108]; // [rsp+40h] [rbp-1C8h] BYREF
+  unsigned __int64 LowPart; // r9
+  ULONG ReturnLength[4]; // [rsp+30h] [rbp-1D8h] BYREF
+  _TOKEN_PRIVILEGES TokenInformation[27]; // [rsp+40h] [rbp-1C8h] BYREF
 
   v3 = 0LL;
   v4 = 0;
-  if ( a3 )
+  if ( PrivilegeCount )
   {
-    while ( (unsigned int)(*a2 - 2) <= 0x22 )
+    while ( *PrivilegesToKeep - 2 <= 0x22 )
     {
-      v3 |= 1LL << *a2;
+      v3 |= 1LL << *PrivilegesToKeep;
       ++v4;
-      ++a2;
-      if ( v4 >= a3 )
+      ++PrivilegesToKeep;
+      if ( v4 >= PrivilegeCount )
         goto LABEL_4;
     }
-    return 3221225485LL;
+    return -1073741811;
   }
   else
   {
 LABEL_4:
-    result = NtQueryInformationToken(a1, 3LL, v10);
-    if ( (int)result >= 0 )
+    result = NtQueryInformationToken(TokenHandle, 3u, TokenInformation, 0x1B0u, ReturnLength);
+    if ( result >= 0 )
     {
-      v7 = v10[0];
+      v7 = TokenInformation[0].PrivilegeCount;
       for ( i = 0LL; (unsigned int)i < v7; i = (unsigned int)(i + 1) )
       {
-        v9 = (unsigned int)v10[3 * i + 1];
-        if ( _bittest64(&v3, v9) )
+        LowPart = TokenInformation[0].Privileges[i].Luid.LowPart;
+        if ( _bittest64(&v3, LowPart) )
         {
-          v3 &= ~(1LL << v9);
+          v3 &= ~(1LL << LowPart);
         }
         else
         {
-          v10[3 * i + 3] = 4;
-          v7 = v10[0];
+          TokenInformation[0].Privileges[i].Attributes = 4;
+          v7 = TokenInformation[0].PrivilegeCount;
         }
       }
       if ( v3 )
-        return 262LL;
+        return 262;
       else
-        return NtAdjustPrivilegesToken(a1, 0LL, v10, 432LL, 0LL, 0LL);
+        return NtAdjustPrivilegesToken(TokenHandle, 0, TokenInformation, 0x1B0u, 0LL, 0LL);
     }
   }
   return result;

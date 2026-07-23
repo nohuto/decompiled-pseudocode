@@ -2,10 +2,10 @@
  * XREFs of MiSplitBitmapPages @ 0x14020B1E8
  * Callers:
  *     MiExpandPtes @ 0x140210C78 (MiExpandPtes.c)
- *     MiExtendDynamicBitMap @ 0x1403AAA60 (MiExtendDynamicBitMap.c)
- *     MiSplitPfnBitMaps @ 0x14081C5C8 (MiSplitPfnBitMaps.c)
- *     MiSplitMirrorBitMap @ 0x140A2F094 (MiSplitMirrorBitMap.c)
- *     MiMarkRetpolineBits @ 0x140A34480 (MiMarkRetpolineBits.c)
+ *     MiExtendDynamicBitMap @ 0x1403AAC40 (MiExtendDynamicBitMap.c)
+ *     MiSplitPfnBitMaps @ 0x14081C898 (MiSplitPfnBitMaps.c)
+ *     MiSplitMirrorBitMap @ 0x140A2F344 (MiSplitMirrorBitMap.c)
+ *     MiMarkRetpolineBits @ 0x140A34730 (MiMarkRetpolineBits.c)
  *     MiInitializeDriverImages @ 0x140B460A0 (MiInitializeDriverImages.c)
  *     MxMarkActiveDriverBits @ 0x140B5EE38 (MxMarkActiveDriverBits.c)
  * Callees:

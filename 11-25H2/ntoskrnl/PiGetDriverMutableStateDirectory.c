@@ -29,7 +29,11 @@ __int64 __fastcall PiGetDriverMutableStateDirectory(unsigned __int16 *a1, __int6
   UnicodeString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&UnicodeString, 0LL);
-  StateRootPath = PiGetStateRootPath(L"Win32ServiceStateRoot");
+  StateRootPath = PiGetStateRootPath(
+                    L"Win32ServiceStateRoot",
+                    L"\\SystemRoot\\ServiceState",
+                    LocationTypeFileSystem,
+                    &DestinationString);
   if ( StateRootPath >= 0 )
   {
     v10 = -1LL;

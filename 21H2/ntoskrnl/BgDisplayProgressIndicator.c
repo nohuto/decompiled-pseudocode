@@ -1,13 +1,13 @@
 /*
- * XREFs of BgDisplayProgressIndicator @ 0x1409F4334
+ * XREFs of BgDisplayProgressIndicator @ 0x1409F5334
  * Callers:
- *     PopDecompressHiberBlocks @ 0x140994874 (PopDecompressHiberBlocks.c)
- *     BgkDestroy @ 0x1409F4B08 (BgkDestroy.c)
- *     BgkDisplayProgressIndicator @ 0x140A95DDC (BgkDisplayProgressIndicator.c)
+ *     PopDecompressHiberBlocks @ 0x140995874 (PopDecompressHiberBlocks.c)
+ *     BgkDestroy @ 0x1409F5B08 (BgkDestroy.c)
+ *     BgkDisplayProgressIndicator @ 0x140A96DDC (BgkDisplayProgressIndicator.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
- *     AnFwDisplayProgressIndicator @ 0x1409F4370 (AnFwDisplayProgressIndicator.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
+ *     AnFwDisplayProgressIndicator @ 0x1409F5370 (AnFwDisplayProgressIndicator.c)
  */
 
 __int64 __fastcall BgDisplayProgressIndicator(char a1)

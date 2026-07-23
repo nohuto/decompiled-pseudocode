@@ -29,7 +29,7 @@ __int64 __fastcall LdrpLangFallbackListAppendNode(__int64 *a1, __int64 a2, char 
   unsigned __int64 v11; // rdi
   __int64 v12; // rcx
   unsigned __int64 v13; // rdi
-  __int64 v14; // r14
+  _QWORD *v14; // r14
   __int64 v15; // r13
   __int64 v16; // r14
   int v17; // edi
@@ -89,12 +89,12 @@ LABEL_47:
     String2[v13] = 0;
     if ( v14 )
     {
-      v15 = *(_QWORD *)(v14 + 24);
+      v15 = v14[3];
       if ( v15 )
       {
         if ( *(_QWORD *)(v15 + 16) && String2[0] )
         {
-          v16 = *(_QWORD *)(v14 + 32);
+          v16 = v14[4];
           if ( v16 )
           {
             v17 = 0;

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmSiExtendSection @ 0x1404B3BF4
+ * XREFs of CmSiExtendSection @ 0x1404AE490
  * Callers:
- *     HvpViewMapExtendStorage @ 0x14097FB04 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapExtendStorage @ 0x140968314 (HvpViewMapExtendStorage.c)
  * Callees:
- *     ZwExtendSection @ 0x1406A8170 (ZwExtendSection.c)
+ *     ZwExtendSection @ 0x1406A9110 (ZwExtendSection.c)
  */
 
-__int64 __fastcall CmSiExtendSection(__int64 a1, __int64 a2)
+NTSTATUS __fastcall CmSiExtendSection(void *a1, LARGE_INTEGER a2)
 {
-  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER NewSectionSize; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = a2;
-  return ZwExtendSection(a1, &v3);
+  NewSectionSize = a2;
+  return ZwExtendSection(a1, &NewSectionSize);
 }

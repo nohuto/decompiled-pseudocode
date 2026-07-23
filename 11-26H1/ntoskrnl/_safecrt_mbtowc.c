@@ -1,17 +1,17 @@
 /*
- * XREFs of _safecrt_mbtowc @ 0x140536DF0
+ * XREFs of _safecrt_mbtowc @ 0x140539270
  * Callers:
- *     _woutput_l @ 0x140538F14 (_woutput_l.c)
- *     _woutput_s @ 0x14053D9F4 (_woutput_s.c)
+ *     _woutput_l @ 0x14053B394 (_woutput_l.c)
+ *     _woutput_s @ 0x14053FE74 (_woutput_s.c)
  * Callees:
- *     RtlAnsiCharToUnicodeChar @ 0x14096CA60 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x14097D3A0 (RtlAnsiCharToUnicodeChar.c)
  */
 
 int __cdecl safecrt_mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBytes)
 {
   int result; // eax
   int v4; // ebx
-  const char *v5; // [rsp+38h] [rbp+10h] BYREF
+  PUCHAR SourceCharacter; // [rsp+38h] [rbp+10h] BYREF
 
   result = 0;
   v4 = (int)SrcCh;
@@ -19,9 +19,9 @@ int __cdecl safecrt_mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBy
   {
     if ( *SrcCh )
     {
-      v5 = SrcCh;
-      *DstCh = RtlAnsiCharToUnicodeChar(&v5);
-      return (_DWORD)v5 - v4;
+      SourceCharacter = (PUCHAR)SrcCh;
+      *DstCh = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+      return (_DWORD)SourceCharacter - v4;
     }
     else if ( DstCh )
     {

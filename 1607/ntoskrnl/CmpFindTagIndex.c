@@ -4,9 +4,9 @@
  *     CmpAddDriverToList @ 0x1407AFE90 (CmpAddDriverToList.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpFindValueByName @ 0x140402A28 (CmpFindValueByName.c)
- *     CmpGetValueData @ 0x140442F60 (CmpGetValueData.c)
- *     CmpValueToData @ 0x1405601A0 (CmpValueToData.c)
+ *     CmpFindValueByName @ 0x1404018E8 (CmpFindValueByName.c)
+ *     CmpGetValueData @ 0x140441E30 (CmpGetValueData.c)
+ *     CmpValueToData @ 0x1405606E0 (CmpValueToData.c)
  */
 
 __int64 __fastcall CmpFindTagIndex(ULONG_PTR BugCheckParameter3, __int64 a2, unsigned int a3, int a4)

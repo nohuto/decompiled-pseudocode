@@ -1,7 +1,7 @@
 /*
- * XREFs of MiImageCfgRvaIteratorNext @ 0x140A23720
+ * XREFs of MiImageCfgRvaIteratorNext @ 0x140A36230
  * Callers:
- *     MiImageCfgRvaIteratorFirst @ 0x140A236F0 (MiImageCfgRvaIteratorFirst.c)
+ *     MiImageCfgRvaIteratorFirst @ 0x140A36200 (MiImageCfgRvaIteratorFirst.c)
  * Callees:
  *     <none>
  */
@@ -76,6 +76,6 @@ LABEL_14:
       return v4;
     }
   }
-  *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 14;
+  *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 14;
   return v4;
 }

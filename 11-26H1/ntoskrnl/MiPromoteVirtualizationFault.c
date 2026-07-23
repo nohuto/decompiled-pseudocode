@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPromoteVirtualizationFault @ 0x1406FF80C
+ * XREFs of MiPromoteVirtualizationFault @ 0x1407044DC
  * Callers:
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiValidVirtualizationFault @ 0x140525860 (MiValidVirtualizationFault.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x140527ED0 (MiValidVirtualizationFault.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiOkToSetPteDirtyForNotValidFault @ 0x14038C03C (MiOkToSetPteDirtyForNotValidFault.c)
- *     MiValidWriteFaultProcess @ 0x1403A76E0 (MiValidWriteFaultProcess.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiOkToSetPteDirtyForNotValidFault @ 0x14038DDEC (MiOkToSetPteDirtyForNotValidFault.c)
+ *     MiValidWriteFaultProcess @ 0x1403A9440 (MiValidWriteFaultProcess.c)
  */
 
 unsigned __int64 __fastcall MiPromoteVirtualizationFault(

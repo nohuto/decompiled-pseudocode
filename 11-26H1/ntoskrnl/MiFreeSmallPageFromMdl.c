@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFreeSmallPageFromMdl @ 0x1403C43F8
+ * XREFs of MiFreeSmallPageFromMdl @ 0x1403CE304
  * Callers:
- *     MiFreeSecureKernelPage @ 0x1403C3010 (MiFreeSecureKernelPage.c)
- *     MiZeroAndReleasePages @ 0x1403C3C14 (MiZeroAndReleasePages.c)
- *     MiFreeMdlPageRun @ 0x1403C4140 (MiFreeMdlPageRun.c)
+ *     MiFreeSecureKernelPage @ 0x1403CCF10 (MiFreeSecureKernelPage.c)
+ *     MiZeroAndReleasePages @ 0x1403CDB20 (MiZeroAndReleasePages.c)
+ *     MiFreeMdlPageRun @ 0x1403CE04C (MiFreeMdlPageRun.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiFreeLargePageCharges @ 0x1403C4704 (MiFreeLargePageCharges.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiFreeLargePageCharges @ 0x1403CE610 (MiFreeLargePageCharges.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR a1, __int64 a2, char a3, unsigned __int64 a4)
@@ -82,14 +82,14 @@ __int64 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR a1, __int64 a2, char a3, uns
     v9 = 0LL;
   }
   v13 = *(_DWORD *)(v10 + 32);
-  v14 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL));
-  if ( !stru_140E36558.InitialStack )
+  v14 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL));
+  if ( !stru_140E366D8.InitialStack )
     goto LABEL_35;
   if ( ((*(_QWORD *)(v10 + 40) >> 60) & 7) != 1 )
     goto LABEL_35;
-  InitialStack = stru_140E36558.InitialStack;
+  InitialStack = stru_140E366D8.InitialStack;
   v16 = v4 / 48;
-  if ( !stru_140E36558.InitialStack )
+  if ( !stru_140E366D8.InitialStack )
     goto LABEL_35;
   do
   {

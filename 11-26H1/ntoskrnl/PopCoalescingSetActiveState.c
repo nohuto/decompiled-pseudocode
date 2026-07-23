@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCoalescingSetActiveState @ 0x1404C32B4
+ * XREFs of PopCoalescingSetActiveState @ 0x1404BCB04
  * Callers:
- *     PopCoalescingCallbackWorker @ 0x140B14140 (PopCoalescingCallbackWorker.c)
+ *     PopCoalescingCallbackWorker @ 0x140B16240 (PopCoalescingCallbackWorker.c)
  * Callees:
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     PopCoalescingSetTimer @ 0x1404C3348 (PopCoalescingSetTimer.c)
- *     PopUpdateDiskIdleTimeoutSetting @ 0x140A3C4FC (PopUpdateDiskIdleTimeoutSetting.c)
- *     PopCheckResiliencyScenarios @ 0x140A3D444 (PopCheckResiliencyScenarios.c)
- *     PopDiagTraceIoCoalescingOn @ 0x140B2D18C (PopDiagTraceIoCoalescingOn.c)
- *     PopDiagTraceIoCoalescingOff @ 0x140B47D38 (PopDiagTraceIoCoalescingOff.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     PopCoalescingSetTimer @ 0x1404BCB98 (PopCoalescingSetTimer.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x1409F7F1C (PopUpdateDiskIdleTimeoutSetting.c)
+ *     PopCheckResiliencyScenarios @ 0x1409F8E64 (PopCheckResiliencyScenarios.c)
+ *     PopDiagTraceIoCoalescingOn @ 0x140B2F20C (PopDiagTraceIoCoalescingOn.c)
+ *     PopDiagTraceIoCoalescingOff @ 0x140B49AC8 (PopDiagTraceIoCoalescingOff.c)
  */
 
 __int64 __fastcall PopCoalescingSetActiveState(char a1)
@@ -25,8 +25,8 @@ __int64 __fastcall PopCoalescingSetActiveState(char a1)
     v3 = PopDppeCoalescingSpindownTimeout;
     if ( PopCoalescingEnforced )
       v3 = PopEnforcedCoalescingSpindownTimeout;
-    stru_140F11D08.AbWaitEntryCount |= 1u;
-    stru_140F11D08.SchedulerApc.ApcListEntry.Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
+    PopCoalescingState |= 1u;
+    PopCoalescingLastFlushTime = MEMORY[0xFFFFF78000000008];
     PopCurrentCoalescingSpindownTimeout = v3;
     PopCoalescingSetTimer();
     PopUpdateDiskIdleTimeoutSetting();
@@ -35,9 +35,9 @@ __int64 __fastcall PopCoalescingSetActiveState(char a1)
   }
   else
   {
-    stru_140F11D08.AbWaitEntryCount &= ~1u;
+    PopCoalescingState &= ~1u;
     PopCurrentCoalescingSpindownTimeout = 0;
-    KeCancelTimer((PKTIMER)&stru_140F11D08.600);
+    KeCancelTimer(&PopCoalescingTimer);
     PopCheckResiliencyScenarios();
     PopUpdateDiskIdleTimeoutSetting();
     return PopDiagTraceIoCoalescingOff();

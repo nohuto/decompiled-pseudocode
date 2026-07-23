@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwModifyBootEntry()
+NTSTATUS __cdecl ZwModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 267LL;
+  result = 267;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

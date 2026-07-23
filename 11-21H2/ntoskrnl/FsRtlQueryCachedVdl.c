@@ -33,7 +33,7 @@ __int64 __fastcall FsRtlQueryCachedVdl(PFILE_OBJECT FileObject, _QWORD *a2)
   v6 = v5;
   if ( !v5 )
     return 3221225626LL;
-  si128 = _mm_load_si128((const __m128i *)&_xmm);
+  si128 = _mm_load_si128((const __m128i *)&xmmword_140015CF0);
   v15 = 1;
   v5->AssociatedIrp.MasterIrp = (struct _IRP *)&si128;
   CurrentStackLocation = v5->Tail.Overlay.CurrentStackLocation;

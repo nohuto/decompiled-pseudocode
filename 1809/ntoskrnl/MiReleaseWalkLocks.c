@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseWalkLocks @ 0x140122798
+ * XREFs of MiReleaseWalkLocks @ 0x140122868
  * Callers:
- *     MiGetNextPageTablePte @ 0x140070A30 (MiGetNextPageTablePte.c)
- *     MiCombineWorkingSetTail @ 0x1401226C0 (MiCombineWorkingSetTail.c)
- *     MiYieldPageTableWalk @ 0x140122728 (MiYieldPageTableWalk.c)
- *     MiQueryEPTAccessedState @ 0x1402B3700 (MiQueryEPTAccessedState.c)
+ *     MiGetNextPageTablePte @ 0x140070A20 (MiGetNextPageTablePte.c)
+ *     MiCombineWorkingSetTail @ 0x140122790 (MiCombineWorkingSetTail.c)
+ *     MiYieldPageTableWalk @ 0x1401227F8 (MiYieldPageTableWalk.c)
+ *     MiQueryEPTAccessedState @ 0x1402B38F0 (MiQueryEPTAccessedState.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
  */
 
 void __fastcall MiReleaseWalkLocks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -31,7 +31,7 @@ void __fastcall MiReleaseWalkLocks(__int64 a1, __int64 a2, __int64 a3, __int64 a
   else
   {
     if ( (*(_DWORD *)a1 & 0x400) != 0 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043A4E4);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043B5A4);
     MiUnlockWorkingSetExclusive(v6, *(_BYTE *)(a1 + 4), a3, a4);
   }
   *(_BYTE *)(a1 + 8) = 1;

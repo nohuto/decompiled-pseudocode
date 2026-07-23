@@ -10,10 +10,10 @@
  *     _LdrpFreeLoadContext@4 @ 0x4B2DDF0E (_LdrpFreeLoadContext@4.c)
  */
 
-_DWORD *__thiscall LdrpFreeReplacedModule(int this)
+int *__thiscall LdrpFreeReplacedModule(char *BaseAddress)
 {
-  LdrpFreeLoadContext(*(_DWORD **)(this + 92));
-  *(_DWORD *)(this + 52) &= ~0x20u;
-  *(_DWORD *)(this + 156) = 1;
-  return LdrpDereferenceModule(this);
+  LdrpFreeLoadContext(*((_DWORD **)BaseAddress + 23));
+  *((_DWORD *)BaseAddress + 13) &= ~0x20u;
+  *((_DWORD *)BaseAddress + 39) = 1;
+  return LdrpDereferenceModule(BaseAddress);
 }

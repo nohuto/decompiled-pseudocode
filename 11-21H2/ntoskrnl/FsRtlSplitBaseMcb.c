@@ -3,8 +3,8 @@
  * Callers:
  *     FsRtlSplitLargeMcb @ 0x1405416C0 (FsRtlSplitLargeMcb.c)
  * Callees:
- *     FsRtlFindLargeIndex @ 0x14022C700 (FsRtlFindLargeIndex.c)
- *     FsRtlAddEntry @ 0x14022C788 (FsRtlAddEntry.c)
+ *     sub_14022C700 @ 0x14022C700 (sub_14022C700.c)
+ *     sub_14022C788 @ 0x14022C788 (sub_14022C788.c)
  */
 
 BOOLEAN __stdcall FsRtlSplitBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Amount)
@@ -29,7 +29,7 @@ BOOLEAN __stdcall FsRtlSplitBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Amount
   v4 = 0;
   v19 = 0;
   v5 = Vbn;
-  if ( FsRtlFindLargeIndex((__int64)Mcb, Vbn, (int *)&v19) )
+  if ( sub_14022C700((__int64)Mcb, Vbn, (int *)&v19) )
   {
     v7 = v19;
     Mapping = Mcb->Mapping;
@@ -67,14 +67,14 @@ LABEL_28:
 LABEL_17:
       if ( v13 == v5 )
       {
-        if ( FsRtlAddEntry((__int64)Mcb, v19, 1) )
+        if ( sub_14022C788((__int64)Mcb, v19, 1) )
         {
           *((_DWORD *)Mcb->Mapping + 2 * v7 + 1) = -1;
           *((_DWORD *)Mcb->Mapping + 2 * v7) = v3 + v5;
           goto LABEL_28;
         }
       }
-      else if ( FsRtlAddEntry((__int64)Mcb, v19, 2) )
+      else if ( sub_14022C788((__int64)Mcb, v19, 2) )
       {
         v15 = (unsigned int)(v7 + 1);
         v16 = (unsigned int)(v7 + 2);

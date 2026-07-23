@@ -1,11 +1,11 @@
 /*
- * XREFs of ViMiscEnforceRule @ 0x140AE1558
+ * XREFs of ViMiscEnforceRule @ 0x140AE1548
  * Callers:
- *     VfMiscMmAllocateContiguousMemoryEx_Entry @ 0x140AE01D0 (VfMiscMmAllocateContiguousMemoryEx_Entry.c)
- *     VfMiscMmAllocateContiguousMemory_Entry @ 0x140AE0200 (VfMiscMmAllocateContiguousMemory_Entry.c)
+ *     VfMiscMmAllocateContiguousMemoryEx_Entry @ 0x140AE01C0 (VfMiscMmAllocateContiguousMemoryEx_Entry.c)
+ *     VfMiscMmAllocateContiguousMemory_Entry @ 0x140AE01F0 (VfMiscMmAllocateContiguousMemory_Entry.c)
  * Callees:
- *     VfUtilIsSignedDriver @ 0x1405CE338 (VfUtilIsSignedDriver.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VfUtilIsSignedDriver @ 0x1405CE8A8 (VfUtilIsSignedDriver.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall ViMiscEnforceRule(__int64 a1, __int64 a2, char a3)

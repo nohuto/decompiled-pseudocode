@@ -1,16 +1,24 @@
 /*
- * XREFs of NtCreateThread @ 0x1800A0CA0
+ * XREFs of NtCreateThread @ 0x1800A0CC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateThread()
+NTSTATUS __cdecl NtCreateThread(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PCLIENT_ID ClientId,
+        PCONTEXT ThreadContext,
+        PINITIAL_TEB InitialTeb,
+        BOOLEAN CreateSuspended)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 78LL;
+  result = 78;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

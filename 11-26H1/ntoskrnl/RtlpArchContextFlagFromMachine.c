@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpArchContextFlagFromMachine @ 0x1409EAAD0
+ * XREFs of RtlpArchContextFlagFromMachine @ 0x1409E72A0
  * Callers:
- *     RtlGetEnabledExtendedFeatures @ 0x140619420 (RtlGetEnabledExtendedFeatures.c)
- *     PspWow64SetupCpuArea @ 0x1409EA6C0 (PspWow64SetupCpuArea.c)
- *     PspWow64InitThread @ 0x1409EA95C (PspWow64InitThread.c)
+ *     RtlGetEnabledExtendedFeatures @ 0x14061C420 (RtlGetEnabledExtendedFeatures.c)
+ *     PspWow64SetupCpuArea @ 0x1409E6E90 (PspWow64SetupCpuArea.c)
+ *     PspWow64InitThread @ 0x1409E712C (PspWow64InitThread.c)
  * Callees:
  *     <none>
  */

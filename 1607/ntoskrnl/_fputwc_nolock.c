@@ -1,9 +1,9 @@
 /*
- * XREFs of _fputwc_nolock @ 0x140151484
+ * XREFs of _fputwc_nolock @ 0x140151A3C
  * Callers:
- *     write_char @ 0x140150468 (write_char.c)
+ *     write_char @ 0x140150A20 (write_char.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 wint_t __cdecl fputwc_nolock(wchar_t Ch, FILE *File)

@@ -1,7 +1,7 @@
 /*
  * XREFs of IoAttachDevice @ 0x140935E60
  * Callers:
- *     DifIoAttachDeviceWrapper @ 0x14060CF40 (DifIoAttachDeviceWrapper.c)
+ *     sub_14060CF40 @ 0x14060CF40 (sub_14060CF40.c)
  * Callees:
  *     IoAttachDeviceToDeviceStackSafe @ 0x14024FBE0 (IoAttachDeviceToDeviceStackSafe.c)
  *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
@@ -29,7 +29,7 @@ NTSTATUS __stdcall IoAttachDevice(
   ObjectAttributes.RootDirectory = 0LL;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = TargetDevice;
-  ObjectAttributes.Attributes = IopCaseInsensitive != 0 ? 576 : 512;
+  ObjectAttributes.Attributes = dword_140C0C628 != 0 ? 576 : 512;
   IoStatusBlock = 0LL;
   result = ZwOpenFile(&FileHandle, 0x80u, &ObjectAttributes, &IoStatusBlock, 0, 0x80000040);
   if ( result >= 0 )

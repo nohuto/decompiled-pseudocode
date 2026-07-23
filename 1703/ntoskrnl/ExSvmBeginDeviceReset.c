@@ -14,22 +14,22 @@
 __int64 __fastcall ExSvmBeginDeviceReset(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  _BYTE *v5; // rax
+  PRTL_BALANCED_NODE v5; // rax
   signed __int8 v6; // cf
-  _BYTE *v7; // rdi
+  PRTL_BALANCED_NODE v7; // rdi
   __int64 *v8; // rax
   __int64 *v9; // rcx
   unsigned int v10; // edi
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ExpSvmDeviceListLock, 0LL, 0LL);
+  v5 = KeAbPreAcquire((ULONG_PTR)&ExpSvmDeviceListLock, 0LL, 0);
   v6 = _interlockedbittestandset64((volatile signed __int32 *)&ExpSvmDeviceListLock, 0LL);
   v7 = v5;
   if ( v6 )
     ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, v5, (ULONG_PTR)&ExpSvmDeviceListLock);
   if ( v7 )
-    v7[26] |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   v8 = (__int64 *)ExpSvmDevices;
   if ( (__int64 *)ExpSvmDevices == &ExpSvmDevices )
   {

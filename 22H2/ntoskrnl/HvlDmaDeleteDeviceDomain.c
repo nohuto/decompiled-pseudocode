@@ -19,6 +19,6 @@ __int64 __fastcall HvlDmaDeleteDeviceDomain(int *a1)
   v3[1] = 0LL;
   v4 = *((_BYTE *)a1 + 4) != 0;
   v5 = *a1;
-  v1 = HvcallFastExtended(65733LL, (__int64)v3, 24LL, 0LL, 0);
+  v1 = HvcallFastExtended(65733LL, (__int64)v3, 0x18u, 0, 0);
   return HvlpHvToNtStatus(v1);
 }

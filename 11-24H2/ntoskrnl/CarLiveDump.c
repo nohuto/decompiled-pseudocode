@@ -1,12 +1,12 @@
 /*
- * XREFs of CarLiveDump @ 0x140619B20
+ * XREFs of CarLiveDump @ 0x1406180E0
  * Callers:
- *     CarWriteLivedump @ 0x140619D14 (CarWriteLivedump.c)
+ *     CarWriteLivedump @ 0x1406182D4 (CarWriteLivedump.c)
  * Callees:
- *     CarEtwWriteLiveDumpEvent @ 0x140615CC8 (CarEtwWriteLiveDumpEvent.c)
- *     DifiDbgPrint @ 0x1406197A4 (DifiDbgPrint.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140AA9B20 (DbgkWerCaptureLiveKernelDump.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CarEtwWriteLiveDumpEvent @ 0x140614288 (CarEtwWriteLiveDumpEvent.c)
+ *     DifiDbgPrint @ 0x140617D64 (DifiDbgPrint.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140AA4BD0 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CarLiveDump(_QWORD *P)

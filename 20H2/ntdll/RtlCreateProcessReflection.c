@@ -20,148 +20,241 @@
  *     RtlpProcessReflectionStartup @ 0x1800D6390 (RtlpProcessReflectionStartup.c)
  */
 
-__int64 __fastcall RtlCreateProcessReflection(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+NTSTATUS __cdecl RtlCreateProcessReflection(
+        HANDLE ProcessHandle,
+        ULONG Flags,
+        PVOID StartRoutine,
+        PVOID StartContext,
+        HANDLE EventHandle,
+        PRTLP_PROCESS_REFLECTION_REFLECTION_INFORMATION ReflectionInformation)
 {
-  int VirtualMemory; // ebx
-  __int64 *v12; // [rsp+38h] [rbp-89h]
-  ULONG ProcessInformationLength[2]; // [rsp+88h] [rbp-39h] BYREF
-  PVOID ProcessInformation; // [rsp+90h] [rbp-31h]
-  __int64 v15; // [rsp+98h] [rbp-29h]
-  HANDLE v16; // [rsp+A0h] [rbp-21h]
-  HANDLE v17; // [rsp+A8h] [rbp-19h]
+  int v11; // ebx
+  _QWORD *v12; // rcx
+  ULONG_PTR v13; // rax
+  PVOID v14; // rax
+  _OWORD *v15; // rax
+  _OWORD *v16; // rcx
+  HANDLE v17; // rcx
+  NTSTATUS v18; // eax
+  int FileHandle; // [rsp+38h] [rbp-89h]
+  PVOID v20; // [rsp+68h] [rbp-59h] BYREF
+  PVOID v21; // [rsp+70h] [rbp-51h] BYREF
+  ULONG_PTR CommitSize; // [rsp+78h] [rbp-49h] BYREF
+  HANDLE v23; // [rsp+80h] [rbp-41h] BYREF
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp-39h] BYREF
+  PVOID BaseAddress; // [rsp+90h] [rbp-31h] BYREF
+  PVOID v26; // [rsp+98h] [rbp-29h] BYREF
+  HANDLE SectionHandle; // [rsp+A0h] [rbp-21h] BYREF
+  HANDLE SourceHandle; // [rsp+A8h] [rbp-19h] BYREF
   HANDLE Handle; // [rsp+B0h] [rbp-11h] BYREF
-  __int64 v19; // [rsp+B8h] [rbp-9h] BYREF
-  __int64 v20; // [rsp+C0h] [rbp-1h]
-  HANDLE v21; // [rsp+C8h] [rbp+7h]
-  HANDLE v22; // [rsp+D0h] [rbp+Fh]
-  __int64 v23; // [rsp+D8h] [rbp+17h] BYREF
-  __int64 v24; // [rsp+E0h] [rbp+1Fh] BYREF
+  ULONG_PTR ViewSize; // [rsp+B8h] [rbp-9h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+C0h] [rbp-1h] BYREF
+  HANDLE Handles[2]; // [rsp+C8h] [rbp+7h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+D8h] [rbp+17h] BYREF
+  LARGE_INTEGER v34; // [rsp+E0h] [rbp+1Fh] BYREF
 
-  *(_QWORD *)ProcessInformationLength = 4096LL;
+  RegionSize = 4096LL;
   Handle = 0LL;
-  ProcessInformation = 0LL;
-  v16 = 0LL;
+  v21 = 0LL;
+  BaseAddress = 0LL;
   v20 = 0LL;
-  v19 = 0LL;
-  v15 = 0LL;
-  v17 = 0LL;
-  ZwQuerySystemTime(&v23);
-  if ( (a2 & 0xFFFFFFE1) != 0 )
-    return 3221225712LL;
-  if ( (a2 & 8) != 0 && a3 )
-    return 3221225715LL;
-  if ( a6 )
+  SectionHandle = 0LL;
+  MaximumSize.QuadPart = 0LL;
+  ViewSize = 0LL;
+  v26 = 0LL;
+  SourceHandle = 0LL;
+  v23 = 0LL;
+  ZwQuerySystemTime(&SystemTime);
+  if ( (Flags & 0xFFFFFFE1) != 0 )
+    return -1073741584;
+  if ( (Flags & 8) != 0 && StartRoutine )
+    return -1073741581;
+  if ( ReflectionInformation )
   {
-    *(_OWORD *)a6 = 0LL;
-    *(_OWORD *)(a6 + 16) = 0LL;
+    *(_OWORD *)&ReflectionInformation->ReflectionProcessHandle = 0LL;
+    ReflectionInformation->ReflectionClientId = 0LL;
   }
-  VirtualMemory = ZwAllocateVirtualMemory();
-  if ( VirtualMemory < 0 )
+  v11 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x3000u, 4u);
+  if ( v11 < 0 )
   {
-    ProcessInformation = 0LL;
-    goto LABEL_37;
+    BaseAddress = 0LL;
+    goto LABEL_41;
   }
   NtQueryInformationProcess(
     (HANDLE)0xFFFFFFFFFFFFFFFFLL,
     ProcessImageFileName,
-    ProcessInformation,
-    ProcessInformationLength[0],
-    ProcessInformationLength);
-  *(_QWORD *)ProcessInformationLength = 4096LL;
-  ZwFreeVirtualMemory();
-  VirtualMemory = ZwAllocateVirtualMemory();
-  if ( VirtualMemory < 0 )
-    goto LABEL_37;
-  MEMORY[0x18] = a4;
-  MEMORY[0x10] = a3;
-  MEMORY[0] = 88LL;
-  MEMORY[8] = a2;
-  MEMORY[0x30] = a5;
-  if ( a1 == -1 )
+    BaseAddress,
+    RegionSize,
+    (PULONG)&RegionSize);
+  RegionSize = 4096LL;
+  ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+  CommitSize = 88LL;
+  v11 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v20, 0LL, &CommitSize, 0x3000u, 4u);
+  if ( v11 < 0 )
   {
-    MEMORY[8] = a2 | 0x10;
-    VirtualMemory = RtlpProcessReflectionStartup(0LL);
-    if ( VirtualMemory >= 0 && a6 )
-    {
-      *(_QWORD *)a6 = MEMORY[0x38];
-      *(_QWORD *)(a6 + 8) = MEMORY[0x40];
-      *(_QWORD *)(a6 + 16) = MEMORY[0x48];
-LABEL_36:
-      *(_QWORD *)(a6 + 24) = MEMORY[0x50];
-      goto LABEL_37;
-    }
-    goto LABEL_37;
+    v20 = 0LL;
+    goto LABEL_41;
   }
-  v20 = 88LL;
-  VirtualMemory = NtCreateSection();
-  if ( VirtualMemory < 0 )
-    goto LABEL_37;
-  v19 = 88LL;
-  VirtualMemory = ZwMapViewOfSection();
-  if ( VirtualMemory >= 0 )
+  v12 = v20;
+  v13 = CommitSize;
+  *((_QWORD *)v20 + 3) = StartContext;
+  v12[2] = StartRoutine;
+  *v12 = v13;
+  *((_DWORD *)v12 + 2) = Flags;
+  v12[6] = EventHandle;
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
-    v12 = &v19;
-    VirtualMemory = ZwMapViewOfSection();
-    if ( VirtualMemory >= 0 )
+    *((_DWORD *)v12 + 2) = Flags | 0x10;
+    v11 = RtlpProcessReflectionStartup((PSIZE_T)v20);
+    if ( v11 >= 0 && ReflectionInformation )
     {
-      if ( !a6
-        || (VirtualMemory = ZwCreateEvent(), VirtualMemory >= 0)
-        && (VirtualMemory = ZwCreateEvent(), VirtualMemory >= 0)
-        && (VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0)
-        && (LODWORD(v12) = 2, VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0)
-        && (!a5 || (LODWORD(v12) = 2, VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0)) )
+      ReflectionInformation->ReflectionProcessHandle = (HANDLE)*((_QWORD *)v20 + 7);
+      ReflectionInformation->ReflectionThreadHandle = (HANDLE)*((_QWORD *)v20 + 8);
+      ReflectionInformation->ReflectionClientId.UniqueProcess = (void *)*((_QWORD *)v20 + 9);
+      v14 = v20;
+LABEL_40:
+      ReflectionInformation->ReflectionClientId.UniqueThread = (void *)*((_QWORD *)v14 + 10);
+      goto LABEL_41;
+    }
+    goto LABEL_41;
+  }
+  MaximumSize.QuadPart = CommitSize;
+  v11 = NtCreateSection(&SectionHandle, 6u, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
+  if ( v11 < 0 )
+    goto LABEL_41;
+  ViewSize = CommitSize;
+  v11 = ZwMapViewOfSection(SectionHandle, ProcessHandle, &v26, 0LL, CommitSize, 0LL, &ViewSize, ViewUnmap, 0, 4u);
+  if ( v11 >= 0 )
+  {
+    v11 = ZwMapViewOfSection(
+            SectionHandle,
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            &v21,
+            0LL,
+            CommitSize,
+            0LL,
+            &ViewSize,
+            ViewUnmap,
+            0,
+            4u);
+    if ( v11 < 0 )
+    {
+      v21 = 0LL;
+      goto LABEL_41;
+    }
+    if ( !ReflectionInformation
+      || (v11 = ZwCreateEvent(&SourceHandle, 0x1F0003u, 0LL, NotificationEvent, 0), v11 >= 0)
+      && (v11 = ZwCreateEvent(&v23, 0x1F0003u, 0LL, NotificationEvent, 0), v11 >= 0)
+      && (v11 = ZwDuplicateObject(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  SourceHandle,
+                  ProcessHandle,
+                  (PHANDLE)v20 + 4,
+                  0x1F0003u,
+                  0,
+                  2u),
+          v11 >= 0)
+      && (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v23, ProcessHandle, (PHANDLE)v20 + 5, 0x1F0003u, 0, 2u),
+          v11 >= 0)
+      && (!EventHandle
+       || (v11 = ZwDuplicateObject(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   EventHandle,
+                   ProcessHandle,
+                   (PHANDLE)v20 + 6,
+                   0x1F0003u,
+                   0,
+                   2u),
+           v11 >= 0)) )
+    {
+      v15 = v20;
+      v16 = v21;
+      *(_OWORD *)v21 = *(_OWORD *)v20;
+      v16[1] = v15[1];
+      v16[2] = v15[2];
+      v16[3] = v15[3];
+      v16[4] = v15[4];
+      *((_QWORD *)v16 + 10) = *((_QWORD *)v15 + 10);
+      v11 = RtlpCreateUserThreadEx(
+              ProcessHandle,
+              0LL,
+              2,
+              0,
+              0LL,
+              0LL,
+              FileHandle,
+              (PUSER_THREAD_START_ROUTINE)RtlpProcessReflectionStartup,
+              v26,
+              &Handle,
+              0LL);
+      if ( v11 >= 0 )
       {
-        VirtualMemory = RtlpCreateUserThreadEx(
-                          a1,
-                          0LL,
-                          2,
-                          0,
-                          0LL,
-                          0LL,
-                          (__int64)v12,
-                          (__int64)RtlpProcessReflectionStartup,
-                          v15,
-                          &Handle,
-                          0LL);
-        if ( VirtualMemory >= 0 )
+        if ( ReflectionInformation )
         {
-          if ( a6 )
+          Handles[0] = Handle;
+          Handles[1] = SourceHandle;
+          if ( NtWaitForMultipleObjects(2u, Handles, WaitAny, 0, 0LL) == 1 )
           {
-            v21 = Handle;
-            v22 = v17;
-            if ( (unsigned int)NtWaitForMultipleObjects() == 1 )
+            if ( *((_QWORD *)v21 + 7) )
             {
-              if ( MEMORY[0x38] )
+              if ( ZwDuplicateObject(
+                     ProcessHandle,
+                     *((HANDLE *)v21 + 7),
+                     (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                     &ReflectionInformation->ReflectionProcessHandle,
+                     0x1FFFFFu,
+                     0,
+                     2u) >= 0 )
               {
-                if ( (int)ZwDuplicateObject() < 0 || (int)ZwDuplicateObject() < 0 )
+                v18 = ZwDuplicateObject(
+                        ProcessHandle,
+                        *((HANDLE *)v21 + 8),
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        &ReflectionInformation->ReflectionThreadHandle,
+                        0x1FFFFFu,
+                        0,
+                        2u);
+                v17 = v23;
+                if ( v18 >= 0 )
                 {
-                  VirtualMemory = ZwSetEvent();
-                  goto LABEL_37;
+                  v11 = ZwSetEvent(v23, 0LL);
+                  ReflectionInformation->ReflectionClientId.UniqueProcess = (void *)*((_QWORD *)v21 + 9);
+                  v14 = v21;
+                  goto LABEL_40;
                 }
-                VirtualMemory = ZwSetEvent();
-                *(_QWORD *)(a6 + 16) = MEMORY[0x48];
-                goto LABEL_36;
               }
-              NtWaitForSingleObject(Handle, 0, 0LL);
+              else
+              {
+                v17 = v23;
+              }
+              v11 = ZwSetEvent(v17, 0LL);
+              goto LABEL_41;
             }
-            VirtualMemory = -1073741823;
+            NtWaitForSingleObject(Handle, 0, 0LL);
           }
+          v11 = -1073741823;
         }
       }
     }
-LABEL_37:
-    if ( v15 )
-      NtUnmapViewOfSection();
-    goto LABEL_39;
+LABEL_41:
+    if ( v26 )
+      NtUnmapViewOfSection(ProcessHandle, v26);
+    goto LABEL_43;
   }
-  v15 = 0LL;
-LABEL_39:
-  if ( v16 )
-    NtClose(v16);
-  if ( v17 )
-    NtClose(v17);
+  v26 = 0LL;
+LABEL_43:
+  if ( v21 )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v21);
+  if ( SectionHandle )
+    NtClose(SectionHandle);
+  if ( v20 )
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v20, &CommitSize, 0x8000u);
+  if ( SourceHandle )
+    NtClose(SourceHandle);
+  if ( v23 )
+    NtClose(v23);
   if ( Handle )
     NtClose(Handle);
-  ZwQuerySystemTime(&v24);
-  return (unsigned int)VirtualMemory;
+  ZwQuerySystemTime(&v34);
+  return v11;
 }

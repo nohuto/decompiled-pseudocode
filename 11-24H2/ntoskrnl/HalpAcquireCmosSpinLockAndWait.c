@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAcquireCmosSpinLockAndWait @ 0x140425E20
+ * XREFs of HalpAcquireCmosSpinLockAndWait @ 0x140419CD0
  * Callers:
- *     HalpWriteCmosTime @ 0x140425598 (HalpWriteCmosTime.c)
- *     HalpSetWakeAlarm @ 0x140425AC8 (HalpSetWakeAlarm.c)
- *     HalpReadCmosTime @ 0x140425C74 (HalpReadCmosTime.c)
+ *     HalpWriteCmosTime @ 0x140419448 (HalpWriteCmosTime.c)
+ *     HalpSetWakeAlarm @ 0x140419978 (HalpSetWakeAlarm.c)
+ *     HalpReadCmosTime @ 0x140419B24 (HalpReadCmosTime.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140425E04 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140425EE8 (HalpAcquireCmosSpinLock.c)
+ *     HalpReleaseCmosSpinLock @ 0x140419CB4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140419D98 (HalpAcquireCmosSpinLock.c)
  */
 
 char HalpAcquireCmosSpinLockAndWait()

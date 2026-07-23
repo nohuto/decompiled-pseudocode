@@ -1,13 +1,13 @@
 /*
- * XREFs of KitpInitAitSampleRate @ 0x1409DD5E8
+ * XREFs of KitpInitAitSampleRate @ 0x1409DE5E8
  * Callers:
- *     KitInitialize @ 0x1409DD5B4 (KitInitialize.c)
+ *     KitInitialize @ 0x1409DE5B4 (KitInitialize.c)
  * Callees:
- *     strstr @ 0x140194EC0 (strstr.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetSystemInformation @ 0x1401BB5F0 (ZwSetSystemInformation.c)
- *     KitpReadUlongFromKey @ 0x140760D24 (KitpReadUlongFromKey.c)
- *     KitpOpenRegKey @ 0x140760D90 (KitpOpenRegKey.c)
+ *     strstr @ 0x140195000 (strstr.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetSystemInformation @ 0x1401BB750 (ZwSetSystemInformation.c)
+ *     KitpReadUlongFromKey @ 0x140761F14 (KitpReadUlongFromKey.c)
+ *     KitpOpenRegKey @ 0x140761F80 (KitpOpenRegKey.c)
  */
 
 NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)
       SystemInformation = v5;
     }
   }
-  result = ZwSetSystemInformation(MaxSystemInfoClass|SystemStackTraceInformation, &SystemInformation, 4uLL);
+  result = ZwSetSystemInformation(SystemAitSamplingValue, &SystemInformation, 4uLL);
   if ( Handle )
     return ZwClose(Handle);
   return result;

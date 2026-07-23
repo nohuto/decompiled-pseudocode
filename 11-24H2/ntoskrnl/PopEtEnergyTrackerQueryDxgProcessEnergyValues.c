@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEtEnergyTrackerQueryDxgProcessEnergyValues @ 0x14075E150
+ * XREFs of PopEtEnergyTrackerQueryDxgProcessEnergyValues @ 0x14075D0F0
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1408EEF10 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140860740 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsAcquireProcessExitSynchronization @ 0x14094BC90 (PsAcquireProcessExitSynchronization.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsAcquireProcessExitSynchronization @ 0x1408F0200 (PsAcquireProcessExitSynchronization.c)
  */
 
 char __fastcall PopEtEnergyTrackerQueryDxgProcessEnergyValues(__int64 a1, __int64 a2, _QWORD *a3)
@@ -24,52 +24,45 @@ char __fastcall PopEtEnergyTrackerQueryDxgProcessEnergyValues(__int64 a1, __int6
   __int64 v10; // rsi
   __int64 v11; // r14
   __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // r9
-  unsigned int v16; // edi
-  __int64 v17; // r15
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  unsigned int v21; // r14d
-  unsigned int v22; // esi
-  __int64 v23; // r15
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  unsigned int v28; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v13; // edi
+  __int64 v14; // r15
+  __int64 v15; // rdx
+  unsigned int v16; // r14d
+  unsigned int v17; // esi
+  __int64 v18; // r15
+  __int64 v19; // rdx
+  unsigned int v21; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
-  int v30; // [rsp+50h] [rbp-B0h]
-  __int64 v31; // [rsp+58h] [rbp-A8h]
-  __int64 v32; // [rsp+68h] [rbp-98h]
-  __int64 v33; // [rsp+70h] [rbp-90h]
-  __int128 v34; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v35; // [rsp+88h] [rbp-78h]
-  __int64 v36; // [rsp+90h] [rbp-70h]
-  struct _EX_RUNDOWN_REF *v37; // [rsp+98h] [rbp-68h]
-  _QWORD *v38; // [rsp+A0h] [rbp-60h]
-  int v39; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v40; // [rsp+B4h] [rbp-4Ch]
-  HANDLE v41; // [rsp+C0h] [rbp-40h]
-  __int64 v42; // [rsp+C8h] [rbp-38h]
-  __int16 v43; // [rsp+3D0h] [rbp+2D0h]
-  __int16 v44; // [rsp+3D2h] [rbp+2D2h]
-  int v45; // [rsp+3E0h] [rbp+2E0h] BYREF
-  __int64 v46; // [rsp+3E4h] [rbp+2E4h]
-  HANDLE v47; // [rsp+3F0h] [rbp+2F0h]
-  unsigned int v48; // [rsp+3FCh] [rbp+2FCh]
-  __int16 v49; // [rsp+700h] [rbp+600h]
-  _BYTE v50[4]; // [rsp+710h] [rbp+610h] BYREF
-  __int64 v51; // [rsp+714h] [rbp+614h]
-  HANDLE v52; // [rsp+720h] [rbp+620h]
+  int v23; // [rsp+50h] [rbp-B0h]
+  __int64 v24; // [rsp+58h] [rbp-A8h]
+  __int64 v25; // [rsp+68h] [rbp-98h]
+  __int64 v26; // [rsp+70h] [rbp-90h]
+  __int128 v27; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v28; // [rsp+88h] [rbp-78h]
+  __int64 v29; // [rsp+90h] [rbp-70h]
+  struct _EX_RUNDOWN_REF *v30; // [rsp+98h] [rbp-68h]
+  _QWORD *v31; // [rsp+A0h] [rbp-60h]
+  int v32; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v33; // [rsp+B4h] [rbp-4Ch]
+  HANDLE v34; // [rsp+C0h] [rbp-40h]
+  __int64 v35; // [rsp+C8h] [rbp-38h]
+  __int16 v36; // [rsp+3D0h] [rbp+2D0h]
+  __int16 v37; // [rsp+3D2h] [rbp+2D2h]
+  int v38; // [rsp+3E0h] [rbp+2E0h] BYREF
+  __int64 v39; // [rsp+3E4h] [rbp+2E4h]
+  HANDLE v40; // [rsp+3F0h] [rbp+2F0h]
+  unsigned int v41; // [rsp+3FCh] [rbp+2FCh]
+  __int16 v42; // [rsp+700h] [rbp+600h]
+  _BYTE v43[4]; // [rsp+710h] [rbp+610h] BYREF
+  __int64 v44; // [rsp+714h] [rbp+614h]
+  HANDLE v45; // [rsp+720h] [rbp+620h]
 
   v3 = 0;
-  v38 = a3;
+  v31 = a3;
   v4 = (struct _EX_RUNDOWN_REF *)a2;
-  v37 = (struct _EX_RUNDOWN_REF *)a2;
+  v30 = (struct _EX_RUNDOWN_REF *)a2;
   v5 = a1;
-  v36 = a1;
+  v29 = a1;
   if ( *(int *)(PopEtGlobals + 1096) >= 0 )
   {
     if ( *(_DWORD *)(a1 + 648) )
@@ -85,86 +78,86 @@ char __fastcall PopEtEnergyTrackerQueryDxgProcessEnergyValues(__int64 a1, __int6
           {
             v8 = 0LL;
             v9 = 0;
-            v30 = 0;
+            v23 = 0;
             if ( *(_DWORD *)(v5 + 648) )
             {
               do
               {
-                memset_0(v50, 0, 0x328uLL);
+                memset_0(v43, 0, 0x328uLL);
                 v10 = *(_QWORD *)(PopEtGlobals + 1088);
-                v35 = 0LL;
-                v34 = 0LL;
-                v28 = 0;
-                v33 = v10;
+                v28 = 0LL;
+                v27 = 0LL;
+                v21 = 0;
+                v26 = v10;
                 v11 = 5LL * v9;
-                v31 = *(_QWORD *)(v5 + 656);
-                v32 = v11;
-                v51 = *(_QWORD *)(v31 + 20LL * v9 + 4);
-                v52 = v7;
-                if ( (int)guard_dispatch_icall_no_overrides(v50, v12, v13, v14) >= 0 )
+                v24 = *(_QWORD *)(v5 + 656);
+                v25 = v11;
+                v44 = *(_QWORD *)(v24 + 20LL * v9 + 4);
+                v45 = v7;
+                if ( (int)guard_dispatch_icall_no_overrides(v43, v12) >= 0 )
                 {
-                  LODWORD(v34) = *(_DWORD *)(v31 + 20LL * v9);
-                  *((_QWORD *)&v34 + 1) = &v28;
-                  DWORD1(v34) = 30;
-                  LODWORD(v35) = 4;
-                  if ( (int)guard_dispatch_icall_no_overrides(&v34, 0LL, 0LL, v15) >= 0 )
+                  LODWORD(v27) = *(_DWORD *)(v24 + 20LL * v9);
+                  *((_QWORD *)&v27 + 1) = &v21;
+                  DWORD1(v27) = 30;
+                  LODWORD(v28) = 4;
+                  if ( (int)guard_dispatch_icall_no_overrides(&v27, 0LL) >= 0 )
                   {
-                    v16 = 0;
-                    if ( v28 )
+                    v13 = 0;
+                    if ( v21 )
                     {
-                      v17 = v31;
+                      v14 = v24;
                       do
                       {
-                        memset_0(&v45, 0, 0x328uLL);
-                        v46 = *(_QWORD *)(v17 + 4 * v11 + 4);
-                        v47 = Handle;
-                        v45 = 11;
-                        v49 = v16;
-                        if ( (int)guard_dispatch_icall_no_overrides(&v45, v18, v19, v20) >= 0 )
+                        memset_0(&v38, 0, 0x328uLL);
+                        v39 = *(_QWORD *)(v14 + 4 * v11 + 4);
+                        v40 = Handle;
+                        v38 = 11;
+                        v42 = v13;
+                        if ( (int)guard_dispatch_icall_no_overrides(&v38, v15) >= 0 )
                         {
-                          v21 = 0;
-                          if ( v48 )
+                          v16 = 0;
+                          if ( v41 )
                           {
-                            v22 = v48;
-                            v23 = v32;
+                            v17 = v41;
+                            v18 = v25;
                             do
                             {
-                              memset_0(&v39, 0, 0x328uLL);
-                              v39 = 19;
-                              v43 = v16;
-                              v44 = v21;
-                              v40 = *(_QWORD *)(v31 + 4 * v23 + 4);
-                              v41 = Handle;
-                              if ( (int)guard_dispatch_icall_no_overrides(&v39, v24, v25, v26) >= 0 )
-                                v8 += v42;
-                              ++v21;
+                              memset_0(&v32, 0, 0x328uLL);
+                              v32 = 19;
+                              v36 = v13;
+                              v37 = v16;
+                              v33 = *(_QWORD *)(v24 + 4 * v18 + 4);
+                              v34 = Handle;
+                              if ( (int)guard_dispatch_icall_no_overrides(&v32, v19) >= 0 )
+                                v8 += v35;
+                              ++v16;
                             }
-                            while ( v21 < v22 );
-                            v11 = v23;
-                            v17 = v31;
+                            while ( v16 < v17 );
+                            v11 = v18;
+                            v14 = v24;
                           }
                           else
                           {
-                            v11 = v32;
+                            v11 = v25;
                           }
                         }
-                        ++v16;
+                        ++v13;
                       }
-                      while ( v16 < v28 );
-                      v9 = v30;
-                      v5 = v36;
+                      while ( v13 < v21 );
+                      v9 = v23;
+                      v5 = v29;
                     }
                   }
                 }
                 v7 = Handle;
-                v30 = ++v9;
+                v23 = ++v9;
               }
               while ( v9 < *(_DWORD *)(v5 + 648) );
-              v4 = v37;
+              v4 = v30;
             }
             ObCloseHandle(v7, 1);
             v3 = 1;
-            *v38 = v8;
+            *v31 = v8;
           }
         }
         ExReleaseRundownProtection_0(v4 + 61);

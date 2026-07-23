@@ -11,13 +11,13 @@
  *     RtlRunOnceComplete @ 0x180004290 (RtlRunOnceComplete.c)
  */
 
-__int64 __fastcall RtlRandomEx(__int32 *a1)
+ULONG __cdecl RtlRandomEx(PULONG Seed)
 {
-  signed __int64 v1; // rax
+  signed __int64 Value; // rax
   signed __int64 v3; // rcx
   signed __int64 v4; // rcx
-  int v5; // eax
-  __int32 v6; // r8d
+  NTSTATUS v5; // eax
+  unsigned __int32 v6; // r8d
   __int64 v7; // rax
   __int32 v8; // r8d
   unsigned int i; // edx
@@ -25,16 +25,16 @@ __int64 __fastcall RtlRandomEx(__int32 *a1)
   char v14; // [rsp+30h] [rbp+8h] BYREF
   int v15; // [rsp+38h] [rbp+10h]
 
-  v1 = RtlpRandomExInit;
+  Value = RtlpRandomExInit.Value;
   v14 = 0;
-  if ( (RtlpRandomExInit & 3) != 2 )
+  if ( ((__int64)RtlpRandomExInit.Ptr & 3) != 2 )
   {
     do
     {
       while ( 1 )
       {
-        v3 = v1 & 3;
-        if ( (v1 & 3) == 0 )
+        v3 = Value & 3;
+        if ( (Value & 3) == 0 )
           break;
         if ( v3 != 1 )
         {
@@ -43,21 +43,21 @@ __int64 __fastcall RtlRandomEx(__int32 *a1)
           v5 = -1073741584;
           goto LABEL_10;
         }
-        v1 = RtlpRunOnceWaitForInit(v1, &RtlpRandomExInit);
+        Value = RtlpRunOnceWaitForInit(Value, (volatile signed __int64 *)&RtlpRandomExInit);
       }
-      v4 = v1;
-      v1 = _InterlockedCompareExchange64(&RtlpRandomExInit, 1LL, v1);
+      v4 = Value;
+      Value = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpRandomExInit, 1LL, Value);
     }
-    while ( v1 != v4 );
+    while ( Value != v4 );
     if ( (unsigned int)RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
     {
-      v5 = RtlRunOnceComplete(&RtlpRandomExInit, 0LL);
+      v5 = RtlRunOnceComplete(&RtlpRandomExInit, 0, 0LL);
       if ( v5 >= 0 )
         goto LABEL_11;
       v14 = 1;
       goto LABEL_10;
     }
-    v5 = RtlRunOnceComplete(&RtlpRandomExInit, 4LL);
+    v5 = RtlRunOnceComplete(&RtlpRandomExInit, 4u, 0LL);
     if ( v5 < 0 )
     {
       v14 = 2;
@@ -66,9 +66,9 @@ LABEL_10:
     }
   }
 LABEL_11:
-  v6 = (2147483629 * (unsigned __int64)(unsigned int)*a1 + 2147483587) % 0x7FFFFFFF;
+  v6 = (2147483629 * (unsigned __int64)*Seed + 2147483587) % 0x7FFFFFFF;
   v7 = RtlpRandomExAuxVarY & 0x7F;
-  *a1 = v6;
+  *Seed = v6;
   v8 = _InterlockedExchange(&RtlpRandomExConstantVector[v7], v6);
   v15 = 0;
   if ( MEMORY[0x7FFE0290] )

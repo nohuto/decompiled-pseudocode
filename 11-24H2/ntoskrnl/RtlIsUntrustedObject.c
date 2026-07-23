@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlIsUntrustedObject @ 0x140490B00
+ * XREFs of RtlIsUntrustedObject @ 0x14048B140
  * Callers:
- *     SeGetImageRequiredSigningLevel @ 0x1409350E8 (SeGetImageRequiredSigningLevel.c)
+ *     SeGetImageRequiredSigningLevel @ 0x1409FA728 (SeGetImageRequiredSigningLevel.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQuerySecurityObject @ 0x1406A9110 (ZwQuerySecurityObject.c)
- *     ObQuerySecurityObject @ 0x1409A1EC4 (ObQuerySecurityObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQuerySecurityObject @ 0x1406AA0B0 (ZwQuerySecurityObject.c)
+ *     ObQuerySecurityObject @ 0x1408AEA1C (ObQuerySecurityObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
+NTSTATUS __cdecl RtlIsUntrustedObject(HANDLE Handle, PVOID Object, PBOOLEAN IsUntrustedObject)
 {
   __int16 *Pool2; // rdi
   int v5; // r14d
@@ -30,20 +30,20 @@ NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
 
   LengthNeeded[0] = 0;
   Pool2 = (__int16 *)P;
-  *a3 = 1;
-  v5 = a2;
-  if ( a2 )
+  *IsUntrustedObject = 1;
+  v5 = (int)Object;
+  if ( Object )
   {
     if ( !Handle )
     {
       v7 = 0;
-      result = ObQuerySecurityObject(a2, 16, (unsigned int)P, 124, (__int64)LengthNeeded);
+      result = ObQuerySecurityObject((_DWORD)Object, 16, (unsigned int)P, 124, (__int64)LengthNeeded);
       v9 = result;
       if ( result >= 0 )
         goto LABEL_6;
       if ( result != -1073741789 )
         return result;
-      Pool2 = (__int16 *)ExAllocatePool2(0x41uLL);
+      Pool2 = (__int16 *)ExAllocatePool2(0x41uLL, LengthNeeded[0], 0x62507452u);
       if ( Pool2 )
       {
         v7 = 1;
@@ -63,7 +63,7 @@ NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
     goto LABEL_6;
   if ( result == -1073741789 )
   {
-    Pool2 = (__int16 *)ExAllocatePool2(0x41uLL);
+    Pool2 = (__int16 *)ExAllocatePool2(0x41uLL, LengthNeeded[0], 0x62507452u);
     if ( Pool2 )
     {
       v7 = 1;
@@ -117,7 +117,7 @@ LABEL_12:
         }
       }
 LABEL_21:
-      *a3 = 0;
+      *IsUntrustedObject = 0;
 LABEL_22:
       if ( !v7 )
         return v9;

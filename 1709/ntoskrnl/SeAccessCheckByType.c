@@ -108,7 +108,7 @@ __int64 __fastcall SeAccessCheckByType(
   __int16 v48; // cx
   __int64 v49; // rcx
   void *v50; // rbx
-  __int64 v51; // rax
+  PSID_AND_ATTRIBUTES v51; // rax
   char v52; // r14
   __int16 *v53; // rbx
   __int64 v54; // r13
@@ -168,7 +168,7 @@ __int64 __fastcall SeAccessCheckByType(
   unsigned int v108; // ecx
   _DWORD *j; // r9
   __int64 v110; // rax
-  __int64 v111; // rax
+  ACL *v111; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v114; // rdx
@@ -230,7 +230,7 @@ __int64 __fastcall SeAccessCheckByType(
   int v170; // [rsp+134h] [rbp-1B4h] BYREF
   int v171; // [rsp+138h] [rbp-1B0h] BYREF
   PVOID Src; // [rsp+140h] [rbp-1A8h]
-  __int64 v173; // [rsp+148h] [rbp-1A0h]
+  ACL *v173; // [rsp+148h] [rbp-1A0h]
   int *v174; // [rsp+150h] [rbp-198h]
   __int64 v175; // [rsp+158h] [rbp-190h] BYREF
   PVOID v176; // [rsp+160h] [rbp-188h] BYREF
@@ -741,13 +741,13 @@ LABEL_65:
     else
       v50 = 0LL;
   }
-  v51 = RtlSidHashLookup(v46 + 232, v50);
+  v51 = RtlSidHashLookup((PSID_AND_ATTRIBUTES_HASH)(v46 + 232), v50);
   if ( v51 )
-    v52 = v51 == *((_QWORD *)v46 + 30) && (*(_DWORD *)(v51 + 8) & 0x10) == 0 || (*(_BYTE *)(v51 + 8) & 4) != 0;
+    v52 = v51 == *((PSID_AND_ATTRIBUTES *)v46 + 30) && (v51->Attributes & 0x10) == 0 || (v51->Attributes & 4) != 0;
   else
     v52 = 0;
   if ( v52 && *((_DWORD *)v46 + 32) )
-    v52 = SepSidInTokenSidHash((__int64)(v46 + 504), 0LL, v50, 0, 1, 0);
+    v52 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v46 + 504), 0LL, v50, 0, 1, 0);
   if ( !SepAllowAccessUponLogoff && (*((_DWORD *)v46 + 50) & 0x20) == 0 )
   {
     v107 = *((_QWORD *)v46 + 27);
@@ -794,7 +794,7 @@ LABEL_197:
   v54 = v161;
   if ( *v165 >= 0 )
   {
-    v111 = *(_QWORD *)(v161 + 24);
+    v111 = *(ACL **)(v161 + 24);
   }
   else
   {
@@ -804,7 +804,7 @@ LABEL_197:
       v173 = 0LL;
       goto LABEL_79;
     }
-    v111 = v161 + v110;
+    v111 = (ACL *)(v161 + v110);
   }
   v173 = v111;
   if ( v111 )
@@ -995,7 +995,7 @@ LABEL_85:
         goto LABEL_358;
       if ( !v121 )
       {
-        v124 = AuthzBasepInitializeResourceClaimsFromSacl(v173, (__int64 *)&P);
+        v124 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v173, (__int64 *)&P);
         v125 = (unsigned __int8)v160;
         if ( v124 < 0 )
           v125 = 1;

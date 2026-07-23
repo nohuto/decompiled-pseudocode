@@ -1,12 +1,12 @@
 /*
- * XREFs of SepNewTokenAsRestrictedAsProcessToken @ 0x14047600C
+ * XREFs of SepNewTokenAsRestrictedAsProcessToken @ 0x140474EDC
  * Callers:
- *     NtDuplicateToken @ 0x1404126D0 (NtDuplicateToken.c)
- *     SepFilterToken @ 0x14047AFF4 (SepFilterToken.c)
+ *     NtDuplicateToken @ 0x140411590 (NtDuplicateToken.c)
+ *     SepFilterToken @ 0x140479EC4 (SepFilterToken.c)
  * Callees:
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     SeTokenIsRestricted @ 0x14007F740 (SeTokenIsRestricted.c)
- *     SeTokenIsWriteRestricted @ 0x14007F750 (SeTokenIsWriteRestricted.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     SeTokenIsRestricted @ 0x14007F7C0 (SeTokenIsRestricted.c)
+ *     SeTokenIsWriteRestricted @ 0x14007F7D0 (SeTokenIsWriteRestricted.c)
  */
 
 __int64 __fastcall SepNewTokenAsRestrictedAsProcessToken(_QWORD *Token, _DWORD *a2, _BYTE *a3)

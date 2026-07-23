@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x14014921C
+ * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x14014978C
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1400FA708 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpGetRcConfig @ 0x1400FAB68 (LdrpGetRcConfig.c)
- *     LdrResGetRCConfig @ 0x140542FA0 (LdrResGetRCConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F8494 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpGetRcConfig @ 0x1400F88F4 (LdrpGetRcConfig.c)
+ *     LdrResGetRCConfig @ 0x1405434E0 (LdrResGetRCConfig.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     LdrpInitMuiCrits @ 0x1400FAE3C (LdrpInitMuiCrits.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     LdrpInitMuiCrits @ 0x1400F8BC8 (LdrpInitMuiCrits.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmUnmapViewInSystemSpace @ 0x140525E34 (MmUnmapViewInSystemSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x140508E94 (MmUnmapViewInSystemSpace.c)
  */
 
 char __fastcall LdrpSetAlternateResourceModuleHandle(

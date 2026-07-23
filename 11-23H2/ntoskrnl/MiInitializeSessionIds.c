@@ -3,16 +3,16 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObCreateObjectType @ 0x14081F1D0 (ObCreateObjectType.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObCreateObjectType @ 0x14081F4D0 (ObCreateObjectType.c)
  */
 
 __int64 MiInitializeSessionIds()
 {
-  RTL_BITMAP *Pool; // rax
+  _RTL_BITMAP *Pool; // rax
   __int64 result; // rax
   UNICODE_STRING v2; // [rsp+30h] [rbp-49h] BYREF
   ULONG_PTR BugCheckParameter3[16]; // [rsp+40h] [rbp-39h] BYREF
@@ -20,7 +20,7 @@ __int64 MiInitializeSessionIds()
   qword_140C659D0 = 0LL;
   v2.Buffer = L"Session";
   *(_QWORD *)&v2.Length = 1048590LL;
-  Pool = (RTL_BITMAP *)MiAllocatePool(256, 0x20uLL, 0x20206D4Du);
+  Pool = (_RTL_BITMAP *)MiAllocatePool(256, 0x20uLL, 0x20206D4Du);
   qword_140C69910 = Pool;
   if ( !Pool || (Pool->SizeOfBitMap = 128, Pool->Buffer = &Pool[1].SizeOfBitMap, !qword_140C69910) )
     KeBugCheckEx(0x7Du, qword_140C6F6D0, qword_140C6F6C0, qword_140C6F6C8, 0x200uLL);

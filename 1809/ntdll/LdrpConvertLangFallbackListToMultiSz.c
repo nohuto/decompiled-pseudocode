@@ -2,12 +2,12 @@
  * XREFs of LdrpConvertLangFallbackListToMultiSz @ 0x18003F6C8
  * Callers:
  *     RtlGetThreadPreferredUILanguages @ 0x18003CC60 (RtlGetThreadPreferredUILanguages.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007A100 (RtlGetSystemPreferredUILanguages.c)
- *     RtlGetUserPreferredUILanguages @ 0x180080700 (RtlGetUserPreferredUILanguages.c)
- *     RtlGetProcessPreferredUILanguages @ 0x18008BBD0 (RtlGetProcessPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18007A110 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180080710 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetProcessPreferredUILanguages @ 0x18008BBE0 (RtlGetProcessPreferredUILanguages.c)
  * Callees:
  *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x18003F8D8 (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
- *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x18007E858 (RtlpMuiRegGetInstalledLangInfoIndex.c)
+ *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x18007E868 (RtlpMuiRegGetInstalledLangInfoIndex.c)
  */
 
 __int64 __fastcall LdrpConvertLangFallbackListToMultiSz(

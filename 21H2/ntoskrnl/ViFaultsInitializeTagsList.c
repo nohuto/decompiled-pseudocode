@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFaultsInitializeTagsList @ 0x1409DD0A4
+ * XREFs of ViFaultsInitializeTagsList @ 0x1409DE0A4
  * Callers:
- *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x1409C7E70 (VfInitVerifierComponents.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ViFaultsAddAllTags @ 0x1409DCC28 (ViFaultsAddAllTags.c)
+ *     ViFaultsAddAllTags @ 0x1409DDC28 (ViFaultsAddAllTags.c)
  */
 
 __int64 ViFaultsInitializeTagsList()
@@ -22,7 +22,7 @@ __int64 ViFaultsInitializeTagsList()
   v0 = 0;
   v1 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
   ViHaveFaultTags = 0;
-  qword_140C1CC28 = (__int64)&ViFaultTagsList;
+  qword_140C1CE28 = (__int64)&ViFaultTagsList;
   ViFaultTagsList = &ViFaultTagsList;
   KxReleaseSpinLock(&ViFaultInjectionLock);
   if ( KiIrqlFlags )

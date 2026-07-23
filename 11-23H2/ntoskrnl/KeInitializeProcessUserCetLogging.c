@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeProcessUserCetLogging @ 0x1409755A4
+ * XREFs of KeInitializeProcessUserCetLogging @ 0x1409757A4
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

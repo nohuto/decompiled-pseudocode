@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwpReserveTraceBuffer @ 0x1403506F0
+ * XREFs of EtwpReserveTraceBuffer @ 0x14035B440
  * Callers:
- *     EtwpTraceMessageVa @ 0x14025D560 (EtwpTraceMessageVa.c)
- *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403AEB1C (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
- *     EtwTraceEvent @ 0x1405A60A0 (EtwTraceEvent.c)
- *     EtwTraceRaw @ 0x1405A6548 (EtwTraceRaw.c)
- *     EtwpReserveWithPebsIndex @ 0x1405A9434 (EtwpReserveWithPebsIndex.c)
- *     EtwpReserveWithPmcCounters @ 0x1405A94C8 (EtwpReserveWithPmcCounters.c)
- *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
+ *     EtwpTraceMessageVa @ 0x14027F090 (EtwpTraceMessageVa.c)
+ *     EtwpEventWriteFull @ 0x14027FA90 (EtwpEventWriteFull.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403AEC8C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEF80 (EtwpLogContextSwapEvent.c)
+ *     EtwTraceEvent @ 0x1405A62D0 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1405A6778 (EtwTraceRaw.c)
+ *     EtwpReserveWithPebsIndex @ 0x1405A9664 (EtwpReserveWithPebsIndex.c)
+ *     EtwpReserveWithPmcCounters @ 0x1405A96F8 (EtwpReserveWithPmcCounters.c)
+ *     EtwpWriteUserEvent @ 0x140690950 (EtwpWriteUserEvent.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     EtwpSwitchBuffer @ 0x140265E94 (EtwpSwitchBuffer.c)
- *     EtwpUnlockBufferList @ 0x1402662CC (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x140266318 (EtwpLockBufferList.c)
- *     RtlGetSystemTimePrecise @ 0x140278F20 (RtlGetSystemTimePrecise.c)
- *     EtwpUpdateEventsLostCount @ 0x14036CD78 (EtwpUpdateEventsLostCount.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     EtwpGetTimeStampAndQpcDelta @ 0x1405AB7A4 (EtwpGetTimeStampAndQpcDelta.c)
+ *     EtwpSwitchBuffer @ 0x140253E34 (EtwpSwitchBuffer.c)
+ *     EtwpUnlockBufferList @ 0x14025426C (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1402542B8 (EtwpLockBufferList.c)
+ *     RtlGetSystemTimePrecise @ 0x140266EC0 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     EtwpUpdateEventsLostCount @ 0x14036CF28 (EtwpUpdateEventsLostCount.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     EtwpGetTimeStampAndQpcDelta @ 0x1405AB9D4 (EtwpGetTimeStampAndQpcDelta.c)
  */
 
 unsigned __int64 __fastcall EtwpReserveTraceBuffer(
         unsigned int *a1,
         __int64 a2,
         __int64 a3,
-        signed __int64 *a4,
+        LARGE_INTEGER *a4,
         __int16 a5)
 {
   unsigned int v8; // r9d
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall EtwpReserveTraceBuffer(
   int v15; // eax
   unsigned __int32 v16; // ebp
   unsigned __int64 v17; // rax
-  unsigned __int64 QuadPart; // rax
+  LARGE_INTEGER SystemTimePrecise; // rax
   unsigned __int32 v19; // eax
   signed __int64 v20; // rax
   signed __int64 i; // rcx
@@ -60,8 +60,8 @@ unsigned __int64 __fastcall EtwpReserveTraceBuffer(
   unsigned int v36; // [rsp+34h] [rbp-54h]
   unsigned int Number; // [rsp+38h] [rbp-50h]
   signed __int64 v38; // [rsp+40h] [rbp-48h] BYREF
-  unsigned __int64 v39; // [rsp+48h] [rbp-40h] BYREF
-  unsigned __int64 v40; // [rsp+50h] [rbp-38h] BYREF
+  LARGE_INTEGER v39; // [rsp+48h] [rbp-40h] BYREF
+  LARGE_INTEGER v40; // [rsp+50h] [rbp-38h] BYREF
   __int64 v41; // [rsp+58h] [rbp-30h]
   unsigned __int8 v42; // [rsp+90h] [rbp+8h] BYREF
 
@@ -135,7 +135,7 @@ LABEL_11:
       if ( v13 )
       {
         v38 = 0LL;
-        v39 = 0LL;
+        v39.QuadPart = 0LL;
         _m_prefetchw((const void *)(v13 + 8));
         v16 = *(_DWORD *)(v13 + 8);
         if ( v16 <= v8 )
@@ -197,7 +197,7 @@ LABEL_62:
           v30 = v28 == _InterlockedCompareExchange64((volatile signed __int64 *)a2, v38, v28);
           *(_DWORD *)(v29 + v13 + 4) = 5308440;
           v16 = v29;
-          *(_QWORD *)(v29 + v13 + 8) = v39;
+          *(LARGE_INTEGER *)(v29 + v13 + 8) = v39;
           if ( v30 )
           {
             *(_QWORD *)(v29 + v13 + 16) = v38;
@@ -215,7 +215,7 @@ LABEL_62:
         }
         goto LABEL_62;
       }
-      QuadPart = v39;
+      SystemTimePrecise = v39;
       v8 = v35;
     }
     else
@@ -225,7 +225,7 @@ LABEL_62:
         goto LABEL_70;
       if ( (_DWORD)v17 == 3 )
       {
-        QuadPart = __rdtsc();
+        SystemTimePrecise.QuadPart = __rdtsc();
       }
       else if ( (_DWORD)v17 )
       {
@@ -235,27 +235,27 @@ LABEL_62:
           if ( v24 != 1 )
 LABEL_70:
             __fastfail(0x3Du);
-          v40 = 0LL;
-          ((void (__fastcall *)(unsigned __int64 *, __int64, __int64))off_140C009E0[0])(&v40, a2, v9);
-          QuadPart = v40;
+          v40.QuadPart = 0LL;
+          ((void (__fastcall *)(LARGE_INTEGER *, __int64, __int64))off_140C009E0[0])(&v40, a2, v9);
+          SystemTimePrecise = v40;
           v9 = v36;
           v8 = v35;
         }
         else
         {
-          QuadPart = KeQueryPerformanceCounter(0LL).QuadPart;
+          SystemTimePrecise = KeQueryPerformanceCounter(0LL);
           v9 = v36;
           v8 = v35;
         }
       }
       else
       {
-        QuadPart = RtlGetSystemTimePrecise();
+        SystemTimePrecise = RtlGetSystemTimePrecise();
         v9 = v36;
         v8 = v35;
       }
     }
-    *a4 = QuadPart;
+    *a4 = SystemTimePrecise;
     v19 = _InterlockedCompareExchange((volatile signed __int32 *)(v13 + 8), v10 + v16, v16);
     a2 = v19;
     if ( v16 == v19 )
@@ -273,7 +273,7 @@ LABEL_34:
   if ( (a1[3] & 0x400) != 0 )
   {
     v20 = *(_QWORD *)(v13 + 16);
-    for ( i = *a4; *a4 > v20; i = *a4 )
+    for ( i = a4->QuadPart; a4->QuadPart > v20; i = a4->QuadPart )
     {
       v22 = v20;
       v20 = _InterlockedCompareExchange64((volatile signed __int64 *)(v13 + 16), i, v20);

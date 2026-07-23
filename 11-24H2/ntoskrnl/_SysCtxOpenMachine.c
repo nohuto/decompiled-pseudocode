@@ -1,17 +1,17 @@
 /*
- * XREFs of _SysCtxOpenMachine @ 0x140820404
+ * XREFs of _SysCtxOpenMachine @ 0x140820B44
  * Callers:
- *     _PnpCtxCreateNode @ 0x1408172AC (_PnpCtxCreateNode.c)
+ *     _PnpCtxCreateNode @ 0x1408179EC (_PnpCtxCreateNode.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwDuplicateObject @ 0x1406A6B90 (ZwDuplicateObject.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _SysCtxOpenControlSet @ 0x1408201E0 (_SysCtxOpenControlSet.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     RtlGetVersion @ 0x140A08A00 (RtlGetVersion.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1406A7B30 (ZwDuplicateObject.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _SysCtxOpenControlSet @ 0x140820920 (_SysCtxOpenControlSet.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     RtlGetVersion @ 0x140A04F30 (RtlGetVersion.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SysCtxOpenMachine(
@@ -35,7 +35,7 @@ __int64 __fastcall SysCtxOpenMachine(
   HANDLE v19; // [rsp+48h] [rbp-B8h] BYREF
   HANDLE v20; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE v21; // [rsp+58h] [rbp-A8h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+60h] [rbp-A0h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+60h] [rbp-A0h] BYREF
   unsigned __int8 v23; // [rsp+174h] [rbp+74h]
   unsigned __int8 v24; // [rsp+176h] [rbp+76h]
 
@@ -45,7 +45,7 @@ __int64 __fastcall SysCtxOpenMachine(
   Handle = 0LL;
   Version = 0;
   *a7 = 0LL;
-  Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL, 0x38uLL, 0x53504E50u);
   if ( !Pool2 )
   {
     Version = -1073741801;

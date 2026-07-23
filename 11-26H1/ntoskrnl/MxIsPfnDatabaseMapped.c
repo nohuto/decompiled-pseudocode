@@ -1,7 +1,7 @@
 /*
- * XREFs of MxIsPfnDatabaseMapped @ 0x140CF7B2C
+ * XREFs of MxIsPfnDatabaseMapped @ 0x140CFDEAC
  * Callers:
- *     MxMapFreePageNode @ 0x140CF7CF4 (MxMapFreePageNode.c)
+ *     MxMapFreePageNode @ 0x140CFE074 (MxMapFreePageNode.c)
  * Callees:
  *     <none>
  */
@@ -31,14 +31,14 @@ __int64 __fastcall MxIsPfnDatabaseMapped(__int64 a1)
   v6 = (unsigned __int64)(48 * v1) >> 21;
   v7 = v5 >> 21;
   v8 = (v5 >> 21) - v6 + 1;
-  if ( qword_14101EC88 && v7 < qword_14101EC80 && v6 < qword_14101EC80 )
+  if ( qword_14101FC88 && v7 < qword_14101FC80 && v6 < qword_14101FC80 )
   {
     if ( v8 > 1 )
     {
-      if ( qword_14101EC80 - v6 >= v8 )
+      if ( qword_14101FC80 - v6 >= v8 )
       {
-        v10 = (__int64 *)(qword_14101EC88 + 8 * (v2 >> 27));
-        v11 = qword_14101EC88 + 8 * (v5 >> 27);
+        v10 = (__int64 *)(qword_14101FC88 + 8 * (v2 >> 27));
+        v11 = qword_14101FC88 + 8 * (v5 >> 27);
         v12 = *v10;
         if ( v10 == (__int64 *)v11 )
         {
@@ -63,7 +63,7 @@ LABEL_15:
     }
     else if ( v5 >> 21 == v6 )
     {
-      LOBYTE(v4) = _bittest64((const signed __int64 *)(qword_14101EC88 + 8 * (v2 >> 27)), v6 & 0x3F) != 0;
+      LOBYTE(v4) = _bittest64((const signed __int64 *)(qword_14101FC88 + 8 * (v2 >> 27)), v6 & 0x3F) != 0;
       return v4;
     }
   }

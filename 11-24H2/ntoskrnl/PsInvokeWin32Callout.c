@@ -1,59 +1,59 @@
 /*
- * XREFs of PsInvokeWin32Callout @ 0x1409BADD0
+ * XREFs of PsInvokeWin32Callout @ 0x1409A1420
  * Callers:
- *     SeCaptureAtomTableCallout @ 0x14047A560 (SeCaptureAtomTableCallout.c)
- *     PspJobDelete @ 0x1404EE9D0 (PspJobDelete.c)
- *     PspSetProcessTimerDelayForWin32 @ 0x1405E5E58 (PspSetProcessTimerDelayForWin32.c)
- *     KiSystemCall64 @ 0x1406BDE40 (KiSystemCall64.c)
- *     PspEnsureGuiThreadAndBatchFlush @ 0x1407712C8 (PspEnsureGuiThreadAndBatchFlush.c)
- *     PspShutdownCsrProcess @ 0x140772FB4 (PspShutdownCsrProcess.c)
- *     PspQueryProcessInterferenceCountCallback @ 0x140777AA0 (PspQueryProcessInterferenceCountCallback.c)
- *     PspSetUILimitJobObject @ 0x1407785C8 (PspSetUILimitJobObject.c)
- *     ExpWin32DeleteProcedure @ 0x140934D90 (ExpWin32DeleteProcedure.c)
- *     ExpWin32OpenProcedure @ 0x140934E80 (ExpWin32OpenProcedure.c)
- *     PopInvokeWin32CalloutWithWatchdog @ 0x1409BB330 (PopInvokeWin32CalloutWithWatchdog.c)
- *     PspAssignProcessToJob @ 0x140A173D0 (PspAssignProcessToJob.c)
- *     PspChangeProcessExecutionState @ 0x140AD16D4 (PspChangeProcessExecutionState.c)
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     SeCaptureAtomTableCallout @ 0x1404764B4 (SeCaptureAtomTableCallout.c)
+ *     PspSetProcessTimerDelayForWin32 @ 0x1405E33F8 (PspSetProcessTimerDelayForWin32.c)
+ *     KiSystemCall64 @ 0x1406BED40 (KiSystemCall64.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1407714E8 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     PspShutdownCsrProcess @ 0x1407731D4 (PspShutdownCsrProcess.c)
+ *     PspQueryProcessInterferenceCountCallback @ 0x140777C60 (PspQueryProcessInterferenceCountCallback.c)
+ *     ExpWin32DeleteProcedure @ 0x1408F4010 (ExpWin32DeleteProcedure.c)
+ *     ExpWin32OpenProcedure @ 0x1408F4100 (ExpWin32OpenProcedure.c)
+ *     PopInvokeWin32CalloutWithWatchdog @ 0x1409A1980 (PopInvokeWin32CalloutWithWatchdog.c)
+ *     PsConvertToGuiThread @ 0x140AC9700 (PsConvertToGuiThread.c)
+ *     PspChangeProcessExecutionState @ 0x140ACFA40 (PspChangeProcessExecutionState.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     PsSessionGetWin32Callouts @ 0x14046B2A0 (PsSessionGetWin32Callouts.c)
- *     PspUpdateCalloutParameters @ 0x1404EEDCC (PspUpdateCalloutParameters.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     PsSessionGetWin32Callouts @ 0x140463D20 (PsSessionGetWin32Callouts.c)
+ *     PspUpdateCalloutParameters @ 0x1404E64C0 (PspUpdateCalloutParameters.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PsInvokeWin32Callout(int a1, __int128 *a2, int a3, __int64 a4)
 {
   __int64 v4; // rbp
   __int128 *v5; // rbx
-  union _RTL_RUN_ONCE *Win32Callouts; // rsi
-  struct _EX_RUNDOWN_REF *v7; // rdi
-  __int64 v8; // r9
-  unsigned int v9; // ebx
-  __int128 v11; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_RUN_ONCE *Win32Callouts; // rsi
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  struct _EX_RUNDOWN_REF *v10; // rdi
+  unsigned int v11; // ebx
+  __int128 v13; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = a1;
-  DWORD2(v11) = 0;
+  DWORD2(v13) = 0;
   v5 = a2;
-  *(_QWORD *)&v11 = 0LL;
+  *(_QWORD *)&v13 = 0LL;
   if ( !a2 )
   {
-    v5 = &v11;
-    v11 = 0LL;
+    v5 = &v13;
+    v13 = 0LL;
   }
   if ( !(unsigned int)PspUpdateCalloutParameters(a1, (__int64)v5, a3, a4) )
     return 3221225485LL;
   Win32Callouts = PsSessionGetWin32Callouts();
-  v7 = ExReferenceCallBackBlock((signed __int64 *)Win32Callouts);
-  if ( v7 )
+  v10 = ExReferenceCallBackBlock((signed __int64 *)Win32Callouts, v7, v8, v9);
+  if ( v10 )
   {
-    v9 = guard_dispatch_icall_no_overrides(v7[2].Count, v4, v5, v8);
-    ExDereferenceCallBackBlock((signed __int64 *)Win32Callouts, v7);
+    v11 = guard_dispatch_icall_no_overrides(v10[2].Count, v4);
+    ExDereferenceCallBackBlock((signed __int64 *)Win32Callouts, v10);
   }
   else
   {
     return (unsigned int)-1073741811;
   }
-  return v9;
+  return v11;
 }

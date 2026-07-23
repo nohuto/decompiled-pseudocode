@@ -1,12 +1,12 @@
 /*
- * XREFs of MmCreateTeb @ 0x14064BE0C
+ * XREFs of MmCreateTeb @ 0x140640C2C
  * Callers:
- *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x14063FE68 (PspAllocateThread.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiCreatePebOrTeb @ 0x14064C104 (MiCreatePebOrTeb.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiCreatePebOrTeb @ 0x140640F24 (MiCreatePebOrTeb.c)
  */
 
 __int64 __fastcall MmCreateTeb(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD *a3, __int64 a4, _QWORD *a5)
@@ -39,11 +39,11 @@ __int64 __fastcall MmCreateTeb(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD
     else
       v9 = 5;
   }
-  KiStackAttachProcess(BugCheckParameter1, 0LL, (__int64)v20, BugCheckParameter1);
+  KiStackAttachProcess(BugCheckParameter1, 0, (__int64)v20);
   v12 = MiCreatePebOrTeb(v9, a4, &v17);
   if ( v12 < 0 )
   {
-    KiUnstackDetachProcess((__int64)v20, 0);
+    KiUnstackDetachProcess((__int64)v20, 0LL);
     return (unsigned int)v12;
   }
   v13 = v17;
@@ -108,7 +108,7 @@ __int64 __fastcall MmCreateTeb(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD
 LABEL_9:
     *(_QWORD *)v13 = v14;
   }
-  KiUnstackDetachProcess((__int64)v20, 0);
+  KiUnstackDetachProcess((__int64)v20, 0LL);
   *a5 = v13;
   return (unsigned int)v12;
 }

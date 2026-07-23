@@ -1,14 +1,14 @@
 /*
- * XREFs of IvtAllocateTranslationStructures @ 0x14056D8D8
+ * XREFs of IvtAllocateTranslationStructures @ 0x14056AD68
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x14056DA10 (IvtAttachDeviceDomainInternal.c)
- *     IvtConfigureAts @ 0x14056DE70 (IvtConfigureAts.c)
- *     IvtProcessDeviceExceptions @ 0x140B527F4 (IvtProcessDeviceExceptions.c)
- *     HalpIvtpInitializeReservedDomain @ 0x140B533F8 (HalpIvtpInitializeReservedDomain.c)
+ *     IvtAttachDeviceDomainInternal @ 0x14056AEA0 (IvtAttachDeviceDomainInternal.c)
+ *     IvtConfigureAts @ 0x14056B300 (IvtConfigureAts.c)
+ *     IvtProcessDeviceExceptions @ 0x140B54844 (IvtProcessDeviceExceptions.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x140B55448 (HalpIvtpInitializeReservedDomain.c)
  * Callees:
- *     IvtAllocateContextTable @ 0x1404D4448 (IvtAllocateContextTable.c)
- *     IvtGetPasidGranularTranslationType @ 0x1404FA750 (IvtGetPasidGranularTranslationType.c)
- *     IvtAllocateScalableModePasidTables @ 0x14056D55C (IvtAllocateScalableModePasidTables.c)
+ *     IvtAllocateContextTable @ 0x1404CD658 (IvtAllocateContextTable.c)
+ *     IvtGetPasidGranularTranslationType @ 0x1404F8030 (IvtGetPasidGranularTranslationType.c)
+ *     IvtAllocateScalableModePasidTables @ 0x14056A9EC (IvtAllocateScalableModePasidTables.c)
  */
 
 __int64 __fastcall IvtAllocateTranslationStructures(__int64 a1, __int64 a2, _DWORD *a3)

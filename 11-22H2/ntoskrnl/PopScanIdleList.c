@@ -81,10 +81,13 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
   if ( byte_140D17BEC )
   {
     KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -188,10 +191,10 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
     }
     PopDiagTraceEventNoPayload(&POP_ETW_EVENT_DEVICE_IDLE_END);
     KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v32 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v32 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v32 >= 2u )
       {
         v33 = KeGetCurrentPrcb();
         v34 = v33->SchedulerAssist;

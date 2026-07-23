@@ -1,20 +1,20 @@
 /*
- * XREFs of SmProcessListRequest @ 0x1408199A8
+ * XREFs of SmProcessListRequest @ 0x14081FBB8
  * Callers:
- *     SmQueryStoreInformation @ 0x140B26304 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140B28564 (SmQueryStoreInformation.c)
  * Callees:
- *     SmKmStoreRefFromStoreIndex @ 0x140204B30 (SmKmStoreRefFromStoreIndex.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     SmProcessListRequestExtended @ 0x140819BF0 (SmProcessListRequestExtended.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140204C10 (SmKmStoreRefFromStoreIndex.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     SmProcessListRequestExtended @ 0x14081FE00 (SmProcessListRequestExtended.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall SmProcessListRequest(void *a1, unsigned int a2, unsigned int *a3, char a4)

@@ -1,23 +1,23 @@
 /*
- * XREFs of PspDeleteServerSiloGlobals @ 0x1409062AC
+ * XREFs of PspDeleteServerSiloGlobals @ 0x14090640C
  * Callers:
- *     PspConvertSiloToServerSilo @ 0x140906054 (PspConvertSiloToServerSilo.c)
- *     PspDeleteSilo @ 0x140906418 (PspDeleteSilo.c)
+ *     PspConvertSiloToServerSilo @ 0x1409061B4 (PspConvertSiloToServerSilo.c)
+ *     PspDeleteSilo @ 0x140906578 (PspDeleteSilo.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ExpDeleteSiloState @ 0x1405B2BEC (ExpDeleteSiloState.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
- *     DbgkCleanupServerSiloState @ 0x140884358 (DbgkCleanupServerSiloState.c)
- *     ObCleanupSiloState @ 0x1408DC470 (ObCleanupSiloState.c)
- *     PspDeleteProtectedProcessParameters @ 0x1409059D0 (PspDeleteProtectedProcessParameters.c)
- *     SeRmCleanupSiloState @ 0x14091C040 (SeRmCleanupSiloState.c)
- *     EtwDeleteSiloState @ 0x140937D24 (EtwDeleteSiloState.c)
- *     ExWnfCleanupServerSiloState @ 0x14095CA90 (ExWnfCleanupServerSiloState.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ExpDeleteSiloState @ 0x1405B2E1C (ExpDeleteSiloState.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     DbgkCleanupServerSiloState @ 0x1408844B8 (DbgkCleanupServerSiloState.c)
+ *     ObCleanupSiloState @ 0x1408DC5D0 (ObCleanupSiloState.c)
+ *     PspDeleteProtectedProcessParameters @ 0x140905B30 (PspDeleteProtectedProcessParameters.c)
+ *     SeRmCleanupSiloState @ 0x14091C1A0 (SeRmCleanupSiloState.c)
+ *     EtwDeleteSiloState @ 0x140937EF4 (EtwDeleteSiloState.c)
+ *     ExWnfCleanupServerSiloState @ 0x14095CC50 (ExWnfCleanupServerSiloState.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspDeleteServerSiloGlobals(char *P)

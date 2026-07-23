@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateMirrorBitmaps @ 0x140B65ABC
+ * XREFs of MiUpdateMirrorBitmaps @ 0x140B68B5C
  * Callers:
- *     MiAddPartitionHugeRange @ 0x1406EB048 (MiAddPartitionHugeRange.c)
- *     MiAcquireAddMemoryResources @ 0x140864F54 (MiAcquireAddMemoryResources.c)
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
- *     MiInitializeMirroring @ 0x140CF8AE4 (MiInitializeMirroring.c)
+ *     MiAddPartitionHugeRange @ 0x1406EFCE8 (MiAddPartitionHugeRange.c)
+ *     MiAcquireAddMemoryResources @ 0x14086B334 (MiAcquireAddMemoryResources.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
+ *     MiInitializeMirroring @ 0x140CFEE64 (MiInitializeMirroring.c)
  * Callees:
- *     MiSplitMirrorBitMap @ 0x1408686E0 (MiSplitMirrorBitMap.c)
- *     MiActOnMirrorBitmap @ 0x140C0CAE8 (MiActOnMirrorBitmap.c)
+ *     MiSplitMirrorBitMap @ 0x14086EAC0 (MiSplitMirrorBitMap.c)
+ *     MiActOnMirrorBitmap @ 0x140C12CF8 (MiActOnMirrorBitmap.c)
  */
 
 __int64 __fastcall MiUpdateMirrorBitmaps(unsigned int a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall MiUpdateMirrorBitmaps(unsigned int a1, __int64 a2, __int64 a3
   int j; // esi
 
   v6 = (int)a1;
-  v7 = &stru_140E2EB88.WaitBlock[2].WaitType + 4 * (int)a1;
+  v7 = &stru_140E2ED08.WaitBlock[2].WaitType + 4 * (int)a1;
   if ( !a3 || *(_DWORD *)v7 )
   {
     if ( *(_DWORD *)v7 != 2 )
@@ -38,7 +38,7 @@ LABEL_13:
       for ( j = 0; j < 2; ++j )
       {
         if ( !(unsigned int)MiSplitMirrorBitMap(
-                              (unsigned __int64 *)&stru_140E2EB88.WaitBlock[1] + 4 * v6 + 2 * j,
+                              (unsigned __int64 *)&stru_140E2ED08.WaitBlock[1] + 4 * v6 + 2 * j,
                               a2,
                               a3) )
           goto LABEL_13;

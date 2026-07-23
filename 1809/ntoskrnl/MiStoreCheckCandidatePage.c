@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreCheckCandidatePage @ 0x14014D394
+ * XREFs of MiStoreCheckCandidatePage @ 0x14014D494
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CCA0 (MiStoreWriteModifiedPages.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
- *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiIsStoreProcess @ 0x1400837DC (MiIsStoreProcess.c)
+ *     MiGetTopLevelPfn @ 0x140083810 (MiGetTopLevelPfn.c)
  */
 
 __int64 __fastcall MiStoreCheckCandidatePage(
@@ -34,7 +34,7 @@ __int64 __fastcall MiStoreCheckCandidatePage(
 
   v5 = 0;
   v9 = 0;
-  v10 = a2 | ((unsigned __int64)*(unsigned int *)(*(_QWORD *)(qword_14043A748
+  v10 = a2 | ((unsigned __int64)*(unsigned int *)(*(_QWORD *)(qword_14043B808
                                                             + 8
                                                             * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL))
                                                 + 1140LL) << 60);
@@ -52,7 +52,7 @@ __int64 __fastcall MiStoreCheckCandidatePage(
       HIDWORD(v22) = HIDWORD(v12);
       if ( (unsigned int)MiGetSystemRegionType(v12) == 1
         || v12 <= 0x7FFFFFFEFFFFLL
-        || v12 <= qword_14043A530 && v12 >= qword_14043BAC0
+        || v12 <= qword_14043B5F0 && v12 >= qword_14043CB80
         || v12 >= v13 && v12 <= 0xFFFFF6FFFFFFFFFFuLL )
       {
         TopLevelPfn = MiGetTopLevelPfn(BugCheckParameter2);

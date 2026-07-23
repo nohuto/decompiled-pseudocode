@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPowerRequestCleanUp @ 0x1400FB1B4
+ * XREFs of PopPowerRequestCleanUp @ 0x1400F8F40
  * Callers:
- *     PoDeletePowerRequest @ 0x14051E37C (PoDeletePowerRequest.c)
- *     PopClosePowerRequestObject @ 0x14051E684 (PopClosePowerRequestObject.c)
- *     PopDeletePowerRequestObject @ 0x14051FFC4 (PopDeletePowerRequestObject.c)
+ *     PoDeletePowerRequest @ 0x1405013E4 (PoDeletePowerRequest.c)
+ *     PopClosePowerRequestObject @ 0x1405016EC (PopClosePowerRequestObject.c)
+ *     PopDeletePowerRequestObject @ 0x14050302C (PopDeletePowerRequestObject.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PoDestroyReasonContext @ 0x1400FB8C8 (PoDestroyReasonContext.c)
- *     PopPowerRequestExecuteCallbacks @ 0x1400FBF2C (PopPowerRequestExecuteCallbacks.c)
- *     PopUmpoSendPowerRequestOverrideCleanup @ 0x14051FFCC (PopUmpoSendPowerRequestOverrideCleanup.c)
- *     PopReleasePowerRequestPushLock @ 0x140520694 (PopReleasePowerRequestPushLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
- *     PopDiagTracePowerRequestClose @ 0x140520764 (PopDiagTracePowerRequestClose.c)
- *     PopPowerRequestDeleteEntryById @ 0x1405207EC (PopPowerRequestDeleteEntryById.c)
- *     PopDisablePowerExecutionRequest @ 0x140520820 (PopDisablePowerExecutionRequest.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PoDestroyReasonContext @ 0x1400F9654 (PoDestroyReasonContext.c)
+ *     PopPowerRequestExecuteCallbacks @ 0x1400F9CAC (PopPowerRequestExecuteCallbacks.c)
+ *     PopUmpoSendPowerRequestOverrideCleanup @ 0x140503034 (PopUmpoSendPowerRequestOverrideCleanup.c)
+ *     PopReleasePowerRequestPushLock @ 0x1405036FC (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
+ *     PopDiagTracePowerRequestClose @ 0x1405037CC (PopDiagTracePowerRequestClose.c)
+ *     PopPowerRequestDeleteEntryById @ 0x140503854 (PopPowerRequestDeleteEntryById.c)
+ *     PopDisablePowerExecutionRequest @ 0x140503888 (PopDisablePowerExecutionRequest.c)
  */
 
 void __fastcall PopPowerRequestCleanUp(_BYTE *Object)
@@ -50,7 +50,7 @@ void __fastcall PopPowerRequestCleanUp(_BYTE *Object)
       *v4 = v3;
       *(_QWORD *)(v3 + 8) = v4;
       *v1 = 0LL;
-      if ( *((_DWORD *)v1 + 11) && (byte_140303F74 || v2) )
+      if ( *((_DWORD *)v1 + 11) && (byte_140303EB4 || v2) )
       {
         *((_DWORD *)v1 + 11) = 0;
         if ( !v2 && (v1[3] & 8) == 0 )

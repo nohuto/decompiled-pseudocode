@@ -12,5 +12,5 @@ NTSTATUS __stdcall TmEnableCallbacks(
         PTM_RM_NOTIFICATION CallbackRoutine,
         PVOID RMKey)
 {
-  return __imp_TmEnableCallbacks(ResourceManager, CallbackRoutine, RMKey);
+  return TmEnableCallbacks_0(ResourceManager, CallbackRoutine, RMKey);
 }

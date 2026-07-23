@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhTlsCleanup @ 0x18004EDC0
+ * XREFs of RtlpHpLfhTlsCleanup @ 0x1800649A0
  * Callers:
- *     RtlpFlsDataCleanup @ 0x18004EC20 (RtlpFlsDataCleanup.c)
- *     RtlpFlsFree @ 0x18008F164 (RtlpFlsFree.c)
+ *     RtlpFlsFree @ 0x180026B34 (RtlpFlsFree.c)
+ *     RtlpFlsDataCleanup @ 0x180064800 (RtlpFlsDataCleanup.c)
  * Callees:
- *     RtlpHpEnvTlsSetValue @ 0x18004EB3C (RtlpHpEnvTlsSetValue.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpHpEnvTlsSetValue @ 0x18006471C (RtlpHpEnvTlsSetValue.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpLfhTlsCleanup(__int64 a1, int a2)

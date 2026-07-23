@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmSetInstallerClassRegProp @ 0x140819170
+ * XREFs of _CmSetInstallerClassRegProp @ 0x1408198B0
  * Callers:
- *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x14081FA7C (_CmSetInstallerClassMappedPropertyFromRegProp.c)
- *     PiCMSetRegistryProperty @ 0x14099B0D8 (PiCMSetRegistryProperty.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x1408201BC (_CmSetInstallerClassMappedPropertyFromRegProp.c)
+ *     PiCMSetRegistryProperty @ 0x1409CD848 (PiCMSetRegistryProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x1408192D4 (_CmSetInstallerClassRegPropWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140819A14 (_CmSetInstallerClassRegPropWorker.c)
  */
 
 __int64 __fastcall CmSetInstallerClassRegProp(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, __int64 a6, ULONG a7)
@@ -37,7 +37,7 @@ __int64 __fastcall CmSetInstallerClassRegProp(__int64 a1, __int64 a2, __int64 a3
   v23 = a6;
   if ( v11 )
   {
-    v12 = guard_dispatch_icall_no_overrides(a1, a2, 2LL, 10LL);
+    v12 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v12 == -1073741822 )
     {
       v11 = 0LL;
@@ -55,7 +55,7 @@ __int64 __fastcall CmSetInstallerClassRegProp(__int64 a1, __int64 a2, __int64 a3
   if ( !v11 )
     return v14;
   v19[0] = v13;
-  v15 = guard_dispatch_icall_no_overrides(a1, a2, 2LL, 10LL);
+  v15 = guard_dispatch_icall_no_overrides(a1, a2);
   v16 = v15;
   if ( v15 == -1073741822 )
     return v14;

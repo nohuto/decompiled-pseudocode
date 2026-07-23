@@ -1,22 +1,22 @@
 /*
- * XREFs of MmEnumerateBadPages @ 0x140B5D81C
+ * XREFs of MmEnumerateBadPages @ 0x140B6099C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiIterateOverPartitions @ 0x1404A90F4 (MiIterateOverPartitions.c)
- *     MiGetListOfPendingBadPages @ 0x14052AB58 (MiGetListOfPendingBadPages.c)
- *     MiEnumerateQuarantinedBadHugeRangePages @ 0x14052D548 (MiEnumerateQuarantinedBadHugeRangePages.c)
- *     MiSortPageFramesRemoveDuplicates @ 0x1406F1F64 (MiSortPageFramesRemoveDuplicates.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiIterateOverPartitions @ 0x1404A2784 (MiIterateOverPartitions.c)
+ *     MiGetListOfPendingBadPages @ 0x14052D078 (MiGetListOfPendingBadPages.c)
+ *     MiEnumerateQuarantinedBadHugeRangePages @ 0x14052FA68 (MiEnumerateQuarantinedBadHugeRangePages.c)
+ *     MiSortPageFramesRemoveDuplicates @ 0x1406F6BD4 (MiSortPageFramesRemoveDuplicates.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmEnumerateBadPages(_QWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -50,9 +50,9 @@ __int64 __fastcall MmEnumerateBadPages(_QWORD *a1, __int64 a2, __int64 a3, struc
   v7 = 0LL;
   v8 = 0;
   --CurrentThread->SpecialApcDisable;
-  v10 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E2EB88, 0LL, 0LL, a4);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2EB88, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E2EB88.Header.Lock, 0, v10, &stru_140E2EB88);
+  v10 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E2ED08, 0LL, 0LL, a4);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2ED08, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E2ED08.Header.Lock, 0, v10, &stru_140E2ED08);
   if ( v10 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -61,11 +61,11 @@ __int64 __fastcall MmEnumerateBadPages(_QWORD *a1, __int64 a2, __int64 a3, struc
       *((_BYTE *)v10 + 10) = 1;
   }
   MiIterateOverPartitions((__int64)MiEnumeratePartitionBadPages, (__int64)P);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2EB88, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&stru_140E2EB88.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140E2EB88);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2ED08, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&stru_140E2ED08.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140E2ED08);
   v13 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v13 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v13 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v12, v11);
   MiGetListOfPendingBadPages((__int64)P);
   MiEnumerateQuarantinedBadHugeRangePages((__int64)P);

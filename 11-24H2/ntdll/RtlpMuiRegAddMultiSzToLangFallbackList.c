@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800322A0
+ * XREFs of RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180013360
  * Callers:
- *     RtlSetProcessPreferredUILanguages @ 0x180031240 (RtlSetProcessPreferredUILanguages.c)
- *     LdrpLangFallbackListAppendNode @ 0x180031E20 (LdrpLangFallbackListAppendNode.c)
- *     RtlSetThreadPreferredUILanguages @ 0x18007C4E0 (RtlSetThreadPreferredUILanguages.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x18007EF80 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x18000F8D0 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180011A20 (RtlSetThreadPreferredUILanguages.c)
+ *     LdrpLangFallbackListAppendNode @ 0x180012EE0 (LdrpLangFallbackListAppendNode.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800C8B80 (RtlpMuiRegLoadPreferredUILanguages.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1800122F0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlUnicodeStringToInteger @ 0x180032D60 (RtlUnicodeStringToInteger.c)
- *     RtlCultureNameToLCID @ 0x1800330E0 (RtlCultureNameToLCID.c)
- *     RtlpNlsGetNameIndex @ 0x180033300 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x1800333EC (RtlpLoadNlsData.c)
- *     RtlLCIDToCultureName @ 0x1800360C0 (RtlLCIDToCultureName.c)
- *     RtlpMuiRegCreateLanguageList @ 0x18007E2D0 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpMuiRegGrowLanguageList @ 0x18008001C (RtlpMuiRegGrowLanguageList.c)
- *     RtlpMatchUILanguage @ 0x1800D0FEC (RtlpMatchUILanguage.c)
- *     RtlpMatchUserLanguage @ 0x1800D10DC (RtlpMatchUserLanguage.c)
- *     RtlpMuiRegGetOrAddString @ 0x1800D2A40 (RtlpMuiRegGetOrAddString.c)
- *     RtlpIsCustomLocale @ 0x1800F77DC (RtlpIsCustomLocale.c)
- *     __report_rangecheckfailure @ 0x180120A2C (__report_rangecheckfailure.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x180013E20 (RtlUnicodeStringToInteger.c)
+ *     RtlCultureNameToLCID @ 0x1800141A0 (RtlCultureNameToLCID.c)
+ *     RtlpNlsGetNameIndex @ 0x1800143C0 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x1800144AC (RtlpLoadNlsData.c)
+ *     RtlLCIDToCultureName @ 0x180016340 (RtlLCIDToCultureName.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x18003ECF0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpMuiRegGetOrAddString @ 0x1800993D0 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMatchUserLanguage @ 0x18009A410 (RtlpMatchUserLanguage.c)
+ *     RtlpMatchUILanguage @ 0x18009A584 (RtlpMatchUILanguage.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x1800CA3B0 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpMuiRegGrowLanguageList @ 0x1800CA450 (RtlpMuiRegGrowLanguageList.c)
+ *     RtlpIsCustomLocale @ 0x1800F2354 (RtlpIsCustomLocale.c)
+ *     __report_rangecheckfailure @ 0x18011EC5C (__report_rangecheckfailure.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpMuiRegAddMultiSzToLangFallbackList(
@@ -48,7 +48,7 @@ __int64 __fastcall RtlpMuiRegAddMultiSzToLangFallbackList(
   size_t v16; // rcx
   unsigned __int64 v17; // rdi
   unsigned __int64 v18; // rdi
-  __int64 v19; // r14
+  _QWORD *v19; // r14
   __int64 v20; // r13
   __int64 v21; // r14
   int v22; // edi
@@ -61,54 +61,53 @@ __int64 __fastcall RtlpMuiRegAddMultiSzToLangFallbackList(
   __int64 v29; // rdi
   int NameIndex; // eax
   unsigned __int8 v31; // r14
-  unsigned int v32; // edi
+  ULONG v32; // edi
   __int64 v33; // r10
-  unsigned __int16 v34; // dx
-  char v35; // r8
-  __int64 v36; // r9
+  __int64 v34; // rdx
+  __int64 v35; // r9
   int InstalledLanguageIndexByLangId; // eax
   int j; // ecx
-  __int64 v39; // rdx
-  int v40; // r8d
-  int v41; // ecx
-  __int64 v42; // r9
-  __int16 v43; // r10
-  __int64 *v44; // r8
+  __int64 v38; // rdx
+  int v39; // r8d
+  int v40; // ecx
+  __int64 v41; // r9
+  __int16 v42; // r10
+  __int64 *v43; // r8
+  __int64 v45; // rax
   __int64 v46; // rax
-  __int64 v47; // rax
-  _WORD *v48; // rdx
+  _WORD *v47; // rdx
   __int64 LanguageList; // rax
-  __int64 v50; // r8
-  __int64 v51; // rdx
-  __int64 v52; // rax
-  const wchar_t *v53; // rcx
-  size_t v54; // rax
-  char v55; // al
-  __int16 v56[2]; // [rsp+20h] [rbp-E0h] BYREF
-  int v57; // [rsp+24h] [rbp-DCh]
-  __int16 v58[2]; // [rsp+28h] [rbp-D8h] BYREF
-  unsigned int v59; // [rsp+2Ch] [rbp-D4h] BYREF
-  __int64 v60; // [rsp+30h] [rbp-D0h]
-  int v61; // [rsp+38h] [rbp-C8h]
-  int v62; // [rsp+3Ch] [rbp-C4h]
-  __int64 *v63; // [rsp+40h] [rbp-C0h]
+  __int64 v49; // r8
+  __int64 v50; // rdx
+  __int64 v51; // rax
+  const wchar_t *v52; // rcx
+  size_t v53; // rax
+  BOOLEAN v54; // al
+  __int16 v55[2]; // [rsp+20h] [rbp-E0h] BYREF
+  int v56; // [rsp+24h] [rbp-DCh]
+  __int16 v57[2]; // [rsp+28h] [rbp-D8h] BYREF
+  ULONG Value; // [rsp+2Ch] [rbp-D4h] BYREF
+  __int64 v59; // [rsp+30h] [rbp-D0h]
+  int v60; // [rsp+38h] [rbp-C8h]
+  int v61; // [rsp+3Ch] [rbp-C4h]
+  __int64 *v62; // [rsp+40h] [rbp-C0h]
   void *Src[2]; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 Heap; // [rsp+58h] [rbp-A8h]
-  __int128 v66; // [rsp+60h] [rbp-A0h] BYREF
+  PVOID Heap; // [rsp+58h] [rbp-A8h]
+  _UNICODE_STRING String; // [rsp+60h] [rbp-A0h] BYREF
   wchar_t String2[88]; // [rsp+70h] [rbp-90h] BYREF
 
   v7 = a7;
   v8 = 2 * a3;
   v9 = 0;
-  v57 = a4;
-  v60 = a1;
-  v63 = a7;
-  v61 = 0;
+  v56 = a4;
+  v59 = a1;
+  v62 = a7;
+  v60 = 0;
   v10 = a4;
-  v62 = 2 * a3;
+  v61 = 2 * a3;
   v11 = a2;
-  v56[0] = 0;
-  v58[0] = -1;
+  v55[0] = 0;
+  v57[0] = -1;
   *(_OWORD *)Src = 0LL;
   if ( 2 * a3 <= 0 )
     return 3221225485LL;
@@ -119,8 +118,8 @@ __int64 __fastcall RtlpMuiRegAddMultiSzToLangFallbackList(
   v12 = a5;
   if ( (a5 & 0xFFFFFFE0) != 0 )
     return 3221225485LL;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
-  v13 = (void *)Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+  v13 = Heap;
   if ( Heap )
   {
     while ( 1 )
@@ -128,10 +127,10 @@ __int64 __fastcall RtlpMuiRegAddMultiSzToLangFallbackList(
       if ( !v11 || !*v11 || v8 <= 0 )
       {
 LABEL_55:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v13);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v13);
         return v9;
       }
-      v59 = 0;
+      Value = 0;
       v14 = -1LL;
       do
         ++v14;
@@ -157,12 +156,12 @@ LABEL_55:
         String2[v18] = 0;
         if ( v19 )
         {
-          v20 = *(_QWORD *)(v19 + 24);
+          v20 = v19[3];
           if ( v20 )
           {
             if ( *(_QWORD *)(v20 + 16) && String2[0] )
             {
-              v21 = *(_QWORD *)(v19 + 32);
+              v21 = v19[4];
               if ( v21 )
               {
                 v22 = 0;
@@ -233,7 +232,7 @@ LABEL_39:
           if ( ((v28 - 4096) & 0xFFFFFBFF) != 0 )
           {
             v31 = 1;
-            v56[0] = v28;
+            v55[0] = v28;
             LOWORD(v32) = v28;
             goto LABEL_41;
           }
@@ -241,56 +240,56 @@ LABEL_39:
           if ( (a5 & 2) != 0 )
           {
             LOBYTE(v26) = 1;
-            if ( (int)RtlpMuiRegGetOrAddString(v60, Src[1], v26, v56) >= 0 )
+            if ( (int)RtlpMuiRegGetOrAddString(v59, Src[1], v26, v55) >= 0 )
             {
-              LOWORD(v32) = v56[0];
+              LOWORD(v32) = v55[0];
               v31 = 3;
 LABEL_41:
-              v7 = v63;
-              v13 = (void *)Heap;
+              v7 = v62;
+              v13 = Heap;
 LABEL_42:
-              v33 = v60;
-              v59 = 0;
-              v34 = v32;
-              v35 = 1;
-              v66 = 0LL;
-              if ( v60 )
+              v33 = v59;
+              Value = 0;
+              v34 = (unsigned __int16)v32;
+              LOBYTE(v26) = 1;
+              String = 0LL;
+              if ( v59 )
               {
-                v36 = *(_QWORD *)(v60 + 24);
+                v35 = *(_QWORD *)(v59 + 24);
                 if ( v31 == 3 )
                 {
-                  for ( j = 0; j < *(unsigned __int16 *)(v36 + 6); ++j )
+                  for ( j = 0; j < *(unsigned __int16 *)(v35 + 6); ++j )
                   {
-                    v48 = (_WORD *)(*(_QWORD *)(v36 + 16) + 28LL * j);
-                    if ( (*v48 & 0x1020) == 0x20 && v48[3] == (_WORD)v32 )
+                    v47 = (_WORD *)(*(_QWORD *)(v35 + 16) + 28LL * j);
+                    if ( (*v47 & 0x1020) == 0x20 && v47[3] == (_WORD)v32 )
                     {
-                      v58[0] = j;
+                      v57[0] = j;
                       goto LABEL_46;
                     }
                   }
-                  v50 = *(_QWORD *)(v60 + 32);
-                  if ( v50 )
+                  v49 = *(_QWORD *)(v59 + 32);
+                  if ( v49 )
                   {
-                    if ( (v32 & 0x8000u) == 0 && (__int16)v32 < (int)*(unsigned __int16 *)(v50 + 6) )
+                    if ( (v32 & 0x8000u) == 0 && (__int16)v32 < (int)*(unsigned __int16 *)(v49 + 6) )
                     {
-                      v51 = *(__int16 *)(*(_QWORD *)(v50 + 16) + 2LL * (__int16)v32);
-                      v52 = *(_QWORD *)(v50 + 24);
-                      v53 = (const wchar_t *)(v52 + 2 * v51);
-                      if ( v53 )
+                      v50 = *(__int16 *)(*(_QWORD *)(v49 + 16) + 2LL * (__int16)v32);
+                      v51 = *(_QWORD *)(v49 + 24);
+                      v52 = (const wchar_t *)(v51 + 2 * v50);
+                      if ( v52 )
                       {
-                        DWORD1(v66) = 0;
-                        *((_QWORD *)&v66 + 1) = v52 + 2 * v51;
-                        v54 = 2 * wcslen(v53);
-                        if ( v54 >= 0xFFFE )
-                          LOWORD(v54) = -4;
-                        LOWORD(v66) = v54;
-                        WORD1(v66) = v54 + 2;
-                        v55 = RtlCultureNameToLCID(&v66, &v59);
-                        v33 = v60;
-                        if ( v55 )
+                        *(_DWORD *)(&String.MaximumLength + 1) = 0;
+                        String.Buffer = (wchar_t *)(v51 + 2 * v50);
+                        v53 = 2 * wcslen(v52);
+                        if ( v53 >= 0xFFFE )
+                          LOWORD(v53) = -4;
+                        String.Length = v53;
+                        String.MaximumLength = v53 + 2;
+                        v54 = RtlCultureNameToLCID(&String, &Value);
+                        v33 = v59;
+                        if ( v54 )
                         {
-                          v34 = v59;
-                          v35 = 0;
+                          v34 = (unsigned __int16)Value;
+                          LOBYTE(v26) = 0;
                           goto LABEL_44;
                         }
                       }
@@ -300,56 +299,56 @@ LABEL_42:
                 else
                 {
 LABEL_44:
-                  InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(v33, v34, v35, v58);
-                  v33 = v60;
+                  InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(v33, v34, v26, v57);
+                  v33 = v59;
                   if ( InstalledLanguageIndexByLangId >= 0 )
                   {
-                    LOWORD(j) = v58[0];
+                    LOWORD(j) = v57[0];
 LABEL_46:
-                    if ( (v57 & 0x10) == 0 )
+                    if ( (v56 & 0x10) == 0 )
                     {
                       v31 = 2;
-                      v56[0] = j;
+                      v55[0] = j;
                       LOWORD(v32) = j;
                     }
 LABEL_48:
-                    v39 = *v7;
+                    v38 = *v7;
                     if ( *v7
                       || (LanguageList = RtlpMuiRegCreateLanguageList(1LL, a5 & 1, v33),
                           *v7 = LanguageList,
-                          (v39 = LanguageList) != 0) )
+                          (v38 = LanguageList) != 0) )
                     {
-                      v40 = *(unsigned __int16 *)(v39 + 4);
-                      v41 = 0;
-                      v42 = 0LL;
-                      v43 = v31;
-                      while ( v41 < v40 )
+                      v39 = *(unsigned __int16 *)(v38 + 4);
+                      v40 = 0;
+                      v41 = 0LL;
+                      v42 = v31;
+                      while ( v40 < v39 )
                       {
-                        v46 = *(_QWORD *)(v39 + 24);
-                        v43 = v31;
-                        if ( *(_WORD *)(v42 + v46) == v31 && *(_WORD *)(v42 + v46 + 4) == (_WORD)v32 )
+                        v45 = *(_QWORD *)(v38 + 24);
+                        v42 = v31;
+                        if ( *(_WORD *)(v41 + v45) == v31 && *(_WORD *)(v41 + v45 + 4) == (_WORD)v32 )
                           goto LABEL_54;
-                        ++v41;
-                        v42 += 6LL;
+                        ++v40;
+                        v41 += 6LL;
                       }
-                      if ( (unsigned __int16)v40 >= *(_WORD *)(v39 + 6) )
+                      if ( (unsigned __int16)v39 >= *(_WORD *)(v38 + 6) )
                       {
-                        v47 = RtlpMuiRegGrowLanguageList(v39);
-                        v44 = v63;
-                        v39 = v47;
-                        v43 = v31;
-                        *v63 = v47;
-                        if ( !v47 )
+                        v46 = RtlpMuiRegGrowLanguageList(v38);
+                        v43 = v62;
+                        v38 = v46;
+                        v42 = v31;
+                        *v62 = v46;
+                        if ( !v46 )
                           goto LABEL_69;
                       }
                       else
                       {
-                        v44 = v63;
+                        v43 = v62;
                       }
-                      *(_WORD *)(*(_QWORD *)(v39 + 24) + 6LL * *(unsigned __int16 *)(v39 + 4)) = v43;
-                      *(_WORD *)(*(_QWORD *)(*v44 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*v44 + 4))++ + 4) = v32;
+                      *(_WORD *)(*(_QWORD *)(v38 + 24) + 6LL * *(unsigned __int16 *)(v38 + 4)) = v42;
+                      *(_WORD *)(*(_QWORD *)(*v43 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*v43 + 4))++ + 4) = v32;
 LABEL_54:
-                      if ( ++v61 < a6 )
+                      if ( ++v60 < a6 )
                         goto LABEL_63;
                     }
                     else
@@ -361,7 +360,7 @@ LABEL_69:
                   }
                 }
               }
-              if ( (v57 & 2) != 0 )
+              if ( (v56 & 2) != 0 )
                 goto LABEL_48;
               goto LABEL_63;
             }
@@ -375,16 +374,16 @@ LABEL_63:
         goto LABEL_64;
       }
 LABEL_28:
-      v13 = (void *)Heap;
-      v7 = v63;
+      v13 = Heap;
+      v7 = v62;
       v11 = (_WORD *)((char *)v11 + v15 + 2);
-      v8 = -2 - v15 + v62;
-      v62 = v8;
+      v8 = -2 - v15 + v61;
+      v61 = v8;
     }
-    if ( (int)RtlUnicodeStringToInteger(Src, 16LL, &v59) < 0 )
+    if ( RtlUnicodeStringToInteger((PUNICODE_STRING)Src, 0x10u, &Value) < 0 )
       goto LABEL_28;
-    v32 = v59;
-    if ( v59 == 4096 || v59 == 5120 || v59 == 3072 || v59 == 1024 || v59 == 2048 || v59 == 127 )
+    v32 = Value;
+    if ( Value == 4096 || Value == 5120 || Value == 3072 || Value == 1024 || Value == 2048 || Value == 127 )
     {
       if ( (v12 & 4) != 0 )
         goto LABEL_64;
@@ -396,14 +395,14 @@ LABEL_28:
     }
     Src[1] = v13;
     LODWORD(Src[0]) = 11141120;
-    if ( (unsigned __int8)RtlLCIDToCultureName(v59, Src) && ((v12 & 2) != 0 || ((v32 - 4096) & 0xFFFFFBFF) != 0) )
+    if ( RtlLCIDToCultureName(Value, (PUNICODE_STRING)Src) && ((v12 & 2) != 0 || ((v32 - 4096) & 0xFFFFFBFF) != 0) )
     {
       v31 = 1;
-      v56[0] = v32;
+      v55[0] = v32;
       goto LABEL_42;
     }
 LABEL_64:
-    v10 = v57;
+    v10 = v56;
     goto LABEL_28;
   }
   return 3221225495LL;

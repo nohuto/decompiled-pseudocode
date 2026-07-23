@@ -1,11 +1,11 @@
 /*
- * XREFs of SepCreateSidValuesBlock @ 0x140922E30
+ * XREFs of SepCreateSidValuesBlock @ 0x140922F90
  * Callers:
- *     SepSetTokenUserAndGroups @ 0x1409231BC (SepSetTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x14092331C (SepSetTokenUserAndGroups.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlCopySid @ 0x14071E2B0 (RtlCopySid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateSidValuesBlock(

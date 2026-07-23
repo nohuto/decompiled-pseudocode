@@ -10,41 +10,47 @@
  *     BaseGetNamedObjectDirectory @ 0x18010E86C (BaseGetNamedObjectDirectory.c)
  */
 
-__int64 __fastcall ResOpenFileMapping(__int64 a1, __int64 a2, const WCHAR *a3)
+HANDLE __fastcall ResOpenFileMapping(ACCESS_MASK a1, __int64 a2, const WCHAR *a3)
 {
-  NTSTATUS v3; // ecx
-  ULONG v4; // eax
-  int NamedObjectDirectory; // eax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  int v8; // [rsp+30h] [rbp-30h]
-  __int64 v9; // [rsp+38h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+40h] [rbp-20h]
-  int v11; // [rsp+48h] [rbp-18h]
-  __int128 v12; // [rsp+50h] [rbp-10h]
-  __int64 v13; // [rsp+80h] [rbp+20h] BYREF
-  __int64 v14; // [rsp+88h] [rbp+28h]
+  NTSTATUS v4; // ecx
+  LONG v5; // eax
+  NTSTATUS NamedObjectDirectory; // eax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  HANDLE v10; // [rsp+80h] [rbp+20h] BYREF
+  HANDLE SectionHandle; // [rsp+88h] [rbp+28h] BYREF
 
   if ( !a3 )
   {
-    v3 = -1073741811;
+    v4 = -1073741811;
 LABEL_3:
-    v4 = RtlNtStatusToDosError(v3);
-    RtlSetLastWin32Error(v4);
+    v5 = RtlNtStatusToDosError(v4);
+    RtlSetLastWin32Error(v5);
     return 0LL;
   }
   RtlInitUnicodeString(&DestinationString, a3);
-  NamedObjectDirectory = BaseGetNamedObjectDirectory(&v13);
-  if ( NamedObjectDirectory < 0
-    || (v9 = v13,
-        p_DestinationString = &DestinationString,
-        v8 = 48,
-        v11 = 2,
-        v12 = 0LL,
-        NamedObjectDirectory = NtOpenSection(),
-        NamedObjectDirectory < 0) )
+  NamedObjectDirectory = BaseGetNamedObjectDirectory(&v10);
+  if ( NamedObjectDirectory < 0 )
+    goto LABEL_5;
+  ObjectAttributes.RootDirectory = v10;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 2;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( a1 == 1 )
   {
-    v3 = NamedObjectDirectory;
+    a1 = 4;
+  }
+  else if ( (a1 & 0x20) != 0 )
+  {
+    a1 = a1 & 0xFFFFFFD7 | 8;
+  }
+  NamedObjectDirectory = NtOpenSection(&SectionHandle, a1, &ObjectAttributes);
+  if ( NamedObjectDirectory < 0 )
+  {
+LABEL_5:
+    v4 = NamedObjectDirectory;
     goto LABEL_3;
   }
-  return v14;
+  return SectionHandle;
 }

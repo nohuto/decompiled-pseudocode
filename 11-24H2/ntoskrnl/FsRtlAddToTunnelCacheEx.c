@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlAddToTunnelCacheEx @ 0x140931F00
+ * XREFs of FsRtlAddToTunnelCacheEx @ 0x140934040
  * Callers:
- *     FsRtlAddToTunnelCache @ 0x140931CD0 (FsRtlAddToTunnelCache.c)
+ *     FsRtlAddToTunnelCache @ 0x140933E10 (FsRtlAddToTunnelCache.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     FsRtlEmptyFreePoolList @ 0x1403DF554 (FsRtlEmptyFreePoolList.c)
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlCompareUnicodeString @ 0x140932290 (RtlCompareUnicodeString.c)
- *     FsRtlPruneTunnelCache @ 0x1409323F0 (FsRtlPruneTunnelCache.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     FsRtlEmptyFreePoolList @ 0x1403BF244 (FsRtlEmptyFreePoolList.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlCompareUnicodeString @ 0x1409343D0 (RtlCompareUnicodeString.c)
+ *     FsRtlPruneTunnelCache @ 0x140934530 (FsRtlPruneTunnelCache.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char *__fastcall FsRtlAddToTunnelCacheEx(
@@ -29,187 +29,188 @@ char *__fastcall FsRtlAddToTunnelCacheEx(
   __int64 v13; // r15
   int v14; // edi
   int v15; // ecx
-  char *v16; // rbx
-  PKGUARDED_MUTEX v17; // rsi
-  __int64 v18; // rdi
-  unsigned __int64 v19; // rcx
-  const UNICODE_STRING *v20; // rcx
-  LONG v21; // eax
-  bool v22; // cc
-  struct _FAST_MUTEX *v23; // rdx
-  PKGUARDED_MUTEX *v24; // rcx
-  _QWORD *v25; // rcx
+  unsigned int v16; // edi
+  char *v17; // rbx
+  PKGUARDED_MUTEX v18; // rsi
+  __int64 v19; // rdi
+  unsigned __int64 v20; // rcx
+  const UNICODE_STRING *v21; // rcx
+  LONG v22; // eax
+  bool v23; // cc
+  struct _FAST_MUTEX *v24; // rdx
+  PKGUARDED_MUTEX *v25; // rcx
   _QWORD *v26; // rcx
-  __int64 v27; // rcx
+  _QWORD *v27; // rcx
   __int64 v28; // rcx
-  const UNICODE_STRING *v29; // rcx
-  _QWORD **v30; // rax
-  __int64 v31; // rdx
-  _QWORD *v32; // rcx
+  __int64 v29; // rcx
+  const UNICODE_STRING *v30; // rcx
+  _QWORD **v31; // rax
+  __int64 v32; // rdx
   _QWORD *v33; // rcx
+  _QWORD *v34; // rcx
   unsigned __int16 Length; // ax
-  unsigned __int16 v35; // ax
-  char *v36; // rcx
-  char v37; // [rsp+20h] [rbp-58h]
-  _QWORD *v38[10]; // [rsp+28h] [rbp-50h] BYREF
-  int v41; // [rsp+A0h] [rbp+28h]
+  unsigned __int16 v36; // ax
+  char *v37; // rcx
+  char v38; // [rsp+20h] [rbp-58h]
+  _QWORD *v39[10]; // [rsp+28h] [rbp-50h] BYREF
+  int v42; // [rsp+A0h] [rbp+28h]
 
   result = 0LL;
-  v37 = 0;
+  v38 = 0;
   v8 = a5 & 2;
   v9 = a5 & 1;
   v11 = a3;
-  v41 = v8;
+  v42 = v8;
   v13 = 0LL;
   if ( TunnelMaxEntries )
   {
     v14 = Size + a3->Length;
     v15 = a4->Length + 112;
-    v38[1] = v38;
-    v38[0] = v38;
-    if ( (unsigned int)(v15 + v14) > 0xB0
-      || (v16 = (char *)ExAllocateFromPagedLookasideList(&TunnelLookasideList)) == 0LL )
+    v39[1] = v39;
+    v16 = v15 + v14;
+    v39[0] = v39;
+    if ( v16 > 0xB0 || (v17 = (char *)ExAllocateFromPagedLookasideList(&TunnelLookasideList)) == 0LL )
     {
-      result = (char *)ExAllocatePool2(0x102uLL);
-      v16 = result;
+      result = (char *)ExAllocatePool2(0x102uLL, v16, 0x506E7554u);
+      v17 = result;
       if ( !result )
         return result;
-      v37 = 1;
+      v38 = 1;
     }
     if ( !v8 )
       v11 = a4;
     ExAcquireFastMutex(Mutex);
-    v17 = Mutex + 1;
-    v18 = *(_QWORD *)&Mutex[1].Count;
-    if ( v18 )
+    v18 = Mutex + 1;
+    v19 = *(_QWORD *)&Mutex[1].Count;
+    if ( v19 )
     {
-      v19 = a2;
+      v20 = a2;
       do
       {
-        v13 = v18;
-        if ( *(_QWORD *)(v18 + 48) >= v19 )
+        v13 = v19;
+        if ( *(_QWORD *)(v19 + 48) >= v20 )
         {
-          if ( *(_QWORD *)(v18 + 48) > v19 )
+          if ( *(_QWORD *)(v19 + 48) > v20 )
             goto LABEL_25;
-          v20 = (const UNICODE_STRING *)(v18 + 80);
-          if ( (*(_DWORD *)(v18 + 56) & 2) == 0 )
-            v20 = (const UNICODE_STRING *)(v18 + 64);
-          v21 = RtlCompareUnicodeString(v20, v11, 1u);
-          v22 = v21 <= 0;
-          if ( !v21 )
+          v21 = (const UNICODE_STRING *)(v19 + 80);
+          if ( (*(_DWORD *)(v19 + 56) & 2) == 0 )
+            v21 = (const UNICODE_STRING *)(v19 + 64);
+          v22 = RtlCompareUnicodeString(v21, v11, 1u);
+          v23 = v22 <= 0;
+          if ( !v22 )
           {
             if ( !v9 )
               break;
-            v29 = (const UNICODE_STRING *)(v18 + 80);
-            if ( (*(_DWORD *)(v18 + 56) & 2) == 0 )
-              v29 = (const UNICODE_STRING *)(v18 + 64);
-            v21 = RtlCompareUnicodeString(v29, v11, 0);
-            v22 = v21 <= 0;
+            v30 = (const UNICODE_STRING *)(v19 + 80);
+            if ( (*(_DWORD *)(v19 + 56) & 2) == 0 )
+              v30 = (const UNICODE_STRING *)(v19 + 64);
+            v22 = RtlCompareUnicodeString(v30, v11, 0);
+            v23 = v22 <= 0;
           }
-          if ( !v22 )
+          if ( !v23 )
           {
-            v19 = a2;
+            v20 = a2;
 LABEL_25:
-            v17 = (PKGUARDED_MUTEX)(v18 + 8);
+            v18 = (PKGUARDED_MUTEX)(v19 + 8);
             goto LABEL_18;
           }
-          if ( v21 >= 0 )
+          if ( v22 >= 0 )
             break;
-          v19 = a2;
+          v20 = a2;
         }
-        v17 = (PKGUARDED_MUTEX)(v18 + 16);
+        v18 = (PKGUARDED_MUTEX)(v19 + 16);
 LABEL_18:
-        v18 = *(_QWORD *)&v17->Count;
+        v19 = *(_QWORD *)&v18->Count;
       }
-      while ( *(_QWORD *)&v17->Count );
+      while ( *(_QWORD *)&v18->Count );
     }
-    *(_QWORD *)v16 = v16;
-    *((_QWORD *)v16 + 1) = 0LL;
-    *((_QWORD *)v16 + 2) = 0LL;
+    *(_QWORD *)v17 = v17;
+    *((_QWORD *)v17 + 1) = 0LL;
+    *((_QWORD *)v17 + 2) = 0LL;
     if ( v13 )
     {
-      if ( *(_QWORD *)&v17->Count )
+      if ( *(_QWORD *)&v18->Count )
       {
-        *((_QWORD *)v16 + 2) = *(_QWORD *)(*(_QWORD *)&v17->Count + 16LL);
-        *((_QWORD *)v16 + 1) = *(_QWORD *)(*(_QWORD *)&v17->Count + 8LL);
-        v25 = *(_QWORD **)(*(_QWORD *)&v17->Count + 16LL);
-        if ( v25 )
-          *v25 = v16;
-        v26 = *(_QWORD **)(*(_QWORD *)&v17->Count + 8LL);
+        *((_QWORD *)v17 + 2) = *(_QWORD *)(*(_QWORD *)&v18->Count + 16LL);
+        *((_QWORD *)v17 + 1) = *(_QWORD *)(*(_QWORD *)&v18->Count + 8LL);
+        v26 = *(_QWORD **)(*(_QWORD *)&v18->Count + 16LL);
         if ( v26 )
-          *v26 = v16;
-        v27 = **(_QWORD **)&v17->Count;
-        if ( v27 == *(_QWORD *)&v17->Count )
+          *v26 = v17;
+        v27 = *(_QWORD **)(*(_QWORD *)&v18->Count + 8LL);
+        if ( v27 )
+          *v27 = v17;
+        v28 = **(_QWORD **)&v18->Count;
+        if ( v28 == *(_QWORD *)&v18->Count )
         {
-          *(_QWORD *)&Mutex[1].Count = v16;
+          *(_QWORD *)&Mutex[1].Count = v17;
         }
         else
         {
-          *(_QWORD *)v16 = v27;
-          v28 = **(_QWORD **)&v17->Count;
-          if ( *(_QWORD *)(v28 + 8) == *(_QWORD *)&v17->Count )
-            *(_QWORD *)(v28 + 8) = v16;
+          *(_QWORD *)v17 = v28;
+          v29 = **(_QWORD **)&v18->Count;
+          if ( *(_QWORD *)(v29 + 8) == *(_QWORD *)&v18->Count )
+            *(_QWORD *)(v29 + 8) = v17;
           else
-            *(_QWORD *)(v28 + 16) = v16;
+            *(_QWORD *)(v29 + 16) = v17;
         }
-        v30 = (_QWORD **)(v13 + 24);
-        v31 = *(_QWORD *)(v13 + 24);
-        if ( *(_QWORD *)(v31 + 8) != v13 + 24
-          || (v32 = *(_QWORD **)(v13 + 32), (_QWORD **)*v32 != v30)
-          || (*v32 = v31, *(_QWORD *)(v31 + 8) = v32, v33 = v38[0], *((_QWORD ***)v38[0] + 1) != v38) )
+        v31 = (_QWORD **)(v13 + 24);
+        v32 = *(_QWORD *)(v13 + 24);
+        if ( *(_QWORD *)(v32 + 8) != v13 + 24
+          || (v33 = *(_QWORD **)(v13 + 32), (_QWORD **)*v33 != v31)
+          || (*v33 = v32, *(_QWORD *)(v32 + 8) = v33, v34 = v39[0], *((_QWORD ***)v39[0] + 1) != v39) )
         {
 LABEL_23:
           __fastfail(3u);
         }
-        *v30 = v38[0];
-        *(_QWORD *)(v13 + 32) = v38;
-        v33[1] = v30;
-        v38[0] = (_QWORD *)(v13 + 24);
+        *v31 = v39[0];
+        *(_QWORD *)(v13 + 32) = v39;
+        v34[1] = v31;
+        v39[0] = (_QWORD *)(v13 + 24);
         --LOWORD(Mutex[1].Event.Header.Lock);
       }
       else
       {
-        *(_QWORD *)v16 = v13;
-        *(_QWORD *)&v17->Count = v16;
+        *(_QWORD *)v17 = v13;
+        *(_QWORD *)&v18->Count = v17;
       }
     }
     else
     {
-      *(_QWORD *)&Mutex[1].Count = v16;
+      *(_QWORD *)&Mutex[1].Count = v17;
     }
-    v23 = (struct _FAST_MUTEX *)(v16 + 24);
-    *((_QWORD *)v16 + 5) = MEMORY[0xFFFFF78000000014];
-    v24 = *(PKGUARDED_MUTEX **)&Mutex[1].Contention;
-    if ( *v24 != (PKGUARDED_MUTEX)&Mutex[1].Owner )
+    v24 = (struct _FAST_MUTEX *)(v17 + 24);
+    *((_QWORD *)v17 + 5) = MEMORY[0xFFFFF78000000014];
+    v25 = *(PKGUARDED_MUTEX **)&Mutex[1].Contention;
+    if ( *v25 != (PKGUARDED_MUTEX)&Mutex[1].Owner )
       goto LABEL_23;
-    *(_QWORD *)&v23->Count = (char *)Mutex + 64;
-    *((_QWORD *)v16 + 4) = v24;
-    *v24 = v23;
-    *(_QWORD *)&Mutex[1].Contention = v23;
+    *(_QWORD *)&v24->Count = (char *)Mutex + 64;
+    *((_QWORD *)v17 + 4) = v25;
+    *v25 = v24;
+    *(_QWORD *)&Mutex[1].Contention = v24;
     ++LOWORD(Mutex[1].Event.Header.Lock);
-    *((_QWORD *)v16 + 6) = a2;
-    *((_DWORD *)v16 + 14) = v41 != 0 ? 2 : 0;
-    *((_QWORD *)v16 + 11) = v16 + 112;
-    *((_QWORD *)v16 + 9) = &v16[a3->Length + 112];
+    *((_QWORD *)v17 + 6) = a2;
+    *((_DWORD *)v17 + 14) = v42 != 0 ? 2 : 0;
+    *((_QWORD *)v17 + 11) = v17 + 112;
+    *((_QWORD *)v17 + 9) = &v17[a3->Length + 112];
     Length = a3->Length;
-    *((_WORD *)v16 + 41) = a3->Length;
-    *((_WORD *)v16 + 40) = Length;
-    v35 = a4->Length;
-    *((_WORD *)v16 + 33) = a4->Length;
-    *((_WORD *)v16 + 32) = v35;
+    *((_WORD *)v17 + 41) = a3->Length;
+    *((_WORD *)v17 + 40) = Length;
+    v36 = a4->Length;
+    *((_WORD *)v17 + 33) = a4->Length;
+    *((_WORD *)v17 + 32) = v36;
     if ( a3->Length )
-      memmove(v16 + 112, a3->Buffer, a3->Length);
+      memmove(v17 + 112, a3->Buffer, a3->Length);
     if ( a4->Length )
-      memmove(*((void **)v16 + 9), a4->Buffer, a4->Length);
-    v36 = &v16[a3->Length + 112 + a4->Length];
-    *((_QWORD *)v16 + 12) = v36;
-    *((_DWORD *)v16 + 26) = Size;
-    memmove(v36, Src, (unsigned int)Size);
-    if ( v37 )
-      *((_DWORD *)v16 + 14) |= 1u;
-    FsRtlPruneTunnelCache(Mutex, v38);
+      memmove(*((void **)v17 + 9), a4->Buffer, a4->Length);
+    v37 = &v17[a3->Length + 112 + a4->Length];
+    *((_QWORD *)v17 + 12) = v37;
+    *((_DWORD *)v17 + 26) = Size;
+    memmove(v37, Src, (unsigned int)Size);
+    if ( v38 )
+      *((_DWORD *)v17 + 14) |= 1u;
+    FsRtlPruneTunnelCache(Mutex, v39);
     KeReleaseGuardedMutex(Mutex);
-    return (char *)FsRtlEmptyFreePoolList(v38);
+    return (char *)FsRtlEmptyFreePoolList(v39);
   }
   return result;
 }

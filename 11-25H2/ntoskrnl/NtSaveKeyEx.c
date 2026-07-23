@@ -24,19 +24,20 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtSaveKeyEx(int a1, void *a2, int a3)
+NTSTATUS __cdecl NtSaveKeyEx(HANDLE KeyHandle, HANDLE FileHandle, ULONG Format)
 {
+  int v3; // esi
   struct _KTHREAD *CurrentThread; // rcx
   char PreviousMode; // r15
   __int64 v8; // rdx
   __int64 v9; // r8
   __int64 v10; // r9
   __int64 v11; // rcx
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   __int64 v13; // rdx
   int v14; // r8d
   int v15; // r9d
-  void *v16; // rdi
+  HANDLE v16; // rdi
   struct _KTHREAD *v18; // rax
   PVOID v19; // rsi
   int v20; // eax
@@ -55,6 +56,7 @@ __int64 __fastcall NtSaveKeyEx(int a1, void *a2, int a3)
   Object = 0LL;
   Handle = 0LL;
   v26[1] = v26;
+  v3 = (int)KeyHandle;
   v26[0] = v26;
   v27 = 0LL;
   v28 = 0LL;
@@ -74,28 +76,28 @@ __int64 __fastcall NtSaveKeyEx(int a1, void *a2, int a3)
   {
     if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
     {
-      if ( ((a3 - 1) & 0xFFFFFFFC) == 0 && a3 != 3 )
+      if ( ((Format - 1) & 0xFFFFFFFC) == 0 && Format != 3 )
       {
         if ( PreviousMode == 1 )
         {
           LOBYTE(v13) = 1;
           v16 = 0LL;
-          v12 = IoConvertFileHandleToKernelHandle(a2, v13, 2LL);
+          v12 = IoConvertFileHandleToKernelHandle(FileHandle, v13, 2LL);
           if ( v12 < 0 )
           {
 LABEL_8:
-            if ( v16 && v16 != a2 )
+            if ( v16 && v16 != FileHandle )
               ZwClose(v16);
             goto LABEL_9;
           }
         }
         else
         {
-          v16 = a2;
-          Handle = a2;
+          v16 = FileHandle;
+          Handle = FileHandle;
         }
         LOBYTE(v15) = PreviousMode;
-        v12 = CmObReferenceObjectByHandle(a1, 0, v14, v15, (__int64)&Object, 0LL);
+        v12 = CmObReferenceObjectByHandle(v3, 0, v14, v15, (__int64)&Object, 0LL);
         if ( v12 < 0 )
         {
           v19 = Object;
@@ -110,19 +112,19 @@ LABEL_8:
             || CmpIsRegistryLockAcquired()
             || (*(_QWORD *)&v28 = v19,
                 *((_QWORD *)&v28 + 1) = Handle,
-                LODWORD(v29) = a3,
+                LODWORD(v29) = Format,
                 v20 = CmpCallCallBacksEx(0x2Bu, (__int64)&v28, 0LL, 1, 0x2Cu, 0LL, (__int64)v26),
                 v20 >= 0) )
           {
             CmpAttachToRegistryProcess(&ApcState);
-            if ( a3 == 4 )
+            if ( Format == 4 )
             {
               v21 = CmDumpKeyToFile((__int64)v19, PreviousMode, Handle);
             }
             else
             {
               v22 = 5;
-              if ( a3 != 2 )
+              if ( Format != 2 )
                 v22 = 3;
               v21 = CmSaveKey((__int64)v19, (__int64)Handle, v22, PreviousMode);
             }
@@ -153,5 +155,5 @@ LABEL_9:
   CmpReleaseShutdownRundown(v11);
 LABEL_10:
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v27);
-  return (unsigned int)v12;
+  return v12;
 }

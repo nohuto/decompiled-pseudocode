@@ -1,13 +1,13 @@
 /*
- * XREFs of ExAllocateTimerInternal2 @ 0x14031E390
+ * XREFs of ExAllocateTimerInternal2 @ 0x14031E620
  * Callers:
- *     ExAllocateTimer @ 0x14031E360 (ExAllocateTimer.c)
- *     ExAllocateTimerInternal @ 0x14060B500 (ExAllocateTimerInternal.c)
+ *     ExAllocateTimer @ 0x14031E5F0 (ExAllocateTimer.c)
+ *     ExAllocateTimerInternal @ 0x14060BA50 (ExAllocateTimerInternal.c)
  * Callees:
- *     ExpExTimerAttributesAreValid @ 0x14031E4B8 (ExpExTimerAttributesAreValid.c)
- *     KiInitializeTimer2 @ 0x14031E51C (KiInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x14036F5F8 (KeInitializeIRTimer.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExpExTimerAttributesAreValid @ 0x14031E748 (ExpExTimerAttributesAreValid.c)
+ *     KiInitializeTimer2 @ 0x14031E7AC (KiInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x14036F798 (KeInitializeIRTimer.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

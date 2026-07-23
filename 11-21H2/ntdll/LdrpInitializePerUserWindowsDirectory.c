@@ -17,39 +17,39 @@
 __int64 __fastcall LdrpInitializePerUserWindowsDirectory(__int64 (__fastcall *a1)(_BYTE *, __int64))
 {
   int v1; // eax
-  __int16 v3; // bx
-  __m128i v4; // [rsp+30h] [rbp-D0h] BYREF
-  const void *v5[2]; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v6; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int16 v3; // bx
+  _UNICODE_STRING Destination; // [rsp+30h] [rbp-D0h] BYREF
+  UNICODE_STRING Source; // [rsp+40h] [rbp-C0h] BYREF
+  PVOID Cookie; // [rsp+50h] [rbp-B0h] BYREF
   _BYTE v7[528]; // [rsp+60h] [rbp-A0h] BYREF
 
   v1 = 2 * a1(v7, 260LL);
   if ( !v1 )
     return 0LL;
-  LOWORD(v5[0]) = v1;
-  v5[1] = v7;
-  WORD1(v5[0]) = 520;
-  if ( !*((_QWORD *)&RtlpSystemDirs + 1) )
+  Source.Length = v1;
+  Source.Buffer = (wchar_t *)v7;
+  Source.MaximumLength = 520;
+  if ( !RtlpSystemDirs.Buffer )
   {
 LABEL_7:
-    LdrAddDllDirectory((unsigned __int16 *)v5, &v6);
+    LdrAddDllDirectory(&Source, &Cookie);
     return 0LL;
   }
-  v3 = v1 + RtlpSystemDirs + 2;
-  v4.m128i_i64[1] = RtlAllocateHeap(
-                      (__int64)NtCurrentPeb()->ProcessHeap,
-                      0,
-                      v1 + (unsigned int)(unsigned __int16)RtlpSystemDirs + 2LL);
-  if ( v4.m128i_i64[1] )
+  v3 = v1 + RtlpSystemDirs.Length + 2;
+  Destination.Buffer = (wchar_t *)RtlAllocateHeap(
+                                    NtCurrentPeb()->ProcessHeap,
+                                    0,
+                                    v1 + (unsigned int)RtlpSystemDirs.Length + 2LL);
+  if ( Destination.Buffer )
   {
-    v4.m128i_i16[0] = 0;
-    v4.m128i_i16[1] = v3;
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v4, (const void **)&RtlpSystemDirs);
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v4, v5);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v4, L";");
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *((__int64 *)&RtlpSystemDirs + 1));
-    RtlpSystemDirs = (__int128)v4;
-    *((_QWORD *)&RtlpSystem32Dirs + 1) = _mm_srli_si128(v4, 8).m128i_u64[0];
+    Destination.Length = 0;
+    Destination.MaximumLength = v3;
+    RtlAppendUnicodeStringToString(&Destination, &RtlpSystemDirs);
+    RtlAppendUnicodeStringToString(&Destination, &Source);
+    RtlAppendUnicodeToString(&Destination, L";");
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, RtlpSystemDirs.Buffer);
+    RtlpSystemDirs = Destination;
+    *((_QWORD *)&RtlpSystem32Dirs + 1) = _mm_srli_si128((__m128i)Destination, 8).m128i_u64[0];
     RtlpSignalSystemDirsModification();
     goto LABEL_7;
   }

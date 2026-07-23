@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x1401475BC
+ * XREFs of ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x140147B2C
  * Callers:
- *     PcReadPartitionTable @ 0x1401474EC (PcReadPartitionTable.c)
- *     PcCreatePartitionTable @ 0x14023B660 (PcCreatePartitionTable.c)
- *     PcSetPartition @ 0x14023B6CC (PcSetPartition.c)
- *     PcVerifyPartitionTable @ 0x14023B78C (PcVerifyPartitionTable.c)
- *     PcWritePartitionTable @ 0x14023B81C (PcWritePartitionTable.c)
+ *     PcReadPartitionTable @ 0x140147A5C (PcReadPartitionTable.c)
+ *     PcCreatePartitionTable @ 0x14023B544 (PcCreatePartitionTable.c)
+ *     PcSetPartition @ 0x14023B5B0 (PcSetPartition.c)
+ *     PcVerifyPartitionTable @ 0x14023B670 (PcVerifyPartitionTable.c)
+ *     PcWritePartitionTable @ 0x14023B700 (PcWritePartitionTable.c)
  * Callees:
- *     ?Reset@PC_DISK@@QEAAJXZ @ 0x140147670 (-Reset@PC_DISK@@QEAAJXZ.c)
- *     ?Control@PC_ENVIRONMENT@@SAJPEAXK0K0K@Z @ 0x140574D84 (-Control@PC_ENVIRONMENT@@SAJPEAXK0K0K@Z.c)
- *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140574E38 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
+ *     ?Reset@PC_DISK@@QEAAJXZ @ 0x140147BE0 (-Reset@PC_DISK@@QEAAJXZ.c)
+ *     ?Control@PC_ENVIRONMENT@@SAJPEAXK0K0K@Z @ 0x1405752C4 (-Control@PC_ENVIRONMENT@@SAJPEAXK0K0K@Z.c)
+ *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140575378 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
  */
 
 __int64 __fastcall PC_DISK::Initialize(PC_DISK *this, struct _DEVICE_OBJECT *a2, __int64 a3, unsigned int a4)

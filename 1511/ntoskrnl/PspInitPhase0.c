@@ -25,14 +25,14 @@
 bool __fastcall PspInitPhase0(PVOID StartContext)
 {
   __int64 v2; // r9
-  union _RTL_RUN_ONCE *v3; // rcx
-  union _RTL_RUN_ONCE *v4; // rcx
+  _RTL_RUN_ONCE *v3; // rcx
+  _RTL_RUN_ONCE *v4; // rcx
   __int64 v5; // rdx
-  union _RTL_RUN_ONCE *v6; // rcx
-  union _RTL_RUN_ONCE *v7; // rcx
+  _RTL_RUN_ONCE *v6; // rcx
+  _RTL_RUN_ONCE *v7; // rcx
   __int64 v8; // rdx
-  union _RTL_RUN_ONCE *v9; // rcx
-  union _RTL_RUN_ONCE *v10; // rcx
+  _RTL_RUN_ONCE *v9; // rcx
+  _RTL_RUN_ONCE *v10; // rcx
   __int64 v11; // rax
   _KPROCESS *Process; // rcx
   char v13; // bl

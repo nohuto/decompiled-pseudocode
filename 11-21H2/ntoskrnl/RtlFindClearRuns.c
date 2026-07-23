@@ -14,13 +14,13 @@ ULONG __stdcall RtlFindClearRuns(
 {
   PRTL_BITMAP_RUN v4; // r14
   ULONG v5; // r15d
-  unsigned int SizeOfBitMap; // r8d
-  unsigned int *Buffer; // r9
-  unsigned int v8; // edx
+  ULONG SizeOfBitMap; // r8d
+  PULONG Buffer; // r9
+  ULONG v8; // edx
   BOOL v9; // edi
   bool v10; // zf
-  unsigned int v11; // edi
-  unsigned int v12; // eax
+  ULONG v11; // edi
+  ULONG v12; // eax
   ULONG v13; // r12d
   __int64 v14; // r11
   ULONG v15; // r13d
@@ -28,13 +28,13 @@ ULONG __stdcall RtlFindClearRuns(
   unsigned __int8 v17; // r10
   signed int v18; // ecx
   __int64 v19; // rdx
-  RTL_BITMAP_RUN *m; // r8
+  _RTL_BITMAP_RUN *m; // r8
   __int64 v22; // rbp
   ULONG v23; // r11d
   unsigned __int8 v24; // r10
   signed int v25; // r15d
   __int64 v26; // r14
-  RTL_BITMAP_RUN *i; // rdx
+  _RTL_BITMAP_RUN *i; // rdx
   __int64 v28; // rcx
   ULONG v29; // r14d
   __int64 v30; // r12
@@ -43,12 +43,12 @@ ULONG __stdcall RtlFindClearRuns(
   ULONG v33; // ecx
   signed int v34; // r14d
   __int64 v35; // r8
-  RTL_BITMAP_RUN *k; // rdx
+  _RTL_BITMAP_RUN *k; // rdx
   __int64 v37; // rcx
-  RTL_BITMAP_RUN *v38; // rdx
-  unsigned int v39; // [rsp+0h] [rbp-58h]
+  _RTL_BITMAP_RUN *v38; // rdx
+  ULONG v39; // [rsp+0h] [rbp-58h]
   ULONG v40; // [rsp+4h] [rbp-54h]
-  unsigned int v41; // [rsp+60h] [rbp+8h]
+  ULONG v41; // [rsp+60h] [rbp+8h]
 
   v4 = RunArray;
   v5 = SizeOfRunArray;
@@ -70,7 +70,7 @@ ULONG __stdcall RtlFindClearRuns(
   do
   {
     v17 = *(_BYTE *)Buffer;
-    Buffer = (unsigned int *)((char *)Buffer + 1);
+    Buffer = (PULONG)((char *)Buffer + 1);
     if ( v12 == v11 - 1 && v8 )
       v17 |= byte_140015C40[SizeOfBitMap & 7];
     if ( !v17 )
@@ -78,7 +78,7 @@ ULONG __stdcall RtlFindClearRuns(
       LODWORD(v14) = v14 + 8;
       goto LABEL_6;
     }
-    v22 = *((unsigned __int8 *)RtlpBitsClearLow + v17);
+    v22 = *((unsigned __int8 *)qword_140018E00 + v17);
     v23 = v22 + v14;
     if ( v23 )
     {
@@ -110,7 +110,7 @@ LABEL_22:
         goto LABEL_22;
     }
 LABEL_16:
-    v14 = *((unsigned __int8 *)RtlpBitsClearHigh + v17);
+    v14 = *((unsigned __int8 *)&qword_140018E00[64] + v17);
     v15 = v16 - v14 + 8;
     v24 = *((_BYTE *)&qword_140015C48 - v14) | byte_140018DF0[v22] | v17;
     if ( v24 != 0xFF )
@@ -118,9 +118,9 @@ LABEL_16:
       while ( 1 )
       {
         v29 = v13;
-        if ( v13 >= v5 && RunArray[v13 - 1].NumberOfBits >= *((unsigned __int8 *)RtlpBitsClearAnywhere + v24) )
+        if ( v13 >= v5 && RunArray[v13 - 1].NumberOfBits >= *((unsigned __int8 *)&qword_140018E00[32] + v24) )
           break;
-        v30 = *((unsigned __int8 *)RtlpBitsClearAnywhere + v24);
+        v30 = *((unsigned __int8 *)&qword_140018E00[32] + v24);
         v31 = 0;
         for ( j = byte_140018DF0[v30]; ((unsigned __int8)j & v24) != 0; ++v31 )
           j *= 2;

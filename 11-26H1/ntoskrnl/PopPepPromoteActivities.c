@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepPromoteActivities @ 0x1403B0F90
+ * XREFs of PopPepPromoteActivities @ 0x1403BACA0
  * Callers:
- *     PopPepProcessEvent @ 0x1403AFCF0 (PopPepProcessEvent.c)
- *     PopPepComponentSetLatency @ 0x1403B1784 (PopPepComponentSetLatency.c)
- *     PopPepUpdateConstraints @ 0x1403B37EC (PopPepUpdateConstraints.c)
- *     PopPepSurprisePowerOn @ 0x1403B755C (PopPepSurprisePowerOn.c)
- *     PopPepIdleTimeoutRoutine @ 0x140483A70 (PopPepIdleTimeoutRoutine.c)
- *     PopPepComponentSetWakeHint @ 0x1404F524C (PopPepComponentSetWakeHint.c)
- *     PopPepComponentSetResidency @ 0x140611524 (PopPepComponentSetResidency.c)
+ *     PopPepProcessEvent @ 0x1403B9A00 (PopPepProcessEvent.c)
+ *     PopPepComponentSetLatency @ 0x1403BB494 (PopPepComponentSetLatency.c)
+ *     PopPepUpdateConstraints @ 0x1403BD4FC (PopPepUpdateConstraints.c)
+ *     PopPepSurprisePowerOn @ 0x1403C145C (PopPepSurprisePowerOn.c)
+ *     PopPepIdleTimeoutRoutine @ 0x14047D3E0 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepComponentSetWakeHint @ 0x1404EE82C (PopPepComponentSetWakeHint.c)
+ *     PopPepComponentSetResidency @ 0x140614364 (PopPepComponentSetResidency.c)
  * Callees:
  *     <none>
  */
@@ -159,7 +159,7 @@ LABEL_24:
     do
     {
 LABEL_26:
-      v25 = &qword_140001D88;
+      v25 = &qword_140001AD8;
       v26 = 64LL;
       v27 = 3LL;
       v68 = 64LL;
@@ -299,7 +299,7 @@ LABEL_54:
     if ( !v50 )
       v52 = 8LL;
     v53 = 0;
-    v54 = &qword_140001FA8[v52];
+    v54 = &qword_140001CF8[v52];
     v55 = 0LL;
     while ( v53 <= 0 )
     {
@@ -331,7 +331,7 @@ LABEL_54:
     v62 = (_DWORD **)(a1 + 104);
     if ( !v50 )
       v8 = 8LL;
-    v63 = &qword_140001FA8[v8];
+    v63 = &qword_140001CF8[v8];
     while ( v7 <= 5 )
     {
       v64 = *(_DWORD *)((char *)v63 + v70);

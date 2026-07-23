@@ -24,7 +24,7 @@
 
 char __fastcall MiReplaceImportEntry(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, ULONG_PTR BugCheckParameter4)
 {
-  unsigned __int64 v6; // rax
+  PVOID v6; // rax
   int v7; // eax
   ULONG_PTR v8; // r14
   unsigned __int64 v9; // rdi
@@ -45,12 +45,12 @@ char __fastcall MiReplaceImportEntry(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
   __int64 v24; // rcx
   int v26; // [rsp+70h] [rbp+8h] BYREF
   ULONG_PTR v27; // [rsp+80h] [rbp+18h]
-  unsigned int v28; // [rsp+88h] [rbp+20h] BYREF
+  ULONG v28; // [rsp+88h] [rbp+20h] BYREF
 
   v27 = BugCheckParameter4;
   v28 = 0;
-  v6 = RtlImageDirectoryEntryToData(*(_QWORD *)(BugCheckParameter2 + 48), 1, 0xCu, &v28);
-  if ( !v6 || !v28 || a2 < v6 || a2 >= v6 + v28 )
+  v6 = RtlImageDirectoryEntryToData(*(PVOID *)(BugCheckParameter2 + 48), 1u, 0xCu, &v28);
+  if ( !v6 || !v28 || a2 < (unsigned __int64)v6 || a2 >= (unsigned __int64)v6 + v28 )
     KeBugCheckEx(0x1Au, 0x1014uLL, BugCheckParameter2, a2, BugCheckParameter4);
   _InterlockedIncrement64(&qword_140E2D658);
   v7 = MI_IS_PHYSICAL_ADDRESS(a2);

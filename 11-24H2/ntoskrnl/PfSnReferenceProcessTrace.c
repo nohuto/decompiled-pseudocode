@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnReferenceProcessTrace @ 0x1402ED090
+ * XREFs of PfSnReferenceProcessTrace @ 0x14034E6D0
  * Callers:
- *     MiCompleteProtoPteFault @ 0x1402EBD20 (MiCompleteProtoPteFault.c)
- *     PfSnLogPageFault @ 0x1402ECF60 (PfSnLogPageFault.c)
- *     PfSnEndProcessTrace @ 0x140939A40 (PfSnEndProcessTrace.c)
- *     PfSnLogStreamCreate @ 0x1409622A0 (PfSnLogStreamCreate.c)
- *     PfSnLogHelper @ 0x14096290C (PfSnLogHelper.c)
- *     PfSnAsyncContextInitialize @ 0x140962E58 (PfSnAsyncContextInitialize.c)
+ *     MiCompleteProtoPteFault @ 0x14034D360 (MiCompleteProtoPteFault.c)
+ *     PfSnLogPageFault @ 0x14034E5A0 (PfSnLogPageFault.c)
+ *     PfSnLogStreamCreate @ 0x140949D60 (PfSnLogStreamCreate.c)
+ *     PfSnLogHelper @ 0x14094A3CC (PfSnLogHelper.c)
+ *     PfSnAsyncContextInitialize @ 0x14094A918 (PfSnAsyncContextInitialize.c)
+ *     PfSnEndProcessTrace @ 0x14094BF24 (PfSnEndProcessTrace.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall PfSnReferenceProcessTrace(__int64 a1)
@@ -93,11 +93,11 @@ struct _EX_RUNDOWN_REF *__fastcall PfSnReferenceProcessTrace(__int64 a1)
     return (struct _EX_RUNDOWN_REF *)v4;
   }
   v11 = 1;
-  v12 = KeAcquireSpinLockRaiseToDpc(&qword_140E67010);
+  v12 = KeAcquireSpinLockRaiseToDpc(&qword_140E67160);
   v13 = (struct _EX_RUNDOWN_REF *)(*(_QWORD *)(a1 + 912) & 0xFFFFFFFFFFFFFFF0uLL);
   if ( v13 )
-    v11 = ExAcquireRundownProtection(v13 + 45);
-  KeReleaseSpinLock(&qword_140E67010, v12);
+    v11 = ExAcquireRundownProtection_0(v13 + 45);
+  KeReleaseSpinLock(&qword_140E67160, v12);
   result = 0LL;
   if ( v11 )
     return v13;

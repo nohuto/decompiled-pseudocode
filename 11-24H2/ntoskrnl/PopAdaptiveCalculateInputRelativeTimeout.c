@@ -1,7 +1,7 @@
 /*
- * XREFs of PopAdaptiveCalculateInputRelativeTimeout @ 0x1409BD9D8
+ * XREFs of PopAdaptiveCalculateInputRelativeTimeout @ 0x1409A4028
  * Callers:
- *     PopAdaptiveGetConsoleSessionState @ 0x1409BB9C4 (PopAdaptiveGetConsoleSessionState.c)
+ *     PopAdaptiveGetConsoleSessionState @ 0x1409A2014 (PopAdaptiveGetConsoleSessionState.c)
  * Callees:
  *     <none>
  */

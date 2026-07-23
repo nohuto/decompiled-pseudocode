@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdatePmcCounters @ 0x1406A456C
+ * XREFs of EtwpUpdatePmcCounters @ 0x1406A46A4
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1406A3914 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1406A3A4C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     CmpMarkLockTryAcquired @ 0x1405281C8 (CmpMarkLockTryAcquired.c)
- *     xHalAllocatePmcCounterSet @ 0x140581930 (xHalAllocatePmcCounterSet.c)
- *     EtwpAllocatePmcData @ 0x1406A4088 (EtwpAllocatePmcData.c)
+ *     CmpMarkLockTryAcquired @ 0x140528708 (CmpMarkLockTryAcquired.c)
+ *     xHalAllocatePmcCounterSet @ 0x140581DE0 (xHalAllocatePmcCounterSet.c)
+ *     EtwpAllocatePmcData @ 0x1406A41C0 (EtwpAllocatePmcData.c)
  */
 
 __int64 __fastcall EtwpUpdatePmcCounters(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpxVirtualUnwind @ 0x14027F030
+ * XREFs of RtlpxVirtualUnwind @ 0x1402345C0
  * Callers:
- *     RtlDispatchException @ 0x14027C1C0 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x14027CD20 (RtlUnwindEx.c)
- *     RtlVirtualUnwind2 @ 0x14027E1C0 (RtlVirtualUnwind2.c)
- *     RtlpWalkFrameChain @ 0x14027E270 (RtlpWalkFrameChain.c)
- *     RtlVirtualUnwind @ 0x140471220 (RtlVirtualUnwind.c)
+ *     RtlDispatchException @ 0x140231750 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1402322B0 (RtlUnwindEx.c)
+ *     RtlVirtualUnwind2 @ 0x140233750 (RtlVirtualUnwind2.c)
+ *     RtlpWalkFrameChain @ 0x140233800 (RtlpWalkFrameChain.c)
+ *     RtlVirtualUnwind @ 0x14046B960 (RtlVirtualUnwind.c)
  * Callees:
- *     RtlpUnwindPrologue @ 0x140280090 (RtlpUnwindPrologue.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     RtlLocateExtendedFeature @ 0x140281BD0 (RtlLocateExtendedFeature.c)
- *     RtlpVirtualPopShadowStack @ 0x140282050 (RtlpVirtualPopShadowStack.c)
- *     RtlpUnwindEpilogue @ 0x140442050 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x140442430 (RtlpUnwindOpSlots.c)
- *     RtlpSameFunction @ 0x1404839F8 (RtlpSameFunction.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpUnwindPrologue @ 0x140235620 (RtlpUnwindPrologue.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     RtlLocateExtendedFeature @ 0x140237160 (RtlLocateExtendedFeature.c)
+ *     RtlpVirtualPopShadowStack @ 0x1402375E0 (RtlpVirtualPopShadowStack.c)
+ *     RtlpUnwindEpilogue @ 0x140438C20 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x140439000 (RtlpUnwindOpSlots.c)
+ *     RtlpSameFunction @ 0x14047EF18 (RtlpSameFunction.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpxVirtualUnwind(
@@ -74,7 +74,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
   _QWORD **v54; // rdx
   unsigned __int64 v55; // r8
   _QWORD *v56; // rcx
-  __int64 ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   unsigned int v58; // r8d
   _DWORD *v59; // rax
   __int64 v60; // rcx
@@ -104,11 +104,11 @@ __int64 __fastcall RtlpxVirtualUnwind(
         *v17 += 8LL;
         if ( (*(_DWORD *)(v13 + 48) & 0x100040) == 0x100040 )
         {
-          ExtendedFeature = RtlLocateExtendedFeature(v13 + 1232, 11LL);
+          ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(v13 + 1232), 0xBu, 0LL);
           if ( ExtendedFeature )
           {
             if ( (*(_BYTE *)ExtendedFeature & 1) != 0 )
-              *(_QWORD *)(ExtendedFeature + 8) += 8LL;
+              ExtendedFeature[1] += 8LL;
           }
         }
         if ( (*(_DWORD *)(v13 + 48) & 0x100080) == 0x100080 )
@@ -153,7 +153,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
         goto LABEL_23;
       }
       if ( (unsigned int)++v22 > 0x20 )
-        RtlRaiseStatus(3221225727LL);
+        RtlRaiseStatus(-1073741569);
       v21 = v11 + *(unsigned int *)(v21 + 12);
       if ( a3 <= 0x7FFFFFFEFFFFLL && (v21 & 3) != 0 )
         goto LABEL_4;

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmCheckApplyResetNotification @ 0x14020A2AC
+ * XREFs of PpmCheckApplyResetNotification @ 0x14020A0D8
  * Callers:
- *     PpmPostProcessMediaBuffering @ 0x140675C18 (PpmPostProcessMediaBuffering.c)
+ *     PpmPostProcessMediaBuffering @ 0x140675CFC (PpmPostProcessMediaBuffering.c)
  * Callees:
  *     <none>
  */

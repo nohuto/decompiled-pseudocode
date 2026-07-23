@@ -1,25 +1,25 @@
 /*
- * XREFs of MiAllocateEnclavePages @ 0x140394D84
+ * XREFs of MiAllocateEnclavePages @ 0x1403F85DC
  * Callers:
- *     MiReserveEnclavePages @ 0x140393C14 (MiReserveEnclavePages.c)
- *     MiAllocateEnclavePagesForMdl @ 0x1404136E4 (MiAllocateEnclavePagesForMdl.c)
- *     MiGetPageForEnclave @ 0x1404741F8 (MiGetPageForEnclave.c)
- *     MiPrepareEnclaveMetadataPage @ 0x1406808E8 (MiPrepareEnclaveMetadataPage.c)
- *     MiCreateHardwareEnclave @ 0x1407F719C (MiCreateHardwareEnclave.c)
+ *     MiAllocateEnclavePagesForMdl @ 0x1403956D0 (MiAllocateEnclavePagesForMdl.c)
+ *     MiReserveEnclavePages @ 0x1403F6D34 (MiReserveEnclavePages.c)
+ *     MiGetPageForEnclave @ 0x14046DE64 (MiGetPageForEnclave.c)
+ *     MiPrepareEnclaveMetadataPage @ 0x140681AE8 (MiPrepareEnclaveMetadataPage.c)
+ *     MiCreateHardwareEnclave @ 0x1407F7910 (MiCreateHardwareEnclave.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiUnlinkPageChainHead @ 0x1402E8490 (MiUnlinkPageChainHead.c)
- *     MiSetPfnBlink @ 0x1403950D0 (MiSetPfnBlink.c)
- *     MiInsertPageChainHead @ 0x14039EC34 (MiInsertPageChainHead.c)
- *     MiReturnEnclavePage @ 0x1404D4E64 (MiReturnEnclavePage.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiInsertPageChainHead @ 0x14021CD10 (MiInsertPageChainHead.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageChainHead @ 0x140349AD0 (MiUnlinkPageChainHead.c)
+ *     MiSetPfnBlink @ 0x1403F8930 (MiSetPfnBlink.c)
+ *     MiReturnEnclavePage @ 0x1404CE13C (MiReturnEnclavePage.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 *__fastcall MiAllocateEnclavePages(__int64 a1, int a2, char a3, __int64 a4, __int64 a5)
+__int64 *__fastcall MiAllocateEnclavePages(__int64 a1, int a2, char a3, __int64 a4, __int64 *a5)
 {
   __int64 v5; // r10
   __int64 v6; // rdx
@@ -50,8 +50,8 @@ __int64 *__fastcall MiAllocateEnclavePages(__int64 a1, int a2, char a3, __int64 
   v6 = (unsigned int)(unsigned __int16)KeNumberNodes * a2;
   v7 = a4;
   *(_OWORD *)a5 = 0LL;
-  *(_QWORD *)(a5 + 16) = 0LL;
-  v8 = (unsigned int *)(qword_140E2DAD0 + 4 * v6);
+  a5[2] = 0LL;
+  v8 = (unsigned int *)(qword_140E2DC10 + 4 * v6);
   v9 = 2LL;
   if ( (a3 & 2) != 0 )
     v10 = 1LL;
@@ -130,7 +130,7 @@ LABEL_17:
         v27 = *(_DWORD *)(v18 + 32);
         HIBYTE(v27) &= ~0x10u;
         *(_DWORD *)(v18 + 32) = v27;
-        MiInsertPageChainHead(a5, v18);
+        MiInsertPageChainHead(a5, (__int64 *)v18);
         ++v11;
       }
       else
@@ -157,7 +157,7 @@ LABEL_23:
   __writecr8(v23);
   if ( v11 != v7 && (a3 & 1) != 0 )
   {
-    for ( result = MiUnlinkPageChainHead(a5); result; result = MiUnlinkPageChainHead(a5) )
+    for ( result = MiUnlinkPageChainHead((__int64)a5); result; result = MiUnlinkPageChainHead((__int64)a5) )
       MiReturnEnclavePage(0xAAAAAAAAAAAAAAABuLL * ((__int64)(result + 0x44000000000LL) >> 4));
   }
   return result;

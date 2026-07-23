@@ -1,23 +1,23 @@
 /*
- * XREFs of MiTrimWorkingSet @ 0x140016210
+ * XREFs of MiTrimWorkingSet @ 0x140015D90
  * Callers:
- *     MiReduceWs @ 0x1400B1DE0 (MiReduceWs.c)
- *     MiTrimOrAgeWorkingSet @ 0x1400CDCA0 (MiTrimOrAgeWorkingSet.c)
- *     MiForcedTrim @ 0x1401E97D0 (MiForcedTrim.c)
+ *     MiReduceWs @ 0x1400AFD20 (MiReduceWs.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1400CBB40 (MiTrimOrAgeWorkingSet.c)
+ *     MiForcedTrim @ 0x1401E95FC (MiForcedTrim.c)
  * Callees:
- *     MiTrimThisWsle @ 0x140016960 (MiTrimThisWsle.c)
- *     MiIsNextVaTrimCandidate @ 0x140016BC0 (MiIsNextVaTrimCandidate.c)
- *     MiRotateHeadWsle @ 0x140016DF0 (MiRotateHeadWsle.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140016E5C (MI_WSLE_LOG_ACCESS.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiLogTrimWs @ 0x140088154 (MiLogTrimWs.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiRemoveWorkingSetPages @ 0x1400FE750 (MiRemoveWorkingSetPages.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
+ *     MiTrimThisWsle @ 0x1400164E0 (MiTrimThisWsle.c)
+ *     MiIsNextVaTrimCandidate @ 0x140016740 (MiIsNextVaTrimCandidate.c)
+ *     MiRotateHeadWsle @ 0x140016970 (MiRotateHeadWsle.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1400169DC (MI_WSLE_LOG_ACCESS.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiRemoveWorkingSetPages @ 0x1400FC4D0 (MiRemoveWorkingSetPages.c)
+ *     MiLogTrimWs @ 0x14010C344 (MiLogTrimWs.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
  */
 
 __int64 __fastcall MiTrimWorkingSet(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -96,7 +96,7 @@ __int64 __fastcall MiTrimWorkingSet(ULONG_PTR a1, __int64 a2, __int64 a3, __int6
   v9 = 0;
   LODWORD(v66[0]) = 0;
   v58 = ((unsigned __int8)a5 >> 3) & 1;
-  if ( dword_140327188 )
+  if ( dword_1403271C8 )
     v6 |= 0x10u;
   v10 = v8;
   v54 = v8;

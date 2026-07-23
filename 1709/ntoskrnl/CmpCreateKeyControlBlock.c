@@ -50,7 +50,7 @@ __int64 CmpCreateKeyControlBlock(__int64 a1, int a2, __int64 a3, ULONG_PTR a4, c
   __int64 v20; // rcx
   __int64 v21; // rbx
   int v22; // eax
-  unsigned __int64 v23; // rax
+  PRTL_BALANCED_NODE v23; // rax
   unsigned int v24; // r14d
   char v25; // r13
   __int64 v26; // rbx
@@ -269,12 +269,12 @@ LABEL_65:
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v11 + 40), 0LL) )
   {
     if ( v23 )
-      KeAbPostReleaseEx(v11 + 40, v23);
+      KeAbPostReleaseEx(v11 + 40, (unsigned __int64)v23);
   }
   else
   {
     if ( v23 )
-      *(_BYTE *)(v23 + 26) |= 1u;
+      BYTE2(v23[1].Left) |= 1u;
     *(_QWORD *)(v11 + 48) = KeGetCurrentThread();
   }
   v24 = *(_DWORD *)(v21 + 44);

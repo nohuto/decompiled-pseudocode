@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInitializeDriverImages @ 0x140A4E6F4
+ * XREFs of MiInitializeDriverImages @ 0x140A4F6F4
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiSystemVaToDynamicBitmap @ 0x1402B407C (MiSystemVaToDynamicBitmap.c)
- *     MiSplitBitmapPages @ 0x1402B40F0 (MiSplitBitmapPages.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     MiBuildDynamicRegion @ 0x1403B5F84 (MiBuildDynamicRegion.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
- *     MiCreateInitialSystemWsles @ 0x140A4F20C (MiCreateInitialSystemWsles.c)
- *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
- *     MiInitializeBootLoadedDriverPfns @ 0x140A65FFC (MiInitializeBootLoadedDriverPfns.c)
- *     MiInitializeDriverPtes @ 0x140A66EF8 (MiInitializeDriverPtes.c)
- *     MxMarkActiveDriverBits @ 0x140A68218 (MxMarkActiveDriverBits.c)
- *     MiFreeKernelPadSections @ 0x140A6B26C (MiFreeKernelPadSections.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14023222C (MiSystemVaToDynamicBitmap.c)
+ *     MiSplitBitmapPages @ 0x1402322A0 (MiSplitBitmapPages.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     MiBuildDynamicRegion @ 0x1403B60F4 (MiBuildDynamicRegion.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     VfInitBootDriversLoaded @ 0x140A4FD74 (VfInitBootDriversLoaded.c)
+ *     MiCreateInitialSystemWsles @ 0x140A5020C (MiCreateInitialSystemWsles.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A509F0 (MiReloadBootLoadedDrivers.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140A66FFC (MiInitializeBootLoadedDriverPfns.c)
+ *     MiInitializeDriverPtes @ 0x140A67EF8 (MiInitializeDriverPtes.c)
+ *     MxMarkActiveDriverBits @ 0x140A69218 (MxMarkActiveDriverBits.c)
+ *     MiFreeKernelPadSections @ 0x140A6C26C (MiFreeKernelPadSections.c)
  */
 
 __int64 __fastcall MiInitializeDriverImages(__int64 a1)
@@ -43,7 +43,7 @@ __int64 __fastcall MiInitializeDriverImages(__int64 a1)
   char v22; // [rsp+30h] [rbp-78h] BYREF
   char v23; // [rsp+38h] [rbp-70h] BYREF
 
-  v1 = qword_140C4FB88;
+  v1 = qword_140C4FBC8;
   v3 = MiSystemVaToDynamicBitmap(12);
   if ( !(unsigned int)MiBuildDynamicRegion(v3, v1, 0x8000000000uLL) )
     return 0LL;
@@ -60,28 +60,28 @@ __int64 __fastcall MiInitializeDriverImages(__int64 a1)
     --v6;
   }
   while ( v6 );
-  MxMarkActiveDriverBits((unsigned int)&qword_140C4E0E0, v1, v4, (unsigned int)&v22, 3);
-  v7 = qword_140C4E0E8;
-  v8 = (_DWORD *)((((unsigned __int64)qword_140C4E0E8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  for ( i = 0LL; i < qword_140C4E0E0; i += 0x8000LL )
+  MxMarkActiveDriverBits((unsigned int)&qword_140C4E120, v1, v4, (unsigned int)&v22, 3);
+  v7 = qword_140C4E128;
+  v8 = (_DWORD *)((((unsigned __int64)qword_140C4E128 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  for ( i = 0LL; i < qword_140C4E120; i += 0x8000LL )
   {
     if ( (*v8 & 0x800LL) == 0 )
     {
       if ( !(unsigned int)MiSplitBitmapPages(5, v7, 8LL) )
         return 0LL;
-      RtlClearBitsEx((__int64)&qword_140C4E0E0, i, 0x8000uLL);
+      RtlClearBitsEx((__int64)&qword_140C4E120, i, 0x8000uLL);
     }
     v7 += 4096LL;
     v8 += 2;
   }
-  qword_140C4E0E0 = i;
+  qword_140C4E120 = i;
   v10 = MiSystemVaToDynamicBitmap(11);
   if ( !(unsigned int)MiBuildDynamicRegion(v10, v11, 0x2000000000uLL) )
     return 0LL;
-  qword_140C4CCF0 = -1LL;
-  qword_140C4CD28 = 0LL;
-  qword_140C4CD00 = (__int64)&qword_140C4CCF8;
-  qword_140C4CCF8 = (__int64)&qword_140C4CCF8;
+  qword_140C4CD30 = -1LL;
+  qword_140C4CD68 = 0LL;
+  qword_140C4CD40 = (__int64)&qword_140C4CD38;
+  qword_140C4CD38 = (__int64)&qword_140C4CD38;
   if ( MmLargePageDriverBufferLength != -1 )
   {
     v13 = (unsigned __int16 *)&MmLargePageDriverBuffer;
@@ -101,7 +101,7 @@ __int64 __fastcall MiInitializeDriverImages(__int64 a1)
         {
           if ( (_DWORD)v16 == 42 )
           {
-            byte_140C4CCE9 = 1;
+            byte_140C4CD29 = 1;
             break;
           }
           for ( j = v13; j < v14; ++j )
@@ -119,33 +119,33 @@ __int64 __fastcall MiInitializeDriverImages(__int64 a1)
           Pool[3] = v13;
           *((_WORD *)Pool + 8) = v20;
           *((_WORD *)Pool + 9) = v20;
-          v21 = (_QWORD *)qword_140C4CD00;
-          if ( *(__int64 **)qword_140C4CD00 != &qword_140C4CCF8 )
+          v21 = (_QWORD *)qword_140C4CD40;
+          if ( *(__int64 **)qword_140C4CD40 != &qword_140C4CD38 )
             __fastfail(3u);
-          *Pool = &qword_140C4CCF8;
+          *Pool = &qword_140C4CD38;
           Pool[1] = v21;
           v15 = 0x100002601LL;
           *v21 = Pool;
-          qword_140C4CD00 = (__int64)Pool;
+          qword_140C4CD40 = (__int64)Pool;
         }
         v13 = j + 1;
       }
       while ( j + 1 < v14 );
     }
   }
-  qword_140C4CD60 = 0LL;
+  qword_140C4CDA0 = 0LL;
   if ( !(unsigned int)MiInitializeBootLoadedDriverPfns(a1) )
     return 0LL;
   if ( !(unsigned int)MiInitializeDriverPtes(a1) )
     return 0LL;
   MiFreeKernelPadSections(
-    *(_QWORD *)(qword_140C4CD18 + 48),
-    *(_QWORD *)(qword_140C4CD18 + 48) + *(unsigned int *)(qword_140C4CD18 + 64));
+    *(_QWORD *)(qword_140C4CD58 + 48),
+    *(_QWORD *)(qword_140C4CD58 + 48) + *(unsigned int *)(qword_140C4CD58 + 64));
   if ( !(unsigned int)MiReloadBootLoadedDrivers(a1) || !(unsigned int)MiCreateInitialSystemWsles() )
     return 0LL;
   VfInitBootDriversLoaded(a1);
   result = 1LL;
-  qword_140C4CD10 = (__int64)&qword_140C4CD08;
-  qword_140C4CD08 = &qword_140C4CD08;
+  qword_140C4CD50 = (__int64)&qword_140C4CD48;
+  qword_140C4CD48 = &qword_140C4CD48;
   return result;
 }

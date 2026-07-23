@@ -1,11 +1,11 @@
 /*
- * XREFs of AslRegistryEnumKey @ 0x140888340
+ * XREFs of AslRegistryEnumKey @ 0x14088E73C
  * Callers:
- *     AslpProcessMatchRegNode @ 0x14088AF00 (AslpProcessMatchRegNode.c)
+ *     AslpProcessMatchRegNode @ 0x1408912FC (AslpProcessMatchRegNode.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall AslRegistryEnumKey(void *a1, __int64 a2, void *a3, ULONG a4)

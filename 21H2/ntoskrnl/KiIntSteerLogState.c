@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIntSteerLogState @ 0x140377FB4
+ * XREFs of KiIntSteerLogState @ 0x140377B04
  * Callers:
- *     KeIntSteerPeriodic @ 0x140229480 (KeIntSteerPeriodic.c)
- *     KiIntSteerDisable @ 0x140376E1C (KiIntSteerDisable.c)
- *     KiIntSteerConnect @ 0x140377C24 (KiIntSteerConnect.c)
- *     KiIntSteerLogStatus @ 0x14052281C (KiIntSteerLogStatus.c)
+ *     KeIntSteerPeriodic @ 0x1402CDD80 (KeIntSteerPeriodic.c)
+ *     KiIntSteerDisable @ 0x14037696C (KiIntSteerDisable.c)
+ *     KiIntSteerConnect @ 0x140377774 (KiIntSteerConnect.c)
+ *     KiIntSteerLogStatus @ 0x140522A5C (KiIntSteerLogStatus.c)
  * Callees:
- *     KiIntSteerEtwEventEnabled @ 0x140220B30 (KiIntSteerEtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     KiIntSteerEtwEventEnabled @ 0x1402C5430 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall KiIntSteerLogState(__int64 a1, __int64 a2)

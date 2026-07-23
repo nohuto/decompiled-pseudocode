@@ -1,10 +1,10 @@
 /*
  * XREFs of VfDeadlockDeleteMemoryRange @ 0x140713D4C
  * Callers:
- *     VfFreeMemoryNotification @ 0x140702884 (VfFreeMemoryNotification.c)
+ *     VfFreeMemoryNotification @ 0x1407028B4 (VfFreeMemoryNotification.c)
  * Callees:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x1402239C0 (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x140223B18 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1402237EC (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x140223944 (ViDeadlockRemoveMemoryRangeThreads.c)
  *     ViDeadlockCanProceed @ 0x140714D14 (ViDeadlockCanProceed.c)
  */
 

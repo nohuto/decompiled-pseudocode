@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwGetProviderIdFromHandle @ 0x14039F028
+ * XREFs of EtwGetProviderIdFromHandle @ 0x14039F178
  * Callers:
- *     EtwWriteEndScenario @ 0x1407883D0 (EtwWriteEndScenario.c)
- *     EtwWriteStartScenario @ 0x140788490 (EtwWriteStartScenario.c)
- *     WdiDispatchControl @ 0x1407892E0 (WdiDispatchControl.c)
+ *     EtwWriteEndScenario @ 0x140788590 (EtwWriteEndScenario.c)
+ *     EtwWriteStartScenario @ 0x140788650 (EtwWriteStartScenario.c)
+ *     WdiDispatchControl @ 0x1407894A0 (WdiDispatchControl.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     EtwpReferenceGuidEntry @ 0x1405EBAA4 (EtwpReferenceGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     EtwpReferenceGuidEntry @ 0x1406DB204 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406ECBA8 (EtwpUnreferenceGuidEntry.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall EtwGetProviderIdFromHandle(ULONG_PTR *a1, char a2, _OWORD *a3)
+__int64 __fastcall EtwGetProviderIdFromHandle(PVOID *a1, char a2, _OWORD *a3)
 {
   NTSTATUS v3; // edi
   PVOID v7; // rcx
@@ -30,9 +30,9 @@ __int64 __fastcall EtwGetProviderIdFromHandle(ULONG_PTR *a1, char a2, _OWORD *a3
     }
     return (unsigned int)v3;
   }
-  if ( a1 && (unsigned __int8)EtwpReferenceGuidEntry(a1[4]) )
+  if ( a1 && (unsigned __int8)EtwpReferenceGuidEntry((ULONG_PTR)a1[4]) )
   {
-    *a3 = *(_OWORD *)(a1[4] + 40);
+    *a3 = *(_OWORD *)((char *)a1[4] + 40);
     EtwpUnreferenceGuidEntry(a1[4]);
     return (unsigned int)v3;
   }

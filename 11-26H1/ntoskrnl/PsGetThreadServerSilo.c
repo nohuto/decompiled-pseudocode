@@ -1,16 +1,16 @@
 /*
- * XREFs of PsGetThreadServerSilo @ 0x1402167A0
+ * XREFs of PsGetThreadServerSilo @ 0x140216AD0
  * Callers:
- *     EtwTracePageFault @ 0x140215FC0 (EtwTracePageFault.c)
- *     EtwpTraceIo @ 0x1402163D0 (EtwpTraceIo.c)
- *     EtwpTraceIoInit @ 0x140218680 (EtwpTraceIoInit.c)
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     EtwpTraceRedirectedIo @ 0x1406C5EB0 (EtwpTraceRedirectedIo.c)
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
- *     ObpReferenceCurrentDeviceMap @ 0x140A18420 (ObpReferenceCurrentDeviceMap.c)
- *     IopGetThreadActiveConsoleId @ 0x140B272C8 (IopGetThreadActiveConsoleId.c)
+ *     EtwTracePageFault @ 0x1402162F0 (EtwTracePageFault.c)
+ *     EtwpTraceIo @ 0x140216700 (EtwpTraceIo.c)
+ *     EtwpTraceIoInit @ 0x1402189B0 (EtwpTraceIoInit.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     EtwpTraceRedirectedIo @ 0x1406C9AF0 (EtwpTraceRedirectedIo.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x140A21A50 (ObpReferenceCurrentDeviceMap.c)
+ *     IopGetThreadActiveConsoleId @ 0x140B29378 (IopGetThreadActiveConsoleId.c)
  * Callees:
- *     PsIsServerSilo @ 0x140216838 (PsIsServerSilo.c)
+ *     PsIsServerSilo @ 0x140216B68 (PsIsServerSilo.c)
  */
 
 __int64 __fastcall PsGetThreadServerSilo(__int64 a1)

@@ -34,7 +34,7 @@ NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)
       SystemInformation = v5;
     }
   }
-  result = ZwSetSystemInformation(MaxSystemInfoClass|SystemStackTraceInformation, &SystemInformation, 4uLL);
+  result = ZwSetSystemInformation(SystemAitSamplingValue, &SystemInformation, 4uLL);
   if ( Handle )
     return ZwClose(Handle);
   return result;

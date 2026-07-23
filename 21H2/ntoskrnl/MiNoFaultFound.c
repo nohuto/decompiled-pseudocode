@@ -1,12 +1,12 @@
 /*
- * XREFs of MiNoFaultFound @ 0x1403121C8
+ * XREFs of MiNoFaultFound @ 0x14031CF18
  * Callers:
- *     MiRaisedIrqlFault @ 0x1402A2AFC (MiRaisedIrqlFault.c)
- *     MiSystemFault @ 0x140311400 (MiSystemFault.c)
- *     MiLargePageFault @ 0x140548AB4 (MiLargePageFault.c)
+ *     MiRaisedIrqlFault @ 0x14021FF3C (MiRaisedIrqlFault.c)
+ *     MiSystemFault @ 0x14031C150 (MiSystemFault.c)
+ *     MiLargePageFault @ 0x140548CF4 (MiLargePageFault.c)
  * Callees:
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     MiTbFlushType @ 0x140341F58 (MiTbFlushType.c)
  */
 
 __int64 __fastcall MiNoFaultFound(
@@ -54,7 +54,7 @@ __int64 __fastcall MiNoFaultFound(
   {
     v12 = *(_QWORD *)(a1 + 56);
     if ( v12 )
-      v6 = MiTbFlushType(v12, a2, 512LL);
+      v6 = MiTbFlushType(v12);
     KeFlushSingleTb(a3, v6, a5);
   }
   return v8;

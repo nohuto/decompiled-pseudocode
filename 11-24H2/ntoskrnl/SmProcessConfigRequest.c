@@ -1,15 +1,15 @@
 /*
- * XREFs of SmProcessConfigRequest @ 0x140797C64
+ * XREFs of SmProcessConfigRequest @ 0x140797D74
  * Callers:
- *     SmSetStoreInformation @ 0x140A5F8F0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x140A57E40 (SmSetStoreInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     SmpSystemStoreCreate @ 0x140799854 (SmpSystemStoreCreate.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
- *     SmCreatePartition @ 0x140A3ECF4 (SmCreatePartition.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     SmpSystemStoreCreate @ 0x140799964 (SmpSystemStoreCreate.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
+ *     SmCreatePartition @ 0x140A34664 (SmCreatePartition.c)
  */
 
 __int64 __fastcall SmProcessConfigRequest(__m256i *a1, unsigned int a2, __int64 a3)
@@ -80,7 +80,7 @@ LABEL_51:
         }
         if ( (unsigned int)(v16.m256i_i32[1] - 4) <= 0x1C && ((v16.m256i_i32[1] - 1) & v16.m256i_i32[1]) == 0 )
         {
-          dword_140E37294 = HIDWORD(a1->m256i_i64[0]);
+          dword_140E373D4 = HIDWORD(a1->m256i_i64[0]);
           goto LABEL_51;
         }
       }

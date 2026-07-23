@@ -17,15 +17,15 @@
  *     DbgkpSetProcessDebugObject @ 0x1409381F8 (DbgkpSetProcessDebugObject.c)
  */
 
-__int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
+NTSTATUS __cdecl NtDebugActiveProcess(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   char PreviousMode; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v5; // rcx
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v7; // rbx
   _KPROCESS *Process; // rsi
-  int v9; // edi
+  NTSTATUS v9; // edi
   unsigned __int64 Count; // rdi
   __int16 v11; // ax
   __int16 v12; // ax
@@ -40,7 +40,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
   Object = 0LL;
   v17 = 0LL;
   result = ObpReferenceObjectByHandleWithTag(
-             a1,
+             (ULONG_PTR)ProcessHandle,
              2048,
              (__int64)PsProcessType,
              PreviousMode,
@@ -48,7 +48,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
              &Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     v7 = (struct _EX_RUNDOWN_REF *)Object;
@@ -79,7 +79,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
             || v7[176].Count && ((v12 = WORD2(v7[301].Ptr), v12 == 332) || v12 == 452) )
           {
             Object = 0LL;
-            v9 = ObReferenceObjectByHandle(a2, 2u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+            v9 = ObReferenceObjectByHandle(DebugObjectHandle, 2u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
             if ( v9 >= 0 )
             {
               v13 = ExAcquireRundownProtection_0(v7 + 139);
@@ -87,7 +87,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
               if ( v13 )
               {
                 v15 = DbgkpPostFakeProcessCreateMessages((_KPROCESS *)v7, (__int64)Object, &v17);
-                v9 = DbgkpSetProcessDebugObject((__int64)v7, v14, v15, v17);
+                v9 = DbgkpSetProcessDebugObject((ULONG_PTR)v7, v14, v15, v17);
                 ExReleaseRundownProtection_0(v7 + 139);
               }
               else
@@ -105,7 +105,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
       }
     }
     ObfDereferenceObjectWithTag(v7, 0x4F676244u);
-    return (unsigned int)v9;
+    return v9;
   }
   return result;
 }

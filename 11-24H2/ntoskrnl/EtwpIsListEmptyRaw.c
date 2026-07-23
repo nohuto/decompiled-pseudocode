@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpIsListEmptyRaw @ 0x1406503EC
+ * XREFs of EtwpIsListEmptyRaw @ 0x14064EA2C
  * Callers:
- *     EtwpFinalizeHeader @ 0x1409DBD1C (EtwpFinalizeHeader.c)
+ *     EtwpFinalizeHeader @ 0x1409D652C (EtwpFinalizeHeader.c)
  * Callees:
  *     <none>
  */

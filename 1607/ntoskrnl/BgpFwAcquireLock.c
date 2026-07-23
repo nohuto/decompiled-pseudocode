@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpFwAcquireLock @ 0x140127230
+ * XREFs of BgpFwAcquireLock @ 0x1401277A0
  * Callers:
- *     BgLibraryEnable @ 0x1401269B0 (BgLibraryEnable.c)
- *     BgQueryBootGraphicsInformation @ 0x140127134 (BgQueryBootGraphicsInformation.c)
- *     BgpFwQueryBootGraphicsInformation @ 0x140129AF0 (BgpFwQueryBootGraphicsInformation.c)
- *     KiBugCheckProgress @ 0x1401D5050 (KiBugCheckProgress.c)
- *     KiDisplayBlueScreen @ 0x1401D516C (KiDisplayBlueScreen.c)
+ *     BgLibraryEnable @ 0x140126F20 (BgLibraryEnable.c)
+ *     BgQueryBootGraphicsInformation @ 0x1401276A4 (BgQueryBootGraphicsInformation.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14012A060 (BgpFwQueryBootGraphicsInformation.c)
+ *     KiBugCheckProgress @ 0x1401D4E7C (KiBugCheckProgress.c)
+ *     KiDisplayBlueScreen @ 0x1401D4F98 (KiDisplayBlueScreen.c)
  *     BgFreeContext @ 0x140725010 (BgFreeContext.c)
  *     BgGetContext @ 0x1407251F0 (BgGetContext.c)
  *     BgMarkHiberPhase @ 0x14072537C (BgMarkHiberPhase.c)
@@ -35,7 +35,7 @@
  *     BgpConsoleSetTextColor @ 0x14072AC58 (BgpConsoleSetTextColor.c)
  *     AnFwpBackgroundUpdateTimer @ 0x14072ACB4 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
  */
 
 void BgpFwAcquireLock()
@@ -47,12 +47,12 @@ void BgpFwAcquireLock()
     CurrentIrql = KeGetCurrentIrql();
     if ( CurrentIrql <= 2u )
     {
-      while ( qword_14033DB50 )
+      while ( qword_14033DB90 )
         _mm_pause();
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
     }
-    KxAcquireSpinLock(&qword_14033DB50);
-    byte_140328B6C = CurrentIrql;
+    KxAcquireSpinLock(&qword_14033DB90);
+    byte_140328BAC = CurrentIrql;
   }
 }

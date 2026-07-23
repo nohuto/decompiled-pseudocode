@@ -15,48 +15,48 @@
  *     CmOpenKey @ 0x140A31750 (CmOpenKey.c)
  */
 
-__int64 NtOpenKey()
+NTSTATUS __cdecl NtOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 v0; // r11
-  HANDLE *v1; // r9
-  unsigned int v2; // r10d
-  __int64 v3; // r8
-  unsigned int v4; // r8d
-  __int128 v6; // [rsp+30h] [rbp-50h] BYREF
+  __int64 v3; // r11
+  HANDLE *v4; // r9
+  unsigned int v5; // r10d
+  __int64 v6; // r8
+  NTSTATUS v7; // r8d
+  __int128 v9; // [rsp+30h] [rbp-50h] BYREF
   __int64 Parameter; // [rsp+40h] [rbp-40h] BYREF
-  HANDLE *v8; // [rsp+48h] [rbp-38h]
-  unsigned int v9; // [rsp+50h] [rbp-30h]
-  int v10; // [rsp+54h] [rbp-2Ch]
-  __int64 v11; // [rsp+58h] [rbp-28h]
-  __int64 v12; // [rsp+60h] [rbp-20h]
-  __int64 v13; // [rsp+68h] [rbp-18h]
+  HANDLE *v11; // [rsp+48h] [rbp-38h]
+  unsigned int v12; // [rsp+50h] [rbp-30h]
+  int v13; // [rsp+54h] [rbp-2Ch]
+  __int64 v14; // [rsp+58h] [rbp-28h]
+  __int64 v15; // [rsp+60h] [rbp-20h]
+  __int64 v16; // [rsp+68h] [rbp-18h]
   char PreviousMode; // [rsp+70h] [rbp-10h]
-  int v15; // [rsp+71h] [rbp-Fh]
-  __int16 v16; // [rsp+75h] [rbp-Bh]
-  char v17; // [rsp+77h] [rbp-9h]
+  int v18; // [rsp+71h] [rbp-Fh]
+  __int16 v19; // [rsp+75h] [rbp-Bh]
+  char v20; // [rsp+77h] [rbp-9h]
 
   HIDWORD(Parameter) = 0;
-  v10 = 0;
-  HIDWORD(v12) = 0;
-  v6 = 0LL;
-  LOWORD(v15) = 0;
-  BYTE2(v15) = 0;
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v6);
-  Parameter = v0;
-  v10 = v0;
-  v12 = v0;
-  v15 = v0;
-  v16 = v0;
-  v17 = v0;
-  v8 = v1;
-  v9 = v2;
-  v11 = v3;
-  v13 = v0;
+  v13 = 0;
+  HIDWORD(v15) = 0;
+  v9 = 0LL;
+  LOWORD(v18) = 0;
+  BYTE2(v18) = 0;
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v9);
+  Parameter = v3;
+  v13 = v3;
+  v15 = v3;
+  v18 = v3;
+  v19 = v3;
+  v20 = v3;
+  v11 = v4;
+  v12 = v5;
+  v14 = v6;
+  v16 = v3;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( (unsigned int)Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline() )
     KeExpandKernelStackAndCallout((PEXPAND_STACK_CALLOUT)CmOpenKeyCallout, &Parameter, 0x4800uLL);
   else
-    LODWORD(Parameter) = CmOpenKey(v8, v9, v11, (unsigned int)v12, v13, PreviousMode);
-  CmCleanupThreadInfo((_KAFFINITY_EX **)&v6);
-  return v4;
+    LODWORD(Parameter) = CmOpenKey(v11, v12, v14, (unsigned int)v15, v16, PreviousMode);
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v9);
+  return v7;
 }

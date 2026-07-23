@@ -1,11 +1,11 @@
 /*
- * XREFs of KiValidateTriageDumpDataArray @ 0x1403A8334
+ * XREFs of KiValidateTriageDumpDataArray @ 0x1403A8514
  * Callers:
- *     KeAddTriageDumpDataBlock @ 0x1403A8100 (KeAddTriageDumpDataBlock.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056A6D4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
- *     IopLiveDumpAddTriageDumpData @ 0x140A9A1E0 (IopLiveDumpAddTriageDumpData.c)
+ *     KeAddTriageDumpDataBlock @ 0x1403A82E0 (KeAddTriageDumpDataBlock.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056AD94 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     IopLiveDumpAddTriageDumpData @ 0x140A9A050 (IopLiveDumpAddTriageDumpData.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x14038840C (KiIsAddressRangeValid.c)
+ *     KiIsAddressRangeValid @ 0x1403885EC (KiIsAddressRangeValid.c)
  */
 
 bool __fastcall KiValidateTriageDumpDataArray(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpEnvTlsAlloc @ 0x140639084
+ * XREFs of RtlpHpEnvTlsAlloc @ 0x14063C094
  * Callers:
- *     RtlpHpLfhContextEnable @ 0x1406396AC (RtlpHpLfhContextEnable.c)
+ *     RtlpHpLfhContextEnable @ 0x14063C6BC (RtlpHpLfhContextEnable.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     ExSaAllocate @ 0x1404993B0 (ExSaAllocate.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     ExSaAllocate @ 0x140492F00 (ExSaAllocate.c)
  */
 
 __int64 RtlpHpEnvTlsAlloc()
@@ -12,7 +12,7 @@ __int64 RtlpHpEnvTlsAlloc()
   __int64 v0; // rax
   unsigned int v1; // ebx
   ULONG MaximumProcessorCount; // eax
-  __int64 *v3; // r10
+  __int64 *SListFaultAddress; // r10
   unsigned int v4; // r9d
   __int64 v5; // r11
   unsigned int v6; // ecx
@@ -29,13 +29,13 @@ __int64 RtlpHpEnvTlsAlloc()
     MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
     if ( MaximumProcessorCount )
     {
-      v3 = (__int64 *)ExSaPageArrays;
+      SListFaultAddress = (__int64 *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress;
       v4 = (v1 >> 13) & 0x3FFFF;
       v5 = MaximumProcessorCount;
       do
       {
         _BitScanReverse(&v6, v4);
-        v7 = *v3++;
+        v7 = *SListFaultAddress++;
         *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 8LL * (v6 - 2))
                               + 8 * (v4 ^ (unsigned __int64)(unsigned int)(1 << v6))
                               + 8)

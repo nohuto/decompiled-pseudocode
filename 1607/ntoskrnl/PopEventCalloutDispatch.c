@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEventCalloutDispatch @ 0x140131C64
+ * XREFs of PopEventCalloutDispatch @ 0x1401321D4
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopDispatchFullWake @ 0x140534800 (PopDispatchFullWake.c)
- *     PopPolicyTimeChange @ 0x1405349CC (PopPolicyTimeChange.c)
- *     PopDispatchCallout @ 0x1405817C8 (PopDispatchCallout.c)
- *     PopDispatchShutdownEvent @ 0x140672DAC (PopDispatchShutdownEvent.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopDispatchFullWake @ 0x140534D40 (PopDispatchFullWake.c)
+ *     PopPolicyTimeChange @ 0x140534F0C (PopPolicyTimeChange.c)
+ *     PopDispatchCallout @ 0x140581C74 (PopDispatchCallout.c)
+ *     PopDispatchShutdownEvent @ 0x140672E90 (PopDispatchShutdownEvent.c)
  * Callees:
- *     KeAreApcsDisabled @ 0x140009B90 (KeAreApcsDisabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
+ *     KeAreApcsDisabled @ 0x140009710 (KeAreApcsDisabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
  */
 
 void __fastcall PopEventCalloutDispatch(int a1, __int64 a2)

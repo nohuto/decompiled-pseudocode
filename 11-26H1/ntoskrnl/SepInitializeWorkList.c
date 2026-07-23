@@ -1,22 +1,22 @@
 /*
- * XREFs of SepInitializeWorkList @ 0x140CDAB2C
+ * XREFs of SepInitializeWorkList @ 0x140CE0EAC
  * Callers:
- *     SepInitializationPhase0 @ 0x140CDD1A0 (SepInitializationPhase0.c)
+ *     SepInitializationPhase0 @ 0x140CE3538 (SepInitializationPhase0.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405263E4 (PerfLogExecutiveResourceInitialize.c)
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140528A54 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char SepInitializeWorkList()
 {
   unsigned __int16 v0; // bx
-  KSPIN_LOCK *p_Policy; // rdi
+  KSPIN_LOCK *v1; // rdi
   unsigned __int16 *v2; // rax
   __int64 *v3; // rbp
   int RecordedStackTraceIndex; // eax
@@ -28,70 +28,69 @@ char SepInitializeWorkList()
   char result; // al
   unsigned __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  if ( (unsigned __int64)&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead < 0xFFFF800000000000uLL
-    || MmDeterminePoolType((unsigned __int64)&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead) == 256 )
+  if ( (unsigned __int64)&RtlpBootStatHandleLock.MutantListHead.Blink < 0xFFFF800000000000uLL
+    || MmDeterminePoolType((unsigned __int64)&RtlpBootStatHandleLock.MutantListHead.Blink) == 256 )
   {
-    ExpTraceLogBadResourceAddress((unsigned __int64)&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead, retaddr);
+    ExpTraceLogBadResourceAddress((unsigned __int64)&RtlpBootStatHandleLock.MutantListHead.Blink, retaddr);
   }
-  memset_0(&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead, 0, 0x68uLL);
-  RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead.Blink = &RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead;
+  memset_0(&RtlpBootStatHandleLock.MutantListHead.Blink, 0, 0x68uLL);
+  *(_QWORD *)&RtlpBootStatHandleLock.AbWaitEntryCount = &RtlpBootStatHandleLock.MutantListHead.Blink;
   v0 = 0;
-  RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead.Flink = &RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead;
-  RtlpBootStatHandleLock.MutantListHead.Flink = 0LL;
-  RtlpBootStatHandleLock.MutantListHead.Blink = 0LL;
-  *(_QWORD *)&RtlpBootStatHandleLock.PriorityFloorCounts[16] = 0LL;
+  RtlpBootStatHandleLock.MutantListHead.Blink = (struct _LIST_ENTRY *)&RtlpBootStatHandleLock.MutantListHead.Blink;
+  RtlpBootStatHandleLock.IoSelfBoostsEntry.Next = 0LL;
+  *(_QWORD *)RtlpBootStatHandleLock.PriorityFloorCounts = 0LL;
+  RtlpBootStatHandleLock.GlobalForegroundListEntry.Flink = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup
-      && (v2 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1),
+    v1 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags
+      && (v2 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1),
           (v3 = (__int64 *)v2) != 0LL) )
     {
-      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy, v2);
+      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v1, v2);
       v5 = RecordedStackTraceIndex;
       if ( !RecordedStackTraceIndex )
-        RtlStdReleaseStackTrace((__int64)p_Policy, v3);
+        RtlStdReleaseStackTrace((__int64)v1, v3);
     }
     else
     {
       v5 = 0;
     }
-    *(_QWORD *)&RtlpBootStatHandleLock.PriorityFloorCounts[8] = v5;
+    *(_QWORD *)&RtlpBootStatHandleLock.ForegroundLossTime = v5;
   }
   else
   {
-    *(_QWORD *)&RtlpBootStatHandleLock.PriorityFloorCounts[8] = 0LL;
+    *(_QWORD *)&RtlpBootStatHandleLock.ForegroundLossTime = 0LL;
   }
-  *(_DWORD *)&RtlpBootStatHandleLock.PriorityFloorCounts[4] = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead);
+  *(_DWORD *)&RtlpBootStatHandleLock.KeReferenceCount = -1;
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&RtlpBootStatHandleLock.MutantListHead.Blink);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
-    PerfLogExecutiveResourceInitialize(65544, (__int64)&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead, 0, 0);
-  *(_QWORD *)&RtlpBootStatHandleLock.PriorityFloorCounts[24] = 0LL;
-  RtlpBootStatHandleLock.SchedulerApc.SystemArgument2 = &RtlpBootStatHandleLock.SchedulerApcFill5[64];
-  RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 = &RtlpBootStatHandleLock.SchedulerApcFill5[64];
-  *(_QWORD *)&RtlpBootStatHandleLock.SuspendEvent.Header.Lock = &RtlpBootStatHandleLock.SchedulerApcFill5[80];
-  *(_QWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[80] = &RtlpBootStatHandleLock.SchedulerApcFill5[80];
-  RtlpBootStatHandleLock.ReadTransferCount = (__int64)SepAdtDetermineInsertQueue;
-  LOWORD(RtlpBootStatHandleLock.OtherTransferCount) = 3;
-  RtlpBootStatHandleLock.WriteTransferCount = (__int64)ExFreePool;
-  if ( (unsigned __int64)&RtlpBootStatHandleLock.RelativeTimerBias < 0xFFFF800000000000uLL
-    || MmDeterminePoolType((unsigned __int64)&RtlpBootStatHandleLock.RelativeTimerBias) == 256 )
+    PerfLogExecutiveResourceInitialize(65544, (__int64)&RtlpBootStatHandleLock.MutantListHead.Blink, 0, 0);
+  RtlpBootStatHandleLock.InGlobalForegroundList = 0LL;
+  RtlpBootStatHandleLock.ThreadListEntry.Flink = (struct _LIST_ENTRY *)&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead.Blink;
+  RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead.Blink;
+  RtlpBootStatHandleLock.MutantListHead.Flink = (struct _LIST_ENTRY *)&RtlpBootStatHandleLock.ThreadListEntry.Blink;
+  RtlpBootStatHandleLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)&RtlpBootStatHandleLock.ThreadListEntry.Blink;
+  RtlpBootStatHandleLock.TracingPrivate[0] = (unsigned __int64)SepAdtDetermineInsertQueue;
+  LOWORD(RtlpBootStatHandleLock.AbWaitObject) = 3;
+  RtlpBootStatHandleLock.SchedulerAssist = ExFreePool;
+  if ( (unsigned __int64)&RtlpBootStatHandleLock.WaitBlock[1] < 0xFFFF800000000000uLL
+    || MmDeterminePoolType((unsigned __int64)&RtlpBootStatHandleLock.WaitBlock[1]) == 256 )
   {
-    ExpTraceLogBadResourceAddress((unsigned __int64)&RtlpBootStatHandleLock.RelativeTimerBias, retaddr);
+    ExpTraceLogBadResourceAddress((unsigned __int64)&RtlpBootStatHandleLock.WaitBlock[1], retaddr);
   }
-  memset_0(&RtlpBootStatHandleLock.RelativeTimerBias, 0, 0x68uLL);
-  *(_QWORD *)&RtlpBootStatHandleLock.Timer.Header.Lock = &RtlpBootStatHandleLock.RelativeTimerBias;
-  RtlpBootStatHandleLock.RelativeTimerBias = (unsigned __int64)&RtlpBootStatHandleLock.RelativeTimerBias;
-  RtlpBootStatHandleLock.Timer.DueTime.QuadPart = 0LL;
-  RtlpBootStatHandleLock.Timer.TimerListEntry.Flink = 0LL;
-  RtlpBootStatHandleLock.WaitBlock[0].Thread = 0LL;
+  memset_0(&RtlpBootStatHandleLock.WaitBlockFill11[48], 0, 0x68uLL);
+  RtlpBootStatHandleLock.WaitBlock[1].WaitListEntry.Blink = &RtlpBootStatHandleLock.WaitBlock[1].WaitListEntry;
+  RtlpBootStatHandleLock.WaitBlock[1].WaitListEntry.Flink = &RtlpBootStatHandleLock.WaitBlock[1].WaitListEntry;
+  *(_OWORD *)&RtlpBootStatHandleLock.WaitBlockFill11[80] = 0uLL;
+  RtlpBootStatHandleLock.WaitBlock[3].WaitListEntry.Flink = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    v6 = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup )
+    v6 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags )
     {
-      v7 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1);
+      v7 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1);
       v8 = (__int64 *)v7;
       if ( v7 )
       {
@@ -105,21 +104,21 @@ char SepInitializeWorkList()
       }
       v0 = v9;
     }
-    *(_QWORD *)&RtlpBootStatHandleLock.WaitBlockFill11[16] = v0;
+    RtlpBootStatHandleLock.WaitBlock[2].SparePtr = (PVOID)v0;
   }
   else
   {
-    *(_QWORD *)&RtlpBootStatHandleLock.WaitBlockFill11[16] = 0LL;
+    RtlpBootStatHandleLock.WaitBlock[2].SparePtr = 0LL;
   }
-  *(_DWORD *)&RtlpBootStatHandleLock.WaitBlockFill11[12] = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&RtlpBootStatHandleLock.RelativeTimerBias);
+  *(_DWORD *)&RtlpBootStatHandleLock.WaitBlockFill11[132] = -1;
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&RtlpBootStatHandleLock.WaitBlockFill11[48]);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
-    PerfLogExecutiveResourceInitialize(65544, (__int64)&RtlpBootStatHandleLock.RelativeTimerBias, 0, 0);
+    PerfLogExecutiveResourceInitialize(65544, (__int64)&RtlpBootStatHandleLock.WaitBlock[1], 0, 0);
   result = 1;
-  *(_QWORD *)&RtlpBootStatHandleLock.WaitBlockFill11[112] = ExFreePool;
-  RtlpBootStatHandleLock.WaitListEntry.Blink = &RtlpBootStatHandleLock.WaitListEntry;
-  RtlpBootStatHandleLock.WaitListEntry.Flink = &RtlpBootStatHandleLock.WaitListEntry;
-  *(_WORD *)&RtlpBootStatHandleLock.WaitBlockFill11[120] = 1;
+  RtlpBootStatHandleLock.UserAffinity = (_KAFFINITY_EX *)ExFreePool;
+  RtlpBootStatHandleLock.WaitBlock[0].Thread = (struct _KTHREAD *)&RtlpBootStatHandleLock.WaitBlockFill11[16];
+  *(_QWORD *)&RtlpBootStatHandleLock.WaitBlockFill11[16] = &RtlpBootStatHandleLock.WaitBlockFill11[16];
+  RtlpBootStatHandleLock.UserAffinityPrimaryGroup = 1;
   return result;
 }

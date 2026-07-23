@@ -10,49 +10,49 @@
  *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-char __fastcall EtwpTraceSystemShutdown(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char EtwpTraceSystemShutdown()
 {
   char result; // al
-  int v5; // [rsp+30h] [rbp-29h] BYREF
-  __int64 v6; // [rsp+38h] [rbp-21h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-19h] BYREF
+  int v1; // [rsp+30h] [rbp-29h] BYREF
+  LARGE_INTEGER v2; // [rsp+38h] [rbp-21h] BYREF
+  LARGE_INTEGER v3; // [rsp+40h] [rbp-19h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-11h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+60h] [rbp+7h] BYREF
-  int *v10; // [rsp+80h] [rbp+27h]
-  int v11; // [rsp+88h] [rbp+2Fh]
-  int v12; // [rsp+8Ch] [rbp+33h]
-  __int64 *v13; // [rsp+90h] [rbp+37h]
-  int v14; // [rsp+98h] [rbp+3Fh]
-  int v15; // [rsp+9Ch] [rbp+43h]
+  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+60h] [rbp+7h] BYREF
+  int *v6; // [rsp+80h] [rbp+27h]
+  int v7; // [rsp+88h] [rbp+2Fh]
+  int v8; // [rsp+8Ch] [rbp+33h]
+  LARGE_INTEGER *v9; // [rsp+90h] [rbp+37h]
+  int v10; // [rsp+98h] [rbp+3Fh]
+  int v11; // [rsp+9Ch] [rbp+43h]
 
-  v6 = 0LL;
-  result = KeQuerySystemTimePrecise(&v6, a2, a3, a4);
+  v2.QuadPart = 0LL;
+  result = KeQuerySystemTimePrecise(&v2).LowPart;
   if ( (unsigned int)dword_140C02BF0 > 5 )
   {
     result = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
     if ( result )
     {
-      v12 = 0;
-      v15 = 0;
-      v10 = &v5;
-      v7 = v6;
-      v11 = 4;
-      v13 = &v7;
-      v5 = 2;
-      v14 = 8;
+      v8 = 0;
+      v11 = 0;
+      v6 = &v1;
+      v3 = v2;
+      v7 = 4;
+      v9 = &v3;
+      v1 = 2;
+      v10 = 8;
       result = tlgWriteTransfer_EtwWriteTransfer(
                  (__int64)&dword_140C02BF0,
                  (unsigned __int8 *)byte_14002CF2D,
                  0LL,
                  0LL,
                  4u,
-                 &v9);
+                 &v5);
     }
   }
   if ( EtwKernelProvRegHandle )
   {
     UserData.Reserved = 0;
-    UserData.Ptr = (ULONGLONG)&v6;
+    UserData.Ptr = (ULONGLONG)&v2;
     UserData.Size = 8;
     return EtwWrite(EtwKernelProvRegHandle, &KernelSystemStop, 0LL, 1u, &UserData);
   }

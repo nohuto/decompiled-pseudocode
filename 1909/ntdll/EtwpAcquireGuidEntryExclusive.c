@@ -14,7 +14,7 @@ struct _TEB *__fastcall EtwpAcquireGuidEntryExclusive(__int64 a1)
 {
   struct _TEB *result; // rax
 
-  RtlAcquireSRWLockExclusive(a1 + 40);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   result = NtCurrentTeb();
   *(_DWORD *)(a1 + 48) = result->ClientId.UniqueThread;
   return result;

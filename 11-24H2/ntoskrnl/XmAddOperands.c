@@ -1,12 +1,12 @@
 /*
- * XREFs of XmAddOperands @ 0x140468A40
+ * XREFs of XmAddOperands @ 0x1404613F0
  * Callers:
- *     XmIncOp @ 0x140468910 (XmIncOp.c)
- *     XmAdcOp @ 0x140575980 (XmAdcOp.c)
- *     XmAddOp @ 0x1405759A0 (XmAddOp.c)
- *     XmXaddOp @ 0x140575A80 (XmXaddOp.c)
+ *     XmIncOp @ 0x1404612C0 (XmIncOp.c)
+ *     XmAdcOp @ 0x140572E10 (XmAdcOp.c)
+ *     XmAddOp @ 0x140572E30 (XmAddOp.c)
+ *     XmXaddOp @ 0x140572F10 (XmXaddOp.c)
  * Callees:
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
  */
 
 __int64 __fastcall XmAddOperands(__int64 a1, unsigned int a2)

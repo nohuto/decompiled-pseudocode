@@ -1,7 +1,7 @@
 /*
- * XREFs of IoGetConfigurationInformation @ 0x140875820
+ * XREFs of IoGetConfigurationInformation @ 0x140875A60
  * Callers:
- *     DifIoGetConfigurationInformationWrapper @ 0x1405DF4F0 (DifIoGetConfigurationInformationWrapper.c)
+ *     DifIoGetConfigurationInformationWrapper @ 0x1405DFA60 (DifIoGetConfigurationInformationWrapper.c)
  *     IopCreateArcNamesDisk @ 0x140B39A64 (IopCreateArcNamesDisk.c)
  *     IopCreateArcNamesCd @ 0x140B39BCC (IopCreateArcNamesCd.c)
  *     IopGetBootDiskInformation @ 0x140B93A0C (IopGetBootDiskInformation.c)

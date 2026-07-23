@@ -1,55 +1,57 @@
 /*
- * XREFs of NtSetDriverEntryOrder @ 0x1407BEA90
+ * XREFs of NtSetDriverEntryOrder @ 0x1407BEEE0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     IoSetEnvironmentVariableEx @ 0x1409664F0 (IoSetEnvironmentVariableEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     IoSetEnvironmentVariableEx @ 0x14094EF80 (IoSetEnvironmentVariableEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetDriverEntryOrder(__int64 a1, unsigned int a2)
+NTSTATUS __cdecl NtSetDriverEntryOrder(PULONG Ids, ULONG Count)
 {
+  __int64 v2; // rbx
   void *Pool2; // rdi
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   __int64 i; // rcx
   struct _KTHREAD *v9; // rax
-  unsigned int v10; // ebx
-  unsigned int v11; // esi
+  NTSTATUS v10; // ebx
+  NTSTATUS v11; // esi
 
+  v2 = Count;
   Pool2 = 0LL;
-  if ( dword_140EFEAF0 != 2 )
-    return 3221225474LL;
-  if ( a2 > 0x3FFFFFFF )
-    return 3221225485LL;
+  if ( dword_140EFEE10 != 2 )
+    return -1073741822;
+  if ( Count > 0x3FFFFFFF )
+    return -1073741811;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, CurrentThread->PreviousMode) )
-    return 3221225569LL;
-  if ( a2 )
+    return -1073741727;
+  if ( (_DWORD)v2 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x40uLL);
+    Pool2 = (void *)ExAllocatePool2(0x40uLL, 2 * v2, 0x72766E45u);
     if ( !Pool2 )
-      return 3221225626LL;
-    if ( PreviousMode && 4 * a2 && (a1 & 3) != 0 )
+      return -1073741670;
+    if ( PreviousMode && 4 * (_DWORD)v2 && ((unsigned __int8)Ids & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    for ( i = 0LL; (unsigned int)i < a2; i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < (unsigned int)v2; i = (unsigned int)(i + 1) )
     {
-      if ( *(_DWORD *)(a1 + 4 * i) > 0xFFFFu )
+      if ( Ids[i] > 0xFFFF )
       {
         ExFreePoolWithTag(Pool2, 0);
-        return 3221225485LL;
+        return -1073741811;
       }
-      *((_WORD *)Pool2 + i) = *(_WORD *)(a1 + 4 * i);
+      *((_WORD *)Pool2 + i) = Ids[i];
     }
   }
   v9 = KeGetCurrentThread();
@@ -59,7 +61,7 @@ __int64 __fastcall NtSetDriverEntryOrder(__int64 a1, unsigned int a2)
           (unsigned int)L"DriverOrder",
           (unsigned int)&EfiDriverVariablesGuid,
           (_DWORD)Pool2,
-          2 * a2,
+          2 * (int)v2,
           1);
   ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
   KeLeaveCriticalRegion();

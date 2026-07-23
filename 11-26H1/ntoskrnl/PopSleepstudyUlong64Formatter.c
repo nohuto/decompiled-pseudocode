@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSleepstudyUlong64Formatter @ 0x140B31320
+ * XREFs of PopSleepstudyUlong64Formatter @ 0x140B33520
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall PopSleepstudyUlong64Formatter(_QWORD *a1, UNICODE_STRING *a2)

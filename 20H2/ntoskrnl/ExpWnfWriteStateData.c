@@ -55,7 +55,7 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   v23 = 0LL;
   P = 0LL;
   v9 = (volatile signed __int64 *)(a1 + 80);
-  v10 = KeAbPreAcquire(a1 + 80, 0LL, 0LL);
+  v10 = KeAbPreAcquire(a1 + 80, 0LL, 0);
   v11 = v10;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 80), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v10, a1 + 80);
@@ -110,7 +110,7 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
     *((_QWORD *)PoolWithTag + 1) = 0LL;
     *PoolWithTag = 1050884;
     PoolWithTag[1] = v6;
-    v20 = KeAbPreAcquire(a1 + 80, 0LL, 0LL);
+    v20 = KeAbPreAcquire(a1 + 80, 0LL, 0);
     v21 = v20;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v20, a1 + 80);

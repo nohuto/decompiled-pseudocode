@@ -46,12 +46,12 @@ __int64 __fastcall ExpWnfResolveScopeInstance(struct _EX_RUNDOWN_REF **a1, __int
   PVOID PoolWithTag; // rax
   __int64 v19; // r12
   unsigned __int64 *v20; // rdi
-  __int64 v21; // rbx
+  PRTL_BALANCED_NODE v21; // rbx
   struct _EX_RUNDOWN_REF *ScopeInstance; // rax
   int v23; // r14d
   __int64 HostSilo; // rax
-  __int64 v25; // rax
-  __int64 v26; // rbx
+  _RTL_BALANCED_NODE *v25; // rax
+  _RTL_BALANCED_NODE *v26; // rbx
   struct _EX_RUNDOWN_REF *v27; // rax
   char *v28; // rbx
   __int64 v29; // rax
@@ -180,7 +180,7 @@ LABEL_14:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v20, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v20, v21, (ULONG_PTR)v20);
   if ( v21 )
-    *(_BYTE *)(v21 + 26) |= 1u;
+    BYTE2(v21[1].Left) |= 1u;
   ScopeInstance = (struct _EX_RUNDOWN_REF *)ExpWnfFindScopeInstance(v19, Sid, (unsigned int)NumberOfBytes);
   v14 = ScopeInstance;
   if ( ScopeInstance )
@@ -203,7 +203,7 @@ LABEL_14:
     if ( _interlockedbittestandset64((volatile signed __int32 *)v20, 0LL) )
       ExfAcquirePushLockExclusiveEx(v20, v25, (ULONG_PTR)v20);
     if ( v26 )
-      *(_BYTE *)(v26 + 26) |= 1u;
+      BYTE2(v26[1].Left) |= 1u;
     v27 = (struct _EX_RUNDOWN_REF *)ExpWnfFindScopeInstance(v19, Sid, (unsigned int)NumberOfBytes);
     v14 = v27;
     if ( !v27 )

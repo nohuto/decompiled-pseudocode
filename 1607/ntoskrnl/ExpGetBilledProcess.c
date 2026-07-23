@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetBilledProcess @ 0x1400F9614
+ * XREFs of ExpGetBilledProcess @ 0x1400F7454
  * Callers:
- *     ExReturnPoolQuota @ 0x1400F9564 (ExReturnPoolQuota.c)
- *     ExQueryPoolBlockSize @ 0x14022D01C (ExQueryPoolBlockSize.c)
+ *     ExReturnPoolQuota @ 0x1400F73A4 (ExReturnPoolQuota.c)
+ *     ExQueryPoolBlockSize @ 0x14022CE48 (ExQueryPoolBlockSize.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 _BYTE *__fastcall ExpGetBilledProcess(__int64 a1)

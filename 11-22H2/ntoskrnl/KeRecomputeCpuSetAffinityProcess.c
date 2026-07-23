@@ -58,7 +58,7 @@ char __fastcall KeRecomputeCpuSetAffinityProcess(__int64 a1)
   struct _KPRCB *v28; // r9
   _DWORD *v29; // r8
   int v30; // eax
-  __int64 (__fastcall *v31)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  __int64 (__fastcall *v31)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v32; // r12
   unsigned int *v33; // rbx
   unsigned __int64 v34; // rdi
@@ -68,7 +68,7 @@ char __fastcall KeRecomputeCpuSetAffinityProcess(__int64 a1)
   __int64 (__fastcall *v38)(_QWORD, _DWORD *, __int128 *, _QWORD, int *); // rax
   __int64 (__fastcall *v39)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v41[2]; // [rsp+40h] [rbp-328h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
   int v43; // [rsp+4Ch] [rbp-31Ch]
   _QWORD *v44; // [rsp+50h] [rbp-318h] BYREF
   __int128 v45; // [rsp+58h] [rbp-310h] BYREF
@@ -97,7 +97,9 @@ char __fastcall KeRecomputeCpuSetAffinityProcess(__int64 a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v3 = (unsigned int)(unsigned __int8)v44 + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)((_BYTE)v44 + 1)) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)((_BYTE)v44 + 1)) != 0
+    && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -200,7 +202,7 @@ char __fastcall KeRecomputeCpuSetAffinityProcess(__int64 a1)
     }
     if ( !v23 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
         if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v3) != 0 && (unsigned __int8)(v24 - 2) <= 0xDu )
@@ -217,7 +219,7 @@ char __fastcall KeRecomputeCpuSetAffinityProcess(__int64 a1)
       *(_DWORD *)(v10 + 116) &= ~0x40u;
       KiDeliverApc(0, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v27 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v3) != 0 && (unsigned __int8)(v27 - 2) <= 0xDu )
@@ -250,12 +252,11 @@ char __fastcall KeRecomputeCpuSetAffinityProcess(__int64 a1)
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v60 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v43 = 1;
     v41[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v41[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v31 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                 + 120);
+    v31 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     _disable();
     LOBYTE(Processor) = v31(*(_QWORD *)(HalpInterruptController + 16), v41, &v60, 47LL, &ProcNumber);
     if ( (v65 & 0x200) != 0 )

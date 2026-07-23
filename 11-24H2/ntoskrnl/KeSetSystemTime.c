@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetSystemTime @ 0x1404B3F6C
+ * XREFs of KeSetSystemTime @ 0x140270898
  * Callers:
- *     ExpRefreshSystemTime @ 0x1407B6864 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1407B6BF0 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140B6CD90 (ExpSetSystemTime.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     ExpRefreshSystemTime @ 0x1407B6CB4 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1407B7040 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140B6E630 (ExpSetSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
  */
 
 __int64 __fastcall KeSetSystemTime(__int64 a1, __int64 a2, int a3)
@@ -30,5 +30,5 @@ __int64 __fastcall KeSetSystemTime(__int64 a1, __int64 a2, int a3)
   v4 = 0;
   v11 = 0;
   v7 = a3;
-  return KeGenericCallDpcEx((__int64)KiSetSystemTimeDpc, (__int64)&v4);
+  return KeGenericCallDpcEx(KiSetSystemTimeDpc, &v4);
 }

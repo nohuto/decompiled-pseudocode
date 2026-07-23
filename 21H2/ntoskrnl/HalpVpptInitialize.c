@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpVpptInitialize @ 0x1404C0A80
+ * XREFs of HalpVpptInitialize @ 0x1404C0CC0
  * Callers:
  *     <none>
  * Callees:

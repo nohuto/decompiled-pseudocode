@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetCreateProcessNotifyRoutine @ 0x140575940
+ * XREFs of PsSetCreateProcessNotifyRoutine @ 0x140575E80
  * Callers:
  *     VfFaultsSetParameters @ 0x140710F7C (VfFaultsSetParameters.c)
  *     VerifierInitSystem @ 0x1407B9E08 (VerifierInitSystem.c)

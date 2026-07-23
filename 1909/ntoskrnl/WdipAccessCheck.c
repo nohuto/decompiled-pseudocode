@@ -30,7 +30,7 @@ __int64 WdipAccessCheck()
   ACL *v8; // r14
   GENERIC_MAPPING GenericMapping; // [rsp+50h] [rbp-30h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+60h] [rbp-20h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+30h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+30h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+B8h] [rbp+38h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;

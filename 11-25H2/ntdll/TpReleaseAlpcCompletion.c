@@ -11,43 +11,38 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TpReleaseAlpcCompletion(__int64 a1)
+void __cdecl TpReleaseAlpcCompletion(PTP_ALPC Alpc)
 {
-  __int64 result; // rax
-  __int64 v3; // rdx
-  __int64 (__fastcall *v4)(__int64); // rax
-  __int64 v5; // rcx
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v2; // rdx
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  _TPP_CLEANUP_GROUP_MEMBER *p_CleanupGroupMember; // rcx
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
-  result = TppAlpcpValidateAlpc(a1, 1LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppAlpcpValidateAlpc(Alpc, 1LL, 0LL) )
   {
-    result = TppCleanupGroupMemberRelease(a1 + 72, 1LL);
-    if ( (_DWORD)result )
+    if ( (unsigned int)TppCleanupGroupMemberRelease(&Alpc->CleanupGroupMember, 1LL) )
     {
-      *(_QWORD *)(a1 + 256) = retaddr;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 72), 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
+      Alpc->CleanupGroupMember.ReleaseCaller.ReturnAddress = retaddr;
+      if ( _InterlockedExchangeAdd(&Alpc->CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
       {
-        v4 = **(__int64 (__fastcall ***)(__int64))(a1 + 80);
-        if ( (char *)v4 == (char *)TppSimplepFree )
+        Free = Alpc->CleanupGroupMember.VFuncs->Free;
+        if ( (char *)Free == (char *)TppSimplepFree )
         {
-          return TppSimplepFree(a1 + 72, v3);
+          TppSimplepFree(&Alpc->CleanupGroupMember, v2);
         }
-        else if ( (char *)v4 == (char *)TppAlpcpFree )
+        else if ( (char *)Free == (char *)TppAlpcpFree )
         {
-          return TppAlpcpFree((_QWORD *)(a1 + 72));
+          TppAlpcpFree(&Alpc->CleanupGroupMember.Refcount.Refcount);
         }
         else
         {
-          v5 = a1 + 72;
-          if ( v4 == TppWorkpFree )
-            return TppWorkpFree(v5);
+          p_CleanupGroupMember = &Alpc->CleanupGroupMember;
+          if ( (char *)Free == (char *)TppWorkpFree )
+            TppWorkpFree(p_CleanupGroupMember);
           else
-            return v4(v5);
+            Free(p_CleanupGroupMember);
         }
       }
     }
   }
-  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of IoValidateDeviceIoControlAccess @ 0x1404D8410
+ * XREFs of IoValidateDeviceIoControlAccess @ 0x1404D1BE0
  * Callers:
  *     <none>
  * Callees:

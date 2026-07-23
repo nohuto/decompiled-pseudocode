@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetThreadAffinity @ 0x1403C34E0
+ * XREFs of MiSetThreadAffinity @ 0x1403CD3E0
  * Callers:
- *     MiThreadWorker @ 0x1403C32F0 (MiThreadWorker.c)
+ *     MiThreadWorker @ 0x1403CD1F0 (MiThreadWorker.c)
  * Callees:
- *     MiSetIdealProcessorThread @ 0x14020445C (MiSetIdealProcessorThread.c)
- *     MiReferenceAccelerator @ 0x140507D64 (MiReferenceAccelerator.c)
+ *     MiSetIdealProcessorThread @ 0x14020453C (MiSetIdealProcessorThread.c)
+ *     MiReferenceAccelerator @ 0x140501738 (MiReferenceAccelerator.c)
  */
 
 __int64 __fastcall MiSetThreadAffinity(__int64 a1, __int64 a2)

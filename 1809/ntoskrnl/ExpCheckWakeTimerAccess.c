@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCheckWakeTimerAccess @ 0x14071EAAC
+ * XREFs of ExpCheckWakeTimerAccess @ 0x14071FD4C
  * Callers:
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
- *     ExpCheckIRTimerAccess @ 0x1406CFBAC (ExpCheckIRTimerAccess.c)
+ *     ExpCheckIRTimerAccess @ 0x1406D0E4C (ExpCheckIRTimerAccess.c)
  * Callees:
  *     SeAccessCheckWithHint @ 0x1400157C0 (SeAccessCheckWithHint.c)
- *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x1405E17F0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall ExpCheckWakeTimerAccess(char a1)

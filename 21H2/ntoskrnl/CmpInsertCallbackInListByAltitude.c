@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInsertCallbackInListByAltitude @ 0x14069D58C
+ * XREFs of CmpInsertCallbackInListByAltitude @ 0x1405FC65C
  * Callers:
- *     CmpRegisterCallbackInternal @ 0x14069D488 (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x1405FC558 (CmpRegisterCallbackInternal.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlCompareAltitudes @ 0x1402BAD10 (RtlCompareAltitudes.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     RtlCompareAltitudes @ 0x140238F20 (RtlCompareAltitudes.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 __int64 __fastcall CmpInsertCallbackInListByAltitude(__int64 a1, char a2)
@@ -17,6 +17,9 @@ __int64 __fastcall CmpInsertCallbackInListByAltitude(__int64 a1, char a2)
   LONG v7; // eax
   __int64 *v8; // rax
   __int64 v9; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0;
@@ -59,6 +62,6 @@ LABEL_12:
   _InterlockedIncrement(&CmpCallBackCount);
 LABEL_8:
   ExReleasePushLockEx((ULONG_PTR)&CmpCallbackListLock, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
   return v3;
 }

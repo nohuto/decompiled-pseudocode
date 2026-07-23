@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlUnicodeStringCopy @ 0x140206CD0
+ * XREFs of RtlUnicodeStringCopy @ 0x1402AB600
  * Callers:
- *     SleepstudyHelperSetBlockerFriendlyName @ 0x1402CC4E0 (SleepstudyHelperSetBlockerFriendlyName.c)
- *     SshpCopyDataEntry @ 0x14057FBF0 (SshpCopyDataEntry.c)
+ *     SleepstudyHelperSetBlockerFriendlyName @ 0x14024AB40 (SleepstudyHelperSetBlockerFriendlyName.c)
+ *     SshpCopyDataEntry @ 0x14057FE30 (SshpCopyDataEntry.c)
  *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
- *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoWritethroughReparse @ 0x140655080 (CmpDoWritethroughReparse.c)
- *     PopUnicodeStringDeepCopy @ 0x1406C1BA0 (PopUnicodeStringDeepCopy.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406C25F4 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpLinkHiveToMaster @ 0x14071E230 (CmpLinkHiveToMaster.c)
- *     MiConstructNonRetpolineImageLoadRecord @ 0x1407D02FC (MiConstructNonRetpolineImageLoadRecord.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C28 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     PopCloneUnicodeString @ 0x1408E1148 (PopCloneUnicodeString.c)
- *     AslpPathWildcardAllocMatchNode @ 0x140969C60 (AslpPathWildcardAllocMatchNode.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406212B4 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpDoWritethroughReparse @ 0x140649EA0 (CmpDoWritethroughReparse.c)
+ *     PopUnicodeStringDeepCopy @ 0x140671F50 (PopUnicodeStringDeepCopy.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1406DE1D0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpLinkHiveToMaster @ 0x1406F8338 (CmpLinkHiveToMaster.c)
+ *     MiConstructNonRetpolineImageLoadRecord @ 0x1407D046C (MiConstructNonRetpolineImageLoadRecord.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870D88 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     PopCloneUnicodeString @ 0x1408E12A8 (PopCloneUnicodeString.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140969E40 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_0 @ 0x140206D9C (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1402AB6CC (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCopy(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)

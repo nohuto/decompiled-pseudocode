@@ -1,10 +1,10 @@
 /*
- * XREFs of PsUnregisterSyscallProvider @ 0x1407ED5B0
+ * XREFs of PsUnregisterSyscallProvider @ 0x1407F3110
  * Callers:
  *     <none>
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     PspDereferenceSyscallProvider @ 0x140614630 (PspDereferenceSyscallProvider.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     PspDereferenceSyscallProvider @ 0x140617470 (PspDereferenceSyscallProvider.c)
  */
 
 __int64 __fastcall PsUnregisterSyscallProvider(struct _EX_RUNDOWN_REF *a1)

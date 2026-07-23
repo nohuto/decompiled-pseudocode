@@ -1,8 +1,8 @@
 /*
- * XREFs of IsValueSizeFixed @ 0x140A6416C
+ * XREFs of IsValueSizeFixed @ 0x140A7113C
  * Callers:
- *     LocalGetConditionForString @ 0x140A634C4 (LocalGetConditionForString.c)
- *     GetOperandValue @ 0x140A64000 (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x140A70494 (LocalGetConditionForString.c)
+ *     GetOperandValue @ 0x140A70FD0 (GetOperandValue.c)
  * Callees:
  *     <none>
  */

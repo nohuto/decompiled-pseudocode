@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBuildDeviceNotifyListWatchdog @ 0x140B5F790
+ * XREFs of PopBuildDeviceNotifyListWatchdog @ 0x140B61810
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PnpBugcheckPowerTimeout @ 0x1405A59E4 (PnpBugcheckPowerTimeout.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PnpBugcheckPowerTimeout @ 0x1405A2924 (PnpBugcheckPowerTimeout.c)
  */
 
 void __fastcall __noreturn PopBuildDeviceNotifyListWatchdog(

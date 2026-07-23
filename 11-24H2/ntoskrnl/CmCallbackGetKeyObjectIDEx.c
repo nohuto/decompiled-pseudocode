@@ -1,23 +1,23 @@
 /*
- * XREFs of CmCallbackGetKeyObjectIDEx @ 0x14087C350
+ * XREFs of CmCallbackGetKeyObjectIDEx @ 0x140880200
  * Callers:
  *     <none>
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpConstructNameFromKeyNodes @ 0x140875170 (CmpConstructNameFromKeyNodes.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x14087C7CC (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpLockKcbShared @ 0x140BB9A1C (CmpLockKcbShared.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1408794A0 (CmpConstructNameFromKeyNodes.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x14088067C (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpLockKcbShared @ 0x140BBBA1C (CmpLockKcbShared.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, __int64 a3, __int64 *a4, int a5)
@@ -31,50 +31,51 @@ __int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, __int64 a3
   struct _PRIVILEGE_SET *v12; // rdx
   __int64 v13; // r8
   __int64 v14; // r9
+  int v15; // esi
   __int64 Pool; // rcx
-  __int64 v16; // rsi
-  __int16 v17; // r14
-  char *v18; // r15
-  signed __int64 v19; // r12
-  char *v20; // rcx
-  char v21; // al
-  int v22; // r15d
-  char v23; // r12
-  struct _PRIVILEGE_SET *v24; // r14
-  unsigned int v25; // r13d
-  __int64 v26; // rax
+  __int64 v17; // rsi
+  __int16 v18; // r14
+  char *v19; // r15
+  signed __int64 v20; // r12
+  char *v21; // rcx
+  char v22; // al
+  int v23; // r15d
+  char v24; // r12
+  struct _PRIVILEGE_SET *v25; // r14
+  unsigned int v26; // r13d
+  __int64 v27; // rax
   __int16 j; // cx
-  PPRIVILEGE_SET v28; // rax
-  int v29; // eax
-  int v30; // edi
-  __int64 v31; // r15
-  ULONG_PTR *v32; // rdi
-  signed __int64 v33; // r14
-  ULONG_PTR *v34; // rcx
+  PPRIVILEGE_SET v29; // rax
+  int v30; // eax
+  int v31; // edi
+  __int64 v32; // r15
+  ULONG_PTR *v33; // rdi
+  signed __int64 v34; // r14
+  ULONG_PTR *v35; // rcx
   __int64 i; // rcx
-  struct _PRIVILEGE_SET *v37; // rdx
-  __int128 v38; // [rsp+28h] [rbp-81h] BYREF
-  PPRIVILEGE_SET v39[2]; // [rsp+38h] [rbp-71h]
-  __int64 v40; // [rsp+48h] [rbp-61h] BYREF
-  __int128 v41; // [rsp+50h] [rbp-59h] BYREF
+  struct _PRIVILEGE_SET *v38; // rdx
+  __int128 v39; // [rsp+28h] [rbp-81h] BYREF
+  PPRIVILEGE_SET v40[2]; // [rsp+38h] [rbp-71h]
+  __int64 v41; // [rsp+48h] [rbp-61h] BYREF
+  __int128 v42; // [rsp+50h] [rbp-59h] BYREF
   PPRIVILEGE_SET Privileges[2]; // [rsp+60h] [rbp-49h]
-  __int64 *v43; // [rsp+70h] [rbp-39h]
-  __int128 v44; // [rsp+78h] [rbp-31h] BYREF
-  __int64 v45; // [rsp+88h] [rbp-21h]
+  __int64 *v44; // [rsp+70h] [rbp-39h]
+  __int128 v45; // [rsp+78h] [rbp-31h] BYREF
+  __int64 v46; // [rsp+88h] [rbp-21h]
   struct _KAPC_STATE ApcState; // [rsp+90h] [rbp-19h] BYREF
 
-  v43 = a4;
+  v44 = a4;
+  v46 = 0LL;
   v45 = 0LL;
-  v44 = 0LL;
   memset(&ApcState, 0, sizeof(ApcState));
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v44);
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v45);
   v9 = 0;
-  v38 = 0LL;
-  *(_OWORD *)v39 = 0LL;
+  v39 = 0LL;
+  *(_OWORD *)v40 = 0LL;
   if ( !a2 || *(_DWORD *)a2 != 1803104306 || !v8 || a5 )
   {
 LABEL_51:
-    v25 = -1073741811;
+    v26 = -1073741811;
     goto LABEL_47;
   }
   v10 = *(_QWORD *)(a2 + 8);
@@ -86,177 +87,179 @@ LABEL_51:
     {
       CmpAttachToRegistryProcess(&ApcState);
       CmpLockRegistry(v11);
+      v15 = *(__int16 *)(v10 + 66);
       Pool = 0LL;
-      if ( *(__int16 *)(v10 + 66) >= 2 )
+      if ( v15 >= 2 )
       {
-        Pool = CmpAllocatePool(0x100uLL);
+        Pool = CmpAllocatePool(0x100uLL, 8LL * (unsigned int)(v15 - 1), 0x35364D43u);
         if ( !Pool )
         {
-          v25 = -1073741670;
+          v26 = -1073741670;
 LABEL_46:
           CmpUnlockRegistry(Pool);
           CmpDetachFromRegistryProcess(&ApcState);
           goto LABEL_47;
         }
       }
-      v16 = *(__int16 *)(v10 + 66);
-      v39[1] = (PPRIVILEGE_SET)Pool;
-      WORD1(v38) = v16;
-      if ( (_WORD)v16 )
+      v17 = *(__int16 *)(v10 + 66);
+      v40[1] = (PPRIVILEGE_SET)Pool;
+      WORD1(v39) = v17;
+      if ( (_WORD)v17 )
       {
         Pool = *(_QWORD *)(v10 + 192);
         if ( !Pool )
         {
 LABEL_13:
-          v17 = 0;
-          if ( (v16 & 0x8000u) == 0LL )
+          v18 = 0;
+          if ( (v17 & 0x8000u) == 0LL )
           {
-            v18 = (char *)&v38 + 8;
-            v19 = (char *)v39[1] - ((char *)&v38 + 8) - 16;
+            v19 = (char *)&v39 + 8;
+            v20 = (char *)v40[1] - ((char *)&v39 + 8) - 16;
             do
             {
-              if ( v17 >= 2 )
-                v20 = &v18[v19];
+              if ( v18 >= 2 )
+                v21 = &v19[v20];
               else
-                v20 = v18;
-              CmpLockKcbShared(*(_QWORD *)v20);
-              ++v17;
-              v18 += 8;
+                v21 = v19;
+              CmpLockKcbShared(*(_QWORD *)v21);
+              ++v18;
+              v19 += 8;
             }
-            while ( v17 <= (__int16)v16 );
+            while ( v18 <= (__int16)v17 );
           }
           if ( !*(_QWORD *)(v10 + 80) )
           {
-            v25 = -1073741670;
+            v26 = -1073741670;
 LABEL_41:
-            if ( (v16 & 0x8000u) == 0LL )
+            if ( (v17 & 0x8000u) == 0LL )
             {
-              v32 = (ULONG_PTR *)&v38 + 1;
-              v33 = (char *)v39[1] - ((char *)&v38 + 8) - 16;
+              v33 = (ULONG_PTR *)&v39 + 1;
+              v34 = (char *)v40[1] - ((char *)&v39 + 8) - 16;
               do
               {
                 if ( v9 >= 2 )
-                  v34 = (ULONG_PTR *)((char *)v32 + v33);
+                  v35 = (ULONG_PTR *)((char *)v33 + v34);
                 else
-                  v34 = v32;
-                CmpUnlockKcb(*v34);
+                  v35 = v33;
+                CmpUnlockKcb(*v35);
                 ++v9;
-                ++v32;
+                ++v33;
               }
-              while ( v9 <= (__int16)v16 );
+              while ( v9 <= (__int16)v17 );
             }
             goto LABEL_46;
           }
-          v40 = 0LL;
           v41 = 0LL;
-          WORD1(v41) = -1;
+          v42 = 0LL;
+          WORD1(v42) = -1;
           *(_OWORD *)Privileges = 0LL;
-          v21 = CmpAcquireShutdownRundown(Pool, v12, v13, v14);
-          v22 = *(__int16 *)(v10 + 66);
-          v23 = v21;
-          v24 = 0LL;
-          v25 = -1073741670;
-          if ( v22 < 2 || (v24 = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL)) != 0LL )
+          v22 = CmpAcquireShutdownRundown(Pool, v12, v13, v14);
+          v23 = *(__int16 *)(v10 + 66);
+          v24 = v22;
+          v25 = 0LL;
+          v26 = -1073741670;
+          if ( v23 < 2
+            || (v25 = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, 8LL * (unsigned int)(v23 - 1), 0x35364D43u)) != 0LL )
           {
-            v26 = *(__int16 *)(v10 + 66);
-            LOWORD(v41) = v22;
-            Privileges[1] = v24;
-            WORD1(v41) = v26;
-            if ( (_WORD)v26 )
+            v27 = *(__int16 *)(v10 + 66);
+            LOWORD(v42) = v23;
+            Privileges[1] = v25;
+            WORD1(v42) = v27;
+            if ( (_WORD)v27 )
             {
-              for ( i = *(_QWORD *)(v10 + 192); i; LOWORD(v26) = v26 - 1 )
+              for ( i = *(_QWORD *)(v10 + 192); i; LOWORD(v27) = v27 - 1 )
               {
-                v37 = *(struct _PRIVILEGE_SET **)(i + 16);
-                if ( (__int16)v26 >= 2 )
+                v38 = *(struct _PRIVILEGE_SET **)(i + 16);
+                if ( (__int16)v27 >= 2 )
                 {
-                  *((_QWORD *)v24 + (__int16)v26 - 2) = v37;
+                  *((_QWORD *)v25 + (__int16)v27 - 2) = v38;
                 }
                 else
                 {
-                  Privileges[(__int16)v26 - 1] = v37;
-                  v24 = Privileges[1];
+                  Privileges[(__int16)v27 - 1] = v38;
+                  v25 = Privileges[1];
                 }
                 i = *(_QWORD *)(i + 24);
               }
             }
             else
             {
-              Privileges[v26 - 1] = (PPRIVILEGE_SET)v10;
-              v24 = Privileges[1];
+              Privileges[v27 - 1] = (PPRIVILEGE_SET)v10;
+              v25 = Privileges[1];
             }
-            if ( v23 && (*(_DWORD *)(v10 + 8) & 0x20000) == 0 )
+            if ( v24 && (*(_DWORD *)(v10 + 8) & 0x20000) == 0 )
             {
-              for ( j = WORD1(v41); j >= 0; --j )
+              for ( j = WORD1(v42); j >= 0; --j )
               {
-                v28 = j >= 2 ? (PPRIVILEGE_SET)*((_QWORD *)v24 + j - 2) : Privileges[j - 1];
-                if ( HIWORD(v28[3].Control) && BYTE1(v28[3].Control) == 1 )
+                v29 = j >= 2 ? (PPRIVILEGE_SET)*((_QWORD *)v25 + j - 2) : Privileges[j - 1];
+                if ( HIWORD(v29[3].Control) && BYTE1(v29[3].Control) == 1 )
                   break;
-                if ( v28[2].PrivilegeCount != -1 )
+                if ( v29[2].PrivilegeCount != -1 )
                 {
                   if ( *(_DWORD *)(v10 + 40) != -1 || (*(_DWORD *)(v10 + 184) & 0x40000) == 0 )
                   {
-                    v29 = CmpConstructNameFromKeyNodes((__int64)&v41, &v40);
-                    v24 = Privileges[1];
+                    v30 = CmpConstructNameFromKeyNodes((__int64)&v42, &v41);
+                    v25 = Privileges[1];
                     goto LABEL_33;
                   }
                   break;
                 }
               }
             }
-            v29 = CmpConstructNameFromKcbNameBlocks(v10, &v40);
+            v30 = CmpConstructNameFromKcbNameBlocks(v10, &v41);
 LABEL_33:
-            v30 = v29;
-            if ( v29 >= 0 )
+            v31 = v30;
+            if ( v30 >= 0 )
             {
-              v31 = v40;
-              v30 = 0;
+              v32 = v41;
+              v31 = 0;
 LABEL_35:
+              if ( v25 )
+                CmSiFreeMemory(v25);
               if ( v24 )
-                CmSiFreeMemory(v24);
-              if ( v23 )
                 CmpReleaseShutdownRundown(Pool);
-              if ( v30 >= 0 )
+              if ( v31 >= 0 )
               {
-                v25 = 0;
-                *v43 = v31;
+                v26 = 0;
+                *v44 = v32;
               }
               goto LABEL_41;
             }
           }
           else
           {
-            v24 = Privileges[1];
-            v30 = -1073741670;
+            v25 = Privileges[1];
+            v31 = -1073741670;
           }
-          v31 = 0LL;
+          v32 = 0LL;
           goto LABEL_35;
         }
         do
         {
           v12 = *(struct _PRIVILEGE_SET **)(Pool + 16);
-          v13 = (__int16)v16;
-          if ( (__int16)v16 >= 2 )
-            *((_QWORD *)v39[1] + (__int16)v16 - 2) = v12;
+          v13 = (__int16)v17;
+          if ( (__int16)v17 >= 2 )
+            *((_QWORD *)v40[1] + (__int16)v17 - 2) = v12;
           else
-            v39[(__int16)v16 - 1] = v12;
+            v40[(__int16)v17 - 1] = v12;
           Pool = *(_QWORD *)(Pool + 24);
-          LOWORD(v16) = v16 - 1;
+          LOWORD(v17) = v17 - 1;
         }
         while ( Pool );
       }
       else
       {
-        v39[v16 - 1] = (PPRIVILEGE_SET)v10;
+        v40[v17 - 1] = (PPRIVILEGE_SET)v10;
       }
-      LOWORD(v16) = WORD1(v38);
+      LOWORD(v17) = WORD1(v39);
       goto LABEL_13;
     }
     goto LABEL_51;
   }
-  v25 = 0;
+  v26 = 0;
 LABEL_47:
-  if ( v39[1] )
-    CmSiFreeMemory(v39[1]);
-  CmpCleanupThreadInfo((_KAFFINITY_EX **)&v44);
-  return v25;
+  if ( v40[1] )
+    CmSiFreeMemory(v40[1]);
+  CmpCleanupThreadInfo((_KAFFINITY_EX **)&v45);
+  return v26;
 }

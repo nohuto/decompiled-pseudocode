@@ -15,28 +15,24 @@
  *     TppRaiseInvalidParameter @ 0x18010AED8 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TppAllocAlpcCompletion(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6)
+__int64 __fastcall TppAllocAlpcCompletion(_PEB_LDR_DATA *Ldr, void *a2, __int64 a3, int a4, __int64 a5, char a6)
 {
   _PEB_LDR_DATA *v8; // r13
   int v9; // ebx
-  __int64 Heap; // rax
-  __int64 v11; // rdi
-  _QWORD *v12; // r14
+  char *Heap; // rax
+  char *v11; // rdi
+  __int64 v12; // r14
   __int64 v13; // rdx
-  int v14; // ebx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  _PEB_LDR_DATA *v17; // rcx
-  _BYTE *v18; // rbx
-  _DWORD *v19; // rsi
-  __int64 v20; // rsi
-  int v22; // [rsp+30h] [rbp-48h]
-  _QWORD v23[3]; // [rsp+38h] [rbp-40h] BYREF
+  NTSTATUS v14; // ebx
+  _PEB_LDR_DATA *v15; // rcx
+  char *v16; // rbx
+  _DWORD *v17; // rsi
+  __int64 v18; // rsi
+  int v20; // [rsp+30h] [rbp-48h]
+  _QWORD PortInformation[3]; // [rsp+38h] [rbp-40h] BYREF
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h]
-  __int64 v25; // [rsp+80h] [rbp+8h]
-  int v26; // [rsp+98h] [rbp+20h]
+  char *BaseAddress; // [rsp+80h] [rbp+8h]
 
-  v26 = a4;
   v8 = Ldr;
   if ( a5 )
     v9 = *(_DWORD *)(a5 + 56);
@@ -44,74 +40,74 @@ __int64 __fastcall TppAllocAlpcCompletion(_PEB_LDR_DATA *Ldr, __int64 a2, __int6
     v9 = 0;
   if ( !Ldr || !a3 || !a2 || (v9 & 0xFFFFFFFC) != 0 || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
   {
-    TppRaiseInvalidParameter(Ldr, a2, a3, a4);
+    TppRaiseInvalidParameter(Ldr, a2);
     return 3221225485LL;
   }
   *(_QWORD *)&v8->Length = 0LL;
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x80000) | 8u, 296LL);
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x80000) | 8, 0x128uLL);
   v11 = Heap;
-  v25 = Heap;
+  BaseAddress = Heap;
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 248) = retaddr;
-    v12 = (_QWORD *)(Heap + 72);
-    v14 = TppCleanupGroupMemberInitialize((int)Heap + 72, v26, a5, v9, (__int64)TppAlpcpCleanupGroupMemberVFuncs);
-    v22 = v14;
+    *((_QWORD *)Heap + 31) = retaddr;
+    v12 = (__int64)(Heap + 72);
+    v14 = TppCleanupGroupMemberInitialize((int)Heap + 72, a4, a5, v9, (__int64)TppAlpcpCleanupGroupMemberVFuncs);
+    v20 = v14;
     if ( v14 >= 0 )
     {
-      *(_QWORD *)(v11 + 152) = a3;
-      *(_DWORD *)(v11 + 288) &= ~1u;
-      *(_DWORD *)(v11 + 288) |= a6 != 0;
-      *(_QWORD *)(v11 + 272) = a2;
-      v17 = *(_PEB_LDR_DATA **)(v11 + 216);
-      *(_QWORD *)(v11 + 56) = TppAlpcpExecuteCallback;
-      v18 = (_BYTE *)(v11 + 68);
-      v19 = (_DWORD *)(v11 + 64);
-      if ( v17 )
+      *((_QWORD *)v11 + 19) = a3;
+      *((_DWORD *)v11 + 72) &= ~1u;
+      *((_DWORD *)v11 + 72) |= a6 != 0;
+      *((_QWORD *)v11 + 34) = a2;
+      v15 = (_PEB_LDR_DATA *)*((_QWORD *)v11 + 27);
+      *((_QWORD *)v11 + 7) = TppAlpcpExecuteCallback;
+      v16 = v11 + 68;
+      v17 = v11 + 64;
+      if ( v15 )
       {
-        TppGetCurrentThreadNumaNode(v17, v11 + 64, v11 + 68);
+        TppGetCurrentThreadNumaNode(v15, v11 + 64, v11 + 68);
       }
       else
       {
-        *v19 = 0;
-        *v18 = 0;
+        *v17 = 0;
+        *v16 = 0;
       }
-      *(_QWORD *)(v11 + 32) = 0LL;
-      *(_QWORD *)(v11 + 48) = v11 + 40;
-      *(_QWORD *)(v11 + 40) = v11 + 40;
+      *((_QWORD *)v11 + 4) = 0LL;
+      *((_QWORD *)v11 + 6) = v11 + 40;
+      *((_QWORD *)v11 + 5) = v11 + 40;
       *(_QWORD *)v11 = TppDirectTaskVFuncs;
-      *(_DWORD *)(v11 + 8) = *v19;
-      *(_BYTE *)(v11 + 12) = *v18;
-      v20 = *(_QWORD *)(v11 + 216);
-      if ( v20 )
+      *((_DWORD *)v11 + 2) = *v17;
+      v11[12] = *v16;
+      v18 = *((_QWORD *)v11 + 27);
+      if ( v18 )
       {
-        v17 = NtCurrentPeb()->Ldr;
-        if ( !v17->ShutdownInProgress )
+        v15 = NtCurrentPeb()->Ldr;
+        if ( !v15->ShutdownInProgress )
         {
-          v23[1] = *(_QWORD *)(v20 + 64);
-          v11 = v25;
-          v23[0] = v25;
-          v14 = NtAlpcSetInformation(a2, 2LL, v23);
+          PortInformation[1] = *(_QWORD *)(v18 + 64);
+          v11 = BaseAddress;
+          PortInformation[0] = BaseAddress;
+          v14 = NtAlpcSetInformation(a2, AlpcAssociateCompletionPortInformation, PortInformation, 0x10u);
           if ( v14 >= 0 )
           {
-            TpAdjustBindingCount(v20, 1u);
+            TpAdjustBindingCount(v18, 1u);
             v14 = 0;
           }
           goto LABEL_16;
         }
-        v11 = v25;
+        v11 = BaseAddress;
       }
-      TppRaiseInvalidParameter(v17, v13, v15, v16);
+      TppRaiseInvalidParameter(v15, v13);
       v14 = -1073741811;
 LABEL_16:
-      v22 = v14;
+      v20 = v14;
       if ( v14 >= 0 )
       {
         v14 = 0;
-        v22 = 0;
+        v20 = 0;
         if ( a5 )
-          v12[4] = *(_QWORD *)(a5 + 48);
-        if ( v12[2] )
+          *(_QWORD *)(v12 + 32) = *(_QWORD *)(a5 + 48);
+        if ( *(_QWORD *)(v12 + 16) )
           TppCleanupGroupAddMember(v12);
       }
       if ( v14 < 0 )
@@ -121,15 +117,15 @@ LABEL_16:
   else
   {
     v14 = -1073741801;
-    v22 = -1073741801;
+    v20 = -1073741801;
   }
   if ( v14 >= 0 )
     goto LABEL_30;
   if ( v11 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x80000), v25);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x80000, BaseAddress);
     v11 = 0LL;
-    v14 = v22;
+    v14 = v20;
   }
   if ( v14 >= 0 )
 LABEL_30:

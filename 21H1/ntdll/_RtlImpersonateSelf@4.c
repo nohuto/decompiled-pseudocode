@@ -6,7 +6,7 @@
  *     _RtlImpersonateSelfEx@12 @ 0x4B2EBF70 (_RtlImpersonateSelfEx@12.c)
  */
 
-int __stdcall RtlImpersonateSelf(int a1)
+NTSTATUS __cdecl RtlImpersonateSelf(SECURITY_IMPERSONATION_LEVEL ImpersonationLevel)
 {
-  return RtlImpersonateSelfEx(a1, 0, 0);
+  return RtlImpersonateSelfEx(ImpersonationLevel, 0, 0);
 }

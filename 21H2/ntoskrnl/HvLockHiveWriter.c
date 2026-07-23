@@ -1,15 +1,15 @@
 /*
- * XREFs of HvLockHiveWriter @ 0x140720A9C
+ * XREFs of HvLockHiveWriter @ 0x1406F7F10
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
- *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
- *     CmpTransMgrPrepare @ 0x140768D04 (CmpTransMgrPrepare.c)
- *     CmpCreateHiveRootCell @ 0x14078DBF0 (CmpCreateHiveRootCell.c)
- *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     CmpInitCmRM @ 0x1406C46C8 (CmpInitCmRM.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
+ *     CmpReorganizeHive @ 0x1406F7F2C (CmpReorganizeHive.c)
+ *     CmpTransMgrPrepare @ 0x140768EC4 (CmpTransMgrPrepare.c)
+ *     CmpCreateHiveRootCell @ 0x14078DDB0 (CmpCreateHiveRootCell.c)
+ *     CmpRefreshHive @ 0x14087D558 (CmpRefreshHive.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall HvLockHiveWriter(__int64 a1)

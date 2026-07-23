@@ -1,76 +1,116 @@
 /*
- * XREFs of PpmReapplyPerfPolicy @ 0x140A9D088
+ * XREFs of PpmReapplyPerfPolicy @ 0x140AD8B10
  * Callers:
- *     PpmPerfProcCapFloorSettingCallback @ 0x1407D6210 (PpmPerfProcCapFloorSettingCallback.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140945E50 (PpmCompareAndApplyPolicySettings.c)
- *     PpmDisableProfile @ 0x140A9C784 (PpmDisableProfile.c)
- *     PpmInfoApplySettingUpdate @ 0x140A9C928 (PpmInfoApplySettingUpdate.c)
- *     PpmReinitializeHeteroEngine @ 0x140A9CE8C (PpmReinitializeHeteroEngine.c)
- *     PpmUpdatePerfStates @ 0x140A9CEE0 (PpmUpdatePerfStates.c)
+ *     PpmPerfProcCapFloorSettingCallback @ 0x1407D93C0 (PpmPerfProcCapFloorSettingCallback.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x1409C17C0 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmDisableProfile @ 0x140AD85C4 (PpmDisableProfile.c)
+ *     PpmInfoApplySettingUpdate @ 0x140AD873C (PpmInfoApplySettingUpdate.c)
+ *     PpmReinitializeHeteroEngine @ 0x140AD89F8 (PpmReinitializeHeteroEngine.c)
+ *     PpmUpdatePerfStates @ 0x140AD8A50 (PpmUpdatePerfStates.c)
  * Callees:
- *     PpmHeteroHgsCheckContainmentDecision @ 0x1402589C8 (PpmHeteroHgsCheckContainmentDecision.c)
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmCheckApplyParkConstraints @ 0x1404BBD54 (PpmCheckApplyParkConstraints.c)
- *     PpmCheckInitProcessors @ 0x140A9CBF0 (PpmCheckInitProcessors.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140A9D254 (PpmPerfUpdateDomainPolicy.c)
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
- *     PpmUpdateProcessorPolicy @ 0x140A9D7C8 (PpmUpdateProcessorPolicy.c)
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
- *     PpmPerfResizeHistoryAll @ 0x140B40594 (PpmPerfResizeHistoryAll.c)
+ *     PpmHeteroHgsCheckContainmentDecision @ 0x14025A1A8 (PpmHeteroHgsCheckContainmentDecision.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmCheckApplyParkConstraints @ 0x1404B5534 (PpmCheckApplyParkConstraints.c)
+ *     Feature_ReinitWpsMinEfficiency__private_IsEnabledDeviceUsageNoInline @ 0x14060D314 (Feature_ReinitWpsMinEfficiency__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmHeteroReinitializeWpsProcessors @ 0x1407DA9A8 (PpmHeteroReinitializeWpsProcessors.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AD8DD8 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmCheckInitProcessors @ 0x140AEB890 (PpmCheckInitProcessors.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
+ *     PpmUpdateProcessorPolicy @ 0x140AF0768 (PpmUpdateProcessorPolicy.c)
+ *     PpmPerfResizeHistoryAll @ 0x140B425A0 (PpmPerfResizeHistoryAll.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  */
 
-LONG __fastcall PpmReapplyPerfPolicy(LONG *a1)
+LONG __fastcall PpmReapplyPerfPolicy(int *a1)
 {
-  __int64 *v1; // rdi
-  unsigned __int64 v3; // rsi
-  char v4; // bp
-  unsigned int v5; // ecx
-  __int64 v6; // rcx
-  char v7; // al
-  __int64 v8; // rdx
+  char *v1; // rsi
+  __int64 v3; // rbp
+  char v4; // r14
+  char v5; // di
+  unsigned int v6; // ecx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 v9; // rcx
-  unsigned int v10; // r8d
-  char v11; // di
-  char v12; // si
+  int v10; // edx
+  int v11; // eax
+  unsigned __int8 v12; // al
+  int v13; // edx
+  __int16 v14; // cx
+  int v15; // eax
+  unsigned int v16; // edx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  char v20; // di
+  char v21; // si
   LONG result; // eax
-  unsigned int v14; // edx
 
-  v1 = PpmCurrentProfile;
-  v3 = 89LL * dword_140F106CC;
+  v1 = (char *)PpmCurrentProfile;
+  v3 = 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v4 = 0;
-  v5 = PpmCurrentProfile[v3 + 89];
-  if ( v5 > 4 )
-    v5 = 0;
-  if ( v5 != PpmHeteroDesiredPolicy )
+  v5 = 0;
+  v6 = *(_DWORD *)((char *)PpmCurrentProfile + v3 + 712);
+  if ( v6 > 4 )
+    v6 = 0;
+  if ( v6 != PpmHeteroDesiredPolicy )
   {
-    PpmHeteroDesiredPolicy = v5;
+    PpmHeteroDesiredPolicy = v6;
     if ( ((PopHeteroSystem - 1) & 0xFFFFFFFA) != 0 )
-      v5 = 0;
-    if ( v5 != PpmHeteroPolicy )
+      v6 = 0;
+    if ( v6 != PpmHeteroPolicy )
     {
-      PpmHeteroPolicy = v5;
+      PpmHeteroPolicy = v6;
       *a1 |= 0x4800u;
     }
   }
+  if ( (unsigned int)Feature_ReinitWpsMinEfficiency__private_IsEnabledDeviceUsageNoInline() )
+  {
+    v11 = *a1;
+    if ( (*a1 & 0x800) != 0 )
+    {
+      LOBYTE(v8) = 1;
+      PopInitializeHeteroProcessors(v8, 0LL);
+    }
+    else
+    {
+      LOBYTE(v7) = 0;
+      if ( (v11 & 0x10000) != 0 )
+      {
+        v12 = PpmHeteroReinitializeWpsProcessors();
+        v7 = v12;
+        v11 = *a1 ^ ((unsigned __int8)*a1 ^ (unsigned __int8)(4 * v12)) & 4;
+        *a1 = v11;
+      }
+      if ( (v11 & 0x1000) == 0 || !(unsigned __int8)PopInitializeHeteroProcessors(0LL, v7) )
+        goto LABEL_24;
+    }
+    v10 = *a1;
+LABEL_21:
+    v13 = v10 | 0x2008;
+    v4 = 1;
+    v14 = v13;
+    v15 = v13 | 2;
+    v16 = v13 & 0xFFFFFFFD;
+    if ( (v14 & 0x8000) == 0 )
+      v16 = v15;
+    *a1 = v16 | 4;
+    goto LABEL_24;
+  }
   if ( (*a1 & 0x1800) != 0 )
   {
-    v6 = (unsigned int)*a1 >> 11;
-    LOBYTE(v6) = (*a1 & 0x800) != 0;
-    v7 = PopInitializeHeteroProcessors(v6);
-    if ( (*a1 & 0x800) != 0 || v7 )
-    {
-      v4 = 1;
-      v14 = *a1 & 0xFFFFDFF5 | 0x2008;
-      if ( (*(_WORD *)a1 & 0x8000) == 0 )
-        v14 = *a1 | 0x200A;
-      *a1 = v14 | 4;
-    }
+    v9 = (unsigned int)*a1 >> 11;
+    LOBYTE(v9) = (*a1 & 0x800) != 0;
+    v5 = PopInitializeHeteroProcessors(v9, 0LL);
   }
-  if ( HIDWORD(v1[v3 + 91]) != PpmHeteroContainmentPolicy )
+  v10 = *a1;
+  if ( (*a1 & 0x800) != 0 || v5 )
+    goto LABEL_21;
+LABEL_24:
+  if ( *(_DWORD *)&v1[v3 + 732] != PpmHeteroContainmentPolicy )
   {
-    PpmHeteroContainmentPolicy = HIDWORD(v1[v3 + 91]);
+    PpmHeteroContainmentPolicy = *(_DWORD *)&v1[v3 + 732];
     PpmHeteroHgsCheckContainmentDecision();
   }
   PpmUpdateProcessorPolicy(a1, 0LL);
@@ -80,28 +120,28 @@ LONG __fastcall PpmReapplyPerfPolicy(LONG *a1)
     PpmPerfResizeHistoryAll();
   if ( (*a1 & 8) != 0 )
     PpmCheckReInit();
-  v11 = 1;
-  v12 = 0;
+  v20 = 1;
+  v21 = 0;
   if ( (*a1 & 2) != 0 )
   {
-    LOBYTE(v9) = v4;
-    v11 = 0;
-    v12 = 1;
-    PpmPerfUpdateDomainPolicy(v9);
+    LOBYTE(v18) = v4;
+    v20 = 0;
+    v21 = 1;
+    PpmPerfUpdateDomainPolicy(v18);
   }
   result = *a1;
   if ( (*a1 & 4) != 0 )
   {
-    if ( v12 )
-      PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v8, v10);
+    if ( v21 )
+      PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v17, v19);
     if ( (*a1 & 0x2000) != 0 )
-      return PpmCheckInitProcessors(1, ((unsigned int)*a1 >> 14) & 1);
+      return PpmCheckInitProcessors(1LL, ((unsigned int)*a1 >> 14) & 1, v19);
     else
       return PpmCheckApplyParkConstraints();
   }
-  else if ( v11 )
+  else if ( v20 )
   {
-    return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   }
   return result;
 }

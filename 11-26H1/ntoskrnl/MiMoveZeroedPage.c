@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMoveZeroedPage @ 0x14051F60C
+ * XREFs of MiMoveZeroedPage @ 0x140521CB0
  * Callers:
- *     MiBackgroundZeroPage @ 0x14045D3B4 (MiBackgroundZeroPage.c)
+ *     MiBackgroundZeroPage @ 0x140456DB4 (MiBackgroundZeroPage.c)
  * Callees:
- *     MiPageFreeToZero @ 0x14028C220 (MiPageFreeToZero.c)
- *     MiGetZeroingPfn @ 0x140433140 (MiGetZeroingPfn.c)
- *     MiHugeRangeFreeToZero @ 0x14048DD70 (MiHugeRangeFreeToZero.c)
+ *     MiPageFreeToZero @ 0x14028B780 (MiPageFreeToZero.c)
+ *     MiGetZeroingPfn @ 0x140428210 (MiGetZeroingPfn.c)
+ *     MiHugeRangeFreeToZero @ 0x1404878B0 (MiHugeRangeFreeToZero.c)
  */
 
 void __fastcall MiMoveZeroedPage(__int64 a1)

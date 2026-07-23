@@ -1,8 +1,8 @@
 /*
- * XREFs of KiInsertInterruptObjectOrdered @ 0x1401D85E4
+ * XREFs of KiInsertInterruptObjectOrdered @ 0x1401D8410
  * Callers:
- *     KiConnectInterrupt @ 0x14012D0AC (KiConnectInterrupt.c)
- *     KiConnectSecondaryInterrupt @ 0x1401D5A88 (KiConnectSecondaryInterrupt.c)
+ *     KiConnectInterrupt @ 0x14012D61C (KiConnectInterrupt.c)
+ *     KiConnectSecondaryInterrupt @ 0x1401D58B4 (KiConnectSecondaryInterrupt.c)
  * Callees:
  *     <none>
  */

@@ -1,182 +1,177 @@
 /*
- * XREFs of RtlGetPersistedStateLocation @ 0x180026620
+ * XREFs of RtlGetPersistedStateLocation @ 0x180053020
  * Callers:
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180080384 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     _GetOverlayPackageKeyForLanguage @ 0x1800B283C (_GetOverlayPackageKeyForLanguage.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1800B5AFC (RtlpGetTimeZoneInfoHandle.c)
- *     RtlpGetPersistedRegistryLocation @ 0x180119720 (RtlpGetPersistedRegistryLocation.c)
- *     LdrpAppxGetRemediationRegistryKey @ 0x1801319B0 (LdrpAppxGetRemediationRegistryKey.c)
+ *     _GetOverlayPackageKeyForLanguage @ 0x18007F0DC (_GetOverlayPackageKeyForLanguage.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x18008239C (RtlpGetTimeZoneInfoHandle.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1800CBBD4 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     RtlpGetPersistedRegistryLocation @ 0x180117950 (RtlpGetPersistedRegistryLocation.c)
+ *     LdrpAppxGetRemediationRegistryKey @ 0x18012FBE0 (LdrpAppxGetRemediationRegistryKey.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlExpandEnvironmentStrings @ 0x180085010 (RtlExpandEnvironmentStrings.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x180161F70 (NtQueryValueKey.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlExpandEnvironmentStrings @ 0x180006EC0 (RtlExpandEnvironmentStrings.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x180160330 (NtQueryValueKey.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlGetPersistedStateLocation(
-        wchar_t *String,
-        const wchar_t *a2,
-        _WORD *a3,
-        unsigned int a4,
-        void *a5,
-        unsigned int a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlGetPersistedStateLocation(
+        PCWSTR SourceID,
+        PCWSTR CustomValue,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PWCHAR TargetPath,
+        ULONG BufferLengthIn,
+        PULONG BufferLengthOut)
 {
-  __int64 Heap; // rsi
+  WCHAR *Heap; // rsi
   signed int v11; // edi
   __int64 v12; // r8
   unsigned int v13; // r8d
-  unsigned int v14; // eax
-  unsigned int v16; // ecx
+  ULONG v14; // eax
+  ULONG v16; // ecx
   size_t v17; // r8
-  _WORD *v18; // rdx
-  int v19; // eax
+  const WCHAR *v18; // rdx
+  NTSTATUS v19; // eax
   size_t v20; // rax
-  int v21; // eax
+  NTSTATUS v21; // eax
   size_t v22; // rax
   unsigned __int64 v23; // rbx
-  unsigned int v24; // edi
-  int v25; // eax
-  unsigned int v26; // ecx
-  __int64 v27; // r8
+  ULONG Length; // edi
+  NTSTATUS v25; // eax
+  ULONG v26; // ecx
+  SIZE_T v27; // r8
   HANDLE Handle; // [rsp+38h] [rbp-41h] BYREF
-  HANDLE v29; // [rsp+40h] [rbp-39h] BYREF
-  __int64 v30; // [rsp+48h] [rbp-31h] BYREF
-  __int128 v31; // [rsp+50h] [rbp-29h] BYREF
-  __int128 v32; // [rsp+60h] [rbp-19h] BYREF
-  __int128 v33; // [rsp+70h] [rbp-9h]
-  __int128 v34; // [rsp+80h] [rbp+7h]
-  unsigned int v35; // [rsp+E0h] [rbp+67h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-39h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+48h] [rbp-31h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+50h] [rbp-29h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-19h] BYREF
+  ULONG ResultLength; // [rsp+E0h] [rbp+67h] BYREF
 
-  *(_QWORD *)&v34 = 0LL;
-  DWORD2(v34) = 0;
   Handle = 0LL;
-  v29 = 0LL;
-  v35 = 0;
+  KeyHandle = 0LL;
+  ResultLength = 0;
   Heap = 0LL;
-  v30 = 0LL;
-  v32 = 0LL;
-  v33 = 0LL;
-  v31 = 0LL;
-  if ( a4 > 1 )
-    return 3221225713LL;
-  if ( byte_1801CE641 )
+  ReturnLength = 0LL;
+  memset(&ObjectAttributes, 0, 44);
+  ValueName = 0LL;
+  if ( (unsigned int)StateLocationType > LocationTypeFileSystem )
+    return -1073741583;
+  if ( byte_1801CD651 )
   {
     v11 = -1073741772;
     goto LABEL_4;
   }
-  LODWORD(v32) = 48;
-  *(_QWORD *)&v33 = (char *)&unk_1801732E0 + 16 * (int)a4;
-  *((_QWORD *)&v32 + 1) = 0LL;
-  DWORD2(v33) = 64;
-  v34 = 0LL;
-  v19 = NtOpenKey(&Handle, 131097LL, &v32);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)((char *)&unk_180172490 + 16 * StateLocationType);
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v19 = NtOpenKey(&Handle, 0x20019u, &ObjectAttributes);
   v11 = v19;
   if ( v19 == -1073741772 )
   {
-    byte_1801CE641 = 1;
+    byte_1801CD651 = 1;
   }
   else
   {
     if ( v19 < 0 )
       goto LABEL_9;
-    *((_QWORD *)&v31 + 1) = String;
-    if ( String )
+    ValueName.Buffer = (wchar_t *)SourceID;
+    if ( SourceID )
     {
-      v20 = 2 * wcslen(String);
+      v20 = 2 * wcslen(SourceID);
       if ( v20 >= 0xFFFE )
         LOWORD(v20) = -4;
-      LOWORD(v31) = v20;
-      WORD1(v31) = v20 + 2;
+      ValueName.Length = v20;
+      ValueName.MaximumLength = v20 + 2;
     }
-    *((_QWORD *)&v32 + 1) = Handle;
-    LODWORD(v32) = 48;
-    *(_QWORD *)&v33 = &v31;
-    DWORD2(v33) = 64;
-    v34 = 0LL;
-    v21 = NtOpenKey(&v29, 131097LL, &v32);
+    ObjectAttributes.RootDirectory = Handle;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &ValueName;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v21 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
     v11 = v21;
     if ( v21 != -1073741772 )
     {
       if ( v21 < 0 )
         goto LABEL_9;
-      *(_QWORD *)&v31 = 0LL;
-      if ( !a2 )
-        a2 = L"TargetPath";
-      *((_QWORD *)&v31 + 1) = a2;
-      if ( a2 )
+      *(_QWORD *)&ValueName.Length = 0LL;
+      if ( !CustomValue )
+        CustomValue = L"TargetPath";
+      ValueName.Buffer = (wchar_t *)CustomValue;
+      if ( CustomValue )
       {
-        v22 = 2 * wcslen(a2);
+        v22 = 2 * wcslen(CustomValue);
         if ( v22 >= 0xFFFE )
           LOWORD(v22) = -4;
-        LOWORD(v31) = v22;
-        WORD1(v31) = v22 + 2;
+        ValueName.Length = v22;
+        ValueName.MaximumLength = v22 + 2;
       }
-      v23 = a6;
-      v24 = a6 + 16;
-      if ( a6 + 16 < a6 )
+      v23 = BufferLengthIn;
+      Length = BufferLengthIn + 16;
+      if ( BufferLengthIn + 16 < BufferLengthIn )
       {
         v11 = -1073741675;
         goto LABEL_9;
       }
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v24);
+      Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, Length);
       if ( !Heap )
       {
         v11 = -1073741801;
         goto LABEL_9;
       }
-      v25 = NtQueryValueKey(v29, &v31, 2LL, Heap, v24, &v35);
+      v25 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, Length, &ResultLength);
       v11 = v25;
       if ( v25 < 0 )
       {
         if ( v25 != -2147483643 )
           goto LABEL_9;
-        v26 = *(_DWORD *)(Heap + 8);
-        v18 = (_WORD *)(Heap + 12);
-        v35 = v26;
+        v26 = *((_DWORD *)Heap + 2);
+        v18 = Heap + 6;
+        ResultLength = v26;
         goto LABEL_40;
       }
-      if ( (unsigned int)(*(_DWORD *)(Heap + 4) - 1) > 1 )
+      if ( (unsigned int)(*((_DWORD *)Heap + 1) - 1) > 1 )
       {
         v11 = -1073741788;
         goto LABEL_9;
       }
-      v18 = (_WORD *)(Heap + 12);
-      v35 = *(_DWORD *)(Heap + 8);
-      v26 = v35;
-      if ( *(_WORD *)(Heap + 12 + 2 * ((unsigned __int64)v35 >> 1) - 2) )
+      v18 = Heap + 6;
+      ResultLength = *((_DWORD *)Heap + 2);
+      v26 = ResultLength;
+      if ( Heap[((unsigned __int64)ResultLength >> 1) + 5] )
       {
-        v26 = v35 + 2;
-        v35 = v26;
+        v26 = ResultLength + 2;
+        ResultLength = v26;
         if ( (unsigned int)v23 < v26 )
         {
           v11 = -2147483643;
 LABEL_40:
-          if ( a7 )
-            *a7 = v26;
+          if ( BufferLengthOut )
+            *BufferLengthOut = v26;
           if ( v11 < 0 )
             goto LABEL_9;
           v17 = v26;
           goto LABEL_20;
         }
         v18[((unsigned __int64)v26 >> 1) - 1] = 0;
-        v26 = v35;
+        v26 = ResultLength;
       }
-      if ( *(_DWORD *)(Heap + 4) == 2 )
+      if ( *((_DWORD *)Heap + 1) == 2 )
       {
         v27 = -1LL;
         do
           ++v27;
         while ( v18[v27] );
-        v11 = RtlExpandEnvironmentStrings(0, (_DWORD)v18, v27, (_DWORD)a5, v23 >> 1, (__int64)&v30);
+        v11 = RtlExpandEnvironmentStrings(0LL, v18, v27, TargetPath, v23 >> 1, &ReturnLength);
         if ( (int)(v11 + 0x80000000) < 0 || v11 == -1073741789 )
         {
-          if ( a7 )
-            *a7 = 2 * v30;
+          if ( BufferLengthOut )
+            *BufferLengthOut = 2 * ReturnLength;
           if ( v11 == -1073741789 )
             v11 = -2147483643;
         }
@@ -186,37 +181,37 @@ LABEL_40:
     }
   }
 LABEL_4:
-  if ( a3 )
+  if ( DefaultPath )
   {
     v12 = -1LL;
     do
       ++v12;
-    while ( a3[v12] );
+    while ( DefaultPath[v12] );
     v13 = v12 + 1;
     v14 = 2 * v13;
-    v35 = 2 * v13;
+    ResultLength = 2 * v13;
     if ( 2 * v13 < v13 )
     {
       v11 = -1073741675;
       goto LABEL_9;
     }
-    v16 = a6;
-    v11 = a6 < v14 ? 0x80000005 : 0;
-    if ( a7 )
-      *a7 = v14;
+    v16 = BufferLengthIn;
+    v11 = BufferLengthIn < v14 ? 0x80000005 : 0;
+    if ( BufferLengthOut )
+      *BufferLengthOut = v14;
     if ( v14 > v16 )
       goto LABEL_9;
     v17 = v14;
-    v18 = a3;
+    v18 = DefaultPath;
 LABEL_20:
-    memmove(a5, v18, v17);
+    memmove(TargetPath, v18, v17);
   }
 LABEL_9:
   if ( Handle )
     NtClose(Handle);
-  if ( v29 )
-    NtClose(v29);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   if ( Heap )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
-  return (unsigned int)v11;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v11;
 }

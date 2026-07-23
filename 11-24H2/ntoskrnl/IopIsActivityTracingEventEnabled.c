@@ -1,11 +1,11 @@
 /*
- * XREFs of IopIsActivityTracingEventEnabled @ 0x1404B1634
+ * XREFs of IopIsActivityTracingEventEnabled @ 0x1404ABEC4
  * Callers:
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     IopInitActivityIdIrp @ 0x140454AF0 (IopInitActivityIdIrp.c)
- *     IoTransferActivityId @ 0x1404B15D0 (IoTransferActivityId.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
+ *     IopInitActivityIdIrp @ 0x140449990 (IopInitActivityIdIrp.c)
+ *     IoTransferActivityId @ 0x1404ABE60 (IoTransferActivityId.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
  */
 
 bool __fastcall IopIsActivityTracingEventEnabled(PCEVENT_DESCRIPTOR EventDescriptor)

@@ -1,19 +1,19 @@
 /*
- * XREFs of TlgRegisterAggregateProviderEx @ 0x1407A4BEC
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1407A4DEC
  * Callers:
- *     CmpRegisterTraceLoggingProvider @ 0x14079E06C (CmpRegisterTraceLoggingProvider.c)
- *     TlgRegisterAggregateProvider @ 0x1407A4BD0 (TlgRegisterAggregateProvider.c)
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x14079E26C (CmpRegisterTraceLoggingProvider.c)
+ *     TlgRegisterAggregateProvider @ 0x1407A4DD0 (TlgRegisterAggregateProvider.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ComputeFlushPeriod @ 0x1407A4D1C (ComputeFlushPeriod.c)
- *     CreateTlgAggregateSession @ 0x1407A4DC0 (CreateTlgAggregateSession.c)
- *     DestroyAggregateSession @ 0x14097FFD8 (DestroyAggregateSession.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D254 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ComputeFlushPeriod @ 0x1407A4F1C (ComputeFlushPeriod.c)
+ *     CreateTlgAggregateSession @ 0x1407A4FC0 (CreateTlgAggregateSession.c)
+ *     DestroyAggregateSession @ 0x1409801B8 (DestroyAggregateSession.c)
  */
 
 __int64 __fastcall TlgRegisterAggregateProviderEx(
@@ -25,9 +25,9 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(
   __int64 TlgAggregateSession; // rax
   unsigned __int16 *v7; // rbx
   int v8; // edi
-  __int64 v9; // rax
+  _RTL_BALANCED_NODE *v9; // rax
   signed __int8 v10; // cf
-  __int64 v11; // rdi
+  _RTL_BALANCED_NODE *v11; // rdi
   __int64 v12; // rax
   __int64 *v13; // rcx
   char v14; // al
@@ -54,23 +54,23 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(
   }
   else
   {
-    v9 = KeAbPreAcquire((ULONG_PTR)&qword_140CDB6D0, 0LL, 0);
-    v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140CDB6D0, 0LL);
+    v9 = KeAbPreAcquire((ULONG_PTR)&qword_140CDB710, 0LL, 0);
+    v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140CDB710, 0LL);
     v11 = v9;
     if ( v10 )
-      ExfAcquirePushLockExclusiveEx(&qword_140CDB6D0, v9, (ULONG_PTR)&qword_140CDB6D0);
+      ExfAcquirePushLockExclusiveEx(&qword_140CDB710, v9, (ULONG_PTR)&qword_140CDB710);
     if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
-    v12 = qword_140CF4B90;
-    if ( !qword_140CF4B90 )
+      BYTE2(v11[1].Left) |= 1u;
+    v12 = qword_140CF4BE0;
+    if ( !qword_140CF4BE0 )
     {
       TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
         (ULONGLONG *)&dword_140C047C8,
         (unsigned __int16 *)TlgAggregateInternalProviderCallback,
         0LL);
-      v12 = qword_140CF4B90;
+      v12 = qword_140CF4BE0;
     }
-    v13 = &qword_140CF4B90;
+    v13 = &qword_140CF4BE0;
     while ( v12 )
     {
       if ( *(ULONGLONG **)(v12 + 344) == CallbackContext )
@@ -80,10 +80,10 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(
     }
     *v13 = (__int64)v7;
 LABEL_14:
-    v14 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140CDB6D0, 0xFFFFFFFFFFFFFFFFuLL);
+    v14 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140CDB710, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v14 & 2) != 0 && (v14 & 4) == 0 )
-      ExfTryToWakePushLock(&qword_140CDB6D0);
-    KeAbPostRelease((ULONG_PTR)&qword_140CDB6D0);
+      ExfTryToWakePushLock(&qword_140CDB710);
+    KeAbPostRelease((ULONG_PTR)&qword_140CDB710);
     return 0LL;
   }
 }

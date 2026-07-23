@@ -5,12 +5,12 @@
  * Callees:
  *     KiRemoveThreadFromSchedulingGroup @ 0x140204C14 (KiRemoveThreadFromSchedulingGroup.c)
  *     KiUpdateThreadSchedulingProperties @ 0x140204EA0 (KiUpdateThreadSchedulingProperties.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiRemoveThreadFromSharedReadyQueue @ 0x140243BA0 (KiRemoveThreadFromSharedReadyQueue.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiEnterDeferredReadyState @ 0x1402B9190 (KiEnterDeferredReadyState.c)
- *     KiDeferredReadyThread @ 0x1402BBA60 (KiDeferredReadyThread.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x140243C70 (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiEnterDeferredReadyState @ 0x1402B9420 (KiEnterDeferredReadyState.c)
+ *     KiDeferredReadyThread @ 0x1402BBCF0 (KiDeferredReadyThread.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
  */
 
 __int64 __fastcall KiSetThreadSchedulingGroup(__int64 a1, __int64 a2)

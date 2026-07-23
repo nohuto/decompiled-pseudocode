@@ -1,7 +1,7 @@
 /*
  * XREFs of IoCreateFileSpecifyDeviceObjectHint @ 0x1406E0C70
  * Callers:
- *     DifIoCreateFileSpecifyDeviceObjectHintWrapper @ 0x14060DDE0 (DifIoCreateFileSpecifyDeviceObjectHintWrapper.c)
+ *     sub_14060DDE0 @ 0x14060DDE0 (sub_14060DDE0.c)
  * Callees:
  *     IoCreateFileEx @ 0x14066E670 (IoCreateFileEx.c)
  */

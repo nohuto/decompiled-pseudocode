@@ -1,9 +1,9 @@
 /*
- * XREFs of HalPutDmaAdapter @ 0x140504FA0
+ * XREFs of HalPutDmaAdapter @ 0x1405054F0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
  */
 
 void __stdcall HalPutDmaAdapter(PADAPTER_OBJECT DmaAdapter)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvUpdateUnreconciledVector @ 0x1404BEA20
+ * XREFs of HvUpdateUnreconciledVector @ 0x1404AA750
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     HvSyncHive @ 0x14060635C (HvSyncHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     HvSyncHive @ 0x140606410 (HvSyncHive.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     RtlMergeBitMaps @ 0x14009CD90 (RtlMergeBitMaps.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     RtlMergeBitMaps @ 0x14009C590 (RtlMergeBitMaps.c)
  */
 
-ULONG __fastcall HvUpdateUnreconciledVector(struct _RTL_BITMAP *a1, char a2)
+ULONG __fastcall HvUpdateUnreconciledVector(_RTL_BITMAP *a1, char a2)
 {
   bool v2; // zf
   __int64 p_Buffer; // rdx

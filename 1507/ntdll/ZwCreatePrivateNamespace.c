@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwCreatePrivateNamespace()
+NTSTATUS __cdecl ZwCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 172LL;
+  result = 172;
   __asm { syscall; Low latency system call }
   return result;
 }

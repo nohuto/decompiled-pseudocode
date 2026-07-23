@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeFaultVaListCore @ 0x1401718A4
+ * XREFs of MiInitializeFaultVaListCore @ 0x140171DA0
  * Callers:
- *     MmVirtualAccessFault @ 0x14065BF34 (MmVirtualAccessFault.c)
+ *     MmVirtualAccessFault @ 0x14065C018 (MmVirtualAccessFault.c)
  * Callees:
  *     <none>
  */

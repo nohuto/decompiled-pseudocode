@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpBugcheckPowerTimeout @ 0x1405D9FA4
+ * XREFs of PnpBugcheckPowerTimeout @ 0x1405DC7A4
  * Callers:
- *     PnpPowerStateTransitionWatchdogCallback @ 0x1405D9A10 (PnpPowerStateTransitionWatchdogCallback.c)
- *     PopBuildDeviceNotifyListWatchdog @ 0x140BFD6E0 (PopBuildDeviceNotifyListWatchdog.c)
+ *     PnpPowerStateTransitionWatchdogCallback @ 0x1405DC210 (PnpPowerStateTransitionWatchdogCallback.c)
+ *     PopBuildDeviceNotifyListWatchdog @ 0x140C036E0 (PopBuildDeviceNotifyListWatchdog.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PnpGetCurrentlyActiveWorkerThread @ 0x1405DA010 (PnpGetCurrentlyActiveWorkerThread.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PnpGetCurrentlyActiveWorkerThread @ 0x1405DC810 (PnpGetCurrentlyActiveWorkerThread.c)
  */
 
 void __fastcall __noreturn PnpBugcheckPowerTimeout(ULONG_PTR BugCheckParameter2)
@@ -17,8 +17,8 @@ void __fastcall __noreturn PnpBugcheckPowerTimeout(ULONG_PTR BugCheckParameter2)
 
   v1 = BugCheckParameter2;
   BugCheckParameter4[1] = (ULONG_PTR)&PnpDeviceCompletionQueue;
-  BugCheckParameter4[2] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Blink;
-  BugCheckParameter4[3] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Flink;
+  BugCheckParameter4[2] = *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[64];
+  BugCheckParameter4[3] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.WaitBlock[1].WaitListEntry.Blink;
   BugCheckParameter4[0] = 229377LL;
   v4[0] = 0LL;
   CurrentlyActiveWorkerThread = PnpGetCurrentlyActiveWorkerThread(v4);

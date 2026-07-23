@@ -6,7 +6,7 @@
  *     _NtWaitForDebugEvent@16 @ 0x4B2F4690 (_NtWaitForDebugEvent@16.c)
  */
 
-int __stdcall DbgUiWaitStateChange(int a1, int a2)
+NTSTATUS __cdecl DbgUiWaitStateChange(PDBGUI_WAIT_STATE_CHANGE StateChange, PLARGE_INTEGER Timeout)
 {
-  return NtWaitForDebugEvent((int)NtCurrentTeb()->DbgSsReserved[1], 1, a2, a1);
+  return NtWaitForDebugEvent(NtCurrentTeb()->DbgSsReserved[1], 1u, Timeout, StateChange);
 }

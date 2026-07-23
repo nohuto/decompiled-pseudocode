@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlClearBits @ 0x18008F0C0
+ * XREFs of RtlClearBits @ 0x180026A90
  * Callers:
- *     LdrpAcquireTlsIndex @ 0x180006038 (LdrpAcquireTlsIndex.c)
- *     LdrpInitializeTls @ 0x18008ECD0 (LdrpInitializeTls.c)
- *     RtlTlsFree @ 0x18008EFF0 (RtlTlsFree.c)
- *     RtlFindSetBitsAndClear @ 0x18013D0C0 (RtlFindSetBitsAndClear.c)
+ *     LdrpInitializeTls @ 0x1800266A4 (LdrpInitializeTls.c)
+ *     RtlTlsFree @ 0x1800269C0 (RtlTlsFree.c)
+ *     LdrpAcquireTlsIndex @ 0x180032A38 (LdrpAcquireTlsIndex.c)
+ *     RtlFindSetBitsAndClear @ 0x18013B2B0 (RtlFindSetBitsAndClear.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-void __fastcall RtlClearBits(__int64 a1, unsigned int a2, unsigned int a3)
+void __cdecl RtlClearBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToClear)
 {
   unsigned __int64 v3; // rbx
   __int64 v4; // rdx
@@ -17,23 +17,23 @@ void __fastcall RtlClearBits(__int64 a1, unsigned int a2, unsigned int a3)
   __int64 v6; // rsi
   char v7; // al
 
-  if ( a3 )
+  if ( NumberToClear )
   {
-    v3 = a2;
-    v4 = a2 & 7;
-    v5 = (_BYTE *)(*(_QWORD *)(a1 + 8) + (v3 >> 3));
-    v6 = a3;
-    if ( (unsigned int)v4 + a3 <= 8 )
+    v3 = StartingIndex;
+    v4 = StartingIndex & 7;
+    v5 = (char *)BitMapHeader->Buffer + (v3 >> 3);
+    v6 = NumberToClear;
+    if ( (unsigned int)v4 + NumberToClear <= 8 )
     {
-      v7 = ~(byte_180192060[a3] << v4);
+      v7 = ~(byte_180191058[NumberToClear] << v4);
 LABEL_4:
       *v5 &= v7;
       return;
     }
     if ( (_DWORD)v4 )
     {
-      v6 = (unsigned int)v4 + a3 - 8;
-      *v5++ &= byte_180192060[v4];
+      v6 = (unsigned int)v4 + NumberToClear - 8;
+      *v5++ &= byte_180191058[v4];
     }
     if ( (unsigned int)v6 > 8 )
     {
@@ -43,7 +43,7 @@ LABEL_4:
     }
     if ( (_DWORD)v6 )
     {
-      v7 = byte_180180328[v6];
+      v7 = byte_18017EB08[v6];
       goto LABEL_4;
     }
   }

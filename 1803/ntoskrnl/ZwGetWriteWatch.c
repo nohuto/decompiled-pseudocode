@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwGetWriteWatch(
         HANDLE ProcessHandle,
         ULONG Flags,
@@ -18,5 +17,5 @@ NTSTATUS __stdcall ZwGetWriteWatch(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&Flags, BaseAddress);
+  return KiServiceInternal(ProcessHandle);
 }

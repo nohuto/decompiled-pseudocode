@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetPageFromSlabAllocator @ 0x1402C2680
+ * XREFs of MiGetPageFromSlabAllocator @ 0x1402C2870
  * Callers:
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetPageFromSlabEntry @ 0x1402C2848 (MiGetPageFromSlabEntry.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402C2D3C (MiUpdateSlabPagePlaceholderState.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPageFromSlabEntry @ 0x1402C2A38 (MiGetPageFromSlabEntry.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402C2F2C (MiUpdateSlabPagePlaceholderState.c)
  */
 
 __int64 __fastcall MiGetPageFromSlabAllocator(__int64 a1)

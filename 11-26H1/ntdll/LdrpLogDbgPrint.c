@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpLogDbgPrint @ 0x18011F07C
+ * XREFs of LdrpLogDbgPrint @ 0x18011EE2C
  * Callers:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x1800DE698 (vDbgPrintExWithPrefixInternal.c)
- *     StringCbPrintfA @ 0x18011F17C (StringCbPrintfA.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x1800DB608 (vDbgPrintExWithPrefixInternal.c)
+ *     StringCbPrintfA @ 0x18011EF2C (StringCbPrintfA.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 struct _TEB *__fastcall LdrpLogDbgPrint(__int64 a1, __int64 a2, const char *a3, int a4, __int64 a5, __int64 a6)
@@ -23,8 +23,8 @@ struct _TEB *__fastcall LdrpLogDbgPrint(__int64 a1, __int64 a2, const char *a3, 
       NtCurrentTeb()->ClientId.UniqueThread,
       (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24,
       a3,
-      (&off_180172218)[2 * a4]);
-    return (struct _TEB *)vDbgPrintExWithPrefixInternal((int)pszDest, 85, 0, a5, a6, 1);
+      (&off_180171218)[2 * a4]);
+    return (struct _TEB *)vDbgPrintExWithPrefixInternal((__int64)pszDest, 0x55u, 0, a5, a6, 1);
   }
   return result;
 }

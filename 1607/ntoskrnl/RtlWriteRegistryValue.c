@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlWriteRegistryValue @ 0x1404E08E4
+ * XREFs of RtlWriteRegistryValue @ 0x1404C3EE8
  * Callers:
- *     RtlSetPortableOperatingSystem @ 0x1402135D4 (RtlSetPortableOperatingSystem.c)
- *     EtwStartAutoLogger @ 0x1404E0034 (EtwStartAutoLogger.c)
- *     WmipSecurityMethod @ 0x1404E1DBC (WmipSecurityMethod.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x140534094 (PerfDiagpSaveActiveDCLLogFileName.c)
- *     RtlpUpdateDynamicTimeZones @ 0x14055F130 (RtlpUpdateDynamicTimeZones.c)
- *     RtlSetActiveTimeBias @ 0x14055F354 (RtlSetActiveTimeBias.c)
- *     EtwpInitializeAutoLoggers @ 0x140563428 (EtwpInitializeAutoLoggers.c)
- *     EtwpEnableKeyProviders @ 0x14056366C (EtwpEnableKeyProviders.c)
- *     EtwpEnableAutoLoggerProviders @ 0x1405637E0 (EtwpEnableAutoLoggerProviders.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1406885BC (RtlpSetTimeZoneInformationWorker.c)
- *     WheapCommitPolicy @ 0x1406BAC2C (WheapCommitPolicy.c)
+ *     RtlSetPortableOperatingSystem @ 0x140213400 (RtlSetPortableOperatingSystem.c)
+ *     EtwStartAutoLogger @ 0x1404C3638 (EtwStartAutoLogger.c)
+ *     WmipSecurityMethod @ 0x1404C53C0 (WmipSecurityMethod.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x1405345D4 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x14055F670 (RtlpUpdateDynamicTimeZones.c)
+ *     RtlSetActiveTimeBias @ 0x14055F894 (RtlSetActiveTimeBias.c)
+ *     EtwpInitializeAutoLoggers @ 0x140563968 (EtwpInitializeAutoLoggers.c)
+ *     EtwpEnableKeyProviders @ 0x140563BAC (EtwpEnableKeyProviders.c)
+ *     EtwpEnableAutoLoggerProviders @ 0x140563D20 (EtwpEnableAutoLoggerProviders.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1406886A0 (RtlpSetTimeZoneInformationWorker.c)
+ *     WheapCommitPolicy @ 0x1406BAD64 (WheapCommitPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     RtlpGetRegistryHandle @ 0x1404FADEC (RtlpGetRegistryHandle.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     RtlpGetRegistryHandle @ 0x1404DDD78 (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __stdcall RtlWriteRegistryValue(

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUseSlabAllocatorForDriverPage @ 0x1402E7D54
+ * XREFs of MiUseSlabAllocatorForDriverPage @ 0x1402990A4
  * Callers:
- *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
- *     MiAllocateDriverPage @ 0x1406D1A78 (MiAllocateDriverPage.c)
+ *     MiMakeDriverPagesPrivate @ 0x140298244 (MiMakeDriverPagesPrivate.c)
+ *     MiAllocateDriverPage @ 0x1406A8D58 (MiAllocateDriverPage.c)
  * Callees:
  *     <none>
  */

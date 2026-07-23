@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpAllocateMessage @ 0x1409BCB60
+ * XREFs of AlpcpAllocateMessage @ 0x14098DB40
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x1408E7C0C (AlpcpFormatConnectionRequest.c)
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     AlpcpCreateReserve @ 0x1409BC024 (AlpcpCreateReserve.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x140A4992C (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpFormatConnectionRequest @ 0x1408EE1CC (AlpcpFormatConnectionRequest.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     AlpcpCreateReserve @ 0x14098D004 (AlpcpCreateReserve.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140A52C1C (AlpcpSendLegacySynchronousRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2, int a3)
@@ -37,20 +37,20 @@ __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2, int 
   AutoBoost *v18; // rax
   void *v19; // rdx
   AutoBoost *v20; // rbx
-  unsigned __int64 QuantumTarget; // rcx
+  char *InitialStack; // rcx
   __int64 v22; // rax
   __int64 result; // rax
-  _QWORD *SListFaultAddress; // rax
-  unsigned __int64 *v25; // rdx
-  unsigned __int64 v26; // r8
-  unsigned __int64 **v27; // rax
-  struct _LIST_ENTRY *Flink; // rax
-  __int64 v29; // r8
-  _QWORD *v30; // rax
-  void *volatile ***v31; // rdx
-  void *volatile **v32; // rax
-  void *volatile **v33; // r8
-  void *volatile *StackBase; // r8
+  _QWORD *ThreadLock; // rax
+  struct _LIST_ENTRY *v25; // rdx
+  struct _LIST_ENTRY *v26; // r8
+  struct _LIST_ENTRY *Blink; // rax
+  __int64 v28; // rax
+  char **v29; // r8
+  void **v30; // rax
+  void ****v31; // rdx
+  void ***v32; // rax
+  void **v33; // r8
+  void **QuantumTarget; // r8
 
   if ( a2 )
   {
@@ -112,7 +112,7 @@ __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2, int 
         v17 = _InterlockedIncrement(&AlpcpNextCallbackId);
       while ( !v17 );
       *(_DWORD *)(v9 + 272) = v17;
-      if ( !LODWORD(AlpcpMessageLogLock.CycleTime) )
+      if ( !AlpcpMessageLogEnabled )
         goto LABEL_30;
       v18 = (AutoBoost *)KeAbPreAcquire((__int64)&AlpcpMessageLogLock, 0LL, 0LL, v16);
       v20 = v18;
@@ -125,61 +125,61 @@ __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2, int 
         else
           *((_BYTE *)v20 + 10) = 1;
       }
-      QuantumTarget = AlpcpMessageLogLock.QuantumTarget;
-      if ( (unsigned __int64 *)AlpcpMessageLogLock.QuantumTarget == &AlpcpMessageLogLock.QuantumTarget )
+      InitialStack = (char *)AlpcpMessageLogLock.InitialStack;
+      if ( AlpcpMessageLogLock.InitialStack == &AlpcpMessageLogLock.InitialStack )
       {
-        QuantumTarget = (unsigned __int64)AlpcpMessageLogLock.Header.WaitListHead.Blink;
-        if ( (struct _LIST_ENTRY **)AlpcpMessageLogLock.Header.WaitListHead.Blink == &AlpcpMessageLogLock.Header.WaitListHead.Blink )
+        InitialStack = (char *)AlpcpMessageLogLock.StackBase;
+        if ( AlpcpMessageLogLock.StackBase == &AlpcpMessageLogLock.StackBase )
           goto LABEL_27;
-        if ( (struct _LIST_ENTRY **)AlpcpMessageLogLock.Header.WaitListHead.Blink->Blink != &AlpcpMessageLogLock.Header.WaitListHead.Blink )
+        if ( *((struct _KTHREAD **)AlpcpMessageLogLock.StackBase + 1) != (struct _KTHREAD *)&AlpcpMessageLogLock.StackBase )
           goto LABEL_35;
-        Flink = AlpcpMessageLogLock.Header.WaitListHead.Blink->Flink;
-        if ( AlpcpMessageLogLock.Header.WaitListHead.Blink->Flink->Blink != AlpcpMessageLogLock.Header.WaitListHead.Blink )
+        v28 = *(_QWORD *)AlpcpMessageLogLock.StackBase;
+        if ( *(void **)(*(_QWORD *)AlpcpMessageLogLock.StackBase + 8LL) != AlpcpMessageLogLock.StackBase )
           goto LABEL_35;
-        AlpcpMessageLogLock.Header.WaitListHead.Blink = AlpcpMessageLogLock.Header.WaitListHead.Blink->Flink;
-        Flink->Blink = (struct _LIST_ENTRY *)&AlpcpMessageLogLock.Header.WaitListHead.Blink;
-        *(_DWORD *)(QuantumTarget + 44) = 0;
-        v29 = *(_QWORD *)(QuantumTarget + 16);
-        if ( *(_QWORD *)(v29 + 8) != QuantumTarget + 16 )
+        AlpcpMessageLogLock.StackBase = *(void **)AlpcpMessageLogLock.StackBase;
+        *(_QWORD *)(v28 + 8) = &AlpcpMessageLogLock.StackBase;
+        *((_DWORD *)InitialStack + 11) = 0;
+        v29 = (char **)*((_QWORD *)InitialStack + 2);
+        if ( v29[1] != InitialStack + 16 )
           goto LABEL_35;
-        v30 = *(_QWORD **)(QuantumTarget + 24);
-        if ( *v30 != QuantumTarget + 16 )
+        v30 = (void **)*((_QWORD *)InitialStack + 3);
+        if ( *v30 != InitialStack + 16 )
           goto LABEL_35;
         *v30 = v29;
-        v31 = (void *volatile ***)(QuantumTarget + 48);
-        *(_QWORD *)(v29 + 8) = v30;
+        v31 = (void ****)(InitialStack + 48);
+        v29[1] = (char *)v30;
         while ( 1 )
         {
           v32 = *v31;
-          if ( *v31 == (void *volatile **)v31 )
+          if ( *v31 == (void ***)v31 )
             break;
-          if ( v32[1] != (void *volatile *)v31 )
+          if ( v32[1] != (void **)v31 )
             goto LABEL_35;
-          v33 = (void *volatile **)*v32;
-          if ( *((void *volatile ***)*v32 + 1) != v32 )
+          v33 = *v32;
+          if ( (*v32)[1] != v32 )
             goto LABEL_35;
-          *v31 = v33;
-          v33[1] = (void *volatile *)v31;
-          StackBase = (void *volatile *)AlpcpMessageLogLock.StackBase;
-          if ( *(struct _KTHREAD **)AlpcpMessageLogLock.StackBase != (struct _KTHREAD *)&AlpcpMessageLogLock.StackLimit )
+          *v31 = (void ***)v33;
+          v33[1] = v31;
+          QuantumTarget = (void **)AlpcpMessageLogLock.QuantumTarget;
+          if ( *(struct _KTHREAD **)AlpcpMessageLogLock.QuantumTarget != (struct _KTHREAD *)&AlpcpMessageLogLock.SListFaultAddress )
             goto LABEL_35;
-          *v32 = &AlpcpMessageLogLock.StackLimit;
-          v32[1] = StackBase;
-          *StackBase = v32;
-          AlpcpMessageLogLock.StackBase = v32;
+          *v32 = &AlpcpMessageLogLock.SListFaultAddress;
+          v32[1] = QuantumTarget;
+          *QuantumTarget = v32;
+          AlpcpMessageLogLock.QuantumTarget = (unsigned __int64)v32;
         }
       }
       else
       {
-        if ( *(struct _KTHREAD **)(AlpcpMessageLogLock.QuantumTarget + 8) != (struct _KTHREAD *)&AlpcpMessageLogLock.QuantumTarget )
+        if ( *((struct _KTHREAD **)AlpcpMessageLogLock.InitialStack + 1) != (struct _KTHREAD *)&AlpcpMessageLogLock.InitialStack )
           goto LABEL_35;
-        v22 = *(_QWORD *)AlpcpMessageLogLock.QuantumTarget;
-        if ( *(_QWORD *)(*(_QWORD *)AlpcpMessageLogLock.QuantumTarget + 8LL) != AlpcpMessageLogLock.QuantumTarget )
+        v22 = *(_QWORD *)AlpcpMessageLogLock.InitialStack;
+        if ( *(void **)(*(_QWORD *)AlpcpMessageLogLock.InitialStack + 8LL) != AlpcpMessageLogLock.InitialStack )
           goto LABEL_35;
-        AlpcpMessageLogLock.QuantumTarget = *(_QWORD *)AlpcpMessageLogLock.QuantumTarget;
-        *(_QWORD *)(v22 + 8) = &AlpcpMessageLogLock.QuantumTarget;
+        AlpcpMessageLogLock.InitialStack = *(void **)AlpcpMessageLogLock.InitialStack;
+        *(_QWORD *)(v22 + 8) = &AlpcpMessageLogLock.InitialStack;
       }
-      if ( !QuantumTarget )
+      if ( !InitialStack )
       {
 LABEL_27:
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpMessageLogLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -191,25 +191,25 @@ LABEL_30:
         *a1 = v9;
         return result;
       }
-      *(_QWORD *)(QuantumTarget + 32) = v9;
-      *(_DWORD *)(QuantumTarget + 40) = *(_DWORD *)(v9 + 264);
-      *(_DWORD *)(QuantumTarget + 44) = 1;
-      SListFaultAddress = AlpcpMessageLogLock.SListFaultAddress;
-      if ( *(struct _KTHREAD **)AlpcpMessageLogLock.SListFaultAddress == (struct _KTHREAD *)&AlpcpMessageLogLock.Header.WaitListHead.Blink )
+      *((_QWORD *)InitialStack + 4) = v9;
+      *((_DWORD *)InitialStack + 10) = *(_DWORD *)(v9 + 264);
+      *((_DWORD *)InitialStack + 11) = 1;
+      ThreadLock = (_QWORD *)AlpcpMessageLogLock.ThreadLock;
+      if ( *(struct _KTHREAD **)AlpcpMessageLogLock.ThreadLock == (struct _KTHREAD *)&AlpcpMessageLogLock.StackBase )
       {
-        *(_QWORD *)QuantumTarget = &AlpcpMessageLogLock.Header.WaitListHead.Blink;
-        v25 = (unsigned __int64 *)(QuantumTarget + 16);
-        *(_QWORD *)(QuantumTarget + 8) = SListFaultAddress;
-        *SListFaultAddress = QuantumTarget;
-        AlpcpMessageLogLock.SListFaultAddress = (void *)QuantumTarget;
-        v26 = AlpcpMessageLogLock.ThreadLock + 16LL * ((*(_DWORD *)(QuantumTarget + 40) >> 2) & 0x3FF);
-        v27 = *(unsigned __int64 ***)(v26 + 8);
-        if ( *v27 == (unsigned __int64 *)v26 )
+        *(_QWORD *)InitialStack = &AlpcpMessageLogLock.StackBase;
+        v25 = (struct _LIST_ENTRY *)(InitialStack + 16);
+        *((_QWORD *)InitialStack + 1) = ThreadLock;
+        *ThreadLock = InitialStack;
+        AlpcpMessageLogLock.ThreadLock = (unsigned __int64)InitialStack;
+        v26 = &AlpcpMessageLogLock.Header.WaitListHead.Flink[(*((_DWORD *)InitialStack + 10) >> 2) & 0x3FF];
+        Blink = v26->Blink;
+        if ( Blink->Flink == v26 )
         {
-          *v25 = v26;
-          *(_QWORD *)(QuantumTarget + 24) = v27;
-          *v27 = v25;
-          *(_QWORD *)(v26 + 8) = v25;
+          v25->Flink = v26;
+          *((_QWORD *)InitialStack + 3) = Blink;
+          Blink->Flink = v25;
+          v26->Blink = v25;
           goto LABEL_27;
         }
       }

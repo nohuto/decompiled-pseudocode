@@ -17,76 +17,65 @@
  *     TppRaiseInvalidParameter @ 0x18010AED8 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, _RTL_SRWLOCK *a3, __int64 a4)
 {
   __int64 v4; // r13
-  __int64 v5; // r15
   __int64 v6; // rax
   __int64 v7; // rsi
   __int64 v8; // rdi
   __int64 v9; // r14
   __int64 v10; // rcx
-  _QWORD *v11; // r12
+  LARGE_INTEGER **v11; // r12
   __int64 v12; // r11
   _QWORD *v13; // rbx
   __int64 v14; // r11
   _QWORD *v15; // rax
   __int64 v16; // rcx
-  __int64 v17; // rbx
+  LARGE_INTEGER v17; // rbx
   __int64 v18; // rcx
-  __int64 v19; // rdx
-  __int64 v20; // r12
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int64 v23; // rdx
+  __int64 v19; // r12
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  _QWORD *v22; // rbx
+  _QWORD *v23; // rcx
   __int64 v24; // rcx
-  __int64 v25; // r8
-  _QWORD *v26; // rbx
-  bool v27; // si
-  _QWORD *v28; // rcx
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  bool v32; // [rsp+40h] [rbp-49h]
-  _QWORD *v33; // [rsp+48h] [rbp-41h] BYREF
-  _QWORD **v34; // [rsp+50h] [rbp-39h]
-  __int64 v35; // [rsp+58h] [rbp-31h] BYREF
-  __int64 v36; // [rsp+60h] [rbp-29h]
-  _BYTE v37[6]; // [rsp+68h] [rbp-21h] BYREF
-  __int16 v38; // [rsp+6Eh] [rbp-1Bh]
-  __int64 v39; // [rsp+88h] [rbp-1h]
-  int v40; // [rsp+90h] [rbp+7h] BYREF
-  __int64 v41; // [rsp+98h] [rbp+Fh]
+  bool v26; // [rsp+40h] [rbp-49h]
+  _QWORD *v27; // [rsp+48h] [rbp-41h] BYREF
+  _QWORD **v28; // [rsp+50h] [rbp-39h]
+  LARGE_INTEGER DueTime; // [rsp+58h] [rbp-31h] BYREF
+  __int64 v30; // [rsp+60h] [rbp-29h]
+  _BYTE Fields[6]; // [rsp+68h] [rbp-21h] BYREF
+  __int16 v32; // [rsp+6Eh] [rbp-1Bh]
+  __int64 v33; // [rsp+88h] [rbp-1h]
+  _T2_SET_PARAMETERS_V0 Parameters; // [rsp+90h] [rbp+7h] BYREF
 
   v4 = *(_QWORD *)(a4 + 8);
-  v40 = 0;
-  v5 = a3;
-  v41 = 0LL;
-  v32 = v4 != 0;
+  Parameters.Version = 0;
+  Parameters.NoWakeTolerance = 0LL;
+  v26 = v4 != 0;
   if ( v4 )
   {
-    v6 = 8LL;
+    v6 = 1LL;
     v7 = MEMORY[0x7FFE0014];
   }
   else
   {
-    a4 = 2147353520LL;
     a2 = RtlpFreezeTimeBias;
-    a3 = MEMORY[0x7FFE03B0];
-    v6 = 128LL;
+    v6 = 16LL;
     v7 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
   }
-  v36 = v7;
-  v8 = v6 + v5;
+  v30 = v7;
+  v8 = (__int64)&a3[v6];
   if ( !a1 || *(_DWORD *)(a1 + 72) )
-    TppRaiseInvalidParameter(a1, a2, a3, a4);
+    TppRaiseInvalidParameter(a1, a2);
   else
     *(_DWORD *)(a1 + 72) = 3;
-  v34 = &v33;
-  v33 = &v33;
+  v28 = &v27;
+  v27 = &v27;
   v9 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2) )
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    v7 = v36;
+    v7 = v30;
     v10 = (__int64)NtCurrentPeb()->SharedData + 556;
   }
   else
@@ -95,82 +84,79 @@ __int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, __int64 a3, _
   }
   if ( *(_BYTE *)v10 )
     TppETWTimerExpirationBegin(v8);
-  RtlAcquireSRWLockExclusive(v5);
-  v11 = (_QWORD *)(v8 + 8);
-  while ( *v11 && *(_QWORD *)(*v11 + 40LL) <= v7 )
+  RtlAcquireSRWLockExclusive(a3);
+  v11 = (LARGE_INTEGER **)(v8 + 8);
+  while ( *v11 && (*v11)[5].QuadPart <= v7 )
   {
     TppPHDelete(v8 + 8, *v11);
     v13 = (_QWORD *)(v12 - 40);
     TppPHDelete(v8 + 16, v12 - 40);
     *(_BYTE *)(v14 + 64) = 0;
-    v15 = v34;
-    if ( *v34 != &v33 )
+    v15 = v28;
+    if ( *v28 != &v27 )
       __fastfail(3u);
-    v13[1] = v34;
-    *v13 = &v33;
+    v13[1] = v28;
+    *v13 = &v27;
     *v15 = v13;
-    v34 = (_QWORD **)v13;
+    v28 = (_QWORD **)v13;
   }
   v16 = *(_QWORD *)(v8 + 16);
   if ( v16 )
   {
-    v17 = *(_QWORD *)(*v11 + 32LL);
-    v18 = *(_QWORD *)(v16 + 32) - v17;
-    *(_QWORD *)v8 = v17;
-    v19 = (unsigned __int128)(v18 * (__int128)0x346DC5D63886594BLL) >> 64;
-    v20 = v18 / 10000;
-    v21 = 10000LL * (unsigned int)(v18 / 10000);
-    *(_DWORD *)(v8 + 112) = v20;
-    v41 = v21;
+    v17 = (*v11)[4];
+    v18 = *(_QWORD *)(v16 + 32) - v17.QuadPart;
+    *(LARGE_INTEGER *)v8 = v17;
+    v19 = v18 / 10000;
+    *(_DWORD *)(v8 + 112) = v18 / 10000;
+    Parameters.NoWakeTolerance = 10000LL * (unsigned int)(v18 / 10000);
     if ( !v4 )
-      v17 = v7 - v17;
-    v35 = v17;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v21, v19) )
+      v17.QuadPart = v7 - v17.QuadPart;
+    DueTime = v17;
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v17 = v35;
-      v22 = (__int64)NtCurrentPeb()->SharedData + 556;
+      v17 = DueTime;
+      v20 = (__int64)NtCurrentPeb()->SharedData + 556;
     }
     else
     {
-      v22 = 2147353478LL;
+      v20 = 2147353478LL;
     }
-    if ( *(_BYTE *)v22 )
-      TppETWTimerSetNtTimer(v8, v17, v20);
-    ZwSetTimer2(*(_QWORD *)(v8 + 24), &v35, 0LL, &v40);
+    if ( *(_BYTE *)v20 )
+      TppETWTimerSetNtTimer(v8, v17.QuadPart, v19);
+    ZwSetTimer2(*(HANDLE *)(v8 + 24), &DueTime, 0LL, &Parameters);
   }
   else
   {
     *(_QWORD *)v8 = 0LL;
   }
-  RtlReleaseSRWLockExclusive(v5);
-  v26 = v33;
-  v27 = v32;
-  while ( v26 != &v33 )
+  RtlReleaseSRWLockExclusive(a3);
+  v22 = v27;
+  while ( v22 != &v27 )
   {
-    v28 = v26 - 31;
-    LOBYTE(v25) = v32;
-    v26 = (_QWORD *)*v26;
-    TppSingleTimerExpiration(v28, v5, v25);
+    v23 = v22 - 31;
+    LOBYTE(v21) = v26;
+    v22 = (_QWORD *)*v22;
+    TppSingleTimerExpiration(v23, a3, v21);
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v24, v23) )
-    v30 = (__int64)NtCurrentPeb()->SharedData + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v24 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
-    v30 = 2147353478LL;
-  if ( *(_BYTE *)v30 )
+    v24 = 2147353478LL;
+  if ( *(_BYTE *)v24 )
   {
-    v39 = v8;
-    v38 = 7215;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v30, v29) )
+    v33 = v8;
+    v32 = 7215;
+    if ( RtlGetCurrentServiceSessionId() )
       v9 = (__int64)NtCurrentPeb()->SharedData + 556;
-    NtTraceEvent(*(unsigned __int8 *)v9, 1026LL, 8LL, v37);
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v9, 0x402u, 8u, Fields);
   }
   return ZwAssociateWaitCompletionPacket(
-           *(_QWORD *)(v8 + 32),
-           *(_QWORD *)(v5 - 48),
-           *(_QWORD *)(v8 + 24),
-           v8 + 40,
-           v5,
+           *(HANDLE *)(v8 + 32),
+           a3[-6].Ptr,
+           *(HANDLE *)(v8 + 24),
+           (PVOID)(v8 + 40),
+           a3,
            0,
-           v27,
+           v26,
            0LL);
 }

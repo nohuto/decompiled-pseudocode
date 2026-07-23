@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepUnregisterDevice @ 0x14066F8C0
+ * XREFs of PopPepUnregisterDevice @ 0x14066F9A4
  * Callers:
- *     PopFxUnregisterDevice @ 0x14066D58C (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x14066D670 (PopFxUnregisterDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     PopPepProcessEvent @ 0x1400C2248 (PopPepProcessEvent.c)
- *     PopPepUpdateIdleStateRefCount @ 0x140130868 (PopPepUpdateIdleStateRefCount.c)
- *     PopPepRemoveDevice @ 0x140206CBC (PopPepRemoveDevice.c)
- *     PopPepWaitForDeviceRelease @ 0x140206FF0 (PopPepWaitForDeviceRelease.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     PopPepProcessEvent @ 0x1400C00D8 (PopPepProcessEvent.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x140130DD8 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepRemoveDevice @ 0x140206AE8 (PopPepRemoveDevice.c)
+ *     PopPepWaitForDeviceRelease @ 0x140206E1C (PopPepWaitForDeviceRelease.c)
  */
 
 void __fastcall PopPepUnregisterDevice(__int64 *a1)

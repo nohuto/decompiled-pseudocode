@@ -6,18 +6,30 @@
  *     <none>
  */
 
-bool __fastcall RtlValidProcessProtection(unsigned __int8 a1)
+BOOLEAN __cdecl RtlValidProcessProtection(PS_PROTECTION ProcessProtection)
 {
-  if ( a1 > 0x51u )
+  if ( ProcessProtection.Level > 0x51u )
   {
-    if ( a1 == 82 || a1 == 97 || a1 == 98 || a1 == 114 )
+    if ( ProcessProtection.Level == 82
+      || ProcessProtection.Level == 97
+      || ProcessProtection.Level == 98
+      || ProcessProtection.Level == 114 )
+    {
       return 1;
-    return a1 == 129;
+    }
+    return ProcessProtection.Level == 129;
   }
   else
   {
-    if ( a1 == 81 || !a1 || a1 == 49 || a1 == 8 || a1 == 18 || a1 == 33 )
+    if ( ProcessProtection.Level == 81
+      || !ProcessProtection.Level
+      || ProcessProtection.Level == 49
+      || ProcessProtection.Level == 8
+      || ProcessProtection.Level == 18
+      || ProcessProtection.Level == 33 )
+    {
       return 1;
-    return a1 == 65;
+    }
+    return ProcessProtection.Level == 65;
   }
 }

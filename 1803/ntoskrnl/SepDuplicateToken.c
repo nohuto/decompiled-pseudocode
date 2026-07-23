@@ -69,13 +69,13 @@ __int64 __fastcall SepDuplicateToken(
   int v24; // esi
   __int64 v25; // rax
   _DWORD *v26; // rcx
-  __int64 **v27; // r13
-  char *v28; // r14
-  __int64 *v29; // rcx
+  PSID_AND_ATTRIBUTES *v27; // r13
+  unsigned __int64 v28; // r14
+  _SID_AND_ATTRIBUTES *v29; // rcx
   int i; // eax
   __int64 v31; // rax
   char *v32; // rax
-  unsigned int j; // ecx
+  ULONG j; // ecx
   __int64 v34; // rax
   unsigned int v35; // ecx
   size_t v36; // r12
@@ -92,10 +92,10 @@ __int64 __fastcall SepDuplicateToken(
   _KPROCESS *Process; // rcx
   int v48; // edx
   char *Object; // [rsp+50h] [rbp-98h]
-  __int64 **v50; // [rsp+58h] [rbp-90h]
-  unsigned int *v51; // [rsp+68h] [rbp-80h]
+  PSID_AND_ATTRIBUTES *v50; // [rsp+58h] [rbp-90h]
+  ULONG *v51; // [rsp+68h] [rbp-80h]
   PVOID *v52; // [rsp+90h] [rbp-58h]
-  __int64 **v53; // [rsp+98h] [rbp-50h]
+  PSID_AND_ATTRIBUTES *v53; // [rsp+98h] [rbp-50h]
   UINT puResult; // [rsp+108h] [rbp+20h] BYREF
 
   v8 = a5;
@@ -169,7 +169,7 @@ __int64 __fastcall SepDuplicateToken(
       *((_DWORD *)Object + 36) = *(_DWORD *)(a1 + 144);
       *((_DWORD *)Object + 32) = *(_DWORD *)(a1 + 128);
       *((_DWORD *)Object + 33) = *(_DWORD *)(a1 + 132);
-      v51 = (unsigned int *)(Object + 128);
+      v51 = (ULONG *)(Object + 128);
       *((_DWORD *)Object + 50) = *(_DWORD *)(a1 + 200) & 0xFFFFFBDF;
       v21 = *(_DWORD *)(a1 + 120);
       if ( *((_DWORD *)Object + 30) != v21 )
@@ -197,7 +197,7 @@ __int64 __fastcall SepDuplicateToken(
       *((_QWORD *)Object + 136) = 0LL;
       *((_QWORD *)Object + 144) = 0LL;
       *((_QWORD *)Object + 99) = 0LL;
-      v53 = (__int64 **)(Object + 792);
+      v53 = (PSID_AND_ATTRIBUTES *)(Object + 792);
       *((_QWORD *)Object + 98) = 0LL;
       *((_DWORD *)Object + 200) = 0;
       memset(Object + 808, 0, 0x110uLL);
@@ -242,11 +242,11 @@ __int64 __fastcall SepDuplicateToken(
           goto LABEL_41;
       }
       memmove(v20 + 1168, (const void *)(a1 + 1168), *(unsigned int *)(a1 + 132));
-      v27 = (__int64 **)(v20 + 152);
-      v28 = &v20[-a1];
+      v27 = (PSID_AND_ATTRIBUTES *)(v20 + 152);
+      v28 = (unsigned __int64)&v20[-a1];
       if ( SepTokenSidSharingEnabled )
       {
-        *v27 = (__int64 *)&v28[*(_QWORD *)(a1 + 152)];
+        *v27 = (PSID_AND_ATTRIBUTES)(v28 + *(_QWORD *)(a1 + 152));
         v24 = SepDuplicateTokenUserAndGroups(a1, v20);
         if ( v24 < 0 )
         {
@@ -257,20 +257,20 @@ __int64 __fastcall SepDuplicateToken(
       else
       {
         *((_DWORD *)v20 + 31) = *(_DWORD *)(a1 + 124);
-        v29 = (__int64 *)&v28[*(_QWORD *)(a1 + 152)];
+        v29 = (_SID_AND_ATTRIBUTES *)(v28 + *(_QWORD *)(a1 + 152));
         *v27 = v29;
         for ( i = *((_DWORD *)v20 + 31); i; --i )
         {
-          *v29 += (__int64)v28;
-          v29 += 2;
+          v29->Sid = (char *)v29->Sid + v28;
+          ++v29;
         }
       }
       v31 = *(_QWORD *)(a1 + 160);
-      v50 = (__int64 **)(v20 + 160);
+      v50 = (PSID_AND_ATTRIBUTES *)(v20 + 160);
       *((_QWORD *)v20 + 20) = v31;
       if ( v31 )
       {
-        v32 = &v28[v31];
+        v32 = (char *)(v28 + v31);
         *((_QWORD *)v20 + 20) = v32;
         for ( j = *v51; j; --j )
         {
@@ -368,10 +368,10 @@ __int64 __fastcall SepDuplicateToken(
               }
               if ( a3 )
                 SepMakeTokenEffectiveOnly(v20);
-              RtlSidHashInitialize(*v27, *((_DWORD *)v20 + 31), (_QWORD *)v20 + 29);
-              RtlSidHashInitialize(*v50, *v51, (_QWORD *)v20 + 63);
+              RtlSidHashInitialize(*v27, *((_DWORD *)v20 + 31), (PSID_AND_ATTRIBUTES_HASH)(v20 + 232));
+              RtlSidHashInitialize(*v50, *v51, (PSID_AND_ATTRIBUTES_HASH)(v20 + 504));
               if ( *v53 )
-                RtlSidHashInitialize(*v53, *((_DWORD *)Object + 200), (_QWORD *)Object + 101);
+                RtlSidHashInitialize(*v53, *((_DWORD *)Object + 200), (PSID_AND_ATTRIBUTES_HASH)(Object + 808));
               if ( SeTokenLeakTracking && SepTokenLeakMethodWatch == 13 )
               {
                 if ( KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)SepTokenLeakProcessCid )

@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpSvmReferenceAsid @ 0x1406D2310
+ * XREFs of ExpSvmReferenceAsid @ 0x1406D6340
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpAcquireSvmAgentsLock @ 0x1406D13DC (ExpAcquireSvmAgentsLock.c)
- *     ExpReleaseSvmAgentsLock @ 0x1406D19E4 (ExpReleaseSvmAgentsLock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpAcquireSvmAgentsLock @ 0x1406D540C (ExpAcquireSvmAgentsLock.c)
+ *     ExpReleaseSvmAgentsLock @ 0x1406D5A14 (ExpReleaseSvmAgentsLock.c)
  */
 
 __int64 __fastcall ExpSvmReferenceAsid(ULONG_PTR BugCheckParameter1)
 {
   ULONG_PTR v1; // rbx
   unsigned __int8 v2; // al
-  struct _KTHREAD *Thread; // r10
+  struct _LIST_ENTRY *Flink; // r10
   ULONG_PTR v4; // r9
   unsigned __int8 v5; // si
   __int64 v6; // rdx
-  _DISPATCHER_HEADER *v7; // rcx
-  __int64 Flink; // rax
+  char *v7; // rcx
+  __int64 v8; // rax
   __int64 v9; // rbx
   ULONG_PTR BugCheckParameter4; // rax
   struct _KLOCK_QUEUE_HANDLE v12; // [rsp+30h] [rbp-28h] BYREF
@@ -25,31 +25,26 @@ __int64 __fastcall ExpSvmReferenceAsid(ULONG_PTR BugCheckParameter1)
   v1 = (unsigned int)BugCheckParameter1;
   memset(&v12, 0, sizeof(v12));
   v2 = ExpAcquireSvmAgentsLock(&v12);
-  Thread = ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread;
+  Flink = ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink;
   v4 = 0LL;
   v5 = v2;
-  if ( (unsigned int)v1 >= *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12] )
+  if ( (unsigned int)v1 >= HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) )
   {
     BugCheckParameter4 = 0LL;
 LABEL_10:
-    if ( (unsigned int)v1 < *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12] )
-      v4 = *((_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread->Header.Lock + 3 * v1);
-    KeBugCheckEx(
-      0x158u,
-      v1,
-      *(unsigned int *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12],
-      v4,
-      BugCheckParameter4);
+    if ( (unsigned int)v1 < HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) )
+      v4 = *((_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink->Flink + 3 * v1);
+    KeBugCheckEx(0x158u, v1, HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc), v4, BugCheckParameter4);
   }
-  v6 = *((_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread->Header.Lock + 3 * v1);
-  v7 = &ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread->Header + v1;
-  if ( !v6 || (Flink = (__int64)v7->WaitListHead.Flink, Flink < 0) )
+  v6 = *((_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink->Flink + 3 * v1);
+  v7 = (char *)ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink + 24 * v1;
+  if ( !v6 || (v8 = *((_QWORD *)v7 + 1), v8 < 0) )
   {
-    BugCheckParameter4 = (ULONG_PTR)v7->WaitListHead.Flink;
+    BugCheckParameter4 = *((_QWORD *)v7 + 1);
     goto LABEL_10;
   }
-  v7->WaitListHead.Flink = (struct _LIST_ENTRY *)(Flink + 1);
-  if ( *((_BYTE *)&Thread->Header.WaitListHead.Blink + 24 * v1) )
+  *((_QWORD *)v7 + 1) = v8 + 1;
+  if ( *((_BYTE *)&Flink[1].Flink + 24 * v1) )
     v9 = *(_QWORD *)(v6 + 2024);
   else
     v9 = *(_QWORD *)(v6 + 1544);

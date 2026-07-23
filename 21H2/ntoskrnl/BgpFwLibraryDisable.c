@@ -1,28 +1,22 @@
 /*
- * XREFs of BgpFwLibraryDisable @ 0x1409F3FE8
+ * XREFs of BgpFwLibraryDisable @ 0x1409F4FE8
  * Callers:
- *     BgLibraryDisable @ 0x1409F3ED0 (BgLibraryDisable.c)
- *     BgpFwLibraryDestroy @ 0x1409F3F0C (BgpFwLibraryDestroy.c)
+ *     BgLibraryDisable @ 0x1409F4ED0 (BgLibraryDisable.c)
+ *     BgpFwLibraryDestroy @ 0x1409F4F0C (BgpFwLibraryDestroy.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
- *     LogFwReport @ 0x1409F1524 (LogFwReport.c)
- *     AnFwFadeCompletion @ 0x1409F21B4 (AnFwFadeCompletion.c)
- *     ResFwBackgroundTransition @ 0x1409F3408 (ResFwBackgroundTransition.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x1409F34CC (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpTxtDestroyRegion @ 0x1409F40EC (BgpTxtDestroyRegion.c)
- *     BgpFoDestroy @ 0x1409F41CC (BgpFoDestroy.c)
- *     AnFwDisplayProgressIndicator @ 0x1409F4370 (AnFwDisplayProgressIndicator.c)
+ *     BgpFwFreeMemory @ 0x14039BEB0 (BgpFwFreeMemory.c)
+ *     LogFwReport @ 0x1409F2524 (LogFwReport.c)
+ *     AnFwFadeCompletion @ 0x1409F31B4 (AnFwFadeCompletion.c)
+ *     ResFwBackgroundTransition @ 0x1409F4408 (ResFwBackgroundTransition.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x1409F44CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpTxtDestroyRegion @ 0x1409F50EC (BgpTxtDestroyRegion.c)
+ *     BgpFoDestroy @ 0x1409F51CC (BgpFoDestroy.c)
+ *     AnFwDisplayProgressIndicator @ 0x1409F5370 (AnFwDisplayProgressIndicator.c)
  */
 
 __int64 BgpFwLibraryDisable()
 {
   __int64 result; // rax
-  __int64 v1; // rdx
-  __int64 v2; // r8
-  _DWORD *v3; // r9
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  _DWORD *v6; // r9
 
   result = (unsigned int)dword_140C134F0;
   if ( (dword_140C134F0 & 2) != 0 )
@@ -51,13 +45,13 @@ __int64 BgpFwLibraryDisable()
       if ( *(_QWORD *)qword_140C13598 )
       {
         if ( (*(_DWORD *)(qword_140C13598 + 12) & 1) == 0 )
-          BgpFwFreeMemory(*(_QWORD *)qword_140C13598, v1, v2, v3);
+          BgpFwFreeMemory(*(_QWORD *)qword_140C13598);
       }
-      BgpFwFreeMemory(qword_140C13598, v1, v2, v3);
+      BgpFwFreeMemory(qword_140C13598);
       qword_140C13598 = 0LL;
     }
     LogFwReport();
-    ResFwBackgroundTransition(1, v4, v5, v6);
+    ResFwBackgroundTransition(1);
     result = 0LL;
     dword_140C134F0 &= ~2u;
     BgInternal = 0LL;

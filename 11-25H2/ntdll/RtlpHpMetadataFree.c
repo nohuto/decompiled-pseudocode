@@ -26,9 +26,9 @@
  *     RtlCSparseBitmapBitmaskRead @ 0x1800554D0 (RtlCSparseBitmapBitmaskRead.c)
  */
 
-unsigned __int64 __fastcall RtlpHpMetadataFree(unsigned __int64 a1, _QWORD *a2)
+NTSTATUS __fastcall RtlpHpMetadataFree(unsigned __int64 a1, _QWORD *a2)
 {
-  unsigned int v2; // ebx
+  int v2; // ebx
   __int64 v3; // rdx
   __int64 v5; // rsi
   int v6; // ecx
@@ -40,13 +40,12 @@ unsigned __int64 __fastcall RtlpHpMetadataFree(unsigned __int64 a1, _QWORD *a2)
   unsigned __int64 v12; // r8
   unsigned __int64 v13; // r8
   unsigned __int64 v14; // r9
-  unsigned __int64 result; // rax
-  __int64 v16; // r9
-  unsigned int v17; // [rsp+40h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  int v16; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0;
   v3 = (unsigned __int8)BYTE1(*a2);
-  v17 = 0;
+  v16 = 0;
   v5 = qword_1801D4208[2 * (unsigned int)dword_1801816F8[v3]];
   if ( (_WORD)a1 )
   {
@@ -54,10 +53,10 @@ unsigned __int64 __fastcall RtlpHpMetadataFree(unsigned __int64 a1, _QWORD *a2)
   }
   else
   {
-    v7 = RtlCSparseBitmapBitmaskRead(&unk_1801D0980, 2 * ((a1 - qword_1801D0978) >> 20));
+    v7 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a1 - qword_1801D0978) >> 20));
     if ( !v7 || (v6 = v7 - 1, (_DWORD)v7 == 3) )
     {
-      result = RtlpHpLargeFree((volatile signed __int64 *)v5, a1);
+      result = RtlpHpLargeFree((__int128 *)v5, a1);
       v2 = 3;
       goto LABEL_10;
     }
@@ -80,8 +79,8 @@ unsigned __int64 __fastcall RtlpHpMetadataFree(unsigned __int64 a1, _QWORD *a2)
     }
     else
     {
-      result = RtlpHpSegFreeInternal(v9, a1, v13, &v17);
-      v2 = v17;
+      result = RtlpHpSegFreeInternal(v9, a1, v13, &v16);
+      v2 = v16;
     }
   }
   else
@@ -90,6 +89,6 @@ unsigned __int64 __fastcall RtlpHpMetadataFree(unsigned __int64 a1, _QWORD *a2)
   }
 LABEL_10:
   if ( *(char *)(v5 + 20) < 0 )
-    return RtlpLogHeapFreeEvent(v5, a1, v2, v16);
+    return RtlpLogHeapFreeEvent(v5, a1, v2);
   return result;
 }

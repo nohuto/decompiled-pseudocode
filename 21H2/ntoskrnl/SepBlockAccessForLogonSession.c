@@ -1,12 +1,12 @@
 /*
- * XREFs of SepBlockAccessForLogonSession @ 0x14077956C
+ * XREFs of SepBlockAccessForLogonSession @ 0x14077972C
  * Callers:
- *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x140779540 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
+ *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x140779700 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall SepBlockAccessForLogonSession(_DWORD *a1)
@@ -15,9 +15,10 @@ __int64 __fastcall SepBlockAccessForLogonSession(_DWORD *a1)
   __int64 v3; // rbx
   struct _KTHREAD *CurrentThread; // rax
   struct _ERESOURCE *v5; // rbp
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  unsigned int v8; // edi
+  unsigned int v6; // edi
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
 
   v2 = (unsigned int)(1529154084 * *a1) >> 28;
   v3 = SepLogonSessions + 8 * v2;
@@ -25,13 +26,13 @@ __int64 __fastcall SepBlockAccessForLogonSession(_DWORD *a1)
   --CurrentThread->KernelApcDisable;
   v5 = &SepRmDbLock + (v2 & 3);
   ExAcquireResourceExclusiveLite(v5, 1u);
-  v8 = 0;
+  v6 = 0;
   while ( 1 )
   {
     v3 = *(_QWORD *)v3;
     if ( !v3 )
       break;
-    if ( *(_QWORD *)(v3 + 160) == PsGetCurrentServerSilo(v7, v6)
+    if ( *(_QWORD *)(v3 + 160) == PsGetCurrentServerSilo()
       && *a1 == *(_DWORD *)(v3 + 8)
       && a1[1] == *(_DWORD *)(v3 + 12) )
     {
@@ -39,9 +40,9 @@ __int64 __fastcall SepBlockAccessForLogonSession(_DWORD *a1)
       goto LABEL_7;
     }
   }
-  v8 = -1073741729;
+  v6 = -1073741729;
 LABEL_7:
   ExReleaseResourceLite(v5);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v8;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
+  return v6;
 }

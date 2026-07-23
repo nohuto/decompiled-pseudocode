@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoInitializeRemoveLockExWrapper @ 0x1405DFE00
+ * XREFs of DifIoInitializeRemoveLockExWrapper @ 0x1405E0370
  * Callers:
  *     <none>
  * Callees:
- *     IoInitializeRemoveLockEx @ 0x1403C50A0 (IoInitializeRemoveLockEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     IoInitializeRemoveLockEx @ 0x1403C5280 (IoInitializeRemoveLockEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoInitializeRemoveLockExWrapper(

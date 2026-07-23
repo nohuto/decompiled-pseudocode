@@ -1,13 +1,13 @@
 /*
- * XREFs of MxExtractUnusedRegions @ 0x140CF6818
+ * XREFs of MxExtractUnusedRegions @ 0x140CFCB98
  * Callers:
- *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140CF4BBC (MiHotAddBootDeferredDescriptorsDiscardable.c)
- *     MxCreatePfnsForPfns @ 0x140CF6108 (MxCreatePfnsForPfns.c)
- *     MxInsertUsedRegionsInLoaderTree @ 0x140CF7908 (MxInsertUsedRegionsInLoaderTree.c)
- *     MxReducePhysicalPageCount @ 0x140CF81DC (MxReducePhysicalPageCount.c)
+ *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140CFAF3C (MiHotAddBootDeferredDescriptorsDiscardable.c)
+ *     MxCreatePfnsForPfns @ 0x140CFC488 (MxCreatePfnsForPfns.c)
+ *     MxInsertUsedRegionsInLoaderTree @ 0x140CFDC88 (MxInsertUsedRegionsInLoaderTree.c)
+ *     MxReducePhysicalPageCount @ 0x140CFE55C (MxReducePhysicalPageCount.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MxExtractUnusedRegions(_QWORD *a1, int *a2)

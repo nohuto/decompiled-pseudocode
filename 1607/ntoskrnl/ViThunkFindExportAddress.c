@@ -3,7 +3,7 @@
  * Callers:
  *     ViThunkFindAllExportAddresses @ 0x1407A54A4 (ViThunkFindAllExportAddresses.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
  *     ViThunkIsExportAddressShared @ 0x1407A5650 (ViThunkIsExportAddressShared.c)
  */
 

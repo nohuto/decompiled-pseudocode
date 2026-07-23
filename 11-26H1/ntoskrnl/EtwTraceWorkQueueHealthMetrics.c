@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceWorkQueueHealthMetrics @ 0x1406C51A0
+ * XREFs of EtwTraceWorkQueueHealthMetrics @ 0x1406C8DE0
  * Callers:
- *     ExpWorkQueueHealthMetricsMonitorCallback @ 0x1406D0CF0 (ExpWorkQueueHealthMetricsMonitorCallback.c)
+ *     ExpWorkQueueHealthMetricsMonitorCallback @ 0x1406D4D20 (ExpWorkQueueHealthMetricsMonitorCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall EtwTraceWorkQueueHealthMetrics(ULONGLONG a1, struct _EVENT_DATA_DESCRIPTOR *a2, ULONG a3)
@@ -15,7 +15,8 @@ void __fastcall EtwTraceWorkQueueHealthMetrics(ULONGLONG a1, struct _EVENT_DATA_
   __int64 v8; // rcx
   __int64 v9; // r8
 
-  if ( qword_140F035A0 && EtwEventEnabled(qword_140F035A0, &WORK_QUEUE_EVENT_HEALTH_METRICS) )
+  if ( stru_140F03830.SchedulerApc.ApcListEntry.Flink
+    && EtwEventEnabled((REGHANDLE)stru_140F03830.SchedulerApc.ApcListEntry.Flink, &WORK_QUEUE_EVENT_HEALTH_METRICS) )
   {
     memset_0(a2, 0, 16LL * a3);
     a2->Ptr = a1;
@@ -39,6 +40,14 @@ void __fastcall EtwTraceWorkQueueHealthMetrics(ULONGLONG a1, struct _EVENT_DATA_
       ++v6;
       a2[v9].Ptr = a1 + 4 * v8;
     }
-    EtwWriteEx(qword_140F035A0, &WORK_QUEUE_EVENT_HEALTH_METRICS, 0LL, 0, 0LL, 0LL, a3, a2);
+    EtwWriteEx(
+      (REGHANDLE)stru_140F03830.SchedulerApc.ApcListEntry.Flink,
+      &WORK_QUEUE_EVENT_HEALTH_METRICS,
+      0LL,
+      0,
+      0LL,
+      0LL,
+      a3,
+      a2);
   }
 }

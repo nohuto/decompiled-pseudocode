@@ -1,14 +1,16 @@
 /*
- * XREFs of ZwYieldExecution @ 0x1406A6CD0
+ * XREFs of ZwYieldExecution @ 0x1406A7C70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwYieldExecution(__int64 a1, __int64 a2)
+NTSTATUS ZwYieldExecution(void)
 {
+  __int64 v0; // rcx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(v0);
 }

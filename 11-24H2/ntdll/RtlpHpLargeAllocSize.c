@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpHpLargeAllocSize @ 0x1800A4170
+ * XREFs of RtlpHpLargeAllocSize @ 0x18005DF20
  * Callers:
- *     RtlpHpReallocComputeSizes @ 0x1800A3D30 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpReallocComputeSizes @ 0x18005DAE0 (RtlpHpReallocComputeSizes.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeAllocSize(__int64 a1, unsigned __int64 a2, int *a3)
+unsigned __int64 __fastcall RtlpHpLargeAllocSize(_RTL_SRWLOCK *a1, unsigned __int64 a2, int *a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // r9
+  unsigned __int64 Value; // rdx
+  unsigned __int64 v7; // r9
   unsigned __int64 v8; // rax
-  __int64 v9; // rax
+  unsigned __int64 v9; // rax
   unsigned __int64 v10; // rbx
 
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 64));
-  v6 = *(_QWORD *)(a1 + 80);
-  v7 = *(_QWORD *)(a1 + 72);
-  if ( (v6 & 1) != 0 )
+  RtlAcquireSRWLockShared(a1 + 8);
+  Value = a1[10].Value;
+  v7 = a1[9].Value;
+  if ( (Value & 1) != 0 )
   {
     if ( !v7 )
       goto LABEL_18;
-    v7 ^= a1 + 72;
+    v7 ^= (unsigned __int64)&a1[9];
   }
   if ( !v7 )
   {
@@ -38,7 +38,7 @@ LABEL_18:
       if ( a2 <= v8 )
         break;
       v9 = *(_QWORD *)(v7 + 8);
-      if ( (v6 & 1) != 0 && v9 )
+      if ( (Value & 1) != 0 && v9 )
       {
         v7 ^= v9;
         continue;
@@ -48,7 +48,7 @@ LABEL_9:
       continue;
     }
     v9 = *(_QWORD *)v7;
-    if ( (v6 & 1) == 0 || !v9 )
+    if ( (Value & 1) == 0 || !v9 )
       goto LABEL_9;
     v7 ^= v9;
   }
@@ -59,6 +59,6 @@ LABEL_9:
     *a3 = *(_DWORD *)(v7 + 32) & 1;
   v10 = (*(_QWORD *)(v7 + 32) & 0xFFFFFFFFFFFFF000uLL) - *(unsigned __int16 *)(v7 + 24);
 LABEL_15:
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 64));
+  RtlReleaseSRWLockShared(a1 + 8);
   return v10;
 }

@@ -6,7 +6,7 @@
  *     NtCreateTimer2 @ 0x1404EB824 (NtCreateTimer2.c)
  */
 
-__int64 __fastcall NtCreateIRTimer(__int64 *a1, unsigned __int64 a2, ACCESS_MASK a3)
+NTSTATUS __cdecl NtCreateIRTimer(PHANDLE TimerHandle, PVOID Reserved, ACCESS_MASK DesiredAccess)
 {
-  return NtCreateTimer2(a1, a2, 0LL, 2, a3);
+  return NtCreateTimer2(TimerHandle, Reserved, 0LL, 2u, DesiredAccess);
 }

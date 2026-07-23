@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmListAddObjectWorker @ 0x140AF3F20
+ * XREFs of PiDmListAddObjectWorker @ 0x1409AA824
  * Callers:
- *     PiDmListAddObject @ 0x1409D94D0 (PiDmListAddObject.c)
- *     PiDmListAddList @ 0x140B2C964 (PiDmListAddList.c)
+ *     PiDmListAddObject @ 0x1409AA3C0 (PiDmListAddObject.c)
+ *     PiDmListAddList @ 0x140B2E9E4 (PiDmListAddList.c)
  * Callees:
- *     PiDmObjectManagerReleaseLock @ 0x1409D90A4 (PiDmObjectManagerReleaseLock.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409D92BC (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x140AF4174 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1409A9F94 (PiDmObjectManagerReleaseLock.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409AA1AC (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140B16780 (PiDmListUpdateAggregationCountWorker.c)
  */
 
 char *__fastcall PiDmListAddObjectWorker(int a1, struct _ERESOURCE *a2, __int64 a3, __int64 a4, char *a5)

@@ -9,16 +9,16 @@
  *     sub_18010C390 @ 0x18010C390 (sub_18010C390.c)
  */
 
-__int64 __fastcall sub_18010BD24(__int64 a1)
+__int64 __fastcall sub_18010BD24(void *a1)
 {
   int v1; // ebx
-  NTSTATUS v4; // eax
-  ULONG v5; // eax
+  int v4; // eax
+  LONG v5; // eax
 
   v1 = 0;
   if ( !a1 )
     return 0LL;
-  v4 = ZwReleaseMutant();
+  v4 = ZwReleaseMutant(a1, 0LL);
   if ( v4 < 0 )
   {
     v5 = RtlNtStatusToDosError(v4);

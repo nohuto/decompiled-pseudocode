@@ -1,13 +1,13 @@
 /*
- * XREFs of PsPicoWalkUserStack @ 0x140B4A448
+ * XREFs of PsPicoWalkUserStack @ 0x140B4C1D8
  * Callers:
- *     EtwpTraceStackWalk @ 0x14020A5C0 (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x14020A6A0 (EtwpTraceStackWalk.c)
  * Callees:
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     PsGetBaseTrapFrame @ 0x140470350 (PsGetBaseTrapFrame.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     PsGetBaseTrapFrame @ 0x140469AD0 (PsGetBaseTrapFrame.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PsPicoWalkUserStack(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall PsPicoWalkUserStack(__int64 a1)
   memset_0(v8, 0, sizeof(v8));
   BaseTrapFrame = (_OWORD *)PsGetBaseTrapFrame((__int64)KeGetCurrentThread(), 0LL);
   result = 0LL;
-  if ( (_QWORD)xmmword_140F0A050 )
+  if ( PsAltSystemCallRegistrationLock.StateSaveArea )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;

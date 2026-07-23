@@ -1,15 +1,15 @@
 /*
- * XREFs of AslpFileQueryVersionString @ 0x14080FADC
+ * XREFs of AslpFileQueryVersionString @ 0x14081021C
  * Callers:
- *     AslpFileMakeStringVersionAttributes @ 0x14080F48C (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x14080FBCC (AslpFileMakeStringVersionAttributes.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     RtlStringCchCatW @ 0x1404BC4A0 (RtlStringCchCatW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     AslpFileVerStringBlockGetValue @ 0x14080FD10 (AslpFileVerStringBlockGetValue.c)
- *     AslpFileVerQueryBlock @ 0x14095B7DC (AslpFileVerQueryBlock.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     RtlStringCchCatW @ 0x1404B73B0 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     AslpFileVerStringBlockGetValue @ 0x140810450 (AslpFileVerStringBlockGetValue.c)
+ *     AslpFileVerQueryBlock @ 0x14094329C (AslpFileVerQueryBlock.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileQueryVersionString(
@@ -46,7 +46,7 @@ __int64 __fastcall AslpFileQueryVersionString(
   {
     if ( v10 >= 4 )
       goto LABEL_10;
-    v11 = RtlStringCchCopyW(pszDest, 0x80uLL, off_14000BD60[v10]);
+    v11 = RtlStringCchCopyW(pszDest, 0x80uLL, off_14000BFE8[v10]);
     if ( v11 < 0 )
     {
       v13 = "RtlStringCchCopyW failed [%x]";

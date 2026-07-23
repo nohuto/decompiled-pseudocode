@@ -42,8 +42,8 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
   struct _KPRCB *v23; // r9
   _DWORD *v24; // r8
   int v25; // eax
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
-  STRING v27; // [rsp+50h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
+  _STRING v27; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   char v30; // [rsp+A8h] [rbp+38h] BYREF
 

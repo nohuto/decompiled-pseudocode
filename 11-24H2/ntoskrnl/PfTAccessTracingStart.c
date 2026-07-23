@@ -1,15 +1,15 @@
 /*
- * XREFs of PfTAccessTracingStart @ 0x140B5B5B0
+ * XREFs of PfTAccessTracingStart @ 0x140B5D620
  * Callers:
- *     PfTStart @ 0x140746B0C (PfTStart.c)
- *     PfGetCompletedTrace @ 0x140933980 (PfGetCompletedTrace.c)
- *     PfpPowerActionStartScenarioTracingCallback @ 0x140B5AEA0 (PfpPowerActionStartScenarioTracingCallback.c)
+ *     PfTStart @ 0x140744DFC (PfTStart.c)
+ *     PfGetCompletedTrace @ 0x1408F64A0 (PfGetCompletedTrace.c)
+ *     PfpPowerActionStartScenarioTracingCallback @ 0x140B5CF10 (PfpPowerActionStartScenarioTracingCallback.c)
  * Callees:
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     MmGetDefaultPagePriority @ 0x14047E830 (MmGetDefaultPagePriority.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     PfpPartitionToParent @ 0x1404BCA40 (PfpPartitionToParent.c)
- *     MmSetAccessLogging @ 0x140683808 (MmSetAccessLogging.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     MmGetDefaultPagePriority @ 0x140479730 (MmGetDefaultPagePriority.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     PfpPartitionToParent @ 0x1404B7BB0 (PfpPartitionToParent.c)
+ *     MmSetAccessLogging @ 0x1406849B8 (MmSetAccessLogging.c)
  */
 
 void __fastcall PfTAccessTracingStart(__int64 a1, int a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpPsProvTraceThread @ 0x140A04984
+ * XREFs of EtwpPsProvTraceThread @ 0x140AAE1A0
  * Callers:
- *     EtwTraceThread @ 0x140A045B0 (EtwTraceThread.c)
+ *     EtwTraceThread @ 0x140A7C440 (EtwTraceThread.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PsGetCurrentThreadTeb @ 0x1404A26B0 (PsGetCurrentThreadTeb.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PsGetCurrentThreadTeb @ 0x14049C0D0 (PsGetCurrentThreadTeb.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceThread(__int64 a1, __int64 a2, char a3)
@@ -151,5 +151,5 @@ LABEL_28:
     v49 = 8LL;
     v12 = 11;
   }
-  return EtwWrite(EtwpPsProvRegHandle, EventDescriptor, 0LL, v12, &UserData);
+  return EtwWrite((REGHANDLE)stru_140F03830.Affinity, EventDescriptor, 0LL, v12, &UserData);
 }

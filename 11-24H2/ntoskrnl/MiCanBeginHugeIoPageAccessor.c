@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCanBeginHugeIoPageAccessor @ 0x14066FA10
+ * XREFs of MiCanBeginHugeIoPageAccessor @ 0x140670BE0
  * Callers:
- *     MiBeginPageAccessor @ 0x1404342F0 (MiBeginPageAccessor.c)
+ *     MiBeginPageAccessor @ 0x140425C90 (MiBeginPageAccessor.c)
  * Callees:
- *     MiLockHugeRangeColorHeadAtDpc @ 0x140670DC4 (MiLockHugeRangeColorHeadAtDpc.c)
+ *     MiLockHugeRangeColorHeadAtDpc @ 0x140671F94 (MiLockHugeRangeColorHeadAtDpc.c)
  */
 
 __int64 __fastcall MiCanBeginHugeIoPageAccessor(_QWORD *a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiCanBeginHugeIoPageAccessor(_QWORD *a1)
   }
   else
   {
-    result = (((__int64)a1 - qword_140E2FFC0) >> 3) & 0x3FFFFF;
+    result = (((__int64)a1 - qword_140E30100) >> 3) & 0x3FFFFF;
     *a1 |= 0x800000000000000uLL;
   }
   _InterlockedAnd64(v3, 0xFFFFFFFFFFFFFFF7uLL);

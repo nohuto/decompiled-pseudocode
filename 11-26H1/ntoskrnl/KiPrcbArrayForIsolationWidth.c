@@ -1,7 +1,7 @@
 /*
- * XREFs of KiPrcbArrayForIsolationWidth @ 0x14042FE00
+ * XREFs of KiPrcbArrayForIsolationWidth @ 0x14041CE30
  * Callers:
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403BFE80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403C9D80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  * Callees:
  *     <none>
  */

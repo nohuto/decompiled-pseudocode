@@ -1,17 +1,17 @@
 /*
- * XREFs of ObAssignObjectSecurityDescriptor @ 0x1409A6120
+ * XREFs of ObAssignObjectSecurityDescriptor @ 0x140989740
  * Callers:
- *     WmipSecurityMethod @ 0x1409A6000 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x140989620 (WmipSecurityMethod.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObAssignObjectSecurityDescriptor(__int64 a1, unsigned __int64 a2)
@@ -34,10 +34,10 @@ __int64 __fastcall ObAssignObjectSecurityDescriptor(__int64 a1, unsigned __int64
   _QWORD *v18; // r13
   signed __int64 *v19; // r15
   volatile signed __int64 *v20; // r14
-  _QWORD *v21; // rdi
+  char *v21; // rdi
   signed __int64 v22; // rdi
   __int64 Pool2; // rax
-  _QWORD *v24; // rdi
+  char *v24; // rdi
   _QWORD *v25; // r14
   unsigned int v26; // ebx
   struct _KTHREAD *CurrentThread; // [rsp+68h] [rbp+10h]
@@ -131,11 +131,11 @@ LABEL_24:
   --CurrentThread->KernelApcDisable;
   v19 = (signed __int64 *)((char *)&ObsSecurityDescriptorCache + 16 * (unsigned __int8)v14);
   v20 = v19 + 1;
-  v21 = KeAbPreAcquire((__int64)v19, 0LL);
+  v21 = (char *)KeAbPreAcquire((__int64)v19, 0LL);
   if ( _InterlockedCompareExchange64(v19, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v19, 0, v21, (__int64)v19);
   if ( v21 )
-    *((_BYTE *)v21 + 10) = 1;
+    v21[10] = 1;
   while ( 1 )
   {
     v22 = *v20;
@@ -164,7 +164,7 @@ LABEL_33:
       KeLeaveCriticalRegionThread();
       if ( v4 + 40 < v4 )
         return (unsigned int)-1073741670;
-      Pool2 = ExAllocatePool2(0x108uLL);
+      Pool2 = ExAllocatePool2(0x108uLL, v4 + 40, 0x6353624Fu);
       v18 = (_QWORD *)Pool2;
       if ( !Pool2 )
         return (unsigned int)-1073741670;
@@ -174,11 +174,11 @@ LABEL_33:
       memmove((void *)(Pool2 + 32), (const void *)a2, v4);
       --CurrentThread->KernelApcDisable;
       v20 = v19 + 1;
-      v24 = KeAbPreAcquire((__int64)v19, 0LL);
+      v24 = (char *)KeAbPreAcquire((__int64)v19, 0LL);
       if ( _InterlockedCompareExchange64(v19, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v19, 0, v24, (__int64)v19);
       if ( v24 )
-        *((_BYTE *)v24 + 10) = 1;
+        v24[10] = 1;
     }
   }
   while ( 1 )

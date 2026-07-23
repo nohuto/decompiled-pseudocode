@@ -1,20 +1,20 @@
 /*
- * XREFs of KiComputeNumaCosts @ 0x140A4D2E0
+ * XREFs of KiComputeNumaCosts @ 0x140A4E2E0
  * Callers:
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402E32F0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140294640 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiFreePagesFromMdl @ 0x14030A23C (MiFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlQueryNumaDistance @ 0x1404F22E0 (HvlQueryNumaDistance.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     KiGetHalNumaConversionFactor @ 0x140A91838 (KiGetHalNumaConversionFactor.c)
+ *     HvlQueryNumaDistance @ 0x1404F2260 (HvlQueryNumaDistance.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     KiGetHalNumaConversionFactor @ 0x140A92838 (KiGetHalNumaConversionFactor.c)
  */
 
 char KiComputeNumaCosts()
@@ -30,68 +30,69 @@ char KiComputeNumaCosts()
   __int16 v8; // di
   unsigned int v9; // r15d
   __int64 *v10; // rax
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   unsigned int v12; // r14d
   struct _MDL *PartitionNodePagesForMdl; // rax
   struct _MDL *v14; // r13
-  _DWORD *SchedulerAssist; // r8
-  char *v16; // r9
+  char *v15; // r9
   unsigned __int8 CurrentIrql; // r12
+  _DWORD *SchedulerAssist; // r8
   char *v18; // rcx
   unsigned __int64 v19; // r10
   unsigned __int8 v20; // cl
   struct _KPRCB *CurrentPrcb; // r9
-  int v22; // eax
-  bool v23; // zf
-  unsigned __int16 v24; // cx
-  unsigned __int64 v25; // r11
-  int v26; // edi
-  unsigned int v27; // r14d
+  _DWORD *v22; // r8
+  int v23; // eax
+  bool v24; // zf
+  unsigned __int16 v25; // cx
+  unsigned __int64 v26; // r11
+  int v27; // edi
+  unsigned int v28; // r14d
   int i; // edx
-  __int64 v29; // r8
-  int v30; // eax
-  unsigned int v31; // r15d
-  int v32; // r9d
-  __int64 v33; // r14
-  __int64 v34; // rcx
-  int v35; // eax
-  _QWORD *v36; // r12
-  int v37; // r8d
-  __int64 v38; // rax
-  __int64 v39; // r13
-  int v40; // ecx
-  __int64 v41; // r10
-  __int64 v42; // r9
-  unsigned int v43; // esi
+  __int64 v30; // r8
+  int v31; // eax
+  unsigned int v32; // r15d
+  int v33; // r9d
+  __int64 v34; // r14
+  __int64 v35; // rcx
+  int v36; // eax
+  _QWORD *v37; // r12
+  int v38; // r8d
+  __int64 v39; // rax
+  __int64 v40; // r13
+  int v41; // ecx
+  __int64 v42; // r10
+  __int64 v43; // r9
+  unsigned int v44; // esi
   __int64 HalNumaConversionFactor; // rax
-  unsigned __int64 v45; // rcx
-  unsigned int v46; // edi
-  unsigned int v47; // esi
-  unsigned int v48; // r9d
-  int v49; // r14d
-  _QWORD *v50; // r8
-  __int64 *v51; // r11
-  __int64 v52; // rax
-  __int64 v53; // rdx
-  size_t v54; // rdx
-  unsigned __int16 v55; // cx
-  unsigned int v56; // edi
+  unsigned __int64 v46; // rcx
+  unsigned int v47; // edi
+  unsigned int v48; // esi
+  unsigned int v49; // r9d
+  int v50; // r14d
+  _QWORD *v51; // r8
+  __int64 *v52; // r11
+  __int64 v53; // rax
+  __int64 v54; // rdx
+  size_t v55; // rdx
+  unsigned __int16 v56; // cx
+  unsigned int v57; // edi
   int j; // edx
-  __int64 v58; // rax
-  __int64 v59; // rdx
-  int v61; // [rsp+48h] [rbp-C0h]
+  __int64 v59; // rax
+  __int64 v60; // rdx
   int v62; // [rsp+48h] [rbp-C0h]
-  unsigned int v63; // [rsp+4Ch] [rbp-BCh]
+  int v63; // [rsp+48h] [rbp-C0h]
   unsigned int v64; // [rsp+4Ch] [rbp-BCh]
-  __int64 v65; // [rsp+50h] [rbp-B8h] BYREF
-  unsigned __int64 v66; // [rsp+58h] [rbp-B0h]
-  __int64 v67; // [rsp+60h] [rbp-A8h] BYREF
+  unsigned int v65; // [rsp+4Ch] [rbp-BCh]
+  __int64 v66; // [rsp+50h] [rbp-B8h] BYREF
+  unsigned __int64 v67; // [rsp+58h] [rbp-B0h]
+  __int64 v68; // [rsp+60h] [rbp-A8h] BYREF
   __int64 Affinity; // [rsp+68h] [rbp-A0h]
-  struct _GROUP_AFFINITY Affinity_8; // [rsp+70h] [rbp-98h] BYREF
-  unsigned __int64 v70; // [rsp+80h] [rbp-88h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-80h] BYREF
+  _GROUP_AFFINITY Affinity_8; // [rsp+70h] [rbp-98h] BYREF
+  unsigned __int64 v71; // [rsp+80h] [rbp-88h]
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-80h] BYREF
   _WORD Base[4]; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD v73[127]; // [rsp+A0h] [rbp-68h] BYREF
+  _QWORD v74[127]; // [rsp+A0h] [rbp-68h] BYREF
 
   PreviousAffinity = 0LL;
   if ( (unsigned __int16)KeNumberNodes > 1u )
@@ -106,143 +107,143 @@ char KiComputeNumaCosts()
       memset(PoolWithTag, 0xFFu, 8 * v1);
     Affinity = -1LL;
     v2 = 0;
-    v61 = 0;
+    v62 = 0;
     v3 = 0;
-    v63 = 0;
+    v64 = 0;
     v4 = (unsigned __int16)KeNumberNodes;
     Affinity_8 = 0LL;
     if ( !KeNumberNodes )
     {
 LABEL_53:
-      v24 = KeNumberNodes;
-      v25 = 0LL;
-      LODWORD(v65) = 0;
-      v26 = 0;
-      v64 = 0;
+      v25 = KeNumberNodes;
+      v26 = 0LL;
+      LODWORD(v66) = 0;
       v27 = 0;
-      for ( i = (unsigned __int16)KeNumberNodes; v27 < v24; v64 = v27 )
+      v65 = 0;
+      v28 = 0;
+      for ( i = (unsigned __int16)KeNumberNodes; v28 < v25; v65 = v28 )
       {
-        v29 = KeNodeBlock[v27];
-        v30 = *(unsigned __int16 *)(v29 + 146);
-        if ( (_WORD)v30 == *(_WORD *)(v29 + 148) )
+        v30 = KeNodeBlock[v28];
+        v31 = *(unsigned __int16 *)(v30 + 146);
+        if ( (_WORD)v31 == *(_WORD *)(v30 + 148) )
         {
-          v31 = 0;
-          v32 = i * v30;
-          v62 = i * v30;
+          v32 = 0;
+          v33 = i * v31;
+          v63 = i * v31;
           if ( i )
           {
-            v33 = KeNodeBlock[v27];
+            v34 = KeNodeBlock[v28];
             do
             {
-              v34 = KeNodeBlock[v31];
-              v35 = *(unsigned __int16 *)(v34 + 146);
-              if ( (_WORD)v35 == *(_WORD *)(v34 + 148) )
+              v35 = KeNodeBlock[v32];
+              v36 = *(unsigned __int16 *)(v35 + 146);
+              if ( (_WORD)v36 == *(_WORD *)(v35 + 148) )
               {
-                v36 = KiActualNodeCost;
-                v37 = *(unsigned __int16 *)(v34 + 146);
-                v38 = (unsigned int)(v32 + v35);
-                v39 = (unsigned int)v38;
-                if ( *((_QWORD *)KiActualNodeCost + v38) == -1LL )
+                v37 = KiActualNodeCost;
+                v38 = *(unsigned __int16 *)(v35 + 146);
+                v39 = (unsigned int)(v33 + v36);
+                v40 = (unsigned int)v39;
+                if ( *((_QWORD *)KiActualNodeCost + v39) == -1LL )
                 {
-                  v40 = *(unsigned __int16 *)(v33 + 146);
-                  v41 = (unsigned int)(v40 + i * v37);
-                  v42 = *((_QWORD *)KiActualNodeCost + v41);
-                  if ( v42 == -1 )
+                  v41 = *(unsigned __int16 *)(v34 + 146);
+                  v42 = (unsigned int)(v41 + i * v38);
+                  v43 = *((_QWORD *)KiActualNodeCost + v42);
+                  if ( v43 == -1 )
                   {
-                    v43 = *((_DWORD *)KeNodeDistance + v37 + i * v40);
-                    if ( v43 != 1 || (v43 = *((_DWORD *)KeNodeDistance + (int)v41), v43 != 1) )
+                    v44 = *((_DWORD *)KeNodeDistance + v38 + i * v41);
+                    if ( v44 != 1 || (v44 = *((_DWORD *)KeNodeDistance + (int)v42), v44 != 1) )
                     {
-                      if ( !v26 )
+                      if ( !v27 )
                       {
-                        HalNumaConversionFactor = KiGetHalNumaConversionFactor(&v65);
-                        v26 = v65;
-                        v25 = HalNumaConversionFactor;
+                        HalNumaConversionFactor = KiGetHalNumaConversionFactor(&v66);
+                        v27 = v66;
+                        v26 = HalNumaConversionFactor;
                       }
-                      if ( v26 == 2 )
+                      if ( v27 == 2 )
                       {
-                        v45 = v25 * v43 / 0x64;
+                        v46 = v26 * v44 / 0x64;
                       }
-                      else if ( v26 == 3 )
+                      else if ( v27 == 3 )
                       {
-                        v45 = 100 * (unsigned __int64)v43 / v25;
+                        v46 = 100 * (unsigned __int64)v44 / v26;
                       }
                       else
                       {
-                        v45 = -1LL;
+                        v46 = -1LL;
                       }
-                      v36[v39] = v45;
+                      v37[v40] = v46;
                     }
                   }
                   else
                   {
-                    *((_QWORD *)KiActualNodeCost + v38) = v42;
+                    *((_QWORD *)KiActualNodeCost + v39) = v43;
                   }
-                  v32 = v62;
+                  v33 = v63;
                 }
               }
-              v24 = KeNumberNodes;
-              ++v31;
+              v25 = KeNumberNodes;
+              ++v32;
               i = (unsigned __int16)KeNumberNodes;
             }
-            while ( v31 < (unsigned __int16)KeNumberNodes );
-            v27 = v64;
+            while ( v32 < (unsigned __int16)KeNumberNodes );
+            v28 = v65;
           }
         }
-        ++v27;
-        i = v24;
+        ++v28;
+        i = v25;
       }
-      v46 = v24;
-      v47 = 0;
-      if ( v24 )
+      v47 = v25;
+      v48 = 0;
+      if ( v25 )
       {
         do
         {
-          v48 = 0;
-          v49 = v46 * *(unsigned __int16 *)(KeNodeBlock[v47] + 148);
-          if ( v46 )
+          v49 = 0;
+          v50 = v47 * *(unsigned __int16 *)(KeNodeBlock[v48] + 148);
+          if ( v47 )
           {
-            v50 = v73;
-            v51 = KeNodeBlock;
+            v51 = v74;
+            v52 = KeNodeBlock;
             do
             {
-              v52 = *v51;
-              *((_DWORD *)v50 - 2) = v48;
-              if ( v52 )
+              v53 = *v52;
+              *((_DWORD *)v51 - 2) = v49;
+              if ( v53 )
               {
-                v53 = *((_QWORD *)KiActualNodeCost + v49 + (unsigned int)*(unsigned __int16 *)(v52 + 146));
-                *v50 = v53;
-                if ( !v53 )
-                  *v50 = 1LL;
+                v54 = *((_QWORD *)KiActualNodeCost + v50 + (unsigned int)*(unsigned __int16 *)(v53 + 146));
+                *v51 = v54;
+                if ( !v54 )
+                  *v51 = 1LL;
               }
               else
               {
-                *v50 = -1LL;
+                *v51 = -1LL;
               }
-              ++v48;
-              ++v51;
-              v50 += 2;
+              ++v49;
+              ++v52;
+              v51 += 2;
             }
-            while ( v48 < v46 );
+            while ( v49 < v47 );
           }
-          v54 = (unsigned __int16)KeNumberNodes;
-          v73[2 * v47] = 0LL;
-          qsort(Base, v54, 0x10uLL, MiNodeCostSort);
-          v55 = KeNumberNodes;
-          v56 = 0;
+          v55 = (unsigned __int16)KeNumberNodes;
+          v74[2 * v48] = 0LL;
+          qsort(Base, v55, 0x10uLL, MiNodeCostSort);
+          v56 = KeNumberNodes;
+          v57 = 0;
           for ( j = (unsigned __int16)KeNumberNodes;
-                v56 < (unsigned __int16)KeNumberNodes;
+                v57 < (unsigned __int16)KeNumberNodes;
                 j = (unsigned __int16)KeNumberNodes )
           {
-            v58 = 2LL * v56;
-            v59 = v56 + v47 * j;
-            ++v56;
-            *((_WORD *)KiNodeGraph + v59) = Base[4 * v58];
-            v55 = KeNumberNodes;
+            v59 = 2LL * v57;
+            v60 = v57 + v48 * j;
+            ++v57;
+            *((_WORD *)KiNodeGraph + v60) = Base[4 * v59];
+            v56 = KeNumberNodes;
           }
-          ++v47;
-          v46 = v55;
+          ++v48;
+          v47 = v56;
         }
-        while ( v47 < v55 );
+        while ( v48 < v56 );
       }
       goto LABEL_2;
     }
@@ -256,18 +257,18 @@ LABEL_53:
         {
           do
           {
-            v67 = 0LL;
-            HvlQueryNumaDistance(v3, v6, &v67);
+            v68 = 0LL;
+            HvlQueryNumaDistance(v3, v6, &v68);
             v7 = v3 * (unsigned __int16)KeNumberNodes;
-            if ( v67 == -1 )
+            if ( v68 == -1 )
               *((_QWORD *)KiActualNodeCost + v6 + v7) = -1LL;
             else
-              *((_QWORD *)KiActualNodeCost + v6 + v7) = (unsigned __int64)(v67 << 9) >> 10;
+              *((_QWORD *)KiActualNodeCost + v6 + v7) = (unsigned __int64)(v68 << 9) >> 10;
             ++v6;
           }
           while ( v6 < (unsigned __int16)KeNumberNodes );
 LABEL_49:
-          v2 = v61;
+          v2 = v62;
         }
       }
       else
@@ -306,7 +307,7 @@ LABEL_49:
           }
           else
           {
-            v61 = 1;
+            v62 = 1;
             p_PreviousAffinity = &PreviousAffinity;
           }
           KeSetSystemGroupAffinityThread(&Affinity_8, p_PreviousAffinity);
@@ -327,14 +328,14 @@ LABEL_49:
               v14 = PartitionNodePagesForMdl;
               if ( PartitionNodePagesForMdl )
               {
-                v16 = (char *)MmMapLockedPagesSpecifyCache(
+                v15 = (char *)MmMapLockedPagesSpecifyCache(
                                 PartitionNodePagesForMdl,
                                 0,
                                 MmNonCached,
                                 0LL,
                                 0,
                                 0x40000020u);
-                if ( v16 )
+                if ( v15 )
                 {
                   CurrentIrql = KeGetCurrentIrql();
                   __writecr8(2uLL);
@@ -343,12 +344,12 @@ LABEL_49:
                     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
                   }
-                  v18 = v16 + 4096;
-                  v66 = __rdtsc();
-                  while ( v16 < v18 )
-                    v16 += 8;
-                  v70 = __rdtsc();
-                  v19 = v70;
+                  v18 = v15 + 4096;
+                  v67 = __rdtsc();
+                  while ( v15 < v18 )
+                    v15 += 8;
+                  v71 = __rdtsc();
+                  v19 = v71;
                   if ( KiIrqlFlags )
                   {
                     if ( (KiIrqlFlags & 1) != 0 )
@@ -357,34 +358,34 @@ LABEL_49:
                       if ( v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
                       {
                         CurrentPrcb = KeGetCurrentPrcb();
-                        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                        v22 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                        v23 = (v22 & SchedulerAssist[5]) == 0;
-                        SchedulerAssist[5] &= v22;
-                        if ( v23 )
+                        v22 = CurrentPrcb->SchedulerAssist;
+                        v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                        v24 = (v23 & v22[5]) == 0;
+                        v22[5] &= v23;
+                        if ( v24 )
                         {
                           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-                          v19 = v70;
+                          v19 = v71;
                         }
                       }
                     }
                   }
                   __writecr8(CurrentIrql);
-                  *((_QWORD *)KiActualNodeCost + v12 + v9 * (unsigned __int16)KeNumberNodes) = v19 - v66;
+                  *((_QWORD *)KiActualNodeCost + v12 + v9 * (unsigned __int16)KeNumberNodes) = v19 - v67;
                 }
-                MiFreePagesFromMdl((ULONG_PTR)v14, 0, (__int64)SchedulerAssist);
+                MiFreePagesFromMdl((ULONG_PTR)v14, 0);
                 ExFreePoolWithTag(v14, 0);
               }
               ++v12;
             }
             while ( v12 < (unsigned __int16)KeNumberNodes );
-            v3 = v63;
+            v3 = v64;
           }
           goto LABEL_49;
         }
       }
 LABEL_50:
-      v63 = ++v3;
+      v64 = ++v3;
       v4 = (unsigned __int16)KeNumberNodes;
       if ( v3 >= (unsigned __int16)KeNumberNodes )
       {

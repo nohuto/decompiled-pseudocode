@@ -14,7 +14,7 @@ __int64 __fastcall wil_StagingConfig_QueryFeatureState(__int64 a1, __int64 a2, _
   unsigned int v5; // esi
   unsigned int FeatureState; // ebx
   _BYTE v9[56]; // [rsp+30h] [rbp-148h] BYREF
-  __int64 v10; // [rsp+68h] [rbp-110h]
+  PVOID BaseAddress; // [rsp+68h] [rbp-110h]
   int v11; // [rsp+80h] [rbp-F8h]
   __int64 v12; // [rsp+90h] [rbp-E8h] BYREF
 
@@ -24,7 +24,7 @@ __int64 __fastcall wil_StagingConfig_QueryFeatureState(__int64 a1, __int64 a2, _
   {
     FeatureState = wil_details_StagingConfig_QueryFeatureState(v9, a2, v5, a4);
     if ( v11 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return FeatureState;
 }

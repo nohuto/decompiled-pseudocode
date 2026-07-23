@@ -8,7 +8,15 @@
  *     NtTraceEvent @ 0x180093EE0 (NtTraceEvent.c)
  */
 
-__int64 RtlpWnfETWEventPublish()
+NTSTATUS __fastcall RtlpWnfETWEventPublish(__int64 a1, int a2)
 {
-  return NtTraceEvent();
+  _BYTE Fields[6]; // [rsp+28h] [rbp-40h] BYREF
+  __int16 v4; // [rsp+2Eh] [rbp-3Ah]
+  __int64 v5; // [rsp+48h] [rbp-20h]
+  int v6; // [rsp+50h] [rbp-18h]
+
+  v4 = 3363;
+  v6 = a2;
+  v5 = a1;
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE038E], 0x20402u, 0xCu, Fields);
 }

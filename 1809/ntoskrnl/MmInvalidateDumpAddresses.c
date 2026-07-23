@@ -1,13 +1,13 @@
 /*
- * XREFs of MmInvalidateDumpAddresses @ 0x14056D630
+ * XREFs of MmInvalidateDumpAddresses @ 0x14056E630
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140569DB8 (PopInvokeSystemStateHandler.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeFlushSingleCurrentTb @ 0x140156ED8 (KeFlushSingleCurrentTb.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeFlushSingleCurrentTb @ 0x140156FD8 (KeFlushSingleCurrentTb.c)
  */
 
 char __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int64 a2)
@@ -40,7 +40,7 @@ char __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int64 
         if ( (unsigned int)MiPteHasShadow() )
         {
           v8 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
           {
             v16 = (v7 & 1) == 0;
             goto LABEL_19;
@@ -67,7 +67,7 @@ LABEL_19:
     KeFlushSingleCurrentTb(v3, 0);
     v3 += 4096LL;
   }
-  v10 = qword_14043A7D0;
+  v10 = qword_14043B890;
   v11 = 32LL;
   do
   {
@@ -78,7 +78,7 @@ LABEL_19:
     if ( (_DWORD)CurrentThread )
     {
       v14 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_10;
       v17 = (v13 & 1) == 0;
     }

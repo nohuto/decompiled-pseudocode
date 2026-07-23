@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAllocateMiniCompletionPacket @ 0x140785FE0
+ * XREFs of IoAllocateMiniCompletionPacket @ 0x1407861D0
  * Callers:
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     NtCreateWorkerFactory @ 0x140785B90 (NtCreateWorkerFactory.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x140785F08 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     NtCreateWorkerFactory @ 0x140785D80 (NtCreateWorkerFactory.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x1407860F8 (AlpcpAllocateCompletionPacketLookaside.c)
  * Callees:
- *     IopAllocateMiniCompletionPacket @ 0x14073DFC8 (IopAllocateMiniCompletionPacket.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14073E1B8 (IopAllocateMiniCompletionPacket.c)
  */
 
 PSLIST_ENTRY __fastcall IoAllocateMiniCompletionPacket(__int64 a1, _SLIST_ENTRY *a2)

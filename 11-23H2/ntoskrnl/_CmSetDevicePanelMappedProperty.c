@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmSetDevicePanelMappedProperty @ 0x140A66EF0
+ * XREFs of _CmSetDevicePanelMappedProperty @ 0x140A671A0
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x140829DB0 (_PnpDispatchDevicePanel.c)
- *     _CmDeleteDevicePanelWorker @ 0x140A662F0 (_CmDeleteDevicePanelWorker.c)
+ *     _PnpDispatchDevicePanel @ 0x14082A0B0 (_PnpDispatchDevicePanel.c)
+ *     _CmDeleteDevicePanelWorker @ 0x140A665A0 (_CmDeleteDevicePanelWorker.c)
  * Callees:
  *     <none>
  */

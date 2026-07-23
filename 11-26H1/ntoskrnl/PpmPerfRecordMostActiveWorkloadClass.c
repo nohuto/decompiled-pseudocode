@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfRecordMostActiveWorkloadClass @ 0x14041F2F4
+ * XREFs of PpmPerfRecordMostActiveWorkloadClass @ 0x140416B34
  * Callers:
- *     PpmParkRecordNodeStatistics @ 0x14041EFE0 (PpmParkRecordNodeStatistics.c)
+ *     PpmParkRecordNodeStatistics @ 0x140416820 (PpmParkRecordNodeStatistics.c)
  * Callees:
- *     Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck @ 0x14041F7D8 (Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck.c)
- *     PpmEventHgsActiveWorkloadClass @ 0x14041F84C (PpmEventHgsActiveWorkloadClass.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck @ 0x140417018 (Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck.c)
+ *     PpmEventHgsActiveWorkloadClass @ 0x14041708C (PpmEventHgsActiveWorkloadClass.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall PpmPerfRecordMostActiveWorkloadClass(__int64 a1)
@@ -61,8 +61,7 @@ LABEL_7:
           {
             _BitScanForward64(&v13, v10);
             v10 &= ~(1LL << v13);
-            v14 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                  + 64 * v11
+            v14 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v11].Flink
                   + (unsigned __int8)v13);
             if ( (unsigned int)v14 >= (unsigned int)KeNumberProcessors_0 )
             {
@@ -94,7 +93,7 @@ LABEL_7:
         }
         ++v7;
       }
-      while ( v7 < PpmHeteroWorkloadClasses );
+      while ( v7 < (unsigned int)PpmHeteroWorkloadClasses );
       if ( v6 == -1 )
 LABEL_22:
         v6 = 0;

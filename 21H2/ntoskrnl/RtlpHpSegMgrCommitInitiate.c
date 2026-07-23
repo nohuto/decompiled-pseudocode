@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpSegMgrCommitInitiate @ 0x140309268
+ * XREFs of RtlpHpSegMgrCommitInitiate @ 0x140313FB8
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrCommit @ 0x140315360 (RtlpHpSegMgrCommit.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     RtlpHpSegMgrApplyLargePagePolicy @ 0x1402CB0F4 (RtlpHpSegMgrApplyLargePagePolicy.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     RtlpHpSegMgrApplyLargePagePolicy @ 0x1402499E4 (RtlpHpSegMgrApplyLargePagePolicy.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140313100 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrCommitInitiate(
@@ -42,16 +42,15 @@ __int64 __fastcall RtlpHpSegMgrCommitInitiate(
   __int64 v23; // rcx
   __int64 v24; // rsi
   __int64 v25; // rdx
-  __int64 v26; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v30; // eax
-  __int64 v31; // [rsp+90h] [rbp+8h]
-  char v32; // [rsp+A8h] [rbp+20h]
+  int v29; // eax
+  __int64 v30; // [rsp+90h] [rbp+8h]
+  char v31; // [rsp+A8h] [rbp+20h]
 
-  v32 = a4;
-  v31 = a1;
+  v31 = a4;
+  v30 = a1;
   v6 = *a2;
   v7 = 0;
   v8 = 0;
@@ -69,7 +68,7 @@ __int64 __fastcall RtlpHpSegMgrCommitInitiate(
 LABEL_6:
           v12 = v6;
 LABEL_7:
-          a1 = v31;
+          a1 = v30;
 LABEL_8:
           v13 = a3 + v12;
           goto LABEL_9;
@@ -114,7 +113,7 @@ LABEL_9:
       break;
     if ( v7 )
     {
-      if ( (*(_DWORD *)(v31 + 40) & 1) != 0 )
+      if ( (*(_DWORD *)(v30 + 40) & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)BugCheckParameter2);
         if ( KiIrqlFlags )
@@ -126,9 +125,9 @@ LABEL_9:
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v30 = ~(unsigned __int16)(-1LL << (v8 + 1));
-              v14 = (v30 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v30;
+              v29 = ~(unsigned __int16)(-1LL << (v8 + 1));
+              v14 = (v29 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v29;
               if ( v14 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
@@ -167,7 +166,7 @@ LABEL_9:
               {
                 *(_BYTE *)(v24 + 32) |= 2u;
                 if ( *(__int64 *)(v24 + 32) < 0 )
-                  KiAbEntryRemoveFromTree(v24);
+                  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
                 *(_DWORD *)(v24 + 88) &= 0xFFFE0000;
                 *(_BYTE *)(v24 + 25) &= ~1u;
                 *(_QWORD *)(v24 + 32) = 0LL;
@@ -191,14 +190,14 @@ LABEL_49:
         if ( v14
           && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
         {
-          KiCheckForKernelApcDelivery(v26);
+          KiCheckForKernelApcDelivery();
         }
         KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
       }
       v7 = 0;
     }
-    a1 = v31;
-    a4 = v32;
+    a1 = v30;
+    a4 = v31;
   }
   if ( a3 <= 0 )
   {

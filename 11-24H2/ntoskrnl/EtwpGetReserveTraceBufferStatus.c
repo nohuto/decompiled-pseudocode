@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpGetReserveTraceBufferStatus @ 0x14043FE70
+ * XREFs of EtwpGetReserveTraceBufferStatus @ 0x140436130
  * Callers:
- *     EtwTraceRaw @ 0x14064F1FC (EtwTraceRaw.c)
+ *     EtwTraceRaw @ 0x14064D8FC (EtwTraceRaw.c)
  * Callees:
  *     <none>
  */

@@ -31,12 +31,12 @@ __int64 __fastcall RtlpHpSegContextReserve(__int64 a1, __int64 a2, __int64 a3)
       if ( v3 > v5 )
         v9 = v5;
       v3 = (v3 - v5) & -(__int64)(v5 < v3);
-      v10 = RtlpHpSegSegmentAllocate(a1, v9);
+      v10 = RtlpHpSegSegmentAllocate(a1, v9, 0);
       v11 = v10;
       if ( !v10 )
         break;
       RtlpHpSegSegmentInitialize(a1, v10, v9);
-      RtlpHpSegFreeRangeInsert(a1, v11 + 32LL * *(unsigned __int8 *)(a1 + 10), 1LL);
+      RtlpHpSegFreeRangeInsert(a1, v11 + 32LL * *(unsigned __int8 *)(a1 + 10), 1);
       RtlpHpSegHeapAddSegment(a1, v11);
       if ( !--v7 )
         return v6;

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpUnwindPrologue @ 0x1402A5F50
+ * XREFs of RtlpUnwindPrologue @ 0x1402A61E0
  * Callers:
- *     RtlpxVirtualUnwind @ 0x1402A5A80 (RtlpxVirtualUnwind.c)
+ *     RtlpxVirtualUnwind @ 0x1402A5D10 (RtlpxVirtualUnwind.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     RtlpIsMachineFrameEntry @ 0x1403404D4 (RtlpIsMachineFrameEntry.c)
- *     RtlpVirtualPopShadowStack @ 0x14036EE80 (RtlpVirtualPopShadowStack.c)
- *     RtlLocateExtendedFeature2 @ 0x140464240 (RtlLocateExtendedFeature2.c)
- *     RtlpUnwindOpSlots @ 0x140464850 (RtlpUnwindOpSlots.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     RtlpIsMachineFrameEntry @ 0x140340764 (RtlpIsMachineFrameEntry.c)
+ *     RtlpVirtualPopShadowStack @ 0x14036F020 (RtlpVirtualPopShadowStack.c)
+ *     RtlLocateExtendedFeature2 @ 0x140464640 (RtlLocateExtendedFeature2.c)
+ *     RtlpUnwindOpSlots @ 0x140464C50 (RtlpUnwindOpSlots.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpUnwindPrologue(
@@ -263,7 +263,7 @@ LABEL_25:
       goto LABEL_84;
     if ( (unsigned int)++v40 > 0x20 )
 LABEL_112:
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( v39 )
   {

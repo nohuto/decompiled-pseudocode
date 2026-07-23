@@ -1,10 +1,10 @@
 /*
- * XREFs of KiWaitForContextSwap @ 0x14024B24C
+ * XREFs of KiWaitForContextSwap @ 0x1402EFA9C
  * Callers:
- *     KiOutSwapKernelStacks @ 0x1402E4740 (KiOutSwapKernelStacks.c)
- *     KeDeleteThread @ 0x1402E4B78 (KeDeleteThread.c)
+ *     KiOutSwapKernelStacks @ 0x140295A90 (KiOutSwapKernelStacks.c)
+ *     KeDeleteThread @ 0x140295EC8 (KeDeleteThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  */
 
 char __fastcall KiWaitForContextSwap(__int64 a1)

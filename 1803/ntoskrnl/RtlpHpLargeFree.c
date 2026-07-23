@@ -24,7 +24,7 @@ unsigned __int64 __fastcall RtlpHpLargeFree(ULONG_PTR a1, unsigned __int64 a2, u
 {
   char v3; // bl
   unsigned __int8 v5; // si
-  unsigned __int64 Metadata; // rax
+  _RTL_BALANCED_NODE *Metadata; // rax
   __int64 v7; // rdx
   __int64 v8; // r8
   __int64 v9; // r9
@@ -71,13 +71,13 @@ unsigned __int64 __fastcall RtlpHpLargeFree(ULONG_PTR a1, unsigned __int64 a2, u
   v48 = a2;
   v3 = a3;
   v5 = RtlpHpLargeLockAcquire(a1, a3);
-  Metadata = RtlpHpLargeAllocGetMetadata(a1, v48);
+  Metadata = (_RTL_BALANCED_NODE *)RtlpHpLargeAllocGetMetadata(a1, v48);
   v10 = 0LL;
   v11 = v3 & 1;
-  v12 = Metadata;
+  v12 = (__int64)Metadata;
   if ( Metadata )
   {
-    RtlRbRemoveNode(a1 + 80, Metadata);
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 80), Metadata);
     if ( !v11 )
     {
       v27 = (volatile signed __int64 *)(a1 + 72);
@@ -130,7 +130,7 @@ LABEL_44:
         }
         v34->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v34->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v33], SessionId);
+          KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v33].TreeNode, SessionId);
         v44[0] = 0;
         v44[0] = v34->BoostBitmap.AllFields & 0x1FFFF;
         v34->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -217,7 +217,7 @@ LABEL_16:
         }
         v20->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v20->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&v14->LockEntries[v19], v15);
+          KiAbEntryRemoveFromTree(&v14->LockEntries[v19].TreeNode, v15);
         v43 = 0;
         v43 = v20->BoostBitmap.AllFields & 0x1FFFF;
         v20->BoostBitmap.AllFields &= 0xFFFE0000;

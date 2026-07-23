@@ -1,26 +1,26 @@
 /*
- * XREFs of BcdOpenSystemStore @ 0x14053BF2C
+ * XREFs of BcdOpenSystemStore @ 0x14053C46C
  * Callers:
- *     WheaPersistOfflinedPage @ 0x1402309A4 (WheaPersistOfflinedPage.c)
- *     PopFreeHiberContext @ 0x14052EA54 (PopFreeHiberContext.c)
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
- *     PoInitHiberServices @ 0x14056BEA8 (PoInitHiberServices.c)
- *     SepSecureBootCorrectBcd @ 0x140693FEC (SepSecureBootCorrectBcd.c)
+ *     WheaPersistOfflinedPage @ 0x1402307D0 (WheaPersistOfflinedPage.c)
+ *     PopFreeHiberContext @ 0x14052EF94 (PopFreeHiberContext.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
+ *     PoInitHiberServices @ 0x14056C3E8 (PoInitHiberServices.c)
+ *     SepSecureBootCorrectBcd @ 0x1406940D0 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     BiOpenSystemStore @ 0x14053BF5C (BiOpenSystemStore.c)
- *     BiReleaseBcdSyncMutant @ 0x14053E1A4 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14053E1C8 (BiAcquireBcdSyncMutant.c)
+ *     BiOpenSystemStore @ 0x14053C49C (BiOpenSystemStore.c)
+ *     BiReleaseBcdSyncMutant @ 0x14053E6E4 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x14053E708 (BiAcquireBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdOpenSystemStore(__int64 a1)
+NTSTATUS __cdecl BcdOpenSystemStore(PHANDLE BcdStoreHandle)
 {
-  __int64 result; // rax
-  unsigned int v3; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v3; // ebx
 
   result = BiAcquireBcdSyncMutant(0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v3 = BiOpenSystemStore(a1);
+    v3 = BiOpenSystemStore(BcdStoreHandle);
     BiReleaseBcdSyncMutant(0LL);
     return v3;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of SiGetDriveLayoutInformation @ 0x140A5F5B8
+ * XREFs of SiGetDriveLayoutInformation @ 0x140A5F868
  * Callers:
- *     SiFindSystemPartition @ 0x140A5F3D4 (SiFindSystemPartition.c)
- *     SiGetEfiSystemDevice @ 0x140A5FA40 (SiGetEfiSystemDevice.c)
- *     SiGetBiosSystemPartition @ 0x140A60454 (SiGetBiosSystemPartition.c)
+ *     SiFindSystemPartition @ 0x140A5F684 (SiFindSystemPartition.c)
+ *     SiGetEfiSystemDevice @ 0x140A5FCF0 (SiGetEfiSystemDevice.c)
+ *     SiGetBiosSystemPartition @ 0x140A60704 (SiGetBiosSystemPartition.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     SiOpenDevice @ 0x1407C01D4 (SiOpenDevice.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     SiOpenDevice @ 0x1407C04A4 (SiOpenDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

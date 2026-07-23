@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAddToReservationCluster @ 0x140115DF4
+ * XREFs of MiAddToReservationCluster @ 0x140116364
  * Callers:
- *     MiBuildReservationCluster @ 0x14011603C (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1401165AC (MiBuildReservationCluster.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14009E3AC (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiReferencePageForModifiedWrite @ 0x140101FB8 (MiReferencePageForModifiedWrite.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14009DBAC (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiReferencePageForModifiedWrite @ 0x1400FFD38 (MiReferencePageForModifiedWrite.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
  */
 
 __int64 __fastcall MiAddToReservationCluster(
@@ -117,7 +117,7 @@ LABEL_23:
           *a6 += v15;
           do
           {
-            *a5++ = qword_140327688;
+            *a5++ = qword_1403276C8;
             --v15;
           }
           while ( v15 );

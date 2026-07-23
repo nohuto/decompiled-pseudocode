@@ -50,13 +50,13 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   unsigned __int64 v33; // r14
   unsigned __int64 v34; // rax
   unsigned __int64 v35; // r15
-  _WORD *v36; // rax
+  unsigned __int64 v36; // rax
   __int16 v37; // r8
   unsigned __int64 v38; // rax
   unsigned __int64 v39; // rdx
-  unsigned __int8 v40; // al
+  BOOLEAN v40; // al
   unsigned __int64 v41; // rax
-  union _SLIST_HEADER *v43; // rcx
+  _SLIST_HEADER *v43; // rcx
   int v44; // ecx
   int v45; // ecx
   unsigned __int64 v46; // r8
@@ -122,7 +122,7 @@ LABEL_64:
     v12 = 0LL;
     if ( (v9 & 4) != 0 && v11 < 0x1000 )
     {
-      v43 = (union _SLIST_HEADER *)(a1 + 64);
+      v43 = (_SLIST_HEADER *)(a1 + 64);
       if ( *(_WORD *)(a1 + 64) < 0x20u )
       {
         RtlpInterlockedPushEntrySList(v43, (PSLIST_ENTRY)(v10 + 16));
@@ -240,9 +240,9 @@ LABEL_14:
           }
           if ( (*(_DWORD *)(a1 + 176) & 1) != 0 && ((v16 + 32) & 0xFFF) != 0 )
           {
-            v36 = (_WORD *)RtlpHpVsChunkAlignSplit(v24, v21, v16);
+            v36 = RtlpHpVsChunkAlignSplit(v24, v21, v16);
             if ( v36 )
-              RtlpHpVsFreeChunkInsert((_QWORD *)a1, v21, v36);
+              RtlpHpVsFreeChunkInsert((_RTL_RB_TREE *)a1, v21, v36);
           }
           v37 = RtlpHpVsChunkComputeCost(v16, v21, &v53, &v50);
           v38 = (0x101010101010101LL
@@ -295,7 +295,7 @@ LABEL_44:
               v39 = v41;
             }
           }
-          RtlRbInsertNodeEx(a1 + 16, v39, v40, v16 + 8);
+          RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)v39, v40, (PRTL_BALANCED_NODE)(v16 + 8));
         }
         else
         {

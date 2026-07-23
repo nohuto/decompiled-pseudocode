@@ -1,17 +1,17 @@
 /*
- * XREFs of KiGetNextTimerExpirationDueTime @ 0x14027DFF0
+ * XREFs of KiGetNextTimerExpirationDueTime @ 0x14027E280
  * Callers:
- *     KeEstimateClockTickDuration @ 0x1402C220C (KeEstimateClockTickDuration.c)
- *     KePrepareClockTimerForIdle @ 0x140347334 (KePrepareClockTimerForIdle.c)
- *     PpmIdleSelectStates @ 0x1403B7470 (PpmIdleSelectStates.c)
+ *     KeEstimateClockTickDuration @ 0x1402C249C (KeEstimateClockTickDuration.c)
+ *     KePrepareClockTimerForIdle @ 0x1403475C4 (KePrepareClockTimerForIdle.c)
+ *     PpmIdleSelectStates @ 0x1403B7650 (PpmIdleSelectStates.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     KiFindNextTimerDueTime @ 0x14027E2C0 (KiFindNextTimerDueTime.c)
- *     KiGetNextTimer2ExpirationDueTime @ 0x140347A8C (KiGetNextTimer2ExpirationDueTime.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiGetPastDueIRTimerInfo @ 0x14057D554 (KiGetPastDueIRTimerInfo.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x14060B5B0 (ExGetNextWakeTimeForDeepSleep.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     KiFindNextTimerDueTime @ 0x14027E550 (KiFindNextTimerDueTime.c)
+ *     KiGetNextTimer2ExpirationDueTime @ 0x140347D1C (KiGetNextTimer2ExpirationDueTime.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KiGetPastDueIRTimerInfo @ 0x14057DA44 (KiGetPastDueIRTimerInfo.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x14060BB00 (ExGetNextWakeTimeForDeepSleep.c)
  */
 
 unsigned __int64 __fastcall KiGetNextTimerExpirationDueTime(
@@ -89,9 +89,9 @@ unsigned __int64 __fastcall KiGetNextTimerExpirationDueTime(
     {
       goto LABEL_6;
     }
-    if ( KiGenerationEndTick * (unsigned __int64)(unsigned int)KeMaximumIncrement < NextWakeTimeForDeepSleep )
+    if ( KiGenerationEndTick * (unsigned __int64)KeMaximumIncrement < NextWakeTimeForDeepSleep )
     {
-      NextWakeTimeForDeepSleep = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+      NextWakeTimeForDeepSleep = KiGenerationEndTick * KeMaximumIncrement;
       v28 = NextWakeTimeForDeepSleep;
       v13 = 5;
     }

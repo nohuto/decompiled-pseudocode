@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteEnableInfo @ 0x1408253AC
+ * XREFs of EtwpEventWriteEnableInfo @ 0x14082B5EC
  * Callers:
- *     EtwpTracingProvEnableCallback @ 0x140B4C3A0 (EtwpTracingProvEnableCallback.c)
+ *     EtwpTracingProvEnableCallback @ 0x140B4E130 (EtwpTracingProvEnableCallback.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteEnableInfo(__int64 a1, __int64 a2, unsigned __int8 a3)
@@ -41,5 +41,10 @@ NTSTATUS __fastcall EtwpEventWriteEnableInfo(__int64 a1, __int64 a2, unsigned __
   v14 = v3 + a2 + 4;
   v17 = 4LL;
   v16 = v3 + a2 + 8;
-  return EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_ENABLE_INFO, 0LL, 7u, &UserData);
+  return EtwWrite(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_ENABLE_INFO,
+           0LL,
+           7u,
+           &UserData);
 }

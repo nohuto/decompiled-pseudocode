@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeInitializeTimerEx_Entry @ 0x140C3CDB0
+ * XREFs of VfMiscKeInitializeTimerEx_Entry @ 0x140C42DC0
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscValidateSynchronizationObject @ 0x140C20518 (ViMiscValidateSynchronizationObject.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140C26524 (ViMiscValidateSynchronizationObject.c)
  */
 
 BOOLEAN __fastcall VfMiscKeInitializeTimerEx_Entry(__int64 a1)

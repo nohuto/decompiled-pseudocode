@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpFlushBuffer @ 0x180052EC4
+ * XREFs of EtwpFlushBuffer @ 0x180052EB4
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x180052C70 (EtwpFlushActiveBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x180052C60 (EtwpFlushActiveBuffers.c)
  *     EtwpBufferingModeFlush @ 0x1800FD694 (EtwpBufferingModeFlush.c)
  * Callees:
  *     EtwpWriteBufferCompressed @ 0x180002558 (EtwpWriteBufferCompressed.c)
@@ -12,19 +12,19 @@
 __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
 {
   int v4; // r9d
-  int v5; // edx
+  NTSTATUS v5; // edx
   int v8; // eax
   int v9; // esi
   int v10; // r8d
   __int64 v11; // r14
-  __int64 v12; // rbp
+  __int64 Length; // rbp
   int v13; // ecx
   unsigned __int64 v14; // r11
-  int v16; // eax
+  NTSTATUS v16; // eax
   int v17; // r8d
   int v18; // r8d
   __int64 v19; // rax
-  _BYTE v20[16]; // [rsp+50h] [rbp-28h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-28h] BYREF
   int v21; // [rsp+88h] [rbp+10h] BYREF
   int v22; // [rsp+98h] [rbp+20h] BYREF
 
@@ -46,13 +46,13 @@ __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
   {
     v10 = *(_DWORD *)(a1 + 324);
     v11 = *(unsigned int *)(a1 + 320);
-    v12 = *(unsigned int *)(a1 + 208);
+    Length = *(unsigned int *)(a1 + 208);
     v13 = 0;
     if ( (v10 & 8) != 0 )
       v13 = 2;
     if ( (_DWORD)v11 )
     {
-      v14 = (v10 & 0x4000000) != 0 ? *(_QWORD *)(a1 + 360) : v12 * (unsigned int)(v13 + *(_DWORD *)(a1 + 336));
+      v14 = (v10 & 0x4000000) != 0 ? *(_QWORD *)(a1 + 360) : Length * (unsigned int)(v13 + *(_DWORD *)(a1 + 336));
       if ( v14 >= ((v10 & 0x2000) != 0 ? 1024 : 0x100000) * v11 )
       {
         v17 = (v10 & 0xB) - 1;
@@ -75,7 +75,7 @@ LABEL_33:
         {
           v19 = *(_QWORD *)(a1 + 352);
           *(_QWORD *)(a1 + 360) = v19;
-          *(_DWORD *)(a1 + 336) = v19 / v12;
+          *(_DWORD *)(a1 + 336) = v19 / Length;
         }
       }
     }
@@ -89,12 +89,21 @@ LABEL_33:
     }
     else
     {
-      if ( *(_DWORD *)(a2 + 48) < (unsigned int)v12 )
-        memset((void *)(a2 + *(unsigned int *)(a2 + 48)), 255, (unsigned int)(v12 - *(_DWORD *)(a2 + 48)));
-      v5 = NtWriteFile(*(_QWORD *)(a1 + 144), 0LL, 0LL, 0LL, v20, a2, v12, a1 + 360, 0LL);
+      if ( *(_DWORD *)(a2 + 48) < (unsigned int)Length )
+        memset((void *)(a2 + *(unsigned int *)(a2 + 48)), 255, (unsigned int)(Length - *(_DWORD *)(a2 + 48)));
+      v5 = NtWriteFile(
+             *(HANDLE *)(a1 + 144),
+             0LL,
+             0LL,
+             0LL,
+             &IoStatusBlock,
+             (PVOID)a2,
+             Length,
+             (PLARGE_INTEGER)(a1 + 360),
+             0LL);
       if ( v5 >= 0 )
       {
-        *(_QWORD *)(a1 + 360) += v12;
+        *(_QWORD *)(a1 + 360) += Length;
         v4 = v21;
 LABEL_16:
         if ( v5 >= 0 )

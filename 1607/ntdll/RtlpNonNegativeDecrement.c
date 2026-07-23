@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpNonNegativeDecrement @ 0x18006D180
+ * XREFs of RtlpNonNegativeDecrement @ 0x18006D170
  * Callers:
- *     RtlAcquireResourceShared @ 0x18006CEC0 (RtlAcquireResourceShared.c)
- *     RtlAcquireResourceExclusive @ 0x18006CFB0 (RtlAcquireResourceExclusive.c)
- *     RtlReleaseResource @ 0x18006D0B0 (RtlReleaseResource.c)
+ *     RtlAcquireResourceShared @ 0x18006CEB0 (RtlAcquireResourceShared.c)
+ *     RtlAcquireResourceExclusive @ 0x18006CFA0 (RtlAcquireResourceExclusive.c)
+ *     RtlReleaseResource @ 0x18006D0A0 (RtlReleaseResource.c)
  * Callees:
  *     <none>
  */

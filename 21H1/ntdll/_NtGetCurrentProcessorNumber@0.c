@@ -8,7 +8,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtGetCurrentProcessorNumber()
+ULONG NtGetCurrentProcessorNumber(void)
 {
   return Wow64SystemServiceCall();
 }

@@ -730,7 +730,7 @@ __int64 __fastcall sub_1404667A0(unsigned int *a1, unsigned int a2, UINT a3, _QW
   NTSTATUS v639; // eax
   struct _FILE_OBJECT *v640; // rsi
   size_t *v641; // r14
-  unsigned __int8 v642; // cl
+  SE_SIGNING_LEVEL v642; // cl
   size_t *v643; // rbx
   int v644; // edi
   char *v645; // rax
@@ -1190,7 +1190,7 @@ __int64 __fastcall sub_1404667A0(unsigned int *a1, unsigned int a2, UINT a3, _QW
   PVOID v1099; // [rsp+550h] [rbp+450h]
   PCWSTR SourceString; // [rsp+558h] [rbp+458h]
   PVOID v1101; // [rsp+560h] [rbp+460h]
-  HANDLE v1102; // [rsp+568h] [rbp+468h] BYREF
+  HANDLE TargetFile; // [rsp+568h] [rbp+468h] BYREF
   UINT v1103; // [rsp+570h] [rbp+470h] BYREF
   ULONGLONG v1104; // [rsp+578h] [rbp+478h] BYREF
   ULONGLONG v1105; // [rsp+580h] [rbp+480h] BYREF
@@ -3401,11 +3401,7 @@ LABEL_892:
       Acl = 0;
       v1177 = 0;
       SystemInformation = 8;
-      v338 = ZwQuerySystemInformation(
-               MaxSystemInfoClass|SystemProcessInformation,
-               &SystemInformation,
-               8u,
-               &ReturnLength);
+      v338 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, &ReturnLength);
       v339 = v338 >= 0 && (v1177 & 0x20) != 0;
       v340 = v338 >= 0 && (v1177 & 0x100) != 0;
       v6 = (unsigned int *)v907;
@@ -5765,7 +5761,7 @@ LABEL_1200:
           v1199 = 0;
           v1198 = 8;
           v193 = 0;
-          v589 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v1198, 8u, &v1142) >= 0
+          v589 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v1198, 8u, &v1142) >= 0
               && (v1199 & 0x20) != 0;
           v6 = (unsigned int *)v907;
           v590 = *((_DWORD *)v907 + 4);
@@ -5875,7 +5871,7 @@ LABEL_1210:
           v1202 = 0;
           v1201 = 8;
           v193 = 0;
-          v601 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v1201, 8u, &v1146) >= 0
+          v601 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v1201, 8u, &v1146) >= 0
               && (v1202 & 0x20) != 0;
           v6 = (unsigned int *)v907;
           v602 = *((_DWORD *)v907 + 4);
@@ -6483,8 +6479,7 @@ LABEL_1295:
       v1205 = 0;
       v1204 = 8;
       v193 = 0;
-      v612 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v1204, 8u, &v1150) >= 0
-          && (v1205 & 0x20) != 0;
+      v612 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v1204, 8u, &v1150) >= 0 && (v1205 & 0x20) != 0;
       v613 = (const void **)v907;
       v614 = *((_DWORD *)v907 + 4);
       if ( v614 != 160 )
@@ -6711,7 +6706,7 @@ LABEL_1427:
               v637 = 0LL;
               v638 = *(_DWORD *)v1162;
               v1015 = v1160;
-              v1102 = 0LL;
+              TargetFile = 0LL;
               if ( !Handle )
               {
                 v6 = (unsigned int *)v907;
@@ -6730,8 +6725,8 @@ LABEL_1427:
               if ( v639 < 0 )
               {
 LABEL_1470:
-                if ( v1102 )
-                  ZwClose(v1102);
+                if ( TargetFile )
+                  ZwClose(TargetFile);
                 if ( v640 )
                   ObfDereferenceObject(v640);
                 if ( v637 )
@@ -6905,12 +6900,12 @@ LABEL_1469:
                 }
                 else
                 {
-                  if ( ObOpenObjectByPointer(v640, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &v1102) >= 0 )
+                  if ( ObOpenObjectByPointer(v640, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &TargetFile) >= 0 )
                   {
                     v642 = 0;
                     if ( (unsigned int)(v1015 - 2) <= 1 )
                       v642 = 6;
-                    ZwSetCachedSigningLevel(2LL, v642, (__int64)&v1102);
+                    ZwSetCachedSigningLevel(2u, v642, &TargetFile, 1u, TargetFile);
                   }
                   v643 = (size_t *)ExAllocatePoolWithTag(PagedPool, 0x248uLL, 0x20534C53u);
                   if ( !v643 )
@@ -8710,7 +8705,7 @@ LABEL_518:
       v1255[1] = 0;
       v1255[0] = 8;
       v193 = 0;
-      ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, v1255, 8u, &v1129);
+      ZwQuerySystemInformation(SystemCodeIntegrityInformation, v1255, 8u, &v1129);
       v6 = (unsigned int *)v907;
       if ( *((_DWORD *)v907 + 4) != 160
         || (memcmp(qword_1406A4CF0, *((const void **)v907 + 3), 0xA0uLL)

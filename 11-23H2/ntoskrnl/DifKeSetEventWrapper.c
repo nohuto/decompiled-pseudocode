@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeSetEventWrapper @ 0x1405E5980
+ * XREFs of DifKeSetEventWrapper @ 0x1405E5EF0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 LONG __fastcall DifKeSetEventWrapper(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)

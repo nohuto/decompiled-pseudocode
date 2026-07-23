@@ -18,7 +18,7 @@ NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(
         PHANDLE KeyHandle)
 {
   int v6; // ecx
-  char IsMultiSessionSku; // al
+  BOOLEAN IsMultiSessionSku; // al
   __int64 v9; // rcx
 
   if ( !KeyHandle )

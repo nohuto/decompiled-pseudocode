@@ -1,11 +1,11 @@
 /*
- * XREFs of PopValidateRTCWake @ 0x140C0969C
+ * XREFs of PopValidateRTCWake @ 0x140C0F8AC
  * Callers:
- *     PopHandleWakeSources @ 0x140BF952C (PopHandleWakeSources.c)
+ *     PopHandleWakeSources @ 0x140BFF52C (PopHandleWakeSources.c)
  * Callees:
- *     PopDiagTraceRtcWakeInfo @ 0x14050B4D8 (PopDiagTraceRtcWakeInfo.c)
- *     PopCalculateWakeTimeAdjustment @ 0x1407CF700 (PopCalculateWakeTimeAdjustment.c)
- *     PopCurrentPowerStatePrecise @ 0x140AB129C (PopCurrentPowerStatePrecise.c)
+ *     PopDiagTraceRtcWakeInfo @ 0x140504F48 (PopDiagTraceRtcWakeInfo.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x1407D27A0 (PopCalculateWakeTimeAdjustment.c)
+ *     PopCurrentPowerStatePrecise @ 0x140AAF28C (PopCurrentPowerStatePrecise.c)
  */
 
 unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
@@ -26,8 +26,8 @@ unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
   v2 = 0LL;
   v3 = 0;
   v4 = 0;
-  v5 = (__int64)stru_140F11D08.Timer.TimerListEntry.Blink & 0x18;
-  v6 = (*(_DWORD *)&stru_140F10828.WaitBlockFill11[100] & 0x100000) == 0;
+  v5 = PopFixedWakeSourceMask & 0x18;
+  v6 = (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x100000) == 0;
   v8 = 1;
   *a1 = 1;
   if ( !v6 )
@@ -40,7 +40,7 @@ LABEL_22:
   if ( v5 == 16 )
   {
     v9 = 1;
-    dword_140F0FBD0 = 1;
+    dword_140F10490 = 1;
     *a1 = 0;
     goto LABEL_10;
   }
@@ -48,44 +48,43 @@ LABEL_22:
   {
     v9 = 0;
     v3 = 1;
-    dword_140F0FBD0 = 0;
+    dword_140F10490 = 0;
     *a1 = 0;
     goto LABEL_10;
   }
   if ( v5 )
   {
     PopCurrentPowerStatePrecise((__int64)v13, 0LL);
-    dword_140F0FBD0 = dword_140F106CC;
+    dword_140F10490 = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   }
-  v9 = dword_140F0FBD0;
-  if ( dword_140F0FBD0 >= 0 )
+  v9 = dword_140F10490;
+  if ( dword_140F10490 >= 0 )
   {
 LABEL_10:
     if ( (unsigned __int64)v9 < 3 )
       goto LABEL_15;
   }
-  if ( qword_140F0FBF8 && qword_140F0FBE0[0] > (unsigned __int64)qword_140F0FBF8 )
+  if ( qword_140F104B8 && qword_140F104A0[0] > (unsigned __int64)qword_140F104B8 )
   {
     v9 = 1;
-    dword_140F0FBD0 = 1;
+    dword_140F10490 = 1;
   }
   else
   {
     v9 = 0;
     v3 = 1;
-    dword_140F0FBD0 = 0;
+    dword_140F10490 = 0;
   }
 LABEL_15:
-  v10 = qword_140F0FBE0[3 * v9];
+  v10 = qword_140F104A0[3 * v9];
   if ( v10 )
   {
-    v11 = qword_140F0FBB8;
+    v11 = qword_140F10478;
     v2 = v11 - 10000 * (unsigned int)PopCalculateWakeTimeAdjustment();
     if ( v10 < v2 + 100000000 )
     {
       if ( v2 <= v10
-        || v2 - v10 < (-(__int64)(HIDWORD(stru_140F10828.OtherOperationCount) != 0) & 0xFFFFFFFFBE6F5500uLL)
-                    + 1200000000 )
+        || v2 - v10 < (-(__int64)(PopPendingUserPresenceDuringSystemSleep != 0) & 0xFFFFFFFFBE6F5500uLL) + 1200000000 )
       {
         v4 = 1;
         v8 = 0;
@@ -101,7 +100,7 @@ LABEL_15:
   }
   v1 = 1;
 LABEL_23:
-  dword_140F0FBD0 = 3;
+  dword_140F10490 = 3;
   *a1 = 0;
 LABEL_25:
   PopDiagTraceRtcWakeInfo(v3, v4, v1, (unsigned __int8)*a1, v8, v3, v2);

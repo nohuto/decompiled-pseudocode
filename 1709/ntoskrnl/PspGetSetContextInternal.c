@@ -60,7 +60,7 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v30; // rcx
   bool v31; // bl
   int v32; // eax
-  __int64 v33; // rbx
+  CONTEXT *v33; // rbx
   char v34; // [rsp+60h] [rbp-5D8h]
   char v35[6]; // [rsp+62h] [rbp-5D6h] BYREF
   _QWORD *v36; // [rsp+68h] [rbp-5D0h]
@@ -239,10 +239,10 @@ LABEL_16:
         _fxsave((void *)(v15 + 256));
       if ( CurrentThread[1].WaitBlock[3].Object && *(_BYTE *)(a1 + 88) == 1 )
       {
-        v33 = *(_QWORD *)(a1 + 120);
+        v33 = *(CONTEXT **)(a1 + 120);
         PspGetContext(TrapFrame, v6, v33);
         if ( (CurrentThread->Header.Reserved1 & 8) != 0 )
-          RtlCopyContext(v33, *(unsigned int *)(v33 + 48), CurrentThread[1].WaitBlock[3].Object);
+          RtlCopyContext(v33, v33->ContextFlags, (PCONTEXT)CurrentThread[1].WaitBlock[3].Object);
       }
       else
       {

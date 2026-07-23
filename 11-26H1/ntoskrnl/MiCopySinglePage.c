@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCopySinglePage @ 0x14033B248
+ * XREFs of MiCopySinglePage @ 0x14033D2C8
  * Callers:
- *     MmCopyMemory @ 0x140339450 (MmCopyMemory.c)
+ *     MmCopyMemory @ 0x14033B4D0 (MmCopyMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiIsPageSecured @ 0x1405328B8 (MiIsPageSecured.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiIsPageSecured @ 0x140534D58 (MiIsPageSecured.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall MiCopySinglePage(void *a1, ULONG_PTR a2, __int64 a3, size_t a4, char a5)
@@ -23,7 +23,7 @@ __int64 __fastcall MiCopySinglePage(void *a1, ULONG_PTR a2, __int64 a3, size_t a
   v9 = 48 * a2 - 0x220000000000LL;
   if ( (a5 & 1) != 0 )
   {
-    v10 = MiSafeLockPage(a2, a2);
+    v10 = MiSafeLockPage(a2, a2, a3);
     if ( v10 == 17 )
       return 3221225793LL;
   }

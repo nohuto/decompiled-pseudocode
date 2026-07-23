@@ -1,17 +1,18 @@
 /*
- * XREFs of SeCheckAuditPrivilege @ 0x14091FC2C
+ * XREFs of SeCheckAuditPrivilege @ 0x140912648
  * Callers:
- *     NtDeleteObjectAuditAlarm @ 0x140792710 (NtDeleteObjectAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x140920280 (NtOpenObjectAuditAlarm.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x140920A00 (NtPrivilegedServiceAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x140920CD0 (NtPrivilegeObjectAuditAlarm.c)
- *     NtCloseObjectAuditAlarm @ 0x140A152C0 (NtCloseObjectAuditAlarm.c)
+ *     NtDeleteObjectAuditAlarm @ 0x1407926E0 (NtDeleteObjectAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x140911F00 (NtOpenObjectAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x1409134B0 (NtPrivilegedServiceAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x140913820 (NtPrivilegeObjectAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
+ *     NtCloseObjectAuditAlarm @ 0x140A0E0E0 (NtCloseObjectAuditAlarm.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     SepPrivilegeCheck @ 0x140403670 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140853560 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepFilterPrivilegeAudits @ 0x14091FB50 (SepFilterPrivilegeAudits.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     SepPrivilegeCheck @ 0x1403FE430 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14084F820 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepFilterPrivilegeAudits @ 0x140912790 (SepFilterPrivilegeAudits.c)
  */
 
 char __fastcall SeCheckAuditPrivilege(__int64 *a1, char a2)
@@ -43,7 +44,7 @@ char __fastcall SeCheckAuditPrivilege(__int64 *a1, char a2)
     {
       if ( (v10 = SeExports, !RtlEqualSid(SeExports->SeNetworkServiceSid, v8))
         && !RtlEqualSid(v10->SeLocalServiceSid, v8)
-        || SepFilterPrivilegeAudits(1, v11) )
+        || (unsigned __int8)SepFilterPrivilegeAudits(1LL, v11) )
       {
         SepAdtPrivilegedServiceAuditAlarm(
           (struct _SECURITY_SUBJECT_CONTEXT *)a1,

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDeleteDriver @ 0x140A8AC00
+ * XREFs of IopDeleteDriver @ 0x140A86F40
  * Callers:
  *     <none>
  * Callees:
- *     KeFlushQueuedDpcs @ 0x140204EA0 (KeFlushQueuedDpcs.c)
- *     IoUnregisterPriorityCallback @ 0x140596C90 (IoUnregisterPriorityCallback.c)
- *     PnpDriverObjectDereferenceComplete @ 0x140A8ACC4 (PnpDriverObjectDereferenceComplete.c)
- *     MmUnloadSystemImage @ 0x140A8AD10 (MmUnloadSystemImage.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeFlushQueuedDpcs @ 0x14032C480 (KeFlushQueuedDpcs.c)
+ *     IoUnregisterPriorityCallback @ 0x140593C70 (IoUnregisterPriorityCallback.c)
+ *     PnpDriverObjectDereferenceComplete @ 0x140A87004 (PnpDriverObjectDereferenceComplete.c)
+ *     MmUnloadSystemImage @ 0x140A87050 (MmUnloadSystemImage.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDeleteDriver(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocateAcceleratorDescriptor @ 0x140690914
+ * XREFs of MiAllocateAcceleratorDescriptor @ 0x1406919E4
  * Callers:
- *     MiZeroLargePage @ 0x140308BDC (MiZeroLargePage.c)
- *     MiGetZeroingDescriptors @ 0x140685A24 (MiGetZeroingDescriptors.c)
- *     MiSoloZeroHugeRange @ 0x140685E14 (MiSoloZeroHugeRange.c)
- *     MiAbsorbPossibleEngineChanges @ 0x14068F0A4 (MiAbsorbPossibleEngineChanges.c)
- *     MiZeroPageCalibrate @ 0x140693E8C (MiZeroPageCalibrate.c)
+ *     MiZeroLargePage @ 0x140312ABC (MiZeroLargePage.c)
+ *     MiGetZeroingDescriptors @ 0x140686B54 (MiGetZeroingDescriptors.c)
+ *     MiSoloZeroHugeRange @ 0x140686F44 (MiSoloZeroHugeRange.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x140690174 (MiAbsorbPossibleEngineChanges.c)
+ *     MiZeroPageCalibrate @ 0x140694F5C (MiZeroPageCalibrate.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
- *     MiDeleteAcceleratorDescriptor @ 0x140415BB8 (MiDeleteAcceleratorDescriptor.c)
- *     AccelInitializeDescriptor @ 0x140665AB0 (AccelInitializeDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140271A18 (MiDeleteAcceleratorDescriptor.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     AccelInitializeDescriptor @ 0x1406643A0 (AccelInitializeDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateAcceleratorDescriptor(__int64 a1, int a2, int a3, _QWORD *a4)
@@ -43,16 +43,16 @@ __int64 __fastcall MiAllocateAcceleratorDescriptor(__int64 a1, int a2, int a3, _
   if ( KeGetCurrentIrql() == 2 )
   {
     v19 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E37468);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E375A8);
   }
   else
   {
-    v19 = ExAcquireSpinLockExclusive(&dword_140E37468);
+    v19 = ExAcquireSpinLockExclusive(&dword_140E375A8);
   }
-  for ( i = qword_140E37440; (__int64 *)i != &qword_140E37440; i = v20 )
+  for ( i = qword_140E37580; (__int64 *)i != &qword_140E37580; i = v20 )
   {
     v20 = *(_QWORD *)i;
-    if ( *(_DWORD *)(i + 24) == a2 && (*(_DWORD *)(i + 52) & 1) == 0 && !byte_140E37454 )
+    if ( *(_DWORD *)(i + 24) == a2 && (*(_DWORD *)(i + 52) & 1) == 0 && !byte_140E37594 )
     {
       if ( !a1 )
         goto LABEL_15;
@@ -89,7 +89,7 @@ LABEL_21:
       }
     }
   }
-  MiReleaseSpinLockExclusive(&dword_140E37468, v19);
+  MiReleaseSpinLockExclusive(&dword_140E375A8, v19);
   if ( (v8 || a1) && v9 )
   {
     result = 1LL;

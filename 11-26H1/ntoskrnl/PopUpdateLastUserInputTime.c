@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUpdateLastUserInputTime @ 0x140A3BF2C
+ * XREFs of PopUpdateLastUserInputTime @ 0x1409F794C
  * Callers:
- *     PopSystemIdleWorker @ 0x140A3BBE0 (PopSystemIdleWorker.c)
- *     PopUpdateConsoleDisplayState @ 0x140A3CD5C (PopUpdateConsoleDisplayState.c)
+ *     PopSystemIdleWorker @ 0x1409F7600 (PopSystemIdleWorker.c)
+ *     PopUpdateConsoleDisplayState @ 0x1409F877C (PopUpdateConsoleDisplayState.c)
  * Callees:
- *     PopPulseSystemIdleEvent @ 0x140A3C2BC (PopPulseSystemIdleEvent.c)
+ *     PopPulseSystemIdleEvent @ 0x1409F7CDC (PopPulseSystemIdleEvent.c)
  */
 
 __int64 PopUpdateLastUserInputTime()
@@ -16,16 +16,16 @@ __int64 PopUpdateLastUserInputTime()
 
   v0 = 0LL;
   result = MEMORY[0xFFFFF780000002E4];
-  if ( dword_140E0B754 )
+  if ( dword_140E0B764 )
   {
-    v2 = dword_140E0B750;
-    v3 = &dword_140E0B750;
+    v2 = dword_140E0B760;
+    v3 = &dword_140E0B760;
     v0 = 1LL;
   }
   else
   {
-    v2 = dword_140E0B74C;
-    v3 = &dword_140E0B74C;
+    v2 = dword_140E0B75C;
+    v3 = &dword_140E0B75C;
   }
   if ( v2 != MEMORY[0xFFFFF780000002E4] )
   {

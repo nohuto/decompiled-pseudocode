@@ -1,8 +1,8 @@
 /*
- * XREFs of AslpMemorySpanCheckBounds @ 0x140696AC0
+ * XREFs of AslpMemorySpanCheckBounds @ 0x140697B90
  * Callers:
- *     AslpFileGetImageCodeSectionHeader @ 0x14080DE08 (AslpFileGetImageCodeSectionHeader.c)
- *     AslpFileQueryExportName @ 0x14080F898 (AslpFileQueryExportName.c)
+ *     AslpFileGetImageCodeSectionHeader @ 0x14080E548 (AslpFileGetImageCodeSectionHeader.c)
+ *     AslpFileQueryExportName @ 0x14080FFD8 (AslpFileQueryExportName.c)
  * Callees:
  *     <none>
  */

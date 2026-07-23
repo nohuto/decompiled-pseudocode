@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwTimLogProhibitLowILImageMap @ 0x1407AC0C4
+ * XREFs of EtwTimLogProhibitLowILImageMap @ 0x1407AC594
  * Callers:
- *     MiAllowImageMap @ 0x1408694B4 (MiAllowImageMap.c)
+ *     MiAllowImageMap @ 0x14086D7E4 (MiAllowImageMap.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x1403D4B94 (EtwpTiFillProcessIdentity.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     EtwpTiFillThreadIdentity @ 0x140467AC0 (EtwpTiFillThreadIdentity.c)
- *     Feature_ThreatintDeadlockFix__private_IsEnabledDeviceUsageNoInline @ 0x14064FF78 (Feature_ThreatintDeadlockFix__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x14094BCC0 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpTiFillProcessIdentity @ 0x1402633C0 (EtwpTiFillProcessIdentity.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     EtwpTiFillThreadIdentity @ 0x14045F510 (EtwpTiFillThreadIdentity.c)
+ *     Feature_ThreatintDeadlockFix__private_IsEnabledDeviceUsageNoInline @ 0x14064E5BC (Feature_ThreatintDeadlockFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x1408F0230 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogProhibitLowILImageMap(int a1, __int64 a2, unsigned __int16 *a3)
@@ -156,7 +156,7 @@ void __fastcall EtwTimLogProhibitLowILImageMap(int a1, __int64 a2, unsigned __in
   else
     EtwWrite(EtwSecurityMitigationsRegHandle, v25, 0LL, UserDataCount, &UserData);
   v27 = (void *)*((_QWORD *)&v33 + 1);
-  if ( (unsigned int)dword_140E09128 > 5 && tlgKeywordOn((__int64)&dword_140E09128, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E09198 > 5 && tlgKeywordOn((__int64)&dword_140E09198, 0x400000000000LL) )
   {
     v31 = v26;
     v36 = &v31;
@@ -180,8 +180,8 @@ void __fastcall EtwTimLogProhibitLowILImageMap(int a1, __int64 a2, unsigned __in
     v49 = 2LL;
     v51[1] = 0;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E09128,
-      (unsigned __int8 *)&byte_140053907,
+      (__int64)&dword_140E09198,
+      (unsigned __int8 *)&byte_14005431F,
       0LL,
       0LL,
       0xAu,

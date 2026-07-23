@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAddPhysicalMemoryChunks @ 0x140A2BE8C
+ * XREFs of MiAddPhysicalMemoryChunks @ 0x140A2C13C
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
- *     MmAddPhysicalMemory @ 0x140A2D150 (MmAddPhysicalMemory.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
+ *     MmAddPhysicalMemory @ 0x140A2D400 (MmAddPhysicalMemory.c)
  *     MiHotAddBootDescriptor @ 0x140B994C0 (MiHotAddBootDescriptor.c)
  * Callees:
- *     MiGetLargestPageIndex @ 0x1402C89C0 (MiGetLargestPageIndex.c)
- *     MiGetClosestImplicitNode @ 0x1402E5D9C (MiGetClosestImplicitNode.c)
- *     MiGetAvailablePagesExcludeSlists @ 0x14035E05C (MiGetAvailablePagesExcludeSlists.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
- *     MiNodeAvailablePages @ 0x14046CCA6 (MiNodeAvailablePages.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551060 (IoUpdateDumpPhysicalRanges.c)
- *     MiPageToNode @ 0x1406177F0 (MiPageToNode.c)
- *     MiNodeLargeFreeZeroPages2 @ 0x14064FB6C (MiNodeLargeFreeZeroPages2.c)
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
+ *     MiGetLargestPageIndex @ 0x1402C8C50 (MiGetLargestPageIndex.c)
+ *     MiGetClosestImplicitNode @ 0x1402E602C (MiGetClosestImplicitNode.c)
+ *     MiGetAvailablePagesExcludeSlists @ 0x14035E1FC (MiGetAvailablePagesExcludeSlists.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
+ *     MiNodeAvailablePages @ 0x14046D0A6 (MiNodeAvailablePages.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140551720 (IoUpdateDumpPhysicalRanges.c)
+ *     MiPageToNode @ 0x140617D40 (MiPageToNode.c)
+ *     MiNodeLargeFreeZeroPages2 @ 0x1406500BC (MiNodeLargeFreeZeroPages2.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
  */
 
 __int64 __fastcall MiAddPhysicalMemoryChunks(

@@ -41,7 +41,7 @@ __int64 __fastcall PfTInitialize(__int64 a1, __int64 a2, char a3)
   _DWORD v21[4]; // [rsp+48h] [rbp-28h] BYREF
   __int64 v22; // [rsp+58h] [rbp-18h]
   __int64 (__fastcall *v23)(_SLIST_ENTRY *); // [rsp+60h] [rbp-10h]
-  LONG (__fastcall *v24)(struct _SLIST_ENTRY *); // [rsp+68h] [rbp-8h]
+  LONG (__fastcall *v24)(_SLIST_ENTRY *); // [rsp+68h] [rbp-8h]
 
   PfTClearGlobals();
   if ( !a3 )

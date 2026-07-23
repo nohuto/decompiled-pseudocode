@@ -1,7 +1,7 @@
 /*
- * XREFs of PopInitShutdownList @ 0x140C2E8F8
+ * XREFs of PopInitShutdownList @ 0x140C30A18
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 PopInitShutdownList()
   LOWORD(PopShutdownEvent.Header.Lock) = 0;
   PopShutdownEvent.Header.WaitListHead.Blink = &PopShutdownEvent.Header.WaitListHead;
   PopShutdownEvent.Header.WaitListHead.Flink = &PopShutdownEvent.Header.WaitListHead;
-  qword_140F0D298 = (__int64)&PopShutdownQueue;
+  qword_140F0D598 = (__int64)&PopShutdownQueue;
   PopShutdownQueue = (__int64)&PopShutdownQueue;
   PopShutdownListMutex.Event.Header.WaitListHead.Blink = &PopShutdownListMutex.Event.Header.WaitListHead;
   PopShutdownListMutex.Event.Header.WaitListHead.Flink = &PopShutdownListMutex.Event.Header.WaitListHead;

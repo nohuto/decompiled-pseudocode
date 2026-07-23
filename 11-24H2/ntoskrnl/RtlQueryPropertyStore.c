@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlQueryPropertyStore @ 0x1405E9FC0
+ * XREFs of RtlQueryPropertyStore @ 0x1405E7510
  * Callers:
  *     <none>
  * Callees:
- *     bsearch @ 0x1404FE760 (bsearch.c)
- *     RtlpAcquirePropStoreLockShared @ 0x1405EA26C (RtlpAcquirePropStoreLockShared.c)
- *     RtlpReleasePropStoreLockShared @ 0x1405EA310 (RtlpReleasePropStoreLockShared.c)
+ *     bsearch @ 0x1404FC020 (bsearch.c)
+ *     RtlpAcquirePropStoreLockShared @ 0x1405E77BC (RtlpAcquirePropStoreLockShared.c)
+ *     RtlpReleasePropStoreLockShared @ 0x1405E7860 (RtlpReleasePropStoreLockShared.c)
  */
 
-__int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlQueryPropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
   char v4; // al
   void *v5; // rdx
-  unsigned int v6; // ebx
+  NTSTATUS v6; // ebx
   char v7; // di
   _QWORD *v8; // rax
 
@@ -22,13 +22,13 @@ __int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
   v7 = v4;
   if ( RtlpPropStoreEntries
     && (v8 = bsearch(
-               Key,
+               (const void *)Key,
                RtlpPropStoreEntries,
                (unsigned int)RtlpPropStoreEntriesActiveCount,
                0x18uLL,
                RtlpComparePropertyEntry)) != 0LL )
   {
-    *a2 = v8[2];
+    *Context = v8[2];
   }
   else
   {

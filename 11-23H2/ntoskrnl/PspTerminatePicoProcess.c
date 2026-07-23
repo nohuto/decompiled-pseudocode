@@ -1,9 +1,9 @@
 /*
- * XREFs of PspTerminatePicoProcess @ 0x1409B5BC0
+ * XREFs of PspTerminatePicoProcess @ 0x1409B5DC0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
  *     PspTerminateProcess @ 0x1406839D4 (PspTerminateProcess.c)
  */
 

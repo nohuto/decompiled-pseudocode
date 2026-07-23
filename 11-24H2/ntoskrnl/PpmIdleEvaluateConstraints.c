@@ -1,23 +1,23 @@
 /*
- * XREFs of PpmIdleEvaluateConstraints @ 0x1404C1970
+ * XREFs of PpmIdleEvaluateConstraints @ 0x1404BCF60
  * Callers:
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     PoAllProcessorsDeepIdle @ 0x1405CDADC (PoAllProcessorsDeepIdle.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     PoAllProcessorsDeepIdle @ 0x1405CB1F8 (PoAllProcessorsDeepIdle.c)
  */
 
-unsigned __int64 __fastcall PpmIdleEvaluateConstraints(__int64 a1, __int64 *a2)
+LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, LARGE_INTEGER *a2)
 {
   __int64 v2; // rsi
   int v4; // eax
   char v5; // al
-  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER v7; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 34880);
-  v7 = 0LL;
+  v7.QuadPart = 0LL;
   *a2 = RtlGetInterruptTimePrecise(&v7);
-  *(_QWORD *)(v2 + 672) = v7;
+  *(LARGE_INTEGER *)(v2 + 672) = v7;
   *(_QWORD *)(v2 + 680) = *(_QWORD *)(a1 + 34904) + *(_QWORD *)(a1 + 35088);
   *(_BYTE *)(v2 + 714) = *(_BYTE *)(a1 + 35340);
   *(_BYTE *)(v2 + 712) = *(_BYTE *)(a1 + 34948);
@@ -44,7 +44,7 @@ unsigned __int64 __fastcall PpmIdleEvaluateConstraints(__int64 a1, __int64 *a2)
   *(_DWORD *)(v2 + 704) = v4;
   if ( PpmIdleRespectIdleStateMax )
   {
-    v5 = BYTE6(PpmCurrentProfile[0][61 * dword_140F0BA4C + 26]);
+    v5 = BYTE6(PpmCurrentProfile[0][61 * dword_140F0B38C + 26]);
     *(_BYTE *)(v2 + 718) = v5;
     if ( v5 )
       *(_WORD *)(v2 + 56) |= 0x4000u;

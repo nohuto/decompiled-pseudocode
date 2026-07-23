@@ -12,148 +12,135 @@
  *     RtlpLogExceptionHandler @ 0x1800E44E4 (RtlpLogExceptionHandler.c)
  */
 
-char __fastcall RtlpCallVectoredHandlers(__int64 a1, char *a2, unsigned int a3)
+char __fastcall RtlpCallVectoredHandlers(__int64 a1, __int64 a2, unsigned int a3)
 {
-  __int64 v3; // rax
-  __int64 v4; // r15
-  __int64 v5; // r8
-  char v6; // bp
-  __int64 v7; // r9
-  volatile signed __int64 *v8; // rbx
-  _QWORD *v9; // r13
-  _QWORD *v10; // rdi
-  _QWORD *v11; // rsi
-  _DWORD *v12; // r12
-  _QWORD *v13; // r14
-  signed __int64 v14; // rax
-  __int64 v15; // rbp
-  NTSTATUS v16; // eax
-  __int64 (__fastcall *v17)(_QWORD *); // rbp
-  char *v18; // rdx
-  int v19; // ebp
+  __int64 v3; // r15
+  char v4; // bp
+  _RTL_SRWLOCK *v5; // rbx
+  unsigned __int64 *v6; // r13
+  unsigned int CrossProcessFlags; // eax
+  unsigned __int64 *v8; // rdi
+  unsigned __int64 *v9; // rsi
+  _DWORD *v10; // r12
+  unsigned __int64 *v11; // r14
+  signed __int64 v12; // rax
+  unsigned __int64 v13; // rbp
+  int v14; // eax
+  __int64 (__fastcall *v15)(_QWORD *); // rbp
+  int v16; // ebp
+  bool v17; // zf
+  signed __int64 v18; // rax
   __int64 v20; // r8
-  __int64 v21; // r9
-  bool v22; // zf
-  signed __int64 v23; // rax
-  __int64 v25; // r8
-  __int64 v26; // rdx
-  signed __int64 v27; // rtt
-  __int64 v28; // r8
-  __int64 v29; // rdx
-  signed __int64 v30; // rtt
-  _QWORD *v31; // rcx
-  _QWORD *v32; // rax
-  unsigned __int64 v33; // r8
-  unsigned int v34; // [rsp+30h] [rbp-68h]
-  struct _PEB *v35; // [rsp+38h] [rbp-60h]
-  _QWORD v36[11]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v21; // rdx
+  signed __int64 v22; // rtt
+  __int64 v23; // r8
+  __int64 v24; // rdx
+  signed __int64 v25; // rtt
+  unsigned __int64 **v26; // rcx
+  unsigned __int64 **v27; // rax
+  unsigned __int64 *v28; // r8
+  unsigned int v29; // [rsp+30h] [rbp-68h]
+  struct _PEB *v30; // [rsp+38h] [rbp-60h]
+  _QWORD v31[11]; // [rsp+40h] [rbp-58h] BYREF
   unsigned int ProcessInformation; // [rsp+B8h] [rbp+20h] BYREF
 
-  v3 = a3;
-  v4 = 0LL;
-  v5 = a3 + 2;
-  v6 = 0;
-  v34 = v5;
-  v7 = 3 * v3;
-  v8 = (volatile signed __int64 *)((char *)&LdrpVectorHandlerList + 24 * v3);
-  v35 = NtCurrentPeb();
-  v9 = v8 + 1;
-  LODWORD(v3) = v35->CrossProcessFlags;
-  if ( _bittest((const int *)&v3, v5) )
+  v3 = 0LL;
+  v4 = 0;
+  v29 = a3 + 2;
+  v5 = (_RTL_SRWLOCK *)((char *)&LdrpVectorHandlerList + 24 * a3);
+  v30 = NtCurrentPeb();
+  v6 = (unsigned __int64 *)&v5[1];
+  CrossProcessFlags = v30->CrossProcessFlags;
+  if ( _bittest((const int *)&CrossProcessFlags, a3 + 2) )
   {
-    v36[0] = a1;
-    v10 = 0LL;
-    v36[1] = a2;
-    RtlAcquireSRWLockExclusive(v8, a2, v5, v7);
-    v11 = (_QWORD *)*v9;
-    if ( (_QWORD *)*v9 != v9 )
+    v31[0] = a1;
+    v8 = 0LL;
+    v31[1] = a2;
+    RtlAcquireSRWLockExclusive(v5);
+    v9 = (unsigned __int64 *)*v6;
+    if ( (unsigned __int64 *)*v6 != v6 )
     {
       while ( 1 )
       {
-        v12 = v11 + 2;
-        v13 = v11;
-        ++*((_DWORD *)v11 + 4);
-        v14 = _InterlockedCompareExchange64(v8, 0LL, 1LL);
-        if ( v14 != 1 )
+        v10 = v9 + 2;
+        v11 = v9;
+        ++*((_DWORD *)v9 + 4);
+        v12 = _InterlockedCompareExchange64((volatile signed __int64 *)v5, 0LL, 1LL);
+        if ( v12 != 1 )
         {
           do
           {
-            v25 = -1LL;
-            if ( (v14 & 6) == 2 )
-              v25 = 3LL;
-            v26 = v25 + v14;
-            v27 = v14;
-            v14 = _InterlockedCompareExchange64(v8, v25 + v14, v14);
+            v20 = -1LL;
+            if ( (v12 & 6) == 2 )
+              v20 = 3LL;
+            v21 = v20 + v12;
+            v22 = v12;
+            v12 = _InterlockedCompareExchange64((volatile signed __int64 *)v5, v20 + v12, v12);
           }
-          while ( v27 != v14 );
-          if ( v25 == 3 )
-            RtlpWakeSRWLock(v8, v26, 0LL);
+          while ( v22 != v12 );
+          if ( v20 == 3 )
+            RtlpWakeSRWLock(v5, v21, 0LL);
         }
-        v15 = v11[3];
-        v16 = NtQueryInformationProcess(
-                (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                (PROCESSINFOCLASS)36,
-                &ProcessInformation,
-                4u,
-                0LL);
-        if ( v16 < 0 )
-          RtlRaiseStatus((unsigned int)v16);
-        v17 = (__int64 (__fastcall *)(_QWORD *))(ProcessInformation ^ __ROR8__(v15, 64 - (ProcessInformation & 0x3F)));
-        if ( (v35->NtGlobalFlag & 0x800000) != 0 )
-          v4 = RtlpLogExceptionHandler(a1, a2, 0LL, v17);
-        v19 = v17(v36);
-        if ( v4 )
-          *(_DWORD *)(v4 + 1396) = v19 != -1;
-        RtlAcquireSRWLockExclusive(v8, v18, v20, v21);
-        v22 = (*v12)-- == 1;
-        v11 = (_QWORD *)*v11;
-        if ( v22 )
+        v13 = v9[3];
+        v14 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
+        if ( v14 < 0 )
+          RtlRaiseStatus(v14);
+        v15 = (__int64 (__fastcall *)(_QWORD *))(ProcessInformation ^ __ROR8__(v13, 64 - (ProcessInformation & 0x3F)));
+        if ( (v30->NtGlobalFlag & 0x800000) != 0 )
+          v3 = RtlpLogExceptionHandler(a1, a2, 0LL, v15);
+        v16 = v15(v31);
+        if ( v3 )
+          *(_DWORD *)(v3 + 1396) = v16 != -1;
+        RtlAcquireSRWLockExclusive(v5);
+        v17 = (*v10)-- == 1;
+        v9 = (unsigned __int64 *)*v9;
+        if ( v17 )
         {
-          v31 = (_QWORD *)*v13;
-          v32 = (_QWORD *)v13[1];
-          if ( *(_QWORD **)(*v13 + 8LL) != v13 || (_QWORD *)*v32 != v13 )
+          v26 = (unsigned __int64 **)*v11;
+          v27 = (unsigned __int64 **)v11[1];
+          if ( *(unsigned __int64 **)(*v11 + 8) != v11 || *v27 != v11 )
             __fastfail(3u);
-          *v32 = v31;
-          v31[1] = v32;
-          if ( v32 == v31 )
-            _interlockedbittestandreset((volatile signed __int32 *)&v35->80, v34);
-          *v13 = v10;
-          v10 = v13;
+          *v27 = (unsigned __int64 *)v26;
+          v26[1] = (unsigned __int64 *)v27;
+          if ( v27 == v26 )
+            _interlockedbittestandreset((volatile signed __int32 *)&v30->80, v29);
+          *v11 = (unsigned __int64)v8;
+          v8 = v11;
         }
-        v4 = 0LL;
-        if ( v19 == -1 )
+        v3 = 0LL;
+        if ( v16 == -1 )
           break;
-        if ( v11 == v9 )
+        if ( v9 == v6 )
         {
-          v6 = 0;
+          v4 = 0;
           goto LABEL_13;
         }
       }
-      v6 = 1;
+      v4 = 1;
     }
 LABEL_13:
-    v23 = _InterlockedCompareExchange64(v8, 0LL, 1LL);
-    if ( v23 != 1 )
+    v18 = _InterlockedCompareExchange64((volatile signed __int64 *)v5, 0LL, 1LL);
+    if ( v18 != 1 )
     {
       do
       {
-        v28 = -1LL;
-        if ( (v23 & 6) == 2 )
-          v28 = 3LL;
-        v29 = v28 + v23;
-        v30 = v23;
-        v23 = _InterlockedCompareExchange64(v8, v28 + v23, v23);
+        v23 = -1LL;
+        if ( (v18 & 6) == 2 )
+          v23 = 3LL;
+        v24 = v23 + v18;
+        v25 = v18;
+        v18 = _InterlockedCompareExchange64((volatile signed __int64 *)v5, v23 + v18, v18);
       }
-      while ( v30 != v23 );
-      if ( v28 == 3 )
-        RtlpWakeSRWLock(v8, v29, 0LL);
+      while ( v25 != v18 );
+      if ( v23 == 3 )
+        RtlpWakeSRWLock(v5, v24, 0LL);
     }
-    while ( v10 )
+    while ( v8 )
     {
-      v33 = (unsigned __int64)v10;
-      v10 = (_QWORD *)*v10;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v33);
+      v28 = v8;
+      v8 = (unsigned __int64 *)*v8;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v28);
     }
   }
-  return v6;
+  return v4;
 }

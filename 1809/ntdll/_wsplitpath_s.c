@@ -1,10 +1,10 @@
 /*
- * XREFs of _wsplitpath_s @ 0x18009AE00
+ * XREFs of _wsplitpath_s @ 0x18009AE10
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     wcsncpy_s @ 0x18009BA80 (wcsncpy_s.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     wcsncpy_s @ 0x18009BA90 (wcsncpy_s.c)
  */
 
 errno_t __cdecl wsplitpath_s(

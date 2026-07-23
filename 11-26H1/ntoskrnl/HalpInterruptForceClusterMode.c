@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptForceClusterMode @ 0x14057D31C
+ * XREFs of HalpInterruptForceClusterMode @ 0x14057F83C
  * Callers:
- *     HalpMiscGetParameters @ 0x140CAF604 (HalpMiscGetParameters.c)
+ *     HalpMiscGetParameters @ 0x140CB5644 (HalpMiscGetParameters.c)
  * Callees:
  *     <none>
  */

@@ -3,16 +3,16 @@
  * Callers:
  *     <none>
  * Callees:
- *     InbvIsBootDriverInstalled @ 0x14013C73C (InbvIsBootDriverInstalled.c)
- *     xHalHaltSystem @ 0x140171708 (xHalHaltSystem.c)
- *     InbvAcquireDisplayOwnership @ 0x1401C3600 (InbvAcquireDisplayOwnership.c)
- *     InbvBitBlt @ 0x1401C3644 (InbvBitBlt.c)
- *     InbvCheckDisplayOwnership @ 0x1401C3664 (InbvCheckDisplayOwnership.c)
- *     InbvEnableDisplayString @ 0x1401C36A0 (InbvEnableDisplayString.c)
- *     InbvGetResourceAddress @ 0x1401C36D4 (InbvGetResourceAddress.c)
- *     InbvResetDisplay @ 0x1401C3740 (InbvResetDisplay.c)
- *     InbvSetScrollRegion @ 0x1401C375C (InbvSetScrollRegion.c)
- *     InbvSolidColorFill @ 0x1401C3798 (InbvSolidColorFill.c)
+ *     InbvIsBootDriverInstalled @ 0x14013CCAC (InbvIsBootDriverInstalled.c)
+ *     xHalHaltSystem @ 0x140171C08 (xHalHaltSystem.c)
+ *     InbvAcquireDisplayOwnership @ 0x1401C34E4 (InbvAcquireDisplayOwnership.c)
+ *     InbvBitBlt @ 0x1401C3528 (InbvBitBlt.c)
+ *     InbvCheckDisplayOwnership @ 0x1401C3548 (InbvCheckDisplayOwnership.c)
+ *     InbvEnableDisplayString @ 0x1401C3584 (InbvEnableDisplayString.c)
+ *     InbvGetResourceAddress @ 0x1401C35B8 (InbvGetResourceAddress.c)
+ *     InbvResetDisplay @ 0x1401C3624 (InbvResetDisplay.c)
+ *     InbvSetScrollRegion @ 0x1401C3640 (InbvSetScrollRegion.c)
+ *     InbvSolidColorFill @ 0x1401C367C (InbvSolidColorFill.c)
  */
 
 void __noreturn PopShutdownHandler()

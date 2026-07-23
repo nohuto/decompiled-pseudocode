@@ -3,7 +3,7 @@
  * Callers:
  *     BgpConsoleSetCursor @ 0x14072ABBC (BgpConsoleSetCursor.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140239538 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x14023941C (BgpDisplayCharacterEx.c)
  */
 
 __int64 BgpConsoleDrawCursor()
@@ -19,11 +19,11 @@ __int64 BgpConsoleDrawCursor()
   int v9; // [rsp+60h] [rbp+8h] BYREF
   int v10; // [rsp+68h] [rbp+10h] BYREF
 
-  v0 = *(_DWORD *)(qword_140329968 + 76);
+  v0 = *(_DWORD *)(qword_140329998 + 76);
   if ( v0 )
   {
-    v6 = *(_DWORD *)(qword_140329968 + 16);
-    v5 = *(_DWORD *)(qword_140329968 + 12);
+    v6 = *(_DWORD *)(qword_140329998 + 16);
+    v5 = *(_DWORD *)(qword_140329998 + 12);
     if ( v0 >= 0x22 )
     {
       v3 = 9604;
@@ -37,18 +37,18 @@ __int64 BgpConsoleDrawCursor()
   }
   else
   {
-    v1 = 25LL * *(unsigned int *)(qword_140329968 + 68);
-    v2 = *(unsigned int *)(qword_140329968 + 72);
-    v3 = *(_WORD *)(qword_140329968 + 12 * (v2 + v1) + 88);
+    v1 = 25LL * *(unsigned int *)(qword_140329998 + 68);
+    v2 = *(unsigned int *)(qword_140329998 + 72);
+    v3 = *(_WORD *)(qword_140329998 + 12 * (v2 + v1) + 88);
     v4 = 3 * (v2 + v1);
-    v5 = *(_DWORD *)(qword_140329968 + 4 * v4 + 80);
-    v6 = *(_DWORD *)(qword_140329968 + 4 * v4 + 84);
+    v5 = *(_DWORD *)(qword_140329998 + 4 * v4 + 80);
+    v6 = *(_DWORD *)(qword_140329998 + 4 * v4 + 84);
   }
   return BgpDisplayCharacterEx(
            v3,
-           *(__int64 **)(qword_140329968 + 40),
-           *(_DWORD *)(qword_140329968 + 60) + *(_DWORD *)(qword_140329968 + 68) * *(_DWORD *)(qword_140329968 + 48),
-           *(_DWORD *)(qword_140329968 + 64) + *(_DWORD *)(qword_140329968 + 72) * *(_DWORD *)(qword_140329968 + 52),
+           *(__int64 **)(qword_140329998 + 40),
+           *(_DWORD *)(qword_140329998 + 60) + *(_DWORD *)(qword_140329998 + 68) * *(_DWORD *)(qword_140329998 + 48),
+           *(_DWORD *)(qword_140329998 + 64) + *(_DWORD *)(qword_140329998 + 72) * *(_DWORD *)(qword_140329998 + 52),
            v6,
            v5,
            &v10,

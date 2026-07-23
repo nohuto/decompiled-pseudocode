@@ -1,36 +1,36 @@
 /*
- * XREFs of LdrpLoadDllInternal @ 0x180018D30
+ * XREFs of LdrpLoadDllInternal @ 0x180018D20
  * Callers:
- *     LdrpLoadForwardedDll @ 0x180013300 (LdrpLoadForwardedDll.c)
- *     LdrpLoadDll @ 0x1800153AC (LdrpLoadDll.c)
+ *     LdrpLoadForwardedDll @ 0x1800132F0 (LdrpLoadForwardedDll.c)
+ *     LdrpLoadDll @ 0x18001539C (LdrpLoadDll.c)
  * Callees:
- *     LdrpDrainWorkQueue @ 0x18000D61C (LdrpDrainWorkQueue.c)
- *     LdrpProcessWork @ 0x18000E19C (LdrpProcessWork.c)
- *     LdrpFindOrPrepareLoadingModule @ 0x18000F89C (LdrpFindOrPrepareLoadingModule.c)
- *     LdrpFastpthReloadedDll @ 0x180018F98 (LdrpFastpthReloadedDll.c)
- *     LdrpPrepareModuleForExecution @ 0x18002DA88 (LdrpPrepareModuleForExecution.c)
- *     LdrpDecrementModuleLoadCountEx @ 0x18002F018 (LdrpDecrementModuleLoadCountEx.c)
- *     LdrpDereferenceModule @ 0x180032238 (LdrpDereferenceModule.c)
- *     LdrpFreeReplacedModule @ 0x18006B66C (LdrpFreeReplacedModule.c)
- *     LdrpFreeLoadContextOfNode @ 0x18006B6A4 (LdrpFreeLoadContextOfNode.c)
- *     LdrpHandleReplacedModule @ 0x18006B814 (LdrpHandleReplacedModule.c)
- *     LdrpDetectDetour @ 0x180073564 (LdrpDetectDetour.c)
- *     LdrpBuildForwarderLink @ 0x180073888 (LdrpBuildForwarderLink.c)
- *     LdrpCondenseGraph @ 0x180074624 (LdrpCondenseGraph.c)
- *     LdrpDropLastInProgressCount @ 0x18007A61C (LdrpDropLastInProgressCount.c)
- *     LdrpPinModule @ 0x18007E418 (LdrpPinModule.c)
- *     LdrpLogError @ 0x180086114 (LdrpLogError.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     LdrpDrainWorkQueue @ 0x18000D60C (LdrpDrainWorkQueue.c)
+ *     LdrpProcessWork @ 0x18000E18C (LdrpProcessWork.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x18000F88C (LdrpFindOrPrepareLoadingModule.c)
+ *     LdrpFastpthReloadedDll @ 0x180018F88 (LdrpFastpthReloadedDll.c)
+ *     LdrpPrepareModuleForExecution @ 0x18002DA78 (LdrpPrepareModuleForExecution.c)
+ *     LdrpDecrementModuleLoadCountEx @ 0x18002F008 (LdrpDecrementModuleLoadCountEx.c)
+ *     LdrpDereferenceModule @ 0x180032228 (LdrpDereferenceModule.c)
+ *     LdrpFreeReplacedModule @ 0x18006B65C (LdrpFreeReplacedModule.c)
+ *     LdrpFreeLoadContextOfNode @ 0x18006B694 (LdrpFreeLoadContextOfNode.c)
+ *     LdrpHandleReplacedModule @ 0x18006B804 (LdrpHandleReplacedModule.c)
+ *     LdrpDetectDetour @ 0x180073554 (LdrpDetectDetour.c)
+ *     LdrpBuildForwarderLink @ 0x180073878 (LdrpBuildForwarderLink.c)
+ *     LdrpCondenseGraph @ 0x180074614 (LdrpCondenseGraph.c)
+ *     LdrpDropLastInProgressCount @ 0x18007A60C (LdrpDropLastInProgressCount.c)
+ *     LdrpPinModule @ 0x18007E408 (LdrpPinModule.c)
+ *     LdrpLogError @ 0x180086104 (LdrpLogError.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
 struct _TEB *__fastcall LdrpLoadDllInternal(
-        const void **a1,
+        PUNICODE_STRING a1,
         __int64 a2,
-        unsigned int a3,
+        int a3,
         int a4,
         __int64 a5,
         __int64 a6,
-        __int64 *a7,
+        PVOID *a7,
         int *a8)
 {
   struct _TEB *result; // rax
@@ -40,11 +40,11 @@ struct _TEB *__fastcall LdrpLoadDllInternal(
   __int64 v15; // rdx
   __int64 v16; // r8
   __int64 v17; // r9
-  __int64 v18; // rcx
-  __int64 v19; // rax
+  PVOID v18; // rcx
+  PVOID v19; // rax
   int v20; // eax
   int v21; // eax
-  __int64 v22; // [rsp+48h] [rbp-30h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-30h] BYREF
 
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
@@ -55,8 +55,8 @@ struct _TEB *__fastcall LdrpLoadDllInternal(
       (__int64)"DLL name: %wZ\n",
       a1);
   *a7 = 0LL;
-  v22 = 0LL;
-  result = (struct _TEB *)LdrpFastpthReloadedDll(a1, a3, a6, a7);
+  BaseAddress = 0LL;
+  result = (struct _TEB *)LdrpFastpthReloadedDll(a1);
   if ( (int)result < 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
@@ -72,10 +72,10 @@ struct _TEB *__fastcall LdrpLoadDllInternal(
     {
       LdrpDetectDetour();
       v12 = a8;
-      v14 = LdrpFindOrPrepareLoadingModule(a1, a2, a3, a4, a5, &v22, (__int64)a8);
+      v14 = LdrpFindOrPrepareLoadingModule(a1, a2, a3, a4, a5, (__int64 *)&BaseAddress, (__int64)a8);
       if ( v14 == -1073741515 )
       {
-        LdrpProcessWork(*(_QWORD *)(v22 + 176), 1);
+        LdrpProcessWork(*((_QWORD *)BaseAddress + 22), 1);
       }
       else if ( v14 < 0 )
       {
@@ -88,36 +88,36 @@ struct _TEB *__fastcall LdrpLoadDllInternal(
       *a8 = -1073741515;
     }
     result = LdrpDrainWorkQueue(1);
-    v18 = v22;
-    if ( v22 )
+    v18 = BaseAddress;
+    if ( BaseAddress )
     {
-      v19 = LdrpHandleReplacedModule();
+      v19 = (PVOID)LdrpHandleReplacedModule();
       *a7 = v19;
-      if ( v22 != v19 )
+      if ( BaseAddress != v19 )
       {
-        LdrpFreeReplacedModule();
-        v22 = *a7;
+        LdrpFreeReplacedModule(BaseAddress);
+        BaseAddress = *a7;
       }
-      if ( *(_QWORD *)(v22 + 176) )
-        LdrpCondenseGraph(*(_QWORD *)(v22 + 152));
+      if ( *((_QWORD *)BaseAddress + 22) )
+        LdrpCondenseGraph(*((_QWORD *)BaseAddress + 19));
       if ( *v12 >= 0 )
       {
-        v20 = LdrpPrepareModuleForExecution(v22, v12);
+        v20 = LdrpPrepareModuleForExecution(BaseAddress, v12);
         *v12 = v20;
         if ( v20 >= 0 )
         {
-          v21 = LdrpBuildForwarderLink(a6, v22);
+          v21 = LdrpBuildForwarderLink(a6, BaseAddress);
           *v12 = v21;
           if ( v21 >= 0 && !LdrInitState )
-            LdrpPinModule(v22);
+            LdrpPinModule(BaseAddress);
         }
       }
-      result = (struct _TEB *)LdrpFreeLoadContextOfNode(*(_QWORD *)(v22 + 152), v12);
+      result = (struct _TEB *)LdrpFreeLoadContextOfNode(*((_QWORD *)BaseAddress + 19), v12);
       if ( *v12 < 0 )
       {
         *a7 = 0LL;
-        LdrpDecrementModuleLoadCountEx(v22, 0LL);
-        result = (struct _TEB *)LdrpDereferenceModule(v22);
+        LdrpDecrementModuleLoadCountEx(BaseAddress, 0LL);
+        result = (struct _TEB *)LdrpDereferenceModule(BaseAddress);
       }
     }
     else

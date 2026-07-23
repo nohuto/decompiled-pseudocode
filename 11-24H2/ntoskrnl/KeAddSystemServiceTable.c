@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAddSystemServiceTable @ 0x140AA1F20
+ * XREFs of KeAddSystemServiceTable @ 0x140A9D2B0
  * Callers:
  *     <none>
  * Callees:
- *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140AA208C (PsRegisterSyscallProviderServiceTableMetadata.c)
+ *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140A9D41C (PsRegisterSyscallProviderServiceTableMetadata.c)
  */
 
 char __fastcall KeAddSystemServiceTable(ULONG_PTR a1, __int64 a2, int a3, __int64 a4, int a5)
@@ -22,23 +22,23 @@ char __fastcall KeAddSystemServiceTable(ULONG_PTR a1, __int64 a2, int a3, __int6
   if ( a5 == 1 )
   {
     v10 = 0;
-    if ( !(_QWORD)xmmword_1412018E0 && !xmmword_140FC62A0 )
+    if ( !(_QWORD)xmmword_1412018E0 && !xmmword_140FC72E0 )
     {
-      xmmword_140FC62A0 = a1;
-      LODWORD(xmmword_140FC62B0) = a3;
-      *((_QWORD *)&xmmword_140FC62B0 + 1) = a4;
+      xmmword_140FC72E0 = a1;
+      LODWORD(xmmword_140FC72F0) = a3;
+      *((_QWORD *)&xmmword_140FC72F0 + 1) = a4;
       PsRegisterSyscallProviderServiceTableMetadata(1LL);
-      v11 = (int *)xmmword_140FC62A0;
-      v12 = (unsigned int)&xmmword_140FC62A0 + xmmword_140FC62A0 + KiTableInformation;
-      if ( (_DWORD)xmmword_140FC62B0 )
+      v11 = (int *)xmmword_140FC72E0;
+      v12 = (unsigned int)&xmmword_140FC72E0 + xmmword_140FC72E0 + KiTableInformation;
+      if ( (_DWORD)xmmword_140FC72F0 )
       {
         do
         {
           v13 = *v11;
           v14 = *v11++;
-          v12 = ++v10 * ((v13 + *(_DWORD *)((v14 >> 4) + xmmword_140FC62A0)) ^ v12);
+          v12 = ++v10 * ((v13 + *(_DWORD *)((v14 >> 4) + xmmword_140FC72E0)) ^ v12);
         }
-        while ( v10 < (unsigned int)xmmword_140FC62B0 );
+        while ( v10 < (unsigned int)xmmword_140FC72F0 );
       }
       KiTableInformation += 2 * v12;
       return 1;
@@ -47,22 +47,22 @@ char __fastcall KeAddSystemServiceTable(ULONG_PTR a1, __int64 a2, int a3, __int6
   else if ( a5 == 2 )
   {
     v5 = 0;
-    if ( !(_QWORD)xmmword_140FC63A0 )
+    if ( !(_QWORD)xmmword_140FC7420 )
     {
       *(_QWORD *)&KeServiceDescriptorTableFilter[2] = a1;
       LODWORD(KeServiceDescriptorTableFilter[3]) = a3;
       *((_QWORD *)&KeServiceDescriptorTableFilter[3] + 1) = a4;
-      v6 = (int *)xmmword_140FC63A0;
-      v7 = (unsigned int)&xmmword_140FC63A0 + xmmword_140FC63A0 + KiTableInformation;
-      if ( (_DWORD)xmmword_140FC63B0 )
+      v6 = (int *)xmmword_140FC7420;
+      v7 = (unsigned int)&xmmword_140FC7420 + xmmword_140FC7420 + KiTableInformation;
+      if ( (_DWORD)xmmword_140FC7430 )
       {
         do
         {
           v8 = *v6;
           v9 = *v6++;
-          v7 = ++v5 * ((v8 + *(_DWORD *)((v9 >> 4) + xmmword_140FC63A0)) ^ v7);
+          v7 = ++v5 * ((v8 + *(_DWORD *)((v9 >> 4) + xmmword_140FC7420)) ^ v7);
         }
-        while ( v5 < (unsigned int)xmmword_140FC63B0 );
+        while ( v5 < (unsigned int)xmmword_140FC7430 );
       }
       KiTableInformation += 2 * v7;
       return 1;

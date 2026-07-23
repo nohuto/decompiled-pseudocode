@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrQueryProcessModuleInformationEx @ 0x1800CBEC0
+ * XREFs of LdrQueryProcessModuleInformationEx @ 0x1800C9630
  * Callers:
- *     RtlQueryProcessModuleInformation @ 0x180090CA8 (RtlQueryProcessModuleInformation.c)
- *     LdrQueryProcessModuleInformation @ 0x1800CBE90 (LdrQueryProcessModuleInformation.c)
+ *     RtlQueryProcessModuleInformation @ 0x180075A08 (RtlQueryProcessModuleInformation.c)
+ *     LdrQueryProcessModuleInformation @ 0x1800C9600 (LdrQueryProcessModuleInformation.c)
  * Callees:
- *     LdrQueryModuleInfoFromLdrEntry @ 0x180033C20 (LdrQueryModuleInfoFromLdrEntry.c)
- *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x1800868D0 (LdrQueryModuleInfoLocalLoaderUnlock.c)
- *     LdrQueryInLoadOrderModuleList32 @ 0x1800D7770 (LdrQueryInLoadOrderModuleList32.c)
- *     LdrQueryNextListEntry @ 0x1800DF3F0 (LdrQueryNextListEntry.c)
- *     LdrQueryInLoadOrderModuleList @ 0x1800ED1C0 (LdrQueryInLoadOrderModuleList.c)
- *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800F8E40 (LdrQueryModuleInfoFromLdrEntry32.c)
- *     RtlEndStrongEnumerationHashTable @ 0x1800FBBF0 (RtlEndStrongEnumerationHashTable.c)
- *     LdrQueryNextListEntry32 @ 0x1800FD1D0 (LdrQueryNextListEntry32.c)
- *     LdrQueryModuleInfoLocalLoaderLock @ 0x1801105B0 (LdrQueryModuleInfoLocalLoaderLock.c)
- *     ExecuteHotpatchTestRuntimeFunction @ 0x180137A58 (ExecuteHotpatchTestRuntimeFunction.c)
- *     GetHotpatchTestRuntimeFunctionState @ 0x180137A84 (GetHotpatchTestRuntimeFunctionState.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrQueryModuleInfoFromLdrEntry @ 0x18001ED80 (LdrQueryModuleInfoFromLdrEntry.c)
+ *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x18007DC70 (LdrQueryModuleInfoLocalLoaderUnlock.c)
+ *     LdrQueryInLoadOrderModuleList32 @ 0x1800D4730 (LdrQueryInLoadOrderModuleList32.c)
+ *     LdrQueryNextListEntry @ 0x1800DC360 (LdrQueryNextListEntry.c)
+ *     LdrQueryInLoadOrderModuleList @ 0x1800EC660 (LdrQueryInLoadOrderModuleList.c)
+ *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800F8610 (LdrQueryModuleInfoFromLdrEntry32.c)
+ *     RtlEndStrongEnumerationHashTable @ 0x1800FB340 (RtlEndStrongEnumerationHashTable.c)
+ *     LdrQueryNextListEntry32 @ 0x1800FC920 (LdrQueryNextListEntry32.c)
+ *     LdrQueryModuleInfoLocalLoaderLock @ 0x180110140 (LdrQueryModuleInfoLocalLoaderLock.c)
+ *     ExecuteHotpatchTestRuntimeFunction @ 0x1801377C8 (ExecuteHotpatchTestRuntimeFunction.c)
+ *     GetHotpatchTestRuntimeFunctionState @ 0x1801377F4 (GetHotpatchTestRuntimeFunctionState.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrQueryProcessModuleInformationEx(
@@ -93,14 +93,14 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(
       }
       v24 = v12;
       if ( v12 )
-        funcs_18008EF1A[5 * i]();
+        funcs_1800BF1FA[5 * i]();
       v27 = 40 * i;
-      v13 = ((__int64 (__fastcall *)(void *, __int64 *, __int64 *))funcs_18008EF43[5 * i])(v29, &v22, &v23);
+      v13 = ((__int64 (__fastcall *)(void *, __int64 *, __int64 *))funcs_1800BF223[5 * i])(v29, &v22, &v23);
       if ( v13 < 0 )
         goto LABEL_19;
       if ( !v22 )
         goto LABEL_28;
-      v13 = (*(__int64 (__fastcall **)(void *, __int64, __int64 *))((char *)&funcs_18008EF79 + v27))(v29, v22, &v20);
+      v13 = (*(__int64 (__fastcall **)(void *, __int64, __int64 *))((char *)&funcs_1800BF259 + v27))(v29, v22, &v20);
       if ( v13 < 0 )
       {
 LABEL_19:
@@ -129,7 +129,7 @@ LABEL_19:
           }
           else
           {
-            v13 = (*(&funcs_18008F015 + 5 * i))((int)v29, (int)v19, v20, v23, a2);
+            v13 = (*(&funcs_1800BF2F5 + 5 * i))((int)v29, (int)v19, v20, v23, a2);
             if ( v13 < 0 )
               goto LABEL_19;
             v16 = v19;
@@ -143,14 +143,14 @@ LABEL_19:
           }
           if ( a3 && v15 >= 0x130 )
             *a3 += v11;
-          v13 = ((__int64 (__fastcall *)(void *, __int64, __int64 *))*(&funcs_18008EF79 + 5 * i))(v29, v14, &v20);
+          v13 = ((__int64 (__fastcall *)(void *, __int64, __int64 *))*(&funcs_1800BF259 + 5 * i))(v29, v14, &v20);
           if ( v13 < 0 )
             goto LABEL_19;
         }
       }
 LABEL_28:
       if ( v24 )
-        funcs_18008F2CB[5 * i]();
+        funcs_1800BF5AB[5 * i]();
       if ( a5 )
         *a5 = v6;
       v5 = a2;

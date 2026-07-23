@@ -1,27 +1,27 @@
 /*
- * XREFs of MmFreeVirtualMemory @ 0x1405EF4F0
+ * XREFs of MmFreeVirtualMemory @ 0x1405F04F0
  * Callers:
- *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
- *     NtFreeVirtualMemory @ 0x1405EFA50 (NtFreeVirtualMemory.c)
- *     PspDeleteUserStack @ 0x1406CB070 (PspDeleteUserStack.c)
- *     PspFreeCurrentThreadUserShadowStack @ 0x14088B5C0 (PspFreeCurrentThreadUserShadowStack.c)
+ *     PsDispatchIumService @ 0x1402EAD84 (PsDispatchIumService.c)
+ *     NtFreeVirtualMemory @ 0x1405F0A50 (NtFreeVirtualMemory.c)
+ *     PspDeleteUserStack @ 0x1406CC310 (PspDeleteUserStack.c)
+ *     PspFreeCurrentThreadUserShadowStack @ 0x14088C820 (PspFreeCurrentThreadUserShadowStack.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiFreeVadRange @ 0x140025674 (MiFreeVadRange.c)
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     MiDecommitRegion @ 0x1405EC220 (MiDecommitRegion.c)
- *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408519F8 (MiCoalescePlaceholderAllocations.c)
- *     MiDecommitEnclavePages @ 0x14085A054 (MiDecommitEnclavePages.c)
- *     MiFreeEnclaveModules @ 0x14085A1D0 (MiFreeEnclaveModules.c)
- *     PerfInfoLogVirtualFree @ 0x1408B9190 (PerfInfoLogVirtualFree.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140078284 (UNLOCK_ADDRESS_SPACE.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiDecommitRegion @ 0x1405ED220 (MiDecommitRegion.c)
+ *     MiCheckSecuredVad @ 0x140619974 (MiCheckSecuredVad.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140852C58 (MiCoalescePlaceholderAllocations.c)
+ *     MiDecommitEnclavePages @ 0x14085B2B4 (MiDecommitEnclavePages.c)
+ *     MiFreeEnclaveModules @ 0x14085B430 (MiFreeEnclaveModules.c)
+ *     PerfInfoLogVirtualFree @ 0x1408BA450 (PerfInfoLogVirtualFree.c)
  */
 
 __int64 __fastcall MmFreeVirtualMemory(

@@ -1,7 +1,7 @@
 /*
- * XREFs of XRestoreSHelper @ 0x140167790
+ * XREFs of XRestoreSHelper @ 0x140167D00
  * Callers:
- *     KeRestoreExtendedAndSupervisorState @ 0x140082C94 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x140083914 (KeRestoreExtendedAndSupervisorState.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslQueryVirtualMemory @ 0x1404EAE40
+ * XREFs of VslQueryVirtualMemory @ 0x1404E41F0
  * Callers:
- *     MiQuerySecureBasicInfo @ 0x14091F660 (MiQuerySecureBasicInfo.c)
+ *     MiQuerySecureBasicInfo @ 0x140923550 (MiQuerySecureBasicInfo.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslQueryVirtualMemory(__int64 a1, __int64 a2, _OWORD *a3)

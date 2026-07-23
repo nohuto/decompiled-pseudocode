@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepEngineReadFlags @ 0x140D0821C
+ * XREFs of KsepEngineReadFlags @ 0x140D0E4EC
  * Callers:
- *     KsepEngineInitialize @ 0x140CCCDD4 (KsepEngineInitialize.c)
+ *     KsepEngineInitialize @ 0x140CD2F34 (KsepEngineInitialize.c)
  * Callees:
- *     KsepLogInfo @ 0x1404CCB84 (KsepLogInfo.c)
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     RtlAssert @ 0x140619AB0 (RtlAssert.c)
- *     KsepRegistryQueryDWORD @ 0x1407BF038 (KsepRegistryQueryDWORD.c)
- *     KsepRegistryCloseKey @ 0x1409E42F0 (KsepRegistryCloseKey.c)
- *     KsepRegistryOpenKey @ 0x1409E5254 (KsepRegistryOpenKey.c)
+ *     KsepLogInfo @ 0x1404C6324 (KsepLogInfo.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x14061CB00 (RtlAssert.c)
+ *     KsepRegistryQueryDWORD @ 0x1407C2098 (KsepRegistryQueryDWORD.c)
+ *     KsepRegistryOpenKey @ 0x1409D7988 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x1409D8784 (KsepRegistryCloseKey.c)
  */
 
 __int64 __fastcall KsepEngineReadFlags(unsigned int *a1)
@@ -33,18 +33,16 @@ __int64 __fastcall KsepEngineReadFlags(unsigned int *a1)
   v14 = 0;
   if ( !a1 )
   {
-    v3 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v3 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v3 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v3) = 262242;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v3) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v3) = 262242;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x62u, 0LL);
   }
   *a1 = 0;
   v4 = KsepRegistryOpenKey(
-         (__int64)L"\\Registry\\Machine\\System\\CurrentControlSet\\Policies\\Microsoft\\Compatibility",
+         L"\\Registry\\Machine\\System\\CurrentControlSet\\Policies\\Microsoft\\Compatibility",
          0LL,
          &KeyHandle);
   if ( v4 )
@@ -67,21 +65,18 @@ __int64 __fastcall KsepEngineReadFlags(unsigned int *a1)
       v1 |= 1u;
       a1[2] |= 8u;
     }
-    *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-    + (((unsigned __int8)_InterlockedExchangeAdd(
-                           (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                           1u)
-      + 1) & 0x3F)) = 262273LL;
-    if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+    *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                      * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                             &KsepHistoryMessagesIndex,
+                                                                             1u)
+                                                        + 1) & 0x3F)] = 262273LL;
+    if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
       KsepDebugPrint(0LL, (int)"KSE: Engine has group policy flags: %08x\n", v1);
     KsepLogInfo(0LL, (__int64)"KSE: Engine has group policy flags: %08x\n", v1);
     KsepRegistryCloseKey(v5);
     KeyHandle = 0LL;
   }
-  v6 = KsepRegistryOpenKey(
-         (__int64)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility",
-         0LL,
-         &KeyHandle);
+  v6 = KsepRegistryOpenKey(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility", 0LL, &KeyHandle);
   if ( v6 == -1073741772 )
   {
     a1[2] |= 1u;
@@ -103,48 +98,46 @@ LABEL_18:
         a1[2] |= 0x20u;
       if ( (v10 & 2) != 0 )
         a1[2] |= 0x10u;
-      *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-      + (((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                             1u)
-        + 1) & 0x3F)) = 262341LL;
-      if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+      *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                        * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                               &KsepHistoryMessagesIndex,
+                                                                               1u)
+                                                          + 1) & 0x3F)] = 262341LL;
+      if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
         KsepDebugPrint(0LL, (int)"KSE: Engine initialized with registry flags: %08x\n", *a1);
       KsepLogInfo(0LL, (__int64)"KSE: Engine initialized with registry flags: %08x\n", *a1);
     }
     else
     {
       v9 = ((unsigned __int8)_InterlockedExchangeAdd(
-                               (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                               (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                1u)
           + 1) & 0x3F;
-      *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v9 + 4] = v6;
-      *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v9) = 262324;
-      if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+      *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v9) = v6;
+      *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v9) = 262324;
+      if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
         KsepDebugPrint(0LL, (int)"KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v6);
       KsepLogError(0LL, (__int64)"KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v6);
     }
   }
   else
   {
-    v7 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v7 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v7 + 4] = v6;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v7) = 262302;
-    if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v7) = v6;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v7) = 262302;
+    if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
       KsepDebugPrint(0LL, (int)"KSE: Error reading compatibility key: status: %08x\n", v6);
     KsepLogError(0LL, (__int64)"KSE: Error reading compatibility key: status: %08x\n", v6);
   }
 LABEL_35:
   *a1 |= v1;
-  *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-  + (((unsigned __int8)_InterlockedExchangeAdd(
-                         (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                         1u)
-    + 1) & 0x3F)) = 262352LL;
-  if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+  *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                    * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                           &KsepHistoryMessagesIndex,
+                                                                           1u)
+                                                      + 1) & 0x3F)] = 262352LL;
+  if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
     KsepDebugPrint(0LL, (int)"KSE: Engine flags (after registry/group policy): %08x\n", *a1);
   KsepLogInfo(0LL, (__int64)"KSE: Engine flags (after registry/group policy): %08x\n", *a1);
   KsepRegistryCloseKey(KeyHandle);

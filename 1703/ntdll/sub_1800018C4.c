@@ -60,7 +60,7 @@ __int64 __fastcall sub_1800018C4(__int64 a1, _QWORD *a2)
   }
   else
   {
-    RtlSetLastWin32Error(87LL);
+    RtlSetLastWin32Error(87);
   }
   return v2;
 }

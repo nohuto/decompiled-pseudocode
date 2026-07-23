@@ -2,19 +2,19 @@
  * XREFs of KiSearchForNewThread @ 0x140056AE0
  * Callers:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     KiIdleSchedule @ 0x1400D1C50 (KiIdleSchedule.c)
+ *     KiIdleSchedule @ 0x1400D1CD0 (KiIdleSchedule.c)
  * Callees:
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
  *     KiSelectReadyThread @ 0x140057A20 (KiSelectReadyThread.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
- *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
- *     KiSetProcessorIdle @ 0x1400D7344 (KiSetProcessorIdle.c)
- *     KiSelectThreadFromSchedulingGroup @ 0x140116DE8 (KiSelectThreadFromSchedulingGroup.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1500 (KiIsThreadRankNonZero.c)
+ *     KiSetProcessorIdle @ 0x1400D73C4 (KiSetProcessorIdle.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x140116E58 (KiSelectThreadFromSchedulingGroup.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadState @ 0x1401B4CCC (KiSetThreadState.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029981C (KiSetSchedulerAssistPriority.c)
  */
 
 __int64 __fastcall KiSearchForNewThread(__int64 a1, char a2)
@@ -246,7 +246,7 @@ LABEL_69:
         {
           while ( ++v3 != (unsigned __int16)KeNumberNodes )
           {
-            v52 = *((unsigned __int16 *)qword_14043A050 + v3 + v41 * (unsigned int)(unsigned __int16)KeNumberNodes);
+            v52 = *((unsigned __int16 *)qword_14043B110 + v3 + v41 * (unsigned int)(unsigned __int16)KeNumberNodes);
             v53 = (unsigned int)v42;
             if ( _bittest64(&v53, v52) )
             {

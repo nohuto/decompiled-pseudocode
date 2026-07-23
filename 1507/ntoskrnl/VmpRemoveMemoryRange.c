@@ -15,15 +15,15 @@
 
 __int64 __fastcall VmpRemoveMemoryRange(__int64 a1, _QWORD *a2, __int64 a3)
 {
-  unsigned __int64 *v6; // r14
+  _RTL_BALANCED_NODE *v6; // r14
   unsigned __int8 CurrentIrql; // r15
   unsigned int v8; // edi
   unsigned int v9; // edi
   signed __int32 v10; // eax
-  unsigned __int64 *v11; // rdi
+  _RTL_BALANCED_NODE *v11; // rdi
   int v12; // eax
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // r8
+  _RTL_BALANCED_NODE *v13; // rdx
+  _RTL_BALANCED_NODE *v14; // r8
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   v6 = 0LL;
@@ -53,7 +53,7 @@ __int64 __fastcall VmpRemoveMemoryRange(__int64 a1, _QWORD *a2, __int64 a3)
   }
   if ( *(_QWORD *)(a1 + 48) == a3 )
   {
-    v11 = *(unsigned __int64 **)(a1 + 8);
+    v11 = *(_RTL_BALANCED_NODE **)(a1 + 8);
     if ( !v11 )
       goto LABEL_29;
     do
@@ -63,25 +63,28 @@ __int64 __fastcall VmpRemoveMemoryRange(__int64 a1, _QWORD *a2, __int64 a3)
       {
         if ( v12 <= 0 )
           break;
-        v11 = (unsigned __int64 *)v11[1];
+        v11 = v11->Children[1];
       }
       else
       {
-        v11 = (unsigned __int64 *)*v11;
+        v11 = v11->Children[0];
       }
     }
     while ( v11 );
     if ( v11 )
     {
-      v13 = v11[3];
-      if ( v13 == a2[6] && (v14 = v11[4], v14 == a2[7]) && v11[5] == a2[8] && v11[6] == a2[9] )
+      v13 = v11[1].Children[0];
+      if ( v13 == (_RTL_BALANCED_NODE *)a2[6]
+        && (v14 = v11[1].Children[1], v14 == (_RTL_BALANCED_NODE *)a2[7])
+        && v11[1].ParentValue == a2[8]
+        && v11[2].Children[0] == (_RTL_BALANCED_NODE *)a2[9] )
       {
-        VmpProcessInvalidateSlat(a1, v13, v14 - v13 + 1);
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 8), v11);
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 24), v11 - 3);
+        VmpProcessInvalidateSlat(a1, (int)v13, (_DWORD)v14 - (_DWORD)v13 + 1);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 8), v11);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 24), v11 - 1);
         if ( !*(_QWORD *)(a1 + 8) )
           *(_QWORD *)(a1 + 48) = -1LL;
-        v6 = v11 - 3;
+        v6 = v11 - 1;
         v8 = 0;
       }
       else

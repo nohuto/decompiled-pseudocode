@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogTbFlushSlatInvalidateInsert @ 0x14052FED0
+ * XREFs of VmpLogTbFlushSlatInvalidateInsert @ 0x1405323D0
  * Callers:
- *     VmpInsertInvalidateListRange @ 0x140251FD8 (VmpInsertInvalidateListRange.c)
+ *     VmpInsertInvalidateListRange @ 0x140253938 (VmpInsertInvalidateListRange.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall VmpLogTbFlushSlatInvalidateInsert(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)
@@ -36,7 +36,7 @@ void __fastcall VmpLogTbFlushSlatInvalidateInsert(__int64 a1, __int64 a2, __int6
   __int64 *v29; // [rsp+E0h] [rbp+27h]
   __int64 v30; // [rsp+E8h] [rbp+2Fh]
 
-  if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 2LL) )
+  if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 2LL) )
   {
     Flink = (int)KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
     p_Flink = &Flink;
@@ -56,6 +56,6 @@ void __fastcall VmpLogTbFlushSlatInvalidateInsert(__int64 a1, __int64 a2, __int6
     v14 = v9;
     v15 = v6;
     v28 = 4LL;
-    tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&byte_1400530A7, v6, 0, v10, v11, 8u, &v18);
+    tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&word_14005434E, v6, 0, v10, v11, 8u, &v18);
   }
 }

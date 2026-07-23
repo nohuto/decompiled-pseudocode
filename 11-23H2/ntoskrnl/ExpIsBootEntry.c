@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpIsBootEntry @ 0x14083DFE0
+ * XREFs of ExpIsBootEntry @ 0x14083E2E0
  * Callers:
  *     <none>
  * Callees:
- *     ExpTranslateBootEntryNameToId @ 0x14083E028 (ExpTranslateBootEntryNameToId.c)
+ *     ExpTranslateBootEntryNameToId @ 0x14083E328 (ExpTranslateBootEntryNameToId.c)
  */
 
 bool __fastcall ExpIsBootEntry(_QWORD *a1, __int64 a2)

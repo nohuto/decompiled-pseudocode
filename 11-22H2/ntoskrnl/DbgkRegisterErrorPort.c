@@ -29,54 +29,59 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
   __int64 v6; // rax
   _DWORD *v7; // r15
   unsigned int v8; // edi
-  int v9; // eax
+  NTSTATUS v9; // eax
   struct _KTHREAD *CurrentThread; // rdi
   __int64 Process; // r13
   __int64 ProcessServerSilo; // r12
   char *v13; // r14
   __int64 v14; // rsi
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-F0h] BYREF
-  __int128 v16; // [rsp+78h] [rbp-E0h]
-  __int128 v17; // [rsp+88h] [rbp-D0h]
-  __int128 v18; // [rsp+98h] [rbp-C0h]
-  __int128 v19; // [rsp+A8h] [rbp-B0h]
-  __int128 v20; // [rsp+B8h] [rbp-A0h]
-  __int64 v21; // [rsp+C8h] [rbp-90h]
-  _QWORD v22[9]; // [rsp+D0h] [rbp-88h] BYREF
+  ULONG_PTR BufferLength; // [rsp+60h] [rbp-F8h] BYREF
+  UNICODE_STRING PortName; // [rsp+68h] [rbp-F0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-E0h] BYREF
+  _PORT_MESSAGE ConnectionMessage; // [rsp+A8h] [rbp-B0h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+D0h] [rbp-88h] BYREF
 
   v2 = Size;
-  UnicodeString = 0LL;
-  v19 = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
-  v16 = 0LL;
-  v17 = 0LL;
-  *(_QWORD *)&v18 = 0LL;
-  DWORD2(v18) = 0;
-  memset(v22, 0, sizeof(v22));
+  PortName = 0LL;
+  memset(&ConnectionMessage, 0, sizeof(ConnectionMessage));
+  BufferLength = 0LL;
+  memset(&ObjectAttributes, 0, 44);
+  memset(&PortAttributes, 0, sizeof(PortAttributes));
   if ( !v2 || (v2 & 1) != 0 || v2 > 0xFFFF )
     return 3221225485LL;
   Pool2 = (wchar_t *)ExAllocatePool2(257LL, v2, 1348952644LL);
-  UnicodeString.Buffer = Pool2;
+  PortName.Buffer = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
-  UnicodeString.MaximumLength = v2;
-  UnicodeString.Length = v2;
+  PortName.MaximumLength = v2;
+  PortName.Length = v2;
   memmove(Pool2, Src, v2);
   v6 = ExAllocatePool2(257LL, 16LL, 1348952644LL);
   v7 = (_DWORD *)v6;
   if ( v6 )
   {
-    *(_DWORD *)((char *)&v19 + 2) = -2147483608;
-    v22[2] = 272LL;
-    v22[4] = 8704LL;
-    LODWORD(v22[0]) = 0x100000;
-    LODWORD(v16) = 48;
-    *((_QWORD *)&v16 + 1) = 0LL;
-    DWORD2(v17) = 512;
-    *(_QWORD *)&v17 = 0LL;
-    v18 = 0LL;
-    v9 = ZwAlpcConnectPort(v6 + 8, (__int64)&UnicodeString);
+    *(unsigned int *)((char *)&ConnectionMessage.u1.Length + 2) = -2147483608;
+    BufferLength = 40LL;
+    PortAttributes.MaxMessageLength = 272LL;
+    PortAttributes.MaxPoolUsage = 8704LL;
+    PortAttributes.Flags = 0x100000;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 512;
+    ObjectAttributes.ObjectName = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v9 = ZwAlpcConnectPort(
+           (PHANDLE)(v6 + 8),
+           &PortName,
+           &ObjectAttributes,
+           &PortAttributes,
+           0x120000u,
+           0LL,
+           &ConnectionMessage,
+           &BufferLength,
+           0LL,
+           0LL,
+           0LL);
     v8 = v9;
     if ( v9 == 192 )
     {
@@ -106,7 +111,7 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
       if ( v14 )
       {
         if ( !_interlockedbittestandset((volatile signed __int32 *)(v14 + 4), 0) )
-          ZwAlpcDisconnectPort(*(_QWORD *)(v14 + 8), 0LL);
+          ZwAlpcDisconnectPort(*(HANDLE *)(v14 + 8), 0);
         if ( _InterlockedExchangeAdd((volatile signed __int32 *)v14, 0xFFFFFFFF) == 1 )
           DbgkpDeleteErrorPort((PVOID)v14);
       }
@@ -119,6 +124,6 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
   {
     v8 = -1073741670;
   }
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeUnicodeString(&PortName);
   return v8;
 }

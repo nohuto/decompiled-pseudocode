@@ -6,8 +6,8 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlDestroyProcessParameters(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlDestroyProcessParameters(PRTL_USER_PROCESS_PARAMETERS ProcessParameters)
 {
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, a4);
-  return 0LL;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ProcessParameters);
+  return 0;
 }

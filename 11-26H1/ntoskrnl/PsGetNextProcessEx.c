@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetNextProcessEx @ 0x140AC8A10
+ * XREFs of PsGetNextProcessEx @ 0x140ACA600
  * Callers:
  *     <none>
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockProcessListShared @ 0x14027D690 (PspUnlockProcessListShared.c)
- *     PspLockProcessListShared @ 0x14043D700 (PspLockProcessListShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockProcessListShared @ 0x14027CC00 (PspUnlockProcessListShared.c)
+ *     PspLockProcessListShared @ 0x14042FFB0 (PspLockProcessListShared.c)
  */
 
 unsigned __int64 __fastcall PsGetNextProcessEx(_QWORD *Object, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -14,24 +14,24 @@ unsigned __int64 __fastcall PsGetNextProcessEx(_QWORD *Object, __int64 a2, __int
   struct _KTHREAD *CurrentThread; // r14
   LIST_ENTRY *p_WaitListHead; // rbp
   int v7; // esi
-  struct _KTHREAD *Thread; // rbx
+  struct _KTHREAD *Flink; // rbx
 
   CurrentThread = KeGetCurrentThread();
   p_WaitListHead = 0LL;
   v7 = 0;
   PspLockProcessListShared((__int64)CurrentThread, a2, a3, a4);
-  Thread = PsAltSystemCallRegistrationLock.WaitBlock[0].Thread;
+  Flink = (struct _KTHREAD *)PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Flink;
   if ( Object )
-    Thread = (struct _KTHREAD *)Object[59];
-  while ( Thread != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[24] )
+    Flink = (struct _KTHREAD *)Object[59];
+  while ( Flink != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[96] )
   {
-    p_WaitListHead = &Thread[-1].SuspendEvent.Header.WaitListHead;
-    if ( ObReferenceObjectSafeWithTag((__int64)&Thread[-1].SuspendEvent.Header.WaitListHead, 0x746C6644u) )
+    p_WaitListHead = &Flink[-1].SuspendEvent.Header.WaitListHead;
+    if ( ObReferenceObjectSafeWithTag((__int64)&Flink[-1].SuspendEvent.Header.WaitListHead, 0x746C6644u) )
     {
       v7 = 1;
       break;
     }
-    Thread = *(struct _KTHREAD **)&Thread->Header.Lock;
+    Flink = *(struct _KTHREAD **)&Flink->Header.Lock;
   }
   PspUnlockProcessListShared((__int64)CurrentThread);
   if ( Object )

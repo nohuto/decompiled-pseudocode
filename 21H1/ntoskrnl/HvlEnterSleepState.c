@@ -11,19 +11,13 @@
 
 __int64 __fastcall HvlEnterSleepState(int a1)
 {
-  _QWORD *v2; // rax
-  __int64 v3; // rdx
-  __int64 v4; // r9
-  __int128 v6; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v7; // [rsp+30h] [rbp-38h]
-  _BYTE v8[16]; // [rsp+40h] [rbp-28h] BYREF
+  __int16 v1; // bx
+  _OWORD v3[2]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v4[16]; // [rsp+40h] [rbp-28h] BYREF
 
-  v6 = 0LL;
-  v7 = 0LL;
-  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v6, 1, (__int64)v8, 8LL);
-  v3 = *((_QWORD *)&v7 + 1);
-  *(_DWORD *)v2 = a1;
-  LOWORD(a1) = HvcallInitiateHypercall(132, v3, 0LL, v4);
-  HvlpReleaseHypercallPage((__int64)&v6);
-  return (_WORD)a1 != 0 ? 0xC0000001 : 0;
+  memset(v3, 0, sizeof(v3));
+  *(_DWORD *)HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v3, 1, (__int64)v4, 8LL) = a1;
+  v1 = HvcallInitiateHypercall(132);
+  HvlpReleaseHypercallPage((__int64)v3);
+  return v1 != 0 ? 0xC0000001 : 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockMemoryLists @ 0x1401563C0
+ * XREFs of MiLockMemoryLists @ 0x1401564C0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiLockMemoryLists(__int64 a1, __int64 a2, __int64 a3)
@@ -50,7 +50,7 @@ __int64 __fastcall MiLockMemoryLists(__int64 a1, __int64 a2, __int64 a3)
     do
     {
       v14 = 0;
-      for ( i = *v11; v14 < dword_14043A08C; ++v14 )
+      for ( i = *v11; v14 < dword_14043B14C; ++v14 )
       {
         v16 = &v3[3 * (unsigned int)v10];
         *v16 = 0LL;
@@ -116,18 +116,18 @@ __int64 __fastcall MiLockMemoryLists(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    v6 = dword_14043A08C;
+    v6 = dword_14043B14C;
     v7 = (unsigned __int16)KeNumberNodes;
-    result = (unsigned int)(unsigned __int16)KeNumberNodes + 2 * dword_14043A08C + 27;
+    result = (unsigned int)(unsigned __int16)KeNumberNodes + 2 * dword_14043B14C + 27;
     if ( (_DWORD)result )
     {
       do
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&v3[3 * v7 + 3 * (2 * v6 + 26 - v4)]);
-        v6 = dword_14043A08C;
+        v6 = dword_14043B14C;
         ++v4;
         v7 = (unsigned __int16)KeNumberNodes;
-        result = (unsigned int)(unsigned __int16)KeNumberNodes + 2 * dword_14043A08C + 27;
+        result = (unsigned int)(unsigned __int16)KeNumberNodes + 2 * dword_14043B14C + 27;
       }
       while ( v4 < (unsigned int)result );
     }

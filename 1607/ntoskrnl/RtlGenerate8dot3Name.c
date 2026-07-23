@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGenerate8dot3Name @ 0x1404BCF1C
+ * XREFs of RtlGenerate8dot3Name @ 0x1404A8C4C
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     GetNextWchar @ 0x1404BD2F4 (GetNextWchar.c)
- *     RtlComputeLfnChecksum @ 0x1404BD3C8 (RtlComputeLfnChecksum.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     GetNextWchar @ 0x1404A9024 (GetNextWchar.c)
+ *     RtlComputeLfnChecksum @ 0x1404A90F8 (RtlComputeLfnChecksum.c)
  */
 
 NTSTATUS __stdcall RtlGenerate8dot3Name(

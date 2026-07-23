@@ -1,15 +1,15 @@
 /*
- * XREFs of MiEnumerateLeafPtes @ 0x1400B9C10
+ * XREFs of MiEnumerateLeafPtes @ 0x1400B7AA0
  * Callers:
- *     MmOutSwapWorkingSet @ 0x1400B97A8 (MmOutSwapWorkingSet.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140133E5C (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiReleaseCommitForResetPages @ 0x1401E0934 (MiReleaseCommitForResetPages.c)
- *     MmOutSwapVirtualAddresses @ 0x1401F7898 (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x1400B7638 (MmOutSwapWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1401343CC (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiReleaseCommitForResetPages @ 0x1401E0760 (MiReleaseCommitForResetPages.c)
+ *     MmOutSwapVirtualAddresses @ 0x1401F76C4 (MmOutSwapVirtualAddresses.c)
  *     MiEnumerateKernelLeafPtes @ 0x1403C9674 (MiEnumerateKernelLeafPtes.c)
  *     MmMarkHiberPhase @ 0x1403CAD7C (MmMarkHiberPhase.c)
  *     MmMarkImageForHiberPhase @ 0x1403CB7C4 (MmMarkImageForHiberPhase.c)
  * Callees:
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
  */
 
 unsigned __int64 __fastcall MiEnumerateLeafPtes(

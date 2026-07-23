@@ -10,6 +10,6 @@ PERESOURCE FsRtlAllocateResource(void)
 {
   __int64 v0; // rax
 
-  v0 = 104LL * (FsRtlPagingIoResourceSelector++ & 0xF);
-  return (PERESOURCE)(FsRtlPagingIoResources + v0);
+  v0 = 104LL * (dword_140D3B294++ & 0xF);
+  return (PERESOURCE)(qword_140C48BA8 + v0);
 }

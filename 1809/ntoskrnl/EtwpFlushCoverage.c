@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpFlushCoverage @ 0x1406DD350
+ * XREFs of EtwpFlushCoverage @ 0x1406DE5F0
  * Callers:
- *     EtwShutdown @ 0x1406DD240 (EtwShutdown.c)
+ *     EtwShutdown @ 0x1406DE4E0 (EtwShutdown.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwpCoverageFlushPending @ 0x140684810 (EtwpCoverageFlushPending.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwpCoverageFlushPending @ 0x1406859D0 (EtwpCoverageFlushPending.c)
  */
 
 _QWORD *EtwpFlushCoverage()

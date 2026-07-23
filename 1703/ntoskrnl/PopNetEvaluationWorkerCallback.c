@@ -25,8 +25,8 @@ __int64 PopNetEvaluationWorkerCallback()
   int v8; // r15d
   bool v9; // bp
   __int64 v11; // rcx
-  int v12; // [rsp+78h] [rbp+10h] BYREF
-  int v13; // [rsp+7Ch] [rbp+14h]
+  int Buffer; // [rsp+78h] [rbp+10h] BYREF
+  int Buffer_4; // [rsp+7Ch] [rbp+14h]
 
   PopAcquirePolicyLock();
 LABEL_2:
@@ -110,9 +110,9 @@ LABEL_12:
     }
     if ( v1 )
     {
-      v13 = -1;
-      v12 = i | (2 * v8);
-      ZwUpdateWnfStateData((__int64)&WNF_SEB_NETWORK_CONNECTIVITY_IN_STANDBY, (__int64)&v12, 8LL);
+      Buffer_4 = -1;
+      Buffer = i | (2 * v8);
+      ZwUpdateWnfStateData(&WNF_SEB_NETWORK_CONNECTIVITY_IN_STANDBY, &Buffer, 8u, 0LL, 0LL, 0, 0);
       if ( v3 )
       {
         PopReleasePolicyLock();

@@ -11,49 +11,43 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpWaitForWait(int a1, int a2)
+void __cdecl TpWaitForWait(PTP_WAIT Wait, LOGICAL CancelPendingCallbacks)
 {
-  int v2; // ebx
-  int result; // eax
-  int v4; // esi
-  int v5; // ebx
-  int v6; // [esp+8h] [ebp-8h] BYREF
-  char v7; // [esp+Fh] [ebp-1h]
+  unsigned int v2; // ebx
+  _RTL_SRWLOCK *v3; // esi
+  unsigned int v4; // [esp+8h] [ebp-8h] BYREF
+  char v5; // [esp+Fh] [ebp-1h]
 
   v2 = 0;
-  v6 = 0;
-  v7 = 0;
-  result = TppWaitpValidateWait(0);
-  if ( result )
+  v4 = 0;
+  v5 = 0;
+  if ( TppWaitpValidateWait(0) )
   {
-    v4 = a1 + 144;
-    if ( a2 )
+    v3 = (_RTL_SRWLOCK *)((char *)Wait + 144);
+    if ( CancelPendingCallbacks )
     {
-      RtlAcquireSRWLockExclusive(a1 + 144);
-      ++*(_BYTE *)(a1 + 223);
-      TppCancelWait(2, &v6);
-      if ( *(_DWORD *)(a1 + 32) )
-        v7 = 1;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 36);
+      ++*((_BYTE *)Wait + 223);
+      TppCancelWait(2, &v4);
+      if ( *((_DWORD *)Wait + 8) )
+        v5 = 1;
       else
-        --*(_BYTE *)(a1 + 223);
-      v4 = a1 + 144;
-      RtlReleaseSRWLockExclusive(a1 + 144);
-      v2 = v6;
+        --*((_BYTE *)Wait + 223);
+      v3 = (_RTL_SRWLOCK *)((char *)Wait + 144);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 36);
+      v2 = v4;
     }
-    result = TppWorkWait(a1, a2);
-    if ( v7 )
+    TppWorkWait(Wait, CancelPendingCallbacks);
+    if ( v5 )
     {
-      RtlAcquireSRWLockExclusive(v4);
-      --*(_BYTE *)(a1 + 223);
-      result = RtlReleaseSRWLockExclusive(v4);
+      RtlAcquireSRWLockExclusive(v3);
+      --*((_BYTE *)Wait + 223);
+      RtlReleaseSRWLockExclusive(v3);
     }
     if ( v2 )
     {
-      v5 = -v2;
-      result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, -v5);
-      if ( result == v5 )
-        return (**(int (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v2) == -v2 )
+        (**((void (__thiscall ***)(_DWORD, PTP_WAIT))Wait + 1))(**((_DWORD **)Wait + 1), Wait);
     }
   }
-  return result;
 }

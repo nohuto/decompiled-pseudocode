@@ -1,19 +1,19 @@
 /*
- * XREFs of PoNotifySystemTimeSet @ 0x1404CA740
+ * XREFs of PoNotifySystemTimeSet @ 0x1404C3C60
  * Callers:
- *     ExpRefreshSystemTime @ 0x1407B6864 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1407B6BF0 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140B6CD90 (ExpSetSystemTime.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     ExpRefreshSystemTime @ 0x1407B6CB4 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1407B7040 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140B6E630 (ExpSetSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     PpmConvertTime @ 0x14032D070 (PpmConvertTime.c)
- *     PopCheckForWork @ 0x1403F2D8C (PopCheckForWork.c)
- *     PopGetPolicyWorker @ 0x1403F2E04 (PopGetPolicyWorker.c)
- *     ExNotifyWithProcessing @ 0x14044B6C4 (ExNotifyWithProcessing.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwTraceSystemTimeChange @ 0x140B6CE94 (EtwTraceSystemTimeChange.c)
- *     PopSstDiagAddResumeTimestampAdjustment @ 0x140B6DC30 (PopSstDiagAddResumeTimestampAdjustment.c)
+ *     PopCheckForWork @ 0x1403E6AAC (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x1403E6B24 (PopGetPolicyWorker.c)
+ *     PpmConvertTime @ 0x140437380 (PpmConvertTime.c)
+ *     ExNotifyWithProcessing @ 0x140442804 (ExNotifyWithProcessing.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTraceSystemTimeChange @ 0x140B6E734 (EtwTraceSystemTimeChange.c)
+ *     PopSstDiagAddResumeTimestampAdjustment @ 0x140B6F4D0 (PopSstDiagAddResumeTimestampAdjustment.c)
  */
 
 __int64 __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2, int a3, int a4, int a5, int a6, unsigned __int8 a7)
@@ -45,7 +45,7 @@ __int64 __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2, int a3, int a
   if ( PsWin32CalloutsEstablished )
   {
     PopTimeChangeInfo = *a1;
-    qword_140F0E268 = *v11;
+    qword_140F0E6A8 = *v11;
     EtwTraceSystemTimeChange((_DWORD)a1, (_DWORD)v11, a3, a4, a5, v8, a7);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);

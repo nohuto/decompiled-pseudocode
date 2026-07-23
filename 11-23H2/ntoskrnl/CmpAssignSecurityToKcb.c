@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpAssignSecurityToKcb @ 0x14076AA60
+ * XREFs of CmpAssignSecurityToKcb @ 0x14076AC50
  * Callers:
- *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
- *     CmpSetSecurityDescriptorInfo @ 0x14070CF18 (CmpSetSecurityDescriptorInfo.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14076A8BC (CmpRebuildKcbCacheFromNode.c)
- *     CmpAssignKeySecurity @ 0x14085838C (CmpAssignKeySecurity.c)
- *     CmRestoreKey @ 0x140A0AC44 (CmRestoreKey.c)
- *     CmpDoBuildVirtualStack @ 0x140A190BC (CmpDoBuildVirtualStack.c)
- *     CmpLightWeightCommitAddKeyUoW @ 0x140A27FC4 (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140A286F0 (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpCreateChild @ 0x1406D0FA0 (CmpCreateChild.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x14070D128 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x14076AAAC (CmpRebuildKcbCacheFromNode.c)
+ *     CmpAssignKeySecurity @ 0x1408585CC (CmpAssignKeySecurity.c)
+ *     CmRestoreKey @ 0x140A0AEF4 (CmRestoreKey.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1936C (CmpDoBuildVirtualStack.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x140A28274 (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x140A289A0 (CmpLightWeightCommitSetSecDescUoW.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x14022CFB0 (CmpFindSecurityCellCacheIndex.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14022D0C0 (CmpFindSecurityCellCacheIndex.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     CmLockHiveSecurityShared @ 0x140AF50A0 (CmLockHiveSecurityShared.c)
  *     CmUnlockHiveSecurity @ 0x140AF5100 (CmUnlockHiveSecurity.c)
  */

@@ -32,7 +32,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   __int64 v14; // rcx
   __int64 FirstOverlappingSharedNode; // rax
   unsigned __int64 v16; // r11
-  struct _RTL_SPLAY_LINKS *v17; // r9
+  _RTL_SPLAY_LINKS *v17; // r9
   _QWORD *v18; // r14
   unsigned __int64 v19; // rax
   _QWORD *v20; // rsi
@@ -81,7 +81,7 @@ LABEL_52:
   v26 = v9 + *a4 - 1LL;
   FirstOverlappingSharedNode = FsRtlFindFirstOverlappingSharedNode(v14, (unsigned int)&v28, (unsigned int)&v26, 0, 0LL);
   v16 = 0LL;
-  v17 = (struct _RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
+  v17 = (_RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
   if ( !FirstOverlappingSharedNode
     || (v18 = (_QWORD *)(FirstOverlappingSharedNode - 24), v19 = 0LL, v20 = (_QWORD *)*v18, v21 = v18, v29 = 0LL, !v20) )
   {
@@ -149,7 +149,7 @@ LABEL_34:
     else
       _InterlockedAnd64((volatile signed __int64 *)v10, v16);
     __writecr8(CurrentIrql);
-    (*(void (__fastcall **)(__int64, _QWORD *, __int64, struct _RTL_SPLAY_LINKS *))(a1 + 16))(a7, v20 + 1, v22, v17);
+    (*(void (__fastcall **)(__int64, _QWORD *, __int64, _RTL_SPLAY_LINKS *))(a1 + 16))(a7, v20 + 1, v22, v17);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )

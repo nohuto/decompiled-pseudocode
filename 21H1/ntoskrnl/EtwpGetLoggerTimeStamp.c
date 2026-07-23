@@ -13,30 +13,30 @@
  *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
  */
 
-LARGE_INTEGER __fastcall EtwpGetLoggerTimeStamp(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LARGE_INTEGER __fastcall EtwpGetLoggerTimeStamp(__int64 a1)
 {
-  unsigned __int64 v4; // rax
-  int v5; // eax
-  int v7; // eax
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v1; // rax
+  int v2; // eax
+  int v4; // eax
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = *(_QWORD *)(a1 + 40);
-  if ( v4 > 3 )
+  v1 = *(_QWORD *)(a1 + 40);
+  if ( v1 > 3 )
     goto LABEL_10;
-  if ( !(_DWORD)v4 )
-    return (LARGE_INTEGER)RtlGetSystemTimePrecise(a1, a2, a3, a4);
-  v5 = v4 - 1;
-  if ( !v5 )
+  if ( !(_DWORD)v1 )
+    return RtlGetSystemTimePrecise();
+  v2 = v1 - 1;
+  if ( !v2 )
     return KeQueryPerformanceCounter(0LL);
-  v7 = v5 - 1;
-  if ( v7 )
+  v4 = v2 - 1;
+  if ( v4 )
   {
-    if ( v7 == 1 )
+    if ( v4 == 1 )
       return (LARGE_INTEGER)__rdtsc();
 LABEL_10:
     __fastfail(0x3Du);
   }
-  v8 = 0LL;
-  ((void (__fastcall *)(__int64 *))off_140C009E0[0])(&v8);
-  return (LARGE_INTEGER)v8;
+  v5 = 0LL;
+  ((void (__fastcall *)(__int64 *))off_140C009E0[0])(&v5);
+  return (LARGE_INTEGER)v5;
 }

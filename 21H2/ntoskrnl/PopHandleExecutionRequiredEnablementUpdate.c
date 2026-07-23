@@ -1,13 +1,13 @@
 /*
- * XREFs of PopHandleExecutionRequiredEnablementUpdate @ 0x140772464
+ * XREFs of PopHandleExecutionRequiredEnablementUpdate @ 0x140772624
  * Callers:
- *     PopWnfAudioCallback @ 0x140772380 (PopWnfAudioCallback.c)
- *     PopExecutionRequiredSettingCallback @ 0x1407D36E0 (PopExecutionRequiredSettingCallback.c)
- *     PopExecutionRequiredTimeoutWorkerRoutine @ 0x1408E18C0 (PopExecutionRequiredTimeoutWorkerRoutine.c)
- *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1408E1B6C (PopPowerRequestNotifyMobileHotspotChanged.c)
- *     PopUpdatePdcSystemIdleState @ 0x1408F1218 (PopUpdatePdcSystemIdleState.c)
+ *     PopWnfAudioCallback @ 0x140772540 (PopWnfAudioCallback.c)
+ *     PopExecutionRequiredSettingCallback @ 0x1407D3850 (PopExecutionRequiredSettingCallback.c)
+ *     PopExecutionRequiredTimeoutWorkerRoutine @ 0x1408E1A20 (PopExecutionRequiredTimeoutWorkerRoutine.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1408E1CCC (PopPowerRequestNotifyMobileHotspotChanged.c)
+ *     PopUpdatePdcSystemIdleState @ 0x1408F1378 (PopUpdatePdcSystemIdleState.c)
  * Callees:
- *     PopEnableExecutionRequiredPowerRequests @ 0x1407D4228 (PopEnableExecutionRequiredPowerRequests.c)
+ *     PopEnableExecutionRequiredPowerRequests @ 0x1407D4398 (PopEnableExecutionRequiredPowerRequests.c)
  */
 
 void __fastcall PopHandleExecutionRequiredEnablementUpdate(unsigned __int64 a1)

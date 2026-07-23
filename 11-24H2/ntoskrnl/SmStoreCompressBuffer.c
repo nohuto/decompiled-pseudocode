@@ -1,16 +1,16 @@
 /*
- * XREFs of SmStoreCompressBuffer @ 0x140389E34
+ * XREFs of SmStoreCompressBuffer @ 0x140383774
  * Callers:
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x140389C30 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x140383570 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
  * Callees:
- *     RtlCompressBuffer @ 0x14038A270 (RtlCompressBuffer.c)
- *     RtlCompressBufferLz4 @ 0x14038A3F0 (RtlCompressBufferLz4.c)
- *     RtlCompressBufferXpressHuff @ 0x14038BAA0 (RtlCompressBufferXpressHuff.c)
- *     ?SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z @ 0x14060EA68 (-SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z.c)
- *     SmHwAcceleratorIssueRequest @ 0x14060F4B0 (SmHwAcceleratorIssueRequest.c)
- *     SmHwAcceleratorWaitForRequest @ 0x14060FA6C (SmHwAcceleratorWaitForRequest.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCompressBufferLZNT1 @ 0x140B640F0 (RtlCompressBufferLZNT1.c)
+ *     RtlCompressBuffer @ 0x140383BB0 (RtlCompressBuffer.c)
+ *     RtlCompressBufferLz4 @ 0x140383D30 (RtlCompressBufferLz4.c)
+ *     RtlCompressBufferXpressHuff @ 0x1403853E0 (RtlCompressBufferXpressHuff.c)
+ *     ?SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z @ 0x14060D028 (-SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z.c)
+ *     SmHwAcceleratorIssueRequest @ 0x14060DA70 (SmHwAcceleratorIssueRequest.c)
+ *     SmHwAcceleratorWaitForRequest @ 0x14060E02C (SmHwAcceleratorWaitForRequest.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCompressBufferLZNT1 @ 0x140B66200 (RtlCompressBufferLZNT1.c)
  */
 
 __int64 __fastcall SmStoreCompressBuffer(
@@ -46,7 +46,7 @@ __int64 __fastcall SmStoreCompressBuffer(
   v10 = 4096 - ((unsigned __int16)a3 & 0xFFF);
   v11 = 0;
   v12 = 0;
-  v13 = word_140014BB8[a1];
+  v13 = word_140011540[a1];
   if ( a1 )
   {
     v18 = 2048;
@@ -130,7 +130,7 @@ LABEL_5:
     }
     else
     {
-      return (unsigned int)guard_dispatch_icall_no_overrides(v14, a2, 4096LL, a3);
+      return (unsigned int)guard_dispatch_icall_no_overrides(v14, a2);
     }
   }
   return (unsigned int)v11;

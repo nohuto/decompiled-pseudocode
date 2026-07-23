@@ -1,16 +1,16 @@
 /*
- * XREFs of MiResolveAwePageConflict @ 0x1407029E4
+ * XREFs of MiResolveAwePageConflict @ 0x1407076B4
  * Callers:
- *     MiIncrementAweMapCount @ 0x140701B48 (MiIncrementAweMapCount.c)
+ *     MiIncrementAweMapCount @ 0x140706818 (MiIncrementAweMapCount.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiAwePageAttributeChangeable @ 0x140700B04 (MiAwePageAttributeChangeable.c)
- *     MiWakeWaitersForAweCacheAttributeChange @ 0x140702D48 (MiWakeWaitersForAweCacheAttributeChange.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiAwePageAttributeChangeable @ 0x1407057D4 (MiAwePageAttributeChangeable.c)
+ *     MiWakeWaitersForAweCacheAttributeChange @ 0x140707A18 (MiWakeWaitersForAweCacheAttributeChange.c)
  */
 
 __int64 __fastcall MiResolveAwePageConflict(__int64 a1, __int64 a2, unsigned int a3, unsigned __int8 a4)

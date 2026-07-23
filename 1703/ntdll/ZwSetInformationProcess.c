@@ -12,11 +12,15 @@
  *     <none>
  */
 
-__int64 ZwSetInformationProcess()
+NTSTATUS __cdecl ZwSetInformationProcess(
+        HANDLE ProcessHandle,
+        PROCESSINFOCLASS ProcessInformationClass,
+        PVOID ProcessInformation,
+        ULONG ProcessInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 28LL;
+  result = 28;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

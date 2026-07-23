@@ -8,52 +8,59 @@
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopPdcUpdateDeviceCompliance(int a1)
-{
-  _DWORD *v1; // r9
-  unsigned int v2; // ebx
-  int v3; // edi
-  int v4; // ebp
-  int v5; // r8d
-  bool v6; // zf
-  int *v7; // rsi
-  __int64 v8; // r8
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-
-  v1 = PopPdcDeviceList;
-  v2 = 0;
-  v3 = 0;
-  v4 = 0;
-  while ( v1 != (_DWORD *)&PopPdcDeviceList )
-  {
-    a1 = v1[6];
-    v5 = v3;
-    v3 |= 1 << a1;
-    v4 |= 1 << a1;
-    v6 = *((_BYTE *)v1 + 32) == 0;
-    v1 = *(_DWORD **)v1;
-    if ( v6 )
-      v3 = v5;
-  }
-  PopAcquirePolicyLock(a1);
-  v7 = PopCsDeviceCompliance;
-  do
-  {
-    v8 = (unsigned int)*v7;
-    v9 = v2;
-    if ( ((1 << v2) & v3) != 0 )
-      v10 = 1LL;
-    else
-      v10 = (unsigned int)-((v4 & (1 << v2)) != 0);
-    if ( (_DWORD)v10 != (_DWORD)v8 )
-    {
-      *v7 = v10;
-      PopDiagTraceDeviceComplianceUpdate(v2, v10);
-    }
-    ++v2;
-    ++v7;
-  }
-  while ( v2 < 5 );
-  return PopReleasePolicyLock(v9, v10, v8);
-}
+/*
+ * Hex-Rays decompilation failed for PopPdcUpdateDeviceCompliance @ 0x140998234
+ * Reason: Hex-Rays returned no pseudocode for 0x140998234
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 0000000140998234: mov     [rsp+arg_0], rbx
+ * 0000000140998239: mov     [rsp+arg_8], rbp
+ * 000000014099823E: mov     [rsp+arg_10], rsi
+ * 0000000140998243: push    rdi
+ * 0000000140998244: sub     rsp, 20h
+ * 0000000140998248: mov     r9, cs:PopPdcDeviceList
+ * 000000014099824F: lea     r10, PopPdcDeviceList
+ * 0000000140998256: xor     ebx, ebx
+ * 0000000140998258: mov     edi, ebx
+ * 000000014099825A: mov     ebp, ebx
+ * 000000014099825C: jmp     short loc_14099827B
+ * 000000014099825E: mov     ecx, [r9+18h]
+ * 0000000140998262: mov     r8d, edi
+ * 0000000140998265: mov     edx, 1
+ * 000000014099826A: shl     edx, cl
+ * 000000014099826C: or      edi, edx
+ * 000000014099826E: or      ebp, edx
+ * 0000000140998270: cmp     [r9+20h], bl
+ * 0000000140998274: mov     r9, [r9]
+ * 0000000140998277: cmovz   edi, r8d
+ * 000000014099827B: cmp     r9, r10
+ * 000000014099827E: jnz     short loc_14099825E
+ * 0000000140998280: call    PopAcquirePolicyLock
+ * 0000000140998285: lea     rsi, PopCsDeviceCompliance
+ * 000000014099828C: mov     r8d, [rsi]
+ * 000000014099828F: mov     ecx, ebx
+ * 0000000140998291: mov     eax, 1
+ * 0000000140998296: shl     eax, cl
+ * 0000000140998298: test    edi, eax
+ * 000000014099829A: jz      short loc_1409982A3
+ * 000000014099829C: mov     edx, 1
+ * 00000001409982A1: jmp     short loc_1409982A9
+ * 00000001409982A3: and     eax, ebp
+ * 00000001409982A5: neg     eax
+ * 00000001409982A7: sbb     edx, edx
+ * 00000001409982A9: cmp     edx, r8d
+ * 00000001409982AC: jz      short loc_1409982B5
+ * 00000001409982AE: mov     [rsi], edx
+ * 00000001409982B0: call    PopDiagTraceDeviceComplianceUpdate
+ * 00000001409982B5: inc     ebx
+ * 00000001409982B7: add     rsi, 4
+ * 00000001409982BB: cmp     ebx, 5
+ * 00000001409982BE: jb      short loc_14099828C
+ * 00000001409982C0: call    PopReleasePolicyLock
+ * 00000001409982C5: mov     rbx, [rsp+28h+arg_0]
+ * 00000001409982CA: mov     rbp, [rsp+28h+arg_8]
+ * 00000001409982CF: mov     rsi, [rsp+28h+arg_10]
+ * 00000001409982D4: add     rsp, 20h
+ * 00000001409982D8: pop     rdi
+ * 00000001409982D9: retn
+ */

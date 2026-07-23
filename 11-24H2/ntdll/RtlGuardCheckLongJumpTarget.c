@@ -1,59 +1,58 @@
 /*
- * XREFs of RtlGuardCheckLongJumpTarget @ 0x1800092B0
+ * XREFs of RtlGuardCheckLongJumpTarget @ 0x180035CB0
  * Callers:
  *     <none>
  * Callees:
- *     LdrImageDirectoryEntryToLoadConfig @ 0x180009600 (LdrImageDirectoryEntryToLoadConfig.c)
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlpxLookupFunctionTable @ 0x1800166E0 (RtlpxLookupFunctionTable.c)
- *     RtlFailFast2 @ 0x180121670 (RtlFailFast2.c)
- *     bsearch @ 0x180123D40 (bsearch.c)
- *     bsearch_s @ 0x180123E40 (bsearch_s.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x180036000 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlpxLookupFunctionTable @ 0x1800430E0 (RtlpxLookupFunctionTable.c)
+ *     RtlFailFast2 @ 0x18011F8A0 (RtlFailFast2.c)
+ *     bsearch @ 0x180121F70 (bsearch.c)
+ *     bsearch_s @ 0x180122070 (bsearch_s.c)
  */
 
-__int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1, char a2, char *a3)
+NTSTATUS __cdecl RtlGuardCheckLongJumpTarget(PVOID PcValue, BOOL IsFastFail, PBOOL IsLongJumpTarget)
 {
+  bool v4; // r14
   char v6; // bp
-  int v7; // edi
   __int64 Config; // rax
-  rsize_t v10; // r8
-  __int64 v11; // rdi
-  _QWORD *v12; // rax
-  __int128 v13; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-28h]
+  rsize_t v9; // r8
+  __int64 v10; // rdi
+  _QWORD *v11; // rax
+  __int128 v12; // [rsp+30h] [rbp-38h]
   int Key; // [rsp+88h] [rbp+20h] BYREF
 
+  v4 = IsFastFail;
   Key = 0;
-  if ( qword_1801EA508 && (dword_1801EA4EC & 1) == 0 )
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
     v6 = 0;
-    v13 = 0LL;
-    v14 = 0LL;
-    if ( a1 < *((_QWORD *)&xmmword_1801E7440 + 1)
-      || a1 >= *((_QWORD *)&xmmword_1801E7440 + 1) + (unsigned __int64)(unsigned int)qword_1801E7450 )
+    v12 = 0LL;
+    if ( (unsigned __int64)PcValue < *((_QWORD *)&xmmword_1801E6440 + 1)
+      || (unsigned __int64)PcValue >= *((_QWORD *)&xmmword_1801E6440 + 1)
+                                    + (unsigned __int64)(unsigned int)qword_1801E6450 )
     {
-      RtlpxLookupFunctionTable(a1, &v13);
+      RtlpxLookupFunctionTable(PcValue);
     }
     else
     {
-      v13 = xmmword_1801E7440;
+      *((_QWORD *)&v12 + 1) = *((_QWORD *)&xmmword_1801E6440 + 1);
     }
-    v7 = DWORD2(v13);
-    if ( *((_QWORD *)&v13 + 1) )
+    if ( *((_QWORD *)&v12 + 1) )
     {
-      Config = LdrImageDirectoryEntryToLoadConfig(*((_QWORD *)&v13 + 1));
+      Config = LdrImageDirectoryEntryToLoadConfig(*((_QWORD *)&v12 + 1));
       if ( Config )
       {
         if ( *(_DWORD *)Config >= 0xC0u && (*(_DWORD *)(Config + 144) & 0x10000) != 0 )
         {
-          Key = a1 - v7;
-          v10 = *(_QWORD *)(Config + 184);
-          if ( !v10
+          Key = (_DWORD)PcValue - DWORD2(v12);
+          v9 = *(_QWORD *)(Config + 184);
+          if ( !v9
             || !bsearch_s(
                   &Key,
                   *(const void **)(Config + 176),
-                  v10,
+                  v9,
                   (unsigned int)((*(_DWORD *)(Config + 144) >> 28) + 4),
                   RtlpTargetCompare,
                   0LL) )
@@ -68,34 +67,34 @@ __int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1, char a2, cha
       if ( !RtlpProtectedPolicies )
         goto LABEL_21;
       RtlAcquireSRWLockShared(&RtlpProtectedPoliciesSRWLock);
-      v12 = bsearch(
-              &unk_180179B78,
+      v11 = bsearch(
+              &unk_18017A140,
               RtlpProtectedPolicies,
               (unsigned int)RtlpProtectedPoliciesActiveCount,
               0x18uLL,
               RtlpCompareProtectedPolicyEntry);
-      if ( !v12 )
+      if ( !v11 )
       {
         RtlReleaseSRWLockShared(&RtlpProtectedPoliciesSRWLock);
         goto LABEL_21;
       }
-      v11 = v12[2];
+      v10 = v11[2];
       RtlReleaseSRWLockShared(&RtlpProtectedPoliciesSRWLock);
-      if ( !v11 )
+      if ( !v10 )
       {
 LABEL_21:
-        if ( !a2 )
-          RtlFailFast2(38LL, a1);
+        if ( !v4 )
+          RtlFailFast2(38LL, PcValue);
         goto LABEL_8;
       }
     }
     v6 = 1;
 LABEL_8:
-    if ( a3 )
-      *a3 = v6;
-    return 0LL;
+    if ( IsLongJumpTarget )
+      *(_BYTE *)IsLongJumpTarget = v6;
+    return 0;
   }
-  if ( a3 )
-    *a3 = 1;
-  return 0LL;
+  if ( IsLongJumpTarget )
+    *(_BYTE *)IsLongJumpTarget = 1;
+  return 0;
 }

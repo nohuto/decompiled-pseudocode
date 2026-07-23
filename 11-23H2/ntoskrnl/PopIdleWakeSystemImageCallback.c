@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleWakeSystemImageCallback @ 0x14099B320
+ * XREFs of PopIdleWakeSystemImageCallback @ 0x14099B520
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

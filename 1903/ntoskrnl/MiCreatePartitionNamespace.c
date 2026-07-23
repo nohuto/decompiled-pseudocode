@@ -12,39 +12,39 @@
 
 __int64 __fastcall MiCreatePartitionNamespace(__int64 a1)
 {
-  int DirectoryObject; // ebx
-  __int64 v3; // rax
+  NTSTATUS KernelObjectsSD; // ebx
+  void *v3; // rax
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-19h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+48h] [rbp-9h] BYREF
-  _QWORD v7[7]; // [rsp+70h] [rbp+1Fh] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+1Fh] BYREF
 
-  memset(v7, 0, 0x30uLL);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   RtlInitUnicodeString(&DestinationString, 0LL);
-  v7[1] = 0LL;
-  v7[5] = 0LL;
-  v7[2] = &DestinationString;
-  v7[4] = SePublicDefaultUnrestrictedSd;
-  LODWORD(v7[0]) = 48;
-  LODWORD(v7[3]) = 576;
-  DirectoryObject = ZwCreateDirectoryObjectEx(a1 + 224, 983055LL, (__int64)v7);
-  if ( DirectoryObject >= 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.SecurityQualityOfService = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  KernelObjectsSD = ZwCreateDirectoryObjectEx((PHANDLE)(a1 + 224), 0xF000Fu, &ObjectAttributes, 0LL, 2u);
+  if ( KernelObjectsSD >= 0 )
   {
-    DirectoryObject = ObCreateKernelObjectsSD(SecurityDescriptor);
-    if ( DirectoryObject >= 0 )
+    KernelObjectsSD = ObCreateKernelObjectsSD(SecurityDescriptor);
+    if ( KernelObjectsSD >= 0 )
     {
-      v3 = *(_QWORD *)(a1 + 224);
-      v7[5] = 0LL;
-      v7[1] = v3;
-      LODWORD(v7[0]) = 48;
-      v7[2] = &MiKernelObjectsDirectoryName;
-      v7[4] = SecurityDescriptor;
-      LODWORD(v7[3]) = 576;
-      DirectoryObject = ZwCreateDirectoryObjectEx(a1 + 232, 983055LL, (__int64)v7);
+      v3 = *(void **)(a1 + 224);
+      ObjectAttributes.SecurityQualityOfService = 0LL;
+      ObjectAttributes.RootDirectory = v3;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&MiKernelObjectsDirectoryName;
+      ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+      ObjectAttributes.Attributes = 576;
+      KernelObjectsSD = ZwCreateDirectoryObjectEx((PHANDLE)(a1 + 232), 0xF000Fu, &ObjectAttributes, 0LL, 0);
     }
   }
   ObCleanupSecurityDescriptor(SecurityDescriptor);
-  return (unsigned int)DirectoryObject;
+  return (unsigned int)KernelObjectsSD;
 }

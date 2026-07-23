@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceJobServerSiloMonitorCallback @ 0x1406C4A58
+ * XREFs of EtwTraceJobServerSiloMonitorCallback @ 0x1406C8698
  * Callers:
- *     PspInvokeCreateCallback @ 0x1407FC018 (PspInvokeCreateCallback.c)
- *     PspInvokeTerminateCallback @ 0x1407FC07C (PspInvokeTerminateCallback.c)
+ *     PspInvokeCreateCallback @ 0x140801A48 (PspInvokeCreateCallback.c)
+ *     PspInvokeTerminateCallback @ 0x140801AAC (PspInvokeTerminateCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpCopyJobIdSafe @ 0x140B03618 (EtwpCopyJobIdSafe.c)
- *     EtwpCopyJobGuidSafe @ 0x140B05260 (EtwpCopyJobGuidSafe.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpCopyJobIdSafe @ 0x140B0522C (EtwpCopyJobIdSafe.c)
+ *     EtwpCopyJobGuidSafe @ 0x140B06E70 (EtwpCopyJobGuidSafe.c)
  */
 
 BOOLEAN __fastcall EtwTraceJobServerSiloMonitorCallback(int a1, __int64 a2, unsigned __int16 *a3, int a4)
@@ -19,7 +19,7 @@ BOOLEAN __fastcall EtwTraceJobServerSiloMonitorCallback(int a1, __int64 a2, unsi
   __int64 v10; // rcx
   unsigned int v11; // edx
   __int64 v12; // rax
-  REGHANDLE v13; // rcx
+  _KAFFINITY_EX *Affinity; // rcx
   int v14; // [rsp+48h] [rbp-39h] BYREF
   __int128 v15; // [rsp+50h] [rbp-31h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+68h] [rbp-19h] BYREF
@@ -51,7 +51,7 @@ BOOLEAN __fastcall EtwTraceJobServerSiloMonitorCallback(int a1, __int64 a2, unsi
   {
     v7 = ServerSiloCreateCallbackStart;
   }
-  result = EtwEventEnabled(EtwpPsProvRegHandle, (PCEVENT_DESCRIPTOR)v7);
+  result = EtwEventEnabled((REGHANDLE)stru_140F03830.Affinity, (PCEVENT_DESCRIPTOR)v7);
   if ( result )
   {
     EtwpCopyJobGuidSafe(&v15, a2);
@@ -75,9 +75,9 @@ BOOLEAN __fastcall EtwTraceJobServerSiloMonitorCallback(int a1, __int64 a2, unsi
     *(&UserData.Reserved + 2 * v10) = 0;
     v12 = 2LL * v11;
     *(&UserData.Ptr + v12) = (ULONGLONG)&EtwpNull;
-    v13 = EtwpPsProvRegHandle;
+    Affinity = stru_140F03830.Affinity;
     *((_QWORD *)&UserData.Size + v12) = 2LL;
-    return EtwWriteEx(v13, (PCEVENT_DESCRIPTOR)v7, 0LL, 0, 0LL, 0LL, v11 + 1, &UserData);
+    return EtwWriteEx((REGHANDLE)Affinity, (PCEVENT_DESCRIPTOR)v7, 0LL, 0, 0LL, 0LL, v11 + 1, &UserData);
   }
   return result;
 }

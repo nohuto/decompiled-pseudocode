@@ -1,12 +1,12 @@
 /*
- * XREFs of HaliSetSystemInformation @ 0x1407767B4
+ * XREFs of HaliSetSystemInformation @ 0x14077965C
  * Callers:
- *     HalpSetSystemInformation @ 0x140B10D50 (HalpSetSystemInformation.c)
+ *     HalpSetSystemInformation @ 0x140B12AD0 (HalpSetSystemInformation.c)
  * Callees:
- *     HalpTimerSetClockTimerMinimumInterval @ 0x140581824 (HalpTimerSetClockTimerMinimumInterval.c)
- *     HalpRegisterSecondaryIcInterface @ 0x14058FA8C (HalpRegisterSecondaryIcInterface.c)
- *     HalpCheckTestSigningEnabled @ 0x140785CE4 (HalpCheckTestSigningEnabled.c)
- *     HalpChannelPowerRequest @ 0x140787250 (HalpChannelPowerRequest.c)
+ *     HalpTimerSetClockTimerMinimumInterval @ 0x140583D44 (HalpTimerSetClockTimerMinimumInterval.c)
+ *     HalpRegisterSecondaryIcInterface @ 0x14059220C (HalpRegisterSecondaryIcInterface.c)
+ *     HalpCheckTestSigningEnabled @ 0x140788814 (HalpCheckTestSigningEnabled.c)
+ *     HalpChannelPowerRequest @ 0x140789D80 (HalpChannelPowerRequest.c)
  */
 
 __int64 __fastcall HaliSetSystemInformation(int a1, __int64 a2, int *a3)

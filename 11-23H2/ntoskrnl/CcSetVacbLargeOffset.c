@@ -1,17 +1,17 @@
 /*
- * XREFs of CcSetVacbLargeOffset @ 0x1402F2EB0
+ * XREFs of CcSetVacbLargeOffset @ 0x1402F3140
  * Callers:
  *     CcAdjustVacbLevelLockCount @ 0x1402075C0 (CcAdjustVacbLevelLockCount.c)
- *     CcUnmapVacbArray @ 0x14029EDC0 (CcUnmapVacbArray.c)
- *     SetVacb @ 0x1402A0B08 (SetVacb.c)
+ *     CcUnmapVacbArray @ 0x14029F050 (CcUnmapVacbArray.c)
+ *     SetVacb @ 0x1402A0D98 (SetVacb.c)
  * Callees:
- *     CcGetBcbListHeadLargeOffset @ 0x140260FF0 (CcGetBcbListHeadLargeOffset.c)
- *     VacbLevelReference @ 0x1402F35D8 (VacbLevelReference.c)
- *     CcAllocateVacbLevel @ 0x1402F3600 (CcAllocateVacbLevel.c)
- *     CcFreeUnusedVacbLevels @ 0x1402F3684 (CcFreeUnusedVacbLevels.c)
- *     CcAllocateVacbLevels @ 0x1402F36E0 (CcAllocateVacbLevels.c)
- *     CcDeallocateVacbLevel @ 0x1402F3784 (CcDeallocateVacbLevel.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x140261280 (CcGetBcbListHeadLargeOffset.c)
+ *     VacbLevelReference @ 0x1402F3868 (VacbLevelReference.c)
+ *     CcAllocateVacbLevel @ 0x1402F3890 (CcAllocateVacbLevel.c)
+ *     CcFreeUnusedVacbLevels @ 0x1402F3914 (CcFreeUnusedVacbLevels.c)
+ *     CcAllocateVacbLevels @ 0x1402F3970 (CcAllocateVacbLevels.c)
+ *     CcDeallocateVacbLevel @ 0x1402F3A14 (CcDeallocateVacbLevel.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall CcSetVacbLargeOffset(__int64 a1, __int64 a2, unsigned __int64 a3, __int128 *a4)

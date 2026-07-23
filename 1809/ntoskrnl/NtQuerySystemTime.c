@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQuerySystemTime @ 0x1408CD230
+ * XREFs of NtQuerySystemTime @ 0x1408CE4F0
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQuerySystemTime(PLARGE_INTEGER CurrentTime)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSetFreshPfnFromFreeList @ 0x1401F2FAC
+ * XREFs of MiSetFreshPfnFromFreeList @ 0x1401F2DD8
  * Callers:
- *     MiLockCode @ 0x1400155F0 (MiLockCode.c)
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     MiGetFreeOrZeroPage @ 0x14003DC80 (MiGetFreeOrZeroPage.c)
- *     MiSlistGetFreePage @ 0x140061478 (MiSlistGetFreePage.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x140066D00 (MiUnlinkFreeOrZeroedPage.c)
- *     MiCoalesceFreePages @ 0x140067870 (MiCoalesceFreePages.c)
- *     MiSwapStackPageNoDpc @ 0x14010BB54 (MiSwapStackPageNoDpc.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1401209F0 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiReplaceLockedPage @ 0x1401EB18C (MiReplaceLockedPage.c)
- *     MiReuseStandbyPage @ 0x1401F3A84 (MiReuseStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x1401F3ACC (MiSwapNumaStandbyPage.c)
+ *     MiLockCode @ 0x140015170 (MiLockCode.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     MiGetFreeOrZeroPage @ 0x14003D800 (MiGetFreeOrZeroPage.c)
+ *     MiSlistGetFreePage @ 0x140060FF8 (MiSlistGetFreePage.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140066880 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiCoalesceFreePages @ 0x1400673F0 (MiCoalesceFreePages.c)
+ *     MiSwapStackPageNoDpc @ 0x1401098D4 (MiSwapStackPageNoDpc.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140120F60 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiReplaceLockedPage @ 0x1401EAFB8 (MiReplaceLockedPage.c)
+ *     MiReuseStandbyPage @ 0x1401F38B0 (MiReuseStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1401F38F8 (MiSwapNumaStandbyPage.c)
  * Callees:
  *     <none>
  */

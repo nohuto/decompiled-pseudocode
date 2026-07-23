@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCommitTransaction()
+NTSTATUS __cdecl ZwCommitTransaction(HANDLE TransactionHandle, BOOLEAN Wait)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 147LL;
+  result = 147;
   __asm { syscall; Low latency system call }
   return result;
 }

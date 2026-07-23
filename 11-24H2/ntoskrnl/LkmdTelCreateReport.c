@@ -1,16 +1,16 @@
 /*
- * XREFs of LkmdTelCreateReport @ 0x14082F62C
+ * XREFs of LkmdTelCreateReport @ 0x14082FE24
  * Callers:
- *     WheapReportLiveDump @ 0x1407C88F8 (WheapReportLiveDump.c)
+ *     WheapReportLiveDump @ 0x1407C8DE8 (WheapReportLiveDump.c)
  * Callees:
- *     KeCapturePersistentThreadState @ 0x140262B20 (KeCapturePersistentThreadState.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlCaptureContext @ 0x1404FC8A0 (RtlCaptureContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     LkmdTelpFreeMem @ 0x14082F91C (LkmdTelpFreeMem.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     KeCapturePersistentThreadState @ 0x140420EC0 (KeCapturePersistentThreadState.c)
+ *     RtlCaptureContext @ 0x1404FA160 (RtlCaptureContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     LkmdTelpFreeMem @ 0x140830114 (LkmdTelpFreeMem.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall LkmdTelCreateReport(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -23,7 +23,7 @@ _QWORD *__fastcall LkmdTelCreateReport(__int64 a1, __int64 a2, __int64 a3, __int
   int v14; // eax
   __int64 v15; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v16; // [rsp+50h] [rbp-B8h] BYREF
-  struct _CONTEXT ContextRecord; // [rsp+58h] [rbp-B0h] BYREF
+  _CONTEXT ContextRecord; // [rsp+58h] [rbp-B0h] BYREF
 
   memset_0(&ContextRecord, 0, sizeof(ContextRecord));
   v16 = 0LL;

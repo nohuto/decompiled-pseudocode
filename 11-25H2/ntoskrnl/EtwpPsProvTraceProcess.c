@@ -58,7 +58,7 @@ NTSTATUS __fastcall EtwpPsProvTraceProcess(__int64 a1, char a2, unsigned int *a3
   __int64 v40; // [rsp+88h] [rbp-80h] BYREF
   unsigned __int64 CycleTime; // [rsp+90h] [rbp-78h] BYREF
   PVOID P; // [rsp+98h] [rbp-70h] BYREF
-  struct _SID_AND_ATTRIBUTES IntegritySA; // [rsp+A0h] [rbp-68h] BYREF
+  _SID_AND_ATTRIBUTES IntegritySA; // [rsp+A0h] [rbp-68h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF
   _QWORD v45[3]; // [rsp+C8h] [rbp-40h] BYREF
   char v46; // [rsp+E0h] [rbp-28h] BYREF

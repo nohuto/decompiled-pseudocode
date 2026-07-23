@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierZwQueryQuotaInformationFile @ 0x14070CE0C
+ * XREFs of VerifierZwQueryQuotaInformationFile @ 0x14070CE3C
  * Callers:
  *     <none>
  * Callees:

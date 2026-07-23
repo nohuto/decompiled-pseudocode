@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeDpcGang @ 0x140560550
+ * XREFs of MiInitializeDpcGang @ 0x140560790
  * Callers:
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
- *     MiHugePageOperation @ 0x140532F78 (MiHugePageOperation.c)
- *     MiAllocateFastLargePagesForMdl @ 0x140533CE4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
+ *     MiHugePageOperation @ 0x1405331B8 (MiHugePageOperation.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x140533F24 (MiAllocateFastLargePagesForMdl.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiComputeIdealDpcGang @ 0x1405600BC (MiComputeIdealDpcGang.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiComputeIdealDpcGang @ 0x1405602FC (MiComputeIdealDpcGang.c)
  */
 
 __int64 __fastcall MiInitializeDpcGang(__int64 a1, unsigned int a2, char a3)

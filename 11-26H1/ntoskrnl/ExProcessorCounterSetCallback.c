@@ -1,20 +1,20 @@
 /*
- * XREFs of ExProcessorCounterSetCallback @ 0x140A68560
+ * XREFs of ExProcessorCounterSetCallback @ 0x140A75530
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140476C00 (KeQueryNodeActiveAffinityEx.c)
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     swscanf_s @ 0x14053C9F0 (swscanf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpQueryProcessorInformationCounters @ 0x140A68F60 (ExpQueryProcessorInformationCounters.c)
- *     ExpPcwDisabledStatus @ 0x140A69904 (ExpPcwDisabledStatus.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140470380 (KeQueryNodeActiveAffinityEx.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     swscanf_s @ 0x14053EE70 (swscanf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpQueryProcessorInformationCounters @ 0x140A75F30 (ExpQueryProcessorInformationCounters.c)
+ *     ExpPcwDisabledStatus @ 0x140A768D4 (ExpPcwDisabledStatus.c)
  */
 
 __int64 __fastcall ExProcessorCounterSetCallback(int a1, __int64 *a2)
@@ -220,8 +220,7 @@ LABEL_16:
             v44 = v24;
             LOBYTE(v24) = v5;
             ExpQueryProcessorInformationCounters(
-              KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                               + 64 * (unsigned __int16)v22
+              KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v22].Flink
                                + v25)],
               v23,
               v24,

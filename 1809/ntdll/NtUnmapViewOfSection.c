@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUnmapViewOfSection @ 0x1800A0820
+ * XREFs of NtUnmapViewOfSection @ 0x1800A0840
  * Callers:
  *     LdrpSnapModule @ 0x1800072B0 (LdrpSnapModule.c)
  *     LdrpMinimalMapModule @ 0x180021EDC (LdrpMinimalMapModule.c)
@@ -8,17 +8,17 @@
  *     RtlpFileIsWin32WithRCManifest @ 0x18003451C (RtlpFileIsWin32WithRCManifest.c)
  *     LdrMapAndVerifyResourceFile @ 0x18003A040 (LdrMapAndVerifyResourceFile.c)
  *     LdrUnloadAlternateResourceModuleEx @ 0x180055B60 (LdrUnloadAlternateResourceModuleEx.c)
- *     LdrpUnmapModule @ 0x180076B98 (LdrpUnmapModule.c)
- *     LdrpFindLoadedDllByMappingFile @ 0x180076D40 (LdrpFindLoadedDllByMappingFile.c)
- *     RtlpQueryExtendedHeapInformation @ 0x18007B16C (RtlpQueryExtendedHeapInformation.c)
- *     RtlDestroyQueryDebugBuffer @ 0x18007DE00 (RtlDestroyQueryDebugBuffer.c)
- *     RtlpChangeQueryDebugBufferTarget @ 0x18007DE38 (RtlpChangeQueryDebugBufferTarget.c)
- *     RtlGetLocaleFileMappingAddress @ 0x180080BF0 (RtlGetLocaleFileMappingAddress.c)
- *     RtlCreateQueryDebugBuffer @ 0x180085F30 (RtlCreateQueryDebugBuffer.c)
- *     PssNtFreeWalkMarker @ 0x18008A5E0 (PssNtFreeWalkMarker.c)
- *     LdrVerifyImageMatchesChecksumEx @ 0x18008C7B0 (LdrVerifyImageMatchesChecksumEx.c)
- *     LdrFlushAlternateResourceModules @ 0x18008E080 (LdrFlushAlternateResourceModules.c)
- *     LdrResRelease @ 0x18008F6F0 (LdrResRelease.c)
+ *     LdrpUnmapModule @ 0x180076BA8 (LdrpUnmapModule.c)
+ *     LdrpFindLoadedDllByMappingFile @ 0x180076D50 (LdrpFindLoadedDllByMappingFile.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x18007B17C (RtlpQueryExtendedHeapInformation.c)
+ *     RtlDestroyQueryDebugBuffer @ 0x18007DE10 (RtlDestroyQueryDebugBuffer.c)
+ *     RtlpChangeQueryDebugBufferTarget @ 0x18007DE48 (RtlpChangeQueryDebugBufferTarget.c)
+ *     RtlGetLocaleFileMappingAddress @ 0x180080C00 (RtlGetLocaleFileMappingAddress.c)
+ *     RtlCreateQueryDebugBuffer @ 0x180085F40 (RtlCreateQueryDebugBuffer.c)
+ *     PssNtFreeWalkMarker @ 0x18008A5F0 (PssNtFreeWalkMarker.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18008C7C0 (LdrVerifyImageMatchesChecksumEx.c)
+ *     LdrFlushAlternateResourceModules @ 0x18008E090 (LdrFlushAlternateResourceModules.c)
+ *     LdrResRelease @ 0x18008F700 (LdrResRelease.c)
  *     RtlCreateProcessReflection @ 0x1800D7C30 (RtlCreateProcessReflection.c)
  *     RtlpQueryProcessDebugInformationRemote @ 0x1800DA190 (RtlpQueryProcessDebugInformationRemote.c)
  *     RtlpSetProcessDebugInformationRemote @ 0x1800DA390 (RtlpSetProcessDebugInformationRemote.c)
@@ -45,11 +45,11 @@
  *     <none>
  */
 
-__int64 NtUnmapViewOfSection()
+NTSTATUS __cdecl NtUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 42LL;
+  result = 42;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

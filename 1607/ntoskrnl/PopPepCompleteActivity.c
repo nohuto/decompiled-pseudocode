@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepCompleteActivity @ 0x1400C2998
+ * XREFs of PopPepCompleteActivity @ 0x1400C0828
  * Callers:
- *     PopPepProcessEvent @ 0x1400C2248 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x1400C00D8 (PopPepProcessEvent.c)
  * Callees:
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPepCompleteActivity(__int64 a1, __int64 a2, ULONG_PTR a3)

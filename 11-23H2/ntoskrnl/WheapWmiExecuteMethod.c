@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapWmiExecuteMethod @ 0x140613F60
+ * XREFs of WheapWmiExecuteMethod @ 0x1406144B0
  * Callers:
- *     WheaWmiDispatch @ 0x1403AF670 (WheaWmiDispatch.c)
+ *     WheaWmiDispatch @ 0x1403AF850 (WheaWmiDispatch.c)
  * Callees:
- *     WheapWmiExecuteErrorInjectionMethod @ 0x140613A5C (WheapWmiExecuteErrorInjectionMethod.c)
- *     WheapWmiExecuteErrorSourceMethod @ 0x140613B48 (WheapWmiExecuteErrorSourceMethod.c)
- *     WheapWmiExecutePageOfflineMethod @ 0x140614104 (WheapWmiExecutePageOfflineMethod.c)
- *     WheapWmiExecutePluginCtlMethod @ 0x140614194 (WheapWmiExecutePluginCtlMethod.c)
- *     WheapWmiExecutePolicyManagementMethod @ 0x14061429C (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecuteErrorInjectionMethod @ 0x140613FAC (WheapWmiExecuteErrorInjectionMethod.c)
+ *     WheapWmiExecuteErrorSourceMethod @ 0x140614098 (WheapWmiExecuteErrorSourceMethod.c)
+ *     WheapWmiExecutePageOfflineMethod @ 0x140614654 (WheapWmiExecutePageOfflineMethod.c)
+ *     WheapWmiExecutePluginCtlMethod @ 0x1406146E4 (WheapWmiExecutePluginCtlMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1406147EC (WheapWmiExecutePolicyManagementMethod.c)
  */
 
 __int64 __fastcall WheapWmiExecuteMethod(__int64 *a1, unsigned int a2, int *a3, int *a4)

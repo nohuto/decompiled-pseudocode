@@ -13,28 +13,28 @@
  *     _TpCallbackMayRunLong@4 @ 0x4B2E9600 (_TpCallbackMayRunLong@4.c)
  */
 
-int __fastcall TppCleanupGroupMemberCallbackProlog(int a1, int a2)
+int __fastcall TppCleanupGroupMemberCallbackProlog(_DWORD *Instance, int a2)
 {
   int v4; // eax
   _GUID *p_ActivityId; // edi
-  int v7; // [esp-4h] [ebp-14h]
+  void *v7; // [esp-4h] [ebp-14h]
 
   if ( *(_DWORD *)(a2 + 56) != -1 && *(_DWORD *)(a2 + 56) )
   {
-    *(_DWORD *)a1 = 36;
-    *(_DWORD *)(a1 + 4) = 1;
-    RtlActivateActivationContextUnsafeFast(a1, *(_DWORD *)(a2 + 56));
-    *(_BYTE *)(a1 + 40) |= 1u;
+    *Instance = 36;
+    Instance[1] = 1;
+    RtlActivateActivationContextUnsafeFast(Instance, *(_DWORD *)(a2 + 56));
+    *((_BYTE *)Instance + 40) |= 1u;
   }
-  *(_DWORD *)(a1 + 80) |= 0x240u;
-  *(_DWORD *)(a1 + 108) = a2;
+  Instance[20] |= 0x240u;
+  Instance[27] = a2;
   if ( (*(_DWORD *)(a2 + 104) & 3) == 1 )
-    TpCallbackMayRunLong(a1);
+    TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
   v4 = *(_DWORD *)(a2 + 60);
   if ( v4 )
   {
-    v7 = *(_DWORD *)(a2 + 60);
-    *(_DWORD *)(a1 + 44) = v4;
+    v7 = *(void **)(a2 + 60);
+    Instance[11] = v4;
     RtlSetThreadSubProcessTag(v7);
   }
   p_ActivityId = &NtCurrentTeb()->ActivityId;

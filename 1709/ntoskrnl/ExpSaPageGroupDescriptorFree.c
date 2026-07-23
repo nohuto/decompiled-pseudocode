@@ -20,9 +20,9 @@
 void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *P)
 {
   __int64 MaximumProcessorCount; // rdi
-  unsigned __int64 v3; // rax
+  PRTL_BALANCED_NODE v3; // rax
   signed __int8 v4; // cf
-  unsigned __int64 v5; // rbx
+  PRTL_BALANCED_NODE v5; // rbx
   __int64 v6; // rsi
   __int64 v7; // rdx
   unsigned int v8; // ecx
@@ -50,9 +50,12 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *P)
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&ExSaPageGroupDescriptorArrayLock, v3, (__int16 *)&ExSaPageGroupDescriptorArrayLock);
+    ExfAcquirePushLockExclusiveEx(
+      &ExSaPageGroupDescriptorArrayLock,
+      (__int64)v3,
+      (__int16 *)&ExSaPageGroupDescriptorArrayLock);
   if ( v5 )
-    *(_BYTE *)(v5 + 26) |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   if ( (_DWORD)MaximumProcessorCount )
   {
     v6 = 0LL;
@@ -106,7 +109,7 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *P)
         {
           v21->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v21->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v20]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v20].TreeNode);
           v24 = 0;
           v24 = v21->BoostBitmap.AllFields & 0x1FFFF;
           v21->BoostBitmap.AllFields &= 0xFFFE0000;

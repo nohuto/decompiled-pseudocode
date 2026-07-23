@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaMarkHiberAdapter @ 0x140388338
+ * XREFs of HalpDmaMarkHiberAdapter @ 0x140388488
  * Callers:
- *     HaliLocateHiberRanges @ 0x140996620 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140997620 (HaliLocateHiberRanges.c)
  * Callees:
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
- *     HalpIommuDmarPageTableMarkHiberPhase @ 0x1404DBA8C (HalpIommuDmarPageTableMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
+ *     HalpIommuDmarPageTableMarkHiberPhase @ 0x1404DBCCC (HalpIommuDmarPageTableMarkHiberPhase.c)
  */
 
 void __fastcall HalpDmaMarkHiberAdapter(PVOID MemoryMap)

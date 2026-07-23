@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPmuArbiterPeriodicTimerCallback @ 0x140580530
+ * XREFs of HalpPmuArbiterPeriodicTimerCallback @ 0x140582A50
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void HalpPmuArbiterPeriodicTimerCallback()

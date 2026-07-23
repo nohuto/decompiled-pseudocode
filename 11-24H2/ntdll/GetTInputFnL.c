@@ -1,7 +1,7 @@
 /*
- * XREFs of GetTInputFnL @ 0x180126548
+ * XREFs of GetTInputFnL @ 0x180124778
  * Callers:
- *     sscanf @ 0x180126560 (sscanf.c)
+ *     sscanf @ 0x180124790 (sscanf.c)
  * Callees:
  *     <none>
  */

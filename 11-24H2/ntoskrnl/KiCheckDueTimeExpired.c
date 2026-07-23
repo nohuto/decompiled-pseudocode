@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCheckDueTimeExpired @ 0x1402065E0
+ * XREFs of KiCheckDueTimeExpired @ 0x14032DBC0
  * Callers:
- *     KiWaitForAllObjects @ 0x140205C00 (KiWaitForAllObjects.c)
+ *     KiWaitForAllObjects @ 0x14032D1E0 (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

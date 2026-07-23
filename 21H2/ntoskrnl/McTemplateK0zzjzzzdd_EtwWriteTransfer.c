@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0zzjzzzdd_EtwWriteTransfer @ 0x14036E9D8
+ * XREFs of McTemplateK0zzjzzzdd_EtwWriteTransfer @ 0x14036EB88
  * Callers:
- *     PiDevCfgLogDeviceStarted @ 0x14073ADD4 (PiDevCfgLogDeviceStarted.c)
+ *     PiDevCfgLogDeviceStarted @ 0x14073AF94 (PiDevCfgLogDeviceStarted.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EFF4 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall McTemplateK0zzjzzzdd_EtwWriteTransfer(

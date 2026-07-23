@@ -1,16 +1,16 @@
 /*
- * XREFs of ViPtDeleteAvlTrees @ 0x140B8C740
+ * XREFs of ViPtDeleteAvlTrees @ 0x140B8E740
  * Callers:
- *     ViPtPluginUnload @ 0x140B8CA50 (ViPtPluginUnload.c)
+ *     ViPtPluginUnload @ 0x140B8EA50 (ViPtPluginUnload.c)
  * Callees:
- *     RtlEnumerateGenericTableAvl @ 0x1403EA300 (RtlEnumerateGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x14061187C (ViPtAcquireTreeLockAtDpcLevelSafe.c)
- *     ViPtCleanupLockContext @ 0x1406118EC (ViPtCleanupLockContext.c)
- *     ViPtInitializeLockContext @ 0x140611948 (ViPtInitializeLockContext.c)
- *     ViPtRaiseIrqlSafe @ 0x14061195C (ViPtRaiseIrqlSafe.c)
- *     ViPtReleaseTreeLockFromDpcLevel @ 0x1406119B0 (ViPtReleaseTreeLockFromDpcLevel.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403D9CC0 (RtlEnumerateGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x14060FE3C (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x14060FEAC (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x14060FF08 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x14060FF1C (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x14060FF70 (ViPtReleaseTreeLockFromDpcLevel.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 ViPtDeleteAvlTrees()

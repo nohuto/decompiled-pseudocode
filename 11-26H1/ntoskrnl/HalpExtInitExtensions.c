@@ -1,58 +1,58 @@
 /*
- * XREFs of HalpExtInitExtensions @ 0x140CAF098
+ * XREFs of HalpExtInitExtensions @ 0x140CB50D8
  * Callers:
- *     HalpHalExtInitSystem @ 0x140BEB1C0 (HalpHalExtInitSystem.c)
+ *     HalpHalExtInitSystem @ 0x140BF11C0 (HalpHalExtInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall HalpExtInitExtensions(_QWORD *a1)
+__int64 __fastcall HalpExtInitExtensions(struct _LIST_ENTRY *a1)
 {
   unsigned int v1; // ebx
   __int64 v2; // rsi
-  _QWORD **v3; // rcx
-  _QWORD *v4; // rax
+  struct _LIST_ENTRY **p_Blink; // rcx
+  struct _LIST_ENTRY *v4; // rax
   int v5; // edi
   unsigned int v6; // edi
-  struct _KTHREAD *MemoryInternal; // rax
+  void *MemoryInternal; // rax
   unsigned int v8; // r15d
   __int64 **v9; // rax
   __int64 *v10; // rdi
   __int64 v11; // r13
-  struct _KTHREAD *Thread; // rbp
+  _BYTE *SparePtr; // rbp
   unsigned __int64 v13; // r14
   _QWORD *v14; // rax
   __int64 *v15; // r12
   __int64 v16; // rsi
-  struct _LIST_ENTRY *v19; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v19; // [rsp+78h] [rbp+10h] BYREF
   __int64 Table; // [rsp+80h] [rbp+18h]
 
   v1 = 0;
-  HalpDeviceBlockUnblockPushLock.WaitBlock[1].SparePtr = a1;
+  HalpDeviceBlockUnblockPushLock.WaitBlock[1].WaitListEntry.Blink = a1;
   v2 = (__int64)a1;
   v19 = 0LL;
-  v3 = (_QWORD **)(a1[30] + 2584LL);
-  *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[80] = 0;
-  v4 = *v3;
-  if ( *v3 != v3 )
+  p_Blink = &a1[15].Flink[161].Blink;
+  *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[48] = 0;
+  v4 = *p_Blink;
+  if ( *p_Blink != (struct _LIST_ENTRY *)p_Blink )
   {
     v5 = 0;
     do
     {
-      v4 = (_QWORD *)*v4;
+      v4 = v4->Flink;
       ++v5;
     }
-    while ( v4 != v3 );
-    *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[80] = v5;
+    while ( v4 != (struct _LIST_ENTRY *)p_Blink );
+    *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[48] = v5;
     if ( v5 )
     {
       v6 = v5 << 6;
-      MemoryInternal = (struct _KTHREAD *)HalpMmAllocateMemoryInternal(v6, 1u);
-      HalpDeviceBlockUnblockPushLock.WaitBlock[1].Thread = MemoryInternal;
+      MemoryInternal = (void *)HalpMmAllocateMemoryInternal(v6, 1u);
+      HalpDeviceBlockUnblockPushLock.WaitBlock[0].SparePtr = MemoryInternal;
       if ( MemoryInternal )
       {
         memset_0(MemoryInternal, 0, v6);
@@ -70,17 +70,16 @@ __int64 __fastcall HalpExtInitExtensions(_QWORD *a1)
               v19 = 0LL;
               if ( (int)guard_dispatch_icall_no_overrides(0LL, (__int64)&v19) >= 0 && v19 )
               {
-                Thread = HalpDeviceBlockUnblockPushLock.WaitBlock[1].Thread;
+                SparePtr = HalpDeviceBlockUnblockPushLock.WaitBlock[0].SparePtr;
                 v13 = (unsigned __int64)v8 << 6;
-                *(struct _LIST_ENTRY **)((char *)&HalpDeviceBlockUnblockPushLock.WaitBlock[1].Thread->Header.WaitListHead.Flink
-                                       + v13) = *(struct _LIST_ENTRY **)(v11 + 56);
-                *(struct _LIST_ENTRY **)((char *)&Thread->Header.WaitListHead.Blink + v13) = v19;
-                *(_DWORD *)((char *)&Thread->SListFaultAddress + v13) = 0;
-                *(void *volatile *)((char *)&Thread->StackLimit + v13) = *(void *volatile *)(v11 + 48);
-                *(_DWORD *)((char *)&Thread->StackBase + v13) = *(_DWORD *)(v11 + 64);
-                v14 = (unsigned __int64 *)((char *)&Thread->QuantumTarget + v13);
-                *(&Thread->Header.Type + v13) = 1;
-                *(void **)((char *)&Thread->InitialStack + v13) = v14;
+                *(_QWORD *)((char *)HalpDeviceBlockUnblockPushLock.WaitBlock[0].SparePtr + v13 + 8) = *(_QWORD *)(v11 + 56);
+                *(_QWORD *)&SparePtr[v13 + 16] = v19;
+                *(_DWORD *)&SparePtr[v13 + 24] = 0;
+                *(_QWORD *)&SparePtr[v13 + 48] = *(_QWORD *)(v11 + 48);
+                *(_DWORD *)&SparePtr[v13 + 56] = *(_DWORD *)(v11 + 64);
+                v14 = &SparePtr[v13 + 32];
+                SparePtr[v13] = 1;
+                *(_QWORD *)&SparePtr[v13 + 40] = v14;
                 *v14 = v14;
                 v15 = (__int64 *)v10[3];
                 if ( v15 != v10 + 3 )
@@ -94,7 +93,7 @@ __int64 __fastcall HalpExtInitExtensions(_QWORD *a1)
                   while ( v15 != v10 + 3 );
                   v2 = (__int64)a1;
                 }
-                *(&Thread->Header.Type + v13) = 0;
+                SparePtr[v13] = 0;
               }
             }
             else

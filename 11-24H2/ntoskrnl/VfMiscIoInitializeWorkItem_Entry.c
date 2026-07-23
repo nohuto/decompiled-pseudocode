@@ -1,12 +1,12 @@
 /*
- * XREFs of VfMiscIoInitializeWorkItem_Entry @ 0x140B9DB70
+ * XREFs of VfMiscIoInitializeWorkItem_Entry @ 0x140B9FB70
  * Callers:
  *     <none>
  * Callees:
- *     IoSizeofWorkItem @ 0x14046A6E0 (IoSizeofWorkItem.c)
- *     MmIsNonPagedSystemAddressValid @ 0x1404AD300 (MmIsNonPagedSystemAddressValid.c)
- *     VfMiscCheckKernelAddress @ 0x1404B2134 (VfMiscCheckKernelAddress.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     IoSizeofWorkItem @ 0x140462F80 (IoSizeofWorkItem.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1404A79E0 (MmIsNonPagedSystemAddressValid.c)
+ *     VfMiscCheckKernelAddress @ 0x1404AC9C4 (VfMiscCheckKernelAddress.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 BOOLEAN __fastcall VfMiscIoInitializeWorkItem_Entry(__int64 a1)

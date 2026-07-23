@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorIsAtTargetState @ 0x140A3FBA8
+ * XREFs of PopPowerAggregatorIsAtTargetState @ 0x1409FB5C8
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140A3F1C4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1409FABE4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
  *     <none>
  */
@@ -11,18 +11,18 @@ bool PopPowerAggregatorIsAtTargetState()
   char v0; // dl
 
   v0 = 0;
-  switch ( LODWORD(PopPowerAggregatorLock.QuantumTarget) )
+  switch ( (_DWORD)xmmword_140F0D8D0 )
   {
     case 0:
-      return (PopPowerAggregatorLock.CycleTime & 0xFFFFFFFD) == 0;
+      return (xmmword_140F0D8F8 & 0xFFFFFFFD) == 0;
     case 1:
-      if ( LODWORD(PopPowerAggregatorLock.CycleTime) == 1 )
-        return *(void *volatile *)&PopPowerAggregatorLock.CurrentRunTime == PopPowerAggregatorLock.StackLimit;
+      if ( (_DWORD)xmmword_140F0D8F8 == 1 )
+        return *((_QWORD *)&xmmword_140F0D8F8 + 1) == (_QWORD)xmmword_140F0D8E0;
       break;
     case 2:
-      return (PopPowerAggregatorLock.CycleTime & 0xFFFFFFFD) == 0;
+      return (xmmword_140F0D8F8 & 0xFFFFFFFD) == 0;
     case 3:
-      return LODWORD(PopPowerAggregatorLock.CycleTime) == 5;
+      return (_DWORD)xmmword_140F0D8F8 == 5;
   }
   return v0;
 }

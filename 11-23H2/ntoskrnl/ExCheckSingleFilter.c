@@ -1,15 +1,15 @@
 /*
- * XREFs of ExCheckSingleFilter @ 0x14046B15E
+ * XREFs of ExCheckSingleFilter @ 0x14046B55E
  * Callers:
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     EtwTraceObjectOperation @ 0x1405FD014 (EtwTraceObjectOperation.c)
- *     EtwTracePool @ 0x1405FD190 (EtwTracePool.c)
- *     EtwTraceDuplicateHandle @ 0x1409E50BC (EtwTraceDuplicateHandle.c)
- *     EtwTraceObject @ 0x1409E5BD8 (EtwTraceObject.c)
- *     EtwpTraceHandle @ 0x1409E6B8C (EtwpTraceHandle.c)
- *     EtwpObjectHandleEnumCallback @ 0x1409EF110 (EtwpObjectHandleEnumCallback.c)
- *     ViFaultsIsTagPresentInList @ 0x140AD6B80 (ViFaultsIsTagPresentInList.c)
- *     ViFaultsIsTagTarget @ 0x140AD6BCC (ViFaultsIsTagTarget.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     EtwTraceObjectOperation @ 0x1405FD584 (EtwTraceObjectOperation.c)
+ *     EtwTracePool @ 0x1405FD700 (EtwTracePool.c)
+ *     EtwTraceDuplicateHandle @ 0x1409E534C (EtwTraceDuplicateHandle.c)
+ *     EtwTraceObject @ 0x1409E5E68 (EtwTraceObject.c)
+ *     EtwpTraceHandle @ 0x1409E6E1C (EtwpTraceHandle.c)
+ *     EtwpObjectHandleEnumCallback @ 0x1409EF3A0 (EtwpObjectHandleEnumCallback.c)
+ *     ViFaultsIsTagPresentInList @ 0x140AD6B70 (ViFaultsIsTagPresentInList.c)
+ *     ViFaultsIsTagTarget @ 0x140AD6BBC (ViFaultsIsTagTarget.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUpdateXSaveSizeAndVolatileFeatures @ 0x1406194BC
+ * XREFs of RtlUpdateXSaveSizeAndVolatileFeatures @ 0x14061C4BC
  * Callers:
- *     KiInitializeXSaveConfiguration @ 0x140BF44A0 (KiInitializeXSaveConfiguration.c)
+ *     KiInitializeXSaveConfiguration @ 0x140BFA4A0 (KiInitializeXSaveConfiguration.c)
  * Callees:
  *     <none>
  */

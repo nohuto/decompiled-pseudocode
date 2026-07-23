@@ -1,11 +1,11 @@
 /*
- * XREFs of XmOutsOp @ 0x1405AD780
+ * XREFs of XmOutsOp @ 0x1405AFF90
  * Callers:
  *     <none>
  * Callees:
- *     x86BiosWriteIoSpace @ 0x1404A8050 (x86BiosWriteIoSpace.c)
- *     XmSetSourceValue @ 0x1404A8BDC (XmSetSourceValue.c)
- *     XmGetStringAddress @ 0x1405AE9A8 (XmGetStringAddress.c)
+ *     x86BiosWriteIoSpace @ 0x1404A16E0 (x86BiosWriteIoSpace.c)
+ *     XmSetSourceValue @ 0x1404A226C (XmSetSourceValue.c)
+ *     XmGetStringAddress @ 0x1405B11B8 (XmGetStringAddress.c)
  */
 
 char __fastcall XmOutsOp(__int64 a1)

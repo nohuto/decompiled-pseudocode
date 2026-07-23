@@ -12,31 +12,32 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, ULONG_PTR a3)
+void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, ULONG_PTR a3)
 {
-  struct _SLIST_ENTRY *v5; // rdi
+  _SLIST_ENTRY *v5; // rdi
   __int64 v6; // rbx
   ULONG_PTR v7; // r14
-  struct _SLIST_ENTRY *v8; // rdx
-  struct _SLIST_ENTRY *Next; // r8
+  _SLIST_ENTRY *v8; // rdx
+  _SLIST_ENTRY *Next; // r8
   ULONG_PTR v10; // r9
   ULONG_PTR v11; // rax
   ULONG_PTR v12; // r9
   _SLIST_ENTRY *v13; // rcx
-  struct _SLIST_ENTRY **v14; // rax
-  __int64 result; // rax
+  _SLIST_ENTRY **v14; // rax
   unsigned __int64 OldIrql; // rbx
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v19; // zf
-  struct _KLOCK_QUEUE_HANDLE v20; // [rsp+30h] [rbp-28h] BYREF
+  int v19; // eax
+  bool v20; // zf
+  struct _KLOCK_QUEUE_HANDLE v21; // [rsp+30h] [rbp-28h] BYREF
 
-  memset(&v20, 0, sizeof(v20));
+  memset(&v21, 0, sizeof(v21));
   v5 = 0LL;
   v6 = 40543LL * (unsigned int)(a2 >> 12);
   v7 = a2 & 0xFFFFFFFFFFFFF000uLL;
-  KeAcquireInStackQueuedSpinLock(&qword_140C68490, &v20);
-  v8 = (struct _SLIST_ENTRY *)((char *)&unk_140C6A330 + 16 * (((unsigned __int8)v6 ^ BYTE4(v6)) & 0xF));
+  KeAcquireInStackQueuedSpinLock(&qword_140C68490, &v21);
+  v8 = (_SLIST_ENTRY *)((char *)&unk_140C6A330 + 16 * (((unsigned __int8)v6 ^ BYTE4(v6)) & 0xF));
   Next = v8->Next;
   if ( v8->Next == v8 )
     goto LABEL_16;
@@ -64,7 +65,7 @@ __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __i
         }
       }
       v13 = Next->Next;
-      v14 = (struct _SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
+      v14 = (_SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
       if ( *(&Next->Next->Next + 1) != Next || *v14 != Next )
         __fastfail(3u);
       *v14 = v13;
@@ -82,27 +83,23 @@ LABEL_16:
   }
   qword_140C6A430 -= a3;
   --qword_140C6A438;
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
-  OldIrql = v20.OldIrql;
-  if ( KiIrqlFlags )
+  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v21);
+  OldIrql = v21.OldIrql;
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v20.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v21.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v20.OldIrql + 1));
-      v19 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v19 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v19 = ~(unsigned __int16)(-1LL << (v21.OldIrql + 1));
+      v20 = (v19 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v19;
+      if ( v20 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);
   if ( v5 )
-    return (__int64)RtlpInterlockedPushEntrySList(&stru_140C68480, v5);
-  return result;
+    RtlpInterlockedPushEntrySList(&stru_140C68480, v5);
 }

@@ -3,20 +3,20 @@
  * Callers:
  *     PsInitSystem @ 0x140793634 (PsInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     SeRegisterObjectTypeMandatoryPolicy @ 0x14013C3D4 (SeRegisterObjectTypeMandatoryPolicy.c)
- *     strcpy_s @ 0x140152C34 (strcpy_s.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     SeRegisterObjectTypeMandatoryPolicy @ 0x14013C944 (SeRegisterObjectTypeMandatoryPolicy.c)
+ *     strcpy_s @ 0x1401531F4 (strcpy_s.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExCreateHandleTable @ 0x1404C11BC (ExCreateHandleTable.c)
- *     PspCreateProcess @ 0x1404EB990 (PspCreateProcess.c)
- *     PspValidateMitigationOptions @ 0x1404EC4B4 (PspValidateMitigationOptions.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     PsChangeQuantumTable @ 0x140545094 (PsChangeQuantumTable.c)
- *     RtlRunOnceInitialize @ 0x1405518C8 (RtlRunOnceInitialize.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ExCreateHandleTable @ 0x1404ACEEC (ExCreateHandleTable.c)
+ *     PspCreateProcess @ 0x1404CDA18 (PspCreateProcess.c)
+ *     PspValidateMitigationOptions @ 0x1404CE53C (PspValidateMitigationOptions.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     PsChangeQuantumTable @ 0x1405455D4 (PsChangeQuantumTable.c)
+ *     RtlRunOnceInitialize @ 0x140551E08 (RtlRunOnceInitialize.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
  *     PspInitializeSiloStructures @ 0x14079DE5C (PspInitializeSiloStructures.c)
  *     PspIumInitialize @ 0x1407AA3D0 (PspIumInitialize.c)
  *     PspInitializeJobStructures @ 0x1407BB73C (PspInitializeJobStructures.c)
@@ -25,14 +25,14 @@
 bool __fastcall PspInitPhase0(PVOID StartContext)
 {
   __int64 v2; // r9
-  union _RTL_RUN_ONCE *v3; // rcx
-  union _RTL_RUN_ONCE *v4; // rcx
+  _RTL_RUN_ONCE *v3; // rcx
+  _RTL_RUN_ONCE *v4; // rcx
   __int64 v5; // rdx
-  union _RTL_RUN_ONCE *v6; // rcx
-  union _RTL_RUN_ONCE *v7; // rcx
+  _RTL_RUN_ONCE *v6; // rcx
+  _RTL_RUN_ONCE *v7; // rcx
   __int64 v8; // rdx
-  union _RTL_RUN_ONCE *v9; // rcx
-  union _RTL_RUN_ONCE *v10; // rcx
+  _RTL_RUN_ONCE *v9; // rcx
+  _RTL_RUN_ONCE *v10; // rcx
   __int64 v11; // rax
   _KPROCESS *Process; // rcx
   char v13; // bl

@@ -1,19 +1,22 @@
 /*
- * XREFs of TryLockShutdownShared @ 0x140875C60
+ * XREFs of TryLockShutdownShared @ 0x140875DC0
  * Callers:
- *     CmpSyncNextBackupHive @ 0x140871460 (CmpSyncNextBackupHive.c)
+ *     CmpSyncNextBackupHive @ 0x1408715C0 (CmpSyncNextBackupHive.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryAcquirePushLockShared @ 0x14028AEE0 (ExfTryAcquirePushLockShared.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExfTryAcquirePushLockShared @ 0x140208080 (ExfTryAcquirePushLockShared.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  */
 
 char TryLockShutdownShared()
 {
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v1; // rdi
+  PRTL_BALANCED_NODE v1; // rdi
   char v2; // bl
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -23,14 +26,14 @@ char TryLockShutdownShared()
     || ExfTryAcquirePushLockShared(&CmpShutdownLock) )
   {
     if ( v1 )
-      *(_BYTE *)(v1 + 26) |= 1u;
+      BYTE2(v1[1].Left) |= 1u;
     return 1;
   }
   else
   {
     if ( v1 )
-      KeAbPostReleaseEx((ULONG_PTR)&CmpShutdownLock, v1);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeAbPostReleaseEx((ULONG_PTR)&CmpShutdownLock, (ULONG_PTR)v1);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v3, v4, v5);
   }
   return v2;
 }

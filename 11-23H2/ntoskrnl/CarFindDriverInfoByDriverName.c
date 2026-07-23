@@ -1,9 +1,9 @@
 /*
- * XREFs of CarFindDriverInfoByDriverName @ 0x1405D2FF0
+ * XREFs of CarFindDriverInfoByDriverName @ 0x1405D3560
  * Callers:
- *     CarGetDriverInfoFromDriverName @ 0x1405D3040 (CarGetDriverInfoFromDriverName.c)
+ *     CarGetDriverInfoFromDriverName @ 0x1405D35B0 (CarGetDriverInfoFromDriverName.c)
  * Callees:
- *     wcsncmp @ 0x1403DBA50 (wcsncmp.c)
+ *     wcsncmp @ 0x1403DBC30 (wcsncmp.c)
  */
 
 __int64 __fastcall CarFindDriverInfoByDriverName(wchar_t *Str2)

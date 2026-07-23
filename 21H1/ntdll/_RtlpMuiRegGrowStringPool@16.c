@@ -6,7 +6,7 @@
  *     _RtlpMuiRegResizeStringPool@16 @ 0x4B36BD9D (_RtlpMuiRegResizeStringPool@16.c)
  */
 
-unsigned __int16 *__thiscall RtlpMuiRegGrowStringPool(unsigned __int16 *this, int a2, char a3)
+int __thiscall RtlpMuiRegGrowStringPool(unsigned __int16 *this, int a2, char a3)
 {
   int v3; // edx
   int v4; // eax
@@ -28,7 +28,7 @@ unsigned __int16 *__thiscall RtlpMuiRegGrowStringPool(unsigned __int16 *this, in
     if ( v4 < v7 )
       v4 = this[4];
     if ( a3 || v6 != v5 || v4 != v7 )
-      return (unsigned __int16 *)RtlpMuiRegResizeStringPool(v4, a3);
+      return RtlpMuiRegResizeStringPool(this, v4, a3);
   }
-  return this;
+  return (int)this;
 }

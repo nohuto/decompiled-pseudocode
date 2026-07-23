@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnRemoveProcessTrace @ 0x1404637EC
+ * XREFs of PfSnRemoveProcessTrace @ 0x14045C7AC
  * Callers:
- *     PfSnDeactivateTrace @ 0x140463740 (PfSnDeactivateTrace.c)
+ *     PfSnDeactivateTrace @ 0x14045C700 (PfSnDeactivateTrace.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExpReleaseRundownProtection @ 0x140463F50 (ExpReleaseRundownProtection.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpReleaseRundownProtection @ 0x14045CF10 (ExpReleaseRundownProtection.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall PfSnRemoveProcessTrace(__int64 a1)
@@ -20,7 +20,7 @@ struct _EX_RUNDOWN_REF *__fastcall PfSnRemoveProcessTrace(__int64 a1)
   v3 = v1 & 0xF;
   if ( v3 )
     ExpReleaseRundownProtection(v2 + 45, v3);
-  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140E66FF0.StateSaveArea);
-  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140E66FF0.StateSaveArea, v4);
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140E67200.StateSaveArea);
+  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140E67200.StateSaveArea, v4);
   return v2;
 }

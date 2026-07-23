@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAddTriageDumpDataBlock @ 0x1403A8100
+ * XREFs of KeAddTriageDumpDataBlock @ 0x1403A82E0
  * Callers:
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     IopInitializeTriageDumpData @ 0x14084E890 (IopInitializeTriageDumpData.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     IopInitializeTriageDumpData @ 0x14084EB90 (IopInitializeTriageDumpData.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x14038840C (KiIsAddressRangeValid.c)
- *     KiAddTriageDumpDataBlock @ 0x1403A8224 (KiAddTriageDumpDataBlock.c)
- *     KiValidateTriageDumpDataArray @ 0x1403A8334 (KiValidateTriageDumpDataArray.c)
- *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x140410080 (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage.c)
+ *     KiIsAddressRangeValid @ 0x1403885EC (KiIsAddressRangeValid.c)
+ *     KiAddTriageDumpDataBlock @ 0x1403A8404 (KiAddTriageDumpDataBlock.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403A8514 (KiValidateTriageDumpDataArray.c)
+ *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x14041015C (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

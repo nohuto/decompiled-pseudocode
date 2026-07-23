@@ -1,15 +1,15 @@
 /*
- * XREFs of SmHpBufferProtectEx @ 0x1405CA2B4
+ * XREFs of SmHpBufferProtectEx @ 0x1405CA824
  * Callers:
- *     SmHpChunkHeapProtect @ 0x14034592C (SmHpChunkHeapProtect.c)
- *     SmHpBufferUpdateFullness @ 0x1405CA3F0 (SmHpBufferUpdateFullness.c)
- *     SmHpChunkUnprotect @ 0x1405CA654 (SmHpChunkUnprotect.c)
- *     SmHpUnprotectListNeighbors @ 0x1405CA690 (SmHpUnprotectListNeighbors.c)
+ *     SmHpChunkHeapProtect @ 0x140345BBC (SmHpChunkHeapProtect.c)
+ *     SmHpBufferUpdateFullness @ 0x1405CA960 (SmHpBufferUpdateFullness.c)
+ *     SmHpChunkUnprotect @ 0x1405CABC4 (SmHpChunkUnprotect.c)
+ *     SmHpUnprotectListNeighbors @ 0x1405CAC00 (SmHpUnprotectListNeighbors.c)
  * Callees:
- *     ExProtectPoolEx @ 0x140296E5C (ExProtectPoolEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     SmPrepareForFatalHeapCorruption @ 0x1405CD70C (SmPrepareForFatalHeapCorruption.c)
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067BD90 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     ExProtectPoolEx @ 0x1402970EC (ExProtectPoolEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x1405CDC7C (SmPrepareForFatalHeapCorruption.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067C2E0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
  */
 
 __int64 __fastcall SmHpBufferProtectEx(__int64 a1, __int64 a2, char a3, unsigned __int64 a4)

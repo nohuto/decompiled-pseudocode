@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroChainWorker @ 0x14030A258
+ * XREFs of MiZeroChainWorker @ 0x140314138
  * Callers:
- *     MiZeroInParallelWorker @ 0x14030A090 (MiZeroInParallelWorker.c)
+ *     MiZeroInParallelWorker @ 0x140313F70 (MiZeroInParallelWorker.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x14021EC40 (MiZeroPhysicalPage.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiZeroWithUltraSpace @ 0x140308F60 (MiZeroWithUltraSpace.c)
- *     MiZeroAndConvertPage @ 0x140400700 (MiZeroAndConvertPage.c)
+ *     MiZeroPhysicalPage @ 0x14024B990 (MiZeroPhysicalPage.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiZeroWithUltraSpace @ 0x140312E40 (MiZeroWithUltraSpace.c)
+ *     MiZeroAndConvertPage @ 0x1403F8F1C (MiZeroAndConvertPage.c)
  */
 
 __int64 __fastcall MiZeroChainWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -16,7 +16,7 @@ __int64 __fastcall MiZeroChainWorker(__int64 a1, __int64 a2, __int64 a3, __int64
   __int64 v6; // r10
   __int64 v7; // r15
   __int64 result; // rax
-  int v10; // esi
+  unsigned int v10; // esi
   __int64 v11; // rbx
   unsigned int v12; // r8d
   unsigned __int64 v13; // rbp

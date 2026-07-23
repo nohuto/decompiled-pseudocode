@@ -1,9 +1,9 @@
 /*
- * XREFs of XmDecOp @ 0x1404A7AC0
+ * XREFs of XmDecOp @ 0x1404A1150
  * Callers:
  *     <none>
  * Callees:
- *     XmSubOperands @ 0x1404A7AE0 (XmSubOperands.c)
+ *     XmSubOperands @ 0x1404A1170 (XmSubOperands.c)
  */
 
 __int64 __fastcall XmDecOp(__int64 a1)

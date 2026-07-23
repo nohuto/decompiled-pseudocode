@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPerfBoostPowerRequest @ 0x140719B30
+ * XREFs of PopPerfBoostPowerRequest @ 0x14071ADD0
  * Callers:
  *     <none>
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     PoLatencySensitivityHint @ 0x14013F330 (PoLatencySensitivityHint.c)
- *     PpmPerfClearBootOverrides @ 0x140174628 (PpmPerfClearBootOverrides.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140719B8C (PpmPerfUpdateDomainPolicy.c)
+ *     PoLatencySensitivityHint @ 0x14013F430 (PoLatencySensitivityHint.c)
+ *     PpmPerfClearBootOverrides @ 0x140174728 (PpmPerfClearBootOverrides.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14071AE2C (PpmPerfUpdateDomainPolicy.c)
  */
 
 __int64 __fastcall PopPerfBoostPowerRequest(__int64 a1, __int64 a2, char a3)
 {
-  __int64 v5; // [rsp+68h] [rbp+20h] BYREF
+  __int64 Buffer; // [rsp+68h] [rbp+20h] BYREF
 
   if ( !a3 )
     PpmPerfClearBootOverrides();
@@ -25,12 +25,12 @@ __int64 __fastcall PopPerfBoostPowerRequest(__int64 a1, __int64 a2, char a3)
   }
   else
   {
-    v5 = 0LL;
+    Buffer = 0LL;
     if ( a3 )
       PoLatencySensitivityHint(3);
-    HIDWORD(v5) = -1;
-    LODWORD(v5) = v5 & 0xFFFFFFFD | (a3 != 0 ? 3 : 1);
-    ZwUpdateWnfStateData((__int64)&WNF_SEB_LOW_LATENCY_POWER_REQUEST, (__int64)&v5, 8LL);
+    HIDWORD(Buffer) = -1;
+    LODWORD(Buffer) = Buffer & 0xFFFFFFFD | (a3 != 0 ? 3 : 1);
+    ZwUpdateWnfStateData(&WNF_SEB_LOW_LATENCY_POWER_REQUEST, &Buffer, 8u, 0LL, 0LL, 0, 0);
   }
   return 0LL;
 }

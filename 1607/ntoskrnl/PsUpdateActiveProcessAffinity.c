@@ -1,15 +1,15 @@
 /*
- * XREFs of PsUpdateActiveProcessAffinity @ 0x14067D570
+ * XREFs of PsUpdateActiveProcessAffinity @ 0x14067D654
  * Callers:
- *     KeStartDynamicProcessor @ 0x14064FA48 (KeStartDynamicProcessor.c)
+ *     KeStartDynamicProcessor @ 0x14064FB2C (KeStartDynamicProcessor.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeIsSubsetAffinityEx @ 0x1401D3ED8 (KeIsSubsetAffinityEx.c)
- *     PsGetNextProcess @ 0x140508FFC (PsGetNextProcess.c)
- *     PspUpdateSingleProcessAffinity @ 0x14067DD8C (PspUpdateSingleProcessAffinity.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeIsSubsetAffinityEx @ 0x1401D3D04 (KeIsSubsetAffinityEx.c)
+ *     PsGetNextProcess @ 0x1404EBF8C (PsGetNextProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x14067DE70 (PspUpdateSingleProcessAffinity.c)
  */
 
 __int64 PsUpdateActiveProcessAffinity()

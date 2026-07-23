@@ -1,61 +1,64 @@
 /*
- * XREFs of RtlImpersonateSelfEx @ 0x1800D2C20
+ * XREFs of RtlImpersonateSelfEx @ 0x1800D2AF0
  * Callers:
- *     RtlAcquirePrivilege @ 0x1800D2850 (RtlAcquirePrivilege.c)
- *     RtlImpersonateSelf @ 0x1800D2C10 (RtlImpersonateSelf.c)
+ *     RtlAcquirePrivilege @ 0x1800D2720 (RtlAcquirePrivilege.c)
+ *     RtlImpersonateSelf @ 0x1800D2AE0 (RtlImpersonateSelf.c)
  * Callees:
- *     NtSetInformationThread @ 0x18015F0E0 (NtSetInformationThread.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenProcessTokenEx @ 0x18015F540 (NtOpenProcessTokenEx.c)
- *     NtDuplicateToken @ 0x18015F780 (NtDuplicateToken.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     NtSetInformationThread @ 0x18015EFE0 (NtSetInformationThread.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenProcessTokenEx @ 0x18015F440 (NtOpenProcessTokenEx.c)
+ *     NtDuplicateToken @ 0x18015F680 (NtDuplicateToken.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)
+NTSTATUS __cdecl RtlImpersonateSelfEx(
+        SECURITY_IMPERSONATION_LEVEL ImpersonationLevel,
+        ACCESS_MASK AdditionalAccess,
+        PHANDLE ThreadToken)
 {
   int v5; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp-19h] BYREF
-  HANDLE v8; // [rsp+38h] [rbp-11h] BYREF
-  _DWORD v9[2]; // [rsp+40h] [rbp-9h] BYREF
-  __int64 v10; // [rsp+48h] [rbp-1h]
-  __int64 v11; // [rsp+50h] [rbp+7h]
-  int v12; // [rsp+58h] [rbp+Fh]
-  int v13; // [rsp+5Ch] [rbp+13h]
-  __int64 v14; // [rsp+60h] [rbp+17h]
-  _DWORD *v15; // [rsp+68h] [rbp+1Fh]
-  _DWORD v16[2]; // [rsp+70h] [rbp+27h] BYREF
-  __int16 v17; // [rsp+78h] [rbp+2Fh]
-  __int16 v18; // [rsp+7Ah] [rbp+31h]
+  HANDLE ThreadInformation; // [rsp+30h] [rbp-19h] BYREF
+  HANDLE TokenHandle; // [rsp+38h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-9h] BYREF
+  _DWORD v10[2]; // [rsp+70h] [rbp+27h] BYREF
+  __int16 v11; // [rsp+78h] [rbp+2Fh]
+  __int16 v12; // [rsp+7Ah] [rbp+31h]
 
-  v8 = 0LL;
-  Handle = 0LL;
-  v9[1] = 0;
-  v13 = 0;
-  v18 = 0;
-  if ( !a3 && a2 )
-    return 3221225712LL;
-  v10 = 0LL;
-  v11 = 0LL;
-  v14 = 0LL;
-  v16[1] = a1;
-  v15 = v16;
-  v9[0] = 48;
-  v12 = 512;
-  v16[0] = 12;
-  v17 = 1;
-  v5 = NtOpenProcessTokenEx(-1LL, 2LL, 512LL, &v8);
+  TokenHandle = 0LL;
+  ThreadInformation = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v12 = 0;
+  if ( !ThreadToken && AdditionalAccess )
+    return -1073741584;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = 0LL;
+  ObjectAttributes.SecurityDescriptor = 0LL;
+  v10[1] = ImpersonationLevel;
+  ObjectAttributes.SecurityQualityOfService = v10;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 512;
+  v10[0] = 12;
+  v11 = 1;
+  v5 = NtOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 2u, 0x200u, &TokenHandle);
   if ( v5 >= 0 )
   {
-    v5 = NtDuplicateToken(v8, a2 | 4u, v9, 0LL, 2, &Handle);
+    v5 = NtDuplicateToken(
+           TokenHandle,
+           AdditionalAccess | 4,
+           &ObjectAttributes,
+           0,
+           TokenImpersonation,
+           &ThreadInformation);
     if ( v5 >= 0 )
     {
-      v5 = NtSetInformationThread(-2LL, 5LL, &Handle, 8LL);
-      if ( v5 >= 0 && a3 )
-        *a3 = Handle;
+      v5 = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+      if ( v5 >= 0 && ThreadToken )
+        *ThreadToken = ThreadInformation;
       else
-        NtClose(Handle);
+        NtClose(ThreadInformation);
     }
-    NtClose(v8);
+    NtClose(TokenHandle);
   }
-  return (unsigned int)v5;
+  return v5;
 }

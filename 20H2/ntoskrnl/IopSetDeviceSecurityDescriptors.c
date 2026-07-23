@@ -11,7 +11,7 @@
 __int64 __fastcall IopSetDeviceSecurityDescriptors(
         struct _DMA_ADAPTER *a1,
         struct _DMA_ADAPTER *a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         POOL_TYPE a5,
         GENERIC_MAPPING *a6)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ObCleanupSecurityDescriptor @ 0x1407A0C68
+ * XREFs of ObCleanupSecurityDescriptor @ 0x1407A0E68
  * Callers:
- *     ObpInitializeRootNamespace @ 0x1407A0990 (ObpInitializeRootNamespace.c)
- *     MiCreatePartitionNamespace @ 0x1407A0B44 (MiCreatePartitionNamespace.c)
+ *     ObpInitializeRootNamespace @ 0x1407A0B90 (ObpInitializeRootNamespace.c)
+ *     MiCreatePartitionNamespace @ 0x1407A0D44 (MiCreatePartitionNamespace.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140252E50 (RtlGetDaclSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140285CC0 (RtlGetDaclSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObCleanupSecurityDescriptor(void *a1)

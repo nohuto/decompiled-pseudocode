@@ -438,10 +438,13 @@ LABEL_55:
       if ( *(_WORD *)(BugCheckParameter2 + 32) != 1 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v40 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v40 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -462,10 +465,10 @@ LABEL_55:
         && (v41 & 0x26) == 0 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v49 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v49 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v49 >= 2u )
           {
             v50 = KeGetCurrentPrcb();
             v51 = v50->SchedulerAssist;
@@ -484,10 +487,10 @@ LABEL_55:
         || v138 != *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL)) )
       {
         _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v120 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v120 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v120 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v120 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v120 >= 2u )
           {
             v121 = KeGetCurrentPrcb();
             v122 = v121->SchedulerAssist;
@@ -523,8 +526,8 @@ LABEL_55:
           {
 LABEL_109:
             _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( !KiIrqlFlags
-              || (v53 = KeGetCurrentIrql(), (KiIrqlFlags & 1) == 0)
+            if ( !(_DWORD)KiIrqlFlags
+              || (v53 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) == 0)
               || v53 > 0xFu
               || (unsigned __int8)v40 > 0xFu )
             {
@@ -538,10 +541,13 @@ LABEL_338:
                 v124 = (unsigned __int8)MiLockPageInline(v10);
                 *(_BYTE *)(v10 + 34) = *(_BYTE *)(v10 + 34) & 0xF8 | 5;
                 _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v125 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v125 <= 0xFu && (unsigned __int8)v124 <= 0xFu && v125 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                    && v125 <= 0xFu
+                    && (unsigned __int8)v124 <= 0xFu
+                    && v125 >= 2u )
                   {
                     v126 = KeGetCurrentPrcb();
                     v127 = v126->SchedulerAssist;
@@ -631,10 +637,10 @@ LABEL_148:
               if ( IsPageFileHash )
               {
                 ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(IsPageFileHash + 232));
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v69 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v69 <= 0xFu && v67 <= 0xFu && v69 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v69 <= 0xFu && v67 <= 0xFu && v69 >= 2u )
                   {
                     v70 = KeGetCurrentPrcb();
                     v71 = v70->SchedulerAssist;
@@ -649,10 +655,10 @@ LABEL_148:
               }
               _InterlockedAnd64((volatile signed __int64 *)(PageChain + 24), 0x7FFFFFFFFFFFFFFFuLL);
               _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              if ( !KiIrqlFlags )
+              if ( !(_DWORD)KiIrqlFlags )
                 goto LABEL_117;
               v73 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) == 0 || v73 > 0xFu || (unsigned __int8)v40 > 0xFu )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v73 > 0xFu || (unsigned __int8)v40 > 0xFu )
                 goto LABEL_117;
               v54 = v73 < 2u;
               goto LABEL_114;
@@ -672,10 +678,10 @@ LABEL_148:
             if ( (v154[1] & 0x200) != 0 )
             {
               _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v75 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v75 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v75 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v75 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v75 >= 2u )
                 {
                   v76 = v40 + 1;
                   goto LABEL_196;
@@ -687,10 +693,10 @@ LABEL_148:
             {
               *(_BYTE *)(BugCheckParameter2 + 34) = *(_BYTE *)(BugCheckParameter2 + 34) & 0xF8 | 5;
               _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              if ( !KiIrqlFlags )
+              if ( !(_DWORD)KiIrqlFlags )
                 goto LABEL_198;
               v77 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) == 0 || v77 > 0xFu || (unsigned __int8)v40 > 0xFu )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v77 > 0xFu || (unsigned __int8)v40 > 0xFu )
                 goto LABEL_198;
               v78 = v77 < 2u;
               goto LABEL_194;
@@ -699,10 +705,10 @@ LABEL_148:
               || LODWORD(v154[6]) == 3 && (v154[1] & 4) != 0 )
             {
               _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              if ( !KiIrqlFlags )
+              if ( !(_DWORD)KiIrqlFlags )
                 goto LABEL_198;
               v79 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) == 0 || v79 > 0xFu || (unsigned __int8)v40 > 0xFu )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v79 > 0xFu || (unsigned __int8)v40 > 0xFu )
                 goto LABEL_198;
               v78 = v79 < 2u;
 LABEL_194:
@@ -868,10 +874,13 @@ LABEL_236:
                 *(_BYTE *)(BugCheckParameter2 + 34) = *(_BYTE *)(BugCheckParameter2 + 34) & 0xF8 | 5;
                 *(_QWORD *)(BugCheckParameter2 + 24) = *(_QWORD *)(BugCheckParameter2 + 24) & 0xC000000000000000uLL | 1;
                 _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v92 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v92 <= 0xFu && (unsigned __int8)v91 <= 0xFu && v92 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                    && v92 <= 0xFu
+                    && (unsigned __int8)v91 <= 0xFu
+                    && v92 >= 2u )
                   {
                     v93 = KeGetCurrentPrcb();
                     v94 = v93->SchedulerAssist;
@@ -900,10 +909,13 @@ LABEL_259:
                   *(_BYTE *)(PageChain + 34) = *(_BYTE *)(PageChain + 34) & 0xF8 | 5;
                   _InterlockedAnd64((volatile signed __int64 *)(PageChain + 24), 0x7FFFFFFFFFFFFFFFuLL);
                   _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v97 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && v97 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v97 >= 2u )
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                      && v97 <= 0xFu
+                      && (unsigned __int8)v40 <= 0xFu
+                      && v97 >= 2u )
                     {
                       v98 = KeGetCurrentPrcb();
                       v99 = v98->SchedulerAssist;
@@ -947,7 +959,9 @@ LABEL_297:
                 if ( LODWORD(v154[6]) == 2 )
                 {
                   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v141 + 232));
-                  if ( KiIrqlFlags && (v109 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v109 <= 0xFu )
+                  if ( (_DWORD)KiIrqlFlags
+                    && (v109 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+                    && v109 <= 0xFu )
                   {
                     v110 = v130;
                     if ( v130 <= 0xFu && v109 >= 2u )
@@ -978,10 +992,13 @@ LABEL_297:
                 *(_BYTE *)(BugCheckParameter2 + 35) = v115;
                 *(_QWORD *)(BugCheckParameter2 + 24) &= 0xC000000000000000uLL;
                 _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v116 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v116 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v116 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                    && v116 <= 0xFu
+                    && (unsigned __int8)v40 <= 0xFu
+                    && v116 >= 2u )
                   {
                     v117 = KeGetCurrentPrcb();
                     v118 = v117->SchedulerAssist;

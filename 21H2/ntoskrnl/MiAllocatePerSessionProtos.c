@@ -1,27 +1,27 @@
 /*
- * XREFs of MiAllocatePerSessionProtos @ 0x1406BCA38
+ * XREFs of MiAllocatePerSessionProtos @ 0x14061BC08
  * Callers:
- *     MiCreatePerSessionProtos @ 0x1406BC914 (MiCreatePerSessionProtos.c)
- *     MiCreateSessionDriverProtos @ 0x1408DA7D8 (MiCreateSessionDriverProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14061BAE4 (MiCreatePerSessionProtos.c)
+ *     MiCreateSessionDriverProtos @ 0x1408DA938 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x14023C0AC (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiGetControlAreaPartition @ 0x14025B3A4 (MiGetControlAreaPartition.c)
- *     MmSizeOfMdl @ 0x1402986E0 (MmSizeOfMdl.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
- *     MiMakeSubsectionPte @ 0x1402F83DC (MiMakeSubsectionPte.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiFillPerSessionProtos @ 0x1408D7FE0 (MiFillPerSessionProtos.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MmSizeOfMdl @ 0x140219160 (MmSizeOfMdl.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiChargeResident @ 0x14027BBC8 (MiChargeResident.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiGetControlAreaPartition @ 0x14027C914 (MiGetControlAreaPartition.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     MiChargeCommit @ 0x1402BF3D0 (MiChargeCommit.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402E08FC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140302FB0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiMakeSubsectionPte @ 0x14030312C (MiMakeSubsectionPte.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiFillPerSessionProtos @ 0x1408D8140 (MiFillPerSessionProtos.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocatePerSessionProtos(
@@ -44,7 +44,7 @@ __int64 __fastcall MiAllocatePerSessionProtos(
   unsigned int v16; // eax
   unsigned int i; // r14d
   __int64 v18; // rbx
-  __int64 v19; // r8
+  int v19; // r8d
   __int64 v20; // rdx
   int v21; // r9d
   unsigned __int64 v22; // rdi
@@ -57,29 +57,28 @@ __int64 __fastcall MiAllocatePerSessionProtos(
   SIZE_T v30; // rax
   struct _MDL *v31; // rax
   int v32; // ebx
-  __int64 v33; // r9
-  int v34; // eax
-  void *v35; // rcx
-  unsigned int v36; // [rsp+50h] [rbp-88h]
-  ULONG_PTR *v37; // [rsp+58h] [rbp-80h]
-  unsigned __int64 *v38; // [rsp+60h] [rbp-78h]
-  unsigned __int64 v39; // [rsp+68h] [rbp-70h]
-  _QWORD *v40; // [rsp+70h] [rbp-68h]
-  unsigned __int64 *v41; // [rsp+78h] [rbp-60h]
-  _QWORD v42[2]; // [rsp+80h] [rbp-58h] BYREF
-  _QWORD v43[9]; // [rsp+90h] [rbp-48h] BYREF
+  int v33; // eax
+  void *v34; // rcx
+  unsigned int v35; // [rsp+50h] [rbp-88h]
+  ULONG_PTR *v36; // [rsp+58h] [rbp-80h]
+  unsigned __int64 *v37; // [rsp+60h] [rbp-78h]
+  unsigned __int64 v38; // [rsp+68h] [rbp-70h]
+  _QWORD *v39; // [rsp+70h] [rbp-68h]
+  unsigned __int64 *v40; // [rsp+78h] [rbp-60h]
+  _QWORD v41[2]; // [rsp+80h] [rbp-58h] BYREF
+  _QWORD v42[9]; // [rsp+90h] [rbp-48h] BYREF
 
   *a5 = 0LL;
   v6 = 0LL;
   v7 = 0LL;
-  v40 = *(_QWORD **)a1;
+  v39 = *(_QWORD **)a1;
   ControlAreaPartition = MiGetControlAreaPartition(*(_QWORD *)a1);
-  v37 = (ULONG_PTR *)ControlAreaPartition;
+  v36 = (ULONG_PTR *)ControlAreaPartition;
   if ( !(unsigned int)MiChargeCommit(ControlAreaPartition, *(unsigned int *)(a1 + 44), 0) )
     return 3221225773LL;
   Pool = (unsigned __int64 *)MiAllocatePool(64, 0x58uLL, 0x73536D4Du);
   v10 = Pool;
-  v41 = Pool;
+  v40 = Pool;
   if ( !Pool )
   {
     v24 = -1073741670;
@@ -97,12 +96,12 @@ __int64 __fastcall MiAllocatePerSessionProtos(
   memset(v11, 0, 8LL * *(unsigned int *)(a1 + 44));
   SubsectionPte = MiMakeSubsectionPte(a1);
   v14 = v10 + 3;
-  v38 = v10 + 3;
+  v37 = v10 + 3;
   v10[6] = v10[6] & 0xFFFFFFFFFFFFFFF8uLL | 3;
   v15 = *(_QWORD *)(a1 + 8);
-  v39 = v15;
+  v38 = v15;
   v16 = 0;
-  v36 = 0;
+  v35 = 0;
   if ( !*(_DWORD *)(a1 + 44) )
     goto LABEL_13;
   for ( i = 0; i < *(_DWORD *)(a1 + 44); ++i )
@@ -117,12 +116,12 @@ __int64 __fastcall MiAllocatePerSessionProtos(
     {
       v20 = SubsectionPte;
       v21 = 0;
-      if ( !(_DWORD)v19 )
+      if ( !v19 )
         goto LABEL_10;
       if ( (unsigned int)MiPteHasShadow() )
       {
         v21 = 1;
-        if ( !HIBYTE(word_140C4E008) )
+        if ( !HIBYTE(word_140C4E048) )
         {
           v26 = (SubsectionPte & 1) == 0;
 LABEL_31:
@@ -142,12 +141,12 @@ LABEL_10:
       goto LABEL_11;
     }
     v27 = 0;
-    if ( (_DWORD)v19 )
+    if ( v19 )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
         v27 = 1;
-        if ( HIBYTE(word_140C4E008) )
+        if ( HIBYTE(word_140C4E048) )
           goto LABEL_41;
         v28 = (v18 & 1) == 0;
       }
@@ -166,18 +165,18 @@ LABEL_41:
     {
       v20 = v18;
 LABEL_43:
-      MiWritePteShadow((__int64)v12, v20, v19);
+      MiWritePteShadow((__int64)v12, v20);
     }
 LABEL_11:
     ++v12;
-    v15 = v39 + 8;
-    v39 += 8LL;
+    v15 = v38 + 8;
+    v38 += 8LL;
   }
-  v36 = i;
-  v10 = v41;
+  v35 = i;
+  v10 = v40;
   v6 = 0LL;
-  v14 = v38;
-  v16 = v36;
+  v14 = v37;
+  v16 = v35;
 LABEL_13:
   v22 = v16;
   v10[7] = v16;
@@ -199,22 +198,22 @@ LABEL_13:
     v31->ByteCount = v29;
     MmProbeAndLockPages(v31, 0, IoReadAccess);
     v32 = (*(unsigned __int16 *)(a1 + 32) >> 1) & 0x1F;
-    if ( (unsigned int)MiChargeResident(v37, v22, 0LL, v33) )
+    if ( (unsigned int)MiChargeResident(v36, v22, 0LL) )
     {
       if ( (MiFlags & 0x10000) != 0 && (MiFlags & 0x8000) != 0 && (v32 & 2) != 0 )
       {
-        v43[1] = *(_QWORD *)(v40[12] + 56LL);
-        v43[0] = (unsigned __int64)a3 << 12;
-        v42[1] = 0LL;
-        v42[0] = a4 + v43[0] + *(_QWORD *)(*v40 + 32LL);
-        v34 = MiFillPerSessionProtos((_DWORD)v40, v23, (int)v6 + 48, v36, v32, a3, a4, (__int64)v43, (__int64)v42);
+        v42[1] = *(_QWORD *)(v39[12] + 56LL);
+        v42[0] = (unsigned __int64)a3 << 12;
+        v41[1] = 0LL;
+        v41[0] = a4 + v42[0] + *(_QWORD *)(*v39 + 32LL);
+        v33 = MiFillPerSessionProtos((_DWORD)v39, v23, (int)v6 + 48, v35, v32, a3, a4, (__int64)v42, (__int64)v41);
       }
       else
       {
-        v34 = MiFillPerSessionProtos((_DWORD)v40, v23, (int)v6 + 48, v36, v32, a3, a4, 0LL, 0LL);
+        v33 = MiFillPerSessionProtos((_DWORD)v39, v23, (int)v6 + 48, v35, v32, a3, a4, 0LL, 0LL);
       }
-      v24 = v34;
-      if ( v34 >= 0 )
+      v24 = v33;
+      if ( v33 >= 0 )
         goto LABEL_14;
     }
     else
@@ -230,9 +229,9 @@ LABEL_14:
     v10 = 0LL;
     v24 = 0;
   }
-  v7 = v38;
+  v7 = v37;
 LABEL_16:
-  ControlAreaPartition = (__int64)v37;
+  ControlAreaPartition = (__int64)v36;
 LABEL_17:
   if ( v6 )
   {
@@ -243,9 +242,9 @@ LABEL_17:
   {
     if ( v7 )
       MiUpdateSystemProtoPtesTree(v7, 0);
-    v35 = (void *)v10[9];
-    if ( v35 )
-      ExFreePoolWithTag(v35, 0);
+    v34 = (void *)v10[9];
+    if ( v34 )
+      ExFreePoolWithTag(v34, 0);
     ExFreePoolWithTag(v10, 0);
   }
   if ( v24 < 0 )

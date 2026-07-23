@@ -1,7 +1,7 @@
 /*
- * XREFs of KiFixupControlProtectionUserModeReturnMismatch @ 0x1404834E8
+ * XREFs of KiFixupControlProtectionUserModeReturnMismatch @ 0x14047E9B4
  * Callers:
- *     KiProcessControlProtection @ 0x14043E670 (KiProcessControlProtection.c)
+ *     KiProcessControlProtection @ 0x140434290 (KiProcessControlProtection.c)
  * Callees:
  *     <none>
  */

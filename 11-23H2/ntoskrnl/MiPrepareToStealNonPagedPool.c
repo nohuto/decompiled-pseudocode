@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPrepareToStealNonPagedPool @ 0x14061D934
+ * XREFs of MiPrepareToStealNonPagedPool @ 0x14061DE84
  * Callers:
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
  */
 
 unsigned __int64 __fastcall MiPrepareToStealNonPagedPool(__int64 a1, unsigned __int64 a2)

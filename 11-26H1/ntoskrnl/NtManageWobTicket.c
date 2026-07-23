@@ -1,11 +1,11 @@
 /*
- * XREFs of NtManageWobTicket @ 0x1407FF940
+ * XREFs of NtManageWobTicket @ 0x140805370
  * Callers:
  *     <none>
  * Callees:
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ?PspQueryWobTicketPriority@@YAJPEAXDKPEAK@Z @ 0x1407FF740 (-PspQueryWobTicketPriority@@YAJPEAXDKPEAK@Z.c)
- *     ?PspQueryWobTicketQos@@YAJPEAXDKPEAK@Z @ 0x1407FF82C (-PspQueryWobTicketQos@@YAJPEAXDKPEAK@Z.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ?PspQueryWobTicketPriority@@YAJPEAXDKPEAK@Z @ 0x140805170 (-PspQueryWobTicketPriority@@YAJPEAXDKPEAK@Z.c)
+ *     ?PspQueryWobTicketQos@@YAJPEAXDKPEAK@Z @ 0x14080525C (-PspQueryWobTicketQos@@YAJPEAXDKPEAK@Z.c)
  */
 
 __int64 __fastcall NtManageWobTicket(int a1, void *a2, unsigned int a3, int *a4)

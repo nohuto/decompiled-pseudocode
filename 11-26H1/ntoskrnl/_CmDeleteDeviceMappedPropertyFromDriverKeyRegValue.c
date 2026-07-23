@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140AAFFE0
+ * XREFs of _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140AADC30
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140AAFB8C (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x140AAD7DC (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegDeleteValue @ 0x14090B324 (_PnpCtxRegDeleteValue.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x1409AD448 (_PnpCtxRegDeleteValue.c)
  */
 
 __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1, __int64 a2, __int64 a3)
@@ -25,11 +25,11 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1,
 
   Handle = 0LL;
   v6 = 0;
-  v7 = &off_140BDC330;
+  v7 = &off_140BE31E0;
   do
   {
     v8 = *v7;
-    v9 = &off_140BDC330 + 4 * v6;
+    v9 = &off_140BE31E0 + 4 * v6;
     if ( *(_DWORD *)(a3 + 16) == (*v7)->pid )
     {
       v16 = *(_QWORD *)a3 - *(_QWORD *)&v8->fmtid.Data1;
@@ -38,9 +38,9 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1,
       if ( !v16 )
         break;
     }
+    v9 = 0LL;
     ++v6;
     v7 += 4;
-    v9 = 0LL;
   }
   while ( v6 < 0xD );
   if ( !v9 )

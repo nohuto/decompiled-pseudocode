@@ -1,10 +1,10 @@
 /*
- * XREFs of MD5Update @ 0x18006BA30
+ * XREFs of MD5Update @ 0x18006BA20
  * Callers:
- *     MD5Final @ 0x18006B960 (MD5Final.c)
- *     ImportTablepHashCanonicalLists @ 0x1800DB4EC (ImportTablepHashCanonicalLists.c)
+ *     MD5Final @ 0x18006B950 (MD5Final.c)
+ *     ImportTablepHashCanonicalLists @ 0x1800DB5AC (ImportTablepHashCanonicalLists.c)
  * Callees:
- *     TransformMD5 @ 0x18006BB80 (TransformMD5.c)
+ *     TransformMD5 @ 0x18006BB70 (TransformMD5.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

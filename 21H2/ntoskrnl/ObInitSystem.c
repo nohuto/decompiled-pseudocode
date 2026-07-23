@@ -1,36 +1,36 @@
 /*
- * XREFs of ObInitSystem @ 0x140A3E538
+ * XREFs of ObInitSystem @ 0x140A3F538
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlGetAce @ 0x14027EA10 (RtlGetAce.c)
- *     ObpReleaseLookupContext @ 0x14027EAD0 (ObpReleaseLookupContext.c)
- *     ObpLockDirectoryExclusive @ 0x1402AB5F0 (ObpLockDirectoryExclusive.c)
- *     ExInitializeNPagedLookasideList @ 0x14037A6C0 (ExInitializeNPagedLookasideList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     ExCreateHandleTable @ 0x14062B4B8 (ExCreateHandleTable.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ObpInsertDirectoryEntry @ 0x14069AEF4 (ObpInsertDirectoryEntry.c)
- *     NtCreateDirectoryObject @ 0x1406A1B40 (NtCreateDirectoryObject.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
- *     ObpInitObjectTypeSD @ 0x140795EFC (ObpInitObjectTypeSD.c)
- *     ObpLookupDirectoryEntry @ 0x1407960FC (ObpLookupDirectoryEntry.c)
- *     ObInitializeProcessor @ 0x1407961DC (ObInitializeProcessor.c)
- *     ObpInitializeRootNamespace @ 0x1407A0990 (ObpInitializeRootNamespace.c)
- *     ObInitServerSilo @ 0x1407C90E0 (ObInitServerSilo.c)
- *     RtlAddAuditAccessAce @ 0x140912450 (RtlAddAuditAccessAce.c)
- *     ExInitializeSystemLookasideList @ 0x14099C6E4 (ExInitializeSystemLookasideList.c)
- *     ObpInitInfoBlockOffsets @ 0x140A6887C (ObpInitInfoBlockOffsets.c)
- *     ObpInitStackTrace @ 0x140A709B0 (ObpInitStackTrace.c)
+ *     ObpLockDirectoryExclusive @ 0x140229730 (ObpLockDirectoryExclusive.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlGetAce @ 0x14026C9B0 (RtlGetAce.c)
+ *     ObpReleaseLookupContext @ 0x14026CA70 (ObpReleaseLookupContext.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     ExInitializeNPagedLookasideList @ 0x14037A210 (ExInitializeNPagedLookasideList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObpInsertDirectoryEntry @ 0x1405FA0B4 (ObpInsertDirectoryEntry.c)
+ *     NtCreateDirectoryObject @ 0x140601A70 (NtCreateDirectoryObject.c)
+ *     ExCreateHandleTable @ 0x140622DE8 (ExCreateHandleTable.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406CA530 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectType @ 0x140795AD0 (ObCreateObjectType.c)
+ *     ObpInitObjectTypeSD @ 0x1407960FC (ObpInitObjectTypeSD.c)
+ *     ObpLookupDirectoryEntry @ 0x1407962FC (ObpLookupDirectoryEntry.c)
+ *     ObInitializeProcessor @ 0x1407963DC (ObInitializeProcessor.c)
+ *     ObpInitializeRootNamespace @ 0x1407A0B90 (ObpInitializeRootNamespace.c)
+ *     ObInitServerSilo @ 0x1407C9400 (ObInitServerSilo.c)
+ *     RtlAddAuditAccessAce @ 0x1409125B0 (RtlAddAuditAccessAce.c)
+ *     ExInitializeSystemLookasideList @ 0x14099D6E4 (ExInitializeSystemLookasideList.c)
+ *     ObpInitInfoBlockOffsets @ 0x140A6987C (ObpInitInfoBlockOffsets.c)
+ *     ObpInitStackTrace @ 0x140A719B0 (ObpInitStackTrace.c)
  */
 
 char ObInitSystem()
@@ -51,36 +51,35 @@ char ObInitSystem()
   __int64 *i; // rbx
   __int64 v14; // rdx
   ULONG v16; // edx
-  __int64 v17; // rdx
-  _BYTE *v18; // rax
+  ULONG v17; // edx
+  void *v18; // r9
+  _BYTE *v19; // rax
+  BOOLEAN Size; // [rsp+28h] [rbp-E0h]
+  BOOLEAN Tag; // [rsp+30h] [rbp-D8h]
   PVOID Object; // [rsp+48h] [rbp-C0h] BYREF
   PVOID Ace; // [rsp+50h] [rbp-B8h] BYREF
-  HANDLE Handle[2]; // [rsp+58h] [rbp-B0h] BYREF
-  _QWORD v22[16]; // [rsp+68h] [rbp-A0h] BYREF
-  __int128 v23; // [rsp+E8h] [rbp-20h]
-  __int128 v24; // [rsp+F8h] [rbp-10h]
-  __int128 v25; // [rsp+108h] [rbp+0h]
-  _OWORD v26[2]; // [rsp+118h] [rbp+10h] BYREF
-  __int64 v27; // [rsp+138h] [rbp+30h]
+  HANDLE DirectoryHandle; // [rsp+58h] [rbp-B0h] BYREF
+  _QWORD v25[16]; // [rsp+68h] [rbp-A0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+E8h] [rbp-20h] BYREF
+  _OWORD v27[2]; // [rsp+118h] [rbp+10h] BYREF
+  __int64 v28; // [rsp+138h] [rbp+30h]
   UNICODE_STRING DestinationString; // [rsp+140h] [rbp+38h] BYREF
-  UNICODE_STRING v29; // [rsp+150h] [rbp+48h] BYREF
-  UNICODE_STRING v30; // [rsp+160h] [rbp+58h] BYREF
+  UNICODE_STRING v30; // [rsp+150h] [rbp+48h] BYREF
+  UNICODE_STRING v31; // [rsp+160h] [rbp+58h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+170h] [rbp+68h] BYREF
-  __int64 v32; // [rsp+190h] [rbp+88h]
+  __int64 v33; // [rsp+190h] [rbp+88h]
   ACL Acl; // [rsp+198h] [rbp+90h] BYREF
 
-  v32 = 0LL;
+  v33 = 0LL;
   Ace = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v27 = 0LL;
-  v29 = 0LL;
-  memset(v26, 0, sizeof(v26));
-  v23 = 0LL;
-  v24 = 0LL;
-  v25 = 0LL;
-  memset(v22, 0, 0x78uLL);
-  Handle[0] = 0LL;
+  v28 = 0LL;
   v30 = 0LL;
+  memset(v27, 0, sizeof(v27));
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  memset(v25, 0, 0x78uLL);
+  DirectoryHandle = 0LL;
+  v31 = 0LL;
   DestinationString = 0LL;
   if ( (_BYTE)dword_140CFB19C )
   {
@@ -129,56 +128,56 @@ char ObInitSystem()
     }
     while ( v3 );
     ObpDefaultObject = 0;
-    qword_140C25AD0 = (__int64)&qword_140C25AC8;
-    qword_140C25AC8 = (__int64)&qword_140C25AC8;
-    byte_140C25AC2 = 6;
-    dword_140C25AC4 = 1;
-    ObpKernelHandleTable = (ULONG_PTR)ExCreateHandleTable(0LL, 1);
+    qword_140C25B90 = (__int64)&qword_140C25B88;
+    qword_140C25B88 = (__int64)&qword_140C25B88;
+    byte_140C25B82 = 6;
+    dword_140C25B84 = 1;
+    ObpKernelHandleTable = ExCreateHandleTable(0LL, 1LL);
     KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[8] = ObpKernelHandleTable;
     if ( !ObpKernelHandleTable )
       return 0;
     ObpRemoveObjectWorkItem.Parameter = 0LL;
     ObpRemoveObjectWorkItem.WorkerRoutine = (void (__fastcall *)(void *))ObpProcessRemoveObjectQueue;
-    qword_140C25B38 = (__int64)ObpProcessRemoveObjectDpcWorker;
+    qword_140C25AF8 = (__int64)ObpProcessRemoveObjectDpcWorker;
     ObpRemoveObjectWorkItem.List.Flink = 0LL;
     LODWORD(ObpRemoveObjectDpc) = 275;
-    qword_140C25B40 = 0LL;
-    qword_140C25B58 = 0LL;
-    qword_140C25B30 = 0LL;
+    qword_140C25B00 = 0LL;
+    qword_140C25B18 = 0LL;
+    qword_140C25AF0 = 0LL;
     ObpInitInfoBlockOffsets();
     qword_140CFCE88 = (__int64)MmBadPointer;
-    LODWORD(v22[1]) = 256;
-    LOWORD(v22[0]) = 120;
-    HIDWORD(v22[4]) = 512;
+    LODWORD(v25[1]) = 256;
+    LOWORD(v25[0]) = 120;
+    HIDWORD(v25[4]) = 512;
     RtlInitUnicodeString(&DestinationString, L"Type");
-    BYTE2(v22[0]) |= 0x24u;
-    HIDWORD(v22[3]) = 983041;
-    HIDWORD(v22[5]) = 216;
-    *(_OWORD *)((char *)&v22[1] + 4) = ObpTypeMapping;
-    if ( (int)ObCreateObjectType(&DestinationString, (__int64)v22, 0LL, (__int64)&ObpTypeObjectType) < 0 )
+    BYTE2(v25[0]) |= 0x24u;
+    HIDWORD(v25[3]) = 983041;
+    HIDWORD(v25[5]) = 216;
+    *(_OWORD *)((char *)&v25[1] + 4) = ObpTypeMapping;
+    if ( (int)ObCreateObjectType(&DestinationString, (__int64)v25, 0LL, (__int64)&ObpTypeObjectType) < 0 )
       return 0;
-    HIDWORD(v22[4]) = 1;
-    RtlInitUnicodeString(&v29, L"Directory");
-    HIDWORD(v22[5]) = 344;
-    HIDWORD(v22[3]) = 983055;
-    BYTE2(v22[0]) = BYTE2(v22[0]) & 0xD2 | 0xD;
-    v22[8] = ObpCloseDirectoryObject;
-    v22[9] = ObpDeleteDirectoryObject;
-    *(_OWORD *)((char *)&v22[1] + 4) = ObpDirectoryMapping;
-    if ( (int)ObCreateObjectType(&v29, (__int64)v22, 0LL, (__int64)&ObpDirectoryObjectType) < 0 )
+    HIDWORD(v25[4]) = 1;
+    RtlInitUnicodeString(&v30, L"Directory");
+    HIDWORD(v25[5]) = 344;
+    HIDWORD(v25[3]) = 983055;
+    BYTE2(v25[0]) = BYTE2(v25[0]) & 0xD2 | 0xD;
+    v25[8] = ObpCloseDirectoryObject;
+    v25[9] = ObpDeleteDirectoryObject;
+    *(_OWORD *)((char *)&v25[1] + 4) = ObpDirectoryMapping;
+    if ( (int)ObCreateObjectType(&v30, (__int64)v25, 0LL, (__int64)&ObpDirectoryObjectType) < 0 )
       return 0;
-    v22[8] = 0LL;
+    v25[8] = 0LL;
     ObpDirectoryObjectType->TypeInfo.ValidAccessMask &= ~0x100000u;
-    RtlInitUnicodeString(&v30, L"SymbolicLink");
-    BYTE3(v22[0]) |= 1u;
-    v22[9] = ObpDeleteSymbolicLink;
-    HIDWORD(v22[5]) = 40;
-    v22[10] = ObpParseSymbolicLinkEx;
-    HIDWORD(v22[4]) = 1;
-    HIDWORD(v22[3]) = 0xFFFFF;
-    BYTE2(v22[0]) = BYTE2(v22[0]) & 0xF6 | 1;
-    *(_OWORD *)((char *)&v22[1] + 4) = ObpSymbolicLinkMapping;
-    if ( (int)ObCreateObjectType(&v30, (__int64)v22, 0LL, (__int64)&ObpSymbolicLinkObjectType) < 0 )
+    RtlInitUnicodeString(&v31, L"SymbolicLink");
+    BYTE3(v25[0]) |= 1u;
+    v25[9] = ObpDeleteSymbolicLink;
+    HIDWORD(v25[5]) = 40;
+    v25[10] = ObpParseSymbolicLinkEx;
+    HIDWORD(v25[4]) = 1;
+    HIDWORD(v25[3]) = 0xFFFFF;
+    BYTE2(v25[0]) = BYTE2(v25[0]) & 0xF6 | 1;
+    *(_OWORD *)((char *)&v25[1] + 4) = ObpSymbolicLinkMapping;
+    if ( (int)ObCreateObjectType(&v31, (__int64)v25, 0LL, (__int64)&ObpSymbolicLinkObjectType) < 0 )
       return 0;
     ObpSymbolicLinkObjectType->TypeInfo.ValidAccessMask &= ~0x100000u;
     ObpInitStackTrace();
@@ -216,35 +215,36 @@ LABEL_16:
     v16 = 4 * *((unsigned __int8 *)SeWorldSid + 1) + 28;
     if ( v16 < 0xFA
       && RtlCreateAcl(&Acl, v16, 2u) >= 0
-      && (int)RtlAddAuditAccessAce((__int64)&Acl, v17, 1610612736) >= 0
+      && RtlAddAuditAccessAce(&Acl, v17, 0x60000000u, v18, Size, Tag) >= 0
       && RtlGetAce(&Acl, 0, &Ace) >= 0 )
     {
-      v18 = Ace;
+      v19 = Ace;
       if ( ObpAuditBaseDirectories )
         *((_BYTE *)Ace + 1) |= 0xAu;
       if ( ObpAuditBaseObjects )
-        v18[1] |= 9u;
+        v19[1] |= 9u;
       v9 = SecurityDescriptor;
       if ( RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
         && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, SePublicDefaultUnrestrictedDacl, 0) >= 0
-        && (int)RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, (__int64)&Acl, 0) >= 0 )
+        && RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0) >= 0 )
       {
 LABEL_25:
-        LODWORD(v23) = 48;
-        *(_QWORD *)&v24 = &ObpRootDirectoryName;
-        *((_QWORD *)&v23 + 1) = 0LL;
-        DWORD2(v24) = 80;
-        v25 = (unsigned __int64)v9;
-        if ( (int)NtCreateDirectoryObject((__int64)Handle) >= 0 )
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.ObjectName = (PUNICODE_STRING)&ObpRootDirectoryName;
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.Attributes = 80;
+        ObjectAttributes.SecurityDescriptor = v9;
+        ObjectAttributes.SecurityQualityOfService = 0LL;
+        if ( NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes) >= 0 )
         {
-          v10 = Handle[0];
+          v10 = DirectoryHandle;
           Object = 0LL;
-          v11 = ObReferenceObjectByHandle(Handle[0], 0, ObpDirectoryObjectType, 0, &Object, 0LL);
+          v11 = ObReferenceObjectByHandle(DirectoryHandle, 0, ObpDirectoryObjectType, 0, &Object, 0LL);
           ObpRootDirectoryObject = Object;
           if ( v11 >= 0 && (int)ObpInitializeRootNamespace(0LL, v10, 0LL) >= 0 && NtClose(v10) >= 0 )
           {
-            LODWORD(v27) = -60876;
-            ObpLockDirectoryExclusive((__int64)v26, ObpTypeDirectoryObject);
+            LODWORD(v28) = -60876;
+            ObpLockDirectoryExclusive((__int64)v27, ObpTypeDirectoryObject);
             v12 = ObpTypeObjectType;
             for ( i = *(__int64 **)&ObpTypeObjectType->Version; i != (__int64 *)v12; i = (__int64 *)*i )
             {
@@ -254,14 +254,14 @@ LABEL_25:
                 v14 = 0LL;
               if ( v14
                 && !*(_QWORD *)v14
-                && !ObpLookupDirectoryEntry(ObpTypeDirectoryObject, (unsigned __int16 *)(v14 + 8), 64, (__int64)v26)
+                && !ObpLookupDirectoryEntry(ObpTypeDirectoryObject, (unsigned __int16 *)(v14 + 8), 64, (__int64)v27)
                 && (!i[9] && (int)ObpInitObjectTypeSD((__int64)(i + 10), 0LL) < 0
-                 || !ObpInsertDirectoryEntry((char *)ObpTypeDirectoryObject, (char *)i + 80, (__int64)v26)) )
+                 || !ObpInsertDirectoryEntry((char *)ObpTypeDirectoryObject, (char *)i + 80, (__int64)v27)) )
               {
                 return 0;
               }
             }
-            ObpReleaseLookupContext((__int64)v26);
+            ObpReleaseLookupContext((__int64)v27);
             Object = &ObpLUIDDeviceMapsEnabled;
             return 1;
           }

@@ -10,7 +10,7 @@
  *     DbgPrint @ 0x140131E68 (DbgPrint.c)
  */
 
-void __fastcall PopDiscardRange(struct _RTL_BITMAP *a1, char *a2, __int64 a3, int a4)
+void __fastcall PopDiscardRange(_RTL_BITMAP *a1, char *a2, __int64 a3, int a4)
 {
   ULONG v4; // edi
   ULONG v5; // ebx

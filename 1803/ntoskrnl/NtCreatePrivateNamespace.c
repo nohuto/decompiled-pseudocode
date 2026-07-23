@@ -19,20 +19,25 @@
  *     ObpCaptureBoundaryDescriptor @ 0x140540674 (ObpCaptureBoundaryDescriptor.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, unsigned int a2, int a3, void *a4)
+NTSTATUS __cdecl NtCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
+  int v4; // r14d
   char PreviousMode; // si
   __int64 v8; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v10; // rdi
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   unsigned __int64 v12; // rbx
   int v13; // eax
   _QWORD *v14; // r14
   unsigned __int64 v15; // rbx
   size_t v16; // r8
   __int64 v17; // rcx
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   _DWORD *CurrentServerSiloGlobals; // rsi
   struct _KTHREAD *CurrentThread; // rcx
   __int64 v21; // r8
@@ -47,16 +52,17 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, unsigned int a2, int a3
   PVOID P; // [rsp+60h] [rbp-28h]
   __int64 v31; // [rsp+68h] [rbp-20h] BYREF
 
+  v4 = (int)ObjectAttributes;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a1;
+    if ( (unsigned __int64)NamespaceHandle < 0x7FFFFFFF0000LL )
+      v8 = (__int64)NamespaceHandle;
     *(_QWORD *)v8 = *(_QWORD *)v8;
   }
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     v10 = P;
     v11 = ObpVerifyCreatorAccessCheck((char *)P + 48);
@@ -72,7 +78,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, unsigned int a2, int a3
         v13 = ObCreateObjectEx(
                 PreviousMode,
                 ObpDirectoryObjectType,
-                a3,
+                v4,
                 PreviousMode,
                 v28,
                 *((_DWORD *)P + 6) + 392,
@@ -110,7 +116,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, unsigned int a2, int a3
             if ( inserted >= 0 )
             {
               ObfReferenceObject(v14);
-              inserted = ObInsertObjectEx(v14, 0LL, a2, 0, 0, 0LL, &v31);
+              inserted = ObInsertObjectEx(v14, 0LL, DesiredAccess, 0, 0, 0LL, &v31);
               CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
@@ -146,18 +152,18 @@ LABEL_16:
               ExReleasePushLockEx((ULONG_PTR)(CurrentServerSiloGlobals + 180), 0LL, v21, v22);
               KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
               if ( inserted >= 0 )
-                *a1 = v31;
-              return (unsigned int)inserted;
+                *NamespaceHandle = (HANDLE)v31;
+              return inserted;
             }
           }
           ObfDereferenceObject(v14);
-          return (unsigned int)inserted;
+          return inserted;
         }
         v11 = v13;
       }
     }
     ExFreePoolWithTag(v10, 0x534E624Fu);
-    return (unsigned int)v11;
+    return v11;
   }
   return result;
 }

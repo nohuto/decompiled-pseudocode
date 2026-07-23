@@ -1,17 +1,17 @@
 /*
- * XREFs of HalSocRequestConfigurationData @ 0x1403A1E9C
+ * XREFs of HalSocRequestConfigurationData @ 0x1403A1FEC
  * Callers:
- *     HalpTscGetAttributes @ 0x1403A19B0 (HalpTscGetAttributes.c)
- *     HalpApicSetupRegisterAccess @ 0x1403A1D54 (HalpApicSetupRegisterAccess.c)
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403AA5BC (HalpTimerRegisterBuiltinPlugins.c)
- *     HalpHpetDiscover @ 0x1403AB43C (HalpHpetDiscover.c)
- *     HalpHvDiscover @ 0x1403AC52C (HalpHvDiscover.c)
+ *     HalpTscGetAttributes @ 0x1403A1B00 (HalpTscGetAttributes.c)
+ *     HalpApicSetupRegisterAccess @ 0x1403A1EA4 (HalpApicSetupRegisterAccess.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403AB34C (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpHpetDiscover @ 0x1403AC1CC (HalpHpetDiscover.c)
+ *     HalpHvDiscover @ 0x1403AD2BC (HalpHvDiscover.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsHvPresent @ 0x1403A1FD8 (HalpIsHvPresent.c)
- *     HalpInterruptGetX2ApicPolicy @ 0x1403A204C (HalpInterruptGetX2ApicPolicy.c)
- *     HalpIsPartitionCpuManager @ 0x1403A81EC (HalpIsPartitionCpuManager.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A20E8 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsHvPresent @ 0x1403A2128 (HalpIsHvPresent.c)
+ *     HalpInterruptGetX2ApicPolicy @ 0x1403A219C (HalpInterruptGetX2ApicPolicy.c)
+ *     HalpIsPartitionCpuManager @ 0x1403A8F7C (HalpIsPartitionCpuManager.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalSocRequestConfigurationData(int a1, __int64 a2, char *a3)

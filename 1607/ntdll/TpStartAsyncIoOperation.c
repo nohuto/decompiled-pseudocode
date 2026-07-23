@@ -1,28 +1,24 @@
 /*
- * XREFs of TpStartAsyncIoOperation @ 0x18003C110
+ * XREFs of TpStartAsyncIoOperation @ 0x18003C100
  * Callers:
  *     <none>
  * Callees:
- *     TppIopValidateIo @ 0x18003C170 (TppIopValidateIo.c)
- *     TppBarrierAdjust @ 0x180063E84 (TppBarrierAdjust.c)
+ *     TppIopValidateIo @ 0x18003C160 (TppIopValidateIo.c)
+ *     TppBarrierAdjust @ 0x180063E74 (TppBarrierAdjust.c)
  */
 
-__int64 __fastcall TpStartAsyncIoOperation(__int64 a1)
+void __cdecl TpStartAsyncIoOperation(PTP_IO Io)
 {
-  __int64 result; // rax
-  __int64 v3; // r9
-  __int64 v4; // rcx
+  __int64 v2; // r9
+  __int64 v3; // rcx
 
-  result = TppIopValidateIo(a1, 0LL, 1LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppIopValidateIo(Io, 0LL, 1LL) )
   {
-    TppBarrierAdjust(a1 + 56, 1LL, 0LL, v3);
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 280));
-    _InterlockedIncrement((volatile signed __int32 *)a1);
-    v4 = *(_QWORD *)(a1 + 144);
-    result = MEMORY[0x7FFE03C0];
-    if ( *(_DWORD *)(v4 + 424) != MEMORY[0x7FFE03C0] )
-      return TppAdjustRunningThreadGoal(v4);
+    TppBarrierAdjust((char *)Io + 56, 1LL, 0LL, v2);
+    _InterlockedIncrement((volatile signed __int32 *)Io + 70);
+    _InterlockedIncrement((volatile signed __int32 *)Io);
+    v3 = *((_QWORD *)Io + 18);
+    if ( *(_DWORD *)(v3 + 424) != MEMORY[0x7FFE03C0] )
+      TppAdjustRunningThreadGoal(v3);
   }
-  return result;
 }

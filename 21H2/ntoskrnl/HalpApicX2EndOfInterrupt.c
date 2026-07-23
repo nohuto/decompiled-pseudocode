@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApicX2EndOfInterrupt @ 0x1403F9FC0
+ * XREFs of HalpApicX2EndOfInterrupt @ 0x1403FA1A0
  * Callers:
  *     <none>
  * Callees:

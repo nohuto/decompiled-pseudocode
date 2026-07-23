@@ -1,15 +1,14 @@
 /*
- * XREFs of RtlInsertElementGenericTable @ 0x1402492A0
+ * XREFs of RtlInsertElementGenericTable @ 0x1402E34E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 PVOID __stdcall RtlInsertElementGenericTable(
         PRTL_GENERIC_TABLE Table,
         PVOID Buffer,
@@ -22,9 +21,9 @@ PVOID __stdcall RtlInsertElementGenericTable(
   PRTL_SPLAY_LINKS v10; // rsi
   int v11; // eax
   int v12; // ebp
-  __int64 v13; // rdx
+  ULONG_PTR v13; // rdx
   _QWORD *v14; // rax
-  RTL_SPLAY_LINKS *v15; // rbx
+  _RTL_SPLAY_LINKS *v15; // rbx
   struct _LIST_ENTRY *v16; // rax
   struct _LIST_ENTRY *Blink; // r8
 
@@ -39,7 +38,7 @@ PVOID __stdcall RtlInsertElementGenericTable(
       while ( 1 )
       {
         v10 = TableRoot;
-        v11 = guard_dispatch_icall_no_overrides(Table, Buffer, &TableRoot[1].RightChild, NewElement);
+        v11 = guard_dispatch_icall_no_overrides(Table, Buffer);
         if ( v11 )
           break;
         TableRoot = v10->LeftChild;
@@ -67,10 +66,10 @@ LABEL_6:
   v13 = (unsigned int)(v6 + 40);
   if ( (unsigned int)v13 >= (unsigned int)v6 )
   {
-    v14 = (_QWORD *)((__int64 (__fastcall *)(ULONG_PTR))Table->AllocateRoutine == ExAllocatePool2
-                   ? ExAllocatePool2((ULONG_PTR)Table)
-                   : guard_dispatch_icall_no_overrides(Table, v13, *(_QWORD *)&BufferSize, NewElement));
-    v15 = (RTL_SPLAY_LINKS *)v14;
+    v14 = (_QWORD *)((__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR, ULONG))Table->AllocateRoutine == ExAllocatePool2
+                   ? ExAllocatePool2((ULONG_PTR)Table, v13, BufferSize)
+                   : guard_dispatch_icall_no_overrides(Table, v13));
+    v15 = (_RTL_SPLAY_LINKS *)v14;
     if ( v14 )
     {
       *v14 = v14;

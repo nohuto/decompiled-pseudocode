@@ -1,11 +1,11 @@
 /*
- * XREFs of _snprintf @ 0x180090D70
+ * XREFs of _snprintf @ 0x180090D80
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _flsbuf @ 0x180096480 (_flsbuf.c)
- *     _output_l @ 0x180096490 (_output_l.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _flsbuf @ 0x180096490 (_flsbuf.c)
+ *     _output_l @ 0x1800964A0 (_output_l.c)
  */
 
 int snprintf(char *const Buffer, const size_t BufferCount, const char *const Format, ...)

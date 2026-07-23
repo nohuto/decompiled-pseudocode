@@ -20,19 +20,19 @@ int __fastcall _RtlMuiRegAddLIPParent(_DWORD *a1, int a2, unsigned int a3, WCHAR
   unsigned int v12; // ebx
   __int16 v13; // ax
   __int16 v14; // cx
-  UNICODE_STRING DestinationString; // [esp+Ch] [ebp-14h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+Ch] [ebp-14h] BYREF
   int v17; // [esp+14h] [ebp-Ch]
-  int v18; // [esp+18h] [ebp-8h] BYREF
+  DWORD Lcid; // [esp+18h] [ebp-8h] BYREF
   __int16 v19; // [esp+1Ch] [ebp-4h] BYREF
 
   v4 = 0;
   v17 = (int)a1;
-  v18 = 0;
+  Lcid = 0;
   v19 = -1;
   if ( !a1 || !a2 || a3 >= 4 || !SourceString || !*SourceString )
     return -1073741811;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  if ( !RtlCultureNameToLCID(&DestinationString.Length, &v18) )
+  if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
     return -1073741823;
   v6 = RtlpMuiRegGetOrAddString((_DWORD *)v17, SourceString, 1, &v19);
   if ( v6 < 0 )
@@ -46,10 +46,10 @@ int __fastcall _RtlMuiRegAddLIPParent(_DWORD *a1, int a2, unsigned int a3, WCHAR
   if ( !v10 )
   {
 LABEL_16:
-    if ( (_WORD)v18 )
+    if ( (_WORD)Lcid )
     {
       v12 = a3;
-      v13 = v18;
+      v13 = Lcid;
       *(_WORD *)(a2 + 8) = *(_WORD *)(a2 + 8) & ~(3 << (2 * a3)) | (1 << (2 * a3));
       goto LABEL_26;
     }
@@ -68,7 +68,7 @@ LABEL_16:
     v17 = 12324;
     if ( (v11 & 0x3024) != 0x20 )
       goto LABEL_14;
-    if ( (unsigned __int16)v18 != 4096 && (unsigned __int16)v18 != 5120 )
+    if ( (unsigned __int16)Lcid != 4096 && (unsigned __int16)Lcid != 5120 )
       break;
     v7 = v19;
     if ( v9[3] == v19 )
@@ -79,7 +79,7 @@ LABEL_15:
     if ( v4 >= v10 )
       goto LABEL_16;
   }
-  if ( v9[2] != (_WORD)v18 )
+  if ( v9[2] != (_WORD)Lcid )
   {
 LABEL_14:
     v7 = v19;

@@ -16,7 +16,8 @@ __int64 __fastcall PopUserPresencePredictionModeCallback(_QWORD *a1, _DWORD *a2,
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
-  _DWORD Src[22]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v9; // r9
+  _QWORD Src[11]; // [rsp+20h] [rbp-58h] BYREF
 
   v4 = *(_QWORD *)&GUID_USER_PRESENCE_PREDICTION.Data1 - *a1;
   if ( *(_QWORD *)&GUID_USER_PRESENCE_PREDICTION.Data1 == *a1 )
@@ -31,17 +32,17 @@ __int64 __fastcall PopUserPresencePredictionModeCallback(_QWORD *a1, _DWORD *a2,
       goto LABEL_9;
     dword_140C3D960 = 1;
     memset(Src, 0, 0x48uLL);
-    Src[2] = 3;
+    LODWORD(Src[1]) = 3;
   }
   else
   {
     dword_140C3D960 = 0;
     memset(Src, 0, 0x48uLL);
-    Src[2] = 2;
+    LODWORD(Src[1]) = 2;
   }
-  Src[0] = 12;
+  LODWORD(Src[0]) = 12;
   PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
 LABEL_9:
-  PopReleasePolicyLock(v7, v6, v8);
+  PopReleasePolicyLock(v7, v6, v8, v9, Src[0], Src[1]);
   return v5;
 }

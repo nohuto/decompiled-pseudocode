@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptDetectCpuFeaturesByCpuid @ 0x1401B2474
+ * XREFs of SymCryptDetectCpuFeaturesByCpuid @ 0x1401B25B4
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF208 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF348 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptDetectCpuFeaturesByCpuid(char a1)
@@ -23,7 +23,7 @@ __int64 __fastcall SymCryptDetectCpuFeaturesByCpuid(char a1)
   int v43; // [rsp+Ch] [rbp-14h]
 
   v1 = 0;
-  v2 = (unsigned __int8 *)&unk_14035A642;
+  v2 = (unsigned __int8 *)&unk_14035B542;
   _RAX = 0LL;
   v5 = -2016;
   __asm { cpuid }
@@ -82,8 +82,8 @@ LABEL_11:
   g_SymCryptCpuFeaturesNotPresent = v5;
   __asm { cpuid }
   g_SymCryptCpuid1 = result;
-  dword_140405894 = _RBX;
-  dword_140405898 = _RCX;
-  dword_14040589C = _RDX;
+  dword_140406894 = _RBX;
+  dword_140406898 = _RCX;
+  dword_14040689C = _RDX;
   return result;
 }

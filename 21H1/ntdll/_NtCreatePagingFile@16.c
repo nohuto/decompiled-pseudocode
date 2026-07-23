@@ -6,7 +6,11 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtCreatePagingFile(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl NtCreatePagingFile(
+        PUNICODE_STRING PageFileName,
+        PLARGE_INTEGER MinimumSize,
+        PLARGE_INTEGER MaximumSize,
+        ULONG Priority)
 {
   return Wow64SystemServiceCall();
 }

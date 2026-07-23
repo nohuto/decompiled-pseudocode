@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408C67A8
+ * XREFs of EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408C7A68
  * Callers:
- *     EtwpCovSampContextAddSamples @ 0x1408C4814 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampContextAddSamples @ 0x1408C5AD4 (EtwpCovSampContextAddSamples.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     EtwpCovSampHashLookupInTable @ 0x1408C66C8 (EtwpCovSampHashLookupInTable.c)
- *     EtwpCoverageSamplerAllocateTable @ 0x1408C7B10 (EtwpCoverageSamplerAllocateTable.c)
- *     EtwpCoverageSamplerFreeTable @ 0x1408C7D54 (EtwpCoverageSamplerFreeTable.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     EtwpCovSampHashLookupInTable @ 0x1408C7988 (EtwpCovSampHashLookupInTable.c)
+ *     EtwpCoverageSamplerAllocateTable @ 0x1408C8DD0 (EtwpCoverageSamplerAllocateTable.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x1408C9014 (EtwpCoverageSamplerFreeTable.c)
  */
 
 __int64 __fastcall EtwpCovSampHashMakeRoomAndAcquireLock(ULONG_PTR BugCheckParameter2, int a2, __int64 **a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierZwSetInformationResourceManager @ 0x14070CE44
+ * XREFs of VerifierZwSetInformationResourceManager @ 0x14070CE74
  * Callers:
  *     <none>
  * Callees:

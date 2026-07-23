@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkWerAddSecondaryData @ 0x14093B4B0
+ * XREFs of DbgkWerAddSecondaryData @ 0x14093B6B0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

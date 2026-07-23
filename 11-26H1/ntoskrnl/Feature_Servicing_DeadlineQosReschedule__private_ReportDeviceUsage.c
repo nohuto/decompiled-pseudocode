@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_DeadlineQosReschedule__private_ReportDeviceUsage @ 0x1402C4DB4
+ * XREFs of Feature_Servicing_DeadlineQosReschedule__private_ReportDeviceUsage @ 0x14030FA74
  * Callers:
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
  * Callees:
- *     Feature_Servicing_DeadlineQosReschedule__private_ReportUsageFallback @ 0x1405F62CC (Feature_Servicing_DeadlineQosReschedule__private_ReportUsageFallback.c)
+ *     Feature_Servicing_DeadlineQosReschedule__private_ReportUsageFallback @ 0x1405F8C8C (Feature_Servicing_DeadlineQosReschedule__private_ReportUsageFallback.c)
  */
 
 __int64 Feature_Servicing_DeadlineQosReschedule__private_ReportDeviceUsage()

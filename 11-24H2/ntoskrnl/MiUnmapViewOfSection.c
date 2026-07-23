@@ -1,134 +1,145 @@
 /*
- * XREFs of MiUnmapViewOfSection @ 0x1408E4E04
+ * XREFs of MiUnmapViewOfSection @ 0x140896E14
  * Callers:
- *     IopCloseIoRing @ 0x140716490 (IopCloseIoRing.c)
- *     PsShutdownSystem @ 0x140778944 (PsShutdownSystem.c)
- *     NtMapCMFModule @ 0x1407C3080 (NtMapCMFModule.c)
- *     MiFinalizeLagePageImageMapping @ 0x1407ED7C4 (MiFinalizeLagePageImageMapping.c)
- *     MiMapViewOfSection @ 0x14089A1A0 (MiMapViewOfSection.c)
- *     AlpcViewDestroyProcedure @ 0x1408E49A0 (AlpcViewDestroyProcedure.c)
- *     MmUnmapViewOfSection @ 0x1408E4C50 (MmUnmapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1408E4C70 (NtUnmapViewOfSection.c)
- *     NtUnmapViewOfSectionEx @ 0x1408E4D20 (NtUnmapViewOfSectionEx.c)
- *     MiUnmapImageInSystemSpace @ 0x1408F560C (MiUnmapImageInSystemSpace.c)
- *     EtwpCoverageEnsureUserModeView @ 0x140906720 (EtwpCoverageEnsureUserModeView.c)
- *     PspSchedulerSharedDataRegionDelete @ 0x140A605A0 (PspSchedulerSharedDataRegionDelete.c)
- *     MiUnmapImageForEnclaveUse @ 0x140AA1BA4 (MiUnmapImageForEnclaveUse.c)
- *     MmInitializeImageViewExtension @ 0x140C541D0 (MmInitializeImageViewExtension.c)
+ *     IopCloseIoRing @ 0x140714020 (IopCloseIoRing.c)
+ *     PsShutdownSystem @ 0x140778A44 (PsShutdownSystem.c)
+ *     NtMapCMFModule @ 0x1407C42B0 (NtMapCMFModule.c)
+ *     MiFinalizeLagePageImageMapping @ 0x1407EDD94 (MiFinalizeLagePageImageMapping.c)
+ *     MmUnmapViewOfSection @ 0x140896C60 (MmUnmapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x140896C80 (NtUnmapViewOfSection.c)
+ *     NtUnmapViewOfSectionEx @ 0x140896D30 (NtUnmapViewOfSectionEx.c)
+ *     AlpcViewDestroyProcedure @ 0x140897790 (AlpcViewDestroyProcedure.c)
+ *     MiMapViewOfSection @ 0x1408A2840 (MiMapViewOfSection.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x1408DCCEC (EtwpCoverageEnsureUserModeView.c)
+ *     MiUnmapImageInSystemSpace @ 0x14093E4B4 (MiUnmapImageInSystemSpace.c)
+ *     PspSchedulerSharedDataRegionDelete @ 0x140A58AF0 (PspSchedulerSharedDataRegionDelete.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140A9CF34 (MiUnmapImageForEnclaveUse.c)
+ *     MmInitializeImageViewExtension @ 0x140C56360 (MmInitializeImageViewExtension.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     MiVadMapsLargeImage @ 0x140404B60 (MiVadMapsLargeImage.c)
- *     MiDereferenceControlAreaFile @ 0x14042C500 (MiDereferenceControlAreaFile.c)
- *     MiUpdateVadStartVpn @ 0x140449454 (MiUpdateVadStartVpn.c)
- *     MiReadVadFlags2 @ 0x14044BF3C (MiReadVadFlags2.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiCheckSecuredVad @ 0x1408DD998 (MiCheckSecuredVad.c)
- *     MiUnmapVad @ 0x1408E5280 (MiUnmapVad.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
- *     DbgkUnMapViewOfSection @ 0x1408E5EFC (DbgkUnMapViewOfSection.c)
- *     PerfLogImageUnload @ 0x1408E6808 (PerfLogImageUnload.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiVadMapsLargeImage @ 0x1403C7440 (MiVadMapsLargeImage.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x14041F2B0 (MiDereferenceControlAreaFile.c)
+ *     MiUpdateVadStartVpn @ 0x140441BA4 (MiUpdateVadStartVpn.c)
+ *     MiReadVadFlags2 @ 0x14044307C (MiReadVadFlags2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
+ *     MiUnmapVad @ 0x140895E38 (MiUnmapVad.c)
+ *     MiCheckSecuredVad @ 0x1408DBE18 (MiCheckSecuredVad.c)
+ *     PerfLogImageUnload @ 0x140A0E50C (PerfLogImageUnload.c)
+ *     DbgkUnMapViewOfSection @ 0x140A25518 (DbgkUnMapViewOfSection.c)
  */
 
 __int64 __fastcall MiUnmapViewOfSection(PRKPROCESS PROCESS, unsigned __int64 a2, int a3, int a4)
 {
   unsigned __int64 v4; // rdi
-  struct _KPROCESS *v7; // rcx
-  ULONG_PTR v8; // rax
-  __int64 v9; // rbx
-  unsigned int v10; // edx
-  unsigned int v11; // ecx
+  __int64 v5; // r13
+  __int64 v7; // r9
+  struct _KPROCESS *v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // r8
   __int64 v12; // r9
-  unsigned __int64 v13; // rsi
-  __int64 v14; // r12
-  __int64 *v16; // rsi
-  ULONG_PTR v17; // r15
-  int v18; // r8d
-  int v19; // edx
-  __int64 v20; // rcx
-  unsigned __int64 v21; // rax
+  __int64 v13; // rbx
+  unsigned int v14; // edx
+  unsigned int v15; // ecx
+  __int64 v16; // r9
+  unsigned __int64 v17; // rsi
+  unsigned __int64 v18; // r12
+  __int64 *v20; // rsi
+  ULONG_PTR v21; // r15
+  int v22; // r8d
+  int v23; // edx
+  __int64 v24; // rcx
+  unsigned __int64 v25; // rax
   unsigned __int64 LockedVadEvent; // rax
-  __int64 v23; // r13
-  _QWORD *v24; // rax
-  _QWORD *v25; // r15
-  int v26; // eax
-  int v27[2]; // [rsp+50h] [rbp-29h] BYREF
-  int v28; // [rsp+58h] [rbp-21h]
-  __int64 v29; // [rsp+60h] [rbp-19h]
+  char *v27; // rax
+  char *v28; // r15
+  int v29; // eax
+  int v30[2]; // [rsp+50h] [rbp-29h] BYREF
+  int v31; // [rsp+58h] [rbp-21h]
+  __int64 v32; // [rsp+60h] [rbp-19h]
   struct _KAPC_STATE ApcState; // [rsp+68h] [rbp-11h] BYREF
 
-  v27[0] = 0;
-  v28 = 0;
+  v30[0] = 0;
+  v31 = 0;
   v4 = 0LL;
   memset(&ApcState, 0, sizeof(ApcState));
-  v27[1] = a3;
-  LODWORD(v29) = a4 & 0x4000000;
-  v7 = KeGetCurrentThread()->ApcState.Process;
-  if ( (a4 & 0x4000000) != 0 && a2 != (a2 & 0xFFFFFFFFFFFFF000uLL) )
+  v5 = 0LL;
+  v7 = a4 & 0x4000000;
+  v30[1] = a3;
+  LODWORD(v32) = v7;
+  v9 = KeGetCurrentThread()->ApcState.Process;
+  if ( (_DWORD)v7 && a2 != (a2 & 0xFFFFFFFFFFFFF000uLL) )
     return 3221225712LL;
-  if ( v7 != PROCESS )
+  if ( v9 != PROCESS )
   {
     KeStackAttachProcess(PROCESS, &ApcState);
-    v28 = 1;
+    v31 = 1;
   }
-  v8 = MiObtainReferencedVadEx(a2, 1LL, v27);
-  v9 = v8;
-  if ( !v8 )
+  v10 = MiObtainReferencedVadEx(a2, 1LL, v30, v7);
+  v13 = v10;
+  if ( !v10 )
   {
-    if ( v27[0] == -1073741664 )
-      v27[0] = -1073741799;
+    if ( v30[0] == -1073741664 )
+      v30[0] = -1073741799;
     goto LABEL_15;
   }
-  v10 = *(_DWORD *)(v8 + 48);
-  v11 = v10 >> 4;
-  if ( (v10 & 0x200000) == 0 || (v11 & 7) == 1 )
+  v14 = *(_DWORD *)(v10 + 48);
+  v15 = v14 >> 4;
+  if ( (v14 & 0x200000) == 0 || (v15 & 7) == 1 )
   {
-    v12 = *(unsigned int *)(v8 + 24);
-    v13 = (v12 | ((unsigned __int64)*(unsigned __int8 *)(v8 + 32) << 32)) << 12;
-    if ( (v11 & 7) == 2 && (v10 & 0xF80) == 0x380 )
-      v4 = (v12 | ((unsigned __int64)*(unsigned __int8 *)(v8 + 32) << 32)) << 12;
-    v14 = ((*(unsigned int *)(v8 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 33) << 32))
-         - (v12 | ((unsigned __int64)*(unsigned __int8 *)(v8 + 32) << 32))
+    v16 = *(unsigned int *)(v10 + 24);
+    v17 = (v16 | ((unsigned __int64)*(unsigned __int8 *)(v10 + 32) << 32)) << 12;
+    if ( (v15 & 7) == 2 && (v14 & 0xF80) == 0x380 )
+      v4 = (v16 | ((unsigned __int64)*(unsigned __int8 *)(v10 + 32) << 32)) << 12;
+    v18 = ((*(unsigned int *)(v10 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v10 + 33) << 32))
+         - (v16 | ((unsigned __int64)*(unsigned __int8 *)(v10 + 32) << 32))
          + 1) << 12;
-    if ( (v10 & 8) != 0 && (PROCESS[1].DirectoryTableBase & 0x2000000000LL) == 0 )
+    if ( (v14 & 8) != 0 && (PROCESS[1].DirectoryTableBase & 0x2000000000LL) == 0 )
     {
-      v27[0] = MiCheckSecuredVad(v8, v13, v14, 0x55u, KeGetCurrentThread()->PreviousMode, 0LL);
-      if ( v27[0] < 0 )
+      v30[0] = MiCheckSecuredVad(
+                 v10,
+                 (_DWORD)v16 << 12,
+                 (*(_DWORD *)(v10 + 28) - (int)v16 + 1) << 12,
+                 85,
+                 KeGetCurrentThread()->PreviousMode,
+                 0LL);
+      if ( v30[0] < 0 )
         goto LABEL_38;
     }
-    if ( (_DWORD)v29 )
+    if ( (_DWORD)v32 )
     {
-      if ( v13 != a2 || (LockedVadEvent = MiLocateLockedVadEvent(v9, 128)) == 0 )
+      if ( v17 != a2 || (LockedVadEvent = MiLocateLockedVadEvent(v13, 128)) == 0 )
       {
-        v27[0] = -1073741800;
+        v30[0] = -1073741800;
         goto LABEL_38;
       }
-      v23 = *(_QWORD *)(LockedVadEvent + 8);
+      v5 = *(_QWORD *)(LockedVadEvent + 8);
       *(_QWORD *)(LockedVadEvent + 8) = 0LL;
-      v24 = KeAbPreAcquire(v23 + 40, 0LL);
-      v25 = v24;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)(v23 + 40), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v23 + 40), (__int64)v24, v23 + 40);
-      if ( v25 )
-        *((_BYTE *)v25 + 10) = 1;
-      MiUpdateVadStartVpn(v23, *(unsigned int *)(v9 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 32) << 32));
-      v26 = *(_DWORD *)(v9 + 28);
-      *(_BYTE *)(v23 + 33) = *(_BYTE *)(v9 + 33);
-      *(_DWORD *)(v23 + 28) = v26;
+      v27 = (char *)KeAbPreAcquire(v5 + 40, 0LL);
+      v28 = v27;
+      if ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 40), 0LL) )
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v5 + 40), v27, v5 + 40);
+      if ( v28 )
+        v28[10] = 1;
+      MiUpdateVadStartVpn(v5, *(unsigned int *)(v13 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v13 + 32) << 32));
+      v29 = *(_DWORD *)(v13 + 28);
+      *(_BYTE *)(v5 + 33) = *(_BYTE *)(v13 + 33);
+      *(_DWORD *)(v5 + 28) = v29;
     }
-    if ( v4 && (unsigned int)MiVadMapsLargeImage(v9) )
+    if ( v4 && (unsigned int)MiVadMapsLargeImage(v13) )
     {
-      v21 = MiLocateLockedVadEvent(v20, 16);
-      v4 += (unsigned __int64)*(unsigned __int8 *)(v21 + 8) << 16;
-      v14 = *(_QWORD *)(v21 + 16) << 12;
+      v25 = MiLocateLockedVadEvent(v24, 16);
+      v4 += (unsigned __int64)*(unsigned __int8 *)(v25 + 8) << 16;
+      v18 = *(_QWORD *)(v25 + 16) << 12;
     }
-    if ( (PerfGlobalGroupMask & 4) != 0 )
+    if ( (PerfGlobalGroupMask[0] & 4) != 0 )
     {
       if ( v4 )
       {
@@ -136,57 +147,57 @@ __int64 __fastcall MiUnmapViewOfSection(PRKPROCESS PROCESS, unsigned __int64 a2,
         {
           if ( (PROCESS[3].ActiveGroupsMask.Masks[1] & 0x100000000000LL) == 0 )
           {
-            v16 = **(__int64 ***)(v9 + 72);
-            if ( v16 )
+            v20 = **(__int64 ***)(v13 + 72);
+            if ( v20 )
             {
-              if ( v16[8] )
+              if ( v20[8] )
               {
-                v29 = *v16;
-                v17 = MiReferenceControlAreaFile((__int64)v16);
-                if ( (MiReadVadFlags2(v9) & 8) != 0 )
+                v32 = *v20;
+                v21 = MiReferenceControlAreaFile((__int64)v20);
+                if ( (MiReadVadFlags2(v13) & 8) != 0 )
                 {
-                  v18 = 0;
-                  v19 = 0;
+                  v22 = 0;
+                  v23 = 0;
                 }
                 else
                 {
-                  v18 = *(_BYTE *)(v29 + 15) & 0xF;
-                  v19 = (*(unsigned __int8 *)(v29 + 15) >> 4) & 7;
+                  v22 = *(_BYTE *)(v32 + 15) & 0xF;
+                  v23 = (*(unsigned __int8 *)(v32 + 15) >> 4) & 7;
                 }
                 PerfLogImageUnload(
-                  v17 + 88,
-                  v17,
+                  v21 + 88,
+                  v21,
                   PROCESS,
                   v4,
-                  v14,
-                  *(_DWORD *)(*(_QWORD *)(v29 + 56) + 60LL),
                   v18,
-                  v19,
+                  *(_DWORD *)(*(_QWORD *)(v32 + 56) + 60LL),
+                  v22,
+                  v23,
                   1);
-                MiDereferenceControlAreaFile((__int64)v16, v17);
+                MiDereferenceControlAreaFile((__int64)v20, v21);
               }
             }
           }
         }
       }
     }
-    if ( (*(_DWORD *)(v9 + 48) & 0x70) == 0x10 )
-      MiDeleteVad((PVOID)v9);
+    if ( (*(_DWORD *)(v13 + 48) & 0x70) == 0x10 )
+      MiDeleteVad((unsigned __int8 *)v13, v5);
     else
-      MiUnmapVad((PVOID)v9);
-    v27[0] = 0;
+      MiUnmapVad((unsigned __int8 *)v13, v5);
+    v30[0] = 0;
     goto LABEL_15;
   }
-  v27[0] = -1073741799;
+  v30[0] = -1073741799;
 LABEL_38:
-  MiUnlockAndDereferenceVad((PVOID)v9);
+  MiUnlockAndDereferenceVad((PVOID)v13);
 LABEL_15:
-  if ( v28 )
-    KiUnstackDetachProcess((__int64)&ApcState, 0);
-  if ( v27[0] >= 0 )
+  if ( v31 )
+    KiUnstackDetachProcess((__int64)&ApcState, 0, v11, v12);
+  if ( v30[0] >= 0 )
   {
     if ( v4 )
       DbgkUnMapViewOfSection(PROCESS);
   }
-  return (unsigned int)v27[0];
+  return (unsigned int)v30[0];
 }

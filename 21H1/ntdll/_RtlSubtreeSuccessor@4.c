@@ -6,15 +6,15 @@
  *     <none>
  */
 
-int __stdcall RtlSubtreeSuccessor(int a1)
+PRTL_SPLAY_LINKS __cdecl RtlSubtreeSuccessor(PRTL_SPLAY_LINKS Links)
 {
-  int result; // eax
+  PRTL_SPLAY_LINKS result; // eax
 
-  result = *(_DWORD *)(a1 + 8);
+  result = Links->RightChild;
   if ( result )
   {
-    while ( *(_DWORD *)(result + 4) )
-      result = *(_DWORD *)(result + 4);
+    while ( result->LeftChild )
+      result = result->LeftChild;
   }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFindNextAlignedForwardRunClearEx @ 0x14018C3E0
+ * XREFs of MiFindNextAlignedForwardRunClearEx @ 0x14018C520
  * Callers:
- *     MiObtainDynamicVa @ 0x1400F698C (MiObtainDynamicVa.c)
+ *     MiObtainDynamicVa @ 0x1400F6A0C (MiObtainDynamicVa.c)
  * Callees:
  *     <none>
  */

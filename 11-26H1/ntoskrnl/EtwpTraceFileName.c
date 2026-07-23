@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTraceFileName @ 0x140215A90
+ * XREFs of EtwpTraceFileName @ 0x140215DC0
  * Callers:
  *     <none>
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceFileName(__int64 a1, __int64 a2, unsigned __int16 *a3, __int64 a4, int a5, __int16 a6)
@@ -63,7 +63,7 @@ __int64 __fastcall EtwpTraceFileName(__int64 a1, __int64 a2, unsigned __int16 *a
     {
       v20 = &KFileEvt_NameDelete;
 LABEL_30:
-      EtwWriteEx(EtwpFileProvRegHandle, v20, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+      EtwWriteEx((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Flink, v20, 0LL, 0, 0LL, 0LL, 3u, &UserData);
       goto LABEL_7;
     }
   }

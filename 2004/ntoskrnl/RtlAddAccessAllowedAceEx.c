@@ -15,5 +15,5 @@ NTSTATUS __stdcall RtlAddAccessAllowedAceEx(
         ACCESS_MASK AccessMask,
         PSID Sid)
 {
-  return RtlpAddKnownAce((__int64)Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 0);
+  return RtlpAddKnownAce(Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 0);
 }

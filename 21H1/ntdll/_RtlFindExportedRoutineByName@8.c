@@ -6,106 +6,106 @@
  *     _RtlImageDirectoryEntryToData@16 @ 0x4B2BDDE0 (_RtlImageDirectoryEntryToData@16.c)
  */
 
-unsigned int __thiscall RtlFindExportedRoutineByName(void *this, int a2, char *a3)
+PVOID __cdecl RtlFindExportedRoutineByName(PVOID BaseOfImage, PCSTR RoutineName)
 {
-  int v3; // edi
-  unsigned int v4; // esi
-  _DWORD *v5; // eax
+  char *v2; // edi
+  char *v3; // esi
+  char *v4; // eax
+  int v5; // ecx
   int v6; // ecx
-  int v7; // ecx
-  int v8; // eax
-  int v9; // ebx
-  _BYTE *v10; // eax
-  bool v11; // cf
-  bool v12; // zf
-  unsigned int v13; // edx
-  unsigned __int8 v14; // dl
-  int v15; // eax
-  unsigned int v16; // ecx
-  int v18; // [esp+8h] [ebp-1Ch] BYREF
-  int v19; // [esp+Ch] [ebp-18h]
-  int v20; // [esp+10h] [ebp-14h]
-  _DWORD *v21; // [esp+14h] [ebp-10h]
-  int v22; // [esp+18h] [ebp-Ch]
-  char *v23; // [esp+1Ch] [ebp-8h]
-  unsigned __int8 v24; // [esp+23h] [ebp-1h]
+  int v7; // eax
+  int v8; // ebx
+  const CHAR *v9; // eax
+  bool v10; // cf
+  bool v11; // zf
+  char *v12; // edx
+  unsigned __int8 v13; // dl
+  int v14; // eax
+  unsigned int v15; // ecx
+  ULONG Size; // [esp+8h] [ebp-1Ch] BYREF
+  char *v18; // [esp+Ch] [ebp-18h]
+  char *v19; // [esp+10h] [ebp-14h]
+  char *v20; // [esp+14h] [ebp-10h]
+  int v21; // [esp+18h] [ebp-Ch]
+  PCSTR v22; // [esp+1Ch] [ebp-8h]
+  CHAR v23; // [esp+23h] [ebp-1h]
 
-  v3 = a2;
-  v4 = 0;
-  v5 = RtlImageDirectoryEntryToData(this, a2, 1, 0, (int)&v18);
-  v21 = v5;
-  if ( !v5 )
-    return v4;
-  v6 = v5[6];
-  v20 = a2 + v5[8];
-  v7 = v6 - 1;
-  v19 = a2 + v5[9];
-  v8 = 0;
-  v22 = 0;
-  if ( v7 < 0 )
-    return v4;
+  v2 = (char *)BaseOfImage;
+  v3 = 0;
+  v4 = (char *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0, &Size);
+  v20 = v4;
+  if ( !v4 )
+    return v3;
+  v5 = *((_DWORD *)v4 + 6);
+  v19 = (char *)BaseOfImage + *((_DWORD *)v4 + 8);
+  v6 = v5 - 1;
+  v18 = (char *)BaseOfImage + *((_DWORD *)v4 + 9);
+  v7 = 0;
+  v21 = 0;
+  if ( v6 < 0 )
+    return v3;
   while ( 1 )
   {
-    v9 = (v7 + v8) >> 1;
-    v10 = (_BYTE *)(v3 + *(_DWORD *)(v20 + 4 * v9));
-    v23 = a3;
+    v8 = (v6 + v7) >> 1;
+    v9 = &v2[*(_DWORD *)&v19[4 * v8]];
+    v22 = RoutineName;
     while ( 1 )
     {
-      v11 = (unsigned __int8)*v23 < *v10;
-      v12 = *v23 == *v10;
-      v3 = a2;
-      v24 = *v23;
-      v13 = (unsigned int)v21;
-      if ( !v12 )
+      v10 = *v22 < (unsigned int)*v9;
+      v11 = *v22 == *v9;
+      v2 = (char *)BaseOfImage;
+      v23 = *v22;
+      v12 = v20;
+      if ( !v11 )
         break;
-      if ( !v24 )
+      if ( !v23 )
         goto LABEL_8;
-      v14 = v23[1];
-      v11 = v14 < v10[1];
-      v12 = v14 == v10[1];
-      v3 = a2;
-      v24 = v14;
-      v13 = (unsigned int)v21;
-      if ( !v12 )
+      v13 = v22[1];
+      v10 = v13 < (unsigned int)v9[1];
+      v11 = v13 == v9[1];
+      v2 = (char *)BaseOfImage;
+      v23 = v13;
+      v12 = v20;
+      if ( !v11 )
         break;
-      v23 += 2;
-      v10 += 2;
-      if ( !v24 )
+      v22 += 2;
+      v9 += 2;
+      if ( !v23 )
       {
 LABEL_8:
-        v15 = 0;
+        v14 = 0;
         goto LABEL_10;
       }
     }
-    v15 = v11 ? -1 : 1;
+    v14 = v10 ? -1 : 1;
 LABEL_10:
-    if ( v15 < 0 )
+    if ( v14 < 0 )
     {
-      if ( !v9 )
-        return v4;
-      v8 = v22;
-      v7 = v9 - 1;
+      if ( !v8 )
+        return v3;
+      v7 = v21;
+      v6 = v8 - 1;
       goto LABEL_15;
     }
-    if ( v15 <= 0 )
+    if ( v14 <= 0 )
       break;
-    v8 = v9 + 1;
-    v22 = v9 + 1;
+    v7 = v8 + 1;
+    v21 = v8 + 1;
 LABEL_15:
-    if ( v7 < v8 )
+    if ( v6 < v7 )
       goto LABEL_18;
   }
-  v8 = v22;
+  v7 = v21;
 LABEL_18:
-  if ( v7 >= v8 )
+  if ( v6 >= v7 )
   {
-    v16 = *(unsigned __int16 *)(v19 + 2 * v9);
-    if ( v16 < *(_DWORD *)(v13 + 20) )
+    v15 = *(unsigned __int16 *)&v18[2 * v8];
+    if ( v15 < *((_DWORD *)v12 + 5) )
     {
-      v4 = v3 + *(_DWORD *)(*(_DWORD *)(v13 + 28) + 4 * v16 + v3);
-      if ( v4 > v13 )
-        v4 &= -(v4 >= v13 + v18);
+      v3 = &v2[*(_DWORD *)&v2[4 * v15 + *((_DWORD *)v12 + 7)]];
+      if ( v3 > v12 )
+        return v3 >= &v12[Size] ? v3 : 0;
     }
   }
-  return v4;
+  return v3;
 }

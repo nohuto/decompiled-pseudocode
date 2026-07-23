@@ -35,7 +35,7 @@ __int64 __fastcall IommuBeginDeviceReset(KSPIN_LOCK *a1, _DWORD *a2)
   unsigned int SessionId; // edx
   unsigned __int8 v19; // bp
   unsigned int v20; // r8d
-  unsigned __int64 v21; // rdi
+  __int64 v21; // rdi
   __int64 v22; // rcx
   int v23; // eax
   unsigned int v24; // ecx
@@ -107,7 +107,7 @@ __int64 __fastcall IommuBeginDeviceReset(KSPIN_LOCK *a1, _DWORD *a2)
     v16 = !_BitScanReverse((unsigned int *)&v22, v20);
     if ( v16 )
       goto LABEL_33;
-    v21 = (unsigned __int64)&CurrentThread->LockEntries[v22];
+    v21 = (__int64)&CurrentThread->LockEntries[v22];
     v20 &= ~(1 << v22);
     if ( (*(_BYTE *)(v21 + 26) & 1) != 0
       && (*(_DWORD *)(v21 + 32) & 1) == 0
@@ -128,14 +128,14 @@ LABEL_33:
   }
   *(_BYTE *)(v21 + 32) |= 2u;
   if ( *(__int64 *)(v21 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v21);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v21);
   v23 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
   v24 = *(_DWORD *)(v21 + 88) & 0xFFFE0000;
   *(_BYTE *)(v21 + 25) &= ~1u;
   v31 = v23;
   *(_DWORD *)(v21 + 88) = v24;
   *(_QWORD *)(v21 + 32) = 0LL;
-  v25 = (__int64)(v21 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+  v25 = (signed __int64)(v21 - (unsigned __int64)CurrentThread->LockEntries) / 96;
   if ( v19 == 1 )
     CurrentThread->AbEntrySummary |= 1 << v25;
   else

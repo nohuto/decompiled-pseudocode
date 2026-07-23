@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpGetCompressionSettings @ 0x1406514B0
+ * XREFs of EtwpGetCompressionSettings @ 0x14064FBB0
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
  */
 
 __int64 __fastcall EtwpGetCompressionSettings(unsigned __int16 *a1, unsigned int *a2)
@@ -20,7 +20,7 @@ __int64 __fastcall EtwpGetCompressionSettings(unsigned __int16 *a1, unsigned int
   __int64 v6; // rax
   _DWORD *v7; // rsi
   signed __int64 *v8; // rbx
-  _QWORD *v9; // rbp
+  char *v9; // rbp
 
   v2 = *a1;
   v4 = 0;
@@ -31,11 +31,11 @@ __int64 __fastcall EtwpGetCompressionSettings(unsigned __int16 *a1, unsigned int
   {
     *a2 = v2;
     v8 = (signed __int64 *)(v6 + 1408);
-    v9 = KeAbPreAcquire(v6 + 1408, 0LL);
+    v9 = (char *)KeAbPreAcquire(v6 + 1408, 0LL);
     if ( _InterlockedCompareExchange64(v8, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v8, 0, v9, (__int64)v8);
     if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+      v9[10] = 1;
     a2[1] = v7[360];
     a2[2] = v7[359];
     a2[3] = v7[361];

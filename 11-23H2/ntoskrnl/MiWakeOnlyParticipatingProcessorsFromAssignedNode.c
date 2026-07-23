@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14038E2CC
+ * XREFs of MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14038E4AC
  * Callers:
- *     MiZeroPageCalibrateDpc @ 0x14038DCB0 (MiZeroPageCalibrateDpc.c)
+ *     MiZeroPageCalibrateDpc @ 0x14038DE90 (MiZeroPageCalibrateDpc.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiWakeOnlyParticipatingProcessorsFromAssignedNode(__int64 *a1, int a2)

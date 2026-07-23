@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxNotifySurprisePowerOn @ 0x14070CBC8
+ * XREFs of VerifierPoFxNotifySurprisePowerOn @ 0x14070CBF8
  * Callers:
  *     <none>
  * Callees:

@@ -1,16 +1,16 @@
 /*
- * XREFs of wil_details_FeatureReporting_RecordUsageInCache @ 0x140253124
+ * XREFs of wil_details_FeatureReporting_RecordUsageInCache @ 0x140285F94
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x14025304C (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x140285EBC (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
  * Callees:
- *     wil_atomic_uint32_compare_exchange_relaxed @ 0x1402D33A8 (wil_atomic_uint32_compare_exchange_relaxed.c)
- *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x1404EF618 (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
- *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x1404EF70C (wil_details_FeatureReporting_IncrementUsageInCache.c)
+ *     wil_atomic_uint32_compare_exchange_relaxed @ 0x1402516D8 (wil_atomic_uint32_compare_exchange_relaxed.c)
+ *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x140508720 (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
+ *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x140508814 (wil_details_FeatureReporting_IncrementUsageInCache.c)
  */
 
 __int64 __fastcall wil_details_FeatureReporting_RecordUsageInCache(
         __int64 a1,
-        int *a2,
+        volatile signed __int32 *a2,
         int a3,
         int a4,
         unsigned int a5)
@@ -18,16 +18,16 @@ __int64 __fastcall wil_details_FeatureReporting_RecordUsageInCache(
   int v6; // r10d
   int v9; // r11d
   int v10; // r9d
-  int v11; // ecx
-  __int64 v12; // r8
+  volatile signed __int32 v11; // ecx
+  signed __int32 v12; // r8d
   unsigned __int8 v13; // r8
   int v14; // esi
-  _DWORD *v15; // rcx
-  unsigned int v16; // r8d
+  volatile signed __int32 *v15; // rcx
+  unsigned __int32 v16; // r8d
   int v17; // r9d
   int v18; // eax
-  unsigned int j; // [rsp+40h] [rbp+8h] BYREF
-  int i; // [rsp+50h] [rbp+18h] BYREF
+  unsigned __int32 j; // [rsp+40h] [rbp+8h] BYREF
+  volatile signed __int32 i; // [rsp+50h] [rbp+18h] BYREF
 
   v6 = a3;
   *(_OWORD *)a1 = 0LL;
@@ -65,11 +65,11 @@ LABEL_8:
     v11 = *a2;
     for ( i = *a2; ; v11 = i )
     {
-      v12 = v9 | v11 | (unsigned int)v10;
+      v12 = v9 | v11 | v10;
       *(_DWORD *)(a1 + 16) = (v11 | v10) == v11;
       if ( (v11 | v10) == v11 )
-        v12 = v11 | (unsigned int)v10;
-      if ( (unsigned int)wil_atomic_uint32_compare_exchange_relaxed(a2, &i, v12) )
+        v12 = v11 | v10;
+      if ( (unsigned int)wil_atomic_uint32_compare_exchange_relaxed(a2, (signed __int32 *)&i, v12) )
         break;
     }
     if ( (v13 & (unsigned __int8)v9) == 0 || ((unsigned __int8)v9 & (unsigned __int8)i) != 0 )
@@ -92,13 +92,16 @@ LABEL_25:
   if ( (unsigned int)(a3 - 320) >= 0x40 )
     goto LABEL_34;
   v15 = a2 + 1;
-  v16 = a2[1];
+  v16 = *((_DWORD *)a2 + 1);
   v17 = 16;
   for ( j = v16; ; v16 = j )
   {
     v18 = ((unsigned __int8)v16 & (unsigned __int8)v17) != 0 && ((v16 >> 5) & 0x3F) == v14 ? v9 : 0;
     *(_DWORD *)(a1 + 16) = v18;
-    if ( (unsigned int)wil_atomic_uint32_compare_exchange_relaxed(v15, &j, v17 | (32 * (v14 & 0x3F)) | v16 & 0xFFFFF81F) )
+    if ( (unsigned int)wil_atomic_uint32_compare_exchange_relaxed(
+                         v15,
+                         (signed __int32 *)&j,
+                         v17 | (32 * (v14 & 0x3F)) | v16 & 0xFFFFF81F) )
       break;
   }
   if ( !*(_DWORD *)(a1 + 16) )

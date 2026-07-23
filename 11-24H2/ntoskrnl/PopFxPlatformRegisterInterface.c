@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxPlatformRegisterInterface @ 0x1406F9A60
+ * XREFs of PopFxPlatformRegisterInterface @ 0x1406F76A0
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PopFxPlatformRegisterInterface(__int64 a1, __int64 (__fastcall **a2)(unsigned int *a1))
@@ -16,7 +16,7 @@ __int64 __fastcall PopFxPlatformRegisterInterface(__int64 a1, __int64 (__fastcal
     if ( *(_QWORD *)(a1 + 8) && (v4 = *(_QWORD *)(a1 + 24)) != 0 )
     {
       v3 = -1073741823;
-      if ( !_InterlockedCompareExchange64(&qword_140F062B0, v4, 0LL) )
+      if ( !_InterlockedCompareExchange64(&qword_140F065B0, v4, 0LL) )
       {
         v3 = 0;
         PopFxPlatformInterface = *(_OWORD *)(a1 + 8);

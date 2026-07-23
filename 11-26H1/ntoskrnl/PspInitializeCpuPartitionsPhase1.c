@@ -1,13 +1,13 @@
 /*
- * XREFs of PspInitializeCpuPartitionsPhase1 @ 0x140CD8A70
+ * XREFs of PspInitializeCpuPartitionsPhase1 @ 0x140CDEDF0
  * Callers:
- *     PspInitPhase1 @ 0x140CD812C (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140CDE4AC (PspInitPhase1.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x140724970 (ZwCreateDirectoryObject.c)
- *     ObInsertObject @ 0x14092AFB0 (ObInsertObject.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     PspInitializeCpuPartitionsDefaultSd @ 0x140CD8734 (PspInitializeCpuPartitionsDefaultSd.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x140729540 (ZwCreateDirectoryObject.c)
+ *     ObInsertObject @ 0x140906AE0 (ObInsertObject.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     PspInitializeCpuPartitionsDefaultSd @ 0x140CDEAB4 (PspInitializeCpuPartitionsDefaultSd.c)
  */
 
 __int64 PspInitializeCpuPartitionsPhase1()
@@ -45,7 +45,7 @@ LABEL_5:
   else
   {
     v3 = 0LL;
-    stru_140FC01F0.AffinityVersion = (unsigned __int64)DirectoryHandle;
+    *(_QWORD *)&stru_140FC11F0.UserAffinityPrimaryGroup = DirectoryHandle;
     DirectoryHandle = 0LL;
   }
   if ( Handle )

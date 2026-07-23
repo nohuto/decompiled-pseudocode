@@ -29,13 +29,13 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtEnumerateKey(
-        HANDLE Handle,
-        unsigned int a2,
-        unsigned int a3,
-        volatile void *a4,
-        SIZE_T Length,
-        void *a6)
+NTSTATUS __cdecl NtEnumerateKey(
+        HANDLE KeyHandle,
+        ULONG Index,
+        KEY_INFORMATION_CLASS KeyInformationClass,
+        PVOID KeyInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
   __int64 v8; // rdx
   __int64 v9; // rcx
@@ -45,17 +45,17 @@ __int64 __fastcall NtEnumerateKey(
   char v13; // si
   __int64 v14; // r8
   __int64 v15; // r9
-  int v16; // ebx
+  NTSTATUS v16; // ebx
   KPROCESSOR_MODE PreviousMode; // r9
   int v18; // r14d
-  unsigned int v19; // esi
+  ULONG v19; // esi
   size_t v20; // r12
   volatile void *v21; // rbx
   __int64 v22; // rcx
   struct _KTHREAD *CurrentThread; // rax
   int v24; // eax
   __int64 v25; // rcx
-  unsigned int v26; // eax
+  ULONG v26; // eax
   char v28; // [rsp+40h] [rbp-1E8h]
   char v29; // [rsp+41h] [rbp-1E7h]
   char v30; // [rsp+42h] [rbp-1E6h]
@@ -73,9 +73,9 @@ __int64 __fastcall NtEnumerateKey(
   int v43; // [rsp+C8h] [rbp-160h]
   _BYTE v44[272]; // [rsp+D0h] [rbp-158h] BYREF
 
-  Address = a4;
-  Object = a6;
-  v34[2] = a2;
+  Address = KeyInformation;
+  Object = ResultLength;
+  v34[2] = Index;
   *(_OWORD *)v44 = 0LL;
   v43 = 0;
   memset(&v44[161], 0, 71);
@@ -105,15 +105,15 @@ __int64 __fastcall NtEnumerateKey(
     v16 = -1073741431;
     goto LABEL_26;
   }
-  if ( a3 > 2 )
+  if ( (unsigned int)KeyInformationClass > KeyFullInformation )
   {
     if ( CmpTraceRoutine )
     {
-      if ( Handle )
+      if ( KeyHandle )
       {
         PreviousMode = KeGetCurrentThread()->PreviousMode;
         Object = 0LL;
-        if ( ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Object, 0LL) >= 0 )
+        if ( ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Object, 0LL) >= 0 )
           ObfDereferenceObject(Object);
       }
     }
@@ -121,7 +121,7 @@ __int64 __fastcall NtEnumerateKey(
     goto LABEL_26;
   }
   v18 = KeGetCurrentThread()->PreviousMode;
-  v16 = CmObReferenceObjectByHandle((_DWORD)Handle, 8, v14, (unsigned __int8)v18, (__int64)&v32, 0LL);
+  v16 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 8, v14, (unsigned __int8)v18, (__int64)&v32, 0LL);
   if ( v16 < 0 )
     goto LABEL_26;
   if ( CmpTraceRoutine && v32 )
@@ -129,9 +129,9 @@ __int64 __fastcall NtEnumerateKey(
   if ( (_BYTE)v18 == 1 )
   {
     v19 = Length;
-    v20 = (unsigned int)Length;
+    v20 = Length;
     v21 = Address;
-    ProbeForWrite(Address, (unsigned int)Length, 4u);
+    ProbeForWrite(Address, Length, 4u);
     v22 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)Object < 0x7FFFFFFF0000LL )
       v22 = (__int64)Object;
@@ -140,7 +140,7 @@ __int64 __fastcall NtEnumerateKey(
   else
   {
     v19 = Length;
-    v20 = (unsigned int)Length;
+    v20 = Length;
     v21 = Address;
   }
   CurrentThread = KeGetCurrentThread();
@@ -149,7 +149,7 @@ __int64 __fastcall NtEnumerateKey(
   if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() )
   {
     *(_QWORD *)&v44[16] = v32;
-    *(_QWORD *)&v44[24] = __PAIR64__(a3, a2);
+    *(_QWORD *)&v44[24] = __PAIR64__(KeyInformationClass, Index);
     *(_QWORD *)&v44[32] = v21;
     *(_DWORD *)&v44[40] = v19;
     *(_QWORD *)&v44[48] = Object;
@@ -171,7 +171,7 @@ __int64 __fastcall NtEnumerateKey(
     goto LABEL_25;
   *((_QWORD *)&Parameter + 1) = v32;
   *(_QWORD *)&v40 = v37;
-  *((_QWORD *)&v40 + 1) = __PAIR64__(a3, a2);
+  *((_QWORD *)&v40 + 1) = __PAIR64__(KeyInformationClass, Index);
   *(_QWORD *)&v41 = *(_QWORD *)&v44[152];
   DWORD2(v41) = v19;
   v42 = v34;
@@ -235,5 +235,5 @@ LABEL_26:
   if ( v13 )
     CmpReleaseShutdownRundown(v25);
   CmCleanupThreadInfo((_KAFFINITY_EX **)v44);
-  return (unsigned int)v16;
+  return v16;
 }

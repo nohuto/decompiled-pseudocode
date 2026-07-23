@@ -6,13 +6,13 @@
  *     _RtlCreateEnvironmentEx@12 @ 0x4B2DACF0 (_RtlCreateEnvironmentEx@12.c)
  */
 
-int __stdcall RtlCreateEnvironment(char a1, int a2)
+NTSTATUS __cdecl RtlCreateEnvironment(BOOLEAN CloneCurrentEnvironment, PVOID *Environment)
 {
-  int v2; // eax
+  ULONG v2; // eax
 
-  if ( a1 )
+  if ( CloneCurrentEnvironment )
     v2 = 0;
   else
     v2 = 4;
-  return RtlCreateEnvironmentEx(0, a2, v2);
+  return RtlCreateEnvironmentEx(0, Environment, v2);
 }

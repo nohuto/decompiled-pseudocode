@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpWdatProcessWdrtInternalData @ 0x14055F940
+ * XREFs of HalpWdatProcessWdrtInternalData @ 0x14055D570
  * Callers:
- *     HalpWdatDiscover @ 0x14055F328 (HalpWdatDiscover.c)
+ *     HalpWdatDiscover @ 0x14055CF58 (HalpWdatDiscover.c)
  * Callees:
- *     WdHwCreateHardwareRegister @ 0x14056C938 (WdHwCreateHardwareRegister.c)
- *     WdHwDestroyHardwareRegister @ 0x14056CACC (WdHwDestroyHardwareRegister.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     WdHwCreateHardwareRegister @ 0x140569DC8 (WdHwCreateHardwareRegister.c)
+ *     WdHwDestroyHardwareRegister @ 0x140569F5C (WdHwDestroyHardwareRegister.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpWdatProcessWdrtInternalData(__int64 a1, _DWORD *a2, _DWORD *a3, _BYTE *a4)
@@ -16,17 +16,15 @@ __int64 __fastcall HalpWdatProcessWdrtInternalData(__int64 a1, _DWORD *a2, _DWOR
   __int64 result; // rax
   LARGE_INTEGER v10; // rcx
   __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int128 v14; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v15; // [rsp+30h] [rbp-28h]
-  __int64 v16; // [rsp+40h] [rbp-18h]
+  __int128 v12; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v13; // [rsp+30h] [rbp-28h]
+  __int64 v14; // [rsp+40h] [rbp-18h]
 
-  v16 = 0LL;
+  v14 = 0LL;
   v5 = *(unsigned __int16 *)(a1 + 68);
   a2[4] = v5;
-  v14 = 0LL;
-  v15 = 0LL;
+  v12 = 0LL;
+  v13 = 0LL;
   if ( v5 < 0x1FF )
     a2[4] = 511;
   a2[5] = 1;
@@ -54,8 +52,8 @@ __int64 __fastcall HalpWdatProcessWdrtInternalData(__int64 a1, _DWORD *a2, _DWOR
   result = WdHwCreateHardwareRegister(v10);
   if ( (int)result >= 0 )
   {
-    guard_dispatch_icall_no_overrides(v15, v11, v12, v13);
-    WdHwDestroyHardwareRegister(&v14);
+    guard_dispatch_icall_no_overrides(v13, v11);
+    WdHwDestroyHardwareRegister(&v12);
     result = 0LL;
     *a4 = 1;
   }

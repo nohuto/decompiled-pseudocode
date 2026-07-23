@@ -7,7 +7,7 @@
  *     RtlEqualUnicodeString @ 0x1800150E0 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall EtwpGetPrivateLoggerContextByName(unsigned __int16 *a1, _QWORD *a2)
+__int64 __fastcall EtwpGetPrivateLoggerContextByName(PUNICODE_STRING String2, _QWORD *a2)
 {
   unsigned int v4; // ebx
   unsigned int v5; // eax
@@ -15,7 +15,7 @@ __int64 __fastcall EtwpGetPrivateLoggerContextByName(unsigned __int16 *a1, _QWOR
   __int64 v8; // rsi
 
   *a2 = 0LL;
-  if ( !a1 )
+  if ( !String2 )
     return 4201LL;
   v4 = 0;
   while ( 1 )
@@ -34,7 +34,7 @@ LABEL_5:
     if ( ++v4 >= 0x40 )
       return 4201LL;
   }
-  if ( !RtlEqualUnicodeString((unsigned __int16 *)(v8 + 152), a1, 1) )
+  if ( !RtlEqualUnicodeString((PUNICODE_STRING)(v8 + 152), String2, 1u) )
   {
     v7 = 2LL * v4;
     goto LABEL_8;

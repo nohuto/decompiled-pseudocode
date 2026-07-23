@@ -15,7 +15,7 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-_QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, __int64 a2, __int64 a3, int a4, __int128 *a5)
+_QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, void *a2, __int64 a3, int a4, __int128 *a5)
 {
   _QWORD *result; // rax
   _QWORD *v8; // r14
@@ -40,7 +40,7 @@ _QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, __int64 a2, __int64 a3, int
   Buffer = 0LL;
   v24 = 0LL;
   memset(v25, 0, sizeof(v25));
-  result = (_QWORD *)RtlImageNtHeader(a2);
+  result = RtlImageNtHeader(a2);
   v8 = result;
   if ( !result )
     return result;

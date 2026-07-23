@@ -16,7 +16,7 @@ __int64 __fastcall PipCriticalDeviceWaitCallback(__int64 a1, const char *a2, UNI
 {
   NTSTATUS v5; // ebx
   HANDLE FileHandle; // [rsp+30h] [rbp-D0h] BYREF
-  STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
+  _STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   char pszDest[256]; // [rsp+90h] [rbp-70h] BYREF

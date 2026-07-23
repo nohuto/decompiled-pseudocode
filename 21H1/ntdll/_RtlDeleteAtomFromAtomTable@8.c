@@ -9,31 +9,31 @@
  *     _RtlpAtomMapAtomToHandleEntry@8 @ 0x4B2E04EF (_RtlpAtomMapAtomToHandleEntry@8.c)
  */
 
-int __stdcall RtlDeleteAtomFromAtomTable(int a1, unsigned __int16 a2)
+NTSTATUS __cdecl RtlDeleteAtomFromAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
-  int v2; // esi
+  NTSTATUS v2; // esi
   int v3; // eax
 
-  if ( !(unsigned __int8)RtlpLockAtomTable(a1) )
+  if ( !(unsigned __int8)RtlpLockAtomTable(AtomTableHandle) )
     return -1073741811;
   v2 = -1073741816;
-  if ( a2 < 0xC000u )
+  if ( Atom < 0xC000u )
   {
-    if ( a2 )
+    if ( Atom )
       v2 = 0;
   }
   else
   {
-    v3 = RtlpAtomMapAtomToHandleEntry(a1, a2 & 0x3FFF);
-    if ( v3 && *(_WORD *)(v3 + 6) == a2 && v3 != -8 )
+    v3 = RtlpAtomMapAtomToHandleEntry(AtomTableHandle, Atom & 0x3FFF);
+    if ( v3 && *(_WORD *)(v3 + 6) == Atom && v3 != -8 )
     {
       v2 = 0;
       if ( (*(_BYTE *)(v3 + 10) & 1) != 0 )
         v2 = 1073741849;
       else
-        RtlpDereferenceAtom(a1);
+        RtlpDereferenceAtom(v3, AtomTableHandle);
     }
   }
-  RtlReleaseSRWLockExclusive(a1 + 8);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 2);
   return v2;
 }

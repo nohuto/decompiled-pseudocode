@@ -10,7 +10,7 @@
 
 __int64 SshpSessionManagerInitialize()
 {
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&SshpSessionManagerLock);
+  CmSiRWLockInitialize(&SshpSessionManagerLock);
   memset(SshpSessionManagerContext, 0, 0x448uLL);
   LOWORD(stru_140C38768.Header.Lock) = 0;
   qword_140C38750 = (__int64)SshpSessionManagerControlSessionCallback;

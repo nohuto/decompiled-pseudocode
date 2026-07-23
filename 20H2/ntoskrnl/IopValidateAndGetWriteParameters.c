@@ -170,7 +170,7 @@ LABEL_45:
     v27 = *(volatile __int32 **)(a1 + 16);
     v28 = KeGetCurrentThread();
     --v28->KernelApcDisable;
-    v29 = KeAbPreAcquire((ULONG_PTR)(v27 + 32), 0LL, 0LL);
+    v29 = KeAbPreAcquire((ULONG_PTR)(v27 + 32), 0LL, 0);
     v35 = 0;
     if ( _InterlockedExchange(v27 + 29, 1) )
     {

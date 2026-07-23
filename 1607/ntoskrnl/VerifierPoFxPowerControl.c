@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxPowerControl @ 0x14070CBD0
+ * XREFs of VerifierPoFxPowerControl @ 0x14070CC00
  * Callers:
  *     <none>
  * Callees:

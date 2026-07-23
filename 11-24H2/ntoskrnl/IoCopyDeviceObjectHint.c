@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCopyDeviceObjectHint @ 0x140713D10
+ * XREFs of IoCopyDeviceObjectHint @ 0x1407118A0
  * Callers:
  *     <none>
  * Callees:
- *     IopGetSetSpecificExtension @ 0x140426ED0 (IopGetSetSpecificExtension.c)
+ *     IopGetSetSpecificExtension @ 0x14041AD50 (IopGetSetSpecificExtension.c)
  */
 
 __int64 __fastcall IoCopyDeviceObjectHint(__int64 a1, __int64 a2)
@@ -32,7 +32,7 @@ __int64 __fastcall IoCopyDeviceObjectHint(__int64 a1, __int64 a2)
     v6 = *(_QWORD **)(v5 + 16);
     if ( v6 )
     {
-      SetSpecificExtension = IopGetSetSpecificExtension(a2, 1, 32LL, 1, &v7, 0LL);
+      SetSpecificExtension = IopGetSetSpecificExtension(a2, 1, 0x20u, 1, &v7, 0LL);
       if ( !SetSpecificExtension )
         *v7 = *v6;
     }

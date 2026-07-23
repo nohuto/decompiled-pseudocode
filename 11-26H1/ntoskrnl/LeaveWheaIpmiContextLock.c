@@ -1,12 +1,12 @@
 /*
- * XREFs of LeaveWheaIpmiContextLock @ 0x1406D4364
+ * XREFs of LeaveWheaIpmiContextLock @ 0x1406D83E4
  * Callers:
- *     PnpLogBootFailuresSel @ 0x1405DA220 (PnpLogBootFailuresSel.c)
- *     WheaSelLogCheckPoint @ 0x1406D43A4 (WheaSelLogCheckPoint.c)
+ *     PnpLogBootFailuresSel @ 0x1405DCA20 (PnpLogBootFailuresSel.c)
+ *     WheaSelLogCheckPoint @ 0x1406D8424 (WheaSelLogCheckPoint.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void LeaveWheaIpmiContextLock()

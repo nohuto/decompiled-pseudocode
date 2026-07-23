@@ -1,25 +1,25 @@
 /*
- * XREFs of MiCheckProtoPtePageState @ 0x14031BB00
+ * XREFs of MiCheckProtoPtePageState @ 0x14031DB30
  * Callers:
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
- *     MiFlushSubsection @ 0x1403C1390 (MiFlushSubsection.c)
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
- *     MiAnyProtosAreMapped @ 0x1404BCEC0 (MiAnyProtosAreMapped.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
+ *     MiFlushSubsection @ 0x1403CB290 (MiFlushSubsection.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
+ *     MiAnyProtosAreMapped @ 0x1404B66A0 (MiAnyProtosAreMapped.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiInvalidPteConforms @ 0x1402F4430 (MiInvalidPteConforms.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiIsProtoPoolPfnInNonPagedPool @ 0x14031C220 (MiIsProtoPoolPfnInNonPagedPool.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
- *     MiSpinForProtoPoolLock @ 0x1404168D0 (MiSpinForProtoPoolLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiInvalidPteConforms @ 0x1402D64B0 (MiInvalidPteConforms.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiIsProtoPoolPfnInNonPagedPool @ 0x14031E250 (MiIsProtoPoolPfnInNonPagedPool.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
+ *     MiSpinForProtoPoolLock @ 0x14040AEE0 (MiSpinForProtoPoolLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall MiCheckProtoPtePageState(__int64 a1, ULONG_PTR a2, int a3, _BYTE *a4)
+__int64 __fastcall MiCheckProtoPtePageState(__int64 a1, ULONG_PTR a2, __int64 a3, _BYTE *a4)
 {
   _DWORD *v4; // rbp
   __int64 v5; // rbx
@@ -62,7 +62,7 @@ __int64 __fastcall MiCheckProtoPtePageState(__int64 a1, ULONG_PTR a2, int a3, _B
     {
       do
       {
-        while ( a2 < 0xFFFF800000000000uLL || byte_140E37A70[((a2 >> 39) & 0x1FF) - 256] != 4 )
+        while ( a2 < 0xFFFF800000000000uLL || byte_140E37BF0[((a2 >> 39) & 0x1FF) - 256] != 4 )
         {
           v9 = (__int64 *)(v12 + ((a2 >> 9) & 0x7FFFFFFFF8LL));
           v7 = *v9;
@@ -92,11 +92,11 @@ __int64 __fastcall MiCheckProtoPtePageState(__int64 a1, ULONG_PTR a2, int a3, _B
           if ( MiInvalidPteConforms(*v9) )
           {
             v14 = v7;
-            if ( qword_140E2D740 )
+            if ( qword_140E2D8C0 )
             {
               v14 = v7 & 0xFFFFFFFFFFFFFFEFuLL;
               if ( (v7 & 0x10) == 0 )
-                v14 = v7 & qword_140E2D748;
+                v14 = v7 & qword_140E2D8C8;
             }
 LABEL_9:
             v15 = a3;
@@ -112,7 +112,7 @@ LABEL_9:
 LABEL_10:
         v18 = v15 & v17;
         v19 = v10 + 48 * ContainingPageTable;
-        v20 = MiSafeLockPage(ContainingPageTable, v8);
+        v20 = MiSafeLockPage(ContainingPageTable, v8, a3);
         a3 = v31;
         v8 = a1;
         v11 = 0xFFFFFFFFFFLL;

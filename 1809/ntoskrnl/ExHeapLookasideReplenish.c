@@ -1,15 +1,15 @@
 /*
- * XREFs of ExHeapLookasideReplenish @ 0x1401B7514
+ * XREFs of ExHeapLookasideReplenish @ 0x1401B7674
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA0B0 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlpHpVsContextMultiAlloc @ 0x1401B6C40 (RtlpHpVsContextMultiAlloc.c)
- *     InterlockedPushListSList @ 0x1401C5480 (InterlockedPushListSList.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x1401B6DA8 (RtlpHpVsContextMultiAlloc.c)
+ *     InterlockedPushListSList @ 0x1401C55E0 (InterlockedPushListSList.c)
  */
 
 PSLIST_ENTRY *__fastcall ExHeapLookasideReplenish(__int64 a1, unsigned int a2, __int64 a3, unsigned __int64 a4)
 {
-  union _SLIST_HEADER *v5; // rdi
+  _SLIST_HEADER *v5; // rdi
   unsigned int v6; // r8d
   PSLIST_ENTRY *v7; // rbx
   unsigned int v8; // r8d
@@ -18,7 +18,7 @@ PSLIST_ENTRY *__fastcall ExHeapLookasideReplenish(__int64 a1, unsigned int a2, _
   PSLIST_ENTRY ListEnd; // [rsp+30h] [rbp-18h] BYREF
   PSLIST_ENTRY *v13; // [rsp+50h] [rbp+8h] BYREF
 
-  v5 = (union _SLIST_HEADER *)(a1 + ((a2 + 1LL) << 6));
+  v5 = (_SLIST_HEADER *)(a1 + ((a2 + 1LL) << 6));
   v6 = ((LOWORD(v5[1].Alignment) - LOWORD(v5->Alignment)) & (unsigned int)-(LOWORD(v5->Alignment) < (unsigned int)LOWORD(v5[1].Alignment))) >> 1;
   if ( !v6 )
     return 0LL;

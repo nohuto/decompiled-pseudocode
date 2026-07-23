@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpRecoverDataReadRoutine @ 0x140AEA1C0
+ * XREFs of HvpRecoverDataReadRoutine @ 0x140AECCB0
  * Callers:
  *     <none>
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HvpRecoverDataReadRoutine(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4)

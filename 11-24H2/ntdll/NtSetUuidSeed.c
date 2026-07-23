@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetUuidSeed @ 0x1801654E0
+ * XREFs of NtSetUuidSeed @ 0x1801638A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetUuidSeed()
+NTSTATUS __cdecl NtSetUuidSeed(PCHAR Seed)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 451LL;
+  result = 451;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

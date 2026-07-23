@@ -1,11 +1,11 @@
 /*
- * XREFs of deflate_huff @ 0x1406282C0
+ * XREFs of deflate_huff @ 0x14062B310
  * Callers:
- *     deflate @ 0x14062789C (deflate.c)
+ *     deflate @ 0x14062A8EC (deflate.c)
  * Callees:
- *     fill_window @ 0x1406291A4 (fill_window.c)
- *     flush_pending @ 0x1406294F4 (flush_pending.c)
- *     _tr_flush_block @ 0x140635E48 (_tr_flush_block.c)
+ *     fill_window @ 0x14062C1F4 (fill_window.c)
+ *     flush_pending @ 0x14062C544 (flush_pending.c)
+ *     _tr_flush_block @ 0x140638E50 (_tr_flush_block.c)
  */
 
 __int64 __fastcall deflate_huff(__int64 *a1)

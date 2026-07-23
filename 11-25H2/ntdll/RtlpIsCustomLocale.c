@@ -17,12 +17,12 @@
 
 bool __fastcall RtlpIsCustomLocale(wchar_t *String)
 {
-  __int64 CustomCultureRegKey; // rdi
+  void *CustomCultureRegKey; // rdi
   size_t v3; // rax
-  int v5; // [rsp+50h] [rbp+0h] BYREF
+  ULONG v5; // [rsp+50h] [rbp+0h] BYREF
 
   *(_DWORD *)((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) = 0;
-  CustomCultureRegKey = RtlpGetCustomCultureRegKey();
+  CustomCultureRegKey = (void *)RtlpGetCustomCultureRegKey();
   if ( !CustomCultureRegKey || !*String )
     return 0;
   *(_DWORD *)(((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) + 0xC) = 0;
@@ -32,11 +32,11 @@ bool __fastcall RtlpIsCustomLocale(wchar_t *String)
     LOWORD(v3) = -4;
   *(_WORD *)(((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = v3;
   *(_WORD *)(((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) + 0xA) = v3 + 2;
-  return (int)NtQueryValueKey(
-                CustomCultureRegKey,
-                ((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) + 8,
-                2LL,
-                ((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) + 32,
-                120,
-                (unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) >= 0;
+  return NtQueryValueKey(
+           CustomCultureRegKey,
+           (PUNICODE_STRING)(((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
+           KeyValuePartialInformation,
+           (PVOID)(((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) + 32),
+           0x78u,
+           (PULONG)((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL)) >= 0;
 }

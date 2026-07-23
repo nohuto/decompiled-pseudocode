@@ -148,10 +148,10 @@ LABEL_28:
           (volatile signed __int32 *)(qword_140C67EF8
                                     + 4 * (((((__int64)v15 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
           ~(1 << ((((__int64)v15 - qword_140C67EF0) >> 3) & 0x1F)));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v13 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v13 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -189,10 +189,10 @@ LABEL_14:
             (volatile signed __int32 *)(qword_140C67EF8
                                       + 4 * (((((__int64)v15 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
             ~(1 << ((((__int64)v15 - qword_140C67EF0) >> 3) & 0x1F)));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v34 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v13 <= 0xFu && v34 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v13 <= 0xFu && v34 >= 2u )
           {
             v35 = KeGetCurrentPrcb();
             v36 = v35->SchedulerAssist;
@@ -213,10 +213,10 @@ LABEL_14:
             (volatile signed __int32 *)(qword_140C67EF8
                                       + 4 * (((((__int64)v15 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
             ~(1 << ((((__int64)v15 - qword_140C67EF0) >> 3) & 0x1F)));
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v39 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v38 <= 0xFu && v39 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v38 <= 0xFu && v39 >= 2u )
             {
               v40 = KeGetCurrentPrcb();
               v41 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v38 + 1));
@@ -255,10 +255,10 @@ LABEL_47:
     if ( !v44 )
       goto LABEL_14;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v45 + 23104));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v13 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v13 <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;

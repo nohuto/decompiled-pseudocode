@@ -12,7 +12,7 @@ PVOID __stdcall RtlEnumerateGenericTable(PRTL_GENERIC_TABLE Table, BOOLEAN Resta
   PRTL_SPLAY_LINKS TableRoot; // rbx
   void *v3; // rdi
   _RTL_SPLAY_LINKS *i; // rax
-  struct _RTL_SPLAY_LINKS *v7; // rcx
+  _RTL_SPLAY_LINKS *v7; // rcx
   PRTL_SPLAY_LINKS v8; // rax
 
   TableRoot = Table->TableRoot;

@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepAddSecurityAttributeToLists @ 0x140468460
+ * XREFs of AuthzBasepAddSecurityAttributeToLists @ 0x140461AA0
  * Callers:
- *     AuthzBasepDeleteAllSecurityAttributes @ 0x140714FEC (AuthzBasepDeleteAllSecurityAttributes.c)
+ *     AuthzBasepDeleteAllSecurityAttributes @ 0x140719CDC (AuthzBasepDeleteAllSecurityAttributes.c)
  * Callees:
  *     <none>
  */

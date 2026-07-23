@@ -13,27 +13,31 @@ errno_t __cdecl memmove_s(
         const void *const Source,
         const rsize_t SourceSize)
 {
+  int v4; // esi
   errno_t result; // eax
-  errno_t v5; // [esp-8h] [ebp-8h]
+  size_t v6; // [esp-8h] [ebp-8h]
+  errno_t v7; // [esp-8h] [ebp-8h]
 
-  result = SourceSize;
-  if ( SourceSize )
+  result = (errno_t)Source;
+  if ( Source )
   {
-    if ( Destination && Source )
+    HIDWORD(v6) = v4;
+    if ( Destination && HIDWORD(DestinationSize) )
     {
-      if ( DestinationSize >= SourceSize )
+      if ( (unsigned int)DestinationSize >= (unsigned int)Source )
       {
-        memmove(Destination, Source, SourceSize);
+        LODWORD(v6) = Source;
+        memmove(Destination, (const void *)HIDWORD(DestinationSize), v6);
         return 0;
       }
-      v5 = 34;
+      v7 = 34;
     }
     else
     {
-      v5 = 22;
+      v7 = 22;
     }
     _invalid_parameter();
-    return v5;
+    return v7;
   }
   return result;
 }

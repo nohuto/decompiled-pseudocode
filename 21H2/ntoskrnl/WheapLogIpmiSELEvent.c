@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapLogIpmiSELEvent @ 0x1405BD538
+ * XREFs of WheapLogIpmiSELEvent @ 0x1405BD768
  * Callers:
- *     WheaSelLogErrorPkt @ 0x1405BE09C (WheaSelLogErrorPkt.c)
- *     WheaSelLogEvent @ 0x1405BE188 (WheaSelLogEvent.c)
+ *     WheaSelLogErrorPkt @ 0x1405BE2CC (WheaSelLogErrorPkt.c)
+ *     WheaSelLogEvent @ 0x1405BE3B8 (WheaSelLogEvent.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     WheapLogIpmiSELEventHighIrql @ 0x1405BD5D8 (WheapLogIpmiSELEventHighIrql.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WheapLogIpmiSELEventHighIrql @ 0x1405BD808 (WheapLogIpmiSELEventHighIrql.c)
  */
 
 __int64 __fastcall WheapLogIpmiSELEvent(void *Src, size_t Size, int a3)

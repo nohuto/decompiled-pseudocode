@@ -1,7 +1,7 @@
 /*
  * XREFs of CmpHKeyNameLen @ 0x140017934
  * Callers:
- *     CmpCheckKey @ 0x1405DA210 (CmpCheckKey.c)
+ *     CmpCheckKey @ 0x1405DB210 (CmpCheckKey.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of KxNmiInterrupt @ 0x1401C8AC0
+ * XREFs of KxNmiInterrupt @ 0x1401C8BC0
  * Callers:
- *     KiNmiInterruptStart @ 0x1401C8700 (KiNmiInterruptStart.c)
+ *     KiNmiInterruptStart @ 0x1401C8800 (KiNmiInterruptStart.c)
  * Callees:
- *     KiProcessNMI @ 0x14028D890 (KiProcessNMI.c)
- *     KiSaveProcessorState @ 0x14029CD00 (KiSaveProcessorState.c)
+ *     KiProcessNMI @ 0x14028DA80 (KiProcessNMI.c)
+ *     KiSaveProcessorState @ 0x14029CEF0 (KiSaveProcessorState.c)
  */
 
 __int64 __fastcall KxNmiInterrupt()

@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemLoadLocalGroupPolicy @ 0x140820FAC
+ * XREFs of WdipSemLoadLocalGroupPolicy @ 0x1408271BC
  * Callers:
- *     WdipSemLoadGroupPolicy @ 0x140820F00 (WdipSemLoadGroupPolicy.c)
+ *     WdipSemLoadGroupPolicy @ 0x140827110 (WdipSemLoadGroupPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WdipSemOpenRegistryKey @ 0x140821610 (WdipSemOpenRegistryKey.c)
- *     WdipSemQueryValueFromRegistry @ 0x1408216A0 (WdipSemQueryValueFromRegistry.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WdipSemOpenRegistryKey @ 0x140827820 (WdipSemOpenRegistryKey.c)
+ *     WdipSemQueryValueFromRegistry @ 0x1408278B0 (WdipSemQueryValueFromRegistry.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WdipSemLoadLocalGroupPolicy(HANDLE KeyHandle)
@@ -52,12 +52,12 @@ __int64 __fastcall WdipSemLoadLocalGroupPolicy(HANDLE KeyHandle)
           && (int)WdipSemQueryValueFromRegistry(0LL, &v9, (__int64)&ResultLength) >= 0
           && !v9 )
         {
-          Blink = stru_140F066E8.Header.WaitListHead.Blink;
-          if ( !stru_140F066E8.Header.WaitListHead.Blink )
+          Blink = stru_140F042A0.Timer.Header.WaitListHead.Blink;
+          if ( !stru_140F042A0.Timer.Header.WaitListHead.Blink )
           {
-            stru_140F066E8.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)ExAllocatePool2(0x100uLL);
-            Blink = stru_140F066E8.Header.WaitListHead.Blink;
-            if ( !stru_140F066E8.Header.WaitListHead.Blink )
+            stru_140F042A0.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)ExAllocatePool2(0x100uLL);
+            Blink = stru_140F042A0.Timer.Header.WaitListHead.Blink;
+            if ( !stru_140F042A0.Timer.Header.WaitListHead.Blink )
               return (unsigned int)-1073741670;
           }
           Flink = (unsigned int)Blink[64].Flink;

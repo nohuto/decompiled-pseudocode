@@ -1,22 +1,22 @@
 /*
- * XREFs of PspDeleteExternalServerSiloState @ 0x1409ACDB8
+ * XREFs of PspDeleteExternalServerSiloState @ 0x1409ACFB8
  * Callers:
- *     PspCompleteServerSiloShutdownDeferred @ 0x1409ACAF0 (PspCompleteServerSiloShutdownDeferred.c)
- *     PspInitializeServerSiloDeferred @ 0x1409AD0A0 (PspInitializeServerSiloDeferred.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x1409ACCF0 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409AD2A0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     PsGetPermanentSiloContext @ 0x14031C840 (PsGetPermanentSiloContext.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CC90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CCB0 (PsAttachSiloToCurrentThread.c)
- *     ExpNlsDeleteSiloState @ 0x1406098D4 (ExpNlsDeleteSiloState.c)
- *     ObCleanupSiloState @ 0x14097ADD0 (ObCleanupSiloState.c)
- *     RtlNlsDeleteState @ 0x1409B9848 (RtlNlsDeleteState.c)
- *     SeShutdownServerSilo @ 0x1409C8EE0 (SeShutdownServerSilo.c)
- *     EtwShutdown @ 0x1409E2B1C (EtwShutdown.c)
- *     ExpTimeZoneCleanupSiloState @ 0x1409F8014 (ExpTimeZoneCleanupSiloState.c)
- *     CmpStopSiloKeyLockTracker @ 0x140A1BE98 (CmpStopSiloKeyLockTracker.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     PsGetPermanentSiloContext @ 0x14031CAD0 (PsGetPermanentSiloContext.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14031CF20 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14031CF40 (PsAttachSiloToCurrentThread.c)
+ *     ExpNlsDeleteSiloState @ 0x140609E24 (ExpNlsDeleteSiloState.c)
+ *     ObCleanupSiloState @ 0x14097AFD0 (ObCleanupSiloState.c)
+ *     RtlNlsDeleteState @ 0x1409B9A48 (RtlNlsDeleteState.c)
+ *     SeShutdownServerSilo @ 0x1409C90E0 (SeShutdownServerSilo.c)
+ *     EtwShutdown @ 0x1409E2DAC (EtwShutdown.c)
+ *     ExpTimeZoneCleanupSiloState @ 0x1409F82A4 (ExpTimeZoneCleanupSiloState.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140A1C148 (CmpStopSiloKeyLockTracker.c)
  */
 
 __int64 __fastcall PspDeleteExternalServerSiloState(__int64 a1)

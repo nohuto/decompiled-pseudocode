@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetNextEventOffsetType @ 0x1403154A4
+ * XREFs of EtwpGetNextEventOffsetType @ 0x140315694
  * Callers:
- *     EtwpSendTraceEvent @ 0x14031325C (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x140313D54 (EtwpInvokeEventCallback.c)
- *     EtwpCompressBuffer @ 0x140314A98 (EtwpCompressBuffer.c)
- *     EtwpSendBufferToDebugger @ 0x1408BDAD0 (EtwpSendBufferToDebugger.c)
+ *     EtwpSendTraceEvent @ 0x14031344C (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x140313F44 (EtwpInvokeEventCallback.c)
+ *     EtwpCompressBuffer @ 0x140314C88 (EtwpCompressBuffer.c)
+ *     EtwpSendBufferToDebugger @ 0x1408BED90 (EtwpSendBufferToDebugger.c)
  * Callees:
  *     <none>
  */

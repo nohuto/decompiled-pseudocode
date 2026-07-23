@@ -1,11 +1,11 @@
 /*
- * XREFs of ExRngInitializeSystem @ 0x140A6E660
+ * XREFs of ExRngInitializeSystem @ 0x140A6F660
  * Callers:
- *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099D160 (KiInitializeBootStructures.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 ExRngInitializeSystem()

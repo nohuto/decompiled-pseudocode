@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsAddressRangeValid @ 0x14062FCE4
+ * XREFs of MiIsAddressRangeValid @ 0x140630234
  * Callers:
- *     MiAddUnicodeStringToCrashDump @ 0x14062F8D4 (MiAddUnicodeStringToCrashDump.c)
+ *     MiAddUnicodeStringToCrashDump @ 0x14062FE24 (MiAddUnicodeStringToCrashDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
  */
 
 __int64 __fastcall MiIsAddressRangeValid(__int64 a1, __int64 a2)

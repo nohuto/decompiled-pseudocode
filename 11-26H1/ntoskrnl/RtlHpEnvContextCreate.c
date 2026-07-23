@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlHpEnvContextCreate @ 0x14042FB60
+ * XREFs of RtlHpEnvContextCreate @ 0x14041CB90
  * Callers:
- *     ExpPoolCreate @ 0x14077DC90 (ExpPoolCreate.c)
- *     ExpPoolHeapCreate @ 0x1408465EC (ExpPoolHeapCreate.c)
+ *     ExpPoolCreate @ 0x140780790 (ExpPoolCreate.c)
+ *     ExpPoolHeapCreate @ 0x14084C84C (ExpPoolHeapCreate.c)
  * Callees:
  *     <none>
  */

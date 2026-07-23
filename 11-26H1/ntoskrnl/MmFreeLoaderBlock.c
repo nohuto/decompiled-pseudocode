@@ -1,18 +1,18 @@
 /*
- * XREFs of MmFreeLoaderBlock @ 0x140CF220C
+ * XREFs of MmFreeLoaderBlock @ 0x140CF858C
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiDeleteBootRange @ 0x1406E35D0 (MiDeleteBootRange.c)
- *     MiPageBootRegistry @ 0x1406E3A98 (MiPageBootRegistry.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiDeleteBootRange @ 0x1406E827C (MiDeleteBootRange.c)
+ *     MiPageBootRegistry @ 0x1406E8744 (MiPageBootRegistry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void MmFreeLoaderBlock()
 {
-  __int64 v0; // rsi
+  _RTL_RB_TREE *v0; // rsi
   unsigned int v1; // r14d
   __int64 v2; // rax
   __int64 v3; // rbx
@@ -39,7 +39,7 @@ void MmFreeLoaderBlock()
   __int64 *v24; // [rsp+38h] [rbp-8h]
 
   v24 = (__int64 *)&v23;
-  v0 = KeLoaderBlock_0 + 352;
+  v0 = (_RTL_RB_TREE *)(KeLoaderBlock_0 + 352);
   v23 = &v23;
   v1 = 0;
   v22 = (__int64 *)&v21;
@@ -49,7 +49,7 @@ void MmFreeLoaderBlock()
   {
     if ( v2 == 1 )
       goto LABEL_27;
-    v3 = v2 ^ (v0 | 1);
+    v3 = v2 ^ ((unsigned __int64)v0 | 1);
   }
   else
   {
@@ -80,7 +80,7 @@ void MmFreeLoaderBlock()
       {
         if ( *(_DWORD *)(v3 + 24) == 19 )
         {
-          RtlRbRemoveNode(v0, v3);
+          RtlRbRemoveNode(v0, (PRTL_BALANCED_NODE)v3);
           v8 = v24;
           if ( (_QWORD **)*v24 != &v23 )
             goto LABEL_30;
@@ -92,7 +92,7 @@ void MmFreeLoaderBlock()
         v9 = *(_DWORD *)(v3 + 24);
         if ( v9 == 7 || v9 == 21 || v9 == 14 )
         {
-          RtlRbRemoveNode(v0, v3);
+          RtlRbRemoveNode(v0, (PRTL_BALANCED_NODE)v3);
           v10 = v22;
           if ( (_QWORD **)*v22 != &v21 )
 LABEL_30:

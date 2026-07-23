@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceExpectedUtility @ 0x1401757B0
+ * XREFs of PpmEventTraceExpectedUtility @ 0x1401758B0
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x14017537C (PpmPerfApplyProcessorState.c)
+ *     PpmPerfApplyProcessorState @ 0x14017547C (PpmPerfApplyProcessorState.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceExpectedUtility(__int64 a1)

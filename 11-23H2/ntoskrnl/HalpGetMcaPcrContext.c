@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpGetMcaPcrContext @ 0x140380334
+ * XREFs of HalpGetMcaPcrContext @ 0x1403804D4
  * Callers:
- *     HalpCmciInitializeErrorPacket @ 0x1403800E4 (HalpCmciInitializeErrorPacket.c)
- *     HalpCmciInitProcessor @ 0x1403801A8 (HalpCmciInitProcessor.c)
- *     HalpCmciPollProcessor @ 0x140380298 (HalpCmciPollProcessor.c)
- *     HalpHvInitMcaPcrContext @ 0x1403802E4 (HalpHvInitMcaPcrContext.c)
- *     HalpMcaStuckErrorCheck @ 0x1405038AC (HalpMcaStuckErrorCheck.c)
- *     HalpMceHandlerCore @ 0x140503B18 (HalpMceHandlerCore.c)
+ *     HalpCmciInitializeErrorPacket @ 0x140380284 (HalpCmciInitializeErrorPacket.c)
+ *     HalpCmciInitProcessor @ 0x140380348 (HalpCmciInitProcessor.c)
+ *     HalpCmciPollProcessor @ 0x140380438 (HalpCmciPollProcessor.c)
+ *     HalpHvInitMcaPcrContext @ 0x140380484 (HalpHvInitMcaPcrContext.c)
+ *     HalpMcaStuckErrorCheck @ 0x140503DFC (HalpMcaStuckErrorCheck.c)
+ *     HalpMceHandlerCore @ 0x140504068 (HalpMceHandlerCore.c)
  *     HalpMceInitializeErrorPacket @ 0x140A8AADC (HalpMceInitializeErrorPacket.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpGetMcaPcrContext(__int64 a1)

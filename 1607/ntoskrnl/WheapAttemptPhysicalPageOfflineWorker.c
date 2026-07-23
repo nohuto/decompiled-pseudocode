@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapAttemptPhysicalPageOfflineWorker @ 0x1406BA95C
+ * XREFs of WheapAttemptPhysicalPageOfflineWorker @ 0x1406BAA94
  * Callers:
  *     <none>
  * Callees:
- *     WheapAttemptPhysicalPageOffline @ 0x1406BA850 (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1406BA988 (WheapAttemptPhysicalPageOffline.c)
  */
 
 LONG __fastcall WheapAttemptPhysicalPageOfflineWorker(__int64 a1)

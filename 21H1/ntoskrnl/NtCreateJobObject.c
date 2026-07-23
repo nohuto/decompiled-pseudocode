@@ -20,14 +20,14 @@
  *     ExCreateHandle @ 0x140947D00 (ExCreateHandle.c)
  */
 
-__int64 __fastcall NtCreateJobObject(HANDLE *a1, ACCESS_MASK a2, __int64 a3)
+NTSTATUS __cdecl NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   struct _KTHREAD *CurrentThread; // r15
   char PreviousMode; // si
   __int64 v7; // rcx
   char v8; // r12
   unsigned int v9; // ebx
-  int inserted; // esi
+  NTSTATUS inserted; // esi
   size_t v11; // r8
   PRKEVENT v12; // rbx
   struct _KEVENT *v13; // rax
@@ -47,14 +47,14 @@ __int64 __fastcall NtCreateJobObject(HANDLE *a1, ACCESS_MASK a2, __int64 a3)
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)JobHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)JobHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  *a1 = 0LL;
+  *JobHandle = 0LL;
   v8 = PoEnergyEstimationEnabled();
   v9 = v8 != 0 ? 2032 : 1600;
-  inserted = ObCreateObject(PreviousMode, PsJobType, a3, PreviousMode, 0, v9, 0, v9, &Event);
+  inserted = ObCreateObject(PreviousMode, PsJobType, (__int64)ObjectAttributes, PreviousMode, 0, v9, 0, v9, &Event);
   if ( inserted < 0 )
   {
     v12 = Event;
@@ -128,10 +128,10 @@ __int64 __fastcall NtCreateJobObject(HANDLE *a1, ACCESS_MASK a2, __int64 a3)
     if ( inserted >= 0 )
     {
       ObfReferenceObject(v12);
-      inserted = ObInsertObject(v12, 0LL, a2, 0, 0LL, &Handle);
+      inserted = ObInsertObject(v12, 0LL, DesiredAccess, 0, 0LL, &Handle);
       if ( inserted >= 0 )
       {
-        *a1 = Handle;
+        *JobHandle = Handle;
         goto LABEL_20;
       }
       v16 = (struct _DMA_ADAPTER *)v12;
@@ -144,5 +144,5 @@ LABEL_20:
     EtwTraceJob(v12, Lock, (unsigned int)inserted, 1824LL);
   if ( v12 )
     HalPutDmaAdapter((PADAPTER_OBJECT)v12);
-  return (unsigned int)inserted;
+  return inserted;
 }

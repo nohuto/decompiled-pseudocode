@@ -55,7 +55,7 @@ __int64 __fastcall PC_MBR::ReadPartitionTable(PC_DISK **this, struct _DRIVE_LAYO
   memset(Pool, 0, 0x270uLL);
   v7->PartitionStyle = 0;
   v7->Mbr.Signature = *(_DWORD *)(v2 + 440);
-  *(_DWORD *)&v7->Gpt.DiskId.Data2 = MBR::CheckSum((MBR *)v2);
+  v7->Mbr.CheckSum = MBR::CheckSum((MBR *)v2);
   if ( *(_WORD *)(v2 + 510) != 0xAA55 )
     goto LABEL_15;
   v9 = (unsigned __int8 *)(v2 + 450);
@@ -95,7 +95,7 @@ __int64 __fastcall PC_MBR::ReadPartitionTable(PC_DISK **this, struct _DRIVE_LAYO
         ++v3;
         v7->PartitionEntry[v13].Mbr.RecognizedPartition = v17;
         v7->PartitionEntry[v13].Mbr.HiddenSectors = *((_DWORD *)v11 + 1);
-        *(_DWORD *)v7->PartitionEntry[v13].Gpt.PartitionType.Data4 = v7->Mbr.Signature;
+        v7->PartitionEntry[v13].Mbr.PartitionId.Data1 = v7->Mbr.Signature;
         *(_QWORD *)&v7->PartitionEntry[v13].Gpt.PartitionId.Data1 = v7->PartitionEntry[v13].StartingOffset.QuadPart;
         *(_DWORD *)&v7->PartitionEntry[v13].Gpt.PartitionType.Data4[4] = 0;
       }

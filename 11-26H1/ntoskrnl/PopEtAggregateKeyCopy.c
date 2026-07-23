@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtAggregateKeyCopy @ 0x140950FA4
+ * XREFs of PopEtAggregateKeyCopy @ 0x1409CC8E4
  * Callers:
- *     PopEtAggregateKeyCopyFromProcess @ 0x140950C88 (PopEtAggregateKeyCopyFromProcess.c)
- *     PopEtAggregateGet @ 0x140951A38 (PopEtAggregateGet.c)
+ *     PopEtAggregateKeyCopyFromProcess @ 0x1409CC5C8 (PopEtAggregateKeyCopyFromProcess.c)
+ *     PopEtAggregateGet @ 0x1409CD378 (PopEtAggregateGet.c)
  * Callees:
- *     PopEtStringReference @ 0x140951A08 (PopEtStringReference.c)
+ *     PopEtStringReference @ 0x1409CD348 (PopEtStringReference.c)
  */
 
 void __fastcall PopEtAggregateKeyCopy(__int64 *a1, _OWORD *a2)

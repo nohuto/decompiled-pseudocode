@@ -1,90 +1,91 @@
 /*
- * XREFs of EmpEvaluateUpdateRuleEvalState @ 0x14057F618
+ * XREFs of EmpEvaluateUpdateRuleEvalState @ 0x14057CAA8
  * Callers:
- *     EmpUpdateRuleState @ 0x140491B80 (EmpUpdateRuleState.c)
+ *     EmpUpdateRuleState @ 0x14048CA20 (EmpUpdateRuleState.c)
  * Callees:
- *     EmpEvaluateTargetRule @ 0x14043D590 (EmpEvaluateTargetRule.c)
- *     EmpEvaluatePermuteRuleEntries @ 0x14057F570 (EmpEvaluatePermuteRuleEntries.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EmpEvaluateTargetRule @ 0x140431830 (EmpEvaluateTargetRule.c)
+ *     EmpEvaluatePermuteRuleEntries @ 0x14057CA00 (EmpEvaluatePermuteRuleEntries.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EmpEvaluateUpdateRuleEvalState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall EmpEvaluateUpdateRuleEvalState(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rbx
+  __int64 v2; // rbx
   char *Pool2; // rsi
-  __int64 v6; // rdi
-  __int64 v7; // rbp
-  __int64 *v8; // r14
-  __int64 v9; // rcx
-  _QWORD **v10; // rax
-  _QWORD *v11; // r15
-  int v12; // r15d
-  __int64 v13; // rdx
-  __int64 v14; // r8
+  __int64 v4; // rdi
+  __int64 v5; // rbp
+  __int64 *v6; // r14
+  __int64 v7; // rcx
+  _QWORD **v8; // rax
+  _QWORD *v9; // r15
+  int v10; // r15d
+  __int64 v11; // rdx
+  __int64 v12; // r8
 
-  v4 = *(_QWORD *)(a1 + 8);
+  v2 = *(_QWORD *)(a1 + 8);
   Pool2 = 0LL;
-  v6 = *(unsigned int *)(v4 + 48);
-  if ( *(_BYTE *)(v4 + 20) )
+  v4 = *(unsigned int *)(v2 + 48);
+  if ( *(_BYTE *)(v2 + 20) )
   {
-    v7 = 0LL;
-    v8 = (__int64 *)(v4 + 56);
-    while ( (unsigned int)v7 < (unsigned int)v6 )
+    v5 = 0LL;
+    v6 = (__int64 *)(v2 + 56);
+    while ( (unsigned int)v5 < (unsigned int)v4 )
     {
-      v8 = (__int64 *)(v4 + 56);
-      v9 = *(_QWORD *)(v4 + 56);
-      v10 = (_QWORD **)(*(_QWORD *)(v9 + 8 * v7) + 56LL);
-      v11 = *v10;
-      while ( v11 != v10 )
+      v6 = (__int64 *)(v2 + 56);
+      v7 = *(_QWORD *)(v2 + 56);
+      v8 = (_QWORD **)(*(_QWORD *)(v7 + 8 * v5) + 56LL);
+      v9 = *v8;
+      while ( v9 != v8 )
       {
-        guard_dispatch_icall_no_overrides(*(_QWORD *)(v9 + 8 * v7), *(v11 - 1), a3, a4);
-        v9 = *v8;
-        v11 = (_QWORD *)*v11;
-        v10 = (_QWORD **)(*(_QWORD *)(*v8 + 8 * v7) + 56LL);
+        guard_dispatch_icall_no_overrides(*(_QWORD *)(v7 + 8 * v5), *(v9 - 1));
+        v7 = *v6;
+        v9 = (_QWORD *)*v9;
+        v8 = (_QWORD **)(*(_QWORD *)(*v6 + 8 * v5) + 56LL);
       }
-      if ( *(_QWORD *)(*(_QWORD *)(v9 + 8 * v7) + 40LL) == *(_QWORD *)(v9 + 8 * v7) + 40LL )
+      if ( *(_QWORD *)(*(_QWORD *)(v7 + 8 * v5) + 40LL) == *(_QWORD *)(v7 + 8 * v5) + 40LL )
       {
-        *(_DWORD *)(v4 + 16) = 0;
+        *(_DWORD *)(v2 + 16) = 0;
         return;
       }
-      v7 = (unsigned int)(v7 + 1);
+      v5 = (unsigned int)(v5 + 1);
     }
-    if ( !(_DWORD)v6 || (Pool2 = (char *)ExAllocatePool2(0x100uLL), v8 = (__int64 *)(v4 + 56), Pool2) )
+    if ( !(_DWORD)v4
+      || (Pool2 = (char *)ExAllocatePool2(0x100uLL, 8 * v4, 0x76654D45u), v6 = (__int64 *)(v2 + 56), Pool2) )
     {
-      EmpEvaluatePermuteRuleEntries(v4, v6, a2, 1);
-      v12 = 2;
+      EmpEvaluatePermuteRuleEntries(v2, v4, a2, 1);
+      v10 = 2;
       while ( 1 )
       {
-        if ( (_DWORD)v6 )
+        if ( (_DWORD)v4 )
         {
-          v13 = 0LL;
-          v14 = v6;
+          v11 = 0LL;
+          v12 = v4;
           do
           {
-            *(_QWORD *)&Pool2[v13] = *(_QWORD *)(*(_QWORD *)(v13 + *v8) + 32LL) - 16LL;
-            v13 += 8LL;
-            --v14;
+            *(_QWORD *)&Pool2[v11] = *(_QWORD *)(*(_QWORD *)(v11 + *v6) + 32LL) - 16LL;
+            v11 += 8LL;
+            --v12;
           }
-          while ( v14 );
+          while ( v12 );
         }
-        if ( (unsigned int)EmpEvaluateTargetRule(a1, (__int64)Pool2, v6) == 2 )
+        if ( (unsigned int)EmpEvaluateTargetRule(a1, (__int64)Pool2, v4) == 2 )
           break;
-        if ( EmpEvaluatePermuteRuleEntries(v4, v6, a2, 0) )
+        if ( EmpEvaluatePermuteRuleEntries(v2, v4, a2, 0) )
         {
-          v12 = 0;
+          v10 = 0;
           break;
         }
-        v8 = (__int64 *)(v4 + 56);
+        v6 = (__int64 *)(v2 + 56);
       }
-      *(_DWORD *)(v4 + 16) = v12;
+      *(_DWORD *)(v2 + 16) = v10;
       if ( Pool2 )
         ExFreePoolWithTag(Pool2, 0x76654D45u);
     }
   }
   else
   {
-    *(_DWORD *)(v4 + 16) = 1;
+    *(_DWORD *)(v2 + 16) = 1;
   }
 }

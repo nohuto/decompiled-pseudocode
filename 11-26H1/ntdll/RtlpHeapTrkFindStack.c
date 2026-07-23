@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHeapTrkFindStack @ 0x180012C10
+ * XREFs of RtlpHeapTrkFindStack @ 0x18005E340
  * Callers:
- *     RtlpHeapTrkLeakCallback @ 0x180013D20 (RtlpHeapTrkLeakCallback.c)
+ *     RtlpHeapTrkLeakCallback @ 0x18005F450 (RtlpHeapTrkLeakCallback.c)
  * Callees:
- *     RtlpHeapTrkHash @ 0x180011B90 (RtlpHeapTrkHash.c)
- *     RtlTryAcquireSRWLockExclusive @ 0x180013650 (RtlTryAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHeapTrkHash @ 0x18005D2C0 (RtlpHeapTrkHash.c)
+ *     RtlTryAcquireSRWLockExclusive @ 0x18005ED80 (RtlTryAcquireSRWLockExclusive.c)
  */
 
 __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
@@ -13,28 +13,27 @@ __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
   unsigned int v2; // eax
   __int64 v3; // rdi
   __int64 v4; // rbx
-  __int64 v5; // rdx
-  _QWORD *v6; // rcx
+  _QWORD *v5; // rcx
   _QWORD *i; // rax
-  __int64 v8; // rbx
+  __int64 v7; // rbx
 
   v2 = RtlpHeapTrkHash(a1);
   v3 = v2 & 0xF;
   v4 = v2;
-  if ( !(unsigned __int8)RtlTryAcquireSRWLockExclusive(*(_QWORD *)(qword_1801C7778 + 8 * v3)) )
+  if ( !RtlTryAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801C67C8 + 8 * v3)) )
     return 0LL;
-  v6 = (_QWORD *)(16 * v4 + qword_1801C7280);
-  for ( i = (_QWORD *)*v6; i != v6; i = (_QWORD *)*i )
+  v5 = (_QWORD *)(16 * v4 + qword_1801C6280);
+  for ( i = (_QWORD *)*v5; i != v5; i = (_QWORD *)*i )
   {
     if ( i[3] == a1 )
     {
-      v8 = i[4];
+      v7 = i[4];
       i[3] = 0LL;
       goto LABEL_7;
     }
   }
-  v8 = 0LL;
+  v7 = 0LL;
 LABEL_7:
-  RtlReleaseSRWLockExclusive(*(_QWORD *)(qword_1801C7778 + 8 * v3), v5);
-  return v8;
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801C67C8 + 8 * v3));
+  return v7;
 }

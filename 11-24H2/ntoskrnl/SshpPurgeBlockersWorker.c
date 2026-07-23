@@ -1,34 +1,34 @@
 /*
- * XREFs of SshpPurgeBlockersWorker @ 0x140A41310
+ * XREFs of SshpPurgeBlockersWorker @ 0x140A36BF0
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SshpDereferenceBlocker @ 0x14047C6F0 (SshpDereferenceBlocker.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14048939C (SSHSupportReleasePushLockExclusive.c)
- *     SshpQueryBlockerPendingDelete @ 0x14048F5A0 (SshpQueryBlockerPendingDelete.c)
- *     SshpWorkItemTryAllowNextWorker @ 0x1404B1C48 (SshpWorkItemTryAllowNextWorker.c)
- *     SshpUnlinkBlockerFromLibrary @ 0x140A41548 (SshpUnlinkBlockerFromLibrary.c)
- *     SshpFreeBlockerEntry @ 0x140A415DC (SshpFreeBlockerEntry.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     SshpDereferenceBlocker @ 0x140477900 (SshpDereferenceBlocker.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404843BC (SSHSupportReleasePushLockExclusive.c)
+ *     SshpQueryBlockerPendingDelete @ 0x1404897B0 (SshpQueryBlockerPendingDelete.c)
+ *     SshpWorkItemTryAllowNextWorker @ 0x1404AC4D8 (SshpWorkItemTryAllowNextWorker.c)
+ *     SshpUnlinkBlockerFromLibrary @ 0x140A36E28 (SshpUnlinkBlockerFromLibrary.c)
+ *     SshpFreeBlockerEntry @ 0x140A36EBC (SshpFreeBlockerEntry.c)
  */
 
 char SshpPurgeBlockersWorker()
 {
   char result; // al
-  _QWORD *v1; // rax
-  _QWORD *v2; // rbx
+  char *v1; // rax
+  char *v2; // rbx
   __int64 *i; // rbx
-  _QWORD *v4; // rax
-  _QWORD *v5; // rsi
+  char *v4; // rax
+  char *v5; // rsi
   __int64 *v6; // rsi
   __int64 *v7; // rdi
   __int64 **v8; // rax
   __int64 *v9; // rbx
   __int64 *v10; // rax
   unsigned __int64 *v11; // rdi
-  _QWORD *v12; // rax
-  _QWORD *v13; // rsi
+  char *v12; // rax
+  char *v13; // rsi
   __int64 v14; // rdx
   __int64 **v15; // rcx
   KSPIN_LOCK *v16; // rcx
@@ -41,20 +41,20 @@ char SshpPurgeBlockersWorker()
         !result;
         result = SshpWorkItemTryAllowNextWorker((__int64)&SshpPurgeBlockersWorkItem) )
   {
-    v1 = KeAbPreAcquire((__int64)&SshpLibraryListLock, 0LL);
+    v1 = (char *)KeAbPreAcquire((__int64)&SshpLibraryListLock, 0LL);
     v2 = v1;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&SshpLibraryListLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&SshpLibraryListLock, (__int64)v1, (__int64)&SshpLibraryListLock);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpLibraryListLock, v1, (__int64)&SshpLibraryListLock);
     if ( v2 )
-      *((_BYTE *)v2 + 10) = 1;
+      v2[10] = 1;
     for ( i = (__int64 *)SshpLibraryList; i != &SshpLibraryList; i = (__int64 *)*i )
     {
-      v4 = KeAbPreAcquire((__int64)(i + 2), 0LL);
+      v4 = (char *)KeAbPreAcquire((__int64)(i + 2), 0LL);
       v5 = v4;
       if ( _interlockedbittestandset64((volatile signed __int32 *)i + 4, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)i + 2, (__int64)v4, (__int64)(i + 2));
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)i + 2, v4, (__int64)(i + 2));
       if ( v5 )
-        *((_BYTE *)v5 + 10) = 1;
+        v5[10] = 1;
       v6 = (__int64 *)i[19];
       while ( v6 != i + 19 )
       {
@@ -87,12 +87,12 @@ char SshpPurgeBlockersWorker()
       v17 = (__int64 *)*v17;
       v10[1] = (__int64)&v17;
       v11 = &SshpBlockerCollections + 6 * *((int *)v9 + 10);
-      v12 = KeAbPreAcquire((__int64)v11, 0LL);
+      v12 = (char *)KeAbPreAcquire((__int64)v11, 0LL);
       v13 = v12;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v11, (__int64)v12, (__int64)v11);
+        ExfAcquirePushLockExclusiveEx(v11, v12, (__int64)v11);
       if ( v13 )
-        *((_BYTE *)v13 + 10) = 1;
+        v13[10] = 1;
       v14 = v9[2];
       if ( *(__int64 **)(v14 + 8) != v9 + 2 || (v15 = (__int64 **)v9[3], *v15 != v9 + 2) )
 LABEL_18:

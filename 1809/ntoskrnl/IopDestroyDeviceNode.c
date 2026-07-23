@@ -1,19 +1,19 @@
 /*
- * XREFs of IopDestroyDeviceNode @ 0x14059F300
+ * XREFs of IopDestroyDeviceNode @ 0x1405A0300
  * Callers:
- *     IopDeleteDevice @ 0x14059F2A0 (IopDeleteDevice.c)
- *     IopLegacyResourceAllocation @ 0x14072CE94 (IopLegacyResourceAllocation.c)
- *     IopRemoveLegacyDeviceNode @ 0x14072CFC4 (IopRemoveLegacyDeviceNode.c)
+ *     IopDeleteDevice @ 0x1405A02A0 (IopDeleteDevice.c)
+ *     IopLegacyResourceAllocation @ 0x14072E084 (IopLegacyResourceAllocation.c)
+ *     IopRemoveLegacyDeviceNode @ 0x14072E1B4 (IopRemoveLegacyDeviceNode.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopUncacheInterfaceInformation @ 0x1406EBD64 (IopUncacheInterfaceInformation.c)
- *     PnpFreeDeviceInstancePath @ 0x1406FEA88 (PnpFreeDeviceInstancePath.c)
- *     IopLegacyResourceAllocation @ 0x14072CE94 (IopLegacyResourceAllocation.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopUncacheInterfaceInformation @ 0x1406ED004 (IopUncacheInterfaceInformation.c)
+ *     PnpFreeDeviceInstancePath @ 0x1406FFD28 (PnpFreeDeviceInstancePath.c)
+ *     IopLegacyResourceAllocation @ 0x14072E084 (IopLegacyResourceAllocation.c)
  */
 
 void __fastcall IopDestroyDeviceNode(char *P)

@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlFreeAnsiString @ 0x14070AFC0
  * Callers:
- *     EtwpWriteProcessEvent @ 0x14070AE08 (EtwpWriteProcessEvent.c)
+ *     sub_14070AE08 @ 0x14070AE08 (sub_14070AE08.c)
  *     MmGetSystemRoutineAddress @ 0x140759130 (MmGetSystemRoutineAddress.c)
- *     EtwpTraceProcessRundown @ 0x1408149AC (EtwpTraceProcessRundown.c)
- *     KsepGetModuleInfoByName @ 0x140964D68 (KsepGetModuleInfoByName.c)
- *     MiLoadUserSymbols @ 0x14096CCF8 (MiLoadUserSymbols.c)
- *     ViThunkHookExportAddress @ 0x140A94030 (ViThunkHookExportAddress.c)
+ *     sub_1408149AC @ 0x1408149AC (sub_1408149AC.c)
+ *     sub_140964D68 @ 0x140964D68 (sub_140964D68.c)
+ *     sub_14096CCF8 @ 0x14096CCF8 (sub_14096CCF8.c)
+ *     sub_140A94030 @ 0x140A94030 (sub_140A94030.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */

@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     PipFindDependencyNodePath @ 0x14055FAFC (PipFindDependencyNodePath.c)
+ *     sub_14055FAFC @ 0x14055FAFC (sub_14055FAFC.c)
  */
 
 __int64 __fastcall IoTestDependency(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall IoTestDependency(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *
     v5 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 80LL);
     if ( *(_QWORD *)(*(_QWORD *)(a1 + 312) + 80LL) && v5 )
     {
-      PipFindDependencyNodePath();
+      sub_14055FAFC();
     }
     else
     {

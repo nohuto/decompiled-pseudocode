@@ -35,7 +35,7 @@ __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1)
   __int64 v17; // rsi
   _DWORD *v19; // rax
   __int64 v20; // rdx
-  __int64 v21; // rdx
+  ULONG v21; // edx
   char v22; // [rsp+60h] [rbp+8h]
   char v23; // [rsp+68h] [rbp+10h]
 
@@ -137,11 +137,11 @@ LABEL_16:
       {
         memset(v1 + 1, 0, 0xFFCuLL);
         *v1 = -1;
-        v21 = 4LL;
+        v21 = 4;
       }
       else
       {
-        v21 = 4096LL;
+        v21 = 4096;
         *v1 = v4 - 1;
       }
       PiUEventBroadcastAwaitingResponseEvent(v1, v21);

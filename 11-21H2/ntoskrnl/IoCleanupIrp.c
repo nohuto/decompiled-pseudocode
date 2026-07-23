@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopFreeIrpExtension @ 0x14020B888 (IopFreeIrpExtension.c)
+ *     sub_14020B888 @ 0x14020B888 (sub_14020B888.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -18,6 +18,6 @@ __int64 (__fastcall *__fastcall IoCleanupIrp(ULONG_PTR BugCheckParameter1))()
   v2 = (*(_BYTE *)(BugCheckParameter1 + 71) & 0x40) == 0;
   *(_WORD *)BugCheckParameter1 = 0;
   if ( !v2 )
-    return IopFreeIrpExtension(BugCheckParameter1, -1, 1);
+    return sub_14020B888(BugCheckParameter1, -1, 1);
   return result;
 }

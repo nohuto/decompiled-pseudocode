@@ -1,5 +1,5 @@
 /*
- * XREFs of XmBtOp @ 0x1405ADEE0
+ * XREFs of XmBtOp @ 0x1405B06F0
  * Callers:
  *     <none>
  * Callees:

@@ -16,7 +16,7 @@ BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
   unsigned __int8 CurrentIrql; // dl
   BOOLEAN result; // al
 
-  v2 = KeAbPreAcquire((ULONG_PTR)FastMutex);
+  v2 = KeAbPreAcquire((ULONG_PTR)FastMutex, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( _interlockedbittestandreset(&FastMutex->Count, 0) )

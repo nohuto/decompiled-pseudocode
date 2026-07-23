@@ -10,55 +10,67 @@
  *     RtlpDidUnicodeToOemWork @ 0x180089E40 (RtlpDidUnicodeToOemWork.c)
  */
 
-__int64 __fastcall RtlUnicodeStringToCountedOemString(__int64 a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlUnicodeStringToCountedOemString(
+        POEM_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned int v6; // eax
-  __int64 result; // rax
-  _WORD *v8; // r13
-  __int64 *v9; // r14
+  ULONG v6; // eax
+  NTSTATUS result; // eax
+  unsigned __int16 *p_MaximumLength; // r13
+  char **p_Buffer; // r14
   int v10; // esi
-  unsigned int v11; // [rsp+98h] [rbp+20h] BYREF
+  ULONG BytesInOemString; // [rsp+98h] [rbp+20h] BYREF
 
-  v6 = RtlxUnicodeStringToOemSize((PWCH *)a2) - 1;
-  v11 = v6;
+  v6 = RtlxUnicodeStringToOemSize((PWCH *)SourceString) - 1;
+  BytesInOemString = v6;
   if ( v6 )
   {
     if ( v6 <= 0xFFFF )
     {
-      v8 = (_WORD *)(a1 + 2);
-      v9 = (__int64 *)(a1 + 8);
-      result = AllocateOrValidateCharStringBuffer(a3, v6, (__int64 *)(a1 + 8), (_WORD *)(a1 + 2));
-      if ( (int)result >= 0 )
+      p_MaximumLength = &DestinationString->MaximumLength;
+      p_Buffer = &DestinationString->Buffer;
+      result = AllocateOrValidateCharStringBuffer(
+                 AllocateDestinationString,
+                 v6,
+                 &DestinationString->Buffer,
+                 &DestinationString->MaximumLength);
+      if ( result >= 0 )
       {
-        v10 = RtlUnicodeToOemN(*v9, (unsigned __int16)*v8, (__int64)&v11, *((_QWORD *)a2 + 1), *a2);
+        v10 = RtlUnicodeToOemN(
+                *p_Buffer,
+                *p_MaximumLength,
+                &BytesInOemString,
+                SourceString->Buffer,
+                SourceString->Length);
         if ( v10 >= 0 )
         {
-          *(_WORD *)a1 = v11;
-          if ( !RtlpDidUnicodeToOemWork(a1, (__int64)a2) )
+          DestinationString->Length = BytesInOemString;
+          if ( !RtlpDidUnicodeToOemWork((__int64)DestinationString, (__int64)SourceString) )
             v10 = -1073741470;
         }
         if ( v10 < 0 )
         {
-          if ( a3 )
+          if ( AllocateDestinationString )
           {
-            NtdllpFreeStringRoutine(*v9);
-            *v9 = 0LL;
-            *v8 = 0;
+            NtdllpFreeStringRoutine(*p_Buffer);
+            *p_Buffer = 0LL;
+            *p_MaximumLength = 0;
           }
         }
-        return (unsigned int)v10;
+        return v10;
       }
     }
     else
     {
-      return 3221225712LL;
+      return -1073741584;
     }
   }
   else
   {
-    *(_DWORD *)a1 = 0;
-    *(_QWORD *)(a1 + 8) = 0LL;
-    return 0LL;
+    *(_DWORD *)&DestinationString->Length = 0;
+    DestinationString->Buffer = 0LL;
+    return 0;
   }
   return result;
 }

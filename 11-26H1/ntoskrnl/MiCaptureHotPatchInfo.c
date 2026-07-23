@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCaptureHotPatchInfo @ 0x14086F52C
+ * XREFs of MiCaptureHotPatchInfo @ 0x1408758FC
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x14086E8A8 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x140874C78 (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlFindHotPatchBaseMachine @ 0x1408AB00C (RtlFindHotPatchBaseMachine.c)
- *     RtlFindHotPatchInformation @ 0x1408AB074 (RtlFindHotPatchInformation.c)
- *     RtlValidateHotPatchBase @ 0x1408AB358 (RtlValidateHotPatchBase.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlFindHotPatchBaseMachine @ 0x1408B147C (RtlFindHotPatchBaseMachine.c)
+ *     RtlFindHotPatchInformation @ 0x1408B14E4 (RtlFindHotPatchInformation.c)
+ *     RtlValidateHotPatchBase @ 0x1408B17C8 (RtlValidateHotPatchBase.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCaptureHotPatchInfo(
@@ -41,7 +41,7 @@ LABEL_2:
     v11 = -1073741701;
     goto LABEL_12;
   }
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)a1, 0LL);
+  HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)a1);
   v13 = (const void *)HotPatchInformation;
   if ( HotPatchInformation )
   {

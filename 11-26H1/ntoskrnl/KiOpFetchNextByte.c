@@ -1,12 +1,12 @@
 /*
- * XREFs of KiOpFetchNextByte @ 0x1403D2DB4
+ * XREFs of KiOpFetchNextByte @ 0x1403D5D84
  * Callers:
- *     KiOpDecode @ 0x1403D23D8 (KiOpDecode.c)
- *     KiOpLocateDecodeEntry @ 0x1403D2B50 (KiOpLocateDecodeEntry.c)
- *     KiOpFetchBytes @ 0x1403D2C90 (KiOpFetchBytes.c)
- *     KiOpDecodeModRM @ 0x1403D2CD8 (KiOpDecodeModRM.c)
+ *     KiOpDecode @ 0x1403D53A8 (KiOpDecode.c)
+ *     KiOpLocateDecodeEntry @ 0x1403D5B20 (KiOpLocateDecodeEntry.c)
+ *     KiOpFetchBytes @ 0x1403D5C60 (KiOpFetchBytes.c)
+ *     KiOpDecodeModRM @ 0x1403D5CA8 (KiOpDecodeModRM.c)
  * Callees:
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
  */
 
 __int64 __fastcall KiOpFetchNextByte(__int64 a1, _BYTE *a2)

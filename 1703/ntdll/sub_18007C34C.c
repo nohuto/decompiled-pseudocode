@@ -11,23 +11,19 @@
  *     ZwOpenKey @ 0x1800A5540 (ZwOpenKey.c)
  */
 
-__int64 __fastcall sub_18007C34C(unsigned __int16 *a1, unsigned int a2, __int64 a3)
+NTSTATUS __fastcall sub_18007C34C(unsigned __int16 *a1, ACCESS_MASK a2, HANDLE *a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v7; // ecx
   __int64 v8; // rax
   int v9; // edx
   __int16 v10; // [rsp+20h] [rbp-48h] BYREF
   __int64 v11; // [rsp+28h] [rbp-40h]
-  int v12; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-30h]
-  __int16 *v14; // [rsp+40h] [rbp-28h]
-  int v15; // [rsp+48h] [rbp-20h]
-  __int128 v16; // [rsp+50h] [rbp-18h]
-  __int64 v17; // [rsp+88h] [rbp+20h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
+  void *v13; // [rsp+88h] [rbp+20h] BYREF
 
-  result = sub_18007C40C(&v17);
-  if ( (int)result >= 0 )
+  result = sub_18007C40C(&v13);
+  if ( result >= 0 )
   {
     v7 = *a1;
     v8 = *((_QWORD *)a1 + 1) + *a1;
@@ -47,18 +43,18 @@ __int64 __fastcall sub_18007C34C(unsigned __int16 *a1, unsigned int a2, __int64 
     v10 = v9;
     if ( (unsigned __int16)v9 == v9 )
     {
-      v13 = v17;
-      v12 = 48;
-      v14 = &v10;
-      v15 = 576;
-      v16 = 0LL;
-      result = ZwOpenKey(a3, a2, &v12);
-      if ( (int)result >= 0 )
+      ObjectAttributes.RootDirectory = v13;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&v10;
+      ObjectAttributes.Attributes = 576;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      result = ZwOpenKey(a3, a2, &ObjectAttributes);
+      if ( result >= 0 )
         return sub_18007C494(a3, a2, a1);
     }
     else
     {
-      return 3221225507LL;
+      return -1073741789;
     }
   }
   return result;

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAlpcDeleteResourceReserve @ 0x180162CE0
+ * XREFs of NtAlpcDeleteResourceReserve @ 0x1801610A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtAlpcDeleteResourceReserve()
+NTSTATUS __cdecl NtAlpcDeleteResourceReserve(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ResourceId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 131LL;
+  result = 131;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

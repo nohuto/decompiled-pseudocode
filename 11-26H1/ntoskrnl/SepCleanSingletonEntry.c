@@ -1,37 +1,37 @@
 /*
- * XREFs of SepCleanSingletonEntry @ 0x1403CB1DC
+ * XREFs of SepCleanSingletonEntry @ 0x1403B2248
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x1405240DC (SepCleanupMarkedForDeletionEntries.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x14052674C (SepCleanupMarkedForDeletionEntries.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1403CB24C (SepGetSingletonEntryFromIndexNumber.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1403B212C (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void SepCleanSingletonEntry()
+void __fastcall SepCleanSingletonEntry(unsigned int a1)
 {
   volatile LONG *SingletonEntryFromIndexNumber; // rax
-  volatile LONG *v1; // rbx
-  KIRQL v2; // al
-  __int64 v3; // rcx
-  KIRQL v4; // di
+  volatile LONG *v2; // rbx
+  KIRQL v3; // al
+  _DWORD *v4; // rcx
+  KIRQL v5; // di
 
-  SingletonEntryFromIndexNumber = (volatile LONG *)SepGetSingletonEntryFromIndexNumber();
-  v1 = SingletonEntryFromIndexNumber;
+  SingletonEntryFromIndexNumber = (volatile LONG *)SepGetSingletonEntryFromIndexNumber(a1);
+  v2 = SingletonEntryFromIndexNumber;
   if ( SingletonEntryFromIndexNumber )
   {
-    v2 = ExAcquireSpinLockExclusive(SingletonEntryFromIndexNumber);
-    v3 = *((_QWORD *)v1 + 2);
-    v4 = v2;
-    *((_QWORD *)v1 + 1) = 0LL;
-    if ( v3 )
+    v3 = ExAcquireSpinLockExclusive(SingletonEntryFromIndexNumber);
+    v4 = (_DWORD *)*((_QWORD *)v2 + 2);
+    v5 = v3;
+    *((_QWORD *)v2 + 1) = 0LL;
+    if ( v4 )
     {
-      AuthzBasepFreeSecurityAttributesList();
-      ExFreePoolWithTag(*((PVOID *)v1 + 2), 0x74446553u);
-      *((_QWORD *)v1 + 2) = 0LL;
+      AuthzBasepFreeSecurityAttributesList(v4);
+      ExFreePoolWithTag(*((PVOID *)v2 + 2), 0x74446553u);
+      *((_QWORD *)v2 + 2) = 0LL;
     }
-    ExReleaseSpinLockExclusive(v1, v4);
+    ExReleaseSpinLockExclusive(v2, v5);
   }
 }

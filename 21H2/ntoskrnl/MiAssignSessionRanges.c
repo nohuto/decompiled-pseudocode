@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAssignSessionRanges @ 0x140A684D4
+ * XREFs of MiAssignSessionRanges @ 0x140A694D4
  * Callers:
- *     MiInitializeDynamicVa @ 0x140A6836C (MiInitializeDynamicVa.c)
+ *     MiInitializeDynamicVa @ 0x140A6936C (MiInitializeDynamicVa.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 MiAssignSessionRanges()
@@ -25,7 +25,7 @@ __int64 MiAssignSessionRanges()
   unsigned __int64 v10; // rdi
   ULONG ClearBitsAndSet; // eax
   __int64 result; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-89h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-89h] BYREF
   _QWORD v14[12]; // [rsp+38h] [rbp-79h] BYREF
   _BYTE v15[64]; // [rsp+98h] [rbp-19h] BYREF
 
@@ -43,7 +43,7 @@ __int64 MiAssignSessionRanges()
     v14[v1 + 2] = 0x2000000000LL;
   }
   while ( (int)v0 < 2 );
-  v2 = qword_140C4FB68;
+  v2 = qword_140C4FBA8;
   v3 = 3 * v0;
   LODWORD(v14[v3]) = v0;
   v14[v3 + 2] = 0x1000000000LL;
@@ -78,11 +78,11 @@ __int64 MiAssignSessionRanges()
     --v7;
   }
   while ( v7 );
-  qword_140C4CDA0 = v14[1];
-  qword_140C4CDA8 = v14[4];
-  qword_140C4E328 = v14[7];
+  qword_140C4CDE0 = v14[1];
+  qword_140C4CDE8 = v14[4];
+  qword_140C4E368 = v14[7];
   result = v14[10];
-  qword_140C4DDE0 = v14[10];
-  qword_140C4DDD8 = v2;
+  qword_140C4DE20 = v14[10];
+  qword_140C4DE18 = v2;
   return result;
 }

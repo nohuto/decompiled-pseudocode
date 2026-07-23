@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpTraceCrashDumpDisabled @ 0x14055286C
+ * XREFs of IopDumpTraceCrashDumpDisabled @ 0x140552F2C
  * Callers:
- *     IopDisableCrashDump @ 0x14055253C (IopDisableCrashDump.c)
+ *     IopDisableCrashDump @ 0x140552BFC (IopDisableCrashDump.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopDumpIsTracingEnabled @ 0x140552848 (IopDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopDumpIsTracingEnabled @ 0x140552F08 (IopDumpIsTracingEnabled.c)
  */
 
 char IopDumpTraceCrashDumpDisabled()
@@ -22,9 +22,9 @@ char IopDumpTraceCrashDumpDisabled()
   result = IopDumpIsTracingEnabled();
   if ( result )
     result = EtwWriteEx(IopDumpEtwRegHandle, &DUMP_EVENT_CRASHDUMP_DISABLED, 0LL, 0, 0LL, 0LL, 0, 0LL);
-  if ( (unsigned int)dword_140C062E8 > 5 )
+  if ( (unsigned int)dword_140C062A8 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140C062E8, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C062A8, 0x400000000000LL);
     if ( result )
     {
       v5 = 0;
@@ -32,8 +32,8 @@ char IopDumpTraceCrashDumpDisabled()
       v1 = 0x1000000LL;
       v4 = 8;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140C062E8,
-               (unsigned __int8 *)byte_14002B691,
+               (__int64)&dword_140C062A8,
+               (unsigned __int8 *)byte_14002B779,
                0LL,
                0LL,
                3u,

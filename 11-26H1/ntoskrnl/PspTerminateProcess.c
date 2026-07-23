@@ -1,21 +1,21 @@
 /*
- * XREFs of PspTerminateProcess @ 0x140956EB0
+ * XREFs of PspTerminateProcess @ 0x14094A8D8
  * Callers:
- *     PspTerminatePicoProcess @ 0x1407FCB90 (PspTerminatePicoProcess.c)
- *     NtTerminateProcess @ 0x1409566C0 (NtTerminateProcess.c)
- *     PsTerminateProcess @ 0x14095690C (PsTerminateProcess.c)
+ *     PspTerminatePicoProcess @ 0x1408025C0 (PspTerminatePicoProcess.c)
+ *     PsTerminateProcess @ 0x14094A334 (PsTerminateProcess.c)
+ *     NtTerminateProcess @ 0x140B812E0 (NtTerminateProcess.c)
  * Callees:
- *     KeForceResumeProcess @ 0x140203144 (KeForceResumeProcess.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     EtwTraceProcessTerminate @ 0x1404C9D2C (EtwTraceProcessTerminate.c)
- *     KeSetProcessSchedulingGroup @ 0x14051FF00 (KeSetProcessSchedulingGroup.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PspTerminateAllThreads @ 0x14095705C (PspTerminateAllThreads.c)
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
+ *     KeForceResumeProcess @ 0x140203224 (KeForceResumeProcess.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     EtwTraceProcessTerminate @ 0x1404C375C (EtwTraceProcessTerminate.c)
+ *     KeSetProcessSchedulingGroup @ 0x1405225A4 (KeSetProcessSchedulingGroup.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspTerminateAllThreads @ 0x14094AA84 (PspTerminateAllThreads.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
  */
 
 __int64 __fastcall PspTerminateProcess(PRKPROCESS PROCESS, __int64 a2, unsigned int a3, char a4)
@@ -78,7 +78,7 @@ LABEL_19:
     v18 = v17;
     goto LABEL_20;
   }
-  if ( *((_QWORD *)&xmmword_140F0A040 + 1) && (v13 & 8) == 0 )
+  if ( PsAltSystemCallRegistrationLock.KernelStack && (v13 & 8) == 0 )
   {
     v17 = guard_dispatch_icall_no_overrides((__int64)PROCESS, a3);
     goto LABEL_19;

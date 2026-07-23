@@ -1,19 +1,19 @@
 /*
- * XREFs of KiStartInterruptCycleAccumulation @ 0x140228150
+ * XREFs of KiStartInterruptCycleAccumulation @ 0x140229AE0
  * Callers:
- *     KiScanInterruptObjectList @ 0x140729D60 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x140729EA0 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x140729F50 (KiInterruptSubDispatchNoLock.c)
- *     KiInterruptSubDispatchNoLockNoEtw @ 0x140729FF0 (KiInterruptSubDispatchNoLockNoEtw.c)
- *     KiSpuriousDispatchNoEOI @ 0x14072B010 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x14072BC20 (KxIsrLinkage.c)
- *     KiHvInterruptSubDispatch @ 0x14072E690 (KiHvInterruptSubDispatch.c)
- *     KiVmbusInterruptSubDispatch @ 0x14072E740 (KiVmbusInterruptSubDispatch.c)
- *     KiSwInterrupt @ 0x14072E7F0 (KiSwInterrupt.c)
- *     KiIpiInterruptSubDispatch @ 0x14072FE70 (KiIpiInterruptSubDispatch.c)
+ *     KiScanInterruptObjectList @ 0x14072E930 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x14072EA70 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x14072EB20 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x14072EBC0 (KiInterruptSubDispatchNoLockNoEtw.c)
+ *     KiSpuriousDispatchNoEOI @ 0x14072FBE0 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x1407307F0 (KxIsrLinkage.c)
+ *     KiHvInterruptSubDispatch @ 0x140733260 (KiHvInterruptSubDispatch.c)
+ *     KiVmbusInterruptSubDispatch @ 0x140733310 (KiVmbusInterruptSubDispatch.c)
+ *     KiSwInterrupt @ 0x1407333C0 (KiSwInterrupt.c)
+ *     KiIpiInterruptSubDispatch @ 0x140734A40 (KiIpiInterruptSubDispatch.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiUpdateThreadHgsFeedback @ 0x140226C00 (KiUpdateThreadHgsFeedback.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140228590 (KiUpdateThreadHgsFeedback.c)
  */
 
 void __fastcall KiStartInterruptCycleAccumulation(__int64 a1, __int64 a2)
@@ -107,9 +107,9 @@ void __fastcall KiStartInterruptCycleAccumulation(__int64 a1, __int64 a2)
           v14 = *((unsigned __int64 *)&v2 + 1) * (unsigned __int128)MEMORY[0xFFFFF78000000360];
         }
         v15 = (*((unsigned __int64 *)&v14 + 1)
-             * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64;
+             * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64;
         v2 = (((unsigned __int64)v13.QuadPart * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-           * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40];
+           * (unsigned __int64)stru_140FC11F0.SavedApcState.Process;
         v16 = (*((_QWORD *)&v2 + 1) >> KiMaximumIncrementShiftCount) - (v15 >> KiMaximumIncrementShiftCount);
         if ( v16 )
         {
@@ -231,7 +231,7 @@ LABEL_27:
           v29 = 100;
         }
         v30 = 0;
-        v31 = (unsigned __int16 *)(a1 + 35464);
+        v31 = (unsigned __int16 *)(a1 + 35468);
         do
         {
           if ( v29 <= *v31 )
@@ -242,7 +242,7 @@ LABEL_27:
         while ( v30 < 3 );
         v32 = *(_BYTE *)(a1 + 35352);
         *((_QWORD *)&v2 + 1) = 16LL * v30 + v26 + (v32 != 0 ? 8 : 0);
-        LODWORD(v2) = *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1);
+        LODWORD(v2) = HIDWORD(KsepShimDbLock.UserWaitTime);
         **((_QWORD **)&v2 + 1) += v9;
         v33 = *(_DWORD *)(v26 + 192);
         if ( (unsigned int)v2 > v33 )
@@ -294,7 +294,7 @@ LABEL_27:
       KiUpdateThreadHgsFeedback((_BYTE *)a1, v8, v9, 0);
     if ( *(_QWORD *)(a1 + 34480) )
     {
-      if ( *(_UNKNOWN **)(v8 + 544) != &unk_140FC8F40 )
+      if ( *(_UNKNOWN **)(v8 + 544) != &unk_140FC9F40 )
       {
         *((_QWORD *)&v2 + 1) = *(unsigned __int8 *)(v8 + 516);
         if ( *(unsigned __int8 *)(v8 + 516) < 7u )
@@ -316,7 +316,7 @@ LABEL_27:
         for ( i = (_QWORD *)(v40 + *(unsigned int *)(a1 + 216)); i; i = (_QWORD *)i[55] )
           *i += v9;
       }
-      if ( (*(_BYTE *)(v8 + 2) & 8) != 0 && *(_UNKNOWN **)(v8 + 544) != &unk_140FC8F40 )
+      if ( (*(_BYTE *)(v8 + 2) & 8) != 0 && *(_UNKNOWN **)(v8 + 544) != &unk_140FC9F40 )
       {
         v47 = *(_QWORD *)(a1 + 192);
         *((_QWORD *)&v2 + 1) = *(_QWORD *)(*(_QWORD *)(v8 + 576) + 8LL * *(unsigned __int16 *)(v47 + 136) + 8);

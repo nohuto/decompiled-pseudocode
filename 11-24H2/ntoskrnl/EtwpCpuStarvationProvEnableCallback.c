@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCpuStarvationProvEnableCallback @ 0x14064C7F0
+ * XREFs of EtwpCpuStarvationProvEnableCallback @ 0x14064AE00
  * Callers:
  *     <none>
  * Callees:
- *     KeEtwInitializeCpuStarvationProvider @ 0x1405B4668 (KeEtwInitializeCpuStarvationProvider.c)
+ *     KeEtwInitializeCpuStarvationProvider @ 0x1405B15EC (KeEtwInitializeCpuStarvationProvider.c)
  */
 
 void __fastcall EtwpCpuStarvationProvEnableCallback(

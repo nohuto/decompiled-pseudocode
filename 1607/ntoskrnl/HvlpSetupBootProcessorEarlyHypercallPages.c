@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlpSetupBootProcessorEarlyHypercallPages @ 0x1401BC5A8
+ * XREFs of HvlpSetupBootProcessorEarlyHypercallPages @ 0x1401BC48C
  * Callers:
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
  * Callees:
  *     <none>
  */

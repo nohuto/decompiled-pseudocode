@@ -1,22 +1,22 @@
 /*
- * XREFs of ExEnumHandleTable @ 0x1408EF990
+ * XREFs of ExEnumHandleTable @ 0x140861190
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x140597158 (IoRevokeHandlesForProcess.c)
- *     ObShutdownSystem @ 0x1407432D0 (ObShutdownSystem.c)
- *     EtwpObjectHandleRundown @ 0x1407B0F6C (EtwpObjectHandleRundown.c)
- *     IopQueryProcessIdsUsingFile @ 0x1408EF610 (IopQueryProcessIdsUsingFile.c)
- *     ObFindHandleForObject @ 0x1408EF8E0 (ObFindHandleForObject.c)
- *     ObInitProcess @ 0x14093BD38 (ObInitProcess.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140A85E48 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     IoRevokeHandlesForProcess @ 0x1405940D8 (IoRevokeHandlesForProcess.c)
+ *     ObShutdownSystem @ 0x140741200 (ObShutdownSystem.c)
+ *     EtwpObjectHandleRundown @ 0x1407B13BC (EtwpObjectHandleRundown.c)
+ *     IopQueryProcessIdsUsingFile @ 0x140860E10 (IopQueryProcessIdsUsingFile.c)
+ *     ObFindHandleForObject @ 0x1408610E0 (ObFindHandleForObject.c)
+ *     ObInitProcess @ 0x14094D010 (ObInitProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140A80988 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpLookupHandleTableEntry @ 0x14084BF30 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14084DA70 (ExpBlockOnLockedHandleEntry.c)
- *     IopIsFileOpenOrSection @ 0x1408EFAF0 (IopIsFileOpenOrSection.c)
- *     ObpEnumFindHandleProcedure @ 0x1408EFBE0 (ObpEnumFindHandleProcedure.c)
- *     PnpHandleProcessWalkWorker @ 0x1408EFCA0 (PnpHandleProcessWalkWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpLookupHandleTableEntry @ 0x1408481F0 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140849D30 (ExpBlockOnLockedHandleEntry.c)
+ *     IopIsFileOpenOrSection @ 0x1408612F0 (IopIsFileOpenOrSection.c)
+ *     ObpEnumFindHandleProcedure @ 0x1408613E0 (ObpEnumFindHandleProcedure.c)
+ *     PnpHandleProcessWalkWorker @ 0x1408614A0 (PnpHandleProcessWalkWorker.c)
  */
 
 __int64 __fastcall ExEnumHandleTable(
@@ -70,7 +70,7 @@ __int64 __fastcall ExEnumHandleTable(
       }
       else
       {
-        IsFileOpenOrSection = guard_dispatch_icall_no_overrides(a1, v11, v6, a3);
+        IsFileOpenOrSection = guard_dispatch_icall_no_overrides(a1, v11);
       }
       v7 = IsFileOpenOrSection;
       if ( !IsFileOpenOrSection )

@@ -1,18 +1,18 @@
 /*
- * XREFs of KiFilterFiberContext @ 0x140C80D10
+ * XREFs of KiFilterFiberContext @ 0x140C86D10
  * Callers:
- *     KeInitAmd64SpecificState @ 0x140C80204 (KeInitAmd64SpecificState.c)
+ *     KeInitAmd64SpecificState @ 0x140C86204 (KeInitAmd64SpecificState.c)
  * Callees:
- *     KeExpandKernelStackAndCallout @ 0x140264800 (KeExpandKernelStackAndCallout.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExNotifyCallback @ 0x14047A7E0 (ExNotifyCallback.c)
- *     ExInitializeNPagedLookasideList @ 0x140498C20 (ExInitializeNPagedLookasideList.c)
- *     KeKeepData @ 0x1404BD424 (KeKeepData.c)
- *     KdDisableDebugger @ 0x1405E39D0 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x1405E3B10 (KdEnableDebugger.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     KiSwInterruptPresent @ 0x140C80394 (KiSwInterruptPresent.c)
+ *     KeExpandKernelStackAndCallout @ 0x140263D70 (KeExpandKernelStackAndCallout.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExNotifyCallback @ 0x140474150 (ExNotifyCallback.c)
+ *     ExInitializeNPagedLookasideList @ 0x140492770 (ExInitializeNPagedLookasideList.c)
+ *     KeKeepData @ 0x1404B6C04 (KeKeepData.c)
+ *     KdDisableDebugger @ 0x1405E6340 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x1405E6480 (KdEnableDebugger.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     KiSwInterruptPresent @ 0x140C86394 (KiSwInterruptPresent.c)
  */
 
 _BOOL8 __fastcall KiFilterFiberContext(UNICODE_STRING *a1)
@@ -69,12 +69,12 @@ _BOOL8 __fastcall KiFilterFiberContext(UNICODE_STRING *a1)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0) >= 0 )
       {
-        ExNotifyCallback(CallbackObject, sub_140542730, &__27);
+        ExNotifyCallback(CallbackObject, sub_140544BB0, &__27);
         ObfDereferenceObject(CallbackObject);
         if ( __27 )
           __2f = 1;
         ExInitializeNPagedLookasideList(
-          (PNPAGED_LOOKASIDE_LIST)&stru_140E0F3C0,
+          (PNPAGED_LOOKASIDE_LIST)&stru_140E0F440,
           0LL,
           0LL,
           0x200u,
@@ -96,7 +96,7 @@ _BOOL8 __fastcall KiFilterFiberContext(UNICODE_STRING *a1)
   v11 = ((unsigned __int64)v10 ^ *((_QWORD *)&v10 + 1)) % 6;
   *(&ObjectAttributes.Length + 1) = v11;
   ObjectAttributes.Length = v8 % 0xD;
-  v12 = KeExpandKernelStackAndCallout(sub_140CA8390, &ObjectAttributes, 0xC000uLL);
+  v12 = KeExpandKernelStackAndCallout(sub_140CAE390, &ObjectAttributes, 0xC000uLL);
   v13 = *((_BYTE *)&ObjectAttributes.Attributes + 4);
   if ( v12 < 0 )
     v13 = 0;
@@ -123,7 +123,7 @@ _BOOL8 __fastcall KiFilterFiberContext(UNICODE_STRING *a1)
     ObjectAttributes.ObjectName = a1;
     ObjectAttributes.Attributes = 0;
     *((_BYTE *)&ObjectAttributes.Attributes + 4) = 0;
-    v20 = KeExpandKernelStackAndCallout(sub_140CA8390, &ObjectAttributes, 0xC000uLL);
+    v20 = KeExpandKernelStackAndCallout(sub_140CAE390, &ObjectAttributes, 0xC000uLL);
     v21 = *((_BYTE *)&ObjectAttributes.Attributes + 4);
     if ( v20 < 0 )
       v21 = 0;
@@ -139,8 +139,8 @@ LABEL_21:
       if ( (int)KiSwInterruptPresent() < 0 && !__2f )
       {
 LABEL_29:
-        if ( qword_140FFB7E0 )
-          ExFreePool(qword_140FFB7E0);
+        if ( qword_140FFC7E0 )
+          ExFreePool(qword_140FFC7E0);
         v25 = 24;
         v26 = &__28;
         v27 = 3LL;
@@ -160,8 +160,8 @@ LABEL_29:
         __31 = 0;
         __29 = 0;
         __2a = 0LL;
-        dword_140E0F300 = 0;
-        qword_140FFB080 = 0LL;
+        dword_140E0F380 = 0;
+        qword_140FFC080 = 0LL;
         goto LABEL_36;
       }
       ObjectAttributes.Length = 0;
@@ -171,7 +171,7 @@ LABEL_29:
       v22 = KiSwInterruptPresent();
       *((_BYTE *)&ObjectAttributes.Attributes + 4) = 0;
       ObjectAttributes.Attributes = (v22 >> 31) & 8;
-      v23 = KeExpandKernelStackAndCallout(sub_140CA8390, &ObjectAttributes, 0xC000uLL);
+      v23 = KeExpandKernelStackAndCallout(sub_140CAE390, &ObjectAttributes, 0xC000uLL);
       v24 = *((_BYTE *)&ObjectAttributes.Attributes + 4);
       if ( v23 < 0 )
         v24 = 0;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpGetWaitObject @ 0x1400EDF20
+ * XREFs of ObpGetWaitObject @ 0x1400EBDA0
  * Callers:
- *     NtAssociateWaitCompletionPacket @ 0x1400ED7E0 (NtAssociateWaitCompletionPacket.c)
- *     IopCancelWaitCompletionPacket @ 0x1400F9B7C (IopCancelWaitCompletionPacket.c)
- *     NtSignalAndWaitForSingleObject @ 0x1401FEA5C (NtSignalAndWaitForSingleObject.c)
- *     ObWaitForSingleObject @ 0x140534394 (ObWaitForSingleObject.c)
+ *     NtAssociateWaitCompletionPacket @ 0x1400EB670 (NtAssociateWaitCompletionPacket.c)
+ *     IopCancelWaitCompletionPacket @ 0x1400F7970 (IopCancelWaitCompletionPacket.c)
+ *     NtSignalAndWaitForSingleObject @ 0x1401FE888 (NtSignalAndWaitForSingleObject.c)
+ *     ObWaitForSingleObject @ 0x1405348D4 (ObWaitForSingleObject.c)
  * Callees:
  *     <none>
  */

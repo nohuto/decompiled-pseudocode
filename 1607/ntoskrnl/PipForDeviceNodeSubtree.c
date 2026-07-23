@@ -1,17 +1,17 @@
 /*
- * XREFs of PipForDeviceNodeSubtree @ 0x14051D928
+ * XREFs of PipForDeviceNodeSubtree @ 0x140487410
  * Callers:
- *     PpProcessClearProblem @ 0x1401316DC (PpProcessClearProblem.c)
- *     PnpGetSystemPdoList @ 0x14051D824 (PnpGetSystemPdoList.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x14051D8EC (PiMarkDeviceTreeForReenumeration.c)
- *     PnpBootPhaseComplete @ 0x140580834 (PnpBootPhaseComplete.c)
- *     PnpDiagRundownRegisterCallback @ 0x14062CDC0 (PnpDiagRundownRegisterCallback.c)
- *     PiProfileUpdateDeviceTreeWorker @ 0x14064207C (PiProfileUpdateDeviceTreeWorker.c)
- *     PpResetProblemDevices @ 0x140649CD4 (PpResetProblemDevices.c)
+ *     PpProcessClearProblem @ 0x140131C4C (PpProcessClearProblem.c)
+ *     PnpGetSystemPdoList @ 0x140486B1C (PnpGetSystemPdoList.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x1404887B0 (PiMarkDeviceTreeForReenumeration.c)
+ *     PnpBootPhaseComplete @ 0x140580CE0 (PnpBootPhaseComplete.c)
+ *     PnpDiagRundownRegisterCallback @ 0x14062CE74 (PnpDiagRundownRegisterCallback.c)
+ *     PiProfileUpdateDeviceTreeWorker @ 0x140642160 (PiProfileUpdateDeviceTreeWorker.c)
+ *     PpResetProblemDevices @ 0x140649DB8 (PpResetProblemDevices.c)
  * Callees:
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
- *     PipForAllChildDeviceNodes @ 0x14051D960 (PipForAllChildDeviceNodes.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
+ *     PipForAllChildDeviceNodes @ 0x140487448 (PipForAllChildDeviceNodes.c)
  */
 
 __int64 __fastcall PipForDeviceNodeSubtree(__int64 a1, __int64 a2, __int64 a3)

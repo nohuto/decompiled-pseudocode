@@ -21,7 +21,7 @@ void __fastcall PfLockExclusiveRelease(ULONG_PTR BugCheckParameter2)
   unsigned int v5; // r8d
   bool v6; // zf
   __int64 v7; // rcx
-  unsigned __int64 v8; // rdi
+  __int64 v8; // rdi
   __int64 v9; // rdx
   __int64 v10; // rdx
   __int64 v11; // rcx
@@ -45,7 +45,7 @@ void __fastcall PfLockExclusiveRelease(ULONG_PTR BugCheckParameter2)
     v6 = !_BitScanReverse((unsigned int *)&v7, v5);
     if ( v6 )
       break;
-    v8 = (unsigned __int64)&CurrentThread->LockEntries[v7];
+    v8 = (__int64)&CurrentThread->LockEntries[v7];
     v5 &= ~(1 << v7);
     if ( (*(_BYTE *)(v8 + 26) & 1) != 0
       && (*(_DWORD *)(v8 + 32) & 1) == 0
@@ -59,12 +59,12 @@ void __fastcall PfLockExclusiveRelease(ULONG_PTR BugCheckParameter2)
         {
           *(_BYTE *)(v8 + 32) |= 2u;
           if ( *(__int64 *)(v8 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v8);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v8);
           v14 = *(_DWORD *)(v8 + 88) & 0x1FFFF;
           *(_DWORD *)(v8 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v8 + 25) &= ~1u;
           *(_QWORD *)(v8 + 32) = 0LL;
-          v9 = (__int64)(v8 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          v9 = (signed __int64)(v8 - (unsigned __int64)CurrentThread->LockEntries) / 96;
           if ( v4 == 1 )
             CurrentThread->AbEntrySummary |= 1 << v9;
           else

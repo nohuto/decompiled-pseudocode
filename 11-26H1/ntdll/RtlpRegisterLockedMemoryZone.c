@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlpRegisterLockedMemoryZone @ 0x1800E1880
+ * XREFs of RtlpRegisterLockedMemoryZone @ 0x1800DF120
  * Callers:
- *     RtlLockMemoryZone @ 0x1800E1760 (RtlLockMemoryZone.c)
+ *     RtlLockMemoryZone @ 0x1800DF000 (RtlLockMemoryZone.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlLockModuleSection @ 0x1800E1AA0 (RtlLockModuleSection.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlLockModuleSection @ 0x1800DF340 (RtlLockModuleSection.c)
  */
 
-__int64 __fastcall RtlpRegisterLockedMemoryZone(__int64 a1, __int64 a2)
+__int64 RtlpRegisterLockedMemoryZone()
 {
-  int v2; // edi
-  int v3; // eax
+  NTSTATUS v0; // edi
+  int v1; // eax
   __int64 i; // rbx
 
-  v2 = 0;
-  RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock, a2);
-  v3 = RtlpLockedMemoryZoneCount;
+  v0 = 0;
+  RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
+  v1 = RtlpLockedMemoryZoneCount;
   if ( !RtlpLockedMemoryZoneCount )
   {
     for ( i = 0LL; !(_DWORD)i; i = 1LL )
     {
-      v2 = RtlLockModuleSection(*(&RtlpMemoryZoneCriticalRoutines + i));
-      if ( v2 < 0 )
+      v0 = RtlLockModuleSection(*(&RtlpMemoryZoneCriticalRoutines + i));
+      if ( v0 < 0 )
         goto LABEL_3;
     }
-    v3 = RtlpLockedMemoryZoneCount;
+    v1 = RtlpLockedMemoryZoneCount;
   }
-  RtlpLockedMemoryZoneCount = v3 + 1;
+  RtlpLockedMemoryZoneCount = v1 + 1;
 LABEL_3:
   RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
-  return (unsigned int)v2;
+  return (unsigned int)v0;
 }

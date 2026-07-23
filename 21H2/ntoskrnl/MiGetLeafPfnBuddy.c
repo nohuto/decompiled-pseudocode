@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetLeafPfnBuddy @ 0x140380A4C
+ * XREFs of MiGetLeafPfnBuddy @ 0x14038059C
  * Callers:
- *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
- *     MiCanStealKernelStack @ 0x1402C69E4 (MiCanStealKernelStack.c)
- *     MiPfnsWorthTrying @ 0x140302130 (MiPfnsWorthTrying.c)
- *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     MiSwapStackPage @ 0x14024483C (MiSwapStackPage.c)
+ *     MiCanStealKernelStack @ 0x1402451C4 (MiCanStealKernelStack.c)
+ *     MiPfnsWorthTrying @ 0x14030CE80 (MiPfnsWorthTrying.c)
+ *     MiIdentifyPfn @ 0x140353FA0 (MiIdentifyPfn.c)
  *     MiDeleteSubsectionLargePages @ 0x1403F6534 (MiDeleteSubsectionLargePages.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x140533FE8 (MiInitializeLargeMdlLeafPfns.c)
- *     MiLogMdlRangeEvent @ 0x140534098 (MiLogMdlRangeEvent.c)
- *     MiDoStackCopy @ 0x140535F20 (MiDoStackCopy.c)
- *     MiJumpStackTarget @ 0x140536050 (MiJumpStackTarget.c)
- *     MiMakeUnusedImageExtentsCold @ 0x1405543E8 (MiMakeUnusedImageExtentsCold.c)
- *     MiFreeLargePages @ 0x14055E498 (MiFreeLargePages.c)
- *     MiFreeRelocations @ 0x14076B198 (MiFreeRelocations.c)
- *     MiGetNextDirectFixupProto @ 0x1408D7CA4 (MiGetNextDirectFixupProto.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x140534228 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiLogMdlRangeEvent @ 0x1405342D8 (MiLogMdlRangeEvent.c)
+ *     MiDoStackCopy @ 0x140536160 (MiDoStackCopy.c)
+ *     MiJumpStackTarget @ 0x140536290 (MiJumpStackTarget.c)
+ *     MiMakeUnusedImageExtentsCold @ 0x140554628 (MiMakeUnusedImageExtentsCold.c)
+ *     MiFreeLargePages @ 0x14055E6D8 (MiFreeLargePages.c)
+ *     MiFreeRelocations @ 0x14076B358 (MiFreeRelocations.c)
+ *     MiGetNextDirectFixupProto @ 0x1408D7E04 (MiGetNextDirectFixupProto.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiTrimSection @ 0x1400EABA4
+ * XREFs of MiTrimSection @ 0x1400EAC24
  * Callers:
- *     MmTrimSection @ 0x1400E96F0 (MmTrimSection.c)
- *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
+ *     MmTrimSection @ 0x1400E9770 (MmTrimSection.c)
+ *     MiTrimSharedPage @ 0x1400E97F0 (MiTrimSharedPage.c)
  * Callees:
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     MiReferenceSubsection @ 0x1400770E4 (MiReferenceSubsection.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsection @ 0x1400E7718 (MiDecrementSubsection.c)
- *     MiUnlockControlAreaFileObjectShared @ 0x1400EAB54 (MiUnlockControlAreaFileObjectShared.c)
- *     MiViewMayContainPage @ 0x1400EAE00 (MiViewMayContainPage.c)
- *     MiTrimSharedPageFromViews @ 0x1400EB40C (MiTrimSharedPageFromViews.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferenceSubsection @ 0x1400770D4 (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsection @ 0x1400E7798 (MiDecrementSubsection.c)
+ *     MiUnlockControlAreaFileObjectShared @ 0x1400EABD4 (MiUnlockControlAreaFileObjectShared.c)
+ *     MiViewMayContainPage @ 0x1400EAE80 (MiViewMayContainPage.c)
+ *     MiTrimSharedPageFromViews @ 0x1400EB48C (MiTrimSharedPageFromViews.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTrimSection(__int64 a1, int a2, int a3)

@@ -53,8 +53,8 @@ unsigned __int64 __fastcall MiDbgWriteCheck(unsigned __int64 a1, _QWORD *a2)
     if ( v3 != 1
       || PsNtosImageBase
       && PsHalImageBase
-      && (a1 < PsNtosImageBase || a1 >= PsNtosImageEnd)
-      && (a1 < PsHalImageBase || a1 >= PsHalImageEnd) )
+      && (a1 < (unsigned __int64)PsNtosImageBase || a1 >= PsNtosImageEnd)
+      && (a1 < (unsigned __int64)PsHalImageBase || a1 >= PsHalImageEnd) )
     {
       return a1;
     }

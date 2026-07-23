@@ -1,7 +1,7 @@
 /*
- * XREFs of ChkSum @ 0x1800EB2A8
+ * XREFs of ChkSum @ 0x1800EB368
  * Callers:
- *     LdrVerifyMappedImageMatchesChecksum @ 0x1800EB2D8 (LdrVerifyMappedImageMatchesChecksum.c)
+ *     LdrVerifyMappedImageMatchesChecksum @ 0x1800EB398 (LdrVerifyMappedImageMatchesChecksum.c)
  * Callees:
  *     <none>
  */

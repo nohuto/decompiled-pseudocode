@@ -1,19 +1,19 @@
 /*
- * XREFs of CcZeroData @ 0x1400E0C20
+ * XREFs of CcZeroData @ 0x1400E0CA0
  * Callers:
- *     FsRtlCopyWrite @ 0x1408140D0 (FsRtlCopyWrite.c)
- *     FsRtlPrepareMdlWriteDev @ 0x140814AE0 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlCopyWrite @ 0x1408152D0 (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140815CE0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
- *     CcDereferencePartition @ 0x14007C998 (CcDereferencePartition.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcZeroDataInCache @ 0x1400E07C4 (CcZeroDataInCache.c)
- *     CcGetPartitionFromFileObject @ 0x1400E0FD0 (CcGetPartitionFromFileObject.c)
- *     CcZeroDataOnDisk @ 0x140128330 (CcZeroDataOnDisk.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcDereferencePartition @ 0x14007C988 (CcDereferencePartition.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcZeroDataInCache @ 0x1400E0844 (CcZeroDataInCache.c)
+ *     CcGetPartitionFromFileObject @ 0x1400E1050 (CcGetPartitionFromFileObject.c)
+ *     CcZeroDataOnDisk @ 0x140128400 (CcZeroDataOnDisk.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall CcZeroData(

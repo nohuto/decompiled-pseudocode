@@ -1,11 +1,11 @@
 /*
- * XREFs of AVrfpFindClosestThunkDuplicate @ 0x1800D6B48
+ * XREFs of AVrfpFindClosestThunkDuplicate @ 0x1800D6C08
  * Callers:
- *     AVrfpChainDuplicateVerificationLayers @ 0x1800D65D0 (AVrfpChainDuplicateVerificationLayers.c)
+ *     AVrfpChainDuplicateVerificationLayers @ 0x1800D6690 (AVrfpChainDuplicateVerificationLayers.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
- *     _stricmp @ 0x180097DD0 (_stricmp.c)
- *     _wcsicmp @ 0x180098360 (_wcsicmp.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
+ *     _stricmp @ 0x180097DC0 (_stricmp.c)
+ *     _wcsicmp @ 0x180098350 (_wcsicmp.c)
  */
 
 const char *__fastcall AVrfpFindClosestThunkDuplicate(__int64 a1, const wchar_t *a2, const char *a3)

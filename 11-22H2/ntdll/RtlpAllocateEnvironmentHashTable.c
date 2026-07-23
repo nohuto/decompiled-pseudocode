@@ -8,10 +8,10 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpAllocateEnvironmentHashTable(__int64 a1)
+PVOID __fastcall RtlpAllocateEnvironmentHashTable(SIZE_T a1)
 {
   if ( NtCurrentPeb()->ProcessHeap )
-    return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, a1);
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, a1);
   else
     return 0LL;
 }

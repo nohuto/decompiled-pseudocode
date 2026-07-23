@@ -1,10 +1,10 @@
 /*
- * XREFs of HalHandleMcheck @ 0x14057E0B0
+ * XREFs of HalHandleMcheck @ 0x1405805D0
  * Callers:
- *     KiHandleMcheck @ 0x1405EBA00 (KiHandleMcheck.c)
+ *     KiHandleMcheck @ 0x1405EE370 (KiHandleMcheck.c)
  * Callees:
- *     HalpMcaReportError @ 0x140453F00 (HalpMcaReportError.c)
- *     HalpHandleMachineCheck @ 0x14057AD9C (HalpHandleMachineCheck.c)
+ *     HalpMcaReportError @ 0x14044C030 (HalpMcaReportError.c)
+ *     HalpHandleMachineCheck @ 0x14057D2CC (HalpHandleMachineCheck.c)
  */
 
 void __fastcall HalHandleMcheck(__int64 a1, __int64 a2, int *a3)

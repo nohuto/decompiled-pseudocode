@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteSystemPageTableTail @ 0x1403630D0
+ * XREFs of MiDeleteSystemPageTableTail @ 0x140364E70
  * Callers:
  *     <none>
  * Callees:
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiFreeUnmappedPageTables @ 0x1403631D0 (MiFreeUnmappedPageTables.c)
- *     MiReturnSystemCharges @ 0x1404B3278 (MiReturnSystemCharges.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiFreeUnmappedPageTables @ 0x140364F70 (MiFreeUnmappedPageTables.c)
+ *     MiReturnSystemCharges @ 0x1404AC8F8 (MiReturnSystemCharges.c)
  */
 
 __int64 __fastcall MiDeleteSystemPageTableTail(__int64 a1)
@@ -35,9 +35,9 @@ __int64 __fastcall MiDeleteSystemPageTableTail(__int64 a1)
     MiFreeUnmappedPageTables(v1 + 2, &v5);
     if ( *((_QWORD *)&v6 + 1) )
     {
-      if ( qword_140E3D858 )
+      if ( qword_140E3D9D8 )
         MiReturnSystemCharges(
-          *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 174LL)),
+          *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 174LL)),
           *((_QWORD *)&v6 + 1),
           *((_QWORD *)&v6 + 1) - *((_QWORD *)&v5 + 1),
           *v1);

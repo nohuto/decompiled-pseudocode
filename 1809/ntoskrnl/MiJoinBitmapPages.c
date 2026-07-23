@@ -1,18 +1,18 @@
 /*
- * XREFs of MiJoinBitmapPages @ 0x1402B4EC0
+ * XREFs of MiJoinBitmapPages @ 0x1402B50B0
  * Callers:
- *     MiReturnNonPagedPoolPde @ 0x1401616A0 (MiReturnNonPagedPoolPde.c)
+ *     MiReturnNonPagedPoolPde @ 0x1401617A0 (MiReturnNonPagedPoolPde.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiReturnPfnList @ 0x140185C3C (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x1401927D4 (MiReturnSplitPageCharges.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiReturnPfnList @ 0x140185D7C (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x140192914 (MiReturnSplitPageCharges.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiJoinBitmapPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -46,7 +46,7 @@ void __fastcall MiJoinBitmapPages(__int64 a1, unsigned __int64 a2, unsigned __in
   v22 = a2;
   v4 = a2;
   v5 = (__int64 *)(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  MiMakeValidPte((unsigned __int64)v5, qword_14043ADC8, 536870913);
+  MiMakeValidPte((unsigned __int64)v5, qword_14043BE88, 536870913);
   v6 = 0LL;
   if ( a3 )
   {
@@ -63,7 +63,7 @@ void __fastcall MiJoinBitmapPages(__int64 a1, unsigned __int64 a2, unsigned __in
       if ( (unsigned int)MiPteHasShadow() )
       {
         v11 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_11;
         v13 = (v9 & 1) == 0;
       }
@@ -86,7 +86,7 @@ LABEL_11:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v14 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v17 = (v16 & 1) == 0;
           goto LABEL_19;

@@ -15,12 +15,12 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-void __fastcall RtlpHpLfhSubsegmentDecommitPages(_QWORD *a1, __int64 a2, int a3, unsigned int a4, char a5)
+void __fastcall RtlpHpLfhSubsegmentDecommitPages(_RTL_SRWLOCK *a1, __int64 a2, int a3, unsigned int a4, char a5)
 {
   unsigned int v5; // r11d
   __int64 v6; // r14
   BOOL v7; // r9d
-  unsigned __int64 v9; // r10
+  _RTL_SRWLOCK *v9; // r10
   int v10; // r12d
   BOOL v11; // ebx
   unsigned int v12; // eax
@@ -32,7 +32,7 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(_QWORD *a1, __int64 a2, int a3,
   char v18; // cl
   unsigned int v19; // ebp
   int v20; // esi
-  _QWORD *v21; // rbx
+  _RTL_SRWLOCK *v21; // rbx
   BOOL v22; // [rsp+20h] [rbp-48h]
   BOOL v24; // [rsp+80h] [rbp+18h]
 
@@ -40,7 +40,7 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(_QWORD *a1, __int64 a2, int a3,
   LODWORD(v6) = a3;
   v7 = a3 < 0;
   v24 = v7;
-  v9 = (unsigned __int64)a1;
+  v9 = a1;
   v10 = 0;
   v11 = a3 == -2;
   v22 = v11;
@@ -80,7 +80,7 @@ LABEL_34:
           if ( v10 )
           {
             if ( !v22 )
-              RtlReleaseSRWLockExclusive(a2 + 24);
+              RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
             if ( (a5 & 1) == 0 )
               RtlReleaseSRWLockShared(v21 + 6);
           }
@@ -109,8 +109,8 @@ LABEL_34:
         v19 = (_DWORD)v6 << v18;
         v20 = (_DWORD)v17 << v18;
         v21 = a1;
-        ((void (__fastcall *)(_QWORD, __int64, _QWORD))(v9 ^ RtlpHeapKey ^ *(_QWORD *)(v9 + 32)))(
-          *a1,
+        ((void (__fastcall *)(unsigned __int64, __int64, _QWORD))((unsigned __int64)v9 ^ RtlpHeapKey ^ v9[4].Value))(
+          a1->Value,
           a2 + (unsigned int)((_DWORD)v6 << v18),
           (unsigned int)((_DWORD)v17 << v18));
         RtlpHpLfhSubsegmentDecBlockCounts(a2, v19, v20);
@@ -124,13 +124,13 @@ LABEL_31:
       }
       if ( (a5 & 1) == 0 )
       {
-        RtlAcquireSRWLockShared(v9 + 48);
+        RtlAcquireSRWLockShared(v9 + 6);
         v7 = v24;
       }
       v10 = 2;
       if ( !v11 )
       {
-        RtlAcquireSRWLockExclusive(a2 + 24);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
         v7 = v24;
       }
 LABEL_32:
@@ -138,7 +138,7 @@ LABEL_32:
       v5 = a4;
       if ( (unsigned int)v6 >= v12 )
         goto LABEL_33;
-      v9 = (unsigned __int64)a1;
+      v9 = a1;
     }
     if ( !v7 )
       goto LABEL_33;

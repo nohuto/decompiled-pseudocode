@@ -1,16 +1,16 @@
 /*
- * XREFs of MI_WSLE_LOG_ACCESS @ 0x140016E5C
+ * XREFs of MI_WSLE_LOG_ACCESS @ 0x1400169DC
  * Callers:
- *     MiEmptyWorkingSetHelper @ 0x1400160F8 (MiEmptyWorkingSetHelper.c)
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
- *     MiTrimSharedPageFromViews @ 0x140018E50 (MiTrimSharedPageFromViews.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiTerminateWsle @ 0x1400E22C0 (MiTerminateWsle.c)
- *     MiProtectPool @ 0x1400EA400 (MiProtectPool.c)
- *     MiRemoveSingleWsle @ 0x14010133C (MiRemoveSingleWsle.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiDeprioritizeVirtualAddresses @ 0x140110334 (MiDeprioritizeVirtualAddresses.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
+ *     MiEmptyWorkingSetHelper @ 0x140015C78 (MiEmptyWorkingSetHelper.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
+ *     MiTrimSharedPageFromViews @ 0x1400189D0 (MiTrimSharedPageFromViews.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiTerminateWsle @ 0x1400E0160 (MiTerminateWsle.c)
+ *     MiProtectPool @ 0x1400E8270 (MiProtectPool.c)
+ *     MiRemoveSingleWsle @ 0x1400FF0BC (MiRemoveSingleWsle.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x140110898 (MiDeprioritizeVirtualAddresses.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
  * Callees:
  *     <none>
  */

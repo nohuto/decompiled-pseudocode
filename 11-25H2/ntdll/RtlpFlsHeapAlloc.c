@@ -8,14 +8,20 @@
  *     RtlpHpMetadataAlloc @ 0x18004F990 (RtlpHpMetadataAlloc.c)
  */
 
-__int64 __fastcall RtlpFlsHeapAlloc(unsigned int a1)
+PVOID __fastcall RtlpFlsHeapAlloc(unsigned int a1)
 {
+  SIZE_T v1; // r10
   _DWORD *ProcessHeap; // rcx
   __int128 v4; // [rsp+20h] [rbp-18h] BYREF
 
+  v1 = a1;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   if ( ProcessHeap[4] != -571548178 )
-    return RtlAllocateHeap(ProcessHeap);
+    return RtlAllocateHeap(ProcessHeap, 0, v1);
   v4 = *(_OWORD *)ProcessHeap;
-  return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, __int128 *))RtlpHpMetadataAlloc)(a1, a1, 2LL, &v4);
+  return (PVOID)((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, __int128 *))RtlpHpMetadataAlloc)(
+                  (unsigned int)v1,
+                  (unsigned int)v1,
+                  2LL,
+                  &v4);
 }

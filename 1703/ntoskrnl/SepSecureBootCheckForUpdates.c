@@ -10,11 +10,11 @@
  *     NtUpdateWnfStateData @ 0x1404EE944 (NtUpdateWnfStateData.c)
  */
 
-NTSTATUS SepSecureBootCheckForUpdates()
+int SepSecureBootCheckForUpdates()
 {
-  NTSTATUS result; // eax
+  int result; // eax
   HANDLE KeyHandle; // [rsp+40h] [rbp-9h] BYREF
-  ULONG ResultLength; // [rsp+48h] [rbp-1h] BYREF
+  ULONG MatchingChangeStamp; // [rsp+48h] [rbp-1h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp+7h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+80h] [rbp+37h] BYREF
   int v5; // [rsp+84h] [rbp+3Bh]
@@ -36,9 +36,9 @@ NTSTATUS SepSecureBootCheckForUpdates()
                KeyValuePartialInformation,
                KeyValueInformation,
                0x14u,
-               &ResultLength);
+               &MatchingChangeStamp);
     if ( result >= 0 && v5 == 4 && v6 == 4 && v7 )
-      result = NtUpdateWnfStateData((__int64)&WNF_SBS_UPDATE_AVAILABLE, 0LL, 0LL, 0LL, 0LL, 0, 0);
+      result = NtUpdateWnfStateData(&WNF_SBS_UPDATE_AVAILABLE, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   if ( KeyHandle )
     return ZwClose(KeyHandle);

@@ -1,16 +1,16 @@
 /*
- * XREFs of deflate @ 0x1801529BC
+ * XREFs of deflate @ 0x180150D7C
  * Callers:
- *     RtlCompressBufferDeflateInternal @ 0x18014CDC4 (RtlCompressBufferDeflateInternal.c)
+ *     RtlCompressBufferDeflateInternal @ 0x18014B18C (RtlCompressBufferDeflateInternal.c)
  * Callees:
- *     deflateStateCheck @ 0x180152E18 (deflateStateCheck.c)
- *     deflate_huff @ 0x1801533DC (deflate_huff.c)
- *     deflate_rle @ 0x18015354C (deflate_rle.c)
- *     deflate_stored @ 0x180153E80 (deflate_stored.c)
- *     flush_pending @ 0x180154658 (flush_pending.c)
- *     adler32_z @ 0x180155314 (adler32_z.c)
- *     _tr_stored_block @ 0x180155D88 (_tr_stored_block.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     deflateStateCheck @ 0x1801511D8 (deflateStateCheck.c)
+ *     deflate_huff @ 0x18015179C (deflate_huff.c)
+ *     deflate_rle @ 0x18015190C (deflate_rle.c)
+ *     deflate_stored @ 0x180152240 (deflate_stored.c)
+ *     flush_pending @ 0x180152A18 (flush_pending.c)
+ *     adler32_z @ 0x1801536D4 (adler32_z.c)
+ *     _tr_stored_block @ 0x180154148 (_tr_stored_block.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall deflate(__int64 a1)
@@ -135,7 +135,7 @@ LABEL_32:
         }
         else
         {
-          v13 = ((__int64 (__fastcall *)(__int64, __int64))funcs_180152BEA[2 * v12])(v3, 4LL);
+          v13 = ((__int64 (__fastcall *)(__int64, __int64))funcs_180150FAA[2 * v12])(v3, 4LL);
         }
       }
       else

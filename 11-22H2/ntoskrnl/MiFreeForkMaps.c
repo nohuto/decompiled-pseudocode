@@ -7,25 +7,23 @@
  *     MiFinishLastForkPageTable @ 0x14066456C (MiFinishLastForkPageTable.c)
  */
 
-unsigned __int64 __fastcall MiFreeForkMaps(__int64 a1)
+void __fastcall MiFreeForkMaps(__int64 a1)
 {
   unsigned __int64 v1; // rdx
-  unsigned __int64 result; // rax
-  __int64 *v4; // rbx
-  __int64 v5; // rdi
+  __int64 *v3; // rbx
+  __int64 v4; // rdi
 
   v1 = *(_QWORD *)(a1 + 56);
   if ( v1 )
-    result = MiReleasePtes((__int64)&qword_140C69A40, (__int64 *)(((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL), 1u);
-  v4 = (__int64 *)(a1 + 8);
-  v5 = 3LL;
+    MiReleasePtes((__int64)&qword_140C69A40, (__int64 *)(((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL), 1u);
+  v3 = (__int64 *)(a1 + 8);
+  v4 = 3LL;
   do
   {
-    if ( *v4 != -1 )
-      result = MiFinishLastForkPageTable(a1, *v4);
-    ++v4;
-    --v5;
+    if ( *v3 != -1 )
+      MiFinishLastForkPageTable(a1, *v3);
+    ++v3;
+    --v4;
   }
-  while ( v5 );
-  return result;
+  while ( v4 );
 }

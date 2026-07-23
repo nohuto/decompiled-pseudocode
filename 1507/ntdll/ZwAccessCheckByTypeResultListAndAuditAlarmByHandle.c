@@ -6,11 +6,28 @@
  *     <none>
  */
 
-__int64 ZwAccessCheckByTypeResultListAndAuditAlarmByHandle()
+NTSTATUS __cdecl ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        HANDLE ClientToken,
+        PUNICODE_STRING ObjectTypeName,
+        PUNICODE_STRING ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID PrincipalSelfSid,
+        ACCESS_MASK DesiredAccess,
+        AUDIT_EVENT_TYPE AuditType,
+        ULONG Flags,
+        POBJECT_TYPE_LIST ObjectTypeList,
+        ULONG ObjectTypeListLength,
+        PGENERIC_MAPPING GenericMapping,
+        BOOLEAN ObjectCreation,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus,
+        PBOOLEAN GenerateOnClose)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 102LL;
+  result = 102;
   __asm { syscall; Low latency system call }
   return result;
 }

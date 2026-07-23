@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlStackDbStackAdd @ 0x140443078
+ * XREFs of RtlStackDbStackAdd @ 0x14043BB88
  * Callers:
- *     ObpPushRefDerefInfoNoLock @ 0x1407702BC (ObpPushRefDerefInfoNoLock.c)
+ *     ObpPushRefDerefInfoNoLock @ 0x1407732BC (ObpPushRefDerefInfoNoLock.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlpStackDbEntryIsEqual @ 0x1404436F8 (RtlpStackDbEntryIsEqual.c)
- *     RtlpStackDbRefCountIncrement @ 0x1404437A8 (RtlpStackDbRefCountIncrement.c)
- *     RtlpStackDbEntryCreate @ 0x14044380C (RtlpStackDbEntryCreate.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     RtlpStackDbEntryCleanup @ 0x1406235F0 (RtlpStackDbEntryCleanup.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlpStackDbEntryIsEqual @ 0x14043C208 (RtlpStackDbEntryIsEqual.c)
+ *     RtlpStackDbRefCountIncrement @ 0x14043C2B8 (RtlpStackDbRefCountIncrement.c)
+ *     RtlpStackDbEntryCreate @ 0x14043C31C (RtlpStackDbEntryCreate.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     RtlpStackDbEntryCleanup @ 0x140626640 (RtlpStackDbEntryCleanup.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _QWORD *__fastcall RtlStackDbStackAdd(__int64 a1, struct _KLOCK_ENTRIES *a2, unsigned int a3)
@@ -31,7 +31,7 @@ _QWORD *__fastcall RtlStackDbStackAdd(__int64 a1, struct _KLOCK_ENTRIES *a2, uns
   struct _KTHREAD *CurrentThread; // rax
   LegacyAutoBoost *v12; // rsi
   unsigned int v13; // r12d
-  __int64 v14; // r14
+  struct _LIST_ENTRY ***v14; // r14
   __int64 v15; // r15
   __int64 v16; // rsi
   __int64 v17; // rsi
@@ -50,18 +50,18 @@ _QWORD *__fastcall RtlStackDbStackAdd(__int64 a1, struct _KLOCK_ENTRIES *a2, uns
   unsigned int v31; // r13d
   __int64 v32; // r15
   __int64 v33; // r14
-  __int64 v34; // r15
+  PVOID SystemArgument1; // r15
   __int64 v35; // rsi
-  __int64 v36; // rcx
+  struct _LIST_ENTRY *v36; // rcx
   __int64 v37; // rdx
-  char *v38; // r8
+  struct _LIST_ENTRY *v38; // r8
   char v39; // cl
   unsigned __int64 v40; // rcx
-  char v41; // dl
+  unsigned __int8 v41; // dl
   unsigned int v42; // edi
   __int64 v43; // r9
-  __int64 v44; // r14
-  __int64 v45; // rcx
+  struct _LIST_ENTRY *Blink; // r14
+  struct _LIST_ENTRY *v45; // rcx
   _QWORD *v46; // r10
   __int64 v47; // rdx
   _DWORD v48[2]; // [rsp+20h] [rbp-10h] BYREF
@@ -142,9 +142,13 @@ _QWORD *__fastcall RtlStackDbStackAdd(__int64 a1, struct _KLOCK_ENTRIES *a2, uns
 LABEL_10:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v12 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&qword_140F13200, 0LL, 0LL, v3);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F13200, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140F13200.Header.Lock, 0, v12, &qword_140F13200);
+  v12 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)ObpStackTraceLock.SchedulerApc.Reserved, 0LL, 0LL, v3);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(
+      (signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved,
+      0,
+      v12,
+      (struct _KTHREAD *)&ObpStackTraceLock.SchedulerApcFill5[32]);
   if ( v12 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -152,9 +156,9 @@ LABEL_10:
     else
       *((_BYTE *)v12 + 10) = 1;
   }
-  v13 = HIDWORD(qword_140F131F0);
+  v13 = *(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[20];
   v14 = 0LL;
-  v15 = -1LL << (BYTE4(qword_140F131F0) & 0x1F);
+  v15 = -1LL << (ObpStackTraceLock.SchedulerApcFill3[20] & 0x1F);
   v16 = v5 & v15;
 LABEL_16:
   if ( v14 )
@@ -162,9 +166,8 @@ LABEL_16:
   if ( v13 >> 5 )
   {
     v50 = v5 & v15;
-    v14 = qword_140F131F8
-        + 8LL
-        * (((v13 >> 5) - 1) & (HIBYTE(v50)
+    v14 = (struct _LIST_ENTRY ***)ObpStackTraceLock.SchedulerApc.ApcListEntry.Blink
+        + (((v13 >> 5) - 1) & (HIBYTE(v50)
                              - 877075889
                              + 442596621 * (unsigned __int8)v16
                              + 37
@@ -175,19 +178,22 @@ LABEL_16:
 LABEL_19:
     while ( 1 )
     {
-      v14 = *(_QWORD *)v14;
-      if ( (v14 & 1) != 0 )
+      v14 = (struct _LIST_ENTRY ***)*v14;
+      if ( ((unsigned __int8)v14 & 1) != 0 )
         break;
-      if ( v16 == (v15 & *(_QWORD *)(v14 + 8)) )
+      if ( v16 == (v15 & (unsigned __int64)v14[1]) )
       {
         if ( !v14 )
           break;
         if ( (unsigned int)RtlpStackDbEntryIsEqual(v14, v48) )
         {
-          v17 = v14 & -(__int64)((unsigned int)RtlpStackDbRefCountIncrement(v14 + 16) != 0);
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F13200, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared((signed __int64 *)&qword_140F13200.Header.Lock);
-          KeAbPostRelease((unsigned __int64)&qword_140F13200);
+          v17 = (unsigned __int64)v14 & -(__int64)((unsigned int)RtlpStackDbRefCountIncrement(v14 + 2) != 0);
+          if ( _InterlockedCompareExchange64(
+                 (volatile signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved,
+                 0LL,
+                 17LL) != 17 )
+            ExfReleasePushLockShared((signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved);
+          KeAbPostRelease((unsigned __int64)ObpStackTraceLock.SchedulerApc.Reserved);
           KeLeaveGuardedRegion();
           return (_QWORD *)v17;
         }
@@ -195,20 +201,23 @@ LABEL_19:
       }
     }
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F13200, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140F13200.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&qword_140F13200);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved);
+  KeAbPostRelease((unsigned __int64)ObpStackTraceLock.SchedulerApc.Reserved);
   KeLeaveGuardedRegion();
-  v24 = (_QWORD *)RtlpStackDbEntryCreate(&qword_140F131E0, v48, v5);
+  v24 = (_QWORD *)RtlpStackDbEntryCreate(&ObpStackTraceLock.648, v48, v5);
   if ( !v24 )
     return 0LL;
   v25 = KeGetCurrentThread();
   --v25->SpecialApcDisable;
-  v26 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F13200, 0LL, 0LL, v23);
-  v29 = _interlockedbittestandset64(&qword_140F13200.Header.Lock, 0LL);
+  v26 = (AutoBoost *)KeAbPreAcquire((__int64)ObpStackTraceLock.SchedulerApc.Reserved, 0LL, 0LL, v23);
+  v29 = _interlockedbittestandset64((volatile signed __int32 *)&ObpStackTraceLock.SchedulerApcFill5[32], 0LL);
   v30 = v26;
   if ( v29 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F13200, v26, (__int64)&qword_140F13200);
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)ObpStackTraceLock.SchedulerApc.Reserved,
+      v26,
+      (__int64)ObpStackTraceLock.SchedulerApc.Reserved);
   if ( v30 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -222,8 +231,8 @@ LABEL_19:
     }
   }
   v17 = 0LL;
-  v31 = HIDWORD(qword_140F131F0);
-  v32 = -1LL << (BYTE4(qword_140F131F0) & 0x1F);
+  v31 = *(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[20];
+  v32 = -1LL << (ObpStackTraceLock.SchedulerApcFill3[20] & 0x1F);
   v33 = v5 & v32;
 LABEL_45:
   if ( v17 )
@@ -231,8 +240,8 @@ LABEL_45:
   if ( v31 >> 5 )
   {
     v51 = v5 & v32;
-    v17 = qword_140F131F8
-        + 8LL
+    v17 = (__int64)ObpStackTraceLock.SchedulerApc.ApcListEntry.Blink
+        + 8
         * (((v31 >> 5) - 1) & (HIBYTE(v51)
                              - 877075889
                              + 442596621 * (unsigned __int8)v33
@@ -261,13 +270,15 @@ LABEL_48:
       }
     }
   }
-  v34 = qword_140F13220;
-  v35 = (unsigned int)(2 * (HIDWORD(qword_140F131F0) >> 5));
-  if ( (unsigned int)qword_140F131F0 < (unsigned int)v35 )
+  SystemArgument1 = ObpStackTraceLock.SchedulerApc.SystemArgument1;
+  v35 = (unsigned int)(2 * (*(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[20] >> 5));
+  if ( *(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[16] < (unsigned int)v35 )
     goto LABEL_55;
   if ( (unsigned int)v35 < 4 )
     v35 = 4LL;
-  v38 = (char *)guard_dispatch_icall_no_overrides(8LL * (unsigned int)v35, qword_140F13220);
+  v38 = (struct _LIST_ENTRY *)guard_dispatch_icall_no_overrides(
+                                8LL * (unsigned int)v35,
+                                ObpStackTraceLock.SchedulerApc.SystemArgument1);
   if ( v38 )
   {
     if ( (((_DWORD)v35 - 1) & (unsigned int)v35) != 0 )
@@ -284,24 +295,24 @@ LABEL_48:
     if ( (unsigned int)v35 > 0x4000000 )
       v35 = 0x4000000LL;
     v40 = (unsigned int)v35;
-    if ( v38 > &v38[8 * v35] )
+    if ( v38 > (struct _LIST_ENTRY *)((char *)v38 + 8 * v35) )
       v40 = 0LL;
     if ( v40 )
-      memset64(v38, (unsigned __int64)&qword_140F131F0 + 1, v40);
-    v41 = BYTE4(qword_140F131F0);
+      memset64(v38, (unsigned __int64)&ObpStackTraceLock.SchedulerApcFill5[17], v40);
+    v41 = ObpStackTraceLock.SchedulerApcFill3[20];
     v42 = 0;
-    v43 = -1LL << (BYTE4(qword_140F131F0) & 0x1F);
-    if ( (qword_140F131F0 & 0xFFFFFFE000000000uLL) != 0 )
+    v43 = -1LL << (ObpStackTraceLock.SchedulerApcFill3[20] & 0x1F);
+    if ( (*(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[20] & 0xFFFFFFE0) != 0 )
     {
       do
       {
-        v44 = qword_140F131F8;
+        Blink = ObpStackTraceLock.SchedulerApc.ApcListEntry.Blink;
         while ( 1 )
         {
-          v46 = *(_QWORD **)(v44 + 8LL * v42);
+          v46 = (_QWORD *)*((_QWORD *)&Blink->Flink + v42);
           if ( ((unsigned __int8)v46 & 1) != 0 )
             break;
-          *(_QWORD *)(v44 + 8LL * v42) = *v46;
+          *((_QWORD *)&Blink->Flink + v42) = *v46;
           v53 = v43 & v46[1];
           v47 = ((_DWORD)v35 - 1) & (HIBYTE(v53)
                                    + 37
@@ -314,52 +325,61 @@ LABEL_48:
                                       * (BYTE3(v53)
                                        + 374026047
                                        + 37 * (BYTE2(v53) + 37 * (BYTE1(v53) + 37 * (unsigned int)(unsigned __int8)v53)))))));
-          *v46 = *(_QWORD *)&v38[8 * v47];
-          *(_QWORD *)&v38[8 * v47] = v46;
+          *v46 = *((_QWORD *)&v38->Flink + v47);
+          *((_QWORD *)&v38->Flink + v47) = v46;
         }
-        v41 = BYTE4(qword_140F131F0);
+        v41 = ObpStackTraceLock.SchedulerApcFill3[20];
         ++v42;
       }
-      while ( v42 < HIDWORD(qword_140F131F0) >> 5 );
+      while ( v42 < *(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[20] >> 5 );
     }
-    v45 = qword_140F131F8;
-    qword_140F131F8 = (__int64)v38;
-    HIDWORD(qword_140F131F0) = v41 & 0x1F | (32 * v35);
+    v45 = ObpStackTraceLock.SchedulerApc.ApcListEntry.Blink;
+    ObpStackTraceLock.SchedulerApc.ApcListEntry.Blink = v38;
+    *(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[20] = v41 & 0x1F | (32 * v35);
     if ( v45 )
-      guard_dispatch_icall_no_overrides(v45, v34);
+      guard_dispatch_icall_no_overrides(v45, SystemArgument1);
     goto LABEL_55;
   }
-  if ( HIDWORD(qword_140F131F0) >= 0x20 )
+  if ( *(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[20] >= 0x20u )
   {
 LABEL_55:
-    v52 = v24[1] & (-1LL << (BYTE4(qword_140F131F0) & 0x1F));
-    v36 = qword_140F131F8;
-    v37 = ((HIDWORD(qword_140F131F0) >> 5) - 1) & (HIBYTE(v52)
-                                                 + 37
-                                                 * (BYTE6(v52)
-                                                  + 37
-                                                  * (BYTE5(v52)
-                                                   + 37
-                                                   * (BYTE4(v52)
-                                                    + 37
-                                                    * (BYTE3(v52)
-                                                     + 374026047
-                                                     + 37 * (BYTE2(v52) + 37 * (BYTE1(v52) + 37 * (unsigned __int8)v52)))))));
-    *v24 = *(_QWORD *)(qword_140F131F8 + 8 * v37);
-    *(_QWORD *)(v36 + 8 * v37) = v24;
-    LODWORD(qword_140F131F0) = qword_140F131F0 + 1;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140F13200, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140F13200.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&qword_140F13200);
+    v52 = v24[1] & (-1LL << (ObpStackTraceLock.SchedulerApcFill3[20] & 0x1F));
+    v36 = ObpStackTraceLock.SchedulerApc.ApcListEntry.Blink;
+    v37 = ((*(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[20] >> 5) - 1) & (HIBYTE(v52)
+                                                                            + 37
+                                                                            * (BYTE6(v52)
+                                                                             + 37
+                                                                             * (BYTE5(v52)
+                                                                              + 37
+                                                                              * (BYTE4(v52)
+                                                                               + 37
+                                                                               * (BYTE3(v52)
+                                                                                + 374026047
+                                                                                + 37
+                                                                                * (BYTE2(v52)
+                                                                                 + 37
+                                                                                 * (BYTE1(v52)
+                                                                                  + 37
+                                                                                  * (unsigned int)(unsigned __int8)v52)))))));
+    *v24 = *((_QWORD *)&ObpStackTraceLock.SchedulerApc.ApcListEntry.Blink->Flink + v37);
+    *((_QWORD *)&v36->Flink + v37) = v24;
+    ++*(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[16];
+    if ( (_InterlockedExchangeAdd64(
+            (volatile signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved,
+            0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved);
+    KeAbPostRelease((unsigned __int64)ObpStackTraceLock.SchedulerApc.Reserved);
     KeLeaveGuardedRegion();
     return v24;
   }
   v17 = 0LL;
 LABEL_84:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140F13200, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140F13200.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&qword_140F13200);
+  if ( (_InterlockedExchangeAdd64(
+          (volatile signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved,
+          0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)ObpStackTraceLock.SchedulerApc.Reserved);
+  KeAbPostRelease((unsigned __int64)ObpStackTraceLock.SchedulerApc.Reserved);
   KeLeaveGuardedRegion();
-  RtlpStackDbEntryCleanup(&qword_140F131E0, v24);
+  RtlpStackDbEntryCleanup(&ObpStackTraceLock.648, v24);
   return (_QWORD *)v17;
 }

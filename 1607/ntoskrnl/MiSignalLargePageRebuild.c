@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSignalLargePageRebuild @ 0x1400BE73C
+ * XREFs of MiSignalLargePageRebuild @ 0x1400BC5CC
  * Callers:
- *     MiWorkingSetManager @ 0x1400BDF08 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400BBD98 (MiWorkingSetManager.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiPageCombiningActive @ 0x14001D8D4 (MiPageCombiningActive.c)
- *     MiNodeFreeZeroPages @ 0x1400665F0 (MiNodeFreeZeroPages.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400C0DDC (MiNodeLargeFreeZeroPages.c)
- *     MiWakeLargePageRebuild @ 0x1401FDF24 (MiWakeLargePageRebuild.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiPageCombiningActive @ 0x14001D454 (MiPageCombiningActive.c)
+ *     MiNodeFreeZeroPages @ 0x140066170 (MiNodeFreeZeroPages.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400BEC6C (MiNodeLargeFreeZeroPages.c)
+ *     MiWakeLargePageRebuild @ 0x1401FDD50 (MiWakeLargePageRebuild.c)
  */
 
 char __fastcall MiSignalLargePageRebuild(__int64 a1)

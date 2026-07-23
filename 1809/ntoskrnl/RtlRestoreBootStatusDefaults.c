@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlRestoreBootStatusDefaults @ 0x140895D98
+ * XREFs of RtlRestoreBootStatusDefaults @ 0x140896FF8
  * Callers:
- *     PopBootStatRestoreDefaults @ 0x1408774B8 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatRestoreDefaults @ 0x140878718 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     RtlGetNtProductType @ 0x14012AC40 (RtlGetNtProductType.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpRecordBootStatusData @ 0x140718B10 (RtlpRecordBootStatusData.c)
+ *     RtlGetNtProductType @ 0x14012AD10 (RtlGetNtProductType.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpRecordBootStatusData @ 0x140719DB0 (RtlpRecordBootStatusData.c)
  */
 
-NTSTATUS __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
   char v2; // cl
   _BYTE *v3; // rax

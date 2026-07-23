@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCompressRelocations @ 0x140525290
+ * XREFs of MiCompressRelocations @ 0x1405082F0
  * Callers:
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)

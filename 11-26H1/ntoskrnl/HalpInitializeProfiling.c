@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpInitializeProfiling @ 0x140BED728
+ * XREFs of HalpInitializeProfiling @ 0x140BF3728
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140BEA9A0 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x140BF09A0 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpHvCpuid @ 0x1404FFA1C (HalpHvCpuid.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpMmAllocateMemory @ 0x14057DCD4 (HalpMmAllocateMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     strncmp @ 0x14073D360 (strncmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpLbrInitialize @ 0x140BEF224 (HalpLbrInitialize.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpHvCpuid @ 0x1404F920C (HalpHvCpuid.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpMmAllocateMemory @ 0x1405801F4 (HalpMmAllocateMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpLbrInitialize @ 0x140BF5224 (HalpLbrInitialize.c)
  */
 
 __int64 __fastcall HalpInitializeProfiling(unsigned int a1)

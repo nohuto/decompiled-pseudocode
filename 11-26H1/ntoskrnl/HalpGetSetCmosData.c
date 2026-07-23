@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpGetSetCmosData @ 0x1404F4054
+ * XREFs of HalpGetSetCmosData @ 0x1404ED634
  * Callers:
- *     HalGetBusDataByOffset @ 0x140439D40 (HalGetBusDataByOffset.c)
- *     HalpGetCmosData @ 0x14058C3AC (HalpGetCmosData.c)
+ *     HalGetBusDataByOffset @ 0x14042C5F0 (HalGetBusDataByOffset.c)
+ *     HalpGetCmosData @ 0x14058EB2C (HalpGetCmosData.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140451A74 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140530540 (HalpAcquireCmosSpinLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseCmosSpinLock @ 0x140449BA4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140532A40 (HalpAcquireCmosSpinLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpGetSetCmosData(__int64 a1, unsigned int a2, _BYTE *a3, int a4, char a5)

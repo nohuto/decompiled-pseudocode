@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x140AB7798
+ * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x140AB1B4C
  * Callers:
- *     PopDirectedDripsIdleResiliencyCallback @ 0x140A27484 (PopDirectedDripsIdleResiliencyCallback.c)
+ *     PopDirectedDripsIdleResiliencyCallback @ 0x140A1BF04 (PopDirectedDripsIdleResiliencyCallback.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x1406FC214 (PopDirectedDripsMarkCandidateDevice.c)
- *     PopDirectedDripsNotify @ 0x140A69400 (PopDirectedDripsNotify.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140AA223C (IoLockUnlockPnpDeviceTree.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1406F9E54 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopDirectedDripsNotify @ 0x140A627B0 (PopDirectedDripsNotify.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x140A9D5CC (IoLockUnlockPnpDeviceTree.c)
  */
 
 __int64 PopDirectedDripsUmMarkTestDevices()
@@ -32,7 +32,7 @@ __int64 PopDirectedDripsUmMarkTestDevices()
   while ( v1 != (_DWORD)result );
   if ( (_DWORD)result )
   {
-    PopAcquireRwLockShared((volatile signed __int64 *)&PopDirectedDripsUmLock);
+    PopAcquireRwLockShared(&PopDirectedDripsUmLock);
     v7 = PopWnfCsEnterScenarioId;
     PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 4 : 2, (char *)&v7);
     IoLockUnlockPnpDeviceTree(1);
@@ -66,7 +66,7 @@ __int64 PopDirectedDripsUmMarkTestDevices()
     }
     IoLockUnlockPnpDeviceTree(0);
     PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 5 : 3, (char *)&v7);
-    return PopReleaseRwLock((signed __int64 *)&PopDirectedDripsUmLock);
+    return PopReleaseRwLock(&PopDirectedDripsUmLock);
   }
   return result;
 }

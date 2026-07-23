@@ -1,18 +1,18 @@
 /*
- * XREFs of MmPrefetchForCacheManager @ 0x1406E898C
+ * XREFs of MmPrefetchForCacheManager @ 0x1406FFD6C
  * Callers:
- *     CcAsyncReadPrefetch @ 0x1402F9B74 (CcAsyncReadPrefetch.c)
- *     CcPerformReadAhead @ 0x1402F9DF0 (CcPerformReadAhead.c)
- *     CcFetchDataForRead @ 0x140320A30 (CcFetchDataForRead.c)
+ *     CcAsyncReadPrefetch @ 0x1403048C4 (CcAsyncReadPrefetch.c)
+ *     CcPerformReadAhead @ 0x140304B40 (CcPerformReadAhead.c)
+ *     CcFetchDataForRead @ 0x14032B780 (CcFetchDataForRead.c)
  * Callees:
- *     MiReturnCcAccessLog @ 0x1402C811C (MiReturnCcAccessLog.c)
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiGetCcAccessLog @ 0x1406AD20C (MiGetCcAccessLog.c)
- *     MiReleaseReadListResources @ 0x1406E8B14 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x1406E9104 (MiPfExecuteReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiReturnCcAccessLog @ 0x14024697C (MiReturnCcAccessLog.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetCcAccessLog @ 0x14060B8FC (MiGetCcAccessLog.c)
+ *     MiReleaseReadListResources @ 0x1406FFEF4 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x1407004E4 (MiPfExecuteReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmPrefetchForCacheManager(
@@ -40,7 +40,7 @@ __int64 __fastcall MmPrefetchForCacheManager(
   CurrentThread = KeGetCurrentThread();
   v12 = a5;
   v13 = **(_QWORD **)(a1 + 40);
-  if ( dword_140C4E828 && a5 >= dword_140C4E82C )
+  if ( dword_140C4E868 && a5 >= dword_140C4E86C )
     CcAccessLog = MiGetCcAccessLog(a1, a4 >> 12);
   if ( (int)MiPfPrepareSequentialReadList((_DWORD)CcAccessLog, v13, a2, 0, a4, v12, -1, (__int64)&P) >= 0 && P )
   {

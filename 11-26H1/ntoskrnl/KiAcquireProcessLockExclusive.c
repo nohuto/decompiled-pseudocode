@@ -1,22 +1,22 @@
 /*
- * XREFs of KiAcquireProcessLockExclusive @ 0x140203690
+ * XREFs of KiAcquireProcessLockExclusive @ 0x140203770
  * Callers:
  *     KeSetExpectedConcurrencyCountProcess @ 0x140200A58 (KeSetExpectedConcurrencyCountProcess.c)
  *     KeStartThread @ 0x140201AAC (KeStartThread.c)
  *     KeSetQuantumProcess @ 0x1402028D4 (KeSetQuantumProcess.c)
  *     KeSetExecuteOptions @ 0x140202B0C (KeSetExecuteOptions.c)
- *     KeSetProcessPpmPolicy @ 0x140203234 (KeSetProcessPpmPolicy.c)
- *     KeSetDisableQuantumProcess @ 0x1402032A0 (KeSetDisableQuantumProcess.c)
- *     KeTerminateThread @ 0x140203388 (KeTerminateThread.c)
- *     KeRecomputeCpuSetAffinityProcess @ 0x140525C20 (KeRecomputeCpuSetAffinityProcess.c)
- *     KeSetCpuSetsProcess @ 0x14052D934 (KeSetCpuSetsProcess.c)
- *     KeAdjustTimerDelayProcess @ 0x1405E56FC (KeAdjustTimerDelayProcess.c)
+ *     KeSetProcessPpmPolicy @ 0x140203314 (KeSetProcessPpmPolicy.c)
+ *     KeSetDisableQuantumProcess @ 0x140203380 (KeSetDisableQuantumProcess.c)
+ *     KeTerminateThread @ 0x140203468 (KeTerminateThread.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x140528290 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetCpuSetsProcess @ 0x14052FE54 (KeSetCpuSetsProcess.c)
+ *     KeAdjustTimerDelayProcess @ 0x1405E806C (KeAdjustTimerDelayProcess.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall KiAcquireProcessLockExclusive(__int64 a1, unsigned __int8 *a2)
@@ -38,7 +38,7 @@ void __fastcall KiAcquireProcessLockExclusive(__int64 a1, unsigned __int8 *a2)
   }
   v5 = (BYTE6(PerfGlobalGroupMask) & 0x21) == 0;
   *v2 = CurrentIrql;
-  if ( v5 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( v5 || PopHibernateInProgress )
   {
     v6 = 0;
     if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 64), 0x1Fu) )

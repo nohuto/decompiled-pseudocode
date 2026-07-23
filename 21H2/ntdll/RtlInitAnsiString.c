@@ -7,8 +7,8 @@
  *     LdrpReportError @ 0x18003F2B4 (LdrpReportError.c)
  *     LdrpGetShimEngineInterface @ 0x18006CD08 (LdrpGetShimEngineInterface.c)
  *     RtlInitUTF8String @ 0x180086060 (RtlInitUTF8String.c)
- *     AVrfpDetectVerifiedExports @ 0x1800DA778 (AVrfpDetectVerifiedExports.c)
- *     AVrfpVerifierStopInitialize @ 0x1800DB610 (AVrfpVerifierStopInitialize.c)
+ *     AVrfpDetectVerifiedExports @ 0x1800DA738 (AVrfpDetectVerifiedExports.c)
+ *     AVrfpVerifierStopInitialize @ 0x1800DB5D0 (AVrfpVerifierStopInitialize.c)
  * Callees:
  *     <none>
  */

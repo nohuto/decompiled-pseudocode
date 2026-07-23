@@ -13,35 +13,35 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-void *__fastcall RtlSetThreadSubProcessTag(void *a1)
+PVOID __cdecl RtlSetThreadSubProcessTag(PVOID SubProcessTag)
 {
   struct _TEB *v1; // rax
   __int64 v2; // rdi
-  void *SubProcessTag; // rbx
+  PVOID v3; // rbx
   _DWORD *SharedData; // rdx
   __int64 v5; // rax
-  _OWORD v7[2]; // [rsp+20h] [rbp-38h] BYREF
+  _OWORD Fields[2]; // [rsp+20h] [rbp-38h] BYREF
   int v8; // [rsp+40h] [rbp-18h]
   int v9; // [rsp+44h] [rbp-14h]
 
   v1 = NtCurrentTeb();
   v2 = 2147353488LL;
-  SubProcessTag = v1->SubProcessTag;
-  v1->SubProcessTag = a1;
+  v3 = v1->SubProcessTag;
+  v1->SubProcessTag = SubProcessTag;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
     v5 = (__int64)NtCurrentPeb()->SharedData + 566;
   else
     v5 = 2147353488LL;
-  if ( *(_BYTE *)v5 && a1 != SubProcessTag )
+  if ( *(_BYTE *)v5 && SubProcessTag != v3 )
   {
-    memset(v7, 0, sizeof(v7));
-    WORD3(v7[0]) = 1349;
-    v8 = (int)SubProcessTag;
-    v9 = (int)a1;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    memset(Fields, 0, sizeof(Fields));
+    WORD3(Fields[0]) = 1349;
+    v8 = (int)v3;
+    v9 = (int)SubProcessTag;
+    if ( RtlGetCurrentServiceSessionId() )
       v2 = (__int64)NtCurrentPeb()->SharedData + 566;
-    NtTraceEvent(*(unsigned __int8 *)v2, 1026LL, 8LL, v7);
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v2, 0x402u, 8u, Fields);
   }
-  return SubProcessTag;
+  return v3;
 }

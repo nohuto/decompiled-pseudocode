@@ -1,10 +1,10 @@
 /*
- * XREFs of MiProbeAndLockPrepare @ 0x14009A7D8
+ * XREFs of MiProbeAndLockPrepare @ 0x140099FD8
  * Callers:
- *     MmProbeAndLockSelectedPages @ 0x14009A5D4 (MmProbeAndLockSelectedPages.c)
- *     MmStoreProbeAndLockPages @ 0x140122370 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140099DD4 (MmProbeAndLockSelectedPages.c)
+ *     MmStoreProbeAndLockPages @ 0x1401228E0 (MmStoreProbeAndLockPages.c)
  * Callees:
- *     MiInitializeProbePacketVm @ 0x14009A924 (MiInitializeProbePacketVm.c)
+ *     MiInitializeProbePacketVm @ 0x14009A124 (MiInitializeProbePacketVm.c)
  */
 
 __int64 __fastcall MiProbeAndLockPrepare(
@@ -31,7 +31,7 @@ __int64 __fastcall MiProbeAndLockPrepare(
   *(_QWORD *)(a1 + 8) = v8;
   if ( a5 && (v8 > 0x7FFFFFFF0000LL || a3 >= v8) )
   {
-    ++dword_1403270C8;
+    ++dword_140327108;
     return 3221225477LL;
   }
   else

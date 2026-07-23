@@ -20,7 +20,7 @@ NTSTATUS __stdcall RtlIntegerToUnicodeString(ULONG Value, ULONG Base, PUNICODE_S
 {
   NTSTATUS result; // eax
   __int64 v5; // rax
-  STRING SourceString; // [rsp+20h] [rbp-48h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-48h] BYREF
   CHAR Stringa[40]; // [rsp+30h] [rbp-38h] BYREF
 
   result = RtlIntegerToChar(Value, Base, 0x21u, Stringa);

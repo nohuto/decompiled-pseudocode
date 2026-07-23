@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpReadMappedData @ 0x14074288C
+ * XREFs of SdbpReadMappedData @ 0x140742A7C
  * Callers:
  *     SdbpOpenDatabaseInMemory @ 0x140695260 (SdbpOpenDatabaseInMemory.c)
- *     SdbpGetTagHeadSize @ 0x140741F78 (SdbpGetTagHeadSize.c)
- *     SdbpReadTagData @ 0x14075749C (SdbpReadTagData.c)
- *     SdbOpenDatabaseEx @ 0x140A4E550 (SdbOpenDatabaseEx.c)
- *     SdbpOpenCompressedDatabase @ 0x140A53208 (SdbpOpenCompressedDatabase.c)
+ *     SdbpGetTagHeadSize @ 0x140742168 (SdbpGetTagHeadSize.c)
+ *     SdbpReadTagData @ 0x14075768C (SdbpReadTagData.c)
+ *     SdbOpenDatabaseEx @ 0x140A4E800 (SdbOpenDatabaseEx.c)
+ *     SdbpOpenCompressedDatabase @ 0x140A534B8 (SdbpOpenCompressedDatabase.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */
 

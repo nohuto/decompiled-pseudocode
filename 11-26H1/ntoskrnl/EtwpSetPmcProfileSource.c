@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSetPmcProfileSource @ 0x140827FB0
+ * XREFs of EtwpSetPmcProfileSource @ 0x14082E1F0
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     KeInitializeProfileCallback @ 0x1407BAD28 (KeInitializeProfileCallback.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     KeInitializeProfileCallback @ 0x1407BDD88 (KeInitializeProfileCallback.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
@@ -21,22 +21,22 @@ __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
   v3 = a2;
   if ( !a2 || a2 > ExpPlatformBinaryLock.ExpectedRunTime )
     return 3221225485LL;
-  KeWaitForSingleObject(&EtwpSecurityLock.SchedulerApcFill5[72], Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&stru_140F03830.880, Executive, 0, 0, 0LL);
   if ( (WORD2(PerfGlobalGroupMask) & 0x400) != 0 )
   {
     v2 = -1073741053;
   }
   else
   {
-    if ( qword_140F03988 )
+    if ( qword_140F03E98 )
     {
-      ExFreePoolWithTag(qword_140F03988, 0);
-      qword_140F03988 = 0LL;
+      ExFreePoolWithTag(qword_140F03E98, 0);
+      qword_140F03E98 = 0LL;
       EtwpPmcProfile = 0;
     }
     v5 = v3;
-    qword_140F03988 = (PVOID)ExAllocatePool2(0x40uLL);
-    if ( qword_140F03988 )
+    qword_140F03E98 = (PVOID)ExAllocatePool2(0x40uLL);
+    if ( qword_140F03E98 )
     {
       EtwpPmcProfile = v3;
       if ( (_DWORD)v3 )
@@ -44,7 +44,7 @@ __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
         v6 = 0LL;
         do
         {
-          KeInitializeProfileCallback((char *)qword_140F03988 + v6, (__int64)EtwpPmcInterrupt, (unsigned int)*a1, *a1);
+          KeInitializeProfileCallback((char *)qword_140F03E98 + v6, (__int64)EtwpPmcInterrupt, (unsigned int)*a1, *a1);
           v6 += 616LL;
           ++a1;
           --v5;
@@ -57,6 +57,6 @@ __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
       v2 = -1073741801;
     }
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.SchedulerApcFill5[72], 0);
+  KeReleaseMutex((PRKMUTEX)&stru_140F03830.880, 0);
   return v2;
 }

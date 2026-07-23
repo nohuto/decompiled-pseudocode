@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnWsToExpansionList @ 0x1400F3384
+ * XREFs of MiReturnWsToExpansionList @ 0x1400F3404
  * Callers:
- *     MiProcessWorkingSets @ 0x14006CED0 (MiProcessWorkingSets.c)
- *     MiAllowWorkingSetExpansion @ 0x1400F3314 (MiAllowWorkingSetExpansion.c)
- *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
- *     MiEmptyTargetedWorkingSet @ 0x1402B2FD8 (MiEmptyTargetedWorkingSet.c)
+ *     MiProcessWorkingSets @ 0x14006CEC0 (MiProcessWorkingSets.c)
+ *     MiAllowWorkingSetExpansion @ 0x1400F3394 (MiAllowWorkingSetExpansion.c)
+ *     KiInSwapProcesses @ 0x14010B3C0 (KiInSwapProcesses.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1402B31C8 (MiEmptyTargetedWorkingSet.c)
  * Callees:
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
  */
 
 _QWORD *__fastcall MiReturnWsToExpansionList(__int64 a1, int a2)
@@ -17,7 +17,7 @@ _QWORD *__fastcall MiReturnWsToExpansionList(__int64 a1, int a2)
   __int64 v5; // rcx
 
   v2 = (_QWORD *)(a1 + 24);
-  v3 = (_QWORD *)(*(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 174)) + 7032LL);
+  v3 = (_QWORD *)(*(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 174)) + 7032LL);
   if ( a2 )
   {
     result = (_QWORD *)*v3;
@@ -32,7 +32,7 @@ _QWORD *__fastcall MiReturnWsToExpansionList(__int64 a1, int a2)
 LABEL_8:
     __fastfail(3u);
   }
-  result = *(_QWORD **)(*(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 174)) + 7040LL);
+  result = *(_QWORD **)(*(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 174)) + 7040LL);
   if ( (_QWORD *)*result != v3 )
     goto LABEL_8;
   *v2 = v3;

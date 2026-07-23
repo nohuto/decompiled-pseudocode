@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x14091378C
+ * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x1409B586C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpIsBeingRemovedSafely @ 0x1409138E4 (PnpIsBeingRemovedSafely.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpIsBeingRemovedSafely @ 0x1409B59C4 (PnpIsBeingRemovedSafely.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 unsigned __int64 __fastcall PnpBuildUnsafeRemovalDeviceList(__int64 a1, __int64 a2, unsigned __int64 *a3)

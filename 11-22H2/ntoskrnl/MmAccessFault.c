@@ -90,7 +90,7 @@ __int64 __fastcall MmAccessFault(
   __int64 v23; // r8
   __int64 v24; // r9
   _BYTE *v25; // rax
-  struct _SLIST_ENTRY *v26; // rbx
+  _SLIST_ENTRY *v26; // rbx
   unsigned __int64 v27; // rdx
   PVOID v28; // rcx
   __int64 **Address; // rax

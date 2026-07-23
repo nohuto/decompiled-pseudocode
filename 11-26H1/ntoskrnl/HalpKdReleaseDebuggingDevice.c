@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpKdReleaseDebuggingDevice @ 0x140C12760
+ * XREFs of HalpKdReleaseDebuggingDevice @ 0x140C18760
  * Callers:
  *     <none>
  * Callees:
- *     HalpFindDevice @ 0x140C12214 (HalpFindDevice.c)
+ *     HalpFindDevice @ 0x140C18214 (HalpFindDevice.c)
  */
 
 __int64 __fastcall HalpKdReleaseDebuggingDevice(__int64 a1)

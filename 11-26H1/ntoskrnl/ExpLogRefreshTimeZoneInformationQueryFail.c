@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpLogRefreshTimeZoneInformationQueryFail @ 0x140B12754
+ * XREFs of ExpLogRefreshTimeZoneInformationQueryFail @ 0x140B144D4
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140B1209C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140B13E1C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int ExpLogRefreshTimeZoneInformationQueryFail()
@@ -36,7 +36,7 @@ int ExpLogRefreshTimeZoneInformationQueryFail()
 
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   Blink = CurrentServerSiloGlobals[76].Blink;
-  if ( (unsigned int)dword_140E09178 > 5 )
+  if ( (unsigned int)dword_140E09170 > 5 )
   {
     v7 = v2;
     v12 = &v7;
@@ -57,8 +57,8 @@ int ExpLogRefreshTimeZoneInformationQueryFail()
     v21 = 1LL;
     v23 = 1LL;
     LODWORD(CurrentServerSiloGlobals) = tlgWriteTransfer_EtwWriteTransfer(
-                                          (__int64)&dword_140E09178,
-                                          (unsigned __int8 *)word_14005513A,
+                                          (__int64)&dword_140E09170,
+                                          (unsigned __int8 *)byte_14005637B,
                                           0LL,
                                           0LL,
                                           8u,

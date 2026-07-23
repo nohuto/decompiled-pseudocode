@@ -1,11 +1,11 @@
 /*
- * XREFs of HalAllocateCommonBuffer @ 0x1403816B0
+ * XREFs of HalAllocateCommonBuffer @ 0x140381200
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
- *     HalAllocateCommonBufferExV2 @ 0x140381350 (HalAllocateCommonBufferExV2.c)
- *     HalAllocateCommonBufferExV3 @ 0x1403A1170 (HalAllocateCommonBufferExV3.c)
+ *     HalpDmaGetAdapterVersion @ 0x140234490 (HalpDmaGetAdapterVersion.c)
+ *     HalAllocateCommonBufferExV2 @ 0x140380EA0 (HalAllocateCommonBufferExV2.c)
+ *     HalAllocateCommonBufferExV3 @ 0x1403A12C0 (HalAllocateCommonBufferExV3.c)
  */
 
 PVOID __stdcall HalAllocateCommonBuffer(

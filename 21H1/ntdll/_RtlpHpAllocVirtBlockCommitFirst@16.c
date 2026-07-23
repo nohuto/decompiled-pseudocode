@@ -8,32 +8,35 @@
  *     _NtAllocateVirtualMemory@24 @ 0x4B2F2AE0 (_NtAllocateVirtualMemory@24.c)
  */
 
-int __fastcall RtlpHpAllocVirtBlockCommitFirst(int a1, _DWORD *a2, int a3, int *a4)
+char *__fastcall RtlpHpAllocVirtBlockCommitFirst(_DWORD *a1, _DWORD *a2, ULONG_PTR a3)
 {
-  int v5; // edi
-  int HeapProtection; // eax
-  int v7; // ecx
-  int v8; // edx
-  int v10; // [esp+10h] [ebp-10h] BYREF
-  int v11; // [esp+14h] [ebp-Ch] BYREF
-  int v12; // [esp+18h] [ebp-8h] BYREF
-  int v13; // [esp+1Ch] [ebp-4h] BYREF
+  char *v4; // edi
+  ULONG HeapProtection; // eax
+  int v6; // ecx
+  int v7; // edx
+  ULONG_PTR v9; // [esp-10h] [ebp-30h]
+  ULONG v10; // [esp+0h] [ebp-20h]
+  char *v11; // [esp+10h] [ebp-10h] BYREF
+  ULONG_PTR v12; // [esp+14h] [ebp-Ch] BYREF
+  PVOID BaseAddress; // [esp+1Ch] [ebp-4h] BYREF
 
-  v5 = 0;
-  v12 = *a2 + a3 + 4096;
-  v13 = 0;
+  v4 = 0;
+  HIDWORD(v12) = *a2 + a3 + 4096;
+  BaseAddress = 0;
   HeapProtection = RtlpGetHeapProtection(a1, 1);
-  if ( NtAllocateVirtualMemory(-1, (int)&v13, 0, (int)&v12, 4096, HeapProtection) >= 0 )
+  HIDWORD(v9) = (char *)&v12 + 4;
+  LODWORD(v9) = 0;
+  if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v9, (PSIZE_T)0x1000, HeapProtection, v10) >= 0 )
   {
-    if ( a3 )
-      RtlpSecMemFreeVirtualMemory(v7, &v13, &a3, 0x4000);
-    v11 = 4096;
-    v10 = v12 - 4096 + v13;
-    RtlpSecMemFreeVirtualMemory(v12 - 4096, &v10, &v11, 0x4000);
-    v8 = v12;
-    v5 = a3 + v13;
-    *a2 = v12 - v11 - a3;
-    *a4 = v8;
+    if ( (_DWORD)a3 )
+      RtlpSecMemFreeVirtualMemory(v6, &BaseAddress, &a3, 0x4000u);
+    LODWORD(v12) = 4096;
+    v11 = (char *)BaseAddress + HIDWORD(v12) - 4096;
+    RtlpSecMemFreeVirtualMemory(HIDWORD(v12) - 4096, (PVOID *)&v11, &v12, 0x4000u);
+    v7 = HIDWORD(v12);
+    v4 = (char *)BaseAddress + a3;
+    *a2 = HIDWORD(v12) - v12 - a3;
+    *(_DWORD *)HIDWORD(a3) = v7;
   }
-  return v5;
+  return v4;
 }

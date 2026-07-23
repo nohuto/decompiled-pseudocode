@@ -1,11 +1,11 @@
 /*
- * XREFs of MiBackSingleImageWithPagefile @ 0x1405473D8
+ * XREFs of MiBackSingleImageWithPagefile @ 0x140547918
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
- *     MiBackSystemImageWithPagefile @ 0x140550B20 (MiBackSystemImageWithPagefile.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
+ *     MiBackSystemImageWithPagefile @ 0x140551060 (MiBackSystemImageWithPagefile.c)
  * Callees:
- *     MiMakeDriverPagesPrivate @ 0x140086098 (MiMakeDriverPagesPrivate.c)
- *     MiSnapDriverRange @ 0x14047D810 (MiSnapDriverRange.c)
+ *     MiMakeDriverPagesPrivate @ 0x140087988 (MiMakeDriverPagesPrivate.c)
+ *     MiSnapDriverRange @ 0x14047C564 (MiSnapDriverRange.c)
  */
 
 __int64 __fastcall MiBackSingleImageWithPagefile(__int64 a1)

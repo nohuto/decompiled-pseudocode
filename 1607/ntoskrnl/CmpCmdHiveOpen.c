@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCmdHiveOpen @ 0x14049C7BC
+ * XREFs of CmpCmdHiveOpen @ 0x1404A4CD8
  * Callers:
- *     CmLoadAppKey @ 0x1403FC110 (CmLoadAppKey.c)
- *     CmLoadKey @ 0x14049C9B4 (CmLoadKey.c)
- *     CmReplaceKey @ 0x1405FE0FC (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
+ *     CmLoadAppKey @ 0x1403FAFD0 (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x1404A4834 (CmLoadKey.c)
+ *     CmReplaceKey @ 0x1405FE1B0 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpInitHiveFromFile @ 0x1403F9AEC (CmpInitHiveFromFile.c)
- *     PsReferenceImpersonationToken @ 0x140499D10 (PsReferenceImpersonationToken.c)
- *     PsRevertThreadToSelf @ 0x140499DE4 (PsRevertThreadToSelf.c)
- *     RtlImpersonateSelfEx @ 0x1404DC178 (RtlImpersonateSelfEx.c)
- *     PsImpersonateClient @ 0x14050F3C0 (PsImpersonateClient.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpInitHiveFromFile @ 0x1403F89AC (CmpInitHiveFromFile.c)
+ *     PsRevertThreadToSelf @ 0x1404A4FF0 (PsRevertThreadToSelf.c)
+ *     PsReferenceImpersonationToken @ 0x1404A5010 (PsReferenceImpersonationToken.c)
+ *     RtlImpersonateSelfEx @ 0x1404BF77C (RtlImpersonateSelfEx.c)
+ *     PsImpersonateClient @ 0x1404F2350 (PsImpersonateClient.c)
  */
 
 __int64 __fastcall CmpCmdHiveOpen(
@@ -28,12 +28,12 @@ __int64 __fastcall CmpCmdHiveOpen(
         __int64 a8)
 {
   unsigned int v11; // ebx
-  int inited; // eax
-  int v13; // edi
+  NTSTATUS inited; // eax
+  NTSTATUS v13; // edi
   unsigned int v14; // eax
   int v15; // ecx
   PACCESS_TOKEN v16; // rsi
-  int v17; // eax
+  NTSTATUS v17; // eax
   struct _KTHREAD *CurrentThread; // rcx
   int v20; // [rsp+30h] [rbp-1D8h]
   int v21; // [rsp+30h] [rbp-1D8h]
@@ -42,7 +42,7 @@ __int64 __fastcall CmpCmdHiveOpen(
   BOOLEAN EffectiveOnly; // [rsp+50h] [rbp-1B8h] BYREF
   BOOLEAN CopyOnOpen; // [rsp+51h] [rbp-1B7h] BYREF
   BOOLEAN EnableHardErrors; // [rsp+52h] [rbp-1B6h]
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+54h] [rbp-1B4h] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+54h] [rbp-1B4h] BYREF
   __int64 v28; // [rsp+58h] [rbp-1B0h]
   __int64 v29[44]; // [rsp+60h] [rbp-1A8h] BYREF
 
@@ -74,7 +74,7 @@ __int64 __fastcall CmpCmdHiveOpen(
       if ( EffectiveOnly && (a6 & 0x20) == 0 )
       {
         v16 = PsReferenceImpersonationToken(KeGetCurrentThread(), &CopyOnOpen, &EffectiveOnly, &ImpersonationLevel);
-        v13 = RtlImpersonateSelfEx(2LL, 0LL, 0LL);
+        v13 = RtlImpersonateSelfEx(SecurityImpersonation, 0, 0LL);
         if ( v13 >= 0 )
         {
           v17 = CmpInitHiveFromFile(Source, v11, a4, a3, a5, 0LL, v21, v23, v28, v29);

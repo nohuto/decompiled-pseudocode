@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpPoolMgrRegisterPool @ 0x1408474A0
+ * XREFs of ExpPoolMgrRegisterPool @ 0x14084D700
  * Callers:
- *     ExpPoolCreate @ 0x14077DC90 (ExpPoolCreate.c)
+ *     ExpPoolCreate @ 0x140780790 (ExpPoolCreate.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExpPoolMgrAcquirePoolListLockExclusive @ 0x1404D0CB0 (ExpPoolMgrAcquirePoolListLockExclusive.c)
- *     ExpPoolMgrReleasePoolListLockExclusive @ 0x1404D15DC (ExpPoolMgrReleasePoolListLockExclusive.c)
- *     ExpPoolPhase1Init @ 0x1406D3A9C (ExpPoolPhase1Init.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExpPoolMgrAcquirePoolListLockExclusive @ 0x1404CA6E0 (ExpPoolMgrAcquirePoolListLockExclusive.c)
+ *     ExpPoolMgrReleasePoolListLockExclusive @ 0x1404CB00C (ExpPoolMgrReleasePoolListLockExclusive.c)
+ *     ExpPoolPhase1Init @ 0x1406D7B28 (ExpPoolPhase1Init.c)
  */
 
 __int64 __fastcall ExpPoolMgrRegisterPool(_DWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

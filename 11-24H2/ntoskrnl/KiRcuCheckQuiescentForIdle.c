@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRcuCheckQuiescentForIdle @ 0x1404D5594
+ * XREFs of KiRcuCheckQuiescentForIdle @ 0x1404CE9DC
  * Callers:
- *     KiRcuStartGracePeriodEnumCallback @ 0x1404C6B9C (KiRcuStartGracePeriodEnumCallback.c)
+ *     KiRcuStartGracePeriodEnumCallback @ 0x1404BFFFC (KiRcuStartGracePeriodEnumCallback.c)
  * Callees:
- *     KiRcuReportQuiescentState @ 0x14033D364 (KiRcuReportQuiescentState.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRcuReportQuiescentState @ 0x14031C844 (KiRcuReportQuiescentState.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiRcuCheckQuiescentForIdle(unsigned __int64 *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall KiRcuCheckQuiescentForIdle(unsigned __int64 *a1)
   unsigned int v6; // edi
 
   v1 = a1;
-  v2 = qword_140F20C48;
+  v2 = qword_140F205C8;
   if ( *(char *)(a1[2] + 14567) <= 0 )
     return 0LL;
   CurrentIrql = KeGetCurrentIrql();

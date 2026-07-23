@@ -1,8 +1,8 @@
 /*
- * XREFs of MiComputeProportionalSystemCacheVaReduction @ 0x1405312F8
+ * XREFs of MiComputeProportionalSystemCacheVaReduction @ 0x1405337F8
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1404A3320 (MiSegmentDereferenceWorker.c)
- *     MiReduceSystemCache @ 0x140531298 (MiReduceSystemCache.c)
+ *     MiSegmentDereferenceWorker @ 0x14049CE30 (MiSegmentDereferenceWorker.c)
+ *     MiReduceSystemCache @ 0x140533798 (MiReduceSystemCache.c)
  * Callees:
  *     <none>
  */

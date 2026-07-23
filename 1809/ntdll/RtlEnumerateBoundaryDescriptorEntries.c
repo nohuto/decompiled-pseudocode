@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEnumerateBoundaryDescriptorEntries @ 0x180081D34
+ * XREFs of RtlEnumerateBoundaryDescriptorEntries @ 0x180081D44
  * Callers:
- *     RtlAddSIDToBoundaryDescriptorEx @ 0x180082BF0 (RtlAddSIDToBoundaryDescriptorEx.c)
+ *     RtlAddSIDToBoundaryDescriptorEx @ 0x180082C00 (RtlAddSIDToBoundaryDescriptorEx.c)
  * Callees:
- *     RtlpValidateSidBuffer @ 0x180081E08 (RtlpValidateSidBuffer.c)
+ *     RtlpValidateSidBuffer @ 0x180081E18 (RtlpValidateSidBuffer.c)
  */
 
 __int64 __fastcall RtlEnumerateBoundaryDescriptorEntries(_DWORD *a1)

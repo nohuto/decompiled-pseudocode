@@ -1,7 +1,7 @@
 /*
- * XREFs of __longjmp_internal @ 0x1800A6C80
+ * XREFs of __longjmp_internal @ 0x1800A6CA0
  * Callers:
- *     longjmp @ 0x180093B70 (longjmp.c)
+ *     longjmp @ 0x180093B80 (longjmp.c)
  * Callees:
  *     RtlUnwindEx @ 0x180005BF0 (RtlUnwindEx.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of CompatCachepLookupCdb @ 0x1800DBFE0
+ * XREFs of CompatCachepLookupCdb @ 0x1800D8F50
  * Callers:
- *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800DBCCC (LdrpCheckComponentOnDemandEtwEvent.c)
- *     LdrpLogDeprecatedDllEtwEvent @ 0x1800DBE78 (LdrpLogDeprecatedDllEtwEvent.c)
- *     LdrpSendPostSnapNotifications @ 0x18011B220 (LdrpSendPostSnapNotifications.c)
- *     LdrpSnapModule @ 0x18011B530 (LdrpSnapModule.c)
+ *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800D8C3C (LdrpCheckComponentOnDemandEtwEvent.c)
+ *     LdrpLogDeprecatedDllEtwEvent @ 0x1800D8DE8 (LdrpLogDeprecatedDllEtwEvent.c)
+ *     LdrpSendPostSnapNotifications @ 0x18011AFD0 (LdrpSendPostSnapNotifications.c)
+ *     LdrpSnapModule @ 0x18011B2E0 (LdrpSnapModule.c)
  * Callees:
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     wcsrchr @ 0x18012DF70 (wcsrchr.c)
- *     NtApphelpCacheControl @ 0x18015F8C0 (NtApphelpCacheControl.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     wcsrchr @ 0x18012DCE0 (wcsrchr.c)
+ *     NtApphelpCacheControl @ 0x18015F7C0 (NtApphelpCacheControl.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall CompatCachepLookupCdb(wchar_t *Str, int a2)

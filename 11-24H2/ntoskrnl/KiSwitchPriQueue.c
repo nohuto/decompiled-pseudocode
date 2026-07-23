@@ -1,36 +1,36 @@
 /*
- * XREFs of KiSwitchPriQueue @ 0x140493CB4
+ * XREFs of KiSwitchPriQueue @ 0x14048E740
  * Callers:
- *     KeRemovePriQueue @ 0x140208340 (KeRemovePriQueue.c)
+ *     KeRemovePriQueue @ 0x14032F920 (KeRemovePriQueue.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x1402A5864 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402D4F94 (KiActivateWaiterQueueWithNoLocks.c)
  */
 
-__int64 __fastcall KiSwitchPriQueue(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall KiSwitchPriQueue(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
-  _QWORD *v3; // rdi
-  unsigned int v6; // ebp
-  __int64 v7; // rax
+  _QWORD *v4; // rdi
+  unsigned int v7; // ebp
+  __int64 v8; // rax
   __int64 result; // rax
-  _QWORD *v9; // rcx
+  _QWORD *v10; // rcx
 
-  v3 = (_QWORD *)(a1 + 520);
+  v4 = (_QWORD *)(a1 + 520);
   if ( a3 )
-    KiActivateWaiterQueueWithNoLocks(a1, a3, v3);
+    KiActivateWaiterQueueWithNoLocks(a1, a3, v4, a4);
   KiAcquireKobjectLockSafe((volatile signed __int32 *)a2);
-  v6 = 0;
+  v7 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
   {
     do
     {
-      if ( (++v6 & HvlLongSpinCountMask) == 0
+      if ( (++v7 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
         && KiCheckVpBackingLongSpinWaitHypercall() )
       {
-        HvlNotifyLongSpinWait(v6);
+        HvlNotifyLongSpinWait(v7);
       }
       else
       {
@@ -40,18 +40,18 @@ __int64 __fastcall KiSwitchPriQueue(__int64 a1, __int64 a2, unsigned __int64 a3)
     while ( *(_QWORD *)(a1 + 64) );
   }
   *(_QWORD *)(a1 + 232) = a2;
-  v7 = *(char *)(a1 + 563);
-  *(_DWORD *)(a1 + 540) = v7;
-  _InterlockedIncrement((volatile signed __int32 *)(a2 + 4 * v7 + 536));
+  v8 = *(char *)(a1 + 563);
+  *(_DWORD *)(a1 + 540) = v8;
+  _InterlockedIncrement((volatile signed __int32 *)(a2 + 4 * v8 + 536));
   result = a2 + 672;
   *(_QWORD *)(a1 + 64) = 0LL;
-  v9 = *(_QWORD **)(a2 + 680);
-  if ( *v9 != a2 + 672 )
+  v10 = *(_QWORD **)(a2 + 680);
+  if ( *v10 != a2 + 672 )
     __fastfail(3u);
-  *v3 = result;
-  v3[1] = v9;
-  *v9 = v3;
-  *(_QWORD *)(a2 + 680) = v3;
+  *v4 = result;
+  v4[1] = v10;
+  *v10 = v4;
+  *(_QWORD *)(a2 + 680) = v4;
   _InterlockedAnd((volatile signed __int32 *)a2, 0xFFFFFF7F);
   return result;
 }

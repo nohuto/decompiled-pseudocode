@@ -1,36 +1,36 @@
 /*
- * XREFs of PopFxProcessWork @ 0x140312634
+ * XREFs of PopFxProcessWork @ 0x1403128C4
  * Callers:
- *     PopFxDispatchPluginWorkOnce @ 0x140311B84 (PopFxDispatchPluginWorkOnce.c)
- *     PopFxActivateComponentWorker @ 0x140312420 (PopFxActivateComponentWorker.c)
- *     PopFxIdleWorkerTail @ 0x140312CB8 (PopFxIdleWorkerTail.c)
- *     PoFxCompleteIdleState @ 0x14035C3C0 (PoFxCompleteIdleState.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x140311E14 (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxActivateComponentWorker @ 0x1403126B0 (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x140312F48 (PopFxIdleWorkerTail.c)
+ *     PoFxCompleteIdleState @ 0x14035C560 (PoFxCompleteIdleState.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     PopFxCompleteDevicePowerRequired @ 0x140310AE0 (PopFxCompleteDevicePowerRequired.c)
- *     PopFxScheduleDeviceIdleTimer @ 0x140310BDC (PopFxScheduleDeviceIdleTimer.c)
- *     IoAcquireRemoveLockEx @ 0x1403124F0 (IoAcquireRemoveLockEx.c)
- *     PopDiagTraceFxDevicePowerRequirement @ 0x140312A50 (PopDiagTraceFxDevicePowerRequirement.c)
- *     PopFxAddLogEntry @ 0x140312AF4 (PopFxAddLogEntry.c)
- *     PopDiagTraceFxComponentLogicalCondition @ 0x140312E7C (PopDiagTraceFxComponentLogicalCondition.c)
- *     PopFxCompleteComponentActivation @ 0x140312EFC (PopFxCompleteComponentActivation.c)
- *     PopPluginDevicePower @ 0x140313270 (PopPluginDevicePower.c)
- *     PopPepProcessEvent @ 0x140313900 (PopPepProcessEvent.c)
- *     PopPluginComponentIdleState @ 0x14035C460 (PopPluginComponentIdleState.c)
- *     PopDiagTraceFxComponentIdleState @ 0x14035C6AC (PopDiagTraceFxComponentIdleState.c)
- *     PopFxUpdateDeviceIdleTimer @ 0x14036B2D4 (PopFxUpdateDeviceIdleTimer.c)
- *     PopFxDeliverDevicePowerRequired @ 0x14036DFAC (PopFxDeliverDevicePowerRequired.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
- *     PopFxCompleteComponentPerfState @ 0x140589598 (PopFxCompleteComponentPerfState.c)
- *     PopDiagTraceFxPerfRequestProgress @ 0x140593BD0 (PopDiagTraceFxPerfRequestProgress.c)
- *     PopPepCompleteComponentIdleState @ 0x14059EBA4 (PopPepCompleteComponentIdleState.c)
- *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1405A0C4C (PopFxAcpiForwardPepAcpiNotifyRequest.c)
- *     PopFxAcpiForwardPepWorkRequest @ 0x1405A0CE8 (PopFxAcpiForwardPepWorkRequest.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x140310D70 (PopFxCompleteDevicePowerRequired.c)
+ *     PopFxScheduleDeviceIdleTimer @ 0x140310E6C (PopFxScheduleDeviceIdleTimer.c)
+ *     IoAcquireRemoveLockEx @ 0x140312780 (IoAcquireRemoveLockEx.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x140312CE0 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     PopFxAddLogEntry @ 0x140312D84 (PopFxAddLogEntry.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x14031310C (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxCompleteComponentActivation @ 0x14031318C (PopFxCompleteComponentActivation.c)
+ *     PopPluginDevicePower @ 0x140313500 (PopPluginDevicePower.c)
+ *     PopPepProcessEvent @ 0x140313B90 (PopPepProcessEvent.c)
+ *     PopPluginComponentIdleState @ 0x14035C600 (PopPluginComponentIdleState.c)
+ *     PopDiagTraceFxComponentIdleState @ 0x14035C84C (PopDiagTraceFxComponentIdleState.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x14036B474 (PopFxUpdateDeviceIdleTimer.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x14036E14C (PopFxDeliverDevicePowerRequired.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
+ *     PopFxCompleteComponentPerfState @ 0x140589A88 (PopFxCompleteComponentPerfState.c)
+ *     PopDiagTraceFxPerfRequestProgress @ 0x1405940C0 (PopDiagTraceFxPerfRequestProgress.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059F094 (PopPepCompleteComponentIdleState.c)
+ *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1405A113C (PopFxAcpiForwardPepAcpiNotifyRequest.c)
+ *     PopFxAcpiForwardPepWorkRequest @ 0x1405A11D8 (PopFxAcpiForwardPepWorkRequest.c)
  */
 
 __int64 __fastcall PopFxProcessWork(ULONG_PTR BugCheckParameter2, int *a2, __int64 a3)
@@ -125,10 +125,13 @@ LABEL_112:
         *(_BYTE *)(v16 + 208) = 1;
       }
       KxReleaseSpinLock((volatile signed __int64 *)(v16 + 200));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v17 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v53 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
@@ -259,10 +262,10 @@ LABEL_18:
         {
 LABEL_16:
           result = KxReleaseSpinLock((volatile signed __int64 *)(v10 + 360));
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             result = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
               && (unsigned __int8)result <= 0xFu
               && (unsigned __int8)v13 <= 0xFu
               && (unsigned __int8)result >= 2u )
@@ -328,10 +331,10 @@ LABEL_16:
         _InterlockedAnd((volatile signed __int32 *)(v42 + 32), 0xFFFFFFF7);
       PopFxUpdateDeviceIdleTimer(v42);
       result = KxReleaseSpinLock((volatile signed __int64 *)v43);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v44 <= 0xFu
           && (unsigned __int8)result >= 2u )

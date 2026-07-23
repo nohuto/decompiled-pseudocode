@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpDereferenceCurrentDeviceMap @ 0x1406FC2C8
+ * XREFs of ObpDereferenceCurrentDeviceMap @ 0x1406FC4D8
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
- *     ObQueryDeviceMapInformation @ 0x1406FC310 (ObQueryDeviceMapInformation.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
+ *     ObQueryDeviceMapInformation @ 0x1406FC520 (ObQueryDeviceMapInformation.c)
  * Callees:
- *     ObDereferenceDeviceMap @ 0x1407AFE5C (ObDereferenceDeviceMap.c)
+ *     ObDereferenceDeviceMap @ 0x1407B004C (ObDereferenceDeviceMap.c)
  */
 
 signed __int64 __fastcall ObpDereferenceCurrentDeviceMap(unsigned __int64 a1, signed __int64 *a2)

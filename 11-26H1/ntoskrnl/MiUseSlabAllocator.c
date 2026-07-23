@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUseSlabAllocator @ 0x140373DF4
+ * XREFs of MiUseSlabAllocator @ 0x140375BA4
  * Callers:
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
- *     MiGetHardFaultPages @ 0x140372958 (MiGetHardFaultPages.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiResolveMappedFileFaultByCopying @ 0x1404893DC (MiResolveMappedFileFaultByCopying.c)
- *     MiFinalizeImageHeaderPage @ 0x1404C7B8C (MiFinalizeImageHeaderPage.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
+ *     MiGetHardFaultPages @ 0x140374708 (MiGetHardFaultPages.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiResolveMappedFileFaultByCopying @ 0x140482F1C (MiResolveMappedFileFaultByCopying.c)
+ *     MiFinalizeImageHeaderPage @ 0x1404C18CC (MiFinalizeImageHeaderPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
  * Callees:
- *     MiGetSlabAllocatorTypeByProtection @ 0x1404C9E3C (MiGetSlabAllocatorTypeByProtection.c)
+ *     MiGetSlabAllocatorTypeByProtection @ 0x1404C386C (MiGetSlabAllocatorTypeByProtection.c)
  */
 
 __int64 __fastcall MiUseSlabAllocator(__int64 a1, _DWORD *a2, __int16 a3, unsigned int a4, _DWORD *a5)
@@ -35,7 +35,7 @@ __int64 __fastcall MiUseSlabAllocator(__int64 a1, _DWORD *a2, __int16 a3, unsign
         }
       }
     }
-    else if ( stru_140E2D150.SchedulerApcFill3[9]
+    else if ( stru_140E2D2D0.SchedulerApcFill3[9]
            && *(_QWORD *)(56320LL * a4 + *(_QWORD *)(a1 + 16) + 16008)
             + *(_QWORD *)(*(_QWORD *)(56320LL * a4 + *(_QWORD *)(a1 + 16) + 15992) + 16LL) )
     {

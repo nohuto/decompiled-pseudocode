@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckRecordAllUtility @ 0x140409260
+ * XREFs of PpmCheckRecordAllUtility @ 0x140401740
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfRecordUtility @ 0x140409370 (PpmPerfRecordUtility.c)
- *     PpmParkRecordNodeStatistics @ 0x140409AE4 (PpmParkRecordNodeStatistics.c)
+ *     PpmPerfRecordUtility @ 0x140401850 (PpmPerfRecordUtility.c)
+ *     PpmParkRecordNodeStatistics @ 0x140401FC4 (PpmParkRecordNodeStatistics.c)
  */
 
 char PpmCheckRecordAllUtility()
@@ -25,7 +25,7 @@ char PpmCheckRecordAllUtility()
     {
       _BitScanForward64(&v2, v0);
       v0 &= ~(1LL << v2);
-      v3 = *((unsigned int *)qword_140F21E78 + 64 * i + (unsigned __int8)v2);
+      v3 = *((unsigned int *)qword_140F22998 + 64 * i + (unsigned __int8)v2);
       if ( (unsigned int)v3 >= (unsigned int)KeNumberProcessors_0 )
         v4 = 0LL;
       else

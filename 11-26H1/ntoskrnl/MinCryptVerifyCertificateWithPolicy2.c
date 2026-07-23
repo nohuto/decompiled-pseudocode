@@ -1,30 +1,30 @@
 /*
- * XREFs of MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4
+ * XREFs of MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4
  * Callers:
- *     MincrypK_ParseCertificateChainWithPolicy2 @ 0x1408A1970 (MincrypK_ParseCertificateChainWithPolicy2.c)
- *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A250C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
- *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A2AC4 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MincrypK_ParseCertificateChainWithPolicy2 @ 0x1408A7D80 (MincrypK_ParseCertificateChainWithPolicy2.c)
+ *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A891C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A8ED4 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     MinCryptHashMemory @ 0x14071C940 (MinCryptHashMemory.c)
- *     I_MinCryptIsCertificateHashRevokedV2 @ 0x14071C960 (I_MinCryptIsCertificateHashRevokedV2.c)
- *     MinCryptCheckCertsAndKeys @ 0x14071CC38 (MinCryptCheckCertsAndKeys.c)
- *     MinCryptIsCertPresent @ 0x14071CD5C (MinCryptIsCertPresent.c)
- *     MinCryptIsKeyPresent @ 0x14071CDCC (MinCryptIsKeyPresent.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A03B0 (MinCryptDecodeHashAlgorithmIdentifier.c)
- *     MinCryptVerifySignedHash2 @ 0x1408A04B0 (MinCryptVerifySignedHash2.c)
- *     I_MinCryptCheckEKU @ 0x1408A0708 (I_MinCryptCheckEKU.c)
- *     I_MinCryptFindIssuerCertificateByName @ 0x1408A0774 (I_MinCryptFindIssuerCertificateByName.c)
- *     I_MinCryptFindRootByKey @ 0x1408A0864 (I_MinCryptFindRootByKey.c)
- *     I_MinCryptFindRootByName @ 0x1408A08E4 (I_MinCryptFindRootByName.c)
- *     I_MinCryptGetCertificateEKUs @ 0x1408A09CC (I_MinCryptGetCertificateEKUs.c)
- *     I_MinCryptGetCommonName @ 0x1408A0A58 (I_MinCryptGetCommonName.c)
- *     MincryptValidateBasicConstraints @ 0x1408A1FF4 (MincryptValidateBasicConstraints.c)
- *     I_MinCryptCheckEKURequirements @ 0x1408A38A0 (I_MinCryptCheckEKURequirements.c)
- *     I_MincryptAddChainInfo @ 0x1408A39A0 (I_MincryptAddChainInfo.c)
- *     MinAsn1DecodeTime @ 0x1408A4510 (MinAsn1DecodeTime.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MinCryptHashMemory @ 0x1407215D0 (MinCryptHashMemory.c)
+ *     I_MinCryptIsCertificateHashRevokedV2 @ 0x1407215F0 (I_MinCryptIsCertificateHashRevokedV2.c)
+ *     MinCryptCheckCertsAndKeys @ 0x1407218C8 (MinCryptCheckCertsAndKeys.c)
+ *     MinCryptIsCertPresent @ 0x1407219EC (MinCryptIsCertPresent.c)
+ *     MinCryptIsKeyPresent @ 0x140721A5C (MinCryptIsKeyPresent.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A67C0 (MinCryptDecodeHashAlgorithmIdentifier.c)
+ *     MinCryptVerifySignedHash2 @ 0x1408A68C0 (MinCryptVerifySignedHash2.c)
+ *     I_MinCryptCheckEKU @ 0x1408A6B18 (I_MinCryptCheckEKU.c)
+ *     I_MinCryptFindIssuerCertificateByName @ 0x1408A6B84 (I_MinCryptFindIssuerCertificateByName.c)
+ *     I_MinCryptFindRootByKey @ 0x1408A6C74 (I_MinCryptFindRootByKey.c)
+ *     I_MinCryptFindRootByName @ 0x1408A6CF4 (I_MinCryptFindRootByName.c)
+ *     I_MinCryptGetCertificateEKUs @ 0x1408A6DDC (I_MinCryptGetCertificateEKUs.c)
+ *     I_MinCryptGetCommonName @ 0x1408A6E68 (I_MinCryptGetCommonName.c)
+ *     MincryptValidateBasicConstraints @ 0x1408A8404 (MincryptValidateBasicConstraints.c)
+ *     I_MinCryptCheckEKURequirements @ 0x1408A9CB0 (I_MinCryptCheckEKURequirements.c)
+ *     I_MincryptAddChainInfo @ 0x1408A9DB0 (I_MincryptAddChainInfo.c)
+ *     MinAsn1DecodeTime @ 0x1408AA920 (MinAsn1DecodeTime.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MinCryptVerifyCertificateWithPolicy2(
@@ -270,7 +270,7 @@ LABEL_172:
     v93 = 0LL;
     v94 = 0LL;
   }
-  v21 = I_MinCryptCheckEKU((const void **)&qword_140BD9AB8, v83, (__int64)P);
+  v21 = I_MinCryptCheckEKU((const void **)&qword_140BE0978, v83, (__int64)P);
   if ( v21
     && (__int64)ExpPlatformBinaryLock.WaitBlock[2].Object > 0
     && v93 < (__int64)ExpPlatformBinaryLock.WaitBlock[2].Object )
@@ -278,7 +278,7 @@ LABEL_172:
     v7 = 6291456;
     goto LABEL_35;
   }
-  if ( !g_IgnoreLifetimeSigningEKU && I_MinCryptCheckEKU((const void **)&qword_140BD9AA8, v83, (__int64)P) )
+  if ( !g_IgnoreLifetimeSigningEKU && I_MinCryptCheckEKU((const void **)&qword_140BE0988, v83, (__int64)P) )
   {
     v22 = 0;
     v82 = 0;

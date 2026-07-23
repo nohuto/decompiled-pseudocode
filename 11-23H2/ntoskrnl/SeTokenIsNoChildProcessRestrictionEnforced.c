@@ -1,11 +1,11 @@
 /*
- * XREFs of SeTokenIsNoChildProcessRestrictionEnforced @ 0x1405B91F8
+ * XREFs of SeTokenIsNoChildProcessRestrictionEnforced @ 0x1405B9768
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x1406B722C (SeSubProcessToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
  */
 
 bool __fastcall SeTokenIsNoChildProcessRestrictionEnforced(__int64 a1)

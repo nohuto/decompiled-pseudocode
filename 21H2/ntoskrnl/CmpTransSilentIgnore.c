@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpTransSilentIgnore @ 0x1403510D0
+ * XREFs of CmpTransSilentIgnore @ 0x14035BE20
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */
 
 bool CmpTransSilentIgnore()
 {
-  return CmpMiniNTBoot != 0;
+  return BYTE6(NlsMbCodePageTag) != 0;
 }

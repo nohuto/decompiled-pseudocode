@@ -1,17 +1,17 @@
 /*
- * XREFs of _tlgKeywordOn @ 0x18010D208
+ * XREFs of _tlgKeywordOn @ 0x1801081C8
  * Callers:
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
- *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800D8EA8 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
- *     EtwSendNotification @ 0x1800EE760 (EtwSendNotification.c)
- *     LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x180114C04 (LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry.c)
- *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x18011EA08 (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
- *     UcOnUnexpectedCodePath @ 0x180157500 (UcOnUnexpectedCodePath.c)
- *     UcpFindOrCreateTelemetryRecord @ 0x180157868 (UcpFindOrCreateTelemetryRecord.c)
- *     LdrpCgLogFailure @ 0x18015FC00 (LdrpCgLogFailure.c)
- *     LdrpLogImportRedirectionTelemetry @ 0x18016046C (LdrpLogImportRedirectionTelemetry.c)
- *     LdrpLogIntegrityContinuityTelemetry @ 0x180160578 (LdrpLogIntegrityContinuityTelemetry.c)
- *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x180160874 (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
+ *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800D4218 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
+ *     EtwSendNotification @ 0x1800E9940 (EtwSendNotification.c)
+ *     LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x18010FFD4 (LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x18011CC38 (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
+ *     UcOnUnexpectedCodePath @ 0x1801558C0 (UcOnUnexpectedCodePath.c)
+ *     UcpFindOrCreateTelemetryRecord @ 0x180155C28 (UcpFindOrCreateTelemetryRecord.c)
+ *     LdrpCgLogFailure @ 0x18015DFC0 (LdrpCgLogFailure.c)
+ *     LdrpLogImportRedirectionTelemetry @ 0x18015E82C (LdrpLogImportRedirectionTelemetry.c)
+ *     LdrpLogIntegrityContinuityTelemetry @ 0x18015E938 (LdrpLogIntegrityContinuityTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x18015EC34 (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
  * Callees:
  *     <none>
  */

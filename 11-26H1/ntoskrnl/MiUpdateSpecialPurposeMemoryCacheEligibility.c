@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x14087EEE0
+ * XREFs of MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x1408852E0
  * Callers:
- *     MmManagePartitionUpdateAttributes @ 0x14087D548 (MmManagePartitionUpdateAttributes.c)
+ *     MmManagePartitionUpdateAttributes @ 0x140883948 (MmManagePartitionUpdateAttributes.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x14087E624 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x140884A24 (MiFindSpecialPurposeMemoryTypeByPartition.c)
  */
 
 __int64 __fastcall MiUpdateSpecialPurposeMemoryCacheEligibility(__int64 a1, int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall MiUpdateSpecialPurposeMemoryCacheEligibility(__int64 a1, int 
   struct _KTHREAD *v6; // rbx
   __int64 v7; // rcx
   struct _KTHREAD *CurrentThread; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v10; // rdx
+  $241382875694CED3D471BC5892DE3337 *v10; // rdx
   __int128 v12; // [rsp+20h] [rbp-20h] BYREF
   __int64 v13; // [rsp+30h] [rbp-10h]
   __int64 v14; // [rsp+70h] [rbp+30h] BYREF
@@ -63,7 +63,7 @@ __int64 __fastcall MiUpdateSpecialPurposeMemoryCacheEligibility(__int64 a1, int 
     if ( CurrentThread->SpecialApcDisable++ == -1 )
     {
       v10 = &CurrentThread->152;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v10->ApcState.ApcListHead[0].Flink != v10 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v10->ApcState.ApcListHead[0].Flink != v10 )
         KiCheckForKernelApcDelivery(v7, (__int64)v10);
     }
   }

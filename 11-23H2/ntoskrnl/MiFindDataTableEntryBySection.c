@@ -2,9 +2,9 @@
  * XREFs of MiFindDataTableEntryBySection @ 0x1406962B4
  * Callers:
  *     MiGetSystemAddressForImage @ 0x140696090 (MiGetSystemAddressForImage.c)
- *     MiObtainSectionForDriver @ 0x1407047B8 (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x1407049C8 (MiObtainSectionForDriver.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
  */
 
 PVOID *MiFindDataTableEntryBySection()

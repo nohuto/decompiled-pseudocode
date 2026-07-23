@@ -4,9 +4,9 @@
  *     KiSendThawExecution @ 0x14020D210 (KiSendThawExecution.c)
  *     KeFreezeExecution @ 0x14020D540 (KeFreezeExecution.c)
  *     KiFreezeTargetExecution @ 0x14020E1D0 (KiFreezeTargetExecution.c)
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
- *     KeSwitchFrozenProcessor @ 0x140576BA0 (KeSwitchFrozenProcessor.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057A7BC (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
+ *     KeSwitchFrozenProcessor @ 0x140577090 (KeSwitchFrozenProcessor.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057ACAC (KiBugCheckRecoveryFreezeOtherProcessors.c)
  * Callees:
  *     <none>
  */

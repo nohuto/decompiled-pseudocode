@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertMappingNode @ 0x1403C2774
+ * XREFs of MiInsertMappingNode @ 0x1403C2954
  * Callers:
- *     MmAllocateMappingAddressEx @ 0x14086C480 (MmAllocateMappingAddressEx.c)
+ *     MmAllocateMappingAddressEx @ 0x14086C6C0 (MmAllocateMappingAddressEx.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiInsertMappingNode(unsigned __int64 a1)
@@ -52,10 +52,13 @@ void __fastcall MiInsertMappingNode(unsigned __int64 a1)
   }
   RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C684C8, (unsigned __int64)v4, v5, a1);
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C684C0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

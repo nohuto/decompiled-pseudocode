@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmCreateInterfaceClassWorker @ 0x1406D7728
+ * XREFs of _CmCreateInterfaceClassWorker @ 0x1406D7860
  * Callers:
- *     _CmCreateInterfaceClass @ 0x1406D75BC (_CmCreateInterfaceClass.c)
+ *     _CmCreateInterfaceClass @ 0x1406D76F4 (_CmCreateInterfaceClass.c)
  * Callees:
- *     _CmOpenInterfaceClassRegKey @ 0x1404F6E20 (_CmOpenInterfaceClassRegKey.c)
- *     _CmRaiseCreateEvent @ 0x1406DBEF0 (_CmRaiseCreateEvent.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1404D9DAC (_CmOpenInterfaceClassRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x1406DC028 (_CmRaiseCreateEvent.c)
  */
 
 __int64 __fastcall CmCreateInterfaceClassWorker(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, bool *a5, __int16 a6)

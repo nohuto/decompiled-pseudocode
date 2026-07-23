@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpFinalizeVetoedRemove @ 0x140A0C4C4
+ * XREFs of PnpFinalizeVetoedRemove @ 0x140AB1A68
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
- *     PiCheckRemovalPreconditions @ 0x140A0E1E8 (PiCheckRemovalPreconditions.c)
- *     PiProcessQueryAndCancelRemoval @ 0x140A0E460 (PiProcessQueryAndCancelRemoval.c)
- *     PiEventBuildPdoList @ 0x140A0E694 (PiEventBuildPdoList.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
+ *     PiCheckRemovalPreconditions @ 0x1409BC5EC (PiCheckRemovalPreconditions.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x1409BC864 (PiProcessQueryAndCancelRemoval.c)
+ *     PiEventBuildPdoList @ 0x1409BCA98 (PiEventBuildPdoList.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     McTemplateK0zqz_EtwWriteTransfer @ 0x1405A74B0 (McTemplateK0zqz_EtwWriteTransfer.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     McTemplateK0zqz_EtwWriteTransfer @ 0x1405A44A0 (McTemplateK0zqz_EtwWriteTransfer.c)
  */
 
 __int16 __fastcall PnpFinalizeVetoedRemove(__int64 a1, unsigned __int64 a2, UNICODE_STRING *a3)
@@ -52,7 +52,7 @@ __int16 __fastcall PnpFinalizeVetoedRemove(__int64 a1, unsigned __int64 a2, UNIC
     }
   }
 LABEL_14:
-  if ( (byte_140EEFD24 & 4) != 0 )
+  if ( (byte_140EEFF64 & 4) != 0 )
   {
     v10 = *(_QWORD *)(a1 + 160);
     if ( v10 )

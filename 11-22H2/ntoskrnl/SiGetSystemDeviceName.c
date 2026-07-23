@@ -28,16 +28,16 @@ __int64 __fastcall SiGetSystemDeviceName(
   void *Src; // [rsp+20h] [rbp-68h] BYREF
   unsigned int v14; // [rsp+28h] [rbp-60h]
   unsigned int *v15; // [rsp+30h] [rbp-58h]
-  __int128 v16; // [rsp+38h] [rbp-50h] BYREF
+  __int128 SystemInformation; // [rsp+38h] [rbp-50h] BYREF
   __int128 v17; // [rsp+48h] [rbp-40h]
 
   v15 = a4;
   *a4 = 0;
   Src = 0LL;
-  v16 = 0LL;
+  SystemInformation = 0LL;
   v17 = 0LL;
   v8 = 1;
-  if ( (int)ZwQuerySystemInformation(90LL, (__int64)&v16) >= 0 )
+  if ( ZwQuerySystemInformation(SystemBootEnvironmentInformation, &SystemInformation, 0x20u, 0LL) >= 0 )
   {
     v8 = 0;
     if ( (int)v17 < 3 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepSdbBootInitialize @ 0x140861E48
+ * XREFs of KsepSdbBootInitialize @ 0x140862088
  * Callers:
  *     KseShimDatabaseBootInitialize @ 0x140B73254 (KseShimDatabaseBootInitialize.c)
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
  *     KsepPoolAllocatePaged @ 0x140209EA8 (KsepPoolAllocatePaged.c)
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
  *     SdbInitDatabaseInMemory @ 0x1406951D8 (SdbInitDatabaseInMemory.c)
  *     SdbGetDatabaseEdition @ 0x140695518 (SdbGetDatabaseEdition.c)
  */

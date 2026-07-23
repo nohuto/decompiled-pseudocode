@@ -43,7 +43,7 @@ __int64 PopAllocateHiberContext()
   __int64 HighestPhysicalPage; // rax
   char *v2; // rbx
   __int64 v3; // rdx
-  __int64 v4; // rcx
+  UNICODE_STRING *v4; // rcx
   PVOID v5; // r8
   unsigned __int64 PteAddress; // rax
   __int16 v7; // r8
@@ -56,31 +56,29 @@ __int64 PopAllocateHiberContext()
   __int64 v14; // rdx
   __int64 v15; // rcx
   __int16 v16; // ax
-  __int64 v17; // rbp
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // rcx
-  unsigned __int64 v21; // rdx
-  unsigned __int64 v22; // rax
-  unsigned __int64 v23; // rcx
+  HANDLE v17; // rbp
+  void *v18; // rcx
+  unsigned __int64 v19; // rdx
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // rcx
   PVOID Pages; // rax
-  __int64 **v25; // r15
+  __int64 **v23; // r15
   __int64 *i; // rsi
-  int v27; // eax
-  PVOID *v28; // r12
-  __int64 v29; // r13
-  char *v30; // rax
-  PVOID *v31; // rsi
-  __int64 v32; // rbp
+  int v25; // eax
+  PVOID *v26; // r12
+  __int64 v27; // r13
+  char *v28; // rax
+  PVOID *v29; // rsi
+  __int64 v30; // rbp
   PMDL UnHibernatedMdl; // rax
-  __int64 v34; // rcx
-  PMDL v35; // rax
-  unsigned __int64 v37; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v38; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v32; // rcx
+  PMDL v33; // rax
+  HANDLE BcdObjectHandle; // [rsp+70h] [rbp+8h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+78h] [rbp+10h] BYREF
 
   if ( dword_140365808 == 5 )
   {
-    v37 = 0LL;
+    BcdObjectHandle = 0LL;
     HighestPhysicalPage = MmGetHighestPhysicalPage(0);
     v2 = (char *)MemoryMap;
     BugCheckParameter4 = (ULONG_PTR)MemoryMap;
@@ -109,7 +107,7 @@ __int64 PopAllocateHiberContext()
       goto LABEL_60;
     }
     v8 = (ULONG_PTR *)(v2 + 168);
-    DumpStack = IoGetDumpStack(v4, (__int64)(v2 + 168), (__int64)v5, PopSimulate & 0x10);
+    DumpStack = IoGetDumpStack((__int64)v4, (__int64)(v2 + 168), (__int64)v5, PopSimulate & 0x10);
     if ( DumpStack < 0 )
       goto LABEL_60;
     v9 = 0;
@@ -147,16 +145,16 @@ __int64 PopAllocateHiberContext()
     DumpStack = PopLoadResumeContext((__int64)v2);
     if ( DumpStack < 0 )
       goto LABEL_60;
-    DumpStack = BcdOpenStore(v4, 2u, (__int64)&v38);
+    DumpStack = BcdOpenStore(v4, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle);
     if ( DumpStack < 0 )
       goto LABEL_60;
-    v17 = v38;
-    DumpStack = PopBcdEstablishResumeObject(v38, &v37);
-    v20 = v17;
+    v17 = BcdStoreHandle;
+    DumpStack = PopBcdEstablishResumeObject(BcdStoreHandle, &BcdObjectHandle);
+    v18 = v17;
     if ( DumpStack < 0
-      || (DumpStack = PopBcdSetPendingResume(v17, v18, v19, v37), BcdCloseObject(v37), v20 = v17, DumpStack < 0) )
+      || (DumpStack = PopBcdSetPendingResume(v17), BcdCloseObject(BcdObjectHandle), v18 = v17, DumpStack < 0) )
     {
-      BcdCloseStore(v20);
+      BcdCloseStore(v18);
     }
     else
     {
@@ -165,11 +163,11 @@ __int64 PopAllocateHiberContext()
       RtlSetAllBits((PRTL_BITMAP)v2 + 3);
       *((_DWORD *)v2 + 114) = PopGetHwConfigurationSignature();
       PopHiberInitializeResources(v2);
-      if ( (int)PopGetBitlockerKeyLocation((__int64 *)&v37) >= 0 )
+      if ( (int)PopGetBitlockerKeyLocation((__int64 *)&BcdObjectHandle) >= 0 )
       {
-        v21 = v37 >> 12;
-        *((_QWORD *)v2 + 40) = v37 >> 12;
-        PopDiscardRange((struct _RTL_BITMAP *)v2, v21, 4u);
+        v19 = (unsigned __int64)BcdObjectHandle >> 12;
+        *((_QWORD *)v2 + 40) = (unsigned __int64)BcdObjectHandle >> 12;
+        PopDiscardRange((_RTL_BITMAP *)v2, v19, 4u);
       }
       if ( !KdPitchDebugger || KdEventLoggingEnabled )
       {
@@ -178,13 +176,13 @@ __int64 PopAllocateHiberContext()
       }
       MmMarkHiberRange((__int64)v2, xmmword_140365B28);
       ((void (__fastcall *)(char *))off_1403532E8[0])(v2);
-      v22 = (4 * (unsigned __int64)(unsigned int)PopHiberScratchPages + 4095) >> 12;
-      *((_DWORD *)v2 + 38) = v22;
+      v20 = (4 * (unsigned __int64)(unsigned int)PopHiberScratchPages + 4095) >> 12;
+      *((_DWORD *)v2 + 38) = v20;
       if ( *((_QWORD *)v2 + 31) )
       {
-        v23 = *((unsigned int *)v2 + 64);
-        if ( v23 > v22 )
-          *((_DWORD *)v2 + 38) = v23;
+        v21 = *((unsigned int *)v2 + 64);
+        if ( v21 > v20 )
+          *((_DWORD *)v2 + 38) = v21;
       }
       Pages = PopAllocatePages(*((unsigned int *)v2 + 38));
       DumpStack = *((_DWORD *)v2 + 47);
@@ -193,40 +191,40 @@ __int64 PopAllocateHiberContext()
         goto LABEL_60;
       if ( *(_BYTE *)(*v8 + 280) )
       {
-        v25 = (__int64 **)(*(_QWORD *)(*v8 + 272) + 40LL);
-        for ( i = *v25; i != (__int64 *)v25; i = (__int64 *)*i )
+        v23 = (__int64 **)(*(_QWORD *)(*v8 + 272) + 40LL);
+        for ( i = *v23; i != (__int64 *)v23; i = (__int64 *)*i )
         {
-          v27 = *((_DWORD *)i + 16);
-          if ( v27 )
+          v25 = *((_DWORD *)i + 16);
+          if ( v25 )
           {
-            if ( (v27 & 0xFFF) != 0 )
+            if ( (v25 & 0xFFF) != 0 )
             {
               PopInternalAddToDumpFile((__int64)(i - 1), 0x70u, 0LL);
               PopInternalAddToDumpFile((__int64)v2, 0x1D0u, 0LL);
               KeBugCheckEx(0xA0u, 0x102uLL, 0xAuLL, v10, (ULONG_PTR)v2);
             }
-            v28 = (PVOID *)(i + 9);
-            v29 = 2LL;
+            v26 = (PVOID *)(i + 9);
+            v27 = 2LL;
             do
             {
-              if ( *v28 )
-                PoSetHiberRange(v2, 0x8000u, *v28, *((unsigned int *)i + 16), 0x66756263u);
-              ++v28;
-              --v29;
+              if ( *v26 )
+                PoSetHiberRange(v2, 0x8000u, *v26, *((unsigned int *)i + 16), 0x66756263u);
+              ++v26;
+              --v27;
             }
-            while ( v29 );
+            while ( v27 );
           }
         }
 LABEL_47:
-        UnHibernatedMdl = PopGenerateUnHibernatedMdl(v4, (unsigned int)PopHiberScratchPages);
+        UnHibernatedMdl = PopGenerateUnHibernatedMdl((__int64)v4, (unsigned int)PopHiberScratchPages);
         *((_QWORD *)v2 + 15) = UnHibernatedMdl;
         if ( !UnHibernatedMdl )
         {
           MmEmptyAllWorkingSets();
           MmFlushAllPages();
-          v35 = PopGenerateUnHibernatedMdl(v34, (unsigned int)PopHiberScratchPages);
-          *((_QWORD *)v2 + 15) = v35;
-          if ( !v35 )
+          v33 = PopGenerateUnHibernatedMdl(v32, (unsigned int)PopHiberScratchPages);
+          *((_QWORD *)v2 + 15) = v33;
+          if ( !v33 )
           {
             DumpStack = -1073741670;
             goto LABEL_60;
@@ -251,27 +249,27 @@ LABEL_47:
         DumpStack = 0;
         goto LABEL_59;
       }
-      v30 = (char *)PopAllocatePages(16LL);
-      *(_QWORD *)(v10 + 8) = v30;
-      if ( v30 )
+      v28 = (char *)PopAllocatePages(16LL);
+      *(_QWORD *)(v10 + 8) = v28;
+      if ( v28 )
       {
-        PoSetHiberRange(v2, 0x8000u, v30 + 0x2000, 0xE000uLL, 0x6D656D44u);
+        PoSetHiberRange(v2, 0x8000u, v28 + 0x2000, 0xE000uLL, 0x6D656D44u);
         if ( (*(_DWORD *)(v10 + 112) & 0xFFF) != 0 )
         {
           PopInternalAddToDumpFile(v10, 0x108u, 0LL);
           PopInternalAddToDumpFile((__int64)v2, 0x1D0u, 0LL);
           KeBugCheckEx(0xA0u, 0x102uLL, 0xAuLL, v10, (ULONG_PTR)v2);
         }
-        v31 = (PVOID *)(v10 + 16);
-        v32 = 2LL;
+        v29 = (PVOID *)(v10 + 16);
+        v30 = 2LL;
         do
         {
-          if ( *v31 )
-            PoSetHiberRange(v2, 0x8000u, *v31, *(unsigned int *)(v10 + 112), 0x66756263u);
-          ++v31;
-          --v32;
+          if ( *v29 )
+            PoSetHiberRange(v2, 0x8000u, *v29, *(unsigned int *)(v10 + 112), 0x66756263u);
+          ++v29;
+          --v30;
         }
-        while ( v32 );
+        while ( v30 );
         goto LABEL_47;
       }
       DumpStack = *((_DWORD *)v2 + 47);

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlHpHeapManagerCleanup @ 0x1401549F4
+ * XREFs of RtlHpHeapManagerCleanup @ 0x140154AF4
  * Callers:
- *     ExCleanupSessionHeapManager @ 0x140154454 (ExCleanupSessionHeapManager.c)
+ *     ExCleanupSessionHeapManager @ 0x140154554 (ExCleanupSessionHeapManager.c)
  * Callees:
- *     RtlpHpHeapDestroy @ 0x1401544C4 (RtlpHpHeapDestroy.c)
- *     RtlCSparseBitmapCleanup @ 0x1401590AC (RtlCSparseBitmapCleanup.c)
+ *     RtlpHpHeapDestroy @ 0x1401545C4 (RtlpHpHeapDestroy.c)
+ *     RtlCSparseBitmapCleanup @ 0x1401591AC (RtlCSparseBitmapCleanup.c)
  */
 
 __int64 __fastcall RtlHpHeapManagerCleanup(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

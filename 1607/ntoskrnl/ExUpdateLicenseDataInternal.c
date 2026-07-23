@@ -1,38 +1,38 @@
 /*
- * XREFs of ExUpdateLicenseDataInternal @ 0x140496474
+ * XREFs of ExUpdateLicenseDataInternal @ 0x140496F04
  * Callers:
- *     ExUpdateLicenseData @ 0x1406AEA30 (ExUpdateLicenseData.c)
+ *     ExUpdateLicenseData @ 0x1406AEB68 (ExUpdateLicenseData.c)
  *     ExInitLicenseData @ 0x1407B505C (ExInitLicenseData.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpLicUpdateChecksum @ 0x14008606C (ExpLicUpdateChecksum.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateSection @ 0x14015A5C0 (ZwCreateSection.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpLicUpdateChecksum @ 0x14008795C (ExpLicUpdateChecksum.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateSection @ 0x14015AB30 (ZwCreateSection.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     MmMapViewInSystemSpace @ 0x14049552C (MmMapViewInSystemSpace.c)
- *     sub_140495660 @ 0x140495660 (sub_140495660.c)
- *     ExpLicensingDescriptorCompare @ 0x1404971A0 (ExpLicensingDescriptorCompare.c)
- *     ExpSetKernelDataProtection @ 0x140497230 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x14049779C (ExpGetKernelDataProtection.c)
- *     ExpPutLicenseDataIntoRegistry @ 0x1404EFCCC (ExpPutLicenseDataIntoRegistry.c)
- *     sub_1404F1514 @ 0x1404F1514 (sub_1404F1514.c)
- *     MmUnmapViewInSystemSpace @ 0x140525E34 (MmUnmapViewInSystemSpace.c)
- *     sub_1406AEF88 @ 0x1406AEF88 (sub_1406AEF88.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     MmMapViewInSystemSpace @ 0x140495FBC (MmMapViewInSystemSpace.c)
+ *     sub_1404960F0 @ 0x1404960F0 (sub_1404960F0.c)
+ *     ExpLicensingDescriptorCompare @ 0x140497C30 (ExpLicensingDescriptorCompare.c)
+ *     ExpSetKernelDataProtection @ 0x140497CC0 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x14049822C (ExpGetKernelDataProtection.c)
+ *     ExpPutLicenseDataIntoRegistry @ 0x1404D1CE8 (ExpPutLicenseDataIntoRegistry.c)
+ *     sub_1404D3608 @ 0x1404D3608 (sub_1404D3608.c)
+ *     MmUnmapViewInSystemSpace @ 0x140508E94 (MmUnmapViewInSystemSpace.c)
+ *     sub_1406AF0C0 @ 0x1406AF0C0 (sub_1406AF0C0.c)
  */
 
 __int64 __fastcall ExUpdateLicenseDataInternal(int a1, unsigned int *a2)
@@ -395,7 +395,7 @@ LABEL_180:
     KeAbPostRelease((ULONG_PTR)&qword_140747B20);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v76, v77, v78);
     if ( v154 )
-      sub_1404F1514();
+      sub_1404D3608();
     v94 = 0x40000000;
     goto LABEL_121;
   }
@@ -431,7 +431,7 @@ LABEL_180:
     v94 = -1073741761;
     goto LABEL_121;
   }
-  v94 = sub_140495660((__int64)v20, 1, 0LL, 0, &NumOfElements);
+  v94 = sub_1404960F0((__int64)v20, 1, 0LL, 0, &NumOfElements);
   if ( v94 == -1073741789 )
   {
     v22 = KeGetCurrentThread();
@@ -456,7 +456,7 @@ LABEL_180:
       v94 = -1073741801;
       goto LABEL_121;
     }
-    v94 = sub_140495660((__int64)MappedBase, 0, PoolWithTag, NumOfElements, 0LL);
+    v94 = sub_1404960F0((__int64)MappedBase, 0, PoolWithTag, NumOfElements, 0LL);
     if ( v94 >= 0 )
       qsort(PoolWithTag, v27, 0x10uLL, ExpLicensingDescriptorCompare);
   }
@@ -749,7 +749,7 @@ LABEL_112:
       if ( v150 || (v94 = ExpPutLicenseDataIntoRegistry(), v94 >= 0) )
       {
         if ( !v150 || v151 )
-          sub_1404F1514();
+          sub_1404D3608();
         v94 = 0;
         if ( v95 == 1 )
           v94 = 263;
@@ -761,7 +761,7 @@ LABEL_112:
     v94 = -1073741811;
 LABEL_121:
   if ( v156 && !BYTE1(NlsMbCodePageTag) )
-    sub_1406AEF88(&KernelLicensingCacheCorruptionFixed);
+    sub_1406AF0C0(&KernelLicensingCacheCorruptionFixed);
   if ( v97 )
   {
     v60 = KeGetCurrentThread();
@@ -878,7 +878,7 @@ LABEL_121:
     KeAbPostRelease((ULONG_PTR)&qword_140747B20);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v91, v92, v93);
     if ( v8 )
-      sub_1404F1514();
+      sub_1404D3608();
   }
   return (unsigned int)v94;
 }

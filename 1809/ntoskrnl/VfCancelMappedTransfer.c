@@ -1,10 +1,10 @@
 /*
- * XREFs of VfCancelMappedTransfer @ 0x14092AA70
+ * XREFs of VfCancelMappedTransfer @ 0x14092BA70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViGetRealDmaOperation @ 0x14092DB34 (ViGetRealDmaOperation.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaOperation @ 0x14092EB34 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfCancelMappedTransfer(__int64 a1, __int64 a2)

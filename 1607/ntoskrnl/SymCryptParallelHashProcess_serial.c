@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptParallelHashProcess_serial @ 0x1402377FC
+ * XREFs of SymCryptParallelHashProcess_serial @ 0x140237628
  * Callers:
- *     SymCryptParallelSha256Process @ 0x140237334 (SymCryptParallelSha256Process.c)
+ *     SymCryptParallelSha256Process @ 0x140237160 (SymCryptParallelSha256Process.c)
  * Callees:
- *     SymCryptWipeAsm @ 0x1401591A0 (SymCryptWipeAsm.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     SymCryptWipeAsm @ 0x140159710 (SymCryptWipeAsm.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall SymCryptParallelHashProcess_serial(

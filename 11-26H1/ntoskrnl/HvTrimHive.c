@@ -1,15 +1,15 @@
 /*
- * XREFs of HvTrimHive @ 0x1408B8958
+ * XREFs of HvTrimHive @ 0x1408BEF28
  * Callers:
- *     CmpTrimHive @ 0x1408B781C (CmpTrimHive.c)
+ *     CmpTrimHive @ 0x1408BDDEC (CmpTrimHive.c)
  * Callees:
- *     MiDeprioritizeVirtualAddresses @ 0x140442198 (MiDeprioritizeVirtualAddresses.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     HvpMapEntryMarkTrimmed @ 0x1408B89FC (HvpMapEntryMarkTrimmed.c)
- *     HvpMapEntryIsPoolBacked @ 0x1408B9254 (HvpMapEntryIsPoolBacked.c)
- *     HvpMapEntryIsDiscardable @ 0x1408D9350 (HvpMapEntryIsDiscardable.c)
- *     HvpMapEntryIsNewAlloc @ 0x1408DB6C0 (HvpMapEntryIsNewAlloc.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14043ACA8 (MiDeprioritizeVirtualAddresses.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     HvpMapEntryMarkTrimmed @ 0x1408BEFCC (HvpMapEntryMarkTrimmed.c)
+ *     HvpMapEntryIsPoolBacked @ 0x1408BF824 (HvpMapEntryIsPoolBacked.c)
+ *     HvpMapEntryIsDiscardable @ 0x1408DF910 (HvpMapEntryIsDiscardable.c)
+ *     HvpMapEntryIsNewAlloc @ 0x1408E1C80 (HvpMapEntryIsNewAlloc.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
  */
 
 void __fastcall HvTrimHive(__int64 a1, unsigned int a2, unsigned int a3)

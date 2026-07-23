@@ -10,32 +10,26 @@
  *     RtlpStdLockRelease @ 0x1800FA8D0 (RtlpStdLockRelease.c)
  */
 
-__int64 __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, unsigned int a3)
 {
-  __int64 v4; // rbp
-  unsigned int v6; // edx
-  SIZE_T v7; // rbp
-  unsigned int v8; // r15d
-  __int64 v10; // rbx
-  __int64 v11; // r14
+  SIZE_T v4; // rbp
+  __int64 v7; // rbx
+  _RTL_SRWLOCK *v8; // r14
   __int64 i; // rbx
   __int64 SpaceForTrace; // rax
-  __int16 v14; // cx
-  __int64 v15; // rcx
-  __int16 v16; // cx
+  __int16 v11; // cx
+  __int64 v12; // rcx
+  __int16 v13; // cx
 
-  v4 = *(unsigned __int16 *)(a2 + 14);
-  v6 = (unsigned int)a3 % *(_DWORD *)(a1 + 720);
-  v7 = 8 * v4;
-  v8 = (unsigned int)a3;
-  v10 = 2LL * v6;
+  v4 = 8LL * *(unsigned __int16 *)(a2 + 14);
+  v7 = 2LL * (a3 % *(_DWORD *)(a1 + 720));
   _InterlockedAdd((volatile signed __int32 *)(a1 + 176), 1u);
-  v11 = a1 + 16LL * v6;
-  RtlpStdLockAcquire(v11 + 736, v6, a3, a4);
-  for ( i = *(_QWORD *)(a1 + 8 * v10 + 728); i; i = *(_QWORD *)i )
+  v8 = (_RTL_SRWLOCK *)(a1 + 8 * v7);
+  RtlpStdLockAcquire(v8 + 92);
+  for ( i = *(_QWORD *)(a1 + 8 * v7 + 728); i; i = *(_QWORD *)i )
   {
     if ( *(_WORD *)(i + 14) == *(_WORD *)(a2 + 14)
-      && RtlCompareMemory((const void *)(i + 16), (const void *)(a2 + 16), v7) == v7 )
+      && RtlCompareMemory((const void *)(i + 16), (const void *)(a2 + 16), v4) == v4 )
     {
       goto LABEL_8;
     }
@@ -47,18 +41,18 @@ __int64 __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, unsigned
     _InterlockedAdd((volatile signed __int32 *)(a1 + 200), 1u);
     goto LABEL_11;
   }
-  memmove((void *)(SpaceForTrace + 16), (const void *)(a2 + 16), v7);
-  v14 = *(_WORD *)(a2 + 14);
+  memmove((void *)(SpaceForTrace + 16), (const void *)(a2 + 16), v4);
+  v11 = *(_WORD *)(a2 + 14);
   *(_WORD *)(i + 8) &= 0xF800u;
-  *(_WORD *)(i + 14) = v14;
-  v15 = 16LL * (v8 % *(_DWORD *)(a1 + 720));
-  *(_QWORD *)i = *(_QWORD *)(v15 + a1 + 728);
-  *(_QWORD *)(v15 + a1 + 728) = i;
+  *(_WORD *)(i + 14) = v11;
+  v12 = 16LL * (a3 % *(_DWORD *)(a1 + 720));
+  *(_QWORD *)i = *(_QWORD *)(v12 + a1 + 728);
+  *(_QWORD *)(v12 + a1 + 728) = i;
 LABEL_8:
-  v16 = *(_WORD *)(i + 8);
-  if ( (v16 & 0x7FF) != 0x7FF )
-    *(_WORD *)(i + 8) = v16 ^ (v16 ^ (v16 + 1)) & 0x7FF;
+  v13 = *(_WORD *)(i + 8);
+  if ( (v13 & 0x7FF) != 0x7FF )
+    *(_WORD *)(i + 8) = v13 ^ (v13 ^ (v13 + 1)) & 0x7FF;
 LABEL_11:
-  RtlpStdLockRelease((volatile signed __int64 *)(v11 + 736));
+  RtlpStdLockRelease(v8 + 92);
   return i;
 }

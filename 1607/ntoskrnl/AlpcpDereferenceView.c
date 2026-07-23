@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpDereferenceView @ 0x140655578
+ * XREFs of AlpcpDereferenceView @ 0x14065565C
  * Callers:
- *     AlpcpLocateSectionView @ 0x14040BA70 (AlpcpLocateSectionView.c)
- *     AlpcpMapLegacyPortView @ 0x1404724E8 (AlpcpMapLegacyPortView.c)
+ *     AlpcpLocateSectionView @ 0x14040A930 (AlpcpLocateSectionView.c)
+ *     AlpcpMapLegacyPortView @ 0x1404713B8 (AlpcpMapLegacyPortView.c)
  * Callees:
  *     <none>
  */

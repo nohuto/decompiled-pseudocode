@@ -1,13 +1,13 @@
 /*
- * XREFs of MmSetPfnListPriorities @ 0x1400BE170
+ * XREFs of MmSetPfnListPriorities @ 0x1400BC000
  * Callers:
- *     PfpPfnPrioRequest @ 0x14041B450 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x14041A310 (PfpPfnPrioRequest.c)
  * Callees:
- *     MiIdentifyPfn @ 0x14000FC90 (MiIdentifyPfn.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiRelinkStandbyPage @ 0x1400BE514 (MiRelinkStandbyPage.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
+ *     MiIdentifyPfn @ 0x14000F810 (MiIdentifyPfn.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiRelinkStandbyPage @ 0x1400BC3A4 (MiRelinkStandbyPage.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
  */
 
 __int64 __fastcall MmSetPfnListPriorities(__int64 a1, unsigned __int64 a2)

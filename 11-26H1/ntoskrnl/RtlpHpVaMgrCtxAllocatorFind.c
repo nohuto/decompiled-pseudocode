@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorFind @ 0x14050A9D4
+ * XREFs of RtlpHpVaMgrCtxAllocatorFind @ 0x140504444
  * Callers:
- *     RtlpHpAllocVA @ 0x140364350 (RtlpHpAllocVA.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x140638CBC (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpAllocVA @ 0x1403660F0 (RtlpHpAllocVA.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14063BCCC (RtlpHpVaMgrCtxAllocatorReference.c)
  * Callees:
- *     RtlpHpVaMgrCtxAllocatorCompare @ 0x140638BDC (RtlpHpVaMgrCtxAllocatorCompare.c)
+ *     RtlpHpVaMgrCtxAllocatorCompare @ 0x14063BBEC (RtlpHpVaMgrCtxAllocatorCompare.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxAllocatorFind(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

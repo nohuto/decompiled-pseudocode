@@ -16,43 +16,42 @@
  *     memset @ 0x1800AAE00 (memset.c)
  */
 
-__int64 __fastcall LdrpCfgProcessLoadConfig(__int64 a1, unsigned __int16 *a2, __int64 a3)
+NTSTATUS __fastcall LdrpCfgProcessLoadConfig(__int64 a1, unsigned __int16 *a2, __int64 a3)
 {
   __int64 (__fastcall **v6)(_QWORD); // r13
   __int64 (__fastcall **v7)(); // r15
   __int64 (__fastcall **v8)(); // r12
-  int v9; // edx
-  int v10; // r8d
-  int v11; // ecx
-  int v12; // esi
-  int v13; // eax
-  __int64 (__fastcall **v14)(); // r8
-  size_t v15; // rsi
-  __int64 v16; // rdx
-  unsigned int v17; // ecx
-  int v18; // edx
-  __int64 result; // rax
-  int v20; // edx
-  int v21; // r9d
-  int v22; // edx
-  int v23; // r9d
-  int v24; // edx
-  int v25; // r9d
-  int v26; // edx
-  int v27; // r9d
-  size_t v28; // r14
-  _OWORD *v29; // rbx
-  __int64 v30; // r8
-  int v31; // esi
-  unsigned int v32; // [rsp+30h] [rbp-89h] BYREF
+  int v9; // ecx
+  int v10; // esi
+  int v11; // eax
+  __int64 (__fastcall **v12)(); // r8
+  size_t v13; // rsi
+  __int64 v14; // rdx
+  unsigned int v15; // ecx
+  int v16; // eax
+  int v17; // edx
+  NTSTATUS result; // eax
+  int v19; // edx
+  int v20; // r9d
+  int v21; // edx
+  int v22; // r9d
+  int v23; // edx
+  int v24; // r9d
+  int v25; // edx
+  int v26; // r9d
+  size_t v27; // r14
+  _OWORD *v28; // rbx
+  PVOID v29; // r8
+  int v30; // esi
+  ULONG NewProtect; // [rsp+30h] [rbp-89h] BYREF
   size_t NumOfElements; // [rsp+38h] [rbp-81h] BYREF
-  __int64 v34; // [rsp+40h] [rbp-79h] BYREF
-  __int64 v35; // [rsp+48h] [rbp-71h] BYREF
-  __int64 (__fastcall **v36)(); // [rsp+50h] [rbp-69h] BYREF
-  __int64 (__fastcall **v37)(_QWORD); // [rsp+58h] [rbp-61h] BYREF
-  __int64 (__fastcall **v38)(); // [rsp+60h] [rbp-59h] BYREF
-  __int64 (__fastcall **v39)(); // [rsp+68h] [rbp-51h] BYREF
-  __int64 (__fastcall **v40)(_QWORD); // [rsp+70h] [rbp-49h] BYREF
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-79h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-71h] BYREF
+  __int64 (__fastcall **v35)(); // [rsp+50h] [rbp-69h] BYREF
+  __int64 (__fastcall **v36)(_QWORD); // [rsp+58h] [rbp-61h] BYREF
+  __int64 (__fastcall **v37)(); // [rsp+60h] [rbp-59h] BYREF
+  __int64 (__fastcall **v38)(); // [rsp+68h] [rbp-51h] BYREF
+  __int64 (__fastcall **v39)(_QWORD); // [rsp+70h] [rbp-49h] BYREF
   _OWORD Base[5]; // [rsp+80h] [rbp-39h] BYREF
 
   v6 = 0LL;
@@ -61,119 +60,118 @@ __int64 __fastcall LdrpCfgProcessLoadConfig(__int64 a1, unsigned __int16 *a2, __
   memset(Base, 0, sizeof(Base));
   NumOfElements = 0LL;
   if ( !a3 || *(_DWORD *)a3 < 0x94u )
-    return 0LL;
-  v11 = (LdrpPolicyBits & 4 | 0x7B) << 8;
-  v12 = (v11 | 0x8000) & *(unsigned __int16 *)(a3 + 78);
-  *(_DWORD *)(a1 + 280) = v12;
-  if ( (v11 & v12) != 0 && (unsigned __int8)LdrpIsModuleUnderSystem32(a1) )
+    return 0;
+  v9 = (LdrpPolicyBits & 4 | 0x7B) << 8;
+  v10 = (v9 | 0x8000) & *(unsigned __int16 *)(a3 + 78);
+  *(_DWORD *)(a1 + 280) = v10;
+  if ( (v9 & v10) != 0 && (unsigned __int8)LdrpIsModuleUnderSystem32(a1) )
   {
     if ( a1 == LdrpImageEntry )
-      v31 = v12 | 0x200;
+      v30 = v10 | 0x200;
     else
-      v31 = v12 | 0x100;
-    *(_DWORD *)(a1 + 280) = v31;
+      v30 = v10 | 0x100;
+    *(_DWORD *)(a1 + 280) = v30;
   }
   if ( (*(_DWORD *)(a3 + 144) & 0x1000) != 0
     && (*(_DWORD *)(a1 + 104) |= 0x8000u, (*(_DWORD *)(a3 + 144) & 0x2000) != 0) )
   {
-    LOWORD(v10) = 13;
-    LOBYTE(v9) = 1;
-    v13 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(a1 + 48), v9, v10, (unsigned int)&v37, (__int64)&v36);
-    v14 = v36;
-    v15 = 0LL;
-    if ( v13 < 0 )
-      v14 = 0LL;
-    if ( v14 )
+    v11 = RtlpImageDirectoryEntryToDataEx(*(PVOID *)(a1 + 48), (PIMAGE_NT_HEADERS)&v35);
+    v12 = v35;
+    v13 = 0LL;
+    if ( v11 < 0 )
+      v12 = 0LL;
+    if ( v12 )
     {
-      v16 = (__int64)a2 + a2[10] + 24;
-      v17 = 0;
+      v14 = (__int64)a2 + a2[10] + 24;
+      v15 = 0;
       if ( a2[3] )
       {
-        while ( (unsigned int)(*((_DWORD *)v14 + 3) - *(_DWORD *)(v16 + 12)) >= *(_DWORD *)(v16 + 8) )
+        while ( (unsigned int)(*((_DWORD *)v12 + 3) - *(_DWORD *)(v14 + 12)) >= *(_DWORD *)(v14 + 8) )
         {
-          ++v17;
-          v16 += 40LL;
-          if ( v17 >= a2[3] )
+          ++v15;
+          v14 += 40LL;
+          if ( v15 >= a2[3] )
             goto LABEL_14;
         }
-        v35 = *(_QWORD *)(a1 + 48) + *(unsigned int *)(v16 + 12);
-        v34 = *(unsigned int *)(v16 + 8);
-        LdrpMakePermanentImageCommit(v35, v34);
-        ZwProtectVirtualMemory(-1LL, &v35, &v34, 2LL, &v32);
+        BaseAddress = (PVOID)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(v14 + 12));
+        RegionSize = *(unsigned int *)(v14 + 8);
+        LdrpMakePermanentImageCommit((__int64)BaseAddress, RegionSize);
+        ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 2u, &NewProtect);
       }
     }
   }
   else
   {
-    v15 = 0LL;
+    v13 = 0LL;
   }
 LABEL_14:
-  if ( !(unsigned int)LdrControlFlowGuardEnforced() || (a2[47] & 0x4000) == 0 || (*(_DWORD *)(a3 + 144) & 0x100) == 0 )
-    return 0LL;
-  v40 = *(__int64 (__fastcall ***)(_QWORD))(a3 + 112);
+  LOBYTE(v16) = LdrControlFlowGuardEnforced();
+  if ( !v16 || (a2[47] & 0x4000) == 0 || (*(_DWORD *)(a3 + 144) & 0x100) == 0 )
+    return 0;
+  v39 = *(__int64 (__fastcall ***)(_QWORD))(a3 + 112);
   result = LdrpAddLoadConfigFptrToBatch(
              (unsigned int)Base,
-             v18,
+             v17,
              (unsigned int)&NumOfElements,
              a1,
-             (__int64)&v40,
+             (__int64)&v39,
              (__int64)LdrpCfgCheckRoutineCallback);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
-  v36 = *(__int64 (__fastcall ***)())(a3 + 120);
+  v35 = *(__int64 (__fastcall ***)())(a3 + 120);
   result = LdrpAddLoadConfigFptrToBatch(
              (unsigned int)Base,
-             v20,
+             v19,
              (unsigned int)&NumOfElements,
-             v21,
-             (__int64)&v36,
+             v20,
+             (__int64)&v35,
              (__int64)LdrpCfgDispatchRoutineCallback);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   if ( *(_DWORD *)a3 >= 0x130u )
   {
-    v37 = *(__int64 (__fastcall ***)(_QWORD))(a3 + 280);
+    v36 = *(__int64 (__fastcall ***)(_QWORD))(a3 + 280);
     result = LdrpAddLoadConfigFptrToBatch(
                (unsigned int)Base,
+               v21,
+               (unsigned int)&NumOfElements,
                v22,
-               (unsigned int)&NumOfElements,
-               v23,
-               (__int64)&v37,
+               (__int64)&v36,
                (__int64)LdrpXfgCheckRoutineCallback);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
-    v38 = *(__int64 (__fastcall ***)())(a3 + 288);
+    v37 = *(__int64 (__fastcall ***)())(a3 + 288);
     result = LdrpAddLoadConfigFptrToBatch(
                (unsigned int)Base,
+               v23,
+               (unsigned int)&NumOfElements,
                v24,
-               (unsigned int)&NumOfElements,
-               v25,
-               (__int64)&v38,
+               (__int64)&v37,
                (__int64)LdrpXfgDispatchRoutineCallback);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
-    v39 = *(__int64 (__fastcall ***)())(a3 + 296);
+    v38 = *(__int64 (__fastcall ***)())(a3 + 296);
     result = LdrpAddLoadConfigFptrToBatch(
                (unsigned int)Base,
-               v26,
+               v25,
                (unsigned int)&NumOfElements,
-               v27,
-               (__int64)&v39,
+               v26,
+               (__int64)&v38,
                (__int64)LdrpXfgTableDispatchRoutineCallback);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
-    v6 = v37;
-    v7 = v38;
-    v8 = v39;
+    v6 = v36;
+    v7 = v37;
+    v8 = v38;
   }
-  v28 = NumOfElements;
+  v27 = NumOfElements;
   qsort(Base, NumOfElements, 0x10uLL, LdrpSortLoadConfigFptrs);
-  if ( !v28 )
+  if ( !v27 )
   {
 LABEL_30:
-    if ( !v40
-      || *v40 != LdrpValidateUserCallTarget && *v40 != LdrpValidateUserCallTargetES
-      || v36 && *v36 != LdrpDispatchUserCallTarget && *v36 != LdrpDispatchUserCallTargetES
+    if ( !v39
+      || *v39 != LdrpValidateUserCallTarget && *v39 != LdrpValidateUserCallTargetES
+      || v35 && *v35 != LdrpDispatchUserCallTarget && *v35 != LdrpDispatchUserCallTargetES
       || v6
       && *v6 != LdrpValidateUserCallTarget
       && *v6 != LdrpValidateUserCallTargetES
@@ -187,33 +185,33 @@ LABEL_30:
       && *v8 != LdrpDispatchUserCallTargetES
       && *v8 != LdrpTableDispatchUserCallTargetXFG )
     {
-      return 3221225534LL;
+      return -1073741762;
     }
-    return 0LL;
+    return 0;
   }
   while ( 1 )
   {
-    v34 = 8LL;
-    v29 = &Base[v15];
-    v35 = *(_QWORD *)v29;
-    result = ZwProtectVirtualMemory(-1LL, &v35, &v34, 4LL, &v32);
-    if ( (int)result < 0 )
+    RegionSize = 8LL;
+    v28 = &Base[v13];
+    BaseAddress = *(PVOID *)v28;
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &NewProtect);
+    if ( result < 0 )
       return result;
-    v30 = *(_QWORD *)v29;
+    v29 = *(PVOID *)v28;
     do
     {
-      (*((void (__fastcall **)(__int64, _QWORD))v29 + 1))(v30, *(unsigned int *)(a3 + 144));
-      ++v15;
-      ++v29;
-      if ( v15 >= v28 )
+      (*((void (__fastcall **)(PVOID, _QWORD))v28 + 1))(v29, *(unsigned int *)(a3 + 144));
+      ++v13;
+      ++v28;
+      if ( v13 >= v27 )
         break;
-      v30 = *(_QWORD *)v29;
+      v29 = *(PVOID *)v28;
     }
-    while ( *(_QWORD *)v29 + 8LL <= (unsigned __int64)(v35 + v34) );
-    result = ZwProtectVirtualMemory(-1LL, &v35, &v34, v32, &v32);
-    if ( (int)result < 0 )
+    while ( *(_QWORD *)v28 + 8LL <= (unsigned __int64)BaseAddress + RegionSize );
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, NewProtect, &NewProtect);
+    if ( result < 0 )
       return result;
-    if ( v15 >= v28 )
+    if ( v13 >= v27 )
       goto LABEL_30;
   }
 }

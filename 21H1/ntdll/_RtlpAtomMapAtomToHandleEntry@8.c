@@ -10,13 +10,13 @@
  *     _RtlIsValidIndexHandle@12 @ 0x4B2E0520 (_RtlIsValidIndexHandle@12.c)
  */
 
-int __fastcall RtlpAtomMapAtomToHandleEntry(int a1, int a2)
+ULONG __fastcall RtlpAtomMapAtomToHandleEntry(int a1, ULONG a2)
 {
-  int v3; // [esp+0h] [ebp-4h] BYREF
+  PRTL_HANDLE_TABLE_ENTRY Handle; // [esp+0h] [ebp-4h] BYREF
 
-  v3 = a1;
-  if ( (unsigned __int8)RtlIsValidIndexHandle(a1 + 12, a2, &v3) )
-    return *(_DWORD *)(v3 + 4);
+  Handle = (PRTL_HANDLE_TABLE_ENTRY)a1;
+  if ( RtlIsValidIndexHandle((PRTL_HANDLE_TABLE)(a1 + 12), a2, &Handle) )
+    return Handle[1].Flags;
   else
     return 0;
 }

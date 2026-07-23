@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkAllocateShadowCode @ 0x140C12DC4
+ * XREFs of HalpBlkAllocateShadowCode @ 0x140C14DC4
  * Callers:
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140C12FAC (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140C14FAC (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpBlkAddVirtualMapping @ 0x140C12AF0 (HalpBlkAddVirtualMapping.c)
- *     HalpBlkAllocateShadowCodePages @ 0x140C12E4C (HalpBlkAllocateShadowCodePages.c)
+ *     HalpBlkAddVirtualMapping @ 0x140C14AF0 (HalpBlkAddVirtualMapping.c)
+ *     HalpBlkAllocateShadowCodePages @ 0x140C14E4C (HalpBlkAllocateShadowCodePages.c)
  */
 
 __int64 HalpBlkAllocateShadowCode()

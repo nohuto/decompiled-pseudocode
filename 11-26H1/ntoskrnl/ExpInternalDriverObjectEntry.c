@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpInternalDriverObjectEntry @ 0x140CE4660
+ * XREFs of ExpInternalDriverObjectEntry @ 0x140CEAA00
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ExpInternalDriverObjectEntry($353D57E818BB6F967B4B818D974CF463 a1)
+__int64 __fastcall ExpInternalDriverObjectEntry(unsigned __int64 a1)
 {
-  *($353D57E818BB6F967B4B818D974CF463 *)((char *)&ExpSysDbgLock.116 + 4) = a1;
+  ExpSysDbgLock.QuantumTarget = a1;
   return 0LL;
 }

@@ -6,7 +6,7 @@
  *     _TpSetWaitEx@16 @ 0x4B2B7AB0 (_TpSetWaitEx@16.c)
  */
 
-int __stdcall TpSetWait(int a1, int a2, int a3)
+void __cdecl TpSetWait(PTP_WAIT Wait, HANDLE Handle, PLARGE_INTEGER Timeout)
 {
-  return TpSetWaitEx(a1, a2, a3, 0);
+  TpSetWaitEx(Wait, Handle, Timeout, 0);
 }

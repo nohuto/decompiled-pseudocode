@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpConvertLangFallbackListToMultiSz @ 0x1800145BC
+ * XREFs of LdrpConvertLangFallbackListToMultiSz @ 0x1800145AC
  * Callers:
- *     RtlGetThreadPreferredUILanguages @ 0x180013DA0 (RtlGetThreadPreferredUILanguages.c)
- *     RtlGetUserPreferredUILanguages @ 0x180079C00 (RtlGetUserPreferredUILanguages.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007B0E0 (RtlGetSystemPreferredUILanguages.c)
- *     RtlGetProcessPreferredUILanguages @ 0x1800E58F0 (RtlGetProcessPreferredUILanguages.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180013D90 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180079BF0 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18007B0D0 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlGetProcessPreferredUILanguages @ 0x1800E59B0 (RtlGetProcessPreferredUILanguages.c)
  * Callees:
- *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x1800147BC (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
- *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x18007E994 (RtlpMuiRegGetInstalledLangInfoIndex.c)
+ *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x1800147AC (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
+ *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x18007E984 (RtlpMuiRegGetInstalledLangInfoIndex.c)
  */
 
 __int64 __fastcall LdrpConvertLangFallbackListToMultiSz(

@@ -16,7 +16,7 @@ __int64 __fastcall PfLockSharedTryAcquire(volatile signed __int64 *BugCheckParam
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)BugCheckParameter2);
+  v3 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL);
   if ( !_InterlockedCompareExchange64(BugCheckParameter2, 17LL, 0LL)
     || ExfTryAcquirePushLockShared((signed __int64 *)BugCheckParameter2) )
   {

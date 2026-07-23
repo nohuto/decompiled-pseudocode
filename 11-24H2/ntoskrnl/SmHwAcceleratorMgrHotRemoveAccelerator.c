@@ -1,24 +1,24 @@
 /*
- * XREFs of SmHwAcceleratorMgrHotRemoveAccelerator @ 0x14060F5EC
+ * XREFs of SmHwAcceleratorMgrHotRemoveAccelerator @ 0x14060DBAC
  * Callers:
- *     SmHwAcceleratorMgrAccelCallback @ 0x14079BE30 (SmHwAcceleratorMgrAccelCallback.c)
+ *     SmHwAcceleratorMgrAccelCallback @ 0x14079BF40 (SmHwAcceleratorMgrAccelCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SmHwAcceleratorPartitionMgrWakeDescriptorWaiters @ 0x14060FA38 (SmHwAcceleratorPartitionMgrWakeDescriptorWaiters.c)
- *     SmHwAcceleratorCleanup @ 0x14079BBEC (SmHwAcceleratorCleanup.c)
- *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CB08 (SmHwAcceleratorPartitionCtxCleanup.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SmHwAcceleratorPartitionMgrWakeDescriptorWaiters @ 0x14060DFF8 (SmHwAcceleratorPartitionMgrWakeDescriptorWaiters.c)
+ *     SmHwAcceleratorCleanup @ 0x14079BCFC (SmHwAcceleratorCleanup.c)
+ *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CC18 (SmHwAcceleratorPartitionCtxCleanup.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SmHwAcceleratorMgrHotRemoveAccelerator(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v6; // rax
-  _QWORD *v7; // rsi
+  char *v6; // rax
+  char *v7; // rsi
   unsigned int i; // ecx
   void **v9; // r8
   void **v10; // rsi
@@ -27,8 +27,8 @@ void __fastcall SmHwAcceleratorMgrHotRemoveAccelerator(ULONG_PTR BugCheckParamet
   __int64 *v13; // r15
   __int64 *v14; // r12
   struct _KTHREAD *v15; // rax
-  _QWORD *v16; // rax
-  _QWORD *v17; // r14
+  char *v16; // rax
+  char *v17; // r14
   int v18; // edx
   _DWORD *v19; // r8
   __int64 *v20; // r13
@@ -57,12 +57,12 @@ void __fastcall SmHwAcceleratorMgrHotRemoveAccelerator(ULONG_PTR BugCheckParamet
   P = &P;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+  v6 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v6, BugCheckParameter2);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v6, BugCheckParameter2);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   for ( i = 0; ; ++i )
   {
     if ( i >= (unsigned __int16)KeNumberNodes )
@@ -99,12 +99,12 @@ LABEL_8:
     {
       v15 = KeGetCurrentThread();
       --v15->KernelApcDisable;
-      v16 = KeAbPreAcquire((__int64)(v14 + 3), 0LL);
+      v16 = (char *)KeAbPreAcquire((__int64)(v14 + 3), 0LL);
       v17 = v16;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v14 + 6, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v14 + 3, (__int64)v16, (__int64)(v14 + 3));
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v14 + 3, v16, (__int64)(v14 + 3));
       if ( v17 )
-        *((_BYTE *)v17 + 10) = 1;
+        v17[10] = 1;
       v18 = 0;
       v19 = v14 + 6;
       v38 = 0;

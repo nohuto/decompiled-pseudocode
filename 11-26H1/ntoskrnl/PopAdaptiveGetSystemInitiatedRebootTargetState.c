@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x140773E40
+ * XREFs of PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x140776E40
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     PopGetCurrentPdcPhase @ 0x14060D670 (PopGetCurrentPdcPhase.c)
- *     PopPowerAggregatorGetCurrentTargetState @ 0x1407D6A7C (PopPowerAggregatorGetCurrentTargetState.c)
- *     PopReleaseAdaptiveLock @ 0x140A3D6E4 (PopReleaseAdaptiveLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     PopGetCurrentPdcPhase @ 0x140610778 (PopGetCurrentPdcPhase.c)
+ *     PopPowerAggregatorGetCurrentTargetState @ 0x1407D9BE8 (PopPowerAggregatorGetCurrentTargetState.c)
+ *     PopReleaseAdaptiveLock @ 0x1409F9104 (PopReleaseAdaptiveLock.c)
  */
 
 unsigned __int64 PopAdaptiveGetSystemInitiatedRebootTargetState()
@@ -28,10 +28,10 @@ unsigned __int64 PopAdaptiveGetSystemInitiatedRebootTargetState()
   CurrentThread = KeGetCurrentThread();
   memset(v4, 0, sizeof(v4));
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&PopAdaptiveStandbyLock.AbCompletedIoQoSBoostCount, 1u);
+  ExAcquireResourceExclusiveLite(&PopAdpmLock, 1u);
   Flink = ExpPlatformBinaryLock.WaitBlock[0].WaitListEntry.Flink;
   ExpPlatformBinaryLock.WaitBlock[3].WaitListEntry.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
-  LOBYTE(PopAdaptiveStandbyLock.ThreadListEntry.Blink) = 0;
+  PopAdaptiveContext = 0;
   if ( (ExpPlatformBinaryLock.WaitBlockFill4[0] & 7) == 0 )
   {
     Flink = 0LL;
@@ -50,7 +50,7 @@ unsigned __int64 PopAdaptiveGetSystemInitiatedRebootTargetState()
     }
     else if ( LODWORD(v4[0]) == 4 )
     {
-      return (dword_140F105A0[0] == 0 ? 8 : 0) | (unsigned __int64)Flink & 0xFFFFFFFFFFFFFFF0uLL ^ PopAdaptiveSystemPowerStateToBootState[(int)v5] & 7;
+      return (LODWORD(PpmIdlePolicyLock.Teb) == 0 ? 8 : 0) | (unsigned __int64)Flink & 0xFFFFFFFFFFFFFFF0uLL ^ PopAdaptiveSystemPowerStateToBootState[(int)v5] & 7;
     }
     else
     {

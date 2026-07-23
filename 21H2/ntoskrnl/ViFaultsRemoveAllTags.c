@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFaultsRemoveAllTags @ 0x1409DD4F4
+ * XREFs of ViFaultsRemoveAllTags @ 0x1409DE4F4
  * Callers:
- *     VfFaultsSetParameters @ 0x1409DC9C8 (VfFaultsSetParameters.c)
+ *     VfFaultsSetParameters @ 0x1409DD9C8 (VfFaultsSetParameters.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 ViFaultsRemoveAllTags()
@@ -34,7 +34,7 @@ __int64 ViFaultsRemoveAllTags()
     while ( v3 != &ViFaultTagsList );
   }
   ViHaveFaultTags = 0;
-  qword_140C1CC28 = (__int64)&ViFaultTagsList;
+  qword_140C1CE28 = (__int64)&ViFaultTagsList;
   ViFaultTagsList = &ViFaultTagsList;
   KxReleaseSpinLock(&ViFaultInjectionLock);
   result = (unsigned int)KiIrqlFlags;

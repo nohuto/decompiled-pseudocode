@@ -1,15 +1,15 @@
 /*
- * XREFs of ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404B2F48
+ * XREFs of ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404AD758
  * Callers:
- *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1403CAED4 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
- *     ?KiForceIdleParkUnparkDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404B2F20 (-KiForceIdleParkUnparkDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x140484B24 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
+ *     ?KiForceIdleParkUnparkDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404AD730 (-KiForceIdleParkUnparkDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
  * Callees:
- *     KiRcuCheckQuiescent @ 0x140206480 (KiRcuCheckQuiescent.c)
- *     KeTransitionProcessorParkState @ 0x1403E9560 (KeTransitionProcessorParkState.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x1403E9E20 (KeInterlockedSetProcessorAffinityEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403E9E90 (KeInterlockedClearProcessorAffinityEx.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     Feature_ForceIdleReschedulingFix__private_IsEnabledNoReportingNoInline @ 0x1405C7318 (Feature_ForceIdleReschedulingFix__private_IsEnabledNoReportingNoInline.c)
+ *     KiRcuCheckQuiescent @ 0x14032DA60 (KiRcuCheckQuiescent.c)
+ *     KeTransitionProcessorParkState @ 0x1403D720C (KeTransitionProcessorParkState.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1403D7AC0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1403D7B30 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     Feature_ForceIdleReschedulingFix__private_IsEnabledNoReportingNoInline @ 0x1405C4A48 (Feature_ForceIdleReschedulingFix__private_IsEnabledNoReportingNoInline.c)
  */
 
 void __fastcall KiForceIdleParkUnparkProcessor(struct _KPRCB *a1, char a2)

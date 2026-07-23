@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Sx_PEP_Notification_Synchronization__private_ReportUsage @ 0x1405CD900
+ * XREFs of Feature_Sx_PEP_Notification_Synchronization__private_ReportUsage @ 0x1405CB070
  * Callers:
- *     PoFxInitPowerManagement @ 0x140C2E41C (PoFxInitPowerManagement.c)
+ *     PoFxInitPowerManagement @ 0x140C3053C (PoFxInitPowerManagement.c)
  * Callees:
- *     Feature_Sx_PEP_Notification_Synchronization__private_ReportUsageFallback @ 0x1405CD938 (Feature_Sx_PEP_Notification_Synchronization__private_ReportUsageFallback.c)
+ *     Feature_Sx_PEP_Notification_Synchronization__private_ReportUsageFallback @ 0x1405CB0A8 (Feature_Sx_PEP_Notification_Synchronization__private_ReportUsageFallback.c)
  */
 
 __int64 Feature_Sx_PEP_Notification_Synchronization__private_ReportUsage()

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmSiUnmapViewOfSection @ 0x140363DD4
+ * XREFs of CmSiUnmapViewOfSection @ 0x14024A6A8
  * Callers:
- *     HvpViewMapCreateViewsForRegion @ 0x140723598 (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapCreateView @ 0x140723834 (HvpViewMapCreateView.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x140724B50 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpViewMapDeleteViewTreeNode @ 0x140725C18 (HvpViewMapDeleteViewTreeNode.c)
- *     HvpViewMapShrinkStorage @ 0x140873628 (HvpViewMapShrinkStorage.c)
+ *     HvpViewMapDeleteViewTreeNode @ 0x140619644 (HvpViewMapDeleteViewTreeNode.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x1406FB5C4 (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapCreateView @ 0x1406FB860 (HvpViewMapCreateView.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1406FCB88 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapShrinkStorage @ 0x140873788 (HvpViewMapShrinkStorage.c)
  * Callees:
- *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403FAAC0 (ZwUnmapViewOfSection.c)
  */
 
 NTSTATUS __fastcall CmSiUnmapViewOfSection(__int64 a1, HANDLE *a2, void *a3)

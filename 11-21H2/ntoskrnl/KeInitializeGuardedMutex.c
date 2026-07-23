@@ -1,13 +1,13 @@
 /*
  * XREFs of KeInitializeGuardedMutex @ 0x1402E0710
  * Callers:
- *     PiUEventNotifyUserMode @ 0x14078B2D4 (PiUEventNotifyUserMode.c)
- *     PiUEventInitClientRegistrationContext @ 0x14078DAB0 (PiUEventInitClientRegistrationContext.c)
- *     PfTInitialize @ 0x14084F9EC (PfTInitialize.c)
- *     PiDqObjectManagerInit @ 0x14085D1F8 (PiDqObjectManagerInit.c)
- *     CmpInitializeDelayedCloseTable @ 0x1408631AC (CmpInitializeDelayedCloseTable.c)
- *     EtwpInitializeProviderTraits @ 0x140864124 (EtwpInitializeProviderTraits.c)
- *     CmpInitSIDToHiveMapping @ 0x140865370 (CmpInitSIDToHiveMapping.c)
+ *     sub_14078B2D4 @ 0x14078B2D4 (sub_14078B2D4.c)
+ *     sub_14078DAB0 @ 0x14078DAB0 (sub_14078DAB0.c)
+ *     sub_14084F9EC @ 0x14084F9EC (sub_14084F9EC.c)
+ *     sub_14085D1F8 @ 0x14085D1F8 (sub_14085D1F8.c)
+ *     sub_1408631AC @ 0x1408631AC (sub_1408631AC.c)
+ *     sub_140864124 @ 0x140864124 (sub_140864124.c)
+ *     sub_140865370 @ 0x140865370 (sub_140865370.c)
  * Callees:
  *     <none>
  */

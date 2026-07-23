@@ -82,10 +82,10 @@ __int64 __fastcall MiFreeUnusedPfnPagesDpc(__int64 a1, __int64 a2, volatile sign
     }
     *(_DWORD *)(a2 + 16) = v13;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6B5E0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

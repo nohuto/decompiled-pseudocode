@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpGetInstalledLanguageType @ 0x180142A60
+ * XREFs of RtlpGetInstalledLanguageType @ 0x180142960
  * Callers:
- *     RtlpSetInstallLanguage @ 0x180142B80 (RtlpSetInstallLanguage.c)
- *     RtlpVerifyAndCommitUILanguageSettings @ 0x180143D50 (RtlpVerifyAndCommitUILanguageSettings.c)
+ *     RtlpSetInstallLanguage @ 0x180142A80 (RtlpSetInstallLanguage.c)
+ *     RtlpVerifyAndCommitUILanguageSettings @ 0x180143C50 (RtlpVerifyAndCommitUILanguageSettings.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18000AC20 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180056350 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  */
 
-__int64 __fastcall RtlpGetInstalledLanguageType(__int64 a1, const wchar_t *a2, int *a3, __int16 **a4)
+__int64 __fastcall RtlpGetInstalledLanguageType(__int64 a1, wchar_t *a2, int *a3, __int16 **a4)
 {
   __int64 result; // rax
   __int16 *v8; // r8

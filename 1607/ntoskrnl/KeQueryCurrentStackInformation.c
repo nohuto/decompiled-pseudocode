@@ -1,15 +1,15 @@
 /*
- * XREFs of KeQueryCurrentStackInformation @ 0x14004F3C0
+ * XREFs of KeQueryCurrentStackInformation @ 0x14004EF40
  * Callers:
- *     RtlpGetStackLimits @ 0x14004F390 (RtlpGetStackLimits.c)
- *     RtlpWalkFrameChain @ 0x14004F520 (RtlpWalkFrameChain.c)
- *     RtlpIsFrameInBoundsEx @ 0x1400F32F8 (RtlpIsFrameInBoundsEx.c)
- *     PnprGetStackLimits @ 0x1401D048C (PnprGetStackLimits.c)
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
- *     EtwpTraceStackWalk @ 0x140229620 (EtwpTraceStackWalk.c)
+ *     RtlpGetStackLimits @ 0x14004EF10 (RtlpGetStackLimits.c)
+ *     RtlpWalkFrameChain @ 0x14004F0A0 (RtlpWalkFrameChain.c)
+ *     RtlpIsFrameInBoundsEx @ 0x1400F1148 (RtlpIsFrameInBoundsEx.c)
+ *     PnprGetStackLimits @ 0x1401D02B8 (PnprGetStackLimits.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
+ *     EtwpTraceStackWalk @ 0x14022944C (EtwpTraceStackWalk.c)
  *     ViDeadlockAnalyze @ 0x140714A9C (ViDeadlockAnalyze.c)
  * Callees:
- *     KeGetCurrentStackPointer @ 0x14015DB50 (KeGetCurrentStackPointer.c)
+ *     KeGetCurrentStackPointer @ 0x14015E0C0 (KeGetCurrentStackPointer.c)
  */
 
 bool __fastcall KeQueryCurrentStackInformation(_DWORD *a1, unsigned __int64 *a2, unsigned __int64 *a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipPrepareForWnodeAD @ 0x140A0F9A0
+ * XREFs of WmipPrepareForWnodeAD @ 0x140A0EB90
  * Callers:
- *     WmipQueryAllData @ 0x140A0EAFC (WmipQueryAllData.c)
+ *     WmipQueryAllData @ 0x140A0DCD8 (WmipQueryAllData.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipPrepareForWnodeAD(__int64 a1, _OWORD *a2, _DWORD *a3, volatile signed __int64 ***a4, _BYTE *a5)
@@ -50,7 +50,7 @@ __int64 __fastcall WmipPrepareForWnodeAD(__int64 a1, _OWORD *a2, _DWORD *a3, vol
   v20 = *a4;
   v11 = *a4;
   v12 = 0LL;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v13 = v5 + 56;
   v14 = *(_QWORD *)(v5 + 56);
   v21 = v13;
@@ -117,7 +117,7 @@ LABEL_9:
   v6 = a4;
   v7 = a3;
 LABEL_11:
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   if ( !(_DWORD)v12 )
     return (unsigned int)-1073741055;
   *v7 = v12;

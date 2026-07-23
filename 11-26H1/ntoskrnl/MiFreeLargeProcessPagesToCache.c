@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFreeLargeProcessPagesToCache @ 0x140711B98
+ * XREFs of MiFreeLargeProcessPagesToCache @ 0x140716898
  * Callers:
- *     MiFreeLargePages @ 0x1403C700C (MiFreeLargePages.c)
+ *     MiFreeLargePages @ 0x1403D0F00 (MiFreeLargePages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFreeLargePageCharges @ 0x1403C4704 (MiFreeLargePageCharges.c)
- *     MiEmptyCacheSlice @ 0x140711A5C (MiEmptyCacheSlice.c)
- *     MiFreeCacheSlice @ 0x140711B48 (MiFreeCacheSlice.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFreeLargePageCharges @ 0x1403CE610 (MiFreeLargePageCharges.c)
+ *     MiEmptyCacheSlice @ 0x14071675C (MiEmptyCacheSlice.c)
+ *     MiFreeCacheSlice @ 0x140716848 (MiFreeCacheSlice.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
@@ -27,18 +27,18 @@ void __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
   KIRQL v11; // r15
   unsigned int *v12; // r8
   __int64 v13; // r9
-  unsigned int *v14; // rbx
-  int v15; // ecx
-  __int64 v16; // rdx
-  ULONG_PTR v17; // rdi
-  unsigned __int64 v18; // r14
+  int v14; // ecx
+  __int64 v15; // rdx
+  ULONG_PTR v16; // rdi
+  unsigned __int64 v17; // r14
   unsigned int i; // r9d
-  int v20; // r10d
-  __int64 v21; // rbp
-  __int64 v22; // rdx
-  __int64 v23; // r9
-  __int64 v24; // r8
-  unsigned int v25; // eax
+  int v19; // r10d
+  __int64 v20; // rbp
+  __int64 v21; // rdx
+  __int64 v22; // r9
+  __int64 v23; // r8
+  unsigned int v24; // eax
+  unsigned int *v25; // rbx
   unsigned int v26; // esi
   unsigned int v27; // r11d
   unsigned int v28; // r8d
@@ -58,7 +58,7 @@ void __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
   v6 = ActiveProcessors[4].StaticBitmap[14];
   v7 = *(unsigned int *)(48 * v4 - 0x21FFFFFFFFE0LL);
   v8 = MiPageToNode(v4);
-  v35 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * HIWORD(Process[2].ProcessListEntry.Blink));
+  v35 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * HIWORD(Process[2].ProcessListEntry.Blink));
   *(_DWORD *)(v6 + 24) = *(_DWORD *)(v35 + 16856);
   v9 = ((3LL * v8 + ((v7 >> 22) & 3)) << 6) + v6 + 32;
   MiFreeLargePageCharges(v35, 16 * a2, 0);
@@ -74,121 +74,124 @@ void __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
     --v13;
   }
   while ( v13 );
-  if ( a2 )
+  while ( 2 )
   {
-    while ( 2 )
+    if ( a2 )
     {
-      v14 = (unsigned int *)(v9 + 12);
-LABEL_7:
+LABEL_6:
       v34 = a2;
-      v15 = -1;
+      v14 = -1;
       --a2;
-      v16 = v9;
-      v17 = v2[a2];
-      v18 = v17 & 0xFFFFFFFFFFFFFE00uLL;
+      v15 = v9;
+      v16 = v2[a2];
+      v17 = v16 & 0xFFFFFFFFFFFFFE00uLL;
       for ( i = 0; i < 4; ++i )
       {
-        if ( (*(_DWORD *)(v16 + 12) & 0x3F) != 0 )
+        if ( (*(_DWORD *)(v15 + 12) & 0x3F) != 0 )
         {
-          if ( *(_QWORD *)v16 == v18 )
+          if ( *(_QWORD *)v15 == v17 )
           {
-            v20 = -1;
-            goto LABEL_32;
+            v19 = -1;
+            goto LABEL_31;
           }
         }
         else
         {
-          v15 = i;
+          v14 = i;
         }
-        v16 += 16LL;
+        v15 += 16LL;
       }
-      v20 = v15;
-      if ( i != 4 )
-        break;
-      if ( v15 != -1 )
+      v19 = v14;
+      if ( i == 4 )
       {
-        i = v15;
-        break;
+        if ( v14 == -1 )
+        {
+          if ( a2 )
+          {
+            v20 = a2 - 1;
+            v21 = v9;
+            v22 = 4LL;
+            do
+            {
+              v23 = v20;
+              if ( v20 )
+              {
+                while ( *(_QWORD *)v21 != (a1[v23] & 0xFFFFFFFFFFFFFE00uLL) )
+                {
+                  if ( !--v23 )
+                    goto LABEL_20;
+                }
+                *(_DWORD *)(v21 + 12) = (unsigned __int16)*(_DWORD *)(v21 + 12);
+              }
+LABEL_20:
+              v21 += 16LL;
+              --v22;
+            }
+            while ( v22 );
+          }
+          v24 = *(_DWORD *)(v9 + 12);
+          v25 = (unsigned int *)(v9 + 12);
+          v26 = 0;
+          v27 = 0;
+          do
+          {
+            v28 = *v25;
+            v25 += 4;
+            i = v27;
+            if ( HIWORD(v28) < HIWORD(v24) )
+              i = v26;
+            ++v27;
+            v26 = i;
+            if ( HIWORD(v28) < HIWORD(v24) )
+              v28 = v24;
+            v24 = v28;
+          }
+          while ( v27 < 4 );
+          a2 = v34;
+          v29 = v9 + 16LL * i;
+          if ( v29 )
+            goto LABEL_35;
+        }
+        else
+        {
+          i = v14;
+        }
       }
+LABEL_31:
+      v29 = v9 + 16LL * i;
+      if ( v19 != -1 )
+        *(_QWORD *)v29 = v17;
+      v30 = (unsigned __int16)*(_DWORD *)(v29 + 12) ^ ((unsigned __int8)*(_DWORD *)(v29 + 12) ^ (unsigned __int8)(*(_DWORD *)(v29 + 12) + 1)) & 0x3F;
+      *(_DWORD *)(v29 + 12) = v30;
+      *(_DWORD *)(v29 + 8) |= 1 << ((v16 - *(_QWORD *)v29) >> 4);
+      if ( (v30 & 0x3F) != 0x20 || !v29 )
+      {
+        v2 = a1;
+        continue;
+      }
+LABEL_35:
+      memset_0(v37, 0, sizeof(v37));
+      MiEmptyCacheSlice(v31, (__int64)v37, v29);
+      if ( v11 == 17 )
+        ExReleaseSpinLockExclusiveFromDpcLevel(v10);
+      else
+        ExReleaseSpinLockExclusive(v10, v11);
+      MiFreeCacheSlice(v35, (__int64)v37);
       if ( a2 )
       {
-        v21 = a2 - 1;
-        v22 = v9;
-        v23 = 4LL;
-        do
-        {
-          v24 = v21;
-          if ( v21 )
-          {
-            while ( *(_QWORD *)v22 != (a1[v24] & 0xFFFFFFFFFFFFFE00uLL) )
-            {
-              if ( !--v24 )
-                goto LABEL_21;
-            }
-            *(_DWORD *)(v22 + 12) = (unsigned __int16)*(_DWORD *)(v22 + 12);
-          }
-LABEL_21:
-          v22 += 16LL;
-          --v23;
-        }
-        while ( v23 );
+        ExAcquireSpinLockExclusive(v10);
+        v2 = a1;
+        goto LABEL_6;
       }
-      v25 = *v14;
-      v26 = 0;
-      v27 = 0;
-      do
-      {
-        v28 = *v14;
-        v14 += 4;
-        i = v27;
-        if ( HIWORD(v28) < HIWORD(v25) )
-          i = v26;
-        ++v27;
-        v26 = i;
-        if ( HIWORD(v28) < HIWORD(v25) )
-          v28 = v25;
-        v25 = v28;
-      }
-      while ( v27 < 4 );
-      a2 = v34;
-      v29 = v9 + 16LL * i;
-      if ( v29 )
-      {
-LABEL_36:
-        memset_0(v37, 0, sizeof(v37));
-        MiEmptyCacheSlice(v31, (__int64)v37, v29);
-        if ( v11 == 17 )
-          ExReleaseSpinLockExclusiveFromDpcLevel(v10);
-        else
-          ExReleaseSpinLockExclusive(v10, v11);
-        MiFreeCacheSlice(v35, (__int64)v37);
-        if ( a2 )
-        {
-          ExAcquireSpinLockExclusive(v10);
-          v2 = a1;
-          continue;
-        }
-        return;
-      }
-      break;
     }
-LABEL_32:
-    v29 = v9 + 16LL * i;
-    if ( v20 != -1 )
-      *(_QWORD *)v29 = v18;
-    v30 = (unsigned __int16)*(_DWORD *)(v29 + 12) ^ ((unsigned __int8)*(_DWORD *)(v29 + 12) ^ (unsigned __int8)(*(_DWORD *)(v29 + 12) + 1)) & 0x3F;
-    *(_DWORD *)(v29 + 12) = v30;
-    *(_DWORD *)(v29 + 8) |= 1 << ((v17 - *(_QWORD *)v29) >> 4);
-    if ( (v30 & 0x3F) == 0x20 && v29 )
-      goto LABEL_36;
-    v2 = a1;
-    v14 = (unsigned int *)(v9 + 12);
-    if ( a2 )
-      goto LABEL_7;
+    else
+    {
+      v32 = (volatile LONG *)&ActiveProcessors[4].StaticBitmap[15];
+      if ( v11 == 17 )
+        ExReleaseSpinLockExclusiveFromDpcLevel(v32);
+      else
+        ExReleaseSpinLockExclusive(v32, v11);
+    }
+    break;
   }
-  v32 = (volatile LONG *)&ActiveProcessors[4].StaticBitmap[15];
-  if ( v11 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(v32);
-  else
-    ExReleaseSpinLockExclusive(v32, v11);
 }

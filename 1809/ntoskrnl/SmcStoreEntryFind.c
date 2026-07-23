@@ -1,8 +1,8 @@
 /*
- * XREFs of SmcStoreEntryFind @ 0x1408AF4A0
+ * XREFs of SmcStoreEntryFind @ 0x1408B0700
  * Callers:
- *     SmcStoreDelete @ 0x1408AF33C (SmcStoreDelete.c)
- *     SmcStoreResize @ 0x1408AF5FC (SmcStoreResize.c)
+ *     SmcStoreDelete @ 0x1408B059C (SmcStoreDelete.c)
+ *     SmcStoreResize @ 0x1408B085C (SmcStoreResize.c)
  * Callees:
  *     <none>
  */

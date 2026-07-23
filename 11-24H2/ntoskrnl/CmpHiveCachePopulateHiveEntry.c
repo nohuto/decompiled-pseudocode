@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpHiveCachePopulateHiveEntry @ 0x1407E5854
+ * XREFs of CmpHiveCachePopulateHiveEntry @ 0x1407E5E24
  * Callers:
- *     CmpMachineHiveCachePopulateEntry @ 0x1407D8FA8 (CmpMachineHiveCachePopulateEntry.c)
+ *     CmpMachineHiveCachePopulateEntry @ 0x1407D94F8 (CmpMachineHiveCachePopulateEntry.c)
  * Callees:
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiAllocateMemory @ 0x140485138 (CmSiAllocateMemory.c)
- *     CmSiSetEvent @ 0x140668BAC (CmSiSetEvent.c)
- *     CmpCreateRegistryThread @ 0x1407D819C (CmpCreateRegistryThread.c)
- *     CmpHiveCacheEntryLockAcquire @ 0x1407E5678 (CmpHiveCacheEntryLockAcquire.c)
- *     CmpHiveCacheEntryLockRelease @ 0x1407E56DC (CmpHiveCacheEntryLockRelease.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiAllocateMemory @ 0x14048071C (CmSiAllocateMemory.c)
+ *     CmSiSetEvent @ 0x140669D84 (CmSiSetEvent.c)
+ *     CmpCreateRegistryThread @ 0x1407D86F0 (CmpCreateRegistryThread.c)
+ *     CmpHiveCacheEntryLockAcquire @ 0x1407E5C48 (CmpHiveCacheEntryLockAcquire.c)
+ *     CmpHiveCacheEntryLockRelease @ 0x1407E5CAC (CmpHiveCacheEntryLockRelease.c)
  */
 
 __int64 __fastcall CmpHiveCachePopulateHiveEntry(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6)
@@ -30,7 +30,7 @@ LABEL_11:
       CmSiSetEvent(a1 + 288);
       return (unsigned int)RegistryThread;
     }
-    Memory = CmSiAllocateMemory();
+    Memory = CmSiAllocateMemory(0x28uLL, 0x43314D43u);
     if ( !Memory )
     {
       RegistryThread = -1073741801;

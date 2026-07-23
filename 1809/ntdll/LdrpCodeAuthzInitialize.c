@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpCodeAuthzInitialize @ 0x18007FC08
+ * XREFs of LdrpCodeAuthzInitialize @ 0x18007FC18
  * Callers:
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  * Callees:
@@ -13,134 +13,160 @@
  *     RtlFormatCurrentUserKeyPath @ 0x18003F560 (RtlFormatCurrentUserKeyPath.c)
  *     RtlAppendUnicodeToString @ 0x180041260 (RtlAppendUnicodeToString.c)
  *     LdrUnloadDll @ 0x1800425D0 (LdrUnloadDll.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtOpenKey @ 0x1800A0520 (NtOpenKey.c)
- *     ZwQueryKey @ 0x1800A05A0 (ZwQueryKey.c)
- *     NtQueryValueKey @ 0x1800A05C0 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtOpenKey @ 0x1800A0540 (NtOpenKey.c)
+ *     ZwQueryKey @ 0x1800A05C0 (ZwQueryKey.c)
+ *     NtQueryValueKey @ 0x1800A05E0 (NtQueryValueKey.c)
  */
 
 __int64 LdrpCodeAuthzInitialize()
 {
   unsigned int v0; // edi
   char v1; // si
-  int v3; // ebx
-  int Key; // ebx
-  int v5; // ebx
-  unsigned __int64 v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // [rsp+38h] [rbp-D0h] BYREF
+  NTSTATUS v3; // ebx
+  NTSTATUS Key; // ebx
+  NTSTATUS ValueKey; // ebx
+  PVOID v6; // rbx
+  ULONG ResultLength[2]; // [rsp+38h] [rbp-D0h] BYREF
   HANDLE Handle; // [rsp+40h] [rbp-C8h] BYREF
-  HANDLE v12; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v13; // [rsp+50h] [rbp-B8h] BYREF
-  unsigned __int16 v14[4]; // [rsp+58h] [rbp-B0h] BYREF
-  unsigned __int64 Heap; // [rsp+60h] [rbp-A8h]
-  HANDLE v16; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned __int64 v17; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v18; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v19; // [rsp+80h] [rbp-88h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-80h] BYREF
-  int v21; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v22; // [rsp+A0h] [rbp-68h]
-  unsigned __int16 *v23; // [rsp+A8h] [rbp-60h]
-  int v24; // [rsp+B0h] [rbp-58h]
-  __int128 v25; // [rsp+B8h] [rbp-50h]
-  _BYTE v26[20]; // [rsp+C8h] [rbp-40h] BYREF
-  int v27; // [rsp+DCh] [rbp-2Ch]
-  _BYTE v28[4]; // [rsp+F8h] [rbp-10h] BYREF
-  int v29; // [rsp+FCh] [rbp-Ch]
-  int v30; // [rsp+100h] [rbp-8h]
-  unsigned int v31; // [rsp+104h] [rbp-4h]
-  _BYTE v32[4]; // [rsp+148h] [rbp+40h] BYREF
-  int v33; // [rsp+14Ch] [rbp+44h]
-  int v34; // [rsp+150h] [rbp+48h]
-  int v35; // [rsp+154h] [rbp+4Ch]
-  __int64 retaddr; // [rsp+1C0h] [rbp+B8h]
+  HANDLE v9; // [rsp+48h] [rbp-C0h] BYREF
+  PVOID ProcedureAddress; // [rsp+50h] [rbp-B8h] BYREF
+  _UNICODE_STRING Destination; // [rsp+58h] [rbp-B0h] BYREF
+  HANDLE KeyHandle; // [rsp+68h] [rbp-A0h] BYREF
+  PVOID DllHandle; // [rsp+70h] [rbp-98h] BYREF
+  ULONG v14[2]; // [rsp+78h] [rbp-90h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+80h] [rbp-88h] BYREF
+  _UNICODE_STRING CurrentUserKeyPath; // [rsp+88h] [rbp-80h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-70h] BYREF
+  _BYTE KeyInformation[20]; // [rsp+C8h] [rbp-40h] BYREF
+  int v19; // [rsp+DCh] [rbp-2Ch]
+  _BYTE KeyValueInformation[4]; // [rsp+F8h] [rbp-10h] BYREF
+  int v21; // [rsp+FCh] [rbp-Ch]
+  int v22; // [rsp+100h] [rbp-8h]
+  unsigned int v23; // [rsp+104h] [rbp-4h]
+  _BYTE v24[4]; // [rsp+148h] [rbp+40h] BYREF
+  int v25; // [rsp+14Ch] [rbp+44h]
+  int v26; // [rsp+150h] [rbp+48h]
+  int v27; // [rsp+154h] [rbp+4Ch]
+  PVOID *retaddr; // [rsp+1C0h] [rbp+B8h]
 
   v0 = 0;
-  v17 = 0LL;
-  v13 = 0LL;
+  DllHandle = 0LL;
+  ProcedureAddress = 0LL;
   if ( LdrpIsSecureProcess )
     return 0LL;
-  RtlImageNtHeaderEx(3, (unsigned __int64)NtCurrentPeb()->ImageBaseAddress, 0LL, &v19);
-  if ( (unsigned __int16)(*(_WORD *)(v19 + 92) - 2) > 1u )
+  RtlImageNtHeaderEx(3u, NtCurrentPeb()->ImageBaseAddress, 0LL, &OutHeaders);
+  if ( (unsigned __int16)(OutHeaders->OptionalHeader.Subsystem - 2) > 1u )
     return 0LL;
-  if ( (int)NtOpenKey(&v16, 3LL, &unk_180118840) < 0
-    || (v3 = NtQueryValueKey(v16, &unk_180119408, 2LL, v32, 80, &v18), NtClose(v16), v3 < 0)
-    || v33 != 4
-    || v34 != 4
-    || !v35 )
+  if ( NtOpenKey(&KeyHandle, 3u, (POBJECT_ATTRIBUTES)&stru_180118840) < 0
+    || (v3 = NtQueryValueKey(KeyHandle, (PUNICODE_STRING)&stru_180119408, KeyValuePartialInformation, v24, 0x50u, v14),
+        NtClose(KeyHandle),
+        v3 < 0)
+    || v25 != 4
+    || v26 != 4
+    || !v27 )
   {
-    v12 = 0LL;
+    v9 = 0LL;
     v1 = 0;
-    if ( (int)NtOpenKey(&v12, 131097LL, &unk_18015F600) >= 0 )
+    if ( NtOpenKey(&v9, 0x20019u, &stru_18015F600) >= 0 )
     {
-      Key = ZwQueryKey(v12, 2LL, v26);
-      NtClose(v12);
+      Key = ZwQueryKey(v9, KeyFullInformation, KeyInformation, 0x30u, ResultLength);
+      NtClose(v9);
       if ( Key == -2147483643 )
         Key = 0;
-      if ( Key >= 0 && v27 )
+      if ( Key >= 0 && v19 )
         goto LABEL_27;
     }
-    if ( (int)NtOpenKey(&Handle, 1LL, &unk_180118810) >= 0 )
+    if ( NtOpenKey(&Handle, 1u, (POBJECT_ATTRIBUTES)&stru_180118810) >= 0 )
     {
-      if ( (int)NtQueryValueKey(Handle, L"$&", 2LL, v28, 80, &v10) >= 0 && v29 == 4 && v30 == 4 && v31 > 1 )
+      if ( NtQueryValueKey(
+             Handle,
+             (PUNICODE_STRING)&ValueName,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x50u,
+             ResultLength) >= 0
+        && v21 == 4
+        && v22 == 4
+        && v23 > 1 )
       {
         v1 = 1;
-        NtQueryValueKey(Handle, L"FH", 2LL, v28, 80, &v10);
+        NtQueryValueKey(
+          Handle,
+          (PUNICODE_STRING)&stru_1801193F8,
+          KeyValuePartialInformation,
+          KeyValueInformation,
+          0x50u,
+          ResultLength);
       }
       NtClose(Handle);
       if ( v1 )
         goto LABEL_27;
     }
-    if ( (int)RtlFormatCurrentUserKeyPath(&UnicodeString) >= 0 )
+    if ( RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath) >= 0 )
     {
-      v14[0] = 0;
-      if ( (unsigned int)UnicodeString.Length + 120 <= 0xFFFE )
+      Destination.Length = 0;
+      if ( (unsigned int)CurrentUserKeyPath.Length + 120 <= 0xFFFE )
       {
-        v14[1] = UnicodeString.Length + 120;
-        Heap = RtlAllocateHeap(
-                 (__int64)NtCurrentPeb()->ProcessHeap,
-                 NtdllBaseTag + 1572864,
-                 (unsigned __int16)(UnicodeString.Length + 120));
-        if ( Heap )
+        Destination.MaximumLength = CurrentUserKeyPath.Length + 120;
+        Destination.Buffer = (wchar_t *)RtlAllocateHeap(
+                                          NtCurrentPeb()->ProcessHeap,
+                                          NtdllBaseTag + 1572864,
+                                          (unsigned __int16)(CurrentUserKeyPath.Length + 120));
+        if ( Destination.Buffer )
         {
-          if ( (int)RtlAppendUnicodeStringToString(v14, (__int16 *)&UnicodeString) >= 0
-            && (int)RtlAppendUnicodeToString(v14, L"\\Software\\Policies\\Microsoft\\Windows\\Safer\\CodeIdentifiers") >= 0 )
+          if ( RtlAppendUnicodeStringToString(&Destination, &CurrentUserKeyPath) >= 0
+            && RtlAppendUnicodeToString(
+                 &Destination,
+                 L"\\Software\\Policies\\Microsoft\\Windows\\Safer\\CodeIdentifiers") >= 0 )
           {
-            v21 = 48;
-            v23 = v14;
-            v22 = 0LL;
-            v24 = 64;
-            v25 = 0LL;
-            if ( (int)NtOpenKey(&Handle, 1LL, &v21) >= 0 )
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = &Destination;
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.Attributes = 64;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            if ( NtOpenKey(&Handle, 1u, &ObjectAttributes) >= 0 )
             {
-              v5 = NtQueryValueKey(Handle, L"$&", 2LL, v28, 80, &v10);
+              ValueKey = NtQueryValueKey(
+                           Handle,
+                           (PUNICODE_STRING)&ValueName,
+                           KeyValuePartialInformation,
+                           KeyValueInformation,
+                           0x50u,
+                           ResultLength);
               NtClose(Handle);
-              if ( v5 >= 0 && v29 == 4 && v30 == 4 && v31 > 1 )
+              if ( ValueKey >= 0 && v21 == 4 && v22 == 4 && v23 > 1 )
                 v1 = 1;
             }
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Destination.Buffer);
         }
       }
-      RtlFreeAnsiString(&UnicodeString);
+      RtlFreeAnsiString(&CurrentUserKeyPath);
       if ( v1 )
       {
 LABEL_27:
-        if ( (int)LdrLoadDll(0LL, 0LL, (__int64)&unk_1801193E8, &v17) >= 0 )
+        if ( LdrLoadDll(0LL, 0LL, (PUNICODE_STRING)&stru_1801193E8, &DllHandle) >= 0 )
         {
-          v6 = v17;
-          if ( (int)LdrGetProcedureAddressForCaller(v17, &qword_180119418, 0, &v13, 0, retaddr) >= 0 && v13 )
+          v6 = DllHandle;
+          if ( LdrGetProcedureAddressForCaller(
+                 DllHandle,
+                 (PANSI_STRING)&stru_180119418,
+                 0,
+                 &ProcedureAddress,
+                 0,
+                 retaddr) >= 0
+            && ProcedureAddress )
           {
-            LdrpSaferIsDllAllowedRoutine = __ROR8__(v13 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
-            LdrpAdvapi32DllHandle = v6;
+            LdrpSaferIsDllAllowedRoutine = __ROR8__(
+                                             (unsigned __int64)ProcedureAddress ^ MEMORY[0x7FFE0330],
+                                             MEMORY[0x7FFE0330] & 0x3F);
+            LdrpAdvapi32DllHandle = (__int64)v6;
           }
           else
           {
-            LdrUnloadDll(v6, v7, v8, v9);
+            LdrUnloadDll(v6);
             return (unsigned int)-1073741511;
           }
         }

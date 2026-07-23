@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipEnumerateGuids @ 0x1408233C8
+ * XREFs of WmipEnumerateGuids @ 0x1408295D8
  * Callers:
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
  */
 
 __int64 __fastcall WmipEnumerateGuids(int a1, _DWORD *a2, int a3, _DWORD *a4)
@@ -12,20 +12,20 @@ __int64 __fastcall WmipEnumerateGuids(int a1, _DWORD *a2, int a3, _DWORD *a4)
   __int64 v7; // rbx
   int v8; // esi
   unsigned int v9; // r14d
-  void **KernelShadowStackInitial; // r8
-  void **i; // r9
+  __int64 *v10; // r8
+  __int64 *i; // r9
   __int64 v12; // rcx
   _QWORD *v13; // rcx
   __int64 v14; // rdx
-  _DWORD *j; // r8
+  __int64 **j; // r8
   __int64 result; // rax
 
   v7 = 0LL;
   v8 = 0;
   v9 = (a3 - 8) / 0x24u;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
-  KernelShadowStackInitial = (void **)EtwpSecurityLock.KernelShadowStackInitial;
-  for ( i = *(void ***)EtwpSecurityLock.KernelShadowStackInitial; i != KernelShadowStackInitial; i = (void **)*i )
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+  v10 = (__int64 *)WmipGEHeadPtr;
+  for ( i = *(__int64 **)WmipGEHeadPtr; i != v10; i = (__int64 *)*i )
   {
     ++v8;
     if ( (unsigned int)v7 < v9 )
@@ -37,10 +37,10 @@ __int64 __fastcall WmipEnumerateGuids(int a1, _DWORD *a2, int a3, _DWORD *a4)
   }
   if ( a1 == 2244960 )
   {
-    v13 = *KernelShadowStackInitial;
+    v13 = (_QWORD *)*v10;
     v8 = 0;
     v7 = 0LL;
-    if ( *KernelShadowStackInitial != KernelShadowStackInitial )
+    if ( (__int64 *)*v10 != v10 )
     {
       do
       {
@@ -51,13 +51,13 @@ __int64 __fastcall WmipEnumerateGuids(int a1, _DWORD *a2, int a3, _DWORD *a4)
           *(_QWORD *)&a2[v14 + 6] = 2LL;
           LOBYTE(a2[v14 + 10]) = 0;
           *(_QWORD *)&a2[v14 + 8] = 0LL;
-          for ( j = (_DWORD *)v13[7]; j != (_DWORD *)(v13 + 7); j = *(_DWORD **)j )
+          for ( j = (__int64 **)v13[7]; j != v13 + 7; j = (__int64 **)*j )
           {
-            if ( (j[4] & 0x8000) != 0 )
+            if ( ((_DWORD)j[2] & 0x8000) != 0 )
               a2[9 * v7 + 6] = 3;
-            if ( (j[4] & 0x6000) != 0 )
+            if ( ((_DWORD)j[2] & 0x6000) != 0 )
               LOBYTE(a2[9 * v7 + 10]) = 1;
-            if ( (j[4] & 0x81000) == 0x81000 )
+            if ( ((_DWORD)j[2] & 0x81000) == 0x81000 )
             {
               a2[9 * v7 + 6] = 0;
               break;
@@ -74,10 +74,10 @@ __int64 __fastcall WmipEnumerateGuids(int a1, _DWORD *a2, int a3, _DWORD *a4)
         }
         v13 = (_QWORD *)*v13;
       }
-      while ( v13 != EtwpSecurityLock.KernelShadowStackInitial );
+      while ( v13 != (_QWORD *)WmipGEHeadPtr );
     }
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   *a2 = v8;
   *a4 = 36 * v7 + 8;
   result = 0LL;

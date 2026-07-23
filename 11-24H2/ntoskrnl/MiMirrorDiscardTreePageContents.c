@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMirrorDiscardTreePageContents @ 0x1404F54BC
+ * XREFs of MiMirrorDiscardTreePageContents @ 0x1404F2DBC
  * Callers:
- *     MiMirrorBlackPhase @ 0x140672C9C (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x140673E6C (MiMirrorBlackPhase.c)
  * Callees:
- *     MiGetZeroingContext @ 0x14042DCB0 (MiGetZeroingContext.c)
+ *     MiGetZeroingContext @ 0x14041F9E0 (MiGetZeroingContext.c)
  */
 
 _QWORD *__fastcall MiMirrorDiscardTreePageContents(_QWORD **a1)

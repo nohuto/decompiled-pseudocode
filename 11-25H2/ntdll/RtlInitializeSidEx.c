@@ -6,35 +6,33 @@
  *     <none>
  */
 
-__int64 __fastcall RtlInitializeSidEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS RtlInitializeSidEx(PSID Sid, PSID_IDENTIFIER_AUTHORITY IdentifierAuthority, UCHAR SubAuthorityCount, ...)
 {
-  char *v4; // rdx
-  _DWORD *v5; // rax
-  int v6; // ecx
-  char v8; // [rsp+30h] [rbp+18h] BYREF
-  __int64 v9; // [rsp+38h] [rbp+20h]
+  UCHAR *v3; // rdx
+  _DWORD *v4; // rax
+  int v5; // ecx
+  UCHAR v7; // [rsp+30h] [rbp+18h] BYREF
 
-  v8 = a3;
-  v9 = a4;
-  if ( (unsigned __int8)a3 > 0xFu )
-    return 3221225485LL;
-  *(_BYTE *)(a1 + 1) = a3;
-  *(_BYTE *)a1 = 1;
-  *(_DWORD *)(a1 + 2) = *(_DWORD *)a2;
-  *(_WORD *)(a1 + 6) = *(_WORD *)(a2 + 4);
-  if ( (_BYTE)a3 )
+  v7 = SubAuthorityCount;
+  if ( SubAuthorityCount > 0xFu )
+    return -1073741811;
+  *((_BYTE *)Sid + 1) = SubAuthorityCount;
+  *(_BYTE *)Sid = 1;
+  *(_SID_IDENTIFIER_AUTHORITY *)((char *)Sid + 2) = *IdentifierAuthority;
+  if ( SubAuthorityCount )
   {
-    v4 = &v8;
-    v5 = (_DWORD *)(a1 + 8);
-    a3 = (unsigned __int8)a3;
+    v3 = &v7;
+    v4 = (char *)Sid + 8;
+    *(_QWORD *)&SubAuthorityCount = SubAuthorityCount;
     do
     {
-      v6 = *((_DWORD *)v4 + 2);
-      v4 += 8;
-      *v5++ = v6;
-      --a3;
+      v5 = *((_DWORD *)v3 + 2);
+      v3 += 8;
+      *v4++ = v5;
+      *(_QWORD *)&SubAuthorityCount = SubAuthorityCount - 1LL;
     }
-    while ( a3 );
+    while ( SubAuthorityCount );
   }
-  return 0LL;
+  return 0;
 }

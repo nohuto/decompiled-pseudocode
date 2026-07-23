@@ -229,7 +229,7 @@ LABEL_10:
       a4 = &v9[2 * v10 + 4];
       if ( (unsigned int)++v34 > 0x20 )
 LABEL_77:
-        RtlRaiseStatus(3221225727LL);
+        RtlRaiseStatus(-1073741569);
       continue;
     }
     break;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryPerformanceCounter @ 0x1401B87B0
+ * XREFs of ZwQueryPerformanceCounter @ 0x1401B8910
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwQueryPerformanceCounter(PLARGE_INTEGER Counter, PLARGE_INTEGER Frequency)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Counter, Frequency, v2);
+  return KiServiceInternal(Counter);
 }

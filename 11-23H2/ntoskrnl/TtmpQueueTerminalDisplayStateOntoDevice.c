@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x1409A3B94
+ * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x1409A3D94
  * Callers:
- *     TtmpPushTerminalState @ 0x1409A3AC4 (TtmpPushTerminalState.c)
+ *     TtmpPushTerminalState @ 0x1409A3CC4 (TtmpPushTerminalState.c)
  * Callees:
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

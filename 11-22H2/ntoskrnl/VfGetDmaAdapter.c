@@ -18,7 +18,7 @@ struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
         struct _DEVICE_DESCRIPTION *DeviceDescription,
         PULONG NumberOfMapRegisters)
 {
-  struct _LIST_ENTRY *v6; // rax
+  _LIST_ENTRY *v6; // rax
   int v7; // eax
   char v8; // bp
   _QWORD *v9; // rax

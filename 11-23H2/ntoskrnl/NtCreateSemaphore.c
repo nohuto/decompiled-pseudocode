@@ -1,42 +1,57 @@
 /*
- * XREFs of NtCreateSemaphore @ 0x1407331E0
+ * XREFs of NtCreateSemaphore @ 0x1407333D0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeSemaphore @ 0x1402B32F0 (KeInitializeSemaphore.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
+ *     KeInitializeSemaphore @ 0x1402B3580 (KeInitializeSemaphore.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateSemaphore(unsigned __int64 a1, __int64 a2, __int64 a3, LONG a4, int Limit)
+NTSTATUS __cdecl NtCreateSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LONG InitialCount,
+        LONG MaximumCount)
 {
-  _QWORD *v6; // rdi
+  PHANDLE v6; // rdi
   char PreviousMode; // si
-  int inserted; // ecx
+  NTSTATUS inserted; // ecx
   __int64 v10; // [rsp+20h] [rbp-58h]
   PRKSEMAPHORE Semaphore; // [rsp+50h] [rbp-28h] BYREF
   __int64 v12; // [rsp+58h] [rbp-20h] BYREF
 
-  v6 = (_QWORD *)a1;
+  v6 = SemaphoreHandle;
   v12 = 0LL;
   Semaphore = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+    if ( (unsigned __int64)SemaphoreHandle >= 0x7FFFFFFF0000LL )
+      SemaphoreHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *SemaphoreHandle = *SemaphoreHandle;
   }
-  if ( Limit <= 0 || a4 < 0 || a4 > Limit )
-    return 3221225485LL;
-  inserted = ObCreateObjectEx(PreviousMode, ExSemaphoreObjectType, a3, PreviousMode, v10, 32, 0, 0, &Semaphore, 0LL);
+  if ( MaximumCount <= 0 || InitialCount < 0 || InitialCount > MaximumCount )
+    return -1073741811;
+  inserted = ObCreateObjectEx(
+               PreviousMode,
+               ExSemaphoreObjectType,
+               (__int64)ObjectAttributes,
+               PreviousMode,
+               v10,
+               32,
+               0,
+               0,
+               &Semaphore,
+               0LL);
   if ( inserted >= 0 )
   {
-    KeInitializeSemaphore(Semaphore, a4, Limit);
+    KeInitializeSemaphore(Semaphore, InitialCount, MaximumCount);
     inserted = ObInsertObjectEx(Semaphore, 0LL, 0, 0LL, (__int64)&v12);
     LODWORD(Semaphore) = inserted;
     if ( inserted >= 0 )
-      *v6 = v12;
+      *v6 = (HANDLE)v12;
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

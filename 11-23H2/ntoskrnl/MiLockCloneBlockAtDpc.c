@@ -2,10 +2,10 @@
  * XREFs of MiLockCloneBlockAtDpc @ 0x140217888
  * Callers:
  *     MiReferenceCloneProto @ 0x140217788 (MiReferenceCloneProto.c)
- *     MiDecrementCloneBlock @ 0x1402F3C28 (MiDecrementCloneBlock.c)
- *     MiWriteSharedDemandZeroPte @ 0x140665758 (MiWriteSharedDemandZeroPte.c)
+ *     MiDecrementCloneBlock @ 0x1402F3EB8 (MiDecrementCloneBlock.c)
+ *     MiWriteSharedDemandZeroPte @ 0x140665CA8 (MiWriteSharedDemandZeroPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockCloneBlockAtDpc(__int64 a1)

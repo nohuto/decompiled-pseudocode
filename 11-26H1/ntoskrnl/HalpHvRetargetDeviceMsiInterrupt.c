@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvRetargetDeviceMsiInterrupt @ 0x1404260C0
+ * XREFs of HalpHvRetargetDeviceMsiInterrupt @ 0x1404331D0
  * Callers:
- *     HalpInterruptSetRemappedDestinationHv @ 0x140425F5C (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x14043306C (HalpInterruptSetRemappedDestinationHv.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpHvRetargetDeviceMsiInterrupt(__int64 a1)

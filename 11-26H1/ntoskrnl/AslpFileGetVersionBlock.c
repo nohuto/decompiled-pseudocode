@@ -1,25 +1,25 @@
 /*
- * XREFs of AslpFileGetVersionBlock @ 0x14088DAFC
+ * XREFs of AslpFileGetVersionBlock @ 0x140893EF8
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x14088DA10 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x140893E0C (AslpFileGetVersionAttributes.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlVerifyVersionInfo @ 0x1404959C0 (RtlVerifyVersionInfo.c)
- *     VerSetConditionMask @ 0x1404AF400 (VerSetConditionMask.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     RtlFileMapFree @ 0x140714A50 (RtlFileMapFree.c)
- *     RtlFileMapMapView @ 0x140714ACC (RtlFileMapMapView.c)
- *     AslpMemorySpanCheckBounds @ 0x140714EC4 (AslpMemorySpanCheckBounds.c)
- *     AslpMemorySpanInitViewFromFileMapping @ 0x140714F0C (AslpMemorySpanInitViewFromFileMapping.c)
- *     Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline @ 0x140714F90 (Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AslFileMappingEnsure @ 0x1408889EC (AslFileMappingEnsure.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     LdrResSearchResource @ 0x140A9AF20 (LdrResSearchResource.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlVerifyVersionInfo @ 0x14048F510 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x1404A8A90 (VerSetConditionMask.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     RtlFileMapFree @ 0x140719740 (RtlFileMapFree.c)
+ *     RtlFileMapMapView @ 0x1407197BC (RtlFileMapMapView.c)
+ *     AslpMemorySpanCheckBounds @ 0x140719BB4 (AslpMemorySpanCheckBounds.c)
+ *     AslpMemorySpanInitViewFromFileMapping @ 0x140719BFC (AslpMemorySpanInitViewFromFileMapping.c)
+ *     Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline @ 0x140719C80 (Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AslFileMappingEnsure @ 0x14088EDE8 (AslFileMappingEnsure.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     LdrResSearchResource @ 0x1409E5F50 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
@@ -49,7 +49,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
   __int128 v29; // [rsp+A0h] [rbp-188h]
   __int128 v30; // [rsp+B0h] [rbp-178h]
   __int64 v31; // [rsp+C0h] [rbp-168h]
-  struct _OSVERSIONINFOEXW VersionInfo; // [rsp+D0h] [rbp-158h] BYREF
+  _OSVERSIONINFOEXW VersionInfo; // [rsp+D0h] [rbp-158h] BYREF
   size_t Size; // [rsp+248h] [rbp+20h] BYREF
 
   Src = 0LL;

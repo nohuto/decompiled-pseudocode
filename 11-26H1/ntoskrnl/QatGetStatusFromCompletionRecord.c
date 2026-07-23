@@ -1,7 +1,7 @@
 /*
- * XREFs of QatGetStatusFromCompletionRecord @ 0x1406E1064
+ * XREFs of QatGetStatusFromCompletionRecord @ 0x1406E52E4
  * Callers:
- *     AccelpQatOperationHandler @ 0x1406DF9C4 (AccelpQatOperationHandler.c)
+ *     AccelpQatOperationHandler @ 0x1406E3C44 (AccelpQatOperationHandler.c)
  * Callees:
  *     <none>
  */

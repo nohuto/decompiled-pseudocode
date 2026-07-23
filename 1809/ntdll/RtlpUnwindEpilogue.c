@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpUnwindEpilogue @ 0x18009F434
+ * XREFs of RtlpUnwindEpilogue @ 0x18009F448
  * Callers:
  *     RtlpWalkFrameChain @ 0x1800038B0 (RtlpWalkFrameChain.c)
  *     RtlDispatchException @ 0x1800048E0 (RtlDispatchException.c)
@@ -8,7 +8,7 @@
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
  * Callees:
  *     RtlpPopUserShadowStack @ 0x180003738 (RtlpPopUserShadowStack.c)
- *     RtlpUnwindOpSlots @ 0x18009F658 (RtlpUnwindOpSlots.c)
+ *     RtlpUnwindOpSlots @ 0x18009F66C (RtlpUnwindOpSlots.c)
  */
 
 __int64 __fastcall RtlpUnwindEpilogue(

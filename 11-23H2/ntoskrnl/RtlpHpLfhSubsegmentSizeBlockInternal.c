@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1405B6EB8
+ * XREFs of RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1405B7428
  * Callers:
- *     RtlpHpLfhSubsegmentSizeBlock @ 0x1405B6DF8 (RtlpHpLfhSubsegmentSizeBlock.c)
+ *     RtlpHpLfhSubsegmentSizeBlock @ 0x1405B7368 (RtlpHpLfhSubsegmentSizeBlock.c)
  * Callees:
  *     <none>
  */

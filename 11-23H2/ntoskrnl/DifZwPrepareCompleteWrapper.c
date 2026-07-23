@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwPrepareCompleteWrapper @ 0x1405F31F0
+ * XREFs of DifZwPrepareCompleteWrapper @ 0x1405F3760
  * Callers:
  *     <none>
  * Callees:
- *     ZwPrepareComplete @ 0x14041D520 (ZwPrepareComplete.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwPrepareComplete @ 0x14041D8B0 (ZwPrepareComplete.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwPrepareCompleteWrapper(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)

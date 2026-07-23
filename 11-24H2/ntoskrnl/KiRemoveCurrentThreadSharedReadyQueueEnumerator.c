@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRemoveCurrentThreadSharedReadyQueueEnumerator @ 0x14030D370
+ * XREFs of KiRemoveCurrentThreadSharedReadyQueueEnumerator @ 0x1402D8B1C
  * Callers:
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
- *     KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x14030D724 (KiUpdateSharedReadyQueueStatisticsOnRemoval.c)
+ *     KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x1402D8EC4 (KiUpdateSharedReadyQueueStatisticsOnRemoval.c)
  */
 
 __int64 __fastcall KiRemoveCurrentThreadSharedReadyQueueEnumerator(__int64 *a1, __int64 a2)

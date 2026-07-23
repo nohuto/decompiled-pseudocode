@@ -1,17 +1,17 @@
 /*
  * XREFs of RtlConvertSidToUnicodeString @ 0x140669DD0
  * Callers:
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x140642A44 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     CmpGetVirtualizationID @ 0x140669CBC (CmpGetVirtualizationID.c)
+ *     sub_140642A44 @ 0x140642A44 (sub_140642A44.c)
+ *     sub_140669CBC @ 0x140669CBC (sub_140669CBC.c)
  *     RtlFormatCurrentUserKeyPath @ 0x14066B5D0 (RtlFormatCurrentUserKeyPath.c)
- *     SepValidateReferencedCachedHandles @ 0x140696944 (SepValidateReferencedCachedHandles.c)
- *     PiDqOpenUserObjectRegKey @ 0x1406998CC (PiDqOpenUserObjectRegKey.c)
- *     LocalConvertSidToStringSidW @ 0x1406C85A0 (LocalConvertSidToStringSidW.c)
- *     PspReadUserQuotaLimits @ 0x1406C89B8 (PspReadUserQuotaLimits.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1409B9B50 (RtlpGetTokenNamedObjectPath.c)
- *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140A084FC (ExpWnfGetPermanentPerUserDataStoreHandle.c)
- *     AdtpBuildSidListString @ 0x140A1B9F0 (AdtpBuildSidListString.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C (_SysCtxRegOpenCurrentUserKey.c)
+ *     sub_140696944 @ 0x140696944 (sub_140696944.c)
+ *     sub_1406998CC @ 0x1406998CC (sub_1406998CC.c)
+ *     sub_1406C85A0 @ 0x1406C85A0 (sub_1406C85A0.c)
+ *     sub_1406C89B8 @ 0x1406C89B8 (sub_1406C89B8.c)
+ *     sub_1409B9B50 @ 0x1409B9B50 (sub_1409B9B50.c)
+ *     sub_140A084FC @ 0x140A084FC (sub_140A084FC.c)
+ *     sub_140A1B9F0 @ 0x140A1B9F0 (sub_140A1B9F0.c)
+ *     sub_140A2CF6C @ 0x140A2CF6C (sub_140A2CF6C.c)
  * Callees:
  *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
@@ -20,7 +20,7 @@
  *     RtlIntegerToUnicode @ 0x140669FB0 (RtlIntegerToUnicode.c)
  *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
  *     RtlValidSid @ 0x1407B4660 (RtlValidSid.c)
- *     RtlLargeIntegerToUnicode @ 0x1409BA478 (RtlLargeIntegerToUnicode.c)
+ *     sub_1409BA478 @ 0x1409BA478 (sub_1409BA478.c)
  */
 
 NTSTATUS __stdcall RtlConvertSidToUnicodeString(
@@ -59,11 +59,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
            + (*((unsigned __int8 *)Sid + 6) << 8)
            + (v11 << 16)
            + (*((unsigned __int8 *)Sid + 4) << 24);
-    result = ((__int64 (__fastcall *)(_DWORD *, __int64, __int64, _BYTE *))RtlLargeIntegerToUnicode)(
-               v13,
-               v12,
-               250LL,
-               v17);
+    result = ((__int64 (__fastcall *)(_DWORD *, __int64, __int64, _BYTE *))sub_1409BA478)(v13, v12, 250LL, v17);
   }
   else
   {

@@ -7,18 +7,18 @@
  *     RtlpHpEnvAllocVA @ 0x180022A74 (RtlpHpEnvAllocVA.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrAllocAligned(__int64 a1, __int64 a2, __int64 a3)
+PVOID __fastcall RtlpHpVaMgrAllocAligned(__int64 a1, ULONG_PTR *a2, __int64 a3)
 {
   char v3; // r11
   int v4; // r10d
   int v5; // r9d
-  __int64 v7; // [rsp+28h] [rbp-30h]
-  __int64 v8; // [rsp+30h] [rbp-28h]
-  __int64 v9; // [rsp+60h] [rbp+8h] BYREF
+  int v7; // [rsp+28h] [rbp-30h]
+  int v8; // [rsp+30h] [rbp-28h]
+  PVOID BaseAddress; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = *(_BYTE *)(a1 + 46);
   v4 = 0x2000;
-  v9 = 0LL;
+  BaseAddress = 0LL;
   if ( (v3 & 0xEu) >= 6 )
   {
     v4 = (v3 & 0xEu) < 8 ? 536879104 : 536883200;
@@ -30,6 +30,6 @@ __int64 __fastcall RtlpHpVaMgrAllocAligned(__int64 a1, __int64 a2, __int64 a3)
   v5 = v4 | 0x40000;
   if ( (v3 & 0x10) == 0 )
     v5 = v4;
-  RtlpHpEnvAllocVA((__int64)&v9, a2, a3, v5, 4, v7, v8, *(_QWORD *)(a1 + 32));
-  return v9;
+  RtlpHpEnvAllocVA(&BaseAddress, a2, a3, v5, 4u, v7, v8, *(_QWORD *)(a1 + 32));
+  return BaseAddress;
 }

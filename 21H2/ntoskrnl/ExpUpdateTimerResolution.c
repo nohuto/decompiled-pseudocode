@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpUpdateTimerResolution @ 0x1402EC99C
+ * XREFs of ExpUpdateTimerResolution @ 0x14029DCEC
  * Callers:
- *     ExSetTimerResolution @ 0x1405B2390 (ExSetTimerResolution.c)
- *     PspSetProcessPpmPolicy @ 0x1406B2490 (PspSetProcessPpmPolicy.c)
- *     NtSetTimerResolution @ 0x1406DC720 (NtSetTimerResolution.c)
+ *     ExSetTimerResolution @ 0x1405B25C0 (ExSetTimerResolution.c)
+ *     PspSetProcessPpmPolicy @ 0x1406114D0 (PspSetProcessPpmPolicy.c)
+ *     NtSetTimerResolution @ 0x1406B3A00 (NtSetTimerResolution.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExpUpdateTimerConfiguration @ 0x1402EAF00 (ExpUpdateTimerConfiguration.c)
- *     PoTraceSystemTimerResolutionUpdate @ 0x1402ECD00 (PoTraceSystemTimerResolutionUpdate.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExpUpdateTimerConfiguration @ 0x14029C250 (ExpUpdateTimerConfiguration.c)
+ *     PoTraceSystemTimerResolutionUpdate @ 0x14029E050 (PoTraceSystemTimerResolutionUpdate.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -28,7 +28,7 @@ __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
   struct _KPRCB *v15; // r10
   _DWORD *v16; // r8
   int v17; // eax
-  unsigned int v18; // [rsp+38h] [rbp+10h] BYREF
+  ULONG v18; // [rsp+38h] [rbp+10h] BYREF
 
   v18 = a2;
   if ( a3 )
@@ -52,7 +52,7 @@ __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
     v18 = KeMaximumIncrement;
     if ( ExpKernelResolutionCount )
     {
-      if ( ExpKernelRequestedTimerResolution < (unsigned int)KeMaximumIncrement )
+      if ( ExpKernelRequestedTimerResolution < KeMaximumIncrement )
         a2 = ExpKernelRequestedTimerResolution;
       v18 = a2;
     }

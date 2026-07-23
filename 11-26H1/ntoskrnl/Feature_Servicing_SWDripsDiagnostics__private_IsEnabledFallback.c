@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_SWDripsDiagnostics__private_IsEnabledFallback @ 0x140526BDC
+ * XREFs of Feature_Servicing_SWDripsDiagnostics__private_IsEnabledFallback @ 0x14052924C
  * Callers:
- *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140526BA0 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140529210 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_SWDripsDiagnostics__private_IsEnabledFallback(__int64 a1, unsigned int a2)

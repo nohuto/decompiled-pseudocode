@@ -1,48 +1,43 @@
 /*
- * XREFs of _wcsistr @ 0x140AA9AC4
+ * XREFs of _wcsistr @ 0x140AA4ED0
  * Callers:
- *     SubstringMatch @ 0x140AA9A5C (SubstringMatch.c)
+ *     SubstringMatch @ 0x140AA4E68 (SubstringMatch.c)
  * Callees:
  *     <none>
  */
 
-char *__fastcall wcsistr(char *a1, char *a2)
+char *__fastcall wcsistr(char *a1, __int16 *a2)
 {
-  signed __int64 v4; // r8
+  __int16 v4; // dx
   __int16 *v5; // r9
-  __int16 v6; // dx
-  char *v7; // rbx
-  unsigned __int16 v8; // r10
+  __int16 v6; // r8
 
-  if ( !*(_WORD *)a2 )
+  if ( !*a2 )
     return a1;
-  v4 = a1 - a2;
-LABEL_4:
+LABEL_3:
+  v4 = *(_WORD *)a1;
   if ( *(_WORD *)a1 )
   {
-    v5 = (__int16 *)a2;
+    v5 = a2;
     while ( 1 )
     {
       v6 = *v5;
       if ( !*v5 )
         return a1;
-      v7 = (char *)v5 + v4;
-      v8 = *(__int16 *)((char *)v5 + v4);
-      if ( v8 >= 0x61u && v8 <= 0x7Au )
-        v8 -= 32;
+      if ( (unsigned __int16)(v4 - 97) <= 0x19u )
+        v4 -= 32;
       if ( (unsigned __int16)(v6 - 97) <= 0x19u )
         v6 -= 32;
-      if ( v8 == v6 )
+      if ( v4 == v6 )
       {
-        ++v5;
-        if ( *((_WORD *)v7 + 1) )
+        v4 = *(__int16 *)((char *)++v5 + a1 - (char *)a2);
+        if ( v4 )
           continue;
       }
       if ( !*v5 )
         return a1;
       a1 += 2;
-      v4 += 2LL;
-      goto LABEL_4;
+      goto LABEL_3;
     }
   }
   return 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwExtendSection @ 0x140725150
+ * XREFs of ZwExtendSection @ 0x140729D20
  * Callers:
- *     CmSiExtendSection @ 0x1404F1654 (CmSiExtendSection.c)
- *     DifZwExtendSectionWrapper @ 0x1406A5B00 (DifZwExtendSectionWrapper.c)
+ *     CmSiExtendSection @ 0x1404EAC34 (CmSiExtendSection.c)
+ *     DifZwExtendSectionWrapper @ 0x1406A96E0 (DifZwExtendSectionWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwExtendSection(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewSectionSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SectionHandle);
 }

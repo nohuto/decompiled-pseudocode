@@ -6,7 +6,12 @@
  *     <none>
  */
 
-int __stdcall RtlQueueApcWow64Thread(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl RtlQueueApcWow64Thread(
+        HANDLE ThreadHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  return NtQueueApcThread(a1, a2, a3, a4, a5);
+  return NtQueueApcThread(ThreadHandle, ApcRoutine, ApcArgument1, ApcArgument2, ApcArgument3);
 }

@@ -12,17 +12,17 @@
  *     NtSetValueKey @ 0x140869680 (NtSetValueKey.c)
  */
 
-__int64 ExpUpdateProductSuiteTypeInRegistry()
+NTSTATUS ExpUpdateProductSuiteTypeInRegistry()
 {
   HANDLE v0; // r12
   unsigned int v1; // edi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v3; // r14
   __int64 v4; // rax
-  int v5; // eax
+  ULONG v5; // eax
   const WCHAR *v6; // rdx
-  int v7; // eax
-  __int64 *v8; // rsi
+  NTSTATUS v7; // eax
+  _BYTE *v8; // rsi
   __int64 v9; // rax
   unsigned int v10; // r15d
   __int64 v11; // rax
@@ -52,16 +52,15 @@ __int64 ExpUpdateProductSuiteTypeInRegistry()
   __int64 v35; // rax
   unsigned int v36; // r15d
   unsigned int v37; // r14d
-  size_t v38; // [rsp+30h] [rbp-D8h]
-  UNICODE_STRING v39; // [rsp+38h] [rbp-D0h] BYREF
+  UNICODE_STRING Data; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v41[96]; // [rsp+58h] [rbp-B0h] BYREF
+  _BYTE v40[768]; // [rsp+58h] [rbp-B0h] BYREF
 
   v0 = ExpProductTypeKey;
   v1 = 758;
   DestinationString_8 = 0LL;
-  v39 = 0LL;
-  result = (__int64)memset_0(v41, 0, 0x2F6uLL);
+  Data = 0LL;
+  result = (unsigned int)memset_0(v40, 0, 0x2F6uLL);
   if ( ExpSetupModeDetected )
     return result;
   RtlInitUnicodeString(&DestinationString_8, L"ProductType");
@@ -74,7 +73,7 @@ __int64 ExpUpdateProductSuiteTypeInRegistry()
   {
     if ( MEMORY[0xFFFFF78000000264] != 3 )
     {
-      RtlInitUnicodeString(&v39, L"WinNT");
+      RtlInitUnicodeString(&Data, L"WinNT");
       v4 = -1LL;
       do
         ++v4;
@@ -84,15 +83,14 @@ __int64 ExpUpdateProductSuiteTypeInRegistry()
     }
     v6 = L"ServerNT";
   }
-  RtlInitUnicodeString(&v39, v6);
+  RtlInitUnicodeString(&Data, v6);
   v5 = 18;
 LABEL_10:
-  LODWORD(v38) = v5;
-  v7 = NtSetValueKey((__int64)v0, &DestinationString_8, 0, 1u, v39.Buffer, v38);
+  v7 = NtSetValueKey(v0, &DestinationString_8, 0, 1u, Data.Buffer, v5);
   if ( v7 < 0 )
     KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v7, 1uLL, 0LL);
   RtlInitUnicodeString(&DestinationString_8, L"ProductSuite");
-  v8 = v41;
+  v8 = v40;
   if ( ExVerifySuite(SmallBusiness) )
   {
     v9 = -1LL;
@@ -102,8 +100,8 @@ LABEL_10:
     v10 = 2 * v9 + 2;
     if ( v10 < 0x2F6 )
     {
-      memmove(v41, L"Small Business", v10);
-      v8 = (__int64 *)((char *)v41 + v10);
+      memmove(v40, L"Small Business", v10);
+      v8 = &v40[v10];
       v1 = 758 - v10;
     }
   }
@@ -117,7 +115,7 @@ LABEL_10:
     if ( v1 > v12 )
     {
       memmove(v8, L"Enterprise", v12);
-      v8 = (__int64 *)((char *)v8 + v12);
+      v8 += v12;
       v1 -= v12;
     }
   }
@@ -131,7 +129,7 @@ LABEL_10:
     if ( v1 > v14 )
     {
       memmove(v8, L"BackOffice", v14);
-      v8 = (__int64 *)((char *)v8 + v14);
+      v8 += v14;
       v1 -= v14;
     }
   }
@@ -145,7 +143,7 @@ LABEL_10:
     if ( v1 > v16 )
     {
       memmove(v8, L"CommunicationServer", v16);
-      v8 = (__int64 *)((char *)v8 + v16);
+      v8 += v16;
       v1 -= v16;
     }
   }
@@ -159,7 +157,7 @@ LABEL_10:
     if ( v1 > v18 )
     {
       memmove(v8, L"Terminal Server", v18);
-      v8 = (__int64 *)((char *)v8 + v18);
+      v8 += v18;
       v1 -= v18;
     }
   }
@@ -173,7 +171,7 @@ LABEL_10:
     if ( v1 > v20 )
     {
       memmove(v8, L"Small Business(Restricted)", v20);
-      v8 = (__int64 *)((char *)v8 + v20);
+      v8 += v20;
       v1 -= v20;
     }
   }
@@ -187,7 +185,7 @@ LABEL_10:
     if ( v1 > v22 )
     {
       memmove(v8, L"EmbeddedNT", v22);
-      v8 = (__int64 *)((char *)v8 + v22);
+      v8 += v22;
       v1 -= v22;
     }
   }
@@ -201,7 +199,7 @@ LABEL_10:
     if ( v1 > v24 )
     {
       memmove(v8, L"DataCenter", v24);
-      v8 = (__int64 *)((char *)v8 + v24);
+      v8 += v24;
       v1 -= v24;
     }
   }
@@ -215,7 +213,7 @@ LABEL_10:
     if ( v1 > v26 )
     {
       memmove(v8, L"Personal", v26);
-      v8 = (__int64 *)((char *)v8 + v26);
+      v8 += v26;
       v1 -= v26;
     }
   }
@@ -229,7 +227,7 @@ LABEL_10:
     if ( v1 > v28 )
     {
       memmove(v8, L"Blade", v28);
-      v8 = (__int64 *)((char *)v8 + v28);
+      v8 += v28;
       v1 -= v28;
     }
   }
@@ -243,7 +241,7 @@ LABEL_10:
     if ( v1 > v30 )
     {
       memmove(v8, L"Embedded(Restricted)", v30);
-      v8 = (__int64 *)((char *)v8 + v30);
+      v8 += v30;
       v1 -= v30;
     }
   }
@@ -257,7 +255,7 @@ LABEL_10:
     if ( v1 > v32 )
     {
       memmove(v8, L"Security Appliance", v32);
-      v8 = (__int64 *)((char *)v8 + v32);
+      v8 += v32;
       v1 -= v32;
     }
   }
@@ -271,7 +269,7 @@ LABEL_10:
     if ( v1 > v34 )
     {
       memmove(v8, L"Storage Server", v34);
-      v8 = (__int64 *)((char *)v8 + v34);
+      v8 += v34;
       v1 -= v34;
     }
   }
@@ -285,7 +283,7 @@ LABEL_10:
     if ( v1 > v36 )
     {
       memmove(v8, L"Compute Server", v36);
-      v8 = (__int64 *)((char *)v8 + v36);
+      v8 += v36;
       v1 -= v36;
     }
   }
@@ -301,9 +299,8 @@ LABEL_10:
       v1 -= v37;
     }
   }
-  LODWORD(v38) = 760 - v1;
-  result = NtSetValueKey((__int64)v0, &DestinationString_8, 0, 7u, v41, v38);
-  if ( (int)result < 0 )
+  result = NtSetValueKey(v0, &DestinationString_8, 0, 7u, v40, 760 - v1);
+  if ( result < 0 )
     KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)result, 2uLL, 0LL);
   return result;
 }

@@ -47,17 +47,17 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtWaitForWorkViaWorkerFactory(
-        unsigned int *Handle,
-        volatile void *Address,
-        unsigned int a3,
-        _DWORD *a4,
-        unsigned __int64 a5)
+NTSTATUS __cdecl NtWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
-  unsigned int v5; // r15d
+  ULONG v5; // r15d
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v8; // rcx
-  NTSTATUS v9; // r14d
+  int v9; // r14d
   PVOID v10; // rbx
   unsigned __int64 *v11; // rbx
   unsigned __int8 CurrentIrql; // r10
@@ -73,9 +73,9 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   _DWORD *v22; // r8
   int v23; // eax
   bool v24; // zf
-  _DWORD *v25; // rsi
-  _DWORD *v26; // rcx
-  _DWORD *v27; // rdi
+  ULONG *v25; // rsi
+  ULONG *v26; // rcx
+  PULONG v27; // rdi
   _KSPIN_LOCK_QUEUE *volatile Next; // rax
   struct _KPRCB *v29; // rcx
   _DWORD *v30; // rdx
@@ -86,7 +86,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   _DWORD *v35; // r9
   int v36; // eax
   HANDLE v37; // r15
-  int v38; // edi
+  ULONG v38; // edi
   HANDLE v39; // rcx
   struct _KTHREAD *v40; // rax
   unsigned int v41; // edi
@@ -177,27 +177,27 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   _DWORD *v127; // r8
   int v128; // eax
   int HandleInformation; // [rsp+28h] [rbp-200h]
-  int v130; // [rsp+38h] [rbp-1F0h]
+  int Timeout; // [rsp+38h] [rbp-1F0h]
   unsigned __int8 v131; // [rsp+40h] [rbp-1E8h]
   struct _KPRCB *v132; // [rsp+48h] [rbp-1E0h]
-  int v133; // [rsp+50h] [rbp-1D8h]
+  ULONG v133; // [rsp+50h] [rbp-1D8h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-1D0h] BYREF
   _QWORD *v135; // [rsp+70h] [rbp-1B8h]
-  int v136; // [rsp+78h] [rbp-1B0h] BYREF
-  _DWORD *v137; // [rsp+80h] [rbp-1A8h]
+  ULONG v136; // [rsp+78h] [rbp-1B0h] BYREF
+  PULONG v137; // [rsp+80h] [rbp-1A8h]
   PVOID Object; // [rsp+88h] [rbp-1A0h] BYREF
-  _DWORD *v139; // [rsp+90h] [rbp-198h]
+  PFILE_IO_COMPLETION_INFORMATION v139; // [rsp+90h] [rbp-198h]
   PVOID v140; // [rsp+98h] [rbp-190h] BYREF
-  unsigned int *v141; // [rsp+A0h] [rbp-188h]
-  _DWORD *v142; // [rsp+A8h] [rbp-180h]
+  int *v141; // [rsp+A0h] [rbp-188h]
+  PULONG v142; // [rsp+A8h] [rbp-180h]
   ULONG_PTR BugCheckParameter2; // [rsp+B0h] [rbp-178h]
   __int128 v144; // [rsp+B8h] [rbp-170h] BYREF
-  HANDLE Handlea[2]; // [rsp+C8h] [rbp-160h]
-  __int64 v146; // [rsp+D8h] [rbp-150h]
+  HANDLE Handle[2]; // [rsp+C8h] [rbp-160h]
+  ULONG Flags[2]; // [rsp+D8h] [rbp-150h]
   int v147; // [rsp+E0h] [rbp-148h] BYREF
   int v148; // [rsp+E4h] [rbp-144h] BYREF
   int v149; // [rsp+E8h] [rbp-140h] BYREF
-  volatile void *v150; // [rsp+F0h] [rbp-138h]
+  PFILE_IO_COMPLETION_INFORMATION v150; // [rsp+F0h] [rbp-138h]
   PVOID v151; // [rsp+F8h] [rbp-130h]
   PADAPTER_OBJECT DmaAdapter[2]; // [rsp+100h] [rbp-128h] BYREF
   __int128 v153; // [rsp+110h] [rbp-118h]
@@ -209,16 +209,16 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   _OWORD v159[8]; // [rsp+160h] [rbp-C8h] BYREF
   void *retaddr; // [rsp+228h] [rbp+0h]
 
-  v142 = a4;
-  v5 = a3;
-  v133 = a3;
-  v150 = Address;
-  v141 = Handle;
-  v139 = Address;
-  v137 = a4;
+  v142 = PacketsReturned;
+  v5 = Count;
+  v133 = Count;
+  v150 = MiniPackets;
+  v141 = (int *)WorkerFactoryHandle;
+  v139 = MiniPackets;
+  v137 = PacketsReturned;
   v144 = 0LL;
-  *(_OWORD *)Handlea = 0LL;
-  v146 = 0LL;
+  *(_OWORD *)Handle = 0LL;
+  *(_QWORD *)Flags = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   memset(v159, 0, sizeof(v159));
   v136 = 0;
@@ -227,32 +227,32 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   PreviousMode = CurrentThread->PreviousMode;
   v131 = PreviousMode;
   BugCheckParameter2 = (ULONG_PTR)v159;
-  if ( a3 - 1 > 0x7FFFFFE )
+  if ( Count - 1 > 0x7FFFFFE )
   {
     v9 = -1073741811;
     goto LABEL_249;
   }
   if ( PreviousMode )
   {
-    ProbeForWrite(Address, 32LL * a3, 8u);
+    ProbeForWrite(MiniPackets, 32LL * Count, 8u);
     v8 = (__int64)v142;
     if ( (unsigned __int64)v142 >= 0x7FFFFFFF0000LL )
       v8 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v8 = *(_DWORD *)v8;
-    if ( (a5 & 7) != 0 )
+    if ( ((unsigned __int8)DeferredWork & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a5 + 24 > 0x7FFFFFFF0000LL || a5 + 24 < a5 )
+    if ( (unsigned __int64)&DeferredWork[1] > 0x7FFFFFFF0000LL || &DeferredWork[1] < DeferredWork )
       MEMORY[0x7FFFFFFF0000] = 0;
-    *(_OWORD *)Handlea = *(_OWORD *)a5;
-    v146 = *(_QWORD *)(a5 + 16);
+    *(_OWORD *)Handle = *(_OWORD *)&DeferredWork->AlpcSendMessage;
+    *(_QWORD *)Flags = *(_QWORD *)&DeferredWork->AlpcSendMessageFlags;
   }
   else
   {
-    *(_OWORD *)Handlea = *(_OWORD *)a5;
-    v146 = *(_QWORD *)(a5 + 16);
+    *(_OWORD *)Handle = *(_OWORD *)&DeferredWork->AlpcSendMessage;
+    *(_QWORD *)Flags = *(_QWORD *)&DeferredWork->AlpcSendMessageFlags;
   }
   Object = 0LL;
-  v9 = ObReferenceObjectByHandle(Handle, 2u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  v9 = ObReferenceObjectByHandle(WorkerFactoryHandle, 2u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   v10 = Object;
   v135 = Object;
   v151 = Object;
@@ -326,8 +326,8 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
     v9 = 128;
     goto LABEL_249;
   }
-  v25 = Object;
-  v141 = (unsigned int *)((char *)Object + 312);
+  v25 = (ULONG *)Object;
+  v141 = (int *)((char *)Object + 312);
   if ( (*((_DWORD *)Object + 78) & 0x200) != 0 )
   {
     ExpLeaveWorkerFactoryAwayMode((char *)Object);
@@ -336,7 +336,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   }
   ++*(_DWORD *)(v18 + 28);
   v26 = v25 + 71;
-  v139 = v25 + 71;
+  v139 = (PFILE_IO_COMPLETION_INFORMATION)(v25 + 71);
   v27 = v25 + 72;
   v137 = v25 + 72;
   while ( *v26 >= *v27 && !*(_BYTE *)(v17[2] + 33LL) )
@@ -393,11 +393,11 @@ LABEL_47:
       }
     }
     __writecr8(v32);
-    if ( (v146 & 0x100000000LL) != 0 )
+    if ( (Flags[1] & 1) != 0 )
     {
-      v37 = Handlea[0];
-      v38 = v146;
-      v39 = Handlea[1];
+      v37 = Handle[0];
+      v38 = Flags[0];
+      v39 = Handle[1];
       *(_OWORD *)DmaAdapter = 0LL;
       v153 = 0LL;
       v154 = 0LL;
@@ -517,7 +517,7 @@ LABEL_184:
           }
         }
         __writecr8((unsigned __int8)v47);
-        RtlRaiseStatus(3221225543LL);
+        RtlRaiseStatus(-1073741753);
       }
       *(_DWORD *)(v46 + 4) = v51;
       if ( v50 || (v52 = *(_QWORD **)(v46 + 8), v52 == (_QWORD *)(v46 + 8)) )
@@ -783,7 +783,7 @@ LABEL_113:
     }
 LABEL_189:
     v96 = v135;
-    LOBYTE(v130) = 1;
+    LOBYTE(Timeout) = 1;
     LOBYTE(HandleInformation) = v131;
     v9 = IoRemoveIoCompletion(
            *(_QWORD *)(v135[2] + 8LL),
@@ -793,11 +793,11 @@ LABEL_189:
            &v136,
            HandleInformation,
            0LL,
-           v130);
-    if ( (v146 & 0x100000000LL) != 0 )
+           Timeout);
+    if ( (Flags[1] & 1) != 0 )
     {
       AlpciDestroyDeferredMessageContext(&v144);
-      HIDWORD(v146) &= ~1u;
+      Flags[1] &= ~1u;
     }
     v97 = (unsigned __int64 *)v96[2];
     LockHandle.LockQueue.Lock = v97;
@@ -830,11 +830,11 @@ LABEL_189:
     {
       KxWaitForLockOwnerShip(&LockHandle);
     }
-    v25 = Object;
+    v25 = (ULONG *)Object;
     if ( v9 != 258 )
       goto LABEL_210;
     v103 = ExpWorkerFactoryWantsToCreate(Object, 1LL);
-    v26 = v139;
+    v26 = (ULONG *)v139;
     if ( !v103
       && *v27 > v25[70]
       && *(struct _KTHREAD **)&CurrentThread[1].SystemCallNumber == (struct _KTHREAD *)&CurrentThread[1].SystemCallNumber )
@@ -851,16 +851,16 @@ LABEL_210:
     --*v27;
     --v25[73];
     ExpRemoveCurrentThreadFromThreadHistory(v25);
-    v104 = (int *)v141;
+    v104 = v141;
   }
   else
   {
-    v104 = (int *)v141;
+    v104 = v141;
     if ( (*v141 & 7) != 4 )
     {
       v105 = KeGetCurrentThread();
       v106 = 0;
-      v25 = Object;
+      v25 = (ULONG *)Object;
       v107 = (char *)Object + 72;
       v108 = (struct _KTHREAD **)((char *)Object + 72);
       while ( *v108 != v105 )
@@ -882,7 +882,7 @@ LABEL_210:
               ObfDereferenceObjectWithTag(v111[9], 0x746C6644u);
               v111[9] = v105;
               v112 = ((_BYTE)v110 + 1) & 3;
-              v104 = (int *)v141;
+              v104 = v141;
               *v141 = *v141 & 0xFFFFFFF8 | v112;
               goto LABEL_221;
             }
@@ -895,7 +895,7 @@ LABEL_210:
   }
 LABEL_221:
   v113 = v135[2];
-  if ( *v137 >= *v139 || *(_DWORD *)(v113 + 28) )
+  if ( *v137 >= LODWORD(v139->KeyContext) || *(_DWORD *)(v113 + 28) )
   {
 LABEL_227:
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
@@ -977,7 +977,7 @@ LABEL_249:
     ExFreeHeapPool(BugCheckParameter2);
   if ( v151 )
     ObfDereferenceObjectWithTag(v151, 0x746C6644u);
-  if ( (v146 & 0x100000000LL) != 0 )
-    NtAlpcSendWaitReceivePort(Handlea[1], 0LL, 0LL, 0LL, 0LL);
-  return (unsigned int)v9;
+  if ( (Flags[1] & 1) != 0 )
+    NtAlpcSendWaitReceivePort(Handle[1], Flags[0], (PPORT_MESSAGE)Handle[0], 0LL, 0LL, 0LL, 0LL, 0LL);
+  return v9;
 }

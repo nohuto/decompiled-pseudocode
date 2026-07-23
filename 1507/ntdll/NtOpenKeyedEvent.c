@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 NtOpenKeyedEvent()
+NTSTATUS __cdecl NtOpenKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 271LL;
+  result = 271;
   __asm { syscall; Low latency system call }
   return result;
 }

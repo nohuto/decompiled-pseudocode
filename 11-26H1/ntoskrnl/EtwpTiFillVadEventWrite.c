@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTiFillVadEventWrite @ 0x140492078
+ * XREFs of EtwpTiFillVadEventWrite @ 0x14048BBC8
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x140A82CA0 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x140A88B10 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpTiFillZeroVad @ 0x140492140 (EtwpTiFillZeroVad.c)
- *     EtwpTiFillVad @ 0x1404921A8 (EtwpTiFillVad.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpTiFillZeroVad @ 0x14048BC90 (EtwpTiFillZeroVad.c)
+ *     EtwpTiFillVad @ 0x14048BCF8 (EtwpTiFillVad.c)
  */
 
 NTSTATUS __fastcall EtwpTiFillVadEventWrite(
@@ -31,5 +31,5 @@ NTSTATUS __fastcall EtwpTiFillVadEventWrite(
       v13 = EtwpTiFillZeroVad(&UserData[i], UserDataCount);
     i = v13 + v14;
   }
-  return EtwWriteEx(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, EventDescriptor, 0LL, 0, 0LL, 0LL, i, UserData);
+  return EtwWriteEx(EtwThreatIntProvRegHandle, EventDescriptor, 0LL, 0, 0LL, 0LL, i, UserData);
 }

@@ -9,33 +9,33 @@
  *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrQueryModuleServiceTags(unsigned __int64 a1, __int64 a2, unsigned int *a3)
+NTSTATUS __cdecl LdrQueryModuleServiceTags(PVOID DllHandle, PULONG ServiceTagBuffer, PULONG BufferSize)
 {
-  __int64 result; // rax
-  __int64 v6; // rsi
+  NTSTATUS result; // eax
+  char *v6; // rsi
   __int64 v7; // rbx
-  unsigned int v8; // edi
+  ULONG v8; // edi
   __int64 *v9; // r8
-  __int64 v10[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID BaseAddress[5]; // [rsp+20h] [rbp-28h] BYREF
   int v11; // [rsp+68h] [rbp+20h] BYREF
 
-  result = sub_18001869C(a1, v10, &v11);
-  if ( (int)result >= 0 )
+  result = sub_18001869C((unsigned __int64)DllHandle, (__int64 *)BaseAddress, &v11);
+  if ( result >= 0 )
   {
-    RtlAcquireSRWLockExclusive(&qword_1801660B0);
-    v6 = v10[0];
+    RtlAcquireSRWLockExclusive(&stru_1801660B0);
+    v6 = (char *)BaseAddress[0];
     v7 = 0LL;
-    v8 = *a3;
-    v9 = *(__int64 **)(*(_QWORD *)(v10[0] + 152) + 16LL);
+    v8 = *BufferSize;
+    v9 = *(__int64 **)(*((_QWORD *)BaseAddress[0] + 19) + 16LL);
     while ( v9 )
     {
       if ( (unsigned int)v7 < v8 )
-        *(_DWORD *)(a2 + 4 * v7) = *((_DWORD *)v9 + 2);
+        ServiceTagBuffer[v7] = *((_DWORD *)v9 + 2);
       v9 = (__int64 *)*v9;
       v7 = (unsigned int)(v7 + 1);
     }
-    RtlReleaseSRWLockExclusive(&qword_1801660B0);
-    *a3 = v7;
+    RtlReleaseSRWLockExclusive(&stru_1801660B0);
+    *BufferSize = v7;
     sub_18001B678(v6);
     return v8 < (unsigned int)v7 ? 0xC0000023 : 0;
   }

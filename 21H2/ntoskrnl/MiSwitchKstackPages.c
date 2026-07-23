@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSwitchKstackPages @ 0x14053666C
+ * XREFs of MiSwitchKstackPages @ 0x1405368AC
  * Callers:
- *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
- *     MiStackTheftIsr @ 0x140536460 (MiStackTheftIsr.c)
+ *     MiSwapStackPage @ 0x14024483C (MiSwapStackPage.c)
+ *     MiStackTheftIsr @ 0x1405366A0 (MiStackTheftIsr.c)
  * Callees:
- *     MiCopyPfnEntryEx @ 0x14026DA30 (MiCopyPfnEntryEx.c)
+ *     MiCopyPfnEntryEx @ 0x14025B9D0 (MiCopyPfnEntryEx.c)
  */
 
 unsigned __int64 __fastcall MiSwitchKstackPages(__int64 a1, __int64 a2)

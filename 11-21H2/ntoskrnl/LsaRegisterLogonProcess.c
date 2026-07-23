@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_1403614E0 @ 0x1403614E0 (sub_1403614E0.c)
+ *     sub_1403614FC @ 0x1403614FC (sub_1403614FC.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 NTSTATUS __stdcall LsaRegisterLogonProcess(
@@ -13,18 +13,13 @@ NTSTATUS __stdcall LsaRegisterLogonProcess(
         PHANDLE LsaHandle,
         PLSA_OPERATIONAL_MODE SecurityMode)
 {
-  NTSTATUS v6; // ebx
-  unsigned __int64 ExtensionTable; // rax
+  NTSTATUS v5; // ebx
 
-  v6 = -1073741822;
-  ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
-  if ( ExtensionTable )
+  v5 = -1073741822;
+  if ( sub_1403614FC((struct _EX_RUNDOWN_REF *)qword_140C1B888) )
   {
-    v6 = (*(__int64 (__fastcall **)(PLSA_STRING, PHANDLE, PLSA_OPERATIONAL_MODE))(ExtensionTable + 40))(
-           LogonProcessName,
-           LsaHandle,
-           SecurityMode);
-    ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
+    v5 = sub_14042A5E0(LogonProcessName, LsaHandle);
+    sub_1403614E0((struct _EX_RUNDOWN_REF *)qword_140C1B888);
   }
-  return v6;
+  return v5;
 }

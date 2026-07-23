@@ -1,46 +1,46 @@
 /*
- * XREFs of CmpSecurityMethod @ 0x140852E10
+ * XREFs of CmpSecurityMethod @ 0x14084F0D0
  * Callers:
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140851390 (ObpGrantAccess.c)
- *     ObpGetObjectSecurity @ 0x140853850 (ObpGetObjectSecurity.c)
- *     NtQuerySecurityObject @ 0x140879460 (NtQuerySecurityObject.c)
- *     ObCheckObjectAccess @ 0x14087A740 (ObCheckObjectAccess.c)
- *     SepAppendAceToTokenObjectAcl @ 0x14090F590 (SepAppendAceToTokenObjectAcl.c)
- *     ObGetObjectSecurity @ 0x1409B26F0 (ObGetObjectSecurity.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14084D650 (ObpGrantAccess.c)
+ *     ObpGetObjectSecurity @ 0x14084FB10 (ObpGetObjectSecurity.c)
+ *     NtQuerySecurityObject @ 0x14087D790 (NtQuerySecurityObject.c)
+ *     ObCheckObjectAccess @ 0x14087E5F0 (ObCheckObjectAccess.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1408E6CE0 (SepAppendAceToTokenObjectAcl.c)
+ *     ObGetObjectSecurity @ 0x1409A9A80 (ObGetObjectSecurity.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpTransUowIsEqual @ 0x1406FB46C (CmpTransUowIsEqual.c)
- *     CmpAssignKeySecurity @ 0x1407DC9C0 (CmpAssignKeySecurity.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
- *     EtwpTraceRegistry @ 0x140870F40 (EtwpTraceRegistry.c)
- *     SeQuerySecurityDescriptorInfo @ 0x140878A10 (SeQuerySecurityDescriptorInfo.c)
- *     CmEqualTrans @ 0x140879280 (CmEqualTrans.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140879368 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpSetKeySecurity @ 0x14099FAEC (CmpSetKeySecurity.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140BB97D0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpLockKcbShared @ 0x140BB9A1C (CmpLockKcbShared.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpTransUowIsEqual @ 0x1406F90AC (CmpTransUowIsEqual.c)
+ *     CmpAssignKeySecurity @ 0x1407DCF10 (CmpAssignKeySecurity.c)
+ *     CmpSetKeySecurity @ 0x140830A20 (CmpSetKeySecurity.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
+ *     EtwpTraceRegistry @ 0x140875270 (EtwpTraceRegistry.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x14087CD40 (SeQuerySecurityDescriptorInfo.c)
+ *     CmEqualTrans @ 0x14087D5B0 (CmEqualTrans.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14087D698 (CmpTransSearchAddTransFromKeyBody.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140BBB7D0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpLockKcbShared @ 0x140BBBA1C (CmpLockKcbShared.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpSecurityMethod(
         ULONG_PTR *a1,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         ULONG *a5,
         __int64 a6,
@@ -56,70 +56,71 @@ __int64 __fastcall CmpSecurityMethod(
   char v15; // r12
   struct _KTHREAD *CurrentThread; // rax
   char v17; // r15
-  char v18; // bl
-  ULONG_PTR v19; // rdi
-  struct _PRIVILEGE_SET *v20; // r8
-  int v21; // ebx
-  __int64 v22; // r14
-  __int16 v23; // bx
-  char *v24; // rdi
-  __int64 v25; // rsi
-  char *v26; // rcx
-  int v27; // esi
-  __int64 v28; // r15
-  unsigned __int16 v29; // ax
-  __int64 v30; // r14
-  unsigned __int16 v31; // di
-  __int64 v32; // rbx
-  __int64 v33; // r8
-  __int64 v34; // rbx
-  __int16 v35; // bx
-  ULONG_PTR *v36; // rdi
-  ULONG_PTR *v37; // rcx
-  struct _PRIVILEGE_SET *v38; // rcx
-  unsigned int v39; // ecx
-  __int64 v40; // rcx
-  unsigned int v42; // ecx
-  unsigned int v43; // eax
-  int v44; // eax
-  __int64 v45; // rax
-  __int64 v46; // rcx
-  __int64 v47; // r15
-  __int64 v48; // rdi
-  __int64 v49; // rsi
-  __int64 v50; // rcx
-  __int64 v51; // rdx
+  __int64 v18; // rcx
+  char v19; // bl
+  ULONG_PTR v20; // rdi
+  struct _PRIVILEGE_SET *v21; // r8
+  int v22; // ebx
+  __int64 v23; // r14
+  __int16 v24; // bx
+  char *v25; // rdi
+  __int64 v26; // rsi
+  char *v27; // rcx
+  int v28; // esi
+  __int64 v29; // r15
+  unsigned __int16 v30; // ax
+  __int64 v31; // r14
+  unsigned __int16 v32; // di
+  __int64 v33; // rbx
+  __int64 v34; // r8
+  __int64 v35; // rbx
+  __int16 v36; // bx
+  ULONG_PTR *v37; // rdi
+  ULONG_PTR *v38; // rcx
+  struct _PRIVILEGE_SET *v39; // rcx
+  unsigned int v40; // ecx
+  __int64 v41; // rcx
+  unsigned int v43; // ecx
+  unsigned int v44; // eax
+  int v45; // eax
+  __int64 v46; // rax
+  __int64 v47; // rcx
+  __int64 v48; // r15
+  __int64 v49; // rdi
+  __int64 v50; // rsi
+  __int64 v51; // rcx
+  __int64 v52; // rdx
   bool IsEqual; // al
-  __int64 v53; // rax
+  __int64 v54; // rax
   unsigned int BugCheckParameter4; // [rsp+20h] [rbp-E0h]
-  __int64 v55; // [rsp+28h] [rbp-D8h]
-  char v56; // [rsp+41h] [rbp-BFh]
-  __int16 v57; // [rsp+42h] [rbp-BEh]
+  __int64 v56; // [rsp+28h] [rbp-D8h]
+  char v57; // [rsp+41h] [rbp-BFh]
+  __int16 v58; // [rsp+42h] [rbp-BEh]
   PPRIVILEGE_SET Privileges; // [rsp+48h] [rbp-B8h]
-  __int64 v60; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v61; // [rsp+58h] [rbp-A8h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+60h] [rbp-A0h]
-  _QWORD v62[2]; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v63; // [rsp+78h] [rbp-88h] BYREF
-  __int128 v64; // [rsp+88h] [rbp-78h]
-  __int64 v65; // [rsp+98h] [rbp-68h]
+  _QWORD v63[2]; // [rsp+68h] [rbp-98h] BYREF
+  __int128 v64; // [rsp+78h] [rbp-88h] BYREF
+  __int128 v65; // [rsp+88h] [rbp-78h]
+  __int64 v66; // [rsp+98h] [rbp-68h]
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+A0h] [rbp-60h] BYREF
-  ULONG_PTR *v67; // [rsp+A8h] [rbp-58h] BYREF
-  int v68; // [rsp+B0h] [rbp-50h]
-  int v69; // [rsp+B4h] [rbp-4Ch]
-  __int128 *v70; // [rsp+B8h] [rbp-48h]
-  int v71; // [rsp+C0h] [rbp-40h]
-  __int128 v72; // [rsp+C4h] [rbp-3Ch]
-  __int64 v73; // [rsp+D4h] [rbp-2Ch]
-  int v74; // [rsp+DCh] [rbp-24h]
+  ULONG_PTR *v68; // [rsp+A8h] [rbp-58h] BYREF
+  int v69; // [rsp+B0h] [rbp-50h]
+  int v70; // [rsp+B4h] [rbp-4Ch]
+  __int128 *v71; // [rsp+B8h] [rbp-48h]
+  int v72; // [rsp+C0h] [rbp-40h]
+  __int128 v73; // [rsp+C4h] [rbp-3Ch]
+  __int64 v74; // [rsp+D4h] [rbp-2Ch]
+  int v75; // [rsp+DCh] [rbp-24h]
   PULONG Length; // [rsp+E0h] [rbp-20h]
   PSECURITY_INFORMATION SecurityInformation; // [rsp+E8h] [rbp-18h]
-  __int128 v77; // [rsp+F0h] [rbp-10h] BYREF
-  __int128 v78; // [rsp+100h] [rbp+0h]
-  __int128 v79; // [rsp+110h] [rbp+10h]
-  __int64 v80; // [rsp+120h] [rbp+20h]
-  __int128 v81; // [rsp+128h] [rbp+28h] BYREF
-  __int64 v82; // [rsp+138h] [rbp+38h]
-  _OWORD v83[2]; // [rsp+140h] [rbp+40h] BYREF
+  __int128 v78; // [rsp+F0h] [rbp-10h] BYREF
+  __int128 v79; // [rsp+100h] [rbp+0h]
+  __int128 v80; // [rsp+110h] [rbp+10h]
+  __int64 v81; // [rsp+120h] [rbp+20h]
+  __int128 v82; // [rsp+128h] [rbp+28h] BYREF
+  __int64 v83; // [rsp+138h] [rbp+38h]
+  _OWORD v84[2]; // [rsp+140h] [rbp+40h] BYREF
 
   v9 = a2;
   v10 = a1;
@@ -127,269 +128,269 @@ __int64 __fastcall CmpSecurityMethod(
   SecurityInformation = a3;
   ObjectsSecurityDescriptor = a1;
   Length = a5;
-  v81 = 0LL;
   v82 = 0LL;
-  memset(v83, 0, sizeof(v83));
-  v65 = 0LL;
+  v83 = 0LL;
+  memset(v84, 0, sizeof(v84));
+  v66 = 0LL;
   if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v83, 0x20000u);
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v81);
-  v62[1] = v62;
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v84, 0x20000u);
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v82);
+  v63[1] = v63;
   v15 = 0;
-  v62[0] = v62;
-  v77 = 0LL;
-  v80 = 0LL;
+  v63[0] = v63;
   v78 = 0LL;
+  v81 = 0LL;
   v79 = 0LL;
+  v80 = 0LL;
   if ( CmpTraceRoutine && v10 )
-    v65 = v10[1];
+    v66 = v10[1];
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() )
   {
     if ( (_DWORD)v9 == 1 )
     {
-      v42 = 36;
-      *(_QWORD *)&v78 = SecurityDescriptor;
-      v43 = 37;
-      *((_QWORD *)&v78 + 1) = a5;
+      v43 = 36;
+      *(_QWORD *)&v79 = SecurityDescriptor;
+      v44 = 37;
+      *((_QWORD *)&v79 + 1) = a5;
     }
     else
     {
       if ( (_DWORD)v9 )
         goto LABEL_63;
-      v42 = 38;
-      *(_QWORD *)&v78 = SecurityDescriptor;
-      v43 = 39;
+      v43 = 38;
+      *(_QWORD *)&v79 = SecurityDescriptor;
+      v44 = 39;
     }
-    *((_QWORD *)&v77 + 1) = a3;
-    *(_QWORD *)&v77 = v10;
-    v44 = CmpCallCallBacksEx(v42, (__int64)&v77, 0LL, 1, v43, (__int64)v10, (__int64)v62);
-    if ( v44 < 0 )
+    *((_QWORD *)&v78 + 1) = a3;
+    *(_QWORD *)&v78 = v10;
+    v45 = CmpCallCallBacksEx(v43, (__int64)&v78, 0LL, 1, v44, (__int64)v10, (__int64)v63);
+    if ( v45 < 0 )
     {
-      v27 = 0;
-      if ( v44 != -1073740541 )
-        v27 = v44;
+      v28 = 0;
+      if ( v45 != -1073740541 )
+        v28 = v45;
       goto LABEL_56;
     }
     v15 = 1;
   }
   if ( (_DWORD)v9 == 1 )
   {
-    v63 = 0LL;
-    WORD1(v63) = -1;
-    v60 = 0LL;
-    v17 = 0;
     v64 = 0LL;
-    v56 = CmpAcquireShutdownRundown(v12, v11, v13, v14);
-    v18 = v56;
-    if ( !v56 )
+    WORD1(v64) = -1;
+    v61 = 0LL;
+    v17 = 0;
+    v65 = 0LL;
+    v57 = CmpAcquireShutdownRundown(v12, v11, v13, v14);
+    v19 = v57;
+    if ( !v57 )
     {
-      v38 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v64 + 1);
-      v27 = -1073741431;
+      v39 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v65 + 1);
+      v28 = -1073741431;
 LABEL_42:
-      if ( v38 )
-        CmSiFreeMemory(v38);
+      if ( v39 )
+        CmSiFreeMemory(v39);
       if ( v17 )
-        CmpUnlockRegistry(v38);
-      if ( v18 )
-        CmpReleaseShutdownRundown(v38);
-      if ( v27 < 0 )
+        CmpUnlockRegistry(v39);
+      if ( v19 )
+        CmpReleaseShutdownRundown(v39);
+      if ( v28 < 0 )
         goto LABEL_49;
 LABEL_86:
-      v27 = 0;
+      v28 = 0;
       goto LABEL_49;
     }
-    CmpLockRegistry();
-    v19 = v10[1];
+    CmpLockRegistry(v18);
+    v20 = v10[1];
     v17 = 1;
-    v20 = 0LL;
+    v21 = 0LL;
     Privileges = 0LL;
-    v21 = *(__int16 *)(v19 + 66);
-    if ( v21 >= 2 )
+    v22 = *(__int16 *)(v20 + 66);
+    if ( v22 >= 2 )
     {
-      Privileges = (PPRIVILEGE_SET)CmpAllocatePool(0x100uLL);
-      v20 = Privileges;
+      Privileges = (PPRIVILEGE_SET)CmpAllocatePool(0x100uLL, 8LL * (unsigned int)(v22 - 1), 0x35364D43u);
+      v21 = Privileges;
       if ( !Privileges )
       {
-        v38 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v64 + 1);
-        v27 = -1073741670;
+        v39 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v65 + 1);
+        v28 = -1073741670;
 LABEL_41:
-        v18 = v56;
+        v19 = v57;
         goto LABEL_42;
       }
     }
-    v22 = *(__int16 *)(v19 + 66);
-    LOWORD(v63) = v21;
-    *((_QWORD *)&v64 + 1) = v20;
-    v57 = v22;
-    WORD1(v63) = v22;
-    if ( (_WORD)v22 )
+    v23 = *(__int16 *)(v20 + 66);
+    LOWORD(v64) = v22;
+    *((_QWORD *)&v65 + 1) = v21;
+    v58 = v23;
+    WORD1(v64) = v23;
+    if ( (_WORD)v23 )
     {
-      v45 = *(_QWORD *)(v19 + 192);
-      if ( !v45 )
+      v46 = *(_QWORD *)(v20 + 192);
+      if ( !v46 )
         goto LABEL_11;
       do
       {
-        v46 = *(_QWORD *)(v45 + 16);
-        if ( (__int16)v22 >= 2 )
+        v47 = *(_QWORD *)(v46 + 16);
+        if ( (__int16)v23 >= 2 )
         {
-          *((_QWORD *)v20 + (__int16)v22 - 2) = v46;
+          *((_QWORD *)v21 + (__int16)v23 - 2) = v47;
         }
         else
         {
-          *((_QWORD *)&v63 + (__int16)v22 + 1) = v46;
-          v20 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v64 + 1);
+          *((_QWORD *)&v64 + (__int16)v23 + 1) = v47;
+          v21 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v65 + 1);
         }
-        v45 = *(_QWORD *)(v45 + 24);
-        LOWORD(v22) = v22 - 1;
+        v46 = *(_QWORD *)(v46 + 24);
+        LOWORD(v23) = v23 - 1;
       }
-      while ( v45 );
+      while ( v46 );
     }
     else
     {
-      *((_QWORD *)&v63 + v22 + 1) = v19;
-      v20 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v64 + 1);
+      *((_QWORD *)&v64 + v23 + 1) = v20;
+      v21 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v65 + 1);
     }
-    LOWORD(v22) = WORD1(v63);
-    v57 = WORD1(v63);
-    Privileges = v20;
+    LOWORD(v23) = WORD1(v64);
+    v58 = WORD1(v64);
+    Privileges = v21;
 LABEL_11:
-    v23 = 0;
-    if ( (v22 & 0x8000u) == 0LL )
+    v24 = 0;
+    if ( (v23 & 0x8000u) == 0LL )
     {
-      v24 = (char *)&v63 + 8;
-      v25 = (char *)v20 - ((char *)&v63 + 8) - 16;
+      v25 = (char *)&v64 + 8;
+      v26 = (char *)v21 - ((char *)&v64 + 8) - 16;
       do
       {
-        if ( v23 >= 2 )
-          v26 = &v24[v25];
+        if ( v24 >= 2 )
+          v27 = &v25[v26];
         else
-          v26 = v24;
-        CmpLockKcbShared(*(_QWORD *)v26);
-        ++v23;
-        v24 += 8;
+          v27 = v25;
+        CmpLockKcbShared(*(_QWORD *)v27);
+        ++v24;
+        v25 += 8;
       }
-      while ( v23 <= (__int16)v22 );
+      while ( v24 <= (__int16)v23 );
     }
-    v27 = CmpPerformKeyBodyDeletionCheck(v10, 0LL);
-    if ( v27 >= 0 )
+    v28 = CmpPerformKeyBodyDeletionCheck(v10, 0LL);
+    if ( v28 >= 0 )
     {
       if ( !v10[7] && !v10[8]
-        || (v27 = CmpTransSearchAddTransFromKeyBody(v10, &v60), v27 >= 0)
-        && (v27 = CmpPerformKeyBodyDeletionCheck(v10, v60), v27 >= 0) )
+        || (v28 = CmpTransSearchAddTransFromKeyBody(v10, &v61), v28 >= 0)
+        && (v28 = CmpPerformKeyBodyDeletionCheck(v10, v61), v28 >= 0) )
       {
-        v28 = 0LL;
-        v29 = v22;
-        if ( (v22 & 0x8000u) == 0LL )
+        v29 = 0LL;
+        v30 = v23;
+        if ( (v23 & 0x8000u) == 0LL )
         {
-          v30 = v60;
+          v31 = v61;
           do
           {
-            v31 = v29;
-            if ( v29 >= 2u )
-              v32 = *((_QWORD *)Privileges + v29 - 2);
+            v32 = v30;
+            if ( v30 >= 2u )
+              v33 = *((_QWORD *)Privileges + v30 - 2);
             else
-              v32 = *((_QWORD *)&v63 + v29 + 1);
-            if ( *(_WORD *)(v32 + 66) && *(_BYTE *)(v32 + 65) == 1 )
+              v33 = *((_QWORD *)&v64 + v30 + 1);
+            if ( *(_WORD *)(v33 + 66) && *(_BYTE *)(v33 + 65) == 1 )
               break;
-            if ( *(_DWORD *)(v32 + 40) != -1 && (!*(_QWORD *)(v32 + 240) || (unsigned __int8)CmEqualTrans(v30)) )
+            if ( *(_DWORD *)(v33 + 40) != -1 && (!*(_QWORD *)(v33 + 240) || (unsigned __int8)CmEqualTrans(v31)) )
             {
-              v28 = v32;
-              if ( *(_WORD *)(v32 + 66) )
+              v29 = v33;
+              if ( *(_WORD *)(v33 + 66) )
               {
-                if ( *(_BYTE *)(v32 + 65) )
+                if ( *(_BYTE *)(v33 + 65) )
                   break;
               }
             }
-            v29 = v31 - 1;
+            v30 = v32 - 1;
           }
-          while ( (__int16)(v31 - 1) >= 0 );
-          LOWORD(v22) = v57;
+          while ( (__int16)(v32 - 1) >= 0 );
+          LOWORD(v23) = v58;
           v10 = (ULONG_PTR *)ObjectsSecurityDescriptor;
         }
-        v33 = v60;
-        v34 = *(_QWORD *)(v28 + 88);
-        if ( v60 )
+        v34 = v61;
+        v35 = *(_QWORD *)(v29 + 88);
+        if ( v61 )
         {
-          v47 = v28 + 208;
-          v48 = *(_QWORD *)(v47 + 8);
-          if ( v47 != v48 )
+          v48 = v29 + 208;
+          v49 = *(_QWORD *)(v48 + 8);
+          if ( v48 != v49 )
             goto LABEL_106;
 LABEL_98:
-          v49 = 0LL;
-          while ( v49 )
+          v50 = 0LL;
+          while ( v50 )
           {
-            v50 = *(_QWORD *)(v49 + 56);
-            if ( v50 )
+            v51 = *(_QWORD *)(v50 + 56);
+            if ( v51 )
             {
-              if ( v50 == v33
-                || ((v51 = *(_QWORD *)(v50 + 56)) == 0 || (v53 = *(_QWORD *)(v33 + 56)) == 0
-                  ? (IsEqual = CmpTransUowIsEqual((const void *)(v50 + 88), (const void *)(v33 + 88)), v33 = v60)
-                  : (IsEqual = v51 == v53),
+              if ( v51 == v34
+                || ((v52 = *(_QWORD *)(v51 + 56)) == 0 || (v54 = *(_QWORD *)(v34 + 56)) == 0
+                  ? (IsEqual = CmpTransUowIsEqual((const void *)(v51 + 88), (const void *)(v34 + 88)), v34 = v61)
+                  : (IsEqual = v52 == v54),
                     IsEqual) )
               {
-                if ( *(_DWORD *)(v49 + 68) == 9 )
+                if ( *(_DWORD *)(v50 + 68) == 9 )
                 {
-                  v34 = *(_QWORD *)(v49 + 88);
+                  v35 = *(_QWORD *)(v50 + 88);
                   break;
                 }
               }
             }
-            if ( !v48 )
-              v48 = *(_QWORD *)(v47 + 8);
-            if ( v47 == v48 )
+            if ( !v49 )
+              v49 = *(_QWORD *)(v48 + 8);
+            if ( v48 == v49 )
               goto LABEL_98;
 LABEL_106:
-            v49 = v48 - 32;
-            v48 = *(_QWORD *)(v48 + 8);
+            v50 = v49 - 32;
+            v49 = *(_QWORD *)(v49 + 8);
           }
         }
-        ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)(v34 + 32);
+        ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)(v35 + 32);
         v17 = 1;
-        v27 = SeQuerySecurityDescriptorInfo(SecurityInformation, SecurityDescriptor, Length, &ObjectsSecurityDescriptor);
-        if ( v27 >= 0 )
-          v27 = 0;
+        v28 = SeQuerySecurityDescriptorInfo(SecurityInformation, SecurityDescriptor, Length, &ObjectsSecurityDescriptor);
+        if ( v28 >= 0 )
+          v28 = 0;
       }
     }
-    v35 = 0;
-    if ( (v22 & 0x8000u) == 0LL )
+    v36 = 0;
+    if ( (v23 & 0x8000u) == 0LL )
     {
-      v36 = (ULONG_PTR *)&v63 + 1;
+      v37 = (ULONG_PTR *)&v64 + 1;
       do
       {
-        if ( v35 >= 2 )
-          v37 = (ULONG_PTR *)((char *)v36 + (char *)Privileges - ((char *)&v63 + 8) - 16);
+        if ( v36 >= 2 )
+          v38 = (ULONG_PTR *)((char *)v37 + (char *)Privileges - ((char *)&v64 + 8) - 16);
         else
-          v37 = v36;
-        CmpUnlockKcb(*v37);
-        ++v35;
+          v38 = v37;
+        CmpUnlockKcb(*v38);
         ++v36;
+        ++v37;
       }
-      while ( v35 <= (__int16)v22 );
+      while ( v36 <= (__int16)v23 );
       v17 = 1;
     }
     LODWORD(v9) = a2;
-    v38 = Privileges;
+    v39 = Privileges;
     goto LABEL_41;
   }
 LABEL_63:
   if ( !(_DWORD)v9 )
   {
-    v27 = CmpSetKeySecurity((_DWORD)v10, (_DWORD)a3, (_DWORD)SecurityDescriptor, a6, a7, a8);
-    if ( v27 < 0 )
+    v28 = CmpSetKeySecurity((__int64)v10, a3, (__int64)SecurityDescriptor, a6, a7, a8);
+    if ( v28 < 0 )
       goto LABEL_49;
     goto LABEL_86;
   }
   if ( (_DWORD)v9 == 2 )
   {
-    v27 = 0;
+    v28 = 0;
     goto LABEL_49;
   }
   if ( (_DWORD)v9 != 3 )
     KeBugCheckEx(0x51u, 5uLL, 1uLL, v10[1], v9);
-  v27 = CmpAssignKeySecurity((__int64)v10, SecurityDescriptor);
-  if ( v27 >= 0 )
+  v28 = CmpAssignKeySecurity((__int64)v10, SecurityDescriptor);
+  if ( v28 >= 0 )
   {
     ExFreePoolWithTag(SecurityDescriptor, 0);
     goto LABEL_86;
@@ -399,42 +400,42 @@ LABEL_49:
     goto LABEL_56;
   if ( (_DWORD)v9 == 1 )
   {
-    if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() && (_QWORD *)v62[0] != v62 )
+    if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() && (_QWORD *)v63[0] != v63 )
     {
-      v70 = &v77;
-      v39 = 37;
-      v55 = (__int64)v10;
+      v71 = &v78;
+      v40 = 37;
+      v56 = (__int64)v10;
       BugCheckParameter4 = 37;
 LABEL_55:
-      v69 = 0;
+      v70 = 0;
+      v74 = 0LL;
+      v75 = 0;
+      v68 = v10;
       v73 = 0LL;
-      v74 = 0;
-      v67 = v10;
-      v72 = 0LL;
-      v68 = v27;
-      v71 = v27;
-      CmpCallCallBacksEx(v39, (__int64)&v67, 0LL, 0, BugCheckParameter4, v55, (__int64)v62);
-      v27 = v71;
+      v69 = v28;
+      v72 = v28;
+      CmpCallCallBacksEx(v40, (__int64)&v68, 0LL, 0, BugCheckParameter4, v56, (__int64)v63);
+      v28 = v72;
     }
   }
-  else if ( !(_DWORD)v9 && CmpCallBackCount && !CmpIsRegistryLockAcquired() && (_QWORD *)v62[0] != v62 )
+  else if ( !(_DWORD)v9 && CmpCallBackCount && !CmpIsRegistryLockAcquired() && (_QWORD *)v63[0] != v63 )
   {
-    v70 = &v77;
-    v39 = 39;
-    v55 = (__int64)v10;
+    v71 = &v78;
+    v40 = 39;
+    v56 = (__int64)v10;
     BugCheckParameter4 = 39;
     goto LABEL_55;
   }
 LABEL_56:
   KeLeaveCriticalRegionThread();
-  CmpCleanupThreadInfo((_KAFFINITY_EX **)&v81);
+  CmpCleanupThreadInfo((_KAFFINITY_EX **)&v82);
   if ( CmpTraceRoutine )
   {
-    LOBYTE(v40) = ((_DWORD)v9 != 0) + 28;
+    LOBYTE(v41) = ((_DWORD)v9 != 0) + 28;
     if ( (__int64 (__fastcall *)(_DWORD, _DWORD, _DWORD, _DWORD, __int64, __int64))CmpTraceRoutine == EtwpTraceRegistry )
-      EtwpTraceRegistry(v40, (unsigned int)v83, v27, 0, v65, 0LL);
+      EtwpTraceRegistry(v41, (unsigned int)v84, v28, 0, v66, 0LL);
     else
-      guard_dispatch_icall_no_overrides(v40, v83, (unsigned int)v27, 0LL);
+      guard_dispatch_icall_no_overrides(v41, v84);
   }
-  return (unsigned int)v27;
+  return (unsigned int)v28;
 }

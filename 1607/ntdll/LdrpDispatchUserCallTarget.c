@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpDispatchUserCallTarget @ 0x180096850
+ * XREFs of LdrpDispatchUserCallTarget @ 0x180096840
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ void __fastcall LdrpDispatchUserCallTarget()
   __int64 v1; // r11
   unsigned __int64 v2; // r10
 
-  v1 = *(_QWORD *)(qword_180163310 + 8 * (v0 >> 9));
+  v1 = *(_QWORD *)(LdrSystemDllInitBlock.Wow64SharedInformation[9] + 8 * (v0 >> 9));
   v2 = v0 >> 3;
   if ( (v0 & 0xF) != 0 )
   {

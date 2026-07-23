@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtFlushTb @ 0x14052C690
+ * XREFs of IvtFlushTb @ 0x14052CBE0
  * Callers:
  *     <none>
  * Callees:
- *     IvtFlushTbInternal @ 0x1403B0E40 (IvtFlushTbInternal.c)
+ *     IvtFlushTbInternal @ 0x1403B1020 (IvtFlushTbInternal.c)
  */
 
 void __fastcall IvtFlushTb(__int64 a1, int a2, __int64 a3, __int64 a4, _QWORD *a5, unsigned int a6, __int64 a7)

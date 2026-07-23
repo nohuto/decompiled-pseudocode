@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdateEngineAffinities @ 0x1404FDD1C
+ * XREFs of MiUpdateEngineAffinities @ 0x1404F725C
  * Callers:
- *     MiAbsorbPossibleEngineChanges @ 0x1404EBE80 (MiAbsorbPossibleEngineChanges.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x1404E5460 (MiAbsorbPossibleEngineChanges.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiInitializeGroupAffinity @ 0x1404EEDE0 (MiInitializeGroupAffinity.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiInitializeZeroingDomains @ 0x14087F248 (MiInitializeZeroingDomains.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiInitializeGroupAffinity @ 0x1404E83C0 (MiInitializeGroupAffinity.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiInitializeZeroingDomains @ 0x140885648 (MiInitializeZeroingDomains.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiUpdateEngineAffinities(__int64 a1, int *a2, __int64 a3)
@@ -47,7 +47,7 @@ __int64 __fastcall MiUpdateEngineAffinities(__int64 a1, int *a2, __int64 a3)
   v4 = *(unsigned int *)(a1 + 20);
   v6 = *(_DWORD *)(a1 + 8);
   v8 = *a2;
-  v9 = *(_QWORD *)(384 * v4 + qword_140E2D6B8 + 376);
+  v9 = *(_QWORD *)(384 * v4 + qword_140E2D838 + 376);
   v33 = v9;
   if ( v6 == a2[32] )
     return 1LL;

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiNonNumaQueryNodeDistance @ 0x1401D3558
+ * XREFs of KiNonNumaQueryNodeDistance @ 0x1401D3384
  * Callers:
  *     KiPerformGroupConfiguration @ 0x140793198 (KiPerformGroupConfiguration.c)
  * Callees:

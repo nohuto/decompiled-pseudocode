@@ -1,16 +1,16 @@
 /*
- * XREFs of KiConfigureSchedulingInformation @ 0x140A8E204
+ * XREFs of KiConfigureSchedulingInformation @ 0x140A8E07C
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140A9F2E0 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9F150 (KiInitializeDynamicProcessorDpc.c)
  *     KiConfigureAllSchedulingInformation @ 0x140B4C770 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KiQuerySubNodeActiveAffinity @ 0x140307E7C (KiQuerySubNodeActiveAffinity.c)
- *     KiInitializePriorityState @ 0x1403829D0 (KiInitializePriorityState.c)
- *     KiConfigureCpuSetSchedulingInformation @ 0x140382B90 (KiConfigureCpuSetSchedulingInformation.c)
- *     KiFreeLocalSharedReadyQueue @ 0x140382D04 (KiFreeLocalSharedReadyQueue.c)
- *     KeDoesSystemHaveHeterogeneousCoreTypes @ 0x140382D78 (KeDoesSystemHaveHeterogeneousCoreTypes.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x14030810C (KiQuerySubNodeActiveAffinity.c)
+ *     KiInitializePriorityState @ 0x140382B70 (KiInitializePriorityState.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x140382D30 (KiConfigureCpuSetSchedulingInformation.c)
+ *     KiFreeLocalSharedReadyQueue @ 0x140382EA4 (KiFreeLocalSharedReadyQueue.c)
+ *     KeDoesSystemHaveHeterogeneousCoreTypes @ 0x140382F18 (KeDoesSystemHaveHeterogeneousCoreTypes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiConfigureSchedulingInformation(__int64 a1, char a2)
@@ -127,7 +127,7 @@ LABEL_15:
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v36) = 4;
@@ -202,10 +202,10 @@ LABEL_29:
     if ( *(_QWORD *)(v30 + 34888) != *(_QWORD *)(v30 + 35968) )
       KiFreeLocalSharedReadyQueue(v30);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v37 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v39 = CurrentPrcb->SchedulerAssist;

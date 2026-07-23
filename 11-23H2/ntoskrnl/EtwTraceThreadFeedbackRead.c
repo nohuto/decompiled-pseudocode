@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceThreadFeedbackRead @ 0x1405FD670
+ * XREFs of EtwTraceThreadFeedbackRead @ 0x1405FDBE0
  * Callers:
- *     KiUpdateThreadHgsFeedback @ 0x1405786E0 (KiUpdateThreadHgsFeedback.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140578BD0 (KiUpdateThreadHgsFeedback.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceThreadFeedbackRead(__int64 a1, __int64 a2, __int64 a3)

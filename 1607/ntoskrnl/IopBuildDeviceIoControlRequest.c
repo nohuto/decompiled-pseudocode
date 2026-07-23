@@ -1,16 +1,16 @@
 /*
- * XREFs of IopBuildDeviceIoControlRequest @ 0x1400E9780
+ * XREFs of IopBuildDeviceIoControlRequest @ 0x1400E7620
  * Callers:
- *     IoBuildDeviceIoControlRequest @ 0x1400ED0DC (IoBuildDeviceIoControlRequest.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400EAF4C (IoBuildDeviceIoControlRequest.c)
  * Callees:
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x140072230 (IoFreeMdl.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     IopProbeAndLockPages @ 0x1400A4754 (IopProbeAndLockPages.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x140071DB0 (IoFreeMdl.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     IopProbeAndLockPages @ 0x14010AC3C (IopProbeAndLockPages.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -28,6 +28,7 @@ __int64 __fastcall IopBuildDeviceIoControlRequest(
         __int64 a10)
 {
   SIZE_T v10; // r15
+  int v12; // r13d
   __int64 Irp; // rax
   __int64 v15; // rbx
   __int64 v16; // rdi
@@ -41,12 +42,13 @@ __int64 __fastcall IopBuildDeviceIoControlRequest(
   unsigned __int8 CurrentIrql; // r15
   KSPIN_LOCK *v25; // r14
   _QWORD *v26; // rax
-  LOCK_OPERATION v28; // r15d
-  __int64 v29; // rdx
-  struct _MDL *Mdl; // rcx
+  int v28; // r15d
+  PMDL Mdl; // rax
+  int v30; // edx
   PVOID PoolWithTagPriority; // rax
 
   v10 = a4;
+  v12 = a2;
   Irp = pIoAllocateIrp(a2, *(unsigned __int8 *)(a2 + 76), 0LL, a10);
   v15 = Irp;
   if ( !Irp )
@@ -84,11 +86,11 @@ __int64 __fastcall IopBuildDeviceIoControlRequest(
         goto LABEL_37;
       memmove(PoolWithTagPriority, a3, v10);
       *(_DWORD *)(v15 + 16) = 48;
-      v28 = IoReadAccess;
+      v28 = 0;
     }
     else
     {
-      v28 = IoReadAccess;
+      v28 = 0;
       *(_DWORD *)(Irp + 16) = 0;
     }
     if ( !VirtualAddress )
@@ -98,8 +100,8 @@ __int64 __fastcall IopBuildDeviceIoControlRequest(
     if ( Mdl )
     {
       if ( v18 != 1 )
-        v28 = IoWriteAccess;
-      IopProbeAndLockPages(Mdl, v29, v28, a2, *(unsigned __int8 *)(v16 - 72));
+        v28 = 1;
+      IopProbeAndLockPages((_DWORD)Mdl, v30, v28, v12, *(unsigned __int8 *)(v16 - 72));
       goto LABEL_17;
     }
     if ( a3 )

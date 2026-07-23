@@ -1,15 +1,15 @@
 /*
- * XREFs of _TlgCreateWsz @ 0x140133CE4
+ * XREFs of _TlgCreateWsz @ 0x140134254
  * Callers:
- *     PopTraceThermalZonePassiveHistogram @ 0x140124B6C (PopTraceThermalZonePassiveHistogram.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x140209C54 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopTraceZoneCr3Mitigated @ 0x140209F78 (PopTraceZoneCr3Mitigated.c)
- *     PopTraceZoneCr3Tripped @ 0x14020A098 (PopTraceZoneCr3Tripped.c)
- *     EtwpWriteAppStateChangeSummary @ 0x14054A9D8 (EtwpWriteAppStateChangeSummary.c)
- *     EtwpWriteProcessStarted @ 0x14054C744 (EtwpWriteProcessStarted.c)
- *     PnpTraceDeviceConfig @ 0x140648CE4 (PnpTraceDeviceConfig.c)
- *     PopSqmThermalCriticalEvent @ 0x14067687C (PopSqmThermalCriticalEvent.c)
- *     PopSqmThermalZoneEnumeration @ 0x140676B78 (PopSqmThermalZoneEnumeration.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x1401250DC (PopTraceThermalZonePassiveHistogram.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x140209A80 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceZoneCr3Mitigated @ 0x140209DA4 (PopTraceZoneCr3Mitigated.c)
+ *     PopTraceZoneCr3Tripped @ 0x140209EC4 (PopTraceZoneCr3Tripped.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x14054AF18 (EtwpWriteAppStateChangeSummary.c)
+ *     EtwpWriteProcessStarted @ 0x14054CC84 (EtwpWriteProcessStarted.c)
+ *     PnpTraceDeviceConfig @ 0x140648DC8 (PnpTraceDeviceConfig.c)
+ *     PopSqmThermalCriticalEvent @ 0x140676960 (PopSqmThermalCriticalEvent.c)
+ *     PopSqmThermalZoneEnumeration @ 0x140676C5C (PopSqmThermalZoneEnumeration.c)
  * Callees:
  *     <none>
  */

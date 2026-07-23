@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPageHasRelocations @ 0x140957920
+ * XREFs of MiPageHasRelocations @ 0x14093B310
  * Callers:
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiWalkEntireImagePageNeedsProcessing @ 0x1404D29AC (MiWalkEntireImagePageNeedsProcessing.c)
- *     MiRevertRelocatedImagePfn @ 0x140957834 (MiRevertRelocatedImagePfn.c)
- *     MiCreateFileOnlyImageFixupList @ 0x140AB861C (MiCreateFileOnlyImageFixupList.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiWalkEntireImagePageNeedsProcessing @ 0x1404CBB6C (MiWalkEntireImagePageNeedsProcessing.c)
+ *     MiRevertRelocatedImagePfn @ 0x14093B22C (MiRevertRelocatedImagePfn.c)
+ *     MiCreateFileOnlyImageFixupList @ 0x140AB2AE0 (MiCreateFileOnlyImageFixupList.c)
  * Callees:
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiPageHasRelocations(__int64 *a1, __int64 a2, char a3)
 {
   __int64 v3; // r11
   char v4; // r10
-  __int64 v5; // r9
+  int v5; // r9d
   __int64 v7; // r8
   __int64 v8; // rax
   unsigned int v9; // ebx
@@ -25,10 +25,10 @@ __int64 __fastcall MiPageHasRelocations(__int64 *a1, __int64 a2, char a3)
 
   v3 = *a1;
   v4 = a3;
-  v5 = (unsigned int)a2;
+  v5 = a2;
   if ( (a3 & 1) != 0 && (unsigned int)a2 < *((_DWORD *)a1 + 14) )
   {
-    while ( (_DWORD)a2 == (_DWORD)v5 )
+    while ( (_DWORD)a2 == v5 )
     {
       if ( *(_QWORD *)(v3 + 8LL * (unsigned int)a2) )
         return 1LL;
@@ -51,7 +51,7 @@ __int64 __fastcall MiPageHasRelocations(__int64 *a1, __int64 a2, char a3)
             v12 = *(_QWORD *)(v8 + 24);
             if ( !v12 && v11 || (v13 = (unsigned int)a2 - v9, v13 >= v11) )
             {
-              guard_dispatch_icall_no_overrides(a1, a2, v12, v5);
+              guard_dispatch_icall_no_overrides(a1, a2);
               __debugbreak();
             }
             if ( *(_QWORD *)(v12 + 8 * v13) )

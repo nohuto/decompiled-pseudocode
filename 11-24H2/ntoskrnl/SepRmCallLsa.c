@@ -1,52 +1,49 @@
 /*
- * XREFs of SepRmCallLsa @ 0x14034A120
+ * XREFs of SepRmCallLsa @ 0x1403C17F0
  * Callers:
  *     <none>
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     SepRmDispatchDataToLsa @ 0x140349EEC (SepRmDispatchDataToLsa.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     NtWaitForSingleObject @ 0x14084AD60 (NtWaitForSingleObject.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     SepAdtOpenEtwReadyEvent @ 0x140AAC2F4 (SepAdtOpenEtwReadyEvent.c)
- *     AdtpWriteToEtw @ 0x140AE821C (AdtpWriteToEtw.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     SepRmDispatchDataToLsa @ 0x1403C1B1C (SepRmDispatchDataToLsa.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     NtWaitForSingleObject @ 0x140847020 (NtWaitForSingleObject.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x140AA732C (SepAdtOpenEtwReadyEvent.c)
+ *     AdtpWriteToEtw @ 0x140AEB4C0 (AdtpWriteToEtw.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SepRmCallLsa(__int64 a1)
+__int64 __fastcall SepRmCallLsa(__int64 **a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v1; // r15
-  int v3; // r14d
-  __int64 v4; // rsi
+  char v4; // r15
+  int v6; // r14d
+  __int64 *v7; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v6; // rcx
-  struct _KEVENT *v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  _QWORD *v11; // rdx
-  __int64 *v12; // rcx
-  __int64 v13; // rax
-  struct _KTHREAD *v14; // rax
-  struct _LIST_ENTRY *v15; // rcx
+  __int64 *v9; // rcx
+  struct _KEVENT *v10; // rcx
+  __int64 v11; // rdx
+  _QWORD *v12; // rdx
+  __int64 *v13; // rcx
+  __int64 v14; // rax
+  struct _KTHREAD *v15; // rax
+  struct _LIST_ENTRY *v16; // rcx
   struct _LIST_ENTRY *Blink; // rbx
-  int v17; // eax
-  signed __int32 v18; // r14d
-  void *v19; // rcx
+  int v18; // eax
+  signed __int32 v19; // r14d
+  void *v20; // rcx
   __int64 result; // rax
-  __int64 v21; // rax
-  __int64 v22; // rdx
-  int v23; // ebx
+  __int64 *v22; // rax
+  NTSTATUS v23; // ebx
   struct _KEVENT *v24; // rcx
   _BYTE v25[8]; // [rsp+20h] [rbp-60h] BYREF
   HANDLE Handle; // [rsp+28h] [rbp-58h] BYREF
@@ -54,115 +51,114 @@ __int64 __fastcall SepRmCallLsa(__int64 a1)
   struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-38h] BYREF
 
   Handle = 0LL;
-  v1 = SepRmAuditingEnabled;
+  v4 = SepRmAuditingEnabled;
   memset(&ApcState, 0, sizeof(ApcState));
-  v3 = 1;
+  v6 = 1;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !AdtpRegisteredWithEtw )
   {
     result = SepAdtOpenEtwReadyEvent(&Handle);
     if ( (int)result < 0 )
       return result;
-    LOBYTE(v22) = 1;
-    v23 = NtWaitForSingleObject(Handle, v22, 0LL);
+    v23 = NtWaitForSingleObject(Handle, 1u, 0LL);
     NtClose(Handle);
     if ( v23 < 0 )
       return (unsigned int)v23;
   }
-  if ( v1 )
+  if ( v4 )
     KeStackAttachProcess(SepRmLsaCallProcess, &ApcState);
   do
   {
-    v4 = 0LL;
-    if ( (*(_BYTE *)(a1 + 224) & 1) == 0 )
+    v7 = 0LL;
+    if ( ((_BYTE)a1[28] & 1) == 0 )
       goto LABEL_45;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 32), 1u);
-    v6 = *(_QWORD *)a1;
-    if ( *(_QWORD *)a1 == a1 )
+    ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 4), 1u);
+    v9 = *a1;
+    if ( *a1 == (__int64 *)a1 )
     {
-      v7 = *(struct _KEVENT **)(a1 + 192);
-      if ( v7 )
-        KeSetEvent(v7, 0, 0);
+      v10 = (struct _KEVENT *)a1[24];
+      if ( v10 )
+        KeSetEvent(v10, 0, 0);
     }
-    else if ( *(_DWORD *)(v6 + 52) == *(_DWORD *)(a1 + 184) + 1 )
+    else if ( *((_DWORD *)v9 + 13) == *((_DWORD *)a1 + 46) + 1 )
     {
-      v4 = *(_QWORD *)a1;
-      if ( *(_QWORD *)(v6 + 8) != a1 || (v21 = *(_QWORD *)v6, *(_QWORD *)(*(_QWORD *)v6 + 8LL) != v6) )
+      v7 = *a1;
+      if ( (__int64 **)v9[1] != a1 || (v22 = (__int64 *)*v9, *(__int64 **)(*v9 + 8) != v9) )
 LABEL_38:
         __fastfail(3u);
-      *(_QWORD *)a1 = v21;
-      *(_QWORD *)(v21 + 8) = a1;
+      *a1 = v22;
+      v22[1] = (__int64)a1;
     }
-    ExReleaseResourceLite((PERESOURCE)(a1 + 32));
+    ExReleaseResourceLite((PERESOURCE)(a1 + 4));
     KeLeaveCriticalRegion();
-    if ( !v4 )
+    if ( !v7 )
     {
 LABEL_45:
-      if ( (*(_BYTE *)(a1 + 224) & 2) == 0 )
+      if ( ((_BYTE)a1[28] & 2) == 0 )
         continue;
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 136), &LockHandle);
-      v11 = (_QWORD *)(a1 + 16);
-      v12 = *(__int64 **)(a1 + 16);
-      if ( v12 == (__int64 *)(a1 + 16) )
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 17, &LockHandle);
+      v12 = a1 + 2;
+      v13 = a1[2];
+      if ( v13 == (__int64 *)(a1 + 2) )
       {
-        v24 = *(struct _KEVENT **)(a1 + 200);
+        v24 = (struct _KEVENT *)a1[25];
         if ( v24 )
           KeSetEvent(v24, 0, 0);
       }
-      else if ( *((_DWORD *)v12 + 13) == *(_DWORD *)(a1 + 184) + 1 )
+      else if ( *((_DWORD *)v13 + 13) == *((_DWORD *)a1 + 46) + 1 )
       {
-        v4 = *(_QWORD *)(a1 + 16);
-        if ( (_QWORD *)v12[1] != v11 )
+        v7 = a1[2];
+        if ( (_QWORD *)v13[1] != v12 )
           goto LABEL_38;
-        v13 = *v12;
-        if ( *(__int64 **)(*v12 + 8) != v12 )
+        v14 = *v13;
+        if ( *(__int64 **)(*v13 + 8) != v13 )
           goto LABEL_38;
-        *v11 = v13;
-        *(_QWORD *)(v13 + 8) = v11;
+        *v12 = v14;
+        *(_QWORD *)(v14 + 8) = v12;
       }
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      if ( !v4 )
+      if ( !v7 )
         continue;
     }
-    if ( *(_DWORD *)(v4 + 32) != 1 || (*(_DWORD *)(*(_QWORD *)(v4 + 24) + 20LL) & 2) != 0 )
+    if ( *((_DWORD *)v7 + 8) != 1 || (*(_DWORD *)(v7[3] + 20) & 2) != 0 )
     {
-      if ( v1 )
-        SepRmDispatchDataToLsa(v4);
+      if ( v4 )
+        SepRmDispatchDataToLsa(v7);
     }
     else
     {
-      v14 = KeGetCurrentThread();
-      v15 = *(struct _LIST_ENTRY **)(v4 + 56);
+      v15 = KeGetCurrentThread();
+      v16 = (struct _LIST_ENTRY *)v7[7];
       v25[0] = 0;
-      Blink = v14[1].WaitBlock[3].WaitListEntry.Blink;
-      v14[1].WaitBlock[3].WaitListEntry.Blink = v15;
-      v17 = AdtpWriteToEtw(*(_QWORD *)(v4 + 24), v25);
+      Blink = v15[1].WaitBlock[3].WaitListEntry.Blink;
+      v15[1].WaitBlock[3].WaitListEntry.Blink = v16;
+      v18 = AdtpWriteToEtw(v7[3], v25);
       KeGetCurrentThread()[1].WaitBlock[3].WaitListEntry.Blink = Blink;
-      if ( v17 < 0 )
+      if ( v18 < 0 )
       {
-        SepAdtLastAuditFailStatus = v17;
+        SepAdtLastAuditFailStatus = v18;
         _InterlockedIncrement(&SepAdtAuditFailureCount);
         if ( !v25[0] )
-          SepAuditFailed((unsigned int)v17);
+          SepAuditFailed((unsigned int)v18);
       }
-      if ( (unsigned int)(*(_DWORD *)(v4 + 16) - 4) <= 1 )
-        ExFreePoolWithTag(*(PVOID *)(v4 + 24), 0);
+      if ( (unsigned int)(*((_DWORD *)v7 + 4) - 4) <= 1 )
+        ExFreePoolWithTag((PVOID)v7[3], 0);
     }
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 184));
-    v18 = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 176), 0xFFFFFFFF);
-    v19 = *(void **)(v4 + 56);
-    v3 = v18 - 1;
-    if ( v19 )
+    _InterlockedIncrement((volatile signed __int32 *)a1 + 46);
+    v19 = _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 44, 0xFFFFFFFF);
+    v20 = (void *)v7[7];
+    v6 = v19 - 1;
+    if ( v20 )
     {
-      ObfDereferenceObjectWithTag(v19, 0x69416553u);
-      *(_QWORD *)(v4 + 56) = 0LL;
+      ObfDereferenceObjectWithTag(v20, 0x69416553u);
+      v7[7] = 0LL;
     }
-    guard_dispatch_icall_no_overrides(v4, v8, v9, v10);
+    guard_dispatch_icall_no_overrides(v7, v11);
   }
-  while ( v3 );
-  if ( v1 )
-    KiUnstackDetachProcess((__int64)&ApcState, 0);
+  while ( v6 );
+  if ( v4 )
+    KiUnstackDetachProcess((__int64)&ApcState, 0, a3, a4);
   return 0LL;
 }

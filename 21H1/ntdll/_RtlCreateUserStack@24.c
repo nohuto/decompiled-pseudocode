@@ -10,107 +10,117 @@
  *     _LdrDeleteEnclave@4 @ 0x4B32DD00 (_LdrDeleteEnclave@4.c)
  */
 
-int __stdcall RtlCreateUserStack(
-        unsigned int a1,
-        unsigned int a2,
-        int a3,
-        unsigned int a4,
-        unsigned int a5,
-        _DWORD *a6)
+NTSTATUS __cdecl RtlCreateUserStack(
+        SIZE_T CommittedStackSize,
+        SIZE_T MaximumStackSize,
+        ULONG_PTR ZeroBits,
+        SIZE_T PageSize,
+        ULONG_PTR ReserveAlignment,
+        PINITIAL_TEB InitialTeb)
 {
   unsigned int v6; // esi
-  unsigned int v7; // edx
+  int v7; // edx
   struct _PEB *v8; // eax
-  unsigned int v9; // edi
-  int v10; // eax
+  unsigned int SizeOfStackReserve_high; // edi
+  PIMAGE_NT_HEADERS v10; // eax
   unsigned int v11; // ecx
   unsigned int v12; // edi
   unsigned int MinimumStackCommit; // eax
-  int result; // eax
+  NTSTATUS result; // eax
   int v15; // ecx
   unsigned int v16; // edi
-  unsigned int v17; // eax
-  _DWORD v18[6]; // [esp+10h] [ebp-60h] BYREF
-  int v19; // [esp+28h] [ebp-48h]
-  unsigned int v20; // [esp+2Ch] [ebp-44h]
-  unsigned int v21; // [esp+38h] [ebp-38h] BYREF
-  unsigned int v22; // [esp+3Ch] [ebp-34h]
-  int v23; // [esp+40h] [ebp-30h] BYREF
-  unsigned int v24; // [esp+44h] [ebp-2Ch]
-  struct _PEB *v25; // [esp+48h] [ebp-28h]
-  int v26; // [esp+4Ch] [ebp-24h]
-  int v27; // [esp+50h] [ebp-20h]
-  unsigned int v28; // [esp+54h] [ebp-1Ch] BYREF
+  char *v17; // eax
+  ULONG_PTR v18; // [esp-10h] [ebp-80h]
+  ULONG_PTR v19; // [esp-10h] [ebp-80h]
+  ULONG v20; // [esp+0h] [ebp-70h]
+  ULONG v21; // [esp+0h] [ebp-70h]
+  _DWORD ProcessInformation[6]; // [esp+10h] [ebp-60h] BYREF
+  int v23; // [esp+28h] [ebp-48h]
+  unsigned int v24; // [esp+2Ch] [ebp-44h]
+  unsigned int v25; // [esp+38h] [ebp-38h] BYREF
+  unsigned int v26; // [esp+3Ch] [ebp-34h]
+  NTSTATUS v27; // [esp+40h] [ebp-30h] BYREF
+  int v28; // [esp+44h] [ebp-2Ch]
+  struct _PEB *v29; // [esp+48h] [ebp-28h]
+  NTSTATUS v30; // [esp+4Ch] [ebp-24h]
+  int v31; // [esp+50h] [ebp-20h]
+  PVOID BaseAddress; // [esp+54h] [ebp-1Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+58h] [ebp-18h]
 
-  v24 = HIBYTE(a4);
-  v6 = a4 & 0xFFFFFF;
-  if ( HIBYTE(a4) > 0x40u )
+  v28 = HIBYTE(HIDWORD(MaximumStackSize));
+  v6 = HIDWORD(MaximumStackSize) & 0xFFFFFF;
+  if ( HIBYTE(MaximumStackSize) > 0x40u )
     return -1073741811;
   if ( !v6 )
     return -1073741811;
-  v7 = a5;
-  if ( !a5 || a5 < v6 )
+  v7 = ZeroBits;
+  if ( !(_DWORD)ZeroBits || (unsigned int)ZeroBits < v6 )
     return -1073741811;
-  v22 = 2 * v6;
+  v26 = 2 * v6;
   v8 = NtCurrentPeb();
-  v25 = v8;
-  v9 = a1;
-  if ( !a1 || !a2 )
+  v29 = v8;
+  SizeOfStackReserve_high = CommittedStackSize;
+  if ( !(_DWORD)CommittedStackSize || !HIDWORD(CommittedStackSize) )
   {
     ms_exc.registration.TryLevel = 0;
-    v10 = RtlImageNtHeader((int)v8->ImageBaseAddress);
+    v10 = RtlImageNtHeader(v8->ImageBaseAddress);
     if ( !v10 )
     {
       ms_exc.registration.TryLevel = -2;
       return -1073741701;
     }
-    if ( !a1 )
-      v9 = *(_DWORD *)(v10 + 100);
-    if ( !a2 )
-      a2 = *(_DWORD *)(v10 + 96);
+    if ( !(_DWORD)CommittedStackSize )
+      SizeOfStackReserve_high = HIDWORD(v10->OptionalHeader.SizeOfStackReserve);
+    if ( !HIDWORD(CommittedStackSize) )
+      HIDWORD(CommittedStackSize) = v10->OptionalHeader.SizeOfStackReserve;
     ms_exc.registration.TryLevel = -2;
-    v7 = a5;
+    v7 = ZeroBits;
   }
-  if ( !v9 )
-    v9 = 0x4000;
-  if ( v9 >= a2 )
-    a2 = (v9 + 0xFFFFF) & 0xFFF00000;
-  v11 = -v6 & (v9 + v6 - 1);
-  v26 = v11;
-  v27 = -v7;
-  v12 = -v7 & (v7 + a2 - 1);
+  if ( !SizeOfStackReserve_high )
+    SizeOfStackReserve_high = 0x4000;
+  if ( SizeOfStackReserve_high >= HIDWORD(CommittedStackSize) )
+    HIDWORD(CommittedStackSize) = (SizeOfStackReserve_high + 0xFFFFF) & 0xFFF00000;
+  v11 = -v6 & (SizeOfStackReserve_high + v6 - 1);
+  v30 = v11;
+  v31 = -v7;
+  v12 = -v7 & (v7 + HIDWORD(CommittedStackSize) - 1);
   ms_exc.registration.TryLevel = 1;
-  MinimumStackCommit = v25->MinimumStackCommit;
-  v20 = MinimumStackCommit;
+  MinimumStackCommit = v29->MinimumStackCommit;
+  v24 = MinimumStackCommit;
   ms_exc.registration.TryLevel = -2;
   if ( MinimumStackCommit && v11 < MinimumStackCommit )
   {
-    v26 = -v6 & (v6 + MinimumStackCommit - 1);
-    v12 = v27 & (v7 + ((v26 + 0xFFFFF) & 0xFFF00000) - 1);
+    v30 = -v6 & (v6 + MinimumStackCommit - 1);
+    v12 = v31 & (v7 + ((v30 + 0xFFFFF) & 0xFFF00000) - 1);
   }
-  v18[0] = (unsigned __int8)v24;
-  memset(&v18[1], 0, 12);
-  v18[4] = v12;
-  v18[5] = a3;
-  result = ZwSetInformationProcess(-1, 41, v18, 28);
+  ProcessInformation[0] = (unsigned __int8)v28;
+  memset(&ProcessInformation[1], 0, 12);
+  ProcessInformation[4] = v12;
+  ProcessInformation[5] = MaximumStackSize;
+  result = ZwSetInformationProcess((HANDLE)0xFFFFFFFF, ProcessThreadStackAllocation, ProcessInformation, 0x1Cu);
   if ( result >= 0 )
   {
-    *a6 = 0;
-    a6[1] = 0;
-    v15 = v19;
-    a6[4] = v19;
-    a6[2] = v15 + v12;
-    v28 = v12 + v15 - v26;
-    v16 = v12 - v26;
-    v23 = v26;
-    v26 = NtAllocateVirtualMemory(-1, &v28, 0, &v23, 4096, 4);
-    if ( v26 < 0
-      || (v17 = v28, a6[3] = v28, v16 >= v22)
-      && (v28 = v17 - v22, v21 = v22, v26 = NtAllocateVirtualMemory(-1, &v28, 0, &v21, 4096, 260), v26 < 0) )
+    *(_QWORD *)HIDWORD(ZeroBits) = 0LL;
+    v15 = v23;
+    *(_DWORD *)(HIDWORD(ZeroBits) + 16) = v23;
+    *(_DWORD *)(HIDWORD(ZeroBits) + 8) = v15 + v12;
+    BaseAddress = (PVOID)(v12 + v15 - v30);
+    v16 = v12 - v30;
+    v27 = v30;
+    HIDWORD(v18) = &v27;
+    LODWORD(v18) = 0;
+    v30 = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v18, (PSIZE_T)0x1000, 4u, v20);
+    if ( v30 < 0
+      || (v17 = (char *)BaseAddress, *(_DWORD *)(HIDWORD(ZeroBits) + 12) = BaseAddress, v16 >= v26)
+      && (BaseAddress = &v17[-v26],
+          v25 = v26,
+          HIDWORD(v19) = &v25,
+          LODWORD(v19) = 0,
+          v30 = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v19, (PSIZE_T)0x1000, 0x104u, v21),
+          v30 < 0) )
     {
-      LdrDeleteEnclave(a6[4]);
-      return v26;
+      LdrDeleteEnclave(*(PVOID *)(HIDWORD(ZeroBits) + 16));
+      return v30;
     }
     else
     {

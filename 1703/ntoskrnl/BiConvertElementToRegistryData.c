@@ -15,7 +15,7 @@
 
 __int64 __fastcall BiConvertElementToRegistryData(
         unsigned int a1,
-        char *a2,
+        GUID *a2,
         unsigned int a3,
         __int64 a4,
         _QWORD *a5,
@@ -24,10 +24,10 @@ __int64 __fastcall BiConvertElementToRegistryData(
   int v6; // ebx
   size_t v7; // r14
   _BYTE *Buffer; // rsi
-  signed int v10; // edi
+  NTSTATUS v10; // edi
   int v11; // ecx
   int v12; // ecx
-  _WORD *v13; // rcx
+  GUID *v13; // rcx
   int v14; // edx
   unsigned int v15; // eax
   int v16; // eax
@@ -49,7 +49,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
   unsigned int v33; // eax
   void *Src; // [rsp+20h] [rbp-20h] BYREF
   unsigned int *v35; // [rsp+28h] [rbp-18h]
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  UNICODE_STRING GuidString; // [rsp+30h] [rbp-10h] BYREF
   int v37; // [rsp+88h] [rbp+48h]
 
   v6 = 0;
@@ -61,7 +61,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
   v11 = (HIBYTE(a1) & 0xF) - 1;
   if ( !v11 )
   {
-    if ( *(_DWORD *)a2 == 6 )
+    if ( a2->Data1 == 6 )
       v16 = BiConvertQualifiedPartitionToBootEnvironment(a2, a3, &Src);
     else
       v16 = BiConvertNtDeviceToBootEnvironment(a2, a3, 0LL, &Src);
@@ -80,7 +80,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
         Buffer = PoolWithTag;
         if ( PoolWithTag )
         {
-          *PoolWithTag = *(_OWORD *)(a2 + 4);
+          *PoolWithTag = *(_OWORD *)&a2->Data2;
           memmove(PoolWithTag + 1, v17, v17[2]);
           ExFreePoolWithTag(v17, 0x4B444342u);
           v35 = 0LL;
@@ -104,9 +104,9 @@ LABEL_61:
       v15 = a3 >> 1;
       if ( a3 >> 1 )
       {
-        while ( *v13 )
+        while ( LOWORD(v13->Data1) )
         {
-          ++v13;
+          v13 = (GUID *)((char *)v13 + 2);
           if ( !--v15 )
             goto LABEL_18;
         }
@@ -154,11 +154,11 @@ LABEL_15:
   {
     if ( a3 == 16 )
     {
-      v10 = RtlStringFromGUIDEx((unsigned int *)a2, (__int64)&DestinationString, 1);
+      v10 = RtlStringFromGUIDEx(a2, &GuidString, 1u);
       if ( v10 < 0 )
         return (unsigned int)v10;
-      Buffer = DestinationString.Buffer;
-      v18 = DestinationString.Length + 2;
+      Buffer = GuidString.Buffer;
+      v18 = GuidString.Length + 2;
       goto LABEL_14;
     }
     return (unsigned int)-1073741788;
@@ -191,7 +191,7 @@ LABEL_15:
         Buffer = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x4B444342u);
         if ( Buffer )
         {
-          *Buffer = *a2 != 0;
+          *Buffer = LOBYTE(a2->Data1) != 0;
           goto LABEL_15;
         }
         return (unsigned int)-1073741801;
@@ -206,7 +206,7 @@ LABEL_15:
         Buffer = v27;
         if ( v27 )
         {
-          *v27 = *(_QWORD *)a2;
+          *v27 = *(_QWORD *)&a2->Data1;
           goto LABEL_15;
         }
         return (unsigned int)-1073741801;
@@ -233,13 +233,13 @@ LABEL_45:
     {
       while ( 1 )
       {
-        v10 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v31], (__int64)&DestinationString, 1);
+        v10 = RtlStringFromGUIDEx(&a2[v31], &GuidString, 1u);
         if ( v10 < 0 )
           break;
-        v32 = (unsigned int)DestinationString.Length + 2;
-        memmove(Src, DestinationString.Buffer, v32);
+        v32 = (unsigned int)GuidString.Length + 2;
+        memmove(Src, GuidString.Buffer, v32);
         Src = (char *)Src + v32;
-        RtlFreeUnicodeString(&DestinationString);
+        RtlFreeUnicodeString(&GuidString);
         v31 = (unsigned int)(v37 + 1);
         v37 = v31;
         if ( (unsigned int)v31 >= v28 )
@@ -261,12 +261,12 @@ LABEL_50:
   }
   while ( 1 )
   {
-    RtlInitUnicodeString(&DestinationString, 0LL);
-    v10 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v6], (__int64)&DestinationString, 1);
+    RtlInitUnicodeString(&GuidString, 0LL);
+    v10 = RtlStringFromGUIDEx(&a2[v6], &GuidString, 1u);
     if ( v10 < 0 )
       return (unsigned int)v10;
-    v29 += DestinationString.Length + 2;
-    RtlFreeUnicodeString(&DestinationString);
+    v29 += GuidString.Length + 2;
+    RtlFreeUnicodeString(&GuidString);
     if ( ++v6 >= v28 )
       goto LABEL_45;
   }

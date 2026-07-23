@@ -1,7 +1,7 @@
 /*
- * XREFs of NtOpenKey @ 0x140415458
+ * XREFs of NtOpenKey @ 0x140414318
  * Callers:
- *     CmLogMcUpdateStatus @ 0x1401B53F8 (CmLogMcUpdateStatus.c)
+ *     CmLogMcUpdateStatus @ 0x1401B52DC (CmLogMcUpdateStatus.c)
  *     ExpWatchProductTypeInitialization @ 0x1407A9F80 (ExpWatchProductTypeInitialization.c)
  *     CmpCreateControlSet @ 0x1407AC02C (CmpCreateControlSet.c)
  *     CmpInitializeMachineDependentConfiguration @ 0x1407AC8B4 (CmpInitializeMachineDependentConfiguration.c)
@@ -12,7 +12,7 @@
  *     IopProtectSystemPartition @ 0x1407BC468 (IopProtectSystemPartition.c)
  *     CmpAddAliasEntry @ 0x1407CD4E0 (CmpAddAliasEntry.c)
  * Callees:
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
  */
 
 NTSTATUS __stdcall NtOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)

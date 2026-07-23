@@ -1,17 +1,17 @@
 /*
- * XREFs of MiClearPageFileHash @ 0x140665B90
+ * XREFs of MiClearPageFileHash @ 0x1406660E0
  * Callers:
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     MiPageHashBugCheck @ 0x140666BB8 (MiPageHashBugCheck.c)
- *     MiWriteEntirePageHashEntry @ 0x140666DFC (MiWriteEntirePageHashEntry.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     MiPageHashBugCheck @ 0x140667108 (MiPageHashBugCheck.c)
+ *     MiWriteEntirePageHashEntry @ 0x14066734C (MiWriteEntirePageHashEntry.c)
  */
 
 void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)

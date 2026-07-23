@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprCollectResources @ 0x14072F220
+ * XREFs of PnprCollectResources @ 0x14072D230
  * Callers:
- *     PnpReplacePartitionUnit @ 0x14072E220 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x14072C230 (PnpReplacePartitionUnit.c)
  * Callees:
- *     PipForAllChildDeviceNodes @ 0x140A43960 (PipForAllChildDeviceNodes.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PipForAllChildDeviceNodes @ 0x140A391F0 (PipForAllChildDeviceNodes.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprCollectResources(__int64 *a1, _QWORD *a2)
@@ -45,7 +45,7 @@ __int64 __fastcall PnprCollectResources(__int64 *a1, _QWORD *a2)
   LOBYTE(v34) = 0;
   v33 = 0LL;
   v35 = 0LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x24uLL, 0x51706E50u);
   a1[2] = Pool2;
   if ( !Pool2 )
   {
@@ -63,7 +63,7 @@ LABEL_3:
     goto LABEL_49;
   }
   *(_DWORD *)(Pool2 + 12) = 4;
-  v10 = ExAllocatePool2(0x40uLL);
+  v10 = ExAllocatePool2(0x40uLL, 0x24uLL, 0x51706E50u);
   a2[2] = v10;
   if ( !v10 )
   {
@@ -71,7 +71,7 @@ LABEL_3:
     goto LABEL_3;
   }
   *(_DWORD *)(v10 + 12) = 4;
-  *(_QWORD *)a1[2] = ExAllocatePool2(0x40uLL);
+  *(_QWORD *)a1[2] = ExAllocatePool2(0x40uLL, 0x100uLL, 0x51706E50u);
   v11 = a1[2];
   if ( !*(_QWORD *)v11 )
   {
@@ -79,14 +79,14 @@ LABEL_3:
     goto LABEL_3;
   }
   *(_DWORD *)(v11 + 8) = 32;
-  v12 = ExAllocatePool2(0x40uLL);
+  v12 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x51706E50u);
   a1[3] = v12;
   if ( !v12 )
   {
     v5 = 1071;
     goto LABEL_3;
   }
-  v13 = ExAllocatePool2(0x40uLL);
+  v13 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x51706E50u);
   a2[3] = v13;
   if ( !v13 )
   {

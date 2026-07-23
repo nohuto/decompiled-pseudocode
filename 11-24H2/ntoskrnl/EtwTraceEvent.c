@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwTraceEvent @ 0x140346CD0
+ * XREFs of EtwTraceEvent @ 0x140325740
  * Callers:
- *     NtTraceEvent @ 0x140325D10 (NtTraceEvent.c)
- *     IoWMIWriteEvent @ 0x14042E980 (IoWMIWriteEvent.c)
+ *     NtTraceEvent @ 0x1402CE8A0 (NtTraceEvent.c)
+ *     IoWMIWriteEvent @ 0x1404206B0 (IoWMIWriteEvent.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpReserveTraceBuffer @ 0x140327DF0 (EtwpReserveTraceBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpCloseLogger @ 0x140347D90 (EtwpCloseLogger.c)
- *     EtwpSendTraceEvent @ 0x1404AC8C4 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1404AC9C0 (EtwpInvokeEventCallback.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0980 (EtwpReserveTraceBuffer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpCloseLogger @ 0x140326790 (EtwpCloseLogger.c)
+ *     EtwpSendTraceEvent @ 0x1404A70B8 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1404A71B4 (EtwpInvokeEventCallback.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int16 *a2, unsigned int a3, int a4, unsigned __int8 a5)
@@ -85,7 +85,7 @@ __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int16 *a2, unsigned int 
   if ( (unsigned int)v8 >= *(_DWORD *)(v9 + 16) )
     return (unsigned int)-1073741816;
   v10 = 0;
-  if ( a5 == 1 || KeGetEffectiveIrql() < 2u )
+  if ( a5 == 1 || KeGetEffectiveIrql(a1, (__int64)a2) < 2u )
   {
     _mm_lfence();
     CurrentThread = KeGetCurrentThread();

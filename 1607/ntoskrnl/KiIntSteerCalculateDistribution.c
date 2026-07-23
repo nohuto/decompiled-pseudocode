@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerCalculateDistribution @ 0x1400D6DA0
+ * XREFs of KiIntSteerCalculateDistribution @ 0x1400D4C40
  * Callers:
- *     PpmParkSteerInterrupts @ 0x1400D7A40 (PpmParkSteerInterrupts.c)
+ *     PpmParkSteerInterrupts @ 0x1400D58E0 (PpmParkSteerInterrupts.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     __chkstk @ 0x140167650 (__chkstk.c)
- *     KiIntSteerComputeCpuSet @ 0x1401DA664 (KiIntSteerComputeCpuSet.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     __chkstk @ 0x140167BC0 (__chkstk.c)
+ *     KiIntSteerComputeCpuSet @ 0x1401DA490 (KiIntSteerComputeCpuSet.c)
  */
 
 __int64 __fastcall KiIntSteerCalculateDistribution(unsigned __int16 *a1, unsigned int a2)

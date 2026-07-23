@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRegisterForDisableFgBoostDecayRegistryNotification @ 0x1403B5070
+ * XREFs of KiRegisterForDisableFgBoostDecayRegistryNotification @ 0x1403B51E0
  * Callers:
- *     KiDisableFgBoostDecayRegistryChangeHandler @ 0x1405123E0 (KiDisableFgBoostDecayRegistryChangeHandler.c)
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KiDisableFgBoostDecayRegistryChangeHandler @ 0x140512620 (KiDisableFgBoostDecayRegistryChangeHandler.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     KiGetDisableFgBoostDecayRegKeyHandle @ 0x1403B50F4 (KiGetDisableFgBoostDecayRegKeyHandle.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwNotifyChangeKey @ 0x1403FC6E0 (ZwNotifyChangeKey.c)
+ *     KiGetDisableFgBoostDecayRegKeyHandle @ 0x1403B5264 (KiGetDisableFgBoostDecayRegKeyHandle.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x1403FC8C0 (ZwNotifyChangeKey.c)
  */
 
 NTSTATUS KiRegisterForDisableFgBoostDecayRegistryNotification()

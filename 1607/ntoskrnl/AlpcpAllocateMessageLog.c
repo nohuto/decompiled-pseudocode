@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpAllocateMessageLog @ 0x140654B1C
+ * XREFs of AlpcpAllocateMessageLog @ 0x140654C00
  * Callers:
- *     AlpcpEnterAllocationEventMessageLog @ 0x140654D3C (AlpcpEnterAllocationEventMessageLog.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x140654E20 (AlpcpEnterAllocationEventMessageLog.c)
  * Callees:
  *     <none>
  */
@@ -52,13 +52,13 @@ __int64 AlpcpAllocateMessageLog()
           __fastfail(3u);
         *v5 = (__int64 *)v7;
         *(_QWORD *)(v7 + 8) = v5;
-        v8 = (__int64 **)qword_140307368;
-        if ( *(__int64 **)qword_140307368 != &AlpcpFreeMessageSnapshotListHead )
+        v8 = (__int64 **)qword_1403073A8;
+        if ( *(__int64 **)qword_1403073A8 != &AlpcpFreeMessageSnapshotListHead )
           __fastfail(3u);
         *v6 = (__int64)&AlpcpFreeMessageSnapshotListHead;
         v6[1] = (__int64)v8;
         *v8 = v6;
-        qword_140307368 = (__int64)v6;
+        qword_1403073A8 = (__int64)v6;
       }
     }
   }

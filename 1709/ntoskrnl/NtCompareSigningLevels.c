@@ -6,7 +6,7 @@
  *     SeCompareSigningLevels @ 0x1405040A0 (SeCompareSigningLevels.c)
  */
 
-__int64 NtCompareSigningLevels()
+NTSTATUS __cdecl NtCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
-  return (unsigned int)SeCompareSigningLevels() == 0 ? 0xC0000428 : 0;
+  return (unsigned int)SeCompareSigningLevels(FirstSigningLevel, SecondSigningLevel) == 0 ? 0xC0000428 : 0;
 }

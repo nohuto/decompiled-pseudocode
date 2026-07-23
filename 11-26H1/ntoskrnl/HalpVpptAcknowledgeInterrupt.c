@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpVpptAcknowledgeInterrupt @ 0x140426D60
+ * XREFs of HalpVpptAcknowledgeInterrupt @ 0x140433E70
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x140426F38 (HalpVpptUpdatePhysicalTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x140434048 (HalpVpptUpdatePhysicalTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
@@ -18,16 +18,16 @@ void __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
   __int64 v3; // rdx
   unsigned __int64 v4; // rbx
   __int64 v5; // rcx
-  unsigned __int64 InterruptTimePrecise; // rax
-  unsigned __int64 v7; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v7; // rcx
   int *v8; // rdx
   int *v9; // rax
   __int64 v10; // rcx
   __int64 v11; // rax
   __int64 v12; // rdx
-  unsigned __int64 v13; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  byte_140FBB3F8 = HalpAcquireHighLevelLock(&qword_140FBB3F0);
+  byte_140FBB798 = HalpAcquireHighLevelLock(&qword_140FBB790);
   InternalData = HalpTimerGetInternalData(*(_QWORD *)&HalpVpptPhysicalTimer);
   guard_dispatch_icall_no_overrides(InternalData, v3);
   if ( *(_QWORD *)&HalpVpptQueue == a1 )
@@ -44,18 +44,18 @@ void __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
       *(_BYTE *)(a1 + 24) = 0;
       goto LABEL_2;
     }
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v13);
-    v7 = *(_QWORD *)(a1 + 32);
-    if ( v7 <= InterruptTimePrecise )
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v7 = *(LARGE_INTEGER *)(a1 + 32);
+    if ( v7.QuadPart <= (unsigned __int64)InterruptTimePrecise.QuadPart )
     {
       do
-        v7 += *(_QWORD *)(a1 + 40);
-      while ( v7 <= InterruptTimePrecise );
-      *(_QWORD *)(a1 + 32) = v7;
+        v7.QuadPart += *(_QWORD *)(a1 + 40);
+      while ( v7.QuadPart <= (unsigned __int64)InterruptTimePrecise.QuadPart );
+      *(LARGE_INTEGER *)(a1 + 32) = v7;
     }
     v8 = *(int **)&HalpVpptQueue;
     v9 = &HalpVpptQueue;
-    while ( v8 != &HalpVpptQueue && v7 >= *((_QWORD *)v8 + 4) )
+    while ( v8 != &HalpVpptQueue && v7.QuadPart >= *((_QWORD *)v8 + 4) )
     {
       v9 = v8;
       v8 = *(int **)v8;
@@ -82,8 +82,8 @@ LABEL_2:
   {
     HalpVpptUpdatePhysicalTimer();
   }
-  v4 = (unsigned __int8)byte_140FBB3F8;
-  KxReleaseSpinLock(&qword_140FBB3F0);
+  v4 = (unsigned __int8)byte_140FBB798;
+  KxReleaseSpinLock(&qword_140FBB790);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v4);
   __writecr8(v4);

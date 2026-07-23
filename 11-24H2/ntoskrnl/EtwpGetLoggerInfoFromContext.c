@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpGetLoggerInfoFromContext @ 0x1408343FC
+ * XREFs of EtwpGetLoggerInfoFromContext @ 0x140835798
  * Callers:
- *     EtwpTransitionToRealtime @ 0x14064F408 (EtwpTransitionToRealtime.c)
- *     EtwpIncrementTraceFile @ 0x1407AA940 (EtwpIncrementTraceFile.c)
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpStopTrace @ 0x1408325A4 (EtwpStopTrace.c)
- *     EtwpUpdateTrace @ 0x14083311C (EtwpUpdateTrace.c)
- *     EtwpFlushTrace @ 0x140833B94 (EtwpFlushTrace.c)
- *     EtwpQueryTrace @ 0x1408347C0 (EtwpQueryTrace.c)
+ *     EtwpTransitionToRealtime @ 0x14064DB08 (EtwpTransitionToRealtime.c)
+ *     EtwpQueryTrace @ 0x1408360C0 (EtwpQueryTrace.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x1409D2184 (EtwpStopTrace.c)
+ *     EtwpFlushTrace @ 0x1409D2420 (EtwpFlushTrace.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
+ *     EtwpUpdateTrace @ 0x140ADA038 (EtwpUpdateTrace.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
  */
 
 __int64 __fastcall EtwpGetLoggerInfoFromContext(__int64 a1, __int64 a2)
@@ -29,8 +29,8 @@ __int64 __fastcall EtwpGetLoggerInfoFromContext(__int64 a1, __int64 a2)
   __int64 v7; // rax
   char PreviousMode; // r12
   volatile signed __int64 *v9; // r14
-  _QWORD *v10; // rax
-  _QWORD *v11; // r13
+  char *v10; // rax
+  char *v11; // r13
   __int64 v12; // rax
   __int64 v14; // rcx
   __int64 v15; // rax
@@ -94,12 +94,12 @@ __int64 __fastcall EtwpGetLoggerInfoFromContext(__int64 a1, __int64 a2)
   *(_DWORD *)(a1 + 40) = *(_DWORD *)(a2 + 200);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v9 = (volatile signed __int64 *)(a2 + 688);
-  v10 = KeAbPreAcquire(a2 + 688, 0LL);
+  v10 = (char *)KeAbPreAcquire(a2 + 688, 0LL);
   v11 = v10;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 688), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 688), (__int64)v10, a2 + 688);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 688), v10, a2 + 688);
   if ( v11 )
-    *((_BYTE *)v11 + 10) = 1;
+    v11[10] = 1;
   v12 = *(unsigned __int16 *)(a2 + 152);
   if ( (_WORD)v12 && *(_WORD *)(a1 + 130) )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoSetDeviceToVerify @ 0x14030AB00
+ * XREFs of VerifierIoSetDeviceToVerify @ 0x14030ACF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoSetDeviceToVerify()

@@ -1,38 +1,38 @@
 /*
- * XREFs of MmOutSwapWorkingSet @ 0x1404C28B4
+ * XREFs of MmOutSwapWorkingSet @ 0x1404BC104
  * Callers:
- *     PspChangeProcessExecutionState @ 0x140ADE6AC (PspChangeProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x140ADB89C (PspChangeProcessExecutionState.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027F6FC (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiGetWorkingSetSwapSupport @ 0x1403683CC (MiGetWorkingSetSwapSupport.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiVadSupportsPrivateCommit @ 0x1403BBFA4 (MiVadSupportsPrivateCommit.c)
- *     MiVadMapsLargeImage @ 0x1403BC004 (MiVadMapsLargeImage.c)
- *     MiUnlockWsSwapExclusive @ 0x1404051D4 (MiUnlockWsSwapExclusive.c)
- *     MiOutSwapWorkingSet @ 0x1404055EC (MiOutSwapWorkingSet.c)
- *     MiFindBestOutswapPagefile @ 0x1404056BC (MiFindBestOutswapPagefile.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404057B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140405820 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLockWsSwapExclusive @ 0x1404058B0 (MiLockWsSwapExclusive.c)
- *     MiGetKernelStackSwapSupport @ 0x140405AA8 (MiGetKernelStackSwapSupport.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x140405C04 (MiReAllocateWorkingSetSwapSupport.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x140405C5C (MiAllocateWorkingSetSwapSupport.c)
- *     MiGetFirstVad @ 0x1404B80E0 (MiGetFirstVad.c)
- *     SmStoreExistsForProcess @ 0x140513B48 (SmStoreExistsForProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VmCheckLargePageInswap @ 0x14081BB68 (VmCheckLargePageInswap.c)
- *     MiReserveWorkingSetSwapSpace @ 0x140AC1BB4 (MiReserveWorkingSetSwapSpace.c)
- *     MiFreeWorkingSetSwapContext @ 0x140AC1D44 (MiFreeWorkingSetSwapContext.c)
- *     MiFreeReservationRuns @ 0x140AC1DB0 (MiFreeReservationRuns.c)
- *     EtwTraceWorkingSetSwap @ 0x140AF3D1C (EtwTraceWorkingSetSwap.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x140B6C054 (MiExtendWorkingSetSwapPagefile.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027EC6C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiGetWorkingSetSwapSupport @ 0x14036A16C (MiGetWorkingSetSwapSupport.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiVadSupportsPrivateCommit @ 0x1403C5E14 (MiVadSupportsPrivateCommit.c)
+ *     MiVadMapsLargeImage @ 0x1403C5E74 (MiVadMapsLargeImage.c)
+ *     MiUnlockWsSwapExclusive @ 0x1403FE2C8 (MiUnlockWsSwapExclusive.c)
+ *     MiOutSwapWorkingSet @ 0x1403FE6E0 (MiOutSwapWorkingSet.c)
+ *     MiFindBestOutswapPagefile @ 0x1403FE7B0 (MiFindBestOutswapPagefile.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403FE8A4 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403FE914 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLockWsSwapExclusive @ 0x1403FE9A4 (MiLockWsSwapExclusive.c)
+ *     MiGetKernelStackSwapSupport @ 0x1403FEB9C (MiGetKernelStackSwapSupport.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1403FECF8 (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1403FED50 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiGetFirstVad @ 0x1404B1910 (MiGetFirstVad.c)
+ *     SmStoreExistsForProcess @ 0x14050D5B8 (SmStoreExistsForProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VmCheckLargePageInswap @ 0x140821D78 (VmCheckLargePageInswap.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x140AC3C54 (MiReserveWorkingSetSwapSpace.c)
+ *     MiFreeWorkingSetSwapContext @ 0x140AC3DE4 (MiFreeWorkingSetSwapContext.c)
+ *     MiFreeReservationRuns @ 0x140AC3E50 (MiFreeReservationRuns.c)
+ *     EtwTraceWorkingSetSwap @ 0x140AF673C (EtwTraceWorkingSetSwap.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x140B6F150 (MiExtendWorkingSetSwapPagefile.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
@@ -103,11 +103,11 @@ __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
   v6 = 0;
   v7 = 0LL;
   memset_0(v50, 0, 0x98uLL);
-  v8 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)p_Blink + 87));
+  v8 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)p_Blink + 87));
   v9 = v56;
   if ( a2 )
     v9 = 1;
-  v45 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)p_Blink + 87));
+  v45 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)p_Blink + 87));
   LODWORD(v56) = v9;
   v50[3] = v8;
   if ( (unsigned int)SmStoreExistsForProcess(Process) )
@@ -151,7 +151,7 @@ __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
       }
       else
       {
-        v17 = &unk_140E37818;
+        v17 = &unk_140E37998;
         if ( ((_DWORD)p_Blink[23] & 0xF) != 1 )
           v17 = p_Blink + 27;
         *v17 = 1LL;
@@ -275,7 +275,7 @@ LABEL_60:
           if ( v6 < 4 )
           {
             if ( ((_DWORD)p_Blink[23] & 0xF) == 1 )
-              v41 = &unk_140E37818;
+              v41 = &unk_140E37998;
             else
               v41 = p_Blink + 27;
             *v41 = 0LL;
@@ -283,7 +283,7 @@ LABEL_60:
           else
           {
             if ( ((_DWORD)p_Blink[23] & 0xF) == 1 )
-              v40 = (__int64 *)&unk_140E37818;
+              v40 = (__int64 *)&unk_140E37998;
             else
               v40 = (__int64 *)(p_Blink + 27);
             *v40 = PoolMm;

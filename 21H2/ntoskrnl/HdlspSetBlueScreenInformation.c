@@ -1,11 +1,11 @@
 /*
- * XREFs of HdlspSetBlueScreenInformation @ 0x1409F0384
+ * XREFs of HdlspSetBlueScreenInformation @ 0x1409F1384
  * Callers:
- *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x1409EFE80 (HdlspDispatch.c)
  * Callees:
- *     strcpy_s @ 0x1403D7D70 (strcpy_s.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     strcpy_s @ 0x1403D7EE0 (strcpy_s.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)

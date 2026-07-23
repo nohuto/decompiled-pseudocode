@@ -2,7 +2,7 @@
  * XREFs of RtlpCombineAcls @ 0x1800455AC
  * Callers:
  *     RtlpNewSecurityObject @ 0x1800428C0 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x18007C610 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x18007C620 (RtlpSetSecurityObject.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
@@ -18,12 +18,12 @@ __int64 __fastcall RtlpCombineAcls(
         unsigned __int8 *a4,
         unsigned __int8 *a5,
         unsigned __int8 *a6,
-        unsigned __int64 *a7,
+        ACL **a7,
         _DWORD *a8)
 {
   unsigned __int8 *v8; // r12
-  unsigned __int64 v11; // rbp
-  unsigned int v12; // ebx
+  ACL *v11; // rbp
+  ULONG v12; // ebx
   _DWORD *v14; // r8
   int v15; // r14d
   unsigned int v16; // r9d
@@ -32,10 +32,10 @@ __int64 __fastcall RtlpCombineAcls(
   unsigned int v19; // ecx
   unsigned int v20; // edx
   int v21; // eax
-  signed int Acl; // edi
+  NTSTATUS Acl; // edi
   unsigned int v23; // eax
-  unsigned int v24; // r14d
-  __int64 Heap; // rax
+  ULONG v24; // r14d
+  ACL *Heap; // rax
   char *v26; // rbx
   unsigned __int16 *v27; // rsi
   unsigned int jj; // r14d
@@ -90,14 +90,14 @@ __int64 __fastcall RtlpCombineAcls(
   unsigned int v77; // ecx
   unsigned int v78; // edx
   int v79; // eax
-  void *v80; // [rsp+60h] [rbp+8h] BYREF
+  PVOID FirstFree; // [rsp+60h] [rbp+8h] BYREF
   unsigned __int8 *v81; // [rsp+70h] [rbp+18h]
   unsigned __int8 *v82; // [rsp+78h] [rbp+20h]
 
   v82 = a4;
   v81 = a3;
   v8 = a5;
-  v80 = 0LL;
+  FirstFree = 0LL;
   v11 = 0LL;
   v12 = 2;
   if ( !a1 && !a2 && !a3 && !a4 && !a5 && !a6 )
@@ -265,7 +265,7 @@ __int64 __fastcall RtlpCombineAcls(
   if ( v23 >= v16 )
   {
     v24 = v15 & 0xFFFFFFFC;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v24);
+    Heap = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v24);
     v11 = Heap;
     if ( !Heap )
     {
@@ -275,18 +275,18 @@ __int64 __fastcall RtlpCombineAcls(
     Acl = RtlCreateAcl(Heap, v24, v12);
     if ( Acl >= 0 )
     {
-      if ( RtlFirstFreeAce(v11, &v80) )
+      if ( RtlFirstFreeAce(v11, &FirstFree) )
       {
         if ( a1 && (v52 = (unsigned __int16 *)(a1 + 8), v53 = 0, *((_WORD *)a1 + 2)) )
         {
-          v26 = (char *)v80;
+          v26 = (char *)FirstFree;
           do
           {
             v54 = *(_BYTE *)v52;
             if ( *(_BYTE *)v52 >= 2u && (v54 <= 3u || v54 > 6u && (v54 <= 8u || (unsigned __int8)(v54 - 13) <= 3u)) )
             {
               memmove(v26, v52, v52[1]);
-              ++*(_WORD *)(v11 + 4);
+              ++v11->AceCount;
               v55 = v52[1];
               v26 += v55;
             }
@@ -301,7 +301,7 @@ __int64 __fastcall RtlpCombineAcls(
         }
         else
         {
-          v26 = (char *)v80;
+          v26 = (char *)FirstFree;
         }
         if ( a2 )
         {
@@ -312,7 +312,7 @@ __int64 __fastcall RtlpCombineAcls(
             if ( *(_BYTE *)v27 == 17 )
             {
               memmove(v26, v27, v27[1]);
-              ++*(_WORD *)(v11 + 4);
+              ++v11->AceCount;
               v29 = v27[1];
               v26 += v29;
             }
@@ -332,7 +332,7 @@ __int64 __fastcall RtlpCombineAcls(
             if ( *(_BYTE *)v56 == 20 )
             {
               memmove(v26, v56, v56[1]);
-              ++*(_WORD *)(v11 + 4);
+              ++v11->AceCount;
               v58 = v56[1];
               v26 += v58;
             }
@@ -355,7 +355,7 @@ __int64 __fastcall RtlpCombineAcls(
               if ( *(_BYTE *)v59 == 21 )
               {
                 memmove(v26, v59, v59[1]);
-                ++*(_WORD *)(v11 + 4);
+                ++v11->AceCount;
                 v61 = v59[1];
                 v26 += v61;
               }
@@ -381,7 +381,7 @@ __int64 __fastcall RtlpCombineAcls(
               if ( *(_BYTE *)v62 == 18 )
               {
                 memmove(v26, v62, v62[1]);
-                ++*(_WORD *)(v11 + 4);
+                ++v11->AceCount;
                 v64 = v62[1];
                 v26 += v64;
               }
@@ -407,7 +407,7 @@ __int64 __fastcall RtlpCombineAcls(
               if ( *(_BYTE *)v65 == 19 )
               {
                 memmove(v26, v65, v65[1]);
-                ++*(_WORD *)(v11 + 4);
+                ++v11->AceCount;
                 v67 = v65[1];
                 v26 += v67;
               }
@@ -428,7 +428,7 @@ __int64 __fastcall RtlpCombineAcls(
 LABEL_142:
     if ( v11 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
       v11 = 0LL;
     }
     goto LABEL_42;

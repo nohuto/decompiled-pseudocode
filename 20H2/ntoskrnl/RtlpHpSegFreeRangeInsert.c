@@ -10,13 +10,13 @@
  *     RtlpHpSegPageRangeComputeLargePageCost @ 0x1402CE6E0 (RtlpHpSegPageRangeComputeLargePageCost.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, int a3)
 {
   char v5; // al
-  unsigned __int64 v6; // rdx
-  bool v7; // cl
-  unsigned __int64 v8; // rcx
-  unsigned __int64 result; // rax
+  __int64 v6; // rdx
+  BOOLEAN v7; // cl
+  __int64 v8; // rcx
+  __int64 result; // rax
 
   if ( !a3 && (*(_BYTE *)(a1 + 13) & 0x10) != 0 && *(unsigned __int8 *)(a2 + 31) == 256 - *(unsigned __int8 *)(a1 + 10) )
   {
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, unsigned __int6
     if ( (*(_BYTE *)(a1 + 13) & 7) != 0 )
       v5 = RtlpHpSegPageRangeComputeLargePageCost(
              a1,
-             (a2 & *(_QWORD *)a1) + ((__int64)(a2 - (a2 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)),
+             (a2 & *(_QWORD *)a1) + ((a2 - (a2 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)),
              *(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 8));
     else
       v5 = 4;
@@ -79,7 +79,7 @@ LABEL_20:
         v6 = v8;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 96), v6, v7, a2);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v6, v7, (PRTL_BALANCED_NODE)a2);
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
       (unsigned __int16)~*(_WORD *)(a2 + 28));

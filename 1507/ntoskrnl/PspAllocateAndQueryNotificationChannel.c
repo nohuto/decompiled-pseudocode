@@ -38,38 +38,39 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
   PACL v11; // rsi
   int v12; // ecx
   PACL *p_Acl; // rax
-  __int64 v14; // r8
-  __int16 v15; // ax
-  int ObjectSecurity; // esi
-  PSECURITY_DESCRIPTOR v18; // r15
-  void *v19; // r14
-  PSID *v20; // r14
+  __int16 v14; // ax
+  NTSTATUS ObjectSecurity; // esi
+  PSECURITY_DESCRIPTOR v17; // r15
+  void *v18; // r14
+  PSID *v19; // r14
   ACL *PoolWithTag; // rax
-  ACL *v22; // rsi
+  ACL *v21; // rsi
+  __int64 v22; // r9
   int v23; // ecx
   unsigned int v24; // edi
   _QWORD *v25; // rsi
   char v26; // al
+  PCWNF_TYPE_ID TypeId; // [rsp+20h] [rbp-79h]
   ULONG AclLength[2]; // [rsp+40h] [rbp-59h]
   ULONG AclLengtha; // [rsp+40h] [rbp-59h]
   ULONG AclLengthb[2]; // [rsp+40h] [rbp-59h]
   BOOLEAN MemoryAllocated; // [rsp+48h] [rbp-51h] BYREF
-  char v31; // [rsp+49h] [rbp-50h]
-  char v32; // [rsp+4Ah] [rbp-4Fh] BYREF
+  char v32; // [rsp+49h] [rbp-50h]
+  char v33; // [rsp+4Ah] [rbp-4Fh] BYREF
   BOOLEAN OwnerDefaulted[5]; // [rsp+4Bh] [rbp-4Eh] BYREF
   PACL Acl; // [rsp+50h] [rbp-49h] BYREF
-  int v35; // [rsp+58h] [rbp-41h] BYREF
+  int v36; // [rsp+58h] [rbp-41h] BYREF
   PSID Owner; // [rsp+60h] [rbp-39h] BYREF
-  char v37; // [rsp+68h] [rbp-31h] BYREF
+  char v38; // [rsp+68h] [rbp-31h] BYREF
   PVOID TokenInformation; // [rsp+70h] [rbp-29h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+78h] [rbp-21h] BYREF
-  _BYTE v40[8]; // [rsp+80h] [rbp-19h] BYREF
-  _BYTE v41[40]; // [rsp+88h] [rbp-11h] BYREF
-  __int64 v42; // [rsp+B0h] [rbp+17h] BYREF
+  _BYTE v41[8]; // [rsp+80h] [rbp-19h] BYREF
+  _BYTE v42[40]; // [rsp+88h] [rbp-11h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+B0h] [rbp+17h] BYREF
 
   v3 = (*(_DWORD *)(a2 + 1296) & 0x800) == 0;
-  v31 = 0;
-  v42 = 0LL;
+  v32 = 0;
+  StateName = 0LL;
   v7 = 0;
   v8 = 0LL;
   if ( v3 )
@@ -77,25 +78,25 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
     ObjectSecurity = ObpGetObjectSecurity(a2, &SecurityDescriptor, &MemoryAllocated, 0LL);
     if ( ObjectSecurity >= 0 )
     {
-      v18 = SecurityDescriptor;
+      v17 = SecurityDescriptor;
       if ( SecurityDescriptor )
       {
         ObjectSecurity = RtlGetOwnerSecurityDescriptor(SecurityDescriptor, &Owner, OwnerDefaulted);
         if ( ObjectSecurity >= 0 )
         {
-          v19 = (void *)PsReferenceEffectiveToken(a1, (unsigned int)&v35, (unsigned int)&v32, (unsigned int)&v37, 0LL);
-          ObjectSecurity = SeQueryInformationToken(v19, TokenUser, &TokenInformation);
-          if ( v35 == 1 )
+          v18 = (void *)PsReferenceEffectiveToken(a1, (unsigned int)&v36, (unsigned int)&v33, (unsigned int)&v38, 0LL);
+          ObjectSecurity = SeQueryInformationToken(v18, TokenUser, &TokenInformation);
+          if ( v36 == 1 )
           {
-            ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(a1 + 184) + 856LL), (unsigned __int64)v19);
+            ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(a1 + 184) + 856LL), (unsigned __int64)v18);
           }
-          else if ( v19 )
+          else if ( v18 )
           {
-            ObfDereferenceObject(v19);
+            ObfDereferenceObject(v18);
           }
           if ( ObjectSecurity >= 0 )
           {
-            v20 = (PSID *)TokenInformation;
+            v19 = (PSID *)TokenInformation;
             AclLengtha = 4 * (*((unsigned __int8 *)Owner + 1) + *(unsigned __int8 *)(*(_QWORD *)TokenInformation + 1LL))
                        + 48;
             PoolWithTag = (ACL *)ExAllocatePoolWithTag(NonPagedPoolNx, AclLengtha, 0x66577350u);
@@ -103,12 +104,19 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
             if ( PoolWithTag )
             {
               RtlCreateAcl(PoolWithTag, AclLengtha, 2u);
-              v22 = Acl;
+              v21 = Acl;
               RtlAddAccessAllowedAce(Acl, 2u, 0x80000000, Owner);
-              RtlAddAccessAllowedAce(v22, 2u, 0x80000000, *v20);
-              RtlCreateSecurityDescriptor(v41, 1u);
-              RtlSetDaclSecurityDescriptor(v41, 1u, v22, 0);
-              ObjectSecurity = ZwCreateWnfStateName((__int64)&v42, 3LL, 0LL);
+              RtlAddAccessAllowedAce(v21, 2u, 0x80000000, *v19);
+              RtlCreateSecurityDescriptor(v42, 1u);
+              RtlSetDaclSecurityDescriptor(v42, 1u, v21, 0);
+              ObjectSecurity = ZwCreateWnfStateName(
+                                 &StateName,
+                                 WnfTemporaryStateName,
+                                 WnfDataScopeSystem,
+                                 0,
+                                 0LL,
+                                 0,
+                                 v42);
               ExFreePoolWithTag(Acl, 0x66577350u);
               if ( ObjectSecurity >= 0 )
               {
@@ -128,20 +136,20 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
                 Acl = *(PACL *)AclLengthb;
                 if ( v3 )
                 {
-                  *(_QWORD *)(a2 + 888) = v42;
-                  v8 = v40;
-                  PspComputeReportWakeFilter((_DWORD *)a2, (__int64)v40, (_QWORD *)(a2 + 944), 0);
+                  *(_WNF_STATE_NAME *)(a2 + 888) = StateName;
+                  v8 = v41;
+                  PspComputeReportWakeFilter((_DWORD *)a2, (__int64)v41, (_QWORD *)(a2 + 944), 0);
                   PspEnumJobsAndProcessesInJobHierarchy(
                     v23,
                     0,
                     (unsigned int)PspEnableWakeCounters,
                     (unsigned int)PspEnableProcessWakeCounters,
-                    0LL,
+                    v22 & (unsigned __int64)TypeId,
                     2);
                   _interlockedbittestandset((volatile signed __int32 *)(a2 + 1296), 0xBu);
                   _InterlockedIncrement64(&PspJobTimeLimitsRequest);
                   v11 = Acl;
-                  v7 = v31;
+                  v7 = v32;
                 }
                 else
                 {
@@ -150,7 +158,7 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
                 goto LABEL_8;
               }
             }
-            ExFreePoolWithTag(v20, 0);
+            ExFreePoolWithTag(v19, 0);
           }
         }
       }
@@ -158,7 +166,7 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
       {
         ObjectSecurity = -1073741790;
       }
-      ObReleaseObjectSecurity(v18, MemoryAllocated);
+      ObReleaseObjectSecurity(v17, MemoryAllocated);
     }
     return (unsigned int)ObjectSecurity;
   }
@@ -202,14 +210,14 @@ LABEL_8:
   ExReleaseResourceLite((PERESOURCE)&v11[7]);
   if ( a1 )
   {
-    v15 = *(_WORD *)(a1 + 486) + 1;
-    *(_WORD *)(a1 + 486) = v15;
-    if ( !v15 && *(_QWORD *)(a1 + 152) != a1 + 152 )
+    v14 = *(_WORD *)(a1 + 486) + 1;
+    *(_WORD *)(a1 + 486) = v14;
+    if ( !v14 && *(_QWORD *)(a1 + 152) != a1 + 152 )
       KiCheckForKernelApcDelivery();
   }
   if ( v7 )
   {
-    ZwDeleteWnfStateName((__int64)&v42, 0LL, v14);
+    ZwDeleteWnfStateName(&StateName);
   }
   else if ( !v9 && *v8 )
   {

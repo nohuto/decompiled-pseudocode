@@ -1,19 +1,19 @@
 /*
- * XREFs of MiEmptyAccessLogs @ 0x140683670
+ * XREFs of MiEmptyAccessLogs @ 0x140684820
  * Callers:
  *     <none>
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     MiCheckAndProcessCcAccessLog @ 0x140379B9C (MiCheckAndProcessCcAccessLog.c)
- *     MiGetVmAccessLoggingPartition @ 0x140399050 (MiGetVmAccessLoggingPartition.c)
- *     MiDrainSystemAccessLog @ 0x140469AF0 (MiDrainSystemAccessLog.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     MiGetVmAccessLoggingPartition @ 0x140351780 (MiGetVmAccessLoggingPartition.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x14044B1B4 (MiCheckAndProcessCcAccessLog.c)
+ *     MiDrainSystemAccessLog @ 0x140462A14 (MiDrainSystemAccessLog.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiEmptyAccessLogs(__int64 a1)
@@ -25,17 +25,21 @@ void __fastcall MiEmptyAccessLogs(__int64 a1)
   _QWORD *v6; // rax
   __int64 v7; // rdx
   __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // r8
+  __int64 v11; // r9
   __int64 NextProcess; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // rdi
-  _QWORD *v13; // rdi
-  __int64 v14; // rsi
-  _OWORD v15[3]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 v16; // rdi
+  _QWORD *v17; // rdi
+  __int64 v18; // rsi
+  _OWORD v19[3]; // [rsp+20h] [rbp-58h] BYREF
 
   v1 = (volatile LONG *)(a1 + 17536);
   v3 = 0LL;
-  memset(v15, 0, sizeof(v15));
+  memset(v19, 0, sizeof(v19));
   v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 17536));
   if ( !*(_DWORD *)(a1 + 17452) )
   {
@@ -43,37 +47,37 @@ void __fastcall MiEmptyAccessLogs(__int64 a1)
     {
       *(_DWORD *)(a1 + 17448) = 2;
       MiReleaseSpinLockExclusive(v1, v4);
-      for ( i = 0LL; ; i = (void *)v12 )
+      for ( i = 0LL; ; i = (void *)v16 )
       {
         NextProcess = PsGetNextProcess(i);
-        v12 = NextProcess;
+        v16 = NextProcess;
         if ( !NextProcess )
           break;
         if ( MiGetVmAccessLoggingPartition(NextProcess + 1024) == (ULONG *)a1 )
         {
-          v6 = &unk_140E38768;
-          if ( (*(_DWORD *)(v12 + 1208) & 0xF) != 1 )
-            v6 = (_QWORD *)(v12 + 1256);
+          v6 = &unk_140E388A8;
+          if ( (*(_DWORD *)(v16 + 1208) & 0xF) != 1 )
+            v6 = (_QWORD *)(v16 + 1256);
           if ( *v6 )
           {
-            KiStackAttachProcess((_KPROCESS *)v12, 0, (__int64)v15);
-            MiDrainSystemAccessLog(v12 + 1024, v7, v8);
-            KiUnstackDetachProcess((__int64)v15, 0);
+            KiStackAttachProcess((_KPROCESS *)v16, 0, (__int64)v19);
+            MiDrainSystemAccessLog(v16 + 1024, v7, v8, v9);
+            KiUnstackDetachProcess((__int64)v19, 0, v10, v11);
           }
         }
       }
       if ( (ULONG *)a1 == &MiSystemPartition )
       {
-        v13 = &unk_140E37C00;
-        v14 = 4LL;
+        v17 = &unk_140E37D40;
+        v18 = 4LL;
         do
         {
-          if ( v13[14] )
-            MiDrainSystemAccessLog((__int64)v13, v10, v11);
-          v13 += 40;
-          --v14;
+          if ( v17[14] )
+            MiDrainSystemAccessLog((__int64)v17, v13, v14, v15);
+          v17 += 40;
+          --v18;
         }
-        while ( v14 );
+        while ( v18 );
       }
       MiCheckAndProcessCcAccessLog(a1, 0LL, 1);
       v4 = ExAcquireSpinLockExclusive(v1);

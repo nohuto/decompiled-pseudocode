@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMarkLockedChainAsProtected @ 0x14033C3D0
+ * XREFs of MiMarkLockedChainAsProtected @ 0x14033C660
  * Callers:
- *     MiSharedInsertPfnChainInList @ 0x1402DDB70 (MiSharedInsertPfnChainInList.c)
- *     MiExclusiveInsertPfnChainInList @ 0x14033C178 (MiExclusiveInsertPfnChainInList.c)
+ *     MiSharedInsertPfnChainInList @ 0x1402DDE00 (MiSharedInsertPfnChainInList.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x14033C408 (MiExclusiveInsertPfnChainInList.c)
  * Callees:
  *     <none>
  */

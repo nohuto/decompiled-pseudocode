@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAcquirePrcbLocksForGroupAffinity @ 0x1405E4EE0
+ * XREFs of KiAcquirePrcbLocksForGroupAffinity @ 0x1405E7850
  * Callers:
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
  */
 
 void __fastcall KiAcquirePrcbLocksForGroupAffinity(__int128 *a1)

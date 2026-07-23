@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_MultiCoreClasses__private_ReportDeviceUsage @ 0x1404102E0
+ * XREFs of Feature_MultiCoreClasses__private_ReportDeviceUsage @ 0x1404103BC
  * Callers:
- *     PpmPerfSnapUtility @ 0x140255B10 (PpmPerfSnapUtility.c)
- *     KeIsMultiCoreClassesEnabled @ 0x140255F40 (KeIsMultiCoreClassesEnabled.c)
- *     Feature_MultiCoreClasses__private_IsEnabledPreCheck @ 0x140255F60 (Feature_MultiCoreClasses__private_IsEnabledPreCheck.c)
+ *     PpmPerfSnapUtility @ 0x140255BD0 (PpmPerfSnapUtility.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x140256000 (KeIsMultiCoreClassesEnabled.c)
+ *     Feature_MultiCoreClasses__private_IsEnabledPreCheck @ 0x140256020 (Feature_MultiCoreClasses__private_IsEnabledPreCheck.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_MultiCoreClasses__private_ReportDeviceUsage()

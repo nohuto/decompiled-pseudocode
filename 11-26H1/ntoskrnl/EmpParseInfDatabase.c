@@ -1,21 +1,21 @@
 /*
- * XREFs of EmpParseInfDatabase @ 0x140CB63E0
+ * XREFs of EmpParseInfDatabase @ 0x140CBC420
  * Callers:
- *     EmInitSystem @ 0x140D07BB4 (EmInitSystem.c)
+ *     EmInitSystem @ 0x140D0DE84 (EmInitSystem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     EmpParseCallbacks @ 0x140CB600C (EmpParseCallbacks.c)
- *     EmpParseEntryTypes @ 0x140CB625C (EmpParseEntryTypes.c)
- *     EmpParseRules @ 0x140CB6F84 (EmpParseRules.c)
- *     EmpParseStrings @ 0x140CB7308 (EmpParseStrings.c)
- *     EmpParseTargetRules @ 0x140CB77A4 (EmpParseTargetRules.c)
- *     CmpFreeLineList @ 0x140CB7E80 (CmpFreeLineList.c)
- *     CmpParseInfBuffer @ 0x140CB82B4 (CmpParseInfBuffer.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     EmpParseCallbacks @ 0x140CBC04C (EmpParseCallbacks.c)
+ *     EmpParseEntryTypes @ 0x140CBC29C (EmpParseEntryTypes.c)
+ *     EmpParseRules @ 0x140CBCFC8 (EmpParseRules.c)
+ *     EmpParseStrings @ 0x140CBD34C (EmpParseStrings.c)
+ *     EmpParseTargetRules @ 0x140CBD7E8 (EmpParseTargetRules.c)
+ *     CmpFreeLineList @ 0x140CBDEC4 (CmpFreeLineList.c)
+ *     CmpParseInfBuffer @ 0x140CBE2F8 (CmpParseInfBuffer.c)
  */
 
 __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

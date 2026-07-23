@@ -1,60 +1,60 @@
 /*
- * XREFs of IoAllocateMdl @ 0x140267BF0
+ * XREFs of IoAllocateMdl @ 0x14025F1D0
  * Callers:
- *     CcZeroDataInCache @ 0x140267564 (CcZeroDataInCache.c)
- *     IopBuildDeviceIoControlRequest @ 0x140267920 (IopBuildDeviceIoControlRequest.c)
- *     MiZeroPageWrite @ 0x140268964 (MiZeroPageWrite.c)
- *     CcPrepareMdlWrite @ 0x1402CC1E0 (CcPrepareMdlWrite.c)
- *     IopBuildAsynchronousFsdRequest @ 0x1403754A0 (IopBuildAsynchronousFsdRequest.c)
- *     HalpDmaCheckMdlAccessibility @ 0x140391F30 (HalpDmaCheckMdlAccessibility.c)
- *     CcLockSystemCacheBuffer @ 0x14040CB58 (CcLockSystemCacheBuffer.c)
- *     HalBuildMdlFromScatterGatherListV2 @ 0x14044D690 (HalBuildMdlFromScatterGatherListV2.c)
- *     HalBuildMdlFromScatterGatherListV3 @ 0x1404805A0 (HalBuildMdlFromScatterGatherListV3.c)
- *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405925BC (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
- *     IopLiveDumpAllocateMappingResources @ 0x1405997A8 (IopLiveDumpAllocateMappingResources.c)
- *     MmAllocateMdlForIoSpace @ 0x14066F4E0 (MmAllocateMdlForIoSpace.c)
- *     MiLockPatchIatForDV @ 0x14067BF00 (MiLockPatchIatForDV.c)
- *     MiPrepareImagePagesForHotPatch @ 0x14067D29C (MiPrepareImagePagesForHotPatch.c)
- *     HalGetAdapterV3 @ 0x1407000B8 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140700658 (HalGetAdapterV2.c)
- *     HvlpDynamicUpdateMicrocode @ 0x14070F368 (HvlpDynamicUpdateMicrocode.c)
- *     IopAllocateAndLockMdl @ 0x14071194C (IopAllocateAndLockMdl.c)
- *     IopSetEaOrQuotaInformationFile @ 0x1407129A0 (IopSetEaOrQuotaInformationFile.c)
- *     IopSetFileObjectIosbRange @ 0x140712DF8 (IopSetFileObjectIosbRange.c)
- *     NtQueryQuotaInformationFile @ 0x140717C10 (NtQueryQuotaInformationFile.c)
- *     PnprInitializeMappingReserve @ 0x14072F9F4 (PnprInitializeMappingReserve.c)
- *     EtwpBuildMdlForTraceBuffer @ 0x1407AF650 (EtwpBuildMdlForTraceBuffer.c)
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
- *     NtPssCaptureVaSpaceBulk @ 0x1407C4840 (NtPssCaptureVaSpaceBulk.c)
- *     MiLockAndMapEntireDriver @ 0x1407F0938 (MiLockAndMapEntireDriver.c)
- *     MiApplyImageHotPatch @ 0x1407F16A0 (MiApplyImageHotPatch.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x1407F5158 (MiMapHotPatchImageInSystemSpace.c)
- *     NtFreeUserPhysicalPages @ 0x1407F9BD0 (NtFreeUserPhysicalPages.c)
- *     IopReadFile @ 0x1408C0610 (IopReadFile.c)
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
- *     BuildQueryDirectoryIrp @ 0x1408C48F0 (BuildQueryDirectoryIrp.c)
- *     WbCreateHeapExecutedBlock @ 0x1408FDAD8 (WbCreateHeapExecutedBlock.c)
- *     MiCreateMdl @ 0x140945DF8 (MiCreateMdl.c)
- *     NtQueryEaFile @ 0x14096E890 (NtQueryEaFile.c)
- *     WbMakeUserExecutablePagesKernelWritable @ 0x1409E0F80 (WbMakeUserExecutablePagesKernelWritable.c)
- *     WbMakeUserDataPagesKernelWritable @ 0x1409E1088 (WbMakeUserDataPagesKernelWritable.c)
- *     FsRtlKernelFsControlFile @ 0x1409FD420 (FsRtlKernelFsControlFile.c)
- *     AlpcpInitializeCompletionList @ 0x140A0AC54 (AlpcpInitializeCompletionList.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x140A0BC30 (NtNotifyChangeDirectoryFileEx.c)
- *     NtSetEaFile @ 0x140A60FA0 (NtSetEaFile.c)
- *     IopReadFileScatter @ 0x140A8E968 (IopReadFileScatter.c)
- *     IopWriteFileGather @ 0x140A958BC (IopWriteFileGather.c)
- *     PopReadPagesFromHiberFile @ 0x140AB1180 (PopReadPagesFromHiberFile.c)
- *     CcMdlRead @ 0x140AC3350 (CcMdlRead.c)
- *     IovAllocateMdl @ 0x140B82350 (IovAllocateMdl.c)
- *     VfBuildMdlFromScatterGatherList @ 0x140B85950 (VfBuildMdlFromScatterGatherList.c)
- *     ViAllocateMapRegisterFile @ 0x140B87EAC (ViAllocateMapRegisterFile.c)
- *     VerifierPortIoAllocateMdl @ 0x140B8B1A0 (VerifierPortIoAllocateMdl.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x14025DD60 (IopBuildAsynchronousFsdRequest.c)
+ *     CcZeroDataInCache @ 0x14025EB44 (CcZeroDataInCache.c)
+ *     IopBuildDeviceIoControlRequest @ 0x14025EF00 (IopBuildDeviceIoControlRequest.c)
+ *     MiZeroPageWrite @ 0x14025FE14 (MiZeroPageWrite.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x14038B860 (HalpDmaCheckMdlAccessibility.c)
+ *     CcLockSystemCacheBuffer @ 0x1404051E8 (CcLockSystemCacheBuffer.c)
+ *     CcPrepareMdlWrite @ 0x14040B2B0 (CcPrepareMdlWrite.c)
+ *     HalBuildMdlFromScatterGatherListV2 @ 0x140444590 (HalBuildMdlFromScatterGatherListV2.c)
+ *     HalBuildMdlFromScatterGatherListV3 @ 0x14047B100 (HalBuildMdlFromScatterGatherListV3.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x14058F5E0 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x140596728 (IopLiveDumpAllocateMappingResources.c)
+ *     MmAllocateMdlForIoSpace @ 0x1406706B0 (MmAllocateMdlForIoSpace.c)
+ *     MiLockPatchIatForDV @ 0x14067D0E0 (MiLockPatchIatForDV.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x14067E494 (MiPrepareImagePagesForHotPatch.c)
+ *     HalGetAdapterV3 @ 0x1406FDCF8 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x1406FE298 (HalGetAdapterV2.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x14070CEF8 (HvlpDynamicUpdateMicrocode.c)
+ *     IopAllocateAndLockMdl @ 0x14070F4DC (IopAllocateAndLockMdl.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x140710530 (IopSetEaOrQuotaInformationFile.c)
+ *     IopSetFileObjectIosbRange @ 0x140710988 (IopSetFileObjectIosbRange.c)
+ *     NtQueryQuotaInformationFile @ 0x1407157A0 (NtQueryQuotaInformationFile.c)
+ *     PnprInitializeMappingReserve @ 0x14072DA04 (PnprInitializeMappingReserve.c)
+ *     EtwpBuildMdlForTraceBuffer @ 0x1407AFAA0 (EtwpBuildMdlForTraceBuffer.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x1407C51A0 (NtPssCaptureVaSpaceBulk.c)
+ *     MiLockAndMapEntireDriver @ 0x1407F0F08 (MiLockAndMapEntireDriver.c)
+ *     MiApplyImageHotPatch @ 0x1407F1C70 (MiApplyImageHotPatch.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x1407F584C (MiMapHotPatchImageInSystemSpace.c)
+ *     NtFreeUserPhysicalPages @ 0x1407FA340 (NtFreeUserPhysicalPages.c)
+ *     IopReadFile @ 0x1408BDFD0 (IopReadFile.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
+ *     BuildQueryDirectoryIrp @ 0x1408C22B0 (BuildQueryDirectoryIrp.c)
+ *     WbCreateHeapExecutedBlock @ 0x1409203B8 (WbCreateHeapExecutedBlock.c)
+ *     NtQueryEaFile @ 0x140956950 (NtQueryEaFile.c)
+ *     MiCreateMdl @ 0x14098FB34 (MiCreateMdl.c)
+ *     WbMakeUserExecutablePagesKernelWritable @ 0x1409DAD30 (WbMakeUserExecutablePagesKernelWritable.c)
+ *     WbMakeUserDataPagesKernelWritable @ 0x1409DAE38 (WbMakeUserDataPagesKernelWritable.c)
+ *     FsRtlKernelFsControlFile @ 0x1409F6160 (FsRtlKernelFsControlFile.c)
+ *     AlpcpInitializeCompletionList @ 0x140A07184 (AlpcpInitializeCompletionList.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x140A0AE70 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtSetEaFile @ 0x140A59680 (NtSetEaFile.c)
+ *     IopReadFileScatter @ 0x140A8AFD8 (IopReadFileScatter.c)
+ *     IopWriteFileGather @ 0x140A920EC (IopWriteFileGather.c)
+ *     PopReadPagesFromHiberFile @ 0x140AAC0F0 (PopReadPagesFromHiberFile.c)
+ *     CcMdlRead @ 0x140ABE630 (CcMdlRead.c)
+ *     IovAllocateMdl @ 0x140B84350 (IovAllocateMdl.c)
+ *     VfBuildMdlFromScatterGatherList @ 0x140B87950 (VfBuildMdlFromScatterGatherList.c)
+ *     ViAllocateMapRegisterFile @ 0x140B89EAC (ViAllocateMapRegisterFile.c)
+ *     VerifierPortIoAllocateMdl @ 0x140B8D1A0 (VerifierPortIoAllocateMdl.c)
  * Callees:
- *     VfPtMiscPoolNotification @ 0x140400260 (VfPtMiscPoolNotification.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     VfPtMiscPoolNotification @ 0x1403FA750 (VfPtMiscPoolNotification.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 PMDL __stdcall IoAllocateMdl(
@@ -68,105 +68,108 @@ PMDL __stdcall IoAllocateMdl(
   __int16 v6; // r15
   __int16 v8; // r12
   unsigned __int64 v9; // rsi
-  struct _KPRCB *v10; // rbp
-  _GENERAL_LOOKASIDE *v11; // rdi
-  __int64 Pool2; // rbx
-  _GENERAL_LOOKASIDE *v13; // rdi
-  __int64 v14; // r9
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // rcx
+  unsigned int v10; // r13d
+  struct _KPRCB *v11; // rbp
+  _GENERAL_LOOKASIDE *v12; // rdi
+  PSLIST_ENTRY Pool2; // rbx
+  _GENERAL_LOOKASIDE *v14; // rdi
+  __int64 v15; // r9
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // rcx
   unsigned int Number; // eax
   PMDL MdlAddress; // rcx
   struct _MDL *i; // rax
   _GENERAL_LOOKASIDE *P; // rbp
   _GENERAL_LOOKASIDE *L; // rbp
-  __int64 v24; // r9
+  __int64 v25; // r9
   __int64 Size; // rdx
   __int64 Tag; // r8
   __int64 Type; // rcx
   struct _KPRCB *CurrentPrcb; // [rsp+60h] [rbp+8h]
-  char v30; // [rsp+68h] [rbp+10h]
+  char v31; // [rsp+68h] [rbp+10h]
 
   v5 = Length;
   v6 = (__int16)VirtualAddress;
   v8 = 0;
   v9 = (((unsigned __int16)VirtualAddress & 0xFFF) + (unsigned __int64)Length + 4095) >> 12;
-  if ( (unsigned int)(8 * v9 + 48) <= 0xB8 )
+  v10 = 8 * v9 + 48;
+  if ( v10 <= 0xB8 )
   {
     v8 = 8;
+    v10 = 184;
     if ( ViAptInitialized && KernelVerifier == 1 )
     {
       CurrentPrcb = KeGetCurrentPrcb();
-      v30 = 1;
+      v31 = 1;
       P = CurrentPrcb->PPLookasideList[3].P;
       ++P->TotalAllocates;
-      Pool2 = (__int64)RtlpInterlockedPopEntrySList(&P->ListHead);
+      Pool2 = RtlpInterlockedPopEntrySList(&P->ListHead);
       if ( Pool2 )
         goto LABEL_24;
       ++P->AllocateMisses;
       L = CurrentPrcb->PPLookasideList[3].L;
       ++L->TotalAllocates;
-      Pool2 = (__int64)RtlpInterlockedPopEntrySList(&L->ListHead);
+      Pool2 = RtlpInterlockedPopEntrySList(&L->ListHead);
       if ( Pool2
         || (Size = L->Size,
             Tag = L->Tag,
             Type = (unsigned int)L->Type,
             ++L->AllocateMisses,
-            v30 = 0,
-            (Pool2 = guard_dispatch_icall_no_overrides(Type, Size, Tag, v24)) != 0) )
+            v31 = 0,
+            (Pool2 = (PSLIST_ENTRY)guard_dispatch_icall_no_overrides(Type, Size, Tag, v25)) != 0LL) )
       {
 LABEL_24:
-        *(_DWORD *)Pool2 = CurrentPrcb->Number;
+        LODWORD(Pool2->Next) = CurrentPrcb->Number;
       }
       if ( Pool2 )
       {
-        if ( v30 )
-          VfPtMiscPoolNotification(Pool2, *(__int16 *)(Pool2 + 8), 543974477LL, 0LL);
+        if ( v31 )
+          VfPtMiscPoolNotification(Pool2, *((__int16 *)&Pool2->Next + 4), 543974477LL, 0LL);
 LABEL_8:
-        LOWORD(Number) = *(_WORD *)Pool2;
+        LOWORD(Number) = Pool2->Next;
         goto LABEL_9;
       }
     }
     else
     {
-      v10 = KeGetCurrentPrcb();
-      v11 = v10->PPLookasideList[3].P;
-      ++v11->TotalAllocates;
-      Pool2 = (__int64)RtlpInterlockedPopEntrySList(&v11->ListHead);
+      v11 = KeGetCurrentPrcb();
+      v12 = v11->PPLookasideList[3].P;
+      ++v12->TotalAllocates;
+      Pool2 = RtlpInterlockedPopEntrySList(&v12->ListHead);
       if ( Pool2 )
         goto LABEL_6;
-      ++v11->AllocateMisses;
-      v13 = v10->PPLookasideList[3].L;
-      ++v13->TotalAllocates;
-      Pool2 = (__int64)RtlpInterlockedPopEntrySList(&v13->ListHead);
+      ++v12->AllocateMisses;
+      v14 = v11->PPLookasideList[3].L;
+      ++v14->TotalAllocates;
+      Pool2 = RtlpInterlockedPopEntrySList(&v14->ListHead);
       if ( Pool2
-        || (v15 = v13->Size,
-            v16 = v13->Tag,
-            v17 = (unsigned int)v13->Type,
-            ++v13->AllocateMisses,
-            (Pool2 = guard_dispatch_icall_no_overrides(v17, v15, v16, v14)) != 0) )
+        || (v16 = v14->Size,
+            v17 = v14->Tag,
+            v18 = (unsigned int)v14->Type,
+            ++v14->AllocateMisses,
+            (Pool2 = (PSLIST_ENTRY)guard_dispatch_icall_no_overrides(v18, v16, v17, v15)) != 0LL) )
       {
 LABEL_6:
-        *(_DWORD *)Pool2 = v10->Number;
+        LODWORD(Pool2->Next) = v11->Number;
       }
       v5 = Length;
       if ( Pool2 )
         goto LABEL_8;
     }
   }
-  Pool2 = ExAllocatePool2(0x42uLL);
+  Pool2 = (PSLIST_ENTRY)ExAllocatePool2(0x42uLL, v10, 0x206C644Du);
   if ( !Pool2 )
     return 0LL;
   Number = KeGetPcr()->Prcb.Number;
 LABEL_9:
-  *(_WORD *)(Pool2 + 12) = Number;
-  *(_QWORD *)Pool2 = 0LL;
-  *(_WORD *)(Pool2 + 8) = 8 * (v9 + 6);
-  *(_QWORD *)(Pool2 + 32) = (unsigned __int64)VirtualAddress & 0xFFFFFFFFFFFFF000uLL;
-  *(_DWORD *)(Pool2 + 44) = v6 & 0xFFF;
-  *(_DWORD *)(Pool2 + 40) = v5;
-  *(_WORD *)(Pool2 + 10) = v8;
+  *((_WORD *)&Pool2->Next + 6) = Number;
+  Pool2->Next = 0LL;
+  *((_WORD *)&Pool2->Next + 4) = 8 * (v9 + 6);
+  Pool2[2].Next = (_SLIST_ENTRY *)((unsigned __int64)VirtualAddress & 0xFFFFFFFFFFFFF000uLL);
+  *((_DWORD *)&Pool2[2].Next + 3) = v6 & 0xFFF;
+  *((_DWORD *)&Pool2[2].Next + 2) = v5;
+  *((_WORD *)&Pool2->Next + 5) = v8;
   if ( Irp )
   {
     if ( SecondaryBuffer )

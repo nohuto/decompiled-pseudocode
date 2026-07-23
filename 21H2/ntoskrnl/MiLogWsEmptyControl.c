@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogWsEmptyControl @ 0x140359E64
+ * XREFs of MiLogWsEmptyControl @ 0x14029EC00
  * Callers:
- *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x1406BD464 (MmProcessWorkingSetControl.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     MiFillLogProcessInfo @ 0x14035A1C4 (MiFillLogProcessInfo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     MiFillLogProcessInfo @ 0x14029EF60 (MiFillLogProcessInfo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogWsEmptyControl(__int64 a1)
@@ -39,7 +39,7 @@ void __fastcall MiLogWsEmptyControl(__int64 a1)
 
   v12 = 0LL;
   v11 = 0;
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
     MiFillLogProcessInfo(a1, &v11, &v12, a1);
     if ( *v1 > 5u )
@@ -60,7 +60,7 @@ void __fastcall MiLogWsEmptyControl(__int64 a1)
         v20 = v4 + 3;
         v23 = v4 + 3;
         LODWORD(v12) = v5;
-        tlgWriteEx_EtwWriteEx(v7, (unsigned __int8 *)&byte_140026CED, v6, v4, v8, v9, 6u, &v14);
+        tlgWriteEx_EtwWriteEx(v7, (unsigned __int8 *)&byte_140026DAD, v6, v4, v8, v9, 6u, &v14);
       }
     }
   }

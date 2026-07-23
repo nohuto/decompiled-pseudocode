@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeWalkBounds @ 0x1403267E0
+ * XREFs of MiInitializeWalkBounds @ 0x140328810
  * Callers:
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
  * Callees:
- *     MiSetExclusionWalkBounds @ 0x14048EB4C (MiSetExclusionWalkBounds.c)
+ *     MiSetExclusionWalkBounds @ 0x14048868C (MiSetExclusionWalkBounds.c)
  */
 
 __int64 __fastcall MiInitializeWalkBounds(__int64 a1, _QWORD *a2)
@@ -32,9 +32,9 @@ __int64 __fastcall MiInitializeWalkBounds(__int64 a1, _QWORD *a2)
     if ( (*(_DWORD *)a1 & 0x400) != 0 )
     {
       if ( (v4 & 0xF) != 0 )
-        Thread = (char *)qword_140E37C30;
+        Thread = (char *)qword_140E37DB0;
       else
-        Thread = (char *)(qword_140E37C30 + 0x8000000000LL);
+        Thread = (char *)(qword_140E37DB0 + 0x8000000000LL);
       v9 = 0xFFFFFFFFFLL;
 LABEL_13:
       *a2 = Thread;
@@ -47,54 +47,54 @@ LABEL_13:
         switch ( v4 & 0xF )
         {
           case 1:
-            Thread = *(char **)&stru_140E2D930.UserAffinityPrimaryGroup;
-            Blink = stru_140E2D930.QueueListEntry.Blink;
+            Thread = *(char **)&stru_140E2DAB0.UserAffinityPrimaryGroup;
+            Blink = stru_140E2DAB0.QueueListEntry.Blink;
             goto LABEL_12;
           case 2:
-            Thread = (char *)stru_140E2D930.WaitBlock[3].Thread;
-            Blink = stru_140E2D930.WaitBlock[2].SparePtr;
+            Thread = (char *)stru_140E2DAB0.WaitBlock[3].Thread;
+            Blink = stru_140E2DAB0.WaitBlock[2].SparePtr;
             goto LABEL_12;
           case 3:
-            v10 = (struct _LIST_ENTRY *)(qword_140E37C88 + qword_140E37C80);
-            if ( stru_140E2D930.SuspendEvent.Header.WaitListHead.Flink >= (struct _LIST_ENTRY *)qword_140E37C80
-              && (stru_140E2D930.SuspendEvent.Header.WaitListHead.Flink < v10 || !v10) )
+            v10 = (struct _LIST_ENTRY *)(qword_140E37E08 + qword_140E37E00);
+            if ( stru_140E2DAB0.SuspendEvent.Header.WaitListHead.Flink >= (struct _LIST_ENTRY *)qword_140E37E00
+              && (stru_140E2DAB0.SuspendEvent.Header.WaitListHead.Flink < v10 || !v10) )
             {
               return MiSetExclusionWalkBounds(
-                       qword_140E37C80,
-                       qword_140E37C88,
-                       stru_140E2D930.SuspendEvent.Header.WaitListHead.Flink,
-                       stru_140E2D930.SuspendEvent.Header.WaitListHead.Blink,
+                       qword_140E37E00,
+                       qword_140E37E08,
+                       stru_140E2DAB0.SuspendEvent.Header.WaitListHead.Flink,
+                       stru_140E2DAB0.SuspendEvent.Header.WaitListHead.Blink,
                        (__int64)a2);
             }
-            *a2 = qword_140E37C80;
+            *a2 = qword_140E37E00;
             a2[1] = (char *)v10 - 1;
             return result;
           case 4:
-            Thread = (char *)stru_140E2D930.SavedApcState.Process;
-            Blink = stru_140E2D930.SavedApcState.ApcListHead[0].Flink;
+            Thread = (char *)stru_140E2DAB0.SavedApcState.Process;
+            Blink = stru_140E2DAB0.SavedApcState.ApcListHead[0].Flink;
             goto LABEL_12;
           case 5:
-            *a2 = qword_140E37BC0;
-            a2[1] = qword_140E37BC8 + qword_140E37BC0 - 1;
+            *a2 = qword_140E37D40;
+            a2[1] = qword_140E37D48 + qword_140E37D40 - 1;
             return result;
           case 6:
-            Thread = *(char **)&stru_140E2D930.SystemCallNumber;
-            Blink = stru_140E2D930.StateSaveArea;
+            Thread = *(char **)&stru_140E2DAB0.SystemCallNumber;
+            Blink = stru_140E2DAB0.StateSaveArea;
 LABEL_12:
             v9 = ((_QWORD)Blink << 21) - 1LL;
             goto LABEL_13;
           case 7:
-            *a2 = qword_140E37B90;
-            a2[1] = qword_140E37B98 - 1 + qword_140E37B90;
-            a2[2] = qword_140E37C50;
+            *a2 = qword_140E37D10;
+            a2[1] = qword_140E37D18 - 1 + qword_140E37D10;
+            a2[2] = qword_140E37DD0;
             result = 2LL;
-            a2[3] = qword_140E37C58 + qword_140E37C50 - 1;
+            a2[3] = qword_140E37DD8 + qword_140E37DD0 - 1;
             return result;
           case 9:
-            *a2 = qword_140E37C60;
-            a2[1] = qword_140E37C68 - 1 + qword_140E37C60;
-            a2[2] = qword_140E37BF0;
-            a2[3] = qword_140E37BF8 + qword_140E37BF0 - 1;
+            *a2 = qword_140E37DE0;
+            a2[1] = qword_140E37DE8 - 1 + qword_140E37DE0;
+            a2[2] = qword_140E37D70;
+            a2[3] = qword_140E37D78 + qword_140E37D70 - 1;
             return 2LL;
           default:
             return result;
@@ -102,16 +102,16 @@ LABEL_12:
       }
       *a2 = 0LL;
       a2[1] = 0x7FFFFFFFFFFFLL;
-      v5 = qword_140E2DE60;
-      v6 = qword_140E2DE48;
-      if ( !qword_140E2DE60 )
+      v5 = qword_140E2DFE0;
+      v6 = qword_140E2DFC8;
+      if ( !qword_140E2DFE0 )
       {
         v5 = 276840448LL;
-        qword_140E2DE70 = 0x10000000LL;
-        qword_140E2DE60 = 276840448LL;
-        qword_140E2DE68 = 276824064LL;
+        qword_140E2DFF0 = 0x10000000LL;
+        qword_140E2DFE0 = 276840448LL;
+        qword_140E2DFE8 = 276824064LL;
       }
-      a2[2] = qword_140E2DE48;
+      a2[2] = qword_140E2DFC8;
       a2[3] = v6 + v5 - 1;
       return 2LL;
     }

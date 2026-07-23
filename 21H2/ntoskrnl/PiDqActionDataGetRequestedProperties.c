@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDqActionDataGetRequestedProperties @ 0x14063AAFC
+ * XREFs of PiDqActionDataGetRequestedProperties @ 0x14062F90C
  * Callers:
- *     PiDqActionDataCreate @ 0x14062F9AC (PiDqActionDataCreate.c)
+ *     PiDqActionDataCreate @ 0x140624A2C (PiDqActionDataCreate.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PiDqPnPGetObjectProperty @ 0x140637F94 (PiDqPnPGetObjectProperty.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x140638D94 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqOpenObjectRegKey @ 0x1406A9838 (PiDqOpenObjectRegKey.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PiDqOpenObjectRegKey @ 0x1406077B8 (PiDqOpenObjectRegKey.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PiDqPnPGetObjectProperty @ 0x14062CDA4 (PiDqPnPGetObjectProperty.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14062DBA4 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqActionDataGetRequestedProperties(
         __int64 a1,
-        unsigned int a2,
+        int a2,
         __int64 a3,
         char a4,
         const wchar_t *a5,
@@ -66,7 +66,7 @@ __int64 __fastcall PiDqActionDataGetRequestedProperties(
     v10 = 0;
     if ( !Handle )
     {
-      v9 = PiDqOpenObjectRegKey(1, a3, a2, 1, 0, a1, (__int64)&Handle);
+      v9 = PiDqOpenObjectRegKey(1, a3, a2, 1, 0, a1, &Handle);
       if ( v9 == -1073741772 )
       {
         v9 = 0;

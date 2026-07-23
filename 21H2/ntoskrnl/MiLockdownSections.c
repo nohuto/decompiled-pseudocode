@@ -1,33 +1,33 @@
 /*
- * XREFs of MiLockdownSections @ 0x14075E564
+ * XREFs of MiLockdownSections @ 0x14075E724
  * Callers:
- *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
- *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
+ *     MiConstructLoaderEntry @ 0x14075DF90 (MiConstructLoaderEntry.c)
+ *     MiInitializeLoadedModuleList @ 0x140A56E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MiUnlockLoaderEntry @ 0x1402E74F0 (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1402E7728 (MiLockLoaderEntry.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     MiUnlockLoaderEntry @ 0x140298840 (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x140298A78 (MiLockLoaderEntry.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
  */
 
 __int64 __fastcall MiLockdownSections(__int64 a1)
 {
-  __int64 v1; // r15
+  void *v1; // r15
   __int64 v2; // rsi
   int v3; // ebx
   __int64 result; // rax
   int v5; // edi
-  __int64 v6; // rbx
+  PIMAGE_NT_HEADERS v6; // rbx
   __int64 v7; // r14
-  int v8; // ebp
-  RTL_BITMAP *v9; // r12
+  int NumberOfSections; // ebp
+  _RTL_BITMAP *v9; // r12
   _DWORD *v10; // rbx
   BOOL v11; // eax
   int v12; // edx
   unsigned int v13; // ecx
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(void **)(a1 + 48);
   v2 = a1 + 160;
   v3 = 0;
   if ( (MiFlags & 0x10000) != 0 && (!*(_QWORD *)(a1 + 112) || (*(_DWORD *)(a1 + 196) & 2) != 0) )
@@ -39,13 +39,13 @@ __int64 __fastcall MiLockdownSections(__int64 a1)
   if ( v5 )
   {
     v6 = RtlImageNtHeader(v1);
-    v7 = *(unsigned __int16 *)(v6 + 20) + 60LL;
+    v7 = v6->FileHeader.SizeOfOptionalHeader + 60LL;
     MiLockLoaderEntry(v2, 0LL);
-    v8 = *(unsigned __int16 *)(v6 + 6);
-    v9 = *(RTL_BITMAP **)(v2 + 112);
-    if ( *(_WORD *)(v6 + 6) )
+    NumberOfSections = v6->FileHeader.NumberOfSections;
+    v9 = *(_RTL_BITMAP **)(v2 + 112);
+    if ( v6->FileHeader.NumberOfSections )
     {
-      v10 = (_DWORD *)(v7 + v6);
+      v10 = (unsigned int *)((char *)&v6->Signature + v7);
       do
       {
         v11 = 0;
@@ -62,12 +62,14 @@ __int64 __fastcall MiLockdownSections(__int64 a1)
           RtlSetBits(
             v9,
             *(v10 - 6) >> 12,
-            (((v1 + (unsigned int)*(v10 - 6) + v13 + 4095LL) & 0xFFFFFFFFFFFFF000uLL) - (v1 + (unsigned int)*(v10 - 6))) >> 12);
+            ((((unsigned __int64)v1 + *(v10 - 6) + v13 + 4095) & 0xFFFFFFFFFFFFF000uLL)
+           - ((unsigned __int64)v1
+            + (unsigned int)*(v10 - 6))) >> 12);
         }
-        --v8;
+        --NumberOfSections;
         v10 += 10;
       }
-      while ( v8 > 0 );
+      while ( NumberOfSections > 0 );
     }
     return MiUnlockLoaderEntry(v2, 0);
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaControllerProgramChannel @ 0x1404CE884
+ * XREFs of HalpDmaControllerProgramChannel @ 0x1404CEAC4
  * Callers:
- *     HalMapTransferEx @ 0x14039F6E0 (HalMapTransferEx.c)
+ *     HalMapTransferEx @ 0x14039F830 (HalMapTransferEx.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpDmaControllerProgramChannel(

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprMirrorMarkedPages @ 0x1409AE02C
+ * XREFs of PnprMirrorMarkedPages @ 0x1409AEF5C
  * Callers:
- *     PnprSwap @ 0x14050FA68 (PnprSwap.c)
- *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
+ *     PnprSwap @ 0x14050FCA8 (PnprSwap.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AF2C0 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14022CB20 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     RtlFindNextForwardRunClear @ 0x140267B70 (RtlFindNextForwardRunClear.c)
- *     RtlFindFirstRunClear @ 0x14026A3A0 (RtlFindFirstRunClear.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlFindNextForwardRunClear @ 0x140255B10 (RtlFindNextForwardRunClear.c)
+ *     RtlFindFirstRunClear @ 0x140258340 (RtlFindFirstRunClear.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D1370 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnprMirrorMarkedPages()
@@ -19,7 +19,7 @@ __int64 __fastcall PnprMirrorMarkedPages()
   bool v2; // r13
   __int64 v3; // rcx
   __int64 v4; // rax
-  RTL_BITMAP *v5; // rdi
+  _RTL_BITMAP *v5; // rdi
   ULONG i; // eax
   int v7; // eax
   __int64 v8; // rcx
@@ -44,10 +44,10 @@ __int64 __fastcall PnprMirrorMarkedPages()
     {
       v3 = PnprContext;
       v4 = PnprContext + 152;
-      v5 = *(RTL_BITMAP **)(PnprContext + 152);
+      v5 = *(_RTL_BITMAP **)(PnprContext + 152);
       while ( 2 )
       {
-        if ( v5 != (RTL_BITMAP *)v4 )
+        if ( v5 != (_RTL_BITMAP *)v4 )
         {
           KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v3 + 168), &LockHandle);
           for ( i = RtlFindFirstRunClear(v5 + 2, &StartingIndex);
@@ -90,7 +90,7 @@ __int64 __fastcall PnprMirrorMarkedPages()
           if ( *(_DWORD *)(PnprContext + 200) != 3 )
           {
             v3 = PnprContext;
-            v5 = *(RTL_BITMAP **)&v5->SizeOfBitMap;
+            v5 = *(_RTL_BITMAP **)&v5->SizeOfBitMap;
             v4 = PnprContext + 152;
             continue;
           }

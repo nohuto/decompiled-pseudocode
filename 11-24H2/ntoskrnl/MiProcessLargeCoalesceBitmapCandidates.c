@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProcessLargeCoalesceBitmapCandidates @ 0x140309490
+ * XREFs of MiProcessLargeCoalesceBitmapCandidates @ 0x140313370
  * Callers:
- *     MiProcessLargeCoalesceCandidates @ 0x14030A3A4 (MiProcessLargeCoalesceCandidates.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x140314284 (MiProcessLargeCoalesceCandidates.c)
  * Callees:
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiCoalesceFreeSmallPages @ 0x1402238B0 (MiCoalesceFreeSmallPages.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiSafeLockPageAtDpc @ 0x1403072A0 (MiSafeLockPageAtDpc.c)
- *     MiCoalesceFreeLargePages @ 0x140308844 (MiCoalesceFreeLargePages.c)
- *     MiRecordLargePageCandidate @ 0x1403096C4 (MiRecordLargePageCandidate.c)
- *     MiCheckLargePagesExist @ 0x1403098F8 (MiCheckLargePagesExist.c)
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140309950 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     MiCoalesceFreeSmallPages @ 0x140250600 (MiCoalesceFreeSmallPages.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiSafeLockPageAtDpc @ 0x140311180 (MiSafeLockPageAtDpc.c)
+ *     MiCoalesceFreeLargePages @ 0x140312724 (MiCoalesceFreeLargePages.c)
+ *     MiRecordLargePageCandidate @ 0x1403135A4 (MiRecordLargePageCandidate.c)
+ *     MiCheckLargePagesExist @ 0x1403137D8 (MiCheckLargePagesExist.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140313830 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
  */
 
 __int64 __fastcall MiProcessLargeCoalesceBitmapCandidates(
@@ -23,7 +23,7 @@ __int64 __fastcall MiProcessLargeCoalesceBitmapCandidates(
         unsigned __int8 a7,
         __int64 a8)
 {
-  __int64 v10; // rdx
+  unsigned __int8 v10; // dl
   __int64 v12; // r13
   __int64 v13; // rbp
   unsigned __int64 v14; // rax
@@ -67,16 +67,16 @@ __int64 __fastcall MiProcessLargeCoalesceBitmapCandidates(
     else
     {
       v15 = 0;
-      if ( (_BYTE)v10 == 2 )
+      if ( v10 == 2 )
         v16 = MiSafeLockPageAtDpc(a2);
       else
-        v16 = MiSafeLockPage(a2, v10, 0x140000000LL);
+        v16 = MiSafeLockPage(a2);
       v17 = v16;
       if ( v16 == 17 )
         goto LABEL_21;
       v18 = 48 * a2 - 0x220000000000LL;
       v28 = v18;
-      if ( *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v18 + 40) >> 43) & 0x3FFLL)) == a1 )
+      if ( *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v18 + 40) >> 43) & 0x3FFLL)) == a1 )
       {
         v19 = MiCoalesceFreeSmallPages(a2, 0);
         v18 = v28;

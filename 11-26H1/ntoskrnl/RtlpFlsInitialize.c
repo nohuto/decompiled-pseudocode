@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFlsInitialize @ 0x140809D1C
+ * XREFs of RtlpFlsInitialize @ 0x14080F7AC
  * Callers:
- *     PspTlsInitialize @ 0x140CD90E8 (PspTlsInitialize.c)
+ *     PspTlsInitialize @ 0x140CDF468 (PspTlsInitialize.c)
  * Callees:
  *     <none>
  */

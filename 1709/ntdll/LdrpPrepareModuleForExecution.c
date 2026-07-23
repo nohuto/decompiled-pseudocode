@@ -24,7 +24,7 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
   char v10; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0;
-  if ( (void *)qword_1801595D0 == NtCurrentTeb()->ClientId.UniqueThread )
+  if ( LdrpDllNotificationLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
     return (unsigned int)v2;
   switch ( *(_DWORD *)(*(_QWORD *)(a1 + 152) + 56LL) )
   {

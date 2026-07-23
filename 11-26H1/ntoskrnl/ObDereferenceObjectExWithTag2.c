@@ -1,22 +1,22 @@
 /*
- * XREFs of ObDereferenceObjectExWithTag2 @ 0x14047F848
+ * XREFs of ObDereferenceObjectExWithTag2 @ 0x1404791B8
  * Callers:
- *     IopCompleteIrpInFileObjectList @ 0x140266C60 (IopCompleteIrpInFileObjectList.c)
- *     ExpTimerApcRoutine @ 0x14047F760 (ExpTimerApcRoutine.c)
- *     ExTimerRundown @ 0x14051A404 (ExTimerRundown.c)
- *     ExpSetTimerObject @ 0x1406CEDA8 (ExpSetTimerObject.c)
- *     ExpTimerDpcRoutine @ 0x1406CF5A0 (ExpTimerDpcRoutine.c)
- *     NtCancelTimer @ 0x1406CF780 (NtCancelTimer.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     PspClearProcessThreadCidRefs @ 0x140959970 (PspClearProcessThreadCidRefs.c)
- *     PsLookupThreadByThreadId @ 0x140A10B70 (PsLookupThreadByThreadId.c)
- *     PspThreadFromTicket @ 0x140A191C0 (PspThreadFromTicket.c)
- *     NtAlertThreadByThreadIdEx @ 0x140A33250 (NtAlertThreadByThreadIdEx.c)
- *     NtAlertThreadByThreadId @ 0x140A5D8F0 (NtAlertThreadByThreadId.c)
+ *     IopCompleteIrpInFileObjectList @ 0x1402661D0 (IopCompleteIrpInFileObjectList.c)
+ *     ExpTimerApcRoutine @ 0x1404790D0 (ExpTimerApcRoutine.c)
+ *     ExTimerRundown @ 0x140513E74 (ExTimerRundown.c)
+ *     ExpSetTimerObject @ 0x1406D2DD8 (ExpSetTimerObject.c)
+ *     ExpTimerDpcRoutine @ 0x1406D35D0 (ExpTimerDpcRoutine.c)
+ *     NtCancelTimer @ 0x1406D37B0 (NtCancelTimer.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     PspClearProcessThreadCidRefs @ 0x1409FF230 (PspClearProcessThreadCidRefs.c)
+ *     PsLookupThreadByThreadId @ 0x140A0FD60 (PsLookupThreadByThreadId.c)
+ *     PspThreadFromTicket @ 0x140A227F0 (PspThreadFromTicket.c)
+ *     NtAlertThreadByThreadIdEx @ 0x140A4E1B0 (NtAlertThreadByThreadIdEx.c)
+ *     NtAlertThreadByThreadId @ 0x140A6A8B0 (NtAlertThreadByThreadId.c)
  * Callees:
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ObDereferenceObjectExWithTag2(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3, char a4)

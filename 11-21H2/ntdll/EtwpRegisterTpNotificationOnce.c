@@ -11,29 +11,28 @@
  *     NtTraceControl @ 0x1800A7A40 (NtTraceControl.c)
  */
 
-__int64 EtwpRegisterTpNotificationOnce()
+__int64 __fastcall EtwpRegisterTpNotificationOnce(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  char v1; // [rsp+20h] [rbp-30h]
-  HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v3; // [rsp+40h] [rbp-10h] BYREF
-  int v4; // [rsp+78h] [rbp+28h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-20h] BYREF
+  HANDLE EventHandle; // [rsp+38h] [rbp-18h] BYREF
+  PTP_WAIT WaitReturn; // [rsp+40h] [rbp-10h] BYREF
+  int InputBuffer; // [rsp+78h] [rbp+28h] BYREF
 
-  v3 = 0LL;
-  Handle = 0LL;
-  v1 = 0;
-  if ( (int)ZwCreateEvent(&Handle, 2031619LL, 0LL, 1LL, v1) >= 0 )
+  WaitReturn = 0LL;
+  EventHandle = 0LL;
+  if ( ZwCreateEvent(&EventHandle, 0x1F0003u, 0LL, SynchronizationEvent, 0) >= 0 )
   {
-    if ( (int)TpAllocWait((_PEB_LDR_DATA *)&v3, (__int64)EtwpNotificationThread, (unsigned __int64)Handle, 0LL) >= 0 )
+    if ( TpAllocWait(&WaitReturn, (PTP_WAIT_CALLBACK)EtwpNotificationThread, EventHandle, 0LL) >= 0 )
     {
-      TpSetWaitEx(v3, (__int64)Handle, 0LL, 0LL);
-      v4 = (int)Handle;
-      if ( (int)NtTraceControl(27LL, &v4, 4LL) >= 0 )
+      TpSetWaitEx(WaitReturn, EventHandle, 0LL, 0LL);
+      InputBuffer = (int)EventHandle;
+      if ( NtTraceControl(EtwAddNotificationEvent, &InputBuffer, 4u, 0LL, 0, &ReturnLength) >= 0 )
         return 1LL;
     }
-    if ( v3 )
-      TpReleaseWait(v3);
+    if ( WaitReturn )
+      TpReleaseWait(WaitReturn);
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( EventHandle )
+    NtClose(EventHandle);
   return 0LL;
 }

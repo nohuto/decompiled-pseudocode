@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUpdateImagePfnImportRelocations @ 0x140480C40
+ * XREFs of MiUpdateImagePfnImportRelocations @ 0x14047A5B0
  * Callers:
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x140514568 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
- *     MiWalkImageApplyImportOptimizationToPage @ 0x140B19190 (MiWalkImageApplyImportOptimizationToPage.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x14050DFD8 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiWalkImageApplyImportOptimizationToPage @ 0x140B1B5E0 (MiWalkImageApplyImportOptimizationToPage.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiDoesPageRequireImportLinkingFixups @ 0x140480DF4 (MiDoesPageRequireImportLinkingFixups.c)
- *     MiUpdateRetpolineImportFixups @ 0x140480E40 (MiUpdateRetpolineImportFixups.c)
- *     MI_LOCK_RELOCATIONS_SHARED @ 0x140481564 (MI_LOCK_RELOCATIONS_SHARED.c)
- *     MI_UNLOCK_RELOCATIONS_SHARED @ 0x1404815D4 (MI_UNLOCK_RELOCATIONS_SHARED.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiDoesPageRequireImportLinkingFixups @ 0x14047A764 (MiDoesPageRequireImportLinkingFixups.c)
+ *     MiUpdateRetpolineImportFixups @ 0x14047A7B0 (MiUpdateRetpolineImportFixups.c)
+ *     MI_LOCK_RELOCATIONS_SHARED @ 0x14047AED4 (MI_LOCK_RELOCATIONS_SHARED.c)
+ *     MI_UNLOCK_RELOCATIONS_SHARED @ 0x14047AF44 (MI_UNLOCK_RELOCATIONS_SHARED.c)
  */
 
 __int64 __fastcall MiUpdateImagePfnImportRelocations(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)
@@ -38,7 +38,7 @@ __int64 __fastcall MiUpdateImagePfnImportRelocations(__int64 a1, unsigned __int6
   else
   {
     v11 = a2;
-    v12 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, v9, v10);
+    v12 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, v9, v10);
     if ( !v12 )
     {
       if ( !a2 )
@@ -66,7 +66,7 @@ __int64 __fastcall MiUpdateImagePfnImportRelocations(__int64 a1, unsigned __int6
     }
     else
     {
-      MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v12, 1u);
+      MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v12, 1u);
     }
   }
   return 0LL;

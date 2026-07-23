@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpHeapExceptionFilter @ 0x18010A4D0
+ * XREFs of RtlpHeapExceptionFilter @ 0x180105400
  * Callers:
- *     RtlpProbeUserBufferSafe @ 0x18002C980 (RtlpProbeUserBufferSafe.c)
- *     RtlpAnalyzeHeapFailure @ 0x18002F740 (RtlpAnalyzeHeapFailure.c)
- *     RtlDebugSizeHeap @ 0x18003F690 (RtlDebugSizeHeap.c)
- *     RtlValidateHeap @ 0x18003F7D0 (RtlValidateHeap.c)
- *     RtlDebugFreeHeap @ 0x18004178C (RtlDebugFreeHeap.c)
- *     RtlGetUserInfoHeap @ 0x1800423E0 (RtlGetUserInfoHeap.c)
- *     RtlDebugGetUserInfoHeap @ 0x1800426EC (RtlDebugGetUserInfoHeap.c)
- *     RtlDebugSetUserValueHeap @ 0x1800428AC (RtlDebugSetUserValueHeap.c)
- *     RtlCompactHeap @ 0x180043EC0 (RtlCompactHeap.c)
- *     RtlDebugAllocateHeap @ 0x18009CC30 (RtlDebugAllocateHeap.c)
- *     RtlpReAllocateHeap @ 0x1800A18B0 (RtlpReAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800A2A3C (RtlDebugReAllocateHeap.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
- *     RtlpValidateLFHBlock @ 0x1800DE950 (RtlpValidateLFHBlock.c)
- *     RtlDebugSetUserFlagsHeap @ 0x18010E0EC (RtlDebugSetUserFlagsHeap.c)
- *     RtlSetUserFlagsHeap @ 0x18010E270 (RtlSetUserFlagsHeap.c)
- *     RtlDebugWalkHeap @ 0x18011EFE0 (RtlDebugWalkHeap.c)
- *     RtlpHeapFatalExceptionFilter @ 0x18013C174 (RtlpHeapFatalExceptionFilter.c)
- *     RtlZeroHeap @ 0x180143F70 (RtlZeroHeap.c)
- *     RtlDebugCreateTagHeap @ 0x180144A24 (RtlDebugCreateTagHeap.c)
- *     RtlDebugQueryTagHeap @ 0x180144B18 (RtlDebugQueryTagHeap.c)
- *     RtlDebugZeroHeap @ 0x180144C14 (RtlDebugZeroHeap.c)
+ *     RtlpAnalyzeHeapFailure @ 0x18000F2D0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlDebugAllocateHeap @ 0x18001F7A4 (RtlDebugAllocateHeap.c)
+ *     RtlDebugSizeHeap @ 0x18001FFC0 (RtlDebugSizeHeap.c)
+ *     RtlValidateHeap @ 0x180020100 (RtlValidateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180022020 (RtlDebugFreeHeap.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlpProbeUserBufferSafe @ 0x180059380 (RtlpProbeUserBufferSafe.c)
+ *     RtlpReAllocateHeap @ 0x18005B780 (RtlpReAllocateHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18005C7E8 (RtlDebugReAllocateHeap.c)
+ *     RtlpValidateLFHBlock @ 0x1800D9AC0 (RtlpValidateLFHBlock.c)
+ *     RtlGetUserInfoHeap @ 0x1800E63B0 (RtlGetUserInfoHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x1800E66BC (RtlDebugGetUserInfoHeap.c)
+ *     RtlCompactHeap @ 0x180106E40 (RtlCompactHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x180108FCC (RtlDebugSetUserFlagsHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x180109150 (RtlSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x18010C554 (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugWalkHeap @ 0x18011D210 (RtlDebugWalkHeap.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x18013A364 (RtlpHeapFatalExceptionFilter.c)
+ *     RtlZeroHeap @ 0x180142320 (RtlZeroHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x180142DD4 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x180142EC8 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugZeroHeap @ 0x180142FC4 (RtlDebugZeroHeap.c)
  * Callees:
  *     <none>
  */
@@ -40,17 +40,17 @@ __int64 __fastcall RtlpHeapExceptionFilter(int a1, __int64 a2)
   if ( a1 == -1073741571 || a1 == -1073741420 || a1 == -1073741801 )
     return 0LL;
   v2 = *(_OWORD **)a2;
-  unk_1801CD240 = *(_OWORD *)*(_QWORD *)a2;
-  *((_OWORD *)&unk_1801CD240 + 1) = v2[1];
-  *((_OWORD *)&unk_1801CD240 + 2) = v2[2];
-  *((_OWORD *)&unk_1801CD240 + 3) = v2[3];
-  *((_OWORD *)&unk_1801CD240 + 4) = v2[4];
-  *((_OWORD *)&unk_1801CD240 + 5) = v2[5];
-  *((_OWORD *)&unk_1801CD240 + 6) = v2[6];
-  *((_OWORD *)&unk_1801CD240 + 7) = v2[7];
-  *((_OWORD *)&unk_1801CD240 + 8) = v2[8];
-  *((_QWORD *)&unk_1801CD240 + 18) = *((_QWORD *)v2 + 18);
-  v3 = &unk_1801CD2E0;
+  unk_1801CC240 = *(_OWORD *)*(_QWORD *)a2;
+  *((_OWORD *)&unk_1801CC240 + 1) = v2[1];
+  *((_OWORD *)&unk_1801CC240 + 2) = v2[2];
+  *((_OWORD *)&unk_1801CC240 + 3) = v2[3];
+  *((_OWORD *)&unk_1801CC240 + 4) = v2[4];
+  *((_OWORD *)&unk_1801CC240 + 5) = v2[5];
+  *((_OWORD *)&unk_1801CC240 + 6) = v2[6];
+  *((_OWORD *)&unk_1801CC240 + 7) = v2[7];
+  *((_OWORD *)&unk_1801CC240 + 8) = v2[8];
+  *((_QWORD *)&unk_1801CC240 + 18) = *((_QWORD *)v2 + 18);
+  v3 = &unk_1801CC2E0;
   v4 = *(_OWORD **)(a2 + 8);
   v5 = 9LL;
   do

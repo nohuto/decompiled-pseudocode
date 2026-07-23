@@ -1,11 +1,11 @@
 /*
- * XREFs of SeDeassignPrimaryToken @ 0x140613F74
+ * XREFs of SeDeassignPrimaryToken @ 0x14067DBD4
  * Callers:
- *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
- *     SeAssignPrimaryToken @ 0x1407BBBD0 (SeAssignPrimaryToken.c)
+ *     PspProcessDelete @ 0x14067D320 (PspProcessDelete.c)
+ *     SeAssignPrimaryToken @ 0x1407BC360 (SeAssignPrimaryToken.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObFastReplaceObject @ 0x1402F6E80 (ObFastReplaceObject.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastReplaceObject @ 0x140301BD0 (ObFastReplaceObject.c)
  */
 
 void __fastcall SeDeassignPrimaryToken(__int64 a1)

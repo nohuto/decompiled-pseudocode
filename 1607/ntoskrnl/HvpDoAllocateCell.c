@@ -1,17 +1,17 @@
 /*
- * XREFs of HvpDoAllocateCell @ 0x140401D70
+ * XREFs of HvpDoAllocateCell @ 0x140400C30
  * Callers:
- *     HvReallocateCell @ 0x1403FFDEC (HvReallocateCell.c)
- *     HvAllocateCell @ 0x140401D3C (HvAllocateCell.c)
+ *     HvReallocateCell @ 0x1403FECAC (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x140400BFC (HvAllocateCell.c)
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     HvpDelistFreeCell @ 0x140401978 (HvpDelistFreeCell.c)
- *     HvpFindFreeCell @ 0x140401F50 (HvpFindFreeCell.c)
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
- *     HvpRemoveFreeCellHint @ 0x140514670 (HvpRemoveFreeCellHint.c)
- *     HvpEnlistFreeCell @ 0x140514E4C (HvpEnlistFreeCell.c)
- *     HvpGetHCell @ 0x1405151E0 (HvpGetHCell.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     HvpDelistFreeCell @ 0x140400838 (HvpDelistFreeCell.c)
+ *     HvpFindFreeCell @ 0x140400E10 (HvpFindFreeCell.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
+ *     HvpRemoveFreeCellHint @ 0x1404F7A60 (HvpRemoveFreeCellHint.c)
+ *     HvpEnlistFreeCell @ 0x1404F823C (HvpEnlistFreeCell.c)
+ *     HvpGetHCell @ 0x1404F85D0 (HvpGetHCell.c)
  */
 
 __int64 __fastcall HvpDoAllocateCell(

@@ -209,7 +209,7 @@ NTSTATUS __stdcall NtQueryInformationFile(
         v17 = KeGetCurrentThread();
         --v17->KernelApcDisable;
         v18 = *(_QWORD *)&DmaAdapter[3];
-        v19 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[3] + 128LL, 0LL, 0LL);
+        v19 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[3] + 128LL, 0LL, 0);
         LOBYTE(DmaAdapter[0]) = 0;
         if ( _InterlockedExchange((volatile __int32 *)(v18 + 116), 1) )
         {

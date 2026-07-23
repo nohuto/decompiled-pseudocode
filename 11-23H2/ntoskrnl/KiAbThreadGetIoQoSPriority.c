@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbThreadGetIoQoSPriority @ 0x1403190A0
+ * XREFs of KiAbThreadGetIoQoSPriority @ 0x140319330
  * Callers:
- *     KiAbSetMinimumThreadPriority @ 0x140318E28 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1403190B8 (KiAbSetMinimumThreadPriority.c)
  * Callees:
  *     <none>
  */

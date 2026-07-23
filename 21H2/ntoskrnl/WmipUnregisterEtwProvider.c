@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipUnregisterEtwProvider @ 0x1407C7760
+ * XREFs of WmipUnregisterEtwProvider @ 0x1407C7A80
  * Callers:
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14076CD4C (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14076CF0C (WmipUnlinkInstanceSetFromGuidEntry.c)
  * Callees:
- *     WmipQueueLegacyEtwWork @ 0x1407C7848 (WmipQueueLegacyEtwWork.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     WmipQueueLegacyEtwWork @ 0x1407C7B68 (WmipQueueLegacyEtwWork.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WmipUnregisterEtwProvider(__int64 a1)

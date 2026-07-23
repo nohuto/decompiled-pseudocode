@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpLockUlockAllHeapsCallback @ 0x18003FEC0
+ * XREFs of RtlpLockUlockAllHeapsCallback @ 0x1800207F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnlockHeap @ 0x18003FEF0 (RtlUnlockHeap.c)
- *     RtlLockHeap @ 0x1800400E0 (RtlLockHeap.c)
+ *     RtlUnlockHeap @ 0x180020820 (RtlUnlockHeap.c)
+ *     RtlLockHeap @ 0x180020A10 (RtlLockHeap.c)
  */
 
-__int64 __fastcall RtlpLockUlockAllHeapsCallback(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpLockUlockAllHeapsCallback(void *a1, __int64 a2)
 {
   if ( a2 )
     RtlLockHeap(a1);

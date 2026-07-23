@@ -7,10 +7,14 @@
  *     NtSetInformationProcess @ 0x18009D430 (NtSetInformationProcess.c)
  */
 
-__int64 __fastcall WerpSetProcessFaultInformation(__int64 a1)
+NTSTATUS __fastcall WerpSetProcessFaultInformation(void *a1)
 {
-  if ( a1 )
-    return NtSetInformationProcess();
-  else
-    return 3221225711LL;
+  int ProcessInformation; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // [rsp+34h] [rbp+Ch]
+
+  if ( !a1 )
+    return -1073741585;
+  v3 = 0;
+  ProcessInformation = 1;
+  return NtSetInformationProcess(a1, ProcessFaultInformation, &ProcessInformation, 8u);
 }

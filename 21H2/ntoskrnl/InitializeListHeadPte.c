@@ -1,9 +1,9 @@
 /*
- * XREFs of InitializeListHeadPte @ 0x1403B6444
+ * XREFs of InitializeListHeadPte @ 0x1403B65B4
  * Callers:
- *     MiInitializeSystemCache @ 0x1407A0628 (MiInitializeSystemCache.c)
+ *     MiInitializeSystemCache @ 0x1407A0828 (MiInitializeSystemCache.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall InitializeListHeadPte(unsigned __int64 a1, __int64 a2)

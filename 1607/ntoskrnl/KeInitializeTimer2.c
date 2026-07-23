@@ -1,14 +1,14 @@
 /*
- * XREFs of KeInitializeTimer2 @ 0x14007DD48
+ * XREFs of KeInitializeTimer2 @ 0x14007DDC8
  * Callers:
- *     ExAllocateTimerInternal @ 0x140132AB8 (ExAllocateTimerInternal.c)
- *     MiStoreEvictThread @ 0x14014341C (MiStoreEvictThread.c)
+ *     ExAllocateTimerInternal @ 0x140133028 (ExAllocateTimerInternal.c)
+ *     MiStoreEvictThread @ 0x14014398C (MiStoreEvictThread.c)
  *     KiCompleteKernelInit @ 0x1403D46A0 (KiCompleteKernelInit.c)
- *     NtCreateWorkerFactory @ 0x140470E94 (NtCreateWorkerFactory.c)
- *     NtCreateTimer2 @ 0x1404712EC (NtCreateTimer2.c)
- *     CmpInitDelayDerefKCBEngine @ 0x14055B6E8 (CmpInitDelayDerefKCBEngine.c)
- *     PopIdleInitAoAcDozeS4Timer @ 0x14056F558 (PopIdleInitAoAcDozeS4Timer.c)
- *     PopInitializeTimer @ 0x14057A27C (PopInitializeTimer.c)
+ *     NtCreateWorkerFactory @ 0x14046FD64 (NtCreateWorkerFactory.c)
+ *     NtCreateTimer2 @ 0x1404701BC (NtCreateTimer2.c)
+ *     CmpInitDelayDerefKCBEngine @ 0x14055BC28 (CmpInitDelayDerefKCBEngine.c)
+ *     PopIdleInitAoAcDozeS4Timer @ 0x14056FA98 (PopIdleInitAoAcDozeS4Timer.c)
+ *     PopInitializeTimer @ 0x14057A7BC (PopInitializeTimer.c)
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  *     ExInitializeTimeRefresh @ 0x1407AE678 (ExInitializeTimeRefresh.c)
  *     ExpWorkerInitialization @ 0x1407B4A64 (ExpWorkerInitialization.c)

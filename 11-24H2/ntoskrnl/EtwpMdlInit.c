@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpMdlInit @ 0x1407A8DA0
+ * XREFs of EtwpMdlInit @ 0x1407A8EE0
  * Callers:
- *     EtwpAllocateTraceBuffer @ 0x14040FF9C (EtwpAllocateTraceBuffer.c)
- *     EtwpFreeTraceBuffer @ 0x140483510 (EtwpFreeTraceBuffer.c)
- *     EtwpFreePfnArray @ 0x1407A7DC8 (EtwpFreePfnArray.c)
+ *     EtwpAllocateTraceBuffer @ 0x14047CE80 (EtwpAllocateTraceBuffer.c)
+ *     EtwpFreeTraceBuffer @ 0x14047E9DC (EtwpFreeTraceBuffer.c)
+ *     EtwpFreePfnArray @ 0x1407A7F08 (EtwpFreePfnArray.c)
  * Callees:
  *     <none>
  */

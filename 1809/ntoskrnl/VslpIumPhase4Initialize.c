@@ -1,12 +1,12 @@
 /*
- * XREFs of VslpIumPhase4Initialize @ 0x140193010
+ * XREFs of VslpIumPhase4Initialize @ 0x140193150
  * Callers:
- *     VslInitSystem @ 0x1409DE5F0 (VslInitSystem.c)
+ *     VslInitSystem @ 0x1409DF5F0 (VslInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     VslpIumInitializeTelemetry @ 0x1409DE60C (VslpIumInitializeTelemetry.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     VslpIumInitializeTelemetry @ 0x1409DF60C (VslpIumInitializeTelemetry.c)
  */
 
 NTSTATUS VslpIumPhase4Initialize()

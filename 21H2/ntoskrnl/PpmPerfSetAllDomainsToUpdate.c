@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfSetAllDomainsToUpdate @ 0x140381028
+ * XREFs of PpmPerfSetAllDomainsToUpdate @ 0x140380B78
  * Callers:
- *     PpmCheckStart @ 0x14022A450 (PpmCheckStart.c)
- *     PpmPerfReApplyStates @ 0x14077A350 (PpmPerfReApplyStates.c)
- *     PpmPerfUpdateDomainPolicy @ 0x14078B5DC (PpmPerfUpdateDomainPolicy.c)
+ *     PpmCheckStart @ 0x1402CED00 (PpmCheckStart.c)
+ *     PpmPerfReApplyStates @ 0x14077A510 (PpmPerfReApplyStates.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14078B79C (PpmPerfUpdateDomainPolicy.c)
  * Callees:
  *     <none>
  */

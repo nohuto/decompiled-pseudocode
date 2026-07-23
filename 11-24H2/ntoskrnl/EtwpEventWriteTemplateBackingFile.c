@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpEventWriteTemplateBackingFile @ 0x1407A7684
+ * XREFs of EtwpEventWriteTemplateBackingFile @ 0x1407A77C4
  * Callers:
- *     EtwpRealtimeSaveBuffer @ 0x1409DA458 (EtwpRealtimeSaveBuffer.c)
- *     EtwpRealtimeRestoreState @ 0x140AAECB8 (EtwpRealtimeRestoreState.c)
+ *     EtwpRealtimeSaveBuffer @ 0x1409D4F68 (EtwpRealtimeSaveBuffer.c)
+ *     EtwpRealtimeRestoreState @ 0x140AA9B94 (EtwpRealtimeRestoreState.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateBackingFile(
@@ -18,7 +18,7 @@ NTSTATUS __fastcall EtwpEventWriteTemplateBackingFile(
 {
   int v7; // [rsp+30h] [rbp-19h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-9h] BYREF
-  __int64 *v9; // [rsp+50h] [rbp+7h]
+  int *v9; // [rsp+50h] [rbp+7h]
   __int64 v10; // [rsp+58h] [rbp+Fh]
   int *v11; // [rsp+60h] [rbp+17h]
   __int64 v12; // [rsp+68h] [rbp+1Fh]

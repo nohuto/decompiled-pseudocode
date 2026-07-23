@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWdatInitializeWdrt @ 0x1404D4EB0
+ * XREFs of HalpWdatInitializeWdrt @ 0x1404D50F0
  * Callers:
- *     HalpWdatInitialize @ 0x1404D4DA0 (HalpWdatInitialize.c)
+ *     HalpWdatInitialize @ 0x1404D4FE0 (HalpWdatInitialize.c)
  * Callees:
- *     WdInstrInitializeInstruction @ 0x1404DE784 (WdInstrInitializeInstruction.c)
+ *     WdInstrInitializeInstruction @ 0x1404DE9C4 (WdInstrInitializeInstruction.c)
  */
 
 __int64 __fastcall HalpWdatInitializeWdrt(__int64 a1)
@@ -40,7 +40,7 @@ __int64 __fastcall HalpWdatInitializeWdrt(__int64 a1)
     *(_DWORD *)(a1 + 24) = 1000;
   }
   *(_DWORD *)(a1 + 44) = 15;
-  v5 = qword_140031898;
+  v5 = qword_140031958;
   v6 = 0;
   while ( 1 )
   {

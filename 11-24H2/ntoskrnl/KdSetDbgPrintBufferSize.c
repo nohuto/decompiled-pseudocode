@@ -1,15 +1,15 @@
 /*
- * XREFs of KdSetDbgPrintBufferSize @ 0x1405AFF54
+ * XREFs of KdSetDbgPrintBufferSize @ 0x1405ACEC4
  * Callers:
- *     NtSystemDebugControl @ 0x140A571F0 (NtSystemDebugControl.c)
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     NtSystemDebugControl @ 0x140A4F080 (NtSystemDebugControl.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KdSetDbgPrintBufferSize(unsigned int a1)
@@ -45,7 +45,7 @@ LABEL_9:
         {
           v5 = 0LL;
           v6 = KdPrintCircularBuffer;
-          qword_140E66388 = (__int64)KeGetCurrentPrcb();
+          qword_140E664A8 = (__int64)KeGetCurrentPrcb();
           if ( v1 > (unsigned __int64)(unsigned int)KdPrintBufferSize )
           {
             if ( KdPrintWritePointer - (_UNKNOWN *)KdPrintCircularBuffer >= (unsigned __int64)(unsigned int)KdPrintBufferSize )
@@ -82,7 +82,7 @@ LABEL_9:
           }
           memset_0(&Pool2[v5], 0, v1 - v5);
           ++KdPrintBufferChanges;
-          qword_140E66388 = 0LL;
+          qword_140E664A8 = 0LL;
           KdPrintCircularBuffer = Pool2;
           KdPrintBufferSize = v1;
           KdPrintWritePointer = &Pool2[v5];
@@ -102,7 +102,7 @@ LABEL_9:
       _mm_pause();
     }
   }
-  Pool2 = (_BYTE *)ExAllocatePool2(0x42uLL);
+  Pool2 = (_BYTE *)ExAllocatePool2(0x42uLL, a1, 0x6250644Bu);
   if ( Pool2 )
     goto LABEL_9;
   return 3221225495LL;

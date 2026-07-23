@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIrpCompletionApcRoutine @ 0x14063AD00
+ * XREFs of MiIrpCompletionApcRoutine @ 0x14063B250
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  */
 
 void __fastcall MiIrpCompletionApcRoutine(struct _KEVENT *ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved)

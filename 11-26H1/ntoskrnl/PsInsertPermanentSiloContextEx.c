@@ -1,17 +1,17 @@
 /*
- * XREFs of PsInsertPermanentSiloContextEx @ 0x140A30E34
+ * XREFs of PsInsertPermanentSiloContextEx @ 0x140A4BD94
  * Callers:
- *     ObCreateSiloRootDirectory @ 0x1408A6F94 (ObCreateSiloRootDirectory.c)
- *     PsInsertPermanentSiloContext @ 0x140A309E0 (PsInsertPermanentSiloContext.c)
- *     CmpAttachContextToSilo @ 0x140A30E08 (CmpAttachContextToSilo.c)
+ *     ObCreateSiloRootDirectory @ 0x1408AD404 (ObCreateSiloRootDirectory.c)
+ *     PsInsertPermanentSiloContext @ 0x140A4B940 (PsInsertPermanentSiloContext.c)
+ *     CmpAttachContextToSilo @ 0x140A4BD68 (CmpAttachContextToSilo.c)
  * Callees:
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspIsSiloContext @ 0x140A3109C (PspIsSiloContext.c)
- *     PspStorageInsertObject @ 0x140A310E4 (PspStorageInsertObject.c)
- *     PspLockJobShared @ 0x140A81FE8 (PspLockJobShared.c)
- *     PspUnlockJobShared @ 0x140AAD180 (PspUnlockJobShared.c)
- *     PspJobHasChildren @ 0x140B09D20 (PspJobHasChildren.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspIsSiloContext @ 0x140A4BFFC (PspIsSiloContext.c)
+ *     PspStorageInsertObject @ 0x140A4C044 (PspStorageInsertObject.c)
+ *     PspLockJobShared @ 0x140A87E58 (PspLockJobShared.c)
+ *     PspUnlockJobShared @ 0x140AAB240 (PspUnlockJobShared.c)
+ *     PspJobHasChildren @ 0x140B0BAE0 (PspJobHasChildren.c)
  */
 
 __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, __int64 a3, int a4)
@@ -26,7 +26,7 @@ __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, _
   memset_0(v14, 0, 0x48uLL);
   if ( (a4 & 0xFFFFFFFE) != 0 )
     return 3221225485LL;
-  v8 = qword_140FC8E30;
+  v8 = qword_140FC9E30;
   if ( a1 )
     v8 = *(_QWORD *)(a1 + 1536);
   if ( (unsigned __int8)PspIsSiloContext(a3) )

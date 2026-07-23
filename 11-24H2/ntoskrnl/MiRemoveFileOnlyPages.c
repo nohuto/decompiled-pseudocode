@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveFileOnlyPages @ 0x1407F066C
+ * XREFs of MiRemoveFileOnlyPages @ 0x1407F0C3C
  * Callers:
- *     MiCreateFileOnlyPfns @ 0x1407F0124 (MiCreateFileOnlyPfns.c)
+ *     MiCreateFileOnlyPfns @ 0x1407F06F4 (MiCreateFileOnlyPfns.c)
  * Callees:
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  */
 
 __int64 __fastcall MiRemoveFileOnlyPages(__int64 a1, __int64 a2)

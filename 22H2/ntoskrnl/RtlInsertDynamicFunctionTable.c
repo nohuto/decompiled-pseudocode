@@ -37,7 +37,7 @@ __int64 __fastcall RtlInsertDynamicFunctionTable(__int64 a1)
   struct _KTHREAD *v17; // rbx
   unsigned int SessionId; // edx
   unsigned __int8 v19; // r12
-  unsigned __int64 v20; // r14
+  __int64 v20; // r14
   unsigned int v21; // r8d
   __int64 v22; // rcx
   __int64 v23; // rcx
@@ -201,13 +201,13 @@ LABEL_23:
   {
     *(_BYTE *)(v20 + 32) |= 2u;
     if ( *(__int64 *)(v20 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v20);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
     v24 = *(_DWORD *)(v20 + 88);
     v38 = v24 & 0x1FFFF;
     *(_DWORD *)(v20 + 88) = v24 & 0xFFFE0000;
     *(_BYTE *)(v20 + 25) &= ~1u;
     *(_QWORD *)(v20 + 32) = 0LL;
-    v25 = (__int64)(v20 - (unsigned __int64)v17->LockEntries) / 96;
+    v25 = (signed __int64)(v20 - (unsigned __int64)v17->LockEntries) / 96;
     if ( v19 == 1 )
       v17->AbEntrySummary |= 1 << v25;
     else

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeBootLoadedDriverPfnRange @ 0x14070F2CC
+ * XREFs of MiInitializeBootLoadedDriverPfnRange @ 0x140713FC8
  * Callers:
- *     MiInitializeBootLoadedDriverPfns @ 0x140D002A4 (MiInitializeBootLoadedDriverPfns.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140D06644 (MiInitializeBootLoadedDriverPfns.c)
  * Callees:
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
  */
 
 __int64 __fastcall MiInitializeBootLoadedDriverPfnRange(_QWORD *a1, __int64 a2, int a3)

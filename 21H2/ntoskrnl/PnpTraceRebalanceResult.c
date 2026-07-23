@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceRebalanceResult @ 0x1408B1DC4
+ * XREFs of PnpTraceRebalanceResult @ 0x1408B1F24
  * Callers:
- *     PnpRebalance @ 0x1408B87A4 (PnpRebalance.c)
+ *     PnpRebalance @ 0x1408B8904 (PnpRebalance.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PnpTraceRebalanceResult()
@@ -52,14 +52,14 @@ void PnpTraceRebalanceResult()
   __int64 *v39; // [rsp+130h] [rbp+30h]
   __int64 v40; // [rsp+138h] [rbp+38h]
 
-  if ( dword_140C02E00 && tlgKeywordOn((__int64)&dword_140C02E00, 0x400000000000LL) )
+  if ( dword_140C02D90 && tlgKeywordOn((__int64)&dword_140C02D90, 0x400000000000LL) )
   {
     if ( !v1 || !*(_QWORD *)(v1 + 40) || !*(_QWORD *)(v1 + 24) )
       __fastfail(5u);
     v2 = MEMORY[0xFFFFF78000000008];
-    if ( (unsigned int)dword_140C02E00 > 5 )
+    if ( (unsigned int)dword_140C02D90 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C02E00, v0) )
+      if ( tlgKeywordOn((__int64)&dword_140C02D90, v0) )
       {
         v16 = 2LL;
         v15 = v18;
@@ -99,8 +99,8 @@ void PnpTraceRebalanceResult()
         v13 = v2;
         v40 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C02E00,
-          (unsigned __int8 *)&word_14002557E,
+          (__int64)&dword_140C02D90,
+          (unsigned __int8 *)byte_140025588,
           0LL,
           0LL,
           0xFu,

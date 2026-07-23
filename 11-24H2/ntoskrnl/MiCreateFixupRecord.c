@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreateFixupRecord @ 0x1408F62E4
+ * XREFs of MiCreateFixupRecord @ 0x1409771A4
  * Callers:
- *     MiScanRelocationPage @ 0x1408F6120 (MiScanRelocationPage.c)
+ *     MiScanRelocationPage @ 0x140976FE0 (MiScanRelocationPage.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
  */
 
 __int64 __fastcall MiCreateFixupRecord(__int64 a1, __int64 a2, unsigned int a3, int a4, int a5, _WORD *a6, _QWORD *a7)

@@ -60,7 +60,7 @@ __int64 __fastcall IopProcessSetInterfaceState(UNICODE_STRING *a1, unsigned __in
   UNICODE_STRING UnicodeString; // [rsp+98h] [rbp-70h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-60h] BYREF
   UNICODE_STRING DestinationString; // [rsp+D8h] [rbp-30h] BYREF
-  UNICODE_STRING v31; // [rsp+E8h] [rbp-20h] BYREF
+  UNICODE_STRING LinkTarget; // [rsp+E8h] [rbp-20h] BYREF
   GUID v32; // [rsp+F8h] [rbp-10h] BYREF
 
   v22 = a2;
@@ -74,7 +74,7 @@ __int64 __fastcall IopProcessSetInterfaceState(UNICODE_STRING *a1, unsigned __in
   v8 = 0LL;
   v26 = 0LL;
   v21 = 0;
-  v31 = 0LL;
+  LinkTarget = 0LL;
   UnicodeString = 0LL;
   v32 = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
@@ -219,7 +219,7 @@ LABEL_60:
 LABEL_28:
   if ( DeviceInterfaceClassGuid >= 0 && (_DWORD)NumberOfBytes )
   {
-    RtlInitUnicodeString(&v31, (PCWSTR)v5);
+    RtlInitUnicodeString(&LinkTarget, (PCWSTR)v5);
     DeviceInterfaceClassGuid = PiDmAddCacheReferenceForObject(3LL, v8, &v24);
     if ( DeviceInterfaceClassGuid >= 0 )
     {
@@ -237,7 +237,11 @@ LABEL_28:
           ObjectAttributes.Attributes = 576;
           DeviceInterfaceClassGuid = ZwOpenSymbolicLinkObject((PHANDLE)(v6 + 40), 0xF0001u, &ObjectAttributes);
           if ( DeviceInterfaceClassGuid == -1073741772 )
-            DeviceInterfaceClassGuid = ZwCreateSymbolicLinkObject(v6 + 40, 983041LL);
+            DeviceInterfaceClassGuid = ZwCreateSymbolicLinkObject(
+                                         (PHANDLE)(v6 + 40),
+                                         0xF0001u,
+                                         &ObjectAttributes,
+                                         &LinkTarget);
           if ( DeviceInterfaceClassGuid >= 0 )
             HIBYTE(v22) = 1;
           goto LABEL_37;

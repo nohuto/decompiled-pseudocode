@@ -27,7 +27,7 @@ void PoExecutePerfCheck()
       v3 = 0;
       if ( PpmCheckLastExecutionTime != 1 )
       {
-        if ( PpmCheckLastExecutionTime + v1 + (unsigned int)KeMaximumIncrement > MEMORY[0xFFFFF78000000008] )
+        if ( PpmCheckLastExecutionTime + v1 + KeMaximumIncrement > MEMORY[0xFFFFF78000000008] )
           v2 = v1 + PpmCheckLastExecutionTime;
         v4 = v2 - v1 - PpmCheckLastExecutionTime;
         if ( v4 >= v1 )

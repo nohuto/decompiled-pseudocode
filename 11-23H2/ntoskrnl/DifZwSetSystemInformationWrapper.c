@@ -1,15 +1,18 @@
 /*
- * XREFs of DifZwSetSystemInformationWrapper @ 0x1405F7810
+ * XREFs of DifZwSetSystemInformationWrapper @ 0x1405F7D80
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetSystemInformation @ 0x14041E480 (ZwSetSystemInformation.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwSetSystemInformation @ 0x14041E810 (ZwSetSystemInformation.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwSetSystemInformationWrapper(unsigned int a1, __int64 a2, int a3)
+NTSTATUS __fastcall DifZwSetSystemInformationWrapper(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -20,7 +23,7 @@ __int64 __fastcall DifZwSetSystemInformationWrapper(unsigned int a1, __int64 a2,
   int v12; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v16; // rdi
   _QWORD *v17; // rbx
   __int128 v18; // [rsp+20h] [rbp-20h] BYREF
@@ -58,16 +61,16 @@ LABEL_8:
   }
   *(_QWORD *)&v18 = 0LL;
 LABEL_10:
-  DWORD2(v19) = a1;
-  *(_QWORD *)&v19 = a2;
-  DWORD2(v18) = a3;
+  DWORD2(v19) = SystemInformationClass;
+  *(_QWORD *)&v19 = SystemInformation;
+  DWORD2(v18) = SystemInformationLength;
   for ( i = (__int64 *)v11[4]; i != v11 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v18);
   }
 LABEL_17:
-  result = ZwSetSystemInformation(a1, a2);
+  result = ZwSetSystemInformation(SystemInformationClass, SystemInformation, SystemInformationLength);
   HIDWORD(v19) = result;
   if ( v11 )
   {

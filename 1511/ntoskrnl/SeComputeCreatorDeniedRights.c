@@ -23,7 +23,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   __int64 v11; // rax
   __int64 v12; // rdx
   __int64 v13; // rax
-  __int64 v14; // rcx
+  ACL *v14; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
@@ -72,11 +72,11 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
       if ( v10 < 0 )
       {
         v13 = *(unsigned int *)(a4 + 12);
-        v14 = (_DWORD)v13 ? a4 + v13 : 0LL;
+        v14 = (_DWORD)v13 ? (ACL *)(a4 + v13) : 0LL;
       }
       else
       {
-        v14 = *(_QWORD *)(a4 + 24);
+        v14 = *(ACL **)(a4 + 24);
       }
     }
     else
@@ -88,7 +88,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
       return 0LL;
     if ( !v14 )
       return 0LL;
-    ScopedPolicySid = (void *)SepGetScopedPolicySid();
+    ScopedPolicySid = (void *)SepGetScopedPolicySid(v14);
     if ( !ScopedPolicySid )
       return 0LL;
     Cap = SepRmReferenceFindCap(ScopedPolicySid);

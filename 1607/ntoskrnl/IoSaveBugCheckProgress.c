@@ -1,11 +1,11 @@
 /*
- * XREFs of IoSaveBugCheckProgress @ 0x1401C6260
+ * XREFs of IoSaveBugCheckProgress @ 0x1401C6100
  * Callers:
- *     IoWriteCrashDump @ 0x1401C65BC (IoWriteCrashDump.c)
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
- *     KiDisplayBlueScreen @ 0x1401D516C (KiDisplayBlueScreen.c)
+ *     IoWriteCrashDump @ 0x1401C645C (IoWriteCrashDump.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
+ *     KiDisplayBlueScreen @ 0x1401D4F98 (KiDisplayBlueScreen.c)
  * Callees:
- *     KeFrozenProcessorCount @ 0x1401D7C08 (KeFrozenProcessorCount.c)
+ *     KeFrozenProcessorCount @ 0x1401D7A34 (KeFrozenProcessorCount.c)
  */
 
 void __fastcall IoSaveBugCheckProgress(int a1)

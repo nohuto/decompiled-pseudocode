@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpCheckForEnoughStackSpace @ 0x180125524
+ * XREFs of EtwpCheckForEnoughStackSpace @ 0x1801254F4
  * Callers:
  *     EtwpWriteToPrivateBuffers @ 0x18005A0D4 (EtwpWriteToPrivateBuffers.c)
  * Callees:

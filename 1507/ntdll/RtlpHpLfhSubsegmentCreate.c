@@ -13,30 +13,28 @@
  *     RtlpInterlockedPopEntrySList @ 0x180095560 (RtlpInterlockedPopEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall RtlpHpLfhSubsegmentCreate(unsigned __int64 a1, __int64 a2, unsigned int a3)
+PSLIST_ENTRY __fastcall RtlpHpLfhSubsegmentCreate(_RTL_SRWLOCK *a1, __int64 a2, unsigned int a3)
 {
   int v5; // r13d
   unsigned int v6; // ecx
   unsigned int v7; // r10d
   PSLIST_ENTRY v8; // r14
   int SubSegmentBlockCount; // eax
-  __int64 v10; // r8
-  __int64 v11; // r9
-  char v12; // r11
-  unsigned int v13; // ebx
-  int v14; // ecx
-  __int64 v15; // rdx
-  unsigned int v16; // ebp
-  int v17; // r15d
-  union _SLIST_HEADER *v18; // rcx
-  PSLIST_ENTRY v19; // rdi
-  unsigned int v20; // edx
-  unsigned int v21; // ebx
-  unsigned int v22; // ecx
-  __int64 (__fastcall *v24)(_QWORD); // r13
-  int v25; // eax
-  __int64 (__fastcall *v26)(_QWORD, _QWORD, _QWORD); // rbx
-  __int64 v27; // rax
+  char v10; // r11
+  unsigned int v11; // ebx
+  int v12; // ecx
+  unsigned int v13; // edx
+  unsigned int v14; // ebp
+  int v15; // r15d
+  _SLIST_HEADER *v16; // rcx
+  PSLIST_ENTRY v17; // rdi
+  unsigned int v18; // edx
+  unsigned int v19; // ebx
+  unsigned int v20; // ecx
+  __int64 (__fastcall *v22)(PVOID); // r13
+  int v23; // eax
+  __int64 (__fastcall *v24)(unsigned __int64, _QWORD, _QWORD); // rbx
+  __int64 v25; // rax
 
   v5 = (unsigned __int16)RtlpBucketBlockSizes[*(unsigned __int8 *)(a2 + 1)];
   v6 = *(unsigned __int8 *)(a2 + 2);
@@ -49,82 +47,83 @@ PSLIST_ENTRY __fastcall RtlpHpLfhSubsegmentCreate(unsigned __int64 a1, __int64 a
                            v7,
                            v6 > 1,
                            *(_QWORD *)(a2 + 64) != 0LL);
-  v13 = 7;
-  v14 = v5 * SubSegmentBlockCount
+  v11 = 7;
+  v12 = v5 * SubSegmentBlockCount
       + ((8 * (((unsigned __int64)(unsigned int)(2 * SubSegmentBlockCount) + 63) >> 6) + 63) & 0xFFFFFFF0);
-  v15 = v14 + 2 * ((unsigned int)(v14 + 4095) >> 12);
-  if ( (unsigned int)v15 > 0xF0000 )
-    v15 = 983040LL;
-  if ( (v15 & 0xFFFFFF80) != 0 )
+  v13 = v12 + 2 * ((unsigned int)(v12 + 4095) >> 12);
+  if ( v13 > 0xF0000 )
+    v13 = 983040;
+  if ( (v13 & 0xFFFFFF80) != 0 )
   {
     do
-      ++v13;
-    while ( (unsigned int)v15 >> v13 );
-    if ( v13 > 0x12 )
-      v13 = 18;
+      ++v11;
+    while ( v13 >> v11 );
+    if ( v11 > 0x12 )
+      v11 = 18;
   }
-  if ( v13 <= 0xC )
-    v13 = 12;
-  v16 = 1 << v13;
-  v17 = v12 & 1;
-  if ( (v12 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 48), (char *)v15, v10, v11);
-  v18 = (union _SLIST_HEADER *)(a1 + 16 * (v13 - 12 + 5LL));
-  if ( !LOWORD(v18->Alignment) || (v19 = RtlpInterlockedPopEntrySList(v18)) == 0LL )
-    v19 = 0LL;
-  if ( v19 )
+  if ( v11 <= 0xC )
+    v11 = 12;
+  v14 = 1 << v11;
+  v15 = v10 & 1;
+  if ( (v10 & 1) == 0 )
+    RtlAcquireSRWLockShared(a1 + 6);
+  v16 = (_SLIST_HEADER *)&a1[2 * v11 - 14];
+  if ( !LOWORD(v16->Alignment) || (v17 = RtlpInterlockedPopEntrySList(v16)) == 0LL )
+    v17 = 0LL;
+  if ( v17 )
   {
-    v20 = 1 << *((_BYTE *)&v19[2].Next + 12);
+    v18 = 1 << *((_BYTE *)&v17[2].Next + 12);
   }
   else
   {
-    v26 = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 8));
-    if ( v26 == RtlpHpSegLfhAllocate )
-      v27 = RtlpHpSegLfhAllocate(*(_QWORD *)a1, v16, a3);
+    v24 = (__int64 (__fastcall *)(unsigned __int64, _QWORD, _QWORD))((unsigned __int64)a1 ^ RtlpHeapKey ^ a1[1].Value);
+    if ( v24 == RtlpHpSegLfhAllocate )
+      v25 = RtlpHpSegLfhAllocate(a1->Value, v14, a3);
     else
-      v27 = v26(*(_QWORD *)a1, v16, a3);
-    v19 = (PSLIST_ENTRY)v27;
-    if ( !v27 )
+      v25 = v24(a1->Value, v14, a3);
+    v17 = (PSLIST_ENTRY)v25;
+    if ( !v25 )
       goto LABEL_26;
-    v20 = 0;
+    v18 = 0;
   }
   if ( (RtlpHpAppCompatFlags & 4) != 0 )
   {
-    v21 = v16;
+    v19 = v14;
   }
   else
   {
-    v21 = 2 * v5;
-    if ( ((v21 - 1) & v21) != 0 )
+    v19 = 2 * v5;
+    if ( ((v19 - 1) & v19) != 0 )
     {
-      _BitScanReverse(&v22, v21);
-      v21 = 1 << (v22 + 1);
+      _BitScanReverse(&v20, v19);
+      v19 = 1 << (v20 + 1);
     }
-    if ( v21 <= 0x1000 )
-      v21 = 4096;
-    if ( v21 >= v16 )
-      v21 = v16;
+    if ( v19 <= 0x1000 )
+      v19 = 4096;
+    if ( v19 >= v14 )
+      v19 = v14;
   }
-  if ( v20 < v21
-    && ((v24 = (__int64 (__fastcall *)(_QWORD))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 24)), v24 != RtlpHpSegLfhVsCommit)
-      ? (v25 = ((__int64 (__fastcall *)(_QWORD, PSLIST_ENTRY, _QWORD))v24)(*(_QWORD *)a1, v19, v21))
-      : (v25 = RtlpHpSegLfhVsCommit(*(_QWORD *)a1)),
-        v25 < 0) )
+  if ( v18 < v19
+    && ((v22 = (__int64 (__fastcall *)(PVOID))((unsigned __int64)a1 ^ RtlpHeapKey ^ a1[3].Value),
+         v22 != RtlpHpSegLfhVsCommit)
+      ? (v23 = ((__int64 (__fastcall *)(unsigned __int64, PSLIST_ENTRY, _QWORD))v22)(a1->Value, v17, v19))
+      : (v23 = RtlpHpSegLfhVsCommit(a1->Ptr)),
+        v23 < 0) )
   {
-    ((void (__fastcall *)(_QWORD, PSLIST_ENTRY, _QWORD))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 16)))(
-      *(_QWORD *)a1,
-      v19,
+    ((void (__fastcall *)(unsigned __int64, PSLIST_ENTRY, _QWORD))((unsigned __int64)a1 ^ RtlpHeapKey ^ a1[2].Value))(
+      a1->Value,
+      v17,
       a3);
   }
   else
   {
-    RtlpHpLfhSubsegmentInitialize(v19);
+    RtlpHpLfhSubsegmentInitialize(v17);
     _InterlockedIncrement64((volatile signed __int64 *)(a2 + 64));
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 56), WORD1(v19[2].Next));
-    v8 = v19;
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 56), WORD1(v17[2].Next));
+    v8 = v17;
   }
 LABEL_26:
-  if ( !v17 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 48));
+  if ( !v15 )
+    RtlReleaseSRWLockShared(a1 + 6);
   return v8;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiValidatePagefilePageHash @ 0x14038CF80
+ * XREFs of MiValidatePagefilePageHash @ 0x14038ED2C
  * Callers:
- *     MiWaitForInPageComplete @ 0x14038E1F0 (MiWaitForInPageComplete.c)
- *     MiReadPagefilePage @ 0x1406E4AA0 (MiReadPagefilePage.c)
+ *     MiWaitForInPageComplete @ 0x14038FFA0 (MiWaitForInPageComplete.c)
+ *     MiReadPagefilePage @ 0x1406E9750 (MiReadPagefilePage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiArePagefileContentsCorrupted @ 0x1402DB9F0 (MiArePagefileContentsCorrupted.c)
- *     MiObtainPagefileHashes @ 0x14038BF5C (MiObtainPagefileHashes.c)
- *     MiInPageSkipPage @ 0x14038D250 (MiInPageSkipPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiArePagefileContentsCorrupted @ 0x1402BD7B0 (MiArePagefileContentsCorrupted.c)
+ *     MiObtainPagefileHashes @ 0x14038DD0C (MiObtainPagefileHashes.c)
+ *     MiInPageSkipPage @ 0x14038F000 (MiInPageSkipPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiValidatePagefilePageHash(__int64 a1)
@@ -80,7 +80,7 @@ LABEL_29:
       goto LABEL_24;
     v13 = *(_QWORD *)(v10 + 16);
     v14 = (v13 >> 5) & 0x1F;
-    if ( (dword_140FBE210 & 1) == 0 && (_DWORD)v14 != 31 )
+    if ( (dword_140FBF210 & 1) == 0 && (_DWORD)v14 != 31 )
     {
       if ( (unsigned int)v14 >> 3 != 3 )
       {
@@ -109,15 +109,15 @@ LABEL_24:
 LABEL_15:
     if ( (v13 & 8) != 0 )
     {
-      if ( qword_140E2D740 && (v13 & 0x10) == 0 )
-        v13 &= qword_140E2D748;
+      if ( qword_140E2D8C0 && (v13 & 0x10) == 0 )
+        v13 &= qword_140E2D8C8;
       v15 = HIDWORD(v13);
       if ( (_DWORD)v15 )
       {
         v16 = v19;
         if ( !v19 )
         {
-          v16 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL))
+          v16 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL))
                           + 8LL * ((unsigned __int8)HIBYTE(*(_WORD *)(v10 + 16)) >> 4)
                           + 22304);
           v19 = v16;

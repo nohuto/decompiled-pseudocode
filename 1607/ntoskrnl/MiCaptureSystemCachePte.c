@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCaptureSystemCachePte @ 0x1401E6D74
+ * XREFs of MiCaptureSystemCachePte @ 0x1401E6BA0
  * Callers:
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
  * Callees:
  *     <none>
  */

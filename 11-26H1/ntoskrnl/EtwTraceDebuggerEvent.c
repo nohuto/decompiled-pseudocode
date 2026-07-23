@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceDebuggerEvent @ 0x1404E5B4C
+ * XREFs of EtwTraceDebuggerEvent @ 0x1404DF0EC
  * Callers:
- *     DbgkpSendApiMessage @ 0x1409534DC (DbgkpSendApiMessage.c)
- *     DbgkForwardException @ 0x1409535F0 (DbgkForwardException.c)
- *     DbgkExitThread @ 0x14095559C (DbgkExitThread.c)
- *     NtDebugContinue @ 0x140987410 (NtDebugContinue.c)
+ *     DbgkpSendApiMessage @ 0x1409CEE1C (DbgkpSendApiMessage.c)
+ *     DbgkForwardException @ 0x1409CEF30 (DbgkForwardException.c)
+ *     NtDebugContinue @ 0x140B077A0 (NtDebugContinue.c)
+ *     DbgkExitThread @ 0x140B3C484 (DbgkExitThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceDebuggerEvent(__int64 a1, __int64 a2, int a3)

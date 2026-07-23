@@ -29,7 +29,7 @@ __int64 __fastcall sub_18004EFA4(unsigned __int64 a1, int a2, unsigned __int64 a
   }
   else
   {
-    v15 = sub_1800515E8(&unk_180166A60, 2 * ((a1 - qword_180166A58) >> 20));
+    v15 = sub_1800515E8(&qword_180166A60, 2 * ((a1 - qword_180166A58) >> 20));
     if ( v15 )
       v9 = v15 - 1;
     else

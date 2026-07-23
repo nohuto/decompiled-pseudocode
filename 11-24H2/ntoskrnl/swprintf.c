@@ -1,11 +1,11 @@
 /*
- * XREFs of swprintf @ 0x1404FE200
+ * XREFs of swprintf @ 0x1404FBAC0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     _flsbuf @ 0x140500C5C (_flsbuf.c)
- *     _woutput_l @ 0x140500C6C (_woutput_l.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1404FE51C (_flsbuf.c)
+ *     _woutput_l @ 0x1404FE52C (_woutput_l.c)
  */
 
 int swprintf(wchar_t *a1, const wchar_t *a2, ...)

@@ -41,9 +41,9 @@ __int64 __fastcall KiVerifyXcpt10(__int64 a1)
     {
       if ( v3 != 1 )
         goto LABEL_10;
-      local_unwind((int)v8, (int)&loc_140A5EC5A);
+      local_unwind(v8, &loc_140A5EC5A);
     }
-    local_unwind((int)v8, (int)&loc_140A5EC4C);
+    local_unwind(v8, &loc_140A5EC4C);
 LABEL_10:
     *(_DWORD *)(v2 + 12) = 0;
   }
@@ -52,7 +52,7 @@ LABEL_10:
   v4 = *(_DWORD *)(v9 + 12) + 11;
   *(_DWORD *)(v9 + 12) = v4;
   if ( v4 == 99 )
-    local_unwind((int)v8, (int)&loc_140A5EC4C);
+    local_unwind(v8, &loc_140A5EC4C);
   ++**(_DWORD **)v2;
   *(_DWORD *)(v2 + 12) += 11;
   if ( *(_DWORD *)(v2 + 12) == 55 )
@@ -64,7 +64,7 @@ LABEL_10:
   if ( v5 == 99 )
     ++**(_DWORD **)v2;
   else
-    local_unwind((int)v8, (int)&loc_140A5EC4C);
+    local_unwind(v8, &loc_140A5EC4C);
   v6 = *(_DWORD *)(v2 + 12) + 11;
   *(_DWORD *)(v2 + 12) = v6;
   if ( v6 == 99 )

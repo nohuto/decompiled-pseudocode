@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventHgsContainmentGroupInfo @ 0x14060DFDC
+ * XREFs of PpmEventHgsContainmentGroupInfo @ 0x1406110DC
  * Callers:
- *     PpmHeteroHgsRegisterContainmentGroups @ 0x14060B540 (PpmHeteroHgsRegisterContainmentGroups.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroHgsRegisterContainmentGroups @ 0x14060E258 (PpmHeteroHgsRegisterContainmentGroups.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventHgsContainmentGroupInfo(__int64 a1, char a2)
@@ -37,7 +37,7 @@ void __fastcall PpmEventHgsContainmentGroupInfo(__int64 a1, char a2)
       v3 = &PPM_ETW_WPS_CONTAINMENT_GROUP_INFO;
     if ( PpmEtwRegistered )
     {
-      if ( EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v3) )
+      if ( EtwEventEnabled(PpmEtwHandle, v3) )
       {
         v4 = *(_DWORD **)(a1 + 1240);
         v17 = *v4;
@@ -76,15 +76,7 @@ void __fastcall PpmEventHgsContainmentGroupInfo(__int64 a1, char a2)
             *((_QWORD *)&UserData[0].Size + v16) = 8LL;
           }
           while ( v6 < 3 );
-          EtwWriteEx(
-            (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-            v3,
-            0LL,
-            0,
-            0LL,
-            0LL,
-            UserDataCount,
-            UserData);
+          EtwWriteEx(PpmEtwHandle, v3, 0LL, 0, 0LL, 0LL, UserDataCount, UserData);
           ExFreePoolWithTag(Pool2, 0x654D5050u);
         }
       }

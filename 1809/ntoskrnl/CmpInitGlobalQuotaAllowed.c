@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitGlobalQuotaAllowed @ 0x1409DDC98
+ * XREFs of CmpInitGlobalQuotaAllowed @ 0x1409DEC98
  * Callers:
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x1406259BC (MmGetNumberOfPhysicalPages.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1406269DC (MmGetNumberOfPhysicalPages.c)
  */
 
 __int64 CmpInitGlobalQuotaAllowed()

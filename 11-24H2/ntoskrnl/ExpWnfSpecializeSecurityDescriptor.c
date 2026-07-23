@@ -1,28 +1,29 @@
 /*
- * XREFs of ExpWnfSpecializeSecurityDescriptor @ 0x140836D2C
+ * XREFs of ExpWnfSpecializeSecurityDescriptor @ 0x14083448C
  * Callers:
- *     NtCreateWnfStateName @ 0x140836950 (NtCreateWnfStateName.c)
- *     ExpWnfLookupPermanentName @ 0x14085ACA8 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfLookupPermanentName @ 0x140833714 (ExpWnfLookupPermanentName.c)
+ *     NtCreateWnfStateName @ 0x1408340B0 (NtCreateWnfStateName.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140454080 (RtlGetDaclSecurityDescriptor.c)
- *     RtlpApplyAclToObject @ 0x1409AAF50 (RtlpApplyAclToObject.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140449130 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlpApplyAclToObject @ 0x140833230 (RtlpApplyAclToObject.c)
  */
 
-int __fastcall ExpWnfSpecializeSecurityDescriptor(_BYTE *a1)
+void __fastcall ExpWnfSpecializeSecurityDescriptor(_BYTE *a1)
 {
-  __int64 v2; // rax
+  NTSTATUS DaclSecurityDescriptor; // eax
   PACL v3; // rbx
   __int16 v4; // cx
+  __int64 v5; // rax
   BOOLEAN v6; // [rsp+40h] [rbp+8h] BYREF
   BOOLEAN v7; // [rsp+48h] [rbp+10h] BYREF
-  PACL v8; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v8; // [rsp+50h] [rbp+18h] BYREF
 
   v6 = 0;
   v8 = 0LL;
-  LODWORD(v2) = RtlGetDaclSecurityDescriptor(a1, &v6, &v8, &v7);
-  v3 = v8;
-  if ( (int)v2 >= 0 && v6 && v8 )
-    LODWORD(v2) = RtlpApplyAclToObject(v8, &ExpWnfNotificationMapping);
+  DaclSecurityDescriptor = RtlGetDaclSecurityDescriptor(a1, &v6, (PACL *)&v8, &v7);
+  v3 = (PACL)v8;
+  if ( DaclSecurityDescriptor >= 0 && v6 && v8 )
+    RtlpApplyAclToObject(v8, &ExpWnfNotificationMapping);
   if ( *a1 == 1 )
   {
     v4 = *((_WORD *)a1 + 1);
@@ -34,15 +35,17 @@ int __fastcall ExpWnfSpecializeSecurityDescriptor(_BYTE *a1)
       }
       else
       {
-        v2 = *((unsigned int *)a1 + 3);
-        if ( (_DWORD)v2 )
-          v3 = (PACL)&a1[v2];
+        v5 = *((unsigned int *)a1 + 3);
+        if ( (_DWORD)v5 )
+          v3 = (PACL)&a1[v5];
         else
           v3 = 0LL;
       }
     }
-    if ( (v4 & 0x10) != 0 && v3 )
-      LODWORD(v2) = RtlpApplyAclToObject(v3, &ExpWnfNotificationMapping);
+    if ( (v4 & 0x10) != 0 )
+    {
+      if ( v3 )
+        RtlpApplyAclToObject((__int64)v3, &ExpWnfNotificationMapping);
+    }
   }
-  return v2;
 }

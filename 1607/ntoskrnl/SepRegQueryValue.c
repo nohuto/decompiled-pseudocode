@@ -1,15 +1,15 @@
 /*
- * XREFs of SepRegQueryValue @ 0x1404763AC
+ * XREFs of SepRegQueryValue @ 0x14047527C
  * Callers:
- *     SepRegQueryDwordValue @ 0x140476340 (SepRegQueryDwordValue.c)
- *     SepAdtInitializeBounds @ 0x14056F990 (SepAdtInitializeBounds.c)
- *     SepAdtInitializePrivilegeAuditing @ 0x14056FA0C (SepAdtInitializePrivilegeAuditing.c)
- *     SepAdtInitializeCrashOnFail @ 0x14056FA64 (SepAdtInitializeCrashOnFail.c)
+ *     SepRegQueryDwordValue @ 0x140475210 (SepRegQueryDwordValue.c)
+ *     SepAdtInitializeBounds @ 0x14056FED0 (SepAdtInitializeBounds.c)
+ *     SepAdtInitializePrivilegeAuditing @ 0x14056FF4C (SepAdtInitializePrivilegeAuditing.c)
+ *     SepAdtInitializeCrashOnFail @ 0x14056FFA4 (SepAdtInitializeCrashOnFail.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall SepRegQueryValue(HANDLE KeyHandle, const WCHAR *a2, int a3, unsigned int a4, _DWORD *a5)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogKernelStackEvent @ 0x1401EEE90
+ * XREFs of MiLogKernelStackEvent @ 0x1401EECBC
  * Callers:
- *     MiInPageSingleKernelStack @ 0x140095124 (MiInPageSingleKernelStack.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400F12A0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     MmCreateKernelStack @ 0x1400F17B0 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1400F1B80 (MmDeleteKernelStack.c)
+ *     MiInPageSingleKernelStack @ 0x140094924 (MiInPageSingleKernelStack.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400EF0F0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     MmCreateKernelStack @ 0x1400EF600 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400EF9D0 (MmDeleteKernelStack.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogKernelStackEvent(__int64 a1, unsigned int a2, int a3)

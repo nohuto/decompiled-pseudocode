@@ -1,0 +1,42 @@
+/*
+ * XREFs of sub_14053385C @ 0x14053385C
+ * Callers:
+ *     sub_140532D90 @ 0x140532D90 (sub_140532D90.c)
+ * Callees:
+ *     sub_1403CE24C @ 0x1403CE24C (sub_1403CE24C.c)
+ */
+
+__int64 *__fastcall sub_14053385C(__int64 a1, __int16 a2)
+{
+  __int64 v2; // rbx
+  __int64 *result; // rax
+  __int64 *v6; // rcx
+  __int64 **v7; // rax
+  __int64 *v8; // [rsp+30h] [rbp+8h] BYREF
+
+  v8 = 0LL;
+  v2 = a1 + 8;
+  for ( result = *(__int64 **)(a1 + 8); result != (__int64 *)v2; result = (__int64 *)*result )
+  {
+    v8 = result;
+    if ( *((_WORD *)result + 8) == a2 )
+      return result;
+  }
+  if ( (int)sub_1403CE24C(a1, 0x28u, &v8) < 0 )
+    return 0LL;
+  v6 = v8;
+  *((_WORD *)v8 + 8) = a2;
+  *((_DWORD *)v6 + 5) = 0;
+  v6[4] = (__int64)(v6 + 3);
+  v6[3] = (__int64)(v6 + 3);
+  v7 = *(__int64 ***)(v2 + 8);
+  if ( *v7 != (__int64 *)v2 )
+    __fastfail(3u);
+  v6[1] = (__int64)v7;
+  *v6 = v2;
+  *v7 = v6;
+  result = v6;
+  *(_QWORD *)(v2 + 8) = v6;
+  ++*(_DWORD *)a1;
+  return result;
+}

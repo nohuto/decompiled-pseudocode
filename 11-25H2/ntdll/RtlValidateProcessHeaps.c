@@ -6,7 +6,7 @@
  *     RtlpEnumProcessHeaps @ 0x18009A690 (RtlpEnumProcessHeaps.c)
  */
 
-bool RtlValidateProcessHeaps()
+BOOLEAN RtlValidateProcessHeaps(void)
 {
   return (int)RtlpEnumProcessHeaps(
                 (__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlValidateProcessHeapsCallback,

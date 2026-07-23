@@ -1,15 +1,15 @@
 /*
- * XREFs of fill_window @ 0x1405F6C20
+ * XREFs of fill_window @ 0x1405F4260
  * Callers:
- *     deflate_fast @ 0x1405F57B0 (deflate_fast.c)
- *     deflate_huff @ 0x1405F5D0C (deflate_huff.c)
- *     deflate_rle @ 0x1405F5E7C (deflate_rle.c)
- *     deflate_slow @ 0x1405F6160 (deflate_slow.c)
+ *     deflate_fast @ 0x1405F2DF0 (deflate_fast.c)
+ *     deflate_huff @ 0x1405F334C (deflate_huff.c)
+ *     deflate_rle @ 0x1405F34BC (deflate_rle.c)
+ *     deflate_slow @ 0x1405F37A0 (deflate_slow.c)
  * Callees:
- *     read_buf @ 0x1405F728C (read_buf.c)
- *     slide_hash @ 0x1405F7310 (slide_hash.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     read_buf @ 0x1405F48CC (read_buf.c)
+ *     slide_hash @ 0x1405F4950 (slide_hash.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall fill_window(_QWORD *a1)

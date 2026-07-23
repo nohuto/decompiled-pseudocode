@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCoverageFreeStringBuffers @ 0x1409E83B0
+ * XREFs of EtwpCoverageFreeStringBuffers @ 0x1409E8640
  * Callers:
- *     EtwpCoverageEnsureContext @ 0x140856AD4 (EtwpCoverageEnsureContext.c)
- *     EtwpCoverageReset @ 0x1409E845C (EtwpCoverageReset.c)
+ *     EtwpCoverageEnsureContext @ 0x140856D14 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageReset @ 0x1409E86EC (EtwpCoverageReset.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

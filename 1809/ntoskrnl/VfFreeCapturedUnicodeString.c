@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFreeCapturedUnicodeString @ 0x140925C98
+ * XREFs of VfFreeCapturedUnicodeString @ 0x140926C98
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VfFreeCapturedUnicodeString(__int64 a1)

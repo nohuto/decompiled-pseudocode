@@ -1,30 +1,34 @@
 /*
- * XREFs of NtSetInformationObject @ 0x140970880
+ * XREFs of NtSetInformationObject @ 0x1409BA9F0
  * Callers:
- *     DifNtSetInformationObjectWrapper @ 0x14068C120 (DifNtSetInformationObjectWrapper.c)
+ *     DifNtSetInformationObjectWrapper @ 0x14068FD00 (DifNtSetInformationObjectWrapper.c)
  * Callees:
- *     PsGetSessionObjectById @ 0x140215CF4 (PsGetSessionObjectById.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsGetCurrentProcessSessionId @ 0x140437260 (PsGetCurrentProcessSessionId.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     ObpEnableObjectRefTrace @ 0x1407C4AB4 (ObpEnableObjectRefTrace.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     ObSetHandleAttributes @ 0x140970980 (ObSetHandleAttributes.c)
- *     ObpLockDirectoryExclusive @ 0x1409E21B8 (ObpLockDirectoryExclusive.c)
- *     ObpUnlockDirectory @ 0x1409E2240 (ObpUnlockDirectory.c)
+ *     PsGetSessionObjectById @ 0x140216024 (PsGetSessionObjectById.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsGetCurrentProcessSessionId @ 0x1404261F0 (PsGetCurrentProcessSessionId.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     ObpEnableObjectRefTrace @ 0x1407C7B14 (ObpEnableObjectRefTrace.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObSetHandleAttributes @ 0x1409BAAF0 (ObSetHandleAttributes.c)
+ *     ObpLockDirectoryExclusive @ 0x1409DF1C8 (ObpLockDirectoryExclusive.c)
+ *     ObpUnlockDirectory @ 0x1409DF250 (ObpUnlockDirectory.c)
  */
 
-__int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, volatile void *a3, int a4)
+NTSTATUS __cdecl NtSetInformationObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength)
 {
-  int v6; // edi
-  int v7; // edx
+  NTSTATUS v6; // edi
+  __int32 v7; // edx
   char v8; // bl
   __int64 v9; // r8
-  int v11; // edx
-  int v12; // edx
+  __int32 v11; // edx
+  __int32 v12; // edx
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v14; // rdx
   __int64 v15; // r8
@@ -46,7 +50,7 @@ __int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, volatile void *
 
   UShortFromUser = 0;
   v6 = -1073741821;
-  v7 = a2 - 4;
+  v7 = ObjectInformationClass - 4;
   if ( v7 )
   {
     v11 = v7 - 1;
@@ -59,7 +63,7 @@ __int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, volatile void *
         {
           PreviousMode = KeGetCurrentThread()->PreviousMode;
           if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-            return 3221225569LL;
+            return -1073741727;
           Object = 0LL;
           v6 = ObReferenceObjectByHandle(Handle, 0, 0LL, PreviousMode, &Object, 0LL);
           if ( v6 >= 0 )
@@ -70,7 +74,7 @@ LABEL_29:
             ObfDereferenceObject(v17);
           }
         }
-        return (unsigned int)v6;
+        return v6;
       }
       v18 = KeGetCurrentThread()->PreviousMode;
       if ( SeSinglePrivilegeCheck(SeTcbPrivilege, v18) )
@@ -79,7 +83,7 @@ LABEL_29:
         Object = 0LL;
         v6 = ObReferenceObjectByHandle(Handle, 0, ObpDirectoryObjectType, v18, &Object, &HandleInformation);
         if ( v6 < 0 )
-          return (unsigned int)v6;
+          return v6;
         PsGetCurrentProcessSessionId();
         SessionObjectById = PsGetSessionObjectById();
         v22 = Object;
@@ -116,7 +120,7 @@ LABEL_27:
         Object = 0LL;
         v6 = ObReferenceObjectByHandle(Handle, 0, ObpDirectoryObjectType, v23, &Object, &HandleInformation);
         if ( v6 < 0 )
-          return (unsigned int)v6;
+          return v6;
         v29 = 0LL;
         v30 = 0LL;
         v22 = Object;
@@ -125,22 +129,22 @@ LABEL_27:
         goto LABEL_27;
       }
     }
-    return (unsigned int)-1073741727;
+    return -1073741727;
   }
-  if ( a4 == 2 )
+  if ( ObjectInformationLength == 2 )
   {
     v8 = KeGetCurrentThread()->PreviousMode;
     if ( v8 )
     {
-      ProbeForRead(a3, 2uLL, 1u);
-      UShortFromUser = RtlReadUShortFromUser((unsigned __int16 *)a3);
+      ProbeForRead(ObjectInformation, 2uLL, 1u);
+      UShortFromUser = RtlReadUShortFromUser((unsigned __int16 *)ObjectInformation);
     }
     else
     {
-      RtlCopyVolatileMemory(&UShortFromUser, (const void *)a3, 2uLL);
+      RtlCopyVolatileMemory(&UShortFromUser, ObjectInformation, 2uLL);
     }
     LOBYTE(v9) = v8;
-    return (unsigned int)ObSetHandleAttributes(Handle, &UShortFromUser, v9);
+    return ObSetHandleAttributes(Handle, &UShortFromUser, v9);
   }
-  return 3221225476LL;
+  return -1073741820;
 }

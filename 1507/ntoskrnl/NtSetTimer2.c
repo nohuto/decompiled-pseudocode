@@ -6,10 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall NtSetTimer2(void *a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtSetTimer2(
+        HANDLE TimerHandle,
+        PLARGE_INTEGER DueTime,
+        PLARGE_INTEGER Period,
+        PT2_SET_PARAMETERS Parameters)
 {
-  if ( a3 )
-    return 3221225474LL;
+  if ( Period )
+    return -1073741822;
   else
-    return ExpSetTimer2(a1);
+    return ExpSetTimer2(TimerHandle);
 }

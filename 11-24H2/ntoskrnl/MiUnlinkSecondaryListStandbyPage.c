@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkSecondaryListStandbyPage @ 0x14026E330
+ * XREFs of MiUnlinkSecondaryListStandbyPage @ 0x1402238C0
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiReplaceSecondaryListStandbyPage @ 0x1402F0DB0 (MiReplaceSecondaryListStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x14039474C (MiSwapNumaStandbyPage.c)
+ *     MiReplaceSecondaryListStandbyPage @ 0x1402568F0 (MiReplaceSecondaryListStandbyPage.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     MiSwapNumaStandbyPage @ 0x1403F7A6C (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiSearchChannelTable @ 0x14026F0D4 (MiSearchChannelTable.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiSearchChannelTable @ 0x140224664 (MiSearchChannelTable.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlinkSecondaryListStandbyPage(__int64 a1, int a2)
@@ -48,11 +48,11 @@ __int64 __fastcall MiUnlinkSecondaryListStandbyPage(__int64 a1, int a2)
   v4 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
   v5 = 16 * ((a1 + 0x220000000000LL) >> 4);
   v6 = v5 - 0x220000000000LL;
-  v32 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v5 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
-  v7 = dword_140E2DAC4;
-  if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-    || (v8 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, v4 < *(_QWORD *)v8)
-    || dword_140E2DAC0 != dword_140E2DAC4 && v4 >= *((_QWORD *)v8 + 2) )
+  v32 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v5 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
+  v7 = dword_140E2DC04;
+  if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+    || (v8 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, v4 < *(_QWORD *)v8)
+    || dword_140E2DC00 != dword_140E2DC04 && v4 >= *((_QWORD *)v8 + 2) )
   {
     for ( i = 0; ; i = v10 + 1 )
     {
@@ -61,28 +61,28 @@ __int64 __fastcall MiUnlinkSecondaryListStandbyPage(__int64 a1, int a2)
         if ( v7 < i )
           KeBugCheckEx(0x1Au, 0x5180uLL, v4, 0LL, 0LL);
         v10 = (i + v7) >> 1;
-        v8 = (char *)qword_140E2DB20 + 16 * v10;
+        v8 = (char *)qword_140E2DC60 + 16 * v10;
         if ( v4 >= *(_QWORD *)v8 )
           break;
         if ( !v10 )
-          KeBugCheckEx(0x1Au, 0x5180uLL, v4, (ULONG_PTR)qword_140E2DB20, 0LL);
+          KeBugCheckEx(0x1Au, 0x5180uLL, v4, (ULONG_PTR)qword_140E2DC60, 0LL);
         v7 = v10 - 1;
       }
-      if ( v10 == dword_140E2DAC4 || v4 < *((_QWORD *)v8 + 2) )
+      if ( v10 == dword_140E2DC04 || v4 < *((_QWORD *)v8 + 2) )
         break;
     }
-    dword_140E2DAC0 = (i + v7) >> 1;
+    dword_140E2DC00 = (i + v7) >> 1;
   }
   v34 = *((_DWORD *)v8 + 2);
   v11 = *(_DWORD *)(v6 + 32);
   if ( (v11 & 0x8000000) == 0
     || v6 >= 0xFFFFDE0000000000uLL
-    && v6 < 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL
-    && ((v29 = 0xAAAAAAAAAAAAAAABuLL * (v5 >> 4), v29 < qword_140E35B00) || v29 >= qword_140E35B00 + 2048)
+    && v6 < 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL
+    && ((v29 = 0xAAAAAAAAAAAAAAABuLL * (v5 >> 4), v29 < qword_140E35C40) || v29 >= qword_140E35C40 + 2048)
     && ((BYTE2(v11) & 7) == 6
-     || byte_140E3CAE6
-     && (v30 = v29 >> 9, *(_BYTE *)(qword_140E3D140 + 2 * v30))
-     && *(_BYTE *)(qword_140E3D140 + 2 * v30) != 10) )
+     || byte_140E3CC26
+     && (v30 = v29 >> 9, *(_BYTE *)(qword_140E3D280 + 2 * v30))
+     && *(_BYTE *)(qword_140E3D280 + 2 * v30) != 10) )
   {
     v12 = HIBYTE(v11) & 7;
   }
@@ -90,7 +90,7 @@ __int64 __fastcall MiUnlinkSecondaryListStandbyPage(__int64 a1, int a2)
   {
     v12 = 5;
   }
-  if ( qword_140E2DB28 )
+  if ( qword_140E2DC68 )
     v13 = *(_BYTE *)(MiSearchChannelTable(0xAAAAAAAAAAAAAAABuLL * (v5 >> 4)) + 12);
   else
     v13 = 0;
@@ -98,7 +98,7 @@ __int64 __fastcall MiUnlinkSecondaryListStandbyPage(__int64 a1, int a2)
   if ( (int)v2 < 9 )
   {
     if ( (_DWORD)v2 == 8 )
-      v31 = *(_BYTE *)(qword_140E3D140 + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((__int64)(v6 + 0x220000000000LL) >> 4)) >> 9) + 1) & 0x7F;
+      v31 = *(_BYTE *)(qword_140E3D280 + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((__int64)(v6 + 0x220000000000LL) >> 4)) >> 9) + 1) & 0x7F;
     else
       v31 = 0;
     v33 = *(_QWORD *)(232 * v2 + v14 + 15768) + 88 * (v12 + 8LL * v31);

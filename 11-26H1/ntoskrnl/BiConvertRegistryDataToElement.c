@@ -1,20 +1,20 @@
 /*
- * XREFs of BiConvertRegistryDataToElement @ 0x140B635D4
+ * XREFs of BiConvertRegistryDataToElement @ 0x140B66674
  * Callers:
- *     BcdGetElementDataWithFlags @ 0x1409D4B80 (BcdGetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1409A5B60 (BcdGetElementDataWithFlags.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     BiResolveLocateDevice @ 0x14089131C (BiResolveLocateDevice.c)
- *     BiResolveLocate @ 0x140892F3C (BiResolveLocate.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     BiConvertBootEnvironmentDeviceToElement @ 0x140B4AF34 (BiConvertBootEnvironmentDeviceToElement.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     BiResolveLocateDevice @ 0x140897718 (BiResolveLocateDevice.c)
+ *     BiResolveLocate @ 0x14089933C (BiResolveLocate.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     BiConvertBootEnvironmentDeviceToElement @ 0x140B4CCC4 (BiConvertBootEnvironmentDeviceToElement.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertRegistryDataToElement(
-        __int64 a1,
+        void *a1,
         const WCHAR *a2,
         unsigned int a3,
         unsigned int a4,
@@ -103,7 +103,7 @@ LABEL_68:
             goto LABEL_15;
           }
         }
-        else if ( (int)BiResolveLocateDevice(a1, (__int64)P) >= 0 )
+        else if ( (int)BiResolveLocateDevice((__int64)a1, (__int64)P) >= 0 )
         {
           v26 = v25[6];
           v13 = v33 - v26;

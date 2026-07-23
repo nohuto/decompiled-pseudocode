@@ -3,10 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x140922CE4 (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
+ *     sub_140922CE4 @ 0x140922CE4 (sub_140922CE4.c)
  */
 
-void __fastcall RtlUnregisterFeatureConfigurationChangeNotification(struct _EX_RUNDOWN_REF *a1)
+NTSTATUS __cdecl RtlUnregisterFeatureConfigurationChangeNotification(
+        RTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  CmFcManagerUnregisterFeatureConfigurationChangeNotification((__int64)a1, a1);
+  NTSTATUS result; // eax
+
+  sub_140922CE4((__int64)RegistrationHandle, (struct _EX_RUNDOWN_REF *)RegistrationHandle);
+  return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProcessDeleteOnClose @ 0x14067257C
+ * XREFs of MiProcessDeleteOnClose @ 0x14067374C
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1403F7BB0 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x1403EDB20 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiUnlinkUnusedControlArea @ 0x14036FCB8 (MiUnlinkUnusedControlArea.c)
- *     MiDestroySection @ 0x140417200 (MiDestroySection.c)
- *     MiDeleteDeleteOnCloseSubsections @ 0x140672168 (MiDeleteDeleteOnCloseSubsections.c)
- *     MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406723AC (MiMoveUnusedSubsectionsToDeleteOnClose.c)
+ *     MiDestroySection @ 0x140270330 (MiDestroySection.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlinkUnusedControlArea @ 0x140432D38 (MiUnlinkUnusedControlArea.c)
+ *     MiDeleteDeleteOnCloseSubsections @ 0x140673338 (MiDeleteDeleteOnCloseSubsections.c)
+ *     MiMoveUnusedSubsectionsToDeleteOnClose @ 0x14067357C (MiMoveUnusedSubsectionsToDeleteOnClose.c)
  */
 
 __int64 __fastcall MiProcessDeleteOnClose(__int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ LABEL_12:
     v6 = v7 - 1;
     if ( v3 > v8 )
       break;
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)v6 + 18) )
     {
       if ( (v6[7] & 0x20) != 0 || !v6[4] )
       {

@@ -1,12 +1,12 @@
 /*
- * XREFs of ViRemoveChannelWcb @ 0x140222D24
+ * XREFs of ViRemoveChannelWcb @ 0x140222B50
  * Callers:
- *     VfCancelAdapterChannel @ 0x140706D70 (VfCancelAdapterChannel.c)
- *     VfFreeAdapterChannel @ 0x1407070CC (VfFreeAdapterChannel.c)
- *     VfFreeMapRegisters @ 0x140707338 (VfFreeMapRegisters.c)
+ *     VfCancelAdapterChannel @ 0x140706DA0 (VfCancelAdapterChannel.c)
+ *     VfFreeAdapterChannel @ 0x1407070FC (VfFreeAdapterChannel.c)
+ *     VfFreeMapRegisters @ 0x140707368 (VfFreeMapRegisters.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall ViRemoveChannelWcb(__int64 a1, __int64 a2, __int64 a3)

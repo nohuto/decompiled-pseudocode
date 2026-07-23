@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtCreateDebugObject()
+NTSTATUS __cdecl NtCreateDebugObject(
+        PHANDLE DebugObjectHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 154LL;
+  result = 154;
   __asm { syscall; Low latency system call }
   return result;
 }

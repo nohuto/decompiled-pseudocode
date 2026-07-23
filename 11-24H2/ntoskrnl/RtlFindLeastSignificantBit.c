@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindLeastSignificantBit @ 0x14045B1B0
+ * XREFs of RtlFindLeastSignificantBit @ 0x140450550
  * Callers:
- *     KiMaskToLength @ 0x140B57990 (KiMaskToLength.c)
+ *     KiMaskToLength @ 0x140B59A10 (KiMaskToLength.c)
  * Callees:
  *     <none>
  */

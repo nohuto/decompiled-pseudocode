@@ -26,7 +26,7 @@
  *     ObpDeregisterObject @ 0x1406AD5D0 (ObpDeregisterObject.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   unsigned int v1; // r15d
   NTSTATUS result; // eax
@@ -82,11 +82,17 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   volatile signed __int64 *v52; // [rsp+48h] [rbp-50h]
   unsigned __int8 v53; // [rsp+50h] [rbp-48h]
   void *retaddr; // [rsp+98h] [rbp+0h]
-  int v55; // [rsp+A8h] [rbp+10h]
+  NTSTATUS v55; // [rsp+A8h] [rbp+10h]
   PVOID v56; // [rsp+B8h] [rbp+20h] BYREF
 
   v1 = 0;
-  result = ObReferenceObjectByHandle(a1, 1u, ExpWorkerFactoryObjectType, KeGetCurrentThread()->PreviousMode, &v56, 0LL);
+  result = ObReferenceObjectByHandle(
+             WorkerFactoryHandle,
+             1u,
+             ExpWorkerFactoryObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             &v56,
+             0LL);
   if ( result < 0 )
     return result;
   v3 = v56;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPCIAcquireConfigSpaceLock @ 0x1402B1DF4
+ * XREFs of HalpPCIAcquireConfigSpaceLock @ 0x14022FFA4
  * Callers:
- *     HalpPCIConfig @ 0x1402B1B20 (HalpPCIConfig.c)
+ *     HalpPCIConfig @ 0x14022FCD0 (HalpPCIConfig.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  */
 
 void __fastcall HalpPCIAcquireConfigSpaceLock(unsigned __int8 *a1)

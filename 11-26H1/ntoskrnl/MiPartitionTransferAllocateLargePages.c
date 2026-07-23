@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPartitionTransferAllocateLargePages @ 0x14087CA30
+ * XREFs of MiPartitionTransferAllocateLargePages @ 0x140882E30
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x140B60228 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140B632C4 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiFreeMdlPageRun @ 0x1403C4140 (MiFreeMdlPageRun.c)
- *     MiFindLargeNodePage @ 0x1403C99D4 (MiFindLargeNodePage.c)
- *     MiHugePageOperation @ 0x140705138 (MiHugePageOperation.c)
- *     MiAddRangeToPartitionTree @ 0x14070821C (MiAddRangeToPartitionTree.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiFreeMdlPageRun @ 0x1403CE04C (MiFreeMdlPageRun.c)
+ *     MiFindLargeNodePage @ 0x1403D3884 (MiFindLargeNodePage.c)
+ *     MiHugePageOperation @ 0x140709E08 (MiHugePageOperation.c)
+ *     MiAddRangeToPartitionTree @ 0x14070CED0 (MiAddRangeToPartitionTree.c)
  */
 
 __int64 __fastcall MiPartitionTransferAllocateLargePages(__int64 a1)

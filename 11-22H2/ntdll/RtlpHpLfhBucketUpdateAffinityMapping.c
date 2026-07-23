@@ -11,7 +11,7 @@
  *     memset$thunk$772440563353939046 @ 0x180130010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
+void __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
 {
   char CurrentProcessorNumber; // cl
   unsigned int v5; // eax
@@ -19,17 +19,17 @@ __int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
   struct _TEB *v7; // rdx
   __int64 v8; // r15
   __int64 v9; // rbx
-  __int64 result; // rax
-  unsigned __int8 *v11; // rcx
-  unsigned __int8 *v12; // r10
-  unsigned int v13; // edx
-  __int64 v14; // r8
-  __int64 v15; // rax
-  __int64 v16; // rbx
-  unsigned int v17; // r8d
-  _BYTE *v18; // rcx
-  unsigned int v19; // eax
-  __int64 v20; // r8
+  unsigned __int8 *v10; // rcx
+  unsigned __int8 *v11; // r10
+  unsigned int v12; // edx
+  __int64 v13; // r8
+  __int64 v14; // rax
+  __int64 v15; // rbx
+  unsigned int v16; // r8d
+  _BYTE *v17; // rcx
+  unsigned int v18; // eax
+  __int64 v19; // r8
+  __int64 Slot; // rax
   signed __int32 v21[8]; // [rsp+0h] [rbp-A8h] BYREF
   __int64 v22; // [rsp+20h] [rbp-88h]
   _BYTE v23[64]; // [rsp+30h] [rbp-78h] BYREF
@@ -47,76 +47,74 @@ __int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
   v7 = NtCurrentTeb();
   v8 = (unsigned int)v6;
   v9 = *(unsigned __int8 *)(v6 + *(_QWORD *)(a2 + 88));
-  result = BYTE1(v7->HeapData);
-  if ( (_DWORD)result != (_DWORD)v6 )
+  if ( BYTE1(v7->HeapData) != (_DWORD)v6 )
   {
     BYTE1(v7->HeapData) = v6;
-    return result;
+    return;
   }
   memset_thunk_772440563353939046(v23, 0, 0x40uLL);
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
-  v11 = *(unsigned __int8 **)(a2 + 88);
-  v12 = &v11[v8];
-  if ( (_BYTE)v9 != v11[v8] )
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
-  v13 = *(unsigned __int8 *)(a1 + 56);
-  if ( (_BYTE)v13 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 80));
+  v10 = *(unsigned __int8 **)(a2 + 88);
+  v11 = &v10[v8];
+  if ( (_BYTE)v9 != v10[v8] )
+    goto LABEL_14;
+  v12 = *(unsigned __int8 *)(a1 + 56);
+  if ( (_BYTE)v12 )
   {
-    v14 = *(unsigned __int8 *)(a1 + 56);
+    v13 = *(unsigned __int8 *)(a1 + 56);
     do
     {
-      v15 = *v11++;
-      ++v23[v15];
-      --v14;
+      v14 = *v10++;
+      ++v23[v14];
+      --v13;
     }
-    while ( v14 );
+    while ( v13 );
   }
   if ( v23[v9] == 1 )
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
-  v16 = (unsigned int)(v9 + 1);
-  v17 = v16;
-  if ( (unsigned int)v16 < v13 )
+    goto LABEL_14;
+  v15 = (unsigned int)(v9 + 1);
+  v16 = v15;
+  if ( (unsigned int)v15 < v12 )
   {
-    v18 = &v23[(unsigned int)v16];
+    v17 = &v23[(unsigned int)v15];
     do
     {
-      if ( !*v18 )
+      if ( !*v17 )
         break;
-      if ( *v18 < v23[v16] )
-        v16 = v17;
+      if ( *v17 < v23[v15] )
+        v15 = v16;
+      ++v16;
       ++v17;
-      ++v18;
     }
-    while ( v17 < v13 );
+    while ( v16 < v12 );
   }
-  if ( v23[v16] )
+  if ( v23[v15] )
   {
-    *v12 = v16;
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
+    *v11 = v15;
+    goto LABEL_14;
   }
-  v19 = *(unsigned __int8 *)(a2 + 77);
-  if ( v19 < RtlpHpLfhContentionLimit )
+  v18 = *(unsigned __int8 *)(a2 + 77);
+  if ( v18 < RtlpHpLfhContentionLimit )
   {
-    *(_BYTE *)(a2 + 77) = v19 + 1;
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
+    *(_BYTE *)(a2 + 77) = v18 + 1;
+LABEL_14:
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 80));
+    return;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 80));
   v22 = 0LL;
-  v20 = *(_QWORD *)(a2 + 96);
+  v19 = *(_QWORD *)(a2 + 96);
   LOWORD(v22) = 2;
-  result = _InterlockedCompareExchange64((volatile signed __int64 *)(v20 + 8 * v16), 2LL, 0LL);
-  if ( !result )
+  if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(v19 + 8 * v15), 2LL, 0LL) )
   {
-    result = RtlpHpLfhBucketAllocateSlot(a1, a2, (unsigned int)v16);
-    *(_QWORD *)(*(_QWORD *)(a2 + 96) + 8 * v16) = result;
-    if ( result )
+    Slot = RtlpHpLfhBucketAllocateSlot(a1, a2, (unsigned int)v15);
+    *(_QWORD *)(*(_QWORD *)(a2 + 96) + 8 * v15) = Slot;
+    if ( Slot )
     {
       _InterlockedOr(v21, 0);
-      *(_BYTE *)(a2 + 2) = v16 + 1;
-      result = *(_QWORD *)(a2 + 88);
-      *(_BYTE *)(v8 + result) = v16;
+      *(_BYTE *)(a2 + 2) = v15 + 1;
+      *(_BYTE *)(v8 + *(_QWORD *)(a2 + 88)) = v15;
       *(_BYTE *)(a2 + 77) = 0;
     }
   }
-  return result;
 }

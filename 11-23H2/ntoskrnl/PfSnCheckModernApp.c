@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnCheckModernApp @ 0x1407C29A4
+ * XREFs of PfSnCheckModernApp @ 0x1407C2C74
  * Callers:
- *     PfSnCalculateScenarioNameAndHash @ 0x1407C2520 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407C27F0 (PfSnCalculateScenarioNameAndHash.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x140225F90 (RtlQueryPackageIdentity.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlQueryPackageIdentity @ 0x1402260A0 (RtlQueryPackageIdentity.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, _QWORD *a4)
+__int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, WCHAR *a3, ULONG_PTR *a4)
 {
   int v8; // ebp
   _KPROCESS *Process; // r14
-  ULONG_PTR v10; // r15
-  int PackageIdentity; // eax
+  void *v10; // r15
+  NTSTATUS PackageIdentity; // eax
   unsigned int v12; // esi
   int v13; // edi
   __int64 v15; // r8
@@ -24,7 +24,7 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, 
   __int64 v19; // rcx
   __int64 v20; // rax
   unsigned __int8 *v21; // r11
-  __int64 v22; // r10
+  signed __int64 v22; // r10
   unsigned __int64 v23; // rbx
   __int64 v24; // rcx
   __int64 v25; // rax
@@ -40,19 +40,19 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, 
   int v35; // r10d
   int v36; // r10d
   int v37; // r10d
-  __int64 v38; // [rsp+30h] [rbp-F8h] BYREF
-  _BYTE v39[144]; // [rsp+40h] [rbp-E8h] BYREF
+  ULONG_PTR AppIdSize[2]; // [rsp+30h] [rbp-F8h] BYREF
+  WCHAR AppId[72]; // [rsp+40h] [rbp-E8h] BYREF
 
   v8 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v10 = PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u);
-  v38 = 130LL;
-  PackageIdentity = RtlQueryPackageIdentity(v10, (int)a3, (int)a4, (int)v39, (__int64)&v38, 0LL);
+  v10 = (void *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u);
+  AppIdSize[0] = 130LL;
+  PackageIdentity = RtlQueryPackageIdentity(v10, a3, a4, AppId, AppIdSize, 0LL);
   v12 = PackageIdentity;
   if ( PackageIdentity >= 0 )
   {
     v15 = 314159LL;
-    v16 = *a4 - 2LL;
+    v16 = *a4 - 2;
     v17 = 314159LL;
     v13 = 1;
     if ( v16 >= 8 )
@@ -61,9 +61,18 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, 
       v16 -= 8 * ((unsigned __int64)v16 >> 3);
       do
       {
-        v19 = a3[6] + 37 * (a3[5] + 37 * (a3[4] + 37 * (a3[3] + 37 * (a3[2] + 37 * (a3[1] + 37 * (*a3 + 37 * v17))))));
-        v20 = a3[7];
-        a3 += 8;
+        v19 = *((unsigned __int8 *)a3 + 6)
+            + 37
+            * (*((unsigned __int8 *)a3 + 5)
+             + 37
+             * (*((unsigned __int8 *)a3 + 4)
+              + 37
+              * (*((unsigned __int8 *)a3 + 3)
+               + 37
+               * (*((unsigned __int8 *)a3 + 2)
+                + 37 * (*((unsigned __int8 *)a3 + 1) + 37 * (*(unsigned __int8 *)a3 + 37 * v17))))));
+        v20 = *((unsigned __int8 *)a3 + 7);
+        a3 += 4;
         v17 = v20 + 37 * v19;
         --v18;
       }
@@ -72,9 +81,9 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, 
     if ( v16 < 1 || v16 > 7 )
     {
 LABEL_13:
-      v21 = v39;
-      v22 = v38 - 2;
-      if ( v38 - 2 >= 8 )
+      v21 = (unsigned __int8 *)AppId;
+      v22 = AppIdSize[0] - 2;
+      if ( (signed __int64)(AppIdSize[0] - 2) >= 8 )
       {
         v23 = (unsigned __int64)v22 >> 3;
         v22 -= 8 * ((unsigned __int64)v22 >> 3);
@@ -150,19 +159,25 @@ LABEL_17:
               {
                 if ( v31 != 1 )
                   goto LABEL_13;
-                LODWORD(v17) = *a3++ + 37 * v17;
+                LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+                a3 = (WCHAR *)((char *)a3 + 1);
               }
-              LODWORD(v17) = *a3++ + 37 * v17;
+              LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+              a3 = (WCHAR *)((char *)a3 + 1);
             }
-            LODWORD(v17) = *a3++ + 37 * v17;
+            LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+            a3 = (WCHAR *)((char *)a3 + 1);
           }
-          LODWORD(v17) = *a3++ + 37 * v17;
+          LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+          a3 = (WCHAR *)((char *)a3 + 1);
         }
-        LODWORD(v17) = *a3++ + 37 * v17;
+        LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+        a3 = (WCHAR *)((char *)a3 + 1);
       }
-      LODWORD(v17) = *a3++ + 37 * v17;
+      LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+      a3 = (WCHAR *)((char *)a3 + 1);
     }
-    LODWORD(v17) = *a3 + 37 * v17;
+    LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
     goto LABEL_13;
   }
   v13 = 0;
@@ -173,6 +188,6 @@ LABEL_3:
     v12 = 0;
     *a1 = v13;
   }
-  ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.StaticBitmap[5], v10, 0x746C6644u);
+  ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.StaticBitmap[5], (unsigned __int64)v10, 0x746C6644u);
   return v12;
 }

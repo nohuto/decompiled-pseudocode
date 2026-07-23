@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCountBootDriverRegions @ 0x140CF9584
+ * XREFs of MiCountBootDriverRegions @ 0x140CFF904
  * Callers:
- *     MiInitializeDynamicVa @ 0x140CF97E4 (MiInitializeDynamicVa.c)
+ *     MiInitializeDynamicVa @ 0x140CFFB64 (MiInitializeDynamicVa.c)
  * Callees:
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 MiCountBootDriverRegions()
@@ -18,9 +18,9 @@ __int64 MiCountBootDriverRegions()
 
   memset_0(v1, 0, 0xC0uLL);
   v5 = &v6;
-  v2 = qword_140E37C80;
+  v2 = qword_140E37E00;
   v6 = 0LL;
-  v3 = qword_140E37C88 - 1 + qword_140E37C80;
+  v3 = qword_140E37E08 - 1 + qword_140E37E00;
   v1[0] = 70400;
   v4 = MiCountBootDriverRegionPtes;
   MiWalkPageTables((__int64)v1);

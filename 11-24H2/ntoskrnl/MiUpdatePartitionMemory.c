@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdatePartitionMemory @ 0x14068B9C4
+ * XREFs of MiUpdatePartitionMemory @ 0x14068CAF4
  * Callers:
- *     MiMakePartitionMemoryBlock @ 0x1407FC61C (MiMakePartitionMemoryBlock.c)
+ *     MiMakePartitionMemoryBlock @ 0x1407FCD8C (MiMakePartitionMemoryBlock.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiDereferencePageRuns @ 0x1404473D0 (MiDereferencePageRuns.c)
- *     MiComputeNodeMemory @ 0x14066C790 (MiComputeNodeMemory.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiDereferencePageRuns @ 0x1403F89A4 (MiDereferencePageRuns.c)
+ *     MiComputeNodeMemory @ 0x14066D960 (MiComputeNodeMemory.c)
  */
 
 void __fastcall MiUpdatePartitionMemory(__int64 a1, __int64 a2, int a3)

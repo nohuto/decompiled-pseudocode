@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryInformationThread @ 0x1800A0780 (ZwQueryInformationThread.c)
+ *     ZwQueryInformationThread @ 0x1800A07A0 (ZwQueryInformationThread.c)
  */
 
-__int64 RtlWow64GetThreadContext()
+NTSTATUS __cdecl RtlWow64GetThreadContext(HANDLE ThreadHandle, PWOW64_CONTEXT ThreadContext)
 {
-  return ZwQueryInformationThread();
+  return ZwQueryInformationThread(ThreadHandle, ThreadWow64Context, ThreadContext, 0x2CCu, 0LL);
 }

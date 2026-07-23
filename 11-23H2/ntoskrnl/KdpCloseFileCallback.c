@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall KdpCloseFileCallback(__int64 a1)

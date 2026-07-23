@@ -9,11 +9,11 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-unsigned int __stdcall RtlpInitializeLowFragHeapManager()
+ULONG __stdcall RtlpInitializeLowFragHeapManager()
 {
   unsigned int v0; // esi
   char v1; // cl
-  unsigned int result; // eax
+  ULONG result; // eax
   _BYTE SystemInformation[40]; // [esp+10h] [ebp-30h] BYREF
   char v4; // [esp+38h] [ebp-8h]
 
@@ -40,7 +40,7 @@ unsigned int __stdcall RtlpInitializeLowFragHeapManager()
   if ( (RtlpDisableHeapLookaside & 0x30) != 0 )
   {
     DbgPrint("Enabling heap debug options\n");
-    result = ((unsigned int)RtlpDisableHeapLookaside >> 4) & 3;
+    result = (RtlpDisableHeapLookaside >> 4) & 3;
     dword_4B3A4888 = result;
   }
   return result;

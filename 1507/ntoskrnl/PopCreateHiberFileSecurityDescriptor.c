@@ -30,7 +30,7 @@ ACL *PopCreateHiberFileSecurityDescriptor()
   ACL *v8; // rax
   NTSTATUS SecurityDescriptor; // eax
   NTSTATUS v10; // eax
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+50h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+50h] [rbp+8h] BYREF
   PVOID Ace; // [rsp+58h] [rbp+10h] BYREF
 
   v0 = 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeAffinityEx @ 0x14048B8D0
+ * XREFs of KeInitializeAffinityEx @ 0x1404866A0
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall KeInitializeAffinityEx(_DWORD *a1)

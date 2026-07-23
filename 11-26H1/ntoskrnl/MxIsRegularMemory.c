@@ -1,10 +1,10 @@
 /*
- * XREFs of MxIsRegularMemory @ 0x140CF7C60
+ * XREFs of MxIsRegularMemory @ 0x140CFDFE0
  * Callers:
- *     MxMarkValidMappings @ 0x140CF40A8 (MxMarkValidMappings.c)
- *     MxCreatePfnsForPtes @ 0x140CF6200 (MxCreatePfnsForPtes.c)
+ *     MxMarkValidMappings @ 0x140CFA428 (MxMarkValidMappings.c)
+ *     MxCreatePfnsForPtes @ 0x140CFC580 (MxCreatePfnsForPtes.c)
  * Callees:
- *     MxFindDescriptorByPfn @ 0x140CF69B8 (MxFindDescriptorByPfn.c)
+ *     MxFindDescriptorByPfn @ 0x140CFCD38 (MxFindDescriptorByPfn.c)
  */
 
 __int64 __fastcall MxIsRegularMemory(__int64 a1, unsigned __int64 a2)
@@ -17,14 +17,14 @@ __int64 __fastcall MxIsRegularMemory(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v8; // rax
   __int64 v9; // rcx
 
-  result = qword_14101EC28;
-  if ( !qword_14101EC28
-    || (v4 = *(_QWORD *)(qword_14101EC28 + 32), a2 < v4)
-    || a2 >= *(_QWORD *)(qword_14101EC28 + 40) + v4 )
+  result = qword_14101FC28;
+  if ( !qword_14101FC28
+    || (v4 = *(_QWORD *)(qword_14101FC28 + 32), a2 < v4)
+    || a2 >= *(_QWORD *)(qword_14101FC28 + 40) + v4 )
   {
-    if ( !qword_14101EC30
-      || (v5 = *(_QWORD *)(qword_14101EC30 + 32), a2 < v5)
-      || a2 >= *(_QWORD *)(qword_14101EC30 + 40) + v5 )
+    if ( !qword_14101FC30
+      || (v5 = *(_QWORD *)(qword_14101FC30 + 32), a2 < v5)
+      || a2 >= *(_QWORD *)(qword_14101FC30 + 40) + v5 )
     {
       DescriptorByPfn = MxFindDescriptorByPfn(a1, a2);
       v7 = DescriptorByPfn;
@@ -35,11 +35,11 @@ __int64 __fastcall MxIsRegularMemory(__int64 a1, unsigned __int64 a2)
         {
           if ( (unsigned int)v8 > 0x2C || (v9 = 0x15C580C00048LL, !_bittest64(&v9, v8)) )
           {
-            qword_14101EC28 = v7;
+            qword_14101FC28 = v7;
             return v7;
           }
         }
-        qword_14101EC30 = v7;
+        qword_14101FC30 = v7;
       }
     }
     return 0LL;

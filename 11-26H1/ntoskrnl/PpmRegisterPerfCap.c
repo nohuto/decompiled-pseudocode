@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmRegisterPerfCap @ 0x14044DCE0
+ * XREFs of PpmRegisterPerfCap @ 0x140445E10
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PopDiagTraceProcessorThrottlePerfTrack @ 0x14044DEC8 (PopDiagTraceProcessorThrottlePerfTrack.c)
- *     PpmEventBiosCapChange @ 0x14044E340 (PpmEventBiosCapChange.c)
- *     PpmEventThermalCapChange @ 0x14044E43C (PpmEventThermalCapChange.c)
- *     PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x140609114 (PopDiagTraceProcessorThrottleDurationPerfTrack.c)
- *     PpmEventHiddenProcessorBiosCapChange @ 0x14060E318 (PpmEventHiddenProcessorBiosCapChange.c)
- *     PpmEventHiddenProcessorThermalCapChange @ 0x14060E414 (PpmEventHiddenProcessorThermalCapChange.c)
- *     PpmCheckApplyPerfConstraints @ 0x140B141C8 (PpmCheckApplyPerfConstraints.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PopDiagTraceProcessorThrottlePerfTrack @ 0x140445FF8 (PopDiagTraceProcessorThrottlePerfTrack.c)
+ *     PpmEventBiosCapChange @ 0x140446470 (PpmEventBiosCapChange.c)
+ *     PpmEventThermalCapChange @ 0x14044656C (PpmEventThermalCapChange.c)
+ *     PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x14060BCD4 (PopDiagTraceProcessorThrottleDurationPerfTrack.c)
+ *     PpmEventHiddenProcessorBiosCapChange @ 0x140611418 (PpmEventHiddenProcessorBiosCapChange.c)
+ *     PpmEventHiddenProcessorThermalCapChange @ 0x140611514 (PpmEventHiddenProcessorThermalCapChange.c)
+ *     PpmCheckApplyPerfConstraints @ 0x140B162C8 (PpmCheckApplyPerfConstraints.c)
  */
 
 __int64 __fastcall PpmRegisterPerfCap(_DWORD *a1, __int64 a2, unsigned int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall PpmRegisterPerfCap(_DWORD *a1, __int64 a2, unsigned int a3)
   unsigned int i; // r8d
   __int64 v17; // r9
 
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
   v4 = 0;
   if ( !a1[5] )
   {
@@ -45,7 +45,7 @@ __int64 __fastcall PpmRegisterPerfCap(_DWORD *a1, __int64 a2, unsigned int a3)
     }
 LABEL_18:
     v4 = -1073741811;
-    PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
     return v4;
   }
   v15 = *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2);

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInsertPteTracker @ 0x1405033CC
+ * XREFs of MiInsertPteTracker @ 0x1404FCC9C
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x140363E10 (MiMapContiguousMemory.c)
- *     MmAllocateMappingAddressEx @ 0x140AF1F50 (MmAllocateMappingAddressEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMapContiguousMemory @ 0x140365BB0 (MiMapContiguousMemory.c)
+ *     MmAllocateMappingAddressEx @ 0x140AF4820 (MmAllocateMappingAddressEx.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiCaptureStackTraceEx @ 0x14050EB9C (MiCaptureStackTraceEx.c)
- *     MiGetInstructionPointer @ 0x1406E653C (MiGetInstructionPointer.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiCaptureStackTraceEx @ 0x14050860C (MiCaptureStackTraceEx.c)
+ *     MiGetInstructionPointer @ 0x1406EB1EC (MiGetInstructionPointer.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
@@ -42,9 +42,9 @@ void __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
   _UNKNOWN *retaddr; // [rsp+D8h] [rbp+0h]
 
   memset_0(v25, 0, 0xA0uLL);
-  if ( LOWORD(stru_140E349C0.Alignment) >= 0xAu )
+  if ( LOWORD(stru_140E34B40.Alignment) >= 0xAu )
   {
-    v9 = RtlpInterlockedFlushSList(&stru_140E349C0);
+    v9 = RtlpInterlockedFlushSList(&stru_140E34B40);
     PoolMm = (__int64)v9;
     if ( v9 )
     {
@@ -64,7 +64,7 @@ void __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
   }
   else
   {
-    PoolMm = (__int64)RtlpInterlockedPopEntrySList(&stru_140E349C0);
+    PoolMm = (__int64)RtlpInterlockedPopEntrySList(&stru_140E34B40);
     if ( PoolMm )
       goto LABEL_8;
   }
@@ -75,7 +75,7 @@ void __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
              KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000);
   if ( !PoolMm )
   {
-    byte_140E34B65 = 1;
+    byte_140E34CE5 = 1;
     return;
   }
 LABEL_8:
@@ -126,13 +126,13 @@ LABEL_8:
   if ( KeGetCurrentIrql() == 2 )
   {
     v21 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E349D0);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34B50);
   }
   else
   {
-    v21 = ExAcquireSpinLockExclusive(&dword_140E349D0);
+    v21 = ExAcquireSpinLockExclusive(&dword_140E34B50);
   }
-  v22 = (char *)&unk_140E378B0 + 16 * (v20 & 0xF);
+  v22 = (char *)&unk_140E37A30 + 16 * (v20 & 0xF);
   v23 = *(_QWORD *)v22;
   if ( *(char **)(*(_QWORD *)v22 + 8LL) != v22 )
     __fastfail(3u);
@@ -140,12 +140,12 @@ LABEL_8:
   *(_QWORD *)(PoolMm + 8) = v22;
   *(_QWORD *)(v23 + 8) = PoolMm;
   *(_QWORD *)v22 = PoolMm;
-  qword_140E379B0 += v18;
-  v24 = ++qword_140E379B8;
-  if ( qword_140E379B8 > (unsigned __int64)qword_140E379C0 )
-    qword_140E379C0 = v24;
+  qword_140E37B30 += v18;
+  v24 = ++qword_140E37B38;
+  if ( qword_140E37B38 > (unsigned __int64)qword_140E37B40 )
+    qword_140E37B40 = v24;
   if ( v21 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E349D0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34B50);
   else
-    ExReleaseSpinLockExclusive(&dword_140E349D0, v21);
+    ExReleaseSpinLockExclusive(&dword_140E34B50, v21);
 }

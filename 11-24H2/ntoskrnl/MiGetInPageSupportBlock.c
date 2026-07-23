@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetInPageSupportBlock @ 0x1402E42D0
+ * XREFs of MiGetInPageSupportBlock @ 0x1403DC710
  * Callers:
- *     MiMigratePfn @ 0x14022C0A0 (MiMigratePfn.c)
- *     MiResolveMappedFileFault @ 0x140239490 (MiResolveMappedFileFault.c)
- *     MiPfPutPagesInTransition @ 0x1402E692C (MiPfPutPagesInTransition.c)
- *     MiPrivateFixup @ 0x1402EE4F0 (MiPrivateFixup.c)
- *     MiAllocateInPageSupport @ 0x140444CE0 (MiAllocateInPageSupport.c)
- *     MiPfAllocateMdls @ 0x140956EEC (MiPfAllocateMdls.c)
- *     MiCreateRotateView @ 0x140A680A8 (MiCreateRotateView.c)
- *     MiGetReadyInPageBlock @ 0x140AA3298 (MiGetReadyInPageBlock.c)
+ *     MiResolveMappedFileFault @ 0x140214824 (MiResolveMappedFileFault.c)
+ *     MiMigratePfn @ 0x1402FF9B0 (MiMigratePfn.c)
+ *     MiAllocateInPageSupport @ 0x140341520 (MiAllocateInPageSupport.c)
+ *     MiPfPutPagesInTransition @ 0x140347F6C (MiPfPutPagesInTransition.c)
+ *     MiPrivateFixup @ 0x14034FB30 (MiPrivateFixup.c)
+ *     MiPfAllocateMdls @ 0x14093A89C (MiPfAllocateMdls.c)
+ *     MiCreateRotateView @ 0x140A615A8 (MiCreateRotateView.c)
+ *     MiGetReadyInPageBlock @ 0x140A9E628 (MiGetReadyInPageBlock.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E44B0 (MiGetEffectivePagePriorityThread.c)
- *     MiInitializeInPageSupport @ 0x1402E44F8 (MiInitializeInPageSupport.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1403DC8F0 (MiGetEffectivePagePriorityThread.c)
+ *     MiInitializeInPageSupport @ 0x1403DC938 (MiInitializeInPageSupport.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 PSLIST_ENTRY __fastcall MiGetInPageSupportBlock(unsigned int a1, volatile signed __int64 *a2)
@@ -29,7 +29,7 @@ PSLIST_ENTRY __fastcall MiGetInPageSupportBlock(unsigned int a1, volatile signed
   unsigned int EffectivePagePriorityThread; // eax
   unsigned __int64 v11; // rdx
   char v12; // cl
-  __int64 v13; // rax
+  _QWORD *v13; // rax
   ULONG_PTR v15; // rdx
   __int64 Pool; // rax
   __int64 v17; // rbx
@@ -58,7 +58,7 @@ PSLIST_ENTRY __fastcall MiGetInPageSupportBlock(unsigned int a1, volatile signed
     v7[1].Next = v7 + 1;
     CurrentThread = KeGetCurrentThread();
     *((_QWORD *)&v7[9].Next + 1) = CurrentThread;
-    EffectivePagePriorityThread = MiGetEffectivePagePriorityThread(CurrentThread, 1LL);
+    EffectivePagePriorityThread = MiGetEffectivePagePriorityThread(CurrentThread);
     if ( EffectivePagePriorityThread > 5 )
     {
       LOBYTE(EffectivePagePriorityThread) = 5;
@@ -73,10 +73,10 @@ LABEL_8:
         LODWORD(v7[12].Next) = v8 | ((EffectivePagePriorityThread & 7 | (8 * (v12 & 7))) << 11);
         if ( (a1 & 2) != 0 )
         {
-          v13 = KeAbPreAcquire(v7, 0LL, 0LL);
+          v13 = KeAbPreAcquire((__int64)v7, 0LL);
           if ( v13 )
           {
-            *(_BYTE *)(v13 + 10) = 1;
+            *((_BYTE *)v13 + 10) = 1;
             a2 = (volatile signed __int64 *)v7;
           }
         }

@@ -10,26 +10,29 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlConnectToSm(const void **a1, int a2, int a3, int a4)
+NTSTATUS __stdcall RtlConnectToSm(const void **a1, int a2, ULONG a3, int a4)
 {
-  size_t v5; // esi
-  int v6; // [esp+10h] [ebp-168h] BYREF
-  int v7; // [esp+14h] [ebp-164h]
-  _DWORD v8[6]; // [esp+18h] [ebp-160h] BYREF
-  UNICODE_STRING DestinationString; // [esp+30h] [ebp-148h] BYREF
-  _DWORD v10[6]; // [esp+38h] [ebp-140h] BYREF
-  int v11; // [esp+50h] [ebp-128h]
-  _WORD v12[122]; // [esp+54h] [ebp-124h] BYREF
-  _DWORD v13[11]; // [esp+148h] [ebp-30h] BYREF
+  unsigned int v5; // esi
+  size_t v6; // [esp-4h] [ebp-17Ch]
+  size_t v7; // [esp-4h] [ebp-17Ch]
+  ULONG_PTR BufferLength; // [esp+10h] [ebp-168h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+18h] [ebp-160h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+30h] [ebp-148h] BYREF
+  _PORT_MESSAGE ConnectionMessage; // [esp+38h] [ebp-140h] BYREF
+  _DWORD v12[3]; // [esp+148h] [ebp-30h] BYREF
+  __int16 v13; // [esp+154h] [ebp-24h]
+  int v14; // [esp+158h] [ebp-20h]
+  int v15; // [esp+160h] [ebp-18h]
 
-  v7 = a4;
+  HIDWORD(BufferLength) = a4;
   RtlInitUnicodeString(&DestinationString, L"\\SmApiPort");
-  memset(v13, 0, sizeof(v13));
-  v13[0] = 0x10000;
-  v13[2] = 2;
-  LOWORD(v13[3]) = 257;
-  v13[4] = 312;
-  v13[6] = 9984;
+  LODWORD(v6) = 44;
+  memset(v12, 0, v6);
+  v12[0] = 0x10000;
+  v12[2] = 2;
+  v13 = 257;
+  v14 = 312;
+  v15 = 9984;
   if ( a1 )
   {
     if ( !a2 || !a3 )
@@ -37,24 +40,36 @@ int __stdcall RtlConnectToSm(const void **a1, int a2, int a3, int a4)
     if ( *(_WORD *)a1 >= 0xF0u )
       return -1073741811;
     v5 = *(unsigned __int16 *)a1;
-    memcpy(v12, a1[1], v5);
-    v12[v5 >> 1] = 0;
-    v11 = a3;
+    LODWORD(v7) = v5;
+    memcpy(&ConnectionMessage.CallbackId + 1, a1[1], v7);
+    *((_WORD *)&ConnectionMessage.CallbackId + (v5 >> 1) + 2) = 0;
+    ConnectionMessage.CallbackId = a3;
   }
   else
   {
-    v11 = 0;
-    v12[0] = 0;
+    ConnectionMessage.CallbackId = 0;
+    *((_WORD *)&ConnectionMessage.CallbackId + 2) = 0;
   }
-  v8[0] = 24;
-  v8[1] = 0;
-  v8[3] = 512;
-  v8[2] = 0;
-  v8[4] = 0;
-  v8[5] = 0;
-  v10[4] = 0;
-  v10[0] = 17563892;
-  v10[1] = 0;
-  v6 = 272;
-  return ZwAlpcConnectPort(v7, (int)&DestinationString, (int)v8, (int)v13, 0x20000, 0, (int)v10, (int)&v6, 0, 0, 0);
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.ObjectName = 0;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  ConnectionMessage.MessageId = 0;
+  ConnectionMessage.u1.Length = 17563892;
+  ConnectionMessage.u2.ZeroInit = 0;
+  LODWORD(BufferLength) = 272;
+  return ZwAlpcConnectPort(
+           (PHANDLE)HIDWORD(BufferLength),
+           &DestinationString,
+           &ObjectAttributes,
+           (PALPC_PORT_ATTRIBUTES)v12,
+           0x20000u,
+           0,
+           &ConnectionMessage,
+           &BufferLength,
+           0,
+           0,
+           0);
 }

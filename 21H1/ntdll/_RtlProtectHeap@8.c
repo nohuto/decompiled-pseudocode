@@ -17,44 +17,53 @@
  *     _RtlpHpHeapProtect@8 @ 0x4B379008 (_RtlpHpHeapProtect@8.c)
  */
 
-void __stdcall RtlProtectHeap(_DWORD *a1, char a2)
+void __cdecl RtlProtectHeap(PVOID HeapHandle, BOOLEAN MakeReadOnly)
 {
-  int HeapProtection; // edi
+  ULONG HeapProtection; // edi
   int v3; // eax
-  _DWORD *v4; // [esp+Ch] [ebp-1Ch] BYREF
-  int v5; // [esp+10h] [ebp-18h]
+  ULONG_PTR *v4; // [esp+0h] [ebp-28h]
+  PVOID MemoryInformation; // [esp+Ch] [ebp-1Ch] BYREF
+  int v6; // [esp+10h] [ebp-18h]
 
-  if ( a1[2] == -571548178 || (a1[17] & 0x1000000) == 0 )
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 || (*((_DWORD *)HeapHandle + 17) & 0x1000000) == 0 )
   {
     RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
-    if ( a1[2] == -571548178 )
+    if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
     {
-      HeapProtection = (a1[3] & 0x40000000) != 0 ? 64 : 4;
-      if ( (a1[3] & 0x40000000) != 0
-        && ((int)NtQueryVirtualMemory(-1, a1, 3, &v4, 28, 0) < 0 || (v5 & 0x60) == 0 || v4 != a1) )
+      HeapProtection = (*((_DWORD *)HeapHandle + 3) & 0x40000000) != 0 ? 64 : 4;
+      if ( (*((_DWORD *)HeapHandle + 3) & 0x40000000) != 0
+        && (NtQueryVirtualMemory(
+              (HANDLE)0xFFFFFFFF,
+              HeapHandle,
+              MemoryRegionInformation,
+              &MemoryInformation,
+              0x1CuLL,
+              v4) < 0
+         || (v6 & 0x60) == 0
+         || MemoryInformation != HeapHandle) )
       {
-        RtlpLogHeapFailure(1, v5, 0, 0);
+        RtlpLogHeapFailure(1, v6, 0, 0);
         HeapProtection = 4;
       }
     }
     else
     {
-      HeapProtection = RtlpGetHeapProtection(a1, 1);
+      HeapProtection = RtlpGetHeapProtection(HeapHandle);
     }
-    if ( a2 )
+    if ( MakeReadOnly )
     {
-      RtlpRemoveHeapFromUnprotectedList(a1);
-      RtlpAddHeapToProtectedList(a1);
+      RtlpRemoveHeapFromUnprotectedList(HeapHandle);
+      RtlpAddHeapToProtectedList(HeapHandle);
       HeapProtection = HeapProtection != 64 ? 2 : 32;
     }
-    if ( a1[2] == -571548178 )
-      v3 = RtlpHpHeapProtect(a1, HeapProtection);
+    if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
+      v3 = RtlpHpHeapProtect(HeapHandle, HeapProtection);
     else
-      v3 = RtlpProtectHeap(a1, HeapProtection);
-    if ( v3 >= 0 && !a2 )
+      v3 = RtlpProtectHeap(HeapHandle, HeapProtection);
+    if ( v3 >= 0 && !MakeReadOnly )
     {
-      RtlpRemoveHeapFromProtectedList(a1);
-      RtlpAddHeapToUnprotectedList(a1);
+      RtlpRemoveHeapFromProtectedList(HeapHandle);
+      RtlpAddHeapToUnprotectedList(HeapHandle);
     }
     RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   }

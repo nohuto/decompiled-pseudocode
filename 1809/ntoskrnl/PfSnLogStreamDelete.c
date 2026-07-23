@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnLogStreamDelete @ 0x1406CEFF0
+ * XREFs of PfSnLogStreamDelete @ 0x1406D0290
  * Callers:
- *     PfSnNameRemoveAll @ 0x1405F9650 (PfSnNameRemoveAll.c)
+ *     PfSnNameRemoveAll @ 0x1405FA650 (PfSnNameRemoveAll.c)
  * Callees:
- *     PfSnTraceGetLogEntry @ 0x1400D51C0 (PfSnTraceGetLogEntry.c)
- *     PfSnFailProcessTrace @ 0x1406D6D94 (PfSnFailProcessTrace.c)
+ *     PfSnTraceGetLogEntry @ 0x1400D5240 (PfSnTraceGetLogEntry.c)
+ *     PfSnFailProcessTrace @ 0x1406D8034 (PfSnFailProcessTrace.c)
  */
 
 __int64 __fastcall PfSnLogStreamDelete(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmResetInterruptRate @ 0x1404A9960
+ * XREFs of PpmResetInterruptRate @ 0x1404A3C30
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmResetInterruptRate(_DWORD *a1)

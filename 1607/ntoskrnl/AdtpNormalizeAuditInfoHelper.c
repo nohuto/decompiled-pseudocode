@@ -1,8 +1,8 @@
 /*
- * XREFs of AdtpNormalizeAuditInfoHelper @ 0x140147A70
+ * XREFs of AdtpNormalizeAuditInfoHelper @ 0x140147FE0
  * Callers:
- *     AdtpWriteToEtwEx @ 0x140237BA0 (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x14056AD1C (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x1402379CC (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x14056B25C (AdtpWriteToEtw.c)
  * Callees:
  *     <none>
  */

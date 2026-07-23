@@ -14,7 +14,7 @@
 __int64 __fastcall sub_180073218(__int64 a1, int a2)
 {
   unsigned int v2; // r14d
-  __int64 v3; // rbp
+  _RTL_CRITICAL_SECTION *v3; // rbp
   __int64 v4; // rdi
   unsigned int v7; // esi
   unsigned __int16 v8; // r13
@@ -33,11 +33,11 @@ __int64 __fastcall sub_180073218(__int64 a1, int a2)
   unsigned __int16 v22; // [rsp+58h] [rbp+10h]
 
   v2 = *(_DWORD *)(a1 + 208);
-  v3 = a1 + 88;
+  v3 = (_RTL_CRITICAL_SECTION *)(a1 + 88);
   v4 = *(unsigned int *)(a1 + 204);
   v7 = 0;
   v8 = 0;
-  RtlEnterCriticalSection(a1 + 88);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   if ( a2 == 1 && (_DWORD)v4 )
   {
     v17 = (__int64 *)(a1 + 560);
@@ -89,7 +89,7 @@ __int64 __fastcall sub_180073218(__int64 a1, int a2)
       sub_1800735B4(v15);
       v7 = sub_1800733EC(a1, v15, v22);
       if ( (int)(v7 + 0x80000000) >= 0 && v7 != -2147483614 )
-        sub_180005554(a1, 3u, v7);
+        sub_180005554(a1, 3, v7);
       RtlEnterCriticalSection(v3);
       *((_DWORD *)v15 + 11) = 0;
       *v13 = 0LL;
@@ -98,7 +98,7 @@ __int64 __fastcall sub_180073218(__int64 a1, int a2)
       *(_QWORD *)(a1 + 256) = v13;
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 228));
       RtlLeaveCriticalSection(v3);
-      RtlWakeAllConditionVariable(a1 + 80);
+      RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 80));
       v8 = v22;
       *(_DWORD *)(a1 + 40) = v7;
     }

@@ -8,59 +8,65 @@
  *     LdrProcessRelocationBlockLongLong @ 0x180086318 (LdrProcessRelocationBlockLongLong.c)
  */
 
-__int64 __fastcall LdrRelocateImageWithBias(unsigned __int64 a1, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl LdrRelocateImageWithBias(
+        PVOID NewBase,
+        LONGLONG Bias,
+        PSTR LoaderName,
+        NTSTATUS Success,
+        NTSTATUS Conflict,
+        NTSTATUS Invalid)
 {
-  unsigned int v3; // ebx
-  unsigned __int64 v5; // rdi
-  int v6; // eax
-  __int64 v7; // rbp
-  int v8; // eax
-  _DWORD *v9; // rcx
-  int v10; // esi
-  int v11; // r8d
-  unsigned __int64 v13; // [rsp+70h] [rbp+18h] BYREF
-  int v14; // [rsp+78h] [rbp+20h] BYREF
+  NTSTATUS v6; // ebx
+  __int64 v8; // rdi
+  int v9; // eax
+  __int64 v10; // rbp
+  NTSTATUS v11; // eax
+  _DWORD *v12; // rcx
+  unsigned int v13; // esi
+  int v14; // r8d
+  __int64 v16; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v17; // [rsp+78h] [rbp+20h] BYREF
 
-  v13 = a3;
-  v3 = 0;
-  v14 = 0;
-  if ( (int)RtlImageNtHeaderEx(1, a1, 0LL, &v13) < 0 )
-    return (unsigned int)-1073741701;
-  v5 = v13;
-  v6 = *(unsigned __int16 *)(v13 + 24);
-  if ( v6 == 267 )
+  v16 = (__int64)LoaderName;
+  v6 = 0;
+  v17 = 0;
+  if ( RtlImageNtHeaderEx(1u, NewBase, 0LL, (PIMAGE_NT_HEADERS *)&v16) < 0 )
+    return -1073741701;
+  v8 = v16;
+  v9 = *(unsigned __int16 *)(v16 + 24);
+  if ( v9 == 267 )
   {
-    v7 = *(unsigned int *)(v13 + 52);
+    v10 = *(unsigned int *)(v16 + 52);
   }
   else
   {
-    if ( v6 != 523 )
-      return (unsigned int)-1073741701;
-    v7 = *(_QWORD *)(v13 + 48);
+    if ( v9 != 523 )
+      return -1073741701;
+    v10 = *(_QWORD *)(v16 + 48);
   }
-  v8 = RtlpImageDirectoryEntryToDataEx(a1, 1, 5u, &v14, &v13);
-  v9 = (_DWORD *)v13;
-  if ( v8 < 0 )
-    v9 = 0LL;
-  if ( !v9 )
-    return (*(_BYTE *)(v5 + 22) & 1) != 0 ? 0xC0000018 : 0;
-  v10 = v14;
-  if ( !v14 )
-    return (*(_BYTE *)(v5 + 22) & 1) != 0 ? 0xC0000018 : 0;
+  v11 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)NewBase, 1, 5u, &v17, &v16);
+  v12 = (_DWORD *)v16;
+  if ( v11 < 0 )
+    v12 = 0LL;
+  if ( !v12 )
+    return (*(_BYTE *)(v8 + 22) & 1) != 0 ? 0xC0000018 : 0;
+  v13 = v17;
+  if ( !v17 )
+    return (*(_BYTE *)(v8 + 22) & 1) != 0 ? 0xC0000018 : 0;
   while ( 1 )
   {
-    v11 = v9[1];
-    v10 -= v11;
-    v9 = (_DWORD *)LdrProcessRelocationBlockLongLong(
-                     *(unsigned __int16 *)(v5 + 4),
-                     (int)a1 + *v9,
-                     (unsigned int)(v11 - 8) >> 1,
-                     (int)v9 + 8,
-                     a1 - v7);
-    if ( !v9 )
+    v14 = v12[1];
+    v13 -= v14;
+    v12 = (_DWORD *)LdrProcessRelocationBlockLongLong(
+                      *(unsigned __int16 *)(v8 + 4),
+                      (int)NewBase + *v12,
+                      (unsigned int)(v14 - 8) >> 1,
+                      (int)v12 + 8,
+                      (__int64)NewBase - v10);
+    if ( !v12 )
       break;
-    if ( !v10 )
-      return v3;
+    if ( !v13 )
+      return v6;
   }
-  return (unsigned int)-1073741701;
+  return -1073741701;
 }

@@ -49,7 +49,7 @@ __int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __in
       MiConvertEntireLargePageToSmall(48 * v4 - 0x220000000000LL, 1, 0, 6, 0LL, 0LL, 0LL);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -75,10 +75,10 @@ __int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __in
         --v8;
       }
       while ( v8 );
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v15 = CurrentPrcb->SchedulerAssist;

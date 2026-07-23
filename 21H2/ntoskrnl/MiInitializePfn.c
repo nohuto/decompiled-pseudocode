@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInitializePfn @ 0x140241A00
+ * XREFs of MiInitializePfn @ 0x1402E6250
  * Callers:
- *     MiCreateSharedZeroPages @ 0x140241770 (MiCreateSharedZeroPages.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MiInitializeProtoPfn @ 0x140554F90 (MiInitializeProtoPfn.c)
- *     MmAllocateIndependentPagesEx @ 0x140762A0C (MmAllocateIndependentPagesEx.c)
- *     MiMapNewSession @ 0x14078708C (MiMapNewSession.c)
+ *     MiCreateSharedZeroPages @ 0x1402E5FC0 (MiCreateSharedZeroPages.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MiInitializeProtoPfn @ 0x1405551D0 (MiInitializeProtoPfn.c)
+ *     MmAllocateIndependentPagesEx @ 0x140762BCC (MmAllocateIndependentPagesEx.c)
+ *     MiMapNewSession @ 0x14078724C (MiMapNewSession.c)
  * Callees:
- *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
- *     PsGetPagePriorityThread @ 0x1402427D0 (PsGetPagePriorityThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E6690 (MiProtectionToCacheAttribute.c)
+ *     PsGetPagePriorityThread @ 0x1402E7020 (PsGetPagePriorityThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -22,80 +22,72 @@ char __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, char a
 {
   __int64 v4; // rbx
   char v9; // di
-  __int64 Flink; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rdi
   __int64 v14; // rax
-  __int64 v15; // rdi
-  __int64 v16; // rax
-  __int64 v17; // rax
-  unsigned int v18; // r13d
-  unsigned __int64 *v19; // rdi
-  unsigned __int64 v20; // rbx
+  __int64 v15; // rax
+  unsigned int v16; // r13d
+  unsigned __int64 *v17; // rdi
+  unsigned __int64 v18; // rbx
+  struct _LIST_ENTRY *v19; // rax
+  __int64 v20; // rax
   __int64 v21; // rdx
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  struct _LIST_ENTRY *v26; // rax
-  __int64 v27; // rax
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  __int64 v32; // rax
-  __int64 v33; // rbx
+  struct _LIST_ENTRY *v22; // rdx
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rbx
   struct _KTHREAD *CurrentThread; // rcx
-  __int64 v35; // rbx
+  __int64 v27; // rbx
   unsigned int Queue; // r15d
-  unsigned int v37; // r15d
-  unsigned __int8 v38; // di
-  unsigned __int8 v39; // cl
-  __int64 v40; // rax
-  char v41; // cl
+  unsigned int v29; // r15d
+  unsigned __int8 v30; // di
+  unsigned __int8 v31; // cl
+  __int64 v32; // rax
+  char v33; // cl
   char result; // al
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v46; // eax
-  bool v47; // zf
-  int v48; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v49; // [rsp+68h] [rbp+10h] BYREF
-  int v50; // [rsp+78h] [rbp+20h] BYREF
+  int v38; // eax
+  bool v39; // zf
+  int v40; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int64 v41; // [rsp+68h] [rbp+10h] BYREF
+  int v42; // [rsp+78h] [rbp+20h] BYREF
 
   v4 = *a2;
   v9 = a3;
-  if ( (unsigned int)MiPteInShadowRange(a2, a2)
-    && (unsigned int)MiPteHasShadow(v11, Flink, v12, v13)
+  if ( (unsigned int)MiPteInShadowRange(a2)
+    && (unsigned int)MiPteHasShadow()
     && (v4 & 1) != 0
     && ((v4 & 0x20) == 0 || (v4 & 0x42) == 0) )
   {
-    Flink = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
     if ( Flink )
     {
-      v14 = *(_QWORD *)(Flink + 8 * (((unsigned __int64)a2 >> 3) & 0x1FF));
-      Flink = v4 | 0x20;
-      if ( (v14 & 0x20) == 0 )
-        Flink = v4;
-      v4 = Flink;
-      if ( (v14 & 0x42) != 0 )
-        v4 = Flink | 0x42;
+      v11 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)a2 >> 3) & 0x1FF));
+      v12 = v4 | 0x20;
+      if ( (v11 & 0x20) == 0 )
+        v12 = v4;
+      v4 = v12;
+      if ( (v11 & 0x42) != 0 )
+        v4 = v12 | 0x42;
     }
   }
   if ( (a4 & 4) != 0 )
   {
-    v15 = 32LL * (v9 & 0x1F);
+    v13 = 32LL * (v9 & 0x1F);
     if ( v4 )
-      v4 = v15 | v4 & 0xFFFFFFFFFFFFFC1FuLL;
+      v4 = v13 | v4 & 0xFFFFFFFFFFFFFC1FuLL;
     else
-      v4 = MiSwizzleInvalidPte(v15);
+      v4 = MiSwizzleInvalidPte(v13);
   }
-  v16 = -9LL;
+  v14 = -9LL;
   if ( (v4 & 0x400) != 0 )
-    v16 = -2049LL;
-  v17 = v4 & v16;
-  *(_QWORD *)(a1 + 16) = v17;
+    v14 = -2049LL;
+  v15 = v4 & v14;
+  *(_QWORD *)(a1 + 16) = v15;
   if ( (a4 & 2) != 0 )
   {
     *(_QWORD *)(a1 + 40) |= 0x8000000000000000uLL;
@@ -103,101 +95,100 @@ char __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, char a
   else if ( (a4 & 8) == 0 )
   {
     *(_QWORD *)a1 &= 0xFFFFFFFFFFFFC00FuLL;
-    *(_QWORD *)(a1 + 16) = v17 & 0xFFFFFFFFFC00FFFFuLL;
+    *(_QWORD *)(a1 + 16) = v15 & 0xFFFFFFFFFC00FFFFuLL;
   }
-  v18 = MiProtectionToCacheAttribute(a3, Flink, v12, v13);
+  v16 = MiProtectionToCacheAttribute(a3);
   *(_WORD *)(a1 + 32) = 1;
-  v19 = (unsigned __int64 *)((((unsigned __int64)a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  v20 = *v19;
-  if ( (unsigned int)MiPteInShadowRange(v19, v21)
-    && (unsigned int)MiPteHasShadow(v23, v22, v24, v25)
-    && (v20 & 1) != 0
-    && ((v20 & 0x20) == 0 || (v20 & 0x42) == 0) )
+  v17 = (unsigned __int64 *)((((unsigned __int64)a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  v18 = *v17;
+  if ( (unsigned int)MiPteInShadowRange(v17)
+    && (unsigned int)MiPteHasShadow()
+    && (v18 & 1) != 0
+    && ((v18 & 0x20) == 0 || (v18 & 0x42) == 0) )
   {
-    v22 = ((unsigned __int64)a2 >> 9) & 0xFFFFFFF8;
-    v26 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-    if ( v26 )
+    v19 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( v19 )
     {
-      v27 = *((_QWORD *)&v26->Flink + (((((unsigned __int64)a2 >> 9) & 0xFFFFFFF8) >> 3) & 0x1FF));
-      v22 = v20 | 0x20;
-      if ( (v27 & 0x20) == 0 )
-        v22 = v20;
-      v20 = v22;
-      if ( (v27 & 0x42) != 0 )
-        v20 = v22 | 0x42;
+      v20 = *((_QWORD *)&v19->Flink + (((((unsigned __int64)a2 >> 9) & 0xFFFFFFF8) >> 3) & 0x1FF));
+      v21 = v18 | 0x20;
+      if ( (v20 & 0x20) == 0 )
+        v21 = v18;
+      v18 = v21;
+      if ( (v20 & 0x42) != 0 )
+        v18 = v21 | 0x42;
     }
   }
-  v49 = v20;
-  if ( (unsigned int)MiPteInShadowRange(&v49, v22)
-    && (unsigned int)MiPteHasShadow(v29, v28, v30, v31)
-    && (v20 & 1) != 0
-    && ((v20 & 0x20) == 0 || (v20 & 0x42) == 0) )
+  v41 = v18;
+  if ( (unsigned int)MiPteInShadowRange(&v41)
+    && (unsigned int)MiPteHasShadow()
+    && (v18 & 1) != 0
+    && ((v18 & 0x20) == 0 || (v18 & 0x42) == 0) )
   {
-    v28 = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-    if ( v28 )
+    v22 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( v22 )
     {
-      v32 = *(_QWORD *)(v28 + 8 * (((unsigned __int64)&v49 >> 3) & 0x1FF));
-      v28 = v20 | 0x20;
-      if ( (v32 & 0x20) == 0 )
-        v28 = v20;
-      v20 = v28;
-      if ( (v32 & 0x42) != 0 )
-        v20 = v28 | 0x42;
+      v23 = *((_QWORD *)&v22->Flink + (((unsigned __int64)&v41 >> 3) & 0x1FF));
+      v24 = v18 | 0x20;
+      if ( (v23 & 0x20) == 0 )
+        v24 = v18;
+      v18 = v24;
+      if ( (v23 & 0x42) != 0 )
+        v18 = v24 | 0x42;
     }
   }
-  v33 = (v20 >> 12) & 0xFFFFFFFFFLL;
-  *(_QWORD *)(a1 + 40) = v33 | *(_QWORD *)(a1 + 40) & 0xFFFFFFF000000000uLL;
+  v25 = (v18 >> 12) & 0xFFFFFFFFFLL;
+  *(_QWORD *)(a1 + 40) = v25 | *(_QWORD *)(a1 + 40) & 0xFFFFFFF000000000uLL;
   CurrentThread = KeGetCurrentThread();
-  v35 = 48 * v33 - 0x58000000000LL;
+  v27 = 48 * v25 - 0x58000000000LL;
   Queue = (unsigned int)CurrentThread[1].Queue;
   if ( (Queue & 0x100) != 0 )
-    v37 = Queue >> 9;
+    v29 = Queue >> 9;
   else
-    LOBYTE(v37) = PsGetPagePriorityThread(CurrentThread);
-  v38 = 17;
+    LOBYTE(v29) = PsGetPagePriorityThread(CurrentThread);
+  v30 = 17;
   if ( (a4 & 1) == 0 )
   {
     if ( (a4 & 0x10) != 0 )
     {
-      v50 = a4 & 1;
+      v42 = a4 & 1;
       while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v50);
+          KeYieldProcessorEx(&v42);
         while ( *(__int64 *)(a1 + 24) < 0 );
       }
     }
     else
     {
-      v38 = MiLockPageInline(a1, v28, v30);
+      v30 = MiLockPageInline(a1);
     }
   }
-  v48 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(v35 + 24), 0x3FuLL) )
+  v40 = 0;
+  while ( _interlockedbittestandset64((volatile signed __int32 *)(v27 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v48);
-    while ( *(__int64 *)(v35 + 24) < 0 );
+      KeYieldProcessorEx(&v40);
+    while ( *(__int64 *)(v27 + 24) < 0 );
   }
-  *(_QWORD *)(v35 + 24) ^= ((*(_QWORD *)(v35 + 24) + 1LL) ^ *(_QWORD *)(v35 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
-  _InterlockedAnd64((volatile signed __int64 *)(v35 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  v39 = *(_BYTE *)(a1 + 34);
-  if ( v39 >> 6 != v18 )
+  *(_QWORD *)(v27 + 24) ^= ((*(_QWORD *)(v27 + 24) + 1LL) ^ *(_QWORD *)(v27 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
+  _InterlockedAnd64((volatile signed __int64 *)(v27 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  v31 = *(_BYTE *)(a1 + 34);
+  if ( v31 >> 6 != v16 )
   {
-    MiChangePageAttribute(a1, v18, 1LL);
-    v39 = *(_BYTE *)(a1 + 34);
+    MiChangePageAttribute(a1, v16, 1LL);
+    v31 = *(_BYTE *)(a1 + 34);
   }
-  v40 = *(_QWORD *)(a1 + 24);
-  v41 = v39 & 0xF8 | 6;
+  v32 = *(_QWORD *)(a1 + 24);
+  v33 = v31 & 0xF8 | 6;
   *(_QWORD *)(a1 + 8) = a2;
-  *(_QWORD *)(a1 + 24) = v40 & 0xC000000000000000uLL | 1;
-  result = (v37 ^ *(_BYTE *)(a1 + 35)) & 7;
+  *(_QWORD *)(a1 + 24) = v32 & 0xC000000000000000uLL | 1;
+  result = (v29 ^ *(_BYTE *)(a1 + 35)) & 7;
   *(_BYTE *)(a1 + 35) ^= result;
-  *(_BYTE *)(a1 + 34) = v41;
+  *(_BYTE *)(a1 + 34) = v33;
   if ( (a4 & 0x20) == 0 )
   {
-    result = v41 | 0x10;
-    *(_BYTE *)(a1 + 34) = v41 | 0x10;
+    result = v33 | 0x10;
+    *(_BYTE *)(a1 + 34) = v33 | 0x10;
   }
   if ( (a4 & 0x40) != 0 )
     *(_BYTE *)(a1 + 35) |= 0x20u;
@@ -211,20 +202,20 @@ char __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, char a
         if ( (KiIrqlFlags & 1) != 0 )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && v38 <= 0xFu && CurrentIrql >= 2u )
+          if ( CurrentIrql <= 0xFu && v30 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v46 = ~(unsigned __int16)(-1LL << (v38 + 1));
-            v47 = (v46 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v46;
-            if ( v47 )
+            v38 = ~(unsigned __int16)(-1LL << (v30 + 1));
+            v39 = (v38 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v38;
+            if ( v39 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
       }
-      result = v38;
-      __writecr8(v38);
+      result = v30;
+      __writecr8(v30);
     }
   }
   return result;

@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x14008BAF0
+ * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x14008B250
  * Callers:
  *     <none>
  * Callees:

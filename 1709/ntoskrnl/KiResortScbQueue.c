@@ -11,122 +11,119 @@
  *     KiInsertSchedulingGroupQueue @ 0x1400D2BE8 (KiInsertSchedulingGroupQueue.c)
  */
 
-void __fastcall KiResortScbQueue(__int64 a1, __int64 a2, char a3)
+char __fastcall KiResortScbQueue(_RTL_RB_TREE *a1, __int64 a2, char a3)
 {
-  unsigned __int64 *v3; // rax
+  unsigned __int64 *i; // rax
   unsigned __int64 v6; // rcx
   __int64 j; // rcx
   unsigned __int64 v8; // r8
-  __int64 m; // r8
-  int v10; // eax
-  unsigned __int16 v11; // ax
-  unsigned __int16 v12; // cx
+  __int64 k; // r8
+  unsigned __int16 v10; // ax
+  unsigned __int16 v11; // cx
+  int v12; // edx
   int v13; // edx
-  int v14; // eax
-  int v15; // edx
-  int v16; // eax
-  unsigned __int16 v17; // ax
-  unsigned __int16 v18; // dx
-  int v19; // r8d
-  int v20; // eax
-  _QWORD *k; // rax
-  unsigned __int64 i; // rax
+  unsigned __int16 v14; // ax
+  unsigned __int16 v15; // dx
+  int v16; // r8d
 
-  v3 = (unsigned __int64 *)(a2 + 88);
+  i = (unsigned __int64 *)(a2 + 88);
   if ( !a3 )
   {
-    v6 = *v3;
-    if ( *v3 )
+    v6 = *i;
+    if ( *i )
     {
-      for ( i = *(_QWORD *)(v6 + 8); i; i = *(_QWORD *)(i + 8) )
-        v6 = i;
+      for ( i = *(unsigned __int64 **)(v6 + 8); i; i = (unsigned __int64 *)i[1] )
+        v6 = (unsigned __int64)i;
     }
     else
     {
       for ( j = *(_QWORD *)(a2 + 104); ; j = *(_QWORD *)(v6 + 16) )
       {
         v6 = j & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v6 || *(unsigned __int64 **)(v6 + 8) == v3 )
+        if ( !v6 || *(unsigned __int64 **)(v6 + 8) == i )
           break;
-        v3 = (unsigned __int64 *)v6;
+        i = (unsigned __int64 *)v6;
       }
     }
     if ( !v6 )
-      return;
-    v15 = *(_DWORD *)(a2 + 116);
-    v16 = v15 - *(_DWORD *)(v6 + 28);
-    if ( v15 != *(_DWORD *)(v6 + 28) )
+      return (char)i;
+    v13 = *(_DWORD *)(a2 + 116);
+    LODWORD(i) = v13 - *(_DWORD *)(v6 + 28);
+    if ( v13 != *(_DWORD *)(v6 + 28) )
       goto LABEL_27;
-    v17 = *(_WORD *)(a2 + 114);
-    if ( v17 )
+    v14 = *(_WORD *)(a2 + 114);
+    if ( v14 )
     {
-      v18 = *(_WORD *)(v6 + 26);
-      _BitScanReverse((unsigned int *)&v19, v17);
-      v20 = 0;
-      if ( v18 )
-        _BitScanReverse((unsigned int *)&v20, v18);
-      v16 = v20 - v19;
+      v15 = *(_WORD *)(v6 + 26);
+      _BitScanReverse((unsigned int *)&v16, v14);
+      LODWORD(i) = 0;
+      if ( v15 )
+        _BitScanReverse((unsigned int *)&i, v15);
+      LODWORD(i) = (_DWORD)i - v16;
 LABEL_27:
-      if ( v16 >= 0 )
-        return;
+      if ( (int)i >= 0 )
+        return (char)i;
       goto LABEL_28;
     }
-    if ( v15 )
+    if ( v13 )
     {
-      v16 = 1;
+      LODWORD(i) = 1;
       goto LABEL_27;
     }
-    if ( *(_QWORD *)a2 > *(_QWORD *)(v6 - 88) )
-      return;
+    i = *(unsigned __int64 **)(v6 - 88);
+    if ( *(_QWORD *)a2 > (unsigned __int64)i )
+      return (char)i;
 LABEL_28:
     KiRemoveSchedulingGroupQueue(a1, a2, 0);
-    KiInsertSchedulingGroupQueue(a1, a2, 0);
-    return;
+    LOBYTE(i) = KiInsertSchedulingGroupQueue(a1, a2, 0);
+    return (char)i;
   }
   v8 = *(_QWORD *)(a2 + 96);
   if ( v8 )
   {
-    for ( k = *(_QWORD **)v8; k; k = (_QWORD *)*k )
-      v8 = (unsigned __int64)k;
+    for ( i = *(unsigned __int64 **)v8; i; i = (unsigned __int64 *)*i )
+      v8 = (unsigned __int64)i;
   }
   else
   {
-    for ( m = *(_QWORD *)(a2 + 104); ; m = *(_QWORD *)(v8 + 16) )
+    for ( k = *(_QWORD *)(a2 + 104); ; k = *(_QWORD *)(v8 + 16) )
     {
-      v8 = m & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( !v8 || *(unsigned __int64 **)v8 == v3 )
+      v8 = k & 0xFFFFFFFFFFFFFFFCuLL;
+      if ( !v8 || *(unsigned __int64 **)v8 == i )
         break;
-      v3 = (unsigned __int64 *)v8;
+      i = (unsigned __int64 *)v8;
     }
   }
   if ( v8 )
   {
-    v10 = *(_DWORD *)(a2 + 116) - *(_DWORD *)(v8 + 28);
-    if ( !v10 )
+    LODWORD(i) = *(_DWORD *)(a2 + 116) - *(_DWORD *)(v8 + 28);
+    if ( !(_DWORD)i )
     {
-      v11 = *(_WORD *)(a2 + 114);
-      if ( v11 )
+      v10 = *(_WORD *)(a2 + 114);
+      if ( v10 )
       {
-        v12 = *(_WORD *)(v8 + 26);
-        _BitScanReverse((unsigned int *)&v13, v11);
-        v14 = 0;
-        if ( v12 )
-          _BitScanReverse((unsigned int *)&v14, v12);
-        v10 = v14 - v13;
+        v11 = *(_WORD *)(v8 + 26);
+        _BitScanReverse((unsigned int *)&v12, v10);
+        LODWORD(i) = 0;
+        if ( v11 )
+          _BitScanReverse((unsigned int *)&i, v11);
+        LODWORD(i) = (_DWORD)i - v12;
       }
       else
       {
         if ( !*(_DWORD *)(a2 + 116) )
         {
-          if ( *(_QWORD *)a2 <= *(_QWORD *)(v8 - 88) )
-            return;
+          i = *(unsigned __int64 **)(v8 - 88);
+          if ( *(_QWORD *)a2 <= (unsigned __int64)i )
+            return (char)i;
           goto LABEL_28;
         }
-        v10 = 1;
+        LODWORD(i) = 1;
       }
     }
-    if ( v10 <= 0 )
-      return;
+    if ( (int)i <= 0 )
+      return (char)i;
     goto LABEL_28;
   }
+  return (char)i;
 }

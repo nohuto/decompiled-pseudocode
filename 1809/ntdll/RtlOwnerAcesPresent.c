@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlOwnerAcesPresent @ 0x18008B0D0
+ * XREFs of RtlOwnerAcesPresent @ 0x18008B0E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlOwnerAcesPresent(__int64 a1, __int64 a2, __int64 a3)
+BOOLEAN __cdecl RtlOwnerAcesPresent(PACL pAcl)
 {
-  return RtlpOwnerAcesPresent(0, a1, a3);
+  return RtlpOwnerAcesPresent(0, (__int64)pAcl);
 }

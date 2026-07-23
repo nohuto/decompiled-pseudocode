@@ -40,8 +40,8 @@ PVOID __fastcall EtwpInitializeAutoLoggers(__int64 a1)
   void *Pool2; // rdi
   void *v22; // rbx
   BOOLEAN NewElement[4]; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v25; // [rsp+4Ch] [rbp-BCh] BYREF
-  RTL_AVL_TABLE Table; // [rsp+58h] [rbp-B0h] BYREF
+  ULONG BufferLengthOut[3]; // [rsp+4Ch] [rbp-BCh] BYREF
+  _RTL_AVL_TABLE Table; // [rsp+58h] [rbp-B0h] BYREF
   WCHAR SourceString[16]; // [rsp+C8h] [rbp-40h] BYREF
   _OWORD Path[8]; // [rsp+E8h] [rbp-20h] BYREF
   int v29; // [rsp+168h] [rbp+60h]
@@ -109,7 +109,14 @@ PVOID __fastcall EtwpInitializeAutoLoggers(__int64 a1)
   Pool2 = (void *)ExAllocatePool2(0x100uLL);
   if ( Pool2 )
   {
-    if ( (unsigned int)RtlGetPersistedStateLocation(L"ETWAutoLoggerPath", Pool2, 520, (__int64)&v25) )
+    if ( RtlGetPersistedStateLocation(
+           L"ETWAutoLoggerPath",
+           0LL,
+           0LL,
+           LocationTypeRegistry,
+           (PWCHAR)Pool2,
+           0x208u,
+           BufferLengthOut) )
     {
       ExFreePoolWithTag(Pool2, 0x74777445u);
       Pool2 = 0LL;
@@ -117,7 +124,14 @@ PVOID __fastcall EtwpInitializeAutoLoggers(__int64 a1)
     v22 = (void *)ExAllocatePool2(0x100uLL);
     if ( v22 )
     {
-      if ( (unsigned int)RtlGetPersistedStateLocation(L"ETWGlobalLoggerPath", v22, 520, (__int64)&v25) )
+      if ( RtlGetPersistedStateLocation(
+             L"ETWGlobalLoggerPath",
+             0LL,
+             0LL,
+             LocationTypeRegistry,
+             (PWCHAR)v22,
+             0x208u,
+             BufferLengthOut) )
       {
         ExFreePoolWithTag(v22, 0x74777445u);
         v22 = 0LL;

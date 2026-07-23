@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmGetMatchingDeviceListForSubkey @ 0x14081BC80
+ * XREFs of _CmGetMatchingDeviceListForSubkey @ 0x14081C3C0
  * Callers:
- *     _CmGetMatchingDeviceList @ 0x1409B328C (_CmGetMatchingDeviceList.c)
- *     _CmGetMatchingFilteredDeviceListWorker @ 0x140A1A630 (_CmGetMatchingFilteredDeviceListWorker.c)
+ *     _CmGetMatchingDeviceList @ 0x1409AA61C (_CmGetMatchingDeviceList.c)
+ *     _CmGetMatchingFilteredDeviceListWorker @ 0x140A16574 (_CmGetMatchingFilteredDeviceListWorker.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceListForSubkey(
@@ -64,7 +64,7 @@ __int64 __fastcall CmGetMatchingDeviceListForSubkey(
     }
     else if ( v14 >= 0 )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x1B8uLL, 0x52504E50u);
       if ( Pool2 )
       {
         *(_DWORD *)Pool2 = v12 + 1;

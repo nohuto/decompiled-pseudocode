@@ -1,14 +1,14 @@
 /*
- * XREFs of IoReportResourceUsageInternal @ 0x140720F18
+ * XREFs of IoReportResourceUsageInternal @ 0x14071EAA8
  * Callers:
- *     IoReportDetectedDevice @ 0x14071C850 (IoReportDetectedDevice.c)
- *     IoReportResourceForDetection @ 0x140720B40 (IoReportResourceForDetection.c)
- *     IoReportResourceUsage @ 0x140720D30 (IoReportResourceUsage.c)
+ *     IoReportDetectedDevice @ 0x14071A3E0 (IoReportDetectedDevice.c)
+ *     IoReportResourceForDetection @ 0x14071E6D0 (IoReportResourceForDetection.c)
+ *     IoReportResourceUsage @ 0x14071E8C0 (IoReportResourceUsage.c)
  * Callees:
- *     IopChangeInterfaceType @ 0x140721040 (IopChangeInterfaceType.c)
- *     PnpCmResourcesToIoResources @ 0x140733330 (PnpCmResourcesToIoResources.c)
- *     IopLegacyResourceAllocation @ 0x140A0FC24 (IopLegacyResourceAllocation.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopChangeInterfaceType @ 0x14071EBD0 (IopChangeInterfaceType.c)
+ *     PnpCmResourcesToIoResources @ 0x140731264 (PnpCmResourcesToIoResources.c)
+ *     IopLegacyResourceAllocation @ 0x1409BE034 (IopLegacyResourceAllocation.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoReportResourceUsageInternal(

@@ -27,12 +27,14 @@ __int64 __fastcall TtmNotifySessionDisplayRequiredChange(unsigned int a1, unsign
   unsigned int v13; // eax
   __int64 v14; // rcx
   unsigned int v16; // eax
-  char v18; // [rsp+80h] [rbp+18h] BYREF
+  unsigned int ExplicitScope; // [rsp+70h] [rbp+8h] BYREF
+  char Buffer; // [rsp+80h] [rbp+18h] BYREF
   unsigned int *v19; // [rsp+88h] [rbp+20h] BYREF
 
+  ExplicitScope = a1;
   v19 = 0LL;
   v4 = 0;
-  v18 = 0;
+  Buffer = 0;
   v6 = 0;
   v7 = TtmpAcquireSessionById(&v19, a1);
   v8 = v19;
@@ -80,7 +82,7 @@ LABEL_8:
   v9 = 0;
 LABEL_9:
   if ( v8[5] )
-    v18 = 1;
+    Buffer = 1;
 LABEL_11:
   if ( v8 )
   {
@@ -90,12 +92,12 @@ LABEL_11:
   }
   if ( v6 )
   {
-    ZwUpdateWnfStateData((__int64)&WNF_PO_DISPLAY_REQUEST_ACTIVE, (__int64)&v18);
-    LOBYTE(v14) = v18;
+    ZwUpdateWnfStateData(&WNF_PO_DISPLAY_REQUEST_ACTIVE, &Buffer, 1u, 0LL, &ExplicitScope, 0, 0);
+    LOBYTE(v14) = Buffer;
     PoSessionEngagementUpdate(v14);
   }
   if ( a3 )
-    return TtmiLogSessionDisplayRequiredReference(a1, v4, v9);
+    return TtmiLogSessionDisplayRequiredReference(ExplicitScope, v4, v9);
   else
-    return TtmiLogSessionDisplayRequiredDereference(a1, v4, v9);
+    return TtmiLogSessionDisplayRequiredDereference(ExplicitScope, v4, v9);
 }

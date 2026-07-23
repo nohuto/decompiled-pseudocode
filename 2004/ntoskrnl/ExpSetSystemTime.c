@@ -16,7 +16,7 @@
 void ExpSetSystemTime(char a1, char a2, __int64 a3, ...)
 {
   LARGE_INTEGER LocalTime; // [rsp+20h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+28h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+28h] [rbp-18h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+68h] [rbp+28h] BYREF
   va_list SystemTimea; // [rsp+68h] [rbp+28h]
   __int64 *v9; // [rsp+70h] [rbp+30h]

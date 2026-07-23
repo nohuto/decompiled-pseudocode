@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlStringCchCopyA @ 0x14048D1D8
+ * XREFs of RtlStringCchCopyA @ 0x140486D18
  * Callers:
- *     EtwpCoverageAddToStringBuffer @ 0x14048D198 (EtwpCoverageAddToStringBuffer.c)
- *     CarCopyRuleViolationDetails @ 0x140649670 (CarCopyRuleViolationDetails.c)
- *     EtwpCoverageRecordAtHighIrql @ 0x1406C68DC (EtwpCoverageRecordAtHighIrql.c)
- *     WheaHwErrorReportSetSectionNameDeviceDriver @ 0x1406D51A0 (WheaHwErrorReportSetSectionNameDeviceDriver.c)
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1406D5350 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x1406D5470 (WheaReportHwErrorDeviceDriverEx.c)
- *     WheapInitErrorReportDeviceDriver @ 0x1406D5814 (WheapInitErrorReportDeviceDriver.c)
- *     WheapCreateRecordFromGenericErrorData @ 0x1406D68BC (WheapCreateRecordFromGenericErrorData.c)
- *     WheaRemoveErrorSourceDeviceDriver @ 0x140847DC0 (WheaRemoveErrorSourceDeviceDriver.c)
- *     AslpFileQueryExportName @ 0x14088EF6C (AslpFileQueryExportName.c)
- *     HalpInitGenericErrorSourceEntry @ 0x140BEBDF4 (HalpInitGenericErrorSourceEntry.c)
- *     HalpInitGenericErrorSourceEntryV2 @ 0x140BEC05C (HalpInitGenericErrorSourceEntryV2.c)
- *     EmpParseStrings @ 0x140CB7308 (EmpParseStrings.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x140486CD8 (EtwpCoverageAddToStringBuffer.c)
+ *     CarCopyRuleViolationDetails @ 0x14064D250 (CarCopyRuleViolationDetails.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x1406CA5DC (EtwpCoverageRecordAtHighIrql.c)
+ *     WheaHwErrorReportSetSectionNameDeviceDriver @ 0x1406D9280 (WheaHwErrorReportSetSectionNameDeviceDriver.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1406D9430 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1406D9550 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x1406D98F4 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x1406DA99C (WheapCreateRecordFromGenericErrorData.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x14084E090 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     AslpFileQueryExportName @ 0x140895368 (AslpFileQueryExportName.c)
+ *     HalpInitGenericErrorSourceEntry @ 0x140BF1DF4 (HalpInitGenericErrorSourceEntry.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x140BF205C (HalpInitGenericErrorSourceEntryV2.c)
+ *     EmpParseStrings @ 0x140CBD34C (EmpParseStrings.c)
  * Callees:
  *     <none>
  */

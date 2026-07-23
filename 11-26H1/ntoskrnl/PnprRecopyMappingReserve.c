@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprRecopyMappingReserve @ 0x140522944
+ * XREFs of PnprRecopyMappingReserve @ 0x140524FB0
  * Callers:
- *     PnprRecopyMirrorPages @ 0x1405227D4 (PnprRecopyMirrorPages.c)
+ *     PnprRecopyMirrorPages @ 0x140524E40 (PnprRecopyMirrorPages.c)
  * Callees:
- *     PnprRecopyAddress @ 0x1405229F8 (PnprRecopyAddress.c)
- *     MmContainingPageForReservedMapping @ 0x140522A50 (MmContainingPageForReservedMapping.c)
- *     PnprMarkOrMirrorPages @ 0x140BF1DB4 (PnprMarkOrMirrorPages.c)
+ *     PnprRecopyAddress @ 0x140525064 (PnprRecopyAddress.c)
+ *     MmContainingPageForReservedMapping @ 0x1405250BC (MmContainingPageForReservedMapping.c)
+ *     PnprMarkOrMirrorPages @ 0x140BF7DB4 (PnprMarkOrMirrorPages.c)
  */
 
 __int64 __fastcall PnprRecopyMappingReserve(_QWORD *a1)
@@ -41,7 +41,7 @@ __int64 __fastcall PnprRecopyMappingReserve(_QWORD *a1)
   v8 = PnprContext;
   v9 = *(_DWORD *)(PnprContext + 33288);
   if ( !v9 )
-    v9 = 5727;
+    v9 = 5196;
   *(_DWORD *)(PnprContext + 33288) = v9;
   v10 = *(_DWORD *)(v8 + 33292);
   if ( !v10 )

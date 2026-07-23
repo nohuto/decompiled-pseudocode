@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpWerAllocatePool @ 0x140888D5C
+ * XREFs of DbgkpWerAllocatePool @ 0x140888EBC
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x1404EE658 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1404EE898 (DbgkCaptureLiveKernelDump.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall DbgkpWerAllocatePool(SIZE_T NumberOfBytes)

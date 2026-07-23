@@ -167,7 +167,7 @@ LABEL_8:
       if ( (*(_BYTE *)(v18 + 129) & 2) != 0 )
         v17 = 1;
 LABEL_14:
-      KiExpireTimer2(v18, v15, a2, v16);
+      KiExpireTimer2(v18, v15, (LARGE_INTEGER)a2, v16);
     }
     else
     {

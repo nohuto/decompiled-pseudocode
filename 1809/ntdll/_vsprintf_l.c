@@ -1,11 +1,11 @@
 /*
- * XREFs of _vsprintf_l @ 0x180091590
+ * XREFs of _vsprintf_l @ 0x1800915A0
  * Callers:
- *     vsprintf @ 0x180091610 (vsprintf.c)
+ *     vsprintf @ 0x180091620 (vsprintf.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _flsbuf @ 0x180096480 (_flsbuf.c)
- *     _output_l @ 0x180096490 (_output_l.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _flsbuf @ 0x180096490 (_flsbuf.c)
+ *     _output_l @ 0x1800964A0 (_output_l.c)
  */
 
 int __cdecl vsprintf_l(char *const Buffer, const char *const Format, const _locale_t Locale, va_list ArgList)

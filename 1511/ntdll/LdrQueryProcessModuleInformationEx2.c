@@ -20,7 +20,7 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx2(
         __int64 a2,
         _WORD *a3,
         unsigned int a4,
-        unsigned int *a5)
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
   _WORD *v5; // r14
   char v6; // di
@@ -28,7 +28,7 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx2(
   unsigned int v8; // r13d
   unsigned int v9; // esi
   unsigned __int64 v10; // r12
-  unsigned int *v11; // rdx
+  PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v11; // rdx
   int v12; // eax
   int Memory; // eax
   int v14; // eax
@@ -72,7 +72,7 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx2(
   if ( !a1 || (a2 & 2) != 0 )
     v7 = v29;
   v10 = 0LL;
-  v11 = a5;
+  v11 = Enumerator;
   while ( 1 )
   {
     v25 = v10;
@@ -81,7 +81,7 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx2(
     v21 = 10240;
     v20 = 1;
     if ( v11 )
-      *v11 = v8;
+      LODWORD(v11->HashEntry.Linkage.Flink) = v8;
     if ( (v6 & 2) != 0 )
       ((void (__fastcall *)(__int64 (__fastcall *)()))funcs_18006C80B[5 * v10])(funcs_18006C80B[5 * v10]);
     v12 = ((__int64 (__fastcall *)(__int64, _QWORD *, _QWORD *))funcs_18006C835[5 * v10])((__int64)v7, &v26, &v28);
@@ -179,9 +179,9 @@ LABEL_17:
     }
     if ( (v6 & 2) != 0 )
       ((void (__fastcall *)(__int64))funcs_18006CA4C[5 * v10])((__int64)funcs_18006CA4C[5 * v10]);
-    v11 = a5;
-    if ( a5 )
-      *a5 = v8;
+    v11 = Enumerator;
+    if ( Enumerator )
+      LODWORD(Enumerator->HashEntry.Linkage.Flink) = v8;
     ++v10;
   }
 }

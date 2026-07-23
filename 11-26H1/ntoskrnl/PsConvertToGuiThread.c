@@ -1,17 +1,17 @@
 /*
- * XREFs of PsConvertToGuiThread @ 0x140A40AE0
+ * XREFs of PsConvertToGuiThread @ 0x1409FC500
  * Callers:
- *     KiConvertToGuiThread @ 0x140729780 (KiConvertToGuiThread.c)
- *     PspEnsureGuiThreadAndBatchFlush @ 0x1407ED740 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     KiConvertToGuiThread @ 0x14072E350 (KiConvertToGuiThread.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1407F32A0 (PspEnsureGuiThreadAndBatchFlush.c)
  * Callees:
- *     PsSessionGetWin32Callouts @ 0x14048806C (PsSessionGetWin32Callouts.c)
- *     SeCaptureAtomTableCallout @ 0x1404B53BC (SeCaptureAtomTableCallout.c)
- *     PspUpdateCalloutParameters @ 0x1404FB6E0 (PspUpdateCalloutParameters.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExCallCallBack @ 0x140A41008 (ExCallCallBack.c)
- *     PsQuerySectionSignatureInformation @ 0x140A410A0 (PsQuerySectionSignatureInformation.c)
- *     PsInvokeWin32Callout @ 0x140A41140 (PsInvokeWin32Callout.c)
- *     EtwTimLogProhibitWin32kSystemCalls @ 0x140A418D0 (EtwTimLogProhibitWin32kSystemCalls.c)
+ *     PsSessionGetWin32Callouts @ 0x140481BAC (PsSessionGetWin32Callouts.c)
+ *     SeCaptureAtomTableCallout @ 0x1404AEFD4 (SeCaptureAtomTableCallout.c)
+ *     PspUpdateCalloutParameters @ 0x140518394 (PspUpdateCalloutParameters.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExCallCallBack @ 0x1409FCA28 (ExCallCallBack.c)
+ *     PsQuerySectionSignatureInformation @ 0x1409FCAC0 (PsQuerySectionSignatureInformation.c)
+ *     PsInvokeWin32Callout @ 0x1409FCB60 (PsInvokeWin32Callout.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x1409FCFC0 (EtwTimLogProhibitWin32kSystemCalls.c)
  */
 
 __int64 PsConvertToGuiThread()
@@ -21,8 +21,8 @@ __int64 PsConvertToGuiThread()
   int Flink; // r14d
   __int64 v3; // rdx
   __int64 v4; // rcx
-  char ReadTransferCount; // al
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  char ThreadTimerDelay; // al
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 result; // rax
   int v8; // esi
   _QWORD v9[3]; // [rsp+30h] [rbp-40h] BYREF
@@ -53,14 +53,14 @@ __int64 PsConvertToGuiThread()
   v10 = 1;
   if ( (int)PsQuerySectionSignatureInformation(Process, &v13) >= 0 )
   {
-    ReadTransferCount = SepRmCapTableLock.ReadTransferCount;
-    if ( SepRmCapTableLock.ReadTransferCount )
+    ThreadTimerDelay = SepRmCapTableLock.ThreadTimerDelay;
+    if ( *(_QWORD *)&SepRmCapTableLock.ThreadTimerDelay )
     {
       LOBYTE(v4) = v13;
       LOBYTE(v3) = 12;
-      ReadTransferCount = guard_dispatch_icall_no_overrides(v4, v3);
+      ThreadTimerDelay = guard_dispatch_icall_no_overrides(v4, v3);
     }
-    v10 = v10 & 0xFFFFFFFD | (2 * (ReadTransferCount & 1));
+    v10 = v10 & 0xFFFFFFFD | (2 * (ThreadTimerDelay & 1));
   }
   if ( !(unsigned int)PspUpdateCalloutParameters(0, (__int64)v9, 0, 0LL) )
     return 3221225485LL;

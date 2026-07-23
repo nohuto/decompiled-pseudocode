@@ -22,7 +22,7 @@ __int64 __fastcall sub_18005E3C8(
         __int16 a3,
         unsigned __int16 a4,
         __int16 a5,
-        struct _GUID *a6,
+        GUID *a6,
         _OWORD *a7,
         unsigned int a8,
         __int64 a9,
@@ -46,7 +46,7 @@ __int64 __fastcall sub_18005E3C8(
   char v27; // al
   __int64 v28; // r15
   __int64 v29; // rax
-  struct _GUID ActivityId; // xmm0
+  GUID ActivityId; // xmm0
   unsigned int v31; // esi
   void *v32; // rcx
   _BYTE *v33; // rdi
@@ -70,24 +70,24 @@ __int64 __fastcall sub_18005E3C8(
   __int64 v52; // rcx
   unsigned __int16 v53; // ax
   void *v54; // rsp
-  int v55; // r15d
+  ULONG v55; // r15d
   _WORD *v56; // rbx
   unsigned __int16 v57; // di
   _DWORD *v58; // rdx
   void *v59; // rbx
   char v60; // [rsp+0h] [rbp-810h] BYREF
-  size_t *p_Size; // [rsp+800h] [rbp-10h]
-  unsigned __int16 v62; // [rsp+810h] [rbp+0h]
-  char v63; // [rsp+814h] [rbp+4h]
-  char v64; // [rsp+815h] [rbp+5h]
-  char v65; // [rsp+816h] [rbp+6h]
-  unsigned __int16 v66[2]; // [rsp+818h] [rbp+8h] BYREF
-  int v67; // [rsp+81Ch] [rbp+Ch]
-  unsigned __int16 v68; // [rsp+820h] [rbp+10h]
-  int v69; // [rsp+824h] [rbp+14h]
-  size_t Size; // [rsp+828h] [rbp+18h] BYREF
+  unsigned __int16 v61; // [rsp+810h] [rbp+0h]
+  char v62; // [rsp+814h] [rbp+4h]
+  char v63; // [rsp+815h] [rbp+5h]
+  char v64; // [rsp+816h] [rbp+6h]
+  unsigned __int16 v65[2]; // [rsp+818h] [rbp+8h] BYREF
+  int v66; // [rsp+81Ch] [rbp+Ch]
+  unsigned __int16 v67; // [rsp+820h] [rbp+10h]
+  int v68; // [rsp+824h] [rbp+14h]
+  ULONG ReturnLength; // [rsp+828h] [rbp+18h] BYREF
+  int v70; // [rsp+82Ch] [rbp+1Ch]
   unsigned int v71; // [rsp+830h] [rbp+20h]
-  int v72; // [rsp+834h] [rbp+24h]
+  ULONG v72; // [rsp+834h] [rbp+24h]
   int v73; // [rsp+838h] [rbp+28h]
   unsigned __int16 *v74; // [rsp+840h] [rbp+30h] BYREF
   unsigned int v75; // [rsp+848h] [rbp+38h] BYREF
@@ -100,7 +100,7 @@ __int64 __fastcall sub_18005E3C8(
   void *Src; // [rsp+890h] [rbp+80h]
   void *v83; // [rsp+898h] [rbp+88h]
   _BYTE *v84; // [rsp+8A0h] [rbp+90h]
-  char v85[16]; // [rsp+8C0h] [rbp+B0h] BYREF
+  char TokenInformation[16]; // [rsp+8C0h] [rbp+B0h] BYREF
   char v86[80]; // [rsp+8D0h] [rbp+C0h] BYREF
 
   v11 = a2;
@@ -110,8 +110,8 @@ __int64 __fastcall sub_18005E3C8(
   v81 = a10;
   v13 = 0;
   v76 = 0LL;
-  v66[0] = 0;
-  v68 = 0;
+  v65[0] = 0;
+  v67 = 0;
   Src = 0LL;
   *(_DWORD *)(a10 + 128) = 0;
   if ( a8 > 0x80 )
@@ -122,14 +122,14 @@ __int64 __fastcall sub_18005E3C8(
     {
       v54 = alloca(2064LL);
       v76 = &v60;
-      sub_180104C60(&v76, v66);
+      sub_180104C60(&v76, v65);
     }
     v11 = a2;
   }
   v14 = 0;
   v71 = 0;
   v15 = a4;
-  v69 = a4;
+  v68 = a4;
   v16 = (char *)a1 + 149;
   v84 = (char *)a1 + 149;
   while ( 1 )
@@ -137,13 +137,14 @@ __int64 __fastcall sub_18005E3C8(
     v77 = 0LL;
     v74 = 0LL;
     v17 = 0LL;
-    v67 = 80;
-    v64 = 0;
+    v66 = 80;
     v63 = 0;
-    v65 = 0;
-    LOWORD(v72) = 0;
-    Size = 0LL;
     v62 = 0;
+    v64 = 0;
+    LOWORD(v72) = 0;
+    ReturnLength = 0;
+    v61 = 0;
+    v70 = 0;
     v83 = 0LL;
     if ( !_bittest(&v15, v14) )
     {
@@ -164,7 +165,7 @@ LABEL_6:
     && ((v18 & *(_QWORD *)(v16 - 13)) == 0 || (v18 & *(_QWORD *)(v16 - 21)) != *(_QWORD *)(v16 - 21)) )
   {
 LABEL_55:
-    v15 = v69;
+    v15 = v68;
     goto LABEL_6;
   }
   v19 = (unsigned __int8)v16[1];
@@ -203,28 +204,25 @@ LABEL_54:
     goto LABEL_55;
   }
   v21 = a7 != 0LL ? 104 : 80;
-  if ( (*(v16 - 5) & 1) != 0 )
+  if ( (*(v16 - 5) & 1) != 0
+    && ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 1u, TokenInformation, 0x58u, &ReturnLength) >= 0 )
   {
-    p_Size = &Size;
-    if ( (int)ZwQueryInformationToken(-6LL, 1LL, v85) >= 0 )
-    {
-      v55 = Size - 16;
-      LODWORD(Size) = v55;
-      LOWORD(v55) = (v55 + 15) & 0xFFF8;
-      v72 = v55;
-      v63 = 1;
-      v21 = (a7 != 0LL ? 104 : 80) + (unsigned __int16)v55;
-      v16 = v84;
-    }
+    v55 = ReturnLength - 16;
+    ReturnLength = v55;
+    LOWORD(v55) = (v55 + 15) & 0xFFF8;
+    v72 = v55;
+    v62 = 1;
+    v21 = (a7 != 0LL ? 104 : 80) + (unsigned __int16)v55;
+    v16 = v84;
   }
   if ( (*(v16 - 5) & 4) != 0 && v76 )
   {
-    v65 = 1;
-    v21 += v66[0];
+    v64 = 1;
+    v21 += v65[0];
   }
   if ( (*(v16 - 5) & 2) != 0 )
   {
-    v64 = 1;
+    v63 = 1;
     v21 += 16;
   }
   v22 = v81 + 32LL * *(unsigned int *)(v81 + 128);
@@ -242,14 +240,14 @@ LABEL_54:
         if ( v27 == 1 )
         {
           v24 += *(_WORD *)(16LL * v23 + v78 + 8);
-          v62 = v24;
-          ++HIDWORD(Size);
+          v61 = v24;
+          ++v70;
         }
         else if ( v27 == 2 )
         {
           Src = *(void **)(v78 + 16LL * v23);
-          v68 = *(_WORD *)(v78 + 16LL * v23 + 8);
-          v21 += (v68 + 15) & 0xFFFFFFF8;
+          v67 = *(_WORD *)(v78 + 16LL * v23 + 8);
+          v21 += (v67 + 15) & 0xFFFFFFF8;
         }
       }
       else
@@ -265,12 +263,12 @@ LABEL_54:
     v73 = 534;
   }
 LABEL_30:
-  if ( HIDWORD(Size) )
+  if ( v70 )
     v21 += (v24 + 15) & 0xFFFFFFF8;
   if ( v13 )
     goto LABEL_102;
   *(_DWORD *)(v22 + 24) = v21;
-  v28 = sub_18005F2B4(v77, v21, NtCurrentTeb()->CurrentIdealProcessor.Reserved, (unsigned int)&v80, (__int64)&v74);
+  v28 = sub_18005F2B4(v77, v21, NtCurrentTeb()->CurrentIdealProcessor.Reserved, &v80, &v74);
   if ( v28 )
   {
     v29 = v77;
@@ -287,7 +285,7 @@ LABEL_30:
       ActivityId = *a6;
     else
       ActivityId = NtCurrentTeb()->ActivityId;
-    *(struct _GUID *)(v28 + 64) = ActivityId;
+    *(GUID *)(v28 + 64) = ActivityId;
     if ( a7 )
     {
       v17 = (_WORD *)(v28 + 80);
@@ -296,29 +294,29 @@ LABEL_30:
       *(_OWORD *)(v28 + 88) = *a7;
       *(_WORD *)(v28 + 4) |= 1u;
       v31 = 104;
-      v67 = 104;
+      v66 = 104;
     }
     else
     {
-      v31 = v67;
+      v31 = v66;
     }
-    if ( v63 == 1 )
+    if ( v62 == 1 )
     {
       v56 = (_WORD *)(v28 + v31);
       v57 = v72;
       *v56 = v72;
       v56[1] = 2;
-      v56[3] = Size;
+      v56[3] = ReturnLength;
       v56[2] = 0;
-      memmove(v56 + 4, v86, (unsigned int)Size);
+      memmove(v56 + 4, v86, ReturnLength);
       *(_WORD *)(v28 + 4) |= 1u;
       v31 += v57;
-      v67 = v31;
+      v66 = v31;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v56;
     }
-    if ( v64 == 1 )
+    if ( v63 == 1 )
     {
       v58 = (_DWORD *)(v28 + v31);
       *v58 = 196624;
@@ -326,18 +324,18 @@ LABEL_30:
       v58[2] = NtCurrentPeb()->SessionId;
       *(_WORD *)(v28 + 4) |= 1u;
       v31 += 16;
-      v67 = v31;
+      v66 = v31;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v58;
     }
-    if ( v65 == 1 )
+    if ( v64 == 1 )
     {
       v59 = (void *)(v28 + v31);
-      memmove(v59, v76, v66[0]);
+      memmove(v59, v76, v65[0]);
       *(_WORD *)(v28 + 4) |= 1u;
-      v31 += v66[0];
-      v67 = v31;
+      v31 += v65[0];
+      v66 = v31;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v59;
@@ -347,8 +345,8 @@ LABEL_30:
     {
       v44 = (unsigned __int16 *)(v28 + v31);
       v74 = v44;
-      v45 = v68;
-      v46 = (v68 + 15) & 0xFFF8;
+      v45 = v67;
+      v46 = (v67 + 15) & 0xFFF8;
       *v44 = v46;
       *(_DWORD *)(v44 + 1) = 12;
       v44[3] = v45;
@@ -359,24 +357,24 @@ LABEL_30:
       memset((char *)v48 + v49, 0, v47);
       *(_WORD *)(v28 + 4) |= 1u;
       v50 = v74;
-      v31 = *v74 + v67;
-      v67 = v31;
+      v31 = *v74 + v66;
+      v66 = v31;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v50;
     }
-    if ( HIDWORD(Size) )
+    if ( v70 )
     {
       v51 = (unsigned __int16 *)(v28 + v31);
-      v52 = v62;
-      v53 = (v62 + 15) & 0xFFF8;
+      v52 = v61;
+      v53 = (v61 + 15) & 0xFFF8;
       *v51 = v53;
       *(_DWORD *)(v51 + 1) = 11;
       v51[3] = v52;
       v83 = v51 + 4;
       memset((char *)v51 + v52 + 8, 0, (unsigned __int16)(v53 - v52 - 8));
       *(_WORD *)(v28 + 4) |= 1u;
-      v67 = *v51 + v31;
+      v66 = *v51 + v31;
       if ( v17 )
         v17[2] |= 1u;
     }
@@ -384,7 +382,7 @@ LABEL_30:
     {
       v33 = (_BYTE *)(v78 + 12);
       v34 = a8;
-      v35 = v67;
+      v35 = v66;
       do
       {
         v36 = *((_DWORD *)v33 - 1);

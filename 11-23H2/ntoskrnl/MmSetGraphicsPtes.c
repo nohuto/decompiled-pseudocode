@@ -1,16 +1,16 @@
 /*
- * XREFs of MmSetGraphicsPtes @ 0x140A2EAF0
+ * XREFs of MmSetGraphicsPtes @ 0x140A2EDA0
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiGetVadPageSize @ 0x140275674 (MiGetVadPageSize.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiSetGraphicsPtes @ 0x1406264E0 (MiSetGraphicsPtes.c)
- *     MiGetAwePageSizeFromVa @ 0x14064A924 (MiGetAwePageSizeFromVa.c)
- *     MiLockAweVadsExclusive @ 0x14064B038 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14064BE88 (MiUnlockAweVadsExclusive.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiGetVadPageSize @ 0x140275904 (MiGetVadPageSize.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiSetGraphicsPtes @ 0x140626A30 (MiSetGraphicsPtes.c)
+ *     MiGetAwePageSizeFromVa @ 0x14064AE74 (MiGetAwePageSizeFromVa.c)
+ *     MiLockAweVadsExclusive @ 0x14064B588 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14064C3D8 (MiUnlockAweVadsExclusive.c)
  */
 
 __int64 __fastcall MmSetGraphicsPtes(

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiDowngradeIsolationUnitLockHandle @ 0x1403F3CF0
+ * XREFs of KiDowngradeIsolationUnitLockHandle @ 0x1403ED6A0
  * Callers:
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x14022F5B4 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
- *     KiSearchForNewThread @ 0x14023E3D0 (KiSearchForNewThread.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x140230F44 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     KiSearchForNewThread @ 0x14023FD30 (KiSearchForNewThread.c)
  * Callees:
  *     <none>
  */

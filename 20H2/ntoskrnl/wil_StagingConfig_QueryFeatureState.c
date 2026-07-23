@@ -11,12 +11,12 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall wil_StagingConfig_QueryFeatureState(int a1, __int64 a2, int a3, int a4, _DWORD *a5)
+__int64 __fastcall wil_StagingConfig_QueryFeatureState(unsigned int a1, __int64 a2, int a3, int a4, _DWORD *a5)
 {
   unsigned int FeatureState; // esi
   __int64 v10; // r8
   PVOID v12[12]; // [rsp+30h] [rbp-168h] BYREF
-  char v13[208]; // [rsp+90h] [rbp-108h] BYREF
+  _BYTE v13[208]; // [rsp+90h] [rbp-108h] BYREF
 
   FeatureState = 0;
   memset(v12, 0, 0x58uLL);

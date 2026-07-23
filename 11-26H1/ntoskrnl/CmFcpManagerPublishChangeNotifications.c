@@ -1,44 +1,53 @@
 /*
- * XREFs of CmFcpManagerPublishChangeNotifications @ 0x140ABF21C
+ * XREFs of CmFcpManagerPublishChangeNotifications @ 0x140AC12BC
  * Callers:
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140860BF0 (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x1408611C4 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140ABEC64 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140866EE0 (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x1408674B4 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140AC0D04 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     CmpWorkItemQueueWork @ 0x140356AAC (CmpWorkItemQueueWork.c)
- *     ZwQueryWnfStateData @ 0x140726210 (ZwQueryWnfStateData.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     CmpWorkItemQueueWork @ 0x14035884C (CmpWorkItemQueueWork.c)
+ *     ZwQueryWnfStateData @ 0x14072ADE0 (ZwQueryWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall CmFcpManagerPublishChangeNotifications(
+int __fastcall CmFcpManagerPublishChangeNotifications(
         __int64 a1,
-        __int64 a2,
+        unsigned __int64 a2,
         __int64 a3,
         struct _KLOCK_ENTRIES *a4)
 {
   void *v4; // rdx
   LegacyAutoBoost *v5; // rbx
-  struct _SINGLE_LIST_ENTRY *i; // rbx
-  char ForegroundLossTime_high; // bl
-  __int64 result; // rax
-  __int64 v9; // [rsp+A8h] [rbp+40h] BYREF
-  int v10; // [rsp+B0h] [rbp+48h]
-  int v11; // [rsp+B8h] [rbp+50h]
+  __int64 i; // rbx
+  unsigned __int8 v7; // bl
+  int result; // eax
+  ULONG v9; // [rsp+40h] [rbp-28h] BYREF
+  unsigned __int64 Buffer; // [rsp+48h] [rbp-20h] BYREF
+  _QWORD v11[3]; // [rsp+50h] [rbp-18h] BYREF
+  ULONG ChangeStamp; // [rsp+A0h] [rbp+38h] BYREF
+  int v13; // [rsp+A4h] [rbp+3Ch]
+  unsigned __int64 v14; // [rsp+A8h] [rbp+40h] BYREF
+  ULONG v15; // [rsp+B0h] [rbp+48h] BYREF
+  ULONG BufferSize; // [rsp+B8h] [rbp+50h] BYREF
 
-  v9 = a2;
-  v10 = 0;
-  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpFreezeListLock.Spare36, 0LL, 0LL, a4);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpFreezeListLock.Spare36, 17LL, 0LL) )
+  v14 = a2;
+  v13 = HIDWORD(a1);
+  ChangeStamp = 0;
+  v9 = 0;
+  v11[0] = 0LL;
+  v15 = 0;
+  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpFreezeListLock.ReadTransferCount, 0LL, 0LL, a4);
+  if ( _InterlockedCompareExchange64(&CmpFreezeListLock.ReadTransferCount, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(
-      (signed __int64 *)&CmpFreezeListLock.Spare36,
+      &CmpFreezeListLock.ReadTransferCount,
       0,
       v5,
-      (struct _KTHREAD *)&CmpFreezeListLock.Spare36);
+      (struct _KTHREAD *)&CmpFreezeListLock.ReadTransferCount);
   if ( v5 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -46,37 +55,47 @@ __int64 __fastcall CmFcpManagerPublishChangeNotifications(
     else
       *((_BYTE *)v5 + 10) = 1;
   }
-  for ( i = CmpFreezeListLock.SystemAffinityTokenListHead.Next;
-        i != &CmpFreezeListLock.SystemAffinityTokenListHead;
-        i = i->Next )
-  {
-    CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)&i[2]);
-  }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpFreezeListLock.Spare36, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&CmpFreezeListLock.Spare36);
-  KeAbPostRelease((unsigned __int64)&CmpFreezeListLock.Spare36);
-  ForegroundLossTime_high = HIBYTE(CmpFreezeListLock.ForegroundLossTime);
+  for ( i = CmpFreezeListLock.WriteTransferCount; (__int64 *)i != &CmpFreezeListLock.WriteTransferCount; i = *(_QWORD *)i )
+    CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(i + 16));
+  if ( _InterlockedCompareExchange64(&CmpFreezeListLock.ReadTransferCount, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared(&CmpFreezeListLock.ReadTransferCount);
+  KeAbPostRelease((unsigned __int64)&CmpFreezeListLock.ReadTransferCount);
+  v7 = CmpFreezeListLock.SchedulerApcFill3[51];
   while ( 1 )
   {
-    v11 = 8;
-    result = ZwQueryWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)CmFcpWnfTypeId);
-    if ( (int)result < 0 )
+    Buffer = 0LL;
+    BufferSize = 8;
+    result = ZwQueryWnfStateData(
+               &WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
+               &CmFcpWnfTypeId,
+               0LL,
+               &ChangeStamp,
+               &Buffer,
+               &BufferSize);
+    if ( result < 0 )
       break;
-    result = v9;
-    if ( !v9 )
+    result = v14;
+    if ( Buffer >= v14 )
       break;
-    result = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)&v9);
-    if ( (((_DWORD)result + 0x80000000) & 0x80000000) == 0 && (_DWORD)result != -1073741823 )
+    result = ZwUpdateWnfStateData(
+               &WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
+               &v14,
+               8u,
+               &CmFcpWnfTypeId,
+               0LL,
+               ChangeStamp,
+               1u);
+    if ( ((result + 0x80000000) & 0x80000000) == 0 && result != -1073741823 )
       break;
-    if ( ForegroundLossTime_high && (int)result >= 0 )
+    if ( v7 && result >= 0 )
     {
-      v10 = 8;
-      result = ZwQueryWnfStateData((__int64)&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, 0LL);
-      if ( (int)result >= 0 )
+      v15 = 8;
+      result = ZwQueryWnfStateData(&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, 0LL, 0LL, &v9, v11, &v15);
+      if ( result >= 0 )
       {
-        result = v9;
-        if ( v9 )
-          return ZwUpdateWnfStateData((__int64)&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, (__int64)&v9);
+        result = v14;
+        if ( v11[0] < v14 )
+          return ZwUpdateWnfStateData(&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, &v14, 8u, 0LL, 0LL, 0, 0);
       }
       return result;
     }

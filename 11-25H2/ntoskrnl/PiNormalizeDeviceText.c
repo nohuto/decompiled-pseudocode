@@ -43,8 +43,9 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   wchar_t *EndPtr; // [rsp+60h] [rbp-49h] BYREF
   void *v22; // [rsp+68h] [rbp-41h]
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-39h] BYREF
-  size_t pcbRemaining[2]; // [rsp+80h] [rbp-29h] BYREF
-  wchar_t *v25; // [rsp+90h] [rbp-19h]
+  size_t pcbRemaining; // [rsp+80h] [rbp-29h] BYREF
+  __int64 v25; // [rsp+88h] [rbp-21h]
+  wchar_t *v26; // [rsp+90h] [rbp-19h]
   PVOID P; // [rsp+98h] [rbp-11h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-9h] BYREF
   ULONG Length; // [rsp+120h] [rbp+77h] BYREF
@@ -55,7 +56,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   v3 = 0LL;
   Length = 0;
   DestinationString = 0LL;
-  pcbRemaining[0] = 0LL;
+  pcbRemaining = 0LL;
   v4 = 0LL;
   memset(&ObjectAttributes, 0, 44);
   v22 = 0LL;
@@ -93,7 +94,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
     *v11 = 0;
     v12 = v11 + 1;
   }
-  pcbRemaining[1] = wcstoi64(v10, &EndPtr, 10);
+  v25 = wcstoi64(v10, &EndPtr, 10);
   if ( *EndPtr )
     goto LABEL_35;
   RtlInitUnicodeString(&String2, v8);
@@ -129,8 +130,8 @@ LABEL_21:
           if ( RtlPrefixUnicodeString(&String2, &DestinationString, 1u) )
           {
             v13 = DestinationString.Length - 24;
-            v25 = DestinationString.Buffer + 12;
-            inited = PiGetDefaultMessageString(KeyHandle);
+            v26 = DestinationString.Buffer + 12;
+            inited = PiGetDefaultMessageString(KeyHandle, v25);
             if ( inited < 0 )
             {
               v3 = v22;
@@ -159,10 +160,10 @@ LABEL_21:
               v5 = v18;
               if ( !v18 )
                 goto LABEL_21;
-              inited = RtlStringCbPrintfExW(v18, v17, &EndPtr, pcbRemaining, 0, L"@%s,#%s;%s", v25, v10, v3);
+              inited = RtlStringCbPrintfExW(v18, v17, &EndPtr, &pcbRemaining, 0, L"@%s,#%s;%s", v26, v10, v3);
               if ( inited >= 0 )
               {
-                if ( !v12 || (inited = RtlStringCbPrintfW(EndPtr, pcbRemaining[0], L";(%s)", v12), inited >= 0) )
+                if ( !v12 || (inited = RtlStringCbPrintfW(EndPtr, pcbRemaining, L";(%s)", v12), inited >= 0) )
                 {
                   *a2 = v5;
 LABEL_35:

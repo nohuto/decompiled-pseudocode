@@ -1,15 +1,15 @@
 /*
- * XREFs of KiStopProfileTarget @ 0x1403C8500
+ * XREFs of KiStopProfileTarget @ 0x1403A55C0
  * Callers:
- *     KeStopProfile @ 0x1405BF174 (KeStopProfile.c)
+ *     KeStopProfile @ 0x1405BC7A4 (KeStopProfile.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeSubtractAffinityEx2 @ 0x140354F10 (KeSubtractAffinityEx2.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalStopProfileInterrupt @ 0x140545060 (HalStopProfileInterrupt.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeSubtractAffinityEx2 @ 0x1402B2C40 (KeSubtractAffinityEx2.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalStopProfileInterrupt @ 0x140542920 (HalStopProfileInterrupt.c)
  */
 
 ULONG_PTR __fastcall KiStopProfileTarget(_QWORD *Argument)
@@ -80,7 +80,7 @@ LABEL_20:
       {
         _BitScanForward64(&v16, v14);
         v14 &= ~(1LL << v16);
-        v17 = *((unsigned int *)qword_140F21E78 + 64 * v13 + (unsigned __int8)v16);
+        v17 = *((unsigned int *)qword_140F22998 + 64 * v13 + (unsigned __int8)v16);
         if ( (*((_DWORD *)v11 + v17 + 72))-- == 1 )
           KeAddProcessorAffinityEx((unsigned __int16 *)v2 + 8, v17);
         goto LABEL_20;
@@ -109,7 +109,7 @@ LABEL_20:
   _InterlockedDecrement((volatile signed __int32 *)v2 + 3);
   while ( *((int *)v2 + 3) > 0 )
     _mm_pause();
-  if ( (unsigned int)KeCheckProcessorAffinityEx(v2 + 2, KeGetCurrentPrcb()->Number) )
+  if ( (unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)v2 + 8, KeGetCurrentPrcb()->Number) )
     HalStopProfileInterrupt((unsigned int)*(__int16 *)(v1 + 608));
   if ( KiIrqlFlags )
   {

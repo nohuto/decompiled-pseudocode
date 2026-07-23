@@ -8,18 +8,23 @@
  *     sub_1800621C4 @ 0x1800621C4 (sub_1800621C4.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToMultiByteN(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeToMultiByteN(
+        PCHAR MultiByteString,
+        ULONG MaxBytesInMultiByteString,
+        PULONG BytesInMultiByteString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  int v3; // edx
-  char v4; // cl
-  int v5; // r8d
-  int v6; // r9d
-  int v7; // r10d
-  int v8; // r11d
+  ULONG v5; // edx
+  char v6; // cl
+  ULONG *v7; // r8
+  const WCHAR *v8; // r9
+  ULONG v9; // r10d
+  CHAR *v10; // r11
 
-  if ( (unsigned __int8)sub_1800621C4(0LL, a2, a3) )
-    return sub_1800E3E40(v8, v3, v5, v6, v7);
-  if ( NlsMbCodePageTag == v4 )
-    return sub_18006206C(v8, v3, v5, v6, v7, qword_180166528, qword_180166530);
-  return sub_1800E3D40(v8, v3, v5, v6, v7);
+  if ( (unsigned __int8)sub_1800621C4(0LL, MaxBytesInMultiByteString, BytesInMultiByteString) )
+    return sub_1800E3E40(v10, v5, v9);
+  if ( NlsMbCodePageTag == v6 )
+    return sub_18006206C((_DWORD)v10, v5, (_DWORD)v7, (_DWORD)v8, v9, qword_180166528, qword_180166530);
+  return sub_1800E3D40(v10, v5, v7, v8, v9);
 }

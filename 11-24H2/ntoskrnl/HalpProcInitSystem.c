@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpProcInitSystem @ 0x140B4D1C0
+ * XREFs of HalpProcInitSystem @ 0x140B4F200
  * Callers:
  *     <none>
  * Callees:
- *     HalpMcUpdateMicrocode @ 0x1404D1C2C (HalpMcUpdateMicrocode.c)
- *     HalpMcUpdatePostUpdate @ 0x1404D9190 (HalpMcUpdatePostUpdate.c)
- *     HalpProcGetFeatureBits @ 0x14054D160 (HalpProcGetFeatureBits.c)
- *     HalpInterruptStartBlockedProcessors @ 0x1405574D4 (HalpInterruptStartBlockedProcessors.c)
- *     HalpMcUpdateInitializeBSP @ 0x140559BAC (HalpMcUpdateInitializeBSP.c)
- *     PrExtControlOperations @ 0x140663EEC (PrExtControlOperations.c)
- *     PrExtLogToTelemetry @ 0x140664244 (PrExtLogToTelemetry.c)
- *     HalpProcInitDiscard @ 0x140C0F4B0 (HalpProcInitDiscard.c)
- *     HalpBlkInitSystem @ 0x140C144B8 (HalpBlkInitSystem.c)
+ *     HalpMcUpdateMicrocode @ 0x1404CAC6C (HalpMcUpdateMicrocode.c)
+ *     HalpMcUpdatePostUpdate @ 0x1404D25E0 (HalpMcUpdatePostUpdate.c)
+ *     HalpProcGetFeatureBits @ 0x14054AA20 (HalpProcGetFeatureBits.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x140554E14 (HalpInterruptStartBlockedProcessors.c)
+ *     HalpMcUpdateInitializeBSP @ 0x1405577DC (HalpMcUpdateInitializeBSP.c)
+ *     PrExtControlOperations @ 0x1406627DC (PrExtControlOperations.c)
+ *     PrExtLogToTelemetry @ 0x140662B34 (PrExtLogToTelemetry.c)
+ *     HalpProcInitDiscard @ 0x140C114B0 (HalpProcInitDiscard.c)
+ *     HalpBlkInitSystem @ 0x140C164B8 (HalpBlkInitSystem.c)
  */
 
 __int64 __fastcall HalpProcInitSystem(__int64 a1, __int64 a2, __int64 a3)

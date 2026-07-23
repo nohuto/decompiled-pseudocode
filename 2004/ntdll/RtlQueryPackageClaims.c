@@ -11,65 +11,71 @@
  *     __security_check_cookie @ 0x18008C240 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlQueryPackageClaims(
-        int a1,
-        __int64 a2,
-        _QWORD *a3,
-        __int64 a4,
-        _QWORD *a5,
-        _OWORD *a6,
-        __int64 a7,
-        __int64 a8)
+NTSTATUS __cdecl RtlQueryPackageClaims(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PGUID DynamicId,
+        PPS_PKG_CLAIM PkgClaim,
+        PULONG64 AttributesPresent)
 {
-  __int64 result; // rax
-  unsigned int v12; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v12; // ebx
   __int64 v13; // rcx
   __int64 v14; // [rsp+40h] [rbp-388h] BYREF
   char v15; // [rsp+48h] [rbp-380h] BYREF
-  char v16; // [rsp+50h] [rbp-378h] BYREF
-  __int64 v17; // [rsp+58h] [rbp-370h]
+  __int64 v16; // [rsp+58h] [rbp-370h]
 
-  result = RtlpQueryPackageIdentityAttributes(a1, a2, (unsigned int)&v16, a7, a8);
+  result = RtlpQueryPackageIdentityAttributes(TokenHandle, (__int64)AttributesPresent);
   v12 = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
-  if ( a2 )
+  if ( PackageFullName )
   {
-    if ( a3 )
+    if ( PackageSize )
     {
       result = RtlStringCbPrintfExW(
-                 a2,
-                 *a3,
+                 (_DWORD)PackageFullName,
+                 *PackageSize,
                  (unsigned int)&v14,
                  (unsigned int)&v15,
                  2048,
                  (__int64)L"%wZ",
-                 *(_QWORD *)(v17 + 32));
+                 *(_QWORD *)(v16 + 32));
       v12 = result;
-      if ( (int)result < 0 )
+      if ( result < 0 )
         return result;
-      *a3 = v14 - a2 + 2;
+      *PackageSize = v14 - (_QWORD)PackageFullName + 2;
       goto LABEL_5;
     }
-    return 3221225485LL;
+    return -1073741811;
   }
-  if ( a3 )
-    return 3221225485LL;
+  if ( PackageSize )
+    return -1073741811;
 LABEL_5:
-  if ( a4 )
+  if ( AppId )
   {
-    result = RtlStringCbPrintfExW(a4, *a5, (unsigned int)&v14, 0, 2048, (__int64)L"%wZ", *(_QWORD *)(v17 + 32) + 16LL);
+    result = RtlStringCbPrintfExW(
+               (_DWORD)AppId,
+               *AppIdSize,
+               (unsigned int)&v14,
+               0,
+               2048,
+               (__int64)L"%wZ",
+               *(_QWORD *)(v16 + 32) + 16LL);
     v12 = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
-    *a5 = v14 - a4 + 2;
+    *AppIdSize = v14 - (_QWORD)AppId + 2;
   }
-  if ( a6 )
+  if ( DynamicId )
   {
-    v13 = v17;
-    *a6 = 0LL;
+    v13 = v16;
+    *DynamicId = 0LL;
     if ( *(_DWORD *)(v13 + 24) > 3u )
-      RtlGUIDFromString(*(_QWORD *)(v13 + 32) + 48LL, a6);
+      RtlGUIDFromString((PUNICODE_STRING)(*(_QWORD *)(v13 + 32) + 48LL), DynamicId);
   }
   return v12;
 }

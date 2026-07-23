@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertNonPagedPoolOnSlist @ 0x1400114D0
+ * XREFs of MiInsertNonPagedPoolOnSlist @ 0x140011050
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
  * Callees:
- *     MiLockNonPagedPoolPte @ 0x140024750 (MiLockNonPagedPoolPte.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1AF8 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockNonPagedPoolPte @ 0x1400242D0 (MiLockNonPagedPoolPte.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1924 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiInsertNonPagedPoolOnSlist(unsigned __int64 *a1, unsigned __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall MiInsertNonPagedPoolOnSlist(unsigned __int64 *a1, unsigned __
   unsigned int v23; // r13d
   __int64 v24; // r10
   __int64 v25; // r12
-  union _SLIST_HEADER *v26; // r12
+  _SLIST_HEADER *v26; // r12
   int v27; // r14d
   unsigned __int64 v28; // r15
   int v29; // r10d
@@ -48,7 +48,7 @@ __int64 __fastcall MiInsertNonPagedPoolOnSlist(unsigned __int64 *a1, unsigned __
   __int64 v31; // r9
   __int64 v32; // rax
   int v33; // ecx
-  struct _SLIST_ENTRY *v35; // rcx
+  _SLIST_ENTRY *v35; // rcx
   unsigned __int8 v36[8]; // [rsp+30h] [rbp-59h] BYREF
   unsigned __int64 v37; // [rsp+38h] [rbp-51h] BYREF
   int v38; // [rsp+40h] [rbp-49h] BYREF
@@ -163,8 +163,8 @@ LABEL_7:
   if ( v39 > 3 )
     return v23;
   v25 = (v23 & 0x200) != 0 ? 26LL * (unsigned int)v24 + v39 + 3 : v39 + 26LL * (unsigned int)v24;
-  v26 = &qword_1403269B0[v25];
-  if ( LOWORD(v26->Alignment) >= (unsigned int)dword_140326448[v39 - 1] )
+  v26 = &qword_1403269F0[v25];
+  if ( LOWORD(v26->Alignment) >= (unsigned int)dword_140326488[v39 - 1] )
     return v23;
   v27 = 1;
   v28 = 1LL;
@@ -232,8 +232,8 @@ LABEL_7:
     if ( !v27 )
       return v23;
   }
-  v35 = (struct _SLIST_ENTRY *)v42;
-  *v42 = qword_140327780 ^ (unsigned __int64)v42;
+  v35 = (_SLIST_ENTRY *)v42;
+  *v42 = qword_1403277C0 ^ (unsigned __int64)v42;
   RtlpInterlockedPushEntrySList(v26, v35 + 1);
   return 1LL;
 }

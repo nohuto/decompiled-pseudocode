@@ -1,11 +1,11 @@
 /*
- * XREFs of KdpLowRestoreBreakpoint @ 0x140B79A54
+ * XREFs of KdpLowRestoreBreakpoint @ 0x140B7BA54
  * Callers:
- *     KdpRestoreAllBreakpoints @ 0x140B79C58 (KdpRestoreAllBreakpoints.c)
+ *     KdpRestoreAllBreakpoints @ 0x140B7BC58 (KdpRestoreAllBreakpoints.c)
  * Callees:
- *     KdpIsBreakpoint @ 0x1405B03C8 (KdpIsBreakpoint.c)
- *     KdpCopyCodeStream @ 0x140B7930C (KdpCopyCodeStream.c)
- *     KdpInsertBreakpoint @ 0x140B799F0 (KdpInsertBreakpoint.c)
+ *     KdpIsBreakpoint @ 0x1405AD338 (KdpIsBreakpoint.c)
+ *     KdpCopyCodeStream @ 0x140B7B30C (KdpCopyCodeStream.c)
+ *     KdpInsertBreakpoint @ 0x140B7B9F0 (KdpInsertBreakpoint.c)
  */
 
 char __fastcall KdpLowRestoreBreakpoint(unsigned int a1)

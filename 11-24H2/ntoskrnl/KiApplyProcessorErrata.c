@@ -1,10 +1,10 @@
 /*
- * XREFs of KiApplyProcessorErrata @ 0x1405C0334
+ * XREFs of KiApplyProcessorErrata @ 0x1405BD910
  * Callers:
- *     KiRestoreFeatureBits @ 0x1404CD7D0 (KiRestoreFeatureBits.c)
- *     KiSetFeatureBits @ 0x140B59BF4 (KiSetFeatureBits.c)
+ *     KiRestoreFeatureBits @ 0x1404C6BA0 (KiRestoreFeatureBits.c)
+ *     KiSetFeatureBits @ 0x140B5BC74 (KiSetFeatureBits.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1404A37D0 (HviIsAnyHypervisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x14049E730 (HviIsAnyHypervisorPresent.c)
  */
 
 void __fastcall KiApplyProcessorErrata(_BYTE *a1)
@@ -25,8 +25,7 @@ void __fastcall KiApplyProcessorErrata(_BYTE *a1)
       if ( ((unsigned __int8)(v4 - 48) <= 0x1Fu || v4 >= 0x60u) && !HviIsAnyHypervisorPresent() )
       {
         __writemsr(0xC00110E3, __readmsr(0xC00110E3) | 2);
-        if ( Feature_MSRC101641_Enabled )
-          __writemsr(0xC001102E, __readmsr(0xC001102E) | 0x200000000LL);
+        __writemsr(0xC001102E, __readmsr(0xC001102E) | 0x200000000LL);
       }
     }
   }

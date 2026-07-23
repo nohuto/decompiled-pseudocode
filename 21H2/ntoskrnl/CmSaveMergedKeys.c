@@ -1,46 +1,46 @@
 /*
- * XREFs of CmSaveMergedKeys @ 0x14087CA90
+ * XREFs of CmSaveMergedKeys @ 0x14087CBF0
  * Callers:
- *     NtSaveMergedKeys @ 0x1408697A0 (NtSaveMergedKeys.c)
+ *     NtSaveMergedKeys @ 0x140869900 (NtSaveMergedKeys.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpLockTwoKcbsShared @ 0x1405F38C0 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
- *     CmUnlockHiveSecurity @ 0x14066A1E4 (CmUnlockHiveSecurity.c)
- *     CmpBlockTwoHiveWrites @ 0x140672454 (CmpBlockTwoHiveWrites.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x1406FC600 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpUuidCreate @ 0x1407167B4 (CmpUuidCreate.c)
- *     HvUnlockHiveFlusherExclusive @ 0x14071E188 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x14071E1C0 (HvLockHiveFlusherExclusive.c)
- *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
- *     HvWriteExternal @ 0x140728FA0 (HvWriteExternal.c)
- *     CmpCreateTemporaryHive @ 0x14072A3FC (CmpCreateTemporaryHive.c)
- *     CmpCopyKeyPartial @ 0x14076F88C (CmpCopyKeyPartial.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140871AC4 (CmpDoAccessCheckOnSubtree.c)
- *     CmLockHiveSecurityShared @ 0x140875B88 (CmLockHiveSecurityShared.c)
- *     CmpLogUnsupportedOperation @ 0x14087634C (CmpLogUnsupportedOperation.c)
- *     CmpCopySyncTree @ 0x1408784E4 (CmpCopySyncTree.c)
- *     CmpMergeKeyValues @ 0x140879480 (CmpMergeKeyValues.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmUnlockHiveSecurity @ 0x14065F004 (CmUnlockHiveSecurity.c)
+ *     CmpBlockTwoHiveWrites @ 0x140667684 (CmpBlockTwoHiveWrites.c)
+ *     CmpUuidCreate @ 0x1406C4E04 (CmpUuidCreate.c)
+ *     CmpLockTwoKcbsShared @ 0x1406E3020 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1406E30B0 (CmpUnlockTwoKcbs.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x1406F97EC (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x1406F9824 (HvLockHiveFlusherExclusive.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1407139E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpDestroyHive @ 0x1407293E8 (CmpDestroyHive.c)
+ *     HvWriteExternal @ 0x140729450 (HvWriteExternal.c)
+ *     CmpCreateTemporaryHive @ 0x14072A8AC (CmpCreateTemporaryHive.c)
+ *     CmpCopyKeyPartial @ 0x14076FA4C (CmpCopyKeyPartial.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140871C24 (CmpDoAccessCheckOnSubtree.c)
+ *     CmLockHiveSecurityShared @ 0x140875CE8 (CmLockHiveSecurityShared.c)
+ *     CmpLogUnsupportedOperation @ 0x1408764AC (CmpLogUnsupportedOperation.c)
+ *     CmpCopySyncTree @ 0x140878644 (CmpCopySyncTree.c)
+ *     CmpMergeKeyValues @ 0x1408795E0 (CmpMergeKeyValues.c)
  */
 
 __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  ULONG_PTR v4; // rax
-  ULONG_PTR v5; // rcx
+  unsigned __int64 v4; // rax
+  unsigned __int64 v5; // rcx
   ULONG_PTR TemporaryHive; // rdi
-  __int64 v7; // r14
+  _DWORD *v7; // r14
   __int64 v8; // r12
   _DWORD *v9; // r13
   __int64 v10; // rsi
   char v11; // r15
   int v12; // ebx
-  ULONG_PTR v13; // r13
-  ULONG_PTR v14; // r12
+  unsigned __int64 v13; // r13
+  unsigned __int64 v14; // r12
   int v15; // r12d
   __int64 v16; // r8
   __int64 v17; // r8
@@ -51,8 +51,8 @@ __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3, char a4)
   const GUID *v22; // r9
   __int64 v24; // [rsp+28h] [rbp-A1h]
   char v25; // [rsp+40h] [rbp-89h]
-  ULONG_PTR v27; // [rsp+48h] [rbp-81h]
-  ULONG_PTR v28; // [rsp+50h] [rbp-79h]
+  unsigned __int64 v27; // [rsp+48h] [rbp-81h]
+  unsigned __int64 v28; // [rsp+50h] [rbp-79h]
   unsigned int v29; // [rsp+58h] [rbp-71h]
   _DWORD v30[2]; // [rsp+60h] [rbp-69h] BYREF
   _DWORD v31[2]; // [rsp+68h] [rbp-61h] BYREF
@@ -78,7 +78,7 @@ __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3, char a4)
   v27 = v4;
   TemporaryHive = 0LL;
   v36 = 0LL;
-  v7 = *(_QWORD *)(v4 + 32);
+  v7 = *(_DWORD **)(v4 + 32);
   v8 = 0LL;
   v9 = 0LL;
   v10 = *(_QWORD *)(v5 + 32);
@@ -95,7 +95,7 @@ __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3, char a4)
   v12 = CmpUuidCreate(&v36);
   if ( v12 < 0 )
     goto LABEL_41;
-  if ( v10 == CmpMasterHive || v7 == CmpMasterHive )
+  if ( (PVOID)v10 == CmpMasterHive || v7 == CmpMasterHive )
   {
     if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
     {
@@ -104,7 +104,7 @@ __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3, char a4)
       v40 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02130,
-        (unsigned __int8 *)byte_140023BE5,
+        (unsigned __int8 *)byte_140023CA5,
         0LL,
         v22,
         3u,
@@ -113,7 +113,7 @@ __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3, char a4)
     v12 = -1073741790;
     goto LABEL_37;
   }
-  if ( v10 == v7 )
+  if ( (_DWORD *)v10 == v7 )
   {
     v12 = -1073741811;
 LABEL_41:
@@ -136,8 +136,7 @@ LABEL_41:
     v12 = -1073741444;
     goto LABEL_43;
   }
-  if ( (*(_DWORD *)(v7 + 160) & 2) != 0 && *(_DWORD *)(v7 + 104)
-    || (*(_DWORD *)(v10 + 160) & 2) != 0 && *(_DWORD *)(v10 + 104) )
+  if ( (v7[40] & 2) != 0 && v7[26] || (*(_DWORD *)(v10 + 160) & 2) != 0 && *(_DWORD *)(v10 + 104) )
   {
     v12 = -1073741811;
     goto LABEL_43;
@@ -148,15 +147,15 @@ LABEL_41:
     v12 = -1073741670;
     goto LABEL_43;
   }
-  v12 = CmpBlockTwoHiveWrites(v10, v7, 0);
+  v12 = CmpBlockTwoHiveWrites(v10, (__int64)v7, 0);
   if ( v12 >= 0 )
   {
     v11 = 6;
-    CmLockHiveSecurityShared(v7);
+    CmLockHiveSecurityShared((__int64)v7);
     v15 = v32;
     LOBYTE(v16) = a4;
-    v12 = CmpDoAccessCheckOnSubtree(v7, v32, v16, (struct _LOOKASIDE_LIST_EX *)0x20019, 3);
-    CmUnlockHiveSecurity(v7);
+    v12 = CmpDoAccessCheckOnSubtree((__int64)v7, v32, v16, (struct _LOOKASIDE_LIST_EX *)0x20019, 3);
+    CmUnlockHiveSecurity((__int64)v7);
     if ( v12 < 0 )
       goto LABEL_42;
     CmLockHiveSecurityShared(v10);
@@ -167,16 +166,17 @@ LABEL_41:
       goto LABEL_42;
     HvLockHiveFlusherExclusive(TemporaryHive);
     v11 = 7;
-    v18 = CmpCopyKeyPartial(v7, v32, TemporaryHive, 0xFFFFFFFF, 6, v24, 0);
+    v18 = CmpCopyKeyPartial((__int64)v7, v32, TemporaryHive, 0xFFFFFFFF, 6, v24, 0);
     if ( v18 == -1
-      || (*(_DWORD *)(*(_QWORD *)(TemporaryHive + 64) + 36LL) = v18, !CmpCopySyncTree(v7, v15, TemporaryHive, v18, 2, 0)) )
+      || (*(_DWORD *)(*(_QWORD *)(TemporaryHive + 64) + 36LL) = v18,
+          !CmpCopySyncTree((int)v7, v15, TemporaryHive, v18, 2, 0)) )
     {
       v12 = -1073741670;
 LABEL_42:
       v14 = v27;
       goto LABEL_43;
     }
-    HvUnlockHiveFlusherExclusive(v7);
+    HvUnlockHiveFlusherExclusive((__int64)v7);
     v11 = 5;
     v9 = (_DWORD *)(*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(v10 + 8))(v10, v29, v30);
     if ( !v9 )
@@ -219,7 +219,7 @@ LABEL_43:
   if ( (v11 & 4) != 0 )
     HvUnlockHiveFlusherExclusive(v10);
   if ( (v11 & 2) != 0 )
-    HvUnlockHiveFlusherExclusive(v7);
+    HvUnlockHiveFlusherExclusive((__int64)v7);
   if ( (v11 & 1) != 0 )
     HvUnlockHiveFlusherExclusive(TemporaryHive);
   if ( v25 )

@@ -148,7 +148,7 @@
  *     BgkQueryBootGraphicsInformation @ 0x140AEDF54 (BgkQueryBootGraphicsInformation.c)
  */
 
-int __fastcall ExpQuerySystemInformation(
+NTSTATUS __fastcall ExpQuerySystemInformation(
         int a1,
         void *a2,
         unsigned int a3,
@@ -168,7 +168,7 @@ int __fastcall ExpQuerySystemInformation(
   __int64 v17; // rdx
   int SystemBasicInformation; // eax
   ULONG ActiveProcessorCount; // eax
-  int result; // eax
+  NTSTATUS result; // eax
   __int64 v21; // rcx
   ULONG v22; // eax
   unsigned int v23; // ecx
@@ -176,9 +176,9 @@ int __fastcall ExpQuerySystemInformation(
   _DWORD *v25; // r15
   ULONG v26; // ecx
   __int64 v27; // rcx
-  struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *v28; // r15
+  _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *v28; // r15
   ULONG v29; // eax
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // rax
+  _PROCESSOR_NUMBER *p_ProcNumber; // rax
   unsigned __int16 v31; // ax
   unsigned __int16 v32; // cx
   unsigned __int16 v33; // cx
@@ -279,7 +279,7 @@ int __fastcall ExpQuerySystemInformation(
   unsigned __int8 PreviousMode; // [rsp+48h] [rbp-7E0h]
   unsigned __int16 v129; // [rsp+4Ch] [rbp-7DCh]
   int v130; // [rsp+50h] [rbp-7D8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+54h] [rbp-7D4h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+54h] [rbp-7D4h] BYREF
   int v132; // [rsp+58h] [rbp-7D0h]
   unsigned int Size; // [rsp+5Ch] [rbp-7CCh]
   unsigned int Size_4; // [rsp+60h] [rbp-7C8h]
@@ -289,9 +289,9 @@ int __fastcall ExpQuerySystemInformation(
   unsigned int v138; // [rsp+78h] [rbp-7B0h]
   unsigned int v139; // [rsp+7Ch] [rbp-7ACh] BYREF
   unsigned int *v140; // [rsp+80h] [rbp-7A8h]
-  char v141; // [rsp+B9h] [rbp-76Fh]
+  char Data[87]; // [rsp+B9h] [rbp-76Fh] BYREF
   _QWORD *v142; // [rsp+110h] [rbp-718h]
-  struct _PROCESSOR_NUMBER *v143; // [rsp+118h] [rbp-710h]
+  _PROCESSOR_NUMBER *v143; // [rsp+118h] [rbp-710h]
   PVOID Object; // [rsp+120h] [rbp-708h] BYREF
   int v145; // [rsp+128h] [rbp-700h] BYREF
   int v146; // [rsp+12Ch] [rbp-6FCh] BYREF
@@ -528,8 +528,8 @@ LABEL_15:
               goto LABEL_65;
             Size_4 += Size;
             PoGetIdleTimes(&ProcNumber, 0LL, (__int64)Src);
-            v27 = (unsigned int)KeMaximumIncrement;
-            *(_QWORD *)(a4 + 16) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v25[8274];
+            v27 = KeMaximumIncrement;
+            *(_QWORD *)(a4 + 16) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v25[8274];
             *(_QWORD *)(a4 + 8) = v27 * DWORD1(Src[0]);
             *(_QWORD *)(a4 + 24) = v27 * (unsigned int)v25[8275];
             *(_QWORD *)(a4 + 32) = v27 * (unsigned int)v25[8276];
@@ -734,7 +734,7 @@ LABEL_372:
           }
           else
           {
-            *(_DWORD *)a4 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)(unsigned int)KeMaximumIncrement / v50;
+            *(_DWORD *)a4 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)KeMaximumIncrement / v50;
             *(_DWORD *)(a4 + 4) = KeMaximumIncrement;
             *(_BYTE *)(a4 + 8) = v51;
           }
@@ -975,8 +975,8 @@ LABEL_122:
             v54 = KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)];
             PoGetPerfStateAndParkingInfo(&ProcNumber, (__int64)Src, 0LL, &v157);
             memset((void *)a4, 0, 0x50uLL);
-            v55 = (unsigned int)KeMaximumIncrement;
-            *(_QWORD *)(a4 + 40) = (unsigned int)KeMaximumIncrement
+            v55 = KeMaximumIncrement;
+            *(_QWORD *)(a4 + 40) = KeMaximumIncrement
                                  * (unsigned __int64)(unsigned int)(*(_DWORD *)(v54 + 33092) + *(_DWORD *)(v54 + 33096));
             *(_QWORD *)(a4 + 48) = v55 * *(unsigned int *)(*(_QWORD *)(v54 + 24) + 652LL);
             if ( BYTE12(Src[1]) )
@@ -1380,7 +1380,7 @@ LABEL_428:
           goto LABEL_30;
         case 107:
         case 231:
-          v28 = (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src;
+          v28 = (_SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src;
           P = Src;
           v29 = 80;
           if ( Length < 0x50 )
@@ -1401,9 +1401,9 @@ LABEL_428:
               {
                 if ( v127 <= Length )
                 {
-                  if ( v28 && v28 != (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src )
+                  if ( v28 && v28 != (_SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src )
                     ExFreePoolWithTag(v28, 0);
-                  v28 = (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)ExAllocatePool2(257LL, v127, 1868983881LL);
+                  v28 = (_SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)ExAllocatePool2(257LL, v127, 1868983881LL);
                   P = v28;
                   if ( v28 )
                   {
@@ -1426,7 +1426,7 @@ LABEL_428:
             }
             break;
           }
-          if ( v28 && v28 != (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src )
+          if ( v28 && v28 != (_SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src )
             ExFreePoolWithTag(v28, 0);
           goto LABEL_30;
         case 108:
@@ -1823,7 +1823,7 @@ LABEL_244:
           if ( WORD4(ExpManufacturingInformation) )
           {
             *(_QWORD *)(a4 + 16) = v73;
-            memmove(v73, qword_140C31B10, WORD5(ExpManufacturingInformation));
+            memmove(v73, ::Data, WORD5(ExpManufacturingInformation));
           }
           goto LABEL_30;
         case 158:
@@ -2125,8 +2125,8 @@ LABEL_192:
         case 186:
           if ( !Length )
           {
-            v141 = 1;
-            return ZwFilterBootOption(1LL, 270532611LL);
+            Data[0] = 1;
+            return ZwFilterBootOption(FilterBootOptionOperationSetElement, 0x10200003u, 0x260000A0u, Data, 1u);
           }
           if ( a6 )
             *a6 = 0;
@@ -2521,7 +2521,7 @@ LABEL_479:
         if ( Size < 8 )
           goto LABEL_479;
         v10 = (__int64)P;
-        ProcNumber = (struct _PROCESSOR_NUMBER)*((_DWORD *)P + 1);
+        ProcNumber = (_PROCESSOR_NUMBER)*((_DWORD *)P + 1);
         v12 = *(_DWORD *)P;
         v150 = *(_DWORD *)P;
         goto LABEL_12;

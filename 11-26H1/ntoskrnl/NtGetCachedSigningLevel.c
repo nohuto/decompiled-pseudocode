@@ -1,57 +1,57 @@
 /*
- * XREFs of NtGetCachedSigningLevel @ 0x14080F6E0
+ * XREFs of NtGetCachedSigningLevel @ 0x140815170
  * Callers:
- *     DifNtGetCachedSigningLevelWrapper @ 0x140678990 (DifNtGetCachedSigningLevelWrapper.c)
+ *     DifNtGetCachedSigningLevelWrapper @ 0x14067C570 (DifNtGetCachedSigningLevelWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SeGetCachedSigningLevel @ 0x140AAD5F0 (SeGetCachedSigningLevel.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SeGetCachedSigningLevel @ 0x140AAB6B0 (SeGetCachedSigningLevel.c)
  */
 
-__int64 __fastcall NtGetCachedSigningLevel(HANDLE Handle, _DWORD *a2, _BYTE *a3, void *a4, int *Address, _DWORD *a6)
+NTSTATUS __cdecl NtGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
   PVOID v10; // r12
   KPROCESSOR_MODE PreviousMode; // si
-  NTSTATUS CachedSigningLevel; // edi
+  int CachedSigningLevel; // edi
   unsigned int ULongFromUser; // ecx
-  int v14; // eax
+  ULONG v14; // eax
   char v16; // [rsp+30h] [rbp-C8h] BYREF
-  int v17; // [rsp+34h] [rbp-C4h] BYREF
+  ULONG v17; // [rsp+34h] [rbp-C4h] BYREF
   size_t Size; // [rsp+38h] [rbp-C0h] BYREF
   PVOID Object; // [rsp+40h] [rbp-B8h] BYREF
   int v20; // [rsp+48h] [rbp-B0h]
-  _DWORD *v21; // [rsp+50h] [rbp-A8h]
-  _BYTE *v22; // [rsp+58h] [rbp-A0h]
-  _DWORD *v23; // [rsp+60h] [rbp-98h]
+  PULONG v21; // [rsp+50h] [rbp-A8h]
+  PSE_SIGNING_LEVEL v22; // [rsp+58h] [rbp-A0h]
+  PULONG v23; // [rsp+60h] [rbp-98h]
   _BYTE Src[64]; // [rsp+70h] [rbp-88h] BYREF
 
-  v22 = a3;
-  v21 = a2;
-  v23 = a6;
+  v22 = SigningLevel;
+  v21 = Flags;
+  v23 = ThumbprintAlgorithm;
   v10 = 0LL;
   memset_0(Src, 0, sizeof(Src));
   Size = 64LL;
   v17 = 0;
   v16 = 0;
-  if ( Handle && a2 && a3 )
+  if ( File && Flags && SigningLevel )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    CachedSigningLevel = ObReferenceObjectByHandle(
-                           Handle,
-                           1u,
-                           (POBJECT_TYPE)IoFileObjectType,
-                           PreviousMode,
-                           &Object,
-                           0LL);
+    CachedSigningLevel = ObReferenceObjectByHandle(File, 1u, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
     v10 = Object;
     if ( CachedSigningLevel >= 0 )
     {
@@ -59,9 +59,9 @@ __int64 __fastcall NtGetCachedSigningLevel(HANDLE Handle, _DWORD *a2, _BYTE *a3,
                              (_DWORD)Object,
                              (unsigned int)&v17,
                              (unsigned int)&v16,
-                             (unsigned __int64)Src & -(__int64)(a4 != 0LL),
-                             (unsigned __int64)&Size & -(__int64)(a4 != 0LL),
-                             ((unsigned __int64)&Size + 4) & ((unsigned __int128)-(__int128)(unsigned __int64)a4 >> 64));
+                             (unsigned __int64)Src & -(__int64)(Thumbprint != 0LL),
+                             (unsigned __int64)&Size & -(__int64)(Thumbprint != 0LL),
+                             ((unsigned __int64)&Size + 4) & ((unsigned __int128)-(__int128)(unsigned __int64)Thumbprint >> 64));
       if ( CachedSigningLevel >= 0 )
       {
         if ( PreviousMode )
@@ -72,23 +72,23 @@ __int64 __fastcall NtGetCachedSigningLevel(HANDLE Handle, _DWORD *a2, _BYTE *a3,
           RtlWriteUCharToUser(v22, v16);
         else
           *v22 = v16;
-        if ( Address )
+        if ( ThumbprintSize )
         {
           if ( PreviousMode == 1 )
-            ProbeForWrite(Address, 4uLL, 4u);
+            ProbeForWrite(ThumbprintSize, 4uLL, 4u);
           if ( (v17 & 2) != 0 )
           {
             if ( PreviousMode )
-              ULongFromUser = RtlReadULongFromUser((unsigned int *)Address);
+              ULongFromUser = RtlReadULongFromUser(ThumbprintSize);
             else
-              ULongFromUser = *Address;
+              ULongFromUser = *ThumbprintSize;
             v14 = Size;
-            if ( ULongFromUser >= (unsigned int)Size && a4 )
+            if ( ULongFromUser >= (unsigned int)Size && Thumbprint )
             {
               if ( PreviousMode )
-                RtlCopyToUser(a4, Src, (unsigned int)Size);
+                RtlCopyToUser(Thumbprint, Src, (unsigned int)Size);
               else
-                RtlCopyVolatileMemory(a4, Src, (unsigned int)Size);
+                RtlCopyVolatileMemory(Thumbprint, Src, (unsigned int)Size);
               v14 = Size;
             }
             else
@@ -97,9 +97,9 @@ __int64 __fastcall NtGetCachedSigningLevel(HANDLE Handle, _DWORD *a2, _BYTE *a3,
               v20 = -1073741789;
             }
             if ( PreviousMode )
-              RtlWriteULongToUser(Address, v14);
+              RtlWriteULongToUser(ThumbprintSize, v14);
             else
-              *Address = v14;
+              *ThumbprintSize = v14;
             if ( v23 )
             {
               if ( PreviousMode )
@@ -110,11 +110,11 @@ __int64 __fastcall NtGetCachedSigningLevel(HANDLE Handle, _DWORD *a2, _BYTE *a3,
           }
           else if ( PreviousMode )
           {
-            RtlWriteULongToUser(Address, 0);
+            RtlWriteULongToUser(ThumbprintSize, 0);
           }
           else
           {
-            *Address = 0;
+            *ThumbprintSize = 0;
           }
         }
       }
@@ -126,5 +126,5 @@ __int64 __fastcall NtGetCachedSigningLevel(HANDLE Handle, _DWORD *a2, _BYTE *a3,
   }
   if ( v10 )
     ObfDereferenceObject(v10);
-  return (unsigned int)CachedSigningLevel;
+  return CachedSigningLevel;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of SbpParseFuncName @ 0x180113B30
+ * XREFs of SbpParseFuncName @ 0x180113AF0
  * Callers:
- *     SbpResolveBasedOnName @ 0x180113BC8 (SbpResolveBasedOnName.c)
+ *     SbpResolveBasedOnName @ 0x180113B88 (SbpResolveBasedOnName.c)
  * Callees:
- *     StringCchCopyW @ 0x1800DE0AC (StringCchCopyW.c)
- *     StringCchCopyNW @ 0x180113C84 (StringCchCopyNW.c)
+ *     StringCchCopyW @ 0x1800DE06C (StringCchCopyW.c)
+ *     StringCchCopyNW @ 0x180113C44 (StringCchCopyNW.c)
  */
 
 __int64 __fastcall SbpParseFuncName(wchar_t *pszSrc, STRSAFE_LPWSTR pszDest, __int64 a3, wchar_t *a4)

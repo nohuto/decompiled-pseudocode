@@ -17,7 +17,7 @@ NTSTATUS __stdcall NtQueryInformationAtom(
         ULONG AtomInformationLength,
         PULONG ReturnLength)
 {
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v10; // rcx
   ULONG v11; // ebx
   int AtomsInAtomTable; // edx

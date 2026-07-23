@@ -1,21 +1,21 @@
 /*
- * XREFs of VfMapTransfer @ 0x1409CC870
+ * XREFs of VfMapTransfer @ 0x1409CD870
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
- *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x1409C9E94 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
- *     VERIFY_BUFFER_LOCKED @ 0x1409CA060 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_MAX_IRQL @ 0x1409CA16C (VF_ASSERT_MAX_IRQL.c)
- *     ViCheckAdapterBuffers @ 0x1409CDB2C (ViCheckAdapterBuffers.c)
- *     ViCheckMdlLength @ 0x1409CDC54 (ViCheckMdlLength.c)
- *     ViGetAdapterInformationInternal @ 0x1409CE748 (ViGetAdapterInformationInternal.c)
- *     ViGetMapRegisterFile @ 0x1409CE914 (ViGetMapRegisterFile.c)
- *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
- *     ViHalPreprocessOptions @ 0x1409CEC60 (ViHalPreprocessOptions.c)
- *     ViMapDoubleBuffer @ 0x1409CF094 (ViMapDoubleBuffer.c)
- *     ViSwap @ 0x1409CFA00 (ViSwap.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405A2024 (VfReportIssueWithOptions.c)
+ *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x1409CAE94 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x1409CB060 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x1409CB16C (VF_ASSERT_MAX_IRQL.c)
+ *     ViCheckAdapterBuffers @ 0x1409CEB2C (ViCheckAdapterBuffers.c)
+ *     ViCheckMdlLength @ 0x1409CEC54 (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CF748 (ViGetAdapterInformationInternal.c)
+ *     ViGetMapRegisterFile @ 0x1409CF914 (ViGetMapRegisterFile.c)
+ *     ViGetRealDmaOperation @ 0x1409CFA50 (ViGetRealDmaOperation.c)
+ *     ViHalPreprocessOptions @ 0x1409CFC60 (ViHalPreprocessOptions.c)
+ *     ViMapDoubleBuffer @ 0x1409D0094 (ViMapDoubleBuffer.c)
+ *     ViSwap @ 0x1409D0A00 (ViSwap.c)
  */
 
 __int64 VfMapTransfer(__int64 a1, ...)
@@ -77,13 +77,13 @@ __int64 VfMapTransfer(__int64 a1, ...)
       {
         v11 = v10;
         ViHalPreprocessOptions(
-          byte_140C12EF4,
+          byte_140C12EF8,
           "The provided MDL is not sufficient to satisfy the requested length",
           36LL,
           v10,
           0LL,
           0LL);
-        VfReportIssueWithOptions(0xE6u, 0x24uLL, v11, 0LL, 0LL, byte_140C12EF4);
+        VfReportIssueWithOptions(0xE6u, 0x24uLL, v11, 0LL, 0LL, byte_140C12EF8);
       }
     }
     if ( v4 == -559026163 )

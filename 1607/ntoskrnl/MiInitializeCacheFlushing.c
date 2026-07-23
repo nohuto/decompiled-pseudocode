@@ -3,15 +3,15 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiFlushCacheForAttributeChange @ 0x14001D8F4 (MiFlushCacheForAttributeChange.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14001DD98 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     KeInvalidateAllCaches @ 0x1400B5930 (KeInvalidateAllCaches.c)
- *     MiZeroPhysicalPage @ 0x14010A488 (MiZeroPhysicalPage.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiFlushCacheForAttributeChange @ 0x14001D474 (MiFlushCacheForAttributeChange.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14001D918 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     KeInvalidateAllCaches @ 0x1400B3758 (KeInvalidateAllCaches.c)
+ *     MiZeroPhysicalPage @ 0x140108208 (MiZeroPhysicalPage.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -75,8 +75,8 @@ __int64 MiInitializeCacheFlushing()
     v13 = 0LL;
     if ( v12 )
     {
-      v14 = dword_1403269DC;
-      if ( !dword_1403269DC )
+      v14 = dword_140326A1C;
+      if ( !dword_140326A1C )
         v14 = 256;
       v15 = 3 * (v14 >> 2);
       PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v15, 0x20206D4Du);
@@ -87,7 +87,7 @@ __int64 MiInitializeCacheFlushing()
           memset(PoolWithTag, 0, v15);
           v17 = __rdtsc();
           _InterlockedOr(v19, 0);
-          ++dword_140326A0C;
+          ++dword_140326A4C;
           KeInvalidateAllCaches();
           _InterlockedOr(v19, 0);
           v18 = __rdtsc();
@@ -97,7 +97,7 @@ __int64 MiInitializeCacheFlushing()
         }
         while ( v4 );
         ExFreePoolWithTag(PoolWithTag, 0);
-        dword_140326A14 = 2 * (v13 >> 1) / v12;
+        dword_140326A54 = 2 * (v13 >> 1) / v12;
       }
     }
     __writecr8(CurrentIrql);

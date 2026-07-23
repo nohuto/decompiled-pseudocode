@@ -1,65 +1,65 @@
 /*
- * XREFs of RtlpInitCodePageTables @ 0x1800D52E0
+ * XREFs of RtlpInitCodePageTables @ 0x1800DD038
  * Callers:
- *     LdrpInitializeNlsInfo @ 0x1800D5244 (LdrpInitializeNlsInfo.c)
+ *     LdrpInitializeNlsInfo @ 0x1800DCF9C (LdrpInitializeNlsInfo.c)
  * Callees:
- *     RtlInitCodePageTable @ 0x1800D5450 (RtlInitCodePageTable.c)
- *     ZwGetNlsSectionPtr @ 0x180160F70 (ZwGetNlsSectionPtr.c)
+ *     RtlInitCodePageTable @ 0x1800DD1A0 (RtlInitCodePageTable.c)
+ *     ZwGetNlsSectionPtr @ 0x180160E70 (ZwGetNlsSectionPtr.c)
  */
 
 __int64 __fastcall RtlpInitCodePageTables(unsigned __int16 a1, unsigned __int16 a2)
 {
-  bool v3; // bl
-  unsigned int v4; // edi
-  __int64 v5; // rcx
-  void *v6; // rdx
-  void *v7; // rax
+  BOOLEAN v3; // bl
+  ULONG v4; // edi
+  USHORT *v5; // rcx
+  unsigned __int16 *v6; // rdx
+  unsigned __int16 *DBCSOffsets; // rax
   __int64 result; // rax
 
   v3 = 0;
   v4 = a2;
   if ( a1 == 0xFDE9 || a2 == 0xFDE9 )
     goto LABEL_15;
-  if ( (int)ZwGetNlsSectionPtr(11LL, a1, 0LL, &xmmword_1801C6010, 0LL) < 0 )
+  if ( ZwGetNlsSectionPtr(0xBu, a1, 0LL, &SectionPointer, 0LL) < 0 )
     goto LABEL_6;
   if ( (_WORD)v4 == a1 )
   {
-    v5 = xmmword_1801C6010;
-    *((_QWORD *)&xmmword_1801C6010 + 1) = xmmword_1801C6010;
+    v5 = (USHORT *)SectionPointer;
+    *(&SectionPointer + 1) = SectionPointer;
     goto LABEL_7;
   }
-  if ( (int)ZwGetNlsSectionPtr(11LL, v4, 0LL, (char *)&xmmword_1801C6010 + 8, 0LL) >= 0 )
+  if ( ZwGetNlsSectionPtr(0xBu, v4, 0LL, &SectionPointer + 1, 0LL) >= 0 )
   {
 LABEL_15:
-    v5 = xmmword_1801C6010;
+    v5 = (USHORT *)SectionPointer;
   }
   else
   {
 LABEL_6:
-    xmmword_1801C6010 = 0LL;
+    *(_OWORD *)&SectionPointer = 0LL;
     v5 = 0LL;
   }
 LABEL_7:
   RtlInitCodePageTable(v5, &GlobalRtlNlsState);
-  RtlInitCodePageTable(*((_QWORD *)&xmmword_1801C6010 + 1), &word_1801C5FD0);
-  if ( GlobalRtlNlsState == -535 || word_1801C5FD0 == -535 )
+  RtlInitCodePageTable((PUSHORT)*(&SectionPointer + 1), &CodePageTable);
+  if ( GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9 )
   {
     NlsAnsiCodePage = -535;
     NlsMbCodePageTag = 0;
   }
   else
   {
-    v6 = &NlsEmptyLeadByteInfoTable;
-    NlsAnsiCodePage = GlobalRtlNlsState;
-    v7 = &NlsEmptyLeadByteInfoTable;
-    if ( word_1801C5F9C )
-      v7 = (void *)qword_1801C5FC8;
-    NlsMbCodePageTag = word_1801C5F9C != 0;
-    qword_1801C6020 = (__int64)v7;
-    if ( word_1801C5FDC )
-      v6 = (void *)qword_1801C6008;
-    v3 = word_1801C5FDC != 0;
-    qword_1801C6028 = (__int64)v6;
+    v6 = (unsigned __int16 *)&NlsEmptyLeadByteInfoTable;
+    NlsAnsiCodePage = GlobalRtlNlsState.CodePage;
+    DBCSOffsets = (unsigned __int16 *)&NlsEmptyLeadByteInfoTable;
+    if ( GlobalRtlNlsState.DBCSCodePage )
+      DBCSOffsets = GlobalRtlNlsState.DBCSOffsets;
+    NlsMbCodePageTag = GlobalRtlNlsState.DBCSCodePage != 0;
+    qword_1801C5020 = (__int64)DBCSOffsets;
+    if ( CodePageTable.DBCSCodePage )
+      v6 = CodePageTable.DBCSOffsets;
+    v3 = CodePageTable.DBCSCodePage != 0;
+    qword_1801C5028 = (__int64)v6;
   }
   result = 0LL;
   NlsMbOemCodePageTag = v3;

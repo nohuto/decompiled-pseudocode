@@ -1,23 +1,23 @@
 /*
- * XREFs of SmProcessCreateRequest @ 0x140A42DD4
+ * XREFs of SmProcessCreateRequest @ 0x140A38664
  * Callers:
- *     SmpDirtyStoreCreate @ 0x140A42CBC (SmpDirtyStoreCreate.c)
- *     SmSetStoreInformation @ 0x140A5F8F0 (SmSetStoreInformation.c)
+ *     SmpDirtyStoreCreate @ 0x140A3854C (SmpDirtyStoreCreate.c)
+ *     SmSetStoreInformation @ 0x140A57E40 (SmSetStoreInformation.c)
  * Callees:
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14037E000 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140449680 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14045F438 (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     SmKmStoreAdd @ 0x140A432D4 (SmKmStoreAdd.c)
- *     SmKmStoreDelete @ 0x140A55CF0 (SmKmStoreDelete.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140376D70 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140377D20 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1404542F8 (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     SmKmStoreAdd @ 0x140A38B64 (SmKmStoreAdd.c)
+ *     SmKmStoreDelete @ 0x140A4DC40 (SmKmStoreDelete.c)
  */
 
 __int64 __fastcall SmProcessCreateRequest(struct _SM_PARTITION *a1, unsigned __int64 a2, int a3, KPROCESSOR_MODE a4)
@@ -115,7 +115,7 @@ __int64 __fastcall SmProcessCreateRequest(struct _SM_PARTITION *a1, unsigned __i
     v20 = LODWORD(Size[0]);
     if ( LODWORD(Size[0]) )
     {
-      v10 = (struct _PRIVILEGE_SET *)SmAllocEx(LODWORD(Size[0]), 1262841203LL, -1);
+      v10 = (struct _PRIVILEGE_SET *)SmAllocEx(LODWORD(Size[0]), 0x4B456D73u, -1);
       if ( !v10 )
       {
         TimeInit = -1073741670;
@@ -166,7 +166,7 @@ LABEL_43:
     v37 = -1;
     v16 = -1;
   }
-  v17 = (char *)SmAllocEx(7616LL, 1951624563LL, v16);
+  v17 = (char *)SmAllocEx(0x1DC0uLL, 0x74536D73u, v16);
   v8 = (__int64)v17;
   if ( v17 )
   {

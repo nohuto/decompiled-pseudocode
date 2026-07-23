@@ -32,7 +32,7 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3, __i
   __int64 v16; // r8
   __int64 v17; // rdi
   __int64 v18; // rbx
-  struct _SLIST_ENTRY *v19; // rsi
+  _SLIST_ENTRY *v19; // rsi
   unsigned __int64 v20; // r11
   __int64 v21; // r9
   __int64 v22; // rax
@@ -52,8 +52,8 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3, __i
   unsigned int v36; // [rsp+34h] [rbp-74h]
   unsigned __int64 v37; // [rsp+38h] [rbp-70h]
   unsigned __int64 *v38; // [rsp+40h] [rbp-68h]
-  struct _SLIST_ENTRY *List; // [rsp+48h] [rbp-60h]
-  union _SLIST_HEADER *ListHead; // [rsp+50h] [rbp-58h]
+  _SLIST_ENTRY *List; // [rsp+48h] [rbp-60h]
+  _SLIST_HEADER *ListHead; // [rsp+50h] [rbp-58h]
   volatile signed __int64 *v41; // [rsp+58h] [rbp-50h]
   unsigned __int64 v42; // [rsp+60h] [rbp-48h]
 
@@ -63,7 +63,7 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3, __i
     goto LABEL_40;
   v6 = *(_QWORD *)(a1 + 8LL * a2 + 6808);
   v7 = *(unsigned int *)(a1 + 16512);
-  ListHead = (union _SLIST_HEADER *)(16LL * a3 + v6);
+  ListHead = (_SLIST_HEADER *)(16LL * a3 + v6);
   v8 = a3;
   Alignment_low = LOWORD(ListHead->Alignment);
   if ( Alignment_low >= v7 )
@@ -112,7 +112,7 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3, __i
     v17 = v14[2];
     v18 = 48 * v17 - 0x220000000000LL;
     v19 = 0LL;
-    List = (struct _SLIST_ENTRY *)v18;
+    List = (_SLIST_ENTRY *)v18;
     v20 = 0xAAAAAAAAAAAAAAABuLL;
     v16 = 0xFFFFFFFFFFLL;
     v21 = 0x3FFFFFFFFFLL;
@@ -159,7 +159,7 @@ LABEL_38:
           MiIncreaseAvailablePages(v4, v37, v16);
         goto LABEL_40;
       }
-      v19 = (struct _SLIST_ENTRY *)v18;
+      v19 = (_SLIST_ENTRY *)v18;
       if ( !(_DWORD)v5 && (MiFlags & 0x80u) != 0LL && (++dword_140C68060 & MmPageValidationFrequency) == 0 )
       {
         MiArePageContentsZero(v20 * ((v18 + 0x220000000000LL) >> 4));

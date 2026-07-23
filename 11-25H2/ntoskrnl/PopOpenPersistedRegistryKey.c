@@ -14,7 +14,7 @@ __int64 __fastcall PopOpenPersistedRegistryKey(__int64 a1, HANDLE *a2)
 {
   NTSTATUS PersistedStateLocation; // ecx
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
-  ULONG v6; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG Disposition; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   WCHAR SourceString[264]; // [rsp+90h] [rbp-70h] BYREF
@@ -23,7 +23,14 @@ __int64 __fastcall PopOpenPersistedRegistryKey(__int64 a1, HANDLE *a2)
   *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
-  PersistedStateLocation = RtlGetPersistedStateLocation(L"Power", SourceString, 520, (__int64)&v6);
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             L"Power",
+                             0LL,
+                             L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER",
+                             LocationTypeRegistry,
+                             SourceString,
+                             0x208u,
+                             &Disposition);
   if ( PersistedStateLocation >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);

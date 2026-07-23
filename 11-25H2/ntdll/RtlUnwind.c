@@ -14,17 +14,17 @@
 void __stdcall RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue)
 {
   __int64 v4; // rax
-  __int64 v9; // rdi
-  unsigned int v10; // r13d
+  ULONG64 v9; // rdi
+  ULONG v10; // r13d
   __int64 v11; // rcx
   int v12; // r8d
   unsigned __int64 v13; // rcx
   unsigned __int64 v14; // rax
   void *v15; // rsp
-  char ContextRecord; // [rsp+30h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+30h] [rbp+0h] BYREF
 
   v4 = 0LL;
-  if ( ((*((_QWORD *)&xmmword_1801EC4E0 + 1) >> 60) & 3) == 1 )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) == 1 )
   {
     v9 = 2048LL;
     v10 = 1048651;
@@ -48,6 +48,6 @@ LABEL_7:
   if ( v14 <= v13 )
     v14 = 0xFFFFFFFFFFFFFF0LL;
   v15 = alloca(v14 & 0xFFFFFFFFFFFFFFF0uLL);
-  RtlInitializeExtendedContext2(&ContextRecord, v10, &ContextRecord, v9);
-  RtlUnwindEx(TargetFrame, TargetIp, ExceptionRecord, ReturnValue, (PCONTEXT)&ContextRecord, 0LL);
+  RtlInitializeExtendedContext2((PCONTEXT)&ContextEx, v10, &ContextEx, v9);
+  RtlUnwindEx(TargetFrame, TargetIp, ExceptionRecord, ReturnValue, (PCONTEXT)&ContextEx, 0LL);
 }

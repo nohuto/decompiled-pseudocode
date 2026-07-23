@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsKcbInvolvedInVirtualization @ 0x140A193B0
+ * XREFs of CmpIsKcbInvolvedInVirtualization @ 0x140A229E0
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
  */
 
 bool __fastcall CmpIsKcbInvolvedInVirtualization(__int64 a1)

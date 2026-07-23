@@ -12,11 +12,16 @@
  *     <none>
  */
 
-__int64 ZwReadVirtualMemory()
+NTSTATUS __cdecl ZwReadVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 63LL;
+  result = 63;
   __asm { syscall; Low latency system call }
   return result;
 }

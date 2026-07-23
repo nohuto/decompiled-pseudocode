@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeFlushRange @ 0x140464F90
+ * XREFs of MiComputeFlushRange @ 0x14045DF50
  * Callers:
- *     MmTrimSection @ 0x140464EF0 (MmTrimSection.c)
+ *     MmTrimSection @ 0x14045DEB0 (MmTrimSection.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiComputeDataFlushRange @ 0x1404866EC (MiComputeDataFlushRange.c)
- *     MiDoesControlAreaHaveUserWritableReferences @ 0x1404935B8 (MiDoesControlAreaHaveUserWritableReferences.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiComputeDataFlushRange @ 0x140480064 (MiComputeDataFlushRange.c)
+ *     MiDoesControlAreaHaveUserWritableReferences @ 0x14048CB48 (MiDoesControlAreaHaveUserWritableReferences.c)
  */
 
 __int64 __fastcall MiComputeFlushRange(__int64 *a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -20,17 +20,17 @@ __int64 __fastcall MiComputeFlushRange(__int64 *a1, __int64 a2, __int64 a3, int 
 
   while ( 1 )
   {
-    v9 = ExAcquireSpinLockExclusive(&dword_140E2C7C0);
+    v9 = ExAcquireSpinLockExclusive(&dword_140E2C940);
     v10 = *a1;
     v11 = v9;
     if ( !*a1 )
       break;
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v10 + 72)) )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E2C7C0 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E2C940 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
       if ( (!a4 || (unsigned int)MiDoesControlAreaHaveUserWritableReferences(v10))
         && (*(_DWORD *)(v10 + 56) & 3) == 0
         && *(_QWORD *)(v10 + 32) )
@@ -39,13 +39,13 @@ __int64 __fastcall MiComputeFlushRange(__int64 *a1, __int64 a2, __int64 a3, int 
       }
       if ( (_BYTE)v11 == 17 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *(_DWORD *)(v10 + 72) = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v10 + 72), retaddr);
         return 0LL;
       }
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         *(_DWORD *)(v10 + 72) = 0;
       else
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v10 + 72), retaddr);
@@ -53,17 +53,17 @@ __int64 __fastcall MiComputeFlushRange(__int64 *a1, __int64 a2, __int64 a3, int 
     }
     if ( (_BYTE)v11 == 17 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E2C7C0 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E2C940 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
     }
     else
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E2C7C0 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E2C940 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);
       __writecr8(v11);
@@ -71,16 +71,16 @@ __int64 __fastcall MiComputeFlushRange(__int64 *a1, __int64 a2, __int64 a3, int 
   }
   if ( v9 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      dword_140E2C7C0 = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      dword_140E2C940 = 0;
     else
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
     return 0LL;
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-    dword_140E2C7C0 = 0;
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+    dword_140E2C940 = 0;
   else
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
 LABEL_42:
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);

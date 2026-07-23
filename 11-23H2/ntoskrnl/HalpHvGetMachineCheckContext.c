@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvGetMachineCheckContext @ 0x14050BED4
+ * XREFs of HalpHvGetMachineCheckContext @ 0x14050C424
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x14050332C (HalpMcaPopulateErrorData.c)
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x14050B730 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMcaPopulateErrorData @ 0x14050387C (HalpMcaPopulateErrorData.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x14050BC80 (HalpHvMceConsumedMemoryErrorRecovery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvGetMachineCheckContext(__int64 a1, __int64 a2)

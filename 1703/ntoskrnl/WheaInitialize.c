@@ -27,9 +27,9 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
   ULONG_PTR v3; // r15
   int v5; // eax
   int v6; // eax
-  _BYTE *v7; // rax
+  PRTL_BALANCED_NODE v7; // rax
   signed __int8 v8; // cf
-  _BYTE *v9; // rbx
+  PRTL_BALANCED_NODE v9; // rbx
   int v10; // eax
   ULONG i; // ebx
   __int64 Prcb; // rax
@@ -64,7 +64,7 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
     v6 = WheapQueryPshedForErrorSources(&v26, &Address);
     if ( v6 < 0 )
       KeBugCheckEx(0x122u, 5uLL, v6, v3, 0LL);
-    v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData, 0LL, 0LL);
+    v7 = KeAbPreAcquire((ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData, 0LL, 0);
     v8 = _interlockedbittestandset64((volatile signed __int32 *)&WheapDispatchPtr.Dpc.DpcData, 0LL);
     v9 = v7;
     if ( v8 )
@@ -73,7 +73,7 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
         v7,
         (ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData);
     if ( v9 )
-      v9[26] |= 1u;
+      BYTE2(v9[1].Left) |= 1u;
     v10 = WheapInitializeErrorSourceTable(v26, Address);
     if ( v10 < 0 )
       KeBugCheckEx(0x122u, 7uLL, v10, 0LL, 0LL);

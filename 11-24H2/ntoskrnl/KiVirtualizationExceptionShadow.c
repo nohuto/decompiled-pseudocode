@@ -1,5 +1,5 @@
 /*
- * XREFs of KiVirtualizationExceptionShadow @ 0x140BBBB40
+ * XREFs of KiVirtualizationExceptionShadow @ 0x140BBDB40
  * Callers:
  *     <none>
  * Callees:

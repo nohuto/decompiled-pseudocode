@@ -21,7 +21,11 @@
  *     AlpcpAdjustCompletionListConcurrencyCount @ 0x140676F5C (AlpcpAdjustCompletionListConcurrencyCount.c)
  */
 
-__int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, unsigned int a4)
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   size_t v4; // r15
   __int64 v7; // rdx
@@ -32,12 +36,12 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, u
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v13; // r13
   unsigned int *v14; // r12
-  NTSTATUS v15; // edi
-  int v16; // esi
-  int v17; // esi
-  NTSTATUS v18; // eax
-  int v20; // esi
-  int v21; // esi
+  signed int v15; // edi
+  __int32 v16; // esi
+  __int32 v17; // esi
+  signed int v18; // eax
+  __int32 v20; // esi
+  __int32 v21; // esi
   int v22; // esi
   int v23; // esi
   int v24; // esi
@@ -56,28 +60,31 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, u
   int v37; // edx
   KPROCESSOR_MODE v38; // [rsp+30h] [rbp-C8h]
   PVOID Object; // [rsp+38h] [rbp-C0h] BYREF
-  unsigned __int64 v40; // [rsp+40h] [rbp-B8h]
+  unsigned int *v40; // [rsp+40h] [rbp-B8h]
   HANDLE Handle; // [rsp+48h] [rbp-B0h]
-  _QWORD *v42; // [rsp+50h] [rbp-A8h]
+  unsigned int *v42; // [rsp+50h] [rbp-A8h]
   _QWORD v43[10]; // [rsp+60h] [rbp-98h] BYREF
 
-  v4 = a4;
-  Handle = a1;
-  v40 = a3;
+  v4 = Length;
+  Handle = PortHandle;
+  v40 = (unsigned int *)PortInformation;
   memset(v43, 0, 0x48uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v11 = 0;
-  if ( !a1 || !v40 && a2 != 7 && a2 != 10 )
+  if ( !PortHandle
+    || !v40
+    && PortInformationClass != AlpcUnregisterCompletionListInformation
+    && PortInformationClass != AlpcCompletionListRundownInformation )
   {
     v15 = -1073741811;
     goto LABEL_16;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v38 = PreviousMode;
-  v13 = v40;
-  v14 = (unsigned int *)v40;
-  v42 = (_QWORD *)v40;
+  v13 = (__int64)v40;
+  v14 = v40;
+  v42 = v40;
   if ( (_DWORD)v4 && PreviousMode )
   {
     if ( (unsigned int)v4 > 0x48 )
@@ -85,18 +92,18 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, u
       v15 = -1073741820;
       goto LABEL_16;
     }
-    if ( v40 >= 0x7FFFFFFF0000LL )
+    if ( (unsigned __int64)v40 >= 0x7FFFFFFF0000LL )
       v13 = 0x7FFFFFFF0000LL;
-    v40 = v13;
+    v40 = (unsigned int *)v13;
     memmove(v43, (const void *)v13, v4);
     v14 = (unsigned int *)v43;
-    v42 = v43;
+    v42 = (unsigned int *)v43;
   }
   Object = 0LL;
   v15 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v15 >= 0 )
   {
-    v16 = a2 - 1;
+    v16 = PortInformationClass - 1;
     if ( !v16 )
     {
       if ( (_DWORD)v4 != 72 )
@@ -242,5 +249,5 @@ LABEL_61:
   }
 LABEL_16:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
-  return (unsigned int)v15;
+  return v15;
 }

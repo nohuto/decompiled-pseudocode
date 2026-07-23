@@ -1,18 +1,18 @@
 /*
- * XREFs of MiZeroPageFile @ 0x1406E69A0
+ * XREFs of MiZeroPageFile @ 0x1406EB650
  * Callers:
- *     MiZeroAllPageFiles @ 0x140C004A4 (MiZeroAllPageFiles.c)
+ *     MiZeroAllPageFiles @ 0x140C066B4 (MiZeroAllPageFiles.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmZeroPageWrite @ 0x14046D60C (MmZeroPageWrite.c)
- *     MiTransferMemoryPagefileData @ 0x140503118 (MiTransferMemoryPagefileData.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmZeroPageWrite @ 0x140466D8C (MmZeroPageWrite.c)
+ *     MiTransferMemoryPagefileData @ 0x1404FC9E8 (MiTransferMemoryPagefileData.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiZeroPageFile(PVOID P)
@@ -46,7 +46,7 @@ LONG __fastcall MiZeroPageFile(PVOID P)
   if ( v3 )
   {
     *(_DWORD *)&MemoryDescriptorList.Size = 131120;
-    memset64(v20, (unsigned __int64)qword_140E36000[0], 0x10uLL);
+    memset64(v20, (unsigned __int64)qword_140E36180[0], 0x10uLL);
   }
   else
   {

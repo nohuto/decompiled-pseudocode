@@ -79,7 +79,7 @@ signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)
   unsigned __int64 v58; // [rsp+50h] [rbp-68h]
   int *v59; // [rsp+58h] [rbp-60h]
   __int64 v60; // [rsp+60h] [rbp-58h]
-  struct _SLIST_ENTRY *v61; // [rsp+68h] [rbp-50h]
+  _SLIST_ENTRY *v61; // [rsp+68h] [rbp-50h]
   int v62; // [rsp+C0h] [rbp+8h]
   int v64; // [rsp+D0h] [rbp+18h] BYREF
   int v65; // [rsp+D8h] [rbp+20h] BYREF
@@ -219,7 +219,7 @@ signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)
     if ( *(unsigned __int16 *)v25 >= v25[4] )
       goto LABEL_48;
     v26 = (__int64)(v4 << 25) >> 16;
-    v61 = (struct _SLIST_ENTRY *)v26;
+    v61 = (_SLIST_ENTRY *)v26;
     *(_QWORD *)(v26 + 0xFE0) = v26 ^ qword_140466640;
     if ( v11 == 1 )
       return (signed __int64)RtlpInterlockedPushEntrySList((PSLIST_HEADER)v25, (PSLIST_ENTRY)(v26 + 4080));

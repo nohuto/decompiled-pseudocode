@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSelectIdealProcessorSetForGroup @ 0x140224840
+ * XREFs of KiSelectIdealProcessorSetForGroup @ 0x140224948
  * Callers:
- *     KiSelectIdealProcessorSetForProcessGroup @ 0x1402247DC (KiSelectIdealProcessorSetForProcessGroup.c)
+ *     KiSelectIdealProcessorSetForProcessGroup @ 0x1402248E4 (KiSelectIdealProcessorSetForProcessGroup.c)
  * Callees:
- *     KiSelectIdealProcessorSetForNode @ 0x140224A08 (KiSelectIdealProcessorSetForNode.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
- *     KiFindBiasedSetMember @ 0x14045FE0C (KiFindBiasedSetMember.c)
+ *     KiSelectIdealProcessorSetForNode @ 0x140224B10 (KiSelectIdealProcessorSetForNode.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
+ *     KiFindBiasedSetMember @ 0x14046020C (KiFindBiasedSetMember.c)
  */
 
 __int64 __fastcall KiSelectIdealProcessorSetForGroup(

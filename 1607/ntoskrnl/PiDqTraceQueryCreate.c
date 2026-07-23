@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDqTraceQueryCreate @ 0x14048CA30
+ * XREFs of PiDqTraceQueryCreate @ 0x14048D044
  * Callers:
- *     PiDqIrpQueryCreate @ 0x14048B3E8 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x14048B94C (PiDqIrpQueryCreate.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1400857E0 (PsGetCurrentThreadProcessId.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     Template_pqzzzzzzz @ 0x1401CE8C0 (Template_pqzzzzzzz.c)
+ *     PsGetCurrentThreadProcessId @ 0x1400870D0 (PsGetCurrentThreadProcessId.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     Template_pqzzzzzzz @ 0x1401CE654 (Template_pqzzzzzzz.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpConvertDevpropcompkeyArrayToString @ 0x14062D65C (PnpConvertDevpropcompkeyArrayToString.c)
- *     PiDqConvertObjectTypeToString @ 0x140631374 (PiDqConvertObjectTypeToString.c)
- *     PiDqConvertQueryFlagsToString @ 0x140631414 (PiDqConvertQueryFlagsToString.c)
- *     FilterConvertToString @ 0x1406E4934 (FilterConvertToString.c)
+ *     PnpConvertDevpropcompkeyArrayToString @ 0x14062D710 (PnpConvertDevpropcompkeyArrayToString.c)
+ *     PiDqConvertObjectTypeToString @ 0x140631428 (PiDqConvertObjectTypeToString.c)
+ *     PiDqConvertQueryFlagsToString @ 0x1406314C8 (PiDqConvertQueryFlagsToString.c)
+ *     FilterConvertToString @ 0x1406E4A6C (FilterConvertToString.c)
  */
 
 __int64 __fastcall PiDqTraceQueryCreate(__int64 a1)

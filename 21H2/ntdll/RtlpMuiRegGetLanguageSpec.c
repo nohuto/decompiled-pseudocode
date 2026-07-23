@@ -2,8 +2,8 @@
  * XREFs of RtlpMuiRegGetLanguageSpec @ 0x180070764
  * Callers:
  *     _RtlpMuiRegAddNeutralLanguage @ 0x18007064C (_RtlpMuiRegAddNeutralLanguage.c)
- *     RtlpPopulateLanguageConfigList @ 0x180105E38 (RtlpPopulateLanguageConfigList.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x180106510 (_RtlpMuiRegAddBaseLanguage.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180105DF8 (RtlpPopulateLanguageConfigList.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x1801064D0 (_RtlpMuiRegAddBaseLanguage.c)
  * Callees:
  *     RtlpMuiRegGetOrAddString @ 0x18003AB74 (RtlpMuiRegGetOrAddString.c)
  *     RtlCultureNameToLCID @ 0x18003B850 (RtlCultureNameToLCID.c)
@@ -16,18 +16,18 @@ __int64 __fastcall RtlpMuiRegGetLanguageSpec(__int64 a1, WCHAR *a2, char *a3, __
   char v9; // di
   __int64 v10; // r8
   __int64 result; // rax
-  UNICODE_STRING v12[3]; // [rsp+20h] [rbp-38h] BYREF
-  int v13; // [rsp+70h] [rbp+18h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+70h] [rbp+18h] BYREF
   __int16 v14; // [rsp+78h] [rbp+20h] BYREF
 
   v6 = 0;
   v14 = 0;
   v9 = 0;
-  RtlInitUnicodeString(v12, a2);
-  if ( RtlCultureNameToLCID(&v12[0].Length, &v13) )
+  RtlInitUnicodeString(&String, a2);
+  if ( RtlCultureNameToLCID(&String, &Lcid) )
   {
-    v6 = v13;
-    if ( ((v13 - 4096) & 0xFFFFFBFF) != 0 )
+    v6 = Lcid;
+    if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
     {
       v9 = 1;
 LABEL_4:

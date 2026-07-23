@@ -1,26 +1,33 @@
 /*
- * XREFs of NtCreateThreadStateChange @ 0x140A5FDF0
+ * XREFs of NtCreateThreadStateChange @ 0x140A58340
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
  */
 
-__int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, int a2, int a3, ULONG_PTR a4, int a5)
+NTSTATUS __cdecl NtCreateThreadStateChange(
+        PHANDLE ThreadStateChangeHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ThreadHandle,
+        ULONG64 Reserved)
 {
+  int v5; // r15d
   char PreviousMode; // r14
   __int64 v9; // rcx
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   struct _FILE_OBJECT *v12; // rcx
   __int64 Tag; // [rsp+20h] [rbp-68h]
   PVOID Object; // [rsp+58h] [rbp-30h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-28h] BYREF
   PVOID v16[3]; // [rsp+68h] [rbp-20h] BYREF
 
+  v5 = (int)ObjectAttributes;
   Object = 0LL;
   v16[0] = 0LL;
   Handle = 0LL;
@@ -28,18 +35,18 @@ __int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, int a2, int a3, ULONG_P
   if ( PreviousMode )
   {
     v9 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a1;
+    if ( (unsigned __int64)ThreadStateChangeHandle < 0x7FFFFFFF0000LL )
+      v9 = (__int64)ThreadStateChangeHandle;
     *(_QWORD *)v9 = *(_QWORD *)v9;
   }
-  if ( a5 )
+  if ( (_DWORD)Reserved )
   {
     inserted = -1073741811;
   }
   else
   {
     inserted = ObpReferenceObjectByHandleWithTag(
-                 a4,
+                 (ULONG_PTR)ThreadHandle,
                  32,
                  (__int64)PsThreadType,
                  PreviousMode,
@@ -52,7 +59,7 @@ __int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, int a2, int a3, ULONG_P
       inserted = ObCreateObjectEx(
                    PreviousMode,
                    (_DWORD *)PspThreadStateChangeType,
-                   a3,
+                   v5,
                    PreviousMode,
                    Tag,
                    24,
@@ -69,10 +76,10 @@ __int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, int a2, int a3, ULONG_P
         *(_QWORD *)&v12->Type = Object;
         LODWORD(v12->Vpb) = 0;
         Object = 0LL;
-        inserted = ObInsertObjectEx(v12, 0LL, a2, 0, 0, 0LL, (__int64)&Handle);
+        inserted = ObInsertObjectEx(v12, 0LL, DesiredAccess, 0, 0, 0LL, (__int64)&Handle);
         if ( inserted >= 0 )
         {
-          *a1 = Handle;
+          *ThreadStateChangeHandle = Handle;
           Handle = 0LL;
         }
       }
@@ -82,5 +89,5 @@ __int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, int a2, int a3, ULONG_P
     ObfDereferenceObjectWithTag(Object, 0x63547350u);
   if ( Handle )
     NtClose(Handle);
-  return (unsigned int)inserted;
+  return inserted;
 }

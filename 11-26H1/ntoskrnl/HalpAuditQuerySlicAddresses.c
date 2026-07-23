@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAuditQuerySlicAddresses @ 0x140CB41AC
+ * XREFs of HalpAuditQuerySlicAddresses @ 0x140CBA1EC
  * Callers:
- *     HalpAuditAcpiTables @ 0x140CB3E60 (HalpAuditAcpiTables.c)
+ *     HalpAuditAcpiTables @ 0x140CB9EA0 (HalpAuditAcpiTables.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpAuditQuerySlicAddresses(__int64 a1)

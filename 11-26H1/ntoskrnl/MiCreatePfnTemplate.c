@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreatePfnTemplate @ 0x1406E70E8
+ * XREFs of MiCreatePfnTemplate @ 0x1406EBD98
  * Callers:
- *     MiInitializeDynamicPfnsWorker @ 0x1406E9410 (MiInitializeDynamicPfnsWorker.c)
- *     MxInsertFreePages @ 0x140CF7300 (MxInsertFreePages.c)
- *     MxSwitchToPfns @ 0x140CF8360 (MxSwitchToPfns.c)
+ *     MiInitializeDynamicPfnsWorker @ 0x1406EE0B0 (MiInitializeDynamicPfnsWorker.c)
+ *     MxInsertFreePages @ 0x140CFD680 (MxInsertFreePages.c)
+ *     MxSwitchToPfns @ 0x140CFE6E0 (MxSwitchToPfns.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiSetPageTablePfnBuddy @ 0x1402A4AE0 (MiSetPageTablePfnBuddy.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiSetPfnTbFlushStamp @ 0x14036BAE0 (MiSetPfnTbFlushStamp.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402A4030 (MiSetPageTablePfnBuddy.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiSetPfnTbFlushStamp @ 0x14036D880 (MiSetPfnTbFlushStamp.c)
  */
 
 __int64 __fastcall MiCreatePfnTemplate(__int64 a1, int a2, unsigned __int16 a3)

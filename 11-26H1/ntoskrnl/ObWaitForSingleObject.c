@@ -1,11 +1,11 @@
 /*
- * XREFs of ObWaitForSingleObject @ 0x1408FA300
+ * XREFs of ObWaitForSingleObject @ 0x14092A290
  * Callers:
- *     NtWaitForSingleObject @ 0x1408FA270 (NtWaitForSingleObject.c)
+ *     NtWaitForSingleObject @ 0x14092A200 (NtWaitForSingleObject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall ObWaitForSingleObject(
@@ -50,7 +50,7 @@ LABEL_4:
     v10 = *(_QWORD *)((char *)Object[0] + v10 - 1);
   }
 LABEL_5:
-  if ( WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink != (struct _LIST_ENTRY *)v9 )
+  if ( *(_QWORD *)&WheapConfigTableLock.WaitBlockFill11[64] != v9 )
   {
     v7 = KeWaitForSingleObject((PVOID)v10, UserRequest, a3, a4, Timeout);
     ObfDereferenceObjectWithTag(v8, 0x7457624Fu);

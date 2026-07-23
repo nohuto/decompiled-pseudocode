@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpTransMgrCommit @ 0x140A04398
+ * XREFs of CmpTransMgrCommit @ 0x140A008C8
  * Callers:
- *     CmpLazyCommitWorker @ 0x1407DE140 (CmpLazyCommitWorker.c)
- *     CmpRmUnDoPhase @ 0x1407E0B98 (CmpRmUnDoPhase.c)
- *     CmKtmNotification @ 0x140A048E0 (CmKtmNotification.c)
+ *     CmpLazyCommitWorker @ 0x1407DE690 (CmpLazyCommitWorker.c)
+ *     CmpRmUnDoPhase @ 0x1407E10E8 (CmpRmUnDoPhase.c)
+ *     CmKtmNotification @ 0x140A00E10 (CmKtmNotification.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpCommitLightWeightTransaction @ 0x140A064F0 (CmpCommitLightWeightTransaction.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A02A20 (CmpCommitLightWeightTransaction.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
 __int64 __fastcall CmpTransMgrCommit(__int64 a1, __int64 a2, _DWORD *a3)
@@ -31,8 +31,8 @@ __int64 __fastcall CmpTransMgrCommit(__int64 a1, __int64 a2, _DWORD *a3)
   DWORD1(v9) = 0;
   memset(&ApcState, 0, sizeof(ApcState));
   Interval.LowPart = -1000000;
-  if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 1LL) )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_14005578F, 0LL, 0LL, 2u, v13);
+  if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 1LL) )
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)byte_14005621D, 0LL, 0LL, 2u, v13);
   CmpAttachToRegistryProcess(&ApcState);
   v4 = 1;
   v11 = 1LL;
@@ -61,7 +61,7 @@ __int64 __fastcall CmpTransMgrCommit(__int64 a1, __int64 a2, _DWORD *a3)
   }
   while ( v6 < 0 );
   CmpDetachFromRegistryProcess(&ApcState);
-  if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 1LL) )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140055723, 0LL, 0LL, 2u, v13);
+  if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 1LL) )
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)byte_14005623F, 0LL, 0LL, 2u, v13);
   return (unsigned int)v6;
 }

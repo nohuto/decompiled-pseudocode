@@ -1,18 +1,18 @@
 /*
- * XREFs of ObGetObjectInformation @ 0x1407C37B0
+ * XREFs of ObGetObjectInformation @ 0x1407C6810
  * Callers:
- *     ExpGetObjectInformation @ 0x1407744F4 (ExpGetObjectInformation.c)
+ *     ExpGetObjectInformation @ 0x1407774F4 (ExpGetObjectInformation.c)
  * Callees:
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14042DA20 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x1404C9E14 (OBJECT_HEADER_TO_PROCESS_INFO.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ObQueryTypeName @ 0x1409F8E50 (ObQueryTypeName.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     ObpCreateTypeArray @ 0x140A5A9E4 (ObpCreateTypeArray.c)
- *     ObpDestroyTypeArray @ 0x140B246E8 (ObpDestroyTypeArray.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14041A930 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x1404C3844 (OBJECT_HEADER_TO_PROCESS_INFO.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     ObQueryTypeName @ 0x140A61F3C (ObQueryTypeName.c)
+ *     ObpCreateTypeArray @ 0x140A67954 (ObpCreateTypeArray.c)
+ *     ObpDestroyTypeArray @ 0x140B26B88 (ObpDestroyTypeArray.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObGetObjectInformation(int a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int *a5)
@@ -92,7 +92,7 @@ __int64 __fastcall ObGetObjectInformation(int a1, __int64 a2, __int64 a3, unsign
   v10 = 0;
   v11 = 0;
   v55 = 0LL;
-  TypeArray = (unsigned int *)ObpCreateTypeArray(ObpTypeObjectType);
+  TypeArray = (unsigned int *)ObpCreateTypeArray(*(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary);
   v58 = TypeArray;
   if ( !TypeArray )
   {
@@ -109,7 +109,7 @@ __int64 __fastcall ObGetObjectInformation(int a1, __int64 a2, __int64 a3, unsign
     {
       v15 = (_DWORD *)(v14 + 80);
       v60 = v15;
-      if ( v15 != ObpTypeObjectType )
+      if ( v15 != *(_DWORD **)&ObpStackTraceLock.PriorityFloorSummary )
         break;
     }
 LABEL_22:

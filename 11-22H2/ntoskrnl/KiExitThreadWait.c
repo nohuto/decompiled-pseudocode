@@ -103,10 +103,10 @@ char __fastcall KiExitThreadWait(__int64 a1, __int64 a2, __int64 a3)
       LOBYTE(a2) = 1;
       KiCheckForThreadDispatch(a1, a2, a3);
       LOBYTE(v6) = KiDeliverApc(0LL, 0LL, 0LL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         LOBYTE(v6) = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
         {
           LOBYTE(v6) = v6 - 2;
           if ( (unsigned __int8)v6 <= 0xDu )
@@ -131,11 +131,14 @@ char __fastcall KiExitThreadWait(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    LOBYTE(v6) = KiIrqlFlags;
-    if ( KiIrqlFlags )
+    LOBYTE(v6) = (_BYTE)KiIrqlFlags;
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         v21 = KeGetCurrentPrcb();
         v22 = v21->SchedulerAssist;

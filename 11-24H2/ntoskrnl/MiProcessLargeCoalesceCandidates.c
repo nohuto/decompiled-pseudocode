@@ -1,14 +1,14 @@
 /*
- * XREFs of MiProcessLargeCoalesceCandidates @ 0x14030A3A4
+ * XREFs of MiProcessLargeCoalesceCandidates @ 0x140314284
  * Callers:
- *     MiRebuildLargePagesThread @ 0x14030ACC0 (MiRebuildLargePagesThread.c)
- *     MiPerformOnDemandLargePageCoalesce @ 0x1403D5278 (MiPerformOnDemandLargePageCoalesce.c)
+ *     MiPerformOnDemandLargePageCoalesce @ 0x1402640DC (MiPerformOnDemandLargePageCoalesce.c)
+ *     MiRebuildLargePagesThread @ 0x140314BA0 (MiRebuildLargePagesThread.c)
  * Callees:
- *     MiProcessLargeCoalesceBitmapCandidates @ 0x140309490 (MiProcessLargeCoalesceBitmapCandidates.c)
- *     MiCheckLargePagesExist @ 0x1403098F8 (MiCheckLargePagesExist.c)
- *     MiAccumulateTimeBoundTime @ 0x1403D6238 (MiAccumulateTimeBoundTime.c)
- *     MiReferencePageRuns @ 0x1404401F0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x1404473D0 (MiDereferencePageRuns.c)
+ *     MiAccumulateTimeBoundTime @ 0x140265384 (MiAccumulateTimeBoundTime.c)
+ *     MiProcessLargeCoalesceBitmapCandidates @ 0x140313370 (MiProcessLargeCoalesceBitmapCandidates.c)
+ *     MiCheckLargePagesExist @ 0x1403137D8 (MiCheckLargePagesExist.c)
+ *     MiDereferencePageRuns @ 0x1403F89A4 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x1403F8A50 (MiReferencePageRuns.c)
  */
 
 __int64 __fastcall MiProcessLargeCoalesceCandidates(_QWORD *a1, unsigned int a2, unsigned int *a3)
@@ -60,77 +60,79 @@ __int64 __fastcall MiProcessLargeCoalesceCandidates(_QWORD *a1, unsigned int a2,
   unsigned __int64 v49; // rax
   unsigned __int64 v50; // r11
   unsigned int v51; // eax
-  unsigned __int64 v52; // rdx
-  ULONG_PTR v53; // rax
-  unsigned __int64 v54; // r9
-  unsigned int v55; // eax
-  unsigned int *v56; // [rsp+40h] [rbp-D8h]
-  unsigned __int64 v57; // [rsp+48h] [rbp-D0h]
-  __int64 v58; // [rsp+50h] [rbp-C8h]
-  unsigned int *v59; // [rsp+58h] [rbp-C0h]
-  __int64 v60; // [rsp+60h] [rbp-B8h]
-  __int64 v61; // [rsp+68h] [rbp-B0h]
-  __int64 v62; // [rsp+70h] [rbp-A8h]
-  __int64 v63; // [rsp+78h] [rbp-A0h]
-  int v64; // [rsp+80h] [rbp-98h]
-  __int64 v65; // [rsp+88h] [rbp-90h]
+  int v52; // eax
+  unsigned __int64 v53; // rdx
+  ULONG_PTR v54; // rax
+  unsigned __int64 v55; // r9
+  unsigned int v56; // eax
+  int v57; // eax
+  unsigned int *v58; // [rsp+40h] [rbp-D8h]
+  unsigned __int64 v59; // [rsp+48h] [rbp-D0h]
+  __int64 v60; // [rsp+50h] [rbp-C8h]
+  unsigned int *v61; // [rsp+58h] [rbp-C0h]
+  __int64 v62; // [rsp+60h] [rbp-B8h]
+  __int64 v63; // [rsp+68h] [rbp-B0h]
+  __int64 v64; // [rsp+70h] [rbp-A8h]
+  __int64 v65; // [rsp+78h] [rbp-A0h]
+  int v66; // [rsp+80h] [rbp-98h]
+  __int64 v67; // [rsp+88h] [rbp-90h]
   unsigned __int8 CurrentIrql; // [rsp+90h] [rbp-88h]
-  ULONG_PTR v67; // [rsp+98h] [rbp-80h]
-  unsigned __int64 v68; // [rsp+A8h] [rbp-70h]
-  unsigned __int64 v69; // [rsp+B0h] [rbp-68h]
-  unsigned __int64 v70; // [rsp+B8h] [rbp-60h]
-  unsigned __int64 v71; // [rsp+C0h] [rbp-58h]
-  int v72; // [rsp+120h] [rbp+8h]
-  __int64 v74; // [rsp+138h] [rbp+20h]
+  ULONG_PTR v69; // [rsp+98h] [rbp-80h]
+  unsigned __int64 v70; // [rsp+A8h] [rbp-70h]
+  unsigned __int64 v71; // [rsp+B0h] [rbp-68h]
+  unsigned __int64 v72; // [rsp+B8h] [rbp-60h]
+  unsigned __int64 v73; // [rsp+C0h] [rbp-58h]
+  int v74; // [rsp+120h] [rbp+8h]
+  __int64 v76; // [rsp+138h] [rbp+20h]
 
   v3 = (__int64)a3;
   v4 = a2;
-  v65 = 0LL;
+  v67 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
-  v72 = 0;
+  v74 = 0;
   v6 = a2;
-  v61 = 6LL * a2;
+  v63 = 6LL * a2;
   if ( a3 )
   {
-    v65 = *(_QWORD *)(*((_QWORD *)a3 + 3) + 8LL * a2 + 57136);
+    v67 = *(_QWORD *)(*((_QWORD *)a3 + 3) + 8LL * a2 + 57136);
     a3 = (unsigned int *)MiReferencePageRuns(a1, 1LL);
-    v59 = a3;
+    v61 = a3;
     v7 = *a3;
     v8 = &a3[4 * v7 + 4];
   }
   else
   {
-    v59 = 0LL;
+    v61 = 0LL;
     v8 = 0LL;
     LODWORD(v7) = 1;
   }
-  v56 = v8;
+  v58 = v8;
   v9 = MiPageSizes[v4];
   v10 = 1LL << (LOBYTE(MiLargePageCoalesceCandidateBitmapShifts[v4]) - (unsigned __int8)MiLargePageShifts[v4]);
-  v57 = v9;
-  v74 = v10;
-  v62 = 2 * v6;
+  v59 = v9;
+  v76 = v10;
+  v64 = 2 * v6;
   if ( (_DWORD)v4 )
   {
     v11 = 2LL;
     if ( (_DWORD)v4 == 1 )
       v12 = a1[2048];
     else
-      v12 = qword_140E3CBF8;
+      v12 = qword_140E3CD38;
   }
   else
   {
     v12 = a1[2055];
     v11 = 4LL;
   }
-  v63 = 0LL;
-  v58 = v12;
+  v65 = 0LL;
+  v60 = v12;
   v13 = a1[2 * v6 + 2050];
-  v60 = v13;
+  v62 = v13;
   while ( (_DWORD)v7 )
   {
     v7 = (unsigned int)(v7 - 1);
-    v64 = v7;
+    v66 = v7;
     if ( !v3 )
     {
       v17 = 0LL;
@@ -143,27 +145,27 @@ __int64 __fastcall MiProcessLargeCoalesceCandidates(_QWORD *a1, unsigned int a2,
       v18 = v17 + *(_QWORD *)&a3[4 * (unsigned int)v7 + 6];
 LABEL_17:
       v19 = v17 - 1;
-      v8 = v56;
+      v8 = v58;
       v20 = ~(v9 - 1);
       v21 = v20 & (v9 + v19);
       v22 = v20 & v18;
-      v67 = v21;
+      v69 = v21;
       if ( v21 < v22 )
       {
         v23 = MiLargePageCoalesceCandidateBitmapShifts[v6];
         v24 = v22 - 1;
-        v68 = v24;
+        v70 = v24;
         v25 = v21 >> v23;
-        v26 = a1[v62 + 2049] - 1LL;
+        v26 = a1[v64 + 2049] - 1LL;
         if ( v24 >> v23 < v26 )
           v26 = v24 >> v23;
-        v71 = v26;
+        v73 = v26;
         v27 = v26 + 1;
-        v70 = v26 + 1;
+        v72 = v26 + 1;
 LABEL_21:
-        v8 = v56;
-        a3 = v59;
-        LODWORD(v7) = v64;
+        v8 = v58;
+        a3 = v61;
+        LODWORD(v7) = v66;
         if ( v27 > v25 )
         {
           v28 = 0LL;
@@ -180,7 +182,7 @@ LABEL_21:
             v31 = *v30;
           }
           _BitScanForward64((unsigned __int64 *)&v33, v31);
-          v34 = (unsigned int)v33 + (((__int64)v30 - v60) >> 3 << 6);
+          v34 = (unsigned int)v33 + (((__int64)v30 - v62) >> 3 << 6);
           if ( v34 > v27 )
           {
 LABEL_66:
@@ -203,7 +205,7 @@ LABEL_66:
           }
           _BitScanForward64((unsigned __int64 *)&v37, v36);
 LABEL_34:
-          v38 = v37 + (((__int64)v30 - v60) >> 3 << 6);
+          v38 = v37 + (((__int64)v30 - v62) >> 3 << 6);
           if ( v38 > v27 )
             v38 = v27;
           v28 = v38 - v34;
@@ -211,23 +213,23 @@ LABEL_37:
           if ( v28 )
           {
             v25 = v28 + v34;
-            v69 = v28 + v34;
-            v39 = (_WORD *)(v58 + v11 * v74 * v34);
+            v71 = v28 + v34;
+            v39 = (_WORD *)(v60 + v11 * v76 * v34);
             while ( 1 )
             {
               if ( v34 >= v25 )
               {
-                v27 = v70;
-                v26 = v71;
-                v13 = v60;
+                v27 = v72;
+                v26 = v73;
+                v13 = v62;
                 goto LABEL_21;
               }
               if ( !v3 )
               {
                 v40 = v34 & 0x1F;
                 LOBYTE(v41) = 1;
-                a1[v61 + 2063] = v34;
-                v42 = (volatile signed __int32 *)(a1[v62 + 2050] + 4 * (v34 >> 5));
+                a1[v63 + 2063] = v34;
+                v42 = (volatile signed __int32 *)(a1[v64 + 2050] + 4 * (v34 >> 5));
                 if ( v40 + 1 <= 0x20 )
                 {
                   v43 = ~(1 << v40);
@@ -241,14 +243,14 @@ LABEL_43:
                 v41 = 1LL - (32 - (unsigned int)(v34 & 0x1F));
                 if ( v41 >= 0x20 )
                 {
-                  v52 = v41 >> 5;
+                  v53 = v41 >> 5;
                   v41 += -32LL * (v41 >> 5);
                   do
                   {
                     *v42++ = 0;
-                    --v52;
+                    --v53;
                   }
-                  while ( v52 );
+                  while ( v53 );
                 }
                 if ( v41 )
                 {
@@ -262,22 +264,22 @@ LABEL_44:
               v45 = v39;
               v46 = v34++ << v44;
               v47 = (v34 << v44) - 1;
-              v48 = (unsigned __int64)v39 + v11 * (v74 - 1);
+              v48 = (unsigned __int64)v39 + v11 * (v76 - 1);
               if ( v47 <= v24 )
               {
-                v50 = v57;
+                v50 = v59;
               }
               else
               {
                 v49 = v47 - v24;
-                v50 = v57;
-                v48 -= v11 * (v49 / v57);
+                v50 = v59;
+                v48 -= v11 * (v49 / v59);
               }
-              if ( v46 < v67 )
+              if ( v46 < v69 )
               {
-                v53 = v67 - v46;
-                v46 = v67;
-                v45 = (_WORD *)((char *)v39 + v11 * (v53 / v50));
+                v54 = v69 - v46;
+                v46 = v69;
+                v45 = (_WORD *)((char *)v39 + v11 * (v54 / v50));
               }
               v51 = MiProcessLargeCoalesceBitmapCandidates((__int64)a1, v46, a2, v45, v48, v11, CurrentIrql, v3);
               v14 = v51;
@@ -285,65 +287,69 @@ LABEL_44:
               {
                 if ( v51 == -1073741267 )
                 {
-                  v72 = 1;
+                  v74 = 1;
                 }
                 else if ( v51 != 261 )
                 {
                   goto LABEL_12;
                 }
-                if ( (++v63 & 0x1F) == 0 && (unsigned int)MiAccumulateTimeBoundTime(*(_QWORD *)(v3 + 32) + 40LL, 0LL) )
-                  goto LABEL_53;
+                if ( (++v65 & 0x1F) == 0 )
+                {
+                  LOBYTE(v52) = MiAccumulateTimeBoundTime((ULONG64 *)(*(_QWORD *)(v3 + 32) + 40LL), 0);
+                  if ( v52 )
+                    goto LABEL_53;
+                }
               }
               else
               {
-                a1[v61 + 2063] = -2LL;
+                a1[v63 + 2063] = -2LL;
               }
-              v39 = (_WORD *)((char *)v39 + v11 * v74);
-              v24 = v68;
-              v25 = v69;
+              v39 = (_WORD *)((char *)v39 + v11 * v76);
+              v24 = v70;
+              v25 = v71;
             }
           }
-          v8 = v56;
-          a3 = v59;
-          LODWORD(v7) = v64;
-          v13 = v60;
+          v8 = v58;
+          a3 = v61;
+          LODWORD(v7) = v66;
+          v13 = v62;
         }
-        v9 = v57;
+        v9 = v59;
       }
-      v10 = v74;
+      v10 = v76;
     }
   }
   v14 = 261;
   if ( v3 )
   {
-    *(_QWORD *)(*(_QWORD *)(v3 + 32) + 8 * v6 + 16) = v65;
+    *(_QWORD *)(*(_QWORD *)(v3 + 32) + 8 * v6 + 16) = v67;
     *(_DWORD *)(*(_QWORD *)(v3 + 32) + 4 * v6) = *(_DWORD *)(v3 + 12);
-    v54 = a1[v61 + 2063];
-    if ( v54 > 0xFFFFFFFFFFFFFFFDuLL )
+    v55 = a1[v63 + 2063];
+    if ( v55 > 0xFFFFFFFFFFFFFFFDuLL )
     {
-      v15 = v72;
+      v15 = v74;
     }
     else
     {
-      v55 = MiProcessLargeCoalesceBitmapCandidates(
+      v56 = MiProcessLargeCoalesceBitmapCandidates(
               (__int64)a1,
-              v54 << MiLargePageCoalesceCandidateBitmapShifts[v6],
+              v55 << MiLargePageCoalesceCandidateBitmapShifts[v6],
               a2,
-              (_WORD *)(v58 + v11 * v10 * v54),
-              v58 + v11 * v10 * v54 + v11 * (v10 - 1),
+              (_WORD *)(v60 + v11 * v10 * v55),
+              v60 + v11 * v10 * v55 + v11 * (v10 - 1),
               v11,
               CurrentIrql,
               v3);
-      v14 = v55;
-      if ( v55 == -1073741267 )
+      v14 = v56;
+      if ( v56 == -1073741267 )
       {
         v14 = 261;
         v15 = 1;
       }
       else
       {
-        v15 = v72;
-        if ( v55 != 261 )
+        v15 = v74;
+        if ( v56 != 261 )
           goto LABEL_12;
       }
     }
@@ -352,7 +358,8 @@ LABEL_44:
       v14 = 255;
       goto LABEL_12;
     }
-    if ( (unsigned int)MiAccumulateTimeBoundTime(*(_QWORD *)(v3 + 32) + 40LL, 0LL) )
+    LOBYTE(v57) = MiAccumulateTimeBoundTime((ULONG64 *)(*(_QWORD *)(v3 + 32) + 40LL), 0);
+    if ( v57 )
     {
 LABEL_53:
       v14 = 258;
@@ -361,12 +368,12 @@ LABEL_53:
   }
   else
   {
-    v15 = v72;
+    v15 = v74;
   }
   if ( v15 )
     v14 = -1073741267;
 LABEL_12:
-  if ( v59 )
-    MiDereferencePageRuns(v59, v8);
+  if ( v61 )
+    MiDereferencePageRuns(v61, v8);
   return v14;
 }

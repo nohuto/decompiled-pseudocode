@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryRunLevel @ 0x18007BA9C
+ * XREFs of RtlpQueryRunLevel @ 0x18007BA8C
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18003DAF0 (RtlQueryInformationActivationContext.c)
+ *     RtlQueryInformationActivationContext @ 0x18003DAE0 (RtlQueryInformationActivationContext.c)
  * Callees:
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
- *     RtlpLocateActivationContextSectionForQuery @ 0x18007BEB0 (RtlpLocateActivationContextSectionForQuery.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
+ *     RtlpLocateActivationContextSectionForQuery @ 0x18007BEA0 (RtlpLocateActivationContextSectionForQuery.c)
  */
 
 __int64 __fastcall RtlpQueryRunLevel(__int64 a1, __int64 a2, _DWORD *a3)
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpQueryRunLevel(__int64 a1, __int64 a2, _DWORD *a3)
   if ( (_DWORD)v9 == v7 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found activation context data at %p with assembly roster that has no root\n",
       "RtlpQueryRunLevel",
@@ -55,7 +55,7 @@ __int64 __fastcall RtlpQueryRunLevel(__int64 a1, __int64 a2, _DWORD *a3)
   v11 = *(unsigned int *)(v8 + 24 * v9 + 16);
   if ( *(_DWORD *)(v11 + a2) != 108 )
   {
-    DbgPrintEx(51, 0, "SXS: %s() found activation context data at %p with wrong format\n", "RtlpQueryRunLevel", a2);
+    DbgPrintEx(0x33u, 0, "SXS: %s() found activation context data at %p with wrong format\n", "RtlpQueryRunLevel", a2);
     return (unsigned int)-1072365565;
   }
   *a3 = 0;

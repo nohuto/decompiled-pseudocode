@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpIcEmulateRegisterPushPop @ 0x140BB830C
+ * XREFs of RtlpIcEmulateRegisterPushPop @ 0x140BBA30C
  * Callers:
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
  * Callees:
- *     RtlpIcAccessMemory @ 0x140BB7198 (RtlpIcAccessMemory.c)
- *     RtlpIcGetRegisterAddressByIndex @ 0x140BB8498 (RtlpIcGetRegisterAddressByIndex.c)
+ *     RtlpIcAccessMemory @ 0x140BB9198 (RtlpIcAccessMemory.c)
+ *     RtlpIcGetRegisterAddressByIndex @ 0x140BBA498 (RtlpIcGetRegisterAddressByIndex.c)
  */
 
 __int64 __fastcall RtlpIcEmulateRegisterPushPop(__int64 a1, __int64 a2, char a3)

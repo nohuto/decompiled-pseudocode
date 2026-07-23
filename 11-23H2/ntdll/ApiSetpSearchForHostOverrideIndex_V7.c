@@ -10,7 +10,7 @@ __int64 __fastcall ApiSetpSearchForHostOverrideIndex_V7(
         __int64 a1,
         unsigned int a2,
         unsigned int a3,
-        _WORD *a4,
+        const WCHAR *a4,
         unsigned __int16 a5)
 {
   unsigned int v9; // esi
@@ -18,7 +18,7 @@ __int64 __fastcall ApiSetpSearchForHostOverrideIndex_V7(
   __int64 v11; // r15
   __int64 v12; // rax
   __int64 v13; // rcx
-  unsigned __int64 v14; // rdx
+  SIZE_T v14; // rdx
   __int64 v15; // r14
 
   if ( !a3 )
@@ -32,12 +32,12 @@ __int64 __fastcall ApiSetpSearchForHostOverrideIndex_V7(
   while ( 1 )
   {
     v15 = v12 + v10 * a2 - v11;
-    if ( !(unsigned int)RtlCompareUnicodeStrings(
-                          a4,
-                          v14,
-                          a1 + v13 + *(unsigned int *)(v15 + a1 + 4) - v11,
-                          *(unsigned __int16 *)(v15 + a1 + 12),
-                          1) )
+    if ( !RtlCompareUnicodeStrings(
+            a4,
+            v14,
+            (PCWCH)(a1 + v13 + *(unsigned int *)(v15 + a1 + 4) - v11),
+            *(unsigned __int16 *)(v15 + a1 + 12),
+            1u) )
       break;
     a2 = *(_DWORD *)(v15 + a1);
     ++v9;

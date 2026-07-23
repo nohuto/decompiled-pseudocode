@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCheckForWorker @ 0x14022E8A4
+ * XREFs of ExpCheckForWorker @ 0x14022E6D0
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     ExpFreePoolChecks @ 0x14022D080 (ExpFreePoolChecks.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     ExpFreePoolChecks @ 0x14022CEAC (ExpFreePoolChecks.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)

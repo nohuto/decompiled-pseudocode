@@ -19,7 +19,7 @@ _WORD *__fastcall SdbpGetProcessHistory(char *a1, _WORD *a2, _WORD *a3)
   __int64 v6; // r13
   char *v7; // rbx
   __int64 v8; // rcx
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   __int64 v10; // rbx
   char *v11; // rbp
   unsigned __int16 *v12; // r10
@@ -35,7 +35,7 @@ _WORD *__fastcall SdbpGetProcessHistory(char *a1, _WORD *a2, _WORD *a3)
   _WORD *v22; // r15
   _WORD *result; // rax
   SIZE_T v24; // rbx
-  _WORD *v25; // rax
+  PWSTR v25; // rax
   char *v26; // rsi
   unsigned __int16 *v27; // r10
   unsigned __int16 v28; // r11
@@ -126,7 +126,7 @@ LABEL_18:
     v10 = -1LL;
     do
       ++v10;
-    while ( *(_WORD *)(NtSystemRoot + 2 * v10) );
+    while ( NtSystemRoot[v10] );
 LABEL_34:
     v8 = (unsigned int)(v5 + v6 + 2);
     v18 = -1073741789;
@@ -146,7 +146,7 @@ LABEL_34:
   v24 = v20 >> 1;
   if ( !wcsnicmp(L"__PROCESS_HISTORY", L"systemroot", 0xAuLL) )
   {
-    v25 = (_WORD *)RtlGetNtSystemRoot();
+    v25 = RtlGetNtSystemRoot();
     do
       ++v3;
     while ( v25[v3] );

@@ -1,10 +1,10 @@
 /*
- * XREFs of IntelMicrocodeGetRecordData @ 0x140664DEC
+ * XREFs of IntelMicrocodeGetRecordData @ 0x1406636DC
  * Callers:
- *     GetMicrocodePatchData @ 0x1406642C8 (GetMicrocodePatchData.c)
- *     MicrocodeUpdate @ 0x140664918 (MicrocodeUpdate.c)
+ *     GetMicrocodePatchData @ 0x140662BB8 (GetMicrocodePatchData.c)
+ *     MicrocodeUpdate @ 0x140663208 (MicrocodeUpdate.c)
  * Callees:
- *     PrExtGetRecordDataLength @ 0x140664210 (PrExtGetRecordDataLength.c)
+ *     PrExtGetRecordDataLength @ 0x140662B00 (PrExtGetRecordDataLength.c)
  */
 
 __int64 __fastcall IntelMicrocodeGetRecordData(__int64 a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)

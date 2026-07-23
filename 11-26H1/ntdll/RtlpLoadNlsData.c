@@ -1,57 +1,57 @@
 /*
- * XREFs of RtlpLoadNlsData @ 0x180004A18
+ * XREFs of RtlpLoadNlsData @ 0x180050148
  * Callers:
- *     RtlpConsoleFallbackNameFromLocaleName @ 0x180001794 (RtlpConsoleFallbackNameFromLocaleName.c)
- *     RtlIsValidLocaleName @ 0x180001D40 (RtlIsValidLocaleName.c)
- *     RtlGetParentLocaleName @ 0x1800036A0 (RtlGetParentLocaleName.c)
- *     RtlGetNeutralFallback @ 0x180004170 (RtlGetNeutralFallback.c)
- *     RtlLocaleNameToLcid @ 0x1800045B0 (RtlLocaleNameToLcid.c)
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     LdrpLangFallbackListAppendNode @ 0x180004E90 (LdrpLangFallbackListAppendNode.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800052F0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlLCIDToCultureName @ 0x180005BA0 (RtlLCIDToCultureName.c)
- *     RtlLcidToLocaleName @ 0x180005EB0 (RtlLcidToLocaleName.c)
- *     RtlpGetProcessCodepagesForLocale @ 0x180121708 (RtlpGetProcessCodepagesForLocale.c)
+ *     RtlpConsoleFallbackNameFromLocaleName @ 0x18004CECC (RtlpConsoleFallbackNameFromLocaleName.c)
+ *     RtlIsValidLocaleName @ 0x18004D470 (RtlIsValidLocaleName.c)
+ *     RtlGetParentLocaleName @ 0x18004EDD0 (RtlGetParentLocaleName.c)
+ *     RtlGetNeutralFallback @ 0x18004F8A0 (RtlGetNeutralFallback.c)
+ *     RtlLocaleNameToLcid @ 0x18004FCE0 (RtlLocaleNameToLcid.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     LdrpLangFallbackListAppendNode @ 0x1800505C0 (LdrpLangFallbackListAppendNode.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180050A20 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlLCIDToCultureName @ 0x1800512D0 (RtlLCIDToCultureName.c)
+ *     RtlLcidToLocaleName @ 0x1800515E0 (RtlLcidToLocaleName.c)
+ *     RtlpGetProcessCodepagesForLocale @ 0x1801214A4 (RtlpGetProcessCodepagesForLocale.c)
  * Callees:
- *     NtUnmapViewOfSection @ 0x18015F480 (NtUnmapViewOfSection.c)
- *     NtInitializeNlsFiles @ 0x180161030 (NtInitializeNlsFiles.c)
+ *     NtUnmapViewOfSection @ 0x18015F380 (NtUnmapViewOfSection.c)
+ *     NtInitializeNlsFiles @ 0x180160F30 (NtInitializeNlsFiles.c)
  */
 
-char RtlpLoadNlsData()
+char __fastcall RtlpLoadNlsData(__int64 a1, __int64 a2, __int64 a3, ULONG *a4)
 {
-  __int64 v0; // rcx
-  unsigned int *v1; // rdx
-  __int64 v2; // rcx
-  signed __int64 v4; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int *v4; // rcx
+  unsigned int *v5; // rdx
+  __int64 v6; // rcx
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = 0LL;
+  BaseAddress = 0LL;
   if ( pTblPtrs )
     return 1;
-  v0 = gBaseAddress;
+  v4 = (unsigned int *)gBaseAddress;
   if ( gBaseAddress )
     goto LABEL_6;
-  if ( (int)NtInitializeNlsFiles(&v4, &gSystemLocale, 0LL) >= 0 )
+  if ( NtInitializeNlsFiles(&BaseAddress, &gSystemLocale, 0LL, a4) >= 0 )
   {
-    if ( !_InterlockedCompareExchange64(&gBaseAddress, v4, 0LL) )
+    if ( !_InterlockedCompareExchange64(&gBaseAddress, (signed __int64)BaseAddress, 0LL) )
     {
-      v0 = v4;
+      v4 = (unsigned int *)BaseAddress;
       goto LABEL_7;
     }
-    NtUnmapViewOfSection(-1LL, v4);
-    v0 = gBaseAddress;
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+    v4 = (unsigned int *)gBaseAddress;
 LABEL_6:
-    v4 = v0;
+    BaseAddress = v4;
 LABEL_7:
-    v1 = (unsigned int *)(v0 + *(unsigned int *)(v0 + 16));
-    v2 = *v1;
-    gLocaleTables = *(_WORD *)((char *)v1 + v2 + 24);
-    word_1801C772C = *(_WORD *)((char *)v1 + v2 + 22);
-    word_1801C772A = *(_WORD *)((char *)v1 + v2 + 32);
-    word_1801C7758 = *(_WORD *)((char *)v1 + v2 + 26);
-    qword_1801C7730 = (__int64)v1 + *(unsigned int *)((char *)v1 + v2 + 28);
-    qword_1801C7738 = (__int64)v1 + *(unsigned int *)((char *)v1 + v2 + 36);
-    qword_1801C7740 = (__int64)v1 + *(unsigned int *)((char *)v1 + v2 + 40);
-    qword_1801C7748 = (__int64)v1 + *(unsigned int *)((char *)v1 + v2 + 56);
+    v5 = (unsigned int *)((char *)v4 + v4[4]);
+    v6 = *v5;
+    gLocaleTables = *(_WORD *)((char *)v5 + v6 + 24);
+    word_1801C6774 = *(_WORD *)((char *)v5 + v6 + 22);
+    word_1801C6772 = *(_WORD *)((char *)v5 + v6 + 32);
+    word_1801C67A0 = *(_WORD *)((char *)v5 + v6 + 26);
+    qword_1801C6778 = (__int64)v5 + *(unsigned int *)((char *)v5 + v6 + 28);
+    qword_1801C6780 = (__int64)v5 + *(unsigned int *)((char *)v5 + v6 + 36);
+    qword_1801C6788 = (__int64)v5 + *(unsigned int *)((char *)v5 + v6 + 40);
+    qword_1801C6790 = (__int64)v5 + *(unsigned int *)((char *)v5 + v6 + 56);
     pTblPtrs = (__int64)&gLocaleTables;
     return 1;
   }

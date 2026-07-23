@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpDeleteCorruptedLogfile @ 0x140862DE8
+ * XREFs of CmpDeleteCorruptedLogfile @ 0x1408691C8
  * Callers:
- *     CmpStartCLFSLog @ 0x140863388 (CmpStartCLFSLog.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
+ *     CmpStartCLFSLog @ 0x140869768 (CmpStartCLFSLog.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     RtlUShortAdd @ 0x140481650 (RtlUShortAdd.c)
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     CmpDeleteCorruptedFile @ 0x1406E316C (CmpDeleteCorruptedFile.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     RtlUShortAdd @ 0x14047AFC0 (RtlUShortAdd.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     CmpDeleteCorruptedFile @ 0x1406E7E18 (CmpDeleteCorruptedFile.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpDeleteCorruptedLogfile(
@@ -134,7 +134,7 @@ LABEL_15:
       v54 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E09EE8,
-        (unsigned __int8 *)&dword_14005755C,
+        (unsigned __int8 *)&byte_14005854F,
         0LL,
         0LL,
         0xAu,

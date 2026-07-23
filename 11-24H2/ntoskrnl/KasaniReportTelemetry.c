@@ -1,15 +1,15 @@
 /*
- * XREFs of KasaniReportTelemetry @ 0x1405AA1D0
+ * XREFs of KasaniReportTelemetry @ 0x1405A7140
  * Callers:
- *     KasanDriverUnloadImage @ 0x1405A99B0 (KasanDriverUnloadImage.c)
- *     KasaniTelemetryThread @ 0x1405AAEC0 (KasaniTelemetryThread.c)
+ *     KasanDriverUnloadImage @ 0x1405A6920 (KasanDriverUnloadImage.c)
+ *     KasaniTelemetryThread @ 0x1405A7E30 (KasaniTelemetryThread.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KasaniSendReport @ 0x1405AA2E0 (KasaniSendReport.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KasaniSendReport @ 0x1405A7250 (KasaniSendReport.c)
  */
 
 __int64 KasaniReportTelemetry()
@@ -17,12 +17,12 @@ __int64 KasaniReportTelemetry()
   _DWORD *v0; // rbx
   __int64 v1; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
-  _QWORD *v4; // rsi
+  char *v3; // rax
+  char *v4; // rsi
   _BYTE *v5; // rbx
 
-  v0 = (_DWORD *)qword_140FCDC38;
-  if ( qword_140FCDC38 )
+  v0 = (_DWORD *)qword_140FCECB8;
+  if ( qword_140FCECB8 )
   {
     LODWORD(v1) = 64;
   }
@@ -33,12 +33,12 @@ __int64 KasaniReportTelemetry()
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire((__int64)&KasaniTelemetryLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&KasaniTelemetryLock, 0LL);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&KasaniTelemetryLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&KasaniTelemetryLock, (__int64)v3, (__int64)&KasaniTelemetryLock);
+    ExfAcquirePushLockExclusiveEx(&KasaniTelemetryLock, v3, (__int64)&KasaniTelemetryLock);
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   if ( *v0 <= (int)v1 )
     LODWORD(v1) = *v0;
   v1 = (int)v1;

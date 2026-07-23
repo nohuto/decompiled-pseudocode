@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroHgsGetWpsHint @ 0x14060B404
+ * XREFs of PpmHeteroHgsGetWpsHint @ 0x14060E0F0
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
  */
 
 void __fastcall PpmHeteroHgsGetWpsHint(__int64 a1, struct _KAFFINITY_EX *a2, int *a3)

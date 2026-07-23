@@ -1,11 +1,11 @@
 /*
- * XREFs of PspWow64ThunkProcessParameters @ 0x1400ABA50
+ * XREFs of PspWow64ThunkProcessParameters @ 0x1400A9FB8
  * Callers:
- *     PspWow64SetupUserProcessAddressSpace @ 0x1400F72E8 (PspWow64SetupUserProcessAddressSpace.c)
+ *     PspWow64SetupUserProcessAddressSpace @ 0x1400F5128 (PspWow64SetupUserProcessAddressSpace.c)
  * Callees:
- *     PspWow64CopyUnicodeString @ 0x1400ABEC0 (PspWow64CopyUnicodeString.c)
- *     ZwAllocateVirtualMemory @ 0x140159F80 (ZwAllocateVirtualMemory.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     PspWow64CopyUnicodeString @ 0x1400AA428 (PspWow64CopyUnicodeString.c)
+ *     ZwAllocateVirtualMemory @ 0x14015A4F0 (ZwAllocateVirtualMemory.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 NTSTATUS __fastcall PspWow64ThunkProcessParameters(__int64 a1, unsigned int *a2, _DWORD *a3)

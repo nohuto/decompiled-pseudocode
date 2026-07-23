@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x14082BEAC
+ * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x1408320EC
  * Callers:
- *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x1407BB690 (KiLogUserCetSetContextIpValidationFailureWorker.c)
+ *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x1407BE6F0 (KiLogUserCetSetContextIpValidationFailureWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x140723850 (ZwQueryVirtualMemory.c)
- *     EtwpQueryProcessCommandLine @ 0x14096DF60 (EtwpQueryProcessCommandLine.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140728420 (ZwQueryVirtualMemory.c)
+ *     EtwpQueryProcessCommandLine @ 0x1409D37CC (EtwpQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2, void *a3, int a4, int a5)
@@ -143,7 +143,7 @@ void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2
   if ( ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         (MEMORY_INFORMATION_CLASS)2,
+         MemoryMappedFilenameInformation,
          Pool2,
          0x200uLL,
          0LL) < 0 )
@@ -176,7 +176,7 @@ LABEL_14:
   *(&UserData.Ptr + v24) = (ULONGLONG)&v74;
   *((_QWORD *)&UserData.Size + v24) = 4LL;
   v26 = v23 + 2;
-  v27 = EtwSecurityMitigationsRegHandle;
+  v27 = *(_QWORD *)&stru_140F03830.SavedApcStateFill[40];
   v28 = 2LL * (v23 + 1);
   *(&UserData.Ptr + v28) = (ULONGLONG)&a5;
   v29 = (const EVENT_DESCRIPTOR *)MITIGATION_AUDIT_USER_CET_SET_CONTEXT_IP_VALIDATION_FAILURE;
@@ -184,7 +184,7 @@ LABEL_14:
   if ( v25 != 1 )
     v29 = &MITIGATION_ENFORCE_USER_CET_SET_CONTEXT_IP_VALIDATION_FAILURE;
   EtwWrite(v27, v29, 0LL, v26, &UserData);
-  if ( (unsigned int)dword_140E08F48 > 5 && tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E08F78 > 5 && tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL) )
   {
     v34 = v25;
     v42 = &v34;
@@ -217,8 +217,8 @@ LABEL_14:
     v39 = 0x1000000LL;
     v63 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08F48,
-      (unsigned __int8 *)byte_140054DFB,
+      (__int64)&dword_140E08F78,
+      (unsigned __int8 *)&byte_140055ACF,
       0LL,
       0LL,
       0xDu,

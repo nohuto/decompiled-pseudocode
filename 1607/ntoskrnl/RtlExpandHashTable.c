@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlExpandHashTable @ 0x14010EB80
+ * XREFs of RtlExpandHashTable @ 0x14010F0E4
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x14007D0C4 (RtlpGetChainHead.c)
- *     RtlpAllocateSecondLevelDir @ 0x1400A9670 (RtlpAllocateSecondLevelDir.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlpGetChainHead @ 0x14007D144 (RtlpGetChainHead.c)
+ *     RtlpAllocateSecondLevelDir @ 0x1400A7BF0 (RtlpAllocateSecondLevelDir.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

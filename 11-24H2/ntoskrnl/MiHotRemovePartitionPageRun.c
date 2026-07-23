@@ -1,9 +1,9 @@
 /*
- * XREFs of MiHotRemovePartitionPageRun @ 0x1407FC588
+ * XREFs of MiHotRemovePartitionPageRun @ 0x1407FCCF8
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140688F24 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x14068A054 (MiActOnPartitionNodePages.c)
  * Callees:
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  */
 
 __int64 __fastcall MiHotRemovePartitionPageRun(__int64 a1, __int64 a2, int a3, int a4, __int16 a5)
@@ -18,7 +18,7 @@ __int64 __fastcall MiHotRemovePartitionPageRun(__int64 a1, __int64 a2, int a3, i
   {
     v5 |= 0x80000u;
   }
-  else if ( *((ULONG **)qword_140E2FF88 + ((*(_QWORD *)(48 * a1 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL)) == &MiSystemPartition
+  else if ( *((ULONG **)qword_140E300C8 + ((*(_QWORD *)(48 * a1 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL)) == &MiSystemPartition
          && (a5 & 6) != 6 )
   {
     v5 |= 0x400000u;

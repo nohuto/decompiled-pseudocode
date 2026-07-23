@@ -44,14 +44,14 @@ __int64 __fastcall sub_1401947F0(__int64 a1, __int64 a2)
   unsigned __int8 v11; // al
   unsigned __int64 v12; // rax
   SIZE_T v13; // rbx
-  struct _SLIST_ENTRY *PoolWithTag; // rax
+  _SLIST_ENTRY *PoolWithTag; // rax
   PSLIST_ENTRY v15; // rax
   PSLIST_ENTRY v16; // r13
   PSLIST_ENTRY v17; // r15
   __int64 v18; // rdx
-  struct _SLIST_ENTRY *v19; // rcx
-  struct _SLIST_ENTRY *v20; // rax
-  struct _SLIST_ENTRY v21; // xmm1
+  _SLIST_ENTRY *v19; // rcx
+  _SLIST_ENTRY *v20; // rax
+  _SLIST_ENTRY v21; // xmm1
   unsigned int v22; // eax
   __int64 v23; // rdi
   __int64 v24; // rcx
@@ -1706,14 +1706,14 @@ LABEL_35:
     if ( v15 )
       goto LABEL_41;
     ++dword_14039D418;
-    PoolWithTag = (struct _SLIST_ENTRY *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14039D430)(
-                                           (unsigned int)dword_14039D424,
-                                           (unsigned int)dword_14039D42C,
-                                           (unsigned int)dword_14039D428);
+    PoolWithTag = (_SLIST_ENTRY *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14039D430)(
+                                    (unsigned int)dword_14039D424,
+                                    (unsigned int)dword_14039D42C,
+                                    (unsigned int)dword_14039D428);
   }
   else
   {
-    PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v13, 0x746E494Bu);
+    PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v13, 0x746E494Bu);
   }
   *(_QWORD *)(((unsigned __int64)v1584 & 0xFFFFFFFFFFFFFF80uLL) + 0xB0) = PoolWithTag;
   v16 = PoolWithTag;
@@ -1724,7 +1724,7 @@ LABEL_41:
   v18 = 18LL;
   *(_QWORD *)(((unsigned __int64)v1584 & 0xFFFFFFFFFFFFFF80uLL) + 0xE0) = v16 + 2;
   v19 = v16 + 2;
-  v20 = (struct _SLIST_ENTRY *)v5;
+  v20 = (_SLIST_ENTRY *)v5;
   do
   {
     *v19 = *v20;

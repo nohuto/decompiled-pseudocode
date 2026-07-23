@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckPageFileMapping @ 0x140142E50
+ * XREFs of MiCheckPageFileMapping @ 0x1401433C0
  * Callers:
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiCheckPageFileMapping(__int64 a1)
@@ -14,13 +14,13 @@ __int64 __fastcall MiCheckPageFileMapping(__int64 a1)
 
   if ( !*(_QWORD *)(a1 + 40) )
     return 0LL;
-  v2 = ExAcquireSpinLockExclusive(&dword_140326540);
+  v2 = ExAcquireSpinLockExclusive(&dword_140326580);
   v3 = *(_QWORD **)(a1 + 40);
   if ( !v3 || !*v3 && !v3[2] )
   {
-    ExReleaseSpinLockExclusive(&dword_140326540, v2);
+    ExReleaseSpinLockExclusive(&dword_140326580, v2);
     return 0LL;
   }
-  ExReleaseSpinLockExclusive(&dword_140326540, v2);
+  ExReleaseSpinLockExclusive(&dword_140326580, v2);
   return 3221225549LL;
 }

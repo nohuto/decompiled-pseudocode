@@ -1,32 +1,27 @@
 /*
- * XREFs of EtwpIsValidImageAddress @ 0x14077E0D8
+ * XREFs of EtwpIsValidImageAddress @ 0x14077E2C8
  * Callers:
- *     EtwpFindDebugId @ 0x14077DECC (EtwpFindDebugId.c)
+ *     EtwpFindDebugId @ 0x14077E0BC (EtwpFindDebugId.c)
  * Callees:
- *     RtlSectionTableFromVirtualAddress @ 0x1402F7190 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1402F7420 (RtlSectionTableFromVirtualAddress.c)
  */
 
-bool __fastcall EtwpIsValidImageAddress(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        __int64 a5)
+bool __fastcall EtwpIsValidImageAddress(_IMAGE_NT_HEADERS64 *a1, void *a2, __int64 a3, unsigned __int64 a4, __int64 a5)
 {
   unsigned __int64 v5; // rbx
   bool result; // al
-  _DWORD *v7; // rax
+  PIMAGE_SECTION_HEADER v7; // rax
 
-  v5 = a4 - a2;
+  v5 = a4 - (_QWORD)a2;
   result = 0;
-  if ( a4 >= a2 && a4 + a5 >= a4 && a4 + a5 <= a2 + a3 )
+  if ( a4 >= (unsigned __int64)a2 && a4 + a5 >= a4 && a4 + a5 <= (unsigned __int64)a2 + a3 )
   {
-    if ( a2 < 0xFFFF800000000000uLL )
+    if ( (unsigned __int64)a2 < 0xFFFF800000000000uLL )
       return 1;
-    v7 = (_DWORD *)RtlSectionTableFromVirtualAddress(a1, a2, v5);
+    v7 = RtlSectionTableFromVirtualAddress(a1, a2, v5);
     if ( v7 )
     {
-      if ( v5 + a5 <= (unsigned int)(v7[3] + v7[4]) && (v7[9] & 0x2000000) == 0 )
+      if ( v5 + a5 <= v7->VirtualAddress + v7->SizeOfRawData && (v7->Characteristics & 0x2000000) == 0 )
         return 1;
     }
   }

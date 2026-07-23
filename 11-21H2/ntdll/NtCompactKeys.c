@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtCompactKeys()
+NTSTATUS __cdecl NtCompactKeys(ULONG Count, HANDLE KeyArray[])
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 156LL;
+  result = 156;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

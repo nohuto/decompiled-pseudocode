@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiIdealProcessorRebalancerWorker@@YAXPEAX@Z @ 0x14021AB10
+ * XREFs of ?KiIdealProcessorRebalancerWorker@@YAXPEAX@Z @ 0x14021C4A0
  * Callers:
  *     <none>
  * Callees:
- *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x14021BA80 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x14021D410 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall KiIdealProcessorRebalancerWorker(void *a1)
@@ -16,14 +16,14 @@ void __fastcall KiIdealProcessorRebalancerWorker(void *a1)
   while ( 1 )
   {
     v1 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
-    v2 = byte_140E16271;
-    byte_140E16271 = 0;
+    v2 = byte_140E163B1;
+    byte_140E163B1 = 0;
     if ( !v2 )
       break;
     KeReleaseSpinLock(&SpinLock, v1);
     if ( (v2 & 1) != 0 )
       KiUpdateProcessConcurrencyCounts();
   }
-  byte_140E16270 = 0;
+  byte_140E163B0 = 0;
   KeReleaseSpinLock(&SpinLock, v1);
 }

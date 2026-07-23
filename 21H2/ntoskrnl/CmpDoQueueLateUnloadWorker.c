@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpDoQueueLateUnloadWorker @ 0x1406725FC
+ * XREFs of CmpDoQueueLateUnloadWorker @ 0x14066782C
  * Callers:
- *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
- *     CmReleaseLoadKeyContext @ 0x140671FD0 (CmReleaseLoadKeyContext.c)
- *     CmpDoFlushNextHive @ 0x140672310 (CmpDoFlushNextHive.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1406934B0 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1405F2A10 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmReleaseLoadKeyContext @ 0x140667510 (CmReleaseLoadKeyContext.c)
+ *     CmpDoFlushNextHive @ 0x140667540 (CmpDoFlushNextHive.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1406DE0FC (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
- *     CmWorkerEngineQueueWorkItem @ 0x1406BA104 (CmWorkerEngineQueueWorkItem.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     CmWorkerEngineQueueWorkItem @ 0x140619274 (CmWorkerEngineQueueWorkItem.c)
+ *     CmpReferenceHive @ 0x1406DBA08 (CmpReferenceHive.c)
  */
 
 char __fastcall CmpDoQueueLateUnloadWorker(__int64 a1)
@@ -34,7 +34,7 @@ char __fastcall CmpDoQueueLateUnloadWorker(__int64 a1)
       *(_QWORD *)(v3 + 24) = CmpLateUnloadHiveWorker;
       *(_QWORD *)(v3 + 32) = a1;
       CmpReferenceHive(a1);
-      CmWorkerEngineQueueWorkItem(v3);
+      CmWorkerEngineQueueWorkItem((_QWORD *)v3);
     }
   }
   v4 = _InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL);

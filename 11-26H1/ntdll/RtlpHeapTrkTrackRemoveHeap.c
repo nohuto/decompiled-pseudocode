@@ -1,85 +1,85 @@
 /*
- * XREFs of RtlpHeapTrkTrackRemoveHeap @ 0x1800FC1E8
+ * XREFs of RtlpHeapTrkTrackRemoveHeap @ 0x1800FB938
  * Callers:
- *     RtlpHeapTrkInterceptor @ 0x1800117C0 (RtlpHeapTrkInterceptor.c)
+ *     RtlpHeapTrkInterceptor @ 0x18005CEF0 (RtlpHeapTrkInterceptor.c)
  * Callees:
- *     RtlpHeapTrkDereferenceStack @ 0x180011C20 (RtlpHeapTrkDereferenceStack.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlpHeapTrkDereferenceStack @ 0x18005D350 (RtlpHeapTrkDereferenceStack.c)
  */
 
-_QWORD *__fastcall RtlpHeapTrkTrackRemoveHeap(__int64 a1, __int64 a2)
+PVOID *__fastcall RtlpHeapTrkTrackRemoveHeap(PVOID a1)
 {
-  unsigned int v3; // edi
-  _QWORD **v4; // r8
-  _QWORD *v5; // rax
-  __int64 v6; // rdx
-  _QWORD *v7; // r10
-  bool v8; // zf
-  _QWORD *v9; // rcx
-  _QWORD *v10; // r9
-  __int64 v11; // rdx
-  __int64 v12; // rbx
-  _QWORD *result; // rax
-  __int64 v14; // rcx
-  _QWORD *v15; // rax
-  __int64 *v16; // rcx
-  _QWORD v17[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v2; // edi
+  PVOID **v3; // r8
+  PVOID *v4; // rax
+  _QWORD **v5; // rdx
+  PVOID *v6; // r10
+  bool v7; // zf
+  PVOID *v8; // rcx
+  _QWORD *v9; // r9
+  _QWORD *v10; // rdx
+  _QWORD *v11; // rbx
+  PVOID *result; // rax
+  _QWORD *v13; // rcx
+  PVOID *v14; // rax
+  PVOID **v15; // rcx
+  PVOID BaseAddress[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v17[1] = v17;
-  v3 = 0;
-  v17[0] = v17;
+  BaseAddress[1] = BaseAddress;
+  v2 = 0;
+  BaseAddress[0] = BaseAddress;
   do
   {
-    RtlAcquireSRWLockExclusive(*(volatile signed __int64 **)(qword_1801C7778 + 8LL * (v3 & 0xF)), a2);
-    v4 = (_QWORD **)(16LL * v3 + qword_1801C7280);
-    v5 = *v4;
-    while ( v5 != v4 )
+    RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801C67C8 + 8LL * (v2 & 0xF)));
+    v3 = (PVOID **)(16LL * v2 + qword_1801C6280);
+    v4 = *v3;
+    while ( v4 != (PVOID *)v3 )
     {
-      v6 = *v5;
-      v7 = v5;
-      v8 = v5[2] == a1;
-      v9 = v5;
-      v5 = (_QWORD *)*v5;
-      if ( v8 )
+      v5 = (_QWORD **)*v4;
+      v6 = v4;
+      v7 = v4[2] == a1;
+      v8 = v4;
+      v4 = (PVOID *)*v4;
+      if ( v7 )
       {
-        if ( *(_QWORD **)(v6 + 8) != v9
-          || (v10 = (_QWORD *)v9[1], (_QWORD *)*v10 != v9)
-          || (*v10 = v6, *(_QWORD *)(v6 + 8) = v10, v11 = v17[0], *(_QWORD **)(v17[0] + 8LL) != v17) )
+        if ( v5[1] != v8
+          || (v9 = v8[1], (PVOID *)*v9 != v8)
+          || (*v9 = v5, v5[1] = v9, v10 = BaseAddress[0], *((PVOID **)BaseAddress[0] + 1) != BaseAddress) )
         {
 LABEL_13:
           __fastfail(3u);
         }
-        *v7 = v17[0];
-        v9[1] = v17;
-        *(_QWORD *)(v11 + 8) = v9;
-        v17[0] = v9;
+        *v6 = BaseAddress[0];
+        v8[1] = BaseAddress;
+        v10[1] = v8;
+        BaseAddress[0] = v8;
       }
     }
-    RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801C7778 + 8LL * (v3++ & 0xF)));
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801C67C8 + 8LL * (v2++ & 0xF)));
   }
-  while ( v3 < 0x1EEF );
+  while ( v2 < 0x1EEF );
   while ( 1 )
   {
-    v12 = v17[0];
-    result = v17;
-    if ( (_QWORD *)v17[0] == v17 )
+    v11 = BaseAddress[0];
+    result = BaseAddress;
+    if ( BaseAddress[0] == BaseAddress )
       return result;
-    v14 = *(_QWORD *)v17[0];
-    if ( *(_QWORD *)(*(_QWORD *)v17[0] + 8LL) != v17[0] )
+    v13 = *(_QWORD **)BaseAddress[0];
+    if ( *(PVOID *)(*(_QWORD *)BaseAddress[0] + 8LL) != BaseAddress[0] )
       goto LABEL_13;
-    v15 = *(_QWORD **)(v17[0] + 8LL);
-    if ( *v15 != v17[0] )
+    v14 = (PVOID *)*((_QWORD *)BaseAddress[0] + 1);
+    if ( *v14 != BaseAddress[0] )
       goto LABEL_13;
-    *v15 = v14;
-    *(_QWORD *)(v14 + 8) = v15;
-    v16 = *(__int64 **)(v12 + 32);
-    if ( v16 )
+    *v14 = v13;
+    v13[1] = v14;
+    v15 = (PVOID **)v11[4];
+    if ( v15 )
     {
-      RtlpHeapTrkDereferenceStack(v16);
-      *(_QWORD *)(v12 + 32) = 0LL;
+      RtlpHeapTrkDereferenceStack(v15);
+      v11[4] = 0LL;
     }
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(HeapHandle, 0, v11);
   }
 }

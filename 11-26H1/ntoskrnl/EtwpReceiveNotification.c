@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpReceiveNotification @ 0x140A670B0
+ * XREFs of EtwpReceiveNotification @ 0x140A74080
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, struct _KLOCK_ENTRIES *a4)
@@ -31,14 +31,10 @@ __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, s
   __int64 v20; // r12
   signed __int64 v21; // rax
   signed __int64 v22; // rdx
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  signed __int32 v25; // edi
-  signed __int64 v27; // rax
-  signed __int64 v28; // rdx
-  __int64 v29; // rtt
-  __int64 v30; // rdx
-  __int64 v31; // r8
+  signed __int32 v23; // edi
+  signed __int64 v25; // rax
+  signed __int64 v26; // rdx
+  __int64 v27; // rtt
 
   v5 = 0;
   UserDirectoryTableBase = KeGetCurrentThread()->ApcState.Process[1].UserDirectoryTableBase;
@@ -63,18 +59,18 @@ __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, s
     {
 LABEL_33:
       _m_prefetchw((const void *)(UserDirectoryTableBase + 16));
-      v27 = *(_QWORD *)(UserDirectoryTableBase + 16);
-      v28 = v27 - 16;
-      if ( (v27 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-        v28 = 0LL;
-      if ( (v27 & 2) != 0
-        || (v29 = *(_QWORD *)(UserDirectoryTableBase + 16),
-            v29 != _InterlockedCompareExchange64((volatile signed __int64 *)(UserDirectoryTableBase + 16), v28, v27)) )
+      v25 = *(_QWORD *)(UserDirectoryTableBase + 16);
+      v26 = v25 - 16;
+      if ( (v25 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+        v26 = 0LL;
+      if ( (v25 & 2) != 0
+        || (v27 = *(_QWORD *)(UserDirectoryTableBase + 16),
+            v27 != _InterlockedCompareExchange64((volatile signed __int64 *)(UserDirectoryTableBase + 16), v26, v25)) )
       {
         ExfReleasePushLock((_QWORD *)(UserDirectoryTableBase + 16));
       }
       KeAbPostRelease(UserDirectoryTableBase + 16);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v30, v31);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       return (unsigned int)-2147483622;
     }
     else
@@ -119,13 +115,13 @@ LABEL_13:
       if ( (v21 & 2) != 0 || v21 != _InterlockedCompareExchange64(v19, v22, v21) )
         ExfReleasePushLock(v19);
       KeAbPostRelease((unsigned __int64)v19);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v23, v24);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       if ( v5 >= 0 )
       {
-        v25 = _InterlockedIncrement((volatile signed __int32 *)(v17 + 20));
+        v23 = _InterlockedIncrement((volatile signed __int32 *)(v17 + 20));
         memmove(a1, (const void *)v17, *(unsigned int *)(v17 + 4));
         *((_QWORD *)a1 + 3) = 0LL;
-        *((_DWORD *)a1 + 5) = v25;
+        *((_DWORD *)a1 + 5) = v23;
         *((_DWORD *)a1 + 6) = *((unsigned __int16 *)v13 + 24);
         if ( *(_BYTE *)(v17 + 12) )
           *((_DWORD *)a1 + 4) = *((unsigned __int16 *)v13 + 25);

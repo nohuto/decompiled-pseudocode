@@ -35,7 +35,11 @@ __int64 __fastcall PopPolicyWorkerActionPromote(__int64 a1, __int64 a2)
     }
     if ( byte_140F0AE61 != 2 )
       goto LABEL_11;
-    if ( (int)PopIssueActionRequest(1, dword_140F0AE64, dword_140F0AE68, dword_140F0AE6C) >= 0 )
+    if ( (int)PopIssueActionRequest(
+                1,
+                (POWER_ACTION)dword_140F0AE64,
+                (SYSTEM_POWER_STATE)dword_140F0AE68,
+                dword_140F0AE6C) >= 0 )
     {
       LOBYTE(PopAction) = ~v6 & PopAction;
       goto LABEL_11;

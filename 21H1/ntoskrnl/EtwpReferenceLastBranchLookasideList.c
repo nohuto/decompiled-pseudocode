@@ -7,21 +7,21 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *EtwpReferenceLastBranchLookasideList()
+_SLIST_ENTRY *EtwpReferenceLastBranchLookasideList()
 {
   SIZE_T v0; // rdi
   int v1; // ebx
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
 
   v0 = (unsigned int)(24 * EtwpLastBranchStackSize + 16);
   v1 = 2 * KeNumberProcessors_0 * _InterlockedIncrement(&dword_140C53C80);
   do
   {
-    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v0, 0x78777445u);
+    result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v0, 0x78777445u);
     if ( !result )
       break;
     RtlpInterlockedPushEntrySList(&EtwpLastBranchLookAsideList, result);
-    result = (struct _SLIST_ENTRY *)(unsigned int)_InterlockedIncrement(&dword_140C53C84);
+    result = (_SLIST_ENTRY *)(unsigned int)_InterlockedIncrement(&dword_140C53C84);
   }
   while ( (int)result < v1 );
   return result;

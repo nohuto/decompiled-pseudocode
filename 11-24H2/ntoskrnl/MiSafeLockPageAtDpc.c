@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSafeLockPageAtDpc @ 0x1403072A0
+ * XREFs of MiSafeLockPageAtDpc @ 0x140311180
  * Callers:
- *     MiPfnsWorthTrying @ 0x140305B00 (MiPfnsWorthTrying.c)
- *     MiCoalesceFreeLargePages @ 0x140308844 (MiCoalesceFreeLargePages.c)
- *     MiProcessLargeCoalesceBitmapCandidates @ 0x140309490 (MiProcessLargeCoalesceBitmapCandidates.c)
- *     MiInitializeNewUltraHugeContext @ 0x1403F98CC (MiInitializeNewUltraHugeContext.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x140463848 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiJoinHugeContext @ 0x140487A9C (MiJoinHugeContext.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1404A2E44 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiPurgeZeroListHead @ 0x1404C6774 (MiPurgeZeroListHead.c)
- *     MiDereferenceHugeContext @ 0x1404CFD8C (MiDereferenceHugeContext.c)
+ *     MiPfnsWorthTrying @ 0x14030F9E0 (MiPfnsWorthTrying.c)
+ *     MiCoalesceFreeLargePages @ 0x140312724 (MiCoalesceFreeLargePages.c)
+ *     MiProcessLargeCoalesceBitmapCandidates @ 0x140313370 (MiProcessLargeCoalesceBitmapCandidates.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403EF7D8 (MiInitializeNewUltraHugeContext.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14041DC14 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiJoinHugeContext @ 0x140482B0C (MiJoinHugeContext.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14049DD64 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiPurgeZeroListHead @ 0x1404BFBD4 (MiPurgeZeroListHead.c)
+ *     MiDereferenceHugeContext @ 0x1404C8E3C (MiDereferenceHugeContext.c)
  * Callees:
- *     MiIsDecayPfn @ 0x14022EFD0 (MiIsDecayPfn.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiIsDecayPfn @ 0x1403028E0 (MiIsDecayPfn.c)
  */
 
 char __fastcall MiSafeLockPageAtDpc(ULONG_PTR a1)
@@ -21,7 +21,7 @@ char __fastcall MiSafeLockPageAtDpc(ULONG_PTR a1)
   __int64 v1; // rbx
   unsigned int v2; // edi
 
-  if ( a1 > qword_140E2DBE0 && !MiIsDecayPfn(a1) )
+  if ( a1 > qword_140E2DD20 && !MiIsDecayPfn(a1) )
     return 17;
   v1 = 48 * a1 - 0x220000000000LL;
   if ( (*(_QWORD *)(v1 + 40) & 0x40000000000000LL) == 0 )

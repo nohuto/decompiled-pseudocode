@@ -215,7 +215,7 @@ LABEL_51:
       || (v12 = CcInitializeProcessor((__int64)v9), v12 < 0)
       || (v12 = EtwInitializeProcessor((__int64)v9), v12 < 0)
       || (v12 = WheaInitializeProcessor((__int64)v9, 0), v12 < 0)
-      || (v12 = HvlInitializeProcessor((union _SLIST_HEADER *)v9), v12 < 0) )
+      || (v12 = HvlInitializeProcessor((_SLIST_HEADER *)v9), v12 < 0) )
     {
 LABEL_41:
       if ( v9 )

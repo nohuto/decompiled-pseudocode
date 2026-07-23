@@ -5,13 +5,13 @@
  *     HdlspDispatch @ 0x140722DE0 (HdlspDispatch.c)
  *     HdlspPutMore @ 0x140723BF0 (HdlspPutMore.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     sprintf_s @ 0x140152AEC (sprintf_s.c)
- *     strcpy_s @ 0x140152C34 (strcpy_s.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     InbvPortGetByte @ 0x14023DE00 (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x14023DFB8 (InbvPortPollOnly.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     sprintf_s @ 0x1401530AC (sprintf_s.c)
+ *     strcpy_s @ 0x1401531F4 (strcpy_s.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     InbvPortGetByte @ 0x14023DCE4 (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x14023DE9C (InbvPortPollOnly.c)
  *     HdlspSendStringAtBaud @ 0x140723F44 (HdlspSendStringAtBaud.c)
  */
 

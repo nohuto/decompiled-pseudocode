@@ -13,21 +13,21 @@
  *     LdrpPinNodeRecurse @ 0x18007D274 (LdrpPinNodeRecurse.c)
  */
 
-__int64 __fastcall LdrpPinModule(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall LdrpPinModule(__int64 a1)
 {
-  unsigned int v5; // edi
-  __int64 v6; // rcx
+  unsigned int v2; // edi
+  __int64 v3; // rcx
 
-  v5 = 0;
-  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock, a2, a3, a4);
-  v6 = *(_QWORD *)(a1 + 152);
-  if ( *(_DWORD *)(v6 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v6 - 56LL) & 0x20) == 0 )
+  v2 = 0;
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+  v3 = *(_QWORD *)(a1 + 152);
+  if ( *(_DWORD *)(v3 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v3 - 56LL) & 0x20) == 0 )
   {
-    if ( *(_DWORD *)(v6 + 24) )
+    if ( *(_DWORD *)(v3 + 24) )
       LdrpPinNodeRecurse();
     else
-      v5 = -1073741823;
+      v2 = -1073741823;
   }
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-  return v5;
+  return v2;
 }

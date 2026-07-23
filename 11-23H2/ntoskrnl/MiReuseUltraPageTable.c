@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReuseUltraPageTable @ 0x14046F08C
+ * XREFs of MiReuseUltraPageTable @ 0x14046F48C
  * Callers:
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiGetPfnChannel @ 0x1402871D0 (MiGetPfnChannel.c)
- *     MiManageUltraSpacePageTable @ 0x14046EC9C (MiManageUltraSpacePageTable.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnChannel @ 0x140287460 (MiGetPfnChannel.c)
+ *     MiManageUltraSpacePageTable @ 0x14046F09C (MiManageUltraSpacePageTable.c)
  */
 
 unsigned __int64 __fastcall MiReuseUltraPageTable(__int64 a1, unsigned int a2)

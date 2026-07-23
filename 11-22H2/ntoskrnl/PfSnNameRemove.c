@@ -11,16 +11,16 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall PfSnNameRemove(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   volatile LONG *v2; // rbp
   unsigned int v5; // edi
   KIRQL v6; // al
-  unsigned __int64 *v7; // rcx
+  _RTL_RB_TREE *v7; // rcx
   unsigned __int64 v8; // rsi
   unsigned __int64 v9; // rbx
   unsigned __int64 v10; // rax
-  _QWORD *i; // rax
+  _RTL_BALANCED_NODE **i; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
@@ -34,16 +34,16 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   v2 = (volatile LONG *)(a1 + 576);
   v5 = 0;
   v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
-  v7 = (unsigned __int64 *)(a1 + 520);
+  v7 = (_RTL_RB_TREE *)(a1 + 520);
   v8 = v6;
   v9 = *(_QWORD *)(a1 + 520);
   if ( (*(_BYTE *)(a1 + 528) & 1) != 0 && v9 )
     v9 ^= (unsigned __int64)v7;
   while ( v9 )
   {
-    if ( *(_QWORD *)(v9 + 24) <= a2 )
+    if ( *(_QWORD *)(v9 + 24) <= (unsigned __int64)a2 )
     {
-      if ( *(_QWORD *)(v9 + 24) >= a2 )
+      if ( *(_QWORD *)(v9 + 24) >= (unsigned __int64)a2 )
         break;
       v10 = *(_QWORD *)(v9 + 8);
     }
@@ -58,12 +58,15 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   }
   if ( v9 )
   {
-    RtlRbRemoveNode(v7, v9);
+    RtlRbRemoveNode(v7, (PRTL_BALANCED_NODE)v9);
     ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -77,7 +80,7 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
     __writecr8(v8);
     if ( *(_QWORD *)(v9 + 32) )
       KeBugCheckEx(0x191u, 0x76FuLL, 0LL, 0LL, 0LL);
-    for ( i = (_QWORD *)(a1 + 488); (unsigned __int64)i < a1 + 520; ++i )
+    for ( i = (_RTL_BALANCED_NODE **)(a1 + 488); (unsigned __int64)i < a1 + 520; ++i )
     {
       if ( *i == a2 )
         *i = 0LL;
@@ -88,10 +91,10 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   else
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v18 >= 2u )
       {
         v19 = KeGetCurrentPrcb();
         v20 = v19->SchedulerAssist;

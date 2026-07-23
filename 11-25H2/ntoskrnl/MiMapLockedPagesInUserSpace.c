@@ -52,7 +52,7 @@ unsigned __int64 __fastcall MiMapLockedPagesInUserSpace(
   unsigned __int64 v18; // rbp
   unsigned __int64 v19; // r8
   unsigned __int64 v20; // r14
-  int inserted; // esi
+  NTSTATUS inserted; // esi
   int v22; // eax
   char v23; // rax^4
   unsigned __int64 v24; // rax

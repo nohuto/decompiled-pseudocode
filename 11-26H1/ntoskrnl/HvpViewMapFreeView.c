@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpViewMapFreeView @ 0x1408B7E00
+ * XREFs of HvpViewMapFreeView @ 0x1408BE3D0
  * Callers:
- *     HvpViewMapShrinkStorage @ 0x14085CBD8 (HvpViewMapShrinkStorage.c)
- *     HvpViewMapDeleteViewTreeNode @ 0x1408B7DE0 (HvpViewMapDeleteViewTreeNode.c)
- *     HvpViewMapCreateViewsForRegion @ 0x1408B8388 (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapCreateView @ 0x1408B868C (HvpViewMapCreateView.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1408DD1F4 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapShrinkStorage @ 0x140862EC8 (HvpViewMapShrinkStorage.c)
+ *     HvpViewMapDeleteViewTreeNode @ 0x1408BE3B0 (HvpViewMapDeleteViewTreeNode.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x1408BE958 (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapCreateView @ 0x1408BEC5C (HvpViewMapCreateView.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1408E37B4 (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1403BC32C (CmSiReleaseProcessLockedPagesCharge.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmSiUnmapViewOfSection @ 0x1404D6B90 (CmSiUnmapViewOfSection.c)
- *     HvcallpNoHypervisorPresent @ 0x1404E6190 (HvcallpNoHypervisorPresent.c)
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x1403C619C (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmSiUnmapViewOfSection @ 0x1404D0360 (CmSiUnmapViewOfSection.c)
+ *     HvcallpNoHypervisorPresent @ 0x1404DF730 (HvcallpNoHypervisorPresent.c)
  */
 
 void __fastcall HvpViewMapFreeView(__int64 a1, __int64 a2)

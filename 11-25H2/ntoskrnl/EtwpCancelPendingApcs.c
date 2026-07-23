@@ -17,8 +17,8 @@ PSLIST_ENTRY __fastcall EtwpCancelPendingApcs(__int64 a1)
 {
   void *v2; // rdi
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *i; // rbx
-  struct _SLIST_ENTRY *v5; // r13
+  _SLIST_ENTRY *i; // rbx
+  _SLIST_ENTRY *v5; // r13
   KIRQL v6; // r12
   void *v7; // rcx
 

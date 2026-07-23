@@ -1,11 +1,11 @@
 /*
- * XREFs of ExStartRecordingIRTimerExpiries @ 0x14094F024
+ * XREFs of ExStartRecordingIRTimerExpiries @ 0x14094F1F4
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void ExStartRecordingIRTimerExpiries()
@@ -20,7 +20,7 @@ void ExStartRecordingIRTimerExpiries()
   void *v7; // rbx
 
   v0 = 0;
-  v1 = qword_140005350;
+  v1 = qword_140005300;
   v2 = 16LL;
   do
   {

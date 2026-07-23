@@ -1,9 +1,9 @@
 /*
- * XREFs of write_char @ 0x18009D93C
+ * XREFs of write_char @ 0x18009D92C
  * Callers:
- *     _output_l @ 0x18009D0F0 (_output_l.c)
- *     write_multi_char @ 0x18009D98C (write_multi_char.c)
- *     write_string @ 0x18009D9E4 (write_string.c)
+ *     _output_l @ 0x18009D0E0 (_output_l.c)
+ *     write_multi_char @ 0x18009D97C (write_multi_char.c)
+ *     write_string @ 0x18009D9D4 (write_string.c)
  * Callees:
  *     _flsbuf @ 0x1800A5A68 (_flsbuf.c)
  */

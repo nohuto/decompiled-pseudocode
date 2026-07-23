@@ -1,28 +1,28 @@
 /*
- * XREFs of CcNotifyExternalCachesInternal @ 0x140506DEC
+ * XREFs of CcNotifyExternalCachesInternal @ 0x1405007BC
  * Callers:
- *     CcQueueLazyWriteScanThreadForVolume @ 0x140387470 (CcQueueLazyWriteScanThreadForVolume.c)
- *     CcQueueLazyWriteScanThread @ 0x1405B0D70 (CcQueueLazyWriteScanThread.c)
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x140389220 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcQueueLazyWriteScanThread @ 0x1405B3580 (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcCalculatePagesToWrite @ 0x140386320 (CcCalculatePagesToWrite.c)
- *     CcCalculatePagesToWriteForVolume @ 0x14038A160 (CcCalculatePagesToWriteForVolume.c)
- *     CcNotifyEnhancedExternalCaches @ 0x140506F50 (CcNotifyEnhancedExternalCaches.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcCalculatePagesToWrite @ 0x1403880D0 (CcCalculatePagesToWrite.c)
+ *     CcCalculatePagesToWriteForVolume @ 0x14038BF10 (CcCalculatePagesToWriteForVolume.c)
+ *     CcNotifyEnhancedExternalCaches @ 0x140500920 (CcNotifyEnhancedExternalCaches.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall CcNotifyExternalCachesInternal(int a1, __int64 a2, __int64 a3)
 {
   KIRQL v6; // r15
   _QWORD *v7; // r14
-  void **p_IptSaveArea; // rdi
+  $BE885E7414BBCAF50EC3D61D16C96C1B *v8; // rdi
   unsigned int v9; // eax
   unsigned __int64 v10; // rsi
-  void **i; // rbx
-  __int64 v12; // rax
+  $BE885E7414BBCAF50EC3D61D16C96C1B *i; // rbx
+  void *AutoBoostThreadState; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -32,18 +32,18 @@ void __fastcall CcNotifyExternalCachesInternal(int a1, __int64 a2, __int64 a3)
   }
   else
   {
-    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.SchedulerSharedSwappablePage);
+    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.SchedulerAssistYieldCounter);
     KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a2 + 768), &LockHandle);
     if ( CcEnablePerVolumeLazyWriter )
     {
       v7 = (_QWORD *)(a3 + 992);
-      p_IptSaveArea = (void **)(a3 + 1248);
+      v8 = ($BE885E7414BBCAF50EC3D61D16C96C1B *)(a3 + 1248);
       v9 = CcCalculatePagesToWriteForVolume(a3, a1);
     }
     else
     {
       v7 = (_QWORD *)(a2 + 1056);
-      p_IptSaveArea = &EmpParseLock.IptSaveArea;
+      v8 = &EmpParseLock.1136;
       v9 = CcCalculatePagesToWrite(a2, a1, a2 + 1056, (unsigned __int64 *)(a2 + 1080), 0);
     }
     if ( v9 == 0xFFFFFFFFLL )
@@ -61,13 +61,15 @@ void __fastcall CcNotifyExternalCachesInternal(int a1, __int64 a2, __int64 a3)
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     if ( (_DWORD)v10 )
     {
-      for ( i = (void **)*p_IptSaveArea; i != p_IptSaveArea; i = (void **)*i )
+      for ( i = ($BE885E7414BBCAF50EC3D61D16C96C1B *)v8->AutoBoostThreadState;
+            i != v8;
+            i = ($BE885E7414BBCAF50EC3D61D16C96C1B *)i->AutoBoostThreadState )
       {
-        v12 = (__int64)*(i - 3);
-        if ( v12 )
-          guard_dispatch_icall_no_overrides(i - 4, v12 * (unsigned __int64)(unsigned int)v10 / 0x64);
+        AutoBoostThreadState = i[-3].AutoBoostThreadState;
+        if ( AutoBoostThreadState )
+          guard_dispatch_icall_no_overrides(&i[-4], (unsigned __int64)AutoBoostThreadState * (unsigned int)v10 / 0x64);
       }
     }
-    KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.SchedulerSharedSwappablePage, v6);
+    KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.SchedulerAssistYieldCounter, v6);
   }
 }

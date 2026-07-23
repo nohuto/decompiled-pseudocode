@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoGetFileObjectGenericMappingWrapper @ 0x1405DFC00
+ * XREFs of DifIoGetFileObjectGenericMappingWrapper @ 0x1405E0170
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoGetFileObjectGenericMapping @ 0x1407EC7E0 (IoGetFileObjectGenericMapping.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoGetFileObjectGenericMapping @ 0x1407ECAB0 (IoGetFileObjectGenericMapping.c)
  */
 
 PGENERIC_MAPPING DifIoGetFileObjectGenericMappingWrapper()

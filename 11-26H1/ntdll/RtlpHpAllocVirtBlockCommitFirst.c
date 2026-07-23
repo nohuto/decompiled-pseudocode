@@ -1,40 +1,40 @@
 /*
- * XREFs of RtlpHpAllocVirtBlockCommitFirst @ 0x18007F11C
+ * XREFs of RtlpHpAllocVirtBlockCommitFirst @ 0x18006D468
  * Callers:
- *     RtlpAllocateHeap @ 0x18001E7C0 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x180009890 (RtlpAllocateHeap.c)
  * Callees:
- *     RtlpSecMemFreeVirtualMemory @ 0x18007F200 (RtlpSecMemFreeVirtualMemory.c)
- *     RtlpGetHeapProtection @ 0x18007F750 (RtlpGetHeapProtection.c)
- *     ZwAllocateVirtualMemory @ 0x18015F240 (ZwAllocateVirtualMemory.c)
+ *     RtlpSecMemFreeVirtualMemory @ 0x18006D540 (RtlpSecMemFreeVirtualMemory.c)
+ *     RtlpGetHeapProtection @ 0x180076AF0 (RtlpGetHeapProtection.c)
+ *     ZwAllocateVirtualMemory @ 0x18015F140 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpHpAllocVirtBlockCommitFirst(__int64 a1, _QWORD *a2, __int64 a3, __int64 *a4)
+char *__fastcall RtlpHpAllocVirtBlockCommitFirst(void *a1, _QWORD *a2, __int64 a3, ULONG_PTR *a4)
 {
-  __int64 v4; // rbx
-  int HeapProtection; // eax
+  char *v4; // rbx
+  ULONG Protect; // eax
   __int64 v8; // rcx
-  __int64 v9; // rdx
-  __int64 v11; // [rsp+30h] [rbp-20h] BYREF
+  ULONG_PTR v9; // rdx
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-20h] BYREF
   __int64 v12; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v13; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+78h] [rbp+28h] BYREF
+  char *v13; // [rsp+40h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp+28h] BYREF
   __int64 v15; // [rsp+80h] [rbp+30h] BYREF
 
   v15 = a3;
   v4 = 0LL;
-  v11 = *a2 + a3 + 4096;
-  v14 = 0LL;
-  HeapProtection = RtlpGetHeapProtection(a1, 1LL);
-  if ( (int)ZwAllocateVirtualMemory(-1LL, &v14, 0LL, &v11, 4096, HeapProtection) >= 0 )
+  RegionSize = *a2 + a3 + 4096;
+  BaseAddress = 0LL;
+  Protect = RtlpGetHeapProtection(a1);
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, Protect) >= 0 )
   {
     if ( v15 )
-      RtlpSecMemFreeVirtualMemory(v8, &v14, &v15, 0x4000LL);
+      RtlpSecMemFreeVirtualMemory(v8, &BaseAddress, &v15, 0x4000LL);
     v12 = 4096LL;
-    v13 = v14 - 4096 + v11;
+    v13 = (char *)BaseAddress + RegionSize - 4096;
     RtlpSecMemFreeVirtualMemory(v13, &v13, &v12, 0x4000LL);
-    v9 = v11;
-    v4 = v15 + v14;
-    *a2 = v11 - v12 - v15;
+    v9 = RegionSize;
+    v4 = (char *)BaseAddress + v15;
+    *a2 = RegionSize - v12 - v15;
     *a4 = v9;
   }
   return v4;

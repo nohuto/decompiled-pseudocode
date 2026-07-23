@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetStoragePropertyPost@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1405C6C80
+ * XREFs of ?GetStoragePropertyPost@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1405C6EB0
  * Callers:
  *     <none>
  * Callees:
@@ -9,9 +9,9 @@
 __int64 __fastcall SC_DISK::GetStoragePropertyPost(SC_DISK *this, int a2, struct _STORAGE_DESCRIPTOR_HEADER *a3)
 {
   unsigned int v3; // r9d
-  ULONG v4; // ecx
-  ULONG Size; // eax
-  ULONG Version; // edx
+  DWORD v4; // ecx
+  DWORD Size; // eax
+  DWORD Version; // edx
 
   v3 = 0;
   if ( a2 > 14 )

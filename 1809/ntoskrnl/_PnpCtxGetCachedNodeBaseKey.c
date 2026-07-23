@@ -1,14 +1,14 @@
 /*
- * XREFs of _PnpCtxGetCachedNodeBaseKey @ 0x1405C7CAC
+ * XREFs of _PnpCtxGetCachedNodeBaseKey @ 0x1405C8CAC
  * Callers:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     PipOpenServiceEnumKeys @ 0x140709534 (PipOpenServiceEnumKeys.c)
- *     _PnpCtxOpenContextNodeBaseKey @ 0x1408F5D7C (_PnpCtxOpenContextNodeBaseKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1405C8C40 (_PnpCtxGetCachedContextBaseKey.c)
+ *     PipOpenServiceEnumKeys @ 0x14070A7D4 (PipOpenServiceEnumKeys.c)
+ *     _PnpCtxOpenContextNodeBaseKey @ 0x1408F703C (_PnpCtxOpenContextNodeBaseKey.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _SysCtxGetCachedContextBaseKey @ 0x1406BC5E8 (_SysCtxGetCachedContextBaseKey.c)
- *     _SysCtxRegCreateTree @ 0x1406D3548 (_SysCtxRegCreateTree.c)
- *     _PnpGetEnumSecurityDescriptor @ 0x14075CB7C (_PnpGetEnumSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _SysCtxGetCachedContextBaseKey @ 0x1406BD888 (_SysCtxGetCachedContextBaseKey.c)
+ *     _SysCtxRegCreateTree @ 0x1406D47E8 (_SysCtxRegCreateTree.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x14075DD6C (_PnpGetEnumSecurityDescriptor.c)
  */
 
 __int64 __fastcall PnpCtxGetCachedNodeBaseKey(__int64 a1, _QWORD *a2, int a3, _QWORD *a4)

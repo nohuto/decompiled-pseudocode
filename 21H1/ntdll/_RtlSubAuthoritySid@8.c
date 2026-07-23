@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlSubAuthoritySid(int a1, int a2)
+PULONG __cdecl RtlSubAuthoritySid(PSID Sid, ULONG SubAuthority)
 {
-  return a1 + 4 * a2 + 8;
+  return (PULONG)((char *)Sid + 4 * SubAuthority + 8);
 }

@@ -8,11 +8,11 @@
  *     CmSiRWLockInitialize @ 0x140ABABF0 (CmSiRWLockInitialize.c)
  */
 
-void __fastcall RtlHpHeapManagerInitialize(union _RTL_RUN_ONCE *a1, union _RTL_RUN_ONCE *a2)
+void __fastcall RtlHpHeapManagerInitialize(_RTL_RUN_ONCE *a1, _RTL_RUN_ONCE *a2)
 {
-  union _RTL_RUN_ONCE *v4; // rbx
+  _RTL_RUN_ONCE *v4; // rbx
   __int64 v5; // rax
-  union _RTL_RUN_ONCE *v6; // rdi
+  _RTL_RUN_ONCE *v6; // rdi
   __int64 v7; // rbx
 
   memset_0(&a1[11], 0, 0x3888uLL);

@@ -1,12 +1,12 @@
 /*
- * XREFs of MmOutPageKernelStack @ 0x1402E4954
+ * XREFs of MmOutPageKernelStack @ 0x140295CA4
  * Callers:
- *     KiOutSwapKernelStacks @ 0x1402E4740 (KiOutSwapKernelStacks.c)
+ *     KiOutSwapKernelStacks @ 0x140295A90 (KiOutSwapKernelStacks.c)
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x1402E4A8C (KeEnumerateKernelStackSegments.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeEnumerateKernelStackSegments @ 0x140295DDC (KeEnumerateKernelStackSegments.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MmOutPageKernelStack(__int64 a1)

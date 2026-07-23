@@ -1,55 +1,55 @@
 /*
- * XREFs of RtlEqualUnicodeString @ 0x1800A5A70
+ * XREFs of RtlEqualUnicodeString @ 0x1800A4BA0
  * Callers:
- *     RtlpIsDosDeviceName_Ustr @ 0x180048E70 (RtlpIsDosDeviceName_Ustr.c)
- *     EtwpGetPrivateLoggerContextByName @ 0x180077320 (EtwpGetPrivateLoggerContextByName.c)
- *     LdrpFindLoadedDllByNameLockHeld @ 0x1800824B0 (LdrpFindLoadedDllByNameLockHeld.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x1800A4ACC (RtlpGetNtProductTypeFromRegistry.c)
- *     RtlpDetermineDosPathNameType4 @ 0x1800A58D0 (RtlpDetermineDosPathNameType4.c)
- *     LdrpFindOrPrepareEnclaveModule @ 0x1800D182C (LdrpFindOrPrepareEnclaveModule.c)
- *     LdrpFindLoadedEnclaveModule @ 0x1800D1928 (LdrpFindLoadedEnclaveModule.c)
- *     LdrpCreatePendingEnclaveModule @ 0x1800D1994 (LdrpCreatePendingEnclaveModule.c)
- *     LdrpMinimalMapModule @ 0x1800D2308 (LdrpMinimalMapModule.c)
- *     LdrpMapDllSearchPath @ 0x18011C9D0 (LdrpMapDllSearchPath.c)
+ *     RtlpIsDosDeviceName_Ustr @ 0x1800333F0 (RtlpIsDosDeviceName_Ustr.c)
+ *     EtwpGetPrivateLoggerContextByName @ 0x180065B40 (EtwpGetPrivateLoggerContextByName.c)
+ *     LdrpFindLoadedDllByNameLockHeld @ 0x180079850 (LdrpFindLoadedDllByNameLockHeld.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x1800A3BFC (RtlpGetNtProductTypeFromRegistry.c)
+ *     RtlpDetermineDosPathNameType4 @ 0x1800A4A00 (RtlpDetermineDosPathNameType4.c)
+ *     LdrpFindOrPrepareEnclaveModule @ 0x1800CEF9C (LdrpFindOrPrepareEnclaveModule.c)
+ *     LdrpFindLoadedEnclaveModule @ 0x1800CF098 (LdrpFindLoadedEnclaveModule.c)
+ *     LdrpCreatePendingEnclaveModule @ 0x1800CF104 (LdrpCreatePendingEnclaveModule.c)
+ *     LdrpMinimalMapModule @ 0x1800D21E4 (LdrpMinimalMapModule.c)
+ *     LdrpMapDllSearchPath @ 0x18011C780 (LdrpMapDllSearchPath.c)
  * Callees:
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
-bool __fastcall RtlEqualUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
+BOOLEAN __cdecl RtlEqualUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  __int64 v3; // rax
-  unsigned __int16 *v4; // r9
-  unsigned __int16 *v5; // r11
-  __int64 v6; // rbx
+  __int64 Length; // rax
+  wchar_t *Buffer; // r9
+  wchar_t *v5; // r11
+  char *v6; // rbx
   unsigned __int64 v7; // rax
   unsigned __int64 v8; // r10
 
-  v3 = *a1;
-  if ( (_WORD)v3 != *(_WORD *)a2 )
+  Length = String1->Length;
+  if ( (_WORD)Length != String2->Length )
     return 0;
-  v4 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  v5 = (unsigned __int16 *)((char *)v4 + v3);
-  if ( !a3 )
-    return memcmp(*((const void **)a1 + 1), *(const void **)(a2 + 8), *a1) == 0;
-  v6 = *(_QWORD *)(a2 + 8) - (_QWORD)v4;
-  while ( v4 < v5 )
+  Buffer = String1->Buffer;
+  v5 = (wchar_t *)((char *)Buffer + Length);
+  if ( !CaseInSensitive )
+    return memcmp(String1->Buffer, String2->Buffer, String1->Length) == 0;
+  v6 = (char *)((char *)String2->Buffer - (char *)Buffer);
+  while ( Buffer < v5 )
   {
-    v7 = *v4;
-    v8 = *(unsigned __int16 *)((char *)v4 + v6);
+    v7 = *Buffer;
+    v8 = *(unsigned __int16 *)((char *)Buffer + (_QWORD)v6);
     if ( (_WORD)v7 != (_WORD)v8 )
     {
       if ( (unsigned int)v7 >= 0x61 )
       {
         if ( (unsigned int)v7 > 0x7A )
         {
-          if ( qword_1801C6038 && (unsigned __int16)v7 >= 0xC0u )
-            LOWORD(v7) = *(_WORD *)(qword_1801C6038
+          if ( qword_1801C5038 && (unsigned __int16)v7 >= 0xC0u )
+            LOWORD(v7) = *(_WORD *)(qword_1801C5038
                                   + 2
                                   * ((v7 & 0xF)
-                                   + *(unsigned __int16 *)(qword_1801C6038
+                                   + *(unsigned __int16 *)(qword_1801C5038
                                                          + 2LL
                                                          * (((unsigned __int8)v7 >> 4)
-                                                          + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                          + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                               + 2 * (v7 >> 8))))))
                        + v7;
         }
@@ -62,16 +62,16 @@ bool __fastcall RtlEqualUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
       {
         if ( (unsigned int)v8 > 0x7A )
         {
-          if ( qword_1801C6038 )
+          if ( qword_1801C5038 )
           {
             if ( (unsigned __int16)v8 >= 0xC0u )
-              LOWORD(v8) = *(_WORD *)(qword_1801C6038
+              LOWORD(v8) = *(_WORD *)(qword_1801C5038
                                     + 2
                                     * ((v8 & 0xF)
-                                     + *(unsigned __int16 *)(qword_1801C6038
+                                     + *(unsigned __int16 *)(qword_1801C5038
                                                            + 2LL
                                                            * (((unsigned __int8)v8 >> 4)
-                                                            + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                            + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                                 + 2 * (v8 >> 8))))))
                          + v8;
           }
@@ -84,7 +84,7 @@ bool __fastcall RtlEqualUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
       if ( (_WORD)v7 != (_WORD)v8 )
         return 0;
     }
-    ++v4;
+    ++Buffer;
   }
   return 1;
 }

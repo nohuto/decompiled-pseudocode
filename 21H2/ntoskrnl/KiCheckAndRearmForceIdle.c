@@ -1,35 +1,35 @@
 /*
- * XREFs of KiCheckAndRearmForceIdle @ 0x1402CF6BC
+ * XREFs of KiCheckAndRearmForceIdle @ 0x14024DA3C
  * Callers:
- *     KiTimer2Expiration @ 0x1402487E0 (KiTimer2Expiration.c)
- *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
+ *     KiCallInterruptServiceRoutine @ 0x140268950 (KiCallInterruptServiceRoutine.c)
+ *     KiTimer2Expiration @ 0x1402ED030 (KiTimer2Expiration.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueDpcEx @ 0x140246860 (KeRemoveQueueDpcEx.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x1405237A0 (KiSetForceIdleState.c)
+ *     KiSetForceIdleState @ 0x1405239E0 (KiSetForceIdleState.c)
  */
 
-void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void KiCheckAndRearmForceIdle()
 {
   struct _KPRCB *CurrentPrcb; // rbx
   _DWORD *SchedulerAssist; // rcx
-  struct _KPRCB *v6; // rcx
-  _DWORD *v7; // rdx
-  int v8; // eax
-  _DWORD *v9; // rcx
-  int v10; // eax
-  int v11; // eax
-  int v12; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v13; // [rsp+38h] [rbp+10h] BYREF
+  struct _KPRCB *v2; // rcx
+  _DWORD *v3; // rdx
+  int v4; // eax
+  _DWORD *v5; // rcx
+  int v6; // eax
+  int v7; // eax
+  int v8; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
-  v13.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( KiForceIdleDisabled )
     return;
   _disable();
   CurrentPrcb = KeGetCurrentPrcb();
-  v12 = 0;
+  v8 = 0;
   while ( 1 )
   {
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -37,27 +37,27 @@ void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3, __i
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v8 = SchedulerAssist[6];
-        SchedulerAssist[6] = v8 + 1;
-        if ( v8 == -1 )
+        v4 = SchedulerAssist[6];
+        SchedulerAssist[6] = v4 + 1;
+        if ( v4 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
       break;
-    v9 = CurrentPrcb->SchedulerAssist;
-    if ( v9 )
+    v5 = CurrentPrcb->SchedulerAssist;
+    if ( v5 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v10 = v9[6] - 1;
-        v9[6] = v10;
-        if ( !v10 )
+        v6 = v5[6] - 1;
+        v5[6] = v6;
+        if ( !v6 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v12, a2, a3, a4);
+      KeYieldProcessorEx(&v8);
     while ( KiForceIdleLock );
   }
   if ( KiForceIdleState == 1 )
@@ -69,17 +69,18 @@ void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3, __i
   {
     goto LABEL_7;
   }
-  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v13);
+  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                       + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
 LABEL_7:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);
-  v6 = KeGetCurrentPrcb();
-  v7 = v6->SchedulerAssist;
-  if ( v7 && v6->NestingLevel <= 1u )
+  v2 = KeGetCurrentPrcb();
+  v3 = v2->SchedulerAssist;
+  if ( v3 && v2->NestingLevel <= 1u )
   {
-    v11 = v7[6] - 1;
-    v7[6] = v11;
-    if ( !v11 )
-      KiRemoveSystemWorkPriorityKick(v6);
+    v7 = v3[6] - 1;
+    v3[6] = v7;
+    if ( !v7 )
+      KiRemoveSystemWorkPriorityKick(v2);
   }
   _enable();
 }

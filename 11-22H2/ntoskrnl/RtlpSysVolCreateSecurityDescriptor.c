@@ -60,10 +60,10 @@ LABEL_11:
     SecurityDescriptor = Acl;
     goto LABEL_12;
   }
-  Acl = RtlpAddKnownAce((__int64)v10, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
+  Acl = RtlpAddKnownAce(v10, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
   if ( Acl < 0
     || (Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v10, 0), Acl < 0)
-    || (Acl = RtlSetControlSecurityDescriptor((__int64)v5, 0x1000u, 0x1000u), Acl < 0) )
+    || (Acl = RtlSetControlSecurityDescriptor(v5, 0x1000u, 0x1000u), Acl < 0) )
   {
     v12 = v10;
     goto LABEL_11;

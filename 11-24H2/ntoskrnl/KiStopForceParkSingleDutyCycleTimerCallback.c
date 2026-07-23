@@ -1,11 +1,11 @@
 /*
- * XREFs of KiStopForceParkSingleDutyCycleTimerCallback @ 0x1405C85C0
+ * XREFs of KiStopForceParkSingleDutyCycleTimerCallback @ 0x1405C5CF0
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
  */
 
 BOOLEAN __fastcall KiStopForceParkSingleDutyCycleTimerCallback(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ BOOLEAN __fastcall KiStopForceParkSingleDutyCycleTimerCallback(__int64 a1, __int
   __int64 v6; // [rsp+38h] [rbp+10h] BYREF
 
   v6 = 0LL;
-  KiAcquirePrcbLocksForIsolationUnit(a2, 0, (unsigned __int64 *)&v6);
+  KiAcquirePrcbLocksForIsolationUnit(a2, 0LL, (unsigned __int64 *)&v6);
   v3 = *(_QWORD *)(a2 + 34544);
   v4 = 0;
   if ( *(_DWORD *)(v3 + 336) == 2 )

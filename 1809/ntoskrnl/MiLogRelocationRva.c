@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogRelocationRva @ 0x14064B18C
+ * XREFs of MiLogRelocationRva @ 0x14064C34C
  * Callers:
- *     MiLogRelocationFaults @ 0x140650804 (MiLogRelocationFaults.c)
- *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
- *     MiCaptureImageCfgContext @ 0x140652230 (MiCaptureImageCfgContext.c)
- *     MiParseComImage @ 0x1406C06BC (MiParseComImage.c)
+ *     MiLogRelocationFaults @ 0x1406519C4 (MiLogRelocationFaults.c)
+ *     MiParseImageLoadConfig @ 0x140651A9C (MiParseImageLoadConfig.c)
+ *     MiCaptureImageCfgContext @ 0x1406533F0 (MiCaptureImageCfgContext.c)
+ *     MiParseComImage @ 0x1406C195C (MiParseComImage.c)
  * Callees:
- *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     PfSnLogPageFault @ 0x1400D74B0 (PfSnLogPageFault.c)
- *     PfLogFileDataAccess @ 0x1402D3178 (PfLogFileDataAccess.c)
+ *     MiOffsetToProtos @ 0x1400AF770 (MiOffsetToProtos.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     PfSnLogPageFault @ 0x1400D7530 (PfSnLogPageFault.c)
+ *     PfLogFileDataAccess @ 0x1402D3368 (PfLogFileDataAccess.c)
  */
 
 void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -29,14 +29,14 @@ void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, __int64 a3,
   if ( v7 )
   {
     v8 = (v12[0] << 12) + ((unsigned __int64)*(unsigned int *)(v7 + 36) << 9);
-    if ( (PfSnNumActiveTraces || dword_1404D7558) && (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) >= 2 )
+    if ( (PfSnNumActiveTraces || dword_1404D8618) && (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) >= 2 )
     {
       v9 = ((unsigned __int64)(v6 & 0xFFF) + v4 + 4095) >> 12;
       v10 = v9 + 1;
       if ( (v8 & 0xFFF) == 0 )
         v10 = v9;
       v11 = v8 & 0xFFFFFFFFFFFFF000uLL;
-      if ( dword_1404D7558 )
+      if ( dword_1404D8618 )
         PfLogFileDataAccess(*(_QWORD *)(a3 + 24), (__int64)KeGetCurrentThread(), v11, v10, 0);
       if ( PfSnNumActiveTraces && v10 )
       {

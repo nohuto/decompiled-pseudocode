@@ -1,14 +1,14 @@
 /*
- * XREFs of KeGenericCallDpc @ 0x14036BDB0
+ * XREFs of KeGenericCallDpc @ 0x14036BF50
  * Callers:
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
- *     KeSwapDirectoryTableBase @ 0x1403D7C34 (KeSwapDirectoryTableBase.c)
- *     EtwpUpdateGuidFilterData @ 0x140780B00 (EtwpUpdateGuidFilterData.c)
- *     EtwpFreeLoggerContext @ 0x14078DC9C (EtwpFreeLoggerContext.c)
- *     MiApplyImageHotPatch @ 0x140A35388 (MiApplyImageHotPatch.c)
- *     KiInitializeDynamicProcessor @ 0x140A9F278 (KiInitializeDynamicProcessor.c)
+ *     MiDbgCopyMemory @ 0x1402E60E8 (MiDbgCopyMemory.c)
+ *     KeSwapDirectoryTableBase @ 0x1403D7E14 (KeSwapDirectoryTableBase.c)
+ *     EtwpUpdateGuidFilterData @ 0x140780CF0 (EtwpUpdateGuidFilterData.c)
+ *     EtwpFreeLoggerContext @ 0x14078DE8C (EtwpFreeLoggerContext.c)
+ *     MiApplyImageHotPatch @ 0x140A35638 (MiApplyImageHotPatch.c)
+ *     KiInitializeDynamicProcessor @ 0x140A9F0E8 (KiInitializeDynamicProcessor.c)
  * Callees:
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
  */
 
 char __fastcall KeGenericCallDpc(__int64 a1, __int64 a2)

@@ -51,7 +51,7 @@ __int64 MiInitializeNonPagedPool()
   __int64 v31; // r9
   unsigned __int64 v32; // rsi
   __int64 v33; // rsi
-  union _SLIST_HEADER *v34; // r15
+  _SLIST_HEADER *v34; // r15
   __int64 v35; // r14
   unsigned __int64 Region; // rax
   unsigned __int64 v37; // r14

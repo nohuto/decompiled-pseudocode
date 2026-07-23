@@ -122,10 +122,13 @@ __int64 __fastcall MiRemoveBadPages(__int64 a1, unsigned __int64 a2, unsigned __
       if ( (v22 & 0x20000000000000LL) != 0 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v23 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v23 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             v38 = KeGetCurrentPrcb();
             v39 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v23 + 1));
@@ -148,10 +151,10 @@ LABEL_63:
       if ( !MiIsPageOnBadList(v9) )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v29 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v29 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v29 >= 2u )
           {
             v30 = KeGetCurrentPrcb();
             v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v23 + 1));
@@ -172,10 +175,10 @@ LABEL_63:
       MiSetPfnRemovalRequested(v9, 1LL, 0LL);
       *(_QWORD *)(v9 + 24) |= 0x4000000000000000uLL;
       _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v24 >= 2u )
         {
           v25 = KeGetCurrentPrcb();
           v26 = v25->SchedulerAssist;
@@ -198,10 +201,10 @@ LABEL_63:
       }
     }
     _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v33 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v33 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v33 >= 2u )
       {
         v34 = KeGetCurrentPrcb();
         v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v23 + 1));

@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnAllocateEnablePrefetcherTimer @ 0x14056F228
+ * XREFs of PfSnAllocateEnablePrefetcherTimer @ 0x140570228
  * Callers:
- *     PfSnBeginBootPhase @ 0x14056F13C (PfSnBeginBootPhase.c)
- *     PfSnQueueEnablePrefetcherTimer @ 0x140763654 (PfSnQueueEnablePrefetcherTimer.c)
+ *     PfSnBeginBootPhase @ 0x14057013C (PfSnBeginBootPhase.c)
+ *     PfSnQueueEnablePrefetcherTimer @ 0x140764844 (PfSnQueueEnablePrefetcherTimer.c)
  * Callees:
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 struct _KDPC *__fastcall PfSnAllocateEnablePrefetcherTimer(ULONG a1)

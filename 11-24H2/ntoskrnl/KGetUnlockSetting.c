@@ -1,13 +1,13 @@
 /*
- * XREFs of KGetUnlockSetting @ 0x140A59E50
+ * XREFs of KGetUnlockSetting @ 0x140A51710
  * Callers:
- *     KIsSideloadingEnabled @ 0x1407C9DF8 (KIsSideloadingEnabled.c)
- *     KIsUnlockSettingEnabled @ 0x140A59CE4 (KIsUnlockSettingEnabled.c)
+ *     KIsSideloadingEnabled @ 0x1407CA2E8 (KIsSideloadingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x140A515A4 (KIsUnlockSettingEnabled.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
  */
 
 __int64 __fastcall KGetUnlockSetting(UNICODE_STRING *a1, UNICODE_STRING *a2, _DWORD *a3)

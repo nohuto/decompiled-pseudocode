@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPartitionWorkingSetManager @ 0x1402B45A0
+ * XREFs of MiPartitionWorkingSetManager @ 0x1402B4790
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall MiPartitionWorkingSetManager(__int64 a1)
@@ -18,7 +18,7 @@ NTSTATUS __fastcall MiPartitionWorkingSetManager(__int64 a1)
 
   KeSetPriorityThread(KeGetCurrentThread(), 17);
   Object[0] = (PVOID)(a1 + 104);
-  Object[1] = &stru_14043AE90;
+  Object[1] = &stru_14043BF50;
   Object[2] = (PVOID)(*(_QWORD *)(a1 + 7024) + 104LL);
   while ( 1 )
   {

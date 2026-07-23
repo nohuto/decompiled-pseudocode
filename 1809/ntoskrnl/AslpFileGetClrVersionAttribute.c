@@ -1,16 +1,16 @@
 /*
- * XREFs of AslpFileGetClrVersionAttribute @ 0x1408EC86C
+ * XREFs of AslpFileGetClrVersionAttribute @ 0x1408EDB2C
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x140720654 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407218F4 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslStringXmlSanitize @ 0x14071F8FC (AslStringXmlSanitize.c)
- *     AslFileMappingEnsure @ 0x140720780 (AslFileMappingEnsure.c)
- *     AslStringAnsiToUnicode @ 0x1408E9264 (AslStringAnsiToUnicode.c)
- *     AslpFileGetClrVersion @ 0x1408EC694 (AslpFileGetClrVersion.c)
- *     AslpFileGetFileKindDetailAttribute @ 0x1408ECD04 (AslpFileGetFileKindDetailAttribute.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslStringXmlSanitize @ 0x140720B9C (AslStringXmlSanitize.c)
+ *     AslFileMappingEnsure @ 0x140721A20 (AslFileMappingEnsure.c)
+ *     AslStringAnsiToUnicode @ 0x1408EA524 (AslStringAnsiToUnicode.c)
+ *     AslpFileGetClrVersion @ 0x1408ED954 (AslpFileGetClrVersion.c)
+ *     AslpFileGetFileKindDetailAttribute @ 0x1408EDFC4 (AslpFileGetFileKindDetailAttribute.c)
  */
 
 __int64 __fastcall AslpFileGetClrVersionAttribute(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall AslpFileGetClrVersionAttribute(__int64 a1, __int64 a2)
   __int64 v5; // rcx
   __int64 v6; // rax
   wchar_t *v8; // [rsp+30h] [rbp-138h] BYREF
-  char v9[256]; // [rsp+40h] [rbp-128h] BYREF
+  CHAR v9[256]; // [rsp+40h] [rbp-128h] BYREF
 
   memset(v9, 0, sizeof(v9));
   v8 = 0LL;

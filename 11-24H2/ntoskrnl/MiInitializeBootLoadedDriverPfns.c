@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeBootLoadedDriverPfns @ 0x140C5B14C
+ * XREFs of MiInitializeBootLoadedDriverPfns @ 0x140C5D2DC
  * Callers:
- *     MiInitializeSystemImageRegion @ 0x140C5B698 (MiInitializeSystemImageRegion.c)
+ *     MiInitializeSystemImageRegion @ 0x140C5D828 (MiInitializeSystemImageRegion.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInitializeBootLoadedDriverPfnRange @ 0x140690750 (MiInitializeBootLoadedDriverPfnRange.c)
- *     MiActOnLargeKernelHalPages @ 0x1407E79F8 (MiActOnLargeKernelHalPages.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiInitializeBootLoadedDriverPfnRange @ 0x140691820 (MiInitializeBootLoadedDriverPfnRange.c)
+ *     MiActOnLargeKernelHalPages @ 0x1407E7FC8 (MiActOnLargeKernelHalPages.c)
  */
 
 __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
@@ -31,8 +31,8 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
     if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v3) )
     {
       if ( (MiFlags & 0x8000) != 0 )
-        MiActOnLargeKernelHalPages(v3, (__int64)MiValidateKernelHalLargePageRange, 0);
-      v6 = (unsigned __int64)(unsigned int)dword_140E374AC >> 12;
+        MiActOnLargeKernelHalPages((char *)v3);
+      v6 = (unsigned __int64)(unsigned int)dword_140E375EC >> 12;
       if ( v6 )
         MiInitializeBootLoadedDriverPfnRange(&v4[(v5 + 511) & 0xFFFFFFFFFFFFFE00uLL], v6, 1);
     }
@@ -40,10 +40,10 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
     {
       v7 = &v4[v5];
       v8 = MiInitializeBootLoadedDriverPfnRange(v4, v5, 0);
-      if ( v3 == PsNtosImageBase || v3 == PsHalImageBase )
-        v9 = (unsigned int)dword_140E374AC;
+      if ( (PVOID)v3 == PsNtosImageBase || (PVOID)v3 == PsHalImageBase )
+        v9 = (unsigned int)dword_140E375EC;
       else
-        v9 = (unsigned int)(dword_140E374B0 + dword_140E374AC);
+        v9 = (unsigned int)(dword_140E375F0 + dword_140E375EC);
       v10 = v9 >> 12;
       if ( v10 )
       {
@@ -51,21 +51,21 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
         MiInitializeBootLoadedDriverPfnRange(v7, v10, 1);
         v7 += v10;
       }
-      if ( v3 != PsNtosImageBase && v3 != PsHalImageBase && dword_140E2D738 )
+      if ( (PVOID)v3 != PsNtosImageBase && (PVOID)v3 != PsHalImageBase && dword_140E2D878 )
       {
-        v5 += (unsigned int)dword_140E2D738;
-        MiInitializeBootLoadedDriverPfnRange(v7, (unsigned int)dword_140E2D738, 0);
+        v5 += (unsigned int)dword_140E2D878;
+        MiInitializeBootLoadedDriverPfnRange(v7, (unsigned int)dword_140E2D878, 0);
       }
       if ( v8 )
       {
-        if ( (int)MiAcquireNonPagedResources(&MiSystemPartition, v8, 0LL, 0) < 0 )
+        if ( (int)MiAcquireNonPagedResources(&MiSystemPartition, v8, 0LL, 0LL) < 0 )
           return 0LL;
-        _InterlockedAdd64(&qword_140E375D8, v8);
+        _InterlockedAdd64(&qword_140E37718, v8);
       }
-      if ( v3 != PsNtosImageBase && v3 != PsHalImageBase )
+      if ( (PVOID)v3 != PsNtosImageBase && (PVOID)v3 != PsHalImageBase )
       {
-        _InterlockedAdd(&dword_140E375F0, v5);
-        _InterlockedAdd64(&qword_140E375D8, -(__int64)v5);
+        _InterlockedAdd(&dword_140E37730, v5);
+        _InterlockedAdd64(&qword_140E37718, -(__int64)v5);
       }
     }
   }

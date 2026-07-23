@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogWriteDisabled @ 0x14070AD30
+ * XREFs of MiStoreLogWriteDisabled @ 0x14070F9E4
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140408D88 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140401E78 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void MiStoreLogWriteDisabled()
@@ -23,13 +23,13 @@ void MiStoreLogWriteDisabled()
   int *v10; // [rsp+80h] [rbp-28h]
   __int64 v11; // [rsp+88h] [rbp-20h]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 2LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 2LL) )
   {
     v6 = v2;
     v9 = &v6;
     v11 = (unsigned int)(v0 + 2);
     v10 = &v7;
     v7 = v1;
-    tlgWriteEx_EtwWriteEx(v3, (unsigned __int8 *)&byte_14005A4BD, v1, v0 - 1, v4, v5, v0 + 2, &v8);
+    tlgWriteEx_EtwWriteEx(v3, (unsigned __int8 *)&byte_14005B273, v1, v0 - 1, v4, v5, v0 + 2, &v8);
   }
 }

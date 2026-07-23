@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpComputeMergedAcl2 @ 0x140914058
+ * XREFs of RtlpComputeMergedAcl2 @ 0x1409141B8
  * Callers:
- *     RtlpComputeMergedAcl @ 0x140913F30 (RtlpComputeMergedAcl.c)
+ *     RtlpComputeMergedAcl @ 0x140914090 (RtlpComputeMergedAcl.c)
  * Callees:
- *     RtlpCopyAces @ 0x14065D3D0 (RtlpCopyAces.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlpCopyAces @ 0x1406521F0 (RtlpCopyAces.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
  */
 
 __int64 __fastcall RtlpComputeMergedAcl2(
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpComputeMergedAcl2(
       if ( *a3 >= 2u )
         LOBYTE(v18) = *a3;
       LOBYTE(v25) = 0;
-      result = RtlpCopyAces((__int64)a3, a7, 2, 16, 1, a5, a6, a5, a6, 1, v25, a8, &v28, (__int64)v14);
+      result = RtlpCopyAces((__int64)a3, a7, 2, 16, 1, a5, a6, a5, a6, 1, v25, a8, &v28, v14);
 LABEL_6:
       if ( (_DWORD)result == -1073741789 )
       {
@@ -76,7 +76,7 @@ LABEL_6:
       if ( *a3 >= 2u )
         v18 = *a3;
       LOBYTE(v25) = 0;
-      result = RtlpCopyAces((__int64)a3, a7, 1, 0, 1, a5, a6, a5, a6, 1, v25, a8, &v28, (__int64)v14);
+      result = RtlpCopyAces((__int64)a3, a7, 1, 0, 1, a5, a6, a5, a6, 1, v25, a8, &v28, v14);
       if ( (_DWORD)result == -1073741789 )
       {
         v16 = 1;
@@ -97,7 +97,7 @@ LABEL_6:
       if ( v18 <= (unsigned __int8)*a1 )
         LOBYTE(v18) = *a1;
       LOBYTE(v25) = 0;
-      result = RtlpCopyAces((__int64)a1, a7, 0, 0, 0, 0LL, 0LL, 0LL, 0LL, 1, v25, v21, v26, (__int64)v14);
+      result = RtlpCopyAces((__int64)a1, a7, 0, 0, 0, 0LL, 0LL, 0LL, 0LL, 1, v25, v21, v26, v14);
       if ( (_DWORD)result == -1073741789 )
       {
         v16 = 1;
@@ -113,7 +113,7 @@ LABEL_6:
     if ( *a3 >= 2u )
       LOBYTE(v18) = *a3;
     LOBYTE(v25) = 1;
-    result = RtlpCopyAces((__int64)a3, a7, 2, 0, 1, a5, a6, a5, a6, 1, v25, a8, &v28, (__int64)v14);
+    result = RtlpCopyAces((__int64)a3, a7, 2, 0, 1, a5, a6, a5, a6, 1, v25, a8, &v28, v14);
     goto LABEL_6;
   }
   if ( a8 == 1 )

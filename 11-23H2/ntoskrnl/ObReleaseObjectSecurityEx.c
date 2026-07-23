@@ -1,18 +1,18 @@
 /*
- * XREFs of ObReleaseObjectSecurityEx @ 0x1406C30B0
+ * XREFs of ObReleaseObjectSecurityEx @ 0x1406C30E0
  * Callers:
  *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     MiAllowImageMap @ 0x1406AF6A4 (MiAllowImageMap.c)
- *     ObpInsertOrLocateNamedObject @ 0x1406C0ABC (ObpInsertOrLocateNamedObject.c)
- *     ObpCheckObjectReference @ 0x1406C2F6C (ObpCheckObjectReference.c)
- *     ObCheckCreateObjectAccess @ 0x1406C4F10 (ObCheckCreateObjectAccess.c)
- *     ObCheckObjectAccess @ 0x1407B6260 (ObCheckObjectAccess.c)
- *     PopBootStatAccessCheck @ 0x1407EBB54 (PopBootStatAccessCheck.c)
- *     ObpCheckTraverseAccess @ 0x14097B718 (ObpCheckTraverseAccess.c)
- *     PspCheckJobAccessState @ 0x1409B209C (PspCheckJobAccessState.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409EC2B0 (EtwpCheckCurrentUserProcessAccess.c)
+ *     MiAllowImageMap @ 0x1406AF6D4 (MiAllowImageMap.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1406C0AEC (ObpInsertOrLocateNamedObject.c)
+ *     ObpCheckObjectReference @ 0x1406C2F9C (ObpCheckObjectReference.c)
+ *     ObCheckCreateObjectAccess @ 0x1406C4F40 (ObCheckCreateObjectAccess.c)
+ *     ObCheckObjectAccess @ 0x1407B6540 (ObCheckObjectAccess.c)
+ *     PopBootStatAccessCheck @ 0x1407EBE24 (PopBootStatAccessCheck.c)
+ *     ObpCheckTraverseAccess @ 0x14097B918 (ObpCheckTraverseAccess.c)
+ *     PspCheckJobAccessState @ 0x1409B229C (PspCheckJobAccessState.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409EC540 (EtwpCheckCurrentUserProcessAccess.c)
  * Callees:
- *     ObpDereferenceSecurityDescriptorForObject @ 0x1406C30DC (ObpDereferenceSecurityDescriptorForObject.c)
+ *     ObpDereferenceSecurityDescriptorForObject @ 0x1406C310C (ObpDereferenceSecurityDescriptorForObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

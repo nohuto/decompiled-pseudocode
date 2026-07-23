@@ -1,9 +1,9 @@
 /*
- * XREFs of IovpValidateStatusInformation @ 0x140C2BDFC
+ * XREFs of IovpValidateStatusInformation @ 0x140C31E0C
  * Callers:
- *     IovpCompleteRequest2 @ 0x140C4589C (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x140C4B8AC (IovpCompleteRequest2.c)
  * Callees:
- *     ViErrorReport1 @ 0x14064569C (ViErrorReport1.c)
+ *     ViErrorReport1 @ 0x14064927C (ViErrorReport1.c)
  */
 
 unsigned __int64 __fastcall IovpValidateStatusInformation(__int64 a1, __int64 a2, __int64 a3, const void *a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbArbiterHandler @ 0x140771590
+ * XREFs of ArbArbiterHandler @ 0x140771750
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
@@ -16,7 +16,10 @@ __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
   int v7; // eax
   unsigned int v8; // edi
   struct _KEVENT *v9; // rcx
-  struct _KEVENT *v11; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  struct _KEVENT *v14; // rcx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -76,9 +79,9 @@ LABEL_5:
   {
     if ( (unsigned int)a2 <= 1 )
     {
-      v11 = *(struct _KEVENT **)(a1 + 304);
+      v14 = *(struct _KEVENT **)(a1 + 304);
       *(_BYTE *)(a1 + 296) = 1;
-      KeResetEvent(v11);
+      KeResetEvent(v14);
     }
     else if ( (unsigned int)(a2 - 2) <= 1 )
     {
@@ -89,6 +92,6 @@ LABEL_5:
   }
 LABEL_9:
   KeSetEvent(*(PRKEVENT *)(a1 + 8), 0, 0);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
   return v8;
 }

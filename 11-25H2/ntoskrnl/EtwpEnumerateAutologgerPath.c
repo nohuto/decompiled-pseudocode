@@ -18,7 +18,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AVL_TABLE *a3)
+void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, _RTL_AVL_TABLE *a3)
 {
   WCHAR *v5; // rdi
   __int64 v6; // rbx
@@ -29,7 +29,7 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
   size_t v11; // r15
   wchar_t *Pool2; // rbx
   NTSTATUS v13; // esi
-  RTL_AVL_TABLE *v14; // rcx
+  _RTL_AVL_TABLE *v14; // rcx
   NTSTATUS v15; // ecx
   const WCHAR *v16; // rdx
   BOOLEAN NewElement[4]; // [rsp+30h] [rbp-D0h] BYREF

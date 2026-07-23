@@ -1,22 +1,22 @@
 /*
- * XREFs of MiHotPatchProcess @ 0x140A374C4
+ * XREFs of MiHotPatchProcess @ 0x140A37774
  * Callers:
- *     MiHotPatchAllProcesses @ 0x140A37408 (MiHotPatchAllProcesses.c)
+ *     MiHotPatchAllProcesses @ 0x140A376B8 (MiHotPatchAllProcesses.c)
  * Callees:
  *     MiGetNextVad @ 0x1402150EC (MiGetNextVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x140275410 (MiVadDeleted.c)
- *     MiReferenceVad @ 0x140275454 (MiReferenceVad.c)
- *     MiUnlockAndDereferenceVadShared @ 0x140275470 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockVadShared @ 0x140275530 (MiLockVadShared.c)
- *     MiUnlockVadShared @ 0x14032A3E4 (MiUnlockVadShared.c)
- *     MiGetFirstVad @ 0x14032A44C (MiGetFirstVad.c)
- *     MiImageVadHotPatchEligible @ 0x1407BA670 (MiImageVadHotPatchEligible.c)
- *     MiInjectThreadForHotPatch @ 0x140A37954 (MiInjectThreadForHotPatch.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x1402756A0 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x1402756E4 (MiReferenceVad.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140275700 (MiUnlockAndDereferenceVadShared.c)
+ *     MiLockVadShared @ 0x1402757C0 (MiLockVadShared.c)
+ *     MiUnlockVadShared @ 0x14032A674 (MiUnlockVadShared.c)
+ *     MiGetFirstVad @ 0x14032A6DC (MiGetFirstVad.c)
+ *     MiImageVadHotPatchEligible @ 0x1407BA950 (MiImageVadHotPatchEligible.c)
+ *     MiInjectThreadForHotPatch @ 0x140A37C04 (MiInjectThreadForHotPatch.c)
  */
 
-__int64 __fastcall MiHotPatchProcess(__int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall MiHotPatchProcess(__int64 a1, int a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rsi
   int v7; // ebx
@@ -25,7 +25,7 @@ __int64 __fastcall MiHotPatchProcess(__int64 a1, unsigned int a2, unsigned int a
   __int64 v10; // rcx
   __int64 v11; // rcx
   __int64 v12; // rax
-  unsigned __int64 v13; // rbx
+  void *v13; // rbx
   int v14; // r15d
   char *v15; // rcx
 
@@ -57,12 +57,12 @@ LABEL_4:
           && (v11 = **(_QWORD **)(v9 + 72), v12 = *(_QWORD *)(*(_QWORD *)v11 + 56LL), *(_DWORD *)(v12 + 60) == a2)
           && *(_DWORD *)(v12 + 72) == a3 )
         {
-          v13 = (*(unsigned int *)(v9 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 32) << 32)) << 12;
+          v13 = (void *)((*(unsigned int *)(v9 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 32) << 32)) << 12);
           _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v11 + 24LL), -1LL, -1LL);
           MiReferenceVad(v9);
           MiUnlockVadShared((__int64)CurrentThread, v9);
           UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
-          v7 = MiInjectThreadForHotPatch(v13, a2, a3);
+          v7 = MiInjectThreadForHotPatch(v13);
           LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
           MiLockVadShared((__int64)CurrentThread, v9);
           v14 = MiVadDeleted(v9);

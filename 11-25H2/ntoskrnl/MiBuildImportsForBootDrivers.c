@@ -24,10 +24,10 @@ __int64 MiBuildImportsForBootDrivers()
   __int64 *k; // rbx
   unsigned __int64 *v9; // r14
   unsigned int v10; // r13d
-  unsigned int v11; // ebp
+  ULONG v11; // ebp
   unsigned __int64 v12; // rsi
   __int64 *v13; // rcx
-  unsigned int m; // r15d
+  ULONG m; // r15d
   unsigned __int64 v15; // r8
   __int64 *DataTableEntryByAddress; // rax
   __int64 v17; // r11
@@ -36,11 +36,11 @@ __int64 MiBuildImportsForBootDrivers()
   __int64 v20; // rdx
   __int64 *v21; // r8
   PVOID v22; // rcx
-  unsigned int v24; // [rsp+60h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+60h] [rbp+8h] BYREF
   struct _KTHREAD *v25; // [rsp+68h] [rbp+10h]
   __int64 *v26; // [rsp+70h] [rbp+18h]
 
-  v24 = 0;
+  Size = 0;
   v0 = 0;
   v26 = 0LL;
   v1 = 0;
@@ -74,7 +74,7 @@ LABEL_11:
     }
     else
     {
-      if ( (PVOID)PsHalImageBase != v5 )
+      if ( PsHalImageBase != v5 )
         goto LABEL_7;
       v26 = (__int64 *)i;
     }
@@ -85,14 +85,14 @@ LABEL_7:
   }
   for ( k = (__int64 *)PsLoadedModuleList; k != (__int64 *)&PsLoadedModuleList; k = (__int64 *)*k )
   {
-    v9 = (unsigned __int64 *)RtlImageDirectoryEntryToData(k[6], 1, 0xCu, &v24);
+    v9 = (unsigned __int64 *)RtlImageDirectoryEntryToData((PVOID)k[6], 1u, 0xCu, &Size);
     if ( v9 )
     {
       v10 = 0;
-      v11 = v24 >> 3;
+      v11 = Size >> 3;
       v12 = 0LL;
       v13 = 0LL;
-      v24 >>= 3;
+      Size >>= 3;
       for ( m = 0; m < v11; ++m )
       {
         if ( !v13 || (v15 = v13[6], *v9 < v15) || *v9 >= v15 + *((unsigned int *)v13 + 16) )

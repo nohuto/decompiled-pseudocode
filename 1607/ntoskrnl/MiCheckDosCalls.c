@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckDosCalls @ 0x14065907C
+ * XREFs of MiCheckDosCalls @ 0x140659160
  * Callers:
- *     MiVerifyImageHeader @ 0x140523FE0 (MiVerifyImageHeader.c)
+ *     MiVerifyImageHeader @ 0x140507040 (MiVerifyImageHeader.c)
  * Callees:
  *     <none>
  */

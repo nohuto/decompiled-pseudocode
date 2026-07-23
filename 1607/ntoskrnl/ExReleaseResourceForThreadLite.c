@@ -1,7 +1,7 @@
 /*
- * XREFs of ExReleaseResourceForThreadLite @ 0x1400A8208
+ * XREFs of ExReleaseResourceForThreadLite @ 0x1400A6780
  * Callers:
- *     CcUnpinDataForThread @ 0x1405F8FF0 (CcUnpinDataForThread.c)
+ *     CcUnpinDataForThread @ 0x1405F90A4 (CcUnpinDataForThread.c)
  * Callees:
  *     <none>
  */

@@ -1,24 +1,24 @@
 /*
- * XREFs of PnprQuiesceProcessorDpc @ 0x140BF2260
+ * XREFs of PnprQuiesceProcessorDpc @ 0x140BF8260
  * Callers:
  *     <none>
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x1403D3108 (KeRestoreExtendedAndSupervisorState.c)
- *     HalGetProcessorIdByNtNumber @ 0x140425B40 (HalGetProcessorIdByNtNumber.c)
- *     KeGetProcessorNumberFromIndex @ 0x1404289E0 (KeGetProcessorNumberFromIndex.c)
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1404F37CC (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeSaveExtendedAndSupervisorState @ 0x14050E5B4 (KeSaveExtendedAndSupervisorState.c)
- *     PnprGetStackLimits @ 0x140522A84 (PnprGetStackLimits.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x14052B0D0 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     KeSaveProcessorSpecificFeatures @ 0x14052DDCC (KeSaveProcessorSpecificFeatures.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x14052FDF4 (KeRestoreProcessorSpecificFeatures.c)
- *     KeResumeClockTimerSafe @ 0x1405EE0F0 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x1405EE154 (KeSuspendClockTimerSafe.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnprMirrorMarkedPages @ 0x140BF1F18 (PnprMirrorMarkedPages.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140202CC0 (KeGetProcessorNumberFromIndex.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1403D60D8 (KeRestoreExtendedAndSupervisorState.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140432C50 (HalGetProcessorIdByNtNumber.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1404ECDAC (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x140508024 (KeSaveExtendedAndSupervisorState.c)
+ *     PnprGetStackLimits @ 0x1405250F0 (PnprGetStackLimits.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x14052D5F0 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KeSaveProcessorSpecificFeatures @ 0x1405302EC (KeSaveProcessorSpecificFeatures.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x1405322F4 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeResumeClockTimerSafe @ 0x1405F0A60 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x1405F0AC4 (KeSuspendClockTimerSafe.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnprMirrorMarkedPages @ 0x140BF7F18 (PnprMirrorMarkedPages.c)
  */
 
 void __fastcall PnprQuiesceProcessorDpc(
@@ -49,7 +49,7 @@ void __fastcall PnprQuiesceProcessorDpc(
   signed __int32 *v23; // r8
   signed __int32 v24; // eax
   signed __int32 v25; // ett
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-60h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-60h] BYREF
   unsigned int v27; // [rsp+24h] [rbp-5Ch] BYREF
   __int64 v28; // [rsp+28h] [rbp-58h] BYREF
   __int64 v29; // [rsp+30h] [rbp-50h] BYREF
@@ -142,7 +142,7 @@ LABEL_31:
       v18 = PnprContext;
       v19 = *(_DWORD *)(PnprContext + 33288);
       if ( !v19 )
-        v19 = 2266;
+        v19 = 2086;
       *(_DWORD *)(PnprContext + 33288) = v19;
       v20 = *(_DWORD *)(v18 + 33292);
       if ( !v20 )

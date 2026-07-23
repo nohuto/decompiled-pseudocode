@@ -19,9 +19,9 @@ __int64 __fastcall ExpWnfCreateProcessContext(__int64 a1, _QWORD *a2)
   unsigned int v5; // r14d
   PVOID PoolWithTag; // rax
   signed __int64 v7; // rdi
-  __int64 v8; // rax
+  _RTL_BALANCED_NODE *v8; // rax
   signed __int8 v9; // cf
-  __int64 v10; // rsi
+  _RTL_BALANCED_NODE *v10; // rsi
   _QWORD *v11; // rcx
   _QWORD *v12; // rax
   __int64 v13; // rcx
@@ -48,7 +48,7 @@ __int64 __fastcall ExpWnfCreateProcessContext(__int64 a1, _QWORD *a2)
     if ( v9 )
       ExfAcquirePushLockExclusiveEx(&ExpWnfProcessesListLock, v8, (ULONG_PTR)&ExpWnfProcessesListLock);
     if ( v10 )
-      *(_BYTE *)(v10 + 26) |= 1u;
+      BYTE2(v10[1].Left) |= 1u;
     v11 = off_1409AD640;
     v12 = (_QWORD *)(v7 + 16);
     if ( *off_1409AD640 != (_UNKNOWN *)&ExpWnfProcessesListHead )

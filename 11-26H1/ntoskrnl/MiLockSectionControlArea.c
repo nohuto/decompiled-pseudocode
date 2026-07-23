@@ -1,28 +1,28 @@
 /*
- * XREFs of MiLockSectionControlArea @ 0x14044FAD0
+ * XREFs of MiLockSectionControlArea @ 0x140447C00
  * Callers:
- *     CcMapAndCopyInToCache @ 0x14026D270 (CcMapAndCopyInToCache.c)
- *     MmEnoughMemoryForWrite @ 0x1403841D0 (MmEnoughMemoryForWrite.c)
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     MmDisableModifiedWriteOfSection @ 0x1403E22F0 (MmDisableModifiedWriteOfSection.c)
- *     MmOnlySystemCacheViewsPresent @ 0x140465540 (MmOnlySystemCacheViewsPresent.c)
- *     MmChangeSectionBackingFile @ 0x1404816CC (MmChangeSectionBackingFile.c)
- *     MiReferenceExistingControlArea @ 0x1404A4A50 (MiReferenceExistingControlArea.c)
- *     MiForceSectionClosed @ 0x1404B0200 (MiForceSectionClosed.c)
- *     MmGetImageFileSignatureInformation @ 0x1404B1AE0 (MmGetImageFileSignatureInformation.c)
- *     MiCopyHeaderIfResident @ 0x1404B51A4 (MiCopyHeaderIfResident.c)
- *     MiFlushDataSection @ 0x1404BD87C (MiFlushDataSection.c)
- *     MmIsFileSectionActive @ 0x1404C8270 (MmIsFileSectionActive.c)
+ *     CcMapAndCopyInToCache @ 0x14026C7E0 (CcMapAndCopyInToCache.c)
+ *     MmEnoughMemoryForWrite @ 0x140385F80 (MmEnoughMemoryForWrite.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     MmDisableModifiedWriteOfSection @ 0x1403E54E0 (MmDisableModifiedWriteOfSection.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x14045E500 (MmOnlySystemCacheViewsPresent.c)
+ *     MmChangeSectionBackingFile @ 0x14047B03C (MmChangeSectionBackingFile.c)
+ *     MiReferenceExistingControlArea @ 0x14049E0E0 (MiReferenceExistingControlArea.c)
+ *     MiForceSectionClosed @ 0x1404A9890 (MiForceSectionClosed.c)
+ *     MmGetImageFileSignatureInformation @ 0x1404AB170 (MmGetImageFileSignatureInformation.c)
+ *     MiCopyHeaderIfResident @ 0x1404AE5F4 (MiCopyHeaderIfResident.c)
+ *     MiFlushDataSection @ 0x1404B705C (MiFlushDataSection.c)
+ *     MmIsFileSectionActive @ 0x1404C1FB0 (MmIsFileSectionActive.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiLockSectionControlArea(__int64 *a1, char a2, unsigned __int8 *a3)
@@ -46,7 +46,7 @@ __int64 __fastcall MiLockSectionControlArea(__int64 *a1, char a2, unsigned __int
     if ( v3 )
     {
       *a3 = 17;
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2C7C0);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2C940);
     }
     else
     {
@@ -55,15 +55,15 @@ __int64 __fastcall MiLockSectionControlArea(__int64 *a1, char a2, unsigned __int
         __writecr8(2uLL);
       if ( KiIrqlFlags )
         KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         v7 = 0;
-        if ( _interlockedbittestandset(&dword_140E2C7C0, 0x1Fu) )
-          v7 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E2C7C0, CurrentIrql);
-        for ( i = dword_140E2C7C0; (dword_140E2C7C0 & 0xBFFFFFFF) != 0x80000000; i = dword_140E2C7C0 )
+        if ( _interlockedbittestandset(&dword_140E2C940, 0x1Fu) )
+          v7 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E2C940, CurrentIrql);
+        for ( i = dword_140E2C940; (dword_140E2C940 & 0xBFFFFFFF) != 0x80000000; i = dword_140E2C940 )
         {
           if ( (i & 0x40000000) == 0 )
-            _InterlockedOr(&dword_140E2C7C0, 0x40000000u);
+            _InterlockedOr(&dword_140E2C940, 0x40000000u);
           if ( (++v7 & HvlLongSpinCountMask) == 0
             && (HvlEnlightenments & 0x40) != 0
             && KiCheckVpBackingLongSpinWaitHypercall() )
@@ -78,7 +78,7 @@ __int64 __fastcall MiLockSectionControlArea(__int64 *a1, char a2, unsigned __int
       }
       else
       {
-        ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E2C7C0, CurrentIrql);
+        ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E2C940, CurrentIrql);
       }
       *a3 = CurrentIrql;
     }
@@ -87,31 +87,31 @@ __int64 __fastcall MiLockSectionControlArea(__int64 *a1, char a2, unsigned __int
       break;
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v9 + 72)) )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       {
-        dword_140E2C7C0 = 0;
+        dword_140E2C940 = 0;
         return v9;
       }
       else
       {
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
         return v9;
       }
     }
     v10 = *a3;
     if ( (_BYTE)v10 == 17 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E2C7C0 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E2C940 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
     }
     else
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E2C7C0 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E2C940 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v10);
       __writecr8(v10);
@@ -120,17 +120,17 @@ __int64 __fastcall MiLockSectionControlArea(__int64 *a1, char a2, unsigned __int
   v12 = *a3;
   if ( (_BYTE)v12 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      dword_140E2C7C0 = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      dword_140E2C940 = 0;
     else
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      dword_140E2C7C0 = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      dword_140E2C940 = 0;
     else
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C7C0, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2C940, retaddr);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v12);
     __writecr8(v12);

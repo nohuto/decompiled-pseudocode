@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpQueryValueKey @ 0x14093FD54
+ * XREFs of FsRtlpQueryValueKey @ 0x14093FF54
  * Callers:
- *     FsRtlHeatInit @ 0x14093F880 (FsRtlHeatInit.c)
+ *     FsRtlHeatInit @ 0x14093FA80 (FsRtlHeatInit.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

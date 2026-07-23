@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeWaitForMultipleObjectsNoReboot @ 0x1409DB9C0
+ * XREFs of VerifierKeWaitForMultipleObjectsNoReboot @ 0x1409DC9C0
  * Callers:
  *     <none>
  * Callees:
- *     ViKeWaitForMultipleObjectsCommon @ 0x1409DC470 (ViKeWaitForMultipleObjectsCommon.c)
+ *     ViKeWaitForMultipleObjectsCommon @ 0x1409DD470 (ViKeWaitForMultipleObjectsCommon.c)
  */
 
 __int64 __fastcall VerifierKeWaitForMultipleObjectsNoReboot(

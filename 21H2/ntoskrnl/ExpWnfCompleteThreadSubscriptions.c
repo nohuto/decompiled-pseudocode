@@ -1,29 +1,29 @@
 /*
- * XREFs of ExpWnfCompleteThreadSubscriptions @ 0x14060E2DC
+ * XREFs of ExpWnfCompleteThreadSubscriptions @ 0x14069DD8C
  * Callers:
- *     NtGetCompleteWnfStateSubscription @ 0x14060DEC0 (NtGetCompleteWnfStateSubscription.c)
+ *     NtGetCompleteWnfStateSubscription @ 0x14069D970 (NtGetCompleteWnfStateSubscription.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExpCaptureWnfStateName @ 0x14060F344 (ExpCaptureWnfStateName.c)
- *     ExpWnfLookupNameInstance @ 0x14060F3B4 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x14060F4B4 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfNotifyNameSubscribers @ 0x14061088C (ExpWnfNotifyNameSubscribers.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExpCaptureWnfStateName @ 0x14069EDF4 (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x14069EE64 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14069EF64 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406A033C (ExpWnfNotifyNameSubscribers.c)
  */
 
 __int64 __fastcall ExpWnfCompleteThreadSubscriptions(_QWORD *a1, __int64 a2, __int64 a3, int a4, int a5)
 {
   struct _EX_RUNDOWN_REF *v7; // r14
   char v9; // r8
-  __int64 v10; // rbx
-  __int64 v11; // rax
-  __int64 v12; // rbx
+  PRTL_BALANCED_NODE v10; // rbx
+  _RTL_BALANCED_NODE *v11; // rax
+  _RTL_BALANCED_NODE *v12; // rbx
   __int64 *v13; // rbx
   int v14; // r15d
   int v15; // eax
@@ -38,19 +38,19 @@ __int64 __fastcall ExpWnfCompleteThreadSubscriptions(_QWORD *a1, __int64 a2, __i
 
   v22 = 0LL;
   v7 = 0LL;
-  if ( (int)ExpCaptureWnfStateName(a2, &v22) < 0 )
+  if ( (int)ExpCaptureWnfStateName(a2, &v22, 0LL) < 0 )
     return 3221225485LL;
   v10 = KeAbPreAcquire((ULONG_PTR)(a1 + 10), 0LL, v9);
   if ( _InterlockedCompareExchange64(a1 + 10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(a1 + 10, v10, (ULONG_PTR)(a1 + 10));
   if ( v10 )
-    *(_BYTE *)(v10 + 26) |= 1u;
+    BYTE2(v10[1].Left) |= 1u;
   v11 = KeAbPreAcquire((ULONG_PTR)(a1 + 13), 0LL, 0);
   v12 = v11;
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1 + 26, 0LL) )
     ExfAcquirePushLockExclusiveEx(a1 + 13, v11, (ULONG_PTR)(a1 + 13));
   if ( v12 )
-    *(_BYTE *)(v12 + 26) |= 1u;
+    BYTE2(v12[1].Left) |= 1u;
   v13 = (__int64 *)a1[14];
   if ( v13 == a1 + 14 )
   {
@@ -101,7 +101,7 @@ LABEL_36:
       if ( v19 )
       {
         if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v19 + 164), 0xFFFFFFFF) == 1
-          && ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*(v13 - 7) + 8)) )
+          && ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*(v13 - 7) + 8)) )
         {
           v7 = (struct _EX_RUNDOWN_REF *)*(v13 - 7);
         }
@@ -127,14 +127,14 @@ LABEL_27:
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v23 + 164), 0xFFFFFFFF) == 1 )
         v7 = (struct _EX_RUNDOWN_REF *)v23;
       else
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v23 + 8));
+        ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v23 + 8));
     }
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)v24 + 8LL));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)v24 + 8LL));
   }
   if ( v7 )
   {
     ExpWnfNotifyNameSubscribers(v7, 8LL, 1LL, 1LL);
-    ExReleaseRundownProtection_0(v7 + 1);
+    ExReleaseRundownProtection(v7 + 1);
   }
   return 0LL;
 }

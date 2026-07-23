@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwAlertThread(HANDLE ThreadHandle)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, v1, v2);
+  return KiServiceInternal(ThreadHandle);
 }

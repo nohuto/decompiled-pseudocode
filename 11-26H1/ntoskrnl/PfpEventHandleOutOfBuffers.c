@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpEventHandleOutOfBuffers @ 0x1404AC430
+ * XREFs of PfpEventHandleOutOfBuffers @ 0x1404A5AC0
  * Callers:
  *     <none>
  * Callees:
- *     PfFbBufferListAllocateTemporary @ 0x1404AC464 (PfFbBufferListAllocateTemporary.c)
+ *     PfFbBufferListAllocateTemporary @ 0x1404A5AF4 (PfFbBufferListAllocateTemporary.c)
  */
 
 __int64 __fastcall PfpEventHandleOutOfBuffers(__int64 a1, struct _EX_RUNDOWN_REF *a2)

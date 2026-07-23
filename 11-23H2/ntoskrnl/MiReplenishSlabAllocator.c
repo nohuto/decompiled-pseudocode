@@ -1,23 +1,23 @@
 /*
- * XREFs of MiReplenishSlabAllocator @ 0x1402E6AC4
+ * XREFs of MiReplenishSlabAllocator @ 0x1402E6D54
  * Callers:
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiAllocateMdlPagesByLists @ 0x14023B910 (MiAllocateMdlPagesByLists.c)
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     MiReplenishSlabAllocatorWorker @ 0x1402E9010 (MiReplenishSlabAllocatorWorker.c)
- *     MiInitialSlabPopulate @ 0x1403B4FF0 (MiInitialSlabPopulate.c)
- *     MiProtectDriverSectionPte @ 0x14061A4A0 (MiProtectDriverSectionPte.c)
- *     MiAllocateSlabPageForMdl @ 0x14062315C (MiAllocateSlabPageForMdl.c)
- *     MiFastReplenishWithAsync @ 0x1406568A8 (MiFastReplenishWithAsync.c)
- *     MmAllocateSecureKernelPages @ 0x1406577AC (MmAllocateSecureKernelPages.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiAllocateMdlPagesByLists @ 0x14023B9E0 (MiAllocateMdlPagesByLists.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     MiReplenishSlabAllocatorWorker @ 0x1402E92A0 (MiReplenishSlabAllocatorWorker.c)
+ *     MiInitialSlabPopulate @ 0x1403B51D0 (MiInitialSlabPopulate.c)
+ *     MiProtectDriverSectionPte @ 0x14061A9F0 (MiProtectDriverSectionPte.c)
+ *     MiAllocateSlabPageForMdl @ 0x1406236AC (MiAllocateSlabPageForMdl.c)
+ *     MiFastReplenishWithAsync @ 0x140656DF8 (MiFastReplenishWithAsync.c)
+ *     MmAllocateSecureKernelPages @ 0x140657CFC (MmAllocateSecureKernelPages.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAllocateSlabEntry @ 0x1402E6C40 (MiAllocateSlabEntry.c)
- *     MiInsertSlabEntry @ 0x1402E7080 (MiInsertSlabEntry.c)
- *     MiFreeSlabEntry @ 0x1403B86D0 (MiFreeSlabEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAllocateSlabEntry @ 0x1402E6ED0 (MiAllocateSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x1402E7310 (MiInsertSlabEntry.c)
+ *     MiFreeSlabEntry @ 0x1403B88B0 (MiFreeSlabEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReplenishSlabAllocator(_QWORD *a1, unsigned __int64 a2)
@@ -61,7 +61,7 @@ __int64 __fastcall MiReplenishSlabAllocator(_QWORD *a1, unsigned __int64 a2)
       *(_DWORD *)(SlabEntry + 140) |= 2u;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -71,10 +71,10 @@ __int64 __fastcall MiReplenishSlabAllocator(_QWORD *a1, unsigned __int64 a2)
         SchedulerAssist[5] |= v16;
       }
       MiFreeSlabEntry(a1, SlabEntry);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v19 = CurrentPrcb->SchedulerAssist;

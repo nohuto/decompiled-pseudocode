@@ -12,7 +12,7 @@ PSLIST_ENTRY __fastcall RtlpDynamicLookasideFlush(_QWORD *a1)
   PSLIST_ENTRY v3; // rbx
   unsigned __int64 v4; // rcx
   PSLIST_ENTRY v5; // rax
-  struct _SLIST_ENTRY *v7; // rcx
+  _SLIST_ENTRY *v7; // rcx
 
   v2 = ~*a1;
   v3 = 0LL;

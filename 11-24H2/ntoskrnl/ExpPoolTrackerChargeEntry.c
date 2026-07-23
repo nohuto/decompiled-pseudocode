@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPoolTrackerChargeEntry @ 0x1403A9F50
+ * XREFs of ExpPoolTrackerChargeEntry @ 0x140397070
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1402C2E9C (ExAllocateContiguousHeapPool.c)
- *     ExpInsertPoolTracker @ 0x1402C4BA8 (ExpInsertPoolTracker.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1403A9DD0 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpInsertPoolTracker @ 0x14021BE10 (ExpInsertPoolTracker.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140396AFC (ExAllocateContiguousHeapPool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140396EF0 (ExpInsertPoolTrackerExpansion.c)
  * Callees:
- *     ExpTrackTableGetMoreLimit @ 0x1403AA01C (ExpTrackTableGetMoreLimit.c)
+ *     ExpTrackTableGetMoreLimit @ 0x14039713C (ExpTrackTableGetMoreLimit.c)
  */
 
 unsigned __int64 __fastcall ExpPoolTrackerChargeEntry(unsigned int a1, unsigned __int64 a2, __int64 a3)

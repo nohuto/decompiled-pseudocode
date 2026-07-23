@@ -7,10 +7,10 @@
  *     RtlCapabilityCheck @ 0x140910060 (RtlCapabilityCheck.c)
  */
 
-bool __fastcall ExpCapabilityCheck(UNICODE_STRING *SourceString)
+bool __fastcall ExpCapabilityCheck(PUNICODE_STRING CapabilityName)
 {
-  char v2; // [rsp+38h] [rbp+10h] BYREF
+  BOOLEAN HasCapability; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 0;
-  return (int)RtlCapabilityCheck(0LL, SourceString, &v2) >= 0 && v2;
+  HasCapability = 0;
+  return RtlCapabilityCheck(0LL, CapabilityName, &HasCapability) >= 0 && HasCapability;
 }

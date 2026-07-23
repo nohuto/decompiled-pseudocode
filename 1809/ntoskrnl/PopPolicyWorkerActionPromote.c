@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPolicyWorkerActionPromote @ 0x1406E2670
+ * XREFs of PopPolicyWorkerActionPromote @ 0x1406E3910
  * Callers:
- *     PopPolicyWorkerThread @ 0x1401305A0 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x140130670 (PopPolicyWorkerThread.c)
  * Callees:
  *     PopGetPolicyWorker @ 0x1400106A8 (PopGetPolicyWorker.c)
- *     PopSetPowerActionState @ 0x140143424 (PopSetPowerActionState.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PopSetPowerActionState @ 0x140143524 (PopSetPowerActionState.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopIssueActionRequest @ 0x1406DFAF0 (PopIssueActionRequest.c)
  */
 
 __int64 PopPolicyWorkerActionPromote()
@@ -19,7 +19,7 @@ __int64 PopPolicyWorkerActionPromote()
   if ( !PopAction )
     goto LABEL_2;
   v1 = PopAction;
-  if ( !byte_140417701 )
+  if ( !byte_1404187A1 )
   {
     if ( (PopAction & 2) == 0 )
       goto LABEL_2;
@@ -27,14 +27,14 @@ __int64 PopPolicyWorkerActionPromote()
     v2 = 2;
     goto LABEL_12;
   }
-  if ( byte_140417701 != 2 )
+  if ( byte_1404187A1 != 2 )
     goto LABEL_2;
-  if ( (int)PopIssueActionRequest(1, (POWER_ACTION)qword_140417704, SHIDWORD(qword_140417704), dword_14041770C) >= 0 )
+  if ( (int)PopIssueActionRequest(1, (POWER_ACTION)qword_1404187A4, SHIDWORD(qword_1404187A4), dword_1404187AC) >= 0 )
   {
     PopAction &= ~v1;
     goto LABEL_2;
   }
-  if ( byte_140417701 != 2 )
+  if ( byte_1404187A1 != 2 )
   {
     v2 = 1;
 LABEL_12:

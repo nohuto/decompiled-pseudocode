@@ -12,13 +12,13 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCompareMemoryUlong(_DWORD *a1, unsigned __int64 a2, int a3)
+SIZE_T __cdecl RtlCompareMemoryUlong(PVOID Source, SIZE_T Length, ULONG Pattern)
 {
   bool v4; // zf
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // rcx
+  SIZE_T v5; // rdx
+  SIZE_T v6; // rcx
 
-  v5 = a2 >> 2;
+  v5 = Length >> 2;
   v4 = v5 == 0;
   if ( v5 )
   {
@@ -27,7 +27,8 @@ __int64 __fastcall RtlCompareMemoryUlong(_DWORD *a1, unsigned __int64 a2, int a3
     {
       if ( !v6 )
         break;
-      v4 = *a1++ == a3;
+      v4 = *(_DWORD *)Source == Pattern;
+      Source = (char *)Source + 4;
       --v6;
     }
     while ( v4 );

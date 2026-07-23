@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlpExitThread()
+NTSTATUS __fastcall RtlpExitThread(NTSTATUS ExitStatus)
 {
-  return NtTerminateThread();
+  return NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCallbackReturn @ 0x140723490
+ * XREFs of ZwCallbackReturn @ 0x140728060
  * Callers:
- *     DifZwCallbackReturnWrapper @ 0x14069C4E0 (DifZwCallbackReturnWrapper.c)
+ *     DifZwCallbackReturnWrapper @ 0x1406A00C0 (DifZwCallbackReturnWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCallbackReturn(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwCallbackReturn(PVOID OutputBuffer, ULONG OutputLength, NTSTATUS Status)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(OutputBuffer);
 }

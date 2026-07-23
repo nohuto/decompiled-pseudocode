@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpValidateWorkItem @ 0x140203F4C
+ * XREFs of ExpValidateWorkItem @ 0x14020402C
  * Callers:
  *     ExpTryQueueWorkItem @ 0x1402020DC (ExpTryQueueWorkItem.c)
- *     ExQueueWorkItemExFromIo @ 0x1402030B4 (ExQueueWorkItemExFromIo.c)
- *     ExQueueWorkItemToPrivatePool @ 0x140203E58 (ExQueueWorkItemToPrivatePool.c)
- *     ExQueueWorkItemEx @ 0x140203EF0 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemExFromIo @ 0x140203194 (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x140203F38 (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemEx @ 0x140203FD0 (ExQueueWorkItemEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpValidateWorkItem(_QWORD *BugCheckParameter2, int a2)

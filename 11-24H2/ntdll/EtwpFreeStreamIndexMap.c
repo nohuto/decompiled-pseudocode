@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpFreeStreamIndexMap @ 0x18008E9CC
+ * XREFs of EtwpFreeStreamIndexMap @ 0x1800AA6EC
  * Callers:
- *     EtwpInitLoggerContext @ 0x18008D330 (EtwpInitLoggerContext.c)
- *     EtwpFreeLoggerContext @ 0x18008EA0C (EtwpFreeLoggerContext.c)
+ *     EtwpInitLoggerContext @ 0x1800A8DF0 (EtwpInitLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1800AA48C (EtwpFreeLoggerContext.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall EtwpFreeStreamIndexMap(__int64 a1)
+LOGICAL __fastcall EtwpFreeStreamIndexMap(__int64 a1)
 {
-  unsigned __int64 v1; // r8
-  __int64 result; // rax
+  void *v1; // r8
+  LOGICAL result; // eax
 
-  v1 = *(_QWORD *)(a1 + 488);
+  v1 = *(void **)(a1 + 488);
   if ( v1 )
   {
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
     *(_QWORD *)(a1 + 488) = 0LL;
   }
   return result;

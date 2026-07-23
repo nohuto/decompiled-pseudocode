@@ -1,11 +1,11 @@
 /*
- * XREFs of MiExamineZeroChunks @ 0x14020B260
+ * XREFs of MiExamineZeroChunks @ 0x140333040
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall MiExamineZeroChunks(__int64 a1)
@@ -38,7 +38,7 @@ void __fastcall MiExamineZeroChunks(__int64 a1)
     {
       if ( (v6 & 1) != 0 )
       {
-        ++dword_140EF4CD4[v5];
+        ++dword_140EF4EF4[v5];
       }
       else if ( !v3 || (++*(_DWORD *)(v3 + 576), *(_DWORD *)(v3 + 576) == 512) )
       {
@@ -83,7 +83,7 @@ void __fastcall MiExamineZeroChunks(__int64 a1)
         }
         v3 = i;
         *v14 = v6 | 0x40;
-        ++dword_140EF4CC4[v5];
+        ++dword_140EF4EE4[v5];
       }
     }
   }

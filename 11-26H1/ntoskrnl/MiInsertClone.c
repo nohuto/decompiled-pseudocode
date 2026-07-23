@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInsertClone @ 0x1404F6B70
+ * XREFs of MiInsertClone @ 0x1404F0180
  * Callers:
- *     MiCloneTreeUpdate @ 0x1404F4EBC (MiCloneTreeUpdate.c)
- *     MiSetCloneParentForkInProgress @ 0x1405180AC (MiSetCloneParentForkInProgress.c)
- *     MiReturnCloneResources @ 0x1409620A4 (MiReturnCloneResources.c)
+ *     MiCloneTreeUpdate @ 0x1404EE49C (MiCloneTreeUpdate.c)
+ *     MiSetCloneParentForkInProgress @ 0x140511B1C (MiSetCloneParentForkInProgress.c)
+ *     MiReturnCloneResources @ 0x140A07D98 (MiReturnCloneResources.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiLockCloneDescriptorTreeExclusive @ 0x140511ADC (MiLockCloneDescriptorTreeExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MiLockCloneDescriptorTreeExclusive @ 0x14050B54C (MiLockCloneDescriptorTreeExclusive.c)
  */
 
 void __fastcall MiInsertClone(__int64 a1, _QWORD *a2, int a3)

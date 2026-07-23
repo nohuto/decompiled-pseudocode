@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEnableImageDirectMap @ 0x14067A928
+ * XREFs of MiEnableImageDirectMap @ 0x14067BB08
  * Callers:
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ObFastReplaceObject @ 0x1404512EC (ObFastReplaceObject.c)
- *     MiAllocateEntireImageFileExtents @ 0x1407EFC4C (MiAllocateEntireImageFileExtents.c)
- *     MiDeleteFileExtentList @ 0x1407F02DC (MiDeleteFileExtentList.c)
- *     MiInitializeImageExtents @ 0x1407F0358 (MiInitializeImageExtents.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ObFastReplaceObject @ 0x14044674C (ObFastReplaceObject.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1407F021C (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteFileExtentList @ 0x1407F08AC (MiDeleteFileExtentList.c)
+ *     MiInitializeImageExtents @ 0x1407F0928 (MiInitializeImageExtents.c)
  */
 
 __int64 __fastcall MiEnableImageDirectMap(__int64 a1, __int64 *a2, __int64 a3, void *a4, int a5, int a6, int a7)
@@ -28,11 +28,11 @@ __int64 __fastcall MiEnableImageDirectMap(__int64 a1, __int64 *a2, __int64 a3, v
     {
       if ( (*(_DWORD *)(a3 + 8) & 0xFFF) == 0 )
       {
-        v11 = ExAcquireSpinLockExclusive(&dword_140E2CC00);
+        v11 = ExAcquireSpinLockExclusive(&dword_140E2CD40);
         v12 = **(_QWORD **)(a1 + 40);
         if ( !v12 || (*(_DWORD *)(v12 + 56) & 3) == 0 && (*(_BYTE *)(v12 + 62) & 0xC) != 4 )
           *((_BYTE *)a2 + 62) = *((_BYTE *)a2 + 62) & 0xF3 | 4;
-        MiReleaseSpinLockExclusive(&dword_140E2CC00, v11);
+        MiReleaseSpinLockExclusive(&dword_140E2CD40, v11);
       }
     }
     else

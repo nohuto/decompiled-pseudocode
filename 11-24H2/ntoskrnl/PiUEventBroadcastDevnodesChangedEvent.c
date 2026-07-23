@@ -1,25 +1,27 @@
 /*
- * XREFs of PiUEventBroadcastDevnodesChangedEvent @ 0x140A5E4A0
+ * XREFs of PiUEventBroadcastDevnodesChangedEvent @ 0x140A568C0
  * Callers:
- *     PiUEventBroadcastEventWorker @ 0x140A5E370 (PiUEventBroadcastEventWorker.c)
+ *     PiUEventBroadcastEventWorker @ 0x140A56790 (PiUEventBroadcastEventWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsGetSessionById @ 0x140349430 (PsGetSessionById.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsGetSessionById @ 0x1403C2E70 (PsGetSessionById.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
-LONG_PTR __fastcall PiUEventBroadcastDevnodesChangedEvent(unsigned int a1)
+NTSTATUS __fastcall PiUEventBroadcastDevnodesChangedEvent(unsigned int a1)
 {
-  LONG_PTR result; // rax
+  NTSTATUS result; // eax
   void *SessionById; // rbx
+  unsigned int ExplicitScope; // [rsp+50h] [rbp+8h] BYREF
 
+  ExplicitScope = a1;
   if ( a1 == -1 )
-    return ZwUpdateWnfStateData((__int64)&WNF_PNPA_DEVNODES_CHANGED, 0LL);
+    return ZwUpdateWnfStateData(&WNF_PNPA_DEVNODES_CHANGED, 0LL, 0, 0LL, 0LL, 0, 0);
   SessionById = (void *)PsGetSessionById(a1);
-  result = 0LL;
+  result = 0;
   if ( SessionById )
   {
-    ZwUpdateWnfStateData((__int64)&WNF_PNPA_DEVNODES_CHANGED_SESSION, 0LL);
+    ZwUpdateWnfStateData(&WNF_PNPA_DEVNODES_CHANGED_SESSION, 0LL, 0, 0LL, &ExplicitScope, 0, 0);
     return ObfDereferenceObjectWithTag(SessionById, 0x79517350u);
   }
   return result;

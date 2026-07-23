@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWakeList @ 0x14070FCF8
+ * XREFs of MiWakeList @ 0x1407149F4
  * Callers:
- *     MiFreeDeferredAcceleratorPool @ 0x1402A6A58 (MiFreeDeferredAcceleratorPool.c)
- *     MiUnlinkAccelerator @ 0x14070FBA8 (MiUnlinkAccelerator.c)
+ *     MiFreeDeferredAcceleratorPool @ 0x1402A5E74 (MiFreeDeferredAcceleratorPool.c)
+ *     MiUnlinkAccelerator @ 0x1407148A4 (MiUnlinkAccelerator.c)
  * Callees:
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
  */
 
 void __fastcall MiWakeList(_QWORD *a1, __int64 a2, __int64 a3)

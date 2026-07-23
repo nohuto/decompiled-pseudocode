@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPrefetchNormally @ 0x140373EDC
+ * XREFs of MiPrefetchNormally @ 0x140375C8C
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiPrefetchPagesViable @ 0x1404C4104 (MiPrefetchPagesViable.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiPrefetchPagesViable @ 0x1404BD9E4 (MiPrefetchPagesViable.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
  * Callees:
  *     <none>
  */

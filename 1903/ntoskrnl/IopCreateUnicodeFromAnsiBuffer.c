@@ -8,9 +8,9 @@
  *     RtlAnsiStringToUnicodeString @ 0x14063CAA0 (RtlAnsiStringToUnicodeString.c)
  */
 
-NTSTATUS __fastcall IopCreateUnicodeFromAnsiBuffer(PUNICODE_STRING DestinationString, const char *a2)
+NTSTATUS __fastcall IopCreateUnicodeFromAnsiBuffer(PUNICODE_STRING DestinationString, const CHAR *a2)
 {
-  STRING DestinationStringa; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationStringa; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&DestinationStringa.Length = 0LL;
   DestinationStringa.Buffer = 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTiLogSuspendResumeThread @ 0x140AAF3C8
+ * XREFs of EtwTiLogSuspendResumeThread @ 0x140AAD018
  * Callers:
- *     PsMultiResumeThread @ 0x1404FE168 (PsMultiResumeThread.c)
- *     PspSuspendThread @ 0x140AD5030 (PspSuspendThread.c)
+ *     PsMultiResumeThread @ 0x1404F76A8 (PsMultiResumeThread.c)
+ *     PspSuspendThread @ 0x140949620 (PspSuspendThread.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTiLogSuspendResumeThread(int a1, __int64 a2, __int64 a3, char a4)
@@ -34,13 +34,13 @@ void __fastcall EtwTiLogSuspendResumeThread(int a1, __int64 a2, __int64 a3, char
     v20 = a1;
     if ( KeGetCurrentThread()->PreviousMode == 1 )
     {
-      if ( EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x300000uLL) )
+      if ( EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x300000uLL) )
       {
         v7 = *(_QWORD *)(a2 + 544);
         v8 = (const EVENT_DESCRIPTOR *)THREATINT_SUSPEND_THREAD;
         if ( !a4 )
           v8 = &THREATINT_RESUME_THREAD;
-        if ( EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v8) )
+        if ( EtwEventEnabled(EtwThreatIntProvRegHandle, v8) )
         {
           *(_QWORD *)&UserData.Size = 4LL;
           UserData.Ptr = (ULONGLONG)&v20;
@@ -48,7 +48,7 @@ void __fastcall EtwTiLogSuspendResumeThread(int a1, __int64 a2, __int64 a3, char
           v10 = EtwpTiFillThreadIdentity(&UserData.Ptr + 2 * (unsigned int)(v9 + 1), a2);
           v12 = EtwpTiFillProcessIdentity(&UserData.Ptr + 2 * (unsigned int)(v10 + v11), *(_QWORD *)(a3 + 544), &v17);
           v14 = EtwpTiFillThreadIdentity(&UserData.Ptr + 2 * (unsigned int)(v12 + v13), a3);
-          EtwWrite(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v8, 0LL, v14 + v15, &UserData);
+          EtwWrite(EtwThreatIntProvRegHandle, v8, 0LL, v14 + v15, &UserData);
         }
       }
     }

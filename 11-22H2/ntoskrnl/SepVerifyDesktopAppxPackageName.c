@@ -29,19 +29,19 @@ __int64 __fastcall SepVerifyDesktopAppxPackageName(_DWORD *a1, __int64 a2, _BYTE
   __int64 v14; // r8
   __int64 v15; // r9
   __int16 v16; // ax
-  __int64 v17; // rcx
+  ACL *v17; // rcx
   __int64 v18; // rax
-  unsigned __int8 *AceByType; // rax
-  unsigned __int8 *v20; // r14
+  _DWORD *AceByType; // rax
+  _DWORD *v20; // r14
   unsigned int v22; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v23; // [rsp+64h] [rbp-9Ch] BYREF
+  ULONG Index; // [rsp+64h] [rbp-9Ch] BYREF
   int v24; // [rsp+68h] [rbp-98h] BYREF
   int v25; // [rsp+6Ch] [rbp-94h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
   _BYTE P[512]; // [rsp+80h] [rbp-80h] BYREF
 
   v25 = 2;
-  v23 = 0;
+  Index = 0;
   v24 = 0;
   v22 = 0;
   *a3 = 0;
@@ -101,17 +101,17 @@ LABEL_13:
     }
     if ( v16 >= 0 )
     {
-      v17 = *(_QWORD *)(a2 + 32);
+      v17 = *(ACL **)(a2 + 32);
     }
     else
     {
       v18 = *(unsigned int *)(a2 + 16);
       if ( !(_DWORD)v18 )
         goto LABEL_13;
-      v17 = a2 + v18;
+      v17 = (ACL *)(a2 + v18);
     }
 LABEL_18:
-    AceByType = RtlFindAceByType(v17, 9, &v23);
+    AceByType = RtlFindAceByType(v17, 9u, &Index);
     v15 = 0LL;
     v20 = AceByType;
     if ( AceByType )
@@ -124,8 +124,11 @@ LABEL_18:
                                   0LL,
                                   0LL,
                                   0LL,
-                                  &AceByType[4 * AceByType[9] + 16],
-                                  *((unsigned __int16 *)AceByType + 1) - (4 * (unsigned int)AceByType[9] + 8) - 8,
+                                  &AceByType[*((unsigned __int8 *)AceByType + 9) + 4],
+                                  *((unsigned __int16 *)AceByType + 1)
+                                - (4 * (unsigned int)*((unsigned __int8 *)AceByType + 9)
+                                 + 8)
+                                - 8,
                                   0,
                                   0,
                                   &v24);
@@ -134,7 +137,7 @@ LABEL_18:
       if ( v24 == 1 )
         goto LABEL_23;
     }
-    ++v23;
+    ++Index;
   }
   while ( v20 );
   if ( v24 != 1 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessExitStatus @ 0x140AF0810
+ * XREFs of PsGetProcessExitStatus @ 0x140AF33E0
  * Callers:
  *     <none>
  * Callees:

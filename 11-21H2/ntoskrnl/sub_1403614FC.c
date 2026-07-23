@@ -1,0 +1,63 @@
+/*
+ * XREFs of sub_1403614FC @ 0x1403614FC
+ * Callers:
+ *     sub_14021CA70 @ 0x14021CA70 (sub_14021CA70.c)
+ *     sub_14024FA14 @ 0x14024FA14 (sub_14024FA14.c)
+ *     sub_14024FB60 @ 0x14024FB60 (sub_14024FB60.c)
+ *     sub_1402B4EC0 @ 0x1402B4EC0 (sub_1402B4EC0.c)
+ *     sub_140343010 @ 0x140343010 (sub_140343010.c)
+ *     sub_1403591D8 @ 0x1403591D8 (sub_1403591D8.c)
+ *     sub_1403C55B0 @ 0x1403C55B0 (sub_1403C55B0.c)
+ *     sub_1405E04A0 @ 0x1405E04A0 (sub_1405E04A0.c)
+ *     sub_1405E050C @ 0x1405E050C (sub_1405E050C.c)
+ *     sub_1405F3C10 @ 0x1405F3C10 (sub_1405F3C10.c)
+ *     sub_1405F3CD0 @ 0x1405F3CD0 (sub_1405F3CD0.c)
+ *     sub_1405F3D28 @ 0x1405F3D28 (sub_1405F3D28.c)
+ *     sub_1405F3DFC @ 0x1405F3DFC (sub_1405F3DFC.c)
+ *     sub_14062B1A8 @ 0x14062B1A8 (sub_14062B1A8.c)
+ *     sub_14067023C @ 0x14067023C (sub_14067023C.c)
+ *     sub_140687754 @ 0x140687754 (sub_140687754.c)
+ *     PsSetProcessFaultInformation @ 0x1406D40C0 (PsSetProcessFaultInformation.c)
+ *     PcwCreateInstance @ 0x1406DBC00 (PcwCreateInstance.c)
+ *     PcwCloseInstance @ 0x1406E4940 (PcwCloseInstance.c)
+ *     sub_1406E7820 @ 0x1406E7820 (sub_1406E7820.c)
+ *     LsaFreeReturnBuffer @ 0x1406EB730 (LsaFreeReturnBuffer.c)
+ *     sub_1406F80E4 @ 0x1406F80E4 (sub_1406F80E4.c)
+ *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     PcwAddInstance @ 0x1407E18E0 (PcwAddInstance.c)
+ *     sub_1407E21D4 @ 0x1407E21D4 (sub_1407E21D4.c)
+ *     sub_1407E2260 @ 0x1407E2260 (sub_1407E2260.c)
+ *     sub_1407E22B4 @ 0x1407E22B4 (sub_1407E22B4.c)
+ *     sub_1407E2328 @ 0x1407E2328 (sub_1407E2328.c)
+ *     sub_1407E23BC @ 0x1407E23BC (sub_1407E23BC.c)
+ *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     LsaLookupAuthenticationPackage @ 0x1407FCBE0 (LsaLookupAuthenticationPackage.c)
+ *     LsaRegisterLogonProcess @ 0x1407FCD50 (LsaRegisterLogonProcess.c)
+ *     PcwRegister @ 0x1408114C0 (PcwRegister.c)
+ *     sub_14082E8D4 @ 0x14082E8D4 (sub_14082E8D4.c)
+ *     sub_14093A0B8 @ 0x14093A0B8 (sub_14093A0B8.c)
+ *     sub_1409B03B4 @ 0x1409B03B4 (sub_1409B03B4.c)
+ *     sub_1409C5C24 @ 0x1409C5C24 (sub_1409C5C24.c)
+ *     sub_1409C5CC4 @ 0x1409C5CC4 (sub_1409C5CC4.c)
+ *     sub_1409C5D4C @ 0x1409C5D4C (sub_1409C5D4C.c)
+ *     LsaCallAuthenticationPackage @ 0x1409C5DE0 (LsaCallAuthenticationPackage.c)
+ *     LsaDeregisterLogonProcess @ 0x1409C5E90 (LsaDeregisterLogonProcess.c)
+ *     LsaLogonUser @ 0x1409C5EF0 (LsaLogonUser.c)
+ *     sub_1409D9F0C @ 0x1409D9F0C (sub_1409D9F0C.c)
+ *     sub_1409EE5BC @ 0x1409EE5BC (sub_1409EE5BC.c)
+ *     PcwUnregister @ 0x140A02AC0 (PcwUnregister.c)
+ *     sub_140A07C68 @ 0x140A07C68 (sub_140A07C68.c)
+ *     sub_140A07D2C @ 0x140A07D2C (sub_140A07D2C.c)
+ *     sub_140A07DF0 @ 0x140A07DF0 (sub_140A07DF0.c)
+ *     sub_140A07EC0 @ 0x140A07EC0 (sub_140A07EC0.c)
+ * Callees:
+ *     sub_140347810 @ 0x140347810 (sub_140347810.c)
+ */
+
+ULONG_PTR __fastcall sub_1403614FC(struct _EX_RUNDOWN_REF *a1)
+{
+  if ( a1 && sub_140347810(a1 + 8) )
+    return a1[10].Count;
+  else
+    return 0LL;
+}

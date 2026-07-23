@@ -1,21 +1,21 @@
 /*
- * XREFs of MakeGdtReadOnly @ 0x1403B4F30
+ * XREFs of MakeGdtReadOnly @ 0x1403B50A0
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeWriteProtectProcessorState @ 0x14099F128 (KeWriteProtectProcessorState.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeWriteProtectProcessorState @ 0x1409A0058 (KeWriteProtectProcessorState.c)
  */
 
 void MakeGdtReadOnly()
 {
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdi
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdi
   __int64 v1; // rbx
   char v2; // cl
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   p_PreviousAffinity = &PreviousAffinity;
   v1 = 0LL;

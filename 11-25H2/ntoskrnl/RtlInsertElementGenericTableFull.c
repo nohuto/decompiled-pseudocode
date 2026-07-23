@@ -18,7 +18,7 @@ PVOID __stdcall RtlInsertElementGenericTableFull(
         TABLE_SEARCH_RESULT SearchResult)
 {
   size_t v7; // r14
-  RTL_SPLAY_LINKS *v10; // rbx
+  _RTL_SPLAY_LINKS *v10; // rbx
   __int64 v12; // rdx
   _QWORD *v13; // rax
   struct _LIST_ENTRY *v14; // rax
@@ -27,7 +27,7 @@ PVOID __stdcall RtlInsertElementGenericTableFull(
   v7 = BufferSize;
   if ( SearchResult == TableFoundNode )
   {
-    v10 = (RTL_SPLAY_LINKS *)NodeOrParent;
+    v10 = (_RTL_SPLAY_LINKS *)NodeOrParent;
 LABEL_3:
     Table->TableRoot = RtlSplay(v10);
     if ( NewElement )
@@ -40,7 +40,7 @@ LABEL_3:
     v13 = (_QWORD *)((__int64 (__fastcall *)(ULONG_PTR))Table->AllocateRoutine == ExAllocatePool2
                    ? ExAllocatePool2((ULONG_PTR)Table)
                    : guard_dispatch_icall_no_overrides(Table, v12));
-    v10 = (RTL_SPLAY_LINKS *)v13;
+    v10 = (_RTL_SPLAY_LINKS *)v13;
     if ( v13 )
     {
       v13[1] = 0LL;

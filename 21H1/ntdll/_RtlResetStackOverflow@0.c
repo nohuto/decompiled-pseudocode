@@ -18,37 +18,41 @@ int __stdcall RtlResetStackOverflow()
 {
   int result; // eax
   unsigned int v1; // edx
-  _BYTE v2[4]; // [esp+4h] [ebp-58h] BYREF
-  int v3; // [esp+8h] [ebp-54h]
-  _BYTE v4[4]; // [esp+20h] [ebp-3Ch] BYREF
-  unsigned int v5; // [esp+24h] [ebp-38h] BYREF
-  int v6; // [esp+28h] [ebp-34h] BYREF
-  _BYTE SystemInformation[8]; // [esp+2Ch] [ebp-30h] BYREF
-  int v8; // [esp+34h] [ebp-28h]
+  ULONG_PTR v2; // [esp-10h] [ebp-6Ch]
+  ULONG_PTR *v3; // [esp+0h] [ebp-5Ch]
+  ULONG v4; // [esp+0h] [ebp-5Ch]
+  _BYTE BaseAddress[4]; // [esp+4h] [ebp-58h] BYREF
+  int v6; // [esp+8h] [ebp-54h]
+  ULONG OldProtect; // [esp+20h] [ebp-3Ch] BYREF
+  PVOID v8; // [esp+24h] [ebp-38h] BYREF
+  ULONG_PTR RegionSize; // [esp+28h] [ebp-34h] BYREF
+  int v10; // [esp+34h] [ebp-28h]
 
-  result = NtQueryVirtualMemory(-1, (int)v2, 0, (int)v2, 28, 0);
+  result = NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, BaseAddress, MemoryBasicInformation, BaseAddress, 0x1CuLL, v3);
   if ( result >= 0 )
   {
-    NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x2Cu, 0);
-    v1 = ~(v8 - 1) & (NtCurrentTeb()->GuaranteedStackBytes + v8 - 1);
-    v6 = v1;
+    NtQuerySystemInformation(SystemBasicInformation, (char *)&RegionSize + 4, 0x2Cu, 0);
+    v1 = ~(v10 - 1) & (NtCurrentTeb()->GuaranteedStackBytes + v10 - 1);
+    LODWORD(RegionSize) = v1;
     if ( v1 )
     {
-      v1 += v8;
-      v6 = v1;
+      v1 += v10;
+      LODWORD(RegionSize) = v1;
     }
-    if ( v1 < 2 * v8 )
+    if ( v1 < 2 * v10 )
     {
-      v6 = 2 * v8;
-      v1 = 2 * v8;
+      LODWORD(RegionSize) = 2 * v10;
+      v1 = 2 * v10;
     }
-    v5 = ((unsigned int)v2 & ~(v8 - 1)) - v1;
-    result = v3 + 17 * v8;
-    if ( v5 >= result )
+    v8 = (PVOID)(((unsigned int)BaseAddress & ~(v10 - 1)) - v1);
+    result = v6 + 17 * v10;
+    if ( (unsigned int)v8 >= result )
     {
-      result = NtAllocateVirtualMemory(-1, (int)&v5, 0, (int)&v6, 4096, 4);
+      HIDWORD(v2) = &RegionSize;
+      LODWORD(v2) = 0;
+      result = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &v8, v2, (PSIZE_T)0x1000, 4u, v4);
       if ( result >= 0 )
-        return ZwProtectVirtualMemory(-1, (int)&v5, (int)&v6, 260, (int)v4);
+        return ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &v8, &RegionSize, 0x104u, &OldProtect);
     }
   }
   return result;

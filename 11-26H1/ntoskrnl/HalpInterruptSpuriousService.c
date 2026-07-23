@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptSpuriousService @ 0x140594480
+ * XREFs of HalpInterruptSpuriousService @ 0x140596C00
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
  */
 
 char HalpInterruptSpuriousService()

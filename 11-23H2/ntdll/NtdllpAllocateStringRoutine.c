@@ -28,17 +28,17 @@
  *     RtlpProbeAssemblyStorageRootForAssembly @ 0x180075DB4 (RtlpProbeAssemblyStorageRootForAssembly.c)
  *     RtlDuplicateUnicodeString @ 0x18007EA60 (RtlDuplicateUnicodeString.c)
  *     LdrUpdatePackageSearchPath @ 0x180084680 (LdrUpdatePackageSearchPath.c)
- *     RtlpEtcGetDwordFromPersistedState @ 0x1800A0024 (RtlpEtcGetDwordFromPersistedState.c)
- *     RtlpGetPersistedRegistryLocation @ 0x1800A0244 (RtlpGetPersistedRegistryLocation.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x18009FFE4 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpGetPersistedRegistryLocation @ 0x1800A0204 (RtlpGetPersistedRegistryLocation.c)
  *     RtlComputePrivatizedDllName_U @ 0x1800E1B10 (RtlComputePrivatizedDllName_U.c)
  *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800EBB44 (RtlpGetAssemblyStorageMapRootLocation.c)
  *     RtlpConstructCrossVmObjectPath @ 0x1801029DC (RtlpConstructCrossVmObjectPath.c)
- *     RtlUnicodeStringToUTF8String @ 0x180110EB0 (RtlUnicodeStringToUTF8String.c)
+ *     RtlUnicodeStringToUTF8String @ 0x180110E80 (RtlUnicodeStringToUTF8String.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtdllpAllocateStringRoutine(__int64 a1)
+PVOID __fastcall NtdllpAllocateStringRoutine(SIZE_T a1)
 {
-  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiConvertPrivateToDemandZero @ 0x1401F883C
+ * XREFs of MiConvertPrivateToDemandZero @ 0x1401F8668
  * Callers:
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
  * Callees:
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeCheckForZeroPage @ 0x140161DA0 (KeCheckForZeroPage.c)
- *     MiPfnCanBecomeDemandZero @ 0x1401E2A48 (MiPfnCanBecomeDemandZero.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeCheckForZeroPage @ 0x140162310 (KeCheckForZeroPage.c)
+ *     MiPfnCanBecomeDemandZero @ 0x1401E2874 (MiPfnCanBecomeDemandZero.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
  */
 
 __int64 __fastcall MiConvertPrivateToDemandZero(ULONG_PTR a1, unsigned __int64 a2, __int64 a3)

@@ -11,25 +11,20 @@
  *     <none>
  */
 
-int __stdcall RtlAddRefActivationContext(volatile signed __int32 *a1)
+void __cdecl RtlAddRefActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
-  int result; // eax
-  signed __int32 v2; // esi
+  LONG RefCount; // esi
 
-  if ( a1 )
+  if ( ActivationContext
+    && (((unsigned int)&ActivationContext[-1].InlineStorageMapEntries[31] + 3) | 7) != 0xFFFFFFFF
+    && ActivationContext->RefCount != 0x7FFFFFFF )
   {
-    result = ((unsigned int)a1 - 1) | 7;
-    if ( result != -1 && *a1 != 0x7FFFFFFF )
+    do
     {
-      do
-      {
-        v2 = *a1;
-        if ( *a1 == 0x7FFFFFFF )
-          break;
-        result = _InterlockedCompareExchange(a1, v2 + 1, v2);
-      }
-      while ( result != v2 );
+      if ( ActivationContext->RefCount == 0x7FFFFFFF )
+        break;
+      RefCount = ActivationContext->RefCount;
     }
+    while ( _InterlockedCompareExchange(&ActivationContext->RefCount, RefCount + 1, RefCount) != RefCount );
   }
-  return result;
 }

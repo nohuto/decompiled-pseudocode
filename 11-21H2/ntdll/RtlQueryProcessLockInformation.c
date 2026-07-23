@@ -65,7 +65,7 @@ __int64 __fastcall RtlQueryProcessLockInformation(_QWORD *a1)
         v6 = v11;
         v5 = v12;
       }
-      else if ( (unsigned __int8)RtlIsAnyDebuggerPresent() )
+      else if ( RtlIsAnyDebuggerPresent() )
       {
         __debugbreak();
       }

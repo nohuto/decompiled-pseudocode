@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvGetDeviceSvmCapabilities @ 0x14059E400
+ * XREFs of IommupHvGetDeviceSvmCapabilities @ 0x1405A0BD8
  * Callers:
- *     IommupMapDeviceInternal @ 0x14059D094 (IommupMapDeviceInternal.c)
+ *     IommupMapDeviceInternal @ 0x14059F814 (IommupMapDeviceInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvGetDeviceSvmCapabilities(__int64 a1, _QWORD *a2, int *a3)

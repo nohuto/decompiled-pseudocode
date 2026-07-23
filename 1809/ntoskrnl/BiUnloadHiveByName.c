@@ -1,17 +1,17 @@
 /*
- * XREFs of BiUnloadHiveByName @ 0x1406E1840
+ * XREFs of BiUnloadHiveByName @ 0x1406E2AE0
  * Callers:
- *     BiUnloadHiveByHandle @ 0x1406E17B0 (BiUnloadHiveByHandle.c)
- *     BiAddStoreFromFile @ 0x14071101C (BiAddStoreFromFile.c)
+ *     BiUnloadHiveByHandle @ 0x1406E2A50 (BiUnloadHiveByHandle.c)
+ *     BiAddStoreFromFile @ 0x1407122BC (BiAddStoreFromFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x14019A360 (swprintf_s.c)
- *     ZwUnloadKey @ 0x1401BB990 (ZwUnloadKey.c)
- *     ZwUnloadKey2 @ 0x1401BB9B0 (ZwUnloadKey2.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x14019A4A0 (swprintf_s.c)
+ *     ZwUnloadKey @ 0x1401BBAF0 (ZwUnloadKey.c)
+ *     ZwUnloadKey2 @ 0x1401BBB10 (ZwUnloadKey2.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiReleasePrivilege @ 0x140712744 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140712794 (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiUnloadHiveByName(__int64 a1, int a2, char a3)
@@ -20,11 +20,10 @@ __int64 __fastcall BiUnloadHiveByName(__int64 a1, int a2, char a3)
   wchar_t *PoolWithTag; // rax
   WCHAR *v7; // rdi
   int v8; // ebx
-  __int64 v9; // r8
-  int v10; // eax
+  NTSTATUS v9; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-48h] BYREF
-  OBJECT_ATTRIBUTES KeyObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
-  char v14; // [rsp+98h] [rbp+20h] BYREF
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+40h] [rbp-38h] BYREF
+  char v13; // [rsp+98h] [rbp+20h] BYREF
 
   v5 = (unsigned int)(a2 + 38);
   PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v5, 0x4B444342u);
@@ -33,20 +32,20 @@ __int64 __fastcall BiUnloadHiveByName(__int64 a1, int a2, char a3)
   {
     swprintf_s(PoolWithTag, v5 >> 1, L"%s\\%s", L"\\Registry\\Machine", a1);
     RtlInitUnicodeString(&DestinationString, v7);
-    KeyObjectAttributes.RootDirectory = 0LL;
-    KeyObjectAttributes.ObjectName = &DestinationString;
-    KeyObjectAttributes.Length = 48;
-    KeyObjectAttributes.Attributes = 576;
-    *(_OWORD *)&KeyObjectAttributes.SecurityDescriptor = 0LL;
-    v8 = BiAcquirePrivilege(18LL, &v14);
+    TargetKey.RootDirectory = 0LL;
+    TargetKey.ObjectName = &DestinationString;
+    TargetKey.Length = 48;
+    TargetKey.Attributes = 576;
+    *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+    v8 = BiAcquirePrivilege(18LL, &v13);
     if ( v8 >= 0 )
     {
       if ( a3 )
-        v10 = ZwUnloadKey2((__int64)&KeyObjectAttributes, 1LL, v9);
+        v9 = ZwUnloadKey2(&TargetKey, 1u);
       else
-        v10 = ZwUnloadKey(&KeyObjectAttributes);
-      v8 = v10;
-      BiReleasePrivilege(&v14);
+        v9 = ZwUnloadKey(&TargetKey);
+      v8 = v9;
+      BiReleasePrivilege(&v13);
     }
     ExFreePoolWithTag(v7, 0x4B444342u);
   }

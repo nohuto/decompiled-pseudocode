@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxAcpiForwardPepAcpiNotifyRequest @ 0x14057DE10
+ * XREFs of PopFxAcpiForwardPepAcpiNotifyRequest @ 0x14057E050
  * Callers:
- *     PopFxProcessWork @ 0x140260844 (PopFxProcessWork.c)
+ *     PopFxProcessWork @ 0x140281D14 (PopFxProcessWork.c)
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
- *     PopFxFindAndReferenceAcpiDevice @ 0x14056ABE0 (PopFxFindAndReferenceAcpiDevice.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x14056962C (PopFxBugCheck.c)
+ *     PopFxFindAndReferenceAcpiDevice @ 0x14056AE20 (PopFxFindAndReferenceAcpiDevice.c)
  */
 
 LONG __fastcall PopFxAcpiForwardPepAcpiNotifyRequest(ULONG_PTR BugCheckParameter2, int *a2)

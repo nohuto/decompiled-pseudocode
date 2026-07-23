@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSetProcessPpmPolicy @ 0x1406B2490
+ * XREFs of PspSetProcessPpmPolicy @ 0x1406114D0
  * Callers:
  *     <none>
  * Callees:
- *     ExpUpdateTimerResolution @ 0x1402EC99C (ExpUpdateTimerResolution.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     KeGetProcessQosFromPolicy @ 0x140514228 (KeGetProcessQosFromPolicy.c)
- *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
+ *     ExpUpdateTimerResolution @ 0x14029DCEC (ExpUpdateTimerResolution.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     KeGetProcessQosFromPolicy @ 0x140514468 (KeGetProcessQosFromPolicy.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406B2FF4 (ExAcquireTimeRefreshLock.c)
  */
 
 void __fastcall PspSetProcessPpmPolicy(__int64 a1, int a2)

@@ -9,16 +9,16 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-signed __int32 __thiscall EtwpFreeRegistration(_DWORD *this)
+void __thiscall EtwpFreeRegistration(_DWORD *this)
 {
-  signed __int32 result; // eax
+  size_t v2; // [esp-4h] [ebp-10h]
 
-  memset(this + 12, 0, 0xA0u);
-  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)&EtwpFreeRegistrationList >> 2) & 0x1F]);
+  LODWORD(v2) = 160;
+  memset(this + 12, 0, v2);
+  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)&EtwpFreeRegistrationList >> 2) & 0x1F));
   *this = EtwpFreeRegistrationList;
   LOWORD(dword_4B3A41E4) = dword_4B3A41E4 + 1;
   EtwpFreeRegistrationList = (int)this;
-  result = RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)&EtwpFreeRegistrationList >> 2) & 0x1F]);
+  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)&EtwpFreeRegistrationList >> 2) & 0x1F));
   _InterlockedDecrement(&EtwpRegistrationCount);
-  return result;
 }

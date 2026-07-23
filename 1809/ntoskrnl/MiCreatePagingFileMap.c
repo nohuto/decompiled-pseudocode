@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCreatePagingFileMap @ 0x14061EB18
+ * XREFs of MiCreatePagingFileMap @ 0x14061FB18
  * Callers:
- *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
+ *     MiCreateSection @ 0x1405DEAC0 (MiCreateSection.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFreeLargeZeroPages @ 0x14002891C (MiFreeLargeZeroPages.c)
@@ -12,26 +12,26 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiUpdateControlAreaCommitCount @ 0x140095F94 (MiUpdateControlAreaCommitCount.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiGetPfnLink @ 0x1400E1060 (MiGetPfnLink.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiUpdateLargePageSectionPfn @ 0x1402AAEBC (MiUpdateLargePageSectionPfn.c)
- *     MiDeleteSectionAwe @ 0x1402B04D4 (MiDeleteSectionAwe.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     MiInitializePrototypePtes @ 0x14061F030 (MiInitializePrototypePtes.c)
- *     MiLogSectionCreate @ 0x14084E738 (MiLogSectionCreate.c)
- *     MiAllocateAweInfo @ 0x14084F4DC (MiAllocateAweInfo.c)
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiUpdateControlAreaCommitCount @ 0x140095ED4 (MiUpdateControlAreaCommitCount.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiMakeDemandZeroPte @ 0x140097E20 (MiMakeDemandZeroPte.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     MiGetPfnLink @ 0x1400E10E0 (MiGetPfnLink.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiUpdateLargePageSectionPfn @ 0x1402AB0AC (MiUpdateLargePageSectionPfn.c)
+ *     MiDeleteSectionAwe @ 0x1402B06C4 (MiDeleteSectionAwe.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0230 (MiReturnPartitionResidentAvailable.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     MiInitializePrototypePtes @ 0x140620030 (MiInitializePrototypePtes.c)
+ *     MiLogSectionCreate @ 0x14084F998 (MiLogSectionCreate.c)
+ *     MiAllocateAweInfo @ 0x14085073C (MiAllocateAweInfo.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  */
 
 __int64 __fastcall MiCreatePagingFileMap(__int64 a1)
@@ -212,7 +212,7 @@ LABEL_74:
     v35 = v33 - 1;
   else
     v35 = *(_DWORD *)(KiProcessorBlock[CurrentThread->IdealProcessor] + 23572);
-  v36 = (unsigned __int16 *)((char *)qword_14043A050 + 2 * v35 * (unsigned int)(unsigned __int16)KeNumberNodes);
+  v36 = (unsigned __int16 *)((char *)qword_14043B110 + 2 * v35 * (unsigned int)(unsigned __int16)KeNumberNodes);
   v37 = &v36[(unsigned __int16)KeNumberNodes];
   while ( 1 )
   {
@@ -522,7 +522,7 @@ LABEL_125:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v62 = v65;
-            if ( HIBYTE(word_14043A1AC) == v64 )
+            if ( HIBYTE(word_14043B26C) == v64 )
               goto LABEL_131;
           }
           else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )

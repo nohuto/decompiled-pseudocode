@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonMarkCountersReserved @ 0x140595A80
+ * XREFs of EmonMarkCountersReserved @ 0x140598200
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpAllocateHalCounters @ 0x14057A660 (HalpAllocateHalCounters.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpAllocateHalCounters @ 0x14057CB90 (HalpAllocateHalCounters.c)
  */
 
 __int64 __fastcall EmonMarkCountersReserved(__int64 a1)
@@ -153,7 +153,7 @@ LABEL_45:
     if ( v2 )
     {
       v27 = 160 * v8;
-      if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
+      if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
       {
         v28 = *(_QWORD *)(v27 + *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[8] + 32);
         v29 = *(_QWORD *)(v27 + *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[8] + 48);
@@ -168,7 +168,7 @@ LABEL_45:
           + v28;
       if ( v30 < v29 )
       {
-        if ( !IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
+        if ( !IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
           v30 = (unsigned int)v30;
         *(_QWORD *)(v27 + *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[8] + 56) = v30;
         HalCounters = 0;

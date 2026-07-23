@@ -1,53 +1,52 @@
 /*
- * XREFs of PopUmpoInitializeMonitorChannel @ 0x140CD55F0
+ * XREFs of PopUmpoInitializeMonitorChannel @ 0x140CDB990
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExUnregisterCallback @ 0x1404ECF50 (ExUnregisterCallback.c)
- *     ExRegisterCallback @ 0x1404F0710 (ExRegisterCallback.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwAlpcCreatePort @ 0x140724390 (ZwAlpcCreatePort.c)
- *     ZwAlpcSetInformation @ 0x1407245D0 (ZwAlpcSetInformation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
- *     PopMonitorProcessLoop @ 0x140B24F78 (PopMonitorProcessLoop.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExUnregisterCallback @ 0x1404E6530 (ExUnregisterCallback.c)
+ *     ExRegisterCallback @ 0x1404E9CF0 (ExRegisterCallback.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwAlpcCreatePort @ 0x140728F60 (ZwAlpcCreatePort.c)
+ *     ZwAlpcSetInformation @ 0x1407291A0 (ZwAlpcSetInformation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
+ *     PopMonitorProcessLoop @ 0x140B27108 (PopMonitorProcessLoop.c)
  */
 
 __int64 PopUmpoInitializeMonitorChannel()
 {
   PCALLBACK_OBJECT v0; // rbx
   PVOID v1; // rsi
-  int Port; // edi
+  NTSTATUS v2; // edi
   NTSTATUS v3; // eax
   PCALLBACK_OBJECT CallbackObject; // [rsp+28h] [rbp-69h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-61h] BYREF
-  __int128 v7; // [rsp+60h] [rbp-31h]
+  __int128 PortInformation; // [rsp+60h] [rbp-31h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-21h] BYREF
-  int v9[4]; // [rsp+88h] [rbp-9h] BYREF
-  __int64 v10; // [rsp+98h] [rbp+7h]
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+88h] [rbp-9h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   v0 = 0LL;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   CallbackObject = 0LL;
-  v7 = 0LL;
-  PopModernStandbyStateNotify.OtherOperationCount = 0LL;
+  PortInformation = 0LL;
+  PopPdcDeviceListLock.StateSaveArea = 0LL;
   v1 = 0LL;
   DestinationString = 0LL;
-  PopModernStandbyStateNotify.ReadTransferCount = 0LL;
+  PopPdcDeviceListLock.KernelStack = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\PowerMonitorPort");
-  memset_0(v9, 0, 0x48uLL);
-  v9[0] = 0x100000;
+  memset_0(&PortAttributes, 0, sizeof(PortAttributes));
+  PortAttributes.Flags = 0x100000;
   ObjectAttributes.ObjectName = &DestinationString;
-  v10 = 256LL;
+  PortAttributes.MaxMessageLength = 256LL;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 512;
-  Port = ZwAlpcCreatePort((__int64)&PopModernStandbyStateNotify.OtherOperationCount, (__int64)&ObjectAttributes);
-  if ( Port >= 0 )
+  v2 = ZwAlpcCreatePort((PHANDLE)&PopPdcDeviceListLock.StateSaveArea, &ObjectAttributes, &PortAttributes);
+  if ( v2 >= 0 )
   {
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
@@ -56,28 +55,32 @@ __int64 PopUmpoInitializeMonitorChannel()
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v3 = ExCreateCallback(&CallbackObject, &ObjectAttributes, 1u, 1u);
     v0 = CallbackObject;
-    Port = v3;
+    v2 = v3;
     if ( v3 >= 0 )
     {
       v1 = ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)PopMonitorAlpcCallback, 0LL);
       if ( !v1 )
-        return (unsigned int)Port;
-      *(_QWORD *)&v7 = v0;
-      *((_QWORD *)&v7 + 1) = PopModernStandbyStateNotify.OtherOperationCount;
-      Port = ZwAlpcSetInformation(PopModernStandbyStateNotify.OtherOperationCount, 9LL);
+        return (unsigned int)v2;
+      *(_QWORD *)&PortInformation = v0;
+      *((_QWORD *)&PortInformation + 1) = PopPdcDeviceListLock.StateSaveArea;
+      v2 = ZwAlpcSetInformation(
+             PopPdcDeviceListLock.StateSaveArea,
+             AlpcRegisterCallbackInformation,
+             &PortInformation,
+             0x10u);
       ObfDereferenceObjectWithTag(v0, 0x746C6644u);
-      if ( Port >= 0 )
+      if ( v2 >= 0 )
       {
         PopMonitorProcessLoop();
         return 0;
       }
     }
   }
-  if ( PopModernStandbyStateNotify.OtherOperationCount )
-    ZwClose((HANDLE)PopModernStandbyStateNotify.OtherOperationCount);
+  if ( PopPdcDeviceListLock.StateSaveArea )
+    ZwClose(PopPdcDeviceListLock.StateSaveArea);
   if ( v1 )
     ExUnregisterCallback(v1);
   if ( v0 )
     ObfDereferenceObjectWithTag(v0, 0x746C6644u);
-  return (unsigned int)Port;
+  return (unsigned int)v2;
 }

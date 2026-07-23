@@ -149,7 +149,7 @@ LABEL_11:
         v24 = v5;
         v20 = v14;
         ++v7;
-        Addr->u.Word[v18] = 0;
+        *((_WORD *)Addr + v18) = 0;
         v8 = 2;
       }
       v4 = v21;
@@ -164,7 +164,7 @@ LABEL_37:
         if ( v17 > 0xFF )
           return -1073741811;
         v14 = v20;
-        Addr->u.Byte[v11 - 1 + v20] = v17;
+        *((_BYTE *)Addr + v11 + v20 - 1) = v17;
 LABEL_24:
         v9 = v22;
         v4 = v21;
@@ -175,7 +175,7 @@ LABEL_24:
       v16 = wcstol(v4, 0LL, 16);
       v9 = v22;
       v14 = v20 + 2;
-      Addr->u.Word[v24] = __ROR2__(v16, 8);
+      *((_WORD *)Addr + v24) = __ROR2__(v16, 8);
       v5 = v24 + 1;
       v4 = v21;
       ++v24;
@@ -198,7 +198,7 @@ LABEL_26:
   {
     if ( v8 == 2 )
     {
-      Addr->u.Word[v24] = 0;
+      *((_WORD *)Addr + v24) = 0;
       goto LABEL_45;
     }
     return -1073741811;
@@ -210,7 +210,7 @@ LABEL_26:
       v19 = wcstol(v4, 0LL, 10);
       if ( v19 <= 0xFF )
       {
-        Addr->u.Byte[2 * v24 + v11] = v19;
+        *((_BYTE *)Addr + 2 * v24 + v11) = v19;
         goto LABEL_45;
       }
     }
@@ -218,11 +218,11 @@ LABEL_26:
   }
   if ( v12 > 4 )
     return -1073741811;
-  Addr->u.Word[v24] = __ROR2__(wcstol(v4, 0LL, 16), 8);
+  *((_WORD *)Addr + v24) = __ROR2__(wcstol(v4, 0LL, 16), 8);
 LABEL_45:
   if ( v13 )
   {
-    memmove((char *)&Addr[1] + 2 * (v13 - v10), (char *)Addr + 2 * v13, 2LL * (v10 - v13));
+    memmove((char *)Addr + 2 * (v13 - v10) + 16, (char *)Addr + 2 * v13, 2LL * (v10 - v13));
     memset((char *)Addr + 2 * v13, 0, 2LL * (8 - v10));
   }
   return 0;

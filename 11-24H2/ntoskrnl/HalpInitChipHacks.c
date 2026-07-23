@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInitChipHacks @ 0x140C13B94
+ * XREFs of HalpInitChipHacks @ 0x140C15B94
  * Callers:
- *     HalpErrataInitSystem @ 0x140B4D090 (HalpErrataInitSystem.c)
+ *     HalpErrataInitSystem @ 0x140B4F0D0 (HalpErrataInitSystem.c)
  * Callees:
- *     wcstoul @ 0x1405007D0 (wcstoul.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     wcstoul @ 0x1404FE090 (wcstoul.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 HalpInitChipHacks()
 {
-  ULONG_PTR Pool2; // r14
+  __int64 Pool2; // r14
   NTSTATUS v1; // esi
   ULONG v2; // r15d
   NTSTATUS v3; // eax

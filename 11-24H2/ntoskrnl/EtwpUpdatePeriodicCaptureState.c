@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpUpdatePeriodicCaptureState @ 0x1407AD74C
+ * XREFs of EtwpUpdatePeriodicCaptureState @ 0x1407ADBA0
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ExAllocateTimer @ 0x1403BF2E0 (ExAllocateTimer.c)
- *     ExCancelTimer @ 0x1403C05F0 (ExCancelTimer.c)
- *     ExSetTimer @ 0x1403C1FC0 (ExSetTimer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpCheckNotificationAccess @ 0x140838344 (EtwpCheckNotificationAccess.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExAllocateTimer @ 0x1403ADEA0 (ExAllocateTimer.c)
+ *     ExCancelTimer @ 0x1403AF1B0 (ExCancelTimer.c)
+ *     ExSetTimer @ 0x1403B0B80 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpCheckNotificationAccess @ 0x14083638C (EtwpCheckNotificationAccess.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdatePeriodicCaptureState(__int64 a1, unsigned int a2, unsigned __int16 a3, char *a4)
@@ -29,8 +29,8 @@ __int64 __fastcall EtwpUpdatePeriodicCaptureState(__int64 a1, unsigned int a2, u
   __int64 v9; // rax
   __int64 v10; // rbp
   int i; // ebx
-  _QWORD *v12; // rax
-  _QWORD *v13; // rdi
+  char *v12; // rax
+  char *v13; // rdi
   __int64 v14; // rdi
   __int64 Pool2; // rax
   ULONG_PTR *v16; // r14
@@ -64,12 +64,12 @@ LABEL_32:
         goto LABEL_32;
       }
     }
-    v12 = KeAbPreAcquire(v10 + 688, 0LL);
+    v12 = (char *)KeAbPreAcquire(v10 + 688, 0LL);
     v13 = v12;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 688), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v10 + 688), (__int64)v12, v10 + 688);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v10 + 688), v12, v10 + 688);
     if ( v13 )
-      *((_BYTE *)v13 + 10) = 1;
+      v13[10] = 1;
     v14 = *(_QWORD *)(v10 + 1344);
     if ( v14 )
       goto LABEL_36;
@@ -81,7 +81,7 @@ LABEL_29:
       KeAbPostRelease(v10 + 688);
       goto LABEL_32;
     }
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x48uLL, 0x55777445u);
     *(_QWORD *)(v10 + 1344) = Pool2;
     v14 = Pool2;
     if ( Pool2 )
@@ -101,7 +101,7 @@ LABEL_36:
       }
       if ( !(_WORD)v4 )
         goto LABEL_29;
-      v17 = (void *)ExAllocatePool2(0x100uLL);
+      v17 = (void *)ExAllocatePool2(0x100uLL, 16 * v4, 0x55777445u);
       *(_QWORD *)(v14 + 24) = v17;
       if ( v17 )
       {

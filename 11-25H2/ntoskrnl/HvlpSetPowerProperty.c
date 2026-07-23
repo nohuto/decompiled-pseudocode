@@ -26,7 +26,7 @@ __int64 __fastcall HvlpSetPowerProperty(__int128 *a1)
   _QWORD *HypercallCachedPages; // rcx
   _SLIST_ENTRY *Next; // rdi
   char v6; // r14
-  struct _SLIST_ENTRY *v7; // rsi
+  _SLIST_ENTRY *v7; // rsi
   __int128 *v8; // rax
   __int64 v9; // rdx
   __int128 v10; // xmm0
@@ -39,7 +39,7 @@ __int64 __fastcall HvlpSetPowerProperty(__int128 *a1)
   signed __int32 v17; // eax
   signed __int32 v18; // ett
   __int128 v20; // [rsp+20h] [rbp-20h]
-  struct _SLIST_ENTRY *v21; // [rsp+30h] [rbp-10h]
+  _SLIST_ENTRY *v21; // [rsp+30h] [rbp-10h]
 
   v20 = 0LL;
   v21 = 0LL;

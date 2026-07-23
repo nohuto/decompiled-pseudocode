@@ -56,7 +56,7 @@ int __thiscall RtlpLowFragHeapFlushCaches(int this)
   _DWORD *v33; // edx
   int v34; // esi
   int v35; // ebx
-  int HeapProtection; // eax
+  ULONG HeapProtection; // eax
   int v37; // edi
   signed __int64 v38; // rax
   signed __int64 v39; // rax
@@ -72,7 +72,7 @@ int __thiscall RtlpLowFragHeapFlushCaches(int this)
   int v49; // esi
   int result; // eax
   _DWORD *v51; // edi
-  int v52; // edx
+  _DWORD *v52; // edx
   unsigned int v53; // eax
   int v54; // [esp+Ch] [ebp-3Ch]
   unsigned int v55; // [esp+10h] [ebp-38h]
@@ -94,9 +94,8 @@ int __thiscall RtlpLowFragHeapFlushCaches(int this)
   int v72; // [esp+30h] [ebp-18h]
   volatile signed __int32 *v73; // [esp+34h] [ebp-14h]
   unsigned int v74; // [esp+38h] [ebp-10h]
-  int v75; // [esp+3Ch] [ebp-Ch] BYREF
-  unsigned int v76; // [esp+40h] [ebp-8h] BYREF
-  char v77[4]; // [esp+44h] [ebp-4h] BYREF
+  ULONG_PTR RegionSize; // [esp+3Ch] [ebp-Ch] BYREF
+  ULONG OldProtect; // [esp+44h] [ebp-4h] BYREF
 
   v1 = this;
   v67 = 0;
@@ -327,13 +326,13 @@ LABEL_56:
       v35 = *(_DWORD *)(*(_DWORD *)v58 + 12);
       if ( (*(_BYTE *)(v9 + 22) & 3) != 0 )
       {
-        v76 = (*(_DWORD *)(v9 + 4) + 4127) & 0xFFFFF000;
-        v75 = 8 * (unsigned __int16)RtlpGetReservedBlockSize(v9) * *(unsigned __int16 *)(v9 + 24);
-        HeapProtection = RtlpGetHeapProtection(*(_DWORD *)(v35 + 12), 1);
-        ZwProtectVirtualMemory(-1, (int)&v76, (int)&v75, HeapProtection, (int)v77);
+        HIDWORD(RegionSize) = (*(_DWORD *)(v9 + 4) + 4127) & 0xFFFFF000;
+        LODWORD(RegionSize) = 8 * (unsigned __int16)RtlpGetReservedBlockSize(v9) * *(unsigned __int16 *)(v9 + 24);
+        HeapProtection = RtlpGetHeapProtection(*(_DWORD **)(v35 + 12), 1);
+        ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, &RegionSize, HeapProtection, &OldProtect);
       }
       *(_DWORD *)(*(_DWORD *)(v9 + 4) + 12) = 0;
-      RtlpFreeUserBlock(v35, *(_DWORD *)(v9 + 4), 0);
+      RtlpFreeUserBlock(v35, *(int **)(v9 + 4), 0);
       v37 = -*(unsigned __int16 *)(v9 + 24);
       LODWORD(v38) = v34 + 80;
       v61 = v37;
@@ -389,15 +388,15 @@ LABEL_86:
     {
       do
       {
-        v52 = (int)v51;
+        v52 = v51;
         v51 = (_DWORD *)*v51;
-        v66 = v52;
-        v53 = 1 << *(_BYTE *)(v52 + 8);
+        v66 = (int)v52;
+        v53 = 1 << *((_BYTE *)v52 + 8);
         if ( v53 > 0x78000 )
           v53 = 491520;
-        v67 += v53 + *(unsigned __int16 *)(v52 + 10);
-        v72 = v53 + *(unsigned __int16 *)(v52 + 10);
-        RtlpFreeUserBlockToHeap(*(_DWORD *)(this + 12), v52, v72);
+        v67 += v53 + *((unsigned __int16 *)v52 + 5);
+        v72 = v53 + *((unsigned __int16 *)v52 + 5);
+        RtlpFreeUserBlockToHeap(*(PVOID *)(this + 12), v52, v72);
         ++v49;
         if ( RtlGetCurrentServiceSessionId() )
           result = (int)NtCurrentPeb()->SharedData + 550;

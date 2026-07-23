@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpInitializeMachineDependentConfiguration @ 0x140CECE84
+ * XREFs of CmpInitializeMachineDependentConfiguration @ 0x140CF3188
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwOpenSection @ 0x140723AD0 (ZwOpenSection.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     CmpAddProcessorConfigurationEntry @ 0x140853E00 (CmpAddProcessorConfigurationEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpInitializeSystemBiosInformation @ 0x140CEB4A0 (CmpInitializeSystemBiosInformation.c)
- *     CmpSetSystemBiosInformation @ 0x140CED418 (CmpSetSystemBiosInformation.c)
- *     CmpSetVideoBiosInformation @ 0x140CED7B0 (CmpSetVideoBiosInformation.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwOpenSection @ 0x1407286A0 (ZwOpenSection.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x14085A110 (CmpAddProcessorConfigurationEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpInitializeSystemBiosInformation @ 0x140CF1840 (CmpInitializeSystemBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x140CF371C (CmpSetSystemBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x140CF3AB4 (CmpSetVideoBiosInformation.c)
  */
 
 NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
@@ -37,7 +37,7 @@ NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
   int v11; // ecx
   int v12; // edx
   bool v13; // zf
-  int v14; // ebx
+  int Blink; // ebx
   __int64 Table; // rax
   HANDLE Handle; // [rsp+40h] [rbp-F8h] BYREF
   ULONG Disposition; // [rsp+48h] [rbp-F0h] BYREF
@@ -46,13 +46,13 @@ NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-D8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-A8h] BYREF
   int Data; // [rsp+A0h] [rbp-98h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-90h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-90h] BYREF
   __int64 v24; // [rsp+B8h] [rbp-80h]
   UNICODE_STRING v25; // [rsp+C0h] [rbp-78h] BYREF
   UNICODE_STRING v26; // [rsp+D0h] [rbp-68h] BYREF
   __int64 v27; // [rsp+E0h] [rbp-58h] BYREF
   int v28; // [rsp+E8h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+F0h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+F0h] [rbp-48h] BYREF
 
   v24 = a1;
   v27 = 0LL;
@@ -90,7 +90,7 @@ NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
     ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &Data, 4u);
     ZwClose(KeyHandle);
   }
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&PspSiloMonitorLock.648;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&PspSiloMonitorLock.SavedApcStateFill[32];
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -115,8 +115,7 @@ NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
         while ( 1 )
         {
           v7 = KiProcessorBlock[v6];
-          v8 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                         + 4LL * *(unsigned int *)(v7 + 36));
+          v8 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + *(unsigned int *)(v7 + 36));
           Affinity.Reserved[1] = 0;
           Affinity.Reserved[2] = 0;
           *(_DWORD *)&Affinity.Group = (unsigned __int16)(v8 >> 6);
@@ -184,8 +183,8 @@ LABEL_26:
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwOpenSection(&SectionHandle, 0xF001Fu, &ObjectAttributes) >= 0 )
     {
-      v14 = *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64];
-      if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 1 )
+      Blink = (int)ExpSysDbgLock.ThreadListEntry.Blink;
+      if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 1 )
         CmpSetSystemBiosInformation(v1, SectionHandle, Handle);
       else
         CmpInitializeSystemBiosInformation(v1);
@@ -208,7 +207,7 @@ LABEL_26:
           }
         }
       }
-      if ( v14 == 1 )
+      if ( Blink == 1 )
         CmpSetVideoBiosInformation(SectionHandle, Handle);
       ZwClose(SectionHandle);
     }

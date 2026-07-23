@@ -1,21 +1,21 @@
 /*
- * XREFs of NtPulseEvent @ 0x140A90D30
+ * XREFs of NtPulseEvent @ 0x140A95880
  * Callers:
- *     DifNtPulseEventWrapper @ 0x140680F30 (DifNtPulseEventWrapper.c)
+ *     DifNtPulseEventWrapper @ 0x140684B10 (DifNtPulseEventWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KePulseEvent @ 0x1404C7410 (KePulseEvent.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ExpPulseCrossVmEvent @ 0x140846514 (ExpPulseCrossVmEvent.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KePulseEvent @ 0x1404C0CC0 (KePulseEvent.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ExpPulseCrossVmEvent @ 0x14084C774 (ExpPulseCrossVmEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtPulseEvent(HANDLE Handle, unsigned int *a2)
+NTSTATUS __cdecl NtPulseEvent(HANDLE EventHandle, PLONG PreviousState)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   NTSTATUS v5; // eax
-  int v6; // edi
+  NTSTATUS v6; // edi
   struct _KEVENT *v7; // rsi
   int ULongFromUser; // eax
   LONG v10; // [rsp+80h] [rbp+18h] BYREF
@@ -23,13 +23,13 @@ __int64 __fastcall NtPulseEvent(HANDLE Handle, unsigned int *a2)
 
   v10 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( PreviousState && PreviousMode )
   {
-    ULongFromUser = RtlReadULongFromUser(a2);
-    RtlWriteULongToUser(a2, ULongFromUser);
+    ULongFromUser = RtlReadULongFromUser((unsigned int *)PreviousState);
+    RtlWriteULongToUser(PreviousState, ULongFromUser);
   }
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(EventHandle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
   v6 = v5;
   v7 = (struct _KEVENT *)Object;
   LODWORD(Object) = v5;
@@ -37,13 +37,13 @@ __int64 __fastcall NtPulseEvent(HANDLE Handle, unsigned int *a2)
   {
     if ( v5 == -1073741788 )
     {
-      if ( *(_QWORD *)&WheapConfigTableLock.WaitBlockFill11[64] )
+      if ( WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink )
       {
         Object = 0LL;
         v6 = ObReferenceObjectByHandle(
-               Handle,
+               EventHandle,
                2u,
-               *(POBJECT_TYPE *)&WheapConfigTableLock.WaitBlockFill11[64],
+               (POBJECT_TYPE)WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink,
                PreviousMode,
                &Object,
                0LL);
@@ -61,14 +61,14 @@ __int64 __fastcall NtPulseEvent(HANDLE Handle, unsigned int *a2)
   {
     v10 = KePulseEvent(v7, 1, 0);
   }
-  if ( v6 >= 0 && a2 )
+  if ( v6 >= 0 && PreviousState )
   {
     if ( PreviousMode )
-      RtlWriteULongToUser(a2, v10);
+      RtlWriteULongToUser(PreviousState, v10);
     else
-      *a2 = v10;
+      *PreviousState = v10;
   }
   if ( v7 )
     ObfDereferenceObject(v7);
-  return (unsigned int)v6;
+  return v6;
 }

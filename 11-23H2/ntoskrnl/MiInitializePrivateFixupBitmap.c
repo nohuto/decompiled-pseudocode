@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializePrivateFixupBitmap @ 0x140705530
+ * XREFs of MiInitializePrivateFixupBitmap @ 0x140705740
  * Callers:
- *     MiAddPrivateFixupEntryForSystemImage @ 0x1403ABEB4 (MiAddPrivateFixupEntryForSystemImage.c)
- *     MiInitializeFixupVad @ 0x1407054A8 (MiInitializeFixupVad.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1403AC094 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     MiInitializeFixupVad @ 0x1407056B8 (MiInitializeFixupVad.c)
  * Callees:
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     RtlDoesRequireFunctionOverrideFixups @ 0x14067BD68 (RtlDoesRequireFunctionOverrideFixups.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x14067C2B8 (RtlDoesRequireFunctionOverrideFixups.c)
  */
 
-__int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, char a3)
+__int64 __fastcall MiInitializePrivateFixupBitmap(_RTL_BITMAP *a1, _QWORD *a2, char a3)
 {
   _QWORD *v3; // rbp
   __int64 v4; // rsi

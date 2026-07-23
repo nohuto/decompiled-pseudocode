@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceLostSystemEvent @ 0x1404B94AC
+ * XREFs of EtwpTraceLostSystemEvent @ 0x1404B434C
  * Callers:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403274F0 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x140421EE0 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1402D0080 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x140415D90 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpTraceLostSystemEvent(__int16 a1, unsigned __int16 *a2, __int16 a3, int a4)
@@ -18,7 +18,7 @@ NTSTATUS __fastcall EtwpTraceLostSystemEvent(__int16 a1, unsigned __int16 *a2, _
   __int64 v9; // [rsp+60h] [rbp+27h]
   int v10; // [rsp+68h] [rbp+2Fh]
   int v11; // [rsp+6Ch] [rbp+33h]
-  __int64 *v12; // [rsp+70h] [rbp+37h]
+  int *v12; // [rsp+70h] [rbp+37h]
   __int64 v13; // [rsp+78h] [rbp+3Fh]
   __int16 v14; // [rsp+A0h] [rbp+67h] BYREF
   int v15; // [rsp+B8h] [rbp+7Fh] BYREF

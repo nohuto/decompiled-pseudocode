@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpTraceDatabaseAllocate @ 0x1405B1618
+ * XREFs of RtlpTraceDatabaseAllocate @ 0x1405B1B88
  * Callers:
- *     RtlTraceDatabaseCreate @ 0x1405B1280 (RtlTraceDatabaseCreate.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x1405B1640 (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlTraceDatabaseCreate @ 0x1405B17F0 (RtlTraceDatabaseCreate.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x1405B1BB0 (RtlpTraceDatabaseInternalAdd.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

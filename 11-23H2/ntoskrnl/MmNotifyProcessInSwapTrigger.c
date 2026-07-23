@@ -1,12 +1,12 @@
 /*
- * XREFs of MmNotifyProcessInSwapTrigger @ 0x14034DD54
+ * XREFs of MmNotifyProcessInSwapTrigger @ 0x14034DEF4
  * Callers:
- *     KiRequestProcessInSwap @ 0x14034DC54 (KiRequestProcessInSwap.c)
+ *     KiRequestProcessInSwap @ 0x14034DDF4 (KiRequestProcessInSwap.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
@@ -46,7 +46,7 @@ char __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
       v14 = 4;
       v10 = 0x1000000LL;
       v17 = 8;
-      return tlgWriteEx_EtwWriteEx(v6, (int)&word_1400381D2, v5, 1, v7, v8, 5u, (__int64)v11);
+      return tlgWriteEx_EtwWriteEx(v6, (int)&word_1400382BA, v5, 1, v7, v8, 5u, (__int64)v11);
     }
   }
   return result;

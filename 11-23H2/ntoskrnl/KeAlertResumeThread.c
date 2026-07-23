@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAlertResumeThread @ 0x14056ECD0
+ * XREFs of KeAlertResumeThread @ 0x14056F210
  * Callers:
- *     NtAlertResumeThread @ 0x1409B5DE0 (NtAlertResumeThread.c)
+ *     NtAlertResumeThread @ 0x1409B5FE0 (NtAlertResumeThread.c)
  * Callees:
- *     KeAlertThread @ 0x140309850 (KeAlertThread.c)
- *     KeResumeThread @ 0x14030A22C (KeResumeThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAlertThread @ 0x140309AE0 (KeAlertThread.c)
+ *     KeResumeThread @ 0x14030A4BC (KeResumeThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeAlertResumeThread(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall KeAlertResumeThread(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v4 = 4;
@@ -32,10 +32,10 @@ __int64 __fastcall KeAlertResumeThread(__int64 a1)
   }
   KeAlertThread(a1, 0);
   v5 = KeResumeThread(a1, 1u);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = CurrentPrcb->SchedulerAssist;

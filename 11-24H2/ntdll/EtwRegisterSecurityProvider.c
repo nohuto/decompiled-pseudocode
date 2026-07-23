@@ -1,32 +1,27 @@
 /*
- * XREFs of EtwRegisterSecurityProvider @ 0x18015BE30
+ * XREFs of EtwRegisterSecurityProvider @ 0x18015A1F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     RtlNtStatusToDosError @ 0x18001C620 (RtlNtStatusToDosError.c)
- *     NtTraceControl @ 0x180165740 (NtTraceControl.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     RtlNtStatusToDosError @ 0x180049020 (RtlNtStatusToDosError.c)
+ *     NtTraceControl @ 0x180163B00 (NtTraceControl.c)
  */
 
-__int64 EtwRegisterSecurityProvider()
+ULONG EtwRegisterSecurityProvider(void)
 {
   NTSTATUS v0; // eax
   ULONG v1; // ebx
-  ULONG v2; // eax
-  int v4; // [rsp+40h] [rbp+8h] BYREF
+  LONG v2; // eax
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = 0;
-  v0 = NtTraceControl(24LL, 0LL, 0LL, 0LL, 0, &v4);
-  if ( v0 )
-  {
-    v2 = RtlNtStatusToDosError(v0);
-    v1 = v2;
-    if ( v2 )
-      RtlSetLastWin32Error(v2);
-  }
-  else
-  {
+  ReturnLength = 0;
+  v0 = NtTraceControl(EtwRegisterSecurityProv, 0LL, 0, 0LL, 0, &ReturnLength);
+  if ( !v0 )
     return 0;
-  }
+  v2 = RtlNtStatusToDosError(v0);
+  v1 = v2;
+  if ( v2 )
+    RtlSetLastWin32Error(v2);
   return v1;
 }

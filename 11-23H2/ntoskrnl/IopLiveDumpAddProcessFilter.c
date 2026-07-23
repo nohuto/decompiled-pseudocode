@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpAddProcessFilter @ 0x14094C45C
+ * XREFs of IopLiveDumpAddProcessFilter @ 0x14094C65C
  * Callers:
- *     IopLiveDumpExcludeProtectedProcesses @ 0x14094DFA8 (IopLiveDumpExcludeProtectedProcesses.c)
+ *     IopLiveDumpExcludeProtectedProcesses @ 0x14094E1A8 (IopLiveDumpExcludeProtectedProcesses.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsLookupProcessByProcessId @ 0x1406FA370 (PsLookupProcessByProcessId.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094DF14 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpLookupProcessFilter @ 0x140A9B964 (IopLiveDumpLookupProcessFilter.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsLookupProcessByProcessId @ 0x1406FA580 (PsLookupProcessByProcessId.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094E114 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpLookupProcessFilter @ 0x140A9B7D4 (IopLiveDumpLookupProcessFilter.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

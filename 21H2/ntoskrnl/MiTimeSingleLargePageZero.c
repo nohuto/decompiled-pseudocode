@@ -1,15 +1,15 @@
 /*
- * XREFs of MiTimeSingleLargePageZero @ 0x1403B0510
+ * XREFs of MiTimeSingleLargePageZero @ 0x1403B0680
  * Callers:
- *     MiZeroPageCalibrate @ 0x1403AFE24 (MiZeroPageCalibrate.c)
+ *     MiZeroPageCalibrate @ 0x1403AFF94 (MiZeroPageCalibrate.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x14027B530 (KeFindFirstSetRightGroupAffinity.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x1402C20D0 (KeFindFirstSetLeftGroupAffinity.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     MiTimeSingleLargePageZeroWorker @ 0x1403B0728 (MiTimeSingleLargePageZeroWorker.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x140240570 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402694D0 (KeFindFirstSetRightGroupAffinity.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     MiTimeSingleLargePageZeroWorker @ 0x1403B0898 (MiTimeSingleLargePageZeroWorker.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall MiTimeSingleLargePageZero(__int64 a1)
@@ -40,24 +40,24 @@ void __fastcall MiTimeSingleLargePageZero(__int64 a1)
   __int64 v24; // rdi
   unsigned int v25; // [rsp+20h] [rbp-60h]
   unsigned int v26; // [rsp+24h] [rbp-5Ch]
-  struct _GROUP_AFFINITY v27; // [rsp+28h] [rbp-58h] BYREF
+  _GROUP_AFFINITY v27; // [rsp+28h] [rbp-58h] BYREF
   __int64 v28; // [rsp+38h] [rbp-48h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
   __int64 v30; // [rsp+50h] [rbp-30h]
   _QWORD *v31; // [rsp+58h] [rbp-28h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
 
   v28 = a1;
   v1 = a1;
-  v2 = dword_140C4DEE4;
+  v2 = dword_140C4DF24;
   PreviousAffinity = 0LL;
-  v25 = dword_140C4DEE4;
+  v25 = dword_140C4DF24;
   for ( i = 0; i < (unsigned __int16)KeNumberNodes; v1 = v28 )
   {
     v4 = *(_QWORD *)(v1 + 16) + 4544LL * i;
     v30 = v4;
     v5 = *(unsigned __int16 *)(v4 + 4488) / v2;
-    v27 = *(struct _GROUP_AFFINITY *)(v4 + 4472);
+    v27 = *(_GROUP_AFFINITY *)(v4 + 4472);
     if ( !v5 )
       v5 = 1;
     v26 = v5;
@@ -134,7 +134,7 @@ void __fastcall MiTimeSingleLargePageZero(__int64 a1)
           }
           if ( v22 )
           {
-            dword_140C2A25C += v26 / v25 - v10;
+            dword_140C2A29C += v26 / v25 - v10;
             v9 = v21 * v10;
             break;
           }
@@ -148,7 +148,7 @@ void __fastcall MiTimeSingleLargePageZero(__int64 a1)
     }
     if ( !*(_QWORD *)(v4 + 4400) )
     {
-      v27 = *(struct _GROUP_AFFINITY *)(v4 + 4472);
+      v27 = *(_GROUP_AFFINITY *)(v4 + 4472);
       KeSetSystemGroupAffinityThread(&v27, &PreviousAffinity);
       v24 = MiTimeSingleLargePageZeroWorker(v1, i);
       KeRevertToUserGroupAffinityThread(&PreviousAffinity);

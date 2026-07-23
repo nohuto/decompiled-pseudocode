@@ -29,25 +29,25 @@
  *     <none>
  */
 
-int __stdcall RtlInitUnicodeStringEx(int a1, _WORD *a2)
+NTSTATUS __cdecl RtlInitUnicodeStringEx(PUNICODE_STRING DestinationString, PCWSTR SourceString)
 {
-  _WORD *v2; // eax
+  PCWSTR v2; // eax
   unsigned int v4; // eax
-  __int16 v5; // ax
+  unsigned __int16 v5; // ax
 
-  *(_DWORD *)a1 = 0;
-  v2 = a2;
-  *(_DWORD *)(a1 + 4) = a2;
-  if ( !a2 )
+  *(_DWORD *)&DestinationString->Length = 0;
+  v2 = SourceString;
+  DestinationString->Buffer = (wchar_t *)SourceString;
+  if ( !SourceString )
     return 0;
   while ( *v2++ )
     ;
-  v4 = v2 - (a2 + 1);
+  v4 = v2 - (SourceString + 1);
   if ( v4 <= 0x7FFE )
   {
     v5 = 2 * v4;
-    *(_WORD *)a1 = v5;
-    *(_WORD *)(a1 + 2) = v5 + 2;
+    DestinationString->Length = v5;
+    DestinationString->MaximumLength = v5 + 2;
     return 0;
   }
   return -1073741562;

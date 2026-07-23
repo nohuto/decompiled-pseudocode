@@ -12,6 +12,6 @@ __int64 sub_18007CFCC()
   qword_1801652F0 = (__int64)&qword_1801652F0;
   qword_1801652A8 = (__int64)&qword_1801652A0;
   qword_1801652A0 = (__int64)&qword_1801652A0;
-  RtlInitializeCriticalSectionEx((__int64)&unk_1801652C0, 0, 0);
+  RtlInitializeCriticalSectionEx(&stru_1801652C0, 0, 0);
   return sub_18007D01C();
 }

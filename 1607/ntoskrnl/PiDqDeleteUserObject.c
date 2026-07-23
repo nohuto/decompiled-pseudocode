@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDqDeleteUserObject @ 0x140631594
+ * XREFs of PiDqDeleteUserObject @ 0x140631648
  * Callers:
- *     PiDqDeleteUserObjectFromLoadedHives @ 0x140631668 (PiDqDeleteUserObjectFromLoadedHives.c)
+ *     PiDqDeleteUserObjectFromLoadedHives @ 0x14063171C (PiDqDeleteUserObjectFromLoadedHives.c)
  * Callees:
- *     wcsrchr @ 0x14014F0D4 (wcsrchr.c)
+ *     wcsrchr @ 0x14014F694 (wcsrchr.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     _PnpCtxRegDeleteTree @ 0x140550618 (_PnpCtxRegDeleteTree.c)
- *     PiDqGetRelativeObjectRegPath @ 0x1406317A0 (PiDqGetRelativeObjectRegPath.c)
- *     _PnpCtxRegDeleteKey @ 0x1406D7080 (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140550B58 (_PnpCtxRegDeleteTree.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x140631854 (PiDqGetRelativeObjectRegPath.c)
+ *     _PnpCtxRegDeleteKey @ 0x1406D71B8 (_PnpCtxRegDeleteKey.c)
  */
 
 __int64 __fastcall PiDqDeleteUserObject(__int64 a1, int a2, int a3)

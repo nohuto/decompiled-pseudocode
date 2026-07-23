@@ -37,7 +37,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
   Length = 0;
   DeviceProperty = -1073741776;
   ValueName = 0LL;
-  if ( !WmipServiceDeviceObject )
+  if ( !qword_140C164D8 )
     return -1073741823;
   v10 = 0;
   PoolWithTag = 0LL;
@@ -112,7 +112,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
               SuggestedInstanceName->MaximumLength = v15;
               if ( PoolWithTag )
                 RtlAppendUnicodeToString(SuggestedInstanceName, (PCWSTR)PoolWithTag);
-              RtlAppendUnicodeToString(SuggestedInstanceName, L"_");
+              RtlAppendUnicodeToString(SuggestedInstanceName, &word_140866800);
               RtlAppendUnicodeToString(SuggestedInstanceName, v14);
             }
             else

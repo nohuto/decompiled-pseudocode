@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRebuildLargePages @ 0x1402CE650
+ * XREFs of MiRebuildLargePages @ 0x1402CE840
  * Callers:
  *     <none>
  * Callees:
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400EE928 (MiNodeLargeFreeZeroPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetNodeStandbyPageCount @ 0x1402C03B0 (MiGetNodeStandbyPageCount.c)
- *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE374 (MiNodeFreeZeroPages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400EE9A8 (MiNodeLargeFreeZeroPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetNodeStandbyPageCount @ 0x1402C05A0 (MiGetNodeStandbyPageCount.c)
+ *     MiRebuildLargePage @ 0x1402CE5D4 (MiRebuildLargePage.c)
  */
 
 void __fastcall MiRebuildLargePages(unsigned __int64 a1)
@@ -31,7 +31,7 @@ void __fastcall MiRebuildLargePages(unsigned __int64 a1)
   int v12; // edx
   unsigned __int8 CurrentIrql; // si
   volatile __int64 *v14; // r15
-  __int64 v15; // rax
+  PRTL_BALANCED_NODE v15; // rax
   unsigned int v16; // ebp
   unsigned __int64 v17; // r11
   unsigned int v18; // r8d
@@ -77,7 +77,7 @@ void __fastcall MiRebuildLargePages(unsigned __int64 a1)
       KxAcquireQueuedSpinLock((__int64)&v29, (volatile __int64 *)(v2 + 1928), v6);
       v15 = KeAbPreAcquire(v2, 0LL, 0);
       if ( v15 )
-        *(_BYTE *)(v15 + 26) |= 1u;
+        BYTE2(v15[1].Left) |= 1u;
       if ( v10 >= v9 )
         goto LABEL_23;
       if ( v7 < 0x400 )

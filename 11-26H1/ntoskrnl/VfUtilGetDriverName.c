@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilGetDriverName @ 0x140C21800
+ * XREFs of VfUtilGetDriverName @ 0x140C27810
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140C46B58 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x140C4CB68 (VfTargetDriversGetVerifierData.c)
  */
 
 __int64 __fastcall VfUtilGetDriverName(__int64 a1)

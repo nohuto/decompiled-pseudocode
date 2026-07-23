@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInitUTF8StringEx @ 0x1800EB7F0
+ * XREFs of RtlInitUTF8StringEx @ 0x1800EB7B0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-NTSTATUS __stdcall RtlInitUTF8StringEx(PANSI_STRING DestinationString, PCSZ SourceString)
+NTSTATUS __cdecl RtlInitUTF8StringEx(PUTF8_STRING DestinationString, PCSZ SourceString)
 {
   return RtlInitAnsiStringEx(DestinationString, SourceString);
 }

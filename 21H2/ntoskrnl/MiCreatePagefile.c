@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreatePagefile @ 0x1407B7250
+ * XREFs of MiCreatePagefile @ 0x1407B7770
  * Callers:
- *     MmStoreRegister @ 0x1407B637C (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     MmStoreRegister @ 0x1407B6890 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     MiAllocateModWriterEntry @ 0x14025A558 (MiAllocateModWriterEntry.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     MiInitializePagefileBitmapsCache @ 0x1403BFB78 (MiInitializePagefileBitmapsCache.c)
- *     MiReservePageHash @ 0x1403BFCFC (MiReservePageHash.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x1407B7594 (MiCreatePageFileSpaceBitmaps.c)
- *     MiDeletePagefile @ 0x1408D048C (MiDeletePagefile.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     MiAllocateModWriterEntry @ 0x14027BAC8 (MiAllocateModWriterEntry.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403BFFA4 (MiInitializePagefileBitmapsCache.c)
+ *     MiReservePageHash @ 0x1403C0128 (MiReservePageHash.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x1407B7AB4 (MiCreatePageFileSpaceBitmaps.c)
+ *     MiDeletePagefile @ 0x1408D05EC (MiDeletePagefile.c)
  */
 
 _BYTE *__fastcall MiCreatePagefile(
@@ -45,7 +45,7 @@ _BYTE *__fastcall MiCreatePagefile(
   ULONG_PTR v26; // rax
   __int64 PageFileSpaceBitmaps; // rax
   __int64 v28; // rdi
-  RTL_BITMAP *v29; // rdi
+  _RTL_BITMAP *v29; // rdi
   PVOID v30; // rax
   _BYTE v33[288]; // [rsp+30h] [rbp-158h] BYREF
 
@@ -139,7 +139,7 @@ _BYTE *__fastcall MiCreatePagefile(
     *((_QWORD *)v13 + 14) = PageFileSpaceBitmaps;
     RtlSetAllBits((PRTL_BITMAP)(PageFileSpaceBitmaps + 8));
     RtlClearBits((PRTL_BITMAP)(v28 + 8), 2u, *(_DWORD *)v13 - 2);
-    v29 = (RTL_BITMAP *)(v28 + 24);
+    v29 = (_RTL_BITMAP *)(v28 + 24);
     RtlSetAllBits(v29);
     if ( (a8 & 2) == 0 )
       RtlClearBits(v29, 2u, *(_DWORD *)v13 - 2);

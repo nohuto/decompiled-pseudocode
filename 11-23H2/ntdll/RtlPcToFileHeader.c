@@ -15,7 +15,7 @@ PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
     || (unsigned __int64)PcValue >= *((_QWORD *)&xmmword_18019C530 + 1)
                                   + (unsigned __int64)(unsigned int)qword_18019C540 )
   {
-    RtlpxLookupFunctionTable((unsigned __int64)PcValue, (__int64 *)&v4);
+    RtlpxLookupFunctionTable(PcValue, (__int64 *)&v4);
   }
   else
   {

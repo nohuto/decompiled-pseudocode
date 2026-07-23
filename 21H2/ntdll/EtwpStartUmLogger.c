@@ -15,9 +15,9 @@
  *     RtlNtStatusToDosError @ 0x180051950 (RtlNtStatusToDosError.c)
  *     EtwpInitializeCompression @ 0x180088068 (EtwpInitializeCompression.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     NtQuerySystemInformation @ 0x18009DD00 (NtQuerySystemInformation.c)
- *     EtwpRegisterPrivateSession @ 0x180111114 (EtwpRegisterPrivateSession.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     NtQuerySystemInformation @ 0x18009DCC0 (NtQuerySystemInformation.c)
+ *     EtwpRegisterPrivateSession @ 0x1801110D4 (EtwpRegisterPrivateSession.c)
  */
 
 ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
@@ -29,7 +29,7 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
   unsigned __int64 v10; // rcx
   int v11; // eax
   ULONG result; // eax
-  unsigned int NumberOfProcessors; // r8d
+  __int64 NumberOfProcessors; // r8
   __int64 v14; // r14
   __int64 v15; // rdi
   int v16; // eax
@@ -47,7 +47,7 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
   ULONG v28; // eax
   void *v29; // rcx
   char v30[8]; // [rsp+30h] [rbp-59h] BYREF
-  __int64 inited; // [rsp+38h] [rbp-51h] BYREF
+  __int64 inited; // [rsp+38h] [rbp-51h]
   unsigned int v32; // [rsp+40h] [rbp-49h] BYREF
   __int64 v33; // [rsp+48h] [rbp-41h] BYREF
   _DWORD *v34; // [rsp+50h] [rbp-39h]
@@ -94,7 +94,7 @@ LABEL_4:
   {
     return 87;
   }
-  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName(a4 + 144, &inited) )
+  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName((PUNICODE_STRING)(a4 + 144)) )
   {
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(inited + 20) + 8));
     return 183;
@@ -107,11 +107,11 @@ LABEL_4:
       v26 = (*(unsigned __int16 *)(a4 + 130) + *(unsigned __int16 *)(a4 + 146) + 183) & 0xFFFFFFF8;
       v8 = *(_DWORD *)a4 - v26;
       v7 = a4 + v26;
-      NumberOfProcessors = -1;
+      NumberOfProcessors = 0xFFFFFFFFLL;
     }
     else if ( (*(_DWORD *)(a4 + 64) & 0x10000000) != 0 )
     {
-      NumberOfProcessors = 1;
+      NumberOfProcessors = 1LL;
     }
     else
     {
@@ -128,7 +128,7 @@ LABEL_4:
     v16 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
     if ( v16 < 0 )
       return RtlNtStatusToDosError(v16);
-    *(_DWORD *)(v15 + 208) = ~(v36 - 1) & (*(_DWORD *)(v15 + 208) + v36 - 1);
+    *(_DWORD *)(inited + 208) = ~(v36 - 1) & (*(_DWORD *)(inited + 208) + v36 - 1);
     if ( (*(_DWORD *)(v15 + 324) & 0x4000000) != 0 )
     {
       v27 = EtwpInitializeCompression(v15);
@@ -200,7 +200,7 @@ LABEL_61:
       *(_QWORD *)(a4 + 88) = 0LL;
       *(_QWORD *)(v15 + 144) = 0LL;
     }
-    EtwpFreeLoggerContext(v15);
+    EtwpFreeLoggerContext((PVOID)v15);
     return TraceBufferPool;
   }
   return result;

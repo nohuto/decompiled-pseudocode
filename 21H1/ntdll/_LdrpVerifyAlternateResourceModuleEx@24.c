@@ -10,26 +10,27 @@
  *     _LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure@16 @ 0x4B330AB6 (_LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure@16.c)
  */
 
-char __fastcall LdrpVerifyAlternateResourceModuleEx(int a1, int a2, int a3, wchar_t *String1, int a5, int a6)
+char __fastcall LdrpVerifyAlternateResourceModuleEx(void *a1, void *a2, int a3, wchar_t *String1, int a5, int a6)
 {
   bool v7; // bl
   _DWORD *v8; // esi
   int RCConfig; // eax
   int v11; // eax
-  int v12; // [esp+10h] [ebp-8h] BYREF
-  _DWORD *v13; // [esp+14h] [ebp-4h] BYREF
+  size_t v12; // [esp-4h] [ebp-1Ch]
+  int v13; // [esp+10h] [ebp-8h] BYREF
+  _DWORD *v14; // [esp+14h] [ebp-4h] BYREF
 
   if ( !a6 )
     return 1;
   v7 = 0;
   if ( (a5 & 0x1000) != 0 )
   {
-    RCConfig = LdrResGetRCConfig(a1, 0, &v12, 4096, 1);
+    RCConfig = LdrResGetRCConfig(a1, 0, &v13, 4096, 1);
     if ( RCConfig >= 0 )
     {
-      if ( (int)LdrResGetRCConfig(a2, 0, &v13, 4096, 0) < 0 )
+      if ( (int)LdrResGetRCConfig(a2, 0, &v14, 4096, 0) < 0 )
         return 0;
-      v8 = v13;
+      v8 = v14;
       goto LABEL_5;
     }
     if ( RCConfig != -1073741686 )
@@ -37,27 +38,28 @@ char __fastcall LdrpVerifyAlternateResourceModuleEx(int a1, int a2, int a3, wcha
   }
   else
   {
-    v12 = LdrpGetRcConfig(0, 1);
-    if ( v12 )
+    v13 = LdrpGetRcConfig(a1, 0, 1);
+    if ( v13 )
     {
-      v8 = (_DWORD *)LdrpGetRcConfig(0, 0);
-      v13 = v8;
+      v8 = (_DWORD *)LdrpGetRcConfig(a2, 0, 0);
+      v14 = v8;
       if ( !v8 )
         return 0;
 LABEL_5:
+      LODWORD(v12) = 16;
       if ( a6 == 2 )
       {
-        v11 = memcmp((const void *)(v12 + 28), v8 + 7, 0x10u);
+        v11 = memcmp((const void *)(v13 + 28), v8 + 7, v12);
         v7 = v11 == 0;
         if ( a3 )
         {
           if ( !v11 )
             return (a5 & 0x1000000) != 0 || String1 && !_wcsicmp(String1, (const wchar_t *)((char *)v8 + v8[29]));
           LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(v8 + 7, a3);
-          v8 = v13;
+          v8 = v14;
         }
       }
-      else if ( !memcmp((const void *)(v12 + 44), v8 + 11, 0x10u) )
+      else if ( !memcmp((const void *)(v13 + 44), v8 + 11, v12) )
       {
         return (a5 & 0x1000000) != 0 || String1 && !_wcsicmp(String1, (const wchar_t *)((char *)v8 + v8[29]));
       }

@@ -62,7 +62,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   _QWORD *v19; // r15
   ULONG_PTR v20; // rsi
   _SLIST_ENTRY *Next; // rsi
-  struct _SLIST_ENTRY *v22; // r14
+  _SLIST_ENTRY *v22; // r14
   void *v23; // rcx
   void *v24; // r15
   __int64 v25; // r14
@@ -74,7 +74,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   __int64 v31; // r14
   void *v32; // rcx
   _SLIST_ENTRY *v33; // rcx
-  struct _SLIST_ENTRY *v34; // r8
+  _SLIST_ENTRY *v34; // r8
   struct _KPRCB *v35; // rdx
   _GENERAL_LOOKASIDE *v36; // rcx
   struct _KPRCB *v37; // rdx
@@ -293,7 +293,7 @@ LABEL_33:
             else
             {
               ++v36->FreeMisses;
-              ((void (__fastcall *)(struct _SLIST_ENTRY *))v36->FreeEx)(v34);
+              ((void (__fastcall *)(_SLIST_ENTRY *))v36->FreeEx)(v34);
             }
           }
           else

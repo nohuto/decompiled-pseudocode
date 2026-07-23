@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRemoveDeviceRelationsFromList @ 0x1406EF0A0
+ * XREFs of IopRemoveDeviceRelationsFromList @ 0x1406F0340
  * Callers:
- *     PiInvalidateSpeculativeRelations @ 0x1406EF064 (PiInvalidateSpeculativeRelations.c)
+ *     PiInvalidateSpeculativeRelations @ 0x1406F0304 (PiInvalidateSpeculativeRelations.c)
  * Callees:
- *     PipDeviceObjectListElementAt @ 0x140700ED4 (PipDeviceObjectListElementAt.c)
- *     PipDeviceObjectListRemove @ 0x140706A24 (PipDeviceObjectListRemove.c)
+ *     PipDeviceObjectListElementAt @ 0x140702174 (PipDeviceObjectListElementAt.c)
+ *     PipDeviceObjectListRemove @ 0x140707CC4 (PipDeviceObjectListRemove.c)
  */
 
 __int64 __fastcall IopRemoveDeviceRelationsFromList(unsigned int **a1)

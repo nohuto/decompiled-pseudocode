@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSqmThermalCriticalEvent @ 0x1408F9B78
+ * XREFs of PopSqmThermalCriticalEvent @ 0x1408F9CD8
  * Callers:
- *     PopSqmThermalCriticalShutdown @ 0x1408F9D50 (PopSqmThermalCriticalShutdown.c)
- *     PopSqmThermalHibernate @ 0x1408F9D74 (PopSqmThermalHibernate.c)
+ *     PopSqmThermalCriticalShutdown @ 0x1408F9EB0 (PopSqmThermalCriticalShutdown.c)
+ *     PopSqmThermalHibernate @ 0x1408F9ED4 (PopSqmThermalHibernate.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
@@ -104,7 +104,7 @@ char __fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
         tlgCreate1Sz_wchar_t((__int64)v46, v14);
         LOBYTE(DeviceAttachmentBaseRefWithTag) = tlgWriteTransfer_EtwWriteTransfer(
                                                    (__int64)&dword_140C02228,
-                                                   (unsigned __int8 *)byte_14002A8B1,
+                                                   (unsigned __int8 *)byte_14002A971,
                                                    0LL,
                                                    0LL,
                                                    0xBu,

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAccountBatteryEnergyChange @ 0x140994AC0
+ * XREFs of PopAccountBatteryEnergyChange @ 0x140994CC0
  * Callers:
- *     PopBatteryWorker @ 0x14086FD60 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14086FFA0 (PopBatteryWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
@@ -199,7 +199,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
       v51 = v2;
       v78 = &v52;
       v80 = &v53;
-      v54 = dword_140C3CEB4;
+      v54 = dword_140C3D054;
       v82 = &v54;
       v3 = (*(_DWORD *)(v23 + 148) & 1) == 0;
       v77 = 4LL;
@@ -236,7 +236,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
         v41 = v39;
       tlgCreate1Sz_char((__int64)v90, v41);
       v43 = "Platform BCL Enabled";
-      if ( (byte_140C3D0B8 & 1) == 0 )
+      if ( (byte_140C3D258 & 1) == 0 )
         v43 = v42;
       tlgCreate1Sz_char((__int64)v91, v43);
       v45 = v44[32];
@@ -275,7 +275,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
       v103 = 4LL;
       LODWORD(v1) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)&dword_140C03950,
-                      (unsigned __int8 *)&dword_140031124,
+                      (unsigned __int8 *)byte_140030BAD,
                       0LL,
                       0LL,
                       0x1Cu,

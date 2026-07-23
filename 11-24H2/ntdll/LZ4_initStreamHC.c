@@ -1,10 +1,10 @@
 /*
- * XREFs of LZ4_initStreamHC @ 0x180154BC8
+ * XREFs of LZ4_initStreamHC @ 0x180152F88
  * Callers:
- *     LZ4_compress_HC_extStateHC @ 0x180154AE4 (LZ4_compress_HC_extStateHC.c)
- *     LZ4_resetStreamHC_fast @ 0x180154C08 (LZ4_resetStreamHC_fast.c)
+ *     LZ4_compress_HC_extStateHC @ 0x180152EA4 (LZ4_compress_HC_extStateHC.c)
+ *     LZ4_resetStreamHC_fast @ 0x180152FC8 (LZ4_resetStreamHC_fast.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 _WORD *__fastcall LZ4_initStreamHC(_WORD *a1)

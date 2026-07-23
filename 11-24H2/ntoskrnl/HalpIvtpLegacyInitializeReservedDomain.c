@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIvtpLegacyInitializeReservedDomain @ 0x140B534E4
+ * XREFs of HalpIvtpLegacyInitializeReservedDomain @ 0x140B55534
  * Callers:
- *     IvtInitializeReservedDomains @ 0x140B535C8 (IvtInitializeReservedDomains.c)
+ *     IvtInitializeReservedDomains @ 0x140B55618 (IvtInitializeReservedDomains.c)
  * Callees:
- *     IvtLegacyAllocateTranslationStructures @ 0x14056FAA8 (IvtLegacyAllocateTranslationStructures.c)
- *     IvtLegacyUpdateTranslationStructures @ 0x1405710FC (IvtLegacyUpdateTranslationStructures.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     IvtLegacyAllocateTranslationStructures @ 0x14056CF38 (IvtLegacyAllocateTranslationStructures.c)
+ *     IvtLegacyUpdateTranslationStructures @ 0x14056E58C (IvtLegacyUpdateTranslationStructures.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpIvtpLegacyInitializeReservedDomain(__int64 a1, int *a2)

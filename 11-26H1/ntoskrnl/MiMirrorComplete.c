@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMirrorComplete @ 0x140C00ED4
+ * XREFs of MiMirrorComplete @ 0x140C070E4
  * Callers:
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     MiUnlockDynamicMemoryShared @ 0x1404D0330 (MiUnlockDynamicMemoryShared.c)
- *     MiUnlockAllMemoryLists @ 0x1407041F8 (MiUnlockAllMemoryLists.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1404C9D60 (MiUnlockDynamicMemoryShared.c)
+ *     MiUnlockAllMemoryLists @ 0x140708EC8 (MiUnlockAllMemoryLists.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiMirrorComplete(__int64 a1)
@@ -23,12 +23,12 @@ void __fastcall MiMirrorComplete(__int64 a1)
   bool v5; // zf
   void *v6; // rcx
 
-  LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) = (*(_BYTE *)(a1 + 64) & 8) != 0 ? 3 : 0;
+  LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) = (*(_BYTE *)(a1 + 64) & 8) != 0 ? 3 : 0;
   if ( (*(_DWORD *)(a1 + 64) & 0x10) != 0 )
-    _InterlockedDecrement((volatile signed __int32 *)&stru_140E2EB88.WaitBlockFill11[32]);
-  stru_140E2EB88.WaitBlock[0].SparePtr = 0LL;
+    _InterlockedDecrement((volatile signed __int32 *)&stru_140E2ED08.WaitBlockFill11[32]);
+  stru_140E2ED08.WaitBlock[0].SparePtr = 0LL;
   if ( (*(_DWORD *)(a1 + 64) & 1) != 0 )
-    _InterlockedDecrement(&dword_140E35FD8);
+    _InterlockedDecrement(&dword_140E36158);
   if ( *(_BYTE *)(a1 + 20) != 17 )
   {
     if ( *(_BYTE *)(a1 + 21) != 17 )
@@ -40,18 +40,18 @@ void __fastcall MiMirrorComplete(__int64 a1)
   }
   if ( (*(_DWORD *)(a1 + 64) & 2) != 0 )
   {
-    stru_140E2EB88.WaitBlock[0].Thread = (struct _KTHREAD *)*(unsigned int *)(a1 + 12);
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140E2EB88.320, HyperCriticalWorkQueue);
+    stru_140E2ED08.WaitBlock[0].Thread = (struct _KTHREAD *)*(unsigned int *)(a1 + 12);
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140E2ED08.320, HyperCriticalWorkQueue);
   }
   else
   {
-    _InterlockedDecrement((volatile signed __int32 *)&stru_140E36558.SystemCallNumber);
-    KeSetEvent((PRKEVENT)&stru_140E2EB88.Timer.TimerListEntry.Blink, 0, 0);
+    _InterlockedDecrement((volatile signed __int32 *)&stru_140E366D8.SystemCallNumber);
+    KeSetEvent((PRKEVENT)&stru_140E2ED08.Timer.TimerListEntry.Blink, 0, 0);
   }
   MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, *(_QWORD *)(a1 + 24));
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2EB88, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&stru_140E2EB88.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140E2EB88);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2ED08, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&stru_140E2ED08.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140E2ED08);
   v4 = *(_QWORD *)(a1 + 24);
   v5 = (*(_WORD *)(v4 + 486))++ == 0xFFFF;
   if ( v5 && *(_QWORD *)(v4 + 152) != v4 + 152 )

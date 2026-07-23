@@ -12,57 +12,54 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-unsigned int __fastcall LdrpIsReparsePoint(char a1)
+unsigned int __thiscall LdrpIsReparsePoint(PVOID DllHandle)
 {
   unsigned int v1; // edi
-  int v2; // eax
-  int v3; // esi
-  int v4; // ecx
-  int v6; // [esp+Ch] [ebp-7Ch] BYREF
-  int v7; // [esp+10h] [ebp-78h] BYREF
-  int v8; // [esp+14h] [ebp-74h]
-  _DWORD v9[6]; // [esp+18h] [ebp-70h] BYREF
-  _DWORD v10[4]; // [esp+30h] [ebp-58h] BYREF
-  _DWORD v11[6]; // [esp+40h] [ebp-48h] BYREF
-  _BYTE v12[32]; // [esp+58h] [ebp-30h] BYREF
-  int v13; // [esp+78h] [ebp-10h]
+  const WCHAR *Buffer; // eax
+  wchar_t *v3; // esi
+  HANDLE ContainingDirectory; // ecx
+  PLDR_DATA_TABLE_ENTRY Entry; // [esp+Ch] [ebp-7Ch] BYREF
+  _UNICODE_STRING NtFileName; // [esp+10h] [ebp-78h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+18h] [ebp-70h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [esp+30h] [ebp-58h] BYREF
+  PCWSTR v10[6]; // [esp+40h] [ebp-48h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [esp+58h] [ebp-30h] BYREF
 
-  v6 = 0;
-  memset(v11, 0, sizeof(v11));
+  Entry = 0;
+  memset(v10, 0, sizeof(v10));
   v1 = -1073741823;
-  if ( (a1 & 3) != 0 )
+  if ( ((unsigned __int8)DllHandle & 3) != 0 )
   {
-    if ( LdrpGetLoadAsEntry(a1, v11) < 0 )
+    if ( LdrpGetLoadAsEntry((_BYTE)DllHandle, v10) < 0 )
       return v1;
-    v2 = v11[1];
+    Buffer = v10[1];
   }
   else
   {
-    if ( (int)LdrFindEntryForAddress(a1, &v6) < 0 )
+    if ( LdrFindEntryForAddress(DllHandle, &Entry) < 0 )
       return v1;
-    v2 = *(_DWORD *)(v6 + 40);
+    Buffer = (const WCHAR *)Entry->FullDllName.Buffer;
   }
-  if ( (unsigned __int8)RtlDosPathNameToRelativeNtPathName_U(v2, &v7, 0, v10) )
+  if ( RtlDosPathNameToRelativeNtPathName_U(Buffer, &NtFileName, 0, &RelativeName) )
   {
-    v3 = v8;
-    if ( LOWORD(v10[0]) )
+    v3 = NtFileName.Buffer;
+    if ( RelativeName.RelativeName.Length )
     {
-      v4 = v10[2];
-      v7 = v10[0];
-      v8 = v10[1];
+      ContainingDirectory = RelativeName.ContainingDirectory;
+      NtFileName = RelativeName.RelativeName;
     }
     else
     {
-      v4 = 0;
+      ContainingDirectory = 0;
     }
-    v9[0] = 24;
-    v9[3] = 64;
-    v9[4] = 0;
-    v9[5] = 0;
-    v9[1] = v3 != 0 ? v4 : 0;
-    v9[2] = &v7;
-    if ( (int)ZwQueryAttributesFile(v9, v12) >= 0 )
-      v1 = (v13 & 0x400) == 0 ? 0xC0000001 : 0;
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    ObjectAttributes.RootDirectory = v3 != 0 ? ContainingDirectory : 0;
+    ObjectAttributes.ObjectName = &NtFileName;
+    if ( ZwQueryAttributesFile(&ObjectAttributes, &FileInformation) >= 0 )
+      v1 = (FileInformation.FileAttributes & 0x400) == 0 ? 0xC0000001 : 0;
     if ( v3 )
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   }

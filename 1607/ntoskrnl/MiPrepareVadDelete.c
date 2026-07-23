@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrepareVadDelete @ 0x14042E184
+ * XREFs of MiPrepareVadDelete @ 0x14042D054
  * Callers:
- *     MiFreeVadRange @ 0x1400272B4 (MiFreeVadRange.c)
+ *     MiFreeVadRange @ 0x140026E34 (MiFreeVadRange.c)
  * Callees:
- *     MiVadDeleted @ 0x14002C370 (MiVadDeleted.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MiLockAddressSpaceToo @ 0x1400C65CC (MiLockAddressSpaceToo.c)
+ *     MiVadDeleted @ 0x14002BEF0 (MiVadDeleted.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiLockAddressSpaceToo @ 0x1400C446C (MiLockAddressSpaceToo.c)
  */
 
 __int64 __fastcall MiPrepareVadDelete(__int64 a1, _BYTE *a2, __int64 a3, __int64 a4, _DWORD *a5)

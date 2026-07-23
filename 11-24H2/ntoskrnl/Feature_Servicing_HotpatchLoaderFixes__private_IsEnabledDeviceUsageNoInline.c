@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledDeviceUsageNoInline @ 0x14067CE40
+ * XREFs of Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledDeviceUsageNoInline @ 0x14067DFCC
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x1407F191C (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x1407F1EEC (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledFallback @ 0x14067CE78 (Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledFallback.c)
+ *     Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledFallback @ 0x14067E004 (Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_HotpatchLoaderFixes__private_IsEnabledDeviceUsageNoInline()

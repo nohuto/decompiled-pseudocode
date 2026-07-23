@@ -11,54 +11,42 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800AAAD0 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpWaitForWait(__int64 a1, int a2)
+void __cdecl TpWaitForWait(PTP_WAIT Wait, LOGICAL CancelPendingCallbacks)
 {
-  int v3; // ebx
+  unsigned int v3; // ebx
   char v5; // bp
-  __int64 result; // rax
-  unsigned __int64 v7; // rdx
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // r9
-  __int64 v10; // rbx
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // r9
-  int v14; // ebx
-  int v15; // [rsp+40h] [rbp+8h] BYREF
+  _RTL_SRWLOCK *v6; // rbx
+  unsigned int v7; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = 0;
-  v15 = 0;
+  v7 = 0;
   v5 = 0;
-  result = TppWaitpValidateWait(a1, 0);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppWaitpValidateWait((__int64)Wait, 0) )
   {
-    if ( a2 )
+    if ( CancelPendingCallbacks )
     {
-      v10 = *(_QWORD *)(a1 + 144);
-      RtlAcquireSRWLockExclusive(a1 + 240, v7, v8, v9);
-      ++*(_BYTE *)(a1 + 355);
-      TppCancelWait(a1, (volatile signed __int64 *)(v10 + 112), 2, &v15);
-      if ( *(_DWORD *)(a1 + 56) )
+      v6 = (_RTL_SRWLOCK *)*((_QWORD *)Wait + 18);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
+      ++*((_BYTE *)Wait + 355);
+      TppCancelWait((__int64)Wait, v6 + 14, 2, &v7);
+      if ( *((_DWORD *)Wait + 14) )
         v5 = 1;
       else
-        --*(_BYTE *)(a1 + 355);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-      v3 = v15;
+        --*((_BYTE *)Wait + 355);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
+      v3 = v7;
     }
-    result = (__int64)TppWorkWait((_QWORD *)a1, a2);
+    TppWorkWait(Wait, CancelPendingCallbacks);
     if ( v5 )
     {
-      RtlAcquireSRWLockExclusive(a1 + 240, v11, v12, v13);
-      --*(_BYTE *)(a1 + 355);
-      result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
+      --*((_BYTE *)Wait + 355);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
     }
     if ( v3 )
     {
-      v14 = -v3;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, -v14);
-      if ( (_DWORD)result == v14 )
-        return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v3) == -v3 )
+        (**((void (__fastcall ***)(PTP_WAIT))Wait + 1))(Wait);
     }
   }
-  return result;
 }

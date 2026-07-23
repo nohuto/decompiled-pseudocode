@@ -1,15 +1,15 @@
 /*
- * XREFs of PspAllocateRateControl @ 0x140698A00
+ * XREFs of PspAllocateRateControl @ 0x140699BC0
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     PspAddSchedulingGroupToJobChain @ 0x140698AB4 (PspAddSchedulingGroupToJobChain.c)
- *     PspSetJobRateControl @ 0x14088A4F0 (PspSetJobRateControl.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x140699C74 (PspAddSchedulingGroupToJobChain.c)
+ *     PspSetJobRateControl @ 0x14088B750 (PspSetJobRateControl.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsChargeSharedPoolQuota @ 0x1405C9B24 (PsChargeSharedPoolQuota.c)
- *     PspGetRateControlSize @ 0x140698A94 (PspGetRateControlSize.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsChargeSharedPoolQuota @ 0x1405CAB24 (PsChargeSharedPoolQuota.c)
+ *     PspGetRateControlSize @ 0x140699C54 (PspGetRateControlSize.c)
  */
 
 _QWORD *__fastcall PspAllocateRateControl(__int64 a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpWorkerThread @ 0x1400E7700
+ * XREFs of ExpWorkerThread @ 0x1400E55A0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     EtwActivityIdControlKernel @ 0x140007EA8 (EtwActivityIdControlKernel.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeSetKernelStackSwapEnable @ 0x14007B5E4 (KeSetKernelStackSwapEnable.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeRemovePriQueue @ 0x1400E79D0 (KeRemovePriQueue.c)
- *     PsGetPagePriorityThread @ 0x1400E7E00 (PsGetPagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
- *     KeSetAffinityThread @ 0x140134304 (KeSetAffinityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     EtwTraceThreadWorkItem @ 0x1402262A4 (EtwTraceThreadWorkItem.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeSetKernelStackSwapEnable @ 0x14007B664 (KeSetKernelStackSwapEnable.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     EtwActivityIdControlKernel @ 0x140086AF0 (EtwActivityIdControlKernel.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeRemovePriQueue @ 0x1400E5870 (KeRemovePriQueue.c)
+ *     PsGetPagePriorityThread @ 0x1400E5CA0 (PsGetPagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
+ *     KeSetAffinityThread @ 0x140134874 (KeSetAffinityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     EtwTraceThreadWorkItem @ 0x1402260D0 (EtwTraceThreadWorkItem.c)
  */
 
 BOOLEAN __fastcall ExpWorkerThread(ULONG_PTR BugCheckParameter2)

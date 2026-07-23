@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetFullPmuOwnership @ 0x140501C4C
+ * XREFs of HalpGetFullPmuOwnership @ 0x14050219C
  * Callers:
- *     HalAllocateHardwareCounters @ 0x1409331E0 (HalAllocateHardwareCounters.c)
+ *     HalAllocateHardwareCounters @ 0x1409333E0 (HalAllocateHardwareCounters.c)
  * Callees:
  *     <none>
  */

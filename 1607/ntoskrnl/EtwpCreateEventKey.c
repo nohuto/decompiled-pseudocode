@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCreateEventKey @ 0x1400ACC34
+ * XREFs of EtwpCreateEventKey @ 0x1400AB19C
  * Callers:
- *     EtwpWriteUserEvent @ 0x140510920 (EtwpWriteUserEvent.c)
+ *     EtwpWriteUserEvent @ 0x1404F38B0 (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */

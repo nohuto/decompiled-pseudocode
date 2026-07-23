@@ -25,8 +25,8 @@ void __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD
   int i; // r14d
   __int64 SystemDllInfo; // rax
   __int64 v9; // rdx
-  __int64 v10; // r13
-  __int64 v11; // rax
+  void *v10; // r13
+  PIMAGE_NT_HEADERS v11; // rax
   struct _KTHREAD *CurrentThread; // rcx
   char v13; // [rsp+30h] [rbp-108h]
   wchar_t *Teb; // [rsp+38h] [rbp-100h]
@@ -58,7 +58,7 @@ void __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD
       *(_OWORD *)v6 = 0LL;
       *((_OWORD *)v6 + 1) = 0LL;
       Teb = 0LL;
-      v10 = *(_QWORD *)(v9 + 24);
+      v10 = *(void **)(v9 + 24);
       *((_QWORD *)v6 + 1) = v10;
       if ( v4 && i )
       {
@@ -72,8 +72,8 @@ void __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD
       v11 = RtlImageNtHeader(v10);
       if ( v11 )
       {
-        v6[4] = *(_DWORD *)(v11 + 12);
-        v6[5] = *(_DWORD *)(v11 + 16);
+        v6[4] = v11->FileHeader.PointerToSymbolTable;
+        v6[5] = v11->FileHeader.NumberOfSymbols;
       }
       if ( !v4 )
       {

@@ -1,11 +1,11 @@
 /*
- * XREFs of CcQueueAsyncGetDeviceGuid @ 0x1403AE324
+ * XREFs of CcQueueAsyncGetDeviceGuid @ 0x1403AE504
  * Callers:
- *     CcInitializeVolumeCacheMap @ 0x14032F034 (CcInitializeVolumeCacheMap.c)
+ *     CcInitializeVolumeCacheMap @ 0x14032F2C4 (CcInitializeVolumeCacheMap.c)
  * Callees:
- *     CcDecrementVolumeUseCountWithDelete @ 0x140299DE0 (CcDecrementVolumeUseCountWithDelete.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     CcDecrementVolumeUseCountWithDelete @ 0x14029A070 (CcDecrementVolumeUseCountWithDelete.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
 

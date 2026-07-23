@@ -1,15 +1,15 @@
 /*
- * XREFs of MmAllocateIsrStack @ 0x14081D57C
+ * XREFs of MmAllocateIsrStack @ 0x14081D84C
  * Callers:
- *     KiCompleteBootProcessorContextInitialization @ 0x140376E6C (KiCompleteBootProcessorContextInitialization.c)
- *     KiAllocateProcessorStacks @ 0x140376FC0 (KiAllocateProcessorStacks.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x14037700C (KiCompleteBootProcessorContextInitialization.c)
+ *     KiAllocateProcessorStacks @ 0x140377160 (KiAllocateProcessorStacks.c)
  * Callees:
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     KasanTrackAddress @ 0x1403564F0 (KasanTrackAddress.c)
- *     MmSetPageProtection @ 0x1403C2C70 (MmSetPageProtection.c)
- *     MiMarkBootGuardPage @ 0x14081D648 (MiMarkBootGuardPage.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C23C (MmAllocateIndependentPagesEx.c)
- *     MmFreeIndependentPages @ 0x14087FBB0 (MmFreeIndependentPages.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     KasanTrackAddress @ 0x140356690 (KasanTrackAddress.c)
+ *     MmSetPageProtection @ 0x1403C2E50 (MmSetPageProtection.c)
+ *     MiMarkBootGuardPage @ 0x14081D918 (MiMarkBootGuardPage.c)
+ *     MmAllocateIndependentPagesEx @ 0x14086C47C (MmAllocateIndependentPagesEx.c)
+ *     MmFreeIndependentPages @ 0x14087FDF0 (MmFreeIndependentPages.c)
  */
 
 char __fastcall MmAllocateIsrStack(_QWORD *a1, __int64 a2)

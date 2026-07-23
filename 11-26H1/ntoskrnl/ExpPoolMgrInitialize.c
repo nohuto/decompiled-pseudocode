@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPoolMgrInitialize @ 0x140CE7914
+ * XREFs of ExpPoolMgrInitialize @ 0x140CEDCB4
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x1406D2B44 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x1406D6B74 (ExInitializePoolHeapManagement.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 ULONG (__fastcall *__fastcall ExpPoolMgrInitialize(__int64 *a1))(volatile signed __int32 *a1)

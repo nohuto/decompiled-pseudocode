@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWnfValidateKernelCallbackEnvironment @ 0x1408AE7A8
+ * XREFs of ExpWnfValidateKernelCallbackEnvironment @ 0x140904A08
  * Callers:
- *     ExpWnfDispatchKernelSubscription @ 0x1408AE2C0 (ExpWnfDispatchKernelSubscription.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x140904520 (ExpWnfDispatchKernelSubscription.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 struct _KTHREAD *__fastcall ExpWnfValidateKernelCallbackEnvironment(ULONG_PTR BugCheckParameter4)

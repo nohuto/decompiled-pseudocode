@@ -1,14 +1,25 @@
 /*
- * XREFs of ZwAlpcConnectPort @ 0x14015AB20
+ * XREFs of ZwAlpcConnectPort @ 0x14015B090
  * Callers:
- *     DbgkRegisterErrorPort @ 0x14057B984 (DbgkRegisterErrorPort.c)
+ *     DbgkRegisterErrorPort @ 0x14057BE30 (DbgkRegisterErrorPort.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcConnectPort(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSID RequiredServerSid,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

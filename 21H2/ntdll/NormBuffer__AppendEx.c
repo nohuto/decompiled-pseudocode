@@ -2,7 +2,7 @@
  * XREFs of NormBuffer__AppendEx @ 0x180080EC0
  * Callers:
  *     Normalization__NormalizeCharacter @ 0x180080D8C (Normalization__NormalizeCharacter.c)
- *     NormBuffer__AppendAndSortDecomposed @ 0x1800FF684 (NormBuffer__AppendAndSortDecomposed.c)
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1800FF644 (NormBuffer__AppendAndSortDecomposed.c)
  * Callees:
  *     NormBuffer__Append @ 0x180080F0C (NormBuffer__Append.c)
  */

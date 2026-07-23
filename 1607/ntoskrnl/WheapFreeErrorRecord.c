@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapFreeErrorRecord @ 0x140230884
+ * XREFs of WheapFreeErrorRecord @ 0x1402306B0
  * Callers:
- *     WheaReportHwError @ 0x1402301D4 (WheaReportHwError.c)
- *     WheapProcessWorkQueueItem @ 0x1402308D4 (WheapProcessWorkQueueItem.c)
- *     WheapEtwEnableCallback @ 0x14057F424 (WheapEtwEnableCallback.c)
+ *     WheaReportHwError @ 0x140230000 (WheaReportHwError.c)
+ *     WheapProcessWorkQueueItem @ 0x140230700 (WheapProcessWorkQueueItem.c)
+ *     WheapEtwEnableCallback @ 0x14057F8D0 (WheapEtwEnableCallback.c)
  * Callees:
  *     <none>
  */

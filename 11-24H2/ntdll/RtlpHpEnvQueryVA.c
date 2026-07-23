@@ -1,24 +1,30 @@
 /*
- * XREFs of RtlpHpEnvQueryVA @ 0x18009386C
+ * XREFs of RtlpHpEnvQueryVA @ 0x18009E3FC
  * Callers:
- *     RtlpHpHeapValidateProtection @ 0x180091990 (RtlpHpHeapValidateProtection.c)
- *     RtlpHpSegMgrCommit @ 0x180091A20 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpHeapValidateProtection @ 0x18009C520 (RtlpHpHeapValidateProtection.c)
+ *     RtlpHpSegMgrCommit @ 0x18009C5B0 (RtlpHpSegMgrCommit.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1801620F0 (ZwQueryVirtualMemory.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     ZwQueryVirtualMemory @ 0x1801604B0 (ZwQueryVirtualMemory.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpHpEnvQueryVA(__int64 a1, __int64 a2, int a3, unsigned __int64 a4)
+NTSTATUS __fastcall RtlpHpEnvQueryVA(PVOID BaseAddress, PVOID MemoryInformation, int a3, unsigned __int64 a4)
 {
   if ( a3 == 5 )
-    return ((__int64 (__fastcall *)(unsigned __int64, __int64, __int64, _QWORD, __int64, __int64, _QWORD))(a4 ^ *(_QWORD *)(a4 + 24) ^ RtlpHpHeapGlobals))(
+    return ((__int64 (__fastcall *)(unsigned __int64, __int64, PVOID, _QWORD, PVOID, __int64, _QWORD))(a4 ^ *(_QWORD *)(a4 + 24) ^ RtlpHpHeapGlobals))(
              a4 ^ RtlpHpHeapGlobals ^ *(_QWORD *)a4,
              -1LL,
-             a1,
+             BaseAddress,
              0LL,
-             a2,
+             MemoryInformation,
              48LL,
              0LL);
   else
-    return ZwQueryVirtualMemory(-1LL, a1, 0LL, a2, 48LL, 0LL);
+    return ZwQueryVirtualMemory(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             BaseAddress,
+             MemoryBasicInformation,
+             MemoryInformation,
+             0x30uLL,
+             0LL);
 }

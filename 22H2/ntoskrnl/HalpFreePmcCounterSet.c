@@ -25,8 +25,8 @@ __int64 __fastcall HalpFreePmcCounterSet(__int64 a1)
   int v11; // eax
   bool v12; // zf
   __int64 v13; // rcx
-  struct _GROUP_AFFINITY v15; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY v15; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   v2 = *(unsigned int *)(a1 + 16);
   v15 = 0LL;

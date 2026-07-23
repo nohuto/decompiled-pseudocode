@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmInstallCoordinatedIdleStates @ 0x14074A450
+ * XREFs of PpmInstallCoordinatedIdleStates @ 0x140748780
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PpmIdleIsStateDisabled @ 0x1404FB60C (PpmIdleIsStateDisabled.c)
- *     PpmCheckCoordinatedStateInitiator @ 0x1405CDDBC (PpmCheckCoordinatedStateInitiator.c)
- *     PpmResetPlatformIdleAccounting @ 0x1405CF1A0 (PpmResetPlatformIdleAccounting.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PpmEnableCoordinatedIdleStates @ 0x140749E80 (PpmEnableCoordinatedIdleStates.c)
- *     PpmIdleUpdateCoordinatedDependencies @ 0x140763F34 (PpmIdleUpdateCoordinatedDependencies.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PpmIdleIsStateDisabled @ 0x1404F8ED0 (PpmIdleIsStateDisabled.c)
+ *     PpmCheckCoordinatedStateInitiator @ 0x1405CB4DC (PpmCheckCoordinatedStateInitiator.c)
+ *     PpmResetPlatformIdleAccounting @ 0x1405CC8C0 (PpmResetPlatformIdleAccounting.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x1407481B0 (PpmEnableCoordinatedIdleStates.c)
+ *     PpmIdleUpdateCoordinatedDependencies @ 0x140763904 (PpmIdleUpdateCoordinatedDependencies.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallCoordinatedIdleStates(unsigned int *a1)
@@ -34,60 +34,61 @@ __int64 __fastcall PpmInstallCoordinatedIdleStates(unsigned int *a1)
   int *v13; // rdi
   unsigned int v14; // ebx
   unsigned int v15; // r12d
-  __int64 v16; // rax
-  int *v17; // r13
+  unsigned int v16; // edi
+  __int64 v17; // rax
+  int *v18; // r13
   unsigned int i; // r10d
-  __int64 v19; // r9
-  int *v20; // rax
-  __int64 v21; // r9
-  int v22; // r10d
-  __int64 v23; // r11
-  char *v24; // r15
-  unsigned int *v25; // r12
-  char *v26; // r14
-  char *v27; // r13
-  __int64 v28; // rdx
-  __int64 v29; // rcx
+  __int64 v20; // r9
+  int *v21; // rax
+  __int64 v22; // r9
+  int v23; // r10d
+  __int64 v24; // r11
+  char *v25; // r15
+  unsigned int *v26; // r12
+  char *v27; // r14
+  char *v28; // r13
+  __int64 v29; // rdx
   __int64 v30; // rcx
-  unsigned int v31; // ebx
-  char *v32; // r12
+  __int64 v31; // rcx
+  unsigned int v32; // ebx
+  char *v33; // r12
   __int64 Prcb; // rax
-  unsigned int v34; // r9d
-  __int64 v35; // r8
-  _QWORD *v36; // r10
-  __int64 v37; // rcx
-  __int64 v38; // rdx
-  __int64 v39; // rax
-  __int64 v40; // rcx
-  int *v41; // r8
-  unsigned int *v42; // r14
-  __int64 v43; // r10
-  __int64 v44; // r13
-  __int64 v45; // r9
-  int v46; // eax
-  __int64 v47; // r15
-  unsigned int v48; // eax
-  __int64 v49; // rcx
-  __int64 v50; // rbx
-  __int64 v51; // r11
-  unsigned int v52; // eax
-  __int64 v53; // rcx
-  __int64 v54; // rax
+  unsigned int v35; // r9d
+  __int64 v36; // r8
+  _QWORD *v37; // r10
+  __int64 v38; // rcx
+  __int64 v39; // rdx
+  __int64 v40; // rax
+  __int64 v41; // rcx
+  int *v42; // r8
+  unsigned int *v43; // r14
+  __int64 v44; // r10
+  __int64 v45; // r13
+  __int64 v46; // r9
+  int v47; // eax
+  __int64 v48; // r15
+  unsigned int v49; // eax
+  __int64 v50; // rcx
+  __int64 v51; // rbx
+  __int64 v52; // r11
+  unsigned int v53; // eax
+  __int64 v54; // rcx
+  __int64 v55; // rax
   unsigned int j; // ebx
-  unsigned int v56; // r14d
-  __int64 v57; // r9
+  unsigned int v57; // r14d
+  __int64 v58; // r9
   __int64 k; // r15
-  char v59; // al
-  __int64 v60; // r10
-  __int64 v61; // r11
-  unsigned int v63; // [rsp+20h] [rbp-58h]
-  unsigned int v64; // [rsp+24h] [rbp-54h]
-  int v65; // [rsp+28h] [rbp-50h]
-  unsigned int v66; // [rsp+2Ch] [rbp-4Ch]
-  unsigned int v68; // [rsp+88h] [rbp+10h]
-  unsigned int v69; // [rsp+90h] [rbp+18h]
-  unsigned int v70; // [rsp+98h] [rbp+20h]
-  __int64 v71; // [rsp+98h] [rbp+20h]
+  char v60; // al
+  __int64 v61; // r10
+  __int64 v62; // r11
+  unsigned int v64; // [rsp+20h] [rbp-58h]
+  unsigned int v65; // [rsp+24h] [rbp-54h]
+  int v66; // [rsp+28h] [rbp-50h]
+  unsigned int v67; // [rsp+2Ch] [rbp-4Ch]
+  unsigned int v69; // [rsp+88h] [rbp+10h]
+  unsigned int v70; // [rsp+90h] [rbp+18h]
+  unsigned int v71; // [rsp+98h] [rbp+20h]
+  __int64 v72; // [rsp+98h] [rbp+20h]
 
   v1 = a1;
   Pool2 = 0LL;
@@ -104,12 +105,12 @@ LABEL_57:
   if ( updated < 0 )
     goto LABEL_57;
   v5 = *v1;
-  v63 = v5;
+  v64 = v5;
   if ( !(_DWORD)v5 )
     goto LABEL_56;
   v6 = KeNumberProcessors_0;
   v7 = 0;
-  v68 = KeNumberProcessors_0;
+  v69 = KeNumberProcessors_0;
   v8 = KeNumberProcessors_0 * v5;
   v9 = v1 + 86;
   v10 = (unsigned int)v5;
@@ -133,212 +134,213 @@ LABEL_56:
     goto LABEL_57;
   }
   v14 = (unsigned int)PpmIdleVetoList;
-  v69 = (448 * v5 + 71) & 0xFFFFFFF8;
-  v70 = v69 + 24 * v7;
-  v64 = v70 + 24 * v8;
-  v15 = (v64 + 4 * KeNumberProcessors_0 * v5 + 7) & 0xFFFFFFF8;
-  v65 = (4 * v5 + 15) & 0xFFFFFFF8;
-  v66 = (v15 + ((_DWORD)v5 << 10) + 47) & 0xFFFFFFF8;
+  v70 = (448 * v5 + 71) & 0xFFFFFFF8;
+  v71 = v70 + 24 * v7;
+  v65 = v71 + 24 * v8;
+  v15 = (v65 + 4 * KeNumberProcessors_0 * v5 + 7) & 0xFFFFFFF8;
+  v66 = (4 * v5 + 15) & 0xFFFFFFF8;
+  v67 = (v15 + ((_DWORD)v5 << 10) + 47) & 0xFFFFFFF8;
+  v16 = v67 + KeNumberProcessors_0 * v66;
   if ( PpmIdleVetoList )
   {
     v14 = *((_DWORD *)PpmIdleVetoList + 1);
     if ( v14 )
     {
-      Pool2 = (char *)ExAllocatePool2(0x40uLL);
+      Pool2 = (char *)ExAllocatePool2(0x40uLL, ((unsigned int)v5 * (unsigned __int64)v14) << 6, 0x694D5050u);
       if ( !Pool2 )
         goto LABEL_14;
     }
   }
-  v16 = ExAllocatePool2(0x48uLL);
-  v13 = (int *)v16;
-  if ( !v16 )
+  v17 = ExAllocatePool2(0x48uLL, v16, 0x694D5050u);
+  v13 = (int *)v17;
+  if ( !v17 )
   {
     ExFreePoolWithTag(Pool2, 0x694D5050u);
 LABEL_14:
     updated = -1073741670;
     goto LABEL_57;
   }
-  *(_DWORD *)(v16 + 4) = v6;
-  *(_DWORD *)v16 = v5;
-  *(_BYTE *)(v16 + 8) = 1;
-  *(_QWORD *)(v16 + 16) = *((_QWORD *)v1 + 1);
-  *(_QWORD *)(v16 + 24) = *((_QWORD *)v1 + 2);
-  *(_QWORD *)(v16 + 32) = *((_QWORD *)v1 + 3);
-  *(_QWORD *)(v16 + 40) = *((_QWORD *)v1 + 4);
-  v17 = (int *)(v16 + v15);
-  *(_QWORD *)(v16 + 48) = v17;
-  v17[1] = v5;
-  PpmResetPlatformIdleAccounting(v17);
-  for ( i = 0; i < *v1; i = v22 + 1 )
+  *(_DWORD *)(v17 + 4) = v6;
+  *(_DWORD *)v17 = v5;
+  *(_BYTE *)(v17 + 8) = 1;
+  *(_QWORD *)(v17 + 16) = *((_QWORD *)v1 + 1);
+  *(_QWORD *)(v17 + 24) = *((_QWORD *)v1 + 2);
+  *(_QWORD *)(v17 + 32) = *((_QWORD *)v1 + 3);
+  *(_QWORD *)(v17 + 40) = *((_QWORD *)v1 + 4);
+  v18 = (int *)(v17 + v15);
+  *(_QWORD *)(v17 + 48) = v18;
+  v18[1] = v5;
+  PpmResetPlatformIdleAccounting(v18);
+  for ( i = 0; i < *v1; i = v23 + 1 )
   {
-    v19 = 112LL * i;
-    v20 = &v13[v19 + 22];
-    *((_QWORD *)v20 + 1) = v20;
-    *(_QWORD *)v20 = v20;
-    LOBYTE(v13[v19 + 26]) = 7;
+    v20 = 112LL * i;
+    v21 = &v13[v20 + 22];
+    *((_QWORD *)v21 + 1) = v21;
+    *(_QWORD *)v21 = v21;
+    LOBYTE(v13[v20 + 26]) = 7;
     if ( PpmIdleIsStateDisabled(0, i) )
-      *(int *)((char *)v13 + v21 + 80) = 0x80000000;
+      *(int *)((char *)v13 + v22 + 80) = 0x80000000;
     if ( v14 )
     {
-      if ( v22 == *v1 - 1 )
-        *((_BYTE *)v13 + v21 + 105) = 1;
-      *(_QWORD *)((char *)v13 + v21 + 112) = Pool2;
+      if ( v23 == *v1 - 1 )
+        *((_BYTE *)v13 + v22 + 105) = 1;
+      *(_QWORD *)((char *)v13 + v22 + 112) = Pool2;
       Pool2 += 64 * (unsigned __int64)v14;
-      *(int *)((char *)v13 + v21 + 108) = v14;
-      *(_QWORD *)&v17[256 * v23 + 56] = (char *)v13 + v21 + 80;
+      *(int *)((char *)v13 + v22 + 108) = v14;
+      *(_QWORD *)&v18[256 * v24 + 56] = (char *)v13 + v22 + 80;
     }
   }
-  v24 = (char *)v13 + v70;
-  v25 = v1 + 82;
-  v26 = (char *)v13 + v69;
-  v27 = (char *)v13 + 130;
+  v25 = (char *)v13 + v71;
+  v26 = v1 + 82;
+  v27 = (char *)v13 + v70;
+  v28 = (char *)v13 + 130;
   do
   {
-    *(_OWORD *)(v27 + 262) = *((_OWORD *)v25 - 1);
-    *(_QWORD *)(v27 - 66) = *(_QWORD *)v25;
-    *(v27 - 8) = *((_BYTE *)v25 + 28);
-    *(_DWORD *)(v27 + 2) = 0;
-    *(_DWORD *)(v27 - 2) = 2097153;
-    memset_0(v27 + 6, 0, 0x100uLL);
-    KiCopyAffinityEx((struct _KAFFINITY_EX *)(v27 - 2), *(_WORD *)v27, (struct _KAFFINITY_EX *)(v25 - 70));
-    v28 = 0LL;
-    *(_DWORD *)(v27 - 6) = v25[5];
-    *(_QWORD *)(v27 + 278) = v26;
-    v29 = v25[5];
-    v26 += 24 * v29;
-    if ( (_DWORD)v29 )
+    *(_OWORD *)(v28 + 262) = *((_OWORD *)v26 - 1);
+    *(_QWORD *)(v28 - 66) = *(_QWORD *)v26;
+    *(v28 - 8) = *((_BYTE *)v26 + 28);
+    *(_DWORD *)(v28 + 2) = 0;
+    *(_DWORD *)(v28 - 2) = 2097153;
+    memset_0(v28 + 6, 0, 0x100uLL);
+    KiCopyAffinityEx((struct _KAFFINITY_EX *)(v28 - 2), *(_WORD *)v28, (struct _KAFFINITY_EX *)(v26 - 70));
+    v29 = 0LL;
+    *(_DWORD *)(v28 - 6) = v26[5];
+    *(_QWORD *)(v28 + 278) = v27;
+    v30 = v26[5];
+    v27 += 24 * v30;
+    if ( (_DWORD)v30 )
     {
       do
       {
-        v30 = 3 * v28;
-        v28 = (unsigned int)(v28 + 1);
-        *(_QWORD *)(*(_QWORD *)(v27 + 278) + 8 * v30 + 16) = v24;
-        v24 += 24 * v25[4];
+        v31 = 3 * v29;
+        v29 = (unsigned int)(v29 + 1);
+        *(_QWORD *)(*(_QWORD *)(v28 + 278) + 8 * v31 + 16) = v25;
+        v25 += 24 * v26[4];
       }
-      while ( (unsigned int)v28 < v25[5] );
+      while ( (unsigned int)v29 < v26[5] );
     }
-    v25 += 80;
-    v27 += 448;
+    v26 += 80;
+    v28 += 448;
     --v5;
   }
   while ( v5 );
-  LODWORD(v5) = v63;
+  LODWORD(v5) = v64;
   v1 = a1;
-  v31 = 0;
-  v6 = v68;
-  v32 = (char *)v13 + v64;
-  if ( v68 )
+  v32 = 0;
+  v6 = v69;
+  v33 = (char *)v13 + v65;
+  if ( v69 )
   {
     do
     {
-      Prcb = KeGetPrcb(v31);
-      v34 = 0;
-      v35 = *(_QWORD *)(Prcb + 34880);
-      *(_QWORD *)(v35 + 1024) = v24;
-      v24 += 24 * v63;
-      *(_QWORD *)(v35 + 1048) = v32;
-      v32 += 4 * v63;
-      *(_DWORD *)(v35 + 1016) = v63;
-      *(_QWORD *)(v35 + 992) = (char *)v13 + v66 + v31 * v65;
-      *(_DWORD *)(v35 + 1032) = v63;
-      if ( v63 )
+      Prcb = KeGetPrcb(v32);
+      v35 = 0;
+      v36 = *(_QWORD *)(Prcb + 34880);
+      *(_QWORD *)(v36 + 1024) = v25;
+      v25 += 24 * v64;
+      *(_QWORD *)(v36 + 1048) = v33;
+      v33 += 4 * v64;
+      *(_DWORD *)(v36 + 1016) = v64;
+      *(_QWORD *)(v36 + 992) = (char *)v13 + v67 + v32 * v66;
+      *(_DWORD *)(v36 + 1032) = v64;
+      if ( v64 )
       {
-        v36 = v13 + 102;
+        v37 = v13 + 102;
         do
         {
-          v37 = *(_QWORD *)(v35 + 1024);
-          v38 = 3LL * (v63 - v34 - 1);
-          *(_DWORD *)(v37 + 8 * v38 + 4) = v34++;
-          *(_DWORD *)(v37 + 8 * v38 + 8) = *((_DWORD *)v36 - 71);
-          v39 = *v36;
-          v36 += 56;
-          *(_QWORD *)(v37 + 8 * v38 + 16) = v39;
+          v38 = *(_QWORD *)(v36 + 1024);
+          v39 = 3LL * (v64 - v35 - 1);
+          *(_DWORD *)(v38 + 8 * v39 + 4) = v35++;
+          *(_DWORD *)(v38 + 8 * v39 + 8) = *((_DWORD *)v37 - 71);
+          v40 = *v37;
+          v37 += 56;
+          *(_QWORD *)(v38 + 8 * v39 + 16) = v40;
         }
-        while ( v34 < v63 );
+        while ( v35 < v64 );
       }
-      ++v31;
+      ++v32;
     }
-    while ( v31 < v68 );
+    while ( v32 < v69 );
     v1 = a1;
   }
 LABEL_34:
   if ( (_DWORD)v5 )
   {
-    v40 = (unsigned int)v5;
-    v41 = v13 + 18;
-    v71 = (unsigned int)v5;
-    v42 = v1 + 85;
+    v41 = (unsigned int)v5;
+    v42 = v13 + 18;
+    v72 = (unsigned int)v5;
+    v43 = v1 + 85;
     do
     {
-      v43 = 0LL;
-      *v41 = *(v42 - 1);
-      v41[1] = *v42;
-      *((_BYTE *)v41 + 49) = *((_BYTE *)v42 + 12);
-      if ( v42[2] )
+      v44 = 0LL;
+      *v42 = *(v43 - 1);
+      v42[1] = *v43;
+      *((_BYTE *)v42 + 49) = *((_BYTE *)v43 + 12);
+      if ( v43[2] )
       {
         do
         {
-          v44 = *((_QWORD *)v41 + 42);
-          v45 = *(_QWORD *)(v42 + 5) + 16LL * (unsigned int)v43;
-          v46 = *(_DWORD *)v45;
-          *(_DWORD *)(v44 + 24 * v43) = *(_DWORD *)v45;
-          if ( v46 == -1 )
-            *((_BYTE *)v41 + 51) = 1;
-          v47 = 0LL;
-          *(_DWORD *)(v44 + 24 * v43 + 8) = *(_DWORD *)(v45 + 4);
-          v48 = *(_DWORD *)(v45 + 4);
-          if ( v48 )
+          v45 = *((_QWORD *)v42 + 42);
+          v46 = *(_QWORD *)(v43 + 5) + 16LL * (unsigned int)v44;
+          v47 = *(_DWORD *)v46;
+          *(_DWORD *)(v45 + 24 * v44) = *(_DWORD *)v46;
+          if ( v47 == -1 )
+            *((_BYTE *)v42 + 51) = 1;
+          v48 = 0LL;
+          *(_DWORD *)(v45 + 24 * v44 + 8) = *(_DWORD *)(v46 + 4);
+          v49 = *(_DWORD *)(v46 + 4);
+          if ( v49 )
           {
             do
             {
-              v49 = *(_QWORD *)(v45 + 8);
-              v50 = *(_QWORD *)(v44 + 24 * v43 + 16);
-              v51 = 3LL * (v48 - (unsigned int)v47 - 1);
-              v52 = *(unsigned __int8 *)(v49 + 4 * v47);
-              *(_DWORD *)(v50 + 8 * v51 + 4) = v52;
-              *(_BYTE *)(v50 + 8 * v51) = *(_BYTE *)(v49 + 4 * v47 + 1) == 0;
-              *(_BYTE *)(v50 + 8 * v51 + 1) = *(_BYTE *)(v49 + 4 * v47 + 2);
-              *(_BYTE *)(v50 + 8 * v51 + 2) = *(_BYTE *)(v49 + 4 * v47 + 3);
-              if ( *(_DWORD *)(v44 + 24 * v43) == -1 )
+              v50 = *(_QWORD *)(v46 + 8);
+              v51 = *(_QWORD *)(v45 + 24 * v44 + 16);
+              v52 = 3LL * (v49 - (unsigned int)v48 - 1);
+              v53 = *(unsigned __int8 *)(v50 + 4 * v48);
+              *(_DWORD *)(v51 + 8 * v52 + 4) = v53;
+              *(_BYTE *)(v51 + 8 * v52) = *(_BYTE *)(v50 + 4 * v48 + 1) == 0;
+              *(_BYTE *)(v51 + 8 * v52 + 1) = *(_BYTE *)(v50 + 4 * v48 + 2);
+              *(_BYTE *)(v51 + 8 * v52 + 2) = *(_BYTE *)(v50 + 4 * v48 + 3);
+              if ( *(_DWORD *)(v45 + 24 * v44) == -1 )
               {
-                v53 = 112LL * v52;
-                *(_DWORD *)(v50 + 8 * v51 + 8) = v13[v53 + 31];
-                v54 = *(_QWORD *)&v13[v53 + 102];
+                v54 = 112LL * v53;
+                *(_DWORD *)(v51 + 8 * v52 + 8) = v13[v54 + 31];
+                v55 = *(_QWORD *)&v13[v54 + 102];
               }
               else
               {
-                *(_DWORD *)(v50 + 8 * v51 + 8) = 0;
-                v54 = 0LL;
+                *(_DWORD *)(v51 + 8 * v52 + 8) = 0;
+                v55 = 0LL;
               }
-              *(_QWORD *)(v50 + 8 * v51 + 16) = v54;
-              v47 = (unsigned int)(v47 + 1);
-              v48 = *(_DWORD *)(v45 + 4);
+              *(_QWORD *)(v51 + 8 * v52 + 16) = v55;
+              v48 = (unsigned int)(v48 + 1);
+              v49 = *(_DWORD *)(v46 + 4);
             }
-            while ( (unsigned int)v47 < v48 );
+            while ( (unsigned int)v48 < v49 );
           }
-          v43 = (unsigned int)(v43 + 1);
+          v44 = (unsigned int)(v44 + 1);
         }
-        while ( (unsigned int)v43 < v42[2] );
-        v40 = v71;
+        while ( (unsigned int)v44 < v43[2] );
+        v41 = v72;
       }
-      v41 += 112;
-      v42 += 80;
-      v71 = --v40;
+      v42 += 112;
+      v43 += 80;
+      v72 = --v41;
     }
-    while ( v40 );
-    v6 = v68;
+    while ( v41 );
+    v6 = v69;
   }
   for ( j = 0; j < v6; ++j )
   {
-    v56 = 0;
-    for ( k = *(_QWORD *)(KeGetPrcb(j) + 34880); v56 < (unsigned int)v5; *(_BYTE *)(v60 + 8 * v61 + 1) = v59 )
+    v57 = 0;
+    for ( k = *(_QWORD *)(KeGetPrcb(j) + 34880); v57 < (unsigned int)v5; *(_BYTE *)(v61 + 8 * v62 + 1) = v60 )
     {
-      v59 = PpmCheckCoordinatedStateInitiator(
+      v60 = PpmCheckCoordinatedStateInitiator(
               j,
-              *(_DWORD *)(*(_QWORD *)(k + 1024) + 24LL * ((unsigned int)v5 - v56 - 1) + 8),
-              *(_QWORD *)(*(_QWORD *)(k + 1024) + 24LL * ((unsigned int)v5 - v56 - 1) + 16),
-              v57);
-      ++v56;
+              *(_DWORD *)(*(_QWORD *)(k + 1024) + 24LL * ((unsigned int)v5 - v57 - 1) + 8),
+              *(_QWORD *)(*(_QWORD *)(k + 1024) + 24LL * ((unsigned int)v5 - v57 - 1) + 16),
+              v58);
+      ++v57;
     }
   }
   if ( !PpmPlatformStates )

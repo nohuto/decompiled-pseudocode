@@ -1,22 +1,22 @@
 /*
- * XREFs of PiSwPdoPnPDispatch @ 0x14090C0D0
+ * XREFs of PiSwPdoPnPDispatch @ 0x1409AE200
  * Callers:
  *     <none>
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     PiSwProcessRemove @ 0x14090B360 (PiSwProcessRemove.c)
- *     PiSwLock @ 0x14090DC3C (PiSwLock.c)
- *     _PnpStringFromGuid @ 0x14090F21C (_PnpStringFromGuid.c)
- *     PiSwCompleteCreate @ 0x14090F730 (PiSwCompleteCreate.c)
- *     PnpAllocatePWSTR @ 0x140990AC0 (PnpAllocatePWSTR.c)
- *     PiSwDestroyDeviceObject @ 0x140A7B2DC (PiSwDestroyDeviceObject.c)
- *     PnpAllocateMultiSZ @ 0x140A7C784 (PnpAllocateMultiSZ.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x140AF971C (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwDeviceMakeCompatibleIds @ 0x140B0C994 (PiSwDeviceMakeCompatibleIds.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     PnpAllocatePWSTR @ 0x140951520 (PnpAllocatePWSTR.c)
+ *     PiSwProcessRemove @ 0x1409AD484 (PiSwProcessRemove.c)
+ *     PiSwLock @ 0x1409AFD6C (PiSwLock.c)
+ *     _PnpStringFromGuid @ 0x1409B134C (_PnpStringFromGuid.c)
+ *     PiSwCompleteCreate @ 0x1409B1860 (PiSwCompleteCreate.c)
+ *     PiSwDestroyDeviceObject @ 0x140A8C420 (PiSwDestroyDeviceObject.c)
+ *     PnpAllocateMultiSZ @ 0x140A8D8B4 (PnpAllocateMultiSZ.c)
+ *     PiSwDeviceMakeCompatibleIds @ 0x140B0E0E4 (PiSwDeviceMakeCompatibleIds.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x140B14B14 (PiSwDeviceInterfacesUpdateState.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiSwPdoPnPDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -42,8 +42,8 @@ __int64 __fastcall PiSwPdoPnPDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
   ULONG_PTR v22; // rbx
   _QWORD *v23; // rdx
   ULONG Length; // ecx
-  __int64 v25; // rcx
-  __int64 v26; // rdx
+  _WORD *v25; // rcx
+  unsigned __int64 v26; // rdx
   unsigned int v28; // ecx
   unsigned int v29; // ecx
   unsigned int v30; // ecx
@@ -90,11 +90,11 @@ __int64 __fastcall PiSwPdoPnPDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
         {
           if ( Length != 1 )
             goto LABEL_30;
-          v25 = v23[7];
+          v25 = (_WORD *)v23[7];
         }
         else
         {
-          v25 = v23[6];
+          v25 = (_WORD *)v23[6];
         }
         if ( !v25 )
           goto LABEL_30;
@@ -151,16 +151,16 @@ LABEL_30:
             MultiSZ = PnpStringFromGuid(*(_QWORD *)(*DeviceExtension + 40LL), Pool2);
             goto LABEL_29;
           }
-          v25 = v10[2];
+          v25 = (_WORD *)v10[2];
           v26 = 200LL;
         }
         else
         {
-          v25 = v10[1];
+          v25 = (_WORD *)v10[1];
           v26 = 200LL;
         }
 LABEL_28:
-        MultiSZ = PnpAllocatePWSTR(v25, v26, 1466986064LL, &Irp->IoStatus.Information);
+        MultiSZ = PnpAllocatePWSTR(v25, v26, 0x57706E50u, (PVOID *)&Irp->IoStatus.Information);
         goto LABEL_29;
       }
       goto LABEL_59;

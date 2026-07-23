@@ -5,7 +5,7 @@
  * Callees:
  *     KiAbPropagateBoosts @ 0x140023BB0 (KiAbPropagateBoosts.c)
  *     KiAbProcessThreadLocks @ 0x140023C40 (KiAbProcessThreadLocks.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDCA4 (KiReadyDeferredReadyList.c)
  */
 
 void __fastcall KiAbDeferredProcessingWorker(

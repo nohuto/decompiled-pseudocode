@@ -1,19 +1,19 @@
 /*
- * XREFs of PoDelistPowerStateTransitionBlocker @ 0x140AA616C
+ * XREFs of PoDelistPowerStateTransitionBlocker @ 0x140AA5FDC
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x14032D1A0 (PopUmpoSendPowerMessage.c)
- *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140957A94 (PnpPowerStateTransitionWatchdogPopRecord.c)
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x14096B9B0 (PnpSurpriseFailUnsafeDmaDevices.c)
- *     PopManageTransitionRecordRequest @ 0x140984498 (PopManageTransitionRecordRequest.c)
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
- *     PopInitSystemSleeperThread @ 0x14098B7A0 (PopInitSystemSleeperThread.c)
- *     ExSwapinWorkerThreads @ 0x140A005C8 (ExSwapinWorkerThreads.c)
- *     PopUnlockAfterSleepWorker @ 0x140AA6950 (PopUnlockAfterSleepWorker.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopUmpoSendPowerMessage @ 0x14032D430 (PopUmpoSendPowerMessage.c)
+ *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140957C94 (PnpPowerStateTransitionWatchdogPopRecord.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x14096BBB0 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     PopManageTransitionRecordRequest @ 0x140984698 (PopManageTransitionRecordRequest.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
+ *     PopInitSystemSleeperThread @ 0x14098B9A0 (PopInitSystemSleeperThread.c)
+ *     ExSwapinWorkerThreads @ 0x140A00858 (ExSwapinWorkerThreads.c)
+ *     PopUnlockAfterSleepWorker @ 0x140AA67C0 (PopUnlockAfterSleepWorker.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 PoDelistPowerStateTransitionBlocker()
@@ -22,7 +22,7 @@ __int64 PoDelistPowerStateTransitionBlocker()
   __int64 v1; // rbx
 
   v0 = 0;
-  if ( (unsigned int)(dword_140C3D264 - 1) <= 1 )
+  if ( (unsigned int)(dword_140C3CF24 - 1) <= 1 )
   {
     PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C3E5E8);
     if ( (unsigned int)dword_140C3E5E0 >= 0x40 )
@@ -32,11 +32,11 @@ __int64 PoDelistPowerStateTransitionBlocker()
     else
     {
       v1 = 5LL * (unsigned int)dword_140C3E5E0;
-      ObfDereferenceObject((PVOID)PopStateTransitonBlameStack[5 * (unsigned int)dword_140C3E5E0 + 1]);
-      ObfDereferenceObject((PVOID)PopStateTransitonBlameStack[v1]);
-      *(_OWORD *)&PopStateTransitonBlameStack[v1] = 0LL;
-      *(_OWORD *)&PopStateTransitonBlameStack[v1 + 2] = 0LL;
-      PopStateTransitonBlameStack[v1 + 4] = 0LL;
+      ObfDereferenceObject((PVOID)PopStateTransitonBlameStack[5 * (unsigned int)dword_140C3E5E0 + 1].QuadPart);
+      ObfDereferenceObject((PVOID)PopStateTransitonBlameStack[v1].QuadPart);
+      *(_OWORD *)&PopStateTransitonBlameStack[v1].LowPart = 0LL;
+      *(_OWORD *)&PopStateTransitonBlameStack[v1 + 2].LowPart = 0LL;
+      PopStateTransitonBlameStack[v1 + 4].QuadPart = 0LL;
       --dword_140C3E5E0;
     }
     PopReleaseRwLock((__int64 *)&xmmword_140C3E5E8);

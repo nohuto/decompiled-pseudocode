@@ -48,14 +48,14 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentDecommitPages(
   unsigned int v20; // esi
   unsigned int v21; // edi
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v27; // eax
   bool v28; // zf
   unsigned __int8 v29; // bp
-  __int64 v30; // r8
+  unsigned int v30; // r8d
   __int64 v31; // rcx
   __int64 v32; // rbx
   unsigned __int8 v33; // r14
@@ -183,23 +183,23 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentDecommitPages(
         v44[0] = 0;
         CurrentThread = KeGetCurrentThread();
         if ( (unsigned int)MiGetSystemRegionType(v16) == 1 )
-          SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+          SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
         else
-          SessionId = 0xFFFFFFFFLL;
+          SessionId = -1;
         --CurrentThread->SpecialApcDisable;
         v29 = ++CurrentThread->AbAllocationRegionCount;
-        LODWORD(v30) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+        v30 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
         v28 = !_BitScanReverse((unsigned int *)&v31, v30);
         if ( v28 )
           goto LABEL_54;
         while ( 1 )
         {
           v32 = (__int64)&CurrentThread->LockEntries[v31];
-          v30 = ~(1 << v31) & (unsigned int)v30;
+          v30 &= ~(1 << v31);
           if ( (*(_BYTE *)(v32 + 26) & 1) != 0
             && (*(_DWORD *)(v32 + 32) & 1) == 0
             && (*(_QWORD *)(v32 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v16 & 0x7FFFFFFFFFFFFFFCLL)
-            && *(_DWORD *)(v32 + 40) == (_DWORD)SessionId )
+            && *(_DWORD *)(v32 + 40) == SessionId )
           {
             *(_BYTE *)(v32 + 26) &= ~1u;
             if ( *(_QWORD *)(v32 + 32) )
@@ -213,13 +213,13 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentDecommitPages(
         {
 LABEL_54:
           if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-            KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v16, (unsigned int)SessionId, 0LL);
+            KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v16, SessionId, 0LL);
         }
         else
         {
           *(_BYTE *)(v32 + 32) |= 2u;
           if ( *(__int64 *)(v32 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v32, SessionId, v30);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v32);
           v44[0] = *(_DWORD *)(v32 + 88) & 0x1FFFF;
           *(_DWORD *)(v32 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v32 + 25) &= ~1u;

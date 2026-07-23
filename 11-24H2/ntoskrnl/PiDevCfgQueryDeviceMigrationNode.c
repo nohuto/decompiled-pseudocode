@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x140831268
+ * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x1409D1CC4
  * Callers:
- *     PiDevCfgFindDeviceMigrationNode @ 0x140729484 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgMigrateDevice @ 0x14099A6AC (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1407270E0 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x1409CCE1C (PiDevCfgMigrateDevice.c)
  * Callees:
- *     PnpValidateMultiSzData @ 0x1404B3254 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiDevCfgFreeDeviceMigrationNode @ 0x1408311D4 (PiDevCfgFreeDeviceMigrationNode.c)
- *     RtlCreateUnicodeString @ 0x140833010 (RtlCreateUnicodeString.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     PnpValidateMultiSzData @ 0x1404ADA64 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     PiDevCfgFreeDeviceMigrationNode @ 0x1409D1540 (PiDevCfgFreeDeviceMigrationNode.c)
+ *     RtlCreateUnicodeString @ 0x1409D2A00 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2, __int64 *a3)
@@ -32,7 +32,7 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
   __m128i si128; // xmm1
   __m128i v14; // xmm3
   __m128i v15; // xmm2
-  __int64 v16; // rdx
+  const WCHAR *v16; // rdx
   _QWORD *v17; // rsi
   _WORD *v18; // rcx
   UNICODE_STRING *v20; // r9
@@ -87,10 +87,10 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
     v7 = *(_QWORD *)(v6 + 8);
   else
     v7 = 0LL;
-  RegistryValues = RegRtlOpenKeyTransacted(v4, a2, 0LL, 131097LL, &Handle, v7);
+  RegistryValues = RegRtlOpenKeyTransacted(v4, a2, 0, 0x20019u, &Handle, v7);
   if ( RegistryValues < 0 )
     goto LABEL_22;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0xC0uLL, 0x63647050u);
   v10 = Pool2;
   v11 = _mm_unpacklo_epi64((__m128i)(unsigned __int64)Pool2, (__m128i)(unsigned __int64)Pool2);
   if ( !Pool2 )
@@ -107,7 +107,7 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
   *(_QWORD *)(v10 + 40) = Handle;
   Handle = 0LL;
   memset_0(v25, 0, 0x230uLL);
-  v12 = _mm_loadu_si128((const __m128i *)off_140B3B828);
+  v12 = _mm_loadu_si128((const __m128i *)&off_140B3D5D0);
   si128 = _mm_load_si128((const __m128i *)&_xmm);
   v14 = _mm_load_si128((const __m128i *)&_xmm);
   v34 = L"ClassGuid";
@@ -141,7 +141,7 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
   v56 = 0x1000000;
   v53 = 288;
   v60 = 0x4000000;
-  v16 = *(_QWORD *)(v10 + 40);
+  v16 = *(const WCHAR **)(v10 + 40);
   v57 = 288;
   v59 = v10 + 176;
   v32 = _mm_cvtsi128_si32(_mm_srli_si128(si128, 4));
@@ -152,7 +152,7 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
   v52 = 117440512;
   v49 = 304;
   v55 = v10 + 160;
-  RegistryValues = RtlpQueryRegistryValues(-1073741824, v16, (int)v25, 0, v21, 1);
+  RegistryValues = RtlpQueryRegistryValues(3221225472LL, v16, (__int64)v25, 0LL, v21, 1);
   if ( RegistryValues < 0 )
   {
 LABEL_21:

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlBeginReadTickLock @ 0x14008A5E4
+ * XREFs of RtlBeginReadTickLock @ 0x14008A5D4
  * Callers:
- *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     RtlGetSystemTimePrecise @ 0x14008A510 (RtlGetSystemTimePrecise.c)
- *     RtlGetMultiTimePrecise @ 0x140138698 (RtlGetMultiTimePrecise.c)
- *     KeCpuSetQueryUnparkRecommendation @ 0x140296520 (KeCpuSetQueryUnparkRecommendation.c)
- *     KiComputeCpuSetAffinityMask @ 0x140296F24 (KiComputeCpuSetAffinityMask.c)
- *     KeQueryCpuSetInformation @ 0x14075A814 (KeQueryCpuSetInformation.c)
+ *     KiComputeThreadAffinity @ 0x14008A420 (KiComputeThreadAffinity.c)
+ *     RtlGetSystemTimePrecise @ 0x14008A500 (RtlGetSystemTimePrecise.c)
+ *     RtlGetMultiTimePrecise @ 0x140138798 (RtlGetMultiTimePrecise.c)
+ *     KeCpuSetQueryUnparkRecommendation @ 0x140296710 (KeCpuSetQueryUnparkRecommendation.c)
+ *     KiComputeCpuSetAffinityMask @ 0x140297114 (KiComputeCpuSetAffinityMask.c)
+ *     KeQueryCpuSetInformation @ 0x14075BA04 (KeQueryCpuSetInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfApplyDomainState @ 0x1400D40C0
+ * XREFs of PpmPerfApplyDomainState @ 0x1400D1F60
  * Callers:
- *     PpmPerfApplyDomainStates @ 0x1400D52E0 (PpmPerfApplyDomainStates.c)
+ *     PpmPerfApplyDomainStates @ 0x1400D3180 (PpmPerfApplyDomainStates.c)
  * Callees:
- *     PpmGetHeterogeneousClass @ 0x1400D3FC8 (PpmGetHeterogeneousClass.c)
- *     PpmPerfApplyCapsAndFloors @ 0x1400D4570 (PpmPerfApplyCapsAndFloors.c)
- *     PpmEventDomainPerfStateChange @ 0x140131D54 (PpmEventDomainPerfStateChange.c)
- *     KeIsSubsetAffinityEx @ 0x1401D3ED8 (KeIsSubsetAffinityEx.c)
+ *     PpmGetHeterogeneousClass @ 0x1400D1E68 (PpmGetHeterogeneousClass.c)
+ *     PpmPerfApplyCapsAndFloors @ 0x1400D2410 (PpmPerfApplyCapsAndFloors.c)
+ *     PpmEventDomainPerfStateChange @ 0x1401322C4 (PpmEventDomainPerfStateChange.c)
+ *     KeIsSubsetAffinityEx @ 0x1401D3D04 (KeIsSubsetAffinityEx.c)
  */
 
 char __fastcall PpmPerfApplyDomainState(__int64 a1)
@@ -59,7 +59,7 @@ char __fastcall PpmPerfApplyDomainState(__int64 a1)
   v2 = 0;
   v42 = *(_QWORD *)(*(_QWORD *)(a1 + 200) + 8LL);
   v44 = 0;
-  v3 = &PpmCurrentProfile[174 * dword_140303E0C + 5];
+  v3 = &PpmCurrentProfile[174 * dword_140303D4C + 5];
   v41 = v3;
   if ( *(_BYTE *)(a1 + 199) )
     HeterogeneousClass = 0LL;

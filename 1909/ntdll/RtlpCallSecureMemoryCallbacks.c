@@ -12,65 +12,65 @@
 char __fastcall RtlpCallSecureMemoryCallbacks(__int64 a1, __int64 a2)
 {
   char v4; // r14
-  char *v5; // rsi
+  PVOID *v5; // rsi
   _DWORD *v6; // rbx
-  __int64 *v7; // rdi
+  PVOID **v7; // rdi
   bool v8; // zf
-  __int64 **v9; // rax
-  __int64 *v10; // rax
-  __int64 v11; // r8
+  PVOID **v9; // rax
+  PVOID *v10; // rax
+  PVOID v11; // r8
   __int64 v12; // rax
-  __int64 v14; // [rsp+20h] [rbp-10h] BYREF
-  __int64 *v15; // [rsp+28h] [rbp-8h]
+  PVOID BaseAddress; // [rsp+20h] [rbp-10h] BYREF
+  PVOID *p_BaseAddress; // [rsp+28h] [rbp-8h]
 
-  v15 = &v14;
-  v14 = (__int64)&v14;
+  p_BaseAddress = &BaseAddress;
+  BaseAddress = &BaseAddress;
   v4 = 0;
   RtlAcquireSRWLockExclusive(&RtlpSecMemLock);
-  v5 = (char *)RtlpSecMemListHead;
-  if ( RtlpSecMemListHead != (_UNKNOWN *)&RtlpSecMemListHead )
+  v5 = (PVOID *)RtlpSecMemListHead;
+  if ( RtlpSecMemListHead != &RtlpSecMemListHead )
   {
     do
     {
-      v6 = v5 + 16;
-      v7 = (__int64 *)v5;
+      v6 = v5 + 2;
+      v7 = (PVOID **)v5;
       ++*((_DWORD *)v5 + 4);
       RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
-      if ( (*((unsigned __int8 (__fastcall **)(__int64, __int64))v5 + 3))(a1, a2) )
+      if ( ((unsigned __int8 (__fastcall *)(__int64, __int64))v5[3])(a1, a2) )
         v4 = 1;
       RtlAcquireSRWLockExclusive(&RtlpSecMemLock);
       v8 = (*v6)-- == 1;
-      v5 = *(char **)v5;
+      v5 = (PVOID *)*v5;
       if ( v8 )
       {
-        if ( *((__int64 **)v5 + 1) != v7
-          || (v9 = (__int64 **)v7[1], *v9 != v7)
-          || (*v9 = (__int64 *)v5, *((_QWORD *)v5 + 1) = v9, v10 = v15, (__int64 *)*v15 != &v14) )
+        if ( v5[1] != v7
+          || (v9 = (PVOID **)v7[1], *v9 != (PVOID *)v7)
+          || (*v9 = v5, v5[1] = v9, v10 = p_BaseAddress, *p_BaseAddress != &BaseAddress) )
         {
 LABEL_15:
           __fastfail(3u);
         }
-        v7[1] = (__int64)v15;
-        *v7 = (__int64)&v14;
-        *v10 = (__int64)v7;
-        v15 = v7;
+        v7[1] = p_BaseAddress;
+        *v7 = &BaseAddress;
+        *v10 = v7;
+        p_BaseAddress = (PVOID *)v7;
       }
     }
-    while ( v5 != (char *)&RtlpSecMemListHead );
+    while ( v5 != &RtlpSecMemListHead );
   }
   RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
   while ( 1 )
   {
-    v11 = v14;
-    if ( (__int64 *)v14 == &v14 )
+    v11 = BaseAddress;
+    if ( BaseAddress == &BaseAddress )
       return v4;
-    if ( *(__int64 **)(v14 + 8) != &v14 )
+    if ( *((PVOID **)BaseAddress + 1) != &BaseAddress )
       goto LABEL_15;
-    v12 = *(_QWORD *)v14;
-    if ( *(_QWORD *)(*(_QWORD *)v14 + 8LL) != v14 )
+    v12 = *(_QWORD *)BaseAddress;
+    if ( *(PVOID *)(*(_QWORD *)BaseAddress + 8LL) != BaseAddress )
       goto LABEL_15;
-    v14 = *(_QWORD *)v14;
-    *(_QWORD *)(v12 + 8) = &v14;
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+    BaseAddress = *(PVOID *)BaseAddress;
+    *(_QWORD *)(v12 + 8) = &BaseAddress;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
   }
 }

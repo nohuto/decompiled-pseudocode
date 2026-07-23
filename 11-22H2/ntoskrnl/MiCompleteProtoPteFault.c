@@ -402,10 +402,10 @@ LABEL_252:
             if ( v146 )
               v147 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)((*((_QWORD *)P + 192) & 0xFFFFFFFFFFFFFFF0uLL) + 360));
             KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A710);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v139 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v139 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -546,10 +546,10 @@ LABEL_276:
                             ++*(_DWORD *)(v146 + 120);
                             *(_QWORD *)(v146 + 96) = v102;
                             KxReleaseSpinLock((volatile signed __int64 *)(v146 + 128));
-                            if ( KiIrqlFlags )
+                            if ( (_DWORD)KiIrqlFlags )
                             {
                               v121 = KeGetCurrentIrql();
-                              if ( (KiIrqlFlags & 1) != 0 && v121 <= 0xFu && v141 <= 0xFu && v121 >= 2u )
+                              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v121 <= 0xFu && v141 <= 0xFu && v121 >= 2u )
                               {
                                 v122 = KeGetCurrentPrcb();
                                 v123 = v122->SchedulerAssist;
@@ -565,10 +565,10 @@ LABEL_276:
                           else
                           {
                             KxReleaseSpinLock(v164);
-                            if ( KiIrqlFlags )
+                            if ( (_DWORD)KiIrqlFlags )
                             {
                               v117 = KeGetCurrentIrql();
-                              if ( (KiIrqlFlags & 1) != 0 && v117 <= 0xFu && v141 <= 0xFu && v117 >= 2u )
+                              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v117 <= 0xFu && v141 <= 0xFu && v117 >= 2u )
                               {
                                 v118 = KeGetCurrentPrcb();
                                 v119 = v118->SchedulerAssist;
@@ -633,7 +633,7 @@ LABEL_202:
     if ( v99 )
       ObfReferenceObjectWithTag(v99, 0x63536D4Du);
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v151 + 72));
-    if ( KiIrqlFlags && (v104 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v104 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && (v104 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v104 <= 0xFu )
     {
       v100 = v140;
       if ( v140 <= 0xFu && v104 >= 2u )
@@ -864,10 +864,13 @@ LABEL_28:
               MiReleasePageFileInfo(v159, v130, 1LL);
               v81 = v148;
             }
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v135 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v135 <= 0xFu && (unsigned __int8)v132 <= 0xFu && v135 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                && v135 <= 0xFu
+                && (unsigned __int8)v132 <= 0xFu
+                && v135 >= 2u )
               {
                 v136 = KeGetCurrentPrcb();
                 v137 = v136->SchedulerAssist;

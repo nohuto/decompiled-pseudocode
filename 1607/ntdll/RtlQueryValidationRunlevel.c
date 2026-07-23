@@ -3,28 +3,40 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     NtOpenKey @ 0x1800A6660 (NtOpenKey.c)
  *     NtQueryValueKey @ 0x1800A6700 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall RtlQueryValidationRunlevel(__int64 a1)
+ULONG __cdecl RtlQueryValidationRunlevel(PUNICODE_STRING ComponentName)
 {
-  unsigned int v1; // edi
+  int v1; // edi
   int v2; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp-38h]
-  int v5; // [rsp+44h] [rbp-24h]
-  int v6; // [rsp+48h] [rbp-20h]
-  int v7; // [rsp+4Ch] [rbp-1Ch]
+  HANDLE KeyHandle; // [rsp+30h] [rbp-38h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-30h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+40h] [rbp-28h] BYREF
+  int v8; // [rsp+44h] [rbp-24h]
+  int v9; // [rsp+48h] [rbp-20h]
+  int v10; // [rsp+4Ch] [rbp-1Ch]
 
   v1 = MEMORY[0x7FFE0258];
   v2 = 0;
-  if ( a1 && MEMORY[0x7FFE0258] != -1 && (int)NtOpenKey() >= 0 )
+  if ( ComponentName && MEMORY[0x7FFE0258] != -1 && NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_180109560) >= 0 )
   {
-    if ( (int)NtQueryValueKey() >= 0 && v5 == 4 && v6 == 4 )
-      v2 = v7;
-    NtClose(Handle);
+    if ( NtQueryValueKey(
+           KeyHandle,
+           ComponentName,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x14u,
+           &ResultLength) >= 0
+      && v8 == 4
+      && v9 == 4 )
+    {
+      v2 = v10;
+    }
+    NtClose(KeyHandle);
   }
   return v2 | v1;
 }

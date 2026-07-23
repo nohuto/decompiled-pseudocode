@@ -7,107 +7,107 @@
  *     RtlRbInsertNodeEx @ 0x1400E84C0 (RtlRbInsertNodeEx.c)
  */
 
-__int64 __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, __int64 a3)
+BOOLEAN __fastcall KiInsertSchedulingGroupQueue(_RTL_RB_TREE *a1, __int64 a2, char a3)
 {
   __int64 v4; // rcx
-  char v5; // di
-  __int64 *v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  int v10; // r9d
-  int v11; // r11d
-  int v12; // eax
-  unsigned __int16 v13; // ax
-  int v14; // r10d
-  int v15; // eax
-  __int64 v16; // rax
-  __int64 result; // rax
+  _RTL_RB_TREE *v7; // rcx
+  _RTL_BALANCED_NODE *Min; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v10; // r8
+  int v11; // r9d
+  int v12; // r11d
+  int v13; // eax
+  unsigned __int16 v14; // ax
+  unsigned __int16 v15; // r8
+  int v16; // r10d
+  int v17; // eax
+  _RTL_BALANCED_NODE *v18; // rax
+  BOOLEAN result; // al
 
   *(_BYTE *)(a2 + 112) |= 1u;
   v4 = *(_QWORD *)(a2 + 408);
-  v5 = a3;
   if ( v4 )
-    v7 = (__int64 *)(v4 + 392);
+    v7 = (_RTL_RB_TREE *)(v4 + 392);
   else
-    v7 = (__int64 *)(a1 + 22896);
-  v8 = v7[1];
-  v9 = *v7;
-  if ( (v8 & 1) != 0 )
+    v7 = a1 + 1431;
+  Min = v7->Min;
+  Root = (unsigned __int64)v7->Root;
+  if ( ((unsigned __int8)Min & 1) != 0 )
   {
-    if ( v9 )
-      v9 ^= (unsigned __int64)v7;
+    if ( Root )
+      Root ^= (unsigned __int64)v7;
     else
-      v9 = 0LL;
+      Root = 0LL;
   }
-  LOBYTE(a3) = 0;
-  v10 = v8 & 1;
-  if ( v9 )
+  v10 = 0;
+  v11 = (unsigned __int8)Min & 1;
+  if ( Root )
   {
-    v11 = *(_DWORD *)(a2 + 116);
+    v12 = *(_DWORD *)(a2 + 116);
     while ( 1 )
     {
-      v12 = v11 - *(_DWORD *)(v9 + 28);
-      if ( v11 == *(_DWORD *)(v9 + 28) )
+      v13 = v12 - *(_DWORD *)(Root + 28);
+      if ( v12 == *(_DWORD *)(Root + 28) )
       {
-        v13 = *(_WORD *)(a2 + 114);
-        if ( v13 )
+        v14 = *(_WORD *)(a2 + 114);
+        if ( v14 )
         {
-          a3 = *(unsigned __int16 *)(v9 + 26);
-          _BitScanReverse((unsigned int *)&v14, v13);
-          v15 = 0;
-          if ( (_WORD)a3 )
-            _BitScanReverse((unsigned int *)&v15, (unsigned __int16)a3);
-          v12 = v15 - v14;
+          v15 = *(_WORD *)(Root + 26);
+          _BitScanReverse((unsigned int *)&v16, v14);
+          v17 = 0;
+          if ( v15 )
+            _BitScanReverse((unsigned int *)&v17, v15);
+          v13 = v17 - v16;
         }
         else
         {
-          if ( !v11 )
+          if ( !v12 )
           {
-            if ( *(_QWORD *)a2 > *(_QWORD *)(v9 - 88) )
+            if ( *(_QWORD *)a2 > *(_QWORD *)(Root - 88) )
               goto LABEL_24;
             goto LABEL_17;
           }
-          v12 = 1;
+          v13 = 1;
         }
       }
-      if ( v12 >= 0 )
+      if ( v13 >= 0 )
       {
 LABEL_24:
-        v16 = *(_QWORD *)(v9 + 8);
-        if ( v10 )
+        v18 = *(_RTL_BALANCED_NODE **)(Root + 8);
+        if ( v11 )
         {
-          if ( !v16 )
+          if ( !v18 )
             goto LABEL_28;
-          v16 ^= v9;
+          v18 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v18);
         }
-        if ( !v16 )
+        if ( !v18 )
         {
 LABEL_28:
-          LOBYTE(a3) = 1;
+          v10 = 1;
           break;
         }
         goto LABEL_21;
       }
 LABEL_17:
-      v16 = *(_QWORD *)v9;
-      if ( v10 )
+      v18 = *(_RTL_BALANCED_NODE **)Root;
+      if ( v11 )
       {
-        if ( !v16 )
+        if ( !v18 )
           goto LABEL_29;
-        v16 ^= v9;
+        v18 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v18);
       }
-      if ( !v16 )
+      if ( !v18 )
       {
 LABEL_29:
-        LOBYTE(a3) = 0;
+        v10 = 0;
         break;
       }
 LABEL_21:
-      v9 = v16;
+      Root = (unsigned __int64)v18;
     }
   }
-  result = RtlRbInsertNodeEx(v7, v9, a3, a2 + 88);
-  if ( v5 )
+  result = RtlRbInsertNodeEx(v7, (PRTL_BALANCED_NODE)Root, v10, (PRTL_BALANCED_NODE)(a2 + 88));
+  if ( a3 )
   {
     result = MEMORY[0xFFFFF78000000008];
     *(_QWORD *)(a2 + 64) = MEMORY[0xFFFFF78000000008];

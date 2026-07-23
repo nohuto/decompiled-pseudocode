@@ -1,13 +1,13 @@
 /*
- * XREFs of PoCopyDeepIdleMask @ 0x1402EC870
+ * XREFs of PoCopyDeepIdleMask @ 0x14029DBC0
  * Callers:
- *     PpmCheckContinueExecution @ 0x14022B780 (PpmCheckContinueExecution.c)
- *     KiGetDeepIdleProcessors @ 0x1402EC7D0 (KiGetDeepIdleProcessors.c)
- *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
- *     RtlUpdateSwapReference @ 0x1407CACBC (RtlUpdateSwapReference.c)
- *     PpmPostProcessMediaBuffering @ 0x1408F5E28 (PpmPostProcessMediaBuffering.c)
+ *     KiGetDeepIdleProcessors @ 0x14029DB20 (KiGetDeepIdleProcessors.c)
+ *     PpmCheckContinueExecution @ 0x1402D0030 (PpmCheckContinueExecution.c)
+ *     PpmIdleSelectStates @ 0x1403956D0 (PpmIdleSelectStates.c)
+ *     RtlUpdateSwapReference @ 0x1407CAFDC (RtlUpdateSwapReference.c)
+ *     PpmPostProcessMediaBuffering @ 0x1408F5F88 (PpmPostProcessMediaBuffering.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall PoCopyDeepIdleMask(_DWORD *a1)

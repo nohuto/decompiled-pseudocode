@@ -1,80 +1,79 @@
 /*
- * XREFs of TppWorkInitialize @ 0x18004D8A0
+ * XREFs of TppWorkInitialize @ 0x180037E20
  * Callers:
- *     TpAllocWork @ 0x18004E830 (TpAllocWork.c)
- *     TppInitializeTimer @ 0x18004E9C0 (TppInitializeTimer.c)
- *     TpAllocTimer @ 0x18004EC00 (TpAllocTimer.c)
- *     TpAllocWait @ 0x18004F460 (TpAllocWait.c)
- *     TpSimpleTryPost @ 0x1800DAE30 (TpSimpleTryPost.c)
+ *     TpAllocWork @ 0x180038DB0 (TpAllocWork.c)
+ *     TppInitializeTimer @ 0x180038F40 (TppInitializeTimer.c)
+ *     TpAllocTimer @ 0x180039180 (TpAllocTimer.c)
+ *     TpAllocWait @ 0x1800399E0 (TpAllocWait.c)
+ *     TpSimpleTryPost @ 0x1800D7DF0 (TpSimpleTryPost.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     TppAdjustRunningThreadGoalWithLock @ 0x18003FC58 (TppAdjustRunningThreadGoalWithLock.c)
- *     TppCleanupGroupMemberDestroy @ 0x18004D650 (TppCleanupGroupMemberDestroy.c)
- *     TppCleanupGroupMemberInitialize @ 0x18004DA10 (TppCleanupGroupMemberInitialize.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x18002A1C8 (TppAdjustRunningThreadGoalWithLock.c)
+ *     TppCleanupGroupMemberDestroy @ 0x180037BD0 (TppCleanupGroupMemberDestroy.c)
+ *     TppCleanupGroupMemberInitialize @ 0x180037F90 (TppCleanupGroupMemberInitialize.c)
  */
 
 __int64 __fastcall TppWorkInitialize(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
 {
-  __int64 v7; // rdx
-  int v8; // esi
-  __int64 v9; // r14
+  int v7; // esi
+  __int64 v8; // r14
   unsigned __int64 Number; // r13
   unsigned __int16 Group; // r8
-  int v12; // r12d
-  int v13; // eax
+  int v11; // r12d
+  int v12; // eax
   unsigned int i; // edx
+  __int64 v14; // rax
   __int64 v15; // rax
-  __int64 v16; // rax
-  unsigned __int16 v18; // [rsp+30h] [rbp-38h]
+  unsigned __int16 v17; // [rsp+30h] [rbp-38h]
 
-  v8 = TppCleanupGroupMemberInitialize(a1, a2, a3, a4, a5);
-  if ( v8 >= 0 )
+  v7 = TppCleanupGroupMemberInitialize(a1, a2, a3, a4, a5);
+  if ( v7 >= 0 )
   {
-    v9 = *(_QWORD *)(a1 + 144);
-    if ( v9 )
+    v8 = *(_QWORD *)(a1 + 144);
+    if ( v8 )
     {
       *(_QWORD *)(a1 + 200) = a6;
-      v8 = 0;
+      v7 = 0;
       *(_DWORD *)(a1 + 208) = 0;
       Number = NtCurrentTeb()->CurrentIdealProcessor.Number;
       Group = NtCurrentTeb()->CurrentIdealProcessor.Group;
-      v18 = Group;
-      v12 = TppNumberNodes;
-      v13 = *(_DWORD *)(v9 + 440);
-      if ( !v13 )
-        v13 = MEMORY[0x7FFE03C0];
-      if ( *(_DWORD *)(v9 + 424) != v13 )
+      v17 = Group;
+      v11 = TppNumberNodes;
+      v12 = *(_DWORD *)(v8 + 440);
+      if ( !v12 )
+        v12 = MEMORY[0x7FFE03C0];
+      if ( *(_DWORD *)(v8 + 424) != v12 )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int64 *)(v9 + 72), v7);
-        TppAdjustRunningThreadGoalWithLock(v9);
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v9 + 72));
-        Group = v18;
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v8 + 72));
+        TppAdjustRunningThreadGoalWithLock(v8);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v8 + 72));
+        Group = v17;
       }
       for ( i = 0; i < TppNumberNodes; ++i )
       {
-        v15 = *(_QWORD *)(v9 + 48);
-        if ( *(_WORD *)(v15 + 16LL * (Group + TppMaximumGroups * i) + 8) == Group )
+        v14 = *(_QWORD *)(v8 + 48);
+        if ( *(_WORD *)(v14 + 16LL * (Group + TppMaximumGroups * i) + 8) == Group )
         {
-          v16 = *(_QWORD *)(v15 + 16LL * (Group + TppMaximumGroups * i));
-          if ( _bittest64(&v16, Number) )
+          v15 = *(_QWORD *)(v14 + 16LL * (Group + TppMaximumGroups * i));
+          if ( _bittest64(&v15, Number) )
           {
-            v12 = i;
+            v11 = i;
             break;
           }
         }
       }
-      *(_DWORD *)(a1 + 208) = v12;
+      *(_DWORD *)(a1 + 208) = v11;
       if ( a1 != -212 )
         *(_BYTE *)(a1 + 212) = Number;
       *(_DWORD *)(a1 + 232) = 1;
     }
     else
     {
-      v8 = -1073741811;
+      v7 = -1073741811;
     }
-    if ( v8 < 0 )
-      TppCleanupGroupMemberDestroy(a1);
+    if ( v7 < 0 )
+      TppCleanupGroupMemberDestroy((_QWORD *)a1);
   }
-  return (unsigned int)v8;
+  return (unsigned int)v7;
 }

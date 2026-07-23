@@ -14,31 +14,30 @@
 __int64 RtlInitFunctionalityCache()
 {
   unsigned int v0; // ebx
-  int v1; // eax
-  int v2; // edi
-  int v3; // esi
+  NTSTATUS v1; // eax
+  ULONG v2; // edi
+  NTSTATUS v3; // esi
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   unsigned int v5; // r9d
-  size_t Size; // [rsp+28h] [rbp-29h]
-  __int64 v8; // [rsp+38h] [rbp-19h] BYREF
-  HANDLE Handle; // [rsp+40h] [rbp-11h] BYREF
-  _QWORD v10[2]; // [rsp+48h] [rbp-9h] BYREF
-  _QWORD v11[4]; // [rsp+58h] [rbp+7h] BYREF
-  __int128 v12; // [rsp+78h] [rbp+27h]
-  int v13; // [rsp+8Ch] [rbp+3Bh]
-  unsigned int v14; // [rsp+94h] [rbp+43h]
+  ULONG ResultLength; // [rsp+38h] [rbp-19h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-11h] BYREF
+  _QWORD v9[2]; // [rsp+48h] [rbp-9h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp+7h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+88h] [rbp+37h] BYREF
+  int v12; // [rsp+8Ch] [rbp+3Bh]
+  unsigned int v13; // [rsp+94h] [rbp+43h]
 
   v0 = 0;
-  v10[0] = 8913030LL;
-  Handle = 0LL;
-  v10[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\RtlFunctionality";
-  v11[0] = 48LL;
-  v11[2] = v10;
-  v11[3] = 576LL;
-  LODWORD(v8) = 0;
-  v11[1] = 0LL;
-  v12 = 0LL;
-  v1 = NtOpenKey(&Handle, 131097LL, v11);
+  v9[0] = 8913030LL;
+  KeyHandle = 0LL;
+  v9[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\RtlFunctionality";
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v9;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  ResultLength = 0;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v1 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v1 < 0 )
   {
     if ( v1 == -1073741772 )
@@ -52,11 +51,10 @@ __int64 RtlInitFunctionalityCache()
     {
       while ( 1 )
       {
-        LODWORD(Size) = 20;
-        v3 = NtEnumerateValueKey(Handle, Size, (__int64)&v8);
+        v3 = NtEnumerateValueKey(KeyHandle, v2, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength);
         if ( v3 < 0 )
           break;
-        if ( v13 == 4 && v14 < 0x80 )
+        if ( v12 == 4 && v13 < 0x80 )
         {
           CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
           *((_DWORD *)&CurrentServerSiloGlobals[88].Blink + ((unsigned __int64)v5 >> 5)) |= 1 << (v5 & 0x1F);
@@ -66,7 +64,7 @@ __int64 RtlInitFunctionalityCache()
       ++v2;
     }
     while ( v3 == -2147483643 );
-    NtClose(Handle);
+    NtClose(KeyHandle);
     if ( v3 != -2147483622 )
       return (unsigned int)v3;
   }

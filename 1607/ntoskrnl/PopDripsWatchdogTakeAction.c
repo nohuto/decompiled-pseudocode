@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDripsWatchdogTakeAction @ 0x140675208
+ * XREFs of PopDripsWatchdogTakeAction @ 0x1406752EC
  * Callers:
- *     PopDripsWatchdogWorkerRoutine @ 0x1406754AC (PopDripsWatchdogWorkerRoutine.c)
+ *     PopDripsWatchdogWorkerRoutine @ 0x140675590 (PopDripsWatchdogWorkerRoutine.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1400822C8 (VfIsVerifierEnabled.c)
- *     ZwQuerySystemInformation @ 0x14015A340 (ZwQuerySystemInformation.c)
- *     PpmIdlePrevetoWatchdog @ 0x1402006B8 (PpmIdlePrevetoWatchdog.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
- *     PopFxChildDeviceActive @ 0x140202518 (PopFxChildDeviceActive.c)
- *     PopFxDeviceAccountingWatchdog @ 0x14020294C (PopFxDeviceAccountingWatchdog.c)
- *     PopDiagTraceCsDripsWatchdog @ 0x140207BB0 (PopDiagTraceCsDripsWatchdog.c)
- *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x140207D88 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
- *     PopDeviceConstraintsEnforced @ 0x14020D68C (PopDeviceConstraintsEnforced.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x14061BB3C (DbgkWerCaptureLiveKernelDump.c)
+ *     VfIsVerifierEnabled @ 0x140082F44 (VfIsVerifierEnabled.c)
+ *     ZwQuerySystemInformation @ 0x14015A8B0 (ZwQuerySystemInformation.c)
+ *     PpmIdlePrevetoWatchdog @ 0x1402004E4 (PpmIdlePrevetoWatchdog.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
+ *     PopFxChildDeviceActive @ 0x140202344 (PopFxChildDeviceActive.c)
+ *     PopFxDeviceAccountingWatchdog @ 0x140202778 (PopFxDeviceAccountingWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdog @ 0x1402079DC (PopDiagTraceCsDripsWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x140207BB4 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
+ *     PopDeviceConstraintsEnforced @ 0x14020D4B8 (PopDeviceConstraintsEnforced.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14061BBF0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 char __fastcall PopDripsWatchdogTakeAction(int *a1, char a2)
@@ -74,7 +74,7 @@ char __fastcall PopDripsWatchdogTakeAction(int *a1, char a2)
     {
       if ( (unsigned int)VfIsVerifierEnabled()
         || (SystemInformation = 8LL,
-            ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &SystemInformation, 8u, &ReturnLength) >= 0)
+            ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, &ReturnLength) >= 0)
         && (SystemInformation & 0x200000000LL) != 0 )
       {
         if ( v6 && (a2 & 0x20) != 0 )

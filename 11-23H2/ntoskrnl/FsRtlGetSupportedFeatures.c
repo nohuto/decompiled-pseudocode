@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlGetSupportedFeatures @ 0x1403375D0
+ * XREFs of FsRtlGetSupportedFeatures @ 0x140337860
  * Callers:
- *     IopQueryInformation @ 0x1407AB900 (IopQueryInformation.c)
- *     IopCopyOffloadCapable @ 0x140875A48 (IopCopyOffloadCapable.c)
+ *     IopQueryInformation @ 0x1407ABAF0 (IopQueryInformation.c)
+ *     IopCopyOffloadCapable @ 0x140875C88 (IopCopyOffloadCapable.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsRtlGetSupportedFeatures(__int64 a1, _DWORD *a2)

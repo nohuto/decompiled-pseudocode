@@ -22,7 +22,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
   unsigned int v7; // eax
   __int64 CurrentPrcb; // rax
   _QWORD *v9; // rbx
-  char v11; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 136);
   v2 = *(_BYTE *)(v1 + 41);
@@ -30,7 +30,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
   (*(void (__fastcall **)(__int64))(v4 + 120))(InternalData);
   v5 = (char *)&HalpClockTickLog
      + 24 * (((unsigned __int8)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u) + 1) & 0xF);
-  *(_QWORD *)v5 = RtlGetInterruptTimePrecise(&v11);
+  *(LARGE_INTEGER *)v5 = RtlGetInterruptTimePrecise(&PerformanceCounter);
   *((_DWORD *)v5 + 2) = KeGetPcr()->Prcb.Number;
   v5[12] = KeGetCurrentPrcb()->PendingTickFlags & 1;
   v5[13] = BYTE2(KeGetPcr()->HalReserved[5]);

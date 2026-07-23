@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1400B4B50
+ * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1400B2988
  * Callers:
- *     CmpTryToRundownHive @ 0x1400876A8 (CmpTryToRundownHive.c)
- *     CmpLogTransactionAborted @ 0x1401356B4 (CmpLogTransactionAborted.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
+ *     CmpTryToRundownHive @ 0x14010B8A0 (CmpTryToRundownHive.c)
+ *     CmpLogTransactionAborted @ 0x140135C24 (CmpLogTransactionAborted.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x14000BEC0 (RtlUnicodeStringCopy.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     TraceLoggingProviderEnabled @ 0x140088D10 (TraceLoggingProviderEnabled.c)
- *     RtlUnicodeStringCat @ 0x1400A80E8 (RtlUnicodeStringCat.c)
- *     CmpLogTransactionAbortedByName @ 0x1401B5768 (CmpLogTransactionAbortedByName.c)
- *     RtlUnicodeStringCatString @ 0x1401B5854 (RtlUnicodeStringCatString.c)
+ *     RtlUnicodeStringCopy @ 0x14000BA40 (RtlUnicodeStringCopy.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCat @ 0x1400A6660 (RtlUnicodeStringCat.c)
+ *     TraceLoggingProviderEnabled @ 0x14010CF00 (TraceLoggingProviderEnabled.c)
+ *     CmpLogTransactionAbortedByName @ 0x1401B564C (CmpLogTransactionAbortedByName.c)
+ *     RtlUnicodeStringCatString @ 0x1401B5738 (RtlUnicodeStringCatString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpConstructAndCacheName @ 0x1404E2780 (CmpConstructAndCacheName.c)
+ *     CmpConstructAndCacheName @ 0x1404C56E4 (CmpConstructAndCacheName.c)
  */
 
 void __fastcall CmpLogTransactionAbortedWithChildName(

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpNmiReboot @ 0x140559C54
+ * XREFs of HalpNmiReboot @ 0x140557884
  * Callers:
- *     HalpReboot @ 0x140544C40 (HalpReboot.c)
+ *     HalpReboot @ 0x140542500 (HalpReboot.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     HalpIsHvPresent @ 0x1404A5710 (HalpIsHvPresent.c)
- *     HalSendNMI @ 0x1405441C0 (HalSendNMI.c)
- *     HalpInterruptRebootService @ 0x14055A1D0 (HalpInterruptRebootService.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     HalpIsHvPresent @ 0x1404A04A0 (HalpIsHvPresent.c)
+ *     HalSendNMI @ 0x140541B10 (HalSendNMI.c)
+ *     HalpInterruptRebootService @ 0x140557E00 (HalpInterruptRebootService.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 HalpNmiReboot()

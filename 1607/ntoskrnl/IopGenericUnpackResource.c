@@ -1,9 +1,9 @@
 /*
- * XREFs of IopGenericUnpackResource @ 0x14062E754
+ * XREFs of IopGenericUnpackResource @ 0x14062E808
  * Callers:
  *     <none>
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x1400B2110 (RtlCmDecodeMemIoResource.c)
+ *     RtlCmDecodeMemIoResource @ 0x1400B0050 (RtlCmDecodeMemIoResource.c)
  */
 
 __int64 __fastcall IopGenericUnpackResource(

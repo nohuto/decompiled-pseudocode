@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCheckResumePpmEngineFromSx @ 0x1401428F8
+ * XREFs of PpmCheckResumePpmEngineFromSx @ 0x1401429F8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
  */
 
 void PpmCheckResumePpmEngineFromSx()

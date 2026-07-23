@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpAllowsLowBoxAccess @ 0x1404620E0
+ * XREFs of RtlpAllowsLowBoxAccess @ 0x14045B09C
  * Callers:
- *     RtlpLookupLowBox @ 0x140461E1C (RtlpLookupLowBox.c)
+ *     RtlpLookupLowBox @ 0x14045ADDC (RtlpLookupLowBox.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SeClearLearningModeObjectInformation @ 0x14042F300 (SeClearLearningModeObjectInformation.c)
- *     SeSetLearningModeObjectInformation @ 0x140430644 (SeSetLearningModeObjectInformation.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PsReferenceEffectiveToken @ 0x14094F580 (PsReferenceEffectiveToken.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SeClearLearningModeObjectInformation @ 0x14041C210 (SeClearLearningModeObjectInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x14041D674 (SeSetLearningModeObjectInformation.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PsReferenceEffectiveToken @ 0x1409CAEC0 (PsReferenceEffectiveToken.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
@@ -45,9 +45,8 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
 
   v11 = 0LL;
   v1 = (*(_BYTE *)(a1 + 38) & 2) == 0;
-  LOBYTE(v10) = 0;
-  v17 = 0LL;
   v23 = 0x3000000020000LL;
+  v17 = 0LL;
   *(_OWORD *)Object = 0LL;
   v24 = 0x20000;
   v25 = 2031616;
@@ -89,7 +88,7 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
   v9 = SeAccessCheckWithHint(
          (__int64)PspSiloMonitorLock.ThreadListEntry.Flink,
          0,
-         (__int64)&v17,
+         (int *)&v17,
          0,
          0x20000u,
          0,

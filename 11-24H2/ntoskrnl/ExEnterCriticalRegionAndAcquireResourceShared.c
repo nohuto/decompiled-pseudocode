@@ -1,14 +1,14 @@
 /*
- * XREFs of ExEnterCriticalRegionAndAcquireResourceShared @ 0x140343740
+ * XREFs of ExEnterCriticalRegionAndAcquireResourceShared @ 0x140322C20
  * Callers:
- *     DifExEnterCriticalRegionAndAcquireResourceSharedWrapper @ 0x14061DE50 (DifExEnterCriticalRegionAndAcquireResourceSharedWrapper.c)
+ *     DifExEnterCriticalRegionAndAcquireResourceSharedWrapper @ 0x14061C410 (DifExEnterCriticalRegionAndAcquireResourceSharedWrapper.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x1403411F0 (ExAcquireFastResourceShared.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
- *     ExIsFastResourceHeldExclusive @ 0x1403436B0 (ExIsFastResourceHeldExclusive.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x140343DB0 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireFastResourceShared @ 0x1403206D0 (ExAcquireFastResourceShared.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
+ *     ExIsFastResourceHeldExclusive @ 0x140322B90 (ExIsFastResourceHeldExclusive.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x140323290 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceShared(PERESOURCE Resource)

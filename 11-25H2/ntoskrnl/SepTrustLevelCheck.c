@@ -16,7 +16,7 @@ __int64 __fastcall SepTrustLevelCheck(
         __int64 a2,
         struct _SECURITY_SUBJECT_CONTEXT *a3,
         __int64 a4,
-        __int64 a5,
+        _DWORD *Sid,
         char a6,
         int *a7)
 {
@@ -27,13 +27,14 @@ __int64 __fastcall SepTrustLevelCheck(
   __int64 v14; // rax
   __int64 v15; // rax
   __int64 v16; // rcx
-  __int64 v17; // rdx
+  unsigned int i; // edx
   int v18; // esi
-  __int64 v19; // rdi
-  _QWORD *PrimaryToken; // rax
-  __int64 v22; // r8
+  _DWORD *v19; // rdi
+  PACCESS_TOKEN PrimaryToken; // rax
+  void *v22; // r8
   __int64 v23; // r8
-  __int64 v24; // r9
+  _DWORD *v24; // r8
+  __int64 v25; // r9
   struct _KTHREAD *CurrentThread; // rax
 
   v7 = *(_WORD *)(a2 + 2);
@@ -58,26 +59,24 @@ __int64 __fastcall SepTrustLevelCheck(
     if ( v15 )
     {
       v16 = v15 + 8;
-      v17 = 0LL;
-      while ( 1 )
+      for ( i = 0; ; ++i )
       {
-        if ( (unsigned int)v17 >= *(unsigned __int16 *)(v15 + 4) )
+        if ( i >= *(unsigned __int16 *)(v15 + 4) )
           goto LABEL_14;
-        if ( (unsigned int)v17 >= v13 && *(_BYTE *)v16 == 20 )
+        if ( i >= v13 && *(_BYTE *)v16 == 20 )
           break;
-        v17 = (unsigned int)(v17 + 1);
         v16 += *(unsigned __int16 *)(v16 + 2);
       }
       if ( (*(_BYTE *)(v16 + 1) & 8) != 0 )
       {
-        v13 = v17 + 1;
+        v13 = i + 1;
         if ( v16 )
           continue;
       }
       if ( !v16 )
         break;
       v18 = *(_DWORD *)(v16 + 4);
-      v19 = v16 + 8;
+      v19 = (_DWORD *)(v16 + 8);
       if ( v16 == -8 )
         break;
       if ( a6 )
@@ -99,8 +98,8 @@ __int64 __fastcall SepTrustLevelCheck(
         if ( a3->ClientToken )
         {
           PrimaryToken = a3->PrimaryToken;
-          v22 = *((_QWORD *)a3->ClientToken + 138);
-          if ( PrimaryToken[138] && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(PrimaryToken[138], v17, v22) )
+          v22 = (void *)*((_QWORD *)a3->ClientToken + 138);
+          if ( *((_QWORD *)PrimaryToken + 138) && !RtlIsValidProcessTrustLabelSid(*((PSID *)PrimaryToken + 138)) )
           {
             v8 = -1073741811;
             goto LABEL_33;
@@ -108,14 +107,14 @@ __int64 __fastcall SepTrustLevelCheck(
           if ( !v22 )
           {
 LABEL_23:
-            if ( (unsigned __int8)RtlIsValidProcessTrustLabelSid(v19, v17, v22) )
+            if ( RtlIsValidProcessTrustLabelSid(v19) )
             {
               if ( v23 )
               {
-                if ( *(_DWORD *)(v23 + 8) >= *(_DWORD *)(v19 + 8) && *(_DWORD *)(v23 + 12) >= *(_DWORD *)(v19 + 12) )
+                if ( *(_DWORD *)(v23 + 8) >= v19[2] && *(_DWORD *)(v23 + 12) >= v19[3] )
                   goto LABEL_27;
               }
-              else if ( !*(_DWORD *)(v19 + 8) )
+              else if ( !v19[2] )
               {
 LABEL_27:
                 *a7 = -1;
@@ -142,31 +141,31 @@ LABEL_33:
             }
             return v8;
           }
-          if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v22, v17, v22) )
+          if ( !RtlIsValidProcessTrustLabelSid(v22) )
           {
             v8 = -1073741811;
             goto LABEL_33;
           }
-          if ( v24 )
+          if ( v25 )
           {
-            if ( *(_DWORD *)(v24 + 8) < *(_DWORD *)(v22 + 8) || *(_DWORD *)(v24 + 12) < *(_DWORD *)(v22 + 12) )
+            if ( *(_DWORD *)(v25 + 8) < v24[2] || *(_DWORD *)(v25 + 12) < v24[3] )
               goto LABEL_46;
 LABEL_30:
-            if ( v22 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v22, v17, v22) )
+            if ( v24 && !RtlIsValidProcessTrustLabelSid(v24) )
             {
               v8 = -1073741811;
               goto LABEL_33;
             }
             goto LABEL_23;
           }
-          if ( !*(_DWORD *)(v22 + 8) )
+          if ( !v24[2] )
             goto LABEL_30;
         }
 LABEL_46:
-        v22 = *((_QWORD *)a3->PrimaryToken + 138);
+        v24 = (_DWORD *)*((_QWORD *)a3->PrimaryToken + 138);
         goto LABEL_30;
       }
-      v22 = a5;
+      v24 = Sid;
       goto LABEL_30;
     }
     break;

@@ -1,23 +1,23 @@
 /*
- * XREFs of CmThawRegistry @ 0x1408571F0
+ * XREFs of CmThawRegistry @ 0x14085D580
  * Callers:
- *     NtThawRegistry @ 0x140850440 (NtThawRegistry.c)
- *     CmpFreezeThawWorker @ 0x140857350 (CmpFreezeThawWorker.c)
- *     CmFreezeRegistry @ 0x140AE3390 (CmFreezeRegistry.c)
+ *     NtThawRegistry @ 0x140856750 (NtThawRegistry.c)
+ *     CmpFreezeThawWorker @ 0x14085D6E0 (CmpFreezeThawWorker.c)
+ *     CmFreezeRegistry @ 0x140AE0F10 (CmFreezeRegistry.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     CmpEnableLazyFlush @ 0x14046EC80 (CmpEnableLazyFlush.c)
- *     CmpLockFreezeQueue @ 0x14077054C (CmpLockFreezeQueue.c)
- *     CmpUnLockFreezeQueue @ 0x140770C7C (CmpUnLockFreezeQueue.c)
- *     CmpGetNextActiveHive @ 0x1408B3048 (CmpGetNextActiveHive.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     HvLockHiveWriter @ 0x1408DAEB0 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x1408DAF14 (HvUnlockHiveWriter.c)
- *     HvMarkBaseBlockDirty @ 0x140AE37FC (HvMarkBaseBlockDirty.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     CmpEnableLazyFlush @ 0x140468400 (CmpEnableLazyFlush.c)
+ *     CmpLockFreezeQueue @ 0x14077354C (CmpLockFreezeQueue.c)
+ *     CmpUnLockFreezeQueue @ 0x140773C7C (CmpUnLockFreezeQueue.c)
+ *     CmpGetNextActiveHive @ 0x1408B95EC (CmpGetNextActiveHive.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     HvLockHiveWriter @ 0x1408E1470 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x1408E14D4 (HvUnlockHiveWriter.c)
+ *     HvMarkBaseBlockDirty @ 0x140AE1304 (HvMarkBaseBlockDirty.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
 __int64 CmThawRegistry()
@@ -40,11 +40,11 @@ __int64 CmThawRegistry()
   __int64 v15; // rcx
 
   v0 = 0;
-  KeCancelTimer((PKTIMER)&CmpFreezeListLock.StackLimit);
+  KeCancelTimer(&CmpFreezeThawTimer);
   if ( (unsigned __int8)CmpAcquireShutdownRundown(v2, v1) )
   {
     CmpLockRegistryExclusive(v3);
-    if ( *(_DWORD *)&WheapPfaLock.ApcStateFill[12] == 1 )
+    if ( HIDWORD(WheapPfaLock.SwapListEntry.Next) == 1 )
     {
       for ( i = 0LL; ; i = v12 )
       {
@@ -82,7 +82,7 @@ __int64 CmThawRegistry()
         CmpUnLockFreezeQueue();
         KeSetEvent((PRKEVENT)&Blink[1], 0, 0);
       }
-      *(_DWORD *)&WheapPfaLock.ApcStateFill[12] = 0;
+      HIDWORD(WheapPfaLock.SwapListEntry.Next) = 0;
       CmpEnableLazyFlush(2);
     }
     else

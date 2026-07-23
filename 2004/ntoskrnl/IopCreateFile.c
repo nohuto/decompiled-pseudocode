@@ -29,7 +29,7 @@ __int64 __fastcall IopCreateFile(
         HANDLE *a1,
         int a2,
         _SLIST_ENTRY *a3,
-        NTSTATUS *a4,
+        int *a4,
         HANDLE *a5,
         int a6,
         int a7,
@@ -83,7 +83,7 @@ __int64 __fastcall IopCreateFile(
   __int64 **v55; // rax
   __int64 v56; // rcx
   PVOID PoolWithQuotaTag; // rax
-  NTSTATUS v58; // eax
+  int v58; // eax
   _GENERAL_LOOKASIDE *L; // rbx
   PVOID PoolWithTag; // rax
   NTSTATUS v61; // r14d
@@ -195,7 +195,7 @@ LABEL_24:
             v30 = *a5;
             Handle = v30;
             if ( (__int64)v30 < 0 )
-              RtlRaiseStatus(0xC000000D);
+              RtlRaiseStatus(-1073741811);
           }
           else
           {
@@ -439,7 +439,7 @@ LABEL_64:
                 *(_DWORD *)(*((_QWORD *)&v23->Next + 1) + 80LL) &= ~0x2000000u;
                 *a1 = Handle;
                 *((_QWORD *)a4 + 1) = *((_QWORD *)&v23[1].Next + 1);
-                *a4 = (NTSTATUS)v23[1].Next;
+                *a4 = (int)v23[1].Next;
                 v67 = (unsigned int)v23[1].Next;
 LABEL_67:
                 if ( Next == -1096154543 )

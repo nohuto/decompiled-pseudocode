@@ -11,8 +11,8 @@
 // positive sp value has been detected, the output may be wrong!
 int __stdcall KiUserCallbackDispatcher(int a1, int a2, int a3)
 {
-  int v4; // eax
-  int v5; // eax
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // eax
   int v6; // [esp-4h] [ebp-4h]
 
   if ( !LdrDelegatedKiUserCallbackDispatcher )

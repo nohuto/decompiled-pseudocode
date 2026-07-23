@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetEffectivePagePriorityThread @ 0x1402E44B0
+ * XREFs of MiGetEffectivePagePriorityThread @ 0x1403DC8F0
  * Callers:
- *     MiUnlockWsle @ 0x1402C7B94 (MiUnlockWsle.c)
- *     MiGetInPageSupportBlock @ 0x1402E42D0 (MiGetInPageSupportBlock.c)
- *     MiInitializeInPageSupport @ 0x1402E44F8 (MiInitializeInPageSupport.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiPrivateFixup @ 0x1402EE4F0 (MiPrivateFixup.c)
- *     MiInitializeImageProtos @ 0x140313060 (MiInitializeImageProtos.c)
- *     MiGetPageForHeader @ 0x1403133D4 (MiGetPageForHeader.c)
- *     MmCopyMemory @ 0x140395E40 (MmCopyMemory.c)
- *     MiIssueHardFault @ 0x140397B2C (MiIssueHardFault.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiPrefetchRestOfCluster @ 0x14047AE34 (MiPrefetchRestOfCluster.c)
- *     MiSetPagesModified @ 0x140492C90 (MiSetPagesModified.c)
- *     MiSwitchToTransition @ 0x1404F1388 (MiSwitchToTransition.c)
- *     MmPrefetchVirtualAddresses @ 0x140953070 (MmPrefetchVirtualAddresses.c)
- *     NtSetInformationVirtualMemory @ 0x1409E8FB0 (NtSetInformationVirtualMemory.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiPrivateFixup @ 0x14034FB30 (MiPrivateFixup.c)
+ *     MiIssueHardFault @ 0x140350280 (MiIssueHardFault.c)
+ *     MiSetPagesModified @ 0x1403DA5EC (MiSetPagesModified.c)
+ *     MiUnlockWsle @ 0x1403DB664 (MiUnlockWsle.c)
+ *     MiPrefetchRestOfCluster @ 0x1403DBB74 (MiPrefetchRestOfCluster.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiGetInPageSupportBlock @ 0x1403DC710 (MiGetInPageSupportBlock.c)
+ *     MiInitializeInPageSupport @ 0x1403DC938 (MiInitializeInPageSupport.c)
+ *     MiInitializeImageProtos @ 0x1403F26E0 (MiInitializeImageProtos.c)
+ *     MiGetPageForHeader @ 0x1403F2A54 (MiGetPageForHeader.c)
+ *     MmCopyMemory @ 0x1403F3930 (MmCopyMemory.c)
+ *     MiSwitchToTransition @ 0x1404EEE28 (MiSwitchToTransition.c)
+ *     MmPrefetchVirtualAddresses @ 0x140936A20 (MmPrefetchVirtualAddresses.c)
+ *     NtSetInformationVirtualMemory @ 0x1409E3F70 (NtSetInformationVirtualMemory.c)
  * Callees:
  *     <none>
  */

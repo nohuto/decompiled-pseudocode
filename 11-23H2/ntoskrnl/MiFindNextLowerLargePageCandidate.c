@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindNextLowerLargePageCandidate @ 0x1403A5F98
+ * XREFs of MiFindNextLowerLargePageCandidate @ 0x1403A6178
  * Callers:
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
  * Callees:
- *     RtlFindNextClearBitBackwardsEx @ 0x1403A6030 (RtlFindNextClearBitBackwardsEx.c)
+ *     RtlFindNextClearBitBackwardsEx @ 0x1403A6210 (RtlFindNextClearBitBackwardsEx.c)
  */
 
 unsigned __int64 __fastcall MiFindNextLowerLargePageCandidate(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

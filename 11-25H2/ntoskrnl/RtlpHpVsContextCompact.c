@@ -15,7 +15,7 @@ __int64 __fastcall RtlpHpVsContextCompact(__int64 a1)
   __int64 result; // rax
   unsigned __int16 *v3; // rsi
   __int64 v4; // rbp
-  union _SLIST_HEADER *v5; // rdi
+  _SLIST_HEADER *v5; // rdi
   __int64 v6; // rcx
   _BYTE v7[256]; // [rsp+20h] [rbp-128h] BYREF
 
@@ -26,7 +26,7 @@ __int64 __fastcall RtlpHpVsContextCompact(__int64 a1)
     v4 = (unsigned int)result;
     do
     {
-      v5 = (union _SLIST_HEADER *)(a1 + ((unsigned __int64)*v3 << 6));
+      v5 = (_SLIST_HEADER *)(a1 + ((unsigned __int64)*v3 << 6));
       if ( RtlpInterlockedFlushSList(v5 + 4) )
         RtlpHpVsSlotFreeList(a1, v5);
       result = *(__int16 *)(a1 + 6);

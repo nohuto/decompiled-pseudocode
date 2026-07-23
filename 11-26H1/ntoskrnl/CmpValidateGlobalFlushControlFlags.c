@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpValidateGlobalFlushControlFlags @ 0x140856DE8
+ * XREFs of CmpValidateGlobalFlushControlFlags @ 0x14085D180
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
  *     <none>
  */
 
 void CmpValidateGlobalFlushControlFlags()
 {
-  if ( ((__int64)CmpFreezeListLock.Timer.TimerListEntry.Flink & 0xFFFFFFFE) != 0 )
-    LODWORD(CmpFreezeListLock.Timer.TimerListEntry.Flink) = 0;
+  if ( (*(_DWORD *)&CmpFreezeListLock.WaitRegister.Flags & 0xFFFFFFFE) != 0 )
+    *(_DWORD *)&CmpFreezeListLock.WaitRegister.Flags = 0;
 }

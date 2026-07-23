@@ -1,14 +1,14 @@
 /*
- * XREFs of KeRestoreProcessorSpecificFeatures @ 0x14056BF44
+ * XREFs of KeRestoreProcessorSpecificFeatures @ 0x14056C604
  * Callers:
- *     PnprQuiesceProcessorDpc @ 0x140A9D480 (PnprQuiesceProcessorDpc.c)
- *     PopHandleNextState @ 0x140AA811C (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x140A9D2F0 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x140AA7F8C (PopHandleNextState.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRestoreFeatureBits @ 0x140576690 (KiRestoreFeatureBits.c)
- *     KiDisableCacheErrataSource @ 0x1405791F0 (KiDisableCacheErrataSource.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRestoreFeatureBits @ 0x140576BD0 (KiRestoreFeatureBits.c)
+ *     KiDisableCacheErrataSource @ 0x1405796E0 (KiDisableCacheErrataSource.c)
  *     KiSetPageAttributesTable @ 0x140A8C7B0 (KiSetPageAttributesTable.c)
- *     KiRestoreXSaveSupport @ 0x140A9F654 (KiRestoreXSaveSupport.c)
+ *     KiRestoreXSaveSupport @ 0x140A9F4C4 (KiRestoreXSaveSupport.c)
  */
 
 __int64 __fastcall KeRestoreProcessorSpecificFeatures(__int64 a1)

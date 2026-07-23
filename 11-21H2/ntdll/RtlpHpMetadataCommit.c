@@ -29,7 +29,7 @@ __int64 __fastcall RtlpHpMetadataCommit(unsigned __int64 a1, int a2, unsigned __
   }
   else
   {
-    v15 = RtlCSparseBitmapBitmaskRead(&unk_18017B720, 2 * ((a1 - qword_18017B718) >> 20));
+    v15 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a1 - qword_18017B718) >> 20));
     if ( v15 )
       v9 = v15 - 1;
     else

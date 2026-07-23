@@ -1,77 +1,73 @@
 /*
- * XREFs of DifIoGetFileObjectGenericMappingWrapper @ 0x140629020
+ * XREFs of DifIoGetFileObjectGenericMappingWrapper @ 0x1406275E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     IoGetFileObjectGenericMapping @ 0x1409FFFA0 (IoGetFileObjectGenericMapping.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     IoGetFileObjectGenericMapping @ 0x1409F9190 (IoGetFileObjectGenericMapping.c)
  */
 
 __int64 DifIoGetFileObjectGenericMappingWrapper()
 {
   __int64 *APIThunkContextById; // rax
   __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 *v4; // rdi
-  int v5; // eax
-  BOOLEAN v6; // si
+  __int64 *v2; // rdi
+  int v3; // eax
+  BOOLEAN v4; // si
   __int64 *i; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  BOOLEAN v11; // si
-  _QWORD **v12; // rdi
+  __int64 v6; // rdx
+  BOOLEAN v7; // si
+  _QWORD **v8; // rdi
   _QWORD *j; // rbx
-  __int128 v15; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v11; // [rsp+20h] [rbp-18h] BYREF
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
-  v15 = 0LL;
+  v11 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(332);
-  v4 = APIThunkContextById;
+  v2 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v5 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v5 & 0x18) != 0 )
+    v3 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v3 & 0x18) != 0 )
     {
-      *(_QWORD *)&v15 = retaddr;
+      *(_QWORD *)&v11 = retaddr;
     }
-    else if ( (v5 & 4) != 0 )
+    else if ( (v3 & 4) != 0 )
     {
-      *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v11 = DifGetReturnAddressForWrappers();
     }
-    v6 = 0;
+    v4 = 0;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v6 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v4 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v4[4]; i != v4 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v2[4]; i != v2 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v15, v1, v2, v3);
+          guard_dispatch_icall_no_overrides(&v11, v1);
       }
-      if ( v6 )
+      if ( v4 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  *((_QWORD *)&v15 + 1) = IoGetFileObjectGenericMapping();
-  if ( v4 )
+  *((_QWORD *)&v11 + 1) = IoGetFileObjectGenericMapping();
+  if ( v2 )
   {
-    if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v11 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v7 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v7 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v12 = (_QWORD **)(v4 + 6);
-      for ( j = *v12; j != v12; j = (_QWORD *)*j )
+      v8 = (_QWORD **)(v2 + 6);
+      for ( j = *v8; j != v8; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v15, v8, v9, v10);
+          guard_dispatch_icall_no_overrides(&v11, v6);
       }
-      if ( v11 )
+      if ( v7 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return *((_QWORD *)&v15 + 1);
+  return *((_QWORD *)&v11 + 1);
 }

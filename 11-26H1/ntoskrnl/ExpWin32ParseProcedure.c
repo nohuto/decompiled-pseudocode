@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWin32ParseProcedure @ 0x140A409C0
+ * XREFs of ExpWin32ParseProcedure @ 0x1409FC3E0
  * Callers:
  *     <none>
  * Callees:
- *     PsSessionGetWin32Callouts @ 0x14048806C (PsSessionGetWin32Callouts.c)
- *     PspUpdateCalloutParameters @ 0x1404FB6E0 (PspUpdateCalloutParameters.c)
- *     ExCallCallBack @ 0x140A41008 (ExCallCallBack.c)
+ *     PsSessionGetWin32Callouts @ 0x140481BAC (PsSessionGetWin32Callouts.c)
+ *     PspUpdateCalloutParameters @ 0x140518394 (PspUpdateCalloutParameters.c)
+ *     ExCallCallBack @ 0x1409FCA28 (ExCallCallBack.c)
  */
 
 __int64 __fastcall ExpWin32ParseProcedure(
@@ -20,7 +20,7 @@ __int64 __fastcall ExpWin32ParseProcedure(
         __int64 a9,
         __int64 a10)
 {
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   unsigned int v11; // r10d
   __int128 v13; // [rsp+30h] [rbp-39h] BYREF
   _DWORD *v14; // [rsp+40h] [rbp-29h]

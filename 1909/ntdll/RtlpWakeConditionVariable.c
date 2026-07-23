@@ -9,10 +9,10 @@
  *     ZwAlertThreadByThreadId @ 0x18009DC60 (ZwAlertThreadByThreadId.c)
  */
 
-unsigned __int64 __fastcall RtlpWakeConditionVariable(volatile signed __int64 *a1, unsigned __int64 a2, int a3)
+int __fastcall RtlpWakeConditionVariable(volatile signed __int64 *a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 *v3; // rbx
-  unsigned __int64 result; // rax
+  unsigned __int64 v4; // rax
   char v5; // r9
   unsigned __int64 v6; // rdx
   bool v8; // zf
@@ -26,11 +26,11 @@ unsigned __int64 __fastcall RtlpWakeConditionVariable(volatile signed __int64 *a
   volatile signed __int32 *v17; // rdi
   unsigned __int64 v18; // rtt
   _QWORD *v19; // rcx
-  volatile signed __int32 *v20; // [rsp+48h] [rbp+10h] BYREF
+  volatile signed __int32 *v21; // [rsp+48h] [rbp+10h] BYREF
 
-  v3 = (unsigned __int64 *)&v20;
-  result = a2;
-  v20 = 0LL;
+  v3 = (unsigned __int64 *)&v21;
+  v4 = a2;
+  v21 = 0LL;
   v5 = a2;
   v6 = a2 & 0xFFFFFFFFFFFFFFF0uLL;
   v8 = (v5 & 7) == 7;
@@ -40,7 +40,7 @@ unsigned __int64 __fastcall RtlpWakeConditionVariable(volatile signed __int64 *a
     v11 = (_QWORD *)v6;
     if ( v8 )
       break;
-    v12 = a3 + (result & 7);
+    v12 = a3 + (v4 & 7);
     if ( !*(_QWORD *)(v6 + 8) )
     {
       do
@@ -71,46 +71,46 @@ unsigned __int64 __fastcall RtlpWakeConditionVariable(volatile signed __int64 *a
     if ( v12 <= v10 )
     {
 LABEL_18:
-      v18 = result;
-      result = _InterlockedCompareExchange64(a1, v6, result);
-      if ( v18 == result )
+      v18 = v4;
+      v4 = _InterlockedCompareExchange64(a1, v6, v4);
+      if ( v18 == v4 )
         goto LABEL_9;
     }
     else
     {
-      v15 = result;
-      result = _InterlockedCompareExchange64(a1, 0LL, result);
-      if ( v15 == result )
+      v15 = v4;
+      v4 = _InterlockedCompareExchange64(a1, 0LL, v4);
+      if ( v15 == v4 )
       {
         *v3 = (unsigned __int64)v13;
         *v13 = 0LL;
         goto LABEL_9;
       }
     }
-    v6 = result & 0xFFFFFFFFFFFFFFF0uLL;
-    v8 = (result & 7) == 7;
+    v6 = v4 & 0xFFFFFFFFFFFFFFF0uLL;
+    v8 = (v4 & 7) == 7;
   }
-  result = _InterlockedExchange64(a1, 0LL) & 0xFFFFFFFFFFFFFFF0uLL;
-  *v3 = result;
+  v4 = _InterlockedExchange64(a1, 0LL) & 0xFFFFFFFFFFFFFFF0uLL;
+  *v3 = v4;
 LABEL_9:
-  v16 = v20;
-  if ( v20 )
+  v16 = v21;
+  if ( v21 )
   {
     do
     {
       v17 = *(volatile signed __int32 **)v16;
       if ( !_interlockedbittestandreset(v16 + 9, 1u) )
       {
-        if ( !*((_QWORD *)v20 + 5) || (result = RtlpQueueWaitBlockToSRWLock(), !(_BYTE)result) )
+        if ( !*((_QWORD *)v21 + 5) || (LODWORD(v4) = RtlpQueueWaitBlockToSRWLock(), !(_BYTE)v4) )
         {
           _InterlockedOr(v16 + 9, 4u);
-          result = ZwAlertThreadByThreadId(*((_QWORD *)v20 + 3));
+          LODWORD(v4) = ZwAlertThreadByThreadId(*((HANDLE *)v21 + 3));
         }
       }
       v16 = v17;
-      v20 = v17;
+      v21 = v17;
     }
     while ( v17 );
   }
-  return result;
+  return v4;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCancelIrpsInThreadListForCurrentProcess @ 0x14070A1F4
+ * XREFs of IopCancelIrpsInThreadListForCurrentProcess @ 0x1407215D4
  * Callers:
- *     IopRevokeFileObjectForProcess @ 0x1405079A4 (IopRevokeFileObjectForProcess.c)
- *     NtCancelIoFileEx @ 0x14069DB20 (NtCancelIoFileEx.c)
+ *     IopRevokeFileObjectForProcess @ 0x140507924 (IopRevokeFileObjectForProcess.c)
+ *     NtCancelIoFileEx @ 0x1405FCBF0 (NtCancelIoFileEx.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopCancelApcRequired @ 0x140359D90 (IopCancelApcRequired.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopCancelIrpsInThreadList @ 0x14069DCC8 (IopCancelIrpsInThreadList.c)
- *     PsGetNextProcessThread @ 0x14070A2F0 (PsGetNextProcessThread.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopCancelApcRequired @ 0x1403649EC (IopCancelApcRequired.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopCancelIrpsInThreadList @ 0x1405FCD98 (IopCancelIrpsInThreadList.c)
+ *     PsGetNextProcessThread @ 0x1407216D0 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall IopCancelIrpsInThreadListForCurrentProcess(__int64 a1, __int64 a2)

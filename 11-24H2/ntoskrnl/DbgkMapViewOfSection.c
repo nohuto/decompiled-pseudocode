@@ -1,39 +1,39 @@
 /*
- * XREFs of DbgkMapViewOfSection @ 0x140897F08
+ * XREFs of DbgkMapViewOfSection @ 0x1408A05A8
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
- *     NtMapViewOfSection @ 0x140899970 (NtMapViewOfSection.c)
- *     NtLoadEnclaveData @ 0x1408D9D70 (NtLoadEnclaveData.c)
- *     MiMapViewOfSectionExCommon @ 0x14099F100 (MiMapViewOfSectionExCommon.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
+ *     NtMapViewOfSection @ 0x1408A2010 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x140987880 (MiMapViewOfSectionExCommon.c)
+ *     NtLoadEnclaveData @ 0x140A29800 (NtLoadEnclaveData.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     DbgkpSendApiMessage @ 0x14093A238 (DbgkpSendApiMessage.c)
- *     DbgkpSectionToFileHandle @ 0x140A83008 (DbgkpSectionToFileHandle.c)
- *     DbgkpSuppressDbgMsg @ 0x140AAABC0 (DbgkpSuppressDbgMsg.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     DbgkpSendApiMessage @ 0x140A5A2C0 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x140A7DB28 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSuppressDbgMsg @ 0x140AA5C70 (DbgkpSuppressDbgMsg.c)
  */
 
 int __fastcall DbgkMapViewOfSection(
         _KPROCESS *Object,
         __int64 a2,
-        unsigned __int64 a3,
+        void *a3,
         __int64 a4,
         __int64 a5,
-        int a6,
-        int a7)
+        unsigned int a6,
+        unsigned int a7)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v11; // rcx
   struct _KTHREAD *v12; // rbx
   char *Teb; // rbx
-  unsigned __int64 v14; // rcx
+  PIMAGE_NT_HEADERS v14; // rcx
   _DWORD v16[12]; // [rsp+30h] [rbp-138h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-108h]
-  unsigned __int64 v18; // [rsp+68h] [rbp-100h]
-  int v19; // [rsp+70h] [rbp-F8h]
-  int v20; // [rsp+74h] [rbp-F4h]
+  void *v18; // [rsp+68h] [rbp-100h]
+  unsigned int PointerToSymbolTable; // [rsp+70h] [rbp-F8h]
+  unsigned int NumberOfSymbols; // [rsp+74h] [rbp-F4h]
   char *v21; // [rsp+78h] [rbp-F0h]
 
   memset_0(v16, 0, 0x110uLL);
@@ -63,16 +63,16 @@ int __fastcall DbgkMapViewOfSection(
         else
           Handle = 0LL;
         v18 = a3;
-        v19 = a6;
-        v20 = a7;
+        PointerToSymbolTable = a6;
+        NumberOfSymbols = a7;
         if ( a3 )
           v14 = RtlImageNtHeader(a3);
         else
           v14 = 0LL;
         if ( v14 )
         {
-          v19 = *(_DWORD *)(v14 + 12);
-          v20 = *(_DWORD *)(v14 + 16);
+          PointerToSymbolTable = v14->FileHeader.PointerToSymbolTable;
+          NumberOfSymbols = v14->FileHeader.NumberOfSymbols;
         }
         v16[0] = 5242920;
         v16[1] = 8;

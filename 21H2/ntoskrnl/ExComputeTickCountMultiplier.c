@@ -1,20 +1,20 @@
 /*
- * XREFs of ExComputeTickCountMultiplier @ 0x140A6EB00
+ * XREFs of ExComputeTickCountMultiplier @ 0x140A6FB00
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */
 
 __int64 ExComputeTickCountMultiplier()
 {
-  unsigned int v0; // r8d
+  ULONG v0; // r8d
   int v1; // r9d
   __int64 v2; // r10
   int v3; // eax
   unsigned int v4; // ecx
 
-  v0 = KeMaximumIncrement % 0x2710u;
+  v0 = KeMaximumIncrement % 0x2710;
   v1 = 0;
   v2 = 24LL;
   do
@@ -31,5 +31,5 @@ __int64 ExComputeTickCountMultiplier()
     --v2;
   }
   while ( v2 );
-  return v1 | ((KeMaximumIncrement / 0x2710u) << 24);
+  return v1 | ((KeMaximumIncrement / 0x2710) << 24);
 }

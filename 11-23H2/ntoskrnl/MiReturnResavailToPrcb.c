@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReturnResavailToPrcb @ 0x1402DC1C0
+ * XREFs of MiReturnResavailToPrcb @ 0x1402DC450
  * Callers:
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B5B0 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14062BB00 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
  *     <none>
  */

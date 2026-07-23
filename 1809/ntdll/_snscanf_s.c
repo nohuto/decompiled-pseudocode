@@ -1,10 +1,10 @@
 /*
- * XREFs of _snscanf_s @ 0x18009A7A0
+ * XREFs of _snscanf_s @ 0x18009A7B0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _sinput_s @ 0x18009D4DC (_sinput_s.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _sinput_s @ 0x18009D4EC (_sinput_s.c)
  */
 
 int snscanf_s(const char *const Buffer, const size_t BufferCount, const char *const Format, ...)

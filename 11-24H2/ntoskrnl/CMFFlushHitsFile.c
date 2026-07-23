@@ -1,21 +1,21 @@
 /*
- * XREFs of CMFFlushHitsFile @ 0x1407C1EAC
+ * XREFs of CMFFlushHitsFile @ 0x1407C30E0
  * Callers:
- *     NtMapCMFModule @ 0x1407C3080 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x1407C42B0 (NtMapCMFModule.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
- *     ZwWriteFile @ 0x1406A6510 (ZwWriteFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ZwCreateEvent @ 0x1406A6D10 (ZwCreateEvent.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CMFGetFileSizeEx @ 0x1407C21BC (CMFGetFileSizeEx.c)
- *     MmFlushVirtualMemory @ 0x1409D1A4C (MmFlushVirtualMemory.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1406A7430 (ZwWaitForSingleObject.c)
+ *     ZwWriteFile @ 0x1406A74B0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ZwCreateEvent @ 0x1406A7CB0 (ZwCreateEvent.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CMFGetFileSizeEx @ 0x1407C33F0 (CMFGetFileSizeEx.c)
+ *     MmFlushVirtualMemory @ 0x1409C187C (MmFlushVirtualMemory.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CMFFlushHitsFile(void *Src, unsigned __int64 Length)
@@ -83,7 +83,7 @@ __int64 __fastcall CMFFlushHitsFile(void *Src, unsigned __int64 Length)
             v7 = v11[0];
             if ( Length < v11[0] )
               v7 = Length;
-            Pool2 = (void *)ExAllocatePool2(0x100uLL);
+            Pool2 = (void *)ExAllocatePool2(0x100uLL, v7, 0x636D6650u);
             Buffer = Pool2;
             v12 = Pool2;
             if ( Pool2 )

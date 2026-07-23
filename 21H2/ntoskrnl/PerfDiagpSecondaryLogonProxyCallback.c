@@ -1,9 +1,9 @@
 /*
- * XREFs of PerfDiagpSecondaryLogonProxyCallback @ 0x14092FD50
+ * XREFs of PerfDiagpSecondaryLogonProxyCallback @ 0x14092FEB0
  * Callers:
  *     <none>
  * Callees:
- *     PerfDiagpRequestState @ 0x1407CF54C (PerfDiagpRequestState.c)
+ *     PerfDiagpRequestState @ 0x1407CF6BC (PerfDiagpRequestState.c)
  */
 
 void __fastcall PerfDiagpSecondaryLogonProxyCallback(

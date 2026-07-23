@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     HvlQueryVsmConnection @ 0x140294D28 (HvlQueryVsmConnection.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
+ *     sub_140294D28 @ 0x140294D28 (sub_140294D28.c)
+ *     sub_140358A20 @ 0x140358A20 (sub_140358A20.c)
  *     RtlCmEncodeMemIoResource @ 0x1403B84C0 (RtlCmEncodeMemIoResource.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
@@ -23,7 +23,7 @@ int __fastcall VslGetSecurePciDeviceBootConfiguration(
   ULONGLONG v12[14]; // [rsp+20h] [rbp-B8h] BYREF
 
   memset(v12, 0, 0x68uLL);
-  if ( !HvlQueryVsmConnection(0LL) )
+  if ( !sub_140294D28(0LL) )
     return -1073741637;
   if ( a5 - 1 > 5 || !a6 )
     return -1073741811;
@@ -38,7 +38,7 @@ int __fastcall VslGetSecurePciDeviceBootConfiguration(
     BYTE5(v12[1]) = a3;
     BYTE6(v12[1]) = a4;
     LODWORD(v12[2]) = v11;
-    result = VslpEnterIumSecureMode(2u, 265, 0, (__int64)v12);
+    result = sub_140358A20(2u, 265, 0, (__int64)v12);
     if ( result < 0 )
       break;
     if ( BYTE4(v12[2]) )

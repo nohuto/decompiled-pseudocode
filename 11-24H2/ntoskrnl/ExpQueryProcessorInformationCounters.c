@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpQueryProcessorInformationCounters @ 0x1409DDD20
+ * XREFs of ExpQueryProcessorInformationCounters @ 0x1409D78F0
  * Callers:
- *     ExProcessorCounterSetCallback @ 0x1409DD2F0 (ExProcessorCounterSetCallback.c)
+ *     ExProcessorCounterSetCallback @ 0x1409D6EC0 (ExProcessorCounterSetCallback.c)
  * Callees:
- *     PoGetIdleTimes @ 0x140351EF0 (PoGetIdleTimes.c)
- *     PoGetPerfStateAndParkingInfo @ 0x140434F50 (PoGetPerfStateAndParkingInfo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PoGetIdleTimes @ 0x14036F560 (PoGetIdleTimes.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x140370500 (PoGetPerfStateAndParkingInfo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, char a3, char a4, __int64 a5)
@@ -28,7 +28,7 @@ __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, cha
   __int64 v23; // rax
   __int64 v24; // rcx
   __int64 v25; // rdx
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-61h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-61h] BYREF
   __int128 v27; // [rsp+28h] [rbp-59h] BYREF
   __int128 v28; // [rsp+38h] [rbp-49h]
   __int128 v29; // [rsp+48h] [rbp-39h] BYREF
@@ -57,9 +57,9 @@ __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, cha
     v13 = DWORD2(v34);
     v22 = DWORD1(v29);
     *(_QWORD *)(a5 + 120) = *((_QWORD *)&v29 + 1);
-    v23 = (unsigned int)KeMaximumIncrement;
-    v24 = (unsigned int)KeMaximumIncrement * v21;
-    v25 = (unsigned int)KeMaximumIncrement * v22;
+    v23 = KeMaximumIncrement;
+    v24 = KeMaximumIncrement * v21;
+    v25 = KeMaximumIncrement * v22;
     *(_QWORD *)a5 = v24;
     *(_QWORD *)(a5 + 72) = v12;
     *(_QWORD *)(a5 + 96) = v15;
@@ -92,8 +92,8 @@ __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, cha
   *(_QWORD *)(a5 + 8) = v9;
   *(_QWORD *)(a5 + 24) = v8;
   v16 = &v30;
-  v17 = (unsigned int)KeMaximumIncrement;
-  v18 = (unsigned int)KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(a1 + 34376);
+  v17 = KeMaximumIncrement;
+  v18 = KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(a1 + 34376);
   v27 = 0LL;
   v28 = 0LL;
   v30 = 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlUninitializeBaseMcb @ 0x1400A533C
+ * XREFs of FsRtlUninitializeBaseMcb @ 0x1400A38B4
  * Callers:
- *     FsRtlUninitializeLargeMcb @ 0x1400A530C (FsRtlUninitializeLargeMcb.c)
+ *     FsRtlUninitializeLargeMcb @ 0x1400A3884 (FsRtlUninitializeLargeMcb.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of CcPostDeferredWritesOnVolumeHelper @ 0x1405B2170
+ * XREFs of CcPostDeferredWritesOnVolumeHelper @ 0x1405B4980
  * Callers:
  *     <none>
  * Callees:
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
  */
 
 char __fastcall CcPostDeferredWritesOnVolumeHelper(unsigned __int64 a1, __int64 a2)

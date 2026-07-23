@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpProcessContextLockShared @ 0x1403ABC30
+ * XREFs of VmpProcessContextLockShared @ 0x14039A340
  * Callers:
- *     VmpPrefetchVirtualAddresses @ 0x1403AA658 (VmpPrefetchVirtualAddresses.c)
- *     VmpQueryAccessedState @ 0x1403AAF1C (VmpQueryAccessedState.c)
- *     VmpAccessFaultBatch @ 0x1403AB20C (VmpAccessFaultBatch.c)
- *     VmpSplitMemoryRange @ 0x1403AB5D4 (VmpSplitMemoryRange.c)
- *     VmColdPagesHint @ 0x1403ABA30 (VmColdPagesHint.c)
- *     VmpUpdateCommitStateMemoryRange @ 0x14064B5C0 (VmpUpdateCommitStateMemoryRange.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1403990BC (VmpPrefetchVirtualAddresses.c)
+ *     VmpQueryAccessedState @ 0x140399630 (VmpQueryAccessedState.c)
+ *     VmpAccessFaultBatch @ 0x140399920 (VmpAccessFaultBatch.c)
+ *     VmpSplitMemoryRange @ 0x140399CE8 (VmpSplitMemoryRange.c)
+ *     VmColdPagesHint @ 0x14039A140 (VmColdPagesHint.c)
+ *     VmpUpdateCommitStateMemoryRange @ 0x140649B80 (VmpUpdateCommitStateMemoryRange.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall VmpProcessContextLockShared(PEX_SPIN_LOCK SpinLock)

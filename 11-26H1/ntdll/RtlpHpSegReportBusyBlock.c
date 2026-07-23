@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpSegReportBusyBlock @ 0x1800E237C
+ * XREFs of RtlpHpSegReportBusyBlock @ 0x1800E0BDC
  * Callers:
- *     RtlpHpSegWalk @ 0x180074638 (RtlpHpSegWalk.c)
- *     RtlpHpSegReportPageRange @ 0x18011D3B4 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpSegWalk @ 0x180094C1C (RtlpHpSegWalk.c)
+ *     RtlpHpSegReportPageRange @ 0x18011D164 (RtlpHpSegReportPageRange.c)
  * Callees:
  *     <none>
  */

@@ -1,25 +1,23 @@
 /*
- * XREFs of KseHookQueryValueKey @ 0x140741420
+ * XREFs of KseHookQueryValueKey @ 0x14073F350
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall KseHookQueryValueKey(__int64 a1, const UNICODE_STRING *a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall KseHookQueryValueKey(__int64 a1, const UNICODE_STRING *a2, int a3, _DWORD *a4)
 {
-  int v5; // ebx
   unsigned int v7; // ebp
   int v8; // ebx
   int v9; // ebx
   int v10; // ebx
 
-  v5 = a3;
-  v7 = guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+  v7 = guard_dispatch_icall_no_overrides(a1, a2);
   if ( (v7 & 0x80000000) != 0 )
     return v7;
-  v8 = v5 - 1;
+  v8 = a3 - 1;
   if ( v8 )
   {
     v9 = v8 - 1;

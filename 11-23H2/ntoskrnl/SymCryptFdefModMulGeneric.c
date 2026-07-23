@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptFdefModMulGeneric @ 0x1404049E0
+ * XREFs of SymCryptFdefModMulGeneric @ 0x140404BC0
  * Callers:
- *     SymCryptFdefModInvGeneric @ 0x1404044E0 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptFdefModInvGeneric @ 0x1404046C0 (SymCryptFdefModInvGeneric.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
- *     SymCryptFdefRawDivMod @ 0x1404038A8 (SymCryptFdefRawDivMod.c)
- *     SymCryptFdefRawMul @ 0x140403B9C (SymCryptFdefRawMul.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
+ *     SymCryptFdefRawDivMod @ 0x140403A88 (SymCryptFdefRawDivMod.c)
+ *     SymCryptFdefRawMul @ 0x140403D7C (SymCryptFdefRawMul.c)
  */
 
 void __fastcall SymCryptFdefModMulGeneric(__int64 a1, int a2, int a3, void *a4, char *Src)

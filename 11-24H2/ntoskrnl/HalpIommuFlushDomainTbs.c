@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuFlushDomainTbs @ 0x1403AC8F8
+ * XREFs of HalpIommuFlushDomainTbs @ 0x14039B104
  * Callers:
- *     HalpIommuDomainUnmapIdentityRange @ 0x1403AC118 (HalpIommuDomainUnmapIdentityRange.c)
- *     HalpIommuDomainMapIdentityRange @ 0x1403AC308 (HalpIommuDomainMapIdentityRange.c)
- *     IommuUnmapLogicalRange @ 0x1403AD4C0 (IommuUnmapLogicalRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1403AD858 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuDomainUnmapIdentityRange @ 0x14039A828 (HalpIommuDomainUnmapIdentityRange.c)
+ *     HalpIommuDomainMapIdentityRange @ 0x14039AB14 (HalpIommuDomainMapIdentityRange.c)
+ *     IommuUnmapLogicalRange @ 0x14039BCD0 (IommuUnmapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x14039C068 (HalpIommuDomainUnmapLogicalRange.c)
  * Callees:
- *     HalpIommuFlushDmaDomain @ 0x14027B380 (HalpIommuFlushDmaDomain.c)
- *     IommupHvFlushDomainTbs @ 0x1403AC1BC (IommupHvFlushDomainTbs.c)
+ *     HalpIommuFlushDmaDomain @ 0x140230910 (HalpIommuFlushDmaDomain.c)
+ *     IommupHvFlushDomainTbs @ 0x14039A8CC (IommupHvFlushDomainTbs.c)
  */
 
 __int64 __fastcall HalpIommuFlushDomainTbs(__int64 a1, unsigned __int64 a2, __int64 a3)

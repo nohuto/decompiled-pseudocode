@@ -81,7 +81,7 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   LODWORD(v3) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -94,10 +94,10 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
   v5 = 0LL;
   if ( CurrentPrcb->PteBitCache != -1LL )
     goto LABEL_3;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v50 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && CurrentIrql <= 0xFu && v50 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && CurrentIrql <= 0xFu && v50 >= 2u )
     {
       v51 = KeGetCurrentPrcb();
       v52 = v51->SchedulerAssist;
@@ -122,10 +122,10 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
         KeAcquireInStackQueuedSpinLock(&qword_140C69A68, &LockHandle);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v55 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v55 <= 0xFu && LockHandle.OldIrql <= 0xFu && v55 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu && LockHandle.OldIrql <= 0xFu && v55 >= 2u )
           {
             v56 = KeGetCurrentPrcb();
             v57 = v56->SchedulerAssist;
@@ -228,7 +228,7 @@ LABEL_108:
       }
       v34 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v34 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu )
       {
         v42 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v34 != 2 )
@@ -424,10 +424,10 @@ LABEL_12:
 LABEL_13:
         v5 = qword_140C69A50 + 8 * (v5 + CurrentPrcb->PteBitOffset);
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v59 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v59 <= 0xFu && CurrentIrql <= 0xFu && v59 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v59 <= 0xFu && CurrentIrql <= 0xFu && v59 >= 2u )
         {
           v60 = KeGetCurrentPrcb();
           v61 = v60->SchedulerAssist;

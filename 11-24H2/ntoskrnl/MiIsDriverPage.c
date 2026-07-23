@@ -1,31 +1,31 @@
 /*
- * XREFs of MiIsDriverPage @ 0x1402C80A4
+ * XREFs of MiIsDriverPage @ 0x1402BA964
  * Callers:
- *     MiRemoveWsleList @ 0x140231F70 (MiRemoveWsleList.c)
- *     MiProbeLeafPteAccess @ 0x140283F40 (MiProbeLeafPteAccess.c)
- *     MiRemoveWsle @ 0x1402C8340 (MiRemoveWsle.c)
- *     MiAddWorkingSetEntries @ 0x1402E0980 (MiAddWorkingSetEntries.c)
- *     MiCompleteProtoPteFault @ 0x1402EBD20 (MiCompleteProtoPteFault.c)
+ *     MiRemoveWsle @ 0x1402007F4 (MiRemoveWsle.c)
+ *     MiProbeLeafPteAccess @ 0x1402394D0 (MiProbeLeafPteAccess.c)
+ *     MiAddWorkingSetEntries @ 0x140242260 (MiAddWorkingSetEntries.c)
+ *     MiRemoveWsleList @ 0x140303100 (MiRemoveWsleList.c)
+ *     MiCompleteProtoPteFault @ 0x14034D360 (MiCompleteProtoPteFault.c)
  * Callees:
- *     MmLockLoadedModuleListShared @ 0x14027C0CC (MmLockLoadedModuleListShared.c)
- *     MmUnlockLoadedModuleListShared @ 0x14027C120 (MmUnlockLoadedModuleListShared.c)
- *     MmFindDataTableEntryByAddress @ 0x1402C724C (MmFindDataTableEntryByAddress.c)
- *     MiImageContainsVa @ 0x1402C9B38 (MiImageContainsVa.c)
+ *     MmLockLoadedModuleListShared @ 0x14023165C (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402316B0 (MmUnlockLoadedModuleListShared.c)
+ *     MmFindDataTableEntryByAddress @ 0x1402BBDCC (MmFindDataTableEntryByAddress.c)
+ *     MiImageContainsVa @ 0x1404A2444 (MiImageContainsVa.c)
  */
 
 __int64 *__fastcall MiIsDriverPage(__int64 a1, int a2)
 {
-  unsigned __int64 v3; // rdi
+  __int64 v3; // rdi
   __int64 *DataTableEntryByAddress; // rbx
   unsigned __int8 v5; // r11
 
   v3 = a1 << 25 >> 16;
   MmLockLoadedModuleListShared();
-  DataTableEntryByAddress = MmFindDataTableEntryByAddress(v3);
+  DataTableEntryByAddress = (__int64 *)MmFindDataTableEntryByAddress(v3);
   if ( !DataTableEntryByAddress && a2 )
   {
-    for ( DataTableEntryByAddress = (__int64 *)qword_140E2D888;
-          DataTableEntryByAddress != &qword_140E2D888;
+    for ( DataTableEntryByAddress = (__int64 *)qword_140E2D9C8;
+          DataTableEntryByAddress != &qword_140E2D9C8;
           DataTableEntryByAddress = (__int64 *)*DataTableEntryByAddress )
     {
       if ( (unsigned int)MiImageContainsVa(DataTableEntryByAddress, v3) )

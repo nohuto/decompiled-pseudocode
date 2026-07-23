@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwEnumerateTransactionObject(
         HANDLE RootObjectHandle,
         KTMOBJECT_TYPE QueryType,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwEnumerateTransactionObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(RootObjectHandle, *(_QWORD *)&QueryType);
+  return KiServiceInternal(RootObjectHandle);
 }

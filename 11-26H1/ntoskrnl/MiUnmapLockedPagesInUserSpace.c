@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnmapLockedPagesInUserSpace @ 0x14095CF04
+ * XREFs of MiUnmapLockedPagesInUserSpace @ 0x140A027C4
  * Callers:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiDeleteVirtualAddresses @ 0x1403617EC (MiDeleteVirtualAddresses.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiRemoveSecureEntry @ 0x140490630 (MiRemoveSecureEntry.c)
- *     MiLocateOldestSecure @ 0x1404D724C (MiLocateOldestSecure.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiDeleteVirtualAddresses @ 0x14036358C (MiDeleteVirtualAddresses.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiRemoveSecureEntry @ 0x14048A184 (MiRemoveSecureEntry.c)
+ *     MiLocateOldestSecure @ 0x1404D0A1C (MiLocateOldestSecure.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
  */
 
 void __fastcall MiUnmapLockedPagesInUserSpace(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4, __int64 a3)

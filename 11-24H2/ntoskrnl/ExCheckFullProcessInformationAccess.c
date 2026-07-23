@@ -1,16 +1,16 @@
 /*
- * XREFs of ExCheckFullProcessInformationAccess @ 0x14095F62C
+ * XREFs of ExCheckFullProcessInformationAccess @ 0x1409470EC
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x1407B3064 (EtwpSetCoverageSamplerInformation.c)
- *     EtwpQueryCoverageSamplerInformation @ 0x14095EFC8 (EtwpQueryCoverageSamplerInformation.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     NtSetDefaultLocale @ 0x140A968F0 (NtSetDefaultLocale.c)
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1407B34B4 (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x140946A88 (EtwpQueryCoverageSamplerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     NtSetDefaultLocale @ 0x140A93120 (NtSetDefaultLocale.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeCaptureSubjectContextEx @ 0x14083FC40 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     RtlRunOnceExecuteOnce @ 0x14095F8F0 (RtlRunOnceExecuteOnce.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     SeCaptureSubjectContextEx @ 0x14083BF00 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     RtlRunOnceExecuteOnce @ 0x1409473B0 (RtlRunOnceExecuteOnce.c)
  */
 
 NTSTATUS __fastcall ExCheckFullProcessInformationAccess(char a1)
@@ -39,7 +39,7 @@ NTSTATUS __fastcall ExCheckFullProcessInformationAccess(char a1)
     SeCaptureSubjectContextEx(CurrentThread, CurrentThread->ApcState.Process, &SubjectContext);
     SeAccessCheckWithHint(
       (__int64)Context,
-      7u,
+      7,
       (int *)&SubjectContext,
       0,
       1u,

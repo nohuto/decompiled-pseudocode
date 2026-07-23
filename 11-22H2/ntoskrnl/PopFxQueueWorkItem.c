@@ -10,7 +10,7 @@
  *     ExTryQueueWorkItem @ 0x1402B9B00 (ExTryQueueWorkItem.c)
  */
 
-__int64 __fastcall PopFxQueueWorkItem(__int64 a1, struct _LIST_ENTRY *a2)
+__int64 __fastcall PopFxQueueWorkItem(__int64 a1, _LIST_ENTRY *a2)
 {
   __int64 result; // rax
   int v5; // r9d

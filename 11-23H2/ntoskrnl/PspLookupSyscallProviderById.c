@@ -1,13 +1,13 @@
 /*
- * XREFs of PspLookupSyscallProviderById @ 0x1405A4C90
+ * XREFs of PspLookupSyscallProviderById @ 0x1405A5200
  * Callers:
- *     PspSyscallProviderOptIn @ 0x1409B4ECC (PspSyscallProviderOptIn.c)
+ *     PspSyscallProviderOptIn @ 0x1409B50CC (PspSyscallProviderOptIn.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PspLookupSyscallProviderByIdNoLock @ 0x1409B4DBC (PspLookupSyscallProviderByIdNoLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PspLookupSyscallProviderByIdNoLock @ 0x1409B4FBC (PspLookupSyscallProviderByIdNoLock.c)
  */
 
 __int64 __fastcall PspLookupSyscallProviderById(__int64 a1, __int64 a2)

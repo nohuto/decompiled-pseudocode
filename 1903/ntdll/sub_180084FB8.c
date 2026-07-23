@@ -13,17 +13,13 @@ __int64 __fastcall sub_180084FB8(_DWORD *a1)
   {
     *a1 = BYTE1(qword_180166590);
   }
-  else if ( (RtlGetSuiteMask((__int64)a1) & 0x10000) != 0 )
+  else if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {
     *a1 = 20;
   }
   else
   {
-    RtlRunOnceExecuteOnce(
-      &qword_180166498,
-      (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))sub_18008BF20,
-      0LL,
-      0LL);
+    RtlRunOnceExecuteOnce(&stru_180166498, sub_18008BF20, 0LL, 0LL);
     *a1 = dword_180162718;
   }
   return 0LL;

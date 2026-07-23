@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginRequestComponentPerfState @ 0x140204928
+ * XREFs of PopPluginRequestComponentPerfState @ 0x140204754
  * Callers:
- *     PopFxIssueComponentPerfStateChanges @ 0x140202DBC (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x140202BE8 (PopFxIssueComponentPerfStateChanges.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 char __fastcall PopPluginRequestComponentPerfState(__int64 a1, int a2, int a3, __int64 a4, char *a5)

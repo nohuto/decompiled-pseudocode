@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerSaveProcessorFrequency @ 0x14054A79C
+ * XREFs of HalpTimerSaveProcessorFrequency @ 0x14054805C
  * Callers:
- *     HalpTimerInitSystem @ 0x14053AFA0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1405387E0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpFindTimer @ 0x1405471A0 (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x140544A60 (HalpFindTimer.c)
  */
 
 ULONG_PTR *HalpTimerSaveProcessorFrequency()

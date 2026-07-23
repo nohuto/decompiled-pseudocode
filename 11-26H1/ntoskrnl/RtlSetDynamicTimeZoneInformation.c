@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetDynamicTimeZoneInformation @ 0x140804D10
+ * XREFs of RtlSetDynamicTimeZoneInformation @ 0x14080A7B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetTimeZoneInformationWorker @ 0x1408051C8 (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14080AC68 (RtlpSetTimeZoneInformationWorker.c)
  */
 
 __int64 __fastcall RtlSetDynamicTimeZoneInformation(void *a1)

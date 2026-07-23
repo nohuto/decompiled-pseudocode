@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpWriteProcessEvent @ 0x14066C6C4
+ * XREFs of EtwpWriteProcessEvent @ 0x14066D884
  * Callers:
- *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14066D6E8 (EtwTraceProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     EtwpPsProvTraceProcess @ 0x14066C050 (EtwpPsProvTraceProcess.c)
- *     EtwpBuildProcessEvent @ 0x14066CA2C (EtwpBuildProcessEvent.c)
+ *     EtwTraceSiloKernelEvent @ 0x1400891D0 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     EtwpPsProvTraceProcess @ 0x14066D210 (EtwpPsProvTraceProcess.c)
+ *     EtwpBuildProcessEvent @ 0x14066DBEC (EtwpBuildProcessEvent.c)
  */
 
 void __fastcall EtwpWriteProcessEvent(

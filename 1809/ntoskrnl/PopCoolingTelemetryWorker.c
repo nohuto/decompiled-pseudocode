@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCoolingTelemetryWorker @ 0x1402D6908
+ * XREFs of PopCoolingTelemetryWorker @ 0x1402D6AF8
  * Callers:
- *     PopThermalTelemetryWorker @ 0x1402DC450 (PopThermalTelemetryWorker.c)
+ *     PopThermalTelemetryWorker @ 0x1402DC640 (PopThermalTelemetryWorker.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x1402E27CC (PopTraceThermalRequestPassiveHistogram.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x1406DCE14 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1402E29BC (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x1406DE0B4 (PopThermalUpdatePassiveTimeTracking.c)
  */
 
 void PopCoolingTelemetryWorker()

@@ -1,28 +1,28 @@
 /*
- * XREFs of EtwpCoverageEnsureContext @ 0x140775C70
+ * XREFs of EtwpCoverageEnsureContext @ 0x140778B18
  * Callers:
- *     EtwTelemetryCoverageReport @ 0x14048CFE0 (EtwTelemetryCoverageReport.c)
- *     EtwSetProcessTelemetryCoverage @ 0x140B0E008 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwTelemetryCoverageReport @ 0x140486B20 (EtwTelemetryCoverageReport.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140B0F758 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     KeInitializeTimer2 @ 0x140456ED0 (KeInitializeTimer2.c)
- *     EtwTelemetryCoverageReport @ 0x14048CFE0 (EtwTelemetryCoverageReport.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     TelemetryCoverageStringHashInternal @ 0x14050814C (TelemetryCoverageStringHashInternal.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpCoverageEnsureStringBuffer @ 0x140829BD8 (EtwpCoverageEnsureStringBuffer.c)
- *     EtwpCoverageFreeStringBuffers @ 0x140829C8C (EtwpCoverageFreeStringBuffers.c)
- *     MmMapViewInSessionSpace @ 0x1409B7230 (MmMapViewInSessionSpace.c)
- *     MmCreateSection @ 0x1409B8FA0 (MmCreateSection.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     KeInitializeTimer2 @ 0x14044E740 (KeInitializeTimer2.c)
+ *     EtwTelemetryCoverageReport @ 0x140486B20 (EtwTelemetryCoverageReport.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     TelemetryCoverageStringHashInternal @ 0x140501C30 (TelemetryCoverageStringHashInternal.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x14082FE18 (EtwpCoverageEnsureStringBuffer.c)
+ *     EtwpCoverageFreeStringBuffers @ 0x14082FECC (EtwpCoverageFreeStringBuffers.c)
+ *     MmMapViewInSessionSpace @ 0x140988210 (MmMapViewInSessionSpace.c)
+ *     MmCreateSection @ 0x140989F80 (MmCreateSection.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 EtwpCoverageEnsureContext()
@@ -57,7 +57,7 @@ __int64 EtwpCoverageEnsureContext()
   _QWORD v28[2]; // [rsp+40h] [rbp-38h] BYREF
   ULONG_PTR ViewSize; // [rsp+80h] [rbp+8h] BYREF
 
-  if ( (unsigned __int8)EtwpBootPhase <= 1u || (v1 = EtwpCoverageEntryCount) == 0 )
+  if ( LOBYTE(stru_140F03830.CycleTime) <= 1u || (v1 = EtwpCoverageEntryCount) == 0 )
     return (unsigned int)-1073741637;
   if ( (unsigned int)EtwpCoverageEntryCount >= 0x80000 )
     v1 = 0x80000;
@@ -169,11 +169,11 @@ LABEL_47:
   *(_DWORD *)(v18 + 16) = 4 * *(_DWORD *)(v18 + 4) + 52;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v20 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.1136, 0LL, 0LL, v15);
-  v22 = _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock.1136, 0LL);
+  v20 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.Padding[2], 0LL, 0LL, v15);
+  v22 = _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock.Padding[2], 0LL);
   v23 = v20;
   if ( v22 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&ExpSysDbgLock.1136, v20, (__int64)&ExpSysDbgLock.1136);
+    ExfAcquirePushLockExclusiveEx(&ExpSysDbgLock.Padding[2], v20, (__int64)&ExpSysDbgLock.Padding[2]);
   if ( v23 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -202,27 +202,27 @@ LABEL_47:
       (__int64)v28);
   }
   EtwpCoverageLockOwner = 0LL;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpSysDbgLock.AutoBoostThreadState, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.1136);
-  KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.1136);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpSysDbgLock.Padding[2], 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.Padding[2]);
+  KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.Padding[2]);
   KeLeaveCriticalRegion();
-  if ( (unsigned int)dword_140E08FFC < MEMORY[0xFFFFF7800000037C] )
+  if ( (unsigned int)dword_140E0901C < MEMORY[0xFFFFF7800000037C] )
   {
-    if ( !dword_140E08FF8 )
+    if ( !dword_140E09018 )
     {
       LODWORD(ViewSize) = 0;
-      dword_140E08FF8 = TelemetryCoverageStringHashInternal(off_140E08FF0, &ViewSize);
+      dword_140E09018 = TelemetryCoverageStringHashInternal(off_140E09010, &ViewSize);
     }
-    EtwTelemetryCoverageReport(&off_140E08FF0);
+    EtwTelemetryCoverageReport(&off_140E09010);
   }
-  if ( EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140E09014 < MEMORY[0xFFFFF7800000037C] )
+  if ( EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140E09004 < MEMORY[0xFFFFF7800000037C] )
   {
-    if ( !dword_140E09010 )
+    if ( !dword_140E09000 )
     {
       LODWORD(ViewSize) = 0;
-      dword_140E09010 = TelemetryCoverageStringHashInternal(off_140E09008, &ViewSize);
+      dword_140E09000 = TelemetryCoverageStringHashInternal(off_140E08FF8, &ViewSize);
     }
-    EtwTelemetryCoverageReport(&off_140E09008);
+    EtwTelemetryCoverageReport(&off_140E08FF8);
   }
   Section = 0;
   if ( v4 )

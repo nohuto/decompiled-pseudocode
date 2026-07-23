@@ -1,9 +1,9 @@
 /*
- * XREFs of MIDL_user_free @ 0x140AF93E0
+ * XREFs of MIDL_user_free @ 0x140AFBAC0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall MIDL_user_free(void *a1)

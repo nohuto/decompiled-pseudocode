@@ -1,14 +1,14 @@
 /*
- * XREFs of MmCreateTeb @ 0x1409C8D18
+ * XREFs of MmCreateTeb @ 0x140999CF8
  * Callers:
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCreatePebOrTeb @ 0x1409C8ED0 (MiCreatePebOrTeb.c)
- *     MiInitializeTeb @ 0x1409C91EC (MiInitializeTeb.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCreatePebOrTeb @ 0x140999EB0 (MiCreatePebOrTeb.c)
+ *     MiInitializeTeb @ 0x14099A1CC (MiInitializeTeb.c)
  */
 
 __int64 __fastcall MmCreateTeb(ULONG_PTR BugCheckParameter1, _QWORD *a2, __int128 *a3, __int64 a4, _QWORD *a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of _controlfp @ 0x180097CD8
+ * XREFs of _controlfp @ 0x180097CE8
  * Callers:
- *     atan @ 0x180091F80 (atan.c)
- *     atan2 @ 0x1800921E0 (atan2.c)
- *     cos @ 0x180092C60 (cos.c)
- *     sin @ 0x180093080 (sin.c)
- *     tan @ 0x180095440 (tan.c)
+ *     atan @ 0x180091F90 (atan.c)
+ *     atan2 @ 0x1800921F0 (atan2.c)
+ *     cos @ 0x180092C70 (cos.c)
+ *     sin @ 0x180093090 (sin.c)
+ *     tan @ 0x180095450 (tan.c)
  * Callees:
  *     <none>
  */

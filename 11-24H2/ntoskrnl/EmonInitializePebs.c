@@ -1,10 +1,10 @@
 /*
- * XREFs of EmonInitializePebs @ 0x140B4EDE0
+ * XREFs of EmonInitializePebs @ 0x140B50E30
  * Callers:
- *     EmonInitializeProfilingBSP @ 0x14055BA58 (EmonInitializeProfilingBSP.c)
- *     EmonInitializeProfilingOriginal @ 0x140B4F1E0 (EmonInitializeProfilingOriginal.c)
+ *     EmonInitializeProfilingBSP @ 0x140559688 (EmonInitializeProfilingBSP.c)
+ *     EmonInitializeProfilingOriginal @ 0x140B51230 (EmonInitializeProfilingOriginal.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void EmonInitializePebs()

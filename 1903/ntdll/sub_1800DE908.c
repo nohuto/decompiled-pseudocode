@@ -9,7 +9,7 @@
  *     sub_1800DE870 @ 0x1800DE870 (sub_1800DE870.c)
  */
 
-__int64 __fastcall sub_1800DE908(__int64 a1)
+NTSTATUS __fastcall sub_1800DE908(__int64 a1)
 {
   __int64 v2; // rcx
   _QWORD *v3; // rdx
@@ -20,7 +20,7 @@ __int64 __fastcall sub_1800DE908(__int64 a1)
   _QWORD *v8; // rdx
 
   sub_1800DE870();
-  RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
   v2 = *(_QWORD *)(a1 + 8);
   v3 = *(_QWORD **)(a1 + 16);
   if ( *(_QWORD *)(v2 + 8) != a1 + 8 || *v3 != a1 + 8 )
@@ -53,5 +53,5 @@ __int64 __fastcall sub_1800DE908(__int64 a1)
   {
     sub_180082AC4(a1);
   }
-  return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

@@ -3,62 +3,68 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     sub_14073B5A0 @ 0x14073B5A0 (sub_14073B5A0.c)
  *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQuerySystemInformationEx(int a1, unsigned __int64 a2, unsigned int a3)
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  __int64 v8; // rdx
-  int v9; // ecx
-  unsigned __int64 v10; // rcx
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  int v17; // ecx
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // ecx
-  bool v21; // zf
-  int v22; // ecx
+  __int32 v8; // ecx
+  __int32 v9; // ecx
+  __int32 v10; // ecx
+  __int64 v11; // rdx
+  __int32 v12; // ecx
+  char *v13; // rcx
+  __int32 v15; // ecx
+  __int32 v16; // ecx
+  __int32 v17; // ecx
+  __int32 v18; // ecx
+  __int32 v19; // ecx
+  __int32 v20; // ecx
+  __int32 v21; // ecx
+  __int32 v22; // ecx
   int v23; // ecx
-  int v24; // ecx
-  int v25; // ecx
-  int v26; // ecx
-  int v27; // ecx
+  bool v24; // zf
+  __int32 v25; // ecx
+  __int32 v26; // ecx
+  __int32 v27; // ecx
   int v28; // ecx
+  __int32 v29; // ecx
+  int v30; // ecx
+  int v31; // ecx
 
-  if ( !a2 || !a3 )
-    return 3221225485LL;
-  if ( a1 <= 165 )
+  if ( !InputBuffer || !InputBufferLength )
+    return -1073741811;
+  if ( SystemInformationClass <= SystemIsolatedUserModeInformation )
   {
-    if ( a1 == 165 )
+    if ( SystemInformationClass == SystemIsolatedUserModeInformation )
       goto LABEL_23;
-    if ( a1 <= 83 )
+    if ( SystemInformationClass <= SystemProcessorIdleCycleTimeInformation )
     {
-      if ( a1 != 83 )
+      if ( SystemInformationClass != SystemProcessorIdleCycleTimeInformation )
       {
-        v16 = a1 - 8;
-        if ( v16 )
+        v19 = SystemInformationClass - 8;
+        if ( v19 )
         {
-          v17 = v16 - 15;
-          if ( v17 )
+          v20 = v19 - 15;
+          if ( v20 )
           {
-            v18 = v17 - 19;
-            if ( v18 )
+            v21 = v20 - 19;
+            if ( v21 )
             {
-              v19 = v18 - 19;
-              if ( v19 )
+              v22 = v21 - 19;
+              if ( v22 )
               {
-                v20 = v19 - 11;
-                if ( !v20 )
+                v23 = v22 - 11;
+                if ( !v23 )
                   goto LABEL_20;
-                v21 = v20 == 1;
+                v24 = v23 == 1;
                 goto LABEL_33;
               }
             }
@@ -68,94 +74,100 @@ __int64 __fastcall NtQuerySystemInformationEx(int a1, unsigned __int64 a2, unsig
     }
     else
     {
-      v12 = a1 - 100;
-      if ( v12 )
+      v15 = SystemInformationClass - 100;
+      if ( v15 )
       {
-        v13 = v12 - 7;
-        if ( !v13 )
+        v16 = v15 - 7;
+        if ( !v16 )
           goto LABEL_20;
-        v15 = v13 - 1;
-        if ( v15 )
+        v18 = v16 - 1;
+        if ( v18 )
         {
-          v22 = v15 - 13;
-          if ( v22 )
+          v25 = v18 - 13;
+          if ( v25 )
           {
-            v25 = v22 - 20;
-            if ( v25 )
+            v28 = v25 - 20;
+            if ( v28 )
             {
-              v21 = v25 == 19;
+              v24 = v28 == 19;
 LABEL_33:
-              if ( !v21 )
-                return 3221225475LL;
+              if ( !v24 )
+                return -1073741821;
             }
           }
         }
       }
     }
-    v8 = 1LL;
+    v11 = 1LL;
     goto LABEL_9;
   }
-  if ( a1 <= 210 )
+  if ( SystemInformationClass <= SystemFeatureConfigurationInformation )
   {
-    if ( a1 != 210 )
+    if ( SystemInformationClass != SystemFeatureConfigurationInformation )
     {
-      v14 = a1 - 175;
-      if ( v14 )
+      v17 = SystemInformationClass - 175;
+      if ( v17 )
       {
-        v8 = 3LL;
-        v23 = v14 - 3;
-        if ( v23 )
+        v11 = 3LL;
+        v26 = v17 - 3;
+        if ( v26 )
         {
-          v24 = v23 - 2;
-          if ( !v24 )
+          v27 = v26 - 2;
+          if ( !v27 )
             goto LABEL_9;
-          v26 = v24 - 1;
-          if ( v26 )
+          v29 = v27 - 1;
+          if ( v29 )
           {
-            v27 = v26 - 13;
-            if ( !v27 )
+            v30 = v29 - 13;
+            if ( !v30 )
               goto LABEL_9;
-            if ( v27 != 15 )
-              return 3221225475LL;
+            if ( v30 != 15 )
+              return -1073741821;
           }
         }
       }
       goto LABEL_23;
     }
 LABEL_20:
-    v8 = 3LL;
+    v11 = 3LL;
     goto LABEL_9;
   }
-  v5 = a1 - 211;
-  if ( !v5 )
+  v8 = SystemInformationClass - 211;
+  if ( !v8 )
   {
 LABEL_23:
-    v8 = 7LL;
+    v11 = 7LL;
     goto LABEL_9;
   }
-  v6 = v5 - 11;
-  if ( !v6 )
-    goto LABEL_20;
-  v7 = v6 - 1;
-  v8 = 7LL;
-  if ( !v7 )
-    goto LABEL_9;
-  v9 = v7 - 7;
+  v9 = v8 - 11;
   if ( !v9 )
-    goto LABEL_9;
-  v28 = v9 - 1;
-  if ( !v28 )
     goto LABEL_20;
-  if ( v28 != 1 )
-    return 3221225475LL;
+  v10 = v9 - 1;
+  v11 = 7LL;
+  if ( !v10 )
+    goto LABEL_9;
+  v12 = v10 - 7;
+  if ( !v12 )
+    goto LABEL_9;
+  v31 = v12 - 1;
+  if ( !v31 )
+    goto LABEL_20;
+  if ( v31 != 1 )
+    return -1073741821;
 LABEL_9:
-  if ( KeGetCurrentThread()->PreviousMode )
+  if ( *((_BYTE *)KeGetCurrentThread() + 562) )
   {
-    if ( (v8 & a2) != 0 )
+    if ( (v11 & (unsigned __int64)InputBuffer) != 0 )
       ExRaiseDatatypeMisalignment();
-    v10 = a2 + a3;
-    if ( v10 > 0x7FFFFFFF0000LL || v10 < a2 )
+    v13 = (char *)InputBuffer + InputBufferLength;
+    if ( (unsigned __int64)v13 > 0x7FFFFFFF0000LL || v13 < InputBuffer )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  return ExpQuerySystemInformation((unsigned int)a1, a2);
+  return sub_14073B5A0(
+           (unsigned int)SystemInformationClass,
+           InputBuffer,
+           InputBufferLength,
+           SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

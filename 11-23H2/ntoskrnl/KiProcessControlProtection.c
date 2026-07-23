@@ -1,15 +1,15 @@
 /*
- * XREFs of KiProcessControlProtection @ 0x14057BFC0
+ * XREFs of KiProcessControlProtection @ 0x14057C4B0
  * Callers:
- *     KiControlProtectionFault @ 0x140432140 (KiControlProtectionFault.c)
+ *     KiControlProtectionFault @ 0x140432540 (KiControlProtectionFault.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiFixupControlProtectionUserModeReturnMismatch @ 0x14057BD10 (KiFixupControlProtectionUserModeReturnMismatch.c)
- *     KiLogControlProtectionUserModeReturnMismatch @ 0x14057BE6C (KiLogControlProtectionUserModeReturnMismatch.c)
- *     KiProcessControlProtectionFromKernelMode @ 0x14057C348 (KiProcessControlProtectionFromKernelMode.c)
- *     KiCheckUserAddressCetCompat @ 0x14097561C (KiCheckUserAddressCetCompat.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiFixupControlProtectionUserModeReturnMismatch @ 0x14057C200 (KiFixupControlProtectionUserModeReturnMismatch.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x14057C35C (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x14057C838 (KiProcessControlProtectionFromKernelMode.c)
+ *     KiCheckUserAddressCetCompat @ 0x14097581C (KiCheckUserAddressCetCompat.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall KiProcessControlProtection(__int64 a1, __int64 a2)
@@ -84,10 +84,10 @@ __int64 __fastcall KiProcessControlProtection(__int64 a1, __int64 a2)
   }
   if ( !CurrentIrql )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v9 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v9 - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

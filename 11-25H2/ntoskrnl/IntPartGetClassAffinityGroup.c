@@ -18,7 +18,7 @@ ULONG_PTR __fastcall IntPartGetClassAffinityGroup(__int64 a1, unsigned int a2)
   ULONG_PTR v9; // rdi
   _BOOL8 v10; // rdx
   unsigned __int8 v11; // al
-  struct _PROCESSOR_NUMBER v13; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER v13; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
   v13 = 0;

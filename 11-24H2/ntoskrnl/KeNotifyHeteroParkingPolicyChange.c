@@ -1,7 +1,7 @@
 /*
- * XREFs of KeNotifyHeteroParkingPolicyChange @ 0x140A2B528
+ * XREFs of KeNotifyHeteroParkingPolicyChange @ 0x140A886D8
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A2A138 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140AC57E0 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */

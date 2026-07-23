@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryFeatureConfigurationFromBuffers @ 0x1405E9174
+ * XREFs of RtlQueryFeatureConfigurationFromBuffers @ 0x1405E66C4
  * Callers:
- *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140C4A2D8 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140C4C474 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
  * Callees:
- *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1404FB398 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x14078CFF8 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14078D330 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1404F8C78 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x14078CF28 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14078D260 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  */
 
 __int64 __fastcall RtlQueryFeatureConfigurationFromBuffers(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4)

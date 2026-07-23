@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPageAvailable @ 0x14055BFB4
+ * XREFs of MiPageAvailable @ 0x14055C1F4
  * Callers:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
  * Callees:
- *     MiPageAvailableEx @ 0x140319464 (MiPageAvailableEx.c)
+ *     MiPageAvailableEx @ 0x1403241B4 (MiPageAvailableEx.c)
  */
 
 _BOOL8 __fastcall MiPageAvailable(__int64 a1, __int16 a2)

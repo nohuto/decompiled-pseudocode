@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCoalescePageFileBitmapsCache @ 0x140267EB0
+ * XREFs of MiCoalescePageFileBitmapsCache @ 0x140255E50
  * Callers:
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
- *     MiAttemptPageFileReductionApc @ 0x140542AD0 (MiAttemptPageFileReductionApc.c)
- *     MiFinishPageFileExtension @ 0x1405435F0 (MiFinishPageFileExtension.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
+ *     MiAttemptPageFileReductionApc @ 0x140542D10 (MiAttemptPageFileReductionApc.c)
+ *     MiFinishPageFileExtension @ 0x140543830 (MiFinishPageFileExtension.c)
  * Callees:
- *     RtlLengthCurrentClearRunBackward @ 0x1402675F4 (RtlLengthCurrentClearRunBackward.c)
- *     RtlLengthCurrentClearRunForward @ 0x14026823C (RtlLengthCurrentClearRunForward.c)
- *     MiBitmapsCachedEntryLengthChanged @ 0x140268308 (MiBitmapsCachedEntryLengthChanged.c)
- *     MiRescanPageFileBitmapPortion @ 0x1402B81E8 (MiRescanPageFileBitmapPortion.c)
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1402363F8 (MiRescanPageFileBitmapPortion.c)
+ *     RtlLengthCurrentClearRunBackward @ 0x140255594 (RtlLengthCurrentClearRunBackward.c)
+ *     RtlLengthCurrentClearRunForward @ 0x1402561DC (RtlLengthCurrentClearRunForward.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x1402562A8 (MiBitmapsCachedEntryLengthChanged.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned int a3)
@@ -44,14 +44,12 @@ __int64 __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned i
   int v32; // eax
   unsigned int v33; // eax
   int v34; // eax
-  __int64 v35; // r8
-  __int64 v36; // r9
-  unsigned __int64 *v37; // rcx
-  __int64 v38; // rax
-  __int64 v39; // [rsp+30h] [rbp-48h] BYREF
+  unsigned __int64 *v35; // rcx
+  __int64 v36; // rax
+  __int64 v37; // [rsp+30h] [rbp-48h] BYREF
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h] BYREF
-  __int64 v41; // [rsp+80h] [rbp+8h]
-  __int64 v42; // [rsp+98h] [rbp+20h]
+  __int64 v39; // [rsp+80h] [rbp+8h]
+  __int64 v40; // [rsp+98h] [rbp+20h]
 
   result = (__int64)&retaddr;
   if ( (*(_BYTE *)(a1 + 207) & 1) == 0 )
@@ -61,7 +59,7 @@ __int64 __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned i
     v8 = 8LL;
     if ( !a2 )
       v8 = 24LL;
-    v41 = v7 + v8;
+    v39 = v7 + v8;
     v9 = *(_QWORD *)(a1 + 160);
     if ( !a2 )
       v6 = 8LL;
@@ -69,7 +67,7 @@ __int64 __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned i
     v11 = 0LL;
     v12 = *(_QWORD *)(a1 + 168);
     v13 = 0LL;
-    v42 = v10;
+    v40 = v10;
     if ( (v12 & 1) != 0 )
     {
       if ( v9 )
@@ -141,16 +139,16 @@ LABEL_17:
         {
           *(_DWORD *)(v23 + 52) = *(_DWORD *)(v18 + 52) + v22;
           *(_DWORD *)(v18 + 52) = 0;
-          RtlRbRemoveNode(a1 + 144, v9 - 24, 8LL, v10);
-          RtlRbRemoveNode(a1 + 160, v9, v35, v36);
-          v37 = *(unsigned __int64 **)(a1 + 184);
-          if ( *v37 != a1 + 176 )
+          RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)(v9 - 24));
+          RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)v9);
+          v35 = *(unsigned __int64 **)(a1 + 184);
+          if ( *v35 != a1 + 176 )
             __fastfail(3u);
-          v10 = v42;
+          v10 = v40;
           *(_QWORD *)v18 = a1 + 176;
           v13 = v23 | 1;
-          *(_QWORD *)(v18 + 8) = v37;
-          *v37 = v18;
+          *(_QWORD *)(v18 + 8) = v35;
+          *v35 = v18;
           *(_QWORD *)(a1 + 184) = v18;
         }
         else
@@ -175,7 +173,7 @@ LABEL_17:
           v33 = RtlLengthCurrentClearRunBackward(v10, a3, 0xFFFFFFFF);
           if ( v33 > 1 )
           {
-            v34 = RtlLengthCurrentClearRunBackward(v41, a3, v33);
+            v34 = RtlLengthCurrentClearRunBackward(v39, a3, v33);
             *(_DWORD *)(v13 + 52) += v34 - 1;
             *(_DWORD *)(v13 + 48) = a3 - v34 + 1;
           }
@@ -185,7 +183,7 @@ LABEL_17:
           v26 = v25 + *(_DWORD *)(v13 + 52);
           v27 = RtlLengthCurrentClearRunForward(v10, (unsigned int)(v26 - 1), 0xFFFFFFFFLL);
           if ( v27 > 1 )
-            *(_DWORD *)(v13 + 52) += RtlLengthCurrentClearRunForward(v41, (unsigned int)(v26 - 1), v27) - 1;
+            *(_DWORD *)(v13 + 52) += RtlLengthCurrentClearRunForward(v39, (unsigned int)(v26 - 1), v27) - 1;
         }
       }
       return MiBitmapsCachedEntryLengthChanged(a1, v13, 1LL);
@@ -196,11 +194,11 @@ LABEL_17:
       v29 = a3 - ((v20 != 0) + 1) - v20;
       if ( *(_QWORD *)(a1 + 176) == a1 + 176 )
       {
-        v38 = *(_QWORD *)(a1 + 152);
-        if ( (v38 & 1) != 0 )
+        v36 = *(_QWORD *)(a1 + 152);
+        if ( (v36 & 1) != 0 )
         {
-          if ( v38 != 1 )
-            v11 = v38 ^ ((a1 + 144) | 1);
+          if ( v36 != 1 )
+            v11 = v36 ^ ((a1 + 144) | 1);
         }
         else
         {
@@ -211,7 +209,7 @@ LABEL_17:
       {
         v11 = *(_QWORD *)(a1 + 176);
       }
-      v39 = v11;
+      v37 = v11;
       v30 = a3 - (v20 != 0) - v20 + v28;
       if ( v30 < 0x20
         || *(_DWORD *)(v11 + 52) >= v30
@@ -222,7 +220,7 @@ LABEL_17:
              (unsigned int)(v29 + v31) < 0x20)
          || *(_DWORD *)(v11 + 52) >= v30)
         || v29
-        && ((v32 = RtlLengthCurrentClearRunBackward(v42, a3, a3 - (v20 != 0) - v20),
+        && ((v32 = RtlLengthCurrentClearRunBackward(v40, a3, a3 - (v20 != 0) - v20),
              v29 = v32 - 1,
              v30 = v28 + v32,
              v28 + v32 < 0x20)
@@ -235,7 +233,7 @@ LABEL_17:
       }
       else
       {
-        return MiRescanPageFileBitmapPortion(a1, v41, a3 - v29, v30, (__int64)&v39);
+        return MiRescanPageFileBitmapPortion(a1, v39, a3 - v29, v30, &v37);
       }
     }
   }

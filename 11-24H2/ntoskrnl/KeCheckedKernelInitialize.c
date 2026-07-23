@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCheckedKernelInitialize @ 0x140BDF44C
+ * XREFs of KeCheckedKernelInitialize @ 0x140BE144C
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x140C633C4 (PipInitializeCoreDriversAndElam.c)
+ *     PipInitializeCoreDriversAndElam @ 0x140C65540 (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     KeExpandKernelStackAndCallout @ 0x14027BAB0 (KeExpandKernelStackAndCallout.c)
- *     KdDisableDebugger @ 0x1405AF900 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x1405AFA40 (KdEnableDebugger.c)
- *     KiSwInterruptPresent @ 0x140BDEBD4 (KiSwInterruptPresent.c)
- *     sub_140C08E1C @ 0x140C08E1C (sub_140C08E1C.c)
- *     KiAreCodePatchesAllowed @ 0x140C26BD0 (KiAreCodePatchesAllowed.c)
+ *     KeExpandKernelStackAndCallout @ 0x140231040 (KeExpandKernelStackAndCallout.c)
+ *     KdDisableDebugger @ 0x1405AC870 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x1405AC9B0 (KdEnableDebugger.c)
+ *     KiSwInterruptPresent @ 0x140BE0BD4 (KiSwInterruptPresent.c)
+ *     sub_140C0AE1C @ 0x140C0AE1C (sub_140C0AE1C.c)
+ *     KiAreCodePatchesAllowed @ 0x140C28C20 (KiAreCodePatchesAllowed.c)
  */
 
 NTSTATUS KeCheckedKernelInitialize()
@@ -31,7 +31,7 @@ NTSTATUS KeCheckedKernelInitialize()
     result = KiAreCodePatchesAllowed(v2, v1, v3, v4);
     if ( result )
     {
-      result = sub_140C08E1C();
+      result = sub_140C0AE1C();
       if ( result )
       {
         v5 = 0;
@@ -44,7 +44,7 @@ NTSTATUS KeCheckedKernelInitialize()
         Parameter[2] = 1;
         v9 = v5;
         v10 = 0;
-        result = KeExpandKernelStackAndCallout(sub_140C08680, Parameter, 0xC000uLL);
+        result = KeExpandKernelStackAndCallout(sub_140C0A680, Parameter, 0xC000uLL);
         if ( v6 >= 0 )
           return KdEnableDebugger();
       }

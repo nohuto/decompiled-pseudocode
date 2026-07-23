@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateK0q_EtwWriteTransfer @ 0x1405CA614
+ * XREFs of McTemplateK0q_EtwWriteTransfer @ 0x1405CCEE4
  * Callers:
- *     SecureDump_LogErrorEvent @ 0x1405D6C8C (SecureDump_LogErrorEvent.c)
- *     PnpCallAddDevice @ 0x14091480C (PnpCallAddDevice.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     SecureDump_LogErrorEvent @ 0x1405D947C (SecureDump_LogErrorEvent.c)
+ *     PnpCallAddDevice @ 0x14096F278 (PnpCallAddDevice.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14049F320 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x140498E70 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0q_EtwWriteTransfer(REGHANDLE *a1, const EVENT_DESCRIPTOR *a2, __int64 a3, int a4)

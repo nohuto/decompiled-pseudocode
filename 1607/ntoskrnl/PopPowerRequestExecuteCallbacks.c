@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPowerRequestExecuteCallbacks @ 0x1400FBF2C
+ * XREFs of PopPowerRequestExecuteCallbacks @ 0x1400F9CAC
  * Callers:
- *     PopPowerRequestCleanUp @ 0x1400FB1B4 (PopPowerRequestCleanUp.c)
- *     PopPowerRequestCallbackWorker @ 0x1400FBE30 (PopPowerRequestCallbackWorker.c)
+ *     PopPowerRequestCleanUp @ 0x1400F8F40 (PopPowerRequestCleanUp.c)
+ *     PopPowerRequestCallbackWorker @ 0x1400F9BB0 (PopPowerRequestCallbackWorker.c)
  * Callees:
  *     <none>
  */

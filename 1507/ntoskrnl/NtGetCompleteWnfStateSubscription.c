@@ -10,52 +10,57 @@
  *     ExpWnfCompleteThreadSubscriptions @ 0x1405016E8 (ExpWnfCompleteThreadSubscriptions.c)
  */
 
-__int64 __fastcall NtGetCompleteWnfStateSubscription(
-        ULONG64 a1,
-        _QWORD *a2,
-        int a3,
-        int a4,
-        volatile void *Address,
-        SIZE_T Length)
+NTSTATUS __cdecl NtGetCompleteWnfStateSubscription(
+        PWNF_STATE_NAME OldDescriptorStateName,
+        ULONG64 *OldSubscriptionId,
+        ULONG OldDescriptorEventMask,
+        ULONG OldDescriptorStatus,
+        PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
   __int64 *v7; // rdx
   struct _KTHREAD *CurrentThread; // rax
-  int v9; // edi
+  NTSTATUS v9; // edi
   unsigned __int64 v10; // r14
   struct _KTHREAD *v11; // rcx
   __int16 v12; // ax
   __int64 v14; // [rsp+50h] [rbp-28h] BYREF
 
-  v7 = (__int64 *)a1;
+  v7 = (__int64 *)OldDescriptorStateName;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v9 = -1073741811;
   v10 = KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[19];
   if ( v10 )
   {
-    if ( !a1 || !a2 )
+    if ( !OldDescriptorStateName || !OldSubscriptionId )
       goto LABEL_11;
-    if ( a3 && (!a4 || a4 == -1073741267) )
+    if ( OldDescriptorEventMask && (!OldDescriptorStatus || OldDescriptorStatus == -1073741267) )
     {
-      if ( a1 >= MmUserProbeAddress )
+      if ( (unsigned __int64)OldDescriptorStateName >= MmUserProbeAddress )
         v7 = (__int64 *)MmUserProbeAddress;
       v14 = *v7;
-      if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        a2 = (_QWORD *)MmUserProbeAddress;
-      v9 = ExpWnfCompleteThreadSubscriptions(v10, (unsigned int)&v14, *a2, a3, a4);
+      if ( (unsigned __int64)OldSubscriptionId >= MmUserProbeAddress )
+        OldSubscriptionId = (ULONG64 *)MmUserProbeAddress;
+      v9 = ExpWnfCompleteThreadSubscriptions(
+             v10,
+             (unsigned int)&v14,
+             *OldSubscriptionId,
+             OldDescriptorEventMask,
+             OldDescriptorStatus);
       if ( v9 >= 0 )
       {
 LABEL_11:
-        if ( (_DWORD)Length )
+        if ( DescriptorSize )
         {
-          if ( (unsigned int)Length < 0x1030 )
+          if ( DescriptorSize < 0x1030 )
           {
             v9 = -1073741789;
           }
           else
           {
-            ProbeForWrite(Address, (unsigned int)Length, 8u);
-            v9 = ExpWnfDeliverThreadNotifications(v10, Address, (unsigned int)Length);
+            ProbeForWrite(NewDeliveryDescriptor, DescriptorSize, 8u);
+            v9 = ExpWnfDeliverThreadNotifications(v10, NewDeliveryDescriptor, DescriptorSize);
           }
         }
       }
@@ -70,5 +75,5 @@ LABEL_11:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v9;
+  return v9;
 }

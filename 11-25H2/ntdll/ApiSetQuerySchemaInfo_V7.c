@@ -19,27 +19,26 @@ __int64 __fastcall ApiSetQuerySchemaInfo_V7(__int64 a1, __int64 a2, bool *a3, bo
   unsigned __int16 v11; // r15
   unsigned __int64 v12; // rdx
   unsigned __int16 *v13; // r13
-  __int64 v14; // r8
+  const WCHAR *v14; // rcx
   __int64 v15; // rcx
-  __int64 v16; // rcx
-  unsigned __int16 v17; // ax
-  int v18; // r8d
-  __int64 v19; // r9
-  unsigned __int64 v20; // rdx
-  __int64 v21; // r10
-  unsigned __int16 v22; // cx
-  unsigned __int16 v23; // ax
-  int v24; // r9d
-  __int64 v25; // r8
-  unsigned __int64 v26; // rdx
-  __int64 v27; // r10
-  unsigned __int16 v28; // cx
-  __int64 v29; // rcx
-  __int128 v31; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v32; // [rsp+40h] [rbp-10h]
-  bool *v33; // [rsp+A0h] [rbp+50h]
+  unsigned __int16 v16; // ax
+  int v17; // r8d
+  __int64 v18; // r9
+  unsigned __int64 v19; // rdx
+  __int64 v20; // r10
+  unsigned __int16 v21; // cx
+  unsigned __int16 v22; // ax
+  int v23; // r9d
+  __int64 v24; // r8
+  unsigned __int64 v25; // rdx
+  __int64 v26; // r10
+  unsigned __int16 v27; // cx
+  __int64 v28; // rcx
+  __int128 v30; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v31; // [rsp+40h] [rbp-10h]
+  bool *v32; // [rsp+A0h] [rbp+50h]
 
-  v33 = a3;
+  v32 = a3;
   v4 = 0;
   *a3 = 0;
   *a4 = 0;
@@ -58,100 +57,94 @@ __int64 __fastcall ApiSetQuerySchemaInfo_V7(__int64 a1, __int64 a2, bool *a3, bo
   if ( v10 )
   {
     LOBYTE(a3) = 1;
-    v16 = *(_QWORD *)(a2 + 8);
+    v15 = *(_QWORD *)(a2 + 8);
+    v30 = 0LL;
     v31 = 0LL;
-    v32 = 0LL;
-    if ( (unsigned __int8)ApiSetpGetContractKeyInfo(v16, v11, a3, &v31) )
+    if ( (unsigned __int8)ApiSetpGetContractKeyInfo(v15, v11, a3, &v30) )
     {
-      if ( HIDWORD(v31) == 2 )
+      if ( HIDWORD(v30) == 2 )
       {
-        v23 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 56, &v31);
-        if ( v23 == 0xFFFF )
+        v22 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 56, &v30);
+        if ( v22 == 0xFFFF )
           goto LABEL_34;
-        v24 = 0;
-        v25 = *(unsigned __int16 *)(a1 + 18);
-        v26 = a1 + *(unsigned __int8 *)(a1 + 64) * (unsigned __int64)v23 - v25 + *(unsigned int *)(a1 + 56);
-        if ( WORD1(v32) )
+        v23 = 0;
+        v24 = *(unsigned __int16 *)(a1 + 18);
+        v25 = a1 + *(unsigned __int8 *)(a1 + 64) * (unsigned __int64)v22 - v24 + *(unsigned int *)(a1 + 56);
+        if ( WORD1(v31) )
         {
-          v27 = WORD1(v32);
+          v26 = WORD1(v31);
           do
           {
-            v28 = *v13 + 32;
+            v27 = *v13 + 32;
             if ( (unsigned __int16)(*v13 - 65) > 0x19u )
-              v28 = *v13;
+              v27 = *v13;
             ++v13;
-            v24 = v28 + *(unsigned __int8 *)(a1 + 67) * v24;
-            --v27;
+            v23 = v27 + *(unsigned __int8 *)(a1 + 67) * v23;
+            --v26;
           }
-          while ( v27 );
+          while ( v26 );
         }
-        if ( *(_DWORD *)v26 != v24 )
+        if ( *(_DWORD *)v25 != v23 )
           goto LABEL_34;
-        v29 = *(unsigned int *)(a1 + 44)
-            + *(unsigned __int8 *)(a1 + 52) * (unsigned __int64)*(unsigned __int16 *)(v26 + 4)
-            - v25;
-        if ( (*(_BYTE *)(v29 + a1 + 10) & 2) != 0 )
+        v28 = *(unsigned int *)(a1 + 44)
+            + *(unsigned __int8 *)(a1 + 52) * (unsigned __int64)*(unsigned __int16 *)(v25 + 4)
+            - v24;
+        if ( (*(_BYTE *)(v28 + a1 + 10) & 2) != 0 )
           v9 = *(_BYTE *)(*(unsigned int *)(a1 + 92)
-                        + *(unsigned __int16 *)(v29 + a1 + 4) * (unsigned __int64)*(unsigned __int8 *)(a1 + 100)
-                        - v25
+                        + *(unsigned __int16 *)(v28 + a1 + 4) * (unsigned __int64)*(unsigned __int8 *)(a1 + 100)
+                        - v24
                         + a1
                         + 10) <= *(_BYTE *)(a1 + 3);
       }
       else
       {
-        if ( HIDWORD(v31) != 3 )
+        if ( HIDWORD(v30) != 3 )
           goto LABEL_34;
-        v17 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 68, &v31);
-        if ( v17 == 0xFFFF )
+        v16 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 68, &v30);
+        if ( v16 == 0xFFFF )
           goto LABEL_34;
-        v18 = 0;
-        v19 = *(unsigned __int16 *)(a1 + 18);
-        v20 = a1 + *(unsigned __int8 *)(a1 + 76) * (unsigned __int64)v17 - v19 + *(unsigned int *)(a1 + 68);
-        if ( WORD1(v32) )
+        v17 = 0;
+        v18 = *(unsigned __int16 *)(a1 + 18);
+        v19 = a1 + *(unsigned __int8 *)(a1 + 76) * (unsigned __int64)v16 - v18 + *(unsigned int *)(a1 + 68);
+        if ( WORD1(v31) )
         {
-          v21 = WORD1(v32);
+          v20 = WORD1(v31);
           do
           {
-            v22 = *v13 + 32;
+            v21 = *v13 + 32;
             if ( (unsigned __int16)(*v13 - 65) > 0x19u )
-              v22 = *v13;
+              v21 = *v13;
             ++v13;
-            v18 = v22 + *(unsigned __int8 *)(a1 + 79) * v18;
-            --v21;
+            v17 = v21 + *(unsigned __int8 *)(a1 + 79) * v17;
+            --v20;
           }
-          while ( v21 );
+          while ( v20 );
         }
-        if ( *(_DWORD *)v20 != v18 || (unsigned int)WORD4(v32) > *(unsigned __int8 *)(v20 + 9) )
+        if ( *(_DWORD *)v19 != v17 || (unsigned int)WORD4(v31) > *(unsigned __int8 *)(v19 + 9) )
           goto LABEL_34;
         v9 = (*(_BYTE *)(*(unsigned int *)(a1 + 44)
-                       + *(unsigned __int8 *)(a1 + 52) * (unsigned __int64)*(unsigned __int16 *)(v20 + 4)
-                       - v19
+                       + *(unsigned __int8 *)(a1 + 52) * (unsigned __int64)*(unsigned __int16 *)(v19 + 4)
+                       - v18
                        + a1
                        + 10) & 2) != 0;
       }
       v7 = 1;
     }
 LABEL_34:
-    *v33 = v7;
+    *v32 = v7;
     *a4 = v9;
     return v4;
   }
   if ( v8 >= 0x14u )
     v8 = 20;
-  if ( !(unsigned int)RtlCompareUnicodeStrings(
-                        *(unsigned __int16 **)(a2 + 8),
-                        (unsigned __int64)v8 >> 1,
-                        L"schemaext-",
-                        0xAuLL,
-                        1) )
+  if ( !RtlCompareUnicodeStrings(*(PCWCH *)(a2 + 8), (unsigned __int64)v8 >> 1, L"schemaext-", 0xAuLL, 1u) )
   {
-    v15 = *(_QWORD *)(a2 + 8);
-    LOBYTE(v14) = 1;
+    v14 = *(const WCHAR **)(a2 + 8);
+    v30 = 0LL;
     v31 = 0LL;
-    v32 = 0LL;
-    if ( (unsigned __int8)ApiSetpGetExtensionNameKeyInfo(v15, v11, v14, &v31) )
+    if ( (unsigned __int8)ApiSetpGetExtensionNameKeyInfo(v14) )
     {
-      v7 = (unsigned __int16)ApiSetpSearchForSectionIndex_V7(a1, a1 + 80, &v31) != 0xFFFF;
+      v7 = (unsigned __int16)ApiSetpSearchForSectionIndex_V7(a1, a1 + 80, &v30) != 0xFFFF;
       v9 = v7;
       goto LABEL_34;
     }

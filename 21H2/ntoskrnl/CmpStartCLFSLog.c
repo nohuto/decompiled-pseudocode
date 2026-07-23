@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpStartCLFSLog @ 0x14077D984
+ * XREFs of CmpStartCLFSLog @ 0x14077DB44
  * Callers:
- *     CmpStartRMLog @ 0x14077D4E4 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x14077D6A4 (CmpStartRMLog.c)
  * Callees:
- *     KeUnstackDetachProcess @ 0x1402075C0 (KeUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x14025C110 (KeStackAttachProcess.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PsDisableImpersonation @ 0x140706410 (PsDisableImpersonation.c)
- *     PsRestoreImpersonation @ 0x140706540 (PsRestoreImpersonation.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC (CmpAddRemoveContainerToCLFSLog.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     KeStackAttachProcess @ 0x14027D680 (KeStackAttachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1402ABEC0 (KeUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PsDisableImpersonation @ 0x14071D7F0 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x14071D920 (PsRestoreImpersonation.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x14077CB9C (CmpAddRemoveContainerToCLFSLog.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpStartCLFSLog(
@@ -37,7 +37,7 @@ __int64 __fastcall CmpStartCLFSLog(
   PVOID ppvMarshalContext; // [rsp+80h] [rbp-59h] BYREF
   PULONGLONG pcbContainer; // [rsp+88h] [rbp-51h]
   int *v24; // [rsp+90h] [rbp-49h]
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+A8h] [rbp-31h] BYREF
 
   pcbContainer = a6;

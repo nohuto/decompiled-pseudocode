@@ -1,17 +1,17 @@
 /*
- * XREFs of MxGetPhase0Mapping @ 0x140C80058
+ * XREFs of MxGetPhase0Mapping @ 0x140C86058
  * Callers:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiGetPageChainSmallPageProcess @ 0x140287AA0 (MiGetPageChainSmallPageProcess.c)
- *     MiFillPhysicalPages @ 0x140289560 (MiFillPhysicalPages.c)
- *     MiZeroAndConvertPage @ 0x1402A14B0 (MiZeroAndConvertPage.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiFillPhysicalPagesWithPtes @ 0x1406E72C0 (MiFillPhysicalPagesWithPtes.c)
- *     MxCopyPage @ 0x140CF5774 (MxCopyPage.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140287000 (MiGetPageChainSmallPageProcess.c)
+ *     MiFillPhysicalPages @ 0x140288AC0 (MiFillPhysicalPages.c)
+ *     MiZeroAndConvertPage @ 0x1402A0A00 (MiZeroAndConvertPage.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiFillPhysicalPagesWithPtes @ 0x1406EBF70 (MiFillPhysicalPagesWithPtes.c)
+ *     MxCopyPage @ 0x140CFBAF4 (MxCopyPage.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 MxGetPhase0Mapping()
@@ -22,8 +22,8 @@ __int64 MxGetPhase0Mapping()
   unsigned int j; // r10d
   ULONG_PTR BugCheckParameter2[2]; // [rsp+20h] [rbp-10h] BYREF
 
-  if ( qword_14101EC58 )
-    return qword_14101EC58 << 25 >> 16;
+  if ( qword_14101FC58 )
+    return qword_14101FC58 << 25 >> 16;
   v1 = ((((unsigned __int64)BugCheckParameter2 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) & 0xFFFFFFFFFFFFF000uLL;
   for ( i = 0; ; ++i )
   {
@@ -43,6 +43,6 @@ LABEL_10:
       break;
     v3 += 8LL;
   }
-  qword_14101EC58 = v3;
+  qword_14101FC58 = v3;
   return v3 << 25 >> 16;
 }

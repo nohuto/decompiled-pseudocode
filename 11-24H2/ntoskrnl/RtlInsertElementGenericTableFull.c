@@ -1,15 +1,14 @@
 /*
- * XREFs of RtlInsertElementGenericTableFull @ 0x140249420
+ * XREFs of RtlInsertElementGenericTableFull @ 0x1402E3660
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 PVOID __stdcall RtlInsertElementGenericTableFull(
         PRTL_GENERIC_TABLE Table,
         PVOID Buffer,
@@ -19,8 +18,8 @@ PVOID __stdcall RtlInsertElementGenericTableFull(
         TABLE_SEARCH_RESULT SearchResult)
 {
   size_t v7; // r14
-  RTL_SPLAY_LINKS *v10; // rbx
-  __int64 v12; // rdx
+  _RTL_SPLAY_LINKS *v10; // rbx
+  ULONG_PTR v12; // rdx
   _QWORD *v13; // rax
   struct _LIST_ENTRY *v14; // rax
   struct _LIST_ENTRY *Blink; // rdx
@@ -28,7 +27,7 @@ PVOID __stdcall RtlInsertElementGenericTableFull(
   v7 = BufferSize;
   if ( SearchResult == TableFoundNode )
   {
-    v10 = (RTL_SPLAY_LINKS *)NodeOrParent;
+    v10 = (_RTL_SPLAY_LINKS *)NodeOrParent;
 LABEL_3:
     Table->TableRoot = RtlSplay(v10);
     if ( NewElement )
@@ -38,10 +37,10 @@ LABEL_3:
   v12 = BufferSize + 40;
   if ( (unsigned int)v12 >= BufferSize )
   {
-    v13 = (_QWORD *)((__int64 (__fastcall *)(ULONG_PTR))Table->AllocateRoutine == ExAllocatePool2
-                   ? ExAllocatePool2((ULONG_PTR)Table)
-                   : guard_dispatch_icall_no_overrides(Table, v12, *(_QWORD *)&BufferSize, NewElement));
-    v10 = (RTL_SPLAY_LINKS *)v13;
+    v13 = (_QWORD *)((__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR, ULONG))Table->AllocateRoutine == ExAllocatePool2
+                   ? ExAllocatePool2((ULONG_PTR)Table, v12, BufferSize)
+                   : guard_dispatch_icall_no_overrides(Table, v12));
+    v10 = (_RTL_SPLAY_LINKS *)v13;
     if ( v13 )
     {
       v13[1] = 0LL;

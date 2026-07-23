@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlNotifyFilterChangeDirectoryLite @ 0x140A01C00
+ * XREFs of FsRtlNotifyFilterChangeDirectoryLite @ 0x1409FEBD0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     FsRtlNotifySetCancelRoutine @ 0x1403DCA9C (FsRtlNotifySetCancelRoutine.c)
- *     FsRtlCheckNotifyForDeleteLite @ 0x14070DA4C (FsRtlCheckNotifyForDeleteLite.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     FsRtlNotifyCompleteIrp @ 0x140A021B0 (FsRtlNotifyCompleteIrp.c)
- *     FsRtlNotifyInitializeSync @ 0x140A02340 (FsRtlNotifyInitializeSync.c)
- *     FsRtlNotifyUninitializeSync @ 0x140A73F50 (FsRtlNotifyUninitializeSync.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x1403CB688 (FsRtlNotifySetCancelRoutine.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlCheckNotifyForDeleteLite @ 0x14070B5EC (FsRtlCheckNotifyForDeleteLite.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     FsRtlNotifyCompleteIrp @ 0x1409FF180 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlNotifyInitializeSync @ 0x1409FF310 (FsRtlNotifyInitializeSync.c)
+ *     FsRtlNotifyUninitializeSync @ 0x140A6D8B0 (FsRtlNotifyUninitializeSync.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlNotifyFilterChangeDirectoryLite(
@@ -78,7 +78,7 @@ void __fastcall FsRtlNotifyFilterChangeDirectoryLite(
   }
   if ( !Pool2 )
   {
-    Pool2 = ExAllocatePool2(0x120uLL);
+    Pool2 = ExAllocatePool2(0x120uLL, 0x80uLL, 0x4E725346u);
     *(_WORD *)(Pool2 + 72) |= 0x40u;
     *(_QWORD *)Pool2 = *a1;
     *(_QWORD *)(Pool2 + 8) = a3;

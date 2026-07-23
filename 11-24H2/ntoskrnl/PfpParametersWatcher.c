@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpParametersWatcher @ 0x1407484A0
+ * XREFs of PfpParametersWatcher @ 0x140746790
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwNotifyChangeKey @ 0x1406A8870 (ZwNotifyChangeKey.c)
- *     PfpRpShutdown @ 0x140746FD0 (PfpRpShutdown.c)
- *     PfSnParametersRead @ 0x140747CD0 (PfSnParametersRead.c)
- *     PfpParametersRead @ 0x1407482D0 (PfpParametersRead.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwNotifyChangeKey @ 0x1406A9810 (ZwNotifyChangeKey.c)
+ *     PfpRpShutdown @ 0x1407452C0 (PfpRpShutdown.c)
+ *     PfSnParametersRead @ 0x140745FC0 (PfSnParametersRead.c)
+ *     PfpParametersRead @ 0x1407465C0 (PfpParametersRead.c)
  */
 
 void __fastcall PfpParametersWatcher(__int64 a1)
@@ -79,16 +79,16 @@ LABEL_8:
           v6 = 0;
           if ( (int)PfpParametersRead(a1) >= 0 )
           {
-            if ( ((*(_DWORD *)(a1 + 68) & 2) != 0) != (dword_140E66F90 & 1) )
+            if ( ((*(_DWORD *)(a1 + 68) & 2) != 0) != (dword_140E670E0 & 1) )
             {
               if ( (*(_DWORD *)(a1 + 68) & 2) != 0 )
               {
-                _InterlockedExchange64((volatile __int64 *)&stru_140E66F80, 0LL);
-                dword_140E66F90 |= 1u;
+                _InterlockedExchange64((volatile __int64 *)&stru_140E670D0, 0LL);
+                dword_140E670E0 |= 1u;
               }
               else
               {
-                PfpRpShutdown((__int64)&unk_140E66EF8);
+                PfpRpShutdown((__int64)&unk_140E67048);
               }
             }
             v6 = 1;

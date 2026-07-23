@@ -1,21 +1,21 @@
 /*
- * XREFs of MmSetPageProtection @ 0x140133580
+ * XREFs of MmSetPageProtection @ 0x140133650
  * Callers:
- *     sub_1401AD7E0 @ 0x1401AD7E0 (sub_1401AD7E0.c)
- *     KeWriteProtectProcessorState @ 0x1405723B8 (KeWriteProtectProcessorState.c)
- *     MmAllocateIsrStack @ 0x1407299EC (MmAllocateIsrStack.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
- *     VslpIumPhase0Initialize @ 0x1409F4600 (VslpIumPhase0Initialize.c)
+ *     sub_1401AD920 @ 0x1401AD920 (sub_1401AD920.c)
+ *     KeWriteProtectProcessorState @ 0x1405733B8 (KeWriteProtectProcessorState.c)
+ *     MmAllocateIsrStack @ 0x14072ABDC (MmAllocateIsrStack.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
+ *     VslpIumPhase0Initialize @ 0x1409F5600 (VslpIumPhase0Initialize.c)
  * Callees:
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiLockPageAndSetDirty @ 0x140086028 (MiLockPageAndSetDirty.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MiLockPageAndSetDirty @ 0x140086018 (MiLockPageAndSetDirty.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall MmSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

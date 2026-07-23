@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpLoadContextReplaceModule @ 0x180085350
+ * XREFs of LdrpLoadContextReplaceModule @ 0x18007C6F0
  * Callers:
- *     LdrpLoadKnownDll @ 0x180082910 (LdrpLoadKnownDll.c)
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     LdrpMapDllFullPath @ 0x180084A80 (LdrpMapDllFullPath.c)
- *     LdrpMapDllRetry @ 0x180086610 (LdrpMapDllRetry.c)
- *     LdrpMapDllSearchPath @ 0x18011C9D0 (LdrpMapDllSearchPath.c)
+ *     LdrpLoadKnownDll @ 0x180079CB0 (LdrpLoadKnownDll.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpMapDllFullPath @ 0x18007BE20 (LdrpMapDllFullPath.c)
+ *     LdrpMapDllRetry @ 0x18007D9B0 (LdrpMapDllRetry.c)
+ *     LdrpMapDllSearchPath @ 0x18011C780 (LdrpMapDllSearchPath.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpQueueWork @ 0x180067B50 (LdrpQueueWork.c)
- *     LdrpDependencyExist @ 0x180119480 (LdrpDependencyExist.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpQueueWork @ 0x180087FA0 (LdrpQueueWork.c)
+ *     LdrpDependencyExist @ 0x180119230 (LdrpDependencyExist.c)
  */
 
-struct _TEB *__fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
+void __fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
 {
   __int64 v4; // r8
   __int64 v5; // rdi
@@ -30,7 +30,7 @@ struct _TEB *__fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
   _QWORD **v15; // rax
   int v16; // eax
 
-  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock, a2);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   v4 = *(_QWORD *)(*(_QWORD *)(a1 + 56) + 152LL);
   *(_QWORD *)(a1 + 56) = a2;
   v5 = *(_QWORD *)(a2 + 152);
@@ -46,7 +46,7 @@ struct _TEB *__fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
       *(_QWORD *)(v4 + 48) = 0LL;
     else
       *v7 = (_QWORD *)*v8;
-    LdrpDereferenceModule(a2);
+    LdrpDereferenceModule((char *)a2);
     v9 = v8[1] & 0xFFFFFFFFFFFFFFF8uLL;
     v10 = *(_QWORD *)(*(_QWORD *)v9 + 16LL);
     if ( (unsigned __int8)LdrpDependencyExist(v9, v5) )
@@ -65,7 +65,7 @@ struct _TEB *__fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
       v16 = *(_DWORD *)(v5 + 24);
       if ( v16 != -1 )
         *(_DWORD *)(v5 + 24) = v16 - 1;
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(LdrpHeap, 0, v11);
       v11 = 0LL;
     }
     else
@@ -89,5 +89,5 @@ struct _TEB *__fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
       LdrpQueueWork(v10);
     }
   }
-  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+  RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 }

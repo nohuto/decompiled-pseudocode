@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpBlkPoPerformPpmOperationForMsr @ 0x140A19EE0
+ * XREFs of HalpBlkPoPerformPpmOperationForMsr @ 0x140A1AEE0
  * Callers:
- *     HalpBlkPoPerformPpmOperation @ 0x140A19DC4 (HalpBlkPoPerformPpmOperation.c)
+ *     HalpBlkPoPerformPpmOperation @ 0x140A1ADC4 (HalpBlkPoPerformPpmOperation.c)
  * Callees:
  *     <none>
  */

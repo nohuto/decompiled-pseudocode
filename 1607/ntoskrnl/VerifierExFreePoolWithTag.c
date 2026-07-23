@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExFreePoolWithTag @ 0x1407023F0
+ * XREFs of VerifierExFreePoolWithTag @ 0x140702420
  * Callers:
- *     VerifierExFreePool @ 0x1407023D0 (VerifierExFreePool.c)
+ *     VerifierExFreePool @ 0x140702400 (VerifierExFreePool.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VfFreePoolNotification @ 0x140710968 (VfFreePoolNotification.c)
+ *     VfFreePoolNotification @ 0x140710998 (VfFreePoolNotification.c)
  *     VfIrpDatabaseCheckExFreePool @ 0x140716988 (VfIrpDatabaseCheckExFreePool.c)
  *     ExFreePoolSanityChecks @ 0x140721350 (ExFreePoolSanityChecks.c)
  */

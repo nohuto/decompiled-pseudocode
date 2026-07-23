@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpSetSegmentInfo @ 0x180051A50
+ * XREFs of RtlpSetSegmentInfo @ 0x180051A40
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x1800240C0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18004EFB0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800240B0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x18004EFA0 (RtlpLocalInfoAllocFromCache.c)
  * Callees:
  *     RtlpLogHeapAffinitySlotAssign @ 0x1800F8FE4 (RtlpLogHeapAffinitySlotAssign.c)
  */

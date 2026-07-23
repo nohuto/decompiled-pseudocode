@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmSetInstallerClassMappedProperty @ 0x1408FF480
+ * XREFs of _CmSetInstallerClassMappedProperty @ 0x140900740
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x1406F09B0 (_PnpDispatchInstallerClass.c)
- *     _CmDeleteInstallerClassWorker @ 0x1408F7CEC (_CmDeleteInstallerClassWorker.c)
+ *     _PnpDispatchInstallerClass @ 0x1406F1C50 (_PnpDispatchInstallerClass.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1408F8FAC (_CmDeleteInstallerClassWorker.c)
  * Callees:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5AE4 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x1408FD098 (_CmDeleteInstallerClassMappedPropertyFromCoInstallers.c)
- *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1408FD10C (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
- *     _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x1408FF6AC (_CmSetInstallerClassMappedPropertyFromCoInstallers.c)
- *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x1408FF728 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x1408FF888 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E6D84 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x1408FE358 (_CmDeleteInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1408FE3CC (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x14090096C (_CmSetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x1409009E8 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140900B48 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedProperty(
@@ -64,7 +64,7 @@ __int64 __fastcall CmSetInstallerClassMappedProperty(
     if ( v11 != -1073741802 )
       return v11;
 LABEL_11:
-    v16 = &off_14090ABE0;
+    v16 = &off_14090BEA0;
     v17 = 0;
     while ( 1 )
     {
@@ -109,7 +109,7 @@ LABEL_24:
     if ( v11 == -1073741802 )
     {
 LABEL_34:
-      v23 = &off_1409093E0;
+      v23 = &off_14090A6A0;
       v24 = 0;
       while ( 1 )
       {

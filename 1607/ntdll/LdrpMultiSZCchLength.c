@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpMultiSZCchLength @ 0x1800106C0
+ * XREFs of LdrpMultiSZCchLength @ 0x1800106B0
  * Callers:
- *     RtlSetThreadPreferredUILanguages @ 0x180013860 (RtlSetThreadPreferredUILanguages.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180088A20 (RtlSetProcessPreferredUILanguages.c)
- *     RtlpConvertCultureNamesToLCIDs @ 0x1800E6A40 (RtlpConvertCultureNamesToLCIDs.c)
- *     RtlpConvertLCIDsToCultureNames @ 0x1800E6C60 (RtlpConvertLCIDsToCultureNames.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180013850 (RtlSetThreadPreferredUILanguages.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180088A10 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlpConvertCultureNamesToLCIDs @ 0x1800E6B00 (RtlpConvertCultureNamesToLCIDs.c)
+ *     RtlpConvertLCIDsToCultureNames @ 0x1800E6D20 (RtlpConvertLCIDsToCultureNames.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x180040BCC (RtlStringCchLengthW.c)
+ *     RtlStringCchLengthW @ 0x180040BBC (RtlStringCchLengthW.c)
  */
 
 __int64 __fastcall LdrpMultiSZCchLength(_WORD *a1, __int64 a2, _DWORD *a3)

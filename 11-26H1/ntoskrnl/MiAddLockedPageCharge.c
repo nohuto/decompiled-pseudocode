@@ -1,29 +1,29 @@
 /*
- * XREFs of MiAddLockedPageCharge @ 0x1402F5D30
+ * XREFs of MiAddLockedPageCharge @ 0x1402D7DB0
  * Callers:
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
- *     MiMigratePfn @ 0x1402F6990 (MiMigratePfn.c)
- *     MiBuildForkPageTable @ 0x14030DC5C (MiBuildForkPageTable.c)
- *     MiSwitchValidPteToTransition @ 0x14030ED40 (MiSwitchValidPteToTransition.c)
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
- *     MiCheckProtoPtePageState @ 0x14031BB00 (MiCheckProtoPtePageState.c)
- *     MiRelockProtoPoolPage @ 0x14031BFF4 (MiRelockProtoPoolPage.c)
- *     MiBuildReservationCluster @ 0x14033D2B4 (MiBuildReservationCluster.c)
- *     MiHandleCollidedFault @ 0x14038B418 (MiHandleCollidedFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x14038B588 (MiWaitForCollidedFaultComplete.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14047F0C4 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiMapSystemCachePage @ 0x1404FFD9C (MiMapSystemCachePage.c)
- *     MiLockProcessParentPage @ 0x14050E464 (MiLockProcessParentPage.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiLockMirrorWritePages @ 0x140522AD4 (MiLockMirrorWritePages.c)
- *     MiDbgMarkPfnModified @ 0x1406FE520 (MiDbgMarkPfnModified.c)
- *     MiSoftFaultClusterTradeReleaseLocks @ 0x140712784 (MiSoftFaultClusterTradeReleaseLocks.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
+ *     MiMigratePfn @ 0x1402D8A10 (MiMigratePfn.c)
+ *     MiBuildForkPageTable @ 0x1402EFCDC (MiBuildForkPageTable.c)
+ *     MiSwitchValidPteToTransition @ 0x1402F0DC0 (MiSwitchValidPteToTransition.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
+ *     MiCheckProtoPtePageState @ 0x14031DB30 (MiCheckProtoPtePageState.c)
+ *     MiRelockProtoPoolPage @ 0x14031E024 (MiRelockProtoPoolPage.c)
+ *     MiBuildReservationCluster @ 0x14033F334 (MiBuildReservationCluster.c)
+ *     MiHandleCollidedFault @ 0x14038D1C8 (MiHandleCollidedFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14038D338 (MiWaitForCollidedFaultComplete.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140478A34 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiMapSystemCachePage @ 0x1404F958C (MiMapSystemCachePage.c)
+ *     MiLockProcessParentPage @ 0x140507ED4 (MiLockProcessParentPage.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiLockMirrorWritePages @ 0x140525140 (MiLockMirrorWritePages.c)
+ *     MiDbgMarkPfnModified @ 0x1407031F0 (MiDbgMarkPfnModified.c)
+ *     MiSoftFaultClusterTradeReleaseLocks @ 0x14071747C (MiSoftFaultClusterTradeReleaseLocks.c)
  * Callees:
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiAddLockedPageCharge(__int64 a1, char a2, __int64 a3, unsigned __int64 a4)
@@ -79,9 +79,9 @@ __int64 __fastcall MiAddLockedPageCharge(__int64 a1, char a2, __int64 a3, unsign
       v15 = 1;
     }
     v16 = (*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL;
-    v17 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8 * v16);
+    v17 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8 * v16);
     if ( v15
-      && !(unsigned int)MiChargeCommit(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v16), 1LL, 4 * (v13 ^ 1u) + 4, a4) )
+      && !(unsigned int)MiChargeCommit(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v16), 1LL, 4 * (v13 ^ 1u) + 4, a4) )
     {
       return 0LL;
     }

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x1800FBCB0
+ * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x1800FBC70
  * Callers:
- *     RtlIsNameInExpression @ 0x1800FB5A0 (RtlIsNameInExpression.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x1800FB650 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlIsNameInExpression @ 0x1800FB560 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x1800FB610 (RtlIsNameInUnUpcasedExpression.c)
  * Callees:
  *     NLS_UPCASE @ 0x180016160 (NLS_UPCASE.c)
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
@@ -12,7 +12,7 @@
 __int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *a2)
 {
   unsigned int v4; // eax
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v6; // r10d
   unsigned int v8; // r11d
   unsigned __int16 v9; // ax
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *
 
   v4 = *a2;
   *(_WORD *)(a1 + 2) = v4;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   *(_QWORD *)(a1 + 8) = Heap;
   v6 = 0;
   if ( !Heap )

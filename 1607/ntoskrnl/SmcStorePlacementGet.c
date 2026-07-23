@@ -1,11 +1,11 @@
 /*
- * XREFs of SmcStorePlacementGet @ 0x14069A9AC
+ * XREFs of SmcStorePlacementGet @ 0x14069AA90
  * Callers:
- *     SmcStoreResize @ 0x14069AAD8 (SmcStoreResize.c)
- *     SmcStoreSlotReserve @ 0x14069AF68 (SmcStoreSlotReserve.c)
+ *     SmcStoreResize @ 0x14069ABBC (SmcStoreResize.c)
+ *     SmcStoreSlotReserve @ 0x14069B04C (SmcStoreSlotReserve.c)
  * Callees:
- *     RtlFindSetBits @ 0x14000AFC0 (RtlFindSetBits.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
+ *     RtlFindSetBits @ 0x14000AB40 (RtlFindSetBits.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
  */
 
 __int64 __fastcall SmcStorePlacementGet(__int64 a1, ULONG a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall SmcStorePlacementGet(__int64 a1, ULONG a2, __int64 a3)
   signed int v15; // ebx
   int v16; // esi
   signed int v17; // eax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = a1 + 168;
   v4 = *(unsigned int **)(a3 + 8);

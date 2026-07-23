@@ -176,10 +176,10 @@ LABEL_16:
   v19 = _InterlockedCompareExchange((volatile signed __int32 *)v17, 1, 0);
   if ( v19 )
     ExpReleaseFastMutexContended((volatile signed __int32 *)v17, v19);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v31 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v31 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v31 >= 2u )
     {
       v32 = KeGetCurrentPrcb();
       v33 = v32->SchedulerAssist;

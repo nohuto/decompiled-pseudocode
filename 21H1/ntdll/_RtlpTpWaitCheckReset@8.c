@@ -10,10 +10,10 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __fastcall RtlpTpWaitCheckReset(int a1, int a2)
+void __fastcall RtlpTpWaitCheckReset(int a1, int a2)
 {
-  RtlAcquireSRWLockExclusive(a1 + 8);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   if ( (*(_BYTE *)(a1 + 4) & 8) == 0 && (!a2 || a2 == 258) )
-    TpSetWaitEx(*(_DWORD *)(a1 + 24), *(_DWORD *)(a1 + 28), *(_DWORD *)(a1 + 40), 0);
-  return RtlReleaseSRWLockExclusive(a1 + 8);
+    TpSetWaitEx(*(PTP_WAIT *)(a1 + 24), *(HANDLE *)(a1 + 28), *(PLARGE_INTEGER *)(a1 + 40), 0);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
 }

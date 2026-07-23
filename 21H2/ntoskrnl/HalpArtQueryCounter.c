@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpArtQueryCounter @ 0x1404D5D20
+ * XREFs of HalpArtQueryCounter @ 0x1404D5F60
  * Callers:
  *     <none>
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
  */
 
 ULONGLONG __fastcall HalpArtQueryCounter(unsigned int *a1, __int64 a2)

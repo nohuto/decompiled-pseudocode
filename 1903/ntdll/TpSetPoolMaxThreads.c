@@ -11,32 +11,28 @@
  *     sub_18010F490 @ 0x18010F490 (sub_18010F490.c)
  */
 
-unsigned int *__fastcall TpSetPoolMaxThreads(__int64 a1, struct _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
-  unsigned int *result; // rax
-  __int64 v6; // rcx
-  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // r8
+  __int64 v4; // rcx
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = (unsigned int)Ldr;
-  if ( !a1 )
-    return (unsigned int *)sub_18010EFC8(a1, Ldr, a3, a4);
-  if ( (int)Ldr < 0 )
-    return (unsigned int *)sub_18010EFC8(a1, Ldr, a3, a4);
-  Ldr = NtCurrentPeb()->Ldr;
-  if ( Ldr->ShutdownInProgress )
-    return (unsigned int *)sub_18010EFC8(a1, Ldr, a3, a4);
-  ZwSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 5LL, &v7);
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  WorkerFactoryInformation = MaxThreads;
+  if ( !Pool
+    || (MaxThreads & 0x80000000) != 0
+    || (*(_QWORD *)&MaxThreads = NtCurrentPeb()->Ldr, *(_BYTE *)(*(_QWORD *)&MaxThreads + 72LL)) )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v6 = *((_QWORD *)result + 18) + 556LL;
+    sub_18010EFC8(Pool, *(_QWORD *)&MaxThreads, v2);
   }
   else
   {
-    v6 = 2147353478LL;
+    ZwSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMaximum, &WorkerFactoryInformation, 4u);
+    if ( RtlGetCurrentServiceSessionId() )
+      v4 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
+    else
+      v4 = 2147353478LL;
+    if ( *(_BYTE *)v4 )
+      sub_18010F490(Pool, WorkerFactoryInformation);
   }
-  if ( *(_BYTE *)v6 )
-    return (unsigned int *)sub_18010F490(a1, v7);
-  return result;
 }

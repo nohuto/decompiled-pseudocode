@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpSwitchBuffer @ 0x140265E94
+ * XREFs of EtwpSwitchBuffer @ 0x140253E34
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x14035B440 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
- *     EtwpRequestFlushTimer @ 0x14025FBDC (EtwpRequestFlushTimer.c)
- *     EtwpDequeueFreeBuffer @ 0x140266078 (EtwpDequeueFreeBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x140266230 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpPrepareDirtyBuffer @ 0x1402663DC (EtwpPrepareDirtyBuffer.c)
- *     EtwpBuffersFlushRequired @ 0x1402C7BAC (EtwpBuffersFlushRequired.c)
- *     EtwpEnqueueOverflowBuffer @ 0x1402D1F88 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x1402ED308 (EtwpAllocateFreeBuffers.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
+ *     EtwpBuffersFlushRequired @ 0x140246400 (EtwpBuffersFlushRequired.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x140250358 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpDequeueFreeBuffer @ 0x140254018 (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402541D0 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14025437C (EtwpPrepareDirtyBuffer.c)
+ *     EtwpRequestFlushTimer @ 0x140281350 (EtwpRequestFlushTimer.c)
+ *     EtwpAllocateFreeBuffers @ 0x14029E658 (EtwpAllocateFreeBuffers.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, signed __int64 *a3, __int16 a4, __int16 a5)
@@ -51,7 +51,7 @@ LABEL_7:
           _InterlockedDecrement((volatile signed __int32 *)(a2 + 12));
         _InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 12), 0xFFFFFFF1);
         if ( v6 )
-          EtwpEnqueueOverflowBuffer(a1);
+          EtwpEnqueueOverflowBuffer(a1, v10);
         else
           EtwpEnqueueAvailableBuffer(a1, v10, 0LL);
         return 0LL;
@@ -64,7 +64,7 @@ LABEL_7:
     {
       EtwpPrepareDirtyBuffer(a1, i & 0xFFFFFFFFFFFFFFF0uLL);
       _InterlockedExchangeAdd((volatile signed __int32 *)(v14 + 12), ~(i & 0xF));
-      if ( !v6 && (unsigned __int8)EtwpBuffersFlushRequired(a1) )
+      if ( !v6 && EtwpBuffersFlushRequired((_DWORD *)a1) )
       {
         if ( (a5 & 0x600) != 0 || ObGetCurrentIrql() > 2u )
         {
@@ -79,7 +79,8 @@ LABEL_7:
     }
     else if ( *(_DWORD *)(a1 + 224) )
     {
-      EtwpRequestFlushTimer(a1, (a5 & 0x600) != 0);
+      LOBYTE(v10) = (a5 & 0x600) != 0;
+      EtwpRequestFlushTimer(a1, v10);
     }
     return 0LL;
   }

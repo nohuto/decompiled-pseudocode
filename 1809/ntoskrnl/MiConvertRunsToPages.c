@@ -1,9 +1,9 @@
 /*
- * XREFs of MiConvertRunsToPages @ 0x140852A7C
+ * XREFs of MiConvertRunsToPages @ 0x140853CDC
  * Callers:
- *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140853410 (MiAllocateFileExtents.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiConvertRunsToPages(__int64 a1, _QWORD *a2, unsigned int *a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAttachProcess @ 0x1402C76D0
+ * XREFs of KiAttachProcess @ 0x140312370
  * Callers:
- *     KeAttachProcess @ 0x1402C6510 (KeAttachProcess.c)
+ *     KeAttachProcess @ 0x1403111B0 (KeAttachProcess.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiSetAddressPolicy @ 0x140247450 (KiSetAddressPolicy.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1402C79B0 (HvlSwitchVirtualAddressSpace.c)
- *     KiInSwapSingleProcess @ 0x1402C79E4 (KiInSwapSingleProcess.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiSetAddressPolicy @ 0x140248DB0 (KiSetAddressPolicy.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x140312650 (HvlSwitchVirtualAddressSpace.c)
+ *     KiInSwapSingleProcess @ 0x140312684 (KiInSwapSingleProcess.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiAttachProcess(LegacyAutoBoost *this, __int64 a2, unsigned __int8 a3, char a4, __int64 a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAdaptiveUpdateIdleContextWorker @ 0x14075F650
+ * XREFs of PopAdaptiveUpdateIdleContextWorker @ 0x14075E5F0
  * Callers:
  *     <none>
  * Callees:
- *     PopUpdateSystemIdleContext @ 0x1409B99D4 (PopUpdateSystemIdleContext.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopUpdateSystemIdleContext @ 0x1409A0024 (PopUpdateSystemIdleContext.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopAdaptiveUpdateIdleContextWorker(__int64 a1, __int64 a2)

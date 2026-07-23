@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkDrawText @ 0x140C4F64C
+ * XREFs of BgkDrawText @ 0x140C5564C
  * Callers:
- *     NtDrawText @ 0x1406CB620 (NtDrawText.c)
+ *     NtDrawText @ 0x1406CF650 (NtDrawText.c)
  * Callees:
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     BgpTxtDisplayString @ 0x140C51FA0 (BgpTxtDisplayString.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     BgpTxtDisplayString @ 0x140C57FA0 (BgpTxtDisplayString.c)
  */
 
 __int64 __fastcall BgkDrawText(int a1)
@@ -14,7 +14,7 @@ __int64 __fastcall BgkDrawText(int a1)
   int v3; // r8d
   int v4; // r9d
 
-  if ( !byte_140E65D3C || !byte_140E65D44 )
+  if ( !byte_140E65F51 || !byte_140E65F52 )
     return 3221225473LL;
   if ( KeGetCurrentIrql() <= 2u )
   {

@@ -1,44 +1,44 @@
 /*
- * XREFs of NtEnumerateBootEntries @ 0x140965240
+ * XREFs of NtEnumerateBootEntries @ 0x14094DCD0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExUnlockUserBuffer @ 0x14026893C (ExUnlockUserBuffer.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     ExpIsDevicePathForRemovableMedia @ 0x14049A4F8 (ExpIsDevicePathForRemovableMedia.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     strcmp @ 0x1406C0400 (strcmp.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExpVerifyWindowsOsOptions @ 0x140964D78 (ExpVerifyWindowsOsOptions.c)
- *     ExpSafeWcslen @ 0x140965898 (ExpSafeWcslen.c)
- *     ExpTranslateBootEntryNameToId @ 0x140965918 (ExpTranslateBootEntryNameToId.c)
- *     ExpVerifyFilePath @ 0x1409659F0 (ExpVerifyFilePath.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1409665F8 (IoEnumerateEnvironmentVariablesEx.c)
- *     ExLockUserBuffer @ 0x140966B28 (ExLockUserBuffer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExUnlockUserBuffer @ 0x14025FDEC (ExUnlockUserBuffer.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     ExpIsDevicePathForRemovableMedia @ 0x140494F1C (ExpIsDevicePathForRemovableMedia.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     strcmp @ 0x1406C1300 (strcmp.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExpVerifyWindowsOsOptions @ 0x14094D80C (ExpVerifyWindowsOsOptions.c)
+ *     ExpSafeWcslen @ 0x14094E328 (ExpSafeWcslen.c)
+ *     ExpTranslateBootEntryNameToId @ 0x14094E3A8 (ExpTranslateBootEntryNameToId.c)
+ *     ExpVerifyFilePath @ 0x14094E480 (ExpVerifyFilePath.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14094F088 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExLockUserBuffer @ 0x14094F5B8 (ExLockUserBuffer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
-  _DWORD *v2; // r12
+  PULONG v2; // r12
   __int64 v4; // r8
   KPROCESSOR_MODE v5; // si
   unsigned int v6; // ebx
   __int64 v7; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int *v9; // r14
-  int v10; // r13d
+  NTSTATUS v10; // r13d
   struct _KTHREAD *v11; // rax
   __int64 Pool2; // rax
   unsigned int *v13; // r15
   unsigned int v14; // esi
-  int v15; // edi
+  NTSTATUS v15; // edi
   unsigned int *v16; // r12
   char *v17; // rsi
   __int64 v18; // rdx
@@ -68,39 +68,40 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
   _BYTE *v42; // rcx
   __int64 v43; // rax
   unsigned int v44; // ecx
-  unsigned int v45; // [rsp+30h] [rbp-D8h] BYREF
+  unsigned int v45; // eax
+  unsigned int v46; // [rsp+30h] [rbp-D8h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+34h] [rbp-D4h]
-  int v47; // [rsp+38h] [rbp-D0h]
-  unsigned int v48; // [rsp+3Ch] [rbp-CCh]
-  BOOL v49; // [rsp+40h] [rbp-C8h]
-  unsigned int v50; // [rsp+44h] [rbp-C4h]
-  int v51; // [rsp+48h] [rbp-C0h]
-  int v52; // [rsp+4Ch] [rbp-BCh] BYREF
-  unsigned int v53; // [rsp+50h] [rbp-B8h]
-  unsigned int v54; // [rsp+58h] [rbp-B0h]
-  unsigned int v55; // [rsp+60h] [rbp-A8h]
-  int *v56; // [rsp+68h] [rbp-A0h]
-  void *v57; // [rsp+70h] [rbp-98h] BYREF
+  int v48; // [rsp+38h] [rbp-D0h]
+  unsigned int v49; // [rsp+3Ch] [rbp-CCh]
+  BOOL v50; // [rsp+40h] [rbp-C8h]
+  unsigned int v51; // [rsp+44h] [rbp-C4h]
+  int v52; // [rsp+48h] [rbp-C0h]
+  int v53; // [rsp+4Ch] [rbp-BCh] BYREF
+  unsigned int v54; // [rsp+50h] [rbp-B8h]
+  unsigned int v55; // [rsp+58h] [rbp-B0h]
+  unsigned int v56; // [rsp+60h] [rbp-A8h]
+  int *v57; // [rsp+68h] [rbp-A0h]
+  void *v58; // [rsp+70h] [rbp-98h] BYREF
   PVOID P; // [rsp+78h] [rbp-90h] BYREF
-  _DWORD *v59; // [rsp+80h] [rbp-88h]
+  _DWORD *v60; // [rsp+80h] [rbp-88h]
   void *Src; // [rsp+88h] [rbp-80h]
   size_t Size; // [rsp+90h] [rbp-78h]
-  void *v62; // [rsp+98h] [rbp-70h]
-  size_t v63; // [rsp+A0h] [rbp-68h]
-  void *v64; // [rsp+A8h] [rbp-60h]
-  char *v65; // [rsp+B0h] [rbp-58h]
+  void *v63; // [rsp+98h] [rbp-70h]
+  size_t v64; // [rsp+A0h] [rbp-68h]
+  void *v65; // [rsp+A8h] [rbp-60h]
+  char *v66; // [rsp+B0h] [rbp-58h]
   struct _KTHREAD *CurrentThread; // [rsp+C8h] [rbp-40h]
-  char v68; // [rsp+120h] [rbp+18h]
+  char v69; // [rsp+120h] [rbp+18h]
 
-  v2 = a2;
-  v57 = 0LL;
+  v2 = BufferLength;
+  v58 = 0LL;
   P = 0LL;
-  if ( dword_140EFEAF0 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+  if ( dword_140EFEE10 != 2 )
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   v5 = CurrentThread->PreviousMode;
   PreviousMode = v5;
@@ -110,43 +111,49 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
     if ( (unsigned __int64)v2 < 0x7FFFFFFF0000LL )
       v7 = (__int64)v2;
     *(_DWORD *)v7 = *(_DWORD *)v7;
-    v6 = Address != 0 ? *v2 : 0;
-    v50 = v6;
+    v6 = Buffer != 0LL ? *v2 : 0;
+    v51 = v6;
     if ( v6 )
-      ProbeForWrite((volatile void *)Address, v6, 4u);
+      ProbeForWrite(Buffer, v6, 4u);
     v5 = PreviousMode;
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v6 = Address != 0 ? *v2 : 0;
-    v50 = v6;
+    v6 = Buffer != 0LL ? *v2 : 0;
+    v51 = v6;
   }
-  if ( !v6 || (LOBYTE(v4) = v5, result = ExLockUserBuffer(Address, v6, v4, 1LL, &v57, &P), (int)result >= 0) )
+  if ( !v6 || (LOBYTE(v4) = v5, result = ExLockUserBuffer(Buffer, v6, v4, 1LL, &v58, &P), result >= 0) )
   {
-    v9 = (int *)v57;
-    v49 = v6 != 0;
+    v9 = (int *)v58;
+    v50 = v6 != 0;
     v10 = 0;
-    v47 = 0;
-    v56 = 0LL;
+    v48 = 0;
+    v57 = 0LL;
     v11 = KeGetCurrentThread();
     --v11->KernelApcDisable;
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
-    v45 = 0x2000;
-    Pool2 = ExAllocatePool2(0x40uLL);
+    v46 = 0x2000;
+    Pool2 = ExAllocatePool2(0x40uLL, 0x2000uLL, 0x72766E45u);
     v13 = (unsigned int *)Pool2;
     if ( !Pool2 )
-      v45 = 0;
+      v46 = 0;
     while ( 1 )
     {
-      v14 = v45;
-      v15 = IoEnumerateEnvironmentVariablesEx(2LL, ExpIsBootEntry, Pool2, &v45);
-      if ( v15 != -1073741789 || v14 >= v45 )
+      v14 = v46;
+      v15 = IoEnumerateEnvironmentVariablesEx(2LL, ExpIsBootEntry, Pool2, &v46);
+      if ( v15 != -1073741789 )
+        break;
+      v45 = v46;
+      if ( v14 >= v46 )
         break;
       if ( v13 )
+      {
         ExFreePoolWithTag(v13, 0);
-      Pool2 = ExAllocatePool2(0x40uLL);
+        v45 = v46;
+      }
+      Pool2 = ExAllocatePool2(0x40uLL, v45, 0x72766E45u);
       v13 = (unsigned int *)Pool2;
       if ( !Pool2 )
       {
@@ -156,7 +163,7 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
     }
     ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
     KeLeaveCriticalRegion();
-    if ( v15 || !v45 )
+    if ( v15 || !v46 )
     {
       if ( v15 == -1073741789 )
         v15 = -1073741306;
@@ -164,40 +171,40 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
     else
     {
       v16 = v13;
-      v17 = (char *)v13 + 2 * v45;
-      v65 = v17;
+      v17 = (char *)v13 + 2 * v46;
+      v66 = v17;
       v18 = EfiBootVariablesGuid;
       while ( 1 )
       {
-        v52 = 0;
+        v53 = 0;
         v19 = *((_QWORD *)v16 + 2) - v18;
         if ( !v19 )
           v19 = *((_QWORD *)v16 + 3) + 0x73D4FC671FFFF256LL;
         if ( !v19 )
         {
-          if ( (unsigned int)ExpTranslateBootEntryNameToId(v16 + 8, &v52) )
+          if ( (unsigned int)ExpTranslateBootEntryNameToId(v16 + 8, &v53) )
           {
             v20 = v16[2];
             if ( v20 >= 8 )
             {
-              v59 = (unsigned int *)((char *)v16 + v16[1]);
-              v62 = (char *)v59 + 6;
-              v21 = ExpSafeWcslen((char *)v59 + 6, v17);
+              v60 = (unsigned int *)((char *)v16 + v16[1]);
+              v63 = (char *)v60 + 6;
+              v21 = ExpSafeWcslen((char *)v60 + 6, v17);
               v24 = v21;
-              v48 = v21;
+              v49 = v21;
               if ( v21 != -1 )
               {
                 v24 = 2 * v21 + 2;
-                v48 = v24;
+                v49 = v24;
               }
               v25 = v23 + v24 + 6;
               if ( v24 != -1 && (unsigned int)v23 < v20 && v20 >= v25 )
               {
-                v68 = 1;
+                v69 = 1;
                 Size = v24;
                 v26 = (char *)(v22 + v24 + 6LL);
-                v64 = v26;
-                v63 = v23;
+                v65 = v26;
+                v64 = v23;
                 Src = &v26[v23];
                 v27 = v20 - v25;
                 v28 = ((unsigned __int64)v9 + 3) & 0xFFFFFFFFFFFFFFFCuLL;
@@ -211,19 +218,19 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
                   }
                   else
                   {
-                    v49 = 0;
+                    v50 = 0;
                     v6 = 0;
-                    v47 = -1073741789;
+                    v48 = -1073741789;
                   }
                 }
                 v29 = v23 + 12;
-                v51 = v23 + 12;
+                v52 = v23 + 12;
                 v30 = v9 + 1;
                 if ( v6 < (int)v23 + 12 )
                 {
                   v6 = 0;
                   v32 = 0;
-                  v47 = -1073741789;
+                  v48 = -1073741789;
                 }
                 else
                 {
@@ -232,32 +239,32 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
                   v9[2] = 4;
                   memmove(v9 + 3, v26, v23);
                   v31 = ExpVerifyFilePath(v9);
-                  v32 = v49;
+                  v32 = v50;
                   if ( v31 < 0 )
                   {
-                    v68 = 0;
+                    v69 = 0;
                     v29 = 16;
-                    v51 = 16;
+                    v52 = 16;
                   }
                   else
                   {
-                    v29 = v51;
+                    v29 = v52;
                   }
                 }
-                v53 = (v27 + 31) & 0xFFFFFFFC;
-                v48 = (v48 + 3 + v53) & 0xFFFFFFFC;
-                v55 = v29 + v48;
-                v33 = v29 + v48 + 4;
-                v54 = v33;
-                v34 = v47;
+                v54 = (v27 + 31) & 0xFFFFFFFC;
+                v49 = (v49 + 3 + v54) & 0xFFFFFFFC;
+                v56 = v29 + v49;
+                v33 = v29 + v49 + 4;
+                v55 = v33;
+                v34 = v48;
                 if ( v6 < v33 )
                   v34 = -1073741789;
-                v47 = v34;
+                v48 = v34;
                 v35 = 0;
                 if ( v6 >= v33 )
                   v35 = v32;
                 v36 = v35;
-                v49 = v35;
+                v50 = v35;
                 v37 = v6;
                 v38 = v6 - v33;
                 v6 = 0;
@@ -267,20 +274,20 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
                 {
                   memset_0(v9, 0, v33);
                   *v30 = 1;
-                  v9[2] = v55;
-                  v9[3] = v52;
+                  v9[2] = v56;
+                  v9[3] = v53;
                   v9[4] = 0;
                   v39 = 0;
-                  v40 = v59;
-                  if ( (*v59 & 1) != 0 )
+                  v40 = v60;
+                  if ( (*v60 & 1) != 0 )
                   {
                     v9[4] = 1;
                     v39 = 1;
                   }
                   if ( (*v40 & 8) != 0 )
                     v9[4] = v39 | 0x10;
-                  v9[5] = v53;
-                  v9[6] = v48;
+                  v9[5] = v54;
+                  v9[6] = v49;
                   v9[7] = v27;
                   memmove(v9 + 8, Src, v27);
                   if ( v27 > 0x14
@@ -289,16 +296,16 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
                   {
                     v9[4] |= 4u;
                   }
-                  memmove((char *)v30 + v53, v62, Size);
-                  v41 = (char *)v30 + v48;
+                  memmove((char *)v30 + v54, v63, Size);
+                  v41 = (char *)v30 + v49;
                   *(_DWORD *)v41 = 1;
-                  *((_DWORD *)v41 + 1) = v51;
+                  *((_DWORD *)v41 + 1) = v52;
                   *((_DWORD *)v41 + 2) = 4;
                   v42 = v41 + 12;
-                  if ( v68 )
+                  if ( v69 )
                   {
-                    memmove(v42, v64, v63);
-                    if ( (unsigned int)ExpIsDevicePathForRemovableMedia(v64) )
+                    memmove(v42, v65, v64);
+                    if ( (unsigned int)ExpIsDevicePathForRemovableMedia(v65) )
                       v9[4] |= 8u;
                   }
                   else
@@ -308,10 +315,10 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
                     *(_WORD *)(v41 + 13) = 1279;
                     v41[15] = 0;
                   }
-                  if ( v56 )
-                    *v56 = (_DWORD)v9 - (_DWORD)v56;
-                  v56 = v9;
-                  v33 = v54;
+                  if ( v57 )
+                    *v57 = (_DWORD)v9 - (_DWORD)v57;
+                  v57 = v9;
+                  v33 = v55;
                 }
                 v9 = (int *)((char *)v9 + v33);
               }
@@ -323,12 +330,12 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
         if ( !(_DWORD)v43 )
           break;
         v16 = (unsigned int *)((char *)v16 + v43);
-        v17 = v65;
+        v17 = v66;
       }
-      v2 = a2;
-      v10 = v47;
-      if ( v56 )
-        *v56 = 0;
+      v2 = BufferLength;
+      v10 = v48;
+      if ( v57 )
+        *v57 = 0;
     }
     if ( v13 )
       ExFreePoolWithTag(v13, 0);
@@ -336,8 +343,8 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
       ExUnlockUserBuffer((struct _MDL *)P);
     if ( v15 >= 0 )
       v15 = v10;
-    *v2 = (_DWORD)v9 - (_DWORD)v57;
-    return (unsigned int)v15;
+    *v2 = (_DWORD)v9 - (_DWORD)v58;
+    return v15;
   }
   return result;
 }

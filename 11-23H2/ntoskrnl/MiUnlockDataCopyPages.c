@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockDataCopyPages @ 0x1403500CC
+ * XREFs of MiUnlockDataCopyPages @ 0x14035026C
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x14028B470 (MiCopyDataPageToImagePage.c)
+ *     MiCopyDataPageToImagePage @ 0x14028B700 (MiCopyDataPageToImagePage.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiUnlockNestedProtoPoolPage @ 0x14035A61C (MiUnlockNestedProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiUnlockNestedProtoPoolPage @ 0x14035A7BC (MiUnlockNestedProtoPoolPage.c)
  */
 
 __int64 __fastcall MiUnlockDataCopyPages(__int64 *a1)

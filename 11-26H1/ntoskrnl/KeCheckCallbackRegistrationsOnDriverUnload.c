@@ -1,15 +1,15 @@
 /*
- * XREFs of KeCheckCallbackRegistrationsOnDriverUnload @ 0x140AC7C30
+ * XREFs of KeCheckCallbackRegistrationsOnDriverUnload @ 0x140AC9820
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KeCheckCallbackRegistrationsOnDriverUnload(
@@ -23,25 +23,20 @@ void __fastcall KeCheckCallbackRegistrationsOnDriverUnload(
   void *v7; // rdx
   LegacyAutoBoost *v8; // rbx
   signed __int64 v9; // r9
-  unsigned __int64 Flink; // rcx
+  unsigned __int64 v10; // rcx
   unsigned __int64 v11; // r8
   unsigned __int64 v12; // rax
 
   v4 = *(_QWORD *)(a1 + 48);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v8 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object, 0LL, 0LL, a4);
-  if ( _InterlockedCompareExchange64(
-         (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object,
-         17LL,
-         0LL) )
-  {
+  v8 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&KiSupervisorXStateFeaturesLock.320, 0LL, 0LL, a4);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.320, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(
-      (signed __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object,
+      (signed __int64 *)&KiSupervisorXStateFeaturesLock.320,
       0,
       v8,
-      (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[32]);
-  }
+      (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.320);
   v9 = 0LL;
   if ( v8 )
   {
@@ -50,45 +45,42 @@ void __fastcall KeCheckCallbackRegistrationsOnDriverUnload(
     else
       *((_BYTE *)v8 + 10) = 1;
   }
-  Flink = (unsigned __int64)KiSupervisorXStateFeaturesLock.WaitBlock[1].WaitListEntry.Flink;
-  if ( (KiSupervisorXStateFeaturesLock.WaitBlockFill5[56] & 1) != 0 )
+  v10 = *(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[16];
+  if ( (KiSupervisorXStateFeaturesLock.WaitBlockFill5[24] & 1) != 0 )
   {
-    if ( KiSupervisorXStateFeaturesLock.WaitBlock[1].WaitListEntry.Flink )
-      Flink = (unsigned __int64)&KiSupervisorXStateFeaturesLock.WaitBlock[1] ^ (unsigned __int64)KiSupervisorXStateFeaturesLock.WaitBlock[1].WaitListEntry.Flink;
+    if ( *(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[16] )
+      v10 = (unsigned __int64)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[16] ^ *(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[16];
     else
-      Flink = v9;
+      v10 = v9;
   }
   v11 = v9;
-  while ( Flink )
+  while ( v10 )
   {
-    if ( v4 >= *(_QWORD *)(Flink + 24) )
+    if ( v4 >= *(_QWORD *)(v10 + 24) )
     {
-      if ( v4 <= *(_QWORD *)(Flink + 24) )
+      if ( v4 <= *(_QWORD *)(v10 + 24) )
         goto LABEL_22;
-      v12 = *(_QWORD *)(Flink + 8);
+      v12 = *(_QWORD *)(v10 + 8);
     }
     else
     {
-      v12 = *(_QWORD *)Flink;
-      v11 = Flink;
+      v12 = *(_QWORD *)v10;
+      v11 = v10;
     }
-    if ( (KiSupervisorXStateFeaturesLock.WaitBlockFill5[56] & 1) != 0 && v12 )
-      Flink ^= v12;
+    if ( (KiSupervisorXStateFeaturesLock.WaitBlockFill5[24] & 1) != 0 && v12 )
+      v10 ^= v12;
     else
-      Flink = v12;
+      v10 = v12;
   }
-  Flink = v11;
+  v10 = v11;
   if ( !v11 )
     goto LABEL_24;
 LABEL_22:
-  if ( *(_QWORD *)(Flink + 24) < v4 + *(unsigned int *)(a1 + 64) )
-    KeBugCheckEx(0x121u, 3uLL, *(unsigned int *)(Flink + 32), a1 + 72, *(_QWORD *)(Flink + 24));
+  if ( *(_QWORD *)(v10 + 24) < v4 + *(unsigned int *)(a1 + 64) )
+    KeBugCheckEx(0x121u, 3uLL, *(unsigned int *)(v10 + 32), a1 + 72, *(_QWORD *)(v10 + 24));
 LABEL_24:
-  if ( _InterlockedCompareExchange64(
-         (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object,
-         v9,
-         17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object);
-  KeAbPostRelease((unsigned __int64)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.320, v9, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&KiSupervisorXStateFeaturesLock.320);
+  KeAbPostRelease((unsigned __int64)&KiSupervisorXStateFeaturesLock.320);
   KeLeaveGuardedRegion();
 }

@@ -29,8 +29,8 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(PSID *a1, char *a2, unsi
   PRTL_DYNAMIC_HASH_TABLE_ENTRY SharedSidEntry; // rax
   struct _LIST_ENTRY *Blink; // rax
   unsigned int v16; // r13d
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v18; // rbp
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v18; // rbp
   __int64 v19; // rax
   ULONG_PTR v20; // r8
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v21; // rdi
@@ -66,7 +66,7 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(PSID *a1, char *a2, unsi
       goto LABEL_16;
     }
     v16 = ((4 * *((unsigned __int8 *)*a1 + 1) + 51) & 0xFFFFFFFC) + 4 * *((unsigned __int8 *)*a1 + 1) + 48;
-    PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v16, 0x73536553u);
+    PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v16, 0x73536553u);
     v18 = PoolWithTag;
     if ( !PoolWithTag )
       break;

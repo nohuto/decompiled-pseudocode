@@ -1,29 +1,29 @@
 /*
- * XREFs of _CmGetDeviceSoftwareKey @ 0x1406A784C
+ * XREFs of _CmGetDeviceSoftwareKey @ 0x1406052CC
  * Callers:
- *     _CmGetDeviceSoftwareKeyPath @ 0x1406A76B4 (_CmGetDeviceSoftwareKeyPath.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x140605134 (_CmGetDeviceSoftwareKeyPath.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
- *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
- *     _CmCreateOrdinalInstanceKey @ 0x140769228 (_CmCreateOrdinalInstanceKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
+ *     _CmSetDeviceRegProp @ 0x1407441D0 (_CmSetDeviceRegProp.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766F18 (_RegRtlDeleteKeyTransacted.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x1407693E8 (_CmCreateOrdinalInstanceKey.c)
  */
 
-__int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, __int64 a2, wchar_t *a3, __int64 a4, char a5)
+__int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, int a2, wchar_t *a3, __int64 a4, char a5)
 {
-  int DeviceRegProp; // ebx
+  NTSTATUS DeviceRegProp; // ebx
   struct _KTHREAD *CurrentThread; // rax
   int v11; // eax
-  __int64 v12; // r8
-  __int64 v13; // r9
+  int v12; // r8d
+  int v13; // r9d
   __int64 v14; // rax
   __int64 v15; // r8
   int v16; // [rsp+40h] [rbp-71h] BYREF
@@ -40,7 +40,7 @@ __int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, __int64 a2, wchar_t *a3, _
   Handle = 0LL;
   v17 = 0;
   DestinationString = 0LL;
-  DeviceRegProp = CmGetDeviceRegProp(a1, a2, 0LL, 10, (__int64)&v17, (__int64)a3, (__int64)&v16, 0);
+  DeviceRegProp = CmGetDeviceRegProp(a1, a2, 0, 10, (__int64)&v17, (__int64)a3, (__int64)&v16, 0);
   if ( DeviceRegProp == -1073741275 )
   {
     if ( a5 == 1 )
@@ -50,12 +50,12 @@ __int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, __int64 a2, wchar_t *a3, _
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 240), 1u);
       v17 = 0;
       v16 = 88;
-      DeviceRegProp = CmGetDeviceRegProp(a1, a2, 0LL, 10, (__int64)&v17, (__int64)a3, (__int64)&v16, 0);
+      DeviceRegProp = CmGetDeviceRegProp(a1, a2, 0, 10, (__int64)&v17, (__int64)a3, (__int64)&v16, 0);
       if ( DeviceRegProp == -1073741275 )
       {
         v16 = 78;
         v17 = 0;
-        v11 = CmGetDeviceRegProp(a1, a2, 0LL, 9, (__int64)&v17, (__int64)v22, (__int64)&v16, 0);
+        v11 = CmGetDeviceRegProp(a1, a2, 0, 9, (__int64)&v17, (__int64)v22, (__int64)&v16, 0);
         DeviceRegProp = v11;
         if ( v11 == -1073741275 )
         {
@@ -64,7 +64,7 @@ __int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, __int64 a2, wchar_t *a3, _
         else if ( v11 >= 0 )
         {
           v23 = 0;
-          DeviceRegProp = CmOpenInstallerClassRegKey(a1, (__int64)v22, v12, v13, 131103, 0, (__int64)&v18, 0LL);
+          DeviceRegProp = CmOpenInstallerClassRegKey(a1, (unsigned int)v22, v12, v13, 131103, 0, (__int64)&v18, 0LL);
           if ( DeviceRegProp >= 0 )
           {
             DeviceRegProp = CmCreateOrdinalInstanceKey(a1, v18, v21);

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiComputeFaultNode @ 0x140370A58
+ * XREFs of MiComputeFaultNode @ 0x140372808
  * Callers:
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiInitializeZeroFaultPacket @ 0x1402D50F0 (MiInitializeZeroFaultPacket.c)
- *     MiMigratePfn @ 0x1402F6990 (MiMigratePfn.c)
- *     MiInitializeCopyOnWritePacket @ 0x14036AEA8 (MiInitializeCopyOnWritePacket.c)
- *     MiResolveMappedFileFaultGetClusterInfo @ 0x14036F7FC (MiResolveMappedFileFaultGetClusterInfo.c)
- *     MiComputePageFileReadAttributes @ 0x1403707CC (MiComputePageFileReadAttributes.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiInitializeZeroFaultPacket @ 0x1402B6EB0 (MiInitializeZeroFaultPacket.c)
+ *     MiMigratePfn @ 0x1402D8A10 (MiMigratePfn.c)
+ *     MiInitializeCopyOnWritePacket @ 0x14036CC48 (MiInitializeCopyOnWritePacket.c)
+ *     MiResolveMappedFileFaultGetClusterInfo @ 0x1403715AC (MiResolveMappedFileFaultGetClusterInfo.c)
+ *     MiComputePageFileReadAttributes @ 0x14037257C (MiComputePageFileReadAttributes.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiNodeFromFaultPacket @ 0x1403A5910 (MiNodeFromFaultPacket.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiNodeFromFaultPacket @ 0x1403A7670 (MiNodeFromFaultPacket.c)
  */
 
 __int64 __fastcall MiComputeFaultNode(__int64 a1, struct _LIST_ENTRY *a2, struct _LIST_ENTRY **a3)
@@ -49,9 +49,9 @@ LABEL_20:
         return v6;
       }
       MiLockVadTree(5u, v9, (__int64)v7);
-      Flink = stru_140E34C08.Header.WaitListHead.Flink;
+      Flink = stru_140E34D88.Header.WaitListHead.Flink;
       v14 = *(_QWORD *)a1;
-      if ( stru_140E34C08.Header.WaitListHead.Flink )
+      if ( stru_140E34D88.Header.WaitListHead.Flink )
       {
         do
         {

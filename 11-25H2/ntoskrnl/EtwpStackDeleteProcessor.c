@@ -8,9 +8,9 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpStackDeleteProcessor(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall EtwpStackDeleteProcessor(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rdi
+  _SLIST_HEADER *v1; // rdi
   PSLIST_ENTRY result; // rax
   PSLIST_ENTRY v3; // rbx
 

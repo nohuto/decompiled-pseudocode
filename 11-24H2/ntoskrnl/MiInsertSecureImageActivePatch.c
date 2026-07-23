@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInsertSecureImageActivePatch @ 0x1407F35F8
+ * XREFs of MiInsertSecureImageActivePatch @ 0x1407F3BEC
  * Callers:
- *     MmInsertSecureImageActivePatch @ 0x1407F6080 (MmInsertSecureImageActivePatch.c)
- *     MiLoadHotPatch @ 0x140A9F9D4 (MiLoadHotPatch.c)
- *     MmRegisterHotPatches @ 0x140C56C7C (MmRegisterHotPatches.c)
+ *     MmInsertSecureImageActivePatch @ 0x1407F67F4 (MmInsertSecureImageActivePatch.c)
+ *     MiLoadHotPatch @ 0x140A9ADA4 (MiLoadHotPatch.c)
+ *     MmRegisterHotPatches @ 0x140C58E0C (MmRegisterHotPatches.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiCompareHotPatchNodes @ 0x1407F2484 (MiCompareHotPatchNodes.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiCompareHotPatchNodes @ 0x1407F2A54 (MiCompareHotPatchNodes.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiInsertSecureImageActivePatch(_QWORD *a1)
@@ -22,8 +22,8 @@ void __fastcall MiInsertSecureImageActivePatch(_QWORD *a1)
   v1 = 0LL;
   v3 = 0;
 LABEL_2:
-  v4 = (_QWORD *)qword_140E37488;
-  if ( qword_140E37488 )
+  v4 = (_QWORD *)qword_140E375C8;
+  if ( qword_140E375C8 )
   {
     while ( 1 )
     {
@@ -33,7 +33,7 @@ LABEL_2:
         if ( v5 >= 0 )
         {
           v1 = v4;
-          RtlAvlRemoveNode((unsigned __int64 *)&qword_140E37488, (__int64)v4);
+          RtlAvlRemoveNode((unsigned __int64 *)&qword_140E375C8, (__int64)v4);
           goto LABEL_2;
         }
         v6 = (_QWORD *)*v4;
@@ -52,7 +52,7 @@ LABEL_2:
       v4 = v6;
     }
   }
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E37488, (unsigned __int64)v4, v3, a1);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E375C8, (unsigned __int64)v4, v3, a1);
   if ( v1 )
     ExFreePoolWithTag(v1, 0);
 }

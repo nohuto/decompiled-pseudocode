@@ -8,36 +8,37 @@
  *     LdrQueryImageFileKeyOption @ 0x180079A80 (LdrQueryImageFileKeyOption.c)
  */
 
-__int64 __fastcall sub_1800798FC(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5,
-        int a6,
-        int a7,
+NTSTATUS __fastcall sub_1800798FC(
+        void *a1,
+        void *a2,
+        const WCHAR *a3,
+        ULONG a4,
+        PVOID Buffer,
+        ULONG BufferSize,
+        __int64 a7,
         _QWORD *a8)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( a1
-    && ((result = LdrQueryImageFileKeyOption(a1, a3, a4, a5, a6, 0LL), (((_DWORD)result + 0x80000000) & 0x80000000) != 0)
-     || (_DWORD)result == -2147483643) )
+    && ((result = LdrQueryImageFileKeyOption(a1, a3, a4, Buffer, BufferSize, 0LL),
+         ((result + 0x80000000) & 0x80000000) != 0)
+     || result == -2147483643) )
   {
     if ( a8 )
       *a8 = a1;
   }
   else if ( a2
-         && ((result = LdrQueryImageFileKeyOption(a2, a3, a4, a5, a6, 0LL),
-              (((_DWORD)result + 0x80000000) & 0x80000000) != 0)
-          || (_DWORD)result == -2147483643) )
+         && ((result = LdrQueryImageFileKeyOption(a2, a3, a4, Buffer, BufferSize, 0LL),
+              ((result + 0x80000000) & 0x80000000) != 0)
+          || result == -2147483643) )
   {
     if ( a8 )
       *a8 = a2;
   }
   else
   {
-    return 3221225485LL;
+    return -1073741811;
   }
   return result;
 }

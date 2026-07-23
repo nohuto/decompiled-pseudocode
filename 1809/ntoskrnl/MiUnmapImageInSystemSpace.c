@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUnmapImageInSystemSpace @ 0x14065088C
+ * XREFs of MiUnmapImageInSystemSpace @ 0x140651A4C
  * Callers:
- *     MiSetPagesModified @ 0x1402AA7EC (MiSetPagesModified.c)
- *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
- *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
- *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
- *     MiParseComImage @ 0x1406C06BC (MiParseComImage.c)
- *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
- *     MiCreateSessionDriverProtos @ 0x14085F11C (MiCreateSessionDriverProtos.c)
+ *     MiSetPagesModified @ 0x1402AA9DC (MiSetPagesModified.c)
+ *     MiRelocateImage @ 0x140651084 (MiRelocateImage.c)
+ *     MiValidateSectionCreate @ 0x140653FD0 (MiValidateSectionCreate.c)
+ *     MiGetSystemAddressForImage @ 0x140684100 (MiGetSystemAddressForImage.c)
+ *     MiParseComImage @ 0x1406C195C (MiParseComImage.c)
+ *     MiOpenHotPatchFile @ 0x140857B4C (MiOpenHotPatchFile.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085B5DC (MiLoadSectionIntoVsmEnclave.c)
+ *     MiCreateSessionDriverProtos @ 0x14086037C (MiCreateSessionDriverProtos.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiRemoveFromSystemSpace @ 0x140026F90 (MiRemoveFromSystemSpace.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3234 (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3424 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiUnmapViewOfSection @ 0x1406181B0 (MiUnmapViewOfSection.c)
  */
 
 void __fastcall MiUnmapImageInSystemSpace(unsigned __int64 *a1)
@@ -30,7 +30,7 @@ void __fastcall MiUnmapImageInSystemSpace(unsigned __int64 *a1)
   }
   else
   {
-    MiRemoveFromSystemSpace(qword_140438F40, v1, 1);
+    MiRemoveFromSystemSpace(qword_14043A000, v1, 1);
   }
   v3 = a1[1];
   if ( v3 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPropogateCoolingChange @ 0x140201D2C
+ * XREFs of PopPropogateCoolingChange @ 0x140201B58
  * Callers:
- *     PoSetThermalActiveCooling @ 0x14066B7B4 (PoSetThermalActiveCooling.c)
- *     PoSetThermalPassiveCooling @ 0x14066B84C (PoSetThermalPassiveCooling.c)
- *     PopCoolingExtensionPnpNotification @ 0x14066B928 (PopCoolingExtensionPnpNotification.c)
- *     PopDeactiveThermalRequest @ 0x14066BA80 (PopDeactiveThermalRequest.c)
+ *     PoSetThermalActiveCooling @ 0x14066B898 (PoSetThermalActiveCooling.c)
+ *     PoSetThermalPassiveCooling @ 0x14066B930 (PoSetThermalPassiveCooling.c)
+ *     PopCoolingExtensionPnpNotification @ 0x14066BA0C (PopCoolingExtensionPnpNotification.c)
+ *     PopDeactiveThermalRequest @ 0x14066BB64 (PopDeactiveThermalRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceCoolingExtensionActiveUpdate @ 0x140670B78 (PopDiagTraceCoolingExtensionActiveUpdate.c)
- *     PopDiagTraceCoolingExtensionPassiveUpdate @ 0x140670C34 (PopDiagTraceCoolingExtensionPassiveUpdate.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceCoolingExtensionActiveUpdate @ 0x140670C5C (PopDiagTraceCoolingExtensionActiveUpdate.c)
+ *     PopDiagTraceCoolingExtensionPassiveUpdate @ 0x140670D18 (PopDiagTraceCoolingExtensionPassiveUpdate.c)
  */
 
 int __fastcall PopPropogateCoolingChange(__int64 a1)

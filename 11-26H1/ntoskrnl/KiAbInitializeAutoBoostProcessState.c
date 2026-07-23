@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbInitializeAutoBoostProcessState @ 0x1404DC880
+ * XREFs of KiAbInitializeAutoBoostProcessState @ 0x1404D5F60
  * Callers:
- *     KeInitializeProcess @ 0x140963BE4 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x140B58704 (KeInitializeProcess.c)
  * Callees:
  *     <none>
  */

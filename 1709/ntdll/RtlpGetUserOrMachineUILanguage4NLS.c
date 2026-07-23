@@ -18,63 +18,59 @@ __int64 __fastcall RtlpGetUserOrMachineUILanguage4NLS(int a1, void *a2, unsigned
   unsigned __int64 v8; // rax
   unsigned int v9; // edi
   int v11; // [rsp+30h] [rbp-19h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-11h]
-  char *v13; // [rsp+40h] [rbp-9h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-1h] BYREF
-  int v15; // [rsp+58h] [rbp+Fh]
-  char *v16; // [rsp+60h] [rbp+17h]
-  UNICODE_STRING *p_DestinationString; // [rsp+68h] [rbp+1Fh]
-  int v18; // [rsp+70h] [rbp+27h]
-  __int128 v19; // [rsp+78h] [rbp+2Fh]
-  unsigned int v20; // [rsp+C8h] [rbp+7Fh] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-11h] BYREF
+  HANDLE CurrentUserKey; // [rsp+40h] [rbp-9h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp+Fh] BYREF
+  __int64 v16; // [rsp+C8h] [rbp+7Fh] BYREF
 
-  v13 = 0LL;
-  Handle = 0LL;
-  v20 = 0;
+  CurrentUserKey = 0LL;
+  KeyHandle = 0LL;
+  LODWORD(v16) = 0;
   v11 = 7;
-  v7 = OpenGlobalizationUserSettingsKey(0x2000000u, 0, (__int64)a3, a4, (__int64)&v13);
+  v7 = OpenGlobalizationUserSettingsKey(0x2000000u, 0LL, (__int64)a3, a4, &CurrentUserKey);
   if ( v7 < 0 )
     goto LABEL_21;
   if ( a1 == 1 )
   {
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop");
-    v16 = v13;
+    ObjectAttributes.RootDirectory = CurrentUserKey;
   }
   else
   {
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached");
-    Handle = 0LL;
-    v16 = v13;
-    v15 = 48;
-    p_DestinationString = &DestinationString;
-    v18 = 64;
-    v19 = 0LL;
-    v7 = NtOpenKey();
+    KeyHandle = 0LL;
+    ObjectAttributes.RootDirectory = CurrentUserKey;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v7 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
     if ( v7 >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"MachinePreferredUILanguages");
-      v7 = LdrpQueryValueKey((__int64)Handle, (__int64)&DestinationString, &v11, 0LL, &v20);
+      v7 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v11, 0LL, (ULONG *)&v16);
       if ( v7 >= 0 )
         goto LABEL_10;
     }
     if ( v7 == -2147483643 )
       goto LABEL_10;
-    NtClose(Handle);
+    NtClose(KeyHandle);
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-    v16 = 0LL;
+    ObjectAttributes.RootDirectory = 0LL;
   }
-  Handle = 0LL;
-  p_DestinationString = &DestinationString;
-  v15 = 48;
-  v18 = 64;
-  v19 = 0LL;
-  v7 = NtOpenKey();
+  KeyHandle = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v7 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v7 < 0 )
     goto LABEL_21;
   RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
-  v7 = LdrpQueryValueKey((__int64)Handle, (__int64)&DestinationString, &v11, 0LL, &v20);
+  v7 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v11, 0LL, (ULONG *)&v16);
 LABEL_10:
-  if ( v7 != -1073741772 && v20 )
+  if ( v7 != -1073741772 && (_DWORD)v16 )
   {
     if ( v7 != -2147483643 )
     {
@@ -82,7 +78,7 @@ LABEL_20:
       v7 = -1073741772;
       goto LABEL_21;
     }
-    v8 = v20 + 1;
+    v8 = (unsigned int)(v16 + 1);
     v9 = (unsigned int)v8 >> 1;
     if ( !a2 )
     {
@@ -96,7 +92,7 @@ LABEL_15:
       v7 = -1073741789;
       goto LABEL_15;
     }
-    v7 = LdrpQueryValueKey((__int64)Handle, (__int64)&DestinationString, &v11, a2, &v20);
+    v7 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v11, a2, (ULONG *)&v16);
     if ( v7 >= 0 )
     {
       if ( v11 == 7 )
@@ -105,12 +101,12 @@ LABEL_15:
     }
   }
 LABEL_21:
-  if ( v13 )
+  if ( CurrentUserKey )
   {
-    CloseGlobalizationUserSettingsKey(v13);
-    v13 = 0LL;
+    CloseGlobalizationUserSettingsKey((char *)CurrentUserKey);
+    CurrentUserKey = 0LL;
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return (unsigned int)v7;
 }

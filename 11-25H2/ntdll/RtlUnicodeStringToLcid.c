@@ -13,36 +13,36 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlUnicodeStringToLcid(unsigned __int16 *a1, int *a2)
+__int64 __fastcall RtlUnicodeStringToLcid(PUNICODE_STRING String, PULONG Value)
 {
   unsigned int v4; // ebx
   unsigned int v5; // edi
   unsigned int i; // esi
-  unsigned int v7; // ecx
-  wchar_t *String[2]; // [rsp+20h] [rbp-F8h] BYREF
+  LCID v7; // ecx
+  _UNICODE_STRING Stringa; // [rsp+20h] [rbp-F8h] BYREF
   _BYTE v10[176]; // [rsp+30h] [rbp-E8h] BYREF
 
   v4 = 0;
   memset_thunk_772440563353939046(v10, 0, 0xAAuLL);
-  *(_OWORD *)String = 0LL;
-  if ( !a1 )
+  Stringa = 0LL;
+  if ( !String )
     return (unsigned int)-1073741811;
-  if ( !a2 )
+  if ( !Value )
     return (unsigned int)-1073741811;
-  v5 = *a1 >> 1;
+  v5 = String->Length >> 1;
   if ( v5 > 4 )
     return (unsigned int)-1073741811;
   for ( i = 0; i < v5; ++i )
   {
-    if ( !iswctype(*(_WORD *)(*((_QWORD *)a1 + 1) + 2LL * i), 0x80u) )
+    if ( !iswctype(String->Buffer[i], 0x80u) )
       return (unsigned int)-1073741811;
   }
-  if ( (int)RtlUnicodeStringToInteger(a1, 0x10u, a2) < 0 )
+  if ( RtlUnicodeStringToInteger(String, 0x10u, Value) < 0 )
     return (unsigned int)-1073741811;
-  v7 = *a2;
-  String[1] = (wchar_t *)v10;
-  LODWORD(String[0]) = 11141290;
-  if ( !(unsigned __int8)RtlLCIDToCultureName(v7, (__int64)String) || !(unsigned __int8)RtlIsValidLocaleName(String[1]) )
+  v7 = *Value;
+  Stringa.Buffer = (wchar_t *)v10;
+  *(_DWORD *)&Stringa.Length = 11141290;
+  if ( !RtlLCIDToCultureName(v7, &Stringa) || !RtlIsValidLocaleName(Stringa.Buffer, 2u) )
     return (unsigned int)-1073741811;
   return v4;
 }

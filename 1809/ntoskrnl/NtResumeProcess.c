@@ -1,11 +1,11 @@
 /*
- * XREFs of NtResumeProcess @ 0x14088CBF0
+ * XREFs of NtResumeProcess @ 0x14088DE50
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PsResumeProcess @ 0x1406C9DE0 (PsResumeProcess.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsResumeProcess @ 0x1406CB080 (PsResumeProcess.c)
  */
 
 NTSTATUS __stdcall NtResumeProcess(HANDLE ProcessHandle)

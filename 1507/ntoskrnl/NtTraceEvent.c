@@ -36,8 +36,8 @@ NTSTATUS __stdcall NtTraceEvent(
   unsigned __int64 v4; // rbx
   __int64 v5; // r15
   ULONG v7; // eax
-  __int64 v8; // r13
-  char *v9; // r12
+  ULONG64 ProcessorTime; // r13
+  PEVENT_TRACE_HEADER v9; // r12
   int v10; // r15d
   unsigned __int8 *v11; // rdi
   void *v12; // r10
@@ -48,11 +48,11 @@ NTSTATUS __stdcall NtTraceEvent(
   int v17; // edx
   int v18; // edx
   _BYTE *v20; // rcx
-  __int64 v21; // rcx
+  __int64 GuidPtr_high; // rcx
   __int64 v22; // rdi
   _DWORD *v23; // r14
   _BYTE *v24; // rax
-  __int64 v25; // r13
+  ULONG64 v25; // r13
   ULONG_PTR GuidEntryByGuid; // rax
   ULONG_PTR v27; // rdi
   __int64 v28; // r8
@@ -80,8 +80,8 @@ NTSTATUS __stdcall NtTraceEvent(
   char v50; // [rsp+81h] [rbp-127h]
   PEVENT_TRACE_HEADER v51; // [rsp+88h] [rbp-120h]
   unsigned int v52; // [rsp+90h] [rbp-118h]
-  int v53; // [rsp+94h] [rbp-114h]
-  int v54; // [rsp+98h] [rbp-110h]
+  ULONG LowPart; // [rsp+94h] [rbp-114h]
+  unsigned int Data1; // [rsp+98h] [rbp-110h]
   NTSTATUS v55; // [rsp+9Ch] [rbp-10Ch]
   unsigned __int8 v57; // [rsp+A1h] [rbp-107h]
   __int16 v58; // [rsp+A4h] [rbp-104h]
@@ -93,20 +93,20 @@ NTSTATUS __stdcall NtTraceEvent(
   PVOID Object; // [rsp+D0h] [rbp-D8h] BYREF
   __int64 v65; // [rsp+D8h] [rbp-D0h] BYREF
   __int64 v66; // [rsp+E0h] [rbp-C8h]
-  int v67; // [rsp+E8h] [rbp-C0h]
+  ULONG v67; // [rsp+E8h] [rbp-C0h]
   int v68; // [rsp+ECh] [rbp-BCh]
   int v69; // [rsp+F0h] [rbp-B8h]
   int v70; // [rsp+F4h] [rbp-B4h]
-  char *v71; // [rsp+F8h] [rbp-B0h]
+  PEVENT_TRACE_HEADER v71; // [rsp+F8h] [rbp-B0h]
   int v72; // [rsp+100h] [rbp-A8h]
-  int v73; // [rsp+104h] [rbp-A4h]
+  ULONG v73; // [rsp+104h] [rbp-A4h]
   __int64 v74; // [rsp+108h] [rbp-A0h]
   __int64 v75; // [rsp+110h] [rbp-98h]
-  __int64 v76; // [rsp+118h] [rbp-90h]
+  ULONG64 v76; // [rsp+118h] [rbp-90h]
   unsigned __int64 v77; // [rsp+120h] [rbp-88h]
   __int64 v78; // [rsp+128h] [rbp-80h]
   __int64 v79; // [rsp+130h] [rbp-78h]
-  __int64 v80; // [rsp+138h] [rbp-70h]
+  ULONG64 v80; // [rsp+138h] [rbp-70h]
   unsigned __int64 v81; // [rsp+140h] [rbp-68h] BYREF
   int v82; // [rsp+148h] [rbp-60h]
   int v83; // [rsp+14Ch] [rbp-5Ch]
@@ -121,29 +121,26 @@ NTSTATUS __stdcall NtTraceEvent(
     {
       if ( ((unsigned __int8)TraceHeader & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)TraceHeader + 120 > MmUserProbeAddress
-        || (PEVENT_TRACE_HEADER)((char *)TraceHeader + 120) < TraceHeader )
-      {
+      if ( (unsigned __int64)&TraceHeader[2].GuidPtr > MmUserProbeAddress || &TraceHeader[2].Guid < (GUID *)TraceHeader )
         *(_BYTE *)MmUserProbeAddress = 0;
-      }
     }
-    v8 = *((_QWORD *)TraceHeader + 11);
-    v76 = v8;
-    LODWORD(v51) = *((_DWORD *)TraceHeader + 21);
+    ProcessorTime = TraceHeader[1].ProcessorTime;
+    v76 = ProcessorTime;
+    LODWORD(v51) = *((_DWORD *)&TraceHeader[1].GuidPtr + 3);
     v70 = (int)v51;
-    v66 = *((unsigned __int16 *)TraceHeader + 41);
-    v53 = *((_DWORD *)TraceHeader + 28);
-    v67 = v53;
-    v60 = *((_QWORD *)TraceHeader + 6);
+    v66 = *((unsigned __int16 *)&TraceHeader[1].GuidPtr + 5);
+    LowPart = TraceHeader[2].TimeStamp.LowPart;
+    v67 = LowPart;
+    v60 = *(_QWORD *)&TraceHeader[1].Size;
     v78 = v60;
-    v49 = *((_BYTE *)TraceHeader + 44);
+    v49 = TraceHeader->Flags;
     v57 = v49;
     v9 = 0LL;
     v71 = 0LL;
-    if ( *((_BYTE *)TraceHeader + 80) )
+    if ( TraceHeader[1].Guid.Data4[0] )
     {
-      v9 = (char *)TraceHeader + 96;
-      v71 = (char *)TraceHeader + 96;
+      v9 = TraceHeader + 2;
+      v71 = TraceHeader + 2;
     }
     v10 = ObReferenceObjectByHandle(*(HANDLE *)&TraceHandle, 0x800u, EtwpRegistrationObjectType, 1, &Object, 0LL);
     if ( v10 >= 0 )
@@ -169,13 +166,13 @@ NTSTATUS __stdcall NtTraceEvent(
                 v17,
                 v14,
                 v66,
-                v53,
+                LowPart,
                 v4,
                 (__int64)v9,
                 v49,
                 v60,
                 (_DWORD)v51,
-                v8,
+                ProcessorTime,
                 (__int64)&v63,
                 0LL,
                 v11[101],
@@ -192,13 +189,13 @@ NTSTATUS __stdcall NtTraceEvent(
                 v18,
                 v14,
                 v66,
-                v53,
+                LowPart,
                 v4,
                 (__int64)v9,
                 v49,
                 v60,
                 (_DWORD)v51,
-                v8,
+                ProcessorTime,
                 (__int64)&v63,
                 v13,
                 v11[101],
@@ -220,29 +217,29 @@ NTSTATUS __stdcall NtTraceEvent(
         if ( ((unsigned __int8)TraceHeader & 3) != 0 )
           ExRaiseDatatypeMisalignment();
         v20 = (_BYTE *)MmUserProbeAddress;
-        if ( (unsigned __int64)v51 + 40 <= MmUserProbeAddress )
+        if ( (unsigned __int64)&v51->ProcessorTime <= MmUserProbeAddress )
         {
-          if ( (PEVENT_TRACE_HEADER)((char *)v51 + 40) >= v51 )
+          if ( &v51->KernelTime >= (ULONG *)v51 )
           {
 LABEL_25:
-            v54 = *((_DWORD *)v51 + 6);
+            Data1 = v51->Guid.Data1;
             if ( (Flags & 0x80000000) != 0 )
             {
-              LODWORD(v61) = *((_DWORD *)v51 + 8);
-              v54 |= 0x80u;
+              LODWORD(v61) = *((_DWORD *)&v51->GuidPtr + 2);
+              Data1 |= 0x80u;
             }
             else
             {
-              v61 = *((_QWORD *)v51 + 4);
+              v61 = *(&v51->GuidPtr + 1);
             }
-            v21 = *((unsigned int *)v51 + 7);
-            v53 = v21;
-            if ( (unsigned int)v21 <= 0x10000 )
+            GuidPtr_high = HIDWORD(v51->GuidPtr);
+            LowPart = GuidPtr_high;
+            if ( (unsigned int)GuidPtr_high <= 0x10000 )
             {
-              if ( (_DWORD)v21 && (v61 + v21 > MmUserProbeAddress || v61 + v21 < v61) )
+              if ( (_DWORD)GuidPtr_high && (v61 + GuidPtr_high > MmUserProbeAddress || v61 + GuidPtr_high < v61) )
                 *(_BYTE *)MmUserProbeAddress = 0;
-              HIDWORD(v60) = v21;
-              return EtwpTraceMessageVa(v60, v54 | 0x40u, (signed __int32 *)v51 + 2, *((_WORD *)v51 + 2), v61, 1);
+              HIDWORD(v60) = GuidPtr_high;
+              return EtwpTraceMessageVa(v60, Data1 | 0x40, (signed __int32 *)&v51->ThreadId, v51->Version, v61, 1);
             }
             v10 = -1073741811;
             v55 = -1073741811;
@@ -439,8 +436,7 @@ LABEL_106:
   if ( ((unsigned __int8)TraceHeader & 3) != 0 )
     ExRaiseDatatypeMisalignment();
   v24 = (_BYTE *)MmUserProbeAddress;
-  if ( (unsigned __int64)TraceHeader + 120 > MmUserProbeAddress
-    || (PEVENT_TRACE_HEADER)((char *)TraceHeader + 120) < TraceHeader )
+  if ( (unsigned __int64)&TraceHeader[2].GuidPtr > MmUserProbeAddress || &TraceHeader[2].Guid < (GUID *)TraceHeader )
   {
     *(_BYTE *)MmUserProbeAddress = 0;
     v24 = (_BYTE *)MmUserProbeAddress;
@@ -452,15 +448,15 @@ LABEL_106:
   {
     *v24 = 0;
   }
-  v25 = *((_QWORD *)TraceHeader + 11);
+  v25 = TraceHeader[1].ProcessorTime;
   v80 = v25;
-  v53 = *((_DWORD *)TraceHeader + 21);
-  v73 = v53;
-  LODWORD(v51) = *((_DWORD *)TraceHeader + 28);
+  LowPart = *((_DWORD *)&TraceHeader[1].GuidPtr + 3);
+  v73 = LowPart;
+  LODWORD(v51) = TraceHeader[2].TimeStamp.LowPart;
   v72 = (int)v51;
-  v63 = *((_QWORD *)TraceHeader + 6);
+  v63 = *(_QWORD *)&TraceHeader[1].Size;
   v75 = v63;
-  v50 = *((_BYTE *)TraceHeader + 44);
+  v50 = TraceHeader->Flags;
   v59 = v50;
   v84 = **(_OWORD **)&TraceHandle;
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(&v84, 0LL);
@@ -487,7 +483,7 @@ LABEL_106:
                 0LL,
                 v50,
                 v63,
-                v53,
+                LowPart,
                 v25,
                 0LL,
                 0LL,

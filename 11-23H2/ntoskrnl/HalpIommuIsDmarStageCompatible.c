@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuIsDmarStageCompatible @ 0x1405182F8
+ * XREFs of HalpIommuIsDmarStageCompatible @ 0x140518848
  * Callers:
- *     IommupDeviceEnablePasidTaggedDma @ 0x140829364 (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x140829664 (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
  *     <none>
  */

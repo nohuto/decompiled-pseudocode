@@ -1,5 +1,5 @@
 /*
- * XREFs of VfObjectContextInit @ 0x140704904
+ * XREFs of VfObjectContextInit @ 0x140704934
  * Callers:
  *     VfInitBootDriversLoaded @ 0x1407A52D8 (VfInitBootDriversLoaded.c)
  * Callees:

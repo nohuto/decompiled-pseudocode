@@ -1,17 +1,17 @@
 /*
  * XREFs of MiDeleteSegmentPages @ 0x140219670
  * Callers:
- *     MiSegmentDelete @ 0x1406B0954 (MiSegmentDelete.c)
- *     MiInitializeImageExtents @ 0x140A33E8C (MiInitializeImageExtents.c)
+ *     MiSegmentDelete @ 0x1406B0984 (MiSegmentDelete.c)
+ *     MiInitializeImageExtents @ 0x140A3413C (MiInitializeImageExtents.c)
  * Callees:
  *     MiDeleteSubsectionPages @ 0x140218EF0 (MiDeleteSubsectionPages.c)
  *     MiGetCommittedPages @ 0x1402197C0 (MiGetCommittedPages.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDeleteFileExtentList @ 0x140A33E10 (MiDeleteFileExtentList.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeleteFileExtentList @ 0x140A340C0 (MiDeleteFileExtentList.c)
  */
 
 __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
@@ -92,10 +92,13 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
     if ( !a1[4] )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -113,10 +116,10 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v12);
   v13 = v9;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
     {
       v13 = v10;
       if ( v22 <= 0xFu )

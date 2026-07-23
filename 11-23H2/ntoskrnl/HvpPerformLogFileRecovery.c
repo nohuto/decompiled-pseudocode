@@ -1,29 +1,29 @@
 /*
- * XREFs of HvpPerformLogFileRecovery @ 0x14080028C
+ * XREFs of HvpPerformLogFileRecovery @ 0x14080055C
  * Callers:
- *     HvLoadHive @ 0x14074ED44 (HvLoadHive.c)
+ *     HvLoadHive @ 0x14074EF34 (HvLoadHive.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
- *     RtlNumberOfSetBits @ 0x140293570 (RtlNumberOfSetBits.c)
- *     HvpGrowDirtyVectors @ 0x1402F5B28 (HvpGrowDirtyVectors.c)
- *     RtlMergeBitMaps @ 0x1402F62E0 (RtlMergeBitMaps.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
+ *     RtlNumberOfSetBits @ 0x140293800 (RtlNumberOfSetBits.c)
+ *     HvpGrowDirtyVectors @ 0x1402F5DB8 (HvpGrowDirtyVectors.c)
+ *     RtlMergeBitMaps @ 0x1402F6570 (RtlMergeBitMaps.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
  *     HvpViewMapExtendStorage @ 0x140687A54 (HvpViewMapExtendStorage.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1407033FC (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     HvFreeHivePartial @ 0x1407071A8 (HvFreeHivePartial.c)
- *     HvpSetRangeProtection @ 0x140709954 (HvpSetRangeProtection.c)
- *     CmpDoFileSetSizeEx @ 0x14074D3F8 (CmpDoFileSetSizeEx.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x14074D8BC (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvpAdjustHiveFreeDisplay @ 0x14074FE94 (HvpAdjustHiveFreeDisplay.c)
- *     HvpExpandMap @ 0x140750008 (HvpExpandMap.c)
- *     HvpMapHiveImageFromViewMap @ 0x1407502D8 (HvpMapHiveImageFromViewMap.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1407511A0 (HvpLogTypeToLogArrayIndex.c)
- *     HvWriteHivePrimaryFile @ 0x1407D9500 (HvWriteHivePrimaryFile.c)
- *     HvResetLogFileStatusAll @ 0x1407E7B1C (HvResetLogFileStatusAll.c)
- *     HvApplyLogFiles @ 0x1407FDA34 (HvApplyLogFiles.c)
- *     HvpAddDummyBinToHive @ 0x140A1DC30 (HvpAddDummyBinToHive.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x14070360C (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     HvFreeHivePartial @ 0x1407073B8 (HvFreeHivePartial.c)
+ *     HvpSetRangeProtection @ 0x140709B64 (HvpSetRangeProtection.c)
+ *     CmpDoFileSetSizeEx @ 0x14074D5E8 (CmpDoFileSetSizeEx.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x14074DAAC (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x140750084 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpExpandMap @ 0x1407501F8 (HvpExpandMap.c)
+ *     HvpMapHiveImageFromViewMap @ 0x1407504C8 (HvpMapHiveImageFromViewMap.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140751390 (HvpLogTypeToLogArrayIndex.c)
+ *     HvWriteHivePrimaryFile @ 0x1407D97D0 (HvWriteHivePrimaryFile.c)
+ *     HvResetLogFileStatusAll @ 0x1407E7DEC (HvResetLogFileStatusAll.c)
+ *     HvApplyLogFiles @ 0x1407FDD04 (HvApplyLogFiles.c)
+ *     HvpAddDummyBinToHive @ 0x140A1DEE0 (HvpAddDummyBinToHive.c)
  */
 
 __int64 __fastcall HvpPerformLogFileRecovery(
@@ -52,7 +52,7 @@ __int64 __fastcall HvpPerformLogFileRecovery(
   unsigned int v22; // eax
   int v23; // edx
   unsigned int v24; // edx
-  int v26; // eax
+  NTSTATUS v26; // eax
   unsigned int v27; // r12d
   __int64 v28; // r9
   __int64 v29; // rdx
@@ -94,7 +94,7 @@ LABEL_18:
       }
       if ( _bittest((const signed __int32 *)(BugCheckParameter2 + 160), 0x11u) )
       {
-        v26 = HvpViewMapExtendStorage((__int64 *)(BugCheckParameter2 + 224), v5);
+        v26 = HvpViewMapExtendStorage(BugCheckParameter2 + 224, v5);
         if ( v26 < 0 )
           SetFailureLocation(a5, 0, 27, v26, 16);
       }

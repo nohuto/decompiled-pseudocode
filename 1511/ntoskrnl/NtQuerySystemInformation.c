@@ -24,12 +24,12 @@ NTSTATUS __stdcall NtQuerySystemInformation(
     {
       case SystemProcessorPerformanceInformation:
       case SystemInterruptInformation:
-      case SystemPowerInformationNative:
+      case SystemProcessorIdleInformation:
       case SystemProcessorPowerInformation:
       case SystemProcessorIdleCycleTimeInformation:
-      case SystemPrefetchPathInformation|SystemPathInformation:
-      case SystemPrefetchPathInformation|SystemLocksInformation:
-      case SystemStackTraceInformation|0x80:
+      case SystemProcessorPerformanceDistribution:
+      case SystemProcessorCycleTimeInformation:
+      case SystemProcessorPerformanceInformationEx:
         v7 = 2LL;
         Group = KeGetCurrentPrcb()->Group;
         p_Group = &Group;
@@ -51,8 +51,8 @@ NTSTATUS __stdcall NtQuerySystemInformation(
                  SystemInformation,
                  SystemInformationLength,
                  ReturnLength);
-      case MaxSystemInfoClass|SystemFlagsInformation:
-      case SystemVerifierFaultsInformation|SystemDpcBehaviorInformation:
+      case SystemLogicalProcessorAndGroupInformation:
+      case SystemNodeDistanceInformation:
         result = -1073741821;
         break;
       default:

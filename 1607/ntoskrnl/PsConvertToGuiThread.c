@@ -1,13 +1,13 @@
 /*
- * XREFs of PsConvertToGuiThread @ 0x14045D0C0
+ * XREFs of PsConvertToGuiThread @ 0x14045BF90
  * Callers:
- *     KiConvertToGuiThread @ 0x140161BE0 (KiConvertToGuiThread.c)
+ *     KiConvertToGuiThread @ 0x140162150 (KiConvertToGuiThread.c)
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140013F00 (MmSessionGetWin32Callouts.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     SeCaptureAtomTableCallout @ 0x140074BF4 (SeCaptureAtomTableCallout.c)
- *     ExCallCallBack @ 0x140428DC0 (ExCallCallBack.c)
- *     SeCompareSigningLevels @ 0x14045D1E0 (SeCompareSigningLevels.c)
+ *     MmSessionGetWin32Callouts @ 0x140013A80 (MmSessionGetWin32Callouts.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     SeCaptureAtomTableCallout @ 0x140074C74 (SeCaptureAtomTableCallout.c)
+ *     ExCallCallBack @ 0x140427C90 (ExCallCallBack.c)
+ *     SeCompareSigningLevels @ 0x14045C0B0 (SeCompareSigningLevels.c)
  */
 
 __int64 PsConvertToGuiThread()
@@ -18,9 +18,9 @@ __int64 PsConvertToGuiThread()
   __int64 v3; // rax
   __int64 v4; // rdx
   __int64 v5; // rcx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 result; // rax
-  union _RTL_RUN_ONCE *v8; // rax
+  _RTL_RUN_ONCE *v8; // rax
   __int64 v9; // rcx
   int v10; // esi
   _KPROCESS *v11; // [rsp+20h] [rbp-28h] BYREF

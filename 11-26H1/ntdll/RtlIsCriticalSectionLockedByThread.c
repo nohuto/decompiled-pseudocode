@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsCriticalSectionLockedByThread @ 0x1800D5E00
+ * XREFs of RtlIsCriticalSectionLockedByThread @ 0x1800D2DC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall RtlIsCriticalSectionLockedByThread(__int64 a1)
+LOGICAL __cdecl RtlIsCriticalSectionLockedByThread(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  return *(void **)(a1 + 16) == NtCurrentTeb()->ClientId.UniqueThread;
+  return CriticalSection->OwningThread == NtCurrentTeb()->ClientId.UniqueThread;
 }

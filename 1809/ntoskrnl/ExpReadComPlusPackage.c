@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpReadComPlusPackage @ 0x1406D080C
+ * XREFs of ExpReadComPlusPackage @ 0x1406D1AAC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
  */
 
 __int64 ExpReadComPlusPackage()
@@ -21,12 +21,12 @@ __int64 ExpReadComPlusPackage()
   signed __int32 v8; // [rsp+4Ch] [rbp-1Ch]
 
   v0 = 0;
-  v1 = ZwOpenKey(&KeyHandle, 1u, &stru_1403FF9F8);
+  v1 = ZwOpenKey(&KeyHandle, 1u, &stru_1404009F8);
   if ( v1 >= 0 )
   {
     v1 = ZwQueryValueKey(
            KeyHandle,
-           &stru_1403FFA28,
+           &stru_140400A28,
            KeyValuePartialInformation,
            KeyValueInformation,
            0x14u,

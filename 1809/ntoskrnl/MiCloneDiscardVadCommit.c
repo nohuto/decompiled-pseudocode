@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCloneDiscardVadCommit @ 0x1408589D4
+ * XREFs of MiCloneDiscardVadCommit @ 0x140859C34
  * Callers:
- *     MiCloneCaptureVadCommit @ 0x1402B9F18 (MiCloneCaptureVadCommit.c)
- *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
+ *     MiCloneCaptureVadCommit @ 0x1402BA108 (MiCloneCaptureVadCommit.c)
+ *     MiAllocateChildVads @ 0x14085EC58 (MiAllocateChildVads.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiCloneDiscardVadCommit(__int64 a1)

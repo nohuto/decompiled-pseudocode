@@ -1,14 +1,14 @@
 /*
- * XREFs of IopSetupArbiterAndTranslators @ 0x140A6C1C8
+ * XREFs of IopSetupArbiterAndTranslators @ 0x140A65728
  * Callers:
- *     IopResourceRequirementsListToReqList @ 0x140A6BCB4 (IopResourceRequirementsListToReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140A65214 (IopResourceRequirementsListToReqList.c)
  * Callees:
- *     IopTranslateAndAdjustReqDesc @ 0x140721E2C (IopTranslateAndAdjustReqDesc.c)
- *     IopQueryResourceHandlerInterface @ 0x140A6C444 (IopQueryResourceHandlerInterface.c)
- *     IopFindResourceHandlerInfo @ 0x140A83344 (IopFindResourceHandlerInfo.c)
- *     IopCallArbiter @ 0x140A8D4E4 (IopCallArbiter.c)
- *     IopFindLegacyBusDeviceNode @ 0x140A93D38 (IopFindLegacyBusDeviceNode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IopTranslateAndAdjustReqDesc @ 0x14071F9BC (IopTranslateAndAdjustReqDesc.c)
+ *     IopQueryResourceHandlerInterface @ 0x140A659A4 (IopQueryResourceHandlerInterface.c)
+ *     IopFindResourceHandlerInfo @ 0x140A7DE64 (IopFindResourceHandlerInfo.c)
+ *     IopCallArbiter @ 0x140A89AB8 (IopCallArbiter.c)
+ *     IopFindLegacyBusDeviceNode @ 0x140A904E8 (IopFindLegacyBusDeviceNode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopSetupArbiterAndTranslators(unsigned int *a1, __int64 a2, __int64 a3)
@@ -109,7 +109,7 @@ __int64 __fastcall IopSetupArbiterAndTranslators(unsigned int *a1, __int64 a2, _
           {
             v28 = v43;
 LABEL_58:
-            Pool2 = ExAllocatePool2(0x100uLL);
+            Pool2 = ExAllocatePool2(0x100uLL, 0x70uLL, 0x20207050u);
             v3 = 0LL;
             v30 = Pool2;
             if ( !Pool2 )
@@ -209,7 +209,7 @@ LABEL_21:
         {
           v19 = v43;
         }
-        v20 = ExAllocatePool2(0x100uLL);
+        v20 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x20207050u);
         v3 = 0LL;
         v15 = v20;
         if ( !v20 )

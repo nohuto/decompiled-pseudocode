@@ -9,16 +9,16 @@
 
 int __cdecl toupper(int C)
 {
-  int v2; // [esp+0h] [ebp-10h] BYREF
-  unsigned __int8 *p_C; // [esp+4h] [ebp-Ch] BYREF
-  __int16 v4; // [esp+8h] [ebp-8h] BYREF
-  _BYTE v5[4]; // [esp+Ch] [ebp-4h] BYREF
+  ULONG BytesInMultiByteString; // [esp+0h] [ebp-10h] BYREF
+  PUCHAR SourceCharacter; // [esp+4h] [ebp-Ch] BYREF
+  WCHAR UnicodeString; // [esp+8h] [ebp-8h] BYREF
+  CHAR MultiByteString[4]; // [esp+Ch] [ebp-4h] BYREF
 
-  p_C = (unsigned __int8 *)&C;
-  v4 = RtlAnsiCharToUnicodeChar(&p_C);
-  if ( RtlUpcaseUnicodeToMultiByteN((int)v5, 2, (int)&v2, (int)&v4, 2) < 0 )
+  SourceCharacter = (PUCHAR)&C;
+  UnicodeString = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+  if ( RtlUpcaseUnicodeToMultiByteN(MultiByteString, 2u, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
     return C;
-  if ( v2 == 1 )
-    return v5[0];
-  return v5[1] | (v5[0] << 8);
+  if ( BytesInMultiByteString == 1 )
+    return (unsigned __int8)MultiByteString[0];
+  return (unsigned __int8)MultiByteString[1] | ((unsigned __int8)MultiByteString[0] << 8);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiInitializeWsSwapping @ 0x14054F2CC
+ * XREFs of MiInitializeWsSwapping @ 0x14054F80C
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopOpenKey @ 0x140389FAC
+ * XREFs of PopOpenKey @ 0x14038A18C
  * Callers:
- *     PpmInitIllegalThrottleLogging @ 0x140389EE4 (PpmInitIllegalThrottleLogging.c)
- *     PopOpenPowerKey @ 0x140389F90 (PopOpenPowerKey.c)
- *     PopLoadResumeContext @ 0x140980C78 (PopLoadResumeContext.c)
+ *     PpmInitIllegalThrottleLogging @ 0x14038A0C4 (PpmInitIllegalThrottleLogging.c)
+ *     PopOpenPowerKey @ 0x14038A170 (PopOpenPowerKey.c)
+ *     PopLoadResumeContext @ 0x140980E78 (PopLoadResumeContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
  */
 
 __int64 __fastcall PopOpenKey(HANDLE *a1, const WCHAR *a2)

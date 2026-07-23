@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckHoldFaultForHotPatch @ 0x14053E2DC
+ * XREFs of MiCheckHoldFaultForHotPatch @ 0x14053E51C
  * Callers:
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockFaultWorkingSet @ 0x14028DD1C (MiUnlockFaultWorkingSet.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     MiUnlockFaultWorkingSet @ 0x14020AEBC (MiUnlockFaultWorkingSet.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
  */
 
-__int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, __int64 *a2)
 {
   __int64 v2; // r13
   bool v3; // zf
@@ -29,7 +29,7 @@ __int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, unsigned __int64 *a2)
   v15 = 0LL;
   v13 = 0LL;
   Object = 0LL;
-  if ( v3 || *a2 > 0x7FFFFFFEFFFFLL )
+  if ( v3 || (unsigned __int64)*a2 > 0x7FFFFFFEFFFFLL )
     return 0LL;
   v5 = 0;
   v6 = (_QWORD *)(a1 + 24);
@@ -61,7 +61,7 @@ __int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, unsigned __int64 *a2)
     *(_QWORD *)&v13 = v9 + 4;
     *v10 = &v13;
     v9[5] = &v13;
-    MiUnlockFaultWorkingSet((__int64)(a2 + 7));
+    MiUnlockFaultWorkingSet(a2 + 7, (__int64)&v13);
     v5 = 1;
     KeWaitForSingleObject(&Object, WrKernel, 0, 0, 0LL);
     SharedVm = MiGetSharedVm(v2);

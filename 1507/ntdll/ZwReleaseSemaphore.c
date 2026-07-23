@@ -8,11 +8,11 @@
  *     <none>
  */
 
-__int64 ZwReleaseSemaphore()
+NTSTATUS __cdecl ZwReleaseSemaphore(HANDLE SemaphoreHandle, LONG ReleaseCount, PLONG PreviousCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 10LL;
+  result = 10;
   __asm { syscall; Low latency system call }
   return result;
 }

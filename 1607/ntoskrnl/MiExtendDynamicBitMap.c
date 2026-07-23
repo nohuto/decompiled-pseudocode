@@ -1,13 +1,13 @@
 /*
- * XREFs of MiExtendDynamicBitMap @ 0x140149A5C
+ * XREFs of MiExtendDynamicBitMap @ 0x140149FCC
  * Callers:
- *     MiObtainDynamicVa @ 0x1400A3088 (MiObtainDynamicVa.c)
+ *     MiObtainDynamicVa @ 0x1400A19B0 (MiObtainDynamicVa.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiReclaimSystemVa @ 0x1400A38F4 (MiReclaimSystemVa.c)
- *     MiSplitBitmapPages @ 0x140101E54 (MiSplitBitmapPages.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiReclaimSystemVa @ 0x1400A221C (MiReclaimSystemVa.c)
+ *     MiSplitBitmapPages @ 0x1400FFBD4 (MiSplitBitmapPages.c)
  */
 
 __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, unsigned int a3)
@@ -67,7 +67,7 @@ LABEL_14:
     }
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
-  if ( a1 == &qword_140326C60 )
+  if ( a1 == &qword_140326CA0 )
     MiReclaimSystemVa(1);
   return 0LL;
 }

@@ -19,7 +19,7 @@
 __int64 __fastcall WmipSecurityMethod(
         __int64 a1,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         ULONG *a5,
         __int64 *a6,
@@ -78,7 +78,7 @@ __int64 __fastcall WmipSecurityMethod(
         if ( !Pool2 )
           return (unsigned int)-1073741670;
         HIDWORD(v19) = -1;
-        SecurityDescriptorInfo = ObQuerySecurityDescriptorInfo(a1, (ULONG *)&v19 + 1, Pool2, (ULONG *)&v19);
+        SecurityDescriptorInfo = ObQuerySecurityDescriptorInfo(a1, (DWORD *)&v19 + 1, Pool2, (ULONG *)&v19);
         v13 = SecurityDescriptorInfo;
         if ( SecurityDescriptorInfo != -1073741789 )
           break;

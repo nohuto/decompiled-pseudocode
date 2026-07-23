@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwFreeInterfaceList @ 0x1404C6C98
+ * XREFs of PiSwFreeInterfaceList @ 0x1404878CC
  * Callers:
- *     PiSwProcessRemove @ 0x1404C36B0 (PiSwProcessRemove.c)
- *     PiSwDeviceFree @ 0x1404C3B98 (PiSwDeviceFree.c)
- *     PiSwCompleteCreate @ 0x1404C6A1C (PiSwCompleteCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x140483A18 (PiSwProcessRemove.c)
+ *     PiSwDeviceFree @ 0x140483DD0 (PiSwDeviceFree.c)
+ *     PiSwCompleteCreate @ 0x140487650 (PiSwCompleteCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PiSwInterfaceFree @ 0x140645718 (PiSwInterfaceFree.c)
+ *     PiSwInterfaceFree @ 0x1406457FC (PiSwInterfaceFree.c)
  */
 
 void __fastcall PiSwFreeInterfaceList(__int64 **a1)

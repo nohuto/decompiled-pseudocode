@@ -1,16 +1,16 @@
 /*
- * XREFs of RawQueryFileSystemInformation @ 0x1409B8874
+ * XREFs of RawQueryFileSystemInformation @ 0x1409B8A74
  * Callers:
- *     RawUserFsCtrl @ 0x140882194 (RawUserFsCtrl.c)
+ *     RawUserFsCtrl @ 0x1408823D4 (RawUserFsCtrl.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IopBuildSynchronousFsdRequest @ 0x1407FD3C0 (IopBuildSynchronousFsdRequest.c)
- *     RawPerformDevIoCtrl @ 0x1409B82D4 (RawPerformDevIoCtrl.c)
- *     RawComputeFileSystemInformationChecksum @ 0x1409B8820 (RawComputeFileSystemInformationChecksum.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1407FD690 (IopBuildSynchronousFsdRequest.c)
+ *     RawPerformDevIoCtrl @ 0x1409B84D4 (RawPerformDevIoCtrl.c)
+ *     RawComputeFileSystemInformationChecksum @ 0x1409B8A20 (RawComputeFileSystemInformationChecksum.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

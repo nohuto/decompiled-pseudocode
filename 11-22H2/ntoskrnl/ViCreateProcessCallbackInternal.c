@@ -44,10 +44,13 @@ void __fastcall ViCreateProcessCallbackInternal(void *a1, char a2)
         if ( (unsigned int)ViFaultsIsAppTarget(&SourceString) )
           _InterlockedOr((volatile signed __int32 *)&v2[1].DirectoryTableBase, 0x10000u);
         KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v3 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -33,6 +33,6 @@ __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
   v7 = i[4];
   i[3] = 0LL;
 LABEL_8:
-  RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180148698 + 8 * v3));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180148698 + 8 * v3));
   return v7;
 }

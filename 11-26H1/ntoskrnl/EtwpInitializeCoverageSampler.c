@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpInitializeCoverageSampler @ 0x140CE22D0
+ * XREFs of EtwpInitializeCoverageSampler @ 0x140CE8670
  * Callers:
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 EtwpInitializeCoverageSampler()
@@ -25,11 +25,11 @@ __int64 EtwpInitializeCoverageSampler()
   void (__fastcall *v9)(__int64); // [rsp+88h] [rbp+1Fh]
 
   DestinationString = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E09078, 0LL, 0LL);
-  ExpSysDbgLock.ReadTransferCount = 0LL;
-  *(_QWORD *)&ExpSysDbgLock.ThreadTimerDelay = 0LL;
-  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&ExpSysDbgLock.ThreadTimerDelay);
-  _InterlockedExchange64((volatile __int64 *)&ExpSysDbgLock.ThreadTimerDelay, 1LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E09070, 0LL, 0LL);
+  ExpSysDbgLock.AbWaitObject = 0LL;
+  ExpSysDbgLock.GlobalUpdateVpThreadPriorityListEntry.Flink = 0LL;
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&ExpSysDbgLock.1008);
+  _InterlockedExchange64((volatile __int64 *)&ExpSysDbgLock.GlobalUpdateVpThreadPriorityListEntry.Flink, 1LL);
   RtlInitUnicodeString(&DestinationString, L"CoverageSampler");
   memset_0(&v2, 0, 0x78uLL);
   v3 |= 4u;
@@ -40,7 +40,7 @@ __int64 EtwpInitializeCoverageSampler()
   v7 = 1736;
   v4 = 402;
   v5 = 2031617;
-  result = ObCreateObjectType(&DestinationString, &v2, 0LL, (__int64)&ExpSysDbgLock.OtherTransferCount);
+  result = ObCreateObjectType(&DestinationString, &v2, 0LL, (__int64)&ExpSysDbgLock.KernelWaitTime);
   if ( (int)result < 0 )
     KeBugCheckEx(0x5Eu, 0xC0uLL, 0LL, 0LL, 0LL);
   return result;

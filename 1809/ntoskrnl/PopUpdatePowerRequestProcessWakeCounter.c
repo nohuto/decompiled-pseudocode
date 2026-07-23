@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdatePowerRequestProcessWakeCounter @ 0x14058999C
+ * XREFs of PopUpdatePowerRequestProcessWakeCounter @ 0x14058A99C
  * Callers:
  *     PopPowerRequestCleanUp @ 0x14000333C (PopPowerRequestCleanUp.c)
- *     PopHandleConvergedPowerRequestUpdate @ 0x140589D88 (PopHandleConvergedPowerRequestUpdate.c)
- *     PopEnableExecutionRequiredPowerRequests @ 0x1407633E8 (PopEnableExecutionRequiredPowerRequests.c)
+ *     PopHandleConvergedPowerRequestUpdate @ 0x14058AD88 (PopHandleConvergedPowerRequestUpdate.c)
+ *     PopEnableExecutionRequiredPowerRequests @ 0x1407645D8 (PopEnableExecutionRequiredPowerRequests.c)
  * Callees:
- *     PopStatsMarkPowerRequestInactive @ 0x14058866C (PopStatsMarkPowerRequestInactive.c)
- *     PsChargeProcessWakeCounter @ 0x140588720 (PsChargeProcessWakeCounter.c)
- *     PopStatsMarkPowerRequestActive @ 0x140588904 (PopStatsMarkPowerRequestActive.c)
- *     PsReleaseProcessWakeCounter @ 0x14061C390 (PsReleaseProcessWakeCounter.c)
+ *     PopStatsMarkPowerRequestInactive @ 0x14058966C (PopStatsMarkPowerRequestInactive.c)
+ *     PsChargeProcessWakeCounter @ 0x140589720 (PsChargeProcessWakeCounter.c)
+ *     PopStatsMarkPowerRequestActive @ 0x140589904 (PopStatsMarkPowerRequestActive.c)
+ *     PsReleaseProcessWakeCounter @ 0x14061D390 (PsReleaseProcessWakeCounter.c)
  */
 
 void __fastcall PopUpdatePowerRequestProcessWakeCounter(__int64 a1, char a2)

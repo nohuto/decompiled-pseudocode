@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogMdlRangeEvent @ 0x1406234A0
+ * XREFs of MiLogMdlRangeEvent @ 0x1406239F0
  * Callers:
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MiAllocatePagesForMdl @ 0x1402F8F6C (MiAllocatePagesForMdl.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetPfnPidSafe @ 0x1406266E4 (MiGetPfnPidSafe.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPfnPidSafe @ 0x140626C34 (MiGetPfnPidSafe.c)
  */
 
 char __fastcall MiLogMdlRangeEvent(_QWORD *a1, __int16 a2, __int64 a3, __int64 a4)
@@ -43,10 +43,10 @@ char __fastcall MiLogMdlRangeEvent(_QWORD *a1, __int16 a2, __int64 a3, __int64 a
       PfnPidSafe = (unsigned int)MiGetPfnPidSafe(v8, 3LL);
     LOBYTE(v9) = -1;
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v9) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v9 <= 0xFu
         && (unsigned __int8)v10 <= 0xFu
         && (unsigned __int8)v9 >= 2u )

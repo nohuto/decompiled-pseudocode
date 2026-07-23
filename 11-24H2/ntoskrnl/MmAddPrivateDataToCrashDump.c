@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAddPrivateDataToCrashDump @ 0x140677874
+ * XREFs of MmAddPrivateDataToCrashDump @ 0x140678A54
  * Callers:
- *     IopLiveDumpAddPfnDatabase @ 0x140597F10 (IopLiveDumpAddPfnDatabase.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x14059BFB0 (IopLiveDumpMarkRequiredDumpData.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405A03BC (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddPfnDatabase @ 0x140594E90 (IopLiveDumpAddPfnDatabase.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140598F30 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14059D2EC (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MiAddPartitionDataToCrashDump @ 0x140676F98 (MiAddPartitionDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiAddPartitionDataToCrashDump @ 0x140678168 (MiAddPartitionDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 a1, char a2)
@@ -24,7 +24,7 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 a1, char a2)
   v2 = 0;
   if ( (a2 & 1) != 0 )
   {
-    v5 = MmAddRangeToCrashDump(a1, MmPfnDatabase, 48 * (qword_140E2DBE0 + 1));
+    v5 = MmAddRangeToCrashDump(a1, MmPfnDatabase, 48 * (qword_140E2DD20 + 1));
     if ( v5 < 0 )
       v2 = v5;
   }
@@ -34,11 +34,7 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 a1, char a2)
     v7 = (unsigned int)KeNumberProcessors_0;
     do
     {
-      v8 = guard_dispatch_icall_no_overrides(
-             a1,
-             *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*v6++ + 8) + 184LL) + 40LL) >> 12,
-             1LL,
-             2LL);
+      v8 = guard_dispatch_icall_no_overrides(a1, *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*v6++ + 8) + 184LL) + 40LL) >> 12);
       if ( v8 < 0 )
         v2 = v8;
       --v7;
@@ -47,13 +43,13 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 a1, char a2)
   }
   if ( (a2 & 4) != 0 )
   {
-    v9 = MmAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - PsNtosImageBase);
+    v9 = MmAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - (_QWORD)PsNtosImageBase);
     if ( v9 < 0 )
       v2 = v9;
   }
   if ( (a2 & 8) != 0 )
   {
-    v10 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - PsHalImageBase);
+    v10 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - (_QWORD)PsHalImageBase);
     if ( v10 < 0 )
       v2 = v10;
   }

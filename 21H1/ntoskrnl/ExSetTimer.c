@@ -17,7 +17,7 @@
  *     KeBugCheckEx @ 0x1403F5E40 (KeBugCheckEx.c)
  */
 
-_BOOL8 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, _DWORD *a4)
+_BOOL8 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, __int64 a4)
 {
   ULONG_PTR BugCheckParameter4; // rdx
   ULONG_PTR v9; // r9
@@ -34,7 +34,7 @@ _BOOL8 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a
     v11[0] = a3;
     KeBugCheckEx(0xC7u, 9uLL, 4uLL, (ULONG_PTR)v11, 0LL);
   }
-  if ( a4 && !ExpTimerSetParametersAreValid((__int64)a4) )
+  if ( a4 && !ExpTimerSetParametersAreValid(a4) )
     KeBugCheckEx(0xC7u, 9uLL, 1uLL, v9, BugCheckParameter4);
   ExpCheckForFreedEnhancedTimer(BugCheckParameter1);
   return KeSetTimer2(BugCheckParameter1, a2, a3, a4);

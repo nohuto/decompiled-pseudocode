@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpMiscBugCheckCallback @ 0x140587630
+ * XREFs of HalpMiscBugCheckCallback @ 0x140589B50
  * Callers:
  *     <none>
  * Callees:
@@ -12,5 +12,5 @@ void __fastcall HalpMiscBugCheckCallback(
         PVOID ReasonSpecificData,
         ULONG ReasonSpecificDataLength)
 {
-  LOBYTE(HalpDeviceBlockUnblockPushLock.Timer.TimerListEntry.Flink) = 1;
+  LOBYTE(HalpDeviceBlockUnblockPushLock.Timer.DueTime.LowPart) = 1;
 }

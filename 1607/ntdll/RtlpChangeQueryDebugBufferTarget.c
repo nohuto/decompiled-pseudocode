@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpChangeQueryDebugBufferTarget @ 0x18006E368
+ * XREFs of RtlpChangeQueryDebugBufferTarget @ 0x18006E358
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x18006D3B0 (RtlQueryProcessDebugInformation.c)
- *     RtlDestroyQueryDebugBuffer @ 0x18006E330 (RtlDestroyQueryDebugBuffer.c)
- *     RtlSetProcessDebugInformation @ 0x1800D52F0 (RtlSetProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x18006D3A0 (RtlQueryProcessDebugInformation.c)
+ *     RtlDestroyQueryDebugBuffer @ 0x18006E320 (RtlDestroyQueryDebugBuffer.c)
+ *     RtlSetProcessDebugInformation @ 0x1800D53B0 (RtlSetProcessDebugInformation.c)
  * Callees:
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     NtOpenProcess @ 0x1800A68E0 (NtOpenProcess.c)
@@ -11,45 +11,39 @@
  *     NtUnmapViewOfSection @ 0x1800A6960 (NtUnmapViewOfSection.c)
  */
 
-__int64 __fastcall RtlpChangeQueryDebugBufferTarget(_QWORD *a1, __int64 a2, int a3, HANDLE *a4)
+NTSTATUS __fastcall RtlpChangeQueryDebugBufferTarget(__int64 a1, void *a2, int a3, HANDLE *a4)
 {
-  __int64 v4; // rax
-  char *v5; // rsi
+  void *v4; // rax
+  __int64 v5; // rsi
   __int64 v10; // rcx
   HANDLE v11; // rdx
-  _QWORD *v12; // rdi
+  PVOID *v12; // rdi
   __int128 v13; // xmm0
   _OWORD *v14; // rbx
-  __int64 result; // rax
-  int v16; // eax
-  unsigned int v17; // edi
-  int v18; // r14d
+  NTSTATUS result; // eax
+  NTSTATUS v16; // eax
+  NTSTATUS v17; // edi
+  NTSTATUS v18; // r14d
   HANDLE v19; // rdx
   HANDLE Handle; // [rsp+58h] [rbp-39h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-31h] BYREF
-  __int64 v22; // [rsp+68h] [rbp-29h] BYREF
-  _QWORD v23[2]; // [rsp+70h] [rbp-21h] BYREF
-  _QWORD v24[2]; // [rsp+80h] [rbp-11h] BYREF
-  int v25; // [rsp+90h] [rbp-1h] BYREF
-  __int64 v26; // [rsp+98h] [rbp+7h]
-  __int64 v27; // [rsp+A0h] [rbp+Fh]
-  int v28; // [rsp+A8h] [rbp+17h]
-  __int128 v29; // [rsp+B0h] [rbp+1Fh]
-  HANDLE v30; // [rsp+F8h] [rbp+67h] BYREF
+  ULONG_PTR ViewSize; // [rsp+60h] [rbp-31h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+68h] [rbp-29h] BYREF
+  _CLIENT_ID v23; // [rsp+70h] [rbp-21h] BYREF
+  _CLIENT_ID ClientId; // [rsp+80h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-1h] BYREF
+  HANDLE ProcessHandle; // [rsp+F8h] [rbp+67h] BYREF
 
-  v4 = a1[6];
-  v5 = (char *)a1 + a1[11];
-  v25 = 48;
-  v26 = 0LL;
-  v28 = 0;
-  v27 = 0LL;
-  v29 = 0LL;
+  v4 = *(void **)(a1 + 48);
+  v5 = a1 + *(_QWORD *)(a1 + 88);
+  ObjectAttributes.Length = 48;
+  memset(&ObjectAttributes.RootDirectory, 0, 20);
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( v4 )
   {
-    v23[0] = v4;
-    v23[1] = 0LL;
-    result = NtOpenProcess(&Handle, 0x1FFFFFLL, &v25, v23);
-    if ( (int)result < 0 )
+    v23.UniqueProcess = v4;
+    v23.UniqueThread = 0LL;
+    result = NtOpenProcess(&Handle, 0x1FFFFFu, &ObjectAttributes, &v23);
+    if ( result < 0 )
       return result;
     v10 = (__int64)Handle;
   }
@@ -60,9 +54,9 @@ __int64 __fastcall RtlpChangeQueryDebugBufferTarget(_QWORD *a1, __int64 a2, int 
   }
   if ( a2 )
   {
-    v24[0] = a2;
-    v24[1] = 0LL;
-    v16 = NtOpenProcess(&v30, 0x1FFFFFLL, &v25, v24);
+    ClientId.UniqueProcess = a2;
+    ClientId.UniqueThread = 0LL;
+    v16 = NtOpenProcess(&ProcessHandle, 0x1FFFFFu, &ObjectAttributes, &ClientId);
     v10 = (__int64)Handle;
     v17 = v16;
     if ( v16 < 0 )
@@ -71,87 +65,107 @@ __int64 __fastcall RtlpChangeQueryDebugBufferTarget(_QWORD *a1, __int64 a2, int 
         NtClose(Handle);
       return v17;
     }
-    v11 = v30;
+    v11 = ProcessHandle;
   }
   else
   {
     v11 = 0LL;
-    v30 = 0LL;
+    ProcessHandle = 0LL;
   }
-  v12 = a1 + 2;
+  v12 = (PVOID *)(a1 + 16);
   if ( v10 == -1 )
   {
-    *v12 = a1[11] + a1[1];
+    *v12 = (PVOID)(*(_QWORD *)(a1 + 88) + *(_QWORD *)(a1 + 8));
   }
   else
   {
     if ( *v12 )
     {
-      NtUnmapViewOfSection(v10, *v12);
+      NtUnmapViewOfSection((HANDLE)v10, *v12);
       v10 = (__int64)Handle;
       *v12 = 0LL;
     }
     NtClose((HANDLE)v10);
-    v11 = v30;
+    v11 = ProcessHandle;
   }
-  v21 = a1[11];
-  v22 = v21;
+  ViewSize = *(_QWORD *)(a1 + 88);
+  SectionOffset.QuadPart = ViewSize;
   if ( v11 )
   {
-    v18 = ZwMapViewOfSection(*a1, v11, a1 + 2, 0LL, 0LL, &v22, &v21, 2, 0, 4);
+    v18 = ZwMapViewOfSection(
+            *(HANDLE *)a1,
+            v11,
+            (PVOID *)(a1 + 16),
+            0LL,
+            0LL,
+            &SectionOffset,
+            &ViewSize,
+            ViewUnmap,
+            0,
+            4u);
     if ( v18 == -1073741800 )
     {
-      v19 = v30;
+      v19 = ProcessHandle;
       *v12 = 0LL;
-      v18 = ZwMapViewOfSection(*a1, v19, a1 + 2, 0LL, 0LL, &v22, &v21, 2, 0, 4);
+      v18 = ZwMapViewOfSection(
+              *(HANDLE *)a1,
+              v19,
+              (PVOID *)(a1 + 16),
+              0LL,
+              0LL,
+              &SectionOffset,
+              &ViewSize,
+              ViewUnmap,
+              0,
+              4u);
     }
     if ( v18 < 0 )
     {
-      NtClose(v30);
-      return (unsigned int)v18;
+      NtClose(ProcessHandle);
+      return v18;
     }
     if ( a4 )
-      *a4 = v30;
+      *a4 = ProcessHandle;
     else
-      NtClose(v30);
+      NtClose(ProcessHandle);
   }
-  a1[6] = a2;
-  a1[3] = (char *)a1 - *v12;
+  *(_QWORD *)(a1 + 48) = a2;
+  *(_QWORD *)(a1 + 24) = a1 - (_QWORD)*v12;
   if ( a3 == 1 )
   {
     *(_DWORD *)v5 = 0;
-    *((_DWORD *)v5 + 1) = *(_DWORD *)v12;
-    *((_DWORD *)v5 + 2) = *(_DWORD *)v12;
-    *((_DWORD *)v5 + 3) = *((_DWORD *)a1 + 6);
-    *((_DWORD *)v5 + 4) = *((_DWORD *)a1 + 8);
-    *((_DWORD *)v5 + 5) = *((_DWORD *)a1 + 10);
-    *((_DWORD *)v5 + 6) = *((_DWORD *)a1 + 12);
-    *((_DWORD *)v5 + 7) = *((_DWORD *)a1 + 14);
-    *((_DWORD *)v5 + 8) = *((_DWORD *)a1 + 16);
-    *((_DWORD *)v5 + 9) = *((_DWORD *)a1 + 18);
-    *((_DWORD *)v5 + 10) = *((_DWORD *)a1 + 20);
-    *((_DWORD *)v5 + 11) = *((_DWORD *)a1 + 22);
-    *((_DWORD *)v5 + 20) = *((_DWORD *)a1 + 40);
+    *(_DWORD *)(v5 + 4) = *(_DWORD *)v12;
+    *(_DWORD *)(v5 + 8) = *(_DWORD *)v12;
+    *(_DWORD *)(v5 + 12) = *(_DWORD *)(a1 + 24);
+    *(_DWORD *)(v5 + 16) = *(_DWORD *)(a1 + 32);
+    *(_DWORD *)(v5 + 20) = *(_DWORD *)(a1 + 40);
+    *(_DWORD *)(v5 + 24) = *(_DWORD *)(a1 + 48);
+    *(_DWORD *)(v5 + 28) = *(_DWORD *)(a1 + 56);
+    *(_DWORD *)(v5 + 32) = *(_DWORD *)(a1 + 64);
+    *(_DWORD *)(v5 + 36) = *(_DWORD *)(a1 + 72);
+    *(_DWORD *)(v5 + 40) = *(_DWORD *)(a1 + 80);
+    *(_DWORD *)(v5 + 44) = *(_DWORD *)(a1 + 88);
+    *(_DWORD *)(v5 + 80) = *(_DWORD *)(a1 + 160);
   }
   else
   {
     *(_OWORD *)v5 = *(_OWORD *)a1;
-    *((_OWORD *)v5 + 1) = *((_OWORD *)a1 + 1);
-    *((_OWORD *)v5 + 2) = *((_OWORD *)a1 + 2);
-    *((_OWORD *)v5 + 3) = *((_OWORD *)a1 + 3);
-    *((_OWORD *)v5 + 4) = *((_OWORD *)a1 + 4);
-    *((_OWORD *)v5 + 5) = *((_OWORD *)a1 + 5);
-    *((_OWORD *)v5 + 6) = *((_OWORD *)a1 + 6);
-    v13 = *((_OWORD *)a1 + 7);
-    v14 = a1 + 16;
-    *((_OWORD *)v5 + 7) = v13;
-    *((_OWORD *)v5 + 8) = *v14;
-    *((_OWORD *)v5 + 9) = v14[1];
-    *((_OWORD *)v5 + 10) = v14[2];
-    *((_OWORD *)v5 + 11) = v14[3];
-    *((_OWORD *)v5 + 12) = v14[4];
-    *((_QWORD *)v5 + 1) = *((_QWORD *)v5 + 2);
+    *(_OWORD *)(v5 + 16) = *(_OWORD *)(a1 + 16);
+    *(_OWORD *)(v5 + 32) = *(_OWORD *)(a1 + 32);
+    *(_OWORD *)(v5 + 48) = *(_OWORD *)(a1 + 48);
+    *(_OWORD *)(v5 + 64) = *(_OWORD *)(a1 + 64);
+    *(_OWORD *)(v5 + 80) = *(_OWORD *)(a1 + 80);
+    *(_OWORD *)(v5 + 96) = *(_OWORD *)(a1 + 96);
+    v13 = *(_OWORD *)(a1 + 112);
+    v14 = (_OWORD *)(a1 + 128);
+    *(_OWORD *)(v5 + 112) = v13;
+    *(_OWORD *)(v5 + 128) = *v14;
+    *(_OWORD *)(v5 + 144) = v14[1];
+    *(_OWORD *)(v5 + 160) = v14[2];
+    *(_OWORD *)(v5 + 176) = v14[3];
+    *(_OWORD *)(v5 + 192) = v14[4];
+    *(_QWORD *)(v5 + 8) = *(_QWORD *)(v5 + 16);
     *(_QWORD *)v5 = 0LL;
   }
-  return 0LL;
+  return 0;
 }

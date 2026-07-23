@@ -1,13 +1,13 @@
 /*
- * XREFs of MiStartZeroEngineThreads @ 0x1407FF9CC
+ * XREFs of MiStartZeroEngineThreads @ 0x14080010C
  * Callers:
- *     MiNodeZeroConductor @ 0x1407FF7C0 (MiNodeZeroConductor.c)
+ *     MiNodeZeroConductor @ 0x1407FFF00 (MiNodeZeroConductor.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiInsertNewZeroThread @ 0x14068F930 (MiInsertNewZeroThread.c)
- *     MiSignalZeroingPassComplete @ 0x14068FE80 (MiSignalZeroingPassComplete.c)
- *     MiZeroBootCalibratorStarted @ 0x14068FFD8 (MiZeroBootCalibratorStarted.c)
- *     MiCreateZeroThreadContext @ 0x1407FF2B0 (MiCreateZeroThreadContext.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiInsertNewZeroThread @ 0x140690A00 (MiInsertNewZeroThread.c)
+ *     MiSignalZeroingPassComplete @ 0x140690F50 (MiSignalZeroingPassComplete.c)
+ *     MiZeroBootCalibratorStarted @ 0x1406910A8 (MiZeroBootCalibratorStarted.c)
+ *     MiCreateZeroThreadContext @ 0x1407FF9F4 (MiCreateZeroThreadContext.c)
  */
 
 __int64 __fastcall MiStartZeroEngineThreads(__int64 a1)

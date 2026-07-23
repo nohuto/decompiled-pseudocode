@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpPoolRunDown @ 0x1407B1140
+ * XREFs of EtwpPoolRunDown @ 0x1407B1590
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     ExGetBigPoolInfo @ 0x140440530 (ExGetBigPoolInfo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExGetPoolTagInfo @ 0x140A03AF8 (ExGetPoolTagInfo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     ExGetBigPoolInfo @ 0x1403E9100 (ExGetBigPoolInfo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExGetPoolTagInfo @ 0x140A00028 (ExGetPoolTagInfo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
@@ -54,7 +54,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   {
     if ( v2 )
       ExFreePoolWithTag(v2, 0);
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v4, 0x74777445u);
     v2 = (_DWORD *)Pool2;
     if ( !Pool2 )
       break;
@@ -96,7 +96,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   {
     if ( v2 )
       ExFreePoolWithTag(v2, 0);
-    v16 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    v16 = (_DWORD *)ExAllocatePool2(0x100uLL, v14, 0x74777445u);
     v2 = v16;
     if ( !v16 )
       break;

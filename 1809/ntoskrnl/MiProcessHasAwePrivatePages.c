@@ -1,7 +1,7 @@
 /*
- * XREFs of MiProcessHasAwePrivatePages @ 0x1402B15A0
+ * XREFs of MiProcessHasAwePrivatePages @ 0x1402B1790
  * Callers:
- *     MiScrubProcesses @ 0x14085FBC0 (MiScrubProcesses.c)
+ *     MiScrubProcesses @ 0x140860E20 (MiScrubProcesses.c)
  * Callees:
  *     <none>
  */

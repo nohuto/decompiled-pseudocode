@@ -1,13 +1,13 @@
 /*
- * XREFs of KeStartDynamicProcessor @ 0x140974700
+ * XREFs of KeStartDynamicProcessor @ 0x140974900
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     PnpInitializeProcessor @ 0x14055F788 (PnpInitializeProcessor.c)
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
- *     PsUpdateActiveProcessAffinity @ 0x1409AE7A4 (PsUpdateActiveProcessAffinity.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     PnpInitializeProcessor @ 0x14055FE48 (PnpInitializeProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
+ *     PsUpdateActiveProcessAffinity @ 0x1409AE9A4 (PsUpdateActiveProcessAffinity.c)
  */
 
 __int64 __fastcall KeStartDynamicProcessor(__int64 a1, int a2, unsigned __int16 a3, _DWORD *a4)

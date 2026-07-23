@@ -15,7 +15,7 @@ __int64 MiInitializeHugePfnDatabase()
 {
   unsigned int v0; // ebx
   KIRQL v1; // si
-  void *Pool; // rdi
+  unsigned __int64 *Pool; // rdi
   __int64 v3; // rdx
 
   v0 = 0;
@@ -26,7 +26,7 @@ LABEL_6:
     v0 = 1;
     goto LABEL_7;
   }
-  Pool = (void *)MiAllocatePool(0x40uLL, 0x100000uLL, 1883793741);
+  Pool = (unsigned __int64 *)MiAllocatePool(0x40uLL, 0x100000uLL, 1883793741);
   if ( Pool )
   {
     v3 = MiAllocatePool(0x40uLL, 0x2000000uLL, 1883793741);
@@ -37,8 +37,8 @@ LABEL_6:
       return 0LL;
     }
     qword_140E2FD88 = (__int64)Pool;
-    qword_140E2FD78 = (__int64)Pool + 0x80000;
-    qword_140E2FD70 = 0x400000LL;
+    stru_140E2FD70.Buffer = Pool + 0x10000;
+    stru_140E2FD70.SizeOfBitMap = 0x400000LL;
     qword_140E2FD80 = v3;
     goto LABEL_6;
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExDeleteFastResource @ 0x1403D8280
+ * XREFs of ExDeleteFastResource @ 0x1403DB250
  * Callers:
  *     <none>
  * Callees:
- *     ExpIsFastResourceOwned @ 0x1403D8310 (ExpIsFastResourceOwned.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpIsFastResourceOwned @ 0x1403DB2E0 (ExpIsFastResourceOwned.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExDeleteFastResource(ULONG_PTR BugCheckParameter2)

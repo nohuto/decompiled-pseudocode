@@ -1,17 +1,18 @@
 /*
- * XREFs of RtlIsCapabilitySid @ 0x140A4AD90
+ * XREFs of RtlIsCapabilitySid @ 0x140A41A18
  * Callers:
- *     RtlCheckTokenCapability @ 0x14048DC70 (RtlCheckTokenCapability.c)
- *     SepFilterToken @ 0x140AD2664 (SepFilterToken.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     RtlCheckTokenCapability @ 0x1403B5260 (RtlCheckTokenCapability.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     SepFilterToken @ 0x140985C1C (SepFilterToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
  */
 
-bool __fastcall RtlIsCapabilitySid(__int64 a1)
+BOOLEAN __cdecl RtlIsCapabilitySid(PSID Sid)
 {
-  return *(_BYTE *)(a1 + 1) >= 2u
-      && *(_BYTE *)a1 == 1
-      && RtlCompareMemory((const void *)(a1 + 2), &RtlpAppPackageAuthority, 6uLL) == 6
-      && *(_DWORD *)(a1 + 8) == 3;
+  return *((_BYTE *)Sid + 1) >= 2u
+      && *(_BYTE *)Sid == 1
+      && RtlCompareMemory((char *)Sid + 2, &RtlpAppPackageAuthority, 6uLL) == 6
+      && *((_DWORD *)Sid + 2) == 3;
 }

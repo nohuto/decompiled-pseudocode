@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCreateSystemThreadForNode @ 0x1403E4644
+ * XREFs of ExpCreateSystemThreadForNode @ 0x1403E5C70
  * Callers:
  *     ExpWorkerHotAddProcessor @ 0x1403DFF80 (ExpWorkerHotAddProcessor.c)
- *     ExpCreateWorkerThread @ 0x1403E4598 (ExpCreateWorkerThread.c)
+ *     ExpCreateWorkerThread @ 0x1403E5BC4 (ExpCreateWorkerThread.c)
  *     ExpWorkerInitialization @ 0x1407B4A64 (ExpWorkerInitialization.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KeSelectIdealProcessor @ 0x14007D1B0 (KeSelectIdealProcessor.c)
- *     PsCreateSystemThreadEx @ 0x1403E4750 (PsCreateSystemThreadEx.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KeSelectIdealProcessor @ 0x14007D230 (KeSelectIdealProcessor.c)
+ *     PsCreateSystemThreadEx @ 0x1403E5D7C (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall ExpCreateSystemThreadForNode(int a1, __int64 a2, __int64 a3, __int64 a4)

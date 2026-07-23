@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTryLocalThreadSchedule @ 0x14023A080
+ * XREFs of KiTryLocalThreadSchedule @ 0x14023A150
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392E0 (KiChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402393B0 (KiChooseTargetProcessor.c)
  * Callees:
- *     KiQueryDpcRuntimeHistory @ 0x140359C08 (KiQueryDpcRuntimeHistory.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x1403CDE14 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiFindRankBiasedIdleSmtSet @ 0x140577198 (KiFindRankBiasedIdleSmtSet.c)
+ *     KiQueryDpcRuntimeHistory @ 0x140359DA8 (KiQueryDpcRuntimeHistory.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x1403CDFF4 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x140577688 (KiFindRankBiasedIdleSmtSet.c)
  */
 
 __int64 __fastcall KiTryLocalThreadSchedule(__int64 a1, __int64 a2, __int64 a3, _WORD *a4, __int64 a5)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDeleteAcceleratorDescriptor @ 0x1406549FC
+ * XREFs of MiDeleteAcceleratorDescriptor @ 0x140654F4C
  * Callers:
  *     MiDrainEngineDescriptors @ 0x140222194 (MiDrainEngineDescriptors.c)
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     MiZeroPageCalibrate @ 0x1403AA5F0 (MiZeroPageCalibrate.c)
- *     MiHugePageOperation @ 0x1406205A0 (MiHugePageOperation.c)
- *     MiReturnUnusedHugeDescriptors @ 0x140622710 (MiReturnUnusedHugeDescriptors.c)
- *     MiZeroHugeRangeWorker @ 0x140622DD0 (MiZeroHugeRangeWorker.c)
- *     MiFreeHardwareDescriptor @ 0x140654E9C (MiFreeHardwareDescriptor.c)
- *     MiZeroNodeExiting @ 0x140655738 (MiZeroNodeExiting.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     MiZeroPageCalibrate @ 0x1403AA7D0 (MiZeroPageCalibrate.c)
+ *     MiHugePageOperation @ 0x140620AF0 (MiHugePageOperation.c)
+ *     MiReturnUnusedHugeDescriptors @ 0x140622C60 (MiReturnUnusedHugeDescriptors.c)
+ *     MiZeroHugeRangeWorker @ 0x140623320 (MiZeroHugeRangeWorker.c)
+ *     MiFreeHardwareDescriptor @ 0x1406553EC (MiFreeHardwareDescriptor.c)
+ *     MiZeroNodeExiting @ 0x140655C88 (MiZeroNodeExiting.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeLargePageWaiters @ 0x140650004 (MiWakeLargePageWaiters.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeLargePageWaiters @ 0x140650554 (MiWakeLargePageWaiters.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -58,10 +58,13 @@ void __fastcall MiDeleteAcceleratorDescriptor(__int64 a1)
   if ( v2 )
     ExFreePoolWithTag(v2, 0);
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C69820);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

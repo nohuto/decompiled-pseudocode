@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAllocateUserPhysicalPages @ 0x140850690
+ * XREFs of NtAllocateUserPhysicalPages @ 0x1408518F0
  * Callers:
  *     <none>
  * Callees:
@@ -10,22 +10,22 @@
  *     MiChargeProcessCommitment @ 0x14004D1C0 (MiChargeProcessCommitment.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReturnProcessCommitment @ 0x140065D24 (MiReturnProcessCommitment.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075460 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiSortMdlFrames @ 0x1402AA2E0 (MiSortMdlFrames.c)
- *     MiLockAwePagesShared @ 0x1402B12B8 (MiLockAwePagesShared.c)
- *     MiReferenceAweHandle @ 0x1402B1B6C (MiReferenceAweHandle.c)
- *     MiUnlockAweVadsShared @ 0x1402B20E0 (MiUnlockAweVadsShared.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     MiCreateProcessDefaultAweInfo @ 0x14084FA0C (MiCreateProcessDefaultAweInfo.c)
- *     MiGetAweInfoPartition @ 0x14084FED0 (MiGetAweInfoPartition.c)
- *     MiResizeAweBitMap @ 0x1408501F4 (MiResizeAweBitMap.c)
- *     MiChargeProcessPhysicalPages @ 0x14085B890 (MiChargeProcessPhysicalPages.c)
+ *     MiReturnProcessCommitment @ 0x140065D14 (MiReturnProcessCommitment.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075450 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     ExGetCallBackBlockRoutine @ 0x140088BA0 (ExGetCallBackBlockRoutine.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiSortMdlFrames @ 0x1402AA4D0 (MiSortMdlFrames.c)
+ *     MiLockAwePagesShared @ 0x1402B14A8 (MiLockAwePagesShared.c)
+ *     MiReferenceAweHandle @ 0x1402B1D5C (MiReferenceAweHandle.c)
+ *     MiUnlockAweVadsShared @ 0x1402B22D0 (MiUnlockAweVadsShared.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x140850C6C (MiCreateProcessDefaultAweInfo.c)
+ *     MiGetAweInfoPartition @ 0x140851130 (MiGetAweInfoPartition.c)
+ *     MiResizeAweBitMap @ 0x140851454 (MiResizeAweBitMap.c)
+ *     MiChargeProcessPhysicalPages @ 0x14085CAF0 (MiChargeProcessPhysicalPages.c)
  */
 
 NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)

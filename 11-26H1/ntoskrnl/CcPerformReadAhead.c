@@ -1,25 +1,25 @@
 /*
- * XREFs of CcPerformReadAhead @ 0x140386E18
+ * XREFs of CcPerformReadAhead @ 0x140388BC8
  * Callers:
- *     CcWorkerThread @ 0x1403865D0 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x140388380 (CcWorkerThread.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14021D5D4 (IoDiskIoAttributionDereference.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     PsSetPagePriorityThread @ 0x140383060 (PsSetPagePriorityThread.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     MmWaitForCacheManagerPrefetch @ 0x14039F6A8 (MmWaitForCacheManagerPrefetch.c)
- *     CcPerfLogReadAhead @ 0x1404BE89C (CcPerfLogReadAhead.c)
- *     CcPerfLogReadAheadPrefetch @ 0x1404C2838 (CcPerfLogReadAheadPrefetch.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     MmPrefetchForCacheManager @ 0x140A50CB0 (MmPrefetchForCacheManager.c)
- *     CcMapAndCopyFromCache @ 0x140A64900 (CcMapAndCopyFromCache.c)
+ *     IoDiskIoAttributionDereference @ 0x14021EF64 (IoDiskIoAttributionDereference.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     PsSetPagePriorityThread @ 0x140384E10 (PsSetPagePriorityThread.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x1403A1408 (MmWaitForCacheManagerPrefetch.c)
+ *     CcPerfLogReadAhead @ 0x1404B80EC (CcPerfLogReadAhead.c)
+ *     CcPerfLogReadAheadPrefetch @ 0x1404BC088 (CcPerfLogReadAheadPrefetch.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmPrefetchForCacheManager @ 0x140A59FA0 (MmPrefetchForCacheManager.c)
+ *     CcMapAndCopyFromCache @ 0x140A718D0 (CcMapAndCopyFromCache.c)
  */
 
 void __fastcall CcPerformReadAhead(__int64 a1, _QWORD *a2)
@@ -164,7 +164,7 @@ void __fastcall CcPerformReadAhead(__int64 a1, _QWORD *a2)
           {
             v17 = v15;
           }
-          if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+          if ( (xmmword_140FC0C10 & 0x20000) != 0 )
           {
             CcPerfLogReadAhead(a1, &v31, v15, v46);
             v16 = v25;
@@ -173,7 +173,7 @@ void __fastcall CcPerformReadAhead(__int64 a1, _QWORD *a2)
           {
             if ( v17 > v16 )
               v17 = v16;
-            if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+            if ( (xmmword_140FC0C10 & 0x20000) != 0 )
               CcPerfLogReadAheadPrefetch(a1, &v31, v17, v46);
             v24 |= MmPrefetchForCacheManager((_DWORD)v45, v3, 0, v17, v46);
             v16 = v25 - v17;

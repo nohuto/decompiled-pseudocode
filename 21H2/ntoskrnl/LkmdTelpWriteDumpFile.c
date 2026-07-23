@@ -1,11 +1,11 @@
 /*
- * XREFs of LkmdTelpWriteDumpFile @ 0x1409830D8
+ * XREFs of LkmdTelpWriteDumpFile @ 0x1409832B8
  * Callers:
- *     LkmdTelSubmitReport @ 0x140983010 (LkmdTelSubmitReport.c)
+ *     LkmdTelSubmitReport @ 0x1409831F0 (LkmdTelSubmitReport.c)
  * Callees:
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     ZwWriteFile @ 0x1403FA680 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
  */
 
 __int64 __fastcall LkmdTelpWriteDumpFile(__int64 a1)

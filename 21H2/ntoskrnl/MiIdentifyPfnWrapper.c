@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIdentifyPfnWrapper @ 0x140349190
+ * XREFs of MiIdentifyPfnWrapper @ 0x140353EE0
  * Callers:
- *     MiLogAllocateWsleEvent @ 0x140530538 (MiLogAllocateWsleEvent.c)
- *     MiQueryLeafPte @ 0x140547020 (MiQueryLeafPte.c)
- *     PfpPfnPrioRequest @ 0x1406F2BB0 (PfpPfnPrioRequest.c)
- *     MmIdentifyPhysicalMemory @ 0x1408C70B8 (MmIdentifyPhysicalMemory.c)
- *     MmRelocatePfnList @ 0x1408D1ADC (MmRelocatePfnList.c)
+ *     MiLogAllocateWsleEvent @ 0x140530778 (MiLogAllocateWsleEvent.c)
+ *     MiQueryLeafPte @ 0x140547260 (MiQueryLeafPte.c)
+ *     PfpPfnPrioRequest @ 0x140709F90 (PfpPfnPrioRequest.c)
+ *     MmIdentifyPhysicalMemory @ 0x1408C7218 (MmIdentifyPhysicalMemory.c)
+ *     MmRelocatePfnList @ 0x1408D1C3C (MmRelocatePfnList.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiIdentifyPfn @ 0x140353FA0 (MiIdentifyPfn.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

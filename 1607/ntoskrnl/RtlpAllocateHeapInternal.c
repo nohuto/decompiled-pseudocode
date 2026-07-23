@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpAllocateHeapInternal @ 0x140093FB8
+ * XREFs of RtlpAllocateHeapInternal @ 0x1400937B8
  * Callers:
- *     RtlAllocateHeap @ 0x140093F90 (RtlAllocateHeap.c)
- *     RtlpHpAllocWithExceptionProtection @ 0x140211F2C (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlAllocateHeap @ 0x140093790 (RtlAllocateHeap.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x140211D58 (RtlpHpAllocWithExceptionProtection.c)
  * Callees:
- *     RtlFreeHeap @ 0x1400934A4 (RtlFreeHeap.c)
- *     RtlpAllocateHeap @ 0x14009409C (RtlpAllocateHeap.c)
- *     RtlpAllocateHeapRaiseException @ 0x140213778 (RtlpAllocateHeapRaiseException.c)
- *     RtlpSetupExtendedBlock @ 0x14021391C (RtlpSetupExtendedBlock.c)
- *     RtlpLogHeapAllocateEvent @ 0x140218E38 (RtlpLogHeapAllocateEvent.c)
+ *     RtlFreeHeap @ 0x140092CA4 (RtlFreeHeap.c)
+ *     RtlpAllocateHeap @ 0x14009389C (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeapRaiseException @ 0x1402135A4 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpSetupExtendedBlock @ 0x140213748 (RtlpSetupExtendedBlock.c)
+ *     RtlpLogHeapAllocateEvent @ 0x140218C64 (RtlpLogHeapAllocateEvent.c)
  */
 
 char *__fastcall RtlpAllocateHeapInternal(_DWORD *HeapHandle, unsigned __int64 a2, int a3, __int16 a4)

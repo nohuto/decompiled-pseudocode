@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllMDIClientWndProcWorker @ 0x18009D5F0
+ * XREFs of NtdllMDIClientWndProcWorker @ 0x18009D5B0
  * Callers:
  *     <none>
  * Callees:

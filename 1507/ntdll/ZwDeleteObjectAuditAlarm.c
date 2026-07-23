@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwDeleteObjectAuditAlarm()
+NTSTATUS __cdecl ZwDeleteObjectAuditAlarm(PUNICODE_STRING SubsystemName, PVOID HandleId, BOOLEAN GenerateOnClose)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 198LL;
+  result = 198;
   __asm { syscall; Low latency system call }
   return result;
 }

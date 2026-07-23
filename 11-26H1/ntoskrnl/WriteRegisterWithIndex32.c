@@ -1,9 +1,9 @@
 /*
- * XREFs of WriteRegisterWithIndex32 @ 0x140722800
+ * XREFs of WriteRegisterWithIndex32 @ 0x1407273D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall WriteRegisterWithIndex32(__int64 a1, unsigned __int8 a2, unsigned __int8 a3)

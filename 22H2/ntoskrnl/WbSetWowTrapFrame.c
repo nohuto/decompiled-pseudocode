@@ -8,14 +8,14 @@
  *     PspWow64GetContextThread @ 0x14067A4EC (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbSetWowTrapFrame(unsigned int *a1, unsigned int *a2)
+__int64 __fastcall WbSetWowTrapFrame(ULONG *a1, ULONG *a2)
 {
   unsigned __int64 v4; // rax
   __int16 v5; // di
   int v6; // ebp
   struct _KTHREAD *CurrentThread; // rax
   int v8; // eax
-  int ContextThread; // ebx
+  NTSTATUS ContextThread; // ebx
 
   v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
   if ( !v4 )

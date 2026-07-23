@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDispatchWakeNotification @ 0x14085D0BC
+ * XREFs of PspDispatchWakeNotification @ 0x140858E28
  * Callers:
- *     PspAllocateAndQueryNotificationChannel @ 0x14085CCAC (PspAllocateAndQueryNotificationChannel.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x140858A1C (PspAllocateAndQueryNotificationChannel.c)
  * Callees:
- *     PspSendWakeNotification @ 0x14085D9C8 (PspSendWakeNotification.c)
+ *     PspSendWakeNotification @ 0x140859738 (PspSendWakeNotification.c)
  */
 
 __int64 __fastcall PspDispatchWakeNotification(PVOID Object, _DWORD *a2, __int64 a3)

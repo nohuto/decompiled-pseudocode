@@ -1,15 +1,15 @@
 /*
- * XREFs of HsaFlushTbInternal @ 0x14047E3E0
+ * XREFs of HsaFlushTbInternal @ 0x140477D50
  * Callers:
- *     HsaFlushDomainTb @ 0x14047E3A0 (HsaFlushDomainTb.c)
- *     HsaAttachDeviceDomainInternal @ 0x1405A8F88 (HsaAttachDeviceDomainInternal.c)
- *     HsaFlushTb @ 0x1405A9800 (HsaFlushTb.c)
+ *     HsaFlushDomainTb @ 0x140477D10 (HsaFlushDomainTb.c)
+ *     HsaAttachDeviceDomainInternal @ 0x1405AB798 (HsaAttachDeviceDomainInternal.c)
+ *     HsaFlushTb @ 0x1405AC010 (HsaFlushTb.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     HsaIommuWaitCommand @ 0x14047E660 (HsaIommuWaitCommand.c)
- *     HsaIommuSendCommand @ 0x14047E698 (HsaIommuSendCommand.c)
- *     HalpIommuGetNextFlushDevice @ 0x14052F13C (HalpIommuGetNextFlushDevice.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     HsaIommuWaitCommand @ 0x140477FD0 (HsaIommuWaitCommand.c)
+ *     HsaIommuSendCommand @ 0x140478008 (HsaIommuSendCommand.c)
+ *     HalpIommuGetNextFlushDevice @ 0x14053165C (HalpIommuGetNextFlushDevice.c)
  */
 
 void __fastcall HsaFlushTbInternal(

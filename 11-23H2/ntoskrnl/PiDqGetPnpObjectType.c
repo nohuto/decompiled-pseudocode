@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqGetPnpObjectType @ 0x1406CA38C
+ * XREFs of PiDqGetPnpObjectType @ 0x1406CA3BC
  * Callers:
- *     PiDqPropertyCallback @ 0x1406CA1E0 (PiDqPropertyCallback.c)
- *     PiDqActionDataCreate @ 0x1407F9854 (PiDqActionDataCreate.c)
- *     PiDqQueryValidateQueryData @ 0x1407F9D58 (PiDqQueryValidateQueryData.c)
- *     PiDqQueryAppendActionEntry @ 0x1407FA348 (PiDqQueryAppendActionEntry.c)
- *     PiDqIrpPropertySet @ 0x1407FFDD4 (PiDqIrpPropertySet.c)
+ *     PiDqPropertyCallback @ 0x1406CA210 (PiDqPropertyCallback.c)
+ *     PiDqActionDataCreate @ 0x1407F9B24 (PiDqActionDataCreate.c)
+ *     PiDqQueryValidateQueryData @ 0x1407FA028 (PiDqQueryValidateQueryData.c)
+ *     PiDqQueryAppendActionEntry @ 0x1407FA618 (PiDqQueryAppendActionEntry.c)
+ *     PiDqIrpPropertySet @ 0x1408000A4 (PiDqIrpPropertySet.c)
  * Callees:
  *     <none>
  */

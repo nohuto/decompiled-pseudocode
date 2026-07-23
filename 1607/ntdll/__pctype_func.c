@@ -1,12 +1,12 @@
 /*
- * XREFs of __pctype_func @ 0x18009CE70
+ * XREFs of __pctype_func @ 0x18009CE60
  * Callers:
- *     __iscsym @ 0x180097080 (__iscsym.c)
- *     __iscsymf @ 0x1800970D0 (__iscsymf.c)
- *     strtoxlX @ 0x18009BC00 (strtoxlX.c)
- *     tolower @ 0x18009C390 (tolower.c)
- *     strtoxq @ 0x18009CE80 (strtoxq.c)
- *     _input_l @ 0x1800A0000 (_input_l.c)
+ *     __iscsym @ 0x180097070 (__iscsym.c)
+ *     __iscsymf @ 0x1800970C0 (__iscsymf.c)
+ *     strtoxlX @ 0x18009BBF0 (strtoxlX.c)
+ *     tolower @ 0x18009C380 (tolower.c)
+ *     strtoxq @ 0x18009CE70 (strtoxq.c)
+ *     _input_l @ 0x18009FFF0 (_input_l.c)
  * Callees:
  *     <none>
  */

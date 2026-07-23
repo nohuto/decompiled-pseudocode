@@ -1,23 +1,23 @@
 /*
- * XREFs of MiProcessDereferenceList @ 0x14012259C
+ * XREFs of MiProcessDereferenceList @ 0x140122B0C
  * Callers:
- *     MiDereferenceSegmentThread @ 0x140141554 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x1401417C8 (MiRemoveUnusedSegments.c)
+ *     MiDereferenceSegmentThread @ 0x140141AC4 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x140141D38 (MiRemoveUnusedSegments.c)
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     MiFreeClonePool @ 0x1400B47F4 (MiFreeClonePool.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     MiRemoveUnusedSegments @ 0x1401417C8 (MiRemoveUnusedSegments.c)
- *     MiAcquireSpinLockExclusive @ 0x1401DE428 (MiAcquireSpinLockExclusive.c)
- *     MiProcessingPageExtendComplete @ 0x1401DF008 (MiProcessingPageExtendComplete.c)
- *     MiAttemptPageFileReduction @ 0x1401EDDD8 (MiAttemptPageFileReduction.c)
- *     MiSegmentDelete @ 0x1404B81E4 (MiSegmentDelete.c)
- *     MiExtendPagingFiles @ 0x14065AF94 (MiExtendPagingFiles.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     MiFreeClonePool @ 0x1400B2674 (MiFreeClonePool.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     MiRemoveUnusedSegments @ 0x140141D38 (MiRemoveUnusedSegments.c)
+ *     MiAcquireSpinLockExclusive @ 0x1401DE254 (MiAcquireSpinLockExclusive.c)
+ *     MiProcessingPageExtendComplete @ 0x1401DEE34 (MiProcessingPageExtendComplete.c)
+ *     MiAttemptPageFileReduction @ 0x1401EDC04 (MiAttemptPageFileReduction.c)
+ *     MiSegmentDelete @ 0x1404A25C4 (MiSegmentDelete.c)
+ *     MiExtendPagingFiles @ 0x14065B078 (MiExtendPagingFiles.c)
  */
 
 PSLIST_ENTRY __fastcall MiProcessDereferenceList(__int64 a1, int a2)
@@ -177,9 +177,9 @@ LABEL_2:
   while ( (__int64 *)*v5 != v5 || v15 && *(_QWORD *)(a1 + 1408) != a1 + 1408 || *v10 != (__int64 *)v10 );
   ExReleaseSpinLockExclusive(v2, v6);
   result = (PSLIST_ENTRY)MiSystemPartition;
-  if ( (int *)a1 == MiSystemPartition && stru_140326938.Header.SignalState )
+  if ( (int *)a1 == MiSystemPartition && stru_140326978.Header.SignalState )
   {
-    KeResetEvent(&stru_140326938);
+    KeResetEvent(&stru_140326978);
     return MiFreeClonePool();
   }
   return result;

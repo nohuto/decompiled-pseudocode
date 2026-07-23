@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateAweInfo @ 0x14065C02C
+ * XREFs of MiAllocateAweInfo @ 0x14065C110
  * Callers:
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     NtAllocateUserPhysicalPages @ 0x14065CA98 (NtAllocateUserPhysicalPages.c)
- *     MiCreateEnclave @ 0x14065EF30 (MiCreateEnclave.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     NtAllocateUserPhysicalPages @ 0x14065CB7C (NtAllocateUserPhysicalPages.c)
+ *     MiCreateEnclave @ 0x14065F014 (MiCreateEnclave.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

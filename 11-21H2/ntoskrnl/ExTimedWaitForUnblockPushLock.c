@@ -2,11 +2,11 @@
  * XREFs of ExTimedWaitForUnblockPushLock @ 0x140369540
  * Callers:
  *     ExBlockOnAddressPushLock @ 0x140369460 (ExBlockOnAddressPushLock.c)
- *     ExpUnblockPushLock @ 0x140369634 (ExpUnblockPushLock.c)
+ *     sub_140369634 @ 0x140369634 (sub_140369634.c)
  *     ExWaitForUnblockPushLock @ 0x14063C490 (ExWaitForUnblockPushLock.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExpUnblockPushLock @ 0x140369634 (ExpUnblockPushLock.c)
+ *     sub_140369634 @ 0x140369634 (sub_140369634.c)
  */
 
 __int64 __fastcall ExTimedWaitForUnblockPushLock(__int64 a1, char *a2, LARGE_INTEGER *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall ExTimedWaitForUnblockPushLock(__int64 a1, char *a2, LARGE_INT
   *(_WORD *)a2 = 0;
   *((_DWORD *)a2 + 1) = 0;
   v3 = (volatile signed __int32 *)(a2 + 52);
-  v4 = (unsigned int)ExpSpinCycleCount;
+  v4 = (unsigned int)dword_140C5B130;
   *((_QWORD *)a2 + 2) = a2 + 8;
   *((_QWORD *)a2 + 1) = a2 + 8;
   a2[2] = 6;
@@ -37,7 +37,7 @@ LABEL_8:
       if ( v9 )
       {
         LOBYTE(v10) = 1;
-        ExpUnblockPushLock(a1, a2, v10);
+        sub_140369634(a1, a2, v10);
       }
     }
     else

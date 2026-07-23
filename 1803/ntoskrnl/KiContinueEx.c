@@ -15,7 +15,7 @@ __int64 __fastcall KiContinueEx(unsigned __int64 a1, char a2, __int64 a3, __int6
   unsigned __int8 CurrentIrql; // si
   struct _KTHREAD *CurrentThread; // r15
   __int64 v10; // rcx
-  int v11; // eax
+  NTSTATUS v11; // eax
   unsigned int v13; // [rsp+34h] [rbp-24h]
 
   CurrentIrql = KeGetCurrentIrql();

@@ -13,110 +13,108 @@
  *     ZwCancelWaitCompletionPacket @ 0x1801644F0 (ZwCancelWaitCompletionPacket.c)
  */
 
-__int64 __fastcall TpReleaseWait(__int64 a1, __int64 a2, __int64 a3)
+void __cdecl TpReleaseWait(PTP_WAIT Wait)
 {
-  int v3; // eax
-  __int64 result; // rax
-  __int64 v6; // rcx
-  int v7; // ett
-  __int64 v8; // rsi
-  _BYTE *v9; // rsi
-  int v10; // edi
-  __int64 (__fastcall *v11)(__int64); // rax
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  char v16; // al
-  int v17; // r15d
-  char v18; // al
+  volatile int Flags; // eax
+  volatile unsigned int v3; // eax
+  _PEB_LDR_DATA *Ldr; // rcx
+  volatile unsigned int v5; // ett
+  _TP_POOL *Pool; // rsi
+  $70F0342839F9DFBA27FB3868CDAA5D77 *p_WaitFlags; // rsi
+  int v8; // edi
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  NTSTATUS v10; // eax
+  __int64 v11; // rcx
+  char v12; // al
+  int v13; // r15d
+  unsigned __int8 AllFlags; // al
   void *ThreadPoolData; // rax
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
-  v3 = *(_DWORD *)(a1 + 168);
-  if ( (v3 & 0x10000) != 0
-    || (v3 & 0x20000) != 0
-    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL || *(_QWORD *)(*(_QWORD *)ThreadPoolData + 240LL) != a1)
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWaitpCleanupGroupMemberVFuncs
+  Flags = Wait->Timer.Work.CleanupGroupMember.Flags;
+  if ( (Flags & 0x10000) != 0
+    || (Flags & 0x20000) != 0
+    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL
+     || *(PTP_WAIT *)(*(_QWORD *)ThreadPoolData + 240LL) != Wait)
+    || (__int64 (__fastcall **)())Wait->Timer.Work.CleanupGroupMember.VFuncs != TppWaitpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = (__int64)NtCurrentPeb();
-    v6 = *(_QWORD *)(result + 24);
-    if ( *(_BYTE *)(v6 + 72) )
-      return result;
-    return TppRaiseInvalidParameter(v6, a2, a3);
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( Ldr->ShutdownInProgress )
+      return;
+LABEL_20:
+    TppRaiseInvalidParameter(Ldr);
+    return;
   }
-  _m_prefetchw((const void *)(a1 + 168));
-  LODWORD(result) = *(_DWORD *)(a1 + 168);
+  _m_prefetchw(&Wait->Timer.Work.CleanupGroupMember.168);
+  v3 = Wait->Timer.Work.CleanupGroupMember.Flags;
   do
   {
-    v6 = (unsigned int)result;
-    LODWORD(v6) = result | 0x10000;
-    v7 = result;
-    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 168), result | 0x10000, result);
+    Ldr = (_PEB_LDR_DATA *)v3;
+    LODWORD(Ldr) = v3 | 0x10000;
+    v5 = v3;
+    v3 = _InterlockedCompareExchange(&Wait->Timer.Work.CleanupGroupMember.Flags, v3 | 0x10000, v3);
   }
-  while ( v7 != (_DWORD)result );
-  if ( (result & 0x10000) != 0 )
-    return TppRaiseInvalidParameter(v6, a2, a3);
-  if ( (result & 0x30000) != 0 )
-    return result;
-  v8 = *(_QWORD *)(a1 + 144);
-  *(_QWORD *)(a1 + 184) = retaddr;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
-  if ( *(_QWORD *)(a1 + 360) )
+  while ( v5 != v3 );
+  if ( (v3 & 0x10000) != 0 )
+    goto LABEL_20;
+  if ( (v3 & 0x30000) != 0 )
+    return;
+  Pool = Wait->Timer.Work.CleanupGroupMember.Pool;
+  Wait->Timer.Work.CleanupGroupMember.ReleaseCaller.ReturnAddress = retaddr;
+  RtlAcquireSRWLockExclusive(&Wait->Timer.Lock);
+  if ( Wait->Handle )
   {
-    v12 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), 1LL);
-    if ( !v12 )
+    v10 = ZwCancelWaitCompletionPacket(Wait->WaitPkt, 1u);
+    if ( !v10 )
     {
-      *(_QWORD *)(a1 + 360) = 0LL;
-      v16 = TppCancelTimer(a1, v8 + 112, 1LL);
-      v9 = (_BYTE *)(a1 + 464);
-      v17 = -(v16 != 0);
-      v10 = v17 - 1;
-      if ( (*(_BYTE *)(a1 + 464) & 4) != 0 )
+      Wait->Handle = 0LL;
+      v12 = TppCancelTimer(Wait, &Pool->TimerQueue, 1LL);
+      p_WaitFlags = &Wait->WaitFlags;
+      v13 = -(v12 != 0);
+      v8 = v13 - 1;
+      if ( (Wait->WaitFlags.AllFlags & 4) != 0 )
       {
-        TppBarrierAdjust(a1 + 56, 0xFFFFFFFFLL, 0LL);
-        *v9 &= ~4u;
-        v10 = v17 - 1;
+        TppBarrierAdjust(&Wait->Timer.Work.CleanupGroupMember.CallbackBarrier, 0xFFFFFFFFLL, 0LL);
+        p_WaitFlags->AllFlags &= ~4u;
+        v8 = v13 - 1;
       }
       goto LABEL_12;
     }
-    if ( v12 != 259 && v12 != -1073741536 )
-      TppRaiseInvalidParameter(v14, v13, v15);
-    v9 = (_BYTE *)(a1 + 464);
-    v18 = *(_BYTE *)(a1 + 464);
-    if ( (v18 & 4) == 0 )
+    if ( v10 != 259 && v10 != -1073741536 )
+      TppRaiseInvalidParameter(v11);
+    p_WaitFlags = &Wait->WaitFlags;
+    AllFlags = Wait->WaitFlags.AllFlags;
+    if ( (AllFlags & 4) == 0 )
     {
-      *v9 = v18 | 4;
-      TppBarrierAdjust(a1 + 56, 1LL, 0LL);
+      p_WaitFlags->AllFlags = AllFlags | 4;
+      TppBarrierAdjust(&Wait->Timer.Work.CleanupGroupMember.CallbackBarrier, 1LL, 0LL);
     }
   }
   else
   {
-    v9 = (_BYTE *)(a1 + 464);
+    p_WaitFlags = &Wait->WaitFlags;
   }
-  v10 = 0;
+  v8 = 0;
 LABEL_12:
-  *v9 &= ~1u;
-  *v9 &= ~2u;
-  ++*(_BYTE *)(a1 + 355);
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, v10 - 1);
-  if ( (_DWORD)result == 1 - v10 )
+  p_WaitFlags->AllFlags &= ~1u;
+  p_WaitFlags->AllFlags &= ~2u;
+  ++Wait->Timer.BlockInsert;
+  RtlReleaseSRWLockExclusive(&Wait->Timer.Lock);
+  if ( _InterlockedExchangeAdd(&Wait->Timer.Work.CleanupGroupMember.Refcount.Refcount, v8 - 1) == 1 - v8 )
   {
-    v11 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-    if ( v11 == TppFreeWait )
+    Free = Wait->Timer.Work.CleanupGroupMember.VFuncs->Free;
+    if ( (char *)Free == (char *)TppFreeWait )
     {
-      return TppFreeWait(a1);
+      TppFreeWait(Wait);
     }
-    else if ( v11 == TppTimerpFree )
+    else if ( (char *)Free == (char *)TppTimerpFree )
     {
-      return TppTimerpFree(a1);
+      TppTimerpFree(Wait);
     }
     else
     {
-      return v11(a1);
+      Free(&Wait->Timer.Work.CleanupGroupMember);
     }
   }
-  return result;
 }

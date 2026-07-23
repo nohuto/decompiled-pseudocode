@@ -11,126 +11,120 @@
  *     RtlpLogHeapDecommit @ 0x180116DB8 (RtlpLogHeapDecommit.c)
  */
 
-__int64 __fastcall RtlpDecommitBlock(__int64 a1, __int64 a2)
+int __fastcall RtlpDecommitBlock(__int64 a1, __int64 a2)
 {
   __int64 v3; // rsi
   __int64 v4; // rdx
-  __int64 result; // rax
+  __int64 v5; // rax
   __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  int v9; // edi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rdi
-  __int64 v16; // rcx
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rcx
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // rdi
-  __int64 v25; // rcx
-  _DWORD *v26; // r8
-  unsigned __int64 v27; // rdx
-  __int64 v28; // [rsp+60h] [rbp+20h] BYREF
-  const void *v29; // [rsp+68h] [rbp+28h] BYREF
+  int v7; // edi
+  __int64 v8; // rdi
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // rdi
+  __int64 v12; // rcx
+  _DWORD *v13; // r8
+  unsigned __int64 v14; // rdx
+  __int64 v16; // [rsp+60h] [rbp+20h] BYREF
+  const void *v17; // [rsp+68h] [rbp+28h] BYREF
 
   v3 = a1;
   v4 = *(unsigned __int16 *)(a2 + 8);
-  v28 = v4;
+  v16 = v4;
   *(_BYTE *)(a2 + 10) &= 0xF8u;
   *(_BYTE *)(a2 + 15) = 0;
   if ( (*(_BYTE *)(a1 + 112) & 0x40) != 0 )
   {
-    v26 = (_DWORD *)(a2 + 32);
-    v27 = (unsigned __int64)(16 * v4 - 32) >> 2;
-    if ( v27 )
+    v13 = (_DWORD *)(a2 + 32);
+    v14 = (unsigned __int64)(16 * v4 - 32) >> 2;
+    if ( v14 )
     {
-      if ( ((unsigned __int8)v26 & 4) != 0 )
+      if ( ((unsigned __int8)v13 & 4) != 0 )
       {
-        --v27;
-        *v26 = -17891602;
-        v26 = (_DWORD *)(a2 + 36);
+        --v14;
+        *v13 = -17891602;
+        v13 = (_DWORD *)(a2 + 36);
       }
-      memset64(v26, 0xFEEEFEEEFEEEFEEEuLL, v27 >> 1);
+      memset64(v13, 0xFEEEFEEEFEEEFEEEuLL, v14 >> 1);
       a1 = 0LL;
-      if ( (v27 & 1) != 0 )
-        v26[v27 - 1] = -17891602;
+      if ( (v14 & 1) != 0 )
+        v13[v14 - 1] = -17891602;
     }
     *(_BYTE *)(a2 + 10) |= 4u;
   }
-  result = RtlpHeapKey ^ *(_QWORD *)(v3 + 360);
-  if ( !result )
+  v5 = RtlpHeapKey ^ *(_QWORD *)(v3 + 360);
+  if ( !v5 )
   {
-    result = RtlpGetFreeBlockInsidePageBoundaries(a1, a2, &v29, &v28);
-    if ( (_BYTE)result )
+    LODWORD(v5) = RtlpGetFreeBlockInsidePageBoundaries(a1, a2, &v17, &v16);
+    if ( (_BYTE)v5 )
     {
-      v9 = RtlpSecMemFreeVirtualMemory(v6, &v29, &v28, 0x4000LL);
-      if ( v9 < 0 )
+      v7 = RtlpSecMemFreeVirtualMemory(v6, &v17, &v16, 0x4000LL);
+      if ( v7 < 0 )
       {
         if ( NtCurrentPeb()->Ldr )
           DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
         else
           DbgPrint("HEAP: ");
-        result = DbgPrint(
-                   "RtlpHeapFreeVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n",
-                   v9,
-                   (const void *)v3,
-                   v29,
-                   v28);
+        LODWORD(v5) = DbgPrint(
+                        "RtlpHeapFreeVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n",
+                        v7,
+                        (const void *)v3,
+                        v17,
+                        v16);
       }
       else
       {
-        v15 = 2147353472LL;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId(v8, v7, v10, v11) )
-          v16 = (__int64)NtCurrentPeb()->SharedData + 550;
+        v8 = 2147353472LL;
+        if ( RtlGetCurrentServiceSessionId() )
+          v9 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
-          v16 = 2147353472LL;
-        if ( *(_BYTE *)v16 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-          RtlpLogHeapDecommit(v3, v29, v28, 7LL);
-        *(_QWORD *)(v3 + 664) += v28;
+          v9 = 2147353472LL;
+        if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+          RtlpLogHeapDecommit(v3, v17, v16, 7LL);
+        *(_QWORD *)(v3 + 664) += v16;
         ++*(_DWORD *)(v3 + 628);
         ++*(_DWORD *)(v3 + 660);
         ++*(_DWORD *)(v3 + 644);
-        if ( (unsigned int)RtlGetCurrentServiceSessionId(v16, v12, v13, v14) )
-          v20 = (__int64)NtCurrentPeb()->SharedData + 550;
+        if ( RtlGetCurrentServiceSessionId() )
+          v10 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
-          v20 = 2147353472LL;
-        if ( *(_BYTE *)v20 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+          v10 = 2147353472LL;
+        if ( *(_BYTE *)v10 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId(v20, v17, v18, v19) )
-            v15 = (__int64)NtCurrentPeb()->SharedData + 550;
-          RtlpLogHeapContractEvent(v3, (_DWORD)v29, v28, 16 * *(_QWORD *)(v3 + 192), 0, 0LL, *(unsigned __int8 *)v15);
+          if ( RtlGetCurrentServiceSessionId() )
+            v8 = (__int64)NtCurrentPeb()->SharedData + 550;
+          RtlpLogHeapContractEvent(
+            v3,
+            (int)v17,
+            v16,
+            16 * *(_QWORD *)(v3 + 192),
+            0,
+            0LL,
+            (HANDLE)*(unsigned __int8 *)v8);
         }
-        result = RtlGetCurrentServiceSessionId(v20, v17, v18, v19);
-        v24 = 2147353482LL;
-        if ( (_DWORD)result )
+        LODWORD(v5) = RtlGetCurrentServiceSessionId();
+        v11 = 2147353482LL;
+        if ( (_DWORD)v5 )
         {
-          result = (__int64)NtCurrentPeb();
-          v25 = *(_QWORD *)(result + 144) + 560LL;
+          v5 = (__int64)NtCurrentPeb();
+          v12 = *(_QWORD *)(v5 + 144) + 560LL;
         }
         else
         {
-          v25 = 2147353482LL;
+          v12 = 2147353482LL;
         }
-        if ( *(_BYTE *)v25 )
+        if ( *(_BYTE *)v12 )
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId(v25, v21, v22, v23) )
-            v24 = (__int64)NtCurrentPeb()->SharedData + 560;
-          result = RtlpLogHeapContractEvent(
-                     v3,
-                     (_DWORD)v29,
-                     v28,
-                     16 * (unsigned int)*(_QWORD *)(v3 + 192),
-                     0,
-                     0LL,
-                     *(unsigned __int8 *)v24);
+          if ( RtlGetCurrentServiceSessionId() )
+            v11 = (__int64)NtCurrentPeb()->SharedData + 560;
+          LODWORD(v5) = RtlpLogHeapContractEvent(
+                          v3,
+                          (int)v17,
+                          v16,
+                          16 * (unsigned int)*(_QWORD *)(v3 + 192),
+                          0,
+                          0LL,
+                          (HANDLE)*(unsigned __int8 *)v11);
         }
         *(_BYTE *)(a2 + 10) &= 0x13u;
         *(_BYTE *)(a2 + 10) |= 8u;
@@ -140,8 +134,8 @@ __int64 __fastcall RtlpDecommitBlock(__int64 a1, __int64 a2)
   if ( *(_DWORD *)(v3 + 124) )
   {
     *(_BYTE *)(a2 + 11) = *(_BYTE *)(a2 + 8) ^ *(_BYTE *)(a2 + 9) ^ *(_BYTE *)(a2 + 10);
-    result = *(unsigned int *)(v3 + 136);
-    *(_DWORD *)(a2 + 8) ^= result;
+    LODWORD(v5) = *(_DWORD *)(v3 + 136);
+    *(_DWORD *)(a2 + 8) ^= v5;
   }
-  return result;
+  return v5;
 }

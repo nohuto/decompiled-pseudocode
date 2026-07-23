@@ -28,31 +28,32 @@
  *     RtlAcquireSRWLockExclusive @ 0x180037EE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrProtectMrdata(int a1)
+void __fastcall LdrProtectMrdata(int a1)
 {
-  int v2; // edi
+  int ScpCfgCheckESFunction; // edi
 
   RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-  v2 = LdrpMrdataUnprotected;
+  ScpCfgCheckESFunction = LdrSystemDllInitBlock.ScpCfgCheckESFunction;
   if ( !a1 )
   {
-    if ( !LdrpMrdataUnprotected )
+    if ( !LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction) )
     {
       LdrpChangeMrdataProtection(4u);
 LABEL_5:
-      LdrpMrdataUnprotected = v2 + 1;
-      return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+      LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction) = ScpCfgCheckESFunction + 1;
+      goto LABEL_6;
     }
-    if ( LdrpMrdataUnprotected != -1 )
+    if ( LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction) != -1 )
       goto LABEL_5;
 LABEL_10:
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     __fastfail(0xEu);
   }
-  if ( !LdrpMrdataUnprotected )
+  if ( !LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction) )
     goto LABEL_10;
-  --LdrpMrdataUnprotected;
-  if ( v2 == 1 )
+  --LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction);
+  if ( ScpCfgCheckESFunction == 1 )
     LdrpChangeMrdataProtection(2u);
-  return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+LABEL_6:
+  RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
 }

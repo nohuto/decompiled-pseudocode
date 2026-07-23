@@ -1,32 +1,29 @@
 /*
- * XREFs of EtwpQueueStackWalkApc @ 0x1405A6C40
+ * XREFs of EtwpQueueStackWalkApc @ 0x1405A6E70
  * Callers:
- *     EtwpStackTraceDispatcher @ 0x1405A6F00 (EtwpStackTraceDispatcher.c)
- *     EtwpStackWalkDpc @ 0x1405A70E0 (EtwpStackWalkDpc.c)
+ *     EtwpStackTraceDispatcher @ 0x1405A7130 (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkDpc @ 0x1405A7310 (EtwpStackWalkDpc.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
- *     KeRemoveQueueApc @ 0x1402C4D4C (KeRemoveQueueApc.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1403609B0 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     KeTryToInsertQueueApc @ 0x14051A810 (KeTryToInsertQueueApc.c)
- *     EtwpQueueStackWalkDpc @ 0x1405A6E1C (EtwpQueueStackWalkDpc.c)
+ *     KeRemoveQueueApc @ 0x1402432CC (KeRemoveQueueApc.c)
+ *     KeInitializeApc @ 0x140266E00 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402A5670 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1402A58B0 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     KeTryToInsertQueueApc @ 0x14051AA50 (KeTryToInsertQueueApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x1405A704C (EtwpQueueStackWalkDpc.c)
  */
 
 void __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int *a3, unsigned int *a4)
 {
   char v4; // r12
-  struct _SLIST_ENTRY *v5; // rsi
+  _SLIST_ENTRY *v5; // rsi
   unsigned int v10; // ebp
   __int64 v11; // r8
   __int64 v12; // rdx
   char inserted; // al
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  _DWORD *v16; // r9
-  signed int v17; // eax
+  signed int v14; // eax
 
   v4 = 0;
   v5 = 0LL;
@@ -68,7 +65,7 @@ void __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned i
     inserted = KeTryToInsertQueueApc((__int64)v5, v12, v11);
   if ( !a3[84] )
   {
-    if ( inserted && !KeRemoveQueueApc((__int64)v5, v14, v15, v16) )
+    if ( inserted && !KeRemoveQueueApc((__int64)v5) )
       return;
     goto LABEL_15;
   }
@@ -87,7 +84,7 @@ LABEL_15:
     return;
   }
   _InterlockedIncrement((volatile signed __int32 *)a3 + 240);
-  v17 = a3[240];
-  if ( v17 > (int)a3[241] )
-    a3[241] = v17;
+  v14 = a3[240];
+  if ( v14 > (int)a3[241] )
+    a3[241] = v14;
 }

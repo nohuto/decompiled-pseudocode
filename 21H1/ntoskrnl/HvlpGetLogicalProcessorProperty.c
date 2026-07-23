@@ -14,33 +14,22 @@ __int64 __fastcall HvlpGetLogicalProcessorProperty(int a1, int a2, void *a3)
 {
   unsigned int v3; // ebp
   _DWORD *v7; // rbx
-  _QWORD *v8; // rax
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  const void *v11; // r15
-  __int64 v12; // r9
-  __int128 v14; // [rsp+20h] [rbp-58h] BYREF
-  __int128 v15; // [rsp+30h] [rbp-48h]
-  __int128 v16; // [rsp+40h] [rbp-38h] BYREF
-  __int128 v17; // [rsp+50h] [rbp-28h]
+  _QWORD *v8; // r15
+  PHYSICAL_ADDRESS v10[4]; // [rsp+20h] [rbp-58h] BYREF
+  PHYSICAL_ADDRESS v11[4]; // [rsp+40h] [rbp-38h] BYREF
 
   v3 = 0;
-  v16 = 0LL;
-  v17 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v7 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v16, 1, 0LL, 8LL);
-  v8 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v14, 2, 0LL, 3256LL);
-  v9 = *((_QWORD *)&v15 + 1);
-  v10 = *((_QWORD *)&v17 + 1);
-  v11 = v8;
+  memset(v11, 0, sizeof(v11));
+  memset(v10, 0, sizeof(v10));
+  v7 = HvlpAcquireHypercallPage(v11, 1, 0LL, 8LL);
+  v8 = HvlpAcquireHypercallPage(v10, 2, 0LL, 3256LL);
   *v7 = a1;
   v7[1] = a2;
-  if ( (unsigned __int16)HvcallInitiateHypercall(122, v10, v9, v12) )
+  if ( (unsigned __int16)HvcallInitiateHypercall(122) )
     v3 = -1073741823;
   else
-    memmove(a3, v11, 0xCB8uLL);
-  HvlpReleaseHypercallPage(&v14);
-  HvlpReleaseHypercallPage(&v16);
+    memmove(a3, v8, 0xCB8uLL);
+  HvlpReleaseHypercallPage(v10);
+  HvlpReleaseHypercallPage(v11);
   return v3;
 }

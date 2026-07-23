@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpFcAreSortedFeatureUpdatesValid @ 0x140919C78
+ * XREFs of RtlpFcAreSortedFeatureUpdatesValid @ 0x140919DD8
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x14091A4E4 (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A644 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     RtlpIsImmutableFeatureConfigurationPriority @ 0x1403F8888 (RtlpIsImmutableFeatureConfigurationPriority.c)
- *     RtlpIsValidFeatureConfigurationPriority @ 0x14058F3B8 (RtlpIsValidFeatureConfigurationPriority.c)
- *     RtlpIsValidFeatureEnabledState @ 0x14058F3C8 (RtlpIsValidFeatureEnabledState.c)
- *     RtlpIsValidFeatureEnabledStateOptions @ 0x14058F3D8 (RtlpIsValidFeatureEnabledStateOptions.c)
- *     RtlpIsValidFeatureVariant @ 0x14058F3E8 (RtlpIsValidFeatureVariant.c)
- *     RtlpIsValidFeatureVariantPayloadKind @ 0x14058F3F8 (RtlpIsValidFeatureVariantPayloadKind.c)
+ *     RtlpIsImmutableFeatureConfigurationPriority @ 0x1403F88B8 (RtlpIsImmutableFeatureConfigurationPriority.c)
+ *     RtlpIsValidFeatureConfigurationPriority @ 0x14058F5E8 (RtlpIsValidFeatureConfigurationPriority.c)
+ *     RtlpIsValidFeatureEnabledState @ 0x14058F5F8 (RtlpIsValidFeatureEnabledState.c)
+ *     RtlpIsValidFeatureEnabledStateOptions @ 0x14058F608 (RtlpIsValidFeatureEnabledStateOptions.c)
+ *     RtlpIsValidFeatureVariant @ 0x14058F618 (RtlpIsValidFeatureVariant.c)
+ *     RtlpIsValidFeatureVariantPayloadKind @ 0x14058F628 (RtlpIsValidFeatureVariantPayloadKind.c)
  */
 
 char __fastcall RtlpFcAreSortedFeatureUpdatesValid(_DWORD *a1, unsigned __int64 a2)

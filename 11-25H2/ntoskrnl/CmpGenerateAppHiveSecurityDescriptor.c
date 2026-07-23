@@ -24,22 +24,20 @@ void *__fastcall CmpGenerateAppHiveSecurityDescriptor(__int64 a1)
   void *v1; // rbx
   void *v2; // rdi
   void *v3; // rbx
-  __int64 v4; // rdx
   void *Pool2; // rax
-  int Src; // [rsp+20h] [rbp-E0h]
   ULONG BufferLength; // [rsp+30h] [rbp-D0h] BYREF
   PVOID P; // [rsp+38h] [rbp-C8h] BYREF
   PVOID TokenInformation; // [rsp+40h] [rbp-C0h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v12; // [rsp+68h] [rbp-98h]
-  ACL v13; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v10; // [rsp+68h] [rbp-98h]
+  ACL Sacl; // [rsp+70h] [rbp-90h] BYREF
   ACL Acl; // [rsp+D0h] [rbp-30h] BYREF
 
   v1 = *(void **)(a1 + 16);
   memset_0(&Acl, 0, 0xECuLL);
-  v12 = 0LL;
+  v10 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  memset_0(&v13, 0, 0x54uLL);
+  memset_0(&Sacl, 0, 0x54uLL);
   P = 0LL;
   v2 = 0LL;
   TokenInformation = 0LL;
@@ -56,11 +54,9 @@ void *__fastcall CmpGenerateAppHiveSecurityDescriptor(__int64 a1)
     RtlpAddKnownAce((int)&Acl, 2, 2, 983103, SeAllAppPackagesSid, 0);
     RtlpAddKnownAce((int)&Acl, 2, 2, 983103, SeRestrictedSid, 0);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    RtlCreateAcl(&v13, 0x54u, 2u);
-    LOBYTE(Src) = 17;
-    RtlAddMandatoryAce(&v13, 2LL, 0LL, SeLowMandatorySid, Src, 1);
-    LOBYTE(v4) = 1;
-    RtlSetSaclSecurityDescriptor(SecurityDescriptor, v4, &v13, 0LL);
+    RtlCreateAcl(&Sacl, 0x54u, 2u);
+    RtlAddMandatoryAce(&Sacl, 2u, 0, SeLowMandatorySid, 0x11u, 1u);
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, &Sacl, 0);
     BufferLength = 0;
     RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, 0LL, &BufferLength);
     Pool2 = (void *)ExAllocatePool2(0x100uLL);

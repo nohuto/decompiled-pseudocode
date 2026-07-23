@@ -1,28 +1,28 @@
 /*
- * XREFs of ViXdvDriverLoadImage @ 0x1409C8E2C
+ * XREFs of ViXdvDriverLoadImage @ 0x1409C9E2C
  * Callers:
- *     ViLogAndLoadXdv @ 0x140A938F4 (ViLogAndLoadXdv.c)
+ *     ViLogAndLoadXdv @ 0x140A948F4 (ViLogAndLoadXdv.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
- *     strcmp @ 0x1403D3730 (strcmp.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
- *     ViXdvSetXdvKernelUtilities @ 0x1405A0E84 (ViXdvSetXdvKernelUtilities.c)
- *     VfIsRuleClassEnabled @ 0x1409C6020 (VfIsRuleClassEnabled.c)
- *     ViXdvBindXdvDDIWrappers @ 0x1409C8C50 (ViXdvBindXdvDDIWrappers.c)
- *     ViXdvBindXdvDriverEntryWrappers @ 0x1409C8D1C (ViXdvBindXdvDriverEntryWrappers.c)
- *     ViXdvGetFuncAddress @ 0x1409C90D8 (ViXdvGetFuncAddress.c)
- *     ViXdvSetRequestedAPIsforDIF @ 0x1409C9220 (ViXdvSetRequestedAPIsforDIF.c)
+ *     RtlImageDirectoryEntryToData @ 0x140286140 (RtlImageDirectoryEntryToData.c)
+ *     strcmp @ 0x1403D38A0 (strcmp.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405A0924 (VfUtilDbgPrint.c)
+ *     ViXdvSetXdvKernelUtilities @ 0x1405A10B4 (ViXdvSetXdvKernelUtilities.c)
+ *     VfIsRuleClassEnabled @ 0x1409C7020 (VfIsRuleClassEnabled.c)
+ *     ViXdvBindXdvDDIWrappers @ 0x1409C9C50 (ViXdvBindXdvDDIWrappers.c)
+ *     ViXdvBindXdvDriverEntryWrappers @ 0x1409C9D1C (ViXdvBindXdvDriverEntryWrappers.c)
+ *     ViXdvGetFuncAddress @ 0x1409CA0D8 (ViXdvGetFuncAddress.c)
+ *     ViXdvSetRequestedAPIsforDIF @ 0x1409CA220 (ViXdvSetRequestedAPIsforDIF.c)
  */
 
 char __fastcall ViXdvDriverLoadImage(__int64 a1)
 {
-  __int64 v1; // rbp
+  char *v1; // rbp
   char v2; // r14
-  __int64 v3; // rax
-  __int64 v4; // rbx
+  _DWORD *v3; // rax
+  _DWORD *v4; // rbx
   char v5; // r12
-  __int64 v6; // r13
+  char *v6; // r13
   char v7; // r15
   __int64 v8; // rdi
   const char *v9; // rsi
@@ -32,21 +32,21 @@ char __fastcall ViXdvDriverLoadImage(__int64 a1)
   __int64 (*v13)(void); // rax
   void (__fastcall *v14)(__int64 (__fastcall **)(PCONTEXT)); // rax
   __int64 (__fastcall *v15)(_QWORD); // rax
-  __int64 v17; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v17; // [rsp+50h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(char **)(a1 + 48);
   v2 = 1;
-  v3 = RtlImageDirectoryEntryToData(v1, 1, 0, (int)&v17);
+  v3 = RtlImageDirectoryEntryToData(v1, 1u, 0, &v17);
   v4 = v3;
-  if ( !v3 || !*(_DWORD *)(v3 + 24) )
+  if ( !v3 || !v3[6] )
     return 0;
   v5 = 0;
-  v6 = v1 + *(unsigned int *)(v3 + 32);
+  v6 = &v1[v3[8]];
   v7 = 0;
   v8 = 0LL;
   do
   {
-    v9 = (const char *)(v1 + *(unsigned int *)(v6 + 4 * v8));
+    v9 = &v1[*(unsigned int *)&v6[4 * v8]];
     if ( !strcmp("DifLoadPlugins", v9) )
     {
       if ( VfIsRuleClassEnabled(0x23u) )
@@ -106,7 +106,7 @@ char __fastcall ViXdvDriverLoadImage(__int64 a1)
     }
     v8 = (unsigned int)(v8 + 1);
   }
-  while ( (unsigned int)v8 < *(_DWORD *)(v4 + 24) );
+  while ( (unsigned int)v8 < v4[6] );
   if ( !v5 || !v7 )
     return 0;
   return v2;

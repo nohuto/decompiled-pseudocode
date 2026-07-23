@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpPlaceActivationContextOnLiveList @ 0x1800DAAC4
+ * XREFs of RtlpPlaceActivationContextOnLiveList @ 0x1800DAB84
  * Callers:
- *     RtlCreateActivationContext @ 0x18006ABF0 (RtlCreateActivationContext.c)
+ *     RtlCreateActivationContext @ 0x18006ABE0 (RtlCreateActivationContext.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpEnsureLiveDeadListsInitialized @ 0x1800DA8F8 (RtlpEnsureLiveDeadListsInitialized.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpEnsureLiveDeadListsInitialized @ 0x1800DA9B8 (RtlpEnsureLiveDeadListsInitialized.c)
  */
 
-__int64 __fastcall RtlpPlaceActivationContextOnLiveList(__int64 a1)
+NTSTATUS __fastcall RtlpPlaceActivationContextOnLiveList(__int64 a1)
 {
   _QWORD *v2; // rax
   __int64 v3; // rcx
 
   RtlpEnsureLiveDeadListsInitialized();
-  RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
   v2 = (_QWORD *)(a1 + 8);
   v3 = g_SxsLiveActivationContexts;
   if ( *(__int64 **)(g_SxsLiveActivationContexts + 8) != &g_SxsLiveActivationContexts )
@@ -23,5 +23,5 @@ __int64 __fastcall RtlpPlaceActivationContextOnLiveList(__int64 a1)
   *(_QWORD *)(a1 + 16) = &g_SxsLiveActivationContexts;
   *(_QWORD *)(v3 + 8) = v2;
   g_SxsLiveActivationContexts = a1 + 8;
-  return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

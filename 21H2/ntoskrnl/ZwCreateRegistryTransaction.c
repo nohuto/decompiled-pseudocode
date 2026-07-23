@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCreateRegistryTransaction @ 0x1403FBB40
+ * XREFs of ZwCreateRegistryTransaction @ 0x1403FBD20
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateRegistryTransaction(__int64 a1, __int64 a2)
+__int64 __fastcall ZwCreateRegistryTransaction(__int64 a1)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(a1);
 }

@@ -1,32 +1,32 @@
 /*
- * XREFs of PiDevCfgQueryObjectProperties @ 0x1409978B4
+ * XREFs of PiDevCfgQueryObjectProperties @ 0x1409CA030
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072897C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x140729484 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgGetDeviceClassDriverConfigurable @ 0x140729EB8 (PiDevCfgGetDeviceClassDriverConfigurable.c)
- *     PpDevCfgProcessDeviceClass @ 0x14072C4F4 (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14072C8FC (PpDevCfgProcessDeviceExtensions.c)
- *     PiDevCfgQueryDriverNode @ 0x140996564 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgProcessDevice @ 0x140996E44 (PiDevCfgProcessDevice.c)
- *     PiDevCfgInitDeviceContext @ 0x140997624 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgGetDriverPackageId @ 0x1409977D8 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140A7DF0C (PiDevCfgQueryDriverConfiguration.c)
- *     PpDevCfgProcessDeviceReset @ 0x140A84170 (PpDevCfgProcessDeviceReset.c)
- *     PiDevCfgLogDeviceConfigured @ 0x140A98C04 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgLogDeviceStarted @ 0x140AA6798 (PiDevCfgLogDeviceStarted.c)
- *     PpDevCfgInit @ 0x140C24F94 (PpDevCfgInit.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072650C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1407270E0 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgGetDeviceClassDriverConfigurable @ 0x140727B14 (PiDevCfgGetDeviceClassDriverConfigurable.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14072A508 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x14072A910 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1409C7EF4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgProcessDevice @ 0x1409C9598 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgInitDeviceContext @ 0x1409C9D7C (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgGetDriverPackageId @ 0x1409C9F54 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140A7EC90 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgLogDeviceStarted @ 0x140AA1894 (PiDevCfgLogDeviceStarted.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140ABF650 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgQueryDriverNode @ 0x140AC0A0C (PiDevCfgQueryDriverNode.c)
+ *     PpDevCfgInit @ 0x140C26FC4 (PpDevCfgInit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PnpValidateStringData @ 0x1404ACF1C (PnpValidateStringData.c)
- *     PnpValidateMultiSzData @ 0x1404B3254 (PnpValidateMultiSzData.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PnpValidateStringData @ 0x1404A7600 (PnpValidateStringData.c)
+ *     PnpValidateMultiSzData @ 0x1404ADA64 (PnpValidateMultiSzData.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgQueryObjectProperties(
@@ -52,7 +52,7 @@ __int64 __fastcall PiDevCfgQueryObjectProperties(
   __int16 v19; // r11
   int v20; // r10d
   int v21; // eax
-  unsigned int v22; // edx
+  ULONG_PTR v22; // rdx
   int v23; // r8d
   wchar_t *v24; // rax
   unsigned int v25; // ecx
@@ -100,7 +100,7 @@ __int64 __fastcall PiDevCfgQueryObjectProperties(
     v33 = MaximumLength;
     if ( (v12 & 2) != 0 )
     {
-      if ( Pool2 || (v8 = 260, (Pool2 = (void *)ExAllocatePool2(0x100uLL)) != 0LL) )
+      if ( Pool2 || (v8 = 260, (Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x104uLL, 0x63647050u)) != 0LL) )
       {
         v13 = (__int64)Pool2;
         goto LABEL_13;
@@ -137,7 +137,7 @@ LABEL_43:
         if ( ObjectProperty < 0 )
           goto LABEL_33;
         v21 = HIDWORD(Size);
-        v22 = Size;
+        v22 = (unsigned int)Size;
         if ( !HIDWORD(Size) )
         {
           *(_DWORD *)(a5 + 8 * v11 + 8) = 0;
@@ -167,7 +167,7 @@ LABEL_22:
 LABEL_26:
           Pool2 = v18;
           v8 = v20;
-          if ( v14 && v22 > 0xFFFE )
+          if ( v14 && (unsigned int)v22 > 0xFFFE )
           {
             v6 = -2147483643;
 LABEL_33:
@@ -178,7 +178,7 @@ LABEL_33:
           {
             if ( v14 )
             {
-              v24 = (wchar_t *)ExAllocatePool2(0x100uLL);
+              v24 = (wchar_t *)ExAllocatePool2(0x100uLL, v22, 0x67727453u);
               v14->Buffer = v24;
               if ( v24 )
               {
@@ -206,12 +206,12 @@ LABEL_74:
               v6 = -1073741670;
               goto LABEL_53;
             }
-            v28 = (void *)ExAllocatePool2(0x100uLL);
+            v28 = (void *)ExAllocatePool2(0x100uLL, v22, 0x63647050u);
             v13 = (__int64)v28;
             if ( !v28 )
               goto LABEL_74;
             memmove(v28, Pool2, (unsigned int)Size);
-            v22 = Size;
+            LODWORD(v22) = Size;
           }
           else if ( v14 )
           {
@@ -220,7 +220,7 @@ LABEL_74:
           if ( (*(_DWORD *)(a5 + 8 * v11 + 28) & 2) != 0 )
           {
             **(_QWORD **)(a5 + 8 * v11 + 16) = v13;
-            v22 = Size;
+            LODWORD(v22) = Size;
           }
           *(_DWORD *)(a5 + 8 * v11 + 24) = v22;
           goto LABEL_33;
@@ -238,7 +238,7 @@ LABEL_60:
         break;
       ExFreePoolWithTag(Pool2, 0);
       v8 = Size;
-      v26 = ExAllocatePool2(0x100uLL);
+      v26 = ExAllocatePool2(0x100uLL, (unsigned int)Size, 0x63647050u);
       Pool2 = (void *)v26;
       if ( !v26 )
         goto LABEL_43;

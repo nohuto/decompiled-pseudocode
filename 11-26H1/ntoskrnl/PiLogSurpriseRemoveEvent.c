@@ -1,9 +1,9 @@
 /*
- * XREFs of PiLogSurpriseRemoveEvent @ 0x140B4D3F4
+ * XREFs of PiLogSurpriseRemoveEvent @ 0x140B4F184
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     McTemplateK0zq_EtwWriteTransfer @ 0x14049ED1C (McTemplateK0zq_EtwWriteTransfer.c)
+ *     McTemplateK0zq_EtwWriteTransfer @ 0x14049886C (McTemplateK0zq_EtwWriteTransfer.c)
  */
 
 _DWORD *__fastcall PiLogSurpriseRemoveEvent(__int64 a1, int a2, unsigned int **a3)
@@ -22,14 +22,14 @@ _DWORD *__fastcall PiLogSurpriseRemoveEvent(__int64 a1, int a2, unsigned int **a
   result = *a3;
   if ( a2 == 3 )
   {
-    if ( (byte_140EF3DCC & 8) == 0 )
+    if ( (byte_140EF412C & 8) == 0 )
       return result;
     v9 = KMPnPEvt_SurpriseRemove_Missing;
     return (_DWORD *)McTemplateK0zq_EtwWriteTransfer(**a3, (__int64)v9, a1 + 88, v7, **a3);
   }
   if ( a2 != 5 )
     __fastfail(5u);
-  if ( (byte_140EF3DCC & 4) != 0 )
+  if ( (byte_140EF412C & 4) != 0 )
   {
     v9 = KMPnPEvt_SurpriseRemove_Failed;
     return (_DWORD *)McTemplateK0zq_EtwWriteTransfer(**a3, (__int64)v9, a1 + 88, v7, **a3);

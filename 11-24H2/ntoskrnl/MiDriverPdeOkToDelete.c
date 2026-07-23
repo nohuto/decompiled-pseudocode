@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDriverPdeOkToDelete @ 0x1406693D8
+ * XREFs of MiDriverPdeOkToDelete @ 0x14066A5B0
  * Callers:
- *     MiDeleteBootRange @ 0x140669130 (MiDeleteBootRange.c)
+ *     MiDeleteBootRange @ 0x14066A308 (MiDeleteBootRange.c)
  * Callees:
- *     MmLockLoadedModuleListShared @ 0x14027C0CC (MmLockLoadedModuleListShared.c)
- *     MmUnlockLoadedModuleListShared @ 0x14027C120 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14023165C (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402316B0 (MmUnlockLoadedModuleListShared.c)
  */
 
 __int64 __fastcall MiDriverPdeOkToDelete(unsigned __int64 a1)
@@ -30,11 +30,11 @@ __int64 __fastcall MiDriverPdeOkToDelete(unsigned __int64 a1)
   for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
   {
     v8 = (unsigned __int64)i[6];
-    if ( v8 == PsNtosImageBase || v8 == PsHalImageBase )
-      v9 = ((unsigned int)dword_140E374AC + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
+    if ( (PVOID)v8 == PsNtosImageBase || (PVOID)v8 == PsHalImageBase )
+      v9 = ((unsigned int)dword_140E375EC + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
     else
-      v9 = ((unsigned __int64)(unsigned int)dword_140E2D738 << 12)
-         + (((unsigned int)(dword_140E374B0 + dword_140E374AC) + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
+      v9 = ((unsigned __int64)(unsigned int)dword_140E2D878 << 12)
+         + (((unsigned int)(dword_140E375F0 + dword_140E375EC) + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
     if ( a1 >= ((v8 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL
       && a1 <= (((v8 + (unsigned int)(*((_DWORD *)i + 16) - 1) + v9) >> 18) & 0x3FFFFFF8) - 0x904C0000000LL )
     {

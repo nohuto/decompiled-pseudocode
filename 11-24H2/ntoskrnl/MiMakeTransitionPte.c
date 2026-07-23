@@ -1,23 +1,23 @@
 /*
- * XREFs of MiMakeTransitionPte @ 0x1402E67B0
+ * XREFs of MiMakeTransitionPte @ 0x140347DF0
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x1402E604C (MiBuildMdlForMappedFileFault.c)
- *     MiInitializeTransitionPfn @ 0x14031359C (MiInitializeTransitionPfn.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
- *     MmProtectPool @ 0x1403889FC (MmProtectPool.c)
- *     MiDuplicateCloneLeaf @ 0x140396854 (MiDuplicateCloneLeaf.c)
- *     MiOutPageSingleKernelStack @ 0x14039F510 (MiOutPageSingleKernelStack.c)
- *     MiExclusiveInsertPfnChainInList @ 0x1403EF1A0 (MiExclusiveInsertPfnChainInList.c)
- *     MmProtectMdlSystemAddress @ 0x14040E150 (MmProtectMdlSystemAddress.c)
- *     MmOutSwapProcess @ 0x14042D50C (MmOutSwapProcess.c)
- *     MiMakeVaRangeNoAccess @ 0x140498B94 (MiMakeVaRangeNoAccess.c)
- *     MiBuildForkPageTable @ 0x1404A304C (MiBuildForkPageTable.c)
- *     MiTrimSystemImagePages @ 0x1404A7A78 (MiTrimSystemImagePages.c)
- *     MiMakeOutswappedPageResident @ 0x1404A8280 (MiMakeOutswappedPageResident.c)
- *     MiProtectAweRegion @ 0x1404C2558 (MiProtectAweRegion.c)
- *     MiSwitchToTransition @ 0x1404F1388 (MiSwitchToTransition.c)
- *     MiPageBootRegistry @ 0x140669520 (MiPageBootRegistry.c)
- *     MiInitializeNewPfns @ 0x14066BBD4 (MiInitializeNewPfns.c)
+ *     MiOutPageSingleKernelStack @ 0x140215F40 (MiOutPageSingleKernelStack.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
+ *     MmOutSwapProcess @ 0x1402DDEEC (MmOutSwapProcess.c)
+ *     MiMakeOutswappedPageResident @ 0x1402EF6F4 (MiMakeOutswappedPageResident.c)
+ *     MiBuildMdlForMappedFileFault @ 0x140347688 (MiBuildMdlForMappedFileFault.c)
+ *     MmProtectPool @ 0x14038233C (MmProtectPool.c)
+ *     MiDuplicateCloneLeaf @ 0x14038FAFC (MiDuplicateCloneLeaf.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1403E2124 (MiExclusiveInsertPfnChainInList.c)
+ *     MiInitializeTransitionPfn @ 0x1403F2C1C (MiInitializeTransitionPfn.c)
+ *     MmProtectMdlSystemAddress @ 0x1404063A0 (MmProtectMdlSystemAddress.c)
+ *     MiMakeVaRangeNoAccess @ 0x14049351C (MiMakeVaRangeNoAccess.c)
+ *     MiBuildForkPageTable @ 0x14049DFAC (MiBuildForkPageTable.c)
+ *     MiTrimSystemImagePages @ 0x1404A24CC (MiTrimSystemImagePages.c)
+ *     MiProtectAweRegion @ 0x1404BDA90 (MiProtectAweRegion.c)
+ *     MiSwitchToTransition @ 0x1404EEE28 (MiSwitchToTransition.c)
+ *     MiPageBootRegistry @ 0x14066A6F8 (MiPageBootRegistry.c)
+ *     MiInitializeNewPfns @ 0x14066CDA4 (MiInitializeNewPfns.c)
  * Callees:
  *     <none>
  */
@@ -27,9 +27,9 @@ __int64 __fastcall MiMakeTransitionPte(__int64 a1, char a2)
   __int64 v2; // rcx
 
   v2 = 32 * (a2 & 0x1F | ((a1 & 0xFFFFFFFFFFLL) << 7) | 0x40);
-  if ( !qword_140E2DB80 )
+  if ( !qword_140E2DCC0 )
     return v2;
-  if ( (qword_140E2DB80 & v2) != 0 )
+  if ( (qword_140E2DCC0 & v2) != 0 )
     return v2 | 0x10;
-  return v2 | qword_140E2DB80;
+  return v2 | qword_140E2DCC0;
 }

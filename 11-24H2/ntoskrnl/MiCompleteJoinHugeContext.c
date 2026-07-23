@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCompleteJoinHugeContext @ 0x140487C38
+ * XREFs of MiCompleteJoinHugeContext @ 0x140482CA8
  * Callers:
- *     MiJoinHugeContext @ 0x140487A9C (MiJoinHugeContext.c)
+ *     MiJoinHugeContext @ 0x140482B0C (MiJoinHugeContext.c)
  * Callees:
  *     <none>
  */
@@ -20,11 +20,11 @@ __int64 __fastcall MiCompleteJoinHugeContext(__int64 a1, __int64 a2, __int64 a3,
   *(_WORD *)(a2 + 576) = a4;
   if ( v4 )
   {
-    v6 = ((result - qword_140E2FFC0) >> 3) & 0x3FFFFF;
+    v6 = ((result - qword_140E30100) >> 3) & 0x3FFFFF;
     v7 = v6;
     v8 = ~(1 << (v6 & 0x1F));
-    result = qword_140E2FFC8;
-    _InterlockedAnd((volatile signed __int32 *)(qword_140E2FFC8 + 4 * (v7 >> 5)), v8);
+    result = qword_140E30108;
+    _InterlockedAnd((volatile signed __int32 *)(qword_140E30108 + 4 * (v7 >> 5)), v8);
   }
   else
   {

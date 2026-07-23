@@ -1,20 +1,20 @@
 /*
- * XREFs of ZwResumeThread @ 0x18009E080
+ * XREFs of ZwResumeThread @ 0x18009E040
  * Callers:
  *     EtwpCreateEtwThread @ 0x180048710 (EtwpCreateEtwThread.c)
- *     RtlSetProcessDebugInformation @ 0x1800D8510 (RtlSetProcessDebugInformation.c)
- *     WerReportExceptionWorker @ 0x1800DD830 (WerReportExceptionWorker.c)
- *     RtlpHeapPerformCrossProcessQuery @ 0x1800F4174 (RtlpHeapPerformCrossProcessQuery.c)
- *     RtlRemoteCall @ 0x1800FF100 (RtlRemoteCall.c)
+ *     RtlSetProcessDebugInformation @ 0x1800D84D0 (RtlSetProcessDebugInformation.c)
+ *     WerReportExceptionWorker @ 0x1800DD7F0 (WerReportExceptionWorker.c)
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1800F4134 (RtlpHeapPerformCrossProcessQuery.c)
+ *     RtlRemoteCall @ 0x1800FF0C0 (RtlRemoteCall.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwResumeThread()
+NTSTATUS __cdecl ZwResumeThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 82LL;
+  result = 82;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

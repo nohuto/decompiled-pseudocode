@@ -1,31 +1,30 @@
 /*
- * XREFs of MiUnlockDynamicMemoryShared @ 0x14029BEF0
+ * XREFs of MiUnlockDynamicMemoryShared @ 0x1402138C0
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x1403031A0 (MiCoalesceFreeLargePages.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14052F930 (MmMarkPhysicalMemoryAsBad.c)
- *     MiAddPartitionHugeRange @ 0x140532798 (MiAddPartitionHugeRange.c)
- *     PfpPfnPrioRequest @ 0x1406F2BB0 (PfpPfnPrioRequest.c)
- *     MiGetPhysicalMemoryRanges @ 0x14076F768 (MiGetPhysicalMemoryRanges.c)
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
- *     MiMapNewPfns @ 0x1408C5CD4 (MiMapNewPfns.c)
- *     MmRelocatePfnList @ 0x1408D1ADC (MmRelocatePfnList.c)
+ *     MiCoalesceFreeLargePages @ 0x14030DEF0 (MiCoalesceFreeLargePages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052FB70 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiAddPartitionHugeRange @ 0x1405329D8 (MiAddPartitionHugeRange.c)
+ *     PfpPfnPrioRequest @ 0x140709F90 (PfpPfnPrioRequest.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14076F928 (MiGetPhysicalMemoryRanges.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
+ *     MiMapNewPfns @ 0x1408C5E34 (MiMapNewPfns.c)
+ *     MmRelocatePfnList @ 0x1408D1C3C (MmRelocatePfnList.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  */
 
-char __fastcall MiUnlockDynamicMemoryShared(__int64 a1, __int64 a2)
+__int64 __fastcall MiUnlockDynamicMemoryShared(__int64 a1, __int64 a2)
 {
   ULONG_PTR v2; // rdi
-  char result; // al
-  __int64 v5; // rcx
+  __int64 result; // rax
 
   v2 = a1 + 192;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 192), 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v2);
   result = KeAbPostRelease(v2);
   if ( (*(_WORD *)(a2 + 486))++ == 0xFFFF && *(_QWORD *)(a2 + 152) != a2 + 152 )
-    return KiCheckForKernelApcDelivery(v5);
+    return KiCheckForKernelApcDelivery();
   return result;
 }

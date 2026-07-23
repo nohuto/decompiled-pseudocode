@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCopyTopLevelMappings @ 0x140292848
+ * XREFs of MiCopyTopLevelMappings @ 0x140292AD8
  * Callers:
- *     MiCreateNewProcessTopLevelMappings @ 0x14029271C (MiCreateNewProcessTopLevelMappings.c)
- *     MiUpdateSystemPdes @ 0x140619530 (MiUpdateSystemPdes.c)
+ *     MiCreateNewProcessTopLevelMappings @ 0x1402929AC (MiCreateNewProcessTopLevelMappings.c)
+ *     MiUpdateSystemPdes @ 0x140619A80 (MiUpdateSystemPdes.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiShadowTopLevelPxes @ 0x1402929BC (MiShadowTopLevelPxes.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiShadowTopLevelPxes @ 0x140292C4C (MiShadowTopLevelPxes.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 struct _KTHREAD *__fastcall MiCopyTopLevelMappings(__int64 a1, __int64 a2)

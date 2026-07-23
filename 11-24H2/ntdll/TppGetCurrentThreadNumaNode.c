@@ -1,55 +1,56 @@
 /*
- * XREFs of TppGetCurrentThreadNumaNode @ 0x18006EE30
+ * XREFs of TppGetCurrentThreadNumaNode @ 0x18008B710
  * Callers:
- *     TppInitializeTimerSubQueue @ 0x18006D538 (TppInitializeTimerSubQueue.c)
- *     RtlQueueWorkItem @ 0x18006D9E0 (RtlQueueWorkItem.c)
- *     TpAllocPoolInternal @ 0x1800AB494 (TpAllocPoolInternal.c)
- *     RtlpTpIoAlloc @ 0x1800BEC44 (RtlpTpIoAlloc.c)
- *     TpAllocJobNotification @ 0x1800BF070 (TpAllocJobNotification.c)
- *     TppAllocAlpcCompletion @ 0x1800BF374 (TppAllocAlpcCompletion.c)
- *     TpAllocIoCompletion @ 0x1800BF6A0 (TpAllocIoCompletion.c)
+ *     TpAllocPoolInternal @ 0x180085914 (TpAllocPoolInternal.c)
+ *     TppInitializeTimerSubQueue @ 0x180089E18 (TppInitializeTimerSubQueue.c)
+ *     RtlQueueWorkItem @ 0x18008A2C0 (RtlQueueWorkItem.c)
+ *     RtlpTpIoAlloc @ 0x1800B6A04 (RtlpTpIoAlloc.c)
+ *     TpAllocJobNotification @ 0x1800B6E30 (TpAllocJobNotification.c)
+ *     TppAllocAlpcCompletion @ 0x1800B7134 (TppAllocAlpcCompletion.c)
+ *     TpAllocIoCompletion @ 0x1800B7460 (TpAllocIoCompletion.c)
  * Callees:
- *     TppAdjustRunningThreadGoalWithLock @ 0x1800252B4 (TppAdjustRunningThreadGoalWithLock.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x180051CB4 (TppAdjustRunningThreadGoalWithLock.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall TppGetCurrentThreadNumaNode(__int64 a1, volatile signed __int32 **a2, _BYTE *a3, _WORD *a4)
+void __fastcall TppGetCurrentThreadNumaNode(__int64 a1, int *a2, _BYTE *a3, _WORD *a4)
 {
   unsigned __int64 Number; // r12
   int v7; // ebp
   int Group; // r15d
-  __int64 result; // rax
+  int v11; // eax
   unsigned int i; // edx
+  __int64 v13; // rax
+  __int64 v14; // rax
 
   Number = NtCurrentTeb()->CurrentIdealProcessor.Number;
   v7 = TppNumberNodes;
   Group = NtCurrentTeb()->CurrentIdealProcessor.Group;
-  if ( !a1 || (result = *(unsigned int *)(a1 + 440), !(_DWORD)result) )
-    result = MEMORY[0x7FFE03C0];
-  if ( *(_DWORD *)(a1 + 424) != (_DWORD)result )
+  if ( !a1 || (v11 = *(_DWORD *)(a1 + 440)) == 0 )
+    v11 = MEMORY[0x7FFE03C0];
+  if ( *(_DWORD *)(a1 + 424) != v11 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 72), a2, (unsigned __int64)a3);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     TppAdjustRunningThreadGoalWithLock(a1);
-    result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   }
   for ( i = 0; i < TppNumberNodes; ++i )
   {
-    result = *(_QWORD *)(a1 + 48) + 16LL * (Group + TppMaximumGroups * i);
-    if ( *(_WORD *)(result + 8) == (_WORD)Group )
+    v13 = *(_QWORD *)(a1 + 48) + 16LL * (Group + TppMaximumGroups * i);
+    if ( *(_WORD *)(v13 + 8) == (_WORD)Group )
     {
-      result = *(_QWORD *)result;
-      if ( _bittest64(&result, Number) )
+      v14 = *(_QWORD *)v13;
+      if ( _bittest64(&v14, Number) )
       {
         v7 = i;
         break;
       }
     }
   }
-  *(_DWORD *)a2 = v7;
+  *a2 = v7;
   if ( a3 )
     *a3 = Number;
   if ( a4 )
     *a4 = Group;
-  return result;
 }

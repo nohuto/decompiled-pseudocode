@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuMarkHiberPhase @ 0x140996560
+ * XREFs of HalpIommuMarkHiberPhase @ 0x140997560
  * Callers:
- *     HaliLocateHiberRanges @ 0x140996620 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140997620 (HaliLocateHiberRanges.c)
  * Callees:
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpIommuMarkHiberPhase(PVOID MemoryMap)

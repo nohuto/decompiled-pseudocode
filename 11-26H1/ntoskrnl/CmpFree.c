@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFree @ 0x1408B9620
+ * XREFs of CmpFree @ 0x1408BFBF0
  * Callers:
- *     HvHiveCleanup @ 0x1408B9010 (HvHiveCleanup.c)
+ *     HvHiveCleanup @ 0x1408BF5E0 (HvHiveCleanup.c)
  * Callees:
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFree(PVOID P, unsigned int a2)

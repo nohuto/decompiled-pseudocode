@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0xxq_EtwWriteTransfer @ 0x14053F05C
+ * XREFs of McTemplateK0xxq_EtwWriteTransfer @ 0x14053F71C
  * Callers:
- *     FsRtlDedupChangeLogOverwriteOrFree @ 0x14093E6F0 (FsRtlDedupChangeLogOverwriteOrFree.c)
+ *     FsRtlDedupChangeLogOverwriteOrFree @ 0x14093E8F0 (FsRtlDedupChangeLogOverwriteOrFree.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C42C0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403C44A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0xxq_EtwWriteTransfer(__int64 a1, __int64 a2, const GUID *a3, ...)

@@ -1,15 +1,15 @@
 /*
- * XREFs of ApiSetpInsertHashEntry @ 0x140663870
+ * XREFs of ApiSetpInsertHashEntry @ 0x140662154
  * Callers:
- *     ApiSetSchemaExpander_InsertContractEntry @ 0x140662C94 (ApiSetSchemaExpander_InsertContractEntry.c)
- *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x140662D18 (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
- *     ApiSetSchemaExpander_InsertGroupContractEntry @ 0x140662D90 (ApiSetSchemaExpander_InsertGroupContractEntry.c)
- *     ApiSetSchemaExpander_InsertHostEntry @ 0x140662E14 (ApiSetSchemaExpander_InsertHostEntry.c)
- *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140662EC0 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
+ *     ApiSetSchemaExpander_InsertContractEntry @ 0x140661578 (ApiSetSchemaExpander_InsertContractEntry.c)
+ *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x1406615FC (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
+ *     ApiSetSchemaExpander_InsertGroupContractEntry @ 0x140661674 (ApiSetSchemaExpander_InsertGroupContractEntry.c)
+ *     ApiSetSchemaExpander_InsertHostEntry @ 0x1406616F8 (ApiSetSchemaExpander_InsertHostEntry.c)
+ *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x1406617A4 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
  * Callees:
- *     ApiSetpGetSearchKeyHash @ 0x1406625C4 (ApiSetpGetSearchKeyHash.c)
- *     ApiSetpFindHashInsertionPoint_V7 @ 0x140663770 (ApiSetpFindHashInsertionPoint_V7.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ApiSetpGetSearchKeyHash @ 0x140660EA8 (ApiSetpGetSearchKeyHash.c)
+ *     ApiSetpFindHashInsertionPoint_V7 @ 0x140662054 (ApiSetpFindHashInsertionPoint_V7.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall ApiSetpInsertHashEntry(__int64 a1, unsigned int *a2, unsigned __int16 a3, __int64 a4)

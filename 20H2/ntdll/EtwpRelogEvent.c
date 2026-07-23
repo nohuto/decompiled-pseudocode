@@ -15,8 +15,8 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   size_t v6; // rsi
   __int64 v7; // r8
   void *v8; // rax
-  void *v10; // rax
-  void *Heap; // rax
+  PVOID v10; // rax
+  PVOID Heap; // rax
   __int64 v13; // [rsp+58h] [rbp+10h] BYREF
 
   v4 = 0;
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
     {
       goto LABEL_7;
     }
-    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 536) = Heap;
     if ( Heap )
     {
@@ -55,7 +55,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   }
   if ( !*(_BYTE *)(*(_QWORD *)(a2 + 72) + 7LL) )
   {
-    v10 = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    v10 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 520) = v10;
     if ( v10 )
     {
@@ -68,8 +68,8 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
 LABEL_7:
   v7 = *(_WORD *)(a2 + 84) & 0x7FF;
   if ( (*(_DWORD *)(a1 + 324) & 0x1000) != 0 )
-    LODWORD(v7) = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 504) + 8LL * v5) + 2 * v7);
-  v8 = (void *)EtwpReserveTraceBuffer(a1, v6, v7, 0, (__int64)&v13);
+    v7 = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 504) + 8LL * v5) + 2 * v7);
+  v8 = (void *)EtwpReserveTraceBuffer(a1, (unsigned int)v6, v7, 0LL, &v13);
   if ( v8 )
   {
     memmove(v8, *(const void **)(a2 + 72), v6);

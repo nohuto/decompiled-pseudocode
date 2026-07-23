@@ -3,8 +3,8 @@
  * Callers:
  *     PdcTaskClientRequest @ 0x140682428 (PdcTaskClientRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 struct _KTHREAD *__fastcall PdcAcquireRwLockExclusive(unsigned __int64 *a1)

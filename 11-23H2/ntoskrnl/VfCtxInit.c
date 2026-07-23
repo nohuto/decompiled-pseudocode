@@ -1,7 +1,7 @@
 /*
- * XREFs of VfCtxInit @ 0x140AE49E4
+ * XREFs of VfCtxInit @ 0x140AE49D4
  * Callers:
- *     VfMiscPluginEntry @ 0x140AE06B4 (VfMiscPluginEntry.c)
+ *     VfMiscPluginEntry @ 0x140AE06A4 (VfMiscPluginEntry.c)
  * Callees:
  *     KeAllocateXStateContext @ 0x14020DF50 (KeAllocateXStateContext.c)
  *     KeFreeXStateContext @ 0x14020E184 (KeFreeXStateContext.c)

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14010B068
+ * XREFs of KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140108DE8
  * Callers:
- *     MiTryToAcquireExpansionLockAtDpc @ 0x14010B044 (MiTryToAcquireExpansionLockAtDpc.c)
- *     MiDbgTranslatePhysicalAddress @ 0x1401470C4 (MiDbgTranslatePhysicalAddress.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x140108DC4 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140147634 (MiDbgTranslatePhysicalAddress.c)
  * Callees:
  *     <none>
  */

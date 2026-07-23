@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDetermineBucketFrequencies @ 0x1405CD468
+ * XREFs of PopDetermineBucketFrequencies @ 0x1405CABD8
  * Callers:
- *     PopRegisterEnergyEstimation @ 0x1405CD820 (PopRegisterEnergyEstimation.c)
+ *     PopRegisterEnergyEstimation @ 0x1405CAF90 (PopRegisterEnergyEstimation.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     __report_rangecheckfailure @ 0x1404F51BC (__report_rangecheckfailure.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     __report_rangecheckfailure @ 0x1404F2ABC (__report_rangecheckfailure.c)
  */
 
 __int64 PopDetermineBucketFrequencies()

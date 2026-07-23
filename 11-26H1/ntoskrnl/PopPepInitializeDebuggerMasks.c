@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPepInitializeDebuggerMasks @ 0x140611620
+ * XREFs of PopPepInitializeDebuggerMasks @ 0x140614460
  * Callers:
- *     PopPepPlatformStateRegistered @ 0x140611864 (PopPepPlatformStateRegistered.c)
+ *     PopPepPlatformStateRegistered @ 0x1406146A4 (PopPepPlatformStateRegistered.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopDiagTraceDebuggerTransitionRequirements @ 0x14060877C (PopDiagTraceDebuggerTransitionRequirements.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopDiagTraceDebuggerTransitionRequirements @ 0x14060B33C (PopDiagTraceDebuggerTransitionRequirements.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PopPepInitializeDebuggerMasks(__int64 a1, unsigned int a2)
@@ -24,7 +24,7 @@ void __fastcall PopPepInitializeDebuggerMasks(__int64 a1, unsigned int a2)
   memset(v10, 0, sizeof(v10));
   v8 = 0;
   v4 = *(_QWORD *)(v2 + 64);
-  if ( v4 == stru_140E66FF0.Padding[0] )
+  if ( v4 == qword_140E676E8 )
   {
     if ( v4 )
     {

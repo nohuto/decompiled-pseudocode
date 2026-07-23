@@ -19,8 +19,8 @@ __int64 __fastcall HalpCreateMachineCheckErrorRecord(__int64 a1, __int64 a2, __i
   int v11; // eax
   int McaMemoryErrorRecord; // eax
   unsigned int v13; // ebx
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-68h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
 
   v4 = *(_WORD *)(a2 + 120);
   Affinity = 0LL;

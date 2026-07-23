@@ -13,7 +13,11 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwOpenProcessTokenEx(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl ZwOpenProcessTokenEx(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        PHANDLE TokenHandle)
 {
   return Wow64SystemServiceCall();
 }

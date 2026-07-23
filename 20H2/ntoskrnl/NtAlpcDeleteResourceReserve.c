@@ -11,18 +11,20 @@
  *     ObReferenceObjectByHandle @ 0x1406118C0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcDeleteResourceReserve(void *a1, int a2, int a3)
+NTSTATUS __cdecl NtAlpcDeleteResourceReserve(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ResourceId)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  int v4; // edi
+  int v5; // ebx
   struct _DMA_ADAPTER *v6; // rsi
   ULONG_PTR v7; // rax
   ULONG_PTR v8; // rdi
   PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
+  v4 = (int)ResourceId;
   --CurrentThread->KernelApcDisable;
-  if ( a2 || a3 >= 0 )
+  if ( Flags || (int)ResourceId >= 0 )
   {
     v5 = -1073741811;
   }
@@ -30,7 +32,7 @@ __int64 __fastcall NtAlpcDeleteResourceReserve(void *a1, int a2, int a3)
   {
     DmaAdapter = 0LL;
     v5 = ObReferenceObjectByHandle(
-           a1,
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -41,7 +43,7 @@ __int64 __fastcall NtAlpcDeleteResourceReserve(void *a1, int a2, int a3)
       v6 = DmaAdapter;
       v7 = AlpcReferenceBlobByHandle(
              (_QWORD *)(*(_QWORD *)&DmaAdapter[1].Version + 40LL),
-             a3 & 0x7FFFFFFF,
+             v4 & 0x7FFFFFFF,
              AlpcReserveType);
       v8 = v7;
       if ( v7 )
@@ -60,5 +62,5 @@ __int64 __fastcall NtAlpcDeleteResourceReserve(void *a1, int a2, int a3)
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

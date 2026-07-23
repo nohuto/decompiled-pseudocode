@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpTiFillVad @ 0x1402CCC88
+ * XREFs of EtwpTiFillVad @ 0x14024B2E8
  * Callers:
- *     EtwpTiFillVadEventWrite @ 0x1402CCB54 (EtwpTiFillVadEventWrite.c)
+ *     EtwpTiFillVadEventWrite @ 0x14024B1B4 (EtwpTiFillVadEventWrite.c)
  * Callees:
  *     <none>
  */
@@ -33,7 +33,7 @@ __int64 __fastcall EtwpTiFillVad(__int64 a1, __int64 a2)
   else
   {
     v4 = 2;
-    v3 = &qword_14003BA58;
+    v3 = &qword_14003BB38;
   }
   *(_QWORD *)(a1 + 96) = v3;
   result = 7LL;

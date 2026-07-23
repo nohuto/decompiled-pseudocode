@@ -1,11 +1,11 @@
 /*
- * XREFs of PopWatchdogDumpControlRoutine @ 0x1405E11B0
+ * XREFs of PopWatchdogDumpControlRoutine @ 0x1405DE7D0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeTriageDumpDataArray @ 0x1404AF8B0 (KeInitializeTriageDumpDataArray.c)
- *     KeAddTriageDumpDataBlock @ 0x1405B1660 (KeAddTriageDumpDataBlock.c)
- *     strcmp @ 0x1406C0400 (strcmp.c)
+ *     KeInitializeTriageDumpDataArray @ 0x1404AA2A0 (KeInitializeTriageDumpDataArray.c)
+ *     KeAddTriageDumpDataBlock @ 0x1405AE5D0 (KeAddTriageDumpDataBlock.c)
+ *     strcmp @ 0x1406C1300 (strcmp.c)
  */
 
 void __fastcall PopWatchdogDumpControlRoutine(__int64 a1, __int64 a2, __int64 a3)

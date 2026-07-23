@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpSaAllocatorFree @ 0x140134CBC
+ * XREFs of ExpSaAllocatorFree @ 0x14013522C
  * Callers:
- *     ExSaFree @ 0x140134C58 (ExSaFree.c)
+ *     ExSaFree @ 0x1401351C8 (ExSaFree.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExpSaPageGroupFreeMemory @ 0x140134DB4 (ExpSaPageGroupFreeMemory.c)
- *     ExpSaAllocatorOptimizeList @ 0x140134E60 (ExpSaAllocatorOptimizeList.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExpSaPageGroupFreeMemory @ 0x140135324 (ExpSaPageGroupFreeMemory.c)
+ *     ExpSaAllocatorOptimizeList @ 0x1401353D0 (ExpSaAllocatorOptimizeList.c)
  */
 
 unsigned __int64 __fastcall ExpSaAllocatorFree(

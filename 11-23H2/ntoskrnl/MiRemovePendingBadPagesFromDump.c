@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemovePendingBadPagesFromDump @ 0x14062AA08
+ * XREFs of MiRemovePendingBadPagesFromDump @ 0x14062AF58
  * Callers:
- *     MmGetDumpRange @ 0x140630380 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1406308D0 (MmGetDumpRange.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall MiRemovePendingBadPagesFromDump(__int64 a1)

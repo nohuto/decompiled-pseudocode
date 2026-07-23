@@ -1,15 +1,15 @@
 /*
- * XREFs of MmMarkHiberPhase @ 0x14057C328
+ * XREFs of MmMarkHiberPhase @ 0x14057D328
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x14056C53C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
- *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiGatherHiberRange @ 0x14057BF90 (MiGatherHiberRange.c)
- *     MiMarkHiberNotCachedPages @ 0x14057BFDC (MiMarkHiberNotCachedPages.c)
- *     MiMarkKernelPageTablePages @ 0x14057C128 (MiMarkKernelPageTablePages.c)
- *     MiMarkNonPagedHiberPhasePages @ 0x14057C1BC (MiMarkNonPagedHiberPhasePages.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA5F0 (MiIsRetpolineEnabled.c)
+ *     PoSetHiberRange @ 0x1401448D0 (PoSetHiberRange.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiGatherHiberRange @ 0x14057CF90 (MiGatherHiberRange.c)
+ *     MiMarkHiberNotCachedPages @ 0x14057CFDC (MiMarkHiberNotCachedPages.c)
+ *     MiMarkKernelPageTablePages @ 0x14057D128 (MiMarkKernelPageTablePages.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x14057D1BC (MiMarkNonPagedHiberPhasePages.c)
  */
 
 __int64 MmMarkHiberPhase()
@@ -34,8 +34,8 @@ __int64 MmMarkHiberPhase()
   v13[0] = MiGatherHiberRange;
   v0 = 2LL;
   MiGatherHiberRange((__int64)v13, (void *)(PsInitialSystemProcess->DirectoryTableBase >> 12), 1LL, 2);
-  MiMarkNonPagedHiberPhasePages(0xFFFFFA8000000000uLL, 48 * qword_14043E508 - 0x57FFFFFFFD1LL, 512);
-  PoSetHiberRange(0LL, 0x14000u, qword_14043AE28, 1uLL, 0x61676D4Du);
+  MiMarkNonPagedHiberPhasePages(0xFFFFFA8000000000uLL, 48 * qword_14043F5C8 - 0x57FFFFFFFD1LL, 512);
+  PoSetHiberRange(0LL, 0x14000u, qword_14043BEE8, 1uLL, 0x61676D4Du);
   PoSetHiberRange(0LL, 0x10000u, KeGetCurrentThread()->ApcState.Process, 0x858uLL, 0x62706D4Du);
   v1 = (void *)KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[0];
   if ( v1 )
@@ -45,12 +45,12 @@ __int64 MmMarkHiberPhase()
     PoSetHiberRange(
       0LL,
       0x10000u,
-      qword_140438E48,
-      8 * (((unsigned __int64)qword_140438E40 >> 6) + ((qword_140438E40 & 0x3F) != 0)),
+      qword_140439F08,
+      8 * (((unsigned __int64)qword_140439F00 >> 6) + ((qword_140439F00 & 0x3F) != 0)),
       0x62706D4Du);
-    PoSetHiberRange(0LL, 0x10000u, qword_140438E50, (unsigned int)(dword_140438E60 << 12), 0x62706D4Du);
+    PoSetHiberRange(0LL, 0x10000u, qword_140439F10, (unsigned int)(dword_140439F20 << 12), 0x62706D4Du);
   }
-  MiMarkNonPagedHiberPhasePages(qword_14043A410, qword_14043A410 + qword_14043A418 - 1, 0);
+  MiMarkNonPagedHiberPhasePages(qword_14043B4D0, qword_14043B4D0 + qword_14043B4D8 - 1, 0);
   PoSetHiberRange(0LL, 0x10000u, (PVOID)0xFFFFF78000000000LL, 0x1000uLL, 0x64736D4Du);
   PoSetHiberRange(0LL, 0x10000u, MmUnloadedDrivers, 0x7D0uLL, 0x64736D4Du);
   v2 = 0LL;
@@ -64,7 +64,7 @@ __int64 MmMarkHiberPhase()
     --v3;
   }
   while ( v3 );
-  v5 = &qword_14043AD10;
+  v5 = &qword_14043BDD0;
   do
   {
     v6 = (_QWORD *)*v5;

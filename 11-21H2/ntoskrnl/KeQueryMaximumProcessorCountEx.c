@@ -1,31 +1,31 @@
 /*
  * XREFs of KeQueryMaximumProcessorCountEx @ 0x1402631C0
  * Callers:
- *     ExpAllocateFannedOutPushLock @ 0x140259EC4 (ExpAllocateFannedOutPushLock.c)
- *     ExpGetSystemEmulationProcessorInformation @ 0x1402630FC (ExpGetSystemEmulationProcessorInformation.c)
- *     ExpGetSystemProcessorInformation @ 0x140263154 (ExpGetSystemProcessorInformation.c)
+ *     sub_140259EC4 @ 0x140259EC4 (sub_140259EC4.c)
+ *     sub_1402630FC @ 0x1402630FC (sub_1402630FC.c)
+ *     sub_140263154 @ 0x140263154 (sub_140263154.c)
  *     KeQueryLogicalProcessorRelationship @ 0x140263790 (KeQueryLogicalProcessorRelationship.c)
- *     ExpTryAcquireFannedOutPushLockExclusive @ 0x14039E71C (ExpTryAcquireFannedOutPushLockExclusive.c)
- *     ExpReleaseFannedOutPushLockExclusive @ 0x14039F0DC (ExpReleaseFannedOutPushLockExclusive.c)
- *     ExpAcquireFannedOutPushLockExclusive @ 0x14039F294 (ExpAcquireFannedOutPushLockExclusive.c)
- *     ExpSaPageGroupDescriptorFree @ 0x1403A0424 (ExpSaPageGroupDescriptorFree.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x1403A61E8 (ExpSaPageGroupDescriptorAllocate.c)
- *     HalpHvInitMcaPcrContext @ 0x1403D2700 (HalpHvInitMcaPcrContext.c)
- *     ExpSaInitialize @ 0x1403D9134 (ExpSaInitialize.c)
+ *     sub_14039E71C @ 0x14039E71C (sub_14039E71C.c)
+ *     sub_14039F0DC @ 0x14039F0DC (sub_14039F0DC.c)
+ *     sub_14039F294 @ 0x14039F294 (sub_14039F294.c)
+ *     sub_1403A0424 @ 0x1403A0424 (sub_1403A0424.c)
+ *     sub_1403A61E8 @ 0x1403A61E8 (sub_1403A61E8.c)
+ *     sub_1403D2700 @ 0x1403D2700 (sub_1403D2700.c)
+ *     sub_1403D9134 @ 0x1403D9134 (sub_1403D9134.c)
  *     KeQueryMaximumProcessorCount @ 0x14056D7D0 (KeQueryMaximumProcessorCount.c)
- *     KeStartProfile @ 0x14057158C (KeStartProfile.c)
- *     PpmEventHgsHardwareTable @ 0x1405D997C (PpmEventHgsHardwareTable.c)
- *     PpmEventHgsNormalizedTable @ 0x1405D9B84 (PpmEventHgsNormalizedTable.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1406360C0 (EtwpCovSampCaptureFlushSampleBuffers.c)
- *     EtwpInitLoggerContext @ 0x1406EFD44 (EtwpInitLoggerContext.c)
- *     KeInitializeProcess @ 0x14070A268 (KeInitializeProcess.c)
- *     EtwpInitializeSiloState @ 0x140851114 (EtwpInitializeSiloState.c)
- *     EtwpAllocatePmcData @ 0x1409E01E4 (EtwpAllocatePmcData.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409EEA80 (EtwpCovSampCaptureContextStart.c)
- *     EtwpCovSampCaptureFlushStats @ 0x1409EF014 (EtwpCovSampCaptureFlushStats.c)
- *     ExpInitSystemPhase1 @ 0x140AFCEF0 (ExpInitSystemPhase1.c)
- *     HalpDmaAllocateMappingResources @ 0x140B1DD34 (HalpDmaAllocateMappingResources.c)
- *     PpmInitHeteroEngine @ 0x140B2E208 (PpmInitHeteroEngine.c)
+ *     sub_14057158C @ 0x14057158C (sub_14057158C.c)
+ *     sub_1405D997C @ 0x1405D997C (sub_1405D997C.c)
+ *     sub_1405D9B84 @ 0x1405D9B84 (sub_1405D9B84.c)
+ *     sub_1406360C0 @ 0x1406360C0 (sub_1406360C0.c)
+ *     sub_1406EFD44 @ 0x1406EFD44 (sub_1406EFD44.c)
+ *     sub_14070A268 @ 0x14070A268 (sub_14070A268.c)
+ *     sub_140851114 @ 0x140851114 (sub_140851114.c)
+ *     sub_1409E01E4 @ 0x1409E01E4 (sub_1409E01E4.c)
+ *     sub_1409EEA80 @ 0x1409EEA80 (sub_1409EEA80.c)
+ *     sub_1409EF014 @ 0x1409EF014 (sub_1409EF014.c)
+ *     sub_140AFCEF0 @ 0x140AFCEF0 (sub_140AFCEF0.c)
+ *     sub_140B1DD34 @ 0x140B1DD34 (sub_140B1DD34.c)
+ *     sub_140B2E208 @ 0x140B2E208 (sub_140B2E208.c)
  * Callees:
  *     <none>
  */
@@ -37,18 +37,18 @@ ULONG __stdcall KeQueryMaximumProcessorCountEx(USHORT GroupNumber)
 
   if ( KeDynamicPartitioningSupported )
   {
-    if ( GroupNumber == 0xFFFF || !GroupNumber && KiMaximumGroups == 1 )
-      return KeMaximumProcessors;
+    if ( GroupNumber == 0xFFFF || !GroupNumber && word_140D05018 == 1 )
+      return dword_140D068E8;
     else
-      return GroupNumber < (USHORT)KiMaximumGroups ? KiMaximumGroupSize : 0;
+      return GroupNumber < (USHORT)word_140D05018 ? dword_140D0503C : 0;
   }
   else
   {
     if ( GroupNumber == 0xFFFF )
     {
-      LODWORD(v1) = KeNumberProcessors_0;
+      LODWORD(v1) = dword_140D06884;
     }
-    else if ( GroupNumber >= (unsigned __int16)KiActiveGroups )
+    else if ( GroupNumber >= (unsigned __int16)word_140D05014 )
     {
       LODWORD(v1) = 0;
     }

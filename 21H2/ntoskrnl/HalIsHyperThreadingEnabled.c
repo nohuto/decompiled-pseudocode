@@ -1,7 +1,7 @@
 /*
- * XREFs of HalIsHyperThreadingEnabled @ 0x1403AE380
+ * XREFs of HalIsHyperThreadingEnabled @ 0x1403AE4D0
  * Callers:
- *     KiSetFeatureBits @ 0x14099CB6C (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x14099DB6C (KiSetFeatureBits.c)
  * Callees:
  *     <none>
  */

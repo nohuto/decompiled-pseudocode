@@ -1,9 +1,9 @@
 /*
- * XREFs of xtow @ 0x1801280C8
+ * XREFs of xtow @ 0x180127E38
  * Callers:
- *     _itow @ 0x180127F80 (_itow.c)
- *     _ltow @ 0x180127FC0 (_ltow.c)
- *     _ultow @ 0x180128010 (_ultow.c)
+ *     _itow @ 0x180127CF0 (_itow.c)
+ *     _ltow @ 0x180127D30 (_ltow.c)
+ *     _ultow @ 0x180127D80 (_ultow.c)
  * Callees:
  *     <none>
  */

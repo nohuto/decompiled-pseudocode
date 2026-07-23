@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchFilesTrickle @ 0x140954F78
+ * XREFs of PfpPrefetchFilesTrickle @ 0x140938928
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x140951A08 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x1409353B4 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1403D447C (MmQueryMemoryListInformation.c)
- *     PfpCheckPrefetchAbort @ 0x1404864EC (PfpCheckPrefetchAbort.c)
- *     PfpReadSupportInitialize @ 0x1404A1BA0 (PfpReadSupportInitialize.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PfpFileBuildReadSupport @ 0x140953F94 (PfpFileBuildReadSupport.c)
- *     PfpReadSupportCleanup @ 0x140954370 (PfpReadSupportCleanup.c)
- *     PfpAvailablePagesForPrefetch @ 0x140955290 (PfpAvailablePagesForPrefetch.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x1409552C8 (PfpUpdateRepurposedByPrefetch.c)
- *     MmPrefetchPagesEx @ 0x140955430 (MmPrefetchPagesEx.c)
+ *     MmQueryMemoryListInformation @ 0x1402623FC (MmQueryMemoryListInformation.c)
+ *     PfpCheckPrefetchAbort @ 0x140481ADC (PfpCheckPrefetchAbort.c)
+ *     PfpReadSupportInitialize @ 0x14049CB30 (PfpReadSupportInitialize.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PfpFileBuildReadSupport @ 0x140937944 (PfpFileBuildReadSupport.c)
+ *     PfpReadSupportCleanup @ 0x140937D20 (PfpReadSupportCleanup.c)
+ *     PfpAvailablePagesForPrefetch @ 0x140938C40 (PfpAvailablePagesForPrefetch.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x140938C78 (PfpUpdateRepurposedByPrefetch.c)
+ *     MmPrefetchPagesEx @ 0x140938DE0 (MmPrefetchPagesEx.c)
  */
 
 __int64 __fastcall PfpPrefetchFilesTrickle(_QWORD *a1)

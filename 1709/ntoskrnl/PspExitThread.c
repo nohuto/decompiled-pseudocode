@@ -80,11 +80,11 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   __int64 v17; // rdx
   void *v18; // rcx
   __int16 v19; // ax
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   _QWORD *v21; // rcx
   _QWORD *v22; // r15
   _QWORD *v23; // r12
-  union _RTL_RUN_ONCE *v24; // rax
+  _RTL_RUN_ONCE *v24; // rax
   PACCESS_TOKEN v25; // rbx
   void *v26; // rcx
   int v27; // eax

@@ -18,39 +18,45 @@ __int64 __fastcall sub_1800316A8(__int64 a1, __int64 a2, char a3, unsigned __int
   unsigned int v10; // edi
   wchar_t *v11; // rbx
   int v12; // eax
-  __int64 v13; // rdi
-  unsigned int i; // r15d
+  _QWORD *v13; // rdi
+  unsigned int v14; // r15d
   bool v16; // [rsp+30h] [rbp-D0h] BYREF
   _BYTE v17[4]; // [rsp+34h] [rbp-CCh] BYREF
   __int64 v18; // [rsp+38h] [rbp-C8h] BYREF
   wchar_t *String2; // [rsp+40h] [rbp-C0h]
-  __int64 v20; // [rsp+48h] [rbp-B8h] BYREF
-  UNICODE_STRING v21; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING v21; // [rsp+50h] [rbp-B0h] BYREF
   _BYTE v22[176]; // [rsp+60h] [rbp-A0h] BYREF
 
-  v20 = 0LL;
+  BaseAddress = 0LL;
   memset(v22, 0, 0xAAuLL);
   v16 = 0;
   v18 = 0LL;
   String2 = 0LL;
   if ( !a1 || !a2 || !a5 || !*(_QWORD *)a5 )
     return 3221225485LL;
-  v9 = sub_180032B9C(&v20, a2, 25LL, 0LL);
+  v9 = sub_180032B9C(&BaseAddress, a2, 25LL, 0LL);
   if ( v9 >= 0 )
   {
     v10 = 0;
     if ( !*(_WORD *)(a1 + 4) )
     {
 LABEL_13:
-      v13 = v20;
-      for ( i = 0; i < *(unsigned __int16 *)(v13 + 4); ++i )
+      v13 = BaseAddress;
+      v14 = 0;
+      if ( *((_WORD *)BaseAddress + 2) )
       {
-        LODWORD(v18) = 11141120;
-        String2 = (wchar_t *)v22;
-        v9 = sub_180035DEC(a2, *(_QWORD *)(v13 + 24) + 6LL * i, &v18);
-        if ( v9 < 0 )
-          break;
-        v9 = sub_18003645C(a5, a2, 0, (unsigned int)v17, (__int64)String2);
+        do
+        {
+          LODWORD(v18) = 11141120;
+          String2 = (wchar_t *)v22;
+          v9 = sub_180035DEC(a2, v13[3] + 6LL * v14, &v18);
+          if ( v9 < 0 )
+            break;
+          v9 = sub_18003645C(a5, a2, 0, (unsigned int)v17, (__int64)String2);
+          ++v14;
+        }
+        while ( v14 < *((unsigned __int16 *)v13 + 2) );
       }
       goto LABEL_14;
     }
@@ -64,7 +70,7 @@ LABEL_13:
       v11 = String2;
       v21.Buffer = 0LL;
       if ( (int)sub_180030B84(String2, a3, &v16, &v21, a2, a4) >= 0 && v16 )
-        v12 = sub_18003645C((unsigned int)&v20, a2, 0, (unsigned int)v17, (__int64)v21.Buffer);
+        v12 = sub_18003645C((unsigned int)&BaseAddress, a2, 0, (unsigned int)v17, (__int64)v21.Buffer);
       else
         v12 = sub_18003645C(a5, a2, 0, (unsigned int)v17, (__int64)v11);
       v9 = v12;
@@ -74,7 +80,7 @@ LABEL_13:
         goto LABEL_13;
     }
   }
-  v13 = v20;
+  v13 = BaseAddress;
 LABEL_14:
   if ( v13 )
     sub_180032CEC(v13);

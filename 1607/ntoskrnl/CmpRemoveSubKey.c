@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpRemoveSubKey @ 0x1404D4C54
+ * XREFs of CmpRemoveSubKey @ 0x1404B8258
  * Callers:
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
  * Callees:
- *     CmpRemoveSubKeyFromList @ 0x1404D4CD4 (CmpRemoveSubKeyFromList.c)
+ *     CmpRemoveSubKeyFromList @ 0x1404B82D8 (CmpRemoveSubKeyFromList.c)
  */
 
 char __fastcall CmpRemoveSubKey(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoSetFsTrackOffsetState @ 0x1401CA4C8
+ * XREFs of IoSetFsTrackOffsetState @ 0x1401CA368
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExtension @ 0x14008E634 (IopAllocateIrpExtension.c)
- *     IopIrpHasValidCombinationOfExtensionTypes @ 0x1401CA5B8 (IopIrpHasValidCombinationOfExtensionTypes.c)
+ *     IopAllocateIrpExtension @ 0x14008DD94 (IopAllocateIrpExtension.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x1401CA458 (IopIrpHasValidCombinationOfExtensionTypes.c)
  */
 
 __int64 __fastcall IoSetFsTrackOffsetState(__int64 a1, __int64 a2, __int64 a3)

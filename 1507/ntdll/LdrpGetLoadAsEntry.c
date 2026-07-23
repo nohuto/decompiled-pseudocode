@@ -14,32 +14,32 @@ __int64 __fastcall LdrpGetLoadAsEntry(__int64 a1, _OWORD *a2)
 {
   unsigned int v4; // edi
   int v5; // ecx
-  __int64 v6; // r8
+  _OWORD *v6; // r8
 
   if ( !a1 || !a2 )
     return 3221225485LL;
   v4 = -1073741823;
-  LdrpInitMuiCrits((volatile signed __int32 *)&DataLoadLockCount, (__int64)&LoadAsDataCrits);
-  RtlEnterCriticalSection((__int64)&LoadAsDataCrits);
+  LdrpInitMuiCrits((volatile signed __int32 *)&DataLoadLockCount, &LoadAsDataCrits);
+  RtlEnterCriticalSection(&LoadAsDataCrits);
   v5 = LoadAsDataTableCount;
   if ( LoadAsDataTableCount )
   {
     v6 = LoadAsDataTable;
     while ( v5 > 0 )
     {
-      if ( *(_QWORD *)(v6 + 48LL * v5 - 48) == a1 )
+      if ( *(_QWORD *)&v6[3 * v5 - 3] == a1 )
       {
-        if ( *(_QWORD *)(v6 + 48LL * v5 - 40) )
+        if ( *((_QWORD *)&v6[3 * v5 - 2] - 1) )
         {
-          *a2 = *(_OWORD *)(v6 + 48LL * v5 - 48);
-          a2[1] = *(_OWORD *)(v6 + 48LL * v5 - 32);
-          a2[2] = *(_OWORD *)(v6 + 48LL * v5 - 16);
+          *a2 = v6[3 * v5 - 3];
+          a2[1] = v6[3 * v5 - 2];
+          a2[2] = v6[3 * v5 - 1];
           v4 = 0;
         }
       }
       --v5;
     }
   }
-  RtlLeaveCriticalSection((__int64)&LoadAsDataCrits);
+  RtlLeaveCriticalSection(&LoadAsDataCrits);
   return v4;
 }

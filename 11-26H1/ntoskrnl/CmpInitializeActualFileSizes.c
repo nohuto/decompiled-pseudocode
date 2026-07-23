@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeActualFileSizes @ 0x140ACDD58
+ * XREFs of CmpInitializeActualFileSizes @ 0x140ACFF98
  * Callers:
- *     HvLoadHive @ 0x140AC26A0 (HvLoadHive.c)
+ *     HvLoadHive @ 0x140AC4740 (HvLoadHive.c)
  * Callees:
- *     CmpGetFileSize @ 0x140ACDEC4 (CmpGetFileSize.c)
- *     CmpLogFailureToGetFileSize @ 0x140ACDF34 (CmpLogFailureToGetFileSize.c)
+ *     CmpGetFileSize @ 0x140AD0104 (CmpGetFileSize.c)
+ *     CmpLogFailureToGetFileSize @ 0x140AD0174 (CmpLogFailureToGetFileSize.c)
  */
 
 __int64 __fastcall CmpInitializeActualFileSizes(__int64 a1, _DWORD *a2)

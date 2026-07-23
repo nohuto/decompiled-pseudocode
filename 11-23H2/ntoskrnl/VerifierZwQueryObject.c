@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwQueryObject @ 0x140AE6540
+ * XREFs of VerifierZwQueryObject @ 0x140AE6530
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierZwQueryObject(__int64 a1)

@@ -16,8 +16,8 @@ __int64 PopEnableSystemSleepCheckpoint()
   int v1; // ebx
   __int32 v3; // eax
   __int32 v4; // eax
-  __int64 v5; // rsi
-  unsigned __int64 v6; // rax
+  LARGE_INTEGER v5; // rsi
+  LONGLONG v6; // rax
   unsigned __int64 v7; // [rsp+40h] [rbp+8h] BYREF
   LARGE_INTEGER v8; // [rsp+48h] [rbp+10h] BYREF
   __int64 v9; // [rsp+50h] [rbp+18h] BYREF
@@ -73,8 +73,8 @@ LABEL_20:
   }
   else
   {
-    v6 = KeQueryInterruptTimePrecise(&v8) - v5;
-    if ( v0 && v6 > 0x186A0 )
+    v6 = *(_QWORD *)&KeQueryInterruptTimePrecise(&v8) - v5.QuadPart;
+    if ( v0 && (unsigned __int64)v6 > 0x186A0 )
     {
       v1 = 258;
       _InterlockedExchange(&PopSleepCheckpointStatus, 10);

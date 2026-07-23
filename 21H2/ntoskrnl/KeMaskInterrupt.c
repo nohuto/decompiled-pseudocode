@@ -1,20 +1,20 @@
 /*
- * XREFs of KeMaskInterrupt @ 0x140376F40
+ * XREFs of KeMaskInterrupt @ 0x140376A90
  * Callers:
- *     KeDisconnectInterrupt @ 0x140376D34 (KeDisconnectInterrupt.c)
- *     IopMaskInterrupt @ 0x14038CEC4 (IopMaskInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x140376884 (KeDisconnectInterrupt.c)
+ *     IopMaskInterrupt @ 0x14038D014 (IopMaskInterrupt.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
- *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
- *     KeSetTargetProcessorDpcEx @ 0x1402D1640 (KeSetTargetProcessorDpcEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KiAcquireInterruptConnectLock @ 0x140377AC0 (KiAcquireInterruptConnectLock.c)
- *     KiIsInterruptTypeSecondary @ 0x140378194 (KiIsInterruptTypeSecondary.c)
- *     KiMaskInterruptInternal @ 0x1403A731C (KiMaskInterruptInternal.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeRemoveQueueDpcEx @ 0x140246860 (KeRemoveQueueDpcEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14024FAD0 (KeSetTargetProcessorDpcEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140263490 (KeGetProcessorNumberFromIndex.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     KiAcquireInterruptConnectLock @ 0x140377610 (KiAcquireInterruptConnectLock.c)
+ *     KiIsInterruptTypeSecondary @ 0x140377CE4 (KiIsInterruptTypeSecondary.c)
+ *     KiMaskInterruptInternal @ 0x1403A746C (KiMaskInterruptInternal.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiMaskSecondaryInterruptInternal @ 0x140519508 (KiMaskSecondaryInterruptInternal.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x140519748 (KiMaskSecondaryInterruptInternal.c)
  */
 
 __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, struct _KDPC *a4)
@@ -42,8 +42,8 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   _DWORD *v29; // r8
   int v30; // eax
   unsigned __int8 v31[4]; // [rsp+30h] [rbp-20h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-1Ch] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-1Ch] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   PreviousAffinity = 0LL;
   v31[0] = 0;

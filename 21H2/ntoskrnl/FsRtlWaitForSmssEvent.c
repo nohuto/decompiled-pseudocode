@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlWaitForSmssEvent @ 0x1407D5360
+ * XREFs of FsRtlWaitForSmssEvent @ 0x1407D54D0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
  */
 
 void __fastcall FsRtlWaitForSmssEvent(PADAPTER_OBJECT DmaAdapter)

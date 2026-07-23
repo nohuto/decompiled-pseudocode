@@ -1,22 +1,22 @@
 /*
- * XREFs of MiExtendSection @ 0x1407067D4
+ * XREFs of MiExtendSection @ 0x1407069E4
  * Callers:
- *     MmExtendSection @ 0x140706504 (MmExtendSection.c)
+ *     MmExtendSection @ 0x140706714 (MmExtendSection.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     MiDeleteSubsectionPages @ 0x140218EF0 (MiDeleteSubsectionPages.c)
  *     MiUpdateSystemProtoPtesTree @ 0x14021BF30 (MiUpdateSystemProtoPtesTree.c)
- *     MiGetControlAreaPartition @ 0x1402756B0 (MiGetControlAreaPartition.c)
- *     MiIncrementSubsectionViewCount @ 0x1402891F0 (MiIncrementSubsectionViewCount.c)
- *     MiAppendSubsectionChain @ 0x1402932D8 (MiAppendSubsectionChain.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiSetSubsectionBase @ 0x14036AADC (MiSetSubsectionBase.c)
- *     MiSubsectionNeedsExtents @ 0x140635B40 (MiSubsectionNeedsExtents.c)
- *     MiGetSubsectionCharges @ 0x14066B1A8 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B494 (MiUpdateSubsectionCrossPartitionRefs.c)
- *     MiInitializePrototypePtes @ 0x1406B0EE4 (MiInitializePrototypePtes.c)
+ *     MiGetControlAreaPartition @ 0x140275940 (MiGetControlAreaPartition.c)
+ *     MiIncrementSubsectionViewCount @ 0x140289480 (MiIncrementSubsectionViewCount.c)
+ *     MiAppendSubsectionChain @ 0x140293568 (MiAppendSubsectionChain.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiSetSubsectionBase @ 0x14036AC7C (MiSetSubsectionBase.c)
+ *     MiSubsectionNeedsExtents @ 0x140636090 (MiSubsectionNeedsExtents.c)
+ *     MiGetSubsectionCharges @ 0x14066B6F8 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B9E4 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiInitializePrototypePtes @ 0x1406B0F14 (MiInitializePrototypePtes.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

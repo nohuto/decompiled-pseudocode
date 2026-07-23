@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcaPopulateErrorDataEx @ 0x14053FD6C
+ * XREFs of HalpMcaPopulateErrorDataEx @ 0x14053D66C
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x14053FB8C (HalpMcaPopulateErrorData.c)
+ *     HalpMcaPopulateErrorData @ 0x14053D48C (HalpMcaPopulateErrorData.c)
  * Callees:
- *     HalpWheaReadMsrMisc @ 0x14047CEEC (HalpWheaReadMsrMisc.c)
- *     HalpWheaReadMsrAddress @ 0x140554580 (HalpWheaReadMsrAddress.c)
+ *     HalpWheaReadMsrMisc @ 0x14047807C (HalpWheaReadMsrMisc.c)
+ *     HalpWheaReadMsrAddress @ 0x140551EC0 (HalpWheaReadMsrAddress.c)
  */
 
 _UNKNOWN **__fastcall HalpMcaPopulateErrorDataEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)

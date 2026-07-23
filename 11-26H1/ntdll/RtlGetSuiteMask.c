@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlGetSuiteMask @ 0x180063C60
+ * XREFs of RtlGetSuiteMask @ 0x1800840B0
  * Callers:
- *     SwitchedRtlGetVersion @ 0x180062FA0 (SwitchedRtlGetVersion.c)
- *     RtlGetVersion @ 0x1800638F0 (RtlGetVersion.c)
- *     LdrpEnableParallelLoading @ 0x1800649F0 (LdrpEnableParallelLoading.c)
- *     RtlpActivateLowFragmentationHeap @ 0x18007DF18 (RtlpActivateLowFragmentationHeap.c)
- *     RtlInitializeHeapManager @ 0x1800D3DD4 (RtlInitializeHeapManager.c)
- *     RtlpHpOptIntoSegmentHeap @ 0x1800D424C (RtlpHpOptIntoSegmentHeap.c)
- *     RtlQueryResourcePolicy @ 0x18010F510 (RtlQueryResourcePolicy.c)
- *     RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit @ 0x180144F80 (RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit.c)
- *     RtlpQueryDiskSpeedPolicy @ 0x18015AD30 (RtlpQueryDiskSpeedPolicy.c)
+ *     RtlpActivateLowFragmentationHeap @ 0x18006C604 (RtlpActivateLowFragmentationHeap.c)
+ *     SwitchedRtlGetVersion @ 0x1800833F0 (SwitchedRtlGetVersion.c)
+ *     RtlGetVersion @ 0x180083D40 (RtlGetVersion.c)
+ *     LdrpEnableParallelLoading @ 0x180084E40 (LdrpEnableParallelLoading.c)
+ *     RtlInitializeHeapManager @ 0x1800CFAEC (RtlInitializeHeapManager.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x1800CFF64 (RtlpHpOptIntoSegmentHeap.c)
+ *     RtlQueryResourcePolicy @ 0x18010F0A0 (RtlQueryResourcePolicy.c)
+ *     RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit @ 0x180144E30 (RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit.c)
+ *     RtlpQueryDiskSpeedPolicy @ 0x18015AC00 (RtlpQueryDiskSpeedPolicy.c)
  * Callees:
  *     <none>
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
   _DWORD *SharedData; // rcx
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    return *((unsigned int *)NtCurrentPeb()->SharedData + 5);
+    return *((_DWORD *)NtCurrentPeb()->SharedData + 5);
   else
     return MEMORY[0x7FFE02D0];
 }

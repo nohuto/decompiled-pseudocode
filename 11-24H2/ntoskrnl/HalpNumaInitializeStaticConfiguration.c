@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140C119F8
+ * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140C139F8
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140C137FC (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140C157FC (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HalpAllocateNumaConfigData @ 0x140C11238 (HalpAllocateNumaConfigData.c)
- *     HalpGetAvailableProximityId @ 0x140C113DC (HalpGetAvailableProximityId.c)
- *     HalpGetNumaProcMemoryCount @ 0x140C1146C (HalpGetNumaProcMemoryCount.c)
- *     HalpInitializeConfigurationFromMadt @ 0x140C11680 (HalpInitializeConfigurationFromMadt.c)
- *     HalpNumaSortProcessors @ 0x140C12634 (HalpNumaSortProcessors.c)
- *     HalpUpdateConfigurationFromMsct @ 0x140C126D0 (HalpUpdateConfigurationFromMsct.c)
- *     HalpVerifySratEntryLengthAndFlag @ 0x140C12A78 (HalpVerifySratEntryLengthAndFlag.c)
- *     HalpChannelInitializeStaticConfiguration @ 0x140C14C38 (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HalpAllocateNumaConfigData @ 0x140C1322C (HalpAllocateNumaConfigData.c)
+ *     HalpGetAvailableProximityId @ 0x140C133D0 (HalpGetAvailableProximityId.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140C13460 (HalpGetNumaProcMemoryCount.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140C13674 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpNumaSortProcessors @ 0x140C14634 (HalpNumaSortProcessors.c)
+ *     HalpUpdateConfigurationFromMsct @ 0x140C146D0 (HalpUpdateConfigurationFromMsct.c)
+ *     HalpVerifySratEntryLengthAndFlag @ 0x140C14A78 (HalpVerifySratEntryLengthAndFlag.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140C16C38 (HalpChannelInitializeStaticConfiguration.c)
  */
 
 char __fastcall HalpNumaInitializeStaticConfiguration(__int64 a1)
@@ -118,9 +118,9 @@ char __fastcall HalpNumaInitializeStaticConfiguration(__int64 a1)
   v88 = 0;
   v89 = 0;
   HalpNumaInitializationComplete = 1;
-  HalpAcpiMpst = HalpAcpiGetTable(a1, 1414746189, 0LL, 0LL);
-  HalpAcpiSrat = HalpAcpiGetTable(v1, 1413567059, 0LL, 0LL);
-  HalpAcpiMsct = HalpAcpiGetTable(v1, 1413698381, 0LL, 0LL);
+  HalpAcpiMpst = HalpAcpiGetTable(a1, 1414746189, 0, 0);
+  HalpAcpiSrat = HalpAcpiGetTable(v1, 1413567059, 0, 0);
+  HalpAcpiMsct = HalpAcpiGetTable(v1, 1413698381, 0, 0);
   if ( !HalpAcpiSrat )
   {
     LOBYTE(MemoryInternal) = HalpInitializeConfigurationFromMadt(v1);
@@ -359,7 +359,7 @@ LABEL_59:
             *(_QWORD *)(HalpNumaConfig + 24),
             *(_QWORD *)(HalpNumaConfig + 40),
             *(_QWORD *)(HalpNumaConfig + 16));
-        Table = HalpAcpiGetTable(v1, 1414089811, 0LL, 0LL);
+        Table = HalpAcpiGetTable(v1, 1414089811, 0, 0);
         v46 = Table;
         if ( Table )
         {

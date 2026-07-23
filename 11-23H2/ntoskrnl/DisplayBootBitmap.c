@@ -1,20 +1,20 @@
 /*
- * XREFs of DisplayBootBitmap @ 0x1403AA048
+ * XREFs of DisplayBootBitmap @ 0x1403AA228
  * Callers:
- *     DisplayFilter @ 0x1404FDCE0 (DisplayFilter.c)
+ *     DisplayFilter @ 0x1404FE230 (DisplayFilter.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     InbvReleaseResources @ 0x1403AA0A0 (InbvReleaseResources.c)
- *     InbvIsBootDriverInstalled @ 0x1403AA140 (InbvIsBootDriverInstalled.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     InbvAcquireLock @ 0x14054E4FC (InbvAcquireLock.c)
- *     InbvGetResourceAddress @ 0x14054E5C0 (InbvGetResourceAddress.c)
- *     InbvReleaseLock @ 0x14054E62C (InbvReleaseLock.c)
- *     InbvSetTextColor @ 0x14054E6C0 (InbvSetTextColor.c)
- *     InbvSolidColorFill @ 0x14054E6F0 (InbvSolidColorFill.c)
- *     RotBarInit @ 0x14054E870 (RotBarInit.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
+ *     InbvReleaseResources @ 0x1403AA280 (InbvReleaseResources.c)
+ *     InbvIsBootDriverInstalled @ 0x1403AA320 (InbvIsBootDriverInstalled.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     InbvAcquireLock @ 0x14054EBBC (InbvAcquireLock.c)
+ *     InbvGetResourceAddress @ 0x14054EC80 (InbvGetResourceAddress.c)
+ *     InbvReleaseLock @ 0x14054ECEC (InbvReleaseLock.c)
+ *     InbvSetTextColor @ 0x14054ED80 (InbvSetTextColor.c)
+ *     InbvSolidColorFill @ 0x14054EDB0 (InbvSolidColorFill.c)
+ *     RotBarInit @ 0x14054EF30 (RotBarInit.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
  */
 
 int __fastcall DisplayBootBitmap(char a1)

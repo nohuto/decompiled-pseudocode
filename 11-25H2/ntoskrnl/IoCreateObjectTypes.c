@@ -24,7 +24,7 @@ bool IoCreateObjectTypes()
   void *v9; // [rsp+88h] [rbp+7h]
   void *v10; // [rsp+90h] [rbp+Fh]
   void *v11; // [rsp+98h] [rbp+17h]
-  __int64 (__fastcall *v12)(__int64, int, ULONG *, UNICODE_STRING *, PULONG, int, int, __int64, char); // [rsp+A0h] [rbp+1Fh]
+  __int64 (__fastcall *v12)(__int64, int, DWORD *, UNICODE_STRING *, PULONG, int, int, __int64, char); // [rsp+A0h] [rbp+1Fh]
   __int64 (__fastcall *v13)(struct _FILE_OBJECT *, __int64, UNICODE_STRING *, unsigned int, unsigned int *, char); // [rsp+A8h] [rbp+27h]
   int v14; // [rsp+B8h] [rbp+37h]
   int v15; // [rsp+BCh] [rbp+3Bh]

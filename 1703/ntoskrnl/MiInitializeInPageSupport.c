@@ -67,7 +67,7 @@ char __fastcall MiInitializeInPageSupport(ULONG_PTR BugCheckParameter2, char a2)
   *(_BYTE *)(BugCheckParameter2 + 190) = PagePriorityThread & 7 | v9 | (16 * (v8 & 7));
   if ( (v3 & 2) != 0 )
   {
-    v9 = KeAbPreAcquire(BugCheckParameter2);
+    v9 = KeAbPreAcquire(BugCheckParameter2, 0LL);
     *(_QWORD *)(BugCheckParameter2 + 208) = v9;
     if ( v9 )
       *(_BYTE *)(v9 + 26) |= 1u;

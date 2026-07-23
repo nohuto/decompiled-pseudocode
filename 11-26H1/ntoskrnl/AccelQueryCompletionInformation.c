@@ -1,12 +1,12 @@
 /*
- * XREFs of AccelQueryCompletionInformation @ 0x1406DF030
+ * XREFs of AccelQueryCompletionInformation @ 0x1406E32D0
  * Callers:
- *     SmHwAcceleratorWaitForRequest @ 0x140640060 (SmHwAcceleratorWaitForRequest.c)
- *     AccelCompressBuffer @ 0x1406DEB60 (AccelCompressBuffer.c)
- *     AccelDecompressBuffer @ 0x1406DED18 (AccelDecompressBuffer.c)
+ *     SmHwAcceleratorWaitForRequest @ 0x140643C40 (SmHwAcceleratorWaitForRequest.c)
+ *     AccelCompressBuffer @ 0x1406E2E00 (AccelCompressBuffer.c)
+ *     AccelDecompressBuffer @ 0x1406E2FB8 (AccelDecompressBuffer.c)
  * Callees:
- *     AccelpInternalOperationHandler @ 0x140531E58 (AccelpInternalOperationHandler.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpInternalOperationHandler @ 0x1405342F8 (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelQueryCompletionInformation(__int64 a1)

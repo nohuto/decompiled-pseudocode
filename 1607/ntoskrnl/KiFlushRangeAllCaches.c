@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushRangeAllCaches @ 0x1401D62A8
+ * XREFs of KiFlushRangeAllCaches @ 0x1401D60D4
  * Callers:
- *     KeFlushIoBuffers @ 0x14009D3F0 (KeFlushIoBuffers.c)
+ *     KeFlushIoBuffers @ 0x14009CBF0 (KeFlushIoBuffers.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall KiFlushRangeAllCaches(

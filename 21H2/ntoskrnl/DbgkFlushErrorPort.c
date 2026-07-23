@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkFlushErrorPort @ 0x1406CDB68
+ * XREFs of DbgkFlushErrorPort @ 0x14067C7F8
  * Callers:
- *     PspExitProcess @ 0x1406CD37C (PspExitProcess.c)
+ *     PspExitProcess @ 0x14067C00C (PspExitProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     DbgkpDereferenceErrorPort @ 0x1404EE0D8 (DbgkpDereferenceErrorPort.c)
- *     DbgkpRemoveErrorPort @ 0x140887074 (DbgkpRemoveErrorPort.c)
+ *     PsGetProcessServerSilo @ 0x14027DFF0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     DbgkpDereferenceErrorPort @ 0x1404EE318 (DbgkpDereferenceErrorPort.c)
+ *     DbgkpRemoveErrorPort @ 0x1408871D4 (DbgkpRemoveErrorPort.c)
  */
 
 _QWORD *__fastcall DbgkFlushErrorPort(__int64 a1)
@@ -20,6 +20,9 @@ _QWORD *__fastcall DbgkFlushErrorPort(__int64 a1)
   signed __int64 *v4; // rbx
   struct _KTHREAD *CurrentThread; // rsi
   volatile signed __int32 *v6; // rdi
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
 
   ProcessServerSilo = PsGetProcessServerSilo(a1);
   result = PsGetServerSiloGlobals(ProcessServerSilo);
@@ -38,7 +41,7 @@ _QWORD *__fastcall DbgkFlushErrorPort(__int64 a1)
     if ( _InterlockedCompareExchange64(v4, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v4);
     KeAbPostRelease((ULONG_PTR)v4);
-    result = KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    result = KeLeaveCriticalRegionThread((__int64)CurrentThread, v7, v8, v9);
     if ( v6 )
     {
       DbgkpRemoveErrorPort(CurrentThread, v4, v6);

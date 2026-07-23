@@ -7,7 +7,7 @@
  *     <none>
  */
 
-void __fastcall MiStoreFreeWriteSupport(struct _SLIST_ENTRY *a1, union _SLIST_HEADER *a2)
+void __fastcall MiStoreFreeWriteSupport(_SLIST_ENTRY *a1, _SLIST_HEADER *a2)
 {
   if ( LOWORD(a2[73].Alignment) >= 0x100u )
     ExFreePoolWithTag(a1, 0);

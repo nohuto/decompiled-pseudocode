@@ -214,7 +214,7 @@ LABEL_11:
                                   v14,
                                   v15,
                                   PropertyBuffer,
-                                  (__int64)ResultLength);
+                                  ResultLength);
             v17 = DeviceRegProperty == -1073741275;
             goto LABEL_13;
           }

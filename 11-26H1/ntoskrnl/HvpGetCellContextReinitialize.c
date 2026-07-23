@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpGetCellContextReinitialize @ 0x1408D9300
+ * XREFs of HvpGetCellContextReinitialize @ 0x1408DF8C0
  * Callers:
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextMove @ 0x1408DBAE4 (HvpGetCellContextMove.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextMove @ 0x1408E20A4 (HvpGetCellContextMove.c)
  * Callees:
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
  */
 
 double __fastcall HvpGetCellContextReinitialize(__int64 a1)

@@ -71,29 +71,27 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
   unsigned __int8 v51; // dl
   char v52; // cl
   __int64 v53; // rax
-  bool v54; // zf
-  __int64 v55; // rdx
-  __int64 v56; // r9
+  __int64 v54; // r9
   _DWORD *SharedData; // rcx
-  __int64 v58; // rcx
-  unsigned int v59; // ebp
-  __int64 v61; // r8
-  signed __int64 v62; // rax
-  signed __int64 v63; // rcx
-  __int64 v64; // rax
-  __int64 v65; // r9
-  __int64 v66; // rcx
-  __int64 v67; // rax
-  __int64 v68; // r9
-  __int64 v69; // rcx
-  int v70; // eax
-  __int64 v71; // rdx
-  char v72; // al
-  signed __int32 v73[8]; // [rsp+0h] [rbp-78h] BYREF
-  signed __int64 v74; // [rsp+30h] [rbp-48h]
-  signed __int64 v75; // [rsp+38h] [rbp-40h]
-  unsigned int v76; // [rsp+80h] [rbp+8h] BYREF
-  int v77; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v56; // rcx
+  unsigned int v57; // ebp
+  __int64 v59; // r8
+  signed __int64 v60; // rax
+  signed __int64 v61; // rcx
+  __int64 v62; // rax
+  __int64 v63; // r9
+  __int64 v64; // rcx
+  __int64 v65; // rax
+  __int64 v66; // r9
+  __int64 v67; // rcx
+  int v68; // eax
+  __int64 v69; // rdx
+  char v70; // al
+  signed __int32 v71[8]; // [rsp+0h] [rbp-78h] BYREF
+  signed __int64 v72; // [rsp+30h] [rbp-48h]
+  signed __int64 v73; // [rsp+38h] [rbp-40h]
+  __int64 v74; // [rsp+80h] [rbp+8h] BYREF
+  int v75; // [rsp+90h] [rbp+18h] BYREF
 
   v6 = 0;
   v7 = *(_DWORD *)(a1 + 20);
@@ -116,10 +114,10 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
     }
     else
     {
-      v67 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC50, 2 * ((a2 - qword_18016DC48) >> 20));
-      if ( !v67 || (v16 = v67 - 1, v16 == 2) )
+      v65 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_18016DC48) >> 20));
+      if ( !v65 || (v16 = v65 - 1, v16 == 2) )
       {
-        v37 = RtlpHpLargeAllocSize(a1, a2, v14, &v77);
+        v37 = RtlpHpLargeAllocSize(a1, a2, v14, &v75);
         goto LABEL_29;
       }
     }
@@ -165,17 +163,17 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
     {
       if ( (*(_WORD *)(DescriptorValidateSafe + 8) & 1) != 0 )
       {
-        _InterlockedOr(v73, 0);
+        _InterlockedOr(v71, 0);
         v24 = *(_BYTE *)(v18 + 8);
-        v70 = 1;
+        v68 = 1;
       }
       else
       {
-        v70 = 0;
+        v68 = 0;
       }
-      v71 = *(unsigned __int8 *)(DescriptorValidateSafe + 31);
-      v77 = v70;
-      v37 = (v71 << v24) - *(unsigned int *)(DescriptorValidateSafe + 4);
+      v69 = *(unsigned __int8 *)(DescriptorValidateSafe + 31);
+      v75 = v68;
+      v37 = (v69 << v24) - *(unsigned int *)(DescriptorValidateSafe + 4);
     }
     else if ( v23 == 8 )
     {
@@ -218,7 +216,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
             v40 = v39 & 0x4000;
             if ( (v39 & 0x4000) != 0 )
             {
-              _InterlockedOr(v73, 0);
+              _InterlockedOr(v71, 0);
               v39 = *(_WORD *)(v38 + a2 - 2);
             }
             v41 = v40 != 0;
@@ -231,7 +229,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
           {
             v41 = 0;
           }
-          v77 = v41;
+          v75 = v41;
         }
         else
         {
@@ -241,7 +239,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
     }
     else
     {
-      v37 = RtlpHpVsChunkSize(*(_QWORD *)(v18 + 32), a2, DescriptorValidateSafe, &v77);
+      v37 = RtlpHpVsChunkSize(*(_QWORD *)(v18 + 32), a2, DescriptorValidateSafe, &v75);
     }
     v13 = a5;
 LABEL_29:
@@ -249,7 +247,7 @@ LABEL_29:
     {
       if ( a4 )
         *a4 = v37;
-      if ( v77 )
+      if ( v75 )
       {
         v42 = v37 + a2;
         if ( (v14 & 0x10000000) != 0 )
@@ -284,8 +282,8 @@ LABEL_38:
     {
       if ( (v15 || (v15 = RtlpHpExtrasGet(a1, a2, v14, a4)) != 0) && v15 != -1LL )
       {
-        v72 = *(_BYTE *)(v15 + 2);
-        if ( (v72 & 0xF) != 0 && (int)RtlpCallInterceptRoutine(v72 & 0xF, a1, a2, 3, v15 + 16) < 0 )
+        v70 = *(_BYTE *)(v15 + 2);
+        if ( (v70 & 0xF) != 0 && (int)RtlpCallInterceptRoutine(v70 & 0xF, a1, a2, 3, v15 + 16) < 0 )
           return 0LL;
       }
     }
@@ -298,17 +296,17 @@ LABEL_38:
     }
     else
     {
-      v64 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC50, 2 * ((a2 - qword_18016DC48) >> 20));
-      if ( !v64 || (v44 = v64 - 1, v44 == 2) )
+      v62 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_18016DC48) >> 20));
+      if ( !v62 || (v44 = v62 - 1, v44 == 2) )
       {
-        v59 = RtlpHpLargeFree((__int128 *)a1, a2, v14) != 0;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v66 = (__int64)NtCurrentPeb()->SharedData + 550;
+        v57 = RtlpHpLargeFree((__int128 *)a1, (PVOID)a2, v14) != 0;
+        if ( RtlGetCurrentServiceSessionId() )
+          v64 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
-          v66 = 2147353472LL;
-        if ( *(_BYTE *)v66 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v59 )
-          RtlpLogHeapFreeEvent(a1, a2, 3LL, v65);
-        return v59;
+          v64 = 2147353472LL;
+        if ( *(_BYTE *)v64 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v57 )
+          RtlpLogHeapFreeEvent(a1, a2, 3LL, v63);
+        return v57;
       }
     }
     v45 = 192LL * v44;
@@ -341,71 +339,73 @@ LABEL_51:
             if ( a2 <= v53 + ((v48 - v53) >> 5 << v52) )
             {
               RtlpHpSegPageRangeShrink(v46, v48, 0, v14);
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-                v69 = (__int64)NtCurrentPeb()->SharedData + 550;
+              if ( RtlGetCurrentServiceSessionId() )
+                v67 = (__int64)NtCurrentPeb()->SharedData + 550;
               else
-                v69 = 2147353472LL;
-              if ( *(_BYTE *)v69 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-                RtlpLogHeapFreeEvent(*(_QWORD *)(v46 + 56), a2, 3LL, v68);
+                v67 = 2147353472LL;
+              if ( *(_BYTE *)v67 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+                RtlpLogHeapFreeEvent(*(_QWORD *)(v46 + 56), a2, 3LL, v66);
               return 1;
             }
             else
             {
-              v54 = v51 == 8;
-              v55 = v53 + ((v48 - v53) >> 5 << v52);
-              if ( v54 )
+              if ( v51 == 8 )
               {
-                LODWORD(a5) = RtlpHpLfhSubsegmentFreeBlock(*(_QWORD *)(v46 + 24), v55, a2, v14);
+                LODWORD(a5) = RtlpHpLfhSubsegmentFreeBlock(
+                                *(_QWORD *)(v46 + 24),
+                                v53 + ((v48 - v53) >> 5 << v52),
+                                a2,
+                                v14);
               }
               else
               {
-                LODWORD(a5) = RtlpHpVsContextFree(*(_QWORD *)(v46 + 32), v55, a2, v14, (__int64)&v76);
+                LODWORD(a5) = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(v46 + 32), (__int64)&v74);
                 if ( (_DWORD)a5 )
                 {
-                  v61 = *(_QWORD *)(v46 + 24);
-                  if ( v76 <= (unsigned int)*(unsigned __int16 *)(v61 + 60) - 16 )
+                  v59 = *(_QWORD *)(v46 + 24);
+                  if ( (unsigned int)v74 <= (unsigned int)*(unsigned __int16 *)(v59 + 60) - 16 )
                   {
-                    v56 = RtlpLfhBucketIndexMap[(unsigned __int64)(v76 + 15) >> 4];
-                    if ( (*(_QWORD *)(v61 + 8 * v56 + 128) & 1) != 0 )
+                    v54 = RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(v74 + 15) >> 4];
+                    if ( (*(_QWORD *)(v59 + 8 * v54 + 128) & 1) != 0 )
                     {
                       do
                       {
-                        v62 = *(_QWORD *)(v61 + 8 * v56 + 128);
-                        v75 = v62;
-                        v63 = v62;
-                        v74 = v62;
-                        if ( (v62 & 1) == 0 )
+                        v60 = *(_QWORD *)(v59 + 8 * v54 + 128);
+                        v73 = v60;
+                        v61 = v60;
+                        v72 = v60;
+                        if ( (v60 & 1) == 0 )
                           break;
-                        if ( WORD1(v75) > 1u )
+                        if ( WORD1(v73) > 1u )
                         {
-                          WORD1(v74) = WORD1(v75) - 1;
-                          v63 = v74;
+                          WORD1(v72) = WORD1(v73) - 1;
+                          v61 = v72;
                         }
                       }
-                      while ( v62 != _InterlockedCompareExchange64(
-                                       (volatile signed __int64 *)(v61 + 8 * v56 + 128),
-                                       v63,
-                                       v62) );
+                      while ( v60 != _InterlockedCompareExchange64(
+                                       (volatile signed __int64 *)(v59 + 8 * v54 + 128),
+                                       v61,
+                                       v60) );
                     }
                   }
                 }
               }
               SharedData = NtCurrentPeb()->SharedData;
               if ( SharedData && *SharedData )
-                v58 = (__int64)NtCurrentPeb()->SharedData + 550;
+                v56 = (__int64)NtCurrentPeb()->SharedData + 550;
               else
-                v58 = 2147353472LL;
-              v59 = (unsigned int)a5;
-              if ( *(_BYTE *)v58 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+                v56 = 2147353472LL;
+              v57 = (unsigned int)a5;
+              if ( *(_BYTE *)v56 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
               {
                 if ( (_DWORD)a5 )
                 {
                   LOBYTE(v6) = (*(_BYTE *)(v48 + 24) & 0xC) != 8;
-                  RtlpLogHeapFreeEvent(*(_QWORD *)(v46 + 56), a2, (unsigned int)(v6 + 2), v56);
+                  RtlpLogHeapFreeEvent(*(_QWORD *)(v46 + 56), a2, (unsigned int)(v6 + 2), v54);
                 }
               }
             }
-            return v59;
+            return v57;
           }
         }
         else

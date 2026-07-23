@@ -19,7 +19,7 @@ void __fastcall EtwpWriteProcessEvent(
         PEPROCESS Process,
         __int16 a2,
         _QWORD *a3,
-        int *a4,
+        WCHAR *a4,
         unsigned __int16 *a5,
         __int64 a6)
 {

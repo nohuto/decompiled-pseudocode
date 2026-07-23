@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDeCommitQueryDebugInfo @ 0x18011ECFC
+ * XREFs of RtlpDeCommitQueryDebugInfo @ 0x18011CF2C
  * Callers:
- *     AVrfpQueryProcessVerifierOptions @ 0x180046094 (AVrfpQueryProcessVerifierOptions.c)
- *     RtlQueryProcessModuleInformation @ 0x180046274 (RtlQueryProcessModuleInformation.c)
- *     RtlDeCommitDebugInfo @ 0x180113F60 (RtlDeCommitDebugInfo.c)
+ *     AVrfpQueryProcessVerifierOptions @ 0x18002A024 (AVrfpQueryProcessVerifierOptions.c)
+ *     RtlQueryProcessModuleInformation @ 0x18002A204 (RtlQueryProcessModuleInformation.c)
+ *     RtlDeCommitDebugInfo @ 0x18010F260 (RtlDeCommitDebugInfo.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ObDrainDeferredObjectDeletion @ 0x140665CD0
+ * XREFs of ObDrainDeferredObjectDeletion @ 0x140665DB4
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmLoadKey @ 0x14049C9B4 (CmLoadKey.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmLoadKey @ 0x1404A4834 (CmLoadKey.c)
  * Callees:
- *     ExBlockOnAddressPushLock @ 0x1400872BC (ExBlockOnAddressPushLock.c)
+ *     ExBlockOnAddressPushLock @ 0x14009DC4C (ExBlockOnAddressPushLock.c)
  */
 
 __int64 ObDrainDeferredObjectDeletion()

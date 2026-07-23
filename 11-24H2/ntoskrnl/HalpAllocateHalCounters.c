@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAllocateHalCounters @ 0x14053E368
+ * XREFs of HalpAllocateHalCounters @ 0x14053BC68
  * Callers:
- *     EmonAllocateCounterEnhanced @ 0x14055AA30 (EmonAllocateCounterEnhanced.c)
- *     EmonAllocateCounterOriginal @ 0x14055ABCC (EmonAllocateCounterOriginal.c)
- *     EmonMarkCountersReserved @ 0x14055BF80 (EmonMarkCountersReserved.c)
- *     Amd64AllocateCounter @ 0x14056A5AC (Amd64AllocateCounter.c)
+ *     EmonAllocateCounterEnhanced @ 0x140558660 (EmonAllocateCounterEnhanced.c)
+ *     EmonAllocateCounterOriginal @ 0x1405587FC (EmonAllocateCounterOriginal.c)
+ *     EmonMarkCountersReserved @ 0x140559BB0 (EmonMarkCountersReserved.c)
+ *     Amd64AllocateCounter @ 0x140567A3C (Amd64AllocateCounter.c)
  * Callees:
  *     <none>
  */

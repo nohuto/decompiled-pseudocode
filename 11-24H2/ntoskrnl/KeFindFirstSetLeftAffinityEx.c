@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFindFirstSetLeftAffinityEx @ 0x14044C2E0
+ * XREFs of KeFindFirstSetLeftAffinityEx @ 0x1404431E0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
- *     PpmUpdatePlatformIdleVeto @ 0x1403CA530 (PpmUpdatePlatformIdleVeto.c)
- *     PnpReplacePartitionUnit @ 0x14072E220 (PnpReplacePartitionUnit.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x1403A5100 (PpmUpdatePlatformIdleVeto.c)
+ *     PnpReplacePartitionUnit @ 0x14072C230 (PnpReplacePartitionUnit.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall KeFindFirstSetLeftAffinityEx(__int16 *a1)
     if ( v2 )
     {
       _BitScanReverse64(&v3, v2);
-      return *((unsigned int *)qword_140F21E78 + (unsigned int)((v1 << 6) + v3));
+      return *((unsigned int *)qword_140F22998 + (unsigned int)((v1 << 6) + v3));
     }
   }
   return 0xFFFFFFFFLL;

@@ -18,24 +18,29 @@
  *     PsGetPreviousProcess @ 0x1408CD098 (PsGetPreviousProcess.c)
  */
 
-NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int a4, HANDLE *a5)
+NTSTATUS __cdecl NtGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   ULONG v9; // esi
   __int64 v10; // rcx
   NTSTATUS result; // eax
-  int v12; // r14d
+  ULONG v12; // r14d
   unsigned __int64 PreviousProcess; // rax
   __int64 v14; // rbx
   bool v15; // r13
   struct _KTHREAD *CurrentThread; // rdi
   unsigned __int64 CurrentServerSilo; // rax
-  int v18; // edi
+  NTSTATUS v18; // edi
   unsigned __int64 NextProcess; // rax
   bool v20; // zf
   PVOID Object; // [rsp+58h] [rbp-200h] BYREF
   unsigned __int64 v23; // [rsp+60h] [rbp-1F8h]
-  HANDLE v24; // [rsp+68h] [rbp-1F0h] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp-1F0h] BYREF
   struct _KTHREAD *v25; // [rsp+78h] [rbp-1E0h]
   struct _ACCESS_STATE PassedAccessState; // [rsp+90h] [rbp-1C8h] BYREF
   _QWORD v27[28]; // [rsp+130h] [rbp-128h] BYREF
@@ -43,21 +48,21 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int 
   memset(&PassedAccessState, 0, sizeof(PassedAccessState));
   memset(v27, 0, sizeof(v27));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v9 = a3 & (PreviousMode != 0 ? 7666 : 73714);
+  v9 = HandleAttributes & (PreviousMode != 0 ? 7666 : 73714);
   if ( PreviousMode )
   {
-    v10 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v10 = (__int64)NewProcessHandle;
+    if ( (unsigned __int64)NewProcessHandle >= 0x7FFFFFFF0000LL )
       v10 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v10 = *(_QWORD *)v10;
   }
-  *a5 = 0LL;
-  if ( (a4 & 0xFFFFFFFE) != 0 )
+  *NewProcessHandle = 0LL;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
     return -1073741811;
-  if ( Handle )
+  if ( ProcessHandle )
   {
     result = ObReferenceObjectByHandleWithTag(
-               Handle,
+               ProcessHandle,
                0,
                (POBJECT_TYPE)PsProcessType,
                PreviousMode,
@@ -71,7 +76,7 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int 
   {
     Object = 0LL;
   }
-  v12 = a4 & 1;
+  v12 = Flags & 1;
   if ( v12 )
     PreviousProcess = PsGetPreviousProcess(Object);
   else
@@ -95,7 +100,7 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int 
     }
     if ( PsIsProcessInSilo((struct _KPROCESS *)v14, CurrentServerSilo) )
     {
-      v18 = SeCreateAccessState(&PassedAccessState, v27, a2, (GENERIC_MAPPING *)((char *)PsProcessType + 76));
+      v18 = SeCreateAccessState(&PassedAccessState, v27, DesiredAccess, (GENERIC_MAPPING *)((char *)PsProcessType + 76));
       if ( v18 < 0 )
         goto LABEL_21;
       if ( v15 )
@@ -113,11 +118,11 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int 
               0,
               (POBJECT_TYPE)PsProcessType,
               PreviousMode,
-              &v24);
+              &Handle);
       SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
       if ( v18 >= 0 )
       {
-        *a5 = v24;
+        *NewProcessHandle = Handle;
         goto LABEL_21;
       }
       if ( v18 != -1073741790 )

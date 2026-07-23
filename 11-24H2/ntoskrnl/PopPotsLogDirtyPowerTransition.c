@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPotsLogDirtyPowerTransition @ 0x140C33A38
+ * XREFs of PopPotsLogDirtyPowerTransition @ 0x140C35B78
  * Callers:
- *     PopDiagTraceDirtyTransition @ 0x140C2F2D0 (PopDiagTraceDirtyTransition.c)
+ *     PopDiagTraceDirtyTransition @ 0x140C313F0 (PopDiagTraceDirtyTransition.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopPotsLogDirtyPowerTransition(int a1, unsigned int a2, int a3)
@@ -40,7 +40,7 @@ void __fastcall PopPotsLogDirtyPowerTransition(int a1, unsigned int a2, int a3)
     swprintf_s(Dst, 9uLL, L"%08X", a2);
     if ( PotsPowerTransitionsHandleRegistered )
     {
-      if ( (unsigned int)dword_140E08300 > 5 && tlgKeywordOn((__int64)&dword_140E08300, 0x400000000000LL) )
+      if ( (unsigned int)dword_140E08370 > 5 && tlgKeywordOn((__int64)&dword_140E08370, 0x400000000000LL) )
       {
         v14 = 0;
         v17 = 0;
@@ -63,8 +63,8 @@ void __fastcall PopPotsLogDirtyPowerTransition(int a1, unsigned int a2, int a3)
         v10 = 0x1000000LL;
         v23 = 8;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E08300,
-          (unsigned __int8 *)byte_14004F11D,
+          (__int64)&dword_140E08370,
+          (unsigned __int8 *)word_14004FB5A,
           0LL,
           0LL,
           7u,

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetCurrentThreadPrimaryGroup @ 0x18010CE20
+ * XREFs of RtlGetCurrentThreadPrimaryGroup @ 0x180107C70
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInitializeNls @ 0x140821884
+ * XREFs of ExInitializeNls @ 0x140821B84
  * Callers:
- *     ExpNlsInitSiloState @ 0x1409FB55C (ExpNlsInitSiloState.c)
+ *     ExpNlsInitSiloState @ 0x1409FB7EC (ExpNlsInitSiloState.c)
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x14041C2A0 (ZwCreateDirectoryObject.c)
- *     RtlpQueryNlsSystemCodePages @ 0x140820F98 (RtlpQueryNlsSystemCodePages.c)
- *     RtlpInitCodePageTables @ 0x140821158 (RtlpInitCodePageTables.c)
- *     RtlpInitUppercaseTables @ 0x140821934 (RtlpInitUppercaseTables.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x14041C630 (ZwCreateDirectoryObject.c)
+ *     RtlpQueryNlsSystemCodePages @ 0x140821298 (RtlpQueryNlsSystemCodePages.c)
+ *     RtlpInitCodePageTables @ 0x140821458 (RtlpInitCodePageTables.c)
+ *     RtlpInitUppercaseTables @ 0x140821C34 (RtlpInitUppercaseTables.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

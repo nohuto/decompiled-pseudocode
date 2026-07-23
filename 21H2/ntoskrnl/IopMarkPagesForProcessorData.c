@@ -1,9 +1,9 @@
 /*
- * XREFs of IopMarkPagesForProcessorData @ 0x14050BFEC
+ * XREFs of IopMarkPagesForProcessorData @ 0x14050C22C
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B798 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B9D8 (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopMarkPagesForProcessorData(__int64 a1, int a2)

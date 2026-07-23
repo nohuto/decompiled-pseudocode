@@ -17,40 +17,41 @@
  *     LdrpLoadWow64 @ 0x180083824 (LdrpLoadWow64.c)
  *     RtlInitializeNtUserPfn @ 0x18008C690 (RtlInitializeNtUserPfn.c)
  *     RtlResetNtUserPfn @ 0x18008C7B0 (RtlResetNtUserPfn.c)
- *     LdrpInitializeExecutionOptions @ 0x1800D108C (LdrpInitializeExecutionOptions.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     AVrfInitializeVerifier @ 0x1800D9948 (AVrfInitializeVerifier.c)
- *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1800E0AF4 (RtlCreateInvertedFunctionTableCacheEntry.c)
- *     RtlpProtectInvertedFunctionTable @ 0x18010B2E0 (RtlpProtectInvertedFunctionTable.c)
+ *     LdrpInitializeExecutionOptions @ 0x1800D104C (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     AVrfInitializeVerifier @ 0x1800D9908 (AVrfInitializeVerifier.c)
+ *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1800E0AB4 (RtlCreateInvertedFunctionTableCacheEntry.c)
+ *     RtlpProtectInvertedFunctionTable @ 0x18010B2A0 (RtlpProtectInvertedFunctionTable.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     LdrpChangeMrdataProtection @ 0x1800134FC (LdrpChangeMrdataProtection.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrProtectMrdata(int a1)
+void __fastcall LdrProtectMrdata(int a1)
 {
-  int v2; // edi
+  int ScpCfgCheckESFunction; // edi
 
   RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-  v2 = LdrpMrdataUnprotected;
+  ScpCfgCheckESFunction = LdrSystemDllInitBlock.ScpCfgCheckESFunction;
   if ( !a1 )
   {
-    if ( !LdrpMrdataUnprotected )
+    if ( !LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction) )
       LdrpChangeMrdataProtection(4LL);
-    if ( v2 != -1 )
+    if ( ScpCfgCheckESFunction != -1 )
     {
-      LdrpMrdataUnprotected = v2 + 1;
-      return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+      LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction) = ScpCfgCheckESFunction + 1;
+      goto LABEL_6;
     }
 LABEL_10:
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     __fastfail(0xEu);
   }
-  if ( !LdrpMrdataUnprotected )
+  if ( !LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction) )
     goto LABEL_10;
-  --LdrpMrdataUnprotected;
-  if ( v2 == 1 )
+  --LODWORD(LdrSystemDllInitBlock.ScpCfgCheckESFunction);
+  if ( ScpCfgCheckESFunction == 1 )
     LdrpChangeMrdataProtection(2LL);
-  return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+LABEL_6:
+  RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
 }

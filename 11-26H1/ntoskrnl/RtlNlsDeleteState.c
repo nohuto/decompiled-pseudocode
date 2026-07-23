@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlNlsDeleteState @ 0x140801D94
+ * XREFs of RtlNlsDeleteState @ 0x140807834
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x1407EED58 (PspDeleteExternalServerSiloState.c)
+ *     PspDeleteExternalServerSiloState @ 0x1407F48B8 (PspDeleteExternalServerSiloState.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
  */
 
 void __fastcall RtlNlsDeleteState(__int64 a1)

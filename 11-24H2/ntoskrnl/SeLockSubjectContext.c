@@ -1,21 +1,23 @@
 /*
- * XREFs of SeLockSubjectContext @ 0x140868470
+ * XREFs of SeLockSubjectContext @ 0x14086C760
  * Callers:
- *     SepTrustLevelCheck @ 0x140357F50 (SepTrustLevelCheck.c)
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140360470 (SepCommonAccessCheckEx.c)
- *     IopCreateSecurityCheck @ 0x14046DA5C (IopCreateSecurityCheck.c)
- *     CMFCheckAccess @ 0x1407C1620 (CMFCheckAccess.c)
- *     CmpCheckCreateAccess @ 0x140867CFC (CmpCheckCreateAccess.c)
- *     ObpCheckTraverseAccess @ 0x140867E80 (ObpCheckTraverseAccess.c)
- *     ObpCheckObjectReference @ 0x14086802C (ObpCheckObjectReference.c)
- *     ObCheckCreateObjectAccess @ 0x1408682F0 (ObCheckCreateObjectAccess.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
- *     PspIsContextAdmin @ 0x1408E917C (PspIsContextAdmin.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140A09994 (ObpVerifyCreatorAccessCheck.c)
+ *     IopCreateSecurityCheck @ 0x1403B5AE0 (IopCreateSecurityCheck.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     SepTrustLevelCheck @ 0x1403E33C0 (SepTrustLevelCheck.c)
+ *     SepCommonAccessCheckEx @ 0x140465250 (SepCommonAccessCheckEx.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     CMFCheckAccess @ 0x1407C2854 (CMFCheckAccess.c)
+ *     PspIsContextAdmin @ 0x14085A9A4 (PspIsContextAdmin.c)
+ *     CmpCheckCreateAccess @ 0x14086BFEC (CmpCheckCreateAccess.c)
+ *     ObpCheckTraverseAccess @ 0x14086C170 (ObpCheckTraverseAccess.c)
+ *     ObpCheckObjectReference @ 0x14086C31C (ObpCheckObjectReference.c)
+ *     ObCheckCreateObjectAccess @ 0x14086C5E0 (ObCheckCreateObjectAccess.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140A05EC4 (ObpVerifyCreatorAccessCheck.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
  */
 
 void __stdcall SeLockSubjectContext(PSECURITY_SUBJECT_CONTEXT SubjectContext)

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlInitializeTunnelCache @ 0x140A7B7B0
+ * XREFs of FsRtlInitializeTunnelCache @ 0x140A75AB0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
  */
 
 void __stdcall FsRtlInitializeTunnelCache(TUNNEL *Cache)

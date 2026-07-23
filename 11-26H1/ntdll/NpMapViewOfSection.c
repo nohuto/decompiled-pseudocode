@@ -1,7 +1,7 @@
 /*
- * XREFs of NpMapViewOfSection @ 0x18015EB00
+ * XREFs of NpMapViewOfSection @ 0x18015EA00
  * Callers:
- *     LdrpLoadCustomNtdllWithSectionHandle @ 0x18015C1CC (LdrpLoadCustomNtdllWithSectionHandle.c)
+ *     LdrpLoadCustomNtdllWithSectionHandle @ 0x18015C08C (LdrpLoadCustomNtdllWithSectionHandle.c)
  * Callees:
  *     <none>
  */

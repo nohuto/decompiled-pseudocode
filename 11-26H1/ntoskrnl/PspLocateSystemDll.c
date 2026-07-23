@@ -1,20 +1,20 @@
 /*
- * XREFs of PspLocateSystemDll @ 0x1407EE38C
+ * XREFs of PspLocateSystemDll @ 0x1407F3EEC
  * Callers:
- *     PsLocateSystemDlls @ 0x1407EE038 (PsLocateSystemDlls.c)
+ *     PsLocateSystemDlls @ 0x1407F3B98 (PsLocateSystemDlls.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwSystemDebugControl @ 0x140726E10 (ZwSystemDebugControl.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmGetSectionInformation @ 0x1408E5780 (MmGetSectionInformation.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     PspMapSystemDll @ 0x140962C14 (PspMapSystemDll.c)
- *     MiDoesImageContainFunctionOverrideFixups @ 0x140962FC0 (MiDoesImageContainFunctionOverrideFixups.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     ObInitializeFastReference @ 0x140A2BC10 (ObInitializeFastReference.c)
- *     MmCreateSpecialImageSection @ 0x140B7F20C (MmCreateSpecialImageSection.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwSystemDebugControl @ 0x14072B9E0 (ZwSystemDebugControl.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmGetSectionInformation @ 0x1408EBD40 (MmGetSectionInformation.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     PspMapSystemDll @ 0x140A08A9C (PspMapSystemDll.c)
+ *     MiDoesImageContainFunctionOverrideFixups @ 0x140A08E48 (MiDoesImageContainFunctionOverrideFixups.c)
+ *     ObInitializeFastReference @ 0x140A7BD9C (ObInitializeFastReference.c)
+ *     MmCreateSpecialImageSection @ 0x140B880EC (MmCreateSpecialImageSection.c)
  */
 
 NTSTATUS __fastcall PspLocateSystemDll(__int64 *a1, int a2)
@@ -32,7 +32,7 @@ NTSTATUS __fastcall PspLocateSystemDll(__int64 *a1, int a2)
   int v14; // eax
   __int64 v15; // [rsp+30h] [rbp-79h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-71h] BYREF
-  __int128 v17; // [rsp+68h] [rbp-41h] BYREF
+  __int128 InputBuffer; // [rsp+68h] [rbp-41h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-31h] BYREF
   _BYTE v19[64]; // [rsp+90h] [rbp-19h] BYREF
   int v20; // [rsp+D0h] [rbp+27h]
@@ -46,12 +46,12 @@ NTSTATUS __fastcall PspLocateSystemDll(__int64 *a1, int a2)
   *(&ObjectAttributes.Attributes + 1) = 0;
   Handle = 0LL;
   IoStatusBlock = 0LL;
-  v17 = 0LL;
+  InputBuffer = 0LL;
   memset_0(v19, 0, 0x48uLL);
   if ( (NtGlobalFlag & 0x40000) != 0 )
   {
-    v17 = *((_OWORD *)a1 + 1);
-    ZwSystemDebugControl(38LL, (__int64)&v17);
+    InputBuffer = *((_OWORD *)a1 + 1);
+    ZwSystemDebugControl(SysDbgKdPullRemoteFile, &InputBuffer, 0x10u, 0LL, 0, 0LL);
   }
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;

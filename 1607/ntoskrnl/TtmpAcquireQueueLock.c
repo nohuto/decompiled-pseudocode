@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpAcquireQueueLock @ 0x14067A280
+ * XREFs of TtmpAcquireQueueLock @ 0x14067A364
  * Callers:
- *     TtmiCloseEventQueue @ 0x140679E18 (TtmiCloseEventQueue.c)
- *     TtmiRetrieveEventFromQueue @ 0x140679FDC (TtmiRetrieveEventFromQueue.c)
- *     TtmiWriteEventToSingleQueue @ 0x14067A12C (TtmiWriteEventToSingleQueue.c)
+ *     TtmiCloseEventQueue @ 0x140679EFC (TtmiCloseEventQueue.c)
+ *     TtmiRetrieveEventFromQueue @ 0x14067A0C0 (TtmiRetrieveEventFromQueue.c)
+ *     TtmiWriteEventToSingleQueue @ 0x14067A210 (TtmiWriteEventToSingleQueue.c)
  * Callees:
  *     <none>
  */

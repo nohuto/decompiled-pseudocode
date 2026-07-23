@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlAddAccessAllowedAce @ 0x1800149B0
+ * XREFs of RtlAddAccessAllowedAce @ 0x1800149A0
  * Callers:
- *     RtlCheckTokenCapability @ 0x18000DDF0 (RtlCheckTokenCapability.c)
- *     RtlCheckTokenMembershipEx @ 0x180011040 (RtlCheckTokenMembershipEx.c)
- *     RtlDefaultNpAcl @ 0x18008B250 (RtlDefaultNpAcl.c)
+ *     RtlCheckTokenCapability @ 0x18000DDE0 (RtlCheckTokenCapability.c)
+ *     RtlCheckTokenMembershipEx @ 0x180011030 (RtlCheckTokenMembershipEx.c)
+ *     RtlDefaultNpAcl @ 0x18008B240 (RtlDefaultNpAcl.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x180014CE4 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x180014CD4 (RtlpAddKnownAce.c)
  */
 
-__int64 __fastcall RtlAddAccessAllowedAce(int a1, int a2, int a3, void *Src)
+NTSTATUS __cdecl RtlAddAccessAllowedAce(PACL Acl, ULONG AceRevision, ACCESS_MASK AccessMask, PSID Sid)
 {
-  return RtlpAddKnownAce(a1, a2, 0, a3, Src, 0);
+  return RtlpAddKnownAce(Acl, Sid, 0);
 }

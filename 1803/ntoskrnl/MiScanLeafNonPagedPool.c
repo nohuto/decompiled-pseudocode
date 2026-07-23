@@ -23,7 +23,7 @@ __int64 MiScanLeafNonPagedPool(unsigned __int64 a1, unsigned int a2, __int64 a3,
   __int64 v6; // rbx
   unsigned __int64 v7; // r14
   unsigned __int64 v8; // r15
-  union _SLIST_HEADER *v9; // r13
+  _SLIST_HEADER *v9; // r13
   bool v10; // zf
   unsigned __int64 v11; // rdi
   unsigned __int64 v12; // rdx

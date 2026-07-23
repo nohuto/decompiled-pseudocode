@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A07C2C
+ * XREFs of WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A07EDC
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x140A0819C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0844C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     WheapAddToDefectListInPlugin @ 0x1406121B4 (WheapAddToDefectListInPlugin.c)
- *     WheapTranslateAddressInPlugin @ 0x140A08764 (WheapTranslateAddressInPlugin.c)
+ *     WheapAddToDefectListInPlugin @ 0x140612704 (WheapAddToDefectListInPlugin.c)
+ *     WheapTranslateAddressInPlugin @ 0x140A08A14 (WheapTranslateAddressInPlugin.c)
  */
 
 __int64 __fastcall WheaAddrTranslateAndAddToDefectListInPlugin(__int64 a1, _OWORD *a2)

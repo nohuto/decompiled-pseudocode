@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxCompleteComponentActivation @ 0x140261104
+ * XREFs of PopFxCompleteComponentActivation @ 0x1402825D4
  * Callers:
- *     PopFxActivateComponentWorker @ 0x1402606E0 (PopFxActivateComponentWorker.c)
- *     PopFxProcessWork @ 0x140260844 (PopFxProcessWork.c)
- *     PopFxIdleWorkerTail @ 0x140260EC0 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponentWorker @ 0x140281BAC (PopFxActivateComponentWorker.c)
+ *     PopFxProcessWork @ 0x140281D14 (PopFxProcessWork.c)
+ *     PopFxIdleWorkerTail @ 0x140282390 (PopFxIdleWorkerTail.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopFxIdleComponent @ 0x1402611F0 (PopFxIdleComponent.c)
- *     PopPluginComponentActive @ 0x140261980 (PopPluginComponentActive.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopFxIdleComponent @ 0x1402826C0 (PopFxIdleComponent.c)
+ *     PopPluginComponentActive @ 0x140282E50 (PopPluginComponentActive.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

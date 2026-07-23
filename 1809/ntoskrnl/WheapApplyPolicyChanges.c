@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapApplyPolicyChanges @ 0x1408DC0BC
+ * XREFs of WheapApplyPolicyChanges @ 0x1408DD37C
  * Callers:
- *     WheapPfaReset @ 0x1408DCD48 (WheapPfaReset.c)
+ *     WheapPfaReset @ 0x1408DE008 (WheapPfaReset.c)
  * Callees:
- *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
+ *     __report_rangecheckfailure @ 0x140268FBC (__report_rangecheckfailure.c)
  */
 
 void WheapApplyPolicyChanges()
@@ -26,7 +26,7 @@ void WheapApplyPolicyChanges()
     {
       if ( v2 >= 21 )
         _report_rangecheckfailure();
-      v3 = (&off_140909B68)[v2];
+      v3 = (&off_14090AE28)[v2];
       WheaRegPolicyTableChanged[v1] = 0;
       if ( v0 )
       {

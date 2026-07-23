@@ -44,54 +44,56 @@ __int64 __fastcall MiRemovePhysicalMemory(__int64 BugCheckParameter2, unsigned _
   int v14; // r14d
   unsigned int *v15; // rcx
   __int64 v16; // rax
-  unsigned int *v17; // [rsp+48h] [rbp-39h] BYREF
-  char *v18; // [rsp+50h] [rbp-31h] BYREF
-  struct _KTHREAD *v19; // [rsp+58h] [rbp-29h]
+  int v17; // [rsp+30h] [rbp-51h]
+  int v18; // [rsp+38h] [rbp-49h]
+  unsigned int *v19; // [rsp+48h] [rbp-39h] BYREF
+  char *v20; // [rsp+50h] [rbp-31h] BYREF
+  struct _KTHREAD *v21; // [rsp+58h] [rbp-29h]
   PVOID P[3]; // [rsp+60h] [rbp-21h] BYREF
-  _QWORD v21[12]; // [rsp+78h] [rbp-9h] BYREF
-  unsigned __int64 v22; // [rsp+F0h] [rbp+6Fh] BYREF
-  unsigned int v23; // [rsp+F8h] [rbp+77h]
-  int v24; // [rsp+100h] [rbp+7Fh]
+  _QWORD v23[12]; // [rsp+78h] [rbp-9h] BYREF
+  unsigned __int64 v24; // [rsp+F0h] [rbp+6Fh] BYREF
+  unsigned int v25; // [rsp+F8h] [rbp+77h]
+  int v26; // [rsp+100h] [rbp+7Fh]
 
-  v23 = a3;
-  v22 = a2;
+  v25 = a3;
+  v24 = a2;
   v3 = a3;
-  memset(v21, 0, 0x28uLL);
+  memset(v23, 0, 0x28uLL);
   P[1] = P;
   P[2] = 0LL;
   P[0] = P;
   v5 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v17 = 0LL;
-  v24 = v3 & 2;
-  v18 = 0LL;
-  v19 = CurrentThread;
+  v19 = 0LL;
+  v26 = v3 & 2;
+  v20 = 0LL;
+  v21 = CurrentThread;
   if ( (v3 & 2) != 0 )
   {
     v7 = 0;
     MiLockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)CurrentThread);
     if ( (v3 & 0x20) != 0 )
     {
-      BugCheckParameter2 = MiGetDanglingExtent(&v22);
+      BugCheckParameter2 = MiGetDanglingExtent(&v24);
       if ( BugCheckParameter2 == -1 )
       {
         MiUnlockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)CurrentThread);
         return 0LL;
       }
     }
-    v9 = v22;
+    v9 = v24;
     goto LABEL_22;
   }
-  v9 = v22;
-  v21[0] = 0LL;
-  v21[3] = v22;
-  v21[2] = BugCheckParameter2;
+  v9 = v24;
+  v23[0] = 0LL;
+  v23[3] = v24;
+  v23[2] = BugCheckParameter2;
   MiLockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)CurrentThread);
-  v7 = MiConfigureMemoryRemoval(&v18, (unsigned int *)MmPhysicalMemoryBlock, v21);
+  v7 = MiConfigureMemoryRemoval(&v20, (unsigned int *)MmPhysicalMemoryBlock, v23);
   if ( v7 < 0 )
   {
 LABEL_31:
-    v14 = v24;
+    v14 = v26;
     goto LABEL_32;
   }
   v5 = MiReferencePageRuns((__int64)&MiSystemPartition, 1u);
@@ -100,7 +102,7 @@ LABEL_31:
     v7 = -1073741670;
     goto LABEL_31;
   }
-  for ( i = (unsigned int *)v5; ; i = v17 )
+  for ( i = (unsigned int *)v5; ; i = v19 )
   {
     v11 = P[0];
     if ( P[0] == P )
@@ -110,23 +112,23 @@ LABEL_41:
       __fastfail(3u);
     P[0] = *(PVOID *)P[0];
     *(_QWORD *)(v12 + 8) = P;
-    v7 = MiConfigureMemoryRemoval(&v17, i, v11);
+    v7 = MiConfigureMemoryRemoval(&v19, i, v11);
     ExFreePoolWithTag(v11, 0);
     if ( i != (unsigned int *)v5 )
       ExFreePoolWithTag(i - 4, 0);
     if ( v7 < 0 )
     {
-      LOBYTE(v3) = v23;
+      LOBYTE(v3) = v25;
       goto LABEL_31;
     }
   }
-  v3 = v23;
-  if ( (v23 & 0x200) == 0 )
+  v3 = v25;
+  if ( (v25 & 0x200) == 0 )
   {
     MiReduceCommitLimits(&MiSystemPartition, v9, v9);
     MiReturnCommit((__int64)&MiSystemPartition, v9);
   }
-  MiPerformMemoryChange(BugCheckParameter2, v9, (void **)&v18, (__int64 *)&v17, 0);
+  MiPerformMemoryChange(BugCheckParameter2, v9, (void **)&v20, (__int64 *)&v19, 0);
   MiComputeNodeMemory((__int64)&MiSystemPartition);
   v13 = -1;
   if ( qword_14046A350 <= 0xFFFFFFFF )
@@ -144,22 +146,22 @@ LABEL_22:
     ExQueueWorkItem(&stru_1404684B0, DelayedWorkQueue);
     byte_140468544 = 1;
   }
-  v14 = v24;
-  if ( !v24 )
+  v14 = v26;
+  if ( !v26 )
   {
     if ( (MiFlags & 0x10000000) != 0 )
-      ZwUpdateWnfStateData((__int64)&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0LL);
+      ZwUpdateWnfStateData(&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0, 0LL, 0LL, v26 & v17, v26 & v18);
     KePulseEvent(qword_1404685C0, 0, 0);
     MiFlushEntireTbDueToAttributeChange();
     MiFlushCacheRange(BugCheckParameter2, v9);
   }
 LABEL_32:
-  MiUnlockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)v19);
-  if ( v18 )
-    ExFreePoolWithTag(v18 - 16, 0);
-  if ( !v17 )
+  MiUnlockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)v21);
+  if ( v20 )
+    ExFreePoolWithTag(v20 - 16, 0);
+  if ( !v19 )
     goto LABEL_37;
-  v15 = v17 - 4;
+  v15 = v19 - 4;
   while ( 1 )
   {
     ExFreePoolWithTag(v15, 0);

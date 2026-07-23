@@ -1,17 +1,17 @@
 /*
- * XREFs of PopHiberInitializeResources @ 0x140777940
+ * XREFs of PopHiberInitializeResources @ 0x140777B00
  * Callers:
- *     PopAllocateHiberContext @ 0x140777C44 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140777E04 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x1402DF700 (RtlGetCompressionWorkSpaceSize.c)
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
- *     IoGetDumpStackTransferSizes @ 0x140388304 (IoGetDumpStackTransferSizes.c)
- *     memset @ 0x140414200 (memset.c)
- *     MmMarkHiberRange @ 0x140777BFC (MmMarkHiberRange.c)
- *     PopCalculateHiberFileSize @ 0x14078D808 (PopCalculateHiberFileSize.c)
- *     MmAllocateDumpHibernateResources @ 0x14078EB9C (MmAllocateDumpHibernateResources.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x140290A50 (RtlGetCompressionWorkSpaceSize.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
+ *     IoGetDumpStackTransferSizes @ 0x140388454 (IoGetDumpStackTransferSizes.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MmMarkHiberRange @ 0x140777DBC (MmMarkHiberRange.c)
+ *     PopCalculateHiberFileSize @ 0x14078D9C8 (PopCalculateHiberFileSize.c)
+ *     MmAllocateDumpHibernateResources @ 0x14078ED5C (MmAllocateDumpHibernateResources.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall PopHiberInitializeResources(_QWORD *MemoryMap)
@@ -95,13 +95,13 @@ char *__fastcall PopHiberInitializeResources(_QWORD *MemoryMap)
   {
     ExFreePoolWithTag(PoolWithTag, 0x72626968u);
 LABEL_23:
-    PoolWithTag = qword_140C238E8;
+    PoolWithTag = qword_140C23F08;
     v1 = 1;
     v20 = 1;
     v19 = 1;
-    memset(qword_140C238E8, 0, 0x80uLL);
+    memset(qword_140C23F08, 0, 0x80uLL);
     v21 = 12288;
-    PoolWithTag[1] = qword_140C23868;
+    PoolWithTag[1] = qword_140C23E88;
     v25 = (char *)Address;
     goto LABEL_21;
   }

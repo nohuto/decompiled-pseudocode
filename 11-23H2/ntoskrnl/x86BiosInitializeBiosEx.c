@@ -1,10 +1,10 @@
 /*
- * XREFs of x86BiosInitializeBiosEx @ 0x14039F344
+ * XREFs of x86BiosInitializeBiosEx @ 0x14039F524
  * Callers:
- *     HalInitializeBios @ 0x14039F060 (HalInitializeBios.c)
+ *     HalInitializeBios @ 0x14039F240 (HalInitializeBios.c)
  * Callees:
- *     XmInitializeEmulator @ 0x14039F408 (XmInitializeEmulator.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     XmInitializeEmulator @ 0x14039F5E8 (XmInitializeEmulator.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall x86BiosInitializeBiosEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

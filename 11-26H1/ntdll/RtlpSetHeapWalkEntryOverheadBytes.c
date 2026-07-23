@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpSetHeapWalkEntryOverheadBytes @ 0x180074C80
+ * XREFs of RtlpSetHeapWalkEntryOverheadBytes @ 0x180095230
  * Callers:
- *     RtlpWalkHeap @ 0x180073110 (RtlpWalkHeap.c)
+ *     RtlpWalkHeap @ 0x180093700 (RtlpWalkHeap.c)
  * Callees:
  *     <none>
  */

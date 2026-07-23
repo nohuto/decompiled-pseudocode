@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRevertRelocations @ 0x14079D834
+ * XREFs of MiRevertRelocations @ 0x14079DA24
  * Callers:
  *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
  * Callees:
- *     MiPerformFixups @ 0x14079D900 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x14079DAF0 (MiPerformFixups.c)
  */
 
 __int64 __fastcall MiRevertRelocations(__int64 a1, ULONG_PTR a2, unsigned int a3)

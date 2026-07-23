@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTscFallback @ 0x1404C1610
+ * XREFs of HalpTscFallback @ 0x1404C1850
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     HalCalibratePerformanceCounter @ 0x140383F60 (HalCalibratePerformanceCounter.c)
- *     HalpTimerSelectFallbackPerformanceCounter @ 0x1404C03B8 (HalpTimerSelectFallbackPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     HalCalibratePerformanceCounter @ 0x1403840B0 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerSelectFallbackPerformanceCounter @ 0x1404C05F8 (HalpTimerSelectFallbackPerformanceCounter.c)
  */
 
 __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)

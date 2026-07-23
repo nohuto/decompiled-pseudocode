@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateDomainCommonBufferDmaThin @ 0x140551360
+ * XREFs of HalAllocateDomainCommonBufferDmaThin @ 0x14054ECA0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateCommonBufferDmaThin @ 0x140410E18 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x1403962A4 (HalpAllocateCommonBufferDmaThin.c)
  */
 
 __int64 __fastcall HalAllocateDomainCommonBufferDmaThin(
@@ -17,5 +17,5 @@ __int64 __fastcall HalAllocateDomainCommonBufferDmaThin(
         PHYSICAL_ADDRESS *a8,
         _QWORD *a9)
 {
-  return HalpAllocateCommonBufferDmaThin(*(PHYSICAL_ADDRESS **)(a1 + 512), 0LL, a3, a4, a5, a6, a7, a8, a9);
+  return HalpAllocateCommonBufferDmaThin(*(_QWORD *)(a1 + 512), 0LL, a3, a4, a5, a6, a7, a8, a9);
 }

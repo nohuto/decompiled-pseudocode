@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPdcRegister @ 0x1407D12F0
+ * XREFs of PopPdcRegister @ 0x1407D1460
  * Callers:
- *     PopPdcInvocation @ 0x140773834 (PopPdcInvocation.c)
+ *     PopPdcInvocation @ 0x1407739F4 (PopPdcInvocation.c)
  * Callees:
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopPdcRegister(__int64 a1, _QWORD *a2)

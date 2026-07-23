@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDpOfflineProcessorForReplace @ 0x1409A827C
+ * XREFs of HalpDpOfflineProcessorForReplace @ 0x1409A91AC
  * Callers:
- *     HalpDpReplaceTarget @ 0x1409A8950 (HalpDpReplaceTarget.c)
+ *     HalpDpReplaceTarget @ 0x1409A9880 (HalpDpReplaceTarget.c)
  * Callees:
- *     KeSweepLocalCaches @ 0x1403821F0 (KeSweepLocalCaches.c)
+ *     KeSweepLocalCaches @ 0x140381D40 (KeSweepLocalCaches.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeSaveStateForHibernate @ 0x1403FEED0 (KeSaveStateForHibernate.c)
- *     HalpInterruptOfflineProcessor @ 0x1404D71E0 (HalpInterruptOfflineProcessor.c)
- *     HalpDpPostReplaceInitialization @ 0x1409A84D8 (HalpDpPostReplaceInitialization.c)
+ *     KeSaveStateForHibernate @ 0x1403FF0B0 (KeSaveStateForHibernate.c)
+ *     HalpInterruptOfflineProcessor @ 0x1404D7420 (HalpInterruptOfflineProcessor.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A9408 (HalpDpPostReplaceInitialization.c)
  */
 
 __int64 __fastcall HalpDpOfflineProcessorForReplace(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateUserMappings @ 0x140994E58
+ * XREFs of MiUpdateUserMappings @ 0x140995E58
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140992A68 (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140993A68 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiRevertQuasiPte @ 0x1402D3EC0 (MiRevertQuasiPte.c)
- *     MiMakeQuasiPte @ 0x1402D3ED4 (MiMakeQuasiPte.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiRevertQuasiPte @ 0x140252130 (MiRevertQuasiPte.c)
+ *     MiMakeQuasiPte @ 0x140252144 (MiMakeQuasiPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 unsigned __int64 MiUpdateUserMappings()
@@ -19,8 +19,7 @@ unsigned __int64 MiUpdateUserMappings()
   unsigned __int64 QuasiPte; // rax
   __int64 v4; // rbx
   int v5; // esi
-  __int64 v6; // r8
-  bool v7; // zf
+  bool v6; // zf
 
   for ( i = (__int64 *)0xFFFFF6FB7DBED000LL; (unsigned __int64)i <= 0xFFFFF6FB7DBED7F8uLL; ++i )
   {
@@ -42,23 +41,23 @@ unsigned __int64 MiUpdateUserMappings()
       if ( (unsigned int)MiPteHasShadow() )
       {
         v5 = 1;
-        if ( !HIBYTE(word_140C4E008) )
+        if ( !HIBYTE(word_140C4E048) )
         {
-          v7 = (v4 & 1) == 0;
+          v6 = (v4 & 1) == 0;
 LABEL_11:
-          if ( !v7 )
+          if ( !v6 )
             v4 |= 0x8000000000000000uLL;
         }
       }
       else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
       {
-        v7 = (v4 & 1) == 0;
+        v6 = (v4 & 1) == 0;
         goto LABEL_11;
       }
     }
     *i = v4;
     if ( v5 )
-      MiWritePteShadow((__int64)i, v4, v6);
+      MiWritePteShadow((__int64)i, v4);
 LABEL_4:
     result = 0xFFFFF6FB7DBED7F8uLL;
   }

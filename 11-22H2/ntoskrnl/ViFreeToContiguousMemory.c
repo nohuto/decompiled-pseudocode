@@ -41,10 +41,13 @@ __int64 __fastcall ViFreeToContiguousMemory(__int64 a1, __int64 a2, unsigned int
   v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 312));
   RtlClearBits((PRTL_BITMAP)(a1 + 328), v3, 1u);
   KxReleaseSpinLock(v7);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

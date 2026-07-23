@@ -16,7 +16,7 @@ __int64 __fastcall sub_18000DBA0(__int64 a1)
 
   v1 = word_18015BFA0;
   result = 208LL;
-  v3 = off_1801559D8;
+  v3 = Src;
   if ( *(_DWORD *)(a1 + 16) == -571548178 )
     result = 36LL;
   v4 = 0;

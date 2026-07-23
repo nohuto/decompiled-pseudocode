@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpFcQueryAllFeatureConfigurationsFromBufferSet @ 0x18011B364
  * Callers:
- *     RtlQueryAllFeatureConfigurations @ 0x180101BD0 (RtlQueryAllFeatureConfigurations.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x180101B90 (RtlQueryAllFeatureConfigurations.c)
  * Callees:
  *     RtlpFcValidateFeatureConfigurationType @ 0x18005E198 (RtlpFcValidateFeatureConfigurationType.c)
  *     RtlpFcQueryAllFeatureConfigurationsFromBuffers @ 0x18011B3AC (RtlpFcQueryAllFeatureConfigurationsFromBuffers.c)

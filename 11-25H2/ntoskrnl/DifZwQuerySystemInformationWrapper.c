@@ -11,7 +11,7 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwQuerySystemInformationWrapper(unsigned int a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall DifZwQuerySystemInformationWrapper(SYSTEM_INFORMATION_CLASS a1, void *a2, ULONG a3, ULONG *a4)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v8; // r14
@@ -58,7 +58,7 @@ __int64 __fastcall DifZwQuerySystemInformationWrapper(unsigned int a1, __int64 a
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  HIDWORD(v17) = ZwQuerySystemInformation(a1, a2);
+  HIDWORD(v17) = ZwQuerySystemInformation(a1, a2, a3, a4);
   if ( v8 )
   {
     if ( (v12 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

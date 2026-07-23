@@ -1,20 +1,20 @@
 /*
- * XREFs of BiCreateObject @ 0x1409D2A70
+ * XREFs of BiCreateObject @ 0x1409A3A50
  * Callers:
- *     BcdCreateObject @ 0x140774E00 (BcdCreateObject.c)
- *     BiBindEfiEntryToBcdObject @ 0x1409CFBA0 (BiBindEfiEntryToBcdObject.c)
- *     BiBindEfiBootManager @ 0x1409D2C60 (BiBindEfiBootManager.c)
+ *     BcdCreateObject @ 0x140777E00 (BcdCreateObject.c)
+ *     BiBindEfiEntryToBcdObject @ 0x1409A0B80 (BiBindEfiEntryToBcdObject.c)
+ *     BiBindEfiBootManager @ 0x1409A3C40 (BiBindEfiBootManager.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     BiStringFromGUID @ 0x1409D3908 (BiStringFromGUID.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     BiCreateKey @ 0x1409D5868 (BiCreateKey.c)
- *     BiOpenKey @ 0x1409D5F14 (BiOpenKey.c)
- *     BiCloseKey @ 0x1409D6368 (BiCloseKey.c)
- *     ExUuidCreate @ 0x140A76B60 (ExUuidCreate.c)
- *     BiIsObjectAliased @ 0x140B25E4C (BiIsObjectAliased.c)
- *     BiIsValidObject @ 0x140B38858 (BiIsValidObject.c)
- *     BiSetObjectDescription @ 0x140B54350 (BiSetObjectDescription.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     BiStringFromGUID @ 0x1409A48E8 (BiStringFromGUID.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     BiCreateKey @ 0x1409A6848 (BiCreateKey.c)
+ *     BiOpenKey @ 0x1409A6EF4 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1409A7258 (BiCloseKey.c)
+ *     ExUuidCreate @ 0x140A7F880 (ExUuidCreate.c)
+ *     BiIsObjectAliased @ 0x140B280AC (BiIsObjectAliased.c)
+ *     BiIsValidObject @ 0x140B3AA68 (BiIsValidObject.c)
+ *     BiSetObjectDescription @ 0x140B56BF0 (BiSetObjectDescription.c)
  */
 
 NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4, _QWORD *a5)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSplitBitmapPages @ 0x140101E54
+ * XREFs of MiSplitBitmapPages @ 0x1400FFBD4
  * Callers:
- *     MiExpandPagedPool @ 0x1400A296C (MiExpandPagedPool.c)
- *     MiExpandPtes @ 0x1400A2C68 (MiExpandPtes.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
- *     MiExtendDynamicBitMap @ 0x140149A5C (MiExtendDynamicBitMap.c)
- *     MiSplitMirrorBitMap @ 0x14052F264 (MiSplitMirrorBitMap.c)
- *     MiSplitLargePfnBitMap @ 0x1405760E4 (MiSplitLargePfnBitMap.c)
+ *     MiExpandPagedPool @ 0x1400A1294 (MiExpandPagedPool.c)
+ *     MiExpandPtes @ 0x1400A1590 (MiExpandPtes.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
+ *     MiExtendDynamicBitMap @ 0x140149FCC (MiExtendDynamicBitMap.c)
+ *     MiSplitMirrorBitMap @ 0x14052F7A4 (MiSplitMirrorBitMap.c)
+ *     MiSplitLargePfnBitMap @ 0x140576624 (MiSplitLargePfnBitMap.c)
  *     MiInitializeDriverImages @ 0x1407A4F78 (MiInitializeDriverImages.c)
  *     MxMarkActiveDriverBits @ 0x1407A6134 (MxMarkActiveDriverBits.c)
  * Callees:
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
  */
 
 __int64 __fastcall MiSplitBitmapPages(unsigned int a1, unsigned __int64 a2, __int64 a3)

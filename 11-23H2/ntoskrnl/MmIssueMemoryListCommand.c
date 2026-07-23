@@ -1,10 +1,10 @@
 /*
- * XREFs of MmIssueMemoryListCommand @ 0x1408620F8
+ * XREFs of MmIssueMemoryListCommand @ 0x140862338
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
- *     PfpLogEventRequest @ 0x14097DDD8 (PfpLogEventRequest.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
+ *     PfpLogEventRequest @ 0x14097DFD8 (PfpLogEventRequest.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
  *     MmPerformMemoryListCommand @ 0x140A884BC (MmPerformMemoryListCommand.c)
  */
 

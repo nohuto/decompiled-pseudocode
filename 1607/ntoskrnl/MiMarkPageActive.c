@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMarkPageActive @ 0x1400214D4
+ * XREFs of MiMarkPageActive @ 0x140021054
  * Callers:
- *     MiInitializeSystemPageTable @ 0x140020FBC (MiInitializeSystemPageTable.c)
- *     MiDemoteLargePage @ 0x14013EC14 (MiDemoteLargePage.c)
- *     MiMakeOutswappedPageResident @ 0x1401DFDE0 (MiMakeOutswappedPageResident.c)
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
- *     MiMapNewSession @ 0x140536994 (MiMapNewSession.c)
- *     MiAllocateTopLevelPage @ 0x140656D60 (MiAllocateTopLevelPage.c)
- *     MiInitializeShadowPageTable @ 0x14065B988 (MiInitializeShadowPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x140020B3C (MiInitializeSystemPageTable.c)
+ *     MiDemoteLargePage @ 0x14013F184 (MiDemoteLargePage.c)
+ *     MiMakeOutswappedPageResident @ 0x1401DFC0C (MiMakeOutswappedPageResident.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
+ *     MiMapNewSession @ 0x140536ED4 (MiMapNewSession.c)
+ *     MiAllocateTopLevelPage @ 0x140656E44 (MiAllocateTopLevelPage.c)
+ *     MiInitializeShadowPageTable @ 0x14065BA6C (MiInitializeShadowPageTable.c)
  *     MiInitializeBootProcess @ 0x1407B7300 (MiInitializeBootProcess.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
  */
 
 __int64 __fastcall MiMarkPageActive(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCleanupLazyStampedPageTable @ 0x1402A000C
+ * XREFs of MiCleanupLazyStampedPageTable @ 0x14029F55C
  * Callers:
- *     MiEvictPageTableLock @ 0x14029E998 (MiEvictPageTableLock.c)
- *     MiTerminateWsle @ 0x140324930 (MiTerminateWsle.c)
+ *     MiEvictPageTableLock @ 0x14029DEE8 (MiEvictPageTableLock.c)
+ *     MiTerminateWsle @ 0x140326960 (MiTerminateWsle.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiCleanupLazyStampedPageTable(__int64 a1, __int64 a2, __int64 a3)
@@ -57,8 +57,8 @@ __int64 __fastcall MiCleanupLazyStampedPageTable(__int64 a1, __int64 a2, __int64
       }
     }
     v9 = v8;
-    if ( qword_140E2D740 && (v8 & 0x10) == 0 )
-      v9 = v8 & qword_140E2D748;
+    if ( qword_140E2D8C0 && (v8 & 0x10) == 0 )
+      v9 = v8 & qword_140E2D8C8;
     result = v9 >> 31;
     if ( (_DWORD)result )
     {

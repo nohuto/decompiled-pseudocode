@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_CmpRegistryLockToCacheAwarePushlock__private_IsEnabledDeviceUsageNoInline @ 0x140667834
+ * XREFs of Feature_Servicing_CmpRegistryLockToCacheAwarePushlock__private_IsEnabledDeviceUsageNoInline @ 0x140666124
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     Feature_Servicing_CmpRegistryLockToCacheAwarePushlock__private_IsEnabledFallback @ 0x14066786C (Feature_Servicing_CmpRegistryLockToCacheAwarePushlock__private_IsEnabledFallback.c)
+ *     Feature_Servicing_CmpRegistryLockToCacheAwarePushlock__private_IsEnabledFallback @ 0x14066615C (Feature_Servicing_CmpRegistryLockToCacheAwarePushlock__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_CmpRegistryLockToCacheAwarePushlock__private_IsEnabledDeviceUsageNoInline()

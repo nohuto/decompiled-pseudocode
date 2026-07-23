@@ -10,18 +10,18 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwAccessCheckAndAuditAlarmWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        __int64 a7,
-        char a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11)
+NTSTATUS __fastcall DifZwAccessCheckAndAuditAlarmWrapper(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        PUNICODE_STRING ObjectTypeName,
+        PUNICODE_STRING ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        ACCESS_MASK DesiredAccess,
+        PGENERIC_MAPPING GenericMapping,
+        BOOLEAN ObjectCreation,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus,
+        PBOOLEAN GenerateOnClose)
 {
   __int64 v15; // rdx
   __int64 v16; // rcx
@@ -31,7 +31,7 @@ __int64 __fastcall DifZwAccessCheckAndAuditAlarmWrapper(
   int v20; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v24; // rdi
   _QWORD *v25; // rbx
   _QWORD v26[14]; // [rsp+68h] [rbp-69h] BYREF
@@ -65,24 +65,35 @@ LABEL_8:
   }
   v26[0] = 0LL;
 LABEL_10:
-  v26[7] = a5;
-  LODWORD(v26[6]) = a6;
-  v26[5] = a7;
-  LOBYTE(v26[4]) = a8;
-  v26[3] = a9;
-  v26[2] = a10;
-  v26[1] = a11;
-  v26[11] = a1;
-  v26[10] = a2;
-  v26[9] = a3;
-  v26[8] = a4;
+  v26[7] = SecurityDescriptor;
+  LODWORD(v26[6]) = DesiredAccess;
+  v26[5] = GenericMapping;
+  LOBYTE(v26[4]) = ObjectCreation;
+  v26[3] = GrantedAccess;
+  v26[2] = AccessStatus;
+  v26[1] = GenerateOnClose;
+  v26[11] = SubsystemName;
+  v26[10] = HandleId;
+  v26[9] = ObjectTypeName;
+  v26[8] = ObjectName;
   for ( i = (__int64 *)APIThunkContextById[4]; i != APIThunkContextById + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(_QWORD *))*(i - 1))(v26);
   }
 LABEL_17:
-  result = ZwAccessCheckAndAuditAlarm(a1, a2);
+  result = ZwAccessCheckAndAuditAlarm(
+             SubsystemName,
+             HandleId,
+             ObjectTypeName,
+             ObjectName,
+             SecurityDescriptor,
+             DesiredAccess,
+             GenericMapping,
+             ObjectCreation,
+             GrantedAccess,
+             AccessStatus,
+             GenerateOnClose);
   LODWORD(v26[12]) = result;
   if ( APIThunkContextById )
   {
@@ -97,7 +108,7 @@ LABEL_17:
         v25 = (_QWORD *)*v25;
       }
       while ( v25 != v24 );
-      return LODWORD(v26[12]);
+      return v26[12];
     }
   }
   return result;

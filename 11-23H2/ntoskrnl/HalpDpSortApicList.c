@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpDpSortApicList @ 0x140935308
+ * XREFs of HalpDpSortApicList @ 0x140935508
  * Callers:
- *     HalpDpReplaceBegin @ 0x140935120 (HalpDpReplaceBegin.c)
+ *     HalpDpReplaceBegin @ 0x140935320 (HalpDpReplaceBegin.c)
  * Callees:
  *     <none>
  */

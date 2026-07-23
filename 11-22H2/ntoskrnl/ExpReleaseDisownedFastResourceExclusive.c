@@ -57,7 +57,7 @@ __int64 __fastcall ExpReleaseDisownedFastResourceExclusive(__int64 a1, __int64 a
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v5 = v30.OldIrql + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;
@@ -79,7 +79,7 @@ LABEL_10:
       *(_QWORD *)a2 = 0LL;
       *(_QWORD *)(a2 + 8) = 0LL;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
         if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0
@@ -139,10 +139,10 @@ LABEL_35:
   *(_QWORD *)(a2 + 48) = 0LL;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   ExpCommitWakeResourceExclusive(v23, &v34, v24, 0, v33 != 0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;

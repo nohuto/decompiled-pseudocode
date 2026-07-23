@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpSegSegmentFree @ 0x1403151F4
+ * XREFs of RtlpHpSegSegmentFree @ 0x140315484
  * Callers:
- *     RtlpHpSegPageRangeShrink @ 0x14024E6C0 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegSegmentAllocate @ 0x140312278 (RtlpHpSegSegmentAllocate.c)
- *     RtlpHpSegContextCompact @ 0x140337DA0 (RtlpHpSegContextCompact.c)
- *     RtlpHpSegContextCleanup @ 0x1405B6A20 (RtlpHpSegContextCleanup.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024E790 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegSegmentAllocate @ 0x140312508 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegContextCompact @ 0x140338030 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegContextCleanup @ 0x1405B6F90 (RtlpHpSegContextCleanup.c)
  * Callees:
- *     RtlpHpSegMgrRelease @ 0x1403152C8 (RtlpHpSegMgrRelease.c)
- *     RtlCSparseBitmapBitsClear @ 0x140315408 (RtlCSparseBitmapBitsClear.c)
+ *     RtlpHpSegMgrRelease @ 0x140315558 (RtlpHpSegMgrRelease.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140315698 (RtlCSparseBitmapBitsClear.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentFree(__int64 a1, __int64 a2, unsigned int a3, int a4)

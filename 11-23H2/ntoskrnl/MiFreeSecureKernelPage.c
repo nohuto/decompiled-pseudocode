@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeSecureKernelPage @ 0x140656984
+ * XREFs of MiFreeSecureKernelPage @ 0x140656ED4
  * Callers:
- *     MmFreeNonChargedSecurePages @ 0x140657CB8 (MmFreeNonChargedSecurePages.c)
- *     MmFreeSecureKernelPages @ 0x140657EAC (MmFreeSecureKernelPages.c)
+ *     MmFreeNonChargedSecurePages @ 0x140658208 (MmFreeNonChargedSecurePages.c)
+ *     MmFreeSecureKernelPages @ 0x1406583FC (MmFreeSecureKernelPages.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeSmallPageFromMdl @ 0x140623230 (MiFreeSmallPageFromMdl.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeSmallPageFromMdl @ 0x140623780 (MiFreeSmallPageFromMdl.c)
  */
 
 __int64 __fastcall MiFreeSecureKernelPage(ULONG_PTR a1, __int64 a2, int a3, ULONG_PTR a4, _DWORD *a5)
@@ -41,10 +41,10 @@ __int64 __fastcall MiFreeSecureKernelPage(ULONG_PTR a1, __int64 a2, int a3, ULON
     MiFreeSmallPageFromMdl(a1, 0, 3, 0LL);
     result = 0x7FFFFFFFFFFFFFFFLL;
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v11 <= 0xFu
         && (unsigned __int8)result >= 2u )
@@ -70,10 +70,10 @@ __int64 __fastcall MiFreeSecureKernelPage(ULONG_PTR a1, __int64 a2, int a3, ULON
     result = 0x7FFFFFFFFFFFFFFFLL;
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     v17 = 1LL;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v16 <= 0xFu
         && (unsigned __int8)result >= 2u )

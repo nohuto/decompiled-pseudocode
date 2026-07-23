@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpWerCleanupContext @ 0x14061C01C
+ * XREFs of DbgkpWerCleanupContext @ 0x14061C0D0
  * Callers:
- *     DbgkWerCaptureLiveKernelDump @ 0x14061BB3C (DbgkWerCaptureLiveKernelDump.c)
- *     DbgkpWerDeferredWriteRoutine @ 0x14061C1BC (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14061BBF0 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x14061C270 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
  *     WerLiveKernelCancelReport_0 @ 0x140001320 (WerLiveKernelCancelReport_0.c)
  *     WerLiveKernelCloseHandle_0 @ 0x140001330 (WerLiveKernelCloseHandle_0.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x1401CB1E0 (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x1401CB270 (IopLiveDumpTraceInterfaceStart.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x1401CB0C4 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x1401CB154 (IopLiveDumpTraceInterfaceStart.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     DbgkpWerFreePool @ 0x14061C2B4 (DbgkpWerFreePool.c)
- *     IopLiveDumpReleaseResources @ 0x1406272E8 (IopLiveDumpReleaseResources.c)
+ *     DbgkpWerFreePool @ 0x14061C368 (DbgkpWerFreePool.c)
+ *     IopLiveDumpReleaseResources @ 0x14062739C (IopLiveDumpReleaseResources.c)
  */
 
 int __fastcall DbgkpWerCleanupContext(__int64 a1)

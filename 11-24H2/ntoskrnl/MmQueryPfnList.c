@@ -1,9 +1,9 @@
 /*
- * XREFs of MmQueryPfnList @ 0x140933910
+ * XREFs of MmQueryPfnList @ 0x1408F6430
  * Callers:
- *     PfpPfnPrioRequest @ 0x1409334C4 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x1408F5FDC (PfpPfnPrioRequest.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x140307340 (MiIdentifyPfnWrapper.c)
+ *     MiIdentifyPfnWrapper @ 0x140311220 (MiIdentifyPfnWrapper.c)
  */
 
 __int64 __fastcall MmQueryPfnList(__int64 a1, unsigned __int64 a2)

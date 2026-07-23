@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
- *     WmipQuerySetExecuteSI @ 0x14078362C (WmipQuerySetExecuteSI.c)
- *     WmipAllocateSingleInstanceWnode @ 0x1409DC140 (WmipAllocateSingleInstanceWnode.c)
+ *     sub_14078362C @ 0x14078362C (sub_14078362C.c)
+ *     sub_1409DC140 @ 0x1409DC140 (sub_1409DC140.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -19,9 +19,9 @@ NTSTATUS __stdcall IoWMIExecuteMethod(
 {
   PULONG v6; // rsi
   ULONG v9; // r8d
-  int SingleInstanceWnode; // eax
+  int v12; // eax
   _QWORD *v13; // rdi
-  NTSTATUS SetExecuteSI; // ebx
+  NTSTATUS v14; // ebx
   int v15; // eax
   unsigned int v16; // ebx
   int v17; // r12d
@@ -41,17 +41,10 @@ NTSTATUS __stdcall IoWMIExecuteMethod(
   P = 0LL;
   if ( InBufferSize > v9 )
     v9 = InBufferSize;
-  SingleInstanceWnode = WmipAllocateSingleInstanceWnode(
-                          68,
-                          (_DWORD)InstanceName,
-                          v9,
-                          (unsigned int)&v22,
-                          (__int64)&v23,
-                          (__int64)&v25,
-                          (__int64)&P);
+  v12 = sub_1409DC140(68, (_DWORD)InstanceName, v9, (unsigned int)&v22, (__int64)&v23, (__int64)&v25, (__int64)&P);
   v13 = P;
-  SetExecuteSI = SingleInstanceWnode;
-  if ( SingleInstanceWnode >= 0 )
+  v14 = v12;
+  if ( v12 >= 0 )
   {
     v15 = v22;
     v16 = v25;
@@ -69,14 +62,14 @@ NTSTATUS __stdcall IoWMIExecuteMethod(
     memmove(v18 + 1, InstanceName->Buffer, InstanceName->Length);
     memmove((char *)v13 + *((unsigned int *)v13 + 15), InOutBuffer, InBufferSize);
     LODWORD(v25) = *(_DWORD *)v13;
-    SetExecuteSI = WmipQuerySetExecuteSI(DataBlockObject, 0LL, 0, 9u, (__int64)v13, v16, (unsigned int *)&v25);
-    if ( SetExecuteSI >= 0 )
+    v14 = sub_14078362C(DataBlockObject, 0LL, 0, 9u, (__int64)v13, v16, (unsigned int *)&v25);
+    if ( v14 >= 0 )
     {
       if ( (*((_DWORD *)v13 + 11) & 0x20) != 0 )
       {
         v19 = *((_DWORD *)v13 + 12) - v17;
 LABEL_7:
-        SetExecuteSI = -1073741789;
+        v14 = -1073741789;
         *v6 = (v19 + 7) & 0xFFFFFFF8;
         goto LABEL_8;
       }
@@ -91,5 +84,5 @@ LABEL_7:
 LABEL_8:
   if ( v13 )
     ExFreePoolWithTag(v13, 0);
-  return SetExecuteSI;
+  return v14;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProcessWsInSwapFault @ 0x14029EFBC
+ * XREFs of MiProcessWsInSwapFault @ 0x14029E50C
  * Callers:
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiValidFault @ 0x1403A7338 (MiValidFault.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiValidFault @ 0x1403A9098 (MiValidFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetVaAge @ 0x14029C6E0 (MiGetVaAge.c)
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiReleaseWsSwapReservationPfn @ 0x14029F0DC (MiReleaseWsSwapReservationPfn.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetVaAge @ 0x14029BC40 (MiGetVaAge.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiReleaseWsSwapReservationPfn @ 0x14029E62C (MiReleaseWsSwapReservationPfn.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 char __fastcall MiProcessWsInSwapFault(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, __int64 *a4)
@@ -29,7 +29,7 @@ char __fastcall MiProcessWsInSwapFault(__int64 a1, ULONG_PTR a2, unsigned __int6
     while ( *(__int64 *)(a2 + 24) < 0 );
   }
   v8 = MiReleaseWsSwapReservationPfn(a2);
-  v9 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL));
+  v9 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL));
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( v8 )
     MiReleasePageFileInfo(v9, v8, 1LL);

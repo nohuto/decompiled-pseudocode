@@ -1,7 +1,7 @@
 /*
- * XREFs of IoGetTransactionParameterBlock @ 0x140103EC0
+ * XREFs of IoGetTransactionParameterBlock @ 0x140103F40
  * Callers:
- *     IopTrackLink @ 0x14068BD28 (IopTrackLink.c)
+ *     IopTrackLink @ 0x14068CEE8 (IopTrackLink.c)
  * Callees:
  *     <none>
  */

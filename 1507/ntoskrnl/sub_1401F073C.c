@@ -14,21 +14,21 @@ PSLIST_ENTRY __fastcall sub_1401F073C(__int64 a1, __int64 a2)
 {
   char v4; // r15
   char v5; // r14
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _QWORD *p_Next; // rbx
   PHYSICAL_ADDRESS Next; // rsi
   PSLIST_ENTRY v9; // rax
-  struct _SLIST_ENTRY *v10; // rbp
+  _SLIST_ENTRY *v10; // rbp
   PSLIST_ENTRY result; // rax
   struct _KPRCB *v12; // rcx
-  union _SLIST_HEADER *v13; // [rsp+28h] [rbp-90h]
-  struct _SLIST_ENTRY *v14; // [rsp+30h] [rbp-88h]
+  _SLIST_HEADER *v13; // [rsp+28h] [rbp-90h]
+  _SLIST_ENTRY *v14; // [rsp+30h] [rbp-88h]
   _BYTE v15[7]; // [rsp+40h] [rbp-78h] BYREF
   _BYTE v16[97]; // [rsp+57h] [rbp-61h] BYREF
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v9 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     p_Next = &v9->Next;
     if ( v9 )

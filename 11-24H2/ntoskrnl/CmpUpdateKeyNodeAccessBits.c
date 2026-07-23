@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpUpdateKeyNodeAccessBits @ 0x14086A638
+ * XREFs of CmpUpdateKeyNodeAccessBits @ 0x14086E968
  * Callers:
- *     CmpCreateTombstone @ 0x140668414 (CmpCreateTombstone.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmQueryMultipleValueKey @ 0x14086C850 (CmQueryMultipleValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x14088067C (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1409A0064 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpCreateTombstone @ 0x140666D04 (CmpCreateTombstone.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x140830F98 (CmpSetSecurityDescriptorInfo.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x140870B80 (CmQueryMultipleValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14088452C (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
  * Callees:
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
  */
 
 void __fastcall CmpUpdateKeyNodeAccessBits(ULONG_PTR a1, __int64 a2, unsigned int a3)

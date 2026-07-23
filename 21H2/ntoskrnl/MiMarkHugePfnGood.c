@@ -1,24 +1,24 @@
 /*
  * XREFs of MiMarkHugePfnGood @ 0x1403F3DA8
  * Callers:
- *     MiUnlinkBadPages @ 0x14052F0F8 (MiUnlinkBadPages.c)
+ *     MiUnlinkBadPages @ 0x14052F338 (MiUnlinkBadPages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x1402AC034 (MiUnlockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryExclusive @ 0x1402AC3F4 (MiLockDynamicMemoryExclusive.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     RtlAreBitsClearEx @ 0x140348F90 (RtlAreBitsClearEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1402745E0 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryExclusive @ 0x1402749A0 (MiLockDynamicMemoryExclusive.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     RtlAreBitsClearEx @ 0x140353CE0 (RtlAreBitsClearEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     MiHugePfnPartition @ 0x1403F38E8 (MiHugePfnPartition.c)
  *     MiIsPageInHugePfn @ 0x1403F391C (MiIsPageInHugePfn.c)
- *     MiInsertHugeRangeInList @ 0x140533608 (MiInsertHugeRangeInList.c)
- *     MiUnlinkHugeRange @ 0x140533B5C (MiUnlinkHugeRange.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiInsertHugeRangeInList @ 0x140533848 (MiInsertHugeRangeInList.c)
+ *     MiUnlinkHugeRange @ 0x140533D9C (MiUnlinkHugeRange.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMarkHugePfnGood(unsigned __int64 a1)
@@ -46,14 +46,14 @@ __int64 __fastcall MiMarkHugePfnGood(unsigned __int64 a1)
   v5 = (a1 >> 18) & 0x3FFFF;
   v6 = 0LL;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E608, 0LL);
-  v7 = MiHugePfnPartition((_QWORD *)(qword_140C4E670 + 8 * v5));
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E648, 0LL);
+  v7 = MiHugePfnPartition((_QWORD *)(qword_140C4E6B0 + 8 * v5));
   v8 = v7;
   if ( !v7 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E608, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C4E608);
-    KeAbPostRelease((ULONG_PTR)&qword_140C4E608);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E648, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&qword_140C4E648);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4E648);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     return 3221226548LL;
   }
@@ -61,9 +61,9 @@ __int64 __fastcall MiMarkHugePfnGood(unsigned __int64 a1)
   if ( (*(_DWORD *)(v8 + 4) & 1) != 0 )
   {
     MiUnlockDynamicMemoryExclusive(v8, (__int64)CurrentThread);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E608, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C4E608);
-    KeAbPostRelease((ULONG_PTR)&qword_140C4E608);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E648, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&qword_140C4E648);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4E648);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&Mi10Milliseconds);
     return 3221226548LL;
@@ -71,8 +71,8 @@ __int64 __fastcall MiMarkHugePfnGood(unsigned __int64 a1)
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v8 + 4128), &LockHandle);
   if ( MiIsPageInHugePfn(a1) )
   {
-    v9 = qword_140C4E670;
-    if ( (*(_QWORD *)(qword_140C4E670 + 8 * v5) & 0x10000000000LL) != 0 )
+    v9 = qword_140C4E6B0;
+    if ( (*(_QWORD *)(qword_140C4E6B0 + 8 * v5) & 0x10000000000LL) != 0 )
     {
       v6 = *(_QWORD *)(v8 + 4896);
       while ( v6 )
@@ -119,9 +119,9 @@ __int64 __fastcall MiMarkHugePfnGood(unsigned __int64 a1)
 LABEL_29:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   MiUnlockDynamicMemoryExclusive(v8, (__int64)CurrentThread);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E608, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&qword_140C4E608);
-  KeAbPostRelease((ULONG_PTR)&qword_140C4E608);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E648, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C4E648);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4E648);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   if ( v6 )
   {

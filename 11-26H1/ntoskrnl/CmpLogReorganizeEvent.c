@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogReorganizeEvent @ 0x140851360
+ * XREFs of CmpLogReorganizeEvent @ 0x140857670
  * Callers:
- *     CmpReorganizeHive @ 0x140AE35CC (CmpReorganizeHive.c)
+ *     CmpReorganizeHive @ 0x140AE10D4 (CmpReorganizeHive.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogReorganizeEvent(unsigned __int16 *a1, int a2, int a3)
@@ -25,7 +25,7 @@ NTSTATUS __fastcall CmpLogReorganizeEvent(unsigned __int16 *a1, int a2, int a3)
 
   v15 = a3;
   v14 = a2;
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     v3 = *a1;
     v8 = *a1;
@@ -38,7 +38,7 @@ NTSTATUS __fastcall CmpLogReorganizeEvent(unsigned __int16 *a1, int a2, int a3)
     v9 = 0;
     v11 = 4LL;
     v13 = 4LL;
-    return EtwWrite((REGHANDLE)EtwpSecurityLock.MutantListHead.Blink, &REG_EVENT_REORGANIZE, 0LL, 4u, &UserData);
+    return EtwWrite(EtwKernelProvRegHandle, &REG_EVENT_REORGANIZE, 0LL, 4u, &UserData);
   }
   return result;
 }

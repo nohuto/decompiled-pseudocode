@@ -1,8 +1,8 @@
 /*
- * XREFs of KiReduceAffinityToRankListMinimums @ 0x1402022C0
+ * XREFs of KiReduceAffinityToRankListMinimums @ 0x14032A9B0
  * Callers:
- *     KiPerformSoftParkElectionRound @ 0x140201740 (KiPerformSoftParkElectionRound.c)
- *     KiTallyHeteroSoftParkElectionVotes @ 0x1402018D0 (KiTallyHeteroSoftParkElectionVotes.c)
+ *     KiPerformSoftParkElectionRound @ 0x140329E30 (KiPerformSoftParkElectionRound.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x140329FC0 (KiTallyHeteroSoftParkElectionVotes.c)
  * Callees:
  *     <none>
  */

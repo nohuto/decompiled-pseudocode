@@ -1,15 +1,15 @@
 /*
- * XREFs of IoCreateFile @ 0x1407D0680
+ * XREFs of IoCreateFile @ 0x1407D0950
  * Callers:
- *     DifIoCreateFileWrapper @ 0x1405DE570 (DifIoCreateFileWrapper.c)
- *     NtCreateNamedPipeFile @ 0x1407D0520 (NtCreateNamedPipeFile.c)
- *     PopCreateHiberFile @ 0x1408004E0 (PopCreateHiberFile.c)
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     NtCreateMailslotFile @ 0x14094AB50 (NtCreateMailslotFile.c)
- *     SmKmStoreFileCreateForIoType @ 0x1409D9B78 (SmKmStoreFileCreateForIoType.c)
+ *     DifIoCreateFileWrapper @ 0x1405DEAE0 (DifIoCreateFileWrapper.c)
+ *     NtCreateNamedPipeFile @ 0x1407D07F0 (NtCreateNamedPipeFile.c)
+ *     PopCreateHiberFile @ 0x1408007B0 (PopCreateHiberFile.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     NtCreateMailslotFile @ 0x14094AD50 (NtCreateMailslotFile.c)
+ *     SmKmStoreFileCreateForIoType @ 0x1409D9D78 (SmKmStoreFileCreateForIoType.c)
  *     IopInitCrashDumpRegCallback @ 0x140B5D550 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     IopCreateFile @ 0x14073C690 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14073C880 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall IoCreateFile(

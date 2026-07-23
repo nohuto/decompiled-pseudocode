@@ -1,9 +1,9 @@
 /*
- * XREFs of PopKsrCallback @ 0x1405D4260
+ * XREFs of PopKsrCallback @ 0x1405D1A20
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
  */
 
 void __fastcall PopKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

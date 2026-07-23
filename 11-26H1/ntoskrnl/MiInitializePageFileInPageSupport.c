@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializePageFileInPageSupport @ 0x1403741B8
+ * XREFs of MiInitializePageFileInPageSupport @ 0x140375F68
  * Callers:
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
  * Callees:
- *     MiObtainProtoReference @ 0x1402E5B70 (MiObtainProtoReference.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiInitializeReadInProgressPfn @ 0x1403737C0 (MiInitializeReadInProgressPfn.c)
- *     MiFlowThroughInsertNode @ 0x140373F80 (MiFlowThroughInsertNode.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
+ *     MiObtainProtoReference @ 0x1402C7BB0 (MiObtainProtoReference.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiInitializeReadInProgressPfn @ 0x140375570 (MiInitializeReadInProgressPfn.c)
+ *     MiFlowThroughInsertNode @ 0x140375D30 (MiFlowThroughInsertNode.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
  */
 
 void __fastcall MiInitializePageFileInPageSupport(__int64 a1, unsigned __int64 *a2)
@@ -42,14 +42,14 @@ void __fastcall MiInitializePageFileInPageSupport(__int64 a1, unsigned __int64 *
     PteShadow = *(_QWORD *)(48LL * *(_QWORD *)(v7 + 320) - 0x21FFFFFFFFF0LL);
   if ( (*(_BYTE *)(a1 + 68) & 0x10) != 0 )
   {
-    MiObtainProtoReference(*(_QWORD *)(a1 + 16), 0);
+    MiObtainProtoReference(*(_QWORD *)(a1 + 16), 0LL, v8);
     *(_QWORD *)(v7 + 160) = *(_QWORD *)(a1 + 16);
   }
   v9 = *(_QWORD *)(v4 + 8LL * ((unsigned __int16)PteShadow >> 12) + 22304);
   if ( (PteShadow & 8) != 0 )
   {
-    if ( qword_140E2D740 && (PteShadow & 0x10) == 0 )
-      PteShadow &= qword_140E2D748;
+    if ( qword_140E2D8C0 && (PteShadow & 0x10) == 0 )
+      PteShadow &= qword_140E2D8C8;
     v10 = HIDWORD(PteShadow);
   }
   else
@@ -97,7 +97,7 @@ void __fastcall MiInitializePageFileInPageSupport(__int64 a1, unsigned __int64 *
   *(_QWORD *)(v7 + 96) = v20;
   *(_QWORD *)(v7 + 192) = v18;
   if ( *(_QWORD *)(v18 + 184)
-    && (!v17 || *(_BYTE *)v17 != 1 || (*(_DWORD *)(v17 + 80) & 0x1000) == 0 || (dword_140FBE210 & 1) != 0) )
+    && (!v17 || *(_BYTE *)v17 != 1 || (*(_DWORD *)(v17 + 80) & 0x1000) == 0 || (dword_140FBF210 & 1) != 0) )
   {
     v21 |= 0x800000u;
   }

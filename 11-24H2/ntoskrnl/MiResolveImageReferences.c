@@ -1,30 +1,30 @@
 /*
- * XREFs of MiResolveImageReferences @ 0x140A17C94
+ * XREFs of MiResolveImageReferences @ 0x140A10E04
  * Callers:
- *     MiResolveImageImports @ 0x1407E7750 (MiResolveImageImports.c)
+ *     MiResolveImageImports @ 0x1407E7D20 (MiResolveImageImports.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
- *     _strnicmp @ 0x1404FE160 (_strnicmp.c)
- *     ApiSetResolveToHost @ 0x14065FD44 (ApiSetResolveToHost.c)
- *     MiDereferenceImports @ 0x1407E73C0 (MiDereferenceImports.c)
- *     MiFormFullImageName @ 0x1407E75D0 (MiFormFullImageName.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     RtlAnsiStringToUnicodeString @ 0x1408ADC70 (RtlAnsiStringToUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x140926680 (RtlDuplicateUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
- *     MiSnapThunk @ 0x140A180B4 (MiSnapThunk.c)
- *     PsQueryCurrentApiSetSchema @ 0x140A183B0 (PsQueryCurrentApiSetSchema.c)
- *     MiCompressImportList @ 0x140A183F4 (MiCompressImportList.c)
- *     MiAllocateImportList @ 0x140A184A4 (MiAllocateImportList.c)
- *     MiSnapUnresolvedImport @ 0x140A184E8 (MiSnapUnresolvedImport.c)
- *     MiLogFailedDriverLoad @ 0x140A18B7C (MiLogFailedDriverLoad.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
+ *     _strnicmp @ 0x1404FBA20 (_strnicmp.c)
+ *     ApiSetResolveToHost @ 0x14065E514 (ApiSetResolveToHost.c)
+ *     MiDereferenceImports @ 0x1407E7990 (MiDereferenceImports.c)
+ *     MiFormFullImageName @ 0x1407E7BA0 (MiFormFullImageName.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140903ED0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1409287C0 (RtlDuplicateUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
+ *     MiSnapThunk @ 0x140A11224 (MiSnapThunk.c)
+ *     PsQueryCurrentApiSetSchema @ 0x140A11520 (PsQueryCurrentApiSetSchema.c)
+ *     MiCompressImportList @ 0x140A11564 (MiCompressImportList.c)
+ *     MiAllocateImportList @ 0x140A11614 (MiAllocateImportList.c)
+ *     MiSnapUnresolvedImport @ 0x140A11658 (MiSnapUnresolvedImport.c)
+ *     MiLogFailedDriverLoad @ 0x140A11CEC (MiLogFailedDriverLoad.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiResolveImageReferences(
@@ -34,7 +34,7 @@ __int64 __fastcall MiResolveImageReferences(
         const UNICODE_STRING *a4,
         int a5)
 {
-  unsigned __int64 v5; // rbx
+  char *v5; // rbx
   unsigned __int16 *v6; // r14
   unsigned int *v7; // rax
   __int64 v8; // r8
@@ -54,32 +54,32 @@ __int64 __fastcall MiResolveImageReferences(
   PVOID v22; // r15
   __int64 v23; // rax
   unsigned int v24; // edx
-  _QWORD *v26; // rdi
-  int v27; // r14d
+  char *v26; // rdi
+  unsigned int v27; // r14d
   int v28; // eax
   __int64 v29; // rax
   unsigned __int16 Length; // bx
-  unsigned int v31; // edi
+  ULONG v31; // edi
   char v32; // [rsp+48h] [rbp-91h]
   char v33; // [rsp+49h] [rbp-90h] BYREF
   unsigned int v34; // [rsp+4Ch] [rbp-8Dh]
   __int64 v35; // [rsp+50h] [rbp-89h]
   UNICODE_STRING *p_String1; // [rsp+58h] [rbp-81h]
-  unsigned int v37; // [rsp+60h] [rbp-79h] BYREF
+  ULONG Size; // [rsp+60h] [rbp-79h] BYREF
   UNICODE_STRING StringOut; // [rsp+68h] [rbp-71h] BYREF
-  unsigned __int64 v39; // [rsp+78h] [rbp-61h]
+  char *v39; // [rsp+78h] [rbp-61h]
   UNICODE_STRING String1; // [rsp+88h] [rbp-51h] BYREF
   UNICODE_STRING StringIn; // [rsp+98h] [rbp-41h] BYREF
   PVOID *v42; // [rsp+A8h] [rbp-31h] BYREF
   PVOID P; // [rsp+B0h] [rbp-29h]
   _QWORD v44[2]; // [rsp+B8h] [rbp-21h] BYREF
-  __int64 **v45[2]; // [rsp+C8h] [rbp-11h] BYREF
+  PVOID v45[2]; // [rsp+C8h] [rbp-11h] BYREF
   STRING DestinationString; // [rsp+D8h] [rbp-1h] BYREF
 
   v44[0] = 3932218LL;
   v44[1] = L"\\SystemRoot\\System32\\drivers\\";
   *(_QWORD *)&String1.Length = 0LL;
-  v5 = *(_QWORD *)(a1 + 48);
+  v5 = *(char **)(a1 + 48);
   *(_QWORD *)(a1 + 136) = -2LL;
   v6 = a3;
   v42 = 0LL;
@@ -89,7 +89,7 @@ __int64 __fastcall MiResolveImageReferences(
   DestinationString = 0LL;
   StringOut = 0LL;
   StringIn = 0LL;
-  v7 = (unsigned int *)RtlImageDirectoryEntryToData(v5, 1, 1u, &v37);
+  v7 = (unsigned int *)RtlImageDirectoryEntryToData(v5, 1u, 1u, &Size);
   v8 = 0LL;
   v9 = v7;
   if ( !v7 )
@@ -141,9 +141,9 @@ LABEL_40:
       *(_QWORD *)(a1 + 136) = MiCompressImportList(P);
       return 0LL;
     }
-    v17 = (const char *)(v5 + v16);
+    v17 = &v5[v16];
     v10 = v8;
-    RtlInitAnsiString(&DestinationString, (PCSZ)(v5 + v16));
+    RtlInitAnsiString(&DestinationString, &v5[v16]);
     SystemImage = RtlAnsiStringToUnicodeString(&StringOut, &DestinationString, 1u);
     if ( SystemImage < 0 )
       goto LABEL_59;
@@ -170,7 +170,7 @@ LABEL_57:
         v5 = v39;
         goto LABEL_33;
       }
-      v37 = 0x80000000;
+      Size = 0x80000000;
       v6 = (unsigned __int16 *)v44;
       SystemImage = RtlDuplicateUnicodeString(0, &StringIn, &StringOut);
       if ( SystemImage < 0 )
@@ -183,7 +183,7 @@ LABEL_59:
     }
     else
     {
-      v37 = 0;
+      Size = 0;
     }
     if ( !a4
       || !strnicmp(v17, "ntoskrnl", 8uLL)
@@ -225,8 +225,8 @@ LABEL_68:
       }
       if ( !(unsigned int)MiFormFullImageName(v6, (const STRING *)&StringOut, (STRING *)&StringIn) )
         goto LABEL_73;
-      v31 = v37 | 8;
-      SystemImage = MmLoadSystemImageEx((__int64)&StringIn, (__int64)a4, 0LL, 0, v37 | 8, (__int64 *)&v42, v45);
+      v31 = Size | 8;
+      SystemImage = MmLoadSystemImageEx((__int64)&StringIn, (__int64)a4, 0LL, 0, Size | 8, (__int64 *)&v42, v45);
       if ( SystemImage == -1073741772 )
       {
         ExFreePoolWithTag(StringIn.Buffer, 0);
@@ -286,11 +286,11 @@ LABEL_26:
     v5 = v39;
     if ( (_DWORD)v23 )
     {
-      v26 = (_QWORD *)(v39 + v23);
-      v27 = v39 + v9[4];
-      while ( *v26 != v8 )
+      v26 = &v39[v23];
+      v27 = (_DWORD)v39 + v9[4];
+      while ( *(_QWORD *)v26 != v8 )
       {
-        v28 = MiSnapThunk((_DWORD)v22, v5, (_DWORD)v26, v27, v8);
+        v28 = MiSnapThunk((_DWORD)v22, (_DWORD)v5, (_DWORD)v26, v27, v8);
         v8 = 0LL;
         SystemImage = v28;
         if ( v28 < 0 )
@@ -300,7 +300,7 @@ LABEL_26:
           goto LABEL_46;
         }
         v5 = v39;
-        ++v26;
+        v26 += 8;
         v27 += 8;
       }
     }

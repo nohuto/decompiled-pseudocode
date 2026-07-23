@@ -1,12 +1,17 @@
 /*
- * XREFs of NtSetCachedSigningLevel @ 0x140889830
+ * XREFs of NtSetCachedSigningLevel @ 0x14088D6E0
  * Callers:
  *     <none>
  * Callees:
- *     NtSetCachedSigningLevel2 @ 0x140889860 (NtSetCachedSigningLevel2.c)
+ *     NtSetCachedSigningLevel2 @ 0x14088D710 (NtSetCachedSigningLevel2.c)
  */
 
-__int64 __fastcall NtSetCachedSigningLevel(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtSetCachedSigningLevel(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile)
 {
-  return NtSetCachedSigningLevel2(a1, a2);
+  return NtSetCachedSigningLevel2(Flags, InputSigningLevel, SourceFiles, SourceFileCount, TargetFile, 0LL);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsspHandleStreamSizeCalculator @ 0x18012AE40
+ * XREFs of PsspHandleStreamSizeCalculator @ 0x18012AE10
  * Callers:
  *     <none>
  * Callees:

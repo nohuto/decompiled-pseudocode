@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlNotifyFeatureToggleUsage @ 0x180147B70
+ * XREFs of RtlNotifyFeatureToggleUsage @ 0x180147A20
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFtQueryConfiguration @ 0x180147C7C (RtlpFtQueryConfiguration.c)
- *     RtlpFtSendUsageNotification @ 0x180147DB0 (RtlpFtSendUsageNotification.c)
- *     __ft_has_proxy @ 0x180147F00 (__ft_has_proxy.c)
- *     __ft_record_impression @ 0x18014814C (__ft_record_impression.c)
+ *     RtlpFtQueryConfiguration @ 0x180147B2C (RtlpFtQueryConfiguration.c)
+ *     RtlpFtSendUsageNotification @ 0x180147C60 (RtlpFtSendUsageNotification.c)
+ *     __ft_has_proxy @ 0x180147DB0 (__ft_has_proxy.c)
+ *     __ft_record_impression @ 0x180147FFC (__ft_record_impression.c)
  */
 
 __int64 __fastcall RtlNotifyFeatureToggleUsage(__int64 a1, __int64 a2, int a3)

@@ -8,15 +8,15 @@
  *     MiReferenceExistingControlArea @ 0x14020EFE0 (MiReferenceExistingControlArea.c)
  *     MmGetImageFileSignatureInformation @ 0x14020F0B0 (MmGetImageFileSignatureInformation.c)
  *     MmEnoughMemoryForWrite @ 0x140210000 (MmEnoughMemoryForWrite.c)
- *     MmOnlySystemCacheViewsPresent @ 0x1402F0E2C (MmOnlySystemCacheViewsPresent.c)
- *     MmChangeSectionBackingFile @ 0x14035EFB8 (MmChangeSectionBackingFile.c)
- *     MiForceSectionClosed @ 0x14035F6C0 (MiForceSectionClosed.c)
- *     MmIsFileSectionActive @ 0x1403C5950 (MmIsFileSectionActive.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x1402F10BC (MmOnlySystemCacheViewsPresent.c)
+ *     MmChangeSectionBackingFile @ 0x14035F158 (MmChangeSectionBackingFile.c)
+ *     MiForceSectionClosed @ 0x14035F860 (MiForceSectionClosed.c)
+ *     MmIsFileSectionActive @ 0x1403C5B30 (MmIsFileSectionActive.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
@@ -50,10 +50,13 @@ __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
     }
     v10 = *a3;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,10 +70,10 @@ __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
     __writecr8(v10);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

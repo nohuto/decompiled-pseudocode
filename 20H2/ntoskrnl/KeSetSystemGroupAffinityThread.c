@@ -75,7 +75,7 @@ void __stdcall KeSetSystemGroupAffinityThread(PGROUP_AFFINITY Affinity, PGROUP_A
   int v15; // eax
   _DWORD *v16; // rcx
   int v17; // eax
-  struct _GROUP_AFFINITY v18; // [rsp+20h] [rbp-48h]
+  _GROUP_AFFINITY v18; // [rsp+20h] [rbp-48h]
   int v19; // [rsp+70h] [rbp+8h] BYREF
   __int64 v20; // [rsp+78h] [rbp+10h] BYREF
 

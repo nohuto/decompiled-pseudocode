@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpDeleteKeyObject @ 0x14063F500
+ * XREFs of CmpDeleteKeyObject @ 0x140640520
  * Callers:
  *     <none>
  * Callees:
@@ -11,28 +11,28 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     CmpWaitForLateUnloadWorker @ 0x1401119A8 (CmpWaitForLateUnloadWorker.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
- *     CmpRecordRegistryLockAcquire @ 0x1401B2FF4 (CmpRecordRegistryLockAcquire.c)
- *     CmpRecordRegistryLockRelease @ 0x1401B3024 (CmpRecordRegistryLockRelease.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CmpDoQueueLateUnloadWorker @ 0x1405B1550 (CmpDoQueueLateUnloadWorker.c)
- *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406441A0 (CmpDereferenceKeyControlBlock.c)
- *     CmpArmDelayDerefKCBWorker @ 0x14068A128 (CmpArmDelayDerefKCBWorker.c)
- *     CmpFlushNotify @ 0x1406927A8 (CmpFlushNotify.c)
- *     CmpTransDereferenceTransaction @ 0x140694094 (CmpTransDereferenceTransaction.c)
- *     CmpFreePostBlock @ 0x14069502C (CmpFreePostBlock.c)
- *     CmpFireCleanupNotifications @ 0x1407EB4C4 (CmpFireCleanupNotifications.c)
- *     CmpFreeCallbackObjectContexts @ 0x1407EB544 (CmpFreeCallbackObjectContexts.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x1407FF7D8 (CmpKeyEnumStackFreeResumeContext.c)
+ *     PsBoostThreadIo @ 0x1400BBEB0 (PsBoostThreadIo.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     CmpWaitForLateUnloadWorker @ 0x140111A18 (CmpWaitForLateUnloadWorker.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B30F8 (CmpIsRegistryLockAcquired.c)
+ *     CmpRecordRegistryLockAcquire @ 0x1401B3134 (CmpRecordRegistryLockAcquire.c)
+ *     CmpRecordRegistryLockRelease @ 0x1401B3164 (CmpRecordRegistryLockRelease.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1405B2550 (CmpDoQueueLateUnloadWorker.c)
+ *     CmpLockKcbExclusive @ 0x1405D2728 (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpCallCallBacksEx @ 0x1405E6AE0 (CmpCallCallBacksEx.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406451C0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpArmDelayDerefKCBWorker @ 0x14068B2E8 (CmpArmDelayDerefKCBWorker.c)
+ *     CmpFlushNotify @ 0x140693968 (CmpFlushNotify.c)
+ *     CmpTransDereferenceTransaction @ 0x140695254 (CmpTransDereferenceTransaction.c)
+ *     CmpFreePostBlock @ 0x1406961EC (CmpFreePostBlock.c)
+ *     CmpFireCleanupNotifications @ 0x1407EC6C4 (CmpFireCleanupNotifications.c)
+ *     CmpFreeCallbackObjectContexts @ 0x1407EC744 (CmpFreeCallbackObjectContexts.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x1408009D8 (CmpKeyEnumStackFreeResumeContext.c)
  */
 
 PVOID __fastcall CmpDeleteKeyObject(__int64 a1)
@@ -181,14 +181,14 @@ LABEL_28:
         if ( (_QWORD *)*v20 != v20 )
           KeBugCheckEx(0x51u, 0x34uLL, v8, 1uLL, 0LL);
         *(_BYTE *)(v8 + 56) |= 1u;
-        v21 = (_QWORD *)qword_140437ED8;
-        if ( *(__int64 **)qword_140437ED8 == &CmpDelayDerefKCBListHead )
+        v21 = (_QWORD *)qword_140438F98;
+        if ( *(__int64 **)qword_140438F98 == &CmpDelayDerefKCBListHead )
         {
           v22 = CmpDelayDerefKCBWorkItemActive == 0;
           *v20 = &CmpDelayDerefKCBListHead;
           *(_QWORD *)(v8 + 224) = v21;
           *v21 = v20;
-          qword_140437ED8 = v8 + 216;
+          qword_140438F98 = v8 + 216;
           if ( v22 )
           {
             CmpDelayDerefKCBWorkItemActive = 1;

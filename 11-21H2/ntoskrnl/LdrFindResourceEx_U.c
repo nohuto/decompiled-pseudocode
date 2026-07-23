@@ -3,10 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     LdrpSearchResourceSection_U @ 0x14075717C (LdrpSearchResourceSection_U.c)
+ *     sub_14075717C @ 0x14075717C (sub_14075717C.c)
  */
 
-__int64 __fastcall LdrFindResourceEx_U(int a1, __int64 a2, __int64 *a3, unsigned int a4, unsigned __int64 *a5)
+NTSTATUS __cdecl LdrFindResourceEx_U(
+        ULONG Flags,
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DATA_ENTRY *ResourceDataEntry)
 {
-  return LdrpSearchResourceSection_U(a2, a3, a4, a1, a5);
+  return sub_14075717C((char *)DllHandle, (__int64 *)ResourceInfo, Level, Flags, (char **)ResourceDataEntry);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiChargeForLockedPage @ 0x140328AA0
+ * XREFs of MiChargeForLockedPage @ 0x1403337F0
  * Callers:
- *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiCheckProtoPtePageState @ 0x14023B270 (MiCheckProtoPtePageState.c)
- *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
+ *     MiMigratePfn @ 0x1402BCEF0 (MiMigratePfn.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MiCheckProtoPtePageState @ 0x1402DFAC0 (MiCheckProtoPtePageState.c)
+ *     MiLockProtoPoolPage @ 0x140324E50 (MiLockProtoPoolPage.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
  * Callees:
- *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
- *     MiChargePartitionResidentAvailable @ 0x1402B0CC8 (MiChargePartitionResidentAvailable.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiIsPfnCommitNotCharged @ 0x1403272D0 (MiIsPfnCommitNotCharged.c)
+ *     MiChargePartitionResidentAvailable @ 0x14022F028 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402BF3D0 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiIsPfnCommitNotCharged @ 0x140332020 (MiIsPfnCommitNotCharged.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
@@ -43,8 +43,8 @@ __int64 __fastcall MiChargeForLockedPage(__int64 a1, char a2)
       v5 = 1;
   }
   v8 = (*(_QWORD *)(v3 + 40) >> 39) & 0x3FFLL;
-  v9 = *(ULONG_PTR **)(qword_140C4E648 + 8 * v8);
-  if ( !v5 || (result = MiChargeCommit(*(_QWORD *)(qword_140C4E648 + 8 * v8), 1uLL, v4), (_DWORD)result) )
+  v9 = *(ULONG_PTR **)(qword_140C4E688 + 8 * v8);
+  if ( !v5 || (result = MiChargeCommit(*(_QWORD *)(qword_140C4E688 + 8 * v8), 1uLL, v4), (_DWORD)result) )
   {
     if ( v9 == &MiSystemPartition )
     {

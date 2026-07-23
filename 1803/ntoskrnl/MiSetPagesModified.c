@@ -65,7 +65,7 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
   __int64 v32; // rdx
   ULONG_PTR SessionId; // r9
   unsigned __int8 v34; // r15
-  __int64 v35; // rdi
+  _KLOCK_ENTRY *v35; // rdi
   unsigned int v36; // r8d
   __int64 v37; // rcx
   bool v38; // zf
@@ -214,22 +214,22 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
           *(_BYTE *)(v32 + 26) &= ~1u;
           if ( *(_QWORD *)(v32 + 32) )
           {
-            v35 = (__int64)&v31->LockEntries[v37];
+            v35 = &v31->LockEntries[v37];
             break;
           }
         }
       }
       if ( v35 )
       {
-        *(_BYTE *)(v35 + 32) |= 2u;
-        if ( *(__int64 *)(v35 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v35, v32);
+        v35->CrossThreadReleasableAndBusyByte |= 2u;
+        if ( (__int64)v35->LockState.LockState < 0 )
+          KiAbEntryRemoveFromTree(&v35->TreeNode, v32);
         v42[0] = 0;
-        v42[0] = *(_DWORD *)(v35 + 88) & 0x1FFFF;
-        *(_DWORD *)(v35 + 88) &= 0xFFFE0000;
-        *(_BYTE *)(v35 + 25) &= ~1u;
-        *(_QWORD *)(v35 + 32) = 0LL;
-        v40 = (v35 - (__int64)v31 - 800) / 96;
+        v42[0] = v35->BoostBitmap.AllFields & 0x1FFFF;
+        v35->BoostBitmap.AllFields &= 0xFFFE0000;
+        v35->ThreadLocalFlags &= ~1u;
+        v35->LockState.0 = 0LL;
+        v40 = ((char *)v35 - (char *)v31 - 800) / 96;
         if ( v34 == 1 )
           v31->AbEntrySummary |= 1 << v40;
         else

@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwLoadKey2(
         POBJECT_ATTRIBUTES KeyObjectAttributes,
         POBJECT_ATTRIBUTES FileObjectAttributes,
@@ -14,5 +13,5 @@ NTSTATUS __stdcall ZwLoadKey2(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyObjectAttributes, FileObjectAttributes, *(_QWORD *)&Flags);
+  return KiServiceInternal(KeyObjectAttributes);
 }

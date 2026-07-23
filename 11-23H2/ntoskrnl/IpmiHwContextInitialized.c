@@ -1,14 +1,14 @@
 /*
- * XREFs of IpmiHwContextInitialized @ 0x14067778C
+ * XREFs of IpmiHwContextInitialized @ 0x140677CDC
  * Callers:
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
- *     WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x1406102FC (WheapSelLogSetNtSchedulerAvailabilityNoLock.c)
- *     IpmiHwInitializeContext @ 0x1406777A8 (IpmiHwInitializeContext.c)
- *     IpmiLibAddSelBugcheckRecord @ 0x140677CF4 (IpmiLibAddSelBugcheckRecord.c)
- *     IpmiLibAddSelCheckpointRecord @ 0x140677E48 (IpmiLibAddSelCheckpointRecord.c)
- *     IpmiLibpAddSelRawData @ 0x140677F60 (IpmiLibpAddSelRawData.c)
- *     WheaQuerySystemInformation @ 0x140A07740 (WheaQuerySystemInformation.c)
- *     WheaSelLogCheckPoint @ 0x140A077D4 (WheaSelLogCheckPoint.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
+ *     WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x14061084C (WheapSelLogSetNtSchedulerAvailabilityNoLock.c)
+ *     IpmiHwInitializeContext @ 0x140677CF8 (IpmiHwInitializeContext.c)
+ *     IpmiLibAddSelBugcheckRecord @ 0x140678244 (IpmiLibAddSelBugcheckRecord.c)
+ *     IpmiLibAddSelCheckpointRecord @ 0x140678398 (IpmiLibAddSelCheckpointRecord.c)
+ *     IpmiLibpAddSelRawData @ 0x1406784B0 (IpmiLibpAddSelRawData.c)
+ *     WheaQuerySystemInformation @ 0x140A079D0 (WheaQuerySystemInformation.c)
+ *     WheaSelLogCheckPoint @ 0x140A07A64 (WheaSelLogCheckPoint.c)
  * Callees:
  *     <none>
  */

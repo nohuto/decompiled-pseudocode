@@ -1,19 +1,19 @@
 /*
- * XREFs of TppExceptionFilter @ 0x18015C77C
+ * XREFs of TppExceptionFilter @ 0x18015AB3C
  * Callers:
- *     TppWorkerpInnerExceptionFilter @ 0x18015C914 (TppWorkerpInnerExceptionFilter.c)
- *     TppWorkerpOuterExceptionFilter @ 0x18015C9AC (TppWorkerpOuterExceptionFilter.c)
+ *     TppWorkerpInnerExceptionFilter @ 0x18015ACD4 (TppWorkerpInnerExceptionFilter.c)
+ *     TppWorkerpOuterExceptionFilter @ 0x18015AD6C (TppWorkerpOuterExceptionFilter.c)
  * Callees:
- *     RtlDecodePointer @ 0x18001A440 (RtlDecodePointer.c)
+ *     RtlDecodePointer @ 0x180046E40 (RtlDecodePointer.c)
  */
 
-__int64 __fastcall TppExceptionFilter(const void **a1)
+LONG __fastcall TppExceptionFilter(_EXCEPTION_POINTERS *a1)
 {
-  __int64 (__fastcall *v2)(const void **); // rax
+  __int64 (__fastcall *v2)(_EXCEPTION_POINTERS *); // rax
 
-  v2 = (__int64 (__fastcall *)(const void **))RtlDecodePointer(RtlpUnhandledExceptionFilter);
+  v2 = (__int64 (__fastcall *)(_EXCEPTION_POINTERS *))RtlDecodePointer(RtlpUnhandledExceptionFilter);
   if ( v2 )
     return v2(a1);
   else
-    return RtlUnhandledExceptionFilter2(a1);
+    return RtlUnhandledExceptionFilter2(a1, (ULONG)&Flags);
 }

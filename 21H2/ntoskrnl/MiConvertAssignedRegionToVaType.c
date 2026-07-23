@@ -1,7 +1,7 @@
 /*
- * XREFs of MiConvertAssignedRegionToVaType @ 0x140A50824
+ * XREFs of MiConvertAssignedRegionToVaType @ 0x140A51824
  * Callers:
- *     MiInitializeSystemVa @ 0x140A4F300 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140A50300 (MiInitializeSystemVa.c)
  * Callees:
  *     <none>
  */

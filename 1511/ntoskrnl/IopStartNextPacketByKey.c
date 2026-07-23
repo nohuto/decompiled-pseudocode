@@ -14,7 +14,7 @@ void __fastcall IopStartNextPacketByKey(__int64 a1, int a2, ULONG a3)
   KIRQL v3; // di
   PKDEVICE_QUEUE_ENTRY v7; // rax
   PKDEVICE_QUEUE_ENTRY v8; // rsi
-  KIRQL v9; // [rsp+38h] [rbp+10h] BYREF
+  UCHAR v9; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = 0;
   v9 = 0;

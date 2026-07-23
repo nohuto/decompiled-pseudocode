@@ -11,29 +11,29 @@
  *     RtlStackDbContextSerialize @ 0x18012BEC0 (RtlStackDbContextSerialize.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceSerialize(__int64 a1, __int64 a2, _QWORD *a3, unsigned __int64 a4)
+__int64 __fastcall RtlpHpStackTraceSerialize(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  signed int v6; // ebx
-  char v7; // al
+  signed int v5; // ebx
+  char v6; // al
 
   if ( a2 == 40 && *(_DWORD *)a1 == 2 )
   {
     if ( *(_QWORD *)(a1 + 8) == -1LL )
     {
-      RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext, 0x28uLL, (unsigned __int64)a3, a4);
+      RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext);
       if ( (dword_180185108 & 1) != 0 && (dword_180185108 & 2) != 0 )
       {
         *(_BYTE *)(a1 + 33) |= 1u;
-        v6 = RtlStackDbContextSerialize(&qword_180185110, *(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 24));
-        if ( v6 >= 0 )
+        v5 = RtlStackDbContextSerialize(&qword_180185110, *(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 24));
+        if ( v5 >= 0 )
         {
-          v6 = RtlpEnumProcessHeaps((__int64 (__fastcall *)(void *, __int64))RtlpHpStackTraceHeapSerialize, a1, 0);
-          if ( v6 >= 0 )
+          v5 = RtlpEnumProcessHeaps((__int64 (__fastcall *)(void *, __int64))RtlpHpStackTraceHeapSerialize, a1, 0);
+          if ( v5 >= 0 )
           {
-            v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(a1 + 16))(0LL, 0LL, *(_QWORD *)(a1 + 24));
-            if ( v6 >= 0 )
+            v5 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(a1 + 16))(0LL, 0LL, *(_QWORD *)(a1 + 24));
+            if ( v5 >= 0 )
             {
-              v6 = 0;
+              v5 = 0;
               if ( a3 )
                 *a3 = 0LL;
             }
@@ -42,9 +42,9 @@ __int64 __fastcall RtlpHpStackTraceSerialize(__int64 a1, __int64 a2, _QWORD *a3,
       }
       else
       {
-        v7 = *(_BYTE *)(a1 + 32) - 1;
+        v6 = *(_BYTE *)(a1 + 32) - 1;
         *(_BYTE *)(a1 + 33) = 0;
-        v6 = v7 != 0 ? 0xC000000D : 0;
+        v5 = v6 != 0 ? 0xC000000D : 0;
       }
       RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
     }
@@ -57,5 +57,5 @@ __int64 __fastcall RtlpHpStackTraceSerialize(__int64 a1, __int64 a2, _QWORD *a3,
   {
     return (unsigned int)-1073741811;
   }
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

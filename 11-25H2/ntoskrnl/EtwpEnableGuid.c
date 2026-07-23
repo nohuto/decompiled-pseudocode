@@ -157,12 +157,12 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, __int64 a2, char a3)
   int v98; // r14d
   unsigned int v99; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  __int128 *v101; // rbx
+  GUID *v101; // rbx
   int CurrentThreadProcessId; // eax
   char v103; // si
   unsigned int v104; // r14d
   unsigned int v105; // r8d
-  __int128 *v106; // rdx
+  GUID *v106; // rdx
   _QWORD *GuidEntryByGuid; // rax
   unsigned int v108; // r15d
   __int64 v109; // rcx
@@ -200,7 +200,7 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, __int64 a2, char a3)
   int v141; // [rsp+90h] [rbp-70h]
   int v142; // [rsp+94h] [rbp-6Ch]
   volatile signed __int32 *v143; // [rsp+98h] [rbp-68h]
-  __int128 *v144; // [rsp+A0h] [rbp-60h]
+  GUID *v144; // [rsp+A0h] [rbp-60h]
   _QWORD *v145; // [rsp+A8h] [rbp-58h]
   void *v146; // [rsp+B0h] [rbp-50h] BYREF
   __int128 v147; // [rsp+B8h] [rbp-48h] BYREF
@@ -229,7 +229,7 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, __int64 a2, char a3)
   v140 = a2;
   v154 = 0LL;
   v3 = a2 + 72;
-  v144 = (__int128 *)(a2 + 40);
+  v144 = (GUID *)(a2 + 40);
   Object = 0LL;
   v146 = 0LL;
   v142 = 0;
@@ -332,7 +332,7 @@ LABEL_2:
   v33 = BYTE2(v148) == 0;
   v105 = LOBYTE(v134[2]);
   *(_DWORD *)(v140 + 36) = CurrentThreadProcessId;
-  v106 = &PrivateLoggerNotificationGuid;
+  v106 = (GUID *)&PrivateLoggerNotificationGuid;
   if ( v33 )
     v106 = v101;
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, v106, v105);
@@ -345,9 +345,9 @@ LABEL_2:
       v7 = (ULONG_PTR)GuidEntryByGuid;
       if ( v11 )
       {
-        v109 = *(_QWORD *)&EventTracingProvGuid.Data1 - *(_QWORD *)v144;
-        if ( *(_QWORD *)&EventTracingProvGuid.Data1 == *(_QWORD *)v144 )
-          v109 = *(_QWORD *)EventTracingProvGuid.Data4 - *((_QWORD *)v144 + 1);
+        v109 = *(_QWORD *)&EventTracingProvGuid.Data1 - *(_QWORD *)&v144->Data1;
+        if ( *(_QWORD *)&EventTracingProvGuid.Data1 == *(_QWORD *)&v144->Data1 )
+          v109 = *(_QWORD *)EventTracingProvGuid.Data4 - *(_QWORD *)v144->Data4;
         if ( !v109 )
         {
           v123 = (const EVENT_DESCRIPTOR *)ETW_EVENT_TRACING_PROVIDER_ENABLE_CHANGING;

@@ -1,13 +1,13 @@
 /*
- * XREFs of SmAcquireReleaseResAvailForRead @ 0x1402F68E0
+ * XREFs of SmAcquireReleaseResAvailForRead @ 0x14033E9F0
  * Callers:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14027A7D0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
- *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1403990B0 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14022FD60 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1402F63B8 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
  * Callees:
- *     MiChargePartitionResidentAvailable @ 0x1402F6BC0 (MiChargePartitionResidentAvailable.c)
+ *     MiChargePartitionResidentAvailable @ 0x14033ECD0 (MiChargePartitionResidentAvailable.c)
  */
 
-__int64 __fastcall SmAcquireReleaseResAvailForRead(__int64 a1, signed __int64 a2, __int64 a3, int a4)
+__int64 __fastcall SmAcquireReleaseResAvailForRead(__int64 a1, signed __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 v7; // rdx
   ULONG *v8; // r10
@@ -22,7 +22,7 @@ __int64 __fastcall SmAcquireReleaseResAvailForRead(__int64 a1, signed __int64 a2
   bool v18; // zf
   signed __int32 v19; // eax
 
-  if ( a4 )
+  if ( (_DWORD)a4 )
   {
     if ( *(_QWORD *)(a1 + 2216) == a2 )
     {
@@ -72,6 +72,7 @@ __int64 __fastcall SmAcquireReleaseResAvailForRead(__int64 a1, signed __int64 a2
   if ( v8 == &MiSystemPartition )
   {
     v9 = KeGetCurrentPrcb();
+    a4 = 0xFFFFFFFFLL;
     v10 = v9->CachedResidentAvailable;
     while ( v7 <= v10 && v10 != -1 )
     {
@@ -81,7 +82,7 @@ __int64 __fastcall SmAcquireReleaseResAvailForRead(__int64 a1, signed __int64 a2
         return 1;
     }
   }
-  if ( (unsigned int)MiChargePartitionResidentAvailable(v8, v7, 0LL) )
+  if ( (unsigned int)MiChargePartitionResidentAvailable(v8, v7, 0LL, a4) )
     return 1;
   if ( *(_QWORD *)(a1 + 2216) )
     return 0;

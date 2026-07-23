@@ -1,15 +1,15 @@
 /*
- * XREFs of GetNameFromLangListNode @ 0x1800027E0
+ * XREFs of GetNameFromLangListNode @ 0x18004DF10
  * Callers:
- *     RtlpFilterandReplaceConsoleLanguages @ 0x180001AEC (RtlpFilterandReplaceConsoleLanguages.c)
- *     LdrpMergeLangFallbackLists @ 0x1800038D0 (LdrpMergeLangFallbackLists.c)
+ *     RtlpFilterandReplaceConsoleLanguages @ 0x18004D21C (RtlpFilterandReplaceConsoleLanguages.c)
+ *     LdrpMergeLangFallbackLists @ 0x18004F000 (LdrpMergeLangFallbackLists.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlLCIDToCultureName @ 0x180005BA0 (RtlLCIDToCultureName.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     RtlLCIDToCultureName @ 0x1800512D0 (RtlLCIDToCultureName.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
  */
 
-__int64 __fastcall GetNameFromLangListNode(__int64 a1, unsigned __int16 *a2, UNICODE_STRING *a3)
+__int64 __fastcall GetNameFromLangListNode(__int64 a1, unsigned __int16 *a2, _UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   int v6; // r8d
@@ -22,7 +22,7 @@ __int64 __fastcall GetNameFromLangListNode(__int64 a1, unsigned __int16 *a2, UNI
   const wchar_t *v13; // rcx
   size_t v14; // rax
   int v16; // r8d
-  __int64 v17; // rcx
+  LCID v17; // ecx
 
   v3 = 0;
   if ( !a1 || !a2 || !a3 )
@@ -59,9 +59,9 @@ __int64 __fastcall GetNameFromLangListNode(__int64 a1, unsigned __int16 *a2, UNI
   v16 = v6 - 1;
   if ( !v16 )
   {
-    v17 = (unsigned int)(__int16)a2[2];
+    v17 = (__int16)a2[2];
 LABEL_13:
-    if ( (unsigned __int8)RtlLCIDToCultureName(v17, a3) )
+    if ( RtlLCIDToCultureName(v17, a3) )
       return v3;
     return (unsigned int)-1073741595;
   }

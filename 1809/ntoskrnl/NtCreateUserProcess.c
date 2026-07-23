@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateUserProcess @ 0x14060A950
+ * XREFs of NtCreateUserProcess @ 0x14060B950
  * Callers:
  *     <none>
  * Callees:
@@ -9,316 +9,295 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
- *     RtlInitializeExtendedContext @ 0x1400A1D9C (RtlInitializeExtendedContext.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
- *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
- *     PspGetProcessProtectionRequirementsFromImage @ 0x140608F94 (PspGetProcessProtectionRequirementsFromImage.c)
- *     PspValidateCreateProcessProtection @ 0x140608FC4 (PspValidateCreateProcessProtection.c)
- *     PspCaptureProcessParameters @ 0x140609028 (PspCaptureProcessParameters.c)
- *     PsTestProtectedProcessIncompatibility @ 0x14060921C (PsTestProtectedProcessIncompatibility.c)
- *     PspCheckForInvalidAccessByProtection @ 0x140609270 (PspCheckForInvalidAccessByProtection.c)
- *     PspInsertProcess @ 0x1406093A8 (PspInsertProcess.c)
- *     MmCreateSpecialImageSection @ 0x14060A404 (MmCreateSpecialImageSection.c)
- *     PspCaptureCreateInfo @ 0x14060A7E0 (PspCaptureCreateInfo.c)
- *     IoCreateFileEx @ 0x14060B870 (IoCreateFileEx.c)
- *     FsRtlFreeExtraCreateParameterList @ 0x14060CEF0 (FsRtlFreeExtraCreateParameterList.c)
- *     PspUpdateCreateInfo @ 0x14060D104 (PspUpdateCreateInfo.c)
- *     PspCreateUserProcessEcp @ 0x14060D368 (PspCreateUserProcessEcp.c)
- *     PspGetMemoryPartitionContext @ 0x14060D560 (PspGetMemoryPartitionContext.c)
- *     SeQuerySigningPolicy @ 0x14060D5D0 (SeQuerySigningPolicy.c)
- *     PspReferenceTokenForNewProcess @ 0x14060DA9C (PspReferenceTokenForNewProcess.c)
- *     PspEstimateNewProcessServerSilo @ 0x14060DB18 (PspEstimateNewProcessServerSilo.c)
- *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PspCreateObjectHandle @ 0x140621C88 (PspCreateObjectHandle.c)
- *     PspCreateUserContext @ 0x140621CFC (PspCreateUserContext.c)
- *     PspMapThreadCreationFlags @ 0x1406220A4 (PspMapThreadCreationFlags.c)
- *     PspBuildCreateProcessContext @ 0x140622378 (PspBuildCreateProcessContext.c)
- *     PspDeleteCreateProcessContext @ 0x140623608 (PspDeleteCreateProcessContext.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     SeQueryServerSiloToken @ 0x1406C5500 (SeQueryServerSiloToken.c)
- *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x1408A1A1C (SeDuplicateTokenAndAddOriginClaim.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlGetExtendedContextLength @ 0x1400A1C84 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x1400A1CDC (RtlInitializeExtendedContext.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1401C5F20 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
+ *     PspRundownSingleProcess @ 0x140604A48 (PspRundownSingleProcess.c)
+ *     PspGetProcessProtectionRequirementsFromImage @ 0x140609F94 (PspGetProcessProtectionRequirementsFromImage.c)
+ *     PspValidateCreateProcessProtection @ 0x140609FC4 (PspValidateCreateProcessProtection.c)
+ *     PspCaptureProcessParameters @ 0x14060A028 (PspCaptureProcessParameters.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x14060A21C (PsTestProtectedProcessIncompatibility.c)
+ *     PspCheckForInvalidAccessByProtection @ 0x14060A270 (PspCheckForInvalidAccessByProtection.c)
+ *     PspInsertProcess @ 0x14060A3A8 (PspInsertProcess.c)
+ *     MmCreateSpecialImageSection @ 0x14060B404 (MmCreateSpecialImageSection.c)
+ *     PspCaptureCreateInfo @ 0x14060B7E0 (PspCaptureCreateInfo.c)
+ *     IoCreateFileEx @ 0x14060C870 (IoCreateFileEx.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14060DEF0 (FsRtlFreeExtraCreateParameterList.c)
+ *     PspUpdateCreateInfo @ 0x14060E104 (PspUpdateCreateInfo.c)
+ *     PspCreateUserProcessEcp @ 0x14060E368 (PspCreateUserProcessEcp.c)
+ *     PspGetMemoryPartitionContext @ 0x14060E560 (PspGetMemoryPartitionContext.c)
+ *     SeQuerySigningPolicy @ 0x14060E5D0 (SeQuerySigningPolicy.c)
+ *     PspReferenceTokenForNewProcess @ 0x14060EA9C (PspReferenceTokenForNewProcess.c)
+ *     PspEstimateNewProcessServerSilo @ 0x14060EB18 (PspEstimateNewProcessServerSilo.c)
+ *     PspGetContextThreadInternal @ 0x140621C00 (PspGetContextThreadInternal.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
+ *     PspCreateObjectHandle @ 0x140622C88 (PspCreateObjectHandle.c)
+ *     PspCreateUserContext @ 0x140622CFC (PspCreateUserContext.c)
+ *     PspMapThreadCreationFlags @ 0x1406230A4 (PspMapThreadCreationFlags.c)
+ *     PspBuildCreateProcessContext @ 0x140623378 (PspBuildCreateProcessContext.c)
+ *     PspDeleteCreateProcessContext @ 0x140624608 (PspDeleteCreateProcessContext.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     SeQueryServerSiloToken @ 0x1406C67A0 (SeQueryServerSiloToken.c)
+ *     PsTerminateProcess @ 0x1406CAB74 (PsTerminateProcess.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x1408A2C7C (SeDuplicateTokenAndAddOriginClaim.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateUserProcess(
-        HANDLE *a1,
-        __int64 a2,
-        unsigned int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        unsigned int a7,
-        unsigned int a8,
-        __int64 a9,
-        unsigned __int64 a10,
-        __int64 a11)
+NTSTATUS __cdecl NtCreateUserProcess(
+        PHANDLE ProcessHandle,
+        PHANDLE ThreadHandle,
+        ACCESS_MASK ProcessDesiredAccess,
+        ACCESS_MASK ThreadDesiredAccess,
+        POBJECT_ATTRIBUTES ProcessObjectAttributes,
+        POBJECT_ATTRIBUTES ThreadObjectAttributes,
+        ULONG ProcessFlags,
+        ULONG ThreadFlags,
+        PVOID ProcessParameters,
+        PPS_CREATE_INFO CreateInfo,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _BYTE *Process; // r15
+  _KPROCESS *Process; // r15
   char PreviousMode; // r13
-  unsigned int v14; // r12d
-  __int64 v15; // rcx
-  __int64 v16; // rcx
-  int v17; // eax
+  ULONG v14; // r12d
+  unsigned __int64 Dr7; // rcx
+  unsigned __int64 Dr6; // rcx
+  ULONG v17; // eax
   __int64 v18; // rdx
-  __int64 result; // rax
-  int Info; // edi
+  NTSTATUS result; // eax
+  NTSTATUS Info; // edi
   KPROCESSOR_MODE v21; // r14
   __int64 v22; // r8
   int v23; // r9d
-  ULONG v24; // eax
+  int v24; // eax
   char v25; // r15
   int v26; // ebx
-  PVOID v27; // rax
-  char v28; // cl
-  char v29; // bl
+  __int64 High; // rax
+  char P2Home; // cl
+  char P1Home; // bl
   int v30; // r9d
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r11
-  int v34; // edx
-  int v35; // r9d
-  __int64 *v36; // r12
-  char v37; // r11
-  char v38; // bl
-  char v39; // r15
-  PVOID v40; // rbx
-  unsigned int v41; // edi
-  unsigned __int64 v42; // rax
-  void *v43; // rsp
-  int v44; // r9d
-  __int64 v45; // rax
-  __int64 v46; // rax
-  __int64 v47; // rcx
-  __int64 v48; // rdi
-  bool v49; // al
-  unsigned int v50; // r8d
-  int v51; // r13d
-  __int64 v52; // rax
+  PS_PROTECTION *v31; // r11
+  int v32; // edx
+  int v33; // r9d
+  __int64 *v34; // r12
+  char v35; // r11
+  char v36; // bl
+  char v37; // r15
+  __int64 v38; // rbx
+  ULONG v39; // edi
+  unsigned __int64 v40; // rax
+  void *v41; // rsp
+  int v42; // r9d
+  __int64 Low_high; // rax
+  unsigned __int64 Low; // rax
+  __int64 v45; // rcx
+  unsigned __int64 P4Home; // rdi
+  bool v47; // al
+  unsigned int P5Home_high; // r8d
+  unsigned int P5Home; // r13d
+  __int64 v50; // rax
   int inserted; // r15d
-  PVOID v54; // r12
+  void *Rax; // r12
   __int64 ProcessServerSilo; // rax
-  _OWORD *v56; // rax
-  __int64 v57; // r15
-  char v58; // r13
-  __int64 v59; // rcx
-  __int64 v60; // rax
-  int v61; // eax
-  __int64 v62; // rdx
-  __int64 v63; // rcx
-  char v64; // r11
-  KPROCESSOR_MODE v65; // dl
+  _M128A *v54; // rax
+  unsigned __int64 v55; // r15
+  char v56; // r13
+  __int64 v57; // rcx
+  unsigned __int64 Rcx; // rax
+  int v59; // eax
+  __int64 v60; // rdx
+  __int64 v61; // rcx
+  PS_PROTECTION v62; // r11
+  KPROCESSOR_MODE v63; // dl
   __int64 FileAttributes; // [rsp+28h] [rbp-58h]
-  int v67; // [rsp+80h] [rbp+0h] BYREF
-  int v68; // [rsp+84h] [rbp+4h]
-  char v69; // [rsp+88h] [rbp+8h] BYREF
-  char v70; // [rsp+89h] [rbp+9h] BYREF
-  char v71; // [rsp+8Ah] [rbp+Ah] BYREF
-  char v72; // [rsp+8Bh] [rbp+Bh]
-  char v73; // [rsp+8Ch] [rbp+Ch]
-  char v74; // [rsp+8Dh] [rbp+Dh]
-  __int64 v75; // [rsp+90h] [rbp+10h] BYREF
-  _BYTE *v76; // [rsp+98h] [rbp+18h]
-  int v77; // [rsp+A0h] [rbp+20h]
-  unsigned int v78; // [rsp+A4h] [rbp+24h]
-  char v79[8]; // [rsp+A8h] [rbp+28h]
-  PVOID v80; // [rsp+B0h] [rbp+30h] BYREF
-  PVOID v81; // [rsp+B8h] [rbp+38h] BYREF
-  __int64 v82; // [rsp+C0h] [rbp+40h] BYREF
-  struct _KTHREAD *v83; // [rsp+C8h] [rbp+48h]
-  unsigned int v84; // [rsp+D0h] [rbp+50h]
-  PVOID v85; // [rsp+D8h] [rbp+58h] BYREF
-  _DWORD v86[2]; // [rsp+E0h] [rbp+60h] BYREF
-  __int64 v87; // [rsp+E8h] [rbp+68h]
-  HANDLE *v88; // [rsp+F0h] [rbp+70h]
-  PVOID v89; // [rsp+F8h] [rbp+78h] BYREF
-  __int64 v90; // [rsp+100h] [rbp+80h] BYREF
-  PVOID Object; // [rsp+108h] [rbp+88h] BYREF
-  PVOID v92; // [rsp+110h] [rbp+90h] BYREF
-  __int64 v93; // [rsp+118h] [rbp+98h]
-  __int64 v94; // [rsp+120h] [rbp+A0h]
-  _BYTE *v95; // [rsp+128h] [rbp+A8h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+130h] [rbp+B0h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+168h] [rbp+E8h] BYREF
-  _BYTE DriverContext[40]; // [rsp+178h] [rbp+F8h] BYREF
-  __int64 v99[4]; // [rsp+1A0h] [rbp+120h] BYREF
-  _BYTE v100[80]; // [rsp+1C0h] [rbp+140h] BYREF
-  __int64 v101[62]; // [rsp+210h] [rbp+190h] BYREF
-  struct _ACCESS_STATE v102[2]; // [rsp+400h] [rbp+380h] BYREF
-  int v103; // [rsp+580h] [rbp+500h]
-  char v104; // [rsp+584h] [rbp+504h]
-  HANDLE v105; // [rsp+588h] [rbp+508h]
-  __int64 v106[48]; // [rsp+590h] [rbp+510h] BYREF
-  int v107; // [rsp+710h] [rbp+690h]
-  HANDLE v108; // [rsp+718h] [rbp+698h]
-  __int64 v109; // [rsp+720h] [rbp+6A0h] BYREF
+  CONTEXT Context; // [rsp+80h] [rbp+0h] BYREF
+  ULONG v66; // [rsp+580h] [rbp+500h]
+  char v67; // [rsp+584h] [rbp+504h]
+  HANDLE Handle; // [rsp+588h] [rbp+508h]
+  __int64 v69[48]; // [rsp+590h] [rbp+510h] BYREF
+  int v70; // [rsp+710h] [rbp+690h]
+  HANDLE v71; // [rsp+718h] [rbp+698h]
+  __int64 v72; // [rsp+720h] [rbp+6A0h] BYREF
 
-  v77 = a4;
-  v78 = a3;
-  v87 = a2;
-  v88 = a1;
-  v93 = a5;
-  v94 = a6;
-  *(_QWORD *)v79 = a9;
+  LODWORD(Context.P5Home) = ThreadDesiredAccess;
+  HIDWORD(Context.P5Home) = ProcessDesiredAccess;
+  Context.Dr6 = (unsigned __int64)ThreadHandle;
+  Context.Dr7 = (unsigned __int64)ProcessHandle;
+  Context.Rsp = (unsigned __int64)ProcessObjectAttributes;
+  Context.Rbp = (unsigned __int64)ThreadObjectAttributes;
+  Context.P6Home = (unsigned __int64)ProcessParameters;
   CurrentThread = KeGetCurrentThread();
-  v83 = CurrentThread;
+  Context.Dr0 = (unsigned __int64)CurrentThread;
   Process = CurrentThread->ApcState.Process;
-  v76 = Process;
-  v95 = Process;
+  Context.P4Home = (unsigned __int64)Process;
+  Context.Rsi = (unsigned __int64)Process;
   PreviousMode = CurrentThread->PreviousMode;
-  v74 = PreviousMode;
-  v85 = 0LL;
-  v81 = 0LL;
+  BYTE5(Context.P2Home) = PreviousMode;
+  Context.Dr2 = 0LL;
+  *(_QWORD *)&Context.SegCs = 0LL;
   LOBYTE(CurrentThread) = 0;
-  v68 = (int)CurrentThread;
-  v72 = 0;
-  memset(DriverContext, 0, sizeof(DriverContext));
-  memset(v100, 0, 0x48uLL);
-  v14 = a7;
-  if ( (a7 & 0xFFFB6838) != 0 || (a8 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  if ( (a7 & 0x8400) == 0x8400 )
-    return 3221225520LL;
-  v103 = 0;
-  v104 = PreviousMode;
+  HIDWORD(Context.P1Home) = (_DWORD)CurrentThread;
+  BYTE3(Context.P2Home) = 0;
+  memset(&Context.Rip, 0, 0x28uLL);
+  memset(&Context.Legacy[2], 0, 0x48uLL);
+  v14 = ProcessFlags;
+  if ( (ProcessFlags & 0xFFFB6838) != 0 || (ThreadFlags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  if ( (ProcessFlags & 0x8400) == 0x8400 )
+    return -1073741776;
+  v66 = 0;
+  v67 = PreviousMode;
   if ( PreviousMode )
   {
-    v15 = (__int64)v88;
-    if ( (unsigned __int64)v88 >= 0x7FFFFFFF0000LL )
-      v15 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)v15 = *(_QWORD *)v15;
-    v16 = v87;
-    if ( (unsigned __int64)v87 >= 0x7FFFFFFF0000LL )
-      v16 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)v16 = *(_QWORD *)v16;
+    Dr7 = Context.Dr7;
+    if ( Context.Dr7 >= 0x7FFFFFFF0000LL )
+      Dr7 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)Dr7 = *(_QWORD *)Dr7;
+    Dr6 = Context.Dr6;
+    if ( Context.Dr6 >= 0x7FFFFFFF0000LL )
+      Dr6 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)Dr6 = *(_QWORD *)Dr6;
   }
-  if ( a5 )
+  if ( ProcessObjectAttributes )
   {
-    if ( PreviousMode && (a5 & 3) != 0 )
+    if ( PreviousMode && ((unsigned __int8)ProcessObjectAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     if ( PreviousMode )
-      v17 = *(_DWORD *)(a5 + 24) & 0x1DF2;
+      v17 = ProcessObjectAttributes->Attributes & 0x1DF2;
     else
-      v17 = *(_DWORD *)(a5 + 24) & 0x11FF2;
-    v103 = v17;
+      v17 = ProcessObjectAttributes->Attributes & 0x11FF2;
+    v66 = v17;
   }
-  memset(v101, 0, 0x1E8uLL);
-  if ( !a11
-    || (LOBYTE(v18) = PreviousMode, result = PspBuildCreateProcessContext(a11, v18, 0LL, v101), (int)result >= 0) )
+  memset(&Context.Legacy[7], 0, 0x1E8uLL);
+  if ( !AttributeList
+    || (LOBYTE(v18) = PreviousMode,
+        result = PspBuildCreateProcessContext(AttributeList, v18, 0LL, &Context.Legacy[7]),
+        result >= 0) )
   {
-    if ( (a7 & 0x40) != 0 && (v101[0] & 0x2000000000000LL) != 0 && !LOBYTE(v101[47]) )
+    if ( (ProcessFlags & 0x40) != 0
+      && (Context.Legacy[7].Low & 0x2000000000000LL) != 0
+      && !LOBYTE(Context.VectorRegister[0].High) )
     {
-      v14 = a7 & 0xFFFFFFBF;
-      a7 &= ~0x40u;
-      HIDWORD(v101[0]) &= ~0x20000u;
+      v14 = ProcessFlags & 0xFFFFFFBF;
+      ProcessFlags &= ~0x40u;
+      HIDWORD(Context.Legacy[7].Low) &= ~0x20000u;
     }
-    if ( (v14 & 4) == 0 && (v101[0] & 0x80000000000LL) != 0 || (v101[0] & 0x2000000000000LL) != 0 && (v14 & 0x40) == 0 )
+    if ( (v14 & 4) == 0 && (Context.Legacy[7].Low & 0x80000000000LL) != 0
+      || (Context.Legacy[7].Low & 0x2000000000000LL) != 0 && (v14 & 0x40) == 0 )
+    {
       goto LABEL_133;
-    Info = PspCaptureCreateInfo(PreviousMode, a10, (__int64)v101);
+    }
+    Info = PspCaptureCreateInfo(PreviousMode, (unsigned __int64)CreateInfo, (__int64)&Context.FltSave.FloatRegisters[7]);
     if ( Info >= 0 )
     {
       v21 = 1;
-      if ( (v101[0] & 0x100000000LL) != 0 )
+      if ( (Context.Legacy[7].Low & 0x100000000LL) != 0 )
       {
         Info = ObpReferenceObjectByHandleWithTag(
-                 v101[15],
+                 Context.FltSave.XmmRegisters[6].High,
                  128,
                  (__int64)PsProcessType,
                  PreviousMode,
                  0x72437350u,
-                 &v82,
+                 &Context.SegGs,
                  0LL,
                  0LL);
         if ( Info < 0 )
           goto LABEL_102;
-        Process = (_BYTE *)v82;
-        v101[16] = v82;
+        Process = *(_KPROCESS **)&Context.SegGs;
+        Context.FltSave.XmmRegisters[7].Low = *(_QWORD *)&Context.SegGs;
       }
       else
       {
-        v82 = (__int64)Process;
+        *(_QWORD *)&Context.SegGs = Process;
       }
-      v101[57] = PspEstimateNewProcessServerSilo(Process, v101[49], HIDWORD(v101[50]));
-      if ( (BYTE1(v101[1]) & 0xC) == 4 && (Process != v76 || (*((_DWORD *)v76 + 435) & 0x1000) != 0) )
+      Context.VectorRegister[5].High = PspEstimateNewProcessServerSilo(
+                                         Process,
+                                         Context.VectorRegister[1].High,
+                                         HIDWORD(Context.VectorRegister[2].Low));
+      if ( (BYTE1(Context.Legacy[7].High) & 0xC) == 4
+        && (Process != (_KPROCESS *)Context.P4Home || (*(_DWORD *)(Context.P4Home + 1740) & 0x1000) != 0) )
       {
 LABEL_133:
         Info = -1073741811;
         goto LABEL_102;
       }
       LOBYTE(v22) = PreviousMode;
-      Info = PspReferenceTokenForNewProcess(Process, v101[18], v22, &v101[19]);
+      Info = PspReferenceTokenForNewProcess(Process, Context.FltSave.XmmRegisters[8].Low, v22, &Context.Xmm8.High);
       if ( Info >= 0 )
       {
-        if ( v101[18] )
+        if ( Context.FltSave.XmmRegisters[8].Low )
         {
-          if ( (int)SeQueryServerSiloToken(v101[19], &v90) >= 0 )
+          if ( (int)SeQueryServerSiloToken(Context.FltSave.XmmRegisters[8].High, &Context.Rcx) >= 0 )
           {
-            v60 = v90;
-            if ( v101[57] )
+            Rcx = Context.Rcx;
+            if ( Context.VectorRegister[5].High )
             {
-              while ( v60 )
+              while ( Rcx )
               {
-                if ( v60 == v101[57] )
+                if ( Rcx == Context.VectorRegister[5].High )
                   goto LABEL_28;
-                v60 = *(_QWORD *)(v60 + 1072);
+                Rcx = *(_QWORD *)(Rcx + 1072);
               }
               goto LABEL_133;
             }
           }
         }
 LABEL_28:
-        if ( (v101[0] & 0x2000000000LL) != 0 )
+        if ( (Context.Legacy[7].Low & 0x2000000000LL) != 0 )
         {
-          LOBYTE(v23) = (v101[0] & 0x2000000000000LL) != 0 ? LOBYTE(v101[47]) : 0;
-          LOBYTE(v67) = v23;
+          LOBYTE(v23) = (Context.Legacy[7].Low & 0x2000000000000LL) != 0 ? LOBYTE(Context.VectorRegister[0].High) : 0;
+          LOBYTE(Context.P1Home) = v23;
           Info = SeQuerySigningPolicy(
-                   v101[19],
-                   (int)&v101[29],
+                   Context.Xmm8.High,
+                   (int)&Context.Xmm13.High,
                    (v14 >> 6) & 1,
                    v23,
-                   (ULONG_PTR)&v69,
-                   (__int64)&v70,
-                   (__int64)&v67);
+                   (ULONG_PTR)&Context.P2Home,
+                   (__int64)&Context.P2Home + 1,
+                   (__int64)&Context);
           if ( Info >= 0 )
           {
-            ObjectAttributes.Length = 48;
-            ObjectAttributes.RootDirectory = 0LL;
+            LODWORD(Context.Rdi) = 48;
+            Context.R8 = 0LL;
             v24 = 1600;
             if ( PreviousMode != 1 )
               v24 = 576;
-            ObjectAttributes.Attributes = v24;
-            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v101[29];
-            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            LODWORD(Context.R10) = v24;
+            Context.R9 = (unsigned __int64)&Context.FltSave.XmmRegisters[13].High;
+            *(_OWORD *)&Context.R11 = 0LL;
             Info = 0;
-            if ( qword_14096D3D0 )
-              Info = qword_14096D3D0(v101[19]);
+            if ( qword_14096E3D0 )
+              Info = qword_14096E3D0(Context.FltSave.XmmRegisters[8].High);
             if ( Info >= 0 )
             {
-              Info = PspGetMemoryPartitionContext((_DWORD)Process, v14, v101[49], HIDWORD(v101[50]), (__int64)&v85);
+              Info = PspGetMemoryPartitionContext(
+                       (_DWORD)Process,
+                       v14,
+                       Context.VectorRegister[1].High,
+                       HIDWORD(Context.VectorRegister[2].Low),
+                       (__int64)&Context.Dr2);
               if ( Info >= 0 )
               {
-                Info = PspCreateUserProcessEcp(DriverContext, v101[19]);
+                Info = PspCreateUserProcessEcp(&Context.Rip, Context.FltSave.XmmRegisters[8].High);
                 if ( Info >= 0 )
                 {
                   Info = IoCreateFileEx(
-                           (PHANDLE)&v101[21],
-                           LODWORD(v101[20]) | 0x100020,
-                           &ObjectAttributes,
-                           &IoStatusBlock,
+                           (PHANDLE)&Context.FltSave.XmmRegisters[9].High,
+                           LODWORD(Context.Xmm9.Low) | 0x100020,
+                           (POBJECT_ATTRIBUTES)&Context.Rdi,
+                           (PIO_STATUS_BLOCK)&Context.R14,
                            0LL,
                            0x80u,
                            5u,
@@ -329,13 +308,13 @@ LABEL_28:
                            CreateFileTypeNone,
                            0LL,
                            0,
-                           (PIO_DRIVER_CREATE_CONTEXT)DriverContext);
-                  if ( Info < 0 && LODWORD(v101[20]) )
+                           (PIO_DRIVER_CREATE_CONTEXT)&Context.Rip);
+                  if ( Info < 0 && LODWORD(Context.Xmm9.Low) )
                     Info = IoCreateFileEx(
-                             (PHANDLE)&v101[21],
+                             (PHANDLE)&Context.FltSave.XmmRegisters[9].High,
                              0x100020u,
-                             &ObjectAttributes,
-                             &IoStatusBlock,
+                             (POBJECT_ATTRIBUTES)&Context.Rdi,
+                             (PIO_STATUS_BLOCK)&Context.R14,
                              0LL,
                              0x80u,
                              5u,
@@ -346,129 +325,145 @@ LABEL_28:
                              CreateFileTypeNone,
                              0LL,
                              0,
-                             (PIO_DRIVER_CREATE_CONTEXT)DriverContext);
+                             (PIO_DRIVER_CREATE_CONTEXT)&Context.Rip);
                   if ( Info < 0 )
                   {
-                    v101[21] = 0LL;
-                    v59 = 1LL;
+                    Context.FltSave.XmmRegisters[9].High = 0LL;
+                    v57 = 1LL;
 LABEL_101:
-                    PspUpdateCreateInfo(v59, v101, 0LL);
+                    PspUpdateCreateInfo(v57, &Context.Legacy[7], 0LL);
                   }
                   else
                   {
                     Info = ObReferenceObjectByHandle(
-                             (HANDLE)v101[21],
+                             (HANDLE)Context.FltSave.XmmRegisters[9].High,
                              0x100020u,
                              (POBJECT_TYPE)IoFileObjectType,
                              0,
-                             &Object,
+                             (PVOID *)&Context.Rdx,
                              0LL);
-                    v101[22] = (__int64)Object;
+                    Context.FltSave.XmmRegisters[10].Low = Context.Rdx;
                     if ( Info < 0 )
                     {
-                      v101[22] = 0LL;
+                      Context.FltSave.XmmRegisters[10].Low = 0LL;
                     }
                     else
                     {
-                      ObjectAttributes.ObjectName = 0LL;
+                      Context.R9 = 0LL;
                       v25 = 1;
-                      if ( v101[48] )
+                      if ( Context.VectorRegister[1].Low )
                         v25 = 5;
-                      if ( v101[52] )
+                      if ( Context.VectorRegister[3].Low )
                       {
-                        v61 = SeDuplicateTokenAndAddOriginClaim(v101[19], v101[52], LODWORD(v101[53]), &v81);
-                        v26 = (unsigned __int8)v68;
-                        if ( v61 >= 0 )
+                        v59 = SeDuplicateTokenAndAddOriginClaim(
+                                Context.FltSave.XmmRegisters[8].High,
+                                Context.VectorRegister[3].Low,
+                                LODWORD(Context.VectorRegister[3].High),
+                                &Context.SegCs);
+                        v26 = BYTE4(Context.P1Home);
+                        if ( v59 >= 0 )
                           v26 = 1;
-                        v68 = v26;
-                        v72 = v26;
+                        HIDWORD(Context.P1Home) = v26;
+                        BYTE3(Context.P2Home) = v26;
                       }
                       else
                       {
-                        LOBYTE(v26) = v68;
+                        LOBYTE(v26) = BYTE4(Context.P1Home);
                       }
-                      v27 = v81;
+                      High = *(_QWORD *)&Context.SegCs;
                       if ( !(_BYTE)v26 )
-                        v27 = (PVOID)v101[19];
-                      v81 = v27;
-                      v28 = v69;
+                        High = Context.FltSave.XmmRegisters[8].High;
+                      *(_QWORD *)&Context.SegCs = High;
+                      P2Home = Context.P2Home;
                       while ( 1 )
                       {
                         Info = MmCreateSpecialImageSection(
-                                 &v101[23],
-                                 (int)&ObjectAttributes,
-                                 (__int64)v81,
-                                 v28,
-                                 v101[21],
+                                 &Context.FltSave.XmmRegisters[10].High,
+                                 (int)&Context.Rdi,
+                                 *(__int64 *)&Context.SegCs,
+                                 P2Home,
+                                 Context.FltSave.XmmRegisters[9].High,
                                  v25);
                         if ( Info < 0 )
                         {
-                          v101[23] = 0LL;
-                          v59 = 2LL;
+                          Context.FltSave.XmmRegisters[10].High = 0LL;
+                          v57 = 2LL;
                           goto LABEL_101;
                         }
-                        Info = ObReferenceObjectByHandle((HANDLE)v101[23], 8u, MmSectionObjectType, 0, &v92, 0LL);
-                        v101[25] = (__int64)v92;
+                        Info = ObReferenceObjectByHandle(
+                                 (HANDLE)Context.FltSave.XmmRegisters[10].High,
+                                 8u,
+                                 MmSectionObjectType,
+                                 0,
+                                 (PVOID *)&Context.Rbx,
+                                 0LL);
+                        Context.FltSave.XmmRegisters[11].High = Context.Rbx;
                         if ( Info < 0 )
                         {
-                          v101[25] = 0LL;
+                          Context.FltSave.XmmRegisters[11].High = 0LL;
                           goto LABEL_102;
                         }
-                        v29 = v67;
-                        Info = PspGetProcessProtectionRequirementsFromImage((__int64)v92);
+                        P1Home = Context.P1Home;
+                        Info = PspGetProcessProtectionRequirementsFromImage(Context.Rbx);
                         if ( Info < 0 )
                           goto LABEL_102;
-                        LOBYTE(v30) = v73;
-                        if ( v73 == v29 )
+                        LOBYTE(v30) = BYTE4(Context.P2Home);
+                        if ( BYTE4(Context.P2Home) == P1Home )
                           break;
                         Info = SeQuerySigningPolicy(
-                                 v101[19],
-                                 (int)&v101[29],
+                                 Context.Xmm8.High,
+                                 (int)&Context.Xmm13.High,
                                  1,
                                  v30,
-                                 (ULONG_PTR)&v71,
-                                 (__int64)&v70,
-                                 (__int64)&v67);
+                                 (ULONG_PTR)&Context.P2Home + 2,
+                                 (__int64)&Context.P2Home + 1,
+                                 (__int64)&Context);
                         if ( Info < 0 )
                           goto LABEL_102;
-                        LOBYTE(v63) = v71;
-                        if ( v71 == v69 )
+                        LOBYTE(v61) = BYTE2(Context.P2Home);
+                        if ( BYTE2(Context.P2Home) == LOBYTE(Context.P2Home) )
                           break;
-                        if ( (v69 & 0x30) != 0 && (v71 & 0x30) != (v69 & 0x30) )
+                        if ( (Context.P2Home & 0x30) != 0 && (BYTE2(Context.P2Home) & 0x30) != (Context.P2Home & 0x30) )
                           goto LABEL_133;
-                        if ( !qword_14040DDA0 )
+                        if ( !qword_14040EE00 )
                           goto LABEL_133;
-                        LOBYTE(v62) = v69;
-                        if ( !(unsigned int)qword_14040DDA0(v63, v62) )
+                        LOBYTE(v60) = Context.P2Home;
+                        if ( !(unsigned int)qword_14040EE00(v61, v60) )
                           goto LABEL_133;
-                        ObCloseHandle((HANDLE)v101[23], 0);
-                        ObfDereferenceObject((PVOID)v101[25]);
-                        v101[23] = 0LL;
-                        v101[25] = 0LL;
-                        v28 = v71;
-                        v69 = v71;
+                        ObCloseHandle((HANDLE)Context.FltSave.XmmRegisters[10].High, 0);
+                        ObfDereferenceObject((PVOID)Context.FltSave.XmmRegisters[11].High);
+                        Context.FltSave.XmmRegisters[10].High = 0LL;
+                        Context.FltSave.XmmRegisters[11].High = 0LL;
+                        P2Home = BYTE2(Context.P2Home);
+                        LOBYTE(Context.P2Home) = BYTE2(Context.P2Home);
                       }
-                      Info = PspValidateCreateProcessProtection((__int64)v76, (__int64)v101, PreviousMode, v14, v67);
+                      Info = PspValidateCreateProcessProtection(
+                               Context.P4Home,
+                               (__int64)&Context.FltSave.FloatRegisters[7],
+                               PreviousMode,
+                               v14,
+                               (PS_PROTECTION)Context.P1Home);
                       if ( Info < 0 )
                         goto LABEL_102;
                       if ( (v14 & 0x40000) != 0
-                        || (v67 & 7) != 1
-                        && (LOBYTE(v32) = PreviousMode,
-                            LOBYTE(v31) = *(_BYTE *)(v33 + 1738),
-                            PspCheckForInvalidAccessByProtection(v32, v31, v67)) )
+                        || (Context.P1Home & 7) != 1
+                        && PspCheckForInvalidAccessByProtection(PreviousMode, v31[1738], (PS_PROTECTION)Context.P1Home) )
                       {
-                        LOBYTE(v101[1]) |= 8u;
+                        LOBYTE(Context.Legacy[7].High) |= 8u;
                       }
-                      Info = PspCaptureProcessParameters(PreviousMode, *(__int64 *)v79, (__int64)v101);
+                      Info = PspCaptureProcessParameters(
+                               PreviousMode,
+                               Context.P6Home,
+                               (__int64)&Context.FltSave.FloatRegisters[7]);
                       if ( Info >= 0 )
                       {
-                        v36 = &v109;
-                        v37 = v67;
-                        v38 = v70;
-                        v39 = v69;
+                        v34 = &v72;
+                        v35 = Context.P1Home;
+                        v36 = BYTE1(Context.P2Home);
+                        v37 = Context.P2Home;
                         goto LABEL_57;
                       }
-                      LOBYTE(v101[1]) &= ~4u;
+                      LOBYTE(Context.Legacy[7].High) &= ~4u;
                     }
                   }
                 }
@@ -477,250 +472,263 @@ LABEL_101:
           }
           goto LABEL_102;
         }
-        if ( Process != v76
+        if ( Process != (_KPROCESS *)Context.P4Home
           || !PreviousMode
-          || *(_QWORD *)v79
-          || (v101[1] & 0xC00) != 0
-          || (v101[0] & 0x8000000000LL) != 0
-          || (v101[0] & 0x2000000000000LL) != 0
-          || (v101[1] & 0x10) != 0 )
+          || Context.P6Home
+          || (Context.Legacy[7].High & 0xC00) != 0
+          || (Context.Legacy[7].Low & 0x8000000000LL) != 0
+          || (Context.Legacy[7].Low & 0x2000000000000LL) != 0
+          || (Context.Legacy[7].High & 0x10) != 0 )
         {
           goto LABEL_133;
         }
-        LOBYTE(v101[1]) &= ~4u;
-        v64 = Process[1738];
-        LOBYTE(v67) = v64;
-        v38 = Process[1737];
-        v70 = v38;
-        v39 = Process[1736];
-        v69 = v39;
-        if ( (v14 & 0x40) != 0 && (v64 & 7) == 0 )
+        LOBYTE(Context.Legacy[7].High) &= ~4u;
+        v62.Level = BYTE2(Process[2].ActiveProcessors.Bitmap[0]);
+        LOBYTE(Context.P1Home) = v62;
+        v36 = BYTE1(Process[2].ActiveProcessors.Bitmap[0]);
+        BYTE1(Context.P2Home) = v36;
+        v37 = Process[2].ActiveProcessors.Bitmap[0];
+        LOBYTE(Context.P2Home) = v37;
+        if ( (v14 & 0x40) != 0 && (v62.Level & 7) == 0 )
         {
           Info = -1073741790;
           goto LABEL_102;
         }
-        Info = PspValidateCreateProcessProtection((__int64)v76, (__int64)v101, PreviousMode, v14, v64);
+        Info = PspValidateCreateProcessProtection(
+                 Context.P4Home,
+                 (__int64)&Context.FltSave.FloatRegisters[7],
+                 PreviousMode,
+                 v14,
+                 v62);
         if ( Info < 0 )
           goto LABEL_102;
-        v36 = 0LL;
+        v34 = 0LL;
 LABEL_57:
-        LOBYTE(v35) = v37;
-        LOBYTE(v34) = PreviousMode;
+        LOBYTE(v33) = v35;
+        LOBYTE(v32) = PreviousMode;
         Info = PspAllocateProcess(
-                 v82,
-                 v34,
-                 v93,
-                 v35,
-                 v39,
-                 v38,
-                 v101[25],
-                 v101[19],
-                 a7,
+                 *(_DWORD *)&Context.SegGs,
+                 v32,
+                 Context.Rsp,
+                 v33,
+                 v37,
+                 v36,
+                 Context.FltSave.XmmRegisters[11].High,
+                 Context.FltSave.XmmRegisters[8].High,
+                 ProcessFlags,
                  0,
-                 (__int64)v101,
-                 v101[18] != 0,
-                 (__int64)v85,
-                 (__int64)v86,
-                 (__int64)&v80);
+                 (__int64)&Context.FltSave.FloatRegisters[7],
+                 Context.FltSave.XmmRegisters[8].Low != 0,
+                 Context.Dr2,
+                 (__int64)&Context.Dr3,
+                 (__int64)&Context.ContextFlags);
         if ( Info < 0 )
           goto LABEL_102;
-        v40 = v80;
-        if ( v101[25] )
-          v41 = (*((_DWORD *)v80 + 521) & 0x4000 | 0x10000B00u) >> 8;
+        v38 = *(_QWORD *)&Context.ContextFlags;
+        if ( Context.FltSave.XmmRegisters[11].High )
+          v39 = (*(_DWORD *)(*(_QWORD *)&Context.ContextFlags + 2084LL) & 0x4000 | 0x10000B00u) >> 8;
         else
-          v41 = 1048603;
-        RtlGetExtendedContextLength(v41);
-        v42 = v84 + 15LL;
-        if ( v42 <= v84 )
-          v42 = 0xFFFFFFFFFFFFFF0LL;
-        v43 = alloca(v42 & 0xFFFFFFFFFFFFFFF0uLL);
-        memset(&v67, 0, v84);
-        RtlInitializeExtendedContext((__int64)&v67, v41);
-        if ( v101[25] )
+          v39 = 1048603;
+        RtlGetExtendedContextLength(v39, (PULONG)&Context.Dr1);
+        v40 = LODWORD(Context.Dr1) + 15LL;
+        if ( v40 <= LODWORD(Context.Dr1) )
+          v40 = 0xFFFFFFFFFFFFFF0LL;
+        v41 = alloca(v40 & 0xFFFFFFFFFFFFFFF0uLL);
+        memset(&Context, 0, LODWORD(Context.Dr1));
+        RtlInitializeExtendedContext(&Context, v39, (PCONTEXT_EX *)&Context.R13);
+        if ( Context.FltSave.XmmRegisters[11].High )
         {
-          v45 = HIDWORD(v101[28]);
-          if ( !*((_QWORD *)v40 + 133) )
-            v45 = *((_QWORD *)v40 + 127);
-          PspCreateUserContext((unsigned int)&v67, 1, PspUserThreadStart, v101[6], v45);
+          Low_high = HIDWORD(Context.Xmm13.Low);
+          if ( !*(_QWORD *)(v38 + 1064) )
+            Low_high = *(_QWORD *)(v38 + 1016);
+          PspCreateUserContext((unsigned int)&Context, 1, PspUserThreadStart, Context.Xmm2.Low, Low_high);
         }
         else
         {
-          LOBYTE(v44) = 1;
-          Info = PspGetContextThreadInternal((_DWORD)v83, (unsigned int)&v67, 0, v44, 1);
+          LOBYTE(v42) = 1;
+          Info = PspGetContextThreadInternal(Context.Dr0, (unsigned int)&Context, 0, v42, 1);
           if ( Info < 0 )
           {
-            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v40 + 91, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)v40 + 91);
-            KeAbPostRelease((ULONG_PTR)v40 + 728);
-            KeLeaveCriticalRegionThread((__int64)v83);
-            PspRundownSingleProcess((__int64)v80, 0);
+            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v38 + 728), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock((volatile signed __int64 *)(v38 + 728));
+            KeAbPostRelease(v38 + 728);
+            KeLeaveCriticalRegionThread(Context.Dr0);
+            PspRundownSingleProcess(*(__int64 *)&Context.ContextFlags, 0);
             goto LABEL_102;
           }
-          v89 = (PVOID)297;
+          Context.Rax = 297LL;
         }
-        ObfReferenceObjectWithTag(v40, 0x72437350u);
-        if ( v36 )
+        ObfReferenceObjectWithTag((PVOID)v38, 0x72437350u);
+        if ( v34 )
         {
-          *(_BYTE *)v36 = 0;
-          v46 = v101[8];
-          if ( v101[8] < 0x40000uLL )
-            v46 = 0x40000LL;
-          v36[3] = v46;
-          v36[2] = v101[9];
-          v36[1] = LODWORD(v101[7]);
+          *(_BYTE *)v34 = 0;
+          Low = Context.FltSave.XmmRegisters[3].Low;
+          if ( Context.FltSave.XmmRegisters[3].Low < 0x40000 )
+            Low = 0x40000LL;
+          v34[3] = Low;
+          v34[2] = Context.FltSave.XmmRegisters[3].High;
+          v34[1] = LODWORD(Context.Xmm2.High);
         }
-        *(_DWORD *)v79 = 0;
-        PspMapThreadCreationFlags(a8, &v75);
-        if ( v86[0] )
+        LODWORD(Context.P6Home) = 0;
+        PspMapThreadCreationFlags(ThreadFlags, &Context.P3Home);
+        if ( LODWORD(Context.Dr3) )
         {
-          *(_DWORD *)v79 = 2;
-          LODWORD(v75) = v75 | 0x10;
+          LODWORD(Context.P6Home) = 2;
+          LODWORD(Context.P3Home) |= 0x10u;
         }
-        if ( v86[1] )
-          a7 |= 0x400u;
-        v99[0] = (__int64)v100;
-        LODWORD(v75) = v75 | 0x60;
+        if ( HIDWORD(Context.Dr3) )
+          ProcessFlags |= 0x400u;
+        Context.FltSave.FloatRegisters[0].Low = (unsigned __int64)&Context.FltSave.FloatRegisters[2];
+        LODWORD(Context.P3Home) |= 0x60u;
         Info = PspAllocateThread(
-                 (_KPROCESS *)v40,
-                 v94,
+                 (_KPROCESS *)v38,
+                 Context.Rbp,
                  PreviousMode,
-                 (__int64)v101,
-                 &v67,
-                 v99,
+                 (__int64)&Context.FltSave.FloatRegisters[7],
+                 &Context,
+                 (__int64 *)Context.FltSave.FloatRegisters,
                  0LL,
                  0LL,
-                 (int *)&v75,
-                 &v89,
-                 v36,
-                 (__int64)v106);
+                 (int *)&Context.P3Home,
+                 &Context.Rax,
+                 v34,
+                 (__int64)v69);
         if ( Info < 0 )
         {
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v40 + 91, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)v40 + 91);
-          KeAbPostRelease((ULONG_PTR)v40 + 728);
-          KeLeaveCriticalRegionThread((__int64)v83);
-          v40 = v80;
-          PspRundownSingleProcess((__int64)v80, 0);
-          v58 = v68;
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v38 + 728), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)(v38 + 728));
+          KeAbPostRelease(v38 + 728);
+          KeLeaveCriticalRegionThread(Context.Dr0);
+          v38 = *(_QWORD *)&Context.ContextFlags;
+          PspRundownSingleProcess(*(__int64 *)&Context.ContextFlags, 0);
+          v56 = BYTE4(Context.P1Home);
           goto LABEL_89;
         }
-        v48 = (__int64)v76;
-        LOBYTE(v47) = PreviousMode;
-        v49 = PsTestProtectedProcessIncompatibility(v47, (__int64)v76, (__int64)v40);
-        v50 = v78;
-        if ( v49 )
+        P4Home = Context.P4Home;
+        LOBYTE(v45) = PreviousMode;
+        v47 = PsTestProtectedProcessIncompatibility(v45, Context.P4Home, v38);
+        P5Home_high = HIDWORD(Context.P5Home);
+        if ( v47 )
         {
-          if ( (v78 & 0x2000000) != 0 )
+          if ( (Context.P5Home & 0x200000000000000LL) != 0 )
           {
-            v50 = ~*(_DWORD *)&RtlProtectedAccess[12 * ((unsigned __int64)(unsigned __int8)v67 >> 4) + 4] & 0x1FFFFF | v78 & 0xFDFFFFFF;
-            if ( !v101[16] || v48 == v101[16] )
-              v50 |= 1u;
+            P5Home_high = ~*(_DWORD *)&RtlProtectedAccess[12 * ((unsigned __int64)LOBYTE(Context.P1Home) >> 4) + 4] & 0x1FFFFF | HIDWORD(Context.P5Home) & 0xFDFFFFFF;
+            if ( !Context.FltSave.XmmRegisters[7].Low || P4Home == Context.FltSave.XmmRegisters[7].Low )
+              P5Home_high |= 1u;
           }
-          v51 = v77;
-          if ( (v77 & 0x2000000) != 0 )
+          P5Home = Context.P5Home;
+          if ( (Context.P5Home & 0x2000000) != 0 )
           {
-            v51 = ~*(_DWORD *)&RtlProtectedAccess[12 * ((unsigned __int64)(unsigned __int8)v67 >> 4) + 8] & 0x1FFFFF | v77 & 0xFDFFFFFF;
-            if ( !v101[16] || v48 == v101[16] )
-              v51 |= 1u;
+            P5Home = ~*(_DWORD *)&RtlProtectedAccess[12 * ((unsigned __int64)LOBYTE(Context.P1Home) >> 4) + 8] & 0x1FFFFF | Context.P5Home & 0xFDFFFFFF;
+            if ( !Context.FltSave.XmmRegisters[7].Low || P4Home == Context.FltSave.XmmRegisters[7].Low )
+              P5Home |= 1u;
           }
         }
         else
         {
-          v51 = v77;
+          P5Home = Context.P5Home;
         }
-        if ( v101[26] )
-          v52 = v101[26] + 112;
+        if ( Context.FltSave.XmmRegisters[12].Low )
+          v50 = Context.FltSave.XmmRegisters[12].Low + 112;
         else
-          v52 = 0LL;
-        inserted = PspInsertProcess((char *)v40, (struct _KPROCESS *)v82, v50, a7, (HANDLE)v101[17], v79[0], v52, v102);
-        FileAttributes = (__int64)v36;
-        v54 = v89;
+          v50 = 0LL;
+        inserted = PspInsertProcess(
+                     (char *)v38,
+                     *(struct _KPROCESS **)&Context.SegGs,
+                     P5Home_high,
+                     ProcessFlags,
+                     (HANDLE)Context.FltSave.XmmRegisters[7].High,
+                     Context.P6Home,
+                     v50,
+                     (PACCESS_STATE)&Context.VectorRegister[8]);
+        FileAttributes = (__int64)v34;
+        Rax = (void *)Context.Rax;
         Info = PspInsertThread(
-                 (ULONG_PTR)v89,
-                 (PEPROCESS)v40,
-                 v51,
+                 Context.Rax,
+                 (PEPROCESS)v38,
+                 P5Home,
                  FileAttributes,
-                 (__int64)v101,
+                 (__int64)&Context.FltSave.FloatRegisters[7],
                  0LL,
-                 (__int64)v106,
-                 v87,
-                 v101[2]);
-        KiLeaveCriticalRegionUnsafe((__int64)v83);
+                 (__int64)v69,
+                 Context.Dr6,
+                 Context.FltSave.XmmRegisters[0].Low);
+        KiLeaveCriticalRegionUnsafe(Context.Dr0);
         if ( inserted < 0 )
         {
-          PspRundownSingleProcess((__int64)v40, 0);
+          PspRundownSingleProcess(v38, 0);
           Info = inserted;
-          v58 = v68;
+          v56 = BYTE4(Context.P1Home);
           goto LABEL_88;
         }
         if ( Info < 0 )
         {
-          v58 = v68;
+          v56 = BYTE4(Context.P1Home);
 LABEL_87:
           if ( Info >= 0 )
           {
 LABEL_88:
-            ObfDereferenceObject(v54);
+            ObfDereferenceObject(Rax);
 LABEL_89:
-            ObfDereferenceObjectWithTag(v40, 0x72437350u);
+            ObfDereferenceObjectWithTag((PVOID)v38, 0x72437350u);
 LABEL_90:
-            if ( v85 )
-              ObfDereferenceObjectWithTag(v85, 0x624A7350u);
-            PspDeleteCreateProcessContext(v101);
-            if ( *(_QWORD *)&DriverContext[8] )
-              FsRtlFreeExtraCreateParameterList(*(PECP_LIST *)&DriverContext[8]);
-            if ( v58 )
-              ObfDereferenceObject(v81);
-            return (unsigned int)Info;
+            if ( Context.Dr2 )
+              ObfDereferenceObjectWithTag((PVOID)Context.Dr2, 0x624A7350u);
+            PspDeleteCreateProcessContext(&Context.Legacy[7]);
+            if ( Context.Header[0].Low )
+              FsRtlFreeExtraCreateParameterList((PECP_LIST)Context.Header[0].Low);
+            if ( v56 )
+              ObfDereferenceObject(*(PVOID *)&Context.SegCs);
+            return Info;
           }
 LABEL_173:
-          PsTerminateProcess(v40, (unsigned int)Info);
+          PsTerminateProcess(v38, (unsigned int)Info);
           goto LABEL_88;
         }
-        ProcessServerSilo = PsGetProcessServerSilo((__int64)v40);
-        if ( ProcessServerSilo != v101[57] )
+        ProcessServerSilo = PsGetProcessServerSilo(v38);
+        if ( ProcessServerSilo != Context.VectorRegister[5].High )
         {
           Info = -1073741267;
-          v58 = v68;
+          v56 = BYTE4(Context.P1Home);
           goto LABEL_173;
         }
-        Info = PspCreateObjectHandle(v40, v102, PsProcessType);
+        Info = PspCreateObjectHandle(v38, &Context.VectorRegister[8], PsProcessType);
         if ( Info < 0 )
         {
-          v58 = v68;
+          v56 = BYTE4(Context.P1Home);
         }
         else
         {
-          v56 = (_OWORD *)v101[4];
-          if ( v101[4] )
+          v54 = (_M128A *)Context.FltSave.XmmRegisters[1].Low;
+          if ( Context.FltSave.XmmRegisters[1].Low )
           {
-            *(_OWORD *)v101[4] = *(_OWORD *)&v101[6];
-            v56[1] = *(_OWORD *)&v101[8];
-            v56[2] = *(_OWORD *)&v101[10];
-            v56[3] = *(_OWORD *)&v101[12];
+            *(_M128A *)Context.FltSave.XmmRegisters[1].Low = Context.Xmm2;
+            v54[1] = Context.FltSave.XmmRegisters[3];
+            v54[2] = Context.FltSave.XmmRegisters[4];
+            v54[3] = Context.FltSave.XmmRegisters[5];
           }
-          *v88 = v105;
-          v57 = (__int64)v76;
-          v58 = v68;
-          Info = PspUpdateCreateInfo(6LL, v101, v40);
+          *(_QWORD *)Context.Dr7 = Handle;
+          v55 = Context.P4Home;
+          v56 = BYTE4(Context.P1Home);
+          Info = PspUpdateCreateInfo(6LL, &Context.Legacy[7], v38);
           if ( Info >= 0 )
             goto LABEL_86;
-          if ( (v103 & 0x200) != 0 || (v65 = 1, (*(_DWORD *)(v57 + 1740) & 0x1000) != 0) )
-            v65 = 0;
-          ObCloseHandle(v105, v65);
+          if ( (v66 & 0x200) != 0 || (v63 = 1, (*(_DWORD *)(v55 + 1740) & 0x1000) != 0) )
+            v63 = 0;
+          ObCloseHandle(Handle, v63);
         }
-        if ( (v107 & 0x200) != 0 || (*((_DWORD *)v76 + 435) & 0x1000) != 0 )
+        if ( (v70 & 0x200) != 0 || (*(_DWORD *)(Context.P4Home + 1740) & 0x1000) != 0 )
           v21 = 0;
-        ObCloseHandle(v108, v21);
+        ObCloseHandle(v71, v21);
 LABEL_86:
-        SepDeleteAccessState((__int64)v102);
-        SeReleaseSubjectContext(&v102[0].SubjectSecurityContext);
+        SepDeleteAccessState((__int64)&Context.VectorRegister[8]);
+        SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)&Context.VectorRegister[10]);
         goto LABEL_87;
       }
-      v101[19] = 0LL;
+      Context.FltSave.XmmRegisters[8].High = 0LL;
     }
 LABEL_102:
-    v58 = v68;
+    v56 = BYTE4(Context.P1Home);
     goto LABEL_90;
   }
   return result;

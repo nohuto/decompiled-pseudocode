@@ -1,11 +1,11 @@
 /*
- * XREFs of CcAllocateObcb @ 0x1405F8F04
+ * XREFs of CcAllocateObcb @ 0x1405F8FB8
  * Callers:
- *     CcPinMappedData @ 0x1404471C0 (CcPinMappedData.c)
- *     CcPreparePinWrite @ 0x140458274 (CcPreparePinWrite.c)
- *     CcPinRead @ 0x1404BCAF0 (CcPinRead.c)
+ *     CcPinMappedData @ 0x140446090 (CcPinMappedData.c)
+ *     CcPreparePinWrite @ 0x140457144 (CcPreparePinWrite.c)
+ *     CcPinRead @ 0x1404A8820 (CcPinRead.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -8,21 +8,26 @@
  *     RtlpIsUtf8Process @ 0x180062264 (RtlpIsUtf8Process.c)
  */
 
-__int64 __fastcall RtlUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  int v5; // edx
-  unsigned int *v6; // r8
-  unsigned int *v7; // r9
-  _BYTE *v8; // r10
-  unsigned int v9; // r11d
-  unsigned int v10; // ebx
-  unsigned int v11; // edx
-  unsigned int v12; // eax
+  ULONG v5; // edx
+  ULONG *v6; // r8
+  const WCHAR *v7; // r9
+  CHAR *v8; // r10
+  ULONG v9; // r11d
+  NTSTATUS v10; // ebx
+  ULONG v11; // edx
+  ULONG v12; // eax
   __int64 v13; // rdi
   __int64 v14; // r8
   __int64 v15; // rax
-  unsigned int *v17; // rax
-  int v18; // eax
+  ULONG *v17; // rax
+  NTSTATUS v18; // eax
   int v19; // edi
   __int64 v20; // r14
   __int64 v21; // rax
@@ -30,16 +35,16 @@ __int64 __fastcall RtlUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3, __int64 
   unsigned int v23; // eax
   char v24; // [rsp+30h] [rbp-18h] BYREF
 
-  LOBYTE(a1) = 1;
+  LOBYTE(OemString) = 1;
   v10 = 0;
-  if ( (unsigned __int8)RtlpIsUtf8Process(a1, a2, a3) )
+  if ( (unsigned __int8)RtlpIsUtf8Process(OemString, MaxBytesInOemString, BytesInOemString) )
   {
-    v17 = (unsigned int *)&v24;
+    v17 = (ULONG *)&v24;
     if ( v6 )
       v17 = v6;
-    if ( a5 )
+    if ( BytesInUnicodeString )
     {
-      v18 = RtlUnicodeToUTF8N(v8, v5, v17, v7, a5);
+      v18 = RtlUnicodeToUTF8N(v8, v5, v17, v7, BytesInUnicodeString);
     }
     else
     {
@@ -47,12 +52,12 @@ __int64 __fastcall RtlUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3, __int64 
       v18 = 0;
     }
     if ( v18 == -1073741789 )
-      return (unsigned int)-2147483643;
+      return -2147483643;
     return v10;
   }
   else
   {
-    v11 = a5 >> 1;
+    v11 = BytesInUnicodeString >> 1;
     if ( NlsMbOemCodePageTag )
     {
       v19 = (int)v8;
@@ -63,8 +68,7 @@ __int64 __fastcall RtlUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3, __int64 
         {
           if ( !v9 )
             break;
-          v21 = *(unsigned __int16 *)v7;
-          v7 = (unsigned int *)((char *)v7 + 2);
+          v21 = *v7++;
           v22 = *(_WORD *)(v20 + 2 * v21);
           if ( HIBYTE(v22) )
           {
@@ -87,7 +91,7 @@ __int64 __fastcall RtlUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3, __int64 
     {
       v12 = v9;
       if ( v11 < v9 )
-        v12 = a5 >> 1;
+        v12 = BytesInUnicodeString >> 1;
       if ( v6 )
         *v6 = v12;
       v13 = NlsUnicodeToOemData;
@@ -96,8 +100,7 @@ __int64 __fastcall RtlUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3, __int64 
         v14 = v12;
         do
         {
-          v15 = *(unsigned __int16 *)v7;
-          v7 = (unsigned int *)((char *)v7 + 2);
+          v15 = *v7++;
           *v8++ = *(_BYTE *)(v15 + v13);
           --v14;
         }

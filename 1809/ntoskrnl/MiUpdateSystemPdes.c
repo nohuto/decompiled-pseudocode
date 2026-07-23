@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdateSystemPdes @ 0x1402A5250
+ * XREFs of MiUpdateSystemPdes @ 0x1402A5440
  * Callers:
- *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
- *     MiSyncSystemPdes @ 0x14013CC58 (MiSyncSystemPdes.c)
+ *     KiInSwapProcesses @ 0x14010B3C0 (KiInSwapProcesses.c)
+ *     MiSyncSystemPdes @ 0x14013CD58 (MiSyncSystemPdes.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCopyTopLevelMappings @ 0x14013CD34 (MiCopyTopLevelMappings.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCopyTopLevelMappings @ 0x14013CE34 (MiCopyTopLevelMappings.c)
  */
 
 __int64 __fastcall MiUpdateSystemPdes(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall MiUpdateSystemPdes(__int64 a1)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v5 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_9;
       v7 = (v3 & 1) == 0;
     }

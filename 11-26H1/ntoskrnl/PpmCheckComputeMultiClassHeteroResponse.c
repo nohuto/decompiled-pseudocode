@@ -1,24 +1,24 @@
 /*
- * XREFs of PpmCheckComputeMultiClassHeteroResponse @ 0x14041DF08
+ * XREFs of PpmCheckComputeMultiClassHeteroResponse @ 0x14041574C
  * Callers:
- *     PpmCheckComputeHeteroResponse @ 0x14041E6A0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140415EE0 (PpmCheckComputeHeteroResponse.c)
  * Callees:
- *     PpmEventTraceMultiClassHeteroResponse @ 0x14041DAE0 (PpmEventTraceMultiClassHeteroResponse.c)
- *     PpmHeteroComputeUnparkCount @ 0x14041DCE8 (PpmHeteroComputeUnparkCount.c)
- *     PpmHeteroComputeCoreParkingUtilities @ 0x14041E368 (PpmHeteroComputeCoreParkingUtilities.c)
- *     PpmEventTraceHeteroResponse @ 0x14041EC50 (PpmEventTraceHeteroResponse.c)
- *     PpmHeteroHgsContainmentCheckThresholds @ 0x14041EEC4 (PpmHeteroHgsContainmentCheckThresholds.c)
- *     PpmParkCalculateUnparkCount @ 0x140420130 (PpmParkCalculateUnparkCount.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404FF7CC (PpmEventTraceMultiClassHeteroResponseUpdate.c)
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x14060C314 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmEventTraceMultiClassHeteroResponse @ 0x140415324 (PpmEventTraceMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeUnparkCount @ 0x14041552C (PpmHeteroComputeUnparkCount.c)
+ *     PpmHeteroComputeCoreParkingUtilities @ 0x140415BAC (PpmHeteroComputeCoreParkingUtilities.c)
+ *     PpmEventTraceHeteroResponse @ 0x140416490 (PpmEventTraceHeteroResponse.c)
+ *     PpmHeteroHgsContainmentCheckThresholds @ 0x140416704 (PpmHeteroHgsContainmentCheckThresholds.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417970 (PpmParkCalculateUnparkCount.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404F8FBC (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x14060F474 (PpmHeteroComputeMultiClassUnparkCount.c)
  */
 
 char PpmCheckComputeMultiClassHeteroResponse()
 {
   unsigned int v0; // ebx
   unsigned int v1; // r15d
-  _KSCHEDULING_GROUP *volatile SchedulingGroup; // r14
-  __int64 *v3; // rdi
+  __int64 v2; // r14
+  char *v3; // rdi
   int *v4; // rcx
   char v5; // si
   __int64 v6; // rdi
@@ -44,7 +44,7 @@ char PpmCheckComputeMultiClassHeteroResponse()
   __int64 v27; // rax
   _WORD *v28; // rcx
   __int64 v29; // rdx
-  __int64 SystemCallNumber; // r10
+  __int64 v30; // r10
   __int64 v31; // r8
   unsigned int v32; // eax
   unsigned int v33; // r9d
@@ -61,35 +61,35 @@ char PpmCheckComputeMultiClassHeteroResponse()
   unsigned __int16 v44; // ax
   char v45; // [rsp+28h] [rbp-90h]
   __int64 v46; // [rsp+50h] [rbp-68h] BYREF
-  _XSAVE_FORMAT *StateSaveArea; // [rsp+58h] [rbp-60h]
+  __int64 v47; // [rsp+58h] [rbp-60h]
   __int64 v48; // [rsp+60h] [rbp-58h] BYREF
-  _KSCHEDULING_GROUP *volatile v49; // [rsp+68h] [rbp-50h]
+  __int64 v49; // [rsp+68h] [rbp-50h]
   char v50; // [rsp+C0h] [rbp+8h]
   int v51; // [rsp+C8h] [rbp+10h] BYREF
   int *v52; // [rsp+D0h] [rbp+18h]
-  __int64 *v53; // [rsp+D8h] [rbp+20h]
+  char *v53; // [rsp+D8h] [rbp+20h]
 
   v0 = 0;
   v1 = 0;
-  SchedulingGroup = PopModernStandbyStateNotify.SchedulingGroup;
+  v2 = qword_140F0C248;
   v46 = 0LL;
-  v3 = &PpmCurrentProfile[89 * dword_140F106CC + 5];
+  v3 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40;
   v48 = 0LL;
-  v4 = *(int **)&PopModernStandbyStateNotify.WaitRegister.Flags;
-  v52 = *(int **)&PopModernStandbyStateNotify.WaitRegister.Flags;
+  v4 = (int *)qword_140F0C250;
+  v52 = (int *)qword_140F0C250;
   v53 = v3;
-  StateSaveArea = PopModernStandbyStateNotify.StateSaveArea;
-  v49 = PopModernStandbyStateNotify.SchedulingGroup;
-  if ( PopModernStandbyStateNotify.SystemCallNumber )
+  v47 = PpmHeteroPerfCheckUtilities;
+  v49 = qword_140F0C248;
+  if ( PpmParkNumNodes )
   {
     while ( 1 )
     {
       v5 = 0;
-      v6 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * v1;
+      v6 = PpmParkNodes + 1264LL * v1;
       if ( PpmHeteroHgsParkingEnabled || *(_BYTE *)(v6 + 1153) )
         break;
 LABEL_19:
-      if ( ++v1 >= PopModernStandbyStateNotify.SystemCallNumber )
+      if ( ++v1 >= PpmParkNumNodes )
       {
         v3 = v53;
         goto LABEL_21;
@@ -117,7 +117,7 @@ LABEL_19:
       v9 = *(_WORD *)(v6 + 8);
       v8 = *(unsigned __int16 *)(*(_QWORD *)(v6 + 1256) + 632LL);
     }
-    PpmHeteroComputeCoreParkingUtilities(0LL, v6 + 16, StateSaveArea, v4, &v48, &v46);
+    PpmHeteroComputeCoreParkingUtilities(0LL, v6 + 16, v47, v4, &v48, &v46);
     v10 = *(unsigned __int16 *)(v6 + 8);
     v11 = 0LL;
     v12 = *(_QWORD *)(v6 + 1096);
@@ -134,7 +134,7 @@ LABEL_19:
         v10 = (unsigned int)(v10 - 1);
         --v24;
         v51 = v10;
-        *((_QWORD *)&SchedulingGroup->Policy + v10) = v13;
+        *(_QWORD *)(v2 + 8 * v10) = v13;
         v27 = *v25-- * v26;
         v11 += v27;
       }
@@ -143,17 +143,7 @@ LABEL_19:
     v14 = v46;
     if ( PpmHeteroHgsParkingEnabled )
       PpmHeteroHgsContainmentCheckThresholds(v6, v11, v46, v13);
-    v15 = PpmHeteroComputeUnparkCount(
-            0,
-            (__int64)v53,
-            v11,
-            (__int64)StateSaveArea,
-            (__int64)v49,
-            v52,
-            v14,
-            v8,
-            v9,
-            &v51);
+    v15 = PpmHeteroComputeUnparkCount(0, (__int64)v53, v11, v47, v49, v52, v14, v8, v9, &v51);
     v50 = 0;
     if ( *(char *)(v6 + 1156) == v15 )
     {
@@ -171,19 +161,19 @@ LABEL_19:
     }
     v18 = 0;
     v19 = v51;
-    if ( LODWORD(PopSleepstudySessionLock.SchedulingGroup) == 5 )
+    if ( PpmCheckCurrentPipelineId == 5 )
     {
       v5 |= 0x10u;
     }
     else if ( v15 == 2 )
     {
-      if ( v17 < *((unsigned __int8 *)v53 + 263) )
+      if ( v17 < (unsigned __int8)v53[263] )
         goto LABEL_14;
       v5 |= 0x20u;
     }
     else
     {
-      if ( v15 != 1 || v17 < *((unsigned __int8 *)v53 + 262) )
+      if ( v15 != 1 || v17 < (unsigned __int8)v53[262] )
         goto LABEL_14;
       v5 |= 0x40u;
     }
@@ -200,11 +190,11 @@ LABEL_14:
     }
     v21 = v5 | 1;
     v45 = v8;
-    v22 = (int)StateSaveArea;
+    v22 = v47;
     PpmEventTraceMultiClassHeteroResponse(
       0,
       (unsigned __int16 *)(v6 + 16),
-      (ULONGLONG)StateSaveArea,
+      v47,
       (ULONGLONG)v52,
       v46,
       v45,
@@ -214,17 +204,17 @@ LABEL_14:
       *(_QWORD *)(v6 + 1120));
     if ( !PpmHeteroHgsParkingEnabled )
       PpmHeteroComputeMultiClassUnparkCount(v6, (_DWORD)v53, v22, (_DWORD)v52, v19, v18, v50);
-    SchedulingGroup = v49;
-    PpmEventTraceHeteroResponse(v6, v22, (_DWORD)v49, v11, v19, v21);
+    v2 = v49;
+    PpmEventTraceHeteroResponse(v6, v22, v49, v11, v19, v21);
     v4 = v52;
     goto LABEL_19;
   }
 LABEL_21:
   PpmParkCalculateUnparkCount();
-  if ( PopModernStandbyStateNotify.SystemCallNumber )
+  if ( PpmParkNumNodes )
   {
-    SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
-    v31 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1146LL;
+    v30 = (unsigned int)PpmParkNumNodes;
+    v31 = PpmParkNodes + 1146;
     do
     {
       if ( *(_BYTE *)(v31 + 7) )
@@ -252,9 +242,9 @@ LABEL_21:
         v40 = v37 - v39;
         if ( v40 >= *v38 )
           v40 = *v38;
-        v20 = BYTE2(PopModernStandbyStateNotify.ThreadLock) == 0;
+        v20 = PpmParkUnparkCores == 0;
         v38[3] = v40;
-        if ( v20 || LOWORD(PopModernStandbyStateNotify.ThreadLock) == 1 && *(_BYTE *)v31 > *((_BYTE *)v3 + 223) )
+        if ( v20 || PpmParkGranularity == 1 && *(_BYTE *)v31 > (unsigned __int8)v3[223] )
         {
           for ( i = 0; i < *(unsigned __int8 *)(v31 - 1136); ++i )
           {
@@ -270,21 +260,21 @@ LABEL_21:
         }
       }
       v31 += 1264LL;
-      --SystemCallNumber;
+      --v30;
     }
-    while ( SystemCallNumber );
+    while ( v30 );
   }
-  if ( PopModernStandbyStateNotify.SystemCallNumber )
+  if ( PpmParkNumNodes )
   {
     do
     {
       PpmEventTraceMultiClassHeteroResponseUpdate(
         0LL,
-        *(_QWORD *)(1264LL * v0 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1256),
-        *(_QWORD *)(1264LL * v0 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1160));
+        *(_QWORD *)(1264LL * v0 + PpmParkNodes + 1256),
+        *(_QWORD *)(1264LL * v0 + PpmParkNodes + 1160));
       ++v0;
     }
-    while ( v0 < PopModernStandbyStateNotify.SystemCallNumber );
+    while ( v0 < PpmParkNumNodes );
   }
   return 1;
 }

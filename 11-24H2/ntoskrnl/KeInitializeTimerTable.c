@@ -1,25 +1,25 @@
 /*
- * XREFs of KeInitializeTimerTable @ 0x140A7BB0C
+ * XREFs of KeInitializeTimerTable @ 0x140A75E0C
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     KiInitializeTimer2Data @ 0x1405C5040 (KiInitializeTimer2Data.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     KiInitializeForceIdle @ 0x140A7BC3C (KiInitializeForceIdle.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     KiInitializeTimer2Data @ 0x1405C2708 (KiInitializeTimer2Data.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     KiInitializeForceIdle @ 0x140A75F3C (KiInitializeForceIdle.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall KeInitializeTimerTable(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KeInitializeTimerTable(__int64 a1, __int64 a2)
 {
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v9; // rdi
+  __int64 v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v7; // rdi
   void *Pool2; // rdx
-  __int64 v11; // rcx
+  __int64 v9; // rcx
 
   if ( !*(_DWORD *)(a1 + 36) )
   {
@@ -30,13 +30,13 @@ __int64 __fastcall KeInitializeTimerTable(__int64 a1, __int64 a2, __int64 a3, __
     }
     else
     {
-      KiSerializeTimerExpiration = (unsigned __int8)guard_dispatch_icall_no_overrides(a1, a2, a3, a4) != 0;
+      KiSerializeTimerExpiration = (unsigned __int8)guard_dispatch_icall_no_overrides(a1, a2) != 0;
     }
     KiInitializeTimer2Data();
   }
   if ( !KiPendingTimerBitmaps[2 * *(unsigned __int8 *)(a1 + 208) + 1] )
   {
-    v9 = 0x4000LL;
+    v7 = 0x4000LL;
     if ( *(_BYTE *)(a1 + 208) )
     {
       if ( KiSerializeTimerExpiration )
@@ -45,7 +45,7 @@ __int64 __fastcall KeInitializeTimerTable(__int64 a1, __int64 a2, __int64 a3, __
       }
       else
       {
-        Pool2 = (void *)ExAllocatePool2(0x48uLL);
+        Pool2 = (void *)ExAllocatePool2(0x48uLL, 0x4000uLL, 0x6254654Bu);
         if ( !Pool2 )
           return 3221225626LL;
       }
@@ -54,35 +54,35 @@ __int64 __fastcall KeInitializeTimerTable(__int64 a1, __int64 a2, __int64 a3, __
     {
       Pool2 = &KiPendingTimersMask0;
       if ( KiSerializeTimerExpiration )
-        v9 = 32LL;
+        v7 = 32LL;
     }
-    v11 = 2LL * *(unsigned __int8 *)(a1 + 208);
-    KiPendingTimerBitmaps[v11] = 8 * v9;
-    KiPendingTimerBitmaps[v11 + 1] = (__int64)Pool2;
+    v9 = 2LL * *(unsigned __int8 *)(a1 + 208);
+    KiPendingTimerBitmaps[v9] = 8 * v7;
+    KiPendingTimerBitmaps[v9 + 1] = (__int64)Pool2;
   }
   *(_DWORD *)(a1 + 14528) = MEMORY[0xFFFFF78000000320];
   KeInitializeDpc((PRKDPC)(a1 + 33776), (PKDEFERRED_ROUTINE)KiTimerExpirationDpc, 0LL);
   if ( !*(_QWORD *)(a1 + 33832) )
     *(_WORD *)(a1 + 33778) = *(_DWORD *)(a1 + 36) + 2048;
-  v5 = a1 + 17160;
-  v6 = 2LL;
+  v3 = a1 + 17160;
+  v4 = 2LL;
   do
   {
-    v7 = 256LL;
+    v5 = 256LL;
     do
     {
-      *(_QWORD *)(v5 - 8) = 0LL;
-      *(_QWORD *)(v5 + 8) = v5;
-      *(_QWORD *)v5 = v5;
-      *(_DWORD *)(v5 + 20) = -1;
-      *(_DWORD *)(v5 + 16) = 0;
-      v5 += 32LL;
-      --v7;
+      *(_QWORD *)(v3 - 8) = 0LL;
+      *(_QWORD *)(v3 + 8) = v3;
+      *(_QWORD *)v3 = v3;
+      *(_DWORD *)(v3 + 20) = -1;
+      *(_DWORD *)(v3 + 16) = 0;
+      v3 += 32LL;
+      --v5;
     }
-    while ( v7 );
-    --v6;
+    while ( v5 );
+    --v4;
   }
-  while ( v6 );
+  while ( v4 );
   KiInitializeForceIdle(a1);
   return 0LL;
 }

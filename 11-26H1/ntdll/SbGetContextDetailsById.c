@@ -1,7 +1,7 @@
 /*
- * XREFs of SbGetContextDetailsById @ 0x180064664
+ * XREFs of SbGetContextDetailsById @ 0x180084AB4
  * Callers:
- *     SbUpdateSwitchContextBasedOnDll @ 0x180064160 (SbUpdateSwitchContextBasedOnDll.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x1800845B0 (SbUpdateSwitchContextBasedOnDll.c)
  * Callees:
  *     <none>
  */

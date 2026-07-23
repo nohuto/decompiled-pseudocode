@@ -13,44 +13,44 @@
  *     sub_1800CE318 @ 0x1800CE318 (sub_1800CE318.c)
  */
 
-__int64 __fastcall sub_1800219E8(int a1, int a2, _QWORD *a3, __int64 a4, int a5)
+__int64 __fastcall sub_1800219E8(PUNICODE_STRING a1, int a2, _QWORD *a3, __int64 a4, int a5)
 {
   int v9; // ebx
   int v11; // eax
-  _QWORD v12[2]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v13[16]; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING v12; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING String1; // [rsp+60h] [rbp-A0h] BYREF
   int v14; // [rsp+70h] [rbp-90h] BYREF
-  _WORD *v15; // [rsp+78h] [rbp-88h]
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [rsp+78h] [rbp-88h]
   _WORD v16[128]; // [rsp+80h] [rbp-80h] BYREF
 
   *a3 = 0LL;
   if ( (a5 & 0x20) != 0 )
   {
-    v9 = sub_180022698(a1, 0, a5, (_DWORD)a3, a4);
+    v9 = sub_180022698(a1, 0LL, a4);
   }
-  else if ( (a5 & 0x200) == 0 || (v9 = sub_180022698(0, a1, a5, (_DWORD)a3, a4), v9 < 0) )
+  else if ( (a5 & 0x200) == 0 || (v9 = sub_180022698(0LL, a1, a4), v9 < 0) )
   {
     v14 = 0x1000000;
-    v15 = v16;
+    BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v16;
     v16[0] = 0;
-    v12[0] = 0LL;
-    v12[1] = 0LL;
+    *(_QWORD *)&v12.Length = 0LL;
+    v12.Buffer = 0LL;
     if ( (a5 & 0x200) != 0 )
-      v11 = sub_180029CEC(a1, (unsigned int)&v14, (unsigned int)v13, (unsigned int)v12, a5);
+      v11 = sub_180029CEC(a1, &v14, &String1, &v12, a5);
     else
-      v11 = sub_18002D8FC(a1, a2, 0, 0, (__int64)&v14, (__int64)v13, (__int64)v12, 0LL, 0LL);
+      v11 = sub_18002D8FC((_DWORD)a1, a2, 0, 0, (__int64)&v14, (__int64)&String1, (__int64)&v12, 0LL, 0LL);
     v9 = v11;
     if ( v11 >= 0 )
     {
-      v9 = sub_180022698((unsigned int)v13, (unsigned int)v12, a5, (_DWORD)a3, a4);
+      v9 = sub_180022698(&String1, &v12, a4);
       if ( v9 == -1073741515 )
         v9 = sub_1800795E8(&v14, a3, a4);
     }
-    sub_18002E1A4(v12);
-    if ( v16 != v15 )
-      RtlDeleteBoundaryDescriptor(v15);
+    sub_18002E1A4(&v12);
+    if ( v16 != (_WORD *)BoundaryDescriptor )
+      RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
     v14 = 0x1000000;
-    v15 = v16;
+    BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v16;
     v16[0] = 0;
   }
   if ( (dword_18015FAB0 & 9) != 0 )

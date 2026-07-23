@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPerformMemoryChange @ 0x1406E9974
+ * XREFs of MiPerformMemoryChange @ 0x1406EE614
  * Callers:
- *     MiCompleteMemoryAddition @ 0x140865B8C (MiCompleteMemoryAddition.c)
- *     MiCompleteMemoryRemoval @ 0x140865CFC (MiCompleteMemoryRemoval.c)
+ *     MiCompleteMemoryAddition @ 0x14086BF6C (MiCompleteMemoryAddition.c)
+ *     MiCompleteMemoryRemoval @ 0x14086C0DC (MiCompleteMemoryRemoval.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiComputeNodeMemory @ 0x1406E7EF4 (MiComputeNodeMemory.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x1406F5AF0 (MiInitializeNonPagedPoolThresholds.c)
- *     MiUpdatePhysicalPages @ 0x140709FC0 (MiUpdatePhysicalPages.c)
- *     MiMergeMemoryBlocks @ 0x140866874 (MiMergeMemoryBlocks.c)
- *     MiUnlinkHotAddFlight @ 0x140867064 (MiUnlinkHotAddFlight.c)
- *     MiUpdateSharedUserDataNumberOfPages @ 0x140867168 (MiUpdateSharedUserDataNumberOfPages.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiComputeNodeMemory @ 0x1406ECB90 (MiComputeNodeMemory.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x1406FA760 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiUpdatePhysicalPages @ 0x14070EC74 (MiUpdatePhysicalPages.c)
+ *     MiMergeMemoryBlocks @ 0x14086CC54 (MiMergeMemoryBlocks.c)
+ *     MiUnlinkHotAddFlight @ 0x14086D444 (MiUnlinkHotAddFlight.c)
+ *     MiUpdateSharedUserDataNumberOfPages @ 0x14086D548 (MiUpdateSharedUserDataNumberOfPages.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiPerformMemoryChange(__int64 a1)
@@ -36,17 +36,17 @@ void __fastcall MiPerformMemoryChange(__int64 a1)
 
   v2 = *(_DWORD *)(a1 + 40) & 1;
   MiMergeMemoryBlocks(*(_QWORD *)(a1 + 160), (_DWORD)MmPhysicalMemoryBlock - 16, a1 + 112, v2, 0);
-  MiMergeMemoryBlocks(*(_QWORD *)(a1 + 168), qword_140E37CE0 - 16, a1 + 136, v2, 1);
+  MiMergeMemoryBlocks(*(_QWORD *)(a1 + 168), qword_140E37E60 - 16, a1 + 136, v2, 1);
   MiUnlinkHotAddFlight(a1);
   v3 = 2LL;
   if ( KeGetCurrentIrql() == 2 )
   {
     v4 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E37DC8.Header.WaitListHead);
+    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E37F48.Header.WaitListHead);
   }
   else
   {
-    v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E37DC8.Header.WaitListHead);
+    v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E37F48.Header.WaitListHead);
   }
   v5 = 0LL;
   v6 = (*((_QWORD *)MmPhysicalMemoryBlock - 1))-- == 1LL;
@@ -55,10 +55,10 @@ void __fastcall MiPerformMemoryChange(__int64 a1)
   MmPhysicalMemoryBlock = (void *)(*(_QWORD *)(a1 + 160) + 16LL);
   v7 = 0LL;
   v15[0] = v5;
-  v6 = (*(_QWORD *)(qword_140E37CE0 - 8))-- == 1LL;
+  v6 = (*(_QWORD *)(qword_140E37E60 - 8))-- == 1LL;
   if ( v6 )
-    v7 = qword_140E37CE0;
-  qword_140E37CE0 = *(_QWORD *)(a1 + 168) + 16LL;
+    v7 = qword_140E37E60;
+  qword_140E37E60 = *(_QWORD *)(a1 + 168) + 16LL;
   v8 = *(_DWORD *)(a1 + 40);
   v15[1] = v7;
   if ( (v8 & 1) != 0 )
@@ -85,9 +85,9 @@ LABEL_17:
   }
   MiInitializeNonPagedPoolThresholds(1LL);
   if ( v4 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E37DC8.Header.WaitListHead);
+    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E37F48.Header.WaitListHead);
   else
-    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E37DC8.Header.WaitListHead, v4);
+    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E37F48.Header.WaitListHead, v4);
   if ( (*(_DWORD *)(a1 + 40) & 0x40000) != 0 )
   {
     for ( i = *(__int64 **)(a1 + 136); i != (__int64 *)(a1 + 136); i = (__int64 *)*i )
@@ -95,9 +95,9 @@ LABEL_17:
       v12 = *((unsigned __int8 *)i + 36) + 2LL * *((unsigned int *)i + 8);
       v13 = i[3];
       if ( (*(_DWORD *)(a1 + 40) & 1) != 0 )
-        *((_QWORD *)&stru_140E36558.AbCompletedIoQoSBoostCount + v12) += v13;
+        *((_QWORD *)&stru_140E366D8.AbCompletedIoQoSBoostCount + v12) += v13;
       else
-        *((_QWORD *)&stru_140E36558.AbCompletedIoQoSBoostCount + v12) -= v13;
+        *((_QWORD *)&stru_140E366D8.AbCompletedIoQoSBoostCount + v12) -= v13;
     }
   }
   v14 = v15;

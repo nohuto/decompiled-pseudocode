@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCompensateForProcessorErrata @ 0x140C57D58
+ * XREFs of MiCompensateForProcessorErrata @ 0x140C59EE8
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     strstr @ 0x1404FD9B0 (strstr.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
  */
 
 __int64 __fastcall MiCompensateForProcessorErrata(__int64 a1)
@@ -17,25 +17,25 @@ __int64 __fastcall MiCompensateForProcessorErrata(__int64 a1)
     switch ( ((MiFlags & 0xFFFFFFFFFF9FFFFFuLL | ((unsigned __int64)(KiKvaShadowMode & 3) << 21)) >> 21) & 3 )
     {
       case 1uLL:
-        word_140E2ED84 = 0;
+        word_140E2EEC4 = 0;
         break;
       case 2uLL:
-        word_140E2ED84 = 256;
+        word_140E2EEC4 = 256;
         break;
       case 3uLL:
-        word_140E2ED84 = 1;
+        word_140E2EEC4 = 1;
         break;
     }
     if ( SpcImplementedPhysicalBits > 0 )
     {
       byte_140E01303 = 4;
-      qword_140E2DB80 = 1LL << ((unsigned __int8)SpcImplementedPhysicalBits - 1);
+      qword_140E2DCC0 = 1LL << ((unsigned __int8)SpcImplementedPhysicalBits - 1);
       byte_140E01302 = SpcImplementedPhysicalBits - 1;
     }
   }
   else
   {
-    word_140E2ED84 = 1;
+    word_140E2EEC4 = 1;
   }
   v1 = MiFlags & 0xFFFFFFFFF39FFFFFuLL | ((unsigned __int64)(KiKvaShadowMode & 3) << 21) & 0xFFFFFFFFF3FFFFFFuLL | 0x8000000;
   MiFlags = v1;
@@ -58,16 +58,16 @@ LABEL_16:
   {
     if ( (((unsigned __int64)MiFlags >> 26) & 3) == 1 )
     {
-      byte_140E2DAC9 = 1;
+      byte_140E2DC09 = 1;
       goto LABEL_24;
     }
     if ( (((unsigned __int64)MiFlags >> 26) & 3) == 2 )
     {
-      byte_140E2DAC9 = -1;
+      byte_140E2DC09 = -1;
       goto LABEL_24;
     }
   }
-  byte_140E2DAC9 = 0;
+  byte_140E2DC09 = 0;
 LABEL_24:
   if ( (KeFeatureBits & 0x200000) != 0 )
   {

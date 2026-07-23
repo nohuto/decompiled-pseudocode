@@ -1,25 +1,25 @@
 /*
- * XREFs of IoStopDiskIoAttributionForContext @ 0x140105C5C
+ * XREFs of IoStopDiskIoAttributionForContext @ 0x140105CDC
  * Callers:
- *     PspIoRateEntryActivate @ 0x140585150 (PspIoRateEntryActivate.c)
- *     PspIoRateEntryDeactivate @ 0x140585238 (PspIoRateEntryDeactivate.c)
- *     PspRemoveIoAttribution @ 0x14068CDF8 (PspRemoveIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x140586150 (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryDeactivate @ 0x140586238 (PspIoRateEntryDeactivate.c)
+ *     PspRemoveIoAttribution @ 0x14068DFB8 (PspRemoveIoAttribution.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall IoStopDiskIoAttributionForContext(struct _EX_RUNDOWN_REF *a1)
+void __fastcall IoStopDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // bl
   struct _KPRCB *CurrentPrcb; // rcx
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  RtlRbRemoveNode((__int64)&IopDiskIoAttributionTree, (unsigned __int64)a1);
-  a1[2].Count = -1LL;
+  RtlRbRemoveNode(&IopDiskIoAttributionTree, Node);
+  Node->ParentValue = -1LL;
   ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )
   {
@@ -28,5 +28,5 @@ void __fastcall IoStopDiskIoAttributionForContext(struct _EX_RUNDOWN_REF *a1)
     KiRemoveSystemWorkPriorityKick(CurrentPrcb);
   }
   __writecr8(v2);
-  ExWaitForRundownProtectionRelease(a1 + 21);
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&Node[7]);
 }

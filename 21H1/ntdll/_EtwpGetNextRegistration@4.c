@@ -11,12 +11,12 @@
  *     _RtlTryAcquireSRWLockShared@4 @ 0x4B2EA860 (_RtlTryAcquireSRWLockShared@4.c)
  */
 
-unsigned int __thiscall EtwpGetNextRegistration(unsigned int this)
+unsigned int __thiscall EtwpGetNextRegistration(_RTL_SRWLOCK *this)
 {
   char v1; // bl
-  unsigned int v3; // esi
-  unsigned int v4; // eax
-  int i; // esi
+  unsigned int Value; // esi
+  _RTL_SRWLOCK *v4; // eax
+  unsigned int i; // esi
   _DWORD *v6; // ecx
   _DWORD **v8; // eax
   unsigned int v9; // ecx
@@ -28,16 +28,16 @@ unsigned int __thiscall EtwpGetNextRegistration(unsigned int this)
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
   if ( this )
   {
-    v3 = *(_DWORD *)(this + 4);
+    Value = this[1].Value;
     v4 = this;
-    if ( v3 )
+    if ( Value )
     {
-      v6 = *(_DWORD **)v3;
-      if ( *(_DWORD *)v3 )
+      v6 = *(_DWORD **)Value;
+      if ( *(_DWORD *)Value )
       {
         do
         {
-          v3 = (unsigned int)v6;
+          Value = (unsigned int)v6;
           v6 = (_DWORD *)*v6;
         }
         while ( v6 );
@@ -45,55 +45,55 @@ unsigned int __thiscall EtwpGetNextRegistration(unsigned int this)
     }
     else
     {
-      for ( i = *(_DWORD *)(this + 8); ; i = *(_DWORD *)(v3 + 8) )
+      for ( i = this[2].Value; ; i = *(_DWORD *)(Value + 8) )
       {
-        v3 = i & 0xFFFFFFFC;
-        if ( !v3 || *(_DWORD *)v3 == v4 )
+        Value = i & 0xFFFFFFFC;
+        if ( !Value || *(_RTL_SRWLOCK **)Value == v4 )
           break;
-        v4 = v3;
+        v4 = (_RTL_SRWLOCK *)Value;
       }
     }
   }
-  else if ( (dword_4B3A68B0 & 1) != 0 )
+  else if ( (*(_BYTE *)&EtwpRegistrationTable.0 & 1) != 0 )
   {
-    if ( dword_4B3A68B0 == 1 )
-      v3 = 0;
+    if ( EtwpRegistrationTable.Min == (_RTL_BALANCED_NODE *)1 )
+      Value = 0;
     else
-      v3 = dword_4B3A68B0 ^ ((unsigned int)&EtwpRegistrationTable + 1);
+      Value = (int)EtwpRegistrationTable.Min ^ ((unsigned int)&EtwpRegistrationTable.Root + 1);
   }
   else
   {
-    v3 = dword_4B3A68B0;
+    Value = (unsigned int)EtwpRegistrationTable.Min;
   }
-  while ( v3 )
+  while ( Value )
   {
-    v11 = v3;
-    if ( RtlTryAcquireSRWLockShared((volatile signed __int32 *)(v3 + 40)) )
+    v11 = Value;
+    if ( RtlTryAcquireSRWLockShared((PRTL_SRWLOCK)(Value + 40)) )
     {
       v1 = 1;
       break;
     }
-    v8 = *(_DWORD ***)(v3 + 4);
-    v9 = v3;
+    v8 = *(_DWORD ***)(Value + 4);
+    v9 = Value;
     if ( v8 )
     {
-      v3 = *(_DWORD *)(v3 + 4);
+      Value = *(_DWORD *)(Value + 4);
       for ( j = *v8; j; j = (_DWORD *)*j )
-        v3 = (unsigned int)j;
+        Value = (unsigned int)j;
     }
     else
     {
       while ( 1 )
       {
-        v3 = *(_DWORD *)(v3 + 8) & 0xFFFFFFFC;
-        if ( !v3 || *(_DWORD *)v3 == v9 )
+        Value = *(_DWORD *)(Value + 8) & 0xFFFFFFFC;
+        if ( !Value || *(_DWORD *)Value == v9 )
           break;
-        v9 = v3;
+        v9 = Value;
       }
     }
   }
   RtlReleaseSRWLockExclusive(&EtwpProvLock);
   if ( this )
-    RtlReleaseSRWLockShared((volatile signed __int32 *)(this + 40));
+    RtlReleaseSRWLockShared(this + 10);
   return v1 != 0 ? v11 : 0;
 }

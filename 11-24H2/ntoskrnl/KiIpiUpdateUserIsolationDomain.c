@@ -1,5 +1,5 @@
 /*
- * XREFs of KiIpiUpdateUserIsolationDomain @ 0x1405C3030
+ * XREFs of KiIpiUpdateUserIsolationDomain @ 0x1405C0600
  * Callers:
  *     <none>
  * Callees:

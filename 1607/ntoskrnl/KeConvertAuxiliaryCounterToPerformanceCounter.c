@@ -1,5 +1,5 @@
 /*
- * XREFs of KeConvertAuxiliaryCounterToPerformanceCounter @ 0x1401D2760
+ * XREFs of KeConvertAuxiliaryCounterToPerformanceCounter @ 0x1401D258C
  * Callers:
  *     <none>
  * Callees:

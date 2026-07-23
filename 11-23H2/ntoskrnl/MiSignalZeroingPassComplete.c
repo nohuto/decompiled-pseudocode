@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSignalZeroingPassComplete @ 0x14034E324
+ * XREFs of MiSignalZeroingPassComplete @ 0x14034E4C4
  * Callers:
- *     MiZeroNodePages @ 0x140393AF0 (MiZeroNodePages.c)
- *     MiDeleteZeroThreadContext @ 0x140654CE4 (MiDeleteZeroThreadContext.c)
- *     MiStartZeroEngineThreads @ 0x1407BE16C (MiStartZeroEngineThreads.c)
+ *     MiZeroNodePages @ 0x140393CD0 (MiZeroNodePages.c)
+ *     MiDeleteZeroThreadContext @ 0x140655234 (MiDeleteZeroThreadContext.c)
+ *     MiStartZeroEngineThreads @ 0x1407BE43C (MiStartZeroEngineThreads.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiSignalZeroingPassComplete(__int64 a1)
@@ -32,19 +32,24 @@ void __fastcall MiSignalZeroingPassComplete(__int64 a1)
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v2 + 88), 0xFFFFFFFF) == 1 )
         KeSetEvent((PRKEVENT)v2, 0, 0);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(a1 + 200) + 23160LL));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_6;
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v3 > 0xFu || CurrentIrql < 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
+        || CurrentIrql > 0xFu
+        || (unsigned __int8)v3 > 0xFu
+        || CurrentIrql < 2u )
+      {
         goto LABEL_6;
+      }
     }
     else
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(a1 + 200) + 23160LL));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_6;
       v4 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || v4 > 0xFu || (unsigned __int8)v3 > 0xFu || v4 < 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v4 > 0xFu || (unsigned __int8)v3 > 0xFu || v4 < 2u )
         goto LABEL_6;
     }
     CurrentPrcb = KeGetCurrentPrcb();

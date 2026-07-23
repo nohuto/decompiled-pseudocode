@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlImageNtHeader @ 0x1800CC790
+ * XREFs of RtlImageNtHeader @ 0x1800C9F00
  * Callers:
  *     <none>
  * Callees:
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
  */
 
-__int64 __fastcall RtlImageNtHeader(unsigned __int64 a1)
+PIMAGE_NT_HEADERS __cdecl RtlImageNtHeader(PVOID BaseOfImage)
 {
-  __int64 v2; // [rsp+38h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 0LL;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v2);
-  return v2;
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &OutHeaders);
+  return OutHeaders;
 }

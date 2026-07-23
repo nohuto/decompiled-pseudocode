@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapAllocErrorRecord @ 0x140610B3C
+ * XREFs of WheapAllocErrorRecord @ 0x14061108C
  * Callers:
- *     WheapReportBootError @ 0x1406103C8 (WheapReportBootError.c)
- *     WheaReportHwError @ 0x140610630 (WheaReportHwError.c)
+ *     WheapReportBootError @ 0x140610918 (WheapReportBootError.c)
+ *     WheaReportHwError @ 0x140610B80 (WheaReportHwError.c)
  * Callees:
- *     WheapInitializeErrorRecordWrapper @ 0x140380BDC (WheapInitializeErrorRecordWrapper.c)
- *     WheapGetPreallocatedErrorRecord @ 0x140610F7C (WheapGetPreallocatedErrorRecord.c)
+ *     WheapInitializeErrorRecordWrapper @ 0x140380D7C (WheapInitializeErrorRecordWrapper.c)
+ *     WheapGetPreallocatedErrorRecord @ 0x1406114CC (WheapGetPreallocatedErrorRecord.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

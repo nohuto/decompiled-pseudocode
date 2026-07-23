@@ -1,17 +1,17 @@
 /*
- * XREFs of KiInSwapSingleProcess @ 0x1402A67C4
+ * XREFs of KiInSwapSingleProcess @ 0x1402D5EF4
  * Callers:
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiAttachProcess @ 0x140322460 (KiAttachProcess.c)
- *     KeReadyThread @ 0x140338E58 (KeReadyThread.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiAttachProcess @ 0x1402CAFF0 (KiAttachProcess.c)
+ *     KeReadyThread @ 0x1402DDFE8 (KeReadyThread.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSwapThread @ 0x1402A6990 (KiSwapThread.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     MmNotifyProcessInSwapTrigger @ 0x140467A70 (MmNotifyProcessInSwapTrigger.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiSwapThread @ 0x1402D60C0 (KiSwapThread.c)
+ *     MmNotifyProcessInSwapTrigger @ 0x1402D6BB8 (MmNotifyProcessInSwapTrigger.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KiInSwapSingleProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 a3)
@@ -29,7 +29,7 @@ char __fastcall KiInSwapSingleProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 
 
   v4 = a3;
   v6 = 1;
-  KiAcquireKobjectLockSafe(a2);
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)a2);
   if ( (*(_DWORD *)(a2 + 264) & 7) != 0 )
   {
     v8 = 0;

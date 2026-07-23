@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwBusRelationsCompareInstancePath @ 0x1408886D0
+ * XREFs of PiSwBusRelationsCompareInstancePath @ 0x14088C580
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall PiSwBusRelationsCompareInstancePath(__int64 a1, PCWCH *a2, PCWCH *a3)

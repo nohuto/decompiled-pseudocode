@@ -15,8 +15,8 @@ char __fastcall sub_1800F46F8(__int64 a1, __int64 a2)
 {
   __int64 v3; // r14
   const void *v4; // rax
-  __int64 Heap; // rax
-  __int64 v7; // rsi
+  _DWORD *Heap; // rax
+  _DWORD *v7; // rsi
   __int64 v8; // rbp
   __int64 v9; // rdi
   __int64 v10; // rbx
@@ -40,13 +40,13 @@ char __fastcall sub_1800F46F8(__int64 a1, __int64 a2)
     return 0;
   }
   v8 = dword_180166980;
-  v9 = Heap + 24;
+  v9 = (__int64)(Heap + 6);
   v10 = qword_1801669A0;
   v11 = qword_180166988;
-  *(_DWORD *)Heap = 2;
-  *(_DWORD *)(Heap + 16) = v8;
-  *(_QWORD *)(Heap + 8) = v10;
-  memmove((void *)(Heap + 24), v11, 40 * v8);
+  *Heap = 2;
+  Heap[4] = v8;
+  *((_QWORD *)Heap + 1) = v10;
+  memmove(Heap + 6, v11, 40 * v8);
   if ( v10 != qword_180166990 )
   {
     v12 = 0;

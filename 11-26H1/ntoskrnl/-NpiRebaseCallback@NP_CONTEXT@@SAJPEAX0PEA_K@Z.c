@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NpiRebaseCallback@NP_CONTEXT@@SAJPEAX0PEA_K@Z @ 0x14063C4B0
+ * XREFs of ?NpiRebaseCallback@NP_CONTEXT@@SAJPEAX0PEA_K@Z @ 0x140640090
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCanStealKernelStack @ 0x140415D64
+ * XREFs of MiCanStealKernelStack @ 0x14040A394
  * Callers:
- *     MiJumpStackTarget @ 0x1403E4C40 (MiJumpStackTarget.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x1403E7E30 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
  * Callees:
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
  */
 
 __int64 __fastcall MiCanStealKernelStack(__int64 a1, __int16 a2)
@@ -17,12 +17,12 @@ __int64 __fastcall MiCanStealKernelStack(__int64 a1, __int16 a2)
   v2 = a2;
   v3 = a1;
   v4 = (a1 + 0x220000000000LL) / 48;
-  if ( v4 > qword_140E2D7A0 )
+  if ( v4 > qword_140E2D920 )
     return 0LL;
   v5 = 0;
   if ( ((*(_QWORD *)(48 * v4 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0
     || ((*(_QWORD *)(a1 + 40) >> 60) & 7) != 2
-    || (byte_140E2D689 & 1) == 0 && ((MiGetLeafPfnBuddy(a1, 1LL) + 32) & 0xFFFFFFFFFFFFFFDFuLL) == 0 )
+    || (byte_140E2D809 & 1) == 0 && ((MiGetLeafPfnBuddy(a1, 1LL) + 32) & 0xFFFFFFFFFFFFFFDFuLL) == 0 )
   {
     return 0LL;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiFlushQueuedDpcsWorker @ 0x140476570
+ * XREFs of KiFlushQueuedDpcsWorker @ 0x140472610
  * Callers:
  *     <none>
  * Callees:
- *     KiRequestSoftwareInterrupt @ 0x140297BA0 (KiRequestSoftwareInterrupt.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRequestSoftwareInterrupt @ 0x1402DC510 (KiRequestSoftwareInterrupt.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1)
@@ -29,8 +29,7 @@ __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1)
       LOBYTE(a1) = CurrentIrql;
       KiRaiseIrqlProcessIrqlFlags(a1, v1);
     }
-    LOBYTE(v1) = 2;
-    KiRequestSoftwareInterrupt(v2, v1);
+    KiRequestSoftwareInterrupt(v2, 2);
     if ( KiIrqlFlags )
     {
       LOBYTE(v5) = CurrentIrql;

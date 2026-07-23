@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSetRange @ 0x140113088
+ * XREFs of PopSetRange @ 0x1401135F8
  * Callers:
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
  */
 
 void __fastcall PopSetRange(_BYTE *BugCheckParameter3, int a2, __int64 a3, void *a4, ULONG a5)

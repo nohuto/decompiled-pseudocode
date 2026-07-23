@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryInformationThread @ 0x1800A0780 (ZwQueryInformationThread.c)
+ *     ZwQueryInformationThread @ 0x1800A07A0 (ZwQueryInformationThread.c)
  */
 
-__int64 RtlQueryThreadProfiling()
+NTSTATUS __cdecl RtlQueryThreadProfiling(HANDLE ThreadHandle, PBOOLEAN Enabled)
 {
-  return ZwQueryInformationThread();
+  return ZwQueryInformationThread(ThreadHandle, ThreadCounterProfiling, Enabled, 1u, 0LL);
 }

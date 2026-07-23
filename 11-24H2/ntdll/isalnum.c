@@ -1,5 +1,5 @@
 /*
- * XREFs of isalnum @ 0x180121920
+ * XREFs of isalnum @ 0x18011FB50
  * Callers:
  *     <none>
  * Callees:
@@ -13,5 +13,5 @@ int __cdecl isalnum(int C)
   v1 = (unsigned __int8)C;
   if ( C == -1 )
     v1 = -1;
-  return off_1801CC150[v1] & 0x107;
+  return off_1801CB150[v1] & 0x107;
 }

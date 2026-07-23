@@ -1,12 +1,12 @@
 /*
- * XREFs of MiHotAddHugeRange @ 0x1407EAFDC
+ * XREFs of MiHotAddHugeRange @ 0x1407EB5AC
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140688F24 (MiActOnPartitionNodePages.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiActOnPartitionNodePages @ 0x14068A054 (MiActOnPartitionNodePages.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiAddPartitionHugeRange @ 0x14066F778 (MiAddPartitionHugeRange.c)
- *     MiInitializeHugePfnDatabase @ 0x140670B90 (MiInitializeHugePfnDatabase.c)
- *     MiHugePageOperation @ 0x140685BC0 (MiHugePageOperation.c)
+ *     MiAddPartitionHugeRange @ 0x140670948 (MiAddPartitionHugeRange.c)
+ *     MiInitializeHugePfnDatabase @ 0x140671D60 (MiInitializeHugePfnDatabase.c)
+ *     MiHugePageOperation @ 0x140686CF0 (MiHugePageOperation.c)
  */
 
 __int64 __fastcall MiHotAddHugeRange(_WORD *a1, unsigned __int64 a2, __int64 a3, int a4, int a5, int a6)

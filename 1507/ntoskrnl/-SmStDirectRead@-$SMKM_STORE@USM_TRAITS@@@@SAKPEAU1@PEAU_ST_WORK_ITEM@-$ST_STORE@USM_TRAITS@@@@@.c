@@ -12,7 +12,7 @@
  *     __security_check_cookie @ 0x1401716B0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectRead(union _SLIST_HEADER *a1, __int128 *a2)
+__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectRead(_SLIST_HEADER *a1, __int128 *a2)
 {
   unsigned int v2; // ebx
   _KPROCESS *v5; // rcx

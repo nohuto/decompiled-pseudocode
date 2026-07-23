@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlPostStackOverflow @ 0x140270A00
+ * XREFs of FsRtlPostStackOverflow @ 0x140270BF0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpPostStackOverflow @ 0x140270A94 (FsRtlpPostStackOverflow.c)
+ *     FsRtlpPostStackOverflow @ 0x140270C84 (FsRtlpPostStackOverflow.c)
  */
 
 void __stdcall FsRtlPostStackOverflow(PVOID Context, PKEVENT Event, PFSRTL_STACK_OVERFLOW_ROUTINE StackOverflowRoutine)

@@ -1,24 +1,24 @@
 /*
- * XREFs of LdrpThreadTokenSetMainThreadToken @ 0x1800F0760
+ * XREFs of LdrpThreadTokenSetMainThreadToken @ 0x1800EB3E0
  * Callers:
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     NtOpenThreadToken @ 0x180162110 (NtOpenThreadToken.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     NtOpenThreadToken @ 0x1801604D0 (NtOpenThreadToken.c)
  */
 
 __int64 LdrpThreadTokenSetMainThreadToken()
 {
-  unsigned int v0; // ebx
-  void *v2; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int32 v0; // ebx
+  HANDLE TokenHandle; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = 0LL;
-  v0 = NtOpenThreadToken(-2LL, 131100LL, 0LL, &v2);
-  LdrpMainThreadToken = v2;
+  TokenHandle = 0LL;
+  v0 = NtOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, 0x2001Cu, 0, &TokenHandle);
+  LdrpMainThreadToken = TokenHandle;
   if ( v0 != -1073741700 )
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrapi.c",
+      "minkernel\\ldr\\ldrapi.c",
       4376,
       (__int64)"LdrpThreadTokenSetMainThreadToken",
       2,

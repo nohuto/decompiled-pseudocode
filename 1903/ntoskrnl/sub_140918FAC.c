@@ -10,7 +10,7 @@
 
 __int64 __fastcall sub_140918FAC(__int64 a1, __int64 a2)
 {
-  int v3; // r10d
+  __int64 v3; // r10
   int v4; // edx
   int DevicePropertyData; // ecx
   int v6; // r8d

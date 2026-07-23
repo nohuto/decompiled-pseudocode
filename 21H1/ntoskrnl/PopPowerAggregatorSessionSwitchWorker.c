@@ -43,6 +43,6 @@ void PopPowerAggregatorSessionSwitchWorker()
     PdcTaskClientRequest(v3, v2);
     v4[0] = 0LL;
     v4[1] = -1LL;
-    KeSetTimer2((__int64)&unk_140C217F0, -50000000LL, 0LL, v4);
+    KeSetTimer2((__int64)&unk_140C217F0, -50000000LL, 0LL, (__int64)v4);
   }
 }

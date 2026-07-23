@@ -1,42 +1,42 @@
 /*
- * XREFs of PiDevCfgConfigureDevice @ 0x14087A734
+ * XREFs of PiDevCfgConfigureDevice @ 0x14087A974
  * Callers:
- *     PiDevCfgProcessDevice @ 0x14087A1F0 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x14087A430 (PiDevCfgProcessDevice.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x14022B180 (PipIsDevNodeDNStarted.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
- *     PnpDuplicateUnicodeString @ 0x1403CDE80 (PnpDuplicateUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
- *     _PnpOpenObjectRegKey @ 0x1406CF960 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PnpIsNullGuid @ 0x140786834 (PnpIsNullGuid.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B268 (_RegRtlDeleteTreeInternal.c)
- *     PiDevCfgQueryObjectProperties @ 0x14086CC64 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgVerifyDeviceAllowed @ 0x140878E1C (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140879374 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgSetObjectProperty @ 0x14087B740 (PiDevCfgSetObjectProperty.c)
- *     PiDevCfgBuildIndirectString @ 0x14087B7D4 (PiDevCfgBuildIndirectString.c)
- *     PiDevCfgConfigureDeviceDriver @ 0x14087BE28 (PiDevCfgConfigureDeviceDriver.c)
- *     PiDevCfgMigrateDevice @ 0x14087BF7C (PiDevCfgMigrateDevice.c)
- *     PipHardwareConfigActivateService @ 0x14087C13C (PipHardwareConfigActivateService.c)
- *     PiDevCfgGetDeviceClassConfigFlags @ 0x14087C300 (PiDevCfgGetDeviceClassConfigFlags.c)
- *     PiDevCfgConfigureDeviceLocation @ 0x14087C4F8 (PiDevCfgConfigureDeviceLocation.c)
- *     PiDevCfgEnforceDevicePolicy @ 0x14087C600 (PiDevCfgEnforceDevicePolicy.c)
- *     PiDevCfgBuildDriverNodeStrongName @ 0x14087C92C (PiDevCfgBuildDriverNodeStrongName.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CAA4 (PiDevCfgConfigureDeviceKeys.c)
- *     PnpDeleteDeviceInterfaces @ 0x140956454 (PnpDeleteDeviceInterfaces.c)
- *     PiDevCfgAppendMultiSz @ 0x14095C634 (PiDevCfgAppendMultiSz.c)
- *     PiDevCfgMakeServiceBootStart @ 0x14095E9BC (PiDevCfgMakeServiceBootStart.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x14095FB50 (PiDevCfgResetDeviceDriverSettings.c)
- *     _CmDeleteDeviceRegKey @ 0x140A61DBC (_CmDeleteDeviceRegKey.c)
+ *     PipIsDevNodeDNStarted @ 0x14022B290 (PipIsDevNodeDNStarted.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
+ *     PnpDuplicateUnicodeString @ 0x1403CE060 (PnpDuplicateUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CF990 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PnpIsNullGuid @ 0x140786A24 (PnpIsNullGuid.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14086B4A8 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086CEA4 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14087905C (PiDevCfgVerifyDeviceAllowed.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1408795B4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgSetObjectProperty @ 0x14087B980 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgBuildIndirectString @ 0x14087BA14 (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgConfigureDeviceDriver @ 0x14087C068 (PiDevCfgConfigureDeviceDriver.c)
+ *     PiDevCfgMigrateDevice @ 0x14087C1BC (PiDevCfgMigrateDevice.c)
+ *     PipHardwareConfigActivateService @ 0x14087C37C (PipHardwareConfigActivateService.c)
+ *     PiDevCfgGetDeviceClassConfigFlags @ 0x14087C540 (PiDevCfgGetDeviceClassConfigFlags.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x14087C738 (PiDevCfgConfigureDeviceLocation.c)
+ *     PiDevCfgEnforceDevicePolicy @ 0x14087C840 (PiDevCfgEnforceDevicePolicy.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x14087CB6C (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14087CCE4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PnpDeleteDeviceInterfaces @ 0x140956654 (PnpDeleteDeviceInterfaces.c)
+ *     PiDevCfgAppendMultiSz @ 0x14095C834 (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x14095EBBC (PiDevCfgMakeServiceBootStart.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x14095FD50 (PiDevCfgResetDeviceDriverSettings.c)
+ *     _CmDeleteDeviceRegKey @ 0x140A6206C (_CmDeleteDeviceRegKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -90,7 +90,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   __int64 v52; // r8
   __int64 v53; // rax
   __int64 v54; // rax
-  __int64 v55; // [rsp+20h] [rbp-E0h]
+  PGUID Guid; // [rsp+20h] [rbp-E0h]
   int v56; // [rsp+28h] [rbp-D8h]
   int v57; // [rsp+28h] [rbp-D8h]
   int v58; // [rsp+28h] [rbp-D8h]
@@ -117,7 +117,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   int v79; // [rsp+7Ch] [rbp-84h] BYREF
   int v80; // [rsp+80h] [rbp-80h]
   int v81; // [rsp+84h] [rbp-7Ch]
-  __int64 v82; // [rsp+88h] [rbp-78h]
+  int v82[2]; // [rsp+88h] [rbp-78h]
   unsigned int v83; // [rsp+90h] [rbp-70h] BYREF
   HANDLE Handle; // [rsp+98h] [rbp-68h] BYREF
   UNICODE_STRING v85; // [rsp+A0h] [rbp-60h] BYREF
@@ -153,7 +153,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   __int128 Source2; // [rsp+228h] [rbp+128h] BYREF
   _QWORD v116[22]; // [rsp+240h] [rbp+140h] BYREF
 
-  v82 = a1;
+  *(_QWORD *)v82 = a1;
   v6 = a1;
   *a4 = 1024;
   v7 = 1024;
@@ -478,7 +478,7 @@ LABEL_227:
             goto LABEL_146;
           }
         }
-        v6 = v82;
+        v6 = *(_QWORD *)v82;
         goto LABEL_33;
       }
       if ( PnpBootMode )
@@ -630,8 +630,14 @@ LABEL_36:
     CmDeleteDeviceRegKey(PiPnpRtlCtx);
   }
 LABEL_44:
-  v21 = v82;
-  if ( (int)PiDevCfgMigrateDevice(v82, a2, a3 != 0 ? a3 + 256 : 0, a3 != 0 ? a3 + 40 : 0, (__int64)&v90, (__int64)&v91) >= 0 )
+  v21 = v82[0];
+  if ( (int)PiDevCfgMigrateDevice(
+              v82[0],
+              a2,
+              a3 != 0 ? a3 + 256 : 0,
+              a3 != 0 ? a3 + 40 : 0,
+              (__int64)&v90,
+              (__int64)&v91) >= 0 )
   {
     v7 |= v90;
     v73 = v7;
@@ -643,8 +649,8 @@ LABEL_44:
       v21,
       a2,
       a3 != 0 ? a3 + 240 : 0,
-      (_DWORD)Handle,
-      (unsigned __int64)&Source2 & -(__int64)(v72 != 0));
+      (int)Handle,
+      (PGUID)((unsigned __int64)&Source2 & -(__int64)(v72 != 0)));
     if ( *(_QWORD *)&PiPnpRtlCtx && (v46 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
       v47 = *(_QWORD *)(v46 + 8);
     else
@@ -1077,13 +1083,13 @@ LABEL_77:
   if ( DriverConfiguration < 0 )
     goto LABEL_146;
   v57 = *(unsigned __int16 *)(a3 + 120);
-  LODWORD(v55) = *(unsigned __int16 *)(a3 + 122);
+  LODWORD(Guid) = *(unsigned __int16 *)(a3 + 122);
   DriverConfiguration = RtlUnicodeStringPrintf(
                           &v111,
                           L"%u.%u.%u.%u",
                           (unsigned __int16)HIWORD(*(_DWORD *)(a3 + 124)),
                           *(unsigned __int16 *)(a3 + 124),
-                          v55);
+                          Guid);
   if ( DriverConfiguration < 0 )
     goto LABEL_146;
   DriverConfiguration = PiDevCfgSetObjectProperty(
@@ -1149,7 +1155,7 @@ LABEL_77:
   if ( DriverConfiguration < 0 )
     goto LABEL_146;
 LABEL_88:
-  if ( !v95.Buffer || (v76 & 8) != 0 || (*(_DWORD *)(v82 + 396) & 0x6000) != 0 )
+  if ( !v95.Buffer || (v76 & 8) != 0 || (*(_DWORD *)(*(_QWORD *)v82 + 396LL) & 0x6000) != 0 )
   {
     if ( (*(_DWORD *)a2 & 1) == 0 )
       PiDevCfgSetObjectProperty(
@@ -1390,7 +1396,7 @@ LABEL_88:
     *v92 = v7;
     if ( (*(_DWORD *)(a3 + 184) & 8) != 0 && (PiDevCfgFlags & 2) != 0 )
       *v24 = v7 | 0x400;
-    DriverConfiguration = PiDevCfgConfigureDeviceDriver(v82, a2, a3, (unsigned int)&v73, (__int64)&v75);
+    DriverConfiguration = PiDevCfgConfigureDeviceDriver(v82[0], a2, a3, (unsigned int)&v73, (__int64)&v75);
     if ( DriverConfiguration < 0 )
       goto LABEL_146;
     *v24 |= v73;
@@ -1399,14 +1405,14 @@ LABEL_88:
     {
       if ( (i[23] & 1) != 0 )
       {
-        DriverConfiguration = PiDevCfgConfigureDeviceDriver(v82, a2, (_DWORD)i, (unsigned int)&v73, (__int64)&v75);
+        DriverConfiguration = PiDevCfgConfigureDeviceDriver(v82[0], a2, (_DWORD)i, (unsigned int)&v73, (__int64)&v75);
         if ( DriverConfiguration < 0 )
           goto LABEL_146;
         *v92 |= v73;
         *v93 |= v75;
       }
     }
-    DriverConfiguration = PiDevCfgConfigureDeviceLocation(v82, a2, &v73, &v75);
+    DriverConfiguration = PiDevCfgConfigureDeviceLocation(*(_QWORD *)v82, a2, &v73, &v75);
     if ( DriverConfiguration < 0 )
       goto LABEL_146;
     v26 = v92;
@@ -1416,9 +1422,9 @@ LABEL_88:
   }
   else
   {
-    v28 = v82;
+    v28 = *(_QWORD *)v82;
     v26 = v92;
-    if ( (*(_DWORD *)(v82 + 560) & 0x100) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)v82 + 560LL) & 0x100) != 0 )
     {
       v27 = v93;
       *v92 = 0;
@@ -1428,7 +1434,7 @@ LABEL_88:
     PnpDeleteDeviceInterfaces(v10);
     v27 = v93;
   }
-  v28 = v82;
+  v28 = *(_QWORD *)v82;
 LABEL_117:
   if ( v80 && !InitIsWinPEMode && (unsigned int)PipIsDevNodeDNStarted(v28) )
     *v27 |= 0x10u;

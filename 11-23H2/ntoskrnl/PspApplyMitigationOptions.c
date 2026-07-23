@@ -1,17 +1,17 @@
 /*
- * XREFs of PspApplyMitigationOptions @ 0x1406B3700
+ * XREFs of PspApplyMitigationOptions @ 0x1406B3730
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     Feature_FsctlProcessMitigation__private_IsEnabledNoReporting @ 0x14040FD50 (Feature_FsctlProcessMitigation__private_IsEnabledNoReporting.c)
- *     ObReferenceProcessHandleTable @ 0x140742640 (ObReferenceProcessHandleTable.c)
- *     ExEnableHandleExceptions @ 0x1407DBFC4 (ExEnableHandleExceptions.c)
- *     PspSetRedirectionTrustPolicy @ 0x1407DD524 (PspSetRedirectionTrustPolicy.c)
- *     PspSetNoChildProcessRestrictedPolicy @ 0x1407E8570 (PspSetNoChildProcessRestrictedPolicy.c)
- *     PspDecodeMitigationExecuteOptions @ 0x1407E8F88 (PspDecodeMitigationExecuteOptions.c)
- *     KeSetCheckStackExtentsProcess @ 0x1409743A4 (KeSetCheckStackExtentsProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     Feature_FsctlProcessMitigation__private_IsEnabledNoReporting @ 0x14040FF30 (Feature_FsctlProcessMitigation__private_IsEnabledNoReporting.c)
+ *     ObReferenceProcessHandleTable @ 0x140742830 (ObReferenceProcessHandleTable.c)
+ *     ExEnableHandleExceptions @ 0x1407DC294 (ExEnableHandleExceptions.c)
+ *     PspSetRedirectionTrustPolicy @ 0x1407DD7F4 (PspSetRedirectionTrustPolicy.c)
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x1407E8840 (PspSetNoChildProcessRestrictedPolicy.c)
+ *     PspDecodeMitigationExecuteOptions @ 0x1407E9258 (PspDecodeMitigationExecuteOptions.c)
+ *     KeSetCheckStackExtentsProcess @ 0x1409745A4 (KeSetCheckStackExtentsProcess.c)
  */
 
 __int64 __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __m128i *a3, __int128 *a4, int a5)

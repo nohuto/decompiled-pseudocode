@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRegisterPlugPlayNotification @ 0x140703140
+ * XREFs of IoRegisterPlugPlayNotification @ 0x1407043E0
  * Callers:
- *     PopConnectToPolicyDevice @ 0x140740E94 (PopConnectToPolicyDevice.c)
- *     PopRegisterCoolingExtensionProtection @ 0x140867944 (PopRegisterCoolingExtensionProtection.c)
- *     SmKmStoreFileCreate @ 0x1408AD650 (SmKmStoreFileCreate.c)
- *     PoInitDriverServices @ 0x1409DDA94 (PoInitDriverServices.c)
- *     SbpWaitForVmbus @ 0x1409FA64C (SbpWaitForVmbus.c)
+ *     PopConnectToPolicyDevice @ 0x140742084 (PopConnectToPolicyDevice.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140868BA4 (PopRegisterCoolingExtensionProtection.c)
+ *     SmKmStoreFileCreate @ 0x1408AE8B0 (SmKmStoreFileCreate.c)
+ *     PoInitDriverServices @ 0x1409DEA94 (PoInitDriverServices.c)
+ *     SbpWaitForVmbus @ 0x1409FB64C (SbpWaitForVmbus.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     PnpGetRelatedTargetDevice @ 0x14000E8D0 (PnpGetRelatedTargetDevice.c)
@@ -14,16 +14,16 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ObReferenceObjectByPointerWithTag @ 0x1400CB130 (ObReferenceObjectByPointerWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
- *     PnpDeferNotification @ 0x1407034FC (PnpDeferNotification.c)
- *     PnpInitializeNotifyEntry @ 0x1407035C4 (PnpInitializeNotifyEntry.c)
- *     PnpNotifyDriverCallback @ 0x140703754 (PnpNotifyDriverCallback.c)
- *     IopGetSessionIdFromSymbolicName @ 0x14070A6E0 (IopGetSessionIdFromSymbolicName.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x1400CB210 (ObReferenceObjectByPointerWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopGetDeviceInterfaces @ 0x14059F6C4 (IopGetDeviceInterfaces.c)
+ *     PnpDeferNotification @ 0x14070479C (PnpDeferNotification.c)
+ *     PnpInitializeNotifyEntry @ 0x140704864 (PnpInitializeNotifyEntry.c)
+ *     PnpNotifyDriverCallback @ 0x1407049F4 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14070B980 (IopGetSessionIdFromSymbolicName.c)
  */
 
 NTSTATUS __stdcall IoRegisterPlugPlayNotification(
@@ -217,14 +217,14 @@ LABEL_36:
       if ( RelatedTargetDevice >= 0 )
       {
         ExAcquireFastMutex(&PnpHwProfileNotifyLock);
-        v26 = (_QWORD *)qword_14096EA28;
-        if ( *(PVOID **)qword_14096EA28 == &PnpProfileNotifyList )
+        v26 = (_QWORD *)qword_14096FA28;
+        if ( *(PVOID **)qword_14096FA28 == &PnpProfileNotifyList )
         {
           *PoolWithTag = &PnpProfileNotifyList;
           v17 = &PnpHwProfileNotifyLock;
           PoolWithTag[1] = v26;
           *v26 = PoolWithTag;
-          qword_14096EA28 = (__int64)PoolWithTag;
+          qword_14096FA28 = (__int64)PoolWithTag;
           goto LABEL_11;
         }
 LABEL_45:

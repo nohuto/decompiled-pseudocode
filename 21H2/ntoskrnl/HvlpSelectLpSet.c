@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpSelectLpSet @ 0x1404F3514
+ * XREFs of HvlpSelectLpSet @ 0x1404F3494
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x1403B6948 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x1403B6AB8 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     HalEnumerateProcessors @ 0x1403B4E80 (HalEnumerateProcessors.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvlpComputeLpComparisonMetrics @ 0x1404F2A60 (HvlpComputeLpComparisonMetrics.c)
- *     HvlpLpComparison @ 0x1404F3200 (HvlpLpComparison.c)
- *     HvlpQueryApicIdAndNumaNode @ 0x1404F3364 (HvlpQueryApicIdAndNumaNode.c)
- *     HviGetImplementationLimits @ 0x1405BF090 (HviGetImplementationLimits.c)
+ *     HalEnumerateProcessors @ 0x1403B4FF0 (HalEnumerateProcessors.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvlpComputeLpComparisonMetrics @ 0x1404F29E0 (HvlpComputeLpComparisonMetrics.c)
+ *     HvlpLpComparison @ 0x1404F3180 (HvlpLpComparison.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x1404F32E4 (HvlpQueryApicIdAndNumaNode.c)
+ *     HviGetImplementationLimits @ 0x1405BF2C0 (HviGetImplementationLimits.c)
  */
 
 __int64 __fastcall HvlpSelectLpSet(unsigned int a1, __int64 a2)

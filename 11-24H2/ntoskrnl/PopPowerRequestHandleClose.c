@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerRequestHandleClose @ 0x14046C044
+ * XREFs of PopPowerRequestHandleClose @ 0x140464CC4
  * Callers:
- *     PoDeletePowerRequest @ 0x140A3C4E0 (PoDeletePowerRequest.c)
- *     PopPowerRequestClose @ 0x140A85940 (PopPowerRequestClose.c)
+ *     PoDeletePowerRequest @ 0x140A31CC0 (PoDeletePowerRequest.c)
+ *     PopPowerRequestClose @ 0x140A80480 (PopPowerRequestClose.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14046C0C4 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     PopPowerRequestCallbackWorker @ 0x14046C280 (PopPowerRequestCallbackWorker.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x140464D44 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     PopPowerRequestCallbackWorker @ 0x140464F00 (PopPowerRequestCallbackWorker.c)
  */
 
 void __fastcall PopPowerRequestHandleClose(_BYTE *Object)

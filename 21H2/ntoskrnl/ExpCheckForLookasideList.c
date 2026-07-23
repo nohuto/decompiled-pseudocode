@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCheckForLookasideList @ 0x1405B6AB4
+ * XREFs of ExpCheckForLookasideList @ 0x1405B6CE4
  * Callers:
- *     ExpCheckForLookaside @ 0x1405B6A48 (ExpCheckForLookaside.c)
+ *     ExpCheckForLookaside @ 0x1405B6C78 (ExpCheckForLookaside.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

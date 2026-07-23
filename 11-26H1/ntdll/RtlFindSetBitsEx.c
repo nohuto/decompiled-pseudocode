@@ -1,62 +1,62 @@
 /*
- * XREFs of RtlFindSetBitsEx @ 0x1800E59D0
+ * XREFs of RtlFindSetBitsEx @ 0x1800E3BE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlFindSetBitsEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
+ULONG64 __cdecl RtlFindSetBitsEx(PRTL_BITMAP_EX BitMapHeader, ULONG64 NumberToFind, ULONG64 HintIndex)
 {
-  unsigned __int64 v3; // rbp
-  unsigned __int64 v5; // r14
+  unsigned __int64 SizeOfBitMap; // rbp
+  unsigned __int64 *Buffer; // r14
   unsigned __int64 v7; // r10
-  unsigned __int64 i; // r15
-  unsigned __int64 v9; // rsi
-  unsigned __int64 v10; // rbx
-  _QWORD *v11; // rdx
+  ULONG64 i; // r15
+  ULONG64 v9; // rsi
+  unsigned __int64 *v10; // rbx
+  unsigned __int64 *v11; // rdx
   signed __int64 v12; // r8
   unsigned __int64 v13; // r9
-  unsigned __int64 v14; // r9
-  unsigned __int64 v16; // r10
+  ULONG64 v14; // r9
+  ULONG64 v16; // r10
   __int64 v17; // r9
-  _QWORD *v18; // rdi
+  unsigned __int64 *v18; // rdi
   bool v19; // zf
   __int64 v20; // rax
   unsigned int v21; // r10d
   unsigned __int64 v22; // r9
-  unsigned __int64 v23; // r10
+  unsigned __int64 *v23; // r10
   unsigned int v24; // ecx
-  _QWORD *v25; // r8
+  unsigned __int64 *v25; // r8
   unsigned int v26; // r8d
   __int64 v27; // rcx
-  _QWORD *v28; // rcx
+  unsigned __int64 *v28; // rcx
   __int64 v29; // r8
   __int64 v30; // rax
-  unsigned __int64 v31; // rcx
+  ULONG64 v31; // rcx
   unsigned __int64 v32; // rax
   __int64 v33; // rax
   __int64 v34; // rcx
   unsigned int v35; // eax
 
-  v3 = *a1;
-  v5 = a1[1];
-  v7 = *a1 - 1;
-  if ( !a2 )
-    return a3 & -(__int64)(a3 < *a1) & 0xFFFFFFFFFFFFFFF8uLL;
-  for ( i = a3 & -(__int64)(a3 < *a1); ; i = 0LL )
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
+  Buffer = BitMapHeader->Buffer;
+  v7 = BitMapHeader->SizeOfBitMap - 1;
+  if ( !NumberToFind )
+    return HintIndex & -(__int64)(HintIndex < BitMapHeader->SizeOfBitMap) & 0xFFFFFFFFFFFFFFF8uLL;
+  for ( i = HintIndex & -(__int64)(HintIndex < BitMapHeader->SizeOfBitMap); ; i = 0LL )
   {
-    if ( v7 - i + 1 < a2 )
+    if ( v7 - i + 1 < NumberToFind )
       goto LABEL_12;
-    v9 = v7 - a2 + 1;
-    v10 = v5 + 8 * (v9 >> 6);
-    v11 = (_QWORD *)(v5 + 8 * (i >> 6));
+    v9 = v7 - NumberToFind + 1;
+    v10 = &Buffer[v9 >> 6];
+    v11 = &Buffer[i >> 6];
     v12 = ~*v11 | ((1LL << i) - 1);
-    if ( a2 > 0x7F )
+    if ( NumberToFind > 0x7F )
     {
-      v23 = v10 + 8;
+      v23 = v10 + 1;
       if ( (v9 & 0x3F) == 0 )
-        v23 = v5 + 8 * (v9 >> 6);
+        v23 = &Buffer[v9 >> 6];
       if ( !v12 )
       {
         v24 = 0;
@@ -75,17 +75,17 @@ LABEL_57:
 LABEL_37:
       while ( 1 )
       {
-        v14 = ((__int64)((__int64)v11 - v5) >> 3 << 6) - v24;
+        v14 = ((v11 - Buffer) << 6) - v24;
         if ( v14 > v9 )
           goto LABEL_12;
-        v25 = &v11[(a2 - v24) >> 6];
+        v25 = &v11[(NumberToFind - v24) >> 6];
         while ( ++v11 != v25 )
         {
           if ( *v11 != -1LL )
             goto LABEL_44;
         }
-        v26 = ((_BYTE)a2 - (_BYTE)v24) & 0x3F;
-        if ( (((_BYTE)a2 - (_BYTE)v24) & 0x3F) == 0 )
+        v26 = ((_BYTE)NumberToFind - (_BYTE)v24) & 0x3F;
+        if ( (((_BYTE)NumberToFind - (_BYTE)v24) & 0x3F) == 0 )
           goto LABEL_10;
         v19 = !_BitScanForward64((unsigned __int64 *)&v27, ~*v11);
         if ( v19 )
@@ -96,7 +96,7 @@ LABEL_37:
         {
 LABEL_44:
           v28 = v11;
-          if ( (unsigned __int64)v11 > v23 )
+          if ( v11 > v23 )
             goto LABEL_12;
           ++v11;
         }
@@ -107,7 +107,7 @@ LABEL_44:
         v24 = 63 - v29;
       }
     }
-    if ( a2 >= 0x40 )
+    if ( NumberToFind >= 0x40 )
     {
       while ( 1 )
       {
@@ -115,7 +115,7 @@ LABEL_44:
         {
           while ( v12 < 0 )
           {
-            if ( (unsigned __int64)++v11 > v10 )
+            if ( ++v11 > v10 )
               goto LABEL_12;
             v12 = ~*v11;
           }
@@ -124,11 +124,11 @@ LABEL_44:
             v35 = 64;
           else
             v35 = 63 - v34;
-          v14 = ((((__int64)((__int64)v11 - v5) >> 3) + 1) << 6) - v35;
+          v14 = ((v11 - Buffer + 1) << 6) - v35;
           if ( v14 > v9 )
             goto LABEL_12;
-          v31 = a2 - v35;
-          if ( a2 == v35 )
+          v31 = NumberToFind - v35;
+          if ( NumberToFind == v35 )
             goto LABEL_10;
           v12 = ~*++v11;
           if ( v31 >= 0x40 )
@@ -150,24 +150,24 @@ LABEL_65:
         }
       }
     }
-    if ( a2 > 1 )
+    if ( NumberToFind > 1 )
     {
       v17 = 0LL;
-      v18 = (_QWORD *)(v5 + 8 * (v7 >> 6));
+      v18 = &Buffer[v7 >> 6];
       while ( v12 != -1 )
       {
 LABEL_25:
         v19 = !_BitScanForward64((unsigned __int64 *)&v20, v12);
         if ( v19 )
           LODWORD(v20) = 64;
-        if ( (unsigned int)(v17 + v20) >= a2 )
+        if ( (unsigned int)(v17 + v20) >= NumberToFind )
         {
           v22 = -v17;
 LABEL_32:
-          v14 = ((__int64)((__int64)v11 - v5) >> 3 << 6) + v22;
+          v14 = ((v11 - Buffer) << 6) + v22;
           goto LABEL_9;
         }
-        v21 = a2;
+        v21 = NumberToFind;
         v22 = ~v12;
         while ( 1 )
         {
@@ -192,7 +192,7 @@ LABEL_32:
       }
       while ( 1 )
       {
-        if ( (unsigned __int64)++v11 > v10 )
+        if ( ++v11 > v10 )
           goto LABEL_12;
         v12 = ~*v11;
         if ( *v11 )
@@ -204,12 +204,12 @@ LABEL_32:
     }
     while ( v12 == -1 )
     {
-      if ( (unsigned __int64)++v11 > v10 )
+      if ( ++v11 > v10 )
         goto LABEL_12;
       v12 = ~*v11;
     }
     _BitScanForward64(&v13, ~v12);
-    v14 = ((__int64)((__int64)v11 - v5) >> 3 << 6) + v13;
+    v14 = ((v11 - Buffer) << 6) + v13;
 LABEL_9:
     if ( v14 <= v9 )
       break;
@@ -218,9 +218,9 @@ LABEL_12:
 LABEL_13:
     if ( !i )
       return v14;
-    v16 = a2 + a3;
-    if ( a2 + a3 > v3 )
-      v16 = v3;
+    v16 = NumberToFind + HintIndex;
+    if ( NumberToFind + HintIndex > SizeOfBitMap )
+      v16 = SizeOfBitMap;
     v7 = v16 - 1;
   }
 LABEL_10:

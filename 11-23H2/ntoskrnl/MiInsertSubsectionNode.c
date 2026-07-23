@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertSubsectionNode @ 0x1402E3E28
+ * XREFs of MiInsertSubsectionNode @ 0x1402E40B8
  * Callers:
- *     MiAppendSubsectionChain @ 0x1402932D8 (MiAppendSubsectionChain.c)
- *     MiCreateDataFileMap @ 0x1407459E0 (MiCreateDataFileMap.c)
+ *     MiAppendSubsectionChain @ 0x140293568 (MiAppendSubsectionChain.c)
+ *     MiCreateDataFileMap @ 0x140745BD0 (MiCreateDataFileMap.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiInsertSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)
@@ -70,10 +70,10 @@ char __fastcall MiInsertSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)
   if ( v6 != 17 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

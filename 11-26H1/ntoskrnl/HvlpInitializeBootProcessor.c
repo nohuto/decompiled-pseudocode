@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlpInitializeBootProcessor @ 0x1405BA2EC
+ * XREFs of HvlpInitializeBootProcessor @ 0x1405BCB5C
  * Callers:
- *     HvlPhase0Initialize @ 0x14079166C (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x14079419C (HvlPhase0Initialize.c)
  * Callees:
- *     HvlpGetLpcbByLpIndex @ 0x1403E6258 (HvlpGetLpcbByLpIndex.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x1403E62C0 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlpGetRegister64 @ 0x1404D0D20 (HvlpGetRegister64.c)
- *     HvlEnlightenProcessor @ 0x140530860 (HvlEnlightenProcessor.c)
- *     HvlpMapStatisticsPage @ 0x1405BA4F0 (HvlpMapStatisticsPage.c)
- *     HvlpAllocateEarlyPages @ 0x1405BFA2C (HvlpAllocateEarlyPages.c)
- *     HvlpMapEarlyPages @ 0x1405BFC88 (HvlpMapEarlyPages.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1402F3138 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1402F31A0 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpGetRegister64 @ 0x1404CA750 (HvlpGetRegister64.c)
+ *     HvlEnlightenProcessor @ 0x140532D60 (HvlEnlightenProcessor.c)
+ *     HvlpMapStatisticsPage @ 0x1405BCD60 (HvlpMapStatisticsPage.c)
+ *     HvlpAllocateEarlyPages @ 0x1405C229C (HvlpAllocateEarlyPages.c)
+ *     HvlpMapEarlyPages @ 0x1405C24F8 (HvlpMapEarlyPages.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HvlpInitializeBootProcessor(__int64 a1)
@@ -29,8 +29,8 @@ __int64 __fastcall HvlpInitializeBootProcessor(__int64 a1)
   signed __int32 v14[8]; // [rsp+0h] [rbp-40h] BYREF
   __int64 v15; // [rsp+20h] [rbp-20h] BYREF
   __int128 v16; // [rsp+28h] [rbp-18h] BYREF
-  unsigned __int64 v17; // [rsp+78h] [rbp+38h] BYREF
-  unsigned __int64 v18; // [rsp+80h] [rbp+40h] BYREF
+  __int64 v17; // [rsp+78h] [rbp+38h] BYREF
+  __int64 v18; // [rsp+80h] [rbp+40h] BYREF
   __int64 v19; // [rsp+88h] [rbp+48h] BYREF
 
   v1 = 0LL;

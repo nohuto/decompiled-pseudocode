@@ -1,23 +1,23 @@
 /*
- * XREFs of MiSegmentDelete @ 0x1404B81E4
+ * XREFs of MiSegmentDelete @ 0x1404A25C4
  * Callers:
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     MiDestroySection @ 0x140111D20 (MiDestroySection.c)
- *     MiProcessDereferenceList @ 0x14012259C (MiProcessDereferenceList.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     MiDestroySection @ 0x140112284 (MiDestroySection.c)
+ *     MiProcessDereferenceList @ 0x140122B0C (MiProcessDereferenceList.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14001F3AC (IoDiskIoAttributionDereference.c)
- *     MiDereferenceControlAreaProbe @ 0x140026784 (MiDereferenceControlAreaProbe.c)
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiReleaseControlAreaCharges @ 0x140027350 (MiReleaseControlAreaCharges.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MiDeleteSegmentPages @ 0x140090080 (MiDeleteSegmentPages.c)
- *     MiPrepareSegmentForDeletion @ 0x140090154 (MiPrepareSegmentForDeletion.c)
- *     MiUpdatePageFileSectionList @ 0x14009021C (MiUpdatePageFileSectionList.c)
- *     ObFastReplaceObject @ 0x1400CCF54 (ObFastReplaceObject.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14013018C (DbgUnLoadImageSymbolsUnicode.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     IoDiskIoAttributionDereference @ 0x14001EF2C (IoDiskIoAttributionDereference.c)
+ *     MiDereferenceControlAreaProbe @ 0x140026304 (MiDereferenceControlAreaProbe.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiReleaseControlAreaCharges @ 0x140026ED0 (MiReleaseControlAreaCharges.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MiDeleteSegmentPages @ 0x14008F7E0 (MiDeleteSegmentPages.c)
+ *     MiPrepareSegmentForDeletion @ 0x14008F8B4 (MiPrepareSegmentForDeletion.c)
+ *     MiUpdatePageFileSectionList @ 0x14008F97C (MiUpdatePageFileSectionList.c)
+ *     ObFastReplaceObject @ 0x1400CADF4 (ObFastReplaceObject.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x1401306FC (DbgUnLoadImageSymbolsUnicode.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiLogSectionCreate @ 0x140659210 (MiLogSectionCreate.c)
+ *     MiLogSectionCreate @ 0x1406592F4 (MiLogSectionCreate.c)
  */
 
 __int64 __fastcall MiSegmentDelete(__int64 a1)

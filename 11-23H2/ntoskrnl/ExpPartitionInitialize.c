@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPartitionInitialize @ 0x140849608
+ * XREFs of ExpPartitionInitialize @ 0x140849908
  * Callers:
- *     PspAllocatePartition @ 0x140859010 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x140859250 (PspAllocatePartition.c)
  *     ExpWorkerInitialization @ 0x140B6610C (ExpWorkerInitialization.c)
  * Callees:
- *     ExpPartitionCreatePoolInternal @ 0x1408497C0 (ExpPartitionCreatePoolInternal.c)
- *     ExpWorkQueueManagerInitialize @ 0x140849990 (ExpWorkQueueManagerInitialize.c)
- *     ExpPartitionDestroy @ 0x140A008E8 (ExpPartitionDestroy.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140849AC0 (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkQueueManagerInitialize @ 0x140849C90 (ExpWorkQueueManagerInitialize.c)
+ *     ExpPartitionDestroy @ 0x140A00B78 (ExpPartitionDestroy.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHgsCoresUnparkedCount @ 0x14042076C
+ * XREFs of PpmEventHgsCoresUnparkedCount @ 0x140417FAC
  * Callers:
- *     PpmParkCalculateUnparkCount @ 0x140420130 (PpmParkCalculateUnparkCount.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417970 (PpmParkCalculateUnparkCount.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventHgsCoresUnparkedCount(__int64 a1)
@@ -30,9 +30,7 @@ void __fastcall PpmEventHgsCoresUnparkedCount(__int64 a1)
   v8 = 0;
   if ( PpmEventPerfCheckData && PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_HETERO_PARKING_SELECTION_COUNT) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_HETERO_PARKING_SELECTION_COUNT) )
     {
       v12 = ((unsigned int)PpmHeteroHgsContainmentState >> 3) & 1;
       PpmEventAddAffinityMaskAsSubset(
@@ -57,15 +55,7 @@ void __fastcall PpmEventHgsCoresUnparkedCount(__int64 a1)
       v7 = v3 + 3;
       UserData[v7].Ptr = (ULONGLONG)&v12;
       *(_QWORD *)&UserData[v7].Size = 4LL;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_HETERO_PARKING_SELECTION_COUNT,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        v3 + 4,
-        UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_HETERO_PARKING_SELECTION_COUNT, 0LL, 0, 0LL, 0LL, v3 + 4, UserData);
     }
   }
 }

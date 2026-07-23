@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushQueuedDpcsWorker @ 0x1400C9EDC
+ * XREFs of KiFlushQueuedDpcsWorker @ 0x1400C7D7C
  * Callers:
  *     <none>
  * Callees:
- *     KiRequestSoftwareInterrupt @ 0x1400D8230 (KiRequestSoftwareInterrupt.c)
+ *     KiRequestSoftwareInterrupt @ 0x1400D60D0 (KiRequestSoftwareInterrupt.c)
  */
 
 __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

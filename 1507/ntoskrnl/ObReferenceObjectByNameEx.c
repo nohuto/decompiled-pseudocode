@@ -47,7 +47,7 @@ __int64 __fastcall ObReferenceObjectByNameEx(
   __int64 Type; // rcx
   unsigned int Number; // eax
   char v20; // r15
-  struct _SLIST_ENTRY *v21; // rdi
+  _SLIST_ENTRY *v21; // rdi
   __int64 v22; // rdx
   signed __int64 *v23; // r14
   signed __int64 v24; // rax

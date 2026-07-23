@@ -1,9 +1,9 @@
 /*
- * XREFs of EmCpuMatchCallback @ 0x1407BCE20
+ * XREFs of EmCpuMatchCallback @ 0x1407BD5B0
  * Callers:
  *     <none>
  * Callees:
- *     EmpCheckOperator @ 0x1407BCF00 (EmpCheckOperator.c)
+ *     EmpCheckOperator @ 0x1407BD690 (EmpCheckOperator.c)
  */
 
 __int64 __fastcall EmCpuMatchCallback(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned int *a5, int a6)

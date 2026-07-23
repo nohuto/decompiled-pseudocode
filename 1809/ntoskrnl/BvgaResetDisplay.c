@@ -1,5 +1,5 @@
 /*
- * XREFs of BvgaResetDisplay @ 0x14027E200
+ * XREFs of BvgaResetDisplay @ 0x14027E3F0
  * Callers:
  *     <none>
  * Callees:

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProbeUnlockPage @ 0x1402CB170
+ * XREFs of MiProbeUnlockPage @ 0x1402CB400
  * Callers:
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiUnlockPhysicalPageByVa @ 0x14061CDD0 (MiUnlockPhysicalPageByVa.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     MiUnlockPhysicalPageByVa @ 0x14061D320 (MiUnlockPhysicalPageByVa.c)
  * Callees:
  *     MiDereferenceControlAreaProbe @ 0x140219894 (MiDereferenceControlAreaProbe.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiUnlockPageTableCharges @ 0x1402E2B40 (MiUnlockPageTableCharges.c)
- *     MiFinishLargePageFree @ 0x1402E7594 (MiFinishLargePageFree.c)
- *     MiGetBaseResidentPage @ 0x1402E9180 (MiGetBaseResidentPage.c)
- *     ExReleaseRundownProtectionCacheAware @ 0x140331860 (ExReleaseRundownProtectionCacheAware.c)
- *     MiSyncCommitSignals @ 0x1403961E0 (MiSyncCommitSignals.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiBadRefCount @ 0x14064D640 (MiBadRefCount.c)
- *     MiRestockOverCommit @ 0x140656638 (MiRestockOverCommit.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiUnlockPageTableCharges @ 0x1402E2DD0 (MiUnlockPageTableCharges.c)
+ *     MiFinishLargePageFree @ 0x1402E7824 (MiFinishLargePageFree.c)
+ *     MiGetBaseResidentPage @ 0x1402E9410 (MiGetBaseResidentPage.c)
+ *     ExReleaseRundownProtectionCacheAware @ 0x140331AF0 (ExReleaseRundownProtectionCacheAware.c)
+ *     MiSyncCommitSignals @ 0x1403963C0 (MiSyncCommitSignals.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiBadRefCount @ 0x14064DB90 (MiBadRefCount.c)
+ *     MiRestockOverCommit @ 0x140656B88 (MiRestockOverCommit.c)
  */
 
 void __fastcall MiProbeUnlockPage(__int64 a1, __int16 a2, __int64 *a3, int *a4)
@@ -199,10 +199,13 @@ void __fastcall MiProbeUnlockPage(__int64 a1, __int16 a2, __int64 *a3, int *a4)
       v34 = MiRestockOverCommit(v26, 1LL);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSubscribeHibernatePolicyWnf @ 0x140752E20
+ * XREFs of PopSubscribeHibernatePolicyWnf @ 0x140751140
  * Callers:
- *     PoInitHiberServices @ 0x140748B24 (PoInitHiberServices.c)
+ *     PoInitHiberServices @ 0x140746E14 (PoInitHiberServices.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSubscribeHibernatePolicyWnf()

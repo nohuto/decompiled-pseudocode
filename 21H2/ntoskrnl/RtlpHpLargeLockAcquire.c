@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLargeLockAcquire @ 0x1402A5C78
+ * XREFs of RtlpHpLargeLockAcquire @ 0x1402230B8
  * Callers:
- *     RtlpHpLargeFree @ 0x1402A54E8 (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x1402A56A0 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeFree @ 0x140222928 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x140222AE0 (RtlpHpLargeAlloc.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140313100 (RtlpHpAcquireLockExclusive.c)
  */
 
 char __fastcall RtlpHpLargeLockAcquire(_DWORD *a1, char a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlGetCurrentServiceSessionId @ 0x1404CAAB0
+ * XREFs of RtlGetCurrentServiceSessionId @ 0x1404C44E0
  * Callers:
- *     RtlpGetTokenNamedObjectPath @ 0x14077E4E0 (RtlpGetTokenNamedObjectPath.c)
- *     SepValidateReferencedCachedHandles @ 0x140A293B8 (SepValidateReferencedCachedHandles.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140780FE0 (RtlpGetTokenNamedObjectPath.c)
+ *     SepValidateReferencedCachedHandles @ 0x140A3C458 (SepValidateReferencedCachedHandles.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
   unsigned __int64 CurrentServerSilo; // rax
 
   CurrentServerSilo = PsGetCurrentServerSilo();
-  return **((unsigned int **)PsGetServerSiloGlobals(CurrentServerSilo) + 161);
+  return **((_DWORD **)PsGetServerSiloGlobals(CurrentServerSilo) + 161);
 }

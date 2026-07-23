@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlCSparseBitmapBitmaskRead @ 0x18001A070
+ * XREFs of RtlCSparseBitmapBitmaskRead @ 0x180005150
  * Callers:
- *     RtlpHpExtrasGet @ 0x1800192E0 (RtlpHpExtrasGet.c)
- *     RtlpHpTagFreeHeap @ 0x1800195A0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpFreeHeap @ 0x180019C00 (RtlpHpFreeHeap.c)
- *     RtlpHpSizeHeap @ 0x18001A0F0 (RtlpHpSizeHeap.c)
- *     RtlpHpExtrasAppend @ 0x18001A390 (RtlpHpExtrasAppend.c)
- *     RtlpHpExtrasSetPresent @ 0x18001A610 (RtlpHpExtrasSetPresent.c)
- *     RtlSizeHeap @ 0x18001A7D0 (RtlSizeHeap.c)
- *     RtlpHpHeapWalk @ 0x1800744FC (RtlpHpHeapWalk.c)
- *     RtlpHpMetadataFree @ 0x180087EE8 (RtlpHpMetadataFree.c)
- *     RtlpHpFreeHeapSlow @ 0x180089330 (RtlpHpFreeHeapSlow.c)
- *     RtlpHpMetadataCommit @ 0x18008DCD8 (RtlpHpMetadataCommit.c)
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReAllocateHeapSlow @ 0x1800B0E90 (RtlpHpReAllocateHeapSlow.c)
- *     RtlpHpReAllocateHeap @ 0x1800B11E4 (RtlpHpReAllocateHeap.c)
- *     RtlpHpTagReAllocateHeap @ 0x1800B13D0 (RtlpHpTagReAllocateHeap.c)
- *     RtlpHpReallocComputeSizes @ 0x1800B1670 (RtlpHpReallocComputeSizes.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
+ *     RtlpHpExtrasGet @ 0x1800043C0 (RtlpHpExtrasGet.c)
+ *     RtlpHpTagFreeHeap @ 0x180004680 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpFreeHeap @ 0x180004CE0 (RtlpHpFreeHeap.c)
+ *     RtlpHpSizeHeap @ 0x1800051D0 (RtlpHpSizeHeap.c)
+ *     RtlpHpExtrasAppend @ 0x180005470 (RtlpHpExtrasAppend.c)
+ *     RtlpHpExtrasSetPresent @ 0x1800056F0 (RtlpHpExtrasSetPresent.c)
+ *     RtlSizeHeap @ 0x1800058B0 (RtlSizeHeap.c)
+ *     RtlpHpMetadataFree @ 0x18007F268 (RtlpHpMetadataFree.c)
+ *     RtlpHpFreeHeapSlow @ 0x180080730 (RtlpHpFreeHeapSlow.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x180080A04 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpHpReAllocateHeap @ 0x180080D58 (RtlpHpReAllocateHeap.c)
+ *     RtlpHpTagReAllocateHeap @ 0x180080F40 (RtlpHpTagReAllocateHeap.c)
+ *     RtlpHpReallocComputeSizes @ 0x1800811E0 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpHeapWalk @ 0x180094AEC (RtlpHpHeapWalk.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpMetadataCommit @ 0x1800E7268 (RtlpHpMetadataCommit.c)
  * Callees:
  *     <none>
  */

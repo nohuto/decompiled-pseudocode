@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIsDataAccruedByPowerRequestStats @ 0x1405887D8
+ * XREFs of PopIsDataAccruedByPowerRequestStats @ 0x1405897D8
  * Callers:
- *     PopStatsDeletePowerRequest @ 0x140589BBC (PopStatsDeletePowerRequest.c)
+ *     PopStatsDeletePowerRequest @ 0x14058ABBC (PopStatsDeletePowerRequest.c)
  * Callees:
  *     PoQueryStopWatch @ 0x140001DC4 (PoQueryStopWatch.c)
- *     PopGetStopWatchByRequestType @ 0x1405888A4 (PopGetStopWatchByRequestType.c)
+ *     PopGetStopWatchByRequestType @ 0x1405898A4 (PopGetStopWatchByRequestType.c)
  */
 
 char __fastcall PopIsDataAccruedByPowerRequestStats(__int64 a1)

@@ -10,23 +10,23 @@
  *     _RtlpGuardGrantSuppressedCallAccess@8 @ 0x4B363C51 (_RtlpGuardGrantSuppressedCallAccess@8.c)
  */
 
-int __thiscall RtlpUnsuppressForwardReferencingCallTarget(void *this)
+NTSTATUS __thiscall RtlpUnsuppressForwardReferencingCallTarget(void *this)
 {
-  int v1; // ebx
-  int VirtualMemory; // esi
+  char *v1; // ebx
+  NTSTATUS VirtualMemory; // esi
   _DWORD *Config; // eax
-  void *v4; // ecx
-  _DWORD *v5; // eax
-  _DWORD *v6; // edi
-  char *v7; // ebx
-  int v8; // eax
-  unsigned int v9; // ecx
-  int v12; // [esp+14h] [ebp-34h]
+  _DWORD *v4; // eax
+  _DWORD *v5; // edi
+  int *v6; // ebx
+  int v7; // eax
+  unsigned int v8; // ecx
+  ULONG_PTR *v10; // [esp+0h] [ebp-48h]
+  char *v12; // [esp+14h] [ebp-34h]
   int v13; // [esp+18h] [ebp-30h] BYREF
-  _BYTE v14[4]; // [esp+1Ch] [ebp-2Ch] BYREF
-  char *v15; // [esp+20h] [ebp-28h] BYREF
+  ULONG Size; // [esp+1Ch] [ebp-2Ch] BYREF
+  PVOID BaseOfImage[2]; // [esp+20h] [ebp-28h] BYREF
   char v16; // [esp+28h] [ebp-20h]
-  _BYTE v17[12]; // [esp+2Ch] [ebp-1Ch] BYREF
+  char MemoryInformation[12]; // [esp+2Ch] [ebp-1Ch] BYREF
   int v18; // [esp+38h] [ebp-10h]
   int v19; // [esp+44h] [ebp-4h]
 
@@ -34,26 +34,32 @@ int __thiscall RtlpUnsuppressForwardReferencingCallTarget(void *this)
   v12 = 0;
   while ( 1 )
   {
-    VirtualMemory = NtQueryVirtualMemory(-1, v1, 0, (int)v17, 28, 0);
+    VirtualMemory = NtQueryVirtualMemory(
+                      (HANDLE)0xFFFFFFFF,
+                      v1,
+                      MemoryBasicInformation,
+                      MemoryInformation,
+                      0x1CuLL,
+                      v10);
     if ( VirtualMemory < 0 )
       return VirtualMemory;
     if ( v19 == 0x1000000 )
     {
-      VirtualMemory = NtQueryVirtualMemory(-1, v1, 6, (int)&v15, 12, 0);
+      VirtualMemory = NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, v1, MemoryImageInformation, BaseOfImage, 0xCuLL, v10);
       if ( VirtualMemory >= 0 )
       {
-        if ( v15 )
+        if ( BaseOfImage[0] )
         {
           if ( (v16 & 3) == 0 )
           {
-            Config = LdrImageDirectoryEntryToLoadConfig(v15);
+            Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage[0]);
             if ( !Config || *Config < 0x5Cu || (Config[22] & 0x4000) == 0 )
             {
-              v5 = RtlImageDirectoryEntryToData(v4, (int)v15, 1, 1, (int)v14);
-              if ( v5 )
+              v4 = RtlImageDirectoryEntryToData(BaseOfImage[0], 1u, 1u, &Size);
+              if ( v4 )
               {
-                v6 = v5 + 3;
-                if ( v5[3] )
+                v5 = v4 + 3;
+                if ( v4[3] )
                   break;
               }
             }
@@ -69,30 +75,29 @@ LABEL_23:
   }
   while ( 2 )
   {
-    v7 = &v15[v6[1]];
-    v8 = *(_DWORD *)v7;
-    if ( !*(_DWORD *)v7 )
+    v6 = (int *)((char *)BaseOfImage[0] + v5[1]);
+    v7 = *v6;
+    if ( !*v6 )
       goto LABEL_21;
-    v9 = (unsigned int)this;
-    while ( v8 != v9 )
+    v8 = (unsigned int)this;
+    while ( v7 != v8 )
     {
 LABEL_18:
-      v7 += 4;
-      v8 = *(_DWORD *)v7;
-      if ( !*(_DWORD *)v7 )
+      v7 = *++v6;
+      if ( !*v6 )
         goto LABEL_21;
     }
-    if ( RtlValidateUserCallTarget(v9, &v13) == 1 || (v13 & 0x10) == 0 )
+    if ( RtlValidateUserCallTarget(v8, &v13) == 1 || (v13 & 0x10) == 0 )
     {
-      v9 = (unsigned int)this;
+      v8 = (unsigned int)this;
       goto LABEL_18;
     }
     VirtualMemory = RtlpGuardGrantSuppressedCallAccess((int)this, 4);
     if ( VirtualMemory < 0 )
     {
 LABEL_21:
-      v6 += 5;
-      if ( !*v6 )
+      v5 += 5;
+      if ( !*v5 )
       {
         v1 = v12;
         goto LABEL_23;

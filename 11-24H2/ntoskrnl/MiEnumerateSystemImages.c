@@ -1,58 +1,52 @@
 /*
- * XREFs of MiEnumerateSystemImages @ 0x1402C7380
+ * XREFs of MiEnumerateSystemImages @ 0x1402BBF00
  * Callers:
- *     MmEnumerateSystemImagesShared @ 0x1402C8988 (MmEnumerateSystemImagesShared.c)
- *     MmEnumerateSystemImages @ 0x1404FAB30 (MmEnumerateSystemImages.c)
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
- *     MiInitializeKernelCfg @ 0x140C598DC (MiInitializeKernelCfg.c)
+ *     MmEnumerateSystemImagesShared @ 0x1404B09EC (MmEnumerateSystemImagesShared.c)
+ *     MmEnumerateSystemImages @ 0x1404F8410 (MmEnumerateSystemImages.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
+ *     MiInitializeKernelCfg @ 0x140C5BA6C (MiInitializeKernelCfg.c)
  * Callees:
- *     MiAcquireLoadLock @ 0x1402C6F98 (MiAcquireLoadLock.c)
- *     MiUnlockLoaderEntry @ 0x1402C7468 (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1402C7520 (MiLockLoaderEntry.c)
- *     MmReleaseLoadLockShared @ 0x1402C75F0 (MmReleaseLoadLockShared.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiAcquireLoadLock @ 0x1402BBB18 (MiAcquireLoadLock.c)
+ *     MiUnlockLoaderEntry @ 0x1402BBFE8 (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1402BC0A0 (MiLockLoaderEntry.c)
+ *     MmReleaseLoadLockShared @ 0x1402BC170 (MmReleaseLoadLockShared.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall MiEnumerateSystemImages(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiEnumerateSystemImages(__int64 a1, __int64 a2, unsigned int a3)
 {
-  struct _KTHREAD *CurrentThread; // r9
-  int v4; // edi
-  unsigned int v5; // r12d
+  int v3; // edi
   struct _KTHREAD *Lock; // rax
-  PVOID *v8; // rbx
-  struct _KTHREAD *v9; // rbp
-  __int64 v10; // r8
-  __int64 v11; // r9
+  PVOID *v7; // rbx
+  struct _KTHREAD *v8; // rbp
   PVOID *i; // rbx
 
-  CurrentThread = KeGetCurrentThread();
-  v4 = 0;
-  v5 = a3;
-  if ( (struct _KTHREAD *)qword_140E2D810 == CurrentThread )
+  v3 = 0;
+  if ( (struct _KTHREAD *)qword_140E2D950 == KeGetCurrentThread() )
   {
     for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
     {
-      v4 = guard_dispatch_icall_no_overrides(i, a2, a3, CurrentThread);
-      if ( v4 < 0 )
+      v3 = guard_dispatch_icall_no_overrides(i, a2);
+      if ( v3 < 0 )
         break;
     }
   }
   else
   {
     Lock = MiAcquireLoadLock(0);
-    v8 = (PVOID *)PsLoadedModuleList;
-    v9 = Lock;
-    while ( v8 != &PsLoadedModuleList )
+    v7 = (PVOID *)PsLoadedModuleList;
+    v8 = Lock;
+    while ( v7 != &PsLoadedModuleList )
     {
-      MiLockLoaderEntry(v8, v5);
-      v4 = guard_dispatch_icall_no_overrides(v8, a2, v10, v11);
-      MiUnlockLoaderEntry(v8, v5);
-      if ( v4 < 0 )
+      MiLockLoaderEntry(v7, a3);
+      v3 = guard_dispatch_icall_no_overrides(v7, a2);
+      MiUnlockLoaderEntry(v7, a3);
+      if ( v3 < 0 )
         break;
-      v8 = (PVOID *)*v8;
+      v7 = (PVOID *)*v7;
     }
-    MmReleaseLoadLockShared(v9);
+    MmReleaseLoadLockShared(v8);
   }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

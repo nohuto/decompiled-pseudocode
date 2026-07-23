@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpInterfaceRaisePropertyChangeEventWorker @ 0x14090F130
+ * XREFs of _PnpInterfaceRaisePropertyChangeEventWorker @ 0x1409B1260
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x14090D610 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _PnpRaiseNtPlugPlayInterfacePropertyChangeEvent @ 0x140910488 (_PnpRaiseNtPlugPlayInterfacePropertyChangeEvent.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x140AF32C0 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _PnpRaiseNtPlugPlayInterfacePropertyChangeEvent @ 0x1409AB44C (_PnpRaiseNtPlugPlayInterfacePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1409AF740 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x140AF5AB0 (_CmSetDeviceInterfaceMappedProperty.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PnpInterfaceRaisePropertyChangeEventWorker(
@@ -23,7 +23,7 @@ __int64 __fastcall PnpInterfaceRaisePropertyChangeEventWorker(
   __int64 v12; // rcx
 
   result = guard_dispatch_icall_no_overrides(a1, a2);
-  v8 = &qword_140001328;
+  v8 = &qword_140001F38;
   v9 = 2LL;
   do
   {

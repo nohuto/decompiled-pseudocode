@@ -28,6 +28,6 @@ __int64 __fastcall TppWaitpValidateWait(__int64 a1, __int64 a2, __int64 a3)
     }
   }
   if ( v7 || (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
-    TppRaiseInvalidParameter(Ldr, v3, v5, v6);
+    TppRaiseInvalidParameter(Ldr, v3, v5);
   return 0LL;
 }

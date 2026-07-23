@@ -14,7 +14,7 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
   __int64 result; // rax
   __int64 v7; // rbp
   KIRQL v8; // bl
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 v10; // rdx
   __int64 v11; // r8
   unsigned int v12; // r10d
@@ -22,7 +22,7 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
   unsigned __int64 v14; // rcx
   __int64 v15; // r9
   struct _KPRCB *CurrentPrcb; // rcx
-  LARGE_INTEGER v17; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp+10h] BYREF
 
   *a2 = 0;
   *a3 = 0LL;
@@ -36,7 +36,7 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
       if ( dword_140467FC0 != -1 )
       {
         v8 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v17);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         v10 = 0LL;
         v11 = PpmPlatformStates + 384 * v7;
         v12 = *(_DWORD *)(v11 + 108);
@@ -49,7 +49,7 @@ __int64 __fastcall PpmIdlePrevetoWatchdog(unsigned __int64 a1, _DWORD *a2, _QWOR
             v15 = *(_QWORD *)(v14 + v13 + 32);
             if ( v15 )
             {
-              if ( InterruptTimePrecise - v15 >= a1 )
+              if ( InterruptTimePrecise.QuadPart - v15 >= a1 )
                 break;
             }
             v10 = (unsigned int)(v10 + 1);

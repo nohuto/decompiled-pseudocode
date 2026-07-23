@@ -1,5 +1,5 @@
 /*
- * XREFs of DbgQueryDebugFilterState @ 0x1800DBA30
+ * XREFs of DbgQueryDebugFilterState @ 0x1800DBAF0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 DbgQueryDebugFilterState()
+NTSTATUS __cdecl DbgQueryDebugFilterState(ULONG ComponentId, ULONG Level)
 {
-  return ZwQueryDebugFilterState();
+  return ZwQueryDebugFilterState(ComponentId, Level);
 }

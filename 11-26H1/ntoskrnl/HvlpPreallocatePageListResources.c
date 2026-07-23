@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpPreallocatePageListResources @ 0x140772CA4
+ * XREFs of HvlpPreallocatePageListResources @ 0x140775CA4
  * Callers:
- *     HvlAllocateHibernateResources @ 0x140772C6C (HvlAllocateHibernateResources.c)
+ *     HvlAllocateHibernateResources @ 0x140775C6C (HvlAllocateHibernateResources.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmAllocateIndependentPagesEx @ 0x140B3D7BC (MmAllocateIndependentPagesEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmAllocateIndependentPagesEx @ 0x140B3F88C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 HvlpPreallocatePageListResources()
@@ -13,10 +13,10 @@ __int64 HvlpPreallocatePageListResources()
   struct _LIST_ENTRY *IndependentPages; // rax
 
   v0 = 0;
-  if ( !VslpReservedTransferLock.ApcState.ApcListHead[1].Blink )
+  if ( !VslpReservedTransferLock.WaitListEntry.Blink )
   {
     IndependentPages = (struct _LIST_ENTRY *)MmAllocateIndependentPagesEx(4096LL, 0xFFFFFFFFLL, 0LL, 0LL);
-    VslpReservedTransferLock.ApcState.ApcListHead[1].Blink = IndependentPages;
+    VslpReservedTransferLock.WaitListEntry.Blink = IndependentPages;
     if ( IndependentPages )
       memset_0(IndependentPages, 0, 0x1000uLL);
     else

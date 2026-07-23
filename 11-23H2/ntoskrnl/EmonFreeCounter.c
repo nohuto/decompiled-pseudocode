@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonFreeCounter @ 0x14037B4EC
+ * XREFs of EmonFreeCounter @ 0x14037B68C
  * Callers:
- *     EmonDisableMonitoring @ 0x14051D180 (EmonDisableMonitoring.c)
+ *     EmonDisableMonitoring @ 0x14051D6D0 (EmonDisableMonitoring.c)
  *     EmonInitializeProfiling @ 0x140A896A0 (EmonInitializeProfiling.c)
  * Callees:
  *     <none>

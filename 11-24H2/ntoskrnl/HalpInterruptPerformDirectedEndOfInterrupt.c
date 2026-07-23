@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptPerformDirectedEndOfInterrupt @ 0x140543FC8
+ * XREFs of HalpInterruptPerformDirectedEndOfInterrupt @ 0x140541918
  * Callers:
- *     HalPerformEndOfInterrupt @ 0x140418370 (HalPerformEndOfInterrupt.c)
- *     HvlPerformEndOfInterrupt @ 0x14047A2D0 (HvlPerformEndOfInterrupt.c)
+ *     HalPerformEndOfInterrupt @ 0x140408120 (HalPerformEndOfInterrupt.c)
+ *     HvlPerformEndOfInterrupt @ 0x140475A40 (HvlPerformEndOfInterrupt.c)
  * Callees:
- *     HalpInterruptFindLinesForGsiRange @ 0x1403B9C8C (HalpInterruptFindLinesForGsiRange.c)
- *     HalpInterruptLookupController @ 0x1403B9D14 (HalpInterruptLookupController.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x14037265C (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptLookupController @ 0x1403726E4 (HalpInterruptLookupController.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpInterruptPerformDirectedEndOfInterrupt(__int64 a1)
@@ -29,7 +29,7 @@ void __fastcall HalpInterruptPerformDirectedEndOfInterrupt(__int64 a1)
           {
             v3 = HalpInterruptLookupController(LinesForGsiRange[4]);
             if ( (*((_DWORD *)v3 + 61) & 0x400) != 0 )
-              guard_dispatch_icall_no_overrides(v3[2], (unsigned int)v1[3], v1[12] & 0x3FFFFFFF, v3);
+              guard_dispatch_icall_no_overrides(v3[2], (unsigned int)v1[3]);
           }
         }
       }

@@ -1,23 +1,23 @@
 /*
- * XREFs of CcCopyToCacheHelper @ 0x14040C830
+ * XREFs of CcCopyToCacheHelper @ 0x140404EC0
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     HviCopyMemoryNonTemporal @ 0x14040C8E4 (HviCopyMemoryNonTemporal.c)
- *     HviCopyMemory @ 0x14040CADC (HviCopyMemory.c)
- *     RtlFlushNonVolatileMemory @ 0x1404FAE20 (RtlFlushNonVolatileMemory.c)
- *     RtlCopyMemoryNonTemporal @ 0x1406B3A40 (RtlCopyMemoryNonTemporal.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     HviCopyMemoryNonTemporal @ 0x140404F74 (HviCopyMemoryNonTemporal.c)
+ *     HviCopyMemory @ 0x14040516C (HviCopyMemory.c)
+ *     RtlFlushNonVolatileMemory @ 0x1404F8700 (RtlFlushNonVolatileMemory.c)
+ *     RtlCopyMemoryNonTemporal @ 0x1406B49E0 (RtlCopyMemoryNonTemporal.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 bool *__fastcall CcCopyToCacheHelper(__int64 a1, void *a2, const void *a3, unsigned int a4, char a5, bool *a6)
 {
   int v7; // ebx
-  __int64 v8; // rsi
+  SIZE_T v8; // rsi
   bool *result; // rax
-  int v10; // eax
-  int v11; // edi
+  DWORD v10; // eax
+  NTSTATUS v11; // edi
 
   v7 = *(_DWORD *)(a1 + 152) & 0x40000000;
   if ( a5 )
@@ -40,7 +40,7 @@ bool *__fastcall CcCopyToCacheHelper(__int64 a1, void *a2, const void *a3, unsig
   if ( a4 < 8uLL )
   {
     memmove(a2, a3, a4);
-    v10 = RtlFlushNonVolatileMemory(-1LL, a2, v8);
+    v10 = RtlFlushNonVolatileMemory((PVOID)0xFFFFFFFFFFFFFFFFLL, a2, v8, 0);
 LABEL_7:
     v11 = v10;
     goto LABEL_8;

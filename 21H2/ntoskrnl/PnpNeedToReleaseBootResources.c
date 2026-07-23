@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpNeedToReleaseBootResources @ 0x140753250
+ * XREFs of PnpNeedToReleaseBootResources @ 0x140753410
  * Callers:
- *     IopReleaseFilteredBootResources @ 0x140753138 (IopReleaseFilteredBootResources.c)
+ *     IopReleaseFilteredBootResources @ 0x1407532F8 (IopReleaseFilteredBootResources.c)
  * Callees:
- *     PnpIsRangeWithin @ 0x1407AD148 (PnpIsRangeWithin.c)
+ *     PnpIsRangeWithin @ 0x1407AD348 (PnpIsRangeWithin.c)
  */
 
 __int64 __fastcall PnpNeedToReleaseBootResources(__int64 a1, _DWORD *a2, _DWORD *a3)

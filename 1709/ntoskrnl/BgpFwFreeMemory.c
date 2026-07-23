@@ -52,9 +52,9 @@ void __fastcall BgpFwFreeMemory(__int64 a1)
   if ( v2 == 1262700354 )
   {
     v10 = v1 - qword_14038D020 - 8;
-    RtlClearBits(&BitMapHeader, v10, *(_DWORD *)(v1 + 8));
-    if ( v10 < HintIndex )
-      HintIndex = v10;
+    RtlClearBits(&stru_14038D030, v10, *(_DWORD *)(v1 + 8));
+    if ( v10 < dword_14038D028 )
+      dword_14038D028 = v10;
   }
   else
   {

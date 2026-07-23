@@ -1,33 +1,31 @@
 /*
- * XREFs of SbpAddTransportToInstance @ 0x140A955E8
+ * XREFs of SbpAddTransportToInstance @ 0x140A965E8
  * Callers:
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     IopBuildDeviceIoControlRequest @ 0x14022B990 (IopBuildDeviceIoControlRequest.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     memset @ 0x140414200 (memset.c)
- *     IoGetDeviceObjectPointer @ 0x140620E20 (IoGetDeviceObjectPointer.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1402D0240 (IopBuildDeviceIoControlRequest.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoGetDeviceObjectPointer @ 0x14068AA90 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 SbpAddTransportToInstance()
 {
   char *v0; // rdi
   NTSTATUS DeviceObjectPointer; // eax
-  IRP *v2; // rdx
-  __int64 v3; // r8
-  _DWORD *v4; // r9
-  PFILE_OBJECT v5; // rsi
+  PFILE_OBJECT v2; // rsi
   unsigned int Status; // ebx
   char *PoolWithTag; // rax
-  PDEVICE_OBJECT v8; // rdx
-  IRP *v9; // rax
+  PDEVICE_OBJECT v5; // rdx
+  IRP *v6; // rax
+  IRP *v7; // rdx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  struct _DEVICE_OBJECT *v11; // rcx
-  struct _IO_STATUS_BLOCK v13; // [rsp+50h] [rbp-30h] BYREF
+  struct _DEVICE_OBJECT *v9; // rcx
+  struct _IO_STATUS_BLOCK v11; // [rsp+50h] [rbp-30h] BYREF
   struct _KEVENT Object; // [rsp+60h] [rbp-20h] BYREF
   __int64 retaddr; // [rsp+98h] [rbp+18h]
   PDEVICE_OBJECT DeviceObject; // [rsp+A0h] [rbp+20h] BYREF
@@ -37,13 +35,13 @@ __int64 SbpAddTransportToInstance()
   DeviceObject = 0LL;
   memset(&Object, 0, sizeof(Object));
   v0 = 0LL;
-  v13 = 0LL;
+  v11 = 0LL;
   DeviceObjectPointer = IoGetDeviceObjectPointer(
                           (PUNICODE_STRING)&InstanceName,
                           0x10000000u,
                           &FileObject,
                           &DeviceObject);
-  v5 = FileObject;
+  v2 = FileObject;
   Status = DeviceObjectPointer;
   if ( DeviceObjectPointer >= 0 )
   {
@@ -63,7 +61,7 @@ __int64 SbpAddTransportToInstance()
     *(_OWORD *)(v0 + 76) = *(_OWORD *)L"4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
     *(_OWORD *)(v0 + 92) = *(_OWORD *)L"270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
     *(_OWORD *)(v0 + 108) = *(_OWORD *)L"db7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
-    v8 = DeviceObject;
+    v5 = DeviceObject;
     *(_OWORD *)(v0 + 124) = *(_OWORD *)L"c079ae-60ba-4d07-847c-3493609c0870}-0000";
     *(_OWORD *)(v0 + 140) = *(_OWORD *)L"0ba-4d07-847c-3493609c0870}-0000";
     *(_OWORD *)(v0 + 156) = *(_OWORD *)L"-847c-3493609c0870}-0000";
@@ -74,19 +72,19 @@ __int64 SbpAddTransportToInstance()
     Object.Header.WaitListHead.Flink = &Object.Header.WaitListHead;
     Object.Header.Size = 6;
     Object.Header.SignalState = 0;
-    v9 = IopBuildDeviceIoControlRequest(1311152, (__int64)v8, v0, 0xD0u, 0LL, 0, 0, &Object, &v13, retaddr);
-    v2 = v9;
-    if ( v9 )
+    v6 = IopBuildDeviceIoControlRequest(1311152, (__int64)v5, v0, 0xD0u, 0LL, 0, 0, &Object, &v11, retaddr);
+    v7 = v6;
+    if ( v6 )
     {
-      CurrentStackLocation = v9->Tail.Overlay.CurrentStackLocation;
-      v11 = DeviceObject;
-      CurrentStackLocation[-1].FileObject = v5;
+      CurrentStackLocation = v6->Tail.Overlay.CurrentStackLocation;
+      v9 = DeviceObject;
+      CurrentStackLocation[-1].FileObject = v2;
       CurrentStackLocation[-1].MajorFunction = 13;
-      Status = IofCallDriver(v11, v2);
+      Status = IofCallDriver(v9, v7);
       if ( Status == 259 )
       {
         KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
-        Status = v13.Status;
+        Status = v11.Status;
       }
     }
     else
@@ -95,9 +93,9 @@ LABEL_3:
       Status = -1073741670;
     }
   }
-  if ( v5 )
-    ObfDereferenceObjectWithTag(v5, 0x746C6644u);
+  if ( v2 )
+    ObfDereferenceObjectWithTag(v2, 0x746C6644u);
   if ( v0 )
-    ExFreeHeapPool((ULONG_PTR)v0, (__int64)v2, v3, v4);
+    ExFreeHeapPool((ULONG_PTR)v0);
   return Status;
 }

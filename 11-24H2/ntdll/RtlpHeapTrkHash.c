@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHeapTrkHash @ 0x18003CD40
+ * XREFs of RtlpHeapTrkHash @ 0x18001CFC0
  * Callers:
- *     RtlpHeapTrkTrackAdd @ 0x18003C7F0 (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkTrackRemove @ 0x18003C8D0 (RtlpHeapTrkTrackRemove.c)
- *     RtlpHeapTrkInterceptor @ 0x18003CA10 (RtlpHeapTrkInterceptor.c)
- *     RtlpHeapTrkFindStack @ 0x18003E9C0 (RtlpHeapTrkFindStack.c)
+ *     RtlpHeapTrkTrackAdd @ 0x18001CA70 (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkTrackRemove @ 0x18001CB50 (RtlpHeapTrkTrackRemove.c)
+ *     RtlpHeapTrkInterceptor @ 0x18001CC90 (RtlpHeapTrkInterceptor.c)
+ *     RtlpHeapTrkFindStack @ 0x18001EC40 (RtlpHeapTrkFindStack.c)
  * Callees:
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall RtlpHeapTrkHash(__int64 a1)
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall RtlpHeapTrkHash(__int64 a1)
   v1 = 0LL;
   v8 = a1;
   v2 = (unsigned __int8 *)&v8;
-  v3 = (__int16 *)&unk_1801CE820;
+  v3 = (__int16 *)&unk_1801CD818;
   v4 = 8LL;
   do
   {

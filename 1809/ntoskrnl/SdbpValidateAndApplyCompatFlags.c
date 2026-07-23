@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpValidateAndApplyCompatFlags @ 0x1405A2348
+ * XREFs of SdbpValidateAndApplyCompatFlags @ 0x1405A3348
  * Callers:
- *     SdbpOpenDatabaseInMemory @ 0x1405A22C0 (SdbpOpenDatabaseInMemory.c)
- *     SdbOpenDatabaseEx @ 0x1408E59D4 (SdbOpenDatabaseEx.c)
+ *     SdbpOpenDatabaseInMemory @ 0x1405A32C0 (SdbpOpenDatabaseInMemory.c)
+ *     SdbOpenDatabaseEx @ 0x1408E6C94 (SdbOpenDatabaseEx.c)
  * Callees:
- *     SdbGetDatabaseID @ 0x14067CB48 (SdbGetDatabaseID.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGetDatabaseID @ 0x14067DD08 (SdbGetDatabaseID.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpValidateAndApplyCompatFlags(__int64 a1, _DWORD *a2)

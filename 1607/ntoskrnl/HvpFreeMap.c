@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpFreeMap @ 0x1404EA6E8
+ * XREFs of HvpFreeMap @ 0x1404CC7DC
  * Callers:
- *     HvpExpandMap @ 0x14047DE4C (HvpExpandMap.c)
- *     HvFreeHivePartial @ 0x140481AF0 (HvFreeHivePartial.c)
- *     HvpInitMap @ 0x1404E3088 (HvpInitMap.c)
- *     HvpRemapAndEnlistHiveBins @ 0x140514194 (HvpRemapAndEnlistHiveBins.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
- *     HvpCleanMap @ 0x140610770 (HvpCleanMap.c)
- *     HvpShrinkMap @ 0x14061081C (HvpShrinkMap.c)
+ *     HvpExpandMap @ 0x14047CBA0 (HvpExpandMap.c)
+ *     HvFreeHivePartial @ 0x140480844 (HvFreeHivePartial.c)
+ *     HvpInitMap @ 0x1404C5FEC (HvpInitMap.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1404F7584 (HvpRemapAndEnlistHiveBins.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
+ *     HvpCleanMap @ 0x140610824 (HvpCleanMap.c)
+ *     HvpShrinkMap @ 0x1406108D0 (HvpShrinkMap.c)
  * Callees:
  *     <none>
  */

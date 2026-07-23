@@ -1,196 +1,205 @@
 /*
- * XREFs of CsrpConnectToServer @ 0x1800CAD04
+ * XREFs of CsrpConnectToServer @ 0x1800C8474
  * Callers:
- *     CsrClientConnectToServer @ 0x1800CA4C0 (CsrClientConnectToServer.c)
+ *     CsrClientConnectToServer @ 0x1800C7C30 (CsrClientConnectToServer.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpCreateHeap @ 0x18007C890 (RtlpCreateHeap.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     ZwMapViewOfSection @ 0x18015F440 (ZwMapViewOfSection.c)
- *     NtOpenSection @ 0x18015F620 (NtOpenSection.c)
- *     NtCreateSection @ 0x18015F880 (NtCreateSection.c)
- *     ZwConnectPort @ 0x1801603B0 (ZwConnectPort.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpCreateHeap @ 0x18006B0B0 (RtlpCreateHeap.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x18015F340 (ZwMapViewOfSection.c)
+ *     NtOpenSection @ 0x18015F520 (NtOpenSection.c)
+ *     NtCreateSection @ 0x18015F780 (NtCreateSection.c)
+ *     ZwConnectPort @ 0x1801602B0 (ZwConnectPort.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall CsrpConnectToServer(_WORD *Src, int a2, _QWORD *a3, int a4, _DWORD *a5)
 {
   __int64 v9; // rbx
-  char *Heap_0; // rax
-  char *v12; // rdi
-  size_t v13; // rbx
-  char *v14; // rbx
-  int v15; // edi
-  int v16; // ebx
-  HANDLE v17; // rcx
-  struct _PEB *v18; // rcx
-  HANDLE v19; // rcx
-  HANDLE v20; // [rsp+50h] [rbp-B0h] BYREF
-  int v21; // [rsp+58h] [rbp-A8h] BYREF
-  int v22; // [rsp+5Ch] [rbp-A4h] BYREF
-  __int64 v23; // [rsp+60h] [rbp-A0h] BYREF
+  SIZE_T v10; // r8
+  wchar_t *Heap_0; // rax
+  wchar_t *v13; // rdi
+  size_t v14; // rbx
+  wchar_t *v15; // rbx
+  NTSTATUS v16; // edi
+  NTSTATUS v17; // ebx
+  HANDLE v18; // rcx
+  struct _PEB *v19; // rcx
+  HANDLE v20; // rcx
+  HANDLE SectionHandle; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG ConnectionInformationLength; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG MaxMessageLength; // [rsp+5Ch] [rbp-A4h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
-  char *v25; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v26; // [rsp+78h] [rbp-88h] BYREF
-  __int128 v27; // [rsp+88h] [rbp-78h]
-  __int128 v28; // [rsp+98h] [rbp-68h]
-  __int128 v29; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 v30; // [rsp+B8h] [rbp-48h]
-  __int64 v31; // [rsp+C0h] [rbp-40h] BYREF
-  _DWORD v32[2]; // [rsp+C8h] [rbp-38h] BYREF
-  __int64 v33; // [rsp+D0h] [rbp-30h]
-  __int16 *v34; // [rsp+D8h] [rbp-28h]
-  int v35; // [rsp+E0h] [rbp-20h]
-  int v36; // [rsp+E4h] [rbp-1Ch]
-  __int128 v37; // [rsp+E8h] [rbp-18h]
-  __int128 v38; // [rsp+F8h] [rbp-8h] BYREF
-  __int128 v39; // [rsp+108h] [rbp+8h]
-  __int128 v40; // [rsp+118h] [rbp+18h]
-  _DWORD v41[14]; // [rsp+130h] [rbp+30h] BYREF
-  __int64 v42; // [rsp+168h] [rbp+68h]
-  __int64 v43; // [rsp+170h] [rbp+70h]
-  __int64 (__fastcall *v44)(); // [rsp+178h] [rbp+78h]
-  __int64 v45; // [rsp+190h] [rbp+90h] BYREF
-  int v46; // [rsp+198h] [rbp+98h]
+  PVOID BaseAddress; // [rsp+70h] [rbp-90h] BYREF
+  _PORT_VIEW ClientView; // [rsp+78h] [rbp-88h] BYREF
+  _REMOTE_PORT_VIEW ServerView; // [rsp+A8h] [rbp-58h] BYREF
+  ULONG_PTR ViewSize; // [rsp+C0h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-38h] BYREF
+  __int128 ConnectionInformation; // [rsp+F8h] [rbp-8h] BYREF
+  __int128 v32; // [rsp+108h] [rbp+8h]
+  __int128 v33; // [rsp+118h] [rbp+18h]
+  _DWORD v34[14]; // [rsp+130h] [rbp+30h] BYREF
+  __int64 v35; // [rsp+168h] [rbp+68h]
+  SIZE_T v36; // [rsp+170h] [rbp+70h]
+  __int64 (__fastcall *v37)(); // [rsp+178h] [rbp+78h]
+  _SECURITY_QUALITY_OF_SERVICE SecurityQos; // [rsp+190h] [rbp+90h] BYREF
 
-  LODWORD(v30) = 0;
-  v45 = 0LL;
-  v22 = 0;
-  v21 = 0;
-  v46 = 0;
+  *(_QWORD *)&SecurityQos.Length = 0LL;
+  MaxMessageLength = 0;
+  ConnectionInformationLength = 0;
+  *(_DWORD *)&SecurityQos.ContextTrackingMode = 0;
   Handle = 0LL;
-  *(_QWORD *)&v28 = 0LL;
-  DWORD2(v28) = 0;
-  v41[1] = 0;
-  v29 = 0LL;
-  v38 = 0LL;
-  v39 = 0LL;
-  v40 = 0LL;
-  v26 = 0LL;
-  v27 = 0LL;
-  memset_thunk_772440563353939046(v41, 0, 0x5CuLL);
-  v20 = 0LL;
-  v32[1] = 0;
-  v36 = 0;
-  v25 = 0LL;
-  v31 = 0LL;
+  v34[1] = 0;
+  memset(&ServerView, 0, 20);
+  ConnectionInformation = 0LL;
+  v32 = 0LL;
+  v33 = 0LL;
+  memset(&ClientView, 0, 44);
+  memset_thunk_772440563353939046(v34, 0, 0x5CuLL);
+  SectionHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
   if ( !Src )
     return 3221225485LL;
   v9 = -1LL;
   do
     ++v9;
   while ( Src[v9] );
-  if ( (unsigned __int64)(2 * v9 + 28) > 0xFFFF )
+  v10 = 2 * v9 + 28;
+  if ( v10 > 0xFFFF )
     return 3221225734LL;
-  word_1801CDE02 = 2 * v9 + 28;
-  Heap_0 = (char *)RtlAllocateHeap_0();
-  qword_1801CDE08 = (__int64)Heap_0;
-  v12 = Heap_0;
+  CsrPortName.MaximumLength = 2 * v9 + 28;
+  Heap_0 = (wchar_t *)RtlAllocateHeap_0(CsrHeap, NtdllBaseTag, v10);
+  CsrPortName.Buffer = Heap_0;
+  v13 = Heap_0;
   if ( !Heap_0 )
     return 3221225495LL;
-  v13 = 2 * v9;
-  memmove(Heap_0, Src, v13);
-  *(_WORD *)&v12[v13] = 92;
-  v14 = &v12[v13 + 2];
-  *(_OWORD *)v14 = *(_OWORD *)L"SharedSection";
-  *((_QWORD *)v14 + 2) = *(_QWORD *)L"ction";
-  *((_WORD *)v14 + 12) = aSharedsection[12];
-  v32[0] = 48;
-  CsrPortName = (_WORD)v14 - qword_1801CDE08 + 26;
-  v34 = &CsrPortName;
-  v33 = 0LL;
-  v35 = 64;
-  v37 = 0LL;
-  v15 = NtOpenSection(&v20, 4LL, v32);
-  if ( v15 >= 0 )
+  v14 = v9;
+  memmove(Heap_0, Src, v14 * 2);
+  v13[v14] = 92;
+  v15 = &v13[v14 + 1];
+  *(_OWORD *)v15 = *(_OWORD *)L"SharedSection";
+  *((_QWORD *)v15 + 2) = *(_QWORD *)L"ction";
+  v15[12] = aSharedsection[12];
+  ObjectAttributes.Length = 48;
+  CsrPortName.Length = (_WORD)v15 - LOWORD(CsrPortName.Buffer) + 26;
+  ObjectAttributes.ObjectName = &CsrPortName;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v16 = NtOpenSection(&SectionHandle, 4u, &ObjectAttributes);
+  if ( v16 >= 0 )
   {
-    *(_QWORD *)v14 = *(_QWORD *)L"ApiPort";
-    *((_DWORD *)v14 + 2) = *(_DWORD *)L"ort";
-    *((_WORD *)v14 + 6) = aApiport[6];
-    CsrPortName = (_WORD)v14 - qword_1801CDE08 + 14;
-    HIDWORD(v45) = 2;
-    LOWORD(v46) = 257;
-    v23 = 0x10000LL;
-    v16 = NtCreateSection(&Handle, 983071LL, 0LL, &v23, 4, 0x8000000, 0LL);
-    if ( v16 < 0 )
+    *(_QWORD *)v15 = *(_QWORD *)L"ApiPort";
+    *((_DWORD *)v15 + 2) = *(_DWORD *)L"ort";
+    v15[6] = aApiport[6];
+    CsrPortName.Length = (_WORD)v15 - LOWORD(CsrPortName.Buffer) + 14;
+    SecurityQos.ImpersonationLevel = SecurityImpersonation;
+    *(_WORD *)&SecurityQos.ContextTrackingMode = 257;
+    MaximumSize.QuadPart = 0x10000LL;
+    v17 = NtCreateSection(&Handle, 0xF001Fu, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
+    if ( v17 < 0 )
       goto LABEL_24;
-    *((_QWORD *)&v26 + 1) = Handle;
-    *((_QWORD *)&v27 + 1) = (unsigned int)v23;
-    LODWORD(v26) = 48;
-    LODWORD(v27) = 0;
-    LODWORD(v29) = 24;
-    *((_QWORD *)&v29 + 1) = 0LL;
-    v30 = 0LL;
-    v21 = 48;
-    v28 = 0LL;
+    ClientView.SectionHandle = Handle;
+    ClientView.ViewSize = MaximumSize.LowPart;
+    ClientView.Length = 48;
+    ClientView.SectionOffset = 0;
+    ServerView.Length = 24;
+    ServerView.ViewSize = 0LL;
+    ServerView.ViewBase = 0LL;
+    ConnectionInformationLength = 48;
+    *(_OWORD *)&ClientView.ViewBase = 0LL;
     if ( a4 != 8 )
       goto LABEL_16;
     if ( a2 == 1 )
     {
-      *((_QWORD *)&v40 + 1) = *a3;
-      LODWORD(v40) = 1;
+      *((_QWORD *)&v33 + 1) = *a3;
+      LODWORD(v33) = 1;
     }
     else
     {
 LABEL_16:
-      DWORD1(v40) = -1073741811;
+      DWORD1(v33) = -1073741811;
     }
-    v16 = ZwConnectPort(&CsrPortHandle, &CsrPortName, &v45, &v26, &v29, &v22, &v38, &v21);
+    v17 = ZwConnectPort(
+            &CsrPortHandle,
+            &CsrPortName,
+            &SecurityQos,
+            &ClientView,
+            &ServerView,
+            &MaxMessageLength,
+            &ConnectionInformation,
+            &ConnectionInformationLength);
     NtClose(Handle);
-    if ( v16 < 0 )
+    if ( v17 < 0 )
     {
 LABEL_24:
-      v19 = v20;
+      v20 = SectionHandle;
     }
     else
     {
-      v17 = v20;
-      *a5 = DWORD1(v40);
-      v16 = ZwMapViewOfSection(v17, -1LL, &v25, 0LL, 0LL, 0LL, &v31, 2, 5242880, 2);
-      NtClose(v20);
-      v20 = 0LL;
-      if ( v16 >= 0 )
+      v18 = SectionHandle;
+      *a5 = DWORD1(v33);
+      v17 = ZwMapViewOfSection(
+              v18,
+              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+              &BaseAddress,
+              0LL,
+              0LL,
+              0LL,
+              &ViewSize,
+              ViewUnmap,
+              0x500000u,
+              2u);
+      NtClose(SectionHandle);
+      SectionHandle = 0LL;
+      if ( v17 >= 0 )
       {
-        v18 = NtCurrentPeb();
-        v18->CsrServerReadOnlySharedMemoryBase = v38;
-        v18->ReadOnlySharedMemoryBase = v25;
-        v18->ReadOnlyStaticServerData = (void **)&v25[*((_QWORD *)&v38 + 1) - v38];
-        CsrProcessId = v39;
-        CsrPortMemoryRemoteDelta = *((_QWORD *)&v28 + 1) - v28;
-        memset_thunk_772440563353939046(v41, 0, 0x60uLL);
-        v44 = WinSqmCheckEscalationSetString;
-        v41[0] = 96;
-        v42 = 4096LL;
-        v43 = *((_QWORD *)&v27 + 1);
-        CsrPortHeap = RtlpCreateHeap(
-                        0x8000,
-                        (void *)v28,
-                        *((unsigned __int64 *)&v27 + 1),
-                        (char *)1,
-                        0LL,
-                        (__int64)v41,
-                        0);
+        v19 = NtCurrentPeb();
+        v19->CsrServerReadOnlySharedMemoryBase = ConnectionInformation;
+        v19->ReadOnlySharedMemoryBase = BaseAddress;
+        v19->ReadOnlyStaticServerData = (void **)((char *)BaseAddress
+                                                + *((_QWORD *)&ConnectionInformation + 1)
+                                                - ConnectionInformation);
+        CsrProcessId = v32;
+        CsrPortMemoryRemoteDelta = (char *)ClientView.ViewRemoteBase - (char *)ClientView.ViewBase;
+        memset_thunk_772440563353939046(v34, 0, 0x60uLL);
+        v37 = WinSqmCheckEscalationSetString;
+        v34[0] = 96;
+        v35 = 4096LL;
+        v36 = ClientView.ViewSize;
+        CsrPortHeap = (PVOID)RtlpCreateHeap(
+                               0x8000,
+                               ClientView.ViewBase,
+                               ClientView.ViewSize,
+                               (void *)1,
+                               0LL,
+                               (__int64)v34,
+                               0);
         if ( CsrPortHeap )
         {
           CsrPortBaseTag = 0;
           return 0LL;
         }
-        v16 = -1073741801;
+        v17 = -1073741801;
       }
       NtClose(CsrPortHandle);
-      v19 = v20;
+      v20 = SectionHandle;
       CsrPortHandle = 0LL;
-      if ( !v20 )
+      if ( !SectionHandle )
         goto LABEL_21;
     }
-    NtClose(v19);
+    NtClose(v20);
 LABEL_21:
-    RtlFreeHeap_0();
-    return (unsigned int)v16;
+    RtlFreeHeap_0(CsrHeap, 0, CsrPortName.Buffer);
+    return (unsigned int)v17;
   }
-  RtlFreeHeap_0();
-  return (unsigned int)v15;
+  RtlFreeHeap_0(CsrHeap, 0, CsrPortName.Buffer);
+  return (unsigned int)v16;
 }

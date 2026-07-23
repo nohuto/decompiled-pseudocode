@@ -1,13 +1,13 @@
 /*
- * XREFs of MmCheckForSafeExecution @ 0x140874E24
+ * XREFs of MmCheckForSafeExecution @ 0x14087B208
  * Callers:
- *     KiEmulateAtlThunk @ 0x1403D2630 (KiEmulateAtlThunk.c)
+ *     KiEmulateAtlThunk @ 0x1403D5600 (KiEmulateAtlThunk.c)
  * Callees:
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404057B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140405820 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MmValidateUserCallTarget @ 0x140B46C78 (MmValidateUserCallTarget.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403FE8A4 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403FE914 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MmValidateUserCallTarget @ 0x140B48CA8 (MmValidateUserCallTarget.c)
  */
 
 bool __fastcall MmCheckForSafeExecution(

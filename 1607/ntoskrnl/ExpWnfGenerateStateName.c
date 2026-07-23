@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfGenerateStateName @ 0x1403F6E6C
+ * XREFs of ExpWnfGenerateStateName @ 0x1403F5D2C
  * Callers:
- *     NtCreateWnfStateName @ 0x1403F6B44 (NtCreateWnfStateName.c)
+ *     NtCreateWnfStateName @ 0x1403F5A04 (NtCreateWnfStateName.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140002DFC (xHalTimerWatchdogStop.c)
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExpWnfGetHostSiloContext @ 0x140463CE8 (ExpWnfGetHostSiloContext.c)
- *     ExpWnfAllocateNextPersistentNameSequence @ 0x1406B9F14 (ExpWnfAllocateNextPersistentNameSequence.c)
+ *     xHalTimerWatchdogStop @ 0x140002F70 (xHalTimerWatchdogStop.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExpWnfGetHostSiloContext @ 0x140462BB8 (ExpWnfGetHostSiloContext.c)
+ *     ExpWnfAllocateNextPersistentNameSequence @ 0x1406BA04C (ExpWnfAllocateNextPersistentNameSequence.c)
  */
 
 __int64 __fastcall ExpWnfGenerateStateName(__int64 *a1, int a2, int a3, char a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierExAcquireSharedWaitForExclusive @ 0x1409E1D50
+ * XREFs of VerifierExAcquireSharedWaitForExclusive @ 0x1409E2D50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
- *     ViResourceAcquireSanityChecks @ 0x1409E25D0 (ViResourceAcquireSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x1409DE5C8 (VfDeadlockAcquireResource.c)
+ *     ViResourceAcquireSanityChecks @ 0x1409E35D0 (ViResourceAcquireSanityChecks.c)
  */
 
 char __fastcall VerifierExAcquireSharedWaitForExclusive(ULONG_PTR a1, char a2)

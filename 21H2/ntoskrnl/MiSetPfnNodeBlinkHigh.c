@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetPfnNodeBlinkHigh @ 0x1402B6514
+ * XREFs of MiSetPfnNodeBlinkHigh @ 0x1402346F4
  * Callers:
- *     MiReplaceNumaStandbyPage @ 0x14026B4EC (MiReplaceNumaStandbyPage.c)
- *     MiUnlinkNumaStandbyPage @ 0x14039CA44 (MiUnlinkNumaStandbyPage.c)
+ *     MiReplaceNumaStandbyPage @ 0x14025948C (MiReplaceNumaStandbyPage.c)
+ *     MiUnlinkNumaStandbyPage @ 0x14039CB94 (MiUnlinkNumaStandbyPage.c)
  *     MiUpdateLargePageSectionPfns @ 0x1403F41AC (MiUpdateLargePageSectionPfns.c)
  *     MiConvertLockedSmallPageToLarge @ 0x1403F606C (MiConvertLockedSmallPageToLarge.c)
- *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140552B48 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140552D88 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
  * Callees:
  *     <none>
  */

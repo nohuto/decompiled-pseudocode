@@ -213,9 +213,9 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   unsigned int v98; // r8d
   void *v99; // rcx
   int v100; // edx
-  PLARGE_INTEGER Timeout; // [rsp+20h] [rbp-99h]
-  PLARGE_INTEGER Timeouta; // [rsp+20h] [rbp-99h]
-  int v104; // [rsp+30h] [rbp-89h]
+  void *ExplicitScope; // [rsp+20h] [rbp-99h]
+  void *ExplicitScopea; // [rsp+20h] [rbp-99h]
+  int CheckStamp; // [rsp+30h] [rbp-89h]
   PETHREAD Thread; // [rsp+50h] [rbp-69h] BYREF
   __int64 v106; // [rsp+58h] [rbp-61h] BYREF
   unsigned __int16 *v107; // [rsp+60h] [rbp-59h] BYREF
@@ -301,7 +301,7 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   {
     if ( byte_140F0AE61 != 2 )
     {
-      PopReleasePolicyLock(v11, v10, v12, v13, Timeout);
+      PopReleasePolicyLock(v11, v10, v12, v13, ExplicitScope);
       PoClearBroadcast();
       ExQueueWorkItem(&PopUnlockAfterSleepWorkItem, DelayedWorkQueue);
       *v3 = 6;
@@ -379,7 +379,7 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
     {
       goto LABEL_68;
     }
-    PopReleasePolicyLock(v21, v14, v15, v16, Timeout);
+    PopReleasePolicyLock(v21, v14, v15, v16, ExplicitScope);
     *v23 = 0;
     *((_BYTE *)a1 + 48) = 0;
     *v4 = 1;
@@ -458,7 +458,7 @@ LABEL_53:
     }
     v33 = *(_BYTE *)(PopSmartSuspendDecision + 2);
     v34 = *(_QWORD *)(PopSmartSuspendDecision + 56);
-    PopReleasePolicyLock(v32, v14, v15, v16, Timeout);
+    PopReleasePolicyLock(v32, v14, v15, v16, ExplicitScope);
     PopCheckpointSystemSleep(10);
     byte_140F0AE88 = 3;
     PopDiagTraceKernelQueriesAllowed(*v20);
@@ -748,7 +748,7 @@ LABEL_115:
       v75 = Process;
       *((_QWORD *)a1 + 38) = MEMORY[0xFFFFF78000000008];
       a1[28] = dword_140F0B70C;
-      v76 = PopPushPowerStateTransitionRecordWithCallback((__int64)v75, (__int64)v74, 0LL, 0, 0LL);
+      v76 = PopPushPowerStateTransitionRecordWithCallback((LARGE_INTEGER)v75, (LONGLONG)v74, 0LL, 0, 0LL);
       KeSetEvent((PRKEVENT)(a1 + 62), 0, 1u);
       KeWaitForSingleObject(a1 + 68, Executive, 0, 0, 0LL);
       if ( v76 >= 0 )
@@ -772,10 +772,10 @@ LABEL_115:
         v17 = dword_140F0AE8C;
       }
       v83 = dword_140F0AE98;
-      v104 = a1[81];
+      CheckStamp = a1[81];
       v84 = a1[80];
       a1[7] = dword_140F0AE98;
-      PopDiagTracePostSleepNotification(v17, dword_140F0AE94, v83, qword_140F0AEE0[0], qword_140F0AEF8, v84, v104);
+      PopDiagTracePostSleepNotification(v17, dword_140F0AE94, v83, qword_140F0AEE0[0], qword_140F0AEF8, v84, CheckStamp);
       if ( KeMtrrComparisonFailed )
         PopDiagTraceMtrrError();
       v16 = (unsigned int)a1[22];
@@ -791,7 +791,7 @@ LABEL_115:
   }
 LABEL_68:
   if ( *((_BYTE *)a1 + 48) )
-    PopReleasePolicyLock(v21, v14, v15, v16, Timeout);
+    PopReleasePolicyLock(v21, v14, v15, v16, ExplicitScope);
   if ( byte_140F0ADA0 )
   {
     qword_140F0B268 = KeQueryPerformanceCounter(0LL).QuadPart;
@@ -827,7 +827,7 @@ LABEL_68:
   PpmCheckResumePpmEngineFromSx(v41, v40, v42);
   PopCurrentPowerStatePrecise((__int64)(a1 + 30), (__int64)&v106);
   if ( *((_BYTE *)a1 + 168) )
-    ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL);
+    ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
   if ( PopIsDetailedSleepReliabilityDiagEnabled() )
     PopBootStatCheckpointAvailable = 1;
   else
@@ -839,7 +839,7 @@ LABEL_68:
   PopExecuteOnTargetProcessors((__int64)&KeActiveProcessors, (__int64)PpmStartIllegalProcessorThrottleLogging, 0LL, 0LL);
   if ( *((_BYTE *)a1 + 48) )
   {
-    PopReleasePolicyLock(v86, v85, v87, v88, Timeouta);
+    PopReleasePolicyLock(v86, v85, v87, v88, ExplicitScopea);
     *((_BYTE *)a1 + 48) = 0;
   }
   if ( *((_BYTE *)a1 + 96) )
@@ -952,7 +952,7 @@ LABEL_214:
   byte_140F0ADA0 = 0;
   PopResetActionDefaults();
   PopSetPowerActionState(2);
-  PopReleasePolicyLock(v93, v92, v94, v95, Timeouta);
+  PopReleasePolicyLock(v93, v92, v94, v95, ExplicitScopea);
   if ( PopPendingUserPresenceDuringSystemSleep )
     PoSetUserPresent(PopPendingUserPresenceMonitorOnReason);
   ExQueueWorkItem(&PopUnlockAfterSleepWorkItem, DelayedWorkQueue);

@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpCheckForPrivatePreEnable @ 0x180057A60
+ * XREFs of EtwpCheckForPrivatePreEnable @ 0x180041FE0
  * Callers:
- *     EtwNotificationRegister @ 0x1800571C0 (EtwNotificationRegister.c)
+ *     EtwNotificationRegister @ 0x180041740 (EtwNotificationRegister.c)
  * Callees:
- *     EtwpGetUmProcessImageInfo @ 0x180012B44 (EtwpGetUmProcessImageInfo.c)
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     EtwpFindGuidEntry @ 0x180057C30 (EtwpFindGuidEntry.c)
- *     EtwpRegisterGuidsApiCallback @ 0x180059160 (EtwpRegisterGuidsApiCallback.c)
- *     EtwpUpdatePrivateEnableInfo @ 0x1800F8674 (EtwpUpdatePrivateEnableInfo.c)
- *     EtwpPreEnableEventApiCallback @ 0x180107538 (EtwpPreEnableEventApiCallback.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     EtwpFindGuidEntry @ 0x1800421B0 (EtwpFindGuidEntry.c)
+ *     EtwpRegisterGuidsApiCallback @ 0x1800436E0 (EtwpRegisterGuidsApiCallback.c)
+ *     EtwpGetUmProcessImageInfo @ 0x18005E274 (EtwpGetUmProcessImageInfo.c)
+ *     EtwpUpdatePrivateEnableInfo @ 0x1800F7E44 (EtwpUpdatePrivateEnableInfo.c)
+ *     EtwpPreEnableEventApiCallback @ 0x180106F38 (EtwpPreEnableEventApiCallback.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-struct _TEB *__fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
+void __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
 {
   char v2; // si
-  struct _TEB *result; // rax
-  struct _TEB *v4; // rdi
+  _RTL_SRWLOCK *GuidEntry; // rax
+  _RTL_SRWLOCK *v4; // rdi
   unsigned __int8 *v5; // rbp
   __int64 v6; // r14
   __int16 v7; // cx
@@ -25,24 +25,24 @@ struct _TEB *__fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
   __int64 v9; // r8
   _BYTE v10[40]; // [rsp+20h] [rbp-98h] BYREF
   __int128 v11; // [rsp+48h] [rbp-70h]
-  __int64 v12; // [rsp+88h] [rbp-30h]
-  unsigned int v13; // [rsp+90h] [rbp-28h]
+  unsigned __int64 Value; // [rsp+88h] [rbp-30h]
+  int v13; // [rsp+90h] [rbp-28h]
 
   v2 = 0;
-  result = (struct _TEB *)EtwpFindGuidEntry((void *)(a1 + 32));
-  v4 = result;
-  if ( result )
+  GuidEntry = (_RTL_SRWLOCK *)EtwpFindGuidEntry((void *)(a1 + 32));
+  v4 = GuidEntry;
+  if ( GuidEntry )
   {
-    RtlAcquireSRWLockShared((volatile signed __int64 *)&result->NtTib.ArbitraryUserPointer);
+    RtlAcquireSRWLockShared(GuidEntry + 5);
     *(_QWORD *)(a1 + 240) = v4;
-    *(_OWORD *)(a1 + 120) = *(_OWORD *)&v4->EnvironmentPointer;
-    *(_QWORD *)(a1 + 136) = v4->ClientId.UniqueThread;
-    *(_OWORD *)(a1 + 144) = *(_OWORD *)&v4->ActiveRpcHandle;
-    *(_QWORD *)(a1 + 160) = v4->ProcessEnvironmentBlock;
-    *(_OWORD *)(a1 + 168) = *(_OWORD *)&v4->LastErrorValue;
-    *(_QWORD *)(a1 + 184) = v4->Win32ThreadInfo;
-    *(_OWORD *)(a1 + 192) = *(_OWORD *)v4->User32Reserved;
-    *(_QWORD *)(a1 + 208) = *(_QWORD *)&v4->User32Reserved[4];
+    *(_OWORD *)(a1 + 120) = *(_OWORD *)&v4[7].0;
+    *(_RTL_SRWLOCK *)(a1 + 136) = v4[9];
+    *(_OWORD *)(a1 + 144) = *(_OWORD *)&v4[10].0;
+    *(_RTL_SRWLOCK *)(a1 + 160) = v4[12];
+    *(_OWORD *)(a1 + 168) = *(_OWORD *)&v4[13].0;
+    *(_RTL_SRWLOCK *)(a1 + 184) = v4[15];
+    *(_OWORD *)(a1 + 192) = *(_OWORD *)&v4[16].0;
+    *(_RTL_SRWLOCK *)(a1 + 208) = v4[18];
     EtwpUpdatePrivateEnableInfo(a1);
     v5 = (unsigned __int8 *)(a1 + 142);
     v6 = 4LL;
@@ -64,24 +64,23 @@ struct _TEB *__fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
       if ( (*(_WORD *)(a1 + 86) & 0x3FFF) == 2 )
       {
         memset_thunk_772440563353939046(v10, 0, 0x78uLL);
-        v8 = *(_OWORD *)&v4->NtTib.SubSystemTib;
-        v12 = *(_QWORD *)&v4->User32Reserved[6];
-        v13 = v4->User32Reserved[8];
+        v8 = *(_OWORD *)&v4[3].0;
+        Value = v4[19].Value;
+        v13 = (int)v4[20].0;
         v11 = v8;
-        RtlReleaseSRWLockShared((volatile signed __int64 *)&v4->NtTib.ArbitraryUserPointer);
+        RtlReleaseSRWLockShared(v4 + 5);
         LOBYTE(v9) = 1;
-        return (struct _TEB *)EtwpRegisterGuidsApiCallback(v10, a1, v9);
+        EtwpRegisterGuidsApiCallback(v10, a1, v9);
       }
       else
       {
-        RtlReleaseSRWLockShared((volatile signed __int64 *)&v4->NtTib.ArbitraryUserPointer);
-        return (struct _TEB *)EtwpPreEnableEventApiCallback(a1);
+        RtlReleaseSRWLockShared(v4 + 5);
+        EtwpPreEnableEventApiCallback(a1);
       }
     }
     else
     {
-      return RtlReleaseSRWLockShared((volatile signed __int64 *)&v4->NtTib.ArbitraryUserPointer);
+      RtlReleaseSRWLockShared(v4 + 5);
     }
   }
-  return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEnablePartitionMappedWrites @ 0x14052255C
+ * XREFs of MiEnablePartitionMappedWrites @ 0x1405055BC
  * Callers:
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiAllocateMappedWriterMdls @ 0x14014AB7C (MiAllocateMappedWriterMdls.c)
- *     MiDeleteMappedMdls @ 0x1401E5C18 (MiDeleteMappedMdls.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiAllocateMappedWriterMdls @ 0x14014B0EC (MiAllocateMappedWriterMdls.c)
+ *     MiDeleteMappedMdls @ 0x1401E5A44 (MiDeleteMappedMdls.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
  */
 
 __int64 __fastcall MiEnablePartitionMappedWrites(void *a1)
@@ -23,19 +23,19 @@ __int64 __fastcall MiEnablePartitionMappedWrites(void *a1)
   HANDLE ThreadHandle; // [rsp+60h] [rbp+8h] BYREF
 
   ThreadHandle = a1;
-  if ( qword_140323608 )
+  if ( qword_140323648 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   MappedWriterMdls = 0;
   --CurrentThread->SpecialApcDisable;
-  v4 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)qword_1403238F8, 0LL, 0);
-  v5 = _interlockedbittestandset64((volatile signed __int32 *)qword_1403238F8, 0LL);
+  v4 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)qword_140323938, 0LL, 0);
+  v5 = _interlockedbittestandset64((volatile signed __int32 *)qword_140323938, 0LL);
   v6 = v4;
   if ( v5 )
-    ExfAcquirePushLockExclusiveEx(qword_1403238F8, v4, (ULONG_PTR)qword_1403238F8);
+    ExfAcquirePushLockExclusiveEx(qword_140323938, v4, (ULONG_PTR)qword_140323938);
   if ( v6 )
     v6[26] |= 1u;
-  if ( !qword_140323608 )
+  if ( !qword_140323648 )
   {
     MappedWriterMdls = MiAllocateMappedWriterMdls(MiSystemPartition);
     if ( MappedWriterMdls >= 0 )
@@ -51,12 +51,12 @@ __int64 __fastcall MiEnablePartitionMappedWrites(void *a1)
       if ( MappedWriterMdls < 0 )
         MiDeleteMappedMdls((__int64)MiSystemPartition);
       else
-        qword_140323608 = (__int64)ThreadHandle;
+        qword_140323648 = (__int64)ThreadHandle;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_1403238F8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)qword_1403238F8);
-  KeAbPostRelease((ULONG_PTR)qword_1403238F8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140323938, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)qword_140323938);
+  KeAbPostRelease((ULONG_PTR)qword_140323938);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return (unsigned int)MappedWriterMdls;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAcquireFannedOutPushLockShared @ 0x1403CDBF4
+ * XREFs of ExpAcquireFannedOutPushLockShared @ 0x1403CDDD4
  * Callers:
- *     FsRtlLookupPerStreamContextInternal @ 0x140230340 (FsRtlLookupPerStreamContextInternal.c)
- *     FsRtlLookupPerFileObjectContext @ 0x140326610 (FsRtlLookupPerFileObjectContext.c)
+ *     FsRtlLookupPerStreamContextInternal @ 0x140230430 (FsRtlLookupPerStreamContextInternal.c)
+ *     FsRtlLookupPerFileObjectContext @ 0x1403268A0 (FsRtlLookupPerFileObjectContext.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 *__fastcall ExpAcquireFannedOutPushLockShared(

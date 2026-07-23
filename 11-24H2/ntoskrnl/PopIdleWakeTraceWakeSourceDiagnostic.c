@@ -1,14 +1,14 @@
 /*
- * XREFs of PopIdleWakeTraceWakeSourceDiagnostic @ 0x140A6C904
+ * XREFs of PopIdleWakeTraceWakeSourceDiagnostic @ 0x140A6614C
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140A8D7D0 (PopIdleWakeNotifyModernStandbyExitWorker.c)
+ *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140A89DA0 (PopIdleWakeNotifyModernStandbyExitWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopIdleWakeCalculateConvergedBuckets @ 0x14075EBA4 (PopIdleWakeCalculateConvergedBuckets.c)
- *     PopIdleWakeSendDripsWakeSourceTelemetry @ 0x140A6C9CC (PopIdleWakeSendDripsWakeSourceTelemetry.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopIdleWakeCalculateConvergedBuckets @ 0x14075DB44 (PopIdleWakeCalculateConvergedBuckets.c)
+ *     PopIdleWakeSendDripsWakeSourceTelemetry @ 0x140A66214 (PopIdleWakeSendDripsWakeSourceTelemetry.c)
  */
 
 char __fastcall PopIdleWakeTraceWakeSourceDiagnostic(__int64 a1, __int64 a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeEnterCriticalRegion @ 0x14000AE80
+ * XREFs of KeEnterCriticalRegion @ 0x14000AA00
  * Callers:
- *     PiCMCreateDevice @ 0x1406461E4 (PiCMCreateDevice.c)
- *     PiCMGenerateDeviceInstance @ 0x1406477EC (PiCMGenerateDeviceInstance.c)
+ *     PiCMCreateDevice @ 0x1406462C8 (PiCMCreateDevice.c)
+ *     PiCMGenerateDeviceInstance @ 0x1406478D0 (PiCMGenerateDeviceInstance.c)
  * Callees:
  *     <none>
  */

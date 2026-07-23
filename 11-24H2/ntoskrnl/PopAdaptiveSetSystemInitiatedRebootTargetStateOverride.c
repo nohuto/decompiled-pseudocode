@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAdaptiveSetSystemInitiatedRebootTargetStateOverride @ 0x14075F5C0
+ * XREFs of PopAdaptiveSetSystemInitiatedRebootTargetStateOverride @ 0x14075E560
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x140A30168 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x140A24C58 (PopAcquireAdaptiveLock.c)
  */
 
 __int64 __fastcall PopAdaptiveSetSystemInitiatedRebootTargetStateOverride(__int64 a1)
@@ -26,8 +26,8 @@ __int64 __fastcall PopAdaptiveSetSystemInitiatedRebootTargetStateOverride(__int6
   {
     LOBYTE(a1) = 1;
     PopAcquireAdaptiveLock(a1);
-    qword_140FD71F8 = qword_140FD71F8 & 0xFFFFFFFFFFFFFFF8uLL | *(_DWORD *)(v2 + 12) & 7;
-    qword_140FD71F8 = qword_140FD71F8 & 0xFFFFFFFFFFFFFFF7uLL | (*(_BYTE *)(v2 + 8) != 0 ? 8 : 0);
+    qword_140FD81F8 = qword_140FD81F8 & 0xFFFFFFFFFFFFFFF8uLL | *(_DWORD *)(v2 + 12) & 7;
+    qword_140FD81F8 = qword_140FD81F8 & 0xFFFFFFFFFFFFFFF7uLL | (*(_BYTE *)(v2 + 8) != 0 ? 8 : 0);
     PopReleaseAdaptiveLock();
   }
   return v3;

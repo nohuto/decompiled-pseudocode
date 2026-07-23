@@ -16,7 +16,7 @@ signed __int64 *__fastcall ExAcquireCacheAwarePushLockSharedEx(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter1)
 {
-  unsigned __int64 v2; // rdi
+  __int64 v2; // rdi
   struct _KTHREAD *CurrentThread; // rbx
   unsigned int AbEntrySummary; // ecx
   __int64 v6; // rax
@@ -53,7 +53,7 @@ signed __int64 *__fastcall ExAcquireCacheAwarePushLockSharedEx(
     _BitScanForward((unsigned int *)&v6, AbEntrySummary);
     v13 = v6;
     CurrentThread->AbEntrySummary = AbEntrySummary & ~(1 << v6);
-    v2 = (unsigned __int64)&CurrentThread->LockEntries[v6];
+    v2 = (__int64)&CurrentThread->LockEntries[v6];
     if ( v2 )
     {
       if ( BugCheckParameter2 >= 0xFFFF800000000000uLL

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInsertElementGenericTable @ 0x140327D60
+ * XREFs of RtlInsertElementGenericTable @ 0x140327FF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInsertElementGenericTableFull @ 0x140327DD0 (RtlInsertElementGenericTableFull.c)
- *     FindNodeOrParent @ 0x140328100 (FindNodeOrParent.c)
+ *     RtlInsertElementGenericTableFull @ 0x140328060 (RtlInsertElementGenericTableFull.c)
+ *     FindNodeOrParent @ 0x140328390 (FindNodeOrParent.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTable(

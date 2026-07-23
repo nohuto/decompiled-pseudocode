@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpDisableKernelTrace @ 0x1407D5404
+ * XREFs of EtwpDisableKernelTrace @ 0x1407D56D4
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x1407D4E7C (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpEnableKernelTrace @ 0x1407D5090 (EtwpEnableKernelTrace.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1407D514C (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpEnableKernelTrace @ 0x1407D5360 (EtwpEnableKernelTrace.c)
  * Callees:
- *     KeCancelTimer2 @ 0x14031DEE0 (KeCancelTimer2.c)
- *     IoPerfReset @ 0x140558FD4 (IoPerfReset.c)
- *     KeStopProfile @ 0x14057401C (KeStopProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1405A77E0 (DbgSetDebugPrintCallback.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1407D5670 (EtwpUpdateFileInfoDriverState.c)
- *     AlpcUnregisterLogRoutine @ 0x14097A11C (AlpcUnregisterLogRoutine.c)
- *     ObDisableEtwReferenceTrace @ 0x14097C480 (ObDisableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x1409E183C (WmiSetNetworkNotify.c)
+ *     KeCancelTimer2 @ 0x14031E170 (KeCancelTimer2.c)
+ *     IoPerfReset @ 0x140559694 (IoPerfReset.c)
+ *     KeStopProfile @ 0x14057455C (KeStopProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1405A7D50 (DbgSetDebugPrintCallback.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1407D5940 (EtwpUpdateFileInfoDriverState.c)
+ *     AlpcUnregisterLogRoutine @ 0x14097A31C (AlpcUnregisterLogRoutine.c)
+ *     ObDisableEtwReferenceTrace @ 0x14097C680 (ObDisableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x1409E1ACC (WmiSetNetworkNotify.c)
  */
 
 __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -195,7 +195,7 @@ LABEL_44:
   if ( (*v9 & 0x400) != 0 )
   {
     for ( i = 0; i < EtwpPmcProfile; ++i )
-      KeStopProfile((ULONG_PTR)qword_140C32218 + 616 * i);
+      KeStopProfile((ULONG_PTR)qword_140C32468 + 616 * i);
   }
   else if ( !a2 )
   {

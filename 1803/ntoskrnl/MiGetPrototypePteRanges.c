@@ -9,7 +9,7 @@
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140122D80 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
-__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, struct _RTL_BITMAP *a2)
+__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, _RTL_BITMAP *a2)
 {
   unsigned __int64 v3; // r15
   unsigned int v5; // r14d

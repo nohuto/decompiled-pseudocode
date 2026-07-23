@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIsNormalizedString @ 0x140808D80
+ * XREFs of RtlIsNormalizedString @ 0x14080E810
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x14061E4EC (RtlpIdnToUnicodeWorker.c)
+ *     RtlpIdnToUnicodeWorker @ 0x14062153C (RtlpIdnToUnicodeWorker.c)
  * Callees:
- *     Normalization__IsNormalized @ 0x140807C94 (Normalization__IsNormalized.c)
- *     RtlpGetNormalization @ 0x14080F254 (RtlpGetNormalization.c)
+ *     Normalization__IsNormalized @ 0x14080D734 (Normalization__IsNormalized.c)
+ *     RtlpGetNormalization @ 0x140814CE4 (RtlpGetNormalization.c)
  */
 
 NTSTATUS __stdcall RtlIsNormalizedString(

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1405BC150
+ * XREFs of KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1405B9780
  * Callers:
- *     DifKeTryToAcquireQueuedSpinLockRaiseToSynchWrapper @ 0x1406310A0 (DifKeTryToAcquireQueuedSpinLockRaiseToSynchWrapper.c)
+ *     DifKeTryToAcquireQueuedSpinLockRaiseToSynchWrapper @ 0x14062F660 (DifKeTryToAcquireQueuedSpinLockRaiseToSynchWrapper.c)
  * Callees:
- *     KxTryToAcquireQueuedSpinLock @ 0x1402DA128 (KxTryToAcquireQueuedSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x14023BA08 (KxTryToAcquireQueuedSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeTryToAcquireQueuedSpinLockRaiseToSynch(__int64 a1, unsigned __int8 *a2)

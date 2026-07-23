@@ -10,12 +10,12 @@
 __int64 __fastcall LdrpFindDelayloadedMethod(unsigned __int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 DelayloadedMethodInDescriptor; // rsi
-  int v7; // eax
-  __int64 v8; // r15
-  unsigned int v9; // edi
+  NTSTATUS v7; // eax
+  char *v8; // r15
+  int v9; // edi
   unsigned int v10; // ebx
   unsigned int v12; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v13; // [rsp+88h] [rbp+20h] BYREF
+  char *v13; // [rsp+88h] [rbp+20h] BYREF
 
   *a3 = 0LL;
   DelayloadedMethodInDescriptor = 0LL;
@@ -31,13 +31,13 @@ __int64 __fastcall LdrpFindDelayloadedMethod(unsigned __int64 a1, __int64 a2, _Q
     {
       while ( 1 )
       {
-        DelayloadedMethodInDescriptor = LdrpFindDelayloadedMethodInDescriptor(a1, v8 + 32LL * v9, a2);
+        DelayloadedMethodInDescriptor = LdrpFindDelayloadedMethodInDescriptor(a1, &v8[32 * v9], a2);
         if ( DelayloadedMethodInDescriptor )
           break;
         if ( ++v9 >= v10 )
           return DelayloadedMethodInDescriptor;
       }
-      *a3 = v8 + 32LL * v9;
+      *a3 = &v8[32 * v9];
     }
   }
   return DelayloadedMethodInDescriptor;

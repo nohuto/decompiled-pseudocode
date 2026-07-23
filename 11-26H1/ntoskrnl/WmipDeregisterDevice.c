@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipDeregisterDevice @ 0x140ACDBA8
+ * XREFs of WmipDeregisterDevice @ 0x140ACFDE8
  * Callers:
- *     IoWMIRegistrationControl @ 0x140ACD740 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x140ACF980 (IoWMIRegistrationControl.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     WmipDeregisterRegEntry @ 0x1403B6EF0 (WmipDeregisterRegEntry.c)
- *     WmipUnreferenceRegEntry @ 0x1403B7080 (WmipUnreferenceRegEntry.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipFindRegEntryByDevice @ 0x1404961EC (WmipFindRegEntryByDevice.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     WmipDeregisterRegEntry @ 0x1403C0DF0 (WmipDeregisterRegEntry.c)
+ *     WmipUnreferenceRegEntry @ 0x1403C0F80 (WmipUnreferenceRegEntry.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipFindRegEntryByDevice @ 0x14048FD3C (WmipFindRegEntryByDevice.c)
  */
 
 __int64 __fastcall WmipDeregisterDevice(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall WmipDeregisterDevice(__int64 a1)
   PVOID *i; // rbx
 
   v2 = 0;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   RegEntryByDevice = (char *)WmipFindRegEntryByDevice(a1);
   if ( RegEntryByDevice )
   {
@@ -30,7 +30,7 @@ __int64 __fastcall WmipDeregisterDevice(__int64 a1)
       }
     }
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   if ( RegEntryByDevice )
   {
     WmipUnreferenceRegEntry((__int64)RegEntryByDevice);

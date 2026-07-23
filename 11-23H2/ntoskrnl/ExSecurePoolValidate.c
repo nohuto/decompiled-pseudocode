@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSecurePoolValidate @ 0x14060CF20
+ * XREFs of ExSecurePoolValidate @ 0x14060D470
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTpEmulateGroup11Instruction @ 0x140A12610
+ * XREFs of KiTpEmulateGroup11Instruction @ 0x140A13610
  * Callers:
- *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateInstruction @ 0x140A138C0 (KiTpEmulateInstruction.c)
  * Callees:
- *     KiTpAccessMemory @ 0x140A12008 (KiTpAccessMemory.c)
- *     KiTpDecodeModRm @ 0x140A12168 (KiTpDecodeModRm.c)
- *     KiTpDecodeModRmOperand @ 0x140A12254 (KiTpDecodeModRmOperand.c)
- *     KiTpFetchImmediateOperand @ 0x140A13198 (KiTpFetchImmediateOperand.c)
+ *     KiTpAccessMemory @ 0x140A13008 (KiTpAccessMemory.c)
+ *     KiTpDecodeModRm @ 0x140A13168 (KiTpDecodeModRm.c)
+ *     KiTpDecodeModRmOperand @ 0x140A13254 (KiTpDecodeModRmOperand.c)
+ *     KiTpFetchImmediateOperand @ 0x140A14198 (KiTpFetchImmediateOperand.c)
  */
 
 __int64 __fastcall KiTpEmulateGroup11Instruction(__int64 a1, __int64 a2, int *a3)

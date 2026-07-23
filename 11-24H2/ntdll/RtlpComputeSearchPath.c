@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpComputeSearchPath @ 0x18010B010
+ * XREFs of RtlpComputeSearchPath @ 0x180105DB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlpLookupCurDirSetting @ 0x180083BF4 (RtlpLookupCurDirSetting.c)
- *     RtlpComputePath @ 0x180084760 (RtlpComputePath.c)
+ *     RtlpLookupCurDirSetting @ 0x180005AA0 (RtlpLookupCurDirSetting.c)
+ *     RtlpComputePath @ 0x180006610 (RtlpComputePath.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
  */
 
-unsigned __int64 RtlpComputeSearchPath()
+int *RtlpComputeSearchPath()
 {
   int v0; // ebx
   unsigned __int64 EnvironmentVersion; // rdi
-  unsigned __int64 v2; // rbx
+  int *v2; // rbx
 
   v0 = 1;
   EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
@@ -25,18 +25,18 @@ unsigned __int64 RtlpComputeSearchPath()
     }
     else
     {
-      v0 = dword_1801D23C8;
-      if ( !dword_1801D23C8 )
-        v0 = RtlpLookupCurDirSetting((__int64)L"*,", 0, &dword_1801D23C8);
+      v0 = dword_1801D13C8;
+      if ( !dword_1801D13C8 )
+        v0 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_180173028, 0, &dword_1801D13C8);
     }
   }
   RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
-  v2 = RtlpComputePath((__int64)&unk_18017C380 + 20 * v0, 5u, 0LL, 0);
+  v2 = RtlpComputePath((__int64)&unk_180177320 + 20 * v0, 5u, 0LL, 0);
   RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
   if ( v2 )
   {
-    *(_QWORD *)(v2 + 88) = EnvironmentVersion;
-    *(_BYTE *)(v2 + 116) = 0;
+    *((_QWORD *)v2 + 11) = EnvironmentVersion;
+    *((_BYTE *)v2 + 116) = 0;
   }
   return v2;
 }

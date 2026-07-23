@@ -27,9 +27,9 @@ char RtlpScanHeapAllocBlocks()
   __int64 BlockInfo; // rax
   int v13; // r9d
   __int64 v14; // rbp
-  __int64 v15; // rax
+  SIZE_T v15; // rax
   __int64 v16; // rdi
-  unsigned __int64 v17; // r8
+  char *v17; // r8
   unsigned __int8 *v18; // rbx
   int v19; // eax
 
@@ -79,8 +79,14 @@ char RtlpScanHeapAllocBlocks()
     {
       if ( qword_180144A68 )
       {
-        v15 = RtlSizeHeap(*(_QWORD *)(BlockInfo + 8), 0LL, *(_QWORD *)(j + 16));
-        qword_180144A68(0LL, *(_QWORD *)(v14 + 8), *(_QWORD *)(j + 16), v15, 0, 0LL);
+        v15 = RtlSizeHeap(*(PVOID *)(BlockInfo + 8), 0, *(PVOID *)(j + 16));
+        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, SIZE_T, _DWORD, _QWORD))qword_180144A68)(
+          0LL,
+          *(_QWORD *)(v14 + 8),
+          *(_QWORD *)(j + 16),
+          v15,
+          0,
+          0LL);
       }
       else
       {
@@ -91,7 +97,7 @@ char RtlpScanHeapAllocBlocks()
           DbgPrint("---------------------------------------\n");
         }
         v16 = *(_QWORD *)(v14 + 8);
-        v17 = *(_QWORD *)(j + 16);
+        v17 = *(char **)(j + 16);
         if ( *(_DWORD *)(v16 + 16) == -571548178 )
         {
           v18 = *(unsigned __int8 **)(j + 16);
@@ -99,11 +105,11 @@ char RtlpScanHeapAllocBlocks()
         else
         {
           v18 = (unsigned __int8 *)(v17 - 16);
-          _m_prefetchw((const void *)(v17 - 16));
-          if ( *(_BYTE *)(v17 - 16 + 15) == 5 )
+          _m_prefetchw(v17 - 16);
+          if ( *(v17 - 1) == 5 )
             v18 -= 16 * v18[14];
         }
-        v19 = RtlSizeHeap(*(_QWORD *)(v14 + 8), 0LL, v17);
+        v19 = RtlSizeHeap(*(PVOID *)(v14 + 8), 0, v17);
         DbgPrint("%p  %-16Ix  %Id", v18, v16, v19);
         DbgPrint("\n");
       }
@@ -111,6 +117,6 @@ char RtlpScanHeapAllocBlocks()
     }
   }
   if ( qword_180144A68 )
-    qword_180144A68(0LL, 0LL, 0LL, 0LL, 0, 0LL);
+    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD))qword_180144A68)(0LL, 0LL, 0LL, 0LL, 0, 0LL);
   return 1;
 }

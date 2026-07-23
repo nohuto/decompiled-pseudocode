@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlGetSparseGpaPagesAccessState @ 0x140678ED8
+ * XREFs of HvlGetSparseGpaPagesAccessState @ 0x140679428
  * Callers:
- *     VmpProcessAccessedBatch @ 0x1405FA95C (VmpProcessAccessedBatch.c)
+ *     VmpProcessAccessedBatch @ 0x1405FAECC (VmpProcessAccessedBatch.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     HvlpHvToNtStatus @ 0x14045F516 (HvlpHvToNtStatus.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvlpHvToNtStatus @ 0x14045F916 (HvlpHvToNtStatus.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlGetSparseGpaPagesAccessState(

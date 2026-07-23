@@ -31,15 +31,15 @@ void PopFreeHiberContext()
   __int64 **v6; // rax
   void *v7; // rcx
   __int64 v8; // rcx
-  HANDLE KeyHandle; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp+8h] BYREF
 
   v0 = qword_14032E680;
   if ( qword_14032E680 )
   {
-    if ( (int)BcdOpenSystemStore(&KeyHandle) >= 0 )
+    if ( BcdOpenSystemStore(&BcdStoreHandle) >= 0 )
     {
-      PopBcdClearPendingResume(KeyHandle);
-      BcdCloseStore(KeyHandle);
+      PopBcdClearPendingResume(BcdStoreHandle);
+      BcdCloseStore(BcdStoreHandle);
     }
     v1 = *(void **)(v0 + 248);
     if ( v1 )

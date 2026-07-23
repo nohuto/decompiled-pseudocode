@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpFlushBufferToLogfile @ 0x140A15524
+ * XREFs of EtwpFlushBufferToLogfile @ 0x140A14718
  * Callers:
- *     EtwpBufferingModeFlush @ 0x140A13654 (EtwpBufferingModeFlush.c)
- *     EtwpFlushBuffer @ 0x140A14C58 (EtwpFlushBuffer.c)
+ *     EtwpBufferingModeFlush @ 0x140A12844 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushBuffer @ 0x140A13E4C (EtwpFlushBuffer.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     ZwWriteFile @ 0x1407234F0 (ZwWriteFile.c)
- *     EtwpEventWriteTemplateMaxFileSize @ 0x140825808 (EtwpEventWriteTemplateMaxFileSize.c)
- *     EtwpGenerateFileName @ 0x140A1751C (EtwpGenerateFileName.c)
- *     EtwpEventWriteTemplateAdmin @ 0x140B35598 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ZwWriteFile @ 0x1407280C0 (ZwWriteFile.c)
+ *     EtwpEventWriteTemplateMaxFileSize @ 0x14082BA48 (EtwpEventWriteTemplateMaxFileSize.c)
+ *     EtwpGenerateFileName @ 0x140B277B0 (EtwpGenerateFileName.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140B377A8 (EtwpEventWriteTemplateAdmin.c)
  */
 
 __int64 __fastcall EtwpFlushBufferToLogfile(__int64 a1, unsigned int *a2)
@@ -52,7 +52,10 @@ __int64 __fastcall EtwpFlushBufferToLogfile(__int64 a1, unsigned int *a2)
           if ( (*(_DWORD *)(a1 + 816) & 0x100) == 0 )
           {
             _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x100u);
-            if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_MAX_FILE_SIZE_REACHED) )
+            if ( EtwEventEnabled(
+                   (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+                   &ETW_EVENT_MAX_FILE_SIZE_REACHED) )
+            {
               EtwpEventWriteTemplateMaxFileSize(
                 a1 + 152,
                 v12,
@@ -62,6 +65,7 @@ __int64 __fastcall EtwpFlushBufferToLogfile(__int64 a1, unsigned int *a2)
                 Buffer,
                 *(_DWORD *)(a1 + 12),
                 v11);
+            }
           }
           goto LABEL_11;
         }
@@ -83,7 +87,7 @@ __int64 __fastcall EtwpFlushBufferToLogfile(__int64 a1, unsigned int *a2)
     ++*(_DWORD *)(a1 + 204);
     return (unsigned int)v6;
   }
-  if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_WRITE_FAILED) )
+  if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_WRITE_FAILED) )
     EtwpEventWriteTemplateAdmin(
       a1 + 152,
       (unsigned int)&ETW_EVENT_WRITE_FAILED,

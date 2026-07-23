@@ -13,16 +13,16 @@
 
 int __usercall _RtlpRemovePendingDeleteLanguages@<eax>(__int16 a1@<dx>, int a2@<ecx>, int a3@<ebp>)
 {
-  int v4; // esi
-  int v6; // eax
+  ULONG v4; // esi
+  NTSTATUS v6; // eax
   int v7; // ecx
   _WORD *v8; // eax
-  UNICODE_STRING v9; // [esp-254h] [ebp-260h] BYREF
-  _DWORD v10[6]; // [esp-24Ch] [ebp-258h] BYREF
-  int v11; // [esp-234h] [ebp-240h] BYREF
+  _UNICODE_STRING v9; // [esp-254h] [ebp-260h] BYREF
+  _OBJECT_ATTRIBUTES v10; // [esp-24Ch] [ebp-258h] BYREF
+  ULONG v11; // [esp-234h] [ebp-240h] BYREF
   __int16 v12; // [esp-22Eh] [ebp-23Ah]
   HANDLE v13; // [esp-22Ch] [ebp-238h] BYREF
-  int v14; // [esp-228h] [ebp-234h]
+  NTSTATUS v14; // [esp-228h] [ebp-234h]
   __int16 v15; // [esp-224h] [ebp-230h] BYREF
   int v16; // [esp-220h] [ebp-22Ch] BYREF
   unsigned int v17; // [esp-214h] [ebp-220h]
@@ -41,17 +41,17 @@ int __usercall _RtlpRemovePendingDeleteLanguages@<eax>(__int16 a1@<dx>, int a2@<
     return -1073741811;
   RtlInitUnicodeString(&v9, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages\\PendingDelete");
   v13 = 0;
-  v10[2] = &v9;
-  v10[0] = 24;
-  v10[1] = 0;
-  v10[3] = 64;
-  v10[4] = 0;
-  v10[5] = 0;
-  if ( (int)ZwOpenKey(&v13, 131097, v10) >= 0 )
+  v10.ObjectName = &v9;
+  v10.Length = 24;
+  v10.RootDirectory = 0;
+  v10.Attributes = 64;
+  v10.SecurityDescriptor = 0;
+  v10.SecurityQualityOfService = 0;
+  if ( ZwOpenKey(&v13, 0x20019u, &v10) >= 0 )
   {
     do
     {
-      v6 = ZwEnumerateKey(v13, v4, 0, &v16, 512, &v11);
+      v6 = ZwEnumerateKey(v13, v4, KeyBasicInformation, &v16, 0x200u, &v11);
       v14 = v6;
       if ( v6 >= 0 && v17 + 24 < 0x1FE )
       {

@@ -3,7 +3,7 @@
  * Callers:
  *     PpInitializeBootDDB @ 0x14079DA0C (PpInitializeBootDDB.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x1400C3F7C (RtlInitializeGenericTableAvl.c)
+ *     RtlInitializeGenericTableAvl @ 0x1400C1E1C (RtlInitializeGenericTableAvl.c)
  */
 
 __int64 PiInitializeDDBCache()

@@ -12,5 +12,5 @@ NTSTATUS __stdcall ZwAllocateLocallyUniqueId(PLUID Luid)
 
   _disable();
   __readeflags();
-  return KiServiceInternal(Luid, v1);
+  return sub_140433F80(Luid, v1);
 }

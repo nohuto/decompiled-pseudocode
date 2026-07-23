@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStartingOffsetNeedLock @ 0x14036D190
+ * XREFs of MiStartingOffsetNeedLock @ 0x14036EF30
  * Callers:
- *     MiPfConvertFileOffsetToProto @ 0x14036CC30 (MiPfConvertFileOffsetToProto.c)
+ *     MiPfConvertFileOffsetToProto @ 0x14036E9D0 (MiPfConvertFileOffsetToProto.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
  */
 
 unsigned __int64 __fastcall MiStartingOffsetNeedLock(__int64 *a1, unsigned int a2)

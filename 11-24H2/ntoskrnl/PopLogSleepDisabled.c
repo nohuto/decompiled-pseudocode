@@ -1,17 +1,17 @@
 /*
- * XREFs of PopLogSleepDisabled @ 0x1409B80F8
+ * XREFs of PopLogSleepDisabled @ 0x14099E748
  * Callers:
- *     PopUpdateUpgradeInProgress @ 0x140749A30 (PopUpdateUpgradeInProgress.c)
- *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
- *     PopLogDisabledSleepReason @ 0x1409B9550 (PopLogDisabledSleepReason.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopEnableHiberFile @ 0x140AB3950 (PopEnableHiberFile.c)
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
- *     PopInitPlatformSettings @ 0x140C67E1C (PopInitPlatformSettings.c)
+ *     PopUpdateUpgradeInProgress @ 0x140747D60 (PopUpdateUpgradeInProgress.c)
+ *     PopFilterCapabilities @ 0x14099F88C (PopFilterCapabilities.c)
+ *     PopLogDisabledSleepReason @ 0x14099FBA0 (PopLogDisabledSleepReason.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopEnableHiberFile @ 0x140AAE8C0 (PopEnableHiberFile.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
+ *     PopInitPlatformSettings @ 0x140C69F98 (PopInitPlatformSettings.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PopGetReasonListByReasonCode @ 0x1409B999C (PopGetReasonListByReasonCode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PopGetReasonListByReasonCode @ 0x14099FFEC (PopGetReasonListByReasonCode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a4)
@@ -28,7 +28,7 @@ __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a
   }
   else
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, a4 + 32, 0x66756263u);
     v10 = (_QWORD *)Pool2;
     if ( Pool2 )
     {
@@ -50,13 +50,13 @@ __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a
         *(_DWORD *)(Pool2 + 28) = a4;
         memmove((void *)(Pool2 + 32), a3, a4);
       }
-      v11 = (_QWORD *)qword_140F0B828;
-      if ( *(__int64 **)qword_140F0B828 != &PowerStateDisableReasonListHead )
+      v11 = (_QWORD *)qword_140F0B578;
+      if ( *(__int64 **)qword_140F0B578 != &PowerStateDisableReasonListHead )
         __fastfail(3u);
       *v10 = &PowerStateDisableReasonListHead;
       v10[1] = v11;
       *v11 = v10;
-      qword_140F0B828 = (__int64)v10;
+      qword_140F0B578 = (__int64)v10;
     }
     else
     {

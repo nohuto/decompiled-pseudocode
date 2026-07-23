@@ -1,18 +1,18 @@
 /*
- * XREFs of MiObtainSectionForDriver @ 0x140AEB960
+ * XREFs of MiObtainSectionForDriver @ 0x140AEE86C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiUpdateDriverLoadInProgress @ 0x14040BD98 (MiUpdateDriverLoadInProgress.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     MiCreateSectionForDriver @ 0x140AEBC54 (MiCreateSectionForDriver.c)
- *     MiAllocateTempLoaderEntry @ 0x140AEBF68 (MiAllocateTempLoaderEntry.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiUpdateDriverLoadInProgress @ 0x1404294E0 (MiUpdateDriverLoadInProgress.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     MiCreateSectionForDriver @ 0x140AEEB60 (MiCreateSectionForDriver.c)
+ *     MiAllocateTempLoaderEntry @ 0x140AEEE74 (MiAllocateTempLoaderEntry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiObtainSectionForDriver(
@@ -52,11 +52,11 @@ __int64 __fastcall MiObtainSectionForDriver(
   {
     for ( i = 0; i < 2; ++i )
     {
-      Blink = stru_140E2D150.SuspendEvent.Header.WaitListHead.Blink;
+      Blink = stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Blink;
       v6 = 0LL;
       p_Blink = (struct _LIST_ENTRY **)&PsLoadedModuleList;
       if ( i )
-        p_Blink = &stru_140E2D150.SuspendEvent.Header.WaitListHead.Blink;
+        p_Blink = &stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Blink;
       else
         Blink = (struct _LIST_ENTRY *)PsLoadedModuleList;
       if ( Blink != (struct _LIST_ENTRY *)p_Blink )

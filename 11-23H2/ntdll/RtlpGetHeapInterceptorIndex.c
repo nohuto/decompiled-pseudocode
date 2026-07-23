@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpGetHeapInterceptorIndex @ 0x180116718
+ * XREFs of RtlpGetHeapInterceptorIndex @ 0x1801166E8
  * Callers:
  *     RtlCreateHeap @ 0x180047FD0 (RtlCreateHeap.c)
  *     RtlpHpHeapCreate @ 0x180065EE8 (RtlpHpHeapCreate.c)

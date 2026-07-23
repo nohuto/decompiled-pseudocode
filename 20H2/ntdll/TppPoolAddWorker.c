@@ -7,23 +7,21 @@
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall TppPoolAddWorker(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)
+void __fastcall TppPoolAddWorker(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  unsigned __int64 UniqueThread_low; // r8
-  _QWORD *v7; // rax
-  _QWORD *v8; // rdx
+  _RTL_SRWLOCK *v4; // rax
+  _RTL_SRWLOCK **Value; // rdx
 
-  UniqueThread_low = LODWORD(NtCurrentTeb()->ClientId.UniqueThread);
-  *(_DWORD *)(a2 + 40) = UniqueThread_low;
+  *(_DWORD *)(a2 + 40) = NtCurrentTeb()->ClientId.UniqueThread;
   *(_QWORD *)(a2 + 48) = a1;
-  RtlAcquireSRWLockExclusive(a1 + 72, a2, UniqueThread_low, a4);
-  v7 = (_QWORD *)(a2 + 16);
-  v8 = *(_QWORD **)(a1 + 104);
-  if ( *v8 != a1 + 96 )
+  RtlAcquireSRWLockExclusive(a1 + 9);
+  v4 = (_RTL_SRWLOCK *)(a2 + 16);
+  Value = (_RTL_SRWLOCK **)a1[13].Value;
+  if ( *Value != &a1[12] )
     __fastfail(3u);
-  *v7 = a1 + 96;
-  *(_QWORD *)(a2 + 24) = v8;
-  *v8 = v7;
-  *(_QWORD *)(a1 + 104) = v7;
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+  v4->Value = (unsigned __int64)&a1[12];
+  *(_QWORD *)(a2 + 24) = Value;
+  *Value = v4;
+  a1[13].Value = (unsigned __int64)v4;
+  RtlReleaseSRWLockExclusive(a1 + 9);
 }

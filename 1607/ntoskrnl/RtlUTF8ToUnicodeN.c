@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUTF8ToUnicodeN @ 0x1404E359C
+ * XREFs of RtlUTF8ToUnicodeN @ 0x1404C6500
  * Callers:
  *     <none>
  * Callees:
- *     CountUTF8ToUnicode @ 0x140216168 (CountUTF8ToUnicode.c)
+ *     CountUTF8ToUnicode @ 0x140215F94 (CountUTF8ToUnicode.c)
  */
 
 NTSTATUS __stdcall RtlUTF8ToUnicodeN(

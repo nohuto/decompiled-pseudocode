@@ -1,9 +1,9 @@
 /*
- * XREFs of PoSetPowerButtonHoldState @ 0x140603CD0
+ * XREFs of PoSetPowerButtonHoldState @ 0x1406067D0
  * Callers:
  *     <none>
  * Callees:
- *     PopUpdatePowerButtonHoldState @ 0x140504F4C (PopUpdatePowerButtonHoldState.c)
+ *     PopUpdatePowerButtonHoldState @ 0x1404FE890 (PopUpdatePowerButtonHoldState.c)
  */
 
 void __fastcall PoSetPowerButtonHoldState(char a1)

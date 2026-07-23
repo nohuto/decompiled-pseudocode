@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkHugeRangeTransition @ 0x1404F1208
+ * XREFs of MiMarkHugeRangeTransition @ 0x1404EECA8
  * Callers:
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
  * Callees:
- *     MiUnlockIoPfnTree @ 0x1403D0468 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x1403D0514 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x14038F980 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14038FA2C (MiLockIoPfnTree.c)
  */
 
 __int64 __fastcall MiMarkHugeRangeTransition(unsigned __int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall MiMarkHugeRangeTransition(unsigned __int64 a1, __int64 a2)
   v6 = 1;
 LABEL_2:
   v7 = MiLockIoPfnTree((unsigned int)(v4 + 1), a2);
-  for ( i = qword_140E37180; (__int64)i < (__int64)&xmmword_140E37200; i += 8 )
+  for ( i = qword_140E372C0; (__int64)i < (__int64)&xmmword_140E37340; i += 8 )
   {
     v9 = (_QWORD *)*i;
     if ( !*i )
@@ -86,7 +86,7 @@ LABEL_2:
   if ( v4 )
   {
     if ( v5 )
-      *(_QWORD *)(qword_140E2FFC0 + 8 * ((a1 >> 18) & 0x3FFFFF)) = *(_QWORD *)(qword_140E2FFC0
+      *(_QWORD *)(qword_140E30100 + 8 * ((a1 >> 18) & 0x3FFFFF)) = *(_QWORD *)(qword_140E30100
                                                                              + 8 * ((a1 >> 18) & 0x3FFFFF)) & 0x7FF8LL | ((unsigned __int64)(v5 & 0x1FF) << 15) | 5;
     v6 = 2;
   }

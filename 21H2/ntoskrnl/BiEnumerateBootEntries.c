@@ -1,22 +1,22 @@
 /*
- * XREFs of BiEnumerateBootEntries @ 0x140971998
+ * XREFs of BiEnumerateBootEntries @ 0x140971B78
  * Callers:
- *     BiBuildIdentifierList @ 0x140970928 (BiBuildIdentifierList.c)
+ *     BiBuildIdentifierList @ 0x140970B08 (BiBuildIdentifierList.c)
  * Callees:
- *     ZwEnumerateBootEntries @ 0x1403FBF80 (ZwEnumerateBootEntries.c)
- *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
- *     BiReleasePrivilege @ 0x140785C38 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwEnumerateBootEntries @ 0x1403FC160 (ZwEnumerateBootEntries.c)
+ *     BiLogMessage @ 0x140784F5C (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x140785DF8 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785E50 (BiAcquirePrivilege.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, _DWORD *a2)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   PVOID PoolWithTag; // rax
   void *v6; // rdi
-  int v7; // eax
+  NTSTATUS v7; // eax
   SIZE_T NumberOfBytes; // [rsp+50h] [rbp+18h] BYREF
   __int64 v10; // [rsp+58h] [rbp+20h] BYREF
 
@@ -30,7 +30,7 @@ __int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, _DWORD *a2)
     LODWORD(NumberOfBytes) = PoolWithTag != 0LL ? NumberOfBytes : 0;
     while ( 1 )
     {
-      v7 = ZwEnumerateBootEntries((__int64)PoolWithTag, (__int64)&NumberOfBytes);
+      v7 = ZwEnumerateBootEntries(PoolWithTag, (PULONG)&NumberOfBytes);
       v4 = v7;
       if ( v7 != -1073741789 )
         break;

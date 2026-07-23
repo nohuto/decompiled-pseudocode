@@ -3,24 +3,24 @@
  * Callers:
  *     KiAbProcessThreadLocks @ 0x140023C40 (KiAbProcessThreadLocks.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
- *     KiAbForceProcessLockEntry @ 0x140166180 (KiAbForceProcessLockEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140166280 (KiAbForceProcessLockEntry.c)
  * Callees:
  *     KiAbOwnerComputeCpuPriorityKey @ 0x140024F9C (KiAbOwnerComputeCpuPriorityKey.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExTryConvertSharedSpinLockExclusive @ 0x140119260 (ExTryConvertSharedSpinLockExclusive.c)
- *     KiAbCompareSnappedEntryState @ 0x140132668 (KiAbCompareSnappedEntryState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x1401192D0 (ExTryConvertSharedSpinLockExclusive.c)
+ *     KiAbCompareSnappedEntryState @ 0x140132738 (KiAbCompareSnappedEntryState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall KiAbEntryGetLockedHeadEntry(__int64 a1, __int64 a2, _QWORD *a3)
+PRTL_BALANCED_NODE __fastcall KiAbEntryGetLockedHeadEntry(PRTL_BALANCED_NODE Node, __int64 a2, _QWORD *a3)
 {
   _QWORD *v3; // r12
   int v4; // r13d
@@ -28,71 +28,72 @@ __int64 __fastcall KiAbEntryGetLockedHeadEntry(__int64 a1, __int64 a2, _QWORD *a
   unsigned __int64 v8; // rax
   volatile LONG *v9; // rsi
   int v10; // r15d
-  unsigned __int64 v11; // r14
+  _RTL_RB_TREE *v11; // r14
   struct _KPRCB *CurrentPrcb; // rbx
   _DWORD *SchedulerAssist; // rcx
   int v14; // eax
   signed __int32 v15; // ett
   _DWORD *v16; // rcx
   int v17; // eax
-  __int64 v18; // rax
-  __int64 v19; // rbx
+  _RTL_BALANCED_NODE *Min; // rax
+  unsigned __int64 Root; // rbx
   int v20; // edx
   unsigned __int64 v21; // rax
   unsigned int v22; // eax
-  __int64 v23; // rax
-  __int64 v24; // rdx
-  unsigned __int8 v25; // al
+  _RTL_BALANCED_NODE *v23; // rax
+  unsigned __int64 v24; // rdx
+  BOOLEAN v25; // al
   unsigned __int64 v26; // rax
   unsigned int v27; // eax
-  __int64 v28; // rax
-  __int64 v29; // rdi
+  _RTL_BALANCED_NODE *v28; // rax
+  PRTL_BALANCED_NODE v29; // rdi
   struct _KPRCB *v30; // rcx
   _DWORD *v31; // rdx
   int v32; // eax
   __int64 v33; // rdx
   __int64 v34; // r8
   char v35; // al
-  __int64 *v36; // rbx
+  $A3FF8F482F754979EE64F8673203A9F2 *v36; // rbx
   char v37; // r9
-  __int64 v38; // rax
-  __int64 v39; // rdx
-  int v40; // ecx
-  __int64 v41; // rax
-  char v42; // al
-  char v43; // r9
-  __int64 v44; // rcx
-  int v45; // ecx
-  __int64 v46; // rax
-  __int64 v47; // rax
-  __int64 v48; // rcx
-  unsigned __int64 v49; // [rsp+20h] [rbp-68h] BYREF
-  int v50; // [rsp+28h] [rbp-60h]
-  __int128 v51; // [rsp+30h] [rbp-58h]
-  _QWORD v52[4]; // [rsp+40h] [rbp-48h] BYREF
+  _RTL_BALANCED_NODE *v38; // rax
+  unsigned __int64 v39; // rdx
+  BOOLEAN v40; // r8
+  int v41; // ecx
+  unsigned __int64 v42; // rax
+  char v43; // al
+  char v44; // r9
+  _RTL_BALANCED_NODE *ParentValue; // rcx
+  int v46; // ecx
+  unsigned __int64 v47; // rax
+  unsigned __int64 v48; // rax
+  char *v49; // rcx
+  unsigned __int64 v50; // [rsp+20h] [rbp-68h] BYREF
+  int v51; // [rsp+28h] [rbp-60h]
+  __int128 v52; // [rsp+30h] [rbp-58h]
+  _QWORD v53[4]; // [rsp+40h] [rbp-48h] BYREF
   void *retaddr; // [rsp+88h] [rbp+0h]
 
   v3 = a3;
   v4 = a2;
-  if ( (*(_BYTE *)(a1 + 27) & 1) != 0 )
+  if ( (BYTE3(Node[1].Left) & 1) != 0 )
   {
     *a3 = 0LL;
-    a3[1] = a1 + 80;
+    a3[1] = (char *)Node + 80;
     KxAcquireQueuedSpinLock(a3);
-    if ( (*(_BYTE *)(a1 + 27) & 1) != 0 )
-      return a1;
+    if ( (BYTE3(Node[1].Left) & 1) != 0 )
+      return Node;
     KxReleaseQueuedSpinLock(v3);
   }
-  v51 = *(_OWORD *)(a1 + 32);
-  if ( (__int64)v51 >= 0 && !v4 )
+  v52 = *(_OWORD *)&Node[1].Right;
+  if ( (__int64)v52 >= 0 && !v4 )
     return 0LL;
-  v7 = DWORD2(v51);
-  v49 = v51 & 0x7FFFFFFFFFFFFFFCLL;
-  v8 = ((((unsigned __int64)v51 & 0x7FFFFFFFFFFFFFFCLL) >> 4) & 0x3FF) << 6;
+  v7 = DWORD2(v52);
+  v50 = v52 & 0x7FFFFFFFFFFFFFFCLL;
+  v8 = ((((unsigned __int64)v52 & 0x7FFFFFFFFFFFFFFCLL) >> 4) & 0x3FF) << 6;
   v9 = (volatile LONG *)((char *)&KiAbTreeArray + v8 + 16);
-  v50 = DWORD2(v51);
+  v51 = DWORD2(v52);
   v10 = 0;
-  v11 = (unsigned __int64)&KiAbTreeArray + v8;
+  v11 = (_RTL_RB_TREE *)((char *)&KiAbTreeArray + v8);
   while ( 1 )
   {
     if ( v10 )
@@ -137,56 +138,56 @@ __int64 __fastcall KiAbEntryGetLockedHeadEntry(__int64 a1, __int64 a2, _QWORD *a
         ExpWaitForSpinLockSharedAndAcquire(v9, a2);
       }
     }
-    v18 = *(_QWORD *)(v11 + 8);
-    v19 = *(_QWORD *)v11;
-    if ( (v18 & 1) != 0 && v19 )
-      v19 ^= v11;
-    v20 = v18 & 1;
-    if ( v19 )
+    Min = v11->Min;
+    Root = (unsigned __int64)v11->Root;
+    if ( ((unsigned __int8)Min & 1) != 0 && Root )
+      Root ^= (unsigned __int64)v11;
+    v20 = (unsigned __int8)Min & 1;
+    if ( Root )
     {
       do
       {
-        v21 = *(_QWORD *)(v19 + 32) & 0x7FFFFFFFFFFFFFFCLL;
-        if ( v21 < v49 )
+        v21 = *(_QWORD *)(Root + 32) & 0x7FFFFFFFFFFFFFFCLL;
+        if ( v21 < v50 )
           goto LABEL_32;
-        if ( v21 > v49 )
+        if ( v21 > v50 )
           goto LABEL_31;
-        v22 = *(_DWORD *)(v19 + 40);
+        v22 = *(_DWORD *)(Root + 40);
         if ( v22 == v7 )
           break;
         if ( v22 < v7 )
 LABEL_32:
-          v23 = *(_QWORD *)(v19 + 8);
+          v23 = *(_RTL_BALANCED_NODE **)(Root + 8);
         else
 LABEL_31:
-          v23 = *(_QWORD *)v19;
+          v23 = *(_RTL_BALANCED_NODE **)Root;
         if ( v20 && v23 )
-          v19 ^= v23;
+          Root ^= (unsigned __int64)v23;
         else
-          v19 = v23;
+          Root = (unsigned __int64)v23;
       }
-      while ( v19 );
+      while ( Root );
       v3 = a3;
     }
     if ( !v4 )
     {
-      if ( v19 )
+      if ( Root )
       {
         *v3 = 0LL;
-        v3[1] = v19 + 80;
-        v29 = v19;
+        v3[1] = Root + 80;
+        v29 = (PRTL_BALANCED_NODE)Root;
         KxAcquireQueuedSpinLock(v3);
         if ( v10 )
           ExReleaseSpinLockExclusiveFromDpcLevel(v9);
         else
           ExReleaseSpinLockSharedFromDpcLevel(v9);
-        if ( a1 == v19 )
+        if ( Node == (PRTL_BALANCED_NODE)Root )
           return v29;
-        v52[0] = 0LL;
-        v52[1] = a1 + 80;
-        KxAcquireQueuedSpinLock(v52);
-        KxReleaseQueuedSpinLock(v52);
-        if ( (unsigned int)KiAbCompareSnappedEntryState(a1, &v49) )
+        v53[0] = 0LL;
+        v53[1] = (char *)Node + 80;
+        KxAcquireQueuedSpinLock(v53);
+        KxReleaseQueuedSpinLock(v53);
+        if ( (unsigned int)KiAbCompareSnappedEntryState(Node, &v50) )
           return v29;
         KxReleaseQueuedSpinLock(v3);
       }
@@ -200,15 +201,15 @@ LABEL_31:
       }
       return 0LL;
     }
-    if ( v19 )
+    if ( Root )
       break;
     if ( v10 || (v10 = 1, ExTryConvertSharedSpinLockExclusive(v9)) )
     {
-      v24 = *(_QWORD *)v11;
-      if ( (*(_QWORD *)(v11 + 8) & 1) != 0 )
+      v24 = (unsigned __int64)v11->Root;
+      if ( ((__int64)v11->Min & 1) != 0 )
       {
         if ( v24 )
-          v24 ^= v11;
+          v24 ^= (unsigned __int64)v11;
         else
           v24 = 0LL;
       }
@@ -218,14 +219,14 @@ LABEL_31:
         while ( 1 )
         {
           v26 = *(_QWORD *)(v24 + 32) & 0x7FFFFFFFFFFFFFFCLL;
-          if ( v26 < v49 || v26 <= v49 && ((v27 = *(_DWORD *)(v24 + 40), v27 == v7) || v27 < v7) )
+          if ( v26 < v50 || v26 <= v50 && ((v27 = *(_DWORD *)(v24 + 40), v27 == v7) || v27 < v7) )
           {
-            v28 = *(_QWORD *)(v24 + 8);
-            if ( (*(_QWORD *)(v11 + 8) & 1) != 0 )
+            v28 = *(_RTL_BALANCED_NODE **)(v24 + 8);
+            if ( ((__int64)v11->Min & 1) != 0 )
             {
               if ( !v28 )
                 goto LABEL_63;
-              v28 ^= v24;
+              v28 = (_RTL_BALANCED_NODE *)(v24 ^ (unsigned __int64)v28);
             }
             if ( !v28 )
             {
@@ -236,12 +237,12 @@ LABEL_63:
           }
           else
           {
-            v28 = *(_QWORD *)v24;
-            if ( (*(_QWORD *)(v11 + 8) & 1) != 0 )
+            v28 = *(_RTL_BALANCED_NODE **)v24;
+            if ( ((__int64)v11->Min & 1) != 0 )
             {
               if ( !v28 )
                 goto LABEL_56;
-              v28 ^= v24;
+              v28 = (_RTL_BALANCED_NODE *)(v24 ^ (unsigned __int64)v28);
             }
             if ( !v28 )
             {
@@ -250,13 +251,13 @@ LABEL_56:
               break;
             }
           }
-          v24 = v28;
+          v24 = (unsigned __int64)v28;
         }
       }
-      RtlRbInsertNodeEx(v11, v24, v25, a1);
+      RtlRbInsertNodeEx(v11, (PRTL_BALANCED_NODE)v24, v25, Node);
       *v3 = 0LL;
-      v3[1] = a1 + 80;
-      v29 = a1;
+      v3[1] = (char *)Node + 80;
+      v29 = Node;
       KxAcquireQueuedSpinLock(v3);
       if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v9, retaddr);
@@ -274,138 +275,138 @@ LABEL_56:
             KiRemoveSystemWorkPriorityKick(v30);
         }
       }
-      *(_BYTE *)(a1 + 39) |= 0x80u;
-      *(_BYTE *)(a1 + 27) |= 1u;
-      *(_QWORD *)(a1 + 48) = 0LL;
-      *(_QWORD *)(a1 + 56) = 0LL;
-      *(_QWORD *)(a1 + 64) = 0LL;
-      *(_QWORD *)(a1 + 72) = 0LL;
-      *(_WORD *)(a1 + 90) &= 1u;
+      HIBYTE(Node[1].Right) |= 0x80u;
+      BYTE3(Node[1].Left) |= 1u;
+      Node[2].Children[0] = 0LL;
+      Node[2].Children[1] = 0LL;
+      Node[2].ParentValue = 0LL;
+      Node[3].Children[0] = 0LL;
+      *((_WORD *)&Node[3].1 + 1) &= 1u;
       goto LABEL_113;
     }
     ExReleaseSpinLockSharedFromDpcLevel(v9);
   }
   *v3 = 0LL;
-  v3[1] = v19 + 80;
-  v29 = v19;
+  v3[1] = Root + 80;
+  v29 = (PRTL_BALANCED_NODE)Root;
   KxAcquireQueuedSpinLock(v3);
   if ( v10 )
     ExReleaseSpinLockExclusiveFromDpcLevel(v9);
   else
     ExReleaseSpinLockSharedFromDpcLevel(v9);
-  if ( *(__int64 *)(a1 + 32) >= 0 )
+  if ( (__int64)Node[1].Children[1] >= 0 )
   {
-    if ( (*(_BYTE *)(a1 + 25) & 1) != 0 )
+    if ( (BYTE1(Node[1].Children[0]) & 1) != 0 )
     {
-      v42 = *(_BYTE *)(a1 - 16LL * *(unsigned __int8 *)(a1 + 24) + 195);
-      if ( v42 > 15 )
-        v42 = 15;
-      v36 = (__int64 *)(v19 + 64);
-      *(_BYTE *)(a1 + 48) = v42;
-      v43 = v42;
-      v44 = v36[1];
-      if ( (v44 & 1) != 0 )
+      v43 = ((_BYTE *)&Node[8].Left - 16 * LOBYTE(Node[1].Children[0]))[3];
+      if ( v43 > 15 )
+        v43 = 15;
+      v36 = ($A3FF8F482F754979EE64F8673203A9F2 *)(Root + 64);
+      LOBYTE(Node[2].Children[0]) = v43;
+      v44 = v43;
+      ParentValue = (_RTL_BALANCED_NODE *)v36[1].ParentValue;
+      if ( ((unsigned __int8)ParentValue & 1) != 0 )
       {
-        if ( *v36 )
-          v39 = *v36 ^ (unsigned __int64)v36;
+        if ( v36->ParentValue )
+          v39 = v36->ParentValue ^ (unsigned __int64)v36;
         else
           v39 = 0LL;
       }
       else
       {
-        v39 = *v36;
+        v39 = v36->ParentValue;
       }
-      LOBYTE(v34) = 0;
-      v45 = v44 & 1;
+      v40 = 0;
+      v46 = (unsigned __int8)ParentValue & 1;
       if ( v39 )
       {
         while ( 1 )
         {
-          while ( *(char *)(v39 + 48) < v43 )
+          while ( *(char *)(v39 + 48) < v44 )
           {
-            v46 = *(_QWORD *)v39;
-            if ( v45 )
+            v47 = *(_QWORD *)v39;
+            if ( v46 )
             {
-              if ( !v46 )
+              if ( !v47 )
                 goto LABEL_86;
-              v46 ^= v39;
+              v47 ^= v39;
             }
-            if ( !v46 )
+            if ( !v47 )
             {
 LABEL_86:
-              LOBYTE(v34) = 0;
+              v40 = 0;
               goto LABEL_112;
             }
-            v39 = v46;
+            v39 = v47;
           }
-          v47 = *(_QWORD *)(v39 + 8);
-          if ( v45 )
+          v48 = *(_QWORD *)(v39 + 8);
+          if ( v46 )
           {
-            if ( !v47 )
+            if ( !v48 )
               break;
-            v47 ^= v39;
+            v48 ^= v39;
           }
-          if ( !v47 )
+          if ( !v48 )
             break;
-          v39 = v47;
+          v39 = v48;
         }
 LABEL_111:
-        LOBYTE(v34) = 1;
+        v40 = 1;
       }
     }
     else
     {
-      v35 = KiAbOwnerComputeCpuPriorityKey(a1, v33, v34);
-      v36 = (__int64 *)(v19 + 48);
-      *(_BYTE *)(a1 + 48) = v35;
+      v35 = KiAbOwnerComputeCpuPriorityKey(Node, v33, v34);
+      v36 = ($A3FF8F482F754979EE64F8673203A9F2 *)(Root + 48);
+      LOBYTE(Node[2].Children[0]) = v35;
       v37 = v35;
-      v38 = v36[1];
-      v39 = *v36;
-      if ( (v38 & 1) != 0 && v39 )
+      v38 = (_RTL_BALANCED_NODE *)v36[1].ParentValue;
+      v39 = v36->ParentValue;
+      if ( ((unsigned __int8)v38 & 1) != 0 && v39 )
         v39 ^= (unsigned __int64)v36;
-      LOBYTE(v34) = 0;
-      v40 = v38 & 1;
+      v40 = 0;
+      v41 = (unsigned __int8)v38 & 1;
       if ( v39 )
       {
         while ( 1 )
         {
           if ( *(char *)(v39 + 48) <= v37 )
           {
-            v41 = *(_QWORD *)(v39 + 8);
-            if ( v40 )
+            v42 = *(_QWORD *)(v39 + 8);
+            if ( v41 )
             {
-              if ( !v41 )
+              if ( !v42 )
                 goto LABEL_111;
-              v41 ^= v39;
+              v42 ^= v39;
             }
-            if ( !v41 )
+            if ( !v42 )
               goto LABEL_111;
           }
           else
           {
-            v41 = *(_QWORD *)v39;
-            if ( v40 )
+            v42 = *(_QWORD *)v39;
+            if ( v41 )
             {
-              if ( !v41 )
+              if ( !v42 )
                 goto LABEL_86;
-              v41 ^= v39;
+              v42 ^= v39;
             }
-            if ( !v41 )
+            if ( !v42 )
               goto LABEL_86;
           }
-          v39 = v41;
+          v39 = v42;
         }
       }
     }
 LABEL_112:
-    RtlRbInsertNodeEx(v36, v39, v34, a1);
-    *(_BYTE *)(a1 + 39) |= 0x80u;
+    RtlRbInsertNodeEx((PRTL_RB_TREE)v36, (PRTL_BALANCED_NODE)v39, v40, Node);
+    HIBYTE(Node[1].Right) |= 0x80u;
 LABEL_113:
-    v48 = a1 - 16LL * *(unsigned __int8 *)(a1 + 24);
-    if ( (*(_BYTE *)(a1 + 25) & 1) != 0 )
-      ++*(_BYTE *)(v48 + 793);
+    v49 = (char *)Node - 16 * LOBYTE(Node[1].Children[0]);
+    if ( (BYTE1(Node[1].Children[0]) & 1) != 0 )
+      ++v49[793];
     else
-      _InterlockedExchangeAdd8((volatile signed __int8 *)(v48 + 1423), 1u);
+      _InterlockedExchangeAdd8(v49 + 1423, 1u);
   }
   return v29;
 }

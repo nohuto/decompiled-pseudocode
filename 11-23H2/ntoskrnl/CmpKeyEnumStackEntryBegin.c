@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpKeyEnumStackEntryBegin @ 0x140A23C2C
+ * XREFs of CmpKeyEnumStackEntryBegin @ 0x140A23EDC
  * Callers:
- *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A238B4 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A23B64 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
  * Callees:
- *     CmpDoFindSubKeyByNumber @ 0x1406DADDC (CmpDoFindSubKeyByNumber.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpCompareKeysByName @ 0x140A1F6C4 (CmpCompareKeysByName.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1406DAE0C (CmpDoFindSubKeyByNumber.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpCompareKeysByName @ 0x140A1F974 (CmpCompareKeysByName.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackEntryBegin(_QWORD *a1, __int64 a2, __int64 a3)

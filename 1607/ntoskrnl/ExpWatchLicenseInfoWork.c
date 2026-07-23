@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpWatchLicenseInfoWork @ 0x1406AC9EC
+ * XREFs of ExpWatchLicenseInfoWork @ 0x1406ACB24
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcscat_s @ 0x140152FF8 (wcscat_s.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1401535B8 (wcscat_s.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     NtNotifyChangeKey @ 0x14040095C (NtNotifyChangeKey.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     NtEnumerateKey @ 0x140439B70 (NtEnumerateKey.c)
- *     NtQueryKey @ 0x14043B2A0 (NtQueryKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     NtNotifyChangeKey @ 0x1403FF81C (NtNotifyChangeKey.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     NtEnumerateKey @ 0x140438A40 (NtEnumerateKey.c)
+ *     NtQueryKey @ 0x14043A170 (NtQueryKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 int __fastcall ExpWatchLicenseInfoWork(__int64 a1)

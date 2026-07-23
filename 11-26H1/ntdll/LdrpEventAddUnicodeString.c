@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpEventAddUnicodeString @ 0x180099950
+ * XREFs of LdrpEventAddUnicodeString @ 0x180098A80
  * Callers:
- *     LdrpLogEtwEvent @ 0x180084238 (LdrpLogEtwEvent.c)
- *     LdrpLogEtwDllSearchResults @ 0x180099320 (LdrpLogEtwDllSearchResults.c)
+ *     LdrpLogEtwEvent @ 0x18007B5D8 (LdrpLogEtwEvent.c)
+ *     LdrpLogEtwDllSearchResults @ 0x180098450 (LdrpLogEtwDllSearchResults.c)
  * Callees:
  *     <none>
  */

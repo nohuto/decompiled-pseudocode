@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpSysVolCheckOwnerAndSecurity @ 0x1406D6638
+ * XREFs of RtlpSysVolCheckOwnerAndSecurity @ 0x1406D78D8
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x1406D62C0 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1406D7560 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
- *     RtlGetDaclSecurityDescriptor @ 0x140092330 (RtlGetDaclSecurityDescriptor.c)
- *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
- *     NtQuerySecurityObject @ 0x1406996A0 (NtQuerySecurityObject.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x1406AD1C0 (RtlGetOwnerSecurityDescriptor.c)
- *     RtlMakeSelfRelativeSD @ 0x1406AFA38 (RtlMakeSelfRelativeSD.c)
- *     RtlSelfRelativeToAbsoluteSD2 @ 0x1408924A0 (RtlSelfRelativeToAbsoluteSD2.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140092270 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlEqualSid @ 0x1400A7D30 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     NtSetSecurityObject @ 0x1405BACF0 (NtSetSecurityObject.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406567D0 (RtlSetOwnerSecurityDescriptor.c)
+ *     NtQuerySecurityObject @ 0x14069A860 (NtQuerySecurityObject.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1406AE460 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlMakeSelfRelativeSD @ 0x1406B0CD8 (RtlMakeSelfRelativeSD.c)
+ *     RtlSelfRelativeToAbsoluteSD2 @ 0x140893700 (RtlSelfRelativeToAbsoluteSD2.c)
  */
 
 __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWin32DeleteProcedure @ 0x140934D90
+ * XREFs of ExpWin32DeleteProcedure @ 0x1408F4010
  * Callers:
  *     <none>
  * Callees:
- *     PsSessionGetWin32Callouts @ 0x14046B2A0 (PsSessionGetWin32Callouts.c)
- *     PspUpdateCalloutParameters @ 0x1404EEDCC (PspUpdateCalloutParameters.c)
- *     ExCallCallBack @ 0x1409358AC (ExCallCallBack.c)
- *     PsInvokeWin32Callout @ 0x1409BADD0 (PsInvokeWin32Callout.c)
+ *     PsSessionGetWin32Callouts @ 0x140463D20 (PsSessionGetWin32Callouts.c)
+ *     PspUpdateCalloutParameters @ 0x1404E64C0 (PspUpdateCalloutParameters.c)
+ *     ExCallCallBack @ 0x1408F47CC (ExCallCallBack.c)
+ *     PsInvokeWin32Callout @ 0x1409A1420 (PsInvokeWin32Callout.c)
  */
 
 POBJECT_TYPE *__fastcall ExpWin32DeleteProcedure(int *a1)
@@ -15,7 +15,7 @@ POBJECT_TYPE *__fastcall ExpWin32DeleteProcedure(int *a1)
   unsigned __int64 v2; // r8
   POBJECT_TYPE *result; // rax
   int v4; // r10d
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v6; // r10
   __int64 v7; // rcx
   _QWORD v8[4]; // [rsp+30h] [rbp-20h] BYREF

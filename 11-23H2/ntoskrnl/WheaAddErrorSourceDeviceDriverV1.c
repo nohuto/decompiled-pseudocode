@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaAddErrorSourceDeviceDriverV1 @ 0x1403B5050
+ * XREFs of WheaAddErrorSourceDeviceDriverV1 @ 0x1403B5230
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     WheaAddErrorSourceDeviceDriver @ 0x14081E950 (WheaAddErrorSourceDeviceDriver.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x14081EC20 (WheaAddErrorSourceDeviceDriver.c)
  */
 
 __int64 __fastcall WheaAddErrorSourceDeviceDriverV1(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

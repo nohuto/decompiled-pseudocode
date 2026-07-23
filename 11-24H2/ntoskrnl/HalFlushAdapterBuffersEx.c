@@ -1,17 +1,17 @@
 /*
- * XREFs of HalFlushAdapterBuffersEx @ 0x140392210
+ * XREFs of HalFlushAdapterBuffersEx @ 0x14038BB40
  * Callers:
- *     HalPutScatterGatherListV3 @ 0x140392818 (HalPutScatterGatherListV3.c)
+ *     HalPutScatterGatherListV3 @ 0x14038C148 (HalPutScatterGatherListV3.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x14038D160 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaCheckMdlAccessibility @ 0x140391F30 (HalpDmaCheckMdlAccessibility.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x14039249C (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaControllerFlushChannel @ 0x14039268C (HalpDmaControllerFlushChannel.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x1403934E8 (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaFlushDriverMdl @ 0x14053C5C0 (HalpDmaFlushDriverMdl.c)
- *     HalpDmaFreeLa @ 0x14053C600 (HalpDmaFreeLa.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140386AA0 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x14038B860 (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x14038BDCC (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaControllerFlushChannel @ 0x14038BFBC (HalpDmaControllerFlushChannel.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x14038CE18 (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushDriverMdl @ 0x140539E4C (HalpDmaFlushDriverMdl.c)
+ *     HalpDmaFreeLa @ 0x140539E8C (HalpDmaFreeLa.c)
  */
 
 __int64 __fastcall HalFlushAdapterBuffersEx(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, ULONG a5, char a6)

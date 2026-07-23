@@ -29,7 +29,7 @@ __int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2)
   v8 = a2 - v7;
   if ( a2 >= v7 && (*(_BYTE *)v8 & 1) == 0 )
   {
-    RtlRbRemoveNode(a1 + 8, a2 - v7);
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)(a2 - v7));
     *(_WORD *)(v8 + 24) += *(_WORD *)(v3 + 24);
     *(_QWORD *)v3 = 0LL;
     *(_QWORD *)(v3 + 8) = 0LL;
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2)
   v11 = v3 + 32LL * v10;
   if ( v11 < v6 && (*(_BYTE *)v11 & 1) == 0 )
   {
-    RtlRbRemoveNode(a1 + 8, v3 + 32LL * *(unsigned __int16 *)(v3 + 24));
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)(v3 + 32LL * *(unsigned __int16 *)(v3 + 24)));
     *(_WORD *)(v3 + 24) += *(_WORD *)(v11 + 24);
     *(_QWORD *)v11 = 0LL;
     *(_QWORD *)(v11 + 8) = 0LL;

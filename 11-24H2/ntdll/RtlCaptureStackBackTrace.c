@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlCaptureStackBackTrace @ 0x18003C700
+ * XREFs of RtlCaptureStackBackTrace @ 0x18001C980
  * Callers:
- *     RtlpHeapTrkTrackStack @ 0x18003C500 (RtlpHeapTrkTrackStack.c)
- *     RtlActivateActivationContext @ 0x18003DC20 (RtlActivateActivationContext.c)
- *     RtlActivateActivationContextEx @ 0x18003DD90 (RtlActivateActivationContextEx.c)
- *     RtlReleaseActivationContext @ 0x18005E4D0 (RtlReleaseActivationContext.c)
- *     RtlStdLogStackTrace @ 0x18009C890 (RtlStdLogStackTrace.c)
- *     RtlpHpStackTraceAddStack @ 0x1800DF290 (RtlpHpStackTraceAddStack.c)
- *     RtlpStackTraceDatabaseLogPrefix @ 0x1800F7C30 (RtlpStackTraceDatabaseLogPrefix.c)
- *     RtlGetCallersAddress @ 0x180113DC0 (RtlGetCallersAddress.c)
- *     RtlpHpHeapHandleError @ 0x18011D8C0 (RtlpHpHeapHandleError.c)
- *     LdrpCgLogFailure @ 0x18015FC00 (LdrpCgLogFailure.c)
+ *     RtlpHeapTrkTrackStack @ 0x18001C780 (RtlpHeapTrkTrackStack.c)
+ *     RtlActivateActivationContext @ 0x18001DEA0 (RtlActivateActivationContext.c)
+ *     RtlActivateActivationContextEx @ 0x18001E010 (RtlActivateActivationContextEx.c)
+ *     RtlStdLogStackTrace @ 0x180030E50 (RtlStdLogStackTrace.c)
+ *     RtlReleaseActivationContext @ 0x1800740B0 (RtlReleaseActivationContext.c)
+ *     RtlpHpStackTraceAddStack @ 0x1800DA400 (RtlpHpStackTraceAddStack.c)
+ *     RtlpStackTraceDatabaseLogPrefix @ 0x1800F27A0 (RtlpStackTraceDatabaseLogPrefix.c)
+ *     RtlGetCallersAddress @ 0x18010F0C0 (RtlGetCallersAddress.c)
+ *     RtlpHpHeapHandleError @ 0x18011BAF0 (RtlpHpHeapHandleError.c)
+ *     LdrpCgLogFailure @ 0x18015DFC0 (LdrpCgLogFailure.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x18003C7A0 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x18001CA20 (RtlWalkFrameChain.c)
  */
 
 USHORT __stdcall RtlCaptureStackBackTrace(
@@ -23,7 +23,7 @@ USHORT __stdcall RtlCaptureStackBackTrace(
 {
   ULONG v4; // esi
   ULONG v7; // edi
-  unsigned int i; // eax
+  ULONG i; // eax
   unsigned int v9; // r8d
   ULONG v10; // edx
   __int64 v11; // rcx

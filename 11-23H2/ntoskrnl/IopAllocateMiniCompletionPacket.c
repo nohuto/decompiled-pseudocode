@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllocateMiniCompletionPacket @ 0x14073DFC8
+ * XREFs of IopAllocateMiniCompletionPacket @ 0x14073E1B8
  * Callers:
- *     AlpcpSignal @ 0x1402B6C70 (AlpcpSignal.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1402B8980 (NtReleaseWorkerFactoryWorker.c)
- *     IoSetIoCompletionEx2 @ 0x1402B91F0 (IoSetIoCompletionEx2.c)
- *     IoSetIoCompletionEx3 @ 0x14031AA10 (IoSetIoCompletionEx3.c)
- *     IoAllocateMiniCompletionPacket @ 0x140785FE0 (IoAllocateMiniCompletionPacket.c)
+ *     AlpcpSignal @ 0x1402B6F00 (AlpcpSignal.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1402B8C10 (NtReleaseWorkerFactoryWorker.c)
+ *     IoSetIoCompletionEx2 @ 0x1402B9480 (IoSetIoCompletionEx2.c)
+ *     IoSetIoCompletionEx3 @ 0x14031ACA0 (IoSetIoCompletionEx3.c)
+ *     IoAllocateMiniCompletionPacket @ 0x1407861D0 (IoAllocateMiniCompletionPacket.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

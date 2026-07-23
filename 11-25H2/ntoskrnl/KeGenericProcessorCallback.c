@@ -34,7 +34,7 @@ __int64 __fastcall KeGenericProcessorCallback(
   __int64 v7; // r8
   __int64 v8; // r9
   struct _KTHREAD *CurrentThread; // rsi
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // r12
+  _GROUP_AFFINITY *p_PreviousAffinity; // r12
   struct _KPRCB *CurrentPrcb; // rbx
   KPRIORITY v12; // r15d
   unsigned __int64 v13; // rdx
@@ -45,8 +45,8 @@ __int64 __fastcall KeGenericProcessorCallback(
   __int64 v18; // rdx
   __int64 v22; // [rsp+38h] [rbp-C8h]
   unsigned __int16 v23; // [rsp+40h] [rbp-C0h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-B8h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-B8h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v26; // [rsp+70h] [rbp-90h] BYREF
   _QWORD v27[33]; // [rsp+78h] [rbp-88h] BYREF
 

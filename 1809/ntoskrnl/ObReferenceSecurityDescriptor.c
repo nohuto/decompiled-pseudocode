@@ -1,5 +1,5 @@
 /*
- * XREFs of ObReferenceSecurityDescriptor @ 0x1406BEBE0
+ * XREFs of ObReferenceSecurityDescriptor @ 0x1406BFE80
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetSchemaExpander_AllocateString @ 0x1404183BC
+ * XREFs of ApiSetSchemaExpander_AllocateString @ 0x14041874C
  * Callers:
- *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x14041890C (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
- *     ApiSetSchemaExpander_InsertGroupContractEntry @ 0x1404189F4 (ApiSetSchemaExpander_InsertGroupContractEntry.c)
- *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140418BE0 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
+ *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x140418C9C (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
+ *     ApiSetSchemaExpander_InsertGroupContractEntry @ 0x140418D84 (ApiSetSchemaExpander_InsertGroupContractEntry.c)
+ *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140418F70 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall ApiSetSchemaExpander_AllocateString(__int64 a1, const void *a2, unsigned int a3, _DWORD *a4)

@@ -1,27 +1,27 @@
 /*
- * XREFs of NtRenameKey @ 0x140A0DFB0
+ * XREFs of NtRenameKey @ 0x140A0E260
  * Callers:
  *     <none>
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1402975FC (CmpAllocateTransientPoolWithQuota.c)
- *     CmDoVirtualTest @ 0x14034794C (CmDoVirtualTest.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     CmpIsRegistryLockAcquired @ 0x14022FC60 (CmpIsRegistryLockAcquired.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x14029788C (CmpAllocateTransientPoolWithQuota.c)
+ *     CmDoVirtualTest @ 0x140347BDC (CmDoVirtualTest.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     CmPostCallbackNotificationEx @ 0x140691E30 (CmPostCallbackNotificationEx.c)
- *     CmpDoesBufferRequireCapturing @ 0x1406D31CC (CmpDoesBufferRequireCapturing.c)
- *     CmpCallCallBacksEx @ 0x1406E85F0 (CmpCallCallBacksEx.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x140A17EE0 (CmKeyBodyNeedsVirtualImage.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A18238 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpDoesBufferRequireCapturing @ 0x1406D31FC (CmpDoesBufferRequireCapturing.c)
+ *     CmpCallCallBacksEx @ 0x1406E8620 (CmpCallCallBacksEx.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x140A18190 (CmKeyBodyNeedsVirtualImage.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140A184E8 (CmKeyBodyReplicateToVirtual.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
  *     CmpAcquireShutdownRundown @ 0x140AF5380 (CmpAcquireShutdownRundown.c)
@@ -29,7 +29,7 @@
  *     CmpReleaseShutdownRundown @ 0x140AF5470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
+NTSTATUS __cdecl NtRenameKey(HANDLE KeyHandle, PUNICODE_STRING NewName)
 {
   char v3; // r13
   int PreviousMode; // r12d
@@ -39,7 +39,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   __int64 v8; // rcx
   __int64 v9; // r8
   unsigned __int64 v10; // rdx
-  signed int v11; // ebx
+  int v11; // ebx
   char v12; // si
   __int64 v13; // rcx
   unsigned __int16 v14; // ax
@@ -64,7 +64,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   PPRIVILEGE_SET Privileges; // [rsp+78h] [rbp-110h]
   _QWORD v35[2]; // [rsp+80h] [rbp-108h] BYREF
   int v36; // [rsp+90h] [rbp-F8h]
-  __int64 v37; // [rsp+98h] [rbp-F0h]
+  HANDLE v37; // [rsp+98h] [rbp-F0h]
   __m128i v38; // [rsp+A0h] [rbp-E8h]
   __int128 v39; // [rsp+B0h] [rbp-D8h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+C0h] [rbp-C8h] BYREF
@@ -73,7 +73,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   __int128 v43; // [rsp+110h] [rbp-78h] BYREF
   _BYTE v44[48]; // [rsp+120h] [rbp-68h] BYREF
 
-  v37 = a1;
+  v37 = KeyHandle;
   v39 = 0LL;
   *(_OWORD *)Src = 0LL;
   memset(v44, 0, sizeof(v44));
@@ -103,8 +103,8 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   {
     v38 = 0LL;
     v13 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v13 = (__int64)a2;
+    if ( (unsigned __int64)NewName < 0x7FFFFFFF0000LL )
+      v13 = (__int64)NewName;
     v38.m128i_i32[0] = *(_DWORD *)v13;
     v10 = *(_QWORD *)(v13 + 8);
     v38.m128i_i64[1] = v10;
@@ -120,7 +120,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   }
   else
   {
-    *(_OWORD *)Src = *a2;
+    *(UNICODE_STRING *)Src = *NewName;
   }
   v15 = (unsigned __int16)Src[0];
   if ( (unsigned __int16)(LOWORD(Src[0]) - 1) > 0x1FFu
@@ -163,8 +163,8 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   }
 LABEL_22:
   LOBYTE(v19) = PreviousMode;
-  v21 = v37;
-  v11 = CmObReferenceObjectByHandle(v37, 131078, v18, v19, (__int64)Object, 0LL);
+  v21 = (int)v37;
+  v11 = CmObReferenceObjectByHandle((_DWORD)v37, 131078, v18, v19, (__int64)Object, 0LL);
   v29 = v11;
   if ( v11 == -1073741790 )
   {
@@ -245,5 +245,5 @@ LABEL_43:
   if ( v30 )
     CmpReleaseShutdownRundown(v27, v10);
   CmCleanupThreadInfo((__int64 *)&v39);
-  return (unsigned int)v11;
+  return v11;
 }

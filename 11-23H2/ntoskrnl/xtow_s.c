@@ -1,10 +1,10 @@
 /*
- * XREFs of xtow_s @ 0x1403DE95C
+ * XREFs of xtow_s @ 0x1403DEB3C
  * Callers:
- *     _itow_s @ 0x1403DE7A0 (_itow_s.c)
- *     _ultow_s @ 0x1403DE7F0 (_ultow_s.c)
+ *     _itow_s @ 0x1403DE980 (_itow_s.c)
+ *     _ultow_s @ 0x1403DE9D0 (_ultow_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
  */
 
 __int64 __fastcall xtow_s(unsigned int a1, __int16 *a2, unsigned __int64 a3, unsigned int a4, int a5)

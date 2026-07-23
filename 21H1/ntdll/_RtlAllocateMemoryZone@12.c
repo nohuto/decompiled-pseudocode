@@ -7,17 +7,17 @@
  *     <none>
  */
 
-int __stdcall RtlAllocateMemoryZone(int a1, int a2, signed __int32 *a3)
+NTSTATUS __cdecl RtlAllocateMemoryZone(PVOID MemoryZone, SIZE_T BlockSize, PVOID *Block)
 {
   unsigned int v3; // edi
   _DWORD *i; // edx
   signed __int32 v5; // esi
 
-  *a3 = 0;
-  if ( !a2 )
+  *(_DWORD *)HIDWORD(BlockSize) = 0;
+  if ( !(_DWORD)BlockSize )
     return -1073741811;
-  v3 = (a2 + 3) & 0xFFFFFFFC;
-  for ( i = *(_DWORD **)(a1 + 24); i; i = (_DWORD *)*i )
+  v3 = (BlockSize + 3) & 0xFFFFFFFC;
+  for ( i = (_DWORD *)*((_DWORD *)MemoryZone + 6); i; i = (_DWORD *)*i )
   {
     while ( 1 )
     {
@@ -26,7 +26,7 @@ int __stdcall RtlAllocateMemoryZone(int a1, int a2, signed __int32 *a3)
         break;
       if ( _InterlockedCompareExchange(i + 2, v5 + v3, v5) == v5 )
       {
-        *a3 = v5;
+        *(_DWORD *)HIDWORD(BlockSize) = v5;
         return 0;
       }
     }

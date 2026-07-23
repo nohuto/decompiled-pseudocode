@@ -12,14 +12,14 @@ __int64 __fastcall MiRescanPagefileBitmaps(__int64 a1)
 {
   int v1; // ebx
   __int64 v3; // r8
-  unsigned __int64 v4; // rsi
+  __int64 v4; // rsi
   unsigned int v5; // ebp
   __int64 v6; // rax
   __int64 result; // rax
   unsigned int v8[2]; // [rsp+30h] [rbp-28h] BYREF
   __int64 v9; // [rsp+38h] [rbp-20h]
   unsigned int v10; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v11; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v11; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = 0;
   v8[1] = 0;

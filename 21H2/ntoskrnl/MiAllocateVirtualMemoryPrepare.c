@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1405F99F0
+ * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1406E9150
  * Callers:
- *     MmAllocateVirtualMemory @ 0x1405F94E0 (MmAllocateVirtualMemory.c)
- *     NtAllocateVirtualMemory @ 0x1405FA740 (NtAllocateVirtualMemory.c)
- *     MiAllocateVirtualMemoryCommon @ 0x1406944E8 (MiAllocateVirtualMemoryCommon.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1405F3A38 (MiAllocateVirtualMemoryCommon.c)
+ *     MmAllocateVirtualMemory @ 0x1406E8C40 (MmAllocateVirtualMemory.c)
+ *     NtAllocateVirtualMemory @ 0x1406E9EA0 (NtAllocateVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     xHalUnmaskInterrupt @ 0x14036D790 (xHalUnmaskInterrupt.c)
- *     MiValidateAllocationType @ 0x1405F9F60 (MiValidateAllocationType.c)
- *     MiValidateZeroBits @ 0x1406EB19C (MiValidateZeroBits.c)
- *     MiGetUserReservationHighestAddress @ 0x1406EC0BC (MiGetUserReservationHighestAddress.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     xHalUnmaskInterrupt @ 0x14036D940 (xHalUnmaskInterrupt.c)
+ *     MiValidateAllocationType @ 0x1406E96C0 (MiValidateAllocationType.c)
+ *     MiValidateZeroBits @ 0x14070257C (MiValidateZeroBits.c)
+ *     MiGetUserReservationHighestAddress @ 0x14070349C (MiGetUserReservationHighestAddress.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall MiAllocateVirtualMemoryPrepare(

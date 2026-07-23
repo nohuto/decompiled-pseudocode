@@ -48,7 +48,7 @@ __int64 __fastcall MiSnapDriverRange(
   unsigned int v32; // [rsp+28h] [rbp-B0h]
   unsigned __int64 v33; // [rsp+30h] [rbp-A8h]
   __int64 v34; // [rsp+40h] [rbp-98h]
-  struct _IMAGE_NT_HEADERS64 *v37; // [rsp+68h] [rbp-70h]
+  _IMAGE_NT_HEADERS64 *v37; // [rsp+68h] [rbp-70h]
   _DWORD v38[10]; // [rsp+70h] [rbp-68h] BYREF
 
   memset(v38, 0, sizeof(v38));

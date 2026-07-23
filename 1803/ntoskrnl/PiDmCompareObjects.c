@@ -6,7 +6,7 @@
  *     _wcsicmp @ 0x140188860 (_wcsicmp.c)
  */
 
-__int64 __fastcall PiDmCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *FirstStruct, __int64 *SecondStruct)
+__int64 __fastcall PiDmCompareObjects(_RTL_AVL_TABLE *a1, __int64 *a2, __int64 *a3)
 {
   __int64 v3; // rax
   __int64 v4; // rcx
@@ -17,9 +17,9 @@ __int64 __fastcall PiDmCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *Fir
   const wchar_t *v10; // rcx
   int v11; // eax
 
-  v3 = *FirstStruct;
-  v4 = *SecondStruct;
-  if ( *FirstStruct != *SecondStruct )
+  v3 = *a2;
+  v4 = *a3;
+  if ( *a2 != *a3 )
   {
     v5 = *(_DWORD *)(v3 + 24);
     v6 = *(_DWORD *)(v4 + 24);

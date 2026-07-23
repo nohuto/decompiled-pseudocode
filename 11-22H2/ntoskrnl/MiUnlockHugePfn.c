@@ -6,33 +6,32 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiUnlockHugePfn(__int64 a1, unsigned __int8 a2)
+void __fastcall MiUnlockHugePfn(__int64 a1, unsigned __int8 a2)
 {
   unsigned __int64 v2; // rbx
-  unsigned int v3; // ecx
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v6; // eax
   bool v7; // zf
 
   v2 = a2;
-  v3 = ((a1 - qword_140C67EF0) >> 3) & 0x3FFFFF;
-  result = (unsigned int)~(1 << (v3 & 0x1F));
-  _InterlockedAnd((volatile signed __int32 *)(qword_140C67EF8 + 4 * ((unsigned __int64)v3 >> 5)), result);
-  if ( KiIrqlFlags )
+  _InterlockedAnd(
+    (volatile signed __int32 *)(qword_140C67EF8 + 4 * ((((a1 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
+    ~(1 << (((a1 - qword_140C67EF0) >> 3) & 0x1F)));
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)result <= 0xFu && a2 <= 0xFu && (unsigned __int8)result >= 2u )
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (a2 + 1));
-      v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
+      v6 = ~(unsigned __int16)(-1LL << (a2 + 1));
+      v7 = (v6 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v6;
       if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);
-  return result;
 }

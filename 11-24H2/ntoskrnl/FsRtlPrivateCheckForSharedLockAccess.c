@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlPrivateCheckForSharedLockAccess @ 0x140247B34
+ * XREFs of FsRtlPrivateCheckForSharedLockAccess @ 0x1402E1F08
  * Callers:
- *     FsRtlPrivateCheckWaitingLocks @ 0x14024ACAC (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402E4EEC (FsRtlPrivateCheckWaitingLocks.c)
  * Callees:
- *     RtlRealSuccessor @ 0x140248410 (RtlRealSuccessor.c)
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x1402E2650 (RtlRealSuccessor.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
  */
 
 char __fastcall FsRtlPrivateCheckForSharedLockAccess(__int64 a1, __int64 a2)
 {
-  RTL_SPLAY_LINKS *v2; // rax
+  _RTL_SPLAY_LINKS *v2; // rax
   char v5; // si
   _RTL_SPLAY_LINKS *v7; // r8
-  RTL_SPLAY_LINKS *v8; // rdi
+  _RTL_SPLAY_LINKS *v8; // rdi
   PRTL_SPLAY_LINKS v9; // rcx
   _RTL_SPLAY_LINKS *RightChild; // r10
-  RTL_SPLAY_LINKS *v11; // r11
+  _RTL_SPLAY_LINKS *v11; // r11
   _RTL_SPLAY_LINKS *Parent; // r9
   unsigned __int64 v13; // rdx
 
-  v2 = *(RTL_SPLAY_LINKS **)(a1 + 16);
+  v2 = *(_RTL_SPLAY_LINKS **)(a1 + 16);
   v5 = 1;
   if ( !v2 )
     return v5;

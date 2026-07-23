@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTracePageFault @ 0x1405A7B2C
+ * XREFs of EtwTracePageFault @ 0x1405A7D5C
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
- *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpCoverageSamplerPageFault @ 0x1405AFE84 (EtwpCoverageSamplerPageFault.c)
+ *     EtwTraceSiloKernelEvent @ 0x14027BDBC (EtwTraceSiloKernelEvent.c)
+ *     PsGetThreadServerSilo @ 0x1402AAE70 (PsGetThreadServerSilo.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpCoverageSamplerPageFault @ 0x1405B00B4 (EtwpCoverageSamplerPageFault.c)
  */
 
 void __fastcall EtwTracePageFault(int a1, __int64 a2, char a3, __int64 a4)

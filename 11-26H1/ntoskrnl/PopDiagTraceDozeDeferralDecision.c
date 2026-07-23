@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDozeDeferralDecision @ 0x140771AE0
+ * XREFs of PopDiagTraceDozeDeferralDecision @ 0x140774AE0
  * Callers:
- *     PopDeferDoze @ 0x1407718E0 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x1407748E0 (PopDeferDoze.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDozeDeferralDecision(
@@ -25,9 +25,9 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
   char v12; // [rsp+30h] [rbp-D0h] BYREF
   char v13; // [rsp+31h] [rbp-CFh] BYREF
   unsigned __int8 v14; // [rsp+32h] [rbp-CEh] BYREF
-  unsigned __int8 v15; // [rsp+33h] [rbp-CDh] BYREF
-  unsigned __int8 v16; // [rsp+34h] [rbp-CCh] BYREF
-  unsigned __int8 v17; // [rsp+35h] [rbp-CBh] BYREF
+  char v15; // [rsp+33h] [rbp-CDh] BYREF
+  char v16; // [rsp+34h] [rbp-CCh] BYREF
+  char v17; // [rsp+35h] [rbp-CBh] BYREF
   int v18; // [rsp+38h] [rbp-C8h] BYREF
   int v19; // [rsp+3Ch] [rbp-C4h] BYREF
   int v20; // [rsp+40h] [rbp-C0h] BYREF
@@ -58,21 +58,21 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
   __int64 v45; // [rsp+128h] [rbp+28h]
   int *v46; // [rsp+130h] [rbp+30h]
   __int64 v47; // [rsp+138h] [rbp+38h]
-  unsigned __int8 *v48; // [rsp+140h] [rbp+40h]
+  char *v48; // [rsp+140h] [rbp+40h]
   __int64 v49; // [rsp+148h] [rbp+48h]
-  unsigned __int8 *v50; // [rsp+150h] [rbp+50h]
+  char *v50; // [rsp+150h] [rbp+50h]
   __int64 v51; // [rsp+158h] [rbp+58h]
-  unsigned __int8 *v52; // [rsp+160h] [rbp+60h]
+  char *v52; // [rsp+160h] [rbp+60h]
   __int64 v53; // [rsp+168h] [rbp+68h]
 
   v7 = a1;
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v18 = v7;
     v26 = &v18;
     v27 = 4LL;
     v28 = &v19;
-    v22 = qword_140F0FC30;
+    v22 = qword_140F104F0;
     v30 = &v22;
     v32 = &v23;
     v24 = a5;
@@ -92,15 +92,15 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
     v13 = a7;
     v12 = a6;
     v42 = &v13;
-    v14 = stru_140E66FF0.WaitBlockFill6[88];
+    v14 = stru_140E67200.WaitBlockFill6[84];
     v44 = &v14;
-    v21 = stru_140F10828.WaitBlockFill5[44];
+    v21 = BYTE4(PpmIdlePolicyLock.Padding[3]);
     v46 = &v21;
-    v15 = stru_140F10828.WaitBlockFill5[43];
+    v15 = BYTE3(PpmIdlePolicyLock.Padding[3]);
     v48 = &v15;
-    v16 = stru_140F10828.WaitBlockFill6[80];
+    v16 = byte_140F11238;
     v50 = &v16;
-    v17 = stru_140F10828.WaitBlockFill6[88];
+    v17 = qword_140F11240;
     v52 = &v17;
     v41 = 1LL;
     v43 = 1LL;
@@ -110,8 +110,8 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
     v51 = 1LL;
     v53 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E07598,
-      (unsigned __int8 *)&word_14004A416,
+      (__int64)&dword_140E07560,
+      (unsigned __int8 *)word_14004A67A,
       0LL,
       0LL,
       0x11u,

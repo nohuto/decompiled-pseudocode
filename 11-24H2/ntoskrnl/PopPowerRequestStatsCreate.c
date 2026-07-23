@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestStatsCreate @ 0x140A24B3C
+ * XREFs of PopPowerRequestStatsCreate @ 0x140A18B2C
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
  * Callees:
- *     PopPowerRequestStatsFreeId @ 0x140A24BAC (PopPowerRequestStatsFreeId.c)
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A24BE4 (PopPowerRequestStatsGetIdForRequest.c)
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A24E10 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     PopPowerRequestStatsFreeId @ 0x140A18B9C (PopPowerRequestStatsFreeId.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A18BD4 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A18E00 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
  */
 
 void __fastcall PopPowerRequestStatsCreate(__int64 a1)

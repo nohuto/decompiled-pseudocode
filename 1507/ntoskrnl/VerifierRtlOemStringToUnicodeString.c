@@ -7,7 +7,7 @@
  *     ViRtlReplaceStringBuffer @ 0x140752FB0 (ViRtlReplaceStringBuffer.c)
  */
 
-int __fastcall VerifierRtlOemStringToUnicodeString(UNICODE_STRING *a1, const STRING *a2, BOOLEAN a3)
+int __fastcall VerifierRtlOemStringToUnicodeString(UNICODE_STRING *a1, const OEM_STRING *a2, BOOLEAN a3)
 {
   int result; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]

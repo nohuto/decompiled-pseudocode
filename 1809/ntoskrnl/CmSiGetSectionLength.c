@@ -1,9 +1,9 @@
 /*
  * XREFs of CmSiGetSectionLength @ 0x14000F130
  * Callers:
- *     HvpViewMapStart @ 0x1405A51A0 (HvpViewMapStart.c)
+ *     HvpViewMapStart @ 0x1405A61A0 (HvpViewMapStart.c)
  * Callees:
- *     ZwQuerySection @ 0x1401B8BB0 (ZwQuerySection.c)
+ *     ZwQuerySection @ 0x1401B8D10 (ZwQuerySection.c)
  */
 
 NTSTATUS __fastcall CmSiGetSectionLength(void *a1, _QWORD *a2)

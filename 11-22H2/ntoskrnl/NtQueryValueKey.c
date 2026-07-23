@@ -35,21 +35,27 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, char *a4, size_t Size, unsigned int *a6)
+NTSTATUS __cdecl NtQueryValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  unsigned int v7; // r14d
-  unsigned int v10; // r12d
+  KEY_VALUE_INFORMATION_CLASS v7; // r14d
+  ULONG v10; // r12d
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // r8
   int v14; // r8d
   unsigned __int8 v15; // r14
   __int64 v16; // rcx
-  int v17; // ebx
+  NTSTATUS v17; // ebx
   __int64 v18; // rcx
   unsigned __int64 v19; // rdx
   unsigned __int16 v20; // ax
-  __int64 Length; // rbx
+  __int64 v21; // rbx
   const void *Buffer; // rdi
   struct _KTHREAD *CurrentThread; // rax
   int v24; // r9d
@@ -58,13 +64,13 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
   __int64 v27; // r8
   _BYTE *TransientPoolWithQuota; // rax
   int v30; // eax
-  unsigned int v31; // eax
+  ULONG v31; // eax
   _BYTE *v32; // rcx
   void *v33; // rdx
   PVOID v35; // rax
   void *v36; // rdi
   KPROCESSOR_MODE PreviousMode; // r9
-  unsigned int v38; // edx
+  ULONG v38; // edx
   char v39; // cl
   int ValueKey; // eax
   UNICODE_STRING *p_DestinationString; // rcx
@@ -74,11 +80,11 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
   char v46; // [rsp+49h] [rbp-28Fh]
   __int64 v47; // [rsp+50h] [rbp-288h]
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-278h] BYREF
-  unsigned int v49; // [rsp+70h] [rbp-268h] BYREF
-  int v50; // [rsp+74h] [rbp-264h]
+  ULONG Size; // [rsp+70h] [rbp-268h] BYREF
+  int Size_4; // [rsp+74h] [rbp-264h]
   PVOID Object; // [rsp+78h] [rbp-260h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+80h] [rbp-258h]
-  int v53; // [rsp+88h] [rbp-250h]
+  KEY_VALUE_INFORMATION_CLASS v53; // [rsp+88h] [rbp-250h]
   PVOID v54[2]; // [rsp+90h] [rbp-248h] BYREF
   __int64 v55; // [rsp+A0h] [rbp-238h]
   PVOID v56; // [rsp+A8h] [rbp-230h] BYREF
@@ -88,10 +94,10 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
   __m128i v60; // [rsp+D0h] [rbp-208h]
   __int128 v61; // [rsp+E0h] [rbp-1F8h] BYREF
   PVOID v62; // [rsp+F0h] [rbp-1E8h] BYREF
-  int v63; // [rsp+F8h] [rbp-1E0h]
+  NTSTATUS v63; // [rsp+F8h] [rbp-1E0h]
   int v64; // [rsp+FCh] [rbp-1DCh]
   _QWORD *v65; // [rsp+100h] [rbp-1D8h]
-  int v66; // [rsp+108h] [rbp-1D0h]
+  NTSTATUS v66; // [rsp+108h] [rbp-1D0h]
   __int128 v67; // [rsp+10Ch] [rbp-1CCh]
   __int64 v68; // [rsp+11Ch] [rbp-1BCh]
   int v69; // [rsp+124h] [rbp-1B4h]
@@ -109,9 +115,9 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
   __int64 v81; // [rsp+248h] [rbp-90h]
   _BYTE v82[64]; // [rsp+250h] [rbp-88h] BYREF
 
-  v7 = a3;
-  v10 = Size;
-  v53 = a3;
+  v7 = KeyValueInformationClass;
+  v10 = Length;
+  v53 = KeyValueInformationClass;
   v61 = 0LL;
   DestinationString = 0LL;
   LODWORD(v54[0]) = 0;
@@ -124,7 +130,7 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
   v42 = 0;
   v43 = 0;
   Object = 0LL;
-  v49 = 0;
+  Size = 0;
   RtlInitUnicodeString(&DestinationString, 0LL);
   Privileges = 0LL;
   memset(v70, 0, 0x48uLL);
@@ -140,15 +146,15 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
     v17 = -1073741431;
     goto LABEL_72;
   }
-  if ( v7 > 4 )
+  if ( (unsigned int)v7 > KeyValuePartialInformationAlign64 )
   {
     if ( CmpTraceRoutine )
     {
-      if ( Handle )
+      if ( KeyHandle )
       {
         PreviousMode = KeGetCurrentThread()->PreviousMode;
         v54[0] = 0LL;
-        if ( ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, v54, 0LL) >= 0 )
+        if ( ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, v54, 0LL) >= 0 )
           ObfDereferenceObject(v54[0]);
       }
     }
@@ -157,11 +163,11 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
   else
   {
     v15 = KeGetCurrentThread()->PreviousMode;
-    v17 = CmObReferenceObjectByHandle((_DWORD)Handle, 1, v14, v15, (__int64)&Object, 0LL);
-    v50 = v17;
+    v17 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 1, v14, v15, (__int64)&Object, 0LL);
+    Size_4 = v17;
     if ( v17 < 0 )
     {
-      v7 = a3;
+      v7 = KeyValueInformationClass;
       goto LABEL_72;
     }
     if ( CmpTraceRoutine )
@@ -177,8 +183,8 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
     {
       v60 = 0LL;
       v18 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-        v18 = (__int64)a2;
+      if ( (unsigned __int64)ValueName < 0x7FFFFFFF0000LL )
+        v18 = (__int64)ValueName;
       v60.m128i_i32[0] = *(_DWORD *)v18;
       v19 = *(_QWORD *)(v18 + 8);
       v60.m128i_i64[1] = v19;
@@ -191,42 +197,45 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
         if ( v19 + v20 > 0x7FFFFFFF0000LL || v19 + v20 < v19 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      if ( (_DWORD)Size )
+      if ( Length )
       {
-        if ( ((unsigned __int8)a4 & 3) != 0 )
+        if ( ((unsigned __int8)KeyValueInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)&a4[(unsigned int)Size] > 0x7FFFFFFF0000LL || &a4[(unsigned int)Size] < a4 )
+        if ( (unsigned __int64)KeyValueInformation + Length > 0x7FFFFFFF0000LL
+          || (char *)KeyValueInformation + Length < KeyValueInformation )
+        {
           MEMORY[0x7FFFFFFF0000] = 0;
+        }
       }
-      v16 = (__int64)a6;
-      if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+      v16 = (__int64)ResultLength;
+      if ( (unsigned __int64)ResultLength >= 0x7FFFFFFF0000LL )
         v16 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v16 = *(_DWORD *)v16;
     }
     else
     {
-      DestinationString = *a2;
+      DestinationString = *ValueName;
     }
-    Length = DestinationString.Length;
+    v21 = DestinationString.Length;
     DestinationString.MaximumLength = DestinationString.Length;
     Buffer = DestinationString.Buffer;
     if ( v15
       || *((_QWORD *)&CmpRegistryProcess + 1) && !(unsigned __int8)CmpIsBufferGloballyVisible(DestinationString.Buffer) )
     {
-      if ( (_WORD)Length )
+      if ( (_WORD)v21 )
       {
-        if ( (unsigned int)Length > 0x40 )
+        if ( (unsigned int)v21 > 0x40 )
         {
-          Privileges = (PPRIVILEGE_SET)CmpAllocateTransientPoolWithQuota(v16, Length, 1853246787LL);
+          Privileges = (PPRIVILEGE_SET)CmpAllocateTransientPoolWithQuota(v16, v21, 1853246787LL);
           if ( !Privileges )
           {
             v17 = -1073741670;
-            v50 = -1073741670;
-            v7 = a3;
+            Size_4 = -1073741670;
+            v7 = KeyValueInformationClass;
             goto LABEL_72;
           }
           Buffer = DestinationString.Buffer;
-          LOWORD(Length) = DestinationString.Length;
+          LOWORD(v21) = DestinationString.Length;
         }
         else
         {
@@ -234,8 +243,8 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
         }
         if ( Privileges )
         {
-          memmove(Privileges, Buffer, (unsigned __int16)Length);
-          LOWORD(Length) = DestinationString.Length;
+          memmove(Privileges, Buffer, (unsigned __int16)v21);
+          LOWORD(v21) = DestinationString.Length;
         }
       }
       else
@@ -248,14 +257,14 @@ __int64 __fastcall NtQueryValueKey(HANDLE Handle, UNICODE_STRING *a2, int a3, ch
     if ( (DestinationString.Length & 1) != 0 )
     {
       v17 = -1073741811;
-      v50 = -1073741811;
-      v7 = a3;
+      Size_4 = -1073741811;
+      v7 = KeyValueInformationClass;
       goto LABEL_72;
     }
-    while ( (_WORD)Length && !*((_WORD *)Buffer + ((unsigned __int64)(unsigned __int16)Length >> 1) - 1) )
+    while ( (_WORD)v21 && !*((_WORD *)Buffer + ((unsigned __int64)(unsigned __int16)v21 >> 1) - 1) )
     {
-      LOWORD(Length) = Length - 2;
-      DestinationString.Length = Length;
+      LOWORD(v21) = v21 - 2;
+      DestinationString.Length = v21;
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -266,15 +275,16 @@ LABEL_49:
       v17 = CmKeyBodyRemapToVirtualForEnum(&Object, v15, 1, &v56);
       if ( v17 < 0 )
         goto LABEL_128;
-      Src[0] = a4;
-      if ( !(_DWORD)Size )
+      Src[0] = KeyValueInformation;
+      if ( !Length )
       {
         Src[1] = 0LL;
         goto LABEL_60;
       }
-      if ( !*((_QWORD *)&CmpRegistryProcess + 1) || !v15 && (unsigned __int8)CmpIsBufferGloballyVisible(a4) )
+      if ( !*((_QWORD *)&CmpRegistryProcess + 1)
+        || !v15 && (unsigned __int8)CmpIsBufferGloballyVisible(KeyValueInformation) )
       {
-        Src[1] = a4;
+        Src[1] = KeyValueInformation;
         goto LABEL_60;
       }
       if ( (unsigned int)dword_140C04390 > 5 && (byte_140C043A0 & 4) != 0 && (qword_140C043A8 & 4) == qword_140C043A8 )
@@ -285,8 +295,8 @@ LABEL_49:
         v45 = 3;
         v78 = &v45;
         v79 = 1LL;
-        v38 = Size;
-        if ( (((_DWORD)Size - 1) & (unsigned int)Size) != 0 )
+        v38 = Length;
+        if ( ((Length - 1) & Length) != 0 )
         {
           v39 = -1;
           do
@@ -302,41 +312,47 @@ LABEL_49:
         v81 = 8LL;
         tlgWriteAgg((__int64)&dword_140C04390, (unsigned __int8 *)&byte_140036B01, v27, 5u, &v75);
       }
-      if ( (unsigned int)Size > 0x40uLL )
+      if ( Length > 0x40uLL )
       {
-        if ( (unsigned int)Size <= 0x1000uLL )
+        if ( Length <= 0x1000uLL )
         {
           v35 = ExAllocateFromLookasideListEx(&CmpBounceBufferLookaside);
           v36 = v35;
           if ( v35 )
           {
-            memset(v35, 0, (unsigned int)Size);
+            memset(v35, 0, Length);
             v72 |= 1u;
             Src[1] = v36;
             goto LABEL_60;
           }
         }
-        TransientPoolWithQuota = (_BYTE *)CmpAllocateTransientPoolWithQuota(v26, (unsigned int)Size, 1111641411LL);
+        TransientPoolWithQuota = (_BYTE *)CmpAllocateTransientPoolWithQuota(v26, Length, 1111641411LL);
         if ( !TransientPoolWithQuota )
         {
           v17 = -1073741670;
 LABEL_61:
           if ( v17 >= 0 )
           {
-            v7 = a3;
+            v7 = KeyValueInformationClass;
             if ( v56 )
             {
               *(UNICODE_STRING *)v54 = DestinationString;
-              ValueKey = CmQueryValueKey((__int64)v56, (unsigned __int16 *)v54, a3, (size_t)Src[1], Size, (__int64)&v49);
+              ValueKey = CmQueryValueKey(
+                           (__int64)v56,
+                           (unsigned __int16 *)v54,
+                           KeyValueInformationClass,
+                           (size_t)Src[1],
+                           Length,
+                           (__int64)&Size);
               v17 = ValueKey;
               if ( ValueKey >= 0 || ValueKey == -1073741789 || ValueKey == -2147483643 )
               {
 LABEL_67:
-                v31 = v49;
-                *a6 = v49;
+                v31 = Size;
+                *ResultLength = Size;
                 if ( v17 != -1073741789 )
                 {
-                  if ( v31 < (unsigned int)Size )
+                  if ( v31 < Length )
                     v10 = v31;
                   if ( Src[0] != Src[1] )
                     memmove(Src[0], Src[1], v10);
@@ -347,20 +363,26 @@ LABEL_67:
                 goto LABEL_72;
             }
             *(UNICODE_STRING *)v54 = DestinationString;
-            v30 = CmQueryValueKey((__int64)Object, (unsigned __int16 *)v54, a3, (size_t)Src[1], Size, (__int64)&v49);
+            v30 = CmQueryValueKey(
+                    (__int64)Object,
+                    (unsigned __int16 *)v54,
+                    KeyValueInformationClass,
+                    (size_t)Src[1],
+                    Length,
+                    (__int64)&Size);
             v17 = v30;
             if ( v30 < 0 && v30 != -2147483643 && v30 != -1073741789 )
               goto LABEL_72;
             goto LABEL_67;
           }
 LABEL_128:
-          v7 = a3;
+          v7 = KeyValueInformationClass;
           goto LABEL_72;
         }
       }
       else
       {
-        memset(v73, 0, (unsigned int)Size);
+        memset(v73, 0, Length);
         TransientPoolWithQuota = v73;
       }
       Src[1] = TransientPoolWithQuota;
@@ -370,10 +392,10 @@ LABEL_60:
     }
     v70[0] = Object;
     v70[1] = &DestinationString;
-    LODWORD(v70[2]) = a3;
-    v70[3] = a4;
-    LODWORD(v70[4]) = Size;
-    v70[5] = a6;
+    LODWORD(v70[2]) = KeyValueInformationClass;
+    v70[3] = KeyValueInformation;
+    LODWORD(v70[4]) = Length;
+    v70[5] = ResultLength;
     LOBYTE(v24) = 1;
     v25 = CmpCallCallBacksEx(8, (unsigned int)v70, 0, v24, 23, (__int64)Object, (__int64)v57);
     v17 = v25;
@@ -382,7 +404,7 @@ LABEL_60:
       v42 = 1;
       goto LABEL_49;
     }
-    v7 = a3;
+    v7 = KeyValueInformationClass;
     if ( v25 == -1073740541 )
       v17 = 0;
   }
@@ -419,7 +441,7 @@ LABEL_72:
   {
     p_DestinationString = &DestinationString;
     LOBYTE(p_DestinationString) = 16;
-    CmpTraceRoutine(p_DestinationString, v74, (unsigned int)v17, v7);
+    CmpTraceRoutine(p_DestinationString, v74, (unsigned int)v17, (unsigned int)v7);
   }
   if ( Privileges )
   {
@@ -430,5 +452,5 @@ LABEL_72:
   if ( v46 )
     CmpReleaseShutdownRundown(v32, v33);
   CmCleanupThreadInfo((__int64 *)&v61);
-  return (unsigned int)v17;
+  return v17;
 }

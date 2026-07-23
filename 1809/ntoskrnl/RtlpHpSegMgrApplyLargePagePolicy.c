@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x14013977C
+ * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x14013987C
  * Callers:
  *     RtlpHpSegMgrCommitInitiate @ 0x14000C958 (RtlpHpSegMgrCommitInitiate.c)
  * Callees:

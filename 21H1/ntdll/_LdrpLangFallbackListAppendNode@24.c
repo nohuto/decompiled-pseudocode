@@ -26,7 +26,14 @@ int __fastcall LdrpLangFallbackListAppendNode(int *a1, _DWORD *a2, char a3, __in
       v8 = 0;
     else
       v8 = 2;
-    Node = RtlpMuiRegAddMultiSzToLangFallbackList(a2, SourceString, wcslen(SourceString) + 1, v8, 2, 1u, a1);
+    Node = RtlpMuiRegAddMultiSzToLangFallbackList(
+             a2,
+             (const unsigned __int16 *)SourceString,
+             wcslen((const unsigned __int16 *)SourceString) + 1,
+             v8,
+             2,
+             1u,
+             a1);
     if ( Node >= 0 )
     {
       v9 = *(_WORD *)(*a1 + 4);

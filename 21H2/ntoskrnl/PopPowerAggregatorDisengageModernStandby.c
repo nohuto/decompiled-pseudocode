@@ -1,19 +1,19 @@
 /*
- * XREFs of PopPowerAggregatorDisengageModernStandby @ 0x1408EE04C
+ * XREFs of PopPowerAggregatorDisengageModernStandby @ 0x1408EE1AC
  * Callers:
- *     PopPowerAggregatorModernStandbyEnterStateHandler @ 0x1408EE530 (PopPowerAggregatorModernStandbyEnterStateHandler.c)
- *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x1408EE580 (PopPowerAggregatorModernStandbyExitStateHandler.c)
+ *     PopPowerAggregatorModernStandbyEnterStateHandler @ 0x1408EE690 (PopPowerAggregatorModernStandbyEnterStateHandler.c)
+ *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x1408EE6E0 (PopPowerAggregatorModernStandbyExitStateHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
- *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
- *     PopPowerAggregatorLockAcquire @ 0x1408EE4F4 (PopPowerAggregatorLockAcquire.c)
- *     PopPowerAggregatorLockRelease @ 0x1408EE510 (PopPowerAggregatorLockRelease.c)
- *     PopNetClearConnectivityConstraint @ 0x1408F1C74 (PopNetClearConnectivityConstraint.c)
- *     PopSleepstudySnapModernStandbySessionData @ 0x1408FA3EC (PopSleepstudySnapModernStandbySessionData.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopSleepstudyStartNextSession @ 0x140774E98 (PopSleepstudyStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776208 (PopPowerAggregatorSetCurrentState.c)
+ *     PopDirectedDripsNotify @ 0x14078DCD8 (PopDirectedDripsNotify.c)
+ *     PopPowerAggregatorLockAcquire @ 0x1408EE654 (PopPowerAggregatorLockAcquire.c)
+ *     PopPowerAggregatorLockRelease @ 0x1408EE670 (PopPowerAggregatorLockRelease.c)
+ *     PopNetClearConnectivityConstraint @ 0x1408F1DD4 (PopNetClearConnectivityConstraint.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x1408FA54C (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
@@ -47,7 +47,7 @@ __int64 __fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
   PopPowerAggregatorLockRelease();
   PopSleepstudySnapModernStandbySessionData();
   if ( v3 == 1 )
-    PopSleepstudyStartNextSession(1, v1);
+    PopSleepstudyStartNextSession(1u, v1);
   v14 = 0LL;
   PopDirectedDripsNotify(7, (char *)&v14);
   PopAcquirePolicyLock(v4);
@@ -55,6 +55,6 @@ __int64 __fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
   PopNetClearConnectivityConstraint(7LL);
   PopAggressiveStandbyAppliedActions = 0;
   PopReleasePolicyLock(v6, v5);
-  ((void (__fastcall *)(_QWORD))qword_140C54448)(v2);
+  ((void (__fastcall *)(_QWORD))qword_140C54488)(v2);
   return PopPowerAggregatorLockAcquire();
 }

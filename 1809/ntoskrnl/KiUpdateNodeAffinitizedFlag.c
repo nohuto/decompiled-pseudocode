@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUpdateNodeAffinitizedFlag @ 0x1400D55BC
+ * XREFs of KiUpdateNodeAffinitizedFlag @ 0x1400D563C
  * Callers:
- *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KeStartThread @ 0x1400D39B4 (KeStartThread.c)
- *     KiSetSystemAffinityThread @ 0x1400D6400 (KiSetSystemAffinityThread.c)
- *     KiSetAffinityThread @ 0x14011547C (KiSetAffinityThread.c)
+ *     KiComputeThreadAffinity @ 0x14008A420 (KiComputeThreadAffinity.c)
+ *     KeStartThread @ 0x1400D3A34 (KeStartThread.c)
+ *     KiSetSystemAffinityThread @ 0x1400D6480 (KiSetSystemAffinityThread.c)
+ *     KiSetAffinityThread @ 0x1401154EC (KiSetAffinityThread.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ __int64 __fastcall KiUpdateNodeAffinitizedFlag(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 576);
   v3 = *(unsigned __int16 *)(a1 + 584);
-  if ( v1 == qword_1405416A8[v3] )
+  if ( v1 == qword_1405426A8[v3] )
   {
 LABEL_2:
     v4 = 1;

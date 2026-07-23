@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 NtGetCurrentProcessorNumber()
+ULONG NtGetCurrentProcessorNumber(void)
 {
-  unsigned int GroupIndex; // edx
+  ULONG GroupIndex; // edx
   unsigned __int64 v1; // rax
   __int16 v2; // ax
 

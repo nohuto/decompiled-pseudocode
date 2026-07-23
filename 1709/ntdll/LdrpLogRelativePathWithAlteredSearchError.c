@@ -11,7 +11,7 @@
 
 TLG_STATUS __fastcall LdrpLogRelativePathWithAlteredSearchError(
         LPCWSTR pwsz,
-        void (__stdcall *a2)(LPCGUID SourceId, ULONG IsEnabled, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, PEVENT_FILTER_DESCRIPTOR FilterData, PVOID CallbackContext),
+        void (__cdecl *a2)(LPCGUID, ULONG, UCHAR, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, PVOID),
         void *a3)
 {
   struct _PEB *v3; // rax
@@ -21,14 +21,14 @@ TLG_STATUS __fastcall LdrpLogRelativePathWithAlteredSearchError(
   LPCGUID v8; // r8
   LPCGUID v9; // r9
   EVENT_DATA_DESCRIPTOR pData; // [rsp+30h] [rbp-58h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+50h] [rbp-38h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v12; // [rsp+60h] [rbp-28h] BYREF
+  _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+50h] [rbp-38h] BYREF
+  _EVENT_DATA_DESCRIPTOR v12; // [rsp+60h] [rbp-28h] BYREF
 
   v3 = NtCurrentPeb();
   if ( v3 && (ProcessParameters = v3->ProcessParameters) != 0LL )
     Buffer = ProcessParameters->ImagePathName.Buffer;
   else
-    Buffer = (const WCHAR *)&unk_18011E4A0;
+    Buffer = &word_18011E4A0;
   result = _InterlockedCompareExchange(&CentennialIssueTracker_InitializedState, 1, 0);
   if ( !result )
   {

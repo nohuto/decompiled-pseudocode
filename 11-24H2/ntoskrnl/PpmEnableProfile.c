@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEnableProfile @ 0x140763B2C
+ * XREFs of PpmEnableProfile @ 0x1407634F0
  * Callers:
- *     PdcPoPpmResetProfile @ 0x140AA2580 (PdcPoPpmResetProfile.c)
- *     PpmInitPolicyConfiguration @ 0x140C302E8 (PpmInitPolicyConfiguration.c)
+ *     PdcPoPpmResetProfile @ 0x140A9D910 (PdcPoPpmResetProfile.c)
+ *     PpmInitPolicyConfiguration @ 0x140C32408 (PpmInitPolicyConfiguration.c)
  * Callees:
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmPerfUpdateMultimediaPowerModel @ 0x1404AF8FC (PpmPerfUpdateMultimediaPowerModel.c)
- *     PpmEventTraceProfileEnable @ 0x140AA4C58 (PpmEventTraceProfileEnable.c)
- *     PpmReinitializeHeteroEngine @ 0x140AC7948 (PpmReinitializeHeteroEngine.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PpmPerfUpdateMultimediaPowerModel @ 0x1404AA2EC (PpmPerfUpdateMultimediaPowerModel.c)
+ *     PpmEventTraceProfileEnable @ 0x140A9FF58 (PpmEventTraceProfileEnable.c)
+ *     PpmReinitializeHeteroEngine @ 0x140AC53D4 (PpmReinitializeHeteroEngine.c)
  */
 
 __int64 __fastcall PpmEnableProfile(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall PpmEnableProfile(__int64 a1, __int64 a2)
   unsigned int v8; // r8d
 
   *(_DWORD *)(a1 + 28) |= 1u;
-  v2 = &off_140E08298;
+  v2 = &off_140E08308;
   v3 = *(_BYTE *)(a1 + 8);
   v5 = 6LL;
   do

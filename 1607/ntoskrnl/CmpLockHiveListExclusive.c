@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLockHiveListExclusive @ 0x1404A0FBC
+ * XREFs of CmpLockHiveListExclusive @ 0x1405193C8
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpDeleteHive @ 0x140088098 (CmpDeleteHive.c)
- *     CmpJoinClassOfTrust @ 0x1401B471C (CmpJoinClassOfTrust.c)
- *     CmpUnJoinClassOfTrust @ 0x1401B47B0 (CmpUnJoinClassOfTrust.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpDeleteHive @ 0x14010C288 (CmpDeleteHive.c)
+ *     CmpJoinClassOfTrust @ 0x1401B4600 (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x1401B4694 (CmpUnJoinClassOfTrust.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *CmpLockHiveListExclusive()

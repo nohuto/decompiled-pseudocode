@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpThreadEnumCallback @ 0x140A8BF80
+ * XREFs of EtwpThreadEnumCallback @ 0x1409BDBC0
  * Callers:
- *     EtwpProcessEnumCallback @ 0x14096EA90 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x1409BC0E0 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpTraceThreadRundown @ 0x140412620 (EtwpTraceThreadRundown.c)
- *     EtwpTraceThreadRundownWithStack @ 0x1405291D8 (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpTraceThreadRundown @ 0x14051ED18 (EtwpTraceThreadRundown.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x1406CB674 (EtwpTraceThreadRundownWithStack.c)
  */
 
 __int64 __fastcall EtwpThreadEnumCallback(__int64 a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpThreadEnumCallback(__int64 a1, __int64 a2, __int64 a3)
     if ( v4 )
       EtwpTraceThreadRundown(a2, a3);
     else
-      EtwpTraceThreadRundownWithStack(a2, a3);
+      EtwpTraceThreadRundownWithStack((PKTHREAD)a2, a3);
   }
   return 0LL;
 }

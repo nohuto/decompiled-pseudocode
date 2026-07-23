@@ -1,9 +1,9 @@
 /*
- * XREFs of KzLowerIrql @ 0x14023E490
+ * XREFs of KzLowerIrql @ 0x14023E560
  * Callers:
- *     KiVirtualizationException @ 0x140431A40 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x140431E40 (KiVirtualizationException.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KzLowerIrql(KIRQL NewIrql)
@@ -16,10 +16,13 @@ void __stdcall KzLowerIrql(KIRQL NewIrql)
   bool v6; // zf
 
   v1 = NewIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

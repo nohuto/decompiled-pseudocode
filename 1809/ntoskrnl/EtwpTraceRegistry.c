@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTraceRegistry @ 0x1408B8E50
+ * XREFs of EtwpTraceRegistry @ 0x1408BA110
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogRegistryEvent @ 0x1408B84D4 (EtwpLogRegistryEvent.c)
+ *     EtwpLogRegistryEvent @ 0x1408B9794 (EtwpLogRegistryEvent.c)
  */
 
 _QWORD *__fastcall EtwpTraceRegistry(unsigned __int8 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)

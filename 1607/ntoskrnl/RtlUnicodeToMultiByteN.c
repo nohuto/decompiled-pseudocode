@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeToMultiByteN @ 0x1403F7450
+ * XREFs of RtlUnicodeToMultiByteN @ 0x1403F6310
  * Callers:
- *     wcstombs @ 0x14014F1B4 (wcstombs.c)
- *     _wctomb_s_l @ 0x14014F4B8 (_wctomb_s_l.c)
- *     _safecrt_wctomb_s @ 0x140153BE4 (_safecrt_wctomb_s.c)
- *     RtlUnicodeStringToAnsiString @ 0x1403F7370 (RtlUnicodeStringToAnsiString.c)
+ *     wcstombs @ 0x14014F774 (wcstombs.c)
+ *     _wctomb_s_l @ 0x14014FA78 (_wctomb_s_l.c)
+ *     _safecrt_wctomb_s @ 0x140154154 (_safecrt_wctomb_s.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1403F6230 (RtlUnicodeStringToAnsiString.c)
  * Callees:
  *     <none>
  */

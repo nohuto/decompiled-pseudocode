@@ -1,21 +1,21 @@
 /*
- * XREFs of ExInitializeNPagedLookasideListInternal @ 0x14015F9A0
+ * XREFs of ExInitializeNPagedLookasideListInternal @ 0x14015FAA0
  * Callers:
- *     ExInitializeNPagedLookasideList @ 0x14015F960 (ExInitializeNPagedLookasideList.c)
- *     RtlInitializeCompression @ 0x1402EC834 (RtlInitializeCompression.c)
- *     CcInitializeCacheManager @ 0x1409B06D8 (CcInitializeCacheManager.c)
- *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
- *     WmipInitializeRegistration @ 0x1409D45A0 (WmipInitializeRegistration.c)
- *     FsRtlInitSystem @ 0x1409D7714 (FsRtlInitSystem.c)
- *     FsRtlInitializeFileLocks @ 0x1409D7B60 (FsRtlInitializeFileLocks.c)
- *     PopInitializeIrpWorkers @ 0x1409DC56C (PopInitializeIrpWorkers.c)
+ *     ExInitializeNPagedLookasideList @ 0x14015FA60 (ExInitializeNPagedLookasideList.c)
+ *     RtlInitializeCompression @ 0x1402ECA24 (RtlInitializeCompression.c)
+ *     CcInitializeCacheManager @ 0x1409B16D8 (CcInitializeCacheManager.c)
+ *     ObInitSystem @ 0x1409B2964 (ObInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
+ *     WmipInitializeRegistration @ 0x1409D55A0 (WmipInitializeRegistration.c)
+ *     FsRtlInitSystem @ 0x1409D8714 (FsRtlInitSystem.c)
+ *     FsRtlInitializeFileLocks @ 0x1409D8B60 (FsRtlInitializeFileLocks.c)
+ *     PopInitializeIrpWorkers @ 0x1409DD56C (PopInitializeIrpWorkers.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExInitializeNPagedLookasideListInternal(
@@ -59,14 +59,14 @@ __int64 __fastcall ExInitializeNPagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  v13 = (_QWORD *)qword_140407078;
+  v13 = (_QWORD *)qword_1404080A8;
   v14 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_140407078 != &ExNPagedLookasideListHead )
+  if ( *(__int64 **)qword_1404080A8 != &ExNPagedLookasideListHead )
     __fastfail(3u);
   *v14 = &ExNPagedLookasideListHead;
   v14[1] = v13;
   *v13 = v14;
-  qword_140407078 = (__int64)v14;
+  qword_1404080A8 = (__int64)v14;
   KxReleaseSpinLock(&ExNPagedLookasideLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v12 < 2u )
   {

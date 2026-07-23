@@ -1,19 +1,19 @@
 /*
- * XREFs of SepDeleteCachedHandlesTable @ 0x140A64838
+ * XREFs of SepDeleteCachedHandlesTable @ 0x140A5D138
  * Callers:
- *     SepDeleteLogonSessionTrack @ 0x140A64520 (SepDeleteLogonSessionTrack.c)
- *     SepDeReferenceLogonSession @ 0x140AD8BA4 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x140A5CE20 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x140AD7224 (SepDeReferenceLogonSession.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlInitWeakEnumerationHashTable @ 0x140356C60 (RtlInitWeakEnumerationHashTable.c)
- *     RtlEnumerateEntryHashTable @ 0x140357000 (RtlEnumerateEntryHashTable.c)
- *     RtlEndWeakEnumerationHashTable @ 0x14043F0A0 (RtlEndWeakEnumerationHashTable.c)
- *     RtlDeleteHashTable @ 0x1404813D0 (RtlDeleteHashTable.c)
- *     SepDereferenceCachedHandlesEntryInternal @ 0x140A08D24 (SepDereferenceCachedHandlesEntryInternal.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlEnumerateEntryHashTable @ 0x1403E3040 (RtlEnumerateEntryHashTable.c)
+ *     RtlInitWeakEnumerationHashTable @ 0x1403E31D0 (RtlInitWeakEnumerationHashTable.c)
+ *     RtlEndWeakEnumerationHashTable @ 0x140434C50 (RtlEndWeakEnumerationHashTable.c)
+ *     RtlDeleteHashTable @ 0x14047C690 (RtlDeleteHashTable.c)
+ *     SepDereferenceCachedHandlesEntryInternal @ 0x140A05254 (SepDereferenceCachedHandlesEntryInternal.c)
  */
 
 __int64 __fastcall SepDeleteCachedHandlesTable(ULONG_PTR BugCheckParameter2)
@@ -21,12 +21,12 @@ __int64 __fastcall SepDeleteCachedHandlesTable(ULONG_PTR BugCheckParameter2)
   __int64 result; // rax
   int v2; // esi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v5; // rax
-  _QWORD *v6; // rbp
-  struct _RTL_DYNAMIC_HASH_TABLE *v7; // rcx
+  char *v5; // rax
+  char *v6; // rbp
+  _RTL_DYNAMIC_HASH_TABLE *v7; // rcx
   int v8; // eax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v9; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
   BOOLEAN v11; // [rsp+60h] [rbp+8h] BYREF
 
   result = 0LL;
@@ -36,13 +36,13 @@ __int64 __fastcall SepDeleteCachedHandlesTable(ULONG_PTR BugCheckParameter2)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v5 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+    v5 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
     v6 = v5;
     if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v5, BugCheckParameter2);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v5, BugCheckParameter2);
     if ( v6 )
-      *((_BYTE *)v6 + 10) = 1;
-    v7 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(BugCheckParameter2 + 8);
+      v6[10] = 1;
+    v7 = *(_RTL_DYNAMIC_HASH_TABLE **)(BugCheckParameter2 + 8);
     if ( v7 )
     {
       RtlInitWeakEnumerationHashTable(v7, &Enumerator);

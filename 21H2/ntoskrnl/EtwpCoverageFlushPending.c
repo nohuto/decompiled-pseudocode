@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCoverageFlushPending @ 0x1406C21D0
+ * XREFs of EtwpCoverageFlushPending @ 0x140620E90
  * Callers:
- *     EtwpCoverageRecord @ 0x1406B5CE4 (EtwpCoverageRecord.c)
- *     EtwpCoverageFlushWorkItemCallback @ 0x1406C2100 (EtwpCoverageFlushWorkItemCallback.c)
- *     EtwpFlushCoverage @ 0x1407740D0 (EtwpFlushCoverage.c)
- *     EtwpCoverageReset @ 0x140935274 (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x140935454 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageRecord @ 0x1406151A4 (EtwpCoverageRecord.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x140620DC0 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwpFlushCoverage @ 0x140774290 (EtwpFlushCoverage.c)
+ *     EtwpCoverageReset @ 0x140935444 (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x140935624 (EtwpCoverageResetCP.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     KeCancelTimer2 @ 0x14027FB40 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeCancelTimer2 @ 0x14026DD80 (KeCancelTimer2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int *__fastcall EtwpCoverageFlushPending(int **a1)
@@ -93,7 +93,7 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
         v32 = 2;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02C28,
-          (unsigned __int8 *)&word_14002C63E,
+          (unsigned __int8 *)byte_14002C69D,
           0LL,
           0LL,
           8u,

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTraceDatabaseDestroy @ 0x1402F5B40
+ * XREFs of RtlTraceDatabaseDestroy @ 0x1402F5D30
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlTraceDatabaseDestroy(PRTL_TRACE_DATABASE Database)

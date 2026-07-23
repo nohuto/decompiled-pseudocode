@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRecordRecoveryFailure @ 0x14052515C
+ * XREFs of KiRecordRecoveryFailure @ 0x14052539C
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x140524D84 (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x140524FC4 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
  */
 
 char __fastcall KiRecordRecoveryFailure(ULONG a1)

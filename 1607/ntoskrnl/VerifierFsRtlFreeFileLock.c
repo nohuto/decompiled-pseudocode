@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlFreeFileLock @ 0x14070C568
+ * XREFs of VerifierFsRtlFreeFileLock @ 0x14070C598
  * Callers:
  *     <none>
  * Callees:

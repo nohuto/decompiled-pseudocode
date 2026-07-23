@@ -20,11 +20,16 @@
  *     MmManagePartitionNodeInformation @ 0x1408D8628 (MmManagePartitionNodeInformation.c)
  */
 
-__int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, unsigned __int64 a4, unsigned int Size)
+NTSTATUS __cdecl NtManagePartition(
+        HANDLE TargetHandle,
+        HANDLE SourceHandle,
+        PARTITION_INFORMATION_CLASS PartitionInformationClass,
+        PVOID PartitionInformation,
+        ULONG PartitionInformationLength)
 {
   __int64 v6; // rbx
   char PreviousMode; // si
-  int v10; // edi
+  NTSTATUS v10; // edi
   __int64 v11; // r15
   __int64 *v12; // r8
   __int64 v13; // r8
@@ -42,7 +47,7 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, un
   _QWORD *v26; // [rsp+40h] [rbp-148h] BYREF
   _QWORD Src[30]; // [rsp+50h] [rbp-138h] BYREF
 
-  v6 = a3;
+  v6 = (unsigned int)PartitionInformationClass;
   memset(Src, 0, sizeof(Src));
   v24 = 0;
   v23 = 0;
@@ -56,38 +61,41 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, un
   }
   v11 = v6;
   v12 = PspPartitionInfoDetails;
-  if ( Size != WORD2(PspPartitionInfoDetails[v6]) )
+  if ( PartitionInformationLength != WORD2(PspPartitionInfoDetails[v6]) )
   {
     v10 = -1073741820;
     goto LABEL_47;
   }
   if ( (PspPartitionInfoDetails[v6] & 0x100000000000000LL) != 0 )
   {
-    if ( PreviousMode && Size )
+    if ( PreviousMode && PartitionInformationLength )
     {
-      if ( ((BYTE6(PspPartitionInfoDetails[v6]) - 1LL) & a4) != 0 )
+      if ( ((BYTE6(PspPartitionInfoDetails[v6]) - 1LL) & (unsigned __int64)PartitionInformation) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( a4 + Size > 0x7FFFFFFF0000LL || a4 + Size < a4 )
+      if ( (unsigned __int64)PartitionInformation + PartitionInformationLength > 0x7FFFFFFF0000LL
+        || (char *)PartitionInformation + PartitionInformationLength < PartitionInformation )
+      {
         MEMORY[0x7FFFFFFF0000] = 0;
+      }
     }
-    memmove(Src, (const void *)a4, Size);
+    memmove(Src, PartitionInformation, PartitionInformationLength);
   }
   LOBYTE(v12) = PreviousMode;
-  v10 = PsReferencePartitionByHandle(a1, LODWORD(PspPartitionInfoDetails[v6]), v12, 1884123984LL, &v25);
+  v10 = PsReferencePartitionByHandle(TargetHandle, LODWORD(PspPartitionInfoDetails[v6]), v12, 1884123984LL, &v25);
   if ( v10 >= 0 )
   {
     v23 = 1;
     if ( (PspPartitionInfoDetails[v6] & 0x400000000000000LL) != 0 )
     {
       LOBYTE(v13) = PreviousMode;
-      v10 = PsReferencePartitionByHandle(a2, LODWORD(PspPartitionInfoDetails[v6]), v13, 1884123984LL, &v26);
+      v10 = PsReferencePartitionByHandle(SourceHandle, LODWORD(PspPartitionInfoDetails[v6]), v13, 1884123984LL, &v26);
       if ( v10 < 0 )
         goto LABEL_47;
       v24 = 1;
       if ( v26 == v25 )
         goto LABEL_17;
     }
-    else if ( a2 )
+    else if ( SourceHandle )
     {
       v10 = -1073741584;
       goto LABEL_47;
@@ -108,21 +116,27 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, un
     if ( !v16 )
     {
       LOBYTE(v14) = PreviousMode;
-      PagingFile = MiCreatePagingFile(a4, a4 + 16, a4 + 24, v14, Src[4], *v25);
+      PagingFile = MiCreatePagingFile(
+                     PartitionInformation,
+                     (char *)PartitionInformation + 16,
+                     (char *)PartitionInformation + 24,
+                     v14,
+                     Src[4],
+                     *v25);
       goto LABEL_41;
     }
     v17 = v16 - 1;
     if ( !v17 )
     {
       LOBYTE(v14) = PreviousMode;
-      PagingFile = MmManagePartitionCombineMemory(v25, Src, a4, v14);
+      PagingFile = MmManagePartitionCombineMemory(v25, Src, PartitionInformation, v14);
       goto LABEL_41;
     }
     v18 = v17 - 1;
     if ( !v18 )
     {
       LOBYTE(v14) = PreviousMode;
-      PagingFile = MmManagePartitionInitialAddMemory(v25, Src, a4, v14);
+      PagingFile = MmManagePartitionInitialAddMemory(v25, Src, PartitionInformation, v14);
       goto LABEL_41;
     }
     v19 = v18 - 1;
@@ -153,8 +167,8 @@ LABEL_42:
       if ( (PspPartitionInfoDetails[v11] & 0x200000000000000LL) != 0 )
       {
         if ( PreviousMode )
-          ProbeForWrite((volatile void *)a4, Size, BYTE6(PspPartitionInfoDetails[v11]));
-        memmove((void *)a4, Src, Size);
+          ProbeForWrite(PartitionInformation, PartitionInformationLength, BYTE6(PspPartitionInfoDetails[v11]));
+        memmove(PartitionInformation, Src, PartitionInformationLength);
       }
       goto LABEL_47;
     }
@@ -171,5 +185,5 @@ LABEL_47:
     PsDereferencePartition((__int64)v25);
   if ( v24 )
     PsDereferencePartition((__int64)v26);
-  return (unsigned int)v10;
+  return v10;
 }

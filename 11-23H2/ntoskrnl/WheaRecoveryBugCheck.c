@@ -1,12 +1,12 @@
 /*
- * XREFs of WheaRecoveryBugCheck @ 0x1406105C0
+ * XREFs of WheaRecoveryBugCheck @ 0x140610B10
  * Callers:
- *     KiMcheckAlternateReturn @ 0x140580390 (KiMcheckAlternateReturn.c)
- *     WheaReportHwError @ 0x140610630 (WheaReportHwError.c)
+ *     KiMcheckAlternateReturn @ 0x140580880 (KiMcheckAlternateReturn.c)
+ *     WheaReportHwError @ 0x140610B80 (WheaReportHwError.c)
  * Callees:
- *     WheapAddToDumpFile @ 0x140610AF8 (WheapAddToDumpFile.c)
- *     WheapCompressErrorRecord @ 0x140610D28 (WheapCompressErrorRecord.c)
- *     WheapPersistPageForMemoryError @ 0x140610FC8 (WheapPersistPageForMemoryError.c)
+ *     WheapAddToDumpFile @ 0x140611048 (WheapAddToDumpFile.c)
+ *     WheapCompressErrorRecord @ 0x140611278 (WheapCompressErrorRecord.c)
+ *     WheapPersistPageForMemoryError @ 0x140611518 (WheapPersistPageForMemoryError.c)
  */
 
 __int64 __fastcall WheaRecoveryBugCheck(__int64 a1, __int64 a2)

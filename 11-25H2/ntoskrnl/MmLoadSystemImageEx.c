@@ -59,7 +59,7 @@ __int64 __fastcall MmLoadSystemImageEx(
         int a4,
         unsigned int a5,
         __int64 *a6,
-        _QWORD *a7)
+        PVOID *a7)
 {
   char *v12; // r15
   char v13; // bl
@@ -74,7 +74,7 @@ __int64 __fastcall MmLoadSystemImageEx(
   int v23; // edi
   _QWORD *v24; // rdx
   int v25; // eax
-  unsigned __int64 v26; // rbx
+  PIMAGE_NT_HEADERS v26; // rbx
   __int64 v27; // rsi
   _DWORD *v28; // r13
   __int64 v29; // rcx
@@ -89,7 +89,7 @@ __int64 __fastcall MmLoadSystemImageEx(
   __int64 v38; // rcx
   char v39[4]; // [rsp+38h] [rbp-61h] BYREF
   int v40; // [rsp+3Ch] [rbp-5Dh] BYREF
-  _QWORD *SystemAddressForImage; // [rsp+40h] [rbp-59h]
+  PVOID BaseOfImage; // [rsp+40h] [rbp-59h]
   PVOID v42; // [rsp+48h] [rbp-51h] BYREF
   __int64 v43; // [rsp+50h] [rbp-49h] BYREF
   unsigned __int64 v44; // [rsp+58h] [rbp-41h]
@@ -139,7 +139,7 @@ __int64 __fastcall MmLoadSystemImageEx(
       if ( (*(_DWORD *)(BaseLoaderPortion + 184) & 0x100) == 0 )
       {
         *a6 = (__int64)v12;
-        *a7 = *((_QWORD *)v12 + 6);
+        *a7 = (PVOID)*((_QWORD *)v12 + 6);
         v20 = *((_DWORD *)v12 + 26);
         v12 = 0LL;
         active = (v20 & 0x4000000) != 0 ? -1073741411 : -1073741554;
@@ -149,8 +149,8 @@ __int64 __fastcall MmLoadSystemImageEx(
       v44 = MiSectionControlArea(v21);
       v22 = v44;
       v23 = *(_DWORD *)(*(_QWORD *)v44 + 8LL);
-      SystemAddressForImage = (_QWORD *)MiGetSystemAddressForImage(v12, a5);
-      if ( !SystemAddressForImage )
+      BaseOfImage = (PVOID)MiGetSystemAddressForImage(v12, a5);
+      if ( !BaseOfImage )
       {
         active = -1073741670;
 LABEL_26:
@@ -158,7 +158,7 @@ LABEL_26:
         goto LABEL_12;
       }
       MiCheckPurgeAndUpMapCount(v22);
-      v24 = SystemAddressForImage;
+      v24 = BaseOfImage;
       *(_DWORD *)(BaseLoaderPortion + 184) |= 0x80000u;
       MiUpdateDriverLoadInProgress((__int64)v12, v24, v23 << 12, 1);
       v25 = MiControlAreaRequiresCharge(v22, 2u);
@@ -175,20 +175,20 @@ LABEL_26:
           goto LABEL_11;
         *(_DWORD *)(BaseLoaderPortion + 184) |= 0x800u;
       }
-      active = MiMapSystemImage(v21, SystemAddressForImage);
+      active = MiMapSystemImage(v21, BaseOfImage);
       v13 = v17;
       if ( active >= 0 )
       {
         *(_DWORD *)(BaseLoaderPortion + 184) |= 0x4000u;
         v52 = 0;
         v39[0] = 0;
-        v26 = RtlImageNtHeader((unsigned __int64)SystemAddressForImage);
+        v26 = RtlImageNtHeader(BaseOfImage);
         if ( !v26 )
         {
           active = -1073741279;
           goto LABEL_26;
         }
-        if ( *(_WORD *)(v26 + 4) != 0x8664 || *(_WORD *)(v26 + 24) != 523 )
+        if ( v26->FileHeader.Machine != 0x8664 || v26->OptionalHeader.Magic != 523 )
         {
           active = -1073741520;
           goto LABEL_26;
@@ -199,8 +199,8 @@ LABEL_26:
           if ( active < 0 )
           {
             *(_OWORD *)(v12 + 88) = v47;
-            *((_DWORD *)v12 + 30) = *(_DWORD *)(v26 + 88);
-            *((_DWORD *)v12 + 39) = *(_DWORD *)(v26 + 8);
+            *((_DWORD *)v12 + 30) = v26->OptionalHeader.CheckSum;
+            *((_DWORD *)v12 + 39) = v26->FileHeader.TimeDateStamp;
             MiLogStrongCodeDriverLoadFailure("SectionWXable");
             goto LABEL_26;
           }
@@ -235,11 +235,11 @@ LABEL_26:
                   *((_DWORD *)v42 + 46) |= 0x40000u;
                   if ( (*(_BYTE *)(*(_QWORD *)(*v32 + 56LL) + 46LL) & 0x40) == 0 )
                   {
-                    v33 = (_QWORD *)((char *)SystemAddressForImage
-                                   + *(unsigned int *)(*(_QWORD *)((v32[12] & 0xFFFFFFFFFFFFFFF8uLL) + 32) + 60LL));
+                    v33 = (char *)BaseOfImage
+                        + *(unsigned int *)(*(_QWORD *)((v32[12] & 0xFFFFFFFFFFFFFFF8uLL) + 32) + 60LL);
                     MiSetImageProtection(v27, (unsigned __int64)v33, 8);
                     v34 = MiRelocateAmount(v32);
-                    *v33 = (char *)SystemAddressForImage - v34;
+                    *v33 = (char *)BaseOfImage - v34;
                     if ( v32[18] )
                       MiSetImageProtection(v27, (unsigned __int64)v33, 8);
                   }
@@ -309,7 +309,7 @@ LABEL_12:
                           v13 = v17;
                           active = 0;
                           *a6 = v27;
-                          *a7 = SystemAddressForImage;
+                          *a7 = BaseOfImage;
                           goto LABEL_14;
                         }
                       }

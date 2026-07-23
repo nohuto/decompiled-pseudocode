@@ -1,22 +1,22 @@
 /*
- * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x1408F2FA8
+ * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x14086395C
  * Callers:
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
  * Callees:
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     SepAdtAuditThisEventWithContext @ 0x140852C10 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1408F03C0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x1408F23FC (SepQueryTypeString.c)
- *     SepIsAclEqual @ 0x1408F3200 (SepIsAclEqual.c)
- *     SeCaptureSecurityDescriptor @ 0x14091CE60 (SeCaptureSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14084EED0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x140861BC0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepIsAclEqual @ 0x140863BB4 (SepIsAclEqual.c)
+ *     SeCaptureSecurityDescriptor @ 0x1409108D0 (SeCaptureSecurityDescriptor.c)
+ *     SepQueryTypeString @ 0x140913780 (SepQueryTypeString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeTokenDefaultDaclChangedAuditAlarm(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  PVOID v5; // rdi
+  void *v5; // rdi
   unsigned __int16 *v6; // r14
   void *v7; // rsi
   _QWORD **PrimaryToken; // r13
@@ -33,7 +33,7 @@ void __fastcall SeTokenDefaultDaclChangedAuditAlarm(__int64 a1, __int64 a2, __in
   __int64 v21; // [rsp+A8h] [rbp-11h]
   _OWORD v22[2]; // [rsp+B0h] [rbp-9h] BYREF
   __int64 v23; // [rsp+D0h] [rbp+17h]
-  PVOID v24; // [rsp+118h] [rbp+5Fh] BYREF
+  void *v24; // [rsp+118h] [rbp+5Fh] BYREF
   __int64 v25; // [rsp+128h] [rbp+6Fh]
 
   v25 = a3;

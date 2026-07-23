@@ -23,7 +23,7 @@
 __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, wchar_t *a2, volatile signed __int32 **a3)
 {
   volatile signed __int32 *v3; // rbx
-  struct _RTL_AVL_TABLE *ObjectManagerForObjectType; // r15
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // r15
   NTSTATUS v8; // edi
   PVOID *v9; // rax
   struct _KTHREAD *CurrentThread; // rcx
@@ -38,7 +38,7 @@ __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, wchar_t *a2, 
   Buffer = v17;
   P = 0LL;
   NodeOrParent = 0LL;
-  ObjectManagerForObjectType = (struct _RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
+  ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
   PiDmObjectManagerAcquireExclusiveLock(ObjectManagerForObjectType);
   v8 = PiDmInitializeComparisonObject(a2, a1, (__int64)v17);
   if ( v8 >= 0 )

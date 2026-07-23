@@ -124,8 +124,8 @@ __int64 MiResolveTransitionFault(
   signed __int32 v73; // eax
   PSLIST_ENTRY v74; // rbx
   PSLIST_ENTRY v75; // rbx
-  struct _SLIST_ENTRY *v76; // rcx
-  union _SLIST_HEADER *v77; // rcx
+  _SLIST_ENTRY *v76; // rcx
+  _SLIST_HEADER *v77; // rcx
   __int64 v78; // rdx
   unsigned __int64 v79; // rax
   void *v80; // [rsp+28h] [rbp-69h]
@@ -392,12 +392,12 @@ LABEL_220:
                   if ( _InterlockedExchangeAdd((volatile signed __int32 *)&v74[11], 0xFFFFFFFF) == 1 )
                   {
                     v75 = ListEntry;
-                    v76 = (struct _SLIST_ENTRY *)*((_QWORD *)&ListEntry[15].Next + 1);
+                    v76 = (_SLIST_ENTRY *)*((_QWORD *)&ListEntry[15].Next + 1);
                     if ( v76 && v76 != &ListEntry[16] )
                       ExFreePoolWithTag(v76, 0);
-                    v77 = (union _SLIST_HEADER *)((char *)&unk_140389140
-                                                + 16
-                                                * (((unsigned __int64)(unsigned __int8)~*((_BYTE *)&v75[11].Next + 13) >> 5) & 1));
+                    v77 = (_SLIST_HEADER *)((char *)&unk_140389140
+                                          + 16
+                                          * (((unsigned __int64)(unsigned __int8)~*((_BYTE *)&v75[11].Next + 13) >> 5) & 1));
                     if ( (unsigned int)LOWORD(v77->Alignment) >= byte_140389160[((unsigned __int64)(unsigned __int8)~*((_BYTE *)&v75[11].Next + 13) >> 5) & 1] )
                       ExFreePoolWithTag(v75, 0);
                     else

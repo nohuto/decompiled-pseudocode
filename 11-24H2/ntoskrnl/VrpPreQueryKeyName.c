@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpPreQueryKeyName @ 0x140A037D8
+ * XREFs of VrpPreQueryKeyName @ 0x1409FFD08
  * Callers:
- *     VrpRegistryCallback @ 0x140849230 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1408454F0 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
@@ -39,7 +39,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
   EtwActivityIdControl(3u, &ActivityId);
   v2 = *(_QWORD *)(a1 + 40);
   v15 = v2;
-  if ( (unsigned int)dword_140E0A5B0 > 2 )
+  if ( (unsigned int)dword_140E0A620 > 2 )
   {
     v3 = &EmptyUnicodeString;
     v10 = (__int64 *)(v2 + 16);
@@ -53,8 +53,8 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     v22 = v11;
     v23 = 0;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E0A5B0,
-      (unsigned __int8 *)byte_140058F59,
+      (__int64)&dword_140E0A620,
+      (unsigned __int8 *)qword_140059880,
       &ActivityId,
       0LL,
       4u,
@@ -86,7 +86,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     v8 = -1073740541;
     v5 = v13;
   }
-  if ( (unsigned int)dword_140E0A5B0 > 5 )
+  if ( (unsigned int)dword_140E0A620 > 5 )
   {
     if ( *(_QWORD *)(v2 + 24) )
       v3 = v5;
@@ -99,8 +99,8 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     LODWORD(v13) = v8;
     v25 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E0A5B0,
-      (unsigned __int8 *)byte_140058D2D,
+      (__int64)&dword_140E0A620,
+      (unsigned __int8 *)&dword_140059A9C,
       &ActivityId,
       0LL,
       5u,

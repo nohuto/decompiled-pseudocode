@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpReadGenericErrorInfo @ 0x1404DC648
+ * XREFs of HalpReadGenericErrorInfo @ 0x1404D5D28
  * Callers:
- *     HalpCheckAndReportGhes @ 0x1404DC5EC (HalpCheckAndReportGhes.c)
+ *     HalpCheckAndReportGhes @ 0x1404D5CCC (HalpCheckAndReportGhes.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     HalpExtractGenericErrorData @ 0x14058E314 (HalpExtractGenericErrorData.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     HalpExtractGenericErrorData @ 0x140590A94 (HalpExtractGenericErrorData.c)
  */
 
 __int64 __fastcall HalpReadGenericErrorInfo(__int64 a1)

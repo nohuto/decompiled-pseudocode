@@ -9,7 +9,7 @@
 __int64 __fastcall EtwGetTraceLoggerHandle(__int64 a1)
 {
   __int64 v1; // rbx
-  unsigned int v3; // ecx
+  LONG v3; // ecx
 
   if ( !a1 )
   {
@@ -27,7 +27,7 @@ LABEL_8:
   if ( (unsigned __int16)(v1 - 64) <= 0xFFBEu )
   {
     v1 = -1LL;
-    RtlSetLastWin32Error(6u);
+    RtlSetLastWin32Error(6);
   }
   return v1;
 }

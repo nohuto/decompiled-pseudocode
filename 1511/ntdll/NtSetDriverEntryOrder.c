@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetDriverEntryOrder()
+NTSTATUS __cdecl NtSetDriverEntryOrder(PULONG Ids, ULONG Count)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 375LL;
+  result = 375;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

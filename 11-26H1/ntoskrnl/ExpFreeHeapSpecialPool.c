@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpFreeHeapSpecialPool @ 0x140345B28
+ * XREFs of ExpFreeHeapSpecialPool @ 0x140347BA8
  * Callers:
- *     ExAllocateHeapSpecialPool @ 0x14051A678 (ExAllocateHeapSpecialPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405140E8 (ExAllocateHeapSpecialPool.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExpFreePoolChecks @ 0x140344A90 (ExpFreePoolChecks.c)
- *     ExpPoolTrackerReturnLimit @ 0x140344FF0 (ExpPoolTrackerReturnLimit.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1403450B0 (ExpRemovePoolTrackerExpansion.c)
- *     RtlpHpFreeHeap @ 0x140347010 (RtlpHpFreeHeap.c)
- *     EtwTracePool @ 0x1403C0B34 (EtwTracePool.c)
- *     KasanMarkAddressValidNoInline @ 0x140523160 (KasanMarkAddressValidNoInline.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpPoolFlagsToPoolType @ 0x140C10F50 (ExpPoolFlagsToPoolType.c)
- *     ViFreeTrackedPool @ 0x140C469AC (ViFreeTrackedPool.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExpFreePoolChecks @ 0x140346B10 (ExpFreePoolChecks.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140347070 (ExpPoolTrackerReturnLimit.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140347130 (ExpRemovePoolTrackerExpansion.c)
+ *     RtlpHpFreeHeap @ 0x140349090 (RtlpHpFreeHeap.c)
+ *     EtwTracePool @ 0x1403CAA34 (EtwTracePool.c)
+ *     KasanMarkAddressValidNoInline @ 0x1405257D0 (KasanMarkAddressValidNoInline.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpPoolFlagsToPoolType @ 0x140C16F50 (ExpPoolFlagsToPoolType.c)
+ *     ViFreeTrackedPool @ 0x140C4C9BC (ViFreeTrackedPool.c)
  */
 
 __int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, unsigned __int64 a2)
@@ -50,7 +50,7 @@ __int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, unsigned __int64 a2)
   if ( (*(_DWORD *)(v5 & 0xFFFFFFFFFFFFF000uLL) & 0x2000) != 0 )
     v7 = (unsigned int)ExpCacheLineSize;
   v9 = 4096 - (unsigned int)(v5 & 0xFFF);
-  if ( byte_140FC7BE8 )
+  if ( byte_140FC8BD8 )
     KasanMarkAddressValidNoInline((ULONG_PTR)v6, 0x1000uLL);
   ExpFreePoolChecks(a2, v6[1], v9, 128, a2);
   CurrentIrql = KeGetCurrentIrql();
@@ -91,17 +91,17 @@ __int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, unsigned __int64 a2)
     }
   }
   LODWORD(v16) = KeGetPcr()->Prcb.Number;
-  StackBase = (int)stru_140EFEF90.StackBase;
+  StackBase = (int)stru_140EFF2C0.StackBase;
   v19 = v8 & 0xFFFFFFFFFFFFFFFBuLL;
-  v20 = *((_QWORD *)&stru_140EFEF90.CurrentRunTime + v16);
-  v21 = LODWORD(stru_140EFEF90.StackBase) & ((40543 * v15) ^ ((unsigned __int64)(40543 * v15) >> 32));
+  v20 = *(&stru_140EFF2C0.ThreadLock + v16);
+  v21 = LODWORD(stru_140EFF2C0.StackBase) & ((40543 * v15) ^ ((unsigned __int64)(40543 * v15) >> 32));
   v22 = v21;
   while ( 1 )
   {
     v23 = v20 + 80LL * v21;
     if ( *(_DWORD *)v23 == (_DWORD)v15 )
       break;
-    if ( *(_DWORD *)v23 || (v24 = *(_DWORD *)(PoolTrackTable + 80LL * v21)) == 0 )
+    if ( *(_DWORD *)v23 || (v24 = *(_DWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * v21)) == 0 )
     {
       v21 = StackBase & (v21 + 1);
       if ( v21 == v22 )
@@ -113,7 +113,7 @@ __int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, unsigned __int64 a2)
     else
     {
       *(_DWORD *)v23 = v24;
-      v25 = *(_QWORD *)(PoolTrackTable + 80LL * v21 + 72);
+      v25 = *(_QWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * v21 + 72);
       if ( v25 )
         *(_QWORD *)(v23 + 72) = v25;
     }

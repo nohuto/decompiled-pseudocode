@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpMapHiveImageFromViewMap @ 0x1405F9C30
+ * XREFs of HvpMapHiveImageFromViewMap @ 0x1405FAC30
  * Callers:
- *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
+ *     HvLoadHive @ 0x1405A5C9C (HvLoadHive.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F8D60 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     CmpClaimGlobalQuota @ 0x1405A7334 (CmpClaimGlobalQuota.c)
- *     HvpViewMapFindViewForFileOffset @ 0x1405F9CD0 (HvpViewMapFindViewForFileOffset.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
+ *     CmpClaimGlobalQuota @ 0x1405A8334 (CmpClaimGlobalQuota.c)
+ *     HvpViewMapFindViewForFileOffset @ 0x1405FACD0 (HvpViewMapFindViewForFileOffset.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpMapHiveImageFromViewMap(__int64 a1, __int64 a2, unsigned int a3)

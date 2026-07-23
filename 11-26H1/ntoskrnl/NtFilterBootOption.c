@@ -1,182 +1,193 @@
 /*
- * XREFs of NtFilterBootOption @ 0x140815AF0
+ * XREFs of NtFilterBootOption @ 0x14081BCA0
  * Callers:
- *     DifNtFilterBootOptionWrapper @ 0x1406775C0 (DifNtFilterBootOptionWrapper.c)
+ *     DifNtFilterBootOptionWrapper @ 0x14067B1A0 (DifNtFilterBootOptionWrapper.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x140499FD0 (RtlCheckTokenMembership.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1408162F8 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     SepSecureBootCorrectBcd @ 0x140B5C260 (SepSecureBootCorrectBcd.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCheckTokenMembership @ 0x140493B20 (RtlCheckTokenMembership.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x14081C508 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     SepSecureBootCorrectBcd @ 0x140B85B08 (SepSecureBootCorrectBcd.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtFilterBootOption(int a1, int a2, unsigned int a3, __int64 *a4, unsigned int Size)
+NTSTATUS __cdecl NtFilterBootOption(
+        FILTER_BOOT_OPTION_OPERATION FilterOperation,
+        ULONG ObjectType,
+        ULONG ElementType,
+        PVOID Data,
+        ULONG DataSize)
 {
-  int v7; // r15d
-  __int64 *v9; // r12
-  int v10; // edi
-  unsigned int v11; // r14d
-  int v12; // eax
-  int v13; // eax
-  __int64 *Pool2; // rax
-  unsigned int i; // edx
-  int v16; // eax
-  int v17; // r8d
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  char v21[4]; // [rsp+20h] [rbp-58h] BYREF
-  int v22; // [rsp+24h] [rbp-54h]
-  __int64 v23; // [rsp+28h] [rbp-50h] BYREF
-  __int64 *v24; // [rsp+30h] [rbp-48h]
-  __int64 *v25; // [rsp+38h] [rbp-40h]
+  ULONG v6; // esi
+  void *v7; // r15
+  NTSTATUS v8; // edi
+  ULONG v9; // r11d
+  int v10; // eax
+  int v11; // eax
+  void *Pool2; // rax
+  unsigned int v13; // r8d
+  unsigned int v14; // r10d
+  int v15; // eax
+  int v16; // ecx
+  __int64 v17; // rcx
+  BOOLEAN IsMember; // [rsp+20h] [rbp-78h] BYREF
+  bool v20; // [rsp+21h] [rbp-77h]
+  _BYTE v21[2]; // [rsp+22h] [rbp-76h] BYREF
+  ULONG v22; // [rsp+24h] [rbp-74h]
+  FILTER_BOOT_OPTION_OPERATION v23; // [rsp+28h] [rbp-70h]
+  ULONG v24; // [rsp+2Ch] [rbp-6Ch]
+  int v25; // [rsp+30h] [rbp-68h]
+  __int64 v26; // [rsp+38h] [rbp-60h] BYREF
+  void *v27; // [rsp+40h] [rbp-58h]
+  __int64 *v28; // [rsp+48h] [rbp-50h]
+  __int128 v29; // [rsp+50h] [rbp-48h] BYREF
 
-  v7 = a2;
-  v9 = 0LL;
-  v24 = 0LL;
+  v6 = ElementType;
+  v24 = ElementType;
+  v22 = ObjectType;
+  v23 = FilterOperation;
+  v7 = 0LL;
+  v27 = 0LL;
   v21[0] = 0;
-  v23 = 0LL;
-  if ( SeSinglePrivilegeCheck(SeTcbPrivilege, KeGetCurrentThread()->PreviousMode) )
+  v26 = 0LL;
+  v20 = HviIsAnyHypervisorPresent() && (v29 = 0LL, HviGetHypervisorFeatures(&v29), (v29 & 0x100000000000LL) == 0);
+  IsMember = SeSinglePrivilegeCheck(SeTcbPrivilege, KeGetCurrentThread()->PreviousMode);
+  if ( IsMember )
   {
-    v10 = 0;
+    v8 = 0;
   }
-  else
+  else if ( RtlCheckTokenMembership(0LL, SeAliasAdminsSid, &IsMember) < 0 || (v8 = 0, !IsMember) )
   {
-    RtlCheckTokenMembership(0LL, SeAliasAdminsSid);
-    v10 = -1073741790;
+    v8 = -1073741790;
   }
-  if ( v10 < 0 )
-    goto LABEL_58;
-  if ( !*(_QWORD *)&RtlpBootStatHandleLock.SavedApcStateFill[40] )
+  if ( v8 < 0 )
+    goto LABEL_66;
+  if ( !RtlpBootStatHandleLock.SchedulerApc.Reserved[1] )
   {
-    v10 = -2143092730;
-    goto LABEL_58;
+    v8 = -2143092730;
+    goto LABEL_66;
   }
-  if ( !a1 )
+  if ( v23 == FilterBootOptionOperationOpenSystemStore )
   {
-    if ( !v7 && !a3 && !a4 && !Size )
+    if ( !v22 && !v6 && !Data && !DataSize )
     {
-      if ( !_InterlockedCompareExchange((volatile signed __int32 *)&RtlpBootStatHandleLock.SchedulerApcFill5[40], 0, 0) )
+      if ( !_InterlockedCompareExchange((volatile signed __int32 *)&RtlpBootStatHandleLock.SchedulerApcFill5[76], 0, 0) )
       {
-        v10 = SepSecureBootCorrectBcd(v21);
-        if ( v10 >= 0 && (RtlpBootStatHandleLock.SchedulerApcFill3[44] || !v21[0]) )
-          _InterlockedExchange((volatile __int32 *)&RtlpBootStatHandleLock.SchedulerApcFill5[40], 1);
+        v8 = SepSecureBootCorrectBcd(v21);
+        if ( v8 >= 0 && (RtlpBootStatHandleLock.SchedulerApc.ApcStateIndex || !v21[0]) )
+          _InterlockedExchange((volatile __int32 *)&RtlpBootStatHandleLock.SchedulerApcFill5[76], 1);
       }
-      goto LABEL_58;
+      goto LABEL_66;
     }
-    goto LABEL_57;
+    goto LABEL_65;
   }
-  if ( a1 == 1 )
+  if ( v23 == FilterBootOptionOperationSetElement )
   {
-    if ( v7 )
+    v9 = v22;
+    if ( v22 && v6 && Data && DataSize )
     {
-      if ( a3 )
+      v11 = *(_DWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[72];
+      if ( !_bittest(&v11, HIBYTE(v6) & 0xF) )
       {
-        if ( a4 )
+LABEL_28:
+        v8 = 0;
+        goto LABEL_66;
+      }
+      if ( KeGetCurrentThread()->PreviousMode )
+      {
+        if ( DataSize > 8 )
         {
-          v11 = Size;
-          if ( Size )
+          Pool2 = (void *)ExAllocatePool2(0x100uLL);
+          v7 = Pool2;
+          v27 = Pool2;
+          if ( !Pool2 )
           {
-            v13 = *(_DWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[56];
-            if ( !_bittest(&v13, HIBYTE(a3) & 0xF) )
-            {
-LABEL_22:
-              v10 = 0;
-              goto LABEL_58;
-            }
-            if ( KeGetCurrentThread()->PreviousMode )
-            {
-              if ( Size > 8 )
-              {
-                Pool2 = (__int64 *)ExAllocatePool2(0x100uLL);
-                v9 = Pool2;
-                v24 = Pool2;
-                if ( !Pool2 )
-                {
-                  v10 = -1073741801;
-                  v22 = -1073741801;
-                  goto LABEL_58;
-                }
-                RtlCopyFromUser(Pool2, a4, Size);
-                a4 = v9;
-                v25 = v9;
-              }
-              else
-              {
-                RtlCopyFromUser(&v23, a4, Size);
-                a4 = &v23;
-                v25 = &v23;
-              }
-              v7 = a2;
-            }
-            goto LABEL_30;
+            v8 = -1073741801;
+            v25 = -1073741801;
+            goto LABEL_66;
+          }
+          RtlCopyFromUser(Pool2, Data, DataSize);
+          Data = v7;
+          v28 = (__int64 *)v7;
+        }
+        else
+        {
+          RtlCopyFromUser(&v26, Data, DataSize);
+          Data = &v26;
+          v28 = &v26;
+        }
+        v6 = v24;
+        v9 = v22;
+      }
+      goto LABEL_36;
+    }
+LABEL_65:
+    v8 = -1073741811;
+    goto LABEL_66;
+  }
+  if ( v23 != FilterBootOptionOperationDeleteElement )
+  {
+    v8 = -1073741585;
+    goto LABEL_66;
+  }
+  v9 = v22;
+  if ( !v22 || !v6 || Data || DataSize )
+    goto LABEL_65;
+  v10 = *(_DWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[72];
+  if ( !_bittest(&v10, HIBYTE(v6) & 0xF) )
+    goto LABEL_28;
+LABEL_36:
+  v13 = 0;
+  v14 = *((unsigned __int16 *)RtlpBootStatHandleLock.SchedulerApc.Reserved[1] + 18);
+  if ( (_WORD)v14 )
+  {
+    while ( 1 )
+    {
+      if ( *((_DWORD *)RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 + 3 * v13 + 1) == v6 )
+      {
+        v15 = *((_DWORD *)RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 + 3 * v13);
+        if ( !v15 || v15 == v9 )
+        {
+          v16 = *(unsigned __int16 *)((char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2]
+                                    + *((unsigned int *)RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 + 3 * v13 + 2));
+          if ( (v16 & 0xFFFFF000) == 0
+            && ((v16 & 0x20) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 4) != 0)
+            && ((v16 & 0x40) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 0x10) != 0)
+            && ((v16 & 0x800) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 0x40) != 0)
+            && (!v20 || *((_DWORD *)RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 + 3 * v13 + 1) != 620757041) )
+          {
+            break;
           }
         }
       }
+      if ( ++v13 >= v14 )
+        goto LABEL_66;
     }
-LABEL_57:
-    v10 = -1073741811;
-    goto LABEL_58;
-  }
-  if ( a1 != 2 )
-  {
-    v10 = -1073741585;
-    goto LABEL_58;
-  }
-  if ( !v7 )
-    goto LABEL_57;
-  if ( !a3 )
-    goto LABEL_57;
-  if ( a4 )
-    goto LABEL_57;
-  v11 = Size;
-  if ( Size )
-    goto LABEL_57;
-  v12 = *(_DWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[56];
-  if ( !_bittest(&v12, HIBYTE(a3) & 0xF) )
-    goto LABEL_22;
-LABEL_30:
-  for ( i = 0; i < *(unsigned __int16 *)(*(_QWORD *)&RtlpBootStatHandleLock.SavedApcStateFill[40] + 36LL); ++i )
-  {
-    if ( *((_DWORD *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + 3 * i + 1) == a3 )
+    if ( v23 == FilterBootOptionOperationSetElement )
     {
-      v16 = *((_DWORD *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + 3 * i);
-      if ( !v16 || v16 == v7 )
+      v8 = SepSecureBootValidateBcdDataAgainstBcdRule(
+             (char *)RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 + 12 * v13,
+             Data,
+             DataSize,
+             RtlpBootStatHandleLock.SchedulerApc.Reserved[2]);
+    }
+    else
+    {
+      v8 = 0;
+      v17 = *((unsigned int *)RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 + 3 * v13 + 2);
+      if ( (*((_BYTE *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v17) & 0x1F) != 8
+        || *(_WORD *)((char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v17 + 2) )
       {
-        v17 = *(unsigned __int16 *)((char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink
-                                  + *((unsigned int *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + 3 * i + 2));
-        if ( (v17 & 0xFFFFF000) == 0
-          && ((v17 & 0x20) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 4) != 0)
-          && ((v17 & 0x40) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 0x10) != 0)
-          && ((v17 & 0x800) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 0x40) != 0) )
-        {
-          v18 = 3LL * i;
-          if ( a1 == 1 )
-          {
-            v10 = SepSecureBootValidateBcdDataAgainstBcdRule(
-                    (char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + 4 * v18,
-                    a4,
-                    v11);
-          }
-          else
-          {
-            _mm_lfence();
-            v10 = 0;
-            v19 = *((unsigned int *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + v18 + 2);
-            if ( (*((_BYTE *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink + v19) & 0x1F) != 8
-              || *(_WORD *)((char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink + v19 + 2) )
-            {
-              v10 = -1069350910;
-            }
-          }
-          break;
-        }
+        v8 = -1069350910;
       }
     }
   }
-LABEL_58:
-  if ( v9 )
-    ExFreePoolWithTag(v9, 0x62536553u);
-  return (unsigned int)v10;
+LABEL_66:
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0x62536553u);
+  return v8;
 }

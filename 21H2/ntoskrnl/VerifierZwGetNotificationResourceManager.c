@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwGetNotificationResourceManager @ 0x1409D4190
+ * XREFs of VerifierZwGetNotificationResourceManager @ 0x1409D5190
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierZwGetNotificationResourceManager(__int64 a1, __int64 a2, __int64 a3)

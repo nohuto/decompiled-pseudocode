@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryReadyQueueStatsProcessor @ 0x1405144D8
+ * XREFs of KeQueryReadyQueueStatsProcessor @ 0x140514718
  * Callers:
- *     KiChooseTargetProcessor @ 0x140344DE0 (KiChooseTargetProcessor.c)
- *     KiCanSelectSoftParkedProcessor @ 0x140525A94 (KiCanSelectSoftParkedProcessor.c)
+ *     KiChooseTargetProcessor @ 0x14034FB30 (KiChooseTargetProcessor.c)
+ *     KiCanSelectSoftParkedProcessor @ 0x140525CD4 (KiCanSelectSoftParkedProcessor.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpDecommitBlock @ 0x180028CB4
+ * XREFs of RtlpDecommitBlock @ 0x180028CA4
  * Callers:
- *     RtlpCollectFreeBlocks @ 0x180028BF4 (RtlpCollectFreeBlocks.c)
+ *     RtlpCollectFreeBlocks @ 0x180028BE4 (RtlpCollectFreeBlocks.c)
  * Callees:
- *     RtlpGetFreeBlockInsidePageBoundaries @ 0x180028DA8 (RtlpGetFreeBlockInsidePageBoundaries.c)
- *     RtlpSecMemFreeVirtualMemory @ 0x180028DFC (RtlpSecMemFreeVirtualMemory.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     RtlpGetFreeBlockInsidePageBoundaries @ 0x180028D98 (RtlpGetFreeBlockInsidePageBoundaries.c)
+ *     RtlpSecMemFreeVirtualMemory @ 0x180028DEC (RtlpSecMemFreeVirtualMemory.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     RtlpLogHeapContractEvent @ 0x1800F9154 (RtlpLogHeapContractEvent.c)
  *     RtlpLogHeapDecommit @ 0x1800F9284 (RtlpLogHeapDecommit.c)
  */
@@ -77,17 +77,17 @@ LABEL_17:
         ++*(_DWORD *)(v3 + 612);
         *(_QWORD *)(v3 + 632) += v11;
         if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-          RtlpLogHeapContractEvent(v3, (_DWORD)v12, v11, 16 * *(_QWORD *)(v3 + 192), 0, 0LL, MEMORY[0x7FFE0380]);
+          RtlpLogHeapContractEvent(v3, (int)v12, v11, 16 * *(_QWORD *)(v3 + 192), 0, 0LL, (HANDLE)MEMORY[0x7FFE0380]);
         LOBYTE(v5) = MEMORY[0x7FFE038A];
         if ( MEMORY[0x7FFE038A] )
           LOBYTE(v5) = RtlpLogHeapContractEvent(
                          v3,
-                         (_DWORD)v12,
+                         (int)v12,
                          v11,
                          16 * (unsigned int)*(_QWORD *)(v3 + 192),
                          0,
                          0LL,
-                         MEMORY[0x7FFE038A]);
+                         (HANDLE)MEMORY[0x7FFE038A]);
         *(_BYTE *)(a2 + 10) &= 0x13u;
         *(_BYTE *)(a2 + 10) |= 8u;
       }

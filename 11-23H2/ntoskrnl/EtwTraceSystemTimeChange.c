@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceSystemTimeChange @ 0x140AAA770
+ * XREFs of EtwTraceSystemTimeChange @ 0x140AAA5E0
  * Callers:
- *     PoNotifySystemTimeSet @ 0x1403B64C8 (PoNotifySystemTimeSet.c)
+ *     PoNotifySystemTimeSet @ 0x1403B66A8 (PoNotifySystemTimeSet.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD *a4, int a5, int a6, int a7)
@@ -80,7 +80,7 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
 
   v75 = a3;
   v26[0] = 0x20000LL;
-  v26[1] = &word_140A92700;
+  v26[1] = &word_140A92580;
   Process = KeGetCurrentThread()->ApcState.Process;
   ProcessId = (unsigned int)PsGetProcessId(Process);
   v25 = ProcessId;
@@ -90,9 +90,9 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
   v13 = *a1 - *a2;
   v14 = (unsigned __int64)((unsigned __int128)(v13 * (__int128)0x346DC5D63886594BLL) >> 64) >> 63;
   v31 = v13 / 10000;
-  if ( (unsigned int)dword_140C04320 > 5 )
+  if ( (unsigned int)dword_140C066C0 > 5 )
   {
-    LOBYTE(v14) = tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL);
+    LOBYTE(v14) = tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL);
     if ( (_BYTE)v14 )
     {
       v29 = v15;
@@ -128,8 +128,8 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
       v72 = 4LL;
       v74 = 4LL;
       LOBYTE(v14) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140C04320,
-                      (unsigned __int8 *)&word_1400353FE,
+                      (__int64)&dword_140C066C0,
+                      (unsigned __int8 *)&dword_140034A3C,
                       0LL,
                       0LL,
                       0xDu,

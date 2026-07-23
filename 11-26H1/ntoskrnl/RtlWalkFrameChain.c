@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlWalkFrameChain @ 0x140262D70
+ * XREFs of RtlWalkFrameChain @ 0x1402622E0
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
- *     SepGetStackTraceHash @ 0x140260EE8 (SepGetStackTraceHash.c)
- *     EtwpExpandStackAndWalkFrameChain @ 0x1402610A0 (EtwpExpandStackAndWalkFrameChain.c)
- *     EtwpExpandedStackWalk @ 0x1402618F0 (EtwpExpandedStackWalk.c)
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
- *     CmpGetSharedLockHandle @ 0x1402619C0 (CmpGetSharedLockHandle.c)
- *     CmpTestRegistryLockExclusive @ 0x140261C30 (CmpTestRegistryLockExclusive.c)
- *     CmpTestRegistryLock @ 0x140261EB0 (CmpTestRegistryLock.c)
- *     CmpIsRegistryLockAcquiredRecursively @ 0x140262130 (CmpIsRegistryLockAcquiredRecursively.c)
- *     CmpRecordRegistryLockRelease @ 0x1402623A0 (CmpRecordRegistryLockRelease.c)
- *     CmpRecordRegistryLockSharedAcquire @ 0x140262610 (CmpRecordRegistryLockSharedAcquire.c)
- *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
- *     CmpGetThreadInfo @ 0x140262B00 (CmpGetThreadInfo.c)
- *     KiDpcWatchdogCaptureStack @ 0x14047A2B0 (KiDpcWatchdogCaptureStack.c)
- *     EtwpGetStackExtendedHeaderItem @ 0x14047A534 (EtwpGetStackExtendedHeaderItem.c)
- *     EtwpCovSampCaptureKernelStack @ 0x1406C8678 (EtwpCovSampCaptureKernelStack.c)
- *     PspCriticalProcessDeathUserModulesCollect @ 0x1407FAEEC (PspCriticalProcessDeathUserModulesCollect.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x14082B320 (EtwTimLogRedirectionTrustPolicy.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     ExpUpdateDebugInfo @ 0x14092C6E0 (ExpUpdateDebugInfo.c)
- *     EtwpCovSampCaptureUserStack @ 0x140A24190 (EtwpCovSampCaptureUserStack.c)
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
- *     PoDiagCaptureUsermodeStack @ 0x140A66E44 (PoDiagCaptureUsermodeStack.c)
+ *     SepGetStackTraceHash @ 0x140260450 (SepGetStackTraceHash.c)
+ *     EtwpExpandStackAndWalkFrameChain @ 0x140260610 (EtwpExpandStackAndWalkFrameChain.c)
+ *     EtwpExpandedStackWalk @ 0x140260E60 (EtwpExpandedStackWalk.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
+ *     CmpGetSharedLockHandle @ 0x140260F30 (CmpGetSharedLockHandle.c)
+ *     CmpTestRegistryLockExclusive @ 0x1402611A0 (CmpTestRegistryLockExclusive.c)
+ *     CmpTestRegistryLock @ 0x140261420 (CmpTestRegistryLock.c)
+ *     CmpIsRegistryLockAcquiredRecursively @ 0x1402616A0 (CmpIsRegistryLockAcquiredRecursively.c)
+ *     CmpRecordRegistryLockRelease @ 0x140261910 (CmpRecordRegistryLockRelease.c)
+ *     CmpRecordRegistryLockSharedAcquire @ 0x140261B80 (CmpRecordRegistryLockSharedAcquire.c)
+ *     CmpIsRegistryLockAcquired @ 0x140261E00 (CmpIsRegistryLockAcquired.c)
+ *     CmpGetThreadInfo @ 0x140262070 (CmpGetThreadInfo.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
+ *     KiDpcWatchdogCaptureStack @ 0x140473C20 (KiDpcWatchdogCaptureStack.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x140473EA4 (EtwpGetStackExtendedHeaderItem.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x1406CC658 (EtwpCovSampCaptureKernelStack.c)
+ *     PspCriticalProcessDeathUserModulesCollect @ 0x14080091C (PspCriticalProcessDeathUserModulesCollect.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x140831560 (EtwTimLogRedirectionTrustPolicy.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     ExpUpdateDebugInfo @ 0x140908210 (ExpUpdateDebugInfo.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
+ *     EtwpCovSampCaptureUserStack @ 0x140A36CA0 (EtwpCovSampCaptureUserStack.c)
+ *     PoDiagCaptureUsermodeStack @ 0x140A73E14 (PoDiagCaptureUsermodeStack.c)
  * Callees:
- *     MmCanThreadFault @ 0x140262E50 (MmCanThreadFault.c)
- *     RtlpWalkFrameChain @ 0x140262EB0 (RtlpWalkFrameChain.c)
- *     RtlpGetStackLimits @ 0x140263CC0 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x140727390 (KeGetCurrentStackPointer.c)
+ *     MmCanThreadFault @ 0x1402623C0 (MmCanThreadFault.c)
+ *     RtlpWalkFrameChain @ 0x140262420 (RtlpWalkFrameChain.c)
+ *     RtlpGetStackLimits @ 0x140263230 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x14072BF60 (KeGetCurrentStackPointer.c)
  */
 
 ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)
@@ -54,7 +54,7 @@ ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)
   v5 = (Flags & 2) == 0;
   v6 = v5 + (Flags >> 8);
   v7 = v5 + Count;
-  if ( !(unsigned int)MmCanThreadFault(Callers) && (v4 & 1) != 0 )
+  if ( !(unsigned int)MmCanThreadFault(Callers, Count, Flags) && (v4 & 1) != 0 )
     return 0;
   v10[0] = 0LL;
   v11 = 0LL;

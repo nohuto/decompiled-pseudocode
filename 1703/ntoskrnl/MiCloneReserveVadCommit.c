@@ -40,9 +40,9 @@ __int64 __fastcall MiCloneReserveVadCommit(__int64 a1, ULONG_PTR a2)
   unsigned __int64 v16; // rbx
   ULONG_PTR v17; // rsi
   struct _KTHREAD *v18; // rbx
-  __int64 v19; // rdx
+  unsigned int v19; // edx
   unsigned __int8 v20; // r12
-  __int64 v21; // r8
+  unsigned int v21; // r8d
   bool v22; // zf
   __int64 v23; // rcx
   __int64 v24; // rdi
@@ -94,12 +94,10 @@ __int64 __fastcall MiCloneReserveVadCommit(__int64 a1, ULONG_PTR a2)
         ExfTryToWakePushLock(v17);
       v28[0] = 0;
       v18 = KeGetCurrentThread();
-      v19 = (unsigned int)MiGetSystemRegionType(v17) == 1
-          ? (unsigned int)MmGetSessionIdEx(v18->ApcState.Process)
-          : 0xFFFFFFFFLL;
+      v19 = (unsigned int)MiGetSystemRegionType(v17) == 1 ? MmGetSessionIdEx(v18->ApcState.Process) : -1;
       --v18->SpecialApcDisable;
       v20 = ++v18->AbAllocationRegionCount;
-      LODWORD(v21) = ((char)v18->AbEntrySummary | (char)v18->AbOrphanedEntrySummary) ^ 0x3F;
+      v21 = ((char)v18->AbEntrySummary | (char)v18->AbOrphanedEntrySummary) ^ 0x3F;
       while ( 1 )
       {
         v22 = !_BitScanReverse((unsigned int *)&v23, v21);
@@ -107,11 +105,11 @@ __int64 __fastcall MiCloneReserveVadCommit(__int64 a1, ULONG_PTR a2)
         if ( v22 )
           break;
         v24 = (__int64)&v18->LockEntries[v23];
-        v21 = ~(1 << v23) & (unsigned int)v21;
+        v21 &= ~(1 << v23);
         if ( (*(_BYTE *)(v24 + 26) & 1) != 0
           && (*(_DWORD *)(v24 + 32) & 1) == 0
           && (*(_QWORD *)(v24 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v17 & 0x7FFFFFFFFFFFFFFCLL)
-          && *(_DWORD *)(v24 + 40) == (_DWORD)v19 )
+          && *(_DWORD *)(v24 + 40) == v19 )
         {
           *(_BYTE *)(v24 + 26) &= ~1u;
           if ( *(_QWORD *)(v24 + 32) )
@@ -120,7 +118,7 @@ __int64 __fastcall MiCloneReserveVadCommit(__int64 a1, ULONG_PTR a2)
             {
               *(_BYTE *)(v24 + 32) |= 2u;
               if ( *(__int64 *)(v24 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v24, v19, v21);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
               v28[0] = 0;
               v28[0] = *(_DWORD *)(v24 + 88) & 0x1FFFF;
               *(_DWORD *)(v24 + 88) &= 0xFFFE0000;
@@ -138,7 +136,7 @@ __int64 __fastcall MiCloneReserveVadCommit(__int64 a1, ULONG_PTR a2)
         }
       }
       if ( (*((_DWORD *)&v18->0 + 1) & 0x8000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)v18, v17, (unsigned int)v19, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)v18, v17, v19, 0LL);
 LABEL_19:
       --v18->AbAllocationRegionCount;
       KiAbThreadRemoveBoosts(v18, v17, v28);

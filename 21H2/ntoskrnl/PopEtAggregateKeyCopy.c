@@ -1,8 +1,8 @@
 /*
- * XREFs of PopEtAggregateKeyCopy @ 0x1406993B4
+ * XREFs of PopEtAggregateKeyCopy @ 0x1405F80A4
  * Callers:
- *     PopEtAggregateGet @ 0x140619EA8 (PopEtAggregateGet.c)
- *     PopEtAggregateKeyCopyFromProcess @ 0x140699308 (PopEtAggregateKeyCopyFromProcess.c)
+ *     PopEtAggregateKeyCopyFromProcess @ 0x1405F7FF8 (PopEtAggregateKeyCopyFromProcess.c)
+ *     PopEtAggregateGet @ 0x140683B08 (PopEtAggregateGet.c)
  * Callees:
  *     <none>
  */

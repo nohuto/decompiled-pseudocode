@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpFindFreeBin @ 0x140980D0C
+ * XREFs of HvpFindFreeBin @ 0x14096951C
  * Callers:
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFillPhysicalPagesWithPtes @ 0x1406E72C0
+ * XREFs of MiFillPhysicalPagesWithPtes @ 0x1406EBF70
  * Callers:
- *     MiInitializeDummyPages @ 0x140CF32F0 (MiInitializeDummyPages.c)
+ *     MiInitializeDummyPages @ 0x140CF9670 (MiInitializeDummyPages.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     MxGetPhase0Mapping @ 0x140C80058 (MxGetPhase0Mapping.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MxGetPhase0Mapping @ 0x140C86058 (MxGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MiFillPhysicalPagesWithPtes(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleIsStateDisabled @ 0x1404ECBDC
+ * XREFs of PpmIdleIsStateDisabled @ 0x1404E61BC
  * Callers:
- *     PpmInstallNewIdleStates @ 0x140602D60 (PpmInstallNewIdleStates.c)
- *     PpmInstallCoordinatedIdleStates @ 0x1407C9BE0 (PpmInstallCoordinatedIdleStates.c)
- *     PpmInstallPlatformIdleStates @ 0x140AF2FD0 (PpmInstallPlatformIdleStates.c)
+ *     PpmInstallNewIdleStates @ 0x140605810 (PpmInstallNewIdleStates.c)
+ *     PpmInstallCoordinatedIdleStates @ 0x1407CCC80 (PpmInstallCoordinatedIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x140AF57C0 (PpmInstallPlatformIdleStates.c)
  * Callees:
  *     <none>
  */

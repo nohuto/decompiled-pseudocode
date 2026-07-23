@@ -1,11 +1,11 @@
 /*
- * XREFs of SepHasAllAppPackagesPresent @ 0x140694E28
+ * XREFs of SepHasAllAppPackagesPresent @ 0x140694F0C
  * Callers:
- *     SepCheckForAllAppPackagesAceRemoval @ 0x140694CA8 (SepCheckForAllAppPackagesAceRemoval.c)
+ *     SepCheckForAllAppPackagesAceRemoval @ 0x140694D8C (SepCheckForAllAppPackagesAceRemoval.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140009CC4 (RtlGetDaclSecurityDescriptor.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     RtlGetControlSecurityDescriptor @ 0x1404EAC00 (RtlGetControlSecurityDescriptor.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140009844 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     RtlGetControlSecurityDescriptor @ 0x1404CCE04 (RtlGetControlSecurityDescriptor.c)
  */
 
 char __fastcall SepHasAllAppPackagesPresent(PSECURITY_DESCRIPTOR SecurityDescriptor, bool *a2, bool *a3, bool *a4)

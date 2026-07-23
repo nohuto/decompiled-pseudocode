@@ -3,10 +3,10 @@
  * Callers:
  *     FsRtlOplockBreakH @ 0x14092E6F0 (FsRtlOplockBreakH.c)
  * Callees:
- *     FsRtlpAttachOplockKey @ 0x1402A22E0 (FsRtlpAttachOplockKey.c)
+ *     sub_1402A22E0 @ 0x1402A22E0 (sub_1402A22E0.c)
  *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
+ *     sub_1402A4E10 @ 0x1402A4E10 (sub_1402A4E10.c)
  */
 
 __int64 __fastcall FsRtlOplockBreakH2(
@@ -15,14 +15,14 @@ __int64 __fastcall FsRtlOplockBreakH2(
         unsigned int a3,
         __int64 a4,
         __int64 a5,
-        void (__fastcall *a6)(__int64, __int64),
+        __int64 a6,
         unsigned int *a7,
         unsigned __int16 *a8)
 {
   __int64 v10; // rsi
   __int64 CurrentStackLocation; // r14
   unsigned int v12; // ebx
-  void (__fastcall *v14)(__int64, __int64); // r12
+  __int64 v14; // r12
   __int64 v15; // r13
   __int64 v16; // [rsp+20h] [rbp-A8h]
   char v17; // [rsp+D0h] [rbp+8h] BYREF
@@ -38,7 +38,7 @@ __int64 __fastcall FsRtlOplockBreakH2(
   v18 = 0;
   if ( !v10 )
     return v12;
-  v12 = FsRtlpAttachOplockKey(a2);
+  v12 = sub_1402A22E0(a2);
   if ( v12 )
     goto LABEL_19;
   if ( *(_BYTE *)CurrentStackLocation )
@@ -55,7 +55,7 @@ LABEL_11:
         v17 = 1;
       }
       LODWORD(v16) = 0;
-      v12 = FsRtlpOplockBreakByCacheFlags(
+      v12 = sub_1402A4E10(
               v10,
               CurrentStackLocation,
               (__int64)a2,

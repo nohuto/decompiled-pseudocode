@@ -7,65 +7,63 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableAvl(unsigned __int16 *a1, unsigned __int16 *a2)
+PVOID __cdecl RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
-  __int64 v2; // rbp
-  __int64 i; // rbx
-  __int64 (__fastcall *v6)(); // rax
-  int v7; // eax
+  void *v2; // rbp
+  _RTL_BALANCED_LINKS *i; // rbx
+  LONG (__cdecl *CompareRoutine)(PUNICODE_STRING, PUNICODE_STRING, BOOLEAN); // rax
+  _RTL_BALANCED_LINKS *CaseInSensitive; // r8
   int v8; // eax
-  __int64 v9; // rbx
-  int v11; // [rsp+20h] [rbp-18h]
+  int v9; // eax
+  _RTL_BALANCED_LINKS *v10; // rbx
 
   v2 = 0LL;
   i = 0LL;
-  if ( *((_DWORD *)a1 + 11) )
+  if ( Table->NumberGenericTableElements )
   {
-    for ( i = *((_QWORD *)a1 + 2); ; i = *(_QWORD *)(i + 16) )
+    for ( i = Table->BalancedRoot.RightChild; ; i = i->RightChild )
     {
       while ( 1 )
       {
-        v6 = (__int64 (__fastcall *)())*((_QWORD *)a1 + 9);
-        if ( v6 == RtlCompareUnicodeString )
-        {
-          LOBYTE(v11) = i + 32;
-          v7 = RtlCompareUnicodeStrings(
-                 *((_QWORD *)a1 + 1),
-                 (unsigned __int64)*a1 >> 1,
-                 *((_QWORD *)a2 + 1),
-                 (unsigned __int64)*a2 >> 1,
-                 v11);
-        }
-        else
-        {
-          v7 = ((__int64 (__fastcall *)(unsigned __int16 *, unsigned __int16 *, __int64))v6)(a1, a2, i + 32);
-        }
-        if ( v7 )
+        CompareRoutine = (LONG (__cdecl *)(PUNICODE_STRING, PUNICODE_STRING, BOOLEAN))Table->CompareRoutine;
+        CaseInSensitive = i + 1;
+        v8 = CompareRoutine == RtlCompareUnicodeString
+           ? RtlCompareUnicodeStrings(
+               (PCWCH)Table->BalancedRoot.LeftChild,
+               (unsigned __int64)LOWORD(Table->BalancedRoot.Parent) >> 1,
+               *((PCWCH *)Buffer + 1),
+               (unsigned __int64)*(unsigned __int16 *)Buffer >> 1,
+               (BOOLEAN)CaseInSensitive)
+           : ((__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID, _RTL_BALANCED_LINKS *))CompareRoutine)(
+               Table,
+               Buffer,
+               CaseInSensitive);
+        if ( v8 )
           break;
-        if ( !*(_QWORD *)(i + 8) )
+        if ( !i->LeftChild )
         {
-          v8 = 2;
+          v9 = 2;
           goto LABEL_12;
         }
-        i = *(_QWORD *)(i + 8);
+        i = i->LeftChild;
       }
-      if ( v7 != 1 )
+      if ( v8 != 1 )
       {
-        v8 = 1;
+        v9 = 1;
         goto LABEL_12;
       }
-      if ( !*(_QWORD *)(i + 16) )
+      if ( !i->RightChild )
         break;
     }
-    v8 = 3;
+    v9 = 3;
   }
   else
   {
-    v8 = 0;
+    v9 = 0;
   }
 LABEL_12:
-  v9 = i + 32;
-  if ( v8 == 1 )
-    return v9;
+  v10 = i + 1;
+  if ( v9 == 1 )
+    return v10;
   return v2;
 }

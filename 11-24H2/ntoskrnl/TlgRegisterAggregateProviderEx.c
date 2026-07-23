@@ -1,19 +1,19 @@
 /*
- * XREFs of TlgRegisterAggregateProviderEx @ 0x140AC2794
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x140ABDA7C
  * Callers:
- *     CmpRegisterTraceLoggingProvider @ 0x1406FB5FC (CmpRegisterTraceLoggingProvider.c)
- *     TlgRegisterAggregateProvider @ 0x1406FBADC (TlgRegisterAggregateProvider.c)
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x1406F923C (CmpRegisterTraceLoggingProvider.c)
+ *     TlgRegisterAggregateProvider @ 0x1406F971C (TlgRegisterAggregateProvider.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ComputeFlushPeriod @ 0x140824608 (ComputeFlushPeriod.c)
- *     CreateTlgAggregateSession @ 0x1408246AC (CreateTlgAggregateSession.c)
- *     DestroyAggregateSession @ 0x1408247E8 (DestroyAggregateSession.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ComputeFlushPeriod @ 0x140824D68 (ComputeFlushPeriod.c)
+ *     CreateTlgAggregateSession @ 0x140824E0C (CreateTlgAggregateSession.c)
+ *     DestroyAggregateSession @ 0x140824F48 (DestroyAggregateSession.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2, __int64 a3)
@@ -21,9 +21,9 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2, __int6
   __int64 *TlgAggregateSession; // rax
   __int64 *v7; // rbx
   int v9; // esi
-  _QWORD *v10; // rax
+  char *v10; // rax
   signed __int8 v11; // cf
-  _QWORD *v12; // rsi
+  char *v12; // rsi
   __int64 *i; // rax
   __int64 v14; // rcx
 
@@ -48,19 +48,19 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2, __int6
   }
   else
   {
-    v10 = KeAbPreAcquire((__int64)&qword_140EEFBF0, 0LL);
-    v11 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140EEFBF0, 0LL);
+    v10 = (char *)KeAbPreAcquire((__int64)&qword_140EEFE28, 0LL);
+    v11 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140EEFE28, 0LL);
     v12 = v10;
     if ( v11 )
-      ExfAcquirePushLockExclusiveEx(&qword_140EEFBF0, (__int64)v10, (__int64)&qword_140EEFBF0);
+      ExfAcquirePushLockExclusiveEx(&qword_140EEFE28, v10, (__int64)&qword_140EEFE28);
     if ( v12 )
-      *((_BYTE *)v12 + 10) = 1;
-    if ( !qword_140EEFBE8 )
+      v12[10] = 1;
+    if ( !qword_140EEFE20 )
       TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
-        (__int64)&dword_140E0A508,
+        (__int64)&dword_140E0A578,
         (__int64)TlgAggregateInternalProviderCallback,
         0LL);
-    for ( i = &qword_140EEFBE8; ; i = (__int64 *)(v14 + 352) )
+    for ( i = &qword_140EEFE20; ; i = (__int64 *)(v14 + 352) )
     {
       v14 = *i;
       if ( !*i )
@@ -70,9 +70,9 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2, __int6
     }
     *i = (__int64)v7;
 LABEL_15:
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140EEFBF0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140EEFBF0);
-    KeAbPostRelease((ULONG_PTR)&qword_140EEFBF0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140EEFE28, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140EEFE28);
+    KeAbPostRelease((ULONG_PTR)&qword_140EEFE28);
     return 0LL;
   }
 }

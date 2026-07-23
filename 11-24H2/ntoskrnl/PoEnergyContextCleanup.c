@@ -1,15 +1,15 @@
 /*
- * XREFs of PoEnergyContextCleanup @ 0x1408A9850
+ * XREFs of PoEnergyContextCleanup @ 0x1408FFAB0
  * Callers:
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     RtlStateDurationCapture @ 0x14040EA40 (RtlStateDurationCapture.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     RtlTimelineBitmapUpdateRange @ 0x140431040 (RtlTimelineBitmapUpdateRange.c)
- *     KeQueryTimelineBitmapTime @ 0x140456314 (KeQueryTimelineBitmapTime.c)
- *     PopEtEnergyContextCleanup @ 0x14090488C (PopEtEnergyContextCleanup.c)
- *     PopEtEnumEnergyTrackers @ 0x140905028 (PopEtEnumEnergyTrackers.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     RtlStateDurationCapture @ 0x140406C40 (RtlStateDurationCapture.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x140423580 (RtlTimelineBitmapUpdateRange.c)
+ *     KeQueryTimelineBitmapTime @ 0x14044B2E4 (KeQueryTimelineBitmapTime.c)
+ *     PopEtEnergyContextCleanup @ 0x14099B510 (PopEtEnergyContextCleanup.c)
+ *     PopEtEnumEnergyTrackers @ 0x14099BCAC (PopEtEnumEnergyTrackers.c)
  */
 
 _UNKNOWN **__fastcall PoEnergyContextCleanup(__int64 a1)

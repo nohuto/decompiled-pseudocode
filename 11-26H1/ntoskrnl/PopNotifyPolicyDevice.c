@@ -1,17 +1,17 @@
 /*
- * XREFs of PopNotifyPolicyDevice @ 0x1407D7760
+ * XREFs of PopNotifyPolicyDevice @ 0x1407DAD80
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopConnectToPolicyDevice @ 0x1407D746C (PopConnectToPolicyDevice.c)
- *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x1407D7814 (PopPolicyDeviceHandleWakeAlarmNotification.c)
- *     PopEnableHiberFile @ 0x14094353C (PopEnableHiberFile.c)
- *     PopAcquireTransitionLock @ 0x140B39914 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x140B4C040 (PopReleaseTransitionLock.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopConnectToPolicyDevice @ 0x1407DAA8C (PopConnectToPolicyDevice.c)
+ *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x1407DAE34 (PopPolicyDeviceHandleWakeAlarmNotification.c)
+ *     PopEnableHiberFile @ 0x1409BEEB4 (PopEnableHiberFile.c)
+ *     PopAcquireTransitionLock @ 0x140B3BB24 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x140B4DDD0 (PopReleaseTransitionLock.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopNotifyPolicyDevice(
@@ -57,9 +57,9 @@ __int64 __fastcall PopNotifyPolicyDevice(
   }
   else if ( !v7 )
   {
-    PopAcquireRwLockExclusive((unsigned __int64 *)&unk_140F10E30, Context, a3, a4);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopPolicyDeviceLock, Context, a3, a4);
     PopConnectToPolicyDevice(v4, *((const UNICODE_STRING **)NotificationStructure + 5));
-    PopReleaseRwLock(&unk_140F10E30);
+    PopReleaseRwLock((struct _KTHREAD *)&PopPolicyDeviceLock);
   }
   return 0LL;
 }

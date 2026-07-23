@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDereferenceHugeContext @ 0x1404F6860
+ * XREFs of MiDereferenceHugeContext @ 0x1404EFE70
  * Callers:
- *     MiGetUltraHugeAlreadyActive @ 0x140358430 (MiGetUltraHugeAlreadyActive.c)
- *     MiDereferenceAnyActiveHugeContext @ 0x1404A1094 (MiDereferenceAnyActiveHugeContext.c)
- *     MiGetBackgroundHugePageToZero @ 0x1404C2588 (MiGetBackgroundHugePageToZero.c)
- *     MiUnlockZeroedPage @ 0x14051F2F0 (MiUnlockZeroedPage.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x14035A1D0 (MiGetUltraHugeAlreadyActive.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x14049ABC4 (MiDereferenceAnyActiveHugeContext.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1404BBDD8 (MiGetBackgroundHugePageToZero.c)
+ *     MiUnlockZeroedPage @ 0x140521994 (MiUnlockZeroedPage.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiSafeLockPageAtDpc @ 0x140358BF8 (MiSafeLockPageAtDpc.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiStopPageAccessor @ 0x14048E008 (MiStopPageAccessor.c)
- *     MiRemoveFaultNode @ 0x1404F6A18 (MiRemoveFaultNode.c)
- *     MiFreeUltraMapping @ 0x14052786C (MiFreeUltraMapping.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiSafeLockPageAtDpc @ 0x14035A998 (MiSafeLockPageAtDpc.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiStopPageAccessor @ 0x140487B48 (MiStopPageAccessor.c)
+ *     MiRemoveFaultNode @ 0x1404F0028 (MiRemoveFaultNode.c)
+ *     MiFreeUltraMapping @ 0x140529EDC (MiFreeUltraMapping.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDereferenceHugeContext(__int64 a1)
@@ -48,7 +48,7 @@ void __fastcall MiDereferenceHugeContext(__int64 a1)
         v10 = 0LL;
         if ( *(_BYTE *)(v1 + 68) )
         {
-          v10 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v8 & 0x3FFFFF);
+          v10 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v8 & 0x3FFFFF);
           MiLockHugePfnAtDpc(v10);
         }
         else if ( MiSafeLockPageAtDpc(v8) != 17 )
@@ -68,10 +68,10 @@ void __fastcall MiDereferenceHugeContext(__int64 a1)
         if ( *(_BYTE *)(v1 + 68) )
         {
           _InterlockedAnd(
-            (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+            (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                       + 4
-                                      * ((((v10 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-            ~(1 << ((v10 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                      * ((((v10 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+            ~(1 << ((v10 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
         }
         else if ( v9 )
         {

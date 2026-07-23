@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNetUpdateDsAccounting @ 0x1404C2150
+ * XREFs of PopNetUpdateDsAccounting @ 0x1404BD740
  * Callers:
- *     PopNetResiliencyStateChanged @ 0x140AC9288 (PopNetResiliencyStateChanged.c)
+ *     PopNetResiliencyStateChanged @ 0x140AC71C0 (PopNetResiliencyStateChanged.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopNetUpdateDsAccounting(char a1)
@@ -15,12 +15,12 @@ void __fastcall PopNetUpdateDsAccounting(char a1)
   if ( a1 )
   {
     if ( PopNetStandbyState == 2 )
-      qword_140F0BF38 = MEMORY[0xFFFFF78000000008];
+      qword_140F0C3B8 = MEMORY[0xFFFFF78000000008];
   }
-  else if ( qword_140F0BF38 )
+  else if ( qword_140F0C3B8 )
   {
-    qword_140F0BF40 += (MEMORY[0xFFFFF78000000008] - qword_140F0BF38) / 0xAuLL;
-    qword_140F0BF38 = 0LL;
+    qword_140F0C3C0 += (MEMORY[0xFFFFF78000000008] - qword_140F0C3B8) / 0xAuLL;
+    qword_140F0C3B8 = 0LL;
   }
   KeReleaseSpinLock(&PopCsResiliencyStatsLock, v2);
 }

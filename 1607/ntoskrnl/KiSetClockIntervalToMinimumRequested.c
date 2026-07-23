@@ -1,20 +1,20 @@
 /*
- * XREFs of KiSetClockIntervalToMinimumRequested @ 0x14009DF80
+ * XREFs of KiSetClockIntervalToMinimumRequested @ 0x14009D780
  * Callers:
- *     KiSetClockInterval @ 0x14009DEE4 (KiSetClockInterval.c)
- *     KiCheckForTimerExpiration @ 0x1400DC7F0 (KiCheckForTimerExpiration.c)
+ *     KiSetClockInterval @ 0x14009D6E4 (KiSetClockInterval.c)
+ *     KiCheckForTimerExpiration @ 0x1400DA690 (KiCheckForTimerExpiration.c)
  * Callees:
- *     KiSetClockTickRate @ 0x14009DFAC (KiSetClockTickRate.c)
+ *     KiSetClockTickRate @ 0x14009D7AC (KiSetClockTickRate.c)
  */
 
 __int64 KiSetClockIntervalToMinimumRequested()
 {
-  int v0; // ecx
+  int Left_high; // ecx
   __int64 result; // rax
 
-  v0 = *(_DWORD *)(qword_14033DC18 + 28);
+  Left_high = HIDWORD(KiClockIntervalRequests.Min[1].Left);
   result = (unsigned int)KeTimeIncrement;
-  if ( v0 != KiLastRequestedTimeIncrement && v0 != KeTimeIncrement )
+  if ( Left_high != KiLastRequestedTimeIncrement && Left_high != KeTimeIncrement )
     return KiSetClockTickRate();
   return result;
 }

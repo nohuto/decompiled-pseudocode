@@ -8,10 +8,13 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall TpSetDefaultPoolCpuSets(void *Src, int a2)
+void __fastcall TpSetDefaultPoolCpuSets(void *Src, int a2)
 {
+  size_t v4; // [esp-4h] [ebp-10h]
+
   RtlAcquireSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
   TppPoolpDefaultPoolCpuSetCount = a2;
-  memcpy(&TppPoolpDefaultPoolCpuSets, Src, 8 * a2);
-  return RtlReleaseSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
+  LODWORD(v4) = 8 * a2;
+  memcpy(&TppPoolpDefaultPoolCpuSets, Src, v4);
+  RtlReleaseSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
 }

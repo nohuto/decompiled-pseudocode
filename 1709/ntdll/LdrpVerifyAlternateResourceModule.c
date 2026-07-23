@@ -8,7 +8,7 @@
  *     _wcsicmp @ 0x1800925A0 (_wcsicmp.c)
  */
 
-bool __fastcall LdrpVerifyAlternateResourceModule(__int64 a1, __int64 a2, const wchar_t *a3, __int16 a4)
+bool __fastcall LdrpVerifyAlternateResourceModule(void *a1, void *a2, const wchar_t *a3, __int16 a4)
 {
   __int64 v6; // rdx
   _DWORD *v7; // rax
@@ -26,7 +26,7 @@ bool __fastcall LdrpVerifyAlternateResourceModule(__int64 a1, __int64 a2, const 
   }
   else
   {
-    RcConfig = LdrpGetRcConfig(a1, a2, 0, 1);
+    RcConfig = LdrpGetRcConfig(a1, (__int64)a2, 0, 1);
     if ( !RcConfig )
       return 0;
     v7 = LdrpGetRcConfig(a2, v6, 0, 0);

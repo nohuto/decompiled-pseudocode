@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpDequeueFreeBuffer @ 0x140227DF0
+ * XREFs of EtwpDequeueFreeBuffer @ 0x140227F00
  * Callers:
- *     EtwpSwitchBuffer @ 0x140227BD8 (EtwpSwitchBuffer.c)
- *     EtwpRotateCompressionTarget @ 0x140602AB8 (EtwpRotateCompressionTarget.c)
+ *     EtwpSwitchBuffer @ 0x140227CE8 (EtwpSwitchBuffer.c)
+ *     EtwpRotateCompressionTarget @ 0x140603008 (EtwpRotateCompressionTarget.c)
  * Callees:
- *     EtwpDequeueBuffer @ 0x140227F6C (EtwpDequeueBuffer.c)
- *     EtwpUnlockBufferList @ 0x14022807C (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x1402280C8 (EtwpLockBufferList.c)
- *     EtwpResetBufferHeader @ 0x140228160 (EtwpResetBufferHeader.c)
- *     EtwpEnqueueOverflowBuffer @ 0x14036D7C8 (EtwpEnqueueOverflowBuffer.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     EtwpDisableCompression @ 0x140602878 (EtwpDisableCompression.c)
+ *     EtwpDequeueBuffer @ 0x14022807C (EtwpDequeueBuffer.c)
+ *     EtwpUnlockBufferList @ 0x14022818C (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1402281D8 (EtwpLockBufferList.c)
+ *     EtwpResetBufferHeader @ 0x140228270 (EtwpResetBufferHeader.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x14036D968 (EtwpEnqueueOverflowBuffer.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     EtwpDisableCompression @ 0x140602DC8 (EtwpDisableCompression.c)
  */
 
 unsigned int *__fastcall EtwpDequeueFreeBuffer(__int64 a1)

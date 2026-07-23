@@ -1,12 +1,12 @@
 /*
- * XREFs of deflate_stored @ 0x180155380
+ * XREFs of deflate_stored @ 0x180155250
  * Callers:
- *     deflate @ 0x180154430 (deflate.c)
+ *     deflate @ 0x180154300 (deflate.c)
  * Callees:
- *     read_buf @ 0x180121344 (read_buf.c)
- *     flush_pending @ 0x1801557E4 (flush_pending.c)
- *     _tr_stored_block @ 0x180156C70 (_tr_stored_block.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     read_buf @ 0x1801210E0 (read_buf.c)
+ *     flush_pending @ 0x1801556B4 (flush_pending.c)
+ *     _tr_stored_block @ 0x180156B40 (_tr_stored_block.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall deflate_stored(_QWORD *a1, int a2)

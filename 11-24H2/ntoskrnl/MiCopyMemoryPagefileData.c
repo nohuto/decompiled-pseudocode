@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCopyMemoryPagefileData @ 0x14068E320
+ * XREFs of MiCopyMemoryPagefileData @ 0x14068F450
  * Callers:
- *     MiTransferMemoryPagefileData @ 0x1404D1F70 (MiTransferMemoryPagefileData.c)
+ *     MiTransferMemoryPagefileData @ 0x1404CAFB0 (MiTransferMemoryPagefileData.c)
  * Callees:
- *     MiGetPteMappingSet @ 0x14020CA90 (MiGetPteMappingSet.c)
- *     MiReturnPteMappingSet @ 0x140225EF0 (MiReturnPteMappingSet.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiMakeProtectionPfnCompatible @ 0x140313770 (MiMakeProtectionPfnCompatible.c)
- *     KeCopyPage @ 0x1406B3410 (KeCopyPage.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiReturnPteMappingSet @ 0x1402532A0 (MiReturnPteMappingSet.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiGetPteMappingSet @ 0x140335DF0 (MiGetPteMappingSet.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1403F26B0 (MiMakeProtectionPfnCompatible.c)
+ *     KeCopyPage @ 0x1406B43B0 (KeCopyPage.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 struct _KPRCB *__fastcall MiCopyMemoryPagefileData(struct _KPRCB *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -48,7 +48,7 @@ struct _KPRCB *__fastcall MiCopyMemoryPagefileData(struct _KPRCB *a1, __int64 a2
   v7 = a2;
   v33 = 0LL;
   BugCheckParameter2 = 0LL;
-  if ( a2 && (v9 = MiReservePtes((__int64)&qword_140E37568, a4), (v10 = v9) != 0) )
+  if ( a2 && (v9 = MiReservePtes((__int64)&qword_140E376A8, a4), (v10 = v9) != 0) )
   {
     ValidPte = MiMakeValidPte(v9, -1LL, (a5 != 0 ? 1 : 4) | 0xA0000000);
     v12 = (_QWORD *)v10;
@@ -58,7 +58,7 @@ struct _KPRCB *__fastcall MiCopyMemoryPagefileData(struct _KPRCB *a1, __int64 a2
       {
         ValidPte = (a3 << 12) ^ ((a3 << 12) ^ ValidPte) & 0xFFF0000000000FFFuLL;
         if ( (MiFlags & 0x1000000000LL) != 0 && (ValidPte & 0x20) == 0 && (unsigned __int64)v12 >= 0xFFFFF6C000000000uLL )
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v12, ValidPte, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v12, ValidPte, 128LL);
         *v12 = ValidPte;
         ++a3;
         ++v12;
@@ -76,7 +76,7 @@ struct _KPRCB *__fastcall MiCopyMemoryPagefileData(struct _KPRCB *a1, __int64 a2
       v7 = (__int64)(v10 << 25) >> 16;
     }
     memmove((void *)v7, (const void *)v13, a4 << 12);
-    return (struct _KPRCB *)MiReleasePtes((__int64)&qword_140E37568, (_QWORD *)v10, a4);
+    return (struct _KPRCB *)MiReleasePtes((__int64)&qword_140E376A8, (_QWORD *)v10, a4);
   }
   else
   {
@@ -100,14 +100,14 @@ struct _KPRCB *__fastcall MiCopyMemoryPagefileData(struct _KPRCB *a1, __int64 a2
         v22 = MiMakeValidPte((unsigned __int64)v17, v21, ProtectionPfnCompatible | 0xA0000000);
         v23 = v22;
         if ( _bittest64(&MiFlags, 0x24u) && (v22 & 0x20) == 0 && (unsigned __int64)v17 >= 0xFFFFF6C000000000uLL )
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v17, v22, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v17, v22, 128LL);
         *v17 = v23;
         v24 = (unsigned __int64)(v17 + 1);
         v25 = MiMakeProtectionPfnCompatible(a5 != 0 ? 1 : 4, v16);
         v26 = MiMakeValidPte(v24, a3, v25 | 0xA0000000);
         v27 = v26;
         if ( _bittest64(&MiFlags, 0x24u) && (v26 & 0x20) == 0 && v24 >= 0xFFFFF6C000000000uLL )
-          MiCheckLinearProtectedPteAccessedBit(v24, v26, 128);
+          MiCheckLinearProtectedPteAccessedBit(v24, v26, 128LL);
         *(_QWORD *)v24 = v27;
         v28 = (__int64)((v24 - 8) << 25) >> 16;
         v29 = (__int64)(v24 << 25) >> 16;

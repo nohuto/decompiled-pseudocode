@@ -1,10 +1,10 @@
 /*
- * XREFs of LZNT1DecompressChunk @ 0x140408B50
+ * XREFs of LZNT1DecompressChunk @ 0x140408D30
  * Callers:
- *     LZNT1DecompressChunkNewThread @ 0x14029B998 (LZNT1DecompressChunkNewThread.c)
- *     LZNT1DecompressChunkWorkItem @ 0x1402C7150 (LZNT1DecompressChunkWorkItem.c)
- *     RtlDecompressBufferLZNT1 @ 0x140683F40 (RtlDecompressBufferLZNT1.c)
- *     RtlDecompressFragmentLZNT1 @ 0x1406840B0 (RtlDecompressFragmentLZNT1.c)
+ *     LZNT1DecompressChunkNewThread @ 0x140213328 (LZNT1DecompressChunkNewThread.c)
+ *     LZNT1DecompressChunkWorkItem @ 0x140245890 (LZNT1DecompressChunkWorkItem.c)
+ *     RtlDecompressBufferLZNT1 @ 0x1405DDD80 (RtlDecompressBufferLZNT1.c)
+ *     RtlDecompressFragmentLZNT1 @ 0x1405DDEF0 (RtlDecompressFragmentLZNT1.c)
  * Callees:
  *     <none>
  */

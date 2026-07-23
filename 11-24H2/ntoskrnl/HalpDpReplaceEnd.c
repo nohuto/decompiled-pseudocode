@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDpReplaceEnd @ 0x140702B60
+ * XREFs of HalpDpReplaceEnd @ 0x1407007A0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDpReplaceEnd(_QWORD *P)

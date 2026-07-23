@@ -1,19 +1,19 @@
 /*
- * XREFs of _RegRtlDeleteTreeInternal @ 0x1405620CC
+ * XREFs of _RegRtlDeleteTreeInternal @ 0x14056260C
  * Callers:
- *     _PnpCtxRegDeleteTree @ 0x140550618 (_PnpCtxRegDeleteTree.c)
- *     _RegRtlDeleteTreeInternal @ 0x1405620CC (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeletePathInternal @ 0x1406E06D0 (_RegRtlDeletePathInternal.c)
+ *     _PnpCtxRegDeleteTree @ 0x140550B58 (_PnpCtxRegDeleteTree.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14056260C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeletePathInternal @ 0x1406E0808 (_RegRtlDeletePathInternal.c)
  * Callees:
- *     IoGetStackLimits @ 0x14004F360 (IoGetStackLimits.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     IoGetStackLimits @ 0x14004EEE0 (IoGetStackLimits.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _RegRtlQueryInfoKey @ 0x1404E1D04 (_RegRtlQueryInfoKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x1404FDBD4 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x1405620CC (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140562208 (_RegRtlDeleteKeyTransacted.c)
- *     _RegRtlEnumKey @ 0x140562664 (_RegRtlEnumKey.c)
+ *     _RegRtlQueryInfoKey @ 0x1404C5308 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1404E0B64 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14056260C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140562748 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlEnumKey @ 0x140562BA4 (_RegRtlEnumKey.c)
  */
 
 __int64 __fastcall RegRtlDeleteTreeInternal(char *a1, const WCHAR *a2, void *a3)

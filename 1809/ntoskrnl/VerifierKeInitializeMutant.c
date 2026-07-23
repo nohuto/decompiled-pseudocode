@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeInitializeMutant @ 0x140939A50
+ * XREFs of VerifierKeInitializeMutant @ 0x14093AA50
  * Callers:
  *     <none>
  * Callees:
- *     ViKeInitializeMutantCommon @ 0x14093ADD4 (ViKeInitializeMutantCommon.c)
- *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
- *     VfDeadlockInitializeResource @ 0x14093C0E0 (VfDeadlockInitializeResource.c)
+ *     ViKeInitializeMutantCommon @ 0x14093BDD4 (ViKeInitializeMutantCommon.c)
+ *     VfDeadlockAcquireResource @ 0x14093C514 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockInitializeResource @ 0x14093D0E0 (VfDeadlockInitializeResource.c)
  */
 
 __int64 __fastcall VerifierKeInitializeMutant(int a1, char a2)

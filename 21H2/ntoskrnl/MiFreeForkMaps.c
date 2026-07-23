@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeForkMaps @ 0x14055A934
+ * XREFs of MiFreeForkMaps @ 0x14055AB74
  * Callers:
- *     MiCloneVads @ 0x140559328 (MiCloneVads.c)
+ *     MiCloneVads @ 0x140559568 (MiCloneVads.c)
  * Callees:
- *     MiUnmapSinglePage @ 0x14036B0C4 (MiUnmapSinglePage.c)
- *     MiFinishLastForkPageTable @ 0x14055A6A0 (MiFinishLastForkPageTable.c)
+ *     MiUnmapSinglePage @ 0x14036B274 (MiUnmapSinglePage.c)
+ *     MiFinishLastForkPageTable @ 0x14055A8E0 (MiFinishLastForkPageTable.c)
  */
 
 unsigned __int64 __fastcall MiFreeForkMaps(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

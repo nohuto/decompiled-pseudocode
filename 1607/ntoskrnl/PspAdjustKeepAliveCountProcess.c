@@ -1,13 +1,13 @@
 /*
- * XREFs of PspAdjustKeepAliveCountProcess @ 0x14067D6BC
+ * XREFs of PspAdjustKeepAliveCountProcess @ 0x14067D7A0
  * Callers:
- *     IopDeleteFileObjectExtension @ 0x1400998A0 (IopDeleteFileObjectExtension.c)
- *     IoIncrementKeepAliveCount @ 0x1401C9930 (IoIncrementKeepAliveCount.c)
- *     IopKeepAliveWorker @ 0x1401C9F18 (IopKeepAliveWorker.c)
+ *     IopDeleteFileObjectExtension @ 0x1400990A0 (IopDeleteFileObjectExtension.c)
+ *     IoIncrementKeepAliveCount @ 0x1401C97D0 (IoIncrementKeepAliveCount.c)
+ *     IopKeepAliveWorker @ 0x1401C9DB8 (IopKeepAliveWorker.c)
  * Callees:
- *     PspUnlockProcessShared @ 0x1400C9C44 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x1400C9C88 (PspLockProcessShared.c)
- *     PspChargeJobWakeCounter @ 0x140468C90 (PspChargeJobWakeCounter.c)
+ *     PspUnlockProcessShared @ 0x1400C7AE4 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x1400C7B28 (PspLockProcessShared.c)
+ *     PspChargeJobWakeCounter @ 0x140467B60 (PspChargeJobWakeCounter.c)
  */
 
 __int64 __fastcall PspAdjustKeepAliveCountProcess(__int64 a1, int a2, __int64 a3, char a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAskKeToOutswapProcess @ 0x1404D8150
+ * XREFs of MiAskKeToOutswapProcess @ 0x1404D1920
  * Callers:
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiAttachThreadDone @ 0x1402C66F0 (MiAttachThreadDone.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReturnWsToExpansionList @ 0x14047D620 (MiReturnWsToExpansionList.c)
- *     KeRetryOutswapProcess @ 0x1404AA98C (KeRetryOutswapProcess.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAttachThreadDone @ 0x140311390 (MiAttachThreadDone.c)
+ *     MiReturnWsToExpansionList @ 0x140476F90 (MiReturnWsToExpansionList.c)
+ *     KeRetryOutswapProcess @ 0x1404A401C (KeRetryOutswapProcess.c)
  */
 
 __int64 __fastcall MiAskKeToOutswapProcess(__int64 a1, KIRQL a2)
@@ -21,7 +21,7 @@ __int64 __fastcall MiAskKeToOutswapProcess(__int64 a1, KIRQL a2)
   v3 = *(_QWORD *)(a1 + 16);
   if ( !*(_QWORD *)(v3 + 72) )
   {
-    v4 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174)) + 21384LL);
+    v4 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174)) + 21384LL);
     ++*(_DWORD *)(v3 + 56);
     if ( a2 == 17 )
       ExReleaseSpinLockExclusiveFromDpcLevel(v4);

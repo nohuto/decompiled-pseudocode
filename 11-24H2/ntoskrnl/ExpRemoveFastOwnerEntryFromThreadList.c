@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpRemoveFastOwnerEntryFromThreadList @ 0x1403D8640
+ * XREFs of ExpRemoveFastOwnerEntryFromThreadList @ 0x1402F2120
  * Callers:
- *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x1403D707C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
- *     ExpConvertFastResourceExclusiveToShared @ 0x1403D75C8 (ExpConvertFastResourceExclusiveToShared.c)
- *     ExpReleaseDisownedFastResourceShared @ 0x1403D7FE8 (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x1403D8120 (ExpReleaseDisownedFastResourceExclusive.c)
- *     ExDisownFastResource @ 0x140497BC0 (ExDisownFastResource.c)
- *     ExTryToConvertFastResourceSharedToExclusive @ 0x140656A90 (ExTryToConvertFastResourceSharedToExclusive.c)
+ *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x1402F0B5C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1402F10A8 (ExpConvertFastResourceExclusiveToShared.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x1402F1AC8 (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1402F1C00 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExDisownFastResource @ 0x1404926D0 (ExDisownFastResource.c)
+ *     ExTryToConvertFastResourceSharedToExclusive @ 0x140655190 (ExTryToConvertFastResourceSharedToExclusive.c)
  * Callees:
  *     <none>
  */

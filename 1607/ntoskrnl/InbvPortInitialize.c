@@ -1,11 +1,11 @@
 /*
- * XREFs of InbvPortInitialize @ 0x14023DE2C
+ * XREFs of InbvPortInitialize @ 0x14023DD10
  * Callers:
  *     HdlspEnableTerminal @ 0x14072338C (HdlspEnableTerminal.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x14009B870 (MmMapIoSpaceEx.c)
- *     CpDoesPortExist @ 0x14023DA44 (CpDoesPortExist.c)
- *     CpInitialize @ 0x14023DBF0 (CpInitialize.c)
+ *     MmMapIoSpaceEx @ 0x14009B070 (MmMapIoSpaceEx.c)
+ *     CpDoesPortExist @ 0x14023D928 (CpDoesPortExist.c)
+ *     CpInitialize @ 0x14023DAD4 (CpInitialize.c)
  */
 
 char __fastcall InbvPortInitialize(

@@ -1,12 +1,12 @@
 /*
- * XREFs of McGenControlCallbackV2 @ 0x14014735C
+ * XREFs of McGenControlCallbackV2 @ 0x1401478CC
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     Template_jq @ 0x1401B9E0C (Template_jq.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     Template_jq @ 0x1401B9CF0 (Template_jq.c)
  */
 
 void __stdcall McGenControlCallbackV2(

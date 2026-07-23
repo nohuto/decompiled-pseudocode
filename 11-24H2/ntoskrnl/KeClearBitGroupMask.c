@@ -1,8 +1,8 @@
 /*
- * XREFs of KeClearBitGroupMask @ 0x14045F248
+ * XREFs of KeClearBitGroupMask @ 0x140454108
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     KeInitializeProcess @ 0x140A4EB18 (KeInitializeProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     KeInitializeProcess @ 0x140A45798 (KeInitializeProcess.c)
  * Callees:
  *     <none>
  */

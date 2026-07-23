@@ -1,16 +1,16 @@
 /*
- * XREFs of NtOpenJobObject @ 0x1800A25F0
+ * XREFs of NtOpenJobObject @ 0x1800A2610
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenJobObject()
+NTSTATUS __cdecl NtOpenJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 281LL;
+  result = 281;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

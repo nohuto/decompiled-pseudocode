@@ -1,12 +1,12 @@
 /*
- * XREFs of SmcCacheManagerStart @ 0x140699F7C
+ * XREFs of SmcCacheManagerStart @ 0x14069A060
  * Callers:
- *     SmcCacheCreatePrepare @ 0x140697364 (SmcCacheCreatePrepare.c)
+ *     SmcCacheCreatePrepare @ 0x140697448 (SmcCacheCreatePrepare.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     SmKmKeyGenStart @ 0x1406987B4 (SmKmKeyGenStart.c)
- *     SmpUtilsGetControlDevice @ 0x14069B1CC (SmpUtilsGetControlDevice.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     SmKmKeyGenStart @ 0x140698898 (SmKmKeyGenStart.c)
+ *     SmpUtilsGetControlDevice @ 0x14069B2B0 (SmpUtilsGetControlDevice.c)
  */
 
 int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)

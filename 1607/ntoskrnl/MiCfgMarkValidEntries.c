@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCfgMarkValidEntries @ 0x1404F42BC
+ * XREFs of MiCfgMarkValidEntries @ 0x1404D7248
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1404F3D10 (NtSetInformationVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x1404D6C9C (NtSetInformationVirtualMemory.c)
  * Callees:
- *     MiIsProcessCfgEnabled @ 0x140014304 (MiIsProcessCfgEnabled.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     MiSelectCfgBitMap @ 0x140429A6C (MiSelectCfgBitMap.c)
- *     MiPopulateCfgBitMap @ 0x1404F4488 (MiPopulateCfgBitMap.c)
+ *     MiIsProcessCfgEnabled @ 0x140013E84 (MiIsProcessCfgEnabled.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     MiSelectCfgBitMap @ 0x14042893C (MiSelectCfgBitMap.c)
+ *     MiPopulateCfgBitMap @ 0x1404D7414 (MiPopulateCfgBitMap.c)
  */
 
 __int64 __fastcall MiCfgMarkValidEntries(

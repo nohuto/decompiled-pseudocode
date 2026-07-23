@@ -1,10 +1,10 @@
 /*
- * XREFs of PoQueueShutdownWorkItem @ 0x140986DC0
+ * XREFs of PoQueueShutdownWorkItem @ 0x140986FC0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
  */
 
 NTSTATUS __stdcall PoQueueShutdownWorkItem(PWORK_QUEUE_ITEM WorkItem)
@@ -16,13 +16,13 @@ NTSTATUS __stdcall PoQueueShutdownWorkItem(PWORK_QUEUE_ITEM WorkItem)
   v2 = 0;
   if ( PopShutdownListAvailable )
   {
-    v3 = (struct _LIST_ENTRY *)qword_140C3E8D8;
-    if ( *(__int64 **)qword_140C3E8D8 != &PopShutdownQueue )
+    v3 = (struct _LIST_ENTRY *)qword_140C3E8E8;
+    if ( *(__int64 **)qword_140C3E8E8 != &PopShutdownQueue )
       __fastfail(3u);
     WorkItem->List.Flink = (struct _LIST_ENTRY *)&PopShutdownQueue;
     WorkItem->List.Blink = v3;
     v3->Flink = &WorkItem->List;
-    qword_140C3E8D8 = (__int64)WorkItem;
+    qword_140C3E8E8 = (__int64)WorkItem;
   }
   else
   {

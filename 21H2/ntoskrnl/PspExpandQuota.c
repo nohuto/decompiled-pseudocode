@@ -1,14 +1,14 @@
 /*
- * XREFs of PspExpandQuota @ 0x1402BF1E8
+ * XREFs of PspExpandQuota @ 0x14023D638
  * Callers:
- *     PspChargeQuota @ 0x14021ADE0 (PspChargeQuota.c)
- *     IopVerifierExAllocatePoolWithQuota_1 @ 0x140351F10 (IopVerifierExAllocatePoolWithQuota_1.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     PspChargeQuota @ 0x1402BF6E0 (PspChargeQuota.c)
+ *     IopVerifierExAllocatePoolWithQuota_1 @ 0x14035CC60 (IopVerifierExAllocatePoolWithQuota_1.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
  * Callees:
- *     PspUnlockQuotaExpansion @ 0x1402BF2B4 (PspUnlockQuotaExpansion.c)
- *     PspLockQuotaExpansion @ 0x1402BF4C0 (PspLockQuotaExpansion.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PspReleaseReturnedQuota @ 0x1405812B8 (PspReleaseReturnedQuota.c)
+ *     PspUnlockQuotaExpansion @ 0x14023D704 (PspUnlockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x14023D910 (PspLockQuotaExpansion.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PspReleaseReturnedQuota @ 0x1405814F8 (PspReleaseReturnedQuota.c)
  */
 
 char __fastcall PspExpandQuota(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int64 *a5)

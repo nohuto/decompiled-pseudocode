@@ -1,36 +1,36 @@
 /*
- * XREFs of RtlpInitRandomExVector @ 0x180096440
+ * XREFs of RtlpInitRandomExVector @ 0x180096430
  * Callers:
- *     RtlpSubSegmentInitialize @ 0x180027270 (RtlpSubSegmentInitialize.c)
- *     RtlpHeapGenerateRandomValue32 @ 0x180042348 (RtlpHeapGenerateRandomValue32.c)
+ *     RtlpSubSegmentInitialize @ 0x180027260 (RtlpSubSegmentInitialize.c)
+ *     RtlpHeapGenerateRandomValue32 @ 0x180042338 (RtlpHeapGenerateRandomValue32.c)
  * Callees:
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  *     NtQueryInformationProcess @ 0x1800A6740 (NtQueryInformationProcess.c)
  */
 
-__int64 RtlpInitRandomExVector()
+__int64 __fastcall RtlpInitRandomExVector(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  NTSTATUS v0; // eax
-  int *v1; // r9
-  unsigned __int64 v2; // r8
-  __int64 v3; // r10
+  int v3; // eax
+  int *v4; // r9
+  unsigned __int64 v5; // r8
+  __int64 v6; // r10
   __int64 result; // rax
   int ProcessInformation; // [rsp+58h] [rbp+20h] BYREF
 
-  v0 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
-  if ( v0 < 0 )
-    RtlRaiseStatus((unsigned int)v0);
-  v1 = RtlpRandomExConstantVector;
-  LODWORD(v2) = dword_180163300 ^ ProcessInformation;
-  v3 = 128LL;
+  v3 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
+  if ( v3 < 0 )
+    RtlRaiseStatus(v3);
+  v4 = RtlpRandomExConstantVector;
+  LODWORD(v5) = LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[7]) ^ ProcessInformation;
+  v6 = 128LL;
   do
   {
-    v2 = (2147483629 * (unsigned __int64)(unsigned int)v2 + 2147483587) % 0x7FFFFFFF;
-    *v1++ = v2;
-    --v3;
+    v5 = (2147483629 * (unsigned __int64)(unsigned int)v5 + 2147483587) % 0x7FFFFFFF;
+    *v4++ = v5;
+    --v6;
   }
-  while ( v3 );
+  while ( v6 );
   result = 1LL;
-  RtlpRandomExAuxVarY = (2147483629 * (unsigned __int64)(unsigned int)v2 + 2147483587) % 0x7FFFFFFF;
+  RtlpRandomExAuxVarY = (2147483629 * (unsigned __int64)(unsigned int)v5 + 2147483587) % 0x7FFFFFFF;
   return result;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmInitSystem @ 0x1409BC4E4
+ * XREFs of MmInitSystem @ 0x1409BD4E4
  * Callers:
- *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
- *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
+ *     KiInitializeBootStructures @ 0x140570E10 (KiInitializeBootStructures.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
+ *     Phase1InitializationIoReady @ 0x1409C5788 (Phase1InitializationIoReady.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
- *     MiInitializeSystemVa @ 0x1409D23A8 (MiInitializeSystemVa.c)
- *     KeQueryNumaGraph @ 0x1409F6414 (KeQueryNumaGraph.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DE90 (VslGetNestedPageProtectionFlags.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
+ *     MiInitializeSystemVa @ 0x1409D33A8 (MiInitializeSystemVa.c)
+ *     KeQueryNumaGraph @ 0x1409F7414 (KeQueryNumaGraph.c)
  */
 
 char __fastcall MmInitSystem(int a1, ULONG_PTR a2)
@@ -76,14 +76,14 @@ LABEL_22:
         v7 = NumaGraph;
         if ( NumaGraph )
         {
-          memmove(qword_14043A050, NumaGraph, 2LL * (unsigned __int16)KeNumberNodes * (unsigned __int16)KeNumberNodes);
+          memmove(qword_14043B110, NumaGraph, 2LL * (unsigned __int16)KeNumberNodes * (unsigned __int16)KeNumberNodes);
           ExFreePoolWithTag(v7, 0);
         }
       }
       MiFlags = MiFlags & 0xFFFFFFCF | 0x10;
       if ( (unsigned __int8)MiInitSystem(1LL, a2) )
       {
-        byte_14043AED4 = 1;
+        byte_14043BF94 = 1;
         return 1;
       }
       return 0;

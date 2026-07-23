@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRealtimeDisconnectConsumer @ 0x140A86A08
+ * XREFs of EtwpRealtimeDisconnectConsumer @ 0x140A814E0
  * Callers:
- *     EtwpCloseRealTimeConnectionObject @ 0x1407B16E0 (EtwpCloseRealTimeConnectionObject.c)
- *     EtwpRealtimeDisconnectConsumerByHandle @ 0x140A869A0 (EtwpRealtimeDisconnectConsumerByHandle.c)
+ *     EtwpCloseRealTimeConnectionObject @ 0x1407B1B30 (EtwpCloseRealTimeConnectionObject.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpSynchronizeWithLogger @ 0x14083381C (EtwpSynchronizeWithLogger.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
+ *     EtwpSynchronizeWithLogger @ 0x1409D2650 (EtwpSynchronizeWithLogger.c)
  */
 
 __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1)
@@ -19,8 +19,8 @@ __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1)
   __int64 v4; // rax
   __int64 v5; // rsi
   unsigned __int64 *v6; // rbx
-  _QWORD *v7; // rax
-  _QWORD *v8; // rbp
+  char *v7; // rax
+  char *v8; // rbp
   signed __int64 v9; // rax
   signed __int64 v10; // rdx
   unsigned __int64 v11; // rtt
@@ -36,12 +36,12 @@ __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1)
     if ( v4 )
     {
       v6 = (unsigned __int64 *)(v4 + 688);
-      v7 = KeAbPreAcquire(v4 + 688, 0LL);
+      v7 = (char *)KeAbPreAcquire(v4 + 688, 0LL);
       v8 = v7;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v6, (__int64)v7, (__int64)v6);
+        ExfAcquirePushLockExclusiveEx(v6, v7, (__int64)v6);
       if ( v8 )
-        *((_BYTE *)v8 + 10) = 1;
+        v8[10] = 1;
       *(_QWORD *)(v5 + 352) = a1;
       _m_prefetchw(v6);
       v9 = *v6;

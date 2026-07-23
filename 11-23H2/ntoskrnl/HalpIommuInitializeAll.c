@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpIommuInitializeAll @ 0x140A90F0C
+ * XREFs of HalpIommuInitializeAll @ 0x140A90D8C
  * Callers:
  *     HalpIommuInitSystem @ 0x140A89BC0 (HalpIommuInitSystem.c)
- *     HalpInterruptReinitialize @ 0x140A9544C (HalpInterruptReinitialize.c)
+ *     HalpInterruptReinitialize @ 0x140A952BC (HalpInterruptReinitialize.c)
  * Callees:
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
- *     HalpInterruptIsRemappingRequired @ 0x14031FDCC (HalpInterruptIsRemappingRequired.c)
- *     HalpGetIrtEntryCount @ 0x14036F1BC (HalpGetIrtEntryCount.c)
- *     HalpMmAllocateMemory @ 0x14037D6E0 (HalpMmAllocateMemory.c)
- *     HalpIommuPopulateExceptionList @ 0x1403A9D9C (HalpIommuPopulateExceptionList.c)
- *     HalpIommuConfigureInterrupt @ 0x1403A9E68 (HalpIommuConfigureInterrupt.c)
- *     HalpIommuUpdatePageWalkCapability @ 0x1403A9FA4 (HalpIommuUpdatePageWalkCapability.c)
- *     HalpIommuUpdatePageTableLevel @ 0x1403A9FE8 (HalpIommuUpdatePageTableLevel.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HviGetHardwareFeatures @ 0x1406153A0 (HviGetHardwareFeatures.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
+ *     HalpInterruptIsRemappingRequired @ 0x14032005C (HalpInterruptIsRemappingRequired.c)
+ *     HalpGetIrtEntryCount @ 0x14036F35C (HalpGetIrtEntryCount.c)
+ *     HalpMmAllocateMemory @ 0x14037D880 (HalpMmAllocateMemory.c)
+ *     HalpIommuPopulateExceptionList @ 0x1403A9F7C (HalpIommuPopulateExceptionList.c)
+ *     HalpIommuConfigureInterrupt @ 0x1403AA048 (HalpIommuConfigureInterrupt.c)
+ *     HalpIommuUpdatePageWalkCapability @ 0x1403AA184 (HalpIommuUpdatePageWalkCapability.c)
+ *     HalpIommuUpdatePageTableLevel @ 0x1403AA1C8 (HalpIommuUpdatePageTableLevel.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HviGetHardwareFeatures @ 0x1406158F0 (HviGetHardwareFeatures.c)
  *     HalpIommuConstructReservedPageTables @ 0x140A8A61C (HalpIommuConstructReservedPageTables.c)
  */
 

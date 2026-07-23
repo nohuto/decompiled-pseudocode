@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepStartDevicePowerOffActivity @ 0x1403156D0
+ * XREFs of PopPepStartDevicePowerOffActivity @ 0x14047E8F0
  * Callers:
- *     PopPepWork @ 0x140316330 (PopPepWork.c)
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
- *     PopPepStartActivity @ 0x140319BA0 (PopPepStartActivity.c)
+ *     PopPepWork @ 0x1402BEEE0 (PopPepWork.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
+ *     PopPepStartActivity @ 0x1402C2730 (PopPepStartActivity.c)
  * Callees:
  *     <none>
  */

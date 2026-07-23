@@ -1,32 +1,32 @@
 /*
- * XREFs of MiInitializeDecayPfns @ 0x140C5C2D8
+ * XREFs of MiInitializeDecayPfns @ 0x140C5E468
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     KcsanMarkAddressIgnored @ 0x1404A4410 (KcsanMarkAddressIgnored.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     KcsanMarkAddressIgnored @ 0x14049F1A0 (KcsanMarkAddressIgnored.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY MiInitializeDecayPfns()
 {
   __int64 v0; // rdi
-  struct _SLIST_ENTRY *v1; // rbx
+  _SLIST_ENTRY *v1; // rbx
   PSLIST_ENTRY result; // rax
 
   v0 = 2048LL;
-  dword_140E35B28 = 2048;
-  qword_140E35B30 = (__int64)&qword_140E35B38;
-  KcsanMarkAddressIgnored((ULONG_PTR)&qword_140E35B38, 0x100uLL);
-  if ( ((unsigned __int8)&ListHead & 0xF) != 0 )
+  dword_140E35C68 = 2048;
+  qword_140E35C70 = (__int64)&qword_140E35C78;
+  KcsanMarkAddressIgnored((ULONG_PTR)&qword_140E35C78, 0x100uLL);
+  if ( ((unsigned __int8)&stru_140E35C50 & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
-  ListHead = 0LL;
-  v1 = (struct _SLIST_ENTRY *)(48 * qword_140E35B00 - 0x21FFFFFE8030LL);
+  stru_140E35C50 = 0LL;
+  v1 = (_SLIST_ENTRY *)(48 * qword_140E35C40 - 0x21FFFFFE8030LL);
   MiSetPfnContainingFrame((__int64)v1, 1LL);
   do
   {
-    result = RtlpInterlockedPushEntrySList(&ListHead, v1);
+    result = RtlpInterlockedPushEntrySList(&stru_140E35C50, v1);
     v1 -= 3;
     --v0;
   }

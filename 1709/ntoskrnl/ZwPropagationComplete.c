@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwPropagationComplete(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwPropagationComplete(
+        HANDLE ResourceManagerHandle,
+        ULONG RequestCookie,
+        ULONG BufferLength,
+        PVOID Buffer)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ResourceManagerHandle);
 }

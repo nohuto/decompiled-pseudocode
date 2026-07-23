@@ -1,26 +1,26 @@
 /*
- * XREFs of AlpcpProcessConnectionRequest @ 0x1408E7654
+ * XREFs of AlpcpProcessConnectionRequest @ 0x1408EDC14
  * Callers:
- *     AlpcpConnectPort @ 0x1408E92E0 (AlpcpConnectPort.c)
+ *     AlpcpConnectPort @ 0x1408EF8A0 (AlpcpConnectPort.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     AlpcpLogConnectFail @ 0x1407C1AB0 (AlpcpLogConnectFail.c)
- *     AlpcpLogConnectRequest @ 0x1407C1B24 (AlpcpLogConnectRequest.c)
- *     AlpcpLogConnectSuccess @ 0x1407C1B94 (AlpcpLogConnectSuccess.c)
- *     AlpcpGetDataFromMessage @ 0x1408E63B4 (AlpcpGetDataFromMessage.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x1408E68E0 (AlpcpProbeAndCaptureMessageHeader.c)
- *     AlpcpFormatConnectionRequest @ 0x1408E7C0C (AlpcpFormatConnectionRequest.c)
- *     AlpcpDispatchConnectionRequest @ 0x1408E8048 (AlpcpDispatchConnectionRequest.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x1408F5AA0 (AlpcpProbeForWriteMessageHeader.c)
- *     AlpcpProbeMessageAttributes @ 0x1408F5B50 (AlpcpProbeMessageAttributes.c)
- *     AlpcpExposeAttributes @ 0x140972B20 (AlpcpExposeAttributes.c)
- *     AlpcpReceiveSynchronousReply @ 0x1409C0480 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     AlpcpLogConnectFail @ 0x1407C4B10 (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x1407C4B84 (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x1407C4BF4 (AlpcpLogConnectSuccess.c)
+ *     AlpcpGetDataFromMessage @ 0x1408EC974 (AlpcpGetDataFromMessage.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1408ECEA0 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpFormatConnectionRequest @ 0x1408EE1CC (AlpcpFormatConnectionRequest.c)
+ *     AlpcpDispatchConnectionRequest @ 0x1408EE608 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x140925A30 (AlpcpProbeForWriteMessageHeader.c)
+ *     AlpcpProbeMessageAttributes @ 0x140925AE0 (AlpcpProbeMessageAttributes.c)
+ *     AlpcpReceiveSynchronousReply @ 0x140991460 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     AlpcpExposeAttributes @ 0x1409B93B0 (AlpcpExposeAttributes.c)
  */
 
 __int64 __fastcall AlpcpProcessConnectionRequest(
@@ -130,7 +130,7 @@ __int64 __fastcall AlpcpProcessConnectionRequest(
   {
     v16 = BugCheckParameter2;
     v31 = *(_DWORD *)(BugCheckParameter2 + 264);
-    if ( BYTE4(stru_140E66B30.StackBase) )
+    if ( LOBYTE(stru_140E66D40.CycleTime) )
       AlpcpLogConnectRequest(BugCheckParameter2);
     v43[0] = v14;
     v43[1] = v16;
@@ -149,14 +149,14 @@ __int64 __fastcall AlpcpProcessConnectionRequest(
       v20 = v19;
       if ( v19 )
       {
-        if ( BYTE4(stru_140E66B30.StackBase) )
+        if ( LOBYTE(stru_140E66D40.CycleTime) )
           AlpcpLogConnectFail(v31, v19);
         if ( (*(_BYTE *)(v34 + 416) & 0x10) != 0 )
           return (unsigned int)-1073741759;
       }
       else
       {
-        if ( BYTE4(stru_140E66B30.StackBase) )
+        if ( LOBYTE(stru_140E66D40.CycleTime) )
           AlpcpLogConnectSuccess(v31);
         if ( a2 >= 0 || (a2 & 0x40000000) != 0 )
           v21 = 40;
@@ -234,7 +234,7 @@ __int64 __fastcall AlpcpProcessConnectionRequest(
       }
       return v20;
     }
-    if ( BYTE4(stru_140E66B30.StackBase) )
+    if ( LOBYTE(stru_140E66D40.CycleTime) )
       AlpcpLogConnectFail(v31, result);
     AlpcpUnlockMessage(v16);
     return v18;

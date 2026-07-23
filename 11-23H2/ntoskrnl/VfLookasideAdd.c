@@ -1,7 +1,7 @@
 /*
- * XREFs of VfLookasideAdd @ 0x140AE2270
+ * XREFs of VfLookasideAdd @ 0x140AE2260
  * Callers:
- *     VfMiscExInitializePagedLookasideList_Exit @ 0x140ADFB90 (VfMiscExInitializePagedLookasideList_Exit.c)
+ *     VfMiscExInitializePagedLookasideList_Exit @ 0x140ADFB80 (VfMiscExInitializePagedLookasideList_Exit.c)
  * Callees:
  *     VfAvlLookupTreeNode @ 0x140209FDC (VfAvlLookupTreeNode.c)
  *     VfAvlReserveNode @ 0x14020A26C (VfAvlReserveNode.c)
@@ -9,15 +9,15 @@
  *     VfAvlInsertReservedTreeNode @ 0x14020A3A4 (VfAvlInsertReservedTreeNode.c)
  *     VfAvlDeleteTreeNode @ 0x14020A720 (VfAvlDeleteTreeNode.c)
  *     VfUtilFreePoolCheckIRQL @ 0x14020A910 (VfUtilFreePoolCheckIRQL.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     VfAvlInitializeLockContext @ 0x1404664A8 (VfAvlInitializeLockContext.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlInitializeLockContext @ 0x1404668A8 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall VfLookasideAdd(ULONG_PTR BugCheckParameter2)
 {
   char *v2; // rsi
-  struct _SLIST_ENTRY *v3; // rbx
+  _SLIST_ENTRY *v3; // rbx
   __int128 v4; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = 0LL;
@@ -32,7 +32,7 @@ void __fastcall VfLookasideAdd(ULONG_PTR BugCheckParameter2)
       {
         if ( !ViLookasideAllocationFailures && !ViLookasideAlreadyLoadedDrivers )
           VerifierBugCheckIfAppropriate(0xC4u, 0xCAuLL, BugCheckParameter2, 0LL, 0LL);
-        v3 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViLookasideAvl, (__int64)&v4, BugCheckParameter2, 0LL);
+        v3 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViLookasideAvl, (__int64)&v4, BugCheckParameter2, 0LL);
       }
       VfAvlInsertReservedTreeNode((__int64)&ViLookasideAvl, (__int64)&v4, v2);
       VfAvlCleanupLockContext((__int64)&v4);

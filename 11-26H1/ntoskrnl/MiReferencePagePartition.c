@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReferencePagePartition @ 0x1406F0A6C
+ * XREFs of MiReferencePagePartition @ 0x1406F56DC
  * Callers:
- *     MiGetBadPageResources @ 0x1406F1108 (MiGetBadPageResources.c)
- *     MmRemovePhysicalMemory @ 0x140867460 (MmRemovePhysicalMemory.c)
- *     MmIdentifyPhysicalMemory @ 0x140868394 (MmIdentifyPhysicalMemory.c)
+ *     MiGetBadPageResources @ 0x1406F5D78 (MiGetBadPageResources.c)
+ *     MmRemovePhysicalMemory @ 0x14086D840 (MmRemovePhysicalMemory.c)
+ *     MmIdentifyPhysicalMemory @ 0x14086E774 (MmIdentifyPhysicalMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
  */
 
 __int64 __fastcall MiReferencePagePartition(__int64 a1, int a2, _QWORD *a3)
@@ -25,11 +25,12 @@ __int64 __fastcall MiReferencePagePartition(__int64 a1, int a2, _QWORD *a3)
   {
     v5 = MiSafeLockPage(
            (a1 + 0x220000000000LL) / 48,
-           (__int64)((unsigned __int128)((a1 + 0x220000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3);
+           (__int64)((unsigned __int128)((a1 + 0x220000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3,
+           (__int64)a3);
     if ( v5 == 17 )
       return 3221225485LL;
   }
-  if ( PsReferencePartitionSafe(*(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock
+  if ( PsReferencePartitionSafe(*(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock
                                                       + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL))
                                           + 256LL)) )
   {

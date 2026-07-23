@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeProcessBottomUpEntropy @ 0x14046D1D4
+ * XREFs of MiInitializeProcessBottomUpEntropy @ 0x14046C0A4
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14046D378 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x14046C248 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
  */
 
 __int64 __fastcall MiInitializeProcessBottomUpEntropy(__int64 a1)
@@ -62,9 +62,9 @@ LABEL_16:
   {
     v11 = (unsigned int)*v9;
     v1 += 40LL;
-    v12 = qword_140327F90;
+    v12 = qword_140327FD0;
     ++v9;
-    *(_DWORD *)(v1 + qword_140327F90 + 276840452) = v11;
+    *(_DWORD *)(v1 + qword_140327FD0 + 276840452) = v11;
     result = v11 << 16;
     *(_QWORD *)(v1 + v12 + 276840456) = result;
     --v10;

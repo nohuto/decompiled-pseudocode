@@ -10,7 +10,7 @@
  *     RtlpHeapExceptionFilter @ 0x1800F2DA8 (RtlpHeapExceptionFilter.c)
  */
 
-unsigned __int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, size_t a2, int a3)
+unsigned __int64 __fastcall RtlpHpAllocWithExceptionProtection(_DWORD *a1, size_t a2, int a3)
 {
   void *SubProcessTag; // rax
   __int64 v7; // rcx
@@ -28,8 +28,8 @@ unsigned __int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, size_
   _QWORD v20[2]; // [rsp+70h] [rbp-48h] BYREF
 
   if ( (RtlpHpHeapFeatures & 2) == 0 )
-    return RtlpAllocateHeapInternal(a1, a2, a3, 0);
-  if ( *(_DWORD *)(a1 + 16) != -571548178 || a1 == RtlpHpMetadataHeap )
+    return RtlpAllocateHeapInternal((__int64)a1, a2, a3, 0);
+  if ( a1[4] != -571548178 || a1 == RtlpHpMetadataHeap )
     goto LABEL_23;
   v20[0] = 0LL;
   v20[1] = 0LL;
@@ -125,7 +125,7 @@ LABEL_33:
 LABEL_13:
     word_18015D924 = Tag;
 LABEL_14:
-  HeapInternal = RtlpAllocateHeapInternal(a1, a2, a3, Tag);
+  HeapInternal = RtlpAllocateHeapInternal((__int64)a1, a2, a3, Tag);
   if ( !HeapInternal && Tag )
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(_QWORD *)(qword_18015D918 + 8LL * Tag - 8) + 32LL),

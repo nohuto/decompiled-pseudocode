@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddPhysicalMemoryChunks @ 0x140657B58
+ * XREFs of MiAddPhysicalMemoryChunks @ 0x140657C3C
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1401F07A4 (MiActOnPartitionNodePages.c)
- *     MmAddPhysicalMemory @ 0x1406584F4 (MmAddPhysicalMemory.c)
+ *     MiActOnPartitionNodePages @ 0x1401F05D0 (MiActOnPartitionNodePages.c)
+ *     MmAddPhysicalMemory @ 0x1406585D8 (MmAddPhysicalMemory.c)
  * Callees:
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  */
 
 __int64 __fastcall MiAddPhysicalMemoryChunks(int *a1, __int64 *a2, signed __int64 *a3)

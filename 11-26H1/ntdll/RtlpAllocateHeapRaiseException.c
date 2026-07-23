@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpAllocateHeapRaiseException @ 0x180113150
+ * XREFs of RtlpAllocateHeapRaiseException @ 0x180112C00
  * Callers:
- *     RtlpAllocateNTHeapInternal @ 0x18001C810 (RtlpAllocateNTHeapInternal.c)
- *     RtlpHpTagAllocateHeap @ 0x180097930 (RtlpHpTagAllocateHeap.c)
- *     RtlAllocateHeapFast @ 0x18013FD70 (RtlAllocateHeapFast.c)
- *     RtlAllocateHeapFull @ 0x18013FEB0 (RtlAllocateHeapFull.c)
+ *     RtlpAllocateNTHeapInternal @ 0x1800078E0 (RtlpAllocateNTHeapInternal.c)
+ *     RtlpHpTagAllocateHeap @ 0x180096A80 (RtlpHpTagAllocateHeap.c)
+ *     RtlAllocateHeapFast @ 0x18013FC70 (RtlAllocateHeapFast.c)
+ *     RtlAllocateHeapFull @ 0x18013FDB0 (RtlAllocateHeapFull.c)
  * Callees:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 void __fastcall RtlpAllocateHeapRaiseException(unsigned __int64 a1)

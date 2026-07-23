@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpAllocateIoSpaceRanges @ 0x14059944C
+ * XREFs of IopLiveDumpAllocateIoSpaceRanges @ 0x1405963CC
  * Callers:
- *     IopLiveDumpAllocateFromIOSpace @ 0x140598D2C (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x140595CAC (IopLiveDumpAllocateFromIOSpace.c)
  * Callees:
- *     MmAllocateMemoryRanges @ 0x1407EB130 (MmAllocateMemoryRanges.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmAllocateMemoryRanges @ 0x1407EB700 (MmAllocateMemoryRanges.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateIoSpaceRanges(
@@ -57,7 +57,7 @@ __int64 __fastcall IopLiveDumpAllocateIoSpaceRanges(
     while ( v9 < *(_QWORD *)&P[4] );
     if ( v8 )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 8 * v8, 0x706D644Cu);
       if ( Pool2 )
       {
         for ( i = 0LL; i < *(_QWORD *)&P[4]; ++i )

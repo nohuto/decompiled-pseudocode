@@ -22,11 +22,11 @@
  *     LdrpInitShimEngine @ 0x180070248 (LdrpInitShimEngine.c)
  *     LdrpLoadShimEngine @ 0x1800703EC (LdrpLoadShimEngine.c)
  *     LdrpLoadContextReplaceModule @ 0x180071770 (LdrpLoadContextReplaceModule.c)
- *     LdrGetDllHandleByMapping @ 0x180076EB0 (LdrGetDllHandleByMapping.c)
- *     LdrGetDllHandleByName @ 0x18007B6C0 (LdrGetDllHandleByName.c)
- *     LdrDisableThreadCalloutsForDll @ 0x18007BF90 (LdrDisableThreadCalloutsForDll.c)
- *     LdrpFreeReplacedModule @ 0x1800864F8 (LdrpFreeReplacedModule.c)
- *     LdrpLoadWow64 @ 0x1800869A0 (LdrpLoadWow64.c)
+ *     LdrGetDllHandleByMapping @ 0x180076EC0 (LdrGetDllHandleByMapping.c)
+ *     LdrGetDllHandleByName @ 0x18007B6D0 (LdrGetDllHandleByName.c)
+ *     LdrDisableThreadCalloutsForDll @ 0x18007BFA0 (LdrDisableThreadCalloutsForDll.c)
+ *     LdrpFreeReplacedModule @ 0x180086508 (LdrpFreeReplacedModule.c)
+ *     LdrpLoadWow64 @ 0x1800869B0 (LdrpLoadWow64.c)
  *     LdrpCleanupEnclaveLoadState @ 0x1800CF038 (LdrpCleanupEnclaveLoadState.c)
  *     LdrIsModuleSxsRedirected @ 0x1800CFE50 (LdrIsModuleSxsRedirected.c)
  *     LdrQueryModuleServiceTags @ 0x1800CFF90 (LdrQueryModuleServiceTags.c)
@@ -41,49 +41,51 @@
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  *     RtlReleaseActivationContext @ 0x18002D7A0 (RtlReleaseActivationContext.c)
  *     LdrpFreeUnicodeString @ 0x1800713F4 (LdrpFreeUnicodeString.c)
- *     LdrpUnmapModule @ 0x180076B98 (LdrpUnmapModule.c)
- *     LdrpDestroyNode @ 0x180080A3C (LdrpDestroyNode.c)
- *     LdrpReleaseTlsEntry @ 0x1800818BC (LdrpReleaseTlsEntry.c)
+ *     LdrpUnmapModule @ 0x180076BA8 (LdrpUnmapModule.c)
+ *     LdrpDestroyNode @ 0x180080A4C (LdrpDestroyNode.c)
+ *     LdrpReleaseTlsEntry @ 0x1800818CC (LdrpReleaseTlsEntry.c)
  */
 
-__int64 __fastcall LdrpDereferenceModule(__int64 a1)
+int __fastcall LdrpDereferenceModule(char *BaseAddress)
 {
-  __int64 result; // rax
-  __int64 v3; // r8
-  _QWORD *v4; // rdx
+  __int64 *v1; // rax
+  char **v3; // r8
+  PVOID *v4; // rdx
   _QWORD *v5; // rdi
   _QWORD *v6; // rsi
+  _ACTIVATION_CONTEXT *v7; // rcx
 
-  result = *(_QWORD *)(a1 + 152);
-  if ( *(_DWORD *)(result + 24) != -1 )
+  v1 = (__int64 *)*((_QWORD *)BaseAddress + 19);
+  if ( *((_DWORD *)v1 + 6) != -1 )
   {
-    result = *(_QWORD *)result;
-    if ( (*(_BYTE *)(result - 56) & 0x20) == 0 )
+    v1 = (__int64 *)*v1;
+    if ( (*(_BYTE *)(v1 - 7) & 0x20) == 0 )
     {
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 276), 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
+      LODWORD(v1) = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 69, 0xFFFFFFFF);
+      if ( (_DWORD)v1 == 1 )
       {
         RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-        v3 = *(_QWORD *)(a1 + 160);
-        if ( *(_QWORD *)(v3 + 8) != a1 + 160 || (v4 = *(_QWORD **)(a1 + 168), *v4 != a1 + 160) )
+        v3 = (char **)*((_QWORD *)BaseAddress + 20);
+        if ( v3[1] != BaseAddress + 160 || (v4 = (PVOID *)*((_QWORD *)BaseAddress + 21), *v4 != BaseAddress + 160) )
           __fastfail(3u);
         *v4 = v3;
-        *(_QWORD *)(v3 + 8) = v4;
-        v5 = *(_QWORD **)(a1 + 152);
+        v3[1] = (char *)v4;
+        v5 = (_QWORD *)*((_QWORD *)BaseAddress + 19);
         v6 = (_QWORD *)*v5;
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-        if ( *(_WORD *)(a1 + 110) )
-          LdrpReleaseTlsEntry(a1, 0LL);
-        LdrpUnmapModule(a1);
-        if ( (unsigned __int64)(*(_QWORD *)(a1 + 136) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
-          RtlReleaseActivationContext();
-        if ( *(_QWORD *)(a1 + 80) )
-          LdrpFreeUnicodeString(a1 + 72);
-        result = RtlFreeHeap(LdrpHeap, 0LL, a1);
+        if ( *((_WORD *)BaseAddress + 55) )
+          LdrpReleaseTlsEntry(BaseAddress, 0LL);
+        LdrpUnmapModule(BaseAddress);
+        v7 = (_ACTIVATION_CONTEXT *)*((_QWORD *)BaseAddress + 17);
+        if ( (unsigned __int64)&v7[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+          RtlReleaseActivationContext(v7);
+        if ( *((_QWORD *)BaseAddress + 10) )
+          LdrpFreeUnicodeString(BaseAddress + 72);
+        LODWORD(v1) = RtlFreeHeap(LdrpHeap, 0, BaseAddress);
         if ( v6 == v5 )
-          return LdrpDestroyNode(v5);
+          LODWORD(v1) = LdrpDestroyNode(v5);
       }
     }
   }
-  return result;
+  return (int)v1;
 }

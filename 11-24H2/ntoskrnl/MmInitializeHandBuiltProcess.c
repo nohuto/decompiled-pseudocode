@@ -1,15 +1,15 @@
 /*
- * XREFs of MmInitializeHandBuiltProcess @ 0x140AE66AC
+ * XREFs of MmInitializeHandBuiltProcess @ 0x140AE7F8C
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiAllowWorkingSetExpansion @ 0x1403D93B0 (MiAllowWorkingSetExpansion.c)
- *     MiGetSharedVm @ 0x14040C800 (MiGetSharedVm.c)
- *     ExInitializeAutoExpandPushLock @ 0x140441FA0 (ExInitializeAutoExpandPushLock.c)
- *     MiInsertNewProcess @ 0x140490A94 (MiInsertNewProcess.c)
- *     MiCopyWorkingSetFields @ 0x140669DE4 (MiCopyWorkingSetFields.c)
- *     MiAllocateProcessShadow @ 0x140A5A1B0 (MiAllocateProcessShadow.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiAllowWorkingSetExpansion @ 0x1402F2680 (MiAllowWorkingSetExpansion.c)
+ *     MiGetSharedVm @ 0x140404E90 (MiGetSharedVm.c)
+ *     ExInitializeAutoExpandPushLock @ 0x140438B70 (ExInitializeAutoExpandPushLock.c)
+ *     MiInsertNewProcess @ 0x14048B0D4 (MiInsertNewProcess.c)
+ *     MiCopyWorkingSetFields @ 0x14066AFB4 (MiCopyWorkingSetFields.c)
+ *     MiAllocateProcessShadow @ 0x140A51A70 (MiAllocateProcessShadow.c)
  */
 
 __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)
@@ -21,6 +21,7 @@ __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)
   __int64 result; // rax
   __int64 Pool; // rax
   __int64 v8; // rdi
+  __int64 v9; // r9
 
   v1 = a1 + 1024;
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -45,7 +46,7 @@ __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)
       ExInitializeAutoExpandPushLock((_QWORD *)(Pool + 1112), 1);
       *(_QWORD *)(a1 + 1368) = 0LL;
       *(_QWORD *)(a1 + 872) = *(_QWORD *)&Process[1].PrimaryGroup;
-      MiCopyWorkingSetFields(v1, (__int64)&Process[2].ReadyListHead.Blink, v8);
+      MiCopyWorkingSetFields(v1, (__int64)&Process[2].ReadyListHead.Blink, v8, v9);
       *(_QWORD *)(a1 + 648) = Process[1].Padding[0];
       *(_DWORD *)(a1 + 1956) = 1;
       MiInsertNewProcess(a1);

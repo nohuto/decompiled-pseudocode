@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringCbCatExA @ 0x140268A30
+ * XREFs of RtlStringCbCatExA @ 0x140268C20
  * Callers:
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
  *     RtlStringCopyWorkerA @ 0x140011F38 (RtlStringCopyWorkerA.c)
- *     RtlStringLengthWorkerA @ 0x140268D58 (RtlStringLengthWorkerA.c)
+ *     RtlStringLengthWorkerA @ 0x140268F48 (RtlStringLengthWorkerA.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCatExA(

@@ -1,39 +1,39 @@
 /*
- * XREFs of CcInitializeBcbProfiler @ 0x140BDEC74
+ * XREFs of CcInitializeBcbProfiler @ 0x140BE0C74
  * Callers:
- *     CcInitializeCacheManager @ 0x140C15A88 (CcInitializeCacheManager.c)
+ *     CcInitializeCacheManager @ 0x140C17A88 (CcInitializeCacheManager.c)
  * Callees:
- *     RtlLookupFunctionTable @ 0x14027C600 (RtlLookupFunctionTable.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     RtlpConvertFunctionEntry @ 0x14040E640 (RtlpConvertFunctionEntry.c)
- *     RtlSectionTableFromVirtualAddress @ 0x14042CF10 (RtlSectionTableFromVirtualAddress.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     RtlpLookupPrimaryFunctionEntry @ 0x140483AB0 (RtlpLookupPrimaryFunctionEntry.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     KiAreCodePatchesAllowed @ 0x140C26BD0 (KiAreCodePatchesAllowed.c)
- *     KiGetLoadOptions @ 0x140C26C1C (KiGetLoadOptions.c)
+ *     RtlLookupFunctionTable @ 0x140231B90 (RtlLookupFunctionTable.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1402EEF90 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlpConvertFunctionEntry @ 0x140406840 (RtlpConvertFunctionEntry.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x14047EFD0 (RtlpLookupPrimaryFunctionEntry.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     KiAreCodePatchesAllowed @ 0x140C28C20 (KiAreCodePatchesAllowed.c)
+ *     KiGetLoadOptions @ 0x140C28C6C (KiGetLoadOptions.c)
  */
 
 char CcInitializeBcbProfiler()
 {
   unsigned __int64 Pool2; // rax
   const char *LoadOptions; // rax
-  unsigned __int64 v2; // r9
+  _IMAGE_NT_HEADERS64 *v2; // r9
   unsigned __int64 v3; // rax
   void (__fastcall *v4)(__int64, __int64); // r8
   unsigned __int128 v5; // rax
   __int64 v6; // rsi
   unsigned __int64 v7; // rsi
-  _DWORD *v8; // rbx
+  PIMAGE_SECTION_HEADER v8; // rbx
   unsigned int *v9; // r8
   unsigned int *v10; // rdi
   int v11; // r14d
-  unsigned int v12; // edx
+  unsigned int VirtualAddress; // edx
   unsigned int *v13; // r9
-  unsigned int v14; // ecx
+  unsigned int SizeOfRawData; // ecx
   unsigned int v15; // ecx
   unsigned int v16; // eax
   ULONG_PTR v17; // r9
@@ -131,7 +131,7 @@ char CcInitializeBcbProfiler()
     Pool2 = (unsigned __int64)strstr(LoadOptions, SubStr);
     if ( !Pool2 )
     {
-      v2 = RtlImageNtHeader(0x140000000uLL);
+      v2 = RtlImageNtHeader((PVOID)0x140000000LL);
       v3 = __rdtsc();
       v4 = CcBcbProfiler;
       v5 = (__ROR8__(v3, 3) ^ v3) * (unsigned __int128)0x7010008004002001uLL;
@@ -142,8 +142,8 @@ char CcInitializeBcbProfiler()
       v79 = v7;
       v78 = v7 >= 0x32;
       if ( v7 >= 0x32 )
-        LODWORD(v4) = (unsigned int)sub_1406FC4F0;
-      v8 = (_DWORD *)RtlSectionTableFromVirtualAddress(v2, 0x140000000LL, (unsigned int)v4 - 0x40000000);
+        LODWORD(v4) = (unsigned int)sub_1406FA130;
+      v8 = RtlSectionTableFromVirtualAddress(v2, (PVOID)0x140000000LL, (unsigned int)v4 - 0x40000000);
       v9 = (unsigned int *)RtlLookupFunctionTable((unsigned __int64)v8, v81, &v82);
       if ( !v9 || v82 < 0xC )
       {
@@ -153,16 +153,16 @@ LABEL_69:
       }
       v10 = 0LL;
       v11 = 0;
-      v12 = v8[3];
+      VirtualAddress = v8->VirtualAddress;
       v13 = &v9[3 * (v82 / 0xC)];
-      v14 = v8[4];
-      if ( v14 <= v8[2] )
-        v14 = v8[2];
-      v15 = v12 + v14;
+      SizeOfRawData = v8->SizeOfRawData;
+      if ( SizeOfRawData <= v8->Misc.PhysicalAddress )
+        SizeOfRawData = v8->Misc.PhysicalAddress;
+      v15 = VirtualAddress + SizeOfRawData;
       do
       {
         v16 = *v9;
-        if ( *v9 < v12 )
+        if ( *v9 < VirtualAddress )
         {
           if ( v16 >= v15 )
             break;
@@ -381,7 +381,7 @@ LABEL_45:
               if ( v7 >= 0x32 )
               {
                 *(_QWORD *)(Dpc + 184) = 0LL;
-                *(_QWORD *)(Dpc + 200) = sub_1406FC4F0;
+                *(_QWORD *)(Dpc + 200) = sub_1406FA130;
                 *(_QWORD *)(Dpc + 208) = Dpc;
               }
               v65 = __rdtsc();

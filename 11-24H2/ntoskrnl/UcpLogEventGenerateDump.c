@@ -1,12 +1,12 @@
 /*
- * XREFs of UcpLogEventGenerateDump @ 0x140694AAC
+ * XREFs of UcpLogEventGenerateDump @ 0x140695B7C
  * Callers:
- *     UcOnUnexpectedCodePath @ 0x14069466C (UcOnUnexpectedCodePath.c)
- *     UcpApcNormalRoutine @ 0x140800840 (UcpApcNormalRoutine.c)
+ *     UcOnUnexpectedCodePath @ 0x14069573C (UcOnUnexpectedCodePath.c)
+ *     UcpApcNormalRoutine @ 0x140800F80 (UcpApcNormalRoutine.c)
  * Callees:
- *     UcpGenerateLiveKernelDump @ 0x140694A5C (UcpGenerateLiveKernelDump.c)
- *     UcpLogUnexpectedCodePathEvent @ 0x140694B40 (UcpLogUnexpectedCodePathEvent.c)
- *     UcpRetrieveCurrentConfigSettings @ 0x140694C3C (UcpRetrieveCurrentConfigSettings.c)
+ *     UcpGenerateLiveKernelDump @ 0x140695B2C (UcpGenerateLiveKernelDump.c)
+ *     UcpLogUnexpectedCodePathEvent @ 0x140695C10 (UcpLogUnexpectedCodePathEvent.c)
+ *     UcpRetrieveCurrentConfigSettings @ 0x140695D0C (UcpRetrieveCurrentConfigSettings.c)
  */
 
 char __fastcall UcpLogEventGenerateDump(_DWORD *a1, __int64 a2)

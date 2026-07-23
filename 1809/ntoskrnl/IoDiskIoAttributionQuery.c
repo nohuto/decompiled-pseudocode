@@ -1,16 +1,16 @@
 /*
- * XREFs of IoDiskIoAttributionQuery @ 0x1401053E4
+ * XREFs of IoDiskIoAttributionQuery @ 0x140105464
  * Callers:
  *     IopIoRateStartRateControl @ 0x1400016E0 (IopIoRateStartRateControl.c)
- *     IoGetIoRateControl @ 0x1401054B0 (IoGetIoRateControl.c)
- *     PspQueryJobIoAttribution @ 0x14068CE84 (PspQueryJobIoAttribution.c)
+ *     IoGetIoRateControl @ 0x140105530 (IoGetIoRateControl.c)
+ *     PspQueryJobIoAttribution @ 0x14068E044 (PspQueryJobIoAttribution.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     IopRecordIoAttribution @ 0x1401058A4 (IopRecordIoAttribution.c)
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140105B50 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     IopRecordIoAttribution @ 0x140105924 (IopRecordIoAttribution.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140105BD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall IoDiskIoAttributionQuery(__int64 a1, _OWORD *a2, _OWORD *a3)

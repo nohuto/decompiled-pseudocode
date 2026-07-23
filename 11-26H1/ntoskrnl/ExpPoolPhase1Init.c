@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPoolPhase1Init @ 0x1406D3A9C
+ * XREFs of ExpPoolPhase1Init @ 0x1406D7B28
  * Callers:
- *     ExpPoolMgrRegisterPool @ 0x1408474A0 (ExpPoolMgrRegisterPool.c)
- *     ExpPoolMgrPhase1Init @ 0x140CE7998 (ExpPoolMgrPhase1Init.c)
+ *     ExpPoolMgrRegisterPool @ 0x14084D700 (ExpPoolMgrRegisterPool.c)
+ *     ExpPoolMgrPhase1Init @ 0x140CEDD38 (ExpPoolMgrPhase1Init.c)
  * Callees:
- *     RtlpHpHeapEnableLFH @ 0x140638888 (RtlpHpHeapEnableLFH.c)
+ *     RtlpHpHeapEnableLFH @ 0x14063B88C (RtlpHpHeapEnableLFH.c)
  */
 
 __int64 __fastcall ExpPoolPhase1Init(__int64 a1)

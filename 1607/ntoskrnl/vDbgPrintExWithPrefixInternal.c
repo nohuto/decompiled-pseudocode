@@ -1,23 +1,23 @@
 /*
- * XREFs of vDbgPrintExWithPrefixInternal @ 0x140081BB0
+ * XREFs of vDbgPrintExWithPrefixInternal @ 0x140084D34
  * Callers:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     vDbgPrintEx @ 0x140081B88 (vDbgPrintEx.c)
- *     IopDebugPrint @ 0x1401CDCC4 (IopDebugPrint.c)
- *     DbgPrintReturnControlC @ 0x140211334 (DbgPrintReturnControlC.c)
- *     vDbgPrintExWithPrefix @ 0x1402115AC (vDbgPrintExWithPrefix.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     vDbgPrintEx @ 0x140084D0C (vDbgPrintEx.c)
+ *     IopDebugPrint @ 0x1401CDB10 (IopDebugPrint.c)
+ *     DbgPrintReturnControlC @ 0x140211160 (DbgPrintReturnControlC.c)
+ *     vDbgPrintExWithPrefix @ 0x1402113D8 (vDbgPrintExWithPrefix.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     NtQueryDebugFilterState @ 0x140081CEC (NtQueryDebugFilterState.c)
- *     RtlStringCbVPrintfA @ 0x140084EC8 (RtlStringCbVPrintfA.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     DbgBreakPointWithStatus @ 0x140166D80 (DbgBreakPointWithStatus.c)
- *     DebugPrint @ 0x140166D90 (DebugPrint.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     NtQueryDebugFilterState @ 0x140084E70 (NtQueryDebugFilterState.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlStringCbVPrintfA @ 0x14010B4D0 (RtlStringCbVPrintfA.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     DbgBreakPointWithStatus @ 0x1401672F0 (DbgBreakPointWithStatus.c)
+ *     DebugPrint @ 0x140167300 (DebugPrint.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall vDbgPrintExWithPrefixInternal(

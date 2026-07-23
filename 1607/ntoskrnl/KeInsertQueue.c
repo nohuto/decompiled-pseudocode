@@ -1,19 +1,19 @@
 /*
- * XREFs of KeInsertQueue @ 0x140085F70
+ * XREFs of KeInsertQueue @ 0x140087860
  * Callers:
- *     PopFxQueueWorkOrder @ 0x1400C3074 (PopFxQueueWorkOrder.c)
- *     FsRtlpPostStackOverflow @ 0x1401BA7A0 (FsRtlpPostStackOverflow.c)
- *     IopPassiveInterruptDpc @ 0x1401CDB84 (IopPassiveInterruptDpc.c)
- *     KiSwapToUmsThreadContinue @ 0x1401DC690 (KiSwapToUmsThreadContinue.c)
- *     EtwpQueueReply @ 0x140494EB8 (EtwpQueueReply.c)
- *     KeSynchronizeUmsThread @ 0x14065068C (KeSynchronizeUmsThread.c)
+ *     PopFxQueueWorkOrder @ 0x1400C0F04 (PopFxQueueWorkOrder.c)
+ *     FsRtlpPostStackOverflow @ 0x1401BA684 (FsRtlpPostStackOverflow.c)
+ *     IopPassiveInterruptDpc @ 0x1401CD9D0 (IopPassiveInterruptDpc.c)
+ *     KiSwapToUmsThreadContinue @ 0x1401DC4BC (KiSwapToUmsThreadContinue.c)
+ *     EtwpQueueReply @ 0x140495948 (EtwpQueueReply.c)
+ *     KeSynchronizeUmsThread @ 0x140650770 (KeSynchronizeUmsThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  */
 
 LONG __stdcall KeInsertQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)

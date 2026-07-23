@@ -34,7 +34,7 @@ int __fastcall _RtlpMuiRegAddBaseLanguage(int a1, _WORD *a2, unsigned int a3, in
   int v23; // esi
   unsigned int v24; // esi
   _WORD *v25; // ecx
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-54h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-54h] BYREF
   unsigned int v27; // [esp+18h] [ebp-4Ch]
   _WORD *v28; // [esp+1Ch] [ebp-48h]
   int v29; // [esp+20h] [ebp-44h]
@@ -75,7 +75,7 @@ int __fastcall _RtlpMuiRegAddBaseLanguage(int a1, _WORD *a2, unsigned int a3, in
     if ( !v7 )
     {
       v23 = v32;
-      result = RtlpMuiRegGetLanguageSpec(v32, DestinationString.Buffer, &v39, v8, v38);
+      result = RtlpMuiRegGetLanguageSpec(v32, (const WCHAR *)DestinationString.Buffer, &v39, v8, v38);
       v30 = result;
       if ( result < 0 )
         return result;
@@ -84,7 +84,7 @@ int __fastcall _RtlpMuiRegAddBaseLanguage(int a1, _WORD *a2, unsigned int a3, in
       goto LABEL_39;
     }
     v6[*(_DWORD *)(a4 + 12) >> 1] = 0;
-    result = _RtlpMuiRegInitAnyLanguage(v32, (int)&v40, DestinationString.Buffer, 1026);
+    result = _RtlpMuiRegInitAnyLanguage(v32, (int)&v40, (PCWSTR)DestinationString.Buffer, 1026);
     v30 = result;
     if ( result < 0 )
       return result;
@@ -93,9 +93,9 @@ int __fastcall _RtlpMuiRegAddBaseLanguage(int a1, _WORD *a2, unsigned int a3, in
     v10 = String2;
     v33 = 0;
     v36 = 0;
-    if ( String2 && *String2 && RtlpLangNameInMultiSzString(v6, String2) )
+    if ( String2 && *String2 && RtlpLangNameInMultiSzString((wchar_t *)v6, String2) )
     {
-      v12 = v10;
+      v12 = (const WCHAR *)v10;
       v13 = v32;
       LanguageSpec = (wchar_t *)RtlpMuiRegGetLanguageSpec(v32, v12, &v37, v11, &String2);
       v15 = v37;
@@ -131,7 +131,7 @@ LABEL_19:
               *(_WORD *)((char *)v44 + v31) = v38[0];
               v31 = v21 + 2;
             }
-            v18 = wcslen(v6);
+            v18 = wcslen((const unsigned __int16 *)v6);
             v19 = v31;
             v13 = v32;
             v6 += v18 + 1;

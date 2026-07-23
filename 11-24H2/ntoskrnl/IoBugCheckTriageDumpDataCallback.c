@@ -1,5 +1,5 @@
 /*
- * XREFs of IoBugCheckTriageDumpDataCallback @ 0x140590BA0
+ * XREFs of IoBugCheckTriageDumpDataCallback @ 0x14058DBC0
  * Callers:
  *     <none>
  * Callees:

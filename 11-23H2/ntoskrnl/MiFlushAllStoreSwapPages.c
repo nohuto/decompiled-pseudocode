@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFlushAllStoreSwapPages @ 0x140639DEC
+ * XREFs of MiFlushAllStoreSwapPages @ 0x14063A33C
  * Callers:
- *     SmpFlushStorePages @ 0x1409D86B0 (SmpFlushStorePages.c)
+ *     SmpFlushStorePages @ 0x1409D88B0 (SmpFlushStorePages.c)
  * Callees:
  *     MiStoreUpdateMemoryConditions @ 0x140222F70 (MiStoreUpdateMemoryConditions.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiCanFlushMakeProgress @ 0x140638B9C (MiCanFlushMakeProgress.c)
- *     MiWakeModifiedPageWriter @ 0x14063BC38 (MiWakeModifiedPageWriter.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiCanFlushMakeProgress @ 0x1406390EC (MiCanFlushMakeProgress.c)
+ *     MiWakeModifiedPageWriter @ 0x14063C188 (MiWakeModifiedPageWriter.c)
  */
 
 __int64 __fastcall MiFlushAllStoreSwapPages(__int64 a1)

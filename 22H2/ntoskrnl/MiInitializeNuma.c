@@ -14,7 +14,7 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
   unsigned int i; // ebx
   int v5; // esi
   int *v6; // r14
-  union _SLIST_HEADER *v7; // r15
+  _SLIST_HEADER *v7; // r15
   int v8; // eax
   unsigned int v9; // edx
   _DWORD *v10; // r8

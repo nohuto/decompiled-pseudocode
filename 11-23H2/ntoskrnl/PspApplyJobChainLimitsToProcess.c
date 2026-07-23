@@ -2,11 +2,11 @@
  * XREFs of PspApplyJobChainLimitsToProcess @ 0x1406A6FC4
  * Callers:
  *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspImplicitAssignProcessToJob @ 0x1407E5FBC (PspImplicitAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1407E628C (PspImplicitAssignProcessToJob.c)
  * Callees:
  *     RtlInterlockedSetClearBits @ 0x14020CA40 (RtlInterlockedSetClearBits.c)
  *     PsUpdateComponentPower @ 0x14020E6A0 (PsUpdateComponentPower.c)
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x14031B17C (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x14031B40C (PspNotifyProcessEffectiveIoLimitChanged.c)
  *     PspSetProcessSchedulingGroup @ 0x14068373C (PspSetProcessSchedulingGroup.c)
  *     PspApplyJobLimitsToProcess @ 0x1406A6EC4 (PspApplyJobLimitsToProcess.c)
  *     PspRequestProcessExecutionState @ 0x1406A70B8 (PspRequestProcessExecutionState.c)

@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileGetHeaderAttributesNE @ 0x14096B294
+ * XREFs of AslpFileGetHeaderAttributesNE @ 0x14096B474
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x1407B24C4 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B2664 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x1407B28C8 (AslFileMappingEnsure.c)
- *     AslStringXmlSanitize @ 0x1407B2D50 (AslStringXmlSanitize.c)
- *     AslpFileGet16BitDescription @ 0x14096A744 (AslpFileGet16BitDescription.c)
- *     AslpFileGet16BitModuleName @ 0x14096A828 (AslpFileGet16BitModuleName.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407B2A68 (AslFileMappingEnsure.c)
+ *     AslStringXmlSanitize @ 0x1407B2EF0 (AslStringXmlSanitize.c)
+ *     AslpFileGet16BitDescription @ 0x14096A924 (AslpFileGet16BitDescription.c)
+ *     AslpFileGet16BitModuleName @ 0x14096AA08 (AslpFileGet16BitModuleName.c)
  */
 
 __int64 __fastcall AslpFileGetHeaderAttributesNE(__int64 a1, __int64 a2)

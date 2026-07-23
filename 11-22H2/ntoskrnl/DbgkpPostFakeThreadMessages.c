@@ -23,7 +23,7 @@
  *     PsSynchronizeWithThreadInsertion @ 0x1409AE5A8 (PsSynchronizeWithThreadInsertion.c)
  */
 
-__int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2, __int64 a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall DbgkpPostFakeThreadMessages(__int64 a1, struct _KEVENT *a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   void *v7; // r14
   void *v8; // rdi
@@ -33,8 +33,8 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
   _QWORD *NextProcessThread; // rax
   char v13; // si
   char v14; // r13
-  unsigned __int64 v15; // rcx
-  __int64 v16; // rax
+  __int64 v15; // rcx
+  PIMAGE_NT_HEADERS v16; // rax
   char v18; // [rsp+30h] [rbp-1F8h]
   struct _KTHREAD *v21; // [rsp+50h] [rbp-1D8h]
   HANDLE v23[34]; // [rsp+A0h] [rbp-188h] BYREF
@@ -49,7 +49,7 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
   v10 = -1073741823;
   if ( !a3 )
   {
-    NextProcessThread = PsGetNextProcessThread((__int64)a1, 0LL);
+    NextProcessThread = PsGetNextProcessThread(a1, 0LL);
     v11 = 1;
     v18 = 1;
     goto LABEL_4;
@@ -90,22 +90,22 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
         {
           v14 = 1;
           LODWORD(v23[5]) = 2;
-          v15 = a1[1].Affinity.StaticBitmap[17];
+          v15 = *(_QWORD *)(a1 + 1304);
           if ( v15 )
             v23[7] = (HANDLE)DbgkpSectionToFileHandle(v15);
           else
             v23[7] = 0LL;
-          v23[8] = (HANDLE)a1[1].Affinity.StaticBitmap[18];
-          KiStackAttachProcess(a1, 0, (__int64)&v24);
-          v16 = RtlImageNtHeader(a1[1].Affinity.StaticBitmap[18]);
+          v23[8] = *(HANDLE *)(a1 + 1312);
+          KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)&v24);
+          v16 = RtlImageNtHeader(*(PVOID *)(a1 + 1312));
           if ( v16 )
           {
             v23[11] = 0LL;
-            v23[9] = *(HANDLE *)(v16 + 12);
+            v23[9] = *(HANDLE *)&v16->FileHeader.PointerToSymbolTable;
           }
           KiUnstackDetachProcess(&v24);
         }
-        v10 = DbgkpQueueMessage(a1, (PVOID)a3, a2);
+        v10 = DbgkpQueueMessage((PVOID)a1, (PVOID)a3, a2);
         if ( v10 < 0 )
         {
           if ( (v13 & 0x20) != 0 )
@@ -132,7 +132,7 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
         CurrentThread = v21;
       }
     }
-    NextProcessThread = PsGetNextProcessThread((__int64)a1, (_QWORD *)a3);
+    NextProcessThread = PsGetNextProcessThread(a1, (_QWORD *)a3);
 LABEL_4:
     a3 = (__int64)NextProcessThread;
   }

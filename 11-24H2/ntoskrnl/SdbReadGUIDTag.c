@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbReadGUIDTag @ 0x140805B70
+ * XREFs of SdbReadGUIDTag @ 0x1408062B0
  * Callers:
- *     KsepDbGetShimInfo @ 0x14073E5B4 (KsepDbGetShimInfo.c)
- *     KsepDbGetDriverShimsInternal @ 0x14095AE14 (KsepDbGetDriverShimsInternal.c)
+ *     KsepDbGetShimInfo @ 0x14073C4E4 (KsepDbGetShimInfo.c)
+ *     KsepDbGetDriverShimsInternal @ 0x1409428D4 (KsepDbGetDriverShimsInternal.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     SdbReadBinaryTag @ 0x140A67758 (SdbReadBinaryTag.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x140A60C50 (SdbReadBinaryTag.c)
  */
 
 _OWORD *__fastcall SdbReadGUIDTag(_OWORD *a1, __int64 a2, unsigned int a3, _OWORD *a4)

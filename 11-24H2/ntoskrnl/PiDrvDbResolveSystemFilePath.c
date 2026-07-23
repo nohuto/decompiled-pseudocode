@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDrvDbResolveSystemFilePath @ 0x1407392C4
+ * XREFs of PiDrvDbResolveSystemFilePath @ 0x1407371F4
  * Callers:
- *     PiDrvDbResolveFilePathKeyValues @ 0x1407389B0 (PiDrvDbResolveFilePathKeyValues.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1407368E0 (PiDrvDbResolveFilePathKeyValues.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PiDrvDbFindSystemFilePathToken @ 0x140736E38 (PiDrvDbFindSystemFilePathToken.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PiDrvDbFindSystemFilePathToken @ 0x140734D68 (PiDrvDbFindSystemFilePathToken.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PiDrvDbResolveSystemFilePath(
-        unsigned __int16 *a1,
+        __int16 *a1,
         char a2,
-        UNICODE_STRING *a3,
+        const UNICODE_STRING *a3,
         const UNICODE_STRING *a4,
         UNICODE_STRING *String1,
         PUNICODE_STRING Destination)
@@ -22,67 +22,67 @@ __int64 __fastcall PiDrvDbResolveSystemFilePath(
   bool v6; // r14
   NTSTATUS appended; // ebx
   const UNICODE_STRING *v10; // r13
-  unsigned __int64 v11; // rsi
-  unsigned __int64 SystemFilePathToken; // rax
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rax
-  unsigned __int16 v15; // r14
-  wchar_t *v16; // r9
-  unsigned __int16 v17; // dx
-  unsigned int v18; // ebx
+  PWCHAR v11; // rsi
+  PWCHAR SystemFilePathToken; // rax
+  PWCHAR v13; // rax
+  PWCHAR v14; // rax
+  __int16 v15; // r8
+  unsigned __int16 v16; // r14
+  wchar_t *v17; // r9
+  unsigned __int16 v18; // r8
+  unsigned __int16 v19; // dx
+  unsigned int v20; // ebx
   void *Pool2; // rsi
   wchar_t *Buffer; // rdx
-  char v22; // [rsp+20h] [rbp-40h]
+  char v24; // [rsp+20h] [rbp-40h]
   unsigned int Length; // [rsp+24h] [rbp-3Ch]
-  bool v24; // [rsp+28h] [rbp-38h]
-  char v25; // [rsp+2Ch] [rbp-34h]
-  int v26; // [rsp+30h] [rbp-30h]
+  bool v26; // [rsp+28h] [rbp-38h]
+  char v27; // [rsp+2Ch] [rbp-34h]
+  int v28; // [rsp+30h] [rbp-30h]
   UNICODE_STRING Source; // [rsp+40h] [rbp-20h] BYREF
-  UNICODE_STRING v28; // [rsp+50h] [rbp-10h]
-  int v30; // [rsp+A8h] [rbp+48h]
-  const UNICODE_STRING *v31; // [rsp+B0h] [rbp+50h]
+  UNICODE_STRING v30; // [rsp+50h] [rbp-10h]
+  int v32; // [rsp+A8h] [rbp+48h]
 
-  v31 = a3;
-  v22 = 0;
+  v24 = 0;
   v6 = 0;
   Length = 0;
-  v25 = 0;
-  v24 = 0;
-  v26 = a2 & 2;
+  v27 = 0;
+  v26 = 0;
+  v28 = a2 & 2;
   appended = 0;
-  v28 = 0LL;
+  v30 = 0LL;
   v10 = 0LL;
   if ( (a2 & 2) != 0 && a3 )
   {
     v6 = RtlEqualUnicodeString(a3, &PiDrvDbSystemRootNt, 1u) != 0;
-    v25 = v6;
+    v27 = v6;
   }
-  v30 = a2 & 1;
+  v32 = a2 & 1;
   if ( (a2 & 1) != 0 && String1 && a4 )
-    v24 = RtlEqualUnicodeString(String1, a4, 1u) != 0;
+    v26 = RtlEqualUnicodeString(String1, a4, 1u) != 0;
   Destination->Length = 0;
-  for ( Source = *(UNICODE_STRING *)a1; *Source.Buffer; Source = v28 )
+  for ( Source = *(UNICODE_STRING *)a1; *Source.Buffer; Source = v30 )
   {
     v11 = 0LL;
-    if ( v26 )
+    if ( v28 )
     {
-      if ( v31 && !v6 )
+      if ( a3 && !v6 )
       {
-        SystemFilePathToken = PiDrvDbFindSystemFilePathToken((__int128 *)&Source, &PiDrvDbSystemRootNt.Length, a3);
+        SystemFilePathToken = PiDrvDbFindSystemFilePathToken(&Source, (UNICODE_STRING *)&PiDrvDbSystemRootNt);
         if ( SystemFilePathToken )
         {
-          v10 = v31;
+          v10 = a3;
           v11 = SystemFilePathToken;
           Length = 22;
         }
         else
         {
-          v25 = 1;
+          v27 = 1;
         }
       }
-      if ( a4 && !v22 )
+      if ( a4 && !v24 )
       {
-        v13 = PiDrvDbFindSystemFilePathToken((__int128 *)&Source, &PiDrvDbSystemRootWin32.Length, a3);
+        v13 = PiDrvDbFindSystemFilePathToken(&Source, (UNICODE_STRING *)&PiDrvDbSystemRootWin32);
         if ( v13 )
         {
           if ( !v11 || v13 < v11 )
@@ -94,13 +94,13 @@ __int64 __fastcall PiDrvDbResolveSystemFilePath(
         }
         else
         {
-          v22 = 1;
+          v24 = 1;
         }
       }
     }
-    if ( v30 && a4 && !v24 && String1 && String1->Length > 2u )
+    if ( v32 && a4 && !v26 && String1 && String1->Length > 2u )
     {
-      v14 = PiDrvDbFindSystemFilePathToken((__int128 *)&Source, &String1->Length, a3);
+      v14 = PiDrvDbFindSystemFilePathToken(&Source, String1);
       if ( v14 )
       {
         if ( !v11 || v14 < v11 )
@@ -111,38 +111,38 @@ __int64 __fastcall PiDrvDbResolveSystemFilePath(
         }
         goto LABEL_31;
       }
-      v24 = 1;
+      v26 = 1;
     }
     if ( !v11 )
       break;
 LABEL_31:
-    a3 = (UNICODE_STRING *)*a1;
-    v15 = 2 * ((__int64)(v11 - (unsigned __int64)Source.Buffer) >> 1);
-    v16 = (wchar_t *)(v11 + 2 * ((unsigned __int64)Length >> 1));
-    Source.Length = v15;
-    v28.Buffer = v16;
-    LOWORD(a3) = (_WORD)a3 - 2 * ((__int64)((unsigned int)v11 + 2 * (Length >> 1) - *((_DWORD *)a1 + 2)) >> 1);
-    v17 = (unsigned __int16)a3;
-    v28.Length = (unsigned __int16)a3;
-    v28.MaximumLength = (_WORD)a3 + 2;
-    if ( *v16 )
+    v15 = *a1;
+    v16 = 2 * (v11 - Source.Buffer);
+    v17 = &v11[(unsigned __int64)Length >> 1];
+    Source.Length = v16;
+    v30.Buffer = v17;
+    v18 = v15 - 2 * ((__int64)((unsigned int)v11 + 2 * (Length >> 1) - *((_DWORD *)a1 + 2)) >> 1);
+    v19 = v18;
+    v30.Length = v18;
+    v30.MaximumLength = v18 + 2;
+    if ( *v17 )
     {
-      if ( *v16 != 92 )
+      if ( *v17 != 92 )
         goto LABEL_46;
       if ( v10->Buffer[((unsigned __int64)v10->Length >> 1) - 1] == 92 )
       {
-        v28.MaximumLength = (unsigned __int16)a3;
-        v17 = (_WORD)a3 - 2;
-        v28.Buffer = v16 + 1;
-        v28.Length = (_WORD)a3 - 2;
+        v30.MaximumLength = v18;
+        v19 = v18 - 2;
+        v30.Buffer = v17 + 1;
+        v30.Length = v18 - 2;
       }
     }
-    v18 = v17 + Destination->Length + v15 + v10->Length + 2;
-    if ( v18 > 0xFFFE )
+    v20 = v19 + Destination->Length + v16 + v10->Length + 2;
+    if ( v20 > 0xFFFE )
       return (unsigned int)-2147483643;
-    if ( v18 > Destination->MaximumLength )
+    if ( v20 > Destination->MaximumLength )
     {
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, v20, 0x67727453u);
       if ( !Pool2 )
         return (unsigned int)-1073741670;
       Buffer = Destination->Buffer;
@@ -153,9 +153,9 @@ LABEL_31:
         ExFreePool(Destination->Buffer);
       }
       Destination->Buffer = (wchar_t *)Pool2;
-      Destination->MaximumLength = v18;
+      Destination->MaximumLength = v20;
     }
-    if ( v15 )
+    if ( v16 )
     {
       appended = RtlAppendUnicodeStringToString(Destination, &Source);
       if ( appended < 0 )
@@ -165,7 +165,7 @@ LABEL_31:
     if ( appended < 0 )
       return (unsigned int)appended;
 LABEL_46:
-    v6 = v25;
+    v6 = v27;
   }
   if ( Destination->Length )
   {

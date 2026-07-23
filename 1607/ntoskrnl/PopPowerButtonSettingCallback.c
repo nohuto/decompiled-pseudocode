@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerButtonSettingCallback @ 0x14056DAF0
+ * XREFs of PopPowerButtonSettingCallback @ 0x14056E030
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopApplyPolicy @ 0x14056DFD8 (PopApplyPolicy.c)
+ *     PopApplyPolicy @ 0x14056E518 (PopApplyPolicy.c)
  */
 
 __int64 __fastcall PopPowerButtonSettingCallback(__int64 *a1, unsigned int *a2, int a3)

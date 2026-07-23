@@ -3,20 +3,20 @@
  * Callers:
  *     MiResolvePrivateZeroFault @ 0x140047430 (MiResolvePrivateZeroFault.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
- *     MiGetClusterPage @ 0x1402C67BC (MiGetClusterPage.c)
- *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
+ *     MiGetClusterPage @ 0x1402C69AC (MiGetClusterPage.c)
+ *     MiIdealClusterPage @ 0x1402C6E04 (MiIdealClusterPage.c)
  * Callees:
  *     MiInsertLargePageInNodeList @ 0x140028C1C (MiInsertLargePageInNodeList.c)
  *     MiGetFreeZeroLargePage @ 0x14002BCF4 (MiGetFreeZeroLargePage.c)
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiZeroAndConvertLargePage @ 0x140118CC8 (MiZeroAndConvertLargePage.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
- *     MiAddColdPagesToHotRanges @ 0x1402CEA4C (MiAddColdPagesToHotRanges.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiZeroAndConvertLargePage @ 0x140118D38 (MiZeroAndConvertLargePage.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
+ *     MiAddColdPagesToHotRanges @ 0x1402CEC3C (MiAddColdPagesToHotRanges.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiGet64KPage(__int64 a1, unsigned int a2, unsigned int a3, _DWORD *a4)
@@ -70,11 +70,11 @@ __int64 __fastcall MiGet64KPage(__int64 a1, unsigned int a2, unsigned int a3, _D
 
   v4 = a1;
   v40 = a2;
-  v5 = a3 >> byte_14043A049;
+  v5 = a3 >> byte_14043B109;
   v6 = a4;
   v8 = *(_QWORD *)(a1 + 16);
   v47 = a4;
-  if ( !*(_QWORD *)(1984LL * (a3 >> byte_14043A049) + v8 + 1808) && (_DWORD)InitializationPhase )
+  if ( !*(_QWORD *)(1984LL * (a3 >> byte_14043B109) + v8 + 1808) && (_DWORD)InitializationPhase )
     return 0LL;
   v9 = 3;
   while ( 1 )
@@ -167,7 +167,7 @@ __int64 __fastcall MiGet64KPage(__int64 a1, unsigned int a2, unsigned int a3, _D
   }
   v15 = (v12 + 0x58000000000LL) / 48;
   v17 = MiProtectionToCacheAttribute(v40);
-  if ( !v14 && (MiFlags & 0x80u) != 0 && (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+  if ( !v14 && (MiFlags & 0x80u) != 0 && (++dword_14043B92C & MmPageValidationFrequency) == 0 )
     MiArePageContentsZero((v12 + 0x58000000000LL) / 48);
   v50 = v50 & 0x38 | 0x45;
   v49 = ZeroPte;

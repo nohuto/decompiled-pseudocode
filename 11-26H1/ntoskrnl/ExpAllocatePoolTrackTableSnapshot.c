@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAllocatePoolTrackTableSnapshot @ 0x14052EAD8
+ * XREFs of ExpAllocatePoolTrackTableSnapshot @ 0x140530FF8
  * Callers:
- *     ExpCapturePoolTrackTables @ 0x14052749C (ExpCapturePoolTrackTables.c)
- *     ExpCapturePoolTrackTablesPrecise @ 0x140774D38 (ExpCapturePoolTrackTablesPrecise.c)
+ *     ExpCapturePoolTrackTables @ 0x140529B0C (ExpCapturePoolTrackTables.c)
+ *     ExpCapturePoolTrackTablesPrecise @ 0x140777D38 (ExpCapturePoolTrackTablesPrecise.c)
  * Callees:
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall ExpAllocatePoolTrackTableSnapshot(__int64 a1, unsigned __int64 a2, unsigned __int64 **a3)

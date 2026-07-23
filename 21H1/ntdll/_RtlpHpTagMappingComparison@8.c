@@ -10,5 +10,8 @@
 
 BOOL __stdcall RtlpHpTagMappingComparison(int a1, void *Buf1)
 {
-  return memcmp(Buf1, (const void *)(a1 + 8), 0x10u) == 0;
+  size_t _FFFFFFFC; // [esp-4h] [ebp-4h]
+
+  LODWORD(_FFFFFFFC) = 16;
+  return memcmp(Buf1, (const void *)(a1 + 8), _FFFFFFFC) == 0;
 }

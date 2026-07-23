@@ -1,10 +1,10 @@
 /*
- * XREFs of KiOpDecodeModRM @ 0x1401932B0
+ * XREFs of KiOpDecodeModRM @ 0x1401933F0
  * Callers:
- *     KiOpDecode @ 0x1400A3648 (KiOpDecode.c)
+ *     KiOpDecode @ 0x1400A3588 (KiOpDecode.c)
  * Callees:
- *     KiOpFetchNextByte @ 0x1400A37A8 (KiOpFetchNextByte.c)
- *     KiOpFetchBytes @ 0x14029C5A0 (KiOpFetchBytes.c)
+ *     KiOpFetchNextByte @ 0x1400A36E8 (KiOpFetchNextByte.c)
+ *     KiOpFetchBytes @ 0x14029C790 (KiOpFetchBytes.c)
  */
 
 __int64 __fastcall KiOpDecodeModRM(__int64 a1)

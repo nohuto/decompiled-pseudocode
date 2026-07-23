@@ -1,12 +1,12 @@
 /*
- * XREFs of HvUnlockHiveFlusherExclusive @ 0x1405A49A4
+ * XREFs of HvUnlockHiveFlusherExclusive @ 0x1405A59A4
  * Callers:
  *     CmpRecheckHiveVolumePolicy @ 0x14000EDFC (CmpRecheckHiveVolumePolicy.c)
- *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x14026C4CC (CmpUnlockKcbStackFlusherLocksExclusive.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x14026C6BC (CmpUnlockKcbStackFlusherLocksExclusive.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall HvUnlockHiveFlusherExclusive(__int64 a1)

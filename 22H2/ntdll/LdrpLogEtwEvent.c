@@ -24,16 +24,17 @@
  *     LdrpEventAddUnicodeString @ 0x1800CED5C (LdrpEventAddUnicodeString.c)
  */
 
-_BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsigned __int16 *a5, unsigned __int16 *a6)
+int __fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsigned __int16 *a5, unsigned __int16 *a6)
 {
   _BYTE *v6; // rdi
   unsigned int v7; // ebx
-  _BYTE *result; // rax
+  _BYTE *Heap; // rax
   size_t v11; // r8
-  int v14[3]; // [rsp+24h] [rbp-284h] BYREF
-  _BYTE v15[576]; // [rsp+30h] [rbp-278h] BYREF
+  __int64 v12; // rcx
+  int v16[3]; // [rsp+24h] [rbp-284h] BYREF
+  _BYTE Fields[576]; // [rsp+30h] [rbp-278h] BYREF
 
-  v6 = v15;
+  v6 = Fields;
   v7 = 0;
   if ( a5 )
   {
@@ -41,8 +42,7 @@ _BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsi
     if ( a6 )
       v7 += *a6 + 2;
   }
-  if ( v7 <= 0x214
-    || (result = (_BYTE *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7 + 42), (v6 = result) != 0LL) )
+  if ( v7 <= 0x214 || (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7 + 42), (v6 = Heap) != 0LL) )
   {
     v11 = 576LL;
     if ( v7 + 42 > 0x240 )
@@ -56,16 +56,19 @@ _BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsi
       v6[41] = a4;
       if ( v7 )
       {
-        LdrpEventAddUnicodeString((__int64)a5, (_WORD *)v6 + 21, v7, v14);
+        LdrpEventAddUnicodeString((__int64)a5, (_WORD *)v6 + 21, v7, v16);
         if ( a6 )
-          LdrpEventAddUnicodeString((__int64)a6, &v6[v14[0] + 42], v7 - v14[0], v14);
+          LdrpEventAddUnicodeString((__int64)a6, &v6[v16[0] + 42], v7 - v16[0], v16);
       }
     }
-    RtlGetCurrentServiceSessionId();
-    NtTraceEvent();
-    result = v15;
-    if ( v15 != v6 )
-      return (_BYTE *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v6);
+    if ( RtlGetCurrentServiceSessionId() )
+      v12 = (__int64)NtCurrentPeb()->SharedData + 554;
+    else
+      v12 = 2147353476LL;
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v12, 0x402u, v7 + 10, v6);
+    Heap = Fields;
+    if ( Fields != v6 )
+      LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
   }
-  return result;
+  return (int)Heap;
 }

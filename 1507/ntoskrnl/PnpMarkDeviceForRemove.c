@@ -19,7 +19,7 @@ ULONG_PTR __fastcall PnpMarkDeviceForRemove(ULONG_PTR a1, int a2, ULONG_PTR *a3)
   void *v7; // rcx
   KIRQL v8; // al
   ULONG_PTR result; // rax
-  KIRQL Irql; // [rsp+38h] [rbp+10h] BYREF
+  UCHAR Irql; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = a1;
   if ( a2 )

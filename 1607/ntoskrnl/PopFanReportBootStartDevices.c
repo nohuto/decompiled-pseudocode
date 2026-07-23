@@ -3,8 +3,8 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x14000E0B0 (PopAcquireRwLockShared.c)
- *     PopSqmFanEnumeration @ 0x140676808 (PopSqmFanEnumeration.c)
+ *     PopAcquireRwLockShared @ 0x14000DC30 (PopAcquireRwLockShared.c)
+ *     PopSqmFanEnumeration @ 0x1406768EC (PopSqmFanEnumeration.c)
  */
 
 void PopFanReportBootStartDevices()

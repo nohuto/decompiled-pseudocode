@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpGetMappedPropertyKeysDispatch @ 0x140AB44A8
+ * XREFs of _PnpGetMappedPropertyKeysDispatch @ 0x140AB5848
  * Callers:
- *     _PnpGetObjectPropertyKeysWorker @ 0x140AB4328 (_PnpGetObjectPropertyKeysWorker.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x140AB56C8 (_PnpGetObjectPropertyKeysWorker.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PnpGetMappedPropertyKeysDispatch(

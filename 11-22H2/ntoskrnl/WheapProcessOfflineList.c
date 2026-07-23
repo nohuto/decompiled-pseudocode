@@ -16,14 +16,14 @@
 __int64 WheapProcessOfflineList()
 {
   KIRQL v0; // al
-  struct _SINGLE_LIST_ENTRY *v1; // rbx
+  _SINGLE_LIST_ENTRY *v1; // rbx
   unsigned __int64 v2; // rdi
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v6; // eax
   bool v7; // zf
-  struct _SINGLE_LIST_ENTRY *v8; // rsi
+  _SINGLE_LIST_ENTRY *v8; // rsi
   struct _SINGLE_LIST_ENTRY *Next; // rdi
   int PageBadStatus; // eax
   struct _SINGLE_LIST_ENTRY *v12; // [rsp+20h] [rbp-40h] BYREF
@@ -35,15 +35,18 @@ __int64 WheapProcessOfflineList()
   v15 = 0LL;
   v14 = 0LL;
   v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C2A928);
-  v1 = (struct _SINGLE_LIST_ENTRY *)WheapOfflineChecker;
+  v1 = (_SINGLE_LIST_ENTRY *)WheapOfflineChecker;
   WheapOfflineChecker = 0LL;
   dword_140C2A930 = 0;
   v2 = v0;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C2A928);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

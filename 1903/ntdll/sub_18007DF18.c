@@ -15,26 +15,27 @@
 
 void __fastcall sub_18007DF18(__int64 a1)
 {
-  volatile signed __int64 *v2; // rsi
-  __int64 v3; // rcx
-  int v4; // eax
+  _RTL_SRWLOCK *v2; // rsi
+  void *v3; // rcx
+  NTSTATUS v4; // eax
   unsigned __int64 v5; // rax
   signed __int64 v6; // rbx
   unsigned __int64 v7; // rbx
-  _QWORD v8[3]; // [rsp+30h] [rbp-18h] BYREF
+  _QWORD JobObjectInformation[3]; // [rsp+30h] [rbp-18h] BYREF
   unsigned __int64 v9; // [rsp+50h] [rbp+8h] BYREF
 
   if ( *(_QWORD *)(a1 + 272) )
   {
-    v2 = (volatile signed __int64 *)(a1 + 288);
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 288));
-    v3 = *(_QWORD *)(a1 + 272);
+    v2 = (_RTL_SRWLOCK *)(a1 + 288);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 288));
+    v3 = *(void **)(a1 + 272);
     if ( v3 )
     {
-      v8[0] = 0LL;
-      v8[1] = 0LL;
-      v4 = ZwSetInformationJobObject(v3, 7LL, v8, 16LL);
-      if ( v4 < 0 || (v4 = ZwQueryInformationJobObject(*(_QWORD *)(a1 + 272), 17LL, &v9), v4 < 0) )
+      JobObjectInformation[0] = 0LL;
+      JobObjectInformation[1] = 0LL;
+      v4 = ZwSetInformationJobObject(v3, JobObjectAssociateCompletionPortInformation, JobObjectInformation, 0x10u);
+      if ( v4 < 0
+        || (v4 = ZwQueryInformationJobObject(*(HANDLE *)(a1 + 272), JobObjectCompletionCounter, &v9, 8u, 0LL), v4 < 0) )
       {
         sub_18010EF18((unsigned int)v4, *(_QWORD *)(a1 + 272), 0LL);
       }

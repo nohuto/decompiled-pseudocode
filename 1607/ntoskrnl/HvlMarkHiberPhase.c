@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlMarkHiberPhase @ 0x140126C5C
+ * XREFs of HvlMarkHiberPhase @ 0x1401271CC
  * Callers:
  *     PopMarkComponentsBootPhase @ 0x1403CAFB4 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     HvlpMarkHypervisorPagesForHibernation @ 0x1401BF740 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x1401BF624 (HvlpMarkHypervisorPagesForHibernation.c)
  */
 
 __int64 HvlMarkHiberPhase()

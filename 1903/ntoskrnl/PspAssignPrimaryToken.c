@@ -20,7 +20,7 @@ NTSTATUS __fastcall PspAssignPrimaryToken(__int64 a1, KPROCESSOR_MODE a2, void *
 {
   NTSTATUS result; // eax
   PVOID v8; // rsi
-  int IsTokenAssignableToProcess; // ebx
+  NTSTATUS IsTokenAssignableToProcess; // ebx
   _QWORD *v10; // rdi
   signed __int64 v11; // rax
   char v12[8]; // [rsp+40h] [rbp-28h] BYREF

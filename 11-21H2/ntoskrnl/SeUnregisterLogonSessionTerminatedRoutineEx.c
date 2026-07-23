@@ -5,7 +5,7 @@
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -20,11 +20,11 @@ __int64 __fastcall SeUnregisterLogonSessionTerminatedRoutineEx(PVOID a1, PVOID a
   if ( !a1 )
     return 3221225485LL;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireFastMutexUnsafe(&SepRmNotifyMutex);
-  v7 = (PVOID *)SeFileSystemNotifyRoutinesExHead;
-  v8 = &SeFileSystemNotifyRoutinesExHead;
-  if ( !SeFileSystemNotifyRoutinesExHead )
+  --*((_WORD *)CurrentThread + 242);
+  ExAcquireFastMutexUnsafe(&stru_140CF6860);
+  v7 = (PVOID *)qword_140D3B318;
+  v8 = &qword_140D3B318;
+  if ( !qword_140D3B318 )
     goto LABEL_9;
   do
   {
@@ -37,15 +37,15 @@ __int64 __fastcall SeUnregisterLogonSessionTerminatedRoutineEx(PVOID a1, PVOID a
   if ( v7 )
   {
     *v8 = *v7;
-    ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    ExReleaseFastMutexUnsafe(&stru_140CF6860);
+    sub_1402F9540((__int64)KeGetCurrentThread());
     ExFreePoolWithTag(v7, 0);
   }
   else
   {
 LABEL_9:
-    ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    ExReleaseFastMutexUnsafe(&stru_140CF6860);
+    sub_1402F9540((__int64)KeGetCurrentThread());
     return (unsigned int)-1073741275;
   }
   return v2;

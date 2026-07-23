@@ -1,10 +1,10 @@
 /*
- * XREFs of MiEnableExportCallers @ 0x140A866C0
+ * XREFs of MiEnableExportCallers @ 0x140A8B640
  * Callers:
- *     MmGetModuleRoutineAddress @ 0x140864A10 (MmGetModuleRoutineAddress.c)
- *     MmGetSystemRoutineAddress @ 0x140A864E0 (MmGetSystemRoutineAddress.c)
+ *     MmGetModuleRoutineAddress @ 0x14086ADF0 (MmGetModuleRoutineAddress.c)
+ *     MmGetSystemRoutineAddress @ 0x140A8B460 (MmGetSystemRoutineAddress.c)
  * Callees:
- *     MiMarkKernelCfgTarget @ 0x1404B5394 (MiMarkKernelCfgTarget.c)
+ *     MiMarkKernelCfgTarget @ 0x1404AE7E4 (MiMarkKernelCfgTarget.c)
  */
 
 __int64 MiEnableExportCallers()

@@ -34,7 +34,7 @@ void EtwpReadConfigParameters()
   unsigned int *v15; // [rsp+C0h] [rbp-48h]
   int v16; // [rsp+C8h] [rbp-40h] BYREF
   unsigned int *v17; // [rsp+D0h] [rbp-38h]
-  _QWORD v18[28]; // [rsp+E8h] [rbp-20h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[4]; // [rsp+E8h] [rbp-20h] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
@@ -52,27 +52,27 @@ void EtwpReadConfigParameters()
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
     goto LABEL_21;
-  memset(v18, 0, sizeof(v18));
-  v18[0] = EtwpQueryRegistryCallback;
-  v18[7] = EtwpQueryRegistryCallback;
-  v18[3] = &v12;
-  v18[14] = EtwpQueryRegistryCallback;
-  v18[2] = L"RTBacklogRoot";
-  LODWORD(v18[4]) = 1;
-  v18[5] = &v7;
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)EtwpQueryRegistryCallback;
+  QueryTable[1].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)EtwpQueryRegistryCallback;
+  QueryTable[0].EntryContext = &v12;
+  QueryTable[2].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)EtwpQueryRegistryCallback;
+  QueryTable[0].Name = L"RTBacklogRoot";
+  QueryTable[0].DefaultType = 1;
+  QueryTable[0].DefaultData = &v7;
   v12 = 1;
   p_UnicodeString = &UnicodeString;
-  v18[10] = &v14;
-  v18[9] = L"MaxNonPagedPoolUsage";
+  QueryTable[1].EntryContext = &v14;
+  QueryTable[1].Name = L"MaxNonPagedPoolUsage";
   v15 = &v5;
-  v18[17] = &v16;
-  v18[16] = L"StackCaptureTimeout";
+  QueryTable[2].EntryContext = &v16;
+  QueryTable[2].Name = L"StackCaptureTimeout";
   v17 = &v6;
-  LODWORD(v18[11]) = 4;
+  QueryTable[1].DefaultType = 4;
   v14 = 4;
-  LODWORD(v18[18]) = 4;
+  QueryTable[2].DefaultType = 4;
   v16 = 4;
-  if ( (int)RtlQueryRegistryValuesEx(0x40000000u, (const WCHAR *)KeyHandle, (__int64)v18, 0LL) < 0 )
+  if ( RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL) < 0 )
   {
 LABEL_21:
     v1 = v5;

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnicodeStringCopyString @ 0x140484B94
+ * XREFs of RtlUnicodeStringCopyString @ 0x14047E504
  * Callers:
- *     PnpAllocateAndEnableEventWatchdog @ 0x1409DC800 (PnpAllocateAndEnableEventWatchdog.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140B22D10 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     PnpAllocateAndEnableEventWatchdog @ 0x140A19AB0 (PnpAllocateAndEnableEventWatchdog.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140B25110 (PopIdleWakeGenerateInterruptDescriptionString.c)
  * Callees:
  *     <none>
  */

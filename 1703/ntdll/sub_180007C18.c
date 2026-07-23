@@ -107,7 +107,7 @@ LABEL_12:
     v20 = (HIWORD(v32) + v18 * (unsigned __int16)v32) >> v17;
     v21 = ((HIWORD(v32) + v18 * (unsigned __int16)v32 + (unsigned __int16)v32 - 1) >> v17) + 1;
     v15 = a2 + HIWORD(v32) + v18 * (unsigned __int16)v32;
-    RtlAcquireSRWLockShared(a2 + 24);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
     if ( (unsigned int)v20 < v21 )
     {
       v22 = (__int16 *)(v19 + 2 * v20);
@@ -121,7 +121,7 @@ LABEL_12:
       LODWORD(v20) = -1;
     }
 LABEL_23:
-    RtlReleaseSRWLockShared(a2 + 24);
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
     if ( (_DWORD)v20 == -1 )
     {
       v9 = (unsigned int)(v9 + 2);

@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipGetGuidObjectInstanceInfo @ 0x1407C3BD4
+ * XREFs of WmipGetGuidObjectInstanceInfo @ 0x1407C3EA4
  * Callers:
- *     IoWMIDeviceObjectToInstanceName @ 0x1407C3AE0 (IoWMIDeviceObjectToInstanceName.c)
- *     WmipTranslateFileHandle @ 0x1409E16FC (WmipTranslateFileHandle.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x1407C3DB0 (IoWMIDeviceObjectToInstanceName.c)
+ *     WmipTranslateFileHandle @ 0x1409E198C (WmipTranslateFileHandle.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     IoGetDeviceInstanceName @ 0x140321D18 (IoGetDeviceInstanceName.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     IoGetDeviceInstanceName @ 0x140321FA8 (IoGetDeviceInstanceName.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  */
 
 __int64 __fastcall WmipGetGuidObjectInstanceInfo(__int64 a1, ULONG_PTR a2, UNICODE_STRING *a3, _DWORD *a4)

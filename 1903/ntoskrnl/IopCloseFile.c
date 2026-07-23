@@ -39,7 +39,7 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
   int v11; // edi
   struct _DEVICE_OBJECT *v12; // r15
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v14; // rax
+  PRTL_BALANCED_NODE v14; // rax
   IRP *MustSucceed; // rdi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   __int64 v17; // rdx
@@ -51,7 +51,7 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
   struct _DEVICE_OBJECT *v23; // rsi
   PFAST_IO_DISPATCH FastIoDispatch; // rbp
   struct _KTHREAD *v25; // rax
-  __int64 v26; // rax
+  PRTL_BALANCED_NODE v26; // rax
   __int64 (__fastcall *FastIoUnlockAll)(_QWORD, _QWORD, _QWORD, _QWORD); // rbp
   void *v28; // rdi
   char v29; // r15
@@ -103,7 +103,7 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
             goto LABEL_14;
         }
         if ( v14 )
-          *(_BYTE *)(v14 + 26) |= 1u;
+          BYTE2(v14[1].Left) |= 1u;
         ObfReferenceObject(a2);
       }
 LABEL_14:
@@ -173,7 +173,7 @@ LABEL_14:
               goto LABEL_46;
           }
           if ( v26 )
-            *(_BYTE *)(v26 + 26) |= 1u;
+            BYTE2(v26[1].Left) |= 1u;
           ObfReferenceObject(a2);
         }
 LABEL_46:

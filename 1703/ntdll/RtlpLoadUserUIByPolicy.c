@@ -13,53 +13,45 @@
  *     sub_1800FB628 @ 0x1800FB628 (sub_1800FB628.c)
  */
 
-__int64 __fastcall RtlpLoadUserUIByPolicy(__int64 a1, __int64 a2, __int64 *a3)
+__int64 __fastcall RtlpLoadUserUIByPolicy(void *a1, __int64 a2, __int64 *a3)
 {
   __int64 v6; // r8
   __int64 v7; // r9
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   __int64 v10; // rdx
   __int64 v11; // r8
   __int64 v12; // rcx
   __int64 v13; // rax
-  __int64 v14; // [rsp+30h] [rbp-50h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-48h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  int v17; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v18; // [rsp+58h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+60h] [rbp-20h]
-  int v20; // [rsp+68h] [rbp-18h]
-  __int128 v21; // [rsp+70h] [rbp-10h]
-  unsigned __int8 v22; // [rsp+B8h] [rbp+38h] BYREF
-  __int16 v23; // [rsp+C8h] [rbp+48h] BYREF
+  HANDLE KeyHandle; // [rsp+30h] [rbp-50h] BYREF
+  HANDLE CurrentUserKey; // [rsp+38h] [rbp-48h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
 
-  v15 = 0LL;
-  v14 = 0LL;
-  v22 = 0;
-  v23 = 0;
+  CurrentUserKey = 0LL;
+  KeyHandle = 0LL;
   if ( a2 && a3 )
   {
     RtlInitUnicodeString(&DestinationString, L"Software\\Policies\\Microsoft\\Control Panel\\Desktop");
     if ( a1 )
     {
-      v18 = a1;
+      ObjectAttributes.RootDirectory = a1;
     }
     else
     {
-      v8 = sub_18006E330(0x2000000u, 0, v6, v7, (__int64)&v15);
+      v8 = sub_18006E330(0x2000000u, 0LL, v6, v7, &CurrentUserKey);
       if ( v8 < 0 )
         goto LABEL_6;
-      v18 = v15;
+      ObjectAttributes.RootDirectory = CurrentUserKey;
     }
-    v14 = 0LL;
-    p_DestinationString = &DestinationString;
-    v17 = 48;
-    v20 = 64;
-    v21 = 0LL;
-    v8 = ZwOpenKey(&v14, 131097LL, &v17);
+    KeyHandle = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v8 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
     if ( v8 >= 0 )
     {
-      v8 = sub_1800FA3D4(v14, a2, &v22, &v23);
+      v8 = sub_1800FA3D4(KeyHandle);
       if ( !v8 )
       {
         v12 = *a3;
@@ -68,8 +60,8 @@ __int64 __fastcall RtlpLoadUserUIByPolicy(__int64 a1, __int64 a2, __int64 *a3)
           if ( *(_WORD *)(v12 + 4) < *(_WORD *)(v12 + 6) )
           {
 LABEL_20:
-            *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * *(unsigned __int16 *)(*a3 + 4)) = v22;
-            *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + 4) = v23;
+            *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * *(unsigned __int16 *)(*a3 + 4)) = 0;
+            *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + 4) = 0;
             goto LABEL_6;
           }
           v13 = sub_1800FB628(v12, v10, v11);
@@ -93,12 +85,12 @@ LABEL_20:
     v8 = -1073741811;
   }
 LABEL_6:
-  if ( v14 )
+  if ( KeyHandle )
   {
-    ZwClose(v14);
-    v14 = 0LL;
+    ZwClose(KeyHandle);
+    KeyHandle = 0LL;
   }
-  if ( v15 )
-    sub_18006E310(v15);
+  if ( CurrentUserKey )
+    sub_18006E310((char *)CurrentUserKey);
   return (unsigned int)v8;
 }

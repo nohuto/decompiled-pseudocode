@@ -33,7 +33,7 @@ void __fastcall SepCheckForAllAppPackagesAceRemoval(
     ClientToken = SubjectContext.ClientToken;
     if ( !SubjectContext.ClientToken )
       ClientToken = SubjectContext.PrimaryToken;
-    if ( (unsigned __int8)SepSidInToken((__int64)ClientToken, 0LL, (__int64)SeTrustedInstallerSid, 0LL, 0) )
+    if ( (unsigned __int8)SepSidInToken((__int64)ClientToken, 0LL, (__int64)SeTrustedInstallerSid, 0LL, 0, 0) )
     {
       SeReleaseSubjectContext(&SubjectContext);
     }

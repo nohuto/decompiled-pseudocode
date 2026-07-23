@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckForFreezeExecution @ 0x14028D658
+ * XREFs of KiCheckForFreezeExecution @ 0x14028D848
  * Callers:
- *     KiYieldWaitForDebugger @ 0x1401B4328 (KiYieldWaitForDebugger.c)
- *     KiProcessNMI @ 0x14028D890 (KiProcessNMI.c)
+ *     KiYieldWaitForDebugger @ 0x1401B4468 (KiYieldWaitForDebugger.c)
+ *     KiProcessNMI @ 0x14028DA80 (KiProcessNMI.c)
  * Callees:
- *     KiFreezeTargetExecution @ 0x1402976DC (KiFreezeTargetExecution.c)
+ *     KiFreezeTargetExecution @ 0x1402978CC (KiFreezeTargetExecution.c)
  */
 
 char __fastcall KiCheckForFreezeExecution(__int64 a1)

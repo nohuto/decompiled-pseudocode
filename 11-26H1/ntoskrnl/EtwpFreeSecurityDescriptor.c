@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpFreeSecurityDescriptor @ 0x140A8F2C8
+ * XREFs of EtwpFreeSecurityDescriptor @ 0x140A93F98
  * Callers:
- *     EtwpFixBootLoggers @ 0x140CE1DAC (EtwpFixBootLoggers.c)
+ *     EtwpFixBootLoggers @ 0x140CE814C (EtwpFixBootLoggers.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeSecurityDescriptor(void **a1)

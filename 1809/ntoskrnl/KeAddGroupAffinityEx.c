@@ -1,7 +1,7 @@
 /*
- * XREFs of KeAddGroupAffinityEx @ 0x14028E300
+ * XREFs of KeAddGroupAffinityEx @ 0x14028E4F0
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWnfDeleteNameInstanceCallback @ 0x1404C2240
+ * XREFs of ExpWnfDeleteNameInstanceCallback @ 0x1404ADF70
  * Callers:
- *     ExpWnfFreeScopeInstance @ 0x1404C21A0 (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfFreeScopeInstance @ 0x1404ADED0 (ExpWnfFreeScopeInstance.c)
  * Callees:
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
  */
 
 __int64 __fastcall ExpWnfDeleteNameInstanceCallback(__int64 a1, __int64 a2)

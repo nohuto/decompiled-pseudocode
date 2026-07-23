@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x14023A8D0 (HalpDmaGetAdapterVersion.c)
- *     HalAllocateCommonBufferExV2 @ 0x1403B64E0 (HalAllocateCommonBufferExV2.c)
- *     HalAllocateCommonBufferExV3 @ 0x140511050 (HalAllocateCommonBufferExV3.c)
+ *     sub_14023A8D0 @ 0x14023A8D0 (sub_14023A8D0.c)
+ *     sub_1403B64E0 @ 0x1403B64E0 (sub_1403B64E0.c)
+ *     sub_140511050 @ 0x140511050 (sub_140511050.c)
  */
 
 PVOID __stdcall HalAllocateCommonBuffer(
@@ -20,8 +20,8 @@ PVOID __stdcall HalAllocateCommonBuffer(
   unsigned int v7; // r11d
   int v9; // [rsp+20h] [rbp-18h]
 
-  if ( (unsigned int)HalpDmaGetAdapterVersion((__int64)DmaAdapter) != 2 )
-    return (PVOID)HalAllocateCommonBufferExV3(v6, 0, v7, (_DWORD)v4, 1, 0x80000000);
+  if ( (unsigned int)sub_14023A8D0((__int64)DmaAdapter) != 2 )
+    return (PVOID)sub_140511050(v6, 0, v7, (_DWORD)v4, 1, 0x80000000);
   LOBYTE(v9) = v5;
-  return HalAllocateCommonBufferExV2(v6, 0LL, v7, v4, v9, 0x80000000);
+  return sub_1403B64E0(v6, 0LL, v7, v4, v9, 0x80000000);
 }

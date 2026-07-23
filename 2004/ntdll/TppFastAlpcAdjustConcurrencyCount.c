@@ -14,8 +14,8 @@ __int64 __fastcall TppFastAlpcAdjustConcurrencyCount(__int64 a1)
   signed __int32 v4; // r8d
   signed __int32 v5; // edx
   signed __int32 v6; // r9d
-  __int64 v7; // rcx
-  int v8; // [rsp+30h] [rbp+8h] BYREF
+  void *v7; // rcx
+  int PortInformation; // [rsp+30h] [rbp+8h] BYREF
 
   result = *(_DWORD *)(a1 + 288) & 3;
   if ( (*(_BYTE *)(a1 + 288) & 3) == 3 )
@@ -32,9 +32,9 @@ __int64 __fastcall TppFastAlpcAdjustConcurrencyCount(__int64 a1)
         break;
       if ( v4 == _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 284), v6, v4) )
       {
-        v7 = *(_QWORD *)(a1 + 272);
-        v8 = result + v5;
-        NtAlpcSetInformation(v7, 8LL, &v8);
+        v7 = *(void **)(a1 + 272);
+        PortInformation = result + v5;
+        NtAlpcSetInformation(v7, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
       }
     }
   }

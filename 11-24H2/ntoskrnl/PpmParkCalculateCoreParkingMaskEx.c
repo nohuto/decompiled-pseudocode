@@ -1,139 +1,110 @@
 /*
- * XREFs of PpmParkCalculateCoreParkingMaskEx @ 0x1405E1B9C
+ * XREFs of PpmParkCalculateCoreParkingMaskEx @ 0x1405DF1A8
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1404EDA40 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1404E5250 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     KeOrAffinityEx2 @ 0x1402067F0 (KeOrAffinityEx2.c)
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeSubtractAffinityEx2 @ 0x140354F10 (KeSubtractAffinityEx2.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     PpmParkComputeDiff @ 0x1404EE290 (PpmParkComputeDiff.c)
- *     KeCpuSetQueryUnparkRecommendationEx @ 0x1405BF94C (KeCpuSetQueryUnparkRecommendationEx.c)
- *     Feature_PpmHighPerfSoftParkLatency__private_IsEnabledDeviceUsageNoInline @ 0x1405D2930 (Feature_PpmHighPerfSoftParkLatency__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventLPICoreParking @ 0x1405D9830 (PpmEventLPICoreParking.c)
- *     PpmEventTraceSoftCoreParkingSelectionEx @ 0x1405DF2CC (PpmEventTraceSoftCoreParkingSelectionEx.c)
- *     PpmParkComputeUnparkMaskEx @ 0x1405E2544 (PpmParkComputeUnparkMaskEx.c)
- *     PpmParkFindOverUtilizedProcessorsEx @ 0x1405E37EC (PpmParkFindOverUtilizedProcessorsEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeSubtractAffinityEx2 @ 0x1402B2C40 (KeSubtractAffinityEx2.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     KeOrAffinityEx2 @ 0x14032DDD0 (KeOrAffinityEx2.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     PpmParkComputeDiff @ 0x1404E5A28 (PpmParkComputeDiff.c)
+ *     KeCpuSetQueryUnparkRecommendationEx @ 0x1405BCF7C (KeCpuSetQueryUnparkRecommendationEx.c)
+ *     PpmEventLPICoreParking @ 0x1405D6B4C (PpmEventLPICoreParking.c)
+ *     PpmEventTraceSoftCoreParkingSelectionEx @ 0x1405DC3F8 (PpmEventTraceSoftCoreParkingSelectionEx.c)
+ *     PpmParkComputeUnparkMaskEx @ 0x1405DFACC (PpmParkComputeUnparkMaskEx.c)
+ *     PpmParkFindOverUtilizedProcessorsEx @ 0x1405E0D74 (PpmParkFindOverUtilizedProcessorsEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char PpmParkCalculateCoreParkingMaskEx()
 {
-  struct _KAFFINITY_EX *v0; // r13
-  struct _KAFFINITY_EX *v1; // r12
-  size_t v2; // r8
+  struct _KAFFINITY_EX *v0; // r12
+  struct _KAFFINITY_EX *v1; // r13
+  struct _KAFFINITY_EX *v2; // rbx
   struct _KAFFINITY_EX *v3; // r15
-  struct _KAFFINITY_EX *v4; // r14
-  struct _KAFFINITY_EX *v5; // rsi
+  struct _KAFFINITY_EX *v4; // rsi
+  struct _KAFFINITY_EX *v5; // r14
   struct _KAFFINITY_EX *v6; // rdi
-  struct _KAFFINITY_EX *v7; // rbx
-  size_t v8; // r8
-  int v9; // eax
-  unsigned int v10; // ebx
-  __int64 v11; // rdi
-  unsigned int v12; // eax
-  __int64 v13; // rdx
-  unsigned int v14; // r14d
-  unsigned __int64 v15; // rax
-  unsigned int v16; // r15d
+  unsigned int v7; // ebx
+  __int64 v8; // rdi
+  unsigned int v9; // eax
+  unsigned int v10; // esi
+  unsigned __int64 v11; // rax
+  unsigned int v12; // r15d
   unsigned __int16 Size; // dx
-  unsigned __int16 *v18; // r15
+  unsigned __int16 *v14; // r15
   __int64 Prcb; // rax
-  unsigned int v20; // ebx
-  unsigned int v21; // ecx
-  bool v22; // cc
-  unsigned int v23; // r14d
-  bool v24; // zf
-  unsigned int v25; // esi
-  __int64 v26; // rax
+  unsigned int v16; // ebx
+  unsigned int v17; // ecx
+  unsigned int v18; // r14d
+  bool v19; // zf
+  unsigned int v20; // esi
+  __int64 v21; // rax
   unsigned __int16 UnparkRecommendation; // ax
-  __int64 v28; // rax
+  __int64 v23; // rax
+  unsigned int v24; // esi
+  __int64 v25; // rax
+  unsigned int v26; // eax
+  int v27; // r8d
+  unsigned int v28; // eax
   unsigned int v29; // esi
-  __int64 v30; // rax
-  unsigned int v31; // eax
-  int v32; // eax
-  unsigned int v33; // ecx
-  unsigned int v34; // esi
-  unsigned __int16 v35; // bx
-  unsigned int v36; // r10d
-  unsigned int v37; // r8d
-  unsigned int v38; // r9d
-  __int64 v39; // kr00_8
-  int v40; // eax
-  __int64 v41; // rcx
-  int v42; // r9d
-  int v43; // r12d
-  unsigned int v44; // eax
-  unsigned int v45; // eax
-  int v46; // r15d
-  char v47; // bl
-  char v48; // r13
-  struct _KAFFINITY_EX *v49; // rbx
-  int v50; // r15d
-  unsigned int v51; // eax
-  __int64 v52; // rcx
-  int v53; // edx
-  int v54; // eax
-  char v56; // [rsp+50h] [rbp-B0h]
-  char v57; // [rsp+68h] [rbp-98h]
-  char v58; // [rsp+70h] [rbp-90h]
-  int v59; // [rsp+80h] [rbp-80h]
-  unsigned int i; // [rsp+84h] [rbp-7Ch]
-  __int128 v61; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v62; // [rsp+98h] [rbp-68h]
-  unsigned int v63; // [rsp+A0h] [rbp-60h]
-  __int64 *v64; // [rsp+A8h] [rbp-58h]
-  unsigned __int64 v65; // [rsp+B0h] [rbp-50h]
-  $B38C3B1372D6E954799962D5DD404846 *v66; // [rsp+B8h] [rbp-48h]
-  __int64 v67; // [rsp+C0h] [rbp-40h]
-  struct _KAFFINITY_EX *v68; // [rsp+C8h] [rbp-38h]
-  struct _KAFFINITY_EX *v69; // [rsp+D0h] [rbp-30h]
-  struct _KAFFINITY_EX *v70; // [rsp+D8h] [rbp-28h]
-  __int64 v71; // [rsp+E0h] [rbp-20h]
-  struct _KAFFINITY_EX *v72; // [rsp+E8h] [rbp-18h]
-  __int64 v73; // [rsp+F0h] [rbp-10h]
-  __int64 v74; // [rsp+F8h] [rbp-8h]
-  __int64 v75; // [rsp+150h] [rbp+50h] BYREF
-  unsigned int v76; // [rsp+158h] [rbp+58h] BYREF
-  int v77; // [rsp+160h] [rbp+60h]
-  unsigned int v78; // [rsp+168h] [rbp+68h]
+  unsigned __int16 v30; // r11
+  int v31; // ebx
+  unsigned int v32; // r10d
+  int v33; // r13d
+  unsigned int v34; // r9d
+  int v35; // r13d
+  unsigned int v36; // eax
+  unsigned int v37; // eax
+  int v38; // r15d
+  char v39; // bl
+  int v40; // r15d
+  unsigned int v41; // eax
+  __int64 v42; // rcx
+  int v43; // edx
+  int v44; // eax
+  char v46; // [rsp+50h] [rbp-59h]
+  unsigned int v47; // [rsp+80h] [rbp-29h]
+  unsigned int i; // [rsp+84h] [rbp-25h]
+  unsigned int v49; // [rsp+88h] [rbp-21h]
+  $B38C3B1372D6E954799962D5DD404846 *v50; // [rsp+90h] [rbp-19h]
+  __int64 v51; // [rsp+98h] [rbp-11h]
+  __int64 *v52; // [rsp+A0h] [rbp-9h]
+  __int128 v53; // [rsp+A8h] [rbp-1h] BYREF
+  __int64 v54; // [rsp+B8h] [rbp+Fh]
+  int v55; // [rsp+110h] [rbp+67h]
+  char v56; // [rsp+110h] [rbp+67h]
+  __int64 v57; // [rsp+118h] [rbp+6Fh] BYREF
+  unsigned int v58; // [rsp+120h] [rbp+77h] BYREF
+  int v59; // [rsp+128h] [rbp+7Fh]
 
-  v61 = 0LL;
-  v62 = 0LL;
-  v76 = 0;
-  LODWORD(v75) = 0;
+  v53 = 0LL;
+  v54 = 0LL;
+  v58 = 0;
+  LODWORD(v57) = 0;
   if ( PpmIsParkingEnabled )
   {
     v0 = PpmParkPerfCheckAffinities;
-    v74 = (__int64)PpmParkPerfCheckAffinities;
     v1 = PpmParkPerfCheckAffinities + 1;
-    v2 = 8LL * PpmParkPerfCheckAffinities->Count;
+    v2 = PpmParkPerfCheckAffinities + 2;
     v3 = PpmParkPerfCheckAffinities + 3;
-    v73 = (__int64)&PpmParkPerfCheckAffinities[1];
     v4 = PpmParkPerfCheckAffinities + 4;
-    v69 = PpmParkPerfCheckAffinities + 3;
     v5 = PpmParkPerfCheckAffinities + 6;
-    v68 = PpmParkPerfCheckAffinities + 4;
     v6 = PpmParkPerfCheckAffinities + 7;
-    v72 = PpmParkPerfCheckAffinities + 5;
-    v70 = PpmParkPerfCheckAffinities + 6;
-    v7 = PpmParkPerfCheckAffinities + 2;
-    v71 = (__int64)&PpmParkPerfCheckAffinities[7];
-    memset_0(&PpmParkPerfCheckAffinities->8, 0, v2);
+    memset_0(&PpmParkPerfCheckAffinities->8, 0, 8LL * PpmParkPerfCheckAffinities->Count);
     v0->Count = 1;
     memset_0(&v1->8, 0, 8LL * v1->Count);
     v1->Count = 1;
-    v8 = 8LL * v7->Count;
-    v66 = &v7->8;
-    memset_0(&v7->8, 0, v8);
-    v7->Count = 1;
+    v50 = &v2->8;
+    memset_0(&v2->8, 0, 8LL * v2->Count);
+    v2->Count = 1;
     memset_0(&v3->8, 0, 8LL * v3->Count);
     v3->Count = 1;
     memset_0(&v4->8, 0, 8LL * v4->Count);
@@ -146,333 +117,291 @@ char PpmParkCalculateCoreParkingMaskEx()
     v6->Count = 1;
     memset_0(&v0[8].8, 0, 8LL * v0[8].Count);
     v0[8].Count = 1;
-    v64 = PpmCurrentProfile[0];
-    v65 = 488LL * dword_140F0BA4C;
-    v9 = 100 * BYTE4(PpmCurrentProfile[0][v65 / 8 + 22]);
     PpmParkSoftParkCurrentRank = 0;
     PpmParkSoftParkRankListChanged = 0;
-    v63 = v9;
+    v52 = &PpmCurrentProfile[0][61 * dword_140F0B38C];
+    v49 = 100 * *((unsigned __int8 *)v52 + 180);
     if ( PpmParkNewSoftParkRankList )
       memset_0(PpmParkNewSoftParkRankList, 255, 4LL * (unsigned int)KeMaximumProcessors);
-    v10 = 0;
-    for ( i = 0; v10 < PpmParkNumNodes; i = ++v10 )
+    v7 = 0;
+    for ( i = 0; v7 < PpmParkNumNodes; i = v7 )
     {
-      v11 = PpmParkNodes + 1288LL * v10;
-      v67 = v11;
-      if ( (*(_BYTE *)(v11 + 1184) & 1) == 0 )
+      v8 = PpmParkNodes + 1296LL * v7;
+      v51 = v8;
+      if ( (*(_BYTE *)(v8 + 1184) & 1) == 0 )
       {
-        KiCopyAffinityEx(
-          (struct _KAFFINITY_EX *)(v11 + 576),
-          *(_WORD *)(v11 + 578),
-          (struct _KAFFINITY_EX *)(v11 + 312));
-        v12 = *(unsigned __int16 *)(v11 + 1174);
-        v13 = v63;
-        *(_WORD *)(v11 + 1244) = 0;
-        *(_BYTE *)(v11 + 1246) = 0;
-        v14 = *(unsigned __int16 *)(v11 + 1170);
-        if ( (unsigned __int16)v14 >= (unsigned __int16)v12 )
-          v14 = v12;
-        v78 = v14;
-        PpmParkFindOverUtilizedProcessorsEx(v11, v13, v3);
-        *(_BYTE *)(v11 + 1216) = 0;
+        KiCopyAffinityEx((struct _KAFFINITY_EX *)(v8 + 576), *(_WORD *)(v8 + 578), (struct _KAFFINITY_EX *)(v8 + 312));
+        v9 = *(unsigned __int16 *)(v8 + 1174);
+        *(_WORD *)(v8 + 1252) = 0;
+        *(_BYTE *)(v8 + 1254) = 0;
+        v10 = *(unsigned __int16 *)(v8 + 1170);
+        if ( (unsigned __int16)v10 >= (unsigned __int16)v9 )
+          v10 = v9;
+        v47 = v10;
+        PpmParkFindOverUtilizedProcessorsEx(v8, v49, v3);
+        *(_BYTE *)(v8 + 1224) = 0;
         if ( PpmHeteroFavoredCoreRotationTimeoutMs )
         {
-          v15 = MEMORY[0xFFFFF78000000008]
+          v11 = MEMORY[0xFFFFF78000000008]
               / (10000
                * (unsigned __int64)(unsigned int)PpmHeteroFavoredCoreRotationTimeoutMs);
-          *(_QWORD *)(v11 + 1200) = v15;
-          if ( v15 != *(_QWORD *)(v11 + 1208) )
+          *(_QWORD *)(v8 + 1208) = v11;
+          if ( v11 != *(_QWORD *)(v8 + 1216) )
           {
-            *(_BYTE *)(v11 + 1216) = 1;
-            *(_QWORD *)(v11 + 1208) = v15;
+            *(_BYTE *)(v8 + 1224) = 1;
+            *(_QWORD *)(v8 + 1216) = v11;
           }
         }
-        v16 = 0;
-        v77 = 0;
-        if ( *(_BYTE *)(v11 + 12) )
+        v12 = 0;
+        v59 = 0;
+        if ( *(_BYTE *)(v8 + 12) )
         {
-          while ( 1 )
+          do
           {
             Size = v5->Size;
-            v18 = (unsigned __int16 *)(*(_QWORD *)(v11 + 1280) + 640LL * v16);
-            LODWORD(v75) = 0;
-            KiCopyAffinityEx(v5, Size, (struct _KAFFINITY_EX *)(v18 + 20));
+            v14 = (unsigned __int16 *)(*(_QWORD *)(v8 + 1288) + 640LL * v12);
+            LODWORD(v57) = 0;
+            KiCopyAffinityEx(v5, Size, (struct _KAFFINITY_EX *)(v14 + 20));
             if ( (unsigned int)KeIsEmptyAffinityEx(&v5->Count) )
-            {
-LABEL_94:
-              v10 = i;
-              goto LABEL_95;
-            }
-            LODWORD(v75) = 0x100000;
+              break;
+            LODWORD(v57) = 0x100000;
             if ( (unsigned __int16)PpmParkGranularity <= 1u )
             {
-              KiCopyAffinityEx(v0, v0->Size, (struct _KAFFINITY_EX *)(v18 + 152));
+              KiCopyAffinityEx(v0, v0->Size, (struct _KAFFINITY_EX *)(v14 + 152));
             }
             else
             {
               memset_0(&v0->8, 0, 8LL * v0->Count);
               v0->Count = 1;
-              LOWORD(v62) = 0;
-              *((_QWORD *)&v61 + 1) = *((_QWORD *)v18 + 39);
-              *(_QWORD *)&v61 = v18 + 152;
-              while ( !(unsigned int)KeEnumerateNextProcessor(&v76, (unsigned __int16 **)&v61) )
+              LOWORD(v54) = 0;
+              *((_QWORD *)&v53 + 1) = *((_QWORD *)v14 + 39);
+              *(_QWORD *)&v53 = v14 + 152;
+              while ( !(unsigned int)KeEnumerateNextProcessor(&v58, (unsigned __int16 **)&v53) )
               {
-                Prcb = KeGetPrcb(v76);
+                Prcb = KeGetPrcb(v58);
                 KeAddGroupAffinityEx(&v0->Count, *(unsigned __int8 *)(Prcb + 208), *(_QWORD *)(Prcb + 36448));
               }
             }
             KeAndAffinityEx2(v0, v5, (__int64)v0);
             if ( !(unsigned int)KeIsEmptyAffinityEx(&v0->Count) )
-              LODWORD(v75) = v75 | 0x10000;
-            v20 = v14;
-            v21 = *v18 - (unsigned int)KeCountSetBitsAffinityEx(&v0->Count);
-            v22 = v21 <= v14;
-            v23 = 0;
-            if ( v22 )
-              v20 = v21;
+              LODWORD(v57) = v57 | 0x10000;
+            v16 = v10;
+            v17 = *v14 - (unsigned int)KeCountSetBitsAffinityEx(&v0->Count);
+            if ( v17 <= v10 )
+              v16 = v17;
+            v18 = 0;
             memset_0(&v1->8, 0, 8LL * v1->Count);
-            v24 = KiClockTimerPerCpu == 0;
+            v19 = KiClockTimerPerCpu == 0;
             v1->Count = 1;
-            if ( v24 )
+            if ( v19 )
             {
-              v25 = KiClockTimerOwner;
-              v76 = KiClockTimerOwner;
+              v20 = KiClockTimerOwner;
+              v58 = KiClockTimerOwner;
               if ( (unsigned int)KeCheckProcessorAffinityEx(&v0[6].Count, KiClockTimerOwner) )
               {
-                if ( v20 && !(unsigned int)KeCheckProcessorAffinityEx(&v0->Count, v25) )
+                if ( v16 && !(unsigned int)KeCheckProcessorAffinityEx(&v0->Count, v20) )
                 {
-                  v26 = KeGetPrcb(v25);
+                  v21 = KeGetPrcb(v20);
                   if ( (unsigned __int16)PpmParkGranularity <= 1u )
-                    KeAddProcessorAffinityEx(&v1->Count, v25);
+                    KeAddProcessorAffinityEx(&v1->Count, v20);
                   else
-                    KeAddGroupAffinityEx(&v1->Count, *(unsigned __int8 *)(v26 + 208), *(_QWORD *)(v26 + 36448));
-                  LODWORD(v75) = v75 | 0x100;
-                  v23 = KeCountSetBitsAffinityEx(&v1->Count);
+                    KeAddGroupAffinityEx(&v1->Count, *(unsigned __int8 *)(v21 + 208), *(_QWORD *)(v21 + 36448));
+                  LODWORD(v57) = v57 | 0x100;
+                  v18 = KeCountSetBitsAffinityEx(&v1->Count);
                 }
               }
             }
             memset_0(&v0[2].8, 0, 8LL * v0[2].Count);
             v0[2].Count = 1;
             UnparkRecommendation = KeCpuSetQueryUnparkRecommendationEx(&v0[6].Count, &v0[2].Count);
-            v59 = UnparkRecommendation;
+            v55 = UnparkRecommendation;
             if ( UnparkRecommendation )
             {
               if ( (unsigned __int16)PpmParkGranularity > 1u )
               {
-                LOWORD(v62) = 0;
-                *((_QWORD *)&v61 + 1) = v66->Bitmap[0];
-                *(_QWORD *)&v61 = v0 + 2;
-                if ( !(unsigned int)KeEnumerateNextProcessor(&v76, (unsigned __int16 **)&v61) )
+                LOWORD(v54) = 0;
+                *((_QWORD *)&v53 + 1) = v50->Bitmap[0];
+                *(_QWORD *)&v53 = v0 + 2;
+                if ( !(unsigned int)KeEnumerateNextProcessor(&v58, (unsigned __int16 **)&v53) )
                 {
                   do
                   {
-                    v28 = KeGetPrcb(v76);
-                    KeAddGroupAffinityEx(&v0[2].Count, *(unsigned __int8 *)(v28 + 208), *(_QWORD *)(v28 + 36448));
+                    v23 = KeGetPrcb(v58);
+                    KeAddGroupAffinityEx(&v0[2].Count, *(unsigned __int8 *)(v23 + 208), *(_QWORD *)(v23 + 36448));
                   }
-                  while ( !(unsigned int)KeEnumerateNextProcessor(&v76, (unsigned __int16 **)&v61) );
+                  while ( !(unsigned int)KeEnumerateNextProcessor(&v58, (unsigned __int16 **)&v53) );
                   v1 = v0 + 1;
                 }
-                v59 = KeCountSetBitsAffinityEx(&v0[2].Count);
+                v55 = KeCountSetBitsAffinityEx(&v0[2].Count);
               }
-              *((_QWORD *)&v61 + 1) = v0[2].Bitmap[0];
-              LOWORD(v62) = 0;
-              *(_QWORD *)&v61 = v0 + 2;
-              if ( !(unsigned int)KeEnumerateNextProcessor(&v76, (unsigned __int16 **)&v61) )
+              *((_QWORD *)&v53 + 1) = v0[2].Bitmap[0];
+              LOWORD(v54) = 0;
+              *(_QWORD *)&v53 = v0 + 2;
+              if ( !(unsigned int)KeEnumerateNextProcessor(&v58, (unsigned __int16 **)&v53) )
               {
                 do
                 {
-                  if ( v23 < v20 )
+                  if ( v18 < v16 )
                   {
-                    v29 = v76;
-                    if ( !(unsigned int)KeCheckProcessorAffinityEx(&v0->Count, v76) )
+                    v24 = v58;
+                    if ( !(unsigned int)KeCheckProcessorAffinityEx(&v0->Count, v58) )
                     {
-                      v30 = KeGetPrcb(v29);
+                      v25 = KeGetPrcb(v24);
                       if ( (unsigned __int16)PpmParkGranularity <= 1u )
-                        KeAddProcessorAffinityEx(&v1->Count, v29);
+                        KeAddProcessorAffinityEx(&v1->Count, v24);
                       else
-                        KeAddGroupAffinityEx(&v1->Count, *(unsigned __int8 *)(v30 + 208), *(_QWORD *)(v30 + 36448));
-                      LODWORD(v75) = v75 | 0x10;
-                      v23 = KeCountSetBitsAffinityEx(&v1->Count);
+                        KeAddGroupAffinityEx(&v1->Count, *(unsigned __int8 *)(v25 + 208), *(_QWORD *)(v25 + 36448));
+                      LODWORD(v57) = v57 | 0x10;
+                      v18 = KeCountSetBitsAffinityEx(&v1->Count);
                     }
                   }
                 }
-                while ( !(unsigned int)KeEnumerateNextProcessor(&v76, (unsigned __int16 **)&v61) );
-                v11 = v67;
+                while ( !(unsigned int)KeEnumerateNextProcessor(&v58, (unsigned __int16 **)&v53) );
+                v8 = v51;
               }
             }
-            v31 = v18[1];
-            if ( v23 >= v31 || v23 >= v20 )
+            v26 = v14[1];
+            if ( v18 >= v26 || v18 >= v16 )
             {
-              v32 = v75;
+              v27 = v57;
             }
             else
             {
-              v23 = v20;
-              if ( v31 < v20 )
-                v23 = v18[1];
-              v32 = v75 | 4;
-              LODWORD(v75) = v75 | 4;
+              v18 = v16;
+              if ( v26 < v16 )
+                v18 = v14[1];
+              v27 = v57 | 4;
+              LODWORD(v57) = v57 | 4;
             }
-            v33 = v18[2];
-            v34 = v20;
-            if ( v20 > v33 && v23 < v20 )
+            v28 = v14[2];
+            v29 = v16;
+            if ( v16 > v28 && v18 < v16 )
             {
-              v34 = v18[2];
-              LODWORD(v75) = v32 | 8;
-              if ( v33 <= v23 )
-                v34 = v23;
+              v27 |= 8u;
+              v29 = v14[2];
+              LODWORD(v57) = v27;
+              if ( v28 <= v18 )
+                v29 = v18;
             }
-            v35 = 0;
+            v30 = 0;
+            v31 = PpmHeteroHgsContainmentState & 8;
             if ( (PpmHeteroHgsContainmentState & 8) != 0 )
-              v35 = *(_WORD *)(*(_QWORD *)(v11 + 1272) + 2LL * *(int *)(*(_QWORD *)(v11 + 1272) + 4LL) + 8);
-            if ( (unsigned int)Feature_PpmHighPerfSoftParkLatency__private_IsEnabledDeviceUsageNoInline() )
-              break;
-            v36 = *v18;
-            if ( !PpmPerfMaxOverrideEnabled )
+              v30 = *(_WORD *)(*(_QWORD *)(v8 + 1280) + 2LL * *(int *)(*(_QWORD *)(v8 + 1280) + 4LL) + 8);
+            v32 = v14[3];
+            v33 = *v14;
+            if ( (unsigned __int16)v32 >= (unsigned __int16)v33 )
+              v32 = *v14;
+            v34 = v32;
+            if ( PpmCheckLatencyBoostActive
+              && (v33 * (unsigned int)*((unsigned __int8 *)v52 + (v59 != 0) + 137) + 50) / 0x64 > v32 )
             {
-              v38 = v18[3];
-              if ( (unsigned __int16)v38 >= (unsigned __int16)v36 )
-                v38 = *v18;
-              v37 = v38;
-              if ( PpmCheckLatencyBoostActive )
-              {
-                v39 = 1374389535LL * (v36 * *((unsigned __int8 *)&v64[v65 / 8 + 17] + (v77 != 0) + 1) + 50);
-                goto LABEL_72;
-              }
-              goto LABEL_74;
+              v27 |= 0x40u;
+              v34 = (v33 * (unsigned int)*((unsigned __int8 *)v52 + (v59 != 0) + 137) + 50) / 0x64;
+              LODWORD(v57) = v27;
             }
-            LODWORD(v75) = v75 | 0x40000;
-            v37 = v36;
-LABEL_81:
-            v43 = v23;
-            v44 = v37 + v59;
-            v18[4] = v37;
-            if ( v37 + v59 >= v34 )
-              v44 = v34;
-            if ( v44 > v23 )
-              v43 = v44;
-            v78 -= v34;
-            v24 = PpmParkSoftParkingEnabled == 0;
-            v18[5] = v43;
-            if ( v24 )
+            if ( (unsigned __int16)PpmParkGranularity > 1u )
+              v34 = (unsigned __int16)PpmParkGranularity
+                  - 1
+                  + v34
+                  - ((unsigned __int16)PpmParkGranularity - 1 + v34) % (unsigned __int16)PpmParkGranularity;
+            if ( (PpmHeteroHgsContainmentState & 8) != 0 && v30 && v30 < (unsigned __int16)v34 )
             {
-              LODWORD(v75) = v75 | 0x200000;
-              v34 = v43;
+              v34 = v30;
+              LODWORD(v57) = v27 | 0x400000;
             }
-            else if ( (PpmHeteroHgsContainmentState & 8) != 0 )
+            v35 = v18;
+            v36 = v34 + v55;
+            v14[4] = v34;
+            if ( v34 + v55 >= v29 )
+              v36 = v29;
+            if ( v36 > v18 )
+              v35 = v36;
+            v47 -= v29;
+            v19 = PpmParkSoftParkingEnabled == 0;
+            v14[5] = v35;
+            if ( v19 )
             {
-              LODWORD(v75) = v75 | 0x800000;
-              v45 = v35;
-              if ( v34 < v35 )
-                v45 = v34;
-              v34 = v45;
+              LODWORD(v57) = v57 | 0x200000;
+              v29 = v35;
             }
-            v46 = 0;
-            v47 = 0;
-            v48 = 0;
+            else if ( v31 )
+            {
+              LODWORD(v57) = v57 | 0x800000;
+              v37 = v30;
+              if ( v29 < v30 )
+                v37 = v29;
+              v29 = v37;
+            }
+            v38 = 0;
+            v39 = 0;
+            v56 = 0;
             if ( PpmHeteroHgsParkingEnabled )
             {
-              v46 = *(unsigned __int16 *)(v11 + 1256);
-              v47 = *(_BYTE *)(v11 + 1263);
-              v48 = *(_BYTE *)(v11 + 1262);
+              v38 = *(unsigned __int16 *)(v8 + 1264);
+              v39 = *(_BYTE *)(v8 + 1271);
+              v56 = *(_BYTE *)(v8 + 1270);
             }
-            KeAndAffinityEx2(v70, v69, (__int64)v68);
-            v58 = v47;
-            v57 = v48;
-            v0 = (struct _KAFFINITY_EX *)v74;
-            v49 = (struct _KAFFINITY_EX *)(v74 + 1584);
+            KeAndAffinityEx2(v0 + 6, v0 + 3, (__int64)&v0[4]);
             PpmParkComputeUnparkMaskEx(
-              v11,
-              v74 + 1584,
-              v11 + 576,
-              v74 + 1056,
-              v43,
-              v34,
-              v74,
-              v73,
-              v72,
-              v71,
-              (__int64)&v75,
-              v11 + 1200,
-              v46,
-              v57,
-              v58,
-              v77);
-            KeSubtractAffinityEx2(v49, v0 + 5, v0 + 8);
+              v8,
+              (_DWORD)v0 + 1584,
+              v8 + 576,
+              (_DWORD)v0 + 1056,
+              v35,
+              v29,
+              (__int64)v0,
+              (__int64)&v0[1],
+              v0 + 5,
+              (__int64)&v0[7],
+              (__int64)&v57,
+              v8 + 1208,
+              v38,
+              v56,
+              v39,
+              v59);
+            KeSubtractAffinityEx2(v0 + 6, v0 + 5, v0 + 8);
             KeSubtractAffinityEx2(v0 + 8, v0 + 7, v0 + 8);
-            KeSubtractAffinityEx2((struct _KAFFINITY_EX *)(v11 + 312), v49, (struct _KAFFINITY_EX *)(v11 + 312));
-            KeOrAffinityEx2((struct _KAFFINITY_EX *)(v11 + 312), v0 + 5, (struct _KAFFINITY_EX *)(v11 + 312));
-            KeOrAffinityEx2((struct _KAFFINITY_EX *)(v11 + 312), v0 + 7, (struct _KAFFINITY_EX *)(v11 + 312));
-            KeSubtractAffinityEx2((struct _KAFFINITY_EX *)(v11 + 840), v0 + 6, (struct _KAFFINITY_EX *)(v11 + 840));
-            KeOrAffinityEx2((struct _KAFFINITY_EX *)(v11 + 840), v0 + 7, (struct _KAFFINITY_EX *)(v11 + 840));
-            v56 = v46;
-            v50 = v77;
+            KeSubtractAffinityEx2((struct _KAFFINITY_EX *)(v8 + 312), v0 + 6, (struct _KAFFINITY_EX *)(v8 + 312));
+            KeOrAffinityEx2((struct _KAFFINITY_EX *)(v8 + 312), v0 + 5, (struct _KAFFINITY_EX *)(v8 + 312));
+            KeOrAffinityEx2((struct _KAFFINITY_EX *)(v8 + 312), v0 + 7, (struct _KAFFINITY_EX *)(v8 + 312));
+            KeSubtractAffinityEx2((struct _KAFFINITY_EX *)(v8 + 840), v0 + 6, (struct _KAFFINITY_EX *)(v8 + 840));
+            KeOrAffinityEx2((struct _KAFFINITY_EX *)(v8 + 840), v0 + 7, (struct _KAFFINITY_EX *)(v8 + 840));
+            v46 = v38;
+            v40 = v59;
             PpmEventTraceSoftCoreParkingSelectionEx(
-              v11,
-              v77,
-              v43,
-              v34,
-              v23,
+              v8,
+              v59,
+              v35,
+              v29,
+              v18,
               v0,
               &v0[1].Count,
               &v0[4].Count,
               &v0[2].Count,
-              v75,
-              v56);
-            v51 = *(unsigned __int8 *)(v11 + 12);
+              v57,
+              v46);
+            v41 = *(unsigned __int8 *)(v8 + 12);
             v1 = v0 + 1;
-            v16 = v50 + 1;
-            v77 = v16;
-            v14 = v78;
+            v12 = v40 + 1;
+            v59 = v12;
+            v10 = v47;
             v5 = v0 + 6;
-            if ( v16 >= v51 )
-              goto LABEL_94;
           }
-          v40 = *v18;
-          v38 = v18[3];
-          if ( (unsigned __int16)v38 >= (unsigned __int16)v40 )
-            v38 = *v18;
-          v37 = v38;
-          if ( !PpmCheckLatencyBoostActive )
-            goto LABEL_74;
-          v41 = v77 ? (__int64)v64 + 41 : (__int64)(v64 + 5);
-          v39 = 1374389535LL * (v40 * (unsigned int)*(unsigned __int8 *)(v65 + v41 + 97) + 50);
-LABEL_72:
-          if ( HIDWORD(v39) >> 5 > v38 )
-          {
-            v37 = HIDWORD(v39) >> 5;
-            v42 = v75 | 0x40;
-            LODWORD(v75) = v75 | 0x40;
-          }
-          else
-          {
-LABEL_74:
-            v42 = v75;
-          }
-          if ( (unsigned __int16)PpmParkGranularity > 1u )
-            v37 = (unsigned __int16)PpmParkGranularity
-                - 1
-                + v37
-                - ((unsigned __int16)PpmParkGranularity - 1 + v37) % (unsigned __int16)PpmParkGranularity;
-          if ( (PpmHeteroHgsContainmentState & 8) != 0 && v35 && v35 < (unsigned __int16)v37 )
-          {
-            v37 = v35;
-            LODWORD(v75) = v42 | 0x400000;
-          }
-          goto LABEL_81;
+          while ( v12 < v41 );
+          v7 = i;
         }
-LABEL_95:
         v3 = v0 + 3;
       }
+      ++v7;
     }
     PpmParkComputeDiff();
-    v53 = PpmParkLpiCap != 0;
-    if ( PpmParkLpiEngaged != v53 || (v54 = 0, PpmParkLpiCapChanged) )
-      v54 = 1;
+    v43 = PpmParkLpiCap != 0;
+    if ( PpmParkLpiEngaged != v43 || (v44 = 0, PpmParkLpiCapChanged) )
+      v44 = 1;
     PpmParkLpiEngaged = PpmParkLpiCap != 0;
     PpmParkLpiCapChanged = 0;
-    if ( v54 )
-      PpmEventLPICoreParking(v52, v53);
+    if ( v44 )
+      PpmEventLPICoreParking(v42, v43);
   }
   return 1;
 }

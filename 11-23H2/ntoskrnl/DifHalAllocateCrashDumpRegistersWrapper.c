@@ -1,12 +1,12 @@
 /*
- * XREFs of DifHalAllocateCrashDumpRegistersWrapper @ 0x1405DA860
+ * XREFs of DifHalAllocateCrashDumpRegistersWrapper @ 0x1405DADD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     HalAllocateCrashDumpRegisters @ 0x140501140 (HalAllocateCrashDumpRegisters.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     HalAllocateCrashDumpRegisters @ 0x140501690 (HalAllocateCrashDumpRegisters.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 PVOID __fastcall DifHalAllocateCrashDumpRegistersWrapper(PADAPTER_OBJECT AdapterObject, PULONG NumberOfMapRegisters)

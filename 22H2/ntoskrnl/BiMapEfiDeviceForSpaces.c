@@ -26,7 +26,7 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
   size_t v14; // r8
   const void *v15; // rbx
   char v17; // [rsp+60h] [rbp+8h] BYREF
-  SIZE_T NumberOfBytes; // [rsp+78h] [rbp+20h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+78h] [rbp+20h]
 
   v3 = *(_DWORD *)(a1 + 48);
   v17 = 0;
@@ -34,14 +34,14 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
   SystemPartition = 0;
   if ( (v3 & 8) == 0 )
   {
-    SystemPartition = SyspartGetSystemPartition(0LL, 0LL, &NumberOfBytes);
+    SystemPartition = SyspartGetSystemPartition(0LL);
     if ( (int)(SystemPartition + 0x80000000) < 0 || SystemPartition == -1073741789 )
     {
       PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
       v8 = PoolWithTag;
       if ( PoolWithTag )
       {
-        SystemPartition = SyspartGetSystemPartition(PoolWithTag, (unsigned int)NumberOfBytes, &NumberOfBytes);
+        SystemPartition = SyspartGetSystemPartition(PoolWithTag);
         if ( SystemPartition >= 0 )
         {
           SystemPartition = SyspartIsSpace(v8, &v17);

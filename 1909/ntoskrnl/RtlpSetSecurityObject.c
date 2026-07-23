@@ -41,7 +41,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int64 *v8; // rsi
   struct _SECURITY_SUBJECT_CONTEXT *p_SubjectContext; // r12
   __int64 v11; // r13
-  unsigned __int16 *v12; // r15
+  ACL *v12; // r15
   unsigned __int16 *v13; // r14
   __int64 v14; // r9
   __int16 v15; // ax
@@ -78,10 +78,10 @@ __int64 __fastcall RtlpSetSecurityObject(
   void *v46; // rdi
   void *v47; // rbx
   __int64 v49; // rax
-  unsigned __int8 *AceByType; // rax
-  unsigned __int8 *v51; // r13
-  unsigned __int8 *v52; // rax
-  __int64 TokenTrustLevel; // r13
+  _BYTE *AceByType; // rax
+  _BYTE *v51; // r13
+  char *v52; // rax
+  void *TokenTrustLevel; // r13
   int v54; // ecx
   __int64 v55; // r8
   int v56; // r11d
@@ -121,7 +121,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   int v90; // ecx
   char v91; // cl
   __int16 v92; // [rsp+58h] [rbp-B0h]
-  unsigned int v93; // [rsp+5Ch] [rbp-ACh] BYREF
+  ULONG Index; // [rsp+5Ch] [rbp-ACh] BYREF
   unsigned __int8 v94; // [rsp+60h] [rbp-A8h]
   bool v95; // [rsp+61h] [rbp-A7h]
   bool v96; // [rsp+62h] [rbp-A6h]
@@ -135,10 +135,10 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int16 v104; // [rsp+6Bh] [rbp-9Dh] BYREF
   void *Src; // [rsp+70h] [rbp-98h]
   PVOID v106; // [rsp+78h] [rbp-90h]
-  int v107; // [rsp+80h] [rbp-88h] BYREF
+  NTSTATUS v107; // [rsp+80h] [rbp-88h] BYREF
   PVOID v108; // [rsp+88h] [rbp-80h]
   PVOID v109; // [rsp+90h] [rbp-78h]
-  struct _SID_IDENTIFIER_AUTHORITY PoolType; // [rsp+98h] [rbp-70h] BYREF
+  _SID_IDENTIFIER_AUTHORITY PoolType; // [rsp+98h] [rbp-70h] BYREF
   PVOID v111; // [rsp+A0h] [rbp-68h]
   PVOID v112; // [rsp+A8h] [rbp-60h]
   __int64 *v113; // [rsp+B0h] [rbp-58h]
@@ -149,7 +149,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int64 *v118; // [rsp+D0h] [rbp-38h]
   PVOID P; // [rsp+D8h] [rbp-30h] BYREF
   size_t Size; // [rsp+E0h] [rbp-28h] BYREF
-  unsigned __int8 *v121; // [rsp+E8h] [rbp-20h]
+  char *v121; // [rsp+E8h] [rbp-20h]
   __int64 v122; // [rsp+F0h] [rbp-18h] BYREF
   __int64 v123; // [rsp+F8h] [rbp-10h] BYREF
   __int64 v124; // [rsp+100h] [rbp-8h] BYREF
@@ -224,13 +224,13 @@ __int64 __fastcall RtlpSetSecurityObject(
   {
     if ( v18 >= 0 )
     {
-      v12 = *(unsigned __int16 **)(v17 + 24);
+      v12 = *(ACL **)(v17 + 24);
     }
     else
     {
       v19 = *(unsigned int *)(v17 + 12);
       if ( (_DWORD)v19 )
-        v12 = (unsigned __int16 *)(v17 + v19);
+        v12 = (ACL *)(v17 + v19);
     }
   }
   if ( !a8 )
@@ -361,7 +361,7 @@ LABEL_188:
     goto LABEL_188;
   if ( (a2 & 0x1F8) == 0 )
   {
-    v13 = v12;
+    v13 = (unsigned __int16 *)v12;
     Src = v12;
     v28 = v112;
 LABEL_26:
@@ -510,7 +510,7 @@ LABEL_34:
         if ( ServerAcl >= 0 )
         {
           v131 = 4;
-          v93 = 0;
+          Index = 0;
           while ( 1 )
           {
             v67 = *((_WORD *)PoolWithTag + 1);
@@ -530,11 +530,11 @@ LABEL_34:
             {
               v69 = 0LL;
             }
-            AceBySid = RtlFindAceBySid(v69, &Sid, &v93);
+            AceBySid = RtlFindAceBySid(v69, &Sid, &Index);
             if ( !AceBySid )
               break;
             v91 = AceBySid[1] & 0xF4 | 8;
-            ++v93;
+            ++Index;
             AceBySid[1] = v91;
           }
           v41 = v113;
@@ -610,12 +610,12 @@ LABEL_54:
                   a7,
                   1,
                   (__int64)&v127,
-                  (__int64)&v93);
+                  (__int64)&Index);
     if ( ServerAcl >= 0 )
     {
       v30 = (unsigned __int16 *)v127;
       v99 = 1;
-      v92 |= v93 & 0x1408 | 4;
+      v92 |= Index & 0x1408 | 4;
       goto LABEL_33;
     }
 LABEL_205:
@@ -625,10 +625,10 @@ LABEL_205:
   LODWORD(Size) = a2 & 0x10;
   if ( (a2 & 0x10) != 0 )
   {
-    v93 = 0;
+    Index = 0;
     do
     {
-      AceByType = RtlFindAceByType((__int64)Src, 17, &v93);
+      AceByType = RtlFindAceByType((PACL)Src, 0x11u, &Index);
       v51 = AceByType;
       if ( AceByType )
       {
@@ -650,11 +650,11 @@ LABEL_189:
       }
       if ( !(unsigned __int8)SepValidLabelSubjectContext(v118, v52, v94) )
         goto LABEL_189;
-      ++v93;
+      ++Index;
     }
     while ( v51 );
   }
-  TokenTrustLevel = SepLocateTokenTrustLevel(v118);
+  TokenTrustLevel = (void *)SepLocateTokenTrustLevel(v118);
   LODWORD(v121) = a2 & 0x80;
   if ( (a2 & 0x80) == 0 )
   {
@@ -663,12 +663,12 @@ LABEL_88:
     v107 = v54;
     if ( (a2 & 0x100) != 0 )
     {
-      ServerAcl = RtlpValidFilterAclSubjectContext(Src, TokenTrustLevel);
+      ServerAcl = RtlpValidFilterAclSubjectContext((PACL)Src);
       if ( ServerAcl < 0 )
         goto LABEL_76;
       if ( (a5 & 2) == 0 )
       {
-        ServerAcl = RtlpValidFilterAclSubjectContext(v12, TokenTrustLevel);
+        ServerAcl = RtlpValidFilterAclSubjectContext(v12);
         if ( ServerAcl < 0 )
           goto LABEL_76;
       }
@@ -703,7 +703,7 @@ LABEL_92:
                           a7,
                           2,
                           (__int64)&v123,
-                          (__int64)&v93);
+                          (__int64)&Index);
             if ( ServerAcl < 0 )
             {
               v45 = (void *)v123;
@@ -713,7 +713,7 @@ LABEL_92:
             v55 = v114;
             v57 = Src;
             v56 = (int)v108;
-            v58 = (2 * (v93 & 0x1400 | (2 * (v93 & 8 | 4)))) | v92;
+            v58 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v92;
             v101 = 1;
             v54 = v107;
             v92 = v58;
@@ -751,7 +751,7 @@ LABEL_92:
                           a7,
                           2,
                           (__int64)&v124,
-                          (__int64)&v93);
+                          (__int64)&Index);
             if ( ServerAcl < 0 )
             {
               v28 = (void *)v124;
@@ -761,7 +761,7 @@ LABEL_92:
             v55 = v114;
             v57 = Src;
             v56 = (int)v108;
-            v58 = (2 * (v93 & 0x1400 | (2 * (v93 & 8 | 4)))) | v92;
+            v58 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v92;
             LOBYTE(v102) = 1;
             v54 = v107;
             v92 = v58;
@@ -810,7 +810,7 @@ LABEL_92:
                         a7,
                         2,
                         (__int64)&v125,
-                        (__int64)&v93);
+                        (__int64)&Index);
           if ( ServerAcl < 0 )
           {
             v46 = (void *)v125;
@@ -823,7 +823,7 @@ LABEL_92:
           v55 = v114;
           v57 = Src;
           v56 = (int)v108;
-          v58 = (2 * (v93 & 0x1400 | (2 * (v93 & 8 | 4)))) | v92;
+          v58 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v92;
           HIBYTE(v102) = 1;
           v54 = v107;
           v92 = v58;
@@ -850,7 +850,7 @@ LABEL_99:
                           a7,
                           2,
                           (__int64)&v126,
-                          (__int64)&v93);
+                          (__int64)&Index);
             if ( ServerAcl < 0 )
             {
               v47 = (void *)v126;
@@ -879,7 +879,7 @@ LABEL_66:
             v56 = (int)v108;
             v103 = 1;
             v111 = (PVOID)v126;
-            v58 = (2 * (v93 & 0x1400 | (2 * (v93 & 8 | 4)))) | v92;
+            v58 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v92;
             v92 = v58;
           }
           else
@@ -939,7 +939,7 @@ LABEL_66:
                     a7,
                     2,
                     (__int64)&v122,
-                    (__int64)&v93);
+                    (__int64)&Index);
       if ( ServerAcl < 0 )
       {
         v108 = (PVOID)v122;
@@ -958,7 +958,7 @@ LABEL_65:
       v55 = v114;
       v100 = 1;
       v108 = (PVOID)v122;
-      v92 = 2 * (v93 & 0x1400 | (2 * (v93 & 8 | 0x2004)));
+      v92 = 2 * (Index & 0x1400 | (2 * (Index & 8 | 0x2004)));
       v54 = v107;
     }
     else
@@ -971,20 +971,20 @@ LABEL_65:
   }
   if ( TokenTrustLevel )
   {
-    v93 = 0;
+    Index = 0;
     while ( 1 )
     {
-      v77 = RtlFindAceByType((__int64)Src, 20, &v93);
+      v77 = RtlFindAceByType((PACL)Src, 0x14u, &Index);
       v108 = v77;
       if ( v77 )
       {
         if ( (v77[1] & 0xFF000000) != 0 )
           goto LABEL_189;
-        if ( !RtlpValidTrustSubjectContext(TokenTrustLevel, (__int64)(v77 + 2), v78, &v107) )
+        if ( !RtlpValidTrustSubjectContext(TokenTrustLevel, v77 + 2, v78, &v107) )
           break;
         v77 = v108;
       }
-      ++v93;
+      ++Index;
       if ( !v77 )
         goto LABEL_88;
     }

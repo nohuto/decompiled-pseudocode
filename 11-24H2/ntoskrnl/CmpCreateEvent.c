@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCreateEvent @ 0x140930D80
+ * XREFs of CmpCreateEvent @ 0x140932EC0
  * Callers:
- *     CmpDoFileRead @ 0x140479BDC (CmpDoFileRead.c)
- *     CmpGetVolumeClusterSize @ 0x140930B1C (CmpGetVolumeClusterSize.c)
- *     CmpDoFileWrite @ 0x140A4F8F0 (CmpDoFileWrite.c)
+ *     CmpDoFileRead @ 0x14047546C (CmpDoFileRead.c)
+ *     CmpGetVolumeClusterSize @ 0x140932C5C (CmpGetVolumeClusterSize.c)
+ *     CmpDoFileWrite @ 0x140A466A0 (CmpDoFileWrite.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateEvent @ 0x1406A6D10 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1406A7CB0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmpCreateEvent(EVENT_TYPE EventType, HANDLE *a2, PVOID *a3)

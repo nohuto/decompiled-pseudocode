@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpAllocateActivationContextStackFrame @ 0x180012110
+ * XREFs of RtlpAllocateActivationContextStackFrame @ 0x18005D840
  * Callers:
- *     RtlActivateActivationContext @ 0x180011E50 (RtlActivateActivationContext.c)
- *     RtlActivateActivationContextEx @ 0x180011FC0 (RtlActivateActivationContextEx.c)
+ *     RtlActivateActivationContext @ 0x18005D580 (RtlActivateActivationContext.c)
+ *     RtlActivateActivationContextEx @ 0x18005D6F0 (RtlActivateActivationContextEx.c)
  * Callees:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpAllocateActivationContextStackFrame(__int64 a1, __int64 a2, _QWORD *a3)
@@ -69,7 +69,7 @@ __int64 __fastcall RtlpAllocateActivationContextStackFrame(__int64 a1, __int64 a
       }
       while ( v6 != (_QWORD *)v7 );
     }
-    Heap_0 = (_DWORD *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, 3104LL);
+    Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, 0xC20uLL);
     v15 = Heap_0;
     if ( Heap_0 )
     {

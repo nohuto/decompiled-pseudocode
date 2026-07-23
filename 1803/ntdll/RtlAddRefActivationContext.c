@@ -12,13 +12,19 @@
  *     <none>
  */
 
-void __fastcall RtlAddRefActivationContext(volatile signed __int32 *a1)
+void __cdecl RtlAddRefActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
-  signed __int32 i; // eax
+  LONG i; // eax
 
-  if ( a1 && (((unsigned __int64)a1 - 1) | 7) != 0xFFFFFFFFFFFFFFFFuLL && *a1 != 0x7FFFFFFF )
+  if ( ActivationContext
+    && (((unsigned __int64)&ActivationContext[-1].InlineStorageMapEntries[31] + 7) | 7) != 0xFFFFFFFFFFFFFFFFuLL
+    && ActivationContext->RefCount != 0x7FFFFFFF )
   {
-    for ( i = *a1; i != 0x7FFFFFFF && i != _InterlockedCompareExchange(a1, i + 1, i); i = *a1 )
+    for ( i = ActivationContext->RefCount;
+          i != 0x7FFFFFFF && i != _InterlockedCompareExchange(&ActivationContext->RefCount, i + 1, i);
+          i = ActivationContext->RefCount )
+    {
       ;
+    }
   }
 }

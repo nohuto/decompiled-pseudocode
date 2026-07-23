@@ -11,7 +11,7 @@
  *     @RtlpMoveActCtxToFreeList@4 @ 0x4B33D930 (@RtlpMoveActCtxToFreeList@4.c)
  */
 
-int __thiscall RtlpMoveActCtxToFreeList(_DWORD *this)
+NTSTATUS __thiscall RtlpMoveActCtxToFreeList(_DWORD *this)
 {
   int v2; // edx
   _DWORD *v3; // ecx
@@ -22,7 +22,7 @@ int __thiscall RtlpMoveActCtxToFreeList(_DWORD *this)
   _DWORD *v8; // edx
 
   RtlpEnsureLiveDeadListsInitialized();
-  RtlEnterCriticalSection((int)NtCurrentPeb()->FastPebLock);
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
   v2 = this[2];
   v3 = (_DWORD *)this[3];
   if ( *(_DWORD **)(v2 + 4) != this + 2 || (_DWORD *)*v3 != this + 2 )
@@ -47,7 +47,7 @@ int __thiscall RtlpMoveActCtxToFreeList(_DWORD *this)
   if ( !g_SxsMaxDeadActivationContexts )
   {
     RtlpFreeActivationContext((int)this);
-    return RtlLeaveCriticalSection((int)NtCurrentPeb()->FastPebLock);
+    return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
   }
   v7 = this + 2;
   v8 = (_DWORD *)dword_4B3A6A08;
@@ -59,5 +59,5 @@ LABEL_14:
   *v8 = v7;
   dword_4B3A6A08 = (int)(this + 2);
   g_SxsCurrentDeadActivationContexts = i + 1;
-  return RtlLeaveCriticalSection((int)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

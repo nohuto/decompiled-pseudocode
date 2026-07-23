@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpBuffersFlushRequired @ 0x14024D3B4
+ * XREFs of EtwpBuffersFlushRequired @ 0x14027D9C4
  * Callers:
- *     EtwpSwitchBuffer @ 0x14024CDA0 (EtwpSwitchBuffer.c)
- *     EtwInitialize @ 0x1407A6460 (EtwInitialize.c)
+ *     EtwpSwitchBuffer @ 0x14027D3B0 (EtwpSwitchBuffer.c)
+ *     EtwInitialize @ 0x1407A65A0 (EtwInitialize.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14024CFF4 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14027D604 (EtwpQueryUsedProcessorCount.c)
  */
 
 bool __fastcall EtwpBuffersFlushRequired(__int64 a1)

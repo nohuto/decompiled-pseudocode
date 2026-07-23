@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogTbFlushSlatInvalidateInsert @ 0x14064BF40
+ * XREFs of VmpLogTbFlushSlatInvalidateInsert @ 0x14064A500
  * Callers:
- *     VmpInsertInvalidateListRange @ 0x1403B12F8 (VmpInsertInvalidateListRange.c)
+ *     VmpInsertInvalidateListRange @ 0x14039FB08 (VmpInsertInvalidateListRange.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall VmpLogTbFlushSlatInvalidateInsert(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)
@@ -71,6 +71,6 @@ void __fastcall VmpLogTbFlushSlatInvalidateInsert(__int64 a1, __int64 a2, __int6
     v37 = v6 + 6;
     v16 = v10;
     v17 = v7;
-    tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_14005206B, v7, 0, v12, v13, v6 + 6, &v20);
+    tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&word_140052512, v7, 0, v12, v13, v6 + 6, &v20);
   }
 }

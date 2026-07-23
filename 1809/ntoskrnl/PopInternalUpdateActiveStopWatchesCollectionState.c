@@ -3,8 +3,8 @@
  * Callers:
  *     PoPauseStopWatch @ 0x140001F30 (PoPauseStopWatch.c)
  *     PoStartStopWatch @ 0x140001F80 (PoStartStopWatch.c)
- *     PoArmStopWatchCollection @ 0x1402E91D0 (PoArmStopWatchCollection.c)
- *     PoUnarmStopWatchCollection @ 0x1402E92A4 (PoUnarmStopWatchCollection.c)
+ *     PoArmStopWatchCollection @ 0x1402E93C0 (PoArmStopWatchCollection.c)
+ *     PoUnarmStopWatchCollection @ 0x1402E9494 (PoUnarmStopWatchCollection.c)
  * Callees:
  *     <none>
  */

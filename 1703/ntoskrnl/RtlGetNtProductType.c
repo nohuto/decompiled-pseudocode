@@ -15,7 +15,7 @@
 BOOLEAN __stdcall RtlGetNtProductType(PNT_PRODUCT_TYPE ProductType)
 {
   BOOLEAN v2; // bl
-  enum _NT_PRODUCT_TYPE v3; // eax
+  _NT_PRODUCT_TYPE v3; // eax
 
   v2 = 0;
   if ( (unsigned __int8)PsIsCurrentThreadInServerSilo() )

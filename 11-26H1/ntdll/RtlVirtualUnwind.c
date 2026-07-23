@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlVirtualUnwind @ 0x1800B4070
+ * XREFs of RtlVirtualUnwind @ 0x1800B1590
  * Callers:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x1801269E0 (__report_gsfailure.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x180126750 (__report_gsfailure.c)
  * Callees:
- *     RtlpSanitizeContext @ 0x1800B49F0 (RtlpSanitizeContext.c)
- *     ??$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT@@@@YAJK_K0VCDirectFnEnt@@PEAU_CONTEXT@@PEAEPEAPEAXPEA_KPEAP6A?AW4_EXCEPTION_DISPOSITION@@PEAU_EXCEPTION_RECORD@@PEAX27@ZPEAU_AMD64_UNWIND_PARAMS@@KPEAK@Z @ 0x18014BB2C (--$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT@@.c)
+ *     RtlpSanitizeContext @ 0x1800B1F10 (RtlpSanitizeContext.c)
+ *     ??$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT@@@@YAJK_K0VCDirectFnEnt@@PEAU_CONTEXT@@PEAEPEAPEAXPEA_KPEAP6A?AW4_EXCEPTION_DISPOSITION@@PEAU_EXCEPTION_RECORD@@PEAX27@ZPEAU_AMD64_UNWIND_PARAMS@@KPEAK@Z @ 0x18014B9DC (--$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT@@.c)
  */
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBase, ULONG64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
@@ -16,7 +16,7 @@ PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBa
   int v11; // esi
   int v12; // ebp
   _QWORD v14[4]; // [rsp+60h] [rbp-38h] BYREF
-  EXCEPTION_ROUTINE *v15; // [rsp+B8h] [rbp+20h] BYREF
+  EXCEPTION_DISPOSITION (__cdecl *v15)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+B8h] [rbp+20h] BYREF
 
   v8 = ContextRecord;
   v15 = 0LL;

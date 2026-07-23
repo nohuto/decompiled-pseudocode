@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLogAuditTerminateRemoteProcessEvent @ 0x1409562B4
+ * XREFs of PspLogAuditTerminateRemoteProcessEvent @ 0x140B01D40
  * Callers:
- *     NtTerminateProcess @ 0x1409566C0 (NtTerminateProcess.c)
+ *     NtTerminateProcess @ 0x140B812E0 (NtTerminateProcess.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS PspLogAuditTerminateRemoteProcessEvent(int a1, int a2, ...)
@@ -35,10 +35,5 @@ NTSTATUS PspLogAuditTerminateRemoteProcessEvent(int a1, int a2, ...)
   va_copy(v6, va);
   va_copy(v8, va1);
   v9 = 8LL;
-  return EtwWrite(
-           (REGHANDLE)EtwpSecurityLock.MutantListHead.Flink,
-           &KERNEL_AUDIT_API_TERMINATEPROCESS,
-           0LL,
-           4u,
-           &UserData);
+  return EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_TERMINATEPROCESS, 0LL, 4u, &UserData);
 }

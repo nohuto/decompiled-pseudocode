@@ -3,10 +3,10 @@
  * Callers:
  *     CcInitializeCacheManager @ 0x140B49A88 (CcInitializeCacheManager.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140875774 (CcSetTelemetryPeriodicTimer.c)
- *     TraceLoggingRegister_EtwRegister_EtwSetInformation @ 0x140933864 (TraceLoggingRegister_EtwRegister_EtwSetInformation.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x1408759B4 (CcSetTelemetryPeriodicTimer.c)
+ *     TraceLoggingRegister_EtwRegister_EtwSetInformation @ 0x140933A64 (TraceLoggingRegister_EtwRegister_EtwSetInformation.c)
  */
 
 char __fastcall CcInitializeTelemetry(int a1)

@@ -1,28 +1,28 @@
 /*
- * XREFs of PopFxSetDeviceAccountingCsPlatformState @ 0x14056C884
+ * XREFs of PopFxSetDeviceAccountingCsPlatformState @ 0x14056CAC4
  * Callers:
- *     PopFxEnablePlatformStates @ 0x14056AA20 (PopFxEnablePlatformStates.c)
+ *     PopFxEnablePlatformStates @ 0x14056AC60 (PopFxEnablePlatformStates.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x14036FCD0 (PopFxActivateDevice.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoFxIdleDevice @ 0x14036FCE4 (PoFxIdleDevice.c)
+ *     PopFxActivateDevice @ 0x14036FE80 (PopFxActivateDevice.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopPepGetMinimumComponentIdleState @ 0x140574780 (PopPepGetMinimumComponentIdleState.c)
- *     PopPepGetMinimumDevicePowerState @ 0x140574890 (PopPepGetMinimumDevicePowerState.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopPepGetMinimumComponentIdleState @ 0x1405749C0 (PopPepGetMinimumComponentIdleState.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x140574AD0 (PopPepGetMinimumDevicePowerState.c)
  */
 
-__int64 __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
+NTSTATUS __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
 {
   unsigned int v1; // r14d
-  __int64 result; // rax
-  int v3; // r12d
+  NTSTATUS result; // eax
+  NTSTATUS v3; // r12d
   struct _KTHREAD *CurrentThread; // rcx
   ULONG_PTR i; // rsi
   __int64 v6; // rax
@@ -44,15 +44,18 @@ __int64 __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
   struct _KPRCB *v22; // r10
   _DWORD *v23; // r9
   int v24; // eax
-  char v26; // [rsp+98h] [rbp+10h] BYREF
-  int v27; // [rsp+A0h] [rbp+18h] BYREF
-  __int64 v28; // [rsp+A8h] [rbp+20h]
+  __int64 v25; // rdx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  char Buffer; // [rsp+98h] [rbp+10h] BYREF
+  int v30; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v31; // [rsp+A8h] [rbp+20h]
 
   v1 = a1;
-  v27 = 0;
-  result = (unsigned int)_InterlockedCompareExchange(&PopFxDeviceAccountingLevel, 0, 0);
+  v30 = 0;
+  result = _InterlockedCompareExchange(&PopFxDeviceAccountingLevel, 0, 0);
   v3 = result;
-  if ( (int)result <= 0 )
+  if ( result <= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -63,16 +66,16 @@ __int64 __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
       if ( v6 )
       {
         v7 = *(_QWORD *)(v6 + 32);
-        v28 = v7;
+        v31 = v7;
         PopFxActivateDevice(v7, 0, 0);
         LOBYTE(v8) = 1;
-        MinimumDevicePowerState = PopPepGetMinimumDevicePowerState(*(_QWORD *)(i + 56), v1, v8, (unsigned int)&v27, 0LL);
+        MinimumDevicePowerState = PopPepGetMinimumDevicePowerState(*(_QWORD *)(i + 56), v1, v8, (unsigned int)&v30, 0LL);
         v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(i + 600));
         *(_DWORD *)(i + 616) = v3;
         memset((void *)(i + 632), 0, 0xC0uLL);
-        if ( MinimumDevicePowerState && v27 > 1 )
+        if ( MinimumDevicePowerState && v30 > 1 )
         {
-          *(_DWORD *)(i + 612) = v27;
+          *(_DWORD *)(i + 612) = v30;
           *(_BYTE *)(i + 608) = 1;
           *(_QWORD *)(i + 624) = MEMORY[0xFFFFF78000000008];
           _InterlockedOr((volatile signed __int32 *)(i + 824), 0x10u);
@@ -108,14 +111,14 @@ __int64 __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
         do
         {
           v18 = *(_QWORD *)(*(_QWORD *)(i + 832) + 8LL * v17) + 200LL;
-          MinimumComponentIdleState = PopPepGetMinimumComponentIdleState(*(_QWORD *)(i + 56), v17, a1, &v27);
+          MinimumComponentIdleState = PopPepGetMinimumComponentIdleState(*(_QWORD *)(i + 56), v17, a1, &v30);
           v20 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v18);
           *(_DWORD *)(v18 + 16) = v3;
           memset((void *)(v18 + 32), 0, 0xC0uLL);
-          if ( MinimumComponentIdleState && v27 )
+          if ( MinimumComponentIdleState && v30 )
           {
             v16 = 1;
-            *(_DWORD *)(v18 + 12) = v27;
+            *(_DWORD *)(v18 + 12) = v30;
             *(_BYTE *)(v18 + 8) = 1;
             *(_QWORD *)(v18 + 24) = MEMORY[0xFFFFF78000000008];
             _InterlockedOr((volatile signed __int32 *)(i + 824), 0x10u);
@@ -147,7 +150,7 @@ __int64 __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
           ++v17;
         }
         while ( v17 < *(_DWORD *)(i + 828) );
-        v7 = v28;
+        v7 = v31;
         v1 = a1;
         if ( v16 )
           _InterlockedOr((volatile signed __int32 *)(i + 824), 0x100u);
@@ -160,9 +163,9 @@ LABEL_30:
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
     KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    v26 = 1;
-    return ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, (__int64)&v26);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v25, v26, v27);
+    Buffer = 1;
+    return ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, &Buffer, 1u, 0LL, 0LL, 0, 0);
   }
   return result;
 }

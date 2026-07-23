@@ -10,20 +10,20 @@
  *     <none>
  */
 
-int __stdcall RtlTryEnterCriticalSection(int a1)
+LOGICAL __cdecl RtlTryEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   struct _TEB *v1; // edx
 
   v1 = NtCurrentTeb();
-  if ( _interlockedbittestandreset((volatile signed __int32 *)(a1 + 4), 0) )
+  if ( _interlockedbittestandreset(&CriticalSection->LockCount, 0) )
   {
-    *(_DWORD *)(a1 + 12) = v1->ClientId.UniqueThread;
-    *(_DWORD *)(a1 + 8) = 1;
+    CriticalSection->OwningThread = v1->ClientId.UniqueThread;
+    CriticalSection->RecursionCount = 1;
     return 1;
   }
-  else if ( *(void **)(a1 + 12) == v1->ClientId.UniqueThread )
+  else if ( CriticalSection->OwningThread == v1->ClientId.UniqueThread )
   {
-    ++*(_DWORD *)(a1 + 8);
+    ++CriticalSection->RecursionCount;
     return 1;
   }
   else

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReferenceIoPages @ 0x14009C300
+ * XREFs of MiReferenceIoPages @ 0x14009BB00
  * Callers:
- *     MiProbeLockFrame @ 0x14002F730 (MiProbeLockFrame.c)
- *     MiMapContiguousMemory @ 0x14009B8AC (MiMapContiguousMemory.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MmRotatePhysicalView @ 0x1405281DC (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x140528600 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
+ *     MiProbeLockFrame @ 0x14002F2B0 (MiProbeLockFrame.c)
+ *     MiMapContiguousMemory @ 0x14009B0AC (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmRotatePhysicalView @ 0x14052871C (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140528B40 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
  *     MiAddLoaderHalIoMappings @ 0x1407A3F38 (MiAddLoaderHalIoMappings.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiDereferenceIoPages @ 0x14009BF70 (MiDereferenceIoPages.c)
- *     MiIoSpaceIsConstant @ 0x14009C758 (MiIoSpaceIsConstant.c)
- *     MiRemoveUnmappedIoNode @ 0x14009C7D8 (MiRemoveUnmappedIoNode.c)
- *     MiInitializeIoPageNodeArray @ 0x14009C894 (MiInitializeIoPageNodeArray.c)
- *     MiFlushCacheMdl @ 0x140126B9C (MiFlushCacheMdl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiDereferenceIoPages @ 0x14009B770 (MiDereferenceIoPages.c)
+ *     MiIoSpaceIsConstant @ 0x14009BF58 (MiIoSpaceIsConstant.c)
+ *     MiRemoveUnmappedIoNode @ 0x14009BFD8 (MiRemoveUnmappedIoNode.c)
+ *     MiInitializeIoPageNodeArray @ 0x14009C094 (MiInitializeIoPageNodeArray.c)
+ *     MiFlushCacheMdl @ 0x14012710C (MiFlushCacheMdl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -71,11 +71,11 @@ __int64 __fastcall MiReferenceIoPages(int a1, __int64 a2, __int64 a3, int a4, _D
     *a6 = 0LL;
   v7 = -1LL;
   v36 = 0;
-  v8 = &qword_1403275C8[a1];
+  v8 = &qword_140327608[a1];
   v9 = a2 & 0xFFFFFFFFFLL;
   v41 = (unsigned __int64 *)v8;
   v43 = a2 & 0xFFFFFFFFFLL;
-  v10 = &qword_1403275D8;
+  v10 = &qword_140327618;
   v11 = 0LL;
   v12 = 0;
   if ( a1 != 1 )
@@ -91,7 +91,7 @@ __int64 __fastcall MiReferenceIoPages(int a1, __int64 a2, __int64 a3, int a4, _D
     if ( IsConstant )
       a4 = *(_DWORD *)(IsConstant + 40);
   }
-  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_1403275C0, &LockHandle);
+  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327600, &LockHandle);
   v16 = v39;
   if ( v39 )
   {
@@ -199,22 +199,22 @@ LABEL_36:
       if ( (v28 & 0x3FFF) != 0 )
       {
         if ( v29 == a4 )
-          ++dword_140327600;
+          ++dword_140327640;
         else
-          ++dword_140327604;
+          ++dword_140327644;
       }
       else
       {
         ++v21[7];
         if ( v29 == a4 )
         {
-          ++dword_14032760C;
+          ++dword_14032764C;
         }
         else
         {
           if ( v40 && (v28 & 0xC000) == 0x4000 && !v27 )
           {
-            ++dword_140327610;
+            ++dword_140327650;
             if ( !v11 )
             {
               v11 = &v45;
@@ -223,7 +223,7 @@ LABEL_36:
             *v14++ = v9;
             if ( v14 == (unsigned __int64 *)(v11 + 176) )
             {
-              ++dword_140327608;
+              ++dword_140327648;
               *(_QWORD *)v11 = 0LL;
               *((_DWORD *)v11 + 2) = 131248;
               *((_QWORD *)v11 + 4) = 0LL;
@@ -265,7 +265,7 @@ LABEL_39:
       *((_DWORD *)v11 + 10) = v32;
       *((_WORD *)v11 + 4) = 8 * (((v32 + 4095) >> 12) + 6);
       *((_WORD *)v11 + 5) = 2;
-      ++dword_140327608;
+      ++dword_140327648;
       MiFlushCacheMdl(v32, v23, v24);
     }
     v6 = a1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of CcIsThereDirtyData @ 0x1401B212C
+ * XREFs of CcIsThereDirtyData @ 0x1401B2010
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 BOOLEAN __stdcall CcIsThereDirtyData(PVPB Vpb)

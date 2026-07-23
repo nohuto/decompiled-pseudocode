@@ -64,7 +64,7 @@ LONG __stdcall RtlIpv6StringToAddressW(PCWSTR S, PCWSTR *Terminator, struct in6_
         ++v14;
         v20 = v4;
         v24 = v14;
-        Addr->u.Word[v18] = 0;
+        *((_WORD *)Addr + v18) = 0;
         ++v6;
         v7 = 2;
         goto LABEL_14;
@@ -171,7 +171,7 @@ LABEL_14:
     {
       if ( v12 > 4 )
         return -1073741811;
-      Addr->u.Word[v24] = __ROR2__(wcstol(v8, 0LL, 16), 8);
+      *((_WORD *)Addr + v24) = __ROR2__(wcstol(v8, 0LL, 16), 8);
       v14 = ++v24;
       goto LABEL_29;
     }
@@ -180,7 +180,7 @@ LABEL_14:
     v17 = wcstol(v8, 0LL, 10);
     if ( v17 > 0xFF )
       return -1073741811;
-    Addr->u.Byte[2 * v24 - 1 + v11] = v17;
+    *((_BYTE *)Addr + 2 * v24 + v11 - 1) = v17;
 LABEL_28:
     v14 = v24;
 LABEL_29:
@@ -205,24 +205,24 @@ LABEL_24:
       v19 = wcstol(String, 0LL, 10);
       if ( v19 > 0xFF )
         return -1073741811;
-      Addr->u.Byte[2 * v24 + v11] = v19;
+      *((_BYTE *)Addr + 2 * v24 + v11) = v19;
     }
     else
     {
       if ( v12 > 4 )
         return -1073741811;
-      Addr->u.Word[v24] = __ROR2__(wcstol(String, 0LL, 16), 8);
+      *((_WORD *)Addr + v24) = __ROR2__(wcstol(String, 0LL, 16), 8);
     }
   }
   else
   {
     if ( v7 != 2 )
       return -1073741811;
-    Addr->u.Word[v24] = 0;
+    *((_WORD *)Addr + v24) = 0;
   }
   if ( v13 )
   {
-    memmove((char *)&Addr[1] + 2 * (v13 - v10), (char *)Addr + 2 * v13, 2LL * (v10 - v13));
+    memmove((char *)Addr + 2 * (v13 - v10) + 16, (char *)Addr + 2 * v13, 2LL * (v10 - v13));
     memset((char *)Addr + 2 * v13, 0, 2LL * (8 - v10));
   }
   return 0;

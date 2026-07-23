@@ -1,10 +1,10 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x14089166C
+ * XREFs of BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x140897A68
  * Callers:
- *     BiConvertBootEnvironmentDeviceToElement @ 0x140B4AF34 (BiConvertBootEnvironmentDeviceToElement.c)
+ *     BiConvertBootEnvironmentDeviceToElement @ 0x140B4CCC4 (BiConvertBootEnvironmentDeviceToElement.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertBootEnvironmentDeviceToQualifiedPartition(__int64 a1, __int64 *a2, _DWORD *a3)

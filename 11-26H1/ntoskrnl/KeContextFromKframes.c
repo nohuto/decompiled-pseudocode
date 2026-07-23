@@ -1,15 +1,15 @@
 /*
- * XREFs of KeContextFromKframes @ 0x1403D46B0
+ * XREFs of KeContextFromKframes @ 0x1403D7680
  * Callers:
- *     KiDispatchException @ 0x1403D3400 (KiDispatchException.c)
- *     KiInitializeUserApc @ 0x140446248 (KiInitializeUserApc.c)
- *     KiSaveProcessorState @ 0x1405FD570 (KiSaveProcessorState.c)
+ *     KiDispatchException @ 0x1403D63D0 (KiDispatchException.c)
+ *     KiInitializeUserApc @ 0x14043ED48 (KiInitializeUserApc.c)
+ *     KiSaveProcessorState @ 0x1405FFFC0 (KiSaveProcessorState.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D4CB0 (RtlpLocateExtendedOrSupervisorFeature.c)
- *     RtlXSave @ 0x1403D4DC0 (RtlXSave.c)
- *     RtlCopyXStateArea @ 0x14050C380 (RtlCopyXStateArea.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D7C80 (RtlpLocateExtendedOrSupervisorFeature.c)
+ *     RtlXSave @ 0x1403D7D90 (RtlXSave.c)
+ *     RtlCopyXStateArea @ 0x140505DF0 (RtlCopyXStateArea.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall KeContextFromKframes(__int64 a1, __int64 a2, __int64 a3)

@@ -3,16 +3,17 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToPagedLookasideList @ 0x140203D50 (ExFreeToPagedLookasideList.c)
+ *     sub_140203D50 @ 0x140203D50 (sub_140203D50.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
 {
+  __int64 v1; // r8
   LIST_ENTRY *p_TimerQueue; // rbx
   TUNNEL *Flink; // rax
-  TUNNEL *v3; // rdi
-  LIST_ENTRY *v4; // rcx
+  TUNNEL *v4; // rdi
+  _SLIST_ENTRY *v5; // rcx
 
   if ( *(_DWORD *)((char *)&NlsMbCodePageTag + 1) )
   {
@@ -24,15 +25,15 @@ void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
     {
       do
       {
-        v3 = *(TUNNEL **)&Flink->Mutex.Count;
-        v4 = &Flink[-1].TimerQueue;
+        v4 = *(TUNNEL **)&Flink->Mutex.Count;
+        v5 = (_SLIST_ENTRY *)&Flink[-1].TimerQueue;
         if ( ((__int64)Flink->Mutex.Event.Header.WaitListHead.Flink & 1) != 0 )
-          ExFreePoolWithTag(v4, 0);
+          ExFreePoolWithTag(v5, 0);
         else
-          ExFreeToPagedLookasideList(&TunnelLookasideList, v4);
-        Flink = v3;
+          sub_140203D50((__int64)&stru_140CF88C0, v5, v1);
+        Flink = v4;
       }
-      while ( v3 != (TUNNEL *)p_TimerQueue );
+      while ( v4 != (TUNNEL *)p_TimerQueue );
     }
     p_TimerQueue->Blink = p_TimerQueue;
     p_TimerQueue->Flink = p_TimerQueue;

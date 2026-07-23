@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpTraceStackWalk @ 0x1403EDBD0
+ * XREFs of EtwpTraceStackWalk @ 0x1403DDBA0
  * Callers:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     EtwpStackWalkApc @ 0x1403ED4B0 (EtwpStackWalkApc.c)
- *     EtwpStackTraceDispatcher @ 0x1403ED650 (EtwpStackTraceDispatcher.c)
- *     EtwpApcPoolThunk @ 0x1403ED870 (EtwpApcPoolThunk.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     EtwpStackWalkApc @ 0x1403DD480 (EtwpStackWalkApc.c)
+ *     EtwpStackTraceDispatcher @ 0x1403DD620 (EtwpStackTraceDispatcher.c)
+ *     EtwpApcPoolThunk @ 0x1403DD840 (EtwpApcPoolThunk.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     KeQueryCurrentStackInformationEx @ 0x140259BD0 (KeQueryCurrentStackInformationEx.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x14027D7A0 (KeExpandKernelStackAndCalloutInternal.c)
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
- *     Feature_ETWStackExpandedStackwalks__private_IsEnabledDeviceUsageNoInline @ 0x1403EE684 (Feature_ETWStackExpandedStackwalks__private_IsEnabledDeviceUsageNoInline.c)
- *     EtwpTraceStackKey @ 0x1403EE6C0 (EtwpTraceStackKey.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KeGetCurrentStackPointer @ 0x1406AA390 (KeGetCurrentStackPointer.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     PsPicoWalkUserStack @ 0x140AA6D94 (PsPicoWalkUserStack.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140232D30 (KeExpandKernelStackAndCalloutInternal.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14028A1E0 (KeQueryCurrentStackInformationEx.c)
+ *     Feature_ETWStackExpandedStackwalks__private_IsEnabledDeviceUsageNoInline @ 0x1403DE574 (Feature_ETWStackExpandedStackwalks__private_IsEnabledDeviceUsageNoInline.c)
+ *     EtwpTraceStackKey @ 0x1403DE5B0 (EtwpTraceStackKey.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x1406AB330 (KeGetCurrentStackPointer.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     PsPicoWalkUserStack @ 0x140AA1E90 (PsPicoWalkUserStack.c)
  */
 
 char __fastcall EtwpTraceStackWalk(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -31,7 +31,7 @@ char __fastcall EtwpTraceStackWalk(__int64 a1, __int64 a2, __int64 a3, _QWORD *a
   PSLIST_ENTRY v10; // rsi
   int v11; // edx
   unsigned int v12; // r12d
-  struct _SLIST_ENTRY *v13; // r13
+  _SLIST_ENTRY *v13; // r13
   unsigned int v14; // edi
   ULONG v15; // r12d
   ULONG_PTR v16; // r13
@@ -42,7 +42,7 @@ char __fastcall EtwpTraceStackWalk(__int64 a1, __int64 a2, __int64 a3, _QWORD *a
   unsigned int v21; // edi
   ULONG_PTR v22; // r8
   __int64 Next_low; // rcx
-  union _SLIST_HEADER *v24; // rcx
+  _SLIST_HEADER *v24; // rcx
   unsigned int v25; // r14d
   bool v26; // zf
   unsigned int v27; // r8d
@@ -203,7 +203,7 @@ LABEL_20:
       Next_low = LODWORD(v10[1].Next);
       if ( (_DWORD)Next_low == -1 )
       {
-        _InterlockedDecrement(&dword_140E28E9C);
+        _InterlockedDecrement(&dword_140E28FDC);
         v24 = &EtwpStackLookAsideList;
       }
       else
@@ -213,7 +213,7 @@ LABEL_20:
           _mm_lfence();
           v4 = KiProcessorBlock[Next_low];
         }
-        v24 = (union _SLIST_HEADER *)(*(_QWORD *)(v4 + 35752) + 384LL);
+        v24 = (_SLIST_HEADER *)(*(_QWORD *)(v4 + 35752) + 384LL);
       }
       LOBYTE(v8) = (unsigned __int8)RtlpInterlockedPushEntrySList(v24, v10);
       return v8;
@@ -268,13 +268,13 @@ LABEL_53:
   v10 = RtlpInterlockedPopEntrySList(&EtwpStackLookAsideList);
   if ( v10 )
   {
-    _InterlockedIncrement(&dword_140E28E9C);
-    if ( dword_140E28E9C > dword_140E28EA0 )
-      _InterlockedExchange(&dword_140E28EA0, dword_140E28E9C);
+    _InterlockedIncrement(&dword_140E28FDC);
+    if ( dword_140E28FDC > dword_140E28FE0 )
+      _InterlockedExchange(&dword_140E28FE0, dword_140E28FDC);
     goto LABEL_5;
   }
-  LOBYTE(v8) = dword_140E28E90;
-  if ( dword_140E28E90 > 0 )
-    _InterlockedIncrement(&dword_140E28EA4);
+  LOBYTE(v8) = dword_140E28FD0;
+  if ( dword_140E28FD0 > 0 )
+    _InterlockedIncrement(&dword_140E28FE4);
   return v8;
 }

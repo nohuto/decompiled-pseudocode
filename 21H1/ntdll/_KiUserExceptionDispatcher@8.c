@@ -11,13 +11,13 @@
  */
 
 // positive sp value has been detected, the output may be wrong!
-int __stdcall KiUserExceptionDispatcher(int a1, int a2)
+int __stdcall KiUserExceptionDispatcher(PCONTEXT ContextRecord, int a2)
 {
-  _EXCEPTION_RECORD *v3; // ebx
-  int v4; // eax
+  PEXCEPTION_RECORD v3; // ebx
+  NTSTATUS v4; // eax
   _DWORD v5[3]; // [esp-8h] [ebp-14h] BYREF
-  _EXCEPTION_RECORD *v6; // [esp+4h] [ebp-8h]
-  int v7; // [esp+8h] [ebp-4h]
+  PEXCEPTION_RECORD v6; // [esp+4h] [ebp-8h]
+  PCONTEXT v7; // [esp+8h] [ebp-4h]
 
   if ( !LdrDelegatedKiUserExceptionDispatcher )
   {
@@ -25,12 +25,12 @@ int __stdcall KiUserExceptionDispatcher(int a1, int a2)
     if ( RtlDispatchException(v6, v7) )
       v4 = ZwContinue(v7, 0);
     else
-      v4 = ZwRaiseException((int)v6, v7, 0);
+      v4 = ZwRaiseException(v6, v7, 0);
     v5[0] = v4;
     v5[1] = 1;
     v5[2] = v3;
     v7 = 0;
     RtlRaiseException((PEXCEPTION_RECORD)v5);
   }
-  return ((int (__stdcall *)(int, int))LdrDelegatedKiUserExceptionDispatcher)(a1, a2);
+  return ((int (__stdcall *)(PCONTEXT, int))LdrDelegatedKiUserExceptionDispatcher)(ContextRecord, a2);
 }

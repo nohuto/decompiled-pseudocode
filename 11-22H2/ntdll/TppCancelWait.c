@@ -15,21 +15,18 @@
 char __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
 {
   int v4; // r8d
-  __int64 v6; // rbx
   _BYTE *v8; // rbx
   char v9; // bp
   char result; // al
-  int v11; // eax
+  NTSTATUS v11; // eax
   __int64 v12; // r8
   char v13; // al
   char v14; // al
 
   v4 = a3 & 2;
-  v6 = a2;
   if ( *(_QWORD *)(a1 + 360) )
   {
-    LOBYTE(a2) = v4 != 0;
-    v11 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), a2);
+    v11 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 368), v4 != 0);
     if ( v11 )
     {
       if ( v11 != 259 && v11 != -1073741536 )
@@ -49,7 +46,7 @@ char __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
       *(_QWORD *)(a1 + 360) = 0LL;
       v9 = 1;
       LOBYTE(v12) = 1;
-      v13 = TppCancelTimer(a1, v6, v12);
+      v13 = TppCancelTimer(a1, a2, v12);
       *a4 = -1;
       if ( v13 )
         *a4 = -2;

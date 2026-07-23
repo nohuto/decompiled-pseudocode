@@ -1,11 +1,11 @@
 /*
- * XREFs of ExTryConvertSharedToExclusiveLite @ 0x14022D9F4
+ * XREFs of ExTryConvertSharedToExclusiveLite @ 0x14022D820
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x140601798 (CmpReplicateKeyToVirtual.c)
+ *     CmpReplicateKeyToVirtual @ 0x14060184C (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     ExpFindCurrentThread @ 0x1400970C0 (ExpFindCurrentThread.c)
- *     EXP_LOCK_RESOURCE @ 0x14022D8A4 (EXP_LOCK_RESOURCE.c)
- *     EXP_UNLOCK_RESOURCE @ 0x14022D918 (EXP_UNLOCK_RESOURCE.c)
+ *     ExpFindCurrentThread @ 0x1400968C0 (ExpFindCurrentThread.c)
+ *     EXP_LOCK_RESOURCE @ 0x14022D6D0 (EXP_LOCK_RESOURCE.c)
+ *     EXP_UNLOCK_RESOURCE @ 0x14022D744 (EXP_UNLOCK_RESOURCE.c)
  */
 
 char ExTryConvertSharedToExclusiveLite()

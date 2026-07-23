@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetIntegerAtom @ 0x140993300
+ * XREFs of RtlGetIntegerAtom @ 0x14097E340
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x140431DA0 (RtlAddAtomToAtomTableEx.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1404242E0 (RtlAddAtomToAtomTableEx.c)
  * Callees:
- *     RtlUnicodeStringToInteger @ 0x1409933D0 (RtlUnicodeStringToInteger.c)
+ *     RtlUnicodeStringToInteger @ 0x14097E410 (RtlUnicodeStringToInteger.c)
  */
 
-char __fastcall RtlGetIntegerAtom(unsigned __int64 a1, _WORD *a2)
+BOOLEAN __cdecl RtlGetIntegerAtom(PWSTR AtomName, PUSHORT IntegerAtom)
 {
   wchar_t *v3; // rcx
   wchar_t *i; // rax
@@ -14,11 +14,11 @@ char __fastcall RtlGetIntegerAtom(unsigned __int64 a1, _WORD *a2)
   ULONG Value; // [rsp+40h] [rbp+8h] BYREF
 
   String = 0LL;
-  if ( (a1 & 0xFFFFFFFFFFFF0000uLL) != 0 )
+  if ( ((unsigned __int64)AtomName & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    if ( *(_WORD *)a1 != 35 )
+    if ( *AtomName != 35 )
       return 0;
-    v3 = (wchar_t *)(a1 + 2);
+    v3 = AtomName + 1;
     for ( i = v3; *i; ++i )
     {
       if ( (unsigned __int16)(*i - 48) > 9u )
@@ -30,22 +30,22 @@ char __fastcall RtlGetIntegerAtom(unsigned __int64 a1, _WORD *a2)
     Value = 0;
     if ( RtlUnicodeStringToInteger(&String, 0xAu, &Value) < 0 )
       return 0;
-    if ( a2 )
+    if ( IntegerAtom )
     {
       if ( Value - 1 > 0xBFFF )
-        *a2 = -16384;
+        *IntegerAtom = -16384;
       else
-        *a2 = Value;
+        *IntegerAtom = Value;
     }
   }
   else
   {
-    if ( (unsigned __int16)a1 >= 0xC000u )
+    if ( (unsigned __int16)AtomName >= 0xC000u )
       return 0;
-    if ( !(_WORD)a1 )
-      LOWORD(a1) = -16384;
-    if ( a2 )
-      *a2 = a1;
+    if ( !(_WORD)AtomName )
+      LOWORD(AtomName) = -16384;
+    if ( IntegerAtom )
+      *IntegerAtom = (unsigned __int16)AtomName;
   }
   return 1;
 }

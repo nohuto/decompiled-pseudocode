@@ -1,39 +1,37 @@
 /*
- * XREFs of NtRequestPort @ 0x140B292B0
+ * XREFs of NtRequestPort @ 0x140B2B7F0
  * Callers:
- *     DifNtRequestPortWrapper @ 0x140689900 (DifNtRequestPortWrapper.c)
+ *     DifNtRequestPortWrapper @ 0x14068D4E0 (DifNtRequestPortWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
  */
 
-__int64 __fastcall NtRequestPort(HANDLE Handle, __m256i *a2)
+NTSTATUS __cdecl NtRequestPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage)
 {
-  int v4; // edi
+  NTSTATUS v4; // edi
   PVOID v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v10[6]; // [rsp+30h] [rbp-48h] BYREF
-  int v11; // [rsp+60h] [rbp-18h]
+  __int64 v8[6]; // [rsp+30h] [rbp-48h] BYREF
+  int v9; // [rsp+60h] [rbp-18h]
   PVOID Object; // [rsp+90h] [rbp+18h] BYREF
 
-  memset_0(v10, 0, 0x40uLL);
+  memset_0(v8, 0, 0x40uLL);
   Object = 0LL;
-  v4 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  v4 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
   if ( v4 >= 0 )
   {
     v5 = Object;
-    v10[0] = (__int64)Object;
-    v11 = 0x10000;
+    v8[0] = (__int64)Object;
+    v9 = 0x10000;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v4 = AlpcpSendMessage(v10, a2, 0LL, KeGetCurrentThread()->PreviousMode);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8);
+    v4 = AlpcpSendMessage(v8, (__m256i *)RequestMessage, 0LL, KeGetCurrentThread()->PreviousMode);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     ObfDereferenceObject(v5);
   }
-  return (unsigned int)v4;
+  return v4;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpGetFirstBlockAddress @ 0x180049E20
+ * XREFs of RtlpGetFirstBlockAddress @ 0x18005FA00
  * Callers:
- *     RtlpWalkLFHBlock @ 0x180049500 (RtlpWalkLFHBlock.c)
- *     RtlpSubSegmentDebugInitialize @ 0x1800D0D50 (RtlpSubSegmentDebugInitialize.c)
+ *     RtlpWalkLFHBlock @ 0x18005F0E0 (RtlpWalkLFHBlock.c)
+ *     RtlpSubSegmentDebugInitialize @ 0x1800CE2C0 (RtlpSubSegmentDebugInitialize.c)
  * Callees:
  *     <none>
  */

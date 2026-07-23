@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlIsStibpPairingRecommended @ 0x140582914
+ * XREFs of HvlIsStibpPairingRecommended @ 0x14057FC94
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405BE170 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405BB7A0 (KiOptimizeSpecCtrlSettingsWorker.c)
  * Callees:
  *     <none>
  */

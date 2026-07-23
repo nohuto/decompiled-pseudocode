@@ -1,10 +1,10 @@
 /*
- * XREFs of KeReleaseInterruptSpinLock @ 0x1400B0480
+ * XREFs of KeReleaseInterruptSpinLock @ 0x1400AE55C
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __stdcall KeReleaseInterruptSpinLock(PKINTERRUPT Interrupt, KIRQL OldIrql)

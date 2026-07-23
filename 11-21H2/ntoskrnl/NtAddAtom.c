@@ -3,10 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     NtAddAtomEx @ 0x1406BFED0 (NtAddAtomEx.c)
+ *     sub_1406BFED0 @ 0x1406BFED0 (sub_1406BFED0.c)
  */
 
-__int64 __fastcall NtAddAtom(char *a1, size_t a2, _WORD *a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAddAtom(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
-  return NtAddAtomEx(a1, a2, a3, 0);
+  return sub_1406BFED0(AtomName, *(size_t *)&Length, Atom, 0);
 }

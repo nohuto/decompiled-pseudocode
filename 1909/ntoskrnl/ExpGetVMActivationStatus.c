@@ -15,17 +15,18 @@ __int64 __fastcall ExpGetVMActivationStatus(int a1, int a2, int a3, int a4, _BYT
   _BYTE *v5; // rdi
   __int64 result; // rax
   unsigned int v11; // r11d
-  _DWORD v12[2]; // [rsp+30h] [rbp-20h] BYREF
-  int v13; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-10h] BYREF
-  _DWORD v15[2]; // [rsp+48h] [rbp-8h] BYREF
+  int Data; // [rsp+30h] [rbp-20h] BYREF
+  ULONG v13; // [rsp+34h] [rbp-1Ch] BYREF
+  int v14; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-10h] BYREF
+  _DWORD v16[2]; // [rsp+48h] [rbp-8h] BYREF
 
   v5 = a5;
-  v12[0] = 0;
-  v14 = 0LL;
+  Data = 0;
+  v15 = 0LL;
   *a5 = 0;
-  v12[1] = 4;
-  if ( (int)ZwQueryLicenseValue((__int64)L">@", 0LL, (__int64)v12) < 0 || !v12[0] )
+  v13 = 4;
+  if ( ZwQueryLicenseValue((PUNICODE_STRING)&stru_140947780, 0LL, &Data, 4u, &v13) < 0 || !Data )
     return 0LL;
   result = ExGetVMType(&a5);
   if ( (int)result >= 0 )
@@ -40,10 +41,10 @@ __int64 __fastcall ExpGetVMActivationStatus(int a1, int a2, int a3, int a4, _BYT
         {
           if ( !qword_1409AD4B0 )
             goto LABEL_16;
-          result = ((__int64 (__fastcall *)(int *))qword_1409AD4B0)(&v13);
+          result = ((__int64 (__fastcall *)(int *))qword_1409AD4B0)(&v14);
           if ( (int)result >= 0 )
           {
-            result = sub_14072D380(a1, a2, a3, a4, v13);
+            result = sub_14072D380(a1, a2, a3, a4, v14);
             *v5 = 1;
           }
           if ( (_DWORD)result == -1073741198 )
@@ -51,16 +52,16 @@ __int64 __fastcall ExpGetVMActivationStatus(int a1, int a2, int a3, int a4, _BYT
 LABEL_16:
             if ( qword_1409AD4A0 )
             {
-              v15[0] = 0x20000;
-              v15[1] = 1;
+              v16[0] = 0x20000;
+              v16[1] = 1;
               result = ((__int64 (__fastcall *)(_DWORD *, __int64, __int64 *, __int64))qword_1409AD4A0)(
-                         v15,
+                         v16,
                          8LL,
-                         &v14,
+                         &v15,
                          8LL);
-              if ( (int)result >= 0 && (_DWORD)v14 == 0x20000 )
+              if ( (int)result >= 0 && (_DWORD)v15 == 0x20000 )
               {
-                result = sub_14072D380(a1, a2, a3, a4, HIDWORD(v14));
+                result = sub_14072D380(a1, a2, a3, a4, HIDWORD(v15));
                 *v5 = 1;
                 if ( qword_1409AD4A8 )
                   return ((__int64 (__fastcall *)(_QWORD))qword_1409AD4A8)(v11);

@@ -21,7 +21,7 @@ __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)
   int v5; // eax
   int v6; // eax
   int v7; // eax
-  struct _CONTEXT ContextRecord; // [rsp+40h] [rbp-4E8h] BYREF
+  _CONTEXT ContextRecord; // [rsp+40h] [rbp-4E8h] BYREF
 
   DbgPrintEx(5u, 3u, "DBGK: Creating mini live dump. ComponentName %ws\n", a1);
   *(_DWORD *)(a1 + 80) = 67108860;

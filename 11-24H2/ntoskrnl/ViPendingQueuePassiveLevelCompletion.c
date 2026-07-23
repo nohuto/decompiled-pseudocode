@@ -1,12 +1,12 @@
 /*
- * XREFs of ViPendingQueuePassiveLevelCompletion @ 0x140B91FF0
+ * XREFs of ViPendingQueuePassiveLevelCompletion @ 0x140B93FF0
  * Callers:
- *     ViPendingDelayCompletion @ 0x140B91E88 (ViPendingDelayCompletion.c)
+ *     ViPendingDelayCompletion @ 0x140B93E88 (ViPendingDelayCompletion.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
  */
 
 __int64 __fastcall ViPendingQueuePassiveLevelCompletion(signed __int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall ViPendingQueuePassiveLevelCompletion(signed __int64 a1)
   --CurrentThread->KernelApcDisable;
   v4 = ViPendingWorkersCount;
   v5 = ViPendingWorkerIndexHint;
-  while ( _InterlockedCompareExchange64(&qword_140F03B88[6 * v5], a1, 0LL) )
+  while ( _InterlockedCompareExchange64(&qword_140F03E28[6 * v5], a1, 0LL) )
   {
     v5 = v5 + 1 < ViPendingWorkersCount ? v5 + 1 : 0;
     if ( !--v4 )

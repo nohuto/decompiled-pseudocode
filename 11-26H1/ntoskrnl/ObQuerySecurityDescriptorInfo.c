@@ -1,14 +1,14 @@
 /*
- * XREFs of ObQuerySecurityDescriptorInfo @ 0x1408ECA88
+ * XREFs of ObQuerySecurityDescriptorInfo @ 0x1408F3048
  * Callers:
- *     WmipSecurityMethod @ 0x140A2FD20 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x140A41BA0 (WmipSecurityMethod.c)
  * Callees:
- *     SeQuerySecurityDescriptorInfo @ 0x1408EDBD0 (SeQuerySecurityDescriptorInfo.c)
- *     ObpReferenceSecurityDescriptor @ 0x1408EE7D0 (ObpReferenceSecurityDescriptor.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1408F4190 (SeQuerySecurityDescriptorInfo.c)
+ *     ObpReferenceSecurityDescriptor @ 0x1408F4D90 (ObpReferenceSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
  */
 
-__int64 __fastcall ObQuerySecurityDescriptorInfo(__int64 a1, ULONG *a2, void *a3, ULONG *a4)
+__int64 __fastcall ObQuerySecurityDescriptorInfo(__int64 a1, DWORD *a2, void *a3, ULONG *a4)
 {
   __int64 v4; // rbp
   unsigned __int64 v8; // r14

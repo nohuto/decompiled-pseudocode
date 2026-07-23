@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDeviceRemovalCheckDeviceNodeState @ 0x140A114EC
+ * XREFs of PipDeviceRemovalCheckDeviceNodeState @ 0x1409BF8FC
  * Callers:
- *     PnpRequestDeviceRemovalWorker @ 0x140A113DC (PnpRequestDeviceRemovalWorker.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1409BF7EC (PnpRequestDeviceRemovalWorker.c)
  * Callees:
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     PipRestoreDevNodeState @ 0x1404E6BC4 (PipRestoreDevNodeState.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     PipRestoreDevNodeState @ 0x1404DD2C0 (PipRestoreDevNodeState.c)
  */
 
 char __fastcall PipDeviceRemovalCheckDeviceNodeState(__int64 a1, __int64 a2, char a3)

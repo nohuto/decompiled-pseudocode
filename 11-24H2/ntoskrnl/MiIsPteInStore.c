@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsPteInStore @ 0x1402E5460
+ * XREFs of MiIsPteInStore @ 0x140423310
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x140220F00 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiComputeFaultCluster @ 0x1402E5DF8 (MiComputeFaultCluster.c)
- *     MiPfPutPagesInTransition @ 0x1402E692C (MiPfPutPagesInTransition.c)
- *     MiResolvePageFileFault @ 0x1402F783C (MiResolvePageFileFault.c)
- *     MiMakeFaultPfnActive @ 0x140462FB4 (MiMakeFaultPfnActive.c)
- *     MiResolveProtoCombine @ 0x140481604 (MiResolveProtoCombine.c)
- *     MiIsStandbyPageCorrupted @ 0x1404D4DBC (MiIsStandbyPageCorrupted.c)
- *     MiCheckCommitReleaseFromVad @ 0x140669880 (MiCheckCommitReleaseFromVad.c)
- *     MiReadPagefilePage @ 0x14066A47C (MiReadPagefilePage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14024DC50 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiMakeFaultPfnActive @ 0x14025A13C (MiMakeFaultPfnActive.c)
+ *     MiResolvePageFileFault @ 0x14033FD3C (MiResolvePageFileFault.c)
+ *     MiComputeFaultCluster @ 0x140341F24 (MiComputeFaultCluster.c)
+ *     MiPfPutPagesInTransition @ 0x140347F6C (MiPfPutPagesInTransition.c)
+ *     MiIsStandbyPageCorrupted @ 0x140423260 (MiIsStandbyPageCorrupted.c)
+ *     MiResolveProtoCombine @ 0x14047C8C4 (MiResolveProtoCombine.c)
+ *     MiCheckCommitReleaseFromVad @ 0x14066AA50 (MiCheckCommitReleaseFromVad.c)
+ *     MiReadPagefilePage @ 0x14066B64C (MiReadPagefilePage.c)
  * Callees:
  *     <none>
  */

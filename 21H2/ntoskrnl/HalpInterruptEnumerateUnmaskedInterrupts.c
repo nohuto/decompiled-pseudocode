@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x1404BB250
+ * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x1404BB490
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x1404D0FF0 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x1404D1230 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(

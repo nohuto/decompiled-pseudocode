@@ -1,15 +1,15 @@
 /*
- * XREFs of PoStoreRequester @ 0x140437428
+ * XREFs of PoStoreRequester @ 0x1404263B8
  * Callers:
- *     PoStoreDiagnosticContext @ 0x1404372B0 (PoStoreDiagnosticContext.c)
- *     PopUmpoSendPowerRequestOverrideQuery @ 0x140437368 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     PopDiagTracePowerRequestCreate @ 0x140AC0BAC (PopDiagTracePowerRequestCreate.c)
+ *     PoStoreDiagnosticContext @ 0x140426240 (PoStoreDiagnosticContext.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x1404262F8 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     PopDiagTracePowerRequestCreate @ 0x140AC2C4C (PopDiagTracePowerRequestCreate.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     RtlStringCbCopyUnicodeString @ 0x1404390A4 (RtlStringCbCopyUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     RtlStringCbCopyUnicodeString @ 0x140427D04 (RtlStringCbCopyUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
  */
 
 __int64 __fastcall PoStoreRequester(__int64 a1, __int64 a2, unsigned __int64 *a3, char a4)

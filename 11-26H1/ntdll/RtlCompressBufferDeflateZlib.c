@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCompressBufferDeflateZlib @ 0x1801511D0
+ * XREFs of RtlCompressBufferDeflateZlib @ 0x1801510A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompressBufferDeflateInternal @ 0x180151080 (RtlCompressBufferDeflateInternal.c)
+ *     RtlCompressBufferDeflateInternal @ 0x180150F4C (RtlCompressBufferDeflateInternal.c)
  */
 
 __int64 __fastcall RtlCompressBufferDeflateZlib(

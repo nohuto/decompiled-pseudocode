@@ -1,21 +1,21 @@
 /*
- * XREFs of KiSetNextClockTickDueTime @ 0x1402C8510
+ * XREFs of KiSetNextClockTickDueTime @ 0x1402C87A0
  * Callers:
- *     KePrepareNonClockOwnerForIdle @ 0x1402C1CDC (KePrepareNonClockOwnerForIdle.c)
- *     KiSetClockTimer @ 0x1402C2598 (KiSetClockTimer.c)
- *     KeClockInterruptNotify @ 0x1402C46A0 (KeClockInterruptNotify.c)
- *     KiCancelClockTimer @ 0x140340C70 (KiCancelClockTimer.c)
- *     KiRestoreClockTickRate @ 0x140340D00 (KiRestoreClockTickRate.c)
- *     KiSetClockInterval @ 0x1403B1FA4 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x14056FDE4 (KiResetClockInterval.c)
+ *     KePrepareNonClockOwnerForIdle @ 0x1402C1F6C (KePrepareNonClockOwnerForIdle.c)
+ *     KiSetClockTimer @ 0x1402C2828 (KiSetClockTimer.c)
+ *     KeClockInterruptNotify @ 0x1402C4930 (KeClockInterruptNotify.c)
+ *     KiCancelClockTimer @ 0x140340F00 (KiCancelClockTimer.c)
+ *     KiRestoreClockTickRate @ 0x140340F90 (KiRestoreClockTickRate.c)
+ *     KiSetClockInterval @ 0x1403B2184 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140570324 (KiResetClockInterval.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     KiSetClockTickRate @ 0x1402C2890 (KiSetClockTickRate.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     KiSetClockTickRate @ 0x1402C2B20 (KiSetClockTickRate.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiSetNextClockTickDueTime(char a1)
@@ -48,7 +48,7 @@ __int64 __fastcall KiSetNextClockTickDueTime(char a1)
   unsigned __int64 v26; // rcx
   unsigned int v27; // r9d
   unsigned int v28; // eax
-  unsigned __int64 v29; // rcx
+  unsigned __int64 Min; // rcx
   unsigned int v30; // edx
   char v31; // al
   unsigned __int64 v32; // r15
@@ -229,19 +229,19 @@ __int64 __fastcall KiSetNextClockTickDueTime(char a1)
       v28 = v27 / KeMinimumIncrement;
     v21 = v28 * KeMinimumIncrement;
   }
-  if ( (qword_140D0C478 & 1) != 0 )
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( qword_140D0C478 == 1 )
-      v29 = 0LL;
+    if ( KiClockIntervalRequests.Min == (_RTL_BALANCED_NODE *)1 )
+      Min = 0LL;
     else
-      v29 = qword_140D0C478 ^ ((unsigned __int64)&KiClockIntervalRequests + 1);
+      Min = (unsigned __int64)KiClockIntervalRequests.Min ^ ((unsigned __int64)&KiClockIntervalRequests.Root + 1);
   }
   else
   {
-    v29 = qword_140D0C478;
+    Min = (unsigned __int64)KiClockIntervalRequests.Min;
   }
   v31 = 1;
-  v50 = *(_DWORD *)(v29 + 28);
+  v50 = *(_DWORD *)(Min + 28);
   v30 = v50;
   v45 = 1;
   v32 = v13 + v50;
@@ -307,7 +307,7 @@ __int64 __fastcall KiSetNextClockTickDueTime(char a1)
     v87 = 8LL;
     v49 = v9;
     v89 = 1LL;
-    tlgWriteTransfer_EtwWriteTransfer(&dword_140C02F60, &dword_14002D444, 0LL, 0LL, 14, v65);
+    tlgWriteTransfer_EtwWriteTransfer(&dword_140C02F60, &dword_14002D52C, 0LL, 0LL, 14, v65);
   }
   else
   {

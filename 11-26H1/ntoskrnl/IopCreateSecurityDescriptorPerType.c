@@ -1,23 +1,23 @@
 /*
- * XREFs of IopCreateSecurityDescriptorPerType @ 0x1409FF1D0
+ * XREFs of IopCreateSecurityDescriptorPerType @ 0x14091BFD0
  * Callers:
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1409FEA80 (IopCreateDefaultDeviceSecurityDescriptor.c)
- *     IoCreateDevice @ 0x1409FEBC0 (IoCreateDevice.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14091B880 (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     IoCreateDevice @ 0x14091B9C0 (IoCreateDevice.c)
  * Callees:
- *     RtlAddMandatoryAce @ 0x140926CB0 (RtlAddMandatoryAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlAddMandatoryAce @ 0x1409027C0 (RtlAddMandatoryAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall IopCreateSecurityDescriptorPerType(char *a1, int a2, unsigned __int8 **a3, int *a4)
+__int64 __fastcall IopCreateSecurityDescriptorPerType(char *a1, int a2, ACL **a3, int *a4)
 {
   char v7; // bp
   int v8; // edx
   int v9; // edx
-  PACL Process; // rdi
+  PACL Flink; // rdi
   ULONG v11; // r15d
   ACL *Pool2; // rax
-  unsigned __int8 *v13; // r14
+  ACL *v13; // r14
   char v14; // cl
   __int16 v15; // ax
   __int16 v16; // ax
@@ -42,25 +42,25 @@ __int64 __fastcall IopCreateSecurityDescriptorPerType(char *a1, int a2, unsigned
         {
           if ( v20 != 1 )
             return 3221225485LL;
-          Process = (PACL)PspSiloMonitorLock.ApcState.Process;
+          Flink = (PACL)PspSiloMonitorLock.ApcState.ApcListHead[1].Flink;
           goto LABEL_4;
         }
-        Process = *(PACL *)&PspSiloMonitorLock.WaitRegister.Flags;
+        Flink = (PACL)PspSiloMonitorLock.SchedulingGroup;
       }
       else
       {
-        Process = (PACL)PspSiloMonitorLock.ApcState.ApcListHead[1].Blink;
+        Flink = (PACL)PspSiloMonitorLock.ApcState.Process;
       }
       v7 = 1;
     }
     else
     {
-      Process = SePublicDefaultUnrestrictedDacl;
+      Flink = SePublicDefaultUnrestrictedDacl;
     }
   }
   else
   {
-    Process = (PACL)PspSiloMonitorLock.ApcState.ApcListHead[1].Flink;
+    Flink = (PACL)PspSiloMonitorLock.ApcState.ApcListHead[1].Blink;
   }
 LABEL_4:
   *(_OWORD *)a1 = 0LL;
@@ -69,13 +69,14 @@ LABEL_4:
   *a1 = 1;
   if ( v7 != 1 )
     goto LABEL_10;
-  v11 = (unsigned __int16)(4 * (*(unsigned __int8 *)(*(_QWORD *)&SepRmCapTableLock.ResourceIndex + 1LL) + 6));
+  v11 = (unsigned __int16)(4
+                         * (*(unsigned __int8 *)(*(_QWORD *)&SepRmCapTableLock.SchedulerAssistYieldCounter + 1LL) + 6));
   Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
-  v13 = (unsigned __int8 *)Pool2;
+  v13 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
   RtlCreateAcl(Pool2, v11, 2u);
-  RtlAddMandatoryAce(v13, 2u, 0, *(unsigned __int8 **)&SepRmCapTableLock.ResourceIndex, 17, 1);
+  RtlAddMandatoryAce(v13, 2u, 0, *(PSID *)&SepRmCapTableLock.SchedulerAssistYieldCounter, 0x11u, 1u);
   v14 = *a1;
   if ( *a1 == 1 )
   {
@@ -103,8 +104,8 @@ LABEL_10:
     {
       v17 = v16 | 4;
       *((_QWORD *)a1 + 4) = 0LL;
-      if ( Process )
-        *((_QWORD *)a1 + 4) = Process;
+      if ( Flink )
+        *((_QWORD *)a1 + 4) = Flink;
       *((_WORD *)a1 + 1) = v17 & 0xFFF7;
       result = 0LL;
     }

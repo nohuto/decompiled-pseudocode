@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmCreateInterfaceClass @ 0x1409D3DF8
+ * XREFs of _CmCreateInterfaceClass @ 0x1409C3C28
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1408BBDB0 (_PnpDispatchInterfaceClass.c)
- *     PiCMOpenClassKey @ 0x140963498 (PiCMOpenClassKey.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x1409D3CA4 (_CmCreateDeviceInterfaceWorker.c)
+ *     _PnpDispatchInterfaceClass @ 0x1408B9700 (_PnpDispatchInterfaceClass.c)
+ *     PiCMOpenClassKey @ 0x14094AF58 (PiCMOpenClassKey.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x1409C3AD4 (_CmCreateDeviceInterfaceWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmCreateInterfaceClassWorker @ 0x1409D3F8C (_CmCreateInterfaceClassWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmCreateInterfaceClassWorker @ 0x1409C3DBC (_CmCreateInterfaceClassWorker.c)
  */
 
 __int64 __fastcall CmCreateInterfaceClass(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)
@@ -32,7 +32,7 @@ __int64 __fastcall CmCreateInterfaceClass(__int64 a1, __int64 a2, int a3, HANDLE
   v20 = a6;
   if ( v10 )
   {
-    v15 = guard_dispatch_icall_no_overrides(a1, a2, 4LL, 2LL);
+    v15 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v15 == -1073741822 )
     {
       v10 = 0LL;
@@ -50,7 +50,7 @@ __int64 __fastcall CmCreateInterfaceClass(__int64 a1, __int64 a2, int a3, HANDLE
   if ( !v10 )
     goto LABEL_16;
   v16[0] = InterfaceClassWorker;
-  v13 = guard_dispatch_icall_no_overrides(a1, a2, 4LL, 2LL);
+  v13 = guard_dispatch_icall_no_overrides(a1, a2);
   if ( v13 == -1073741822 )
     goto LABEL_16;
   if ( v13 == -1073741536 )

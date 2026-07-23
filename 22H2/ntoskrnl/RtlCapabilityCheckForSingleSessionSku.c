@@ -8,19 +8,19 @@
  */
 
 __int64 __fastcall RtlCapabilityCheckForSingleSessionSku(
-        HANDLE ExistingTokenHandle,
-        UNICODE_STRING *SourceString,
-        char *a3)
+        HANDLE TokenHandle,
+        PUNICODE_STRING CapabilityName,
+        PBOOLEAN HasCapability)
 {
   unsigned int v3; // ebx
 
   v3 = 0;
-  if ( a3 )
+  if ( HasCapability )
   {
-    if ( RtlIsMultiSessionSku((__int64)ExistingTokenHandle, (__int64)SourceString) )
-      *a3 = 0;
+    if ( RtlIsMultiSessionSku() )
+      *HasCapability = 0;
     else
-      return (unsigned int)RtlCapabilityCheck(ExistingTokenHandle, SourceString, a3);
+      return (unsigned int)RtlCapabilityCheck(TokenHandle, CapabilityName, HasCapability);
   }
   else
   {

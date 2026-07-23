@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpLoadInstallLanguageFallback @ 0x14084484C
+ * XREFs of RtlpLoadInstallLanguageFallback @ 0x140844B4C
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x1408453D0 (_RtlpMuiRegLoadInstalled.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A75948 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x1408456D0 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A75BF8 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x1403A10BC (_MuiRegAllocArray.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlCultureNameToLCID @ 0x1408257A0 (RtlCultureNameToLCID.c)
- *     LdrpOpenKey @ 0x140844ADC (LdrpOpenKey.c)
- *     LdrpQueryValueKey @ 0x140845AA0 (LdrpQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1403A129C (_MuiRegAllocArray.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlCultureNameToLCID @ 0x140825AA0 (RtlCultureNameToLCID.c)
+ *     LdrpOpenKey @ 0x140844DDC (LdrpOpenKey.c)
+ *     LdrpQueryValueKey @ 0x140845DA0 (LdrpQueryValueKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -27,11 +27,11 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
   __int64 v14; // [rsp+30h] [rbp-20h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  int v17; // [rsp+80h] [rbp+30h] BYREF
+  DWORD Lcid; // [rsp+80h] [rbp+30h] BYREF
   int v18; // [rsp+98h] [rbp+48h]
 
   Handle = 0LL;
-  v17 = 0;
+  Lcid = 0;
   v5 = 0LL;
   DestinationString = 0LL;
   if ( a1 && a2 && a3 )
@@ -73,15 +73,15 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
             ++v11;
           }
           RtlInitUnicodeString(&DestinationString, v5);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *a2 = v17;
+            *a2 = Lcid;
             if ( *v11 )
             {
               RtlInitUnicodeString(&DestinationString, v11);
-              if ( RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v17;
+                *a3 = Lcid;
               }
               else
               {

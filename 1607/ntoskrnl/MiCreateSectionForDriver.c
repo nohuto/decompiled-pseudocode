@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateSectionForDriver @ 0x14047D2C8
+ * XREFs of MiCreateSectionForDriver @ 0x14048338C
  * Callers:
- *     MiObtainSectionForDriver @ 0x140483D4C (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x140482AA0 (MiObtainSectionForDriver.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiGetControlAreaPartition @ 0x140026D5C (MiGetControlAreaPartition.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     MmCreateSystemSection @ 0x1400821E0 (MmCreateSystemSection.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     MiLogFailedDriverLoad @ 0x1406593A0 (MiLogFailedDriverLoad.c)
- *     KdPullRemoteFile @ 0x1406F2368 (KdPullRemoteFile.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiGetControlAreaPartition @ 0x1400268DC (MiGetControlAreaPartition.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmCreateSystemSection @ 0x140082E5C (MmCreateSystemSection.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     MiLogFailedDriverLoad @ 0x140659484 (MiLogFailedDriverLoad.c)
+ *     KdPullRemoteFile @ 0x1406F2000 (KdPullRemoteFile.c)
  */
 
 NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, int a2, _QWORD *a3)
@@ -38,7 +38,7 @@ NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, int a2, _QWORD 
 
   *a3 = 0LL;
   v22 = 0LL;
-  byte_140326810 = 1;
+  byte_140326850 = 1;
   if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent && (int)KdPullRemoteFile() >= 0 )
     DbgPrintEx(0x66u, 2u, "MmLoadSystemImage: Pulled %wZ from kd\n", a1);
   ObjectAttributes.RootDirectory = 0LL;

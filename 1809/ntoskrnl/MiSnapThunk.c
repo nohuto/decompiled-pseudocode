@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSnapThunk @ 0x140679434
+ * XREFs of MiSnapThunk @ 0x14067A5F4
  * Callers:
- *     MiResolveImageReferences @ 0x140678FB0 (MiResolveImageReferences.c)
- *     MiSnapThunk @ 0x140679434 (MiSnapThunk.c)
+ *     MiResolveImageReferences @ 0x14067A170 (MiResolveImageReferences.c)
+ *     MiSnapThunk @ 0x14067A5F4 (MiSnapThunk.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     strchr @ 0x140196EC0 (strchr.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     MiSnapThunk @ 0x140679434 (MiSnapThunk.c)
- *     RtlPrefixString @ 0x140679790 (RtlPrefixString.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     strchr @ 0x140197000 (strchr.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     MiSnapThunk @ 0x14067A5F4 (MiSnapThunk.c)
+ *     RtlPrefixString @ 0x14067A950 (RtlPrefixString.c)
  */
 
 __int64 __fastcall MiSnapThunk(char *a1, __int64 a2, __int64 *a3, char **a4, unsigned __int16 *a5)
@@ -48,7 +48,7 @@ __int64 __fastcall MiSnapThunk(char *a1, __int64 a2, __int64 *a3, char **a4, uns
   _WORD *PoolWithTag; // rax
   _WORD *v39; // r14
   PVOID v40; // rcx
-  STRING Size; // [rsp+30h] [rbp-20h] BYREF
+  ANSI_STRING Size; // [rsp+30h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
 
   v9 = (char *)RtlImageDirectoryEntryToData(a1, 1u, 0, (PULONG)&Size.Length);

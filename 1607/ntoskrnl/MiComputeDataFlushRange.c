@@ -1,17 +1,17 @@
 /*
- * XREFs of MiComputeDataFlushRange @ 0x140021958
+ * XREFs of MiComputeDataFlushRange @ 0x1400214D8
  * Callers:
- *     MiComputeFlushRange @ 0x140021854 (MiComputeFlushRange.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
+ *     MiComputeFlushRange @ 0x1400213D4 (MiComputeFlushRange.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
  * Callees:
- *     MiReferenceSubsection @ 0x140021B6C (MiReferenceSubsection.c)
- *     MiLocateSubsectionNode @ 0x140021BC0 (MiLocateSubsectionNode.c)
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140026D70 (MiBuildWakeList.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFindLastSubsection @ 0x1400FD130 (MiFindLastSubsection.c)
+ *     MiReferenceSubsection @ 0x1400216EC (MiReferenceSubsection.c)
+ *     MiLocateSubsectionNode @ 0x140021740 (MiLocateSubsectionNode.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x1400268F0 (MiBuildWakeList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFindLastSubsection @ 0x1400FAEB0 (MiFindLastSubsection.c)
  */
 
 __int64 __fastcall MiComputeDataFlushRange(__int64 a1, KIRQL a2, _QWORD *a3, __int64 a4, int a5, __int64 a6)

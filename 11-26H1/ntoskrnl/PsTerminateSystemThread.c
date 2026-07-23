@@ -1,16 +1,16 @@
 /*
- * XREFs of PsTerminateSystemThread @ 0x140956130
+ * XREFs of PsTerminateSystemThread @ 0x140949E90
  * Callers:
- *     InbvRotateGuiBootDisplay @ 0x1405C4F80 (InbvRotateGuiBootDisplay.c)
- *     PopIrpWorker @ 0x14060BD70 (PopIrpWorker.c)
- *     DifPsTerminateSystemThreadWrapper @ 0x140694FA0 (DifPsTerminateSystemThreadWrapper.c)
- *     ExpExpirationThread @ 0x140835B90 (ExpExpirationThread.c)
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
- *     CmpHiveCachePopulateHiveEntryThread @ 0x140862230 (CmpHiveCachePopulateHiveEntryThread.c)
- *     IopThreadStart @ 0x140956070 (IopThreadStart.c)
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
+ *     InbvRotateGuiBootDisplay @ 0x1405C77F0 (InbvRotateGuiBootDisplay.c)
+ *     PopIrpWorker @ 0x14060EED0 (PopIrpWorker.c)
+ *     DifPsTerminateSystemThreadWrapper @ 0x140698B80 (DifPsTerminateSystemThreadWrapper.c)
+ *     ExpExpirationThread @ 0x14083BDD0 (ExpExpirationThread.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
+ *     CmpHiveCachePopulateHiveEntryThread @ 0x140868610 (CmpHiveCachePopulateHiveEntryThread.c)
+ *     IopThreadStart @ 0x140949E30 (IopThreadStart.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
  * Callees:
- *     PspTerminateThreadByPointer @ 0x1409575E0 (PspTerminateThreadByPointer.c)
+ *     PspTerminateThreadByPointer @ 0x14094B010 (PspTerminateThreadByPointer.c)
  */
 
 NTSTATUS __stdcall PsTerminateSystemThread(NTSTATUS ExitStatus)

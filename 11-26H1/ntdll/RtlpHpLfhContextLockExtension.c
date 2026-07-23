@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpLfhContextLockExtension @ 0x1800973B4
+ * XREFs of RtlpHpLfhContextLockExtension @ 0x180071B4C
  * Callers:
- *     RtlpHpLfhContextMetadataAllocate @ 0x1800932F8 (RtlpHpLfhContextMetadataAllocate.c)
- *     RtlpHpLfhContextMetadataFree @ 0x180096160 (RtlpHpLfhContextMetadataFree.c)
- *     RtlpHpLfhContextLockUnlock @ 0x180097204 (RtlpHpLfhContextLockUnlock.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x180097438 (RtlpHpLfhPrivateSlotCreate.c)
- *     RtlpHpLfhContextTlsCleanup @ 0x180097710 (RtlpHpLfhContextTlsCleanup.c)
+ *     RtlpHpLfhContextMetadataFree @ 0x180063B00 (RtlpHpLfhContextMetadataFree.c)
+ *     RtlpHpLfhContextTlsCleanup @ 0x1800645D0 (RtlpHpLfhContextTlsCleanup.c)
+ *     RtlpHpLfhContextLockUnlock @ 0x180071B68 (RtlpHpLfhContextLockUnlock.c)
+ *     RtlpHpLfhContextMetadataAllocate @ 0x18007225C (RtlpHpLfhContextMetadataAllocate.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x18010B444 (RtlpHpLfhPrivateSlotCreate.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpHpLfhContextLockExtension(__int64 a1, __int64 a2)
+char __fastcall RtlpHpLfhContextLockExtension(_RTL_SRWLOCK *a1)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 128), a2);
+  RtlAcquireSRWLockExclusive(a1 + 16);
   return -1;
 }

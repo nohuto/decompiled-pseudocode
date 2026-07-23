@@ -19,7 +19,7 @@ char *__fastcall RtlpCommitQueryDebugInfo(_QWORD *a1, unsigned int a2)
   unsigned __int64 v3; // rdi
   unsigned __int64 v4; // rcx
   char *result; // rax
-  unsigned __int64 v6; // [rsp+50h] [rbp+18h] BYREF
+  ULONG_PTR v6; // [rsp+50h] [rbp+18h] BYREF
   char *v7; // [rsp+58h] [rbp+20h] BYREF
 
   if ( a2 <= 0xFFFFFFF8 )
@@ -37,7 +37,7 @@ LABEL_6:
     {
       v7 = (char *)a1 + v4;
       v6 = v3 - v4;
-      if ( (int)ZwAllocateVirtualMemory(-1LL, &v7, 0LL, &v6, 4096, 4) >= 0 )
+      if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)&v7, 0LL, &v6, 0x1000u, 4u) >= 0 )
       {
         a1[10] += v6;
         goto LABEL_6;

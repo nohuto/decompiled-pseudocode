@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpResolveHiveLoadConflict @ 0x14086E724
+ * XREFs of CmpResolveHiveLoadConflict @ 0x14086E884
  * Callers:
- *     CmLoadKey @ 0x1406BA714 (CmLoadKey.c)
+ *     CmLoadKey @ 0x140619944 (CmLoadKey.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     CmpJoinClassOfTrust @ 0x1402D3974 (CmpJoinClassOfTrust.c)
- *     CmpPerformTrustClassAccessCheck @ 0x1402D39F0 (CmpPerformTrustClassAccessCheck.c)
- *     CmpUnJoinClassOfTrust @ 0x14036173C (CmpUnJoinClassOfTrust.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     CmpCleanupParseContext @ 0x140655A80 (CmpCleanupParseContext.c)
- *     UNLOCK_HIVE_LOAD @ 0x1406725C0 (UNLOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x140672754 (LOCK_HIVE_LOAD.c)
- *     CmpRecordUnloadEventForHive @ 0x1406BF3D4 (CmpRecordUnloadEventForHive.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x1406FC600 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpReferenceKeyControlBlock @ 0x140719888 (CmpReferenceKeyControlBlock.c)
- *     CmpIsHiveAlreadyLoaded @ 0x14086E5DC (CmpIsHiveAlreadyLoaded.c)
+ *     CmpUnJoinClassOfTrust @ 0x140213A50 (CmpUnJoinClassOfTrust.c)
+ *     CmpJoinClassOfTrust @ 0x140214140 (CmpJoinClassOfTrust.c)
+ *     CmpPerformTrustClassAccessCheck @ 0x1402141BC (CmpPerformTrustClassAccessCheck.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpReferenceKeyControlBlock @ 0x1405E09D4 (CmpReferenceKeyControlBlock.c)
+ *     CmpRecordUnloadEventForHive @ 0x1405E0DB8 (CmpRecordUnloadEventForHive.c)
+ *     CmpCleanupParseContext @ 0x14064A8A0 (CmpCleanupParseContext.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406677F0 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x140667920 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x140667984 (LOCK_HIVE_LOAD.c)
+ *     ObReferenceObjectByNameEx @ 0x1406CDDFC (ObReferenceObjectByNameEx.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1407139E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x14086E73C (CmpIsHiveAlreadyLoaded.c)
  */
 
 __int64 __fastcall CmpResolveHiveLoadConflict(
@@ -39,11 +39,11 @@ __int64 __fastcall CmpResolveHiveLoadConflict(
   int v13; // eax
   PADAPTER_OBJECT v14; // rsi
   unsigned int v15; // edi
-  int v16; // eax
-  int v17; // ebx
+  signed int v16; // eax
+  signed int v17; // ebx
   __int64 *v18; // rdi
   int v19; // edx
-  int v21; // [rsp+20h] [rbp-E0h]
+  unsigned int v21; // [rsp+20h] [rbp-E0h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-C0h] BYREF
   __int64 *v23; // [rsp+48h] [rbp-B8h] BYREF
   __int64 *v24; // [rsp+50h] [rbp-B0h]
@@ -62,7 +62,7 @@ __int64 __fastcall CmpResolveHiveLoadConflict(
   *((_QWORD *)&v27[9] + 1) = &v27[9];
   *(_QWORD *)&v27[9] = &v27[9];
   memset((char *)&v27[13] + 8, 0, 0x50uLL);
-  v13 = ObReferenceObjectByNameEx(a1, 0LL, 0x20019u, (__int64)CmKeyObjectType, 0, (__int64)v27, &DmaAdapter);
+  v13 = ObReferenceObjectByNameEx(a1, 0LL, 131097, (__int64)CmKeyObjectType, 0, (__int64)v27, &DmaAdapter);
   v14 = DmaAdapter;
   if ( v13 < 0 )
   {
@@ -80,7 +80,7 @@ __int64 __fastcall CmpResolveHiveLoadConflict(
     v17 = v16;
     if ( v16 < 0 )
     {
-      SetFailureLocation(a6, 0, 33, v16, 32);
+      SetFailureLocation(a6, 0, 33, v16, 0x20u);
 LABEL_21:
       if ( v17 == -1073741275 )
         v17 = -1073741823;
@@ -103,7 +103,7 @@ LABEL_9:
         if ( a5 && (v17 = CmpRecordUnloadEventForHive((__int64)v18, a5), v17 < 0) )
         {
           CmpUnlockKcb((ULONG_PTR)v14->DmaOperations);
-          SetFailureLocation(a6, 0, 33, v17, 80);
+          SetFailureLocation(a6, 0, 33, v17, 0x50u);
         }
         else
         {
@@ -125,11 +125,11 @@ LABEL_9:
       v21 = 48;
     }
     v15 = -1073741757;
-    SetFailureLocation(a6, 0, 33, -1073741757, v21);
+    SetFailureLocation(a6, 0, 33, 0xC0000043, v21);
     goto LABEL_26;
   }
   v15 = -1073741444;
-  SetFailureLocation(a6, 0, 33, -1073741444, 16);
+  SetFailureLocation(a6, 0, 33, 0xC000017C, 0x10u);
 LABEL_26:
   CmpUnlockRegistry();
   UNLOCK_HIVE_LOAD();

@@ -1,18 +1,18 @@
 /*
- * XREFs of PiSwIrpInterfacePropertySet @ 0x1406D777C
+ * XREFs of PiSwIrpInterfacePropertySet @ 0x1406D8A1C
  * Callers:
- *     PiSwDispatch @ 0x1406D7640 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x1406D88E0 (PiSwDispatch.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiSwPropertySet @ 0x1406D7950 (PiSwPropertySet.c)
- *     PiSwUpdateArrayProperties @ 0x1406D7A70 (PiSwUpdateArrayProperties.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x1406D7B84 (PiSwDeviceFindInterfaceEntry.c)
- *     PiSwDeviceOperationsAllowed @ 0x1406D7BE4 (PiSwDeviceOperationsAllowed.c)
- *     PiSwValidatePropertyArray @ 0x1406D7C10 (PiSwValidatePropertyArray.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiSwPropertySet @ 0x1406D8BF0 (PiSwPropertySet.c)
+ *     PiSwUpdateArrayProperties @ 0x1406D8D10 (PiSwUpdateArrayProperties.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x1406D8E24 (PiSwDeviceFindInterfaceEntry.c)
+ *     PiSwDeviceOperationsAllowed @ 0x1406D8E84 (PiSwDeviceOperationsAllowed.c)
+ *     PiSwValidatePropertyArray @ 0x1406D8EB0 (PiSwValidatePropertyArray.c)
  */
 
 __int64 __fastcall PiSwIrpInterfacePropertySet(PIRP Irp)
@@ -37,7 +37,7 @@ __int64 __fastcall PiSwIrpInterfacePropertySet(PIRP Irp)
   v4 = MesDecodeBufferHandleCreate(Irp->AssociatedIrp.MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v10);
   if ( v4 < 0 )
     goto LABEL_13;
-  NdrMesTypeDecode3(v10, "TP 3\a", &off_140908F28, &off_1403FF530, 4, &P);
+  NdrMesTypeDecode3(v10, "TP 3\a", &off_14090A1E8, &off_140400530, 4, &P);
   if ( P && *(_QWORD *)P && *((_QWORD *)P + 2) && *((_DWORD *)P + 2) )
   {
     v4 = PiSwValidatePropertyArray(*((_QWORD *)P + 2));

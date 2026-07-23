@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpOpenPort @ 0x1407C3740
+ * XREFs of AlpcpOpenPort @ 0x1407C3A10
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
  */
 
 __int64 __fastcall AlpcpOpenPort(int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)

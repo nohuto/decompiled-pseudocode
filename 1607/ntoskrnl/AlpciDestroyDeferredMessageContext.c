@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpciDestroyDeferredMessageContext @ 0x14044DB30
+ * XREFs of AlpciDestroyDeferredMessageContext @ 0x14044CA00
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x14005E910 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14005E490 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  */
 
 void __fastcall AlpciDestroyDeferredMessageContext(__int64 a1)

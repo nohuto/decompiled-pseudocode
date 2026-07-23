@@ -1,35 +1,35 @@
 /*
- * XREFs of NtDeleteWnfStateName @ 0x140949660
+ * XREFs of NtDeleteWnfStateName @ 0x1409C4FD0
  * Callers:
- *     DifNtDeleteWnfStateNameWrapper @ 0x140675F90 (DifNtDeleteWnfStateNameWrapper.c)
+ *     DifNtDeleteWnfStateNameWrapper @ 0x140679B70 (DifNtDeleteWnfStateNameWrapper.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExpWnfDeletePermanentStateData @ 0x140847008 (ExpWnfDeletePermanentStateData.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     ExpWnfDeletePermanentName @ 0x140947D84 (ExpWnfDeletePermanentName.c)
- *     ExpWnfEnumerateScopeInstances @ 0x140947E0C (ExpWnfEnumerateScopeInstances.c)
- *     ExpWnfDeleteNameInstance @ 0x14094920C (ExpWnfDeleteNameInstance.c)
- *     ExpCaptureWnfStateName @ 0x140949F88 (ExpCaptureWnfStateName.c)
- *     ExpWnfResolveScopeInstance @ 0x14094B390 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfLookupNameInstance @ 0x14094B9A0 (ExpWnfLookupNameInstance.c)
- *     ExpWnfNotifyNameSubscribers @ 0x14094C830 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfLookupPermanentName @ 0x14094D528 (ExpWnfLookupPermanentName.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExpWnfDeletePermanentStateData @ 0x14084D268 (ExpWnfDeletePermanentStateData.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ExpWnfDeletePermanentName @ 0x1409C36F4 (ExpWnfDeletePermanentName.c)
+ *     ExpWnfEnumerateScopeInstances @ 0x1409C377C (ExpWnfEnumerateScopeInstances.c)
+ *     ExpWnfDeleteNameInstance @ 0x1409C4B7C (ExpWnfDeleteNameInstance.c)
+ *     ExpCaptureWnfStateName @ 0x1409C58F8 (ExpCaptureWnfStateName.c)
+ *     ExpWnfResolveScopeInstance @ 0x1409C6D00 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfLookupNameInstance @ 0x1409C7310 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1409C81A0 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfLookupPermanentName @ 0x1409C8E98 (ExpWnfLookupPermanentName.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateName(void *a1)
+NTSTATUS __cdecl NtDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r15
   struct _EX_RUNDOWN_REF *v3; // r14
-  NTSTATUS v4; // edi
+  int v4; // edi
   unsigned __int64 v5; // rbx
   __int64 v6; // rcx
   __int64 v7; // r12
-  BOOL v8; // r13d
+  _BOOL8 v8; // r13
   _KPROCESS *Process; // rax
   struct _KLOCK_ENTRIES *v10; // r9
   void *Ptr; // rdi
@@ -39,7 +39,7 @@ __int64 __fastcall NtDeleteWnfStateName(void *a1)
   struct _EX_RUNDOWN_REF *v16; // [rsp+58h] [rbp-90h] BYREF
   unsigned __int64 v17; // [rsp+60h] [rbp-88h]
   int v18[2]; // [rsp+68h] [rbp-80h] BYREF
-  NTSTATUS v19; // [rsp+74h] [rbp-74h]
+  int v19; // [rsp+74h] [rbp-74h]
   PVOID P; // [rsp+78h] [rbp-70h] BYREF
   __int64 v21; // [rsp+80h] [rbp-68h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+88h] [rbp-60h] BYREF
@@ -58,7 +58,7 @@ __int64 __fastcall NtDeleteWnfStateName(void *a1)
   v3 = 0LL;
   *(_QWORD *)v18 = 0LL;
   v16 = 0LL;
-  v4 = ExpCaptureWnfStateName(a1);
+  v4 = ExpCaptureWnfStateName((void *)StateName);
   v19 = v4;
   if ( v4 >= 0 )
   {
@@ -99,7 +99,7 @@ __int64 __fastcall NtDeleteWnfStateName(void *a1)
         v4 = AccessStatus;
         if ( AccessStatus < 0 )
           goto LABEL_18;
-        v8 = 1;
+        LODWORD(v8) = 1;
       }
       v4 = ExpWnfDeletePermanentName(v5);
       if ( v4 < 0 )
@@ -149,7 +149,7 @@ __int64 __fastcall NtDeleteWnfStateName(void *a1)
             v4 = AccessStatus;
             if ( AccessStatus < 0 )
               goto LABEL_18;
-            v8 = 1;
+            LODWORD(v8) = 1;
           }
           if ( (_DWORD)v7 == 3 && v16[19].Count != v17 )
           {
@@ -188,5 +188,5 @@ LABEL_18:
   if ( P )
     ExFreePoolWithTag(P, 0x20666E57u);
   KeLeaveCriticalRegion();
-  return (unsigned int)v4;
+  return v4;
 }

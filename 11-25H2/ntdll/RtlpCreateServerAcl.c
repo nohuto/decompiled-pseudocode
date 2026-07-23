@@ -10,7 +10,7 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, __int64 *a4, _BYTE *a5)
+__int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, ACL **a4, _BYTE *a5)
 {
   __int64 v6; // rcx
   _BYTE *v9; // rax
@@ -24,9 +24,9 @@ __int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3,
   int v17; // eax
   __int64 v18; // r10
   int v19; // r11d
-  __int64 Heap; // rax
-  unsigned int v21; // edx
-  __int64 v22; // r15
+  ACL *Heap; // rax
+  ULONG v21; // edx
+  ACL *v22; // r15
   unsigned int v23; // ebp
   unsigned int v24; // eax
   char *v25; // rbx
@@ -38,7 +38,7 @@ __int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3,
   char *v31; // rbx
   __int64 v32; // rcx
   __int16 v33; // ax
-  __int64 v34; // [rsp+60h] [rbp+8h] BYREF
+  ACL *v34; // [rsp+60h] [rbp+8h] BYREF
   void *Src; // [rsp+70h] [rbp+18h]
 
   Src = a3;
@@ -94,18 +94,18 @@ LABEL_15:
     v6 = (unsigned __int16)v34;
     v14 = *(unsigned __int16 *)(v18 + 2) + v18;
   }
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, (unsigned __int16)v6);
+  Heap = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, (unsigned __int16)v6);
   *a4 = Heap;
   if ( !Heap )
     return 3221225626LL;
   v21 = (unsigned __int16)v34;
   *a5 = 1;
-  RtlCreateAcl(Heap, v21, 3);
+  RtlCreateAcl(Heap, v21, 3u);
   v22 = *a4;
   v23 = 0;
   LOWORD(v24) = *(_WORD *)(a1 + 4);
   v34 = v22;
-  v25 = (char *)(v22 + 8);
+  v25 = (char *)&v22[1];
   if ( (_WORD)v24 )
   {
     v26 = (unsigned __int8 *)Src;
@@ -143,6 +143,6 @@ LABEL_15:
     while ( v23 < v24 );
     v22 = v34;
   }
-  *(_WORD *)(v22 + 4) = v24;
+  v22->AceCount = v24;
   return 0LL;
 }

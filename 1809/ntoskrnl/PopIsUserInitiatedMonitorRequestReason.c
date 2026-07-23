@@ -1,8 +1,8 @@
 /*
- * XREFs of PopIsUserInitiatedMonitorRequestReason @ 0x1402D6E28
+ * XREFs of PopIsUserInitiatedMonitorRequestReason @ 0x1402D7018
  * Callers:
- *     PopHandleExecutionRequiredEnablementUpdate @ 0x1406DB684 (PopHandleExecutionRequiredEnablementUpdate.c)
- *     PopEvaluateAggressiveStandbyActions @ 0x140868BC8 (PopEvaluateAggressiveStandbyActions.c)
+ *     PopHandleExecutionRequiredEnablementUpdate @ 0x1406DC924 (PopHandleExecutionRequiredEnablementUpdate.c)
+ *     PopEvaluateAggressiveStandbyActions @ 0x140869E28 (PopEvaluateAggressiveStandbyActions.c)
  * Callees:
  *     <none>
  */

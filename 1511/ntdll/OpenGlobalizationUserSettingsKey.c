@@ -14,21 +14,19 @@
  *     <none>
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey(
-        unsigned int a1,
-        unsigned int a2,
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(
+        ACCESS_MASK DesiredAccess,
+        __int64 a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5)
+        HANDLE *a5)
 {
-  __int64 v5; // r8
   int v6; // ecx
   int v8; // ecx
   int v9; // ecx
 
-  v5 = a1;
   if ( !a5 )
-    return 3221225485LL;
+    return -1073741811;
   v6 = dword_180146398;
   if ( !dword_180145FA4 )
   {
@@ -38,14 +36,14 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(
     dword_180146398 = v6;
   }
   if ( !v6 )
-    return RtlOpenCurrentUser((unsigned int)v5);
+    return RtlOpenCurrentUser(DesiredAccess, a5);
   v8 = v6 - 1;
   if ( !v8 )
-    return OpenGlobalizationUserSettingsKey_ForSingleUserModel((unsigned int)v5, a2, v5, a5);
+    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess);
   v9 = v8 - 1;
   if ( !v9 )
-    return OpenGlobalizationUserSettingsKey_ForSingleUserModel((unsigned int)v5, a2, v5, a5);
+    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess);
   if ( v9 == 1 )
-    return 3221225474LL;
-  return 3221225701LL;
+    return -1073741822;
+  return -1073741595;
 }

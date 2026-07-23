@@ -18,33 +18,33 @@
  *     sub_180073E1C @ 0x180073E1C (sub_180073E1C.c)
  */
 
-__int64 __fastcall LdrUnloadDll(unsigned __int64 a1)
+NTSTATUS __cdecl LdrUnloadDll(PVOID DllHandle)
 {
-  int v1; // ebx
-  __int64 v2; // rdi
+  NTSTATUS v1; // ebx
+  char *v2; // rdi
   __int16 v4; // bx
   __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v7; // r8
   __int64 v8; // r9
   int v9; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v10; // [rsp+40h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
   v1 = 0;
   if ( !byte_180165408 )
   {
-    v1 = sub_18001869C(a1, &v10, &v9);
+    v1 = sub_18001869C((unsigned __int64)DllHandle, (__int64 *)&BaseAddress, &v9);
     if ( v1 >= 0 )
     {
-      v2 = v10;
-      v1 = sub_18002F3D8(v10, 1LL);
+      v2 = (char *)BaseAddress;
+      v1 = sub_18002F3D8(BaseAddress, 1LL);
       if ( v1 == -1073741267 )
       {
         v4 = NtCurrentTeb()->SameTebFlags & 0x1000;
         if ( !v4 )
           sub_18002E73C(0);
-        v2 = v10;
-        sub_18002F3D8(v10, 0LL);
+        v2 = (char *)BaseAddress;
+        sub_18002F3D8(BaseAddress, 0LL);
         if ( !v4 )
           sub_180073E1C(v6, v5, v7, v8);
         v1 = 0;
@@ -52,5 +52,5 @@ __int64 __fastcall LdrUnloadDll(unsigned __int64 a1)
       sub_18001B678(v2);
     }
   }
-  return (unsigned int)v1;
+  return v1;
 }

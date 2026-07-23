@@ -1,9 +1,9 @@
 /*
- * XREFs of BgkSetBootGraphicsInformation @ 0x140AF10F4
+ * XREFs of BgkSetBootGraphicsInformation @ 0x140AF1104
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     BgSetBootGraphicsInformation @ 0x140AF1394 (BgSetBootGraphicsInformation.c)
+ *     BgSetBootGraphicsInformation @ 0x140AF13A4 (BgSetBootGraphicsInformation.c)
  */
 
 __int64 BgkSetBootGraphicsInformation()

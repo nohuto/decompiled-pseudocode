@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdatePartitionChildPageCounts @ 0x140709E5C
+ * XREFs of MiUpdatePartitionChildPageCounts @ 0x14070EB10
  * Callers:
- *     MiDeleteDynamicPfns @ 0x1406E81E0 (MiDeleteDynamicPfns.c)
- *     MiChangePagesPartitionId @ 0x140708664 (MiChangePagesPartitionId.c)
- *     MiMoveBadPagePartition @ 0x1407093D4 (MiMoveBadPagePartition.c)
- *     MiTransferPartitionPageRun @ 0x140709A80 (MiTransferPartitionPageRun.c)
- *     MiCreateDynamicPfns @ 0x140865E98 (MiCreateDynamicPfns.c)
+ *     MiDeleteDynamicPfns @ 0x1406ECE7C (MiDeleteDynamicPfns.c)
+ *     MiChangePagesPartitionId @ 0x14070D318 (MiChangePagesPartitionId.c)
+ *     MiMoveBadPagePartition @ 0x14070E088 (MiMoveBadPagePartition.c)
+ *     MiTransferPartitionPageRun @ 0x14070E734 (MiTransferPartitionPageRun.c)
+ *     MiCreateDynamicPfns @ 0x14086C278 (MiCreateDynamicPfns.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x1402CABF0 (MiRestrictRangeToNode.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x1402AC9B0 (MiRestrictRangeToNode.c)
  */
 
 __int64 __fastcall MiUpdatePartitionChildPageCounts(ULONG *a1, ULONG *a2, ULONG_PTR a3, ULONG_PTR a4)

@@ -11,7 +11,7 @@
  *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ObpFreeWorkItemBlock(struct _SLIST_ENTRY *P)
+__int64 __fastcall ObpFreeWorkItemBlock(_SLIST_ENTRY *P)
 {
   struct _KTHREAD *CurrentThread; // rax
 

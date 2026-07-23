@@ -1,9 +1,9 @@
 /*
- * XREFs of VfCheckDifDdiExist @ 0x140ACA2B0
+ * XREFs of VfCheckDifDdiExist @ 0x140ACA2A0
  * Callers:
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
  * Callees:
- *     ViCheckDifDdiExist @ 0x140ACA944 (ViCheckDifDdiExist.c)
+ *     ViCheckDifDdiExist @ 0x140ACA934 (ViCheckDifDdiExist.c)
  */
 
 char __fastcall VfCheckDifDdiExist(unsigned int a1)

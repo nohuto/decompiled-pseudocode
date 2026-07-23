@@ -1,12 +1,12 @@
 /*
- * XREFs of RawCompletionRoutine @ 0x1400F9740
+ * XREFs of RawCompletionRoutine @ 0x1400F97C0
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RawEndOperation @ 0x1400F97D8 (RawEndOperation.c)
- *     RawInitiateDeleteVolume @ 0x14010C63C (RawInitiateDeleteVolume.c)
+ *     RawEndOperation @ 0x1400F9858 (RawEndOperation.c)
+ *     RawInitiateDeleteVolume @ 0x14010C6BC (RawInitiateDeleteVolume.c)
  */
 
 __int64 __fastcall RawCompletionRoutine(__int64 a1, __int64 a2, __int64 a3)

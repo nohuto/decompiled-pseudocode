@@ -1,9 +1,9 @@
 /*
- * XREFs of IopVerifyDriverObjectOnStack @ 0x1405565A8
+ * XREFs of IopVerifyDriverObjectOnStack @ 0x140556C68
  * Callers:
- *     IopGetDriverPathInformation @ 0x140555624 (IopGetDriverPathInformation.c)
+ *     IopGetDriverPathInformation @ 0x140555CE4 (IopGetDriverPathInformation.c)
  * Callees:
- *     IopGetDeviceAttachmentBase @ 0x140302A1C (IopGetDeviceAttachmentBase.c)
+ *     IopGetDeviceAttachmentBase @ 0x140302CAC (IopGetDeviceAttachmentBase.c)
  */
 
 char __fastcall IopVerifyDriverObjectOnStack(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KseKernelPadSectionsOverrideInitialize @ 0x140A38BB0
+ * XREFs of KseKernelPadSectionsOverrideInitialize @ 0x140A39BB0
  * Callers:
- *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
+ *     KseInitialize @ 0x140A3D89C (KseInitialize.c)
  * Callees:
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     KseRegisterShim @ 0x1407BD420 (KseRegisterShim.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x1407BDBB0 (KseRegisterShim.c)
  */
 
 void KseKernelPadSectionsOverrideInitialize()

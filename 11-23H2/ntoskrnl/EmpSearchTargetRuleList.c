@@ -1,8 +1,8 @@
 /*
- * XREFs of EmpSearchTargetRuleList @ 0x14032D8C4
+ * XREFs of EmpSearchTargetRuleList @ 0x14032DB54
  * Callers:
- *     EmpUpdateRuleState @ 0x14032E0FC (EmpUpdateRuleState.c)
- *     EmpClientRuleRegisterNotification @ 0x14093C464 (EmpClientRuleRegisterNotification.c)
+ *     EmpUpdateRuleState @ 0x14032E38C (EmpUpdateRuleState.c)
+ *     EmpClientRuleRegisterNotification @ 0x14093C664 (EmpClientRuleRegisterNotification.c)
  *     EmClientQueryRuleState @ 0x140A87C40 (EmClientQueryRuleState.c)
  *     EmClientRuleEvaluate @ 0x140A87D30 (EmClientRuleEvaluate.c)
  *     EmpParseTargetRules @ 0x140B56A50 (EmpParseTargetRules.c)

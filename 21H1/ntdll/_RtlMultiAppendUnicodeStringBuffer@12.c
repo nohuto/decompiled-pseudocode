@@ -17,11 +17,12 @@ int __stdcall RtlMultiAppendUnicodeStringBuffer(unsigned __int16 *a1, int a2, in
   unsigned int v7; // esi
   int v8; // eax
   int result; // eax
-  int v10; // [esp+Ch] [ebp-4h]
+  size_t v10; // [esp-4h] [ebp-14h]
+  int v11; // [esp+Ch] [ebp-4h]
 
   v3 = 0;
   v4 = 0;
-  v10 = 0;
+  v11 = 0;
   v5 = *a1;
   v6 = v5;
   if ( a2 )
@@ -52,13 +53,11 @@ int __stdcall RtlMultiAppendUnicodeStringBuffer(unsigned __int16 *a1, int a2, in
   {
     do
     {
-      memmove(
-        (void *)(*((_DWORD *)a1 + 1) + 2 * (v5 >> 1)),
-        *(const void **)(a3 + 8 * v3 + 4),
-        *(unsigned __int16 *)(a3 + 8 * v3));
-      v5 += *(unsigned __int16 *)(a3 + 8 * v10);
-      v3 = v10 + 1;
-      v10 = v3;
+      LODWORD(v10) = *(unsigned __int16 *)(a3 + 8 * v3);
+      memmove((void *)(*((_DWORD *)a1 + 1) + 2 * (v5 >> 1)), *(const void **)(a3 + 8 * v3 + 4), v10);
+      v5 += *(unsigned __int16 *)(a3 + 8 * v11);
+      v3 = v11 + 1;
+      v11 = v3;
     }
     while ( v3 != a2 );
     v8 = *((_DWORD *)a1 + 1);

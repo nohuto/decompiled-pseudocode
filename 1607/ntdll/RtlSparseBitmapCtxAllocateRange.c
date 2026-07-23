@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlSparseBitmapCtxAllocateRange @ 0x180050F80
+ * XREFs of RtlSparseBitmapCtxAllocateRange @ 0x180050F70
  * Callers:
- *     RtlpSparseBitmapCtxPrepareRanges @ 0x18004FA10 (RtlpSparseBitmapCtxPrepareRanges.c)
+ *     RtlpSparseBitmapCtxPrepareRanges @ 0x18004FA00 (RtlpSparseBitmapCtxPrepareRanges.c)
  * Callees:
- *     RtlpSparseBitmapCheckRangeArrayPage @ 0x18004FE58 (RtlpSparseBitmapCheckRangeArrayPage.c)
- *     RtlSparseBitmapCtxInitializeRange @ 0x180051508 (RtlSparseBitmapCtxInitializeRange.c)
- *     RtlpSparseBitmapCommitRangeArrayPage @ 0x180051698 (RtlpSparseBitmapCommitRangeArrayPage.c)
+ *     RtlpSparseBitmapCheckRangeArrayPage @ 0x18004FE48 (RtlpSparseBitmapCheckRangeArrayPage.c)
+ *     RtlSparseBitmapCtxInitializeRange @ 0x1800514F8 (RtlSparseBitmapCtxInitializeRange.c)
+ *     RtlpSparseBitmapCommitRangeArrayPage @ 0x180051688 (RtlpSparseBitmapCommitRangeArrayPage.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 

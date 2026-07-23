@@ -1,13 +1,13 @@
 /*
- * XREFs of AdtpBuildRegistryValueString @ 0x140A5ABE8
+ * XREFs of AdtpBuildRegistryValueString @ 0x140A5AE98
  * Callers:
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA014 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA214 (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     AdtpBuildHexInt64String @ 0x140A5A598 (AdtpBuildHexInt64String.c)
- *     AdtpBuildUlongString @ 0x140A5B5EC (AdtpBuildUlongString.c)
- *     AdtpBuildReplacementString @ 0x140A5BF7C (AdtpBuildReplacementString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     AdtpBuildHexInt64String @ 0x140A5A848 (AdtpBuildHexInt64String.c)
+ *     AdtpBuildUlongString @ 0x140A5B89C (AdtpBuildUlongString.c)
+ *     AdtpBuildReplacementString @ 0x140A5C22C (AdtpBuildReplacementString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

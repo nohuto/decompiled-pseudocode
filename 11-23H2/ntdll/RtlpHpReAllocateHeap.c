@@ -12,7 +12,7 @@
  *     RtlpHpLargeAllocSize @ 0x180087F7C (RtlpHpLargeAllocSize.c)
  *     RtlpHpLargeReAlloc @ 0x18008E80C (RtlpHpLargeReAlloc.c)
  *     RtlpCallInterceptRoutine @ 0x1800B085E (RtlpCallInterceptRoutine.c)
- *     RtlpLogHeapReallocateEvent @ 0x1801188B0 (RtlpLogHeapReallocateEvent.c)
+ *     RtlpLogHeapReallocateEvent @ 0x180118880 (RtlpLogHeapReallocateEvent.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
@@ -75,7 +75,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   }
   else
   {
-    v13 = RtlCSparseBitmapBitmaskRead(&unk_180188A90, 2 * ((a3 - qword_180188A88) >> 20));
+    v13 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a3 - qword_180188A88) >> 20));
     if ( !v13 || (v12 = v13 - 1, v12 == 2) )
     {
       v17 = RtlpHpLargeAllocSize(a1, a3, v7, &v39);
@@ -185,7 +185,7 @@ LABEL_38:
     v30 = RtlpHpSegReAlloc(a1 + 192LL * v28 + 320, v27, a3, v38);
     goto LABEL_39;
   }
-  v29 = RtlCSparseBitmapBitmaskRead(&unk_180188A90, 2 * ((a3 - qword_180188A88) >> 20));
+  v29 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a3 - qword_180188A88) >> 20));
   if ( v29 )
   {
     v28 = v29 - 1;

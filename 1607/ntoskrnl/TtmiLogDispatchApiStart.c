@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDispatchApiStart @ 0x14067ACB4
+ * XREFs of TtmiLogDispatchApiStart @ 0x14067AD98
  * Callers:
- *     TtmDispatchApi @ 0x14067937C (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x140679460 (TtmDispatchApi.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogDispatchApiStart(int a1)
@@ -35,7 +35,7 @@ void __fastcall TtmiLogDispatchApiStart(int a1)
       v4 = a1;
       v7 = 4;
       v10 = 4;
-      TlgWrite(&stru_1407478B0, &unk_14027D909, 0LL, 0LL, 4u, &pData);
+      TlgWrite(&stru_1407478B0, &unk_14027DA09, 0LL, 0LL, 4u, &pData);
     }
   }
 }

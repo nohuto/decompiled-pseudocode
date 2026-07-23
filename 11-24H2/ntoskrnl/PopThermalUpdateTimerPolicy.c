@@ -1,12 +1,12 @@
 /*
- * XREFs of PopThermalUpdateTimerPolicy @ 0x14042847C
+ * XREFs of PopThermalUpdateTimerPolicy @ 0x14041C60C
  * Callers:
- *     PopThermalPollingPowerSettingCallback @ 0x140427FB0 (PopThermalPollingPowerSettingCallback.c)
+ *     PopThermalPollingPowerSettingCallback @ 0x14041C140 (PopThermalPollingPowerSettingCallback.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     IoCancelIrp @ 0x140418FA0 (IoCancelIrp.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     IoCancelIrp @ 0x140408D50 (IoCancelIrp.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopThermalUpdateTimerPolicy(char a1)
@@ -17,7 +17,7 @@ __int64 __fastcall PopThermalUpdateTimerPolicy(char a1)
   if ( PopThermalPollingMode && PopThermalPollingWakesAllowed != a1 )
   {
     PopThermalPollingWakesAllowed = a1;
-    PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+    PopAcquireRwLockShared(&PopPolicyDeviceLock);
     for ( i = (PVOID *)PopThermal; i != &PopThermal; i = (PVOID *)*i )
     {
       PopAcquireRwLockExclusive((unsigned __int64 *)i + 54);
@@ -25,7 +25,7 @@ __int64 __fastcall PopThermalUpdateTimerPolicy(char a1)
         IoCancelIrp((PIRP)i[7]);
       PopReleaseRwLock((signed __int64 *)i + 54);
     }
-    return PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+    return PopReleaseRwLock(&PopPolicyDeviceLock);
   }
   return result;
 }

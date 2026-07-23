@@ -15,18 +15,21 @@
  *     _RtlpLogHeapFailure@24 @ 0x4B375E3D (_RtlpLogHeapFailure@24.c)
  */
 
-int __fastcall RtlpGetHeapProtection(int a1, int a2)
+int __fastcall RtlpGetHeapProtection(_DWORD *BaseAddress, int a2)
 {
   int v3; // esi
-  int v5; // [esp+Ch] [ebp-1Ch] BYREF
-  int v6; // [esp+10h] [ebp-18h]
+  ULONG_PTR *v5; // [esp+0h] [ebp-28h]
+  _DWORD *MemoryInformation; // [esp+Ch] [ebp-1Ch] BYREF
+  int v7; // [esp+10h] [ebp-18h]
 
-  v3 = (*(_DWORD *)(a1 + 64) & 0x40000) != 0 ? 64 : 4;
+  v3 = (BaseAddress[16] & 0x40000) != 0 ? 64 : 4;
   if ( a2
-    && (*(_DWORD *)(a1 + 64) & 0x40000) != 0
-    && ((int)NtQueryVirtualMemory(-1, a1, 3, &v5, 28, 0) < 0 || (v6 & 0x60) == 0 || v5 != a1) )
+    && (BaseAddress[16] & 0x40000) != 0
+    && (NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, BaseAddress, MemoryRegionInformation, &MemoryInformation, 0x1CuLL, v5) < 0
+     || (v7 & 0x60) == 0
+     || MemoryInformation != BaseAddress) )
   {
-    RtlpLogHeapFailure(1, v6, 0, 0);
+    RtlpLogHeapFailure(1, v7, 0, 0);
     return 4;
   }
   return v3;

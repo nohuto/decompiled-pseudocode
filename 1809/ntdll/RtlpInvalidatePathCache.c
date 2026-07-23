@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInvalidatePathCache @ 0x1800836A0
+ * XREFs of RtlpInvalidatePathCache @ 0x1800836B0
  * Callers:
  *     RtlSetSearchPathMode @ 0x1800027B0 (RtlSetSearchPathMode.c)
- *     LdrSetDllDirectory @ 0x1800835A0 (LdrSetDllDirectory.c)
- *     LdrAddDllDirectory @ 0x18008F910 (LdrAddDllDirectory.c)
- *     LdrRemoveDllDirectory @ 0x18008FB10 (LdrRemoveDllDirectory.c)
+ *     LdrSetDllDirectory @ 0x1800835B0 (LdrSetDllDirectory.c)
+ *     LdrAddDllDirectory @ 0x18008F920 (LdrAddDllDirectory.c)
+ *     LdrRemoveDllDirectory @ 0x18008FB20 (LdrRemoveDllDirectory.c)
  *     RtlpSignalSystemDirsModification @ 0x1800E09A0 (RtlpSignalSystemDirsModification.c)
  * Callees:
  *     <none>

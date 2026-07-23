@@ -1,13 +1,13 @@
 /*
- * XREFs of PopRecordLongPowerButtonPressDetected @ 0x140745148
+ * XREFs of PopRecordLongPowerButtonPressDetected @ 0x140746338
  * Callers:
- *     PoClearTransitionMarker @ 0x140744FC0 (PoClearTransitionMarker.c)
- *     PopDiagTracePowerButtonBugcheck @ 0x140873BE0 (PopDiagTracePowerButtonBugcheck.c)
+ *     PoClearTransitionMarker @ 0x1407461B0 (PoClearTransitionMarker.c)
+ *     PopDiagTracePowerButtonBugcheck @ 0x140874E40 (PopDiagTracePowerButtonBugcheck.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     RtlBootStatusDisableFlushing @ 0x1401785EC (RtlBootStatusDisableFlushing.c)
- *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
+ *     RtlBootStatusDisableFlushing @ 0x1401786EC (RtlBootStatusDisableFlushing.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071D774 (RtlpSystemBootStatusRequest.c)
  */
 
 void __fastcall PopRecordLongPowerButtonPressDetected(char a1)

@@ -32,14 +32,14 @@
  *     KiCopyCounters @ 0x1405169B0 (KiCopyCounters.c)
  */
 
-__int64 __fastcall KiExceptionDispatch(NTSTATUS a1, int a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall KiExceptionDispatch(int a1, unsigned int a2, void *a3, unsigned __int64 a4, char a5)
 {
   __int64 v5; // rbx
   __int64 v6; // rbp
   __int64 v7; // rdi
   __int64 v8; // rsi
-  __int64 v9; // r10
-  __int64 v10; // r11
+  unsigned __int64 v9; // r10
+  unsigned __int64 v10; // r11
   __int64 v11; // r12
   __int64 v12; // r13
   __int64 v13; // r14
@@ -90,13 +90,7 @@ __int64 __fastcall KiExceptionDispatch(NTSTATUS a1, int a2, __int64 a3, __int64 
   __int64 v61; // [rsp+118h] [rbp-C0h]
   __int64 v62; // [rsp+120h] [rbp-B8h]
   __int64 v63; // [rsp+128h] [rbp-B0h]
-  NTSTATUS v64[2]; // [rsp+138h] [rbp-A0h] BYREF
-  __int64 v65; // [rsp+140h] [rbp-98h]
-  __int64 v66; // [rsp+148h] [rbp-90h]
-  int v67; // [rsp+150h] [rbp-88h]
-  __int64 v68; // [rsp+158h] [rbp-80h]
-  __int64 v69; // [rsp+160h] [rbp-78h]
-  __int64 v70; // [rsp+168h] [rbp-70h]
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+138h] [rbp-A0h] BYREF
 
   v42 = v14;
   v43 = v15;
@@ -118,7 +112,7 @@ __int64 __fastcall KiExceptionDispatch(NTSTATUS a1, int a2, __int64 a3, __int64 
     KiUmsExceptionEntry(
       a1,
       a2,
-      a3,
+      (_DWORD)a3,
       a4,
       v40,
       v41,
@@ -154,14 +148,14 @@ __int64 __fastcall KiExceptionDispatch(NTSTATUS a1, int a2, __int64 a3, __int64 
       v61,
       v62,
       v63);
-  v64[0] = a1;
-  v64[1] = 0;
-  v65 = 0LL;
-  v66 = a3;
-  v67 = a2;
-  v68 = a4;
-  v69 = v9;
-  v70 = v10;
+  ExceptionRecord.ExceptionCode = a1;
+  ExceptionRecord.ExceptionFlags = 0;
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.ExceptionAddress = a3;
+  ExceptionRecord.NumberParameters = a2;
+  ExceptionRecord.ExceptionInformation[0] = a4;
+  ExceptionRecord.ExceptionInformation[1] = v9;
+  ExceptionRecord.ExceptionInformation[2] = v10;
   LOBYTE(a4) = *(_BYTE *)(v6 + 240) & 1;
   LOBYTE(v40) = 1;
   v24 = v6 - 128;
@@ -176,11 +170,11 @@ __int64 __fastcall KiExceptionDispatch(NTSTATUS a1, int a2, __int64 a3, __int64 
     || (IsrStack = (char *)KeGetPcr()->Prcb.IsrStack, v39 <= IsrStack) && v39 >= IsrStack - 24576 )
   {
 LABEL_14:
-    KiDispatchException(v64, (unsigned __int64)v39, v24, a4, v40);
+    KiDispatchException(&ExceptionRecord, (unsigned __int64)v39, v24, a4, v40);
   }
   else
   {
-    KiExceptionDispatchOnExceptionStack((int)v64, (int)v39, v24, a4, v40, v41, v42, *((__int64 *)&v42 + 1));
+    KiExceptionDispatchOnExceptionStack((int)&ExceptionRecord, (int)v39, v24, a4, v40, v41, v42, *((__int64 *)&v42 + 1));
   }
   _disable();
   if ( (*(_BYTE *)(v6 + 240) & 1) == 0 )

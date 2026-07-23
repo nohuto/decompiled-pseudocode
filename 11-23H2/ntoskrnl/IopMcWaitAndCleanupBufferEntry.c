@@ -1,15 +1,15 @@
 /*
- * XREFs of IopMcWaitAndCleanupBufferEntry @ 0x14055F468
+ * XREFs of IopMcWaitAndCleanupBufferEntry @ 0x14055FB28
  * Callers:
- *     IopIoRingCleanupRegBufferArray @ 0x140949224 (IopIoRingCleanupRegBufferArray.c)
- *     IopIoRingDispatchRegisterBuffers @ 0x140949590 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingCleanupRegBufferArray @ 0x140949424 (IopIoRingCleanupRegBufferArray.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x140949790 (IopIoRingDispatchRegisterBuffers.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopMcDereferenceBufferEntry @ 0x14055EEC0 (IopMcDereferenceBufferEntry.c)
- *     IopMcTryUnlockMdl @ 0x14055F40C (IopMcTryUnlockMdl.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopMcDereferenceBufferEntry @ 0x14055F580 (IopMcDereferenceBufferEntry.c)
+ *     IopMcTryUnlockMdl @ 0x14055FACC (IopMcTryUnlockMdl.c)
  */
 
 __int64 __fastcall IopMcWaitAndCleanupBufferEntry(ULONG_PTR BugCheckParameter2)
@@ -43,10 +43,13 @@ __int64 __fastcall IopMcWaitAndCleanupBufferEntry(ULONG_PTR BugCheckParameter2)
   *v6 = v5;
   *(_QWORD *)(v5 + 8) = v6;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5D688);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -54,7 +57,7 @@ __int64 __fastcall IopMcWaitAndCleanupBufferEntry(ULONG_PTR BugCheckParameter2)
       v11 = (v10 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v10;
       if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v4);

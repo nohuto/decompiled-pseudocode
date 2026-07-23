@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpCreateDirectoryObject @ 0x140AF9E70
+ * XREFs of ObpCreateDirectoryObject @ 0x140AFC300
  * Callers:
- *     NtCreateDirectoryObject @ 0x140AF9E30 (NtCreateDirectoryObject.c)
- *     NtCreateDirectoryObjectEx @ 0x140AF9E50 (NtCreateDirectoryObjectEx.c)
+ *     NtCreateDirectoryObject @ 0x140AFC2C0 (NtCreateDirectoryObject.c)
+ *     NtCreateDirectoryObjectEx @ 0x140AFC2E0 (NtCreateDirectoryObjectEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlIsSandboxedToken @ 0x1408F4B90 (RtlIsSandboxedToken.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlIsSandboxedToken @ 0x1408FBA10 (RtlIsSandboxedToken.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
-__int64 __fastcall ObpCreateDirectoryObject(_QWORD *a1, unsigned int a2, __int64 a3, void *a4, int a5)
+__int64 __fastcall ObpCreateDirectoryObject(_QWORD *a1, int a2, __int64 a3, void *a4, int a5)
 {
   PVOID v8; // rsi
   char PreviousMode; // r14

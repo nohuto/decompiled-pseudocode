@@ -54,6 +54,6 @@ __int64 KiVerifyScopesExecute()
   if ( BugCheckParameter4 != 0x7493D5224FA9E69ALL )
 LABEL_10:
     KeBugCheckEx(0x14Du, 0xFFFFFFFFuLL, 0LL, 0x7493D5224FA9E69AuLL, BugCheckParameter4);
-  KiVerifyPdata(PsNtosImageBase);
-  return KiVerifyPdata(PsHalImageBase);
+  KiVerifyPdata((ULONG_PTR)PsNtosImageBase);
+  return KiVerifyPdata((ULONG_PTR)PsHalImageBase);
 }

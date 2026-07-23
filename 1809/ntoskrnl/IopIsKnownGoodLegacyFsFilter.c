@@ -1,10 +1,10 @@
 /*
- * XREFs of IopIsKnownGoodLegacyFsFilter @ 0x140284034
+ * XREFs of IopIsKnownGoodLegacyFsFilter @ 0x140284224
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x140132740 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x14075BF60 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x140132810 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x14075D150 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
- *     memcmp @ 0x140196200 (memcmp.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
  */
 
 bool __fastcall IopIsKnownGoodLegacyFsFilter(const void **a1)
@@ -15,7 +15,7 @@ bool __fastcall IopIsKnownGoodLegacyFsFilter(const void **a1)
   unsigned __int16 v5; // ax
 
   v1 = *(_WORD *)a1;
-  v2 = (const void **)&off_140355CD8;
+  v2 = (const void **)&off_140356CD8;
   for ( i = 0; i < 3; ++i )
   {
     v5 = *((_WORD *)v2 - 4);

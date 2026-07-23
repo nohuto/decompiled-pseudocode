@@ -1,14 +1,14 @@
 /*
- * XREFs of DECREMENT_SCATTER_GATHER_LISTS @ 0x140705CB8
+ * XREFs of DECREMENT_SCATTER_GATHER_LISTS @ 0x140705CE8
  * Callers:
- *     VfBuildScatterGatherList @ 0x140706890 (VfBuildScatterGatherList.c)
- *     VfBuildScatterGatherListEx @ 0x140706B6C (VfBuildScatterGatherListEx.c)
- *     VfGetScatterGatherList @ 0x1407075F8 (VfGetScatterGatherList.c)
- *     VfGetScatterGatherListEx @ 0x140707934 (VfGetScatterGatherListEx.c)
- *     VfPutScatterGatherList @ 0x140708310 (VfPutScatterGatherList.c)
+ *     VfBuildScatterGatherList @ 0x1407068C0 (VfBuildScatterGatherList.c)
+ *     VfBuildScatterGatherListEx @ 0x140706B9C (VfBuildScatterGatherListEx.c)
+ *     VfGetScatterGatherList @ 0x140707628 (VfGetScatterGatherList.c)
+ *     VfGetScatterGatherListEx @ 0x140707964 (VfGetScatterGatherListEx.c)
+ *     VfPutScatterGatherList @ 0x140708340 (VfPutScatterGatherList.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 void __fastcall DECREMENT_SCATTER_GATHER_LISTS(__int64 a1)

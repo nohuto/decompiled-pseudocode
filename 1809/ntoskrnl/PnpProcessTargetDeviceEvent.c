@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpProcessTargetDeviceEvent @ 0x1406EB0C0
+ * XREFs of PnpProcessTargetDeviceEvent @ 0x1406EC360
  * Callers:
- *     PnpDeviceEventWorker @ 0x14058BBC0 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x14058CBC0 (PnpDeviceEventWorker.c)
  * Callees:
- *     McTemplateK0z @ 0x140191C64 (McTemplateK0z.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     PiUEventNotifyUserMode @ 0x14058EF60 (PiUEventNotifyUserMode.c)
- *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     McTemplateK0z @ 0x140191DA4 (McTemplateK0z.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     PiUEventNotifyUserMode @ 0x14058FF60 (PiUEventNotifyUserMode.c)
+ *     PiPnpRtlEndOperation @ 0x140596CA4 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140597E08 (PiPnpRtlBeginOperation.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  */
 
 __int64 __fastcall PnpProcessTargetDeviceEvent(__int64 *a1)
@@ -62,10 +62,10 @@ __int64 __fastcall PnpProcessTargetDeviceEvent(__int64 *a1)
   else
   {
 LABEL_17:
-    if ( (byte_140405847 & 8) != 0 )
+    if ( (byte_140406847 & 8) != 0 )
       McTemplateK0z((__int64)v7, &KMPnPEvt_DeviceRemoval_Start, v6, *(const wchar_t **)(v5 + 48));
     v1 = PnpProcessQueryRemoveAndEject(a1);
-    if ( (byte_140405847 & 8) != 0 )
+    if ( (byte_140406847 & 8) != 0 )
       McTemplateK0z(v12, &KMPnPEvt_DeviceRemoval_Stop, v13, *(const wchar_t **)(v5 + 48));
   }
   if ( P )

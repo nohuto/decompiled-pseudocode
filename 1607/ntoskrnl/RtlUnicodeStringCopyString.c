@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCopyString @ 0x1401CD434
+ * XREFs of RtlUnicodeStringCopyString @ 0x1401CD280
  * Callers:
- *     IopDeviceRemovalForResetComplete @ 0x14062C698 (IopDeviceRemovalForResetComplete.c)
+ *     IopDeviceRemovalForResetComplete @ 0x14062C74C (IopDeviceRemovalForResetComplete.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker_0 @ 0x1401CD4C8 (RtlWideCharArrayCopyStringWorker_0.c)
+ *     RtlWideCharArrayCopyStringWorker_0 @ 0x1401CD314 (RtlWideCharArrayCopyStringWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCopyString(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszSrc)

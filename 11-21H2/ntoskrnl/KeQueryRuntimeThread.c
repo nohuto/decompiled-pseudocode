@@ -8,6 +8,6 @@
 
 ULONG __stdcall KeQueryRuntimeThread(PKTHREAD Thread, PULONG UserTime)
 {
-  *UserTime = Thread->UserTime;
-  return Thread->SchedulerApc.SpareLong0;
+  *UserTime = *((_DWORD *)Thread + 183);
+  return *((_DWORD *)Thread + 163);
 }

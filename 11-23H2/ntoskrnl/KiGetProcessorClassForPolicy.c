@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetProcessorClassForPolicy @ 0x140461766
+ * XREFs of KiGetProcessorClassForPolicy @ 0x140461B66
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x1402C8490 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroReduceToMaximallyPreferredByClass @ 0x1405772E8 (KiHeteroReduceToMaximallyPreferredByClass.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402C8720 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroReduceToMaximallyPreferredByClass @ 0x1405777D8 (KiHeteroReduceToMaximallyPreferredByClass.c)
  * Callees:
  *     <none>
  */

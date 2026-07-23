@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnmapReturnSystemCommit @ 0x140A2C120
+ * XREFs of MiUnmapReturnSystemCommit @ 0x140A20048
  * Callers:
- *     MmFreePoolMemory @ 0x140243A40 (MmFreePoolMemory.c)
+ *     MmFreePoolMemory @ 0x14020C540 (MmFreePoolMemory.c)
  * Callees:
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
  */
 
 void __fastcall MiUnmapReturnSystemCommit(__int64 a1, __int64 a2)

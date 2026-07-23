@@ -4,26 +4,26 @@
  *     PsInitSystem @ 0x140B4DE90 (PsInitSystem.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     VslGetNestedPageProtectionFlags @ 0x140340320 (VslGetNestedPageProtectionFlags.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140354A70 (KeRegisterBugCheckReasonCallback.c)
- *     SeRegisterObjectTypeMandatoryPolicy @ 0x140380E3C (SeRegisterObjectTypeMandatoryPolicy.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     strcpy_s @ 0x1403DF890 (strcpy_s.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsIumResumeAfterHibernate @ 0x1405A58E4 (PsIumResumeAfterHibernate.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     ExCreateHandleTable @ 0x1407B05C8 (ExCreateHandleTable.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
- *     PsChangeQuantumTable @ 0x1407C0444 (PsChangeQuantumTable.c)
- *     PspValidateMitigationOptions @ 0x1407C643C (PspValidateMitigationOptions.c)
- *     CmSiRWLockInitialize @ 0x14080E150 (CmSiRWLockInitialize.c)
- *     ObCreateObjectType @ 0x14081F1D0 (ObCreateObjectType.c)
- *     PspValidateMitigationAuditOptions @ 0x140849D84 (PspValidateMitigationAuditOptions.c)
- *     PspCreateProcess @ 0x14085C7C0 (PspCreateProcess.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C23C (MmAllocateIndependentPagesEx.c)
- *     MmAllocateMappingAddress @ 0x14086C460 (MmAllocateMappingAddress.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1403405B0 (VslGetNestedPageProtectionFlags.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140354C10 (KeRegisterBugCheckReasonCallback.c)
+ *     SeRegisterObjectTypeMandatoryPolicy @ 0x140380FDC (SeRegisterObjectTypeMandatoryPolicy.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     strcpy_s @ 0x1403DFA70 (strcpy_s.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsIumResumeAfterHibernate @ 0x1405A5E54 (PsIumResumeAfterHibernate.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     ExCreateHandleTable @ 0x1407B07B8 (ExCreateHandleTable.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
+ *     PsChangeQuantumTable @ 0x1407C0714 (PsChangeQuantumTable.c)
+ *     PspValidateMitigationOptions @ 0x1407C670C (PspValidateMitigationOptions.c)
+ *     CmSiRWLockInitialize @ 0x14080E420 (CmSiRWLockInitialize.c)
+ *     ObCreateObjectType @ 0x14081F4D0 (ObCreateObjectType.c)
+ *     PspValidateMitigationAuditOptions @ 0x14084A084 (PspValidateMitigationAuditOptions.c)
+ *     PspCreateProcess @ 0x14085CA00 (PspCreateProcess.c)
+ *     MmAllocateIndependentPagesEx @ 0x14086C47C (MmAllocateIndependentPagesEx.c)
+ *     MmAllocateMappingAddress @ 0x14086C6A0 (MmAllocateMappingAddress.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     PspInitializeSiloStructures @ 0x140B49810 (PspInitializeSiloStructures.c)
  *     PspTlsInitialize @ 0x140B66B84 (PspTlsInitialize.c)
@@ -43,14 +43,14 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   __int64 v8; // r9
   int v9; // eax
   size_t v10; // rbx
-  union _RTL_RUN_ONCE *v11; // rcx
-  union _RTL_RUN_ONCE *v12; // rcx
+  _RTL_RUN_ONCE *v11; // rcx
+  _RTL_RUN_ONCE *v12; // rcx
   __int64 v13; // rax
-  union _RTL_RUN_ONCE *v14; // rcx
-  union _RTL_RUN_ONCE *v15; // rcx
+  _RTL_RUN_ONCE *v14; // rcx
+  _RTL_RUN_ONCE *v15; // rcx
   __int64 v16; // rax
-  union _RTL_RUN_ONCE *v17; // rcx
-  union _RTL_RUN_ONCE *v18; // rcx
+  _RTL_RUN_ONCE *v17; // rcx
+  _RTL_RUN_ONCE *v18; // rcx
   __int64 v19; // rax
   struct _EX_RUNDOWN_REF *Process; // rcx
   __int64 *v21; // rdi
@@ -169,7 +169,7 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   while ( v19 != 1 );
   PsChangeQuantumTable(0, PsRawPrioritySeparation);
   PspActiveProcessLock = 0LL;
-  qword_140C382C8 = (__int64)&PsActiveProcessHead;
+  qword_140C38268 = (__int64)&PsActiveProcessHead;
   PsActiveProcessHead = (__int64)&PsActiveProcessHead;
   Process = (struct _EX_RUNDOWN_REF *)KeGetCurrentThread()->ApcState.Process;
   PsIdleProcess = Process;
@@ -317,13 +317,13 @@ char __fastcall PspInitPhase0(PVOID StartContext)
                         CmSiRWLockInitialize(&PsWin32CallBack);
                         CmSiRWLockInitialize(&PsWin32NullCallBack);
                         *(_BYTE *)(PspCidTable + 44) |= 1u;
-                        qword_140C382F0 = (__int64)PspReaper;
-                        qword_140C38350 = (__int64)PspProcessRundownWorker;
+                        qword_140C38290 = (__int64)PspReaper;
+                        qword_140C382F0 = (__int64)PspProcessRundownWorker;
                         PspProcessRundownCacheWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspProcessRundownWorkerSingle;
                         PsReaperListHead = 0LL;
-                        qword_140C382F8 = 0LL;
+                        qword_140C38298 = 0LL;
                         PsReaperWorkItem = 0LL;
-                        qword_140C38358 = 0LL;
+                        qword_140C382F8 = 0LL;
                         PspProcessRundownWorkItem = 0LL;
                         PspProcessRundownCacheWorkItem.Parameter = 0LL;
                         PspProcessRundownCacheWorkItem.List.Flink = 0LL;

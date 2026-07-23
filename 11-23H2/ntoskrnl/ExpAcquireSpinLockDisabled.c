@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpAcquireSpinLockDisabled @ 0x140352048
+ * XREFs of ExpAcquireSpinLockDisabled @ 0x1403521E8
  * Callers:
- *     ExInterlockedInsertHeadList @ 0x140351FA0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedAddUlong @ 0x1403CF210 (ExInterlockedAddUlong.c)
- *     ExInterlockedAddLargeInteger @ 0x14060CA00 (ExInterlockedAddLargeInteger.c)
- *     ExInterlockedPopEntryList @ 0x14060CA90 (ExInterlockedPopEntryList.c)
- *     ExInterlockedPushEntryList @ 0x14060CB20 (ExInterlockedPushEntryList.c)
+ *     ExInterlockedInsertHeadList @ 0x140352140 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedAddUlong @ 0x1403CF3F0 (ExInterlockedAddUlong.c)
+ *     ExInterlockedAddLargeInteger @ 0x14060CF50 (ExInterlockedAddLargeInteger.c)
+ *     ExInterlockedPopEntryList @ 0x14060CFE0 (ExInterlockedPopEntryList.c)
+ *     ExInterlockedPushEntryList @ 0x14060D070 (ExInterlockedPushEntryList.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall ExpAcquireSpinLockDisabled(volatile signed __int32 *a1)

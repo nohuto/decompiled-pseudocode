@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpBlkApicRead @ 0x140BDB34C
+ * XREFs of HalpBlkApicRead @ 0x140BDD34C
  * Callers:
- *     HalpBlkApicInitializeLocalUnit @ 0x140BDB1F0 (HalpBlkApicInitializeLocalUnit.c)
+ *     HalpBlkApicInitializeLocalUnit @ 0x140BDD1F0 (HalpBlkApicInitializeLocalUnit.c)
  * Callees:
  *     <none>
  */

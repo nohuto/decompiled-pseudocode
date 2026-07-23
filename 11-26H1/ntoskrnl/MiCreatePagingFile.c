@@ -1,26 +1,26 @@
 /*
- * XREFs of MiCreatePagingFile @ 0x14086B464
+ * XREFs of MiCreatePagingFile @ 0x140871844
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
- *     NtCreatePagingFile @ 0x14086CCE0 (NtCreatePagingFile.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
+ *     NtCreatePagingFile @ 0x1408730C0 (NtCreatePagingFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     MiCheckPageFileMapping @ 0x1406F8CBC (MiCheckPageFileMapping.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IoInitializeCrashDump @ 0x1407930B8 (IoInitializeCrashDump.c)
- *     IoCheckPagefileDisableReservations @ 0x140795E9C (IoCheckPagefileDisableReservations.c)
- *     IoIsPagingFileUsable @ 0x140796504 (IoIsPagingFileUsable.c)
- *     PiPagePathSetState @ 0x1407A3E10 (PiPagePathSetState.c)
- *     MiCreatePagefile @ 0x14086B0C0 (MiCreatePagefile.c)
- *     MiDeletePagefile @ 0x14086B6A4 (MiDeletePagefile.c)
- *     MiGetPagingFileHandle @ 0x14086B908 (MiGetPagingFileHandle.c)
- *     MiInsertPageFileInList @ 0x14086BC8C (MiInsertPageFileInList.c)
- *     MiValidatePageFileCreationParameters @ 0x14086C85C (MiValidatePageFileCreationParameters.c)
- *     MiZeroPageFileFirstPage @ 0x14086CA9C (MiZeroPageFileFirstPage.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x14087E48C (MiCreateSpecialPurposeMemoryPageFile.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     MiCheckPageFileMapping @ 0x1406FD98C (MiCheckPageFileMapping.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IoInitializeCrashDump @ 0x140795BE8 (IoInitializeCrashDump.c)
+ *     IoCheckPagefileDisableReservations @ 0x1407989CC (IoCheckPagefileDisableReservations.c)
+ *     IoIsPagingFileUsable @ 0x140799034 (IoIsPagingFileUsable.c)
+ *     PiPagePathSetState @ 0x1407A6950 (PiPagePathSetState.c)
+ *     MiCreatePagefile @ 0x1408714A0 (MiCreatePagefile.c)
+ *     MiDeletePagefile @ 0x140871A84 (MiDeletePagefile.c)
+ *     MiGetPagingFileHandle @ 0x140871CE8 (MiGetPagingFileHandle.c)
+ *     MiInsertPageFileInList @ 0x14087206C (MiInsertPageFileInList.c)
+ *     MiValidatePageFileCreationParameters @ 0x140872C3C (MiValidatePageFileCreationParameters.c)
+ *     MiZeroPageFileFirstPage @ 0x140872E7C (MiZeroPageFileFirstPage.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x14088488C (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreatePagingFile(__int64 a1, __int64 a2, __int64 a3, char a4, int a5, ULONG *a6)
@@ -112,11 +112,11 @@ __int64 __fastcall MiCreatePagingFile(__int64 a1, __int64 a2, __int64 a3, char a
           MiDeletePagefile(v17);
           goto LABEL_25;
         }
-        if ( a6 == &MiSystemPartition && !LOBYTE(stru_140E2EB88.RelativeTimerBias) && (v17[172] & 0x10) == 0 )
+        if ( a6 == &MiSystemPartition && !LOBYTE(stru_140E2ED08.RelativeTimerBias) && (v17[172] & 0x10) == 0 )
         {
           v18 = (void *)*((_QWORD *)v17 + 24);
           v20 = *((_OWORD *)v17 + 4);
-          LOBYTE(stru_140E2EB88.RelativeTimerBias) = IoInitializeCrashDump(v18);
+          LOBYTE(stru_140E2ED08.RelativeTimerBias) = IoInitializeCrashDump(v18);
         }
       }
       PagingFileHandle = 0;

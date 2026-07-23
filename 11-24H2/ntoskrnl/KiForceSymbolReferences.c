@@ -1,13 +1,13 @@
 /*
- * XREFs of KiForceSymbolReferences @ 0x140C27FB4
+ * XREFs of KiForceSymbolReferences @ 0x140C2A010
  * Callers:
- *     KiInitSystem @ 0x140C28258 (KiInitSystem.c)
+ *     KiInitSystem @ 0x140C2A2B4 (KiInitSystem.c)
  * Callees:
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 KiForceSymbolReferences()
@@ -16,6 +16,7 @@ __int64 KiForceSymbolReferences()
   signed __int8 v1; // cf
   unsigned __int8 CurrentIrql; // bl
   __int64 result; // rax
+  signed __int32 v4; // [rsp+30h] [rbp+8h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp+10h] BYREF
 
   BugCheckParameter2 = 0LL;
@@ -35,7 +36,7 @@ __int64 KiForceSymbolReferences()
   __writecr8(2uLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
-  ExTryAcquireSpinLockExclusiveAtDpcLevel();
+  ExTryAcquireSpinLockExclusiveAtDpcLevel(&v4);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   result = CurrentIrql;

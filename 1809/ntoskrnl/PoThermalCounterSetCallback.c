@@ -1,5 +1,5 @@
 /*
- * XREFs of PoThermalCounterSetCallback @ 0x14086C280
+ * XREFs of PoThermalCounterSetCallback @ 0x14086D4E0
  * Callers:
  *     <none>
  * Callees:
@@ -7,10 +7,10 @@
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcspbrk @ 0x1401980D0 (wcspbrk.c)
- *     PcwAddInstance @ 0x1406914C0 (PcwAddInstance.c)
- *     PopThermalReadCounters @ 0x14086C530 (PopThermalReadCounters.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcspbrk @ 0x140198210 (wcspbrk.c)
+ *     PcwAddInstance @ 0x140692680 (PcwAddInstance.c)
+ *     PopThermalReadCounters @ 0x14086D790 (PopThermalReadCounters.c)
  */
 
 __int64 __fastcall PoThermalCounterSetCallback(int a1, _QWORD *a2)

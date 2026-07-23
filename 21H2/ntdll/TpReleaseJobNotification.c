@@ -6,7 +6,7 @@
  *     TppCleanupGroupMemberRelease @ 0x18000F124 (TppCleanupGroupMemberRelease.c)
  *     TppJobpRundownJob @ 0x18007FCD8 (TppJobpRundownJob.c)
  *     TppJobpValidateJob @ 0x18007FDC8 (TppJobpValidateJob.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall TpReleaseJobNotification(__int64 a1)

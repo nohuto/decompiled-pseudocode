@@ -1,24 +1,24 @@
 /*
- * XREFs of TtmpSessionWorker @ 0x14067904C
+ * XREFs of TtmpSessionWorker @ 0x140679130
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmiSessionDeviceListWorker @ 0x1406770C8 (TtmiSessionDeviceListWorker.c)
- *     TtmiSessionTerminalListWorker @ 0x140677B2C (TtmiSessionTerminalListWorker.c)
- *     TtmpAcquireSessionLock @ 0x140678E60 (TtmpAcquireSessionLock.c)
- *     TtmpActivateSessionWorker @ 0x140678E80 (TtmpActivateSessionWorker.c)
- *     TtmpDeactivateSessionWorker @ 0x140678F20 (TtmpDeactivateSessionWorker.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x140678F98 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogSessionWorkerPass @ 0x14067BFFC (TtmiLogSessionWorkerPass.c)
- *     TtmiLogSessionWorkerStart @ 0x14067C0BC (TtmiLogSessionWorkerStart.c)
- *     TtmiLogSessionWorkerStop @ 0x14067C14C (TtmiLogSessionWorkerStop.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmiSessionDeviceListWorker @ 0x1406771AC (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x140677C10 (TtmiSessionTerminalListWorker.c)
+ *     TtmpAcquireSessionLock @ 0x140678F44 (TtmpAcquireSessionLock.c)
+ *     TtmpActivateSessionWorker @ 0x140678F64 (TtmpActivateSessionWorker.c)
+ *     TtmpDeactivateSessionWorker @ 0x140679004 (TtmpDeactivateSessionWorker.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x14067907C (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogSessionWorkerPass @ 0x14067C0E0 (TtmiLogSessionWorkerPass.c)
+ *     TtmiLogSessionWorkerStart @ 0x14067C1A0 (TtmiLogSessionWorkerStart.c)
+ *     TtmiLogSessionWorkerStop @ 0x14067C230 (TtmiLogSessionWorkerStop.c)
  */
 
 __int64 __fastcall TtmpSessionWorker(unsigned int *a1)

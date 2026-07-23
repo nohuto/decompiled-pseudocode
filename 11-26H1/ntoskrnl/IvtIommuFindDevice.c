@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtIommuFindDevice @ 0x1405AF5D8
+ * XREFs of IvtIommuFindDevice @ 0x1405B1DE8
  * Callers:
- *     IvtCreateDevice @ 0x1405AF480 (IvtCreateDevice.c)
- *     IvtFindDevice @ 0x1405AF570 (IvtFindDevice.c)
+ *     IvtCreateDevice @ 0x1405B1C90 (IvtCreateDevice.c)
+ *     IvtFindDevice @ 0x1405B1D80 (IvtFindDevice.c)
  * Callees:
- *     IvtpGetNextInternalDeviceScope @ 0x14052B634 (IvtpGetNextInternalDeviceScope.c)
- *     HalpIvtCheckIdPathMatch @ 0x14052DD38 (HalpIvtCheckIdPathMatch.c)
+ *     IvtpGetNextInternalDeviceScope @ 0x14052DB54 (IvtpGetNextInternalDeviceScope.c)
+ *     HalpIvtCheckIdPathMatch @ 0x140530258 (HalpIvtCheckIdPathMatch.c)
  */
 
 char __fastcall IvtIommuFindDevice(__int64 a1, __int64 a2, char a3)

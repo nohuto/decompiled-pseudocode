@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpShareAddressSpaceWithDevice @ 0x14060DBA0
+ * XREFs of ExpShareAddressSpaceWithDevice @ 0x14060E0F0
  * Callers:
- *     ExShareAddressSpaceWithDevice @ 0x140A01720 (ExShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x140A019B0 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAllocateAsid @ 0x14060D430 (ExpAllocateAsid.c)
- *     ExpConvertSvmDevice @ 0x14060D774 (ExpConvertSvmDevice.c)
- *     ExpPrepareNewSvmDevice @ 0x14060D938 (ExpPrepareNewSvmDevice.c)
- *     ExpSvmDereferenceDevice @ 0x14060E5B8 (ExpSvmDereferenceDevice.c)
- *     MmEnableProcessSvm @ 0x1406197E4 (MmEnableProcessSvm.c)
- *     IoQueryInterface @ 0x140828780 (IoQueryInterface.c)
- *     ExpAssignPasid @ 0x140A01750 (ExpAssignPasid.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExpAllocateAsid @ 0x14060D980 (ExpAllocateAsid.c)
+ *     ExpConvertSvmDevice @ 0x14060DCC4 (ExpConvertSvmDevice.c)
+ *     ExpPrepareNewSvmDevice @ 0x14060DE88 (ExpPrepareNewSvmDevice.c)
+ *     ExpSvmDereferenceDevice @ 0x14060EB08 (ExpSvmDereferenceDevice.c)
+ *     MmEnableProcessSvm @ 0x140619D34 (MmEnableProcessSvm.c)
+ *     IoQueryInterface @ 0x140828A80 (IoQueryInterface.c)
+ *     ExpAssignPasid @ 0x140A019E0 (ExpAssignPasid.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -190,7 +190,7 @@ __int64 __fastcall ExpShareAddressSpaceWithDevice(__int64 a1, __int64 a2, unsign
       goto LABEL_108;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       v26 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -210,10 +210,13 @@ __int64 __fastcall ExpShareAddressSpaceWithDevice(__int64 a1, __int64 a2, unsign
       Process[273].Count = Count;
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle.LockQueue.Lock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && (unsigned __int8)v17 <= 0xFu
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v17 >= 2u )
       {
         v28 = KeGetCurrentPrcb();
         v17 = (unsigned int)CurrentIrql + 1;
@@ -326,7 +329,7 @@ LABEL_79:
   *(_QWORD *)(Pool2 + 16) = P;
   v45 = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v45 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu )
   {
     v46 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v45 == 15 )
@@ -355,10 +358,13 @@ LABEL_79:
   v49->Count = (unsigned __int64)v6;
 LABEL_97:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle.LockQueue.Lock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v52 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v52 <= 0xFu && v45 <= 0xFu && (unsigned __int8)v52 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && (unsigned __int8)v52 <= 0xFu
+      && v45 <= 0xFu
+      && (unsigned __int8)v52 >= 2u )
     {
       v53 = KeGetCurrentPrcb();
       v52 = (unsigned int)v45 + 1;
@@ -406,7 +412,7 @@ LABEL_108:
   {
     v56 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v56 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu )
     {
       v57 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v56 == 15 )
@@ -423,10 +429,10 @@ LABEL_108:
       *v60 = v59;
       *(_QWORD *)(v59 + 8) = v60;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle.LockQueue.Lock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v61 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v61 <= 0xFu && v56 <= 0xFu && v61 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v61 <= 0xFu && v56 <= 0xFu && v61 >= 2u )
         {
           v62 = KeGetCurrentPrcb();
           v63 = v62->SchedulerAssist;

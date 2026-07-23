@@ -95,7 +95,7 @@ LABEL_3:
                    0,
                    0LL,
                    v20,
-                   &v17,
+                   (PINITIAL_TEB *)&v17,
                    0LL,
                    0LL,
                    (int *)&v14,

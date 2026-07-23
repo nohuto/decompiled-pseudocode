@@ -1,8 +1,8 @@
 /*
- * XREFs of AslpComputeCrc32Impl @ 0x14088878C
+ * XREFs of AslpComputeCrc32Impl @ 0x14088EB88
  * Callers:
- *     AslComputeCrc32 @ 0x14088805C (AslComputeCrc32.c)
- *     AslpComputeCrc32Uma @ 0x1408887C8 (AslpComputeCrc32Uma.c)
+ *     AslComputeCrc32 @ 0x14088E458 (AslComputeCrc32.c)
+ *     AslpComputeCrc32Uma @ 0x14088EBC4 (AslpComputeCrc32Uma.c)
  * Callees:
  *     <none>
  */

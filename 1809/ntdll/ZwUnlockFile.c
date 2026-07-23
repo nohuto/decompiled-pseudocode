@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwUnlockFile @ 0x1800A3B30
+ * XREFs of ZwUnlockFile @ 0x1800A3B50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwUnlockFile()
+NTSTATUS __cdecl ZwUnlockFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER ByteOffset,
+        PLARGE_INTEGER Length,
+        ULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 451LL;
+  result = 451;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

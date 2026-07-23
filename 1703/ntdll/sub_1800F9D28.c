@@ -6,7 +6,12 @@
  *     ZwFreeVirtualMemory @ 0x1800A56C0 (ZwFreeVirtualMemory.c)
  */
 
-bool sub_1800F9D28()
+bool __fastcall sub_1800F9D28(void *a1)
 {
-  return (int)ZwFreeVirtualMemory() >= 0;
+  ULONG_PTR v2; // [rsp+30h] [rbp+8h] BYREF
+  PVOID v3; // [rsp+40h] [rbp+18h] BYREF
+
+  v2 = 0LL;
+  v3 = a1;
+  return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v3, &v2, 0x8000u) >= 0;
 }

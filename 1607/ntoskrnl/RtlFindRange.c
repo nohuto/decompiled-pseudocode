@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlFindRange @ 0x140559DF0
+ * XREFs of RtlFindRange @ 0x14055A330
  * Callers:
- *     ArbFindSuitableRange @ 0x140559D04 (ArbFindSuitableRange.c)
- *     IopPortFindSuitableRange @ 0x14055ABC8 (IopPortFindSuitableRange.c)
+ *     ArbFindSuitableRange @ 0x14055A244 (ArbFindSuitableRange.c)
+ *     IopPortFindSuitableRange @ 0x14055B108 (IopPortFindSuitableRange.c)
  * Callees:
- *     RtlpIsRangeAvailable @ 0x140559FE4 (RtlpIsRangeAvailable.c)
- *     RtlGetLastRange @ 0x14055A1C0 (RtlGetLastRange.c)
+ *     RtlpIsRangeAvailable @ 0x14055A524 (RtlpIsRangeAvailable.c)
+ *     RtlGetLastRange @ 0x14055A700 (RtlGetLastRange.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

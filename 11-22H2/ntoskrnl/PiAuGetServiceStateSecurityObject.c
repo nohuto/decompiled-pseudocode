@@ -47,13 +47,13 @@ __int64 __fastcall PiAuGetServiceStateSecurityObject(char a1, _QWORD *a2)
     Acl = RtlCreateAcl(Pool2, v7, 2u);
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((__int64)v9, 2u, 2, 983103, (unsigned __int8 *)SeLocalSystemSid, 0);
+      Acl = RtlpAddKnownAce(v9, 2u, 2, 983103, (unsigned __int8 *)SeLocalSystemSid, 0);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v9, 2u, 2, a1 != 0 ? 196639 : 131097, (unsigned __int8 *)SeAliasAdminsSid, 0);
+        Acl = RtlpAddKnownAce(v9, 2u, 2, a1 != 0 ? 196639 : 131097, (unsigned __int8 *)SeAliasAdminsSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v9, 2u, 2, 131097, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
+          Acl = RtlpAddKnownAce(v9, 2u, 2, 131097, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
           if ( Acl >= 0 )
           {
             Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);

@@ -105,7 +105,7 @@ __int64 __fastcall RtlpSubSegmentDebugInitialize(
   *(_DWORD *)(a3 + 20) = -253701952;
   *(_DWORD *)(a2 + 44) = 1;
   _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 32), (unsigned __int16)v16, v11);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v26 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v26 = 2147353472LL;

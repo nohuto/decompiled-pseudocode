@@ -208,7 +208,7 @@ LABEL_50:
       || (v10 = CcInitializeProcessor((__int64)v7), v10 < 0)
       || (v10 = EtwInitializeProcessor((__int64)v7), v10 < 0)
       || (v10 = WheaInitializeProcessor((__int64)v7, 0), v10 < 0)
-      || (v10 = HvlInitializeProcessor((union _SLIST_HEADER *)v7), v10 < 0) )
+      || (v10 = HvlInitializeProcessor((_SLIST_HEADER *)v7), v10 < 0) )
     {
 LABEL_40:
       if ( v7 )

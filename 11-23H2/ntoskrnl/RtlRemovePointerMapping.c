@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlRemovePointerMapping @ 0x1405AAA20
+ * XREFs of RtlRemovePointerMapping @ 0x1405AAF90
  * Callers:
  *     <none>
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpAcquirePropStoreLockExclusive @ 0x1405AACB0 (RtlpAcquirePropStoreLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpAcquirePropStoreLockExclusive @ 0x1405AB220 (RtlpAcquirePropStoreLockExclusive.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlRemovePointerMapping(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 v4; // rdi
-  __int64 v5; // rbx
-  __int64 v6; // rax
+  unsigned __int64 Root; // rbx
+  unsigned __int64 v6; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -22,41 +22,44 @@ __int64 __fastcall RtlRemovePointerMapping(__int64 a1, _QWORD *a2)
   bool v11; // zf
 
   v4 = (unsigned __int8)RtlpAcquirePropStoreLockExclusive(&RtlpPtrTreeLock);
-  if ( (qword_140C0DC48 & 1) != 0 )
+  if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 )
   {
-    if ( RtlpPtrTree )
-      v5 = RtlpPtrTree ^ (unsigned __int64)&RtlpPtrTree;
+    if ( RtlpPtrTree.Root )
+      Root = (unsigned __int64)RtlpPtrTree.Root ^ (unsigned __int64)&RtlpPtrTree;
     else
-      v5 = 0LL;
+      Root = 0LL;
   }
   else
   {
-    v5 = RtlpPtrTree;
+    Root = (unsigned __int64)RtlpPtrTree.Root;
   }
-  while ( v5 )
+  while ( Root )
   {
-    if ( a1 - *(_QWORD *)(v5 + 24) >= 0 )
+    if ( a1 - *(_QWORD *)(Root + 24) >= 0 )
     {
-      if ( a1 - *(_QWORD *)(v5 + 24) <= 0 )
+      if ( a1 - *(_QWORD *)(Root + 24) <= 0 )
         break;
-      v6 = *(_QWORD *)(v5 + 8);
+      v6 = *(_QWORD *)(Root + 8);
     }
     else
     {
-      v6 = *(_QWORD *)v5;
+      v6 = *(_QWORD *)Root;
     }
-    if ( (qword_140C0DC48 & 1) != 0 && v6 )
-      v5 ^= v6;
+    if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 && v6 )
+      Root ^= v6;
     else
-      v5 = v6;
+      Root = v6;
   }
-  if ( v5 )
-    RtlRbRemoveNode((unsigned __int64 *)&RtlpPtrTree, v5);
+  if ( Root )
+    RtlRbRemoveNode(&RtlpPtrTree, (PRTL_BALANCED_NODE)Root);
   ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPtrTreeLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,9 +71,9 @@ __int64 __fastcall RtlRemovePointerMapping(__int64 a1, _QWORD *a2)
     }
   }
   __writecr8(v4);
-  if ( !v5 )
+  if ( !Root )
     return 3221226021LL;
-  *a2 = *(_QWORD *)(v5 + 32);
-  ExFreePoolWithTag((PVOID)v5, 0);
+  *a2 = *(_QWORD *)(Root + 32);
+  ExFreePoolWithTag((PVOID)Root, 0);
   return 0LL;
 }

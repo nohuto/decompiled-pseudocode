@@ -10,17 +10,17 @@
  *     ObReferenceObjectByHandle @ 0x14040B9B0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtCancelWaitCompletionPacket(void *a1, char a2)
+NTSTATUS __cdecl NtCancelWaitCompletionPacket(HANDLE WaitCompletionPacketHandle, BOOLEAN RemoveSignaledPacket)
 {
   NTSTATUS result; // eax
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   _BYTE *v5; // rbp
   KSPIN_LOCK *v6; // rsi
   KIRQL v7; // di
   PVOID Object; // [rsp+60h] [rbp+18h] BYREF
 
   result = ObReferenceObjectByHandle(
-             a1,
+             WaitCompletionPacketHandle,
              1u,
              IopWaitCompletionPacketObjectType,
              KeGetCurrentThread()->PreviousMode,
@@ -34,7 +34,7 @@ NTSTATUS __fastcall NtCancelWaitCompletionPacket(void *a1, char a2)
     v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Object + 12);
     if ( v5[104] )
     {
-      if ( IopCancelWaitCompletionPacket(Object, a2, v7) )
+      if ( IopCancelWaitCompletionPacket(Object, RemoveSignaledPacket, v7) )
       {
 LABEL_4:
         ObfDereferenceObjectWithTag(Object, 0x746C6644u);

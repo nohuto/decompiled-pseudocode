@@ -1,17 +1,17 @@
 /*
- * XREFs of BgpFwLibraryDisable @ 0x140C50AAC
+ * XREFs of BgpFwLibraryDisable @ 0x140C56AAC
  * Callers:
- *     BgpFwLibraryDestroy @ 0x140C509EC (BgpFwLibraryDestroy.c)
- *     BgLibraryDisable @ 0x140C54EE4 (BgLibraryDisable.c)
+ *     BgpFwLibraryDestroy @ 0x140C569EC (BgpFwLibraryDestroy.c)
+ *     BgLibraryDisable @ 0x140C5AEE4 (BgLibraryDisable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     LogFwReport @ 0x140C4F030 (LogFwReport.c)
- *     AnFwDisplayBackgroundUpdate @ 0x140C511F4 (AnFwDisplayBackgroundUpdate.c)
- *     AnFwDisplayProgressIndicator @ 0x140C51380 (AnFwDisplayProgressIndicator.c)
- *     BgpFoDestroy @ 0x140C51B24 (BgpFoDestroy.c)
- *     BgpTxtDestroyRegion @ 0x140C51F4C (BgpTxtDestroyRegion.c)
- *     AnFwFadeCompletion @ 0x140C52980 (AnFwFadeCompletion.c)
- *     ResFwBackgroundTransition @ 0x140C54F20 (ResFwBackgroundTransition.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     LogFwReport @ 0x140C55030 (LogFwReport.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x140C571F4 (AnFwDisplayBackgroundUpdate.c)
+ *     AnFwDisplayProgressIndicator @ 0x140C57380 (AnFwDisplayProgressIndicator.c)
+ *     BgpFoDestroy @ 0x140C57B24 (BgpFoDestroy.c)
+ *     BgpTxtDestroyRegion @ 0x140C57F4C (BgpTxtDestroyRegion.c)
+ *     AnFwFadeCompletion @ 0x140C58980 (AnFwFadeCompletion.c)
+ *     ResFwBackgroundTransition @ 0x140C5AF20 (ResFwBackgroundTransition.c)
  */
 
 __int64 BgpFwLibraryDisable()
@@ -26,16 +26,16 @@ __int64 BgpFwLibraryDisable()
     if ( gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink )
     {
       BgpTxtDestroyRegion(gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink);
-      if ( WheapPfaLock.SavedApcState.ApcListHead[1].Blink == gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink )
-        WheapPfaLock.SavedApcState.ApcListHead[1].Blink = 0LL;
+      if ( WheapPfaLock.SchedulerApc.SystemArgument1 == gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink )
+        WheapPfaLock.SchedulerApc.SystemArgument1 = 0LL;
       gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink = 0LL;
     }
     AnFwDisplayProgressIndicator(0LL);
     if ( gLoadedDiffHivesLock.NpxState )
     {
       BgpTxtDestroyRegion(gLoadedDiffHivesLock.NpxState);
-      if ( WheapPfaLock.SavedApcState.Process == (_KPROCESS *)gLoadedDiffHivesLock.NpxState )
-        WheapPfaLock.SavedApcState.Process = 0LL;
+      if ( WheapPfaLock.SchedulerApc.SystemArgument2 == (PVOID)gLoadedDiffHivesLock.NpxState )
+        WheapPfaLock.SchedulerApc.SystemArgument2 = 0LL;
       gLoadedDiffHivesLock.NpxState = 0LL;
     }
     if ( gLoadedDiffHivesLock.AffinityVersion )

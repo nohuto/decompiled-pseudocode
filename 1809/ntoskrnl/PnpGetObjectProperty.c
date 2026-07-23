@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpGetObjectProperty @ 0x140599EC8
+ * XREFs of PnpGetObjectProperty @ 0x14059AEC8
  * Callers:
- *     PiUEventCacheObjectProperties @ 0x14058F280 (PiUEventCacheObjectProperties.c)
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x140595828 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlIsDeviceEnumerableForUser @ 0x140596B94 (PiPnpRtlIsDeviceEnumerableForUser.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x140599A98 (PiDmObjectUpdateCachedObjectProperty.c)
- *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
- *     PiDmObjectProcessPropertyChange @ 0x1406F221C (PiDmObjectProcessPropertyChange.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x1406F2948 (PiDmGetReferencedObjectFromProperty.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x1406F6DB0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     IoGetDeviceDirectory @ 0x1408249F0 (IoGetDeviceDirectory.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140829158 (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiUEventCacheObjectProperties @ 0x140590280 (PiUEventCacheObjectProperties.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x140596828 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlIsDeviceEnumerableForUser @ 0x140597B94 (PiPnpRtlIsDeviceEnumerableForUser.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x14059AA98 (PiDmObjectUpdateCachedObjectProperty.c)
+ *     IopGetDeviceInterfaces @ 0x14059F6C4 (IopGetDeviceInterfaces.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1406F34BC (PiDmObjectProcessPropertyChange.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x1406F3BE8 (PiDmGetReferencedObjectFromProperty.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x1406F8050 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     IoGetDeviceDirectory @ 0x140825BF0 (IoGetDeviceDirectory.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x14082A358 (PiPnpRtlGatherInterfaceDeleteInfo.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PnpGetObjectProperty(

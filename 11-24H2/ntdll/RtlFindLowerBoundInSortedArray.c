@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFindLowerBoundInSortedArray @ 0x180171370
+ * XREFs of RtlFindLowerBoundInSortedArray @ 0x180170370
  * Callers:
- *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x180171028 (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
- *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x1801710F0 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1801717F0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x180170028 (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x1801700F0 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1801707F0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  * Callees:
- *     RtlFcpCompareFeatureIdToFeature @ 0x180171440 (RtlFcpCompareFeatureIdToFeature.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlFcpCompareFeatureIdToFeature @ 0x180170440 (RtlFcpCompareFeatureIdToFeature.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 unsigned __int64 __fastcall RtlFindLowerBoundInSortedArray(

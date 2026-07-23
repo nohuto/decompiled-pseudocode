@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransMgrSyncHive @ 0x140A06BAC
+ * XREFs of CmpTransMgrSyncHive @ 0x140A030DC
  * Callers:
- *     CmpTransMgrPrepare @ 0x140A04E88 (CmpTransMgrPrepare.c)
+ *     CmpTransMgrPrepare @ 0x140A013B8 (CmpTransMgrPrepare.c)
  * Callees:
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvpMarkDirty @ 0x140882A90 (HvpMarkDirty.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140BB9A98 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140BB9AB4 (HvLockHiveFlusherExclusive.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvpMarkDirty @ 0x140886940 (HvpMarkDirty.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140BBBA98 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140BBBAB4 (HvLockHiveFlusherExclusive.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpTransMgrSyncHive(ULONG_PTR BugCheckParameter2)

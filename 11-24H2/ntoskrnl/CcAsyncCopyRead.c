@@ -1,24 +1,24 @@
 /*
- * XREFs of CcAsyncCopyRead @ 0x1402A94F0
+ * XREFs of CcAsyncCopyRead @ 0x140273E20
  * Callers:
  *     <none>
  * Callees:
- *     PsGetPagePriorityThread @ 0x140208FD0 (PsGetPagePriorityThread.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     PsGetIoPriorityThread @ 0x140276920 (PsGetIoPriorityThread.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     CcAllocateWorkQueueEntry @ 0x1402A7D3C (CcAllocateWorkQueueEntry.c)
- *     CcGetNodeForReadAhead @ 0x1402A94A0 (CcGetNodeForReadAhead.c)
- *     CcIncrementOpenCount @ 0x1402AAADC (CcIncrementOpenCount.c)
- *     ExAllocatePoolWithTagFromNode @ 0x1402AC224 (ExAllocatePoolWithTagFromNode.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     IoReferenceIoAttributionFromThread @ 0x1403C6140 (IoReferenceIoAttributionFromThread.c)
- *     CcScheduleReadAheadNuma @ 0x1404992C0 (CcScheduleReadAheadNuma.c)
- *     CcPostWorkQueueAsyncRead @ 0x1404DFCEC (CcPostWorkQueueAsyncRead.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140AC25B4 (CcSetTelemetryPeriodicTimer.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     PsGetIoPriorityThread @ 0x14022BEB0 (PsGetIoPriorityThread.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     CcPostWorkQueueAsyncRead @ 0x14027372C (CcPostWorkQueueAsyncRead.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140273BD0 (IoReferenceIoAttributionFromThread.c)
+ *     CcGetNodeForReadAhead @ 0x140273DD0 (CcGetNodeForReadAhead.c)
+ *     CcIncrementOpenCount @ 0x14027516C (CcIncrementOpenCount.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140277180 (ExAllocatePoolWithTagFromNode.c)
+ *     CcAllocateWorkQueueEntry @ 0x140279B34 (CcAllocateWorkQueueEntry.c)
+ *     PsGetPagePriorityThread @ 0x1403305B0 (PsGetPagePriorityThread.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     CcScheduleReadAheadNuma @ 0x140493C50 (CcScheduleReadAheadNuma.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140ABD89C (CcSetTelemetryPeriodicTimer.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CcAsyncCopyRead(
@@ -42,29 +42,30 @@ char __fastcall CcAsyncCopyRead(
   __int64 v19; // r9
   _QWORD *PoolWithTagFromNode; // rax
   void *v21; // rdi
-  int WorkQueueEntry; // r15d
+  NTSTATUS v22; // r15d
   volatile signed __int64 *v23; // rcx
   __int64 v24; // r8
   __int64 v25; // rdx
-  _QWORD *v26; // rdx
+  __int64 v26; // rdx
   _QWORD *v27; // rax
   __int64 v28; // rdi
   int PagePriorityThread; // eax
   __int64 v30; // rdx
-  LARGE_INTEGER *v31; // r14
-  __int64 v33; // [rsp+30h] [rbp-58h]
+  __int64 v31; // r14
+  unsigned int v32; // ecx
+  __int64 v34; // [rsp+30h] [rbp-58h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-50h] BYREF
-  PVOID P; // [rsp+90h] [rbp+8h] BYREF
-  _QWORD *v36; // [rsp+98h] [rbp+10h]
+  __int64 v36; // [rsp+90h] [rbp+8h] BYREF
+  _QWORD *v37; // [rsp+98h] [rbp+10h]
 
-  v36 = a2;
+  v37 = a2;
   PsGetIoPriorityThread((__int64)KeGetCurrentThread());
-  P = 0LL;
+  v36 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   v12 = *(_QWORD *)(Object[5] + 8LL);
   v13 = *(_QWORD *)(v12 + 536);
-  v33 = v13;
+  v34 = v13;
   Ahead = CcGetNodeForReadAhead(v12);
   v16 = Ahead;
   if ( (signed __int64)(*a2 + a3) > *(_QWORD *)(v12 + 8) )
@@ -78,8 +79,8 @@ char __fastcall CcAsyncCopyRead(
     CcScheduleReadAheadNuma(Object, Ahead);
     v17 = 0LL;
   }
-  ++qword_140F8E528;
-  if ( !dword_140F8E624 && !byte_140F8E501 && CcTelemetryGlobalData && !dword_140F8E620 )
+  ++qword_140F8E708;
+  if ( !dword_140F8E804 && !byte_140F8E6E1 && CcTelemetryGlobalData && !dword_140F8E800 )
     CcSetTelemetryPeriodicTimer(DueTime);
   v19 = *(unsigned int *)(v16 + 24);
   LODWORD(v19) = v19 | 0x80000000;
@@ -88,11 +89,11 @@ char __fastcall CcAsyncCopyRead(
   if ( !PoolWithTagFromNode )
     RtlRaiseStatus(-1073741670);
   *PoolWithTagFromNode = 0LL;
-  WorkQueueEntry = CcAllocateWorkQueueEntry(v13, *(_QWORD *)(v12 + 600), v16, (__int64 *)&P);
-  if ( WorkQueueEntry < 0 )
+  v22 = CcAllocateWorkQueueEntry(v13, *(_QWORD *)(v12 + 600), v16, &v36);
+  if ( v22 < 0 )
   {
     ExFreePoolWithTag(v21, 0x73416343u);
-    RtlRaiseStatus(WorkQueueEntry);
+    RtlRaiseStatus(v22);
   }
   if ( !CurrentThread )
     CurrentThread = KeGetCurrentThread();
@@ -103,35 +104,36 @@ char __fastcall CcAsyncCopyRead(
       _InterlockedAdd64(v23, (a3 + 4095) & 0xFFFFF000);
     _InterlockedIncrement64(v23 + 2);
   }
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v33 + 768), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v34 + 768), &LockHandle);
   LOBYTE(v24) = 1;
   CcIncrementOpenCount(v12, v25, v24);
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   _InterlockedIncrement((volatile signed __int32 *)(v12 + 528));
-  v26 = P;
-  v27 = v36;
-  *((_DWORD *)P + 32) = 5;
-  v26[2] = v12;
-  v26[4] = Object;
-  v26[3] = *v27;
-  *((_DWORD *)v26 + 10) = a3;
-  v26[6] = v21;
+  v26 = v36;
+  v27 = v37;
+  *(_DWORD *)(v36 + 128) = 5;
+  *(_QWORD *)(v26 + 16) = v12;
+  *(_QWORD *)(v26 + 32) = Object;
+  *(_QWORD *)(v26 + 24) = *v27;
+  *(_DWORD *)(v26 + 40) = a3;
+  *(_QWORD *)(v26 + 48) = v21;
   v28 = a8;
-  v26[8] = *(_QWORD *)(a8 + 16);
-  v26[9] = a6;
-  v26[10] = v28;
-  PagePriorityThread = PsGetPagePriorityThread((__int64)CurrentThread);
+  *(_QWORD *)(v26 + 64) = *(_QWORD *)(a8 + 16);
+  *(_QWORD *)(v26 + 72) = a6;
+  *(_QWORD *)(v26 + 80) = v28;
+  PagePriorityThread = PsGetPagePriorityThread(CurrentThread, v26);
   *(_DWORD *)(v30 + 56) = PagePriorityThread;
-  v31 = (LARGE_INTEGER *)P;
-  *((_QWORD *)P + 11) = KeGetCurrentThread()->ApcState.Process;
-  v31[12].QuadPart = (LONGLONG)CurrentThread;
-  LOBYTE(v31[14].LowPart) = *(_BYTE *)(v28 + 24);
-  v31[14].HighPart = *(_DWORD *)(v28 + 28);
-  v31[15] = PerformanceCounter;
-  v31[13].QuadPart = 0LL;
-  IoReferenceIoAttributionFromThread(CurrentThread);
-  if ( *(_DWORD *)(v28 + 28) > (unsigned int)CcMaxNestingLevel )
+  v31 = v36;
+  *(_QWORD *)(v36 + 88) = KeGetCurrentThread()->ApcState.Process;
+  *(_QWORD *)(v31 + 96) = CurrentThread;
+  *(_BYTE *)(v31 + 112) = *(_BYTE *)(v28 + 24);
+  *(_DWORD *)(v31 + 116) = *(_DWORD *)(v28 + 28);
+  *(LARGE_INTEGER *)(v31 + 120) = PerformanceCounter;
+  *(_QWORD *)(v31 + 104) = 0LL;
+  IoReferenceIoAttributionFromThread(CurrentThread, (unsigned __int64 *)(v31 + 104));
+  v32 = *(_DWORD *)(v28 + 28);
+  if ( v32 > CcMaxNestingLevel )
     KeBugCheckEx(0x34u, 0x4A9uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  CcPostWorkQueueAsyncRead(v31);
+  CcPostWorkQueueAsyncRead((_QWORD *)v31, *(_QWORD *)(v16 + 256) + 16LL * v32);
   return 1;
 }

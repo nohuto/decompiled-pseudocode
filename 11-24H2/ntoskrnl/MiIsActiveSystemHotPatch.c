@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsActiveSystemHotPatch @ 0x1407F3744
+ * XREFs of MiIsActiveSystemHotPatch @ 0x1407F3D38
  * Callers:
- *     MiLogHotPatchRundown @ 0x1407F44C4 (MiLogHotPatchRundown.c)
- *     MiQueryProcessActivePatches @ 0x140AAE3A8 (MiQueryProcessActivePatches.c)
+ *     MiLogHotPatchRundown @ 0x1407F4BB8 (MiLogHotPatchRundown.c)
+ *     MiQueryProcessActivePatches @ 0x140AA9284 (MiQueryProcessActivePatches.c)
  * Callees:
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
  */
 
 __int64 __fastcall MiIsActiveSystemHotPatch(__int64 a1)

@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwSubscribeWnfStateChange @ 0x14041E6A0
+ * XREFs of ZwSubscribeWnfStateChange @ 0x14041EA30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSubscribeWnfStateChange(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSubscribeWnfStateChange(
+        PCWNF_STATE_NAME StateName,
+        WNF_CHANGE_STAMP ChangeStamp,
+        ULONG EventMask,
+        PULONG64 SubscriptionId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

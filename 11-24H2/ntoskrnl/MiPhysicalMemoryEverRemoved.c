@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPhysicalMemoryEverRemoved @ 0x14066E644
+ * XREFs of MiPhysicalMemoryEverRemoved @ 0x14066F818
  * Callers:
- *     MiMapNewPfns @ 0x1407E96AC (MiMapNewPfns.c)
- *     MiUnmapPfns @ 0x1407EA110 (MiUnmapPfns.c)
+ *     MiMapNewPfns @ 0x1407E9C7C (MiMapNewPfns.c)
+ *     MiUnmapPfns @ 0x1407EA6E0 (MiUnmapPfns.c)
  * Callees:
- *     RtlSetBitsEx @ 0x1403A4600 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x14026E120 (RtlSetBitsEx.c)
  */
 
 __int64 __fastcall MiPhysicalMemoryEverRemoved(unsigned __int64 a1, __int64 a2, int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall MiPhysicalMemoryEverRemoved(unsigned __int64 a1, __int64 a2, 
   {
     v16[0] = 0x8000LL;
     v6 = v4 - v3;
-    v16[1] = &unk_140E2DBF0;
+    v16[1] = &unk_140E2DD30;
     if ( a3 )
     {
       if ( v3 < v16[0] )

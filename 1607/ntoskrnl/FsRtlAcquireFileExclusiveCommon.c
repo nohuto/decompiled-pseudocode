@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x14042E010
+ * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x14042CEE0
  * Callers:
- *     FsRtlAcquireToCreateMappedSection @ 0x14042DD98 (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlAcquireFileExclusive @ 0x14042DE48 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x14042CC68 (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlAcquireFileExclusive @ 0x14042CD18 (FsRtlAcquireFileExclusive.c)
  * Callees:
- *     FsFilterCtrlFree @ 0x140026254 (FsFilterCtrlFree.c)
- *     FsFilterPerformCompletionCallbacks @ 0x140026270 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1400262E0 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlInit @ 0x140026580 (FsFilterCtrlInit.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x14002660C (IoGetBaseFileSystemDeviceObject.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     FsFilterCtrlFree @ 0x140025DD4 (FsFilterCtrlFree.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x140025DF0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x140025E60 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlInit @ 0x140026100 (FsFilterCtrlInit.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x14002618C (IoGetBaseFileSystemDeviceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FsRtlAcquireFileExclusiveCommon(PFILE_OBJECT FileObject, int a2, int a3, __int64 a4)

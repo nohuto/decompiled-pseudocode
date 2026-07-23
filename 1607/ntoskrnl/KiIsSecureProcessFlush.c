@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsSecureProcessFlush @ 0x14001DECC
+ * XREFs of KiIsSecureProcessFlush @ 0x14001DA4C
  * Callers:
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x1400B5D3C (KeFlushMultipleRangeTb.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     KeFlushSingleCurrentTb @ 0x14012C860 (KeFlushSingleCurrentTb.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x14012F798 (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x1400B3B64 (KeFlushMultipleRangeTb.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x14012CDD0 (KeFlushSingleCurrentTb.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x14012FD08 (KeFlushMultipleRangeCurrentTb.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
  * XREFs of ZwAreMappedFilesTheSame @ 0x1800A7550
  * Callers:
- *     LdrpFindLoadedDllByMappingLockHeld @ 0x180031534 (LdrpFindLoadedDllByMappingLockHeld.c)
+ *     LdrpFindLoadedDllByMappingLockHeld @ 0x180031524 (LdrpFindLoadedDllByMappingLockHeld.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAreMappedFilesTheSame()
+NTSTATUS __cdecl ZwAreMappedFilesTheSame(PVOID File1MappedAsAnImage, PVOID File2MappedAsFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 138LL;
+  result = 138;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -6,7 +6,7 @@
  *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PiDmAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+__int64 __fastcall PiDmAllocateGenericTableEntry(_RTL_AVL_TABLE *a1)
 {
   return ExAllocatePool2(0x100uLL);
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x1409A4440
+ * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x140964EA0
  * Callers:
- *     PiDmObjectGetCachedObjectProperty @ 0x1409A47F0 (PiDmObjectGetCachedObjectProperty.c)
- *     PiPnpRtlObjectActionCallback @ 0x1409A4F20 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x140965250 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x140965980 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     PiDmGetObject @ 0x1409A2D70 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     PiDmGetObject @ 0x1409637D0 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(
@@ -47,18 +47,16 @@ __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(
   signed __int64 v28; // rax
   signed __int64 v29; // rdx
   signed __int64 v30; // rtt
-  __int64 v31; // rdx
-  __int64 v32; // r8
   __int64 result; // rax
-  bool v34; // cf
+  bool v32; // cf
+  unsigned int v33; // ecx
+  unsigned int v34; // ecx
   unsigned int v35; // ecx
   unsigned int v36; // ecx
-  unsigned int v37; // ecx
-  unsigned int v38; // ecx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  signed __int64 *v40; // [rsp+60h] [rbp+18h] BYREF
+  signed __int64 *v38; // [rsp+60h] [rbp+18h] BYREF
 
-  v40 = a3;
+  v38 = a3;
   v8 = 0;
   v9 = a3;
   v12 = -1073741802;
@@ -138,10 +136,10 @@ LABEL_11:
           v12 = -1073741595;
           goto LABEL_25;
         }
-        v34 = a7 < 0x10;
+        v32 = a7 < 0x10;
         *a5 = 13;
         *a8 = 16;
-        if ( !v34 )
+        if ( !v32 )
         {
           RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(v21[16] + 16));
           v12 = RtlGUIDFromString(&DestinationString, Guid);
@@ -157,32 +155,32 @@ LABEL_11:
         v12 = -1073741275;
         goto LABEL_25;
       }
-      v35 = v27 - 1;
-      if ( v35 )
+      v33 = v27 - 1;
+      if ( v33 )
       {
-        v36 = v35 - 1;
-        if ( v36 )
+        v34 = v33 - 1;
+        if ( v34 )
         {
-          if ( v36 != 1 )
+          if ( v34 != 1 )
           {
             v12 = -1073741595;
             goto LABEL_25;
           }
           *a5 = *((_DWORD *)v21 + 30);
-          v37 = *((_DWORD *)v21 + 31);
-          *a8 = v37;
-          if ( a7 >= v37 )
+          v35 = *((_DWORD *)v21 + 31);
+          *a8 = v35;
+          if ( a7 >= v35 )
           {
-            memmove(Guid, (const void *)v21[16], v37);
+            memmove(Guid, (const void *)v21[16], v35);
             goto LABEL_25;
           }
         }
         else
         {
-          v34 = a7 < 0x10;
+          v32 = a7 < 0x10;
           *a5 = 13;
           *a8 = 16;
-          if ( !v34 )
+          if ( !v32 )
           {
             *Guid = *(GUID *)(v21 + 15);
             goto LABEL_25;
@@ -192,11 +190,11 @@ LABEL_11:
       else
       {
         *a5 = *((_DWORD *)v21 + 30);
-        v38 = *((_DWORD *)v21 + 31);
-        *a8 = v38;
-        if ( a7 >= v38 )
+        v36 = *((_DWORD *)v21 + 31);
+        *a8 = v36;
+        if ( a7 >= v36 )
         {
-          memmove(Guid, v21 + 16, v38);
+          memmove(Guid, v21 + 16, v36);
           goto LABEL_25;
         }
       }
@@ -211,15 +209,15 @@ LABEL_25:
     if ( (v28 & 2) != 0 || (v30 = *v9, v30 != _InterlockedCompareExchange64(v9, v29, v28)) )
       ExfReleasePushLock(v9);
     KeAbPostRelease((unsigned __int64)v9);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v31, v32);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( v8 )
       PiDmObjectRelease(v9);
     return v12;
   }
-  result = PiDmGetObject(a1, a2, &v40);
+  result = PiDmGetObject(a1, a2, &v38);
   if ( (int)result >= 0 )
   {
-    v9 = v40;
+    v9 = v38;
     v8 = 1;
     goto LABEL_11;
   }

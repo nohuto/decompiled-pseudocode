@@ -5,7 +5,7 @@
  *     RtlUnicodeStringToCountedOemString @ 0x1407591C0 (RtlUnicodeStringToCountedOemString.c)
  * Callees:
  *     RtlUnicodeToCustomCPN @ 0x140759E60 (RtlUnicodeToCustomCPN.c)
- *     RtlpGetCodePageData @ 0x14075A7E4 (RtlpGetCodePageData.c)
+ *     sub_14075A7E4 @ 0x14075A7E4 (sub_14075A7E4.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToOemN(
@@ -15,11 +15,11 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
         PCWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
-  struct _CPTABLEINFO *CodePageData; // rax
+  _CPTABLEINFO *v9; // rax
 
-  CodePageData = (struct _CPTABLEINFO *)RtlpGetCodePageData();
+  v9 = (_CPTABLEINFO *)sub_14075A7E4();
   return RtlUnicodeToCustomCPN(
-           CodePageData,
+           v9,
            OemString,
            MaxBytesInOemString,
            BytesInOemString,

@@ -1,24 +1,21 @@
 /*
- * XREFs of WheapEtwEnableCallback @ 0x1407D35D0
+ * XREFs of WheapEtwEnableCallback @ 0x1407D3740
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
- *     WheapFreeErrorRecord @ 0x1405BBAA8 (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x1405BD410 (WheapGenerateETWEvents.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     WheaLogInternalEvent @ 0x1403BAEC0 (WheaLogInternalEvent.c)
+ *     WheapFreeErrorRecord @ 0x1405BBCD8 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x1405BD640 (WheapGenerateETWEvents.c)
  */
 
 void __fastcall WheapEtwEnableCallback(LPCGUID SourceId, int ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)
 {
   __int64 *v4; // rbx
   __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  _DWORD *v8; // r9
-  __int64 v9; // rbx
-  __int64 v10; // rax
+  __int64 v6; // rbx
+  __int64 v7; // rax
 
   WheapEventingInitialized = ControlCode;
   if ( ControlCode == 1 )
@@ -38,23 +35,23 @@ void __fastcall WheapEtwEnableCallback(LPCGUID SourceId, int ControlCode, UCHAR 
       if ( v4 == &WheapWaitingETWEvents )
         break;
       WheapGenerateETWEvents((__int64)(v4 + 5));
-      WheapFreeErrorRecord((ULONG_PTR)v4, v6, v7, v8);
+      WheapFreeErrorRecord((ULONG_PTR)v4);
     }
     while ( 1 )
     {
       KeWaitForSingleObject(&WheapDeferredInternalLogsEventLock, Executive, 0, 0, 0LL);
-      v9 = WheapDeferredInternalLogs;
+      v6 = WheapDeferredInternalLogs;
       if ( *(__int64 **)(WheapDeferredInternalLogs + 8) != &WheapDeferredInternalLogs )
         break;
-      v10 = *(_QWORD *)WheapDeferredInternalLogs;
+      v7 = *(_QWORD *)WheapDeferredInternalLogs;
       if ( *(_QWORD *)(*(_QWORD *)WheapDeferredInternalLogs + 8LL) != WheapDeferredInternalLogs )
         break;
       WheapDeferredInternalLogs = *(_QWORD *)WheapDeferredInternalLogs;
-      *(_QWORD *)(v10 + 8) = &WheapDeferredInternalLogs;
+      *(_QWORD *)(v7 + 8) = &WheapDeferredInternalLogs;
       KeSetEvent(&WheapDeferredInternalLogsEventLock, 0, 0);
-      if ( (__int64 *)v9 == &WheapDeferredInternalLogs )
+      if ( (__int64 *)v6 == &WheapDeferredInternalLogs )
         return;
-      WheaLogInternalEvent((_DWORD *)(v9 + 16));
+      WheaLogInternalEvent((_DWORD *)(v6 + 16));
     }
 LABEL_9:
     __fastfail(3u);

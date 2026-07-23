@@ -2,7 +2,7 @@
  * XREFs of MiChargeForWriteInProgressPage @ 0x14002CEBC
  * Callers:
  *     MiAllocateModWriterEntry @ 0x140029B74 (MiAllocateModWriterEntry.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BC04 (MiReferencePageForModifiedWrite.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)

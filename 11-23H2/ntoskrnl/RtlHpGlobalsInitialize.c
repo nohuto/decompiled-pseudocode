@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlHpGlobalsInitialize @ 0x140389C2C
+ * XREFs of RtlHpGlobalsInitialize @ 0x140389E0C
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x14038873C (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x14038891C (ExInitializePoolHeapManagement.c)
  *     ExpInitSystemPhase0 @ 0x140B54AE0 (ExpInitSystemPhase0.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue64 @ 0x140317588 (RtlpHeapGenerateRandomValue64.c)
- *     RtlIsProcessorFeaturePresent @ 0x140365550 (RtlIsProcessorFeaturePresent.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x140317818 (RtlpHeapGenerateRandomValue64.c)
+ *     RtlIsProcessorFeaturePresent @ 0x1403656F0 (RtlIsProcessorFeaturePresent.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
-char RtlHpGlobalsInitialize()
+BOOLEAN RtlHpGlobalsInitialize()
 {
-  char result; // al
+  BOOLEAN result; // al
 
   memset(&RtlpHpHeapGlobals, 0, 0x40uLL);
   RtlpHpHeapGlobals = RtlpHeapGenerateRandomValue64();

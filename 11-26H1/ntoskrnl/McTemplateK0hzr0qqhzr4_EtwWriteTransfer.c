@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x1405D9478
+ * XREFs of McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x1405DBC78
  * Callers:
- *     IopLogDeviceResetComplete @ 0x1407A27D4 (IopLogDeviceResetComplete.c)
+ *     IopLogDeviceResetComplete @ 0x1407A5314 (IopLogDeviceResetComplete.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14049F320 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x140498E70 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0hzr0qqhzr4_EtwWriteTransfer(

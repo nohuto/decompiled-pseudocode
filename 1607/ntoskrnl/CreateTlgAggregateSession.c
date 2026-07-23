@@ -1,10 +1,10 @@
 /*
- * XREFs of CreateTlgAggregateSession @ 0x1401497C0
+ * XREFs of CreateTlgAggregateSession @ 0x140149D30
  * Callers:
- *     TlgRegisterAggregateProviderEx @ 0x1401495F4 (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140149B64 (TlgRegisterAggregateProviderEx.c)
  * Callees:
- *     ExAllocateTimer @ 0x140132AA0 (ExAllocateTimer.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAllocateTimer @ 0x140133010 (ExAllocateTimer.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

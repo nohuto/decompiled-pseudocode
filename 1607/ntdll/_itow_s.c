@@ -1,8 +1,8 @@
 /*
  * XREFs of _itow_s @ 0x1800A0ED0
  * Callers:
- *     RtlpFindRegTziForCurrentYear @ 0x180057818 (RtlpFindRegTziForCurrentYear.c)
- *     LdrpMUIEtwOutput @ 0x1800DC5CC (LdrpMUIEtwOutput.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x180057808 (RtlpFindRegTziForCurrentYear.c)
+ *     LdrpMUIEtwOutput @ 0x1800DC68C (LdrpMUIEtwOutput.c)
  * Callees:
  *     xtow_s @ 0x1800A1098 (xtow_s.c)
  */

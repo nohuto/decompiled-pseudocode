@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLockAppHiveLoadList @ 0x1408B4390
+ * XREFs of CmpLockAppHiveLoadList @ 0x1408BA964
  * Callers:
- *     CmLoadAppKey @ 0x1408B2250 (CmLoadAppKey.c)
+ *     CmLoadAppKey @ 0x1408B87F4 (CmLoadAppKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall CmpLockAppHiveLoadList(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -17,13 +17,13 @@ void __fastcall CmpLockAppHiveLoadList(__int64 a1, __int64 a2, __int64 a3, struc
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&CmpKeyLockTracker.Timer.Dpc, 0LL, 0LL, a4);
+  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&CmpKeyLockTracker.Timer.DueTime, 0LL, 0LL, a4);
   v7 = v5;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&CmpKeyLockTracker.Timer.Dpc, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&CmpKeyLockTracker.Timer.DueTime, 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&CmpKeyLockTracker.Timer.Dpc,
+      &CmpKeyLockTracker.Timer.DueTime.QuadPart,
       v5,
-      (__int64)&CmpKeyLockTracker.Timer.Dpc);
+      (__int64)&CmpKeyLockTracker.Timer.DueTime);
   if ( v7 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )

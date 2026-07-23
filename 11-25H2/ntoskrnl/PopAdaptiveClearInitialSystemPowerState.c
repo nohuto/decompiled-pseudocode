@@ -11,26 +11,26 @@
  *     BcdCloseObject @ 0x140A27BE8 (BcdCloseObject.c)
  */
 
-void __fastcall PopAdaptiveClearInitialSystemPowerState(__int64 a1)
+void __fastcall PopAdaptiveClearInitialSystemPowerState(UNICODE_STRING *a1)
 {
-  __int64 v1; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v2; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+30h] [rbp+8h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = -1LL;
-  v2 = -1LL;
+  BcdStoreHandle = (HANDLE)-1LL;
+  BcdObjectHandle = (HANDLE)-1LL;
   if ( byte_140FD7239 )
   {
-    if ( (int)BcdOpenStore(a1, 2LL, &v1) >= 0 )
+    if ( BcdOpenStore(a1, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle) >= 0 )
     {
-      if ( (int)BcdOpenObject(v1, &GUID_CURRENT_BOOT_ENTRY, &v2) >= 0 )
+      if ( BcdOpenObject(BcdStoreHandle, &GUID_CURRENT_BOOT_ENTRY, &BcdObjectHandle) >= 0 )
       {
-        BiDeleteElement(v2, 620757338LL);
-        BcdFlushStore(v1);
+        BiDeleteElement(BcdObjectHandle, 620757338LL);
+        BcdFlushStore(BcdStoreHandle);
       }
-      if ( v2 != -1 )
-        BcdCloseObject(v2);
+      if ( BcdObjectHandle != (HANDLE)-1LL )
+        BcdCloseObject(BcdObjectHandle);
     }
-    if ( v1 != -1 )
-      BcdCloseStore(v1);
+    if ( BcdStoreHandle != (HANDLE)-1LL )
+      BcdCloseStore(BcdStoreHandle);
   }
 }

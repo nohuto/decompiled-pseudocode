@@ -1,25 +1,25 @@
 /*
  * XREFs of RtlInitCodePageTable @ 0x14085AAD0
  * Callers:
- *     RtlpInitCodePageTables @ 0x14085A964 (RtlpInitCodePageTables.c)
+ *     sub_14085A964 @ 0x14085A964 (sub_14085A964.c)
  * Callees:
  *     <none>
  */
 
 void __stdcall RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTable)
 {
-  wchar_t *v2; // r10
+  USHORT *v2; // r10
   __int64 v4; // rax
   unsigned __int16 v5; // r11
   USHORT *v6; // rax
   USHORT *v7; // rcx
   __int64 v8; // r8
-  unsigned __int16 v9; // ax
+  USHORT v9; // ax
 
   v2 = 0LL;
   if ( !TableBase || TableBase[1] == 0xFDE9 )
   {
-    *CodePageTable = Utf8TableInfo;
+    *CodePageTable = CustomCP;
   }
   else
   {

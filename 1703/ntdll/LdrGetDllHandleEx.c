@@ -15,16 +15,21 @@
  *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
  */
 
-__int64 __fastcall LdrGetDllHandleEx(int a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
+NTSTATUS __cdecl LdrGetDllHandleEx(
+        ULONG Flags,
+        PWSTR DllPath,
+        PULONG DllCharacteristics,
+        PUNICODE_STRING DllName,
+        PVOID *DllHandle)
 {
-  int v8; // ebx
-  unsigned __int64 v10; // rdi
-  int v11; // eax
-  unsigned __int64 v12; // [rsp+30h] [rbp-B8h] BYREF
-  __int64 v13[15]; // [rsp+40h] [rbp-A8h] BYREF
+  NTSTATUS v8; // ebx
+  PVOID v10; // rdi
+  NTSTATUS v11; // eax
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-B8h] BYREF
+  PWSTR Path[15]; // [rsp+40h] [rbp-A8h] BYREF
   char v14; // [rsp+BCh] [rbp-2Ch]
 
-  v12 = 0LL;
+  BaseAddress[0] = 0LL;
   if ( (dword_180155A10 & 9) != 0 )
     sub_1800D5274(
       (unsigned int)"minkernel\\ntdll\\ldrapi.c",
@@ -32,36 +37,36 @@ __int64 __fastcall LdrGetDllHandleEx(int a1, __int64 a2, __int64 a3, __int64 a4,
       (unsigned int)"LdrGetDllHandleEx",
       3,
       "DLL name: %wZ\n",
-      a4);
-  sub_18003BE90(*(_QWORD *)(a4 + 8), a2, v13);
-  if ( (a1 & 0xFFFFFFF8) != 0 || (a1 & 3) == 3 || !a5 && (a1 & 2) == 0 )
+      DllName);
+  sub_18003BE90((__int64)DllName->Buffer, (__int64)DllPath, (__int64 *)Path);
+  if ( (Flags & 0xFFFFFFF8) != 0 || (Flags & 3) == 3 || !DllHandle && (Flags & 2) == 0 )
   {
     v8 = -1073741811;
     goto LABEL_6;
   }
-  v8 = sub_18003C014(a4, v13, &v12);
+  v8 = sub_18003C014(DllName, Path, BaseAddress);
   if ( v8 >= 0 )
   {
-    v10 = v12;
-    if ( (a1 & 2) != 0 )
+    v10 = BaseAddress[0];
+    if ( (Flags & 2) != 0 )
     {
-      v11 = sub_18001A084(v12);
+      v11 = sub_18001A084((__int64)BaseAddress[0]);
     }
     else
     {
-      if ( (a1 & 1) != 0 )
+      if ( (Flags & 1) != 0 )
         goto LABEL_15;
-      v11 = sub_18001BDBC(v12);
+      v11 = sub_18001BDBC((__int64)BaseAddress[0]);
     }
     v8 = v11;
 LABEL_15:
-    if ( v8 >= 0 && a5 )
-      *a5 = *(_QWORD *)(v10 + 48);
-    sub_18003015C(v10);
+    if ( v8 >= 0 && DllHandle )
+      *DllHandle = (PVOID)*((_QWORD *)v10 + 6);
+    sub_18003015C((char *)v10);
   }
 LABEL_6:
   if ( v14 )
-    RtlReleasePath(v13[0]);
+    RtlReleasePath(Path[0]);
   if ( (dword_180155A10 & 9) != 0 )
     sub_1800D5274(
       (unsigned int)"minkernel\\ntdll\\ldrapi.c",
@@ -70,5 +75,5 @@ LABEL_6:
       4,
       "Status: 0x%08lx\n",
       v8);
-  return (unsigned int)v8;
+  return v8;
 }

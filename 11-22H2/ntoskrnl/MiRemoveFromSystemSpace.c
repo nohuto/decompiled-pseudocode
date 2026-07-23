@@ -117,10 +117,13 @@ void __fastcall MiRemoveFromSystemSpace(ULONG_PTR BugCheckParameter1, int a2)
   ExReleaseSpinLockExclusiveFromDpcLevel(v30 + 3);
   v6 = (unsigned int)KiIrqlFlags;
   v5 = 1;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v32 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v32 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v6 = (unsigned int)(v32 + 1);

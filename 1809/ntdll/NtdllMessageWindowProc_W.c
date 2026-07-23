@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllMessageWindowProc_W @ 0x18009FFE0
+ * XREFs of NtdllMessageWindowProc_W @ 0x1800A0000
  * Callers:
  *     <none>
  * Callees:

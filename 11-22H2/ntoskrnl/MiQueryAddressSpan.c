@@ -106,7 +106,7 @@ LABEL_6:
 LABEL_7:
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -140,7 +140,7 @@ LABEL_10:
     goto LABEL_6;
   v20 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v20 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu )
   {
     v31 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v20 == 2 )
@@ -201,10 +201,10 @@ LABEL_13:
       _InterlockedAnd(v12, 0xBFFFFFFF);
       _InterlockedDecrement(v12);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v41 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && v20 <= 0xFu && v41 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && v20 <= 0xFu && v41 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v43 = CurrentPrcb->SchedulerAssist;
@@ -219,10 +219,10 @@ LABEL_13:
       }
     }
   }
-  else if ( KiIrqlFlags )
+  else if ( (_DWORD)KiIrqlFlags )
   {
     v35 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && v20 <= 0xFu && v35 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && v20 <= 0xFu && v35 >= 2u )
     {
       v36 = KeGetCurrentPrcb();
       v37 = v36->SchedulerAssist;

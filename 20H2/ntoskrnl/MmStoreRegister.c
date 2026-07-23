@@ -22,8 +22,8 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
   char *Pool; // rax
   __int64 v7; // rdi
   int SystemThread; // ebx
-  RTL_BITMAP *v9; // rax
-  RTL_BITMAP *v10; // rsi
+  _RTL_BITMAP *v9; // rax
+  _RTL_BITMAP *v10; // rsi
   unsigned __int64 v11; // rdx
   __int64 *v12; // r8
   __int64 v13; // r9
@@ -64,10 +64,10 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
   }
   else
   {
-    v9 = (RTL_BITMAP *)MiAllocatePool(
-                         64,
-                         8 * (((unsigned int)dword_140CFB18C >> 6) + ((dword_140CFB18C & 0x3F) != 0) + 2),
-                         0x20206D4Du);
+    v9 = (_RTL_BITMAP *)MiAllocatePool(
+                          64,
+                          8 * (((unsigned int)dword_140CFB18C >> 6) + ((dword_140CFB18C & 0x3F) != 0) + 2),
+                          0x20206D4Du);
     v10 = v9;
     if ( v9 )
     {

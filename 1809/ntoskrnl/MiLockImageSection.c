@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockImageSection @ 0x14061F25C
+ * XREFs of MiLockImageSection @ 0x14062025C
  * Callers:
- *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x14009AAF0 (MiLockPagableImageSection.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     ExBlockOnAddressPushLock @ 0x140111A10 (ExBlockOnAddressPushLock.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
+ *     ExBlockOnAddressPushLock @ 0x140111A80 (ExBlockOnAddressPushLock.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
  */
 
 _QWORD *__fastcall MiLockImageSection(
@@ -31,7 +31,7 @@ _QWORD *__fastcall MiLockImageSection(
       LODWORD(v13) = v9;
       if ( v9 != 1 )
         break;
-      ExBlockOnAddressPushLock((__int64)&qword_140438F30, a2, &v13, 4uLL, 0LL);
+      ExBlockOnAddressPushLock((__int64)&qword_140439FF0, a2, &v13, 4uLL, 0LL);
       v9 = *a2;
     }
     v10 = v9;
@@ -43,8 +43,8 @@ _QWORD *__fastcall MiLockImageSection(
     MiLockCode(a1, a3, a4, 1);
     _InterlockedIncrement(a2);
     _InterlockedOr(v12, 0);
-    if ( qword_140438F30 )
-      ExfUnblockPushLock(&qword_140438F30, 0LL);
+    if ( qword_140439FF0 )
+      ExfUnblockPushLock(&qword_140439FF0, 0LL);
   }
   return KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

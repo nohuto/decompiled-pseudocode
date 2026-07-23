@@ -14,8 +14,8 @@ char __fastcall ExpWnfDeleteScopeInstances(__int64 a1, unsigned int a2)
 {
   unsigned __int64 *v4; // rdi
   __int64 v5; // rbx
-  __int64 v6; // rax
-  __int64 v7; // rsi
+  _RTL_BALANCED_NODE *v6; // rax
+  _RTL_BALANCED_NODE *v7; // rsi
   struct _EX_RUNDOWN_REF *v8; // rax
   unsigned __int64 Count; // rcx
 
@@ -26,7 +26,7 @@ char __fastcall ExpWnfDeleteScopeInstances(__int64 a1, unsigned int a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
     ExfAcquirePushLockExclusiveEx(v4, v6, (ULONG_PTR)v4);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   while ( 1 )
   {
     v8 = *(struct _EX_RUNDOWN_REF **)v5;

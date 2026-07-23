@@ -7,16 +7,15 @@
  *     HvlpSetRegister64 @ 0x1404D3E70 (HvlpSetRegister64.c)
  */
 
-__int64 __fastcall PpmHvSetVirtualProcessorQos(__int64 a1, int a2)
+void __fastcall PpmHvSetVirtualProcessorQos(__int64 a1, int a2)
 {
-  __int64 result; // rax
+  __int64 v2; // rax
 
-  result = *(_QWORD *)(a1 + 36536);
-  if ( result )
+  v2 = *(_QWORD *)(a1 + 36536);
+  if ( v2 )
   {
-    *(_DWORD *)(result + 4) = a2;
-    *(_DWORD *)(result + 12) = 1;
-    return HvlpSetRegister64(589851, 0xFFFFFFFEuLL);
+    *(_DWORD *)(v2 + 4) = a2;
+    *(_DWORD *)(v2 + 12) = 1;
+    HvlpSetRegister64(589851, 0xFFFFFFFEuLL);
   }
-  return result;
 }

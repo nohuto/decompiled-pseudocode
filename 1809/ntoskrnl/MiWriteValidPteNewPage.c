@@ -1,20 +1,20 @@
 /*
- * XREFs of MiWriteValidPteNewPage @ 0x1400EEB2C
+ * XREFs of MiWriteValidPteNewPage @ 0x1400EEBAC
  * Callers:
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
- *     MiTradeActivePage @ 0x14012DF24 (MiTradeActivePage.c)
- *     MiCopyKstack @ 0x14015EC00 (MiCopyKstack.c)
- *     MiMapMdlCommon @ 0x14018EAF4 (MiMapMdlCommon.c)
- *     MiUnmapMdlCommon @ 0x1402A9424 (MiUnmapMdlCommon.c)
- *     MiWriteAwePtes @ 0x1402B2278 (MiWriteAwePtes.c)
- *     MiTradeBootImagePage @ 0x1409B86AC (MiTradeBootImagePage.c)
- *     MxSwapPages @ 0x1409C04C8 (MxSwapPages.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
+ *     MiStealPage @ 0x1400EBFC4 (MiStealPage.c)
+ *     MiTradeActivePage @ 0x14012DFF4 (MiTradeActivePage.c)
+ *     MiCopyKstack @ 0x14015ED00 (MiCopyKstack.c)
+ *     MiMapMdlCommon @ 0x14018EC34 (MiMapMdlCommon.c)
+ *     MiUnmapMdlCommon @ 0x1402A9614 (MiUnmapMdlCommon.c)
+ *     MiWriteAwePtes @ 0x1402B2468 (MiWriteAwePtes.c)
+ *     MiTradeBootImagePage @ 0x1409B96AC (MiTradeBootImagePage.c)
+ *     MxSwapPages @ 0x1409C14C8 (MxSwapPages.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiWriteValidPteNewPage(__int64 *a1, __int64 a2, int a3)
@@ -52,7 +52,7 @@ __int64 __fastcall MiWriteValidPteNewPage(__int64 *a1, __int64 a2, int a3)
     if ( (_DWORD)result )
     {
       LODWORD(v9) = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_5;
       v13 = (v11 & 1) == 0;
     }

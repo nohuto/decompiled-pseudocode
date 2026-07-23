@@ -18,9 +18,9 @@
  *     LdrpCompareResourceNames_U @ 0x1406C67F0 (LdrpCompareResourceNames_U.c)
  */
 
-__int64 __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned int a3, int a4, unsigned int **a5)
+int __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned int a3, ULONG a4, unsigned int **a5)
 {
-  int v5; // r14d
+  ULONG v5; // r14d
   int v6; // r15d
   __int64 *v7; // r13
   int v8; // eax
@@ -52,7 +52,7 @@ __int64 __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned i
   int v34; // eax
   int v35; // eax
   int v36; // eax
-  __int64 result; // rax
+  int result; // eax
   int v38; // eax
   __int16 v39; // cx
   bool v40; // zf
@@ -70,7 +70,7 @@ __int64 __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned i
   unsigned int v52; // [rsp+44h] [rbp-104h]
   ULONG Size; // [rsp+48h] [rbp-100h] BYREF
   int v54; // [rsp+4Ch] [rbp-FCh]
-  int v55; // [rsp+50h] [rbp-F8h]
+  ULONG v55; // [rsp+50h] [rbp-F8h]
   unsigned int **v56; // [rsp+58h] [rbp-F0h]
   void *v57; // [rsp+60h] [rbp-E8h]
   __int64 v58; // [rsp+68h] [rbp-E0h] BYREF
@@ -107,11 +107,11 @@ __int64 __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned i
   v50 = 1;
   v48 = 1;
   if ( a3 < 3 && (a4 & 2) == 0 || a3 > 4 )
-    return 3221225713LL;
+    return -1073741583;
   if ( (a4 & 0x41) != 0 )
   {
     if ( a3 != 4 )
-      return 3221225713LL;
+      return -1073741583;
     goto LABEL_5;
   }
   if ( a3 == 4 )
@@ -119,7 +119,7 @@ __int64 __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned i
 LABEL_5:
     if ( (a4 & 0x41) != 0 )
       goto LABEL_6;
-    return 3221225713LL;
+    return -1073741583;
   }
 LABEL_6:
   v8 = a3;
@@ -134,12 +134,12 @@ LABEL_6:
     || (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL
     || (unsigned __int64)a5 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
   v10 = (unsigned int *)RtlImageDirectoryEntryToData(a1, 1u, 2u, &Size);
   v66 = (char *)v10;
   if ( !v10 )
-    return 3221225609LL;
+    return -1073741687;
   v11 = v10;
   v64 = v10;
   v58 = 61166LL;
@@ -219,7 +219,7 @@ LABEL_80:
       {
         *v56 = v12;
 LABEL_91:
-        result = 0LL;
+        result = 0;
 LABEL_92:
         v49 = result;
         return result;
@@ -238,9 +238,9 @@ LABEL_92:
     goto LABEL_36;
   if ( v16 )
   {
-    result = LdrpLoadResourceFromAlternativeModule((int)v57, (__int64)v76, v6, v5 | 0x1000000u, v56);
+    result = LdrpLoadResourceFromAlternativeModule(v57, (__int64)v76, v6, v5 | 0x1000000, v56);
     v49 = result;
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
       return result;
     v19 = v54;
   }
@@ -288,9 +288,9 @@ LABEL_36:
                 if ( v15 )
                 {
                   v77 = (unsigned __int16)PsInstallUILanguageId;
-                  result = LdrpLoadResourceFromAlternativeModule((int)v57, (__int64)v76, v6, v5, v56);
+                  result = LdrpLoadResourceFromAlternativeModule(v57, (__int64)v76, v6, v5, v56);
                   v49 = result;
-                  if ( (int)result >= 0 )
+                  if ( result >= 0 )
                     return result;
                 }
                 v44 = PsInstallUILanguageId;
@@ -321,9 +321,9 @@ LABEL_159:
                 if ( v15 )
                 {
                   v77 = 1033LL;
-                  result = LdrpLoadResourceFromAlternativeModule((int)v57, (__int64)v76, v6, v5, v56);
+                  result = LdrpLoadResourceFromAlternativeModule(v57, (__int64)v76, v6, v5, v56);
                   v49 = result;
-                  if ( (int)result >= 0 )
+                  if ( result >= 0 )
                     return result;
                 }
               }
@@ -340,9 +340,9 @@ LABEL_159:
               if ( v15 )
               {
                 v77 = (unsigned __int16)PsDefaultSystemLocaleId;
-                result = LdrpLoadResourceFromAlternativeModule((int)v57, (__int64)v76, v6, v5, v56);
+                result = LdrpLoadResourceFromAlternativeModule(v57, (__int64)v76, v6, v5, v56);
                 v49 = result;
-                if ( (int)result >= 0 )
+                if ( result >= 0 )
                   return result;
               }
             }
@@ -354,9 +354,9 @@ LABEL_159:
             if ( v15 && PsMachineUILanguageId )
             {
               v77 = (unsigned __int16)PsMachineUILanguageId;
-              result = LdrpLoadResourceFromAlternativeModule((int)v57, (__int64)v76, v6, v5, v56);
+              result = LdrpLoadResourceFromAlternativeModule(v57, (__int64)v76, v6, v5, v56);
               v49 = result;
-              if ( (int)result >= 0 )
+              if ( result >= 0 )
                 return result;
               v44 = PsMachineUILanguageId;
 LABEL_162:
@@ -390,9 +390,9 @@ LABEL_162:
             if ( !v9 )
               goto LABEL_71;
             v77 = v9;
-            result = LdrpLoadResourceFromAlternativeModule((int)v57, (__int64)v76, v6, v5, v56);
+            result = LdrpLoadResourceFromAlternativeModule(v57, (__int64)v76, v6, v5, v56);
             v49 = result;
-            if ( (int)result >= 0 )
+            if ( result >= 0 )
               return result;
           }
           if ( v9 )
@@ -404,9 +404,9 @@ LABEL_162:
         if ( v15 && (_WORD)v13 )
         {
           v77 = (unsigned __int16)v13;
-          result = LdrpLoadResourceFromAlternativeModule((int)v57, (__int64)v76, v6, v5, v56);
+          result = LdrpLoadResourceFromAlternativeModule(v57, (__int64)v76, v6, v5, v56);
           v49 = result;
-          if ( (int)result >= 0 )
+          if ( result >= 0 )
             return result;
           v13 = v51;
         }
@@ -549,20 +549,20 @@ LABEL_51:
 LABEL_83:
     if ( v17 - v19 == 1 )
     {
-      result = 3221225610LL;
+      result = -1073741686;
       goto LABEL_92;
     }
     if ( v17 - v19 == 2 )
     {
-      result = 3221225611LL;
+      result = -1073741685;
       goto LABEL_168;
     }
     if ( v17 - v19 != 3 )
     {
-      result = 3221225485LL;
+      result = -1073741811;
       goto LABEL_92;
     }
-    result = 3221225988LL;
+    result = -1073741308;
     v49 = -1073741308;
     if ( v21 )
     {
@@ -574,7 +574,7 @@ LABEL_83:
         continue;
       }
 LABEL_167:
-      result = 3221225988LL;
+      result = -1073741308;
 LABEL_168:
       v49 = result;
     }

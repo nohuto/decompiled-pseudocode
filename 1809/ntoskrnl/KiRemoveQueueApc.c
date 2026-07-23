@@ -1,8 +1,8 @@
 /*
- * XREFs of KiRemoveQueueApc @ 0x14012F3FC
+ * XREFs of KiRemoveQueueApc @ 0x14012F4CC
  * Callers:
- *     KiSchedulerApc @ 0x1400F17D0 (KiSchedulerApc.c)
- *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
+ *     KiSchedulerApc @ 0x1400F1850 (KiSchedulerApc.c)
+ *     KeRemoveQueueApc @ 0x14012F428 (KeRemoveQueueApc.c)
  * Callees:
  *     <none>
  */

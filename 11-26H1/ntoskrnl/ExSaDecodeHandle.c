@@ -1,23 +1,20 @@
 /*
- * XREFs of ExSaDecodeHandle @ 0x1402C15D0
+ * XREFs of ExSaDecodeHandle @ 0x14030C290
  * Callers:
- *     EtwTracePageFault @ 0x140215FC0 (EtwTracePageFault.c)
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x1402BFCD0 (EtwpCovSampCaptureBufferQueue.c)
- *     FsRtlAcquireAutoExpandPushLockShared @ 0x1402C1350 (FsRtlAcquireAutoExpandPushLockShared.c)
- *     FsRtlLookupPerFileObjectContext @ 0x1402C1430 (FsRtlLookupPerFileObjectContext.c)
- *     RtlpHpEnvTlsSetValue @ 0x140346E80 (RtlpHpEnvTlsSetValue.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14035402C (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     ExpTryAcquireFannedOutPushLockShared @ 0x1404AB474 (ExpTryAcquireFannedOutPushLockShared.c)
- *     EtwpCovSampCaptureBufferGet @ 0x140501780 (EtwpCovSampCaptureBufferGet.c)
- *     RtlpHpLfhSubsegmentCreate @ 0x14051C628 (RtlpHpLfhSubsegmentCreate.c)
- *     EtwpCoverageSamplerReadyThread @ 0x140531710 (EtwpCoverageSamplerReadyThread.c)
- *     EtwpCoverageSamplerContextSwap @ 0x1405325B4 (EtwpCoverageSamplerContextSwap.c)
- *     KiCpuPartitionCheckAffinitization @ 0x1405F416C (KiCpuPartitionCheckAffinitization.c)
- *     RtlpHpLfhPrivateSlotListCompact @ 0x140639B24 (RtlpHpLfhPrivateSlotListCompact.c)
- *     EtwpCovSampCaptureQueueApc @ 0x1406C8740 (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampCaptureSample @ 0x1406C8944 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampProfileInterrupt @ 0x1406C8BF0 (EtwpCovSampProfileInterrupt.c)
+ *     EtwTracePageFault @ 0x1402162F0 (EtwTracePageFault.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x14030A994 (EtwpCovSampCaptureBufferQueue.c)
+ *     FsRtlAcquireAutoExpandPushLockShared @ 0x14030C010 (FsRtlAcquireAutoExpandPushLockShared.c)
+ *     FsRtlLookupPerFileObjectContext @ 0x14030C0F0 (FsRtlLookupPerFileObjectContext.c)
+ *     RtlpHpEnvTlsSetValue @ 0x140348F00 (RtlpHpEnvTlsSetValue.c)
+ *     ExpTryAcquireFannedOutPushLockShared @ 0x1404A4B04 (ExpTryAcquireFannedOutPushLockShared.c)
+ *     EtwpCovSampCaptureBufferGet @ 0x1404FAF70 (EtwpCovSampCaptureBufferGet.c)
+ *     EtwpCoverageSamplerReadyThread @ 0x140533BB8 (EtwpCoverageSamplerReadyThread.c)
+ *     EtwpCoverageSamplerContextSwap @ 0x140534A54 (EtwpCoverageSamplerContextSwap.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405F6B2C (KiCpuPartitionCheckAffinitization.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1406CC720 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampCaptureSample @ 0x1406CC924 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampProfileInterrupt @ 0x1406CCBD0 (EtwpCovSampProfileInterrupt.c)
  * Callees:
  *     <none>
  */

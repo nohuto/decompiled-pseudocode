@@ -9,11 +9,11 @@
  *     RtlpHpSegProtect @ 0x180108950 (RtlpHpSegProtect.c)
  */
 
-__int64 __fastcall RtlpHpHeapProtect(__int64 a1, unsigned int a2)
+__int64 __fastcall RtlpHpHeapProtect(unsigned __int64 *BaseAddress, ULONG NewProtect)
 {
   __int64 v2; // rsi
   __int64 v4; // r8
-  int v5; // eax
+  NTSTATUS v5; // eax
   int v6; // eax
   int v7; // eax
   unsigned __int64 v8; // rbx
@@ -22,24 +22,36 @@ __int64 __fastcall RtlpHpHeapProtect(__int64 a1, unsigned int a2)
   unsigned __int64 v12; // rax
   char v13; // dl
   unsigned __int64 v14; // rcx
+  PVOID BaseAddressa; // [rsp+30h] [rbp-48h] BYREF
+  _QWORD v16[7]; // [rsp+38h] [rbp-40h] BYREF
+  ULONG OldProtect; // [rsp+90h] [rbp+18h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+20h] BYREF
 
-  v2 = a2;
-  LODWORD(v4) = ZwQueryVirtualMemory();
+  v2 = NewProtect;
+  LODWORD(v4) = ZwQueryVirtualMemory(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  BaseAddress,
+                  MemoryBasicInformation,
+                  v16,
+                  0x30uLL,
+                  0LL);
   if ( (int)v4 >= 0 )
   {
-    v5 = ZwProtectVirtualMemory();
+    RegionSize = v16[3];
+    BaseAddressa = BaseAddress;
+    v5 = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, v2, &OldProtect);
     LODWORD(v4) = v5;
     if ( v5 >= 0 )
     {
-      v6 = RtlpHpSegProtect(a1 + 112, (unsigned int)v2, (unsigned int)v5);
+      v6 = RtlpHpSegProtect(BaseAddress + 14, (unsigned int)v2, (unsigned int)v5);
       LODWORD(v4) = v6;
       if ( v6 >= 0 )
       {
-        v7 = RtlpHpSegProtect(a1 + 216, (unsigned int)v2, (unsigned int)v6);
+        v7 = RtlpHpSegProtect(BaseAddress + 27, (unsigned int)v2, (unsigned int)v6);
         v4 = (unsigned int)v7;
         if ( v7 >= 0 )
         {
-          v8 = *(_QWORD *)(a1 + 80);
+          v8 = BaseAddress[10];
           if ( !v8 )
           {
             LODWORD(v4) = 0;
@@ -59,13 +71,13 @@ LABEL_8:
               if ( !v11 )
                 break;
             }
-            if ( (*(_BYTE *)(a1 + 88) & 1) != 0 )
+            if ( (BaseAddress[11] & 1) != 0 )
               v8 ^= v11;
             else
               v8 = v11;
           }
           v12 = v8;
-          v13 = *(_BYTE *)(a1 + 88) & 1;
+          v13 = BaseAddress[11] & 1;
           while ( 1 )
           {
             v12 = *(_QWORD *)(v12 + 16) & 0xFFFFFFFFFFFFFFFCuLL;

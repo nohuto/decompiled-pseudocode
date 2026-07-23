@@ -1,13 +1,13 @@
 /*
- * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x140A651E0
+ * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x140A721B0
  * Callers:
- *     SeAuditingAnyFileEventsWithContextEx @ 0x140451070 (SeAuditingAnyFileEventsWithContextEx.c)
- *     SeAuditingFileEventsWithContextEx @ 0x1404AA390 (SeAuditingFileEventsWithContextEx.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
+ *     SeAuditingAnyFileEventsWithContextEx @ 0x1404491A0 (SeAuditingAnyFileEventsWithContextEx.c)
+ *     SeAuditingFileEventsWithContextEx @ 0x1404A3A20 (SeAuditingFileEventsWithContextEx.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
  * Callees:
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
  */
 
 char __fastcall SepAdtAuditThisEventByCategoryWithContext(
@@ -42,12 +42,12 @@ char __fastcall SepAdtAuditThisEventByCategoryWithContext(
   v4 = a1;
   v6 = a2;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  if ( !*((_DWORD *)&SepRmCapTableLock.StackBase + a1) )
+  if ( !*((_DWORD *)&SepRmCapTableLock.ApcState.ApcListHead[0].Flink + a1) )
     return 0;
-  if ( (*((_DWORD *)&SepRmCapTableLock.StackBase + a1) & a2) != 0 )
+  if ( (*((_DWORD *)&SepRmCapTableLock.ApcState.ApcListHead[0].Flink + a1) & a2) != 0 )
     return 1;
   v7 = 0;
-  if ( *((_DWORD *)&SepRmCapTableLock.LastXStateSaveDebugInfo + a1) )
+  if ( *((_DWORD *)&SepRmCapTableLock.WaitListEntry.Flink + a1) )
   {
     if ( a3 )
     {

@@ -13,7 +13,7 @@ __int64 HvlpInitializePowerStatistics()
   _QWORD *p_Next; // r14
   _SLIST_ENTRY *Next; // r12
   PSLIST_ENTRY v4; // rax
-  struct _SLIST_ENTRY *v5; // r13
+  _SLIST_ENTRY *v5; // r13
   char v6; // r15
   unsigned __int8 v7; // di
   char *v8; // rbp
@@ -26,11 +26,11 @@ __int64 HvlpInitializePowerStatistics()
   __int64 v15; // rax
   struct _KPRCB *v16; // rcx
   PSLIST_ENTRY ListEntry; // [rsp+20h] [rbp-98h]
-  union _SLIST_HEADER *v18; // [rsp+30h] [rbp-88h]
-  struct _SLIST_ENTRY *v19; // [rsp+38h] [rbp-80h]
+  _SLIST_HEADER *v18; // [rsp+30h] [rbp-88h]
+  _SLIST_ENTRY *v19; // [rsp+38h] [rbp-80h]
   _SLIST_ENTRY *v20; // [rsp+40h] [rbp-78h]
-  struct _KPRCB *v21; // [rsp+50h] [rbp-68h]
-  struct _SLIST_ENTRY *v22; // [rsp+58h] [rbp-60h]
+  _SLIST_HEADER *v21; // [rsp+50h] [rbp-68h]
+  _SLIST_ENTRY *v22; // [rsp+58h] [rbp-60h]
   _SLIST_ENTRY *v23; // [rsp+60h] [rbp-58h]
   __int16 v24; // [rsp+B0h] [rbp-8h]
   char v25; // [rsp+C0h] [rbp+8h]
@@ -49,7 +49,7 @@ __int64 HvlpInitializePowerStatistics()
     {
       Next = v4[1].Next;
       v5 = v4;
-      v18 = (union _SLIST_HEADER *)CurrentPrcb;
+      v18 = (_SLIST_HEADER *)CurrentPrcb;
       v6 = BYTE4(CurrentPrcb);
       v25 = 1;
       goto LABEL_9;
@@ -99,7 +99,7 @@ LABEL_14:
     v8 = (char *)KeGetCurrentPrcb()->HypercallCachedPages + 4096;
     goto LABEL_14;
   }
-  v21 = v27;
+  v21 = (_SLIST_HEADER *)v27;
   v9 = v10[1].Next;
   v7 = (unsigned __int8)v27;
   v26 = 1;
@@ -150,7 +150,7 @@ LABEL_15:
   if ( (v26 & 1) != 0 )
   {
     ListEntry[1].Next = v28;
-    RtlpInterlockedPushEntrySList(&v21->HypercallPageList, ListEntry);
+    RtlpInterlockedPushEntrySList(v21 + 1535, ListEntry);
   }
   else if ( (v26 & 2) != 0 )
   {

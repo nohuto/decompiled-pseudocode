@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlGetHotPatchBaseMachine @ 0x14082F308
+ * XREFs of RtlGetHotPatchBaseMachine @ 0x14082FB38
  * Callers:
- *     RtlFindHotPatchBaseMachine @ 0x14082F05C (RtlFindHotPatchBaseMachine.c)
- *     RtlFindHotPatchInformation @ 0x14082F0C4 (RtlFindHotPatchInformation.c)
+ *     RtlFindHotPatchBaseMachine @ 0x14082F88C (RtlFindHotPatchBaseMachine.c)
+ *     RtlFindHotPatchInformation @ 0x14082F8F4 (RtlFindHotPatchInformation.c)
  * Callees:
  *     <none>
  */

@@ -19,18 +19,18 @@
 
 _DWORD *__fastcall RtlpComputePath(int a1, unsigned int a2, wchar_t *a3, char a4)
 {
-  size_t v4; // edx
+  int v4; // edx
   int v5; // ebx
   int v6; // edi
   int v7; // ecx
   unsigned __int16 Length; // ax
   int DirPath; // eax
   int *v10; // eax
-  int EnvironmentVariable; // esi
-  void *Heap; // eax
+  NTSTATUS EnvironmentVariable; // esi
+  PVOID Heap; // eax
   int v13; // eax
   _DWORD *result; // eax
-  int v15; // eax
+  char *v15; // eax
   _DWORD *v16; // esi
   _WORD *v17; // edi
   int v18; // ebx
@@ -39,37 +39,42 @@ _DWORD *__fastcall RtlpComputePath(int a1, unsigned int a2, wchar_t *a3, char a4
   int v21; // eax
   unsigned int v22; // ecx
   wchar_t *v23; // ebx
-  size_t v24; // eax
+  unsigned int v24; // eax
   int v25; // esi
   void **v26; // ebx
   int v27; // ecx
   int v28; // eax
+  SIZE_T v29; // [esp-10h] [ebp-80h]
+  SIZE_T v30; // [esp-4h] [ebp-74h]
+  SIZE_T v31; // [esp-4h] [ebp-74h]
+  size_t v32; // [esp-4h] [ebp-74h]
+  ULONG_PTR *v33; // [esp+4h] [ebp-6Ch]
+  void *v34; // [esp+1Ch] [ebp-54h]
   void *Src; // [esp+20h] [ebp-50h]
-  void *v30; // [esp+24h] [ebp-4Ch]
-  int v31; // [esp+28h] [ebp-48h]
+  PVOID BaseAddress; // [esp+24h] [ebp-4Ch]
+  NTSTATUS v37; // [esp+28h] [ebp-48h]
   wchar_t *Str; // [esp+34h] [ebp-3Ch]
-  _DWORD *v34; // [esp+38h] [ebp-38h]
-  int v36; // [esp+40h] [ebp-30h] BYREF
-  size_t Size; // [esp+44h] [ebp-2Ch]
-  int *v38; // [esp+48h] [ebp-28h]
-  int v39; // [esp+4Ch] [ebp-24h]
-  bool v40; // [esp+53h] [ebp-1Dh]
-  _DWORD v41[6]; // [esp+54h] [ebp-1Ch] BYREF
+  _DWORD *v40; // [esp+38h] [ebp-38h]
+  SIZE_T ValueLength; // [esp+40h] [ebp-30h] BYREF
+  int *v43; // [esp+48h] [ebp-28h]
+  int v44; // [esp+4Ch] [ebp-24h]
+  bool v45; // [esp+53h] [ebp-1Dh]
+  _DWORD v46[6]; // [esp+54h] [ebp-1Ch] BYREF
 
   v4 = 0;
-  Src = 0;
-  v30 = 0;
-  v36 = 0;
-  v40 = 0;
-  v5 = 80;
   v34 = 0;
-  v31 = 0;
-  v38 = 0;
-  qmemcpy(v41, &unk_4B3A92E8, sizeof(v41));
+  Src = 0;
+  BaseAddress = 0;
+  ValueLength = 0LL;
+  v45 = 0;
+  v5 = 80;
+  v40 = 0;
+  v37 = 0;
+  v43 = 0;
+  qmemcpy(v46, &unk_4B3A92E8, sizeof(v46));
   v6 = 0;
-  v7 = (v41[1] >> 28) & 3;
-  Size = 0;
-  v39 = v7;
+  v7 = (v46[1] >> 28) & 3;
+  v44 = v7;
   if ( a2 )
   {
     while ( 1 )
@@ -77,48 +82,53 @@ _DWORD *__fastcall RtlpComputePath(int a1, unsigned int a2, wchar_t *a3, char a4
       switch ( *(_DWORD *)(a1 + 4 * v6) )
       {
         case 0:
-          Length = LdrpDllDirectory;
+          Length = LdrpDllDirectory.Length;
           goto LABEL_28;
         case 1:
           goto LABEL_9;
         case 2:
-          v5 += (unsigned __int16)RtlpSystemDirs;
+          v5 += RtlpSystemDirs.Length;
           if ( (_BYTE)v7 != 1 )
             goto LABEL_31;
-          v10 = &RtlpSystemDirs;
+          v10 = (int *)&RtlpSystemDirs;
           goto LABEL_13;
         case 3:
           RtlEnterCriticalSection(&FastPebLock);
-          EnvironmentVariable = RtlQueryEnvironmentVariable(0, (wchar_t *)L"PATH", 4u, 0, 0, (int)&v36);
-          v31 = EnvironmentVariable;
+          LODWORD(v30) = &ValueLength;
+          EnvironmentVariable = RtlQueryEnvironmentVariable(0, L"PATH", 4uLL, 0, v30, v33);
+          v37 = EnvironmentVariable;
           if ( EnvironmentVariable != -1073741789 )
             goto LABEL_17;
-          Heap = (void *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, 2 * v36);
-          v30 = Heap;
+          LODWORD(v30) = 2 * ValueLength;
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v30);
+          BaseAddress = Heap;
           if ( !Heap )
           {
             RtlLeaveCriticalSection(&FastPebLock);
             return 0;
           }
-          EnvironmentVariable = RtlQueryEnvironmentVariable(0, (wchar_t *)L"PATH", 4u, Heap, v36, (int)&v36);
-          v31 = EnvironmentVariable;
+          LODWORD(v31) = &ValueLength;
+          HIDWORD(v29) = Heap;
+          LODWORD(v29) = 4;
+          EnvironmentVariable = RtlQueryEnvironmentVariable(0, L"PATH", v29, (PWSTR)ValueLength, v31, v33);
+          v37 = EnvironmentVariable;
 LABEL_17:
           RtlLeaveCriticalSection(&FastPebLock);
           if ( EnvironmentVariable == -1073741568 )
           {
-            v36 = 0;
-            v31 = 0;
+            LODWORD(ValueLength) = 0;
+            v37 = 0;
 LABEL_10:
-            v4 = Size;
-            LOBYTE(v7) = v39;
+            v4 = HIDWORD(ValueLength);
+            LOBYTE(v7) = v44;
           }
           else
           {
             if ( EnvironmentVariable < 0 )
               goto LABEL_66;
-            v4 = Size;
-            LOBYTE(v7) = v39;
-            v5 += 2 * v36 + 2;
+            v4 = HIDWORD(ValueLength);
+            LOBYTE(v7) = v44;
+            v5 += 2 * ValueLength + 2;
           }
 LABEL_31:
           if ( ++v6 >= a2 )
@@ -131,8 +141,8 @@ LABEL_31:
           if ( a3 )
           {
             DirPath = RtlpGetDirPath(a3);
-            v4 = Size;
-            LOBYTE(v7) = v39;
+            v4 = HIDWORD(ValueLength);
+            LOBYTE(v7) = v44;
             Src = (void *)DirPath;
           }
           if ( v4 )
@@ -141,7 +151,7 @@ LABEL_31:
             goto LABEL_31;
           }
 LABEL_9:
-          RtlpGetDirPath(0);
+          v34 = (void *)RtlpGetDirPath(0);
           v5 += 2;
           goto LABEL_10;
         case 6:
@@ -151,17 +161,17 @@ LABEL_9:
           v5 += (unsigned __int16)RtlpSystem32Dirs;
           if ( a4 )
           {
-            v40 = (LdrpPolicyBits & 0x100) != 0;
+            v45 = (LdrpPolicyBits & 0x100) != 0;
             v5 += (unsigned __int16)RtlpSystem32Dirs + 22;
             if ( (LdrpPolicyBits & 0x100) != 0 )
               v5 += (unsigned __int16)RtlpSystem32Dirs + 30;
           }
-          LOBYTE(v7) = v39;
-          if ( (_BYTE)v39 != 1 )
+          LOBYTE(v7) = v44;
+          if ( (_BYTE)v44 != 1 )
             goto LABEL_31;
           v10 = &RtlpSystem32Dirs;
 LABEL_13:
-          v38 = v10;
+          v43 = v10;
           goto LABEL_31;
         case 8:
           Length = LdrpAppPackagesPath.Length;
@@ -181,38 +191,40 @@ LABEL_35:
 LABEL_32:
   if ( (unsigned int)(v5 - 80) <= 0xFFFE )
   {
-    v15 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
-    v16 = (_DWORD *)v15;
-    v34 = (_DWORD *)v15;
+    LODWORD(v30) = v5;
+    v15 = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v30);
+    v16 = v15;
+    v40 = v15;
     if ( v15 )
     {
-      v17 = (_WORD *)(v15 + 80);
-      *(_DWORD *)(v15 + 68) = v5;
-      *(_DWORD *)(v15 + 56) = 0;
+      v17 = v15 + 80;
+      *((_DWORD *)v15 + 17) = v5;
+      *((_DWORD *)v15 + 14) = 0;
       v18 = 0;
-      *(_DWORD *)(v15 + 60) = 0;
-      *(_DWORD *)(v15 + 64) = 0;
-      *(_DWORD *)(v15 + 76) = 0;
-      v19 = v38;
-      *(_WORD *)(v15 + 48) = a2;
+      *((_DWORD *)v15 + 15) = 0;
+      *((_DWORD *)v15 + 16) = 0;
+      *((_DWORD *)v15 + 19) = 0;
+      v19 = v43;
+      *((_WORD *)v15 + 24) = a2;
       if ( v19 )
       {
-        *(_DWORD *)(v15 + 24) = v17;
+        *((_DWORD *)v15 + 6) = v17;
         *(_DWORD *)v15 = v19 == &RtlpSystem32Dirs ? 7 : 2;
-        memcpy((void *)(v15 + 80), (const void *)v19[1], *(unsigned __int16 *)v19);
-        v19 = v38;
+        LODWORD(v32) = *(unsigned __int16 *)v19;
+        memcpy(v15 + 80, (const void *)v19[1], v32);
+        v19 = v43;
         v18 = 1;
-        v17 += *(unsigned __int16 *)v38 >> 1;
+        v17 += *(unsigned __int16 *)v43 >> 1;
         if ( a4 )
         {
-          LOBYTE(v20) = v40;
+          LOBYTE(v20) = v45;
           v21 = RtlpAddForwarderPath(v20, v17);
-          v19 = v38;
+          v19 = v43;
           v17 = (_WORD *)v21;
         }
       }
       v22 = 0;
-      v39 = 0;
+      v44 = 0;
       if ( a2 )
       {
         v23 = (wchar_t *)&v16[v18];
@@ -226,24 +238,27 @@ LABEL_32:
             switch ( *(_DWORD *)(a1 + 4 * v22) )
             {
               case 0:
-                if ( !(_WORD)LdrpDllDirectory )
+                if ( !LdrpDllDirectory.Length )
                   goto LABEL_63;
-                memcpy(v17, ::Src, (unsigned __int16)LdrpDllDirectory);
-                v24 = (unsigned __int16)LdrpDllDirectory;
+                LODWORD(v32) = LdrpDllDirectory.Length;
+                memcpy(v17, LdrpDllDirectory.Buffer, v32);
+                v24 = LdrpDllDirectory.Length;
                 goto LABEL_50;
               case 1:
                 goto LABEL_55;
               case 2:
-                memcpy(v17, dword_4B3A660C, (unsigned __int16)RtlpSystemDirs);
-                v17 += (unsigned __int16)RtlpSystemDirs >> 1;
+                LODWORD(v32) = RtlpSystemDirs.Length;
+                memcpy(v17, RtlpSystemDirs.Buffer, v32);
+                v17 += RtlpSystemDirs.Length >> 1;
                 goto LABEL_52;
               case 3:
-                if ( !v36 )
+                if ( !(_DWORD)ValueLength )
                   goto LABEL_63;
-                v25 = 2 * v36;
-                memcpy(v17, v30, 2 * v36);
+                v25 = 2 * ValueLength;
+                LODWORD(v32) = 2 * ValueLength;
+                memcpy(v17, BaseAddress, v32);
                 v17 = (_WORD *)((char *)v17 + v25 + 2);
-                v16 = v34;
+                v16 = v40;
                 goto LABEL_51;
               case 4:
                 v16[19] = v17;
@@ -252,14 +267,17 @@ LABEL_32:
                 *(v17 - 1) = 59;
                 goto LABEL_63;
               case 5:
-                if ( Size )
+                if ( HIDWORD(ValueLength) )
                 {
-                  memcpy(v17, Src, Size);
-                  v24 = Size;
+                  LODWORD(v32) = HIDWORD(ValueLength);
+                  memcpy(v17, Src, v32);
+                  v24 = HIDWORD(ValueLength);
                 }
                 else
                 {
 LABEL_55:
+                  LODWORD(v32) = 0;
+                  memcpy(v17, v34, v32);
                   v24 = 0;
                 }
 LABEL_50:
@@ -273,24 +291,26 @@ LABEL_51:
                 {
                   do
                   {
-                    memcpy(v17, (char *)v26 + 10, *((unsigned __int16 *)v26 + 4));
+                    LODWORD(v32) = *((unsigned __int16 *)v26 + 4);
+                    memcpy(v17, (char *)v26 + 10, v32);
                     v17 += (*((unsigned __int16 *)v26 + 4) >> 1) + 1;
                     *(v17 - 1) = 59;
                     v26 = (void **)*v26;
                   }
                   while ( v26 != (void **)&LdrpUserDllDirectories );
-                  v16 = v34;
-                  v22 = v39;
-                  v19 = v38;
+                  v16 = v40;
+                  v22 = v44;
+                  v19 = v43;
                 }
                 v23 = Str;
                 goto LABEL_63;
               case 7:
-                memcpy(v17, dword_4B3A6604, (unsigned __int16)RtlpSystem32Dirs);
+                LODWORD(v32) = (unsigned __int16)RtlpSystem32Dirs;
+                memcpy(v17, dword_4B3A6604, v32);
                 v17 += (unsigned __int16)RtlpSystem32Dirs >> 1;
                 if ( a4 )
                 {
-                  LOBYTE(v27) = v40;
+                  LOBYTE(v27) = v45;
                   v17 = (_WORD *)RtlpAddForwarderPath(v27, v17);
                 }
                 goto LABEL_52;
@@ -298,14 +318,15 @@ LABEL_51:
                 if ( !LdrpAppPackagesPath.Length )
                   goto LABEL_63;
                 *(v17 - 1) = 0;
-                memcpy(v17, LdrpAppPackagesPath.Buffer, LdrpAppPackagesPath.Length);
+                LODWORD(v32) = LdrpAppPackagesPath.Length;
+                memcpy(v17, LdrpAppPackagesPath.Buffer, v32);
                 v28 = LdrpAppPackagesPathVersion;
                 v16[16] = v17;
                 v16[15] = v28;
                 v17 += (LdrpAppPackagesPath.Length >> 1) + 1;
 LABEL_52:
-                v22 = v39;
-                v19 = v38;
+                v22 = v44;
+                v19 = v43;
 LABEL_63:
                 v23 += 2;
                 Str = v23;
@@ -314,11 +335,11 @@ LABEL_63:
                 goto LABEL_35;
             }
           }
-          v39 = ++v22;
+          v44 = ++v22;
         }
         while ( v22 < a2 );
       }
-      EnvironmentVariable = v31;
+      EnvironmentVariable = v37;
       *(v17 - 1) = 0;
     }
     else
@@ -331,14 +352,14 @@ LABEL_63:
     EnvironmentVariable = -1073741562;
   }
 LABEL_66:
-  if ( v30 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v30);
-  result = v34;
-  if ( v34 )
+  if ( BaseAddress )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+  result = v40;
+  if ( v40 )
   {
     if ( EnvironmentVariable < 0 )
     {
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v34);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v40);
       return 0;
     }
   }

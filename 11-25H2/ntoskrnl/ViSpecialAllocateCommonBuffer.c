@@ -19,7 +19,7 @@ char *__fastcall ViSpecialAllocateCommonBuffer(
         _QWORD *a5)
 {
   __int64 v7; // rdi
-  struct _LIST_ENTRY *Pool2; // rsi
+  _LIST_ENTRY *Pool2; // rsi
   int v10; // ebx
   int v11; // ebx
   unsigned int v12; // r14d
@@ -29,7 +29,7 @@ char *__fastcall ViSpecialAllocateCommonBuffer(
   v7 = a4;
   if ( (unsigned int)(*(_DWORD *)(a2 + 204) - *(_DWORD *)(a2 + 208)) >= 0x20 || a4 > 0xFFFFDFFF )
     return 0LL;
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(0x40uLL, 0x40uLL, 0x566C6148uLL);
+  Pool2 = (_LIST_ENTRY *)ExAllocatePool2(0x40uLL, 0x40uLL, 0x566C6148uLL);
   if ( !Pool2 )
   {
     VfUtilDbgPrint("Couldn't track common buffer allocation\n");

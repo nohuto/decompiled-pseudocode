@@ -1,23 +1,23 @@
 /*
- * XREFs of PopWriteHiberPages @ 0x140569C48
+ * XREFs of PopWriteHiberPages @ 0x14056AC48
  * Callers:
- *     PopWriteSecurePages @ 0x1402DC0BC (PopWriteSecurePages.c)
- *     PopWriteSecurePagesCallback @ 0x1402DC164 (PopWriteSecurePagesCallback.c)
- *     PopWriteHeaderPages @ 0x140569A20 (PopWriteHeaderPages.c)
- *     PopWriteChecksumPages @ 0x14057D6A8 (PopWriteChecksumPages.c)
- *     PopWriteImageHeader @ 0x14057D740 (PopWriteImageHeader.c)
+ *     PopWriteSecurePages @ 0x1402DC2AC (PopWriteSecurePages.c)
+ *     PopWriteSecurePagesCallback @ 0x1402DC354 (PopWriteSecurePagesCallback.c)
+ *     PopWriteHeaderPages @ 0x14056AA20 (PopWriteHeaderPages.c)
+ *     PopWriteChecksumPages @ 0x14057E6A8 (PopWriteChecksumPages.c)
+ *     PopWriteImageHeader @ 0x14057E740 (PopWriteImageHeader.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     _PopInternalError @ 0x1402D3738 (_PopInternalError.c)
- *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
- *     PopGetIoLocation @ 0x14056A930 (PopGetIoLocation.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x14057CCE4 (PopGetRemainingHibernateRangeDataSize.c)
- *     PopRecordHibernateDiagnosticInfo @ 0x14057D190 (PopRecordHibernateDiagnosticInfo.c)
- *     MmGetNumberOfPhysicalPages @ 0x1406259BC (MmGetNumberOfPhysicalPages.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     _PopInternalError @ 0x1402D3928 (_PopInternalError.c)
+ *     PopCheckpointSystemSleep @ 0x14056A714 (PopCheckpointSystemSleep.c)
+ *     PopGetIoLocation @ 0x14056B930 (PopGetIoLocation.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x14057DCE4 (PopGetRemainingHibernateRangeDataSize.c)
+ *     PopRecordHibernateDiagnosticInfo @ 0x14057E190 (PopRecordHibernateDiagnosticInfo.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1406269DC (MmGetNumberOfPhysicalPages.c)
  */
 
 __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -57,11 +57,11 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
   v24 = a1;
   v9 = a1;
   if ( (PopWatchdogTimerCount & 0x1F) == 0 )
-    result = off_1403FE600[0]();
+    result = off_1403FF600[0]();
   ++PopWatchdogTimerCount;
   if ( *(int *)(v9 + 188) >= 0 )
   {
-    if ( (a4 + a3) << 12 > qword_140417830 )
+    if ( (a4 + a3) << 12 > qword_1404188D0 )
     {
       PopCheckpointSystemSleep(0x16u);
       if ( (unsigned int)(*(_DWORD *)(v9 + 184) - 4) <= 1 )
@@ -70,7 +70,7 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       IoAddTriageDumpDataBlock((int)&NumberOfPhysicalPages, v20 + 8);
       PopRecordHibernateDiagnosticInfo(v9);
       IoAddTriageDumpDataBlock((int)&PopHibernateDiagnosticInfo, 128);
-      KeBugCheckEx(0xA0u, 0xBuLL, qword_140417830, *(unsigned int *)(v9 + 184), BugCheckParameter4);
+      KeBugCheckEx(0xA0u, 0xBuLL, qword_1404188D0, *(unsigned int *)(v9 + 184), BugCheckParameter4);
     }
     if ( a3 > 0xFFFFFFFFFFFFFLL )
       PopInternalError(0xA2002uLL);
@@ -113,8 +113,8 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       v17 = __rdtsc();
       v18 = (*(__int64 (__fastcall **)(__int64 *, __int64 *))(*(_QWORD *)(v9 + 168) + 64LL))(&IoLocation, &v28);
       v19 = __rdtsc();
-      dword_140417D70 += v14;
-      qword_140417B98 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v17;
+      dword_140418E10 += v14;
+      qword_140418C38 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v17;
       result = v26;
       v11 -= v26;
       v10 += v26;

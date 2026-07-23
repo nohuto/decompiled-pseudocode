@@ -7,14 +7,14 @@
  *     sub_180018940 @ 0x180018940 (sub_180018940.c)
  */
 
-bool __fastcall sub_18007CBE4(__int64 a1, __int64 a2)
+bool __fastcall sub_18007CBE4(void *a1, void *a2)
 {
   __int64 v3; // rdx
   _DWORD *v4; // rbx
   _DWORD *v5; // rax
   __int64 v6; // rcx
 
-  v4 = sub_180018940(a1, a2, 0, 1);
+  v4 = sub_180018940(a1, (__int64)a2, 0, 1);
   if ( !v4 )
     return 0;
   v5 = sub_180018940(a2, v3, 0, 0);

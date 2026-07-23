@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbForceProcessLockEntry @ 0x140166180
+ * XREFs of KiAbForceProcessLockEntry @ 0x140166280
  * Callers:
- *     KeAbMarkCrossThreadReleasable @ 0x1401660E0 (KeAbMarkCrossThreadReleasable.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1401661E0 (KeAbMarkCrossThreadReleasable.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiAbEntryGetLockedHeadEntry @ 0x1400247E0 (KiAbEntryGetLockedHeadEntry.c)
@@ -13,21 +13,21 @@
  *     KiAbIoBoostOwners @ 0x140025280 (KiAbIoBoostOwners.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDCA4 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C40D0 (KiSwapContext.c)
  */
 
-char __fastcall KiAbForceProcessLockEntry(unsigned __int8 *a1)
+char __fastcall KiAbForceProcessLockEntry(PRTL_BALANCED_NODE Node)
 {
   unsigned __int8 CurrentIrql; // r15
   struct _KPRCB *CurrentPrcb; // rdi
-  __int64 LockedHeadEntry; // rax
+  _RTL_RB_TREE *LockedHeadEntry; // rax
   __int64 v5; // r8
   unsigned __int64 v6; // r9
   __int64 v7; // rbx
@@ -64,18 +64,18 @@ char __fastcall KiAbForceProcessLockEntry(unsigned __int8 *a1)
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
     _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
   CurrentPrcb = KeGetCurrentPrcb();
-  LockedHeadEntry = KiAbEntryGetLockedHeadEntry((__int64)a1, 1LL, v31);
-  v7 = LockedHeadEntry;
+  LockedHeadEntry = (_RTL_RB_TREE *)KiAbEntryGetLockedHeadEntry(Node, 1LL, v31);
+  v7 = (__int64)LockedHeadEntry;
   if ( LockedHeadEntry )
   {
-    if ( (a1[25] & 1) == 0 )
+    if ( (BYTE1(Node[1].Children[0]) & 1) == 0 )
     {
 LABEL_4:
       KxReleaseQueuedSpinLock(v31);
       goto LABEL_5;
     }
-    if ( a1 != (unsigned __int8 *)LockedHeadEntry )
-      KiAbEntryUpdateWaiterTreePosition((__int64)a1, LockedHeadEntry);
+    if ( Node != (PRTL_BALANCED_NODE)LockedHeadEntry )
+      KiAbEntryUpdateWaiterTreePosition(Node, LockedHeadEntry);
     v18 = *(_QWORD *)(v7 + 56);
     if ( v18 )
       v19 = *(_BYTE *)(v18 + 48);
@@ -89,8 +89,8 @@ LABEL_4:
         v21 = v20;
       v19 = v21;
     }
-    KiAbTryIncrementIoWaiterCounts(a1, v7);
-    CpuPriorityKey = KiAbEntryGetCpuPriorityKey(a1, v22, v23);
+    KiAbTryIncrementIoWaiterCounts((unsigned __int8 *)Node, v7);
+    CpuPriorityKey = KiAbEntryGetCpuPriorityKey((unsigned __int8 *)Node, v22, v23);
     if ( v19 < CpuPriorityKey )
     {
       if ( !v25 )

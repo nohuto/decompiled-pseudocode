@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpLogUnwait @ 0x14077A678
+ * XREFs of AlpcpLogUnwait @ 0x14077D5A8
  * Callers:
- *     AlpcpSignalAndWait @ 0x140264830 (AlpcpSignalAndWait.c)
- *     AlpcpWaitForSingleObject @ 0x140466280 (AlpcpWaitForSingleObject.c)
- *     AlpcpCompleteDeferSignalRequestAndWait @ 0x140A87DC4 (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpSignalAndWait @ 0x140263DA0 (AlpcpSignalAndWait.c)
+ *     AlpcpWaitForSingleObject @ 0x14045F3E0 (AlpcpWaitForSingleObject.c)
+ *     AlpcpCompleteDeferSignalRequestAndWait @ 0x140A8EEF4 (AlpcpCompleteDeferSignalRequestAndWait.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     AlpcpInvokeLogCallbacks @ 0x140B485BC (AlpcpInvokeLogCallbacks.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x140B4A34C (AlpcpInvokeLogCallbacks.c)
  */
 
 __int64 __fastcall AlpcpLogUnwait(int a1)

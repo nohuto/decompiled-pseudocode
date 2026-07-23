@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSlabAllocatorRecentFailure @ 0x140392AC4
+ * XREFs of MiSlabAllocatorRecentFailure @ 0x140392C14
  * Callers:
- *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
- *     MiAllocateSlabEntry @ 0x140392868 (MiAllocateSlabEntry.c)
+ *     MiGetSlabPage @ 0x14029938C (MiGetSlabPage.c)
+ *     MiAllocateSlabEntry @ 0x1403929B8 (MiAllocateSlabEntry.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
  */
 
 __int64 __fastcall MiSlabAllocatorRecentFailure(__int64 a1)

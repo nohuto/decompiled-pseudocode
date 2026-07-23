@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_wrap_strncmp @ 0x1405E21F0
+ * XREFs of __asan_wrap_strncmp @ 0x1405E4B60
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
- *     strncmp @ 0x14073D360 (strncmp.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
  */
 
 int __fastcall _asan_wrap_strncmp(const char *BugCheckParameter1, const char *a2, size_t MaxCount)

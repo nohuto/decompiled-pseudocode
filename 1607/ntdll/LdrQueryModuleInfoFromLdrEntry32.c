@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrQueryModuleInfoFromLdrEntry32 @ 0x18006D2F0
+ * XREFs of LdrQueryModuleInfoFromLdrEntry32 @ 0x18006D2E0
  * Callers:
  *     <none>
  * Callees:
- *     LdrpGetModuleName @ 0x18006D714 (LdrpGetModuleName.c)
- *     LdrpReadMemory @ 0x18006DC04 (LdrpReadMemory.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     LdrpGetModuleName @ 0x18006D704 (LdrpGetModuleName.c)
+ *     LdrpReadMemory @ 0x18006DBF4 (LdrpReadMemory.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall LdrQueryModuleInfoFromLdrEntry32(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)

@@ -18,12 +18,12 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
 {
   char *LockInformation; // rbx
   KIRQL v3; // r12
-  RTL_SPLAY_LINKS **v4; // r14
-  RTL_SPLAY_LINKS *v5; // rdi
+  _RTL_SPLAY_LINKS **v4; // r14
+  _RTL_SPLAY_LINKS *v5; // rdi
   PRTL_SPLAY_LINKS *v6; // rsi
   PRTL_SPLAY_LINKS v7; // rdi
   _QWORD *i; // rdi
-  RTL_SPLAY_LINKS *v9; // rsi
+  _RTL_SPLAY_LINKS *v9; // rsi
   _RTL_SPLAY_LINKS *Parent; // rdx
   __int64 v11; // rsi
   KIRQL v12; // dl
@@ -34,7 +34,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
   {
     v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
     KxAcquireSpinLock((PKSPIN_LOCK)LockInformation + 3);
-    v4 = (RTL_SPLAY_LINKS **)(LockInformation + 32);
+    v4 = (_RTL_SPLAY_LINKS **)(LockInformation + 32);
     while ( 1 )
     {
       v5 = *v4;
@@ -47,10 +47,10 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
         if ( !v9->Parent )
           break;
         v9->Parent = Parent->Parent;
-        ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, Parent);
+        ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList, Parent);
       }
       RtlDeleteNoSplay(v5, (PRTL_SPLAY_LINKS *)LockInformation + 4);
-      ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, &v5[-1]);
+      ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList, &v5[-1]);
     }
     v6 = (PRTL_SPLAY_LINKS *)(LockInformation + 40);
     while ( 1 )

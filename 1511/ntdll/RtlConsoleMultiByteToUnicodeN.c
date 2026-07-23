@@ -6,38 +6,38 @@
  *     RtlMultiByteToUnicodeN @ 0x180014CA0 (RtlMultiByteToUnicodeN.c)
  */
 
-__int64 __fastcall RtlConsoleMultiByteToUnicodeN(
-        _WORD *a1,
-        unsigned int a2,
-        _DWORD *a3,
-        unsigned __int8 *a4,
-        unsigned int a5,
-        _DWORD *a6)
+NTSTATUS __cdecl RtlConsoleMultiByteToUnicodeN(
+        PWCH UnicodeString,
+        ULONG MaxBytesInUnicodeString,
+        PULONG BytesInUnicodeString,
+        PCCH MultiByteString,
+        ULONG BytesInMultiByteString,
+        PULONG pdwSpecialChar)
 {
-  unsigned int v6; // edi
-  unsigned int v7; // ebx
-  _WORD *v8; // r10
-  unsigned int v9; // r11d
+  ULONG v6; // edi
+  ULONG v7; // ebx
+  PWCH v8; // r10
+  ULONG v9; // r11d
   __int64 v10; // r8
   __int64 v12; // r14
   int v13; // esi
   __int64 v14; // r15
-  unsigned int v15; // r11d
+  ULONG v15; // r11d
   __int64 v16; // rax
   unsigned __int16 v17; // di
   __int64 v18; // rcx
 
-  v6 = a2;
-  v7 = a2 >> 1;
-  v8 = a1;
-  *a6 = 0;
+  v6 = MaxBytesInUnicodeString;
+  v7 = MaxBytesInUnicodeString >> 1;
+  v8 = UnicodeString;
+  *pdwSpecialChar = 0;
   if ( !NlsMbCodePageTag )
   {
-    v9 = a5;
-    if ( v7 < a5 )
-      v9 = a2 >> 1;
-    if ( a3 )
-      *a3 = 2 * v9;
+    v9 = BytesInMultiByteString;
+    if ( v7 < BytesInMultiByteString )
+      v9 = MaxBytesInUnicodeString >> 1;
+    if ( BytesInUnicodeString )
+      *BytesInUnicodeString = 2 * v9;
     v10 = NlsAnsiToUnicodeData;
     while ( v9 <= 0x10 )
     {
@@ -60,37 +60,37 @@ __int64 __fastcall RtlConsoleMultiByteToUnicodeN(
                   goto LABEL_52;
                 }
 LABEL_54:
-                if ( a4[12] < 0x20u )
+                if ( MultiByteString[12] < 0x20u )
                   goto LABEL_88;
-                v8[12] = *(_WORD *)(v10 + 2LL * a4[12]);
+                v8[12] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 12));
               }
-              if ( a4[11] < 0x20u )
+              if ( MultiByteString[11] < 0x20u )
                 goto LABEL_88;
-              v8[11] = *(_WORD *)(v10 + 2LL * a4[11]);
+              v8[11] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 11));
             }
-            if ( a4[10] < 0x20u )
+            if ( MultiByteString[10] < 0x20u )
               goto LABEL_88;
-            v8[10] = *(_WORD *)(v10 + 2LL * a4[10]);
+            v8[10] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 10));
           }
-          if ( a4[9] < 0x20u )
+          if ( MultiByteString[9] < 0x20u )
             goto LABEL_88;
-          v8[9] = *(_WORD *)(v10 + 2LL * a4[9]);
+          v8[9] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 9));
         }
-        if ( a4[8] < 0x20u )
+        if ( MultiByteString[8] < 0x20u )
           goto LABEL_88;
-        v8[8] = *(_WORD *)(v10 + 2LL * a4[8]);
+        v8[8] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 8));
 LABEL_64:
-        if ( a4[7] < 0x20u )
+        if ( MultiByteString[7] < 0x20u )
           goto LABEL_88;
-        v8[7] = *(_WORD *)(v10 + 2LL * a4[7]);
+        v8[7] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 7));
 LABEL_66:
-        if ( a4[6] < 0x20u )
+        if ( MultiByteString[6] < 0x20u )
           goto LABEL_88;
-        v8[6] = *(_WORD *)(v10 + 2LL * a4[6]);
+        v8[6] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 6));
 LABEL_68:
-        if ( a4[5] < 0x20u )
+        if ( MultiByteString[5] < 0x20u )
           goto LABEL_88;
-        v8[5] = *(_WORD *)(v10 + 2LL * a4[5]);
+        v8[5] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 5));
         goto LABEL_70;
       }
       if ( v9 == 8 )
@@ -112,31 +112,31 @@ LABEL_68:
                 goto LABEL_68;
               }
 LABEL_70:
-              if ( a4[4] < 0x20u )
+              if ( MultiByteString[4] < 0x20u )
                 goto LABEL_88;
-              v8[4] = *(_WORD *)(v10 + 2LL * a4[4]);
+              v8[4] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 4));
             }
-            if ( a4[3] < 0x20u )
+            if ( MultiByteString[3] < 0x20u )
               goto LABEL_88;
-            v8[3] = *(_WORD *)(v10 + 2LL * a4[3]);
+            v8[3] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 3));
           }
-          if ( a4[2] < 0x20u )
+          if ( MultiByteString[2] < 0x20u )
             goto LABEL_88;
-          v8[2] = *(_WORD *)(v10 + 2LL * a4[2]);
+          v8[2] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 2));
         }
-        if ( a4[1] < 0x20u )
+        if ( MultiByteString[1] < 0x20u )
           goto LABEL_88;
-        v8[1] = *(_WORD *)(v10 + 2LL * a4[1]);
+        v8[1] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 1));
       }
-      if ( *a4 < 0x20u )
+      if ( *MultiByteString < 0x20u )
         goto LABEL_88;
-      *v8 = *(_WORD *)(v10 + 2LL * *a4);
+      *v8 = *(_WORD *)(v10 + 2LL * *(unsigned __int8 *)MultiByteString);
 LABEL_85:
       if ( v9 <= 0x20 )
-        return 0LL;
+        return 0;
       v9 -= 32;
       v8 += 32;
-      a4 += 32;
+      MultiByteString += 32;
       v6 -= 64;
     }
     if ( v9 <= 0x18 )
@@ -149,55 +149,55 @@ LABEL_85:
             goto LABEL_46;
           case 0x12u:
 LABEL_44:
-            if ( a4[17] < 0x20u )
+            if ( MultiByteString[17] < 0x20u )
               goto LABEL_88;
-            v8[17] = *(_WORD *)(v10 + 2LL * a4[17]);
+            v8[17] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 17));
 LABEL_46:
-            if ( a4[16] < 0x20u )
+            if ( MultiByteString[16] < 0x20u )
               goto LABEL_88;
-            v8[16] = *(_WORD *)(v10 + 2LL * a4[16]);
+            v8[16] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 16));
 LABEL_48:
-            if ( a4[15] < 0x20u )
+            if ( MultiByteString[15] < 0x20u )
               goto LABEL_88;
-            v8[15] = *(_WORD *)(v10 + 2LL * a4[15]);
+            v8[15] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 15));
 LABEL_50:
-            if ( a4[14] < 0x20u )
+            if ( MultiByteString[14] < 0x20u )
               goto LABEL_88;
-            v8[14] = *(_WORD *)(v10 + 2LL * a4[14]);
+            v8[14] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 14));
 LABEL_52:
-            if ( a4[13] < 0x20u )
+            if ( MultiByteString[13] < 0x20u )
               goto LABEL_88;
-            v8[13] = *(_WORD *)(v10 + 2LL * a4[13]);
+            v8[13] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 13));
             goto LABEL_54;
           case 0x13u:
 LABEL_42:
-            if ( a4[18] < 0x20u )
+            if ( MultiByteString[18] < 0x20u )
               goto LABEL_88;
-            v8[18] = *(_WORD *)(v10 + 2LL * a4[18]);
+            v8[18] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 18));
             goto LABEL_44;
           case 0x14u:
 LABEL_40:
-            if ( a4[19] < 0x20u )
+            if ( MultiByteString[19] < 0x20u )
               goto LABEL_88;
-            v8[19] = *(_WORD *)(v10 + 2LL * a4[19]);
+            v8[19] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 19));
             goto LABEL_42;
           case 0x15u:
 LABEL_38:
-            if ( a4[20] < 0x20u )
+            if ( MultiByteString[20] < 0x20u )
               goto LABEL_88;
-            v8[20] = *(_WORD *)(v10 + 2LL * a4[20]);
+            v8[20] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 20));
             goto LABEL_40;
           case 0x16u:
 LABEL_36:
-            if ( a4[21] < 0x20u )
+            if ( MultiByteString[21] < 0x20u )
               goto LABEL_88;
-            v8[21] = *(_WORD *)(v10 + 2LL * a4[21]);
+            v8[21] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 21));
             goto LABEL_38;
         }
 LABEL_34:
-        if ( a4[22] < 0x20u )
+        if ( MultiByteString[22] < 0x20u )
           goto LABEL_88;
-        v8[22] = *(_WORD *)(v10 + 2LL * a4[22]);
+        v8[22] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 22));
         goto LABEL_36;
       }
     }
@@ -217,56 +217,56 @@ LABEL_34:
                 {
                   if ( v9 != 31 )
                   {
-                    if ( a4[31] < 0x20u )
+                    if ( MultiByteString[31] < 0x20u )
                       goto LABEL_88;
-                    v8[31] = *(_WORD *)(v10 + 2LL * a4[31]);
+                    v8[31] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 31));
                   }
-                  if ( a4[30] < 0x20u )
+                  if ( MultiByteString[30] < 0x20u )
                   {
 LABEL_88:
-                    *a6 = 1;
-                    return RtlMultiByteToUnicodeN(v8, v6, 0LL, a4, v9);
+                    *pdwSpecialChar = 1;
+                    return RtlMultiByteToUnicodeN(v8, v6, 0LL, MultiByteString, v9);
                   }
-                  v8[30] = *(_WORD *)(v10 + 2LL * a4[30]);
+                  v8[30] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 30));
                 }
-                if ( a4[29] < 0x20u )
+                if ( MultiByteString[29] < 0x20u )
                   goto LABEL_88;
-                v8[29] = *(_WORD *)(v10 + 2LL * a4[29]);
+                v8[29] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 29));
               }
-              if ( a4[28] < 0x20u )
+              if ( MultiByteString[28] < 0x20u )
                 goto LABEL_88;
-              v8[28] = *(_WORD *)(v10 + 2LL * a4[28]);
+              v8[28] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 28));
             }
-            if ( a4[27] < 0x20u )
+            if ( MultiByteString[27] < 0x20u )
               goto LABEL_88;
-            v8[27] = *(_WORD *)(v10 + 2LL * a4[27]);
+            v8[27] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 27));
           }
-          if ( a4[26] < 0x20u )
+          if ( MultiByteString[26] < 0x20u )
             goto LABEL_88;
-          v8[26] = *(_WORD *)(v10 + 2LL * a4[26]);
+          v8[26] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 26));
         }
-        if ( a4[25] < 0x20u )
+        if ( MultiByteString[25] < 0x20u )
           goto LABEL_88;
-        v8[25] = *(_WORD *)(v10 + 2LL * a4[25]);
+        v8[25] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 25));
       }
-      if ( a4[24] < 0x20u )
+      if ( MultiByteString[24] < 0x20u )
         goto LABEL_88;
-      v8[24] = *(_WORD *)(v10 + 2LL * a4[24]);
+      v8[24] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 24));
     }
-    if ( a4[23] < 0x20u )
+    if ( MultiByteString[23] < 0x20u )
       goto LABEL_88;
-    v8[23] = *(_WORD *)(v10 + 2LL * a4[23]);
+    v8[23] = *(_WORD *)(v10 + 2LL * *((unsigned __int8 *)MultiByteString + 23));
     goto LABEL_34;
   }
   v12 = NlsMbAnsiCodePageTables;
-  v13 = (int)a1;
+  v13 = (int)UnicodeString;
   if ( v7 )
   {
     v14 = NlsAnsiToUnicodeData;
-    v15 = a5;
+    v15 = BytesInMultiByteString;
     while ( v15 )
     {
-      v16 = *a4;
+      v16 = *(unsigned __int8 *)MultiByteString;
       --v7;
       --v15;
       v17 = NlsLeadByteInfoTable[v16];
@@ -278,22 +278,22 @@ LABEL_88:
           LODWORD(v8) = (_DWORD)v8 + 2;
           break;
         }
-        v18 = a4[1];
-        a4 += 2;
+        v18 = *((unsigned __int8 *)MultiByteString + 1);
+        MultiByteString += 2;
         *v8++ = *(_WORD *)(v12 + 2 * (v17 + v18));
         --v15;
       }
       else
       {
         if ( (unsigned __int8)v16 < 0x20u )
-          *a6 = 1;
-        *v8++ = *(_WORD *)(v14 + 2LL * *a4++);
+          *pdwSpecialChar = 1;
+        *v8++ = *(_WORD *)(v14 + 2LL * *(unsigned __int8 *)MultiByteString++);
       }
       if ( !v7 )
         break;
     }
   }
-  if ( a3 )
-    *a3 = (_DWORD)v8 - v13;
-  return 0LL;
+  if ( BytesInUnicodeString )
+    *BytesInUnicodeString = (_DWORD)v8 - v13;
+  return 0;
 }

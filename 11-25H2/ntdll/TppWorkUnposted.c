@@ -12,7 +12,7 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppWorkUnposted(__int64 a1)
+signed __int32 __fastcall TppWorkUnposted(__int64 a1)
 {
   int v1; // edi
   __int64 v2; // rbx
@@ -20,12 +20,12 @@ __int64 __fastcall TppWorkUnposted(__int64 a1)
   unsigned __int32 v4; // eax
   __int64 v5; // rdx
   unsigned __int32 v6; // ecx
-  __int64 result; // rax
+  signed __int32 result; // eax
   __int64 (__fastcall *v8)(__int64, __int64); // rax
 
   v1 = a1;
   v2 = a1 - 200;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v3 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v3 = 2147353478LL;
@@ -42,12 +42,12 @@ __int64 __fastcall TppWorkUnposted(__int64 a1)
     v4 = _InterlockedCompareExchange((volatile signed __int32 *)(v2 + 232), 0, v4);
     if ( v4 == v6 )
     {
-      TppBarrierAdjust((volatile signed __int64 *)(v2 + 56), -(int)v5, 0);
+      TppBarrierAdjust((_RTL_SRWLOCK *)(v2 + 56), -(int)v5, 0);
       break;
     }
   }
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v2, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)v2, 0xFFFFFFFF);
+  if ( result == 1 )
   {
     v8 = **(__int64 (__fastcall ***)(__int64, __int64))(v2 + 8);
     if ( v8 == TppSimplepFree )
@@ -60,7 +60,7 @@ __int64 __fastcall TppWorkUnposted(__int64 a1)
     }
     else if ( (char *)v8 == (char *)TppWorkpFree )
     {
-      return TppWorkpFree(v2);
+      return TppWorkpFree((void *)v2);
     }
     else
     {

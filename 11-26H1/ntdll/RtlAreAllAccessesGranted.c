@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAreAllAccessesGranted @ 0x1800E2450
+ * XREFs of RtlAreAllAccessesGranted @ 0x1800E0CB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlAreAllAccessesGranted(int a1, int a2)
+BOOLEAN __cdecl RtlAreAllAccessesGranted(ACCESS_MASK GrantedAccess, ACCESS_MASK DesiredAccess)
 {
-  return (~a1 & a2) == 0;
+  return (~GrantedAccess & DesiredAccess) == 0;
 }

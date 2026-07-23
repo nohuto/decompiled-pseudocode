@@ -1,9 +1,9 @@
 /*
- * XREFs of send_all_trees @ 0x1406038C0
+ * XREFs of send_all_trees @ 0x140600F00
  * Callers:
- *     _tr_flush_block @ 0x140602828 (_tr_flush_block.c)
+ *     _tr_flush_block @ 0x1405FFE68 (_tr_flush_block.c)
  * Callees:
- *     send_tree @ 0x140603B58 (send_tree.c)
+ *     send_tree @ 0x140601198 (send_tree.c)
  */
 
 __int64 __fastcall send_all_trees(__int64 a1, int a2, int a3, unsigned int a4)
@@ -123,7 +123,7 @@ __int64 __fastcall send_all_trees(__int64 a1, int a2, int a3, unsigned int a4)
   *(_WORD *)(a1 + 5980) = v35;
   if ( (int)v5 > 0 )
   {
-    v36 = qword_140035818;
+    v36 = qword_140035C08;
     v37 = v5;
     do
     {

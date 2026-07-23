@@ -10,30 +10,21 @@
  *     RtlRemoveInvertedFunctionTable @ 0x18007A558 (RtlRemoveInvertedFunctionTable.c)
  */
 
-signed __int64 __fastcall LdrpInitializeExceptionTable(unsigned __int64 a1)
+void __fastcall LdrpInitializeExceptionTable(PVOID BaseAddress)
 {
-  int v2; // ebx
-  unsigned __int64 v3; // rdx
-  unsigned __int64 v4; // r8
-  unsigned __int64 v5; // r9
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // r9
-  __int128 v13; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+30h] [rbp-18h]
-  __int64 v15; // [rsp+58h] [rbp+10h] BYREF
+  unsigned int SizeOfImage; // ebx
+  __int128 v3; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v4; // [rsp+30h] [rbp-18h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+58h] [rbp+10h] BYREF
 
-  RtlImageNtHeaderEx(3, a1, 0LL, &v15);
-  v2 = *(_DWORD *)(v15 + 80);
-  RtlInsertInvertedFunctionTable(a1, v2);
-  RtlpxLookupFunctionTable(a1, (__int64 *)&v13);
-  LdrProtectMrdata(0, v3, v4, v5);
-  xmmword_18018F510 = v13;
-  qword_18018F520 = v14;
-  LODWORD(qword_18018F520) = v2;
-  RtlRemoveInvertedFunctionTable(a1, v6, v7, v8);
-  return LdrProtectMrdata(1, v9, v10, v11);
+  RtlImageNtHeaderEx(3u, BaseAddress, 0LL, &OutHeaders);
+  SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
+  RtlInsertInvertedFunctionTable((__int64)BaseAddress, SizeOfImage);
+  RtlpxLookupFunctionTable(BaseAddress, (__int64 *)&v3);
+  LdrProtectMrdata(0);
+  xmmword_18018F510 = v3;
+  qword_18018F520 = v4;
+  LODWORD(qword_18018F520) = SizeOfImage;
+  RtlRemoveInvertedFunctionTable((__int64)BaseAddress);
+  LdrProtectMrdata(1);
 }

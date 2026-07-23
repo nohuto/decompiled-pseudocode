@@ -1,18 +1,18 @@
 /*
- * XREFs of ZwUnmapViewOfSection @ 0x14041B2A0
+ * XREFs of ZwUnmapViewOfSection @ 0x14041B630
  * Callers:
  *     CmSiUnmapViewOfSection @ 0x140208C80 (CmSiUnmapViewOfSection.c)
- *     RtlFileMapFree @ 0x1402F7C50 (RtlFileMapFree.c)
- *     RtlFileMapMapView @ 0x1403B1320 (RtlFileMapMapView.c)
+ *     RtlFileMapFree @ 0x1402F7EE0 (RtlFileMapFree.c)
+ *     RtlFileMapMapView @ 0x1403B1500 (RtlFileMapMapView.c)
  *     PiInitializeDDB @ 0x14069378C (PiInitializeDDB.c)
  *     PiReleaseDDB @ 0x14069576C (PiReleaseDDB.c)
- *     IopIsNotNativeDriverImage @ 0x140945044 (IopIsNotNativeDriverImage.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1409F6860 (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x1409F6AA0 (ExpQueryElamCertInfo.c)
- *     CMFReadCompressedSegment @ 0x140A025C0 (CMFReadCompressedSegment.c)
- *     CMFSystemThreadRoutine @ 0x140A02AC0 (CMFSystemThreadRoutine.c)
- *     ApiSetLoadSchemaEx @ 0x140A09CEC (ApiSetLoadSchemaEx.c)
- *     AslpFilePartialViewFree @ 0x140A59D18 (AslpFilePartialViewFree.c)
+ *     IopIsNotNativeDriverImage @ 0x140945244 (IopIsNotNativeDriverImage.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x1409F6AF0 (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x1409F6D30 (ExpQueryElamCertInfo.c)
+ *     CMFReadCompressedSegment @ 0x140A02850 (CMFReadCompressedSegment.c)
+ *     CMFSystemThreadRoutine @ 0x140A02D50 (CMFSystemThreadRoutine.c)
+ *     ApiSetLoadSchemaEx @ 0x140A09F9C (ApiSetLoadSchemaEx.c)
+ *     AslpFilePartialViewFree @ 0x140A59FC8 (AslpFilePartialViewFree.c)
  *     EmpCacheBiosDate @ 0x140B57728 (EmpCacheBiosDate.c)
  *     CmpSetSystemBiosInformation @ 0x140B9886C (CmpSetSystemBiosInformation.c)
  *     CmpSetVideoBiosInformation @ 0x140B98C0C (CmpSetVideoBiosInformation.c)
@@ -24,5 +24,5 @@ NTSTATUS __stdcall ZwUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return KiServiceInternal(ProcessHandle);
 }

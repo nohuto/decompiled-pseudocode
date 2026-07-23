@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitializeServerSiloDeferred @ 0x14067E960
+ * XREFs of PspInitializeServerSiloDeferred @ 0x14067EA44
  * Callers:
- *     PspQueueDeferredWorkAndWait @ 0x14067E9D4 (PspQueueDeferredWorkAndWait.c)
+ *     PspQueueDeferredWorkAndWait @ 0x14067EAB8 (PspQueueDeferredWorkAndWait.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     EtwInitializeSiloState @ 0x1405631E8 (EtwInitializeSiloState.c)
- *     ObInitServerSilo @ 0x140579FFC (ObInitServerSilo.c)
- *     PspSiloInitializeUserSharedData @ 0x14067EDB8 (PspSiloInitializeUserSharedData.c)
- *     PspSiloLoadApiSets @ 0x14067EE40 (PspSiloLoadApiSets.c)
- *     PspNotifyServerSiloCreation @ 0x140681200 (PspNotifyServerSiloCreation.c)
- *     SeInitServerSilo @ 0x14068CAF4 (SeInitServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     EtwInitializeSiloState @ 0x140563728 (EtwInitializeSiloState.c)
+ *     ObInitServerSilo @ 0x14057A53C (ObInitServerSilo.c)
+ *     PspSiloInitializeUserSharedData @ 0x14067EE9C (PspSiloInitializeUserSharedData.c)
+ *     PspSiloLoadApiSets @ 0x14067EF24 (PspSiloLoadApiSets.c)
+ *     PspNotifyServerSiloCreation @ 0x1406812E4 (PspNotifyServerSiloCreation.c)
+ *     SeInitServerSilo @ 0x14068CBD8 (SeInitServerSilo.c)
  */
 
 int __fastcall PspInitializeServerSiloDeferred(__int64 a1)

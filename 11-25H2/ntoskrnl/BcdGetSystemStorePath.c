@@ -13,60 +13,59 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
+NTSTATUS __cdecl BcdGetSystemStorePath(PWSTR *BcdSystemStorePath)
 {
   wchar_t *Pool2; // rdi
   wchar_t *v3; // rsi
-  __int64 FirmwareType; // rdx
-  __int64 v5; // rcx
-  char IsStateSeparationEnabled; // bp
-  rsize_t v7; // rbx
-  int SystemPartition; // ebx
-  const wchar_t *v9; // r8
-  int v10; // edx
-  const wchar_t *v11; // rbp
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  unsigned int v14; // r14d
-  wchar_t *v15; // rax
+  int FirmwareType; // edx
+  BOOLEAN IsStateSeparationEnabled; // bp
+  rsize_t v6; // rbx
+  NTSTATUS SystemPartition; // ebx
+  const wchar_t *v8; // r8
+  int v9; // edx
+  const wchar_t *v10; // rbp
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  unsigned int v13; // r14d
+  wchar_t *v14; // rax
   wchar_t *Src; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v18; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v17; // [rsp+60h] [rbp+18h] BYREF
 
-  v18 = 0LL;
+  v17 = 0LL;
   Pool2 = 0LL;
   Src = 0LL;
   v3 = 0LL;
-  FirmwareType = (unsigned int)BiGetFirmwareType(&v18);
-  if ( (v18 & 0x10000) != 0 )
+  FirmwareType = BiGetFirmwareType(&v17);
+  if ( (v17 & 0x10000) != 0 )
   {
-    IsStateSeparationEnabled = RtlIsStateSeparationEnabled(v5, FirmwareType);
-    v7 = IsStateSeparationEnabled != 0 ? 44LL : 36LL;
+    IsStateSeparationEnabled = RtlIsStateSeparationEnabled();
+    v6 = IsStateSeparationEnabled != 0 ? 44LL : 36LL;
     Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL);
     if ( !Pool2 )
-      return (unsigned int)-1073741801;
-    v9 = L"\\OSDataRoot\\Windows\\";
+      return -1073741801;
+    v8 = L"\\OSDataRoot\\Windows\\";
     if ( !IsStateSeparationEnabled )
-      v9 = L"\\SystemRoot\\";
-    wcscpy_s(Pool2, v7, v9);
-    wcscat_s(Pool2, v7, L"system32\\config\\BootBCD");
+      v8 = L"\\SystemRoot\\";
+    wcscpy_s(Pool2, v6, v8);
+    wcscat_s(Pool2, v6, L"system32\\config\\BootBCD");
     BiLogMessage();
     SystemPartition = 0;
     goto LABEL_20;
   }
-  v10 = FirmwareType - 1;
-  if ( v10 )
+  v9 = FirmwareType - 1;
+  if ( v9 )
   {
-    if ( (unsigned int)(v10 - 1) >= 2 )
+    if ( (unsigned int)(v9 - 1) >= 2 )
     {
       SystemPartition = -1073741637;
       BiLogMessage();
-      return (unsigned int)SystemPartition;
+      return SystemPartition;
     }
-    v11 = L"\\EFI\\Microsoft\\Boot\\BCD";
+    v10 = L"\\EFI\\Microsoft\\Boot\\BCD";
   }
   else
   {
-    v11 = L"\\Boot\\BCD";
+    v10 = L"\\Boot\\BCD";
   }
   BiLogMessage();
   SystemPartition = BiGetSystemPartition(&Src);
@@ -74,23 +73,23 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
   {
     v3 = Src;
     BiLogMessage();
+    v11 = -1LL;
     v12 = -1LL;
-    v13 = -1LL;
-    do
-      ++v13;
-    while ( v3[v13] );
     do
       ++v12;
-    while ( v11[v12] );
-    v14 = v13 + v12 + 1;
-    v15 = (wchar_t *)ExAllocatePool2(0x102uLL);
-    Pool2 = v15;
-    if ( v15 )
+    while ( v3[v12] );
+    do
+      ++v11;
+    while ( v10[v11] );
+    v13 = v12 + v11 + 1;
+    v14 = (wchar_t *)ExAllocatePool2(0x102uLL);
+    Pool2 = v14;
+    if ( v14 )
     {
-      wcscpy_s(v15, v14, v3);
-      wcscat_s(Pool2, v14, v11);
+      wcscpy_s(v14, v13, v3);
+      wcscat_s(Pool2, v13, v10);
 LABEL_20:
-      *a1 = Pool2;
+      *BcdSystemStorePath = Pool2;
       goto LABEL_21;
     }
     SystemPartition = -1073741801;
@@ -105,5 +104,5 @@ LABEL_21:
     ExFreePoolWithTag(v3, 0x4B444342u);
   if ( SystemPartition < 0 && Pool2 )
     ExFreePoolWithTag(Pool2, 0x4B444342u);
-  return (unsigned int)SystemPartition;
+  return SystemPartition;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpDereferenceCurrentDeviceMap @ 0x140A18B70
+ * XREFs of ObpDereferenceCurrentDeviceMap @ 0x140A221A0
  * Callers:
- *     ObQueryDeviceMapInformation @ 0x140A181D0 (ObQueryDeviceMapInformation.c)
+ *     ObQueryDeviceMapInformation @ 0x140A21800 (ObQueryDeviceMapInformation.c)
  * Callees:
- *     ObDereferenceDeviceMap @ 0x1409007F4 (ObDereferenceDeviceMap.c)
+ *     ObDereferenceDeviceMap @ 0x140930784 (ObDereferenceDeviceMap.c)
  */
 
 void __fastcall ObpDereferenceCurrentDeviceMap(volatile signed __int64 *a1, signed __int64 *a2)

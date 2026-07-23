@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMapFrame @ 0x1402EBAD0
+ * XREFs of MiMapFrame @ 0x14034D110
  * Callers:
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
- *     MiMakePageAvoidRead @ 0x1402EF168 (MiMakePageAvoidRead.c)
- *     MiMapSystemCachePage @ 0x1404C9858 (MiMapSystemCachePage.c)
+ *     MiMakePageAvoidRead @ 0x140253334 (MiMakePageAvoidRead.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
+ *     MiMapSystemCachePage @ 0x1404C2D08 (MiMapSystemCachePage.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiUserPdeOrAbove @ 0x140238638 (MiUserPdeOrAbove.c)
- *     MiIsAddressGlobal @ 0x1402ECF00 (MiIsAddressGlobal.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiUserPdeOrAbove @ 0x1402127C8 (MiUserPdeOrAbove.c)
+ *     MiIsAddressGlobal @ 0x14034E540 (MiIsAddressGlobal.c)
  */
 
 __int64 __fastcall MiMapFrame(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -28,7 +28,7 @@ __int64 __fastcall MiMapFrame(ULONG_PTR BugCheckParameter2, unsigned __int64 a2,
   int v18; // ecx
 
   v5 = 4;
-  if ( a2 <= qword_140E2DBE0 )
+  if ( a2 <= qword_140E2DD20 )
   {
     a3 = 6 * a2;
     if ( (*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
@@ -75,9 +75,9 @@ __int64 __fastcall MiMapFrame(ULONG_PTR BugCheckParameter2, unsigned __int64 a2,
   v15 = v8 | 0x42;
   if ( !v14 )
     v15 = v8;
-  v16 = (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ v15) & 0xFFFFFFFFFFFFFEFFuLL) & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
+  v16 = (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ v15) & 0xFFFFFFFFFFFFFEFFuLL) & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
   if ( _bittest64(&MiFlags, 0x24u) && (v16 & 0x20) == 0 && BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
-    MiCheckLinearProtectedPteAccessedBit(BugCheckParameter2, v16, 128);
+    MiCheckLinearProtectedPteAccessedBit(BugCheckParameter2, v16, 128LL);
   result = v9 >> 16;
   *(_QWORD *)BugCheckParameter2 = v16;
   return result;

@@ -23,7 +23,7 @@
 __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, __int64 a2, _QWORD *a3)
 {
   PVOID v3; // rbx
-  RTL_AVL_TABLE *ObjectManagerForObjectType; // r15
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // r15
   int v8; // edi
   PVOID *v9; // rax
   PVOID P; // [rsp+30h] [rbp-79h] BYREF
@@ -40,7 +40,7 @@ __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, __int64 a2, _
   Buffer = &v15;
   SearchResult = TableEmptyTree;
   P = 0LL;
-  ObjectManagerForObjectType = (RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
+  ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
   PiDmObjectManagerAcquireExclusiveLock(ObjectManagerForObjectType);
   v8 = PiDmInitializeComparisonObject(a2, a1, &v15);
   if ( v8 >= 0 )

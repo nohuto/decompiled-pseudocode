@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsFileOnlyPfnImpendingRemoval @ 0x1406FA930
+ * XREFs of MiIsFileOnlyPfnImpendingRemoval @ 0x1406FF600
  * Callers:
- *     MiGetBadPageResources @ 0x1406F1108 (MiGetBadPageResources.c)
- *     MiUnlinkBadPages @ 0x1406F1FDC (MiUnlinkBadPages.c)
- *     MiIsExtentDangling @ 0x1406FA730 (MiIsExtentDangling.c)
+ *     MiGetBadPageResources @ 0x1406F5D78 (MiGetBadPageResources.c)
+ *     MiUnlinkBadPages @ 0x1406F6C4C (MiUnlinkBadPages.c)
+ *     MiIsExtentDangling @ 0x1406FF400 (MiIsExtentDangling.c)
  * Callees:
  *     <none>
  */

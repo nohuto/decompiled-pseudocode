@@ -11,29 +11,29 @@
  *     _RtlAbortRXact@4 @ 0x4B345550 (_RtlAbortRXact@4.c)
  */
 
-int __stdcall RtlApplyRXact(_DWORD *a1)
+NTSTATUS __stdcall RtlApplyRXact(int a1)
 {
-  int v1; // esi
-  int result; // eax
-  int v3; // ebx
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-8h] BYREF
+  void *v1; // esi
+  NTSTATUS result; // eax
+  NTSTATUS v3; // ebx
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-8h] BYREF
 
-  v1 = a1[1];
+  v1 = *(void **)(a1 + 4);
   RtlInitUnicodeString(&DestinationString, L"Log");
-  result = ZwSetValueKey(v1, (int)&DestinationString, 0, 3, a1[3], *(_DWORD *)(a1[3] + 8));
+  result = ZwSetValueKey(v1, &DestinationString, 0, 3u, *(PVOID *)(a1 + 12), *(_DWORD *)(*(_DWORD *)(a1 + 12) + 8));
   if ( result >= 0 )
   {
     v3 = NtFlushKey(v1);
     if ( v3 < 0 )
     {
-      NtDeleteValueKey(v1, (int)&DestinationString);
+      NtDeleteValueKey(v1, &DestinationString);
       return v3;
     }
-    v3 = RXactpCommit(a1);
-    NtDeleteValueKey(v1, (int)&DestinationString);
+    v3 = RXactpCommit((_DWORD *)a1);
+    NtDeleteValueKey(v1, &DestinationString);
     if ( v3 < 0 )
       return v3;
-    RtlAbortRXact((int)a1);
+    RtlAbortRXact(a1);
     return 0;
   }
   return result;

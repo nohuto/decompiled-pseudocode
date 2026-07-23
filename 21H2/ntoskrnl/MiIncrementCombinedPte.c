@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIncrementCombinedPte @ 0x14055D044
+ * XREFs of MiIncrementCombinedPte @ 0x14055D284
  * Callers:
- *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1405584FC (MiBuildForkPte.c)
  * Callees:
- *     MiGetCrossPartitionCombineCharges @ 0x14055CF3C (MiGetCrossPartitionCombineCharges.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x14055D14C (MiReturnCrossPartitionCombineCharges.c)
+ *     MiGetCrossPartitionCombineCharges @ 0x14055D17C (MiGetCrossPartitionCombineCharges.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x14055D38C (MiReturnCrossPartitionCombineCharges.c)
  */
 
 __int64 __fastcall MiIncrementCombinedPte(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall MiIncrementCombinedPte(__int64 a1, __int64 a2)
 
   v2 = a2 - 48;
   v3 = *(_QWORD **)(((a2 - 48) & 0xFFFFFFFFFFFFF000uLL) + 0x10);
-  if ( *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174)) != *v3 )
+  if ( *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a1 + 174)) != *v3 )
   {
     result = MiGetCrossPartitionCombineCharges(*v3, 1);
     if ( !(_DWORD)result )

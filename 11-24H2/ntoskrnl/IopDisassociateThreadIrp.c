@@ -1,16 +1,16 @@
 /*
- * XREFs of IopDisassociateThreadIrp @ 0x14059607C
+ * XREFs of IopDisassociateThreadIrp @ 0x1405930AC
  * Callers:
- *     IoCancelThreadIo @ 0x1408A867C (IoCancelThreadIo.c)
+ *     IoCancelThreadIo @ 0x1408FE8DC (IoCancelThreadIo.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoAllocateErrorLogEntry @ 0x1404A26A0 (IoAllocateErrorLogEntry.c)
- *     IoWriteErrorLogEntry @ 0x1404AC3E0 (IoWriteErrorLogEntry.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     IoAllocateErrorLogEntry @ 0x14049D630 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x1404A6840 (IoWriteErrorLogEntry.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 LONG_PTR IopDisassociateThreadIrp()
@@ -57,15 +57,15 @@ LABEL_6:
         *(_QWORD *)(v7 + 8) = p_SystemCallNumber,
         *(_QWORD *)(v3 + 8) = v3,
         *(_QWORD *)v3 = v3,
-        v8 = (_QWORD *)qword_140F8C6A8,
-        *(__int64 **)qword_140F8C6A8 != &IopDeadIrps) )
+        v8 = (_QWORD *)qword_140F8C9E8,
+        *(__int64 **)qword_140F8C9E8 != &IopDeadIrps) )
   {
     __fastfail(3u);
   }
   *v6 = &IopDeadIrps;
   v6[1] = v8;
   *v8 = v6;
-  qword_140F8C6A8 = (__int64)v6;
+  qword_140F8C9E8 = (__int64)v6;
   if ( *(_BYTE *)(v3 + 35) <= *(_BYTE *)(v3 + 34)
     && (v9 = *(_QWORD *)(v3 + 160)) != 0
     && (v10 = *(_QWORD *)(v3 + 152), v11 = *(void **)(v10 + 40), *(void **)(v9 + 8) == v11) )

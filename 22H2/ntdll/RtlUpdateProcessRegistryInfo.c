@@ -15,37 +15,31 @@
 __int64 RtlUpdateProcessRegistryInfo()
 {
   int v0; // ebx
-  __int64 v1; // r8
-  __int64 v2; // rax
-  __int64 v3; // rdx
-  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v1; // rax
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = 0;
-  if ( !g_RegInfo || *(_DWORD *)(g_RegInfo + 12) != MEMORY[0x7FFE03A4] )
+  if ( !g_RegInfo || *((_DWORD *)g_RegInfo + 3) != MEMORY[0x7FFE03A4] )
   {
-    v5 = 0LL;
-    v0 = RtlpMuiRegCreateAndLoadRegistryInfo(&v5);
+    BaseAddress = 0LL;
+    v0 = RtlpMuiRegCreateAndLoadRegistryInfo(&BaseAddress);
     if ( v0 >= 0 )
     {
       RtlpInitMuiCriticalSection();
-      RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
-      if ( g_RegInfo && *(_DWORD *)(g_RegInfo + 12) == MEMORY[0x7FFE03A4] )
+      RtlEnterCriticalSection(&RegistryInfoCritSect);
+      if ( g_RegInfo && *((_DWORD *)g_RegInfo + 3) == MEMORY[0x7FFE03A4] )
       {
-        RtlpMuiFreeLangRegistryInfo(v5);
+        RtlpMuiFreeLangRegistryInfo(BaseAddress);
       }
       else
       {
-        v2 = v5;
-        *(_QWORD *)(v5 + 104) = g_RegInfo;
-        v3 = g_RegInfo;
+        v1 = BaseAddress;
+        *((_QWORD *)BaseAddress + 13) = g_RegInfo;
         if ( g_RegInfo )
-        {
-          v3 = *(_QWORD *)(g_RegInfo + 72);
-          *(_QWORD *)(v2 + 72) = v3;
-        }
-        g_RegInfo = v2;
+          v1[9] = *((_QWORD *)g_RegInfo + 9);
+        g_RegInfo = v1;
       }
-      RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect, v3, v1);
+      RtlLeaveCriticalSection(&RegistryInfoCritSect);
     }
   }
   return (unsigned int)v0;

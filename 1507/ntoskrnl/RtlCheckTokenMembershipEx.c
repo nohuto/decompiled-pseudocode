@@ -21,56 +21,57 @@
  *     RtlCreateAcl @ 0x1404D058C (RtlCreateAcl.c)
  */
 
-__int64 __fastcall RtlCheckTokenMembershipEx(HANDLE ExistingTokenHandle, PSID Owner, int a3, _BYTE *a4)
+NTSTATUS __cdecl RtlCheckTokenMembershipEx(HANDLE TokenHandle, PSID SidToCheck, ULONG Flags, PBOOLEAN IsMember)
 {
-  NTSTATUS v4; // edi
+  int v4; // edi
   char v6; // r12
   HANDLE v8; // r14
   char v9; // si
-  int v11; // [rsp+60h] [rbp-A0h] BYREF
+  TOKEN_TYPE TokenType[2]; // [rsp+20h] [rbp-E0h]
+  int v12; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
-  NTSTATUS v13; // [rsp+70h] [rbp-90h] BYREF
+  int v14; // [rsp+70h] [rbp-90h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+78h] [rbp-88h] BYREF
   PVOID Object; // [rsp+98h] [rbp-68h] BYREF
-  char *v16; // [rsp+A0h] [rbp-60h] BYREF
+  char *v17; // [rsp+A0h] [rbp-60h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-58h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+D8h] [rbp-28h] BYREF
-  _DWORD v19[2]; // [rsp+100h] [rbp+0h] BYREF
-  __int16 v20; // [rsp+108h] [rbp+8h]
+  _DWORD v20[2]; // [rsp+100h] [rbp+0h] BYREF
+  __int16 v21; // [rsp+108h] [rbp+8h]
   _BYTE Sid[80]; // [rsp+110h] [rbp+10h] BYREF
   ACL Acl; // [rsp+160h] [rbp+60h] BYREF
-  char v23; // [rsp+200h] [rbp+100h] BYREF
+  char v24; // [rsp+200h] [rbp+100h] BYREF
 
   v4 = 0;
   Handle = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  v6 = a3;
-  v8 = ExistingTokenHandle;
-  *a4 = 0;
-  if ( (a3 & 0xFFFFFFFE) == 0 )
+  v6 = Flags;
+  v8 = TokenHandle;
+  *IsMember = 0;
+  if ( (Flags & 0xFFFFFFFE) == 0 )
   {
     v9 = 0;
-    if ( ExistingTokenHandle )
+    if ( TokenHandle )
     {
-      v19[1] = 2;
-      ObjectAttributes.SecurityQualityOfService = v19;
+      v20[1] = 2;
+      ObjectAttributes.SecurityQualityOfService = v20;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 512;
       ObjectAttributes.ObjectName = 0LL;
       ObjectAttributes.SecurityDescriptor = 0LL;
-      v19[0] = 12;
-      v20 = 1;
-      v4 = ZwDuplicateToken(ExistingTokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &Handle);
+      v20[0] = 12;
+      v21 = 1;
+      v4 = ZwDuplicateToken(TokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &Handle);
       if ( v4 < 0 )
       {
 LABEL_14:
         if ( v8 )
-          return (unsigned int)v4;
+          return v4;
 LABEL_15:
         if ( Handle )
           ZwClose(Handle);
-        return (unsigned int)v4;
+        return v4;
       }
       v4 = 0;
       v8 = 0LL;
@@ -81,17 +82,18 @@ LABEL_15:
       v9 = 1;
     }
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
-    RtlSetOwnerSecurityDescriptor(SecurityDescriptor, Owner, 0);
-    RtlSetGroupSecurityDescriptor(SecurityDescriptor, Owner, 0);
+    RtlSetOwnerSecurityDescriptor(SecurityDescriptor, SidToCheck, 0);
+    RtlSetGroupSecurityDescriptor(SecurityDescriptor, SidToCheck, 0);
     RtlCreateAcl(&Acl, 0xA0u, 2u);
-    RtlAddAccessAllowedAce(&Acl, 2u, 1u, Owner);
+    RtlAddAccessAllowedAce(&Acl, 2u, 1u, SidToCheck);
     if ( (v6 & 1) != 0 )
     {
-      RtlInitializeSidEx(Sid, &RtlpAppPackageAuthority, 2LL, 2LL, 1);
+      TokenType[0] = TokenPrimary;
+      RtlInitializeSidEx(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u, 2LL, *(_QWORD *)TokenType);
       RtlAddAccessAllowedAce(&Acl, 2u, 1u, Sid);
     }
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    v16 = &v23;
+    v17 = &v24;
     if ( !v9 )
     {
       SubjectContext.ProcessAuditId = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Blink;
@@ -108,29 +110,29 @@ LABEL_15:
       0LL,
       1,
       0,
-      &v16,
+      &v17,
       &RtlpCheckTokenMembershipGenericMapping,
       KeGetCurrentThread()->PreviousMode,
-      &v11,
-      &v13);
+      &v12,
+      &v14);
     if ( !v9 )
       ObfDereferenceObjectWithTag(SubjectContext.PrimaryToken, 0x746C6644u);
-    if ( v13 )
+    if ( v14 )
     {
-      if ( v13 == -1073741790 )
+      if ( v14 == -1073741790 )
         goto LABEL_12;
     }
-    else if ( v11 == 1 )
+    else if ( v12 == 1 )
     {
-      *a4 = 1;
+      *IsMember = 1;
 LABEL_12:
       if ( !v9 )
         goto LABEL_15;
       SeReleaseSubjectContext(&SubjectContext);
       goto LABEL_14;
     }
-    v4 = v13;
+    v4 = v14;
     goto LABEL_12;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeLargeUserBasePfn @ 0x140712080
+ * XREFs of MiInitializeLargeUserBasePfn @ 0x140716D78
  * Callers:
- *     MiInsertLargeUserMapping @ 0x14043A9B4 (MiInsertLargeUserMapping.c)
+ *     MiInsertLargeUserMapping @ 0x14042D264 (MiInsertLargeUserMapping.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiInitializeLargeUserBasePfn(__int64 a1, __int64 a2, unsigned __int64 a3)

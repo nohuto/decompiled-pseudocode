@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x140543108
+ * XREFs of HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x140540A58
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x14053F058 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x14053C958 (HalpCreateMcaMemoryErrorRecord.c)
  * Callees:
- *     WheaPrmTranslatePhysicalAddress @ 0x14065E590 (WheaPrmTranslatePhysicalAddress.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     WheaPrmTranslatePhysicalAddress @ 0x14065CD60 (WheaPrmTranslatePhysicalAddress.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpAddPrmAddressTranslationToMemoryExtIntelSection(__int64 a1, __int64 *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRestoreClockTickRate @ 0x1402937B8
+ * XREFs of KiRestoreClockTickRate @ 0x140211728
  * Callers:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     KeResumeClockTimerFromIdle @ 0x140224BE0 (KeResumeClockTimerFromIdle.c)
- *     KiResumeClockTimer @ 0x140383480 (KiResumeClockTimer.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C94E0 (KeResumeClockTimerFromIdle.c)
+ *     KiResumeClockTimer @ 0x140383630 (KiResumeClockTimer.c)
  * Callees:
- *     KiSetPendingTick @ 0x1402937FC (KiSetPendingTick.c)
- *     KiGetClockIntervalOneShot @ 0x14029382C (KiGetClockIntervalOneShot.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiSetPendingTick @ 0x14021176C (KiSetPendingTick.c)
+ *     KiGetClockIntervalOneShot @ 0x14021179C (KiGetClockIntervalOneShot.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiRestoreClockTickRate(__int64 a1, _QWORD *a2)

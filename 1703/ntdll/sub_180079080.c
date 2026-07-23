@@ -9,15 +9,15 @@
  *     ZwUnmapViewOfSection @ 0x1800A5840 (ZwUnmapViewOfSection.c)
  */
 
-__int64 __fastcall sub_180079080(__int64 a1)
+NTSTATUS __fastcall sub_180079080(__int64 a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( *(_QWORD *)(a1 + 48) )
   {
     if ( (*(_DWORD *)(a1 + 104) & 0x200) != 0 )
       sub_1800790B8();
-    result = ZwUnmapViewOfSection(-1LL, *(_QWORD *)(a1 + 48));
+    result = ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *(PVOID *)(a1 + 48));
     *(_QWORD *)(a1 + 48) = 0LL;
   }
   return result;

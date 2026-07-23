@@ -1,11 +1,11 @@
 /*
- * XREFs of MiValidateMdlTracker @ 0x1404AE6DC
+ * XREFs of MiValidateMdlTracker @ 0x1404A8FEC
  * Callers:
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x14066EF88 (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x140670158 (MmUpdateMdlTrackerForMdlSwitch.c)
  * Callees:
- *     wyhash @ 0x140389238 (wyhash.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     wyhash @ 0x140382B78 (wyhash.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiValidateMdlTracker(ULONG_PTR BugCheckParameter3, int a2)

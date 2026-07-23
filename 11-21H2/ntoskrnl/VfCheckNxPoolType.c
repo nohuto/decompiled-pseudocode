@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPoolType @ 0x140A82F58 (VfCheckPoolType.c)
+ *     sub_140A82F58 @ 0x140A82F58 (sub_140A82F58.c)
  */
 
 __int64 VfCheckNxPoolType()
 {
   __int64 result; // rax
 
-  if ( ViVerifierEnabled )
-    return VfCheckPoolType();
+  if ( dword_140C1B2A0 )
+    return sub_140A82F58();
   return result;
 }

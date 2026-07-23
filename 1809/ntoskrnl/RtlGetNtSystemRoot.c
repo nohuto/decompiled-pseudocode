@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlGetNtSystemRoot @ 0x140682410
+ * XREFs of RtlGetNtSystemRoot @ 0x1406835D0
  * Callers:
- *     ObpUseSystemDeviceMap @ 0x140582400 (ObpUseSystemDeviceMap.c)
- *     MiDriverLoadSucceeded @ 0x140681BE4 (MiDriverLoadSucceeded.c)
- *     AslEnvVarQuery @ 0x140722234 (AslEnvVarQuery.c)
- *     WheapWriteTriageDump @ 0x1408DC7E8 (WheapWriteTriageDump.c)
- *     SdbpGetProcessHistory @ 0x1408E7C30 (SdbpGetProcessHistory.c)
+ *     ObpUseSystemDeviceMap @ 0x140583400 (ObpUseSystemDeviceMap.c)
+ *     MiDriverLoadSucceeded @ 0x140682DA4 (MiDriverLoadSucceeded.c)
+ *     AslEnvVarQuery @ 0x1407234D4 (AslEnvVarQuery.c)
+ *     WheapWriteTriageDump @ 0x1408DDAA8 (WheapWriteTriageDump.c)
+ *     SdbpGetProcessHistory @ 0x1408E8EF0 (SdbpGetProcessHistory.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return *((_QWORD *)PsGetCurrentServerSiloGlobals() + 140) + 30LL;
+    return (PWSTR)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 140) + 30LL);
   else
-    return 0xFFFFF78000000030uLL;
+    return (PWSTR)0xFFFFF78000000030LL;
 }

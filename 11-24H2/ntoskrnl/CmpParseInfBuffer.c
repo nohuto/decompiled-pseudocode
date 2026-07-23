@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpParseInfBuffer @ 0x140C185C4
+ * XREFs of CmpParseInfBuffer @ 0x140C1A5C4
  * Callers:
- *     EmpParseInfDatabase @ 0x140C167C4 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140C187C4 (EmpParseInfDatabase.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpAppendLine @ 0x140C17F60 (CmpAppendLine.c)
- *     CmpAppendSection @ 0x140C17FE8 (CmpAppendSection.c)
- *     CmpAppendValue @ 0x140C180FC (CmpAppendValue.c)
- *     CmpGetToken @ 0x140C18318 (CmpGetToken.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpAppendLine @ 0x140C19F60 (CmpAppendLine.c)
+ *     CmpAppendSection @ 0x140C19FE8 (CmpAppendSection.c)
+ *     CmpAppendValue @ 0x140C1A0FC (CmpAppendValue.c)
+ *     CmpGetToken @ 0x140C1A318 (CmpGetToken.c)
  */
 
-ULONG_PTR __fastcall CmpParseInfBuffer(const char *a1, unsigned int a2, int *a3)
+__int64 __fastcall CmpParseInfBuffer(const char *a1, unsigned int a2, int *a3)
 {
   __int64 v3; // rdi
   char v5; // si
   char v6; // r12
-  ULONG_PTR result; // rax
+  __int64 result; // rax
   _QWORD *v8; // r14
   unsigned int v9; // r15d
   void *v10; // r13
@@ -290,5 +290,5 @@ LABEL_90:
   while ( !v12 );
   if ( v8 )
     v8[1] = 0LL;
-  return (ULONG_PTR)v8;
+  return (__int64)v8;
 }

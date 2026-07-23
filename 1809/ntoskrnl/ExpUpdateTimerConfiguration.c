@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpUpdateTimerConfiguration @ 0x1400E2008
+ * XREFs of ExpUpdateTimerConfiguration @ 0x1400E2088
  * Callers:
- *     ExpUpdateTimerResolution @ 0x1400E1EC8 (ExpUpdateTimerResolution.c)
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     ExpUpdateTimerResolution @ 0x1400E1F48 (ExpUpdateTimerResolution.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KeGenericProcessorCallback @ 0x1400D8690 (KeGenericProcessorCallback.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KeGenericProcessorCallback @ 0x1400D8710 (KeGenericProcessorCallback.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall ExpUpdateTimerConfiguration(

@@ -1,19 +1,19 @@
 /*
- * XREFs of ViThunkCreateSharedExportInformation @ 0x140920FFC
+ * XREFs of ViThunkCreateSharedExportInformation @ 0x140921FFC
  * Callers:
- *     VfThunkAddTargetNotify @ 0x140920F24 (VfThunkAddTargetNotify.c)
+ *     VfThunkAddTargetNotify @ 0x140921F24 (VfThunkAddTargetNotify.c)
  * Callees:
  *     RtlNumberOfClearBits @ 0x14000F420 (RtlNumberOfClearBits.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ViThunkSnapSharedExports @ 0x1409211A8 (ViThunkSnapSharedExports.c)
- *     ViThunkFreeSharedThunksArray @ 0x14092130C (ViThunkFreeSharedThunksArray.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ViThunkSnapSharedExports @ 0x1409221A8 (ViThunkSnapSharedExports.c)
+ *     ViThunkFreeSharedThunksArray @ 0x14092230C (ViThunkFreeSharedThunksArray.c)
  */
 
 __int64 __fastcall ViThunkCreateSharedExportInformation(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        struct _RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         _QWORD *a5)
 {
   unsigned int v9; // ebx

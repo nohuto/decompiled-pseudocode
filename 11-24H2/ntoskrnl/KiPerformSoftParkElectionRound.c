@@ -1,10 +1,10 @@
 /*
- * XREFs of KiPerformSoftParkElectionRound @ 0x140201740
+ * XREFs of KiPerformSoftParkElectionRound @ 0x140329E30
  * Callers:
- *     KiPerformSoftParkElection @ 0x140201694 (KiPerformSoftParkElection.c)
+ *     KiPerformSoftParkElection @ 0x140329D84 (KiPerformSoftParkElection.c)
  * Callees:
- *     KiPerformHeteroSoftParkElection @ 0x1402017A8 (KiPerformHeteroSoftParkElection.c)
- *     KiReduceAffinityToRankListMinimums @ 0x1402022C0 (KiReduceAffinityToRankListMinimums.c)
+ *     KiPerformHeteroSoftParkElection @ 0x140329E98 (KiPerformHeteroSoftParkElection.c)
+ *     KiReduceAffinityToRankListMinimums @ 0x14032A9B0 (KiReduceAffinityToRankListMinimums.c)
  */
 
 __int64 __fastcall KiPerformSoftParkElectionRound(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

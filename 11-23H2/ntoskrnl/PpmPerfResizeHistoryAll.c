@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfResizeHistoryAll @ 0x140986ACC
+ * XREFs of PpmPerfResizeHistoryAll @ 0x140986CCC
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x14082C6C0 (PpmReapplyPerfPolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x14082C9C0 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmPerfResizeHistory @ 0x140986A10 (PpmPerfResizeHistory.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmPerfResizeHistory @ 0x140986C10 (PpmPerfResizeHistory.c)
  */
 
 __int64 PpmPerfResizeHistoryAll()
@@ -26,7 +26,7 @@ __int64 PpmPerfResizeHistoryAll()
   v9 = 0;
   v7 = 0;
   v10 = 0;
-  v6[1] = (unsigned __int16 *)qword_140C0BE68[0];
+  v6[1] = (unsigned __int16 *)qword_140C0BE78[0];
   v6[0] = (unsigned __int16 *)&PpmCheckRegistered;
   while ( 1 )
   {

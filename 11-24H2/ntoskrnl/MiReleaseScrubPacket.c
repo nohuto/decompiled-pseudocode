@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleaseScrubPacket @ 0x1407FD9F4
+ * XREFs of MiReleaseScrubPacket @ 0x1407FE164
  * Callers:
- *     MiInitializeScrubPacket @ 0x1407FD6E0 (MiInitializeScrubPacket.c)
- *     MiScrubMemoryWorker @ 0x1407FDAD0 (MiScrubMemoryWorker.c)
+ *     MiInitializeScrubPacket @ 0x1407FDE50 (MiInitializeScrubPacket.c)
+ *     MiScrubMemoryWorker @ 0x1407FE240 (MiScrubMemoryWorker.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReleaseScrubPacket(__int64 a1)

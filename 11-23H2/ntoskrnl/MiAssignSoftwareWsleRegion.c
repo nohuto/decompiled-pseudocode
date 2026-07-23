@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAssignSoftwareWsleRegion @ 0x14039B40C
+ * XREFs of MiAssignSoftwareWsleRegion @ 0x14039B5EC
  * Callers:
  *     MiInitializeSystemVa @ 0x140B5FA88 (MiInitializeSystemVa.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiAssignSoftwareWsleRegion(__int64 a1, unsigned __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall MiAssignSoftwareWsleRegion(__int64 a1, unsigned __int64 a2)
   __int64 v9; // rdi
   __int16 v10; // ax
   __int64 result; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-49h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-49h] BYREF
   int v13; // [rsp+38h] [rbp-39h]
   _DWORD v14[9]; // [rsp+3Ch] [rbp-35h] BYREF
   __int64 v15; // [rsp+60h] [rbp-11h]

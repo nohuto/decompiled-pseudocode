@@ -1,11 +1,11 @@
 /*
- * XREFs of PspQueryLastCallThread @ 0x140A21A18
+ * XREFs of PspQueryLastCallThread @ 0x140A2B038
  * Callers:
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
  * Callees:
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
  */
 
 __int64 __fastcall PspQueryLastCallThread(__int64 a1, __int64 a2, int a3, _DWORD *a4, char a5)
@@ -32,7 +32,7 @@ __int64 __fastcall PspQueryLastCallThread(__int64 a1, __int64 a2, int a3, _DWORD
     _InterlockedOr(v15, 0);
     if ( v8 == *(_DWORD *)(a1 + 340) )
     {
-      v12 = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)(MEMORY[0xFFFFF78000000320] - v11);
+      v12 = KeMaximumIncrement * (unsigned __int64)(unsigned int)(MEMORY[0xFFFFF78000000320] - v11);
       if ( a5 )
         RtlWriteULong64ToUser((_QWORD *)a2, v9);
       else

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpTscQueryCounter @ 0x14051FEA0
+ * XREFs of HalpTscQueryCounter @ 0x1405203F0
  * Callers:
  *     <none>
  * Callees:

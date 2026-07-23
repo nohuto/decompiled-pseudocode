@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpPayloadRestrictionMitigationsEnabled @ 0x1800D456C
+ * XREFs of LdrpPayloadRestrictionMitigationsEnabled @ 0x1800D452C
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x1800D108C (LdrpInitializeExecutionOptions.c)
- *     AVrfInitializeVerifier @ 0x1800D9948 (AVrfInitializeVerifier.c)
+ *     LdrpInitializeExecutionOptions @ 0x1800D104C (LdrpInitializeExecutionOptions.c)
+ *     AVrfInitializeVerifier @ 0x1800D9908 (AVrfInitializeVerifier.c)
  * Callees:
  *     <none>
  */
@@ -14,21 +14,21 @@ char LdrpPayloadRestrictionMitigationsEnabled()
   char v2; // al
 
   v0 = 0;
-  if ( ((*((_QWORD *)&xmmword_180181390 + 1) >> 20) & 3) == 1
-    || (BYTE10(xmmword_180181390) & 3) == 1
-    || (BYTE11(xmmword_180181390) & 3) == 1
-    || ((*((_QWORD *)&xmmword_180181390 + 1) >> 28) & 3) == 1
-    || (BYTE12(xmmword_180181390) & 3) == 1
-    || (v1 = 0, (BYTE13(xmmword_180181390) & 3) == 1) )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 20) & 3) == 1
+    || (BYTE2(LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]) & 3) == 1
+    || (BYTE3(LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]) & 3) == 1
+    || ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 28) & 3) == 1
+    || (BYTE4(LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]) & 3) == 1
+    || (v1 = 0, (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]) & 3) == 1) )
   {
     v1 = 1;
   }
-  if ( (((unsigned __int64)qword_1801813D0 >> 20) & 3) == 1
-    || (BYTE2(qword_1801813D0) & 3) == 1
-    || (BYTE3(qword_1801813D0) & 3) == 1
-    || (((unsigned __int64)qword_1801813D0 >> 28) & 3) == 1
-    || (BYTE4(qword_1801813D0) & 3) == 1
-    || (v2 = 0, (BYTE5(qword_1801813D0) & 3) == 1) )
+  if ( ((LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1] >> 20) & 3) == 1
+    || (BYTE2(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) & 3) == 1
+    || (BYTE3(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) & 3) == 1
+    || ((LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1] >> 28) & 3) == 1
+    || (BYTE4(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) & 3) == 1
+    || (v2 = 0, (BYTE5(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) & 3) == 1) )
   {
     v2 = 1;
   }

@@ -1,34 +1,34 @@
 /*
- * XREFs of PspInitializeServerSiloDeferred @ 0x140772C80
+ * XREFs of PspInitializeServerSiloDeferred @ 0x140772EA0
  * Callers:
- *     PspQueueDeferredWorkAndWait @ 0x140772EE8 (PspQueueDeferredWorkAndWait.c)
+ *     PspQueueDeferredWorkAndWait @ 0x140773108 (PspQueueDeferredWorkAndWait.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsAttachSiloToCurrentThread @ 0x14043CF50 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140444750 (PsDetachSiloFromCurrentThread.c)
- *     EtwpGetCurrentSiloMaxLoggers @ 0x14064C80C (EtwpGetCurrentSiloMaxLoggers.c)
- *     sub_14065592C @ 0x14065592C (sub_14065592C.c)
- *     DbgkpInitializePhase1SiloState @ 0x140707074 (DbgkpInitializePhase1SiloState.c)
- *     ObInitServerSilo @ 0x14074301C (ObInitServerSilo.c)
- *     PspInitializeProtectedProcessParameters @ 0x140771C38 (PspInitializeProtectedProcessParameters.c)
- *     PsTerminateServerSilo @ 0x1407723C0 (PsTerminateServerSilo.c)
- *     PspDeleteExternalServerSiloState @ 0x140772928 (PspDeleteExternalServerSiloState.c)
- *     PspSiloInitializeSystemRootSymlink @ 0x1407732F8 (PspSiloInitializeSystemRootSymlink.c)
- *     PspSiloInitializeUserSharedData @ 0x140773424 (PspSiloInitializeUserSharedData.c)
- *     PspSiloLoadApiSets @ 0x1407735E8 (PspSiloLoadApiSets.c)
- *     PspNotifyServerSiloCreation @ 0x140779708 (PspNotifyServerSiloCreation.c)
- *     RtlInitFunctionalityCache @ 0x14077CF38 (RtlInitFunctionalityCache.c)
- *     RtlNlsInitState @ 0x14077E834 (RtlNlsInitState.c)
- *     SeInitServerSilo @ 0x14078ED4C (SeInitServerSilo.c)
- *     EtwpCleanupSiloState @ 0x1407A70EC (EtwpCleanupSiloState.c)
- *     EtwpInitializeSiloState @ 0x1407A815C (EtwpInitializeSiloState.c)
- *     EtwpPreInitializeSiloState @ 0x1407A8DDC (EtwpPreInitializeSiloState.c)
- *     ExpTimeZoneInitSiloState @ 0x1407B6A30 (ExpTimeZoneInitSiloState.c)
- *     ExIsMultiSessionSku @ 0x1407B7B38 (ExIsMultiSessionSku.c)
- *     ExIsStateSeparationEnabled @ 0x1407B7BE0 (ExIsStateSeparationEnabled.c)
- *     CmInitServerSiloState @ 0x1407D5B34 (CmInitServerSiloState.c)
- *     ExInitializeNls @ 0x140AC1714 (ExInitializeNls.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x14042FBB0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14043A1F0 (PsDetachSiloFromCurrentThread.c)
+ *     EtwpGetCurrentSiloMaxLoggers @ 0x14064AE1C (EtwpGetCurrentSiloMaxLoggers.c)
+ *     sub_14065402C @ 0x14065402C (sub_14065402C.c)
+ *     DbgkpInitializePhase1SiloState @ 0x140704C34 (DbgkpInitializePhase1SiloState.c)
+ *     ObInitServerSilo @ 0x140740F4C (ObInitServerSilo.c)
+ *     PspInitializeProtectedProcessParameters @ 0x140771E58 (PspInitializeProtectedProcessParameters.c)
+ *     PsTerminateServerSilo @ 0x1407725E0 (PsTerminateServerSilo.c)
+ *     PspDeleteExternalServerSiloState @ 0x140772B48 (PspDeleteExternalServerSiloState.c)
+ *     PspSiloInitializeSystemRootSymlink @ 0x140773518 (PspSiloInitializeSystemRootSymlink.c)
+ *     PspSiloInitializeUserSharedData @ 0x140773644 (PspSiloInitializeUserSharedData.c)
+ *     PspSiloLoadApiSets @ 0x140773808 (PspSiloLoadApiSets.c)
+ *     PspNotifyServerSiloCreation @ 0x140779808 (PspNotifyServerSiloCreation.c)
+ *     RtlInitFunctionalityCache @ 0x14077CE68 (RtlInitFunctionalityCache.c)
+ *     RtlNlsInitState @ 0x14077E764 (RtlNlsInitState.c)
+ *     SeInitServerSilo @ 0x14078ED1C (SeInitServerSilo.c)
+ *     EtwpCleanupSiloState @ 0x1407A722C (EtwpCleanupSiloState.c)
+ *     EtwpInitializeSiloState @ 0x1407A829C (EtwpInitializeSiloState.c)
+ *     EtwpPreInitializeSiloState @ 0x1407A8F1C (EtwpPreInitializeSiloState.c)
+ *     ExpTimeZoneInitSiloState @ 0x1407B6E80 (ExpTimeZoneInitSiloState.c)
+ *     ExIsMultiSessionSku @ 0x1407B7F88 (ExIsMultiSessionSku.c)
+ *     ExIsStateSeparationEnabled @ 0x1407B8030 (ExIsStateSeparationEnabled.c)
+ *     CmInitServerSiloState @ 0x1407D6024 (CmInitServerSiloState.c)
+ *     ExInitializeNls @ 0x140ABC9FC (ExInitializeNls.c)
  */
 
 __int64 __fastcall PspInitializeServerSiloDeferred(struct _LIST_ENTRY *Object)
@@ -53,7 +53,7 @@ __int64 __fastcall PspInitializeServerSiloDeferred(struct _LIST_ENTRY *Object)
 
   ServerSiloGlobals = PsGetServerSiloGlobals((__int64)Object);
   RtlNlsInitState(ServerSiloGlobals);
-  ApiSets = sub_14065592C((__int64)Object);
+  ApiSets = sub_14065402C((__int64)Object);
   if ( ApiSets < 0 )
     goto LABEL_25;
   ApiSets = PspSiloInitializeUserSharedData(Object);

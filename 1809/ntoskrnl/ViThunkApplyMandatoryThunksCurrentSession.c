@@ -1,10 +1,10 @@
 /*
- * XREFs of ViThunkApplyMandatoryThunksCurrentSession @ 0x140936CEC
+ * XREFs of ViThunkApplyMandatoryThunksCurrentSession @ 0x140937CEC
  * Callers:
- *     VfThunkApplyMandatoryThunks @ 0x140936A5C (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyMandatoryThunks @ 0x140937A5C (VfThunkApplyMandatoryThunks.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     ViThunkReplaceImportIfThunkedRegular @ 0x140937354 (ViThunkReplaceImportIfThunkedRegular.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     ViThunkReplaceImportIfThunkedRegular @ 0x140938354 (ViThunkReplaceImportIfThunkedRegular.c)
  */
 
 __int64 __fastcall ViThunkApplyMandatoryThunksCurrentSession(__int64 a1, int a2)

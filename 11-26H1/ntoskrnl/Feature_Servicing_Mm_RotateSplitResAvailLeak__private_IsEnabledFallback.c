@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledFallback @ 0x14070D0A0
+ * XREFs of Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledFallback @ 0x140711D50
  * Callers:
- *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x14070D064 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x140711D14 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledFallback(__int64 a1, unsigned int a2)

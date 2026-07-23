@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetWorkingSetLeafSize @ 0x1400F0DB8
+ * XREFs of MmGetWorkingSetLeafSize @ 0x1400F0E38
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066E19C (ExpQuerySystemPerformanceInformation.c)
  * Callees:
- *     MiGetCurrentMultiplexedVm @ 0x1400EF4E4 (MiGetCurrentMultiplexedVm.c)
- *     MiTranslateWsType @ 0x1400EF520 (MiTranslateWsType.c)
+ *     MiGetCurrentMultiplexedVm @ 0x1400EF564 (MiGetCurrentMultiplexedVm.c)
+ *     MiTranslateWsType @ 0x1400EF5A0 (MiTranslateWsType.c)
  */
 
 char *__fastcall MmGetWorkingSetLeafSize(int a1)
@@ -19,7 +19,7 @@ char *__fastcall MmGetWorkingSetLeafSize(int a1)
   }
   else
   {
-    result = (char *)&unk_14043B080 + 272 * (int)MiTranslateWsType(a1);
+    result = (char *)&unk_14043C140 + 272 * (int)MiTranslateWsType(a1);
   }
   return (char *)*((_QWORD *)result + 15);
 }

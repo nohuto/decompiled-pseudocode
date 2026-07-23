@@ -1,23 +1,23 @@
 /*
- * XREFs of IopGetDriverNameFromKeyNode @ 0x14049F27C
+ * XREFs of IopGetDriverNameFromKeyNode @ 0x140517688
  * Callers:
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140538A14 (PipCallDriverAddDeviceQueryRoutine.c)
- *     IopUnloadDriver @ 0x140544E28 (IopUnloadDriver.c)
- *     PiGetDefaultMessageString @ 0x1405745C0 (PiGetDefaultMessageString.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140538F54 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     IopUnloadDriver @ 0x140545368 (IopUnloadDriver.c)
+ *     PiGetDefaultMessageString @ 0x140574B00 (PiGetDefaultMessageString.c)
  *     PipInitializeEarlyLaunchDrivers @ 0x14079890C (PipInitializeEarlyLaunchDrivers.c)
  *     PnpLoadBootFilterDriver @ 0x14079A54C (PnpLoadBootFilterDriver.c)
  *     PipInitializeCoreDriversByGroup @ 0x14079AB28 (PipInitializeCoreDriversByGroup.c)
  *     IopInitializeSystemDrivers @ 0x14079AE5C (IopInitializeSystemDrivers.c)
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall IopGetDriverNameFromKeyNode(HANDLE KeyHandle, PUNICODE_STRING Destination)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOpPreprocessSecureFault @ 0x140514C00
+ * XREFs of KiOpPreprocessSecureFault @ 0x140514E40
  * Callers:
- *     KiPreprocessFault @ 0x140273930 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x1402618D0 (KiPreprocessFault.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall KiOpPreprocessSecureFault(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

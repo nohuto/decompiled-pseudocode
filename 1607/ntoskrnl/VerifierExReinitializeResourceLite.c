@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierExReinitializeResourceLite @ 0x14070C468
+ * XREFs of VerifierExReinitializeResourceLite @ 0x14070C498
  * Callers:
  *     <none>
  * Callees:

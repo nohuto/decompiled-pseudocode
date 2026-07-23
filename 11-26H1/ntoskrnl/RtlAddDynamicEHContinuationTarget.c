@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAddDynamicEHContinuationTarget @ 0x1408095A8
+ * XREFs of RtlAddDynamicEHContinuationTarget @ 0x14080F038
  * Callers:
- *     PspProcessDynamicEHContinuationTargets @ 0x140B66514 (PspProcessDynamicEHContinuationTargets.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x140B694A0 (PspProcessDynamicEHContinuationTargets.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     RtlpDynamicEHContinuationTargetsTreeCompare @ 0x140A9058C (RtlpDynamicEHContinuationTargetsTreeCompare.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     RtlpDynamicEHContinuationTargetsTreeCompare @ 0x140A950DC (RtlpDynamicEHContinuationTargetsTreeCompare.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall RtlAddDynamicEHContinuationTarget(unsigned __int64 *a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlFindNextForwardRunClear @ 0x1403E15B0
+ * XREFs of RtlFindNextForwardRunClear @ 0x1403C3BB0
  * Callers:
- *     HalpIrtAllocateIndex @ 0x140701254 (HalpIrtAllocateIndex.c)
- *     MiPrepareToHotPatchImage @ 0x1407F5540 (MiPrepareToHotPatchImage.c)
- *     HvpGenerateLogMetadata @ 0x14097F1C8 (HvpGenerateLogMetadata.c)
- *     HvpCountSetRangesInVector @ 0x14097F28C (HvpCountSetRangesInVector.c)
- *     MiHandleDriverNonPagedSections @ 0x140A3DA08 (MiHandleDriverNonPagedSections.c)
- *     PnprMirrorMarkedPages @ 0x140B543CC (PnprMirrorMarkedPages.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x140B5D024 (PopGetRemainingHibernateRangeDataSize.c)
- *     ViThunkSnapSharedExports @ 0x140BA643C (ViThunkSnapSharedExports.c)
+ *     HalpIrtAllocateIndex @ 0x1406FEE94 (HalpIrtAllocateIndex.c)
+ *     MiPrepareToHotPatchImage @ 0x1407F5C30 (MiPrepareToHotPatchImage.c)
+ *     HvpGenerateLogMetadata @ 0x1409679D8 (HvpGenerateLogMetadata.c)
+ *     HvpCountSetRangesInVector @ 0x140967A9C (HvpCountSetRangesInVector.c)
+ *     MiHandleDriverNonPagedSections @ 0x140A33318 (MiHandleDriverNonPagedSections.c)
+ *     PnprMirrorMarkedPages @ 0x140B5641C (PnprMirrorMarkedPages.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x140B5F0A0 (PopGetRemainingHibernateRangeDataSize.c)
+ *     ViThunkSnapSharedExports @ 0x140BA843C (ViThunkSnapSharedExports.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpMapEntryMarkTrimmed @ 0x1408B89FC
+ * XREFs of HvpMapEntryMarkTrimmed @ 0x1408BEFCC
  * Callers:
- *     HvTrimHive @ 0x1408B8958 (HvTrimHive.c)
+ *     HvTrimHive @ 0x1408BEF28 (HvTrimHive.c)
  * Callees:
  *     <none>
  */

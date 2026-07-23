@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpMcEnumerateAndSetPatchConfig @ 0x1405594B8
+ * XREFs of HalpMcEnumerateAndSetPatchConfig @ 0x1405570E8
  * Callers:
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405594B8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     HalpMcPatchConfiguration @ 0x140559B04 (HalpMcPatchConfiguration.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x1405570E8 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     HalpMcPatchConfiguration @ 0x140557734 (HalpMcPatchConfiguration.c)
  * Callees:
- *     RtlStringCbCopyNW @ 0x1403D9E84 (RtlStringCbCopyNW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcstoul @ 0x1405007D0 (wcstoul.c)
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405594B8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     PrExtControlOperations @ 0x140663EEC (PrExtControlOperations.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmGetSystemRoutineAddress @ 0x1408B0D70 (MmGetSystemRoutineAddress.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbCopyNW @ 0x1403CC204 (RtlStringCbCopyNW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcstoul @ 0x1404FE090 (wcstoul.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x1405570E8 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     PrExtControlOperations @ 0x1406627DC (PrExtControlOperations.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmGetSystemRoutineAddress @ 0x140906FD0 (MmGetSystemRoutineAddress.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpMcEnumerateAndSetPatchConfig(void *a1, __int64 a2, int a3)
@@ -76,7 +76,7 @@ __int64 __fastcall HalpMcEnumerateAndSetPatchConfig(void *a1, __int64 a2, int a3
     {
       if ( Pool2 )
         ExFreePoolWithTag(Pool2, 0x636C6148u);
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, Length, 0x636C6148u);
       if ( !Pool2 )
       {
         v8 = -1073741801;
@@ -97,7 +97,7 @@ __int64 __fastcall HalpMcEnumerateAndSetPatchConfig(void *a1, __int64 a2, int a3
       v12 = (unsigned int)(Pool2[6] + 2);
       v24 = v11;
       Size = v12;
-      v6 = (void *)ExAllocatePool2(0x100uLL);
+      v6 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v12, 0x636C6148u);
       if ( !v6 )
       {
 LABEL_14:
@@ -120,7 +120,7 @@ LABEL_14:
           {
             if ( v4 )
               ExFreePoolWithTag(v4, 0x636C6148u);
-            v15 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            v15 = (wchar_t *)ExAllocatePool2(0x100uLL, Length, 0x636C6148u);
             v4 = v15;
             if ( !v15 )
               goto LABEL_14;
@@ -185,7 +185,7 @@ LABEL_34:
                 SystemRoutineName = 0LL;
                 RtlInitUnicodeString(&SystemRoutineName, L"RtlQueryRegistryValuesEx");
                 MmGetSystemRoutineAddress(&SystemRoutineName);
-                v8 = guard_dispatch_icall_no_overrides(0x40000000LL, v20, v31, 0LL);
+                v8 = guard_dispatch_icall_no_overrides(0x40000000LL, v20);
                 if ( v8 >= 0 )
                 {
                   v18 = PrExtControlOperations(1LL, v17);

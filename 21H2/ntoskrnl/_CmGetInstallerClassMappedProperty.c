@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetInstallerClassMappedProperty @ 0x14073EF70
+ * XREFs of _CmGetInstallerClassMappedProperty @ 0x14073F130
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x14073EDE0 (_PnpDispatchInstallerClass.c)
+ *     _PnpDispatchInstallerClass @ 0x14073EFA0 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x14073C2C0 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14073D774 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073F1A0 (_CmGetInstallerClassMappedPropertyFromComposite.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x14073C480 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14073D934 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073F360 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F76C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedProperty(
@@ -67,7 +67,7 @@ __int64 __fastcall CmGetInstallerClassMappedProperty(
     if ( InstallerClassMappedPropertyFromRegProp != -1073741802 )
       return InstallerClassMappedPropertyFromRegProp;
 LABEL_6:
-    v15 = &off_1409856E0;
+    v15 = &off_1409858C0;
     v16 = 0;
     while ( 1 )
     {
@@ -87,7 +87,7 @@ LABEL_6:
     }
     InstallerClassMappedPropertyFromRegProp = CmGetInstallerClassMappedPropertyFromRegValue(
                                                 a1,
-                                                (__int64)a2,
+                                                a2,
                                                 a3,
                                                 a5,
                                                 a6,
@@ -114,7 +114,7 @@ LABEL_9:
           InstallerClassMappedPropertyFromRegProp == -1073741802) )
     {
 LABEL_10:
-      v18 = &off_140983EB0;
+      v18 = &off_1409840D0;
       v19 = 0;
       while ( 1 )
       {

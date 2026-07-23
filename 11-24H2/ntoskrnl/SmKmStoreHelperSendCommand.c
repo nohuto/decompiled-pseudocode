@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmStoreHelperSendCommand @ 0x14039C3E4
+ * XREFs of SmKmStoreHelperSendCommand @ 0x1402F96E4
  * Callers:
- *     SmKmStoreHelperCleanup @ 0x14049F3AC (SmKmStoreHelperCleanup.c)
+ *     SmKmStoreHelperCleanup @ 0x140377A08 (SmKmStoreHelperCleanup.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     SmKmStoreHelperCheckWaitCommand @ 0x14039C46C (SmKmStoreHelperCheckWaitCommand.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     SmKmStoreHelperCheckWaitCommand @ 0x1402F976C (SmKmStoreHelperCheckWaitCommand.c)
  */
 
 __int64 __fastcall SmKmStoreHelperSendCommand(__int64 a1, __int16 a2, __int64 a3, unsigned int a4)

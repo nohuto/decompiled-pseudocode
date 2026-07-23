@@ -5,7 +5,7 @@
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlNotifyCleanupOneEntry @ 0x1406AC2DC (FsRtlNotifyCleanupOneEntry.c)
+ *     sub_1406AC2DC @ 0x1406AC2DC (sub_1406AC2DC.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -13,7 +13,7 @@
 void __stdcall FsRtlNotifyCleanupAll(PNOTIFY_SYNC NotifySync, PLIST_ENTRY NotifyList)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  struct _LIST_ENTRY *Flink; // rdi
+  _LIST_ENTRY *Flink; // rdi
   char *v6; // rcx
   PSECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+40h] [rbp+18h] BYREF
 
@@ -30,7 +30,7 @@ void __stdcall FsRtlNotifyCleanupAll(PNOTIFY_SYNC NotifySync, PLIST_ENTRY Notify
   {
     v6 = (char *)&Flink[-2];
     Flink = Flink->Flink;
-    FsRtlNotifyCleanupOneEntry(v6, &SubjectContext);
+    sub_1406AC2DC(v6, &SubjectContext);
     if ( SubjectContext )
     {
       SeReleaseSubjectContext(SubjectContext);

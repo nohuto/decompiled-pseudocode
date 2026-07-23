@@ -11,24 +11,22 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall sub_1800D3C0C(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 *a5)
+__int64 __fastcall sub_1800D3C0C(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 *a5)
 {
-  unsigned int v7; // ebp
   unsigned __int64 v9; // rbx
   __int64 v10; // rbx
-  unsigned __int64 v12[3]; // [rsp+30h] [rbp-18h] BYREF
+  PVOID BaseAddress[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v7 = a4;
   v9 = 0LL;
-  if ( (int)sub_180054448(a1, v12, 0LL, a4) < 0 )
+  if ( (int)sub_180054448(a1, (unsigned __int64 *)BaseAddress, 0LL) < 0 )
   {
     v9 = a1;
   }
   else
   {
-    if ( v12[0] != qword_18015C348 && (*(_DWORD *)(v12[0] + 104) & 0x400) == 0 )
-      v9 = *(_QWORD *)(v12[0] + 48);
-    sub_18001F5FC(v12[0]);
+    if ( BaseAddress[0] != (PVOID)qword_18015C348 && (*((_DWORD *)BaseAddress[0] + 26) & 0x400) == 0 )
+      v9 = *((_QWORD *)BaseAddress[0] + 6);
+    sub_18001F5FC((char *)BaseAddress[0]);
   }
   if ( v9 )
   {
@@ -38,9 +36,9 @@ __int64 __fastcall sub_1800D3C0C(unsigned __int64 a1, __int64 a2, __int64 a3, __
             v9,
             a2,
             a3,
-            v7);
+            a4);
     if ( v10 != a3 )
-      sub_18004FB50(a3, 1u, v12);
+      sub_18004FB50(a3, 1u, BaseAddress);
   }
   else
   {

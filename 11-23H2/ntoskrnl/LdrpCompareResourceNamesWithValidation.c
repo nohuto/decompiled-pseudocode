@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpCompareResourceNamesWithValidation @ 0x140358DF0
+ * XREFs of LdrpCompareResourceNamesWithValidation @ 0x140358F90
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x140755D10 (LdrpSearchResourceSection_U.c)
- *     LdrEnumResources @ 0x1409B9520 (LdrEnumResources.c)
+ *     LdrpSearchResourceSection_U @ 0x140755F00 (LdrpSearchResourceSection_U.c)
+ *     LdrEnumResources @ 0x1409B9720 (LdrEnumResources.c)
  * Callees:
- *     wcsncmp @ 0x1403DBA50 (wcsncmp.c)
+ *     wcsncmp @ 0x1403DBC30 (wcsncmp.c)
  */
 
 __int64 __fastcall LdrpCompareResourceNamesWithValidation(

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPepUpdateDripsDeviceVetoMask @ 0x1404A64E8
+ * XREFs of PopPepUpdateDripsDeviceVetoMask @ 0x1403A5BE4
  * Callers:
- *     PopFxUpdateVetoMaskWork @ 0x140A9C5C0 (PopFxUpdateVetoMaskWork.c)
+ *     PopFxUpdateVetoMaskWork @ 0x140A97B30 (PopFxUpdateVetoMaskWork.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PopPepUpdateIdleStateRefCount @ 0x140315390 (PopPepUpdateIdleStateRefCount.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     PopFxReinitializeAccountingInstance @ 0x1404A66AC (PopFxReinitializeAccountingInstance.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1404A673C (PpmGetDeepSleepPlatformStateIndex.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1403A5BC0 (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopFxReinitializeAccountingInstance @ 0x1403A5DA8 (PopFxReinitializeAccountingInstance.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A6EB0 (PopPepUpdateIdleStateRefCount.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 void __fastcall PopPepUpdateDripsDeviceVetoMask(__int64 a1, unsigned int a2)
@@ -19,16 +19,16 @@ void __fastcall PopPepUpdateDripsDeviceVetoMask(__int64 a1, unsigned int a2)
   __int64 v4; // rbx
   unsigned int v5; // esi
   KIRQL v6; // al
-  int *v7; // r14
-  int v8; // r11d
+  unsigned int *v7; // r14
+  unsigned int v8; // r11d
   KIRQL v9; // r13
-  int v10; // r11d
+  unsigned int v10; // r11d
   char DeepSleepPlatformStateIndex; // r15
-  int v12; // edi
+  unsigned int v12; // edi
   __int64 v13; // rbx
   __int64 v14; // r10
   _DWORD *v15; // rdx
-  int v16; // [rsp+50h] [rbp+8h]
+  unsigned int v16; // [rsp+50h] [rbp+8h]
 
   v2 = *(_QWORD *)(a1 + 56);
   v4 = PopPepConstraintOverrides;
@@ -40,7 +40,7 @@ void __fastcall PopPepUpdateDripsDeviceVetoMask(__int64 a1, unsigned int a2)
     v4 = *(_QWORD *)v4;
   }
   v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 64));
-  v7 = (int *)(v2 + 144);
+  v7 = (unsigned int *)(v2 + 144);
   v8 = *(_DWORD *)(v2 + 144);
   v9 = v6;
   *(_DWORD *)(v2 + 144) = *(_DWORD *)(v2 + 156);
@@ -60,8 +60,8 @@ void __fastcall PopPepUpdateDripsDeviceVetoMask(__int64 a1, unsigned int a2)
     while ( v14 );
   }
   v12 = *v7;
-  PopPepUpdateIdleStateRefCount(v10, *v7, 1u, (volatile signed __int32 *)(v2 + 184));
-  PopPepUpdateIdleStateRefCount(v16, v12, 0, (volatile signed __int32 *)(v2 + 184));
+  PopPepUpdateIdleStateRefCount(v10, *v7, 1LL, v2 + 184);
+  PopPepUpdateIdleStateRefCount(v16, v12, 0LL, v2 + 184);
   KeGetCurrentIrql();
   if ( *(_DWORD *)(v2 + 172) == 2 )
   {

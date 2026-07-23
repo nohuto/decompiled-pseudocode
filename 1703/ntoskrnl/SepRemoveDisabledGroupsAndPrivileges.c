@@ -43,7 +43,7 @@ char __fastcall SepRemoveDisabledGroupsAndPrivileges(
       {
         goto LABEL_14;
       }
-      if ( (a2 & 4) != 0 && (unsigned __int8)RtlIsElevatedRid(v14 + *(_QWORD *)(a1 + 152)) )
+      if ( (a2 & 4) != 0 && RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(v14 + *(_QWORD *)(a1 + 152))) )
         break;
 LABEL_5:
       if ( ++v8 >= *(_DWORD *)(a1 + 124) )

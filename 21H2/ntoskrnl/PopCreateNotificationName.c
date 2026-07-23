@@ -1,42 +1,49 @@
 /*
- * XREFs of PopCreateNotificationName @ 0x1406C1060
+ * XREFs of PopCreateNotificationName @ 0x1406BCCD8
  * Callers:
- *     PopGetSettingNotificationName @ 0x140679824 (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x14066CF64 (PopGetSettingNotificationName.c)
  * Callees:
- *     RtlDeriveCapabilitySidsFromName @ 0x1402ED600 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x1403FBD20 (ZwCreateWnfStateName.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x14029E950 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1403FBF00 (ZwCreateWnfStateName.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
  */
 
-NTSTATUS __fastcall PopCreateNotificationName(__int64 a1)
+int __fastcall PopCreateNotificationName(PWNF_STATE_NAME StateName)
 {
-  NTSTATUS result; // eax
-  UNICODE_STRING SourceString; // [rsp+40h] [rbp-C0h] BYREF
+  int result; // eax
+  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v5; // [rsp+70h] [rbp-90h]
-  _OWORD Src[3]; // [rsp+78h] [rbp-88h] BYREF
-  _OWORD Sid[3]; // [rsp+A8h] [rbp-58h] BYREF
+  unsigned __int8 CapabilitySid[48]; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE CapabilityGroupSid[56]; // [rsp+A8h] [rbp-58h] BYREF
   ACL Acl; // [rsp+E0h] [rbp-20h] BYREF
 
-  *(_QWORD *)&SourceString.Length = 2752552LL;
+  *(_QWORD *)&UnicodeString.Length = 2752552LL;
   v5 = 0LL;
-  SourceString.Buffer = L"lpacPnpNotifications";
+  UnicodeString.Buffer = L"lpacPnpNotifications";
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   RtlCreateAcl(&Acl, 0x148u, 2u);
-  RtlpAddKnownAce((__int64)&Acl, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
-  RtlpAddKnownAce((__int64)&Acl, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
-  RtlpAddKnownAce((__int64)&Acl, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
-  result = RtlDeriveCapabilitySidsFromName(&SourceString, Sid, Src);
+  RtlpAddKnownAce(&Acl, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+  RtlpAddKnownAce(&Acl, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
+  RtlpAddKnownAce(&Acl, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
+  result = RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid);
   if ( result >= 0 )
   {
-    RtlpAddKnownAce((__int64)&Acl, 2u, 0, 1179649, (unsigned __int8 *)Src, 0);
+    RtlpAddKnownAce(&Acl, 2u, 0, 1179649, CapabilitySid, 0);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    return ZwCreateWnfStateName(a1, 3LL);
+    return ZwCreateWnfStateName(
+             StateName,
+             WnfTemporaryStateName,
+             WnfDataScopeMachine,
+             0,
+             0LL,
+             0x24u,
+             SecurityDescriptor);
   }
   return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of MmCreatePartition @ 0x140869D7C
+ * XREFs of MmCreatePartition @ 0x14087015C
  * Callers:
- *     DifGetAvailableSystemPages @ 0x14064C72C (DifGetAvailableSystemPages.c)
- *     PspAllocatePartition @ 0x1407FDBD8 (PspAllocatePartition.c)
+ *     DifGetAvailableSystemPages @ 0x14065030C (DifGetAvailableSystemPages.c)
+ *     PspAllocatePartition @ 0x140803608 (PspAllocatePartition.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiAllocatePartitionId @ 0x140868B40 (MiAllocatePartitionId.c)
- *     MiCreatePartitionOffsets @ 0x140868CB0 (MiCreatePartitionOffsets.c)
- *     MiDeletePartition @ 0x140868DE4 (MiDeletePartition.c)
- *     MiInitializePartition @ 0x140869360 (MiInitializePartition.c)
- *     MiInitializePartitionThreads @ 0x140869C60 (MiInitializePartitionThreads.c)
- *     MiCreatePfnBitMaps @ 0x140879CE0 (MiCreatePfnBitMaps.c)
- *     MiInitializeMemoryEvents @ 0x14087F860 (MiInitializeMemoryEvents.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x140A362F0 (ExAllocateCacheAwareRundownProtection.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiAllocatePartitionId @ 0x14086EF20 (MiAllocatePartitionId.c)
+ *     MiCreatePartitionOffsets @ 0x14086F090 (MiCreatePartitionOffsets.c)
+ *     MiDeletePartition @ 0x14086F1C4 (MiDeletePartition.c)
+ *     MiInitializePartition @ 0x14086F740 (MiInitializePartition.c)
+ *     MiInitializePartitionThreads @ 0x140870040 (MiInitializePartitionThreads.c)
+ *     MiCreatePfnBitMaps @ 0x1408800DC (MiCreatePfnBitMaps.c)
+ *     MiInitializeMemoryEvents @ 0x140885C60 (MiInitializeMemoryEvents.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x14091B070 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmCreatePartition(__int64 *a1, char a2)
@@ -35,7 +35,7 @@ __int64 __fastcall MmCreatePartition(__int64 *a1, char a2)
   {
     *a1 = (__int64)&MiSystemPartition;
     result = 0LL;
-    qword_140E37DC0 = (__int64)a1;
+    qword_140E37F40 = (__int64)a1;
     return result;
   }
   MiCreatePartitionOffsets(0LL, 0LL);

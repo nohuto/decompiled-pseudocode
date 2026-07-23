@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpSetRegister64 @ 0x140278BF4
+ * XREFs of HvlpSetRegister64 @ 0x140278DE4
  * Callers:
- *     HvlEnlightenProcessor @ 0x140178680 (HvlEnlightenProcessor.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x140270BA8 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlLogGuestCrashInformation @ 0x140270F54 (HvlLogGuestCrashInformation.c)
- *     HvlpPhase0Enlightenments @ 0x140279108 (HvlpPhase0Enlightenments.c)
- *     HvlpTryToLockCpuManagementVersion @ 0x1402792B0 (HvlpTryToLockCpuManagementVersion.c)
- *     HvlDeleteProcessor @ 0x14081782C (HvlDeleteProcessor.c)
+ *     HvlEnlightenProcessor @ 0x140178780 (HvlEnlightenProcessor.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x140270D98 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlLogGuestCrashInformation @ 0x140271144 (HvlLogGuestCrashInformation.c)
+ *     HvlpPhase0Enlightenments @ 0x1402792F8 (HvlpPhase0Enlightenments.c)
+ *     HvlpTryToLockCpuManagementVersion @ 0x1402794A0 (HvlpTryToLockCpuManagementVersion.c)
+ *     HvlDeleteProcessor @ 0x140818A2C (HvlDeleteProcessor.c)
  * Callees:
- *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x1402EDA30 (RtlRaiseException.c)
  */
 
 void __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)

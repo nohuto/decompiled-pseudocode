@@ -1,10 +1,10 @@
 /*
- * XREFs of PspIsJobMovable @ 0x140908F84
+ * XREFs of PspIsJobMovable @ 0x1409090E4
  * Callers:
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
- *     PspGetJobAssignmentDisposition @ 0x140720678 (PspGetJobAssignmentDisposition.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
+ *     PspGetJobAssignmentDisposition @ 0x1406F6B28 (PspGetJobAssignmentDisposition.c)
  * Callees:
- *     PsIsJobParentImmutable @ 0x14071D250 (PsIsJobParentImmutable.c)
+ *     PsIsJobParentImmutable @ 0x14061C25C (PsIsJobParentImmutable.c)
  */
 
 char __fastcall PspIsJobMovable(__int64 a1)

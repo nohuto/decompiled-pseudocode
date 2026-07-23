@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDirectedDripsInitialization @ 0x140760330
+ * XREFs of PopDiagTraceDirectedDripsInitialization @ 0x140761520
  * Callers:
- *     PopInitializeDirectedDrips @ 0x1409DC6E0 (PopInitializeDirectedDrips.c)
+ *     PopInitializeDirectedDrips @ 0x1409DD6E0 (PopInitializeDirectedDrips.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDirectedDripsInitialization(int a1, int a2)
@@ -51,7 +51,7 @@ char __fastcall PopDiagTraceDirectedDripsInitialization(int a1, int a2)
         v8 = v3;
         v15 = 4;
         v18 = 4;
-        LOBYTE(v2) = TlgWrite(&pCallbackContext, &unk_14036F710, 0LL, 0LL, 4u, &pData);
+        LOBYTE(v2) = TlgWrite(&pCallbackContext, &unk_1403707D6, 0LL, 0LL, 4u, &pData);
       }
     }
   }

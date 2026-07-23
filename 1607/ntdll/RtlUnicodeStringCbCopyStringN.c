@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeStringCbCopyStringN @ 0x18006C844
+ * XREFs of RtlUnicodeStringCbCopyStringN @ 0x18006C834
  * Callers:
- *     RtlDosSearchPath_Ustr @ 0x180042810 (RtlDosSearchPath_Ustr.c)
+ *     RtlDosSearchPath_Ustr @ 0x180042800 (RtlDosSearchPath_Ustr.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker @ 0x18006C8C8 (RtlWideCharArrayCopyStringWorker.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x18006CAE4 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x18006C8B8 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x18006CAD4 (RtlUnicodeStringValidateDestWorker.c)
  */
 
 __int64 __fastcall RtlUnicodeStringCbCopyStringN(_WORD *a1, int a2, unsigned __int64 a3)

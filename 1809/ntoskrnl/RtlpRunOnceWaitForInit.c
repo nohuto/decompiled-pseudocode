@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpRunOnceWaitForInit @ 0x140899994
+ * XREFs of RtlpRunOnceWaitForInit @ 0x14089ABF4
  * Callers:
- *     RtlRunOnceBeginInitialize @ 0x14060D9F0 (RtlRunOnceBeginInitialize.c)
+ *     RtlRunOnceBeginInitialize @ 0x14060E9F0 (RtlRunOnceBeginInitialize.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
  */
 
 signed __int64 __fastcall RtlpRunOnceWaitForInit(signed __int64 a1, volatile signed __int64 *a2)

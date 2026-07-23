@@ -8,8 +8,8 @@
 
 __int64 __fastcall x86BiosFreeBuffer(unsigned __int16 a1, unsigned __int16 a2)
 {
-  if ( x86BiosInitialized != 1 || x86BiosBufferAllocated != 1 || ((a2 + 16 * a1) & 0xFFFFF) != 0x20000 )
+  if ( byte_140C4E841 != 1 || byte_140C54B6C != 1 || ((a2 + 16 * a1) & 0xFFFFF) != 0x20000 )
     return 3221225485LL;
-  x86BiosBufferAllocated = 0;
+  byte_140C54B6C = 0;
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepCopyoutSecurityAttributeValues @ 0x14033E220
+ * XREFs of AuthzBasepCopyoutSecurityAttributeValues @ 0x14033E4B0
  * Callers:
- *     AuthzBasepCopyoutSecurityAttributes @ 0x14033DFA8 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x14033E238 (AuthzBasepCopyoutSecurityAttributes.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutSecurityAttributeValues(

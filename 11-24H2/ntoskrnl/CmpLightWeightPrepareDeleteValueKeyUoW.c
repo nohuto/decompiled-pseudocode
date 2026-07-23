@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1409FF118
+ * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1409F8060
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A069C4 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140A02EF4 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     CmpFindNameInListWithStatus @ 0x14086C510 (CmpFindNameInListWithStatus.c)
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpMarkValueDataDirty @ 0x140880248 (CmpMarkValueDataDirty.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpInitializeValueNameString @ 0x1409FF384 (CmpInitializeValueNameString.c)
- *     CmpRemoveValueFromList @ 0x1409FF414 (CmpRemoveValueFromList.c)
- *     CmpLightWeightCreateSetValueData @ 0x1409FF52C (CmpLightWeightCreateSetValueData.c)
- *     CmpLightWeightUpdateSharedSetValueData @ 0x1409FF67C (CmpLightWeightUpdateSharedSetValueData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     CmpFindNameInListWithStatus @ 0x140870840 (CmpFindNameInListWithStatus.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpMarkValueDataDirty @ 0x1408840F8 (CmpMarkValueDataDirty.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpInitializeValueNameString @ 0x1409F82CC (CmpInitializeValueNameString.c)
+ *     CmpRemoveValueFromList @ 0x1409F835C (CmpRemoveValueFromList.c)
+ *     CmpLightWeightCreateSetValueData @ 0x1409F8474 (CmpLightWeightCreateSetValueData.c)
+ *     CmpLightWeightUpdateSharedSetValueData @ 0x1409F85C4 (CmpLightWeightUpdateSharedSetValueData.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareDeleteValueKeyUoW(__int64 a1)
@@ -65,7 +65,7 @@ __int64 __fastcall CmpLightWeightPrepareDeleteValueKeyUoW(__int64 a1)
     CmpLightWeightUpdateSharedSetValueData(v17, *(_QWORD *)(a1 + 48));
     --*v1;
   }
-  Pool = (_DWORD *)CmpAllocatePool(0x100uLL);
+  Pool = (_DWORD *)CmpAllocatePool(0x100uLL, 0x10uLL, 0x77554D43u);
   v6 = Pool;
   if ( !Pool )
     return (unsigned int)-1073741670;
@@ -84,7 +84,7 @@ LABEL_33:
     CmpFreeTransientPoolWithTag(v6, 0x77554D43u);
     return (unsigned int)v15;
   }
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x8000uLL, 0x62534D43u);
   if ( Pool2
     && ((CmpInitializeValueNameString(v9),
          v17 = v1 + 1,

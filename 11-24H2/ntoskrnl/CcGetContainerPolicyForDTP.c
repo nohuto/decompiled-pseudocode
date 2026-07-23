@@ -1,10 +1,10 @@
 /*
- * XREFs of CcGetContainerPolicyForDTP @ 0x140579DE8
+ * XREFs of CcGetContainerPolicyForDTP @ 0x140577278
  * Callers:
- *     CcContainerRestoreCallBack @ 0x140579D10 (CcContainerRestoreCallBack.c)
+ *     CcContainerRestoreCallBack @ 0x1405771A0 (CcContainerRestoreCallBack.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
  */
 
 __int64 __fastcall CcGetContainerPolicyForDTP(_DWORD *a1)

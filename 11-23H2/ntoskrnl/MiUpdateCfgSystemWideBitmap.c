@@ -3,8 +3,8 @@
  * Callers:
  *     MiUpdateImageSystemWideBitmaps @ 0x1406AAA00 (MiUpdateImageSystemWideBitmaps.c)
  * Callees:
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406B19D0 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiGetImageWowSubsystemIndex @ 0x1407E0CE8 (MiGetImageWowSubsystemIndex.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406B1A00 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiGetImageWowSubsystemIndex @ 0x1407E0FB8 (MiGetImageWowSubsystemIndex.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2, __int64 a3)

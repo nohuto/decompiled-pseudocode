@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpSetSystemTime @ 0x140B6CD90
+ * XREFs of ExpSetSystemTime @ 0x140B6E630
  * Callers:
- *     NtSetSystemTime @ 0x1407B6BF0 (NtSetSystemTime.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140B68020 (ExUpdateSystemTimeFromCmos.c)
+ *     NtSetSystemTime @ 0x1407B7040 (NtSetSystemTime.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140B6A160 (ExUpdateSystemTimeFromCmos.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x140347CE0 (ExSystemTimeToLocalTime.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     HalSetRealTimeClock @ 0x140425310 (HalSetRealTimeClock.c)
- *     RtlTimeToTimeFields @ 0x1404260F0 (RtlTimeToTimeFields.c)
- *     KeSetSystemTime @ 0x1404B3F6C (KeSetSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x1404CA740 (PoNotifySystemTimeSet.c)
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
+ *     KeSetSystemTime @ 0x140270898 (KeSetSystemTime.c)
+ *     ExSystemTimeToLocalTime @ 0x1403266E0 (ExSystemTimeToLocalTime.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     HalSetRealTimeClock @ 0x1404191C0 (HalSetRealTimeClock.c)
+ *     RtlTimeToTimeFields @ 0x140419FA0 (RtlTimeToTimeFields.c)
+ *     PoNotifySystemTimeSet @ 0x1404C3C60 (PoNotifySystemTimeSet.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
  */
 
 __int64 ExpSetSystemTime(char a1, char a2, int a3, ...)
@@ -18,7 +18,7 @@ __int64 ExpSetSystemTime(char a1, char a2, int a3, ...)
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // r14
   int v8; // [rsp+28h] [rbp-38h]
   LARGE_INTEGER LocalTime; // [rsp+40h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+48h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-18h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+98h] [rbp+38h] BYREF
   va_list SystemTimea; // [rsp+98h] [rbp+38h]
   __int64 *v13; // [rsp+A0h] [rbp+40h]

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpQueryLegacyDriverInformation @ 0x1409F6DDC
+ * XREFs of ExpQueryLegacyDriverInformation @ 0x1409F706C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IoGetLegacyVetoList @ 0x1407A88C0 (IoGetLegacyVetoList.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IoGetLegacyVetoList @ 0x1407A8AB0 (IoGetLegacyVetoList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of PcValidateDmaAdapterRequest @ 0x1404D25C0
+ * XREFs of PcValidateDmaAdapterRequest @ 0x1404D2800
  * Callers:
  *     <none>
  * Callees:

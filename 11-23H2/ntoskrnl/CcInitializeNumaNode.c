@@ -1,11 +1,11 @@
 /*
- * XREFs of CcInitializeNumaNode @ 0x14053A838
+ * XREFs of CcInitializeNumaNode @ 0x14053AD88
  * Callers:
- *     CcInitializePartition @ 0x1403A0390 (CcInitializePartition.c)
+ *     CcInitializePartition @ 0x1403A0570 (CcInitializePartition.c)
  * Callees:
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD250 (ExpAllocatePoolWithTagFromNode.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0 (ExpAllocatePoolWithTagFromNode.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall CcInitializeNumaNode(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4)

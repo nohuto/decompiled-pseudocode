@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpQueryBlockerPendingDelete @ 0x14057FD9C
+ * XREFs of SshpQueryBlockerPendingDelete @ 0x14057FFDC
  * Callers:
- *     SshpSendSessionData @ 0x1408FACA8 (SshpSendSessionData.c)
+ *     SshpSendSessionData @ 0x1408FAE08 (SshpSendSessionData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

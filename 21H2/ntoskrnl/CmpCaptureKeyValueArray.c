@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCaptureKeyValueArray @ 0x140667100
+ * XREFs of CmpCaptureKeyValueArray @ 0x14065BF20
  * Callers:
- *     NtQueryMultipleValueKey @ 0x1406A1E20 (NtQueryMultipleValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x140601D50 (NtQueryMultipleValueKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     RtlULongLongAdd @ 0x14024D620 (RtlULongLongAdd.c)
- *     CmpAllocateTransientPoolWithQuotaTag @ 0x14027EF58 (CmpAllocateTransientPoolWithQuotaTag.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpDoesBufferRequireCapturing @ 0x1406645EC (CmpDoesBufferRequireCapturing.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithQuotaTag @ 0x14026CEF8 (CmpAllocateTransientPoolWithQuotaTag.c)
+ *     RtlULongLongAdd @ 0x1402F1E70 (RtlULongLongAdd.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpDoesBufferRequireCapturing @ 0x14065940C (CmpDoesBufferRequireCapturing.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall CmpCaptureKeyValueArray(
@@ -144,7 +144,7 @@ LABEL_2:
           if ( *v20 )
           {
             Src = (void *)*((_QWORD *)v20 + 1);
-            if ( CmpDoesBufferRequireCapturing(a3, (__int64)Src) )
+            if ( CmpDoesBufferRequireCapturing(a3, (unsigned __int64)Src) )
             {
               v21 = &v17[v18];
               memmove(v21, Src, v24);

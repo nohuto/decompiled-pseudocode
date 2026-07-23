@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceSystemTimeChange @ 0x140C099D4
+ * XREFs of EtwTraceSystemTimeChange @ 0x140C0FBE4
  * Callers:
- *     PoNotifySystemTimeSet @ 0x14043919C (PoNotifySystemTimeSet.c)
+ *     PoNotifySystemTimeSet @ 0x140427DFC (PoNotifySystemTimeSet.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD *a4, int a5, int a6, int a7)
@@ -80,7 +80,7 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
 
   v75 = a3;
   v26[0] = 0x20000LL;
-  v26[1] = &word_140C0E0E0;
+  v26[1] = &word_140C142F0;
   Process = KeGetCurrentThread()->ApcState.Process;
   ProcessId = (unsigned int)PsGetProcessId(Process);
   LastRebalanceQpc = (unsigned __int16 *)Process[1].LastRebalanceQpc;
@@ -89,9 +89,9 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
   v12 = *a1 - *a2;
   v13 = (unsigned __int64)((unsigned __int128)(v12 * (__int128)0x346DC5D63886594BLL) >> 64) >> 63;
   v31 = v12 / 10000;
-  if ( (unsigned int)dword_140E08F48 > 5 )
+  if ( (unsigned int)dword_140E08F78 > 5 )
   {
-    LOBYTE(v13) = tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL);
+    LOBYTE(v13) = tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL);
     if ( (_BYTE)v13 )
     {
       v28 = v15;
@@ -127,15 +127,15 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
       v72 = 4LL;
       v74 = 4LL;
       LOBYTE(v13) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140E08F48,
-                      (unsigned __int8 *)byte_14005434D,
+                      (__int64)&dword_140E08F78,
+                      (unsigned __int8 *)byte_140054A49,
                       0LL,
                       0LL,
                       0xDu,
                       &v52);
     }
   }
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     UserData.Ptr = (ULONGLONG)a1;
     v35 = &v31;
@@ -159,12 +159,7 @@ char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD 
     v47 = 4LL;
     v49 = 4LL;
     v51 = 4LL;
-    LOBYTE(v13) = EtwWrite(
-                    (REGHANDLE)EtwpSecurityLock.MutantListHead.Blink,
-                    &KernelSystemTimeChange,
-                    0LL,
-                    0xAu,
-                    &UserData);
+    LOBYTE(v13) = EtwWrite(EtwKernelProvRegHandle, &KernelSystemTimeChange, 0LL, 0xAu, &UserData);
   }
   return v13;
 }

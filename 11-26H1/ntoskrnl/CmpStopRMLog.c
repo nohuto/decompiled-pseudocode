@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpStopRMLog @ 0x1408ACBAC
+ * XREFs of CmpStopRMLog @ 0x1408B2FF0
  * Callers:
- *     CmShutdownCmRM @ 0x1408AF354 (CmShutdownCmRM.c)
+ *     CmShutdownCmRM @ 0x1408B5760 (CmShutdownCmRM.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     LockRMLog @ 0x1408AD924 (LockRMLog.c)
- *     CmpLogCheckpoint @ 0x1408ADB44 (CmpLogCheckpoint.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     LockRMLog @ 0x1408B3D64 (LockRMLog.c)
+ *     CmpLogCheckpoint @ 0x1408B3F84 (CmpLogCheckpoint.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpStopRMLog(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall CmpStopRMLog(__int64 a1)
       ClfsDeleteMarshallingArea(*(PVOID *)(a1 + 96));
       *(_QWORD *)(a1 + 96) = 0LL;
     }
-    if ( (struct _LIST_ENTRY *)a1 != WheapPfaLock.Timer.Header.WaitListHead.Flink && *(_QWORD *)(a1 + 16) == a1 + 16 )
+    if ( a1 != *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] && *(_QWORD *)(a1 + 16) == a1 + 16 )
       ClfsDeleteLogByPointer(*(PLOG_FILE_OBJECT *)(a1 + 88));
     ClfsCloseLogFileObject(*(PLOG_FILE_OBJECT *)(a1 + 88));
     *(_QWORD *)(a1 + 88) = 0LL;

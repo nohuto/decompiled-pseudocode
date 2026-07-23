@@ -12,31 +12,36 @@
  *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1406F8418 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
  */
 
-__int64 __fastcall NtFilterBootOption(unsigned int a1, int a2, unsigned int a3, _BYTE *a4, size_t Size)
+NTSTATUS __cdecl NtFilterBootOption(
+        FILTER_BOOT_OPTION_OPERATION FilterOperation,
+        ULONG ObjectType,
+        ULONG ElementType,
+        PVOID Data,
+        ULONG DataSize)
 {
-  int v6; // esi
-  unsigned int v7; // r12d
-  int v8; // ebx
-  unsigned int v9; // r15d
+  ULONG v6; // esi
+  FILTER_BOOT_OPTION_OPERATION v7; // r12d
+  NTSTATUS v8; // ebx
+  ULONG v9; // r15d
   int v10; // eax
   int v11; // eax
-  _BYTE *v12; // rsi
+  PVOID v12; // rsi
   unsigned int v13; // ecx
   unsigned __int16 v14; // r9
   int v15; // eax
   __int16 v16; // r8
   __int64 v17; // rcx
   __int64 v18; // rdx
-  BOOLEAN v20[4]; // [rsp+20h] [rbp-58h] BYREF
+  BOOLEAN IsMember[4]; // [rsp+20h] [rbp-58h] BYREF
   int v21; // [rsp+24h] [rbp-54h]
   PVOID P; // [rsp+28h] [rbp-50h]
   _BYTE v23[72]; // [rsp+30h] [rbp-48h] BYREF
 
-  v6 = a2;
-  v7 = a1;
+  v6 = ObjectType;
+  v7 = FilterOperation;
   P = 0LL;
-  v20[0] = SeSinglePrivilegeCheck(SeTcbPrivilege, KeGetCurrentThread()->PreviousMode);
-  if ( !v20[0] && ((int)RtlCheckTokenMembership(0LL, SeAliasAdminsSid, v20) < 0 || !v20[0]) )
+  IsMember[0] = SeSinglePrivilegeCheck(SeTcbPrivilege, KeGetCurrentThread()->PreviousMode);
+  if ( !IsMember[0] && (RtlCheckTokenMembership(0LL, SeAliasAdminsSid, IsMember) < 0 || !IsMember[0]) )
   {
     v8 = -1073741790;
     goto LABEL_58;
@@ -50,19 +55,19 @@ __int64 __fastcall NtFilterBootOption(unsigned int a1, int a2, unsigned int a3, 
   }
   if ( v7 )
   {
-    if ( v7 == 1 )
+    if ( v7 == FilterBootOptionOperationSetElement )
     {
       if ( v6 )
       {
-        if ( a3 )
+        if ( ElementType )
         {
-          if ( a4 )
+          if ( Data )
           {
-            v9 = Size;
-            if ( (_DWORD)Size )
+            v9 = DataSize;
+            if ( DataSize )
             {
               v11 = dword_14038C438;
-              if ( !_bittest(&v11, HIBYTE(a3) & 0xF) )
+              if ( !_bittest(&v11, HIBYTE(ElementType) & 0xF) )
               {
 LABEL_21:
                 v8 = 0;
@@ -70,11 +75,11 @@ LABEL_21:
               }
               if ( KeGetCurrentThread()->PreviousMode )
               {
-                if ( (unsigned __int64)&a4[(unsigned int)Size] > 0x7FFFFFFF0000LL || &a4[(unsigned int)Size] < a4 )
+                if ( (unsigned __int64)Data + DataSize > 0x7FFFFFFF0000LL || (char *)Data + DataSize < Data )
                   MEMORY[0x7FFFFFFF0000] = 0;
-                if ( (unsigned int)Size > 8 )
+                if ( DataSize > 8 )
                 {
-                  P = ExAllocatePoolWithTag(PagedPool, (unsigned int)Size, 0x62536553u);
+                  P = ExAllocatePoolWithTag(PagedPool, DataSize, 0x62536553u);
                   if ( !P )
                   {
                     v8 = -1073741801;
@@ -82,17 +87,17 @@ LABEL_21:
                     goto LABEL_58;
                   }
                   v12 = P;
-                  memmove(P, a4, (unsigned int)Size);
-                  a4 = v12;
-                  v6 = a2;
+                  memmove(P, Data, DataSize);
+                  Data = v12;
+                  v6 = ObjectType;
                 }
                 else
                 {
-                  memmove(v23, a4, (unsigned int)Size);
-                  a4 = v23;
+                  memmove(v23, Data, DataSize);
+                  Data = v23;
                 }
                 v8 = v21;
-                v7 = a1;
+                v7 = FilterOperation;
               }
               else
               {
@@ -106,22 +111,22 @@ LABEL_21:
     }
     else
     {
-      if ( v7 != 2 )
+      if ( v7 != FilterBootOptionOperationDeleteElement )
       {
         v8 = -1073741585;
         goto LABEL_58;
       }
       if ( v6 )
       {
-        if ( a3 )
+        if ( ElementType )
         {
-          if ( !a4 )
+          if ( !Data )
           {
-            v9 = Size;
-            if ( !(_DWORD)Size )
+            v9 = DataSize;
+            if ( !DataSize )
             {
               v10 = dword_14038C438;
-              if ( !_bittest(&v10, HIBYTE(a3) & 0xF) )
+              if ( !_bittest(&v10, HIBYTE(ElementType) & 0xF) )
                 goto LABEL_21;
 LABEL_33:
               v13 = 0;
@@ -130,7 +135,7 @@ LABEL_33:
               {
                 while ( 1 )
                 {
-                  if ( *(_DWORD *)(qword_14038C448 + 12LL * v13 + 4) == a3 )
+                  if ( *(_DWORD *)(qword_14038C448 + 12LL * v13 + 4) == ElementType )
                   {
                     v15 = *(_DWORD *)(qword_14038C448 + 12LL * v13);
                     if ( !v15 || v15 == v6 )
@@ -147,9 +152,9 @@ LABEL_33:
                     goto LABEL_58;
                 }
                 v17 = 3LL * v13;
-                if ( v7 == 1 )
+                if ( v7 == FilterBootOptionOperationSetElement )
                 {
-                  v8 = SepSecureBootValidateBcdDataAgainstBcdRule(qword_14038C448 + 4 * v17, a4, v9);
+                  v8 = SepSecureBootValidateBcdDataAgainstBcdRule(qword_14038C448 + 4 * v17, Data, v9);
                 }
                 else
                 {
@@ -169,11 +174,11 @@ LABEL_48:
     v8 = -1073741811;
     goto LABEL_58;
   }
-  if ( v6 || a3 || a4 || (_DWORD)Size )
+  if ( v6 || ElementType || Data || DataSize )
     goto LABEL_48;
   if ( !_InterlockedCompareExchange(&dword_14038C43C, 0, 0) )
   {
-    v8 = SepSecureBootCorrectBcd(v7);
+    v8 = SepSecureBootCorrectBcd((unsigned int)v7);
     v21 = v8;
     if ( v8 < 0 )
       goto LABEL_58;
@@ -183,5 +188,5 @@ LABEL_48:
 LABEL_58:
   if ( P )
     ExFreePoolWithTag(P, 0x62536553u);
-  return (unsigned int)v8;
+  return v8;
 }

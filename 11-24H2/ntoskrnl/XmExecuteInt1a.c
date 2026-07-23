@@ -1,12 +1,12 @@
 /*
- * XREFs of XmExecuteInt1a @ 0x140578F24
+ * XREFs of XmExecuteInt1a @ 0x1405763B4
  * Callers:
- *     XmIntOp @ 0x1405767F0 (XmIntOp.c)
+ *     XmIntOp @ 0x140573C80 (XmIntOp.c)
  * Callees:
- *     XmInt1aFindPciClassCode @ 0x140578FD8 (XmInt1aFindPciClassCode.c)
- *     XmInt1aFindPciDevice @ 0x1405790E4 (XmInt1aFindPciDevice.c)
- *     XmInt1aReadConfigRegister @ 0x1405791FC (XmInt1aReadConfigRegister.c)
- *     XmInt1aWriteConfigRegister @ 0x1405792E8 (XmInt1aWriteConfigRegister.c)
+ *     XmInt1aFindPciClassCode @ 0x140576468 (XmInt1aFindPciClassCode.c)
+ *     XmInt1aFindPciDevice @ 0x140576574 (XmInt1aFindPciDevice.c)
+ *     XmInt1aReadConfigRegister @ 0x14057668C (XmInt1aReadConfigRegister.c)
+ *     XmInt1aWriteConfigRegister @ 0x140576778 (XmInt1aWriteConfigRegister.c)
  */
 
 char __fastcall XmExecuteInt1a(__int64 a1)

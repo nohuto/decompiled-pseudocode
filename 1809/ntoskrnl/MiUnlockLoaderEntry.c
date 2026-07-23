@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockLoaderEntry @ 0x1400DBB2C
+ * XREFs of MiUnlockLoaderEntry @ 0x1400DBBAC
  * Callers:
- *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
- *     MiFindDriverNonPagedSections @ 0x14065569C (MiFindDriverNonPagedSections.c)
- *     MiLockdownSections @ 0x140682BE4 (MiLockdownSections.c)
- *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
+ *     MiSetPagingOfDriver @ 0x1400DAE7C (MiSetPagingOfDriver.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB490 (MiMakeDriverPagesPrivate.c)
+ *     MiFindDriverNonPagedSections @ 0x14065685C (MiFindDriverNonPagedSections.c)
+ *     MiLockdownSections @ 0x140683DA4 (MiLockdownSections.c)
+ *     MiFreeInitializationCode @ 0x1406C8ABC (MiFreeInitializationCode.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,10 +14,10 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140117BA0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140117C10 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)
@@ -88,7 +88,7 @@ __int64 __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)
           {
             v12->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v12->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v4->LockEntries[v11], SessionId);
+              KiAbEntryRemoveFromTree(&v4->LockEntries[v11].TreeNode, SessionId);
             v16 = 0;
             v16 = v12->BoostBitmap.AllFields & 0x1FFFF;
             v12->BoostBitmap.AllFields &= 0xFFFE0000;

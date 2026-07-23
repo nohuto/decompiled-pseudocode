@@ -1,20 +1,20 @@
 /*
- * XREFs of IopSymlinkRememberJunction @ 0x14069E3D4
+ * XREFs of IopSymlinkRememberJunction @ 0x1405FD5A4
  * Callers:
- *     IopSymlinkProcessReparse @ 0x14069E848 (IopSymlinkProcessReparse.c)
- *     IopGraftName @ 0x14069E8A4 (IopGraftName.c)
+ *     IopSymlinkProcessReparse @ 0x1405FDA18 (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x1405FDA74 (IopGraftName.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     IopSymlinkGetMostRecentlyUsedName @ 0x1402BB470 (IopSymlinkGetMostRecentlyUsedName.c)
- *     IopSymlinkGetECP @ 0x1402BB490 (IopSymlinkGetECP.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x140239680 (IopSymlinkGetMostRecentlyUsedName.c)
+ *     IopSymlinkGetECP @ 0x1402396A0 (IopSymlinkGetECP.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
  *     IopGetRelatedFileName @ 0x1405D87C8 (IopGetRelatedFileName.c)
- *     IopSymlinkUpdateECP @ 0x14069E24C (IopSymlinkUpdateECP.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x14069E698 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x14069EEF4 (IopSymlinkGetRelatedMountPoint.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x14069EF38 (IopSymlinkFreeRelatedMountPointChain.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IopSymlinkUpdateECP @ 0x1405FD41C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x1405FD868 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x1405FE0C4 (IopSymlinkGetRelatedMountPoint.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x1405FE108 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, __int64 a3, UNICODE_STRING *a4)

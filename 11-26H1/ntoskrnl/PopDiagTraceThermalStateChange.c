@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceThermalStateChange @ 0x14060939C
+ * XREFs of PopDiagTraceThermalStateChange @ 0x14060BF5C
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1404ED080 (PopCheckAndHandleThermalConditions.c)
- *     PopDiagTraceThermalOverthrottleState @ 0x140609364 (PopDiagTraceThermalOverthrottleState.c)
- *     PopDiagTraceThermalStandbyState @ 0x140609380 (PopDiagTraceThermalStandbyState.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1404E6660 (PopCheckAndHandleThermalConditions.c)
+ *     PopDiagTraceThermalOverthrottleState @ 0x14060BF24 (PopDiagTraceThermalOverthrottleState.c)
+ *     PopDiagTraceThermalStandbyState @ 0x14060BF40 (PopDiagTraceThermalStandbyState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceThermalStateChange(__int64 a1, int a2, const EVENT_DESCRIPTOR *a3)
@@ -28,9 +28,9 @@ void __fastcall PopDiagTraceThermalStateChange(__int64 a1, int a2, const EVENT_D
 
   v15 = a2;
   v8 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], a3) )
+    if ( EtwEventEnabled(PopDiagHandle, a3) )
     {
       DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(a1, 0x67446F50u);
       v6 = DeviceAttachmentBaseRefWithTag;
@@ -47,15 +47,7 @@ void __fastcall PopDiagTraceThermalStateChange(__int64 a1, int a2, const EVENT_D
           v11 = 2 * v8;
           v12 = 0;
           v14 = 4LL;
-          EtwWriteEx(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            a3,
-            0LL,
-            0,
-            0LL,
-            0LL,
-            3u,
-            &UserData);
+          EtwWriteEx(PopDiagHandle, a3, 0LL, 0, 0LL, 0LL, 3u, &UserData);
         }
         ObfDereferenceObjectWithTag(v6, 0x67446F50u);
       }

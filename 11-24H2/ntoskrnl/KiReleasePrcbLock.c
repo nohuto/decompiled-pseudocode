@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReleasePrcbLock @ 0x140434F40
+ * XREFs of KiReleasePrcbLock @ 0x140427EA0
  * Callers:
- *     KiIdleLoop @ 0x1406ABC30 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x1406ACBD0 (KiIdleLoop.c)
  * Callees:
  *     <none>
  */

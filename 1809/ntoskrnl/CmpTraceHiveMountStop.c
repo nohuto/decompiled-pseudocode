@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveMountStop @ 0x1405A4C40
+ * XREFs of CmpTraceHiveMountStop @ 0x1405A5C40
  * Callers:
- *     HvHiveStartFileBacked @ 0x1405A4A3C (HvHiveStartFileBacked.c)
+ *     HvHiveStartFileBacked @ 0x1405A5A3C (HvHiveStartFileBacked.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall CmpTraceHiveMountStop(int a1)

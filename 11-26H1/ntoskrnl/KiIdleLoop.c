@@ -1,18 +1,18 @@
 /*
- * XREFs of KiIdleLoop @ 0x140728DB0
+ * XREFs of KiIdleLoop @ 0x14072D980
  * Callers:
- *     KiSystemStartup @ 0x140BE9640 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140BEF640 (KiSystemStartup.c)
  * Callees:
- *     KiEndIdleCycleAccumulation @ 0x140224900 (KiEndIdleCycleAccumulation.c)
- *     KiIdleSchedule @ 0x1402C7E00 (KiIdleSchedule.c)
- *     KiUpdatePriorityMatrixForRunningTransition @ 0x1402C7F20 (KiUpdatePriorityMatrixForRunningTransition.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
- *     PoIdle @ 0x1403E9FF0 (PoIdle.c)
- *     KiAcquirePrcbLock @ 0x14042F370 (KiAcquirePrcbLock.c)
- *     KiReleasePrcbLock @ 0x140466F20 (KiReleasePrcbLock.c)
- *     KzSetIrqlUnsafe @ 0x1405EBBF0 (KzSetIrqlUnsafe.c)
- *     SwapContext @ 0x14072FFB0 (SwapContext.c)
+ *     KiEndIdleCycleAccumulation @ 0x140226290 (KiEndIdleCycleAccumulation.c)
+ *     PoIdle @ 0x1402F6ED0 (PoIdle.c)
+ *     KiIdleSchedule @ 0x140312AA0 (KiIdleSchedule.c)
+ *     KiUpdatePriorityMatrixForRunningTransition @ 0x140312BC0 (KiUpdatePriorityMatrixForRunningTransition.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
+ *     KiAcquirePrcbLock @ 0x14041C280 (KiAcquirePrcbLock.c)
+ *     KiReleasePrcbLock @ 0x140460670 (KiReleasePrcbLock.c)
+ *     KzSetIrqlUnsafe @ 0x1405EE560 (KzSetIrqlUnsafe.c)
+ *     SwapContext @ 0x140734B80 (SwapContext.c)
  */
 
 void __fastcall __noreturn KiIdleLoop(__int64 a1)

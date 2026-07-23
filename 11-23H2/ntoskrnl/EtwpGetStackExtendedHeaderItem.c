@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetStackExtendedHeaderItem @ 0x1405FFB3C
+ * XREFs of EtwpGetStackExtendedHeaderItem @ 0x1406000AC
  * Callers:
- *     EtwpEventWriteFull @ 0x140258570 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406F4140 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140258630 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406F4170 (EtwpWriteUserEvent.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140227760 (RtlWalkFrameChain.c)
- *     EtwpGetStackCaptureSettings @ 0x140468904 (EtwpGetStackCaptureSettings.c)
+ *     RtlWalkFrameChain @ 0x140227870 (RtlWalkFrameChain.c)
+ *     EtwpGetStackCaptureSettings @ 0x140468D04 (EtwpGetStackCaptureSettings.c)
  */
 
 char __fastcall EtwpGetStackExtendedHeaderItem(

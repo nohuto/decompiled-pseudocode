@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGrowKernelStackEx @ 0x140132ED0
+ * XREFs of MmGrowKernelStackEx @ 0x140132FA0
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9AE0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KxSwitchKernelStackCallout @ 0x1401C0300 (KxSwitchKernelStackCallout.c)
- *     MmGrowKernelStack @ 0x1402AB6A0 (MmGrowKernelStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9BC0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KxSwitchKernelStackCallout @ 0x1401C0460 (KxSwitchKernelStackCallout.c)
+ *     MmGrowKernelStack @ 0x1402AB890 (MmGrowKernelStack.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAllocateKernelStackPages @ 0x1400B5660 (MiAllocateKernelStackPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateKernelStackPages @ 0x1400B55A0 (MiAllocateKernelStackPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
   if ( *(_QWORD *)(CurrentThread + 56) - (*(_QWORD *)(*(_QWORD *)(CurrentThread + 40) + 8LL) & 0xFFFFFFFFFFFFFFFEuLL) < 0x12000 )
     return 3221225659LL;
   v3 = 0;
-  v4 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(CurrentThread + 544) + 1454LL));
+  v4 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(CurrentThread + 544) + 1454LL));
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
@@ -38,7 +38,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
   {
     if ( v6 < ((*(_QWORD *)(*(_QWORD *)(CurrentThread + 40) + 8LL) >> 9) & 0x7FFFFFFFF8uLL) - 0x98000000000LL )
     {
-      ++dword_14043AC78;
+      ++dword_14043BD38;
       v3 = -1073741571;
     }
     else

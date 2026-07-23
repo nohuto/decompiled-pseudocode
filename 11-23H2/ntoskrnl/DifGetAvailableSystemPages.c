@@ -1,11 +1,11 @@
 /*
- * XREFs of DifGetAvailableSystemPages @ 0x1405F85F4
+ * XREFs of DifGetAvailableSystemPages @ 0x1405F8B64
  * Callers:
- *     VfLwSPEntry @ 0x1405F8698 (VfLwSPEntry.c)
+ *     VfLwSPEntry @ 0x1405F8C08 (VfLwSPEntry.c)
  * Callees:
- *     MmCreatePartition @ 0x1403AC6AC (MmCreatePartition.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MmManagePartitionMemoryInformation @ 0x1407600FC (MmManagePartitionMemoryInformation.c)
+ *     MmCreatePartition @ 0x1403AC88C (MmCreatePartition.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmManagePartitionMemoryInformation @ 0x1407602EC (MmManagePartitionMemoryInformation.c)
  */
 
 __int64 DifGetAvailableSystemPages()
@@ -19,7 +19,7 @@ __int64 DifGetAvailableSystemPages()
   }
   else
   {
-    result = MmCreatePartition((union _SLIST_HEADER **)&DifpSystemPartition, 1);
+    result = MmCreatePartition((_SLIST_HEADER **)&DifpSystemPartition, 1);
     if ( (int)result >= 0 )
     {
       if ( DifpSystemPartition )

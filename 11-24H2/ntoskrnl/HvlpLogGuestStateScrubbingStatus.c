@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpLogGuestStateScrubbingStatus @ 0x14058B1EC
+ * XREFs of HvlpLogGuestStateScrubbingStatus @ 0x1405884DC
  * Callers:
- *     HvlPhase2Initialize @ 0x140582B80 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x14057FF00 (HvlPhase2Initialize.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     HvlpWriteEventLog @ 0x14058B744 (HvlpWriteEventLog.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     HvlpWriteEventLog @ 0x140588A34 (HvlpWriteEventLog.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 HvlpLogGuestStateScrubbingStatus()
@@ -110,7 +110,7 @@ __int64 HvlpLogGuestStateScrubbingStatus()
     if ( (HvlpGuestStateScrubbingStatus & 0x40) != 0 )
     {
       v3 = (const EVENT_DESCRIPTOR *)HV_EVENTLOG_GUEST_STATE_SCRUBBING_INCOMPLETE_NO_CORE_SCHEDULER;
-      if ( !(_BYTE)dword_140FC421C )
+      if ( !(_BYTE)dword_140FC521C )
         v3 = &HV_EVENTLOG_GUEST_STATE_SCRUBBING_INCOMPLETE;
     }
     else

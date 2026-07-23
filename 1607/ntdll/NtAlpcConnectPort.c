@@ -1,17 +1,28 @@
 /*
  * XREFs of NtAlpcConnectPort @ 0x1800A72B0
  * Callers:
- *     SendMessageToWERService @ 0x180008BB0 (SendMessageToWERService.c)
- *     RtlConnectToSm @ 0x18008D4F0 (RtlConnectToSm.c)
+ *     SendMessageToWERService @ 0x180008BA0 (SendMessageToWERService.c)
+ *     RtlConnectToSm @ 0x18008D4E0 (RtlConnectToSm.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtAlpcConnectPort()
+NTSTATUS __cdecl NtAlpcConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSID RequiredServerSid,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 117LL;
+  result = 117;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

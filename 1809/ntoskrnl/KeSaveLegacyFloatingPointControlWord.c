@@ -1,8 +1,8 @@
 /*
- * XREFs of KeSaveLegacyFloatingPointControlWord @ 0x1401BC2C0
+ * XREFs of KeSaveLegacyFloatingPointControlWord @ 0x1401BC420
  * Callers:
- *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
- *     KiCaptureUmsThreadContext @ 0x140846B38 (KiCaptureUmsThreadContext.c)
+ *     KiSwapToUmsThread @ 0x1408469D0 (KiSwapToUmsThread.c)
+ *     KiCaptureUmsThreadContext @ 0x140847D98 (KiCaptureUmsThreadContext.c)
  * Callees:
  *     <none>
  */

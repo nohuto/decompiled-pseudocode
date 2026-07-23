@@ -3,7 +3,7 @@
  * Callers:
  *     AnFwDisplayFade @ 0x140AEC9E8 (AnFwDisplayFade.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     BgpGxRectangleCreate @ 0x140AEDA94 (BgpGxRectangleCreate.c)
  */
 

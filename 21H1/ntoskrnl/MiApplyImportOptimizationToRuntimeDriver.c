@@ -21,11 +21,10 @@ __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PT
   __int64 v5; // rdx
   __int64 v6; // rdx
   char v7; // r8
-  int v8; // edx
-  int v9; // ebx
-  __int64 v11; // rbx
-  __int64 v12; // rax
-  unsigned int v13; // [rsp+48h] [rbp+20h] BYREF
+  int v8; // ebx
+  void *v10; // rbx
+  PVOID v11; // rax
+  ULONG Size; // [rsp+48h] [rbp+20h] BYREF
 
   v4 = 0LL;
   if ( !MiIsImportOptimizationEnabled()
@@ -38,15 +37,14 @@ __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PT
   }
   if ( (MiFlags & 0x10000) != 0 )
   {
-    v11 = *(_QWORD *)(a1 + 48);
-    v13 = 0;
-    LOBYTE(v8) = 1;
-    v12 = RtlImageDirectoryEntryToData(v11, v8, 12, (int)&v13);
-    if ( v12 )
+    v10 = *(void **)(a1 + 48);
+    Size = 0;
+    v11 = RtlImageDirectoryEntryToData(v10, 1u, 0xCu, &Size);
+    if ( v11 )
     {
-      v9 = VslCaptureSecureImageIat(v11, v12, v13);
-      if ( v9 < 0 )
-        return (unsigned int)v9;
+      v8 = VslCaptureSecureImageIat(v10, v11, Size);
+      if ( v8 < 0 )
+        return (unsigned int)v8;
     }
   }
   else
@@ -54,17 +52,17 @@ __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PT
     v4 = (_QWORD *)MiReservePtes((__int64)&qword_140C4EE80, 1LL);
     if ( !v4 )
       return (unsigned int)-1073741670;
-    v9 = MiCaptureRetpolineImportInfo(a1, a2);
-    if ( v9 < 0 )
+    v8 = MiCaptureRetpolineImportInfo(a1, a2);
+    if ( v8 < 0 )
       goto LABEL_12;
   }
   MiWalkEntireImage(a2, (__int64)v4, 16, 0xFFFFFFFFLL);
   if ( (MiFlags & 0x10000) == 0 )
     MiUpdateImportRelocationsOnDriverPrivatePages(a1, a2, (__int64)v4);
   *(_DWORD *)(a1 + 104) |= 0x80u;
-  v9 = 0;
+  v8 = 0;
 LABEL_12:
   if ( v4 )
     MiReleasePtes((__int64)&qword_140C4EE80, v4, 1u);
-  return (unsigned int)v9;
+  return (unsigned int)v8;
 }

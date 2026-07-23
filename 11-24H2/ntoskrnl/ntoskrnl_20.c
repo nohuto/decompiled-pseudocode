@@ -1,29 +1,29 @@
 /*
- * XREFs of ntoskrnl_20 @ 0x140972DB0
+ * XREFs of ntoskrnl_20 @ 0x14095B5C0
  * Callers:
- *     ExpGetLicenseTamperState @ 0x1406557A0 (ExpGetLicenseTamperState.c)
- *     ExpSetLicenseTamperState @ 0x140655B24 (ExpSetLicenseTamperState.c)
- *     ExSetLicenseTamperState @ 0x1407B8160 (ExSetLicenseTamperState.c)
- *     sub_1407B85B0 @ 0x1407B85B0 (sub_1407B85B0.c)
- *     SLUpdateLicenseDataInternal @ 0x1407BA204 (SLUpdateLicenseDataInternal.c)
- *     sub_140972980 @ 0x140972980 (sub_140972980.c)
+ *     ExpGetLicenseTamperState @ 0x140653EA0 (ExpGetLicenseTamperState.c)
+ *     ExpSetLicenseTamperState @ 0x140654224 (ExpSetLicenseTamperState.c)
+ *     ExSetLicenseTamperState @ 0x1407B85B0 (ExSetLicenseTamperState.c)
+ *     sub_1407B8A00 @ 0x1407B8A00 (sub_1407B8A00.c)
+ *     SLUpdateLicenseDataInternal @ 0x1407BA654 (SLUpdateLicenseDataInternal.c)
+ *     sub_14095B190 @ 0x14095B190 (sub_14095B190.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     sub_140800884 @ 0x140800884 (sub_140800884.c)
- *     sub_1409735B8 @ 0x1409735B8 (sub_1409735B8.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     sub_140800FC4 @ 0x140800FC4 (sub_140800FC4.c)
+ *     sub_14095BDC8 @ 0x14095BDC8 (sub_14095BDC8.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ntoskrnl_20(_QWORD *a1, __int64 a2, char a3, char a4)
 {
   void *v7; // rcx
   __int64 *v8; // rsi
-  _QWORD *v9; // rax
-  _QWORD *v10; // rbx
+  char *v9; // rax
+  char *v10; // rbx
   __int64 *v11; // rax
   __int64 Pool2; // rbx
   __int64 *v13; // rax
@@ -48,17 +48,17 @@ __int64 __fastcall ntoskrnl_20(_QWORD *a1, __int64 a2, char a3, char a4)
     v15 = 0;
     goto LABEL_30;
   }
-  v9 = KeAbPreAcquire((__int64)(a1 + 5878), 0LL);
+  v9 = (char *)KeAbPreAcquire((__int64)(a1 + 5878), 0LL);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1 + 11756, 0LL) )
-    ExfAcquirePushLockExclusiveEx(a1 + 5878, (__int64)v9, (__int64)(a1 + 5878));
+    ExfAcquirePushLockExclusiveEx(a1 + 5878, v9, (__int64)(a1 + 5878));
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   v11 = (__int64 *)a1[5877];
   if ( v11 )
   {
     v20 = *v11;
-    sub_1409735B8(&v20);
+    sub_14095BDC8(&v20);
     Pool2 = v20;
     v17 = 0;
 LABEL_15:
@@ -76,9 +76,9 @@ LABEL_15:
       *(_BYTE *)(Pool2 + 40) = *(_BYTE *)(a2 + 40);
     goto LABEL_27;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x30uLL, 0x20534C53u);
   P = (PVOID)Pool2;
-  if ( Pool2 && (v13 = (__int64 *)ExAllocatePool2(0x100uLL), v14 = v13, (v19 = v13) != 0LL) )
+  if ( Pool2 && (v13 = (__int64 *)ExAllocatePool2(0x100uLL, 8uLL, 0x20534C53u), v14 = v13, (v19 = v13) != 0LL) )
   {
     *v13 = Pool2;
     *(_QWORD *)Pool2 = 0LL;
@@ -87,7 +87,7 @@ LABEL_15:
     *(_QWORD *)(Pool2 + 24) = 0LL;
     *(_QWORD *)(Pool2 + 32) = 0LL;
     *(_BYTE *)(Pool2 + 40) = 1;
-    v17 = sub_140800884(v13);
+    v17 = sub_140800FC4(v13);
     if ( v17 >= 0 )
     {
       a1[5877] = v14;

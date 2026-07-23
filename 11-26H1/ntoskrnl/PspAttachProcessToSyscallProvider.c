@@ -1,11 +1,11 @@
 /*
- * XREFs of PspAttachProcessToSyscallProvider @ 0x1407ED5EC
+ * XREFs of PspAttachProcessToSyscallProvider @ 0x1407F314C
  * Callers:
- *     PspSyscallProviderOptIn @ 0x1407EDA50 (PspSyscallProviderOptIn.c)
- *     PspInheritSyscallProvider @ 0x140984984 (PspInheritSyscallProvider.c)
+ *     PspSyscallProviderOptIn @ 0x1407F35B0 (PspSyscallProviderOptIn.c)
+ *     PspInheritSyscallProvider @ 0x140946994 (PspInheritSyscallProvider.c)
  * Callees:
- *     PspLockSyscallProviderExclusive @ 0x140614664 (PspLockSyscallProviderExclusive.c)
- *     PspUnlockSyscallProviderExclusive @ 0x1406147FC (PspUnlockSyscallProviderExclusive.c)
+ *     PspLockSyscallProviderExclusive @ 0x1406174A4 (PspLockSyscallProviderExclusive.c)
+ *     PspUnlockSyscallProviderExclusive @ 0x14061763C (PspUnlockSyscallProviderExclusive.c)
  */
 
 void __fastcall PspAttachProcessToSyscallProvider(_QWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

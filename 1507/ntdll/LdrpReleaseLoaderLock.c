@@ -20,11 +20,11 @@
 
 __int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, char a2, int a3)
 {
-  unsigned int v5; // esi
+  unsigned __int32 v5; // esi
   __int64 v6; // r8
   int v7; // r9d
 
-  v5 = RtlLeaveCriticalSection((__int64)&LdrpLoaderLock);
+  v5 = RtlLeaveCriticalSection(&LdrpLoaderLock);
   if ( a3 < 0 )
   {
     LOBYTE(v6) = a2;

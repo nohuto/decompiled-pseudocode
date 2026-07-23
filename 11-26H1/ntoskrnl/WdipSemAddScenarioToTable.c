@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemAddScenarioToTable @ 0x14081F430
+ * XREFs of WdipSemAddScenarioToTable @ 0x140825640
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140820244 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140826454 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     WdipSemMergeScenarios @ 0x1408207C4 (WdipSemMergeScenarios.c)
- *     WdipSemFreeScenario @ 0x140820E2C (WdipSemFreeScenario.c)
+ *     WdipSemMergeScenarios @ 0x1408269D4 (WdipSemMergeScenarios.c)
+ *     WdipSemFreeScenario @ 0x14082703C (WdipSemFreeScenario.c)
  */
 
 __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
@@ -20,15 +20,20 @@ __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
   {
     for ( i = 0LL; ; i = (unsigned int)(i + 1) )
     {
-      if ( (unsigned int)i >= stru_140F060A8.NextProcessor )
+      if ( (unsigned int)i >= LODWORD(stru_140F042A0.SchedulerSharedSystemSlot) )
       {
-        if ( stru_140F060A8.NextProcessor < 0x40 )
-          *((_QWORD *)&stru_140F060A8.SListFaultAddress + (unsigned int)stru_140F060A8.NextProcessor++) = a1;
+        if ( LODWORD(stru_140F042A0.SchedulerSharedSystemSlot) < 0x40 )
+        {
+          *((_QWORD *)&stru_140F042A0.Timer.TimerListEntry.Flink + LODWORD(stru_140F042A0.SchedulerSharedSystemSlot)) = a1;
+          ++LODWORD(stru_140F042A0.SchedulerSharedSystemSlot);
+        }
         else
+        {
           return (unsigned int)-1073741823;
+        }
         return (unsigned int)v1;
       }
-      v4 = *((_QWORD *)&stru_140F060A8.SListFaultAddress + i);
+      v4 = *((_QWORD *)&stru_140F042A0.Timer.TimerListEntry.Flink + i);
       v5 = (unsigned int)i;
       v6 = *(_QWORD *)v4 - *(_QWORD *)a1;
       if ( *(_QWORD *)v4 == *(_QWORD *)a1 )
@@ -36,10 +41,10 @@ __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
       if ( !v6 && *(_WORD *)(v4 + 16) == *(_WORD *)(a1 + 16) )
         break;
     }
-    v1 = WdipSemMergeScenarios(a1, *((_QWORD *)&stru_140F060A8.SListFaultAddress + i));
+    v1 = WdipSemMergeScenarios(a1, *((_QWORD *)&stru_140F042A0.Timer.TimerListEntry.Flink + i));
     if ( v1 >= 0 )
     {
-      *((_QWORD *)&stru_140F060A8.SListFaultAddress + v5) = a1;
+      *((_QWORD *)&stru_140F042A0.Timer.TimerListEntry.Flink + v5) = a1;
       WdipSemFreeScenario(v4);
     }
   }

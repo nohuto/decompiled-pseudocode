@@ -20,93 +20,88 @@
  *     RtlpMuiRegCreateRegistryInfo @ 0x180111520 (RtlpMuiRegCreateRegistryInfo.c)
  */
 
-__int64 __fastcall RtlpMuiRegCreateAndLoadRegistryInfo(__int64 *a1)
+__int64 __fastcall RtlpMuiRegCreateAndLoadRegistryInfo(_QWORD *a1)
 {
-  __int64 v1; // rbx
-  __int64 Heap; // rax
+  _DWORD *v1; // rbx
+  _DWORD *Heap; // rax
   _DWORD *v4; // rsi
-  __int64 v5; // rdx
-  int v6; // edi
-  __int64 RegistryInfo; // rax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  int v10; // [rsp+30h] [rbp-30h] BYREF
-  HANDLE v11; // [rsp+38h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+40h] [rbp-20h]
-  int v13; // [rsp+48h] [rbp-18h]
-  __int128 v14; // [rsp+50h] [rbp-10h]
-  unsigned int v15; // [rsp+90h] [rbp+30h] BYREF
-  __int64 v16; // [rsp+98h] [rbp+38h] BYREF
-  HANDLE v17; // [rsp+A0h] [rbp+40h] BYREF
-  HANDLE Handle; // [rsp+A8h] [rbp+48h] BYREF
+  int v5; // edi
+  void *RegistryInfo; // rax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  ULONG DataSize; // [rsp+90h] [rbp+30h] BYREF
+  PVOID BaseAddress; // [rsp+98h] [rbp+38h] BYREF
+  HANDLE KeyHandle; // [rsp+A0h] [rbp+40h] BYREF
+  HANDLE Handle; // [rsp+A8h] [rbp+48h]
 
   v1 = 0LL;
-  v16 = 0LL;
+  BaseAddress = 0LL;
   if ( !a1 || *a1 )
   {
-    v6 = -1073741811;
+    v5 = -1073741811;
     goto LABEL_15;
   }
-  v15 = 0;
-  if ( (int)ZwGetMUIRegistryInfo(0LL, &v15, 0LL) < 0 )
+  DataSize = 0;
+  if ( ZwGetMUIRegistryInfo(0, &DataSize, 0LL) < 0 )
   {
 LABEL_17:
-    RegistryInfo = RtlpMuiRegCreateRegistryInfo();
-    v16 = RegistryInfo;
+    RegistryInfo = (void *)RtlpMuiRegCreateRegistryInfo();
+    BaseAddress = RegistryInfo;
     v1 = RegistryInfo;
     if ( RegistryInfo )
     {
-      v6 = RtlpMuiRegLoadRegistryInfo(RegistryInfo, 4095);
-      if ( v6 >= 0 )
+      v5 = RtlpMuiRegLoadRegistryInfo((__int64)RegistryInfo, 4095);
+      if ( v5 >= 0 )
       {
-        v6 = 0;
-        *(_DWORD *)(v1 + 12) = MEMORY[0x7FFE03A4];
+        v5 = 0;
+        v1[3] = MEMORY[0x7FFE03A4];
       }
       else
       {
-        RtlpMuiRegFreeRegistryInfo(v1, 0xFFFu);
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v16);
+        RtlpMuiRegFreeRegistryInfo((__int64)v1, 0xFFFu);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
         v1 = 0LL;
       }
       goto LABEL_15;
     }
 LABEL_21:
-    v6 = -1073741801;
+    v5 = -1073741801;
     goto LABEL_15;
   }
-  if ( !v15 )
+  if ( !DataSize )
     goto LABEL_21;
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v15);
-  v4 = (_DWORD *)Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, DataSize);
+  v4 = Heap;
   if ( !Heap )
   {
-    v1 = v16;
+    v1 = BaseAddress;
     goto LABEL_21;
   }
-  if ( (int)ZwGetMUIRegistryInfo(0LL, &v15, Heap) < 0
-    || (int)RtlpMuiRegDeserializeRegistryInfo(v4, v15, &v16) < 0
-    || (v1 = v16, v6 = RtlpMuiRegAddNeutralToInstalled(v16), v6 < 0) )
+  if ( ZwGetMUIRegistryInfo(0, &DataSize, Heap) < 0
+    || (int)RtlpMuiRegDeserializeRegistryInfo(v4, DataSize, &BaseAddress) < 0
+    || (v1 = BaseAddress, v5 = RtlpMuiRegAddNeutralToInstalled((__int64)BaseAddress), v5 < 0) )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
     goto LABEL_17;
   }
-  if ( *(_QWORD *)(v1 + 40) && (int)OpenGlobalizationUserSettingsKey(0x2000000LL, v5, &Handle) >= 0 )
+  if ( *((_QWORD *)v1 + 5) && (int)OpenGlobalizationUserSettingsKey(0x2000000u) >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached\\MachineLanguageConfiguration");
-    v17 = 0LL;
-    v11 = Handle;
-    v10 = 48;
-    p_DestinationString = &DestinationString;
-    v13 = 64;
-    v14 = 0LL;
-    if ( (int)NtOpenKey(&v17, 131097LL, &v10) >= 0 )
+    KeyHandle = 0LL;
+    ObjectAttributes.RootDirectory = Handle;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     {
-      RtlpMuiRegLoadRegistryInfo(v1, 4);
-      NtClose(v17);
+      RtlpMuiRegLoadRegistryInfo((__int64)v1, 4);
+      NtClose(KeyHandle);
     }
     NtClose(Handle);
   }
-  RtlpMuiRegLoadRegistryInfo(v1, 568);
+  RtlpMuiRegLoadRegistryInfo((__int64)v1, 568);
 LABEL_15:
   *a1 = v1;
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

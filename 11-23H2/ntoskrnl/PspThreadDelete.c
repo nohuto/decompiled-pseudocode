@@ -1,25 +1,25 @@
 /*
- * XREFs of PspThreadDelete @ 0x1407473C0
+ * XREFs of PspThreadDelete @ 0x1407475B0
  * Callers:
  *     <none>
  * Callees:
  *     KeEnumerateKernelStackSegments @ 0x140222B70 (KeEnumerateKernelStackSegments.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KeCleanupThreadState @ 0x1402EAB20 (KeCleanupThreadState.c)
- *     KeFoldProcessStatisticsThread @ 0x1402EACB4 (KeFoldProcessStatisticsThread.c)
- *     KeBugCheck @ 0x14041EA30 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ExDestroyHandle @ 0x14073FA9C (ExDestroyHandle.c)
- *     ExMapHandleToPointer @ 0x14073FC10 (ExMapHandleToPointer.c)
- *     PspDeleteThreadSecurity @ 0x1407477D0 (PspDeleteThreadSecurity.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KeCleanupThreadState @ 0x1402EADB0 (KeCleanupThreadState.c)
+ *     KeFoldProcessStatisticsThread @ 0x1402EAF44 (KeFoldProcessStatisticsThread.c)
+ *     KeBugCheck @ 0x14041EDC0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ExDestroyHandle @ 0x14073FC8C (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x14073FE00 (ExMapHandleToPointer.c)
+ *     PspDeleteThreadSecurity @ 0x1407479C0 (PspDeleteThreadSecurity.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -183,7 +183,7 @@ LABEL_32:
       result = (unsigned __int64)KeLeaveCriticalRegionThread((__int64)CurrentThread);
     }
     if ( (*(_DWORD *)(BugCheckParameter2 + 1376) & 0x100000) != 0 )
-      result = ((__int64 (__fastcall *)(ULONG_PTR))xmmword_140C38150)(BugCheckParameter2);
+      result = ((__int64 (__fastcall *)(ULONG_PTR))xmmword_140C380F0)(BugCheckParameter2);
     if ( v18 != PsIdleProcess )
       return ObfDereferenceObjectWithTag((PVOID)v18, 0x72437350u);
   }

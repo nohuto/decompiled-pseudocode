@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreePageChain @ 0x14028BED4
+ * XREFs of MiFreePageChain @ 0x140209074
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x140210850 (MiCompletePrivateZeroFault.c)
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiPrefetchReleasePreallocatedPages @ 0x1405399A0 (MiPrefetchReleasePreallocatedPages.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x140551F74 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiCompletePrivateZeroFault @ 0x1402B5150 (MiCompletePrivateZeroFault.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x140539BE0 (MiPrefetchReleasePreallocatedPages.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1405521B4 (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
+ *     MiReleaseFreshPage @ 0x140297AC4 (MiReleaseFreshPage.c)
  */
 
 __int64 __fastcall MiFreePageChain(__int64 a1)

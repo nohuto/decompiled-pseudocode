@@ -32,13 +32,13 @@ __int64 HalpQueryMaximumRegisteredProcessorCount()
   unsigned __int32 MaximumProcessorCount; // ebx
   struct _KPRCB *CurrentPrcb; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int32 v6; // [rsp+60h] [rbp+20h] BYREF
-  int v7; // [rsp+68h] [rbp+28h] BYREF
-  int v8; // [rsp+70h] [rbp+30h] BYREF
+  unsigned __int32 Data; // [rsp+60h] [rbp+20h] BYREF
+  ULONG ResultDataSize; // [rsp+68h] [rbp+28h] BYREF
+  ULONG Type; // [rsp+70h] [rbp+30h] BYREF
 
-  v7 = 0;
-  v8 = 0;
-  v6 = 0;
+  ResultDataSize = 0;
+  Type = 0;
+  Data = 0;
   DestinationString = 0LL;
   _m_prefetchw(&dword_140CED6B0);
   LODWORD(result) = dword_140CED6B0;
@@ -55,12 +55,14 @@ __int64 HalpQueryMaximumRegisteredProcessorCount()
     if ( MaximumProcessorCount > 0x500 )
       MaximumProcessorCount = 1280;
     RtlInitUnicodeString(&DestinationString, L"Kernel-RegisteredProcessors");
-    if ( (int)ZwQueryLicenseValue(&DestinationString, &v8, &v6, 4LL, &v7) >= 0 && v7 == 4 && v8 == 4 )
+    if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) >= 0
+      && ResultDataSize == 4
+      && Type == 4 )
     {
       CurrentPrcb = KeGetCurrentPrcb();
-      v6 *= CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
-      if ( MaximumProcessorCount > v6 )
-        MaximumProcessorCount = v6;
+      Data *= CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
+      if ( MaximumProcessorCount > Data )
+        MaximumProcessorCount = Data;
     }
     result = MaximumProcessorCount;
     _InterlockedExchange(&dword_140CED6B0, MaximumProcessorCount);

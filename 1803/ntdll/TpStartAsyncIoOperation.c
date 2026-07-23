@@ -7,19 +7,14 @@
  *     sub_180055584 @ 0x180055584 (sub_180055584.c)
  */
 
-__int64 __fastcall TpStartAsyncIoOperation(__int64 a1)
+void __cdecl TpStartAsyncIoOperation(PTP_IO Io)
 {
-  __int64 result; // rax
-
-  result = sub_180025900(a1, 0LL, 1LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)sub_180025900(Io, 0LL, 1LL) )
   {
-    sub_180055584(a1 + 56, 1LL);
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 280));
-    _InterlockedIncrement((volatile signed __int32 *)a1);
-    result = MEMORY[0x7FFE03C0];
-    if ( *(_DWORD *)(*(_QWORD *)(a1 + 144) + 424LL) != MEMORY[0x7FFE03C0] )
-      return sub_180108210();
+    sub_180055584((char *)Io + 56, 1LL);
+    _InterlockedIncrement((volatile signed __int32 *)Io + 70);
+    _InterlockedIncrement((volatile signed __int32 *)Io);
+    if ( *(_DWORD *)(*((_QWORD *)Io + 18) + 424LL) != MEMORY[0x7FFE03C0] )
+      sub_180108210();
   }
-  return result;
 }

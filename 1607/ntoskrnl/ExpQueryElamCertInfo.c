@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpQueryElamCertInfo @ 0x1406ABA40
+ * XREFs of ExpQueryElamCertInfo @ 0x1406ABB78
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14015A180 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14015A1C0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x14015A5C0 (ZwCreateSection.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x14015A6F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x14015A730 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x14015AB30 (ZwCreateSection.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     FsRtlGetFileSize @ 0x14042C454 (FsRtlGetFileSize.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SeRegisterElamCertResources @ 0x14054F63C (SeRegisterElamCertResources.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140623544 (IoConvertFileHandleToKernelHandle.c)
- *     SeValidateFileAsImageType @ 0x14068C9C4 (SeValidateFileAsImageType.c)
+ *     FsRtlGetFileSize @ 0x14042B324 (FsRtlGetFileSize.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SeRegisterElamCertResources @ 0x14054FB7C (SeRegisterElamCertResources.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x1406235F8 (IoConvertFileHandleToKernelHandle.c)
+ *     SeValidateFileAsImageType @ 0x14068CAA8 (SeValidateFileAsImageType.c)
  */
 
 __int64 __fastcall ExpQueryElamCertInfo(void *a1)

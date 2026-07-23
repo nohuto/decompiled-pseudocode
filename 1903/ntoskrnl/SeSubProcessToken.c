@@ -33,7 +33,7 @@
 __int64 __fastcall SeSubProcessToken(
         __int64 a1,
         __int64 a2,
-        _QWORD *a3,
+        PERESOURCE **a3,
         char a4,
         int a5,
         __int64 a6,
@@ -45,9 +45,9 @@ __int64 __fastcall SeSubProcessToken(
 {
   __int64 v14; // rcx
   int inserted; // edi
-  _DWORD *v16; // rbx
+  PERESOURCE *v16; // rbx
   _BYTE *v17; // rcx
-  _QWORD *v18; // rax
+  PERESOURCE **v18; // rax
   __int64 v20; // rcx
   int v21; // ecx
   unsigned int v22; // esi
@@ -68,10 +68,10 @@ __int64 __fastcall SeSubProcessToken(
   __int64 v37; // [rsp+50h] [rbp-B0h]
   __int64 v38; // [rsp+58h] [rbp-A8h] BYREF
   PVOID Object; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD *v40; // [rsp+68h] [rbp-98h]
+  PERESOURCE **v40; // [rsp+68h] [rbp-98h]
   __int64 v41; // [rsp+70h] [rbp-90h]
   __int128 v42; // [rsp+78h] [rbp-88h] BYREF
-  _DWORD *v43; // [rsp+88h] [rbp-78h]
+  PERESOURCE *v43; // [rsp+88h] [rbp-78h]
   struct _LIST_ENTRY *Flink; // [rsp+90h] [rbp-70h]
   _DWORD v45[2]; // [rsp+98h] [rbp-68h] BYREF
   __int64 v46; // [rsp+A0h] [rbp-60h]
@@ -150,31 +150,31 @@ __int64 __fastcall SeSubProcessToken(
   inserted = SepDuplicateToken(v37, (int)v45, 0, 1, 0, 0, 1, (char **)&Object);
   if ( inserted < 0 )
     goto LABEL_43;
-  v16 = Object;
+  v16 = (PERESOURCE *)Object;
   if ( (*((_DWORD *)Object + 50) & 0x4000) == 0
     || (v20 = *((unsigned int *)Object + 30), (_DWORD)v20 == a5)
     || (SepDereferenceLowBoxNumberEntry(v20),
-        *((_QWORD *)v16 + 135) = 0LL,
+        v16[135] = 0LL,
         SepSetTokenSessionById((_DWORD)v16, a5, 0, 0, 0LL),
-        v16[30] = a5,
-        v26 = SepSetTokenLowboxNumber(v16, *((_QWORD *)v16 + 98)),
+        *((_DWORD *)v16 + 30) = a5,
+        v26 = SepSetTokenLowboxNumber(v16, v16[98]),
         inserted = v26,
         v26 >= 0) )
   {
     SepSetTokenSessionById((_DWORD)v16, a5, 0, 0, 0LL);
-    v16[30] = a5;
-    v16[50] &= ~0x200000u;
+    *((_DWORD *)v16 + 30) = a5;
+    *((_DWORD *)v16 + 50) &= ~0x200000u;
     if ( (*(_DWORD *)a6 & 1) != 0 )
     {
-      v21 = v16[50] | 0x80000;
-      v16[50] = v21;
+      v21 = *((_DWORD *)v16 + 50) | 0x80000;
+      *((_DWORD *)v16 + 50) = v21;
       if ( (*(_DWORD *)a6 & 4) != 0 )
-        v16[50] = v21 | 0x100000;
+        *((_DWORD *)v16 + 50) = v21 | 0x100000;
     }
     inserted = SepSetTokenBnoIsolation((__int64)v16, 0, 0LL, 0, 0LL);
     if ( inserted >= 0 )
     {
-      inserted = SepDesktopAppxSubProcessToken((__int64)v16, a1, *(_DWORD *)(a6 + 4), &v29, &v30);
+      inserted = SepDesktopAppxSubProcessToken(v16, a1, *(_DWORD *)(a6 + 4), &v29, &v30);
       if ( inserted >= 0 )
       {
         inserted = SepMandatorySubProcessToken((_DWORD *)(v37 & -(__int64)((a4 & 2) != 0)), (__int64)v16, a1, &v38);
@@ -187,7 +187,7 @@ __int64 __fastcall SeSubProcessToken(
               || (inserted = SepSetProcessUniqueAttribute(v16), inserted >= 0) )
             {
               if ( (a7 & 1) == 0
-                || (v16[50] & 0x4000) == 0
+                || ((_DWORD)v16[25] & 0x4000) == 0
                 || (inserted = SepSetTokenAllApplicationPackagesPolicy((__int64)v16, a7), inserted >= 0) )
               {
                 if ( a8 )
@@ -210,7 +210,7 @@ __int64 __fastcall SeSubProcessToken(
                     DWORD2(v42) = 0;
                     Flink = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
                     SepCreateAccessStateFromSubjectContext(&v42, &PassedAccessState, v52, 0, 0LL);
-                    v16 = Object;
+                    v16 = (PERESOURCE *)Object;
                   }
                   else
                   {

@@ -9,28 +9,28 @@
  *     LdrIsEnclaveAddress @ 0x1800D01C0 (LdrIsEnclaveAddress.c)
  */
 
-unsigned __int64 __fastcall RtlGuardCheckImageBase(unsigned __int64 a1, char a2)
+char __fastcall RtlGuardCheckImageBase(PVOID BaseAddress, char a2)
 {
-  unsigned __int64 result; // rax
-  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int64 v4; // rax
+  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
 
-  result = LdrControlFlowGuardEnforced();
-  if ( (_DWORD)result )
+  LOBYTE(v4) = LdrControlFlowGuardEnforced();
+  if ( (_DWORD)v4 )
   {
-    if ( a1 < *((_QWORD *)&xmmword_18016F4D0 + 1)
-      || (result = *((_QWORD *)&xmmword_18016F4D0 + 1) + (unsigned int)qword_18016F4E0, a1 >= result) )
+    if ( (unsigned __int64)BaseAddress < *((_QWORD *)&xmmword_18016F4D0 + 1)
+      || (v4 = *((_QWORD *)&xmmword_18016F4D0 + 1) + (unsigned int)qword_18016F4E0, (unsigned __int64)BaseAddress >= v4) )
     {
-      result = RtlpxLookupFunctionTable(a1, (__int64)&v5);
+      LOBYTE(v4) = RtlpxLookupFunctionTable(BaseAddress, (__int64)&v6);
     }
     else
     {
-      v5 = xmmword_18016F4D0;
+      v6 = xmmword_18016F4D0;
     }
-    if ( *((_QWORD *)&v5 + 1) != a1 )
+    if ( *((PVOID *)&v6 + 1) != BaseAddress )
     {
-      if ( !a2 || (result = LdrIsEnclaveAddress(a1), !(_BYTE)result) )
+      if ( !a2 || (LOBYTE(v4) = LdrIsEnclaveAddress(BaseAddress), !(_BYTE)v4) )
         __fastfail(0x18u);
     }
   }
-  return result;
+  return v4;
 }

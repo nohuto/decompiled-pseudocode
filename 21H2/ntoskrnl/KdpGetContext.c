@@ -1,11 +1,11 @@
 /*
- * XREFs of KdpGetContext @ 0x1409B7628
+ * XREFs of KdpGetContext @ 0x1409B8628
  * Callers:
- *     KdpGetContextEx @ 0x1405112F8 (KdpGetContextEx.c)
- *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpGetContextEx @ 0x140511538 (KdpGetContextEx.c)
+ *     KdpSendWaitContinue @ 0x1409B94F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyContext @ 0x1409B9B28 (KdpCopyContext.c)
- *     KdpInitializeExtendedContext @ 0x1409B9C74 (KdpInitializeExtendedContext.c)
+ *     KdpCopyContext @ 0x1409BAB28 (KdpCopyContext.c)
+ *     KdpInitializeExtendedContext @ 0x1409BAC74 (KdpInitializeExtendedContext.c)
  */
 
 __int64 __fastcall KdpGetContext(__int64 a1, __int64 a2, __int64 a3)

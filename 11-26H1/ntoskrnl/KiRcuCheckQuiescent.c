@@ -1,27 +1,27 @@
 /*
- * XREFs of KiRcuCheckQuiescent @ 0x140221E10
+ * XREFs of KiRcuCheckQuiescent @ 0x1402237A0
  * Callers:
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KeRemoveQueueEx @ 0x140220B60 (KeRemoveQueueEx.c)
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     CcForceWriteThrough @ 0x140222070 (CcForceWriteThrough.c)
- *     KeWaitForAlertByThreadId @ 0x140222460 (KeWaitForAlertByThreadId.c)
- *     KiDispatchInterrupt @ 0x140223290 (KiDispatchInterrupt.c)
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404F1878 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KeRemoveQueueEx @ 0x1402224F0 (KeRemoveQueueEx.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     CcForceWriteThrough @ 0x140223A00 (CcForceWriteThrough.c)
+ *     KeWaitForAlertByThreadId @ 0x140223DF0 (KeWaitForAlertByThreadId.c)
+ *     KiDispatchInterrupt @ 0x140224C20 (KiDispatchInterrupt.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404EAE58 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiSrcuReportQuiescent @ 0x1404628BC (KiSrcuReportQuiescent.c)
- *     KiRcuReportQuiescentState @ 0x1404D99B8 (KiRcuReportQuiescentState.c)
- *     KiRcuFlushCompleted @ 0x140503B7C (KiRcuFlushCompleted.c)
- *     KiSrcuFlushCompleted @ 0x14052EB44 (KiSrcuFlushCompleted.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiSrcuReportQuiescent @ 0x14045B87C (KiSrcuReportQuiescent.c)
+ *     KiRcuReportQuiescentState @ 0x1404D3098 (KiRcuReportQuiescentState.c)
+ *     KiRcuFlushCompleted @ 0x1404FD44C (KiRcuFlushCompleted.c)
+ *     KiSrcuFlushCompleted @ 0x140531064 (KiSrcuFlushCompleted.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiRcuCheckQuiescent(__int64 a1)
 {
-  struct _KTHREAD **v2; // rcx
+  unsigned __int64 *v2; // rcx
   char v3; // al
   __int64 v4; // r9
   _QWORD *v5; // rcx
@@ -135,7 +135,7 @@ void __fastcall KiRcuCheckQuiescent(__int64 a1)
       {
         *(_BYTE *)(a1 + 14565) = 0;
         _InterlockedOr(v27, 0);
-        *(_QWORD *)(a1 + 14568) = qword_140F24F28;
+        *(_QWORD *)(a1 + 14568) = KiDpcCorralLock.WaitBlock[2].Thread;
       }
       if ( v11 )
       {
@@ -161,8 +161,8 @@ void __fastcall KiRcuCheckQuiescent(__int64 a1)
     }
     if ( *(_QWORD *)(a1 + 14568) != *(_QWORD *)(a1 + 14576) )
     {
-      v2 = &KiDpcCorralLock.WaitBlock[2].Thread + 4 * *(unsigned int *)(a1 + 36);
-      if ( ((unsigned __int64)*v2 & (unsigned __int64)v2[1]->StackLimit) == 0 )
+      v2 = &KiDpcCorralLock.NpxState + 4 * *(unsigned int *)(a1 + 36);
+      if ( (*v2 & *(_QWORD *)(v2[1] + 48)) == 0 )
       {
         if ( (unsigned int)KiRcuReportQuiescentState(v2, *(_QWORD *)(a1 + 14568), 0LL) )
           KiRcuFlushCompleted(*(unsigned __int8 *)(a1 + 14566));

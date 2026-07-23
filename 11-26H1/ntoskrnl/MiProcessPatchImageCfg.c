@@ -1,19 +1,19 @@
 /*
- * XREFs of MiProcessPatchImageCfg @ 0x140873D98
+ * XREFs of MiProcessPatchImageCfg @ 0x14087A0F8
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x14086E8A8 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x140874C78 (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiReadVadFlags2 @ 0x14047A070 (MiReadVadFlags2.c)
- *     MiVadDeleted @ 0x140480A68 (MiVadDeleted.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     RtlEnumerateHotPatchPatches @ 0x1408AAF38 (RtlEnumerateHotPatchPatches.c)
- *     MiPopulateCfgBitMap @ 0x1409C83D4 (MiPopulateCfgBitMap.c)
- *     MiSelectCfgBitMap @ 0x140AA0F80 (MiSelectCfgBitMap.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiReadVadFlags2 @ 0x1404739E0 (MiReadVadFlags2.c)
+ *     MiVadDeleted @ 0x14047A3A8 (MiVadDeleted.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     RtlEnumerateHotPatchPatches @ 0x1408B13A8 (RtlEnumerateHotPatchPatches.c)
+ *     MiPopulateCfgBitMap @ 0x1409993B4 (MiPopulateCfgBitMap.c)
+ *     MiSelectCfgBitMap @ 0x140AA2A44 (MiSelectCfgBitMap.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiProcessPatchImageCfg(__int64 a1, __int64 a2, __int64 a3)
@@ -103,7 +103,7 @@ __int64 __fastcall MiProcessPatchImageCfg(__int64 a1, __int64 a2, __int64 a3)
         }
       }
       if ( (MiReadVadFlags2(a1) & 0x20) != 0 )
-        v20 = *(_DWORD *)&stru_140E2D150.BamQosLevel;
+        v20 = *(_DWORD *)&stru_140E2D2D0.BamQosLevel;
       v21 = (unsigned int)(v20 - 1);
       v8 = MiPopulateCfgBitMap(
              v17,

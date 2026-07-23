@@ -1,14 +1,14 @@
 /*
- * XREFs of VfAllocateDomainCommonBuffer @ 0x140640F40
+ * XREFs of VfAllocateDomainCommonBuffer @ 0x140644B20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViGetAdapterInformation @ 0x140C26F68 (ViGetAdapterInformation.c)
- *     ViGetRealDmaAdapter @ 0x140C271E4 (ViGetRealDmaAdapter.c)
- *     ViHalTrackDomainCommonBuffer @ 0x140C27414 (ViHalTrackDomainCommonBuffer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViGetAdapterInformation @ 0x140C2CF78 (ViGetAdapterInformation.c)
+ *     ViGetRealDmaAdapter @ 0x140C2D1F4 (ViGetRealDmaAdapter.c)
+ *     ViHalTrackDomainCommonBuffer @ 0x140C2D424 (ViHalTrackDomainCommonBuffer.c)
  */
 
 __int64 __fastcall VfAllocateDomainCommonBuffer(

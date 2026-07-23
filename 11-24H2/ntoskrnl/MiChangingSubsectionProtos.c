@@ -1,17 +1,17 @@
 /*
- * XREFs of MiChangingSubsectionProtos @ 0x14067A42C
+ * XREFs of MiChangingSubsectionProtos @ 0x14067B60C
  * Callers:
- *     MiPurgeSubsection @ 0x14023C9F0 (MiPurgeSubsection.c)
- *     MiPurgeFileOnlyPfn @ 0x14067BB9C (MiPurgeFileOnlyPfn.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiPurgeSubsection @ 0x140204780 (MiPurgeSubsection.c)
+ *     MiPurgeFileOnlyPfn @ 0x14067CD7C (MiPurgeFileOnlyPfn.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreWait @ 0x14033E810 (KeAbPreWait.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
- *     MiUnlinkSubsectionWaitBlock @ 0x14067BD8C (MiUnlinkSubsectionWaitBlock.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreWait @ 0x14031DCF0 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x14067CF6C (MiUnlinkSubsectionWaitBlock.c)
  */
 
 __int64 __fastcall MiChangingSubsectionProtos(__int64 *BugCheckParameter2, char a2, __int64 a3)
@@ -27,19 +27,20 @@ __int64 __fastcall MiChangingSubsectionProtos(__int64 *BugCheckParameter2, char 
   __int64 *v13; // rcx
   ULONG_PTR v14; // rbp
   __int64 *v15; // r14
-  _QWORD *v16; // rax
+  char *v16; // rax
   __int64 v17; // rdx
   __int64 v18; // r8
-  _QWORD *v20; // rax
-  int *v21; // [rsp+20h] [rbp-48h]
-  int v23; // [rsp+88h] [rbp+20h]
+  __int64 v19; // r9
+  _QWORD *v21; // rax
+  int *v22; // [rsp+20h] [rbp-48h]
+  int v24; // [rsp+88h] [rbp+20h]
 
   v3 = *BugCheckParameter2;
   v4 = (int *)(a3 + 8);
-  v21 = (int *)(a3 + 8);
+  v22 = (int *)(a3 + 8);
   v5 = a2 & 0x10;
   v6 = (_DWORD *)(a3 + 12);
-  v23 = v5;
+  v24 = v5;
   while ( 1 )
   {
     v9 = v4;
@@ -47,7 +48,7 @@ __int64 __fastcall MiChangingSubsectionProtos(__int64 *BugCheckParameter2, char 
     if ( v5 )
     {
       MiUnlinkSubsectionWaitBlock(BugCheckParameter2, a3, 1LL);
-      *v21 = 0;
+      *v22 = 0;
       if ( *v6 == 2 )
       {
         MiReleaseSpinLockExclusive((_DWORD *)(v3 + 72), v10);
@@ -55,7 +56,7 @@ __int64 __fastcall MiChangingSubsectionProtos(__int64 *BugCheckParameter2, char 
       }
     }
     v11 = a2 & 8;
-    v21 = v9;
+    v22 = v9;
     v12 = v11 != 0 ? 0x40 : 0;
     *v9 = v12;
     if ( (a2 & 0x20) != 0 )
@@ -83,12 +84,12 @@ __int64 __fastcall MiChangingSubsectionProtos(__int64 *BugCheckParameter2, char 
         v15 = v13;
         if ( (v13[1] & 0x40) == 0 )
         {
-          v16 = KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
+          v16 = (char *)KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
           v14 = (ULONG_PTR)v16;
           v13 = v15;
           if ( v16 )
           {
-            KeAbPreWait((__int64)v16, v17, v18);
+            KeAbPreWait(v16, v17, v18, v19);
             v13 = v15;
           }
           v11 = a2 & 8;
@@ -117,20 +118,20 @@ __int64 __fastcall MiChangingSubsectionProtos(__int64 *BugCheckParameter2, char 
       break;
     if ( !v13 )
     {
-      v20 = KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
-      if ( v20 )
-        *((_BYTE *)v20 + 10) = 1;
+      v21 = KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
+      if ( v21 )
+        *((_BYTE *)v21 + 10) = 1;
       break;
     }
     MiReleaseSpinLockExclusive((_DWORD *)(v3 + 72), v10);
-    KeWaitForGate(a3 + 16, 18LL, 0);
+    KeWaitForGate(a3 + 16, 18LL);
     if ( v14 )
     {
       KeAbPreAcquire((__int64)BugCheckParameter2, v14);
       KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v14);
     }
-    v5 = v23;
-    v4 = v21;
+    v5 = v24;
+    v4 = v22;
   }
   MiReleaseSpinLockExclusive((_DWORD *)(v3 + 72), v10);
   return 0LL;

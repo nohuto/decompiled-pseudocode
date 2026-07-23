@@ -1,12 +1,12 @@
 /*
- * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1407F0920
+ * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1407F0BF0
  * Callers:
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
  * Callees:
- *     SepCaptureTokenSecurityOperations @ 0x140370B58 (SepCaptureTokenSecurityOperations.c)
- *     SepCaptureTokenSecurityAttributesInformation @ 0x1407F0AA0 (SepCaptureTokenSecurityAttributesInformation.c)
- *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x1407F10D0 (SepFreeCapturedTokenSecurityAttributesInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     SepCaptureTokenSecurityOperations @ 0x140370CF8 (SepCaptureTokenSecurityOperations.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x1407F0D70 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x1407F13A0 (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

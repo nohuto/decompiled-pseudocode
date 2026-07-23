@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpLockHandleTableExclusive @ 0x1404839F0
+ * XREFs of ExpLockHandleTableExclusive @ 0x14047D358
  * Callers:
- *     ExDisableHandleTracing @ 0x1406CB8EC (ExDisableHandleTracing.c)
- *     ExEnableHandleTracing @ 0x1407795D8 (ExEnableHandleTracing.c)
- *     ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x140AEA4E8 (ExEnableRaiseUMExceptionOnInvalidHandleClose.c)
- *     ExEnableHandleExceptions @ 0x140AFA4A8 (ExEnableHandleExceptions.c)
+ *     ExDisableHandleTracing @ 0x1406CF91C (ExDisableHandleTracing.c)
+ *     ExEnableHandleTracing @ 0x14077C508 (ExEnableHandleTracing.c)
+ *     ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x140AECFD8 (ExEnableRaiseUMExceptionOnInvalidHandleClose.c)
+ *     ExEnableHandleExceptions @ 0x140AFC710 (ExEnableHandleExceptions.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall ExpLockHandleTableExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

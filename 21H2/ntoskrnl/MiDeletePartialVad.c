@@ -1,56 +1,56 @@
 /*
- * XREFs of MiDeletePartialVad @ 0x1402FD8DC
+ * XREFs of MiDeletePartialVad @ 0x14030862C
  * Callers:
- *     MiFreeVadRange @ 0x1403185C4 (MiFreeVadRange.c)
+ *     MiFreeVadRange @ 0x140323314 (MiFreeVadRange.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiDrainSystemAccessLog @ 0x14025BB80 (MiDrainSystemAccessLog.c)
- *     MiCountSharedPages @ 0x14028C460 (MiCountSharedPages.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiClearVadBits @ 0x1402FE000 (MiClearVadBits.c)
- *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
- *     MiCaptureDeleteHierarchy @ 0x1402FE3F0 (MiCaptureDeleteHierarchy.c)
- *     MiDeleteVirtualAddresses @ 0x1402FE580 (MiDeleteVirtualAddresses.c)
- *     MiAdvanceVadView @ 0x1402FE5F4 (MiAdvanceVadView.c)
- *     MiComputePageCommitment @ 0x14030CB60 (MiComputePageCommitment.c)
- *     MiManageSubsectionView @ 0x140311100 (MiManageSubsectionView.c)
- *     MiDecrementSubsections @ 0x1403150C0 (MiDecrementSubsections.c)
- *     MiInsertVad @ 0x140316330 (MiInsertVad.c)
- *     MiFinishVadDeletion @ 0x140316DC0 (MiFinishVadDeletion.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiReturnFullProcessCharges @ 0x140318370 (MiReturnFullProcessCharges.c)
- *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     MiCountSharedPages @ 0x140209600 (MiCountSharedPages.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiDrainSystemAccessLog @ 0x14027D0F0 (MiDrainSystemAccessLog.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiClearVadBits @ 0x140308D50 (MiClearVadBits.c)
+ *     MiLocateLockedVadEvent @ 0x14030911C (MiLocateLockedVadEvent.c)
+ *     MiCaptureDeleteHierarchy @ 0x140309140 (MiCaptureDeleteHierarchy.c)
+ *     MiDeleteVirtualAddresses @ 0x1403092D0 (MiDeleteVirtualAddresses.c)
+ *     MiAdvanceVadView @ 0x140309344 (MiAdvanceVadView.c)
+ *     MiComputePageCommitment @ 0x1403178B0 (MiComputePageCommitment.c)
+ *     MiManageSubsectionView @ 0x14031BE50 (MiManageSubsectionView.c)
+ *     MiDecrementSubsections @ 0x14031FE10 (MiDecrementSubsections.c)
+ *     MiInsertVad @ 0x140321080 (MiInsertVad.c)
+ *     MiFinishVadDeletion @ 0x140321B10 (MiFinishVadDeletion.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiReturnFullProcessCharges @ 0x1403230C0 (MiReturnFullProcessCharges.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140323160 (PsReturnProcessPagedPoolQuota.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MiUpControlAreaRefs @ 0x14052AB70 (MiUpControlAreaRefs.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
- *     MiReInsertPlaceholderVad @ 0x14055533C (MiReInsertPlaceholderVad.c)
- *     MiResidentPagesForSpan @ 0x1406B5F44 (MiResidentPagesForSpan.c)
- *     MiCreateRotateView @ 0x1406BD8A0 (MiCreateRotateView.c)
- *     MiFreePlaceholderStorage @ 0x1406C3E08 (MiFreePlaceholderStorage.c)
- *     MiRemoveSharedCommitNode @ 0x1406EB4E0 (MiRemoveSharedCommitNode.c)
- *     MiInsertSharedCommitNode @ 0x1406EB750 (MiInsertSharedCommitNode.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiReturnPageTablePageCommitment @ 0x1406EE990 (MiReturnPageTablePageCommitment.c)
- *     MiFreeRotateView @ 0x1408C857C (MiFreeRotateView.c)
- *     MiCreatePlaceholderStorage @ 0x1408D82D8 (MiCreatePlaceholderStorage.c)
- *     MiLockNestedVad @ 0x1408D9A78 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x1408D9A94 (MiUnlockNestedVad.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     MiUpControlAreaRefs @ 0x14052ADB0 (MiUpControlAreaRefs.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
+ *     MiReInsertPlaceholderVad @ 0x14055557C (MiReInsertPlaceholderVad.c)
+ *     MiResidentPagesForSpan @ 0x140615404 (MiResidentPagesForSpan.c)
+ *     MiCreateRotateView @ 0x14061CAB0 (MiCreateRotateView.c)
+ *     MiFreePlaceholderStorage @ 0x1406229E8 (MiFreePlaceholderStorage.c)
+ *     MiRemoveSharedCommitNode @ 0x1407028C0 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140702B30 (MiInsertSharedCommitNode.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiReturnPageTablePageCommitment @ 0x140705D70 (MiReturnPageTablePageCommitment.c)
+ *     MiFreeRotateView @ 0x1408C86DC (MiFreeRotateView.c)
+ *     MiCreatePlaceholderStorage @ 0x1408D8438 (MiCreatePlaceholderStorage.c)
+ *     MiLockNestedVad @ 0x1408D9BD8 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x1408D9BF4 (MiUnlockNestedVad.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDeletePartialVad(
@@ -69,20 +69,20 @@ __int64 __fastcall MiDeletePartialVad(
   int v13; // r15d
   int v14; // ecx
   unsigned __int64 v15; // r12
-  _DWORD *v16; // r9
-  __int64 v17; // r14
-  unsigned __int64 v18; // r14
-  unsigned __int64 v19; // rax
-  __int64 v20; // r13
-  LONG *v21; // rbx
-  unsigned __int64 v22; // r14
-  unsigned __int64 v23; // rax
-  unsigned __int8 v24; // bl
-  _QWORD *v25; // r14
-  _QWORD *v26; // r15
-  LONG *v27; // rbx
-  __int64 v28; // rdx
-  __int64 v29; // r8
+  __int64 v16; // r14
+  unsigned __int64 v17; // r14
+  unsigned __int64 v18; // rax
+  __int64 v19; // r13
+  LONG *v20; // rbx
+  unsigned __int64 v21; // r14
+  unsigned __int64 v22; // rax
+  unsigned __int8 v23; // bl
+  _QWORD *v24; // r14
+  _QWORD *v25; // r15
+  LONG *v26; // rbx
+  __int64 v27; // rdx
+  __int64 v28; // r8
+  _DWORD *v29; // r9
   _QWORD *v30; // rcx
   ULONG_PTR v31; // r14
   struct _KTHREAD *v32; // rbx
@@ -94,41 +94,41 @@ __int64 __fastcall MiDeletePartialVad(
   __int64 v38; // rcx
   __int64 v39; // r14
   unsigned __int8 v40; // al
-  __int64 v41; // rcx
-  _KPROCESS *v42; // r14
-  __int64 v43; // r13
-  __int64 v44; // rbx
-  ULONG_PTR v45; // rbx
+  __int64 v41; // r8
+  __int64 v42; // r9
+  _KPROCESS *v43; // r14
+  __int64 v44; // r13
+  __int64 v45; // rbx
+  ULONG_PTR v46; // rbx
   __int64 i; // r15
   LONG *SharedVm; // rbx
-  int v49; // r9d
-  unsigned __int64 v50; // r14
-  unsigned __int64 v51; // rax
+  int v50; // r9d
+  unsigned __int64 v51; // r14
   unsigned __int64 v52; // rax
-  unsigned __int64 v53; // rcx
-  _QWORD *v54; // rcx
+  unsigned __int64 v53; // rax
+  unsigned __int64 v54; // rcx
+  _QWORD *v55; // rcx
   __int64 k; // r14
   _QWORD *j; // rax
-  __int64 v57; // r8
+  __int64 v58; // r8
   unsigned int *Pool; // rax
   int PlaceholderStorage; // ebx
-  __int64 v60; // rax
-  unsigned int v61; // edx
-  char v62; // al
-  unsigned __int64 v63; // r14
-  __int64 v64; // rcx
-  unsigned int v65; // eax
-  unsigned __int64 v66; // rcx
-  LONG *v67; // rbx
-  KIRQL v68; // al
-  unsigned __int64 v69; // r15
-  unsigned __int64 v70; // rax
-  unsigned __int64 v71; // rcx
-  int v72; // r9d
-  __int64 v73; // rcx
-  unsigned __int64 v74; // r15
-  __int64 v75; // rbx
-  _DWORD *v76; // r9
+  __int64 v61; // rax
+  unsigned int v62; // edx
+  char v63; // al
+  unsigned __int64 v64; // r14
+  __int64 v65; // rcx
+  unsigned int v66; // eax
+  unsigned __int64 v67; // rcx
+  LONG *v68; // rbx
+  KIRQL v69; // al
+  unsigned __int64 v70; // r15
+  unsigned __int64 v71; // rax
+  unsigned __int64 v72; // rcx
+  int v73; // r9d
+  __int64 v74; // rcx
+  unsigned __int64 v75; // r15
+  unsigned __int64 v76; // rbx
   LONG *v77; // rbx
   KIRQL v78; // al
   int v79; // edx
@@ -151,62 +151,64 @@ __int64 __fastcall MiDeletePartialVad(
   struct _KPRCB *v96; // r8
   _DWORD *SchedulerAssist; // r9
   int v98; // eax
-  bool v99; // [rsp+48h] [rbp-81h]
-  __int64 v100; // [rsp+50h] [rbp-79h]
-  ULONG_PTR v101; // [rsp+58h] [rbp-71h] BYREF
-  __int64 v102; // [rsp+60h] [rbp-69h] BYREF
-  unsigned __int64 *v103; // [rsp+68h] [rbp-61h]
-  _KPROCESS *v104; // [rsp+70h] [rbp-59h]
-  unsigned int v105; // [rsp+78h] [rbp-51h]
-  int v106; // [rsp+7Ch] [rbp-4Dh] BYREF
-  int v107; // [rsp+80h] [rbp-49h]
-  int v108; // [rsp+84h] [rbp-45h]
+  ULONG_PTR BugCheckParameter4a; // [rsp+28h] [rbp-A1h]
+  __int64 v100; // [rsp+30h] [rbp-99h]
+  bool v101; // [rsp+48h] [rbp-81h]
+  __int64 v102; // [rsp+50h] [rbp-79h]
+  ULONG_PTR v103; // [rsp+58h] [rbp-71h] BYREF
+  __int64 v104; // [rsp+60h] [rbp-69h] BYREF
+  unsigned __int64 *v105; // [rsp+68h] [rbp-61h]
+  _KPROCESS *v106; // [rsp+70h] [rbp-59h]
+  unsigned int v107; // [rsp+78h] [rbp-51h]
+  int v108; // [rsp+7Ch] [rbp-4Dh] BYREF
+  int v109; // [rsp+80h] [rbp-49h]
+  int v110; // [rsp+84h] [rbp-45h]
   ULONG_PTR BugCheckParameter2; // [rsp+88h] [rbp-41h]
-  __int64 v110; // [rsp+90h] [rbp-39h]
-  unsigned __int64 v111; // [rsp+98h] [rbp-31h]
+  __int64 v112; // [rsp+90h] [rbp-39h]
+  unsigned __int64 v113; // [rsp+98h] [rbp-31h]
   struct _KTHREAD *CurrentThread; // [rsp+A0h] [rbp-29h]
-  __int128 v113; // [rsp+A8h] [rbp-21h] BYREF
-  __int128 v114; // [rsp+B8h] [rbp-11h]
-  __int128 v115; // [rsp+C8h] [rbp-1h]
-  KIRQL v116; // [rsp+128h] [rbp+5Fh]
+  __int128 v115; // [rsp+A8h] [rbp-21h] BYREF
+  __int128 v116; // [rsp+B8h] [rbp-11h]
+  __int128 v117; // [rsp+C8h] [rbp-1h]
+  KIRQL v118; // [rsp+128h] [rbp+5Fh]
 
-  v106 = 0;
-  v113 = 0LL;
-  v101 = 0LL;
-  v114 = 0LL;
-  v7 = 0LL;
-  v102 = 0LL;
-  v8 = 0;
+  v108 = 0;
   v115 = 0LL;
+  v103 = 0LL;
+  v116 = 0LL;
+  v7 = 0LL;
+  v104 = 0LL;
+  v8 = 0;
+  v117 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v111 = (a3 - a2 + 1) >> 12;
-  v99 = 0;
+  v113 = (a3 - a2 + 1) >> 12;
+  v101 = 0;
   Process = CurrentThread->ApcState.Process;
-  v110 = 0LL;
-  v105 = 0;
-  v104 = Process;
-  v103 = &Process[1].ActiveProcessorsPadding[6];
+  v112 = 0LL;
+  v107 = 0;
+  v106 = Process;
+  v105 = &Process[1].ActiveProcessorsPadding[6];
   v10 = *((_DWORD *)BugCheckParameter4 + 12);
   if ( (v10 & 0x100000) != 0 )
   {
     v11 = 64LL;
-    v100 = 64LL;
+    v102 = 64LL;
     v12 = 8;
     if ( (v10 & 0x70) != 0x40 )
       v12 = 0;
-    v105 = v12;
+    v107 = v12;
   }
   else
   {
     v11 = 136LL;
-    v100 = 136LL;
-    v57 = *(_QWORD *)BugCheckParameter4[9];
-    v110 = v57;
-    if ( *(_QWORD *)(v57 + 64) )
+    v102 = 136LL;
+    v58 = *(_QWORD *)BugCheckParameter4[9];
+    v112 = v58;
+    if ( *(_QWORD *)(v58 + 64) )
     {
       if ( (__int64)BugCheckParameter4[15] < 0 )
         return 3221225505LL;
-      v99 = (*(_DWORD *)(v57 + 56) & 0x420) == 0;
+      v101 = (*(_DWORD *)(v58 + 56) & 0x420) == 0;
     }
   }
   v13 = 2147483645;
@@ -220,22 +222,22 @@ __int64 __fastcall MiDeletePartialVad(
   v7[9] = 0;
   *((_QWORD *)v7 + 2) = -2LL;
   *((_QWORD *)v7 + 7) = 0LL;
-  v60 = *((unsigned int *)BugCheckParameter4 + 13);
-  LODWORD(v60) = v60 & 0x7FFFFFFF;
-  v61 = v7[13] & 0x80000000;
-  if ( (v60 | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 34) << 31)) == 0x7FFFFFFFDLL )
+  v61 = *((unsigned int *)BugCheckParameter4 + 13);
+  LODWORD(v61) = v61 & 0x7FFFFFFF;
+  v62 = v7[13] & 0x80000000;
+  if ( (v61 | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 34) << 31)) == 0x7FFFFFFFDLL )
   {
-    v62 = 15;
-    v61 |= 0x7FFFFFFDu;
+    v63 = 15;
+    v62 |= 0x7FFFFFFDu;
   }
   else
   {
-    v62 = 0;
+    v63 = 0;
   }
-  v7[13] = v61;
-  *((_BYTE *)v7 + 34) = v62;
+  v7[13] = v62;
+  *((_BYTE *)v7 + 34) = v63;
   *((_QWORD *)v7 + 5) = 0LL;
-  v63 = ((a3 + 1) >> 12)
+  v64 = ((a3 + 1) >> 12)
       - (*((unsigned int *)BugCheckParameter4 + 6) | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 32) << 32));
   if ( (v7[12] & 0x70) == 0x40 && !(unsigned int)MiCreateRotateView(v7) )
   {
@@ -246,23 +248,23 @@ LABEL_105:
     ExFreePoolWithTag(v7, 0);
     return (unsigned int)PlaceholderStorage;
   }
-  if ( MiLocateLockedVadEvent(BugCheckParameter4, 128LL) )
+  if ( MiLocateLockedVadEvent(BugCheckParameter4) )
   {
     PlaceholderStorage = MiCreatePlaceholderStorage(v7);
     if ( PlaceholderStorage < 0 )
       goto LABEL_105;
   }
   MiLockNestedVad(v7);
-  MiAdvanceVadView(v7, v63);
+  MiAdvanceVadView(v7, v64);
   MiUnlockNestedVad(v7);
-  Process = v104;
+  Process = v106;
   if ( v11 != 64 )
   {
-    v64 = v110;
-    v65 = v7[16] & 0xFDFFFFFF;
+    v65 = v112;
+    v66 = v7[16] & 0xFDFFFFFF;
     *((_QWORD *)v7 + 15) = 0LL;
-    v7[16] = v65;
-    PlaceholderStorage = MiInsertSharedCommitNode(v64, Process, 0LL);
+    v7[16] = v66;
+    PlaceholderStorage = MiInsertSharedCommitNode(v65, Process, 0LL);
     if ( PlaceholderStorage < 0 )
       goto LABEL_105;
     v8 = 1;
@@ -271,14 +273,14 @@ LABEL_105:
   if ( PlaceholderStorage < 0 )
   {
     if ( v8 )
-      MiRemoveSharedCommitNode(v110, Process, 0LL);
+      MiRemoveSharedCommitNode(v112, Process, 0LL);
     goto LABEL_105;
   }
-  v66 = Process[1].ActiveProcessorsPadding[8];
+  v67 = Process[1].ActiveProcessorsPadding[8];
   if ( v11 == 64 )
   {
     if ( MiVadPageSizes[(v7[12] >> 18) & 3] == 16 )
-      ++*(_QWORD *)(v66 + 424);
+      ++*(_QWORD *)(v67 + 424);
   }
   else
   {
@@ -288,7 +290,7 @@ LABEL_105:
     }
     else if ( MiVadPageSizes[(v7[12] >> 18) & 3] == 16 )
     {
-      ++*(_QWORD *)(v66 + 432);
+      ++*(_QWORD *)(v67 + 432);
     }
     MiUpControlAreaRefs(v7, 1LL);
   }
@@ -303,268 +305,267 @@ LABEL_6:
   --CurrentThread->SpecialApcDisable;
   BugCheckParameter2 = (ULONG_PTR)&Process[1].Affinity.Bitmap[8];
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&Process[1].Affinity.Bitmap[8], 0LL);
-  v17 = *((unsigned int *)BugCheckParameter4 + 13);
-  LODWORD(v17) = v17 & 0x7FFFFFFF;
-  v18 = ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 34) << 31) | v17;
-  if ( v18 != 0x7FFFFFFFDLL && v18 )
+  v16 = *((unsigned int *)BugCheckParameter4 + 13);
+  LODWORD(v16) = v16 & 0x7FFFFFFF;
+  v17 = ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 34) << 31) | v16;
+  if ( v17 != 0x7FFFFFFFDLL && v17 )
   {
-    if ( v100 == 64 )
+    if ( v102 == 64 )
     {
-      SharedVm = MiGetSharedVm((__int64)v103);
-      LOBYTE(v49) = ExAcquireSpinLockExclusive(SharedVm);
+      SharedVm = MiGetSharedVm((__int64)v105);
+      LOBYTE(v50) = ExAcquireSpinLockExclusive(SharedVm);
       SharedVm[1] = 0;
-      v116 = v49;
-      v20 = MiComputePageCommitment(a2, a3, (_DWORD)BugCheckParameter4, v49, 4, 0LL);
+      v118 = v50;
+      v19 = MiComputePageCommitment(a2, a3, (_DWORD)BugCheckParameter4, v50, 4, 0LL);
     }
     else
     {
-      v20 = ((__int64)(((a3 >> 9) & 0x7FFFFFFFF8LL) - ((a2 >> 9) & 0x7FFFFFFFF8LL)) >> 3)
+      v19 = ((__int64)(((a3 >> 9) & 0x7FFFFFFFF8LL) - ((a2 >> 9) & 0x7FFFFFFFF8LL)) >> 3)
           - MiCountSharedPages(
               (__int64)BugCheckParameter4,
               ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
-              ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
-              v16)
+              ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL)
           + 1;
-      v67 = MiGetSharedVm((__int64)v103);
-      v68 = ExAcquireSpinLockExclusive(v67);
-      v67[1] = 0;
-      v116 = v68;
+      v68 = MiGetSharedVm((__int64)v105);
+      v69 = ExAcquireSpinLockExclusive(v68);
+      v68[1] = 0;
+      v118 = v69;
     }
   }
   else
   {
+    v18 = 0LL;
+    if ( v17 != 0x7FFFFFFFDLL )
+      v18 = v17;
     v19 = 0LL;
-    if ( v18 != 0x7FFFFFFFDLL )
-      v19 = v18;
-    v20 = 0LL;
-    v18 = v19;
-    v21 = MiGetSharedVm((__int64)v103);
-    v116 = ExAcquireSpinLockExclusive(v21);
-    v21[1] = 0;
+    v17 = v18;
+    v20 = MiGetSharedVm((__int64)v105);
+    v118 = ExAcquireSpinLockExclusive(v20);
+    v20[1] = 0;
   }
   if ( a4 == 1 )
   {
-    if ( v100 != 64 && v99 )
+    if ( v102 != 64 && v101 )
       MiGetProtoPteAddress(
         BugCheckParameter4,
         *((unsigned int *)BugCheckParameter4 + 6) | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 32) << 32),
         0LL,
-        &v101);
-    v22 = v18 - v20;
+        &v103);
+    v21 = v17 - v19;
     if ( (((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 34) << 31) | *((_DWORD *)BugCheckParameter4 + 13) & 0x7FFFFFFF) == 0x7FFFFFFFDLL )
     {
-      LOBYTE(v23) = 15;
+      LOBYTE(v22) = 15;
     }
     else
     {
-      v23 = v22 >> 31;
-      v13 = v22 & 0x7FFFFFFF;
+      v22 = v21 >> 31;
+      v13 = v21 & 0x7FFFFFFF;
     }
     *((_DWORD *)BugCheckParameter4 + 13) = *((_DWORD *)BugCheckParameter4 + 13) & 0x80000000 | v13;
-    *((_BYTE *)BugCheckParameter4 + 34) = v23;
+    *((_BYTE *)BugCheckParameter4 + 34) = v22;
     MiAdvanceVadView(
       BugCheckParameter4,
       ((a3 + 1) >> 12)
     - (*((unsigned int *)BugCheckParameter4 + 6) | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 32) << 32)));
-    if ( v100 != 64 && v99 )
+    if ( v102 != 64 && v101 )
       MiGetProtoPteAddress(
         BugCheckParameter4,
         *((unsigned int *)BugCheckParameter4 + 6) | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 32) << 32),
         0LL,
-        &v102);
-    v24 = v116;
-    v25 = BugCheckParameter4;
-    v26 = 0LL;
+        &v104);
+    v23 = v118;
+    v24 = BugCheckParameter4;
+    v25 = 0LL;
   }
   else
   {
-    v50 = v18 - v20;
+    v51 = v17 - v19;
     if ( a4 == 2 )
     {
       if ( (((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 34) << 31) | *((_DWORD *)BugCheckParameter4 + 13) & 0x7FFFFFFF) == 0x7FFFFFFFDLL )
       {
-        LOBYTE(v51) = 15;
+        LOBYTE(v52) = 15;
       }
       else
       {
-        v51 = v50 >> 31;
-        v13 = v50 & 0x7FFFFFFF;
+        v52 = v51 >> 31;
+        v13 = v51 & 0x7FFFFFFF;
       }
       *((_DWORD *)BugCheckParameter4 + 13) = v13 | *((_DWORD *)BugCheckParameter4 + 13) & 0x80000000;
-      *((_BYTE *)BugCheckParameter4 + 34) = v51;
-      if ( v100 != 64 && v99 )
+      *((_BYTE *)BugCheckParameter4 + 34) = v52;
+      if ( v102 != 64 && v101 )
       {
         MiGetProtoPteAddress(
           BugCheckParameter4,
           *((unsigned int *)BugCheckParameter4 + 7) | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 33) << 32),
           0LL,
-          &v102);
-        v102 = *(_QWORD *)(v102 + 16);
+          &v104);
+        v104 = *(_QWORD *)(v104 + 16);
       }
-      v52 = (a2 - 1) >> 44;
-      v53 = (a2 - 1) >> 12;
-      *((_DWORD *)BugCheckParameter4 + 7) = v53;
-      *((_BYTE *)BugCheckParameter4 + 33) = v52;
-      if ( v100 != 64 && v99 )
+      v53 = (a2 - 1) >> 44;
+      v54 = (a2 - 1) >> 12;
+      *((_DWORD *)BugCheckParameter4 + 7) = v54;
+      *((_BYTE *)BugCheckParameter4 + 33) = v53;
+      if ( v102 != 64 && v101 )
       {
         MiGetProtoPteAddress(
           BugCheckParameter4,
-          (unsigned int)v53 | ((unsigned __int64)(unsigned __int8)v52 << 32),
+          (unsigned int)v54 | ((unsigned __int64)(unsigned __int8)v53 << 32),
           0LL,
-          &v101);
-        v101 = *(_QWORD *)(v101 + 16);
+          &v103);
+        v103 = *(_QWORD *)(v103 + 16);
         MiAdvanceVadView(BugCheckParameter4, 0LL);
       }
-      v24 = v116;
-      v25 = 0LL;
+      v23 = v118;
+      v24 = 0LL;
     }
     else
     {
-      if ( v100 != 64 && v99 )
+      if ( v102 != 64 && v101 )
       {
         MiGetProtoPteAddress(
           BugCheckParameter4,
           *((unsigned int *)BugCheckParameter4 + 7) | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 33) << 32),
           0LL,
-          &v102);
-        v102 = *(_QWORD *)(v102 + 16);
+          &v104);
+        v104 = *(_QWORD *)(v104 + 16);
       }
-      v69 = a2 - 1;
-      v70 = (a2 - 1) >> 12;
-      v71 = (a2 - 1) >> 44;
-      *((_DWORD *)BugCheckParameter4 + 7) = v70;
-      *((_BYTE *)BugCheckParameter4 + 33) = v71;
-      if ( v100 != 64 && v99 )
+      v70 = a2 - 1;
+      v71 = (a2 - 1) >> 12;
+      v72 = (a2 - 1) >> 44;
+      *((_DWORD *)BugCheckParameter4 + 7) = v71;
+      *((_BYTE *)BugCheckParameter4 + 33) = v72;
+      if ( v102 != 64 && v101 )
       {
         MiGetProtoPteAddress(
           BugCheckParameter4,
-          (unsigned int)v70 | ((unsigned __int64)(unsigned __int8)v71 << 32),
+          (unsigned int)v71 | ((unsigned __int64)(unsigned __int8)v72 << 32),
           0LL,
-          &v101);
-        v101 = *(_QWORD *)(v101 + 16);
+          &v103);
+        v103 = *(_QWORD *)(v103 + 16);
         MiAdvanceVadView(BugCheckParameter4, 0LL);
       }
-      v111 += (v7[7] | ((unsigned __int64)*((unsigned __int8 *)v7 + 33) << 32))
+      v113 += (v7[7] | ((unsigned __int64)*((unsigned __int8 *)v7 + 33) << 32))
             - (v7[6] | ((unsigned __int64)*((unsigned __int8 *)v7 + 32) << 32))
             + 1;
-      MiInsertVad(v7, v104, 2LL);
-      v73 = *((unsigned int *)BugCheckParameter4 + 13);
-      LODWORD(v73) = v73 & 0x7FFFFFFF;
-      if ( (((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 34) << 31) | v73) == 0x7FFFFFFFDLL )
+      MiInsertVad(v7, v106, 2LL);
+      v74 = *((unsigned int *)BugCheckParameter4 + 13);
+      LODWORD(v74) = v74 & 0x7FFFFFFF;
+      if ( (((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4 + 34) << 31) | v74) == 0x7FFFFFFFDLL )
       {
-        v24 = v116;
-        v74 = 0x7FFFFFFFDLL;
+        v23 = v118;
+        v75 = 0x7FFFFFFFDLL;
       }
-      else if ( v100 == 64 )
+      else if ( v102 == 64 )
       {
-        v24 = v116;
-        LOBYTE(v72) = v116;
-        v74 = MiComputePageCommitment(
+        v23 = v118;
+        LOBYTE(v73) = v118;
+        v75 = MiComputePageCommitment(
                 *((_DWORD *)BugCheckParameter4 + 6) << 12,
-                v69,
+                v70,
                 (_DWORD)BugCheckParameter4,
-                v72,
+                v73,
                 4,
                 0LL);
       }
       else
       {
-        MiUnlockWorkingSetExclusive((__int64)v103, v116);
-        v75 = 8
+        MiUnlockWorkingSetExclusive((__int64)v105, v118);
+        v76 = 8
             * ((*((unsigned int *)BugCheckParameter4 + 6) | ((unsigned __int64)*((unsigned __int8 *)BugCheckParameter4
                                                                                + 32) << 32)) & 0xFFFFFFFFFLL)
             - 0x98000000000LL;
-        v74 = ((__int64)(((v69 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL - v75) >> 3)
-            - MiCountSharedPages((__int64)BugCheckParameter4, v75, ((v69 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v76)
+        v75 = ((__int64)(((v70 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL - v76) >> 3)
+            - MiCountSharedPages((__int64)BugCheckParameter4, v76, ((v70 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL)
             + 1;
-        v77 = MiGetSharedVm((__int64)v103);
+        v77 = MiGetSharedVm((__int64)v105);
         v78 = ExAcquireSpinLockExclusive(v77);
         v77[1] = 0;
-        v24 = v78;
-        v116 = v78;
+        v23 = v78;
+        v118 = v78;
       }
-      v79 = v74 & 0x7FFFFFFF;
-      v80 = v74 & 0x7FFFFFFF | *((_DWORD *)BugCheckParameter4 + 13) & 0x80000000;
-      v81 = v74 >> 31;
+      v79 = v75 & 0x7FFFFFFF;
+      v80 = v75 & 0x7FFFFFFF | *((_DWORD *)BugCheckParameter4 + 13) & 0x80000000;
+      v81 = v75 >> 31;
       *((_DWORD *)BugCheckParameter4 + 13) = v80;
       LODWORD(v80) = v80 & 0x7FFFFFFF;
-      *((_BYTE *)BugCheckParameter4 + 34) = v74 >> 31;
-      if ( (((unsigned __int64)(unsigned __int8)(v74 >> 31) << 31) | v80) != 0x7FFFFFFFDLL )
+      *((_BYTE *)BugCheckParameter4 + 34) = v75 >> 31;
+      if ( (((unsigned __int64)(unsigned __int8)(v75 >> 31) << 31) | v80) != 0x7FFFFFFFDLL )
       {
-        v82 = v50 - v74;
+        v82 = v51 - v75;
         v81 = v82 >> 31;
         v79 = v82 & 0x7FFFFFFF;
       }
-      v25 = v7;
+      v24 = v7;
       v7[13] = v7[13] & 0x80000000 | v79;
       *((_BYTE *)v7 + 34) = v81;
     }
-    v26 = BugCheckParameter4;
+    v25 = BugCheckParameter4;
   }
-  MiUnlockWorkingSetExclusive((__int64)v103, v24);
-  MiDeleteVirtualAddresses(a2, a3, v105, &v113);
-  v27 = MiGetSharedVm((__int64)v103);
-  ExAcquireSpinLockExclusive(v27);
-  v27[1] = 0;
-  if ( v101 )
-    MiDrainSystemAccessLog((__int64)v103, v28, v29);
-  LOBYTE(v29) = v116;
-  MiCaptureDeleteHierarchy(a2, a3, v29, &v106);
-  MiUnlockWorkingSetExclusive((__int64)v103, v116);
-  if ( !v26 )
+  MiUnlockWorkingSetExclusive((__int64)v105, v23);
+  MiDeleteVirtualAddresses(a2, a3, v107, &v115, BugCheckParameter4a, v100);
+  v26 = MiGetSharedVm((__int64)v105);
+  ExAcquireSpinLockExclusive(v26);
+  v26[1] = 0;
+  if ( v103 )
+    MiDrainSystemAccessLog((__int64)v105, v27, v28, v29);
+  LOBYTE(v28) = v118;
+  MiCaptureDeleteHierarchy(a2, a3, v28, &v108);
+  MiUnlockWorkingSetExclusive((__int64)v105, v118);
+  if ( !v25 )
   {
-    v26 = (_QWORD *)*BugCheckParameter4;
+    v25 = (_QWORD *)*BugCheckParameter4;
     v30 = BugCheckParameter4;
     if ( *BugCheckParameter4 )
     {
-      for ( ; v26[1]; v26 = (_QWORD *)v26[1] )
+      for ( ; v25[1]; v25 = (_QWORD *)v25[1] )
         ;
     }
     else
     {
-      for ( i = BugCheckParameter4[2]; ; i = v26[2] )
+      for ( i = BugCheckParameter4[2]; ; i = v25[2] )
       {
-        v26 = (_QWORD *)(i & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !v26 || (_QWORD *)v26[1] == v30 )
+        v25 = (_QWORD *)(i & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !v25 || (_QWORD *)v25[1] == v30 )
           break;
-        v30 = v26;
+        v30 = v25;
       }
     }
   }
-  if ( !v25 )
+  if ( !v24 )
   {
-    v25 = (_QWORD *)BugCheckParameter4[1];
-    v54 = BugCheckParameter4;
-    if ( v25 )
+    v24 = (_QWORD *)BugCheckParameter4[1];
+    v55 = BugCheckParameter4;
+    if ( v24 )
     {
-      for ( j = (_QWORD *)*v25; j; j = (_QWORD *)*j )
-        v25 = j;
+      for ( j = (_QWORD *)*v24; j; j = (_QWORD *)*j )
+        v24 = j;
     }
     else
     {
-      for ( k = BugCheckParameter4[2]; ; k = v25[2] )
+      for ( k = BugCheckParameter4[2]; ; k = v24[2] )
       {
-        v25 = (_QWORD *)(k & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !v25 || (_QWORD *)*v25 == v54 )
+        v24 = (_QWORD *)(k & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !v24 || (_QWORD *)*v24 == v55 )
           break;
-        v54 = v25;
+        v55 = v24;
       }
     }
   }
   if ( !a5 )
-    MiClearVadBits(a2, a3, v26, v25);
+    MiClearVadBits(a2, a3, v25, v24);
   MiReturnPageTablePageCommitment(
     a2,
     a3,
-    (_DWORD)v104,
-    (_DWORD)v26,
-    (__int64)v25,
+    (_DWORD)v106,
+    (_DWORD)v25,
+    (__int64)v24,
     (__int64)BugCheckParameter4,
-    (__int64)&v106);
+    (__int64)&v108);
   v31 = BugCheckParameter2;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v31);
-  v108 = 0;
+  v110 = 0;
   v32 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v31) == 1 )
     SessionId = MmGetSessionIdEx(v32->ApcState.Process);
@@ -575,7 +576,7 @@ LABEL_6:
   v35 = ((char)v32->AbEntrySummary | (char)v32->AbOrphanedEntrySummary) ^ 0x3F;
   v36 = v31 & 0x7FFFFFFFFFFFFFFCLL;
   v37 = !_BitScanReverse((unsigned int *)&v38, v35);
-  v107 = v38;
+  v109 = v38;
   if ( v37 )
   {
 LABEL_65:
@@ -598,7 +599,7 @@ LABEL_65:
           break;
       }
       v37 = !_BitScanReverse((unsigned int *)&v38, v35);
-      v107 = v38;
+      v109 = v38;
       if ( v37 )
         goto LABEL_64;
     }
@@ -610,8 +611,8 @@ LABEL_64:
     }
     *(_BYTE *)(v39 + 32) |= 2u;
     if ( *(__int64 *)(v39 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v39);
-    v108 = *(_DWORD *)(v39 + 88) & 0x1FFFF;
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v39);
+    v110 = *(_DWORD *)(v39 + 88) & 0x1FFFF;
     *(_DWORD *)(v39 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v39 + 25) &= ~1u;
     *(_QWORD *)(v39 + 32) = 0LL;
@@ -625,28 +626,28 @@ LABEL_64:
   KiAbThreadRemoveBoosts((ULONG_PTR)v32);
   v37 = v32->SpecialApcDisable++ == -1;
   if ( v37 && ($C459BD0D405E8E46662177FB3D0A143F *)v32->ApcState.ApcListHead[0].Flink != &v32->152 )
-    KiCheckForKernelApcDelivery(v41);
+    KiCheckForKernelApcDelivery();
   KiLeaveGuardedRegionUnsafe(CurrentThread);
   if ( a5 )
   {
     MiReInsertPlaceholderVad(a5);
     MiUnlockNestedVad(a5);
   }
-  v42 = v104;
+  v43 = v106;
   if ( v7 && (v7[12] & 0x100000) == 0 )
   {
     v83 = *((_QWORD *)v7 + 9);
-    *((_QWORD *)v7 + 14) = (unsigned __int64)v104 | 1;
+    *((_QWORD *)v7 + 14) = (unsigned __int64)v106 | 1;
     MiManageSubsectionView(v83, v7 + 24, 3LL);
   }
-  v43 = v20 - v114;
-  v44 = v43 - *((_QWORD *)&v113 + 1);
-  if ( v43 )
-    MiReturnFullProcessCharges(v42, v43);
+  v44 = v19 - v116;
+  v45 = v44 - *((_QWORD *)&v115 + 1);
   if ( v44 )
-    MiReturnCommit(*(_QWORD *)(qword_140C4E648 + 8LL * v42[1].IdealProcessorPadding[5]), v44);
-  if ( v100 != 64 )
-    PsReturnProcessPagedPoolQuota(v42, 8 * v111);
+    MiReturnFullProcessCharges(v43, v44);
+  if ( v45 )
+    MiReturnCommit(*(_QWORD *)(qword_140C4E688 + 8LL * v43[1].IdealProcessorPadding[5]), v45, v41, v42);
+  if ( v102 != 64 )
+    PsReturnProcessPagedPoolQuota(v43, 8 * v113);
   if ( v15 )
   {
     v84 = MiResidentPagesForSpan(
@@ -656,7 +657,7 @@ LABEL_64:
     if ( v84 < v15 )
     {
       v85 = v15 - v84;
-      v86 = *(_QWORD *)(qword_140C4E648 + 8LL * v42[1].IdealProcessorPadding[5]);
+      v86 = *(_QWORD *)(qword_140C4E688 + 8LL * v43[1].IdealProcessorPadding[5]);
       if ( (ULONG_PTR *)v86 == &MiSystemPartition )
       {
         CurrentPrcb = KeGetCurrentPrcb();
@@ -696,21 +697,21 @@ LABEL_64:
   }
 LABEL_56:
   MiFinishVadDeletion(BugCheckParameter4);
-  v45 = v101;
-  if ( v101 && v101 != v102 )
+  v46 = v103;
+  if ( v103 && v103 != v104 )
   {
-    v90 = v110;
+    v90 = v112;
     v91 = 0LL;
-    v92 = *(_QWORD *)(v110 + 64) != 0LL;
-    v93 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v110 + 72));
+    v92 = *(_QWORD *)(v112 + 64) != 0LL;
+    v93 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v112 + 72));
     do
     {
-      v94 = MiDecrementSubsections(v45);
-      v45 = *(_QWORD *)(v45 + 16);
+      v94 = MiDecrementSubsections(v46);
+      v46 = *(_QWORD *)(v46 + 16);
       v91 += v94;
     }
-    while ( v45 != v102 );
-    v101 = v45;
+    while ( v46 != v104 );
+    v103 = v46;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v90 + 72));
     if ( KiIrqlFlags )
     {
@@ -732,7 +733,7 @@ LABEL_56:
     __writecr8(v93);
     if ( v91 )
       MiReturnCrossPartitionSectionCharges(
-        *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v90 + 60) & 0x3FF)),
+        *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(v90 + 60) & 0x3FF)),
         v92,
         v91);
   }

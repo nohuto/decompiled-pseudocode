@@ -7,13 +7,17 @@
  *     LdrpTraceLoadMUIDll @ 0x1800CBC78 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrFindResource_U(unsigned __int64 a1, __int64 a2, unsigned int a3, unsigned __int64 *a4)
+NTSTATUS __cdecl LdrFindResource_U(
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DATA_ENTRY *ResourceDataEntry)
 {
-  unsigned int v8; // ebx
+  NTSTATUS v8; // ebx
 
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(L",.", MEMORY[0x7FFE0384]);
-  v8 = LdrpSearchResourceSection_U(a1, a2, a3, 0, a4);
+  v8 = LdrpSearchResourceSection_U(DllHandle, (__int64)ResourceInfo, Level, 0, (__int64)ResourceDataEntry);
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(L"*,", MEMORY[0x7FFE0384]);
   return v8;

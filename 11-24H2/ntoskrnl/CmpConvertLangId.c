@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpConvertLangId @ 0x140C48A54
+ * XREFs of CmpConvertLangId @ 0x140C4AB78
  * Callers:
- *     CmpGetSystemControlValues @ 0x140C48AB8 (CmpGetSystemControlValues.c)
+ *     CmpGetSystemControlValues @ 0x140C4ABDC (CmpGetSystemControlValues.c)
  * Callees:
  *     <none>
  */

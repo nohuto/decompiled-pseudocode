@@ -1,5 +1,5 @@
 /*
- * XREFs of PopWakeSourceTimeoutDpc @ 0x140126B0C
+ * XREFs of PopWakeSourceTimeoutDpc @ 0x14012707C
  * Callers:
  *     <none>
  * Callees:

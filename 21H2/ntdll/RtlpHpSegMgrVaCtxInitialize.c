@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpSegMgrVaCtxInitialize @ 0x18010F388
+ * XREFs of RtlpHpSegMgrVaCtxInitialize @ 0x18010F348
  * Callers:
  *     RtlpHpSegMgrReserve @ 0x18000662C (RtlpHpSegMgrReserve.c)
  * Callees:

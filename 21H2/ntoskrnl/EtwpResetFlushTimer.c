@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpResetFlushTimer @ 0x1402C4330
+ * XREFs of EtwpResetFlushTimer @ 0x1402428B0
  * Callers:
- *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
+ *     EtwpLogger @ 0x14063A500 (EtwpLogger.c)
  * Callees:
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
  */
 
 char __fastcall EtwpResetFlushTimer(__int64 a1, char a2)

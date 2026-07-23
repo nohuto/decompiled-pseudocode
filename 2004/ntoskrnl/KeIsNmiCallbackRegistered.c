@@ -22,8 +22,11 @@ __int64 KeIsNmiCallbackRegistered()
   v4 = 0LL;
   while ( (unsigned int)KiEnumerateNmiSxCallback(&v4, &CurrentIrql, &v3) )
   {
-    if ( (v3 < PsNtosImageBase || v3 >= PsNtosImageEnd) && (v3 < PsHalImageBase || v3 >= PsHalImageEnd) )
+    if ( (v3 < (unsigned __int64)PsNtosImageBase || v3 >= PsNtosImageEnd)
+      && (v3 < (unsigned __int64)PsHalImageBase || v3 >= PsHalImageEnd) )
+    {
       v1 = 1;
+    }
   }
   return v1;
 }

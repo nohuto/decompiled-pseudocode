@@ -1,31 +1,33 @@
 /*
- * XREFs of MiWaitForPageWriteCompletion @ 0x140299EBC
+ * XREFs of MiWaitForPageWriteCompletion @ 0x14022A42C
  * Callers:
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     MmPurgeSection @ 0x140238BA0 (MmPurgeSection.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     MmPurgeSection @ 0x1402DD3F0 (MmPurgeSection.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
-__int64 __fastcall MiWaitForPageWriteCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
+__int64 __fastcall MiWaitForPageWriteCompletion(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  _QWORD v9[2]; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v10; // [rsp+30h] [rbp-20h] BYREF
-  _QWORD v11[3]; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v8; // rdx
+  _QWORD v10[2]; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v11; // [rsp+30h] [rbp-20h] BYREF
+  _QWORD v12[3]; // [rsp+38h] [rbp-18h] BYREF
 
-  v9[1] = 8LL;
-  v9[0] = 0LL;
-  v10 = 393479LL;
-  v11[1] = v11;
-  v11[0] = v11;
+  v10[1] = 8LL;
+  v10[0] = 0LL;
+  v11 = 393479LL;
+  v12[1] = v12;
+  v12[0] = v12;
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a2 + 72));
-  v9[0] = *(_QWORD *)(a2 + 80);
-  *(_QWORD *)(a2 + 80) = v9;
+  v10[0] = *(_QWORD *)(a2 + 80);
+  *(_QWORD *)(a2 + 80) = v10;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 72));
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  MiUnlockProtoPoolPage(a3, a4);
-  return KeWaitForGate(&v10, 18LL);
+  LOBYTE(v8) = a4;
+  MiUnlockProtoPoolPage(a3, v8);
+  return KeWaitForGate(&v11, 18LL);
 }

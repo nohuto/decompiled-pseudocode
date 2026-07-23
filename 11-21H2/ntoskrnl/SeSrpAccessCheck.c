@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
+ *     sub_140383ABC @ 0x140383ABC (sub_140383ABC.c)
  */
 
 char __fastcall SeSrpAccessCheck(
@@ -14,5 +14,5 @@ char __fastcall SeSrpAccessCheck(
         _DWORD *a5,
         char a6)
 {
-  return SepCommonAccessCheckEx(a1, a2, a3, a4, a5, a6, 1);
+  return sub_140383ABC(a1, a2, a3, a4, a5, a6, 1);
 }

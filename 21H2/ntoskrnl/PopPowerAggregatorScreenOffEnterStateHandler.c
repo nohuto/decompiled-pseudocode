@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE7F0
+ * XREFs of PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE950
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x1407761A8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140776368 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorStartNextSession @ 0x140774C94 (PopPowerAggregatorStartNextSession.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
- *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
- *     PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1408EE190 (PopPowerAggregatorEngageAggressiveStandbyActions.c)
- *     PopPowerAggregatorLockAcquire @ 0x1408EE4F4 (PopPowerAggregatorLockAcquire.c)
- *     PopPowerAggregatorLockRelease @ 0x1408EE510 (PopPowerAggregatorLockRelease.c)
- *     PopDripsWatchdogNotifySessionStart @ 0x1408EF450 (PopDripsWatchdogNotifySessionStart.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorStartNextSession @ 0x140774E54 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776208 (PopPowerAggregatorSetCurrentState.c)
+ *     PopDirectedDripsNotify @ 0x14078DCD8 (PopDirectedDripsNotify.c)
+ *     PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1408EE2F0 (PopPowerAggregatorEngageAggressiveStandbyActions.c)
+ *     PopPowerAggregatorLockAcquire @ 0x1408EE654 (PopPowerAggregatorLockAcquire.c)
+ *     PopPowerAggregatorLockRelease @ 0x1408EE670 (PopPowerAggregatorLockRelease.c)
+ *     PopDripsWatchdogNotifySessionStart @ 0x1408EF5B0 (PopDripsWatchdogNotifySessionStart.c)
  */
 
 __int64 __fastcall PopPowerAggregatorScreenOffEnterStateHandler(__int64 a1)
@@ -81,7 +81,7 @@ LABEL_16:
       v16 = v6;
       PopDirectedDripsNotify(6, (char *)&v16);
       PopPowerAggregatorEngageAggressiveStandbyActions(v5, (__int64)&v13);
-      ((void (__fastcall *)(_QWORD))qword_140C54448)(v10);
+      ((void (__fastcall *)(_QWORD))qword_140C54488)(v10);
       PopPowerAggregatorLockAcquire();
       return 0LL;
     }
@@ -90,8 +90,8 @@ LABEL_16:
   }
   v9 = PopPowerAggregatorModernStandbyResourceMasks[v5];
   PopPowerAggregatorLockRelease();
-  if ( qword_140C54418 )
-    qword_140C54418(v9);
+  if ( qword_140C54458 )
+    qword_140C54458(v9);
   PopPowerAggregatorLockAcquire();
   *(_DWORD *)(a1 + 88) = 2;
 LABEL_13:

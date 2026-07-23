@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceThreadSchedulingGroupRundown @ 0x1406C50FC
+ * XREFs of EtwTraceThreadSchedulingGroupRundown @ 0x1406C8D3C
  * Callers:
- *     KiTraceSchedulingGroupRundown @ 0x1405F92A0 (KiTraceSchedulingGroupRundown.c)
+ *     KiTraceSchedulingGroupRundown @ 0x1405FBCC0 (KiTraceSchedulingGroupRundown.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 _QWORD *__fastcall EtwTraceThreadSchedulingGroupRundown(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

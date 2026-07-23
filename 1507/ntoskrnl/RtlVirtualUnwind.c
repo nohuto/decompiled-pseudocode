@@ -15,7 +15,7 @@
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(DWORD HandlerType, DWORD64 ImageBase, DWORD64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, struct _CONTEXT *ContextRecord, PVOID *HandlerData, PDWORD64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
 {
-  EXCEPTION_ROUTINE *v8; // r15
+  EXCEPTION_DISPOSITION (__cdecl *v8)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // r15
   DWORD64 v9; // rdi
   PRUNTIME_FUNCTION v10; // r13
   DWORD64 v12; // r11
@@ -95,7 +95,7 @@ PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(DWORD HandlerType, DWORD64 ImageBa
   struct _M128A *v88; // r8
   __int64 v89; // rcx
   unsigned __int64 v90; // [rsp+40h] [rbp-58h]
-  EXCEPTION_ROUTINE *v91; // [rsp+48h] [rbp-50h]
+  EXCEPTION_DISPOSITION (__cdecl *v91)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+48h] [rbp-50h]
   DWORD v92; // [rsp+A0h] [rbp+8h]
   char v94; // [rsp+B0h] [rbp+18h]
   unsigned int v95; // [rsp+B8h] [rbp+20h]

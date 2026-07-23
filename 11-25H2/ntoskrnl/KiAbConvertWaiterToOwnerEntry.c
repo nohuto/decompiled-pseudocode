@@ -66,14 +66,14 @@ __int64 __fastcall KiAbConvertWaiterToOwnerEntry(ULONG_PTR BugCheckParameter1, _
   __int64 v23; // rdx
   int v24; // r8d
   char v25; // al
-  __int64 v26; // r8
-  unsigned __int64 v27; // rbx
-  char v28; // r9
-  __int64 v29; // rcx
-  __int64 v30; // rdx
-  int v31; // ecx
-  __int64 v32; // rax
-  __int64 v33; // rax
+  _RTL_RB_TREE *v26; // rbx
+  char v27; // r9
+  _RTL_BALANCED_NODE *Min; // rcx
+  unsigned __int64 Root; // rdx
+  int v30; // ecx
+  BOOLEAN v31; // r8
+  _RTL_BALANCED_NODE *v32; // rax
+  _RTL_BALANCED_NODE *v33; // rax
   struct _KPRCB *CurrentPrcb; // rbx
   __int64 p_AbSelfIoBoostsList; // r15
   __int64 v36; // rax
@@ -273,61 +273,61 @@ LABEL_32:
     v7 = 2;
     goto LABEL_73;
   }
-  RtlRbRemoveNode(v21 + 7, v6 + 16);
+  RtlRbRemoveNode((PRTL_RB_TREE)(v21 + 7), (PRTL_BALANCED_NODE)(v6 + 16));
   v24 = *(_DWORD *)(v6 + 80);
   *(_BYTE *)(v6 + 9) = 0;
   *(_DWORD *)(v6 + 80) = 0;
   if ( v24 )
     KiAbThreadRemoveBoostsSlow(BugCheckParameter1);
   v25 = KiAbOwnerComputeCpuPriorityKey(v6);
-  v27 = (unsigned __int64)(v21 + 5);
+  v26 = (_RTL_RB_TREE *)(v21 + 5);
   *(_BYTE *)(v6 + 40) = v25;
-  v28 = v25;
-  v29 = *(_QWORD *)(v27 + 8);
-  v30 = *(_QWORD *)v27;
-  if ( (v29 & 1) == 0 )
+  v27 = v25;
+  Min = v26->Min;
+  Root = (unsigned __int64)v26->Root;
+  if ( ((unsigned __int8)Min & 1) == 0 )
     goto LABEL_58;
-  if ( v30 )
+  if ( Root )
   {
-    v30 ^= v27;
+    Root ^= (unsigned __int64)v26;
 LABEL_58:
-    v31 = v29 & 1;
-    LOBYTE(v26) = 0;
-    if ( v30 )
+    v30 = (unsigned __int8)Min & 1;
+    v31 = 0;
+    if ( Root )
     {
       while ( 1 )
       {
-        while ( *(char *)(v30 + 24) > v28 )
+        while ( *(char *)(Root + 24) > v27 )
         {
-          v32 = *(_QWORD *)v30;
-          if ( v31 )
+          v32 = *(_RTL_BALANCED_NODE **)Root;
+          if ( v30 )
           {
             if ( !v32 )
               goto LABEL_72;
-            v32 ^= v30;
+            v32 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v32);
           }
           if ( !v32 )
             goto LABEL_72;
-          v30 = v32;
+          Root = (unsigned __int64)v32;
         }
-        v33 = *(_QWORD *)(v30 + 8);
-        if ( v31 )
+        v33 = *(_RTL_BALANCED_NODE **)(Root + 8);
+        if ( v30 )
         {
           if ( !v33 )
             break;
-          v33 ^= v30;
+          v33 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v33);
         }
         if ( !v33 )
           break;
-        v30 = v33;
+        Root = (unsigned __int64)v33;
       }
-      LOBYTE(v26) = 1;
+      v31 = 1;
     }
     goto LABEL_72;
   }
-  LOBYTE(v26) = 0;
+  v31 = 0;
 LABEL_72:
-  RtlRbInsertNodeEx(v27, v30, v26, v6 + 16);
+  RtlRbInsertNodeEx(v26, (PRTL_BALANCED_NODE)Root, v31, (PRTL_BALANCED_NODE)(v6 + 16));
 LABEL_73:
   *(_BYTE *)(v6 + 8) &= ~0x40u;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

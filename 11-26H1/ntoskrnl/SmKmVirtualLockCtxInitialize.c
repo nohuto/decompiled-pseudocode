@@ -1,7 +1,7 @@
 /*
- * XREFs of SmKmVirtualLockCtxInitialize @ 0x14063F6C4
+ * XREFs of SmKmVirtualLockCtxInitialize @ 0x1406432A4
  * Callers:
- *     SmPartitionInitialize @ 0x140819034 (SmPartitionInitialize.c)
+ *     SmPartitionInitialize @ 0x14081F244 (SmPartitionInitialize.c)
  * Callees:
  *     <none>
  */

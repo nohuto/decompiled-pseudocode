@@ -6,68 +6,73 @@
  *     RtlpGetChainHead @ 0x180065834 (RtlpGetChainHead.c)
  */
 
-__int64 **__fastcall RtlEnumerateEntryHashTable(__int64 a1, __int64 *a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  __int64 *v2; // r9
-  __int64 v3; // r10
-  __int64 v4; // rdx
-  __int64 **result; // rax
-  __int64 *v6; // rcx
-  __int64 *v7; // r11
-  __int64 **v8; // r8
-  __int64 *v9; // r8
-  __int64 *v10; // rcx
+  PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v2; // r9
+  PRTL_DYNAMIC_HASH_TABLE v3; // r10
+  __int64 BucketIndex; // rdx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY ChainHead; // rcx
+  _LIST_ENTRY *Flink; // r11
+  _LIST_ENTRY *Blink; // r8
+  _QWORD *p_Flink; // r8
+  _LIST_ENTRY *v10; // rcx
 
-  v2 = a2;
-  v3 = a1;
-  v4 = *((unsigned int *)a2 + 8);
-  if ( (unsigned int)v4 < *(_DWORD *)(a1 + 8) )
+  v2 = Enumerator;
+  v3 = HashTable;
+  BucketIndex = Enumerator->BucketIndex;
+  if ( (unsigned int)BucketIndex < HashTable->TableSize )
   {
     while ( 2 )
     {
-      if ( (_DWORD)v4 == *((_DWORD *)v2 + 8) )
+      if ( (_DWORD)BucketIndex == v2->BucketIndex )
       {
-        v6 = (__int64 *)v2[3];
-        result = (__int64 **)v2;
+        ChainHead = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v2->ChainHead;
+        result = &v2->HashEntry;
       }
       else
       {
-        result = (__int64 **)RtlpGetChainHead(v3, v4);
-        v6 = (__int64 *)result;
+        result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)RtlpGetChainHead(v3, BucketIndex);
+        ChainHead = result;
       }
-      while ( *result != v6 )
+      while ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)result->Linkage.Flink != ChainHead )
       {
-        result = (__int64 **)*result;
-        if ( result[2] )
+        result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)result->Linkage.Flink;
+        if ( result->Signature )
         {
-          v7 = (__int64 *)*v2;
-          v8 = (__int64 **)v2[1];
-          if ( *(__int64 **)(*v2 + 8) != v2 || *v8 != v2 )
-            __fastfail(3u);
-          *v8 = v7;
-          v7[1] = (__int64)v8;
-          v9 = (__int64 *)v2[3];
-          if ( v9 != v6 )
+          Flink = v2->HashEntry.Linkage.Flink;
+          Blink = v2->HashEntry.Linkage.Blink;
+          if ( (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)v2->HashEntry.Linkage.Flink->Blink != v2
+            || (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)Blink->Flink != v2 )
           {
-            if ( (__int64 *)*v9 == v9 )
-              --*(_DWORD *)(v3 + 24);
-            if ( (__int64 *)*v6 == v6 )
-              ++*(_DWORD *)(v3 + 24);
-          }
-          *((_DWORD *)v2 + 8) = v4;
-          v2[3] = (__int64)v6;
-          v10 = *result;
-          *v2 = (__int64)*result;
-          v2[1] = (__int64)result;
-          if ( (__int64 **)v10[1] != result )
             __fastfail(3u);
-          v10[1] = (__int64)v2;
-          *result = v2;
+          }
+          Blink->Flink = Flink;
+          Flink->Blink = Blink;
+          p_Flink = &v2->ChainHead->Flink;
+          if ( p_Flink != (_QWORD *)ChainHead )
+          {
+            if ( (_QWORD *)*p_Flink == p_Flink )
+              --v3->NonEmptyBuckets;
+            if ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)ChainHead->Linkage.Flink == ChainHead )
+              ++v3->NonEmptyBuckets;
+          }
+          v2->BucketIndex = BucketIndex;
+          v2->ChainHead = &ChainHead->Linkage;
+          v10 = result->Linkage.Flink;
+          v2->HashEntry.Linkage.Flink = result->Linkage.Flink;
+          v2->HashEntry.Linkage.Blink = &result->Linkage;
+          if ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v10->Blink != result )
+            __fastfail(3u);
+          v10->Blink = &v2->HashEntry.Linkage;
+          result->Linkage.Flink = &v2->HashEntry.Linkage;
           return result;
         }
       }
-      v4 = (unsigned int)(v4 + 1);
-      if ( (unsigned int)v4 < *(_DWORD *)(v3 + 8) )
+      BucketIndex = (unsigned int)(BucketIndex + 1);
+      if ( (unsigned int)BucketIndex < v3->TableSize )
         continue;
       break;
     }

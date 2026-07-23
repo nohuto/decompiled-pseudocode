@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlWideCharArrayCopyStringWorker_0 @ 0x1800DA10C
+ * XREFs of RtlWideCharArrayCopyStringWorker_0 @ 0x1800DA1CC
  * Callers:
- *     RtlUnicodeStringCatString @ 0x1800DA060 (RtlUnicodeStringCatString.c)
+ *     RtlUnicodeStringCatString @ 0x1800DA120 (RtlUnicodeStringCatString.c)
  * Callees:
  *     <none>
  */

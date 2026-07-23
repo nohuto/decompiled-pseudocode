@@ -1,5 +1,5 @@
 /*
- * XREFs of MmLowPowerEpochCallback @ 0x1403CC700
+ * XREFs of MmLowPowerEpochCallback @ 0x1403CC870
  * Callers:
  *     <none>
  * Callees:
@@ -14,6 +14,6 @@ __int64 __fastcall MmLowPowerEpochCallback(_QWORD *a1, _DWORD *a2, int a3)
   if ( *(_QWORD *)&GUID_LOW_POWER_EPOCH.Data1 == *a1 )
     v3 = *(_QWORD *)GUID_LOW_POWER_EPOCH.Data4 - a1[1];
   if ( !v3 && a3 == 4 && a2 )
-    byte_140C4E6C1 = *a2 != 0;
+    byte_140C4E701 = *a2 != 0;
   return 0LL;
 }

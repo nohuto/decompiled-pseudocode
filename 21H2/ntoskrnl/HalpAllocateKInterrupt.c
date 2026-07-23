@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocateKInterrupt @ 0x1403A2898
+ * XREFs of HalpAllocateKInterrupt @ 0x1403A29E8
  * Callers:
- *     HalpCreateInterrupt @ 0x1403A26E4 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x1403A2834 (HalpCreateInterrupt.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall HalpAllocateKInterrupt(int a1, int a2)

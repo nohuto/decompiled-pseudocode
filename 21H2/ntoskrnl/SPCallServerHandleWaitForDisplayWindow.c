@@ -1,14 +1,14 @@
 /*
- * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x14078CD7C
+ * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x14078CF3C
  * Callers:
- *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
+ *     sub_1406EDA0C @ 0x1406EDA0C (sub_1406EDA0C.c)
  * Callees:
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleWaitForDisplayWindow(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -125,12 +125,12 @@ LABEL_9:
     {
       do
       {
-        v19 = KeWaitForSingleObject(&Mutex, UserRequest, 1, 1u, 0LL);
+        v19 = KeWaitForSingleObject(&stru_140C13EA0, UserRequest, 1, 1u, 0LL);
         v12 = v19;
       }
       while ( v19 == 257 );
       if ( v19 >= 0 && v19 != 192 && v19 != 258 )
-        KeReleaseMutex(&Mutex, 0);
+        KeReleaseMutex(&stru_140C13EA0, 0);
     }
     v20 = *(_DWORD *)(a2 + 32);
     if ( *(_DWORD *)(a2 + 16) >= 0xFFFFFFC8 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwSetInformationThreadWrapper @ 0x1405F7460
+ * XREFs of DifZwSetInformationThreadWrapper @ 0x1405F79D0
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetInformationThread @ 0x14041AF00 (ZwSetInformationThread.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwSetInformationThread @ 0x14041B290 (ZwSetInformationThread.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwSetInformationThreadWrapper(

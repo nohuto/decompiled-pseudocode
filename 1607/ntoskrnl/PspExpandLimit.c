@@ -1,10 +1,10 @@
 /*
- * XREFs of PspExpandLimit @ 0x14020EFA0
+ * XREFs of PspExpandLimit @ 0x14020EDCC
  * Callers:
- *     PspInitializeQuotaBlock @ 0x14057C79C (PspInitializeQuotaBlock.c)
+ *     PspInitializeQuotaBlock @ 0x14057CC48 (PspInitializeQuotaBlock.c)
  * Callees:
- *     PspUnlockQuotaExpansion @ 0x1400C6974 (PspUnlockQuotaExpansion.c)
- *     PspLockQuotaExpansion @ 0x1400C69CC (PspLockQuotaExpansion.c)
+ *     PspUnlockQuotaExpansion @ 0x1400C4814 (PspUnlockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x1400C486C (PspLockQuotaExpansion.c)
  */
 
 char __fastcall PspExpandLimit(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)

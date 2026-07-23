@@ -10,31 +10,22 @@
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrpFindExistingModule(
-        unsigned __int16 *a1,
-        unsigned __int16 *a2,
-        unsigned __int64 *a3,
-        __int64 a4,
-        volatile signed __int32 **a5)
+__int64 __fastcall LdrpFindExistingModule(PUNICODE_STRING String1, PUNICODE_STRING a2, char a3, int a4, _QWORD *a5)
 {
-  int v6; // ebp
-  char v7; // si
-  unsigned __int16 *v9; // rdx
+  _UNICODE_STRING *v9; // rdx
   int LoadedDllByNameLockHeld; // ebx
 
-  v6 = a4;
-  v7 = (char)a3;
   *a5 = 0LL;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, (unsigned __int64)a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   v9 = 0LL;
-  if ( (v7 & 0x20) == 0 )
+  if ( (a3 & 0x20) == 0 )
     v9 = a2;
-  LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(a1, v9, v7, a5, v6);
-  if ( LoadedDllByNameLockHeld == -1073741515 && (v7 & 8) != 0 )
+  LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(String1, v9, a3, a5, a4);
+  if ( LoadedDllByNameLockHeld == -1073741515 && (a3 & 8) != 0 )
   {
-    LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(0LL, a2, 0, a5, v6);
+    LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(0LL, a2, 0, a5, a4);
     if ( LoadedDllByNameLockHeld >= 0 )
-      *((_DWORD *)*a5 + 26) |= 1u;
+      *(_DWORD *)(*a5 + 104LL) |= 1u;
   }
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
   return (unsigned int)LoadedDllByNameLockHeld;

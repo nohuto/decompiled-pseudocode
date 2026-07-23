@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetEventNameFromEventMetadata @ 0x1405AC448
+ * XREFs of EtwpGetEventNameFromEventMetadata @ 0x1405AC678
  * Callers:
- *     EtwpApplyEventNameFilter @ 0x1405ABB34 (EtwpApplyEventNameFilter.c)
+ *     EtwpApplyEventNameFilter @ 0x1405ABD64 (EtwpApplyEventNameFilter.c)
  * Callees:
- *     strnlen @ 0x1403D3BD0 (strnlen.c)
+ *     strnlen @ 0x1403D3D40 (strnlen.c)
  */
 
 const char *__fastcall EtwpGetEventNameFromEventMetadata(__int64 a1, unsigned int a2, _WORD *a3)

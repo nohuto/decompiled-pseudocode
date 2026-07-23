@@ -9,33 +9,33 @@
  *     sub_1800CA554 @ 0x1800CA554 (sub_1800CA554.c)
  */
 
-__int64 __fastcall sub_180043500(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall sub_180043500(__int64 a1)
 {
-  unsigned int v5; // edi
-  int v6; // eax
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  char v10; // cl
-  __int64 v11; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v13; // [rsp+60h] [rbp+18h] BYREF
+  unsigned int v2; // edi
+  int v3; // eax
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  char v7; // cl
+  __int64 v8; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+60h] [rbp+18h] BYREF
 
-  v5 = 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D220, a2, a3, a4);
+  v2 = 0;
+  RtlAcquireSRWLockExclusive(&stru_18015D220);
   if ( !*(_QWORD *)a1 )
   {
-    v6 = sub_1800250A4(
-           *(_QWORD *)(a1 + 32),
+    v3 = sub_1800250A4(
+           *(PCWSTR *)(a1 + 32),
            *(_DWORD *)(a1 + 24),
-           &v11,
-           &v12,
+           &v8,
+           &v9,
            (_DWORD *)(a1 + 120),
            (_OWORD *)(a1 + 40),
-           &v13);
-    v5 = v6;
-    if ( v6 < 0 )
+           &v10);
+    v2 = v3;
+    if ( v3 < 0 )
     {
-      v10 = dword_180156A70;
+      v7 = dword_180156A70;
       if ( (dword_180156A70 & 3) != 0 )
       {
         sub_1800CA554(
@@ -44,21 +44,21 @@ __int64 __fastcall sub_180043500(__int64 a1, unsigned __int64 a2, unsigned __int
           (unsigned int)"LdrpComputeLazyDllPath",
           0,
           "Lazy DLL search path computation failed with status: 0x%08lx.\n",
-          v6);
-        v10 = dword_180156A70;
+          v3);
+        v7 = dword_180156A70;
       }
-      if ( (v10 & 0x10) != 0 )
+      if ( (v7 & 0x10) != 0 )
         __debugbreak();
     }
     else
     {
-      v7 = v11;
-      *(_QWORD *)(a1 + 8) = v12;
-      v8 = v13;
+      v4 = v8;
+      *(_QWORD *)(a1 + 8) = v9;
+      v5 = v10;
       *(_BYTE *)(a1 + 124) = 1;
-      *(_QWORD *)a1 = v7;
-      *(_QWORD *)(a1 + 16) = v8;
-      if ( v8 )
+      *(_QWORD *)a1 = v4;
+      *(_QWORD *)(a1 + 16) = v5;
+      if ( v5 )
       {
         if ( (dword_180156A70 & 5) != 0 )
           sub_1800CA554(
@@ -67,8 +67,8 @@ __int64 __fastcall sub_180043500(__int64 a1, unsigned __int64 a2, unsigned __int
             (unsigned int)"LdrpComputeLazyDllPath",
             2,
             "Packaged DLL search path computed. Package Dirs: %ws, DllPath: %ws\n",
-            v8,
-            v7);
+            v5,
+            v4);
       }
       else if ( (dword_180156A70 & 5) != 0 )
       {
@@ -78,10 +78,10 @@ __int64 __fastcall sub_180043500(__int64 a1, unsigned __int64 a2, unsigned __int
           (unsigned int)"LdrpComputeLazyDllPath",
           2,
           "DLL search path computed: %ws\n",
-          v7);
+          v4);
       }
     }
   }
-  RtlReleaseSRWLockExclusive(&qword_18015D220);
-  return v5;
+  RtlReleaseSRWLockExclusive(&stru_18015D220);
+  return v2;
 }

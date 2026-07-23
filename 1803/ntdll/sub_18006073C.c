@@ -8,28 +8,26 @@
  *     sub_1800607D4 @ 0x1800607D4 (sub_1800607D4.c)
  */
 
-PSLIST_ENTRY __fastcall sub_18006073C(unsigned __int64 a1, char *a2, __int64 a3, __int64 a4)
+PSLIST_ENTRY __fastcall sub_18006073C(_RTL_SRWLOCK *a1, unsigned int a2)
 {
-  unsigned int v4; // ebp
-  int v6; // esi
-  _QWORD *v7; // rdi
-  __int64 v8; // r14
+  int v4; // esi
+  _RTL_SRWLOCK *v5; // rdi
+  __int64 v6; // r14
 
-  v4 = (unsigned int)a2;
-  v6 = (unsigned __int8)a2 & 1;
-  if ( ((unsigned __int8)a2 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 96), a2, a3, a4);
-  v7 = (_QWORD *)(a1 + 224);
-  v8 = 129LL;
+  v4 = a2 & 1;
+  if ( (a2 & 1) == 0 )
+    RtlAcquireSRWLockShared(a1 + 12);
+  v5 = a1 + 28;
+  v6 = 129LL;
   do
   {
-    if ( (*v7 & 1) == 0 )
-      sub_1800607D4(a1, *v7, v4 | 1);
-    ++v7;
-    --v8;
+    if ( ((__int64)v5->Ptr & 1) == 0 )
+      sub_1800607D4(a1, v5->Ptr, a2 | 1);
+    ++v5;
+    --v6;
   }
-  while ( v8 );
-  if ( !v6 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 96));
-  return sub_1800605B4(a1 + 112, a1, v4);
+  while ( v6 );
+  if ( !v4 )
+    RtlReleaseSRWLockShared(a1 + 12);
+  return sub_1800605B4((__int64)&a1[14], (unsigned __int64)a1, a2);
 }

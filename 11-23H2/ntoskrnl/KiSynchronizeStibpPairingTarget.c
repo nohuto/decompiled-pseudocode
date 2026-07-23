@@ -1,5 +1,5 @@
 /*
- * XREFs of KiSynchronizeStibpPairingTarget @ 0x140460B80
+ * XREFs of KiSynchronizeStibpPairingTarget @ 0x140460F80
  * Callers:
  *     <none>
  * Callees:

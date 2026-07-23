@@ -18,14 +18,14 @@ PVOID __stdcall RtlInsertElementGenericTableFull(
 {
   size_t v7; // rbp
   _QWORD *v10; // rax
-  RTL_SPLAY_LINKS *v11; // rbx
+  _RTL_SPLAY_LINKS *v11; // rbx
   struct _LIST_ENTRY *v12; // rax
   struct _LIST_ENTRY *Blink; // rdx
 
   v7 = BufferSize;
   if ( SearchResult == TableFoundNode )
   {
-    v11 = (RTL_SPLAY_LINKS *)NodeOrParent;
+    v11 = (_RTL_SPLAY_LINKS *)NodeOrParent;
 LABEL_10:
     Table->TableRoot = RtlSplay(v11);
     if ( NewElement )
@@ -35,7 +35,7 @@ LABEL_10:
   if ( BufferSize + 40 >= BufferSize )
   {
     v10 = (_QWORD *)((__int64 (*)(void))Table->AllocateRoutine)();
-    v11 = (RTL_SPLAY_LINKS *)v10;
+    v11 = (_RTL_SPLAY_LINKS *)v10;
     if ( v10 )
     {
       *v10 = v10;

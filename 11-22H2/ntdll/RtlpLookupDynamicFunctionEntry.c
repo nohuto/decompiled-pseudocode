@@ -8,102 +8,98 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A2AD0 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlpLookupDynamicFunctionEntry(
-        unsigned __int64 a1,
-        _QWORD *a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+__int64 __fastcall RtlpLookupDynamicFunctionEntry(unsigned __int64 a1, _QWORD *a2)
 {
-  _QWORD *v6; // rax
-  int v7; // ebx
-  _QWORD *v8; // rcx
-  _QWORD *v9; // rax
-  _QWORD *v10; // rax
-  unsigned int *v11; // r14
-  __int64 v12; // rbp
-  int v13; // edx
-  unsigned __int64 v14; // rsi
-  unsigned int *v15; // rdi
-  unsigned __int64 v16; // rcx
+  _QWORD *v4; // rax
+  int v5; // ebx
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rax
+  _QWORD *v8; // rax
+  unsigned int *v9; // r14
+  __int64 v10; // rbp
+  int v11; // edx
+  unsigned __int64 v12; // rsi
+  unsigned int *v13; // rdi
+  unsigned __int64 v14; // rcx
   __int64 result; // rax
-  __int64 (__fastcall *v18)(unsigned __int64, __int64); // rdi
-  __int64 v19; // rbx
-  _QWORD *v20; // rax
-  unsigned int v21; // edx
-  unsigned __int64 v22; // rsi
-  int v23; // r8d
+  __int64 (__fastcall *v16)(unsigned __int64, __int64); // rdi
+  __int64 v17; // rbx
+  _QWORD *v18; // rax
+  unsigned int v19; // edx
+  unsigned __int64 v20; // rsi
+  int v21; // r8d
   int i; // r9d
-  int v25; // edx
+  int v23; // edx
 
-  RtlAcquireSRWLockShared(&RtlpDynamicFunctionTableLock, (unsigned __int64)a2, a3, a4);
-  v6 = (_QWORD *)RtlpDynamicCallbackTableTreeMin;
-  v7 = 0;
-  while ( v6 )
+  RtlAcquireSRWLockShared(&RtlpDynamicFunctionTableLock);
+  v4 = (_QWORD *)RtlpDynamicCallbackTableTreeMin;
+  v5 = 0;
+  while ( v4 )
   {
-    if ( a1 < *(v6 - 7) )
+    if ( a1 < *(v4 - 7) )
     {
-      v6 = (_QWORD *)*v6;
+      v4 = (_QWORD *)*v4;
     }
     else
     {
-      if ( a1 < *(v6 - 6) )
+      if ( a1 < *(v4 - 6) )
         break;
-      v6 = (_QWORD *)v6[1];
+      v4 = (_QWORD *)v4[1];
     }
   }
-  v8 = v6 - 11;
-  if ( !v6 )
+  v6 = v4 - 11;
+  if ( !v4 )
   {
-    v9 = (_QWORD *)RtlpDynamicCallbackTableTreeMax;
-    while ( v9 )
+    v7 = (_QWORD *)RtlpDynamicCallbackTableTreeMax;
+    while ( v7 )
     {
-      if ( a1 < *(v9 - 10) )
+      if ( a1 < *(v7 - 10) )
       {
-        v9 = (_QWORD *)*v9;
+        v7 = (_QWORD *)*v7;
       }
       else
       {
-        if ( a1 < *(v9 - 9) )
+        if ( a1 < *(v7 - 9) )
           break;
-        v9 = (_QWORD *)v9[1];
+        v7 = (_QWORD *)v7[1];
       }
     }
-    v8 = v9 - 14;
-    if ( !v9 )
+    v6 = v7 - 14;
+    if ( !v7 )
     {
-      v10 = (_QWORD *)RtlpDynamicFunctionTableTreeMin;
-      while ( v10 )
+      v8 = (_QWORD *)RtlpDynamicFunctionTableTreeMin;
+      while ( v8 )
       {
-        if ( a1 < *(v10 - 7) )
+        if ( a1 < *(v8 - 7) )
         {
-          v10 = (_QWORD *)*v10;
+          v8 = (_QWORD *)*v8;
         }
         else
         {
-          if ( a1 < *(v10 - 6) )
+          if ( a1 < *(v8 - 6) )
             break;
-          v10 = (_QWORD *)v10[1];
+          v8 = (_QWORD *)v8[1];
         }
       }
-      v8 = v10 - 11;
-      if ( !v10 )
+      v6 = v8 - 11;
+      if ( !v8 )
       {
-        v20 = (_QWORD *)RtlpDynamicFunctionTableTreeMax;
-        while ( v20 )
+        v18 = (_QWORD *)RtlpDynamicFunctionTableTreeMax;
+        while ( v18 )
         {
-          if ( a1 >= *(v20 - 10) )
+          if ( a1 >= *(v18 - 10) )
           {
-            if ( a1 < *(v20 - 9) )
+            if ( a1 < *(v18 - 9) )
               break;
-            v20 = (_QWORD *)v20[1];
+            v18 = (_QWORD *)v18[1];
           }
           else
           {
-            v20 = (_QWORD *)*v20;
+            v18 = (_QWORD *)*v18;
           }
         }
-        v8 = v20 - 14;
-        if ( !v20 )
+        v6 = v18 - 14;
+        if ( !v18 )
         {
 LABEL_41:
           RtlReleaseSRWLockShared(&RtlpDynamicFunctionTableLock);
@@ -112,67 +108,67 @@ LABEL_41:
       }
     }
   }
-  v11 = (unsigned int *)v8[2];
-  v12 = v8[6];
-  if ( *((_DWORD *)v8 + 20) == 3 || !*((_DWORD *)v8 + 20) )
+  v9 = (unsigned int *)v6[2];
+  v10 = v6[6];
+  if ( *((_DWORD *)v6 + 20) == 3 || !*((_DWORD *)v6 + 20) )
   {
-    v13 = *((_DWORD *)v8 + 21);
-    if ( !v13 )
+    v11 = *((_DWORD *)v6 + 21);
+    if ( !v11 )
       goto LABEL_33;
-    v14 = a1 - v12;
-    v15 = &v11[3 * (v13 - 1)];
-    v16 = *v15;
-    if ( v14 < v16 )
+    v12 = a1 - v10;
+    v13 = &v9[3 * (v11 - 1)];
+    v14 = *v13;
+    if ( v12 < v14 )
     {
-      v23 = v13 - 2;
-      for ( i = 0; v23 >= i; LODWORD(v16) = *v15 )
+      v21 = v11 - 2;
+      for ( i = 0; v21 >= i; LODWORD(v14) = *v13 )
       {
-        v25 = (v23 + i) >> 1;
-        v15 = &v11[3 * v25];
-        if ( v14 >= *v15 )
+        v23 = (v21 + i) >> 1;
+        v13 = &v9[3 * v23];
+        if ( v12 >= *v13 )
         {
-          LODWORD(v16) = *v15;
-          if ( v14 < v15[3] )
+          LODWORD(v14) = *v13;
+          if ( v12 < v13[3] )
             break;
-          i = v25 + 1;
+          i = v23 + 1;
         }
         else
         {
-          v23 = v25 - 1;
+          v21 = v23 - 1;
         }
       }
     }
-    if ( v14 < (unsigned int)v16 || v14 >= v15[1] )
+    if ( v12 < (unsigned int)v14 || v12 >= v13[1] )
 LABEL_33:
-      v15 = 0LL;
+      v13 = 0LL;
     RtlReleaseSRWLockShared(&RtlpDynamicFunctionTableLock);
-    if ( v15 )
-      *a2 = v12;
-    return (__int64)v15;
+    if ( v13 )
+      *a2 = v10;
+    return (__int64)v13;
   }
   else
   {
-    if ( *((_DWORD *)v8 + 20) != 1 )
+    if ( *((_DWORD *)v6 + 20) != 1 )
     {
-      v18 = (__int64 (__fastcall *)(unsigned __int64, __int64))v8[7];
-      v19 = v8[8];
+      v16 = (__int64 (__fastcall *)(unsigned __int64, __int64))v6[7];
+      v17 = v6[8];
       RtlReleaseSRWLockShared(&RtlpDynamicFunctionTableLock);
-      *a2 = v12;
-      return v18(a1, v19);
+      *a2 = v10;
+      return v16(a1, v17);
     }
-    v21 = *((_DWORD *)v8 + 21);
-    v22 = a1 - v12;
-    if ( !v21 )
+    v19 = *((_DWORD *)v6 + 21);
+    v20 = a1 - v10;
+    if ( !v19 )
       goto LABEL_41;
-    while ( v22 < *v11 || v22 >= v11[1] )
+    while ( v20 < *v9 || v20 >= v9[1] )
     {
-      v11 += 3;
-      if ( ++v7 >= v21 )
+      v9 += 3;
+      if ( ++v5 >= v19 )
         goto LABEL_41;
     }
     RtlReleaseSRWLockShared(&RtlpDynamicFunctionTableLock);
-    result = (__int64)v11;
-    *a2 = v12;
+    result = (__int64)v9;
+    *a2 = v10;
   }
   return result;
 }

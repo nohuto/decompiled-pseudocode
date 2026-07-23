@@ -1,11 +1,11 @@
 /*
- * XREFs of VslApplySecureImageFixups @ 0x1404FC0A8
+ * XREFs of VslApplySecureImageFixups @ 0x1404FC028
  * Callers:
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall VslApplySecureImageFixups(__int64 a1, unsigned int a2, __int64 a3)

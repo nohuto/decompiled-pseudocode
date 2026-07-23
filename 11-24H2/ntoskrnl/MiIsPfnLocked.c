@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsPfnLocked @ 0x14044C868
+ * XREFs of MiIsPfnLocked @ 0x140443768
  * Callers:
- *     MiDecommitFreePagesTail @ 0x1404F1D60 (MiDecommitFreePagesTail.c)
- *     MmIsMdlPageLocked @ 0x140BA46F8 (MmIsMdlPageLocked.c)
+ *     MiDecommitFreePagesTail @ 0x1404EF800 (MiDecommitFreePagesTail.c)
+ *     MmIsMdlPageLocked @ 0x140BA66F8 (MmIsMdlPageLocked.c)
  * Callees:
- *     MiPfnIsNonPagedPool @ 0x14044C8EC (MiPfnIsNonPagedPool.c)
+ *     MiPfnIsNonPagedPool @ 0x1404437EC (MiPfnIsNonPagedPool.c)
  */
 
 _BOOL8 __fastcall MiIsPfnLocked(__int64 a1)

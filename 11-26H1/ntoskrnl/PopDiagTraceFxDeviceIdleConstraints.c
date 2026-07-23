@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxDeviceIdleConstraints @ 0x140608AF4
+ * XREFs of PopDiagTraceFxDeviceIdleConstraints @ 0x14060B6B4
  * Callers:
- *     PopPluginRequestDeviceIdleConstraints @ 0x1404E1FA0 (PopPluginRequestDeviceIdleConstraints.c)
+ *     PopPluginRequestDeviceIdleConstraints @ 0x1404DB680 (PopPluginRequestDeviceIdleConstraints.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDeviceIdleConstraints(__int64 a1, __int64 a2, int a3)
@@ -21,11 +21,9 @@ void __fastcall PopDiagTraceFxDeviceIdleConstraints(__int64 a1, __int64 a2, int 
 
   v11 = a3;
   v10 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_DEVICE_IDLE_CONSTRAINTS) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_IDLE_CONSTRAINTS) )
     {
       UserData.Ptr = (ULONGLONG)&v10;
       *(_QWORD *)&UserData.Size = 8LL;
@@ -34,15 +32,7 @@ void __fastcall PopDiagTraceFxDeviceIdleConstraints(__int64 a1, __int64 a2, int 
       v6 = 4LL;
       v7 = a2;
       v9 = 0;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_DEVICE_IDLE_CONSTRAINTS,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        3u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_DEVICE_IDLE_CONSTRAINTS, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUnmaskInterruptInternal @ 0x14042370C
+ * XREFs of KiUnmaskInterruptInternal @ 0x1404307FC
  * Callers:
- *     KeUnmaskInterrupt @ 0x140423A04 (KeUnmaskInterrupt.c)
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
+ *     KeUnmaskInterrupt @ 0x140430AF4 (KeUnmaskInterrupt.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiUnmaskInterruptInternal(__int64 a1, unsigned int a2)

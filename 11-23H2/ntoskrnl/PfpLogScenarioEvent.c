@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpLogScenarioEvent @ 0x1407D3AE8
+ * XREFs of PfpLogScenarioEvent @ 0x1407D3DB8
  * Callers:
- *     PfpProcessScenarioPhase @ 0x1407D3650 (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x140A9FE74 (PfPowerActionNotify.c)
+ *     PfpProcessScenarioPhase @ 0x1407D3920 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140A9FCE4 (PfPowerActionNotify.c)
  * Callees:
- *     PfLogEvent @ 0x14028C088 (PfLogEvent.c)
- *     PfTSetTraceWorkerPriority @ 0x14035EE00 (PfTSetTraceWorkerPriority.c)
- *     PfTAccessTracingCheck @ 0x14035EE98 (PfTAccessTracingCheck.c)
- *     PfGenerateTrace @ 0x1407D3C00 (PfGenerateTrace.c)
+ *     PfLogEvent @ 0x14028C318 (PfLogEvent.c)
+ *     PfTSetTraceWorkerPriority @ 0x14035EFA0 (PfTSetTraceWorkerPriority.c)
+ *     PfTAccessTracingCheck @ 0x14035F038 (PfTAccessTracingCheck.c)
+ *     PfGenerateTrace @ 0x1407D3ED0 (PfGenerateTrace.c)
  *     MmPerformMemoryListCommand @ 0x140A884BC (MmPerformMemoryListCommand.c)
  */
 

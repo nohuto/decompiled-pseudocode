@@ -1,22 +1,22 @@
 /*
- * XREFs of KiWaitForAllObjects @ 0x1400FA428
+ * XREFs of KiWaitForAllObjects @ 0x1400FA4A8
  * Callers:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  * Callees:
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiBeginThreadWait @ 0x14008B1C0 (KiBeginThreadWait.c)
- *     KiCheckDueTimeExpired @ 0x14008B560 (KiCheckDueTimeExpired.c)
- *     KiCheckWaitNext @ 0x14008B5E0 (KiCheckWaitNext.c)
- *     KiWaitSatisfyMutant @ 0x1400F9C64 (KiWaitSatisfyMutant.c)
- *     KiFastExitThreadWait @ 0x1400F9DAC (KiFastExitThreadWait.c)
- *     KiWaitSatisfyOther @ 0x1400FA7F4 (KiWaitSatisfyOther.c)
- *     KiUnlockKobjectArray @ 0x1400FA824 (KiUnlockKobjectArray.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiBeginThreadWait @ 0x14008B1B0 (KiBeginThreadWait.c)
+ *     KiCheckDueTimeExpired @ 0x14008B550 (KiCheckDueTimeExpired.c)
+ *     KiCheckWaitNext @ 0x14008B5D0 (KiCheckWaitNext.c)
+ *     KiWaitSatisfyMutant @ 0x1400F9CE4 (KiWaitSatisfyMutant.c)
+ *     KiFastExitThreadWait @ 0x1400F9E2C (KiFastExitThreadWait.c)
+ *     KiWaitSatisfyOther @ 0x1400FA874 (KiWaitSatisfyOther.c)
+ *     KiUnlockKobjectArray @ 0x1400FA8A4 (KiUnlockKobjectArray.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiWaitForAllObjects(
@@ -25,7 +25,7 @@ __int64 __fastcall KiWaitForAllObjects(
         unsigned int a3,
         char a4,
         char a5,
-        __int64 a6,
+        LARGE_INTEGER *a6,
         __int64 *a7)
 {
   __int64 *v7; // r14
@@ -66,7 +66,7 @@ __int64 __fastcall KiWaitForAllObjects(
   _QWORD *v43; // rcx
   __int64 v44; // rax
   _QWORD *v45; // r10
-  __int64 v46; // r9
+  __int64 QuadPart; // r9
   int v47; // r8d
   volatile unsigned __int8 DpcRoutineActive; // al
   struct _KTHREAD *v49; // rdx
@@ -83,7 +83,7 @@ __int64 __fastcall KiWaitForAllObjects(
   int v62; // [rsp+3Ch] [rbp-C4h] BYREF
   unsigned int v63; // [rsp+40h] [rbp-C0h]
   __int64 v64; // [rsp+48h] [rbp-B8h]
-  unsigned __int64 v65; // [rsp+50h] [rbp-B0h] BYREF
+  LARGE_INTEGER v65; // [rsp+50h] [rbp-B0h] BYREF
   __int64 *v66; // [rsp+58h] [rbp-A8h]
   __int64 v67; // [rsp+60h] [rbp-A0h] BYREF
   char v68; // [rsp+68h] [rbp-98h] BYREF
@@ -125,7 +125,7 @@ __int64 __fastcall KiWaitForAllObjects(
     while ( v11 < (unsigned int)v12 );
   }
   CurrentThread = KeGetCurrentThread();
-  v20 = KiCheckWaitNext((__int64)CurrentThread, a6, 0, (__int64 *)&v65, &v60);
+  v20 = KiCheckWaitNext((__int64)CurrentThread, a6, 0, &v65, &v60);
   v58 = v20;
   while ( 2 )
   {
@@ -259,7 +259,7 @@ LABEL_20:
     }
     else
     {
-      if ( (unsigned int)KiCheckDueTimeExpired((__int64)CurrentThread, v60, v65) )
+      if ( (unsigned int)KiCheckDueTimeExpired((__int64)CurrentThread, v60, v65.QuadPart) )
       {
         KiUnlockKobjectArray(&v67, (unsigned int)v12);
         LOBYTE(v54) = v20;
@@ -288,10 +288,10 @@ LABEL_20:
         while ( v42 < (unsigned int)v12 );
       }
       KiUnlockKobjectArray(&v67, (unsigned int)v12);
-      v46 = v65;
+      QuadPart = v65.QuadPart;
       v47 = v60;
       CurrentThread->WaitBlockCount = v12;
-      LODWORD(WaitStatus) = KiCommitThreadWait((__int64)CurrentThread, v7, v47, v46);
+      LODWORD(WaitStatus) = KiCommitThreadWait((__int64)CurrentThread, v7, v47, QuadPart);
       if ( (_DWORD)WaitStatus == 256 )
       {
         v20 = 0;

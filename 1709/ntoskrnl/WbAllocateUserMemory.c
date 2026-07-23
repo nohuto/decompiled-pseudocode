@@ -23,13 +23,13 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
   int MemoryBlock; // r14d
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v10; // rdi
-  unsigned __int64 v11; // rsi
+  PRTL_BALANCED_NODE v11; // rsi
   int v12; // esi
   __int64 v13; // rcx
   struct _KTHREAD *v15; // rax
-  unsigned __int64 v16; // rax
+  PRTL_BALANCED_NODE v16; // rax
   int v17; // r8d
-  unsigned __int64 v18; // rsi
+  PRTL_BALANCED_NODE v18; // rsi
   char v19; // bl
   PVOID *BaseAddress; // [rsp+30h] [rbp-20h] BYREF
   _QWORD v21[3]; // [rsp+38h] [rbp-18h] BYREF
@@ -49,9 +49,9 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
   v10 = (signed __int64 *)(a1 + 224);
   v11 = KeAbPreAcquire(a1 + 224, 0LL, 0);
   if ( _InterlockedCompareExchange64(v10, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v10, v11, (unsigned __int64)v10);
+    ExfAcquirePushLockSharedEx(v10, (__int64)v11, (ULONG_PTR)v10);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   v12 = 0;
   if ( *(_DWORD *)(a1 + 188) )
   {
@@ -89,9 +89,9 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
     v16 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
     v18 = v16;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v10, v16, (__int16 *)v10);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v10, (__int64)v16, (__int16 *)v10);
     if ( v18 )
-      *(_BYTE *)(v18 + 26) |= 1u;
+      BYTE2(v18[1].Left) |= 1u;
     MemoryBlock = sub_14057660C((int)a1 + 184, (_DWORD)BaseAddress, v17, (unsigned int)BaseAddress[4], 8, -1);
     v19 = _InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v19 & 2) != 0 && (v19 & 4) == 0 )

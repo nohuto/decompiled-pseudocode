@@ -1,21 +1,21 @@
 /*
- * XREFs of NtStopProfile @ 0x14095B040
+ * XREFs of NtStopProfile @ 0x14095B210
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeStopProfile @ 0x14051BCE0 (KeStopProfile.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeStopProfile @ 0x14051BF20 (KeStopProfile.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtStopProfile(void *a1)
+NTSTATUS __cdecl NtStopProfile(HANDLE ProfileHandle)
 {
-  int v1; // ebp
+  NTSTATUS v1; // ebp
   NTSTATUS result; // eax
   PADAPTER_OBJECT v3; // r14
   void *v4; // rbx
@@ -26,7 +26,7 @@ NTSTATUS __fastcall NtStopProfile(void *a1)
   v1 = 0;
   DmaAdapter = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             ProfileHandle,
              1u,
              ExProfileObjectType,
              KeGetCurrentThread()->PreviousMode,

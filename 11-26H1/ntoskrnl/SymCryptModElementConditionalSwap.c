@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptModElementConditionalSwap @ 0x14055C554
+ * XREFs of SymCryptModElementConditionalSwap @ 0x14055EA3C
  * Callers:
- *     SymCryptMontgomeryPointScalarMul @ 0x1405660C0 (SymCryptMontgomeryPointScalarMul.c)
+ *     SymCryptMontgomeryPointScalarMul @ 0x140576F70 (SymCryptMontgomeryPointScalarMul.c)
  * Callees:
- *     SymCryptFdefModElementConditionalSwap @ 0x14056F440 (SymCryptFdefModElementConditionalSwap.c)
+ *     SymCryptFdefModElementConditionalSwap @ 0x14056E620 (SymCryptFdefModElementConditionalSwap.c)
  */
 
 __int64 SymCryptModElementConditionalSwap()

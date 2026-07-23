@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpInitBootEntropyInformation @ 0x1407B4960
+ * XREFs of ExpInitBootEntropyInformation @ 0x1407B4DB0
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-__int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE RunOnce, _DWORD **Parameter, PVOID *Context)
+__int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE a1, _DWORD **a2, PVOID *a3)
 {
   _DWORD *v4; // rbx
   char *v5; // rdi
@@ -15,9 +15,9 @@ __int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE RunOnce, _DWORD *
   __int64 v8; // r8
   __int128 v9; // xmm0
 
-  v4 = *Parameter;
+  v4 = *a2;
   v5 = (char *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 344LL);
-  if ( *Parameter )
+  if ( *a2 )
   {
     memset_0(v4, 0, 0x448uLL);
     v6 = v4 + 4;
@@ -46,6 +46,6 @@ __int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE RunOnce, _DWORD *
     *(_OWORD *)(v4 + 270) = *(_OWORD *)(v5 + 1080);
   }
   memset(v5, 0, 0x448uLL);
-  *Parameter = (_DWORD *)-1LL;
+  *a2 = (_DWORD *)-1LL;
   return 1LL;
 }

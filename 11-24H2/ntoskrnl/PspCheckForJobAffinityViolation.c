@@ -1,9 +1,9 @@
 /*
- * XREFs of PspCheckForJobAffinityViolation @ 0x140A61BBC
+ * XREFs of PspCheckForJobAffinityViolation @ 0x140A5A4B0
  * Callers:
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
  * Callees:
- *     KeIsSubsetAffinityEx @ 0x1403B34F0 (KeIsSubsetAffinityEx.c)
+ *     KeIsSubsetAffinityEx @ 0x1403A1D00 (KeIsSubsetAffinityEx.c)
  */
 
 __int64 __fastcall PspCheckForJobAffinityViolation(__int64 a1, unsigned __int16 *a2)

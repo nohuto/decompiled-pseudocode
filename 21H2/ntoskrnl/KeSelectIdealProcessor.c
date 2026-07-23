@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSelectIdealProcessor @ 0x140277F88
+ * XREFs of KeSelectIdealProcessor @ 0x140265F28
  * Callers:
- *     KeStartThread @ 0x140277A6C (KeStartThread.c)
- *     KiComputeThreadAffinity @ 0x1402EBAA0 (KiComputeThreadAffinity.c)
- *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
- *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
- *     ExpNodeCreateSystemThread @ 0x1406D0058 (ExpNodeCreateSystemThread.c)
- *     ExpWorkQueueManagerInitialize @ 0x1407C2798 (ExpWorkQueueManagerInitialize.c)
+ *     KeStartThread @ 0x140265A0C (KeStartThread.c)
+ *     KiComputeThreadAffinity @ 0x14029CDF0 (KiComputeThreadAffinity.c)
+ *     KiSetAffinityThread @ 0x14029D724 (KiSetAffinityThread.c)
+ *     PspAllocateThread @ 0x14063FE68 (PspAllocateThread.c)
+ *     ExpNodeCreateSystemThread @ 0x1406A7338 (ExpNodeCreateSystemThread.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1407C2CB8 (ExpWorkQueueManagerInitialize.c)
  * Callees:
- *     KiSelectIdealProcessor @ 0x140278068 (KiSelectIdealProcessor.c)
+ *     KiSelectIdealProcessor @ 0x140266008 (KiSelectIdealProcessor.c)
  */
 
 __int64 __fastcall KeSelectIdealProcessor(__int64 a1, _QWORD *a2, _WORD *a3, unsigned int *a4)

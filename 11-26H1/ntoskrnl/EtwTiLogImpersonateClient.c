@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTiLogImpersonateClient @ 0x1409294AC
+ * XREFs of EtwTiLogImpersonateClient @ 0x140904FBC
  * Callers:
- *     PsImpersonateClient @ 0x140928820 (PsImpersonateClient.c)
+ *     PsImpersonateClient @ 0x140904330 (PsImpersonateClient.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     SeCompareTokens @ 0x140A28A40 (SeCompareTokens.c)
- *     EtwpTiFreeTokenIdentity @ 0x140AFB874 (EtwpTiFreeTokenIdentity.c)
- *     EtwpTiQueryTokenIdentity @ 0x140B192EC (EtwpTiQueryTokenIdentity.c)
- *     EtwpTiFillTokenIdentity @ 0x140B282CC (EtwpTiFillTokenIdentity.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     SeCompareTokens @ 0x140A3BAE0 (SeCompareTokens.c)
+ *     EtwpTiFreeTokenIdentity @ 0x140AFD4F4 (EtwpTiFreeTokenIdentity.c)
+ *     EtwpTiQueryTokenIdentity @ 0x140B1B73C (EtwpTiQueryTokenIdentity.c)
+ *     EtwpTiFillTokenIdentity @ 0x140B2A5FC (EtwpTiFillTokenIdentity.c)
  */
 
 signed __int64 __fastcall EtwTiLogImpersonateClient(__int64 a1, __int64 a2, void *a3, void *a4)
@@ -46,10 +46,10 @@ signed __int64 __fastcall EtwTiLogImpersonateClient(__int64 a1, __int64 a2, void
   memset(v22, 0, sizeof(v22));
   v9 = 0;
   memset(v20, 0, sizeof(v20));
-  if ( EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, &THREATINT_PROCESS_IMPERSONATION_UP)
-    && EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x4000000000uLL)
-    || EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, &THREATINT_PROCESS_IMPERSONATION_DOWN)
-    && EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x40000000000uLL) )
+  if ( EtwEventEnabled(EtwThreatIntProvRegHandle, &THREATINT_PROCESS_IMPERSONATION_UP)
+    && EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x4000000000uLL)
+    || EtwEventEnabled(EtwThreatIntProvRegHandle, &THREATINT_PROCESS_IMPERSONATION_DOWN)
+    && EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x40000000000uLL) )
   {
     if ( !a3 )
     {
@@ -68,8 +68,8 @@ signed __int64 __fastcall EtwTiLogImpersonateClient(__int64 a1, __int64 a2, void
       {
         v12 = 0x4000000000LL;
       }
-      if ( EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v4)
-        && EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, v12)
+      if ( EtwEventEnabled(EtwThreatIntProvRegHandle, v4)
+        && EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, v12)
         && (int)SeCompareTokens(a3, a4) >= 0
         && (int)EtwpTiQueryTokenIdentity(v20, a3) >= 0
         && (int)EtwpTiQueryTokenIdentity(v22, a4) >= 0 )
@@ -78,7 +78,7 @@ signed __int64 __fastcall EtwTiLogImpersonateClient(__int64 a1, __int64 a2, void
         v15 = EtwpTiFillThreadIdentity(&UserData[v14].Ptr, a2) + v14;
         v16 = EtwpTiFillTokenIdentity(&UserData[v15], v20) + v15;
         v17 = EtwpTiFillTokenIdentity(&UserData[v16], v22);
-        EtwWrite(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v4, 0LL, v17 + v16, UserData);
+        EtwWrite(EtwThreatIntProvRegHandle, v4, 0LL, v17 + v16, UserData);
       }
     }
   }

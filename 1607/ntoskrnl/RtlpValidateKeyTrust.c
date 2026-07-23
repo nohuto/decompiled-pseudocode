@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidateKeyTrust @ 0x1404F7538
+ * XREFs of RtlpValidateKeyTrust @ 0x1404DA4C4
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x1404F84B0 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x1404DB43C (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
  */
 
 NTSTATUS __fastcall RtlpValidateKeyTrust(void *a1, __int16 a2)
@@ -14,7 +14,7 @@ NTSTATUS __fastcall RtlpValidateKeyTrust(void *a1, __int16 a2)
 
   if ( (a2 & 0x100) != 0 )
     return 0;
-  result = ZwQueryKey(a1, MaxKeyInfoClass, &KeyInformation, 4u, &ResultLength);
+  result = ZwQueryKey(a1, KeyTrustInformation, &KeyInformation, 4u, &ResultLength);
   if ( result >= 0 )
   {
     if ( (KeyInformation & 1) != 0 )

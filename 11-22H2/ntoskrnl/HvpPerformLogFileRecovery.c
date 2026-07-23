@@ -52,7 +52,7 @@ __int64 __fastcall HvpPerformLogFileRecovery(
   unsigned int v22; // eax
   int v23; // edx
   unsigned int v24; // edx
-  int v26; // eax
+  NTSTATUS v26; // eax
   unsigned int v27; // r12d
   __int64 v28; // r9
   __int64 v29; // rdx
@@ -94,7 +94,7 @@ LABEL_18:
       }
       if ( _bittest((const signed __int32 *)(BugCheckParameter2 + 160), 0x11u) )
       {
-        v26 = HvpViewMapExtendStorage((__int64 *)(BugCheckParameter2 + 224), v5);
+        v26 = HvpViewMapExtendStorage(BugCheckParameter2 + 224, v5);
         if ( v26 < 0 )
           SetFailureLocation(a5, 0, 27, v26, 16);
       }

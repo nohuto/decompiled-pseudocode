@@ -11,7 +11,7 @@
 __int64 __fastcall PfFbBufferListAllocateTemporary(_SLIST_ENTRY *RunRef, signed int a2)
 {
   __int64 result; // rax
-  struct _SLIST_ENTRY *PoolWithTag; // rax
+  _SLIST_ENTRY *PoolWithTag; // rax
 
   if ( a2 + _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[6].Next + 2, a2) > SHIDWORD(RunRef[5].Next) )
   {
@@ -20,10 +20,10 @@ LABEL_3:
     _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[6].Next + 2, -a2);
     return result;
   }
-  PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(
-                                         (POOL_TYPE)*((_DWORD *)&RunRef[4].Next + 2),
-                                         a2,
-                                         HIDWORD(RunRef[4].Next));
+  PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(
+                                  (POOL_TYPE)*((_DWORD *)&RunRef[4].Next + 2),
+                                  a2,
+                                  HIDWORD(RunRef[4].Next));
   if ( !PoolWithTag )
   {
     result = 3221225626LL;

@@ -1,7 +1,7 @@
 /*
  * XREFs of PnpEnablePnpEventWorkerWatchdog @ 0x140005BDC
  * Callers:
- *     PnpDeviceEventWorker @ 0x14058BBC0 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x14058CBC0 (PnpDeviceEventWorker.c)
  * Callees:
  *     PnpEnableWatchdog @ 0x140005C04 (PnpEnableWatchdog.c)
  */

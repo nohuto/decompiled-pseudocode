@@ -1,152 +1,150 @@
 /*
- * XREFs of PopEtProcessSnapshotCreate @ 0x140906398
+ * XREFs of PopEtProcessSnapshotCreate @ 0x14099D018
  * Callers:
- *     PopEtProcessSnapshotUpdate @ 0x140905308 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x14099BF8C (PopEtProcessSnapshotUpdate.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopEtBucketsFree @ 0x14075D8A4 (PopEtBucketsFree.c)
- *     PopEtAllocate @ 0x1409044A0 (PopEtAllocate.c)
- *     PopEtAggregateKeyCopyFromProcess @ 0x140904FAC (PopEtAggregateKeyCopyFromProcess.c)
- *     PopEtAggregateKeyCleanup @ 0x1409051DC (PopEtAggregateKeyCleanup.c)
- *     RtlInternEntryDereference @ 0x140905B7C (RtlInternEntryDereference.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopEtBucketsFree @ 0x14075C844 (PopEtBucketsFree.c)
+ *     PopEtAggregateKeyCopyFromProcess @ 0x14099BC30 (PopEtAggregateKeyCopyFromProcess.c)
+ *     PopEtAggregateKeyCleanup @ 0x14099BE60 (PopEtAggregateKeyCleanup.c)
+ *     RtlInternEntryDereference @ 0x14099C800 (RtlInternEntryDereference.c)
+ *     PopEtAllocate @ 0x14099D3A0 (PopEtAllocate.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PopEtProcessSnapshotCreate(__int64 a1, _QWORD *a2)
+__int64 __fastcall PopEtProcessSnapshotCreate(__int64 a1, __int64 **a2)
 {
   __int64 v2; // r14
   struct _KPROCESS *v4; // rdi
-  _QWORD *Pool2; // rax
-  _QWORD *v6; // rsi
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // rbx
+  __int64 *Pool2; // rax
+  __int64 *v6; // rsi
+  __int64 v7; // rdx
+  __int64 v8; // rbx
+  unsigned int v9; // edi
+  int v10; // edx
   unsigned int v11; // edi
-  int v12; // edx
-  unsigned int v13; // edi
-  __int64 v14; // rcx
-  __int64 v15; // rdx
-  char *v17; // r8
-  char v18; // cl
-  unsigned __int64 v19; // rcx
-  unsigned int v20; // edx
-  unsigned int v21; // edi
-  __int64 v22; // r10
-  __int64 v23; // r15
-  _QWORD *v24; // r9
-  __int64 v25; // rdx
-  void *v26; // rcx
-  __int64 v27; // [rsp+50h] [rbp+8h]
-  __int64 v28; // [rsp+50h] [rbp+8h]
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  char *v15; // r8
+  char v16; // cl
+  unsigned __int64 v17; // rcx
+  unsigned int v18; // edx
+  unsigned int v19; // edi
+  __int64 v20; // r10
+  __int64 v21; // r15
+  _QWORD *v22; // r9
+  __int64 v23; // rdx
+  void *v24; // rcx
+  __int64 v25; // [rsp+50h] [rbp+8h]
+  __int64 v26; // [rsp+50h] [rbp+8h]
 
   v2 = *(_QWORD *)(a1 + 16);
   v4 = *(struct _KPROCESS **)(a1 + 8);
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (__int64 *)ExAllocatePool2(0x100uLL, 0x1F8uLL, 0x54456F50u);
   v6 = Pool2;
   if ( Pool2 )
   {
     memset_0(Pool2, 0, 0x1F8uLL);
-    v6[1] = v4;
+    v6[1] = (__int64)v4;
     PopEtAggregateKeyCopyFromProcess((__int64)(v6 + 2), v4, v2 + 32);
-    v9 = v6[3];
-    if ( v9 )
-      RtlInternEntryDereference(PopEtGlobals + 56, v9, v7, v8);
+    v7 = v6[3];
+    if ( v7 )
+      RtlInternEntryDereference(PopEtGlobals + 56, v7);
     v6[3] = 0LL;
-    v10 = (unsigned int)(2 * (*(_DWORD *)(v2 + 68) >> 5));
-    if ( *(_DWORD *)(v2 + 64) < (unsigned int)v10 )
+    v8 = (unsigned int)(2 * (*(_DWORD *)(v2 + 68) >> 5));
+    if ( *(_DWORD *)(v2 + 64) < (unsigned int)v8 )
       goto LABEL_5;
-    if ( (unsigned int)v10 < 4 )
-      v10 = 4LL;
-    v17 = (char *)PopEtAllocate();
-    if ( v17 )
+    if ( (unsigned int)v8 < 4 )
+      v8 = 4LL;
+    v15 = (char *)PopEtAllocate(8LL * (unsigned int)v8, 0LL);
+    if ( v15 )
     {
-      if ( (((_DWORD)v10 - 1) & (unsigned int)v10) != 0 )
+      if ( (((_DWORD)v8 - 1) & (unsigned int)v8) != 0 )
       {
-        v18 = -1;
+        v16 = -1;
         do
         {
-          ++v18;
-          LODWORD(v10) = (unsigned int)v10 >> 1;
+          ++v16;
+          LODWORD(v8) = (unsigned int)v8 >> 1;
         }
-        while ( (_DWORD)v10 );
-        v10 = (unsigned int)(1 << v18);
+        while ( (_DWORD)v8 );
+        v8 = (unsigned int)(1 << v16);
       }
-      if ( (unsigned int)v10 > 0x4000000 )
-        v10 = 0x4000000LL;
-      v19 = (unsigned int)v10;
-      if ( v17 > &v17[8 * v10] )
-        v19 = 0LL;
-      if ( v19 )
-        memset64(v17, (v2 + 64) | 1, v19);
-      v20 = *(_DWORD *)(v2 + 68);
-      v21 = 0;
-      v22 = -1LL << (*(_BYTE *)(v2 + 68) & 0x1F);
-      if ( (v20 & 0xFFFFFFE0) != 0 )
+      if ( (unsigned int)v8 > 0x4000000 )
+        v8 = 0x4000000LL;
+      v17 = (unsigned int)v8;
+      if ( v15 > &v15[8 * v8] )
+        v17 = 0LL;
+      if ( v17 )
+        memset64(v15, (v2 + 64) | 1, v17);
+      v18 = *(_DWORD *)(v2 + 68);
+      v19 = 0;
+      v20 = -1LL << (*(_BYTE *)(v2 + 68) & 0x1F);
+      if ( (v18 & 0xFFFFFFE0) != 0 )
       {
         do
         {
-          v23 = *(_QWORD *)(v2 + 72);
+          v21 = *(_QWORD *)(v2 + 72);
           while ( 1 )
           {
-            v24 = *(_QWORD **)(v23 + 8LL * v21);
-            if ( ((unsigned __int8)v24 & 1) != 0 )
+            v22 = *(_QWORD **)(v21 + 8LL * v19);
+            if ( ((unsigned __int8)v22 & 1) != 0 )
               break;
-            *(_QWORD *)(v23 + 8LL * v21) = *v24;
-            v28 = v22 & v24[1];
-            v25 = (37
-                 * (BYTE6(v28)
+            *(_QWORD *)(v21 + 8LL * v19) = *v22;
+            v26 = v20 & v22[1];
+            v23 = (37
+                 * (BYTE6(v26)
                   + 37
-                  * (BYTE5(v28)
+                  * (BYTE5(v26)
                    + 37
-                   * (BYTE4(v28)
-                    + 37 * (BYTE3(v28) + 37 * (BYTE2(v28) + 37 * (BYTE1(v28) + 37 * ((unsigned __int8)v28 + 11623883)))))))
-                 + HIBYTE(v28)) & (unsigned int)(v10 - 1);
-            *v24 = *(_QWORD *)&v17[8 * v25];
-            *(_QWORD *)&v17[8 * v25] = v24;
+                   * (BYTE4(v26)
+                    + 37 * (BYTE3(v26) + 37 * (BYTE2(v26) + 37 * (BYTE1(v26) + 37 * ((unsigned __int8)v26 + 11623883)))))))
+                 + HIBYTE(v26)) & (unsigned int)(v8 - 1);
+            *v22 = *(_QWORD *)&v15[8 * v23];
+            *(_QWORD *)&v15[8 * v23] = v22;
           }
-          v20 = *(_DWORD *)(v2 + 68);
-          ++v21;
+          v18 = *(_DWORD *)(v2 + 68);
+          ++v19;
         }
-        while ( v21 < v20 >> 5 );
+        while ( v19 < v18 >> 5 );
       }
-      v26 = *(void **)(v2 + 72);
-      *(_QWORD *)(v2 + 72) = v17;
-      *(_DWORD *)(v2 + 68) = (32 * v10) | v20 & 0x1F;
-      if ( v26 )
-        PopEtBucketsFree(v26);
+      v24 = *(void **)(v2 + 72);
+      *(_QWORD *)(v2 + 72) = v15;
+      *(_DWORD *)(v2 + 68) = (32 * v8) | v18 & 0x1F;
+      if ( v24 )
+        PopEtBucketsFree(v24);
       goto LABEL_5;
     }
     if ( *(_DWORD *)(v2 + 68) >= 0x20u )
     {
 LABEL_5:
-      v11 = *(_DWORD *)(v2 + 68);
-      v27 = v6[1] & (-1LL << (v11 & 0x1F));
+      v9 = *(_DWORD *)(v2 + 68);
+      v25 = v6[1] & (-1LL << (v9 & 0x1F));
       *a2 = v6;
-      v12 = (v11 >> 5) - 1;
-      v13 = 0;
-      v14 = *(_QWORD *)(v2 + 72);
-      v15 = (37
-           * (BYTE6(v27)
+      v10 = (v9 >> 5) - 1;
+      v11 = 0;
+      v12 = *(_QWORD *)(v2 + 72);
+      v13 = (37
+           * (BYTE6(v25)
             + 37
-            * (BYTE5(v27)
+            * (BYTE5(v25)
              + 37
-             * (BYTE4(v27)
-              + 37 * (BYTE3(v27) + 37 * (BYTE2(v27) + 37 * (BYTE1(v27) + 37 * ((unsigned __int8)v27 + 11623883)))))))
-           + HIBYTE(v27)) & (unsigned int)v12;
-      *v6 = *(_QWORD *)(v14 + 8 * v15);
-      *(_QWORD *)(v14 + 8 * v15) = v6;
+             * (BYTE4(v25)
+              + 37 * (BYTE3(v25) + 37 * (BYTE2(v25) + 37 * (BYTE1(v25) + 37 * ((unsigned __int8)v25 + 11623883)))))))
+           + HIBYTE(v25)) & (unsigned int)v10;
+      *v6 = *(_QWORD *)(v12 + 8 * v13);
+      *(_QWORD *)(v12 + 8 * v13) = v6;
       ++*(_DWORD *)(v2 + 64);
-      return v13;
+      return v11;
     }
   }
   ++*(_DWORD *)(v2 + 620);
-  v13 = -1073741670;
+  v11 = -1073741670;
   if ( v6 )
   {
     PopEtAggregateKeyCleanup(v6 + 2);
     ExFreePoolWithTag(v6, 0x54456F50u);
   }
-  return v13;
+  return v11;
 }

@@ -1,38 +1,34 @@
 /*
- * XREFs of MiUpdatePrefetchPriority @ 0x14026E760
+ * XREFs of MiUpdatePrefetchPriority @ 0x14025C700
  * Callers:
- *     MiValidFault @ 0x140209750 (MiValidFault.c)
- *     MiPrefetchJumpVad @ 0x1405394CC (MiPrefetchJumpVad.c)
+ *     MiValidFault @ 0x1402AE050 (MiValidFault.c)
+ *     MiPrefetchJumpVad @ 0x14053970C (MiPrefetchJumpVad.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     MiUpdatePfnPriority @ 0x140270DA4 (MiUpdatePfnPriority.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiLockTransitionLeafPage @ 0x140364704 (MiLockTransitionLeafPage.c)
+ *     MiLockTransitionLeafPage @ 0x140224B74 (MiLockTransitionLeafPage.c)
+ *     MiUpdatePfnPriority @ 0x14025ED44 (MiUpdatePfnPriority.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     MiGetPfnPriority @ 0x1402BCED0 (MiGetPfnPriority.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 char __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // rsi
   unsigned int v5; // edi
   ULONG_PTR v6; // r9
   unsigned __int64 v7; // rbx
   __int64 CurrentThread; // rax
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rbx
+  __int64 v9; // rbx
+  __int64 v10; // rbx
+  __int64 v11; // rcx
   __int64 v12; // rdx
-  __int64 v13; // rbx
-  __int64 v14; // rcx
-  __int64 v15; // r9
+  __int64 v13; // rdx
   struct _LIST_ENTRY *Flink; // rdx
-  __int64 v17; // rax
-  __int64 v18; // rdx
-  int v20; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v21; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  int v18; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v19; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = a2;
   v5 = *(_DWORD *)(a1 + 80) & 7;
   v6 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v7 = *(_QWORD *)v6;
@@ -48,21 +44,21 @@ char __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2, __int6
         && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
       {
         CurrentThread = (__int64)KeGetCurrentThread();
-        a2 = *(_QWORD *)(*(_QWORD *)(CurrentThread + 184) + 1928LL);
-        if ( a2 )
+        v12 = *(_QWORD *)(*(_QWORD *)(CurrentThread + 184) + 1928LL);
+        if ( v12 )
         {
-          CurrentThread = *(_QWORD *)(a2 + 8 * ((v6 >> 3) & 0x1FF));
-          a2 = v7 | 0x20;
+          CurrentThread = *(_QWORD *)(v12 + 8 * ((v6 >> 3) & 0x1FF));
+          v13 = v7 | 0x20;
           if ( (CurrentThread & 0x20) == 0 )
-            a2 = *(_QWORD *)v6;
-          v7 = a2;
+            v13 = *(_QWORD *)v6;
+          v7 = v13;
           if ( (CurrentThread & 0x42) != 0 )
-            v7 = a2 | 0x42;
+            v7 = v13 | 0x42;
         }
       }
     }
   }
-  v21 = v7;
+  v19 = v7;
   if ( (v7 & 1) == 0 )
   {
     if ( !v7 )
@@ -71,13 +67,13 @@ char __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2, __int6
       return CurrentThread;
     if ( (v7 & 0x800) == 0 )
       return CurrentThread;
-    CurrentThread = MiLockTransitionLeafPage(v6);
-    v13 = CurrentThread;
+    CurrentThread = MiLockTransitionLeafPage(v6, 0LL);
+    v10 = CurrentThread;
     if ( !CurrentThread )
       return CurrentThread;
     goto LABEL_10;
   }
-  if ( (unsigned int)MiPteInShadowRange(&v21, a2)
+  if ( (unsigned int)MiPteInShadowRange(&v19)
     && (MiFlags & 0xC00000) != 0
     && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
     && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
@@ -85,22 +81,21 @@ char __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2, __int6
     Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
     if ( Flink )
     {
-      v17 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v21 >> 3) & 0x1FF));
-      v18 = v7 | 0x20;
-      if ( (v17 & 0x20) == 0 )
-        v18 = v7;
-      v7 = v18;
-      if ( (v17 & 0x42) != 0 )
-        v7 = v18 | 0x42;
+      v15 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v19 >> 3) & 0x1FF));
+      v16 = v7 | 0x20;
+      if ( (v15 & 0x20) == 0 )
+        v16 = v7;
+      v7 = v16;
+      if ( (v15 & 0x42) != 0 )
+        v7 = v16 | 0x42;
     }
   }
-  v11 = (v7 >> 12) & 0xFFFFFFFFFLL;
-  CurrentThread = *(_QWORD *)(48 * v11 - 0x57FFFFFFFD8LL);
-  v12 = 0x4000000000000LL;
+  v9 = (v7 >> 12) & 0xFFFFFFFFFLL;
+  CurrentThread = *(_QWORD *)(48 * v9 - 0x57FFFFFFFD8LL);
   if ( (CurrentThread & 0x4000000000000LL) != 0 )
   {
-    v13 = 48 * v11 - 0x58000000000LL;
-    LODWORD(CurrentThread) = *(_BYTE *)(v13 + 35) & 7;
+    v10 = 48 * v9 - 0x58000000000LL;
+    LODWORD(CurrentThread) = *(_BYTE *)(v10 + 35) & 7;
     if ( (_DWORD)CurrentThread != v5 )
     {
       if ( a3 )
@@ -111,25 +106,25 @@ char __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2, __int6
       }
       else if ( *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + 304) )
       {
-        CurrentThread = (__int64)MiLocateAddress(v4);
+        CurrentThread = MiLocateAddress(a2);
         if ( !CurrentThread )
           return CurrentThread;
         LOBYTE(CurrentThread) = *(_DWORD *)(CurrentThread + 48) & 0x70;
         if ( (_BYTE)CurrentThread == 16 )
           return CurrentThread;
       }
-      v20 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
+      v18 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v20, v12, v9, v10);
-        while ( *(__int64 *)(v13 + 24) < 0 );
+          KeYieldProcessorEx(&v18);
+        while ( *(__int64 *)(v10 + 24) < 0 );
       }
 LABEL_10:
-      if ( (unsigned int)MiGetPfnPriority(v13) != v5 )
-        MiUpdatePfnPriority(v14, v5, 0LL, v15);
+      if ( (unsigned int)MiGetPfnPriority(v10) != v5 )
+        MiUpdatePfnPriority(v11, v5, 0LL);
       LOBYTE(CurrentThread) = -1;
-      _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
   }
   return CurrentThread;

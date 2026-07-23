@@ -6,11 +6,11 @@
  *     KeQuerySystemTimePrecise @ 0x1400166E8 (KeQuerySystemTimePrecise.c)
  */
 
-__int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
+LARGE_INTEGER __fastcall EtwpInitializeTimeStamp(__int64 a1)
 {
   int v2; // ecx
   void *v3; // rax
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
   _OWORD *v5; // rdi
   int v6; // edx
   __int64 v7; // rcx
@@ -35,13 +35,13 @@ __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
   *(_QWORD *)(a1 + 40) = v3;
   if ( (*(_DWORD *)(a1 + 832) & 2) != 0 )
   {
-    result = EtwpRefTimeSystem;
+    result.QuadPart = EtwpRefTimeSystem;
     v5 = (_OWORD *)(a1 + 320);
     v6 = *(_DWORD *)(a1 + 216);
     *(_QWORD *)(a1 + 320) = EtwpRefTimeSystem;
     if ( v6 == 3 )
     {
-      result = EtwpRefTimeCycle;
+      result.QuadPart = EtwpRefTimeCycle;
       *(_QWORD *)(a1 + 328) = EtwpRefTimeCycle;
     }
     else
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
   {
     v5 = (_OWORD *)(a1 + 320);
     *(_QWORD *)(a1 + 328) = (*(__int64 (**)(void))(a1 + 40))();
-    result = KeQuerySystemTimePrecise((__int64 *)(a1 + 320));
+    result = KeQuerySystemTimePrecise((LARGE_INTEGER *)(a1 + 320));
   }
   *(_OWORD *)(a1 + 448) = *v5;
   return result;

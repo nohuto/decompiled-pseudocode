@@ -1,11 +1,11 @@
 /*
- * XREFs of SmProcessConfigRequest @ 0x14057B4BC
+ * XREFs of SmProcessConfigRequest @ 0x14057B968
  * Callers:
- *     SmSetStoreInformation @ 0x1403E3100 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1403E472C (SmSetStoreInformation.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     SmpSystemStoreCreate @ 0x14057B5C0 (SmpSystemStoreCreate.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     SmpSystemStoreCreate @ 0x14057BA6C (SmpSystemStoreCreate.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessConfigRequest(unsigned __int64 a1, int a2, KPROCESSOR_MODE a3)
@@ -50,7 +50,7 @@ __int64 __fastcall SmProcessConfigRequest(unsigned __int64 a1, int a2, KPROCESSO
       v10 = HIDWORD(v5);
       if ( (unsigned int)(v10 - 4) <= 0x1C && (((_DWORD)v10 - 1) & (unsigned int)v10) == 0 )
       {
-        dword_14032763C = v10;
+        dword_14032767C = v10;
         return v4;
       }
     }

@@ -8,57 +8,68 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-_DWORD *__stdcall RtlInsertElementGenericTableFull(int a1, void *Src, size_t Size, bool *a4, _DWORD *a5, int a6)
+PVOID __cdecl RtlInsertElementGenericTableFull(
+        PRTL_GENERIC_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement,
+        PVOID NodeOrParent,
+        TABLE_SEARCH_RESULT SearchResult)
 {
   int v6; // eax
-  _DWORD *v7; // esi
-  _DWORD *v8; // eax
-  _DWORD *v9; // edx
+  _RTL_SPLAY_LINKS *v7; // esi
+  _LIST_ENTRY *v8; // eax
+  _LIST_ENTRY *Blink; // edx
+  size_t v11; // [esp-4h] [ebp-10h]
 
-  if ( a6 == 1 )
+  if ( SearchResult == TableFoundNode )
   {
-    v7 = a5;
+    v7 = (_RTL_SPLAY_LINKS *)NodeOrParent;
 LABEL_8:
-    *(_DWORD *)a1 = RtlSplay(v7);
-    if ( a4 )
-      *a4 = a6 != 1;
-    return v7 + 6;
+    Table->TableRoot = RtlSplay(v7);
+    if ( NewElement )
+      *NewElement = SearchResult != TableFoundNode;
+    return &v7[2];
   }
-  if ( Size + 24 >= Size )
+  if ( BufferSize + 24 >= BufferSize )
   {
-    v6 = (*(int (__thiscall **)(_DWORD, int, size_t))(a1 + 28))(*(_DWORD *)(a1 + 28), a1, Size + 24);
-    v7 = (_DWORD *)v6;
+    v6 = ((int (__thiscall *)(PRTL_GENERIC_ALLOCATE_ROUTINE, PRTL_GENERIC_TABLE, CLONG))Table->AllocateRoutine)(
+           Table->AllocateRoutine,
+           Table,
+           BufferSize + 24);
+    v7 = (_RTL_SPLAY_LINKS *)v6;
     if ( v6 )
     {
       *(_DWORD *)(v6 + 4) = 0;
       *(_DWORD *)(v6 + 8) = 0;
-      v8 = (_DWORD *)(v6 + 12);
-      *v7 = v7;
-      v9 = *(_DWORD **)(a1 + 8);
-      if ( *v9 != a1 + 4 )
+      v8 = (_LIST_ENTRY *)(v6 + 12);
+      v7->Parent = v7;
+      Blink = Table->InsertOrderList.Blink;
+      if ( Blink->Flink != &Table->InsertOrderList )
         __fastfail(3u);
-      *v8 = a1 + 4;
-      v7[4] = v9;
-      *v9 = v8;
-      *(_DWORD *)(a1 + 8) = v8;
-      ++*(_DWORD *)(a1 + 20);
-      if ( a6 )
+      v8->Flink = &Table->InsertOrderList;
+      v7[1].LeftChild = (_RTL_SPLAY_LINKS *)Blink;
+      Blink->Flink = v8;
+      Table->InsertOrderList.Blink = v8;
+      ++Table->NumberGenericTableElements;
+      if ( SearchResult )
       {
-        if ( a6 == 2 )
-          a5[1] = v7;
+        if ( SearchResult == TableInsertAsLeft )
+          *((_DWORD *)NodeOrParent + 1) = v7;
         else
-          a5[2] = v7;
-        *v7 = a5;
+          *((_DWORD *)NodeOrParent + 2) = v7;
+        v7->Parent = (_RTL_SPLAY_LINKS *)NodeOrParent;
       }
       else
       {
-        *(_DWORD *)a1 = v7;
+        Table->TableRoot = v7;
       }
-      memcpy(v7 + 6, Src, Size);
+      LODWORD(v11) = BufferSize;
+      memcpy(&v7[2], Buffer, v11);
       goto LABEL_8;
     }
   }
-  if ( a4 )
-    *a4 = 0;
+  if ( NewElement )
+    *NewElement = 0;
   return 0;
 }

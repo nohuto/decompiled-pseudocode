@@ -20,7 +20,7 @@ __int64 __fastcall VmDeleteMemoryRange(__int64 a1, __int64 a2, __int64 a3, __int
   v9 = (volatile LONG *)KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[19];
   if ( !v9 )
     return 3221225608LL;
-  result = VmpRemoveMemoryRange(v9, v5 >> 12, v6 >> 12, a3, v7);
+  result = VmpRemoveMemoryRange(v9, v5 >> 12, (_RTL_BALANCED_NODE *)(v6 >> 12), a3, v7);
   if ( (int)result >= 0 )
     return 0LL;
   return result;

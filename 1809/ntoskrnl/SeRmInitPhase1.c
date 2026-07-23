@@ -1,15 +1,15 @@
 /*
- * XREFs of SeRmInitPhase1 @ 0x1409C61C4
+ * XREFs of SeRmInitPhase1 @ 0x1409C71C4
  * Callers:
- *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x1409C5788 (Phase1InitializationIoReady.c)
  * Callees:
- *     rbc_InitializeFeatureStaging @ 0x1401B6D58 (rbc_InitializeFeatureStaging.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreatePort @ 0x1401B97D0 (ZwCreatePort.c)
- *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
- *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140736958 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     SepAdtInitializeAuditingOptions @ 0x1409C6290 (SepAdtInitializeAuditingOptions.c)
+ *     rbc_InitializeFeatureStaging @ 0x1401B6EC0 (rbc_InitializeFeatureStaging.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreatePort @ 0x1401B9930 (ZwCreatePort.c)
+ *     PsCreateSystemThread @ 0x14066BC30 (PsCreateSystemThread.c)
+ *     TraceLoggingRegisterEx @ 0x14071EED8 (TraceLoggingRegisterEx.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140737B48 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     SepAdtInitializeAuditingOptions @ 0x1409C7290 (SepAdtInitializeAuditingOptions.c)
  */
 
 char SeRmInitPhase1()
@@ -32,6 +32,6 @@ char SeRmInitPhase1()
   AuthzBasepInitializeSystemSecurityAttributes(v1, v0);
   ZwClose(ThreadHandle);
   ThreadHandle = 0LL;
-  TraceLoggingRegisterEx(&stru_140400278, 0LL, 0LL);
+  TraceLoggingRegisterEx(&stru_140401278, 0LL, 0LL);
   return 1;
 }

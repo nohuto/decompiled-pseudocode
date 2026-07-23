@@ -1,17 +1,17 @@
 /*
- * XREFs of KiRestoreClockTickRate @ 0x140340D00
+ * XREFs of KiRestoreClockTickRate @ 0x140340F90
  * Callers:
- *     KeClockInterruptNotify @ 0x1402C46A0 (KeClockInterruptNotify.c)
- *     KeResumeClockTimerFromIdle @ 0x1402C7060 (KeResumeClockTimerFromIdle.c)
- *     KiResumeClockTimer @ 0x14056FE48 (KiResumeClockTimer.c)
+ *     KeClockInterruptNotify @ 0x1402C4930 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C72F0 (KeResumeClockTimerFromIdle.c)
+ *     KiResumeClockTimer @ 0x140570388 (KiResumeClockTimer.c)
  * Callees:
- *     KiSetPendingTick @ 0x1402C2860 (KiSetPendingTick.c)
- *     KiSetNextClockTickDueTime @ 0x1402C8510 (KiSetNextClockTickDueTime.c)
- *     KiGetClockIntervalOneShot @ 0x140340BC0 (KiGetClockIntervalOneShot.c)
- *     KiShouldRearmClockTimer @ 0x140340E3C (KiShouldRearmClockTimer.c)
- *     KiLogClockIncrementUpdate @ 0x1403D01D8 (KiLogClockIncrementUpdate.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetPendingTick @ 0x1402C2AF0 (KiSetPendingTick.c)
+ *     KiSetNextClockTickDueTime @ 0x1402C87A0 (KiSetNextClockTickDueTime.c)
+ *     KiGetClockIntervalOneShot @ 0x140340E50 (KiGetClockIntervalOneShot.c)
+ *     KiShouldRearmClockTimer @ 0x1403410CC (KiShouldRearmClockTimer.c)
+ *     KiLogClockIncrementUpdate @ 0x1403D03B8 (KiLogClockIncrementUpdate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 unsigned __int8 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, __int64 a2, unsigned int *a3)
@@ -39,7 +39,7 @@ unsigned __int8 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, __int64 a
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -55,7 +55,7 @@ unsigned __int8 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, __int64 a
       KiSetNextClockTickDueTime(1);
     }
     *(_QWORD *)a3 = CurrentPrcb->ClockTimerState.TimeIncrement;
-    v8 = KiIrqlFlags;
+    v8 = (int)KiIrqlFlags;
     *v5 = CurrentPrcb->ClockTimerState.LastRequestedTimeIncrement;
     if ( v8 )
     {

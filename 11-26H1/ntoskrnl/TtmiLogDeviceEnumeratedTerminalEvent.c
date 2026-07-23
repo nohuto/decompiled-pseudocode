@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiLogDeviceEnumeratedTerminalEvent @ 0x1407E8EA8
+ * XREFs of TtmiLogDeviceEnumeratedTerminalEvent @ 0x1407EEA08
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x1407E5D30 (TtmpPublishDeviceEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x1407EB890 (TtmpPublishDeviceEvent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
  */
 
 char __fastcall TtmiLogDeviceEnumeratedTerminalEvent(int a1, int a2, int a3, int a4, const WCHAR *a5)
@@ -36,9 +36,9 @@ char __fastcall TtmiLogDeviceEnumeratedTerminalEvent(int a1, int a2, int a3, int
   _UNKNOWN *retaddr; // [rsp+100h] [rbp+57h] BYREF
 
   v5 = &retaddr;
-  if ( (unsigned int)dword_140FD58A8 > 5 )
+  if ( (unsigned int)dword_140FD68B8 > 5 )
   {
-    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140FD58A8, 1LL);
+    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140FD68B8, 1LL);
     if ( (_BYTE)v5 )
     {
       SessionId = TtmiGetSessionId(v11, v10, v12);
@@ -58,8 +58,8 @@ char __fastcall TtmiLogDeviceEnumeratedTerminalEvent(int a1, int a2, int a3, int
       v29 = 4LL;
       tlgCreate1Sz_wchar_t((__int64)v30, a5);
       LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD58A8,
-                     (unsigned __int8 *)byte_140050F81,
+                     (__int64)&dword_140FD68B8,
+                     (unsigned __int8 *)byte_140053421,
                      0LL,
                      0LL,
                      8u,

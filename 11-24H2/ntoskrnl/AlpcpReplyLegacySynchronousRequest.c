@@ -1,26 +1,26 @@
 /*
- * XREFs of AlpcpReplyLegacySynchronousRequest @ 0x1409EC9B0
+ * XREFs of AlpcpReplyLegacySynchronousRequest @ 0x1409E5CE0
  * Callers:
- *     NtReplyWaitReceivePortEx @ 0x1408950F0 (NtReplyWaitReceivePortEx.c)
- *     NtReplyPort @ 0x1409EC8A0 (NtReplyPort.c)
+ *     NtReplyWaitReceivePortEx @ 0x14089D590 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyPort @ 0x1409E5BD0 (NtReplyPort.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AlpcpClearOwnerPortMessage @ 0x140892D3C (AlpcpClearOwnerPortMessage.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x140892D70 (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpCancelMessage @ 0x140894410 (AlpcpCancelMessage.c)
- *     AlpcpAvailableBufferSize @ 0x140896380 (AlpcpAvailableBufferSize.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     AlpcpLookupMessage @ 0x14093E7E0 (AlpcpLookupMessage.c)
- *     AlpcpCaptureMessageData @ 0x14093FCA0 (AlpcpCaptureMessageData.c)
- *     AlpcpValidateDataInformation @ 0x140AC0E98 (AlpcpValidateDataInformation.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AlpcpLookupMessage @ 0x140892E20 (AlpcpLookupMessage.c)
+ *     AlpcpCaptureMessageData @ 0x1408942E0 (AlpcpCaptureMessageData.c)
+ *     AlpcpClearOwnerPortMessage @ 0x14089C36C (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x14089C3A0 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpCancelMessage @ 0x14089C73C (AlpcpCancelMessage.c)
+ *     AlpcpAvailableBufferSize @ 0x14089E820 (AlpcpAvailableBufferSize.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     AlpcpValidateDataInformation @ 0x140ABBFF8 (AlpcpValidateDataInformation.c)
  */
 
 __int64 __fastcall AlpcpReplyLegacySynchronousRequest(__int64 *a1, unsigned __int64 a2, char a3)
@@ -30,217 +30,209 @@ __int64 __fastcall AlpcpReplyLegacySynchronousRequest(__int64 *a1, unsigned __in
   __int64 v6; // r9
   int v7; // ebx
   int v8; // r8d
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  ULONG_PTR v12; // rsi
-  int v13; // ecx
-  __int64 v14; // r15
-  _QWORD *v15; // rsi
-  _QWORD *v16; // rcx
-  bool v17; // r15
-  _QWORD *v18; // rax
-  unsigned __int64 v19; // rax
-  size_t v20; // rdx
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 *v24; // r13
-  ULONG_PTR v25; // rbx
-  __int64 v26; // rsi
-  ULONG_PTR v27; // rbx
-  int v28; // ecx
-  int v29; // edx
-  __int64 v30; // r15
-  _QWORD *v31; // rsi
-  __int64 v32; // rdx
-  __int64 v33; // rsi
-  __int64 v34; // rdx
-  __int64 v35; // r8
-  __int64 v36; // r9
-  __int64 v37; // r9
-  signed __int32 v39[8]; // [rsp+0h] [rbp-E8h] BYREF
-  unsigned int v40; // [rsp+30h] [rbp-B8h]
+  ULONG_PTR v9; // rsi
+  int v10; // ecx
+  __int64 v11; // rdx
+  __int64 v12; // r15
+  _QWORD *v13; // rsi
+  char *v14; // rcx
+  bool v15; // r15
+  _QWORD *v16; // rax
+  unsigned __int64 v17; // rax
+  size_t v18; // rdx
+  __int64 *v19; // r13
+  ULONG_PTR v20; // rbx
+  __int64 v21; // rsi
+  ULONG_PTR v22; // rbx
+  int v23; // ecx
+  int v24; // edx
+  __int64 v25; // r15
+  char *v26; // rsi
+  __int64 v27; // rdx
+  __int64 v28; // rsi
+  __int64 v29; // r9
+  signed __int32 v31[8]; // [rsp+0h] [rbp-E8h] BYREF
+  unsigned int v32; // [rsp+30h] [rbp-B8h]
   ULONG_PTR BugCheckParameter2[2]; // [rsp+38h] [rbp-B0h] BYREF
-  __m128i v42; // [rsp+48h] [rbp-A0h] BYREF
-  __int128 v43; // [rsp+58h] [rbp-90h]
-  __int64 v44; // [rsp+68h] [rbp-80h]
-  _QWORD *v45; // [rsp+70h] [rbp-78h]
-  __int64 *v46; // [rsp+78h] [rbp-70h]
-  __int64 v47; // [rsp+80h] [rbp-68h]
-  __int64 *v48; // [rsp+90h] [rbp-58h]
-  __int128 v49; // [rsp+A0h] [rbp-48h]
-  __int64 v50; // [rsp+B0h] [rbp-38h]
+  __m128i v34; // [rsp+48h] [rbp-A0h] BYREF
+  __int128 v35; // [rsp+58h] [rbp-90h]
+  __int64 v36; // [rsp+68h] [rbp-80h]
+  char *v37; // [rsp+70h] [rbp-78h]
+  __int64 *v38; // [rsp+78h] [rbp-70h]
+  __int64 v39; // [rsp+80h] [rbp-68h]
+  __int64 *v40; // [rsp+90h] [rbp-58h]
+  __int128 v41; // [rsp+A0h] [rbp-48h]
+  __int64 v42; // [rsp+B0h] [rbp-38h]
 
-  v46 = a1;
-  v48 = a1;
-  v42 = 0LL;
-  v43 = 0LL;
-  v44 = 0LL;
+  v38 = a1;
+  v40 = a1;
+  v34 = 0LL;
+  v35 = 0LL;
+  v36 = 0LL;
   BugCheckParameter2[0] = 0LL;
   v4 = *a1;
-  v47 = *a1;
+  v39 = *a1;
   if ( !a3 )
   {
-    v42 = *(__m128i *)a2;
-    v43 = *(_OWORD *)(a2 + 16);
-    HIDWORD(v44) = HIDWORD(*(_QWORD *)(a2 + 32));
+    v34 = *(__m128i *)a2;
+    v35 = *(_OWORD *)(a2 + 16);
+    HIDWORD(v36) = HIDWORD(*(_QWORD *)(a2 + 32));
     v8 = 0;
-    LODWORD(v44) = 0;
-    v6 = (unsigned int)_mm_cvtsi128_si32(v42);
+    LODWORD(v36) = 0;
+    v6 = (unsigned int)_mm_cvtsi128_si32(v34);
     if ( (unsigned __int16)v6 >= (unsigned __int16)(v6 + 40)
-      || (unsigned __int64)(unsigned __int16)v6 + 40 > v42.m128i_u16[1] )
+      || (unsigned __int64)(unsigned __int16)v6 + 40 > v34.m128i_u16[1] )
     {
       return (unsigned int)-1073741811;
     }
-    v42.m128i_i16[1] = v6 + 40;
+    v34.m128i_i16[1] = v6 + 40;
 LABEL_14:
-    v7 = AlpcpLookupMessage(v4, SDWORD2(v43), v8, v6, BugCheckParameter2);
-    v40 = v7;
+    v7 = AlpcpLookupMessage(v4, DWORD2(v35), v8, v6, BugCheckParameter2);
+    v32 = v7;
     if ( v7 < 0 )
       return (unsigned int)v7;
-    v12 = BugCheckParameter2[0];
-    v13 = *(_DWORD *)(BugCheckParameter2[0] + 40);
-    if ( (v13 & 0x80u) != 0 )
+    v9 = BugCheckParameter2[0];
+    v10 = *(_DWORD *)(BugCheckParameter2[0] + 40);
+    if ( (v10 & 0x80u) != 0 )
     {
       AlpcpCancelMessage(v4, BugCheckParameter2[0], 0x10000);
       return (unsigned int)-1073741769;
     }
-    if ( (v13 & 0x200) != 0 || !*(_QWORD *)(BugCheckParameter2[0] + 32) )
+    if ( (v10 & 0x200) != 0 || !*(_QWORD *)(BugCheckParameter2[0] + 32) )
       goto LABEL_63;
-    v9 = *(_QWORD *)(BugCheckParameter2[0] + 16);
-    if ( v9 != v4 )
+    v11 = *(_QWORD *)(BugCheckParameter2[0] + 16);
+    if ( v11 != v4 )
     {
-      if ( (v13 & 7) == 0 )
+      if ( (v10 & 7) == 0 )
       {
-        v14 = *(_QWORD *)(BugCheckParameter2[0] + 24);
-        if ( !v14 )
+        v12 = *(_QWORD *)(BugCheckParameter2[0] + 24);
+        if ( !v12 )
           goto LABEL_63;
-        v15 = *(_QWORD **)(v14 + 16);
-        v16 = KeAbPreAcquire((__int64)(v15 - 2), 0LL);
-        v45 = v16;
-        if ( _InterlockedCompareExchange64(v15 - 2, 17LL, 0LL) )
+        v13 = *(_QWORD **)(v12 + 16);
+        v14 = (char *)KeAbPreAcquire((__int64)(v13 - 2), 0LL);
+        v37 = v14;
+        if ( _InterlockedCompareExchange64(v13 - 2, 17LL, 0LL) )
         {
-          ExfAcquirePushLockSharedEx(v15 - 2, 0, v16, (__int64)(v15 - 2));
-          v16 = v45;
+          ExfAcquirePushLockSharedEx(v13 - 2, 0, v14, (__int64)(v13 - 2));
+          v14 = v37;
         }
-        if ( v16 )
-          *((_BYTE *)v16 + 10) = 1;
-        if ( ((*(_DWORD *)(v14 + 416) >> 1) & 3) == 2 )
-          v17 = *v15 == v4 || v15[1] == v4;
+        if ( v14 )
+          v14[10] = 1;
+        if ( ((*(_DWORD *)(v12 + 416) >> 1) & 3) == 2 )
+          v15 = *v13 == v4 || v13[1] == v4;
         else
-          v17 = v15[2] == v4;
-        if ( _InterlockedCompareExchange64(v15 - 2, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared(v15 - 2);
-        KeAbPostRelease((ULONG_PTR)(v15 - 2));
-        v12 = BugCheckParameter2[0];
+          v15 = v13[2] == v4;
+        if ( _InterlockedCompareExchange64(v13 - 2, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v13 - 2);
+        KeAbPostRelease((ULONG_PTR)(v13 - 2));
+        v9 = BugCheckParameter2[0];
         goto LABEL_41;
       }
       if ( (*(_BYTE *)(v4 + 416) & 6) != 6 )
         goto LABEL_63;
-      v18 = *(_QWORD **)(v4 + 16);
-      if ( !v18 || *v18 != v9 )
+      v16 = *(_QWORD **)(v4 + 16);
+      if ( !v16 || *v16 != v11 )
         goto LABEL_63;
     }
-    if ( (v13 & 7) != 3 || (v13 & 0x2000) != 0 )
+    if ( (v10 & 7) != 3 || (v10 & 0x2000) != 0 )
       goto LABEL_63;
-    v17 = 1;
+    v15 = 1;
 LABEL_41:
-    if ( v17 )
+    if ( v15 )
     {
-      v19 = AlpcpAvailableBufferSize(v12);
-      if ( v20 > v19 )
+      v17 = AlpcpAvailableBufferSize(v9);
+      if ( v18 > v17 )
       {
-        v7 = AlpcpCaptureMessageData(v12, v20, (char *)(a2 + 40));
-        v40 = v7;
+        v7 = AlpcpCaptureMessageData(v9, v18, (char *)(a2 + 40));
+        v32 = v7;
       }
       else
       {
-        memmove((void *)(v12 + 280), (const void *)(a2 + 40), v20);
+        memmove((void *)(v9 + 280), (const void *)(a2 + 40), v18);
         v7 = 0;
-        v40 = 0;
+        v32 = 0;
       }
-      v24 = v46;
+      v19 = v38;
       if ( v7 >= 0 )
       {
-        *(_DWORD *)(v12 + 40) |= 0x10000u;
-        _InterlockedOr(v39, 0);
-        v25 = BugCheckParameter2[0];
-        v26 = *(_QWORD *)(BugCheckParameter2[0] + 24);
+        *(_DWORD *)(v9 + 40) |= 0x10000u;
+        _InterlockedOr(v31, 0);
+        v20 = BugCheckParameter2[0];
+        v21 = *(_QWORD *)(BugCheckParameter2[0] + 24);
         AlpcpRemoveMessageFromPendingQueue(BugCheckParameter2[0]);
-        *(_DWORD *)(v25 + 240) = v42.m128i_i32[0];
-        *(_WORD *)(v25 + 244) = 2;
-        v27 = BugCheckParameter2[0];
+        *(_DWORD *)(v20 + 240) = v34.m128i_i32[0];
+        *(_WORD *)(v20 + 244) = 2;
+        v22 = BugCheckParameter2[0];
         *(_OWORD *)(BugCheckParameter2[0] + 248) = *(_OWORD *)&KeGetCurrentThread()[1].CycleTime;
-        v28 = *(_DWORD *)(v27 + 40) | 0x200;
-        *(_DWORD *)(v27 + 40) = v28;
-        v29 = (*(_DWORD *)(v26 + 416) >> 1) & 3;
-        *(_DWORD *)(v27 + 40) = v28 ^ ((unsigned __int8)v28 ^ (unsigned __int8)(8 * v29)) & 0x78;
-        if ( v29 == 1 )
+        v23 = *(_DWORD *)(v22 + 40) | 0x200;
+        *(_DWORD *)(v22 + 40) = v23;
+        v24 = (*(_DWORD *)(v21 + 416) >> 1) & 3;
+        *(_DWORD *)(v22 + 40) = v23 ^ ((unsigned __int8)v23 ^ (unsigned __int8)(8 * v24)) & 0x78;
+        if ( v24 == 1 )
         {
-          v30 = *(_QWORD *)(v26 + 16);
-          v31 = KeAbPreAcquire(v30 - 16, 0LL);
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v30 - 16), 17LL, 0LL) )
-            ExfAcquirePushLockSharedEx((signed __int64 *)(v30 - 16), 0, v31, v30 - 16);
-          if ( v31 )
-            *((_BYTE *)v31 + 10) = 1;
-          v32 = *(_QWORD *)(v30 + 8);
-          if ( v32 )
-            *(_QWORD *)(BugCheckParameter2[0] + 120) = *(_QWORD *)(v32 + 56);
+          v25 = *(_QWORD *)(v21 + 16);
+          v26 = (char *)KeAbPreAcquire(v25 - 16, 0LL);
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v25 - 16), 17LL, 0LL) )
+            ExfAcquirePushLockSharedEx((signed __int64 *)(v25 - 16), 0, v26, v25 - 16);
+          if ( v26 )
+            v26[10] = 1;
+          v27 = *(_QWORD *)(v25 + 8);
+          if ( v27 )
+            *(_QWORD *)(BugCheckParameter2[0] + 120) = *(_QWORD *)(v27 + 56);
           else
             *(_QWORD *)(BugCheckParameter2[0] + 120) = 0LL;
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v30 - 16), 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared((signed __int64 *)(v30 - 16));
-          KeAbPostRelease(v30 - 16);
-          v27 = BugCheckParameter2[0];
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v25 - 16), 0LL, 17LL) != 17 )
+            ExfReleasePushLockShared((signed __int64 *)(v25 - 16));
+          KeAbPostRelease(v25 - 16);
+          v22 = BugCheckParameter2[0];
         }
         else
         {
-          *(_QWORD *)(v27 + 120) = *(_QWORD *)(v26 + 56);
+          *(_QWORD *)(v22 + 120) = *(_QWORD *)(v21 + 56);
         }
-        v33 = *(_QWORD *)(v27 + 32);
-        *(_QWORD *)(v27 + 32) = 0LL;
-        --*(_WORD *)(v27 - 30);
-        *(_DWORD *)(v27 + 40) = *(_DWORD *)(v27 + 40) & 0xFFFEFEF8 | 0x105;
-        AlpcpClearOwnerPortMessage(v27);
+        v28 = *(_QWORD *)(v22 + 32);
+        *(_QWORD *)(v22 + 32) = 0LL;
+        --*(_WORD *)(v22 - 30);
+        *(_DWORD *)(v22 + 40) = *(_DWORD *)(v22 + 40) & 0xFFFEFEF8 | 0x105;
+        AlpcpClearOwnerPortMessage(v22);
         PsReferenceSiloContext((void *)v4);
-        *(_QWORD *)(v27 + 24) = v4;
-        *(_DWORD *)(v27 + 40) |= 0x1000u;
-        AlpcpUnlockMessage(v27, v34, v35, v36);
-        if ( (v24[6] & 4) != 0 )
-          v24[3] = v33;
+        *(_QWORD *)(v22 + 24) = v4;
+        *(_DWORD *)(v22 + 40) |= 0x1000u;
+        AlpcpUnlockMessage(v22);
+        if ( (v19[6] & 4) != 0 )
+          v19[3] = v28;
         else
-          KeReleaseSemaphoreEx((volatile signed __int32 *)(v33 + 1304), 1LL, 1, v37, 0, 0LL);
-        return v40;
+          KeReleaseSemaphoreEx((volatile signed __int32 *)(v28 + 1304), 1LL, 1, v29, 0, 0LL);
+        return v32;
       }
       else
       {
-        AlpcpUnlockMessage(v12, v21, v22, v23);
+        AlpcpUnlockMessage(v9);
       }
       return (unsigned int)v7;
     }
 LABEL_63:
-    AlpcpUnlockMessage(v12, v9, v10, v11);
+    AlpcpUnlockMessage(v9);
     return (unsigned int)-1073741790;
   }
-  v49 = 0LL;
-  v50 = 0LL;
+  v41 = 0LL;
+  v42 = 0LL;
   v5 = 0x7FFFFFFF0000LL;
   if ( a2 < 0x7FFFFFFF0000LL )
     v5 = a2;
-  RtlCopyVolatileMemory(&v42, (const void *)v5, 0x28uLL);
-  if ( (unsigned int)v42.m128i_i16[0] >= (unsigned __int16)(v42.m128i_i16[0] + 40)
-    || (unsigned __int64)v42.m128i_u16[0] + 40 > v42.m128i_u16[1] )
+  RtlCopyVolatileMemory(&v34, (const void *)v5, 0x28uLL);
+  if ( (unsigned int)v34.m128i_i16[0] >= (unsigned __int16)(v34.m128i_i16[0] + 40)
+    || (unsigned __int64)v34.m128i_u16[0] + 40 > v34.m128i_u16[1] )
   {
     v7 = -1073741811;
-    v40 = -1073741811;
+    v32 = -1073741811;
     return (unsigned int)v7;
   }
-  v42.m128i_i16[1] = v42.m128i_i16[0] + 40;
-  v40 = 0;
-  if ( !v42.m128i_i16[3] || (v7 = AlpcpValidateDataInformation(a2, &v42), v40 = v7, v7 >= 0) )
+  v34.m128i_i16[1] = v34.m128i_i16[0] + 40;
+  v32 = 0;
+  if ( !v34.m128i_i16[3] || (v7 = AlpcpValidateDataInformation(a2, &v34), v32 = v7, v7 >= 0) )
   {
-    v8 = v44;
+    v8 = v36;
     goto LABEL_14;
   }
   return (unsigned int)v7;

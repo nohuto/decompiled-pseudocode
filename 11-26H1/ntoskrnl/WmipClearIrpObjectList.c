@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipClearIrpObjectList @ 0x1403FEABC
+ * XREFs of WmipClearIrpObjectList @ 0x1403FB2AC
  * Callers:
- *     WmipReceiveNotifications @ 0x1403DB2FC (WmipReceiveNotifications.c)
- *     WmipWriteWnodeToObject @ 0x1403FE9A0 (WmipWriteWnodeToObject.c)
- *     WmipNotificationIrpCancel @ 0x1403FFCE0 (WmipNotificationIrpCancel.c)
- *     WmipCompleteGuidIrpWithError @ 0x1404C964C (WmipCompleteGuidIrpWithError.c)
+ *     WmipReceiveNotifications @ 0x1403DE4EC (WmipReceiveNotifications.c)
+ *     WmipWriteWnodeToObject @ 0x1403FB190 (WmipWriteWnodeToObject.c)
+ *     WmipNotificationIrpCancel @ 0x1403FBA80 (WmipNotificationIrpCancel.c)
+ *     WmipCompleteGuidIrpWithError @ 0x1404C306C (WmipCompleteGuidIrpWithError.c)
  * Callees:
  *     <none>
  */

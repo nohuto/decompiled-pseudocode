@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfSelectProcessorState @ 0x14028E7D0
+ * XREFs of PpmPerfSelectProcessorState @ 0x14020B970
  * Callers:
- *     PpmPerfSelectProcessorStates @ 0x14028E740 (PpmPerfSelectProcessorStates.c)
+ *     PpmPerfSelectProcessorStates @ 0x14020B8E0 (PpmPerfSelectProcessorStates.c)
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x140220B80 (EtwpLevelKeywordEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402C5480 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
-char __fastcall PpmPerfSelectProcessorState(__int64 *a1)
+int __fastcall PpmPerfSelectProcessorState(__int64 *a1)
 {
   __int64 v1; // r14
   int v2; // r10d
@@ -44,7 +44,7 @@ char __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   const EVENT_DESCRIPTOR *v32; // r11
   unsigned int *v33; // rax
   REGHANDLE v34; // r10
-  __int64 Keyword; // r8
+  unsigned __int64 Keyword; // r8
   unsigned __int8 v36; // cl
   unsigned int v37; // ecx
   unsigned int v38; // eax
@@ -88,11 +88,11 @@ char __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   v52 = 1;
   if ( (unsigned int)PpmMfBufferingThreshold > 0x64 )
     v3 = 100;
-  v7 = &PpmCurrentProfile[342 * dword_140C23E8C + 5];
-  if ( v6 && PpmCurrentProfile == (__int64 *)PpmLowPowerProfile && byte_140C23ECC && *(_BYTE *)(v6 + 329) < v3 )
+  v7 = &PpmCurrentProfile[342 * dword_140C2332C + 5];
+  if ( v6 && PpmCurrentProfile == (__int64 *)PpmLowPowerProfile && byte_140C2336C && *(_BYTE *)(v6 + 329) < v3 )
   {
     v2 = 4096;
-    v7 = (__int64 *)((char *)&unk_140C1EEA8 + 2736 * dword_140C23E8C);
+    v7 = (__int64 *)((char *)&unk_140C1EE68 + 2736 * dword_140C2332C);
     v48 = 4096;
   }
   if ( (unsigned __int8)PpmHeteroNominalPerformanceClasses > 1u )
@@ -391,9 +391,10 @@ LABEL_35:
         && ((v36 = *((_BYTE *)v33 + 100), v32->Level <= v36) || !v36)
         && ((v33[26] & 0x40) != 0 && !Keyword
          || (Keyword & *((_QWORD *)v33 + 14)) != 0
-         && (v46 = *((_QWORD *)v33 + 15), LOBYTE(v33) = v46 & Keyword, (v46 & Keyword) == v46))
+         && (v46 = *((_QWORD *)v33 + 15), LODWORD(v33) = v46 & Keyword, (v46 & Keyword) == v46))
         || *(_BYTE *)(PpmEtwHandle + 101)
-        && (LOBYTE(v33) = EtwpLevelKeywordEnabled(*(_QWORD *)(PpmEtwHandle + 40) + 96LL, v32->Level, Keyword), (_BYTE)v33) )
+        && (LODWORD(v33) = EtwpLevelKeywordEnabled(*(_QWORD *)(PpmEtwHandle + 40) + 96LL, v32->Level, Keyword),
+            (_BYTE)v33) )
       {
         v61 = 4LL;
         v60 = &v56;
@@ -403,9 +404,9 @@ LABEL_35:
         v64 = &v54;
         v67 = 4LL;
         v66 = &v57;
-        LOBYTE(v33) = EtwWriteEx(v34, v32, 0LL, (ULONG)ActivityId, ActivityId, ActivityId, 5u, &UserData);
+        LODWORD(v33) = EtwWriteEx(v34, v32, 0LL, (ULONG)ActivityId, ActivityId, ActivityId, 5u, &UserData);
       }
     }
   }
-  return (char)v33;
+  return (int)v33;
 }

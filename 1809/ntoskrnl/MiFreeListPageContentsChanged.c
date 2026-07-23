@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeListPageContentsChanged @ 0x1402BF960
+ * XREFs of MiFreeListPageContentsChanged @ 0x1402BFB50
  * Callers:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiFreeListPageContentsChanged(unsigned __int64 a1)
@@ -25,18 +25,18 @@ __int64 __fastcall MiFreeListPageContentsChanged(unsigned __int64 a1)
 
   v2 = *(_QWORD *)(48 * a1 - 0x57FFFFFFFD8LL);
   v3 = a1;
-  v4 = ((unsigned int)(v2 >> 58) << byte_14043A049) | (((v2 >> 36) & 3) << byte_14043A04A);
+  v4 = ((unsigned int)(v2 >> 58) << byte_14043B109) | (((v2 >> 36) & 3) << byte_14043B10A);
   v5 = (v2 >> 40) & 0x3FF;
-  v6 = *(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8 * v5) + 2120LL);
+  v6 = *(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8 * v5) + 2120LL);
   v14 = 0LL;
-  v15 = (volatile __int64 *)(v6 + 8 * (5 * (dword_14043A088 & (unsigned int)a1 | v4) + 4));
+  v15 = (volatile __int64 *)(v6 + 8 * (5 * (dword_14043B148 & (unsigned int)a1 | v4) + 4));
   KxAcquireQueuedSpinLock((__int64)&v14, v15, v5);
-  if ( dword_14043A76C == 1 )
+  if ( dword_14043B82C == 1 )
   {
     v7 = a1 >> 5;
     v8 = a1 & 0x1F;
     LOBYTE(v9) = 1;
-    v10 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * v7);
+    v10 = (volatile signed __int32 *)(qword_14043B888 + 4 * v7);
     if ( (unsigned __int64)(v8 + 1) > 0x20 )
     {
       if ( !v8 )

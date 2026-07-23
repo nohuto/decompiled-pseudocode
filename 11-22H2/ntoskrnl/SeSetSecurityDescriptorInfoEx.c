@@ -23,7 +23,7 @@ NTSTATUS __stdcall SeSetSecurityDescriptorInfoEx(
              (__int64 *)ObjectsSecurityDescriptor,
              AutoInheritFlags,
              PoolType,
-             (__int64)GenericMapping,
+             GenericMapping,
              0LL);
   else
     return -1073741609;

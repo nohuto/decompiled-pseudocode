@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetPerfectColorHeadHugeRange @ 0x140670378
+ * XREFs of MiGetPerfectColorHeadHugeRange @ 0x140671548
  * Callers:
- *     MiGetPerfectFreeOrZeroHugeRange @ 0x1406704EC (MiGetPerfectFreeOrZeroHugeRange.c)
- *     MiRemoveHugeRangeAnyColor @ 0x140671978 (MiRemoveHugeRangeAnyColor.c)
+ *     MiGetPerfectFreeOrZeroHugeRange @ 0x1406716BC (MiGetPerfectFreeOrZeroHugeRange.c)
+ *     MiRemoveHugeRangeAnyColor @ 0x140672B48 (MiRemoveHugeRangeAnyColor.c)
  * Callees:
- *     MiLockHugePfnInternal @ 0x1403F9BD8 (MiLockHugePfnInternal.c)
- *     MiGetColorHeadHugeRangeBase @ 0x1404B219C (MiGetColorHeadHugeRangeBase.c)
- *     MiUnlockHugePfn @ 0x1404CF53C (MiUnlockHugePfn.c)
- *     MiUnlinkHugeRange @ 0x1404F0F98 (MiUnlinkHugeRange.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiLockColorHeadHugeAtDpc @ 0x1404FAC14 (MiLockColorHeadHugeAtDpc.c)
+ *     MiLockHugePfnInternal @ 0x1403EFAE4 (MiLockHugePfnInternal.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404ACA2C (MiGetColorHeadHugeRangeBase.c)
+ *     MiUnlockHugePfn @ 0x1404C8804 (MiUnlockHugePfn.c)
+ *     MiUnlinkHugeRange @ 0x1404EEA38 (MiUnlinkHugeRange.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiLockColorHeadHugeAtDpc @ 0x1404F84F4 (MiLockColorHeadHugeAtDpc.c)
  */
 
 __int64 *__fastcall MiGetPerfectColorHeadHugeRange(__int64 a1, __int64 a2)
@@ -39,9 +39,9 @@ __int64 *__fastcall MiGetPerfectColorHeadHugeRange(__int64 a1, __int64 a2)
     v3 = (*(_QWORD *)v7 >> 15) ^ ((*(_QWORD *)v7 >> 15) ^ v3) & 0xFFFFFFFFFFC00000uLL;
     if ( !v8 )
       break;
-    if ( _bittest64((const signed __int64 *)qword_140E2FFB8, v8) )
+    if ( _bittest64((const signed __int64 *)stru_140E300F0.Buffer, v8) )
     {
-      v9 = (__int64 *)(qword_140E2FFC0 + 8 * v8);
+      v9 = (__int64 *)(qword_140E30100 + 8 * v8);
       if ( (v5 & 1) != 0 )
       {
         CurrentIrql = 17;

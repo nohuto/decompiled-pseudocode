@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessSecurityPort @ 0x1404EDAD4
+ * XREFs of PsGetProcessSecurityPort @ 0x1404CFBF8
  * Callers:
  *     <none>
  * Callees:

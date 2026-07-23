@@ -1,24 +1,24 @@
 /*
- * XREFs of IopQueryXxxInformation @ 0x14050A128
+ * XREFs of IopQueryXxxInformation @ 0x1404ED0B8
  * Callers:
- *     IopQueryNameInternal @ 0x140509B10 (IopQueryNameInternal.c)
- *     IoQueryFileInformation @ 0x14050A100 (IoQueryFileInformation.c)
- *     IoQueryVolumeInformation @ 0x14052AED4 (IoQueryVolumeInformation.c)
+ *     IopQueryNameInternal @ 0x1404ECAA0 (IopQueryNameInternal.c)
+ *     IoQueryFileInformation @ 0x1404ED090 (IoQueryFileInformation.c)
+ *     IoQueryVolumeInformation @ 0x14052BB24 (IoQueryVolumeInformation.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopQueueThreadIrp @ 0x14002E170 (IopQueueThreadIrp.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopAcquireFastLock @ 0x14007BAB4 (IopAcquireFastLock.c)
- *     IopWaitForSynchronousIo @ 0x1400CA4C0 (IopWaitForSynchronousIo.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopQueueThreadIrp @ 0x14002DCF0 (IopQueueThreadIrp.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopAcquireFastLock @ 0x14007BB34 (IopAcquireFastLock.c)
+ *     IopWaitForSynchronousIo @ 0x1400C8360 (IopWaitForSynchronousIo.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
  */
 
 __int64 __fastcall IopQueryXxxInformation(

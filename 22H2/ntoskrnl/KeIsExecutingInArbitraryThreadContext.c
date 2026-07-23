@@ -19,7 +19,7 @@
  *     <none>
  */
 
-_BOOL8 KeIsExecutingInArbitraryThreadContext()
+_BOOL8 __fastcall KeIsExecutingInArbitraryThreadContext()
 {
   return KeGetPcr()->Prcb.NestingLevel != 0;
 }

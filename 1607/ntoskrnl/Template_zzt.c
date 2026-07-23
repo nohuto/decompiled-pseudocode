@@ -1,10 +1,10 @@
 /*
- * XREFs of Template_zzt @ 0x1401D0E5C
+ * XREFs of Template_zzt @ 0x1401D0C88
  * Callers:
- *     PiCMGetDeviceIdList @ 0x1404DD06C (PiCMGetDeviceIdList.c)
+ *     PiCMGetDeviceIdList @ 0x1404C0670 (PiCMGetDeviceIdList.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Template_zzt(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4, const wchar_t *a5, char a6)

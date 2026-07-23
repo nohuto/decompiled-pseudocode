@@ -1,15 +1,15 @@
 /*
- * XREFs of IommuMapIdentityRange @ 0x1404DA7D0
+ * XREFs of IommuMapIdentityRange @ 0x1404DAA10
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpIommuFlushDmaDomain @ 0x1404C9488 (HalpIommuFlushDmaDomain.c)
- *     IommupHvUnmapDeviceIdentityRange @ 0x1404DA378 (IommupHvUnmapDeviceIdentityRange.c)
- *     IommupValidateMdl @ 0x1404DADE4 (IommupValidateMdl.c)
- *     HalpIommuMapLogicalRange @ 0x1404DC20C (HalpIommuMapLogicalRange.c)
- *     HalpIommuUnmapLogicalRange @ 0x1404DC62C (HalpIommuUnmapLogicalRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpIommuFlushDmaDomain @ 0x1404C96C8 (HalpIommuFlushDmaDomain.c)
+ *     IommupHvUnmapDeviceIdentityRange @ 0x1404DA5B8 (IommupHvUnmapDeviceIdentityRange.c)
+ *     IommupValidateMdl @ 0x1404DB024 (IommupValidateMdl.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC44C (HalpIommuMapLogicalRange.c)
+ *     HalpIommuUnmapLogicalRange @ 0x1404DC86C (HalpIommuUnmapLogicalRange.c)
  */
 
 __int64 __fastcall IommuMapIdentityRange(ULONG_PTR BugCheckParameter3, unsigned int a2, __int64 a3)
@@ -94,7 +94,7 @@ __int64 __fastcall IommuMapIdentityRange(ULONG_PTR BugCheckParameter3, unsigned 
   }
   LODWORD(v22) = *(_DWORD *)(BugCheckParameter3 + 32);
   BYTE4(v22) = 0;
-  v9 = ((__int64 (__fastcall *)(__int64 *, _QWORD, __int64, unsigned __int64 *))qword_140C4A320)(
+  v9 = ((__int64 (__fastcall *)(__int64 *, _QWORD, __int64, unsigned __int64 *))qword_140C4A360)(
          &v22,
          a2,
          v8 + 48,

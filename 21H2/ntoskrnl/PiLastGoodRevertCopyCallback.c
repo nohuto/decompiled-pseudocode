@@ -1,12 +1,12 @@
 /*
- * XREFs of PiLastGoodRevertCopyCallback @ 0x140A90820
+ * XREFs of PiLastGoodRevertCopyCallback @ 0x140A91820
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     IopFileUtilRename @ 0x140A6F0E4 (IopFileUtilRename.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     IopFileUtilRename @ 0x140A700E4 (IopFileUtilRename.c)
  */
 
 __int64 __fastcall PiLastGoodRevertCopyCallback(UNICODE_STRING *a1, __int64 a2, __int64 a3, _WORD *a4)

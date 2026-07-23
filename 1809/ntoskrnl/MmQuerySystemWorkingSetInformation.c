@@ -1,17 +1,17 @@
 /*
- * XREFs of MmQuerySystemWorkingSetInformation @ 0x140130A34
+ * XREFs of MmQuerySystemWorkingSetInformation @ 0x140130B04
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetStandbyRepurposed @ 0x1400EF34C (MiGetStandbyRepurposed.c)
- *     MiGetCurrentMultiplexedVm @ 0x1400EF4E4 (MiGetCurrentMultiplexedVm.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetStandbyRepurposed @ 0x1400EF3CC (MiGetStandbyRepurposed.c)
+ *     MiGetCurrentMultiplexedVm @ 0x1400EF564 (MiGetCurrentMultiplexedVm.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 _UNKNOWN **__fastcall MmQuerySystemWorkingSetInformation(int a1, _QWORD *a2)
@@ -55,7 +55,7 @@ _UNKNOWN **__fastcall MmQuerySystemWorkingSetInformation(int a1, _QWORD *a2)
       return (_UNKNOWN **)memset(a2, 0, 0x40uLL);
   }
   v9 = (unsigned int)(v8 - 2);
-  v10 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(AnyMultiplexedVm + 174));
+  v10 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(AnyMultiplexedVm + 174));
   v11 = MiLockWorkingSetShared(AnyMultiplexedVm);
   SharedVm = MiGetSharedVm(AnyMultiplexedVm);
   ExAcquireSpinLockExclusiveAtDpcLevel(SharedVm + 10);

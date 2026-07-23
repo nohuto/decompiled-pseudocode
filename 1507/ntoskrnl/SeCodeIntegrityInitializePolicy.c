@@ -20,7 +20,7 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
   _BYTE SystemInformation[24]; // [rsp+40h] [rbp-28h] BYREF
 
   if ( !SeILSigningPolicy
-    && ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, SystemInformation, 0x18u, 0LL) >= 0
+    && ZwQuerySystemInformation(SystemSecureBootPolicyInformation, SystemInformation, 0x18u, 0LL) >= 0
     && (SystemInformation[20] & 4) != 0 )
   {
     SeILSigningPolicy = 8;

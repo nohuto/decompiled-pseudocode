@@ -1,17 +1,17 @@
 /*
- * XREFs of PspUserThreadStartup @ 0x1408FEA00
+ * XREFs of PspUserThreadStartup @ 0x1409212E0
  * Callers:
  *     <none>
  * Callees:
- *     KeUpdateTebSchedulingPropertiesCurrentThread @ 0x1402057C8 (KeUpdateTebSchedulingPropertiesCurrentThread.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     PspTerminateThreadByPointer @ 0x1408A7CB0 (PspTerminateThreadByPointer.c)
- *     PspInitializeThunkContext @ 0x1408FE308 (PspInitializeThunkContext.c)
- *     PspDisablePrimaryTokenExchange @ 0x1408FEB00 (PspDisablePrimaryTokenExchange.c)
- *     PspNotifyThreadCreation @ 0x1408FEC38 (PspNotifyThreadCreation.c)
- *     PsGetSessionLocaleId @ 0x1408FF084 (PsGetSessionLocaleId.c)
- *     DbgkCreateMinimalThread @ 0x1408FF638 (DbgkCreateMinimalThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeUpdateTebSchedulingPropertiesCurrentThread @ 0x14032CDA8 (KeUpdateTebSchedulingPropertiesCurrentThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     PspTerminateThreadByPointer @ 0x1408FDF10 (PspTerminateThreadByPointer.c)
+ *     PspInitializeThunkContext @ 0x140920BE8 (PspInitializeThunkContext.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1409213E0 (PspDisablePrimaryTokenExchange.c)
+ *     PspNotifyThreadCreation @ 0x140921518 (PspNotifyThreadCreation.c)
+ *     PsGetSessionLocaleId @ 0x140921964 (PsGetSessionLocaleId.c)
+ *     DbgkCreateMinimalThread @ 0x140921F18 (DbgkCreateMinimalThread.c)
  */
 
 __int16 PspUserThreadStartup()

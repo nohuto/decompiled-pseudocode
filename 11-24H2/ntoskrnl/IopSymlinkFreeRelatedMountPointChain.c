@@ -1,14 +1,14 @@
 /*
- * XREFs of IopSymlinkFreeRelatedMountPointChain @ 0x1408A2AC8
+ * XREFs of IopSymlinkFreeRelatedMountPointChain @ 0x1408AB168
  * Callers:
- *     FsRtlFreeExtraCreateParameterList @ 0x1408A26C0 (FsRtlFreeExtraCreateParameterList.c)
- *     IopSymlinkPropagateToExtensionIfNeeded @ 0x1408A2820 (IopSymlinkPropagateToExtensionIfNeeded.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1408A2A00 (FsRtlFreeExtraCreateParameter.c)
- *     IopSymlinkRememberJunction @ 0x14099D708 (IopSymlinkRememberJunction.c)
- *     IopSymlinkUpdateECP @ 0x14099DACC (IopSymlinkUpdateECP.c)
- *     IopSymlinkCleanupECP @ 0x140A594F0 (IopSymlinkCleanupECP.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x1408AAD60 (FsRtlFreeExtraCreateParameterList.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x1408AAEC0 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x1408AB0A0 (FsRtlFreeExtraCreateParameter.c)
+ *     IopSymlinkUpdateECP @ 0x1408ABA8C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkCleanupECP @ 0x1408ABC30 (IopSymlinkCleanupECP.c)
+ *     IopSymlinkRememberJunction @ 0x1408ACA10 (IopSymlinkRememberJunction.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopSymlinkFreeRelatedMountPointChain(__int64 a1)

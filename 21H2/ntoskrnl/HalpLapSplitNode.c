@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpLapSplitNode @ 0x1404DB6AC
+ * XREFs of HalpLapSplitNode @ 0x1404DB8EC
  * Callers:
- *     HalpLaAllocateBlt @ 0x1404DAE04 (HalpLaAllocateBlt.c)
- *     HalpLaReserveRange @ 0x1404DB3D4 (HalpLaReserveRange.c)
+ *     HalpLaAllocateBlt @ 0x1404DB044 (HalpLaAllocateBlt.c)
+ *     HalpLaReserveRange @ 0x1404DB614 (HalpLaReserveRange.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
  */
 
 __int64 __fastcall HalpLapSplitNode(__int64 a1, __int64 a2)

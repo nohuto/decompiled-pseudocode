@@ -9,7 +9,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 MiBadPageSignaler()
+NTSTATUS MiBadPageSignaler()
 {
   unsigned __int64 v0; // rbx
   unsigned __int8 CurrentIrql; // cl
@@ -21,10 +21,13 @@ __int64 MiBadPageSignaler()
   v0 = ExAcquireSpinLockExclusive(&dword_140C6CF60);
   byte_140C68043 = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6CF60);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v0 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -36,5 +39,5 @@ __int64 MiBadPageSignaler()
     }
   }
   __writecr8(v0);
-  return ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_QUARANTINED, 0LL);
+  return ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_QUARANTINED, 0LL, 0, 0LL, 0LL, 0, 0);
 }

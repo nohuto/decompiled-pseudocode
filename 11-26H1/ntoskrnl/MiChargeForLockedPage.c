@@ -1,12 +1,12 @@
 /*
- * XREFs of MiChargeForLockedPage @ 0x1402F5F60
+ * XREFs of MiChargeForLockedPage @ 0x1402D7FE0
  * Callers:
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiHardFaultPageRelease @ 0x14031C920 (MiHardFaultPageRelease.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiHardFaultPageRelease @ 0x14031E950 (MiHardFaultPageRelease.c)
  * Callees:
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiChargeForLockedPage(__int64 a1, char a2, __int64 a3, __int64 a4)
@@ -34,8 +34,8 @@ __int64 __fastcall MiChargeForLockedPage(__int64 a1, char a2, __int64 a3, __int6
     v6 = 1;
   }
   v8 = (*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL;
-  v9 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8 * v8);
-  if ( !v6 || (result = MiChargeCommit(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v8), 1LL, v7, a4), (_DWORD)result) )
+  v9 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8 * v8);
+  if ( !v6 || (result = MiChargeCommit(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v8), 1LL, v7, a4), (_DWORD)result) )
   {
     if ( v9 == &MiSystemPartition )
     {

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmHeteroDistributeUtility @ 0x140597360
+ * XREFs of PpmHeteroDistributeUtility @ 0x140597850
  * Callers:
  *     <none>
  * Callees:
- *     PpmParkDistributeUtility @ 0x140257070 (PpmParkDistributeUtility.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmEventTraceHeteroDistributeUtility @ 0x14059B7F0 (PpmEventTraceHeteroDistributeUtility.c)
+ *     PpmParkDistributeUtility @ 0x140257130 (PpmParkDistributeUtility.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmEventTraceHeteroDistributeUtility @ 0x14059BCE0 (PpmEventTraceHeteroDistributeUtility.c)
  */
 
 char PpmHeteroDistributeUtility()
@@ -61,7 +61,7 @@ char PpmHeteroDistributeUtility()
   v42 = 0LL;
   v41 = 0LL;
   v37 = PpmCurrentProfile;
-  v38 = 440LL * dword_140C3D86C;
+  v38 = 440LL * dword_140C3D96C;
   v0 = BYTE3(PpmCurrentProfile[v38 / 8 + 20]) == 0;
   v1 = 0;
   v36 = 0;

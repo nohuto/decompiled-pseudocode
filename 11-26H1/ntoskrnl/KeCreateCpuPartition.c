@@ -1,10 +1,10 @@
 /*
- * XREFs of KeCreateCpuPartition @ 0x1405F3BD4
+ * XREFs of KeCreateCpuPartition @ 0x1405F6594
  * Callers:
- *     PsCreateCpuPartition @ 0x1407F2660 (PsCreateCpuPartition.c)
+ *     PsCreateCpuPartition @ 0x1407F81C0 (PsCreateCpuPartition.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KeCreateCpuPartition(__int64 *a1, int a2)

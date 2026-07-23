@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlAddDiskIOCounterInstance @ 0x14088C10C
+ * XREFs of FsRtlAddDiskIOCounterInstance @ 0x14088C26C
  * Callers:
- *     FsRtlDiskIOCounterSetCallback @ 0x14088C1E0 (FsRtlDiskIOCounterSetCallback.c)
+ *     FsRtlDiskIOCounterSetCallback @ 0x14088C340 (FsRtlDiskIOCounterSetCallback.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PcwAddInstance @ 0x140687F00 (PcwAddInstance.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PcwAddInstance @ 0x1405E7060 (PcwAddInstance.c)
  */
 
 NTSTATUS __fastcall FsRtlAddDiskIOCounterInstance(PPCW_BUFFER Buffer)

@@ -1,29 +1,29 @@
 /*
- * XREFs of MiReturnNonPagedPoolVa @ 0x140103670
+ * XREFs of MiReturnNonPagedPoolVa @ 0x1401013F0
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     ExpAllocateBigPool @ 0x140011AD0 (ExpAllocateBigPool.c)
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
- *     MiScrubNonPagedPool @ 0x140659E60 (MiScrubNonPagedPool.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     ExpAllocateBigPool @ 0x140011650 (ExpAllocateBigPool.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
+ *     MiScrubNonPagedPool @ 0x140659F44 (MiScrubNonPagedPool.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiFreeLargePageMemory @ 0x140090970 (MiFreeLargePageMemory.c)
- *     MiReturnNonPagedPoolCharges @ 0x140098570 (MiReturnNonPagedPoolCharges.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiCountNonPagedPool @ 0x140103CBC (MiCountNonPagedPool.c)
- *     MiNonPagedPoolToNode @ 0x140103D60 (MiNonPagedPoolToNode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1401E35E0 (MiLogPerfMemoryRangeEvent.c)
- *     MiJoinBitmapPages @ 0x1401EB324 (MiJoinBitmapPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiFreeLargePageMemory @ 0x1400900D0 (MiFreeLargePageMemory.c)
+ *     MiReturnNonPagedPoolCharges @ 0x140097D70 (MiReturnNonPagedPoolCharges.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiCountNonPagedPool @ 0x140101A3C (MiCountNonPagedPool.c)
+ *     MiNonPagedPoolToNode @ 0x140101AE0 (MiNonPagedPoolToNode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1401E340C (MiLogPerfMemoryRangeEvent.c)
+ *     MiJoinBitmapPages @ 0x1401EB150 (MiJoinBitmapPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
@@ -36,13 +36,13 @@ void __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
   _QWORD *v9; // rdx
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // rcx
-  union _SLIST_HEADER *v12; // rcx
+  _SLIST_HEADER *v12; // rcx
   int v13; // r14d
   __int64 v14; // rcx
   unsigned __int64 v15; // rdx
   __int64 v16; // rax
   unsigned __int64 v17; // r11
-  union _SLIST_HEADER *v18; // r14
+  _SLIST_HEADER *v18; // r14
   unsigned __int64 v19; // rsi
   unsigned __int64 *v20; // r8
   unsigned __int64 *p_Region; // rax
@@ -61,7 +61,7 @@ void __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
   _QWORD *v34; // rcx
   __int64 v35; // rcx
   _QWORD *v36; // rbx
-  union _SLIST_HEADER *v37; // [rsp+20h] [rbp-E0h]
+  _SLIST_HEADER *v37; // [rsp+20h] [rbp-E0h]
   unsigned __int64 v38; // [rsp+28h] [rbp-D8h]
   unsigned __int64 v39; // [rsp+30h] [rbp-D0h]
   unsigned __int64 v40; // [rsp+38h] [rbp-C8h]
@@ -91,7 +91,7 @@ void __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
   v53 = 0LL;
   v5 = 0LL;
   v46 = 0LL;
-  v37 = &qword_1403269B0[26 * (unsigned int)MiNonPagedPoolToNode(a1)];
+  v37 = &qword_1403269F0[26 * (unsigned int)MiNonPagedPoolToNode(a1)];
   v42 = (a1 - v37[20].Region) >> 12;
   v38 = v42 & 0xFFFFFFFFFFFFFE00uLL;
   v47 = a2 + v42;

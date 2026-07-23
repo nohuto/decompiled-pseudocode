@@ -1,21 +1,21 @@
 /*
- * XREFs of AccelpInternalOperationHandler @ 0x140531E58
+ * XREFs of AccelpInternalOperationHandler @ 0x1405342F8
  * Callers:
- *     AccelWaitForWorkCompletion @ 0x1402A1F3C (AccelWaitForWorkCompletion.c)
- *     AccelGetStatusFromCompletionRecord @ 0x1402A20AC (AccelGetStatusFromCompletionRecord.c)
- *     AccelSubmitWorkAsync @ 0x140530C4C (AccelSubmitWorkAsync.c)
- *     AccelBuildDescriptorMemoryCompress @ 0x1406DE714 (AccelBuildDescriptorMemoryCompress.c)
- *     AccelBuildDescriptorMemoryDecompress @ 0x1406DE858 (AccelBuildDescriptorMemoryDecompress.c)
- *     AccelBuildDescriptorMemoryFill @ 0x1406DE99C (AccelBuildDescriptorMemoryFill.c)
- *     AccelBuildDescriptorNop @ 0x1406DEAA4 (AccelBuildDescriptorNop.c)
- *     AccelInitializeCompressionWorkspace @ 0x1406DEE34 (AccelInitializeCompressionWorkspace.c)
- *     AccelQueryCompletionInformation @ 0x1406DF030 (AccelQueryCompletionInformation.c)
- *     AccelQueryDescriptorSize @ 0x1406DF100 (AccelQueryDescriptorSize.c)
- *     AccelpBuildDescriptorComputeHistogram @ 0x1406DF1B4 (AccelpBuildDescriptorComputeHistogram.c)
+ *     AccelWaitForWorkCompletion @ 0x1402A148C (AccelWaitForWorkCompletion.c)
+ *     AccelGetStatusFromCompletionRecord @ 0x1402A15FC (AccelGetStatusFromCompletionRecord.c)
+ *     AccelSubmitWorkAsync @ 0x14053314C (AccelSubmitWorkAsync.c)
+ *     AccelBuildDescriptorMemoryCompress @ 0x1406E29B4 (AccelBuildDescriptorMemoryCompress.c)
+ *     AccelBuildDescriptorMemoryDecompress @ 0x1406E2AF8 (AccelBuildDescriptorMemoryDecompress.c)
+ *     AccelBuildDescriptorMemoryFill @ 0x1406E2C3C (AccelBuildDescriptorMemoryFill.c)
+ *     AccelBuildDescriptorNop @ 0x1406E2D44 (AccelBuildDescriptorNop.c)
+ *     AccelInitializeCompressionWorkspace @ 0x1406E30D4 (AccelInitializeCompressionWorkspace.c)
+ *     AccelQueryCompletionInformation @ 0x1406E32D0 (AccelQueryCompletionInformation.c)
+ *     AccelQueryDescriptorSize @ 0x1406E33A0 (AccelQueryDescriptorSize.c)
+ *     AccelpBuildDescriptorComputeHistogram @ 0x1406E3454 (AccelpBuildDescriptorComputeHistogram.c)
  * Callees:
- *     AccelpSiovInternalOperationHandler @ 0x140511B88 (AccelpSiovInternalOperationHandler.c)
- *     AccelpCpuInternalOperationHandler @ 0x1406E07A8 (AccelpCpuInternalOperationHandler.c)
- *     AccelpSdxiInternalOperationHandler @ 0x1406E0A10 (AccelpSdxiInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x14050B5F8 (AccelpSiovInternalOperationHandler.c)
+ *     AccelpCpuInternalOperationHandler @ 0x1406E4A28 (AccelpCpuInternalOperationHandler.c)
+ *     AccelpSdxiInternalOperationHandler @ 0x1406E4C90 (AccelpSdxiInternalOperationHandler.c)
  */
 
 __int64 __fastcall AccelpInternalOperationHandler(__int64 a1, unsigned int *a2)

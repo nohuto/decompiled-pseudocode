@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmiRetrieveEventFromQueue @ 0x1407ECFA0
+ * XREFs of TtmiRetrieveEventFromQueue @ 0x1407F2B00
  * Callers:
- *     TtmpDispatchGetTerminalEvent @ 0x1407E8018 (TtmpDispatchGetTerminalEvent.c)
+ *     TtmpDispatchGetTerminalEvent @ 0x1407EDB78 (TtmpDispatchGetTerminalEvent.c)
  * Callees:
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     TtmiLogQueueDequeueEvent @ 0x1407E9E2C (TtmiLogQueueDequeueEvent.c)
- *     TtmpAcquireQueueLock @ 0x1407ED230 (TtmpAcquireQueueLock.c)
- *     TtmpReleaseQueueLock @ 0x1407ED3A0 (TtmpReleaseQueueLock.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     TtmiLogQueueDequeueEvent @ 0x1407EF98C (TtmiLogQueueDequeueEvent.c)
+ *     TtmpAcquireQueueLock @ 0x1407F2D90 (TtmpAcquireQueueLock.c)
+ *     TtmpReleaseQueueLock @ 0x1407F2F00 (TtmpReleaseQueueLock.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmiRetrieveEventFromQueue(__int64 a1, _OWORD *a2)

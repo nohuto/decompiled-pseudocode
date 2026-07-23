@@ -23,7 +23,7 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
         _QWORD *a5,
         __int64 a6,
         unsigned int *a7,
-        int *a8,
+        PSIZE_T PackageSize,
         PANSI_STRING DestinationString,
         unsigned __int16 *a10,
         _QWORD *TokenInformation)
@@ -87,7 +87,7 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   *(_QWORD *)a6 = a4;
   *(_QWORD *)(a6 + 8) = 36LL;
   v21 = PsReferencePrimaryToken(Process);
-  EtwpQueryTokenPackageInfo(v21, a8, a4 + 32);
+  EtwpQueryTokenPackageInfo(v21, PackageSize);
   InformationToken = SeQueryInformationToken(v21, TokenUser, (PVOID *)&TokenInformation);
   ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], (unsigned __int64)v21);
   if ( InformationToken < 0 )
@@ -162,15 +162,15 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   v29 *= 2LL;
   *(_QWORD *)(a6 + 8 * v28) = &EtwpNull;
   *(_QWORD *)(a6 + 8 * v28 + 8) = 2LL;
-  v31 = *a8;
-  *(_QWORD *)(a6 + 8 * v29) = a8 + 4;
+  v31 = *(_DWORD *)PackageSize;
+  *(_QWORD *)(a6 + 8 * v29) = PackageSize + 2;
   *(_DWORD *)(a6 + 8 * v29 + 8) = v31;
   *(_DWORD *)(a6 + 8 * v29 + 12) = 0;
-  v32 = a8[2];
+  v32 = *((_DWORD *)PackageSize + 2);
   v33 = v30;
   v34 = v30 + 1;
   v33 *= 2LL;
-  *(_QWORD *)(a6 + 8 * v33) = a8 + 68;
+  *(_QWORD *)(a6 + 8 * v33) = PackageSize + 34;
   *(_QWORD *)(a6 + 8 * v33 + 8) = v32;
   if ( a2 == 807 )
   {

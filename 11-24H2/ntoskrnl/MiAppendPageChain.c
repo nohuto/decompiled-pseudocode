@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAppendPageChain @ 0x140450568
+ * XREFs of MiAppendPageChain @ 0x1404457D8
  * Callers:
- *     MiReserveEnclavePages @ 0x140393C14 (MiReserveEnclavePages.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MiReserveEnclavePages @ 0x1403F6D34 (MiReserveEnclavePages.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */

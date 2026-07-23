@@ -1,58 +1,58 @@
 /*
- * XREFs of MiMapViewOfDataSection @ 0x1404354C0
+ * XREFs of MiMapViewOfDataSection @ 0x140434390
  * Callers:
- *     MiMapViewOfSection @ 0x140433010 (MiMapViewOfSection.c)
+ *     MiMapViewOfSection @ 0x140431EE0 (MiMapViewOfSection.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiIsProcessCfgEnabled @ 0x140014304 (MiIsProcessCfgEnabled.c)
- *     MiCheckForConflictingVadExistence @ 0x140014318 (MiCheckForConflictingVadExistence.c)
- *     MiUnlockVad @ 0x1400144A0 (MiUnlockVad.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140014624 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiLocateSubsectionNode @ 0x140021BC0 (MiLocateSubsectionNode.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x14002270C (MiRemoveViewsFromSectionWithPfn.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiReferenceVad @ 0x14002C37C (MiReferenceVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     MiAddViewsForSection @ 0x14002C690 (MiAddViewsForSection.c)
- *     MiGetControlAreaPtes @ 0x14002C870 (MiGetControlAreaPtes.c)
- *     MiCheckPurgeAndUpMapCount @ 0x14002C920 (MiCheckPurgeAndUpMapCount.c)
- *     MiComputeContiguousSubsectionPte @ 0x14002CA00 (MiComputeContiguousSubsectionPte.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MiLocatePagefileSubsection @ 0x14002D040 (MiLocatePagefileSubsection.c)
- *     MiGetWsAndInsertVad @ 0x140030AE0 (MiGetWsAndInsertVad.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiGetPdeAddress @ 0x1400AB5EC (MiGetPdeAddress.c)
- *     MiDereferenceControlArea @ 0x1400B54C4 (MiDereferenceControlArea.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiDereferenceExtendInfo @ 0x14010EAA4 (MiDereferenceExtendInfo.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteLargePde @ 0x1401F5FA8 (MiWriteLargePde.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiIsProcessCfgEnabled @ 0x140013E84 (MiIsProcessCfgEnabled.c)
+ *     MiCheckForConflictingVadExistence @ 0x140013E98 (MiCheckForConflictingVadExistence.c)
+ *     MiUnlockVad @ 0x140014020 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x1400141A4 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiLocateSubsectionNode @ 0x140021740 (MiLocateSubsectionNode.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14002228C (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiReferenceVad @ 0x14002BEFC (MiReferenceVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     MiAddViewsForSection @ 0x14002C210 (MiAddViewsForSection.c)
+ *     MiGetControlAreaPtes @ 0x14002C3F0 (MiGetControlAreaPtes.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14002C4A0 (MiCheckPurgeAndUpMapCount.c)
+ *     MiComputeContiguousSubsectionPte @ 0x14002C580 (MiComputeContiguousSubsectionPte.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiLocatePagefileSubsection @ 0x14002CBC0 (MiLocatePagefileSubsection.c)
+ *     MiGetWsAndInsertVad @ 0x140030660 (MiGetWsAndInsertVad.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiGetPdeAddress @ 0x1400847A4 (MiGetPdeAddress.c)
+ *     MiDereferenceControlArea @ 0x1400B32FC (MiDereferenceControlArea.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiDereferenceExtendInfo @ 0x14010F008 (MiDereferenceExtendInfo.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteLargePde @ 0x1401F5DD4 (MiWriteLargePde.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiCommitVadCfgBits @ 0x140429850 (MiCommitVadCfgBits.c)
- *     MiSecureVad @ 0x14042AA80 (MiSecureVad.c)
- *     MiAddSecureEntry @ 0x14042AB30 (MiAddSecureEntry.c)
- *     MiInsertSharedCommitNode @ 0x14042E680 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x14042EA70 (MiRemoveSharedCommitNode.c)
- *     MiUnmapVad @ 0x14042EEF0 (MiUnmapVad.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiFindEmptyAddressRange @ 0x1404363D0 (MiFindEmptyAddressRange.c)
- *     MiAdvanceVadHint @ 0x140436BB0 (MiAdvanceVadHint.c)
- *     MiChargeSegmentCommit @ 0x1404BA400 (MiChargeSegmentCommit.c)
- *     MiSelectUserAddress @ 0x1404BAA90 (MiSelectUserAddress.c)
- *     MiFindEmptyAddressRangeDown @ 0x1404BABB4 (MiFindEmptyAddressRangeDown.c)
- *     MiLogMapFileEvent @ 0x140657130 (MiLogMapFileEvent.c)
+ *     MiCommitVadCfgBits @ 0x140428720 (MiCommitVadCfgBits.c)
+ *     MiSecureVad @ 0x140429950 (MiSecureVad.c)
+ *     MiAddSecureEntry @ 0x140429A00 (MiAddSecureEntry.c)
+ *     MiInsertSharedCommitNode @ 0x14042D550 (MiInsertSharedCommitNode.c)
+ *     MiRemoveSharedCommitNode @ 0x14042D940 (MiRemoveSharedCommitNode.c)
+ *     MiUnmapVad @ 0x14042DDC0 (MiUnmapVad.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiFindEmptyAddressRange @ 0x1404352A0 (MiFindEmptyAddressRange.c)
+ *     MiAdvanceVadHint @ 0x140435A80 (MiAdvanceVadHint.c)
+ *     MiChargeSegmentCommit @ 0x1404A6130 (MiChargeSegmentCommit.c)
+ *     MiSelectUserAddress @ 0x1404A67C0 (MiSelectUserAddress.c)
+ *     MiFindEmptyAddressRangeDown @ 0x1404A68E4 (MiFindEmptyAddressRangeDown.c)
+ *     MiLogMapFileEvent @ 0x140657214 (MiLogMapFileEvent.c)
  */
 
 __int64 __fastcall MiMapViewOfDataSection(
@@ -290,7 +290,7 @@ LABEL_139:
   *((_DWORD *)v22 + 16) ^= (*((_DWORD *)v22 + 16) ^ ((a7 == 1) << 26)) & 0x4000000;
   *((_DWORD *)v22 + 12) = v22[6] & 0xFFFFC007 | (8 * (a8 & 0x1F | (32 * (v35 & 0x3F))));
   if ( v34 )
-    *(_BYTE *)(qword_140327F90 + 276840624) = 1;
+    *(_BYTE *)(qword_140327FD0 + 276840624) = 1;
   if ( *(_QWORD *)(v17 + 64) && !v31 )
     *((_DWORD *)v22 + 16) |= 0x2000000u;
   v22[5] = 0LL;
@@ -418,10 +418,10 @@ LABEL_92:
   if ( v85 )
   {
     --CurrentThread->SpecialApcDisable;
-    v54 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326560, 0LL, 0);
+    v54 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1403265A0, 0LL, 0);
     v55 = v54;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326560, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&qword_140326560, v54, (ULONG_PTR)&qword_140326560);
+    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_1403265A0, 0LL) )
+      ExfAcquirePushLockExclusiveEx(&qword_1403265A0, v54, (ULONG_PTR)&qword_1403265A0);
     if ( v55 )
       v55[26] |= 1u;
     v56 = v94;
@@ -436,9 +436,9 @@ LABEL_92:
       v57 = v59;
       if ( !v59 )
       {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326560, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326560);
-        KeAbPostRelease((ULONG_PTR)&qword_140326560);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403265A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403265A0);
+        KeAbPostRelease((ULONG_PTR)&qword_1403265A0);
         KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
         inserted = -1073741670;
         goto LABEL_137;
@@ -450,9 +450,9 @@ LABEL_92:
     v60 = *(_QWORD *)(a6 + 48);
     if ( *(_QWORD *)v57 < v60 )
       *(_QWORD *)v57 = v60;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326560, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326560);
-    KeAbPostRelease((ULONG_PTR)&qword_140326560);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403265A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403265A0);
+    KeAbPostRelease((ULONG_PTR)&qword_1403265A0);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     v50 = v86;
     v52 = v95;
@@ -512,7 +512,7 @@ LABEL_137:
   if ( !*(_QWORD *)(v17 + 64) && *(int *)(v17 + 56) < 0 )
   {
     *((_DWORD *)v22 + 12) |= 0x100000u;
-    ++*(_QWORD *)(qword_140327F90 + 276840656);
+    ++*(_QWORD *)(qword_140327FD0 + 276840656);
   }
   MiGetWsAndInsertVad((__int64)v22);
   if ( v49 == 0x200000 )

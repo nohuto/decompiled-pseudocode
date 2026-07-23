@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPureAweVad @ 0x140302310
+ * XREFs of MiPureAweVad @ 0x14030CA90
  * Callers:
- *     MiQueryAddressState @ 0x140300420 (MiQueryAddressState.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
+ *     MiQueryAddressState @ 0x14030ABA0 (MiQueryAddressState.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
  * Callees:
  *     <none>
  */

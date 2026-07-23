@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaFlushDomainTb @ 0x14047E3A0
+ * XREFs of HsaFlushDomainTb @ 0x140477D10
  * Callers:
  *     <none>
  * Callees:
- *     HsaFlushTbInternal @ 0x14047E3E0 (HsaFlushTbInternal.c)
+ *     HsaFlushTbInternal @ 0x140477D50 (HsaFlushTbInternal.c)
  */
 
 __int64 __fastcall HsaFlushDomainTb(int a1, __int64 a2, __int64 a3, int a4, __int64 a5)

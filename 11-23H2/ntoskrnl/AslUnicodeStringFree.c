@@ -1,9 +1,9 @@
 /*
- * XREFs of AslUnicodeStringFree @ 0x140A54000
+ * XREFs of AslUnicodeStringFree @ 0x140A542B0
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140A52770 (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x140A52A20 (SdbResolveDatabaseEx.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

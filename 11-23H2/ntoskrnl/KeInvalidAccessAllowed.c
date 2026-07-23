@@ -1,17 +1,17 @@
 /*
- * XREFs of KeInvalidAccessAllowed @ 0x140341CF0
+ * XREFs of KeInvalidAccessAllowed @ 0x140341F80
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiSystemFault @ 0x1402611A0 (MiSystemFault.c)
- *     MiCheckSystemPageTables @ 0x140261930 (MiCheckSystemPageTables.c)
- *     MiResolveProtoPteFault @ 0x140267ED0 (MiResolveProtoPteFault.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiValidFault @ 0x1403334E0 (MiValidFault.c)
- *     MiAllowGuardFault @ 0x140341B90 (MiAllowGuardFault.c)
- *     MiRaisedIrqlFault @ 0x140341BE0 (MiRaisedIrqlFault.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiSystemFault @ 0x140261430 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x140261BC0 (MiCheckSystemPageTables.c)
+ *     MiResolveProtoPteFault @ 0x140268160 (MiResolveProtoPteFault.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiValidFault @ 0x140333770 (MiValidFault.c)
+ *     MiAllowGuardFault @ 0x140341E20 (MiAllowGuardFault.c)
+ *     MiRaisedIrqlFault @ 0x140341E70 (MiRaisedIrqlFault.c)
  * Callees:
- *     KiIsTraceMemoryAccess @ 0x140341D90 (KiIsTraceMemoryAccess.c)
- *     KiRspInIstStack @ 0x14035AB90 (KiRspInIstStack.c)
+ *     KiIsTraceMemoryAccess @ 0x140342020 (KiIsTraceMemoryAccess.c)
+ *     KiRspInIstStack @ 0x14035AD30 (KiRspInIstStack.c)
  */
 
 char __fastcall KeInvalidAccessAllowed(__int64 a1, char a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpGetFileDriverStoreRoot @ 0x1800DF71C
+ * XREFs of LdrpGetFileDriverStoreRoot @ 0x1800DC68C
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x180030230 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x18001B390 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x1800DF7DC (RtlStringCchCopyNW.c)
- *     _wcsnicmp @ 0x180129080 (_wcsnicmp.c)
+ *     RtlStringCchCopyNW @ 0x1800DC74C (RtlStringCchCopyNW.c)
+ *     _wcsnicmp @ 0x180128DF0 (_wcsnicmp.c)
  */
 
 bool __fastcall LdrpGetFileDriverStoreRoot(unsigned __int64 a1, __int64 a2, __int64 a3)

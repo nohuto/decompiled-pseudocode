@@ -1,27 +1,27 @@
 /*
- * XREFs of PopNewWakeInfo @ 0x140C09008
+ * XREFs of PopNewWakeInfo @ 0x140C0F218
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     PopAcquireWakeSourceSpinLock @ 0x1404F94F8 (PopAcquireWakeSourceSpinLock.c)
- *     PopWakeInfoDereference @ 0x1404FE7D4 (PopWakeInfoDereference.c)
- *     PopReleaseWakeSourceSpinLock @ 0x1404FF4EC (PopReleaseWakeSourceSpinLock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x1404F2B08 (PopAcquireWakeSourceSpinLock.c)
+ *     PopWakeInfoDereference @ 0x1404F7D84 (PopWakeInfoDereference.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x1404F8CDC (PopReleaseWakeSourceSpinLock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 LONG PopNewWakeInfo()
 {
   __int64 Pool2; // rax
-  struct _LIST_ENTRY *v1; // rbx
+  __int64 v1; // rbx
   LONG result; // eax
   _QWORD *v3; // rcx
-  unsigned __int64 **v4; // rax
+  _QWORD *v4; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   Pool2 = ExAllocatePool2(0x40uLL);
-  v1 = (struct _LIST_ENTRY *)Pool2;
+  v1 = Pool2;
   if ( Pool2 )
   {
     *(_DWORD *)(Pool2 + 16) = 1;
@@ -31,27 +31,26 @@ LONG PopNewWakeInfo()
     *(_QWORD *)(Pool2 + 32) = Pool2 + 24;
     *(_QWORD *)(Pool2 + 24) = Pool2 + 24;
     PopAcquireWakeSourceSpinLock(&LockHandle);
-    stru_140F11D08.Timer.Header.WaitListHead.Flink = v1;
-    if ( LODWORD(stru_140F11D08.Queue) == 1 )
+    PopCurrentWakeInfo = v1;
+    if ( PopWakeInfoCount == 1 )
     {
-      v3 = *(_QWORD **)&stru_140F11D08.Timer.Header.Lock;
-      if ( **(struct _KTHREAD ***)&stru_140F11D08.Timer.Header.Lock != (struct _KTHREAD *)&stru_140F11D08.RelativeTimerBias
-        || (v4 = *(unsigned __int64 ***)(*(_QWORD *)&stru_140F11D08.Timer.Header.Lock + 8LL),
-            *v4 != *(unsigned __int64 **)&stru_140F11D08.Timer.Header.Lock) )
+      v3 = (_QWORD *)qword_140F12208;
+      if ( *(__int64 **)qword_140F12208 != &PopWakeInfoList
+        || (v4 = *(_QWORD **)(qword_140F12208 + 8), *v4 != qword_140F12208) )
       {
         __fastfail(3u);
       }
-      *(_QWORD *)&stru_140F11D08.Timer.Header.Lock = *(_QWORD *)(*(_QWORD *)&stru_140F11D08.Timer.Header.Lock + 8LL);
-      *v4 = &stru_140F11D08.RelativeTimerBias;
+      qword_140F12208 = *(_QWORD *)(qword_140F12208 + 8);
+      *v4 = &PopWakeInfoList;
       v3[1] = v3;
       *v3 = v3;
       PopWakeInfoDereference((__int64)v3);
-      --LODWORD(stru_140F11D08.Queue);
+      --PopWakeInfoCount;
     }
-    *(_DWORD *)&stru_140F11D08.WaitBlockFill11[16] = 0;
+    PopWakeSourceWorkState = 0;
     PopReleaseWakeSourceSpinLock(&LockHandle);
   }
-  result = KeResetEvent((PRKEVENT)&stru_140F11D08.Timer.Processor);
-  LODWORD(stru_140F11D08.Timer.TimerListEntry.Blink) = 0;
+  result = KeResetEvent(&PopWakeSourceAvailable);
+  PopFixedWakeSourceMask = 0;
   return result;
 }

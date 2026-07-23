@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlGetImplementedPhysicalBits @ 0x14017D6C0
+ * XREFs of HvlGetImplementedPhysicalBits @ 0x14017D800
  * Callers:
- *     KiDetectKvaLeakage @ 0x1405710E4 (KiDetectKvaLeakage.c)
+ *     KiDetectKvaLeakage @ 0x1405720E4 (KiDetectKvaLeakage.c)
  * Callees:
- *     HviGetEnlightenmentInformation @ 0x14017D750 (HviGetEnlightenmentInformation.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HviGetEnlightenmentInformation @ 0x14017D890 (HviGetEnlightenmentInformation.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall HvlGetImplementedPhysicalBits(int *a1)

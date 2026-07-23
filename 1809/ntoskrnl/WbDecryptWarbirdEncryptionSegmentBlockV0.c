@@ -1,14 +1,14 @@
 /*
- * XREFs of WbDecryptWarbirdEncryptionSegmentBlockV0 @ 0x1405845DC
+ * XREFs of WbDecryptWarbirdEncryptionSegmentBlockV0 @ 0x1405855DC
  * Callers:
- *     WbDecryptWarbirdEncryptionSegment @ 0x1405844AC (WbDecryptWarbirdEncryptionSegment.c)
+ *     WbDecryptWarbirdEncryptionSegment @ 0x1405854AC (WbDecryptWarbirdEncryptionSegment.c)
  * Callees:
  *     ApplyRelocations @ 0x1400014FC (ApplyRelocations.c)
- *     ZwFlushInstructionCache @ 0x1401B9DD0 (ZwFlushInstructionCache.c)
- *     sub_140584974 @ 0x140584974 (sub_140584974.c)
- *     WbVerifyVirtualAddressSignature @ 0x140690984 (WbVerifyVirtualAddressSignature.c)
- *     sub_140690A84 @ 0x140690A84 (sub_140690A84.c)
- *     sub_140691544 @ 0x140691544 (sub_140691544.c)
+ *     ZwFlushInstructionCache @ 0x1401B9F30 (ZwFlushInstructionCache.c)
+ *     sub_140585974 @ 0x140585974 (sub_140585974.c)
+ *     WbVerifyVirtualAddressSignature @ 0x140691B44 (WbVerifyVirtualAddressSignature.c)
+ *     sub_140691C44 @ 0x140691C44 (sub_140691C44.c)
+ *     sub_140692704 @ 0x140692704 (sub_140692704.c)
  */
 
 __int64 __fastcall WbDecryptWarbirdEncryptionSegmentBlockV0(__int64 *a1, int a2, _DWORD *a3)
@@ -31,7 +31,7 @@ __int64 __fastcall WbDecryptWarbirdEncryptionSegmentBlockV0(__int64 *a1, int a2,
     v7 = WbVerifyVirtualAddressSignature(v6);
     if ( v7 >= 0 )
     {
-      v7 = sub_140584974((_DWORD)v6, a3[2] & 0xFFFFFFF, (*a3 & 2) == 0, (unsigned int)&Mdl, (__int64)&v11);
+      v7 = sub_140585974((_DWORD)v6, a3[2] & 0xFFFFFFF, (*a3 & 2) == 0, (unsigned int)&Mdl, (__int64)&v11);
       if ( v7 >= 0 )
       {
         v8 = v11;
@@ -46,7 +46,7 @@ __int64 __fastcall WbDecryptWarbirdEncryptionSegmentBlockV0(__int64 *a1, int a2,
                      a3[2] & 0xFFFFFFF),
               v7 >= 0) )
         {
-          v7 = sub_140690A84(0, (_DWORD)v6, v8, a3[2] & 0xFFFFFFF, a1[7] + 72, a3[1] & 0xFFFFFFF, a1[7] + 80);
+          v7 = sub_140691C44(0, (_DWORD)v6, v8, a3[2] & 0xFFFFFFF, a1[7] + 72, a3[1] & 0xFFFFFFF, a1[7] + 80);
           if ( v7 >= 0 )
           {
             if ( !a2
@@ -67,6 +67,6 @@ __int64 __fastcall WbDecryptWarbirdEncryptionSegmentBlockV0(__int64 *a1, int a2,
       }
     }
   }
-  sub_140691544(Mdl);
+  sub_140692704(Mdl);
   return (unsigned int)v7;
 }

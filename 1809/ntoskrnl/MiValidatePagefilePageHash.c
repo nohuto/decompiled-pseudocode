@@ -1,18 +1,18 @@
 /*
- * XREFs of MiValidatePagefilePageHash @ 0x1402CC514
+ * XREFs of MiValidatePagefilePageHash @ 0x1402CC704
  * Callers:
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4558 (MiMakeOutswappedPageResident.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiComputePageHash @ 0x14015168C (MiComputePageHash.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiComparePageHash @ 0x1402CC260 (MiComparePageHash.c)
- *     MiObtainPagefileHashes @ 0x1402CC3D8 (MiObtainPagefileHashes.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiComputePageHash @ 0x14015178C (MiComputePageHash.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiComparePageHash @ 0x1402CC450 (MiComparePageHash.c)
+ *     MiObtainPagefileHashes @ 0x1402CC5C8 (MiObtainPagefileHashes.c)
  */
 
 __int64 __fastcall MiValidatePagefilePageHash(__int64 a1)
@@ -69,7 +69,7 @@ __int64 __fastcall MiValidatePagefilePageHash(__int64 a1)
       v9 = v6;
       v22 = v6;
       v10 = 48 * *v3 - 0x58000000000LL;
-      if ( v10 != qword_14043ADD0 )
+      if ( v10 != qword_14043BE90 )
         break;
 LABEL_41:
       v4 -= 8LL;
@@ -101,7 +101,7 @@ LABEL_33:
       goto LABEL_41;
     }
     v12 = (*(_DWORD *)(v10 + 16) >> 5) & 0x1F;
-    if ( (dword_140540180 & 1) == 0
+    if ( (dword_140541180 & 1) == 0
       && v12 != 31
       && (v12 >> 3 == 3 && ((*(_DWORD *)(v10 + 16) >> 5) & 7) != 0 || v12 >> 3 == 1) )
     {
@@ -110,7 +110,7 @@ LABEL_33:
     }
     v13 = (unsigned int)MiComputePageHash(48 * v8 - 0x58000000000LL, (unsigned __int64)v6);
     if ( !v24 )
-      v24 = *(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL))
+      v24 = *(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL))
                       + 8LL * ((unsigned __int8)HIBYTE(*(_WORD *)(v10 + 16)) >> 4)
                       + 7136);
     PagingFileOffset = MiGetPagingFileOffset(v10 + 16);
@@ -142,14 +142,14 @@ LABEL_32:
         v19 = MiComparePageHash(v24, v16, v13);
         goto LABEL_30;
       }
-      if ( byte_14043A940 != 1 )
+      if ( byte_14043BA00 != 1 )
       {
         v19 = -1073741761;
 LABEL_30:
         if ( v19 < 0 )
         {
-          ++dword_14043A868;
-          qword_14043A810 = v8;
+          ++dword_14043B928;
+          qword_14043B8D0 = v8;
           KeBugCheckEx(0x1Au, 0x3FuLL, v16, v13, BugCheckParameter4);
         }
       }

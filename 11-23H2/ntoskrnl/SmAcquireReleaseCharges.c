@@ -1,19 +1,19 @@
 /*
- * XREFs of SmAcquireReleaseCharges @ 0x1403439FC
+ * XREFs of SmAcquireReleaseCharges @ 0x140343C8C
  * Callers:
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140342DD8 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140343348 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     SmFpCleanup @ 0x140344318 (SmFpCleanup.c)
- *     SmFpPreAllocate @ 0x1403A6C04 (SmFpPreAllocate.c)
- *     SmKmAllocateMdlForLock @ 0x1403A6E20 (SmKmAllocateMdlForLock.c)
- *     SmFpAllocate @ 0x140465F8E (SmFpAllocate.c)
- *     SmFpFree @ 0x1404660A8 (SmFpFree.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405C1008 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C23F4 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     SmKmFreeMdlForLock @ 0x1405CB500 (SmKmFreeMdlForLock.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140343068 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403435D8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     SmFpCleanup @ 0x1403445A8 (SmFpCleanup.c)
+ *     SmFpPreAllocate @ 0x1403A6DE4 (SmFpPreAllocate.c)
+ *     SmKmAllocateMdlForLock @ 0x1403A7000 (SmKmAllocateMdlForLock.c)
+ *     SmFpAllocate @ 0x14046638E (SmFpAllocate.c)
+ *     SmFpFree @ 0x1404664A8 (SmFpFree.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405C1578 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C2964 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     SmKmFreeMdlForLock @ 0x1405CBA70 (SmKmFreeMdlForLock.c)
  * Callees:
- *     MmChargeResources @ 0x140343A50 (MmChargeResources.c)
- *     MmReleaseResourceCharge @ 0x140345258 (MmReleaseResourceCharge.c)
+ *     MmChargeResources @ 0x140343CE0 (MmChargeResources.c)
+ *     MmReleaseResourceCharge @ 0x1403454E8 (MmReleaseResourceCharge.c)
  */
 
 __int64 __fastcall SmAcquireReleaseCharges(__int64 a1, unsigned __int64 a2, char a3, int a4)

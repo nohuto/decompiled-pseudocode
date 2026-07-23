@@ -1,14 +1,14 @@
 /*
- * XREFs of MmRemoveSecureImageActivePatch @ 0x1407F62A8
+ * XREFs of MmRemoveSecureImageActivePatch @ 0x1407F6A1C
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404D2990 (MmAcquireLoadLock.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiCompareHotPatchNodes @ 0x1407F2484 (MiCompareHotPatchNodes.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404CBB50 (MmAcquireLoadLock.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiCompareHotPatchNodes @ 0x1407F2A54 (MiCompareHotPatchNodes.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MmRemoveSecureImageActivePatch(int a1, int a2)
@@ -27,7 +27,7 @@ void __fastcall MmRemoveSecureImageActivePatch(int a1, int a2)
   v10 = a1;
   v11 = a2;
   Lock = MmAcquireLoadLock();
-  v6 = (_QWORD *)qword_140E37488;
+  v6 = (_QWORD *)qword_140E375C8;
   v7 = Lock;
   while ( v6 )
   {
@@ -46,7 +46,7 @@ void __fastcall MmRemoveSecureImageActivePatch(int a1, int a2)
   if ( v6 )
   {
     v4 = v6;
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140E37488, (__int64)v6);
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140E375C8, (__int64)v6);
   }
   MmReleaseLoadLock(v7);
   if ( v4 )

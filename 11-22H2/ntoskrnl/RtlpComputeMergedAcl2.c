@@ -30,11 +30,11 @@ __int64 __fastcall RtlpComputeMergedAcl2(
   int v21; // ebx
   unsigned int v22; // ecx
   ULONG v23; // ecx
-  unsigned int v24[18]; // [rsp+70h] [rbp-48h] BYREF
-  unsigned int v26; // [rsp+D8h] [rbp+20h] BYREF
+  __int64 v24[9]; // [rsp+70h] [rbp-48h] BYREF
+  __int64 v26; // [rsp+D8h] [rbp+20h] BYREF
 
-  v26 = 0;
-  v24[0] = 0;
+  LODWORD(v26) = 0;
+  LODWORD(v24[0]) = 0;
   v13 = a9;
   v14 = Acl;
   v16 = 0;
@@ -50,7 +50,7 @@ __int64 __fastcall RtlpComputeMergedAcl2(
       goto LABEL_33;
     if ( *a3 >= 2u )
       LOBYTE(v18) = *a3;
-    result = RtlpCopyAces((__int64)a3, a7, 2, 16, 1, a5, a6, a5, a6, 1, 0, a8, &v26, (__int64)v14);
+    result = RtlpCopyAces((__int64)a3, a7, 2, 16, 1, a5, a6, a5, a6, 1, 0, a8, (unsigned int *)&v26, v14);
     goto LABEL_6;
   }
   if ( (a2 & 0x1000) != 0 )
@@ -59,7 +59,7 @@ __int64 __fastcall RtlpComputeMergedAcl2(
     {
       if ( *a3 >= 2u )
         LOBYTE(v18) = *a3;
-      result = RtlpCopyAces((__int64)a3, a7, 2, 0, 1, a5, a6, a5, a6, 1, 1, a8, &v26, (__int64)v14);
+      result = RtlpCopyAces((__int64)a3, a7, 2, 0, 1, a5, a6, a5, a6, 1, 1, a8, (unsigned int *)&v26, v14);
 LABEL_6:
       if ( (_DWORD)result == -1073741789 )
       {
@@ -82,7 +82,7 @@ LABEL_6:
   {
     if ( *a3 >= 2u )
       v18 = *a3;
-    result = RtlpCopyAces((__int64)a3, a7, 1, 0, 1, a5, a6, a5, a6, 1, 0, a8, &v26, (__int64)v14);
+    result = RtlpCopyAces((__int64)a3, a7, 1, 0, 1, a5, a6, a5, a6, 1, 0, a8, (unsigned int *)&v26, v14);
     if ( (_DWORD)result == -1073741789 )
     {
       v16 = 1;
@@ -102,7 +102,7 @@ LABEL_6:
   {
     if ( v18 <= (unsigned __int8)*a1 )
       LOBYTE(v18) = *a1;
-    result = RtlpCopyAces((__int64)a1, a7, 0, 0, 0, 0LL, 0LL, 0LL, 0LL, 1, 0, v21, v24, (__int64)v14);
+    result = RtlpCopyAces((__int64)a1, a7, 0, 0, 0, 0LL, 0LL, 0LL, 0LL, 1, 0, v21, (unsigned int *)v24, v14);
     if ( (_DWORD)result == -1073741789 )
     {
       v16 = 1;
@@ -113,8 +113,8 @@ LABEL_6:
     }
   }
 LABEL_33:
-  v22 = v24[0] + v26;
-  if ( v24[0] + v26 || !v17 )
+  v22 = LODWORD(v24[0]) + v26;
+  if ( LODWORD(v24[0]) + (_DWORD)v26 || !v17 )
   {
     if ( (unsigned __int64)v22 + 8 > 0xFFFF )
       return 3221225597LL;

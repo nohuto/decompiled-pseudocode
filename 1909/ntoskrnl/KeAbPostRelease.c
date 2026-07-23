@@ -720,7 +720,7 @@ char __fastcall KeAbPostRelease(ULONG_PTR BugCheckParameter2)
   int v2; // ebx
   unsigned int SessionId; // r8d
   unsigned __int8 v5; // r14
-  __int64 v6; // rdx
+  unsigned int v6; // edx
   bool v7; // zf
   __int64 v8; // rcx
   int v9; // eax
@@ -740,7 +740,7 @@ char __fastcall KeAbPostRelease(ULONG_PTR BugCheckParameter2)
     SessionId = -1;
   --CurrentThread->SpecialApcDisable;
   v5 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v6) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v6 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   v7 = !_BitScanReverse((unsigned int *)&v8, v6);
   if ( v7 )
     goto LABEL_21;
@@ -749,7 +749,7 @@ char __fastcall KeAbPostRelease(ULONG_PTR BugCheckParameter2)
     v9 = 1 << v8;
     v10 = v8;
     v11 = &CurrentThread->LockEntries[v10];
-    v6 = ~v9 & (unsigned int)v6;
+    v6 &= ~v9;
     if ( (v11->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v11->LockState.0 & 1) == 0
       && (*(_QWORD *)&v11->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
@@ -774,7 +774,7 @@ LABEL_21:
   {
     v11->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v11->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v10], v6);
+      KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v10].TreeNode);
     v2 = v11->BoostBitmap.AllFields & 0x1FFFF;
     v12 = v11->BoostBitmap.AllFields & 0xFFFE0000;
     v11->ThreadLocalFlags &= ~1u;

@@ -10,8 +10,9 @@
  *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle, __int64 a2)
+NTSTATUS __cdecl NtSetDefaultHardErrorPort(HANDLE DefaultHardErrorPort)
 {
+  __int64 v1; // rdx
   _DWORD *CurrentServerSiloGlobals; // rbx
   NTSTATUS result; // eax
   __int64 v5; // rdx
@@ -19,13 +20,19 @@ NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle, __int64 a2)
   _KPROCESS *Process; // rcx
   PVOID Object; // [rsp+48h] [rbp+10h] BYREF
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals((__int64)Handle, a2);
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals((__int64)DefaultHardErrorPort, v1);
   if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, KeGetCurrentThread()->PreviousMode) )
     return -1073741727;
   if ( CurrentServerSiloGlobals[224] == 1 )
     return -1073741823;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 0, LpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             DefaultHardErrorPort,
+             0,
+             LpcPortObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             &Object,
+             0LL);
   v6 = Object;
   *((_QWORD *)CurrentServerSiloGlobals + 111) = Object;
   if ( result >= 0 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of MmRemoveSystemCacheFromDump @ 0x1406F6C48
+ * XREFs of MmRemoveSystemCacheFromDump @ 0x1406FB8B8
  * Callers:
- *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1405D18B0 (IopLiveDumpRemoveSystemCacheFromDump.c)
- *     MmGetDumpRange @ 0x1406F6934 (MmGetDumpRange.c)
+ *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1405D4098 (IopLiveDumpRemoveSystemCacheFromDump.c)
+ *     MmGetDumpRange @ 0x1406FB5A4 (MmGetDumpRange.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiSystemInSingleProcessorMode @ 0x1406EA2E0 (MiSystemInSingleProcessorMode.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiSystemInSingleProcessorMode @ 0x1406EEF80 (MiSystemInSingleProcessorMode.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MmRemoveSystemCacheFromDump(__int64 a1)

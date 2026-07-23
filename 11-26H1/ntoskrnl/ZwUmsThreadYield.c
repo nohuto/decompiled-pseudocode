@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwUmsThreadYield @ 0x140726F10
+ * XREFs of ZwUmsThreadYield @ 0x14072BAE0
  * Callers:
- *     DifZwUmsThreadYieldWrapper @ 0x1406BDE20 (DifZwUmsThreadYieldWrapper.c)
+ *     DifZwUmsThreadYieldWrapper @ 0x1406C1A00 (DifZwUmsThreadYieldWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwUmsThreadYield(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwUmsThreadYield(PVOID SchedulerParam)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SchedulerParam);
 }

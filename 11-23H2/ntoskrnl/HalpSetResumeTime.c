@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpSetResumeTime @ 0x14051C6C8
+ * XREFs of HalpSetResumeTime @ 0x14051CC18
  * Callers:
- *     HalpEfiInitializeOnResume @ 0x14050D800 (HalpEfiInitializeOnResume.c)
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
+ *     HalpEfiInitializeOnResume @ 0x14050DD50 (HalpEfiInitializeOnResume.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     ExLocalTimeToSystemTime @ 0x14033B2A0 (ExLocalTimeToSystemTime.c)
- *     HalpSetVirtualRtc @ 0x14033B5F0 (HalpSetVirtualRtc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpQueryVirtualRtc @ 0x14050B920 (HalpQueryVirtualRtc.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     ExLocalTimeToSystemTime @ 0x14033B530 (ExLocalTimeToSystemTime.c)
+ *     HalpSetVirtualRtc @ 0x14033B880 (HalpSetVirtualRtc.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpQueryVirtualRtc @ 0x14050BE70 (HalpQueryVirtualRtc.c)
  */
 
 void __fastcall HalpSetResumeTime(LARGE_INTEGER *a1, int a2)
@@ -52,7 +52,7 @@ void __fastcall HalpSetResumeTime(LARGE_INTEGER *a1, int a2)
         }
         else
         {
-          HalpSetVirtualRtc((__int64 *)&HalpResumeTime);
+          HalpSetVirtualRtc(&HalpResumeTime);
           HalpResumeTime.QuadPart = 0LL;
         }
       }

@@ -128,7 +128,9 @@ LABEL_16:
       if ( *(_BYTE *)(a1 + 57) )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel(v16);
-        if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags
+          && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+          && CurrentIrql <= 0xFu )
         {
           v17 = v35;
           if ( (unsigned __int8)v35 <= 0xFu && CurrentIrql >= 2u )
@@ -166,7 +168,7 @@ LABEL_16:
         if ( *(_BYTE *)(a1 + 57) )
         {
           ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-          if ( KiIrqlFlags && (v29 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v29 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && (v29 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v29 <= 0xFu )
           {
             v18 = v33;
             if ( v33 <= 0xFu && v29 >= 2u )

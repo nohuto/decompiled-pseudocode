@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetNextTable @ 0x140383660
+ * XREFs of PopGetNextTable @ 0x140383810
  * Callers:
- *     PopWriteHiberImage @ 0x140993C74 (PopWriteHiberImage.c)
- *     PopCompressHiberBlocks @ 0x14099432C (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140994C74 (PopWriteHiberImage.c)
+ *     PopCompressHiberBlocks @ 0x14099532C (PopCompressHiberBlocks.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     MmMapMemoryDumpMdlEx2 @ 0x1403839D0 (MmMapMemoryDumpMdlEx2.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x140383B80 (MmMapMemoryDumpMdlEx2.c)
  */
 
 __int64 __fastcall PopGetNextTable(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, char a5, __int64 a6)
@@ -125,7 +125,7 @@ LABEL_37:
     if ( v20 != v19 )
     {
       v21 = v16 & 0x1F;
-      if ( (*v20 | *((_DWORD *)qword_140011C70 + v21)) == -1 )
+      if ( (*v20 | *((_DWORD *)qword_140012120 + v21)) == -1 )
       {
         v16 = v16 - v21 + 32;
         for ( ++v20; v20 < v19 && *v20 == -1; ++v20 )
@@ -141,7 +141,7 @@ LABEL_37:
     if ( v20 != v19 )
     {
       v22 = v16 & 0x1F;
-      if ( (*v20 & ~*((_DWORD *)qword_140011C70 + v22)) == 0 )
+      if ( (*v20 & ~*((_DWORD *)qword_140012120 + v22)) == 0 )
       {
         a2 = (unsigned int)(32 - v22);
         v24 = (unsigned int)a2 <= v15;

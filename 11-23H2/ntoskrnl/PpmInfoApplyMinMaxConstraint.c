@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmInfoApplyMinMaxConstraint @ 0x14039218C
+ * XREFs of PpmInfoApplyMinMaxConstraint @ 0x14039236C
  * Callers:
- *     PpmInfoWriteData @ 0x14082C3FC (PpmInfoWriteData.c)
+ *     PpmInfoWriteData @ 0x14082C6FC (PpmInfoWriteData.c)
  * Callees:
  *     <none>
  */

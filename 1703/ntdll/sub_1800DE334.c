@@ -11,12 +11,22 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_1800DE334(_QWORD *a1, _QWORD *a2)
+__int64 __fastcall sub_1800DE334(HANDLE *a1, PVOID *a2)
 {
-  int Section; // ebx
-  _QWORD v6[5]; // [rsp+58h] [rbp-28h] BYREF
+  NTSTATUS v4; // ebx
+  HANDLE v5; // rcx
+  PVOID v6; // rdx
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  PVOID BaseAddress; // [rsp+B0h] [rbp+30h] BYREF
+  HANDLE SectionHandle; // [rsp+B8h] [rbp+38h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+C0h] [rbp+40h] BYREF
+  ULONG_PTR ViewSize; // [rsp+C8h] [rbp+48h] BYREF
 
-  memset(v6, 0, sizeof(v6));
+  ObjectAttributes.Length = 0;
+  memset(&ObjectAttributes.RootDirectory, 0, 0x28uLL);
+  SectionHandle = 0LL;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
   if ( a1 )
     *a1 = 0LL;
   if ( a2 )
@@ -25,22 +35,49 @@ __int64 __fastcall sub_1800DE334(_QWORD *a1, _QWORD *a2)
   {
     if ( a2 )
     {
-      v6[0] = 0LL;
-      *(_OWORD *)&v6[3] = 0LL;
-      LODWORD(v6[2]) = 2;
-      v6[1] = 0LL;
-      Section = ZwCreateSection();
-      if ( Section >= 0 )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      ObjectAttributes.Attributes = 2;
+      ObjectAttributes.ObjectName = 0LL;
+      MaximumSize.QuadPart = 1648LL;
+      v4 = ZwCreateSection(&SectionHandle, 0xF0007u, &ObjectAttributes, &MaximumSize, 4u, 0x8000000u, 0LL);
+      if ( v4 < 0
+        || (v4 = ZwMapViewOfSection(
+                   SectionHandle,
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   &BaseAddress,
+                   0LL,
+                   0LL,
+                   0LL,
+                   &ViewSize,
+                   ViewShare,
+                   0,
+                   4u),
+            v4 < 0) )
       {
-        Section = ZwMapViewOfSection();
-        if ( Section >= 0 )
-        {
-          memset(0LL, 0, 0xF8uLL);
-          *a1 = 0LL;
-          Section = 0;
-          *a2 = 0LL;
-        }
+        v5 = SectionHandle;
+        v6 = BaseAddress;
       }
+      else
+      {
+        memset(BaseAddress, 0, 0xF8uLL);
+        v5 = 0LL;
+        *a1 = SectionHandle;
+        v6 = 0LL;
+        v4 = 0;
+        *a2 = BaseAddress;
+        SectionHandle = 0LL;
+        BaseAddress = 0LL;
+      }
+      if ( v6 )
+      {
+        ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v6);
+        v5 = SectionHandle;
+        BaseAddress = 0LL;
+      }
+      if ( v5 )
+        ZwClose(v5);
     }
     else
     {
@@ -51,5 +88,5 @@ __int64 __fastcall sub_1800DE334(_QWORD *a1, _QWORD *a2)
   {
     return (unsigned int)-1073741585;
   }
-  return (unsigned int)Section;
+  return (unsigned int)v4;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpConfigureLegacyPowerPolicySetting @ 0x1401BF544
+ * XREFs of HvlpConfigureLegacyPowerPolicySetting @ 0x1401BF428
  * Callers:
- *     HvlpLegacyPowerPolicySettingCallback @ 0x1401BF67C (HvlpLegacyPowerPolicySettingCallback.c)
+ *     HvlpLegacyPowerPolicySettingCallback @ 0x1401BF560 (HvlpLegacyPowerPolicySettingCallback.c)
  * Callees:
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpConfigureLegacyPowerPolicySetting(_QWORD *a1)

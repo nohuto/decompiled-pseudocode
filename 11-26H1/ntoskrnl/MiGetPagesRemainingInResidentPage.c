@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPagesRemainingInResidentPage @ 0x140703334
+ * XREFs of MiGetPagesRemainingInResidentPage @ 0x140708004
  * Callers:
- *     MiAddPhysicalPagesToCrashDump @ 0x1406F6058 (MiAddPhysicalPagesToCrashDump.c)
+ *     MiAddPhysicalPagesToCrashDump @ 0x1406FACC8 (MiAddPhysicalPagesToCrashDump.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402F0BC0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiGetBaseResidentPageForBugCheck @ 0x1404CB620 (MiGetBaseResidentPageForBugCheck.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402D2C40 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetBaseResidentPageForBugCheck @ 0x1404C5050 (MiGetBaseResidentPageForBugCheck.c)
  */
 
 __int64 __fastcall MiGetPagesRemainingInResidentPage(__int64 a1, int *a2, int *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall MiGetPagesRemainingInResidentPage(__int64 a1, int *a2, int *a
   v13 = 0;
   v14 = 0;
   v6 = (a1 + 0x220000000000LL) / 48;
-  if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 )
+  if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0 )
   {
     v7 = MiGetBaseResidentPageForBugCheck(a1);
     v8 = v7;

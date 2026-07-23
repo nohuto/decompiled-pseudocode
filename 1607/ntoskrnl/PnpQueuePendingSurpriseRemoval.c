@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpQueuePendingSurpriseRemoval @ 0x1404C5028
+ * XREFs of PnpQueuePendingSurpriseRemoval @ 0x14048545C
  * Callers:
- *     PiEventRemovalPostSurpriseRemove @ 0x1404C37B4 (PiEventRemovalPostSurpriseRemove.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x140483B1C (PiEventRemovalPostSurpriseRemove.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1403F4194 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x1403F41C4 (PnpReleaseDependencyRelationsLock.c)
- *     IopEnumerateRelations @ 0x1404C5848 (IopEnumerateRelations.c)
- *     IopAllocateRelationList @ 0x1404C5958 (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x1404C59AC (IopFreeRelationList.c)
- *     PnpAllocateCriticalMemory @ 0x1404C5AB8 (PnpAllocateCriticalMemory.c)
- *     IopIsDescendantNode @ 0x1404C5B04 (IopIsDescendantNode.c)
- *     IopCheckIfMergeRequired @ 0x14064B8D0 (IopCheckIfMergeRequired.c)
- *     IopMergeRelationLists @ 0x14064B9C8 (IopMergeRelationLists.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1403F3058 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1403F3088 (PnpReleaseDependencyRelationsLock.c)
+ *     IopEnumerateRelations @ 0x140485C7C (IopEnumerateRelations.c)
+ *     IopAllocateRelationList @ 0x140485D8C (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x140485DE0 (IopFreeRelationList.c)
+ *     PnpAllocateCriticalMemory @ 0x140485EEC (PnpAllocateCriticalMemory.c)
+ *     IopIsDescendantNode @ 0x140485F38 (IopIsDescendantNode.c)
+ *     IopCheckIfMergeRequired @ 0x14064B9B4 (IopCheckIfMergeRequired.c)
+ *     IopMergeRelationLists @ 0x14064BAAC (IopMergeRelationLists.c)
  */
 
 __int64 __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, void **a2, int a3, int a4)
@@ -96,13 +96,13 @@ __int64 __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, void **a2, int a3, i
   if ( v4 == v10 )
   {
     CriticalMemory = PnpAllocateCriticalMemory(3LL, 512LL, 112LL, 1416654416LL);
-    v12 = (__int64 *)qword_14031F958;
-    if ( *(PVOID **)qword_14031F958 != &IopPendingSurpriseRemovals )
+    v12 = (__int64 *)qword_14031F978;
+    if ( *(PVOID **)qword_14031F978 != &IopPendingSurpriseRemovals )
       __fastfail(3u);
     *(_QWORD *)CriticalMemory = &IopPendingSurpriseRemovals;
     *(_QWORD *)(CriticalMemory + 8) = v12;
     *v12 = CriticalMemory;
-    qword_14031F958 = CriticalMemory;
+    qword_14031F978 = CriticalMemory;
   }
   else
   {

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeLargeMdlLeafPfns @ 0x140414A8C
+ * XREFs of MiInitializeLargeMdlLeafPfns @ 0x1404A6B00
  * Callers:
- *     MiDoGangAssignment @ 0x1403A8984 (MiDoGangAssignment.c)
+ *     MiDoGangAssignment @ 0x14026FEE4 (MiDoGangAssignment.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiInitializeMdlLeafPfns @ 0x140412EFC (MiInitializeMdlLeafPfns.c)
- *     MiGetLeafPfnBuddy @ 0x14043A990 (MiGetLeafPfnBuddy.c)
- *     MiDemotePfnListChain @ 0x14069234C (MiDemotePfnListChain.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiInitializeMdlLeafPfns @ 0x140393570 (MiInitializeMdlLeafPfns.c)
+ *     MiGetLeafPfnBuddy @ 0x14042D1D0 (MiGetLeafPfnBuddy.c)
+ *     MiDemotePfnListChain @ 0x14069341C (MiDemotePfnListChain.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall MiInitializeLargeMdlLeafPfns(unsigned __int64 *a1, __int64 a2)
@@ -67,7 +67,7 @@ void __fastcall MiInitializeLargeMdlLeafPfns(unsigned __int64 *a1, __int64 a2)
   {
     do
     {
-      LeafPfnBuddy = MiGetLeafPfnBuddy(v7, 0LL);
+      LeafPfnBuddy = MiGetLeafPfnBuddy(v7);
       PfnPageSizeIndex = MiGetPfnPageSizeIndex((__int64)v7);
       v13 = PfnPageSizeIndex;
       if ( PfnPageSizeIndex != v10 )

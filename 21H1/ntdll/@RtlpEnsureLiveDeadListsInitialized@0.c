@@ -10,13 +10,13 @@
  *     @RtlpEnsureLiveDeadListsInitialized@0 @ 0x4B33D8B7 (@RtlpEnsureLiveDeadListsInitialized@0.c)
  */
 
-int __cdecl RtlpEnsureLiveDeadListsInitialized()
+NTSTATUS __cdecl RtlpEnsureLiveDeadListsInitialized()
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
   if ( !g_SxsLiveActivationContexts )
   {
-    RtlEnterCriticalSection((int)NtCurrentPeb()->FastPebLock);
+    RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
     if ( !g_SxsLiveActivationContexts )
     {
       dword_4B3A6A10 = (int)&g_SxsLiveActivationContexts;
@@ -24,7 +24,7 @@ int __cdecl RtlpEnsureLiveDeadListsInitialized()
       dword_4B3A6A08 = (int)&g_SxsFreeActivationContexts;
       g_SxsFreeActivationContexts = (int)&g_SxsFreeActivationContexts;
     }
-    return RtlLeaveCriticalSection((int)NtCurrentPeb()->FastPebLock);
+    return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
   }
   return result;
 }

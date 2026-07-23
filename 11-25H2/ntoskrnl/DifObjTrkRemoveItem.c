@@ -19,7 +19,7 @@ BOOLEAN __fastcall DifObjTrkRemoveItem(unsigned int a1, unsigned __int64 a2, uns
   unsigned int *PluginContext; // r15
   __int64 v7; // rdx
   int VaTypeForVerifier; // eax
-  RTL_AVL_TABLE *v9; // rbx
+  _RTL_AVL_TABLE *v9; // rbx
   __int64 v10; // rax
   __int64 v11; // rax
   BOOLEAN v12; // di
@@ -42,7 +42,7 @@ BOOLEAN __fastcall DifObjTrkRemoveItem(unsigned int a1, unsigned __int64 a2, uns
   VaTypeForVerifier = MmGetVaTypeForVerifier(v7);
   if ( VaTypeForVerifier == 5 )
     return 0;
-  v9 = (RTL_AVL_TABLE *)&DifObjTrkContext[30 * VaTypeForVerifier + 16];
+  v9 = (_RTL_AVL_TABLE *)&DifObjTrkContext[30 * VaTypeForVerifier + 16];
   if ( !v9->NumberGenericTableElements
     || (_RTL_BALANCED_LINKS *)a2 < v9[1].BalancedRoot.Parent
     || (_RTL_BALANCED_LINKS *)a2 > v9[1].BalancedRoot.LeftChild )

@@ -33,8 +33,8 @@ __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)
   char *v19; // [rsp+38h] [rbp-48h]
   _QWORD v20[2]; // [rsp+40h] [rbp-40h] BYREF
   __int64 v21; // [rsp+50h] [rbp-30h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
 
   v20[1] = a3;
   v19 = 0LL;

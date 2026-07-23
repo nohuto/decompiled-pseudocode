@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlStringLengthFromUser$thunk$15459119532556569191 @ 0x140C610C0
+ * XREFs of RtlStringLengthFromUser$thunk$15459119532556569191 @ 0x140C670C0
  * Callers:
  *     <none>
  * Callees:

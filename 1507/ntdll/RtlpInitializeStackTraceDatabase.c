@@ -9,28 +9,30 @@
  *     RtlStdInitializeStackDatabase @ 0x1800E47A0 (RtlStdInitializeStackDatabase.c)
  */
 
-__int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+__int64 __fastcall RtlpInitializeStackTraceDatabase(void *a1, ULONG_PTR a2, ULONG_PTR a3)
 {
-  int v4; // ebx
-  signed __int64 v5; // [rsp+20h] [rbp-28h] BYREF
-  _DWORD v6[4]; // [rsp+28h] [rbp-20h] BYREF
+  NTSTATUS v4; // ebx
+  _QWORD *v5; // [rsp+20h] [rbp-28h] BYREF
+  __m256i v6; // [rsp+28h] [rbp-20h] BYREF
 
   if ( RtlpStackTraceDatabase )
     return 3221225994LL;
   v4 = RtlStdInitializeStackDatabase(a1, a2, a3, &v5);
   if ( v4 >= 0 )
   {
-    if ( _InterlockedCompareExchange64(&RtlpStackTraceDatabase, v5, 0LL) )
+    if ( _InterlockedCompareExchange64(&RtlpStackTraceDatabase, (signed __int64)v5, 0LL) )
     {
-      RtlStdDeleteStackDatabase();
+      RtlStdDeleteStackDatabase(v5);
       return 3221225994LL;
     }
     if ( LdrInitState == 3 )
     {
-      v6[0] = 1;
-      v6[1] = 0x8000000;
-      v6[2] = 0x8000000;
-      RtlpEnumProcessHeaps((__int64 (__fastcall *)(void *, __int64))RtlpStackTraceDatabaseHeapEnum, (__int64)v6, 0);
+      v6.m256i_i64[0] = 0x800000000000001LL;
+      v6.m256i_i32[2] = 0x8000000;
+      RtlpEnumProcessHeaps(
+        (PRTL_DYNAMIC_HASH_TABLE)RtlpStackTraceDatabaseHeapEnum,
+        (_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)&v6,
+        0);
     }
   }
   return (unsigned int)v4;

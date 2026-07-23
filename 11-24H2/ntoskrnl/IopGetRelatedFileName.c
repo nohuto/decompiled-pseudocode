@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetRelatedFileName @ 0x140712180
+ * XREFs of IopGetRelatedFileName @ 0x14070FD10
  * Callers:
- *     IopSymlinkRememberJunction @ 0x14099D708 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkRememberJunction @ 0x1408ACA10 (IopSymlinkRememberJunction.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     IopGetFileInformation @ 0x14096E140 (IopGetFileInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     IopGetFileInformation @ 0x140957CC0 (IopGetFileInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetRelatedFileName(__int64 a1, __int64 a2, unsigned __int16 a3, _WORD *a4)
@@ -36,7 +36,7 @@ __int64 __fastcall IopGetRelatedFileName(__int64 a1, __int64 a2, unsigned __int1
       ExFreePoolWithTag(v6, 0);
     if ( v10 >= 0xFFFF )
       return (unsigned int)-1073741562;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v10, 0x63466F49u);
     v6 = (const void **)Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741670;
@@ -59,7 +59,7 @@ __int64 __fastcall IopGetRelatedFileName(__int64 a1, __int64 a2, unsigned __int1
         v13 = -1073741562;
         goto LABEL_27;
       }
-      v4 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      v4 = (_DWORD *)ExAllocatePool2(0x100uLL, v14, 0x63466F49u);
       if ( !v4 )
       {
         v13 = -1073741670;
@@ -77,7 +77,7 @@ __int64 __fastcall IopGetRelatedFileName(__int64 a1, __int64 a2, unsigned __int1
       {
         *(_WORD *)(a2 + 2) = v16;
         *(_WORD *)a2 = v16 - v5;
-        v17 = (void *)ExAllocatePool2(0x100uLL);
+        v17 = (void *)ExAllocatePool2(0x100uLL, v16, 0x63466F49u);
         *(_QWORD *)(a2 + 8) = v17;
         if ( v17 )
         {

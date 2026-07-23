@@ -1,9 +1,9 @@
 /*
- * XREFs of XmIncOp @ 0x140468910
+ * XREFs of XmIncOp @ 0x1404612C0
  * Callers:
  *     <none>
  * Callees:
- *     XmAddOperands @ 0x140468A40 (XmAddOperands.c)
+ *     XmAddOperands @ 0x1404613F0 (XmAddOperands.c)
  */
 
 __int64 __fastcall XmIncOp(__int64 a1)

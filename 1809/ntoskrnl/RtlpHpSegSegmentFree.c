@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegSegmentFree @ 0x1401546C4
+ * XREFs of RtlpHpSegSegmentFree @ 0x1401547C4
  * Callers:
  *     RtlpHpSegSegmentAllocate @ 0x14000A588 (RtlpHpSegSegmentAllocate.c)
  *     RtlpHpSegPageRangeShrink @ 0x14000ACF0 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegContextCleanup @ 0x140154664 (RtlpHpSegContextCleanup.c)
- *     RtlpHpSegContextCompact @ 0x1401B63C8 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegContextCleanup @ 0x140154764 (RtlpHpSegContextCleanup.c)
+ *     RtlpHpSegContextCompact @ 0x1401B6530 (RtlpHpSegContextCompact.c)
  * Callees:
  *     RtlCSparseBitmapBitsClear @ 0x14000866C (RtlCSparseBitmapBitsClear.c)
  *     RtlpHpEnvGetHeapManager @ 0x14000CE30 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpSegMgrRelease @ 0x14015474C (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrRelease @ 0x14015484C (RtlpHpSegMgrRelease.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentFree(__int64 a1, __int64 a2, int a3, int a4)

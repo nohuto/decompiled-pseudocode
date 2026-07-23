@@ -12,12 +12,12 @@
 
 void __fastcall MiCleanPhysicalProcessPages(__int64 a1)
 {
-  unsigned __int64 *v1; // r14
+  _RTL_BITMAP_EX *v1; // r14
   __int64 v2; // rsi
-  unsigned __int64 *v3; // r12
+  ULONG64 *v3; // r12
   __int64 v4; // rdi
-  unsigned __int64 SetBits; // r15
-  unsigned __int64 v6; // r13
+  ULONG64 SetBits; // r15
+  ULONG64 v6; // r13
   __int16 *ProcessPartition; // [rsp+28h] [rbp-E0h]
   __int64 v9; // [rsp+38h] [rbp-D0h] BYREF
   int v10; // [rsp+40h] [rbp-C8h]
@@ -25,11 +25,11 @@ void __fastcall MiCleanPhysicalProcessPages(__int64 a1)
   __int64 v12; // [rsp+60h] [rbp-A8h]
   _BYTE v13[512]; // [rsp+68h] [rbp-A0h] BYREF
 
-  v1 = **(unsigned __int64 ***)(a1 + 1032);
+  v1 = **(_RTL_BITMAP_EX ***)(a1 + 1032);
   if ( v1 && *(_QWORD *)(a1 + 1576) )
   {
     v2 = 0LL;
-    v3 = (unsigned __int64 *)v13;
+    v3 = (ULONG64 *)v13;
     v4 = 0LL;
     ProcessPartition = MiGetProcessPartition(a1);
     SetBits = RtlFindSetBitsEx(v1, 1uLL, 0LL);
@@ -49,11 +49,11 @@ void __fastcall MiCleanPhysicalProcessPages(__int64 a1)
         v12 = 0x40000LL;
         MiFreePagesFromMdl((__int64)ProcessPartition, (ULONG_PTR)&v9, 1u);
         v2 += 64LL;
-        v3 = (unsigned __int64 *)v13;
+        v3 = (ULONG64 *)v13;
         v4 = 0LL;
       }
       v6 = SetBits + 1;
-      if ( SetBits + 1 >= *v1 )
+      if ( SetBits + 1 >= v1->SizeOfBitMap )
         break;
       SetBits = RtlFindSetBitsEx(v1, 1uLL, SetBits + 1);
     }

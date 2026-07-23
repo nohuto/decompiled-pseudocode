@@ -12,7 +12,7 @@
 
 __int64 __fastcall SepGetLowBoxHandlesEntry(__int64 a1, unsigned __int8 *a2, _QWORD *a3)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v3; // r12
+  _RTL_DYNAMIC_HASH_TABLE *v3; // r12
   unsigned int v6; // edi
   unsigned int v8; // ebp
   _QWORD *PoolWithTag; // rax
@@ -21,7 +21,7 @@ __int64 __fastcall SepGetLowBoxHandlesEntry(__int64 a1, unsigned __int8 *a2, _QW
   ULONG_PTR v12; // r8
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v13; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
+  v3 = *(_RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
   SepFindMatchingLowBoxHandlesEntry(v3, a2, &v13);
   v6 = 0;
   if ( v13 )

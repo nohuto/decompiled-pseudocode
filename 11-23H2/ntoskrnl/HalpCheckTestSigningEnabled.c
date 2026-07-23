@@ -1,15 +1,17 @@
 /*
- * XREFs of HalpCheckTestSigningEnabled @ 0x1409350D0
+ * XREFs of HalpCheckTestSigningEnabled @ 0x1409352D0
  * Callers:
- *     HaliSetSystemInformation @ 0x14085ED18 (HaliSetSystemInformation.c)
+ *     HaliSetSystemInformation @ 0x14085EF58 (HaliSetSystemInformation.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x14041B420 (ZwQuerySystemInformation.c)
+ *     ZwQuerySystemInformation @ 0x14041B7B0 (ZwQuerySystemInformation.c)
  */
 
 bool HalpCheckTestSigningEnabled()
 {
-  __int64 v1; // [rsp+38h] [rbp+10h] BYREF
+  ULONG v1; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v2; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = 8LL;
-  return (int)ZwQuerySystemInformation(103LL, (__int64)&v1) >= 0 && (v1 & 0x200000000LL) != 0;
+  v2 = 8LL;
+  v1 = 0;
+  return ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v2, 8u, &v1) >= 0 && (v2 & 0x200000000LL) != 0;
 }

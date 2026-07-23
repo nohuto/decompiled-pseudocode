@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLookupImageSectionByName @ 0x1404AB2D0
+ * XREFs of RtlLookupImageSectionByName @ 0x1404A5560
  * Callers:
- *     PrExtExtractDataRecordTable @ 0x1406640CC (PrExtExtractDataRecordTable.c)
- *     MiApplyDynamicFixupsToKernelAndHal @ 0x140C55264 (MiApplyDynamicFixupsToKernelAndHal.c)
- *     MiPrepareScpFixupsForNtAndHal @ 0x140C55AD4 (MiPrepareScpFixupsForNtAndHal.c)
+ *     PrExtExtractDataRecordTable @ 0x1406629BC (PrExtExtractDataRecordTable.c)
+ *     MiApplyDynamicFixupsToKernelAndHal @ 0x140C573F4 (MiApplyDynamicFixupsToKernelAndHal.c)
+ *     MiPrepareScpFixupsForNtAndHal @ 0x140C57C64 (MiPrepareScpFixupsForNtAndHal.c)
  * Callees:
- *     strncmp @ 0x1406BFB20 (strncmp.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
  */
 
 const char *__fastcall RtlLookupImageSectionByName(__int64 a1, const char *a2)

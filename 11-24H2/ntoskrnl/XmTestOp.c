@@ -1,9 +1,9 @@
 /*
- * XREFs of XmTestOp @ 0x140469370
+ * XREFs of XmTestOp @ 0x140461D20
  * Callers:
  *     <none>
  * Callees:
- *     XmSetLogicalResult @ 0x140469500 (XmSetLogicalResult.c)
+ *     XmSetLogicalResult @ 0x140461EB0 (XmSetLogicalResult.c)
  */
 
 __int64 __fastcall XmTestOp(__int64 a1)

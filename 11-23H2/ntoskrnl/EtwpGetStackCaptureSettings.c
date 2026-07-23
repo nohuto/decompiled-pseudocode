@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetStackCaptureSettings @ 0x140468904
+ * XREFs of EtwpGetStackCaptureSettings @ 0x140468D04
  * Callers:
- *     EtwpStackTraceDispatcher @ 0x140468CB0 (EtwpStackTraceDispatcher.c)
- *     EtwpGetStackExtendedHeaderItem @ 0x1405FFB3C (EtwpGetStackExtendedHeaderItem.c)
+ *     EtwpStackTraceDispatcher @ 0x1404690B0 (EtwpStackTraceDispatcher.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x1406000AC (EtwpGetStackExtendedHeaderItem.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
- *     MmCanThreadFault @ 0x14022784C (MmCanThreadFault.c)
+ *     MmCanThreadFault @ 0x14022795C (MmCanThreadFault.c)
  */
 
 void __fastcall EtwpGetStackCaptureSettings(struct _KTHREAD *a1, char a2, char a3, _BYTE *a4, _BYTE *a5)

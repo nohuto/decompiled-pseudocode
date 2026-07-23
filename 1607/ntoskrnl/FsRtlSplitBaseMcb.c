@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlSplitBaseMcb @ 0x1401B8864
+ * XREFs of FsRtlSplitBaseMcb @ 0x1401B8638
  * Callers:
- *     FsRtlSplitLargeMcb @ 0x1401B89DC (FsRtlSplitLargeMcb.c)
+ *     FsRtlSplitLargeMcb @ 0x1401B87B0 (FsRtlSplitLargeMcb.c)
  * Callees:
- *     FsRtlAddEntry @ 0x14008D2B0 (FsRtlAddEntry.c)
- *     FsRtlFindLargeIndex @ 0x14008D3B4 (FsRtlFindLargeIndex.c)
+ *     FsRtlAddEntry @ 0x14008CA14 (FsRtlAddEntry.c)
+ *     FsRtlFindLargeIndex @ 0x14008CB18 (FsRtlFindLargeIndex.c)
  */
 
 BOOLEAN __stdcall FsRtlSplitBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Amount)

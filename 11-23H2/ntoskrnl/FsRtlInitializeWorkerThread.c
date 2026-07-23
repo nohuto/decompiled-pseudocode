@@ -4,8 +4,8 @@
  *     FsRtlInitSystem @ 0x140B68494 (FsRtlInitSystem.c)
  * Callees:
  *     KeInitializeQueue @ 0x140220E10 (KeInitializeQueue.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
  */
 
 NTSTATUS FsRtlInitializeWorkerThread()

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepBuildDefaultCape @ 0x14019086C
+ * XREFs of SepBuildDefaultCape @ 0x1401909AC
  * Callers:
- *     SepBuildDefaultCap @ 0x14075C9AC (SepBuildDefaultCap.c)
+ *     SepBuildDefaultCap @ 0x14075DB9C (SepBuildDefaultCap.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepBuildDefaultCape(_QWORD *a1)

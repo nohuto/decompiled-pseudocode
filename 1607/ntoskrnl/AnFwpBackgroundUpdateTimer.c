@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
- *     BgpClearScreen @ 0x1402393E0 (BgpClearScreen.c)
- *     xHalGetInterruptTranslator @ 0x1404E926C (xHalGetInterruptTranslator.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
+ *     BgpClearScreen @ 0x1402392C4 (BgpClearScreen.c)
+ *     xHalGetInterruptTranslator @ 0x1404CB35C (xHalGetInterruptTranslator.c)
  *     AnFwDisableBackgroundUpdateTimer @ 0x140725854 (AnFwDisableBackgroundUpdateTimer.c)
  *     AnFwpDisableProgressTimer @ 0x14072586C (AnFwpDisableProgressTimer.c)
  *     BgpGxDrawBitmapImage @ 0x14072B044 (BgpGxDrawBitmapImage.c)
@@ -32,7 +32,7 @@ void __fastcall AnFwpBackgroundUpdateTimer(
     BgpFwAcquireLock();
     if ( v6 >= qword_1402FA020 )
     {
-      if ( byte_140341C50 )
+      if ( byte_140341C98 )
       {
         AnFwpDisableProgressTimer();
         DbgPrintEx(0x65u, 0, "BGFX Secondary Logo Bitmap Display Time (ms): %d\n", v6);

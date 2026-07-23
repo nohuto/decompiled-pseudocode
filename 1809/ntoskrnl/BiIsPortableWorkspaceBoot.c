@@ -1,13 +1,13 @@
 /*
- * XREFs of BiIsPortableWorkspaceBoot @ 0x1408F1444
+ * XREFs of BiIsPortableWorkspaceBoot @ 0x1408F2704
  * Callers:
- *     BiBindEfiEntries @ 0x1408F2194 (BiBindEfiEntries.c)
- *     BiExportBcdObjects @ 0x1408F3560 (BiExportBcdObjects.c)
+ *     BiBindEfiEntries @ 0x1408F3454 (BiBindEfiEntries.c)
+ *     BiExportBcdObjects @ 0x1408F4820 (BiExportBcdObjects.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiGetRegistryValue @ 0x1407131A4 (BiGetRegistryValue.c)
- *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
- *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiGetRegistryValue @ 0x140714444 (BiGetRegistryValue.c)
+ *     BiOpenKey @ 0x140714A20 (BiOpenKey.c)
+ *     BiCloseKey @ 0x140714B90 (BiCloseKey.c)
  */
 
 bool BiIsPortableWorkspaceBoot()

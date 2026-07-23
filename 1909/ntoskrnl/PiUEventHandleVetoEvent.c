@@ -34,9 +34,9 @@ __int64 __fastcall PiUEventHandleVetoEvent(__int64 a1, __int64 *a2, int a3, __in
   _DWORD *v15; // rdx
   __int64 v16; // rax
   NTSTATUS v17; // eax
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   PVOID P; // [rsp+20h] [rbp-30h] BYREF
-  STRING DestinationString; // [rsp+28h] [rbp-28h] BYREF
+  _STRING DestinationString; // [rsp+28h] [rbp-28h] BYREF
   UNICODE_STRING v21; // [rsp+38h] [rbp-18h] BYREF
   PEPROCESS Process; // [rsp+80h] [rbp+30h] BYREF
 
@@ -97,7 +97,7 @@ __int64 __fastcall PiUEventHandleVetoEvent(__int64 a1, __int64 *a2, int a3, __in
                   v9 = 1;
                   ExFreePoolWithTag(P, 0);
                   v8 = &v21;
-                  ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)v7);
+                  ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)v7);
                   RtlInitAnsiString(&DestinationString, ProcessImageFileName);
                   RtlAnsiStringToUnicodeString(&v21, &DestinationString, 1u);
                 }

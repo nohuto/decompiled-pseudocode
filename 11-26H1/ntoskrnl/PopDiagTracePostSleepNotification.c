@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTracePostSleepNotification @ 0x140C0C638
+ * XREFs of PopDiagTracePostSleepNotification @ 0x140C12848
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall PopDiagTracePostSleepNotification(int a1, int a2, int a3, __int64 a4, __int64 a5, char a6, char a7)
@@ -54,7 +54,7 @@ int __fastcall PopDiagTracePostSleepNotification(int a1, int a2, int a3, __int64
       v9 = a5 - MEMORY[0xFFFFF78000000008];
     v12 = MEMORY[0xFFFFF78000000014] + v9;
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
     UserData.Ptr = (ULONGLONG)&v27;
     *(_QWORD *)&UserData.Size = 4LL;
@@ -70,12 +70,7 @@ int __fastcall PopDiagTracePostSleepNotification(int a1, int a2, int a3, __int64
     v21 = 8LL;
     v23 = 4LL;
     v25 = 4LL;
-    LODWORD(v7) = EtwWrite(
-                    *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                    &POP_ETW_EVENT_POSTSLEEP_NOTIFICATION,
-                    0LL,
-                    7u,
-                    &UserData);
+    LODWORD(v7) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POSTSLEEP_NOTIFICATION, 0LL, 7u, &UserData);
   }
   return (int)v7;
 }

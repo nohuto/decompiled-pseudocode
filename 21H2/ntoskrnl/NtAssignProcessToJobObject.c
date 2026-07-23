@@ -1,17 +1,17 @@
 /*
- * XREFs of NtAssignProcessToJobObject @ 0x14071F2B0
+ * XREFs of NtAssignProcessToJobObject @ 0x1406F6D90
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     PsAssignProcessToJobObject @ 0x14071F3B0 (PsAssignProcessToJobObject.c)
- *     EtwTraceJobAssignProcess @ 0x140935E28 (EtwTraceJobAssignProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PsAssignProcessToJobObject @ 0x1406F6D10 (PsAssignProcessToJobObject.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     EtwTraceJobAssignProcess @ 0x140935FF8 (EtwTraceJobAssignProcess.c)
  */
 
-__int64 __fastcall NtAssignProcessToJobObject(void *a1, void *a2)
+NTSTATUS __cdecl NtAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)
 {
   unsigned __int64 v2; // rdi
   KPROCESSOR_MODE PreviousMode; // bp
@@ -26,16 +26,16 @@ __int64 __fastcall NtAssignProcessToJobObject(void *a1, void *a2)
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   DmaAdapter = 0LL;
-  v5 = ObReferenceObjectByHandle(a1, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  v5 = ObReferenceObjectByHandle(JobHandle, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v5 >= 0 )
   {
-    if ( a2 == (void *)-7LL )
+    if ( ProcessHandle == (HANDLE)-7LL )
     {
       v2 = KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[16];
       goto LABEL_4;
     }
     v5 = ObReferenceObjectByHandleWithTag(
-           a2,
+           ProcessHandle,
            0x101u,
            (POBJECT_TYPE)PsProcessType,
            PreviousMode,
@@ -48,7 +48,7 @@ LABEL_4:
       v6 = DmaAdapter;
       v7 = v2;
       v8 = Object;
-      v5 = PsAssignProcessToJobObject((__int64)DmaAdapter, (PEPROCESS)Object, v7);
+      v5 = PsAssignProcessToJobObject(DmaAdapter, (PEPROCESS)Object, v7);
       goto LABEL_5;
     }
   }
@@ -61,5 +61,5 @@ LABEL_5:
     ObfDereferenceObjectWithTag(v8, 0x624A7350u);
   if ( v6 )
     HalPutDmaAdapter(v6);
-  return (unsigned int)v5;
+  return v5;
 }

@@ -36,7 +36,7 @@ int __thiscall RtlpInitializeUserList(void *this)
   struct _TEB *v26; // eax
   int v27; // esi
   int v28; // [esp+4h] [ebp-8h] BYREF
-  int v29; // [esp+8h] [ebp-4h] BYREF
+  PVOID v29; // [esp+8h] [ebp-4h] BYREF
 
   updated = 0;
   v28 = 0;

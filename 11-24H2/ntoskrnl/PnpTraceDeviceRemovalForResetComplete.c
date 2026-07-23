@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x1407324D4
+ * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x1407304E4
  * Callers:
- *     IopLogDeviceResetComplete @ 0x140721494 (IopLogDeviceResetComplete.c)
+ *     IopLogDeviceResetComplete @ 0x14071F024 (IopLogDeviceResetComplete.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PnpTraceDeviceRemovalForResetComplete()
@@ -87,7 +87,7 @@ void PnpTraceDeviceRemovalForResetComplete()
     v35[1] = v4;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E06FA8,
-      (unsigned __int8 *)byte_140046C50,
+      (unsigned __int8 *)word_140046F92,
       0LL,
       0LL,
       0xEu,

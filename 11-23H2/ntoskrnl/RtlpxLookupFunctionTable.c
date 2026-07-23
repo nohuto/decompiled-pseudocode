@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpxLookupFunctionTable @ 0x1402A3C80
+ * XREFs of RtlpxLookupFunctionTable @ 0x1402A3F10
  * Callers:
- *     RtlLookupFunctionEntry @ 0x1402A5490 (RtlLookupFunctionEntry.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1402A57F0 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlPcToFileHeader @ 0x1403C4040 (RtlPcToFileHeader.c)
- *     RtlLookupFunctionTableEx @ 0x1403D66F0 (RtlLookupFunctionTableEx.c)
- *     RtlLookupFunctionTable @ 0x140411C78 (RtlLookupFunctionTable.c)
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x140976320 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     RtlLookupFunctionEntry @ 0x1402A5720 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1402A5A80 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlPcToFileHeader @ 0x1403C4220 (RtlPcToFileHeader.c)
+ *     RtlLookupFunctionTableEx @ 0x1403D68D0 (RtlLookupFunctionTableEx.c)
+ *     RtlLookupFunctionTable @ 0x140411EB8 (RtlLookupFunctionTable.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x140976520 (KiTpBuildExcludedKernelTracepointBitmap.c)
  *     KiVerifyPdata @ 0x140B5CC0C (KiVerifyPdata.c)
  *     MiInitializeLoadedModuleList @ 0x140B5CCDC (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x1402A7D8C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x1403399A0 (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402A801C (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x140339C30 (MmLockLoadedModuleListShared.c)
  */
 
 PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
@@ -24,17 +24,17 @@ PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
   int v9; // r8d
   int v10; // r9d
   int v11; // eax
-  unsigned __int64 v12; // r11
+  char *v12; // r11
   int *v13; // r10
-  unsigned __int64 v14; // rdx
+  char *v14; // rdx
   PVOID result; // rax
   char v16; // si
   unsigned int v17; // edx
   int v18; // r8d
   int v19; // r9d
-  unsigned __int64 v20; // rdi
+  char *v20; // rdi
   int *v21; // r10
-  unsigned __int64 v22; // rcx
+  char *v22; // rcx
   int v23; // r9d
   unsigned int v24; // r8d
   PVOID *v25; // rdx
@@ -68,10 +68,10 @@ PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
     while ( v9 >= v10 )
     {
       v11 = (v10 + v9) >> 1;
-      v12 = *(_QWORD *)&RtlpInvertedFunctionTable[6 * v11 + 6];
+      v12 = *(char **)&RtlpInvertedFunctionTable[6 * v11 + 6];
       v13 = &RtlpInvertedFunctionTable[6 * v11];
-      v14 = v12 + (unsigned int)v13[8];
-      if ( a1 < v12 )
+      v14 = &v12[v13[8]];
+      if ( a1 < (unsigned __int64)v12 )
       {
         if ( !v11 )
           break;
@@ -80,14 +80,14 @@ PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
       }
       if ( a1 > 0x7FFFFFFEFFFFLL && v7 )
       {
-        if ( a1 < v14 )
+        if ( a1 < (unsigned __int64)v14 )
         {
 LABEL_15:
           *(_OWORD *)a2 = *((_OWORD *)v13 + 1);
           *(_QWORD *)(a2 + 16) = *((_QWORD *)v13 + 4);
           goto LABEL_16;
         }
-        if ( a1 >= v14 + v7 || v12 == PsNtosImageBase )
+        if ( a1 >= (unsigned __int64)&v14[v7] || v12 == PsNtosImageBase )
           goto LABEL_14;
         if ( v12 != PsHalImageBase )
         {
@@ -103,7 +103,7 @@ LABEL_17:
           goto LABEL_29;
         }
       }
-      if ( a1 < v14 )
+      if ( a1 < (unsigned __int64)v14 )
         goto LABEL_15;
 LABEL_14:
       v10 = v11 + 1;
@@ -172,10 +172,10 @@ LABEL_50:
   while ( 1 )
   {
     v19 = (v18 + v8) >> 1;
-    v20 = *(_QWORD *)&RtlpInvertedFunctionTable[6 * v19 + 6];
+    v20 = *(char **)&RtlpInvertedFunctionTable[6 * v19 + 6];
     v21 = &RtlpInvertedFunctionTable[6 * v19];
-    v22 = v20 + (unsigned int)v21[8];
-    if ( a1 < v20 )
+    v22 = &v20[v21[8]];
+    if ( a1 < (unsigned __int64)v20 )
     {
       if ( !v19 )
         goto LABEL_50;
@@ -184,9 +184,9 @@ LABEL_50:
     }
     if ( a1 > 0x7FFFFFFEFFFFLL && v17 )
     {
-      if ( a1 < v22 )
+      if ( a1 < (unsigned __int64)v22 )
         break;
-      if ( a1 >= v22 + v17 || v20 == PsNtosImageBase )
+      if ( a1 >= (unsigned __int64)&v22[v17] || v20 == PsNtosImageBase )
         goto LABEL_48;
       if ( v20 != PsHalImageBase )
       {
@@ -197,7 +197,7 @@ LABEL_50:
         goto LABEL_54;
       }
     }
-    if ( a1 < v22 )
+    if ( a1 < (unsigned __int64)v22 )
       break;
 LABEL_48:
     v8 = v19 + 1;

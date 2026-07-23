@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpGetProfileDescriptor @ 0x1404EB424
+ * XREFs of HalpGetProfileDescriptor @ 0x1404E4A04
  * Callers:
- *     HalpRemoveProfileSourceFromList @ 0x1405807B8 (HalpRemoveProfileSourceFromList.c)
- *     EmonEnableMonitoring @ 0x140595350 (EmonEnableMonitoring.c)
- *     EmonSetInterval @ 0x1405969A0 (EmonSetInterval.c)
- *     Amd64EnableMonitoring @ 0x1405A3B40 (Amd64EnableMonitoring.c)
- *     Amd64SetInterval @ 0x1405A4D10 (Amd64SetInterval.c)
+ *     HalpRemoveProfileSourceFromList @ 0x140582CD8 (HalpRemoveProfileSourceFromList.c)
+ *     EmonEnableMonitoring @ 0x140597AD0 (EmonEnableMonitoring.c)
+ *     EmonSetInterval @ 0x140599120 (EmonSetInterval.c)
+ *     Amd64EnableMonitoring @ 0x1405A6350 (Amd64EnableMonitoring.c)
+ *     Amd64SetInterval @ 0x1405A7520 (Amd64SetInterval.c)
  * Callees:
  *     <none>
  */

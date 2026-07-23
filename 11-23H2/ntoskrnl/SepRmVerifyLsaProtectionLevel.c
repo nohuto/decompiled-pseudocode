@@ -1,26 +1,51 @@
 /*
- * XREFs of SepRmVerifyLsaProtectionLevel @ 0x14082BC84
+ * XREFs of SepRmVerifyLsaProtectionLevel @ 0x14082BF84
  * Callers:
- *     SepRmLsaConnectRequest @ 0x14082B9DC (SepRmLsaConnectRequest.c)
+ *     SepRmLsaConnectRequest @ 0x14082BCDC (SepRmLsaConnectRequest.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQuerySystemEnvironmentValueEx @ 0x14041DAC0 (ZwQuerySystemEnvironmentValueEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQuerySystemEnvironmentValueEx @ 0x14041DE50 (ZwQuerySystemEnvironmentValueEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 SepRmVerifyLsaProtectionLevel()
+int __fastcall SepRmVerifyLsaProtectionLevel(void **a1)
 {
+  int result; // eax
+  void *v3; // rcx
+  NTSTATUS v4; // eax
+  char v5; // bl
+  int Value; // [rsp+30h] [rbp-40h] BYREF
+  ULONG ValueLength; // [rsp+34h] [rbp-3Ch] BYREF
+  PVOID Object; // [rsp+38h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-30h] BYREF
-  _DWORD v2[4]; // [rsp+50h] [rbp-20h] BYREF
+  GUID VendorGuid; // [rsp+50h] [rbp-20h] BYREF
 
-  v2[0] = 2012912317;
-  v2[1] = 1295123289;
+  Value = 0;
+  ValueLength = 4;
+  VendorGuid.Data1 = 2012912317;
+  *(_DWORD *)&VendorGuid.Data2 = 1295123289;
   DestinationString = 0LL;
-  v2[2] = -198680387;
-  v2[3] = 1266192359;
+  *(_DWORD *)VendorGuid.Data4 = -198680387;
+  *(_DWORD *)&VendorGuid.Data4[4] = 1266192359;
   RtlInitUnicodeString(&DestinationString, L"Kernel_Lsa_Ppl_Config");
-  return ZwQuerySystemEnvironmentValueEx((__int64)&DestinationString, (__int64)v2);
+  result = ZwQuerySystemEnvironmentValueEx(&DestinationString, &VendorGuid, &Value, &ValueLength, 0LL);
+  if ( Value == 4 )
+  {
+    v3 = *a1;
+    Object = 0LL;
+    v4 = ObReferenceObjectByHandle(v3, 0x2000000u, 0LL, 0, &Object, 0LL);
+    if ( v4 >= 0 )
+    {
+      v5 = *((_BYTE *)Object + 2170);
+      result = ObfDereferenceObject(Object);
+      if ( v5 == 65 )
+        return result;
+      v4 = -1073741790;
+    }
+    KeBugCheckEx(0x29u, v4, (ULONG_PTR)"minkernel\\ntos\\se\\rmmain.c", 0x295uLL, 0LL);
+  }
+  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PopDeletePowerRequestObject @ 0x14051FFC4
+ * XREFs of PopDeletePowerRequestObject @ 0x14050302C
  * Callers:
  *     <none>
  * Callees:

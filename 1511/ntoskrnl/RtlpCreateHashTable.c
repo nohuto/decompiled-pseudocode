@@ -11,10 +11,10 @@
  *     ExAllocatePoolWithTag @ 0x140238380 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall RtlpCreateHashTable(struct _RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
+char __fastcall RtlpCreateHashTable(_RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
 {
   unsigned int v4; // ebp
-  struct _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rbx
   int v10; // esi
   __int64 v11; // rax
   void *v12; // r8
@@ -36,12 +36,12 @@ char __fastcall RtlpCreateHashTable(struct _RTL_DYNAMIC_HASH_TABLE **a1, unsigne
   v10 = 0;
   if ( !*a1 )
   {
-    PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62615448u);
+    PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62615448u);
     if ( !PoolWithTag )
       return 0;
     v10 = 1;
   }
-  memset(PoolWithTag, 0, sizeof(struct _RTL_DYNAMIC_HASH_TABLE));
+  memset(PoolWithTag, 0, sizeof(_RTL_DYNAMIC_HASH_TABLE));
   PoolWithTag->Pivot = 0;
   PoolWithTag->Shift = a3;
   PoolWithTag->Flags = a4 | v10;

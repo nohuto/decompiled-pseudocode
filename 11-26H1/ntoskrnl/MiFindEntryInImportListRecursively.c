@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFindEntryInImportListRecursively @ 0x140875010
+ * XREFs of MiFindEntryInImportListRecursively @ 0x14087B3F4
  * Callers:
- *     MmGetModuleRoutineAddress @ 0x140864A10 (MmGetModuleRoutineAddress.c)
- *     MiFindEntryInImportListRecursively @ 0x140875010 (MiFindEntryInImportListRecursively.c)
+ *     MmGetModuleRoutineAddress @ 0x14086ADF0 (MmGetModuleRoutineAddress.c)
+ *     MiFindEntryInImportListRecursively @ 0x14087B3F4 (MiFindEntryInImportListRecursively.c)
  * Callees:
- *     MiFindEntryInImportListRecursively @ 0x140875010 (MiFindEntryInImportListRecursively.c)
+ *     MiFindEntryInImportListRecursively @ 0x14087B3F4 (MiFindEntryInImportListRecursively.c)
  */
 
 _BOOL8 __fastcall MiFindEntryInImportListRecursively(unsigned __int64 a1, __int64 a2)

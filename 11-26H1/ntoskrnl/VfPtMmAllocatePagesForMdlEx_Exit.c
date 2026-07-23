@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPtMmAllocatePagesForMdlEx_Exit @ 0x140C2A0E0
+ * XREFs of VfPtMmAllocatePagesForMdlEx_Exit @ 0x140C300F0
  * Callers:
  *     <none>
  * Callees:
- *     VfEnabledOnKernel @ 0x14047EA30 (VfEnabledOnKernel.c)
- *     VfPtMiscPoolNotification @ 0x14050C738 (VfPtMiscPoolNotification.c)
+ *     VfEnabledOnKernel @ 0x1404783A0 (VfEnabledOnKernel.c)
+ *     VfPtMiscPoolNotification @ 0x1405061A8 (VfPtMiscPoolNotification.c)
  */
 
 char __fastcall VfPtMmAllocatePagesForMdlEx_Exit(__int64 a1)

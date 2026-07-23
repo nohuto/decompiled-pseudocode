@@ -1,30 +1,30 @@
 /*
- * XREFs of PopHandleNextState @ 0x140AA811C
+ * XREFs of PopHandleNextState @ 0x140AA7F8C
  * Callers:
- *     PopInvokeStateHandlerTargetProcessor @ 0x140AA8520 (PopInvokeStateHandlerTargetProcessor.c)
- *     PopIssueNextState @ 0x140AA8E5C (PopIssueNextState.c)
+ *     PopInvokeStateHandlerTargetProcessor @ 0x140AA8390 (PopInvokeStateHandlerTargetProcessor.c)
+ *     PopIssueNextState @ 0x140AA8CCC (PopIssueNextState.c)
  * Callees:
  *     KeSaveExtendedAndSupervisorState @ 0x14020DDDC (KeSaveExtendedAndSupervisorState.c)
  *     KeRestoreExtendedAndSupervisorState @ 0x14020E028 (KeRestoreExtendedAndSupervisorState.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KeForceAttachProcess @ 0x140353538 (KeForceAttachProcess.c)
- *     KeForceDetachProcess @ 0x14035559C (KeForceDetachProcess.c)
- *     HvlEnlightenProcessor @ 0x1403828D0 (HvlEnlightenProcessor.c)
- *     KeFlushCurrentTbImmediately @ 0x14039ADD0 (KeFlushCurrentTbImmediately.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KdPowerTransition @ 0x1405679B0 (KdPowerTransition.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x14056BF44 (KeRestoreProcessorSpecificFeatures.c)
- *     KeSaveProcessorSpecificFeatures @ 0x14056BFCC (KeSaveProcessorSpecificFeatures.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeResumeClockTimer @ 0x14056F96C (KeResumeClockTimer.c)
- *     KeSuspendClockTimer @ 0x14056FA6C (KeSuspendClockTimer.c)
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x14057265C (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140572698 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     PopFxNotifySystemStateTransition @ 0x14058AFC4 (PopFxNotifySystemStateTransition.c)
- *     PpmResetPerfEngineForProcessor @ 0x14058D618 (PpmResetPerfEngineForProcessor.c)
- *     PopRestoreHiberContext @ 0x140AA450C (PopRestoreHiberContext.c)
- *     PopSstDiagInitializeResumeTimer @ 0x140AAA664 (PopSstDiagInitializeResumeTimer.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KeForceAttachProcess @ 0x1403536D8 (KeForceAttachProcess.c)
+ *     KeForceDetachProcess @ 0x14035573C (KeForceDetachProcess.c)
+ *     HvlEnlightenProcessor @ 0x140382A70 (HvlEnlightenProcessor.c)
+ *     KeFlushCurrentTbImmediately @ 0x14039AFB0 (KeFlushCurrentTbImmediately.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KdPowerTransition @ 0x140568070 (KdPowerTransition.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x14056C604 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeSaveProcessorSpecificFeatures @ 0x14056C68C (KeSaveProcessorSpecificFeatures.c)
+ *     KeResumeClockTimer @ 0x14056FEAC (KeResumeClockTimer.c)
+ *     KeSuspendClockTimer @ 0x14056FFAC (KeSuspendClockTimer.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x140572B9C (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140572BD8 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     PopFxNotifySystemStateTransition @ 0x14058B4B4 (PopFxNotifySystemStateTransition.c)
+ *     PpmResetPerfEngineForProcessor @ 0x14058DB08 (PpmResetPerfEngineForProcessor.c)
+ *     PopRestoreHiberContext @ 0x140AA437C (PopRestoreHiberContext.c)
+ *     PopSstDiagInitializeResumeTimer @ 0x140AAA4D4 (PopSstDiagInitializeResumeTimer.c)
  */
 
 void __fastcall PopHandleNextState(__int64 a1, __int64 a2, __int64 a3)
@@ -131,7 +131,7 @@ void __fastcall PopHandleNextState(__int64 a1, __int64 a2, __int64 a3)
                   {
                     PopSstDiagInitializeResumeTimer();
                     if ( !CurrentPrcb->Number )
-                      qword_140C3D420 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C39450;
+                      qword_140C3D3E0 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C393D0;
                   }
                 }
               }
@@ -148,7 +148,7 @@ void __fastcall PopHandleNextState(__int64 a1, __int64 a2, __int64 a3)
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(0xFuLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 15 )
@@ -181,7 +181,7 @@ void __fastcall PopHandleNextState(__int64 a1, __int64 a2, __int64 a3)
     }
     v18 = 1;
 LABEL_44:
-    PopFxNotifySystemStateTransition((__int64)CurrentPrcb, v18, dword_140C3D0E0);
+    PopFxNotifySystemStateTransition((__int64)CurrentPrcb, v18, dword_140C3CDA0);
     goto LABEL_76;
   }
   v19 = v6 - 10;
@@ -239,10 +239,10 @@ LABEL_44:
           _enable();
         }
         v33 = *(unsigned __int8 *)(a2 + 7);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v34 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
           {
             v35 = KeGetCurrentPrcb();
             v36 = v35->SchedulerAssist;

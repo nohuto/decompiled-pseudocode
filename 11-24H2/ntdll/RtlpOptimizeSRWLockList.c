@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpOptimizeSRWLockList @ 0x1800E84FC
+ * XREFs of RtlpOptimizeSRWLockList @ 0x1800E3BEC
  * Callers:
- *     RtlpAcquireSRWLockSharedContended @ 0x180017E40 (RtlpAcquireSRWLockSharedContended.c)
+ *     RtlpAcquireSRWLockSharedContended @ 0x180044840 (RtlpAcquireSRWLockSharedContended.c)
  * Callees:
- *     ZwAlertThreadByThreadIdEx @ 0x180162AC0 (ZwAlertThreadByThreadIdEx.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x180160E80 (ZwAlertThreadByThreadIdEx.c)
  */
 
 __int64 __fastcall RtlpOptimizeSRWLockList(volatile signed __int64 *a1, signed __int64 a2)

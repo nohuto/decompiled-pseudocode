@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpGetAutoLoggerLevelKwFilter @ 0x140A7AE98
+ * XREFs of EtwpGetAutoLoggerLevelKwFilter @ 0x140A75198
  * Callers:
- *     EtwpGetAutoLoggerProviderFilter @ 0x140A7A638 (EtwpGetAutoLoggerProviderFilter.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140A74938 (EtwpGetAutoLoggerProviderFilter.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, __int64 a2, PVOID *a3)
@@ -19,7 +19,7 @@ void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, __int64 a2, PVOID *a3
   __int64 v4; // rsi
   __int64 v5; // rax
   WCHAR *v8; // rbx
-  unsigned int v9; // r13d
+  ULONG_PTR v9; // r13
   wchar_t *Pool2; // rax
   WCHAR *v11; // rdi
   NTSTATUS v12; // eax
@@ -75,12 +75,12 @@ void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, __int64 a2, PVOID *a3
   do
     ++v5;
   while ( *(_WORD *)(a1 + 2 * v5) );
-  v9 = 2 * v5 + 40;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  v9 = (unsigned int)(2 * v5 + 40);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v9, 0x50777445u);
   v11 = Pool2;
   if ( !Pool2 )
     goto LABEL_22;
-  v12 = RtlStringCbPrintfW(Pool2, v9, L"%ws\\StackLevelKwFilter", a1);
+  v12 = RtlStringCbPrintfW(Pool2, (unsigned int)v9, L"%ws\\StackLevelKwFilter", a1);
   v13 = v12 < 0;
   if ( v12 )
     goto LABEL_20;
@@ -99,7 +99,7 @@ void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, __int64 a2, PVOID *a3
       ++v4;
     while ( *(_WORD *)(a2 + 2 * v4) );
     v15 = 2 * v4 + 40;
-    v16 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    v16 = (wchar_t *)ExAllocatePool2(0x100uLL, v15, 0x50777445u);
     v8 = v16;
     if ( !v16 )
       goto LABEL_22;
@@ -129,7 +129,7 @@ LABEL_13:
     v13 = v14 < 0;
     goto LABEL_20;
   }
-  v18 = ExAllocatePool2(0x100uLL);
+  v18 = ExAllocatePool2(0x100uLL, 0x18uLL, 0x50777445u);
   *a3 = (PVOID)v18;
   v19 = v18;
   if ( v18 )

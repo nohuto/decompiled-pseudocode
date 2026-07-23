@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrResFindResource @ 0x14071BF50
+ * XREFs of LdrResFindResource @ 0x14071D1F0
  * Callers:
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
- *     LdrResSearchResource @ 0x14068AD30 (LdrResSearchResource.c)
+ *     LdrResSearchResource @ 0x14068BEF0 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall LdrResFindResource(

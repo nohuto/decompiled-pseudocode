@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpFreePmcCounterSet @ 0x140507660
+ * XREFs of HalpFreePmcCounterSet @ 0x140507BB0
  * Callers:
  *     <none>
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
@@ -27,8 +27,8 @@ void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
   int v13; // eax
   bool v14; // zf
   __int64 v15; // rcx
-  struct _GROUP_AFFINITY v16; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY v16; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   result = &HalpSampleProfilingCounters;
   v16 = 0LL;
@@ -44,7 +44,7 @@ void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
     KeSetSystemGroupAffinityThread(&v16, &PreviousAffinity);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -61,10 +61,10 @@ void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
     v9 = 0LL;
     for ( v7[1] = v8; (unsigned int)v9 < *((_DWORD *)a1 + 5); v9 = (unsigned int)(v9 + 1) )
       ((void (__fastcall *)(_QWORD, _QWORD *))HalpProfileInterface[2])(LODWORD(a1[5 * v9 + 5]), &a1[5 * v9 + 6]);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;
@@ -72,7 +72,7 @@ void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
         v14 = (v13 & v12[5]) == 0;
         v12[5] &= v13;
         if ( v14 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

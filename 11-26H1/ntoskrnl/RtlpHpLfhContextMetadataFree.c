@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhContextMetadataFree @ 0x140346750
+ * XREFs of RtlpHpLfhContextMetadataFree @ 0x1403487D0
  * Callers:
- *     RtlpHpLfhPrivateSlotShutdown @ 0x140347ECC (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x140519814 (RtlpHpLfhPrivateSlotCreate.c)
- *     RtlpHpLfhContextTlsCleanup @ 0x140639990 (RtlpHpLfhContextTlsCleanup.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x140349F4C (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x140513284 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhContextTlsCleanup @ 0x14063C9A0 (RtlpHpLfhContextTlsCleanup.c)
  * Callees:
- *     RtlpHpLfhContextUnlockExtension @ 0x140530AB0 (RtlpHpLfhContextUnlockExtension.c)
- *     RtlpHpLfhContextLockExtension @ 0x14053148C (RtlpHpLfhContextLockExtension.c)
+ *     RtlpHpLfhContextUnlockExtension @ 0x140532FB0 (RtlpHpLfhContextUnlockExtension.c)
+ *     RtlpHpLfhContextLockExtension @ 0x14053398C (RtlpHpLfhContextLockExtension.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextMetadataFree(__int64 a1, __int64 a2, int a3)

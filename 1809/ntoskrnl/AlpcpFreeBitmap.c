@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpFreeBitmap @ 0x14084B240
+ * XREFs of AlpcpFreeBitmap @ 0x14084C4A0
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpAllocateFromBitmap @ 0x1406D4850 (AlpcpAllocateFromBitmap.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406366C0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpAllocateFromBitmap @ 0x1406D5AF0 (AlpcpAllocateFromBitmap.c)
  * Callees:
  *     <none>
  */

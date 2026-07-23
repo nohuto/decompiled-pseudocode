@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipQuerySetExecuteSI @ 0x1405FBF88
+ * XREFs of WmipQuerySetExecuteSI @ 0x1405FCF88
  * Callers:
- *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
- *     IoWMIQuerySingleInstance @ 0x1406B26F0 (IoWMIQuerySingleInstance.c)
- *     IoWMIExecuteMethod @ 0x1408B1EC0 (IoWMIExecuteMethod.c)
- *     IoWMISetSingleInstance @ 0x1408B21F0 (IoWMISetSingleInstance.c)
- *     IoWMISetSingleItem @ 0x1408B2300 (IoWMISetSingleItem.c)
- *     WmipQuerySingleMultiple @ 0x1408B3CE8 (WmipQuerySingleMultiple.c)
+ *     WmipIoControl @ 0x1406AB080 (WmipIoControl.c)
+ *     IoWMIQuerySingleInstance @ 0x1406B3990 (IoWMIQuerySingleInstance.c)
+ *     IoWMIExecuteMethod @ 0x1408B3120 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x1408B3450 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x1408B3560 (IoWMISetSingleItem.c)
+ *     WmipQuerySingleMultiple @ 0x1408B4F6C (WmipQuerySingleMultiple.c)
  * Callees:
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)
- *     WmipSendWmiIrp @ 0x1405FBEA0 (WmipSendWmiIrp.c)
- *     WmipUnreferenceEntry @ 0x1405FC204 (WmipUnreferenceEntry.c)
- *     WmipPrepareWnodeSI @ 0x140612888 (WmipPrepareWnodeSI.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     WmipForwardWmiIrp @ 0x1405FC974 (WmipForwardWmiIrp.c)
+ *     WmipSendWmiIrp @ 0x1405FCEA0 (WmipSendWmiIrp.c)
+ *     WmipUnreferenceEntry @ 0x1405FD204 (WmipUnreferenceEntry.c)
+ *     WmipPrepareWnodeSI @ 0x140613888 (WmipPrepareWnodeSI.c)
  */
 
 __int64 __fastcall WmipQuerySetExecuteSI(

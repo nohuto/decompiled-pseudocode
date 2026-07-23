@@ -9,14 +9,14 @@
 
 int __stdcall RtlpGetCustomCultureRegKey()
 {
-  HANDLE Handle; // [esp+0h] [ebp-4h] BYREF
+  HANDLE KeyHandle; // [esp+0h] [ebp-4h] BYREF
 
-  Handle = 0;
+  KeyHandle = 0;
   if ( !gCustomCultureRegKey
-    && (int)ZwOpenKey(&Handle, 1, `RtlpGetCustomCultureRegKey'::`2'::ObjAttribute) >= 0
-    && _InterlockedCompareExchange(&gCustomCultureRegKey, (signed __int32)Handle, 0) )
+    && ZwOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&`RtlpGetCustomCultureRegKey'::`2'::ObjAttribute) >= 0
+    && _InterlockedCompareExchange(&gCustomCultureRegKey, (signed __int32)KeyHandle, 0) )
   {
-    NtClose(Handle);
+    NtClose(KeyHandle);
   }
   return gCustomCultureRegKey;
 }

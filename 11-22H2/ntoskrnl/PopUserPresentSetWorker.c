@@ -43,10 +43,10 @@ __int64 PopUserPresentSetWorker()
     v0 = PopUserPresentMonitorOnReason;
     PopUserPresentSetStatus = 2;
     KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -89,10 +89,10 @@ __int64 PopUserPresentSetWorker()
   PopUserPresentSetStatus = 0;
   PopUserPresentMonitorOnReason = 0;
   KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && v10 <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && v10 <= 0xFu && v11 >= 2u )
     {
       v12 = KeGetCurrentPrcb();
       v13 = v12->SchedulerAssist;

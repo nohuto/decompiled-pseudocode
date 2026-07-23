@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwEnumerateDriverEntries @ 0x1407250F0
+ * XREFs of ZwEnumerateDriverEntries @ 0x140729CC0
  * Callers:
- *     DifZwEnumerateDriverEntriesWrapper @ 0x1406A5300 (DifZwEnumerateDriverEntriesWrapper.c)
+ *     DifZwEnumerateDriverEntriesWrapper @ 0x1406A8EE0 (DifZwEnumerateDriverEntriesWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwEnumerateDriverEntries(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Buffer);
 }

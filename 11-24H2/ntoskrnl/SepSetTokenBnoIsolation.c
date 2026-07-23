@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSetTokenBnoIsolation @ 0x1404843CC
+ * XREFs of SepSetTokenBnoIsolation @ 0x14047F96C
  * Callers:
- *     SeSubProcessToken @ 0x140A30C24 (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x140AD660C (SeSubProcessToken.c)
  * Callees:
- *     SepSetTokenCachedHandles @ 0x1408F2494 (SepSetTokenCachedHandles.c)
- *     SepDereferenceCachedHandlesEntry @ 0x140A08D00 (SepDereferenceCachedHandlesEntry.c)
+ *     SepSetTokenCachedHandles @ 0x140913AE0 (SepSetTokenCachedHandles.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x140A05230 (SepDereferenceCachedHandlesEntry.c)
  */
 
 __int64 __fastcall SepSetTokenBnoIsolation(__int64 a1, char a2, __int128 *a3, unsigned int a4, __int64 a5)

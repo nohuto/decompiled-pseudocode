@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDpPostReplaceInitialization @ 0x140B4F9EC
+ * XREFs of HalpDpPostReplaceInitialization @ 0x140B51A3C
  * Callers:
- *     HalpDpOfflineProcessorForReplace @ 0x140B4F7D0 (HalpDpOfflineProcessorForReplace.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x140B51820 (HalpDpOfflineProcessorForReplace.c)
  * Callees:
- *     HalpInterruptEnablePerformanceEvents @ 0x1403B90F8 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpGetCpuInfo @ 0x14048CB70 (HalpGetCpuInfo.c)
- *     HalpInterruptEnableNmi @ 0x1404A356C (HalpInterruptEnableNmi.c)
- *     HalpRestartProfiling @ 0x1404B3050 (HalpRestartProfiling.c)
- *     HalpMcUpdateMicrocode @ 0x1404D1C2C (HalpMcUpdateMicrocode.c)
- *     HalpInterruptReinitializeThisProcessor @ 0x1404D8410 (HalpInterruptReinitializeThisProcessor.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpMcaResumeProcessorConfig @ 0x140B68E20 (HalpMcaResumeProcessorConfig.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x140373A20 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpGetCpuInfo @ 0x140487890 (HalpGetCpuInfo.c)
+ *     HalpInterruptEnableNmi @ 0x14049E4CC (HalpInterruptEnableNmi.c)
+ *     HalpRestartProfiling @ 0x1404AD860 (HalpRestartProfiling.c)
+ *     HalpMcUpdateMicrocode @ 0x1404CAC6C (HalpMcUpdateMicrocode.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x1404D1860 (HalpInterruptReinitializeThisProcessor.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140B6D4AC (HalpMcaResumeProcessorConfig.c)
  */
 
 __int64 __fastcall HalpDpPostReplaceInitialization(int *a1, unsigned __int64 *a2)
@@ -19,11 +19,11 @@ __int64 __fastcall HalpDpPostReplaceInitialization(int *a1, unsigned __int64 *a2
   int v5; // edx
   unsigned __int8 CurrentIrql; // cl
   unsigned __int64 v7; // rdx
-  __int64 v8; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // rcx
   char CpuInfo; // al
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
+  __int64 v12; // rdx
   __int64 v13; // rcx
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rax
@@ -43,13 +43,13 @@ __int64 __fastcall HalpDpPostReplaceInitialization(int *a1, unsigned __int64 *a2
   __writemsr(0x10u, *a2);
   HalpMcaResumeProcessorConfig(1LL, v7);
   if ( (HalpFeatureBits & 1) != 0 )
-    HalpInterruptEnablePerformanceEvents(0LL);
-  v8 = (unsigned int)_InterlockedExchangeAdd(a1 + 15, 1u);
+    HalpInterruptEnablePerformanceEvents(0LL, v8, v9);
+  v10 = (unsigned int)_InterlockedExchangeAdd(a1 + 15, 1u);
   while ( a1[15] < v2 )
     _mm_pause();
-  while ( a1[16] < (int)v8 )
+  while ( a1[16] < (int)v10 )
     _mm_pause();
-  HalpMcUpdateMicrocode(v8);
+  HalpMcUpdateMicrocode(v10);
   CpuInfo = HalpGetCpuInfo(0LL, 0LL, 0LL, &v17);
   LOBYTE(v13) = CpuInfo != 0 ? v17 : 0;
   v17 = v13;
@@ -59,20 +59,20 @@ __int64 __fastcall HalpDpPostReplaceInitialization(int *a1, unsigned __int64 *a2
     {
       v13 = 3221291039LL;
       v14 = __readmsr(0xC001001F) & 0xFFFFFFFEFFEFFFFFuLL | 0x100000000LL;
-      v10 = HIDWORD(v14);
+      v12 = HIDWORD(v14);
       __writemsr(0xC001001F, v14);
     }
     if ( KeGetCurrentPrcb()->CpuType == 18 )
     {
       v13 = 3221295145LL;
       v15 = __readmsr(0xC0011029) | 0x80000000;
-      v10 = HIDWORD(v15);
+      v12 = HIDWORD(v15);
       __writemsr(0xC0011029, v15);
     }
   }
   _InterlockedAdd(a1 + 16, 1u);
   while ( a1[16] < v2 )
     _mm_pause();
-  HalpRestartProfiling(v13, v10, v11, v12);
+  HalpRestartProfiling(v13, v12);
   return HalpInterruptEnableNmi();
 }

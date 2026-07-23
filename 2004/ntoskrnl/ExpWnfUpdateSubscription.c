@@ -43,7 +43,7 @@ __int64 __fastcall ExpWnfUpdateSubscription(
   v15 = (unsigned __int64 *)(a2 + 104);
   *a7 = 0;
   *a8 = 0;
-  v16 = KeAbPreAcquire(a2 + 104, 0LL, 0LL);
+  v16 = KeAbPreAcquire(a2 + 104, 0LL, 0);
   v17 = v16;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v15, 0LL) )
     ExfAcquirePushLockExclusiveEx(v15, v16, (ULONG_PTR)v15);

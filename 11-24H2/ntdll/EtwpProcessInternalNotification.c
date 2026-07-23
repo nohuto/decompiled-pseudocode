@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpProcessInternalNotification @ 0x1800FA424
+ * XREFs of EtwpProcessInternalNotification @ 0x1800F5184
  * Callers:
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
- *     EtwpProcessNotification @ 0x180020790 (EtwpProcessNotification.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
+ *     EtwpProcessNotification @ 0x18004D190 (EtwpProcessNotification.c)
  * Callees:
  *     <none>
  */

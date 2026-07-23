@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpMutantInitialization @ 0x140CE737C
+ * XREFs of ExpMutantInitialization @ 0x140CED5C4
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
  */
 
 bool ExpMutantInitialization()
@@ -23,7 +23,7 @@ bool ExpMutantInitialization()
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"Mutant");
   memset_0(v2, 0, 0x78uLL);
-  memset_0(&KeGetCurrentThread()->ApcState.Process->DirectoryTableBase, 0, (unsigned int)ExpSysDbgLock.MiscFlags);
+  memset_0(&KeGetCurrentThread()->ApcState.Process->DirectoryTableBase, 0, LODWORD(ExpSysDbgLock.InitialStack));
   v2[0] = 120;
   v3 = 64;
   v4 = 256;

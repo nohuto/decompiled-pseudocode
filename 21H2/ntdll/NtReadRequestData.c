@@ -1,16 +1,22 @@
 /*
- * XREFs of NtReadRequestData @ 0x18009E0C0
+ * XREFs of NtReadRequestData @ 0x18009E080
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtReadRequestData()
+NTSTATUS __cdecl NtReadRequestData(
+        HANDLE PortHandle,
+        PPORT_MESSAGE Message,
+        ULONG DataEntryIndex,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 84LL;
+  result = 84;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

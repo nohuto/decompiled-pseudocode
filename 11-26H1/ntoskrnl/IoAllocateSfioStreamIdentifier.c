@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAllocateSfioStreamIdentifier @ 0x1405CAD90
+ * XREFs of IoAllocateSfioStreamIdentifier @ 0x1405CD660
  * Callers:
  *     <none>
  * Callees:
- *     IopGetSetStreamIdentifier @ 0x140455258 (IopGetSetStreamIdentifier.c)
+ *     IopGetSetStreamIdentifier @ 0x14044D388 (IopGetSetStreamIdentifier.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

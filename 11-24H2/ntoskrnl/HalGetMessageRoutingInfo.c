@@ -1,12 +1,12 @@
 /*
- * XREFs of HalGetMessageRoutingInfo @ 0x1403B81B0
+ * XREFs of HalGetMessageRoutingInfo @ 0x1402B4240
  * Callers:
- *     IopConnectMessageBasedInterrupt @ 0x140A12B7C (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectMessageBasedInterrupt @ 0x1409C0F8C (IopConnectMessageBasedInterrupt.c)
  * Callees:
- *     HalpInterruptAffinityIsSteerable @ 0x1403B879C (HalpInterruptAffinityIsSteerable.c)
- *     HalpGetProcessorStateByNtIndex @ 0x1403B8918 (HalpGetProcessorStateByNtIndex.c)
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
+ *     HalpInterruptAffinityIsSteerable @ 0x1402B482C (HalpInterruptAffinityIsSteerable.c)
+ *     HalpGetProcessorStateByNtIndex @ 0x1402B49A8 (HalpGetProcessorStateByNtIndex.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
  */
 
 __int64 __fastcall HalGetMessageRoutingInfo(int *a1, _DWORD *a2)
@@ -101,8 +101,8 @@ __int64 __fastcall HalGetMessageRoutingInfo(int *a1, _DWORD *a2)
     _BitScanForward64((unsigned __int64 *)&v11, v5);
     v12 = 0LL;
     *((_QWORD *)&v32 + 1) = v5 & ~(1LL << v11);
-    v13 = *((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v9 + (unsigned __int8)v11);
-    v36 = *((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v9 + (unsigned __int8)v11);
+    v13 = *((unsigned int *)qword_140F22998 + 64 * (unsigned __int16)v9 + (unsigned __int8)v11);
+    v36 = *((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v9 + (unsigned __int8)v11);
     if ( v35 )
     {
       while ( (int)v12 >= 0 )
@@ -227,8 +227,8 @@ LABEL_30:
 LABEL_24:
       _BitScanForward64(&v17, v5);
       v5 &= ~(1LL << v17);
-      v18 = *((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v9 + (unsigned __int8)v17);
-      v36 = *((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v9 + (unsigned __int8)v17);
+      v18 = *((unsigned int *)qword_140F22998 + 64 * (unsigned __int16)v9 + (unsigned __int8)v17);
+      v36 = *((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v9 + (unsigned __int8)v17);
     }
   }
   if ( HalpInterruptClusterModeEnabled )
@@ -285,8 +285,8 @@ LABEL_66:
 LABEL_48:
     _BitScanForward64(&v25, v5);
     v5 &= ~(1LL << v25);
-    v26 = *((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v9 + (unsigned __int8)v25);
-    v36 = *((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v9 + (unsigned __int8)v25);
+    v26 = *((unsigned int *)qword_140F22998 + 64 * (unsigned __int16)v9 + (unsigned __int8)v25);
+    v36 = *((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v9 + (unsigned __int8)v25);
   }
   if ( !DWORD2(v34) )
     return 3221225485LL;

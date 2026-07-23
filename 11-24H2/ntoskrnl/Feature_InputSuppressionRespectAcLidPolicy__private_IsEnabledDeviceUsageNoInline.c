@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline @ 0x1405D7B9C
+ * XREFs of Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline @ 0x1405D50BC
  * Callers:
- *     PopBroadcastInputSuppressionCallback2 @ 0x14075A100 (PopBroadcastInputSuppressionCallback2.c)
- *     PopBroadcastInputSuppressionCallback @ 0x140AC7A50 (PopBroadcastInputSuppressionCallback.c)
- *     PopEvaluateInputSuppressionAction @ 0x140AC7B10 (PopEvaluateInputSuppressionAction.c)
+ *     PopBroadcastInputSuppressionCallback2 @ 0x140758520 (PopBroadcastInputSuppressionCallback2.c)
+ *     PopBroadcastInputSuppressionCallback @ 0x140AC54B0 (PopBroadcastInputSuppressionCallback.c)
+ *     PopEvaluateInputSuppressionAction @ 0x140AC5570 (PopEvaluateInputSuppressionAction.c)
  * Callees:
- *     Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledFallback @ 0x1405D7BD4 (Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledFallback.c)
+ *     Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledFallback @ 0x1405D50F4 (Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline()

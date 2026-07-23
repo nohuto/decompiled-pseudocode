@@ -1,21 +1,21 @@
 /*
- * XREFs of BiConvertNtDeviceToBootEnvironment @ 0x14053E75C
+ * XREFs of BiConvertNtDeviceToBootEnvironment @ 0x14053EC9C
  * Callers:
- *     BiConvertElementToRegistryData @ 0x14053E324 (BiConvertElementToRegistryData.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x14053E75C (BiConvertNtDeviceToBootEnvironment.c)
- *     BiCreatePartitionDevice @ 0x14053E80C (BiCreatePartitionDevice.c)
- *     BiConvertNtFilePathToBootEnvironment @ 0x1406D2D58 (BiConvertNtFilePathToBootEnvironment.c)
+ *     BiConvertElementToRegistryData @ 0x14053E864 (BiConvertElementToRegistryData.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x14053EC9C (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x14053ED4C (BiCreatePartitionDevice.c)
+ *     BiConvertNtFilePathToBootEnvironment @ 0x1406D2E90 (BiConvertNtFilePathToBootEnvironment.c)
  * Callees:
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x14053E75C (BiConvertNtDeviceToBootEnvironment.c)
- *     BiCreatePartitionDevice @ 0x14053E80C (BiCreatePartitionDevice.c)
- *     BiGetPartitionVhdFilePath @ 0x14053EB94 (BiGetPartitionVhdFilePath.c)
- *     BiIsVolumePartitionInformationRetained @ 0x14053EE50 (BiIsVolumePartitionInformationRetained.c)
- *     BiConvertNtFilePathToBootEnvironment @ 0x1406D2D58 (BiConvertNtFilePathToBootEnvironment.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x14053EC9C (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x14053ED4C (BiCreatePartitionDevice.c)
+ *     BiGetPartitionVhdFilePath @ 0x14053F0D4 (BiGetPartitionVhdFilePath.c)
+ *     BiIsVolumePartitionInformationRetained @ 0x14053F390 (BiIsVolumePartitionInformationRetained.c)
+ *     BiConvertNtFilePathToBootEnvironment @ 0x1406D2E90 (BiConvertNtFilePathToBootEnvironment.c)
  */
 
 __int64 __fastcall BiConvertNtDeviceToBootEnvironment(const WCHAR *a1, unsigned int a2, unsigned int a3, _QWORD *a4)

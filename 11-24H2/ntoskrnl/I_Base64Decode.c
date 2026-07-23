@@ -1,7 +1,7 @@
 /*
- * XREFs of I_Base64Decode @ 0x140825FAC
+ * XREFs of I_Base64Decode @ 0x14082677C
  * Callers:
- *     I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x140826190 (I_MinCryptGetPlatformManifestBinaryIDAttribute.c)
+ *     I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x140826960 (I_MinCryptGetPlatformManifestBinaryIDAttribute.c)
  * Callees:
  *     <none>
  */

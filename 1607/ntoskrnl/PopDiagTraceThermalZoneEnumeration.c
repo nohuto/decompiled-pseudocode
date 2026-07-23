@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceThermalZoneEnumeration @ 0x140146F70
+ * XREFs of PopDiagTraceThermalZoneEnumeration @ 0x1401474E0
  * Callers:
- *     PopThermalWorker @ 0x140573F40 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140574480 (PopThermalWorker.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PopSqmThermalZoneEnumeration @ 0x140676B78 (PopSqmThermalZoneEnumeration.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PopSqmThermalZoneEnumeration @ 0x140676C5C (PopSqmThermalZoneEnumeration.c)
  */
 
 void __fastcall PopDiagTraceThermalZoneEnumeration(char *a1, unsigned __int16 *a2, struct _DEVICE_OBJECT *a3)

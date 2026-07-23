@@ -14,7 +14,7 @@
  *     wcsstr @ 0x180092130 (wcsstr.c)
  */
 
-ULONG __fastcall EtwpGenerateFileName(const wchar_t **a1, volatile signed __int32 *a2, UNICODE_STRING *a3)
+ULONG __fastcall EtwpGenerateFileName(const wchar_t **a1, volatile signed __int32 *a2, _UNICODE_STRING *a3)
 {
   wchar_t *v6; // rsi
   NTSTATUS v8; // ecx
@@ -27,7 +27,7 @@ ULONG __fastcall EtwpGenerateFileName(const wchar_t **a1, volatile signed __int3
       && memcmp(a1[1], pszDest, *(unsigned __int16 *)a1) )
     {
       RtlFreeAnsiString(a3);
-      RtlCreateUnicodeString((__int64)a3, pszDest);
+      RtlCreateUnicodeString(a3, pszDest);
       return 0;
     }
     v8 = -1073741776;

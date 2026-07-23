@@ -35,7 +35,7 @@ __int64 __fastcall AuthzBasepMemberOf(__int64 a1, __int64 a2, char a3, char a4, 
     if ( v17 >= 0x44 )
       v13 = 68LL;
     memmove(v19, Src, v13);
-    v14 = SepSidInTokenSidHash(a2 + (a4 != 0 ? 504LL : 232LL), 0LL, v19, a3, a4, 0);
+    v14 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a2 + (a4 != 0 ? 504LL : 232LL)), 0LL, v19, a3, a4, 0);
     if ( a5 )
     {
       v10 &= v14;

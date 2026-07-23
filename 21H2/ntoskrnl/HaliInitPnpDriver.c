@@ -1,9 +1,9 @@
 /*
- * XREFs of HaliInitPnpDriver @ 0x1407A5250
+ * XREFs of HaliInitPnpDriver @ 0x1407A5450
  * Callers:
  *     <none>
  * Callees:
- *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     IoCreateDriver @ 0x1407A5100 (IoCreateDriver.c)
  */
 
 int HaliInitPnpDriver()

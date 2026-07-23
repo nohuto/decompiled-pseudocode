@@ -3,8 +3,8 @@
  * Callers:
  *     RtlCompressBufferLZNT1 @ 0x140A87F20 (RtlCompressBufferLZNT1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall LZNT1CompressChunk(
@@ -70,7 +70,7 @@ __int64 __fastcall LZNT1CompressChunk(
   if ( (unsigned __int64)a2 >= a3 )
     goto LABEL_17;
   v33 = v10 + 2;
-  v21 = &dword_140AADF4C;
+  v21 = &dword_140AADDBC;
   while ( 1 )
   {
     if ( &a2[*v21] < v15 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfGetCurrentState @ 0x1400FAEEC
+ * XREFs of PpmPerfGetCurrentState @ 0x1400F8C78
  * Callers:
- *     PoGetPerfStateAndParkingInfo @ 0x14020A2B8 (PoGetPerfStateAndParkingInfo.c)
- *     PpmTracePerfIdleRundown @ 0x14020A7F8 (PpmTracePerfIdleRundown.c)
- *     PopProcessorInformation @ 0x14051DE1C (PopProcessorInformation.c)
- *     PpmWmiGetAllData @ 0x140673278 (PpmWmiGetAllData.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x14020A0E4 (PoGetPerfStateAndParkingInfo.c)
+ *     PpmTracePerfIdleRundown @ 0x14020A624 (PpmTracePerfIdleRundown.c)
+ *     PopProcessorInformation @ 0x140500E84 (PopProcessorInformation.c)
+ *     PpmWmiGetAllData @ 0x14067335C (PpmWmiGetAllData.c)
  * Callees:
- *     PpmPerfGetCurrentFrequency @ 0x140149980 (PpmPerfGetCurrentFrequency.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140149EF0 (PpmPerfGetCurrentFrequency.c)
  */
 
 void __fastcall PpmPerfGetCurrentState(__int64 a1, _DWORD *a2, unsigned int *a3, _DWORD *a4, _DWORD *a5, int *a6)

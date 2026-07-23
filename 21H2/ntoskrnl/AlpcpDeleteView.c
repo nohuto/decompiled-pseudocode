@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpDeleteView @ 0x140662558
+ * XREFs of AlpcpDeleteView @ 0x140657378
  * Callers:
- *     AlpcpExposeViewAttributeInSenderContext @ 0x140661B50 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcpCaptureViewAttributeInternal @ 0x140661E7C (AlpcpCaptureViewAttributeInternal.c)
- *     NtAlpcDeleteSectionView @ 0x14069D2B0 (NtAlpcDeleteSectionView.c)
- *     NtAlpcCreateSectionView @ 0x1406D2330 (NtAlpcCreateSectionView.c)
+ *     NtAlpcDeleteSectionView @ 0x1405FC380 (NtAlpcDeleteSectionView.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140656970 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x140656C9C (AlpcpCaptureViewAttributeInternal.c)
+ *     NtAlpcCreateSectionView @ 0x1406A9610 (NtAlpcCreateSectionView.c)
  * Callees:
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1406D97FC (AlpcpDeleteBlob.c)
  */
 
 char __fastcall AlpcpDeleteView(ULONG_PTR BugCheckParameter2)
 {
-  if ( !AlpcpDeleteBlob(BugCheckParameter2) )
+  if ( !(unsigned __int8)AlpcpDeleteBlob(BugCheckParameter2) )
     return 0;
-  AlpcpDereferenceBlobEx(BugCheckParameter2, 1);
+  AlpcpDereferenceBlobEx(BugCheckParameter2);
   return 1;
 }

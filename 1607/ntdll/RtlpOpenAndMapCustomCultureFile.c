@@ -3,25 +3,28 @@
  * Callers:
  *     RtlpGetCustomCultureData @ 0x1800EF054 (RtlpGetCustomCultureData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     ZwMapViewOfSection @ 0x1800A6920 (ZwMapViewOfSection.c)
  *     NtOpenFile @ 0x1800A6A80 (NtOpenFile.c)
  *     NtCreateSection @ 0x1800A6D60 (NtCreateSection.c)
- *     RtlStringCchCatW @ 0x1800E5F3C (RtlStringCchCatW.c)
- *     RtlStringCchCopyW @ 0x1800E5FBC (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1800E5FFC (RtlStringCchCatW.c)
+ *     RtlStringCchCopyW @ 0x1800E607C (RtlStringCchCopyW.c)
  *     RtlpGetFileSize @ 0x1800EF1E0 (RtlpGetFileSize.c)
  */
 
-__int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, PVOID *a2, _QWORD *a3)
 {
-  int Section; // ebx
+  NTSTATUS v6; // ebx
+  HANDLE v7; // rcx
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE v9[3]; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v10; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG_PTR ViewSize; // [rsp+68h] [rbp-98h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
   WCHAR SourceString[264]; // [rsp+C0h] [rbp-40h] BYREF
 
   if ( (int)RtlStringCchCopyW(SourceString, 256LL, (__int64)L"\\SystemRoot\\Globalization\\") < 0
@@ -36,26 +39,27 @@ __int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, _QWORD *a2, _QWOR
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 64;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  Section = NtOpenFile(&FileHandle, 0x80100000, &ObjectAttributes, &IoStatusBlock, 1u, 0);
-  if ( Section >= 0 )
+  v6 = NtOpenFile(&FileHandle, 0x80100000, &ObjectAttributes, &IoStatusBlock, 1u, 0);
+  if ( v6 >= 0 )
   {
-    if ( (int)RtlpGetFileSize((__int64)FileHandle, v9) < 0 || HIDWORD(v9[0]) )
+    if ( RtlpGetFileSize(FileHandle, &v10) < 0 || HIDWORD(v10) )
     {
-      Section = -1073741823;
+      v6 = -1073741823;
     }
     else
     {
-      *a3 = LODWORD(v9[0]);
-      Section = NtCreateSection();
-      if ( Section >= 0 )
+      *a3 = (unsigned int)v10;
+      v6 = NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, 2u, 0x8000000u, FileHandle);
+      if ( v6 >= 0 )
       {
+        v7 = SectionHandle;
         *a2 = 0LL;
-        v9[2] = 0LL;
-        Section = ZwMapViewOfSection();
-        NtClose(v9[1]);
+        ViewSize = 0LL;
+        v6 = ZwMapViewOfSection(v7, (HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, 0LL, 0LL, 0LL, &ViewSize, ViewShare, 0, 2u);
+        NtClose(SectionHandle);
       }
     }
     NtClose(FileHandle);
   }
-  return (unsigned int)Section;
+  return (unsigned int)v6;
 }

@@ -9,10 +9,10 @@
  *     SepRegQueryDwordValue @ 0x14061A8B0 (SepRegQueryDwordValue.c)
  */
 
-__int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, unsigned int a2, char a3, char a4, char *a5)
+__int64 __fastcall SeGetImageRequiredSigningLevel(PVOID Object, unsigned int a2, char a3, char a4, char *a5)
 {
   char v5; // bl
-  unsigned int IsUntrustedObject; // esi
+  unsigned int v6; // esi
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // r8
@@ -21,11 +21,11 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, unsigned int a2, c
   char v16; // cl
   char v18; // [rsp+30h] [rbp-10h] BYREF
   char v19; // [rsp+31h] [rbp-Fh] BYREF
-  char v20[2]; // [rsp+32h] [rbp-Eh] BYREF
+  BOOLEAN IsUntrustedObject[2]; // [rsp+32h] [rbp-Eh] BYREF
   int v21[3]; // [rsp+34h] [rbp-Ch] BYREF
 
   v5 = SeILSigningPolicy;
-  IsUntrustedObject = 0;
+  v6 = 0;
   v21[0] = 0;
   if ( !SeILSigningPolicy )
     v5 = SeILSigningPolicyRuntime;
@@ -37,8 +37,8 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, unsigned int a2, c
   {
     LOBYTE(v14) = a4;
     LOBYTE(v13) = a3;
-    return (unsigned int)((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int64, char *))qword_1404364F0)(
-                           a1,
+    return (unsigned int)((__int64 (__fastcall *)(PVOID, _QWORD, __int64, __int64, char *))qword_1404364F0)(
+                           Object,
                            a2,
                            v13,
                            v14,
@@ -52,14 +52,14 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, unsigned int a2, c
     if ( v5 == 2 && !a3 )
     {
       *a5 = 2;
-      return IsUntrustedObject;
+      return v6;
     }
     if ( a3 == 2 )
     {
       if ( !v5 )
       {
         *a5 = 0;
-        return IsUntrustedObject;
+        return v6;
       }
     }
     else if ( !a3 )
@@ -70,7 +70,7 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, unsigned int a2, c
       goto LABEL_16;
 LABEL_18:
     *a5 = a3;
-    return IsUntrustedObject;
+    return v6;
   }
 LABEL_16:
   if ( qword_1404364C0 )
@@ -87,19 +87,19 @@ LABEL_16:
     goto LABEL_37;
   if ( !qword_1404364B8 )
     return (unsigned int)-1073741823;
-  IsUntrustedObject = qword_1404364B8(a1, &v18, &v19);
-  if ( (IsUntrustedObject & 0x80000000) != 0 )
-    return IsUntrustedObject;
+  v6 = qword_1404364B8(Object, &v18, &v19);
+  if ( (v6 & 0x80000000) != 0 )
+    return v6;
   if ( v18 || v19 )
     goto LABEL_37;
-  IsUntrustedObject = RtlIsUntrustedObject(0LL, a1, v20);
-  if ( (IsUntrustedObject & 0x80000000) != 0 )
-    return IsUntrustedObject;
-  if ( v20[0] )
+  v6 = RtlIsUntrustedObject(0LL, Object, IsUntrustedObject);
+  if ( (v6 & 0x80000000) != 0 )
+    return v6;
+  if ( IsUntrustedObject[0] )
   {
 LABEL_37:
     *a5 = 6;
-    return IsUntrustedObject;
+    return v6;
   }
   if ( v21[0] )
   {
@@ -118,5 +118,5 @@ LABEL_37:
       v16 = 6;
     *a5 = v16;
   }
-  return IsUntrustedObject;
+  return v6;
 }

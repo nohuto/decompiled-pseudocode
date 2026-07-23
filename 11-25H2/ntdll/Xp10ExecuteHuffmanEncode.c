@@ -9,7 +9,7 @@
 
 __int64 __fastcall Xp10ExecuteHuffmanEncode(
         __int16 **a1,
-        __int64 a2,
+        unsigned int *a2,
         int a3,
         unsigned __int16 *a4,
         unsigned int a5,
@@ -19,7 +19,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   int v8; // esi
   __int64 v10; // rbx
   __int16 v12; // dx
-  unsigned int v13; // r14d
+  ULONG v13; // r14d
   int v14; // ecx
   unsigned int v15; // eax
   int v16; // r13d
@@ -30,7 +30,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   int v21; // esi
   unsigned int v22; // esi
   unsigned int v23; // r11d
-  __int64 v24; // rax
+  unsigned int *v24; // rax
   _DWORD *v25; // rax
   unsigned __int64 v26; // r12
   unsigned int v27; // r9d
@@ -78,21 +78,19 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   unsigned int v69; // esi
   _BYTE *v70; // r9
   unsigned __int64 v71; // rcx
-  _DWORD v72[2]; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v73; // [rsp+48h] [rbp-18h]
-  unsigned int v74[2]; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v75; // [rsp+58h] [rbp-8h]
-  unsigned int v78; // [rsp+B8h] [rbp+58h] BYREF
+  _RTL_BITMAP Destination; // [rsp+40h] [rbp-20h] BYREF
+  _RTL_BITMAP Source; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v76; // [rsp+B8h] [rbp+58h] BYREF
 
   v8 = *((_DWORD *)a1 + 6);
   v10 = a6;
   v12 = **a1;
-  v72[1] = 0;
+  *(&Destination.SizeOfBitMap + 1) = 0;
   v13 = *(_DWORD *)(a6 + 8);
   v14 = v12 & 0x1F;
-  v74[1] = 0;
+  *(&Source.SizeOfBitMap + 1) = 0;
   v15 = (1 << v14) - ((unsigned __int8)v12 >> 5) - 246;
-  v78 = 0;
+  v76 = 0;
   LODWORD(a6) = 0;
   _BitScanReverse((unsigned int *)&v16, v15);
   v17 = v15 & (v15 - 1);
@@ -103,11 +101,11 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
              0LL,
              (unsigned int *)a1 + 7,
              v10,
-             &v78);
+             &v76);
   if ( (int)result >= 0 )
   {
     v20 = v16 + 1;
-    v21 = v78 + v8;
+    v21 = v76 + v8;
     if ( !v17 )
       v20 = v16;
     result = Xp10BuildAndWriteHuffmanEncodings(
@@ -117,22 +115,22 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
                v19,
                (unsigned int *)a1 + 711,
                v10,
-               &v78);
+               &v76);
     if ( (int)result >= 0 )
     {
-      v22 = v78 + v21;
+      v22 = v76 + v21;
       v23 = *(_DWORD *)(v10 + 12);
       if ( v22 >= 8 * a3 )
       {
         *(_DWORD *)(v10 + 8) = v13;
         if ( 8 * a3 + v13 <= v23 )
         {
-          v75 = a2;
-          v24 = *(_QWORD *)v10;
-          v74[0] = 8 * a3;
-          v73 = v24;
-          v72[0] = v23;
-          RtlCopyBitMap(v74, (__int64)v72, v13);
+          Source.Buffer = a2;
+          v24 = *(unsigned int **)v10;
+          Source.SizeOfBitMap = 8 * a3;
+          Destination.Buffer = v24;
+          Destination.SizeOfBitMap = v23;
+          RtlCopyBitMap(&Source, &Destination, v13);
           v25 = a7;
           *(_DWORD *)(v10 + 8) += 8 * a3;
           *v25 = 0;

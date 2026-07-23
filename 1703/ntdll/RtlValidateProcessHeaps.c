@@ -11,45 +11,44 @@
  *     __chkstk @ 0x1800A9EF0 (__chkstk.c)
  */
 
-char RtlValidateProcessHeaps()
+BOOLEAN RtlValidateProcessHeaps(void)
 {
-  char v0; // si
-  unsigned int ProcessHeaps; // eax
+  BOOLEAN v0; // si
+  ULONG v1; // eax
   __int64 v2; // rcx
-  __int64 v3; // r9
-  __int64 v4; // rdi
-  __int64 v5; // rbx
-  bool v7; // al
-  _BYTE *v8; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-C8h] BYREF
-  _BYTE v10[4096]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v3; // rdi
+  __int64 v4; // rbx
+  BOOLEAN v6; // al
+  PVOID BaseAddress; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp-C8h] BYREF
+  PVOID ProcessHeaps[512]; // [rsp+40h] [rbp-C0h] BYREF
 
-  v8 = v10;
+  BaseAddress = ProcessHeaps;
   v0 = 1;
-  ProcessHeaps = RtlGetProcessHeaps(0x200u, (__int64)v10);
-  v4 = 0LL;
-  v5 = ProcessHeaps;
-  if ( ProcessHeaps > 0x200 )
+  v1 = RtlGetProcessHeaps(0x200u, ProcessHeaps);
+  v3 = 0LL;
+  v4 = v1;
+  if ( v1 > 0x200 )
   {
-    v9 = 8LL * ProcessHeaps;
-    v8 = 0LL;
-    if ( (int)ZwAllocateVirtualMemory() < 0 )
+    RegionSize = 8LL * v1;
+    BaseAddress = 0LL;
+    if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
       return 0;
-    v5 = (unsigned int)RtlGetProcessHeaps(v5, (__int64)v8);
+    v4 = RtlGetProcessHeaps(v4, (PVOID *)BaseAddress);
   }
-  if ( (_DWORD)v5 )
+  if ( (_DWORD)v4 )
   {
     do
     {
-      v7 = RtlValidateHeap(*(_QWORD *)&v8[v4], 0, 0LL, v3);
-      v4 += 8LL;
-      LOBYTE(v2) = -v7;
+      v6 = RtlValidateHeap(*(PVOID *)((char *)BaseAddress + v3), 0, 0LL);
+      v3 += 8LL;
+      LOBYTE(v2) = -(v6 != 0);
       v0 &= v2;
-      --v5;
+      --v4;
     }
-    while ( v5 );
+    while ( v4 );
   }
-  if ( v8 != v10 )
-    sub_18001E5E0(v2, &v8, &v9, 0x8000LL);
+  if ( BaseAddress != ProcessHeaps )
+    sub_18001E5E0(v2, &BaseAddress, &RegionSize, 0x8000u);
   return v0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFindLowerBoundInSortedArray @ 0x1406D83C0
+ * XREFs of RtlFindLowerBoundInSortedArray @ 0x1406D83F0
  * Callers:
- *     CmpFindSecurityCellCacheIndex @ 0x14022CFB0 (CmpFindSecurityCellCacheIndex.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1407D0F34 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14022D0C0 (CmpFindSecurityCellCacheIndex.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1407D1204 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 unsigned __int64 __fastcall RtlFindLowerBoundInSortedArray(

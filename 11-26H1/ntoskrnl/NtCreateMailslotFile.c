@@ -1,24 +1,24 @@
 /*
- * XREFs of NtCreateMailslotFile @ 0x140B3BE60
+ * XREFs of NtCreateMailslotFile @ 0x140B3E0E0
  * Callers:
- *     DifNtCreateMailslotFileWrapper @ 0x140671D50 (DifNtCreateMailslotFileWrapper.c)
+ *     DifNtCreateMailslotFileWrapper @ 0x140675930 (DifNtCreateMailslotFileWrapper.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     IopCreateFile @ 0x1409B3A58 (IopCreateFile.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     IopCreateFile @ 0x140984B18 (IopCreateFile.c)
  */
 
-__int64 __fastcall NtCreateMailslotFile(
-        HANDLE *a1,
-        int a2,
-        __int64 a3,
-        unsigned int *a4,
-        int a5,
-        unsigned int a6,
-        unsigned int a7,
-        void *Src)
+NTSTATUS __cdecl NtCreateMailslotFile(
+        PHANDLE FileHandle,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CreateOptions,
+        ULONG MailslotQuota,
+        ULONG MaximumMessageSize,
+        PLARGE_INTEGER ReadTimeout)
 {
   char PreviousMode; // cl
   SIZE_T Length; // [rsp+50h] [rbp-88h]
@@ -28,21 +28,38 @@ __int64 __fastcall NtCreateMailslotFile(
   v15 = 0LL;
   v16 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( Src )
+  if ( ReadTimeout )
   {
     LOBYTE(v16) = 1;
     if ( PreviousMode )
     {
-      if ( ((unsigned __int8)Src & 3) != 0 )
+      if ( ((unsigned __int8)ReadTimeout & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      *((_QWORD *)&v15 + 1) = RtlReadULong64FromUser(Src);
+      *((_QWORD *)&v15 + 1) = RtlReadULong64FromUser(ReadTimeout);
     }
     else
     {
-      RtlCopyVolatileMemory((char *)&v15 + 8, Src, 8uLL);
+      RtlCopyVolatileMemory((char *)&v15 + 8, ReadTimeout, 8uLL);
     }
   }
-  *(_QWORD *)&v15 = __PAIR64__(a7, a6);
+  LODWORD(v15) = MailslotQuota;
+  DWORD1(v15) = MaximumMessageSize;
   LODWORD(Length) = 0;
-  return IopCreateFile(a1, a2, a3, a4, 0LL, 0, 3, 2u, a5, 0LL, Length, 2, &v15, 0, 0, 0LL);
+  return IopCreateFile(
+           FileHandle,
+           DesiredAccess,
+           (__int64)ObjectAttributes,
+           (unsigned int *)IoStatusBlock,
+           0LL,
+           0,
+           3,
+           2u,
+           CreateOptions,
+           0LL,
+           Length,
+           2,
+           &v15,
+           0,
+           0,
+           0LL);
 }

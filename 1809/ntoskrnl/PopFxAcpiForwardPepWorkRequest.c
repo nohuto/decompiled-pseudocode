@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxAcpiForwardPepWorkRequest @ 0x1402E8480
+ * XREFs of PopFxAcpiForwardPepWorkRequest @ 0x1402E8670
  * Callers:
- *     PopFxProcessWork @ 0x1400FE390 (PopFxProcessWork.c)
+ *     PopFxProcessWork @ 0x1400FE410 (PopFxProcessWork.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     IoAcquireRemoveLockEx @ 0x1400FE310 (IoAcquireRemoveLockEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     IoAcquireRemoveLockEx @ 0x1400FE390 (IoAcquireRemoveLockEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopFxBugCheck @ 0x1402D76B0 (PopFxBugCheck.c)
  */
 
 LONG __fastcall PopFxAcpiForwardPepWorkRequest(struct _IO_REMOVE_LOCK *BugCheckParameter2, int *a2)
@@ -22,7 +22,7 @@ LONG __fastcall PopFxAcpiForwardPepWorkRequest(struct _IO_REMOVE_LOCK *BugCheckP
   {
     memset(v5, 0, 0x20uLL);
     LODWORD(v5[0]) = 0;
-    v5[1] = qword_14040E588;
+    v5[1] = qword_14040F5E8;
     v5[3] = a2;
     ((void (__fastcall *)(_QWORD *))PopFxPlatformInterface)(v5);
     result = _InterlockedExchangeAdd(&BugCheckParameter2[8].Common.IoCount, 0xFFFFFFFF);

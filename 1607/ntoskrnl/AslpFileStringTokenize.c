@@ -1,7 +1,7 @@
 /*
- * XREFs of AslpFileStringTokenize @ 0x140233AFC
+ * XREFs of AslpFileStringTokenize @ 0x140233928
  * Callers:
- *     AslpFileVerQueryBlock @ 0x1406C90B4 (AslpFileVerQueryBlock.c)
+ *     AslpFileVerQueryBlock @ 0x1406C91EC (AslpFileVerQueryBlock.c)
  * Callees:
  *     <none>
  */

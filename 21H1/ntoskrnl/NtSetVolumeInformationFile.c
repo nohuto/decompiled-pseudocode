@@ -145,7 +145,7 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
     v20 = KeGetCurrentThread();
     --v20->KernelApcDisable;
     v21 = *(_QWORD *)&Size[1];
-    v22 = KeAbPreAcquire(*(_QWORD *)&Size[1] + 128LL, 0LL, 0LL);
+    v22 = KeAbPreAcquire(*(_QWORD *)&Size[1] + 128LL, 0LL, 0);
     v37 = 0;
     if ( _InterlockedExchange((volatile __int32 *)(v21 + 116), 1) )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetDurationSince @ 0x1405A8A74
+ * XREFs of EtwpGetDurationSince @ 0x1405A8CA4
  * Callers:
- *     MiAllocateContiguousMemory @ 0x140294F3C (MiAllocateContiguousMemory.c)
- *     MiAllocatePagesForMdl @ 0x1402E33F4 (MiAllocatePagesForMdl.c)
+ *     MiAllocateContiguousMemory @ 0x140216BFC (MiAllocateContiguousMemory.c)
+ *     MiAllocatePagesForMdl @ 0x140294744 (MiAllocatePagesForMdl.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
  */
 
 ULONGLONG __fastcall EtwpGetDurationSince(__int64 a1)

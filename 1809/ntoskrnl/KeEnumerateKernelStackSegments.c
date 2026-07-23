@@ -1,15 +1,15 @@
 /*
- * XREFs of KeEnumerateKernelStackSegments @ 0x14013D2E8
+ * XREFs of KeEnumerateKernelStackSegments @ 0x14013D3E8
  * Callers:
- *     KiOutSwapKernelStacks @ 0x14013CFB8 (KiOutSwapKernelStacks.c)
- *     PspReaper @ 0x14013D240 (PspReaper.c)
- *     DbgkpLkmdSnapKernelStack @ 0x14026DB94 (DbgkpLkmdSnapKernelStack.c)
- *     PspThreadDelete @ 0x1405FB0B0 (PspThreadDelete.c)
- *     PsDereferenceKernelStack @ 0x1406CF510 (PsDereferenceKernelStack.c)
+ *     KiOutSwapKernelStacks @ 0x14013D0B8 (KiOutSwapKernelStacks.c)
+ *     PspReaper @ 0x14013D340 (PspReaper.c)
+ *     DbgkpLkmdSnapKernelStack @ 0x14026DD84 (DbgkpLkmdSnapKernelStack.c)
+ *     PspThreadDelete @ 0x1405FC0B0 (PspThreadDelete.c)
+ *     PsDereferenceKernelStack @ 0x1406D07B0 (PsDereferenceKernelStack.c)
  * Callees:
- *     KeGetNextKernelStackSegment @ 0x14013D378 (KeGetNextKernelStackSegment.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeGetNextKernelStackSegment @ 0x14013D478 (KeGetNextKernelStackSegment.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeEnumerateKernelStackSegments(

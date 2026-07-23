@@ -1,32 +1,32 @@
 /*
- * XREFs of _PnpGetObjectPropertyWorker @ 0x1408CD660
+ * XREFs of _PnpGetObjectPropertyWorker @ 0x1408CB050
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
- *     PiPnpRtlInterfaceFilterCallback @ 0x1408D0AE0 (PiPnpRtlInterfaceFilterCallback.c)
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1408D1730 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408D1BF0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D43AC (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqPnPGetObjectProperty @ 0x1408D4AF0 (PiDqPnPGetObjectProperty.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
+ *     PiPnpRtlInterfaceFilterCallback @ 0x1408CE4D0 (PiPnpRtlInterfaceFilterCallback.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1408CF120 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408CF5E0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D1D9C (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqPnPGetObjectProperty @ 0x1408D24E0 (PiDqPnPGetObjectProperty.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpValidatePropertyData @ 0x1408B8DD0 (_PnpValidatePropertyData.c)
- *     _PnpRegQueryValueIndirect @ 0x1408C6550 (_PnpRegQueryValueIndirect.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     DrvDbDispatchDriverPackage @ 0x1409240F0 (DrvDbDispatchDriverPackage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpValidatePropertyData @ 0x1408B6740 (_PnpValidatePropertyData.c)
+ *     _PnpRegQueryValueIndirect @ 0x1408C3F80 (_PnpRegQueryValueIndirect.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     DrvDbDispatchDriverPackage @ 0x140926230 (DrvDbDispatchDriverPackage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyWorker(
         _QWORD *a1,
         WCHAR *a2,
-        unsigned int a3,
+        int a3,
         HANDLE a4,
         const WCHAR *a5,
         __int64 a6,
@@ -107,14 +107,14 @@ __int64 __fastcall PnpGetObjectPropertyWorker(
   *a10 = 0;
   v55 = 0;
   v58 = 0;
-  if ( a3 - 1 > 0xA )
+  if ( (unsigned int)(a3 - 1) > 0xA )
   {
 LABEL_47:
     v19 = -1073741811;
   }
   else
   {
-    v17 = (__int64 (__fastcall *)(int, int, int, int, __int64))a1[(int)a3 + 37];
+    v17 = (__int64 (__fastcall *)(int, int, int, int, __int64))a1[a3 + 37];
     if ( v17 )
     {
       v57 = a11;
@@ -131,7 +131,7 @@ LABEL_47:
       }
       else if ( (char *)v17 == (char *)PnpDispatchDeviceInterface )
       {
-        v18 = PnpDispatchDeviceInterface(a1, a2, a3, 8, pszDest);
+        v18 = PnpDispatchDeviceInterface(a1, a2, (unsigned int)a3, 8, pszDest);
       }
       else if ( v17 == DrvDbDispatchDriverPackage )
       {
@@ -139,7 +139,7 @@ LABEL_47:
       }
       else
       {
-        v18 = guard_dispatch_icall_no_overrides(a1, a2, a3, 8LL);
+        v18 = guard_dispatch_icall_no_overrides(a1, a2);
       }
       v19 = v18;
       if ( v18 != -1073741802 )
@@ -205,7 +205,7 @@ LABEL_16:
         if ( (unsigned __int64)(512 - v22) >= 0x30 )
         {
           v25 = 512 - v22 + 12;
-          Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+          Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v25, 0x52504E50u);
           if ( !Pool2 )
           {
             v19 = -1073741801;
@@ -245,7 +245,7 @@ LABEL_16:
         if ( !v33 || v33 == PnpRegQueryValueIndirect )
           v35 = PnpRegQueryValueIndirect(v27, v44, v46, &v42, v12, &v40, (bool *)&v38);
         else
-          v35 = guard_dispatch_icall_no_overrides(v27, v44, v46, &v42);
+          v35 = guard_dispatch_icall_no_overrides(v27, v44);
         v36 = v35;
         if ( v35 == -1073741772 || v35 == -1073741444 )
         {

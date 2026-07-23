@@ -1,14 +1,14 @@
 /*
- * XREFs of KiCheckAndRearmForceIdle @ 0x14036E674
+ * XREFs of KiCheckAndRearmForceIdle @ 0x14036E814
  * Callers:
- *     KiTimer2Expiration @ 0x1402515E0 (KiTimer2Expiration.c)
- *     KiCallInterruptServiceRoutine @ 0x140324950 (KiCallInterruptServiceRoutine.c)
+ *     KiTimer2Expiration @ 0x1402516A0 (KiTimer2Expiration.c)
+ *     KiCallInterruptServiceRoutine @ 0x140324BE0 (KiCallInterruptServiceRoutine.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     KeRemoveQueueDpcEx @ 0x14031F0D0 (KeRemoveQueueDpcEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14057D294 (KiSetForceIdleState.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     KeRemoveQueueDpcEx @ 0x14031F360 (KeRemoveQueueDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14057D784 (KiSetForceIdleState.c)
  */
 
 void KiCheckAndRearmForceIdle()
@@ -18,9 +18,9 @@ void KiCheckAndRearmForceIdle()
   signed __int32 v2; // eax
   signed __int32 v3; // ett
   int v4; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v5; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
-  v5.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( KiForceIdleDisabled )
     return;
   _disable();
@@ -36,7 +36,8 @@ void KiCheckAndRearmForceIdle()
     KeRemoveQueueDpcEx((__int64)&KiForceIdleStartDpc, 0);
     KiSetForceIdleState(2LL);
 LABEL_9:
-    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v5);
+    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                         + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
     goto LABEL_10;
   }
   if ( KiForceIdleState == 2 )

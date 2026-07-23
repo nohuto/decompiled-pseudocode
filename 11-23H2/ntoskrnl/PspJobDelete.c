@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwDeleteWnfStateName @ 0x14041C940 (ZwDeleteWnfStateName.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwDeleteWnfStateName @ 0x14041CCD0 (ZwDeleteWnfStateName.c)
  *     PspRemoveCpuRateControl @ 0x140684E4C (PspRemoveCpuRateControl.c)
  *     PspJobIoRateControlDisable @ 0x140687E3C (PspJobIoRateControlDisable.c)
  *     PspJobDeleteStorageArrays @ 0x140687EA0 (PspJobDeleteStorageArrays.c)
@@ -23,16 +23,16 @@
  *     PspLockJobConditionally @ 0x1406A30D0 (PspLockJobConditionally.c)
  *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
  *     PspLockJobExclusive @ 0x1406A3DF8 (PspLockJobExclusive.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     ExDestroyHandle @ 0x14073FA9C (ExDestroyHandle.c)
- *     ExMapHandleToPointer @ 0x14073FC10 (ExMapHandleToPointer.c)
- *     IoFreeMiniCompletionPacket @ 0x14076C840 (IoFreeMiniCompletionPacket.c)
- *     PspEmptyPropertySet @ 0x14076E2B4 (PspEmptyPropertySet.c)
- *     PspRemoveIoAttribution @ 0x1407D85E0 (PspRemoveIoAttribution.c)
- *     PspDeleteSilo @ 0x1409AD05C (PspDeleteSilo.c)
- *     PspNetRateControlDispatch @ 0x1409B25E4 (PspNetRateControlDispatch.c)
- *     PspRemoveRateControl @ 0x1409B285C (PspRemoveRateControl.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     ExDestroyHandle @ 0x14073FC8C (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x14073FE00 (ExMapHandleToPointer.c)
+ *     IoFreeMiniCompletionPacket @ 0x14076CA30 (IoFreeMiniCompletionPacket.c)
+ *     PspEmptyPropertySet @ 0x14076E4A4 (PspEmptyPropertySet.c)
+ *     PspRemoveIoAttribution @ 0x1407D88B0 (PspRemoveIoAttribution.c)
+ *     PspDeleteSilo @ 0x1409AD25C (PspDeleteSilo.c)
+ *     PspNetRateControlDispatch @ 0x1409B27E4 (PspNetRateControlDispatch.c)
+ *     PspRemoveRateControl @ 0x1409B2A5C (PspRemoveRateControl.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -149,7 +149,7 @@ LONG_PTR __fastcall PspJobDelete(char *Object)
   if ( *((_QWORD *)Object + 152) )
     IoFreeMiniCompletionPacket();
   if ( (*((_DWORD *)Object + 384) & 0x800) != 0 )
-    ZwDeleteWnfStateName(Object + 1096);
+    ZwDeleteWnfStateName((PCWNF_STATE_NAME)Object + 137);
   PspGetJobLockHierarchyForDeletion(Object, v25);
   PspLockJobsAndProcessExclusive(v25, 0LL, CurrentThread, 0LL);
   v9 = Object + 1256;

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInsertQueueApc @ 0x1403377A0
+ * XREFs of KiInsertQueueApc @ 0x1402DF8C0
  * Callers:
- *     KiSchedulerApc @ 0x140295D20 (KiSchedulerApc.c)
- *     KiInsertDeferredPreemptionApc @ 0x14030C908 (KiInsertDeferredPreemptionApc.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KiSuspendThread @ 0x140338B00 (KiSuspendThread.c)
- *     KiQueueTebUpdateApc @ 0x1403B1DEC (KiQueueTebUpdateApc.c)
- *     KeRequestTerminationThread @ 0x140479818 (KeRequestTerminationThread.c)
- *     KeTryToInsertQueueApc @ 0x1404CD418 (KeTryToInsertQueueApc.c)
- *     KiRequestSchedulerApcThread @ 0x1405C3044 (KiRequestSchedulerApcThread.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1402DB968 (KiInsertDeferredPreemptionApc.c)
+ *     KiSuspendThread @ 0x1402DE060 (KiSuspendThread.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KiSchedulerApc @ 0x1402E00D0 (KiSchedulerApc.c)
+ *     KiQueueTebUpdateApc @ 0x1403A05FC (KiQueueTebUpdateApc.c)
+ *     KeRequestTerminationThread @ 0x1404750A8 (KeRequestTerminationThread.c)
+ *     KeTryToInsertQueueApc @ 0x1404C67E8 (KeTryToInsertQueueApc.c)
+ *     KiRequestSchedulerApcThread @ 0x1405C0614 (KiRequestSchedulerApcThread.c)
  * Callees:
  *     <none>
  */

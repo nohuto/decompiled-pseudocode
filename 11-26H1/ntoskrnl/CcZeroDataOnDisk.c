@@ -1,10 +1,10 @@
 /*
- * XREFs of CcZeroDataOnDisk @ 0x14046D690
+ * XREFs of CcZeroDataOnDisk @ 0x140466E10
  * Callers:
- *     CcZeroData @ 0x14046D2D0 (CcZeroData.c)
+ *     CcZeroData @ 0x140466A50 (CcZeroData.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     MiZeroPageWrite @ 0x14046D748 (MiZeroPageWrite.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     MiZeroPageWrite @ 0x140466EC8 (MiZeroPageWrite.c)
  */
 
 __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)
@@ -12,7 +12,7 @@ __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)
   char v3; // bp
   __int64 v5; // rbx
   unsigned int v6; // edi
-  int v7; // ecx
+  NTSTATUS v7; // ecx
   __int64 result; // rax
   unsigned int i; // esi
   __int64 v10; // [rsp+48h] [rbp+10h] BYREF
@@ -22,9 +22,9 @@ __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)
   v10 = *a2;
   if ( v5 >= (unsigned int)CcMaxZeroTransferSize )
   {
-    if ( _InterlockedIncrement((volatile signed __int32 *)&EmpParseLock.SystemAffinityTokenListHead) > SLODWORD(EmpParseLock.KernelShadowStack) )
+    if ( _InterlockedIncrement((volatile signed __int32 *)&EmpParseLock.ResourceIndex) > SLODWORD(EmpParseLock.Spare35[1]) )
     {
-      _InterlockedDecrement((volatile signed __int32 *)&EmpParseLock.SystemAffinityTokenListHead);
+      _InterlockedDecrement((volatile signed __int32 *)&EmpParseLock.ResourceIndex);
       v6 = 0x10000;
     }
     else
@@ -60,6 +60,6 @@ __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)
 LABEL_14:
     RtlRaiseStatus(v7);
   if ( v3 )
-    _InterlockedDecrement((volatile signed __int32 *)&EmpParseLock.SystemAffinityTokenListHead);
+    _InterlockedDecrement((volatile signed __int32 *)&EmpParseLock.ResourceIndex);
   return result;
 }

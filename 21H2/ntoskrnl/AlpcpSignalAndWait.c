@@ -1,32 +1,33 @@
 /*
- * XREFs of AlpcpSignalAndWait @ 0x140205180
+ * XREFs of AlpcpSignalAndWait @ 0x1402A9AC0
  * Callers:
- *     AlpcpReceiveSynchronousReply @ 0x1405E7560 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpCompleteDeferSignalRequestAndWait @ 0x14069989C (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpCompleteDeferSignalRequestAndWait @ 0x1405F8A60 (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1406D6CC0 (AlpcpReceiveSynchronousReply.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     IoSetIoCompletionEx2 @ 0x140246230 (IoSetIoCompletionEx2.c)
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoSetIoCompletionEx2 @ 0x1402EAA80 (IoSetIoCompletionEx2.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     AlpcpLogUnwait @ 0x1408C3E70 (AlpcpLogUnwait.c)
+ *     AlpcpLogUnwait @ 0x1408C3FD0 (AlpcpLogUnwait.c)
  */
 
 __int64 __fastcall AlpcpSignalAndWait(
         __int64 a1,
         void *a2,
         KWAIT_REASON a3,
-        KPROCESSOR_MODE a4,
+        __int64 a4,
         PLARGE_INTEGER Timeout,
         char a6)
 {
   __int64 v7; // rsi
+  KPROCESSOR_MODE v8; // r13
   BOOLEAN v9; // bp
   __int64 v10; // rdi
   char v11; // r15
@@ -44,12 +45,13 @@ __int64 __fastcall AlpcpSignalAndWait(
   int v24; // eax
   bool v25; // zf
   __int64 v26; // rcx
-  int v27; // eax
+  char v27; // al
   unsigned __int64 v28; // rcx
   __int64 v29; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-58h] BYREF
 
   v7 = *(_QWORD *)(a1 + 32);
+  v8 = a4;
   v9 = (*(_DWORD *)(a1 + 48) & 0x200000) != 0;
   if ( v7 )
   {
@@ -137,7 +139,7 @@ __int64 __fastcall AlpcpSignalAndWait(
     }
   }
   KeLeaveCriticalRegion();
-  v16 = KeWaitForSingleObject(a2, a3, a4, v9, Timeout);
+  v16 = KeWaitForSingleObject(a2, a3, v8, v9, Timeout);
   CurrentThread = KeGetCurrentThread();
   v18 = v16;
   --CurrentThread->KernelApcDisable;

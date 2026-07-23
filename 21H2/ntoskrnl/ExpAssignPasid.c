@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAssignPasid @ 0x140956C54
+ * XREFs of ExpAssignPasid @ 0x140956E24
  * Callers:
- *     ExShareAddressSpaceWithDevice @ 0x1405B7280 (ExShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x1405B74B0 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     ExpFreeAsid @ 0x1405B8A30 (ExpFreeAsid.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     ExpFreeAsid @ 0x1405B8C60 (ExpFreeAsid.c)
  */
 
 __int64 __fastcall ExpAssignPasid(PADAPTER_OBJECT DmaAdapter, signed __int32 a2)

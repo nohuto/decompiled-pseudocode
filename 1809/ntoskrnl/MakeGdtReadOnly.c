@@ -1,12 +1,12 @@
 /*
- * XREFs of MakeGdtReadOnly @ 0x14017E0F8
+ * XREFs of MakeGdtReadOnly @ 0x14017E238
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeWriteProtectProcessorState @ 0x1405723B8 (KeWriteProtectProcessorState.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeWriteProtectProcessorState @ 0x1405733B8 (KeWriteProtectProcessorState.c)
  */
 
 void MakeGdtReadOnly()

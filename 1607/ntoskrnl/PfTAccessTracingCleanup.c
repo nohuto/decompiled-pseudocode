@@ -2,17 +2,17 @@
  * XREFs of PfTAccessTracingCleanup @ 0x1403C82C0
  * Callers:
  *     PfpPowerActionStartScenarioTracing @ 0x1403D049C (PfpPowerActionStartScenarioTracing.c)
- *     PfTTraceListAdd @ 0x1403E6D38 (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x140669770 (PfTCleanup.c)
+ *     PfTTraceListAdd @ 0x1403E8368 (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x140669854 (PfTCleanup.c)
  * Callees:
- *     MmSetAccessLogging @ 0x140001D44 (MmSetAccessLogging.c)
- *     MmFreeAccessPfnBuffer @ 0x140006704 (MmFreeAccessPfnBuffer.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     FsRtlAcquirePushLockExclusive @ 0x14007B188 (FsRtlAcquirePushLockExclusive.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MmGetDefaultPagePriority @ 0x1400D3D18 (MmGetDefaultPagePriority.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
+ *     MmSetAccessLogging @ 0x140001EB8 (MmSetAccessLogging.c)
+ *     MmFreeAccessPfnBuffer @ 0x140006874 (MmFreeAccessPfnBuffer.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x14007B208 (FsRtlAcquirePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MmGetDefaultPagePriority @ 0x1400D1BB8 (MmGetDefaultPagePriority.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
  *     PfTAccessTracingInitialize @ 0x1403C838C (PfTAccessTracingInitialize.c)
  *     MmEnablePeriodicAccessClearing @ 0x1403C8460 (MmEnablePeriodicAccessClearing.c)
  */
@@ -31,8 +31,8 @@ void __fastcall PfTAccessTracingCleanup(__int64 a1, __int64 a2, int a3)
   *(_DWORD *)(a1 + 12) |= a3;
   DefaultPagePriority = MmGetDefaultPagePriority();
   MmSetAccessLogging(0, DefaultPagePriority);
-  dword_14033B7E8 = 0;
-  ExWaitForRundownProtectionRelease(&stru_14033B7C8);
+  dword_14033B828 = 0;
+  ExWaitForRundownProtectionRelease(&stru_14033B808);
   v8 = RtlpInterlockedFlushSList(&ListHead);
   while ( v8 )
   {

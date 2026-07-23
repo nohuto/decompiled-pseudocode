@@ -1,44 +1,42 @@
 /*
- * XREFs of HvHiveStartEmptyClone @ 0x1407DF280
+ * XREFs of HvHiveStartEmptyClone @ 0x1407DF7D0
  * Callers:
- *     CmpCreateEmptyHiveClone @ 0x1407DE510 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407DEA60 (CmpCreateEmptyHiveClone.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     HvpViewMapStart @ 0x140982AE8 (HvpViewMapStart.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     HvpViewMapStart @ 0x14096B2F8 (HvpViewMapStart.c)
  */
 
 __int64 __fastcall HvHiveStartEmptyClone(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi
-  __int64 v4; // r9
-  __int64 v5; // rcx
-  void *v6; // rax
+  __int64 v4; // rcx
+  void *v5; // rax
   __int64 result; // rax
-  char v8; // cl
+  char v7; // cl
 
   *(_QWORD *)(a1 + 8) = *(_QWORD *)(a2 + 8);
   v3 = a2;
   *(_QWORD *)(a1 + 16) = *(_QWORD *)(a2 + 16);
-  v4 = *(_QWORD *)(a2 + 24);
-  *(_QWORD *)(a1 + 24) = v4;
+  *(_QWORD *)(a1 + 24) = *(_QWORD *)(a2 + 24);
   *(_QWORD *)(a1 + 32) = *(_QWORD *)(a2 + 32);
   *(_QWORD *)(a1 + 40) = *(_QWORD *)(a2 + 40);
   *(_QWORD *)(a1 + 48) = *(_QWORD *)(a2 + 48);
-  v5 = *(unsigned int *)(a2 + 132);
+  v4 = *(unsigned int *)(a2 + 132);
   LOBYTE(a2) = 1;
-  *(_DWORD *)(a1 + 132) = v5;
-  v6 = (void *)guard_dispatch_icall_no_overrides(v5, a2, 842222915LL, v4);
-  *(_QWORD *)(a1 + 64) = v6;
-  if ( !v6 )
+  *(_DWORD *)(a1 + 132) = v4;
+  v5 = (void *)guard_dispatch_icall_no_overrides(v4, a2);
+  *(_QWORD *)(a1 + 64) = v5;
+  if ( !v5 )
     return 3221225626LL;
-  memmove(v6, *(const void **)(v3 + 64), *(unsigned int *)(a1 + 132));
+  memmove(v5, *(const void **)(v3 + 64), *(unsigned int *)(a1 + 132));
   *(_DWORD *)(*(_QWORD *)(a1 + 64) + 40LL) = 0;
   *(_DWORD *)(*(_QWORD *)(a1 + 64) + 36LL) = -1;
   *(_DWORD *)(a1 + 136) = *(_DWORD *)(v3 + 136);
-  v8 = *(_BYTE *)(a1 + 140) ^ (*(_BYTE *)(v3 + 140) ^ *(_BYTE *)(a1 + 140)) & 1;
-  *(_BYTE *)(a1 + 140) = v8;
-  *(_BYTE *)(a1 + 140) = v8 ^ (*(_BYTE *)(v3 + 140) ^ v8) & 2;
+  v7 = *(_BYTE *)(a1 + 140) ^ (*(_BYTE *)(v3 + 140) ^ *(_BYTE *)(a1 + 140)) & 1;
+  *(_BYTE *)(a1 + 140) = v7;
+  *(_BYTE *)(a1 + 140) = v7 ^ (*(_BYTE *)(v3 + 140) ^ v7) & 2;
   *(_DWORD *)(a1 + 160) = *(_DWORD *)(v3 + 160) & 0xFFFFFFEF;
   *(_DWORD *)(a1 + 168) = *(_DWORD *)(v3 + 168);
   *(_DWORD *)(a1 + 172) = *(_DWORD *)(v3 + 172);

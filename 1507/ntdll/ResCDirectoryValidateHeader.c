@@ -12,7 +12,7 @@
 __int64 __fastcall ResCDirectoryValidateHeader(_DWORD *a1, unsigned int a2)
 {
   unsigned int v3; // eax
-  unsigned int v4; // ecx
+  LONG v4; // ecx
   unsigned int v5; // eax
   int v6; // eax
 

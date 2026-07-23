@@ -1,13 +1,13 @@
 /*
- * XREFs of PsPicoWalkUserStack @ 0x1409B51AC
+ * XREFs of PsPicoWalkUserStack @ 0x1409B53AC
  * Callers:
- *     EtwpTraceStackWalk @ 0x140468FCC (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x1404693CC (EtwpTraceStackWalk.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsGetBaseTrapFrame @ 0x1404638A0 (PsGetBaseTrapFrame.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsGetBaseTrapFrame @ 0x140463CA0 (PsGetBaseTrapFrame.c)
  */
 
 __int64 __fastcall PsPicoWalkUserStack(__int64 a1, unsigned int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall PsPicoWalkUserStack(__int64 a1, unsigned int a2)
   memset(v12, 0, sizeof(v12));
   BaseTrapFrame = (_OWORD *)PsGetBaseTrapFrame((__int64)KeGetCurrentThread(), 0LL);
   result = 0LL;
-  if ( (_QWORD)xmmword_140C38170 )
+  if ( (_QWORD)xmmword_140C38110 )
   {
     CurrentThread = KeGetCurrentThread();
     v7 = 3LL;
@@ -53,7 +53,7 @@ __int64 __fastcall PsPicoWalkUserStack(__int64 a1, unsigned int a2)
     {
       KiCheckForKernelApcDelivery();
     }
-    return ((__int64 (__fastcall *)(_BYTE *, __int64, _QWORD))xmmword_140C38170)(v12, a1, a2);
+    return ((__int64 (__fastcall *)(_BYTE *, __int64, _QWORD))xmmword_140C38110)(v12, a1, a2);
   }
   return result;
 }

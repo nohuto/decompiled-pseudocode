@@ -9,14 +9,14 @@
 
 PSLIST_ENTRY __fastcall PfFbBufferListCleanup(__int64 a1)
 {
-  union _SLIST_HEADER *i; // rcx
+  _SLIST_HEADER *i; // rcx
   PSLIST_ENTRY v3; // rax
   PSLIST_ENTRY v4; // rax
   PSLIST_ENTRY result; // rax
   ULONG v6; // edx
   ULONG v7; // edx
 
-  for ( i = (union _SLIST_HEADER *)(a1 + 32); ; i = (union _SLIST_HEADER *)(a1 + 32) )
+  for ( i = (_SLIST_HEADER *)(a1 + 32); ; i = (_SLIST_HEADER *)(a1 + 32) )
   {
     v3 = RtlpInterlockedPopEntrySList(i);
     if ( !v3 )

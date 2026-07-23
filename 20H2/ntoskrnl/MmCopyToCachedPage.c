@@ -67,7 +67,7 @@ __int64 __fastcall MmCopyToCachedPage(
   unsigned __int64 v31; // rax
   int v32; // r14d
   int v33; // r15d
-  struct _SLIST_ENTRY *v34; // rdi
+  _SLIST_ENTRY *v34; // rdi
   unsigned __int64 v35; // r14
   int v36; // ebx
   __int64 v37; // rcx

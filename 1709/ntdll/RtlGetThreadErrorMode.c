@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlGetThreadErrorMode()
+ULONG RtlGetThreadErrorMode(void)
 {
   struct _TEB *v0; // rcx
   int WowTebOffset; // eax
@@ -31,7 +31,7 @@ __int64 RtlGetThreadErrorMode()
   {
     if ( (int)v6 < 0 )
       v5 = (struct _TEB *)((char *)v5 + v6);
-    return LODWORD(v5->glDispatchTable[167]);
+    return (ULONG)v5->glDispatchTable[167];
   }
   else
   {

@@ -24,7 +24,7 @@
  *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
  */
 
-unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
+LARGE_INTEGER __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KPRCB *CurrentPrcb; // rbx
   int v4; // edi
@@ -35,13 +35,13 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
   unsigned int LastTick; // r12d
   struct _KPRCB *v10; // rcx
   signed __int32 *SchedulerAssist; // r8
-  unsigned __int64 v12; // rdx
-  __int64 InterruptTimePrecise; // rcx
+  LARGE_INTEGER v12; // rdx
+  LARGE_INTEGER InterruptTimePrecise; // rcx
   bool v14; // zf
   _KTHREAD *CurrentThread; // rsi
-  unsigned __int64 result; // rax
-  int v17; // edi
-  unsigned __int64 v18; // r8
+  LARGE_INTEGER result; // rax
+  ULONG LowPart; // edi
+  LARGE_INTEGER *v18; // r8
   char v19; // r12
   unsigned __int8 v20; // r15
   signed __int32 v21; // eax
@@ -65,17 +65,17 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
   int v39; // [rsp+44h] [rbp-BCh] BYREF
   int v40; // [rsp+48h] [rbp-B8h] BYREF
   int v41; // [rsp+4Ch] [rbp-B4h] BYREF
-  __int64 v42; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v43; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v44; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER v42; // [rsp+50h] [rbp-B0h] BYREF
+  LARGE_INTEGER v43; // [rsp+58h] [rbp-A8h] BYREF
+  LARGE_INTEGER v44; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v45; // [rsp+68h] [rbp-98h] BYREF
   __int64 v46; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v47; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v48; // [rsp+80h] [rbp-80h] BYREF
+  LONGLONG v47; // [rsp+78h] [rbp-88h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+80h] [rbp-80h] BYREF
   int v49; // [rsp+88h] [rbp-78h] BYREF
   __int128 v50; // [rsp+8Ch] [rbp-74h]
   char v51[32]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 *v52; // [rsp+C0h] [rbp-40h]
+  LARGE_INTEGER *v52; // [rsp+C0h] [rbp-40h]
   __int64 v53; // [rsp+C8h] [rbp-38h]
   int *v54; // [rsp+D0h] [rbp-30h]
   __int64 v55; // [rsp+D8h] [rbp-28h]
@@ -83,7 +83,7 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
   __int64 v57; // [rsp+E8h] [rbp-18h]
   __int64 *v58; // [rsp+F0h] [rbp-10h]
   __int64 v59; // [rsp+F8h] [rbp-8h]
-  __int64 *v60; // [rsp+100h] [rbp+0h]
+  LONGLONG *v60; // [rsp+100h] [rbp+0h]
   __int64 v61; // [rsp+108h] [rbp+8h]
   int *v62; // [rsp+110h] [rbp+10h]
   __int64 v63; // [rsp+118h] [rbp+18h]
@@ -99,7 +99,7 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
 
   CurrentPrcb = KeGetCurrentPrcb();
   v4 = a3;
-  v42 = 0LL;
+  v42.QuadPart = 0LL;
   v5 = a2;
   v6 = a1;
   ++CurrentPrcb->ClockInterrupts;
@@ -140,10 +140,10 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
       InterruptTimePrecise = RtlGetInterruptTimePrecise(&v42);
       v26 = KeMinimumIncrement;
       v27 = -(__int64)(unsigned int)KeQuantumEndTimerIncrement;
-      v43 = 0LL;
+      v43.QuadPart = 0LL;
       if ( !KiClockTimerReducePreciseTimeQueries )
         InterruptTimePrecise = RtlGetInterruptTimePrecise(&v43);
-      v28 = InterruptTimePrecise - v27;
+      v28 = InterruptTimePrecise.QuadPart - v27;
       if ( (unsigned int)dword_140E07080 > 5 )
       {
         v44 = InterruptTimePrecise;
@@ -162,7 +162,7 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
         v64 = &v36;
         v66 = &v37;
         v59 = 8LL;
-        v47 = InterruptTimePrecise - v27;
+        v47 = InterruptTimePrecise.QuadPart - v27;
         v61 = 8LL;
         v40 = v26;
         v63 = 4LL;
@@ -199,27 +199,27 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
       }
       else
       {
-        InterruptTimePrecise = (unsigned int)(v8 + KiNormalPriorityBoostScanLatencyTicks);
-        CurrentPrcb->NormalPriorityReadyScanTick = InterruptTimePrecise;
+        InterruptTimePrecise.QuadPart = (unsigned int)(v8 + KiNormalPriorityBoostScanLatencyTicks);
+        CurrentPrcb->NormalPriorityReadyScanTick = InterruptTimePrecise.LowPart;
       }
     }
-    result = CurrentThread->CycleTime;
-    if ( result >= CurrentThread->QuantumTarget )
+    result = (LARGE_INTEGER)CurrentThread->CycleTime;
+    if ( result.QuadPart >= CurrentThread->QuantumTarget )
       goto LABEL_16;
     BamQosLevel = CurrentThread->BamQosLevel;
-    result = KiComputeThreadQos(CurrentThread);
-    if ( BamQosLevel != (_DWORD)result )
+    result.QuadPart = KiComputeThreadQos(CurrentThread);
+    if ( BamQosLevel != result.LowPart )
       goto LABEL_16;
-    result = KiCheckPreferredHeteroProcessor(CurrentThread, CurrentPrcb, 1LL);
-    if ( (_DWORD)result )
+    result.QuadPart = KiCheckPreferredHeteroProcessor(CurrentThread, CurrentPrcb, 1LL);
+    if ( result.LowPart )
       goto LABEL_16;
     KiCheckForPendingQosUpdate(CurrentThread);
   }
-  v48 = 0LL;
-  result = RtlGetInterruptTimePrecise(&v48);
-  v12 = CurrentPrcb->GenerationTarget * (unsigned int)KeMaximumIncrement;
-  InterruptTimePrecise = MEMORY[0xFFFFF78000000320];
-  v17 = result;
+  PerformanceCounter.QuadPart = 0LL;
+  result = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v12.QuadPart = CurrentPrcb->GenerationTarget * KeMaximumIncrement;
+  InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000320];
+  LowPart = result.LowPart;
   if ( MEMORY[0xFFFFF78000000320] > CurrentPrcb->GenerationTarget )
   {
     if ( KiClockTimerPerCpuTickScheduling )
@@ -241,7 +241,7 @@ unsigned __int64 __fastcall KiUpdateRunTime(__int64 a1, __int64 a2, __int64 a3)
       }
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v23);
-      result = v23;
+      result.QuadPart = v23;
       __writecr8(v23);
     }
 LABEL_16:
@@ -255,7 +255,10 @@ LABEL_16:
       v50 = 0LL;
       if ( KiAmdTprLowerInterruptDelayDynamicWorkaround )
       {
-        v29 = HalpDisableInterrupts(InterruptTimePrecise, v12, KeGetCurrentPrcb());
+        v29 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))HalpDisableInterrupts)(
+                (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+                (LARGE_INTEGER)v12.QuadPart,
+                KeGetCurrentPrcb());
         v31 = *(_DWORD *)(v30 + 168);
         v32 = v29;
         *(_DWORD *)(v30 + 168) = v31 | 4;
@@ -265,69 +268,70 @@ LABEL_16:
           _enable();
       }
       v49 = 5;
-      return HalpInterruptSendIpi(&v49, 47LL);
+      return (LARGE_INTEGER)HalpInterruptSendIpi(&v49, 47LL);
     }
     return result;
   }
-  if ( result > v12 && KiClockTimerPerCpuTickScheduling )
+  if ( result.QuadPart > (unsigned __int64)v12.QuadPart && KiClockTimerPerCpuTickScheduling )
   {
     v19 = CurrentPrcb->GroupSchedulingOverQuota == 0;
     v20 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(v20);
-    KiSetClockTimer((_DWORD)CurrentPrcb, v17, -KeMaximumIncrement, KeMinimumIncrement, 4, v19, 0);
+    KiSetClockTimer((_DWORD)CurrentPrcb, LowPart, -KeMaximumIncrement, KeMinimumIncrement, 4, v19, 0);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v20);
     __writecr8(v20);
   }
-  result = (unsigned __int64)CurrentThread->SchedulingGroup;
-  if ( result )
+  result = (LARGE_INTEGER)CurrentThread->SchedulingGroup;
+  if ( result.QuadPart )
   {
-    InterruptTimePrecise = result + CurrentPrcb->ScbOffset;
+    InterruptTimePrecise.QuadPart = result.QuadPart + CurrentPrcb->ScbOffset;
     do
     {
-      result = CurrentPrcb->ScbOffset;
-      v12 = *(unsigned __int16 *)(InterruptTimePrecise + 112);
-      v18 = InterruptTimePrecise - result;
-      if ( (v12 & 4) != 0 )
+      result.QuadPart = CurrentPrcb->ScbOffset;
+      v12.QuadPart = *(unsigned __int16 *)(InterruptTimePrecise.QuadPart + 112);
+      v18 = (LARGE_INTEGER *)(InterruptTimePrecise.QuadPart - result.QuadPart);
+      if ( (v12.LowPart & 4) != 0 )
       {
-        result = *(_QWORD *)(InterruptTimePrecise + 24);
-        if ( *(_QWORD *)InterruptTimePrecise >= result )
+        result = *(LARGE_INTEGER *)(InterruptTimePrecise.QuadPart + 24);
+        if ( *(_QWORD *)InterruptTimePrecise.QuadPart >= result.QuadPart )
           goto LABEL_16;
       }
-      else if ( (v12 & 0x20) == 0 )
+      else if ( (v12.LowPart & 0x20) == 0 )
       {
-        result = *(_QWORD *)(InterruptTimePrecise + 8);
-        if ( *(_QWORD *)InterruptTimePrecise > result )
+        result = *(LARGE_INTEGER *)(InterruptTimePrecise.QuadPart + 8);
+        if ( *(_QWORD *)InterruptTimePrecise.QuadPart > result.QuadPart )
           goto LABEL_16;
       }
-      if ( (v12 & 0x12) == 0 )
+      if ( (v12.LowPart & 0x12) == 0 )
       {
-        result = *(_QWORD *)(v18 + 48);
-        if ( (__int64)result <= 0 )
+        result = v18[6];
+        if ( result.QuadPart <= 0 )
           goto LABEL_16;
-        result = *(unsigned __int8 *)(InterruptTimePrecise + 112);
-        if ( (result & 0x80u) != 0LL )
+        result.QuadPart = *(unsigned __int8 *)(InterruptTimePrecise.QuadPart + 112);
+        if ( SLOBYTE(result.QuadPart) < 0 )
         {
-          result = *(_QWORD *)(InterruptTimePrecise + 16);
-          if ( *(_QWORD *)InterruptTimePrecise >= result )
+          result = *(LARGE_INTEGER *)(InterruptTimePrecise.QuadPart + 16);
+          if ( *(_QWORD *)InterruptTimePrecise.QuadPart >= result.QuadPart )
             goto LABEL_16;
         }
       }
-      InterruptTimePrecise = *(_QWORD *)(InterruptTimePrecise + 416);
+      InterruptTimePrecise = *(LARGE_INTEGER *)(InterruptTimePrecise.QuadPart + 416);
     }
-    while ( InterruptTimePrecise );
+    while ( InterruptTimePrecise.QuadPart );
   }
   if ( (signed int)(CurrentPrcb->ReadyScanTick - v8) < 0 )
   {
-    result = KiShouldScanSharedReadyQueue(CurrentPrcb);
-    if ( !(_DWORD)result || (result = CurrentPrcb->SharedReadyQueue->ReadySummary, (result & 0x7FFE) == 0) )
+    result.QuadPart = KiShouldScanSharedReadyQueue(CurrentPrcb);
+    if ( !result.LowPart
+      || (result.QuadPart = CurrentPrcb->SharedReadyQueue->ReadySummary, (result.LowPart & 0x7FFE) == 0) )
     {
       if ( (CurrentPrcb->ReadySummary & 0x7FFE) == 0 )
       {
-        result = (unsigned int)(v8 + 75);
-        CurrentPrcb->ReadyScanTick = result;
+        result.QuadPart = (unsigned int)(v8 + 75);
+        CurrentPrcb->ReadyScanTick = result.LowPart;
       }
     }
   }

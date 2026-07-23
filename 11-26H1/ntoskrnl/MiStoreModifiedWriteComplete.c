@@ -1,18 +1,18 @@
 /*
- * XREFs of MiStoreModifiedWriteComplete @ 0x14020B9CC
+ * XREFs of MiStoreModifiedWriteComplete @ 0x14020BAAC
  * Callers:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CDA0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CE80 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
  * Callees:
- *     MiStoreFreeWriteSupport @ 0x14020A108 (MiStoreFreeWriteSupport.c)
- *     MiStoreModifiedWriteDereference @ 0x14020A8B0 (MiStoreModifiedWriteDereference.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiStoreLogWriteCompleteFailure @ 0x14070ACA0 (MiStoreLogWriteCompleteFailure.c)
+ *     MiStoreFreeWriteSupport @ 0x14020A1E8 (MiStoreFreeWriteSupport.c)
+ *     MiStoreModifiedWriteDereference @ 0x14020A990 (MiStoreModifiedWriteDereference.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiStoreLogWriteCompleteFailure @ 0x14070F954 (MiStoreLogWriteCompleteFailure.c)
  */
 
 __int64 __fastcall MiStoreModifiedWriteComplete(PSLIST_ENTRY ListEntry)
@@ -35,14 +35,14 @@ __int64 __fastcall MiStoreModifiedWriteComplete(PSLIST_ENTRY ListEntry)
   v4 = *((_QWORD *)&ListEntry->Next[3].Next + 1);
   if ( (int)v3 < 0 )
   {
-    FirstArgument = stru_140E36558.FirstArgument;
-    if ( stru_140E36558.FirstArgument )
+    FirstArgument = stru_140E366D8.FirstArgument;
+    if ( stru_140E366D8.FirstArgument )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument )
       {
-        if ( (*((_BYTE *)stru_140E36558.FirstArgument + 16) & 2) != 0 )
+        if ( (*((_BYTE *)stru_140E366D8.FirstArgument + 16) & 2) != 0 )
         {
-          FirstArgument = (void *)*((_QWORD *)stru_140E36558.FirstArgument + 3);
+          FirstArgument = (void *)*((_QWORD *)stru_140E366D8.FirstArgument + 3);
           if ( (void *)((unsigned __int8)FirstArgument & 2) == FirstArgument )
             MiStoreLogWriteCompleteFailure();
         }
@@ -106,6 +106,6 @@ __int64 __fastcall MiStoreModifiedWriteComplete(PSLIST_ENTRY ListEntry)
     }
     *(_DWORD *)(v4 + 1316) = 32;
   }
-  MiStoreFreeWriteSupport(ListEntry, (union _SLIST_HEADER *)v4);
+  MiStoreFreeWriteSupport(ListEntry, (_SLIST_HEADER *)v4);
   return MiStoreModifiedWriteDereference((__int64)Next);
 }

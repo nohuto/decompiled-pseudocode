@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgEnumDeviceKeys @ 0x1406FA098
+ * XREFs of PiDevCfgEnumDeviceKeys @ 0x1406FB338
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x1406F9C08 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgResetDeviceKeys @ 0x14082ED88 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1406FAEA8 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgResetDeviceKeys @ 0x14082FFDC (PiDevCfgResetDeviceKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxOpenContextBaseKey @ 0x1407062A0 (_PnpCtxOpenContextBaseKey.c)
- *     _PnpCtxOpenContextNodeBaseKey @ 0x1408F5D7C (_PnpCtxOpenContextNodeBaseKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     _CmGetDeviceRegProp @ 0x1405C799C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1405C7EF0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x140707540 (_PnpCtxOpenContextBaseKey.c)
+ *     _PnpCtxOpenContextNodeBaseKey @ 0x1408F703C (_PnpCtxOpenContextNodeBaseKey.c)
  */
 
 __int64 __fastcall PiDevCfgEnumDeviceKeys(
@@ -52,7 +52,7 @@ __int64 __fastcall PiDevCfgEnumDeviceKeys(
   _BYTE v35[76]; // [rsp+C0h] [rbp-40h] BYREF
   __int16 v36; // [rsp+10Ch] [rbp+Ch]
 
-  v7 = &dword_14090AF9C;
+  v7 = &dword_14090C25C;
   v31 = a6;
   v8 = a3;
   v29 = a7;

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwFreeUserPhysicalPages @ 0x14041CBE0
+ * XREFs of ZwFreeUserPhysicalPages @ 0x14041CF70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFreeUserPhysicalPages(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFreeUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

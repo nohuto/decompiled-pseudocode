@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetWnfProcessNotificationEvent @ 0x14041E5A0
+ * XREFs of ZwSetWnfProcessNotificationEvent @ 0x14041E930
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetWnfProcessNotificationEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetWnfProcessNotificationEvent(HANDLE NotificationEvent)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(NotificationEvent);
 }

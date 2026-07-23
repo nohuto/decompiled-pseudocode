@@ -1,9 +1,9 @@
 /*
- * XREFs of MiResetAccessBitsTail @ 0x14049C0A0
+ * XREFs of MiResetAccessBitsTail @ 0x140496CD0
  * Callers:
  *     <none>
  * Callees:
- *     MiAgeTrimListsTail @ 0x1402E36B0 (MiAgeTrimListsTail.c)
+ *     MiAgeTrimListsTail @ 0x14020B9B0 (MiAgeTrimListsTail.c)
  */
 
 __int64 __fastcall MiResetAccessBitsTail(__int64 a1)

@@ -16,7 +16,7 @@
 
 char __fastcall MiDeleteExtentPfns(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rax
+  PRTL_BALANCED_NODE v3; // rax
   __int64 v4; // rbx
   char result; // al
   unsigned __int8 OldIrql; // si
@@ -28,7 +28,7 @@ char __fastcall MiDeleteExtentPfns(__int64 a1, __int64 a2)
   {
     v3 = KeAbPreAcquire((ULONG_PTR)&qword_140464710, 0LL, 0);
     if ( v3 )
-      *(_BYTE *)(v3 + 26) |= 1u;
+      BYTE2(v3[1].Left) |= 1u;
   }
   while ( 1 )
   {

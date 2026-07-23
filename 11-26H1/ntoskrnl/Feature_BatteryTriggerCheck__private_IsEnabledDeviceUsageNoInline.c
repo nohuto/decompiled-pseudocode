@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline @ 0x14060C688
+ * XREFs of Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline @ 0x14060F7E8
  * Callers:
- *     PopRecalculateCBTriggerLevels @ 0x1409479E4 (PopRecalculateCBTriggerLevels.c)
+ *     PopRecalculateCBTriggerLevels @ 0x1409C3354 (PopRecalculateCBTriggerLevels.c)
  * Callees:
- *     Feature_BatteryTriggerCheck__private_IsEnabledFallback @ 0x14060C6C4 (Feature_BatteryTriggerCheck__private_IsEnabledFallback.c)
+ *     Feature_BatteryTriggerCheck__private_IsEnabledFallback @ 0x14060F824 (Feature_BatteryTriggerCheck__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline()

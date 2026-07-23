@@ -1,22 +1,22 @@
 /*
- * XREFs of PspSiloInitializeUserSharedData @ 0x1407EF83C
+ * XREFs of PspSiloInitializeUserSharedData @ 0x1407F539C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1407EF070 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1407F4BD0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     HalPutDmaAdapter @ 0x140269C10 (HalPutDmaAdapter.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     PsAttachSiloToCurrentThread @ 0x14046CE80 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140476400 (PsDetachSiloFromCurrentThread.c)
- *     PsRemoveSiloContext @ 0x1407EE760 (PsRemoveSiloContext.c)
- *     PspSiloGetMultiUserTsFromRegistry @ 0x1407EF5DC (PspSiloGetMultiUserTsFromRegistry.c)
- *     PspSiloGetSuiteMaskStringFromRegistry @ 0x1407EF678 (PspSiloGetSuiteMaskStringFromRegistry.c)
- *     ExGetSuiteMask @ 0x1408369AC (ExGetSuiteMask.c)
- *     MmMapViewInSessionSpace @ 0x1409B7230 (MmMapViewInSessionSpace.c)
- *     MmCreateSection @ 0x1409B8FA0 (MmCreateSection.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x140B320D4 (RtlpGetNtProductTypeFromRegistry.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x140269180 (HalPutDmaAdapter.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     PsAttachSiloToCurrentThread @ 0x140466600 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14046FB80 (PsDetachSiloFromCurrentThread.c)
+ *     PsRemoveSiloContext @ 0x1407F42C0 (PsRemoveSiloContext.c)
+ *     PspSiloGetMultiUserTsFromRegistry @ 0x1407F513C (PspSiloGetMultiUserTsFromRegistry.c)
+ *     PspSiloGetSuiteMaskStringFromRegistry @ 0x1407F51D8 (PspSiloGetSuiteMaskStringFromRegistry.c)
+ *     ExGetSuiteMask @ 0x14083CBEC (ExGetSuiteMask.c)
+ *     MmMapViewInSessionSpace @ 0x140988210 (MmMapViewInSessionSpace.c)
+ *     MmCreateSection @ 0x140989F80 (MmCreateSection.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x140B34528 (RtlpGetNtProductTypeFromRegistry.c)
  */
 
 __int64 __fastcall PspSiloInitializeUserSharedData(struct _LIST_ENTRY *a1)

@@ -3,16 +3,16 @@
  * Callers:
  *     TppSingleTimerExpiration @ 0x180014100 (TppSingleTimerExpiration.c)
  * Callees:
- *     ZwCancelWaitCompletionPacket @ 0x18009E8D0 (ZwCancelWaitCompletionPacket.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     TppRaiseHandleStatus @ 0x18011242C (TppRaiseHandleStatus.c)
+ *     ZwCancelWaitCompletionPacket @ 0x18009E890 (ZwCancelWaitCompletionPacket.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     TppRaiseHandleStatus @ 0x1801123EC (TppRaiseHandleStatus.c)
  */
 
 char __fastcall TppWaitTimerExpiration(__int64 a1)
 {
-  unsigned int v2; // eax
+  unsigned __int32 v2; // eax
 
-  v2 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), 0LL);
+  v2 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 368), 0);
   if ( v2 )
   {
     if ( v2 != 259 && v2 != -1073741536 )

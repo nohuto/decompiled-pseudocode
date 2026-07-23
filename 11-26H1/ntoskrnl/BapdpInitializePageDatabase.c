@@ -1,19 +1,19 @@
 /*
- * XREFs of BapdpInitializePageDatabase @ 0x1406CA49C
+ * XREFs of BapdpInitializePageDatabase @ 0x1406CE4D8
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void BapdpInitializePageDatabase()
 {
-  if ( ExpSysDbgLock.SavedApcState.ApcListHead[1].Blink && *(_DWORD *)&ExpSysDbgLock.SavedApcStateFill[32] > 4u )
+  if ( ExpSysDbgLock.SchedulerApc.SystemArgument1 && *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[72] > 4u )
   {
-    if ( (int)KsrInitPageDatabase((char *)&ExpSysDbgLock.SavedApcState.ApcListHead[1].Blink->Flink + 4) >= 0 )
+    if ( (int)KsrInitPageDatabase((char *)ExpSysDbgLock.SchedulerApc.SystemArgument1 + 4) >= 0 )
       ExSoftRebootFlags |= 4u;
-    ExFreePoolWithTag(ExpSysDbgLock.SavedApcState.ApcListHead[1].Blink, 0);
-    ExpSysDbgLock.SavedApcState.ApcListHead[1].Blink = 0LL;
-    *(_DWORD *)&ExpSysDbgLock.SavedApcStateFill[32] = 0;
+    ExFreePoolWithTag(ExpSysDbgLock.SchedulerApc.SystemArgument1, 0);
+    ExpSysDbgLock.SchedulerApc.SystemArgument1 = 0LL;
+    *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[72] = 0;
   }
 }

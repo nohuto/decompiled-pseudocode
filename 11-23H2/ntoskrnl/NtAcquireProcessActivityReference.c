@@ -1,12 +1,12 @@
 /*
- * XREFs of NtAcquireProcessActivityReference @ 0x140800BF0
+ * XREFs of NtAcquireProcessActivityReference @ 0x140800EC0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1403B053C (ExCpuSetResourceManagerAccessCheck.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     PspCreateActivityReference @ 0x140800D04 (PspCreateActivityReference.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x1403B071C (ExCpuSetResourceManagerAccessCheck.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspCreateActivityReference @ 0x140800FD4 (PspCreateActivityReference.c)
  */
 
 __int64 __fastcall NtAcquireProcessActivityReference(__int64 *a1, ULONG_PTR a2, int a3)

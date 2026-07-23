@@ -1,19 +1,19 @@
 /*
- * XREFs of KxMcheckAlternateReturn @ 0x14040F200
+ * XREFs of KxMcheckAlternateReturn @ 0x14040F300
  * Callers:
- *     KxMcheckAlternateReturnShadow @ 0x140A14A40 (KxMcheckAlternateReturnShadow.c)
+ *     KxMcheckAlternateReturnShadow @ 0x140A15A40 (KxMcheckAlternateReturnShadow.c)
  * Callees:
- *     KiUpdateStibpPairing @ 0x14021F5B0 (KiUpdateStibpPairing.c)
- *     KiRestoreDebugRegisterState @ 0x1403FE3C0 (KiRestoreDebugRegisterState.c)
- *     KiSaveDebugRegisterState @ 0x1403FE440 (KiSaveDebugRegisterState.c)
- *     KiRestoreSetContextState @ 0x1403FF120 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x140403520 (KiInitiateUserApc.c)
- *     KxMcheckAlternateReturn @ 0x14040F200 (KxMcheckAlternateReturn.c)
- *     KiUmsTrapEntry @ 0x140413580 (KiUmsTrapEntry.c)
- *     KiUmsExit @ 0x140413A00 (KiUmsExit.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413B80 (KiFlushBhbDuringTrapEntryOrExit.c)
- *     KiCopyCounters @ 0x14051BE60 (KiCopyCounters.c)
- *     KiMcheckAlternateReturn @ 0x140526680 (KiMcheckAlternateReturn.c)
+ *     KiUpdateStibpPairing @ 0x1402C3EB0 (KiUpdateStibpPairing.c)
+ *     KiRestoreDebugRegisterState @ 0x1403FE5A0 (KiRestoreDebugRegisterState.c)
+ *     KiSaveDebugRegisterState @ 0x1403FE620 (KiSaveDebugRegisterState.c)
+ *     KiRestoreSetContextState @ 0x1403FF300 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x140403700 (KiInitiateUserApc.c)
+ *     KxMcheckAlternateReturn @ 0x14040F300 (KxMcheckAlternateReturn.c)
+ *     KiUmsTrapEntry @ 0x140413680 (KiUmsTrapEntry.c)
+ *     KiUmsExit @ 0x140413B00 (KiUmsExit.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413C80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiCopyCounters @ 0x14051C0A0 (KiCopyCounters.c)
+ *     KiMcheckAlternateReturn @ 0x1405268C0 (KiMcheckAlternateReturn.c)
  */
 
 __int64 __fastcall KxMcheckAlternateReturn(__int64 a1, unsigned __int64 BpbState, __int64 a3, __int64 a4, char a5)
@@ -109,38 +109,38 @@ __int64 __fastcall KxMcheckAlternateReturn(__int64 a1, unsigned __int64 BpbState
     }
     if ( (BpbState & 2) != 0 )
     {
-      v33 = 0x14040F327LL;
-      v58 = 0x14040F43ELL;
-      v57 = 0x14040F435LL;
-      v56 = 0x14040F42CLL;
-      v55 = 0x14040F423LL;
-      v54 = 0x14040F41ALL;
-      *((_QWORD *)&v53 + 1) = 0x14040F411LL;
-      *(_QWORD *)&v53 = 0x14040F408LL;
-      *((_QWORD *)&v52 + 1) = 0x14040F3FFLL;
-      *(_QWORD *)&v52 = 0x14040F3F6LL;
-      *((_QWORD *)&v51 + 1) = 0x14040F3EDLL;
-      *(_QWORD *)&v51 = 0x14040F3E4LL;
-      *((_QWORD *)&v50 + 1) = 0x14040F3DBLL;
-      *(_QWORD *)&v50 = 0x14040F3D2LL;
-      *((_QWORD *)&v49 + 1) = 0x14040F3C9LL;
-      *(_QWORD *)&v49 = 0x14040F3C0LL;
-      *((_QWORD *)&v48 + 1) = 0x14040F3B7LL;
-      *(_QWORD *)&v48 = 0x14040F3AELL;
-      v47 = 0x14040F3A5LL;
-      v46 = 0x14040F39CLL;
-      v45 = 0x14040F393LL;
-      v44 = 0x14040F38ALL;
-      v43 = 0x14040F381LL;
-      v42 = 0x14040F378LL;
-      v41 = 0x14040F36FLL;
-      v40 = 0x14040F366LL;
-      v39 = 0x14040F35DLL;
-      v38 = 0x14040F354LL;
-      v37 = 0x14040F34BLL;
-      v36 = 0x14040F342LL;
-      v35 = 0x14040F339LL;
-      v34 = 0x14040F330LL;
+      v33 = 0x14040F427LL;
+      v58 = 0x14040F53ELL;
+      v57 = 0x14040F535LL;
+      v56 = 0x14040F52CLL;
+      v55 = 0x14040F523LL;
+      v54 = 0x14040F51ALL;
+      *((_QWORD *)&v53 + 1) = 0x14040F511LL;
+      *(_QWORD *)&v53 = 0x14040F508LL;
+      *((_QWORD *)&v52 + 1) = 0x14040F4FFLL;
+      *(_QWORD *)&v52 = 0x14040F4F6LL;
+      *((_QWORD *)&v51 + 1) = 0x14040F4EDLL;
+      *(_QWORD *)&v51 = 0x14040F4E4LL;
+      *((_QWORD *)&v50 + 1) = 0x14040F4DBLL;
+      *(_QWORD *)&v50 = 0x14040F4D2LL;
+      *((_QWORD *)&v49 + 1) = 0x14040F4C9LL;
+      *(_QWORD *)&v49 = 0x14040F4C0LL;
+      *((_QWORD *)&v48 + 1) = 0x14040F4B7LL;
+      *(_QWORD *)&v48 = 0x14040F4AELL;
+      v47 = 0x14040F4A5LL;
+      v46 = 0x14040F49CLL;
+      v45 = 0x14040F493LL;
+      v44 = 0x14040F48ALL;
+      v43 = 0x14040F481LL;
+      v42 = 0x14040F478LL;
+      v41 = 0x14040F46FLL;
+      v40 = 0x14040F466LL;
+      v39 = 0x14040F45DLL;
+      v38 = 0x14040F454LL;
+      v37 = 0x14040F44BLL;
+      v36 = 0x14040F442LL;
+      v35 = 0x14040F439LL;
+      v34 = 0x14040F430LL;
     }
     if ( (BpbState & 0x200) != 0 )
       KiFlushBhbDuringTrapEntryOrExit(v15);
@@ -250,38 +250,38 @@ __int64 __fastcall KxMcheckAlternateReturn(__int64 a1, unsigned __int64 BpbState
   v28 = _bittestandreset16(MK_FP(__GS__, 2144LL), 5u);
   if ( v28 )
   {
-    v32 = 0x14040F667LL;
-    v57 = 0x14040F77ELL;
-    v56 = 0x14040F775LL;
-    v55 = 0x14040F76CLL;
-    v54 = 0x14040F763LL;
-    *((_QWORD *)&v53 + 1) = 0x14040F75ALL;
-    *(_QWORD *)&v53 = 0x14040F751LL;
-    *((_QWORD *)&v52 + 1) = 0x14040F748LL;
-    *(_QWORD *)&v52 = 0x14040F73FLL;
-    *((_QWORD *)&v51 + 1) = 0x14040F736LL;
-    *(_QWORD *)&v51 = 0x14040F72DLL;
-    *((_QWORD *)&v50 + 1) = 0x14040F724LL;
-    *(_QWORD *)&v50 = 0x14040F71BLL;
-    *((_QWORD *)&v49 + 1) = 0x14040F712LL;
-    *(_QWORD *)&v49 = 0x14040F709LL;
-    *((_QWORD *)&v48 + 1) = 0x14040F700LL;
-    *(_QWORD *)&v48 = 0x14040F6F7LL;
-    v47 = 0x14040F6EELL;
-    v46 = 0x14040F6E5LL;
-    v45 = 0x14040F6DCLL;
-    v44 = 0x14040F6D3LL;
-    v43 = 0x14040F6CALL;
-    v42 = 0x14040F6C1LL;
-    v41 = 0x14040F6B8LL;
-    v40 = 0x14040F6AFLL;
-    v39 = 0x14040F6A6LL;
-    v38 = 0x14040F69DLL;
-    v37 = 0x14040F694LL;
-    v36 = 0x14040F68BLL;
-    v35 = 0x14040F682LL;
-    v34 = 0x14040F679LL;
-    v33 = 0x14040F670LL;
+    v32 = 0x14040F767LL;
+    v57 = 0x14040F87ELL;
+    v56 = 0x14040F875LL;
+    v55 = 0x14040F86CLL;
+    v54 = 0x14040F863LL;
+    *((_QWORD *)&v53 + 1) = 0x14040F85ALL;
+    *(_QWORD *)&v53 = 0x14040F851LL;
+    *((_QWORD *)&v52 + 1) = 0x14040F848LL;
+    *(_QWORD *)&v52 = 0x14040F83FLL;
+    *((_QWORD *)&v51 + 1) = 0x14040F836LL;
+    *(_QWORD *)&v51 = 0x14040F82DLL;
+    *((_QWORD *)&v50 + 1) = 0x14040F824LL;
+    *(_QWORD *)&v50 = 0x14040F81BLL;
+    *((_QWORD *)&v49 + 1) = 0x14040F812LL;
+    *(_QWORD *)&v49 = 0x14040F809LL;
+    *((_QWORD *)&v48 + 1) = 0x14040F800LL;
+    *(_QWORD *)&v48 = 0x14040F7F7LL;
+    v47 = 0x14040F7EELL;
+    v46 = 0x14040F7E5LL;
+    v45 = 0x14040F7DCLL;
+    v44 = 0x14040F7D3LL;
+    v43 = 0x14040F7CALL;
+    v42 = 0x14040F7C1LL;
+    v41 = 0x14040F7B8LL;
+    v40 = 0x14040F7AFLL;
+    v39 = 0x14040F7A6LL;
+    v38 = 0x14040F79DLL;
+    v37 = 0x14040F794LL;
+    v36 = 0x14040F78BLL;
+    v35 = 0x14040F782LL;
+    v34 = 0x14040F779LL;
+    v33 = 0x14040F770LL;
   }
   if ( (KiKvaShadow & 1) == 0 )
   {

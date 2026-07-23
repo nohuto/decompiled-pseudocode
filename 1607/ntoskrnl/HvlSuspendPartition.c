@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlSuspendPartition @ 0x1401BDE94
+ * XREFs of HvlSuspendPartition @ 0x1401BDD78
  * Callers:
  *     <none>
  * Callees:

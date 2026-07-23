@@ -101,7 +101,7 @@ __int64 __fastcall EtwpWriteUserEvent(
   __int64 v61; // rsi
   __int64 v62; // r13
   __int64 v63; // r14
-  __int64 v64; // r13
+  unsigned int *v64; // r13
   signed int v65; // ecx
   unsigned __int16 *v66; // r14
   unsigned __int64 v67; // rax
@@ -153,7 +153,7 @@ __int64 __fastcall EtwpWriteUserEvent(
   unsigned int v113; // eax
   int v114; // ecx
   struct _KTHREAD *v115; // rdx
-  __int64 v116; // r14
+  unsigned int *v116; // r14
   signed __int64 *v117; // rbx
   __int64 v118; // rdi
   char v119; // [rsp+210h] [rbp-610h] BYREF
@@ -564,11 +564,11 @@ LABEL_33:
         v31 = 1;
         v53 = v143;
       }
-      v64 = v144;
+      v64 = (unsigned int *)v144;
       if ( (v144 & 1) != 0 )
         break;
       v66 = 0LL;
-      v67 = EtwpReserveTraceBuffer(v144, v45, (__int64)&v165, &v145, 0);
+      v67 = EtwpReserveTraceBuffer((unsigned int *)v144, v45, (__int64)&v165, &v145, 0);
       v68 = v67;
       v168 = v67;
       if ( v67 )
@@ -598,7 +598,7 @@ LABEL_33:
           v74 = *(_OWORD *)(v132 + 40);
         }
         *(_OWORD *)(v68 + 24) = v74;
-        *(_DWORD *)v68 = v45 | *(_DWORD *)(v64 + 4LL * v133 + 20);
+        *(_DWORD *)v68 = v45 | v64[v133 + 5];
         v75 = 80;
         if ( v44 )
         {
@@ -908,7 +908,7 @@ LABEL_206:
         *(_DWORD *)(v68 + 60) = v115->UserTime;
         *(_DWORD *)(v68 + 8) = v115[1].CurrentRunTime;
         *(_DWORD *)(v68 + 12) = v115[1].CycleTime;
-        v116 = v144;
+        v116 = (unsigned int *)v144;
         if ( (*(_DWORD *)(v144 + 12) & 0x80000) != 0
           && (!(_BYTE)KdDebuggerNotPresent && !KdPitchDebugger || KdEventLoggingPresent) )
         {
@@ -922,17 +922,17 @@ LABEL_206:
         LOBYTE(v24) = v121;
         v28 = a9;
         v17 = v132;
-        if ( !*(_QWORD *)(v116 + 1272) )
+        if ( !*((_QWORD *)v116 + 159) )
         {
           v19 = v128;
           goto LABEL_15;
         }
-        EtwpInvokeEventCallback(v116, (__int64 *)&v165, v132 + 40);
+        EtwpInvokeEventCallback((__int64)v116, (__int64 *)&v165, v132 + 40);
         v19 = v128;
         LOBYTE(v24) = v121;
         goto LABEL_13;
       }
-      ReserveTraceBufferStatus = EtwpGetReserveTraceBufferStatus(v64, v45);
+      ReserveTraceBufferStatus = EtwpGetReserveTraceBufferStatus((__int64)v64, v45);
       v70 = EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_EVENT);
       v19 = v128;
       v17 = v132;
@@ -940,12 +940,12 @@ LABEL_206:
         EtwpTraceLostEvent(
           (_QWORD *)(v132 + 40),
           (__int16 *)(v128 + 40),
-          (unsigned __int16 *)(v64 + 152),
+          (unsigned __int16 *)v64 + 76,
           ReserveTraceBufferStatus);
       v71 = v125;
       if ( v125 >= 0 )
       {
-        if ( (*(_DWORD *)(v64 + 12) & 0x8000000) == 0 )
+        if ( (v64[3] & 0x8000000) == 0 )
           v71 = ReserveTraceBufferStatus;
         v125 = v71;
       }

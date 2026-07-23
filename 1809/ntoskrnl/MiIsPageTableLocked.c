@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsPageTableLocked @ 0x14012DA1C
+ * XREFs of MiIsPageTableLocked @ 0x14012DAEC
  * Callers:
- *     MiAgePte @ 0x14006ADD0 (MiAgePte.c)
- *     MiWalkVaCheckCommon @ 0x140087E1C (MiWalkVaCheckCommon.c)
- *     MiResetAccessBitPte @ 0x14016E830 (MiResetAccessBitPte.c)
+ *     MiAgePte @ 0x14006ADC0 (MiAgePte.c)
+ *     MiWalkVaCheckCommon @ 0x140087E0C (MiWalkVaCheckCommon.c)
+ *     MiResetAccessBitPte @ 0x14016E930 (MiResetAccessBitPte.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
- *     MiShouldLockPteDirectly @ 0x1400986C0 (MiShouldLockPteDirectly.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
+ *     MiGetPageTableLockBuffer @ 0x14006CE70 (MiGetPageTableLockBuffer.c)
+ *     MiShouldLockPteDirectly @ 0x140098600 (MiShouldLockPteDirectly.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
  */
 
 unsigned __int64 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
@@ -29,13 +29,13 @@ unsigned __int64 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
     {
       if ( v4 == 7 )
       {
-        v5 = &unk_14043A6A8;
+        v5 = &unk_14043B768;
       }
       else
       {
-        v5 = &unk_14043A6A0;
+        v5 = &unk_14043B760;
         if ( v4 != 5 )
-          v5 = &unk_14043A6B8;
+          v5 = &unk_14043B778;
       }
     }
     else

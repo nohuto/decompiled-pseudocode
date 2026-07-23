@@ -65,7 +65,11 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
   VfPendingCheckForChanges(a1);
   VfPoolInitPhase0();
   VfFaultsInitPhase0();
-  if ( (int)VfAvlInitializeTree(&ViLookasideAvl, 96LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+  if ( (int)VfAvlInitializeTree(
+              &ViLookasideAvl,
+              96LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
     _InterlockedExchange(&ViLookasideAllocationFailures, 1);
   else
     _InterlockedExchange(&ViLookasideInitialized, 1);
@@ -92,7 +96,11 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
     v16,
     VfInitializedWithoutReboot,
     (__int64)ExInitializeNPagedLookasideListInternal);
-  if ( (int)VfAvlInitializeTree(&ViResourceAvl, 104LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+  if ( (int)VfAvlInitializeTree(
+              &ViResourceAvl,
+              104LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
     _InterlockedExchange(&ViResourceNotTracked, 1);
   else
     _InterlockedExchange(&ViResourceInitialized, 1);
@@ -180,11 +188,19 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
     *v13 = v13;
   }
   ViDdiInitialized = 1;
-  if ( (int)VfAvlInitializeTree(&ViRemLockAvl, 32LL, 136LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+  if ( (int)VfAvlInitializeTree(
+              &ViRemLockAvl,
+              32LL,
+              136LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
     _InterlockedExchange(&ViRemLockAllocationFailures, 1);
   else
     _InterlockedExchange(&ViRemLockInitialized, 1);
-  if ( (int)VfAvlInitializeTree(&ViDevObjAvl, 336LL, 24LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+  if ( (int)VfAvlInitializeTree(
+              &ViDevObjAvl,
+              336LL,
+              24LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
     _InterlockedExchange(&ViDevObjAllocationFailures, 1);
   else
     _InterlockedExchange(&ViDevObjInitialized, 1);

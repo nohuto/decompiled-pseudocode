@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpGetNameControlBlock @ 0x1405EFC10
+ * XREFs of CmpGetNameControlBlock @ 0x1406DF370
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmpCreateKeyControlBlock @ 0x1406DEDB0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
- *     CmpUnlockNameHashEntry @ 0x1405EFE60 (CmpUnlockNameHashEntry.c)
- *     CmpLockNameHashEntryExclusive @ 0x1405EFF6C (CmpLockNameHashEntryExclusive.c)
- *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpHashUnicodeComponent @ 0x14065F044 (CmpHashUnicodeComponent.c)
+ *     CmpCompareCompressedName @ 0x1406DDE80 (CmpCompareCompressedName.c)
+ *     CmpUnlockNameHashEntry @ 0x1406DF5C0 (CmpUnlockNameHashEntry.c)
+ *     CmpLockNameHashEntryExclusive @ 0x1406DF6CC (CmpLockNameHashEntryExclusive.c)
  */
 
-unsigned __int8 *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigned int *a2)
+unsigned __int8 *__fastcall CmpGetNameControlBlock(__m128i *a1, unsigned int *a2)
 {
   unsigned int v3; // ebx
   unsigned int v4; // r11d
@@ -56,14 +56,14 @@ unsigned __int8 *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigne
     v3 = *a2;
   else
     v3 = CmpHashUnicodeComponent(a1);
-  v4 = *a1;
+  v4 = a1->m128i_u16[0];
   v5 = 1;
   v36 = 1;
   v6 = (unsigned __int16)v4 >> 1;
   v37 = (unsigned __int16)v4 >> 1;
   if ( v4 >> 1 )
   {
-    v7 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+    v7 = (unsigned __int16 *)a1->m128i_i64[1];
     v8 = v4 >> 1;
     do
     {
@@ -114,7 +114,7 @@ unsigned __int8 *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigne
         }
         else
         {
-          v10 = (struct _LOOKASIDE_LIST_EX *)*((_QWORD *)a1 + 1);
+          v10 = (struct _LOOKASIDE_LIST_EX *)a1->m128i_i64[1];
           v28 = v15 >> 1;
           v29 = 0;
           if ( !(v15 >> 1) )
@@ -183,7 +183,7 @@ LABEL_31:
         v23 = v18;
         do
         {
-          v24 = *(_WORD *)(v11 + *((_QWORD *)a1 + 1));
+          v24 = *(_WORD *)(v11 + a1->m128i_i64[1]);
           if ( v24 >= 0x61u )
           {
             if ( v24 > 0x7Au )
@@ -208,7 +208,7 @@ LABEL_31:
         v34 = v33;
         do
         {
-          v35 = *(_WORD *)(v11 + *((_QWORD *)a1 + 1));
+          v35 = *(_WORD *)(v11 + a1->m128i_i64[1]);
           if ( v35 >= 0x61u )
           {
             if ( v35 <= 0x7Au )

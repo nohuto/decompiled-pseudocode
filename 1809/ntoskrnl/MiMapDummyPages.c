@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMapDummyPages @ 0x1409DC7AC
+ * XREFs of MiMapDummyPages @ 0x1409DD7AC
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiComputeHash64 @ 0x140101DF0 (MiComputeHash64.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiComputeHash64 @ 0x140101E70 (MiComputeHash64.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 ULONG_PTR MiMapDummyPages()
@@ -25,17 +25,17 @@ ULONG_PTR MiMapDummyPages()
   bool v9; // zf
   bool v10; // zf
 
-  result = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)2);
+  result = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)2);
   v1 = result;
   if ( !result )
     return result;
-  MiMakeValidPte(result, qword_14043ADE0, 536870913);
+  MiMakeValidPte(result, qword_14043BEA0, 536870913);
   if ( MiPteInShadowRange(v1) )
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
       v3 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_3;
       v9 = (v8 & 1) == 0;
     }
@@ -52,16 +52,16 @@ LABEL_3:
   *(_QWORD *)v1 = v2;
   if ( v3 )
     MiWritePteShadow(v1, v2);
-  qword_14043ADE8 = (__int64)(v1 << 25) >> 16;
+  qword_14043BEA8 = (__int64)(v1 << 25) >> 16;
   v4 = MiComputeHash64((__int64)(v1 << 25) >> 16);
   v5 = v1 + 8;
-  qword_14043ADF8 = v4;
+  qword_14043BEB8 = v4;
   if ( !MiPteInShadowRange(v5) )
     goto LABEL_6;
   if ( (unsigned int)MiPteHasShadow() )
   {
     v7 = 1;
-    if ( !HIBYTE(word_14043A1AC) )
+    if ( !HIBYTE(word_14043B26C) )
     {
       v10 = (v6 & 1) == 0;
       goto LABEL_22;
@@ -78,7 +78,7 @@ LABEL_6:
   *(_QWORD *)v5 = v6;
   if ( v7 )
     MiWritePteShadow(v5, v6);
-  qword_14043ADF0 = (__int64)(v5 << 25) >> 16;
-  qword_14043AE00 = MiComputeHash64(qword_14043ADF0);
+  qword_14043BEB0 = (__int64)(v5 << 25) >> 16;
+  qword_14043BEC0 = MiComputeHash64(qword_14043BEB0);
   return 1LL;
 }

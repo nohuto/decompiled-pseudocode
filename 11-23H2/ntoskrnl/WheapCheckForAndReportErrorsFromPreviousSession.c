@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B419C
+ * XREFs of WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B437C
  * Callers:
  *     WheaInitialize @ 0x140B490E8 (WheaInitialize.c)
  * Callees:
- *     HalGetEnvironmentVariableEx @ 0x14035E920 (HalGetEnvironmentVariableEx.c)
- *     HalSetEnvironmentVariableEx @ 0x140504A60 (HalSetEnvironmentVariableEx.c)
- *     WheapReportBootError @ 0x1406103C8 (WheapReportBootError.c)
- *     WheapReportPersistedErrorRecord @ 0x140610490 (WheapReportPersistedErrorRecord.c)
- *     WheaPersistBadPageToBcd @ 0x140611D90 (WheaPersistBadPageToBcd.c)
- *     WheaPersistBadPageToRegistry @ 0x140611F50 (WheaPersistBadPageToRegistry.c)
+ *     HalGetEnvironmentVariableEx @ 0x14035EAC0 (HalGetEnvironmentVariableEx.c)
+ *     HalSetEnvironmentVariableEx @ 0x140504FB0 (HalSetEnvironmentVariableEx.c)
+ *     WheapReportBootError @ 0x140610918 (WheapReportBootError.c)
+ *     WheapReportPersistedErrorRecord @ 0x1406109E0 (WheapReportPersistedErrorRecord.c)
+ *     WheaPersistBadPageToBcd @ 0x1406122E0 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x1406124A0 (WheaPersistBadPageToRegistry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

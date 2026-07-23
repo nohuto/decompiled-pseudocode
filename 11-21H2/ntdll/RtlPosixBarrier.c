@@ -30,7 +30,7 @@ char __fastcall RtlPosixBarrier(__int64 a1, int a2)
   v4 = *(_DWORD *)(v2 + 16);
   v5 = a2 & 0x10000;
   if ( (a2 & 0x10000) != 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(v2 + 8));
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(v2 + 8));
   v6 = *(_QWORD *)v2;
   do
   {
@@ -64,6 +64,6 @@ char __fastcall RtlPosixBarrier(__int64 a1, int a2)
       RtlpWaitOnAddress((_QWORD *)(v2 + 4), &v13, 4LL, 0LL, RtlpWaitOnAddressSpinCycleCount);
   }
   if ( v5 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(v2 + 8));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(v2 + 8));
   return v9;
 }

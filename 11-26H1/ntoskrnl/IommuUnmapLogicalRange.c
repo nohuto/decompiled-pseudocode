@@ -1,12 +1,12 @@
 /*
- * XREFs of IommuUnmapLogicalRange @ 0x14047AF50
+ * XREFs of IommuUnmapLogicalRange @ 0x1404748C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x14047B014 (HalpIommuDomainFreeLogicalAddressRange.c)
- *     IommupHvUnmapDeviceLogicalRange @ 0x14047B100 (IommupHvUnmapDeviceLogicalRange.c)
- *     HalpIommuFlushDomainTbs @ 0x14047B168 (HalpIommuFlushDomainTbs.c)
- *     HalpIommuUnmapLogicalRange @ 0x14047B208 (HalpIommuUnmapLogicalRange.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x140474984 (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     IommupHvUnmapDeviceLogicalRange @ 0x140474A70 (IommupHvUnmapDeviceLogicalRange.c)
+ *     HalpIommuFlushDomainTbs @ 0x140474AD8 (HalpIommuFlushDomainTbs.c)
+ *     HalpIommuUnmapLogicalRange @ 0x140474B78 (HalpIommuUnmapLogicalRange.c)
  */
 
 __int64 __fastcall IommuUnmapLogicalRange(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)

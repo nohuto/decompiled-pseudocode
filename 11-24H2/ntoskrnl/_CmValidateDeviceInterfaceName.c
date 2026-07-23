@@ -1,24 +1,24 @@
 /*
- * XREFs of _CmValidateDeviceInterfaceName @ 0x1408C9D90
+ * XREFs of _CmValidateDeviceInterfaceName @ 0x1408C77C0
  * Callers:
- *     _CmDeviceClassesSubkeyCallback @ 0x14081B020 (_CmDeviceClassesSubkeyCallback.c)
- *     PiUEventCopyEventData @ 0x14085B840 (PiUEventCopyEventData.c)
- *     PiSwDeviceInterfaceSetState @ 0x1408B22B0 (PiSwDeviceInterfaceSetState.c)
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     IoGetDeviceInterfaceAlias @ 0x1408B7090 (IoGetDeviceInterfaceAlias.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1408B7618 (_CmGetDeviceInterfaceReferenceString.c)
- *     _CmGetDeviceInterfacePathFormat @ 0x1408B7708 (_CmGetDeviceInterfacePathFormat.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x1409FB394 (PiSwDeviceInterfacesUpdateState.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140A2BFEC (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x140A4AE1C (_CmSetDeviceInterfacePathFormat.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x14081B760 (_CmDeviceClassesSubkeyCallback.c)
+ *     PiUEventCopyEventData @ 0x1408575B0 (PiUEventCopyEventData.c)
+ *     PiSwDeviceInterfaceSetState @ 0x1408AFBA4 (PiSwDeviceInterfaceSetState.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1408B4A00 (IoGetDeviceInterfaceAlias.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x1408B4F88 (_CmGetDeviceInterfaceReferenceString.c)
+ *     _CmGetDeviceInterfacePathFormat @ 0x1408B5078 (_CmGetDeviceInterfacePathFormat.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x1409F3D04 (PiSwDeviceInterfacesUpdateState.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140A1FEAC (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x140A41A9C (_CmSetDeviceInterfacePathFormat.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     StringExHandleOtherFlagsW @ 0x14041DE80 (StringExHandleOtherFlagsW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ScanHexFormat @ 0x1408CAD10 (ScanHexFormat.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     StringExHandleOtherFlagsW @ 0x140412250 (StringExHandleOtherFlagsW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ScanHexFormat @ 0x1408C8740 (ScanHexFormat.c)
  */
 
 __int64 __fastcall CmValidateDeviceInterfaceName(__int64 a1, const WCHAR *a2)

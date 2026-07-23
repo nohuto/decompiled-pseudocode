@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpLfhOwnerCompact @ 0x14031597C
+ * XREFs of RtlpHpLfhOwnerCompact @ 0x140315C0C
  * Callers:
- *     RtlpHpLfhContextCompact @ 0x140315038 (RtlpHpLfhContextCompact.c)
- *     RtlpHpLfhOwnerCompact @ 0x14031597C (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x1403152C8 (RtlpHpLfhContextCompact.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140315C0C (RtlpHpLfhOwnerCompact.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpLfhOwnerCompact @ 0x14031597C (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpAcquireLockShared @ 0x140315B28 (RtlpHpAcquireLockShared.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x140316330 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140315C0C (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpAcquireLockShared @ 0x140315DB8 (RtlpHpAcquireLockShared.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1403165C0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall RtlpHpLfhOwnerCompact(__int64 a1, __int64 a2, __int64 a3)
@@ -59,10 +59,13 @@ void __fastcall RtlpHpLfhOwnerCompact(__int64 a1, __int64 a2, __int64 a3)
     if ( *(_BYTE *)(a1 + 57) )
     {
       ExReleaseSpinLockSharedFromDpcLevel(v7);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v10 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

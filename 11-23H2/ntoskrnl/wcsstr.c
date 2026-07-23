@@ -1,21 +1,21 @@
 /*
- * XREFs of wcsstr @ 0x1403DBBA0
+ * XREFs of wcsstr @ 0x1403DBD80
  * Callers:
- *     BcpGetProgressMessages @ 0x140384C30 (BcpGetProgressMessages.c)
- *     SmUniqueIdParseProductName @ 0x1405CA7F8 (SmUniqueIdParseProductName.c)
- *     PiGetDeviceRegProperty @ 0x140792F08 (PiGetDeviceRegProperty.c)
- *     SiIsWinPEBoot @ 0x1407BFA90 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceName @ 0x1407BFB04 (SiGetBootDeviceName.c)
- *     PfSnIsHostingApplication @ 0x1407C2BD8 (PfSnIsHostingApplication.c)
- *     EtwpGenerateFileName @ 0x1407E92A0 (EtwpGenerateFileName.c)
- *     BiIsWinPEBoot @ 0x140803014 (BiIsWinPEBoot.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140805C78 (BiGetObjectReferenceFromEfiEntry.c)
- *     IopCheckIfNotNativeDriver @ 0x1409445E4 (IopCheckIfNotNativeDriver.c)
- *     PiGetDeviceRegistryProperty @ 0x140954D18 (PiGetDeviceRegistryProperty.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140A5F0A4 (BiUpdateObjectReferenceInEfiEntry.c)
- *     SiGetBiosSystemPartition @ 0x140A60454 (SiGetBiosSystemPartition.c)
- *     SubstringMatch @ 0x140A6EF3C (SubstringMatch.c)
- *     PopGetBitlockerKeyLocation @ 0x140AA0798 (PopGetBitlockerKeyLocation.c)
+ *     BcpGetProgressMessages @ 0x140384E10 (BcpGetProgressMessages.c)
+ *     SmUniqueIdParseProductName @ 0x1405CAD68 (SmUniqueIdParseProductName.c)
+ *     PiGetDeviceRegProperty @ 0x1407930F8 (PiGetDeviceRegProperty.c)
+ *     SiIsWinPEBoot @ 0x1407BFD60 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceName @ 0x1407BFDD4 (SiGetBootDeviceName.c)
+ *     PfSnIsHostingApplication @ 0x1407C2EA8 (PfSnIsHostingApplication.c)
+ *     EtwpGenerateFileName @ 0x1407E9570 (EtwpGenerateFileName.c)
+ *     BiIsWinPEBoot @ 0x1408032E4 (BiIsWinPEBoot.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140805F48 (BiGetObjectReferenceFromEfiEntry.c)
+ *     IopCheckIfNotNativeDriver @ 0x1409447E4 (IopCheckIfNotNativeDriver.c)
+ *     PiGetDeviceRegistryProperty @ 0x140954F18 (PiGetDeviceRegistryProperty.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140A5F354 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     SiGetBiosSystemPartition @ 0x140A60704 (SiGetBiosSystemPartition.c)
+ *     SubstringMatch @ 0x140A6F1EC (SubstringMatch.c)
+ *     PopGetBitlockerKeyLocation @ 0x140AA0608 (PopGetBitlockerKeyLocation.c)
  * Callees:
  *     <none>
  */

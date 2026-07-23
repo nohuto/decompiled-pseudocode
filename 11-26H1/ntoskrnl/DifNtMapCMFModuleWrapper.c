@@ -1,23 +1,23 @@
 /*
- * XREFs of DifNtMapCMFModuleWrapper @ 0x14067B4E0
+ * XREFs of DifNtMapCMFModuleWrapper @ 0x14067F0C0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtMapCMFModule @ 0x1408446A0 (NtMapCMFModule.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtMapCMFModule @ 0x140849B30 (NtMapCMFModule.c)
  */
 
 __int64 __fastcall DifNtMapCMFModuleWrapper(
-        unsigned int a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6)
+        ULONG a1,
+        ULONG a2,
+        ULONG *a3,
+        ULONG *a4,
+        ULONG *ViewSizeOut,
+        PVOID *BaseAddress)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -57,8 +57,8 @@ __int64 __fastcall DifNtMapCMFModuleWrapper(
   *(_QWORD *)&v20 = ReturnAddressForWrappers;
 LABEL_7:
   v14 = 0;
-  *(_QWORD *)&v21 = a5;
-  *((_QWORD *)&v20 + 1) = a6;
+  *(_QWORD *)&v21 = ViewSizeOut;
+  *((_QWORD *)&v20 + 1) = BaseAddress;
   *((_QWORD *)&v22 + 1) = __PAIR64__(a1, a2);
   *(_QWORD *)&v22 = a3;
   *((_QWORD *)&v21 + 1) = a4;
@@ -74,7 +74,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  LODWORD(v23) = NtMapCMFModule(a1, a2, a3, a4, a5, a6);
+  LODWORD(v23) = NtMapCMFModule(a1, a2, a3, a4, ViewSizeOut, BaseAddress);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

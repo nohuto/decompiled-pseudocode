@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDecommitHandleValidPte @ 0x14029F85C
+ * XREFs of MiDecommitHandleValidPte @ 0x14029EDAC
  * Callers:
- *     MiDeleteEmptyPageTableWorker @ 0x14029F288 (MiDeleteEmptyPageTableWorker.c)
- *     MiStoreDiscardPoisonedPage @ 0x14070A464 (MiStoreDiscardPoisonedPage.c)
+ *     MiDeleteEmptyPageTableWorker @ 0x14029E7D8 (MiDeleteEmptyPageTableWorker.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14070F118 (MiStoreDiscardPoisonedPage.c)
  * Callees:
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiDecommitAddToList @ 0x140323520 (MiDecommitAddToList.c)
- *     MiDecommitLargePte @ 0x14033EDBC (MiDecommitLargePte.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReturnPagedPoolLockCharge @ 0x14043CF44 (MiReturnPagedPoolLockCharge.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiDecommitAddToList @ 0x140325550 (MiDecommitAddToList.c)
+ *     MiDecommitLargePte @ 0x140340E3C (MiDecommitLargePte.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReturnPagedPoolLockCharge @ 0x14042F7F4 (MiReturnPagedPoolLockCharge.c)
  */
 
 __int64 __fastcall MiDecommitHandleValidPte(__int64 a1, char a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PdcAcquireRwLockExclusive @ 0x14091BACC
+ * XREFs of PdcAcquireRwLockExclusive @ 0x14091BC2C
  * Callers:
- *     PdcTaskClientRequest @ 0x14091B9A0 (PdcTaskClientRequest.c)
+ *     PdcTaskClientRequest @ 0x14091BB00 (PdcTaskClientRequest.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  */
 
 struct _KTHREAD *__fastcall PdcAcquireRwLockExclusive(unsigned __int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v3; // rax
-  __int64 v4; // rbx
+  _RTL_BALANCED_NODE *v3; // rax
+  _RTL_BALANCED_NODE *v4; // rbx
   struct _KTHREAD *result; // rax
 
   CurrentThread = KeGetCurrentThread();
@@ -21,7 +21,7 @@ struct _KTHREAD *__fastcall PdcAcquireRwLockExclusive(unsigned __int64 *a1)
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1, 0LL) )
     ExfAcquirePushLockExclusiveEx(a1, v3, (ULONG_PTR)a1);
   if ( v4 )
-    *(_BYTE *)(v4 + 26) |= 1u;
+    BYTE2(v4[1].Left) |= 1u;
   result = KeGetCurrentThread();
   a1[1] = (unsigned __int64)result;
   return result;

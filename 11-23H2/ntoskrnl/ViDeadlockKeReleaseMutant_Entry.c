@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockKeReleaseMutant_Entry @ 0x140AD9430
+ * XREFs of ViDeadlockKeReleaseMutant_Entry @ 0x140AD9420
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockReleaseResource @ 0x140AD7EFC (VfDeadlockReleaseResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD7EEC (VfDeadlockReleaseResource.c)
  */
 
 PVOID __fastcall ViDeadlockKeReleaseMutant_Entry(__int64 a1)

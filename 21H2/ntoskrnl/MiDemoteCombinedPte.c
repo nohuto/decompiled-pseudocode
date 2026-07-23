@@ -1,28 +1,28 @@
 /*
- * XREFs of MiDemoteCombinedPte @ 0x14036B260
+ * XREFs of MiDemoteCombinedPte @ 0x14036B410
  * Callers:
- *     MiActOnPte @ 0x14023C5F0 (MiActOnPte.c)
- *     MiWalkVaCheckCommon @ 0x140306724 (MiWalkVaCheckCommon.c)
- *     MiTrimPte @ 0x140308900 (MiTrimPte.c)
- *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
- *     MiAgePte @ 0x140339440 (MiAgePte.c)
- *     MiResetAccessBitPte @ 0x14039B7F0 (MiResetAccessBitPte.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1405366CC (MiDeprioritizeVirtualAddresses.c)
+ *     MiActOnPte @ 0x1402E0E40 (MiActOnPte.c)
+ *     MiWalkVaCheckCommon @ 0x140311474 (MiWalkVaCheckCommon.c)
+ *     MiTrimPte @ 0x140313650 (MiTrimPte.c)
+ *     NtUnlockVirtualMemory @ 0x140338C80 (NtUnlockVirtualMemory.c)
+ *     MiAgePte @ 0x140344190 (MiAgePte.c)
+ *     MiResetAccessBitPte @ 0x14039B940 (MiResetAccessBitPte.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14053690C (MiDeprioritizeVirtualAddresses.c)
  * Callees:
- *     MiUnlockPageTableCharges @ 0x14026FD98 (MiUnlockPageTableCharges.c)
- *     MiGetWsleContents @ 0x140270D40 (MiGetWsleContents.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiLockAndDecrementShareCount @ 0x1402D5EE0 (MiLockAndDecrementShareCount.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x14036AF08 (MiUpdateWorkingSetPrivateSize.c)
- *     MiFreeCombineBlock @ 0x14036B730 (MiFreeCombineBlock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiUnlockPageTableCharges @ 0x14025DD38 (MiUnlockPageTableCharges.c)
+ *     MiGetWsleContents @ 0x14025ECE0 (MiGetWsleContents.c)
+ *     MiLockAndDecrementShareCount @ 0x140287230 (MiLockAndDecrementShareCount.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIdentifyPfn @ 0x140353FA0 (MiIdentifyPfn.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x14036B0B8 (MiUpdateWorkingSetPrivateSize.c)
+ *     MiFreeCombineBlock @ 0x14036B8E0 (MiFreeCombineBlock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogCombinedPteDelete @ 0x14055D0D4 (MiLogCombinedPteDelete.c)
+ *     MiLogCombinedPteDelete @ 0x14055D314 (MiLogCombinedPteDelete.c)
  */
 
 __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -101,7 +101,7 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
                   - 0x58000000000LL);
   v12 = ((unsigned __int64)v11[2].m128i_i64[1] >> 39) & 0x3FF;
   v40 = (__int64)(a2 << 25) >> 16;
-  v38 = *(_QWORD *)(qword_140C4E648 + 8 * v12);
+  v38 = *(_QWORD *)(qword_140C4E688 + 8 * v12);
   Process = 0LL;
   if ( (*(_BYTE *)(a1 + 184) & 7) == 0 )
   {
@@ -116,7 +116,7 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
   v22 = v11[2].m128i_i16[0];
   v23 = v19;
   if ( (v22 == 1 || v22 == 2 && (v11[2].m128i_i8[2] & 8) != 0)
-    && *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174)) == v38
+    && *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a1 + 174)) == v38
     && _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 32), 0LL, 1LL) == 1 )
   {
     _InterlockedExchangeAdd((volatile signed __int32 *)(v35 + 392), 0xFFFFFFFF);
@@ -154,8 +154,8 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
       MiWriteValidPteNewProtection(a2, v37);
     }
     if ( (WsleContents & 0xF) == 8 )
-      MiUnlockPageTableCharges(48 * v36 - 0x58000000000LL, 1uLL, SchedulerAssist, (__int64)CurrentPrcb);
-    MiLockAndDecrementShareCount(48 * v36 - 0x58000000000LL, 0LL, SchedulerAssist);
+      MiUnlockPageTableCharges(48 * v36 - 0x58000000000LL, 1, SchedulerAssist, (__int64)CurrentPrcb);
+    MiLockAndDecrementShareCount(48 * v36 - 0x58000000000LL, 0);
     MiUpdateWorkingSetPrivateSize(v41, v40, 1LL, 0);
     if ( Process )
       _InterlockedExchangeAdd64((volatile signed __int64 *)&Process[1].Affinity.Bitmap[13], 1uLL);

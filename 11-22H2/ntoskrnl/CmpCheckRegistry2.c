@@ -22,7 +22,7 @@ __int64 __fastcall CmpCheckRegistry2(
         int a3,
         __int64 a4,
         char a5,
-        RTL_BITMAP *BitMapHeader,
+        _RTL_BITMAP *BitMapHeader,
         __int64 a7,
         int *a8)
 {

@@ -1,10 +1,10 @@
 /*
- * XREFs of BcpGetComponentOffsets @ 0x14023A310
+ * XREFs of BcpGetComponentOffsets @ 0x14023A1F4
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x14023A7EC (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14023A6D0 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BcpDisplayProgress @ 0x14023A124 (BcpDisplayProgress.c)
- *     BcpSetCursorPosition @ 0x14023A618 (BcpSetCursorPosition.c)
+ *     BcpDisplayProgress @ 0x14023A008 (BcpDisplayProgress.c)
+ *     BcpSetCursorPosition @ 0x14023A4FC (BcpSetCursorPosition.c)
  */
 
 __int64 __fastcall BcpGetComponentOffsets(unsigned int *a1, _DWORD *a2, int *a3, int a4, int a5, char a6)

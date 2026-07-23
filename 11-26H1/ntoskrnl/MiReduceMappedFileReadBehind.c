@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReduceMappedFileReadBehind @ 0x1404B1B98
+ * XREFs of MiReduceMappedFileReadBehind @ 0x1404ABF14
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x14036EBF0 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x140370990 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
  */
 
 __int64 __fastcall MiReduceMappedFileReadBehind(unsigned __int64 *a1, unsigned __int64 a2, __int64 a3)
@@ -12,19 +12,18 @@ __int64 __fastcall MiReduceMappedFileReadBehind(unsigned __int64 *a1, unsigned _
   __int64 v4; // rbp
   unsigned __int64 v7; // r9
   unsigned __int64 v8; // r10
-  unsigned __int64 v9; // r15
-  __int64 v10; // r11
-  unsigned __int64 v11; // rbx
-  _QWORD *v12; // r8
-  __int64 v13; // r9
+  unsigned __int64 v9; // rbx
+  unsigned __int64 v10; // r11
+  _QWORD *v11; // r8
+  __int64 v12; // r9
   _QWORD *i; // rax
-  unsigned __int64 v15; // r9
-  __int64 v16; // rcx
-  unsigned __int64 v17; // r14
+  unsigned __int64 v14; // r9
+  __int64 v15; // rcx
+  unsigned __int64 v16; // r14
   unsigned __int64 j; // rax
-  unsigned __int64 *v20; // rax
+  unsigned __int64 *v19; // rax
+  unsigned __int64 v20; // rbx
   unsigned __int64 v21; // rbx
-  unsigned __int64 v22; // rbx
 
   v4 = 0LL;
   RtlSetBitsEx((__int64)a1, a2, 1uLL);
@@ -37,51 +36,49 @@ __int64 __fastcall MiReduceMappedFileReadBehind(unsigned __int64 *a1, unsigned _
       if ( *a1 <= v7 )
         break;
       v9 = a1[1];
-      v10 = 0LL;
-      v11 = v9 + 8 * ((v8 - 1) >> 6);
-      v12 = (_QWORD *)(v9 + 8 * (v7 >> 6));
-      v13 = *v12 | ((1LL << v7) - 1);
-      for ( i = v12 + 1; ; ++i )
+      v10 = v9 + 8 * ((v8 - 1) >> 6);
+      v11 = (_QWORD *)(v9 + 8 * (v7 >> 6));
+      v12 = *v11 | ((1LL << v7) - 1);
+      for ( i = v11 + 1; ; ++i )
       {
-        v15 = ~v13;
-        if ( v15 )
+        v14 = ~v12;
+        if ( v14 )
           break;
-        if ( (unsigned __int64)i > v11 )
+        if ( (unsigned __int64)i > v10 )
           goto LABEL_6;
-        v13 = *++v12;
+        v12 = *++v11;
       }
-      _BitScanForward64((unsigned __int64 *)&v16, v15);
-      v17 = (unsigned int)v16 + ((__int64)((__int64)v12 - v9) >> 3 << 6);
-      if ( v17 > v8 )
+      _BitScanForward64((unsigned __int64 *)&v15, v14);
+      v16 = (unsigned int)v15 + ((__int64)((__int64)v11 - v9) >> 3 << 6);
+      if ( v16 > v8 )
         break;
-      for ( j = ~(v15 | ((1LL << v16) - 1)); !j; j = *v20 )
+      for ( j = ~(v14 | ((1LL << v15) - 1)); !j; j = *v19 )
       {
-        v10 += 64LL;
-        v20 = v12 + 1;
-        if ( (unsigned __int64)(v12 + 1) > v11 )
+        v19 = v11 + 1;
+        if ( (unsigned __int64)(v11 + 1) > v10 )
         {
           LODWORD(j) = 64;
           goto LABEL_14;
         }
-        ++v12;
+        ++v11;
       }
       _BitScanForward64(&j, j);
 LABEL_14:
-      v21 = ((__int64)((__int64)v12 - v9) >> 3 << 6) + (unsigned int)j;
-      if ( v21 > v8 )
-        v21 = *a1;
-      v22 = v21 - v17;
-      if ( !v22 || v17 >= a2 )
+      v20 = ((__int64)((__int64)v11 - v9) >> 3 << 6) + (unsigned int)j;
+      if ( v20 > v8 )
+        v20 = *a1;
+      v21 = v20 - v16;
+      if ( !v21 || v16 >= a2 )
         break;
-      if ( v22 > a3 - v4 )
-        v22 = a3 - v4;
-      RtlSetBitsEx((__int64)a1, v17, v22);
-      v4 += v22;
+      if ( v21 > a3 - v4 )
+        v21 = a3 - v4;
+      RtlSetBitsEx((__int64)a1, v16, v21);
+      v4 += v21;
       if ( v4 == a3 )
         break;
-      v7 = v17 + v22;
+      v7 = v16 + v21;
     }
-    while ( v17 + v22 < a2 );
+    while ( v16 + v21 < a2 );
   }
 LABEL_6:
   RtlClearBitsEx((__int64)a1, a2, 1uLL);

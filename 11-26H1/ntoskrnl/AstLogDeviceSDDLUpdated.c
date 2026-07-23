@@ -1,16 +1,16 @@
 /*
- * XREFs of AstLogDeviceSDDLUpdated @ 0x140AAE198
+ * XREFs of AstLogDeviceSDDLUpdated @ 0x140AA717C
  * Callers:
- *     IopGetSetSecurityObject @ 0x1408EC450 (IopGetSetSecurityObject.c)
+ *     IopGetSetSecurityObject @ 0x1408F2A10 (IopGetSetSecurityObject.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1404B02C0 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     AstIsRecording @ 0x1409FF730 (AstIsRecording.c)
- *     ObQuerySecurityObject @ 0x140AAE4C8 (ObQuerySecurityObject.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1404A9950 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     AstIsRecording @ 0x14091C530 (AstIsRecording.c)
+ *     ObQuerySecurityObject @ 0x140AA74AC (ObQuerySecurityObject.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AstLogDeviceSDDLUpdated(__int64 a1)
@@ -85,7 +85,7 @@ void __fastcall AstLogDeviceSDDLUpdated(__int64 a1)
       v18[1] = 0;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06E00,
-        (unsigned __int8 *)byte_140047DBD,
+        (unsigned __int8 *)byte_1400482D1,
         0LL,
         0LL,
         6u,

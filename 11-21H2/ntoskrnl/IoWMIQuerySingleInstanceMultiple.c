@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WmipQuerySingleMultiple @ 0x1409DDA74 (WmipQuerySingleMultiple.c)
+ *     sub_1409DDA74 @ 0x1409DDA74 (sub_1409DDA74.c)
  */
 
 NTSTATUS __stdcall IoWMIQuerySingleInstanceMultiple(
@@ -16,7 +16,7 @@ NTSTATUS __stdcall IoWMIQuerySingleInstanceMultiple(
 {
   _OWORD *v5; // rbx
   ULONG v7; // r9d
-  NTSTATUS SingleMultiple; // edx
+  NTSTATUS v8; // edx
   ULONG v10; // [rsp+50h] [rbp-68h] BYREF
   _OWORD v11[3]; // [rsp+58h] [rbp-60h] BYREF
   __int64 v12; // [rsp+88h] [rbp-30h]
@@ -33,17 +33,17 @@ NTSTATUS __stdcall IoWMIQuerySingleInstanceMultiple(
     v5 = v11;
     v7 = 56;
   }
-  SingleMultiple = WmipQuerySingleMultiple(
-                     0,
-                     0,
-                     (_DWORD)v5,
-                     v7,
-                     0LL,
-                     ObjectCount,
-                     (__int64)DataBlockObjectList,
-                     (__int64)InstanceNames,
-                     (__int64)&v10);
-  if ( SingleMultiple >= 0 )
+  v8 = sub_1409DDA74(
+         0,
+         0,
+         (_DWORD)v5,
+         v7,
+         0LL,
+         ObjectCount,
+         (__int64)DataBlockObjectList,
+         (__int64)InstanceNames,
+         (__int64)&v10);
+  if ( v8 >= 0 )
   {
     if ( (*((_DWORD *)v5 + 11) & 0x20) != 0 )
     {
@@ -53,9 +53,9 @@ NTSTATUS __stdcall IoWMIQuerySingleInstanceMultiple(
     {
       *InOutBufferSize = v10;
       if ( v5 != v11 )
-        return SingleMultiple;
+        return v8;
     }
     return -1073741789;
   }
-  return SingleMultiple;
+  return v8;
 }

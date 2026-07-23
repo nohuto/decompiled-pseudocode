@@ -1,13 +1,13 @@
 /*
- * XREFs of NtQueryInformationAtom @ 0x1404CBF08
+ * XREFs of NtQueryInformationAtom @ 0x1404B1934
  * Callers:
  *     <none>
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140013F00 (MmSessionGetWin32Callouts.c)
- *     RtlQueryAtomInAtomTable @ 0x140425460 (RtlQueryAtomInAtomTable.c)
- *     ExCallCallBack @ 0x140428DC0 (ExCallCallBack.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     RtlQueryAtomsInAtomTable @ 0x1406882B0 (RtlQueryAtomsInAtomTable.c)
+ *     MmSessionGetWin32Callouts @ 0x140013A80 (MmSessionGetWin32Callouts.c)
+ *     RtlQueryAtomInAtomTable @ 0x140424320 (RtlQueryAtomInAtomTable.c)
+ *     ExCallCallBack @ 0x140427C90 (ExCallCallBack.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     RtlQueryAtomsInAtomTable @ 0x140688394 (RtlQueryAtomsInAtomTable.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationAtom(
@@ -17,7 +17,7 @@ NTSTATUS __stdcall NtQueryInformationAtom(
         ULONG AtomInformationLength,
         PULONG ReturnLength)
 {
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v10; // rcx
   ULONG v11; // ebx
   int AtomsInAtomTable; // edx

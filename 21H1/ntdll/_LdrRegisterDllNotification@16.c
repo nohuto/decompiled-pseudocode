@@ -8,27 +8,33 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __stdcall LdrRegisterDllNotification(int a1, int a2, int a3, _DWORD *a4)
+NTSTATUS __cdecl LdrRegisterDllNotification(
+        ULONG Flags,
+        PLDR_DLL_NOTIFICATION_FUNCTION NotificationFunction,
+        PVOID Context,
+        PVOID *Cookie)
 {
-  int Heap; // esi
+  _DWORD *Heap; // esi
   _DWORD *v5; // eax
+  SIZE_T v7; // [esp-4h] [ebp-10h]
 
-  if ( a1 || !a4 || !a2 )
+  if ( Flags || !Cookie || !NotificationFunction )
     return -1073741811;
-  Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, 16);
+  LODWORD(v7) = 16;
+  Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, v7);
   if ( !Heap )
     return -1073741801;
-  *(_DWORD *)(Heap + 8) = a2;
-  *(_DWORD *)(Heap + 12) = a3;
+  Heap[2] = NotificationFunction;
+  Heap[3] = Context;
   RtlEnterCriticalSection(&LdrpDllNotificationLock);
   v5 = off_4B3A33CC[0];
   if ( *(_UNKNOWN ***)off_4B3A33CC[0] != &LdrpDllNotificationList )
     __fastfail(3u);
-  *(_DWORD *)Heap = &LdrpDllNotificationList;
-  *(_DWORD *)(Heap + 4) = v5;
+  *Heap = &LdrpDllNotificationList;
+  Heap[1] = v5;
   *v5 = Heap;
   off_4B3A33CC[0] = (_UNKNOWN **)Heap;
   RtlLeaveCriticalSection(&LdrpDllNotificationLock);
-  *a4 = Heap;
+  *Cookie = Heap;
   return 0;
 }

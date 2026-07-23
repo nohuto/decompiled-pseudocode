@@ -7,11 +7,11 @@
  *     RtlAcquireSRWLockExclusive @ 0x18002A460 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall EtwpRemoveRegistrationFromTable(void *a1)
+void __fastcall EtwpRemoveRegistrationFromTable(PRTL_BALANCED_NODE Node)
 {
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  RtlRbRemoveNode(&EtwpRegistrationTable, a1);
+  RtlRbRemoveNode(&EtwpRegistrationTable, Node);
   EtwpProvLockOwner = 0;
-  memset(a1, 171, 24);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  memset(Node, 171, sizeof(_RTL_BALANCED_NODE));
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

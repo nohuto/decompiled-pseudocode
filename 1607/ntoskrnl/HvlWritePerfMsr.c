@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlWritePerfMsr @ 0x1401BB26C
+ * XREFs of HvlWritePerfMsr @ 0x1401BB150
  * Callers:
  *     <none>
  * Callees:

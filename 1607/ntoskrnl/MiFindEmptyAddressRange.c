@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFindEmptyAddressRange @ 0x1404363D0
+ * XREFs of MiFindEmptyAddressRange @ 0x1404352A0
  * Callers:
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiSelectUserAddress @ 0x1404BAA90 (MiSelectUserAddress.c)
- *     MiMapLockedPagesInUserSpace @ 0x140528600 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiSelectUserAddress @ 0x1404A67C0 (MiSelectUserAddress.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140528B40 (MiMapLockedPagesInUserSpace.c)
  * Callees:
- *     RtlFindClearBits @ 0x14002CAB0 (RtlFindClearBits.c)
- *     MiExpandVadBitMap @ 0x14046D9A4 (MiExpandVadBitMap.c)
- *     MiFindEmptyAddressRangeInTree @ 0x1404B8060 (MiFindEmptyAddressRangeInTree.c)
+ *     RtlFindClearBits @ 0x14002C630 (RtlFindClearBits.c)
+ *     MiExpandVadBitMap @ 0x14046C874 (MiExpandVadBitMap.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x1404A2440 (MiFindEmptyAddressRangeInTree.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRange(
@@ -54,12 +54,12 @@ __int64 __fastcall MiFindEmptyAddressRange(
   Process = KeGetCurrentThread()->ApcState.Process;
   *a7 = 1;
   v36 = Process;
-  v13 = qword_140327F90 + 276840448 + 40LL * (a5 < 0);
+  v13 = qword_140327FD0 + 276840448 + 40LL * (a5 < 0);
   if ( (a4 & 2) != 0 )
   {
     v26 = Process[1].ActiveProcessors.Bitmap[18];
     v14 = (unsigned __int8)*(_DWORD *)(v13 + 44);
-    v15 = *(_QWORD *)(qword_140327F90 + 276840456) >> 16;
+    v15 = *(_QWORD *)(qword_140327FD0 + 276840456) >> 16;
     v37 = v15;
     v38 = v14;
     if ( v26 > 0x100000000LL )
@@ -104,7 +104,7 @@ __int64 __fastcall MiFindEmptyAddressRange(
       v19 = *(_DWORD *)(v13 + 32);
       if ( (_DWORD)v18 != 1 && (unsigned int)v18 >= *(_DWORD *)(v13 + 36) )
         v19 = *(_DWORD *)(v13 + 40);
-      v20 = *(_DWORD *)(v13 + 24) - qword_140327F90;
+      v20 = *(_DWORD *)(v13 + 24) - qword_140327FD0;
       if ( v7 == 1 )
       {
         v27 = v19 + 8 * v20;
@@ -155,7 +155,7 @@ LABEL_11:
       {
         if ( v7 != 1 || (v28 = ClearBits + 8 * v20, v28 >= v38) && v28 < v37 )
         {
-          *a6 = (ClearBits + 8 * (*(_QWORD *)(v13 + 24) - qword_140327F90)) << 16;
+          *a6 = (ClearBits + 8 * (*(_QWORD *)(v13 + 24) - qword_140327FD0)) << 16;
           return 0LL;
         }
       }

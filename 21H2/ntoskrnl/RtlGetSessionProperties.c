@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlGetSessionProperties @ 0x140913890
+ * XREFs of RtlGetSessionProperties @ 0x1409139F0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 __fastcall RtlGetSessionProperties(__int64 a1, _DWORD *a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlGetSessionProperties(ULONG SessionId, PULONG SharedUserSessionId)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
 
-  if ( (_DWORD)a1 == -1 )
-    return (unsigned int)-1073741811;
+  if ( SessionId == -1 )
+    return -1073741811;
   v2 = 0;
-  if ( !a2 )
-  {
-    return (unsigned int)-1073741811;
-  }
-  else
-  {
-    *a2 = 0;
-    *a2 = *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(a1, (__int64)a2) + 141) + 24LL) == a1;
-  }
+  if ( !SharedUserSessionId )
+    return -1073741811;
+  *SharedUserSessionId = 0;
+  *SharedUserSessionId = *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(
+                                                   *(__int64 *)&SessionId,
+                                                   (__int64)SharedUserSessionId)
+                                     + 141)
+                                   + 24LL) == SessionId;
   return v2;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiClearAweLargePageMetadata @ 0x1406495E8
+ * XREFs of MiClearAweLargePageMetadata @ 0x140649B38
  * Callers:
- *     MiFreeContiguousLargePageRun @ 0x140649DB8 (MiFreeContiguousLargePageRun.c)
- *     MiReadyLargeAwePageForFree @ 0x14064BC58 (MiReadyLargeAwePageForFree.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064A308 (MiFreeContiguousLargePageRun.c)
+ *     MiReadyLargeAwePageForFree @ 0x14064C1A8 (MiReadyLargeAwePageForFree.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
  */

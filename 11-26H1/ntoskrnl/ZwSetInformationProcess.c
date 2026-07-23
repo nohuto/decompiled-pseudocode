@@ -1,18 +1,22 @@
 /*
- * XREFs of ZwSetInformationProcess @ 0x140723770
+ * XREFs of ZwSetInformationProcess @ 0x140728340
  * Callers:
- *     DifZwSetInformationProcessWrapper @ 0x1406BA600 (DifZwSetInformationProcessWrapper.c)
- *     CmpInitializeRegistryProcess @ 0x140857024 (CmpInitializeRegistryProcess.c)
- *     RtlCreateUserStack @ 0x1409EA3A8 (RtlCreateUserStack.c)
- *     RtlpWow64CreateUserStack @ 0x140AB853C (RtlpWow64CreateUserStack.c)
- *     StartFirstUserProcess @ 0x140D08548 (StartFirstUserProcess.c)
+ *     DifZwSetInformationProcessWrapper @ 0x1406BE1E0 (DifZwSetInformationProcessWrapper.c)
+ *     CmpInitializeRegistryProcess @ 0x14085D3B4 (CmpInitializeRegistryProcess.c)
+ *     RtlCreateUserStack @ 0x1409E6B78 (RtlCreateUserStack.c)
+ *     RtlpWow64CreateUserStack @ 0x140AB9B7C (RtlpWow64CreateUserStack.c)
+ *     StartFirstUserProcess @ 0x140D0E818 (StartFirstUserProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationProcess(
+        HANDLE ProcessHandle,
+        PROCESSINFOCLASS ProcessInformationClass,
+        PVOID ProcessInformation,
+        ULONG ProcessInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

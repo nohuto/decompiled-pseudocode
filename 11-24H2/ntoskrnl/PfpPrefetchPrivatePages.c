@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchPrivatePages @ 0x14095328C
+ * XREFs of PfpPrefetchPrivatePages @ 0x140936C3C
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x140951A08 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x1409353B4 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1403D447C (MmQueryMemoryListInformation.c)
- *     PfpCheckPrefetchAbort @ 0x1404864EC (PfpCheckPrefetchAbort.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     MmPrefetchVirtualMemory @ 0x140953128 (MmPrefetchVirtualMemory.c)
- *     PfpAvailablePagesForPrefetch @ 0x140955290 (PfpAvailablePagesForPrefetch.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x1409552C8 (PfpUpdateRepurposedByPrefetch.c)
- *     PfpSourceBuildVaArray @ 0x140AB04EC (PfpSourceBuildVaArray.c)
- *     PfpSourceGetPrefetchSupport @ 0x140AB7630 (PfpSourceGetPrefetchSupport.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmQueryMemoryListInformation @ 0x1402623FC (MmQueryMemoryListInformation.c)
+ *     PfpCheckPrefetchAbort @ 0x140481ADC (PfpCheckPrefetchAbort.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     MmPrefetchVirtualMemory @ 0x140936AD8 (MmPrefetchVirtualMemory.c)
+ *     PfpAvailablePagesForPrefetch @ 0x140938C40 (PfpAvailablePagesForPrefetch.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x140938C78 (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpSourceBuildVaArray @ 0x140AAB45C (PfpSourceBuildVaArray.c)
+ *     PfpSourceGetPrefetchSupport @ 0x140AB1900 (PfpSourceGetPrefetchSupport.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpPrefetchPrivatePages(_QWORD *a1)
@@ -109,7 +109,7 @@ LABEL_37:
         v18 = v15;
         if ( v15 > 0x10 )
           v18 = 16;
-        if ( (int)MmPrefetchVirtualMemory((ULONG_PTR)v17, v18, (unsigned __int64)v21, v28) >= 0 )
+        if ( (int)MmPrefetchVirtualMemory((ULONG_PTR)v17, v18, (__int64)v21, v28) >= 0 )
           *(_DWORD *)(v1 + 104) += v18;
         PfpUpdateRepurposedByPrefetch(v22, v18);
         v21 += 16 * v18;
@@ -123,7 +123,7 @@ LABEL_37:
       v17 = Handle[1];
       v19 = LODWORD(P[0]);
       *(_DWORD *)(v1 + 104) += LODWORD(P[0]);
-      MmPrefetchVirtualMemory((ULONG_PTR)v17, v19, (unsigned __int64)v5, v9);
+      MmPrefetchVirtualMemory((ULONG_PTR)v17, v19, (__int64)v5, v9);
     }
     ++*(_DWORD *)(v1 + 92);
 LABEL_27:

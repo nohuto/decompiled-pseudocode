@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerStartProfileInterrupt @ 0x1404C1A48
+ * XREFs of HalpTimerStartProfileInterrupt @ 0x1404C1C88
  * Callers:
- *     DefaultEnableMonitoring @ 0x1404BE6F0 (DefaultEnableMonitoring.c)
+ *     DefaultEnableMonitoring @ 0x1404BE930 (DefaultEnableMonitoring.c)
  * Callees:
- *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
+ *     HalpSetTimer @ 0x1402F2BCC (HalpSetTimer.c)
  */
 
 __int64 HalpTimerStartProfileInterrupt()

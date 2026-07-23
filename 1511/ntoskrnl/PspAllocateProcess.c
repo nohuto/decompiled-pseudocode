@@ -1029,7 +1029,7 @@ LABEL_162:
 LABEL_165:
                   if ( KeQuerySystemTimeUnsafe() )
                   {
-                    KeQuerySystemTimePrecise((__int64 *)v23 + 97);
+                    KeQuerySystemTimePrecise((LARGE_INTEGER *)v23 + 97);
                   }
                   else
                   {

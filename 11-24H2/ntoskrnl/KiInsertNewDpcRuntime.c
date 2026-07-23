@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInsertNewDpcRuntime @ 0x1403FF6B0
+ * XREFs of KiInsertNewDpcRuntime @ 0x1403F9BD0
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402552D0 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x1402858E0 (KiExecuteAllDpcs.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiInsertNewDpcRuntime(__int64 a1, __int64 a2, __int64 a3)
@@ -48,7 +48,7 @@ __int64 __fastcall KiInsertNewDpcRuntime(__int64 a1, __int64 a2, __int64 a3)
     v15 = (unsigned int)(2 * v4);
     if ( (unsigned int)v15 < 4 )
       v15 = 4LL;
-    Pool2 = (char *)ExAllocatePool2(0x40uLL);
+    Pool2 = (char *)ExAllocatePool2(0x40uLL, 8LL * (unsigned int)v15, 0x74687244u);
     if ( Pool2 )
     {
       _disable();
@@ -126,7 +126,7 @@ __int64 __fastcall KiInsertNewDpcRuntime(__int64 a1, __int64 a2, __int64 a3)
       v6 = a2;
     }
   }
-  result = ExAllocatePool2(0x40uLL);
+  result = ExAllocatePool2(0x40uLL, 0x20uLL, 0x74687244u);
   v9 = (_QWORD *)result;
   if ( result )
   {

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAddToLeaf @ 0x1404B0DF0
+ * XREFs of CmpAddToLeaf @ 0x14049B1D0
  * Callers:
- *     CmpAddSubKeyToList @ 0x1404B0C8C (CmpAddSubKeyToList.c)
+ *     CmpAddSubKeyToList @ 0x14049B06C (CmpAddSubKeyToList.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     HvReallocateCell @ 0x1403FFDEC (HvReallocateCell.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     CmpHashUnicodeComponent @ 0x1404B1340 (CmpHashUnicodeComponent.c)
- *     CmpCompareInIndex @ 0x1405126A0 (CmpCompareInIndex.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x140512A60 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvReallocateCell @ 0x1403FECAC (HvReallocateCell.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     CmpHashUnicodeComponent @ 0x14049B720 (CmpHashUnicodeComponent.c)
+ *     CmpCompareInIndex @ 0x1404F5A90 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1404F5E50 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpAddToLeaf(

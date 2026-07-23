@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWeaklyEnumerateEntryHashTable @ 0x140213760
+ * XREFs of RtlWeaklyEnumerateEntryHashTable @ 0x14021358C
  * Callers:
  *     <none>
  * Callees:

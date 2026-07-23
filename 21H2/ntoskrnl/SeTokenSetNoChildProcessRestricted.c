@@ -1,14 +1,14 @@
 /*
- * XREFs of SeTokenSetNoChildProcessRestricted @ 0x1402D1920
+ * XREFs of SeTokenSetNoChildProcessRestricted @ 0x14024FD40
  * Callers:
- *     PspSetNoChildProcessRestrictedPolicy @ 0x1406C0098 (PspSetNoChildProcessRestrictedPolicy.c)
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x14061EFA8 (PspSetNoChildProcessRestrictedPolicy.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
  */
 
-_QWORD *__fastcall SeTokenSetNoChildProcessRestricted(__int64 a1, char a2, char a3)
+__int64 __fastcall SeTokenSetNoChildProcessRestricted(__int64 a1, char a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v7; // edx
@@ -43,5 +43,5 @@ LABEL_6:
   *(_QWORD *)(a1 + 56) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
   _InterlockedOr(v13, 0);
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread(KeGetCurrentThread());
 }

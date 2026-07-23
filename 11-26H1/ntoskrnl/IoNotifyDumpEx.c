@@ -1,10 +1,10 @@
 /*
- * XREFs of IoNotifyDumpEx @ 0x1405C732C
+ * XREFs of IoNotifyDumpEx @ 0x1405C9BFC
  * Callers:
- *     IoNotifyDump @ 0x1405C7314 (IoNotifyDump.c)
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
+ *     IoNotifyDump @ 0x1405C9BE4 (IoNotifyDump.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IoNotifyDumpEx(int a1)
@@ -18,7 +18,7 @@ __int64 __fastcall IoNotifyDumpEx(int a1)
   __int64 v7; // rcx
   __int64 result; // rax
 
-  if ( qword_140E65E80 )
+  if ( qword_140E66020 )
   {
     v1 = a1 - 1;
     if ( v1 )

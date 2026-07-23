@@ -1,11 +1,11 @@
 /*
- * XREFs of IoTryReleasePage @ 0x14055EA84
+ * XREFs of IoTryReleasePage @ 0x14055F144
  * Callers:
- *     MiRequestIoPageMdlCacheRelease @ 0x1403D6FEC (MiRequestIoPageMdlCacheRelease.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x1403D71CC (MiRequestIoPageMdlCacheRelease.c)
  * Callees:
- *     IopMcDereferenceBufferEntry @ 0x14055EEC0 (IopMcDereferenceBufferEntry.c)
- *     IopMcFindNextTableEntryForUnlock @ 0x14055EFA4 (IopMcFindNextTableEntryForUnlock.c)
- *     IopMcTryUnlockMdl @ 0x14055F40C (IopMcTryUnlockMdl.c)
+ *     IopMcDereferenceBufferEntry @ 0x14055F580 (IopMcDereferenceBufferEntry.c)
+ *     IopMcFindNextTableEntryForUnlock @ 0x14055F664 (IopMcFindNextTableEntryForUnlock.c)
+ *     IopMcTryUnlockMdl @ 0x14055FACC (IopMcTryUnlockMdl.c)
  */
 
 __int64 __fastcall IoTryReleasePage(__int64 a1, __int64 a2)

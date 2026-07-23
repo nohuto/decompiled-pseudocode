@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockPage @ 0x1402BF704
+ * XREFs of MiUnlockPage @ 0x1402BF8F4
  * Callers:
- *     MiScanPagefileSpace @ 0x140853430 (MiScanPagefileSpace.c)
- *     MmAreMdlPagesLocked @ 0x140924CC8 (MmAreMdlPagesLocked.c)
+ *     MiScanPagefileSpace @ 0x140854690 (MiScanPagefileSpace.c)
+ *     MmAreMdlPagesLocked @ 0x140925CC8 (MmAreMdlPagesLocked.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockPage(__int64 a1, unsigned __int8 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonMarkCountersReserved @ 0x14051D430
+ * XREFs of EmonMarkCountersReserved @ 0x14051D980
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateHalCounters @ 0x140501C18 (HalpAllocateHalCounters.c)
- *     EmonConfigurePebsBuffer @ 0x14051D118 (EmonConfigurePebsBuffer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpAllocateHalCounters @ 0x140502168 (HalpAllocateHalCounters.c)
+ *     EmonConfigurePebsBuffer @ 0x14051D668 (EmonConfigurePebsBuffer.c)
  */
 
 __int64 __fastcall EmonMarkCountersReserved(__int64 a1)
@@ -44,7 +44,7 @@ __int64 __fastcall EmonMarkCountersReserved(__int64 a1)
     v4 = HalpCounterStatus + 8LL * HalpNumberOfCounters * Number;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -106,10 +106,10 @@ LABEL_20:
   {
     HalCounters = -1073741670;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v20 = CurrentPrcb->SchedulerAssist;
@@ -117,7 +117,7 @@ LABEL_20:
       v16 = (v21 & v20[5]) == 0;
       v20[5] &= v21;
       if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

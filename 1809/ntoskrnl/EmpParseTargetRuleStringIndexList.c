@@ -1,14 +1,14 @@
 /*
- * XREFs of EmpParseTargetRuleStringIndexList @ 0x1409BF22C
+ * XREFs of EmpParseTargetRuleStringIndexList @ 0x1409C022C
  * Callers:
- *     EmpParseTargetRules @ 0x1409BEFF4 (EmpParseTargetRules.c)
+ *     EmpParseTargetRules @ 0x1409BFFF4 (EmpParseTargetRules.c)
  * Callees:
- *     RtlStringCopyWorkerA_0 @ 0x14012A83C (RtlStringCopyWorkerA_0.c)
- *     strchr @ 0x140196EC0 (strchr.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCharToInteger @ 0x14072CDD0 (RtlCharToInteger.c)
- *     EmpInfParseGetStringIndexFromName @ 0x1409BF484 (EmpInfParseGetStringIndexFromName.c)
+ *     RtlStringCopyWorkerA_0 @ 0x14012A90C (RtlStringCopyWorkerA_0.c)
+ *     strchr @ 0x140197000 (strchr.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlCharToInteger @ 0x14072DFC0 (RtlCharToInteger.c)
+ *     EmpInfParseGetStringIndexFromName @ 0x1409C0484 (EmpInfParseGetStringIndexFromName.c)
  */
 
 bool __fastcall EmpParseTargetRuleStringIndexList(
@@ -29,7 +29,7 @@ bool __fastcall EmpParseTargetRuleStringIndexList(
   __int64 v14; // r13
   const char *v15; // r15
   size_t *v16; // r8
-  char *PoolWithTag; // r14
+  CHAR *PoolWithTag; // r14
   __int64 v18; // rcx
   int v20; // [rsp+30h] [rbp-58h]
   ULONG Value[21]; // [rsp+34h] [rbp-54h] BYREF
@@ -108,7 +108,7 @@ LABEL_29:
       while ( a2 );
       if ( a2 - v15 != -1 )
       {
-        PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, a2 - v15 + 1, 0x74694D45u);
+        PoolWithTag = (CHAR *)ExAllocatePoolWithTag(PagedPool, a2 - v15 + 1, 0x74694D45u);
         if ( PoolWithTag )
         {
           if ( (unsigned __int64)(a2 - v15 + 1) <= 0x7FFFFFFF )

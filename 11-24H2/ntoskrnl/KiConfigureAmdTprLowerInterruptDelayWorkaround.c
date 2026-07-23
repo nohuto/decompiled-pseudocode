@@ -1,10 +1,10 @@
 /*
- * XREFs of KiConfigureAmdTprLowerInterruptDelayWorkaround @ 0x140B57F04
+ * XREFs of KiConfigureAmdTprLowerInterruptDelayWorkaround @ 0x140B59F84
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1404A37D0 (HviIsAnyHypervisorPresent.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     HviIsAnyHypervisorPresent @ 0x14049E730 (HviIsAnyHypervisorPresent.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall KiConfigureAmdTprLowerInterruptDelayWorkaround(ULONG_PTR BugCheckParameter1, int a2)

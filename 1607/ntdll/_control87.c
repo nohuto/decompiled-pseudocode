@@ -1,9 +1,9 @@
 /*
- * XREFs of _control87 @ 0x18009E620
+ * XREFs of _control87 @ 0x18009E610
  * Callers:
- *     _controlfp @ 0x18009E8B8 (_controlfp.c)
+ *     _controlfp @ 0x18009E8A8 (_controlfp.c)
  * Callees:
- *     _set_fpsr @ 0x1800A0AB0 (_set_fpsr.c)
+ *     _set_fpsr @ 0x1800A0AA0 (_set_fpsr.c)
  *     _get_fpsr @ 0x1800AC920 (_get_fpsr.c)
  */
 

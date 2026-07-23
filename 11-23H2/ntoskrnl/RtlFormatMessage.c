@@ -1,21 +1,31 @@
 /*
- * XREFs of RtlFormatMessage @ 0x1409B9A40
+ * XREFs of RtlFormatMessage @ 0x1409B9C40
  * Callers:
  *     <none>
  * Callees:
- *     RtlFormatMessageEx @ 0x1409B9A98 (RtlFormatMessageEx.c)
+ *     RtlFormatMessageEx @ 0x1409B9C98 (RtlFormatMessageEx.c)
  */
 
-__int64 __fastcall RtlFormatMessage(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        char a5,
-        __int64 a6,
-        wchar_t *a7,
-        int a8,
-        __int64 a9)
+NTSTATUS __cdecl RtlFormatMessage(
+        PWSTR MessageFormat,
+        ULONG MaximumWidth,
+        BOOLEAN IgnoreInserts,
+        BOOLEAN ArgumentsAreAnsi,
+        BOOLEAN ArgumentsAreAnArray,
+        va_list *Arguments,
+        PWSTR Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  return RtlFormatMessageEx(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+  return RtlFormatMessageEx(
+           MessageFormat,
+           MaximumWidth,
+           IgnoreInserts,
+           ArgumentsAreAnsi,
+           ArgumentsAreAnArray,
+           Arguments,
+           Buffer,
+           Length,
+           ReturnLength,
+           0LL);
 }

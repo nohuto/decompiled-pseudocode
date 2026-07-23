@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTpWriteUmMemory @ 0x1405C97BC
+ * XREFs of KiTpWriteUmMemory @ 0x1405C6EEC
  * Callers:
- *     KiTpWriteMemory @ 0x1405C9698 (KiTpWriteMemory.c)
+ *     KiTpWriteMemory @ 0x1405C6DC8 (KiTpWriteMemory.c)
  * Callees:
- *     MmProtectVirtualMemory @ 0x1408DCA30 (MmProtectVirtualMemory.c)
- *     MmCopyVirtualMemory @ 0x1409A9D40 (MmCopyVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1408DAC60 (MmProtectVirtualMemory.c)
+ *     MmCopyVirtualMemory @ 0x140993150 (MmCopyVirtualMemory.c)
  */
 
 __int64 __fastcall KiTpWriteUmMemory(int a1, __int64 a2, int a3)

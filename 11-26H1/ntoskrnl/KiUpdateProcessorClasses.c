@@ -1,11 +1,11 @@
 /*
- * XREFs of KiUpdateProcessorClasses @ 0x1403EEB80
+ * XREFs of KiUpdateProcessorClasses @ 0x1404536B0
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x1403ED9F4 (KeConfigureHeteroProcessors.c)
+ *     KeConfigureHeteroProcessors @ 0x140452524 (KeConfigureHeteroProcessors.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 KiUpdateProcessorClasses()
@@ -67,29 +67,28 @@ LABEL_7:
             {
               _BitScanForward64(&v11, v6);
               v6 &= ~(1LL << v11);
-              v12 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                    + 64 * v5
+              v12 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v5].Flink
                     + (unsigned __int8)v11);
               v13 = KiProcessorBlock[v12];
               v14 = v4 + *(_DWORD *)(i + 4) * (_DWORD)v12;
               v15 = (unsigned int)v14;
-              Src[*(unsigned __int8 *)(v13 + 209)] = *(_BYTE *)(i + 4 * v14 + 24);
+              Src[*(unsigned __int8 *)(v13 + 209)] = *(_BYTE *)(i + 4 * v14 + 48);
               v16 = v8;
-              if ( *(_BYTE *)(i + 4 * v14 + 24) > v8 )
-                v16 = *(_BYTE *)(i + 4 * v14 + 24);
+              if ( *(_BYTE *)(i + 4 * v14 + 48) > v8 )
+                v16 = *(_BYTE *)(i + 4 * v14 + 48);
               v8 = v16;
-              v25[*(unsigned __int8 *)(v13 + 209)] = *(_BYTE *)(i + 4 * v14 + 25);
+              v25[*(unsigned __int8 *)(v13 + 209)] = *(_BYTE *)(i + 4 * v14 + 49);
               v17 = v9;
-              if ( *(_BYTE *)(i + 4 * v14 + 25) > v9 )
-                v17 = *(_BYTE *)(i + 4 * v14 + 25);
+              if ( *(_BYTE *)(i + 4 * v14 + 49) > v9 )
+                v17 = *(_BYTE *)(i + 4 * v14 + 49);
               v9 = v17;
-              *(_BYTE *)(v13 + 35354) = *(_BYTE *)(i + 4 * v14 + 24);
-              *(_BYTE *)(v13 + 35353) = *(_BYTE *)(i + 4 * v14 + 25);
+              *(_BYTE *)(v13 + 35354) = *(_BYTE *)(i + 4 * v14 + 48);
+              *(_BYTE *)(v13 + 35353) = *(_BYTE *)(i + 4 * v14 + 49);
               v18 = 32LL * *(unsigned __int8 *)(v13 + 208);
-              if ( *(_BYTE *)(i + 4 * v15 + 25) )
-                *(_QWORD *)&algn_140FC1998[v18] &= ~*(_QWORD *)(v13 + 200);
+              if ( *(_BYTE *)(i + 4 * v15 + 49) )
+                *(_QWORD *)&algn_140FC2998[v18] &= ~*(_QWORD *)(v13 + 200);
               else
-                *(_QWORD *)&algn_140FC1998[v18] |= *(_QWORD *)(v13 + 200);
+                *(_QWORD *)&algn_140FC2998[v18] |= *(_QWORD *)(v13 + 200);
               goto LABEL_7;
             }
             v7 = ++v5;

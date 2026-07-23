@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCloneRange @ 0x140B6C2A0
+ * XREFs of PopCloneRange @ 0x140B6DB44
  * Callers:
- *     PopSetRange @ 0x140264BB0 (PopSetRange.c)
+ *     PopSetRange @ 0x14046AEE0 (PopSetRange.c)
  * Callees:
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall PopCloneRange(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -67,7 +67,7 @@ LABEL_13:
         v9 = v12;
     }
   }
-  if ( v9 || (result = (_QWORD *)ExAllocatePool2(0x40uLL), (v9 = result) != 0LL) )
+  if ( v9 || (result = (_QWORD *)ExAllocatePool2(0x40uLL, 0x30uLL, 0x70616D48u), (v9 = result) != 0LL) )
   {
     *((_DWORD *)v9 + 4) = a4;
     v9[3] = v7;

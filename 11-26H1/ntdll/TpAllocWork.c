@@ -1,56 +1,62 @@
 /*
- * XREFs of TpAllocWork @ 0x18004E830
+ * XREFs of TpAllocWork @ 0x180038DB0
  * Callers:
- *     LdrpEnableParallelLoading @ 0x1800649F0 (LdrpEnableParallelLoading.c)
- *     RtlpFcAllocateChangeRegistration @ 0x18006EAC8 (RtlpFcAllocateChangeRegistration.c)
- *     RtlpCtContextInit @ 0x18014969C (RtlpCtContextInit.c)
+ *     LdrpEnableParallelLoading @ 0x180084E40 (LdrpEnableParallelLoading.c)
+ *     RtlpFcAllocateChangeRegistration @ 0x18008EF18 (RtlpFcAllocateChangeRegistration.c)
+ *     RtlpCtContextInit @ 0x18014954C (RtlpCtContextInit.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     TppWorkInitialize @ 0x18004D8A0 (TppWorkInitialize.c)
- *     TppCleanupGroupAddMember @ 0x18004EB90 (TppCleanupGroupAddMember.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     TppWorkInitialize @ 0x180037E20 (TppWorkInitialize.c)
+ *     TppCleanupGroupAddMember @ 0x180039110 (TppCleanupGroupAddMember.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocWork(_QWORD *a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __cdecl TpAllocWork(
+        PTP_WORK *WorkReturn,
+        PTP_WORK_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  int v8; // edi
-  __int64 Heap_0; // rax
-  _QWORD *v10; // rsi
-  int v11; // edi
-  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
+  int v5; // r12d
+  unsigned int Flags; // edi
+  _TP_WORK *Heap_0; // rax
+  _TP_WORK *v10; // rsi
+  NTSTATUS v11; // edi
+  void *retaddr; // [rsp+58h] [rbp+0h]
 
-  if ( a4 )
-    v8 = *(_DWORD *)(a4 + 56);
+  v5 = (int)Context;
+  if ( CallbackEnviron )
+    Flags = CallbackEnviron->u.Flags;
   else
-    v8 = 0;
-  if ( !a1 || !a2 || (v8 & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+    Flags = 0;
+  if ( !WorkReturn || !Callback || (Flags & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
-    return 3221225485LL;
+    return -1073741811;
   }
   else
   {
-    *a1 = 0LL;
-    Heap_0 = RtlAllocateHeap_0();
-    v10 = (_QWORD *)Heap_0;
+    *WorkReturn = 0LL;
+    Heap_0 = (_TP_WORK *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x200000) | 8, 0xF0uLL);
+    v10 = Heap_0;
     if ( Heap_0 )
     {
-      *(_QWORD *)(Heap_0 + 176) = retaddr;
+      Heap_0->CleanupGroupMember.AllocCaller.ReturnAddress = retaddr;
       v11 = TppWorkInitialize(
-              Heap_0,
-              a3,
-              a4,
-              v8,
-              (__int64)TppWorkpCleanupGroupMemberVFuncs,
-              (__int64)TppWorkpTaskVFuncs);
+              (__int64)Heap_0,
+              v5,
+              (int)CallbackEnviron,
+              Flags,
+              (__int64)&TppWorkpCleanupGroupMemberVFuncs,
+              (__int64)&TppWorkpTaskVFuncs);
       if ( v11 >= 0 )
       {
-        v10[10] = a2;
+        v10->CleanupGroupMember.Callback = Callback;
         v11 = 0;
-        if ( a4 )
-          v10[4] = *(_QWORD *)(a4 + 48);
-        if ( v10[2] )
+        if ( CallbackEnviron )
+          v10->CleanupGroupMember.FinalizationCallback = CallbackEnviron->FinalizationCallback;
+        if ( v10->CleanupGroupMember.CleanupGroup )
           TppCleanupGroupAddMember(v10);
       }
     }
@@ -61,12 +67,12 @@ __int64 __fastcall TpAllocWork(_QWORD *a1, __int64 a2, int a3, __int64 a4)
     if ( v11 < 0 )
     {
       if ( v10 )
-        RtlFreeHeap_0();
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, v10);
     }
     else
     {
-      *a1 = v10;
+      *WorkReturn = v10;
     }
-    return (unsigned int)v11;
+    return v11;
   }
 }

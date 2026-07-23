@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpIsProcessInfoPresent @ 0x140006854
+ * XREFs of PfpIsProcessInfoPresent @ 0x1400069C4
  * Callers:
- *     PfpCopyEvent @ 0x1403E7DD0 (PfpCopyEvent.c)
+ *     PfpCopyEvent @ 0x1403E9400 (PfpCopyEvent.c)
  * Callees:
  *     <none>
  */

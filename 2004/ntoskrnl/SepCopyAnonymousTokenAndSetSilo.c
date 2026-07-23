@@ -41,7 +41,7 @@ __int64 __fastcall SepCopyAnonymousTokenAndSetSilo(__int64 a1, PADAPTER_OBJECT *
   AnonymousToken = ObInsertObjectEx(v5, &AccessState, 0, 0, 0, 0LL, 0LL);
   if ( AnonymousToken < 0 )
     goto LABEL_8;
-  SepAppendAceToTokenObjectAcl((__int64)v5, 8, SeAliasAdminsSid);
+  SepAppendAceToTokenObjectAcl((__int64)v5, 8u, SeAliasAdminsSid);
   *a2 = v5;
   ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId(a1);
   if ( ServerSiloServiceSessionId != -1 )

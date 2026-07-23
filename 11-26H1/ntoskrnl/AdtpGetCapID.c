@@ -1,43 +1,43 @@
 /*
- * XREFs of AdtpGetCapID @ 0x14052E6DC
+ * XREFs of AdtpGetCapID @ 0x140530BFC
  * Callers:
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140503204 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x1404FCAD4 (AdtpBuildContextFromSecurityDescriptor.c)
  * Callees:
- *     RtlFindAceByType @ 0x1404330E0 (RtlFindAceByType.c)
- *     RtlGetSaclSecurityDescriptor @ 0x140AAC210 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlFindAceByType @ 0x1404281B0 (RtlFindAceByType.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x140AA97C0 (RtlGetSaclSecurityDescriptor.c)
  */
 
 __int64 __fastcall AdtpGetCapID(void *a1, _QWORD *a2)
 {
   NTSTATUS SaclSecurityDescriptor; // esi
   bool v4; // zf
-  unsigned __int8 *AceByType; // rax
-  unsigned int v7; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-10h] BYREF
+  _BYTE *AceByType; // rax
+  ULONG Index; // [rsp+20h] [rbp-18h] BYREF
+  PACL Acl; // [rsp+28h] [rbp-10h] BYREF
   BOOLEAN v9; // [rsp+50h] [rbp+18h] BYREF
   BOOLEAN v10; // [rsp+58h] [rbp+20h] BYREF
 
-  v8 = 0LL;
+  Acl = 0LL;
   v9 = 0;
-  v7 = 0;
-  SaclSecurityDescriptor = RtlGetSaclSecurityDescriptor(a1, &v9, (PACL *)&v8, &v10);
+  Index = 0;
+  SaclSecurityDescriptor = RtlGetSaclSecurityDescriptor(a1, &v9, &Acl, &v10);
   if ( SaclSecurityDescriptor >= 0 )
   {
     v4 = v9 == 0;
     *a2 = 0LL;
     if ( !v4 )
     {
-      if ( v8 )
+      if ( Acl )
       {
         while ( 1 )
         {
-          AceByType = RtlFindAceByType(v8, 19, &v7);
+          AceByType = RtlFindAceByType(Acl, 0x13u, &Index);
           if ( AceByType )
           {
             if ( (AceByType[1] & 8) == 0 )
               break;
           }
-          ++v7;
+          ++Index;
           if ( !AceByType )
             return (unsigned int)SaclSecurityDescriptor;
         }

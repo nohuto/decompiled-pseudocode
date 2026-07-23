@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpRegisterCallbackInternal @ 0x1405510FC
+ * XREFs of CmpRegisterCallbackInternal @ 0x14055163C
  * Callers:
- *     CmRegisterCallbackEx @ 0x1405510D0 (CmRegisterCallbackEx.c)
- *     CmRegisterCallback @ 0x1405817A0 (CmRegisterCallback.c)
+ *     CmRegisterCallbackEx @ 0x140551610 (CmRegisterCallbackEx.c)
+ *     CmRegisterCallback @ 0x140581C4C (CmRegisterCallback.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpInsertCallbackInListByAltitude @ 0x1405511DC (CmpInsertCallbackInListByAltitude.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14055171C (CmpInsertCallbackInListByAltitude.c)
  */
 
 __int64 __fastcall CmpRegisterCallbackInternal(__int64 a1, __int64 a2, const void **a3, char a4, _QWORD *a5)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCustomAccessRoutine1 @ 0x140409D10
+ * XREFs of KiCustomAccessRoutine1 @ 0x140409EF0
  * Callers:
- *     IopTimerDispatch @ 0x140501130 (IopTimerDispatch.c)
+ *     IopTimerDispatch @ 0x1405010B0 (IopTimerDispatch.c)
  * Callees:
- *     KiCustomRecurseRoutine1 @ 0x140409CF0 (KiCustomRecurseRoutine1.c)
+ *     KiCustomRecurseRoutine1 @ 0x140409ED0 (KiCustomRecurseRoutine1.c)
  */
 
 __int64 __fastcall KiCustomAccessRoutine1(unsigned int *a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputePxeWalkAction @ 0x14025CD40
+ * XREFs of MiComputePxeWalkAction @ 0x14025CFD0
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14025C170 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14025C400 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiGetSystemCacheReverseMap @ 0x140262410 (MiGetSystemCacheReverseMap.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiAdvanceToLastUntrimmableVa @ 0x14035835C (MiAdvanceToLastUntrimmableVa.c)
- *     MiMakeSystemLeavesNonZero @ 0x1403BF7C8 (MiMakeSystemLeavesNonZero.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402626A0 (MiGetSystemCacheReverseMap.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiAdvanceToLastUntrimmableVa @ 0x1403584FC (MiAdvanceToLastUntrimmableVa.c)
+ *     MiMakeSystemLeavesNonZero @ 0x1403BF9A8 (MiMakeSystemLeavesNonZero.c)
  */
 
 __int64 __fastcall MiComputePxeWalkAction(int *a1, unsigned __int64 a2, int a3)

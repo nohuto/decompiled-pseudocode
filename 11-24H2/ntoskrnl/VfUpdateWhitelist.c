@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUpdateWhitelist @ 0x1403F14E8
+ * XREFs of VfUpdateWhitelist @ 0x1403E5208
  * Callers:
- *     VfTargetDriversAdd @ 0x1403F01F8 (VfTargetDriversAdd.c)
+ *     VfTargetDriversAdd @ 0x1403E3ED4 (VfTargetDriversAdd.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
  */
 
 char __fastcall VfUpdateWhitelist(wchar_t *Str1, wchar_t **a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x1405E1000
+ * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x1405DE620
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1407663B8 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x140765D88 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PopRecordPepWorkorderBlackboxInformation()
@@ -17,7 +17,7 @@ void PopRecordPepWorkorderBlackboxInformation()
   KIRQL v2; // bp
   __int64 *v3; // rax
   __int64 v4; // rcx
-  __int64 v5; // rdi
+  ULONG_PTR v5; // rdi
   _DWORD *Pool2; // rax
   _DWORD *v7; // r8
   __int64 *i; // r9
@@ -50,7 +50,7 @@ LABEL_13:
   else
   {
     v5 = 48 * v4 + 64;
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, v5, 0x42424F50u);
     v1 = Pool2;
     if ( Pool2 )
     {

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetEaFile @ 0x1401BB2D0
+ * XREFs of ZwSetEaFile @ 0x1401BB430
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock, Buffer);
+  return KiServiceInternal(FileHandle);
 }

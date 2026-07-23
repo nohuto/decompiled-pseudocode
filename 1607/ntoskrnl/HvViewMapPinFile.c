@@ -1,11 +1,11 @@
 /*
- * XREFs of HvViewMapPinFile @ 0x1401B6704
+ * XREFs of HvViewMapPinFile @ 0x1401B65E8
  * Callers:
- *     HvpApplyLogEntry @ 0x140612610 (HvpApplyLogEntry.c)
+ *     HvpApplyLogEntry @ 0x1406126C4 (HvpApplyLogEntry.c)
  * Callees:
- *     HvpViewMapAcquireLockExclusive @ 0x1401B6764 (HvpViewMapAcquireLockExclusive.c)
- *     HvpViewMapPinForFileOffset @ 0x1401B68C8 (HvpViewMapPinForFileOffset.c)
- *     HvpViewMapReleaseLockExclusive @ 0x1401B6ABC (HvpViewMapReleaseLockExclusive.c)
+ *     HvpViewMapAcquireLockExclusive @ 0x1401B6648 (HvpViewMapAcquireLockExclusive.c)
+ *     HvpViewMapPinForFileOffset @ 0x1401B67AC (HvpViewMapPinForFileOffset.c)
+ *     HvpViewMapReleaseLockExclusive @ 0x1401B69A0 (HvpViewMapReleaseLockExclusive.c)
  */
 
 __int64 __fastcall HvViewMapPinFile(unsigned int *a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipProcessEvent @ 0x140A0D184
+ * XREFs of WmipProcessEvent @ 0x140A0CBD4
  * Callers:
- *     WmipGenerateBinaryMofNotification @ 0x140823E24 (WmipGenerateBinaryMofNotification.c)
- *     WmipSendGuidUpdateNotifications @ 0x140A0C3E8 (WmipSendGuidUpdateNotifications.c)
- *     WmipEventNotification @ 0x140A0D110 (WmipEventNotification.c)
- *     WmipGenerateMofResourceNotification @ 0x140B52928 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14082A070 (WmipGenerateBinaryMofNotification.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140A0B3B8 (WmipSendGuidUpdateNotifications.c)
+ *     WmipEventNotification @ 0x140A0CB60 (WmipEventNotification.c)
+ *     WmipGenerateMofResourceNotification @ 0x140B551C8 (WmipGenerateMofResourceNotification.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipWriteWnodeToObject @ 0x1403FE9A0 (WmipWriteWnodeToObject.c)
- *     ObReferenceObjectSafe @ 0x140449C10 (ObReferenceObjectSafe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     WmipDereferenceEvent @ 0x140A0B9C4 (WmipDereferenceEvent.c)
- *     WmipIncludeStaticNames @ 0x140A0CE94 (WmipIncludeStaticNames.c)
- *     WmipFindGEByGuid @ 0x140A0E624 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipWriteWnodeToObject @ 0x1403FB190 (WmipWriteWnodeToObject.c)
+ *     ObReferenceObjectSafe @ 0x140441D40 (ObReferenceObjectSafe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     WmipIncludeStaticNames @ 0x140A0C8EC (WmipIncludeStaticNames.c)
+ *     WmipFindGEByGuid @ 0x140A0D800 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipDereferenceEvent @ 0x140B5FA28 (WmipDereferenceEvent.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipProcessEvent(unsigned int *Src, __int64 a2, char a3)
@@ -29,9 +29,9 @@ __int64 __fastcall WmipProcessEvent(unsigned int *Src, __int64 a2, char a3)
   unsigned int v8; // r15d
   _QWORD *v9; // r12
   __int64 v10; // rbp
-  char *v12; // rax
+  __int64 v12; // rax
   char v14; // [rsp+88h] [rbp+10h]
-  char *v16; // [rsp+98h] [rbp+20h]
+  unsigned int *v16; // [rsp+98h] [rbp+20h]
 
   v14 = a2;
   v3 = a3;
@@ -49,7 +49,7 @@ LABEL_3:
     if ( GEByGuid )
     {
       v8 = 0;
-      KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+      KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       v9 = *(_QWORD **)(GEByGuid + 40);
       if ( v9 != (_QWORD *)(GEByGuid + 40) )
       {
@@ -72,11 +72,11 @@ LABEL_3:
           }
         }
         while ( v9 != (_QWORD *)(GEByGuid + 40) );
-        v5 = (unsigned int *)v16;
+        v5 = v16;
         v4 = Src;
         v3 = a3;
       }
-      KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+      KeReleaseMutex(&WmipSMMutex, 0);
       WmipUnreferenceEntry(&WmipGEChunkInfo, GEByGuid);
     }
     else
@@ -91,8 +91,8 @@ LABEL_3:
       ExFreePoolWithTag(v5, 0);
     return v8;
   }
-  v12 = WmipDereferenceEvent((__int64)Src);
-  v16 = v12;
+  v12 = WmipDereferenceEvent();
+  v16 = (unsigned int *)v12;
   v5 = (unsigned int *)v12;
   if ( v12 )
   {

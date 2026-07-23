@@ -1,14 +1,14 @@
 /*
- * XREFs of MiForceSectionClosed @ 0x14035F6C0
+ * XREFs of MiForceSectionClosed @ 0x14035F860
  * Callers:
- *     MmForceSectionClosed @ 0x14035F680 (MmForceSectionClosed.c)
- *     MmForceSectionClosedEx @ 0x140626380 (MmForceSectionClosedEx.c)
- *     MiCreateImageOrDataSection @ 0x140723350 (MiCreateImageOrDataSection.c)
+ *     MmForceSectionClosed @ 0x14035F820 (MmForceSectionClosed.c)
+ *     MmForceSectionClosedEx @ 0x1406268D0 (MmForceSectionClosedEx.c)
+ *     MiCreateImageOrDataSection @ 0x140723550 (MiCreateImageOrDataSection.c)
  * Callees:
  *     MiLockSectionControlArea @ 0x1402100C8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAttemptSectionDelete @ 0x14035F720 (MiAttemptSectionDelete.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAttemptSectionDelete @ 0x14035F8C0 (MiAttemptSectionDelete.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiForceSectionClosed(_QWORD *a1, char a2, char a3)
@@ -33,7 +33,9 @@ __int64 __fastcall MiForceSectionClosed(_QWORD *a1, char a2, char a3)
       return 2 - (unsigned int)((unsigned __int8)MiAttemptSectionDelete(v5, v6, a2 & 4) != 0);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v8 = v14;
       if ( v14 <= 0xFu && CurrentIrql >= 2u )

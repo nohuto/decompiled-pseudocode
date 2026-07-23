@@ -51,7 +51,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   unsigned int i; // r8d
   unsigned int v39; // eax
   __int64 v40; // [rsp+30h] [rbp-58h] BYREF
-  _QWORD v41[10]; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v41; // [rsp+38h] [rbp-50h]
   bool v43; // [rsp+98h] [rbp+10h]
   char v44; // [rsp+A0h] [rbp+18h] BYREF
   unsigned int v45; // [rsp+A8h] [rbp+20h]
@@ -65,7 +65,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   v6 = 0;
   v43 = 0;
   WowTebOffset = v2->WowTebOffset;
-  v41[0] = 0LL;
+  v41 = 0LL;
   v10 = 0;
   if ( WowTebOffset < 0 )
     LODWORD(v2) = WowTebOffset + (_DWORD)v2;
@@ -194,9 +194,9 @@ LABEL_59:
 LABEL_69:
                         if ( v34 )
                         {
-                          LanguageConfigList = RtlpLoadLanguageConfigList(8LL, v41, a2);
+                          LanguageConfigList = RtlpLoadLanguageConfigList(8u);
                           if ( (LanguageConfigList & 0x80000000) == 0 )
-                            return (unsigned int)RtlpUpdateTEBLanguage(0LL, v41[0], 5LL);
+                            return (unsigned int)RtlpUpdateTEBLanguage(0LL, v41, 5LL);
                         }
                         return LanguageConfigList;
                       }

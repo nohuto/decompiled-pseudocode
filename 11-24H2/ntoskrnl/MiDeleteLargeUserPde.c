@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteLargeUserPde @ 0x1404B9CA4
+ * XREFs of MiDeleteLargeUserPde @ 0x1404B4B44
  * Callers:
- *     MiDeleteVa @ 0x1402DB780 (MiDeleteVa.c)
+ *     MiDeleteVa @ 0x14023D060 (MiDeleteVa.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiDeleteVadAwePtes @ 0x1404B9E8C (MiDeleteVadAwePtes.c)
- *     MiDecommitAddTbFlushEntries @ 0x1404FA094 (MiDecommitAddTbFlushEntries.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiDeleteVadAwePtes @ 0x1404B4D2C (MiDeleteVadAwePtes.c)
+ *     MiDecommitAddTbFlushEntries @ 0x1404F7974 (MiDecommitAddTbFlushEntries.c)
  */
 
 __int64 __fastcall MiDeleteLargeUserPde(__int64 a1, volatile __int64 *a2, __int64 a3)
@@ -34,12 +34,12 @@ __int64 __fastcall MiDeleteLargeUserPde(__int64 a1, volatile __int64 *a2, __int6
   v8 = 16LL;
   v9 = *(_DWORD *)(*v5 + 160LL);
   v10 = *a2 & 1;
-  if ( !(_DWORD)v10 && qword_140E2DB80 )
+  if ( !(_DWORD)v10 && qword_140E2DCC0 )
   {
     if ( (v3 & 0x10) != 0 )
       v3 &= ~0x10uLL;
     else
-      v3 &= ~qword_140E2DB80;
+      v3 &= ~qword_140E2DCC0;
   }
   v11 = (v3 >> 12) & 0xFFFFFFFFFFLL;
   if ( (v9 & 0x10) != 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalacpiIrqTranslateResourcesIsa @ 0x1407C09F0
+ * XREFs of HalacpiIrqTranslateResourcesIsa @ 0x1407C0F10
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x1403C5290 (HalpIsInterruptTypeSecondary.c)
- *     TranslateGlobalVectorToIsaVector @ 0x1407C0CE8 (TranslateGlobalVectorToIsaVector.c)
+ *     HalpIsInterruptTypeSecondary @ 0x1403C56C0 (HalpIsInterruptTypeSecondary.c)
+ *     TranslateGlobalVectorToIsaVector @ 0x1407C1208 (TranslateGlobalVectorToIsaVector.c)
  */
 
 __int64 __fastcall HalacpiIrqTranslateResourcesIsa(

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpIsEFIRuntimeActive @ 0x1403B5C80
+ * XREFs of HalpIsEFIRuntimeActive @ 0x1403B5E60
  * Callers:
  *     <none>
  * Callees:

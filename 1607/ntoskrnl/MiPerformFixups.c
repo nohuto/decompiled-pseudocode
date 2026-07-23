@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPerformFixups @ 0x140526B60
+ * XREFs of MiPerformFixups @ 0x140509BC0
  * Callers:
- *     MiRelocateImagePfn @ 0x140447780 (MiRelocateImagePfn.c)
- *     MiRevertRelocatedImagePfn @ 0x140526A98 (MiRevertRelocatedImagePfn.c)
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
+ *     MiRelocateImagePfn @ 0x140446650 (MiRelocateImagePfn.c)
+ *     MiRevertRelocatedImagePfn @ 0x140509AF8 (MiRevertRelocatedImagePfn.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
  * Callees:
- *     MiApplyStraddleFixups @ 0x14010A80C (MiApplyStraddleFixups.c)
- *     MiApplyCompressedFixups @ 0x140526C50 (MiApplyCompressedFixups.c)
- *     MiApplyRawFixups @ 0x1406615F0 (MiApplyRawFixups.c)
+ *     MiApplyStraddleFixups @ 0x14010858C (MiApplyStraddleFixups.c)
+ *     MiApplyCompressedFixups @ 0x140509CB0 (MiApplyCompressedFixups.c)
+ *     MiApplyRawFixups @ 0x1406616D4 (MiApplyRawFixups.c)
  */
 
 __int64 *__fastcall MiPerformFixups(

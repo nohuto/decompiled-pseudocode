@@ -24,12 +24,12 @@ __int64 __fastcall PspWow64InitThread(_KPROCESS *BugCheckParameter1, __int64 a2,
   __int64 v11; // rsi
   __int64 v12; // r12
   __int64 v13; // r13
-  _DWORD *v14; // r15
-  __int64 CpuAreaEnabledFeatures; // rax
+  __int64 v14; // r15
+  ULONG64 CpuAreaEnabledFeatures; // rax
   unsigned __int16 ProcessNtdllType; // ax
   unsigned __int16 ProcessMachine; // [rsp+30h] [rbp-98h]
-  int v19[3]; // [rsp+34h] [rbp-94h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-88h] BYREF
+  ULONG ContextFlags[3]; // [rsp+34h] [rbp-94h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+40h] [rbp-88h] BYREF
   __int64 v21; // [rsp+48h] [rbp-80h]
   __int64 v22; // [rsp+50h] [rbp-78h]
   _OWORD v23[3]; // [rsp+58h] [rbp-70h] BYREF
@@ -37,10 +37,10 @@ __int64 __fastcall PspWow64InitThread(_KPROCESS *BugCheckParameter1, __int64 a2,
   v21 = a4;
   memset(v23, 0, sizeof(v23));
   v7 = 0;
-  v20 = 0LL;
+  ContextEx = 0LL;
   ProcessMachine = PsWow64GetProcessMachine((__int64)BugCheckParameter1);
-  v19[0] = RtlpArchContextFlagFromMachine(ProcessMachine, v8, v9, v10);
-  if ( !v19[0] )
+  ContextFlags[0] = RtlpArchContextFlagFromMachine(ProcessMachine, v8, v9, v10);
+  if ( !ContextFlags[0] )
     return 3221225485LL;
   v11 = a3[31];
   if ( v11 == qword_140FC6480 )
@@ -51,20 +51,20 @@ __int64 __fastcall PspWow64InitThread(_KPROCESS *BugCheckParameter1, __int64 a2,
   v12 = a3[16];
   v13 = a3[17];
   v22 = *(_QWORD *)(a2 + 40);
-  v14 = *(_DWORD **)(a2 + 16);
+  v14 = *(_QWORD *)(a2 + 16);
   KiStackAttachProcess(BugCheckParameter1, 0, (__int64)v23);
   *(_QWORD *)(v21 + 5256) = v14;
-  *v14 = ProcessMachine << 16;
-  CpuAreaEnabledFeatures = RtlWow64GetCpuAreaEnabledFeatures(v19);
-  RtlInitializeExtendedContext2((__int64)(v14 + 1), v19[0], &v20, CpuAreaEnabledFeatures);
+  *(_DWORD *)v14 = ProcessMachine << 16;
+  CpuAreaEnabledFeatures = RtlWow64GetCpuAreaEnabledFeatures(ContextFlags);
+  RtlInitializeExtendedContext2((PCONTEXT)(v14 + 4), ContextFlags[0], &ContextEx, CpuAreaEnabledFeatures);
   if ( ProcessMachine == 332 )
   {
-    PspWow64InitThreadGuestx86((_DWORD)BugCheckParameter1, v20, v11, v22, v12, v13);
+    PspWow64InitThreadGuestx86((_DWORD)BugCheckParameter1, (_DWORD)ContextEx, v11, v22, v12, v13);
   }
   else
   {
     v7 = -1073741811;
-    v19[1] = -1073741811;
+    ContextFlags[1] = -1073741811;
   }
   KiUnstackDetachProcess((__int64)v23, 0LL);
   return v7;

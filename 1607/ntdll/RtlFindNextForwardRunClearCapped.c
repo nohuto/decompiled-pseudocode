@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindNextForwardRunClearCapped @ 0x1800E4120
+ * XREFs of RtlFindNextForwardRunClearCapped @ 0x1800E41E0
  * Callers:
- *     RtlFindNextForwardRunClear @ 0x1800E4110 (RtlFindNextForwardRunClear.c)
+ *     RtlFindNextForwardRunClear @ 0x1800E41D0 (RtlFindNextForwardRunClear.c)
  * Callees:
  *     <none>
  */

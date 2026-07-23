@@ -1,7 +1,7 @@
 /*
- * XREFs of _AppendCumulativeOverlayFilePath @ 0x18012EE60
+ * XREFs of _AppendCumulativeOverlayFilePath @ 0x18012EE8C
  * Callers:
- *     _BuildCumulativeOverlayFilePath @ 0x18012EFA0 (_BuildCumulativeOverlayFilePath.c)
+ *     _BuildCumulativeOverlayFilePath @ 0x18012EFCC (_BuildCumulativeOverlayFilePath.c)
  * Callees:
  *     wcscat_s @ 0x18009B080 (wcscat_s.c)
  *     wcsncat_s @ 0x18009B1B0 (wcsncat_s.c)

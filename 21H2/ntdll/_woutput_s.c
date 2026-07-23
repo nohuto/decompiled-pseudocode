@@ -8,14 +8,14 @@
  *     _safecrt_mbtowc @ 0x180098EE8 (_safecrt_mbtowc.c)
  *     write_char_2 @ 0x18009AA08 (write_char_2.c)
  *     write_string_2 @ 0x18009AA5C (write_string_2.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
 {
   int v5; // edi
   int v6; // r14d
-  wchar_t *v7; // rbx
+  WCHAR *v7; // rbx
   __int64 v8; // r11
   int v9; // r10d
   unsigned __int16 v10; // r9
@@ -27,7 +27,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
   __int64 v16; // rax
   unsigned __int16 *v17; // rcx
   unsigned int v18; // eax
-  unsigned __int16 v19; // ax
+  WCHAR v19; // ax
   int v20; // eax
   int v21; // eax
   int v22; // ecx
@@ -48,7 +48,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
   int v37; // r10d
   __int64 v38; // rdx
   int v39; // r10d
-  char *v40; // r15
+  UCHAR *v40; // r15
   int v41; // esi
   int v42; // eax
   __int64 v43; // r10
@@ -63,9 +63,9 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
   int v53; // [rsp+34h] [rbp-CCh]
   int v54; // [rsp+38h] [rbp-C8h]
   int v55; // [rsp+3Ch] [rbp-C4h]
-  unsigned __int16 v56[2]; // [rsp+40h] [rbp-C0h] BYREF
+  WCHAR v56[2]; // [rsp+40h] [rbp-C0h] BYREF
   int v57; // [rsp+44h] [rbp-BCh]
-  char v58[4]; // [rsp+48h] [rbp-B8h] BYREF
+  UCHAR v58[4]; // [rsp+48h] [rbp-B8h] BYREF
   _WORD v59[2]; // [rsp+4Ch] [rbp-B4h] BYREF
   int v60; // [rsp+50h] [rbp-B0h]
   __int64 v61; // [rsp+58h] [rbp-A8h]
@@ -73,7 +73,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
   int v63; // [rsp+64h] [rbp-9Ch]
   int v64; // [rsp+68h] [rbp-98h]
   unsigned __int16 *v65; // [rsp+70h] [rbp-90h]
-  _WORD v66[512]; // [rsp+80h] [rbp-80h] BYREF
+  WCHAR v66[512]; // [rsp+80h] [rbp-80h] BYREF
 
   v61 = a1;
   v62 = 0;
@@ -331,13 +331,13 @@ LABEL_27:
             }
             v54 = v6;
             LODWORD(v12) = (unsigned int)&v66[64] + 383 - (_DWORD)v27;
-            v7 = (wchar_t *)(v27 + 1);
+            v7 = (WCHAR *)(v27 + 1);
             if ( (v5 & 0x200) != 0 )
             {
               v9 = 0;
               if ( !(_DWORD)v12 || (v53 = v28, *(_BYTE *)v7 != 48) )
               {
-                v7 = (wchar_t *)((char *)v7 - 1);
+                v7 = (WCHAR *)((char *)v7 - 1);
                 v53 = v28;
                 LODWORD(v12) = v12 + 1;
                 *(_BYTE *)v7 = 48;
@@ -368,7 +368,7 @@ LABEL_27:
               {
                 v17 = *(unsigned __int16 **)a3;
                 a3 += 2;
-                if ( v17 && (v7 = (wchar_t *)*((_QWORD *)v17 + 1)) != 0LL )
+                if ( v17 && (v7 = (WCHAR *)*((_QWORD *)v17 + 1)) != 0LL )
                 {
                   v18 = *v17;
                   if ( v17[1] < (unsigned __int16)v18 )
@@ -389,7 +389,7 @@ LABEL_27:
                 else
                 {
                   v12 = -1LL;
-                  v7 = (wchar_t *)"(null)";
+                  v7 = (WCHAR *)"(null)";
                   do
                     ++v12;
                   while ( aNull[v12] != (_BYTE)v9 );
@@ -466,7 +466,7 @@ LABEL_138:
                 }
                 else
                 {
-                  v40 = (char *)v7;
+                  v40 = (UCHAR *)v7;
                   v41 = v12;
                   while ( 1 )
                   {
@@ -541,7 +541,7 @@ LABEL_75:
           if ( (v5 & 0x830) == 0 )
             v5 |= 0x20u;
         }
-        v7 = *(wchar_t **)a3;
+        v7 = *(WCHAR **)a3;
         v22 = v6;
         if ( v6 == -1 )
           v22 = 0x7FFFFFFF;
@@ -551,7 +551,7 @@ LABEL_75:
           v23 = (const char *)v7;
           if ( !v7 )
           {
-            v7 = (wchar_t *)"(null)";
+            v7 = (WCHAR *)"(null)";
             v23 = "(null)";
           }
           LODWORD(v12) = v9;
@@ -573,7 +573,7 @@ LABEL_75:
           v24 = L"(null)";
           if ( v7 )
             v24 = v7;
-          v7 = (wchar_t *)v24;
+          v7 = (WCHAR *)v24;
           while ( v22 )
           {
             --v22;

@@ -1,33 +1,43 @@
 /*
- * XREFs of NtCreateProcessEx @ 0x140906F70
+ * XREFs of NtCreateProcessEx @ 0x1409070D0
  * Callers:
- *     NtCreateProcess @ 0x140906EE0 (NtCreateProcess.c)
+ *     NtCreateProcess @ 0x140907040 (NtCreateProcess.c)
  * Callees:
- *     PspCreateProcess @ 0x1407CE460 (PspCreateProcess.c)
+ *     PspCreateProcess @ 0x1407CE5D0 (PspCreateProcess.c)
  */
 
-NTSTATUS __fastcall NtCreateProcessEx(
-        unsigned __int64 a1,
-        int a2,
-        __int64 a3,
-        void *a4,
-        int a5,
-        void *a6,
-        void *a7,
-        void *a8)
+NTSTATUS __cdecl NtCreateProcessEx(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ParentProcess,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle,
+        ULONG Reserved)
 {
   KPROCESSOR_MODE PreviousMode; // dl
-  __int64 v12; // rcx
+  __int64 v13; // rcx
 
-  if ( !a4 )
+  if ( !ParentProcess )
     return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v12 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v12 = a1;
-    *(_QWORD *)v12 = *(_QWORD *)v12;
+    v13 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)ProcessHandle < 0x7FFFFFFF0000LL )
+      v13 = (__int64)ProcessHandle;
+    *(_QWORD *)v13 = *(_QWORD *)v13;
   }
-  return PspCreateProcess(a1, a2, a3, a4, PreviousMode, a5, a6, a7, a8);
+  return PspCreateProcess(
+           (__int64)ProcessHandle,
+           DesiredAccess,
+           (__int64)ObjectAttributes,
+           ParentProcess,
+           PreviousMode,
+           Flags,
+           SectionHandle,
+           DebugPort,
+           TokenHandle);
 }

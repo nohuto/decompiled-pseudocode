@@ -78,8 +78,8 @@ NTSTATUS __fastcall ExpGetProcessInformation(unsigned int *a1, unsigned int a2, 
   __int64 v46; // rdx
   int v47; // eax
   char v48; // cl
-  ULONG_PTR v49; // rdi
-  size_t v50; // rbx
+  void *v49; // rdi
+  ULONG_PTR v50; // rbx
   size_t v51; // rdx
   unsigned int v52; // r15d
   unsigned int v53; // ebx
@@ -116,10 +116,10 @@ NTSTATUS __fastcall ExpGetProcessInformation(unsigned int *a1, unsigned int a2, 
   BOOL v84; // [rsp+B8h] [rbp-560h]
   unsigned int Size[3]; // [rsp+BCh] [rbp-55Ch] BYREF
   unsigned int *v86; // [rsp+C8h] [rbp-550h]
-  size_t v87; // [rsp+D0h] [rbp-548h] BYREF
+  ULONG_PTR PackageSize; // [rsp+D0h] [rbp-548h] BYREF
   char *v88; // [rsp+D8h] [rbp-540h]
   NTSTATUS AccessStatus; // [rsp+E0h] [rbp-538h] BYREF
-  size_t v90; // [rsp+E8h] [rbp-530h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+E8h] [rbp-530h] BYREF
   unsigned int *v91; // [rsp+F0h] [rbp-528h]
   char *v92; // [rsp+F8h] [rbp-520h]
   unsigned int v93; // [rsp+100h] [rbp-518h]
@@ -140,22 +140,22 @@ NTSTATUS __fastcall ExpGetProcessInformation(unsigned int *a1, unsigned int a2, 
   __int128 v108; // [rsp+1F0h] [rbp-428h]
   __int128 v109; // [rsp+200h] [rbp-418h]
   __int64 v110; // [rsp+210h] [rbp-408h]
-  ULONG_PTR v111; // [rsp+220h] [rbp-3F8h]
+  void *v111; // [rsp+220h] [rbp-3F8h]
   _OWORD Src[4]; // [rsp+230h] [rbp-3E8h] BYREF
   int v113; // [rsp+270h] [rbp-3A8h]
   _OWORD v114[28]; // [rsp+280h] [rbp-398h] BYREF
-  wchar_t v115[72]; // [rsp+440h] [rbp-1D8h] BYREF
-  wchar_t v116[128]; // [rsp+4D0h] [rbp-148h] BYREF
+  WCHAR AppId[72]; // [rsp+440h] [rbp-1D8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+4D0h] [rbp-148h] BYREF
 
   v91 = a1;
   v100 = a1;
   *(_QWORD *)&Size[1] = a3;
-  v90 = 0LL;
+  AppIdSize = 0LL;
   memset_0(v114, 0, 0x1B8uLL);
   v80 = 0;
   Size[0] = 0;
   v74 = 0;
-  v87 = 0LL;
+  PackageSize = 0LL;
   v76 = 0LL;
   v104 = 0LL;
   v105 = 0LL;
@@ -473,8 +473,8 @@ LABEL_209:
                 *((_DWORD *)v27 + 18) = BYTE9(v102[0]);
                 *((_DWORD *)v27 + 14) = SBYTE10(v102[0]);
                 *((_DWORD *)v27 + 15) = SBYTE11(v102[0]);
-                v33 = (unsigned int)KeMaximumIncrement;
-                *(_QWORD *)v27 = (unsigned int)KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(v30 + 652);
+                v33 = KeMaximumIncrement;
+                *(_QWORD *)v27 = KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(v30 + 652);
                 *((_QWORD *)v27 + 1) = v33 * *(unsigned int *)(v30 + 732);
                 *((_QWORD *)v27 + 2) = *(_QWORD *)(v30 + 1216);
                 *((_DWORD *)v27 + 16) = *(_DWORD *)(v30 + 340);
@@ -635,22 +635,22 @@ LABEL_209:
         }
         if ( a5 == 148 )
         {
-          v49 = PsReferencePrimaryTokenWithTag((__int64)NextProcess, 0x746C6644u);
+          v49 = (void *)PsReferencePrimaryTokenWithTag((__int64)NextProcess, 0x746C6644u);
           v111 = v49;
-          SeQueryUserSidToken(v49, Src, 0x44u, Size);
-          v87 = 254LL;
-          v90 = 130LL;
-          if ( (int)RtlQueryPackageIdentity(v49, v116, &v87, v115, &v90, 0LL) >= 0 )
+          SeQueryUserSidToken((__int64)v49, Src, 0x44u, Size);
+          PackageSize = 254LL;
+          AppIdSize = 130LL;
+          if ( RtlQueryPackageIdentity(v49, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL) >= 0 )
           {
-            v50 = v87;
+            v50 = PackageSize;
           }
           else
           {
             v50 = 0LL;
-            v87 = 0LL;
-            v90 = 0LL;
+            PackageSize = 0LL;
+            AppIdSize = 0LL;
           }
-          ObFastDereferenceObject(NextProcess + 73, v49, 1953261124LL);
+          ObFastDereferenceObject(NextProcess + 73, (ULONG_PTR)v49, 1953261124LL);
           v51 = Size[0];
           v52 = (Size[0] + 7) & 0xFFFFFFF8;
           v80 = v52;
@@ -699,7 +699,7 @@ LABEL_209:
             if ( v15 <= a2 )
             {
               *((_DWORD *)v36 + 14) = (_DWORD)v16 - (_DWORD)v36;
-              memmove(v16, v116, (unsigned int)v50);
+              memmove(v16, PackageFullName, (unsigned int)v50);
               v16 += (unsigned int)v50;
               v78 = v16;
             }
@@ -710,27 +710,27 @@ LABEL_209:
                 goto LABEL_210;
             }
           }
-          v53 = v90;
-          if ( v90 - 1 <= 0xFFFFFFFE )
+          v53 = AppIdSize;
+          if ( AppIdSize - 1 <= 0xFFFFFFFE )
           {
-            v80 = v90;
-            if ( (unsigned int)v90 + v15 < v15 )
+            v80 = AppIdSize;
+            if ( (unsigned int)AppIdSize + v15 < v15 )
             {
               v15 = -1;
               v22 = -1073741675;
             }
             else
             {
-              v15 += v90;
+              v15 += AppIdSize;
               v22 = 0;
             }
             if ( v22 < 0 )
               goto LABEL_209;
-            v74 += v90;
+            v74 += AppIdSize;
             if ( v15 <= a2 )
             {
               *((_DWORD *)v36 + 84) = (_DWORD)v16 - (_DWORD)v36;
-              memmove(v16, v115, v53);
+              memmove(v16, AppId, v53);
               v16 += v53;
               v78 = v16;
             }

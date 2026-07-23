@@ -581,7 +581,7 @@ LABEL_29:
               v27 = v14 & 0x800;
               if ( v15->m128i_i16[0] < 8u || *(_QWORD *)v26 != ObpDosDevicesShortNamePrefix )
               {
-                if ( v15->m128i_i16[0] == 6 && *(_DWORD *)v26 == ObpDosDevicesShortNameRoot && *(_WORD *)(v26 + 4) == 63 )
+                if ( v15->m128i_i16[0] == 6 && *(_DWORD *)v26 == *(_DWORD *)L"\\??" && *(_WORD *)(v26 + 4) == 63 )
                 {
                   v114 = (PVOID *)ObpReferenceDeviceMap((v14 & 0x800) != 0);
                   P = v114;

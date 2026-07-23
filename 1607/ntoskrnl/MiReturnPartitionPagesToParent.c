@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnPartitionPagesToParent @ 0x1401F1F74
+ * XREFs of MiReturnPartitionPagesToParent @ 0x1401F1DA0
  * Callers:
- *     MiFreePartitionPhysicalPages @ 0x1406605B4 (MiFreePartitionPhysicalPages.c)
+ *     MiFreePartitionPhysicalPages @ 0x140660698 (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiDrainZeroLookasides @ 0x1400A8C34 (MiDrainZeroLookasides.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiActOnPartitionNodePages @ 0x1401F07A4 (MiActOnPartitionNodePages.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiDrainZeroLookasides @ 0x1400A71B4 (MiDrainZeroLookasides.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x1401F05D0 (MiActOnPartitionNodePages.c)
  */
 
 void __fastcall MiReturnPartitionPagesToParent(__int64 a1)

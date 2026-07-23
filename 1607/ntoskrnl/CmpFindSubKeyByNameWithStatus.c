@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpFindSubKeyByNameWithStatus @ 0x1405120D0
+ * XREFs of CmpFindSubKeyByNameWithStatus @ 0x1404F54C0
  * Callers:
- *     CmpWalkOneLevel @ 0x14002D9B0 (CmpWalkOneLevel.c)
- *     CmpMarkCurrentValueDirty @ 0x14054DF74 (CmpMarkCurrentValueDirty.c)
- *     CmpFindSubKeyByName @ 0x14055FE64 (CmpFindSubKeyByName.c)
- *     CmpFindControlSet @ 0x14055FE7C (CmpFindControlSet.c)
- *     CmpWalkPath @ 0x1405601F8 (CmpWalkPath.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpFindPathByNameEx @ 0x140601014 (CmpFindPathByNameEx.c)
- *     CmpCopySyncTree2 @ 0x140608240 (CmpCopySyncTree2.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140609C5C (CmpSyncSubKeysAfterDelete.c)
+ *     CmpWalkOneLevel @ 0x14002D530 (CmpWalkOneLevel.c)
+ *     CmpMarkCurrentValueDirty @ 0x14054E314 (CmpMarkCurrentValueDirty.c)
+ *     CmpFindSubKeyByName @ 0x1405603A4 (CmpFindSubKeyByName.c)
+ *     CmpFindControlSet @ 0x1405603BC (CmpFindControlSet.c)
+ *     CmpWalkPath @ 0x140560738 (CmpWalkPath.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpFindPathByNameEx @ 0x1406010C8 (CmpFindPathByNameEx.c)
+ *     CmpCopySyncTree2 @ 0x1406082F4 (CmpCopySyncTree2.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140609D10 (CmpSyncSubKeysAfterDelete.c)
  * Callees:
- *     CmpDoCompareKeyName @ 0x140512350 (CmpDoCompareKeyName.c)
- *     CmpFindSubKeyInRoot @ 0x140512460 (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x140512A60 (CmpFindSubKeyInLeafWithStatus.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     CmpDoCompareKeyName @ 0x1404F5740 (CmpDoCompareKeyName.c)
+ *     CmpFindSubKeyInRoot @ 0x1404F5850 (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1404F5E50 (CmpFindSubKeyInLeafWithStatus.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNameWithStatus(__int64 a1, __int64 a2, __m128i *a3, unsigned int *a4)

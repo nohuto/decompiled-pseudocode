@@ -3,10 +3,10 @@
  * Callers:
  *     DbgLoadImageSymbolsUnicode @ 0x14020A99C (DbgLoadImageSymbolsUnicode.c)
  *     DbgUnLoadImageSymbolsUnicode @ 0x14020B814 (DbgUnLoadImageSymbolsUnicode.c)
- *     MiLoadUserSymbols @ 0x140A30AF4 (MiLoadUserSymbols.c)
+ *     MiLoadUserSymbols @ 0x140A30DA4 (MiLoadUserSymbols.c)
  * Callees:
- *     RtlxUnicodeStringToOemSize @ 0x140755CE0 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758680 (RtlUnicodeStringToAnsiString.c)
+ *     RtlxUnicodeStringToOemSize @ 0x140755ED0 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x140758870 (RtlUnicodeStringToAnsiString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

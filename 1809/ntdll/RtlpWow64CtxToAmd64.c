@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpWow64CtxToAmd64 @ 0x1800FF3A4
  * Callers:
- *     RtlpWow64SetContextOnAmd64 @ 0x1800772C0 (RtlpWow64SetContextOnAmd64.c)
+ *     RtlpWow64SetContextOnAmd64 @ 0x1800772D0 (RtlpWow64SetContextOnAmd64.c)
  * Callees:
  *     RtlFnToFxFrame @ 0x1800F8EF4 (RtlFnToFxFrame.c)
  */

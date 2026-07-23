@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnPrefetchCacheEntryGet @ 0x1403E8B24
+ * XREFs of PfSnPrefetchCacheEntryGet @ 0x1403EA154
  * Callers:
- *     PfSnCheckActionsNeeded @ 0x1403E7994 (PfSnCheckActionsNeeded.c)
- *     PfSnPrefetchCacheEntryUpdate @ 0x1403E9BAC (PfSnPrefetchCacheEntryUpdate.c)
+ *     PfSnCheckActionsNeeded @ 0x1403E8FC4 (PfSnCheckActionsNeeded.c)
+ *     PfSnPrefetchCacheEntryUpdate @ 0x1403EB1DC (PfSnPrefetchCacheEntryUpdate.c)
  * Callees:
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PfSnPrefetchCacheCtxStart @ 0x140578DA4 (PfSnPrefetchCacheCtxStart.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PfSnPrefetchCacheCtxStart @ 0x1405792E4 (PfSnPrefetchCacheCtxStart.c)
  */
 
 __int64 __fastcall PfSnPrefetchCacheEntryGet(__int64 a1, _OWORD *a2, __int64 a3, int *a4)

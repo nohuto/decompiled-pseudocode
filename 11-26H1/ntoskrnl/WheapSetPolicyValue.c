@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapSetPolicyValue @ 0x140849D14
+ * XREFs of WheapSetPolicyValue @ 0x140850024
  * Callers:
- *     WheapScanRegistryForPolicyChanges @ 0x140849C2C (WheapScanRegistryForPolicyChanges.c)
+ *     WheapScanRegistryForPolicyChanges @ 0x14084FF3C (WheapScanRegistryForPolicyChanges.c)
  * Callees:
- *     WheaInitializeRegChangeNotify @ 0x140849894 (WheaInitializeRegChangeNotify.c)
- *     WheapOpenPolicyRegistryKey @ 0x140CE86F0 (WheapOpenPolicyRegistryKey.c)
+ *     WheaInitializeRegChangeNotify @ 0x14084FBA4 (WheaInitializeRegChangeNotify.c)
+ *     WheapOpenPolicyRegistryKey @ 0x140CEEA90 (WheapOpenPolicyRegistryKey.c)
  */
 
 __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
@@ -17,9 +17,9 @@ __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
 
   v2 = 0;
   v3 = a1;
-  if ( !CmpCallbackListLock.WaitBlock[2].Object )
+  if ( !CmpContextListLock.WaitBlock[1].Object )
     WheapOpenPolicyRegistryKey();
-  if ( _InterlockedCompareExchange((volatile signed __int32 *)&CmpCallbackListLock.WaitBlockFill11[136], 0, 1) == 1 )
+  if ( _InterlockedCompareExchange((volatile signed __int32 *)&CmpContextListLock.WaitBlockFill11[120], 0, 1) == 1 )
     WheaInitializeRegChangeNotify();
   if ( (unsigned int)v3 >= 0x16 )
     return (unsigned int)-1073741811;

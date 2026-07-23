@@ -1,12 +1,12 @@
 /*
- * XREFs of ResCKeGetBaseFolder @ 0x18005A658
+ * XREFs of ResCKeGetBaseFolder @ 0x18005A648
  * Callers:
- *     ResCKeOpenRuntimeView @ 0x18005A014 (ResCKeOpenRuntimeView.c)
+ *     ResCKeOpenRuntimeView @ 0x18005A004 (ResCKeOpenRuntimeView.c)
  *     ResCKeCreateRuntimeView @ 0x1800FF07C (ResCKeCreateRuntimeView.c)
  *     ResCKeGetCacheIndices @ 0x1800FF240 (ResCKeGetCacheIndices.c)
  * Callees:
- *     _ResGetSystemWindowsDirectory @ 0x18005A6BC (_ResGetSystemWindowsDirectory.c)
- *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x18005A7C0 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     _ResGetSystemWindowsDirectory @ 0x18005A6AC (_ResGetSystemWindowsDirectory.c)
+ *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x18005A7B0 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
  */
 
 __int64 __fastcall ResCKeGetBaseFolder(unsigned __int16 *a1)

@@ -22,14 +22,14 @@
  *     sub_1800DA4EC @ 0x1800DA4EC (sub_1800DA4EC.c)
  */
 
-__int64 __fastcall sub_1800324E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5, int a6)
+__int64 __fastcall sub_1800324E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   int v7; // r12d
   __int64 v8; // r15
   __int64 v9; // rdi
-  int v10; // eax
-  int v11; // ebx
-  unsigned __int64 v12; // r13
+  NTSTATUS v10; // eax
+  NTSTATUS v11; // ebx
+  _QWORD *v12; // r13
   _QWORD *v13; // rbx
   __int64 v14; // rsi
   __int64 v15; // r12
@@ -39,16 +39,16 @@ __int64 __fastcall sub_1800324E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
   __int64 v19; // rdx
   __int64 v20; // rax
   const char *v21; // r15
-  int v22; // esi
-  unsigned __int64 v23; // rdi
-  __int64 v24; // rbx
+  NTSTATUS v22; // esi
+  _QWORD *v23; // rdi
+  WCHAR *v24; // rbx
   unsigned __int64 v25; // r14
   bool v26; // bl
-  unsigned __int64 v27; // rdi
+  char *v27; // rdi
   char *v28; // r13
-  int v29; // eax
-  __int16 v30; // ax
-  __int64 v31; // rax
+  NTSTATUS v29; // eax
+  WORD Magic; // ax
+  __int64 SizeOfHeapCommit_low; // rax
   int v32; // r10d
   int v33; // r9d
   int v34; // r8d
@@ -56,60 +56,60 @@ __int64 __fastcall sub_1800324E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
   signed __int64 v36; // rdx
   unsigned __int8 v37; // cl
   int v38; // eax
-  unsigned int v39; // esi
+  unsigned __int32 v39; // esi
   char *v40; // rdi
-  int v41; // ebx
+  NTSTATUS v41; // ebx
   __int64 v42; // rsi
   unsigned int v43; // ecx
   __int64 v44; // r15
   unsigned int v46; // eax
   unsigned int v47; // [rsp+40h] [rbp-578h]
-  int v48; // [rsp+44h] [rbp-574h] BYREF
-  unsigned int v49; // [rsp+48h] [rbp-570h]
-  int v50; // [rsp+4Ch] [rbp-56Ch]
-  unsigned __int64 v51; // [rsp+50h] [rbp-568h] BYREF
+  NTSTATUS v48; // [rsp+44h] [rbp-574h] BYREF
+  DWORD SizeOfHeapCommit_high; // [rsp+48h] [rbp-570h]
+  NTSTATUS Status; // [rsp+4Ch] [rbp-56Ch]
+  PVOID v51; // [rsp+50h] [rbp-568h] BYREF
   unsigned int v52; // [rsp+58h] [rbp-560h]
   char *v53; // [rsp+60h] [rbp-558h]
   _BYTE *v54; // [rsp+68h] [rbp-550h]
   __int64 v55; // [rsp+70h] [rbp-548h] BYREF
   __int64 v56; // [rsp+78h] [rbp-540h]
-  unsigned __int64 v57; // [rsp+80h] [rbp-538h] BYREF
+  PVOID v57; // [rsp+80h] [rbp-538h] BYREF
   char *v58; // [rsp+88h] [rbp-530h] BYREF
   __int64 v59; // [rsp+90h] [rbp-528h]
-  __int64 v60; // [rsp+98h] [rbp-520h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+98h] [rbp-520h] BYREF
   const char *v61; // [rsp+A0h] [rbp-518h] BYREF
-  void (__fastcall *v62)(char **, unsigned __int64, char *, _QWORD, _QWORD); // [rsp+A8h] [rbp-510h]
+  void (__fastcall *v62)(char **, PVOID, char *, _QWORD, _QWORD); // [rsp+A8h] [rbp-510h]
   char *v63; // [rsp+B0h] [rbp-508h] BYREF
   __int64 v64; // [rsp+B8h] [rbp-500h]
   __int64 v65; // [rsp+C0h] [rbp-4F8h]
   __int64 v66; // [rsp+C8h] [rbp-4F0h]
-  _QWORD *v67; // [rsp+D0h] [rbp-4E8h]
+  __int64 v67; // [rsp+D0h] [rbp-4E8h]
   char **v68; // [rsp+D8h] [rbp-4E0h]
   __int64 v69; // [rsp+E0h] [rbp-4D8h]
-  __int64 v70; // [rsp+E8h] [rbp-4D0h]
+  int v70[2]; // [rsp+E8h] [rbp-4D0h]
   _BYTE v71[16]; // [rsp+F0h] [rbp-4C8h] BYREF
-  _QWORD v72[16]; // [rsp+100h] [rbp-4B8h] BYREF
-  _BYTE v73[1024]; // [rsp+180h] [rbp-438h] BYREF
+  PWSTR Path[16]; // [rsp+100h] [rbp-4B8h] BYREF
+  _BYTE BaseAddress[1024]; // [rsp+180h] [rbp-438h] BYREF
 
   v69 = a4;
   v7 = a3;
-  v70 = a3;
+  *(_QWORD *)v70 = a3;
   v8 = a2;
   v65 = a2;
   v9 = a1;
   v56 = a1;
   v67 = a5;
   v55 = 0LL;
-  v10 = sub_18003AB88(a1, a2, (unsigned int)&v51, a6, (__int64)a5);
+  v10 = sub_18003AB88(a1, a2, (unsigned int)&v51, a6, a5);
   v11 = v10;
-  v50 = v10;
+  Status = v10;
   if ( v10 >= 0 )
   {
     v12 = v51;
-    sub_1800799C0(*(_QWORD *)(v51 + 48));
+    sub_1800799C0(*((PVOID *)v51 + 6));
     v13 = (_QWORD *)(*(_QWORD *)(v9 + 48) + *(unsigned int *)(v8 + 12));
     v59 = (__int64)v13;
-    v14 = a5 - v13;
+    v14 = (a5 - (__int64)v13) >> 3;
     v64 = v14;
     LODWORD(v15) = 0;
     if ( *v13 )
@@ -120,14 +120,14 @@ __int64 __fastcall sub_1800324E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
     }
     if ( (unsigned int)v15 > 0x80 )
     {
-      Heap = (_BYTE *)RtlAllocateHeap(qword_18015B328, dword_18015B268 + 0x40000, 8LL * (unsigned int)v15);
+      Heap = RtlAllocateHeap(HeapHandle, dword_18015B268 + 0x40000, 8LL * (unsigned int)v15);
       v54 = Heap;
       if ( !Heap )
       {
-        Heap = v73;
-        v54 = v73;
-        v13 = v67;
-        v59 = (__int64)v67;
+        Heap = BaseAddress;
+        v54 = BaseAddress;
+        v13 = (_QWORD *)v67;
+        v59 = v67;
         LODWORD(v15) = v15 - v14;
         if ( (unsigned int)v15 > 0x80 )
           LODWORD(v15) = 128;
@@ -137,13 +137,13 @@ __int64 __fastcall sub_1800324E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
     }
     else
     {
-      Heap = v73;
-      v54 = v73;
+      Heap = BaseAddress;
+      v54 = BaseAddress;
     }
     if ( byte_18015BF54 )
-      v62 = (void (__fastcall *)(char **, unsigned __int64, char *, _QWORD, _QWORD))(__ROR8__(
-                                                                                       qword_18016B1E0,
-                                                                                       64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]);
+      v62 = (void (__fastcall *)(char **, PVOID, char *, _QWORD, _QWORD))(__ROR8__(
+                                                                            qword_18016B1E0,
+                                                                            64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]);
     else
       v62 = 0LL;
     v17 = 0LL;
@@ -152,7 +152,7 @@ __int64 __fastcall sub_1800324E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
       goto LABEL_54;
     v18 = 0LL;
     v66 = 0LL;
-    v49 = v48;
+    SizeOfHeapCommit_high = v48;
     while ( 1 )
     {
       v68 = (char **)&Heap[8 * v18];
@@ -187,55 +187,55 @@ __int64 __fastcall sub_1800324E0(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
       v23 = v12;
       v57 = v12;
       v52 = 0;
-      v24 = *(_QWORD *)(v12 + 80);
-      memset(v72, 0, sizeof(v72));
-      LODWORD(v72[3]) = 0;
-      v72[4] = v24;
+      v24 = (WCHAR *)v12[10];
+      memset(Path, 0, sizeof(Path));
+      LODWORD(Path[3]) = 0;
+      Path[4] = v24;
       while ( 1 )
       {
-        v25 = *(_QWORD *)(v23 + 48);
+        v25 = v23[6];
         v26 = 1;
-        v27 = v25;
-        v60 = 0LL;
+        v27 = (char *)v25;
+        OutHeaders = 0LL;
         v28 = 0LL;
         if ( (v25 & 3) != 0 )
         {
-          v27 = v25 & 0xFFFFFFFFFFFFFFFCuLL;
+          v27 = (char *)(v25 & 0xFFFFFFFFFFFFFFFCuLL);
           v26 = (v25 & 1) == 0;
         }
-        v29 = RtlImageNtHeaderEx(1LL, v27, 0LL, &v60);
-        if ( !v60 )
+        v29 = RtlImageNtHeaderEx(1u, v27, 0LL, &OutHeaders);
+        if ( !OutHeaders )
           goto LABEL_96;
-        v30 = *(_WORD *)(v60 + 24);
-        if ( v30 == 267 )
+        Magic = OutHeaders->OptionalHeader.Magic;
+        if ( Magic == 267 )
         {
-          if ( !*(_DWORD *)(v60 + 116) )
+          if ( !HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapReserve) )
             goto LABEL_97;
-          v31 = *(unsigned int *)(v60 + 120);
-          if ( !(_DWORD)v31 )
+          SizeOfHeapCommit_low = LODWORD(OutHeaders->OptionalHeader.SizeOfHeapCommit);
+          if ( !(_DWORD)SizeOfHeapCommit_low )
             goto LABEL_97;
-          v49 = *(_DWORD *)(v60 + 124);
-          if ( v26 || (unsigned int)v31 < *(_DWORD *)(v60 + 84) )
+          SizeOfHeapCommit_high = HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapCommit);
+          if ( v26 || (unsigned int)SizeOfHeapCommit_low < OutHeaders->OptionalHeader.SizeOfHeaders )
           {
 LABEL_24:
-            v28 = (char *)(v27 + v31);
+            v28 = &v27[SizeOfHeapCommit_low];
             goto LABEL_25;
           }
         }
         else
         {
-          if ( v30 != 523 )
+          if ( Magic != 523 )
             goto LABEL_97;
-          if ( !*(_DWORD *)(v60 + 132) )
+          if ( !OutHeaders->OptionalHeader.NumberOfRvaAndSizes )
             goto LABEL_97;
-          v31 = *(unsigned int *)(v60 + 136);
-          if ( !(_DWORD)v31 )
+          SizeOfHeapCommit_low = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+          if ( !(_DWORD)SizeOfHeapCommit_low )
             goto LABEL_97;
-          v49 = *(_DWORD *)(v60 + 140);
-          if ( v26 || (unsigned int)v31 < *(_DWORD *)(v60 + 84) )
+          SizeOfHeapCommit_high = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+          if ( v26 || (unsigned int)SizeOfHeapCommit_low < OutHeaders->OptionalHeader.SizeOfHeaders )
             goto LABEL_24;
         }
-        v28 = (char *)RtlAddressInSectionTable(v60, v27, (unsigned int)v31);
+        v28 = (char *)RtlAddressInSectionTable(OutHeaders, v27, SizeOfHeapCommit_low);
         if ( v28 )
         {
           v29 = 0;
@@ -273,7 +273,7 @@ LABEL_41:
         v40 = (char *)(v25 + *(unsigned int *)(v25 + *((unsigned int *)v28 + 7) + 4LL * (int)v39));
         v53 = v40;
         v58 = v40;
-        if ( v40 < v28 || v40 >= &v28[v49] )
+        if ( v40 < v28 || v40 >= &v28[SizeOfHeapCommit_high] )
         {
           v41 = 0;
           goto LABEL_44;
@@ -287,12 +287,12 @@ LABEL_41:
         v41 = sub_180079A1C(v40, v71, &v61, &v48);
         if ( v41 < 0 )
           goto LABEL_44;
-        LODWORD(v72[3]) = *(_DWORD *)(v57 + 272);
-        v41 = sub_18003BB58((unsigned int)v71, (unsigned int)v72, v51, v57, 2, (__int64)&v57);
+        LODWORD(Path[3]) = *((_DWORD *)v57 + 68);
+        v41 = sub_18003BB58(v71, Path, v51, v57, 2, &v57);
         if ( v41 < 0 )
           goto LABEL_44;
         v23 = v57;
-        sub_18003015C(v57);
+        sub_18003015C((char *)v57);
         v21 = v61;
         v22 = v48;
       }
@@ -357,15 +357,15 @@ LABEL_105:
 LABEL_106:
       v40 = v53;
 LABEL_44:
-      if ( BYTE4(v72[15]) )
-        RtlReleasePath(v72[0]);
+      if ( BYTE4(Path[15]) )
+        RtlReleasePath(Path[0]);
       v48 = v41;
       if ( v41 >= 0 )
       {
         v42 = v56;
         if ( byte_18016B280 )
         {
-          sub_1800DA4EC(*(_QWORD *)(v56 + 48), *(_QWORD *)(v51 + 48), (_DWORD)v40, 1, (__int64)&v58);
+          sub_1800DA4EC(*(_QWORD *)(v56 + 48), *((_QWORD *)v51 + 6), (_DWORD)v40, 1, (__int64)&v58);
           v40 = v58;
         }
         if ( v62 )
@@ -385,7 +385,7 @@ LABEL_44:
       v8 = v65;
       if ( v47 == (_DWORD)v64 )
       {
-        v50 = v41;
+        Status = v41;
         v55 = *(_QWORD *)&v54[8 * (unsigned int)v64];
       }
       v13 = (_QWORD *)v59;
@@ -396,11 +396,11 @@ LABEL_53:
       if ( (unsigned int)v17 >= (unsigned int)v15 )
       {
 LABEL_54:
-        if ( v50 < 0 )
+        if ( Status < 0 )
         {
-          v44 = sub_1800845DC(v9, v12, v8, v70, v69, (__int64)v67, v50);
+          v44 = sub_1800845DC(v9, (int)v12, v8, v70[0], v69, v67, Status);
           v55 = v44;
-          if ( v44 && ((unsigned int)(v50 + 1073741512) <= 1 || v50 == -1073741702 || v50 == -1073740671) )
+          if ( v44 && ((unsigned int)(Status + 1073741512) <= 1 || Status == -1073741702 || Status == -1073740671) )
             *(_QWORD *)&Heap[8 * (unsigned int)v14] = v44;
         }
         else
@@ -408,16 +408,16 @@ LABEL_54:
           v44 = v55;
         }
         sub_180073184(v9, (_DWORD)v13, (_DWORD)Heap, v15, v14);
-        if ( v73 != Heap )
-          RtlFreeHeap(qword_18015B328, 0, (unsigned __int64)Heap);
-        sub_18003015C(v12);
+        if ( BaseAddress != Heap )
+          RtlFreeHeap(HeapHandle, 0, Heap);
+        sub_18003015C((char *)v12);
         return v44;
       }
     }
   }
-  v44 = sub_1800845DC(v9, 0, v8, v7, a4, (__int64)a5, v10);
+  v44 = sub_1800845DC(v9, 0, v8, v7, a4, a5, v10);
   v55 = v44;
   if ( v44 && v11 == -1073741515 )
-    sub_180073184(v9, (_DWORD)a5, (unsigned int)&v55, 1, 0);
+    sub_180073184(v9, a5, (unsigned int)&v55, 1, 0);
   return v44;
 }

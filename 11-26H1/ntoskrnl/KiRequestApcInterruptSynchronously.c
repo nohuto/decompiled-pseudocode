@@ -1,15 +1,15 @@
 /*
- * XREFs of KiRequestApcInterruptSynchronously @ 0x140520548
+ * XREFs of KiRequestApcInterruptSynchronously @ 0x140522BEC
  * Callers:
- *     KiSuspendThread @ 0x14020909C (KiSuspendThread.c)
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
+ *     KiSuspendThread @ 0x14020917C (KiSuspendThread.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1402517F0 (KiIpiStallOnPacketTargetsPrcb.c)
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x140253150 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiRequestApcInterruptSynchronously(unsigned int a1)
@@ -31,8 +31,8 @@ __int64 __fastcall KiRequestApcInterruptSynchronously(unsigned int a1)
   memset_0(v12, 0, 0x100uLL);
   v11 = 2097153LL;
   memset_0(v12, 0, 0x100uLL);
-  v2 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v1) & 0x3F;
-  v3 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v1) >> 6;
+  v2 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v1) & 0x3F;
+  v3 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v1) >> 6;
   if ( (_DWORD)v3 )
   {
     if ( WORD1(v11) <= (unsigned int)v3 )

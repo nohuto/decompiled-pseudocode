@@ -23,7 +23,7 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
         unsigned __int16 *a7)
 {
   __int16 v7; // bp
-  unsigned __int64 v10; // r12
+  unsigned __int16 *v10; // r12
   __int64 v11; // r13
   bool v12; // zf
   char v13; // bl
@@ -35,14 +35,14 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
   __int64 v19; // r9
   __int64 v20; // r8
   const WCHAR *v21; // rdx
-  __int64 v22; // rax
+  unsigned __int16 *v22; // rax
   __int64 v23; // r8
   const wchar_t *v24; // rdx
   __int64 *v25; // rdi
   __int64 v26; // r8
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-50h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-50h] BYREF
   __int16 v29; // [rsp+88h] [rbp+10h] BYREF
-  int v30; // [rsp+98h] [rbp+20h] BYREF
+  DWORD Lcid; // [rsp+98h] [rbp+20h] BYREF
 
   v7 = a3;
   v10 = 0LL;
@@ -114,9 +114,9 @@ LABEL_4:
           if ( v21 )
           {
             RtlInitUnicodeString(&DestinationString, v21);
-            if ( RtlCultureNameToLCID(&DestinationString.Length, &v30) )
+            if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
             {
-              v12 = v7 == (__int16)v30;
+              v12 = v7 == (__int16)Lcid;
               goto LABEL_3;
             }
           }
@@ -124,11 +124,11 @@ LABEL_4:
       }
       else if ( a2 == 3 && a4 == 1 )
       {
-        v22 = MuiRegAllocArray(a1, 0x55u);
+        v22 = (unsigned __int16 *)MuiRegAllocArray(a1, 0x55u);
         v10 = v22;
         if ( v22 )
         {
-          if ( RtlpInitAndCallLcidToCultureName((__int64)&DestinationString, v22, (__int16)a5) )
+          if ( RtlpInitAndCallLcidToCultureName(&DestinationString, v22, (__int16)a5) )
           {
             v23 = *(_QWORD *)(a1 + 32);
             if ( v23 && v7 >= 0 && v7 < (int)*(unsigned __int16 *)(v23 + 6) )
@@ -145,7 +145,7 @@ LABEL_4:
   v13 = 0;
 LABEL_44:
   if ( v10 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
   v14 = 0LL;
 LABEL_47:
   v25 = a6;

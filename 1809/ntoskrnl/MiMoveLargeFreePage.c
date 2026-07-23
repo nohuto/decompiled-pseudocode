@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMoveLargeFreePage @ 0x1402CC944
+ * XREFs of MiMoveLargeFreePage @ 0x1402CCB34
  * Callers:
- *     MiTransferPartitionPageRun @ 0x1402D26F8 (MiTransferPartitionPageRun.c)
+ *     MiTransferPartitionPageRun @ 0x1402D28E8 (MiTransferPartitionPageRun.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     MiTryUnlinkNodeLargePage @ 0x14012BBB0 (MiTryUnlinkNodeLargePage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14009BA00 (MiInsertLargePageInNodeListHelper.c)
+ *     MiTryUnlinkNodeLargePage @ 0x14012BC80 (MiTryUnlinkNodeLargePage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMoveLargeFreePage(__int64 a1, unsigned int a2, __int64 a3, unsigned __int16 *a4)
@@ -38,7 +38,7 @@ __int64 __fastcall MiMoveLargeFreePage(__int64 a1, unsigned int a2, __int64 a3, 
   if ( v23 > 1 )
     return 0LL;
   v10 = 48 * v7 - 0x58000000000LL;
-  v11 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL));
+  v11 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL));
   if ( v11 != a3 )
   {
     v12 = MiLockPageInline(48 * v7 - 0x58000000000LL);

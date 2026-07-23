@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlRemoveHeadCircularList @ 0x140428AD0
+ * XREFs of RtlRemoveHeadCircularList @ 0x14041CA50
  * Callers:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExpReleaseResourceForThreadLite @ 0x1402D6BE0 (ExpReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140357E60 (ExpReleaseResourceForThreadLite.c)
  * Callees:
  *     <none>
  */

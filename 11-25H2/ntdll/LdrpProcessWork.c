@@ -29,12 +29,15 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
   int v6; // eax
   int v7; // esi
   __int64 v8; // rax
-  int v9; // edx
-  int v10; // eax
-  bool v11; // bl
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  int v12; // eax
+  bool v13; // bl
+  int v14; // [rsp+20h] [rbp-38h]
 
   if ( **(int **)(a1 + 40) < 0 )
-    goto LABEL_20;
+    goto LABEL_22;
   v4 = *(_QWORD *)(a1 + 56);
   if ( *(_DWORD *)(*(_QWORD *)(v4 + 152) + 56LL) )
   {
@@ -59,42 +62,49 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
       }
       else
       {
-        v6 = LdrpMapDllSearchPath(a1);
+        v6 = LdrpMapDllSearchPath((PCUNICODE_STRING)a1);
       }
     }
     v7 = v6;
     if ( v6 >= 0 || v6 == -1073741267 )
-      goto LABEL_20;
+      goto LABEL_22;
+    v8 = *(_QWORD *)(a1 + 48);
+    v9 = v8 + 72;
+    if ( !v8 )
+      v9 = 0LL;
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrmap.c",
-      2158,
-      (int)"LdrpProcessWork",
-      0,
+      "minkernel\\ldr\\ldrmap.c",
+      2158LL,
+      "LdrpProcessWork",
+      0LL,
       "Unable to load DLL: \"%wZ\", Parent Module: \"%wZ\", Status: 0x%x\n",
-      a1);
+      a1,
+      v9,
+      v7);
     if ( v7 == -1073741515 )
     {
       LdrpLogError(3221225781LL, 25LL, 0LL, a1);
       LdrpLogDeprecatedDllEtwEvent(a1);
-      v8 = *(_QWORD *)(a1 + 48);
-      v9 = v8 + 72;
-      if ( !v8 )
-        v9 = 0;
-      LdrpLogLoadFailureEtwEvent(a1, v9, -1073741515, (unsigned int)&LoadFailure, 0);
+      v10 = *(_QWORD *)(a1 + 48);
+      v11 = v10 + 72;
+      if ( !v10 )
+        v11 = 0LL;
+      LOBYTE(v14) = 0;
+      LdrpLogLoadFailureEtwEvent(a1, v11, 3221225781LL, &LoadFailure, v14);
       if ( (*(_BYTE *)(*(_QWORD *)(a1 + 56) + 104LL) & 0x20) != 0 )
         LdrpReportError((__int128 *)a1, 0LL, -1073741515);
     }
   }
   if ( v7 < 0 )
     **(_DWORD **)(a1 + 40) = v7;
-LABEL_20:
+LABEL_22:
   if ( !a2 )
   {
     RtlEnterCriticalSection(&LdrpWorkQueueLock);
-    v10 = --LdrpWorkInProgress;
-    v11 = (__int64 *)LdrpWorkQueue == &LdrpWorkQueue && v10 == 1;
+    v12 = --LdrpWorkInProgress;
+    v13 = (__int64 *)LdrpWorkQueue == &LdrpWorkQueue && v12 == 1;
     RtlLeaveCriticalSection(&LdrpWorkQueueLock);
-    if ( v11 )
+    if ( v13 )
       ZwSetEvent(LdrpWorkCompleteEvent, 0LL);
   }
 }

@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-int __stdcall RtlGetCurrentProcessorNumber()
+ULONG RtlGetCurrentProcessorNumber(void)
 {
   return NtGetCurrentProcessorNumber();
 }

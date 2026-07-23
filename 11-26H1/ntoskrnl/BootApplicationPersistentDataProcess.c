@@ -1,38 +1,38 @@
 /*
- * XREFs of BootApplicationPersistentDataProcess @ 0x140C7FBB0
+ * XREFs of BootApplicationPersistentDataProcess @ 0x140C85BB0
  * Callers:
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
- *     ExInitSystemPhase2 @ 0x140CE4044 (ExInitSystemPhase2.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
+ *     ExInitSystemPhase2 @ 0x140CEA3E4 (ExInitSystemPhase2.c)
  * Callees:
- *     BapdpInitializePageDatabase @ 0x1406CA49C (BapdpInitializePageDatabase.c)
- *     BapdpMarshallBootDataToRegistry @ 0x1406CA6B8 (BapdpMarshallBootDataToRegistry.c)
- *     BapdpProcessEtwEvents @ 0x1406CAA8C (BapdpProcessEtwEvents.c)
- *     BapdpProcessSpacesBootInformation @ 0x1406CABD0 (BapdpProcessSpacesBootInformation.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     BapdProcessFwRamdiskInformation @ 0x140CE23D4 (BapdProcessFwRamdiskInformation.c)
- *     BapdProcessOslRamdiskInformation @ 0x140CE2430 (BapdProcessOslRamdiskInformation.c)
- *     BapdpProcessBitlockerStatus @ 0x140CE24F4 (BapdpProcessBitlockerStatus.c)
- *     BapdpProcessBootMetadata @ 0x140CE25C0 (BapdpProcessBootMetadata.c)
- *     BapdpProcessEDrvHintInfo @ 0x140CE26FC (BapdpProcessEDrvHintInfo.c)
- *     BapdpProcessFwUpdateResults @ 0x140CE27CC (BapdpProcessFwUpdateResults.c)
- *     BapdpProcessHSTIResults @ 0x140CE2898 (BapdpProcessHSTIResults.c)
- *     BapdpProcessResumeInformation @ 0x140CE296C (BapdpProcessResumeInformation.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140CE2A38 (BapdpProcessVsmKeyBlobs.c)
- *     BapdpProcessWmdResults @ 0x140CE2E38 (BapdpProcessWmdResults.c)
- *     BapdpRecordIumStatus @ 0x140CE30D8 (BapdpRecordIumStatus.c)
- *     BapdpRegisterWbclData @ 0x140CE3814 (BapdpRegisterWbclData.c)
- *     ExpInitializeMemoryMirroring @ 0x140CE3C6C (ExpInitializeMemoryMirroring.c)
+ *     BapdpInitializePageDatabase @ 0x1406CE4D8 (BapdpInitializePageDatabase.c)
+ *     BapdpMarshallBootDataToRegistry @ 0x1406CE6E8 (BapdpMarshallBootDataToRegistry.c)
+ *     BapdpProcessEtwEvents @ 0x1406CEABC (BapdpProcessEtwEvents.c)
+ *     BapdpProcessSpacesBootInformation @ 0x1406CEC00 (BapdpProcessSpacesBootInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     BapdProcessFwRamdiskInformation @ 0x140CE8774 (BapdProcessFwRamdiskInformation.c)
+ *     BapdProcessOslRamdiskInformation @ 0x140CE87D0 (BapdProcessOslRamdiskInformation.c)
+ *     BapdpProcessBitlockerStatus @ 0x140CE8894 (BapdpProcessBitlockerStatus.c)
+ *     BapdpProcessBootMetadata @ 0x140CE8960 (BapdpProcessBootMetadata.c)
+ *     BapdpProcessEDrvHintInfo @ 0x140CE8A9C (BapdpProcessEDrvHintInfo.c)
+ *     BapdpProcessFwUpdateResults @ 0x140CE8B6C (BapdpProcessFwUpdateResults.c)
+ *     BapdpProcessHSTIResults @ 0x140CE8C38 (BapdpProcessHSTIResults.c)
+ *     BapdpProcessResumeInformation @ 0x140CE8D0C (BapdpProcessResumeInformation.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140CE8DD8 (BapdpProcessVsmKeyBlobs.c)
+ *     BapdpProcessWmdResults @ 0x140CE91D8 (BapdpProcessWmdResults.c)
+ *     BapdpRecordIumStatus @ 0x140CE9478 (BapdpRecordIumStatus.c)
+ *     BapdpRegisterWbclData @ 0x140CE9BB4 (BapdpRegisterWbclData.c)
+ *     ExpInitializeMemoryMirroring @ 0x140CEA00C (ExpInitializeMemoryMirroring.c)
  */
 
 void __fastcall BootApplicationPersistentDataProcess(int a1)
 {
   __int64 v1; // rcx
   __int64 v2; // rcx
-  PVOID *v3; // rbx
-  PVOID *v4; // rax
+  struct _KTHREAD *Blink; // rbx
+  struct _LIST_ENTRY *v4; // rax
 
-  if ( (__int64 *)qword_140E622C0 == &qword_140E622C0 )
+  if ( stru_140E62450.Header.WaitListHead.Flink == &stru_140E62450.Header.WaitListHead )
     goto LABEL_12;
   if ( !a1 )
   {
@@ -71,18 +71,18 @@ LABEL_12:
     BapdpMarshallBootDataToRegistry();
     while ( 1 )
     {
-      v3 = (PVOID *)qword_140E622C8;
-      if ( *(__int64 **)qword_140E622C8 != &qword_140E622C0
-        || (v4 = (PVOID *)*((_QWORD *)qword_140E622C8 + 1), *v4 != qword_140E622C8) )
+      Blink = (struct _KTHREAD *)stru_140E62450.Header.WaitListHead.Blink;
+      if ( stru_140E62450.Header.WaitListHead.Blink->Flink != &stru_140E62450.Header.WaitListHead
+        || (v4 = stru_140E62450.Header.WaitListHead.Blink->Blink, v4->Flink != stru_140E62450.Header.WaitListHead.Blink) )
       {
         __fastfail(3u);
       }
-      qword_140E622C8 = (PVOID)*((_QWORD *)qword_140E622C8 + 1);
-      *v4 = &qword_140E622C0;
-      if ( v3 == (PVOID *)&qword_140E622C0 )
+      stru_140E62450.Header.WaitListHead.Blink = stru_140E62450.Header.WaitListHead.Blink->Blink;
+      v4->Flink = &stru_140E62450.Header.WaitListHead;
+      if ( Blink == (struct _KTHREAD *)&stru_140E62450.Header.WaitListHead )
         break;
-      ExFreePoolWithTag(v3[2], 0);
-      ExFreePoolWithTag(v3, 0);
+      ExFreePoolWithTag(Blink->Header.WaitListHead.Blink, 0);
+      ExFreePoolWithTag(Blink, 0);
     }
   }
 }

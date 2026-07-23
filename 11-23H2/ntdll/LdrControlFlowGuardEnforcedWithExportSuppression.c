@@ -10,8 +10,8 @@
  *     RtlGuardRestoreContext @ 0x18006DA50 (RtlGuardRestoreContext.c)
  *     LdrpInitializeProcess @ 0x1800DDBD0 (LdrpInitializeProcess.c)
  *     AvrfMiniLoadDll @ 0x1800E6DE8 (AvrfMiniLoadDll.c)
- *     RtlValidateUserCallTarget @ 0x18010B8C4 (RtlValidateUserCallTarget.c)
- *     RtlpHandleInvalidUserCallTarget @ 0x18010BB50 (RtlpHandleInvalidUserCallTarget.c)
+ *     RtlValidateUserCallTarget @ 0x18010B894 (RtlValidateUserCallTarget.c)
+ *     RtlpHandleInvalidUserCallTarget @ 0x18010BB20 (RtlpHandleInvalidUserCallTarget.c)
  * Callees:
  *     <none>
  */
@@ -21,10 +21,10 @@ bool LdrControlFlowGuardEnforcedWithExportSuppression()
   bool result; // al
 
   result = 0;
-  if ( qword_18019C3C8 )
+  if ( LdrSystemDllInitBlock.CfgBitMap )
   {
-    if ( (dword_18019C3AC & 1) == 0 )
-      return (BYTE5(qword_18019C3B0) & 3) == 3;
+    if ( (LdrSystemDllInitBlock.Flags & 1) == 0 )
+      return (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) == 3;
   }
   return result;
 }

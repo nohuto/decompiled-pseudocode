@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetExclusionWalkBounds @ 0x14023424C
+ * XREFs of MiSetExclusionWalkBounds @ 0x140450580
  * Callers:
- *     MiInitializeWalkBounds @ 0x140235AFC (MiInitializeWalkBounds.c)
+ *     MiInitializeWalkBounds @ 0x14020FC8C (MiInitializeWalkBounds.c)
  * Callees:
  *     <none>
  */

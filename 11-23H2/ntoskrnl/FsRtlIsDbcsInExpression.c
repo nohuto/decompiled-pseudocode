@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlIsDbcsInExpression @ 0x14093F030
+ * XREFs of FsRtlIsDbcsInExpression @ 0x14093F230
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     FsRtlDoesDbcsContainWildCards @ 0x1408A4A30 (FsRtlDoesDbcsContainWildCards.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     FsRtlDoesDbcsContainWildCards @ 0x1408A4C80 (FsRtlDoesDbcsContainWildCards.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -16,7 +16,7 @@ BOOLEAN __stdcall FsRtlIsDbcsInExpression(PANSI_STRING Expression, PANSI_STRING 
   PANSI_STRING v3; // r15
   void *v5; // r11
   unsigned __int16 v6; // bp
-  STRING v8; // xmm0
+  _STRING v8; // xmm0
   __int64 v9; // rdi
   char *v10; // rsi
   __int64 v11; // rdx
@@ -72,7 +72,7 @@ BOOLEAN __stdcall FsRtlIsDbcsInExpression(PANSI_STRING Expression, PANSI_STRING 
   unsigned __int16 v61; // [rsp+22h] [rbp-B6h]
   __int16 v62; // [rsp+24h] [rbp-B4h]
   __int16 v63; // [rsp+28h] [rbp-B0h]
-  STRING Namea; // [rsp+30h] [rbp-A8h] BYREF
+  _STRING Namea; // [rsp+30h] [rbp-A8h] BYREF
   int v65; // [rsp+40h] [rbp-98h]
   unsigned int v66; // [rsp+44h] [rbp-94h]
   unsigned int v67; // [rsp+48h] [rbp-90h]

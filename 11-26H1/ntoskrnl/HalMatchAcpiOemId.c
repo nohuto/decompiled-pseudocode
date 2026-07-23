@@ -1,14 +1,14 @@
 /*
- * XREFs of HalMatchAcpiOemId @ 0x140342910
+ * XREFs of HalMatchAcpiOemId @ 0x140344990
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     HalpAcpiGetTableWork @ 0x140342B6C (HalpAcpiGetTableWork.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     strlen @ 0x14073DD10 (strlen.c)
- *     RtlCompareString @ 0x14096B960 (RtlCompareString.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     HalpAcpiGetTableWork @ 0x140344BEC (HalpAcpiGetTableWork.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     strlen @ 0x140742910 (strlen.c)
+ *     RtlCompareString @ 0x14097C2A0 (RtlCompareString.c)
  */
 
 __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, int **a3, int a4)

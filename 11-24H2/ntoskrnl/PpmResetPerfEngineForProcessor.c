@@ -1,32 +1,30 @@
 /*
- * XREFs of PpmResetPerfEngineForProcessor @ 0x140447E00
+ * XREFs of PpmResetPerfEngineForProcessor @ 0x140440520
  * Callers:
- *     PopHandleNextState @ 0x140B65E10 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x140B67F50 (PopHandleNextState.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     PpmResetPerfTimes @ 0x140447F1C (PpmResetPerfTimes.c)
- *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x1404FAD08 (PpmHeteroHgsProcessorThreadFeedbackInit.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     PpmResetPerfTimes @ 0x14044063C (PpmResetPerfTimes.c)
+ *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x1404F85E8 (PpmHeteroHgsProcessorThreadFeedbackInit.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2)
 {
-  char v4; // bp
-  __int64 v6; // rdi
-  __int64 v7; // rbx
-  __int64 v8; // rsi
+  char v2; // bp
+  __int64 v4; // rdi
+  __int64 v5; // rbx
+  __int64 v6; // rsi
   unsigned int k; // esi
-  __int64 v11; // rcx
-  int v12; // eax
+  __int64 v9; // rcx
+  int v10; // eax
   __int64 i; // rbx
-  __int64 InterruptTimePrecise; // rax
-  __int64 v15; // r8
-  __int64 v16; // r9
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned int j; // edi
-  __int64 v18; // rcx
-  unsigned __int64 v19; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v14; // rcx
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = a2;
+  v2 = a2;
   if ( !*(_DWORD *)(a1 + 36) )
   {
     for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
@@ -35,61 +33,60 @@ __int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2, __int6
       {
         for ( j = 0; j < *(_DWORD *)(i + 296); ++j )
         {
-          v18 = *(_QWORD *)(i + 312) + 1192LL * j;
-          if ( v4 )
+          v14 = *(_QWORD *)(i + 312) + 1192LL * j;
+          if ( v2 )
           {
-            if ( *(_DWORD *)(v18 + 16) == 1 )
-              PpmResetPerfTimes(*(_QWORD *)v18);
+            if ( *(_DWORD *)(v14 + 16) == 1 )
+              PpmResetPerfTimes(*(_QWORD *)v14);
           }
           else if ( *(_QWORD *)(i + 368) )
           {
-            guard_dispatch_icall_no_overrides(*(_QWORD *)(v18 + 8), a2, a3, a4);
+            guard_dispatch_icall_no_overrides(*(_QWORD *)(v14 + 8), a2);
           }
         }
       }
     }
   }
-  v6 = a1 + 35248;
-  v7 = *(_QWORD *)(a1 + 35248);
-  v8 = *(_QWORD *)(a1 + 35256);
-  if ( v7 && v8 )
+  v4 = a1 + 35248;
+  v5 = *(_QWORD *)(a1 + 35248);
+  v6 = *(_QWORD *)(a1 + 35256);
+  if ( v5 && v6 )
   {
-    if ( v4 )
+    if ( v2 )
     {
-      if ( *(_QWORD *)(v7 + 416) )
+      if ( *(_QWORD *)(v5 + 416) )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
-        LOBYTE(v15) = 1;
-        guard_dispatch_icall_no_overrides(*(_QWORD *)(v8 + 8), InterruptTimePrecise, v15, v16);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+        guard_dispatch_icall_no_overrides(*(_QWORD *)(v6 + 8), (LARGE_INTEGER)InterruptTimePrecise.QuadPart);
       }
     }
-    else if ( *(_QWORD *)(v7 + 368) )
+    else if ( *(_QWORD *)(v5 + 368) )
     {
-      guard_dispatch_icall_no_overrides(*(_QWORD *)(v8 + 8), a2, a3, a4);
+      guard_dispatch_icall_no_overrides(*(_QWORD *)(v6 + 8), a2);
     }
-    if ( v6 == *(_QWORD *)(v7 + 16) )
+    if ( v4 == *(_QWORD *)(v5 + 16) )
     {
-      for ( k = 0; k < *(_DWORD *)(v7 + 296); ++k )
+      for ( k = 0; k < *(_DWORD *)(v5 + 296); ++k )
       {
-        v11 = *(_QWORD *)(v7 + 312) + 1192LL * k;
-        v12 = *(_DWORD *)(v11 + 16);
-        if ( v12 )
+        v9 = *(_QWORD *)(v5 + 312) + 1192LL * k;
+        v10 = *(_DWORD *)(v9 + 16);
+        if ( v10 )
         {
-          if ( v4 )
+          if ( v2 )
           {
-            if ( v12 == 1 )
-              PpmResetPerfTimes(*(_QWORD *)v11);
+            if ( v10 == 1 )
+              PpmResetPerfTimes(*(_QWORD *)v9);
           }
-          else if ( *(_QWORD *)(v7 + 368) )
+          else if ( *(_QWORD *)(v5 + 368) )
           {
-            guard_dispatch_icall_no_overrides(*(_QWORD *)(v11 + 8), a2, a3, a4);
+            guard_dispatch_icall_no_overrides(*(_QWORD *)(v9 + 8), a2);
           }
         }
       }
     }
   }
-  if ( v4 )
-    return PpmResetPerfTimes(v6);
+  if ( v2 )
+    return PpmResetPerfTimes(v4);
   else
     return PpmHeteroHgsProcessorThreadFeedbackInit();
 }

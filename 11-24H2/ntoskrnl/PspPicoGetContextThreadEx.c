@@ -1,9 +1,9 @@
 /*
- * XREFs of PspPicoGetContextThreadEx @ 0x14077A0D0
+ * XREFs of PspPicoGetContextThreadEx @ 0x14077A1D0
  * Callers:
  *     <none>
  * Callees:
- *     PspGetContextThreadInternal @ 0x1408FD570 (PspGetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x14091FE50 (PspGetContextThreadInternal.c)
  */
 
 __int64 __fastcall PspPicoGetContextThreadEx(int a1, int a2, int a3, int a4, char a5)

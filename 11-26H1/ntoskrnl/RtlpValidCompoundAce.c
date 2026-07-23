@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpValidCompoundAce @ 0x14077D224
+ * XREFs of RtlpValidCompoundAce @ 0x14077FD24
  * Callers:
- *     RtlValidAcl @ 0x140928000 (RtlValidAcl.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlAddAce @ 0x1409F4690 (RtlAddAce.c)
- *     RtlAddAccessAllowedAce @ 0x1409F49E0 (RtlAddAccessAllowedAce.c)
- *     SepCheckAcl @ 0x1409F4DF0 (SepCheckAcl.c)
+ *     RtlValidAcl @ 0x140903B10 (RtlValidAcl.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlAddAce @ 0x1409E03E0 (RtlAddAce.c)
+ *     RtlAddAccessAllowedAce @ 0x1409E0730 (RtlAddAccessAllowedAce.c)
+ *     SepCheckAcl @ 0x1409E0B40 (SepCheckAcl.c)
  * Callees:
  *     <none>
  */

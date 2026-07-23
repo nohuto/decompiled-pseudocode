@@ -146,7 +146,7 @@ LABEL_60:
     *v33 = v11;
     v26[1] = (PVOID)v11;
     v35 = 1;
-    if ( PopPopPowerSettingSetChangeNotification )
+    if ( PopPopPowerSettingSetChangeNotification.Data[0] || PopPopPowerSettingSetChangeNotification.Data[1] )
       v36 = 1;
   }
   v13 = *(_QWORD *)(v11 + 8LL * a3 + 64);
@@ -238,7 +238,7 @@ LABEL_7:
   if ( (unsigned int)PopOsInitPhase >= 3 )
   {
     if ( v36 )
-      ZwUpdateWnfStateData((__int64)&PopPopPowerSettingSetChangeNotification, 0LL);
+      ZwUpdateWnfStateData(&PopPopPowerSettingSetChangeNotification, 0LL, 0, 0LL, 0LL, 0, 0);
     if ( v6 )
     {
       PopIncrementPowerSettingPendingUpdates(1);

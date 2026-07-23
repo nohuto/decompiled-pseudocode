@@ -1,8 +1,8 @@
 /*
- * XREFs of KeSetBitGroupMask @ 0x1404DA280
+ * XREFs of KeSetBitGroupMask @ 0x1404D3960
  * Callers:
- *     KeInitializeProcess @ 0x140963BE4 (KeInitializeProcess.c)
- *     KiConfigureProcessorBlock @ 0x140BF3A10 (KiConfigureProcessorBlock.c)
+ *     KeInitializeProcess @ 0x140B58704 (KeInitializeProcess.c)
+ *     KiConfigureProcessorBlock @ 0x140BF9A10 (KiConfigureProcessorBlock.c)
  * Callees:
  *     <none>
  */

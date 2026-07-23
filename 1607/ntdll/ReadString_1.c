@@ -4,8 +4,8 @@
  *     ReadStringDelimited_1 @ 0x1800A4DE4 (ReadStringDelimited_1.c)
  *     _winput_s @ 0x1800A5094 (_winput_s.c)
  * Callees:
- *     _fgetwc_nolock @ 0x1800A5A84 (_fgetwc_nolock.c)
- *     _ungetwc_nolock @ 0x1800A5ADC (_ungetwc_nolock.c)
+ *     _fgetwc_nolock @ 0x1800A5A78 (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x1800A5AD0 (_ungetwc_nolock.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

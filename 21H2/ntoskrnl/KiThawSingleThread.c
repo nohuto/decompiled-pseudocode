@@ -1,31 +1,30 @@
 /*
- * XREFs of KiThawSingleThread @ 0x140283FD8
+ * XREFs of KiThawSingleThread @ 0x14023A5D0
  * Callers:
- *     KeThawProcess @ 0x140283E7C (KeThawProcess.c)
- *     KeForceResumeProcess @ 0x1402EAA58 (KeForceResumeProcess.c)
+ *     KeThawProcess @ 0x14023A474 (KeThawProcess.c)
+ *     KeForceResumeProcess @ 0x14029BDA8 (KeForceResumeProcess.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
+ *     KiResumeThread @ 0x140267870 (KiResumeThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
  */
 
-void __fastcall KiThawSingleThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiThawSingleThread(__int64 a1, __int64 a2, char a3)
 {
-  volatile signed __int32 *v4; // rdi
-  char v6; // si
+  volatile signed __int32 *v3; // rdi
+  __int64 result; // rax
   __int64 v8; // r8
-  __int64 v9; // r9
 
-  v4 = (volatile signed __int32 *)(a2 + 736);
-  v6 = a3;
-  KiAcquireKobjectLockSafe((volatile signed __int32 *)(a2 + 736), a2, a3, a4);
-  if ( (*(_DWORD *)(a2 + 120) & 0x4000) != 0 || v6 )
+  v3 = (volatile signed __int32 *)(a2 + 736);
+  result = KiAcquireKobjectLockSafe(a2 + 736);
+  if ( (*(_DWORD *)(a2 + 120) & 0x4000) != 0 || a3 )
   {
     _interlockedbittestandreset((volatile signed __int32 *)(a2 + 120), 0xEu);
     if ( !*(_BYTE *)(a2 + 644) )
     {
-      LOBYTE(v8) = v6;
-      KiResumeThread(a2, a1, v8, v9);
+      LOBYTE(v8) = a3;
+      result = KiResumeThread(a2, a1, v8);
     }
   }
-  _InterlockedAnd(v4, 0xFFFFFF7F);
+  _InterlockedAnd(v3, 0xFFFFFF7F);
+  return result;
 }

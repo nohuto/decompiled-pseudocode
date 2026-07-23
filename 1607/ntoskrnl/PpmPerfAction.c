@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmPerfAction @ 0x1400D86C0
+ * XREFs of PpmPerfAction @ 0x1400D6560
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
- *     PpmPerfSnapUtility @ 0x1400D9180 (PpmPerfSnapUtility.c)
- *     PpmPerfApplyProcessorState @ 0x14012F3B0 (PpmPerfApplyProcessorState.c)
- *     PpmParkReportParkedCore @ 0x14020E018 (PpmParkReportParkedCore.c)
- *     PpmParkReportUnparkedCore @ 0x14020E098 (PpmParkReportUnparkedCore.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
+ *     PpmPerfSnapUtility @ 0x1400D7020 (PpmPerfSnapUtility.c)
+ *     PpmPerfApplyProcessorState @ 0x14012F920 (PpmPerfApplyProcessorState.c)
+ *     PpmParkReportParkedCore @ 0x14020DE44 (PpmParkReportParkedCore.c)
+ *     PpmParkReportUnparkedCore @ 0x14020DEC4 (PpmParkReportUnparkedCore.c)
  */
 
 void __fastcall PpmPerfAction(

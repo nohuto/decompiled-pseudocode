@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCopyToCfgBitMap @ 0x1406E9880
+ * XREFs of MiCopyToCfgBitMap @ 0x140700C60
  * Callers:
- *     MiPopulateCfgBitMap @ 0x14061FDB8 (MiPopulateCfgBitMap.c)
- *     MiMarkSharedImageCfgBits @ 0x1406E9604 (MiMarkSharedImageCfgBits.c)
+ *     MiPopulateCfgBitMap @ 0x140689A28 (MiPopulateCfgBitMap.c)
+ *     MiMarkSharedImageCfgBits @ 0x1407009E4 (MiMarkSharedImageCfgBits.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlClearAllBitsEx @ 0x1402C1650 (RtlClearAllBitsEx.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     MiSplitPrivatePage @ 0x14030CFB0 (MiSplitPrivatePage.c)
- *     MiCopyToUserVa @ 0x14030E538 (MiCopyToUserVa.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MiEliminateZeroPages @ 0x140646580 (MiEliminateZeroPages.c)
- *     RtlEnumRvaListFirst @ 0x14069F7A4 (RtlEnumRvaListFirst.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlClearAllBitsEx @ 0x14023FAF0 (RtlClearAllBitsEx.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     MiSplitPrivatePage @ 0x140317D00 (MiSplitPrivatePage.c)
+ *     MiCopyToUserVa @ 0x140319288 (MiCopyToUserVa.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlEnumRvaListFirst @ 0x1405FEAE4 (RtlEnumRvaListFirst.c)
+ *     MiEliminateZeroPages @ 0x14063B370 (MiEliminateZeroPages.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCopyToCfgBitMap(
@@ -90,7 +90,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   int v68; // [rsp+140h] [rbp+40h]
   unsigned int v69; // [rsp+144h] [rbp+44h]
   unsigned __int64 v70; // [rsp+148h] [rbp+48h]
-  __int128 v71; // [rsp+150h] [rbp+50h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+150h] [rbp+50h] BYREF
   __int64 v72; // [rsp+160h] [rbp+60h]
   unsigned __int64 v73; // [rsp+168h] [rbp+68h]
   unsigned __int64 v74; // [rsp+170h] [rbp+70h]
@@ -99,7 +99,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   v64 = a2;
   v9 = a1;
   v72 = a1;
-  v71 = 0LL;
+  BitMapHeader = 0LL;
   v10 = a8;
   if ( a2 > 1 && *a8 == -1 )
   {
@@ -119,9 +119,9 @@ __int64 __fastcall MiCopyToCfgBitMap(
   v61 = 4096LL;
   if ( a2 <= 1 )
   {
-    Pool = (char *)qword_140C4ED88;
+    Pool = (char *)qword_140C4EDC8;
     if ( !a2 )
-      Pool = (char *)qword_140C4ED90;
+      Pool = (char *)qword_140C4EDD0;
     goto LABEL_42;
   }
   Pool = (char *)MiAllocatePool(64, 0x1000uLL, 0x6554694Du);
@@ -189,8 +189,8 @@ LABEL_7:
         else
           v23 = (unsigned int)v17;
         memmove(Pool, v16, (unsigned int)v23);
-        *((_QWORD *)&v71 + 1) = Pool;
-        *(_QWORD *)&v71 = (unsigned int)(8 * v23);
+        BitMapHeader.Buffer = (unsigned __int64 *)Pool;
+        BitMapHeader.SizeOfBitMap = (unsigned int)(8 * v23);
         v30 = (unsigned int)v23 >> 1;
         v31 = (unsigned int)v23 >> 1 << 7;
         for ( i = v59; i < *(_DWORD *)v70; i = ++v59 )
@@ -208,7 +208,7 @@ LABEL_7:
           }
           else
           {
-            RtlClearBitsEx((__int64)&v71, v35, 2uLL);
+            RtlClearBitsEx((__int64)&BitMapHeader, v35, 2uLL);
           }
         }
         v65 += v31;
@@ -217,9 +217,9 @@ LABEL_7:
       v23 = v22;
       if ( !v68 )
       {
-        *((_QWORD *)&v71 + 1) = Pool;
-        *(_QWORD *)&v71 = 8 * v22;
-        RtlClearAllBitsEx((__int64)&v71);
+        BitMapHeader.Buffer = (unsigned __int64 *)Pool;
+        BitMapHeader.SizeOfBitMap = 8 * v22;
+        RtlClearAllBitsEx(&BitMapHeader);
         v36 = v13 + (v22 >> 1 << 7);
         v63 = v36;
         v37 = *v10;
@@ -266,7 +266,7 @@ LABEL_34:
               }
               else
               {
-                RtlSetBitsEx((__int64)&v71, v46, 2uLL);
+                RtlSetBitsEx((__int64)&BitMapHeader, v46, 2uLL);
               }
             }
           }
@@ -376,8 +376,8 @@ LABEL_16:
     v64 = 1LL;
     v14 = 4096;
     v61 = 4096LL;
-    Pool = (char *)qword_140C4ED88;
-    v66 = qword_140C4ED88;
+    Pool = (char *)qword_140C4EDC8;
+    v66 = qword_140C4EDC8;
 LABEL_17:
     v16 = &v62[v23];
     v62 += v23;

@@ -18,8 +18,8 @@
  *     sub_1800E34A8 @ 0x1800E34A8 (sub_1800E34A8.c)
  */
 
-__int64 __fastcall sub_1800E2DB0(
-        __int64 a1,
+int __fastcall sub_1800E2DB0(
+        char *Handle,
         unsigned int a2,
         __int64 a3,
         int a4,
@@ -31,40 +31,40 @@ __int64 __fastcall sub_1800E2DB0(
   __int16 v8; // di
   __int64 v10; // r13
   __int64 v11; // rcx
-  int v12; // edi
-  __int64 result; // rax
+  __int64 v12; // r12
+  __int64 v13; // rcx
   int v14; // edi
-  __int64 Heap; // rax
-  unsigned int v16; // ebx
-  int v17; // ecx
-  unsigned __int16 v18; // cx
-  unsigned int v19; // r14d
-  unsigned int v20; // edi
-  _DWORD *v21; // rbx
-  int v22; // edx
-  unsigned int v23; // ecx
-  unsigned __int64 v24; // r15
-  __int64 v25; // r14
-  _DWORD *v26; // r15
-  __int64 v27; // r14
-  int v28; // [rsp+70h] [rbp-4C8h]
-  unsigned __int16 v29; // [rsp+74h] [rbp-4C4h] BYREF
-  _QWORD v30[2]; // [rsp+78h] [rbp-4C0h] BYREF
-  unsigned int v31; // [rsp+88h] [rbp-4B0h]
-  int v32; // [rsp+8Ch] [rbp-4ACh]
-  int v33; // [rsp+90h] [rbp-4A8h]
-  __int64 v34; // [rsp+98h] [rbp-4A0h] BYREF
-  __int64 v35; // [rsp+A0h] [rbp-498h]
-  void *v36; // [rsp+A8h] [rbp-490h]
-  __int64 v37; // [rsp+B0h] [rbp-488h]
-  unsigned __int64 *v38; // [rsp+B8h] [rbp-480h]
-  unsigned __int64 *v39; // [rsp+C0h] [rbp-478h]
-  __int64 v40; // [rsp+C8h] [rbp-470h]
-  int v41; // [rsp+D0h] [rbp-468h] BYREF
-  const wchar_t *v42; // [rsp+D8h] [rbp-460h]
-  _BYTE v43[2]; // [rsp+E0h] [rbp-458h] BYREF
-  __int16 v44; // [rsp+E2h] [rbp-456h]
-  _WORD *v45; // [rsp+E8h] [rbp-450h]
+  int result; // eax
+  int v16; // edi
+  PVOID Heap; // rax
+  unsigned int v18; // ebx
+  int v19; // ecx
+  unsigned __int16 v20; // cx
+  unsigned int v21; // r14d
+  ULONG v22; // edi
+  _DWORD *v23; // rbx
+  int v24; // edx
+  unsigned int v25; // ecx
+  unsigned __int64 v26; // r15
+  char *v27; // r14
+  _DWORD *v28; // r15
+  __int64 v29; // r14
+  int v30; // [rsp+70h] [rbp-4C8h]
+  unsigned __int16 v31; // [rsp+74h] [rbp-4C4h] BYREF
+  _QWORD v32[2]; // [rsp+78h] [rbp-4C0h] BYREF
+  unsigned int v33; // [rsp+88h] [rbp-4B0h]
+  int v34; // [rsp+8Ch] [rbp-4ACh]
+  int v35; // [rsp+90h] [rbp-4A8h]
+  __int64 v36; // [rsp+98h] [rbp-4A0h] BYREF
+  __int64 v37; // [rsp+A0h] [rbp-498h]
+  void *v38; // [rsp+A8h] [rbp-490h]
+  char *v39; // [rsp+B0h] [rbp-488h]
+  unsigned __int64 *v40; // [rsp+B8h] [rbp-480h]
+  unsigned __int64 *v41; // [rsp+C0h] [rbp-478h]
+  __int64 v42; // [rsp+C8h] [rbp-470h]
+  int v43; // [rsp+D0h] [rbp-468h] BYREF
+  const wchar_t *v44; // [rsp+D8h] [rbp-460h]
+  _UNICODE_STRING LocaleName; // [rsp+E0h] [rbp-458h] BYREF
   int v46; // [rsp+F0h] [rbp-448h] BYREF
   __int16 v47; // [rsp+F4h] [rbp-444h]
   unsigned __int16 v48; // [rsp+F6h] [rbp-442h]
@@ -81,200 +81,208 @@ __int64 __fastcall sub_1800E2DB0(
   unsigned __int16 v59[264]; // [rsp+240h] [rbp-2F8h] BYREF
   _WORD Src[88]; // [rsp+450h] [rbp-E8h] BYREF
 
-  v32 = a4;
-  v35 = a3;
+  v34 = a4;
+  v37 = a3;
   v8 = a2;
-  v31 = a2;
-  v37 = a1;
-  v39 = a5;
-  v38 = a6;
-  v36 = a7;
-  v40 = a8;
-  LODWORD(v30[0]) = 4456514;
-  v30[1] = L"LdrpResSearchResourceHandle Enter";
-  v41 = 4325440;
-  v42 = L"LdrpResSearchResourceHandle Exit";
+  v33 = a2;
+  v39 = Handle;
+  v41 = a5;
+  v40 = a6;
+  v38 = a7;
+  v42 = a8;
+  LODWORD(v32[0]) = 4456514;
+  v32[1] = L"LdrpResSearchResourceHandle Enter";
+  v43 = 4325440;
+  v44 = L"LdrpResSearchResourceHandle Exit";
   memset(Src, 0, 0xACuLL);
   v10 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  if ( RtlGetCurrentServiceSessionId() )
+    v11 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   else
     v11 = 2147353477LL;
   if ( (*(_BYTE *)v11 & 1) != 0 )
   {
-    RtlGetCurrentServiceSessionId();
-    sub_1800E2008((unsigned __int16 *)v30);
+    v12 = 2147353476LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
+    else
+      v13 = 2147353476LL;
+    sub_1800E2008((unsigned __int16 *)v32, *(unsigned __int8 *)v13);
   }
-  if ( (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+  else
   {
-    v14 = -1073741811;
-    goto LABEL_12;
+    v12 = 2147353476LL;
   }
-  v12 = v8 & 0x1000;
-  v33 = v12;
-  result = sub_1800E2828(a1, &v34);
-  if ( (int)result < 0 && v12 )
+  if ( (unsigned __int64)(Handle - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+  {
+    v16 = -1073741811;
+    goto LABEL_16;
+  }
+  v14 = v8 & 0x1000;
+  v35 = v14;
+  result = sub_1800E2828(Handle, &v36);
+  if ( result < 0 && v14 )
     return result;
-  result = sub_1800E2D04(a1, 0LL, (__int64)v57, 64);
-  if ( (int)result < 0 )
+  result = sub_1800E2D04(Handle, 0LL, v57, 0x40u);
+  if ( result < 0 )
     return result;
   if ( v57[0] == 23117 )
   {
-    v16 = v58;
-    if ( v12
+    v18 = v58;
+    if ( v14
       && ((unsigned __int64)v58 + 264 < v58
        || v58 > 0x10000000
        || v58 + 264 < v58
-       || (unsigned __int64)v58 + 264 >= (unsigned int)v34) )
+       || (unsigned __int64)v58 + 264 >= (unsigned int)v36) )
     {
-      goto LABEL_15;
+      goto LABEL_19;
     }
-    result = sub_1800E2D04(a1, v58, (__int64)&v46, 264);
-    if ( (int)result < 0 )
+    result = sub_1800E2D04(Handle, v58, &v46, 0x108u);
+    if ( result < 0 )
       return result;
     if ( v46 != 17744 )
-      goto LABEL_15;
+      goto LABEL_19;
     if ( v50 == 267 )
     {
       if ( v47 != 332 )
       {
         if ( (unsigned __int16)(v47 - 448) > 4u )
-          goto LABEL_15;
-        v17 = 21;
-        if ( !_bittest(&v17, (unsigned __int16)(v47 - 448)) )
-          goto LABEL_15;
+          goto LABEL_19;
+        v19 = 21;
+        if ( !_bittest(&v19, (unsigned __int16)(v47 - 448)) )
+          goto LABEL_19;
       }
       if ( v51 > 2 && v54 )
       {
-        v18 = v49;
+        v20 = v49;
         if ( v49 >= 0x78u )
         {
-          v19 = v53;
-          goto LABEL_31;
+          v21 = v53;
+          goto LABEL_35;
         }
-        goto LABEL_15;
+        goto LABEL_19;
       }
     }
     else
     {
       if ( v50 != 523 || v47 != 512 && v47 != -31132 )
-        goto LABEL_15;
+        goto LABEL_19;
       if ( v52 > 2 && v56 )
       {
-        v18 = v49;
+        v20 = v49;
         if ( v49 >= 0x88u )
         {
-          v19 = v55;
-LABEL_31:
-          if ( !v19 )
-            return 3221225609LL;
+          v21 = v55;
+LABEL_35:
+          if ( !v21 )
+            return -1073741687;
           if ( v48 )
           {
-            v20 = 40 * v48;
-            if ( v16 + v20 + v18 + 24 <= (unsigned int)v34 )
+            v22 = 40 * v48;
+            if ( v18 + v22 + v20 + 24 <= (unsigned int)v36 )
             {
-              Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v20);
-              v30[0] = Heap;
+              Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v22);
+              v32[0] = Heap;
               if ( !Heap )
               {
-                v14 = -1073741801;
-                v28 = -1073741801;
-                goto LABEL_71;
+                v16 = -1073741801;
+                v30 = -1073741801;
+                goto LABEL_75;
               }
-              v14 = sub_1800E2D04(a1, v16 + v49 + 24, Heap, v20);
-              v28 = v14;
-              if ( v14 >= 0 )
+              v16 = sub_1800E2D04(Handle, v18 + v49 + 24, Heap, v22);
+              v30 = v16;
+              if ( v16 >= 0 )
               {
-                v21 = (_DWORD *)v30[0];
-                v22 = 0;
+                v23 = (_DWORD *)v32[0];
+                v24 = 0;
                 if ( v48 )
                 {
                   do
                   {
-                    v23 = v21[3];
-                    if ( v19 >= v23 && v19 < v21[4] + v23 )
+                    v25 = v23[3];
+                    if ( v21 >= v25 && v21 < v23[4] + v25 )
                       break;
-                    v21 += 10;
-                    ++v22;
+                    v23 += 10;
+                    ++v24;
                   }
-                  while ( v22 < v48 );
+                  while ( v24 < v48 );
                 }
-                if ( v22 < v48 && (v24 = v19 + (unsigned int)v21[5] - (unsigned __int64)(unsigned int)v21[3]) != 0 )
+                if ( v24 < v48 && (v26 = v21 + (unsigned int)v23[5] - (unsigned __int64)(unsigned int)v23[3]) != 0 )
                 {
-                  v25 = v37;
-                  v14 = sub_1800E34A8(v37, v24);
-                  v28 = v14;
-                  if ( v14 >= 0 )
+                  v27 = v39;
+                  v16 = sub_1800E34A8(v39, v26);
+                  v30 = v16;
+                  if ( v16 >= 0 )
                   {
-                    if ( v32 == 3 )
+                    if ( v34 == 3 )
                     {
                       v59[0] = 0;
-                      if ( (v31 & 0x20) != 0 )
+                      if ( (v33 & 0x20) != 0 )
                       {
                         v59[0] = 1;
                         v59[2] = 0;
                       }
                       else
                       {
-                        v14 = sub_18005C0F4(0LL, 0, *(_WORD *)(v35 + 16), v31, v59);
-                        v28 = v14;
-                        if ( v14 < 0 && v33 )
-                          goto LABEL_70;
+                        v16 = sub_18005C0F4(0LL, 0, *(_WORD *)(v37 + 16), v33, v59);
+                        v30 = v16;
+                        if ( v16 < 0 && v35 )
+                          goto LABEL_74;
                       }
                     }
-                    v29 = 0;
-                    v14 = sub_18005AD34(
+                    v31 = 0;
+                    v16 = sub_18005AD34(
                             0LL,
-                            v25,
-                            (unsigned int)v34,
-                            v24,
+                            v27,
+                            (unsigned int)v36,
+                            v26,
                             (__int64)&v46,
-                            (__int64)v21,
-                            v35,
-                            v32,
+                            (__int64)v23,
+                            v37,
+                            v34,
                             (__int64)v59,
-                            v39,
-                            v38,
-                            v31,
-                            &v29);
-                    v28 = v14;
-                    if ( v14 >= 0 )
+                            v41,
+                            v40,
+                            v33,
+                            &v31);
+                    v30 = v16;
+                    if ( v16 >= 0 )
                     {
-                      v26 = (_DWORD *)v40;
-                      if ( v40 )
+                      v28 = (_DWORD *)v42;
+                      if ( v42 )
                       {
-                        if ( !v29 )
+                        if ( !v31 )
                         {
                           Src[0] = 0;
-                          LODWORD(v27) = 0;
-                          goto LABEL_65;
+                          LODWORD(v29) = 0;
+                          goto LABEL_69;
                         }
-                        v45 = Src;
-                        v44 = 172;
-                        v14 = RtlLcidToLocaleName(v29, (__int64)v43, 2, 0);
-                        v28 = v14;
-                        if ( v14 >= 0 )
+                        LocaleName.Buffer = Src;
+                        LocaleName.MaximumLength = 172;
+                        v16 = RtlLcidToLocaleName(v31, &LocaleName, 2u, 0);
+                        v30 = v16;
+                        if ( v16 >= 0 )
                         {
-                          v27 = -1LL;
+                          v29 = -1LL;
                           do
-                            ++v27;
-                          while ( Src[v27] );
-LABEL_65:
-                          if ( (unsigned int)v27 < *v26 && v36 )
+                            ++v29;
+                          while ( Src[v29] );
+LABEL_69:
+                          if ( (unsigned int)v29 < *v28 && v38 )
                           {
-                            memmove(v36, Src, 2LL * (unsigned int)v27);
-                            *v26 = v27 + 1;
-                            *((_WORD *)v36 + (unsigned int)v27) = 0;
-                            Heap = v30[0];
+                            memmove(v38, Src, 2LL * (unsigned int)v29);
+                            *v28 = v29 + 1;
+                            *((_WORD *)v38 + (unsigned int)v29) = 0;
+                            Heap = (PVOID)v32[0];
                           }
                           else
                           {
-                            *v26 = v27 + 1;
-                            v14 = -1073741789;
-                            v28 = -1073741789;
-                            Heap = v30[0];
+                            *v28 = v29 + 1;
+                            v16 = -1073741789;
+                            v30 = -1073741789;
+                            Heap = (PVOID)v32[0];
                           }
-                          goto LABEL_71;
+                          goto LABEL_75;
                         }
                       }
                     }
@@ -282,47 +290,50 @@ LABEL_65:
                 }
                 else
                 {
-                  v14 = -1073741701;
-                  v28 = -1073741701;
+                  v16 = -1073741701;
+                  v30 = -1073741701;
                 }
               }
-LABEL_70:
-              Heap = v30[0];
-              goto LABEL_71;
+LABEL_74:
+              Heap = (PVOID)v32[0];
+              goto LABEL_75;
             }
           }
         }
-LABEL_15:
-        v14 = -1073741701;
-LABEL_16:
-        v28 = v14;
+LABEL_19:
+        v16 = -1073741701;
+LABEL_20:
+        v30 = v16;
         Heap = 0LL;
-        goto LABEL_71;
+        goto LABEL_75;
       }
     }
-    v14 = -1073741687;
-    goto LABEL_16;
+    v16 = -1073741687;
+    goto LABEL_20;
   }
-  v14 = -1073741701;
-LABEL_12:
-  v28 = v14;
+  v16 = -1073741701;
+LABEL_16:
+  v30 = v16;
   Heap = 0LL;
-LABEL_71:
+LABEL_75:
   if ( Heap )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-    v14 = v28;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+    v16 = v30;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
-    v14 = v28;
+    v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
+    v16 = v30;
   }
   if ( (*(_BYTE *)v10 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v14 = v28;
-    sub_1800E2008((unsigned __int16 *)&v41);
+    if ( RtlGetCurrentServiceSessionId() )
+    {
+      v12 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
+      v16 = v30;
+    }
+    sub_1800E2008((unsigned __int16 *)&v43, *(unsigned __int8 *)v12);
   }
-  return (unsigned int)v14;
+  return v16;
 }

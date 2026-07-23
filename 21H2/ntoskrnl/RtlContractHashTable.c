@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlContractHashTable @ 0x1402A1930
+ * XREFs of RtlContractHashTable @ 0x1402F6B90
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x14025171C (RtlpGetChainHead.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlpGetChainHead @ 0x1402F5F2C (RtlpGetChainHead.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
@@ -51,10 +51,10 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     if ( (_QWORD *)*v7 == v7 )
       break;
     if ( (_QWORD *)v10[1] != v7 )
-      goto FatalListEntryError_14;
+      goto FatalListEntryError_35;
     v13 = *v10;
     if ( *(_QWORD **)(*v10 + 8LL) != v10 )
-      goto FatalListEntryError_14;
+      goto FatalListEntryError_35;
     *v7 = v13;
     *(_QWORD *)(v13 + 8) = v7;
     for ( j = (_QWORD *)*i; j != v8; j = (_QWORD *)*j )
@@ -65,7 +65,7 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     }
     v15 = (_QWORD *)*i;
     if ( *(_QWORD **)(*i + 8LL) != i )
-FatalListEntryError_14:
+FatalListEntryError_35:
       __fastfail(3u);
     *v10 = v15;
     v10[1] = i;

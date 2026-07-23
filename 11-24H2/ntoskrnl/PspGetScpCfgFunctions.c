@@ -1,11 +1,11 @@
 /*
- * XREFs of PspGetScpCfgFunctions @ 0x140906938
+ * XREFs of PspGetScpCfgFunctions @ 0x140A26450
  * Callers:
- *     PspPrepareSystemDllInitBlock @ 0x1409084EC (PspPrepareSystemDllInitBlock.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1408DFC08 (PspPrepareSystemDllInitBlock.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1406A6870 (ZwQueryVirtualMemory.c)
- *     PsGetScpCfgPageTypeForProcess @ 0x140A324E0 (PsGetScpCfgPageTypeForProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1406A7810 (ZwQueryVirtualMemory.c)
+ *     PsGetScpCfgPageTypeForProcess @ 0x140A264F8 (PsGetScpCfgPageTypeForProcess.c)
  */
 
 __int64 *__fastcall PspGetScpCfgFunctions(__int64 a1)
@@ -22,7 +22,7 @@ __int64 *__fastcall PspGetScpCfgFunctions(__int64 a1)
   v3 = PspSystemDlls[0][4];
   v8 = 0LL;
   v9 = 0LL;
-  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, (MEMORY_INFORMATION_CLASS)14, &v8, 0x18uLL, 0LL) == -1073741637 )
+  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, MaxMemoryInfoClass, &v8, 0x18uLL, 0LL) == -1073741637 )
     return 0LL;
   if ( !v9 )
     return 0LL;

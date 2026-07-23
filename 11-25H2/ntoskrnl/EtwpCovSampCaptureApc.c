@@ -14,7 +14,7 @@
 struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(__int64 a1, _QWORD *a2, __int64 *a3, __int64 *a4)
 {
   __int64 v4; // rbp
-  struct _SLIST_ENTRY *v5; // rsi
+  _SLIST_ENTRY *v5; // rsi
   __int64 v6; // r14
   KIRQL v7; // al
   __int64 v8; // rdx
@@ -27,7 +27,7 @@ struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(__int64 a1, _QWORD *a2, __int6
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   v4 = *a3;
-  v5 = (struct _SLIST_ENTRY *)(a1 - 56);
+  v5 = (_SLIST_ENTRY *)(a1 - 56);
   v6 = *a4;
   *a2 = 0LL;
   _InterlockedOr(v14, 0);

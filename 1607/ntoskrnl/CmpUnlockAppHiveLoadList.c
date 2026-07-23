@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpUnlockAppHiveLoadList @ 0x1403FCAE0
+ * XREFs of CmpUnlockAppHiveLoadList @ 0x1403FB9A0
  * Callers:
- *     CmLoadAppKey @ 0x1403FC110 (CmLoadAppKey.c)
+ *     CmLoadAppKey @ 0x1403FAFD0 (CmLoadAppKey.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 __int64 CmpUnlockAppHiveLoadList()

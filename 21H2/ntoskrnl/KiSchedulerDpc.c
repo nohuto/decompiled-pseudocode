@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSchedulerDpc @ 0x1405BFC00
+ * XREFs of KiSchedulerDpc @ 0x1405BFE30
  * Callers:
  *     <none>
  * Callees:
- *     KiMcaDeferredRecoveryService @ 0x14040A2E0 (KiMcaDeferredRecoveryService.c)
- *     RtlWriteTryAcquireTickLock @ 0x14058F408 (RtlWriteTryAcquireTickLock.c)
+ *     KiMcaDeferredRecoveryService @ 0x14040A4C0 (KiMcaDeferredRecoveryService.c)
+ *     RtlWriteTryAcquireTickLock @ 0x14058F638 (RtlWriteTryAcquireTickLock.c)
  */
 
 void __fastcall __noreturn KiSchedulerDpc(

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrpDatabaseAcquireLockShared @ 0x140647E80
+ * XREFs of ViIrpDatabaseAcquireLockShared @ 0x14064BA60
  * Callers:
- *     VfIrpDatabaseCheckExFreePool @ 0x140C39BE8 (VfIrpDatabaseCheckExFreePool.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140C45F84 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseCheckExFreePool @ 0x140C3FBF8 (VfIrpDatabaseCheckExFreePool.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140C4BF94 (VfIrpDatabaseEntryFindAndLock.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 KIRQL __fastcall ViIrpDatabaseAcquireLockShared(KIRQL *a1)

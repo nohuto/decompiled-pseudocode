@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpSignal @ 0x1402648EC
+ * XREFs of AlpcpSignal @ 0x140263E5C
  * Callers:
- *     AlpcpSignalAndWait @ 0x140264830 (AlpcpSignalAndWait.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x14037CC40 (NtWaitForWorkViaWorkerFactory.c)
- *     NtAlpcSendWaitReceivePort @ 0x1408F9100 (NtAlpcSendWaitReceivePort.c)
- *     AlpcpCompleteDeferSignalRequest @ 0x140A78190 (AlpcpCompleteDeferSignalRequest.c)
+ *     AlpcpSignalAndWait @ 0x140263DA0 (AlpcpSignalAndWait.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14037E9F0 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtAlpcSendWaitReceivePort @ 0x140929090 (NtAlpcSendWaitReceivePort.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x140A80C30 (AlpcpCompleteDeferSignalRequest.c)
  * Callees:
- *     AlpcpQueueIoCompletionPort @ 0x140268A70 (AlpcpQueueIoCompletionPort.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     KeReleaseSemaphoreEx @ 0x1404396D0 (KeReleaseSemaphoreEx.c)
- *     AlpcpReleaseDirectAttribute @ 0x1405FFB08 (AlpcpReleaseDirectAttribute.c)
+ *     AlpcpQueueIoCompletionPort @ 0x140267FE0 (AlpcpQueueIoCompletionPort.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     KeReleaseSemaphoreEx @ 0x14042BF80 (KeReleaseSemaphoreEx.c)
+ *     AlpcpReleaseDirectAttribute @ 0x140602558 (AlpcpReleaseDirectAttribute.c)
  */
 
 int __fastcall AlpcpSignal(__int64 a1, BOOLEAN a2, unsigned __int8 a3, char a4)

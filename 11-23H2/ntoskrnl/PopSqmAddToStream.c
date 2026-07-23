@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSqmAddToStream @ 0x1405A2170
+ * XREFs of PopSqmAddToStream @ 0x1405A2660
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870480 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1408706C0 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 NTSTATUS __fastcall PopSqmAddToStream(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -45,7 +45,7 @@ NTSTATUS __fastcall PopSqmAddToStream(__int64 a1, __int64 a2, __int64 a3, __int6
     UserData.Ptr = (ULONGLONG)&v18;
     v6 = (const wchar_t **)(a4 + 8);
     v23 = 16LL;
-    v22 = qword_140041348;
+    v22 = qword_140041438;
     v7 = 0;
     v25 = 4LL;
     v24 = &v19;
@@ -55,7 +55,7 @@ NTSTATUS __fastcall PopSqmAddToStream(__int64 a1, __int64 a2, __int64 a3, __int6
     {
       v8 = 3 * v7;
       v9 = *((_DWORD *)v6 - 2);
-      v10 = &qword_140041340;
+      v10 = &qword_140041430;
       if ( v9 == 1 )
         v10 = (__int64 *)v6;
       *(&UserData.Ptr + 2 * (unsigned int)(v8 + 4)) = (ULONGLONG)(v6 - 1);

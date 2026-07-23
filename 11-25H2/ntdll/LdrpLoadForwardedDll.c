@@ -19,17 +19,11 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpLoadForwardedDll(
-        PCANSI_STRING SourceString,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        __int64 *a6)
+__int64 __fastcall LdrpLoadForwardedDll(PCANSI_STRING SourceString, int a2, char *a3, char *a4, int a5, __int64 *a6)
 {
   __int64 *v10; // r15
   int v11; // ebx
-  int Length; // eax
+  ULONG UTF8StringByteCount; // eax
   char *Buffer; // r9
   int v14; // edx
   unsigned __int16 v15; // cx
@@ -44,8 +38,8 @@ __int64 __fastcall LdrpLoadForwardedDll(
   signed __int32 v26[8]; // [rsp+0h] [rbp-3C8h] BYREF
   unsigned int v27; // [rsp+50h] [rbp-378h] BYREF
   int v28; // [rsp+54h] [rbp-374h] BYREF
-  __int64 v29; // [rsp+58h] [rbp-370h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-368h] BYREF
+  int v29[2]; // [rsp+58h] [rbp-370h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-368h] BYREF
   _QWORD v31[2]; // [rsp+70h] [rbp-358h] BYREF
   __int128 v32; // [rsp+80h] [rbp-348h] BYREF
   __int128 v33; // [rsp+90h] [rbp-338h]
@@ -56,55 +50,54 @@ __int64 __fastcall LdrpLoadForwardedDll(
   void *Src; // [rsp+168h] [rbp-260h]
   __int16 v39; // [rsp+170h] [rbp-258h] BYREF
   _BYTE v40[254]; // [rsp+172h] [rbp-256h] BYREF
-  _DWORD v41[2]; // [rsp+270h] [rbp-158h] BYREF
-  __int16 *v42; // [rsp+278h] [rbp-150h]
-  __int16 v43; // [rsp+280h] [rbp-148h] BYREF
-  _BYTE v44[254]; // [rsp+282h] [rbp-146h] BYREF
+  _UNICODE_STRING v41; // [rsp+270h] [rbp-158h] BYREF
+  __int16 v42; // [rsp+280h] [rbp-148h] BYREF
+  _BYTE v43[254]; // [rsp+282h] [rbp-146h] BYREF
   _UNKNOWN *retaddr; // [rsp+3C8h] [rbp+0h]
 
   v10 = a6;
-  v29 = (__int64)a6;
-  v41[1] = 0;
-  memset_thunk_772440563353939046(v44, 0, 0xFEuLL);
+  *(_QWORD *)v29 = a6;
+  *(_DWORD *)(&v41.MaximumLength + 1) = 0;
+  memset_thunk_772440563353939046(v43, 0, 0xFEuLL);
   v27 = 0;
   v37[1] = 0;
   memset_thunk_772440563353939046(v40, 0, 0xFEuLL);
-  v42 = &v43;
-  v41[0] = 0x1000000;
-  v43 = 0;
+  v41.Buffer = (wchar_t *)&v42;
+  *(_DWORD *)&v41.Length = 0x1000000;
+  v42 = 0;
   Src = &v39;
   v37[0] = 0x1000000;
   v39 = 0;
   DestinationString = 0LL;
   v11 = 0;
-  Length = SourceString->Length;
-  if ( !(_WORD)Length )
+  UTF8StringByteCount = SourceString->Length;
+  if ( !(_WORD)UTF8StringByteCount )
     goto LABEL_9;
   v28 = 0;
   Buffer = SourceString->Buffer;
   _InterlockedOr(v26, 0);
-  if ( word_1801CEFD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
-    RtlUTF8ToUnicodeN(0, 0, (unsigned int)&v28, (_DWORD)Buffer, Length);
+    RtlUTF8ToUnicodeN(0LL, 0, (PULONG)&v28, Buffer, UTF8StringByteCount);
     v14 = v28;
   }
   else
   {
     _InterlockedOr(v26, 0);
     v14 = 0;
-    if ( word_1801CEF9C )
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      while ( Length-- )
+      while ( UTF8StringByteCount-- )
       {
         v23 = (unsigned __int8)*Buffer++;
         if ( *(_WORD *)(qword_1801CF020 + 2 * v23) )
         {
-          if ( !Length )
+          if ( !UTF8StringByteCount )
           {
             v14 += 2;
             break;
           }
-          --Length;
+          --UTF8StringByteCount;
           ++Buffer;
         }
         v14 += 2;
@@ -112,7 +105,7 @@ __int64 __fastcall LdrpLoadForwardedDll(
     }
     else
     {
-      v14 = 2 * Length;
+      v14 = 2 * UTF8StringByteCount;
     }
   }
   v15 = v37[0];
@@ -156,7 +149,7 @@ LABEL_42:
       v11 = -1073741801;
       LOWORD(v17) = HIWORD(v37[0]);
     }
-    v10 = (__int64 *)v29;
+    v10 = *(__int64 **)v29;
   }
 LABEL_7:
   if ( v11 >= 0 )
@@ -177,7 +170,7 @@ LABEL_9:
   v33 = 0LL;
   v34 = 0LL;
   v35 = 0LL;
-  v18 = *(_QWORD *)(a4 + 136);
+  v18 = *((_QWORD *)a4 + 17);
   ActivationContextStackPointer = NtCurrentTeb()->ActivationContextStackPointer;
   if ( ActivationContextStackPointer )
     ActiveFrame = (unsigned __int64)ActivationContextStackPointer->ActiveFrame;
@@ -218,18 +211,18 @@ LABEL_33:
 LABEL_17:
   LODWORD(v33) = 48;
 LABEL_18:
-  LODWORD(v29) = 0;
-  v27 = LdrpPreprocessDllName((unsigned __int16 *)v37, (unsigned __int16 *)v41, a4, (int *)&v29);
+  v29[0] = 0;
+  v27 = LdrpPreprocessDllName((unsigned __int16 *)v37, &v41, (__int64)a4, v29);
   if ( (v27 & 0x80000000) == 0 )
-    LdrpLoadDllInternal((__int64)v41, a2, v29, a5, a4, a3, v10, (int *)&v27, 0LL, 0);
+    LdrpLoadDllInternal((__int64)&v41, a2, v29[0], a5, a4, a3, v10, (int *)&v27, 0LL, 0);
   RtlDeactivateActivationContextUnsafeFast(v31);
 LABEL_21:
   if ( &v39 != Src )
-    RtlpSysVolFree((__int64)Src);
+    RtlpSysVolFree(Src);
   Src = &v39;
   v37[0] = 0x1000000;
   v39 = 0;
-  if ( &v43 != v42 )
-    RtlpSysVolFree((__int64)v42);
+  if ( &v42 != (__int16 *)v41.Buffer )
+    RtlpSysVolFree(v41.Buffer);
   return v27;
 }

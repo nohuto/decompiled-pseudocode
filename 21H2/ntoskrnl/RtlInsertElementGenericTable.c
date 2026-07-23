@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInsertElementGenericTable @ 0x1402B8DE0
+ * XREFs of RtlInsertElementGenericTable @ 0x140236FF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInsertElementGenericTableFull @ 0x1402B8E50 (RtlInsertElementGenericTableFull.c)
- *     FindNodeOrParent_0 @ 0x1402B8F54 (FindNodeOrParent_0.c)
+ *     RtlInsertElementGenericTableFull @ 0x140237060 (RtlInsertElementGenericTableFull.c)
+ *     FindNodeOrParent @ 0x140237164 (FindNodeOrParent.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTable(
@@ -17,6 +17,6 @@ PVOID __stdcall RtlInsertElementGenericTable(
   PVOID NodeOrParent[3]; // [rsp+30h] [rbp-18h] BYREF
 
   NodeOrParent[0] = 0LL;
-  SearchResult = (unsigned int)FindNodeOrParent_0(Table, Buffer, NodeOrParent);
+  SearchResult = (unsigned int)FindNodeOrParent(Table, Buffer, NodeOrParent);
   return RtlInsertElementGenericTableFull(Table, Buffer, BufferSize, NewElement, NodeOrParent[0], SearchResult);
 }

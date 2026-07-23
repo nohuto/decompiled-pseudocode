@@ -21,7 +21,7 @@ __int64 __fastcall VerifierExInitializeResourceLite(ULONG_PTR BugCheckParameter2
   __int64 result; // rax
   unsigned int v3; // edi
   char *v4; // r14
-  struct _SLIST_ENTRY *v5; // rbp
+  _SLIST_ENTRY *v5; // rbp
   _BYTE v6[24]; // [rsp+30h] [rbp-18h] BYREF
 
   VfUtilSynchronizationObjectSanityChecks(BugCheckParameter2, 0x68uLL);
@@ -43,7 +43,7 @@ __int64 __fastcall VerifierExInitializeResourceLite(ULONG_PTR BugCheckParameter2
           if ( !ViResourcesAlreadyLoadedDrivers && (MmVerifierData & 0x800) != 0 )
             VerifierBugCheckIfAppropriate(0xC4u, 0xD0uLL, BugCheckParameter2, 0LL, 0LL);
           _InterlockedAdd(&ViResourceStaleNodes, 1u);
-          v5 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)v6, BugCheckParameter2, 0LL);
+          v5 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)v6, BugCheckParameter2, 0LL);
         }
         VfAvlInsertReservedTreeNode((__int64)&ViResourceAvl, (__int64)v6, v4);
         VfAvlCleanupLockContext((__int64)v6);

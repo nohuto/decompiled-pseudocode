@@ -1,17 +1,17 @@
 /*
- * XREFs of MiConvertWsleHash @ 0x140102AC0
+ * XREFs of MiConvertWsleHash @ 0x140100840
  * Callers:
- *     MiUpdateWsleHash @ 0x140048D80 (MiUpdateWsleHash.c)
+ *     MiUpdateWsleHash @ 0x140048900 (MiUpdateWsleHash.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiDeletePteRange @ 0x1401007D0 (MiDeletePteRange.c)
- *     MiMapWsleHash @ 0x140102D80 (MiMapWsleHash.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiDeletePteRange @ 0x1400FE550 (MiDeletePteRange.c)
+ *     MiMapWsleHash @ 0x140100B00 (MiMapWsleHash.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 unsigned __int64 __fastcall MiConvertWsleHash(__int64 a1)
@@ -110,6 +110,6 @@ LABEL_10:
   result = MiDeletePteRange(a1, v9, v9 + 8, 0);
   *((_QWORD *)SharedVm + 9) -= result;
   if ( (*(_BYTE *)(a1 + 184) & 7) != 1 )
-    return _InterlockedExchangeAdd64(&qword_140327900, -(__int64)result);
+    return _InterlockedExchangeAdd64(&qword_140327940, -(__int64)result);
   return result;
 }

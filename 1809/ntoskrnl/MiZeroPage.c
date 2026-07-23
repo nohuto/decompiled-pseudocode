@@ -1,8 +1,8 @@
 /*
  * XREFs of MiZeroPage @ 0x140036A00
  * Callers:
- *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
- *     MiZeroLargePages @ 0x14018512C (MiZeroLargePages.c)
+ *     MiZeroPageThread @ 0x140179300 (MiZeroPageThread.c)
+ *     MiZeroLargePages @ 0x14018526C (MiZeroLargePages.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
@@ -11,31 +11,31 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiLargePageFreeToZero @ 0x14009B4E0 (MiLargePageFreeToZero.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
- *     MiFreeUltraMapping @ 0x14018FBF8 (MiFreeUltraMapping.c)
- *     MiSetZeroPageThreadPriority @ 0x14019305C (MiSetZeroPageThreadPriority.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiFreeListPageContentsChanged @ 0x1402BF960 (MiFreeListPageContentsChanged.c)
- *     MiFreeZeroPageSlistSufficient @ 0x1402BFAB4 (MiFreeZeroPageSlistSufficient.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     MiLargePageFreeToZero @ 0x14009B420 (MiLargePageFreeToZero.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiCompressTbFlushList @ 0x140113B10 (MiCompressTbFlushList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121554 (MiInsertLargeTbFlushEntry.c)
+ *     MiFreeUltraMapping @ 0x14018FD38 (MiFreeUltraMapping.c)
+ *     MiSetZeroPageThreadPriority @ 0x14019319C (MiSetZeroPageThreadPriority.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeZeroPages @ 0x1401C0A90 (KeZeroPages.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiFreeListPageContentsChanged @ 0x1402BFB50 (MiFreeListPageContentsChanged.c)
+ *     MiFreeZeroPageSlistSufficient @ 0x1402BFCA4 (MiFreeZeroPageSlistSufficient.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiZeroPage(_QWORD *a1, __int64 a2)
@@ -173,7 +173,7 @@ void __fastcall MiZeroPage(_QWORD *a1, __int64 a2)
     v10 = 1;
     v3 = *(_QWORD *)(v68 + 168);
     KeAcquireInStackQueuedSpinLock(
-      (PKSPIN_LOCK)(qword_14043C950 + 1984LL * *(unsigned int *)(v68 + 184) + 1904),
+      (PKSPIN_LOCK)(qword_14043DA10 + 1984LL * *(unsigned int *)(v68 + 184) + 1904),
       &LockHandle);
     v12 = v68;
     v8 = 1;
@@ -295,8 +295,8 @@ LABEL_42:
       if ( v22 > 0xFFFFF6FFFFFFFFFFuLL )
         break;
     }
-    v7 = qword_14043ACB0;
-    v24 = (!qword_14043ACB0 || v22 < qword_14043ACB0 || v22 >= qword_14043ACB0 + (qword_14043ACC0 << 30))
+    v7 = qword_14043BD70;
+    v24 = (!qword_14043BD70 || v22 < qword_14043BD70 || v22 >= qword_14043BD70 + (BitMapHeader.SizeOfBitMap << 30))
        && (unsigned int)v16 <= 1;
     v61 = v24;
     if ( !v21 )
@@ -447,13 +447,13 @@ LABEL_43:
   {
     if ( v13[71] )
     {
-      v29 = &dword_14043A6D8;
-      v30 = &qword_14043A6E0;
+      v29 = &dword_14043B798;
+      v30 = &qword_14043B7A0;
     }
     else
     {
-      v29 = &dword_14043A6E8;
-      v30 = &qword_14043A6F0;
+      v29 = &dword_14043B7A8;
+      v30 = &qword_14043B7B0;
     }
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     {
@@ -557,18 +557,18 @@ LABEL_43:
       {
         MiFreeZeroPageSlistSufficient(
           v74,
-          dword_14043A088 & (unsigned int)v11 | (((*(_QWORD *)(v3 + 40) >> 36) & 3) << byte_14043A04A) | ((unsigned int)(*(_QWORD *)(v3 + 40) >> 58) << byte_14043A049),
+          dword_14043B148 & (unsigned int)v11 | (((*(_QWORD *)(v3 + 40) >> 36) & 3) << byte_14043B10A) | ((unsigned int)(*(_QWORD *)(v3 + 40) >> 58) << byte_14043B109),
           0LL);
         v66 = 1;
         v28 = v68;
       }
       v36 = 128LL;
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
-        if ( (qword_14043A0C0 & 0x80) != 0 )
+        if ( (qword_14043B180 & 0x80) != 0 )
           v36 = 144LL;
         else
-          v36 = qword_14043A0C0 | 0x80;
+          v36 = qword_14043B180 | 0x80;
       }
       *(_QWORD *)(v3 + 16) = v36;
       MiUnlinkFreeOrZeroedPage((v3 + 0x58000000000LL) / 48, 0LL, 0LL);

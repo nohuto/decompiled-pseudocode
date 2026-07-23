@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptQueryControllerInfo @ 0x1407D1E5C
+ * XREFs of HalpInterruptQueryControllerInfo @ 0x1407D1FCC
  * Callers:
- *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x1409909D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpInterruptIsRemappingRequired @ 0x14037903C (HalpInterruptIsRemappingRequired.c)
- *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
+ *     HalpInterruptIsRemappingRequired @ 0x140378B8C (HalpInterruptIsRemappingRequired.c)
+ *     HalpInterruptModel @ 0x14037AEA4 (HalpInterruptModel.c)
  */
 
 __int64 __fastcall HalpInterruptQueryControllerInfo(unsigned int a1, _DWORD *a2, _DWORD *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall HalpInterruptQueryControllerInfo(unsigned int a1, _DWORD *a2,
     *a2 = 0;
     v4 = HalpInterruptModel();
     if ( (unsigned int)(v4 - 2) <= 1
-      || v4 == 1 && ((*v3 = 1, qword_140C4A1A8 != v5) || HalpInterruptIsRemappingRequired()) )
+      || v4 == 1 && ((*v3 = 1, qword_140C4A1E8 != v5) || HalpInterruptIsRemappingRequired()) )
     {
       *v3 = 3;
     }

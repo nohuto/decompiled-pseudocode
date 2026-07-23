@@ -1,26 +1,26 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryRemove @ 0x140582340
+ * XREFs of PspJobIoRateVolumeEntryRemove @ 0x140582570
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x140909424 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140909584 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x140530CD0 (MiLockTrackerCompare.c)
+ *     MiLockTrackerCompare @ 0x140530F10 (MiLockTrackerCompare.c)
  */
 
-unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
+signed __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // r12
   __int64 v4; // rdi
-  unsigned __int64 v5; // r15
+  signed __int64 v5; // r15
   KIRQL v6; // al
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   unsigned __int64 v8; // r14
   int v9; // esi
   int v10; // eax
-  unsigned __int64 v11; // rax
+  signed __int64 v11; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   int v14; // edx
@@ -59,7 +59,7 @@ unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned _
     while ( v7 );
     if ( v7 )
     {
-      RtlRbRemoveNode((unsigned __int64 *)v4, v7);
+      RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7);
       v5 = v7;
       *(_QWORD *)(v7 + 16) = -1LL;
     }

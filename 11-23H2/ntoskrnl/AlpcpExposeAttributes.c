@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpExposeAttributes @ 0x14073BDA0
+ * XREFs of AlpcpExposeAttributes @ 0x14073BF90
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x140715BD4 (AlpcpProcessConnectionRequest.c)
- *     AlpcpCompleteDispatchMessage @ 0x140739E80 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessage @ 0x14073AE40 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x14073D5D0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessConnectionRequest @ 0x140715DD4 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14073A070 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveMessage @ 0x14073B030 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x14073D7C0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140738B20 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140739E34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073BC40 (AlpcpUnlockBlob.c)
- *     AlpcpExposeTokenAttribute @ 0x14073C230 (AlpcpExposeTokenAttribute.c)
- *     AlpcpExposeWorkOnBehalfAttribute @ 0x14073C3C0 (AlpcpExposeWorkOnBehalfAttribute.c)
- *     AlpcpExposeHandleAttribute @ 0x14073C434 (AlpcpExposeHandleAttribute.c)
- *     AlpcpExposeContextAttribute32 @ 0x1407CD280 (AlpcpExposeContextAttribute32.c)
- *     AlpcpExposeViewAttribute @ 0x1407CDB24 (AlpcpExposeViewAttribute.c)
- *     AlpcpExposeHandleAttribute32 @ 0x1407D168C (AlpcpExposeHandleAttribute32.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReferenceBlob @ 0x140738D10 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14073A024 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x14073BE30 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeTokenAttribute @ 0x14073C420 (AlpcpExposeTokenAttribute.c)
+ *     AlpcpExposeWorkOnBehalfAttribute @ 0x14073C5B0 (AlpcpExposeWorkOnBehalfAttribute.c)
+ *     AlpcpExposeHandleAttribute @ 0x14073C624 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpExposeContextAttribute32 @ 0x1407CD550 (AlpcpExposeContextAttribute32.c)
+ *     AlpcpExposeViewAttribute @ 0x1407CDDF4 (AlpcpExposeViewAttribute.c)
+ *     AlpcpExposeHandleAttribute32 @ 0x1407D195C (AlpcpExposeHandleAttribute32.c)
  */
 
 __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4, __int64 a5)

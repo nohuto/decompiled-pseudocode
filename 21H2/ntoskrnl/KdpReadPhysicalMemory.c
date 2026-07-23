@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpReadPhysicalMemory @ 0x1409B7870
+ * XREFs of KdpReadPhysicalMemory @ 0x1409B8870
  * Callers:
- *     KdpReadPhysicalMemoryLong @ 0x1409B79C0 (KdpReadPhysicalMemoryLong.c)
- *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpReadPhysicalMemoryLong @ 0x1409B89C0 (KdpReadPhysicalMemoryLong.c)
+ *     KdpSendWaitContinue @ 0x1409B94F4 (KdpSendWaitContinue.c)
  * Callees:
- *     RunLengthEncode @ 0x140511698 (RunLengthEncode.c)
- *     MmDbgCopyMemory @ 0x140546A9C (MmDbgCopyMemory.c)
- *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
+ *     RunLengthEncode @ 0x1405118D8 (RunLengthEncode.c)
+ *     MmDbgCopyMemory @ 0x140546CDC (MmDbgCopyMemory.c)
+ *     KdpCopyMemoryChunks @ 0x1409BAB9C (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpReadPhysicalMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

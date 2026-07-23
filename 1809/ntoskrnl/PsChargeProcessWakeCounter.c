@@ -1,14 +1,14 @@
 /*
- * XREFs of PsChargeProcessWakeCounter @ 0x140588720
+ * XREFs of PsChargeProcessWakeCounter @ 0x140589720
  * Callers:
- *     PopUpdatePowerRequestProcessWakeCounter @ 0x14058999C (PopUpdatePowerRequestProcessWakeCounter.c)
- *     EtwpQueueNotification @ 0x1405C054C (EtwpQueueNotification.c)
- *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     PspCreateActivityReference @ 0x1406D61DC (PspCreateActivityReference.c)
- *     PopSetSpecialRequest @ 0x140866600 (PopSetSpecialRequest.c)
+ *     PopUpdatePowerRequestProcessWakeCounter @ 0x14058A99C (PopUpdatePowerRequestProcessWakeCounter.c)
+ *     EtwpQueueNotification @ 0x1405C154C (EtwpQueueNotification.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406366C0 (AlpcpCompleteDispatchMessage.c)
+ *     PspCreateActivityReference @ 0x1406D747C (PspCreateActivityReference.c)
+ *     PopSetSpecialRequest @ 0x140867860 (PopSetSpecialRequest.c)
  * Callees:
- *     PsGetProcessInheritedFromUniqueProcessId @ 0x1400AC040 (PsGetProcessInheritedFromUniqueProcessId.c)
- *     PspChargeProcessWakeCounter @ 0x140636C70 (PspChargeProcessWakeCounter.c)
+ *     PsGetProcessInheritedFromUniqueProcessId @ 0x1400ABF80 (PsGetProcessInheritedFromUniqueProcessId.c)
+ *     PspChargeProcessWakeCounter @ 0x140637C90 (PspChargeProcessWakeCounter.c)
  */
 
 __int64 __fastcall PsChargeProcessWakeCounter(PVOID Object)

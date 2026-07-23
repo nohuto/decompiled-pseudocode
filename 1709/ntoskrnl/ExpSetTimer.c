@@ -62,14 +62,14 @@ NTSTATUS __fastcall ExpSetTimer(
   char *v33; // rax
   void **p_StackBase; // rbx
   char **v35; // rdx
-  unsigned __int64 v36; // rax
-  unsigned __int64 v37; // r14
+  PRTL_BALANCED_NODE v36; // rax
+  PRTL_BALANCED_NODE v37; // r14
   _QWORD *v38; // rdi
   _QWORD *v39; // rax
   char v40; // al
   int v41; // ebx
-  unsigned __int64 v42; // rax
-  unsigned __int64 v43; // rbx
+  PRTL_BALANCED_NODE v42; // rax
+  PRTL_BALANCED_NODE v43; // rbx
   unsigned __int8 v44; // al
   KSPIN_LOCK *v45; // rax
   unsigned int v46; // edx
@@ -122,9 +122,9 @@ NTSTATUS __fastcall ExpSetTimer(
       v36 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL, 0);
       v37 = v36;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v36, (__int16 *)&ExpWakeTimerLock);
+        ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, (__int64)v36, (__int16 *)&ExpWakeTimerLock);
       if ( v37 )
-        *(_BYTE *)(v37 + 26) |= 1u;
+        BYTE2(v37[1].Left) |= 1u;
     }
     else
     {
@@ -159,9 +159,9 @@ NTSTATUS __fastcall ExpSetTimer(
     v42 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL, 0);
     v43 = v42;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v42, (__int16 *)&ExpWakeTimerLock);
+      ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, (__int64)v42, (__int16 *)&ExpWakeTimerLock);
     if ( v43 )
-      *(_BYTE *)(v43 + 26) |= 1u;
+      BYTE2(v43[1].Left) |= 1u;
     v44 = KeGetCurrentIrql();
     __writecr8(2uLL);
     LOBYTE(CurrentIrql) = v44;

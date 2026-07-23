@@ -3,7 +3,7 @@
  * Callers:
  *     CmpFindDrivers @ 0x1407B03C8 (CmpFindDrivers.c)
  * Callees:
- *     CmpFindSubKeyByName @ 0x14055FE64 (CmpFindSubKeyByName.c)
+ *     CmpFindSubKeyByName @ 0x1405603A4 (CmpFindSubKeyByName.c)
  *     CmpLoadManufacturingProfileNode @ 0x1407CDC40 (CmpLoadManufacturingProfileNode.c)
  */
 

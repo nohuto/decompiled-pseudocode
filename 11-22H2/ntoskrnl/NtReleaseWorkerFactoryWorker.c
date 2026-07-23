@@ -22,7 +22,7 @@
  *     IopAllocateMiniCompletionPacket @ 0x14073E4D8 (IopAllocateMiniCompletionPacket.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   volatile __int64 *v2; // r8
@@ -33,7 +33,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   char v7; // bl
   __int64 v8; // rcx
   int v9; // eax
-  int v10; // r12d
+  NTSTATUS v10; // r12d
   __int64 v11; // rax
   __int64 v12; // rax
   __int128 *v13; // rcx
@@ -65,7 +65,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   v33 = 0LL;
   Object = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,
@@ -79,7 +79,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   LODWORD(v4) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -152,10 +152,10 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   KiReleaseQueuedSpinLockInstrumented(&v33, retaddr);
 LABEL_14:
   v14 = (unsigned __int8)v34;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = (__int128 *)KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v13 <= 0xFu
       && (unsigned __int8)v34 <= 0xFu
       && (unsigned __int8)v13 >= 2u )
@@ -186,7 +186,7 @@ LABEL_14:
       v18 = (_QWORD *)(v17 + 8);
       v19 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
       {
         v24 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v19 != 2 )
@@ -223,7 +223,7 @@ LABEL_14:
         *(_QWORD *)MiniCompletionPacket = 0LL;
       }
       _InterlockedAnd((volatile signed __int32 *)v17, 0xFFFFFF7F);
-      KiExitDispatcher((__int64)v20, 0, (struct _PROCESSOR_NUMBER)1, 0, v19);
+      KiExitDispatcher((__int64)v20, 0, (_PROCESSOR_NUMBER)1, 0, v19);
     }
     ExpWorkerFactoryCheckCreate((PSLIST_ENTRY)Object, 0LL);
   }

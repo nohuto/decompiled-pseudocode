@@ -1,44 +1,44 @@
 /*
- * XREFs of MiPfPutPagesInTransition @ 0x1402DE040
+ * XREFs of MiPfPutPagesInTransition @ 0x1402DE2D0
  * Callers:
- *     MmPrefetchPagesEx @ 0x14073E6D8 (MmPrefetchPagesEx.c)
- *     MmPrefetchForCacheManager @ 0x14073EC1C (MmPrefetchForCacheManager.c)
- *     MiPrefetchControlArea @ 0x1407DC90C (MiPrefetchControlArea.c)
+ *     MmPrefetchPagesEx @ 0x14073E8C8 (MmPrefetchPagesEx.c)
+ *     MmPrefetchForCacheManager @ 0x14073EE0C (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x1407DCBDC (MiPrefetchControlArea.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiReleasePrefetchGapPages @ 0x14020DC18 (MiReleasePrefetchGapPages.c)
  *     MiGetPageForHeader @ 0x14021A4D4 (MiGetPageForHeader.c)
  *     MiPfnZeroingNeeded @ 0x14021AEF4 (MiPfnZeroingNeeded.c)
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiInvalidPteConforms @ 0x1402DC440 (MiInvalidPteConforms.c)
- *     MiLockProtoPoolPageForce @ 0x1402DDFD4 (MiLockProtoPoolPageForce.c)
- *     MiUseSlabAllocator @ 0x1402DEAC0 (MiUseSlabAllocator.c)
- *     MiInitializeReadInProgressPfn @ 0x1402DEB40 (MiInitializeReadInProgressPfn.c)
- *     MiGetInPageSupportBlock @ 0x1402E12E4 (MiGetInPageSupportBlock.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiUpdatePfnPriority @ 0x1402E23B0 (MiUpdatePfnPriority.c)
- *     MiSetInPagePriority @ 0x1402E35D8 (MiSetInPagePriority.c)
- *     MiObtainProtoReference @ 0x1402EF318 (MiObtainProtoReference.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiReduceMdl @ 0x14033E4A4 (MiReduceMdl.c)
- *     MiPrefetchPagesViable @ 0x14033E5E4 (MiPrefetchPagesViable.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x14033EAC4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiReturnFaultCharges @ 0x14035FEC0 (MiReturnFaultCharges.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiRefillPurgedExtents @ 0x14063F174 (MiRefillPurgedExtents.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660858 (MiLockSpecialPurposeMemoryCachedPage.c)
- *     MiFreeReadListPages @ 0x1407213E0 (MiFreeReadListPages.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiInvalidPteConforms @ 0x1402DC6D0 (MiInvalidPteConforms.c)
+ *     MiLockProtoPoolPageForce @ 0x1402DE264 (MiLockProtoPoolPageForce.c)
+ *     MiUseSlabAllocator @ 0x1402DED50 (MiUseSlabAllocator.c)
+ *     MiInitializeReadInProgressPfn @ 0x1402DEDD0 (MiInitializeReadInProgressPfn.c)
+ *     MiGetInPageSupportBlock @ 0x1402E1574 (MiGetInPageSupportBlock.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiUpdatePfnPriority @ 0x1402E2640 (MiUpdatePfnPriority.c)
+ *     MiSetInPagePriority @ 0x1402E3868 (MiSetInPagePriority.c)
+ *     MiObtainProtoReference @ 0x1402EF5A8 (MiObtainProtoReference.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiGetPagingFileOffset @ 0x1402F2AF4 (MiGetPagingFileOffset.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiReduceMdl @ 0x14033E734 (MiReduceMdl.c)
+ *     MiPrefetchPagesViable @ 0x14033E874 (MiPrefetchPagesViable.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x14033ED54 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiReturnFaultCharges @ 0x140360060 (MiReturnFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiRefillPurgedExtents @ 0x14063F6C4 (MiRefillPurgedExtents.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660DA8 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiFreeReadListPages @ 0x1407215E0 (MiFreeReadListPages.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -53,10 +53,10 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
   __int64 v10; // r9
   BOOL v11; // r14d
   char v12; // r10
-  struct _SLIST_ENTRY *v13; // r12
+  _SLIST_ENTRY *v13; // r12
   unsigned int v14; // esi
   __int64 v15; // r11
-  struct _SLIST_ENTRY *v16; // r13
+  _SLIST_ENTRY *v16; // r13
   int v17; // edi
   _DWORD *SchedulerAssist; // r9
   _SLIST_ENTRY *Next; // rbx
@@ -91,14 +91,14 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
   unsigned __int64 v48; // rbx
   __int64 v49; // r12
   _QWORD *v50; // r14
-  struct _SLIST_ENTRY *v51; // r14
+  _SLIST_ENTRY *v51; // r14
   __int64 v53; // rcx
   _DWORD *v54; // rdx
   __int64 v55; // r14
   unsigned __int64 v56; // rax
   int v57; // r9d
   _SLIST_ENTRY *v58; // rax
-  struct _SLIST_ENTRY *v59; // rcx
+  _SLIST_ENTRY *v59; // rcx
   PSLIST_ENTRY *v60; // rdx
   __int64 v61; // r15
   unsigned __int64 PageForHeader; // rax
@@ -133,7 +133,7 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
   int v91; // [rsp+30h] [rbp-D0h]
   __int64 v92; // [rsp+38h] [rbp-C8h]
   int v93; // [rsp+40h] [rbp-C0h]
-  struct _SLIST_ENTRY *v94; // [rsp+48h] [rbp-B8h]
+  _SLIST_ENTRY *v94; // [rsp+48h] [rbp-B8h]
   __int64 v95; // [rsp+50h] [rbp-B0h]
   __int64 v96; // [rsp+58h] [rbp-A8h]
   unsigned int v97; // [rsp+60h] [rbp-A0h] BYREF
@@ -193,10 +193,10 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
   v98 = v12 & 7 | 0x18;
   v14 = (*(_DWORD *)(*(_QWORD *)(v4 + 8) + 56LL) >> 20) & 0x7F;
   MiInitializePageColorBase(v10 + 1664, v14, &v119);
-  v16 = *(struct _SLIST_ENTRY **)(v4 + 120);
+  v16 = *(_SLIST_ENTRY **)(v4 + 120);
   v121 = (__int64 *)(v4 + 120);
   v94 = v16;
-  if ( v16 == (struct _SLIST_ENTRY *)(v4 + 120) )
+  if ( v16 == (_SLIST_ENTRY *)(v4 + 120) )
     goto LABEL_69;
   v17 = v98;
   while ( 2 )
@@ -498,7 +498,7 @@ LABEL_33:
                 v45 = v101;
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( CurrentIrql == 2 )
@@ -540,10 +540,10 @@ LABEL_33:
                 Flink = 0LL;
                 *(_DWORD *)(v44 + 72) = 0;
               }
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v47 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                   && (unsigned __int8)v47 <= 0xFu
                   && CurrentIrql <= 0xFu
                   && (unsigned __int8)v47 >= 2u )
@@ -716,7 +716,7 @@ LABEL_62:
     }
     if ( v25 )
     {
-      v51 = (struct _SLIST_ENTRY *)Src;
+      v51 = (_SLIST_ENTRY *)Src;
       MiReduceMdl(Src, Flink, v24, SchedulerAssist);
       if ( v51 != &v16[17] && *((_DWORD *)&v51[2].Next + 2) <= 0x10000u )
       {
@@ -743,8 +743,8 @@ LABEL_185:
     --*(_DWORD *)(a1 + 108);
     MiFreeInPageSupportBlock(v59);
 LABEL_68:
-    v13 = (struct _SLIST_ENTRY *)v95;
-    if ( v16 != (struct _SLIST_ENTRY *)(v4 + 120) )
+    v13 = (_SLIST_ENTRY *)v95;
+    if ( v16 != (_SLIST_ENTRY *)(v4 + 120) )
     {
       v15 = v92;
       v11 = v106;

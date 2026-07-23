@@ -1,14 +1,14 @@
 /*
- * XREFs of IaLpssSetPowerD0 @ 0x140721950
+ * XREFs of IaLpssSetPowerD0 @ 0x140726520
  * Callers:
  *     <none>
  * Callees:
- *     IaLpssPciSetPower @ 0x1407216F8 (IaLpssPciSetPower.c)
- *     IaLpssReadClockParams @ 0x140721874 (IaLpssReadClockParams.c)
- *     IaLpssReadResetRegister @ 0x140721918 (IaLpssReadResetRegister.c)
- *     IaLpssWriteClockParams @ 0x140721A98 (IaLpssWriteClockParams.c)
- *     IaLpssWriteResetRegister @ 0x140721B34 (IaLpssWriteResetRegister.c)
- *     Uart16550InitializePortCommon @ 0x140721C54 (Uart16550InitializePortCommon.c)
+ *     IaLpssPciSetPower @ 0x1407262C8 (IaLpssPciSetPower.c)
+ *     IaLpssReadClockParams @ 0x140726444 (IaLpssReadClockParams.c)
+ *     IaLpssReadResetRegister @ 0x1407264E8 (IaLpssReadResetRegister.c)
+ *     IaLpssWriteClockParams @ 0x140726668 (IaLpssWriteClockParams.c)
+ *     IaLpssWriteResetRegister @ 0x140726704 (IaLpssWriteResetRegister.c)
+ *     Uart16550InitializePortCommon @ 0x140726824 (Uart16550InitializePortCommon.c)
  */
 
 __int64 __fastcall IaLpssSetPowerD0(__int64 a1)
@@ -33,10 +33,10 @@ __int64 __fastcall IaLpssSetPowerD0(__int64 a1)
       }
       else
       {
-        v4 = LODWORD(WheapPfaLock.Padding[2]);
-        if ( LODWORD(WheapPfaLock.Padding[2]) )
+        v4 = (unsigned int)dword_140EF00D0;
+        if ( dword_140EF00D0 )
         {
-          LODWORD(v4) = LODWORD(WheapPfaLock.Padding[2]) | 0x80000000;
+          LODWORD(v4) = dword_140EF00D0 | 0x80000000;
           IaLpssWriteClockParams(a1, v4);
           ClockParams = IaLpssReadClockParams((_QWORD *)a1, v5);
           IaLpssWriteClockParams(a1, ClockParams & 0x7FFFFFFF);

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnloadApproved @ 0x1407E96DC
+ * XREFs of MiUnloadApproved @ 0x1407E99AC
  * Callers:
- *     MiDereferenceSingleImport @ 0x1407E96A8 (MiDereferenceSingleImport.c)
+ *     MiDereferenceSingleImport @ 0x1407E9978 (MiDereferenceSingleImport.c)
  * Callees:
  *     MiSessionLookupImage @ 0x14020AB68 (MiSessionLookupImage.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiCallDllUnload @ 0x140865250 (MiCallDllUnload.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiCallDllUnload @ 0x140865490 (MiCallDllUnload.c)
  */
 
 __int64 __fastcall MiUnloadApproved(ULONG_PTR BugCheckParameter2)

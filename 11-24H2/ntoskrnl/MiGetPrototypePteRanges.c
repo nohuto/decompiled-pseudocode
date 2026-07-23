@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetPrototypePteRanges @ 0x14042DE18
+ * XREFs of MiGetPrototypePteRanges @ 0x14041FB48
  * Callers:
- *     MiReplacePageOfProtoPool @ 0x1402E73F0 (MiReplacePageOfProtoPool.c)
+ *     MiReplacePageOfProtoPool @ 0x140348A30 (MiReplacePageOfProtoPool.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     MiObtainProtoBaseFromNode @ 0x14042E0C0 (MiObtainProtoBaseFromNode.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiObtainProtoBaseFromNode @ 0x14041FDF0 (MiObtainProtoBaseFromNode.c)
  */
 
-__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
+__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, _RTL_BITMAP *a2)
 {
   unsigned __int64 v2; // r12
   unsigned int v5; // r15d
@@ -39,9 +39,9 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
   NumberToSet = 0LL;
   v2 = a1 + 4096;
   v5 = 1;
-  ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2D610);
-  v6 = (_QWORD *)qword_140E2D608;
-  if ( qword_140E2D608 )
+  ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2D750);
+  v6 = (_QWORD *)qword_140E2D748;
+  if ( qword_140E2D748 )
   {
     do
     {
@@ -183,6 +183,6 @@ LABEL_16:
       }
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D610);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D750);
   return v5;
 }

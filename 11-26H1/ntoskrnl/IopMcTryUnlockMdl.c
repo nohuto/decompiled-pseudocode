@@ -1,12 +1,12 @@
 /*
- * XREFs of IopMcTryUnlockMdl @ 0x1405D7788
+ * XREFs of IopMcTryUnlockMdl @ 0x1405D9F78
  * Callers:
- *     IoTryReleasePages @ 0x140411820 (IoTryReleasePages.c)
- *     IopMcDereferenceMdl @ 0x140411AC8 (IopMcDereferenceMdl.c)
- *     IopMcWaitAndCleanupBufferEntry @ 0x1405D77E4 (IopMcWaitAndCleanupBufferEntry.c)
+ *     IoTryReleasePages @ 0x140410F40 (IoTryReleasePages.c)
+ *     IopMcDereferenceMdl @ 0x1404111E8 (IopMcDereferenceMdl.c)
+ *     IopMcWaitAndCleanupBufferEntry @ 0x1405D9FD4 (IopMcWaitAndCleanupBufferEntry.c)
  * Callees:
- *     IopMcRemoveMdlPagesFromTable @ 0x14030D88C (IopMcRemoveMdlPagesFromTable.c)
- *     IopUnlockAndFreeMdl @ 0x14040FCD4 (IopUnlockAndFreeMdl.c)
+ *     IopMcRemoveMdlPagesFromTable @ 0x1402EF90C (IopMcRemoveMdlPagesFromTable.c)
+ *     IopUnlockAndFreeMdl @ 0x14040F3F4 (IopUnlockAndFreeMdl.c)
  */
 
 char __fastcall IopMcTryUnlockMdl(ULONG_PTR BugCheckParameter2, signed __int64 BugCheckParameter3)

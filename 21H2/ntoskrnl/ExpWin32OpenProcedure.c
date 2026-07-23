@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWin32OpenProcedure @ 0x1406A1210
+ * XREFs of ExpWin32OpenProcedure @ 0x1406009A0
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall ExpWin32OpenProcedure(int a1, __int64 a2, __int64 a3, _DWORD *a4, int *a5, int a6)
@@ -13,7 +13,7 @@ __int64 __fastcall ExpWin32OpenProcedure(int a1, __int64 a2, __int64 a3, _DWORD 
   unsigned __int64 v8; // r10
   POBJECT_TYPE *v9; // rdx
   int v10; // ecx
-  int v11; // ecx
+  __int64 v11; // rcx
   _DWORD v13[2]; // [rsp+20h] [rbp-20h] BYREF
   __int64 v14; // [rsp+28h] [rbp-18h]
   _DWORD *v15; // [rsp+30h] [rbp-10h]
@@ -35,33 +35,33 @@ __int64 __fastcall ExpWin32OpenProcedure(int a1, __int64 a2, __int64 a3, _DWORD 
   v16 = v10;
   if ( v9 == (POBJECT_TYPE *)ExActivationObjectType )
   {
-    v11 = 37;
-    return (unsigned int)PsInvokeWin32Callout(v11, (__int64)v13, 1, (__int64)&v18);
+    v11 = 37LL;
+    return (unsigned int)PsInvokeWin32Callout(v11, v13, 1LL, &v18);
   }
   if ( v9 == (POBJECT_TYPE *)ExCoreMessagingObjectType )
   {
-    v11 = 33;
-    return (unsigned int)PsInvokeWin32Callout(v11, (__int64)v13, 1, (__int64)&v18);
+    v11 = 33LL;
+    return (unsigned int)PsInvokeWin32Callout(v11, v13, 1LL, &v18);
   }
   if ( v9 == (POBJECT_TYPE *)ExRawInputManagerObjectType )
   {
-    v11 = 27;
-    return (unsigned int)PsInvokeWin32Callout(v11, (__int64)v13, 1, (__int64)&v18);
+    v11 = 27LL;
+    return (unsigned int)PsInvokeWin32Callout(v11, v13, 1LL, &v18);
   }
   if ( v9 == (POBJECT_TYPE *)ExCompositionObjectType )
   {
-    v11 = 18;
-    return (unsigned int)PsInvokeWin32Callout(v11, (__int64)v13, 1, (__int64)&v18);
+    v11 = 18LL;
+    return (unsigned int)PsInvokeWin32Callout(v11, v13, 1LL, &v18);
   }
   if ( v9 == ExDesktopObjectType )
   {
-    v11 = 8;
-    return (unsigned int)PsInvokeWin32Callout(v11, (__int64)v13, 1, (__int64)&v18);
+    v11 = 8LL;
+    return (unsigned int)PsInvokeWin32Callout(v11, v13, 1LL, &v18);
   }
   if ( v9 == (POBJECT_TYPE *)ExWindowStationObjectType )
   {
-    v11 = 16;
-    return (unsigned int)PsInvokeWin32Callout(v11, (__int64)v13, 1, (__int64)&v18);
+    v11 = 16LL;
+    return (unsigned int)PsInvokeWin32Callout(v11, v13, 1LL, &v18);
   }
   return v7;
 }

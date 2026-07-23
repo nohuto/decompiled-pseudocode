@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrepareDataFileSubsectionForDeletion @ 0x1404B5148
+ * XREFs of MiPrepareDataFileSubsectionForDeletion @ 0x1404AE598
  * Callers:
- *     MiDeleteExtendSubsections @ 0x140778B40 (MiDeleteExtendSubsections.c)
+ *     MiDeleteExtendSubsections @ 0x14077B9E0 (MiDeleteExtendSubsections.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiIncrementSubsectionViewCount @ 0x14030BE90 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x1402EDF10 (MiIncrementSubsectionViewCount.c)
  */
 
 void __fastcall MiPrepareDataFileSubsectionForDeletion(__int64 *BugCheckParameter2, int a2)

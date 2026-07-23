@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionDisplayRequiredPowerRequestUpdated @ 0x140884D9C
+ * XREFs of TtmiLogSessionDisplayRequiredPowerRequestUpdated @ 0x140885FFC
  * Callers:
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1408814D0 (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x140882730 (TtmpUpdateDisplayRequiredPowerRequest.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionDisplayRequiredPowerRequestUpdated()
@@ -25,9 +25,9 @@ void TtmiLogSessionDisplayRequiredPowerRequestUpdated()
   char *v12; // [rsp+80h] [rbp+37h]
   __int64 v13; // [rsp+88h] [rbp+3Fh]
 
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    if ( TlgKeywordOn(&stru_14096E820, 1uLL) )
     {
       v5 = v3;
       v8 = &v5;
@@ -38,7 +38,7 @@ void TtmiLogSessionDisplayRequiredPowerRequestUpdated()
       v9 = 4LL;
       v11 = 4LL;
       v13 = v0;
-      TlgWrite(&stru_14096D820, &unk_140372812, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096E820, &unk_140373682, 0LL, 0LL, 5u, &pData);
     }
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRecheckCombineVm @ 0x14035A564
+ * XREFs of MiRecheckCombineVm @ 0x14035A704
  * Callers:
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiCombineWithStandbyExisting @ 0x14035A17C (MiCombineWithStandbyExisting.c)
+ *     MiCombineInitialInstance @ 0x1402EC920 (MiCombineInitialInstance.c)
+ *     MiCombineWithStandbyExisting @ 0x14035A31C (MiCombineWithStandbyExisting.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
  *     MiGetTopLevelPfn @ 0x140215FA0 (MiGetTopLevelPfn.c)
- *     MiCombineCandidate @ 0x140281FB0 (MiCombineCandidate.c)
+ *     MiCombineCandidate @ 0x140282240 (MiCombineCandidate.c)
  */
 
 __int64 __fastcall MiRecheckCombineVm(_QWORD *a1, char a2, _OWORD *a3, char *a4)

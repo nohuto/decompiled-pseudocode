@@ -249,7 +249,7 @@ LABEL_89:
   v8 = v32;
 LABEL_83:
   if ( v30 == 1 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0LL);
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   *(_QWORD *)a2 = (v3 + v28 - v8) << 12;
   if ( v28 == 1 )
     return v4;

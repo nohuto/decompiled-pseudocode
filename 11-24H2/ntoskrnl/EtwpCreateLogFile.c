@@ -1,36 +1,36 @@
 /*
- * XREFs of EtwpCreateLogFile @ 0x1409DA6AC
+ * XREFs of EtwpCreateLogFile @ 0x1409D51BC
  * Callers:
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpBufferingModeFlush @ 0x140832840 (EtwpBufferingModeFlush.c)
- *     EtwpLogger @ 0x1409D88E0 (EtwpLogger.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     EtwpBufferingModeFlush @ 0x1409D2A94 (EtwpBufferingModeFlush.c)
+ *     EtwpLogger @ 0x1409D33F0 (EtwpLogger.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x1406A6D30 (ZwQueryVolumeInformationFile.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     EtwpSendSessionNotification @ 0x1409DA338 (EtwpSendSessionNotification.c)
- *     EtwpUpdateFileHeader @ 0x1409DAB48 (EtwpUpdateFileHeader.c)
- *     EtwpExpandFileName @ 0x1409DB494 (EtwpExpandFileName.c)
- *     EtwpDelayCreate @ 0x1409DB6A0 (EtwpDelayCreate.c)
- *     EtwpFinalizeHeader @ 0x1409DBD1C (EtwpFinalizeHeader.c)
- *     EtwpEventWriteTemplateAdmin @ 0x140A8E2D8 (EtwpEventWriteTemplateAdmin.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1406A7CD0 (ZwQueryVolumeInformationFile.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     EtwpSendSessionNotification @ 0x1409D4E48 (EtwpSendSessionNotification.c)
+ *     EtwpUpdateFileHeader @ 0x1409D5658 (EtwpUpdateFileHeader.c)
+ *     EtwpExpandFileName @ 0x1409D5FA4 (EtwpExpandFileName.c)
+ *     EtwpDelayCreate @ 0x1409D61B0 (EtwpDelayCreate.c)
+ *     EtwpFinalizeHeader @ 0x1409D652C (EtwpFinalizeHeader.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140A8A8A8 (EtwpEventWriteTemplateAdmin.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall EtwpCreateLogFile(__int64 a1, char a2, _DWORD *a3)
 {
   char v3; // r12
   __int64 v6; // r13
-  _QWORD *v7; // rax
-  _QWORD *v8; // rsi
+  char *v7; // rax
+  char *v8; // rsi
   __int64 v9; // r8
   int v10; // r14d
   int v11; // ecx
@@ -42,15 +42,15 @@ __int64 __fastcall EtwpCreateLogFile(__int64 a1, char a2, _DWORD *a3)
   char v17; // r13
   bool v18; // zf
   void *v19; // r12
-  _QWORD *v20; // rax
-  _QWORD *v21; // r14
+  char *v20; // rax
+  char *v21; // r14
   __int128 v22; // xmm1
   NTSTATUS updated; // r15d
   int v24; // r8d
   wchar_t *Buffer; // rsi
   int v27; // eax
-  _QWORD *v28; // rax
-  _QWORD *v29; // r14
+  char *v28; // rax
+  char *v29; // r14
   UNICODE_STRING v30; // xmm1
   char v31; // [rsp+40h] [rbp-79h]
   int v32; // [rsp+44h] [rbp-75h]
@@ -86,12 +86,12 @@ __int64 __fastcall EtwpCreateLogFile(__int64 a1, char a2, _DWORD *a3)
   v6 = a1 + 184;
   if ( !*(_QWORD *)(a1 + 192) )
     v6 = a1 + 152;
-  v7 = KeAbPreAcquire(a1 + 688, 0LL);
+  v7 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 688), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 688), (__int64)v7, a1 + 688);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 688), v7, a1 + 688);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   if ( (*(_DWORD *)(a1 + 816) & 2) != 0 )
     v9 = *(unsigned int *)(a1 + 296);
   else
@@ -183,12 +183,12 @@ LABEL_34:
   *(_QWORD *)(a1 + 800) = v13;
   if ( !v18 )
   {
-    v20 = KeAbPreAcquire(a1 + 688, 0LL);
+    v20 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
     v21 = v20;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 688), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 688), (__int64)v20, a1 + 688);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 688), v20, a1 + 688);
     if ( v21 )
-      *((_BYTE *)v21 + 10) = 1;
+      v21[10] = 1;
     v22 = *(_OWORD *)(a1 + 184);
     DestinationString = *(UNICODE_STRING *)(a1 + 152);
     *(_OWORD *)(a1 + 152) = v22;
@@ -220,12 +220,12 @@ LABEL_41:
       Buffer = DestinationString.Buffer;
       if ( !DestinationString.Buffer )
         goto LABEL_43;
-      v28 = KeAbPreAcquire(a1 + 688, 0LL);
+      v28 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
       v29 = v28;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 688), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 688), (__int64)v28, a1 + 688);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 688), v28, a1 + 688);
       if ( v29 )
-        *((_BYTE *)v29 + 10) = 1;
+        v29[10] = 1;
       v30 = DestinationString;
       *(_OWORD *)(a1 + 184) = *(_OWORD *)(a1 + 152);
       *(UNICODE_STRING *)(a1 + 152) = v30;

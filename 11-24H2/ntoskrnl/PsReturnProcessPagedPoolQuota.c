@@ -1,28 +1,28 @@
 /*
- * XREFs of PsReturnProcessPagedPoolQuota @ 0x1404066F0
+ * XREFs of PsReturnProcessPagedPoolQuota @ 0x1403C8EA0
  * Callers:
- *     FsRtlCancelNotify @ 0x1403DB210 (FsRtlCancelNotify.c)
- *     MiPerformVadSplitting @ 0x140405FC8 (MiPerformVadSplitting.c)
- *     ExpFreeTablePagedPool @ 0x14084D4E4 (ExpFreeTablePagedPool.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14088DADC (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x14088DB20 (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpSendMessage @ 0x14088E810 (AlpcpSendMessage.c)
- *     AlpcpCaptureMessageDataSafe @ 0x140892480 (AlpcpCaptureMessageDataSafe.c)
- *     LpcExitProcess @ 0x1408A9738 (LpcExitProcess.c)
- *     MiReturnVadCharges @ 0x1408E2F98 (MiReturnVadCharges.c)
- *     ExpAllocateHandleTable @ 0x14093BFFC (ExpAllocateHandleTable.c)
- *     AlpcpCaptureMessageData @ 0x14093FCA0 (AlpcpCaptureMessageData.c)
- *     AlpcMessageDestroyProcedure @ 0x1409B08F0 (AlpcMessageDestroyProcedure.c)
- *     ExpFreeHandleTable @ 0x1409E5244 (ExpFreeHandleTable.c)
- *     AlpcSecurityDestroyProcedure @ 0x1409E54D0 (AlpcSecurityDestroyProcedure.c)
- *     FsRtlNotifyFilterReportChange @ 0x140A007F0 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140A01520 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     FsRtlNotifyCleanupOneEntry @ 0x140A01FF8 (FsRtlNotifyCleanupOneEntry.c)
- *     FsRtlNotifyCompleteIrp @ 0x140A021B0 (FsRtlNotifyCompleteIrp.c)
- *     MiReturnVadQuota @ 0x140A0C0A4 (MiReturnVadQuota.c)
+ *     MiPerformVadSplitting @ 0x1403C877C (MiPerformVadSplitting.c)
+ *     FsRtlCancelNotify @ 0x1403CC4E0 (FsRtlCancelNotify.c)
+ *     ExpFreeTablePagedPool @ 0x1408497A4 (ExpFreeTablePagedPool.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x140892140 (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1408923C8 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpCaptureMessageData @ 0x1408942E0 (AlpcpCaptureMessageData.c)
+ *     AlpcSecurityDestroyProcedure @ 0x140897A40 (AlpcSecurityDestroyProcedure.c)
+ *     AlpcMessageDestroyProcedure @ 0x140897C10 (AlpcMessageDestroyProcedure.c)
+ *     AlpcpSendMessage @ 0x140898440 (AlpcpSendMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x14089BA70 (AlpcpCaptureMessageDataSafe.c)
+ *     LpcExitProcess @ 0x1408FF998 (LpcExitProcess.c)
+ *     MiReturnVadCharges @ 0x140919B48 (MiReturnVadCharges.c)
+ *     ExpAllocateHandleTable @ 0x14094D2D4 (ExpAllocateHandleTable.c)
+ *     ExpFreeHandleTable @ 0x1409DFCA4 (ExpFreeHandleTable.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1409FD7C0 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1409FE4F0 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyCleanupOneEntry @ 0x1409FEFC8 (FsRtlNotifyCleanupOneEntry.c)
+ *     FsRtlNotifyCompleteIrp @ 0x1409FF180 (FsRtlNotifyCompleteIrp.c)
+ *     MiReturnVadQuota @ 0x140A0B2E4 (MiReturnVadQuota.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x14024B468 (PspReturnResourceQuota.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     PspReturnResourceQuota @ 0x14027BA78 (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall PsReturnProcessPagedPoolQuota(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter3)
@@ -44,7 +44,7 @@ unsigned __int64 __fastcall PsReturnProcessPagedPoolQuota(ULONG_PTR BugCheckPara
   if ( (PEPROCESS)BugCheckParameter1 != PsInitialSystemProcess )
   {
     v4 = *(__int64 **)(BugCheckParameter1 + 760);
-    v5 = byte_140FC6348;
+    v5 = byte_140FC7398;
     v6 = v4 + 16;
     _m_prefetchw(v4 + 16);
     v7 = v4[16];
@@ -53,15 +53,15 @@ unsigned __int64 __fastcall PsReturnProcessPagedPoolQuota(ULONG_PTR BugCheckPara
     {
       if ( v8 > v7 )
       {
-        v9 = qword_140F05880;
-        if ( v8 - v7 > qword_140F05880 )
+        v9 = qword_140F05B60;
+        if ( v8 - v7 > qword_140F05B60 )
         {
-          if ( qword_140F05880 > BugCheckParameter3 )
+          if ( qword_140F05B60 > BugCheckParameter3 )
             v9 = BugCheckParameter3;
           if ( v8 == _InterlockedCompareExchange64(v4 + 24, v8 - v9, v8) )
           {
             v15 = _InterlockedExchangeAdd64(v4 + 25, v9) + v9;
-            if ( v15 > qword_140F05880 )
+            if ( v15 > qword_140F05B60 )
             {
               v16 = _InterlockedExchange64(v4 + 25, 0LL);
               if ( v16 )
@@ -93,9 +93,9 @@ unsigned __int64 __fastcall PsReturnProcessPagedPoolQuota(ULONG_PTR BugCheckPara
       if ( v4 == &PspSystemQuotaBlock )
         KeBugCheckEx(0x21u, BugCheckParameter1, 1uLL, BugCheckParameter3, BugCheckParameter4);
       v4 = &PspSystemQuotaBlock;
-      v6 = &qword_140E27F00;
-      _m_prefetchw(&qword_140E27F00);
-      v7 = qword_140E27F00;
+      v6 = &qword_140E28040;
+      _m_prefetchw(&qword_140E28040);
+      v7 = qword_140E28040;
     }
     if ( BugCheckParameter1 )
     {

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline @ 0x140450220
+ * XREFs of Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline @ 0x140448350
  * Callers:
- *     KiComputeThreadQos @ 0x1402BC220 (KiComputeThreadQos.c)
+ *     KiComputeThreadQos @ 0x140306EE0 (KiComputeThreadQos.c)
  * Callees:
- *     Feature_ServerQosExcludesWindowState__private_IsEnabledFallback @ 0x140532ED8 (Feature_ServerQosExcludesWindowState__private_IsEnabledFallback.c)
+ *     Feature_ServerQosExcludesWindowState__private_IsEnabledFallback @ 0x140535374 (Feature_ServerQosExcludesWindowState__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline()

@@ -23,9 +23,9 @@ __int64 MiComputeUserWorkingSetSpan()
     --v2;
   }
   while ( v2 );
-  qword_140326D10 = (16 * (v0 + 0x80000FFF0LL) + qword_140327F90 + 1350583151) & 0xFFFFFFFFC0000000uLL | 1;
-  qword_140326D00 = ((16 * (v0 + 0x80000FFF0LL) + qword_140327F90 + 1350583151) & 0xFFFFFFFFC0000000uLL) + 4096;
-  result = qword_140326D00 + 8 * (v0 + 0x80000FFF0LL);
-  qword_140326D08 = result;
+  qword_140326D50 = (16 * (v0 + 0x80000FFF0LL) + qword_140327FD0 + 1350583151) & 0xFFFFFFFFC0000000uLL | 1;
+  qword_140326D40 = ((16 * (v0 + 0x80000FFF0LL) + qword_140327FD0 + 1350583151) & 0xFFFFFFFFC0000000uLL) + 4096;
+  result = qword_140326D40 + 8 * (v0 + 0x80000FFF0LL);
+  qword_140326D48 = result;
   return result;
 }

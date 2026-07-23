@@ -1,10 +1,10 @@
 /*
- * XREFs of IopIsFileOpenOrSection @ 0x1406255E0
+ * XREFs of IopIsFileOpenOrSection @ 0x140625694
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockHandleTableEntry @ 0x14045EDD4 (ExUnlockHandleTableEntry.c)
- *     MmSectionToSectionObjectPointers @ 0x14065B84C (MmSectionToSectionObjectPointers.c)
+ *     ExUnlockHandleTableEntry @ 0x14045DCA4 (ExUnlockHandleTableEntry.c)
+ *     MmSectionToSectionObjectPointers @ 0x14065B930 (MmSectionToSectionObjectPointers.c)
  */
 
 bool __fastcall IopIsFileOpenOrSection(__int64 a1, volatile signed __int64 *a2, __int64 a3, __int64 *a4)

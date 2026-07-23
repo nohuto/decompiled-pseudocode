@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventParkNodeClassRecordedStats @ 0x140527C0C
+ * XREFs of PpmEventParkNodeClassRecordedStats @ 0x14052A27C
  * Callers:
- *     PpmParkRecordNodeStatistics @ 0x14041EFE0 (PpmParkRecordNodeStatistics.c)
+ *     PpmParkRecordNodeStatistics @ 0x140416820 (PpmParkRecordNodeStatistics.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkNodeClassRecordedStats(_WORD *a1, char a2, __int16 a3, char a4, __int64 a5, char a6)
@@ -44,9 +44,7 @@ char __fastcall PpmEventParkNodeClassRecordedStats(_WORD *a1, char a2, __int16 a
   {
     if ( PpmEtwRegistered )
     {
-      LOBYTE(v6) = EtwEventEnabled(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     &PPM_ETW_PARK_NODE_CLASS_STATS);
+      LOBYTE(v6) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_NODE_CLASS_STATS);
       if ( (_BYTE)v6 )
       {
         PpmEventAddAffinityMaskAsSubset(0LL, a1, (__int64)v20, (__int64)v23, (__int64)v7, &v22, &v21, &v19);
@@ -72,15 +70,7 @@ char __fastcall PpmEventParkNodeClassRecordedStats(_WORD *a1, char a2, __int16 a
         v17 = v9 + 5;
         v7[v17].Ptr = (ULONGLONG)&v27;
         *(_QWORD *)&v7[v17].Size = 1LL;
-        LOBYTE(v6) = EtwWriteEx(
-                       (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                       &PPM_ETW_PARK_NODE_CLASS_STATS,
-                       0LL,
-                       0,
-                       0LL,
-                       0LL,
-                       v9 + 6,
-                       v7);
+        LOBYTE(v6) = EtwWriteEx(PpmEtwHandle, &PPM_ETW_PARK_NODE_CLASS_STATS, 0LL, 0, 0LL, 0LL, v9 + 6, v7);
       }
     }
   }

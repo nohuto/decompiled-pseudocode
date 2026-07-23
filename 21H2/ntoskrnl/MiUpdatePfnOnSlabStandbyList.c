@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdatePfnOnSlabStandbyList @ 0x1402B7E80
+ * XREFs of MiUpdatePfnOnSlabStandbyList @ 0x140236090
  * Callers:
- *     MiReplaceTransitionPage @ 0x14026D370 (MiReplaceTransitionPage.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
+ *     MiReplaceTransitionPage @ 0x14025B310 (MiReplaceTransitionPage.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
  * Callees:
  *     <none>
  */

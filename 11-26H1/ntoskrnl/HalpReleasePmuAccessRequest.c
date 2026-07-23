@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReleasePmuAccessRequest @ 0x1405807A0
+ * XREFs of HalpReleasePmuAccessRequest @ 0x140582CC0
  * Callers:
- *     HalAllocateHardwareCounters @ 0x140780E50 (HalAllocateHardwareCounters.c)
- *     HalpPmuArbiterPeriodicWorkItem @ 0x1407816F0 (HalpPmuArbiterPeriodicWorkItem.c)
- *     HalpNotifyActorIfPmuAvailable @ 0x140B110C8 (HalpNotifyActorIfPmuAvailable.c)
+ *     HalAllocateHardwareCounters @ 0x140783950 (HalAllocateHardwareCounters.c)
+ *     HalpPmuArbiterPeriodicWorkItem @ 0x1407841F0 (HalpPmuArbiterPeriodicWorkItem.c)
+ *     HalpNotifyActorIfPmuAvailable @ 0x140B12E48 (HalpNotifyActorIfPmuAvailable.c)
  * Callees:
  *     <none>
  */

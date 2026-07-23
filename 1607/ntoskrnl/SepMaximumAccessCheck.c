@@ -1,20 +1,20 @@
 /*
- * XREFs of SepMaximumAccessCheck @ 0x1400616A0
+ * XREFs of SepMaximumAccessCheck @ 0x140061220
  * Callers:
- *     SepAccessCheck @ 0x140063AB0 (SepAccessCheck.c)
+ *     SepAccessCheck @ 0x140063630 (SepAccessCheck.c)
  * Callees:
- *     SepMatchPackage @ 0x14000E138 (SepMatchPackage.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     SepSidInTokenSidHash @ 0x1400611F0 (SepSidInTokenSidHash.c)
- *     AuthzBasepAddAccessTypeList @ 0x140092B20 (AuthzBasepAddAccessTypeList.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     SepIsPackageSid @ 0x1400A06E0 (SepIsPackageSid.c)
- *     SepIsCapabilitySid @ 0x1400A0DAC (SepIsCapabilitySid.c)
- *     SepMatchCapability @ 0x1400A7790 (SepMatchCapability.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepSidInToken @ 0x1400C45A4 (SepSidInToken.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     AuthzBasepObjectInTypeList @ 0x140234488 (AuthzBasepObjectInTypeList.c)
+ *     SepMatchPackage @ 0x14000DCB8 (SepMatchPackage.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     SepSidInTokenSidHash @ 0x140060D70 (SepSidInTokenSidHash.c)
+ *     AuthzBasepAddAccessTypeList @ 0x140092320 (AuthzBasepAddAccessTypeList.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     SepIsPackageSid @ 0x14009F008 (SepIsPackageSid.c)
+ *     SepIsCapabilitySid @ 0x14009F6D4 (SepIsCapabilitySid.c)
+ *     SepMatchCapability @ 0x1400A5D08 (SepMatchCapability.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepSidInToken @ 0x1400C2444 (SepSidInToken.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     AuthzBasepObjectInTypeList @ 0x1402342B4 (AuthzBasepObjectInTypeList.c)
  */
 
 __int64 __fastcall SepMaximumAccessCheck(
@@ -77,8 +77,8 @@ __int64 __fastcall SepMaximumAccessCheck(
   unsigned int v55; // edx
   int v56; // r8d
   bool v57; // al
-  __int64 v58; // [rsp+20h] [rbp-A8h]
-  __int64 v59; // [rsp+28h] [rbp-A0h]
+  char v58[8]; // [rsp+20h] [rbp-A8h]
+  char v59[8]; // [rsp+28h] [rbp-A0h]
   int v60; // [rsp+28h] [rbp-A0h]
   __int16 v61; // [rsp+60h] [rbp-68h]
   int v62; // [rsp+64h] [rbp-64h] BYREF
@@ -139,9 +139,15 @@ LABEL_38:
               v35 = a8;
               goto LABEL_29;
             }
-            LOBYTE(v59) = a12;
-            LOBYTE(v58) = v15;
-            if ( !(unsigned __int8)SepSidInToken(v13, v21, 8 * (v52 & 2u) + (_DWORD)v19 + 28, 0, v58, v59) )
+            v59[0] = a12;
+            v58[0] = v15;
+            if ( !(unsigned __int8)SepSidInToken(
+                                     v13,
+                                     v21,
+                                     8 * (v52 & 2u) + (_DWORD)v19 + 28,
+                                     0,
+                                     *(_QWORD *)v58,
+                                     *(_QWORD *)v59) )
               goto LABEL_26;
             if ( (unsigned __int8)AuthzBasepObjectInTypeList(v19 + 12, v17, a7, &v62) )
             {
@@ -150,40 +156,40 @@ LABEL_38:
             }
             goto LABEL_112;
           }
-          LOBYTE(v59) = a12;
-          LOBYTE(v58) = v15;
+          v59[0] = a12;
+          v58[0] = v15;
           v54 = SepSidInToken(
                   v13,
                   v21,
                   ((*((_DWORD *)v19 + 2) & 1) != 0 ? 0x10 : 0) + 8 * (v52 & 2u) + (_DWORD)v19 + 12,
                   0,
-                  v58,
-                  v59);
+                  *(_QWORD *)v58,
+                  *(_QWORD *)v59);
           v16 = a7;
           if ( !v54 )
             goto LABEL_77;
           break;
         case 4:
-          LOBYTE(v59) = a12;
-          LOBYTE(v58) = v15;
+          v59[0] = a12;
+          v58[0] = v15;
           if ( !(unsigned __int8)SepSidInToken(
                                    v13,
                                    v21,
                                    (unsigned int)v19 + 4 * (unsigned __int8)v19[13] + 20,
                                    0,
-                                   v58,
-                                   v59) )
+                                   *(_QWORD *)v58,
+                                   *(_QWORD *)v59) )
             goto LABEL_26;
-          v57 = SepSidInTokenSidHash(a2 + 232, 0LL, v19 + 12, 0, 0, a12);
+          v57 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a2 + 232), 0LL, v19 + 12, 0, 0, a12);
           v16 = a7;
           if ( !v57 )
             goto LABEL_77;
           break;
         case 1:
-          LOBYTE(v59) = a12;
+          v59[0] = a12;
           LOBYTE(a4) = 1;
-          LOBYTE(v58) = v15;
-          v49 = SepSidInToken(v13, v21, (int)v19 + 8, a4, v58, v59);
+          v58[0] = v15;
+          v49 = SepSidInToken(v13, v21, (int)v19 + 8, a4, *(_QWORD *)v58, *(_QWORD *)v59);
           v16 = a7;
           if ( v49 )
           {
@@ -202,15 +208,15 @@ LABEL_77:
           goto LABEL_28;
         case 6:
           LOBYTE(a4) = 1;
-          LOBYTE(v59) = a12;
-          LOBYTE(v58) = v15;
+          v59[0] = a12;
+          v58[0] = v15;
           if ( !(unsigned __int8)SepSidInToken(
                                    v13,
                                    v21,
                                    16 * (*((_DWORD *)v19 + 2) & 1) + 8 * (*((_DWORD *)v19 + 2) & 2u) + (_DWORD)v19 + 12,
                                    a4,
-                                   v58,
-                                   v59) )
+                                   *(_QWORD *)v58,
+                                   *(_QWORD *)v59) )
             goto LABEL_26;
           if ( (*((_DWORD *)v19 + 2) & 1) != 0 && v19 != (char *)-12LL )
           {
@@ -296,9 +302,9 @@ LABEL_42:
               goto LABEL_26;
             }
           }
-          LOBYTE(v59) = a12;
-          LOBYTE(v58) = v15;
-          if ( !(unsigned __int8)SepSidInToken(v13, v21, (int)v19 + 8, 0, v58, v59) )
+          v59[0] = a12;
+          v58[0] = v15;
+          if ( !(unsigned __int8)SepSidInToken(v13, v21, (int)v19 + 8, 0, *(_QWORD *)v58, *(_QWORD *)v59) )
           {
             v16 = a7;
             a4 = v71;

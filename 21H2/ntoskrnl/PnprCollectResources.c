@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprCollectResources @ 0x1408AD334
+ * XREFs of PnprCollectResources @ 0x1408AD494
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC3D0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PipForAllChildDeviceNodes @ 0x1406B85D8 (PipForAllChildDeviceNodes.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PipForAllChildDeviceNodes @ 0x1406179F8 (PipForAllChildDeviceNodes.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnprCollectResources(__int64 *a1, __int64 *a2)

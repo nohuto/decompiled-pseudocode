@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpWakeByAddress @ 0x18004BA40
+ * XREFs of RtlpWakeByAddress @ 0x180035FC0
  * Callers:
- *     LdrpAddUnicodeStringToSnapsBuffer @ 0x1800476B0 (LdrpAddUnicodeStringToSnapsBuffer.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlWakeAddressAll @ 0x18004D5B0 (RtlWakeAddressAll.c)
- *     RtlpDereferenceWnfUserSubscription @ 0x18006E230 (RtlpDereferenceWnfUserSubscription.c)
- *     RtlWakeAddressSingle @ 0x1800E2BF0 (RtlWakeAddressSingle.c)
- *     RtlpUnWaitCriticalSection @ 0x18013E050 (RtlpUnWaitCriticalSection.c)
- *     RtlWakeAddressAllNoFence @ 0x18014CD60 (RtlWakeAddressAllNoFence.c)
- *     RtlWakeAddressSingleNoFence @ 0x18014CD70 (RtlWakeAddressSingleNoFence.c)
+ *     LdrpAddUnicodeStringToSnapsBuffer @ 0x180031C30 (LdrpAddUnicodeStringToSnapsBuffer.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlWakeAddressAll @ 0x180037B30 (RtlWakeAddressAll.c)
+ *     RtlpDereferenceWnfUserSubscription @ 0x18008E680 (RtlpDereferenceWnfUserSubscription.c)
+ *     RtlWakeAddressSingle @ 0x1800E1450 (RtlWakeAddressSingle.c)
+ *     RtlpUnWaitCriticalSection @ 0x18013DF00 (RtlpUnWaitCriticalSection.c)
+ *     RtlWakeAddressAllNoFence @ 0x18014CC10 (RtlWakeAddressAllNoFence.c)
+ *     RtlWakeAddressSingleNoFence @ 0x18014CC20 (RtlWakeAddressSingleNoFence.c)
  * Callees:
- *     RtlpWaitOnAddressWakeEntireList @ 0x18007BA14 (RtlpWaitOnAddressWakeEntireList.c)
- *     ZwAlertThreadByThreadIdEx @ 0x18015FD70 (ZwAlertThreadByThreadIdEx.c)
+ *     RtlpWaitOnAddressWakeEntireList @ 0x18006A234 (RtlpWaitOnAddressWakeEntireList.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x18015FC70 (ZwAlertThreadByThreadIdEx.c)
  */
 
 signed __int64 __fastcall RtlpWakeByAddress(unsigned __int64 a1, char a2, __int64 a3)

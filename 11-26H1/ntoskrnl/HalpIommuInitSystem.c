@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpIommuInitSystem @ 0x140BEB6E0
+ * XREFs of HalpIommuInitSystem @ 0x140BF16E0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     HalpInterruptIsRemappingRequired @ 0x1404E7C88 (HalpInterruptIsRemappingRequired.c)
- *     HalpIsPrebootMode @ 0x140584F08 (HalpIsPrebootMode.c)
- *     HalpIommuEnableInterrupts @ 0x140587680 (HalpIommuEnableInterrupts.c)
- *     HalpIommuGetRootIommuFaultPolicy @ 0x1405876DC (HalpIommuGetRootIommuFaultPolicy.c)
- *     HalpIommuInitializeDmaGuardPolicy @ 0x14058DB34 (HalpIommuInitializeDmaGuardPolicy.c)
- *     HalpIommuInitializeDmar @ 0x14058DC28 (HalpIommuInitializeDmar.c)
- *     HalpIommuProcessReservations @ 0x14058E0CC (HalpIommuProcessReservations.c)
- *     IommuInitializeLibrary @ 0x14059C564 (IommuInitializeLibrary.c)
- *     IommupHvSetRootFaultReportingReady @ 0x14059E910 (IommupHvSetRootFaultReportingReady.c)
- *     IommupHvUnblockDefaultDma @ 0x14059E984 (IommupHvUnblockDefaultDma.c)
- *     HalpIommuLogEarlyFault @ 0x1405A00EC (HalpIommuLogEarlyFault.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpIommuInitInterrupts @ 0x140BEBBD8 (HalpIommuInitInterrupts.c)
- *     HalpIommuInitializeAll @ 0x140C0D57C (HalpIommuInitializeAll.c)
- *     HalpIommuInitDiscard @ 0x140CAFE24 (HalpIommuInitDiscard.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     HalpInterruptIsRemappingRequired @ 0x1404E1048 (HalpInterruptIsRemappingRequired.c)
+ *     HalpIsPrebootMode @ 0x140587428 (HalpIsPrebootMode.c)
+ *     HalpIommuEnableInterrupts @ 0x140589BA0 (HalpIommuEnableInterrupts.c)
+ *     HalpIommuGetRootIommuFaultPolicy @ 0x140589BFC (HalpIommuGetRootIommuFaultPolicy.c)
+ *     HalpIommuInitializeDmaGuardPolicy @ 0x1405902B4 (HalpIommuInitializeDmaGuardPolicy.c)
+ *     HalpIommuInitializeDmar @ 0x1405903A8 (HalpIommuInitializeDmar.c)
+ *     HalpIommuProcessReservations @ 0x14059084C (HalpIommuProcessReservations.c)
+ *     IommuInitializeLibrary @ 0x14059ECE4 (IommuInitializeLibrary.c)
+ *     IommupHvSetRootFaultReportingReady @ 0x1405A10F0 (IommupHvSetRootFaultReportingReady.c)
+ *     IommupHvUnblockDefaultDma @ 0x1405A1164 (IommupHvUnblockDefaultDma.c)
+ *     HalpIommuLogEarlyFault @ 0x1405A28DC (HalpIommuLogEarlyFault.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuInitInterrupts @ 0x140BF1BD8 (HalpIommuInitInterrupts.c)
+ *     HalpIommuInitializeAll @ 0x140C1378C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitDiscard @ 0x140CB5E64 (HalpIommuInitDiscard.c)
  */
 
 __int64 __fastcall HalpIommuInitSystem(__int64 a1, __int64 a2, __int64 a3)
@@ -41,9 +41,9 @@ __int64 __fastcall HalpIommuInitSystem(__int64 a1, __int64 a2, __int64 a3)
     if ( !v4 )
     {
       HalpIommuEarlyFaultRecordsLock = 0LL;
-      qword_140FBA818 = (__int64)&HalpIommuList;
+      qword_140FBABD8 = (__int64)&HalpIommuList;
       HalpIommuList = (ULONG_PTR)&HalpIommuList;
-      qword_140FBA7F8 = (__int64)&HalpIommuExceptionList;
+      qword_140FBABB8 = (__int64)&HalpIommuExceptionList;
       HalpIommuExceptionList = (__int64)&HalpIommuExceptionList;
       off_140E00B10[0] = (__int64 (__fastcall *)())HalpIommuRegisterDispatchTable;
       KeInitializeDpc(
@@ -53,7 +53,7 @@ __int64 __fastcall HalpIommuInitSystem(__int64 a1, __int64 a2, __int64 a3)
       RootIommuFaultPolicy = HalpIommuGetRootIommuFaultPolicy(a3);
       if ( RootIommuFaultPolicy > 2 )
         RootIommuFaultPolicy = 0;
-      LODWORD(HalpDeviceBlockUnblockPushLock.StackBase) = RootIommuFaultPolicy;
+      HIDWORD(HalpDeviceBlockUnblockPushLock.StackLimit) = RootIommuFaultPolicy;
       qword_140E00C90 = (__int64)HalpIommuReportIommuFault;
       return (unsigned int)inited;
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCleanupSiloState @ 0x1409E32D0
+ * XREFs of EtwpCleanupSiloState @ 0x1409E3560
  * Callers:
- *     EtwpPreInitializeSiloState @ 0x140845D4C (EtwpPreInitializeSiloState.c)
- *     EtwCleanupSiloState @ 0x1409E1CC0 (EtwCleanupSiloState.c)
- *     EtwInitializeSiloState @ 0x1409E1E28 (EtwInitializeSiloState.c)
+ *     EtwpPreInitializeSiloState @ 0x14084604C (EtwpPreInitializeSiloState.c)
+ *     EtwCleanupSiloState @ 0x1409E1F50 (EtwCleanupSiloState.c)
+ *     EtwInitializeSiloState @ 0x1409E20B8 (EtwInitializeSiloState.c)
  * Callees:
- *     ExFreeCacheAwareRundownProtection @ 0x140321D90 (ExFreeCacheAwareRundownProtection.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x140322020 (ExFreeCacheAwareRundownProtection.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

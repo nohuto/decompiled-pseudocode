@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSetPlatformIdleState @ 0x140276FBC
+ * XREFs of HvlSetPlatformIdleState @ 0x1402771AC
  * Callers:
- *     PpmIdleGuestComplete @ 0x1402E72B0 (PpmIdleGuestComplete.c)
- *     PpmIdleGuestPreExecute @ 0x1402E7350 (PpmIdleGuestPreExecute.c)
+ *     PpmIdleGuestComplete @ 0x1402E74A0 (PpmIdleGuestComplete.c)
+ *     PpmIdleGuestPreExecute @ 0x1402E7540 (PpmIdleGuestPreExecute.c)
  * Callees:
- *     HvlpGetLpIndexFromProcessorIndex @ 0x140271F3C (HvlpGetLpIndexFromProcessorIndex.c)
- *     HvlpSetPowerProperty @ 0x1402773A4 (HvlpSetPowerProperty.c)
+ *     HvlpGetLpIndexFromProcessorIndex @ 0x14027212C (HvlpGetLpIndexFromProcessorIndex.c)
+ *     HvlpSetPowerProperty @ 0x140277594 (HvlpSetPowerProperty.c)
  */
 
 __int64 HvlSetPlatformIdleState()

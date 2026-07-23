@@ -1,15 +1,15 @@
 /*
- * XREFs of KdpPrompt @ 0x140918398
+ * XREFs of KdpPrompt @ 0x140919398
  * Callers:
- *     KdpTrap @ 0x140919518 (KdpTrap.c)
+ *     KdpTrap @ 0x14091A518 (KdpTrap.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     KdEnterDebugger @ 0x140915D40 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x140915E88 (KdExitDebugger.c)
- *     KdLogDbgPrint @ 0x140917F20 (KdLogDbgPrint.c)
- *     KdpQuickMoveMemory @ 0x140918B04 (KdpQuickMoveMemory.c)
- *     KdpPromptString @ 0x1409193A8 (KdpPromptString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     KdEnterDebugger @ 0x140916D40 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x140916E88 (KdExitDebugger.c)
+ *     KdLogDbgPrint @ 0x140918F20 (KdLogDbgPrint.c)
+ *     KdpQuickMoveMemory @ 0x140919B04 (KdpQuickMoveMemory.c)
+ *     KdpPromptString @ 0x14091A3A8 (KdpPromptString.c)
  */
 
 __int64 __fastcall KdpPrompt(

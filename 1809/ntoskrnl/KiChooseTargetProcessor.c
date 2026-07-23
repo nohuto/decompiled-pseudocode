@@ -1,22 +1,22 @@
 /*
- * XREFs of KiChooseTargetProcessor @ 0x1400C43D0
+ * XREFs of KiChooseTargetProcessor @ 0x1400C4310
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
  * Callees:
  *     MmGetNextNode @ 0x140061FC0 (MmGetNextNode.c)
- *     PpmPerfGetCurrentFrequency @ 0x1400C8360 (PpmPerfGetCurrentFrequency.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2030 (KiEndThreadAccountingPeriod.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x140120610 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiSelectIdleProcessor @ 0x140166668 (KiSelectIdleProcessor.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiBeginCounterAccumulation @ 0x140295E0C (KiBeginCounterAccumulation.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiFindRankBiasedIdleSmtSet @ 0x14029855C (KiFindRankBiasedIdleSmtSet.c)
- *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
- *     KiSelectCandidateProcessor @ 0x14029D36C (KiSelectCandidateProcessor.c)
+ *     PpmPerfGetCurrentFrequency @ 0x1400C82A0 (PpmPerfGetCurrentFrequency.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D20B0 (KiEndThreadAccountingPeriod.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x140120680 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiSelectIdleProcessor @ 0x140166768 (KiSelectIdleProcessor.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiBeginCounterAccumulation @ 0x140295FFC (KiBeginCounterAccumulation.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x14029874C (KiFindRankBiasedIdleSmtSet.c)
+ *     KiSetVpThreadSystemWork @ 0x140299950 (KiSetVpThreadSystemWork.c)
+ *     KiSelectCandidateProcessor @ 0x14029D55C (KiSelectCandidateProcessor.c)
  */
 
 __int64 __fastcall KiChooseTargetProcessor(__int64 a1, unsigned __int64 a2, __int64 *a3, _DWORD *a4, char a5)

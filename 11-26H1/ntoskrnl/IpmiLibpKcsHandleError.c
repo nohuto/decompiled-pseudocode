@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibpKcsHandleError @ 0x14071D9AC
+ * XREFs of IpmiLibpKcsHandleError @ 0x14072263C
  * Callers:
- *     IpmiLibpKcsBmcTransact @ 0x14071D904 (IpmiLibpKcsBmcTransact.c)
+ *     IpmiLibpKcsBmcTransact @ 0x140722594 (IpmiLibpKcsBmcTransact.c)
  * Callees:
- *     IpmiLibReadOneByte @ 0x14071D3B4 (IpmiLibReadOneByte.c)
- *     IpmiLibWriteOneByte @ 0x14071D3F0 (IpmiLibWriteOneByte.c)
- *     IpmiLibpKcsSpinRegister @ 0x14071DF0C (IpmiLibpKcsSpinRegister.c)
- *     IpmiLibpHandleErrorInterrupt @ 0x14071E0D8 (IpmiLibpHandleErrorInterrupt.c)
+ *     IpmiLibReadOneByte @ 0x140722044 (IpmiLibReadOneByte.c)
+ *     IpmiLibWriteOneByte @ 0x140722080 (IpmiLibWriteOneByte.c)
+ *     IpmiLibpKcsSpinRegister @ 0x140722B9C (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpHandleErrorInterrupt @ 0x140722D68 (IpmiLibpHandleErrorInterrupt.c)
  */
 
 __int64 __fastcall IpmiLibpKcsHandleError(__int64 a1, __int64 a2)

@@ -22,8 +22,8 @@ __int64 __fastcall PpmSetSimulatedIdle(__int64 a1)
   _PPM_IDLE_STATES *IdleStates; // rax
   unsigned int v10; // ebx
   unsigned int v11; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

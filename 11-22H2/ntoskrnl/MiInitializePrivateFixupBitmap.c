@@ -9,7 +9,7 @@
  *     RtlDoesRequireFunctionOverrideFixups @ 0x14067BDD8 (RtlDoesRequireFunctionOverrideFixups.c)
  */
 
-__int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, char a3)
+__int64 __fastcall MiInitializePrivateFixupBitmap(_RTL_BITMAP *a1, _QWORD *a2, char a3)
 {
   _QWORD *v3; // rbp
   __int64 v4; // rsi

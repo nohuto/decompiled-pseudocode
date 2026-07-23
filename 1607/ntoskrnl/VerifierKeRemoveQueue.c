@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeRemoveQueue @ 0x14070CAF0
+ * XREFs of VerifierKeRemoveQueue @ 0x14070CB20
  * Callers:
  *     <none>
  * Callees:

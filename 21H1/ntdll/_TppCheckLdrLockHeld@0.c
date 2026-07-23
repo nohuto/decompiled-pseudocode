@@ -8,5 +8,5 @@
 
 bool __stdcall TppCheckLdrLockHeld()
 {
-  return RtlIsCriticalSectionLockedByThread((int)NtCurrentPeb()->LoaderLock);
+  return RtlIsCriticalSectionLockedByThread(NtCurrentPeb()->LoaderLock) != 0;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLogCapabilityCheckLatency @ 0x140A85D18
+ * XREFs of RtlpLogCapabilityCheckLatency @ 0x140A80858
  * Callers:
- *     RtlCapabilityCheck @ 0x140A62840 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x140A5B140 (RtlCapabilityCheck.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlRunOnceExecuteOnce @ 0x14095F8F0 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x1409473B0 (RtlRunOnceExecuteOnce.c)
  */
 
 signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, char a4, char a5, char a6)
@@ -49,7 +49,7 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
             result = _InterlockedDecrement16(&TelemetryEventThrottle);
             if ( !result )
             {
-              if ( (unsigned int)dword_140E087A0 > 5 && tlgKeywordOn((__int64)&dword_140E087A0, 0x200000000000LL) )
+              if ( (unsigned int)dword_140E08810 > 5 && tlgKeywordOn((__int64)&dword_140E08810, 0x200000000000LL) )
               {
                 v12 = 1000000LL * (*a2 - *a1);
                 v20 = 8LL;
@@ -68,8 +68,8 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
                 v26 = 1LL;
                 v28 = 1LL;
                 tlgWriteTransfer_EtwWriteTransfer(
-                  (__int64)&dword_140E087A0,
-                  (unsigned __int8 *)byte_140051288,
+                  (__int64)&dword_140E08810,
+                  (unsigned __int8 *)word_140051D82,
                   v11,
                   0LL,
                   7u,

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidAttribute @ 0x1407807B4
+ * XREFs of RtlpValidAttribute @ 0x1407806E4
  * Callers:
- *     RtlAddResourceAttributeAce @ 0x14077FEA0 (RtlAddResourceAttributeAce.c)
+ *     RtlAddResourceAttributeAce @ 0x14077FDD0 (RtlAddResourceAttributeAce.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
  */
 
 char __fastcall RtlpValidAttribute(const wchar_t **a1)

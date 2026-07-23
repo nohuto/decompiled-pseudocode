@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSplitDriverPage @ 0x140A2B6AC
+ * XREFs of MiSplitDriverPage @ 0x140A2B95C
  * Callers:
- *     MiProbeLeafPteAccess @ 0x140236C50 (MiProbeLeafPteAccess.c)
+ *     MiProbeLeafPteAccess @ 0x140236D20 (MiProbeLeafPteAccess.c)
  * Callees:
- *     MiMakeDriverPagesPrivate @ 0x140291A50 (MiMakeDriverPagesPrivate.c)
+ *     MiMakeDriverPagesPrivate @ 0x140291CE0 (MiMakeDriverPagesPrivate.c)
  */
 
 __int64 __fastcall MiSplitDriverPage(__int64 a1, unsigned __int64 a2)

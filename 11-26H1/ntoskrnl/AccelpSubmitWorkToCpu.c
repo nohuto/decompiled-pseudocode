@@ -1,11 +1,11 @@
 /*
- * XREFs of AccelpSubmitWorkToCpu @ 0x1406E0964
+ * XREFs of AccelpSubmitWorkToCpu @ 0x1406E4BE4
  * Callers:
- *     AccelpCpuInternalOperationHandler @ 0x1406E07A8 (AccelpCpuInternalOperationHandler.c)
+ *     AccelpCpuInternalOperationHandler @ 0x1406E4A28 (AccelpCpuInternalOperationHandler.c)
  * Callees:
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelpSubmitWorkToCpu(__int64 a1, __int64 a2)

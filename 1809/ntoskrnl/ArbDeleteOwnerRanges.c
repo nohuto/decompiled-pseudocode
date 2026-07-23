@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbDeleteOwnerRanges @ 0x140738380
+ * XREFs of ArbDeleteOwnerRanges @ 0x140739570
  * Callers:
  *     <none>
  * Callees:
- *     RtlDeleteOwnersRanges @ 0x140738D40 (RtlDeleteOwnersRanges.c)
+ *     RtlDeleteOwnersRanges @ 0x140739F30 (RtlDeleteOwnersRanges.c)
  */
 
 NTSTATUS __fastcall ArbDeleteOwnerRanges(__int64 a1, void *a2)

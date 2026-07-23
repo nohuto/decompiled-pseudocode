@@ -1,16 +1,16 @@
 /*
- * XREFs of SeSetSessionIdTokenWithLinked @ 0x140812090
+ * XREFs of SeSetSessionIdTokenWithLinked @ 0x140817E20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     SepReferenceTokenByHandle @ 0x1402AC430 (SepReferenceTokenByHandle.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     SepDeReferenceLogonSessionDirect @ 0x140476B90 (SepDeReferenceLogonSessionDirect.c)
- *     SepReferenceLogonSessionSilo @ 0x140AB6FE8 (SepReferenceLogonSessionSilo.c)
- *     SeSetSessionIdToken @ 0x140AE7F2C (SeSetSessionIdToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SepReferenceTokenByHandle @ 0x1403ABB50 (SepReferenceTokenByHandle.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140470310 (SepDeReferenceLogonSessionDirect.c)
+ *     SepReferenceLogonSessionSilo @ 0x140AB8628 (SepReferenceLogonSessionSilo.c)
+ *     SeSetSessionIdToken @ 0x140AE5DDC (SeSetSessionIdToken.c)
  */
 
 __int64 __fastcall SeSetSessionIdTokenWithLinked(void *a1, ULONG a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -29,7 +29,7 @@ __int64 __fastcall SeSetSessionIdTokenWithLinked(void *a1, ULONG a2, __int64 a3,
   int v16; // eax
   _QWORD *v18; // [rsp+40h] [rbp-20h] BYREF
   PVOID Object; // [rsp+48h] [rbp-18h] BYREF
-  unsigned __int64 v20; // [rsp+50h] [rbp-10h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-10h] BYREF
   POWNER_ENTRY OwnerTable; // [rsp+B0h] [rbp+50h] BYREF
   _QWORD *v22; // [rsp+B8h] [rbp+58h] BYREF
 

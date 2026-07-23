@@ -5,7 +5,7 @@
  *     HdlspProcessDumpCommand @ 0x140723978 (HdlspProcessDumpCommand.c)
  *     HdlspPutMore @ 0x140723BF0 (HdlspPutMore.c)
  * Callees:
- *     HdlspUTF8Encode @ 0x14022C89C (HdlspUTF8Encode.c)
+ *     HdlspUTF8Encode @ 0x14022C6C8 (HdlspUTF8Encode.c)
  *     HdlspSendStringAtBaud @ 0x140723F44 (HdlspSendStringAtBaud.c)
  */
 

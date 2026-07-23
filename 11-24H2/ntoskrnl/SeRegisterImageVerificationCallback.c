@@ -1,9 +1,9 @@
 /*
- * XREFs of SeRegisterImageVerificationCallback @ 0x14078E360
+ * XREFs of SeRegisterImageVerificationCallback @ 0x14078E290
  * Callers:
  *     <none>
  * Callees:
- *     ExRegisterCallback @ 0x1404B3D50 (ExRegisterCallback.c)
+ *     ExRegisterCallback @ 0x1404AE560 (ExRegisterCallback.c)
  */
 
 __int64 __fastcall SeRegisterImageVerificationCallback(
@@ -44,7 +44,7 @@ __int64 __fastcall SeRegisterImageVerificationCallback(
       v9 = ExRegisterCallback(v8, a3, a4);
       if ( v9 )
       {
-        _InterlockedIncrement(&dword_140E67AC4);
+        _InterlockedIncrement(&dword_140E67C74);
         *a6 = v9;
       }
       else

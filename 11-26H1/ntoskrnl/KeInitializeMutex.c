@@ -1,10 +1,10 @@
 /*
- * XREFs of KeInitializeMutex @ 0x1404B26F0
+ * XREFs of KeInitializeMutex @ 0x1404ABC00
  * Callers:
- *     EtwpPreInitializeSiloState @ 0x140826E00 (EtwpPreInitializeSiloState.c)
- *     EtwpInitLoggerContext @ 0x140A6DD54 (EtwpInitLoggerContext.c)
- *     KeAllocateCalloutStackEx @ 0x140AFADB0 (KeAllocateCalloutStackEx.c)
- *     HalpInitGenericErrorSourcePollingRoutine @ 0x140BEC328 (HalpInitGenericErrorSourcePollingRoutine.c)
+ *     EtwpPreInitializeSiloState @ 0x14082D040 (EtwpPreInitializeSiloState.c)
+ *     EtwpInitLoggerContext @ 0x140AB20E0 (EtwpInitLoggerContext.c)
+ *     KeAllocateCalloutStackEx @ 0x140AB3C50 (KeAllocateCalloutStackEx.c)
+ *     HalpInitGenericErrorSourcePollingRoutine @ 0x140BF2328 (HalpInitGenericErrorSourcePollingRoutine.c)
  * Callees:
  *     <none>
  */

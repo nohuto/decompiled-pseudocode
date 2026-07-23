@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
   unsigned __int64 v11; // rdx
   char v12; // r9
   __int64 v14; // rax
-  volatile signed __int64 *v15; // rsi
+  _RTL_SRWLOCK *v15; // rsi
   __int64 v16; // rax
   unsigned __int64 *v17; // rdi
   unsigned __int64 v18; // rcx
@@ -47,15 +47,15 @@ __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
     return -1LL;
   if ( !(_WORD)a2 )
   {
-    v14 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801D0980, 2 * ((a2 - qword_1801D0978) >> 20));
+    v14 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801D0978) >> 20));
     if ( v14 )
     {
       v6 = v14 - 1;
       if ( v6 != 2 )
         goto LABEL_5;
     }
-    v15 = (volatile signed __int64 *)(a1 + 64);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 64));
+    v15 = (_RTL_SRWLOCK *)(a1 + 64);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
     v16 = *(_QWORD *)(a1 + 80);
     v17 = (unsigned __int64 *)(a1 + 72);
     v18 = *v17;

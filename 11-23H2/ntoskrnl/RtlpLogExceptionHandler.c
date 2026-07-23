@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLogExceptionHandler @ 0x1405A6F00
+ * XREFs of RtlpLogExceptionHandler @ 0x1405A7470
  * Callers:
- *     RtlDispatchException @ 0x1402A3DC0 (RtlDispatchException.c)
+ *     RtlDispatchException @ 0x1402A4050 (RtlDispatchException.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDeletePartialCloneVads @ 0x140A48E2C
+ * XREFs of MiDeletePartialCloneVads @ 0x140A490DC
  * Callers:
- *     MiAllocateChildVads @ 0x140A4837C (MiAllocateChildVads.c)
- *     MiInsertChildVads @ 0x140A4908C (MiInsertChildVads.c)
+ *     MiAllocateChildVads @ 0x140A4862C (MiAllocateChildVads.c)
+ *     MiInsertChildVads @ 0x140A4933C (MiInsertChildVads.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiIsVadLargePrivate @ 0x140288070 (MiIsVadLargePrivate.c)
- *     MiGetVadWakeList @ 0x14028A170 (MiGetVadWakeList.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     MiFreeVadEvents @ 0x140633D30 (MiFreeVadEvents.c)
- *     MiDecrementLargeSubsections @ 0x14063C6F4 (MiDecrementLargeSubsections.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiIsVadLargePrivate @ 0x140288300 (MiIsVadLargePrivate.c)
+ *     MiGetVadWakeList @ 0x14028A400 (MiGetVadWakeList.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     MiFreeVadEvents @ 0x140634280 (MiFreeVadEvents.c)
+ *     MiDecrementLargeSubsections @ 0x14063CC44 (MiDecrementLargeSubsections.c)
  *     MiFreePlaceholderStorage @ 0x1406834D8 (MiFreePlaceholderStorage.c)
- *     MiRemoveSharedCommitNode @ 0x1407223A0 (MiRemoveSharedCommitNode.c)
- *     MiDereferencePerSessionProtos @ 0x1407B5BB8 (MiDereferencePerSessionProtos.c)
- *     MiFreeVadEventBitmap @ 0x140A31F08 (MiFreeVadEventBitmap.c)
- *     MiVadHasSharedCommit @ 0x140A43D98 (MiVadHasSharedCommit.c)
- *     MiFreeLargePageView @ 0x140A49AA0 (MiFreeLargePageView.c)
+ *     MiRemoveSharedCommitNode @ 0x1407225A0 (MiRemoveSharedCommitNode.c)
+ *     MiDereferencePerSessionProtos @ 0x1407B5E98 (MiDereferencePerSessionProtos.c)
+ *     MiFreeVadEventBitmap @ 0x140A321B8 (MiFreeVadEventBitmap.c)
+ *     MiVadHasSharedCommit @ 0x140A44048 (MiVadHasSharedCommit.c)
+ *     MiFreeLargePageView @ 0x140A49D50 (MiFreeLargePageView.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

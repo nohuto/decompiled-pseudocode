@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlCollectLivedump @ 0x140547834
+ * XREFs of HvlCollectLivedump @ 0x140547EF4
  * Callers:
- *     IopLiveDumpCollectPages @ 0x140A9AB04 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x140A9A974 (IopLiveDumpCollectPages.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
- *     VslCollectLiveDumpInSk @ 0x14054AC4C (VslCollectLiveDumpInSk.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
+ *     VslCollectLiveDumpInSk @ 0x14054B30C (VslCollectLiveDumpInSk.c)
  */
 
 __int64 __fastcall HvlCollectLivedump(LONGLONG a1, __int64 a2, LONGLONG *a3, __int64 a4)

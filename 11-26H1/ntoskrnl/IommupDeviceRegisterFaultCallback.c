@@ -1,12 +1,12 @@
 /*
- * XREFs of IommupDeviceRegisterFaultCallback @ 0x1405A05A0
+ * XREFs of IommupDeviceRegisterFaultCallback @ 0x1405A2DB0
  * Callers:
- *     IommuSetDeviceFaultReportingEx @ 0x14059FA00 (IommuSetDeviceFaultReportingEx.c)
+ *     IommuSetDeviceFaultReportingEx @ 0x1405A21F0 (IommuSetDeviceFaultReportingEx.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall IommupDeviceRegisterFaultCallback(__int64 a1, _QWORD *a2)

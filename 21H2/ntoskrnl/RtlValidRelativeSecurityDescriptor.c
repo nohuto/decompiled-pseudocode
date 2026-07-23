@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlValidRelativeSecurityDescriptor @ 0x14066DC80
+ * XREFs of RtlValidRelativeSecurityDescriptor @ 0x140662AA0
  * Callers:
  *     CmpVerifyCreateOrDeleteKeyLogRecord @ 0x1405CCE14 (CmpVerifyCreateOrDeleteKeyLogRecord.c)
  *     CmpVerifySetSecurityDescriptorLogRecord @ 0x1405CCFE4 (CmpVerifySetSecurityDescriptorLogRecord.c)
- *     ExpWnfLookupPermanentName @ 0x14062C1A8 (ExpWnfLookupPermanentName.c)
- *     _PnpValidatePropertyData @ 0x14063A2BC (_PnpValidatePropertyData.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x14066D478 (CmpValidateHiveSecurityDescriptors.c)
- *     PipGetRegistrySecurityWithFallback @ 0x14073E6C8 (PipGetRegistrySecurityWithFallback.c)
- *     _CmSetDeviceRegPropWorker @ 0x140744178 (_CmSetDeviceRegPropWorker.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x140975A50 (_CmSetInstallerClassRegPropWorker.c)
+ *     _PnpValidatePropertyData @ 0x14062F0CC (_PnpValidatePropertyData.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x140662298 (CmpValidateHiveSecurityDescriptors.c)
+ *     ExpWnfLookupPermanentName @ 0x140663338 (ExpWnfLookupPermanentName.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14073E888 (PipGetRegistrySecurityWithFallback.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140744338 (_CmSetDeviceRegPropWorker.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140975C30 (_CmSetInstallerClassRegPropWorker.c)
  * Callees:
- *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
- *     RtlpValidateSDOffsetAndSize @ 0x14066DDDC (RtlpValidateSDOffsetAndSize.c)
+ *     RtlValidAcl @ 0x1406513E0 (RtlValidAcl.c)
+ *     RtlpValidateSDOffsetAndSize @ 0x140662BFC (RtlpValidateSDOffsetAndSize.c)
  */
 
 BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
@@ -30,10 +30,10 @@ BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
   int v13; // ecx
   __int64 v14; // rcx
   __int64 v15; // rcx
-  char *v16; // rcx
+  ACL *v16; // rcx
   __int64 v18; // rcx
   __int64 v19; // rcx
-  char *v20; // rcx
+  ACL *v20; // rcx
   unsigned int v21; // [rsp+20h] [rbp-10h] BYREF
   unsigned int v22[3]; // [rsp+24h] [rbp-Ch] BYREF
   unsigned int v23; // [rsp+58h] [rbp+28h] BYREF
@@ -85,8 +85,8 @@ BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
   if ( (v6 & 4) == 0
     || (v14 = *((unsigned int *)SecurityDescriptorInput + 4), !(_DWORD)v14)
     || (unsigned __int8)RtlpValidateSDOffsetAndSize(v14, SecurityDescriptorLength, 8LL, &v21)
-    && (v16 = (char *)SecurityDescriptorInput + v15, v21 >= *((unsigned __int16 *)v16 + 1))
-    && RtlValidAcl((__int64)v16) )
+    && (v16 = (ACL *)((char *)SecurityDescriptorInput + v15), v21 >= v16->AclSize)
+    && RtlValidAcl(v16) )
   {
     if ( (*((_BYTE *)SecurityDescriptorInput + 2) & 0x10) == 0 )
       return 1;
@@ -95,10 +95,10 @@ BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
       return 1;
     if ( (unsigned __int8)RtlpValidateSDOffsetAndSize(v18, SecurityDescriptorLength, 8LL, v22) )
     {
-      v20 = (char *)SecurityDescriptorInput + v19;
-      if ( v22[0] >= *((unsigned __int16 *)v20 + 1) )
+      v20 = (ACL *)((char *)SecurityDescriptorInput + v19);
+      if ( v22[0] >= v20->AclSize )
       {
-        if ( RtlValidAcl((__int64)v20) )
+        if ( RtlValidAcl(v20) )
           return 1;
       }
     }

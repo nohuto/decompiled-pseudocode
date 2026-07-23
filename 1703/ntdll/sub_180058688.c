@@ -11,7 +11,13 @@
  *     sub_180058A44 @ 0x180058A44 (sub_180058A44.c)
  */
 
-__int64 __fastcall sub_180058688(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5, int a6)
+__int64 __fastcall sub_180058688(
+        PRTL_SRWLOCK SRWLock,
+        unsigned __int64 a2,
+        unsigned __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        int a6)
 {
   int v7; // r15d
   unsigned __int64 v9; // rbp
@@ -20,36 +26,36 @@ __int64 __fastcall sub_180058688(__int64 a1, unsigned __int64 a2, unsigned __int
   unsigned __int64 v13; // r10
   __int64 v14; // r14
   unsigned __int64 v15; // rdi
-  int v16; // r10d
+  unsigned int v16; // r10d
   __int64 v17; // rdx
   char v19; // [rsp+70h] [rbp+8h] BYREF
 
   v7 = a6;
-  v9 = a2 / *(unsigned int *)(a1 + 56);
+  v9 = a2 / LODWORD(SRWLock[7].Ptr);
   v11 = a3;
   v12 = sub_18005879C(
-          a1,
+          (_DWORD)SRWLock,
           (unsigned int)&v19,
           v9,
-          (*(unsigned int *)(a1 + 56) + a2 + a3 - 1) / *(unsigned int *)(a1 + 56));
+          (LODWORD(SRWLock[7].Ptr) + a2 + a3 - 1) / LODWORD(SRWLock[7].Ptr));
   if ( v12 >= 0 )
   {
-    v13 = a2 % *(unsigned int *)(a1 + 56);
+    v13 = a2 % LODWORD(SRWLock[7].Ptr);
     if ( v11 )
     {
       v14 = a5;
       do
       {
-        v15 = (unsigned int)(*(_DWORD *)(a1 + 56) - v13);
+        v15 = (unsigned int)(LODWORD(SRWLock[7].Ptr) - v13);
         if ( v11 < v15 )
           LODWORD(v15) = v11;
-        if ( *(_QWORD *)(a1 + 8) )
+        if ( SRWLock[1].Ptr )
         {
-          if ( (unsigned __int8)sub_180058A20(a1, (unsigned int)v9) )
+          if ( (unsigned __int8)sub_180058A20(SRWLock, (unsigned int)v9) )
           {
-            v17 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * (unsigned int)v9);
+            v17 = *((_QWORD *)SRWLock[1].Ptr + (unsigned int)v9);
             if ( v17 )
-              sub_180058A44(a1, v17, v16, v15, a4, v14, v7, 0LL);
+              sub_180058A44(SRWLock, v17, v16, (unsigned int)v15, a4, v14, v7, 0LL);
           }
         }
         LODWORD(v13) = 0;
@@ -60,7 +66,7 @@ __int64 __fastcall sub_180058688(__int64 a1, unsigned __int64 a2, unsigned __int
     }
     v12 = 0;
   }
-  if ( (*(_BYTE *)(a1 + 72) & 4) == 0 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)a1);
+  if ( ((__int64)SRWLock[9].Ptr & 4) == 0 )
+    RtlReleaseSRWLockShared(SRWLock);
   return (unsigned int)v12;
 }

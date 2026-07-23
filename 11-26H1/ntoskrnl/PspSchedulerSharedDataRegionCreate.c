@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSchedulerSharedDataRegionCreate @ 0x1409B7374
+ * XREFs of PspSchedulerSharedDataRegionCreate @ 0x140988354
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObReferenceObjectByPointerWithTag @ 0x14043DAF0 (ObReferenceObjectByPointerWithTag.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     MiMapViewInSystemSpace @ 0x1409B7280 (MiMapViewInSystemSpace.c)
- *     MmCreateSection @ 0x1409B8FA0 (MmCreateSection.c)
- *     MmMapViewOfSection @ 0x1409C1F50 (MmMapViewOfSection.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x140436600 (ObReferenceObjectByPointerWithTag.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     MiMapViewInSystemSpace @ 0x140988260 (MiMapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x140989F80 (MmCreateSection.c)
+ *     MmMapViewOfSection @ 0x140992F30 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall PspSchedulerSharedDataRegionCreate(_KPROCESS *Object, _QWORD *a2)
@@ -110,7 +110,7 @@ __int64 __fastcall PspSchedulerSharedDataRegionCreate(_KPROCESS *Object, _QWORD 
                       4);
           if ( Section >= 0 )
           {
-            Section = ObInsertObjectEx((char *)v6, 0LL, 1u, 0, 0, 0LL, &v19);
+            Section = ObInsertObjectEx((char *)v6, 0LL, 1, 0, 0, 0LL, &v19);
             if ( Section < 0 )
               return (unsigned int)Section;
             v6 = 0LL;

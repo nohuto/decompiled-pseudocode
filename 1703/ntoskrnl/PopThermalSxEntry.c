@@ -15,24 +15,21 @@
 
 void PopThermalSxEntry()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
   struct _KTHREAD *CurrentThread; // rax
   __int64 i; // rsi
-  __int64 v5; // rdx
+  __int64 v2; // rdx
 
   PopAcquirePolicyLock();
   PopThermalStandbyEndTracking(4LL);
-  PopReleasePolicyLock(v1, v0, v2);
+  PopReleasePolicyLock();
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&PopPolicyDeviceLock, 0LL);
   for ( i = PopThermal; (__int64 *)i != &PopThermal; i = *(_QWORD *)i )
   {
     PopAcquireRwLockExclusive(i + 432);
-    LOBYTE(v5) = *(_BYTE *)(i + 80);
-    PopThermalUpdatePassiveTimeTracking(i + 504, v5);
+    LOBYTE(v2) = *(_BYTE *)(i + 80);
+    PopThermalUpdatePassiveTimeTracking(i + 504, v2);
     PopTraceThermalZonePassiveHistogram(i);
     *(_BYTE *)(i + 504) = 1;
     PopReleaseRwLock(i + 432);

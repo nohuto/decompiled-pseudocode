@@ -47,10 +47,8 @@
  *     HvcallpExtendedFastHypercallWithOutput @ 0x140409060 (HvcallpExtendedFastHypercallWithOutput.c)
  */
 
-__int64 __fastcall HvcallFastExtended(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall HvcallFastExtended(__int64 a1, __int64 a2, unsigned int a3, int a4, unsigned int a5)
 {
-  int v5; // r15d
-  unsigned int v6; // edi
   char v9; // si
   __int64 v10; // rax
   __int64 v11; // rdi
@@ -60,22 +58,20 @@ __int64 __fastcall HvcallFastExtended(__int64 a1, __int64 a2, __int64 a3, __int6
   char v16; // [rsp+37h] [rbp-31h]
   _OWORD v17[2]; // [rsp+38h] [rbp-30h] BYREF
 
-  v5 = a4;
-  v6 = a3;
   memset(v17, 0, sizeof(v17));
   if ( (BYTE4(xmmword_140CFC490) & 0x10) != 0 )
   {
     v9 = 1;
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v17, 2684354576LL, a3, a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v17, 0xA0000010);
   }
   else
   {
     v9 = 0;
   }
   if ( a5 )
-    v10 = HvcallpExtendedFastHypercallWithOutput(a1, a2, (v6 + 15) >> 4, v5, a5 >> 4);
+    v10 = HvcallpExtendedFastHypercallWithOutput(a1, a2, (a3 + 15) >> 4, a4, a5 >> 4);
   else
-    v10 = HvcallpExtendedFastHypercall(a1, a2, v6);
+    v10 = HvcallpExtendedFastHypercall(a1, a2, a3);
   v11 = v10;
   if ( v9 )
   {

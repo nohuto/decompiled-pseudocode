@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpGetMappingHiveForString @ 0x14090AC0C
+ * XREFs of CmpGetMappingHiveForString @ 0x1408E232C
  * Callers:
- *     CmpGetVirtualStoreRoot @ 0x1407DBA94 (CmpGetVirtualStoreRoot.c)
- *     CmpGetCmHiveFromVirtualPath @ 0x14090A78C (CmpGetCmHiveFromVirtualPath.c)
- *     CmpVirtualBranchIsReplicated @ 0x14090AA24 (CmpVirtualBranchIsReplicated.c)
+ *     CmpGetVirtualStoreRoot @ 0x1407DBFE4 (CmpGetVirtualStoreRoot.c)
+ *     CmpGetCmHiveFromVirtualPath @ 0x1408E1EAC (CmpGetCmHiveFromVirtualPath.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1408E2144 (CmpVirtualBranchIsReplicated.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     CmpHashUnicodeComponent @ 0x1408733F0 (CmpHashUnicodeComponent.c)
- *     CmpCompareUnicodeString @ 0x140A03D60 (CmpCompareUnicodeString.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     CmpHashUnicodeComponent @ 0x140877720 (CmpHashUnicodeComponent.c)
+ *     CmpCompareUnicodeString @ 0x140A00290 (CmpCompareUnicodeString.c)
  */
 
 __int64 __fastcall CmpGetMappingHiveForString(__m128i *a1, _QWORD *a2)

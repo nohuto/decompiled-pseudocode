@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuUpdatePageWalkCapability @ 0x1403A72F4
+ * XREFs of HalpIommuUpdatePageWalkCapability @ 0x1403A7444
  * Callers:
- *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x14099C3D4 (HalpIommuInitializeAll.c)
  * Callees:
  *     <none>
  */

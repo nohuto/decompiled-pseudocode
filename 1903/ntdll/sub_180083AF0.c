@@ -9,9 +9,9 @@
 
 __int64 __fastcall sub_180083AF0(unsigned __int64 a1)
 {
-  int v1; // eax
+  NTSTATUS v1; // eax
   __int64 v2; // rcx
-  int v4; // [rsp+48h] [rbp+10h] BYREF
+  DWORD v4; // [rsp+48h] [rbp+10h] BYREF
   __int64 v5; // [rsp+50h] [rbp+18h] BYREF
 
   v1 = sub_18001C4DC(a1, 1, 9u, &v4, &v5);

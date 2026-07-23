@@ -16,14 +16,16 @@
 
 BOOL __stdcall LdrControlFlowGuardEnforcedWithExportSuppression()
 {
+  int v0; // eax
   BOOL result; // eax
-  _DWORD v1[6]; // [esp+Ch] [ebp-1Ch] BYREF
+  _DWORD v2[6]; // [esp+Ch] [ebp-1Ch] BYREF
 
+  LOBYTE(v0) = LdrControlFlowGuardEnforced();
   result = 0;
-  if ( LdrControlFlowGuardEnforced() )
+  if ( v0 )
   {
-    qmemcpy(v1, &unk_4B3A92E8, sizeof(v1));
-    if ( (BYTE1(v1[1]) & 3) == 3 )
+    qmemcpy(v2, &unk_4B3A92E8, sizeof(v2));
+    if ( (BYTE1(v2[1]) & 3) == 3 )
       return 1;
   }
   return result;

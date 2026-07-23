@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCompressBufferXpressLzStandard @ 0x140400610
+ * XREFs of RtlCompressBufferXpressLzStandard @ 0x1403F23B0
  * Callers:
- *     RtlCompressBufferXpressLz @ 0x140400550 (RtlCompressBufferXpressLz.c)
- *     RtlCompressBufferProgress @ 0x140617A80 (RtlCompressBufferProgress.c)
+ *     RtlCompressBufferXpressLz @ 0x1403F22F0 (RtlCompressBufferXpressLz.c)
+ *     RtlCompressBufferProgress @ 0x14061AAD0 (RtlCompressBufferProgress.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x140401B40 (RtlpMakeXpressCallback.c)
+ *     RtlpMakeXpressCallback @ 0x1403F38F0 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressLzStandard(
@@ -315,7 +315,7 @@ LABEL_44:
     v45 = 8 * ((_WORD)v17 - (_WORD)v28) - 8;
     if ( v44 < 7 )
     {
-      *(_WORD *)v16 = v45 + v44;
+      *(_WORD *)v16 = v44 + v45;
       v16 += 2;
       goto LABEL_46;
     }

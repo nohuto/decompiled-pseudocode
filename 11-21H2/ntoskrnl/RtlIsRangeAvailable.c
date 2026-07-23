@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIsRangeAvailable @ 0x14083BEC0 (RtlpIsRangeAvailable.c)
+ *     sub_14083BEC0 @ 0x14083BEC0 (sub_14083BEC0.c)
  *     RtlGetFirstRange @ 0x14083C0A0 (RtlGetFirstRange.c)
  */
 
@@ -25,7 +25,7 @@ __int64 __fastcall RtlIsRangeAvailable(__int64 a1, int a2, int a3, char a4, char
     if ( (int)result < 0 )
       return result;
     LOBYTE(v12) = a5;
-    *a8 = RtlpIsRangeAvailable((unsigned int)v14, a2, a3, v12, a4 & 1, a4 & 2, 1, a6, a7);
+    *a8 = sub_14083BEC0((unsigned int)v14, a2, a3, v12, a4 & 1, a4 & 2, 1, a6, a7);
   }
   return 0LL;
 }

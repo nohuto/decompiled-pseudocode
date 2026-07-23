@@ -14,8 +14,8 @@
  *     LdrpInitializeNode @ 0x180028428 (LdrpInitializeNode.c)
  *     ApiSetQueryApiSetPresence @ 0x180028AE0 (ApiSetQueryApiSetPresence.c)
  *     LdrpMapDllNtFileName @ 0x18002ABA0 (LdrpMapDllNtFileName.c)
- *     _LdrpInitialize @ 0x18007874C (_LdrpInitialize.c)
- *     LdrpCorProcessImports @ 0x180087A14 (LdrpCorProcessImports.c)
+ *     _LdrpInitialize @ 0x18007875C (_LdrpInitialize.c)
+ *     LdrpCorProcessImports @ 0x180087A24 (LdrpCorProcessImports.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     AvrfMiniLoadDll @ 0x1800DCAA8 (AvrfMiniLoadDll.c)
  * Callees:
@@ -23,19 +23,19 @@
  *     LdrpLogEtwEvent @ 0x1800D1238 (LdrpLogEtwEvent.c)
  */
 
-unsigned int *__fastcall LdrpLogDllState(int a1, __int64 a2, unsigned __int16 a3)
+int __fastcall LdrpLogDllState(int a1, __int64 a2, unsigned __int16 a3)
 {
-  unsigned int *result; // rax
-  _DWORD *v7; // r9
+  struct _PEB *v3; // rax
+  _DWORD *SharedData; // r9
   __int64 v8; // r8
   __int64 v9; // rcx
 
-  result = (unsigned int *)NtCurrentPeb();
-  v7 = (_DWORD *)*((_QWORD *)result + 18);
-  if ( v7 && *v7 )
+  v3 = NtCurrentPeb();
+  SharedData = v3->SharedData;
+  if ( SharedData && *SharedData )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v8 = *((_QWORD *)result + 18) + 554LL;
+    v3 = NtCurrentPeb();
+    v8 = (__int64)v3->SharedData + 554;
   }
   else
   {
@@ -43,22 +43,22 @@ unsigned int *__fastcall LdrpLogDllState(int a1, __int64 a2, unsigned __int16 a3
   }
   if ( *(_BYTE *)v8 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 4) != 0 )
+    v3 = NtCurrentPeb();
+    if ( (v3->TracingFlags & 4) != 0 )
     {
-      result = RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v3) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v3 )
       {
-        result = (unsigned int *)NtCurrentPeb();
-        v9 = *((_QWORD *)result + 18) + 555LL;
+        v3 = NtCurrentPeb();
+        v9 = (__int64)v3->SharedData + 555;
       }
       else
       {
         v9 = 2147353477LL;
       }
       if ( (*(_BYTE *)v9 & 0x20) != 0 )
-        return (unsigned int *)LdrpLogEtwEvent(a3, a1, 0, 0, a2, 0LL);
+        LODWORD(v3) = LdrpLogEtwEvent(a3, a1, 0, 0, a2, 0LL);
     }
   }
-  return result;
+  return (int)v3;
 }

@@ -1,16 +1,16 @@
 /*
  * XREFs of PfTAccessTracingStart @ 0x140A88964
  * Callers:
- *     PfGetCompletedTrace @ 0x14075EA38 (PfGetCompletedTrace.c)
- *     PfTStart @ 0x140845ED0 (PfTStart.c)
- *     PfpPowerActionStartScenarioTracing @ 0x140AA00D4 (PfpPowerActionStartScenarioTracing.c)
+ *     PfGetCompletedTrace @ 0x14075EC28 (PfGetCompletedTrace.c)
+ *     PfTStart @ 0x1408461D0 (PfTStart.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140A9FF44 (PfpPowerActionStartScenarioTracing.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MmGetDefaultPagePriority @ 0x1402F5F64 (MmGetDefaultPagePriority.c)
- *     MmSetAccessLogging @ 0x14036AE90 (MmSetAccessLogging.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MmGetDefaultPagePriority @ 0x1402F61F4 (MmGetDefaultPagePriority.c)
+ *     MmSetAccessLogging @ 0x14036B030 (MmSetAccessLogging.c)
  *     MmEnablePeriodicAccessClearing @ 0x140A88A18 (MmEnablePeriodicAccessClearing.c)
  */
 

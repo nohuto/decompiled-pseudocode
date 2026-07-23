@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpFindSubKeyByNumber @ 0x1405F34E0
+ * XREFs of CmpFindSubKeyByNumber @ 0x1406E2C40
  * Callers:
- *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x1404ED2B8 (CmDeleteLayeredKey.c)
  *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
- *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
- *     CmpClearKeyAccessBits @ 0x1406A961C (CmpClearKeyAccessBits.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140871AC4 (CmpDoAccessCheckOnSubtree.c)
- *     CmpCopySyncTree2 @ 0x140878590 (CmpCopySyncTree2.c)
- *     CmpPreserveSystemHiveData @ 0x14087966C (CmpPreserveSystemHiveData.c)
- *     CmpSyncSubKeysAfterDelete @ 0x14087A268 (CmpSyncSubKeysAfterDelete.c)
- *     CmpMarkAllChildrenDirty @ 0x14087ADD8 (CmpMarkAllChildrenDirty.c)
- *     CmpUpdateParentForEachSon @ 0x14087B2E8 (CmpUpdateParentForEachSon.c)
- *     CmpDeleteTree @ 0x14087E99C (CmpDeleteTree.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140A5F7C0 (CmSelectQualifiedInstallLanguage.c)
- *     CmpFindDrivers @ 0x140A60F64 (CmpFindDrivers.c)
+ *     CmpClearKeyAccessBits @ 0x14060759C (CmpClearKeyAccessBits.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406E2D00 (CmpFindSubKeyByNumberEx.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140871C24 (CmpDoAccessCheckOnSubtree.c)
+ *     CmpCopySyncTree2 @ 0x1408786F0 (CmpCopySyncTree2.c)
+ *     CmpPreserveSystemHiveData @ 0x1408797CC (CmpPreserveSystemHiveData.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x14087A3C8 (CmpSyncSubKeysAfterDelete.c)
+ *     CmpMarkAllChildrenDirty @ 0x14087AF38 (CmpMarkAllChildrenDirty.c)
+ *     CmpUpdateParentForEachSon @ 0x14087B448 (CmpUpdateParentForEachSon.c)
+ *     CmpDeleteTree @ 0x14087EAFC (CmpDeleteTree.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140A607C0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpFindDrivers @ 0x140A61F64 (CmpFindDrivers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpDoFindSubKeyByNumber @ 0x1405F2D00 (CmpDoFindSubKeyByNumber.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1406E2460 (CmpDoFindSubKeyByNumber.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumber(__int64 a1, _DWORD *a2, unsigned int a3, _DWORD *a4)

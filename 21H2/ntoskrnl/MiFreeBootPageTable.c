@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeBootPageTable @ 0x140A577A4
+ * XREFs of MiFreeBootPageTable @ 0x140A587A4
  * Callers:
- *     MxZeroBootMappings @ 0x140A5767C (MxZeroBootMappings.c)
+ *     MxZeroBootMappings @ 0x140A5867C (MxZeroBootMappings.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiLockAndInsertPageInFreeList @ 0x1403B750C (MiLockAndInsertPageInFreeList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1403B767C (MiLockAndInsertPageInFreeList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiFreeBootPageTable(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)

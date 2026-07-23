@@ -1,16 +1,32 @@
 /*
- * XREFs of ZwAdjustTokenClaimsAndDeviceGroups @ 0x1800A1050
+ * XREFs of ZwAdjustTokenClaimsAndDeviceGroups @ 0x1800A1070
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAdjustTokenClaimsAndDeviceGroups()
+NTSTATUS __cdecl ZwAdjustTokenClaimsAndDeviceGroups(
+        HANDLE TokenHandle,
+        BOOLEAN UserResetToDefault,
+        BOOLEAN DeviceResetToDefault,
+        BOOLEAN DeviceGroupsResetToDefault,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION NewUserState,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION NewDeviceState,
+        PTOKEN_GROUPS NewDeviceGroupsState,
+        ULONG UserBufferLength,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION PreviousUserState,
+        ULONG DeviceBufferLength,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION PreviousDeviceState,
+        ULONG DeviceGroupsBufferLength,
+        PTOKEN_GROUPS PreviousDeviceGroups,
+        PULONG UserReturnLength,
+        PULONG DeviceReturnLength,
+        PULONG DeviceGroupsReturnBufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 108LL;
+  result = 108;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

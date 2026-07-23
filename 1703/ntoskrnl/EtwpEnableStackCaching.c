@@ -22,7 +22,7 @@ __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned 
   __int64 v10; // rcx
   int v11; // ebp
   unsigned int v12; // edi
-  struct _SLIST_ENTRY *v13; // rax
+  _SLIST_ENTRY *v13; // rax
   signed __int32 v15[14]; // [rsp+0h] [rbp-38h] BYREF
 
   v3 = 0;
@@ -73,7 +73,7 @@ LABEL_19:
       }
       while ( 1 )
       {
-        v13 = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x128uLL, 0x78777445u);
+        v13 = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x128uLL, 0x78777445u);
         if ( !v13 )
           break;
         *((_DWORD *)&v13[1].Next + 2) = 0;

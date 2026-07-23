@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCheckSratMemoryRanges @ 0x140557890
+ * XREFs of HalpCheckSratMemoryRanges @ 0x1405551D0
  * Callers:
- *     HalpNumaAddRangeProximity @ 0x140557A80 (HalpNumaAddRangeProximity.c)
+ *     HalpNumaAddRangeProximity @ 0x1405553C0 (HalpNumaAddRangeProximity.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall HalpCheckSratMemoryRanges(unsigned __int64 a1)
@@ -53,7 +53,7 @@ char __fastcall HalpCheckSratMemoryRanges(unsigned __int64 a1)
           v16 = &v14;
           v20 = &v12;
           v22 = &v13;
-          v7 = (unsigned __int8 *)&dword_140042FAC;
+          v7 = (unsigned __int8 *)&dword_1400433AC;
           v11 = v5;
           v12 = v6;
           v13 = 0x1000000LL;
@@ -81,7 +81,7 @@ LABEL_14:
         v16 = &v13;
         v18 = &v12;
         v10 = 5;
-        v7 = (unsigned __int8 *)byte_140042F4D;
+        v7 = (unsigned __int8 *)byte_14004334D;
         v12 = v8;
         v11 = 0x1000000LL;
         v20 = &v11;

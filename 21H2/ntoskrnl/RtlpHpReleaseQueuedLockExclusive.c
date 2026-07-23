@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x14033BA80
+ * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x1403467D0
  * Callers:
- *     RtlpHpVsSubsegmentCommitPages @ 0x14021BB90 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpVsContextAllocate @ 0x1402A6404 (RtlpHpVsContextAllocate.c)
- *     RtlpHpVsContextMultiAlloc @ 0x1402AB9F4 (RtlpHpVsContextMultiAlloc.c)
- *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
- *     RtlpHpVsContextFreeList @ 0x14033EA20 (RtlpHpVsContextFreeList.c)
- *     RtlpHpVsContextFreeInternal @ 0x14033EAC0 (RtlpHpVsContextFreeInternal.c)
- *     RtlpHpVsChunkDecommit @ 0x14033EBF0 (RtlpHpVsChunkDecommit.c)
- *     RtlpHpVsContextAllocateInternal @ 0x14033EDC0 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpVsChunkSplit @ 0x14033F190 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsContextAllocate @ 0x140223844 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x140229B34 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x1402C0490 (RtlpHpVsSubsegmentCommitPages.c)
+ *     ExAllocateHeapPool @ 0x140346F60 (ExAllocateHeapPool.c)
+ *     RtlpHpVsContextFreeList @ 0x140349770 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsContextFreeInternal @ 0x140349810 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsChunkDecommit @ 0x140349940 (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x140349B10 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsChunkSplit @ 0x140349EE0 (RtlpHpVsChunkSplit.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
@@ -34,17 +34,16 @@ __int64 __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
   __int64 v9; // rcx
   __int64 v10; // rbp
   __int64 v11; // rdx
-  __int64 v12; // rcx
   __int64 result; // rax
-  unsigned __int64 v14; // rsi
+  unsigned __int64 v13; // rsi
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v17; // edx
+  int v16; // edx
 
   v2 = *(_QWORD *)(a2 + 8);
   if ( a1 )
   {
-    v14 = *(unsigned __int8 *)(a2 + 16);
+    v13 = *(unsigned __int8 *)(a2 + 16);
     ExReleaseSpinLockExclusiveFromDpcLevel(*(PEX_SPIN_LOCK *)(a2 + 8));
     result = (unsigned int)KiIrqlFlags;
     if ( KiIrqlFlags )
@@ -52,20 +51,20 @@ __int64 __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
       if ( (KiIrqlFlags & 1) != 0 )
       {
         result = KeGetCurrentIrql();
-        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v14 <= 0xFu && (unsigned __int8)result >= 2u )
+        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v13 <= 0xFu && (unsigned __int8)result >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          result = -1LL << ((unsigned __int8)v14 + 1);
+          result = -1LL << ((unsigned __int8)v13 + 1);
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v17 = ~(unsigned __int16)result;
-          v8 = (v17 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v17;
+          v16 = ~(unsigned __int16)result;
+          v8 = (v16 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v16;
           if ( v8 )
             result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    __writecr8(v14);
+    __writecr8(v13);
     *(_QWORD *)(a2 + 8) = 0LL;
   }
   else
@@ -110,7 +109,7 @@ LABEL_25:
     {
       *(_BYTE *)(v10 + 32) |= 2u;
       if ( *(__int64 *)(v10 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v10);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
       *(_DWORD *)(v10 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v10 + 25) &= ~1u;
       *(_QWORD *)(v10 + 32) = 0LL;
@@ -124,7 +123,7 @@ LABEL_25:
     KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
     v8 = CurrentThread->SpecialApcDisable++ == -1;
     if ( v8 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v12);
+      KiCheckForKernelApcDelivery();
     result = KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     *(_QWORD *)(a2 + 8) = 0LL;
   }

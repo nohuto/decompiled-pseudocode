@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaWmiInit @ 0x1405BD87C
+ * XREFs of WheaWmiInit @ 0x1405BDAAC
  * Callers:
- *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
+ *     WheaInitialize @ 0x140A6405C (WheaInitialize.c)
  * Callees:
- *     IoWMIRegistrationControl @ 0x140754F30 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x1407550F0 (IoWMIRegistrationControl.c)
  */
 
 NTSTATUS WheaWmiInit()

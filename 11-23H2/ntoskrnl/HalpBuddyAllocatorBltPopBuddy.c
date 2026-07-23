@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpBuddyAllocatorBltPopBuddy @ 0x140532224
+ * XREFs of HalpBuddyAllocatorBltPopBuddy @ 0x140532774
  * Callers:
- *     HalpBuddyAllocatorFreeLogicalAddress @ 0x14045F060 (HalpBuddyAllocatorFreeLogicalAddress.c)
+ *     HalpBuddyAllocatorFreeLogicalAddress @ 0x14045F460 (HalpBuddyAllocatorFreeLogicalAddress.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall HalpBuddyAllocatorBltPopBuddy(__int64 *a1, __int64 a2)
@@ -43,10 +43,13 @@ __int64 *__fastcall HalpBuddyAllocatorBltPopBuddy(__int64 *a1, __int64 a2)
     *v6 = (__int64)v6;
   }
   KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -54,7 +57,7 @@ __int64 *__fastcall HalpBuddyAllocatorBltPopBuddy(__int64 *a1, __int64 a2)
       v13 = (v12 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v12;
       if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v4);

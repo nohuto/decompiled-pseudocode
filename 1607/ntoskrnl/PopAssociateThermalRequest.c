@@ -1,19 +1,19 @@
 /*
- * XREFs of PopAssociateThermalRequest @ 0x14056C5C0
+ * XREFs of PopAssociateThermalRequest @ 0x14056CB00
  * Callers:
- *     PoCreateThermalRequest @ 0x14056C4C8 (PoCreateThermalRequest.c)
+ *     PoCreateThermalRequest @ 0x14056CA08 (PoCreateThermalRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140144FE0 (PopThermalUpdateTelemetryClientCount.c)
- *     PopGetDope @ 0x140145054 (PopGetDope.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x140145550 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopGetDope @ 0x1401455C4 (PopGetDope.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PopDiagTraceThermalRequest @ 0x14052DCF8 (PopDiagTraceThermalRequest.c)
- *     PopDiagTraceCoolingExtension @ 0x14052DD74 (PopDiagTraceCoolingExtension.c)
- *     PopAcquireCoolingInterface @ 0x14056C778 (PopAcquireCoolingInterface.c)
- *     PopCleanCoolingExtension @ 0x14066B8F0 (PopCleanCoolingExtension.c)
- *     PopRegisterCoolingExtensionProtection @ 0x14066BD0C (PopRegisterCoolingExtensionProtection.c)
+ *     PopDiagTraceThermalRequest @ 0x14052E238 (PopDiagTraceThermalRequest.c)
+ *     PopDiagTraceCoolingExtension @ 0x14052E2B4 (PopDiagTraceCoolingExtension.c)
+ *     PopAcquireCoolingInterface @ 0x14056CCB8 (PopAcquireCoolingInterface.c)
+ *     PopCleanCoolingExtension @ 0x14066B9D4 (PopCleanCoolingExtension.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x14066BDF0 (PopRegisterCoolingExtensionProtection.c)
  */
 
 __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
@@ -84,13 +84,13 @@ LABEL_9:
       PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoolingExtensionLock);
       if ( !*(_QWORD *)(Dope + 64) )
       {
-        v10 = (_QWORD *)qword_140303278;
-        if ( *(__int64 **)qword_140303278 != &PopCoolingExtensionList )
+        v10 = (_QWORD *)qword_1403031C8;
+        if ( *(__int64 **)qword_1403031C8 != &PopCoolingExtensionList )
           __fastfail(3u);
         *v6 = &PopCoolingExtensionList;
         v6[1] = v10;
         *v10 = v6;
-        qword_140303278 = (__int64)v6;
+        qword_1403031C8 = (__int64)v6;
         *(_QWORD *)(Dope + 64) = v6;
         PopDiagTraceCoolingExtension((__int64)v6, &POP_ETW_EVENT_COOLING_EXTENSION_ADD);
         v6 = 0LL;

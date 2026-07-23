@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReadHighestPhysicalPage @ 0x1404D6A6C
+ * XREFs of MiReadHighestPhysicalPage @ 0x1404D023C
  * Callers:
- *     MiAllocateUserPhysicalPagesPrepare @ 0x140877FB8 (MiAllocateUserPhysicalPagesPrepare.c)
- *     MiCreateAweInfoBitMap @ 0x140878888 (MiCreateAweInfoBitMap.c)
- *     MiFindLargePageMemory @ 0x140B617F8 (MiFindLargePageMemory.c)
+ *     MiAllocateUserPhysicalPagesPrepare @ 0x14087E398 (MiAllocateUserPhysicalPagesPrepare.c)
+ *     MiCreateAweInfoBitMap @ 0x14087EC68 (MiCreateAweInfoBitMap.c)
+ *     MiFindLargePageMemory @ 0x140B64898 (MiFindLargePageMemory.c)
  * Callees:
  *     <none>
  */

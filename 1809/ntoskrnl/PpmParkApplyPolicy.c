@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmParkApplyPolicy @ 0x140189E70
+ * XREFs of PpmParkApplyPolicy @ 0x140189FB0
  * Callers:
- *     PpmParkRegisterParking @ 0x1401896B0 (PpmParkRegisterParking.c)
- *     PpmParkSetLpiCap @ 0x1402E7FF0 (PpmParkSetLpiCap.c)
- *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
- *     PpmReapplyPerfPolicy @ 0x14074F024 (PpmReapplyPerfPolicy.c)
- *     PpmParkApplyForcedMask @ 0x14087C534 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x14087C608 (PpmParkClearForcedMask.c)
+ *     PpmParkRegisterParking @ 0x1401897F0 (PpmParkRegisterParking.c)
+ *     PpmParkSetLpiCap @ 0x1402E81E0 (PpmParkSetLpiCap.c)
+ *     PpmRegisterPerfStates @ 0x14074F6AC (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x140750214 (PpmReapplyPerfPolicy.c)
+ *     PpmParkApplyForcedMask @ 0x14087D794 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x14087D868 (PpmParkClearForcedMask.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     PpmEventParkNodeCapChange @ 0x1402E592C (PpmEventParkNodeCapChange.c)
- *     PpmEventParkNodeParkHintChanged @ 0x1402E5B34 (PpmEventParkNodeParkHintChanged.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     PpmEventParkNodeCapChange @ 0x1402E5B1C (PpmEventParkNodeCapChange.c)
+ *     PpmEventParkNodeParkHintChanged @ 0x1402E5D24 (PpmEventParkNodeParkHintChanged.c)
  */
 
 void PpmParkApplyPolicy()
@@ -93,10 +93,10 @@ void PpmParkApplyPolicy()
   if ( PpmParkNodes )
   {
     v1 = 64;
-    v2 = 341LL * dword_1404180CC;
+    v2 = 341LL * dword_14041918C;
     v71 = WORD2(PpmCurrentProfile[v2 + 22]);
     v70 = HIWORD(PpmCurrentProfile[v2 + 22]);
-    if ( (((unsigned __int64)qword_1404040A8[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6] >> (KiProcessorIndexToNumberMappingTable[0] & 0x3F)) & 1) == 0 )
+    if ( (((unsigned __int64)qword_1404050A8[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6] >> (KiProcessorIndexToNumberMappingTable[0] & 0x3F)) & 1) == 0 )
     {
       v34 = PpmParkInitialClass1UnParkCount;
       if ( (unsigned int)PpmParkInitialClass1UnParkCount > 0x40 )

@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpLogUnsupportedOperation @ 0x1407FA044
+ * XREFs of CmpLogUnsupportedOperation @ 0x1407FB244
  * Callers:
- *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
- *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
- *     NtCompactKeys @ 0x1407E8EB0 (NtCompactKeys.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1407EF41C (CmSetKeyFlags.c)
- *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
- *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
+ *     CmpCreateChild @ 0x1405AC7A4 (CmpCreateChild.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
+ *     CmpPerformUnloadKey @ 0x140693550 (CmpPerformUnloadKey.c)
+ *     NtCompactKeys @ 0x1407EA0B0 (NtCompactKeys.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1407F061C (CmSetKeyFlags.c)
+ *     CmRestoreKey @ 0x1408025AC (CmRestoreKey.c)
+ *     CmSaveKey @ 0x140803130 (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x1408034FC (CmSaveMergedKeys.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmpSendUnsupportedOperationTelemetryEvent @ 0x1407FA3E0 (CmpSendUnsupportedOperationTelemetryEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmpSendUnsupportedOperationTelemetryEvent @ 0x1407FB5E0 (CmpSendUnsupportedOperationTelemetryEvent.c)
  */
 
 TLG_STATUS __fastcall CmpLogUnsupportedOperation(unsigned int a1)
@@ -28,13 +28,13 @@ TLG_STATUS __fastcall CmpLogUnsupportedOperation(unsigned int a1)
   result = _InterlockedIncrement(&CmpUnsupportedOperationHits[a1]);
   if ( result == 0x7FFFFFFF && _InterlockedExchange(&CmpUnsupportedOperationHits[a1], 0) )
     result = CmpSendUnsupportedOperationTelemetryEvent(a1);
-  if ( stru_1403FFAA0.LevelPlus1 > 5 )
+  if ( stru_140400AA0.LevelPlus1 > 5 )
   {
     v7 = 0;
     v5 = (int *)&v3;
     v3 = a1;
     v6 = 4;
-    return TlgWrite(&stru_1403FFAA0, &unk_14036C58D, 0LL, 0LL, 3u, &pData);
+    return TlgWrite(&stru_140400AA0, &unk_14036D51D, 0LL, 0LL, 3u, &pData);
   }
   return result;
 }

@@ -38,7 +38,7 @@ __int64 __fastcall Phase1InitializationIoReady(ULONG_PTR a1, char a2)
   __int64 result; // rax
   _OWORD SystemInformation[2]; // [rsp+30h] [rbp-48h] BYREF
 
-  if ( ZwQuerySystemInformation((SYSTEM_INFORMATION_CLASS)192, SystemInformation, 0x20u, 0LL) >= 0 )
+  if ( ZwQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL) >= 0 )
   {
     if ( (SystemInformation[0] & 4) != 0 )
     {

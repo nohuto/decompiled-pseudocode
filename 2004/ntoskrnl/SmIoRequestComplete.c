@@ -74,6 +74,6 @@ void __fastcall SmIoRequestComplete(__int64 a1, _DWORD *a2, __int64 a3, __int64 
       v5 = *(_QWORD *)(v4 + 56);
     }
     MiStoreModifiedWriteDereference(v5);
-    MiStoreFreeWriteSupport((PSLIST_ENTRY)v4, (union _SLIST_HEADER *)&MiSystemPartition);
+    MiStoreFreeWriteSupport((PSLIST_ENTRY)v4, (_SLIST_HEADER *)&MiSystemPartition);
   }
 }

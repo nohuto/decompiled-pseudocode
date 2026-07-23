@@ -4,20 +4,20 @@
  *     RtlRestoreBootStatusDefaults @ 0x1800EDCE0 (RtlRestoreBootStatusDefaults.c)
  *     RtlpGetSetBootStatusData @ 0x1800EE048 (RtlpGetSetBootStatusData.c)
  * Callees:
- *     NtPowerInformation @ 0x1800A0EB0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1800A0ED0 (NtPowerInformation.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall RtlpRecordBootStatusData(char a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlpRecordBootStatusData(char a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD v9[4]; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD InputBuffer[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  memset(v9, 0, sizeof(v9));
-  v9[0] = a2;
-  v9[1] = a4;
-  v9[2] = a3;
-  LODWORD(v9[3]) = 1;
+  memset(InputBuffer, 0, 0x20uLL);
+  InputBuffer[0] = a2;
+  InputBuffer[1] = a4;
+  InputBuffer[2] = a3;
+  LODWORD(InputBuffer[3]) = 1;
   if ( a1 )
-    HIDWORD(v9[3]) |= 1u;
-  return NtPowerInformation();
+    HIDWORD(InputBuffer[3]) |= 1u;
+  return NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
 }

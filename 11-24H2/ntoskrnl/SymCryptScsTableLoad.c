@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptScsTableLoad @ 0x14053934C
+ * XREFs of SymCryptScsTableLoad @ 0x140536B8C
  * Callers:
- *     SymCryptModExpWindowed @ 0x1405378D8 (SymCryptModExpWindowed.c)
+ *     SymCryptModExpWindowed @ 0x140531D78 (SymCryptModExpWindowed.c)
  * Callees:
- *     SymCryptScsTableLoad128Xmm @ 0x140539374 (SymCryptScsTableLoad128Xmm.c)
- *     SymCryptScsTableLoadC @ 0x1405394E8 (SymCryptScsTableLoadC.c)
+ *     SymCryptScsTableLoad128Xmm @ 0x140536BB4 (SymCryptScsTableLoad128Xmm.c)
+ *     SymCryptScsTableLoadC @ 0x140536D28 (SymCryptScsTableLoadC.c)
  */
 
 __int64 __fastcall SymCryptScsTableLoad(__int64 a1)

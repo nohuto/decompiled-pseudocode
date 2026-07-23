@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlGetNextFileLock @ 0x14070C578
+ * XREFs of VerifierFsRtlGetNextFileLock @ 0x14070C5A8
  * Callers:
  *     <none>
  * Callees:

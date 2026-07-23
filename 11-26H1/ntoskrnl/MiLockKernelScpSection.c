@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockKernelScpSection @ 0x140CFAD28
+ * XREFs of MiLockKernelScpSection @ 0x140D010A8
  * Callers:
- *     MiInitializeKernelScp @ 0x140CFAB28 (MiInitializeKernelScp.c)
+ *     MiInitializeKernelScp @ 0x140D00EA8 (MiInitializeKernelScp.c)
  * Callees:
- *     MmCreateMdl @ 0x140396D90 (MmCreateMdl.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmCreateMdl @ 0x140398B10 (MmCreateMdl.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 MiLockKernelScpSection()
@@ -18,8 +18,8 @@ __int64 MiLockKernelScpSection()
   v4[1] = 0LL;
   Mdl = MmCreateMdl(
           0LL,
-          *(PVOID *)&stru_140E2D150.WaitBlockFill11[64],
-          (unsigned int)(*(_DWORD *)&stru_140E2D150.WaitBlockFill11[76] << 12));
+          *(PVOID *)&stru_140E2D2D0.WaitBlockFill11[64],
+          (unsigned int)(*(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[76] << 12));
   v1 = Mdl;
   if ( !Mdl )
     return 3221225626LL;
@@ -28,6 +28,6 @@ __int64 MiLockKernelScpSection()
   if ( v3 < 0 )
     ExFreePoolWithTag(v1, 0);
   else
-    stru_140E2D150.WaitBlock[1].Object = v1;
+    stru_140E2D2D0.WaitBlock[1].Object = v1;
   return (unsigned int)v3;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of MmStoreRegister @ 0x1407FD3A8
+ * XREFs of MmStoreRegister @ 0x1407FDB18
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlClearAllBits @ 0x140448960 (RtlClearAllBits.c)
- *     KeQueryMaximumGroupCount @ 0x140480670 (KeQueryMaximumGroupCount.c)
- *     MiMoveModifiedPagesToCompressList @ 0x14068BD08 (MiMoveModifiedPagesToCompressList.c)
- *     MiStoreChargeReservedPages @ 0x14068BDD0 (MiStoreChargeReservedPages.c)
- *     MiStoreReleaseReservedPageCharges @ 0x14068C784 (MiStoreReleaseReservedPageCharges.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiCreatePagefile @ 0x1407EDFA0 (MiCreatePagefile.c)
- *     MiDeletePagefile @ 0x1407EEEF8 (MiDeletePagefile.c)
- *     MiInsertPageFileInList @ 0x1407EF2F0 (MiInsertPageFileInList.c)
- *     MmStoreCheckPagefiles @ 0x1407FD364 (MmStoreCheckPagefiles.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlClearAllBits @ 0x140441080 (RtlClearAllBits.c)
+ *     KeQueryMaximumGroupCount @ 0x14047B1D0 (KeQueryMaximumGroupCount.c)
+ *     MiMoveModifiedPagesToCompressList @ 0x14068CE38 (MiMoveModifiedPagesToCompressList.c)
+ *     MiStoreChargeReservedPages @ 0x14068CF00 (MiStoreChargeReservedPages.c)
+ *     MiStoreReleaseReservedPageCharges @ 0x14068D8B4 (MiStoreReleaseReservedPageCharges.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiCreatePagefile @ 0x1407EE570 (MiCreatePagefile.c)
+ *     MiDeletePagefile @ 0x1407EF4C8 (MiDeletePagefile.c)
+ *     MiInsertPageFileInList @ 0x1407EF8C0 (MiInsertPageFileInList.c)
+ *     MmStoreCheckPagefiles @ 0x1407FDAD4 (MmStoreCheckPagefiles.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
@@ -30,13 +30,11 @@ __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 
   int inserted; // ebx
   unsigned int *v11; // rbp
   int v12; // r14d
-  RTL_BITMAP *v13; // rax
-  RTL_BITMAP *v14; // r15
+  _RTL_BITMAP *v13; // rax
+  _RTL_BITMAP *v14; // r15
   void *v15; // r12
   unsigned int *Pagefile; // rax
   USHORT MaximumGroupCount; // ax
-  __int64 v18; // rdx
-  __int64 v19; // r8
   HANDLE Handle; // [rsp+80h] [rbp+8h] BYREF
 
   v5 = *a1;
@@ -67,10 +65,10 @@ __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 
   {
     v11 = 0LL;
     v12 = 0;
-    v13 = (RTL_BITMAP *)MiAllocatePool(
-                          0x40uLL,
-                          8 * (((dword_140FC420C & 0x3F) != 0) + 2 + ((unsigned int)dword_140FC420C >> 6)),
-                          538996045);
+    v13 = (_RTL_BITMAP *)MiAllocatePool(
+                           0x40uLL,
+                           8 * (((dword_140FC520C & 0x3F) != 0) + 2 + ((unsigned int)dword_140FC520C >> 6)),
+                           538996045);
     v14 = v13;
     if ( !v13 )
     {
@@ -81,10 +79,10 @@ LABEL_29:
       ObCloseHandle(Handle, 0);
       return (unsigned int)inserted;
     }
-    v13->SizeOfBitMap = dword_140FC420C;
+    v13->SizeOfBitMap = dword_140FC520C;
     v13->Buffer = &v13[1].SizeOfBitMap;
     RtlClearAllBits(v13);
-    v15 = (void *)MiAllocatePool(0x40uLL, (unsigned __int64)(unsigned int)dword_140FC420C << 6, 1767074125);
+    v15 = (void *)MiAllocatePool(0x40uLL, (unsigned __int64)(unsigned int)dword_140FC520C << 6, 1767074125);
     if ( v15 && (unsigned int)MiStoreChargeReservedPages(v5) )
     {
       *(_DWORD *)(v5 + 1212) = -2;
@@ -124,7 +122,7 @@ LABEL_17:
         *(_DWORD *)(v5 + 1436) = 0;
         memset_0((void *)(v5 + 1440), 0, 8LL * MaximumGroupCount);
         *(_DWORD *)(v5 + 1204) = v11[43] & 0xF;
-        MiMoveModifiedPagesToCompressList(v5, v18, v19);
+        MiMoveModifiedPagesToCompressList(v5);
         goto LABEL_29;
       }
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlIsValidOemCharacter @ 0x140A6B160
+ * XREFs of RtlIsValidOemCharacter @ 0x14097E350
  * Callers:
- *     RtlGenerate8dot3Name @ 0x14096AC30 (RtlGenerate8dot3Name.c)
+ *     RtlGenerate8dot3Name @ 0x14097B570 (RtlGenerate8dot3Name.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     NLS_UPCASE @ 0x14042F430 (NLS_UPCASE.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14041C340 (NLS_UPCASE.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
  */
 
 BOOLEAN __stdcall RtlIsValidOemCharacter(PWCHAR Char)

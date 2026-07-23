@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgLogDeviceMigrated @ 0x14063A15C
+ * XREFs of PiDevCfgLogDeviceMigrated @ 0x14063A210
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14063A864 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x14063A918 (PiDevCfgMigrateDevice.c)
  * Callees:
- *     Template_zzjzxtq @ 0x1401CF934 (Template_zzjzxtq.c)
+ *     Template_zzjzxtq @ 0x1401CF760 (Template_zzjzxtq.c)
  */
 
 int __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ int __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, __int64 a3)
     && (Microsoft_Windows_Kernel_PnPEnableBits & 0x100000) != 0 )
   {
     v5 = *(_QWORD *)(a2 + 152);
-    v6 = (const wchar_t *)&dword_1406EEA34;
+    v6 = (const wchar_t *)&dword_1406EEB64;
     v7 = a2 + 80;
     if ( (int)a3 < 0 )
     {

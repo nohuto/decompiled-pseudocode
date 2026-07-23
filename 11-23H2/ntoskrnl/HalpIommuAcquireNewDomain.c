@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuAcquireNewDomain @ 0x1403A9794
+ * XREFs of HalpIommuAcquireNewDomain @ 0x1403A9974
  * Callers:
- *     HalpIommuGetHardwareDomain @ 0x1403A964C (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1403A982C (HalpIommuGetHardwareDomain.c)
  * Callees:
- *     HalpIommuGetDomainId @ 0x1403A9810 (HalpIommuGetDomainId.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpIommuGetDomainId @ 0x1403A99F0 (HalpIommuGetDomainId.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2, _DWORD *a3)

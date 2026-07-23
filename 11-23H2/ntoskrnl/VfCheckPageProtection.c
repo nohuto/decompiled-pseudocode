@@ -1,21 +1,21 @@
 /*
- * XREFs of VfCheckPageProtection @ 0x140AC3878
+ * XREFs of VfCheckPageProtection @ 0x140AC3868
  * Callers:
- *     VfCheckNxPageProtection @ 0x1405CE390 (VfCheckNxPageProtection.c)
- *     VerifierMmAllocateContiguousNodeMemory @ 0x140AE2850 (VerifierMmAllocateContiguousNodeMemory.c)
- *     VerifierMmCreateSection @ 0x140AE2DF0 (VerifierMmCreateSection.c)
- *     VerifierMmMapIoSpaceEx @ 0x140AE3150 (VerifierMmMapIoSpaceEx.c)
- *     VerifierMmMapViewOfSection @ 0x140AE33C0 (VerifierMmMapViewOfSection.c)
- *     VerifierMmProtectMdlSystemAddress @ 0x140AE3670 (VerifierMmProtectMdlSystemAddress.c)
- *     VerifierNtCreateSection @ 0x140AE38A0 (VerifierNtCreateSection.c)
- *     VerifierNtMapViewOfSection @ 0x140AE3930 (VerifierNtMapViewOfSection.c)
- *     VerifierZwCreateSection @ 0x140AE56F0 (VerifierZwCreateSection.c)
- *     VerifierZwMapViewOfSection @ 0x140AE5BA0 (VerifierZwMapViewOfSection.c)
- *     VerifierZwProtectVirtualMemory @ 0x140AE6020 (VerifierZwProtectVirtualMemory.c)
+ *     VfCheckNxPageProtection @ 0x1405CE900 (VfCheckNxPageProtection.c)
+ *     VerifierMmAllocateContiguousNodeMemory @ 0x140AE2840 (VerifierMmAllocateContiguousNodeMemory.c)
+ *     VerifierMmCreateSection @ 0x140AE2DE0 (VerifierMmCreateSection.c)
+ *     VerifierMmMapIoSpaceEx @ 0x140AE3140 (VerifierMmMapIoSpaceEx.c)
+ *     VerifierMmMapViewOfSection @ 0x140AE33B0 (VerifierMmMapViewOfSection.c)
+ *     VerifierMmProtectMdlSystemAddress @ 0x140AE3660 (VerifierMmProtectMdlSystemAddress.c)
+ *     VerifierNtCreateSection @ 0x140AE3890 (VerifierNtCreateSection.c)
+ *     VerifierNtMapViewOfSection @ 0x140AE3920 (VerifierNtMapViewOfSection.c)
+ *     VerifierZwCreateSection @ 0x140AE56E0 (VerifierZwCreateSection.c)
+ *     VerifierZwMapViewOfSection @ 0x140AE5B90 (VerifierZwMapViewOfSection.c)
+ *     VerifierZwProtectVirtualMemory @ 0x140AE6010 (VerifierZwProtectVirtualMemory.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViCiPreprocessOptions @ 0x140AC3A0C (ViCiPreprocessOptions.c)
- *     ViTargetIncrementCounter @ 0x140ACBC0C (ViTargetIncrementCounter.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x140AC39FC (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x140ACBBFC (ViTargetIncrementCounter.c)
  */
 
 void __fastcall VfCheckPageProtection(unsigned int a1, ULONG_PTR a2)

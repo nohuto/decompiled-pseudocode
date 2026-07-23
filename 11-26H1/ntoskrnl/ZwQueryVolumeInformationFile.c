@@ -1,13 +1,13 @@
 /*
- * XREFs of ZwQueryVolumeInformationFile @ 0x140723D10
+ * XREFs of ZwQueryVolumeInformationFile @ 0x1407288E0
  * Callers:
- *     DifZwQueryVolumeInformationFileWrapper @ 0x1406B4E60 (DifZwQueryVolumeInformationFileWrapper.c)
- *     PfpQueryFileExtentsRequest @ 0x1407C589C (PfpQueryFileExtentsRequest.c)
- *     CmpGetVolumeClusterSize @ 0x1408B685C (CmpGetVolumeClusterSize.c)
- *     CmpGetVolumeLogFileSizeCap @ 0x1408B6BA0 (CmpGetVolumeLogFileSizeCap.c)
- *     EtwpCreateLogFile @ 0x140A15DA4 (EtwpCreateLogFile.c)
- *     EtwpFinalizeHeader @ 0x140A16CB0 (EtwpFinalizeHeader.c)
- *     PopValidateHiberFileSize @ 0x140B01614 (PopValidateHiberFileSize.c)
+ *     DifZwQueryVolumeInformationFileWrapper @ 0x1406B8A40 (DifZwQueryVolumeInformationFileWrapper.c)
+ *     PfpQueryFileExtentsRequest @ 0x1407C88FC (PfpQueryFileExtentsRequest.c)
+ *     CmpGetVolumeClusterSize @ 0x1408BCE30 (CmpGetVolumeClusterSize.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x1408BD174 (CmpGetVolumeLogFileSizeCap.c)
+ *     EtwpCreateLogFile @ 0x140A16128 (EtwpCreateLogFile.c)
+ *     EtwpFinalizeHeader @ 0x140ABCAB0 (EtwpFinalizeHeader.c)
+ *     PopValidateHiberFileSize @ 0x140B03344 (PopValidateHiberFileSize.c)
  * Callees:
  *     <none>
  */
@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwQueryVolumeInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

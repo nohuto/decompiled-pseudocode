@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpIsEFIRuntimeActive @ 0x140586EB0
+ * XREFs of HalpIsEFIRuntimeActive @ 0x1405893D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool HalpIsEFIRuntimeActive()
 {
-  return HIDWORD(HalpDeviceBlockUnblockPushLock.OtherTransferCount) != 0;
+  return HIDWORD(HalpDeviceBlockUnblockPushLock.WriteOperationCount) != 0;
 }

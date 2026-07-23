@@ -72,8 +72,8 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
   unsigned __int64 v50; // r9
   unsigned __int64 v51; // rax
   __int64 v52; // rcx
-  unsigned __int8 v53; // al
-  __int64 v54; // rax
+  BOOLEAN v53; // al
+  unsigned __int64 v54; // rax
   __int64 v56; // rax
   int v57; // eax
   unsigned __int64 v58; // r15
@@ -122,7 +122,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
   unsigned int v101; // [rsp+D8h] [rbp+60h]
 
   v9 = WORD1(RtlpHpHeapGlobals) ^ WORD1(a3) ^ *(unsigned __int16 *)(a3 + 2);
-  RtlRbRemoveNode(a1 + 16, a3 + 8);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(a3 + 8));
   v11 = 0LL;
   v12 = a3 - a2;
   v13 = (a3 - a2 + 4127) & 0xFFFFF000;
@@ -323,7 +323,7 @@ LABEL_124:
         *(_BYTE *)(v81 + 32) |= 2u;
         if ( *(__int64 *)(v81 + 32) < 0 )
         {
-          KiAbEntryRemoveFromTree(v81);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v81);
           v81 = v94;
           v76 = (ULONG_PTR)BugCheckParameter1a;
         }
@@ -586,7 +586,7 @@ LABEL_50:
         v11 = v54;
       }
     }
-    RtlRbInsertNodeEx(a1 + 16, v11, v53, v27 + 8);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)v11, v53, (PRTL_BALANCED_NODE)(v27 + 8));
   }
   return a4;
 }

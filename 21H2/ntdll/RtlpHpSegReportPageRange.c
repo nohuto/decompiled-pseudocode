@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpSegReportPageRange @ 0x18010F6A4
+ * XREFs of RtlpHpSegReportPageRange @ 0x18010F664
  * Callers:
  *     RtlpHpSegWalk @ 0x1800026A8 (RtlpHpSegWalk.c)
  * Callees:

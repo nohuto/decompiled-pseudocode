@@ -9,28 +9,28 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtReleaseMutant(HANDLE Handle, _DWORD *a2)
+NTSTATUS __cdecl NtReleaseMutant(HANDLE MutantHandle, PLONG PreviousCount)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   NTSTATUS v5; // eax
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   PVOID v7; // rdi
   __int64 v9; // rcx
   PVOID Object; // [rsp+68h] [rbp+10h] BYREF
-  int v11; // [rsp+70h] [rbp+18h] BYREF
+  LONG v11; // [rsp+70h] [rbp+18h] BYREF
   PVOID v12; // [rsp+78h] [rbp+20h]
 
   v11 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( PreviousCount && PreviousMode )
   {
     v9 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a2;
+    if ( (unsigned __int64)PreviousCount < 0x7FFFFFFF0000LL )
+      v9 = (__int64)PreviousCount;
     *(_DWORD *)v9 = *(_DWORD *)v9;
   }
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(Handle, 0, ExMutantObjectType, PreviousMode, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(MutantHandle, 0, ExMutantObjectType, PreviousMode, &Object, 0LL);
   v6 = v5;
   v7 = Object;
   v12 = Object;
@@ -42,7 +42,7 @@ __int64 __fastcall NtReleaseMutant(HANDLE Handle, _DWORD *a2)
       if ( ExCrossVmMutantObjectType )
       {
         Object = 0LL;
-        v6 = ObReferenceObjectByHandle(Handle, 0, ExCrossVmMutantObjectType, PreviousMode, &Object, 0LL);
+        v6 = ObReferenceObjectByHandle(MutantHandle, 0, ExCrossVmMutantObjectType, PreviousMode, &Object, 0LL);
         v7 = Object;
         v12 = Object;
         LODWORD(Object) = v6;
@@ -62,12 +62,12 @@ __int64 __fastcall NtReleaseMutant(HANDLE Handle, _DWORD *a2)
     {
 LABEL_4:
       ObfDereferenceObject(v7);
-      return (unsigned int)v6;
+      return v6;
     }
   }
-  if ( v6 >= 0 && a2 )
-    *a2 = v11;
+  if ( v6 >= 0 && PreviousCount )
+    *PreviousCount = v11;
   if ( v7 )
     goto LABEL_4;
-  return (unsigned int)v6;
+  return v6;
 }

@@ -16,9 +16,9 @@
 
 __int64 PpmIdleDurationExpiration()
 {
-  unsigned __int64 InterruptTimePrecise; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rbx
   __int64 result; // rax
-  LARGE_INTEGER v2; // [rsp+20h] [rbp-E0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+20h] [rbp-E0h] BYREF
   unsigned __int16 *v3[2]; // [rsp+28h] [rbp-D8h] BYREF
   __int16 v4; // [rsp+38h] [rbp-C8h]
   _QWORD v5[22]; // [rsp+40h] [rbp-C0h] BYREF
@@ -27,15 +27,15 @@ __int64 PpmIdleDurationExpiration()
 
   v5[0] = 1310721LL;
   memset(&v5[1], 0, 0xA0uLL);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v2);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   PpmGetIdleConstrainedMask(&v6);
   v3[1] = v7;
   v3[0] = (unsigned __int16 *)&v6;
   v4 = 0;
-  while ( !(unsigned int)KeEnumerateNextProcessor(&v2, v3) )
+  while ( !(unsigned int)KeEnumerateNextProcessor(&PerformanceCounter, v3) )
   {
-    if ( *(_QWORD *)(KeGetPrcb(v2.LowPart) + 23848) <= InterruptTimePrecise )
-      KeAddProcessorAffinityEx(v5, v2.LowPart);
+    if ( *(_QWORD *)(KeGetPrcb(PerformanceCounter.LowPart) + 23848) <= InterruptTimePrecise.QuadPart )
+      KeAddProcessorAffinityEx(v5, PerformanceCounter.LowPart);
   }
   result = KeIsEmptyAffinityEx(v5);
   if ( !(_DWORD)result )

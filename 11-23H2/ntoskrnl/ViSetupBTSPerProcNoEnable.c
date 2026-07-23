@@ -1,19 +1,19 @@
 /*
- * XREFs of ViSetupBTSPerProcNoEnable @ 0x140AD3C40
+ * XREFs of ViSetupBTSPerProcNoEnable @ 0x140AD3C30
  * Callers:
- *     VfInitializeBranchTracing @ 0x140AD3890 (VfInitializeBranchTracing.c)
+ *     VfInitializeBranchTracing @ 0x140AD3880 (VfInitializeBranchTracing.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 ViSetupBTSPerProcNoEnable()
 {
   __int64 v0; // rdi
   unsigned int v1; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   v0 = 0LL;
   Affinity = 0LL;

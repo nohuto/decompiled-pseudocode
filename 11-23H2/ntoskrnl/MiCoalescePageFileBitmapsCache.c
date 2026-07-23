@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCoalescePageFileBitmapsCache @ 0x140295458
+ * XREFs of MiCoalescePageFileBitmapsCache @ 0x1402956E8
  * Callers:
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiAttemptPageFileReductionApc @ 0x140637D70 (MiAttemptPageFileReductionApc.c)
- *     MiFinishPageFileExtension @ 0x140639AD8 (MiFinishPageFileExtension.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiAttemptPageFileReductionApc @ 0x1406382C0 (MiAttemptPageFileReductionApc.c)
+ *     MiFinishPageFileExtension @ 0x14063A028 (MiFinishPageFileExtension.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     MiRescanPageFileBitmapPortion @ 0x140293990 (MiRescanPageFileBitmapPortion.c)
- *     RtlLengthCurrentClearRunBackward @ 0x140295248 (RtlLengthCurrentClearRunBackward.c)
- *     RtlLengthCurrentClearRunForward @ 0x1402957A0 (RtlLengthCurrentClearRunForward.c)
- *     MiBitmapsCachedEntryLengthChanged @ 0x140295860 (MiBitmapsCachedEntryLengthChanged.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     MiRescanPageFileBitmapPortion @ 0x140293C20 (MiRescanPageFileBitmapPortion.c)
+ *     RtlLengthCurrentClearRunBackward @ 0x1402954D8 (RtlLengthCurrentClearRunBackward.c)
+ *     RtlLengthCurrentClearRunForward @ 0x140295A30 (RtlLengthCurrentClearRunForward.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x140295AF0 (MiBitmapsCachedEntryLengthChanged.c)
  */
 
 void __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned int a3)
@@ -120,8 +120,8 @@ LABEL_14:
         {
           *(_DWORD *)(v20 + 52) = v21 + *(_DWORD *)(v14 + 52);
           *(_DWORD *)(v14 + 52) = 0;
-          RtlRbRemoveNode((unsigned __int64 *)(a1 + 144), v10 - 24);
-          RtlRbRemoveNode((unsigned __int64 *)(a1 + 160), v10);
+          RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)(v10 - 24));
+          RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)v10);
           v34 = *(unsigned __int64 **)(a1 + 184);
           if ( *v34 != a1 + 176 )
             __fastfail(3u);
@@ -209,7 +209,7 @@ LABEL_14:
       }
       else
       {
-        MiRescanPageFileBitmapPortion(a1, v6, a3 - v25, v26, (unsigned __int64 *)&v36);
+        MiRescanPageFileBitmapPortion(a1, v6, a3 - v25, v26, &v36);
       }
     }
   }

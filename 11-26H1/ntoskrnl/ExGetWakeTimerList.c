@@ -1,20 +1,20 @@
 /*
- * XREFs of ExGetWakeTimerList @ 0x1404388A0
+ * XREFs of ExGetWakeTimerList @ 0x1404241AC
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoStoreDiagnosticContext @ 0x1404372B0 (PoStoreDiagnosticContext.c)
- *     KeQueryTimerDueTime @ 0x140439548 (KeQueryTimerDueTime.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoStoreDiagnosticContext @ 0x140426240 (PoStoreDiagnosticContext.c)
+ *     KeQueryTimerDueTime @ 0x1404C2994 (KeQueryTimerDueTime.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -28,40 +28,38 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2, __int64 a3, struct
   void *v10; // rdx
   AutoBoost *v11; // rdi
   struct _KTHREAD *i; // rdi
-  __int64 v13; // rcx
+  unsigned __int64 v13; // rcx
   int v14; // edi
   __int64 Pool2; // rax
-  struct _KTHREAD *SchedulerAssist; // r12
+  struct _KTHREAD *v16; // r12
   unsigned __int64 v17; // rbp
   __int64 v18; // r14
   unsigned __int64 v19; // r13
   KIRQL v20; // al
-  __int64 v21; // rcx
+  unsigned __int64 v21; // rcx
   int v22; // edx
   __int64 TimerDueTime; // rax
   _QWORD *v24; // r14
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  struct _KTHREAD *v28; // [rsp+20h] [rbp-68h]
-  __int64 v29; // [rsp+28h] [rbp-60h]
-  __int64 v30; // [rsp+30h] [rbp-58h]
+  struct _KTHREAD *v26; // [rsp+20h] [rbp-68h]
+  __int64 v27; // [rsp+28h] [rbp-60h]
+  unsigned __int64 v28; // [rsp+30h] [rbp-58h]
   unsigned __int64 NewIrql; // [rsp+A0h] [rbp+18h] BYREF
-  int v34; // [rsp+A8h] [rbp+20h]
+  int v32; // [rsp+A8h] [rbp+20h]
 
   CurrentThread = KeGetCurrentThread();
   v5 = a2;
   v6 = a1;
-  v28 = CurrentThread;
+  v26 = CurrentThread;
   --CurrentThread->KernelApcDisable;
   v7 = 0LL;
   v8 = 0LL;
-  v9 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime, 0LL, 0LL, a4);
+  v9 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.1008, 0LL, 0LL, a4);
   v11 = v9;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.1008, 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      &ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
+      (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.1008,
       v9,
-      (__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
+      (__int64)&ExSaPageGroupDescriptorArrayLock.1008);
   if ( v11 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -69,8 +67,8 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2, __int64 a3, struct
     else
       *((_BYTE *)v11 + 10) = 1;
   }
-  for ( i = (struct _KTHREAD *)ExSaPageGroupDescriptorArrayLock.SchedulerAssist;
-        i != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssist;
+  for ( i = *(struct _KTHREAD **)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
+        i != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
         i = *(struct _KTHREAD **)&i->Header.Lock )
   {
     v13 = i[-1].Padding[4];
@@ -92,33 +90,33 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2, __int64 a3, struct
   v8 = (void *)Pool2;
   if ( Pool2 )
   {
-    SchedulerAssist = (struct _KTHREAD *)ExSaPageGroupDescriptorArrayLock.SchedulerAssist;
+    v16 = *(struct _KTHREAD **)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
     v14 = 0;
     v17 = 0LL;
     v18 = Pool2;
     v19 = v7;
-    while ( SchedulerAssist != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssist )
+    while ( v16 != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor )
     {
       if ( v19 < 0x40 )
         goto LABEL_28;
-      v20 = KeAcquireSpinLockRaiseToDpc(&SchedulerAssist[-1].InGlobalUpdateVpThreadPriorityList);
-      v21 = SchedulerAssist[-1].Padding[4];
-      v22 = SchedulerAssist[-1].Padding[2];
+      v20 = KeAcquireSpinLockRaiseToDpc(&v16[-1].InGlobalUpdateVpThreadPriorityList);
+      v21 = v16[-1].Padding[4];
+      v22 = v16[-1].Padding[2];
       LOBYTE(NewIrql) = v20;
-      v30 = v21;
-      v34 = v22;
+      v28 = v21;
+      v32 = v22;
       if ( v21 )
-        TimerDueTime = KeQueryTimerDueTime(&SchedulerAssist[-1].ThreadTimerDelay);
+        TimerDueTime = KeQueryTimerDueTime(&v16[-1].ThreadTimerDelay);
       else
         TimerDueTime = 0LL;
-      v29 = TimerDueTime;
-      KeReleaseSpinLock(&SchedulerAssist[-1].InGlobalUpdateVpThreadPriorityList, NewIrql);
-      if ( v29 )
+      v27 = TimerDueTime;
+      KeReleaseSpinLock(&v16[-1].InGlobalUpdateVpThreadPriorityList, NewIrql);
+      if ( v27 )
       {
-        *(_QWORD *)(v18 + 8) = v29 - MEMORY[0xFFFFF78000000008];
-        *(_DWORD *)(v18 + 16) = v34;
+        *(_QWORD *)(v18 + 8) = v27 - MEMORY[0xFFFFF78000000008];
+        *(_DWORD *)(v18 + 16) = v32;
         NewIrql = v19 - 24;
-        v14 = PoStoreDiagnosticContext(v30, (unsigned __int64 *)(v18 + 24), &NewIrql);
+        v14 = PoStoreDiagnosticContext(v28, v18 + 24, &NewIrql);
         if ( v14 < 0 )
           goto LABEL_31;
         v17 = (NewIrql + 31) & 0xFFFFFFFFFFFFFFF8uLL;
@@ -132,14 +130,14 @@ LABEL_28:
         *(_QWORD *)v18 = v17;
         v18 += v17;
       }
-      SchedulerAssist = *(struct _KTHREAD **)&SchedulerAssist->Header.Lock;
+      v16 = *(struct _KTHREAD **)&v16->Header.Lock;
     }
     v24 = (_QWORD *)(v18 - v17);
     *v24 = 0LL;
     if ( !v17 )
       v24[1] = 0LL;
 LABEL_31:
-    CurrentThread = v28;
+    CurrentThread = v26;
     v5 = a2;
     v6 = a1;
   }
@@ -149,11 +147,11 @@ LABEL_31:
   }
 LABEL_32:
   if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
+          (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.GlobalUpdateVpThreadPriorityListEntry.Flink,
           0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
-  KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread, v25, v26);
+    ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.1008);
+  KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.1008);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v14 >= 0 )
   {
     *v6 = v8;

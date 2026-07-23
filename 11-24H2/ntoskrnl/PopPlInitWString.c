@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlInitWString @ 0x14076570C
+ * XREFs of PopPlInitWString @ 0x1407650DC
  * Callers:
- *     PopPlInitDevice @ 0x140765394 (PopPlInitDevice.c)
- *     PopPlInitPowerPlane @ 0x140765618 (PopPlInitPowerPlane.c)
+ *     PopPlInitDevice @ 0x140764D64 (PopPlInitDevice.c)
+ *     PopPlInitPowerPlane @ 0x140764FE8 (PopPlInitPowerPlane.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     RtlUnicodeStringCchCopyStringN @ 0x1405DD2F0 (RtlUnicodeStringCchCopyStringN.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     RtlUnicodeStringCchCopyStringN @ 0x1405DA1C0 (RtlUnicodeStringCchCopyStringN.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitWString(PUNICODE_STRING DestinationString, unsigned int a2, __int64 a3, __int64 a4)
@@ -15,6 +15,7 @@ __int64 __fastcall PopPlInitWString(PUNICODE_STRING DestinationString, unsigned 
   const wchar_t *v5; // rsi
   NTSTATUS v6; // ebx
   size_t v7; // rbx
+  ULONG_PTR v8; // rdx
   wchar_t *Pool2; // rax
   size_t cchToCopy; // [rsp+40h] [rbp+18h] BYREF
 
@@ -29,8 +30,9 @@ __int64 __fastcall PopPlInitWString(PUNICODE_STRING DestinationString, unsigned 
     {
       if ( cchToCopy )
       {
+        v8 = 2 * cchToCopy;
         DestinationString->MaximumLength = 2 * cchToCopy;
-        Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+        Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, v8, 0x6C506F50u);
         DestinationString->Buffer = Pool2;
         if ( Pool2 )
         {

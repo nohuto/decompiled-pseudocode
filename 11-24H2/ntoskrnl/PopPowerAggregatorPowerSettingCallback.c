@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorPowerSettingCallback @ 0x140759AF0
+ * XREFs of PopPowerAggregatorPowerSettingCallback @ 0x140757F40
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopPowerAggregatorPowerSettingCallback(
@@ -22,9 +22,9 @@ __int64 __fastcall PopPowerAggregatorPowerSettingCallback(
     && *Value <= 8
     && (v6 = 333, _bittest(&v6, *Value)) )
   {
-    PopAcquireRwLockExclusive(&PopPowerAggregatorLock);
-    dword_140F08A28 = *Value;
-    PopReleaseRwLock((signed __int64 *)&PopPowerAggregatorLock);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
+    dword_140F08D88 = *Value;
+    PopReleaseRwLock(&PopPowerAggregatorLock);
   }
   else
   {

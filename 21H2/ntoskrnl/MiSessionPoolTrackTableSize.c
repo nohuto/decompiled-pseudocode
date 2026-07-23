@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSessionPoolTrackTableSize @ 0x1407D4EE8
+ * XREFs of MiSessionPoolTrackTableSize @ 0x1407D5058
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x14039D5C4 (ExInitializeSessionHeapManager.c)
+ *     ExInitializeSessionHeapManager @ 0x14039D714 (ExInitializeSessionHeapManager.c)
  * Callees:
  *     <none>
  */

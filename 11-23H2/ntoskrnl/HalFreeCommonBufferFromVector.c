@@ -1,9 +1,9 @@
 /*
- * XREFs of HalFreeCommonBufferFromVector @ 0x14050EF90
+ * XREFs of HalFreeCommonBufferFromVector @ 0x14050F4E0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalFreeCommonBufferFromVector(__int64 a1, __int64 a2, unsigned int a3)

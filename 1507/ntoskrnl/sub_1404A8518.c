@@ -31,7 +31,7 @@ __int64 __fastcall sub_1404A8518(_DWORD *a1)
   char *v13; // rcx
   char *v14; // r8
   char Data; // [rsp+40h] [rbp-C0h] BYREF
-  bool v16; // [rsp+41h] [rbp-BFh] BYREF
+  BOOLEAN IsPortable[7]; // [rsp+41h] [rbp-BFh] BYREF
   ULONG_PTR v17; // [rsp+48h] [rbp-B8h] BYREF
   _BYTE v18[4]; // [rsp+50h] [rbp-B0h] BYREF
   ULONG NumberOfBytes[3]; // [rsp+54h] [rbp-ACh] BYREF
@@ -49,8 +49,8 @@ __int64 __fastcall sub_1404A8518(_DWORD *a1)
   *a1 = 0;
   v2 = 0LL;
   *(_QWORD *)&NumberOfBytes[1] = 0LL;
-  DevicePropertyData = RtlCheckPortableOperatingSystem(&v16);
-  if ( DevicePropertyData >= 0 && v16 )
+  DevicePropertyData = RtlCheckPortableOperatingSystem(IsPortable);
+  if ( DevicePropertyData >= 0 && IsPortable[0] )
   {
     v27 = *(_DWORD *)L"x:";
     v28 = asc_1405D1DC0[6];

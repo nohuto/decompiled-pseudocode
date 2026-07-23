@@ -1,13 +1,13 @@
 /*
- * XREFs of PfFbLogEntryComplete @ 0x14048B690
+ * XREFs of PfFbLogEntryComplete @ 0x1404851D0
  * Callers:
- *     PfTFiNotifyVolumeCreateCallback @ 0x14048B160 (PfTFiNotifyVolumeCreateCallback.c)
- *     PfTFiNotifyFileStreamCreateCallback @ 0x14048B2E0 (PfTFiNotifyFileStreamCreateCallback.c)
- *     PfTFiNotifyFileInfoDeleteCallback @ 0x14048B470 (PfTFiNotifyFileInfoDeleteCallback.c)
+ *     PfTFiNotifyVolumeCreateCallback @ 0x140484CA0 (PfTFiNotifyVolumeCreateCallback.c)
+ *     PfTFiNotifyFileStreamCreateCallback @ 0x140484E20 (PfTFiNotifyFileStreamCreateCallback.c)
+ *     PfTFiNotifyFileInfoDeleteCallback @ 0x140484FB0 (PfTFiNotifyFileInfoDeleteCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PfFbLogEntryComplete(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

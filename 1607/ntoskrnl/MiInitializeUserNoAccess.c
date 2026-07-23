@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeUserNoAccess @ 0x1404DC360
+ * XREFs of MiInitializeUserNoAccess @ 0x1404BF964
  * Callers:
- *     MiMapProcessExecutable @ 0x14046CDE8 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x14046BCB8 (MiMapProcessExecutable.c)
  * Callees:
- *     MiAllocateVad @ 0x14046D108 (MiAllocateVad.c)
- *     MiInsertProcessVads @ 0x14046D884 (MiInsertProcessVads.c)
- *     MiReturnProcessVads @ 0x140656F20 (MiReturnProcessVads.c)
+ *     MiAllocateVad @ 0x14046BFD8 (MiAllocateVad.c)
+ *     MiInsertProcessVads @ 0x14046C754 (MiInsertProcessVads.c)
+ *     MiReturnProcessVads @ 0x140657004 (MiReturnProcessVads.c)
  */
 
 __int64 __fastcall MiInitializeUserNoAccess(__int64 a1, unsigned __int64 a2)

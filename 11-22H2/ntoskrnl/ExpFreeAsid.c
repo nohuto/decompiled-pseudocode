@@ -12,20 +12,21 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
+void __fastcall ExpFreeAsid(unsigned int a1, void *a2)
 {
   _QWORD *v4; // rcx
   __int64 v5; // rax
   int v6; // ebx
-  LONG_PTR result; // rax
   unsigned __int64 OldIrql; // rdi
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v11; // zf
-  struct _KLOCK_QUEUE_HANDLE v12; // [rsp+20h] [rbp-28h] BYREF
+  int v11; // eax
+  bool v12; // zf
+  struct _KLOCK_QUEUE_HANDLE v13; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&v12, 0, sizeof(v12));
-  KeAcquireInStackQueuedSpinLock(&qword_140C2D3D8, &v12);
+  memset(&v13, 0, sizeof(v13));
+  KeAcquireInStackQueuedSpinLock(&qword_140C2D3D8, &v13);
   v4 = (char *)qword_140C2D3D0 + 16 * a1;
   v5 = v4[1] - 1LL;
   v4[1] = v5;
@@ -40,30 +41,26 @@ LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
     v6 = 1;
     --dword_140C2D3C8;
   }
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
-  OldIrql = v12.OldIrql;
-  if ( KiIrqlFlags )
+  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v13);
+  OldIrql = v13.OldIrql;
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v12.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v13.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v12.OldIrql + 1));
-      v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v11 = ~(unsigned __int16)(-1LL << (v13.OldIrql + 1));
+      v12 = (v11 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v11;
+      if ( v12 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);
   if ( v6 == 1 )
   {
     if ( a2 )
-      return ObfDereferenceObject(a2);
+      ObfDereferenceObject(a2);
   }
-  return result;
 }

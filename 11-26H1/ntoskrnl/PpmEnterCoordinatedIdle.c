@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEnterCoordinatedIdle @ 0x1403EC920
+ * XREFs of PpmEnterCoordinatedIdle @ 0x1402F9960
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403EB78C (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402F87D0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     KdPowerTransitionEx @ 0x14050A220 (KdPowerTransitionEx.c)
- *     KdCallPowerHandlers @ 0x1405E3910 (KdCallPowerHandlers.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     KdPowerTransitionEx @ 0x140503C90 (KdPowerTransitionEx.c)
+ *     KdCallPowerHandlers @ 0x1405E6280 (KdCallPowerHandlers.c)
  */
 
 unsigned int __fastcall PpmEnterCoordinatedIdle(int a1, int *a2, unsigned int a3, __int64 a4, unsigned int a5)
@@ -31,12 +31,12 @@ unsigned int __fastcall PpmEnterCoordinatedIdle(int a1, int *a2, unsigned int a3
       v14 = (int *)&v16;
       EtwTraceKernelEvent((int)&v14, 1, 0x40008000u, 4667, 1538);
     }
-    result = qword_140E270C0;
-    if ( !qword_140E270C0 )
+    result = qword_140E27200;
+    if ( !qword_140E27200 )
     {
-      result = dword_140E27100;
-      if ( a3 == dword_140E27100 )
-        result = _InterlockedCompareExchange64(&qword_140E270C0, MEMORY[0xFFFFF78000000008], 0LL);
+      result = dword_140E27240;
+      if ( a3 == dword_140E27240 )
+        result = _InterlockedCompareExchange64(&qword_140E27200, MEMORY[0xFFFFF78000000008], 0LL);
     }
     v11 = a5;
     if ( a5 )

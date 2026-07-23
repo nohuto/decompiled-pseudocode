@@ -16,7 +16,7 @@ void __fastcall PopDiagNextSleepStudySession(GUID *a1, __int64 a2)
 {
   GUID *v4; // rax
   __int128 v5; // xmm0
-  __int128 v6; // [rsp+40h] [rbp-28h] BYREF
+  __int128 Buffer; // [rsp+40h] [rbp-28h] BYREF
   char v7; // [rsp+50h] [rbp-18h]
 
   if ( !PopSleepStudyDisabled )
@@ -62,8 +62,8 @@ void __fastcall PopDiagNextSleepStudySession(GUID *a1, __int64 a2)
       KeReleaseMutex(&PopWdiTimerMutex, 0);
       v5 = *(_OWORD *)PopWdiCurrentScenario;
       v7 = PopWdiCurrentScenarioInstanceId;
-      v6 = v5;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_SCENARIO_CHANGE, (__int64)&v6, 20LL);
+      Buffer = v5;
+      ZwUpdateWnfStateData(&WNF_PO_SCENARIO_CHANGE, &Buffer, 0x14u, 0LL, 0LL, 0, 0);
     }
   }
 }

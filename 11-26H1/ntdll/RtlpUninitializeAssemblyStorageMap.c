@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpUninitializeAssemblyStorageMap @ 0x1800A2828
+ * XREFs of RtlpUninitializeAssemblyStorageMap @ 0x1800A1958
  * Callers:
- *     RtlpFreeActivationContext @ 0x1800A1EC8 (RtlpFreeActivationContext.c)
- *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x1800A23B0 (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
+ *     RtlpFreeActivationContext @ 0x1800A0FF8 (RtlpFreeActivationContext.c)
+ *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x1800A14E0 (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
  */
 
-__int64 __fastcall RtlpUninitializeAssemblyStorageMap(__int64 a1)
+int __fastcall RtlpUninitializeAssemblyStorageMap(__int64 a1)
 {
-  __int64 *v1; // rdi
+  PVOID *v1; // rdi
   unsigned int i; // esi
-  __int64 result; // rax
+  PVOID v4; // rax
   __int64 v5; // rbp
   void *v6; // rcx
 
   if ( a1 )
   {
-    v1 = (__int64 *)(a1 + 8);
+    v1 = (PVOID *)(a1 + 8);
     for ( i = 0; i < *(_DWORD *)(a1 + 4); ++i )
     {
-      result = *v1;
-      v5 = *(_QWORD *)(*v1 + 8LL * i);
+      v4 = *v1;
+      v5 = *((_QWORD *)*v1 + i);
       if ( v5 )
       {
         v6 = *(void **)(v5 + 24);
@@ -33,14 +33,14 @@ __int64 __fastcall RtlpUninitializeAssemblyStorageMap(__int64 a1)
           NtClose(v6);
           *(_QWORD *)(v5 + 24) = 0LL;
         }
-        *(_QWORD *)(*v1 + 8LL * i) = 0LL;
-        result = RtlFreeHeap_0();
+        *((_QWORD *)*v1 + i) = 0LL;
+        LODWORD(v4) = RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v5);
       }
     }
     if ( (*(_BYTE *)a1 & 1) != 0 )
-      result = RtlFreeHeap_0();
+      LODWORD(v4) = RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, *v1);
     *(_QWORD *)a1 = 0LL;
     *v1 = 0LL;
   }
-  return result;
+  return (int)v4;
 }

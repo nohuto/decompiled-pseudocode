@@ -1,10 +1,10 @@
 /*
- * XREFs of VfDriverLoadSucceeded @ 0x140ABCEB0
+ * XREFs of VfDriverLoadSucceeded @ 0x140ABCEA0
  * Callers:
  *     MiDriverLoadSucceeded @ 0x140695BC4 (MiDriverLoadSucceeded.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     ViXdvDriverLoadImage @ 0x140ACAA4C (ViXdvDriverLoadImage.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     ViXdvDriverLoadImage @ 0x140ACAA3C (ViXdvDriverLoadImage.c)
  */
 
 void __fastcall VfDriverLoadSucceeded(__int64 a1)

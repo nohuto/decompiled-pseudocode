@@ -16,24 +16,32 @@
 void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
 {
   int v4; // eax
-  unsigned __int64 v5; // rcx
-  unsigned __int64 v6; // rsi
+  int v5; // eax
+  unsigned __int64 v6; // rcx
+  int v7; // eax
+  unsigned __int64 v8; // rsi
+  int v9; // eax
 
   if ( !ExceptionRecord )
     goto LABEL_7;
   if ( ExceptionRecord->ExceptionCode == -2147483607 )
   {
-    if ( ExceptionRecord->NumberParameters && LdrControlFlowGuardEnforced() )
+    if ( ExceptionRecord->NumberParameters )
     {
-      LOBYTE(v4) = LdrControlFlowGuardEnforcedWithExportSuppression();
-      v5 = ExceptionRecord->ExceptionInformation[0];
+      LOBYTE(v4) = LdrControlFlowGuardEnforced();
       if ( v4 )
-        LdrpValidateUserCallTargetES(v5);
-      else
-        LdrpValidateUserCallTarget(v5);
+      {
+        LOBYTE(v5) = LdrControlFlowGuardEnforcedWithExportSuppression();
+        v6 = ExceptionRecord->ExceptionInformation[0];
+        if ( v5 )
+          LdrpValidateUserCallTargetES(v6);
+        else
+          LdrpValidateUserCallTarget(v6);
+      }
     }
 LABEL_7:
-    if ( LdrControlFlowGuardEnforced() && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+    LOBYTE(v7) = LdrControlFlowGuardEnforced();
+    if ( v7 && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
       goto LABEL_9;
     goto LABEL_15;
   }
@@ -41,18 +49,19 @@ LABEL_7:
   {
     if ( ExceptionRecord->ExceptionCode == -1073741785 )
     {
-      if ( (((unsigned __int64)qword_1801993A8 >> 60) & 3) != 1 )
-        RtlGuardCheckExceptionHandler(ContextRecord->Rip, 0LL, 0LL);
+      if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
+        RtlGuardCheckExceptionHandler((PVOID)ContextRecord->Rip);
       goto LABEL_15;
     }
     goto LABEL_7;
   }
-  v6 = ExceptionRecord->ExceptionInformation[0];
-  if ( LdrControlFlowGuardEnforced() && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v6 + 16)) )
+  v8 = ExceptionRecord->ExceptionInformation[0];
+  LOBYTE(v9) = LdrControlFlowGuardEnforced();
+  if ( v9 && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v8 + 16)) )
 LABEL_9:
     __fastfail(0xDu);
-  if ( (((unsigned __int64)qword_1801993A8 >> 60) & 3) != 1 )
-    RtlGuardCheckLongJumpTarget(*(_QWORD *)(v6 + 80), 0LL, 0LL);
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
+    RtlGuardCheckLongJumpTarget(*(PVOID *)(v8 + 80), 0, 0LL);
 LABEL_15:
   RtlRestoreContext(ContextRecord, ExceptionRecord);
 }

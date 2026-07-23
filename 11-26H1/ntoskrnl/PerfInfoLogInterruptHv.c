@@ -1,11 +1,11 @@
 /*
- * XREFs of PerfInfoLogInterruptHv @ 0x14047D4E0
+ * XREFs of PerfInfoLogInterruptHv @ 0x140476E50
  * Callers:
- *     KiHvInterruptSubDispatch @ 0x14072E690 (KiHvInterruptSubDispatch.c)
- *     KiVmbusInterruptSubDispatch @ 0x14072E740 (KiVmbusInterruptSubDispatch.c)
+ *     KiHvInterruptSubDispatch @ 0x140733260 (KiHvInterruptSubDispatch.c)
+ *     KiVmbusInterruptSubDispatch @ 0x140733310 (KiVmbusInterruptSubDispatch.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfInfoLogInterruptHv(__int64 a1, int a2, __int64 a3)

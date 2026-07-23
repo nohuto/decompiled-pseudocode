@@ -1,9 +1,9 @@
 /*
- * XREFs of PfxRemovePrefix @ 0x140687FA0
+ * XREFs of PfxRemovePrefix @ 0x140688084
  * Callers:
  *     <none>
  * Callees:
- *     RtlDelete @ 0x1400C58D4 (RtlDelete.c)
+ *     RtlDelete @ 0x1400C3774 (RtlDelete.c)
  */
 
 void __stdcall PfxRemovePrefix(PPREFIX_TABLE PrefixTable, PPREFIX_TABLE_ENTRY PrefixTableEntry)

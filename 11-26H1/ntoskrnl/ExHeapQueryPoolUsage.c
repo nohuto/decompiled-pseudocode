@@ -1,7 +1,7 @@
 /*
- * XREFs of ExHeapQueryPoolUsage @ 0x1404AB0EC
+ * XREFs of ExHeapQueryPoolUsage @ 0x1404A477C
  * Callers:
- *     ExQueryPoolUsage @ 0x1404AB0A8 (ExQueryPoolUsage.c)
+ *     ExQueryPoolUsage @ 0x1404A4738 (ExQueryPoolUsage.c)
  * Callees:
  *     <none>
  */
@@ -29,10 +29,10 @@ _DWORD *__fastcall ExHeapQueryPoolUsage(
 
   *a1 = 0;
   v8 = 0;
-  for ( *a2 = 0; v8 < HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink); ++v8 )
+  for ( *a2 = 0; v8 < HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink); ++v8 )
   {
     v12 = 2LL;
-    v13 = &stru_140E6BCE8.SListFaultAddress + 1048 * v8;
+    v13 = &stru_140E6BFE8.SListFaultAddress + 1048 * v8;
     v14 = (__int64 *)(v13 + 2);
     do
     {

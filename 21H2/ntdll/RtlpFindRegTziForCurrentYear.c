@@ -6,10 +6,10 @@
  *     RtlpQueryRegistryValues @ 0x180045B3C (RtlpQueryRegistryValues.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     _itow_s @ 0x180096CA0 (_itow_s.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
-__int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, WCHAR *a2, __int16 a3)
+__int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, const WCHAR *a2, __int16 a3)
 {
   int v3; // esi
   int RegistryValues; // ebx

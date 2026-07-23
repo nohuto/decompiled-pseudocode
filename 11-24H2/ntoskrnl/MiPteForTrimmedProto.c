@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPteForTrimmedProto @ 0x140232FE4
+ * XREFs of MiPteForTrimmedProto @ 0x140202660
  * Callers:
- *     MiWsleFlush @ 0x140286410 (MiWsleFlush.c)
+ *     MiWsleFlush @ 0x140201004 (MiWsleFlush.c)
  * Callees:
- *     MiGetWsleProtection @ 0x140233100 (MiGetWsleProtection.c)
- *     MiMakePrototypePteDirect @ 0x1402331F0 (MiMakePrototypePteDirect.c)
- *     MiMakePrototypePteVadLookup @ 0x140236340 (MiMakePrototypePteVadLookup.c)
- *     MiGetWsleContents @ 0x1402E5390 (MiGetWsleContents.c)
- *     MiClonePteReadonly @ 0x14049B904 (MiClonePteReadonly.c)
+ *     MiGetWsleProtection @ 0x140202860 (MiGetWsleProtection.c)
+ *     MiMakePrototypePteDirect @ 0x140203600 (MiMakePrototypePteDirect.c)
+ *     MiMakePrototypePteVadLookup @ 0x1402104D0 (MiMakePrototypePteVadLookup.c)
+ *     MiGetWsleContents @ 0x140344BE0 (MiGetWsleContents.c)
+ *     MiClonePteReadonly @ 0x140496434 (MiClonePteReadonly.c)
  */
 
 __int64 __fastcall MiPteForTrimmedProto(__int64 a1, __int64 a2, char a3)
@@ -22,7 +22,7 @@ __int64 __fastcall MiPteForTrimmedProto(__int64 a1, __int64 a2, char a3)
   __int64 v12; // r10
   __int64 v13; // r8
 
-  LOBYTE(v5) = MiGetWsleContents(a1, a2);
+  LOBYTE(v5) = MiGetWsleContents();
   WsleProtection = MiGetWsleProtection(v6, v5);
   if ( WsleProtection )
     return MiMakePrototypePteVadLookup(WsleProtection);

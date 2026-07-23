@@ -1,5 +1,5 @@
 /*
- * XREFs of KasanInitSystem @ 0x1403B6120
+ * XREFs of KasanInitSystem @ 0x1403B6300
  * Callers:
  *     KiInitializeBootStructures @ 0x140A8B590 (KiInitializeBootStructures.c)
  * Callees:

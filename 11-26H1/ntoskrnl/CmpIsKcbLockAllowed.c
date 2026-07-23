@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpIsKcbLockAllowed @ 0x140A91F54
+ * XREFs of CmpIsKcbLockAllowed @ 0x140A96AA4
  * Callers:
- *     CmpFindSubkeyInHashByChildCell @ 0x1408D43A0 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1408DA960 (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
  *     <none>
  */

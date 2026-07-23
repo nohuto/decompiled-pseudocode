@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpLbrConfigureProcessor @ 0x14056A080
+ * XREFs of HalpLbrConfigureProcessor @ 0x140567510
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)

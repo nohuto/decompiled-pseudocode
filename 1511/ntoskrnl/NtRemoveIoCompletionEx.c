@@ -13,20 +13,20 @@
  *     ProbeForWrite @ 0x14042F1F0 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtRemoveIoCompletionEx(
-        HANDLE Handle,
-        volatile void *Address,
-        unsigned int a3,
-        _DWORD *a4,
-        ULONG64 a5,
-        BOOLEAN a6)
+NTSTATUS __cdecl NtRemoveIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        PFILE_IO_COMPLETION_INFORMATION IoCompletionInformation,
+        ULONG Count,
+        PULONG NumEntriesRemoved,
+        PLARGE_INTEGER Timeout,
+        BOOLEAN Alertable)
 {
   __int64 v7; // rsi
   __int64 *v10; // rbx
   KPROCESSOR_MODE PreviousMode; // r15
   LARGE_INTEGER *v12; // r14
   PLIST_ENTRY *v13; // rbx
-  NTSTATUS v14; // edi
+  int v14; // edi
   _DWORD *v16; // rcx
   SIZE_T v17; // rdx
   PLIST_ENTRY *PoolWithTagPriority; // rax
@@ -36,24 +36,24 @@ __int64 __fastcall NtRemoveIoCompletionEx(
   __int64 v22; // [rsp+60h] [rbp-D8h] BYREF
   _BYTE P[128]; // [rsp+70h] [rbp-C8h] BYREF
 
-  v7 = a3;
-  v10 = (__int64 *)a5;
+  v7 = Count;
+  v10 = (__int64 *)Timeout;
   v19 = 0;
-  if ( !a3 || a3 > 0x7FFFFFF )
-    return 3221225485LL;
+  if ( !Count || Count > 0x7FFFFFF )
+    return -1073741811;
   v20 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(Address, 32LL * a3, 8u);
-    v16 = a4;
-    if ( (unsigned __int64)a4 >= MmUserProbeAddress )
+    ProbeForWrite(IoCompletionInformation, 32LL * Count, 8u);
+    v16 = NumEntriesRemoved;
+    if ( (unsigned __int64)NumEntriesRemoved >= MmUserProbeAddress )
       v16 = (_DWORD *)MmUserProbeAddress;
     *v16 = *v16;
-    if ( a5 )
+    if ( Timeout )
     {
       v20 = (LARGE_INTEGER *)&v22;
-      if ( a5 >= MmUserProbeAddress )
+      if ( (unsigned __int64)Timeout >= MmUserProbeAddress )
         v10 = (__int64 *)MmUserProbeAddress;
       v22 = *v10;
     }
@@ -62,8 +62,8 @@ __int64 __fastcall NtRemoveIoCompletionEx(
   else
   {
     v12 = v20;
-    if ( a5 )
-      v12 = (LARGE_INTEGER *)a5;
+    if ( Timeout )
+      v12 = Timeout;
   }
   if ( (unsigned int)v7 > 0x10 )
   {
@@ -83,23 +83,23 @@ __int64 __fastcall NtRemoveIoCompletionEx(
   }
   v13 = (PLIST_ENTRY *)P;
 LABEL_8:
-  v14 = ObReferenceObjectByHandle(Handle, 2u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
+  v14 = ObReferenceObjectByHandle(IoCompletionHandle, 2u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
   if ( v14 >= 0 )
   {
     v14 = (unsigned int)IoRemoveIoCompletion(
                           (struct _KQUEUE *)Object,
-                          (__int64)Address,
+                          (__int64)IoCompletionInformation,
                           v13,
                           v7,
                           &v19,
                           PreviousMode,
                           v12,
-                          a6);
+                          Alertable);
     ObfDereferenceObject(Object);
   }
   if ( v13 != (PLIST_ENTRY *)P )
     ExFreePoolWithTag(v13, 0);
   if ( v14 >= 0 )
-    *a4 = v19;
-  return (unsigned int)v14;
+    *NumEntriesRemoved = v19;
+  return v14;
 }

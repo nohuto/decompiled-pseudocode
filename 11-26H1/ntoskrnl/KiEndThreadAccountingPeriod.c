@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEndThreadAccountingPeriod @ 0x1405F65F0
+ * XREFs of KiEndThreadAccountingPeriod @ 0x1405F8FB0
  * Callers:
  *     <none>
  * Callees:
- *     KiEndThreadAccountingPeriodEx @ 0x140225DC0 (KiEndThreadAccountingPeriodEx.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140227750 (KiEndThreadAccountingPeriodEx.c)
  */
 
 void __fastcall KiEndThreadAccountingPeriod(__int64 a1, __int64 a2, unsigned __int64 a3)

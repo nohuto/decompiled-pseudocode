@@ -1,9 +1,9 @@
 /*
- * XREFs of MiApplyCompressedFixups @ 0x1409CF120
+ * XREFs of MiApplyCompressedFixups @ 0x1409A0100
  * Callers:
- *     MiPerformFixups @ 0x1409CED50 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x14099FD30 (MiPerformFixups.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiApplyCompressedFixups(

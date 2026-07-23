@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceEvent @ 0x140ABB3B8
+ * XREFs of PopPowerAggregatorDiagTraceEvent @ 0x140ABC878
  * Callers:
- *     PopPowerAggregatorDozeTimerArm @ 0x1407D65DC (PopPowerAggregatorDozeTimerArm.c)
- *     PopPowerAggregatorDozeTimerWorker @ 0x1407D66B0 (PopPowerAggregatorDozeTimerWorker.c)
- *     PopNotifyCsStateExited @ 0x140ABB270 (PopNotifyCsStateExited.c)
- *     PopPowerAggregatorWorker @ 0x140ABB2C0 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorDozeTimerArm @ 0x1407D9768 (PopPowerAggregatorDozeTimerArm.c)
+ *     PopPowerAggregatorDozeTimerWorker @ 0x1407D9840 (PopPowerAggregatorDozeTimerWorker.c)
+ *     PopNotifyCsStateExited @ 0x140ABC730 (PopNotifyCsStateExited.c)
+ *     PopPowerAggregatorWorker @ 0x140ABC780 (PopPowerAggregatorWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
  */
 
 void __fastcall PopPowerAggregatorDiagTraceEvent(
@@ -15,14 +15,9 @@ void __fastcall PopPowerAggregatorDiagTraceEvent(
         ULONG UserDataCount,
         PEVENT_DATA_DESCRIPTOR UserData)
 {
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], EventDescriptor) )
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        EventDescriptor,
-        0LL,
-        UserDataCount,
-        UserData);
+    if ( EtwEventEnabled(PopDiagHandle, EventDescriptor) )
+      EtwWrite(PopDiagHandle, EventDescriptor, 0LL, UserDataCount, UserData);
   }
 }

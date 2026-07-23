@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWow64CallFunction64 @ 0x18010AC20
+ * XREFs of RtlWow64CallFunction64 @ 0x18010A590
  * Callers:
  *     <none>
  * Callees:

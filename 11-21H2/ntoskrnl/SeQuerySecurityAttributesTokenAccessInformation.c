@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     SepTokenFromAccessInformation @ 0x1402E1484 (SepTokenFromAccessInformation.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140300534 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     sub_1402E1484 @ 0x1402E1484 (sub_1402E1484.c)
+ *     sub_140300534 @ 0x140300534 (sub_140300534.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -26,8 +26,8 @@ __int64 __fastcall SeQuerySecurityAttributesTokenAccessInformation(
     if ( a4 )
     {
 LABEL_3:
-      SepTokenFromAccessInformation(a1, v12);
-      return SepInternalQuerySecurityAttributesTokenEx((unsigned int)v12, v10, a2, a3, 0, a4, a5, a6);
+      sub_1402E1484(a1, v12);
+      return sub_140300534((unsigned int)v12, v10, a2, a3, 0, a4, a5, a6);
     }
   }
   else if ( !a4 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtStringIntern @ 0x1409066A0
+ * XREFs of PopEtStringIntern @ 0x14099D320
  * Callers:
- *     PopEtEnergyContextSetState @ 0x140904E6C (PopEtEnergyContextSetState.c)
+ *     PopEtEnergyContextSetState @ 0x14099BAF0 (PopEtEnergyContextSetState.c)
  * Callees:
- *     RtlInternTableIntern @ 0x140907824 (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x1408DEF40 (RtlInternTableIntern.c)
  */
 
 __int64 __fastcall PopEtStringIntern(__int64 a1, __int64 a2, __int64 *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall PopEtStringIntern(__int64 a1, __int64 a2, __int64 *a3)
   v8[2] = 1LL;
   v7[1] = 0LL;
   v7[3] = 2LL;
-  v5 = RtlInternTableIntern(PopEtGlobals + 56, v8);
+  v5 = RtlInternTableIntern(PopEtGlobals + 56, (__int64)v8);
   if ( v5 )
     *a3 = v5;
   else

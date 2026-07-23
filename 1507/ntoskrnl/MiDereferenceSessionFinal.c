@@ -39,7 +39,7 @@ __int64 MiDereferenceSessionFinal()
   struct _KTHREAD *v6; // rcx
   __int16 v7; // ax
   __int64 v8; // r9
-  union _SLIST_HEADER *v9; // r15
+  _SLIST_HEADER *v9; // r15
   __int64 v10; // r12
   ULONG_PTR v11; // r8
   __int64 v12; // rax
@@ -91,7 +91,7 @@ __int64 MiDereferenceSessionFinal()
   MiFreeSessionSpaceMap();
   if ( (*(_DWORD *)(v2 + 4) & 1) != 0 )
   {
-    v9 = (union _SLIST_HEADER *)(v2 + 192);
+    v9 = (_SLIST_HEADER *)(v2 + 192);
     v10 = 21LL;
     do
     {

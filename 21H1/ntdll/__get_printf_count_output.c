@@ -9,5 +9,5 @@
 
 int __cdecl _get_printf_count_output()
 {
-  return dword_4B3A40FC == (__security_cookie | 1);
+  return dword_4B3A40FC == ((unsigned int)__security_cookie | 1);
 }

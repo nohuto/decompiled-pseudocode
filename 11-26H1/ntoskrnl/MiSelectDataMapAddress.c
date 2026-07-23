@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSelectDataMapAddress @ 0x1409C4E10
+ * XREFs of MiSelectDataMapAddress @ 0x140995DF0
  * Callers:
- *     MiMapViewOfDataSection @ 0x1409C47B0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfDataSection @ 0x140995790 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     MiFindPlaceholderVadToReplace @ 0x1404CC098 (MiFindPlaceholderVadToReplace.c)
- *     MiSelectUserAddress @ 0x1409C4FA0 (MiSelectUserAddress.c)
- *     MiIsVaRangeAvailable @ 0x1409CE424 (MiIsVaRangeAvailable.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     MiFindPlaceholderVadToReplace @ 0x1404C5AC8 (MiFindPlaceholderVadToReplace.c)
+ *     MiSelectUserAddress @ 0x140995F80 (MiSelectUserAddress.c)
+ *     MiIsVaRangeAvailable @ 0x14099F404 (MiIsVaRangeAvailable.c)
  */
 
 __int64 __fastcall MiSelectDataMapAddress(__int64 *a1)

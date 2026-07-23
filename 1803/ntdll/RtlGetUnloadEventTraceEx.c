@@ -6,13 +6,9 @@
  *     <none>
  */
 
-__int64 *__fastcall RtlGetUnloadEventTraceEx(_QWORD *a1, _QWORD *a2, _QWORD *a3)
+void __cdecl RtlGetUnloadEventTraceEx(PULONG *ElementSize, PULONG *ElementCount, PVOID *EventTrace)
 {
-  __int64 *result; // rax
-
-  *a1 = &unk_18015971C;
-  *a2 = &dword_180159720;
-  result = &qword_18015CF88;
-  *a3 = &qword_18015CF88;
-  return result;
+  *ElementSize = (PULONG)&unk_18015971C;
+  *ElementCount = (PULONG)&dword_180159720;
+  *EventTrace = &qword_18015CF88;
 }

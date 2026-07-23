@@ -1,13 +1,13 @@
 /*
- * XREFs of SepIsMinTCB @ 0x1406B9B9C
+ * XREFs of SepIsMinTCB @ 0x1406B9BCC
  * Callers:
- *     SeQuerySigningPolicy @ 0x1406B97BC (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x1406B97EC (SeQuerySigningPolicy.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     SepIsImageInMinTcbList @ 0x1406B9D88 (SepIsImageInMinTcbList.c)
- *     RtlPrefixUnicodeString @ 0x1406D9E20 (RtlPrefixUnicodeString.c)
- *     SepSetSystemPaths @ 0x140855CF0 (SepSetSystemPaths.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     SepIsImageInMinTcbList @ 0x1406B9DB8 (SepIsImageInMinTcbList.c)
+ *     RtlPrefixUnicodeString @ 0x1406D9E50 (RtlPrefixUnicodeString.c)
+ *     SepSetSystemPaths @ 0x140855FF0 (SepSetSystemPaths.c)
  */
 
 __int64 __fastcall SepIsMinTCB(

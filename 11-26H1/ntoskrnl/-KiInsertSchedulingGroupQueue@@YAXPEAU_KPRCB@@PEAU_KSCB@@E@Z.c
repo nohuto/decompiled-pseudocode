@@ -1,28 +1,28 @@
 /*
- * XREFs of ?KiInsertSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x140335D20
+ * XREFs of ?KiInsertSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x140337D50
  * Callers:
- *     ?KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z @ 0x140335CBC (-KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z.c)
- *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x140336618 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     ?KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z @ 0x140337CEC (-KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z.c)
+ *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x140338648 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
  */
 
-void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2, __int64 a3)
+void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2, char a3)
 {
   _KSCB *Parent; // r10
-  char v4; // di
   _RTL_RB_TREE *p_ChildScbQueue; // r10
   unsigned __int64 Root; // rdx
+  BOOLEAN v8; // r8
   unsigned int Rank; // r11d
-  int v9; // eax
+  int v10; // eax
   unsigned int ReadySummary; // eax
-  int v11; // r9d
-  int v12; // eax
-  _RTL_BALANCED_NODE *v13; // rax
+  unsigned int v12; // r8d
+  int v13; // r9d
+  int v14; // eax
+  _RTL_BALANCED_NODE *v15; // rax
 
   Parent = a2->Parent;
   a2->PrcbLockFlags |= 1u;
-  v4 = a3;
   if ( Parent )
   {
     p_ChildScbQueue = &Parent->ChildScbQueue;
@@ -41,13 +41,13 @@ void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2
     else
       Root = 0LL;
   }
-  LOBYTE(a3) = 0;
+  v8 = 0;
   if ( Root )
   {
     Rank = a2->Rank;
     while ( 1 )
     {
-      v9 = Rank - *(_DWORD *)(Root + 36);
+      v10 = Rank - *(_DWORD *)(Root + 36);
       if ( Rank != *(_DWORD *)(Root + 36) )
         goto LABEL_13;
       ReadySummary = a2->ReadySummary;
@@ -56,51 +56,51 @@ void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2
       if ( Rank || a2->GenerationCycles > *(_QWORD *)(Root - 104) )
       {
 LABEL_21:
-        v13 = *(_RTL_BALANCED_NODE **)(Root + 8);
+        v15 = *(_RTL_BALANCED_NODE **)(Root + 8);
         if ( (*(_BYTE *)&p_ChildScbQueue->0 & 1) != 0 )
         {
-          if ( !v13 )
+          if ( !v15 )
             goto LABEL_23;
-          v13 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v13);
+          v15 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v15);
         }
-        if ( !v13 )
+        if ( !v15 )
         {
 LABEL_23:
-          LOBYTE(a3) = 1;
+          v8 = 1;
           goto LABEL_24;
         }
         goto LABEL_18;
       }
 LABEL_14:
-      v13 = *(_RTL_BALANCED_NODE **)Root;
+      v15 = *(_RTL_BALANCED_NODE **)Root;
       if ( (*(_BYTE *)&p_ChildScbQueue->0 & 1) != 0 )
       {
-        if ( !v13 )
+        if ( !v15 )
           goto LABEL_34;
-        v13 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v13);
+        v15 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v15);
       }
-      if ( !v13 )
+      if ( !v15 )
       {
 LABEL_34:
-        LOBYTE(a3) = 0;
+        v8 = 0;
         goto LABEL_24;
       }
 LABEL_18:
-      Root = (unsigned __int64)v13;
+      Root = (unsigned __int64)v15;
     }
-    a3 = *(unsigned __int16 *)(Root + 32);
-    _BitScanReverse((unsigned int *)&v11, ReadySummary);
-    v12 = 0;
-    if ( (_WORD)a3 )
-      _BitScanReverse((unsigned int *)&v12, a3);
-    v9 = v12 - v11;
+    v12 = *(unsigned __int16 *)(Root + 32);
+    _BitScanReverse((unsigned int *)&v13, ReadySummary);
+    v14 = 0;
+    if ( (_WORD)v12 )
+      _BitScanReverse((unsigned int *)&v14, v12);
+    v10 = v14 - v13;
 LABEL_13:
-    if ( v9 >= 0 )
+    if ( v10 >= 0 )
       goto LABEL_21;
     goto LABEL_14;
   }
 LABEL_24:
-  RtlRbInsertNodeEx(p_ChildScbQueue, Root, a3, &a2->QueueNode);
-  if ( v4 )
+  RtlRbInsertNodeEx(p_ChildScbQueue, (PRTL_BALANCED_NODE)Root, v8, &a2->QueueNode);
+  if ( a3 )
     a2->InsertTime = MEMORY[0xFFFFF78000000008];
 }

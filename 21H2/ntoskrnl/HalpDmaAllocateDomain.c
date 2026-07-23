@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpDmaAllocateDomain @ 0x1403C71E8
+ * XREFs of HalpDmaAllocateDomain @ 0x1403C7388
  * Callers:
- *     HalJoinDmaDomain @ 0x1403C7110 (HalJoinDmaDomain.c)
+ *     HalJoinDmaDomain @ 0x1403C72B0 (HalJoinDmaDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaReferenceDomainObject @ 0x1403A1414 (HalpDmaReferenceDomainObject.c)
- *     HalpIommuAllocateDmaDomain @ 0x1403AC688 (HalpIommuAllocateDmaDomain.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaReferenceDomainObject @ 0x1403A1564 (HalpDmaReferenceDomainObject.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403AD418 (HalpIommuAllocateDmaDomain.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpDmaAddReservedRangesToDomain @ 0x1404C4A10 (HalpDmaAddReservedRangesToDomain.c)
- *     HalpDmaDereferenceDomainObject @ 0x1404C4AF8 (HalpDmaDereferenceDomainObject.c)
- *     HalpLaFreeState @ 0x1404DB1C4 (HalpLaFreeState.c)
- *     HalpLaInitializeState @ 0x1404DB200 (HalpLaInitializeState.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpDmaAddReservedRangesToDomain @ 0x1404C4C50 (HalpDmaAddReservedRangesToDomain.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4D38 (HalpDmaDereferenceDomainObject.c)
+ *     HalpLaFreeState @ 0x1404DB404 (HalpLaFreeState.c)
+ *     HalpLaInitializeState @ 0x1404DB440 (HalpLaInitializeState.c)
  */
 
 __int64 __fastcall HalpDmaAllocateDomain(unsigned __int64 *a1, _QWORD *a2, unsigned int a3, char a4, __int64 a5)
@@ -47,14 +47,14 @@ __int64 __fastcall HalpDmaAllocateDomain(unsigned __int64 *a1, _QWORD *a2, unsig
     return v11;
   memset(v10, 0, 0x88uLL);
   v12 = KeAcquireSpinLockRaiseToDpc(&HalpDmaDomainListLock);
-  v13 = (__int64 *)qword_140C49E38;
+  v13 = (__int64 *)qword_140C49E78;
   v14 = v12;
-  if ( *(__int64 **)qword_140C49E38 != &HalpDmaDomainList )
+  if ( *(__int64 **)qword_140C49E78 != &HalpDmaDomainList )
     __fastfail(3u);
-  *(_QWORD *)(v11 + 8) = qword_140C49E38;
+  *(_QWORD *)(v11 + 8) = qword_140C49E78;
   *(_QWORD *)v11 = &HalpDmaDomainList;
   *v13 = v11;
-  qword_140C49E38 = v11;
+  qword_140C49E78 = v11;
   KxReleaseSpinLock(&HalpDmaDomainListLock);
   v15 = -1LL;
   if ( KiIrqlFlags )

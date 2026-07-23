@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@@KK@Z @ 0x140846E58
+ * XREFs of ?ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@@KK@Z @ 0x14084D0B8
  * Callers:
- *     ?ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x140846D5C (-ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z.c)
+ *     ?ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x14084CFBC (-ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z.c)
  * Callees:
- *     IoInitializeWorkItem @ 0x1404854B0 (IoInitializeWorkItem.c)
- *     IoSizeofWorkItem @ 0x1404A12B0 (IoSizeofWorkItem.c)
- *     ?ExpLookasideMgrAllocatePoolOnNode@@YAPEAXK_K@Z @ 0x14083A8C8 (-ExpLookasideMgrAllocatePoolOnNode@@YAPEAXK_K@Z.c)
- *     ?ExpLookasideMgrComputeWorkerSetAffinity@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@G@Z @ 0x140846BD0 (-ExpLookasideMgrComputeWorkerSetAffinity@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@G@Z.c)
+ *     IoInitializeWorkItem @ 0x14047EE20 (IoInitializeWorkItem.c)
+ *     IoSizeofWorkItem @ 0x14049ADE0 (IoSizeofWorkItem.c)
+ *     ?ExpLookasideMgrAllocatePoolOnNode@@YAPEAXK_K@Z @ 0x140840B08 (-ExpLookasideMgrAllocatePoolOnNode@@YAPEAXK_K@Z.c)
+ *     ?ExpLookasideMgrComputeWorkerSetAffinity@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@G@Z @ 0x14084CE30 (-ExpLookasideMgrComputeWorkerSetAffinity@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@G@Z.c)
  */
 
 __int64 __fastcall ExpLookasideMgrWorkerSetAllocate(
@@ -47,7 +47,7 @@ __int64 __fastcall ExpLookasideMgrWorkerSetAllocate(
         v14 = (struct _IO_WORKITEM *)ExpLookasideMgrAllocatePoolOnNode(a4, v11);
         v15 = v14;
         if ( v14 )
-          IoInitializeWorkItem(*(PVOID *)((char *)&ExpSysDbgLock.116 + 4), v14);
+          IoInitializeWorkItem((PVOID)ExpSysDbgLock.QuantumTarget, v14);
         ++v10;
         *(_QWORD *)(v13 + v12 + 8) = v15;
       }

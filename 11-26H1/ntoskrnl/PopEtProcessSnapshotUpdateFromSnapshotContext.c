@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1409517A0
+ * XREFs of PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1409CD0E0
  * Callers:
- *     PopEtProcessSnapshotUpdate @ 0x140951054 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x1409CC994 (PopEtProcessSnapshotUpdate.c)
  * Callees:
- *     RtlInternEntryDereference @ 0x1409518B8 (RtlInternEntryDereference.c)
- *     PopEtStringReference @ 0x140951A08 (PopEtStringReference.c)
+ *     RtlInternEntryDereference @ 0x1409CD1F8 (RtlInternEntryDereference.c)
+ *     PopEtStringReference @ 0x1409CD348 (PopEtStringReference.c)
  */
 
 __int16 __fastcall PopEtProcessSnapshotUpdateFromSnapshotContext(__int64 a1, _QWORD *a2, __int64 a3)

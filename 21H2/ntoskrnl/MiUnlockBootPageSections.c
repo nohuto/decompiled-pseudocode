@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockBootPageSections @ 0x140A544E0
+ * XREFs of MiUnlockBootPageSections @ 0x140A554E0
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     MiLockPagableSections @ 0x140A545BC (MiLockPagableSections.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     MiLockPagableSections @ 0x140A555BC (MiLockPagableSections.c)
  */
 
 _QWORD *MiUnlockBootPageSections()
@@ -14,6 +14,9 @@ _QWORD *MiUnlockBootPageSections()
   struct _KTHREAD *CurrentThread; // rdi
   PVOID *i; // rbx
   int v2; // eax
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -28,5 +31,5 @@ _QWORD *MiUnlockBootPageSections()
     }
   }
   ExReleaseResourceLite(&PsLoadedModuleResource);
-  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread, v3, v4, v5);
 }

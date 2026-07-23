@@ -1,32 +1,32 @@
 /*
- * XREFs of KiResetClockInterval @ 0x1405EE66C
+ * XREFs of KiResetClockInterval @ 0x1405F0FDC
  * Callers:
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x14051FE68 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x14052250C (KiSetVirtualHeteroClockIntervalRequest.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     KiSetNextClockTickDueTime @ 0x1403796D0 (KiSetNextClockTickDueTime.c)
- *     KiSetClockTimerKTimerDeadlines @ 0x140379C60 (KiSetClockTimerKTimerDeadlines.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x140418DA0 (PoTraceSystemTimerResolutionKernel.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x140419438 (KiSetClockIntervalToMinimumRequested.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     KiSetNextClockTickDueTime @ 0x14037B480 (KiSetNextClockTickDueTime.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x14037BA10 (KiSetClockTimerKTimerDeadlines.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x14040D2D0 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14040D968 (KiSetClockIntervalToMinimumRequested.c)
  */
 
-__int64 __fastcall KiResetClockInterval(__int64 a1)
+__int64 __fastcall KiResetClockInterval(PRTL_BALANCED_NODE Node)
 {
-  int v2; // edx
-  __int64 InterruptTimePrecise; // rdi
-  unsigned __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  int Right; // edx
+  LARGE_INTEGER InterruptTimePrecise; // rdi
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  RtlRbRemoveNode((__int64)&KiClockIntervalRequests, a1);
-  v2 = *(_DWORD *)(a1 + 32);
-  InterruptTimePrecise = 0LL;
-  *(_BYTE *)(a1 + 24) = 0;
-  if ( v2 )
-    PoTraceSystemTimerResolutionKernel(0, v2, 1);
+  RtlRbRemoveNode(&KiClockIntervalRequests, Node);
+  Right = (int)Node[1].Right;
+  InterruptTimePrecise.QuadPart = 0LL;
+  LOBYTE(Node[1].Children[0]) = 0;
+  if ( Right )
+    PoTraceSystemTimerResolutionKernel(0, Right, 1);
   if ( !KiClockTimerPerCpuTickScheduling )
     return KiSetClockIntervalToMinimumRequested();
   if ( KiClockTimerReducePreciseTimeQueries )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v5);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   KiSetClockTimerKTimerDeadlines((__int64)KeGetCurrentPrcb(), InterruptTimePrecise, 0);
   return KiSetNextClockTickDueTime(InterruptTimePrecise, 1);
 }

@@ -3,12 +3,12 @@
  * Callers:
  *     MiDeleteEmptyPageTableTail @ 0x1403F4E40 (MiDeleteEmptyPageTableTail.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     MiCaptureDeleteHierarchy @ 0x1402FE3F0 (MiCaptureDeleteHierarchy.c)
- *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiLockWorkingSetExclusive @ 0x14054F7B0 (MiLockWorkingSetExclusive.c)
- *     MiReturnPageTablePageCommitment @ 0x1406EE990 (MiReturnPageTablePageCommitment.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     MiCaptureDeleteHierarchy @ 0x140309140 (MiCaptureDeleteHierarchy.c)
+ *     MiGetLeafVa @ 0x140337BB0 (MiGetLeafVa.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiLockWorkingSetExclusive @ 0x14054F9F0 (MiLockWorkingSetExclusive.c)
+ *     MiReturnPageTablePageCommitment @ 0x140705D70 (MiReturnPageTablePageCommitment.c)
  */
 
 unsigned __int64 __fastcall MiDeleteEmptyPageTableCommit(__int64 *a1)

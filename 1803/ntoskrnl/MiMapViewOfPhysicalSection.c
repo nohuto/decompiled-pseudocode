@@ -62,7 +62,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, _QWORD *a2, _QWORD *a3
   __int64 v39; // rcx
   unsigned __int64 v40; // rax
   __int64 v41; // r9
-  struct _RTL_BITMAP *v42; // r8
+  _RTL_BITMAP *v42; // r8
   int v43; // edi
   __int64 v44; // r8
   __int64 v45; // r9
@@ -72,7 +72,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, _QWORD *a2, _QWORD *a3
   __int64 v49; // r10
   __int64 v50; // rcx
   unsigned __int64 v51; // [rsp+50h] [rbp-68h]
-  struct _RTL_BITMAP *v52; // [rsp+58h] [rbp-60h] BYREF
+  _RTL_BITMAP *v52; // [rsp+58h] [rbp-60h] BYREF
   unsigned __int64 v53; // [rsp+60h] [rbp-58h]
   unsigned __int64 v54; // [rsp+68h] [rbp-50h]
   unsigned __int64 v55; // [rsp+70h] [rbp-48h]

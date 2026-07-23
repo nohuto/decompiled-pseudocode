@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiFillVad @ 0x1403680D4
+ * XREFs of EtwpTiFillVad @ 0x140368274
  * Callers:
- *     EtwpTiFillVadEventWrite @ 0x140368018 (EtwpTiFillVadEventWrite.c)
- *     EtwTiLogReadWriteVm @ 0x14076BE3C (EtwTiLogReadWriteVm.c)
- *     EtwTiLogProtectExecVm @ 0x1408A75EA (EtwTiLogProtectExecVm.c)
+ *     EtwpTiFillVadEventWrite @ 0x1403681B8 (EtwpTiFillVadEventWrite.c)
+ *     EtwTiLogReadWriteVm @ 0x14076C02C (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogProtectExecVm @ 0x1408A783A (EtwTiLogProtectExecVm.c)
  * Callees:
  *     <none>
  */

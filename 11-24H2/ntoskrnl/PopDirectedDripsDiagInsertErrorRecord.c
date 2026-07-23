@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x140A9D5C8
+ * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x140A98B38
  * Callers:
- *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14076445C (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x14076453C (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x140763E2C (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x140763F0C (PopDirectedDripsDiagTraceProblemDevice.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagInsertErrorRecord(__int64 a1, __int64 a2, int a3)
@@ -29,7 +29,7 @@ __int64 __fastcall PopDirectedDripsDiagInsertErrorRecord(__int64 a1, __int64 a2,
     if ( *v3 )
       goto LABEL_6;
   }
-  result = ExAllocatePool2(0x100uLL);
+  result = ExAllocatePool2(0x100uLL, 0x18uLL, 0x67696450u);
   *v3 = result;
   if ( result )
   {

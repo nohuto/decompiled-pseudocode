@@ -1,35 +1,35 @@
 /*
- * XREFs of ExpWnfDeleteScopeById @ 0x1406135B8
+ * XREFs of ExpWnfDeleteScopeById @ 0x14060C48C
  * Callers:
- *     ExWnfExitProcess @ 0x140612E8C (ExWnfExitProcess.c)
- *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
+ *     ExWnfExitProcess @ 0x1406A293C (ExWnfExitProcess.c)
+ *     MiDereferenceSessionFinal @ 0x1407784E0 (MiDereferenceSessionFinal.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     ExpWnfFindScopeInstance @ 0x14061043C (ExpWnfFindScopeInstance.c)
- *     ExpWnfFreeScopeInstance @ 0x1406BF6E0 (ExpWnfFreeScopeInstance.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExpWnfFreeScopeInstance @ 0x14060C594 (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfFindScopeInstance @ 0x14069FEEC (ExpWnfFindScopeInstance.c)
  */
 
-char __fastcall ExpWnfDeleteScopeById(__int64 a1, const void *a2, unsigned int a3)
+char __fastcall ExpWnfDeleteScopeById(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v4; // rbx
   _QWORD *CurrentServerSiloGlobals; // rax
   __int64 v7; // r9
   __int64 v8; // r14
   unsigned __int64 *v9; // rbx
-  __int64 v10; // rax
-  __int64 v11; // rdi
-  _QWORD *ScopeInstance; // rax
+  _RTL_BALANCED_NODE *v10; // rax
+  _RTL_BALANCED_NODE *v11; // rdi
+  __int64 ScopeInstance; // rax
   void *v13; // rdi
   _QWORD *v14; // rcx
   __int64 v15; // rdx
   _QWORD *v16; // rax
 
   v4 = (unsigned int)a1;
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(a1, (__int64)a2);
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(a1, a2);
   v7 = CurrentServerSiloGlobals[114];
   if ( v7 )
   {
@@ -40,14 +40,14 @@ char __fastcall ExpWnfDeleteScopeById(__int64 a1, const void *a2, unsigned int a
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
       ExfAcquirePushLockExclusiveEx(v9, v10, (ULONG_PTR)v9);
     if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
-    ScopeInstance = ExpWnfFindScopeInstance((_QWORD **)(v8 + 40), a2, a3);
-    v13 = ScopeInstance;
+      BYTE2(v11[1].Left) |= 1u;
+    ScopeInstance = ExpWnfFindScopeInstance(v8 + 40, a2, a3);
+    v13 = (void *)ScopeInstance;
     if ( ScopeInstance )
     {
-      v14 = ScopeInstance + 4;
-      v15 = ScopeInstance[4];
-      v16 = (_QWORD *)ScopeInstance[5];
+      v14 = (_QWORD *)(ScopeInstance + 32);
+      v15 = *(_QWORD *)(ScopeInstance + 32);
+      v16 = *(_QWORD **)(ScopeInstance + 40);
       if ( *(_QWORD **)(v15 + 8) != v14 || (_QWORD *)*v16 != v14 )
         __fastfail(3u);
       *v16 = v15;

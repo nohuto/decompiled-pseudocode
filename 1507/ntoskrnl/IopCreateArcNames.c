@@ -20,7 +20,7 @@ __int64 __fastcall IopCreateArcNames(__int64 a1)
   SIZE_T v3; // rbx
   PVOID PoolWithTagPriority; // rax
   __int64 result; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-A8h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-A8h] BYREF
   char pszDest[128]; // [rsp+30h] [rbp-98h] BYREF
 
   RtlStringCchPrintfA(pszDest, 0x80uLL, "\\ArcName\\%s", *(const char **)(a1 + 192));

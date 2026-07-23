@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpConsoleFallbackNameFromLocaleName @ 0x180001794
+ * XREFs of RtlpConsoleFallbackNameFromLocaleName @ 0x18004CECC
  * Callers:
- *     RtlpFilterandReplaceConsoleLanguages @ 0x180001AEC (RtlpFilterandReplaceConsoleLanguages.c)
+ *     RtlpFilterandReplaceConsoleLanguages @ 0x18004D21C (RtlpFilterandReplaceConsoleLanguages.c)
  * Callees:
- *     RtlpGetAlternateCodePage @ 0x18000138C (RtlpGetAlternateCodePage.c)
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlpNlsGetNameIndex @ 0x180004930 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x180004A18 (RtlpLoadNlsData.c)
- *     RtlpNlsGetLcidIndex @ 0x180006490 (RtlpNlsGetLcidIndex.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
+ *     RtlpGetAlternateCodePage @ 0x18004CAC4 (RtlpGetAlternateCodePage.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     RtlpNlsGetNameIndex @ 0x180050060 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x180050148 (RtlpLoadNlsData.c)
+ *     RtlpNlsGetLcidIndex @ 0x180051BC0 (RtlpNlsGetLcidIndex.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
  */
 
 __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
         wchar_t *String2,
         char a2,
         bool *a3,
-        UNICODE_STRING *a4,
+        _UNICODE_STRING *a4,
         __int64 a5,
         unsigned __int16 a6)
 {
@@ -56,7 +56,7 @@ __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
   *a3 = 0;
   if ( !v11 || (unsigned __int8)RtlpLoadNlsData() )
   {
-    LcidIndex = RtlpNlsGetLcidIndex((unsigned int)gSystemLocale);
+    LcidIndex = RtlpNlsGetLcidIndex(gSystemLocale);
     if ( LcidIndex >= 0 )
     {
       _mm_lfence();

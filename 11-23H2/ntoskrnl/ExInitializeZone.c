@@ -1,5 +1,5 @@
 /*
- * XREFs of ExInitializeZone @ 0x14060C0D0
+ * XREFs of ExInitializeZone @ 0x14060C620
  * Callers:
  *     <none>
  * Callees:

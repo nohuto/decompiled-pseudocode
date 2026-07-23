@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceKernelEventWithFilter @ 0x1405FE508
+ * XREFs of EtwpTraceKernelEventWithFilter @ 0x1405FEA78
  * Callers:
- *     EtwTraceObjectOperation @ 0x1405FD014 (EtwTraceObjectOperation.c)
- *     EtwTraceDuplicateHandle @ 0x1409E50BC (EtwTraceDuplicateHandle.c)
- *     EtwTraceObject @ 0x1409E5BD8 (EtwTraceObject.c)
- *     EtwpTraceHandle @ 0x1409E6B8C (EtwpTraceHandle.c)
+ *     EtwTraceObjectOperation @ 0x1405FD584 (EtwTraceObjectOperation.c)
+ *     EtwTraceDuplicateHandle @ 0x1409E534C (EtwTraceDuplicateHandle.c)
+ *     EtwTraceObject @ 0x1409E5E68 (EtwTraceObject.c)
+ *     EtwpTraceHandle @ 0x1409E6E1C (EtwpTraceHandle.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
  */
 
 void __fastcall EtwpTraceKernelEventWithFilter(

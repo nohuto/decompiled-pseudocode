@@ -1,33 +1,34 @@
 /*
- * XREFs of MiEnablePagingOfDriver @ 0x140C4EA40
+ * XREFs of MiEnablePagingOfDriver @ 0x140C50BD0
  * Callers:
  *     <none>
  * Callees:
- *     MiSetPagingOfDriver @ 0x14049CBA8 (MiSetPagingOfDriver.c)
- *     MiImagePagable @ 0x1407E7D70 (MiImagePagable.c)
- *     MiSnapDriverRange @ 0x140A3DE88 (MiSnapDriverRange.c)
- *     MiLockPagableSections @ 0x140C5B998 (MiLockPagableSections.c)
+ *     MiSetPagingOfDriver @ 0x140497850 (MiSetPagingOfDriver.c)
+ *     MiImagePagable @ 0x1407E8340 (MiImagePagable.c)
+ *     MiSnapDriverRange @ 0x140A33798 (MiSnapDriverRange.c)
+ *     MiLockPagableSections @ 0x140C5DB28 (MiLockPagableSections.c)
  */
 
 __int64 __fastcall MiEnablePagingOfDriver(__int64 a1)
 {
   unsigned __int64 v1; // rdx
   unsigned int v3; // edi
-  unsigned __int64 *v5; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v6; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v4; // r9
+  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v7; // [rsp+50h] [rbp+18h] BYREF
 
   v1 = *(_QWORD *)(a1 + 48);
+  v7 = 0LL;
   v6 = 0LL;
-  v5 = 0LL;
   *(_DWORD *)(a1 + 104) |= 0x400000u;
   if ( MiImagePagable(a1, v1) )
   {
     v3 = 0;
     do
     {
-      v3 = MiSnapDriverRange(a1, v3, 1, 0LL, (unsigned __int64 *)&v5, &v6);
-      if ( v5 )
-        MiSetPagingOfDriver(a1, v5, v6);
+      v3 = MiSnapDriverRange(a1, v3, 1, 0LL, (unsigned __int64 *)&v6, &v7);
+      if ( v6 )
+        MiSetPagingOfDriver(a1, v6, v7, v4);
     }
     while ( v3 );
     MiLockPagableSections(a1, 1LL);

@@ -17,13 +17,13 @@ __int64 __fastcall sub_1800049F4(__int64 a1, _QWORD *a2)
   __int64 v4; // rcx
   __int64 v5; // rdx
   unsigned int v6; // eax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
   unsigned int v8; // [rsp+40h] [rbp+8h] BYREF
 
   if ( *(_WORD *)(a1 + 144) )
   {
     RtlInitUnicodeString(&DestinationString, (PCWSTR)(a1 + 176));
-    return sub_180004B90(&DestinationString, a2);
+    return sub_180004B90(&DestinationString);
   }
   v4 = *(unsigned __int16 *)(a1 + 8);
   v5 = qword_18015A420;

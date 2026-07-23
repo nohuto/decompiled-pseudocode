@@ -1,9 +1,9 @@
 /*
- * XREFs of NtLoadKey2 @ 0x14070F5A0
+ * XREFs of NtLoadKey2 @ 0x140710840
  * Callers:
  *     <none>
  * Callees:
- *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x1405B5DBC (CmLoadDifferencingKey.c)
  */
 
 NTSTATUS __stdcall NtLoadKey2(

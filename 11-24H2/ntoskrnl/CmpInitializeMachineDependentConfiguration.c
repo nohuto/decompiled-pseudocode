@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpInitializeMachineDependentConfiguration @ 0x140C4953C
+ * XREFs of CmpInitializeMachineDependentConfiguration @ 0x140C4B660
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     __report_rangecheckfailure @ 0x1404F51BC (__report_rangecheckfailure.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwOpenSection @ 0x1406A6AF0 (ZwOpenSection.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     CmpAddProcessorConfigurationEntry @ 0x1407D4D18 (CmpAddProcessorConfigurationEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpInitializeSystemBiosInformation @ 0x140C47B10 (CmpInitializeSystemBiosInformation.c)
- *     CmpSetSystemBiosInformation @ 0x140C49AE0 (CmpSetSystemBiosInformation.c)
- *     CmpSetVideoBiosInformation @ 0x140C49E80 (CmpSetVideoBiosInformation.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     __report_rangecheckfailure @ 0x1404F2ABC (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwOpenSection @ 0x1406A7A90 (ZwOpenSection.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x1407D5208 (CmpAddProcessorConfigurationEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpInitializeSystemBiosInformation @ 0x140C49C60 (CmpInitializeSystemBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x140C4BC04 (CmpSetSystemBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x140C4BFA4 (CmpSetVideoBiosInformation.c)
  */
 
 NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
@@ -47,13 +47,13 @@ NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-D8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-A8h] BYREF
   int Data; // [rsp+A0h] [rbp-98h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-90h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-90h] BYREF
   __int64 v25; // [rsp+B8h] [rbp-80h]
   UNICODE_STRING v26; // [rsp+C0h] [rbp-78h] BYREF
   UNICODE_STRING v27; // [rsp+D0h] [rbp-68h] BYREF
   __int64 v28; // [rsp+E0h] [rbp-58h] BYREF
   int v29; // [rsp+E8h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+F0h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+F0h] [rbp-48h] BYREF
 
   v25 = a1;
   v28 = 0LL;
@@ -185,12 +185,12 @@ LABEL_26:
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwOpenSection(&SectionHandle, 0xF001Fu, &ObjectAttributes) >= 0 )
     {
-      v15 = dword_140EFEAF0;
-      if ( dword_140EFEAF0 == 1 )
+      v15 = dword_140EFEE10;
+      if ( dword_140EFEE10 == 1 )
         CmpSetSystemBiosInformation(v1, SectionHandle, Handle);
       else
         CmpInitializeSystemBiosInformation(v1);
-      Table = HalpAcpiGetTable(v1, 1346584902, 0LL, 0LL);
+      Table = HalpAcpiGetTable(v1, 1346584902, 0, 0);
       if ( Table )
       {
         if ( *(_BYTE *)(Table + 8) > 1u )

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpTimeFieldsToTime @ 0x1401270E0
+ * XREFs of RtlpTimeFieldsToTime @ 0x1401271B0
  * Callers:
- *     GetBootSystemTime @ 0x1409D1C24 (GetBootSystemTime.c)
+ *     GetBootSystemTime @ 0x1409D2C24 (GetBootSystemTime.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140127158 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140127228 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
  */
 
 char __fastcall RtlpTimeFieldsToTime(__int64 a1, __int64 *a2, __int64 a3)

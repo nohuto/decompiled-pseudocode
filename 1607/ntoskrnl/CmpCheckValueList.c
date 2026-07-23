@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCheckValueList @ 0x14043C940
+ * XREFs of CmpCheckValueList @ 0x14043B810
  * Callers:
- *     CmpCheckKey @ 0x14043D610 (CmpCheckKey.c)
+ *     CmpCheckKey @ 0x14043C4E0 (CmpCheckKey.c)
  * Callees:
- *     HvpReleaseHCell @ 0x14002D330 (HvpReleaseHCell.c)
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryIsDiscardable @ 0x14002D6D0 (HvpMapEntryIsDiscardable.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     HvIsCellAllocated @ 0x1404399C0 (HvIsCellAllocated.c)
- *     CmpCompareUnicodeString @ 0x1404D2580 (CmpCompareUnicodeString.c)
- *     CmpCompareCompressedName @ 0x140512960 (CmpCompareCompressedName.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     HvpReleaseHCell @ 0x14002CEB0 (HvpReleaseHCell.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryIsDiscardable @ 0x14002D250 (HvpMapEntryIsDiscardable.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     HvIsCellAllocated @ 0x140438890 (HvIsCellAllocated.c)
+ *     CmpCompareUnicodeString @ 0x1404B6020 (CmpCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1404F5D50 (CmpCompareCompressedName.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCheckValueList(

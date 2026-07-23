@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlBootStatusItemInfo @ 0x140A6804C
+ * XREFs of RtlBootStatusItemInfo @ 0x140A6154C
  * Callers:
- *     RtlCheckBootStatusIntegrity @ 0x140782BE4 (RtlCheckBootStatusIntegrity.c)
+ *     RtlCheckBootStatusIntegrity @ 0x140782B14 (RtlCheckBootStatusIntegrity.c)
  * Callees:
  *     <none>
  */

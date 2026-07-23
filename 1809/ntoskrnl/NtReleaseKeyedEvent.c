@@ -1,5 +1,5 @@
 /*
- * XREFs of NtReleaseKeyedEvent @ 0x1406C3AF0
+ * XREFs of NtReleaseKeyedEvent @ 0x1406C4D90
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,10 @@
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeReleaseSemaphore @ 0x1400C5E00 (KeReleaseSemaphore.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtReleaseKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Alertable, PLARGE_INTEGER Timeout)
@@ -23,8 +23,8 @@ NTSTATUS __stdcall NtReleaseKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   char *v9; // rcx
   unsigned __int64 *v10; // rsi
   struct _LIST_ENTRY *v11; // r14
-  __int64 v12; // rax
-  __int64 v13; // r13
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // r13
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY **p_Blink; // r13
   struct _LIST_ENTRY *v16; // rdx
@@ -33,8 +33,8 @@ NTSTATUS __stdcall NtReleaseKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   NTSTATUS result; // eax
   LIST_ENTRY *p_WaitListHead; // rax
   struct _LIST_ENTRY *v21; // rcx
-  __int64 v22; // rax
-  __int64 v23; // r14
+  _RTL_BALANCED_NODE *v22; // rax
+  _RTL_BALANCED_NODE *v23; // r14
   LIST_ENTRY *v24; // rax
   struct _KTHREAD *v25; // rcx
   struct _LIST_ENTRY *v26; // rdx
@@ -86,7 +86,7 @@ NTSTATUS __stdcall NtReleaseKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
     ExfAcquirePushLockExclusiveEx(v10, v12, (ULONG_PTR)v10);
   if ( v13 )
-    *(_BYTE *)(v13 + 26) |= 1u;
+    BYTE2(v13[1].Left) |= 1u;
   Flink = v11->Flink;
   if ( v11->Flink == v11 )
   {
@@ -143,7 +143,7 @@ LABEL_25:
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
       ExfAcquirePushLockExclusiveEx(v10, v22, (ULONG_PTR)v10);
     if ( v23 )
-      *(_BYTE *)(v23 + 26) |= 1u;
+      BYTE2(v23[1].Left) |= 1u;
     v24 = &CurrentThread[1].Header.WaitListHead;
     v25 = (struct _KTHREAD *)CurrentThread[1].Header.WaitListHead.Flink;
     if ( v25 == (struct _KTHREAD *)&CurrentThread[1].Header.WaitListHead )

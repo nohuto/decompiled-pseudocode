@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwWaitForMultipleObjects(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&Count, Object, *(_QWORD *)&WaitType);
+  return KiServiceInternal(*(_QWORD *)&Count);
 }

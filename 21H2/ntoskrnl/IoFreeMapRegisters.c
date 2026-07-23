@@ -1,15 +1,15 @@
 /*
- * XREFs of IoFreeMapRegisters @ 0x1403A2CA0
+ * XREFs of IoFreeMapRegisters @ 0x1403A2DF0
  * Callers:
- *     HalPutScatterGatherList @ 0x14029E020 (HalPutScatterGatherList.c)
- *     HalPutScatterGatherListV3 @ 0x1403A2C20 (HalPutScatterGatherListV3.c)
- *     IoFreeAdapterChannelV3Internal @ 0x1404C6540 (IoFreeAdapterChannelV3Internal.c)
- *     IoFreeAdapterChannelV2 @ 0x1404CCDCC (IoFreeAdapterChannelV2.c)
- *     HalpAllocateMapRegisters @ 0x1408646B0 (HalpAllocateMapRegisters.c)
+ *     HalPutScatterGatherList @ 0x14021B580 (HalPutScatterGatherList.c)
+ *     HalPutScatterGatherListV3 @ 0x1403A2D70 (HalPutScatterGatherListV3.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x1404C6780 (IoFreeAdapterChannelV3Internal.c)
+ *     IoFreeAdapterChannelV2 @ 0x1404CD00C (IoFreeAdapterChannelV2.c)
+ *     HalpAllocateMapRegisters @ 0x140864810 (HalpAllocateMapRegisters.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
- *     IoFreeMapRegistersV3 @ 0x1403A2CD4 (IoFreeMapRegistersV3.c)
- *     IoFreeMapRegistersV2 @ 0x1404CCFA0 (IoFreeMapRegistersV2.c)
+ *     HalpDmaGetAdapterVersion @ 0x140234490 (HalpDmaGetAdapterVersion.c)
+ *     IoFreeMapRegistersV3 @ 0x1403A2E24 (IoFreeMapRegistersV3.c)
+ *     IoFreeMapRegistersV2 @ 0x1404CD1E0 (IoFreeMapRegistersV2.c)
  */
 
 void __stdcall IoFreeMapRegisters(PDMA_ADAPTER DmaAdapter, PVOID MapRegisterBase, ULONG NumberOfMapRegisters)

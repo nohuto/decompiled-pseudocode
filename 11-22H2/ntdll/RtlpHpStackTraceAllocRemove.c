@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, __int64 a2)
   __int128 v9; // [rsp+20h] [rbp-28h] BYREF
   __int64 v10; // [rsp+50h] [rbp+8h]
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   *(_DWORD *)a1 = NtCurrentTeb()->ClientId.UniqueThread;
   Mapping = (_QWORD *)RtlpHpStackTraceAllocFindMapping(a1, a2);
   v5 = (__int64)Mapping;
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, __int64 a2)
     v6 = 0LL;
   }
   *(_DWORD *)a1 = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   if ( v5 )
   {
     v9 = RtlpHpEnvHandle;

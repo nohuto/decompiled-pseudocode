@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPdcCompleteResiliencyCallback @ 0x140997E48
+ * XREFs of PopPdcCompleteResiliencyCallback @ 0x140998048
  * Callers:
- *     PopDirectedDripsNotifyResiliencyCompletionWorker @ 0x140586FA0 (PopDirectedDripsNotifyResiliencyCompletionWorker.c)
+ *     PopDirectedDripsNotifyResiliencyCompletionWorker @ 0x140587490 (PopDirectedDripsNotifyResiliencyCompletionWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 PopPdcCompleteResiliencyCallback()

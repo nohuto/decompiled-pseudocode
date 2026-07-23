@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 sub_180108760()
+NTSTATUS __fastcall sub_180108760(NTSTATUS **a1)
 {
-  return ZwTerminateProcess();
+  return ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, **a1);
 }

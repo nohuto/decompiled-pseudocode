@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkDebugExceptionTrap @ 0x140BDBA80
+ * XREFs of HalpBlkDebugExceptionTrap @ 0x140BDDA80
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140BDB900 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140BDD900 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkDebugExceptionTrap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

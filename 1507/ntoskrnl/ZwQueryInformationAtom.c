@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwQueryInformationAtom(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Atom, *(_QWORD *)&AtomInformationClass, AtomInformation);
+  return KiServiceInternal(Atom);
 }

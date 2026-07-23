@@ -7,8 +7,8 @@
  *     RtlpHeapAddListEntry @ 0x180044D74 (RtlpHeapAddListEntry.c)
  *     RtlpHeapRemoveListEntry @ 0x180048FDC (RtlpHeapRemoveListEntry.c)
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
- *     RtlpAnalyzeHeapFailure @ 0x1801163D4 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapHandleError @ 0x180116748 (RtlpHeapHandleError.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1801163A4 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x180116718 (RtlpHeapHandleError.c)
  */
 
 __int64 __fastcall RtlpPopulateListIndex(__int64 a1, __int64 a2, unsigned __int64 a3)

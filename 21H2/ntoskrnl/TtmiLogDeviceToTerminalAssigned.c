@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceToTerminalAssigned @ 0x140902614
+ * XREFs of TtmiLogDeviceToTerminalAssigned @ 0x140902774
  * Callers:
- *     TtmiAssignDevice @ 0x1408FC14C (TtmiAssignDevice.c)
+ *     TtmiAssignDevice @ 0x1408FC2AC (TtmiAssignDevice.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogDeviceToTerminalAssigned(int a1, int a2)
@@ -43,7 +43,13 @@ void __fastcall TtmiLogDeviceToTerminalAssigned(int a1, int a2)
       v16 = 4;
       v6 = a1;
       v7 = a2;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)byte_14002B729, 0LL, 0LL, 5u, &v8);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140D2D8C8,
+        (unsigned __int8 *)&dword_14002AE6C,
+        0LL,
+        0LL,
+        5u,
+        &v8);
     }
   }
 }

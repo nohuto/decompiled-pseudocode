@@ -1,16 +1,16 @@
 /*
- * XREFs of VslQueryActiveSecurePatches @ 0x14058DA90
+ * XREFs of VslQueryActiveSecurePatches @ 0x14058ADE8
  * Callers:
- *     MiLogHotPatchRundown @ 0x1407F44C4 (MiLogHotPatchRundown.c)
- *     MiQueryProcessActivePatches @ 0x140AAE3A8 (MiQueryProcessActivePatches.c)
+ *     MiLogHotPatchRundown @ 0x1407F4BB8 (MiLogHotPatchRundown.c)
+ *     MiQueryProcessActivePatches @ 0x140AA9284 (MiQueryProcessActivePatches.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslQueryActiveSecurePatches(__int64 a1, struct _MDL **a2, unsigned int *a3)
@@ -32,7 +32,7 @@ __int64 __fastcall VslQueryActiveSecurePatches(__int64 a1, struct _MDL **a2, uns
   memset_0(v13, 0, 0x48uLL);
   v15 = a1;
   v16 = 0LL;
-  v8 = VslpEnterIumSecureMode(2u, 73LL, 0, (__int64)v14);
+  v8 = VslpEnterIumSecureMode(2u, 0x49u, 0, (__int64)v14);
   if ( v8 >= 0 )
   {
     while ( 1 )
@@ -47,7 +47,7 @@ __int64 __fastcall VslQueryActiveSecurePatches(__int64 a1, struct _MDL **a2, uns
         v8 = -1073741811;
         break;
       }
-      Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL);
+      Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL, (unsigned int)v16, 0x54736D56u);
       v6 = Pool2;
       if ( !Pool2 )
       {
@@ -61,7 +61,7 @@ __int64 __fastcall VslQueryActiveSecurePatches(__int64 a1, struct _MDL **a2, uns
       *(__int64 **)&v16 = v13[0];
       *((__int64 **)&v16 + 1) = v13[7];
       v17 = v6;
-      v8 = VslpEnterIumSecureMode(2u, 73LL, 0, (__int64)v14);
+      v8 = VslpEnterIumSecureMode(2u, 0x49u, 0, (__int64)v14);
       VslpUnlockPagesForTransfer(v13);
       if ( v8 < 0 )
         break;

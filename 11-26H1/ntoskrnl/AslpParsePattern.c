@@ -1,9 +1,9 @@
 /*
- * XREFs of AslpParsePattern @ 0x14088A950
+ * XREFs of AslpParsePattern @ 0x140890D4C
  * Callers:
- *     AslRegWildcardFindFirst @ 0x14088A6CC (AslRegWildcardFindFirst.c)
+ *     AslRegWildcardFindFirst @ 0x140890AC8 (AslRegWildcardFindFirst.c)
  * Callees:
- *     AslpAllocMatchNode @ 0x14088A810 (AslpAllocMatchNode.c)
+ *     AslpAllocMatchNode @ 0x140890C0C (AslpAllocMatchNode.c)
  */
 
 __int64 __fastcall AslpParsePattern(unsigned __int64 a1, __int64 *a2)

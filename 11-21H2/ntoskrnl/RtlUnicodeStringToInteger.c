@@ -1,20 +1,20 @@
 /*
  * XREFs of RtlUnicodeStringToInteger @ 0x140698DE0
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x1403C5EDC (RtlpMuiRegAddAlternateCodePage.c)
- *     _PnpParseIndirectResourceString @ 0x1406974B8 (_PnpParseIndirectResourceString.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140698AAC (_PnpGetGenericStorePropertyKeys.c)
+ *     sub_1403C5EDC @ 0x1403C5EDC (sub_1403C5EDC.c)
+ *     sub_1406974B8 @ 0x1406974B8 (sub_1406974B8.c)
+ *     sub_140698AAC @ 0x140698AAC (sub_140698AAC.c)
  *     RtlQueryImageFileKeyOption @ 0x1406CC700 (RtlQueryImageFileKeyOption.c)
  *     RtlGetIntegerAtom @ 0x1407A0DF0 (RtlGetIntegerAtom.c)
- *     PspReadIFEOPerfOptions @ 0x1407F6CE0 (PspReadIFEOPerfOptions.c)
- *     PiDcInitUpdateProperties @ 0x140826EF0 (PiDcInitUpdateProperties.c)
- *     PspIsDfssEnabled @ 0x140835590 (PspIsDfssEnabled.c)
- *     CmpGetAcpiProfileInformation @ 0x1408386A0 (CmpGetAcpiProfileInformation.c)
- *     WdipSemLoadNextEndEvent @ 0x14083F908 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextScenario @ 0x14084028C (WdipSemLoadNextScenario.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x14084A618 (PopDetectSimulatedHeteroProcessors.c)
- *     RtlpQueryNlsSystemCodePages @ 0x14085AB8C (RtlpQueryNlsSystemCodePages.c)
- *     PiCMDeleteDeviceKey @ 0x140955274 (PiCMDeleteDeviceKey.c)
+ *     sub_1407F6CE0 @ 0x1407F6CE0 (sub_1407F6CE0.c)
+ *     sub_140826EF0 @ 0x140826EF0 (sub_140826EF0.c)
+ *     sub_140835590 @ 0x140835590 (sub_140835590.c)
+ *     sub_1408386A0 @ 0x1408386A0 (sub_1408386A0.c)
+ *     sub_14083F908 @ 0x14083F908 (sub_14083F908.c)
+ *     sub_14084028C @ 0x14084028C (sub_14084028C.c)
+ *     sub_14084A618 @ 0x14084A618 (sub_14084A618.c)
+ *     sub_14085AB8C @ 0x14085AB8C (sub_14085AB8C.c)
+ *     sub_140955274 @ 0x140955274 (sub_140955274.c)
  * Callees:
  *     <none>
  */

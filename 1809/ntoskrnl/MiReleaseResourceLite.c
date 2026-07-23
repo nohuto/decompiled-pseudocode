@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReleaseResourceLite @ 0x1402A1838
+ * XREFs of MiReleaseResourceLite @ 0x1402A1A28
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)

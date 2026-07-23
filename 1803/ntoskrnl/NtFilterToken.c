@@ -149,7 +149,7 @@ NTSTATUS __stdcall NtFilterToken(
                    uAddend[1],
                    v24,
                    v18,
-                   (__int64 *)v20,
+                   (PSID *)v20,
                    uAddend[0],
                    &v25);
       if ( inserted >= 0 )

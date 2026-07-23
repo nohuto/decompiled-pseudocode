@@ -1,10 +1,10 @@
 /*
- * XREFs of ViXdvBindXdvDriverEntryWrappers @ 0x1409C8D1C
+ * XREFs of ViXdvBindXdvDriverEntryWrappers @ 0x1409C9D1C
  * Callers:
- *     ViXdvDriverLoadImage @ 0x1409C8E2C (ViXdvDriverLoadImage.c)
+ *     ViXdvDriverLoadImage @ 0x1409C9E2C (ViXdvDriverLoadImage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405A0924 (VfUtilDbgPrint.c)
  */
 
 char __fastcall ViXdvBindXdvDriverEntryWrappers(__int64 (*a1)(void))

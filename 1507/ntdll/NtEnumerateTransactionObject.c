@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtEnumerateTransactionObject()
+NTSTATUS __cdecl NtEnumerateTransactionObject(
+        HANDLE RootObjectHandle,
+        KTMOBJECT_TYPE QueryType,
+        PKTMOBJECT_CURSOR ObjectCursor,
+        ULONG ObjectCursorLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 210LL;
+  result = 210;
   __asm { syscall; Low latency system call }
   return result;
 }

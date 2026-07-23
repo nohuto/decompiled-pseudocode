@@ -1,28 +1,28 @@
 /*
- * XREFs of PspSetQuotaLimits @ 0x1406A5F94
+ * XREFs of PspSetQuotaLimits @ 0x140603BC4
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     KeUnstackDetachProcess @ 0x1402075C0 (KeUnstackDetachProcess.c)
- *     MmEnforceWorkingSetLimit @ 0x1402521D8 (MmEnforceWorkingSetLimit.c)
- *     KeStackAttachProcess @ 0x14025C110 (KeStackAttachProcess.c)
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1402BE19C (MmAdjustWorkingSetSizeEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspLockWorkingSetChangeExclusiveUnsafe @ 0x140581924 (PspLockWorkingSetChangeExclusiveUnsafe.c)
- *     PspUnlockWorkingSetChangeExclusiveUnsafe @ 0x140581BD4 (PspUnlockWorkingSetChangeExclusiveUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     PspSinglePrivCheck @ 0x1406A63AC (PspSinglePrivCheck.c)
- *     PspAssignProcessQuotaBlock @ 0x1406AD8B4 (PspAssignProcessQuotaBlock.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14023C7DC (MmAdjustWorkingSetSizeEx.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     KeStackAttachProcess @ 0x14027D680 (KeStackAttachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1402ABEC0 (KeUnstackDetachProcess.c)
+ *     MmEnforceWorkingSetLimit @ 0x1402F69E8 (MmEnforceWorkingSetLimit.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspLockWorkingSetChangeExclusiveUnsafe @ 0x140581BAC (PspLockWorkingSetChangeExclusiveUnsafe.c)
+ *     PspUnlockWorkingSetChangeExclusiveUnsafe @ 0x140581E10 (PspUnlockWorkingSetChangeExclusiveUnsafe.c)
+ *     PspSinglePrivCheck @ 0x140603FDC (PspSinglePrivCheck.c)
+ *     PspAssignProcessQuotaBlock @ 0x14060BFA4 (PspAssignProcessQuotaBlock.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14069382C (SePrivilegedServiceAuditAlarm.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  */
 
 NTSTATUS __fastcall PspSetQuotaLimits(HANDLE Handle, __int64 a2, int a3, KPROCESSOR_MODE a4)
@@ -36,98 +36,99 @@ NTSTATUS __fastcall PspSetQuotaLimits(HANDLE Handle, __int64 a2, int a3, KPROCES
   char v14; // r14
   _QWORD *v15; // rsi
   __int64 v16; // rsi
-  bool v17; // zf
-  int v18; // esi
-  signed __int64 *v19; // rdi
-  struct _DMA_ADAPTER *v20; // rbx
-  char v21; // [rsp+40h] [rbp-118h]
-  char v22; // [rsp+41h] [rbp-117h]
-  char v23; // [rsp+42h] [rbp-116h] BYREF
-  char v24; // [rsp+43h] [rbp-115h]
+  __int64 v17; // r9
+  bool v18; // zf
+  int v19; // esi
+  signed __int64 *v20; // rdi
+  struct _DMA_ADAPTER *v21; // rbx
+  char v22; // [rsp+40h] [rbp-118h]
+  char v23; // [rsp+41h] [rbp-117h]
+  char v24; // [rsp+42h] [rbp-116h] BYREF
+  char v25; // [rsp+43h] [rbp-115h]
   PVOID Object; // [rsp+48h] [rbp-110h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-108h]
-  _QWORD *v27; // [rsp+58h] [rbp-100h]
-  _OWORD v28[6]; // [rsp+60h] [rbp-F8h] BYREF
+  _QWORD *v28; // [rsp+58h] [rbp-100h]
+  _OWORD v29[6]; // [rsp+60h] [rbp-F8h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+C0h] [rbp-98h] BYREF
-  __int128 v30; // [rsp+E0h] [rbp-78h] BYREF
-  __int64 v31; // [rsp+F0h] [rbp-68h]
+  __int128 v31; // [rsp+E0h] [rbp-78h] BYREF
+  __int64 v32; // [rsp+F0h] [rbp-68h]
   struct _KAPC_STATE ApcState; // [rsp+F8h] [rbp-60h] BYREF
 
   v8 = 0;
   Object = 0LL;
-  memset(v28, 0, 0x58uLL);
+  memset(v29, 0, 0x58uLL);
   memset(&ApcState, 0, sizeof(ApcState));
-  v23 = 0;
+  v24 = 0;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  v30 = 0LL;
   v31 = 0LL;
+  v32 = 0LL;
   if ( a3 == 48 )
   {
-    v28[0] = *(_OWORD *)a2;
-    v28[1] = *(_OWORD *)(a2 + 16);
-    v28[2] = *(_OWORD *)(a2 + 32);
-    memset(&v28[3], 0, 40);
-    v21 = 1;
+    v29[0] = *(_OWORD *)a2;
+    v29[1] = *(_OWORD *)(a2 + 16);
+    v29[2] = *(_OWORD *)(a2 + 32);
+    memset(&v29[3], 0, 40);
+    v22 = 1;
   }
   else
   {
     if ( a3 != 88 )
       return -1073741820;
-    v21 = 0;
-    v28[0] = *(_OWORD *)a2;
-    v28[1] = *(_OWORD *)(a2 + 16);
-    v28[2] = *(_OWORD *)(a2 + 32);
-    v28[3] = *(_OWORD *)(a2 + 48);
-    v28[4] = *(_OWORD *)(a2 + 64);
-    *(_QWORD *)&v28[5] = *(_QWORD *)(a2 + 80);
+    v22 = 0;
+    v29[0] = *(_OWORD *)a2;
+    v29[1] = *(_OWORD *)(a2 + 16);
+    v29[2] = *(_OWORD *)(a2 + 32);
+    v29[3] = *(_OWORD *)(a2 + 48);
+    v29[4] = *(_OWORD *)(a2 + 64);
+    *(_QWORD *)&v29[5] = *(_QWORD *)(a2 + 80);
   }
-  if ( (v28[5] & 0xFFFFFFE0) != 0 || (v28[5] & 3) == 3 || (v28[5] & 0xC) == 0xC )
+  if ( (v29[5] & 0xFFFFFFE0) != 0 || (v29[5] & 3) == 3 || (v29[5] & 0xC) == 0xC )
     return -1073741811;
-  if ( (v28[5] & 1) != 0 )
+  if ( (v29[5] & 1) != 0 )
   {
     v10 = 4;
   }
   else
   {
     v10 = 0;
-    if ( (v28[5] & 2) != 0 )
+    if ( (v29[5] & 2) != 0 )
       v10 = 8;
   }
-  if ( (v28[5] & 4) != 0 )
+  if ( (v29[5] & 4) != 0 )
   {
     v10 |= 1u;
   }
-  else if ( (v28[5] & 8) != 0 )
+  else if ( (v29[5] & 8) != 0 )
   {
     v10 |= 2u;
   }
-  if ( *((_QWORD *)&v28[3] + 1) | *(_QWORD *)&v28[4] | *((_QWORD *)&v28[4] + 1) | DWORD1(v28[5]) )
+  if ( *((_QWORD *)&v29[3] + 1) | *(_QWORD *)&v29[4] | *((_QWORD *)&v29[4] + 1) | DWORD1(v29[5]) )
     return -1073741811;
   result = ObReferenceObjectByHandleWithTag(Handle, 0x100u, (POBJECT_TYPE)PsProcessType, a4, 0x79517350u, &Object, 0LL);
   if ( result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     v12 = 0;
-    if ( *((_UNKNOWN **)Object + 173) != &PspSystemQuotaBlock || *(_QWORD *)&v28[1] && *((_QWORD *)&v28[1] + 1) )
+    if ( *((_UNKNOWN **)Object + 173) != &PspSystemQuotaBlock || *(_QWORD *)&v29[1] && *((_QWORD *)&v29[1] + 1) )
     {
-      if ( *(_QWORD *)&v28[1] && *((_QWORD *)&v28[1] + 1) )
+      if ( *(_QWORD *)&v29[1] && *((_QWORD *)&v29[1] + 1) )
       {
-        if ( v28[1] == __PAIR128__(-1LL, -1LL) )
+        if ( v29[1] == __PAIR128__(-1LL, -1LL) )
         {
-          v22 = 1;
+          v23 = 1;
           v13 = 0;
-          v24 = 0;
+          v25 = 0;
         }
         else
         {
-          v22 = 0;
+          v23 = 0;
           LOBYTE(v11) = a4;
-          v13 = PspSinglePrivCheck(*((_QWORD *)&v28[1] + 1), -1LL, v11, &SubjectContext);
-          v24 = 1;
+          v13 = PspSinglePrivCheck(*((_QWORD *)&v29[1] + 1), -1LL, v11, &SubjectContext);
+          v25 = 1;
         }
         v14 = 0;
         v15 = Object;
-        v27 = Object;
+        v28 = Object;
         while ( 1 )
         {
           KeStackAttachProcess((PRKPROCESS)Object, &ApcState);
@@ -141,60 +142,63 @@ NTSTATUS __fastcall PspSetQuotaLimits(HANDLE Handle, __int64 a2, int a3, KPROCES
               v10 = 1;
               v13 = 1;
               v8 = 1;
-              if ( !v22 )
-                v28[1] = *(_OWORD *)(v16 + 792);
+              if ( !v23 )
+                v29[1] = *(_OWORD *)(v16 + 792);
             }
             PspLockWorkingSetChangeExclusiveUnsafe();
             ExReleaseResourceLite((PERESOURCE)(v16 + 56));
           }
           v12 = MmAdjustWorkingSetSizeEx(
-                  *(unsigned __int64 *)&v28[1],
-                  *((unsigned __int64 *)&v28[1] + 1),
+                  *(unsigned __int64 *)&v29[1],
+                  *((unsigned __int64 *)&v29[1] + 1),
                   0,
                   v13,
                   v10,
-                  &v23);
+                  &v24);
           if ( v12 < 0 && v8 == 1 )
             MmEnforceWorkingSetLimit((_KPROCESS *)Object, v10);
           if ( v16 )
             PspUnlockWorkingSetChangeExclusiveUnsafe();
           KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
           KeUnstackDetachProcess(&ApcState);
-          if ( v23 == 1 && !v8 )
+          if ( v24 == 1 && !v8 )
             v14 = 1;
-          v17 = v27[162] == v16;
-          v15 = v27;
-          if ( v17 )
+          v18 = v28[162] == v16;
+          v15 = v28;
+          if ( v18 )
             break;
           v8 = 0;
         }
-        if ( v24 == 1 && BYTE4(v31) )
+        if ( v25 == 1 && BYTE4(v32) )
         {
           if ( v14 == 1 )
-            SePrivilegedServiceAuditAlarm((int)L"$&", (__int64 *)&SubjectContext, (__int64)&v30, SBYTE5(v31));
+          {
+            LOBYTE(v17) = BYTE5(v32);
+            SePrivilegedServiceAuditAlarm(L"$&", &SubjectContext, &v31, v17);
+          }
           SeReleaseSubjectContext(&SubjectContext);
         }
       }
     }
     else
     {
-      if ( v21 == 1 )
+      if ( v22 == 1 )
       {
-        memset(v28, 0, 0x58uLL);
-        LODWORD(v28[5]) = 16;
+        memset(v29, 0, 0x58uLL);
+        LODWORD(v29[5]) = 16;
       }
       if ( !SeSinglePrivilegeCheck(SeIncreaseQuotaPrivilege, a4) )
       {
-        v18 = -1073741727;
+        v19 = -1073741727;
 LABEL_52:
         ObfDereferenceObjectWithTag(Object, 0x79517350u);
-        return v18;
+        return v19;
       }
-      v19 = (signed __int64 *)Object;
-      v20 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken((PEPROCESS)Object);
-      v18 = PspAssignProcessQuotaBlock(v28, v19, v20);
-      ObFastDereferenceObject(v19 + 151, v20);
-      if ( v18 < 0 )
+      v20 = (signed __int64 *)Object;
+      v21 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken((PEPROCESS)Object);
+      v19 = PspAssignProcessQuotaBlock(v29, v20, v21);
+      ObFastDereferenceObject(v20 + 151, v21);
+      if ( v19 < 0 )
         goto LABEL_52;
     }
     ObfDereferenceObjectWithTag(Object, 0x79517350u);

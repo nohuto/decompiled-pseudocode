@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMakeImagePageOk @ 0x1402C45FC
+ * XREFs of MiMakeImagePageOk @ 0x1402C47EC
  * Callers:
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  *     MiHandleTransitionFault @ 0x14003B680 (MiHandleTransitionFault.c)
@@ -17,12 +17,12 @@
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiDereferenceControlAreaProbe @ 0x140094CEC (MiDereferenceControlAreaProbe.c)
- *     MiReturnPfnReferenceCount @ 0x14013B7B0 (MiReturnPfnReferenceCount.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiValidateImagePfn @ 0x1405A8854 (MiValidateImagePfn.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiDereferenceControlAreaProbe @ 0x140094C2C (MiDereferenceControlAreaProbe.c)
+ *     MiReturnPfnReferenceCount @ 0x14013B8B0 (MiReturnPfnReferenceCount.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiValidateImagePfn @ 0x1405A9854 (MiValidateImagePfn.c)
  */
 
 __int64 __fastcall MiMakeImagePageOk(__int64 *a1, unsigned __int64 a2, __int64 a3, ULONG_PTR a4, __int64 a5)
@@ -58,8 +58,8 @@ __int64 __fastcall MiMakeImagePageOk(__int64 *a1, unsigned __int64 a2, __int64 a
   if ( (*(_QWORD *)(a4 + 24) & 0x4000000000000000LL) != 0 )
     return 3221226548LL;
   v9 = *(_QWORD *)(a4 + 16);
-  if ( qword_14043A0C0 && (v9 & 0x10) == 0 )
-    v9 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v9 & 0x10) == 0 )
+    v9 &= ~qword_14043B180;
   v10 = v9 >> 16;
   v11 = *(_QWORD *)v10;
   if ( (MiFlags & 0x8000) == 0

@@ -24,10 +24,10 @@
  *     RtlpPopulateListIndex @ 0x18006161C (RtlpPopulateListIndex.c)
  *     RtlpValidateHeapEntry @ 0x18006D464 (RtlpValidateHeapEntry.c)
  *     RtlpCheckHeapSignature @ 0x18006D6D0 (RtlpCheckHeapSignature.c)
- *     RtlNtStatusToDosErrorNoTeb @ 0x180078300 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlDetectHeapLeaks @ 0x180084DE0 (RtlDetectHeapLeaks.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180088CD0 (RtlSetProcessPreferredUILanguages.c)
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180078310 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlDetectHeapLeaks @ 0x180084DF0 (RtlDetectHeapLeaks.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180088CE0 (RtlSetProcessPreferredUILanguages.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  *     LdrpGenericExceptionFilter @ 0x1800D7988 (LdrpGenericExceptionFilter.c)
  *     AVrfDllUnloadNotification @ 0x1800DAC24 (AVrfDllUnloadNotification.c)
  *     AVrfInitializeVerifier @ 0x1800DACE8 (AVrfInitializeVerifier.c)
@@ -66,10 +66,10 @@
  *     vDbgPrintExWithPrefixInternal @ 0x18004F348 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrint(const char *a1, ...)
+ULONG DbgPrint(PCSTR Format, ...)
 {
   va_list va; // [rsp+48h] [rbp+10h] BYREF
 
-  va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal((unsigned int)&unk_18011CBC2, 101, 3, (_DWORD)a1, (__int64)va, 1);
+  va_start(va, Format);
+  return vDbgPrintExWithPrefixInternal(&Flags, 101LL, 3LL, Format, (__int64 *)va, 1);
 }

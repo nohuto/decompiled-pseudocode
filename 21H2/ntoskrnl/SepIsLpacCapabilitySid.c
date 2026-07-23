@@ -1,9 +1,9 @@
 /*
- * XREFs of SepIsLpacCapabilitySid @ 0x1406A7C58
+ * XREFs of SepIsLpacCapabilitySid @ 0x1406056D8
  * Callers:
- *     SepCheckCapabilities @ 0x1406A7AE0 (SepCheckCapabilities.c)
+ *     SepCheckCapabilities @ 0x140605560 (SepCheckCapabilities.c)
  * Callees:
- *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x14026A980 (RtlEqualSid.c)
  */
 
 BOOLEAN __fastcall SepIsLpacCapabilitySid(PSID Sid1)

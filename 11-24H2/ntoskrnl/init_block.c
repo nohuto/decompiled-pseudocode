@@ -1,8 +1,8 @@
 /*
- * XREFs of init_block @ 0x14060366C
+ * XREFs of init_block @ 0x140600CAC
  * Callers:
- *     deflateResetKeep @ 0x1405F5664 (deflateResetKeep.c)
- *     _tr_flush_block @ 0x140602828 (_tr_flush_block.c)
+ *     deflateResetKeep @ 0x1405F2CA4 (deflateResetKeep.c)
+ *     _tr_flush_block @ 0x1405FFE68 (_tr_flush_block.c)
  * Callees:
  *     <none>
  */

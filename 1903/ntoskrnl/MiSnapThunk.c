@@ -48,7 +48,7 @@ __int64 __fastcall MiSnapThunk(char *a1, __int64 a2, __int64 *a3, char **a4, uns
   _WORD *v38; // r14
   PVOID v39; // rcx
   ULONG Size[2]; // [rsp+30h] [rbp-30h] BYREF
-  STRING SourceString; // [rsp+38h] [rbp-28h] BYREF
+  ANSI_STRING SourceString; // [rsp+38h] [rbp-28h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF
 
   *(_QWORD *)&DestinationString.Length = 0LL;

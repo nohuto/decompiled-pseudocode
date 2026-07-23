@@ -9,7 +9,7 @@
  *     RtlpCSparseBitmapLock @ 0x14000AB40 (RtlpCSparseBitmapLock.c)
  *     RtlCSparseBitmapEnterLockingRegion @ 0x14000ABB8 (RtlCSparseBitmapEnterLockingRegion.c)
  *     RtlpHpEnvAllocVA @ 0x14000D060 (RtlpHpEnvAllocVA.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x1402FE230 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x1402FE420 (RtlpCSparseBitmapWaitOnAddress.c)
  */
 
 __int64 __fastcall RtlpCSparseBitmapPageCommit(__int64 a1, unsigned __int64 a2, int *a3, __int128 *a4)

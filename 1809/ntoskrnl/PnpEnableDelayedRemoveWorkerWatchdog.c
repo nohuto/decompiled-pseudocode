@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpEnableDelayedRemoveWorkerWatchdog @ 0x140289B1C
+ * XREFs of PnpEnableDelayedRemoveWorkerWatchdog @ 0x140289D0C
  * Callers:
- *     PnpDelayedRemoveWorker @ 0x1406EE820 (PnpDelayedRemoveWorker.c)
+ *     PnpDelayedRemoveWorker @ 0x1406EFAC0 (PnpDelayedRemoveWorker.c)
  * Callees:
  *     PnpEnableWatchdog @ 0x140005C04 (PnpEnableWatchdog.c)
  */

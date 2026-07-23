@@ -14,37 +14,37 @@
 
 __int64 __fastcall sub_180040E38(const void **a1, __int64 a2, int a3, int a4, __int64 a5, __int64 *a6, __int64 a7)
 {
-  unsigned int v10; // edx
-  __int64 Heap; // rax
-  unsigned __int64 v13; // rbx
+  ULONG v10; // edx
+  _QWORD *Heap; // rax
+  _QWORD *v13; // rbx
   __int64 v14; // rax
 
-  v10 = (dword_18015C294 + 0x40000) | 8;
+  v10 = (Flags + 0x40000) | 8;
   *a6 = 0LL;
-  Heap = RtlAllocateHeap(qword_18015C288, v10, *(unsigned __int16 *)a1 + 194LL);
+  Heap = RtlAllocateHeap(HeapHandle, v10, *(unsigned __int16 *)a1 + 194LL);
   v13 = Heap;
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 176) = -1LL;
-    *(_QWORD *)(Heap + 40) = a7;
-    *(_QWORD *)(Heap + 48) = a5;
-    *(_QWORD *)(Heap + 8) = Heap + 192;
-    *(_DWORD *)(Heap + 32) = a3 | 0x8000;
-    *(_QWORD *)(Heap + 16) = a2;
+    Heap[22] = -1LL;
+    Heap[5] = a7;
+    Heap[6] = a5;
+    Heap[1] = Heap + 24;
+    *((_DWORD *)Heap + 8) = a3 | 0x8000;
+    Heap[2] = a2;
     *(_WORD *)Heap = *(_WORD *)a1;
-    *(_WORD *)(Heap + 2) = *(_WORD *)a1 + 2;
-    memmove((void *)(Heap + 192), a1[1], *(unsigned __int16 *)a1);
-    *(_WORD *)(*(_QWORD *)(v13 + 8) + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
+    *((_WORD *)Heap + 1) = *(_WORD *)a1 + 2;
+    memmove(Heap + 24, a1[1], *(unsigned __int16 *)a1);
+    *(_WORD *)(v13[1] + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
     v14 = sub_180040F58(v13);
     *a6 = v14;
     if ( v14 )
     {
       *(_DWORD *)(v14 + 268) = a4;
-      sub_18003BC9C(0, v13, 0x14ACu);
+      sub_18003BC9C(0, (__int64)v13, 0x14ACu);
     }
     else
     {
-      RtlFreeHeap(qword_18015C288, 0, v13);
+      RtlFreeHeap(HeapHandle, 0, v13);
     }
   }
   return *a6 == 0 ? 0xC0000017 : 0;

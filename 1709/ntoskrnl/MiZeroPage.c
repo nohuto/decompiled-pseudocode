@@ -254,7 +254,7 @@ LABEL_100:
       if ( i > 0xFFFFF6FFFFFFFFFFuLL )
         break;
     }
-    v61 = (!qword_140389040 || i < qword_140389040 || i >= qword_140389040 + (qword_140389050 << 30))
+    v61 = (!qword_140389040 || i < qword_140389040 || i >= qword_140389040 + (BitMapHeader.SizeOfBitMap << 30))
        && (unsigned int)v20 <= 1;
     if ( !v26 )
     {

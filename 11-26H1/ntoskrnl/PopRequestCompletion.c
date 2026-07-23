@@ -1,17 +1,17 @@
 /*
- * XREFs of PopRequestCompletion @ 0x1403B45B0
+ * XREFs of PopRequestCompletion @ 0x1403BE4B0
  * Callers:
  *     <none>
  * Callees:
- *     PopDiagTraceIrpFinish @ 0x14021A300 (PopDiagTraceIrpFinish.c)
- *     PopPepUpdateConstraints @ 0x1403B37EC (PopPepUpdateConstraints.c)
- *     PopHandleDevicePowerIrpCompletion @ 0x1403B46F0 (PopHandleDevicePowerIrpCompletion.c)
- *     PopFxNotifyPreDIrpCompletion @ 0x1403B4894 (PopFxNotifyPreDIrpCompletion.c)
- *     PopFreeIrp @ 0x1403B5EEC (PopFreeIrp.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     PopUpdateWakeSource @ 0x1404DD37C (PopUpdateWakeSource.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x140603B60 (PopDirectedDripsStartDisengageTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopDiagTraceIrpFinish @ 0x14021BC90 (PopDiagTraceIrpFinish.c)
+ *     PopPepUpdateConstraints @ 0x1403BD4FC (PopPepUpdateConstraints.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403BE5F0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopFxNotifyPreDIrpCompletion @ 0x1403BE794 (PopFxNotifyPreDIrpCompletion.c)
+ *     PopFreeIrp @ 0x1403BFDEC (PopFreeIrp.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     PopUpdateWakeSource @ 0x1404D6A5C (PopUpdateWakeSource.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140606610 (PopDirectedDripsStartDisengageTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopRequestCompletion(__int64 a1, IRP *a2, __int64 a3)

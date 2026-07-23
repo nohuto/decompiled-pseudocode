@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRemapVirtualAddress64 @ 0x1402B1F18
+ * XREFs of HalpRemapVirtualAddress64 @ 0x1402300C8
  * Callers:
- *     HalpPciMapMmConfigPhysicalAddress @ 0x1402B1EC8 (HalpPciMapMmConfigPhysicalAddress.c)
- *     HalpReadWriteWheaPhysicalMemory @ 0x1404D7830 (HalpReadWriteWheaPhysicalMemory.c)
- *     HalpBlkAddVirtualMapping @ 0x140A8DB4C (HalpBlkAddVirtualMapping.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x140230078 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     HalpReadWriteWheaPhysicalMemory @ 0x1404D7A70 (HalpReadWriteWheaPhysicalMemory.c)
+ *     HalpBlkAddVirtualMapping @ 0x140A8EB4C (HalpBlkAddVirtualMapping.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
  * XREFs of FsRtlLogCcFlushError @ 0x14092D830
  * Callers:
- *     CcMmLogLostDelayedWriteError @ 0x14053A580 (CcMmLogLostDelayedWriteError.c)
+ *     sub_14053A580 @ 0x14053A580 (sub_14053A580.c)
  * Callees:
- *     MmIsWriteErrorFatal @ 0x14028D31C (MmIsWriteErrorFatal.c)
+ *     sub_14028D31C @ 0x14028D31C (sub_14028D31C.c)
  *     IoAllocateErrorLogEntry @ 0x1403A70E0 (IoAllocateErrorLogEntry.c)
  *     IoWriteErrorLogEntry @ 0x1403A7210 (IoWriteErrorLogEntry.c)
  *     memmove @ 0x140435B40 (memmove.c)
@@ -38,7 +38,7 @@ NTSTATUS __stdcall FsRtlLogCcFlushError(
   char *v26; // rsi
 
   v7 = 0;
-  result = MmIsWriteErrorFatal(1, (DeviceObject->Characteristics >> 4) & 1, FlushError);
+  result = sub_14028D31C(1, (DeviceObject->Characteristics >> 4) & 1, FlushError);
   if ( !result )
     return result;
   if ( FlushError > -1073741623 )

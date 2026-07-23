@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMmAllocateAndInsertPageTablePage @ 0x140542C24
+ * XREFs of HalpMmAllocateAndInsertPageTablePage @ 0x140540574
  * Callers:
- *     HalpMmGetPteAddressSafe @ 0x140542E34 (HalpMmGetPteAddressSafe.c)
+ *     HalpMmGetPteAddressSafe @ 0x140540784 (HalpMmGetPteAddressSafe.c)
  * Callees:
- *     HalpMmZeroPageWithTemporaryMapping @ 0x140542FE8 (HalpMmZeroPageWithTemporaryMapping.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140C673EC (HalpAllocPhysicalMemoryEx.c)
+ *     HalpMmZeroPageWithTemporaryMapping @ 0x140540938 (HalpMmZeroPageWithTemporaryMapping.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140C69568 (HalpAllocPhysicalMemoryEx.c)
  */
 
 char __fastcall HalpMmAllocateAndInsertPageTablePage(_BYTE *a1, __int64 a2)

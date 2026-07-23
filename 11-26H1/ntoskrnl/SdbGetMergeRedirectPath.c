@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbGetMergeRedirectPath @ 0x140880AF0
+ * XREFs of SdbGetMergeRedirectPath @ 0x140886EF0
  * Callers:
- *     SdbOpenDatabaseEx @ 0x140880C68 (SdbOpenDatabaseEx.c)
+ *     SdbOpenDatabaseEx @ 0x140887068 (SdbOpenDatabaseEx.c)
  * Callees:
- *     SdbpGetMergeRedirectPathInternal @ 0x140881504 (SdbpGetMergeRedirectPathInternal.c)
- *     AslPathGetFileNamePart @ 0x1408896A4 (AslPathGetFileNamePart.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140887904 (SdbpGetMergeRedirectPathInternal.c)
+ *     AslPathGetFileNamePart @ 0x14088FAA0 (AslPathGetFileNamePart.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
  */
 
 __int64 __fastcall SdbGetMergeRedirectPath(_QWORD *a1, int *a2, int a3, __int64 a4)

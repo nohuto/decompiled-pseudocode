@@ -1,28 +1,28 @@
 /*
- * XREFs of MiCompleteRestrictedImageFault @ 0x14031D0A0
+ * XREFs of MiCompleteRestrictedImageFault @ 0x140327DF0
  * Callers:
- *     MiSoftFaultMappedView @ 0x14028D5A0 (MiSoftFaultMappedView.c)
+ *     MiSoftFaultMappedView @ 0x14020A740 (MiSoftFaultMappedView.c)
  * Callees:
- *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
- *     MiGetContainingPageTable @ 0x14023E450 (MiGetContainingPageTable.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     MiLockAndDecrementShareCount @ 0x1402D5EE0 (MiLockAndDecrementShareCount.c)
- *     MiIncreaseUsedPtesCount @ 0x1403097D4 (MiIncreaseUsedPtesCount.c)
- *     MiGetUsedPtesHandle @ 0x14030CA60 (MiGetUsedPtesHandle.c)
- *     PfSnLogPageFaultCommon @ 0x14031B04C (PfSnLogPageFaultCommon.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x14031B9F4 (MiEmptyDeferredWorkingSetEntries.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     PfSnReferenceProcessTrace @ 0x14031E2C0 (PfSnReferenceProcessTrace.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     MiGetSessionIdForVa @ 0x14031E4B0 (MiGetSessionIdForVa.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
- *     PfSnCheckLoggingForThread @ 0x14035EC2C (PfSnCheckLoggingForThread.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     MiLockAndDecrementShareCount @ 0x140287230 (MiLockAndDecrementShareCount.c)
+ *     PfSnCheckLoggingForThread @ 0x1402A3B5C (PfSnCheckLoggingForThread.c)
+ *     MiAllocateWsle @ 0x1402B65C0 (MiAllocateWsle.c)
+ *     MiGetContainingPageTable @ 0x1402E2CA0 (MiGetContainingPageTable.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiIncreaseUsedPtesCount @ 0x140314524 (MiIncreaseUsedPtesCount.c)
+ *     MiGetUsedPtesHandle @ 0x1403177B0 (MiGetUsedPtesHandle.c)
+ *     PfSnLogPageFaultCommon @ 0x140325D9C (PfSnLogPageFaultCommon.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140326744 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     PfSnReferenceProcessTrace @ 0x140329010 (PfSnReferenceProcessTrace.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     MiGetSessionIdForVa @ 0x140329200 (MiGetSessionIdForVa.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiDereferenceControlAreaFile @ 0x140361F34 (MiDereferenceControlAreaFile.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
-__int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a2, _QWORD *a3, unsigned int a4)
 {
   unsigned int v4; // r15d
   _QWORD *v5; // r12
@@ -84,19 +84,19 @@ __int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a
   unsigned int v63; // [rsp+E8h] [rbp+20h]
 
   v63 = a4;
-  v62 = (_QWORD *)a3;
+  v62 = a3;
   v61 = a2;
   v4 = a4;
   v58 = *(_QWORD *)a1;
-  v5 = (_QWORD *)a3;
+  v5 = a3;
   v6 = a2;
   v8 = 1;
-  v9 = 48LL * *(_QWORD *)a3 - 0x58000000000LL;
+  v9 = 48LL * *a3 - 0x58000000000LL;
   v10 = *(_QWORD *)(v9 + 8) | 0x8000000000000000uLL;
   v11 = *(_QWORD *)(v9 + 16);
   v57 = v10;
-  if ( qword_140C4DF40 && (v11 & 0x10) == 0 )
-    v11 &= ~qword_140C4DF40;
+  if ( qword_140C4DF80 && (v11 & 0x10) == 0 )
+    v11 &= ~qword_140C4DF80;
   v12 = *(_QWORD *)(v11 >> 16);
   v59 = v12;
   if ( PfSnNumActiveTraces )
@@ -122,8 +122,8 @@ __int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a
       v18 = v17[2];
       v54 = v18;
       v19 = v18;
-      if ( qword_140C4DF40 && (v18 & 0x10) == 0 )
-        v19 = v18 & ~qword_140C4DF40;
+      if ( qword_140C4DF80 && (v18 & 0x10) == 0 )
+        v19 = v18 & ~qword_140C4DF80;
       v20 = v17[1] | 0x8000000000000000uLL;
       v21 = v6 + 8 * ((__int64)(v20 - v10) >> 3);
       if ( !v14 )
@@ -136,11 +136,11 @@ __int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a
       v27 = (struct _EX_RUNDOWN_REF *)v26;
       if ( !v26 )
         break;
-      v28 = PfSnCheckLoggingForThread(CurrentThread, v26, 1LL);
+      v28 = PfSnCheckLoggingForThread((__int64)CurrentThread, v26, 1);
       v30 = v53;
       if ( v28 )
         PfSnLogPageFaultCommon((__int64)v27, v53, *(_QWORD *)(v53 + 24), v25, v29);
-      ExReleaseRundownProtection_0(v27 + 45);
+      ExReleaseRundownProtection(v27 + 45);
       v16 = v56;
       v5 = v55;
 LABEL_20:
@@ -221,7 +221,6 @@ LABEL_47:
       ++v5;
       ++v15;
       v55 = v5;
-      a3 = 511LL;
       if ( v15 >= v63 )
       {
         v5 = v62;
@@ -251,7 +250,7 @@ LABEL_52:
     }
     *(_QWORD *)(v46 + 24) ^= (*(_QWORD *)(v46 + 24) ^ (*(_QWORD *)(v46 + 24) + v15)) & 0x3FFFFFFFFFFFFFFFLL;
     _InterlockedAnd64((volatile signed __int64 *)(v46 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    UsedPtesHandle = MiGetUsedPtesHandle((__int64)(v6 << 25) >> 16, 0x3FFFFFFFFFFFFFFFLL);
+    UsedPtesHandle = MiGetUsedPtesHandle((__int64)(v6 << 25) >> 16);
     MiIncreaseUsedPtesCount(UsedPtesHandle, v15, v50, v51);
   }
   else
@@ -259,7 +258,7 @@ LABEL_52:
     *(_WORD *)(a1 + 10) = 0;
   }
   for ( ; v15 != v4; ++v15 )
-    MiLockAndDecrementShareCount(48LL * v5[v15] - 0x58000000000LL, 0LL, a3);
+    MiLockAndDecrementShareCount(48LL * v5[v15] - 0x58000000000LL, 0);
   if ( v30 )
     MiDereferenceControlAreaFile(v59, v30);
   return v8;

@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmGrowKernelStackEx @ 0x14024E3F0 (MmGrowKernelStackEx.c)
+ *     sub_14024E3F0 @ 0x14024E3F0 (sub_14024E3F0.c)
  */
 
 __int64 __fastcall MmGrowKernelStack(__int64 a1)
 {
-  return MmGrowKernelStackEx(a1, 24576LL);
+  return sub_14024E3F0(a1, 24576LL);
 }

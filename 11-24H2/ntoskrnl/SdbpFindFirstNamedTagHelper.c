@@ -1,19 +1,19 @@
 /*
- * XREFs of SdbpFindFirstNamedTagHelper @ 0x140ABBFC4
+ * XREFs of SdbpFindFirstNamedTagHelper @ 0x140AB6FE4
  * Callers:
- *     SdbQueryDataExTagID @ 0x1408023EC (SdbQueryDataExTagID.c)
- *     SdbpFindFirstTagWithoutIndex @ 0x140804310 (SdbpFindFirstTagWithoutIndex.c)
- *     SdbpFindFirstWildcardTagWithoutIndex @ 0x1408043C8 (SdbpFindFirstWildcardTagWithoutIndex.c)
- *     SdbpSearchDB @ 0x140A08258 (SdbpSearchDB.c)
+ *     SdbQueryDataExTagID @ 0x140802B2C (SdbQueryDataExTagID.c)
+ *     SdbpFindFirstTagWithoutIndex @ 0x140804A50 (SdbpFindFirstTagWithoutIndex.c)
+ *     SdbpFindFirstWildcardTagWithoutIndex @ 0x140804B08 (SdbpFindFirstWildcardTagWithoutIndex.c)
+ *     SdbpSearchDB @ 0x140A04788 (SdbpSearchDB.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     SdbGetTagFromTagID @ 0x1409600B0 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     SdbGetNextChild @ 0x140960210 (SdbGetNextChild.c)
- *     SdbGetFirstChild @ 0x140960300 (SdbGetFirstChild.c)
- *     AslStringPatternMatchExW @ 0x140960540 (AslStringPatternMatchExW.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x140947B70 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     SdbGetNextChild @ 0x140947CD0 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x140947DC0 (SdbGetFirstChild.c)
+ *     AslStringPatternMatchExW @ 0x140948000 (AslStringPatternMatchExW.c)
  */
 
 __int64 __fastcall SdbpFindFirstNamedTagHelper(
@@ -46,7 +46,7 @@ __int64 __fastcall SdbpFindFirstNamedTagHelper(
         StringTagPtr = (WCHAR *)SdbGetStringTagPtr(a1, FirstTag, v15, v13);
         if ( !StringTagPtr )
         {
-          AslLogCallPrintf(1LL, (__int64)"SdbpFindFirstNamedTagHelper", 473LL, (__int64)"Can't get the name string");
+          AslLogCallPrintf(1LL, (__int64)"SdbpFindFirstNamedTagHelper");
           return v6;
         }
         if ( a6 )

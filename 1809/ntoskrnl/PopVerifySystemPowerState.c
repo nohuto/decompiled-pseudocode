@@ -1,14 +1,14 @@
 /*
- * XREFs of PopVerifySystemPowerState @ 0x14071B328
+ * XREFs of PopVerifySystemPowerState @ 0x14071C5C8
  * Callers:
- *     PopActionRetrieveInitialState @ 0x140159604 (PopActionRetrieveInitialState.c)
- *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
- *     PopAdvanceSystemPowerState @ 0x1406E2540 (PopAdvanceSystemPowerState.c)
- *     PopVerifySystemPowerPolicy @ 0x140747958 (PopVerifySystemPowerPolicy.c)
- *     PdcPoVerifyPowerState @ 0x140764160 (PdcPoVerifyPowerState.c)
+ *     PopActionRetrieveInitialState @ 0x140159704 (PopActionRetrieveInitialState.c)
+ *     PopExecutePowerAction @ 0x1406DF390 (PopExecutePowerAction.c)
+ *     PopAdvanceSystemPowerState @ 0x1406E37E0 (PopAdvanceSystemPowerState.c)
+ *     PopVerifySystemPowerPolicy @ 0x140748B48 (PopVerifySystemPowerPolicy.c)
+ *     PdcPoVerifyPowerState @ 0x140765350 (PdcPoVerifyPowerState.c)
  * Callees:
- *     PopIsHibernateSupported @ 0x1405B0850 (PopIsHibernateSupported.c)
- *     PopIsHiberbootSupported @ 0x1406E251C (PopIsHiberbootSupported.c)
+ *     PopIsHibernateSupported @ 0x1405B1850 (PopIsHibernateSupported.c)
+ *     PopIsHiberbootSupported @ 0x1406E37BC (PopIsHiberbootSupported.c)
  */
 
 void __fastcall PopVerifySystemPowerState(int *a1, int a2)

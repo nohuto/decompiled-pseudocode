@@ -6,8 +6,8 @@
  *     RtlInitUnicodeString @ 0x180040650 (RtlInitUnicodeString.c)
  *     RtlpNlsGetLcidIndex @ 0x1800408E0 (RtlpNlsGetLcidIndex.c)
  *     RtlpNlsGetNameIndex @ 0x1800413C0 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x180080B14 (RtlpLoadNlsData.c)
- *     _wcsicmp @ 0x1800918E0 (_wcsicmp.c)
+ *     RtlpLoadNlsData @ 0x180080B24 (RtlpLoadNlsData.c)
+ *     _wcsicmp @ 0x1800918F0 (_wcsicmp.c)
  *     RtlpGetAlternateCodePage @ 0x1800F906C (RtlpGetAlternateCodePage.c)
  */
 
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
         wchar_t *String2,
         char a2,
         bool *a3,
-        UNICODE_STRING *a4,
+        _UNICODE_STRING *a4,
         __int64 a5,
         unsigned __int16 a6)
 {
@@ -56,7 +56,7 @@ __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
     *a3 = 0;
     if ( v11 && !(unsigned __int8)RtlpLoadNlsData() )
       return 3221225473LL;
-    LcidIndex = RtlpNlsGetLcidIndex((unsigned int)gSystemLocale);
+    LcidIndex = RtlpNlsGetLcidIndex(gSystemLocale);
     if ( LcidIndex < 0 )
       return 3221225473LL;
     _mm_lfence();

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwWaitForDebugEvent @ 0x1401BBAD0
+ * XREFs of ZwWaitForDebugEvent @ 0x1401BBC30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwWaitForDebugEvent(
         HANDLE DebugObject,
         BOOLEAN Alertable,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwWaitForDebugEvent(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DebugObject, Alertable, Timeout);
+  return KiServiceInternal(DebugObject);
 }

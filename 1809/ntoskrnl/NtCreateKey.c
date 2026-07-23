@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateKey @ 0x1405B59F0
+ * XREFs of NtCreateKey @ 0x1405B69F0
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmCreateKey @ 0x1405B5A60 (CmCreateKey.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmCreateKey @ 0x1405B6A60 (CmCreateKey.c)
  */
 
 NTSTATUS __stdcall NtCreateKey(

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfFaultsInitPhase0 @ 0x140C34584
+ * XREFs of VfFaultsInitPhase0 @ 0x140C3A594
  * Callers:
- *     VfRlrsEntry @ 0x1406481D0 (VfRlrsEntry.c)
- *     VfInitSystemNoRebootNeeded @ 0x140C205D0 (VfInitSystemNoRebootNeeded.c)
+ *     VfRlrsEntry @ 0x14064BDB0 (VfRlrsEntry.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140C265DC (VfInitSystemNoRebootNeeded.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     VfFaultsAddAllApps @ 0x140C3441C (VfFaultsAddAllApps.c)
- *     VfFaultsAddAllTags @ 0x140C344D0 (VfFaultsAddAllTags.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     VfFaultsAddAllApps @ 0x140C3A42C (VfFaultsAddAllApps.c)
+ *     VfFaultsAddAllTags @ 0x140C3A4E0 (VfFaultsAddAllTags.c)
  */
 
 void VfFaultsInitPhase0()
@@ -33,13 +33,13 @@ void VfFaultsInitPhase0()
                            1u);
   v1 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
   ViHaveFaultTags = 0;
-  qword_140F08A68 = (__int64)&ViFaultTagsList;
+  qword_140F08B18 = (__int64)&ViFaultTagsList;
   ViFaultTagsList = &ViFaultTagsList;
   KeReleaseSpinLock(&ViFaultInjectionLock, v1);
   if ( VerifierFaultTagsBufferSize != -1 && (unsigned int)(VerifierFaultTagsBufferSize - 2) <= 0xFE )
     VfFaultsAddAllTags(VerifierFaultTagsBuffer, ((unsigned __int64)(unsigned int)VerifierFaultTagsBufferSize - 2) >> 1);
   v2 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
-  qword_140F08728 = (__int64)&ViFaultApplicationsList;
+  qword_140F08C28 = (__int64)&ViFaultApplicationsList;
   ViFaultApplicationsList = &ViFaultApplicationsList;
   KeReleaseSpinLock(&ViFaultInjectionLock, v2);
   if ( VerifierFaultApplicationsBufferSize != -1 && (unsigned int)(VerifierFaultApplicationsBufferSize - 2) <= 0xFE )

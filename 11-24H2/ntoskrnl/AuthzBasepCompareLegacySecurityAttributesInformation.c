@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140A239DC
+ * XREFs of AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140A17DEC
  * Callers:
- *     SeCompareTokens @ 0x140A235A8 (SeCompareTokens.c)
+ *     SeCompareTokens @ 0x140A179B8 (SeCompareTokens.c)
  * Callees:
- *     AuthzBasepFindSecurityAttribute @ 0x140357E50 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepIsCompareRelevantAttribute @ 0x140A23AA0 (AuthzBasepIsCompareRelevantAttribute.c)
- *     AuthzBasepCompareSecurityAttribute @ 0x140A23AD4 (AuthzBasepCompareSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1403B8830 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepIsCompareRelevantAttribute @ 0x140A17EB0 (AuthzBasepIsCompareRelevantAttribute.c)
+ *     AuthzBasepCompareSecurityAttribute @ 0x140A17EE4 (AuthzBasepCompareSecurityAttribute.c)
  */
 
 bool __fastcall AuthzBasepCompareLegacySecurityAttributesInformation(int *a1, _DWORD *a2)
@@ -15,7 +15,7 @@ bool __fastcall AuthzBasepCompareLegacySecurityAttributesInformation(int *a1, _D
   int v4; // edi
   __int64 *v6; // r15
   const UNICODE_STRING *i; // rsi
-  const UNICODE_STRING *SecurityAttribute; // rax
+  __int64 *SecurityAttribute; // rax
   _QWORD **v10; // r14
   _QWORD *v11; // rsi
   char IsCompareRelevantAttribute; // al

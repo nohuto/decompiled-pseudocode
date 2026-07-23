@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlSetGroupSecurityDescriptor @ 0x14048D16C
+ * XREFs of RtlSetGroupSecurityDescriptor @ 0x14048DBFC
  * Callers:
- *     RtlCheckTokenMembershipEx @ 0x1400852B0 (RtlCheckTokenMembershipEx.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x1401B4EE0 (CmpGenerateAppHiveSecurityDescriptor.c)
- *     RtlCheckTokenCapability @ 0x14021060C (RtlCheckTokenCapability.c)
- *     LocalConvertStringSDToSD_Rev1 @ 0x1404D67F8 (LocalConvertStringSDToSD_Rev1.c)
- *     _CmGetDeviceRegKeySecurityDescriptor @ 0x140570E50 (_CmGetDeviceRegKeySecurityDescriptor.c)
- *     _PnpGetEnumSecurityDescriptor @ 0x14057B14C (_PnpGetEnumSecurityDescriptor.c)
- *     CmpCopySaclToVirtualKey @ 0x1406021A4 (CmpCopySaclToVirtualKey.c)
- *     PiAuCheckTokenMembership @ 0x140630D78 (PiAuCheckTokenMembership.c)
- *     _PnpGetPropertiesSecurityDescriptor @ 0x1406DFC6C (_PnpGetPropertiesSecurityDescriptor.c)
- *     DrvDbGetSecurityDescriptor @ 0x1406E3658 (DrvDbGetSecurityDescriptor.c)
+ *     RtlCheckTokenMembershipEx @ 0x140086B9C (RtlCheckTokenMembershipEx.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1401B4DC4 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     RtlCheckTokenCapability @ 0x140210438 (RtlCheckTokenCapability.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1404B9DFC (LocalConvertStringSDToSD_Rev1.c)
+ *     _CmGetDeviceRegKeySecurityDescriptor @ 0x140571390 (_CmGetDeviceRegKeySecurityDescriptor.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x14057B5F8 (_PnpGetEnumSecurityDescriptor.c)
+ *     CmpCopySaclToVirtualKey @ 0x140602258 (CmpCopySaclToVirtualKey.c)
+ *     PiAuCheckTokenMembership @ 0x140630E2C (PiAuCheckTokenMembership.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x1406DFDA4 (_PnpGetPropertiesSecurityDescriptor.c)
+ *     DrvDbGetSecurityDescriptor @ 0x1406E3790 (DrvDbGetSecurityDescriptor.c)
  *     SepInitSystemDacls @ 0x140791230 (SepInitSystemDacls.c)
  *     WmipInitializeSecurity @ 0x14079C7B4 (WmipInitializeSecurity.c)
  *     SeMakeSystemToken @ 0x1407A2B10 (SeMakeSystemToken.c)

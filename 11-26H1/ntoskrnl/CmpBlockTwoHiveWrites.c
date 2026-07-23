@@ -1,87 +1,70 @@
 /*
- * XREFs of CmpBlockTwoHiveWrites @ 0x1408B2110
+ * XREFs of CmpBlockTwoHiveWrites @ 0x1408B86EC
  * Callers:
- *     CmpVirtualPathPresent @ 0x1407734E0 (CmpVirtualPathPresent.c)
- *     CmSaveMergedKeys @ 0x14084D378 (CmSaveMergedKeys.c)
- *     CmpVirtualBranchIsReplicated @ 0x1408B1674 (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x1407764E0 (CmpVirtualPathPresent.c)
+ *     CmSaveMergedKeys @ 0x140853684 (CmSaveMergedKeys.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1408B7C80 (CmpVirtualBranchIsReplicated.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     CmpGetNextActiveHive @ 0x1408B3048 (CmpGetNextActiveHive.c)
- *     CmpLockHiveListShared @ 0x1408B31AC (CmpLockHiveListShared.c)
- *     CmpDereferenceHive @ 0x1408C6580 (CmpDereferenceHive.c)
- *     CmpUnlockHiveList @ 0x1408C8634 (CmpUnlockHiveList.c)
- *     CmpReferenceHive @ 0x1408C8740 (CmpReferenceHive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140C58D30 (HvLockHiveFlusherExclusive.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     CmpGetNextActiveHive @ 0x1408B95EC (CmpGetNextActiveHive.c)
+ *     CmpDereferenceHive @ 0x1408CCB50 (CmpDereferenceHive.c)
+ *     CmpReferenceHive @ 0x1408CECF0 (CmpReferenceHive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140C5ED30 (HvLockHiveFlusherExclusive.c)
  */
 
-__int64 __fastcall CmpBlockTwoHiveWrites(
-        struct _EX_RUNDOWN_REF *a1,
-        struct _EX_RUNDOWN_REF *a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall CmpBlockTwoHiveWrites(struct _EX_RUNDOWN_REF *a1, struct _EX_RUNDOWN_REF *a2, char a3)
 {
-  char v4; // r15
-  char v5; // bp
-  struct _KTHREAD *v6; // r14
-  char v7; // r12
-  struct _EX_RUNDOWN_REF *PriorityFloorCounts; // rbx
+  char v3; // r14
+  char v4; // bp
+  struct _EX_RUNDOWN_REF *i; // rcx
+  __int64 NextActiveHive; // rax
+  struct _EX_RUNDOWN_REF *v10; // rbx
   struct _EX_RUNDOWN_REF *v12; // rcx
 
+  v3 = 0;
   v4 = 0;
-  v5 = 0;
-  v6 = (struct _KTHREAD *)&PspSiloMonitorLock.WaitBlockFill11[112];
-  v7 = a3;
-  CmpLockHiveListShared(a1, a2, a3, a4);
-  do
+  for ( i = 0LL; ; i = v10 )
   {
-    v6 = *(struct _KTHREAD **)&v6->Header.Lock;
-    PriorityFloorCounts = 0LL;
-    if ( v6 == (struct _KTHREAD *)&PspSiloMonitorLock.WaitBlockFill11[112] )
+    NextActiveHive = CmpGetNextActiveHive(i);
+    v10 = (struct _EX_RUNDOWN_REF *)NextActiveHive;
+    if ( !NextActiveHive )
       break;
-    PriorityFloorCounts = (struct _EX_RUNDOWN_REF *)v6[-2].PriorityFloorCounts;
-  }
-  while ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&v6->QuantumTarget) );
-  CmpUnlockHiveList();
-  while ( PriorityFloorCounts )
-  {
-    if ( a1 == PriorityFloorCounts || a2 == PriorityFloorCounts )
+    if ( a1 == (struct _EX_RUNDOWN_REF *)NextActiveHive || a2 == (struct _EX_RUNDOWN_REF *)NextActiveHive )
     {
-      if ( v7 )
-        CmpReferenceHive(PriorityFloorCounts);
-      HvLockHiveFlusherExclusive(PriorityFloorCounts);
-      if ( a1 == PriorityFloorCounts )
-        v4 = 1;
+      if ( a3 )
+        CmpReferenceHive(NextActiveHive);
+      HvLockHiveFlusherExclusive(v10);
+      if ( a1 == v10 )
+        v3 = 1;
       else
-        v5 = 1;
-      if ( (!a1 || v4 == 1) && (!a2 || v5 == 1) )
+        v4 = 1;
+      if ( (!a1 || v3 == 1) && (!a2 || v4 == 1) )
       {
-        ExReleaseRundownProtection_0(PriorityFloorCounts + 205);
+        ExReleaseRundownProtection_0(v10 + 205);
         break;
       }
     }
-    PriorityFloorCounts = (struct _EX_RUNDOWN_REF *)CmpGetNextActiveHive(PriorityFloorCounts);
   }
-  if ( a1 && !v4 )
+  if ( a1 && !v3 )
   {
-    if ( v5 != 1 )
+    if ( v4 != 1 )
       return 3221225524LL;
     HvUnlockHiveFlusherExclusive(a2);
-    if ( !v7 )
+    if ( !a3 )
       return 3221225524LL;
     v12 = a2;
-    goto LABEL_30;
+    goto LABEL_27;
   }
-  if ( !a2 || v5 )
+  if ( !a2 || v4 )
     return 0LL;
-  if ( v4 == 1 )
+  if ( v3 == 1 )
   {
     HvUnlockHiveFlusherExclusive(a1);
-    if ( v7 )
+    if ( a3 )
     {
       v12 = a1;
-LABEL_30:
+LABEL_27:
       CmpDereferenceHive(v12);
     }
   }

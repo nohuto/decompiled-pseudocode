@@ -1,12 +1,17 @@
 /*
- * XREFs of RtlRestoreSystemBootStatusDefaults @ 0x1800EE2E0
+ * XREFs of RtlRestoreSystemBootStatusDefaults @ 0x1800EE2A0
  * Callers:
  *     <none>
  * Callees:
- *     NtPowerInformation @ 0x18009E210 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x18009E1D0 (NtPowerInformation.c)
  */
 
-__int64 RtlRestoreSystemBootStatusDefaults()
+NTSTATUS RtlRestoreSystemBootStatusDefaults(void)
 {
-  return NtPowerInformation();
+  _QWORD v1[5]; // [rsp+30h] [rbp-28h] BYREF
+
+  v1[0] = 35LL;
+  v1[1] = 0LL;
+  v1[2] = 0LL;
+  return NtPowerInformation(PowerInformationInternal, v1, 0x18u, 0LL, 0);
 }

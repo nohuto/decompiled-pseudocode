@@ -1,7 +1,7 @@
 /*
- * XREFs of KeForceEnableNx @ 0x140B57810
+ * XREFs of KeForceEnableNx @ 0x140B59890
  * Callers:
- *     HalpInterruptSetProcessorStartContext @ 0x140541E70 (HalpInterruptSetProcessorStartContext.c)
+ *     HalpInterruptDetermineProcessorStartupFlags @ 0x140556D3C (HalpInterruptDetermineProcessorStartupFlags.c)
  * Callees:
  *     <none>
  */

@@ -6,12 +6,12 @@
  *     ObAdjustSecurityQuota @ 0x14069E9B8 (ObAdjustSecurityQuota.c)
  *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7060 (ObpIncrementHandleCountEx.c)
- *     SeDefaultObjectMethod @ 0x140728FB0 (SeDefaultObjectMethod.c)
- *     ObpChargeQuotaForObject @ 0x14075C044 (ObpChargeQuotaForObject.c)
- *     AlpcMessageDestroyProcedure @ 0x1407B6140 (AlpcMessageDestroyProcedure.c)
+ *     ObpIncrementHandleCountEx @ 0x1406E7090 (ObpIncrementHandleCountEx.c)
+ *     SeDefaultObjectMethod @ 0x1407291B0 (SeDefaultObjectMethod.c)
+ *     ObpChargeQuotaForObject @ 0x14075C234 (ObpChargeQuotaForObject.c)
+ *     AlpcMessageDestroyProcedure @ 0x1407B6420 (AlpcMessageDestroyProcedure.c)
  * Callees:
- *     PspReturnQuota @ 0x1402AD0A0 (PspReturnQuota.c)
+ *     PspReturnQuota @ 0x1402AD330 (PspReturnQuota.c)
  *     PspDereferenceQuotaBlock @ 0x14069ECF4 (PspDereferenceQuotaBlock.c)
  */
 

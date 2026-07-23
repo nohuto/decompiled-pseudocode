@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReserveAndCommitUserShadowStack @ 0x14090A318
+ * XREFs of PspReserveAndCommitUserShadowStack @ 0x14090A478
  * Callers:
- *     PspSetupUserFiberShadowStack @ 0x14090A500 (PspSetupUserFiberShadowStack.c)
- *     PspSetupUserShadowStack @ 0x14090A5DC (PspSetupUserShadowStack.c)
+ *     PspSetupUserFiberShadowStack @ 0x14090A660 (PspSetupUserFiberShadowStack.c)
+ *     PspSetupUserShadowStack @ 0x14090A73C (PspSetupUserShadowStack.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
- *     MmAllocateUserStack @ 0x140694420 (MmAllocateUserStack.c)
- *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA880 (ZwAllocateVirtualMemory.c)
+ *     MmAllocateUserStack @ 0x1405F3970 (MmAllocateUserStack.c)
+ *     MmFreeVirtualMemory @ 0x1407049E0 (MmFreeVirtualMemory.c)
  */
 
 __int64 __fastcall PspReserveAndCommitUserShadowStack(

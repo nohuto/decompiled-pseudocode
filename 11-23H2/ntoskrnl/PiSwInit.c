@@ -4,8 +4,8 @@
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     RtlInitializeGenericTableAvl @ 0x14031E970 (RtlInitializeGenericTableAvl.c)
- *     IoCreateDriver @ 0x140810200 (IoCreateDriver.c)
+ *     RtlInitializeGenericTableAvl @ 0x14031EC00 (RtlInitializeGenericTableAvl.c)
+ *     IoCreateDriver @ 0x1408104D0 (IoCreateDriver.c)
  */
 
 NTSTATUS PiSwInit()

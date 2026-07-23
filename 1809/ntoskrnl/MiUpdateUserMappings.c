@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateUserMappings @ 0x14056E028
+ * XREFs of MiUpdateUserMappings @ 0x14056F028
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140569DB8 (PopInvokeSystemStateHandler.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiRevertQuasiPte @ 0x14013BB24 (MiRevertQuasiPte.c)
- *     MiMakeQuasiPte @ 0x14013BB38 (MiMakeQuasiPte.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiRevertQuasiPte @ 0x14013BC24 (MiRevertQuasiPte.c)
+ *     MiMakeQuasiPte @ 0x14013BC38 (MiMakeQuasiPte.c)
  */
 
 unsigned __int64 MiUpdateUserMappings()
@@ -41,7 +41,7 @@ unsigned __int64 MiUpdateUserMappings()
       if ( (unsigned int)MiPteHasShadow() )
       {
         v6 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v7 = (v5 & 1) == 0;
 LABEL_11:

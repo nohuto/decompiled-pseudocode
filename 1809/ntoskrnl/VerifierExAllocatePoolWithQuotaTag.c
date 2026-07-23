@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierExAllocatePoolWithQuotaTag @ 0x140925500
+ * XREFs of VerifierExAllocatePoolWithQuotaTag @ 0x140926500
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x1409275EC (VfCheckPoolType.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x1409285EC (VfCheckPoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 PVOID __fastcall VerifierExAllocatePoolWithQuotaTag(__int64 PoolType, SIZE_T NumberOfBytes, __int64 Tag)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCMMandatoryFilterCallback @ 0x14070A360
+ * XREFs of PiCMMandatoryFilterCallback @ 0x14070B600
  * Callers:
  *     <none>
  * Callees:
- *     PiPnpRtlApplyMandatoryFilters @ 0x140595FCC (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x140596FCC (PiPnpRtlApplyMandatoryFilters.c)
  */
 
 char __fastcall PiCMMandatoryFilterCallback(

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePreSleepNotification @ 0x140991348
+ * XREFs of PopDiagTracePreSleepNotification @ 0x140991548
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SshSessionManagerTracePreSleepNotification @ 0x1409A1AE0 (SshSessionManagerTracePreSleepNotification.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SshSessionManagerTracePreSleepNotification @ 0x1409A1CE0 (SshSessionManagerTracePreSleepNotification.c)
  */
 
 __int64 __fastcall PopDiagTracePreSleepNotification(int a1, int a2, int a3, int a4, char a5, __int64 a6)

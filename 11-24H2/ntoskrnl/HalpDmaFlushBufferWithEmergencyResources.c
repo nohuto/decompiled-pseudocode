@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaFlushBufferWithEmergencyResources @ 0x1404CE494
+ * XREFs of HalpDmaFlushBufferWithEmergencyResources @ 0x1404C7760
  * Callers:
- *     HalpDmaFlushBuffer @ 0x14038D450 (HalpDmaFlushBuffer.c)
+ *     HalpDmaFlushBuffer @ 0x140386D90 (HalpDmaFlushBuffer.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     MmUnmapReservedMapping @ 0x14040F6F0 (MmUnmapReservedMapping.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x140410510 (MmMapLockedPagesWithReservedMapping.c)
- *     KeFlushIoBuffers @ 0x14043D470 (KeFlushIoBuffers.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14041D8B0 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeFlushIoBuffers @ 0x140431710 (KeFlushIoBuffers.c)
+ *     MmUnmapReservedMapping @ 0x140433320 (MmUnmapReservedMapping.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall HalpDmaFlushBufferWithEmergencyResources(
@@ -30,11 +30,11 @@ void __fastcall HalpDmaFlushBufferWithEmergencyResources(
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140E3EB80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140E3ECC0, &LockHandle);
   v9 = a3 & 0xFFF;
   v10 = (struct _MDL **)(a2 + 48 + 8LL * (unsigned int)((unsigned __int64)(a3 - *(_QWORD *)(a2 + 32)) >> 12));
-  v11 = qword_140E3EB58;
-  qword_140E3EB58->ByteCount = 4096 - v9;
+  v11 = qword_140E3EC98;
+  qword_140E3EC98->ByteCount = 4096 - v9;
   v11->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
   v11->ByteOffset = v9;
   while ( a4 )
@@ -43,7 +43,7 @@ void __fastcall HalpDmaFlushBufferWithEmergencyResources(
     v11[1].Next = *v10;
     while ( 1 )
     {
-      v14 = MmMapLockedPagesWithReservedMapping(qword_140E3EB30, 0x446C6148u, v11, v12);
+      v14 = MmMapLockedPagesWithReservedMapping(qword_140E3EC70, 0x446C6148u, v11, v12);
       if ( v14 )
         break;
       if ( ++v12 >= MmMaximumCacheType )

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCompareAces @ 0x1800CE000
+ * XREFs of RtlpCompareAces @ 0x1800C5BC0
  * Callers:
- *     RtlpConvertAclToAutoInherit @ 0x180139B00 (RtlpConvertAclToAutoInherit.c)
+ *     RtlpConvertAclToAutoInherit @ 0x180137D30 (RtlpConvertAclToAutoInherit.c)
  * Callees:
- *     RtlpCompareKnownObjectAces @ 0x1800CD30C (RtlpCompareKnownObjectAces.c)
- *     RtlEqualSid @ 0x1800CE210 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     RtlpCompareKnownObjectAces @ 0x1800C4ECC (RtlpCompareKnownObjectAces.c)
+ *     RtlEqualSid @ 0x1800C5DD0 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
-char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, __int64 a3, __int64 a4)
+char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v4; // r11
   char result; // al
@@ -50,10 +50,10 @@ char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, __int6
         v13 = *((_DWORD *)a1 + 4);
         if ( v13 )
         {
-          if ( v13 == 1 && a4 && (unsigned __int8)RtlEqualSid(a2 + 8, a4) )
+          if ( v13 == 1 && a4 && RtlEqualSid(a2 + 8, a4) )
             return 1;
         }
-        else if ( a3 && (unsigned __int8)RtlEqualSid(a2 + 8, a3) )
+        else if ( a3 && RtlEqualSid(a2 + 8, a3) )
         {
           return 1;
         }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpAcquireSpinLockDisabled @ 0x1403DE500
+ * XREFs of ExpAcquireSpinLockDisabled @ 0x1403E16F0
  * Callers:
- *     ExInterlockedInsertHeadList @ 0x1403DE3D0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedInsertTailList @ 0x1403DE450 (ExInterlockedInsertTailList.c)
- *     ExInterlockedAddLargeInteger @ 0x1403DFAB0 (ExInterlockedAddLargeInteger.c)
- *     ExInterlockedAddUlong @ 0x140500FC0 (ExInterlockedAddUlong.c)
- *     ExInterlockedPopEntryList @ 0x1406D09A0 (ExInterlockedPopEntryList.c)
- *     ExInterlockedPushEntryList @ 0x1406D09F0 (ExInterlockedPushEntryList.c)
+ *     ExInterlockedInsertHeadList @ 0x1403E15C0 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x1403E1640 (ExInterlockedInsertTailList.c)
+ *     ExInterlockedAddLargeInteger @ 0x1403E2CA0 (ExInterlockedAddLargeInteger.c)
+ *     ExInterlockedAddUlong @ 0x1404FA7B0 (ExInterlockedAddUlong.c)
+ *     ExInterlockedPopEntryList @ 0x1406D49D0 (ExInterlockedPopEntryList.c)
+ *     ExInterlockedPushEntryList @ 0x1406D4A20 (ExInterlockedPushEntryList.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall ExpAcquireSpinLockDisabled(volatile signed __int32 *a1)

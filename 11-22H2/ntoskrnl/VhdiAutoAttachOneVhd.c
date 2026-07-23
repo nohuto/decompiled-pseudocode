@@ -16,33 +16,33 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-void __fastcall VhdiAutoAttachOneVhd(_WORD *Src, _OWORD *a2, int a3)
+void __fastcall VhdiAutoAttachOneVhd(_WORD *Src, _OWORD *a2, ULONG a3)
 {
   __int64 v6; // r9
   size_t v7; // rsi
   __int64 Pool2; // rax
   _QWORD *v9; // rbx
   _QWORD *v10; // rax
-  int v11; // eax
+  NTSTATUS v11; // eax
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // r8
   int v15; // ebx
   __int64 v16; // r9
-  int v17; // [rsp+30h] [rbp-49h] BYREF
-  PVOID P; // [rsp+38h] [rbp-41h] BYREF
+  ULONG Privilege; // [rsp+30h] [rbp-49h] BYREF
+  PVOID ReturnedState; // [rsp+38h] [rbp-41h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v19; // [rsp+40h] [rbp-39h] BYREF
-  PVOID *p_P; // [rsp+60h] [rbp-19h]
+  PVOID *p_ReturnedState; // [rsp+60h] [rbp-19h]
   __int64 v21; // [rsp+68h] [rbp-11h]
   _BYTE v22[16]; // [rsp+70h] [rbp-9h] BYREF
   _OWORD *v23; // [rsp+80h] [rbp+7h]
   __int64 v24; // [rsp+88h] [rbp+Fh]
-  int *v25; // [rsp+90h] [rbp+17h]
+  ULONG *p_Privilege; // [rsp+90h] [rbp+17h]
   __int64 v26; // [rsp+98h] [rbp+1Fh]
 
   if ( Src )
   {
-    P = 0LL;
+    ReturnedState = 0LL;
     if ( PnpSetupOOBEInProgress && PnpSetupUpgradeInProgress )
     {
       v6 = -1LL;
@@ -68,10 +68,10 @@ void __fastcall VhdiAutoAttachOneVhd(_WORD *Src, _OWORD *a2, int a3)
     }
     else
     {
-      v17 = 28;
-      v11 = RtlAcquirePrivilege(&v17, 1LL, 0LL, &P);
+      Privilege = 28;
+      v11 = RtlAcquirePrivilege(&Privilege, 1u, 0, &ReturnedState);
       LOBYTE(v15) = v11;
-      if ( v11 < 0 || (v15 = VhdiMountVhdFile(Src), RtlReleasePrivilege(P), v15 < 0) )
+      if ( v11 < 0 || (v15 = VhdiMountVhdFile(Src), RtlReleasePrivilege(ReturnedState), v15 < 0) )
       {
         if ( (Microsoft_Windows_Kernel_IOEnableBits & 4) != 0 )
         {
@@ -83,14 +83,14 @@ void __fastcall VhdiAutoAttachOneVhd(_WORD *Src, _OWORD *a2, int a3)
         }
         if ( (unsigned int)dword_140C03838 > 5 && tlgKeywordOn((__int64)&dword_140C03838, 0x400000000000LL) )
         {
-          P = (PVOID)0x2000000;
-          p_P = &P;
+          ReturnedState = (PVOID)0x2000000;
+          p_ReturnedState = &ReturnedState;
           v21 = 8LL;
           tlgCreate1Sz_wchar_t((__int64)v22, (const size_t *)Src);
           v23 = a2;
-          v25 = &v17;
+          p_Privilege = &Privilege;
           v24 = 16LL;
-          v17 = a3;
+          Privilege = a3;
           v26 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140C03838,

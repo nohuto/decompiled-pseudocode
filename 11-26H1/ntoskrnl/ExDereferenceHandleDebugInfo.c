@@ -1,14 +1,14 @@
 /*
- * XREFs of ExDereferenceHandleDebugInfo @ 0x140A8F64C
+ * XREFs of ExDereferenceHandleDebugInfo @ 0x140A9431C
  * Callers:
- *     ExDisableHandleTracing @ 0x1406CB8EC (ExDisableHandleTracing.c)
- *     ExEnableHandleTracing @ 0x1407795D8 (ExEnableHandleTracing.c)
- *     ExpUpdateDebugInfo @ 0x14092C6E0 (ExpUpdateDebugInfo.c)
- *     ExpFreeHandleTable @ 0x1409588DC (ExpFreeHandleTable.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     ExDisableHandleTracing @ 0x1406CF91C (ExDisableHandleTracing.c)
+ *     ExEnableHandleTracing @ 0x14077C508 (ExEnableHandleTracing.c)
+ *     ExpUpdateDebugInfo @ 0x140908210 (ExpUpdateDebugInfo.c)
+ *     ExpFreeHandleTable @ 0x1409BE364 (ExpFreeHandleTable.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExDereferenceHandleDebugInfo(__int64 a1, _DWORD *a2)

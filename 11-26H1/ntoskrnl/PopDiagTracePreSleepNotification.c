@@ -1,13 +1,14 @@
 /*
- * XREFs of PopDiagTracePreSleepNotification @ 0x1407D4844
+ * XREFs of PopDiagTracePreSleepNotification @ 0x1407D79C4
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SshSessionManagerTracePreSleepNotification @ 0x140B729AC (SshSessionManagerTracePreSleepNotification.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     Feature_NU4MP__private_IsEnabledDeviceUsageNoInline @ 0x140602F80 (Feature_NU4MP__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SshSessionManagerTracePreSleepNotification @ 0x140B77BD0 (SshSessionManagerTracePreSleepNotification.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopDiagTracePreSleepNotification(
@@ -20,65 +21,76 @@ __int64 __fastcall PopDiagTracePreSleepNotification(
         __int64 a7)
 {
   __int64 v7; // rsi
-  __int64 v9; // r15
-  char v10; // di
-  char v11; // bl
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  PEVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-91h]
-  int v18; // [rsp+40h] [rbp-71h] BYREF
-  int v19; // [rsp+48h] [rbp-69h] BYREF
-  int v20; // [rsp+50h] [rbp-61h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v21; // [rsp+60h] [rbp-51h] BYREF
-  int *v22; // [rsp+70h] [rbp-41h]
-  __int64 v23; // [rsp+78h] [rbp-39h]
-  int *v24; // [rsp+80h] [rbp-31h]
-  __int64 v25; // [rsp+88h] [rbp-29h]
-  int *v26; // [rsp+90h] [rbp-21h]
-  __int64 v27; // [rsp+98h] [rbp-19h]
-  char *v28; // [rsp+A0h] [rbp-11h]
-  __int64 v29; // [rsp+A8h] [rbp-9h]
-  int v30; // [rsp+118h] [rbp+67h] BYREF
+  char v8; // bl
+  __int64 v10; // r12
+  char v11; // r14
+  char v12; // di
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  PEVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-A1h]
+  int v19; // [rsp+50h] [rbp-71h] BYREF
+  int v20; // [rsp+58h] [rbp-69h] BYREF
+  int v21; // [rsp+60h] [rbp-61h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+70h] [rbp-51h] BYREF
+  int *v23; // [rsp+80h] [rbp-41h]
+  __int64 v24; // [rsp+88h] [rbp-39h]
+  int *v25; // [rsp+90h] [rbp-31h]
+  __int64 v26; // [rsp+98h] [rbp-29h]
+  int *v27; // [rsp+A0h] [rbp-21h]
+  __int64 v28; // [rsp+A8h] [rbp-19h]
+  char *v29; // [rsp+B0h] [rbp-11h]
+  __int64 v30; // [rsp+B8h] [rbp-9h]
+  int v31; // [rsp+128h] [rbp+67h] BYREF
 
-  v30 = a4;
+  v31 = a4;
   v7 = a6;
-  v9 = a7;
-  v20 = a1;
-  v19 = a2;
-  v18 = 0;
-  if ( byte_140E67628 )
+  v8 = 0;
+  v10 = a7;
+  v21 = a1;
+  v20 = a2;
+  v19 = 0;
+  if ( PopDiagHandleRegistered )
   {
-    v21.Ptr = (ULONGLONG)&v20;
-    v18 = a3;
-    v22 = &v19;
-    *(_QWORD *)&v21.Size = 4LL;
-    v24 = &v18;
-    v23 = 4LL;
-    v26 = &v30;
-    v28 = &a5;
-    v25 = 4LL;
-    v27 = 4LL;
-    v29 = 4LL;
-    EtwWrite(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_EVENT_PRESLEEP_NOTIFICATION3,
-      0LL,
-      5u,
-      &v21);
+    v22.Ptr = (ULONGLONG)&v21;
+    v19 = a3;
+    v23 = &v20;
+    *(_QWORD *)&v22.Size = 4LL;
+    v25 = &v19;
+    v24 = 4LL;
+    v27 = &v31;
+    v29 = &a5;
+    v26 = 4LL;
+    v28 = 4LL;
+    v30 = 4LL;
+    EtwWrite(PopDiagHandle, &POP_ETW_EVENT_PRESLEEP_NOTIFICATION3, 0LL, 5u, &v22);
   }
   PopAcquirePolicyLock(a1, a2);
-  v10 = PopLidOpened != 0;
-  v11 = PopConsoleExternalDisplayConnected != 0;
-  PopReleasePolicyLock(v13, v12, v14, v15, UserData);
+  v11 = PopLidOpened != 0;
+  v12 = PopConsoleExternalDisplayConnected != 0;
+  if ( (unsigned int)Feature_NU4MP__private_IsEnabledDeviceUsageNoInline() )
+  {
+    if ( v12 )
+    {
+      LOBYTE(v14) = PopUsb4DisplayPresent != 0 ? 2 : 0;
+      v8 = v14 + 1;
+    }
+    else if ( PopUsb4DisplayPresent )
+    {
+      v12 = 1;
+      v8 = 2;
+    }
+  }
+  PopReleasePolicyLock(v14, v13, v15, v16, UserData);
   return SshSessionManagerTracePreSleepNotification(
+           v21,
            v20,
-           v19,
            a3,
            *(_DWORD *)(v7 + 12),
            *(_DWORD *)(v7 + 8),
+           v11,
            v10,
-           v9,
-           v11);
+           v12,
+           v8);
 }

@@ -8,7 +8,7 @@
  *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
+NTSTATUS __cdecl NtRegisterThreadTerminatePort(HANDLE PortHandle)
 {
   struct _KTHREAD *CurrentThread; // rbx
   NTSTATUS result; // eax
@@ -18,7 +18,13 @@ NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
 
   CurrentThread = KeGetCurrentThread();
   DmaAdapter = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, LpcPortObjectType, CurrentThread->PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  result = ObReferenceObjectByHandle(
+             PortHandle,
+             1u,
+             LpcPortObjectType,
+             CurrentThread->PreviousMode,
+             (PVOID *)&DmaAdapter,
+             0LL);
   if ( result >= 0 )
   {
     PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x10uLL, 0x70547350u);

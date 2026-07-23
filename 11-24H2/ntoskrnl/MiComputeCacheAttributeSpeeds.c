@@ -1,22 +1,22 @@
 /*
- * XREFs of MiComputeCacheAttributeSpeeds @ 0x1406931D8
+ * XREFs of MiComputeCacheAttributeSpeeds @ 0x1406942A8
  * Callers:
- *     MiInitializeZeroEngines @ 0x1407FF3F0 (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x1407FFB34 (MiInitializeZeroEngines.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140266854 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     MiFillMemory @ 0x14040A5D0 (MiFillMemory.c)
- *     MiLockAndInsertPageInFreeList @ 0x1404653B4 (MiLockAndInsertPageInFreeList.c)
- *     MiFreeHardwareDescriptor @ 0x1404AC318 (MiFreeHardwareDescriptor.c)
- *     MiAllocateHardwareDescriptor @ 0x1404AE4C8 (MiAllocateHardwareDescriptor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402EEA94 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     MiFillMemory @ 0x140402AB0 (MiFillMemory.c)
+ *     MiLockAndInsertPageInFreeList @ 0x14045BA98 (MiLockAndInsertPageInFreeList.c)
+ *     MiFreeHardwareDescriptor @ 0x1404A6770 (MiFreeHardwareDescriptor.c)
+ *     MiAllocateHardwareDescriptor @ 0x1404A8DD8 (MiAllocateHardwareDescriptor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char *__fastcall MiComputeCacheAttributeSpeeds(_QWORD *a1)
@@ -53,83 +53,88 @@ char *__fastcall MiComputeCacheAttributeSpeeds(_QWORD *a1)
   LARGE_INTEGER v31; // rbx
   void *v32; // rdi
   LARGE_INTEGER v33; // rax
-  LARGE_INTEGER v34; // rcx
-  unsigned __int64 *v35; // rcx
-  bool v36; // zf
-  __int64 v37; // rax
-  __int64 v38; // rbx
-  KIRQL v39; // r11
-  _BYTE *v40; // r8
-  __int64 v41; // rdi
-  int *v42; // r10
-  int v43; // r9d
-  __int64 v44; // rcx
-  __int128 v45; // xmm1
-  __int64 v46; // rdx
-  signed __int32 v47[8]; // [rsp+8h] [rbp-100h] BYREF
-  int v48; // [rsp+38h] [rbp-D0h] BYREF
-  int v49; // [rsp+3Ch] [rbp-CCh]
-  __int64 v50; // [rsp+40h] [rbp-C8h]
+  LARGE_INTEGER v34; // r8
+  LARGE_INTEGER v35; // r9
+  LARGE_INTEGER v36; // rcx
+  unsigned int v37; // r13d
+  unsigned __int64 v38; // r12
+  unsigned __int64 v39; // rdx
+  unsigned __int64 *v40; // rcx
+  bool v41; // zf
+  __int64 v42; // rax
+  __int64 v43; // rbx
+  KIRQL v44; // r11
+  _BYTE *v45; // r8
+  __int64 v46; // rdi
+  int *v47; // r10
+  int v48; // r9d
+  __int64 v49; // rcx
+  __int128 v50; // xmm1
+  __int64 v51; // rdx
+  signed __int32 v52[8]; // [rsp+8h] [rbp-100h] BYREF
+  int v53; // [rsp+38h] [rbp-D0h] BYREF
+  int v54; // [rsp+3Ch] [rbp-CCh]
+  __int64 v55; // [rsp+40h] [rbp-C8h]
   LARGE_INTEGER PerformanceFrequency; // [rsp+48h] [rbp-C0h] BYREF
-  LARGE_INTEGER v52; // [rsp+50h] [rbp-B8h] BYREF
+  LARGE_INTEGER v57; // [rsp+50h] [rbp-B8h] BYREF
   __int64 *HardwareDescriptor; // [rsp+58h] [rbp-B0h]
-  unsigned __int64 *v54; // [rsp+60h] [rbp-A8h]
-  __int64 v55; // [rsp+68h] [rbp-A0h]
-  __int64 v56; // [rsp+70h] [rbp-98h]
-  __int64 v57; // [rsp+78h] [rbp-90h]
-  __int64 v58; // [rsp+80h] [rbp-88h]
-  __int64 v59; // [rsp+88h] [rbp-80h]
-  _QWORD *v60; // [rsp+90h] [rbp-78h]
-  char *v61; // [rsp+98h] [rbp-70h]
-  __int64 v62; // [rsp+A0h] [rbp-68h]
-  __int128 v63; // [rsp+A8h] [rbp-60h] BYREF
-  char v64[32]; // [rsp+B8h] [rbp-50h] BYREF
-  char v65; // [rsp+D8h] [rbp-30h] BYREF
-  _BYTE v66[56]; // [rsp+E0h] [rbp-28h] BYREF
+  unsigned __int64 *v59; // [rsp+60h] [rbp-A8h]
+  __int64 v60; // [rsp+68h] [rbp-A0h]
+  __int64 v61; // [rsp+70h] [rbp-98h]
+  __int64 v62; // [rsp+78h] [rbp-90h]
+  __int64 v63; // [rsp+80h] [rbp-88h]
+  __int64 v64; // [rsp+88h] [rbp-80h]
+  _QWORD *v65; // [rsp+90h] [rbp-78h]
+  char *v66; // [rsp+98h] [rbp-70h]
+  __int64 v67; // [rsp+A0h] [rbp-68h]
+  __int128 v68; // [rsp+A8h] [rbp-60h] BYREF
+  char v69[32]; // [rsp+B8h] [rbp-50h] BYREF
+  char v70; // [rsp+D8h] [rbp-30h] BYREF
+  _BYTE v71[56]; // [rsp+E0h] [rbp-28h] BYREF
 
-  v60 = a1;
-  LOBYTE(v48) = 0;
-  v63 = 0LL;
-  result = (char *)memset_0(v64, 0, 0x60uLL);
-  if ( (byte_140E2DBD8 & 1) == 0 )
+  v65 = a1;
+  LOBYTE(v53) = 0;
+  v68 = 0LL;
+  result = (char *)memset_0(v69, 0, 0x60uLL);
+  if ( (byte_140E2DD18 & 1) == 0 )
   {
-    v3 = byte_140E2DBD8 & 4;
+    v3 = byte_140E2DD18 & 4;
     v4 = a1[22];
     result = (char *)((__int64)*(int *)a1 << 6);
-    v49 = *(_DWORD *)a1;
-    v62 = v49;
+    v54 = *(_DWORD *)a1;
+    v67 = v54;
     v5 = *(unsigned int *)(v4 + 56);
-    v61 = result;
-    v6 = qword_140E2DAF8 + 384 * v5;
-    v58 = v6;
+    v66 = result;
+    v6 = qword_140E2DC38 + 384 * v5;
+    v63 = v6;
     if ( !*(_QWORD *)&result[v6 + 200] )
     {
       v7 = *(_QWORD *)(v4 + 48);
-      v8 = 168LL * v49;
-      v56 = *(_QWORD *)(v6 + 376);
-      MiInitializePageColorBase(0LL, 3, v5 + 1, (__int64)&v63);
-      v9 = _InterlockedExchangeAdd((volatile signed __int32 *)v63, 1u);
+      v8 = 168LL * v54;
+      v61 = *(_QWORD *)(v6 + 376);
+      MiInitializePageColorBase(0LL, 3, v5 + 1, (__int64)&v68);
+      v9 = _InterlockedExchangeAdd((volatile signed __int32 *)v68, 1u);
       Page = MiGetPage(
                v7,
-               DWORD2(v63) ^ (unsigned int)(unsigned __int8)(BYTE8(v63) ^ (v9
-                                                                         % dword_140E2DBC0[(*((_QWORD *)&v63 + 1) >> 16) & 3LL])),
+               DWORD2(v68) ^ (unsigned int)(unsigned __int8)(BYTE8(v68) ^ (v9
+                                                                         % dword_140E2DD00[(*((_QWORD *)&v68 + 1) >> 16) & 3LL])),
                0);
-      v57 = Page;
+      v62 = Page;
       if ( Page == -1 )
         v11 = 0LL;
       else
         v11 = 48 * Page - 0x220000000000LL;
       v12 = -v3;
       v13 = 2LL - (v12 != 0);
-      v59 = v13;
+      v64 = v13;
       if ( v11 )
       {
         if ( BYTE2(*(_DWORD *)(v11 + 32)) >= 0x40u )
           MiChangePageAttribute(v11, 0);
-        v18 = &v65;
+        v18 = &v70;
         v19 = 2LL;
-        v20 = *(_QWORD *)(v8 + v56 + 80) * *(unsigned int *)(v8 + v56 + 72);
-        v21 = *(_QWORD **)(v8 + v56 + 120);
+        v20 = *(_QWORD *)(v8 + v61 + 80) * *(unsigned int *)(v8 + v61 + 72);
+        v21 = *(_QWORD **)(v8 + v61 + 120);
         do
         {
           v22 = (unsigned __int64 *)v18;
@@ -147,22 +152,22 @@ char *__fastcall MiComputeCacheAttributeSpeeds(_QWORD *a1)
           --v19;
         }
         while ( v19 );
-        if ( v49 )
+        if ( v54 )
           HardwareDescriptor = 0LL;
         else
           HardwareDescriptor = MiAllocateHardwareDescriptor(a1);
         v25 = (__int64)HardwareDescriptor;
-        v26 = (unsigned __int64 *)v66;
+        v26 = (unsigned __int64 *)v71;
         v27 = 1;
-        v55 = v13;
-        LODWORD(v50) = 1;
+        v60 = v13;
+        LODWORD(v55) = 1;
         do
         {
-          v49 = 0;
-          v54 = v26;
+          v54 = 0;
+          v59 = v26;
           do
           {
-            v28 = v49;
+            v28 = v54;
             v29 = 0LL;
             v30 = 0;
             do
@@ -171,48 +176,51 @@ char *__fastcall MiComputeCacheAttributeSpeeds(_QWORD *a1)
               v31 = KeQueryPerformanceCounter(&PerformanceFrequency);
               if ( PerformanceFrequency.QuadPart != 10000000 )
                 v31.QuadPart = 10000000 * v31.QuadPart / PerformanceFrequency.QuadPart;
-              _InterlockedOr(v47, 0);
+              _InterlockedOr(v52, 0);
               MiChangePageAttribute(v11, v27);
-              v32 = (void *)MiMapPageInHyperSpaceWorker(v57, (unsigned __int8 *)&v48, 0x80000000LL);
+              v32 = (void *)MiMapPageInHyperSpaceWorker(v62, (unsigned __int8 *)&v53, 0x80000000);
               MiFillMemory(v25, v32, 0x1000uLL, 0LL, v28);
-              MiUnmapPageInHyperSpaceWorker((unsigned __int64)v32, v48, 0x80000000);
+              MiUnmapPageInHyperSpaceWorker((unsigned __int64)v32, v53, 0x80000000);
               MiChangePageAttribute(v11, 0);
-              _InterlockedOr(v47, 0);
-              v52.QuadPart = 0LL;
-              v33 = KeQueryPerformanceCounter(&v52);
-              if ( v52.QuadPart != 10000000 )
-                v33.QuadPart = 10000000 * v33.QuadPart / v52.QuadPart;
-              v27 = v50;
+              _InterlockedOr(v52, 0);
+              v57.QuadPart = 0LL;
+              v33 = KeQueryPerformanceCounter(&v57);
+              if ( v57.QuadPart != 10000000 )
+                v33.QuadPart = 10000000 * v33.QuadPart / v57.QuadPart;
+              v27 = v55;
               ++v30;
-              v34 = v31;
+              v36 = v31;
               if ( v33.QuadPart >= (unsigned __int64)v31.QuadPart )
-                v34 = v33;
-              v29 += v34.QuadPart - v31.QuadPart;
+                v36 = v33;
+              v29 += v36.QuadPart - v31.QuadPart;
             }
             while ( v29 < 0x1F4 );
-            v35 = v54;
-            *v54 = (v29 << 21) / (unsigned int)(v30 << 12);
-            v26 = v35 + 2;
-            v54 = v26;
-            v49 = v28 + 1;
+            v37 = v30 << 12;
+            v38 = v29 << 21;
+            v39 = v38 % v37;
+            v40 = v59;
+            *v59 = v38 / v37;
+            v26 = v40 + 2;
+            v59 = v26;
+            v54 = v28 + 1;
           }
           while ( v28 + 1 < 2 );
           ++v27;
-          v36 = v55-- == 1;
-          LODWORD(v50) = v27;
+          v41 = v60-- == 1;
+          LODWORD(v55) = v27;
         }
-        while ( !v36 );
-        v13 = v59;
-        v37 = v25;
-        v6 = v58;
-        if ( v37 )
-          MiFreeHardwareDescriptor((__int64)v60, v37);
-        MiLockAndInsertPageInFreeList(v11);
+        while ( !v41 );
+        v13 = v64;
+        v42 = v25;
+        v6 = v63;
+        if ( v42 )
+          MiFreeHardwareDescriptor((__int64)v65, v42);
+        MiLockAndInsertPageInFreeList(v11, v39, v34.QuadPart, v35.QuadPart);
       }
       else
       {
         v14 = 1LL;
-        v15 = v66;
+        v15 = v71;
         do
         {
           v16 = MiUnmeasuredTimeToZeroOneLargePage[v14];
@@ -229,36 +237,36 @@ char *__fastcall MiComputeCacheAttributeSpeeds(_QWORD *a1)
         }
         while ( v14 <= v13 );
       }
-      v38 = v56;
-      v39 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v56 + 64));
-      if ( !*(_QWORD *)&v61[v6 + 200] )
+      v43 = v61;
+      v44 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v61 + 64));
+      if ( !*(_QWORD *)&v66[v6 + 200] )
       {
-        v40 = v66;
-        v41 = 2 * v62;
-        v42 = (int *)(v6 + 124);
-        v43 = 1;
+        v45 = v71;
+        v46 = 2 * v67;
+        v47 = (int *)(v6 + 124);
+        v48 = 1;
         do
         {
-          v44 = 2LL;
-          v45 = *(_OWORD *)(v40 + 8);
-          v46 = 32 * (v41 + (unsigned int)(v43 - 1));
-          *(_OWORD *)(v46 + v6 + 184) = *(_OWORD *)(v40 - 8);
-          *(_OWORD *)(v46 + v6 + 200) = v45;
+          v49 = 2LL;
+          v50 = *(_OWORD *)(v45 + 8);
+          v51 = 32 * (v46 + (unsigned int)(v48 - 1));
+          *(_OWORD *)(v51 + v6 + 184) = *(_OWORD *)(v45 - 8);
+          *(_OWORD *)(v51 + v6 + 200) = v50;
           do
           {
-            if ( *(_QWORD *)v40 < 9 * (*((_QWORD *)v40 - 1) / 0xAuLL) )
-              *v42 = v43;
-            v40 += 16;
-            --v44;
+            if ( *(_QWORD *)v45 < 9 * (*((_QWORD *)v45 - 1) / 0xAuLL) )
+              *v47 = v48;
+            v45 += 16;
+            --v49;
           }
-          while ( v44 );
-          ++v43;
-          ++v42;
+          while ( v49 );
+          ++v48;
+          ++v47;
           --v13;
         }
         while ( v13 );
       }
-      return (char *)MiReleaseSpinLockExclusive((_DWORD *)(v38 + 64), v39);
+      return (char *)MiReleaseSpinLockExclusive((_DWORD *)(v43 + 64), v44);
     }
   }
   return result;

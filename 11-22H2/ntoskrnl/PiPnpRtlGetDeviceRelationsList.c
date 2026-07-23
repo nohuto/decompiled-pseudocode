@@ -16,10 +16,10 @@ __int64 __fastcall PiPnpRtlGetDeviceRelationsList(
         int a7)
 {
   __int128 v7; // xmm0
-  int v8; // eax
+  NTSTATUS v8; // eax
   unsigned int v9; // ecx
   int v11; // eax
-  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
+  __int128 PnPControlData; // [rsp+20h] [rbp-28h] BYREF
   int v13; // [rsp+30h] [rbp-18h]
   int v14; // [rsp+34h] [rbp-14h]
   __int64 v15; // [rsp+38h] [rbp-10h]
@@ -28,10 +28,10 @@ __int64 __fastcall PiPnpRtlGetDeviceRelationsList(
   {
     v7 = *a2;
     v13 = a3;
-    v12 = v7;
+    PnPControlData = v7;
     v15 = a4;
     v14 = a5;
-    v8 = ZwPlugPlayControl(16LL, (__int64)&v12);
+    v8 = ZwPlugPlayControl(PlugPlayControlQueryDeviceRelations, &PnPControlData, 0x20u);
     v9 = v8;
     if ( v8 >= 0 )
     {

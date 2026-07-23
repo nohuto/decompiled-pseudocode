@@ -1,9 +1,9 @@
 /*
- * XREFs of AstAddBloomFilter @ 0x14098914C
+ * XREFs of AstAddBloomFilter @ 0x140972BF8
  * Callers:
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
  * Callees:
- *     AstGetHashedBitNumbers @ 0x1409891D0 (AstGetHashedBitNumbers.c)
+ *     AstGetHashedBitNumbers @ 0x140972C80 (AstGetHashedBitNumbers.c)
  */
 
 int __fastcall AstAddBloomFilter(__int64 a1, __int64 a2, unsigned int a3)
@@ -17,10 +17,10 @@ int __fastcall AstAddBloomFilter(__int64 a1, __int64 a2, unsigned int a3)
   v6 = 0LL;
   v7 = 0;
   AstGetHashedBitNumbers(&v6, a2, a2, a3);
-  *(_BYTE *)(qword_140F8C288 + ((unsigned __int64)(unsigned int)v6 >> 3)) |= 1 << (v6 & 7);
+  *(_BYTE *)(qword_140F8C508 + ((unsigned __int64)(unsigned int)v6 >> 3)) |= 1 << (v6 & 7);
   v3 = v7;
-  *(_BYTE *)(qword_140F8C288 + ((unsigned __int64)HIDWORD(v6) >> 3)) |= 1 << (BYTE4(v6) & 7);
-  v4 = (_BYTE *)(qword_140F8C288 + ((unsigned __int64)v3 >> 3));
+  *(_BYTE *)(qword_140F8C508 + ((unsigned __int64)HIDWORD(v6) >> 3)) |= 1 << (BYTE4(v6) & 7);
+  v4 = (_BYTE *)(qword_140F8C508 + ((unsigned __int64)v3 >> 3));
   result = (char)*v4 | (1 << (v3 & 7));
   *v4 = result;
   return result;

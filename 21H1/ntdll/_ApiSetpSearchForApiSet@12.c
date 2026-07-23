@@ -7,10 +7,10 @@
  *     _RtlCompareUnicodeStrings@20 @ 0x4B2D04C0 (_RtlCompareUnicodeStrings@20.c)
  */
 
-int __fastcall ApiSetpSearchForApiSet(int a1, unsigned __int16 *a2, unsigned __int16 a3)
+int __fastcall ApiSetpSearchForApiSet(int a1, const WCHAR *a2, unsigned __int16 a3)
 {
   int v3; // ebx
-  unsigned __int16 *v4; // esi
+  const WCHAR *v4; // esi
   unsigned int v5; // edi
   int v6; // edx
   unsigned __int16 v7; // ax
@@ -22,8 +22,11 @@ int __fastcall ApiSetpSearchForApiSet(int a1, unsigned __int16 *a2, unsigned __i
   int v13; // ecx
   int v14; // ecx
   bool v15; // zf
-  int v18; // [esp+10h] [ebp-8h]
-  int v19; // [esp+10h] [ebp-8h]
+  SIZE_T v17; // [esp-10h] [ebp-28h]
+  SIZE_T v18; // [esp-4h] [ebp-1Ch]
+  BOOLEAN v19; // [esp+4h] [ebp-14h]
+  int v21; // [esp+10h] [ebp-8h]
+  int v22; // [esp+10h] [ebp-8h]
 
   v3 = a1;
   v4 = a2;
@@ -49,7 +52,7 @@ int __fastcall ApiSetpSearchForApiSet(int a1, unsigned __int16 *a2, unsigned __i
   if ( v10 < 0 )
     return v8;
   v11 = *(_DWORD *)(v3 + 20);
-  v18 = v11;
+  v21 = v11;
   while ( 1 )
   {
     v12 = (v10 + v9) >> 1;
@@ -63,7 +66,7 @@ int __fastcall ApiSetpSearchForApiSet(int a1, unsigned __int16 *a2, unsigned __i
       break;
     v9 = v12 + 1;
 LABEL_12:
-    v11 = v18;
+    v11 = v21;
     v3 = a1;
     if ( v9 > v10 )
       return 0;
@@ -71,10 +74,13 @@ LABEL_12:
   v14 = *(_DWORD *)(a1 + 16) + 24 * *(_DWORD *)(v13 + v3 + 4);
   v15 = a1 + v14 == 0;
   v8 = a1 + v14;
-  v19 = v8;
+  v22 = v8;
   if ( v15 )
     return v8;
-  if ( !RtlCompareUnicodeStrings(a2, a3, a1 + *(_DWORD *)(v8 + 4), *(_DWORD *)(v8 + 12) >> 1, 1) )
-    return v19;
+  LODWORD(v18) = 1;
+  HIDWORD(v17) = a1 + *(_DWORD *)(v8 + 4);
+  LODWORD(v17) = a3;
+  if ( !RtlCompareUnicodeStrings(a2, v17, (PCWCH)(*(_DWORD *)(v8 + 12) >> 1), v18, v19) )
+    return v22;
   return 0;
 }

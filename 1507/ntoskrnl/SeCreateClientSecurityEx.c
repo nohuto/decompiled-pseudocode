@@ -27,7 +27,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, unsigned __i
   struct _KTHREAD *CurrentThread; // r14
   _KPROCESS *Process; // rbp
   int v9; // r12d
-  __int64 *v10; // rdi
+  PSID *v10; // rdi
   __int64 v11; // r9
   int v12; // r14d
   char v13; // r15
@@ -71,7 +71,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, unsigned __i
       *(_BYTE *)(v17 + 26) |= 1u;
     if ( (*(_DWORD *)(a1 + 1724) & 8) != 0 )
     {
-      v10 = (__int64 *)(*(_QWORD *)(a1 + 1624) & 0xFFFFFFFFFFFFFFF8uLL);
+      v10 = (PSID *)(*(_QWORD *)(a1 + 1624) & 0xFFFFFFFFFFFFFFF8uLL);
       ObfReferenceObject(v10);
       v9 = *(_DWORD *)(a1 + 1624) & 3;
       v13 = (*(_BYTE *)(a1 + 1624) & 4) != 0;
@@ -109,7 +109,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, unsigned __i
   {
     v9 = v30;
   }
-  v10 = (__int64 *)ObFastReferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5]);
+  v10 = (PSID *)ObFastReferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5]);
   if ( !v10 )
   {
     --CurrentThread->KernelApcDisable;
@@ -118,7 +118,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, unsigned __i
       ExfAcquirePushLockSharedEx((unsigned __int64 *)&Process[1], v22, (ULONG_PTR)&Process[1], v23);
     if ( v22 )
       *(_BYTE *)(v22 + 26) |= 1u;
-    v10 = (__int64 *)ObFastReferenceObjectLocked(&Process[1].Affinity.Bitmap[5]);
+    v10 = (PSID *)ObFastReferenceObjectLocked(&Process[1].Affinity.Bitmap[5]);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Process[1].Header.Lock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&Process[1].Header.Lock);
     KeAbPostRelease((ULONG_PTR)&Process[1]);

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiRemoveLockedPageCharge @ 0x14023AEB0
+ * XREFs of MiRemoveLockedPageCharge @ 0x1402DF700
  * Callers:
- *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
- *     MiDeleteDirectMapFixupPfn @ 0x1405542F4 (MiDeleteDirectMapFixupPfn.c)
- *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
- *     MiSwapHardFaultPage @ 0x140563770 (MiSwapHardFaultPage.c)
+ *     MiMigratePfn @ 0x1402BCEF0 (MiMigratePfn.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MiCopyDataPageToImagePage @ 0x14030F138 (MiCopyDataPageToImagePage.c)
+ *     MiPurgeBadFileOnlyPages @ 0x140541B30 (MiPurgeBadFileOnlyPages.c)
+ *     MiDeleteDirectMapFixupPfn @ 0x140554534 (MiDeleteDirectMapFixupPfn.c)
+ *     MiIdealClusterPage @ 0x140556054 (MiIdealClusterPage.c)
+ *     MiSwapHardFaultPage @ 0x1405639B0 (MiSwapHardFaultPage.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSyncCommitSignals @ 0x1403BF928 (MiSyncCommitSignals.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSyncCommitSignals @ 0x1403BFD54 (MiSyncCommitSignals.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  *     MiBadRefCount @ 0x1403F48DC (MiBadRefCount.c)
- *     MiRestockOverCommit @ 0x140550714 (MiRestockOverCommit.c)
+ *     MiRestockOverCommit @ 0x140550954 (MiRestockOverCommit.c)
  */
 
 __int64 __fastcall MiRemoveLockedPageCharge(__int64 a1)
@@ -102,7 +102,7 @@ LABEL_16:
       {
         v13 = 1;
       }
-      v17 = *(_QWORD *)(qword_140C4E648 + 8 * ((v5 >> 39) & 0x3FF));
+      v17 = *(_QWORD *)(qword_140C4E688 + 8 * ((v5 >> 39) & 0x3FF));
       if ( v13 == 1 )
       {
         v18 = 1LL;

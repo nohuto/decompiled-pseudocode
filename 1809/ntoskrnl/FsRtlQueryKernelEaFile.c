@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlQueryKernelEaFile @ 0x1406A50E0
+ * XREFs of FsRtlQueryKernelEaFile @ 0x1406A6380
  * Callers:
- *     sub_1408E0B68 @ 0x1408E0B68 (sub_1408E0B68.c)
+ *     sub_1408E1E28 @ 0x1408E1E28 (sub_1408E1E28.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IoAllocateIrpEx @ 0x1400B9270 (IoAllocateIrpEx.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x1405A1E10 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x1408158C4 (FsRtlpFreeMdlChain.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x1400B91B0 (IoAllocateIrpEx.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     IoCancelIrp @ 0x140121F00 (IoCancelIrp.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1405A2E10 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlpFreeMdlChain @ 0x140816AC4 (FsRtlpFreeMdlChain.c)
  */
 
 __int64 __fastcall FsRtlQueryKernelEaFile(

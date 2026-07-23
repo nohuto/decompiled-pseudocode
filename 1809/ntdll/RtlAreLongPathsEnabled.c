@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAreLongPathsEnabled @ 0x18007A310
+ * XREFs of RtlAreLongPathsEnabled @ 0x18007A320
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char RtlAreLongPathsEnabled()
+BOOLEAN RtlAreLongPathsEnabled(void)
 {
   return NtCurrentPeb()->BitField >> 7;
 }

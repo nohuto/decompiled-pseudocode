@@ -1,12 +1,12 @@
 /*
- * XREFs of HalQueryEnvironmentVariableInfoEx @ 0x140504880
+ * XREFs of HalQueryEnvironmentVariableInfoEx @ 0x140504DD0
  * Callers:
- *     IopQueryEnvironmentVariableInfoHal @ 0x140951150 (IopQueryEnvironmentVariableInfoHal.c)
+ *     IopQueryEnvironmentVariableInfoHal @ 0x140951350 (IopQueryEnvironmentVariableInfoHal.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalEfiQueryVariableInfo @ 0x14050D10C (HalEfiQueryVariableInfo.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HalEfiQueryVariableInfo @ 0x14050D65C (HalEfiQueryVariableInfo.c)
  */
 
 __int64 __fastcall HalQueryEnvironmentVariableInfoEx(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -15,8 +15,8 @@ __int64 __fastcall HalQueryEnvironmentVariableInfoEx(int a1, __int64 a2, __int64
   unsigned int v9; // edi
   unsigned int v10; // edx
   unsigned int VariableInfo; // edi
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

@@ -18,7 +18,7 @@ bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
   result = 0;
   if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 8) != 0 && *(_WORD *)a1 >= 0xEu )
   {
-    NtSystemRoot = (WCHAR *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v3 = RtlUpcaseUnicodeChar(*NtSystemRoot);
     v4 = RtlUpcaseUnicodeChar(*(_WORD *)(*(_QWORD *)(a1 + 8) + 8LL));
     v5 = *(_QWORD *)(a1 + 8);

@@ -1,14 +1,14 @@
 /*
- * XREFs of VslQuerySecureKernelProfileInformation @ 0x14058DC54
+ * XREFs of VslQuerySecureKernelProfileInformation @ 0x14058AFAC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     HvlQueryVsmConnection @ 0x140456290 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14044B190 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslQuerySecureKernelProfileInformation(__int64 a1, struct _MDL *a2, unsigned int a3, _DWORD *a4)
@@ -34,7 +34,7 @@ __int64 __fastcall VslQuerySecureKernelProfileInformation(__int64 a1, struct _MD
     v15 = v12[0];
     v16 = v12[7];
     v14 = a1;
-    v10 = VslpEnterIumSecureMode(2u, 66LL, 0, (__int64)v13);
+    v10 = VslpEnterIumSecureMode(2u, 0x42u, 0, (__int64)v13);
     if ( v10 >= 0 )
       *a4 = (_DWORD)v15;
     if ( a3 )

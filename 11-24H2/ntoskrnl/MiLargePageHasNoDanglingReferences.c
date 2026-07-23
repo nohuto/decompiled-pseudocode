@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLargePageHasNoDanglingReferences @ 0x14047ADE4
+ * XREFs of MiLargePageHasNoDanglingReferences @ 0x140476464
  * Callers:
- *     MiReadyLargePageToFree @ 0x1403A36B8 (MiReadyLargePageToFree.c)
- *     MiFreeLargePages @ 0x1403CC4F0 (MiFreeLargePages.c)
+ *     MiReadyLargePageToFree @ 0x14021B69C (MiReadyLargePageToFree.c)
+ *     MiFreeLargePages @ 0x1402666C0 (MiFreeLargePages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
  */
 
 __int64 __fastcall MiLargePageHasNoDanglingReferences(__int64 a1)

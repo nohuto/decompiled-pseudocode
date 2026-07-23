@@ -1,8 +1,8 @@
 /*
- * XREFs of PnpLookupArbitersNewResources @ 0x140555FF8
+ * XREFs of PnpLookupArbitersNewResources @ 0x140556538
  * Callers:
- *     IopTestConfiguration @ 0x140555F1C (IopTestConfiguration.c)
- *     IopRetestConfiguration @ 0x14062C910 (IopRetestConfiguration.c)
+ *     IopTestConfiguration @ 0x14055645C (IopTestConfiguration.c)
+ *     IopRetestConfiguration @ 0x14062C9C4 (IopRetestConfiguration.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

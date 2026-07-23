@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitMachineDependent @ 0x1403B588C
+ * XREFs of KiInitMachineDependent @ 0x1403B59FC
  * Callers:
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1403B59F4 (KiSetSystemAffinityThreadToProcessor.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KiInitializeMTRR @ 0x140A4CEC4 (KiInitializeMTRR.c)
- *     KiInitializeCacheErrataSupport @ 0x140A920CC (KiInitializeCacheErrataSupport.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x1403B5B64 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KiInitializeMTRR @ 0x140A4DEC4 (KiInitializeMTRR.c)
+ *     KiInitializeCacheErrataSupport @ 0x140A930CC (KiInitializeCacheErrataSupport.c)
  */
 
 char KiInitMachineDependent()
@@ -18,7 +18,7 @@ char KiInitMachineDependent()
   __int64 v3; // rcx
   char result; // al
   int v5; // eax
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   PreviousAffinity = 0LL;
   if ( (KiCacheErrataMonitor & 3) != 0 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x140A04188
+ * XREFs of ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x140A7BF00
  * Callers:
- *     ExpAssignPasid @ 0x140840E98 (ExpAssignPasid.c)
- *     PspRecheckThreadPasidMsrState @ 0x140A04124 (PspRecheckThreadPasidMsrState.c)
+ *     ExpAssignPasid @ 0x1408470D8 (ExpAssignPasid.c)
+ *     PspRecheckThreadPasidMsrState @ 0x140A7BE9C (PspRecheckThreadPasidMsrState.c)
  * Callees:
- *     KeIsEnqueueStoreAndMovDir64BSupported @ 0x1403D52B8 (KeIsEnqueueStoreAndMovDir64BSupported.c)
- *     ExIsSvmEnabledForProcess @ 0x1404BC988 (ExIsSvmEnabledForProcess.c)
+ *     KeIsEnqueueStoreAndMovDir64BSupported @ 0x1403D8288 (KeIsEnqueueStoreAndMovDir64BSupported.c)
+ *     ExIsSvmEnabledForProcess @ 0x1404B6164 (ExIsSvmEnabledForProcess.c)
  */
 
 char __fastcall ExIsSvmPasidMsrUpdateRequiredForProcess(__int64 a1)

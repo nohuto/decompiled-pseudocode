@@ -7,21 +7,21 @@
  *     BuildQueryDirectoryIrp @ 0x1406C8A70 (BuildQueryDirectoryIrp.c)
  */
 
-__int64 __fastcall NtQueryDirectoryFileEx(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        volatile void *a6,
-        SIZE_T a7,
-        __int64 a8,
-        char a9,
-        __int64 a10)
+NTSTATUS __cdecl NtQueryDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass,
+        ULONG QueryFlags,
+        PUNICODE_STRING FileName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _DWORD *v11; // r9
-  SIZE_T Length; // [rsp+38h] [rbp-49h]
+  SIZE_T v12; // [rsp+38h] [rbp-49h]
   __int64 v13; // [rsp+40h] [rbp-41h]
   __int64 v14; // [rsp+58h] [rbp-29h]
   char v15; // [rsp+88h] [rbp+7h] BYREF
@@ -33,28 +33,28 @@ __int64 __fastcall NtQueryDirectoryFileEx(
   DeviceObject = 0LL;
   Irp = 0LL;
   v17 = 0LL;
-  LODWORD(v13) = a8;
-  LODWORD(Length) = a7;
+  LODWORD(v13) = FileInformationClass;
+  LODWORD(v12) = Length;
   v15 = 0;
   v16 = 0;
   result = BuildQueryDirectoryIrp(
-             a1,
-             a2,
-             a3,
-             a4,
-             a5,
-             a6,
-             Length,
+             (int)FileHandle,
+             (int)Event,
+             (int)ApcRoutine,
+             (int)ApcContext,
+             (__int64)IoStatusBlock,
+             FileInformation,
+             v12,
              v13,
-             a9,
-             a10,
+             QueryFlags,
+             (__int64)FileName,
              v14,
              (__int64)&v15,
              (__int64)&DeviceObject,
              (__int64)&Irp,
              (__int64)&v17,
              (PIRP)&v16);
-  if ( !(_DWORD)result )
+  if ( !result )
   {
     LOBYTE(v11) = 1;
     return IopSynchronousServiceTail(DeviceObject, Irp, v17, v11, v16, v15, 2u);

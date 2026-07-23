@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefModElementIsZero @ 0x140535D30
+ * XREFs of SymCryptFdefModElementIsZero @ 0x1405301D0
  * Callers:
- *     SymCryptModElementIsZero @ 0x140523C3C (SymCryptModElementIsZero.c)
+ *     SymCryptModElementIsZero @ 0x140521554 (SymCryptModElementIsZero.c)
  * Callees:
  *     <none>
  */

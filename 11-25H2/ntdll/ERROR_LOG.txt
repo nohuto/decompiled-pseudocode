@@ -1,18 +1,12 @@
-[EXCEPTION] LdrpFindLoadedDllByMapping @ 0x18006CE70: Hex-Rays returned no pseudocode for 0x18006CE70
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18006CE70'), <traceback object at 0x000001663FACFF80>)
-
 [EXCEPTION] RtlReportException @ 0x1800CF050: Hex-Rays returned no pseudocode for 0x1800CF050
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800CF050'), <traceback object at 0x00000166458C5580>)
-
-[EXCEPTION] TppCritResetThread @ 0x1800F9C38: Hex-Rays returned no pseudocode for 0x1800F9C38
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800F9C38'), <traceback object at 0x000001663E53D640>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800CF050'), <traceback object at 0x000001F6E19697C0>)
 
 [EXCEPTION] RtlGetCompressionWorkSpaceSize @ 0x180109CA0: Hex-Rays returned no pseudocode for 0x180109CA0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180109CA0'), <traceback object at 0x00000166458CC880>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180109CA0'), <traceback object at 0x000001F6E196BF40>)
 
 [EXCEPTION] SymCryptMd5Append @ 0x180159AC0: Hex-Rays returned no pseudocode for 0x180159AC0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180159AC0'), <traceback object at 0x00000166458ABAC0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180159AC0'), <traceback object at 0x000001F6DA5D97C0>)
 
 [EXCEPTION] SymCryptSha1Append @ 0x18015A480: Hex-Rays returned no pseudocode for 0x18015A480
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18015A480'), <traceback object at 0x000001663E3095C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18015A480'), <traceback object at 0x000001F6E196BF40>)
 

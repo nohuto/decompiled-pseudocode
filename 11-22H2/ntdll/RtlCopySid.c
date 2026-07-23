@@ -15,13 +15,13 @@
  *     memmove @ 0x1800A5980 (memmove.c)
  */
 
-__int64 __fastcall RtlCopySid(unsigned int a1, void *a2, unsigned __int8 *a3)
+NTSTATUS __cdecl RtlCopySid(ULONG DestinationSidLength, PSID DestinationSid, PSID SourceSid)
 {
-  unsigned int v3; // eax
+  ULONG v3; // eax
 
-  v3 = 4 * a3[1] + 8;
-  if ( v3 > a1 )
-    return 3221225507LL;
-  memmove(a2, a3, v3);
-  return 0LL;
+  v3 = 4 * *((unsigned __int8 *)SourceSid + 1) + 8;
+  if ( v3 > DestinationSidLength )
+    return -1073741789;
+  memmove(DestinationSid, SourceSid, v3);
+  return 0;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSplitDriverPage @ 0x1401E1A20
+ * XREFs of MiSplitDriverPage @ 0x1401E184C
  * Callers:
- *     MiProbeLeafFrame @ 0x14002FDC0 (MiProbeLeafFrame.c)
+ *     MiProbeLeafFrame @ 0x14002F940 (MiProbeLeafFrame.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x140014A04 (MmUnlockLoadedModuleListShared.c)
- *     MiLookupDataTableEntry @ 0x140014A30 (MiLookupDataTableEntry.c)
- *     MmLockLoadedModuleListShared @ 0x14001F5A0 (MmLockLoadedModuleListShared.c)
- *     MiMakeDriverPagesPrivate @ 0x140086098 (MiMakeDriverPagesPrivate.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140014584 (MmUnlockLoadedModuleListShared.c)
+ *     MiLookupDataTableEntry @ 0x1400145B0 (MiLookupDataTableEntry.c)
+ *     MmLockLoadedModuleListShared @ 0x14001F120 (MmLockLoadedModuleListShared.c)
+ *     MiMakeDriverPagesPrivate @ 0x140087988 (MiMakeDriverPagesPrivate.c)
  */
 
 __int64 __fastcall MiSplitDriverPage(unsigned __int64 a1, KIRQL a2)

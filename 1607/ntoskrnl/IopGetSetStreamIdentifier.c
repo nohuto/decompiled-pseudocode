@@ -1,12 +1,12 @@
 /*
- * XREFs of IopGetSetStreamIdentifier @ 0x1401C948C
+ * XREFs of IopGetSetStreamIdentifier @ 0x1401C932C
  * Callers:
- *     IoAllocateSfioStreamIdentifier @ 0x1401C89E0 (IoAllocateSfioStreamIdentifier.c)
- *     IoGetSfioStreamIdentifier @ 0x1401C8C60 (IoGetSfioStreamIdentifier.c)
+ *     IoAllocateSfioStreamIdentifier @ 0x1401C8880 (IoAllocateSfioStreamIdentifier.c)
+ *     IoGetSfioStreamIdentifier @ 0x1401C8B00 (IoGetSfioStreamIdentifier.c)
  * Callees:
- *     IopGetSetSpecificExtension @ 0x14007AE90 (IopGetSetSpecificExtension.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopGetSetSpecificExtension @ 0x14007AF10 (IopGetSetSpecificExtension.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

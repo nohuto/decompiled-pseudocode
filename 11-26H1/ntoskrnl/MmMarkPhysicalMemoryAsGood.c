@@ -1,9 +1,9 @@
 /*
- * XREFs of MmMarkPhysicalMemoryAsGood @ 0x1406F2410
+ * XREFs of MmMarkPhysicalMemoryAsGood @ 0x1406F7080
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlinkBadPages @ 0x1406F1FDC (MiUnlinkBadPages.c)
+ *     MiUnlinkBadPages @ 0x1406F6C4C (MiUnlinkBadPages.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsGood(_DWORD *a1, _DWORD *a2)

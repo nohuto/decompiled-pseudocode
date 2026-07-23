@@ -1,14 +1,14 @@
 /*
- * XREFs of PopProcessSessionDisplayStateChange @ 0x1407A91D8
+ * XREFs of PopProcessSessionDisplayStateChange @ 0x1407A93C8
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopMonitorInvocation @ 0x1407A8F2C (PopMonitorInvocation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopMonitorInvocation @ 0x1407A911C (PopMonitorInvocation.c)
  * Callees:
- *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411374 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
- *     TtmIsEnabled @ 0x1407A6090 (TtmIsEnabled.c)
- *     PopTriggerMonitorPowerEvent @ 0x1407A923C (PopTriggerMonitorPowerEvent.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1407AA01C (PopDisarmIdlePhaseWatchdog.c)
- *     PopArmIdlePhaseWatchdog @ 0x140883874 (PopArmIdlePhaseWatchdog.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411580 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     TtmIsEnabled @ 0x1407A6280 (TtmIsEnabled.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1407A942C (PopTriggerMonitorPowerEvent.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1407AA20C (PopDisarmIdlePhaseWatchdog.c)
+ *     PopArmIdlePhaseWatchdog @ 0x140883AB4 (PopArmIdlePhaseWatchdog.c)
  */
 
 __int64 __fastcall PopProcessSessionDisplayStateChange(char a1, unsigned int a2)

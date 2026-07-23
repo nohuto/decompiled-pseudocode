@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpMetadataHeapStart @ 0x1402A5E1C
+ * XREFs of RtlpHpMetadataHeapStart @ 0x14022325C
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x1402A5D18 (RtlpHpMetadataAlloc.c)
- *     RtlHpHeapManagerStart @ 0x14039D788 (RtlHpHeapManagerStart.c)
+ *     RtlpHpMetadataAlloc @ 0x140223158 (RtlpHpMetadataAlloc.c)
+ *     RtlHpHeapManagerStart @ 0x14039D8D8 (RtlHpHeapManagerStart.c)
  * Callees:
- *     RtlRunOnceExecuteOnce @ 0x14068A9B0 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceExecuteOnce @ 0x1405E9E40 (RtlRunOnceExecuteOnce.c)
  */
 
-NTSTATUS __fastcall RtlpHpMetadataHeapStart(union _RTL_RUN_ONCE *a1, void *a2)
+NTSTATUS __fastcall RtlpHpMetadataHeapStart(_RTL_RUN_ONCE *a1, void *a2)
 {
   if ( a1->Value )
     return 0;

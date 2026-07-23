@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitSupervisorStateExtensionHost @ 0x140C2881C
+ * XREFs of KiInitSupervisorStateExtensionHost @ 0x140C2A8BC
  * Callers:
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     ExRegisterHost @ 0x1407C071C (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x1407C0B6C (ExRegisterHost.c)
  */
 
 void __fastcall KiInitSupervisorStateExtensionHost(__int64 a1, __int64 a2)

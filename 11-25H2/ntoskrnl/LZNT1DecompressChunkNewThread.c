@@ -31,7 +31,7 @@ __int64 __fastcall LZNT1DecompressChunkNewThread(
     return LZNT1DecompressChunk(a2, (_DWORD)a3, a4, a5, (__int64)&v15);
   if ( (__int64)((__int64)a3 - a2) < a6 )
     return LZNT1DecompressChunk(a2, (_DWORD)a3, a4, a5, (__int64)&v15);
-  v10 = (struct _WORK_QUEUE_ITEM *)ExAllocateFromNPagedLookasideList(&RtlLznt1DecompressChunkLookaside);
+  v10 = (struct _WORK_QUEUE_ITEM *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&RtlLznt1DecompressChunkLookaside);
   v11 = v10;
   if ( !v10 )
     return LZNT1DecompressChunk(a2, (_DWORD)a3, a4, a5, (__int64)&v15);

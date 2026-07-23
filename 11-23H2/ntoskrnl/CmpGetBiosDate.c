@@ -4,9 +4,9 @@
  *     CmpSetSystemBiosInformation @ 0x140B9886C (CmpSetSystemBiosInformation.c)
  *     CmpSetVideoBiosInformation @ 0x140B98C0C (CmpSetVideoBiosInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     strtoul @ 0x1403D8E38 (strtoul.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     strtoul @ 0x1403D9018 (strtoul.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
  */
 
 char __fastcall CmpGetBiosDate(__int64 a1, unsigned int a2, __int64 a3, char a4)

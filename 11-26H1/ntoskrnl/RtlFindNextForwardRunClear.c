@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlFindNextForwardRunClear @ 0x14041D9C0
+ * XREFs of RtlFindNextForwardRunClear @ 0x140415210
  * Callers:
- *     HalpIrtAllocateIndex @ 0x140784614 (HalpIrtAllocateIndex.c)
- *     MiPrepareToHotPatchImage @ 0x1408735EC (MiPrepareToHotPatchImage.c)
- *     HvpGenerateLogMetadata @ 0x1408B70C4 (HvpGenerateLogMetadata.c)
- *     HvpCountSetRangesInVector @ 0x1408B7184 (HvpCountSetRangesInVector.c)
- *     MiHandleDriverNonPagedSections @ 0x140AC8ED0 (MiHandleDriverNonPagedSections.c)
- *     PnprMirrorMarkedPages @ 0x140BF1F18 (PnprMirrorMarkedPages.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x140BFA800 (PopGetRemainingHibernateRangeDataSize.c)
- *     ViThunkSnapSharedExports @ 0x140C44130 (ViThunkSnapSharedExports.c)
+ *     HalpIrtAllocateIndex @ 0x140787148 (HalpIrtAllocateIndex.c)
+ *     MiPrepareToHotPatchImage @ 0x14087994C (MiPrepareToHotPatchImage.c)
+ *     HvpGenerateLogMetadata @ 0x1408BD694 (HvpGenerateLogMetadata.c)
+ *     HvpCountSetRangesInVector @ 0x1408BD754 (HvpCountSetRangesInVector.c)
+ *     MiHandleDriverNonPagedSections @ 0x140ACAFE8 (MiHandleDriverNonPagedSections.c)
+ *     PnprMirrorMarkedPages @ 0x140BF7F18 (PnprMirrorMarkedPages.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x140C00800 (PopGetRemainingHibernateRangeDataSize.c)
+ *     ViThunkSnapSharedExports @ 0x140C4A140 (ViThunkSnapSharedExports.c)
  * Callees:
  *     <none>
  */
@@ -16,18 +16,18 @@
 ULONG __stdcall RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
   unsigned int SizeOfBitMap; // edi
-  ULONG v4; // r9d
+  ULONG v4; // r11d
   unsigned int *Buffer; // rsi
   unsigned int *v7; // rax
-  unsigned __int64 v8; // r10
+  unsigned __int64 v8; // r9
   _DWORD *v9; // rcx
   int v10; // edx
   unsigned int v11; // edx
-  __int64 v12; // r11
+  __int64 v12; // r10
   ULONG v13; // ebx
   unsigned int v14; // r8d
   __int64 v15; // rcx
-  unsigned int v16; // r9d
+  unsigned int v16; // r11d
   unsigned int v17; // eax
 
   SizeOfBitMap = BitMapHeader->SizeOfBitMap;
@@ -71,7 +71,6 @@ LABEL_17:
         _BitScanForward64((unsigned __int64 *)&v15, v14);
         goto LABEL_12;
       }
-      v4 += 32;
       if ( (unsigned __int64)(v7 + 1) > v8 )
         break;
       v14 = v7[1];

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmaGuardProcessPreAddDevice @ 0x1407E57C4
+ * XREFs of PiDmaGuardProcessPreAddDevice @ 0x1407E5A94
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C8234 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406C8264 (PipCallDriverAddDevice.c)
  * Callees:
- *     PipDmgSaveDeviceDmarPolicy @ 0x1408278E0 (PipDmgSaveDeviceDmarPolicy.c)
- *     PipDmgGetDeviceDmarPolicy @ 0x140843728 (PipDmgGetDeviceDmarPolicy.c)
- *     PiIommuSaveDeviceAtsSettings @ 0x14084D7D8 (PiIommuSaveDeviceAtsSettings.c)
+ *     PipDmgSaveDeviceDmarPolicy @ 0x140827BE0 (PipDmgSaveDeviceDmarPolicy.c)
+ *     PipDmgGetDeviceDmarPolicy @ 0x140843A28 (PipDmgGetDeviceDmarPolicy.c)
+ *     PiIommuSaveDeviceAtsSettings @ 0x14084DAD8 (PiIommuSaveDeviceAtsSettings.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessPreAddDevice(__int64 *a1, __int64 a2)

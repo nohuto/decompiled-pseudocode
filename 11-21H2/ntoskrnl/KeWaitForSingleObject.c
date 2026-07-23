@@ -1,451 +1,451 @@
 /*
  * XREFs of KeWaitForSingleObject @ 0x1402AF080
  * Callers:
- *     PpmTryAcquireLock @ 0x140224624 (PpmTryAcquireLock.c)
- *     PpmCheckPeriodicStart @ 0x140224980 (PpmCheckPeriodicStart.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     PopFxProcessWorkPool @ 0x14022EBF8 (PopFxProcessWorkPool.c)
- *     ExfWaitForRundownProtectionRelease @ 0x140230070 (ExfWaitForRundownProtectionRelease.c)
- *     ExpWaitForResource @ 0x140231990 (ExpWaitForResource.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140237230 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmKmStoreHelperCleanup @ 0x1402375D8 (SmKmStoreHelperCleanup.c)
- *     CcWaitForUninitializeCacheMap @ 0x14023AFD8 (CcWaitForUninitializeCacheMap.c)
- *     CcSetValidData @ 0x14023F3E8 (CcSetValidData.c)
+ *     sub_140224624 @ 0x140224624 (sub_140224624.c)
+ *     sub_140224980 @ 0x140224980 (sub_140224980.c)
+ *     sub_140224E90 @ 0x140224E90 (sub_140224E90.c)
+ *     sub_14022EBF8 @ 0x14022EBF8 (sub_14022EBF8.c)
+ *     sub_140230070 @ 0x140230070 (sub_140230070.c)
+ *     sub_140231990 @ 0x140231990 (sub_140231990.c)
+ *     sub_140237230 @ 0x140237230 (sub_140237230.c)
+ *     sub_1402375D8 @ 0x1402375D8 (sub_1402375D8.c)
+ *     sub_14023AFD8 @ 0x14023AFD8 (sub_14023AFD8.c)
+ *     sub_14023F3E8 @ 0x14023F3E8 (sub_14023F3E8.c)
  *     IoSynchronousCallDriver @ 0x140245250 (IoSynchronousCallDriver.c)
- *     MiZeroPageWrite @ 0x1402459E8 (MiZeroPageWrite.c)
- *     WmipReceiveNotifications @ 0x140246604 (WmipReceiveNotifications.c)
- *     WmipFindRegEntryByDevice @ 0x140248854 (WmipFindRegEntryByDevice.c)
- *     WmipAllocRegEntry @ 0x140248914 (WmipAllocRegEntry.c)
- *     FsRtlpWaitOnIrp @ 0x140249470 (FsRtlpWaitOnIrp.c)
- *     NtSignalAndWaitForSingleObject @ 0x14024F140 (NtSignalAndWaitForSingleObject.c)
- *     CmpDoFileRead @ 0x1402509C4 (CmpDoFileRead.c)
- *     SmKmStoreHelperWorker @ 0x140253900 (SmKmStoreHelperWorker.c)
- *     PnpLockDeviceActionQueue @ 0x140253E78 (PnpLockDeviceActionQueue.c)
- *     IopLoadDriverImage @ 0x140255A78 (IopLoadDriverImage.c)
- *     PopSetWatchdog @ 0x140256998 (PopSetWatchdog.c)
- *     PnpDeviceCompletionQueueGetCompletedRequest @ 0x14025BA80 (PnpDeviceCompletionQueueGetCompletedRequest.c)
- *     LdrUnloadAlternateResourceModuleEx @ 0x14025C690 (LdrUnloadAlternateResourceModuleEx.c)
+ *     sub_1402459E8 @ 0x1402459E8 (sub_1402459E8.c)
+ *     sub_140246604 @ 0x140246604 (sub_140246604.c)
+ *     sub_140248854 @ 0x140248854 (sub_140248854.c)
+ *     sub_140248914 @ 0x140248914 (sub_140248914.c)
+ *     sub_140249470 @ 0x140249470 (sub_140249470.c)
+ *     sub_14024F140 @ 0x14024F140 (sub_14024F140.c)
+ *     sub_1402509C4 @ 0x1402509C4 (sub_1402509C4.c)
+ *     sub_140253900 @ 0x140253900 (sub_140253900.c)
+ *     sub_140253E78 @ 0x140253E78 (sub_140253E78.c)
+ *     sub_140255A78 @ 0x140255A78 (sub_140255A78.c)
+ *     sub_140256998 @ 0x140256998 (sub_140256998.c)
+ *     sub_14025BA80 @ 0x14025BA80 (sub_14025BA80.c)
+ *     sub_14025C690 @ 0x14025C690 (sub_14025C690.c)
  *     ExUnregisterCallback @ 0x14025DE40 (ExUnregisterCallback.c)
- *     EtwpStartLoggerThread @ 0x140261C40 (EtwpStartLoggerThread.c)
- *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1402621B0 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
- *     CcWriteBehind @ 0x140275FC0 (CcWriteBehind.c)
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
- *     MiWaitForCollidedFaultComplete @ 0x14027FEF8 (MiWaitForCollidedFaultComplete.c)
+ *     sub_140261C40 @ 0x140261C40 (sub_140261C40.c)
+ *     sub_1402621B0 @ 0x1402621B0 (sub_1402621B0.c)
+ *     sub_140275FC0 @ 0x140275FC0 (sub_140275FC0.c)
+ *     sub_14027AA30 @ 0x14027AA30 (sub_14027AA30.c)
+ *     sub_14027FEF8 @ 0x14027FEF8 (sub_14027FEF8.c)
  *     CcCanIWrite @ 0x140283F40 (CcCanIWrite.c)
- *     MiRetryNonPagedAllocation @ 0x140284C74 (MiRetryNonPagedAllocation.c)
- *     CcUnmapVacbArray @ 0x1402853B0 (CcUnmapVacbArray.c)
- *     PopExecuteOnTargetProcessors @ 0x140293A88 (PopExecuteOnTargetProcessors.c)
- *     IopWaitForLockAlertable @ 0x14029ED34 (IopWaitForLockAlertable.c)
- *     ExpAcquireFastMutexContended @ 0x14029EF4C (ExpAcquireFastMutexContended.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     IopWaitForSynchronousIo @ 0x1402A41A4 (IopWaitForSynchronousIo.c)
- *     MiReadyToZeroNextLargePage @ 0x1402C4BF0 (MiReadyToZeroNextLargePage.c)
- *     PopFxActivateDevice @ 0x1402D2864 (PopFxActivateDevice.c)
- *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x1402D2A14 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
+ *     sub_140284C74 @ 0x140284C74 (sub_140284C74.c)
+ *     sub_1402853B0 @ 0x1402853B0 (sub_1402853B0.c)
+ *     sub_140293A88 @ 0x140293A88 (sub_140293A88.c)
+ *     sub_14029ED34 @ 0x14029ED34 (sub_14029ED34.c)
+ *     sub_14029EF4C @ 0x14029EF4C (sub_14029EF4C.c)
+ *     sub_14029F120 @ 0x14029F120 (sub_14029F120.c)
+ *     sub_14029F350 @ 0x14029F350 (sub_14029F350.c)
+ *     sub_1402A41A4 @ 0x1402A41A4 (sub_1402A41A4.c)
+ *     sub_1402C4BF0 @ 0x1402C4BF0 (sub_1402C4BF0.c)
+ *     sub_1402D2864 @ 0x1402D2864 (sub_1402D2864.c)
+ *     sub_1402D2A14 @ 0x1402D2A14 (sub_1402D2A14.c)
  *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1402D3100 (ExWaitForRundownProtectionReleaseCacheAware.c)
- *     IopCompleteUnloadOrDelete @ 0x1402D5CA8 (IopCompleteUnloadOrDelete.c)
- *     LdrpGetFromMUIMemCache @ 0x1402D72FC (LdrpGetFromMUIMemCache.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402D7A40 (LdrpGetAlternateResourceModuleHandleEx.c)
- *     WmipFindRegEntryByProviderId @ 0x1402E00A4 (WmipFindRegEntryByProviderId.c)
- *     EtwpEnableMetaProviderGuid @ 0x1402E1010 (EtwpEnableMetaProviderGuid.c)
- *     KiSchedulerApc @ 0x1402EFA40 (KiSchedulerApc.c)
+ *     sub_1402D5CA8 @ 0x1402D5CA8 (sub_1402D5CA8.c)
+ *     sub_1402D72FC @ 0x1402D72FC (sub_1402D72FC.c)
+ *     sub_1402D7A40 @ 0x1402D7A40 (sub_1402D7A40.c)
+ *     sub_1402E00A4 @ 0x1402E00A4 (sub_1402E00A4.c)
+ *     sub_1402E1010 @ 0x1402E1010 (sub_1402E1010.c)
+ *     sub_1402EFA40 @ 0x1402EFA40 (sub_1402EFA40.c)
  *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1402F4850 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     AlpcpWaitForSingleObject @ 0x1402F5DDC (AlpcpWaitForSingleObject.c)
- *     AlpcpSignalAndWait @ 0x1402F63D0 (AlpcpSignalAndWait.c)
+ *     sub_1402F4850 @ 0x1402F4850 (sub_1402F4850.c)
+ *     sub_1402F5DDC @ 0x1402F5DDC (sub_1402F5DDC.c)
+ *     sub_1402F63D0 @ 0x1402F63D0 (sub_1402F63D0.c)
  *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
  *     CcInitializeCacheMapEx @ 0x140310F10 (CcInitializeCacheMapEx.c)
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
+ *     sub_140329730 @ 0x140329730 (sub_140329730.c)
  *     PoFxActivateComponent @ 0x140357D10 (PoFxActivateComponent.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     FsRtlpWaitForIoAtEof @ 0x14035D3E0 (FsRtlpWaitForIoAtEof.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x14035F344 (SmKmStoreDeleteWhenEmpty.c)
+ *     sub_140358A20 @ 0x140358A20 (sub_140358A20.c)
+ *     sub_14035D3E0 @ 0x14035D3E0 (sub_14035D3E0.c)
+ *     sub_14035F344 @ 0x14035F344 (sub_14035F344.c)
  *     ExTimedWaitForUnblockPushLock @ 0x140369540 (ExTimedWaitForUnblockPushLock.c)
- *     ExpUnblockPushLock @ 0x140369634 (ExpUnblockPushLock.c)
- *     MmStoreFlushOutstandingEvictions @ 0x140373D18 (MmStoreFlushOutstandingEvictions.c)
- *     ?SmPerformStoreMaintenance@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_MAINTENANCE_TYPE@@@Z @ 0x140376A50 (-SmPerformStoreMaintenance@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@.c)
- *     SmKmStoreHelperWaitForCommand @ 0x140379848 (SmKmStoreHelperWaitForCommand.c)
- *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x14037A5F0 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmFeAddInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@K@Z @ 0x14037C880 (-SmFeAddInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1.c)
- *     MiQueueWorkingSetRequest @ 0x1403867F4 (MiQueueWorkingSetRequest.c)
+ *     sub_140369634 @ 0x140369634 (sub_140369634.c)
+ *     sub_140373D18 @ 0x140373D18 (sub_140373D18.c)
+ *     sub_140376A50 @ 0x140376A50 (sub_140376A50.c)
+ *     sub_140379848 @ 0x140379848 (sub_140379848.c)
+ *     sub_14037A5F0 @ 0x14037A5F0 (sub_14037A5F0.c)
+ *     sub_14037C880 @ 0x14037C880 (sub_14037C880.c)
+ *     sub_1403867F4 @ 0x1403867F4 (sub_1403867F4.c)
  *     FsRtlGetVirtualDiskNestingLevel @ 0x140387570 (FsRtlGetVirtualDiskNestingLevel.c)
- *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x140389670 (CcWaitForCurrentLazyWriterActivityOnNode.c)
- *     ?SmCompressCtxCreateThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x1403898C4 (-SmCompressCtxCreateThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@.c)
- *     PopWakeDeviceList @ 0x14038BB00 (PopWakeDeviceList.c)
- *     PopSleepDeviceList @ 0x14038BCE0 (PopSleepDeviceList.c)
- *     PopHaltDeviceIdle @ 0x140395114 (PopHaltDeviceIdle.c)
- *     PopRunMaximumIrpWorkers @ 0x140396464 (PopRunMaximumIrpWorkers.c)
- *     PopCheckPowerSourceAfterRtcWakeCancel @ 0x140399104 (PopCheckPowerSourceAfterRtcWakeCancel.c)
- *     PopIgnoreBatteryStatusChange @ 0x140399318 (PopIgnoreBatteryStatusChange.c)
- *     PnpLockMountableDevice @ 0x1403A0154 (PnpLockMountableDevice.c)
- *     WmipDeregisterRegEntry @ 0x1403A5AF0 (WmipDeregisterRegEntry.c)
+ *     sub_140389670 @ 0x140389670 (sub_140389670.c)
+ *     sub_1403898C4 @ 0x1403898C4 (sub_1403898C4.c)
+ *     sub_14038BB00 @ 0x14038BB00 (sub_14038BB00.c)
+ *     sub_14038BCE0 @ 0x14038BCE0 (sub_14038BCE0.c)
+ *     sub_140395114 @ 0x140395114 (sub_140395114.c)
+ *     sub_140396464 @ 0x140396464 (sub_140396464.c)
+ *     sub_140399104 @ 0x140399104 (sub_140399104.c)
+ *     sub_140399318 @ 0x140399318 (sub_140399318.c)
+ *     sub_1403A0154 @ 0x1403A0154 (sub_1403A0154.c)
+ *     sub_1403A5AF0 @ 0x1403A5AF0 (sub_1403A5AF0.c)
  *     IoReleaseRemoveLockAndWaitEx @ 0x1403A7530 (IoReleaseRemoveLockAndWaitEx.c)
- *     PopIrpWorker @ 0x1403B1270 (PopIrpWorker.c)
- *     PopPepUpdateConstraints @ 0x1403B17EC (PopPepUpdateConstraints.c)
- *     WmipBuildTraceDeviceList @ 0x1403B423C (WmipBuildTraceDeviceList.c)
- *     PopFxActivateComponent @ 0x1403BA340 (PopFxActivateComponent.c)
- *     WheapAddErrorSource @ 0x1403C0774 (WheapAddErrorSource.c)
- *     MiZeroLargePageThread @ 0x1403C6B00 (MiZeroLargePageThread.c)
- *     KeSwapProcessOrStack @ 0x1403C6D20 (KeSwapProcessOrStack.c)
- *     CcQueueLazyWriteScanThread @ 0x1403C7DE0 (CcQueueLazyWriteScanThread.c)
- *     CmpLazyWriteWorker @ 0x1403CBDF0 (CmpLazyWriteWorker.c)
- *     MiStoreEvictThread @ 0x1403CDBF0 (MiStoreEvictThread.c)
- *     MiModifiedPageWriter @ 0x1403CFD20 (MiModifiedPageWriter.c)
+ *     sub_1403B1270 @ 0x1403B1270 (sub_1403B1270.c)
+ *     sub_1403B17EC @ 0x1403B17EC (sub_1403B17EC.c)
+ *     sub_1403B423C @ 0x1403B423C (sub_1403B423C.c)
+ *     sub_1403BA340 @ 0x1403BA340 (sub_1403BA340.c)
+ *     sub_1403C0774 @ 0x1403C0774 (sub_1403C0774.c)
+ *     sub_1403C6B00 @ 0x1403C6B00 (sub_1403C6B00.c)
+ *     sub_1403C6D20 @ 0x1403C6D20 (sub_1403C6D20.c)
+ *     sub_1403C7DE0 @ 0x1403C7DE0 (sub_1403C7DE0.c)
+ *     sub_1403CBDF0 @ 0x1403CBDF0 (sub_1403CBDF0.c)
+ *     sub_1403CDBF0 @ 0x1403CDBF0 (sub_1403CDBF0.c)
+ *     sub_1403CFD20 @ 0x1403CFD20 (sub_1403CFD20.c)
  *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     MiZeroPageCalibrate @ 0x1403D3EE0 (MiZeroPageCalibrate.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1403D525C (LdrpSetAlternateResourceModuleHandle.c)
- *     WmiQueryTraceProviderCount @ 0x1403D6930 (WmiQueryTraceProviderCount.c)
- *     ?SmCompressCtxBalancerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403D8FF0 (-SmCompressCtxBalancerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     MiZeroPageThread @ 0x1403D9D30 (MiZeroPageThread.c)
- *     PnpSerializeBoot @ 0x1403DCD34 (PnpSerializeBoot.c)
- *     PopIrpWorkerControl @ 0x1403DEE60 (PopIrpWorkerControl.c)
- *     IopWaitForSynchronousIoEvent @ 0x140417B94 (IopWaitForSynchronousIoEvent.c)
- *     FsFilterAllocateCompletionStack @ 0x140459984 (FsFilterAllocateCompletionStack.c)
- *     WmipEnterSMCritSection @ 0x14045F87C (WmipEnterSMCritSection.c)
- *     HalpAcquireSecondaryIcEntryExclusive @ 0x14051CE3C (HalpAcquireSecondaryIcEntryExclusive.c)
- *     CcDeletePartition @ 0x14053DAFC (CcDeletePartition.c)
- *     CcDeleteSectionsForPartition @ 0x14053DDB8 (CcDeleteSectionsForPartition.c)
- *     FsRtlpPostStackOverflow @ 0x140542FC4 (FsRtlpPostStackOverflow.c)
- *     IopAllocateBackpocketIrp @ 0x140556050 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x1405562E8 (IopAllocateReserveIrp.c)
- *     NtSubmitIoRing @ 0x14055A160 (NtSubmitIoRing.c)
- *     PnprQuiesce @ 0x140563058 (PnprQuiesce.c)
- *     PnpProcessRebalance @ 0x140564C24 (PnpProcessRebalance.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x14056EC2C (KiAcquireSecondaryPassiveConnectLock.c)
- *     KeAbCrossThreadDelete @ 0x1405757C0 (KeAbCrossThreadDelete.c)
- *     KiInvokeInterruptServiceRoutine @ 0x140576200 (KiInvokeInterruptServiceRoutine.c)
- *     KiSignalWaitDisconnectLock @ 0x14057657C (KiSignalWaitDisconnectLock.c)
- *     KiSynchronizePassiveInterruptExecution @ 0x1405765B0 (KiSynchronizePassiveInterruptExecution.c)
- *     KiStallBugcheckThread @ 0x1405798A8 (KiStallBugcheckThread.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
- *     MmReleaseCommitForMemResetPages @ 0x140581748 (MmReleaseCommitForMemResetPages.c)
- *     MiPfCompleteCoalescedIo @ 0x140594698 (MiPfCompleteCoalescedIo.c)
- *     MiIssuePageExtendRequest @ 0x14059C99C (MiIssuePageExtendRequest.c)
- *     MiQueueSyncModifiedWriterApc @ 0x14059CFBC (MiQueueSyncModifiedWriterApc.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14059D170 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiCheckHoldFaultForHotPatch @ 0x1405A2E3C (MiCheckHoldFaultForHotPatch.c)
- *     MiApplyCommitDelay @ 0x1405B2E5C (MiApplyCommitDelay.c)
- *     MiContractWsSwapPageFileWorker @ 0x1405B7340 (MiContractWsSwapPageFileWorker.c)
- *     MiWaitForAvailablePages @ 0x1405B81F0 (MiWaitForAvailablePages.c)
- *     MiWaitForFreePage @ 0x1405B8348 (MiWaitForFreePage.c)
- *     MiDrainCrossPartitionUsage @ 0x1405BE340 (MiDrainCrossPartitionUsage.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x1405CCAC0 (PopFxIssueComponentPerfStateChanges.c)
- *     PspIumFreePartitionState @ 0x1405E2740 (PspIumFreePartitionState.c)
- *     SmpFpWaitForResource @ 0x1405FC690 (SmpFpWaitForResource.c)
- *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x1405FCF84 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
- *     SmWaitForSyncIo @ 0x1405FD830 (SmWaitForSyncIo.c)
- *     DifKeWaitForSingleObjectWrapper @ 0x1406161C0 (DifKeWaitForSingleObjectWrapper.c)
- *     EtwpTraceThreadRundownWithStack @ 0x1406330FC (EtwpTraceThreadRundownWithStack.c)
- *     EtwpCovSampCaptureContextStop @ 0x140635EEC (EtwpCovSampCaptureContextStop.c)
+ *     sub_1403D3EE0 @ 0x1403D3EE0 (sub_1403D3EE0.c)
+ *     sub_1403D525C @ 0x1403D525C (sub_1403D525C.c)
+ *     sub_1403D6930 @ 0x1403D6930 (sub_1403D6930.c)
+ *     sub_1403D8FF0 @ 0x1403D8FF0 (sub_1403D8FF0.c)
+ *     sub_1403D9D30 @ 0x1403D9D30 (sub_1403D9D30.c)
+ *     sub_1403DCD34 @ 0x1403DCD34 (sub_1403DCD34.c)
+ *     sub_1403DEE60 @ 0x1403DEE60 (sub_1403DEE60.c)
+ *     sub_140417B94 @ 0x140417B94 (sub_140417B94.c)
+ *     sub_140459984 @ 0x140459984 (sub_140459984.c)
+ *     sub_14045F87C @ 0x14045F87C (sub_14045F87C.c)
+ *     sub_14051CE3C @ 0x14051CE3C (sub_14051CE3C.c)
+ *     sub_14053DAFC @ 0x14053DAFC (sub_14053DAFC.c)
+ *     sub_14053DDB8 @ 0x14053DDB8 (sub_14053DDB8.c)
+ *     sub_140542FC4 @ 0x140542FC4 (sub_140542FC4.c)
+ *     sub_140556050 @ 0x140556050 (sub_140556050.c)
+ *     sub_1405562E8 @ 0x1405562E8 (sub_1405562E8.c)
+ *     ntoskrnl_32 @ 0x14055A160 (ntoskrnl_32.c)
+ *     sub_140563058 @ 0x140563058 (sub_140563058.c)
+ *     sub_140564C24 @ 0x140564C24 (sub_140564C24.c)
+ *     sub_14056EC2C @ 0x14056EC2C (sub_14056EC2C.c)
+ *     sub_1405757C0 @ 0x1405757C0 (sub_1405757C0.c)
+ *     sub_140576200 @ 0x140576200 (sub_140576200.c)
+ *     sub_14057657C @ 0x14057657C (sub_14057657C.c)
+ *     sub_1405765B0 @ 0x1405765B0 (sub_1405765B0.c)
+ *     sub_1405798A8 @ 0x1405798A8 (sub_1405798A8.c)
+ *     sub_1405803C8 @ 0x1405803C8 (sub_1405803C8.c)
+ *     sub_140581748 @ 0x140581748 (sub_140581748.c)
+ *     sub_140594698 @ 0x140594698 (sub_140594698.c)
+ *     sub_14059C99C @ 0x14059C99C (sub_14059C99C.c)
+ *     sub_14059CFBC @ 0x14059CFBC (sub_14059CFBC.c)
+ *     sub_14059D170 @ 0x14059D170 (sub_14059D170.c)
+ *     sub_1405A2E3C @ 0x1405A2E3C (sub_1405A2E3C.c)
+ *     sub_1405B2E5C @ 0x1405B2E5C (sub_1405B2E5C.c)
+ *     sub_1405B7340 @ 0x1405B7340 (sub_1405B7340.c)
+ *     sub_1405B81F0 @ 0x1405B81F0 (sub_1405B81F0.c)
+ *     sub_1405B8348 @ 0x1405B8348 (sub_1405B8348.c)
+ *     sub_1405BE340 @ 0x1405BE340 (sub_1405BE340.c)
+ *     sub_1405CCAC0 @ 0x1405CCAC0 (sub_1405CCAC0.c)
+ *     sub_1405E2740 @ 0x1405E2740 (sub_1405E2740.c)
+ *     sub_1405FC690 @ 0x1405FC690 (sub_1405FC690.c)
+ *     sub_1405FCF84 @ 0x1405FCF84 (sub_1405FCF84.c)
+ *     sub_1405FD830 @ 0x1405FD830 (sub_1405FD830.c)
+ *     sub_1406161C0 @ 0x1406161C0 (sub_1406161C0.c)
+ *     sub_1406330FC @ 0x1406330FC (sub_1406330FC.c)
+ *     sub_140635EEC @ 0x140635EEC (sub_140635EEC.c)
  *     ExRegisterBootDevice @ 0x14063A090 (ExRegisterBootDevice.c)
- *     ExpWaitForBootDevices @ 0x14063A300 (ExpWaitForBootDevices.c)
- *     WheapProcessWorkQueueItem @ 0x140644030 (WheapProcessWorkQueueItem.c)
+ *     sub_14063A300 @ 0x14063A300 (sub_14063A300.c)
+ *     sub_140644030 @ 0x140644030 (sub_140644030.c)
  *     sub_140647CF0 @ 0x140647CF0 (sub_140647CF0.c)
- *     PiQueueDeviceRequest @ 0x14065F5D4 (PiQueueDeviceRequest.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14065FA0C (PnpQueueQueryAndRemoveEvent.c)
- *     IopCancelAlertedRequest @ 0x140661B8C (IopCancelAlertedRequest.c)
- *     CmpLockRegistryFreezeAware @ 0x140689388 (CmpLockRegistryFreezeAware.c)
- *     CmpFileFlushAndPurge @ 0x14068A23C (CmpFileFlushAndPurge.c)
+ *     sub_14065F5D4 @ 0x14065F5D4 (sub_14065F5D4.c)
+ *     sub_14065FA0C @ 0x14065FA0C (sub_14065FA0C.c)
+ *     sub_140661B8C @ 0x140661B8C (sub_140661B8C.c)
+ *     sub_140689388 @ 0x140689388 (sub_140689388.c)
+ *     sub_14068A23C @ 0x14068A23C (sub_14068A23C.c)
  *     IoVolumeDeviceToGuidPath @ 0x14068BA10 (IoVolumeDeviceToGuidPath.c)
  *     IoVolumeDeviceNameToGuidPath @ 0x14068BB80 (IoVolumeDeviceNameToGuidPath.c)
- *     CmpGetVolumeClusterSize @ 0x14068BEAC (CmpGetVolumeClusterSize.c)
- *     IopMountVolume @ 0x14068E624 (IopMountVolume.c)
- *     AlpcpWaitForPortReferences @ 0x14069B63C (AlpcpWaitForPortReferences.c)
+ *     sub_14068BEAC @ 0x14068BEAC (sub_14068BEAC.c)
+ *     sub_14068E624 @ 0x14068E624 (sub_14068E624.c)
+ *     sub_14069B63C @ 0x14069B63C (sub_14069B63C.c)
  *     FsRtlSetKernelEaFile @ 0x1406A3540 (FsRtlSetKernelEaFile.c)
- *     FsRtlSetFileSize @ 0x1406A443C (FsRtlSetFileSize.c)
+ *     sub_1406A443C @ 0x1406A443C (sub_1406A443C.c)
  *     FsRtlKernelFsControlFile @ 0x1406A4560 (FsRtlKernelFsControlFile.c)
  *     FsRtlQueryKernelEaFile @ 0x1406A4870 (FsRtlQueryKernelEaFile.c)
- *     IopCancelIrpsInThreadList @ 0x1406A4C58 (IopCancelIrpsInThreadList.c)
- *     NtNotifyChangeSession @ 0x1406A91F0 (NtNotifyChangeSession.c)
- *     NtGetMUIRegistryInfo @ 0x1406BE9A0 (NtGetMUIRegistryInfo.c)
- *     IopSynchronousApiServiceTail @ 0x1406BF8BC (IopSynchronousApiServiceTail.c)
- *     WmipGetGuidObjectInstanceInfo @ 0x1406C1A74 (WmipGetGuidObjectInstanceInfo.c)
+ *     sub_1406A4C58 @ 0x1406A4C58 (sub_1406A4C58.c)
+ *     sub_1406A91F0 @ 0x1406A91F0 (sub_1406A91F0.c)
+ *     sub_1406BE9A0 @ 0x1406BE9A0 (sub_1406BE9A0.c)
+ *     sub_1406BF8BC @ 0x1406BF8BC (sub_1406BF8BC.c)
+ *     sub_1406C1A74 @ 0x1406C1A74 (sub_1406C1A74.c)
  *     FsRtlQueryCachedVdl @ 0x1406C2860 (FsRtlQueryCachedVdl.c)
- *     WmipRegisterDevice @ 0x1406C82F8 (WmipRegisterDevice.c)
- *     WmipQueueRegWork @ 0x1406C8478 (WmipQueueRegWork.c)
- *     WmipUpdateDeviceStackSize @ 0x1406C8550 (WmipUpdateDeviceStackSize.c)
- *     WmipPrepareForWnodeAD @ 0x1406D2BE8 (WmipPrepareForWnodeAD.c)
- *     IopGetSetObjectId @ 0x1406D3ACC (IopGetSetObjectId.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1406D520C (EtwpUpdateGlobalGroupMasks.c)
- *     WmipDisableCollectOrEvent @ 0x1406D8750 (WmipDisableCollectOrEvent.c)
- *     WmipSendEnableDisableRequest @ 0x1406D8994 (WmipSendEnableDisableRequest.c)
- *     WmipRegistrationWorker @ 0x1406DAF30 (WmipRegistrationWorker.c)
- *     EtwpCrimsonProvEnableCallback @ 0x1406E30E0 (EtwpCrimsonProvEnableCallback.c)
- *     SPCallServerHandleWaitForDisplayWindow @ 0x1406E825C (SPCallServerHandleWaitForDisplayWindow.c)
- *     PnpSynchronizeDeviceEventQueue @ 0x1406EA5EC (PnpSynchronizeDeviceEventQueue.c)
- *     MiInSwapStore @ 0x1406EBCCC (MiInSwapStore.c)
- *     EtwpSynchronizeWithLogger @ 0x1406EC9F8 (EtwpSynchronizeWithLogger.c)
- *     EtwpStartTrace @ 0x1406EDF6C (EtwpStartTrace.c)
- *     EtwpStopTrace @ 0x1406EDFEC (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
+ *     sub_1406C82F8 @ 0x1406C82F8 (sub_1406C82F8.c)
+ *     sub_1406C8478 @ 0x1406C8478 (sub_1406C8478.c)
+ *     sub_1406C8550 @ 0x1406C8550 (sub_1406C8550.c)
+ *     sub_1406D2BE8 @ 0x1406D2BE8 (sub_1406D2BE8.c)
+ *     sub_1406D3ACC @ 0x1406D3ACC (sub_1406D3ACC.c)
+ *     sub_1406D520C @ 0x1406D520C (sub_1406D520C.c)
+ *     sub_1406D8750 @ 0x1406D8750 (sub_1406D8750.c)
+ *     sub_1406D8994 @ 0x1406D8994 (sub_1406D8994.c)
+ *     sub_1406DAF30 @ 0x1406DAF30 (sub_1406DAF30.c)
+ *     sub_1406E30E0 @ 0x1406E30E0 (sub_1406E30E0.c)
+ *     sub_1406E825C @ 0x1406E825C (sub_1406E825C.c)
+ *     sub_1406EA5EC @ 0x1406EA5EC (sub_1406EA5EC.c)
+ *     sub_1406EBCCC @ 0x1406EBCCC (sub_1406EBCCC.c)
+ *     sub_1406EC9F8 @ 0x1406EC9F8 (sub_1406EC9F8.c)
+ *     sub_1406EDF6C @ 0x1406EDF6C (sub_1406EDF6C.c)
+ *     sub_1406EDFEC @ 0x1406EDFEC (sub_1406EDFEC.c)
+ *     sub_1406EE2AC @ 0x1406EE2AC (sub_1406EE2AC.c)
+ *     sub_1406F89A4 @ 0x1406F89A4 (sub_1406F89A4.c)
  *     FsRtlGetFileSize @ 0x1406FF640 (FsRtlGetFileSize.c)
- *     PspUserThreadStartup @ 0x140702420 (PspUserThreadStartup.c)
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407045D0 (PspGetContextThreadInternal.c)
- *     MiReadImageHeaders @ 0x1407063CC (MiReadImageHeaders.c)
- *     IopGetFileInformation @ 0x14070FC40 (IopGetFileInformation.c)
- *     IoVolumeDeviceToDosName @ 0x140710B90 (IoVolumeDeviceToDosName.c)
- *     CmpOpenHiveFile @ 0x140713F8C (CmpOpenHiveFile.c)
- *     CmLoadAppKey @ 0x14071A870 (CmLoadAppKey.c)
- *     IopQueryXxxInformation @ 0x14071E6BC (IopQueryXxxInformation.c)
- *     IopGetSetSecurityObject @ 0x14071E8F0 (IopGetSetSecurityObject.c)
- *     IopDeleteFile @ 0x14072B630 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopCloseFile @ 0x14072E9E0 (IopCloseFile.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
- *     CmpParseKey @ 0x1407349A0 (CmpParseKey.c)
- *     PnpCallDriverEntry @ 0x140747DDC (PnpCallDriverEntry.c)
- *     PnpAllocateResources @ 0x140747FB4 (PnpAllocateResources.c)
- *     IopFilterResourceRequirementsCall @ 0x140748D6C (IopFilterResourceRequirementsCall.c)
- *     IopUncacheInterfaceInformation @ 0x1407490C0 (IopUncacheInterfaceInformation.c)
- *     PnpStartDeviceNode @ 0x140749C4C (PnpStartDeviceNode.c)
- *     PnpCallAddDevice @ 0x140749DA0 (PnpCallAddDevice.c)
- *     PnpQueryInterface @ 0x14074C6C0 (PnpQueryInterface.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
- *     PnpDisableWatchdog @ 0x14074D6EC (PnpDisableWatchdog.c)
- *     WmipAddDataSource @ 0x14075D1B4 (WmipAddDataSource.c)
- *     WmipDetermineInstanceBaseIndex @ 0x14075D814 (WmipDetermineInstanceBaseIndex.c)
- *     WmipEnableCollectionForNewGuid @ 0x14075DA88 (WmipEnableCollectionForNewGuid.c)
- *     WmipProcessEvent @ 0x14075DD3C (WmipProcessEvent.c)
- *     WmipFindISinGEbyName @ 0x14075F09C (WmipFindISinGEbyName.c)
- *     PiControlGetSetDeviceStatus @ 0x1407793D0 (PiControlGetSetDeviceStatus.c)
- *     WmipOpenBlock @ 0x140783428 (WmipOpenBlock.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     WmipForwardWmiIrp @ 0x140783A9C (WmipForwardWmiIrp.c)
- *     WmipFindGEByGuid @ 0x140783CD8 (WmipFindGEByGuid.c)
- *     WmipPrepareWnodeSI @ 0x140783DB8 (WmipPrepareWnodeSI.c)
- *     WmipEnableCollectOrEvent @ 0x1407841FC (WmipEnableCollectOrEvent.c)
- *     WmipDeleteMethod @ 0x1407842F0 (WmipDeleteMethod.c)
- *     WmipIsQuerySetGuid @ 0x1407843EC (WmipIsQuerySetGuid.c)
- *     WmipEnumerateMofResources @ 0x14078D1A8 (WmipEnumerateMofResources.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x1407940E4 (EtwpAcquireLoggerContextByLoggerName.c)
- *     EtwpDisableTraceProviders @ 0x140795400 (EtwpDisableTraceProviders.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140797594 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpLogger @ 0x140799440 (EtwpLogger.c)
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
+ *     sub_140702420 @ 0x140702420 (sub_140702420.c)
+ *     sub_1407043D0 @ 0x1407043D0 (sub_1407043D0.c)
+ *     sub_1407045D0 @ 0x1407045D0 (sub_1407045D0.c)
+ *     sub_1407063CC @ 0x1407063CC (sub_1407063CC.c)
+ *     sub_14070FC40 @ 0x14070FC40 (sub_14070FC40.c)
+ *     RtlVolumeDeviceToDosName @ 0x140710B90 (RtlVolumeDeviceToDosName.c)
+ *     sub_140713F8C @ 0x140713F8C (sub_140713F8C.c)
+ *     sub_14071A870 @ 0x14071A870 (sub_14071A870.c)
+ *     sub_14071E6BC @ 0x14071E6BC (sub_14071E6BC.c)
+ *     sub_14071E8F0 @ 0x14071E8F0 (sub_14071E8F0.c)
+ *     sub_14072B630 @ 0x14072B630 (sub_14072B630.c)
+ *     sub_14072B8B0 @ 0x14072B8B0 (sub_14072B8B0.c)
+ *     sub_14072E9E0 @ 0x14072E9E0 (sub_14072E9E0.c)
+ *     sub_140731680 @ 0x140731680 (sub_140731680.c)
+ *     sub_1407349A0 @ 0x1407349A0 (sub_1407349A0.c)
+ *     sub_140747DDC @ 0x140747DDC (sub_140747DDC.c)
+ *     sub_140747FB4 @ 0x140747FB4 (sub_140747FB4.c)
+ *     sub_140748D6C @ 0x140748D6C (sub_140748D6C.c)
+ *     sub_1407490C0 @ 0x1407490C0 (sub_1407490C0.c)
+ *     sub_140749C4C @ 0x140749C4C (sub_140749C4C.c)
+ *     sub_140749DA0 @ 0x140749DA0 (sub_140749DA0.c)
+ *     sub_14074C6C0 @ 0x14074C6C0 (sub_14074C6C0.c)
+ *     sub_14074CA9C @ 0x14074CA9C (sub_14074CA9C.c)
+ *     sub_14074D6EC @ 0x14074D6EC (sub_14074D6EC.c)
+ *     sub_14075D1B4 @ 0x14075D1B4 (sub_14075D1B4.c)
+ *     sub_14075D814 @ 0x14075D814 (sub_14075D814.c)
+ *     sub_14075DA88 @ 0x14075DA88 (sub_14075DA88.c)
+ *     sub_14075DD3C @ 0x14075DD3C (sub_14075DD3C.c)
+ *     sub_14075F09C @ 0x14075F09C (sub_14075F09C.c)
+ *     sub_1407793D0 @ 0x1407793D0 (sub_1407793D0.c)
+ *     sub_140783428 @ 0x140783428 (sub_140783428.c)
+ *     sub_1407838E0 @ 0x1407838E0 (sub_1407838E0.c)
+ *     sub_140783A9C @ 0x140783A9C (sub_140783A9C.c)
+ *     sub_140783CD8 @ 0x140783CD8 (sub_140783CD8.c)
+ *     sub_140783DB8 @ 0x140783DB8 (sub_140783DB8.c)
+ *     sub_1407841FC @ 0x1407841FC (sub_1407841FC.c)
+ *     sub_1407842F0 @ 0x1407842F0 (sub_1407842F0.c)
+ *     sub_1407843EC @ 0x1407843EC (sub_1407843EC.c)
+ *     sub_14078D1A8 @ 0x14078D1A8 (sub_14078D1A8.c)
+ *     sub_1407940E4 @ 0x1407940E4 (sub_1407940E4.c)
+ *     sub_140795400 @ 0x140795400 (sub_140795400.c)
+ *     sub_140797594 @ 0x140797594 (sub_140797594.c)
+ *     sub_140799440 @ 0x140799440 (sub_140799440.c)
+ *     sub_1407A0088 @ 0x1407A0088 (sub_1407A0088.c)
  *     FsRtlCancellableWaitForMultipleObjects @ 0x1407A11A0 (FsRtlCancellableWaitForMultipleObjects.c)
  *     NtQueryInformationFile @ 0x1407AFEF0 (NtQueryInformationFile.c)
  *     sub_1407D2C60 @ 0x1407D2C60 (sub_1407D2C60.c)
- *     PiDrvDbLoadNode @ 0x1407D4E34 (PiDrvDbLoadNode.c)
- *     PnpDeviceEventWorker @ 0x1407D5E30 (PnpDeviceEventWorker.c)
- *     RtlDecompressBufferLZNT1 @ 0x1407D6FA0 (RtlDecompressBufferLZNT1.c)
- *     RtlDecompressFragmentLZNT1 @ 0x1407D80F0 (RtlDecompressFragmentLZNT1.c)
+ *     sub_1407D4E34 @ 0x1407D4E34 (sub_1407D4E34.c)
+ *     sub_1407D5E30 @ 0x1407D5E30 (sub_1407D5E30.c)
+ *     sub_1407D6FA0 @ 0x1407D6FA0 (sub_1407D6FA0.c)
+ *     sub_1407D80F0 @ 0x1407D80F0 (sub_1407D80F0.c)
  *     ObWaitForSingleObject @ 0x1407E0200 (ObWaitForSingleObject.c)
- *     NtNotifyChangeMultipleKeys @ 0x1407E5600 (NtNotifyChangeMultipleKeys.c)
- *     PopBatteryWorker @ 0x1407EDFC0 (PopBatteryWorker.c)
- *     SmStoreCompressionStop @ 0x1407F575C (SmStoreCompressionStop.c)
+ *     sub_1407E5600 @ 0x1407E5600 (sub_1407E5600.c)
+ *     sub_1407EDFC0 @ 0x1407EDFC0 (sub_1407EDFC0.c)
+ *     sub_1407F575C @ 0x1407F575C (sub_1407F575C.c)
  *     FsRtlIssueDeviceIoControl @ 0x1407FA460 (FsRtlIssueDeviceIoControl.c)
  *     IoReportTargetDeviceChange @ 0x1407FB910 (IoReportTargetDeviceChange.c)
  *     PoUnregisterPowerSettingCallback @ 0x1407FC690 (PoUnregisterPowerSettingCallback.c)
  *     FsRtlBalanceReads @ 0x1407FC880 (FsRtlBalanceReads.c)
- *     NtInitiatePowerAction @ 0x1407FEA60 (NtInitiatePowerAction.c)
- *     PopFxNotifySxTransitionState @ 0x1407FF67C (PopFxNotifySxTransitionState.c)
- *     EmPowerPagingEnabled @ 0x1407FF7F4 (EmPowerPagingEnabled.c)
- *     PopPowerAggregatorNotifySuspendResume @ 0x1407FFBAC (PopPowerAggregatorNotifySuspendResume.c)
- *     ExSwapinWorkerThreads @ 0x1407FFFE4 (ExSwapinWorkerThreads.c)
- *     PopClearHiberFileSignature @ 0x1408005A0 (PopClearHiberFileSignature.c)
- *     PopCreateHiberFile @ 0x140801108 (PopCreateHiberFile.c)
- *     PopResizeHiberFile @ 0x140801624 (PopResizeHiberFile.c)
- *     PopSanityCheckHiberFile @ 0x1408017F8 (PopSanityCheckHiberFile.c)
- *     HalpGetDynamicDevicePointer @ 0x14080637C (HalpGetDynamicDevicePointer.c)
- *     PopGetWakeSource @ 0x140806788 (PopGetWakeSource.c)
- *     PopInitSystemSleeperThread @ 0x140807FEC (PopInitSystemSleeperThread.c)
- *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x1408081E0 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
- *     IopInvalidateVolumesForDevice @ 0x14080AB40 (IopInvalidateVolumesForDevice.c)
+ *     sub_1407FEA60 @ 0x1407FEA60 (sub_1407FEA60.c)
+ *     sub_1407FF67C @ 0x1407FF67C (sub_1407FF67C.c)
+ *     sub_1407FF7F4 @ 0x1407FF7F4 (sub_1407FF7F4.c)
+ *     sub_1407FFBAC @ 0x1407FFBAC (sub_1407FFBAC.c)
+ *     sub_1407FFFE4 @ 0x1407FFFE4 (sub_1407FFFE4.c)
+ *     sub_1408005A0 @ 0x1408005A0 (sub_1408005A0.c)
+ *     NaptrDnsRecordConvert_1 @ 0x140801108 (NaptrDnsRecordConvert_1.c)
+ *     sub_140801624 @ 0x140801624 (sub_140801624.c)
+ *     sub_1408017F8 @ 0x1408017F8 (sub_1408017F8.c)
+ *     sub_14080637C @ 0x14080637C (sub_14080637C.c)
+ *     sub_140806788 @ 0x140806788 (sub_140806788.c)
+ *     sub_140807FEC @ 0x140807FEC (sub_140807FEC.c)
+ *     sub_1408081E0 @ 0x1408081E0 (sub_1408081E0.c)
+ *     sub_14080AB40 @ 0x14080AB40 (sub_14080AB40.c)
  *     IoSetInformation @ 0x14080AE60 (IoSetInformation.c)
- *     IopLoadFileSystemDriver @ 0x14080C5C8 (IopLoadFileSystemDriver.c)
- *     PopFxUnregisterDeviceOrWait @ 0x14080D7EC (PopFxUnregisterDeviceOrWait.c)
- *     WmipDSCleanup @ 0x14080E2B0 (WmipDSCleanup.c)
- *     PnpDelayedRemoveWorker @ 0x14080EBD0 (PnpDelayedRemoveWorker.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x14080EEFC (WmipDisableCollectionForRemovedGuid.c)
- *     IopCreateArcName @ 0x14080F068 (IopCreateArcName.c)
- *     WmipDeregisterDevice @ 0x140810420 (WmipDeregisterDevice.c)
- *     WmipSetTraceNotify @ 0x140810B00 (WmipSetTraceNotify.c)
+ *     sub_14080C5C8 @ 0x14080C5C8 (sub_14080C5C8.c)
+ *     sub_14080D7EC @ 0x14080D7EC (sub_14080D7EC.c)
+ *     sub_14080E2B0 @ 0x14080E2B0 (sub_14080E2B0.c)
+ *     sub_14080EBD0 @ 0x14080EBD0 (sub_14080EBD0.c)
+ *     sub_14080EEFC @ 0x14080EEFC (sub_14080EEFC.c)
+ *     sub_14080F068 @ 0x14080F068 (sub_14080F068.c)
+ *     sub_140810420 @ 0x140810420 (sub_140810420.c)
+ *     sub_140810B00 @ 0x140810B00 (sub_140810B00.c)
  *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)
- *     IopDestroyActiveConnectBlock @ 0x1408176BC (IopDestroyActiveConnectBlock.c)
- *     IopAcquireReleaseConnectLockInternal @ 0x14081788C (IopAcquireReleaseConnectLockInternal.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x14081AB80 (WmipSendWmiIrpToTraceDeviceList.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14081C234 (FsRtlIssueFileNotificationFsctl.c)
- *     PopAcquireTransitionLock @ 0x14081CE58 (PopAcquireTransitionLock.c)
- *     HalpPutAcpiHacksInRegistry @ 0x14081E700 (HalpPutAcpiHacksInRegistry.c)
- *     IopLegacyResourceAllocation @ 0x14081F570 (IopLegacyResourceAllocation.c)
- *     IopAllocateBootResources @ 0x140820280 (IopAllocateBootResources.c)
- *     PopFxUnregisterDevice @ 0x14082310C (PopFxUnregisterDevice.c)
- *     PopPepUnregisterDevice @ 0x140823318 (PopPepUnregisterDevice.c)
- *     CmCompleteRegistryInitialization @ 0x14082830C (CmCompleteRegistryInitialization.c)
- *     PnpWaitForEmptyDeviceEventQueue @ 0x14082EF8C (PnpWaitForEmptyDeviceEventQueue.c)
- *     PnpWaitForEmptyDeviceActionQueue @ 0x14082EFB8 (PnpWaitForEmptyDeviceActionQueue.c)
- *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
- *     ArbBuildAssignmentOrdering @ 0x14083AAB8 (ArbBuildAssignmentOrdering.c)
- *     SepRmCommandServerThread @ 0x14083B300 (SepRmCommandServerThread.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     PopDirectedDripsWorkerRoutine @ 0x140845880 (PopDirectedDripsWorkerRoutine.c)
- *     HalGetAdapterV2 @ 0x140845A60 (HalGetAdapterV2.c)
- *     HalGetAdapterV3 @ 0x140845F30 (HalGetAdapterV3.c)
- *     MiZeroPageFileFirstPage @ 0x14084BA88 (MiZeroPageFileFirstPage.c)
- *     PiPagePathSetState @ 0x14084BB98 (PiPagePathSetState.c)
- *     WmipAddMofResource @ 0x14084E03C (WmipAddMofResource.c)
- *     WmipFindMRByNames @ 0x14084E278 (WmipFindMRByNames.c)
- *     ArbArbiterHandler @ 0x140852700 (ArbArbiterHandler.c)
- *     EtwpFixBootLoggers @ 0x140854CB8 (EtwpFixBootLoggers.c)
- *     WmipLegacyEtwWorker @ 0x140855120 (WmipLegacyEtwWorker.c)
- *     WmipProcessLegacyEtwRegister @ 0x140855238 (WmipProcessLegacyEtwRegister.c)
- *     FsRtlpRegisterUncProvider @ 0x1408567A8 (FsRtlpRegisterUncProvider.c)
- *     IopUnloadDriver @ 0x140856DC0 (IopUnloadDriver.c)
+ *     sub_1408176BC @ 0x1408176BC (sub_1408176BC.c)
+ *     sub_14081788C @ 0x14081788C (sub_14081788C.c)
+ *     sub_14081AB80 @ 0x14081AB80 (sub_14081AB80.c)
+ *     sub_14081C234 @ 0x14081C234 (sub_14081C234.c)
+ *     sub_14081CE58 @ 0x14081CE58 (sub_14081CE58.c)
+ *     sub_14081E700 @ 0x14081E700 (sub_14081E700.c)
+ *     sub_14081F570 @ 0x14081F570 (sub_14081F570.c)
+ *     sub_140820280 @ 0x140820280 (sub_140820280.c)
+ *     sub_14082310C @ 0x14082310C (sub_14082310C.c)
+ *     sub_140823318 @ 0x140823318 (sub_140823318.c)
+ *     sub_14082830C @ 0x14082830C (sub_14082830C.c)
+ *     sub_14082EF8C @ 0x14082EF8C (sub_14082EF8C.c)
+ *     sub_14082EFB8 @ 0x14082EFB8 (sub_14082EFB8.c)
+ *     sub_140833B80 @ 0x140833B80 (sub_140833B80.c)
+ *     sub_14083AAB8 @ 0x14083AAB8 (sub_14083AAB8.c)
+ *     sub_14083B300 @ 0x14083B300 (sub_14083B300.c)
+ *     sub_14083C870 @ 0x14083C870 (sub_14083C870.c)
+ *     sub_140845880 @ 0x140845880 (sub_140845880.c)
+ *     sub_140845A60 @ 0x140845A60 (sub_140845A60.c)
+ *     sub_140845F30 @ 0x140845F30 (sub_140845F30.c)
+ *     sub_14084BA88 @ 0x14084BA88 (sub_14084BA88.c)
+ *     sub_14084BB98 @ 0x14084BB98 (sub_14084BB98.c)
+ *     sub_14084E03C @ 0x14084E03C (sub_14084E03C.c)
+ *     sub_14084E278 @ 0x14084E278 (sub_14084E278.c)
+ *     sub_140852700 @ 0x140852700 (sub_140852700.c)
+ *     sub_140854CB8 @ 0x140854CB8 (sub_140854CB8.c)
+ *     sub_140855120 @ 0x140855120 (sub_140855120.c)
+ *     sub_140855238 @ 0x140855238 (sub_140855238.c)
+ *     sub_1408567A8 @ 0x1408567A8 (sub_1408567A8.c)
+ *     sub_140856DC0 @ 0x140856DC0 (sub_140856DC0.c)
  *     IoRegisterFsRegistrationChangeMountAware @ 0x140859F30 (IoRegisterFsRegistrationChangeMountAware.c)
- *     IopInsertLegacyBusDeviceNode @ 0x1408605C8 (IopInsertLegacyBusDeviceNode.c)
- *     WheapProcessWaitingETWEvents @ 0x140860F60 (WheapProcessWaitingETWEvents.c)
+ *     sub_1408605C8 @ 0x1408605C8 (sub_1408605C8.c)
+ *     sub_140860F60 @ 0x140860F60 (sub_140860F60.c)
  *     IoWMISetNotificationCallback @ 0x140862AB0 (IoWMISetNotificationCallback.c)
- *     CmpDummyThreadRoutine @ 0x140864AC0 (CmpDummyThreadRoutine.c)
- *     FsRtlWaitForSmssEvent @ 0x1408650D0 (FsRtlWaitForSmssEvent.c)
- *     IopAcquireReleaseDispatcherLock @ 0x140881870 (IopAcquireReleaseDispatcherLock.c)
- *     HalpQueryAcpiRealTimeClock @ 0x140908124 (HalpQueryAcpiRealTimeClock.c)
- *     HalpSetAcpiRealTimeClock @ 0x140908208 (HalpSetAcpiRealTimeClock.c)
- *     HalpDynamicDeviceInterfaceNotification @ 0x140908CD0 (HalpDynamicDeviceInterfaceNotification.c)
- *     HalpCallWakeAlarmDriver @ 0x14090A480 (HalpCallWakeAlarmDriver.c)
- *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x14090A560 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
- *     HalpQueryPccInterface @ 0x14090AD84 (HalpQueryPccInterface.c)
- *     CmpWaitOnHiveWriteQueue @ 0x140919170 (CmpWaitOnHiveWriteQueue.c)
- *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140927128 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
- *     DbgkpQueueMessage @ 0x1409283F4 (DbgkpQueueMessage.c)
- *     NtWaitForDebugEvent @ 0x140929380 (NtWaitForDebugEvent.c)
- *     DbgkpSendErrorMessage @ 0x14092A29C (DbgkpSendErrorMessage.c)
- *     DbgkpLkmdLaunchSnapApc @ 0x14092B264 (DbgkpLkmdLaunchSnapApc.c)
- *     FsRtlGetDirectImageOriginalBase @ 0x14092D730 (FsRtlGetDirectImageOriginalBase.c)
+ *     sub_140864AC0 @ 0x140864AC0 (sub_140864AC0.c)
+ *     sub_1408650D0 @ 0x1408650D0 (sub_1408650D0.c)
+ *     sub_140881870 @ 0x140881870 (sub_140881870.c)
+ *     sub_140908124 @ 0x140908124 (sub_140908124.c)
+ *     sub_140908208 @ 0x140908208 (sub_140908208.c)
+ *     sub_140908CD0 @ 0x140908CD0 (sub_140908CD0.c)
+ *     sub_14090A480 @ 0x14090A480 (sub_14090A480.c)
+ *     sub_14090A560 @ 0x14090A560 (sub_14090A560.c)
+ *     sub_14090AD84 @ 0x14090AD84 (sub_14090AD84.c)
+ *     sub_140919170 @ 0x140919170 (sub_140919170.c)
+ *     sub_140927128 @ 0x140927128 (sub_140927128.c)
+ *     sub_1409283F4 @ 0x1409283F4 (sub_1409283F4.c)
+ *     sub_140929380 @ 0x140929380 (sub_140929380.c)
+ *     sub_14092A29C @ 0x14092A29C (sub_14092A29C.c)
+ *     sub_14092B264 @ 0x14092B264 (sub_14092B264.c)
+ *     sub_14092D730 @ 0x14092D730 (sub_14092D730.c)
  *     FsRtlDeregisterUncProvider @ 0x14092E1B0 (FsRtlDeregisterUncProvider.c)
  *     FsRtlQueryInformationFile @ 0x14092ED30 (FsRtlQueryInformationFile.c)
- *     ?Control@NT_DISK@@UEAAJKPEAXK0K@Z @ 0x140930280 (-Control@NT_DISK@@UEAAJKPEAXK0K@Z.c)
- *     IopGetVolumeId @ 0x14093449C (IopGetVolumeId.c)
- *     IopHardErrorThread @ 0x1409345F0 (IopHardErrorThread.c)
- *     IopSendMessageToTrackService @ 0x140935044 (IopSendMessageToTrackService.c)
- *     IopSetRemoteLink @ 0x140935C64 (IopSetRemoteLink.c)
+ *     sub_140930280 @ 0x140930280 (sub_140930280.c)
+ *     sub_14093449C @ 0x14093449C (sub_14093449C.c)
+ *     sub_1409345F0 @ 0x1409345F0 (sub_1409345F0.c)
+ *     sub_140935044 @ 0x140935044 (sub_140935044.c)
+ *     sub_140935C64 @ 0x140935C64 (sub_140935C64.c)
  *     IoCancelFileOpen @ 0x140935F60 (IoCancelFileOpen.c)
  *     IoVerifyVolume @ 0x1409367E0 (IoVerifyVolume.c)
- *     IopIssueSystemEnvironmentRequest @ 0x14093F428 (IopIssueSystemEnvironmentRequest.c)
- *     IopFreeBandwidthContract @ 0x14093FC6C (IopFreeBandwidthContract.c)
- *     PnpShutdownDevices @ 0x1409404FC (PnpShutdownDevices.c)
+ *     sub_14093F428 @ 0x14093F428 (sub_14093F428.c)
+ *     sub_14093FC6C @ 0x14093FC6C (sub_14093FC6C.c)
+ *     sub_1409404FC @ 0x1409404FC (sub_1409404FC.c)
  *     IoReplacePartitionUnit @ 0x140943170 (IoReplacePartitionUnit.c)
- *     PnpRequestHwProfileChangeNotification @ 0x140944C08 (PnpRequestHwProfileChangeNotification.c)
- *     PnpProcessCompletedEject @ 0x140947450 (PnpProcessCompletedEject.c)
- *     PpProfileBeginHardwareProfileTransition @ 0x14094FB70 (PpProfileBeginHardwareProfileTransition.c)
- *     PnpReplacePartitionUnit @ 0x140950E30 (PnpReplacePartitionUnit.c)
- *     PiIrpQueryRemoveDevice @ 0x1409589A4 (PiIrpQueryRemoveDevice.c)
- *     PnpReallocateResources @ 0x140958D9C (PnpReallocateResources.c)
- *     PipSendGuestAssignedNotification @ 0x14095A544 (PipSendGuestAssignedNotification.c)
- *     IopWarmEjectDevice @ 0x14095A67C (IopWarmEjectDevice.c)
- *     IopQueryConflictList @ 0x14095F204 (IopQueryConflictList.c)
- *     MiInjectThreadForHotPatch @ 0x140973B80 (MiInjectThreadForHotPatch.c)
- *     PfTCleanup @ 0x1409882B4 (PfTCleanup.c)
- *     PopPowerRequestNotifyTtmSessionUninitialized @ 0x140989F5C (PopPowerRequestNotifyTtmSessionUninitialized.c)
- *     PopDeactiveThermalRequest @ 0x14098B5B8 (PopDeactiveThermalRequest.c)
- *     PopDisableCoolingExtension @ 0x14098B798 (PopDisableCoolingExtension.c)
- *     PopReadPagesFromHiberFile @ 0x14098F634 (PopReadPagesFromHiberFile.c)
- *     PopSetSystemAwayMode @ 0x140990100 (PopSetSystemAwayMode.c)
- *     PopThermalZoneRemove @ 0x140990740 (PopThermalZoneRemove.c)
- *     PopBatteryRemove @ 0x140995040 (PopBatteryRemove.c)
- *     PopFanRemove @ 0x1409991F0 (PopFanRemove.c)
- *     SshSessionManagerFlushBuffers @ 0x1409A0D80 (SshSessionManagerFlushBuffers.c)
- *     PspQueueDeferredWorkAndWait @ 0x1409AC2BC (PspQueueDeferredWorkAndWait.c)
- *     PspShutdownCsrProcess @ 0x1409AC388 (PspShutdownCsrProcess.c)
- *     PsSetVmProcessorHostProcess @ 0x1409AF410 (PsSetVmProcessorHostProcess.c)
- *     PsWaitForAllProcesses @ 0x1409B1468 (PsWaitForAllProcesses.c)
- *     PspWaitForUsermodeExit @ 0x1409B196C (PspWaitForUsermodeExit.c)
- *     PspTeardownPartition @ 0x1409B3490 (PspTeardownPartition.c)
- *     PsCallEnclave @ 0x1409B35D0 (PsCallEnclave.c)
- *     PsTerminateVsmEnclave @ 0x1409B45F0 (PsTerminateVsmEnclave.c)
- *     RawPerformDevIoCtrl @ 0x1409B4F34 (RawPerformDevIoCtrl.c)
- *     RawQueryFsSizeInfo @ 0x1409B5088 (RawQueryFsSizeInfo.c)
- *     RawQueryFileSystemInformation @ 0x1409B54D8 (RawQueryFileSystemInformation.c)
- *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x1409BEBB0 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
- *     SmProcessResizeRequest @ 0x1409D42F8 (SmProcessResizeRequest.c)
- *     SmProcessStatsRequest @ 0x1409D43FC (SmProcessStatsRequest.c)
- *     SmStorePhysicalRequestIssue @ 0x1409D48D8 (SmStorePhysicalRequestIssue.c)
- *     SmKmIsVolumeIoPossible @ 0x1409D5B38 (SmKmIsVolumeIoPossible.c)
- *     SmKmSendDeviceControl @ 0x1409D6368 (SmKmSendDeviceControl.c)
- *     SmKmSendUsageNotification @ 0x1409D6428 (SmKmSendUsageNotification.c)
- *     SmKmStoreFileCreate @ 0x1409D64F8 (SmKmStoreFileCreate.c)
- *     SmKmStoreFileDelete @ 0x1409D6C58 (SmKmStoreFileDelete.c)
- *     SmKmStoreFileGetExtents @ 0x1409D6CF4 (SmKmStoreFileGetExtents.c)
- *     SmKmStoreFileWriteHeader @ 0x1409D7390 (SmKmStoreFileWriteHeader.c)
+ *     sub_140944C08 @ 0x140944C08 (sub_140944C08.c)
+ *     sub_140947450 @ 0x140947450 (sub_140947450.c)
+ *     sub_14094FB70 @ 0x14094FB70 (sub_14094FB70.c)
+ *     sub_140950E30 @ 0x140950E30 (sub_140950E30.c)
+ *     sub_1409589A4 @ 0x1409589A4 (sub_1409589A4.c)
+ *     sub_140958D9C @ 0x140958D9C (sub_140958D9C.c)
+ *     sub_14095A544 @ 0x14095A544 (sub_14095A544.c)
+ *     sub_14095A67C @ 0x14095A67C (sub_14095A67C.c)
+ *     sub_14095F204 @ 0x14095F204 (sub_14095F204.c)
+ *     sub_140973B80 @ 0x140973B80 (sub_140973B80.c)
+ *     sub_1409882B4 @ 0x1409882B4 (sub_1409882B4.c)
+ *     sub_140989F5C @ 0x140989F5C (sub_140989F5C.c)
+ *     sub_14098B5B8 @ 0x14098B5B8 (sub_14098B5B8.c)
+ *     sub_14098B798 @ 0x14098B798 (sub_14098B798.c)
+ *     sub_14098F634 @ 0x14098F634 (sub_14098F634.c)
+ *     sub_140990100 @ 0x140990100 (sub_140990100.c)
+ *     sub_140990740 @ 0x140990740 (sub_140990740.c)
+ *     sub_140995040 @ 0x140995040 (sub_140995040.c)
+ *     sub_1409991F0 @ 0x1409991F0 (sub_1409991F0.c)
+ *     sub_1409A0D80 @ 0x1409A0D80 (sub_1409A0D80.c)
+ *     sub_1409AC2BC @ 0x1409AC2BC (sub_1409AC2BC.c)
+ *     sub_1409AC388 @ 0x1409AC388 (sub_1409AC388.c)
+ *     sub_1409AF410 @ 0x1409AF410 (sub_1409AF410.c)
+ *     sub_1409B1468 @ 0x1409B1468 (sub_1409B1468.c)
+ *     sub_1409B196C @ 0x1409B196C (sub_1409B196C.c)
+ *     sub_1409B3490 @ 0x1409B3490 (sub_1409B3490.c)
+ *     sub_1409B35D0 @ 0x1409B35D0 (sub_1409B35D0.c)
+ *     sub_1409B45F0 @ 0x1409B45F0 (sub_1409B45F0.c)
+ *     sub_1409B4F34 @ 0x1409B4F34 (sub_1409B4F34.c)
+ *     sub_1409B5088 @ 0x1409B5088 (sub_1409B5088.c)
+ *     sub_1409B54D8 @ 0x1409B54D8 (sub_1409B54D8.c)
+ *     sub_1409BEBB0 @ 0x1409BEBB0 (sub_1409BEBB0.c)
+ *     sub_1409D42F8 @ 0x1409D42F8 (sub_1409D42F8.c)
+ *     sub_1409D43FC @ 0x1409D43FC (sub_1409D43FC.c)
+ *     sub_1409D48D8 @ 0x1409D48D8 (sub_1409D48D8.c)
+ *     sub_1409D5B38 @ 0x1409D5B38 (sub_1409D5B38.c)
+ *     sub_1409D6368 @ 0x1409D6368 (sub_1409D6368.c)
+ *     sub_1409D6428 @ 0x1409D6428 (sub_1409D6428.c)
+ *     sub_1409D64F8 @ 0x1409D64F8 (sub_1409D64F8.c)
+ *     sub_1409D6C58 @ 0x1409D6C58 (sub_1409D6C58.c)
+ *     sub_1409D6CF4 @ 0x1409D6CF4 (sub_1409D6CF4.c)
+ *     sub_1409D7390 @ 0x1409D7390 (sub_1409D7390.c)
  *     IoWMIAllocateInstanceIds @ 0x1409DB760 (IoWMIAllocateInstanceIds.c)
- *     WmipGetSysIds @ 0x1409DC80C (WmipGetSysIds.c)
- *     WmipDereferenceEvent @ 0x1409DCFD4 (WmipDereferenceEvent.c)
- *     WmipEnumerateGuids @ 0x1409DD22C (WmipEnumerateGuids.c)
- *     WmipIncludeStaticNames @ 0x1409DD3C4 (WmipIncludeStaticNames.c)
- *     WmipQueryGuidInfo @ 0x1409DD9A4 (WmipQueryGuidInfo.c)
- *     WmipLegacyEtwCallback @ 0x1409DE220 (WmipLegacyEtwCallback.c)
- *     WmipUpdateDataSource @ 0x1409DE80C (WmipUpdateDataSource.c)
- *     WmipWaitForCollectionEnabled @ 0x1409DED88 (WmipWaitForCollectionEnabled.c)
- *     EtwSetPerformanceTraceInformation @ 0x1409DEFB8 (EtwSetPerformanceTraceInformation.c)
- *     EtwpSetPmcProfileSource @ 0x1409E39EC (EtwpSetPmcProfileSource.c)
- *     EtwpEnableDisableUMGL @ 0x1409E4318 (EtwpEnableDisableUMGL.c)
- *     EtwpUpdatePerProcessTracing @ 0x1409E491C (EtwpUpdatePerProcessTracing.c)
- *     EtwDereferenceSpinLockCounters @ 0x1409E93FC (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1409E9458 (EtwReferenceSpinLockCounters.c)
- *     EtwpSampledProfileRunDown @ 0x1409EB5B4 (EtwpSampledProfileRunDown.c)
- *     EtwpKsrCallback @ 0x1409ECB90 (EtwpKsrCallback.c)
- *     EtwpUpdateDisallowedGuids @ 0x1409EDE68 (EtwpUpdateDisallowedGuids.c)
- *     EtwpCovSampCaptureFlush @ 0x1409EEF94 (EtwpCovSampCaptureFlush.c)
- *     ExpWorkQueueDestroy @ 0x140A02158 (ExpWorkQueueDestroy.c)
- *     NtMapCMFModule @ 0x140A05860 (NtMapCMFModule.c)
- *     NtStartProfile @ 0x140A06B80 (NtStartProfile.c)
- *     NtStopProfile @ 0x140A06DF0 (NtStopProfile.c)
- *     NtReleaseKeyedEvent @ 0x140A06FF0 (NtReleaseKeyedEvent.c)
- *     NtWaitForKeyedEvent @ 0x140A073C0 (NtWaitForKeyedEvent.c)
+ *     sub_1409DC80C @ 0x1409DC80C (sub_1409DC80C.c)
+ *     sub_1409DCFD4 @ 0x1409DCFD4 (sub_1409DCFD4.c)
+ *     sub_1409DD22C @ 0x1409DD22C (sub_1409DD22C.c)
+ *     sub_1409DD3C4 @ 0x1409DD3C4 (sub_1409DD3C4.c)
+ *     sub_1409DD9A4 @ 0x1409DD9A4 (sub_1409DD9A4.c)
+ *     sub_1409DE220 @ 0x1409DE220 (sub_1409DE220.c)
+ *     sub_1409DE80C @ 0x1409DE80C (sub_1409DE80C.c)
+ *     sub_1409DED88 @ 0x1409DED88 (sub_1409DED88.c)
+ *     sub_1409DEFB8 @ 0x1409DEFB8 (sub_1409DEFB8.c)
+ *     sub_1409E39EC @ 0x1409E39EC (sub_1409E39EC.c)
+ *     sub_1409E4318 @ 0x1409E4318 (sub_1409E4318.c)
+ *     sub_1409E491C @ 0x1409E491C (sub_1409E491C.c)
+ *     sub_1409E93FC @ 0x1409E93FC (sub_1409E93FC.c)
+ *     sub_1409E9458 @ 0x1409E9458 (sub_1409E9458.c)
+ *     sub_1409EB5B4 @ 0x1409EB5B4 (sub_1409EB5B4.c)
+ *     sub_1409ECB90 @ 0x1409ECB90 (sub_1409ECB90.c)
+ *     sub_1409EDE68 @ 0x1409EDE68 (sub_1409EDE68.c)
+ *     sub_1409EEF94 @ 0x1409EEF94 (sub_1409EEF94.c)
+ *     sub_140A02158 @ 0x140A02158 (sub_140A02158.c)
+ *     sub_140A05860 @ 0x140A05860 (sub_140A05860.c)
+ *     sub_140A06B80 @ 0x140A06B80 (sub_140A06B80.c)
+ *     sub_140A06DF0 @ 0x140A06DF0 (sub_140A06DF0.c)
+ *     sub_140A06FF0 @ 0x140A06FF0 (sub_140A06FF0.c)
+ *     sub_140A073C0 @ 0x140A073C0 (sub_140A073C0.c)
  *     WheaAttemptClearPoison @ 0x140A08BE0 (WheaAttemptClearPoison.c)
  *     WheaAttemptPhysicalPageOffline @ 0x140A08CB0 (WheaAttemptPhysicalPageOffline.c)
  *     sub_140A0D5E8 @ 0x140A0D5E8 (sub_140A0D5E8.c)
  *     sub_140A0E96C @ 0x140A0E96C (sub_140A0E96C.c)
- *     CancelTimerCallbacksAndDeleteTimer @ 0x140A31BF4 (CancelTimerCallbacksAndDeleteTimer.c)
- *     VhdiVerifyBootDisk @ 0x140A3437C (VhdiVerifyBootDisk.c)
- *     PopTransitionToSleep @ 0x140A48630 (PopTransitionToSleep.c)
- *     MmDuplicateMemory @ 0x140A487C0 (MmDuplicateMemory.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
- *     PopEndMirroring @ 0x140A4E4B0 (PopEndMirroring.c)
- *     PopBuildDeviceNotifyList @ 0x140A50C40 (PopBuildDeviceNotifyList.c)
- *     PopFlushVolumes @ 0x140A51CA4 (PopFlushVolumes.c)
- *     IoShutdownSystem @ 0x140A651B8 (IoShutdownSystem.c)
- *     IopShutdownBaseFileSystems @ 0x140A65554 (IopShutdownBaseFileSystems.c)
- *     PnprInitiateReplaceOperation @ 0x140A67C74 (PnprInitiateReplaceOperation.c)
- *     PnprQuiesceWorker @ 0x140A69140 (PnprQuiesceWorker.c)
- *     MiZeroAllPageFiles @ 0x140A6A1B0 (MiZeroAllPageFiles.c)
- *     PfpScenCtxPrefetchWait @ 0x140A6AACC (PfpScenCtxPrefetchWait.c)
- *     PopGracefulShutdown @ 0x140A6AEC0 (PopGracefulShutdown.c)
- *     IovpUnloadDriver @ 0x140A81078 (IovpUnloadDriver.c)
- *     VfDriverLock @ 0x140A89D58 (VfDriverLock.c)
- *     VfIrpSendSynchronousIrp @ 0x140A8D17C (VfIrpSendSynchronousIrp.c)
- *     ViPendingCompleteAfterWait @ 0x140A91260 (ViPendingCompleteAfterWait.c)
- *     ViPendingWorkerThread @ 0x140A91580 (ViPendingWorkerThread.c)
- *     ViPoolDelayFreeTrimThreadRoutine @ 0x140A9A410 (ViPoolDelayFreeTrimThreadRoutine.c)
- *     ViFilterDispatchPnp @ 0x140A9E540 (ViFilterDispatchPnp.c)
- *     AnFwFadeCompletion @ 0x140AACA74 (AnFwFadeCompletion.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
- *     IopCreateArcNamesCd @ 0x140B0E310 (IopCreateArcNamesCd.c)
- *     IopAssignBootDriveLetter @ 0x140B0EB5C (IopAssignBootDriveLetter.c)
- *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140B26348 (MiHotAddBootDeferredDescriptorsDiscardable.c)
- *     IopGetBootDiskInformation @ 0x140B4F04C (IopGetBootDiskInformation.c)
- *     VhdiMountVhdFile @ 0x140B54AE4 (VhdiMountVhdFile.c)
- *     SbpAddTransportToInstance @ 0x140B55478 (SbpAddTransportToInstance.c)
- *     SbpStartLanman @ 0x140B55668 (SbpStartLanman.c)
- *     SbpWaitForVmbus @ 0x140B55A38 (SbpWaitForVmbus.c)
+ *     sub_140A31BF4 @ 0x140A31BF4 (sub_140A31BF4.c)
+ *     sub_140A3437C @ 0x140A3437C (sub_140A3437C.c)
+ *     sub_140A48630 @ 0x140A48630 (sub_140A48630.c)
+ *     sub_140A487C0 @ 0x140A487C0 (sub_140A487C0.c)
+ *     sub_140A494E8 @ 0x140A494E8 (sub_140A494E8.c)
+ *     sub_140A4E4B0 @ 0x140A4E4B0 (sub_140A4E4B0.c)
+ *     sub_140A50C40 @ 0x140A50C40 (sub_140A50C40.c)
+ *     sub_140A51CA4 @ 0x140A51CA4 (sub_140A51CA4.c)
+ *     sub_140A651B8 @ 0x140A651B8 (sub_140A651B8.c)
+ *     sub_140A65554 @ 0x140A65554 (sub_140A65554.c)
+ *     sub_140A67C74 @ 0x140A67C74 (sub_140A67C74.c)
+ *     sub_140A69140 @ 0x140A69140 (sub_140A69140.c)
+ *     sub_140A6A1B0 @ 0x140A6A1B0 (sub_140A6A1B0.c)
+ *     sub_140A6AACC @ 0x140A6AACC (sub_140A6AACC.c)
+ *     sub_140A6AEC0 @ 0x140A6AEC0 (sub_140A6AEC0.c)
+ *     sub_140A81078 @ 0x140A81078 (sub_140A81078.c)
+ *     sub_140A89D58 @ 0x140A89D58 (sub_140A89D58.c)
+ *     sub_140A8D17C @ 0x140A8D17C (sub_140A8D17C.c)
+ *     sub_140A91260 @ 0x140A91260 (sub_140A91260.c)
+ *     HandleInformation @ 0x140A91580 (HandleInformation.c)
+ *     sub_140A9A410 @ 0x140A9A410 (sub_140A9A410.c)
+ *     sub_140A9E540 @ 0x140A9E540 (sub_140A9E540.c)
+ *     sub_140AACA74 @ 0x140AACA74 (sub_140AACA74.c)
+ *     sub_140AFBDF4 @ 0x140AFBDF4 (sub_140AFBDF4.c)
+ *     sub_140B0E310 @ 0x140B0E310 (sub_140B0E310.c)
+ *     sub_140B0EB5C @ 0x140B0EB5C (sub_140B0EB5C.c)
+ *     sub_140B26348 @ 0x140B26348 (sub_140B26348.c)
+ *     sub_140B4F04C @ 0x140B4F04C (sub_140B4F04C.c)
+ *     sub_140B54AE4 @ 0x140B54AE4 (sub_140B54AE4.c)
+ *     sub_140B55478 @ 0x140B55478 (sub_140B55478.c)
+ *     sub_140B55668 @ 0x140B55668 (sub_140B55668.c)
+ *     sub_140B55A38 @ 0x140B55A38 (sub_140B55A38.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiFastExitThreadWait @ 0x1402946B8 (KiFastExitThreadWait.c)
- *     KiCheckForThreadDispatch @ 0x140294824 (KiCheckForThreadDispatch.c)
- *     KeAbPreWait @ 0x14029F580 (KeAbPreWait.c)
- *     KiCommitThreadWait @ 0x1402B5240 (KiCommitThreadWait.c)
+ *     sub_140224100 @ 0x140224100 (sub_140224100.c)
+ *     sub_1402946B8 @ 0x1402946B8 (sub_1402946B8.c)
+ *     sub_140294824 @ 0x140294824 (sub_140294824.c)
+ *     sub_14029F580 @ 0x14029F580 (sub_14029F580.c)
+ *     sub_1402B5240 @ 0x1402B5240 (sub_1402B5240.c)
  *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     KiDeliverApc @ 0x1402F1DC0 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiProcessDeferredReadyList @ 0x140344800 (KiProcessDeferredReadyList.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x140353BB0 (KeAbPostReleaseEx.c)
- *     KiSelectNextThread @ 0x14035C3FC (KiSelectNextThread.c)
- *     HvlNotifyLongSpinWait @ 0x14039D930 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x14039EA10 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_1402F1DC0 @ 0x1402F1DC0 (sub_1402F1DC0.c)
+ *     sub_1402F32E0 @ 0x1402F32E0 (sub_1402F32E0.c)
+ *     sub_140344800 @ 0x140344800 (sub_140344800.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
+ *     sub_140353BB0 @ 0x140353BB0 (sub_140353BB0.c)
+ *     sub_14035C3FC @ 0x14035C3FC (sub_14035C3FC.c)
+ *     sub_14039D930 @ 0x14039D930 (sub_14039D930.c)
+ *     sub_14039EA10 @ 0x14039EA10 (sub_14039EA10.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 NTSTATUS __stdcall KeWaitForSingleObject(
@@ -459,17 +459,17 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   unsigned __int8 CurrentIrql; // r10
   __int64 v8; // r8
   LONGLONG QuadPart; // r9
-  unsigned __int8 WaitIrql; // r14
+  unsigned __int8 v10; // r14
   struct _KPRCB *CurrentPrcb; // rsi
-  _DWORD *v12; // rcx
+  __int64 v12; // rcx
   unsigned __int8 v13; // r13
-  $0EA7835A9B05193480487A73CEA01DA9 *v14; // r12
+  _QWORD *v14; // r12
   unsigned int v15; // esi
   struct _KPRCB *v16; // rcx
-  _DWORD *v17; // rdx
+  __int64 v17; // rdx
   struct _KPRCB *v18; // r15
   NTSTATUS v19; // r14d
-  __int64 ThreadTimerDelay; // rdx
+  __int64 v20; // rdx
   bool v21; // r10
   int v22; // r11d
   unsigned __int64 v23; // rax
@@ -477,41 +477,41 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   __int64 *v25; // r15
   unsigned __int8 v26; // r10
   unsigned __int64 v27; // rdi
-  _KWAIT_STATUS_REGISTER v28; // al
-  _DWORD *SchedulerAssist; // r9
+  char v28; // al
+  __int64 v30; // r9
   int v31; // eax
   int v32; // eax
   struct _KPRCB *v33; // rsi
-  _DWORD *v34; // rcx
-  volatile unsigned __int8 DpcRoutineActive; // cl
+  __int64 v34; // rcx
+  char v35; // cl
   int v36; // eax
   char v37; // al
-  struct _LIST_ENTRY *Blink; // rdx
-  struct _LIST_ENTRY *v39; // rcx
+  struct _KTHREAD **v38; // rdx
+  struct _KTHREAD *v39; // rcx
   struct _KPRCB *v40; // rcx
-  _DWORD *v41; // rdx
-  volatile __int64 WaitStatus; // rsi
-  void *volatile AbWaitObject; // rcx
+  __int64 v41; // rdx
+  __int64 v42; // rsi
+  __int64 v43; // rcx
   unsigned __int64 v44; // rdi
-  _KWAIT_STATUS_REGISTER v45; // al
+  char v45; // al
   unsigned __int64 v46; // rcx
   struct _KPRCB *v47; // rdi
-  _DWORD *v48; // rcx
+  __int64 v48; // rcx
   int v49; // eax
-  _DWORD *v50; // rcx
-  _DWORD *v51; // rcx
+  __int64 v50; // rcx
+  __int64 v51; // rcx
   int v52; // eax
   int v53; // eax
-  _DWORD *v54; // rcx
-  _DWORD *v55; // rcx
+  __int64 v54; // rcx
+  __int64 v55; // rcx
   unsigned __int8 v56; // cl
-  _DWORD *v57; // rcx
-  _DWORD *v58; // rcx
+  __int64 v57; // rcx
+  __int64 v58; // rcx
   int v59; // eax
   int v60; // eax
   int v61; // eax
   struct _KPRCB *v62; // rcx
-  _DWORD *v63; // rdx
+  __int64 v63; // rdx
   bool v64; // zf
   int v65; // eax
   __int64 v66; // rax
@@ -522,36 +522,36 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   int v71; // eax
   __int64 v72; // rax
   struct _KPRCB *v73; // rbx
-  _DWORD *v74; // rcx
+  __int64 v74; // rcx
   int v75; // eax
-  _DWORD *v76; // rcx
+  __int64 v76; // rcx
   int v77; // eax
-  _DWORD *v78; // rcx
+  __int64 v78; // rcx
   int v79; // eax
   struct _KPRCB *v80; // rcx
-  _DWORD *v81; // rdx
+  __int64 v81; // rdx
   int v82; // eax
   struct _KPRCB *v83; // rcx
-  _DWORD *v84; // rdx
+  __int64 v84; // rdx
   unsigned __int8 v85; // al
   struct _KPRCB *v86; // r9
-  _DWORD *v87; // r8
+  __int64 v87; // r8
   int v88; // eax
   struct _KPRCB *v89; // rbx
-  _DWORD *v90; // rcx
+  __int64 v90; // rcx
   int v91; // eax
-  _DWORD *v92; // rcx
+  __int64 v92; // rcx
   int v93; // eax
-  _DWORD *v94; // rcx
+  __int64 v94; // rcx
   int v95; // eax
   struct _KPRCB *v96; // rcx
-  _DWORD *v97; // rdx
+  __int64 v97; // rdx
   int v98; // eax
   struct _KPRCB *v99; // rcx
-  _DWORD *v100; // rdx
+  __int64 v100; // rdx
   unsigned __int8 v101; // al
   struct _KPRCB *v102; // r9
-  _DWORD *v103; // r8
+  __int64 v103; // r8
   int v104; // eax
   signed __int32 v105[8]; // [rsp+0h] [rbp-91h] BYREF
   bool v106; // [rsp+30h] [rbp-61h]
@@ -568,7 +568,7 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   _QWORD v117[2]; // [rsp+70h] [rbp-21h] BYREF
   __int128 v118; // [rsp+80h] [rbp-11h]
   __int64 v119; // [rsp+90h] [rbp-1h]
-  unsigned __int8 v121; // [rsp+F8h] [rbp+67h]
+  char v121; // [rsp+F8h] [rbp+67h]
   int Timeouta; // [rsp+110h] [rbp+7Fh]
 
   v121 = WaitReason;
@@ -577,17 +577,17 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   v108 = 0LL;
   v106 = 0;
   v109 = 0LL;
-  v107 = _bittestandreset((signed __int32 *)&CurrentThread->116, 2u);
+  v107 = _bittestandreset((signed __int32 *)CurrentThread + 29, 2u);
   if ( !v107 )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
     {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+      v30 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+      *(_DWORD *)(v30 + 20) |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    CurrentThread->WaitIrql = CurrentIrql;
+    *((_BYTE *)CurrentThread + 390) = CurrentIrql;
   }
   v8 = 0xFFFFF780000003B0uLL;
   QuadPart = 0xFFFFF78000000008uLL;
@@ -599,7 +599,7 @@ NTSTATUS __stdcall KeWaitForSingleObject(
       v108 = MEMORY[0xFFFFF78000000008]
            - MEMORY[0xFFFFF780000003B0]
            - (Timeout->QuadPart
-            + CurrentThread->RelativeTimerBias);
+            + *((_QWORD *)CurrentThread + 31));
     }
     else
     {
@@ -614,148 +614,147 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   }
   while ( 1 )
   {
-    WaitIrql = CurrentThread->WaitIrql;
+    v10 = *((_BYTE *)CurrentThread + 390);
     while ( 1 )
     {
-      CurrentThread->MiscFlags &= ~0x10u;
-      CurrentThread->WaitRegister.Flags = 0;
-      CurrentThread->WaitMode = WaitMode;
+      *((_DWORD *)CurrentThread + 29) &= ~0x10u;
+      *((_BYTE *)CurrentThread + 112) = 0;
+      *((_BYTE *)CurrentThread + 391) = WaitMode;
       if ( Alertable )
-        CurrentThread->MiscFlags |= 0x10u;
+        *((_DWORD *)CurrentThread + 29) |= 0x10u;
       CurrentPrcb = KeGetCurrentPrcb();
       v110 = 0;
-      v12 = CurrentPrcb->SchedulerAssist;
+      v12 = *((_QWORD *)CurrentPrcb + 4375);
       if ( v12 )
       {
-        if ( CurrentPrcb->NestingLevel <= 1u )
+        if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
         {
-          v59 = v12[6];
-          v12[6] = v59 + 1;
+          v59 = *(_DWORD *)(v12 + 24);
+          *(_DWORD *)(v12 + 24) = v59 + 1;
           if ( v59 == -1 )
 LABEL_141:
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            sub_140418E4C(CurrentPrcb);
         }
       }
-      while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
+      while ( _interlockedbittestandset64((volatile signed __int32 *)CurrentThread + 16, 0LL) )
       {
-        v54 = CurrentPrcb->SchedulerAssist;
+        v54 = *((_QWORD *)CurrentPrcb + 4375);
         if ( v54 )
         {
-          if ( CurrentPrcb->NestingLevel <= 1u )
+          if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
           {
-            v60 = v54[6] - 1;
-            v54[6] = v60;
+            v60 = *(_DWORD *)(v54 + 24) - 1;
+            *(_DWORD *)(v54 + 24) = v60;
             if ( !v60 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              sub_140418E4C(CurrentPrcb);
           }
         }
         do
-          KeYieldProcessorEx(&v110);
-        while ( CurrentThread->ThreadLock );
-        v55 = CurrentPrcb->SchedulerAssist;
+          sub_1402F32E0(&v110);
+        while ( *((_QWORD *)CurrentThread + 8) );
+        v55 = *((_QWORD *)CurrentPrcb + 4375);
         if ( v55 )
         {
-          if ( CurrentPrcb->NestingLevel <= 1u )
+          if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
           {
-            v61 = v55[6];
-            v55[6] = v61 + 1;
+            v61 = *(_DWORD *)(v55 + 24);
+            *(_DWORD *)(v55 + 24) = v61 + 1;
             if ( v61 == -1 )
               goto LABEL_141;
           }
         }
       }
-      if ( !CurrentThread->ApcState.KernelApcPending || WaitIrql || CurrentThread->SpecialApcDisable )
+      if ( !*((_BYTE *)CurrentThread + 193) || v10 || *((_WORD *)CurrentThread + 243) )
         break;
-      KiReleaseThreadLockSafe((__int64)CurrentThread);
-      if ( KiIrqlFlags )
+      sub_140224100((__int64)CurrentThread);
+      if ( dword_140D06B08 )
       {
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
+        if ( (dword_140D06B08 & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
         {
           v62 = KeGetCurrentPrcb();
-          v63 = v62->SchedulerAssist;
-          v64 = (v63[5] & 0xFFFF0003) == 0;
-          v63[5] &= 0xFFFF0003;
+          v63 = *((_QWORD *)v62 + 4375);
+          v64 = (*(_DWORD *)(v63 + 20) & 0xFFFF0003) == 0;
+          *(_DWORD *)(v63 + 20) &= 0xFFFF0003;
           if ( v64 )
-            KiRemoveSystemWorkPriorityKick(v62);
+            sub_140418E4C(v62);
         }
       }
       __writecr8(1uLL);
-      KiDeliverApc(0LL, 0LL, 0LL);
+      sub_1402F1DC0(0LL, 0LL, 0LL);
       v56 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v56 <= 0xFu )
+      if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && v56 <= 0xFu )
       {
-        QuadPart = (LONGLONG)KeGetCurrentPrcb()->SchedulerAssist;
+        QuadPart = *((_QWORD *)KeGetCurrentPrcb() + 4375);
         v8 = *(unsigned int *)(QuadPart + 20);
         *(_DWORD *)(QuadPart + 20) = v8 | ~((unsigned __int8)(1LL << (v56 + 1)) - 1) & 4;
       }
-      CurrentThread->WaitIrql = 0;
+      *((_BYTE *)CurrentThread + 390) = 0;
     }
     v13 = v107;
-    v14 = &CurrentThread->320;
+    v14 = (_QWORD *)((char *)CurrentThread + 320);
     if ( Alertable )
     {
       v8 = WaitMode;
-      if ( CurrentThread->Alerted[WaitMode] )
+      if ( *((_BYTE *)CurrentThread + WaitMode + 114) )
       {
-        CurrentThread->Alerted[WaitMode] = 0;
+        *((_BYTE *)CurrentThread + WaitMode + 114) = 0;
         v67 = 257;
         goto LABEL_96;
       }
-      if ( WaitMode
-        && (unsigned __int8 *)CurrentThread->ApcState.ApcListHead[1].Flink != &CurrentThread->ApcStateFill[16] )
+      if ( WaitMode && *((struct _KTHREAD **)CurrentThread + 21) != (struct _KTHREAD *)((char *)CurrentThread + 168) )
       {
-        CurrentThread->ApcState.UserApcPendingAll |= 2u;
+        *((_BYTE *)CurrentThread + 194) |= 2u;
 LABEL_95:
         v67 = 192;
 LABEL_96:
-        KiReleaseThreadLockSafe((__int64)CurrentThread);
-        KiCheckForThreadDispatch((__int64)KeGetCurrentPrcb(), WaitIrql);
+        sub_140224100((__int64)CurrentThread);
+        sub_140294824((__int64)KeGetCurrentPrcb(), v10);
         return v67;
       }
-      if ( CurrentThread->Alerted[0] )
+      if ( *((_BYTE *)CurrentThread + 114) )
       {
-        CurrentThread->Alerted[0] = 0;
+        *((_BYTE *)CurrentThread + 114) = 0;
         v67 = 257;
         goto LABEL_96;
       }
     }
-    else if ( (CurrentThread->ApcState.UserApcPendingAll & 2) != 0 && WaitMode )
+    else if ( (*((_BYTE *)CurrentThread + 194) & 2) != 0 && WaitMode )
     {
       goto LABEL_95;
     }
     v15 = 0;
-    CurrentThread->WaitBlockFill6[68] = 5;
-    CurrentThread->WaitReason = v121;
-    CurrentThread->WaitBlock[2].SpareLong = MEMORY[0xFFFFF78000000320];
-    CurrentThread->ThreadLock = 0LL;
+    *((_BYTE *)CurrentThread + 388) = 5;
+    *((_BYTE *)CurrentThread + 643) = v121;
+    *((_DWORD *)CurrentThread + 109) = MEMORY[0xFFFFF78000000320];
+    *((_QWORD *)CurrentThread + 8) = 0LL;
     v16 = KeGetCurrentPrcb();
-    v17 = v16->SchedulerAssist;
+    v17 = *((_QWORD *)v16 + 4375);
     if ( v17 )
     {
-      if ( v16->NestingLevel <= 1u )
+      if ( *((_BYTE *)v16 + 32) <= 1u )
       {
-        v65 = v17[6] - 1;
-        v17[6] = v65;
+        v65 = *(_DWORD *)(v17 + 24) - 1;
+        *(_DWORD *)(v17 + 24) = v65;
         if ( !v65 )
-          KiRemoveSystemWorkPriorityKick(v16);
+          sub_140418E4C(v16);
       }
     }
     v18 = KeGetCurrentPrcb();
     v19 = 0;
-    CurrentThread->WaitBlock[0].WaitType = 1;
-    CurrentThread->WaitBlockFill4[17] = 4;
-    CurrentThread->WaitBlock[0].WaitKey = 0;
-    CurrentThread->WaitBlock[0].Object = Object;
+    *((_BYTE *)CurrentThread + 336) = 1;
+    *((_BYTE *)CurrentThread + 337) = 4;
+    *((_WORD *)CurrentThread + 169) = 0;
+    *((_QWORD *)CurrentThread + 44) = Object;
     if ( _interlockedbittestandset((volatile signed __int32 *)Object, 7u) )
     {
       do
       {
-        if ( (++v15 & HvlLongSpinCountMask) == 0
-          && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v16, v17, v8, QuadPart) )
+        if ( (++v15 & dword_140D0527C) == 0
+          && (dword_140D0689C & 0x40) != 0
+          && (unsigned __int8)sub_14039EA10(v16, v17, v8, QuadPart) )
         {
-          HvlNotifyLongSpinWait(v15);
+          sub_14039D930(v15);
         }
         else
         {
@@ -764,10 +763,10 @@ LABEL_96:
       }
       while ( (*(_DWORD *)Object & 0x80u) != 0 || _interlockedbittestandset((volatile signed __int32 *)Object, 7u) );
     }
-    ThreadTimerDelay = *((unsigned int *)Object + 1);
+    v20 = *((unsigned int *)Object + 1);
     if ( (*(_BYTE *)Object & 0x7F) == 2 )
       break;
-    if ( (int)ThreadTimerDelay > 0 )
+    if ( (int)v20 > 0 )
     {
       if ( (*(_BYTE *)Object & 7) == 1 )
       {
@@ -775,7 +774,7 @@ LABEL_96:
       }
       else if ( (*(_BYTE *)Object & 0x7F) == 5 )
       {
-        *((_DWORD *)Object + 1) = ThreadTimerDelay - 1;
+        *((_DWORD *)Object + 1) = v20 - 1;
       }
       goto LABEL_31;
     }
@@ -785,16 +784,16 @@ LABEL_19:
     v23 = v108;
     if ( Timeouta == 2 )
     {
-      ThreadTimerDelay = CurrentThread->ThreadTimerDelay;
-      v46 = MEMORY[0xFFFFF78000000008] - CurrentThread->RelativeTimerBias - MEMORY[0xFFFFF780000003B0];
+      v20 = *((unsigned int *)CurrentThread + 238);
+      v46 = MEMORY[0xFFFFF78000000008] - *((_QWORD *)CurrentThread + 31) - MEMORY[0xFFFFF780000003B0];
       v23 = v108;
-      if ( CurrentThread->WaitMode
-        && !CurrentThread->WaitBlock[3].SpareLong
-        && !CurrentThread->WaitIrql
-        && !CurrentThread->ApcState.InProgressFlags
-        && (_DWORD)ThreadTimerDelay )
+      if ( *((_BYTE *)CurrentThread + 391)
+        && !*((_DWORD *)CurrentThread + 121)
+        && !*((_BYTE *)CurrentThread + 390)
+        && !*((_BYTE *)CurrentThread + 192)
+        && (_DWORD)v20 )
       {
-        v23 = v108 + ThreadTimerDelay;
+        v23 = v108 + v20;
       }
     }
     else
@@ -811,136 +810,136 @@ LABEL_66:
       v19 = 258;
 LABEL_31:
       _InterlockedAnd((volatile signed __int32 *)Object, 0xFFFFFF7F);
-      CurrentThread->WaitBlockFill6[68] = 2;
+      *((_BYTE *)CurrentThread + 388) = 2;
       _InterlockedOr(v105, 0);
-      if ( CurrentThread->ThreadLock )
+      if ( *((_QWORD *)CurrentThread + 8) )
       {
         v47 = KeGetCurrentPrcb();
         v113 = 0;
-        v48 = v47->SchedulerAssist;
+        v48 = *((_QWORD *)v47 + 4375);
         if ( v48 )
         {
-          if ( v47->NestingLevel <= 1u )
+          if ( *((_BYTE *)v47 + 32) <= 1u )
           {
-            v49 = v48[6];
-            v48[6] = v49 + 1;
+            v49 = *(_DWORD *)(v48 + 24);
+            *(_DWORD *)(v48 + 24) = v49 + 1;
             if ( v49 == -1 )
 LABEL_106:
-              KiRemoveSystemWorkPriorityKick(v47);
+              sub_140418E4C(v47);
           }
         }
-        while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
+        while ( _interlockedbittestandset64((volatile signed __int32 *)CurrentThread + 16, 0LL) )
         {
-          v50 = v47->SchedulerAssist;
+          v50 = *((_QWORD *)v47 + 4375);
           if ( v50 )
           {
-            if ( v47->NestingLevel <= 1u )
+            if ( *((_BYTE *)v47 + 32) <= 1u )
             {
-              v53 = v50[6] - 1;
-              v50[6] = v53;
+              v53 = *(_DWORD *)(v50 + 24) - 1;
+              *(_DWORD *)(v50 + 24) = v53;
               if ( !v53 )
-                KiRemoveSystemWorkPriorityKick(v47);
+                sub_140418E4C(v47);
             }
           }
           do
-            KeYieldProcessorEx(&v113);
-          while ( CurrentThread->ThreadLock );
-          v51 = v47->SchedulerAssist;
+            sub_1402F32E0(&v113);
+          while ( *((_QWORD *)CurrentThread + 8) );
+          v51 = *((_QWORD *)v47 + 4375);
           if ( v51 )
           {
-            if ( v47->NestingLevel <= 1u )
+            if ( *((_BYTE *)v47 + 32) <= 1u )
             {
-              v52 = v51[6];
-              v51[6] = v52 + 1;
+              v52 = *(_DWORD *)(v51 + 24);
+              *(_DWORD *)(v51 + 24) = v52 + 1;
               if ( v52 == -1 )
                 goto LABEL_106;
             }
           }
         }
-        KiReleaseThreadLockSafe((__int64)CurrentThread);
+        sub_140224100((__int64)CurrentThread);
       }
-      v27 = CurrentThread->WaitIrql;
-      v28.Flags = (unsigned __int8)CurrentThread->WaitRegister;
-      if ( (v28.Flags & 0x38) != 0 )
+      v27 = *((unsigned __int8 *)CurrentThread + 390);
+      v28 = *((_BYTE *)CurrentThread + 112);
+      if ( (v28 & 0x38) != 0 )
       {
-        if ( (v28.Flags & 0x18) != 0 )
+        if ( (v28 & 0x18) != 0 )
         {
-          if ( (v28.Flags & 8) != 0 )
-            _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0xCu);
+          if ( (v28 & 8) != 0 )
+            _interlockedbittestandset((volatile signed __int32 *)CurrentThread + 30, 0xCu);
           v117[0] = 0LL;
           v89 = KeGetCurrentPrcb();
           v114 = 0;
-          v90 = v89->SchedulerAssist;
+          v90 = *((_QWORD *)v89 + 4375);
           if ( v90 )
           {
-            if ( v89->NestingLevel <= 1u )
+            if ( *((_BYTE *)v89 + 32) <= 1u )
             {
-              v91 = v90[6];
-              v90[6] = v91 + 1;
+              v91 = *(_DWORD *)(v90 + 24);
+              *(_DWORD *)(v90 + 24) = v91 + 1;
               if ( v91 == -1 )
 LABEL_217:
-                KiRemoveSystemWorkPriorityKick(v89);
+                sub_140418E4C(v89);
             }
           }
-          while ( _interlockedbittestandset64((volatile signed __int32 *)&v18->PrcbLock, 0LL) )
+          while ( _interlockedbittestandset64((volatile signed __int32 *)v18 + 12, 0LL) )
           {
-            v92 = v89->SchedulerAssist;
+            v92 = *((_QWORD *)v89 + 4375);
             if ( v92 )
             {
-              if ( v89->NestingLevel <= 1u )
+              if ( *((_BYTE *)v89 + 32) <= 1u )
               {
-                v93 = v92[6] - 1;
-                v92[6] = v93;
+                v93 = *(_DWORD *)(v92 + 24) - 1;
+                *(_DWORD *)(v92 + 24) = v93;
                 if ( !v93 )
-                  KiRemoveSystemWorkPriorityKick(v89);
+                  sub_140418E4C(v89);
               }
             }
             do
-              KeYieldProcessorEx(&v114);
-            while ( v18->PrcbLock );
-            v94 = v89->SchedulerAssist;
+              sub_1402F32E0(&v114);
+            while ( *((_QWORD *)v18 + 6) );
+            v94 = *((_QWORD *)v89 + 4375);
             if ( v94 )
             {
-              if ( v89->NestingLevel <= 1u )
+              if ( *((_BYTE *)v89 + 32) <= 1u )
               {
-                v95 = v94[6];
-                v94[6] = v95 + 1;
+                v95 = *(_DWORD *)(v94 + 24);
+                *(_DWORD *)(v94 + 24) = v95 + 1;
                 if ( v95 == -1 )
                   goto LABEL_217;
               }
             }
           }
-          if ( !v18->NextThread )
-            KiSelectNextThread(v18, v117, v8);
-          _InterlockedAnd64((volatile signed __int64 *)&v18->PrcbLock, 0LL);
+          if ( !*((_QWORD *)v18 + 2) )
+            sub_14035C3FC(v18, v117, v8);
+          _InterlockedAnd64((volatile signed __int64 *)v18 + 6, 0LL);
           v96 = KeGetCurrentPrcb();
-          v97 = v96->SchedulerAssist;
+          v97 = *((_QWORD *)v96 + 4375);
           if ( v97 )
           {
-            if ( v96->NestingLevel <= 1u )
+            if ( *((_BYTE *)v96 + 32) <= 1u )
             {
-              v98 = v97[6] - 1;
-              v97[6] = v98;
+              v98 = *(_DWORD *)(v97 + 24) - 1;
+              *(_DWORD *)(v97 + 24) = v98;
               if ( !v98 )
-                KiRemoveSystemWorkPriorityKick(v96);
+                sub_140418E4C(v96);
             }
           }
-          KiProcessDeferredReadyList(v18, v117, (unsigned __int8)v27);
+          sub_140344800(v18, v117, (unsigned __int8)v27);
         }
         else
         {
-          KiCheckForThreadDispatch((__int64)v18, 1u);
-          KiDeliverApc(0LL, 0LL, 0LL);
-          if ( KiIrqlFlags )
+          sub_140294824((__int64)v18, 1u);
+          sub_1402F1DC0(0LL, 0LL, 0LL);
+          if ( dword_140D06B08 )
           {
-            if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
+            if ( (dword_140D06B08 & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
             {
               v99 = KeGetCurrentPrcb();
-              v100 = v99->SchedulerAssist;
-              v64 = (v100[5] & 0xFFFF0001) == 0;
-              v100[5] &= 0xFFFF0001;
+              v100 = *((_QWORD *)v99 + 4375);
+              v64 = (*(_DWORD *)(v100 + 20) & 0xFFFF0001) == 0;
+              *(_DWORD *)(v100 + 20) &= 0xFFFF0001;
               if ( v64 )
-                KiRemoveSystemWorkPriorityKick(v99);
+                sub_140418E4C(v99);
             }
           }
           __writecr8(0LL);
@@ -948,24 +947,24 @@ LABEL_217:
       }
       else if ( v13 )
       {
-        KiCheckForThreadDispatch((__int64)v18, v27);
+        sub_140294824((__int64)v18, v27);
       }
       else
       {
-        if ( KiIrqlFlags )
+        if ( dword_140D06B08 )
         {
-          if ( (KiIrqlFlags & 1) != 0 )
+          if ( (dword_140D06B08 & 1) != 0 )
           {
             v101 = KeGetCurrentIrql();
             if ( v101 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v101 >= 2u )
             {
               v102 = KeGetCurrentPrcb();
-              v103 = v102->SchedulerAssist;
+              v103 = *((_QWORD *)v102 + 4375);
               v104 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v27 + 1));
-              v64 = (v104 & v103[5]) == 0;
-              v103[5] &= v104;
+              v64 = (v104 & *(_DWORD *)(v103 + 20)) == 0;
+              *(_DWORD *)(v103 + 20) &= v104;
               if ( v64 )
-                KiRemoveSystemWorkPriorityKick(v102);
+                sub_140418E4C(v102);
             }
           }
         }
@@ -977,15 +976,15 @@ LABEL_21:
     v24 = (PVOID *)*((_QWORD *)Object + 2);
     if ( *v24 != (char *)Object + 8 )
       goto LABEL_211;
-    v14->WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)((char *)Object + 8);
-    CurrentThread->WaitBlock[0].WaitListEntry.Blink = (struct _LIST_ENTRY *)v24;
+    *v14 = (char *)Object + 8;
+    *((_QWORD *)CurrentThread + 41) = v24;
     *v24 = v14;
     *((_QWORD *)Object + 2) = v14;
     _InterlockedAnd((volatile signed __int32 *)Object, 0xFFFFFF7F);
-    CurrentThread->WaitBlockCount = 1;
+    *((_BYTE *)CurrentThread + 587) = 1;
     if ( v21 )
     {
-      v66 = KeAbPreAcquire(Object, 0LL, 0LL);
+      v66 = sub_140347C10(Object, 0LL, 0LL);
       v22 = v108;
       v25 = (__int64 *)v66;
       v109 = v66;
@@ -996,42 +995,42 @@ LABEL_21:
     }
     if ( v25 )
     {
-      KeAbPreWait(v25, ThreadTimerDelay, v8);
-      v19 = KiCommitThreadWait((_DWORD)CurrentThread, (int)CurrentThread + 320, Timeouta, v108, (__int64)&v115);
+      sub_14029F580(v25, v20, v8);
+      v19 = sub_1402B5240((_DWORD)CurrentThread, (int)CurrentThread + 320, Timeouta, v108, (__int64)&v115);
       if ( (v19 & 0xFFFFFF7F) != 0 )
       {
-        KeAbPreAcquire(Object, v25, 0LL);
-        KeAbPostReleaseEx((ULONG_PTR)Object);
+        sub_140347C10(Object, v25, 0LL);
+        sub_140353BB0((ULONG_PTR)Object);
         v109 = 0LL;
       }
       else
       {
-        v109 = KeAbPreAcquire(Object, v25, 0LL);
+        v109 = sub_140347C10(Object, v25, 0LL);
         *(_BYTE *)(v109 + 18) = 1;
       }
     }
     else
     {
-      v19 = KiCommitThreadWait((_DWORD)CurrentThread, (int)CurrentThread + 320, Timeouta, v22, (__int64)&v115);
+      v19 = sub_1402B5240((_DWORD)CurrentThread, (int)CurrentThread + 320, Timeouta, v22, (__int64)&v115);
     }
-    CurrentThread->AbWaitObject = 0LL;
+    *((_QWORD *)CurrentThread + 122) = 0LL;
     if ( v19 != 256 )
       return v19;
     v107 = 0;
     v26 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v26 <= 0xFu )
+    if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && v26 <= 0xFu )
     {
-      QuadPart = (LONGLONG)KeGetCurrentPrcb()->SchedulerAssist;
+      QuadPart = *((_QWORD *)KeGetCurrentPrcb() + 4375);
       v8 = *(unsigned int *)(QuadPart + 20);
       *(_DWORD *)(QuadPart + 20) = v8 | ~((unsigned __int8)(1LL << (v26 + 1)) - 1) & 4;
     }
-    CurrentThread->WaitIrql = v26;
+    *((_BYTE *)CurrentThread + 390) = v26;
   }
   v21 = (*((_BYTE *)Object + 48) & 2) != 0;
   v106 = v21;
-  if ( (int)ThreadTimerDelay <= 0
-    && (CurrentThread != *((struct _KTHREAD **)Object + 5) || *((_BYTE *)Object + 2) != v18->DpcRoutineActive) )
+  if ( (int)v20 <= 0
+    && (CurrentThread != *((struct _KTHREAD **)Object + 5) || *((_BYTE *)Object + 2) != *((_BYTE *)v18 + 13242)) )
   {
     goto LABEL_19;
   }
@@ -1039,226 +1038,226 @@ LABEL_21:
   if ( v31 == 0x80000000 )
   {
     _InterlockedAnd((volatile signed __int32 *)Object, 0xFFFFFF7F);
-    KiFastExitThreadWait((__int64)v18, (__int64)CurrentThread, v13);
-    RtlRaiseStatus(3221225873LL);
+    sub_1402946B8((__int64)v18, (__int64)CurrentThread, v13);
+    RtlRaiseStatus(-1073741423);
   }
   v32 = v31 - 1;
   *((_DWORD *)Object + 1) = v32;
   if ( v32 )
     goto LABEL_31;
-  CurrentThread->WaitStatus = 0LL;
+  *((_QWORD *)CurrentThread + 25) = 0LL;
   v33 = KeGetCurrentPrcb();
   v111 = 0;
-  v34 = v33->SchedulerAssist;
+  v34 = *((_QWORD *)v33 + 4375);
   if ( v34 )
   {
-    if ( v33->NestingLevel <= 1u )
+    if ( *((_BYTE *)v33 + 32) <= 1u )
     {
-      v68 = v34[6];
-      v34[6] = v68 + 1;
+      v68 = *(_DWORD *)(v34 + 24);
+      *(_DWORD *)(v34 + 24) = v68 + 1;
       if ( v68 == -1 )
 LABEL_162:
-        KiRemoveSystemWorkPriorityKick(v33);
+        sub_140418E4C(v33);
     }
   }
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
+  while ( _interlockedbittestandset64((volatile signed __int32 *)CurrentThread + 16, 0LL) )
   {
-    v57 = v33->SchedulerAssist;
+    v57 = *((_QWORD *)v33 + 4375);
     if ( v57 )
     {
-      if ( v33->NestingLevel <= 1u )
+      if ( *((_BYTE *)v33 + 32) <= 1u )
       {
-        v69 = v57[6] - 1;
-        v57[6] = v69;
+        v69 = *(_DWORD *)(v57 + 24) - 1;
+        *(_DWORD *)(v57 + 24) = v69;
         if ( !v69 )
-          KiRemoveSystemWorkPriorityKick(v33);
+          sub_140418E4C(v33);
       }
     }
     do
-      KeYieldProcessorEx(&v111);
-    while ( CurrentThread->ThreadLock );
-    v58 = v33->SchedulerAssist;
+      sub_1402F32E0(&v111);
+    while ( *((_QWORD *)CurrentThread + 8) );
+    v58 = *((_QWORD *)v33 + 4375);
     if ( v58 )
     {
-      if ( v33->NestingLevel <= 1u )
+      if ( *((_BYTE *)v33 + 32) <= 1u )
       {
-        v70 = v58[6];
-        v58[6] = v70 + 1;
+        v70 = *(_DWORD *)(v58 + 24);
+        *(_DWORD *)(v58 + 24) = v70 + 1;
         if ( v70 == -1 )
           goto LABEL_162;
       }
     }
   }
   if ( *((_BYTE *)Object + 49) )
-    --CurrentThread->KernelApcDisable;
-  if ( v18->CurrentThread == CurrentThread )
-    DpcRoutineActive = v18->DpcRoutineActive;
+    --*((_WORD *)CurrentThread + 242);
+  if ( *((struct _KTHREAD **)v18 + 1) == CurrentThread )
+    v35 = *((_BYTE *)v18 + 13242);
   else
-    DpcRoutineActive = 0;
+    v35 = 0;
   v119 = 0LL;
   v36 = *(_DWORD *)Object;
   v118 = 0LL;
   LODWORD(v118) = v36;
-  BYTE2(v118) = DpcRoutineActive;
+  BYTE2(v118) = v35;
   *(_DWORD *)Object = v118;
   v37 = *((_BYTE *)Object + 48);
   *((_QWORD *)Object + 5) = CurrentThread;
   if ( (v37 & 1) != 0 )
   {
     *((_BYTE *)Object + 48) = v37 & 0xFE;
-    CurrentThread->WaitStatus |= 0x80uLL;
+    *((_QWORD *)CurrentThread + 25) |= 0x80uLL;
     v37 = *((_BYTE *)Object + 48);
   }
   if ( (v37 & 2) != 0 )
-    CurrentThread->AbWaitObject = Object;
+    *((_QWORD *)CurrentThread + 122) = Object;
   else
-    CurrentThread->AbWaitObject = 0LL;
-  Blink = CurrentThread->MutantListHead.Blink;
-  v39 = (struct _LIST_ENTRY *)((char *)Object + 24);
-  if ( Blink->Flink != &CurrentThread->MutantListHead )
+    *((_QWORD *)CurrentThread + 122) = 0LL;
+  v38 = (struct _KTHREAD **)*((_QWORD *)CurrentThread + 98);
+  v39 = (struct _KTHREAD *)((char *)Object + 24);
+  if ( *v38 != (struct _KTHREAD *)((char *)CurrentThread + 776) )
 LABEL_211:
     __fastfail(3u);
-  v39->Flink = &CurrentThread->MutantListHead;
-  *((_QWORD *)Object + 4) = Blink;
-  Blink->Flink = v39;
-  CurrentThread->MutantListHead.Blink = v39;
+  *(_QWORD *)v39 = (char *)CurrentThread + 776;
+  *((_QWORD *)Object + 4) = v38;
+  *v38 = v39;
+  *((_QWORD *)CurrentThread + 98) = v39;
   _InterlockedAnd((volatile signed __int32 *)Object, 0xFFFFFF7F);
-  CurrentThread->WaitBlockFill6[68] = 2;
-  CurrentThread->ThreadLock = 0LL;
+  *((_BYTE *)CurrentThread + 388) = 2;
+  *((_QWORD *)CurrentThread + 8) = 0LL;
   v40 = KeGetCurrentPrcb();
-  v41 = v40->SchedulerAssist;
+  v41 = *((_QWORD *)v40 + 4375);
   if ( v41 )
   {
-    if ( v40->NestingLevel <= 1u )
+    if ( *((_BYTE *)v40 + 32) <= 1u )
     {
-      v71 = v41[6] - 1;
-      v41[6] = v71;
+      v71 = *(_DWORD *)(v41 + 24) - 1;
+      *(_DWORD *)(v41 + 24) = v71;
       if ( !v71 )
-        KiRemoveSystemWorkPriorityKick(v40);
+        sub_140418E4C(v40);
     }
   }
-  WaitStatus = CurrentThread->WaitStatus;
-  AbWaitObject = CurrentThread->AbWaitObject;
-  if ( AbWaitObject )
+  v42 = *((_QWORD *)CurrentThread + 25);
+  v43 = *((_QWORD *)CurrentThread + 122);
+  if ( v43 )
   {
-    CurrentThread->AbWaitObject = 0LL;
-    v72 = KeAbPreAcquire(AbWaitObject, 0LL, 1LL);
+    *((_QWORD *)CurrentThread + 122) = 0LL;
+    v72 = sub_140347C10(v43, 0LL, 1LL);
     if ( v72 )
       *(_BYTE *)(v72 + 18) = 1;
   }
-  v44 = CurrentThread->WaitIrql;
-  v45.Flags = (unsigned __int8)CurrentThread->WaitRegister;
-  if ( (v45.Flags & 0x38) == 0 )
+  v44 = *((unsigned __int8 *)CurrentThread + 390);
+  v45 = *((_BYTE *)CurrentThread + 112);
+  if ( (v45 & 0x38) == 0 )
   {
     if ( v13 )
     {
-      KiCheckForThreadDispatch((__int64)v18, v44);
+      sub_140294824((__int64)v18, v44);
     }
     else
     {
-      if ( KiIrqlFlags )
+      if ( dword_140D06B08 )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( (dword_140D06B08 & 1) != 0 )
         {
           v85 = KeGetCurrentIrql();
           if ( v85 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v85 >= 2u )
           {
             v86 = KeGetCurrentPrcb();
-            v87 = v86->SchedulerAssist;
+            v87 = *((_QWORD *)v86 + 4375);
             v88 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v44 + 1));
-            v64 = (v88 & v87[5]) == 0;
-            v87[5] &= v88;
+            v64 = (v88 & *(_DWORD *)(v87 + 20)) == 0;
+            *(_DWORD *)(v87 + 20) &= v88;
             if ( v64 )
-              KiRemoveSystemWorkPriorityKick(v86);
+              sub_140418E4C(v86);
           }
         }
       }
       __writecr8(v44);
     }
-    return WaitStatus;
+    return v42;
   }
-  if ( (v45.Flags & 0x18) != 0 )
+  if ( (v45 & 0x18) != 0 )
   {
-    if ( (v45.Flags & 8) != 0 )
-      _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0xCu);
+    if ( (v45 & 8) != 0 )
+      _interlockedbittestandset((volatile signed __int32 *)CurrentThread + 30, 0xCu);
     v116 = 0LL;
     v73 = KeGetCurrentPrcb();
     v112 = 0;
-    v74 = v73->SchedulerAssist;
+    v74 = *((_QWORD *)v73 + 4375);
     if ( v74 )
     {
-      if ( v73->NestingLevel <= 1u )
+      if ( *((_BYTE *)v73 + 32) <= 1u )
       {
-        v75 = v74[6];
-        v74[6] = v75 + 1;
+        v75 = *(_DWORD *)(v74 + 24);
+        *(_DWORD *)(v74 + 24) = v75 + 1;
         if ( v75 == -1 )
 LABEL_181:
-          KiRemoveSystemWorkPriorityKick(v73);
+          sub_140418E4C(v73);
       }
     }
-    while ( _interlockedbittestandset64((volatile signed __int32 *)&v18->PrcbLock, 0LL) )
+    while ( _interlockedbittestandset64((volatile signed __int32 *)v18 + 12, 0LL) )
     {
-      v76 = v73->SchedulerAssist;
+      v76 = *((_QWORD *)v73 + 4375);
       if ( v76 )
       {
-        if ( v73->NestingLevel <= 1u )
+        if ( *((_BYTE *)v73 + 32) <= 1u )
         {
-          v77 = v76[6] - 1;
-          v76[6] = v77;
+          v77 = *(_DWORD *)(v76 + 24) - 1;
+          *(_DWORD *)(v76 + 24) = v77;
           if ( !v77 )
-            KiRemoveSystemWorkPriorityKick(v73);
+            sub_140418E4C(v73);
         }
       }
       do
-        KeYieldProcessorEx(&v112);
-      while ( v18->PrcbLock );
-      v78 = v73->SchedulerAssist;
+        sub_1402F32E0(&v112);
+      while ( *((_QWORD *)v18 + 6) );
+      v78 = *((_QWORD *)v73 + 4375);
       if ( v78 )
       {
-        if ( v73->NestingLevel <= 1u )
+        if ( *((_BYTE *)v73 + 32) <= 1u )
         {
-          v79 = v78[6];
-          v78[6] = v79 + 1;
+          v79 = *(_DWORD *)(v78 + 24);
+          *(_DWORD *)(v78 + 24) = v79 + 1;
           if ( v79 == -1 )
             goto LABEL_181;
         }
       }
     }
-    if ( !v18->NextThread )
-      KiSelectNextThread(v18, &v116, v8);
-    _InterlockedAnd64((volatile signed __int64 *)&v18->PrcbLock, 0LL);
+    if ( !*((_QWORD *)v18 + 2) )
+      sub_14035C3FC(v18, &v116, v8);
+    _InterlockedAnd64((volatile signed __int64 *)v18 + 6, 0LL);
     v80 = KeGetCurrentPrcb();
-    v81 = v80->SchedulerAssist;
+    v81 = *((_QWORD *)v80 + 4375);
     if ( v81 )
     {
-      if ( v80->NestingLevel <= 1u )
+      if ( *((_BYTE *)v80 + 32) <= 1u )
       {
-        v82 = v81[6] - 1;
-        v81[6] = v82;
+        v82 = *(_DWORD *)(v81 + 24) - 1;
+        *(_DWORD *)(v81 + 24) = v82;
         if ( !v82 )
-          KiRemoveSystemWorkPriorityKick(v80);
+          sub_140418E4C(v80);
       }
     }
-    KiProcessDeferredReadyList(v18, &v116, (unsigned __int8)v44);
-    return WaitStatus;
+    sub_140344800(v18, &v116, (unsigned __int8)v44);
+    return v42;
   }
   else
   {
-    KiCheckForThreadDispatch((__int64)v18, 1u);
-    KiDeliverApc(0LL, 0LL, 0LL);
-    if ( KiIrqlFlags )
+    sub_140294824((__int64)v18, 1u);
+    sub_1402F1DC0(0LL, 0LL, 0LL);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
+      if ( (dword_140D06B08 & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
       {
         v83 = KeGetCurrentPrcb();
-        v84 = v83->SchedulerAssist;
-        v64 = (v84[5] & 0xFFFF0001) == 0;
-        v84[5] &= 0xFFFF0001;
+        v84 = *((_QWORD *)v83 + 4375);
+        v64 = (*(_DWORD *)(v84 + 20) & 0xFFFF0001) == 0;
+        *(_DWORD *)(v84 + 20) &= 0xFFFF0001;
         if ( v64 )
-          KiRemoveSystemWorkPriorityKick(v83);
+          sub_140418E4C(v83);
       }
     }
     __writecr8(0LL);
-    return WaitStatus;
+    return v42;
   }
 }

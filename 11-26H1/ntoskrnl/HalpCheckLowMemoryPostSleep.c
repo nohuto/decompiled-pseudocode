@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCheckLowMemoryPostSleep @ 0x140C09D9C
+ * XREFs of HalpCheckLowMemoryPostSleep @ 0x140C0FFAC
  * Callers:
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpMapPhysicalMemory64 @ 0x14034270C (HalpMapPhysicalMemory64.c)
- *     HalpUnmapVirtualAddress @ 0x140509DE0 (HalpUnmapVirtualAddress.c)
- *     HalpSimpleCheck @ 0x140BED138 (HalpSimpleCheck.c)
+ *     HalpMapPhysicalMemory64 @ 0x14034478C (HalpMapPhysicalMemory64.c)
+ *     HalpUnmapVirtualAddress @ 0x140503890 (HalpUnmapVirtualAddress.c)
+ *     HalpSimpleCheck @ 0x140BF3138 (HalpSimpleCheck.c)
  */
 
 const __m128i *__fastcall HalpCheckLowMemoryPostSleep(_DWORD *a1, _DWORD *a2, _DWORD *a3)
@@ -22,13 +22,13 @@ const __m128i *__fastcall HalpCheckLowMemoryPostSleep(_DWORD *a1, _DWORD *a2, _D
   *a1 = -1;
   *a2 = 0;
   *a3 = 0;
-  if ( (*(_DWORD *)&HalpDeviceBlockUnblockPushLock.KeReferenceCount & 0x20000) != 0
-    && !HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[16] )
+  if ( (*(_DWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[8] & 0x20000) != 0
+    && !BYTE1(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) )
   {
-    v7 = *(_QWORD *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts >> 12;
-    v8 = (*(_QWORD *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts >> 12) + 1LL;
-    if ( (*(_WORD *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts & 0xFFF) == 0 )
-      v8 = *(_QWORD *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts >> 12;
+    v7 = *(_QWORD *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount >> 12;
+    v8 = (*(_QWORD *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount >> 12) + 1LL;
+    if ( (HalpDeviceBlockUnblockPushLock.AbEntryCountValue & 0xFFF) == 0 )
+      v8 = *(_QWORD *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount >> 12;
     for ( i = 0LL; i < 0x100; ++i )
     {
       result = (const __m128i *)HalpLowMemoryMap.Buffer;

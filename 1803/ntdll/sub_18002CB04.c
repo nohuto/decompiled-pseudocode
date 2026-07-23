@@ -21,13 +21,12 @@ void __fastcall sub_18002CB04(__int64 a1, char a2)
   __int64 v6; // rcx
   __int64 v7; // rcx
   __int64 v8; // rcx
-  __int64 v9; // [rsp+20h] [rbp-28h] BYREF
-  int v10; // [rsp+28h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+30h] [rbp-18h]
+  LARGE_INTEGER DueTime; // [rsp+20h] [rbp-28h] BYREF
+  _T2_SET_PARAMETERS_V0 Parameters; // [rsp+28h] [rbp-20h] BYREF
 
-  v10 = 0;
+  Parameters.Version = 0;
   v3 = *(_QWORD *)(a1 + 16);
-  v11 = 0LL;
+  Parameters.NoWakeTolerance = 0LL;
   if ( v3 )
   {
     v4 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 32LL);
@@ -35,7 +34,7 @@ void __fastcall sub_18002CB04(__int64 a1, char a2)
     if ( *(_QWORD *)a1 != v4 || *(_DWORD *)(a1 + 112) != (_DWORD)v5 )
     {
       *(_QWORD *)a1 = v4;
-      v11 = 10000LL * (unsigned int)v5;
+      Parameters.NoWakeTolerance = 10000LL * (unsigned int)v5;
       *(_DWORD *)(a1 + 112) = v5;
       if ( !a2 )
       {
@@ -45,25 +44,25 @@ void __fastcall sub_18002CB04(__int64 a1, char a2)
         else
           v4 = v6 - v4;
       }
-      v9 = v4;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+      DueTime.QuadPart = v4;
+      if ( RtlGetCurrentServiceSessionId() )
+        v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
       else
         v7 = 2147353478LL;
       if ( *(_BYTE *)v7 )
         sub_18000262C(a1, v4, v5);
-      ZwSetTimer2(*(_QWORD *)(a1 + 24), &v9, 0LL, &v10);
+      ZwSetTimer2(*(HANDLE *)(a1 + 24), &DueTime, 0LL, &Parameters);
     }
   }
   else if ( *(_QWORD *)a1 )
   {
     *(_QWORD *)a1 = 0LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v8 = 2147353478LL;
     if ( *(_BYTE *)v8 )
       sub_1801088FC(a1);
-    ZwCancelTimer2(*(_QWORD *)(a1 + 24), 0LL);
+    ZwCancelTimer2(*(HANDLE *)(a1 + 24), 0LL);
   }
 }

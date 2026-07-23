@@ -9,19 +9,19 @@
 __int64 __fastcall RtlpSparseBitmapCommitRangeArrayPage(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // ebx
-  int v4; // edi
+  NTSTATUS v4; // edi
   unsigned int v5; // ecx
   __int64 v6; // r11
   volatile signed __int32 *v7; // r9
   int v9; // ebx
   unsigned __int64 v10; // rax
-  __int64 v11; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+50h] [rbp+18h] BYREF
+  ULONG_PTR v11; // [rsp+40h] [rbp+8h] BYREF
+  PVOID v12; // [rsp+50h] [rbp+18h] BYREF
 
   v3 = a2 >> 9;
   v11 = 4096LL;
-  v12 = *(_QWORD *)(a1 + 8) + (a2 >> 9 << 12);
-  v4 = ZwAllocateVirtualMemory(-1LL, &v12, 0LL, &v11, 4096, 4);
+  v12 = (PVOID)(*(_QWORD *)(a1 + 8) + (a2 >> 9 << 12));
+  v4 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v12, 0LL, &v11, 0x1000u, 4u);
   if ( v4 >= 0 )
   {
     LOBYTE(v5) = 1;

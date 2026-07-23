@@ -1,12 +1,12 @@
 /*
- * XREFs of PsWow64IsMachineSupported @ 0x14064E890
+ * XREFs of PsWow64IsMachineSupported @ 0x1406436B0
  * Callers:
- *     PsWow64GetSupportedArchitectures @ 0x14064E6F8 (PsWow64GetSupportedArchitectures.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
- *     CmpSetVersionData @ 0x1407A7E2C (CmpSetVersionData.c)
+ *     PsWow64GetSupportedArchitectures @ 0x140643518 (PsWow64GetSupportedArchitectures.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     CmpSetVersionData @ 0x1407A802C (CmpSetVersionData.c)
  * Callees:
- *     RtlWow64GetEquivalentMachineCHPE @ 0x14027B5F0 (RtlWow64GetEquivalentMachineCHPE.c)
- *     PsQuerySystemDllInfo @ 0x14064E8DC (PsQuerySystemDllInfo.c)
+ *     RtlWow64GetEquivalentMachineCHPE @ 0x140269590 (RtlWow64GetEquivalentMachineCHPE.c)
+ *     PsQuerySystemDllInfo @ 0x1406436FC (PsQuerySystemDllInfo.c)
  */
 
 __int64 __fastcall PsWow64IsMachineSupported(__int16 a1)

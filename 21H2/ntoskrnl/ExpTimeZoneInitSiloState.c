@@ -1,19 +1,19 @@
 /*
  * XREFs of ExpTimeZoneInitSiloState @ 0x1405D1B7C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140906470 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409065D0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     ZwSetSystemTime @ 0x1403FD960 (ZwSetSystemTime.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     ZwSetSystemTime @ 0x1403FDB40 (ZwSetSystemTime.c)
+ *     memset @ 0x140414300 (memset.c)
  *     ExpReadTimeZoneInformation @ 0x1405D1A44 (ExpReadTimeZoneInformation.c)
- *     ExReleaseTimeRefreshLock @ 0x1406DBCF0 (ExReleaseTimeRefreshLock.c)
- *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406B2FD0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406B2FF4 (ExAcquireTimeRefreshLock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpTimeZoneInitSiloState(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall ExpTimeZoneInitSiloState(__int64 a1)
   v11 = 0;
   ServerSiloGlobals = PsGetServerSiloGlobals(a1);
   v4 = PsAttachSiloToCurrentThread(v3);
-  ExpReadTimeZoneInformation((__int64)L"TimeZoneVirtualizationSupported", 0, (__int64)&v11);
+  ExpReadTimeZoneInformation(L"TimeZoneVirtualizationSupported", 0, &v11);
   if ( v11 )
   {
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3F0uLL, 0x5A547845u);
@@ -44,7 +44,7 @@ __int64 __fastcall ExpTimeZoneInitSiloState(__int64 a1)
       v6 = ServerSiloGlobals[133];
       *((_BYTE *)ServerSiloGlobals + 1049) = 1;
       *(_DWORD *)(v6 + 432) = -1;
-      ExpReadTimeZoneInformation((__int64)L"ActiveTimeBias", -1, ServerSiloGlobals[133] + 436LL);
+      ExpReadTimeZoneInformation(L"ActiveTimeBias", -1, (void *)(ServerSiloGlobals[133] + 436LL));
       LOBYTE(v7) = 1;
       ExAcquireTimeRefreshLock(v7);
       LOBYTE(v8) = 1;

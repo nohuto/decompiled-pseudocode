@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpPageHeapStop @ 0x1801384B4
+ * XREFs of RtlpPageHeapStop @ 0x180138224
  * Callers:
- *     RtlApplicationVerifierStop @ 0x180138410 (RtlApplicationVerifierStop.c)
+ *     RtlApplicationVerifierStop @ 0x180138180 (RtlApplicationVerifierStop.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
  */
 
 void __fastcall __noreturn RtlpPageHeapStop(
@@ -21,16 +21,16 @@ void __fastcall __noreturn RtlpPageHeapStop(
   __int128 v10; // xmm1
   __int64 v11; // xmm0_8
 
-  v10 = xmmword_1801CDDD0;
+  v10 = xmmword_1801CCE10;
   AVrfpPageHeapPreviousStopData = AVrfpPageHeapStopData;
-  v11 = qword_1801CDDE0;
-  qword_1801CDDE0 = (__int64)a9;
+  v11 = qword_1801CCE20;
+  qword_1801CCE20 = (__int64)a9;
   *(_QWORD *)&AVrfpPageHeapStopData = a1;
-  *((_QWORD *)&xmmword_1801CDDD0 + 1) = a7;
-  xmmword_1801CD490 = v10;
+  *((_QWORD *)&xmmword_1801CCE10 + 1) = a7;
+  xmmword_1801CC4D0 = v10;
   *((_QWORD *)&AVrfpPageHeapStopData + 1) = a3;
-  qword_1801CD4A0 = v11;
-  *(_QWORD *)&xmmword_1801CDDD0 = a5;
+  qword_1801CC4E0 = v11;
+  *(_QWORD *)&xmmword_1801CCE10 = a5;
   DbgPrint(
     "\n"
     "\n"

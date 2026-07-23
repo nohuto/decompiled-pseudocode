@@ -1,11 +1,11 @@
 /*
- * XREFs of PopThermalTraceRundownEvents @ 0x1404A51F0
+ * XREFs of PopThermalTraceRundownEvents @ 0x14049FF80
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopDiagTraceThermalZoneRundown @ 0x1404A5288 (PopDiagTraceThermalZoneRundown.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     PopDiagTraceThermalZoneRundown @ 0x1404A0018 (PopDiagTraceThermalZoneRundown.c)
  */
 
 __int64 PopThermalTraceRundownEvents()
@@ -14,7 +14,7 @@ __int64 PopThermalTraceRundownEvents()
   PVOID *i; // rbx
   char v3; // r10
 
-  PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+  PopAcquireRwLockShared(&PopPolicyDeviceLock);
   for ( i = (PVOID *)PopThermal; i != &PopThermal; i = (PVOID *)*i )
   {
     LOBYTE(v0) = *((_BYTE *)i + 65);
@@ -33,5 +33,5 @@ __int64 PopThermalTraceRundownEvents()
         *((_BYTE *)i + 73));
     }
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+  return PopReleaseRwLock(&PopPolicyDeviceLock);
 }

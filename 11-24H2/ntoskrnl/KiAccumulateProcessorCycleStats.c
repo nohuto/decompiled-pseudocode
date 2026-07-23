@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAccumulateProcessorCycleStats @ 0x1403F2F30
+ * XREFs of KiAccumulateProcessorCycleStats @ 0x1403E6C50
  * Callers:
- *     KiEndDebugAccumulation @ 0x1404F4C20 (KiEndDebugAccumulation.c)
+ *     KiEndDebugAccumulation @ 0x1404F2520 (KiEndDebugAccumulation.c)
  * Callees:
  *     <none>
  */

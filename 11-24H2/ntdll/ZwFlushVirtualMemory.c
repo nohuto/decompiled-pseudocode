@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwFlushVirtualMemory @ 0x180163B00
+ * XREFs of ZwFlushVirtualMemory @ 0x180161EC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwFlushVirtualMemory()
+NTSTATUS __cdecl ZwFlushVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        PIO_STATUS_BLOCK IoStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 244LL;
+  result = 244;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

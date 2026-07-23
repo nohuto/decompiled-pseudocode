@@ -11,10 +11,10 @@
  *     EtwTraceJobAssignProcess @ 0x140932828 (EtwTraceJobAssignProcess.c)
  */
 
-__int64 __fastcall NtAssignProcessToJobObject(void *a1, void *a2)
+NTSTATUS __cdecl NtAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)
 {
   KPROCESSOR_MODE PreviousMode; // bp
-  NTSTATUS v4; // esi
+  int v4; // esi
   struct _DMA_ADAPTER *v5; // rbx
   PVOID v6; // rdi
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
@@ -23,11 +23,11 @@ __int64 __fastcall NtAssignProcessToJobObject(void *a1, void *a2)
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   DmaAdapter = 0LL;
-  v4 = ObReferenceObjectByHandle(a1, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  v4 = ObReferenceObjectByHandle(JobHandle, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v4 >= 0
-    && (a2 == (void *)-7LL
+    && (ProcessHandle == (HANDLE)-7LL
      || (v4 = ObReferenceObjectByHandleWithTag(
-                a2,
+                ProcessHandle,
                 0x101u,
                 (POBJECT_TYPE)PsProcessType,
                 PreviousMode,
@@ -51,5 +51,5 @@ __int64 __fastcall NtAssignProcessToJobObject(void *a1, void *a2)
     ObfDereferenceObjectWithTag(v6, 0x624A7350u);
   if ( v5 )
     HalPutDmaAdapter(v5);
-  return (unsigned int)v4;
+  return v4;
 }

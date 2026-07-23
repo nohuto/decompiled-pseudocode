@@ -28,11 +28,8 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
   unsigned __int64 v20; // rdi
   unsigned __int64 v21; // rbp
   __int64 v22; // rcx
-  unsigned __int64 v24; // rdx
-  unsigned __int64 *v25; // r8
-  __int64 v26; // r9
-  char v27; // al
-  int v28; // [rsp+78h] [rbp+10h] BYREF
+  char v24; // al
+  int v25; // [rsp+78h] [rbp+10h] BYREF
 
   v5 = a5;
   while ( 1 )
@@ -102,7 +99,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
           goto LABEL_33;
         if ( !_InterlockedCompareExchange(&RtlpHpGCTimerScheduled, 1, 0) )
         {
-          TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0LL, 5000LL);
+          TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 0x1388u);
           if ( (RtlpHpHeapFeatures & 8) != 0 )
             RtlpHpTlLogGCScheduled();
         }
@@ -112,13 +109,13 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
     }
 LABEL_33:
     if ( (a3 & 1) == 0 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-    RtlpHpSegPageRangeCommit((__int64 *)a1, a2, 0, -(*(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9)), 0, &v28);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+    RtlpHpSegPageRangeCommit((__int64 *)a1, a2, 0, -(*(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9)), 0, &v25);
     if ( (a3 & 1) == 0 )
-      RtlAcquireSRWLockExclusive(a1 + 64, v24, v25, v26);
-    v27 = *(_BYTE *)(a2 + 24) & 0xEF;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+    v24 = *(_BYTE *)(a2 + 24) & 0xEF;
     *v5 = -1;
-    *(_BYTE *)(a2 + 24) = v27;
+    *(_BYTE *)(a2 + 24) = v24;
   }
   v22 = 32LL * ((unsigned int)*(unsigned __int8 *)(a2 + 31) - 1);
   *(_BYTE *)(v22 + a2 + 24) &= ~1u;

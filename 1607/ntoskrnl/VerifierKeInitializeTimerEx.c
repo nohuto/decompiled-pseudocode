@@ -3,8 +3,8 @@
  * Callers:
  *     VerifierKeInitializeTimer @ 0x140712094 (VerifierKeInitializeTimer.c)
  * Callees:
- *     KeCheckForTimer @ 0x1401D3640 (KeCheckForTimer.c)
- *     VfUtilSynchronizationObjectSanityChecks @ 0x140703048 (VfUtilSynchronizationObjectSanityChecks.c)
+ *     KeCheckForTimer @ 0x1401D346C (KeCheckForTimer.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x140703078 (VfUtilSynchronizationObjectSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKeInitializeTimerEx(ULONG_PTR BugCheckParameter3, unsigned int a2)

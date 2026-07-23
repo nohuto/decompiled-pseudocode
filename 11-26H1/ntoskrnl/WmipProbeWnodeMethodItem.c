@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipProbeWnodeMethodItem @ 0x140A0C544
+ * XREFs of WmipProbeWnodeMethodItem @ 0x140A0B514
  * Callers:
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
  * Callees:
  *     <none>
  */

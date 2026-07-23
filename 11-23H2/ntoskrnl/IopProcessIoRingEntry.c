@@ -1,17 +1,17 @@
 /*
- * XREFs of IopProcessIoRingEntry @ 0x140949F78
+ * XREFs of IopProcessIoRingEntry @ 0x14094A178
  * Callers:
- *     NtSubmitIoRing @ 0x1405599D0 (NtSubmitIoRing.c)
+ *     NtSubmitIoRing @ 0x14055A090 (NtSubmitIoRing.c)
  * Callees:
- *     IopCompleteIoRingEntry @ 0x14055935C (IopCompleteIoRingEntry.c)
- *     IopIoRingSetupCompletionWait @ 0x140559678 (IopIoRingSetupCompletionWait.c)
- *     IopIoRingWaitForCompletionEvent @ 0x1405598BC (IopIoRingWaitForCompletionEvent.c)
- *     IopIoRingDispatchCancel @ 0x14094927C (IopIoRingDispatchCancel.c)
- *     IopIoRingDispatchFlush @ 0x14094933C (IopIoRingDispatchFlush.c)
- *     IopIoRingDispatchRead @ 0x14094941C (IopIoRingDispatchRead.c)
- *     IopIoRingDispatchRegisterBuffers @ 0x140949590 (IopIoRingDispatchRegisterBuffers.c)
- *     IopIoRingDispatchRegisterFiles @ 0x1409499B0 (IopIoRingDispatchRegisterFiles.c)
- *     IopIoRingDispatchWrite @ 0x140949C64 (IopIoRingDispatchWrite.c)
+ *     IopCompleteIoRingEntry @ 0x140559A1C (IopCompleteIoRingEntry.c)
+ *     IopIoRingSetupCompletionWait @ 0x140559D38 (IopIoRingSetupCompletionWait.c)
+ *     IopIoRingWaitForCompletionEvent @ 0x140559F7C (IopIoRingWaitForCompletionEvent.c)
+ *     IopIoRingDispatchCancel @ 0x14094947C (IopIoRingDispatchCancel.c)
+ *     IopIoRingDispatchFlush @ 0x14094953C (IopIoRingDispatchFlush.c)
+ *     IopIoRingDispatchRead @ 0x14094961C (IopIoRingDispatchRead.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x140949790 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterFiles @ 0x140949BB0 (IopIoRingDispatchRegisterFiles.c)
+ *     IopIoRingDispatchWrite @ 0x140949E64 (IopIoRingDispatchWrite.c)
  */
 
 __int64 __fastcall IopProcessIoRingEntry(_QWORD *a1, __int64 a2, _BYTE *a3)

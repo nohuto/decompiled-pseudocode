@@ -10,36 +10,41 @@
  *     <none>
  */
 
-__int64 __fastcall RtlMultiByteToUnicodeN(_WORD *a1, unsigned int a2, _DWORD *a3, unsigned __int8 *a4, unsigned int a5)
+NTSTATUS __cdecl RtlMultiByteToUnicodeN(
+        PWCH UnicodeString,
+        ULONG MaxBytesInUnicodeString,
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  unsigned int v5; // edx
-  _WORD *v6; // rbx
-  unsigned int v7; // r11d
+  ULONG v5; // edx
+  PWCH v6; // rbx
+  ULONG v7; // r11d
   __int64 v8; // r8
   unsigned int v9; // r10d
   unsigned __int8 *v10; // r9
-  _WORD *v11; // rdx
+  WCHAR *v11; // rdx
   int v13; // r11d
   __int64 v14; // rdi
-  unsigned int v15; // r10d
+  ULONG v15; // r10d
   __int64 v16; // rsi
   __int64 v17; // rax
   unsigned __int16 v18; // cx
   __int64 v19; // rax
 
-  v5 = a2 >> 1;
-  v6 = a1;
+  v5 = MaxBytesInUnicodeString >> 1;
+  v6 = UnicodeString;
   if ( !NlsMbCodePageTag )
   {
-    v7 = a5;
-    if ( v5 < a5 )
+    v7 = BytesInMultiByteString;
+    if ( v5 < BytesInMultiByteString )
       v7 = v5;
-    if ( a3 )
-      *a3 = 2 * v7;
+    if ( BytesInUnicodeString )
+      *BytesInUnicodeString = 2 * v7;
     v8 = qword_18015A1D0;
     v9 = v7 & 0x1F;
-    v10 = &a4[v7 - v9];
-    v11 = &a1[v7 - v9];
+    v10 = (unsigned __int8 *)&MultiByteString[v7 - v9];
+    v11 = &UnicodeString[v7 - v9];
     while ( v9 <= 0x1F )
     {
       if ( v9 == 1 )
@@ -113,7 +118,7 @@ __int64 __fastcall RtlMultiByteToUnicodeN(_WORD *a1, unsigned int a2, _DWORD *a3
       }
 LABEL_42:
       if ( v7 < 0x20 )
-        return 0LL;
+        return 0;
       v9 = 32;
       v7 -= 32;
       v11 -= 32;
@@ -185,16 +190,16 @@ LABEL_41:
     *v11 = *(_WORD *)(v8 + 2LL * *v10);
     goto LABEL_42;
   }
-  v13 = (int)a1;
+  v13 = (int)UnicodeString;
   v14 = qword_180159FA0;
   if ( v5 )
   {
-    v15 = a5;
+    v15 = BytesInMultiByteString;
     v16 = qword_18015A1D0;
     while ( v15 )
     {
       --v5;
-      v17 = *a4;
+      v17 = *(unsigned __int8 *)MultiByteString;
       --v15;
       v18 = word_180159D80[v17];
       if ( v18 )
@@ -205,7 +210,7 @@ LABEL_41:
           LODWORD(v6) = (_DWORD)v6 + 2;
           break;
         }
-        v19 = *++a4;
+        v19 = *(unsigned __int8 *)++MultiByteString;
         *v6++ = *(_WORD *)(v14 + 2 * (v19 + v18));
         --v15;
       }
@@ -213,12 +218,12 @@ LABEL_41:
       {
         *v6++ = *(_WORD *)(v17 * 2 + v16);
       }
-      ++a4;
+      ++MultiByteString;
       if ( !v5 )
         break;
     }
   }
-  if ( a3 )
-    *a3 = (_DWORD)v6 - v13;
-  return 0LL;
+  if ( BytesInUnicodeString )
+    *BytesInUnicodeString = (_DWORD)v6 - v13;
+  return 0;
 }

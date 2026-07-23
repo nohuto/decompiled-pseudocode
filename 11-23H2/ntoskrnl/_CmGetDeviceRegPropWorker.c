@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmGetDeviceRegPropWorker @ 0x1406CD5DC
+ * XREFs of _CmGetDeviceRegPropWorker @ 0x1406CD60C
  * Callers:
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
  * Callees:
- *     _CmDevicePropertyRead @ 0x14022B3E4 (_CmDevicePropertyRead.c)
- *     _MapCmDevicePropertyToNtProperty @ 0x14022B488 (_MapCmDevicePropertyToNtProperty.c)
- *     _MapCmDevicePropertyToRegValue @ 0x14022B4F4 (_MapCmDevicePropertyToRegValue.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCopyWorkerW_2 @ 0x14035BADC (RtlStringCopyWorkerW_2.c)
- *     _MapCmDevicePropertyToRegType @ 0x1403656C8 (_MapCmDevicePropertyToRegType.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     _CmDevicePropertyRead @ 0x14022B4F4 (_CmDevicePropertyRead.c)
+ *     _MapCmDevicePropertyToNtProperty @ 0x14022B598 (_MapCmDevicePropertyToNtProperty.c)
+ *     _MapCmDevicePropertyToRegValue @ 0x14022B604 (_MapCmDevicePropertyToRegValue.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCopyWorkerW_2 @ 0x14035BC7C (RtlStringCopyWorkerW_2.c)
+ *     _MapCmDevicePropertyToRegType @ 0x140365868 (_MapCmDevicePropertyToRegType.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     _CmGetInstallerClassRegProp @ 0x14069B694 (_CmGetInstallerClassRegProp.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x1406CD9A4 (_PnpCtxRegQueryValueIndirect.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _NtPlugPlayGetDeviceProperty @ 0x140799C60 (_NtPlugPlayGetDeviceProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x1406CD9D4 (_PnpCtxRegQueryValueIndirect.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _NtPlugPlayGetDeviceProperty @ 0x140799E50 (_NtPlugPlayGetDeviceProperty.c)
  */
 
 __int64 __fastcall CmGetDeviceRegPropWorker(

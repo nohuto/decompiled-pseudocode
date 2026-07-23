@@ -1,13 +1,13 @@
 /*
- * XREFs of XmGroup1General @ 0x1404A8590
+ * XREFs of XmGroup1General @ 0x1404A1C20
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1404A8658 (XmEvaluateAddressSpecifier.c)
- *     XmGetRegisterAddress @ 0x1404A87CC (XmGetRegisterAddress.c)
- *     XmSetDataType @ 0x1404A8920 (XmSetDataType.c)
- *     XmSetDestinationValue @ 0x1404A8950 (XmSetDestinationValue.c)
- *     XmSetSourceValue @ 0x1404A8BDC (XmSetSourceValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x1404A1CE8 (XmEvaluateAddressSpecifier.c)
+ *     XmGetRegisterAddress @ 0x1404A1E5C (XmGetRegisterAddress.c)
+ *     XmSetDataType @ 0x1404A1FB0 (XmSetDataType.c)
+ *     XmSetDestinationValue @ 0x1404A1FE0 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x1404A226C (XmSetSourceValue.c)
  */
 
 __int64 __fastcall XmGroup1General(__int64 a1)

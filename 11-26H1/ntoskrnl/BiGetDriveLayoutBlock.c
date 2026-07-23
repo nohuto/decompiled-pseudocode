@@ -1,12 +1,12 @@
 /*
- * XREFs of BiGetDriveLayoutBlock @ 0x1408922C0
+ * XREFs of BiGetDriveLayoutBlock @ 0x1408986BC
  * Callers:
- *     BiEnumerateDiskPartitions @ 0x1408920E0 (BiEnumerateDiskPartitions.c)
- *     BiGetNtPartitionPathCallback @ 0x1408924F0 (BiGetNtPartitionPathCallback.c)
+ *     BiEnumerateDiskPartitions @ 0x1408984DC (BiEnumerateDiskPartitions.c)
+ *     BiGetNtPartitionPathCallback @ 0x1408988F0 (BiGetNtPartitionPathCallback.c)
  * Callees:
- *     BiGetPhysicalDriveName @ 0x1408928E0 (BiGetPhysicalDriveName.c)
- *     BiGetDriveLayoutInformation @ 0x140B13738 (BiGetDriveLayoutInformation.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     BiGetPhysicalDriveName @ 0x140898CE0 (BiGetPhysicalDriveName.c)
+ *     BiGetDriveLayoutInformation @ 0x140B151FC (BiGetDriveLayoutInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetDriveLayoutBlock(const WCHAR *a1, PVOID *a2, __int64 a3)

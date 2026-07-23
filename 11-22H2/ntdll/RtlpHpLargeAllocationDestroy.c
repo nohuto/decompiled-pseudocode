@@ -16,7 +16,7 @@ __int64 __fastcall RtlpHpLargeAllocationDestroy(__int64 a1, __int128 *a2)
   __int64 v6; // rcx
   __int128 v8; // [rsp+20h] [rbp-18h] BYREF
   __int64 v9; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  signed __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
   v10 = *(_QWORD *)(a1 + 24) & 0xFFFFFFFFFFFF0000uLL;
   v4 = *(_QWORD *)(a1 + 32);
@@ -26,13 +26,13 @@ __int64 __fastcall RtlpHpLargeAllocationDestroy(__int64 a1, __int128 *a2)
      - (((1LL << ((unsigned __int8)v4 >> 2)) - 1) & (v5 + (1LL << ((unsigned __int8)v4 >> 2)) - 1))
      + v5
      - 1;
-  RtlpHpFreeVA(&v10, (unsigned __int64 *)&v9, 0x8000, &v8);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  RtlpHpFreeVA((PVOID *)&v10, (ULONG_PTR *)&v9, 0x8000, &v8);
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
     v6 = 2147353480LL;
   if ( *(_BYTE *)v6 )
-    RtlpHeapLogRangeRelease();
+    RtlpHeapLogRangeRelease((__int64)a2, v10, v9);
   v8 = *a2;
   return RtlpHpMetadataFree(a1, &v8);
 }

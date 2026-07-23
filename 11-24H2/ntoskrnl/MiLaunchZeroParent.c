@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLaunchZeroParent @ 0x140415C50
+ * XREFs of MiLaunchZeroParent @ 0x140271AB0
  * Callers:
- *     MiZeroInParallel @ 0x1404155D0 (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x140271430 (MiZeroInParallel.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x1403D4B60 (PsReferencePartitionSafe.c)
- *     MiGetNextAffinityWalker @ 0x140416990 (MiGetNextAffinityWalker.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsReferencePartitionSafe @ 0x140262AE0 (PsReferencePartitionSafe.c)
+ *     MiGetNextAffinityWalker @ 0x140271ED0 (MiGetNextAffinityWalker.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall MiLaunchZeroParent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 (__fastcall *v5)(__int64); // rbp
+  __int64 (__fastcall *v5)(); // rbp
   __int64 v6; // rdi
   bool v7; // zf
   int v8; // eax
@@ -34,7 +34,7 @@ char __fastcall MiLaunchZeroParent(__int64 a1, __int64 a2, __int64 a3, __int64 a
   {
     *(_QWORD *)(a1 + 8) = 0LL;
   }
-  v5 = (__int64 (__fastcall *)(__int64))MiZeroHugeRangeWorker;
+  v5 = MiZeroHugeRangeWorker;
   v6 = a1 + ((unsigned __int64)*(unsigned int *)(a1 + 32) << 7) + 168;
   *(_QWORD *)(v6 + 32) = a1;
   *(_DWORD *)(v6 + 44) = -2;

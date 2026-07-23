@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroInitializeFeedbackClass @ 0x14059E8B0
+ * XREFs of PpmHeteroInitializeFeedbackClass @ 0x14059EDA0
  * Callers:
- *     PpmHeteroHgsProcessorInit @ 0x1403813B0 (PpmHeteroHgsProcessorInit.c)
+ *     PpmHeteroHgsProcessorInit @ 0x140381550 (PpmHeteroHgsProcessorInit.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

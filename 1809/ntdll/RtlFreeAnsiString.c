@@ -23,11 +23,11 @@
  *     LdrpLogDllStateEx2 @ 0x180054588 (LdrpLogDllStateEx2.c)
  *     LdrpQuerySxSMUIFile @ 0x1800584B4 (LdrpQuerySxSMUIFile.c)
  *     EtwpFreeLoggerContext @ 0x18005A9DC (EtwpFreeLoggerContext.c)
- *     LdrpCodeAuthzInitialize @ 0x18007FC08 (LdrpCodeAuthzInitialize.c)
- *     LdrSetDllDirectory @ 0x1800835A0 (LdrSetDllDirectory.c)
- *     sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success @ 0x180084B68 (sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success.c)
- *     EtwpGenerateFileName @ 0x1800888C4 (EtwpGenerateFileName.c)
- *     RtlpTpIoDllLoaded @ 0x18008BAA8 (RtlpTpIoDllLoaded.c)
+ *     LdrpCodeAuthzInitialize @ 0x18007FC18 (LdrpCodeAuthzInitialize.c)
+ *     LdrSetDllDirectory @ 0x1800835B0 (LdrSetDllDirectory.c)
+ *     sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success @ 0x180084B78 (sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success.c)
+ *     EtwpGenerateFileName @ 0x1800888D4 (EtwpGenerateFileName.c)
+ *     RtlpTpIoDllLoaded @ 0x18008BAB8 (RtlpTpIoDllLoaded.c)
  *     LdrpLogEtwDllSearchResults @ 0x1800D0F84 (LdrpLogEtwDllSearchResults.c)
  *     LdrpCheckAppDirType @ 0x1800D266C (LdrpCheckAppDirType.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
@@ -47,7 +47,7 @@ void __stdcall RtlFreeAnsiString(PUNICODE_STRING UnicodeString)
   Buffer = UnicodeString->Buffer;
   if ( Buffer )
   {
-    NtdllpFreeStringRoutine((__int64)Buffer);
+    NtdllpFreeStringRoutine(Buffer);
     *(_QWORD *)&UnicodeString->Length = 0LL;
     UnicodeString->Buffer = 0LL;
   }

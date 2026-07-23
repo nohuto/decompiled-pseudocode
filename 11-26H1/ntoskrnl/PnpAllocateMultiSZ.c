@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpAllocateMultiSZ @ 0x140A7C784
+ * XREFs of PnpAllocateMultiSZ @ 0x140A8D8B4
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x14090C0D0 (PiSwPdoPnPDispatch.c)
- *     PiSwPnPInfoInit @ 0x140A7C254 (PiSwPnPInfoInit.c)
+ *     PiSwPdoPnPDispatch @ 0x1409AE200 (PiSwPdoPnPDispatch.c)
+ *     PiSwPnPInfoInit @ 0x140A8D384 (PiSwPnPInfoInit.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpGetMultiSzLength @ 0x140A7C854 (PnpGetMultiSzLength.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpGetMultiSzLength @ 0x140A8D984 (PnpGetMultiSzLength.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpAllocateMultiSZ(void *Src, __int64 a2, __int64 a3, _QWORD *a4)

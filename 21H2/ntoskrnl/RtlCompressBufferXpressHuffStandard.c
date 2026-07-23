@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCompressBufferXpressHuffStandard @ 0x140365E00
+ * XREFs of RtlCompressBufferXpressHuffStandard @ 0x140365FB0
  * Callers:
- *     RtlCompressBufferXpressHuff @ 0x140365D90 (RtlCompressBufferXpressHuff.c)
- *     RtlCompressBufferProgress @ 0x1403835B0 (RtlCompressBufferProgress.c)
+ *     RtlCompressBufferXpressHuff @ 0x140365F40 (RtlCompressBufferXpressHuff.c)
+ *     RtlCompressBufferProgress @ 0x140383760 (RtlCompressBufferProgress.c)
  * Callees:
- *     XpressBuildHuffmanEncodings @ 0x140366620 (XpressBuildHuffmanEncodings.c)
- *     XpressDoHuffmanPass @ 0x1403669D0 (XpressDoHuffmanPass.c)
- *     RtlpMakeXpressCallback @ 0x140388F30 (RtlpMakeXpressCallback.c)
- *     memset @ 0x140414200 (memset.c)
+ *     XpressBuildHuffmanEncodings @ 0x1403667D0 (XpressBuildHuffmanEncodings.c)
+ *     XpressDoHuffmanPass @ 0x140366B80 (XpressDoHuffmanPass.c)
+ *     RtlpMakeXpressCallback @ 0x140389080 (RtlpMakeXpressCallback.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressHuffStandard(

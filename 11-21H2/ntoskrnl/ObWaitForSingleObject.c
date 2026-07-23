@@ -17,8 +17,8 @@ __int64 __fastcall ObWaitForSingleObject(
 {
   NTSTATUS v7; // ebx
   PVOID v8; // rdi
-  struct _OBJECT_TYPE *v9; // r8
-  __int64 DefaultObject; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rcx
   PVOID Object; // [rsp+48h] [rbp-10h] BYREF
 
   Object = 0LL;
@@ -26,33 +26,33 @@ __int64 __fastcall ObWaitForSingleObject(
   if ( v7 < 0 )
     return (unsigned int)v7;
   v8 = Object;
-  v9 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
-  DefaultObject = (__int64)v9->DefaultObject;
-  if ( (DefaultObject & 1) == 0 )
+  v9 = qword_140D07490[(unsigned __int8)dword_140D06C0C ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
+  v10 = *(_QWORD *)(v9 + 32);
+  if ( (v10 & 1) == 0 )
   {
-    if ( DefaultObject < 0 )
+    if ( v10 < 0 )
       goto LABEL_5;
     goto LABEL_4;
   }
-  if ( (DefaultObject & 2) != 0 )
+  if ( (v10 & 2) != 0 )
   {
-    if ( (v9->TypeInfo.WaitObjectFlagMask & *(_DWORD *)((_BYTE *)Object + v9->TypeInfo.WaitObjectFlagOffset)) != v9->TypeInfo.WaitObjectFlagMask )
+    if ( (*(_DWORD *)(v9 + 176) & *(_DWORD *)((_BYTE *)Object + *(unsigned __int16 *)(v9 + 180))) != *(_DWORD *)(v9 + 176) )
     {
-      DefaultObject -= 3LL;
+      v10 -= 3LL;
 LABEL_4:
-      DefaultObject += (__int64)Object;
+      v10 += (__int64)Object;
       goto LABEL_5;
     }
-    DefaultObject = *(_QWORD *)((char *)Object + v9->TypeInfo.WaitObjectPointerOffset);
+    v10 = *(_QWORD *)((char *)Object + *(unsigned __int16 *)(v9 + 182));
   }
   else
   {
-    DefaultObject = *(_QWORD *)((char *)Object + DefaultObject - 1);
+    v10 = *(_QWORD *)((char *)Object + v10 - 1);
   }
 LABEL_5:
-  if ( ExCrossVmMutantObjectType != v9 )
+  if ( qword_140C10D30 != (POBJECT_TYPE)v9 )
   {
-    v7 = KeWaitForSingleObject((PVOID)DefaultObject, UserRequest, a3, a4, Timeout);
+    v7 = KeWaitForSingleObject((PVOID)v10, UserRequest, a3, a4, Timeout);
     ObfDereferenceObjectWithTag(v8, 0x7457624Fu);
     return (unsigned int)v7;
   }

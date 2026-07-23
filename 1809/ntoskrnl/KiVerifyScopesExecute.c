@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyScopesExecute @ 0x1409CF900
+ * XREFs of KiVerifyScopesExecute @ 0x1409D0900
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiVerifyPdata @ 0x1409CFFD0 (KiVerifyPdata.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiVerifyPdata @ 0x1409D0FD0 (KiVerifyPdata.c)
  */
 
 void __fastcall KiVerifyScopesExecute(PVOID Parameter)
@@ -46,13 +46,13 @@ void __fastcall KiVerifyScopesExecute(PVOID Parameter)
       BugCheckParameter4 = __ROL8__(v8 ^ v10, v8 & 0x3F);
       v10 = BugCheckParameter4;
     }
-    while ( (__int64)v2 < (__int64)&qword_140A0A148 );
+    while ( (__int64)v2 < (__int64)&qword_140A0B148 );
     --v1;
   }
   while ( v1 );
   if ( BugCheckParameter4 != 0x7493D5224FA9E69ALL )
 LABEL_10:
     KeBugCheckEx(0x14Du, 0xFFFFFFFFuLL, 0LL, 0x7493D5224FA9E69AuLL, BugCheckParameter4);
-  KiVerifyPdata(PsNtosImageBase);
+  KiVerifyPdata((ULONG_PTR)PsNtosImageBase);
   KiVerifyPdata((ULONG_PTR)PsHalImageBase);
 }

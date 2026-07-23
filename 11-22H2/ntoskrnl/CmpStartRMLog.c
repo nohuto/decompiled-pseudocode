@@ -47,7 +47,7 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CLFS_LSN plsn1; // [rsp+50h] [rbp-69h] BYREF
   PVOID pvCursorContext; // [rsp+58h] [rbp-61h] BYREF
   ULONG pcbReadBuffer; // [rsp+60h] [rbp-59h] BYREF
-  UNICODE_STRING v31; // [rsp+68h] [rbp-51h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-51h] BYREF
   ULONG pcbRestartBuffer; // [rsp+78h] [rbp-41h] BYREF
   PVOID pvReadContext; // [rsp+80h] [rbp-39h] BYREF
   PCUNICODE_STRING Source; // [rsp+88h] [rbp-31h]
@@ -76,10 +76,10 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CurrentThread = KeGetCurrentThread();
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v31.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   --CurrentThread->KernelApcDisable;
   v6 = (struct _ERESOURCE *)*((_QWORD *)a1 + 16);
-  v31.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   pcbInfoBuffer = 0LL;
   ExAcquireResourceExclusiveLite(v6, 1u);
   if ( (*((_DWORD *)a1 + 26) & 1) != 0 )
@@ -101,10 +101,7 @@ LABEL_47:
     Source = &CmpLogPath;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(qword_140C028D0 + 64) + 128LL) = *a2;
-    LogFileInformation = RtlStringFromGUIDEx(
-                           (unsigned int *)(*(_QWORD *)(qword_140C028D0 + 64) + 128LL),
-                           (__int64)&v31,
-                           1);
+    LogFileInformation = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(qword_140C028D0 + 64) + 128LL), &GuidString, 1u);
     if ( LogFileInformation >= 0 )
     {
       v11 = (__int64)(a1 + 72);
@@ -122,7 +119,7 @@ LABEL_9:
         v13 = (PVOID *)(a1 + 96);
         for ( i = CmpStartCLFSLog(
                     Source,
-                    &v31,
+                    &GuidString,
                     ppvReadContext,
                     v11,
                     (__int64)(a1 + 68),
@@ -131,7 +128,7 @@ LABEL_9:
               ;
               i = CmpStartCLFSLog(
                     Source,
-                    &v31,
+                    &GuidString,
                     ppvReadContexta,
                     v11,
                     (__int64)(a1 + 68),
@@ -270,9 +267,9 @@ LABEL_9:
       if ( a2 )
         *(_OWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL) = *a2;
       LogFileInformation = RtlStringFromGUIDEx(
-                             (unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL),
-                             (__int64)&v31,
-                             1);
+                             (PGUID)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL),
+                             &GuidString,
+                             1u);
       if ( LogFileInformation >= 0 )
       {
         v10 = *((_QWORD *)a1 + 10);
@@ -288,8 +285,8 @@ LABEL_27:
   KeLeaveCriticalRegion();
   if ( UnicodeString.Buffer )
     RtlFreeUnicodeString(&UnicodeString);
-  if ( v31.Buffer )
-    RtlFreeUnicodeString(&v31);
+  if ( GuidString.Buffer )
+    RtlFreeUnicodeString(&GuidString);
   ExFreePoolWithTag(Pool2, 0);
   if ( v12 )
     ExFreePoolWithTag(v12, 0);

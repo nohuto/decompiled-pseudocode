@@ -25,7 +25,7 @@ int __fastcall RtlpMuiRegAddLanguageByName(int a1, int a2, PCWSTR SourceString, 
   v9 = v10[0];
   if ( (v10[0] & 4) != 0 )
   {
-    result = _RtlpMuiRegInitLIPLanguage(v10);
+    result = _RtlpMuiRegInitLIPLanguage(a1, a2, v10);
   }
   else
   {

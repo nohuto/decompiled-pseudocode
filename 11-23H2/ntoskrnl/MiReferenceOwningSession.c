@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReferenceOwningSession @ 0x14034904C
+ * XREFs of MiReferenceOwningSession @ 0x1403492DC
  * Callers:
  *     MiCapturePfnVm @ 0x140215CDC (MiCapturePfnVm.c)
- *     MiLockStealSystemVm @ 0x140398A4C (MiLockStealSystemVm.c)
+ *     MiLockStealSystemVm @ 0x140398C2C (MiLockStealSystemVm.c)
  * Callees:
  *     MiGetTopLevelPfn @ 0x140215FA0 (MiGetTopLevelPfn.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     MiSelectSessionAttachProcess @ 0x1402C1EE8 (MiSelectSessionAttachProcess.c)
- *     MiTryToAcquireExpansionLockAtDpc @ 0x1403490E8 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     MiSelectSessionAttachProcess @ 0x1402C2178 (MiSelectSessionAttachProcess.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x140349378 (MiTryToAcquireExpansionLockAtDpc.c)
  */
 
 _QWORD *__fastcall MiReferenceOwningSession(ULONG_PTR a1)

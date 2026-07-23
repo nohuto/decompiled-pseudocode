@@ -1,9 +1,9 @@
 /*
- * XREFs of PspWow64PickBestNtdll @ 0x14036B324
+ * XREFs of PspWow64PickBestNtdll @ 0x14036B4C4
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
- *     PsQuerySystemDllInfo @ 0x14076F1B4 (PsQuerySystemDllInfo.c)
+ *     PsQuerySystemDllInfo @ 0x14076F3A4 (PsQuerySystemDllInfo.c)
  */
 
 __int64 __fastcall PspWow64PickBestNtdll(__int64 a1)

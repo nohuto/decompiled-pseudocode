@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbGetIndex @ 0x140485058
+ * XREFs of SdbGetIndex @ 0x1405143E0
  * Callers:
- *     SdbpFindFirstIndexedWildCardTag @ 0x140484948 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x140484C74 (SdbFindFirstStringIndexedTag.c)
- *     SdbpSearchDB @ 0x140484F3C (SdbpSearchDB.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140513CD0 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140513FFC (SdbFindFirstStringIndexedTag.c)
+ *     SdbpSearchDB @ 0x1405142C4 (SdbpSearchDB.c)
  * Callees:
- *     SdbpScanIndexes @ 0x140505A0C (SdbpScanIndexes.c)
+ *     SdbpScanIndexes @ 0x1404E899C (SdbpScanIndexes.c)
  */
 
-__int64 __fastcall SdbGetIndex(__int64 a1, __int16 a2, __int16 a3, _DWORD *a4)
+__int64 __fastcall SdbGetIndex(_DWORD *a1, __int16 a2, __int16 a3, _DWORD *a4)
 {
   unsigned int v8; // esi
   int v9; // ecx
@@ -18,18 +18,18 @@ __int64 __fastcall SdbGetIndex(__int64 a1, __int16 a2, __int16 a3, _DWORD *a4)
   v8 = 0;
   if ( a4 )
     *a4 = 0;
-  if ( !*(_DWORD *)(a1 + 1332) )
-    SdbpScanIndexes();
+  if ( !a1[333] )
+    SdbpScanIndexes(a1);
   v9 = 0;
-  v10 = (_WORD *)(a1 + 52);
+  v10 = a1 + 13;
   v11 = 0LL;
   while ( *v10 )
   {
     if ( *v10 == a2 && v10[1] == a3 )
     {
-      v8 = *(_DWORD *)(a1 + 40LL * v9 + 48);
+      v8 = a1[10 * v9 + 12];
       if ( a4 )
-        *a4 = *(_DWORD *)(a1 + 40LL * v9 + 80);
+        *a4 = a1[10 * v9 + 20];
       return v8;
     }
     ++v9;

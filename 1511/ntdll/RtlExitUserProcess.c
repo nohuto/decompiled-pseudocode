@@ -20,77 +20,72 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlExitUserProcess(unsigned int a1)
+void __cdecl __noreturn RtlExitUserProcess(NTSTATUS ExitStatus)
 {
   __int64 v2; // rcx
   void *UniqueThread; // r8
-  __int64 v4; // rcx
-  unsigned int v6; // ebx
-  __int64 v7; // rdi
-  unsigned int v8; // eax
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-  _QWORD v13[22]; // [rsp+20h] [rbp-C8h] BYREF
+  unsigned int v4; // ebx
+  __int64 v5; // rdi
+  unsigned int v6; // eax
+  __int64 v7; // r8
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  _QWORD v11[22]; // [rsp+20h] [rbp-C8h] BYREF
 
   if ( EtwpLoggerArray )
   {
-    memset(v13, 0, sizeof(v13));
-    LODWORD(v13[0]) = 176;
-    v6 = 0;
-    v7 = 0LL;
-    HIDWORD(v13[5]) = 0x20000;
+    memset(v11, 0, sizeof(v11));
+    LODWORD(v11[0]) = 176;
+    v4 = 0;
+    v5 = 0LL;
+    HIDWORD(v11[5]) = 0x20000;
     do
     {
-      v8 = v6 & 0xFFFF7FFF;
-      if ( (v6 & 0xFFFF7FFF) < 0x40 && EtwpLoggerArray )
+      v6 = v4 & 0xFFFF7FFF;
+      if ( (v4 & 0xFFFF7FFF) < 0x40 && EtwpLoggerArray )
       {
-        _InterlockedIncrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v8 + 8));
-        v9 = *(_QWORD *)(EtwpLoggerArray + 16LL * v8);
-        if ( (v9 & 1) != 0 )
+        _InterlockedIncrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v6 + 8));
+        v7 = *(_QWORD *)(EtwpLoggerArray + 16LL * v6);
+        if ( (v7 & 1) != 0 )
         {
-          _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v8 + 8));
+          _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v6 + 8));
         }
         else
         {
-          v10 = *(unsigned int *)(v9 + 332);
-          v11 = 2LL * *(unsigned int *)(v9 + 20);
-          _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(v9 + 20) + 8));
-          if ( (v10 & 0x400) == 0 )
+          v8 = *(unsigned int *)(v7 + 332);
+          v9 = 2LL * *(unsigned int *)(v7 + 20);
+          _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(v7 + 20) + 8));
+          if ( (v8 & 0x400) == 0 )
           {
-            v13[1] = v7;
-            EtwpStopUmLogger(v11, v10, v9, v13);
+            v11[1] = v5;
+            EtwpStopUmLogger(v9, v8, v7, v11);
           }
         }
       }
-      ++v6;
-      ++v7;
+      ++v4;
+      ++v5;
     }
-    while ( v6 < 0x40 );
+    while ( v4 < 0x40 );
   }
   LdrpDrainWorkQueue((NtCurrentTeb()->SameTebFlags & 0x1000) != 0);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&FastPebLock);
-  RtlLockHeap((__int64)NtCurrentPeb()->ProcessHeap);
-  if ( (int)ZwTerminateProcess(0LL, a1) < 0 )
-  {
-    RtlUnlockHeap((__int64)NtCurrentPeb()->ProcessHeap);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    LdrpReleaseLoaderLock(v12, 18, 0);
-    return NtTerminateThread(-2LL, a1);
-  }
-  else
+  RtlEnterCriticalSection(&FastPebLock);
+  RtlLockHeap(NtCurrentPeb()->ProcessHeap);
+  if ( ZwTerminateProcess(0LL, ExitStatus) >= 0 )
   {
     RtlUnlockProcessHeapOnProcessTerminate(v2);
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_180144E98 = 0LL;
-    qword_180144E90 = (__int64)UniqueThread;
-    dword_180144E88 = -2;
-    dword_180144E8C = 1;
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    RtlReportSilentProcessExit(-1LL, a1);
-    LdrShutdownProcess(v4);
-    return ZwTerminateProcess(-1LL, a1);
+    FastPebLock.LockSemaphore = 0LL;
+    FastPebLock.OwningThread = UniqueThread;
+    FastPebLock.LockCount = -2;
+    FastPebLock.RecursionCount = 1;
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
+    LdrShutdownProcess();
   }
+  RtlUnlockHeap(NtCurrentPeb()->ProcessHeap);
+  RtlLeaveCriticalSection(&FastPebLock);
+  LdrpReleaseLoaderLock(v10, 18, 0);
+  NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus);
 }

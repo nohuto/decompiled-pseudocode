@@ -1,15 +1,15 @@
 /*
- * XREFs of ObCreateSymbolicLink @ 0x1406AC26C
+ * XREFs of ObCreateSymbolicLink @ 0x14060A95C
  * Callers:
- *     NtCreateSymbolicLinkObject @ 0x1406ABF60 (NtCreateSymbolicLinkObject.c)
- *     MiCreateMemoryEvent @ 0x1407A0800 (MiCreateMemoryEvent.c)
+ *     NtCreateSymbolicLinkObject @ 0x14060A650 (NtCreateSymbolicLinkObject.c)
+ *     MiCreateMemoryEvent @ 0x1407A0A00 (MiCreateMemoryEvent.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     RtlIsSandboxedToken @ 0x14071C8A0 (RtlIsSandboxedToken.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObCreateSymbolicLink(__int64 *a1, __int64 a2, int a3, __int64 a4, char a5)

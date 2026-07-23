@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlinkUnusedControlArea @ 0x14036FCB8
+ * XREFs of MiUnlinkUnusedControlArea @ 0x140432D38
  * Callers:
- *     MiCheckForControlAreaDeletion @ 0x140210220 (MiCheckForControlAreaDeletion.c)
- *     MiRemoveUnusedSegment @ 0x14022F72C (MiRemoveUnusedSegment.c)
- *     MiDeleteCachedEntry @ 0x1403F836C (MiDeleteCachedEntry.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x140672268 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x14067257C (MiProcessDeleteOnClose.c)
+ *     MiRemoveUnusedSegment @ 0x14030303C (MiRemoveUnusedSegment.c)
+ *     MiCheckForControlAreaDeletion @ 0x140339580 (MiCheckForControlAreaDeletion.c)
+ *     MiDeleteCachedEntry @ 0x1403EE484 (MiDeleteCachedEntry.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140673438 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x14067374C (MiProcessDeleteOnClose.c)
  * Callees:
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     MiComputePagedPoolSegmentBytes @ 0x14036FD74 (MiComputePagedPoolSegmentBytes.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x140432DF4 (MiComputePagedPoolSegmentBytes.c)
  */
 
 __int64 __fastcall MiUnlinkUnusedControlArea(__int64 a1)
@@ -21,8 +21,8 @@ __int64 __fastcall MiUnlinkUnusedControlArea(__int64 a1)
   _QWORD *v7; // rdx
 
   v2 = *(_DWORD *)(a1 + 56);
-  v3 = *((_QWORD *)qword_140E2FF88 + (*(_WORD *)(a1 + 60) & 0x3FF));
-  v4 = MiComputePagedPoolSegmentBytes();
+  v3 = *((_QWORD *)qword_140E300C8 + (*(_WORD *)(a1 + 60) & 0x3FF));
+  v4 = MiComputePagedPoolSegmentBytes(a1);
   if ( (v2 & 0x40000) != 0 && (*(_DWORD *)(v3 + 1732))-- == 1 )
   {
     KeCancelTimer((PKTIMER)(v3 + 2008));
@@ -38,6 +38,6 @@ __int64 __fastcall MiUnlinkUnusedControlArea(__int64 a1)
   *(_QWORD *)(a1 + 16) = a1 + 8;
   *v5 = v5;
   *(_QWORD *)(v3 + 2088) -= v4;
-  _InterlockedAdd64(&qword_140E2CC18, -v4);
+  _InterlockedAdd64(&qword_140E2CD58, -v4);
   return result;
 }

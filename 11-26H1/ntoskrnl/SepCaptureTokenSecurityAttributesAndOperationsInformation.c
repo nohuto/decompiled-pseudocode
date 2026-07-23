@@ -1,17 +1,17 @@
 /*
- * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140AF00AC
+ * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140AF2C7C
  * Callers:
- *     NtSetInformationToken @ 0x140810BD0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x140816660 (NtSetInformationToken.c)
  * Callees:
- *     SepCaptureTokenSecurityOperations @ 0x1404D2FB4 (SepCaptureTokenSecurityOperations.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x140AC3A68 (SepFreeCapturedTokenSecurityAttributesInformation.c)
- *     SepCaptureTokenSecurityAttributesInformation @ 0x140AF0268 (SepCaptureTokenSecurityAttributesInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepCaptureTokenSecurityOperations @ 0x1404CC824 (SepCaptureTokenSecurityOperations.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x140AC56D8 (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140AF2E38 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureTokenSecurityAttributesAndOperationsInformation(__int64 a1, char a2, PVOID **a3)

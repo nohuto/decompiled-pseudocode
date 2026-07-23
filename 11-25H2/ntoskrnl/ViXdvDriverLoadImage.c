@@ -14,28 +14,28 @@
 
 char __fastcall ViXdvDriverLoadImage(__int64 a1)
 {
-  unsigned __int64 v1; // r14
-  __int64 v2; // rax
-  __int64 v3; // rdi
+  char *v1; // r14
+  _DWORD *v2; // rax
+  _DWORD *v3; // rdi
   __int64 v4; // rsi
-  unsigned __int64 v5; // r15
+  char *v5; // r15
   char v6; // bl
   const char *v7; // rbp
   __int64 FuncAddress; // rax
   __int64 v9; // rcx
-  int v11; // [rsp+40h] [rbp+8h] BYREF
+  ULONG v11; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
-  v2 = RtlImageDirectoryEntryToData(v1, 1, 0, &v11);
+  v1 = *(char **)(a1 + 48);
+  v2 = RtlImageDirectoryEntryToData(v1, 1u, 0, &v11);
   v3 = v2;
-  if ( v2 && *(_DWORD *)(v2 + 24) )
+  if ( v2 && v2[6] )
   {
     v4 = 0LL;
-    v5 = v1 + *(unsigned int *)(v2 + 32);
+    v5 = &v1[v2[8]];
     v6 = 1;
     while ( 1 )
     {
-      v7 = (const char *)(v1 + *(unsigned int *)(v5 + 4 * v4));
+      v7 = &v1[*(unsigned int *)&v5[4 * v4]];
       if ( !strcmp("SetXdvKernelUtilities", v7) )
       {
         FuncAddress = ViXdvGetFuncAddress(v1, v3, (unsigned int)v4);
@@ -90,7 +90,7 @@ LABEL_19:
       }
 LABEL_22:
       v4 = (unsigned int)(v4 + 1);
-      if ( (unsigned int)v4 >= *(_DWORD *)(v3 + 24) )
+      if ( (unsigned int)v4 >= v3[6] )
         return v6;
     }
   }

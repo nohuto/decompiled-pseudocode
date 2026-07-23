@@ -1,13 +1,13 @@
 /*
- * XREFs of VslRequestSecureKernelDebuggerBreakIn @ 0x1405C3DEC
+ * XREFs of VslRequestSecureKernelDebuggerBreakIn @ 0x1405C665C
  * Callers:
- *     KeFreezeExecution @ 0x140508FA0 (KeFreezeExecution.c)
+ *     KeFreezeExecution @ 0x140502A50 (KeFreezeExecution.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 VslRequestSecureKernelDebuggerBreakIn()

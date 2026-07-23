@@ -4,7 +4,7 @@
  *     PfxFindPrefix @ 0x1800E7370 (PfxFindPrefix.c)
  *     PfxInsertPrefix @ 0x1800E7470 (PfxInsertPrefix.c)
  * Callees:
- *     RtlCompareMemory @ 0x1800A4A60 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1800A4A80 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall CompareNamesCaseSensitive(unsigned __int16 *a1, unsigned __int16 *a2)

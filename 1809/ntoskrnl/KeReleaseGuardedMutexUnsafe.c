@@ -1,5 +1,5 @@
 /*
- * XREFs of KeReleaseGuardedMutexUnsafe @ 0x14028D0C0
+ * XREFs of KeReleaseGuardedMutexUnsafe @ 0x14028D2B0
  * Callers:
  *     <none>
  * Callees:

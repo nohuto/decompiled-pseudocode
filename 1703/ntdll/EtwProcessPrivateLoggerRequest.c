@@ -44,7 +44,7 @@ __int64 __fastcall EtwProcessPrivateLoggerRequest(char *a1)
   v5 = v3[1];
   v6 = *v3;
   v17 = 0;
-  RtlAcquireSRWLockExclusive(&qword_18015C350);
+  RtlAcquireSRWLockExclusive(&stru_18015C350);
   v10 = v5 - 1;
   if ( !v10 )
   {
@@ -78,7 +78,7 @@ LABEL_10:
   }
   v4 = 87;
 LABEL_11:
-  RtlReleaseSRWLockExclusive(&qword_18015C350);
+  RtlReleaseSRWLockExclusive(&stru_18015C350);
   if ( v4 )
   {
 LABEL_18:

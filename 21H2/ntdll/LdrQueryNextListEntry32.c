@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrQueryNextListEntry32 @ 0x1800CE280
+ * XREFs of LdrQueryNextListEntry32 @ 0x1800CE240
  * Callers:
  *     <none>
  * Callees:

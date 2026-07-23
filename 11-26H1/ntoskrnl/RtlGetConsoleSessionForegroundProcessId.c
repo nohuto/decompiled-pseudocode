@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlGetConsoleSessionForegroundProcessId @ 0x140800340
+ * XREFs of RtlGetConsoleSessionForegroundProcessId @ 0x140805DE0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
  */
 
-struct _LIST_ENTRY *RtlGetConsoleSessionForegroundProcessId()
+ULONGLONG RtlGetConsoleSessionForegroundProcessId(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return PsGetCurrentServerSiloGlobals()[80].Blink->Blink;
+    return (ULONGLONG)PsGetCurrentServerSiloGlobals()[80].Blink->Blink;
   else
-    return (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000338];
+    return MEMORY[0xFFFFF78000000338];
 }

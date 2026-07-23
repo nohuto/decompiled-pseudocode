@@ -3,7 +3,7 @@
  * Callers:
  *     MiHandleBootImage @ 0x140B46AA8 (MiHandleBootImage.c)
  * Callees:
- *     VslReserveProtectedPages @ 0x140885B64 (VslReserveProtectedPages.c)
+ *     VslReserveProtectedPages @ 0x140885DA4 (VslReserveProtectedPages.c)
  *     MiUpdateThunks @ 0x140B9A830 (MiUpdateThunks.c)
  */
 

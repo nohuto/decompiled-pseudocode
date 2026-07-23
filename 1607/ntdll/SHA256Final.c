@@ -1,11 +1,11 @@
 /*
- * XREFs of SHA256Final @ 0x18000A224
+ * XREFs of SHA256Final @ 0x18000A214
  * Callers:
- *     RtlDeriveCapabilitySidsFromName @ 0x18000C630 (RtlDeriveCapabilitySidsFromName.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x18000C620 (RtlDeriveCapabilitySidsFromName.c)
  * Callees:
- *     SHA256Update @ 0x180009654 (SHA256Update.c)
- *     DWORDToBigEndian @ 0x18000A460 (DWORDToBigEndian.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     SHA256Update @ 0x180009644 (SHA256Update.c)
+ *     DWORDToBigEndian @ 0x18000A450 (DWORDToBigEndian.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 

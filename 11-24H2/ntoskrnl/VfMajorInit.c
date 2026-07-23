@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorInit @ 0x140B92F10
+ * XREFs of VfMajorInit @ 0x140B94F10
  * Callers:
- *     ViIovPluginUnload @ 0x1406A4090 (ViIovPluginUnload.c)
+ *     ViIovPluginUnload @ 0x1406A5090 (ViIovPluginUnload.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *VfMajorInit()

@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpGetComponentHashAtIndex @ 0x1404A0524
+ * XREFs of CmpGetComponentHashAtIndex @ 0x140518930
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1404A0334 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x140518740 (CmpPerformSingleKcbCacheLookup.c)
  * Callees:
  *     <none>
  */

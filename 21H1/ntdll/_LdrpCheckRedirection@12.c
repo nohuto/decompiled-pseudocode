@@ -13,14 +13,14 @@
 
 int __fastcall LdrpCheckRedirection(_DWORD *a1, _DWORD *a2, int a3)
 {
-  unsigned int v4; // esi
+  _RTL_BALANCED_NODE *Root; // esi
   int v5; // edi
   int v6; // eax
-  unsigned int v7; // eax
-  _DWORD **v8; // eax
-  unsigned int v9; // ecx
-  _DWORD *i; // ecx
-  int v11; // esi
+  _RTL_BALANCED_NODE *v7; // eax
+  _RTL_BALANCED_NODE *v8; // eax
+  _RTL_BALANCED_NODE *v9; // ecx
+  _RTL_BALANCED_NODE *i; // ecx
+  unsigned int ParentValue; // esi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // eax
   _DWORD v15[5]; // [esp+14h] [ebp-14h] BYREF
 
@@ -29,74 +29,74 @@ int __fastcall LdrpCheckRedirection(_DWORD *a1, _DWORD *a2, int a3)
   v15[4] = a2[12];
   v15[1] = a2[36];
   v15[2] = a3;
-  v4 = LdrpRedirectionTree;
-  if ( (dword_4B3A6714 & 1) != 0 )
+  Root = LdrpRedirectionTree.Root;
+  if ( (*(_BYTE *)&LdrpRedirectionTree.0 & 1) != 0 )
   {
-    if ( LdrpRedirectionTree )
-      v4 = (unsigned int)&LdrpRedirectionTree ^ LdrpRedirectionTree;
+    if ( LdrpRedirectionTree.Root )
+      Root = (_RTL_BALANCED_NODE *)((unsigned int)&LdrpRedirectionTree ^ (unsigned int)LdrpRedirectionTree.Root);
     else
-      v4 = 0;
+      Root = 0;
   }
-  v5 = dword_4B3A6714 & 1;
+  v5 = *(_BYTE *)&LdrpRedirectionTree.0 & 1;
   while ( 1 )
   {
-    if ( !v4 )
+    if ( !Root )
       goto LABEL_26;
-    v6 = LdrpCompareRedirectedFunction(v15, v4);
+    v6 = LdrpCompareRedirectedFunction(v15, Root);
     if ( v6 < 0 )
     {
-      v7 = *(_DWORD *)v4;
+      v7 = Root->Children[0];
       goto LABEL_10;
     }
     if ( v6 <= 0 )
       break;
-    v7 = *(_DWORD *)(v4 + 4);
+    v7 = Root->Children[1];
 LABEL_10:
     if ( v5 && v7 )
-      v4 ^= v7;
+      Root = (_RTL_BALANCED_NODE *)((unsigned int)v7 ^ (unsigned int)Root);
     else
-      v4 = v7;
+      Root = v7;
   }
   while ( 1 )
   {
 LABEL_26:
-    if ( !v4 || LdrpCompareRedirectedFunction(v15, v4) )
+    if ( !Root || LdrpCompareRedirectedFunction(v15, Root) )
       return -4530927;
     if ( !LdrpRedirectionByFunctionCalloutFunc
       || (unsigned __int8)LdrpRedirectionByFunctionCalloutFunc(
                             LdrpRedirectionByFunctionCalloutFunc,
                             a1[10],
-                            *(_DWORD *)(v4 + 36)) )
+                            Root[3].Children[0]) )
     {
       break;
     }
-    v8 = *(_DWORD ***)(v4 + 4);
-    v9 = v4;
+    v8 = Root->Children[1];
+    v9 = Root;
     if ( v8 )
     {
-      v4 = *(_DWORD *)(v4 + 4);
-      for ( i = *v8; i; i = (_DWORD *)*i )
-        v4 = (unsigned int)i;
+      Root = Root->Children[1];
+      for ( i = v8->Children[0]; i; i = i->Children[0] )
+        Root = i;
     }
     else
     {
       while ( 1 )
       {
-        v4 = *(_DWORD *)(v4 + 8) & 0xFFFFFFFC;
-        if ( !v4 || *(_DWORD *)v4 == v9 )
+        Root = (_RTL_BALANCED_NODE *)(Root->ParentValue & 0xFFFFFFFC);
+        if ( !Root || Root->Children[0] == v9 )
           break;
-        v9 = v4;
+        v9 = Root;
       }
     }
   }
-  v11 = *(_DWORD *)(v4 + 32);
+  ParentValue = Root[2].ParentValue;
   if ( (ShowSnaps & 5) != 0 )
   {
     ProcessParameters = NtCurrentPeb()->ProcessParameters;
     LdrpLogDbgPrint(
       (int)"minkernel\\ntdll\\ldrredirect.c",
       299,
-      "LdrpCheckRedirection",
+      (int)"LdrpCheckRedirection",
       2,
       "Import Redirection: %wZ %wZ!%s redirected to %wZ\n",
       a1[11],
@@ -107,5 +107,5 @@ LABEL_26:
       *(_DWORD *)&ProcessParameters->RedirectionDllName.Length,
       ProcessParameters->RedirectionDllName.Buffer);
   }
-  return v11;
+  return ParentValue;
 }

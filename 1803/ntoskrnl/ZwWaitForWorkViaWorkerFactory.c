@@ -6,9 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwWaitForWorkViaWorkerFactory(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(WorkerFactoryHandle);
 }

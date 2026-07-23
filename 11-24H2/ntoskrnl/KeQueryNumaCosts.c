@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryNumaCosts @ 0x140C26CF8
+ * XREFs of KeQueryNumaCosts @ 0x140C28D48
  * Callers:
- *     SaveNodeDistanceInformation @ 0x140C5F580 (SaveNodeDistanceInformation.c)
+ *     SaveNodeDistanceInformation @ 0x140C616D0 (SaveNodeDistanceInformation.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void *KeQueryNumaCosts()

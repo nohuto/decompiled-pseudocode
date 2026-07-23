@@ -1,17 +1,17 @@
 /*
- * XREFs of PopEtEnergyTrackerCreate @ 0x14085187C
+ * XREFs of PopEtEnergyTrackerCreate @ 0x140851B7C
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     memset @ 0x140435A00 (memset.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObject @ 0x14076B590 (ObInsertObject.c)
- *     PsEnumProcesses @ 0x1407CF4CC (PsEnumProcesses.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObject @ 0x14076B780 (ObInsertObject.c)
+ *     PsEnumProcesses @ 0x1407CF79C (PsEnumProcesses.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerCreate(int *a1, HANDLE *a2)

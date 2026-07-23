@@ -5,8 +5,8 @@
  *     MxMarkActiveDriverBits @ 0x140B5EE38 (MxMarkActiveDriverBits.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x14020B1E8 (MiSplitBitmapPages.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     KeZeroSinglePage @ 0x140424600 (KeZeroSinglePage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeZeroSinglePage @ 0x140424990 (KeZeroSinglePage.c)
  *     MxMarkActiveDriverBits @ 0x140B5EE38 (MxMarkActiveDriverBits.c)
  */
 

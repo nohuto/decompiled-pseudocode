@@ -1,28 +1,28 @@
 /*
- * XREFs of HalpTimerConfigureInterrupt @ 0x14037CF94
+ * XREFs of HalpTimerConfigureInterrupt @ 0x14037D134
  * Callers:
- *     HalpTimerInitializeProfiling @ 0x14037ACC0 (HalpTimerInitializeProfiling.c)
- *     HalpTimerPrepareClockInterrupt @ 0x14037CEFC (HalpTimerPrepareClockInterrupt.c)
- *     HalpTimerInitializeClock @ 0x1403B19B0 (HalpTimerInitializeClock.c)
- *     HalpTimerTestHypervisorTimer @ 0x14050AD7C (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerInitializeProfiling @ 0x14037AE60 (HalpTimerInitializeProfiling.c)
+ *     HalpTimerPrepareClockInterrupt @ 0x14037D09C (HalpTimerPrepareClockInterrupt.c)
+ *     HalpTimerInitializeClock @ 0x1403B1B90 (HalpTimerInitializeClock.c)
+ *     HalpTimerTestHypervisorTimer @ 0x14050B2CC (HalpTimerTestHypervisorTimer.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpInterruptGsiToLine @ 0x14031FF10 (HalpInterruptGsiToLine.c)
- *     HalpInterruptRemap @ 0x14037C0D8 (HalpInterruptRemap.c)
- *     HalpInterruptSetLineState @ 0x14037C70C (HalpInterruptSetLineState.c)
- *     HalpInterruptApplyOverrides @ 0x14037CAA8 (HalpInterruptApplyOverrides.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D270 (HalpInterruptSetIdtEntry.c)
- *     HalpInterruptIsMsiSupported @ 0x14038091C (HalpInterruptIsMsiSupported.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpInterruptLineToGsi @ 0x140505120 (HalpInterruptLineToGsi.c)
- *     HalpTimerSetupMessageInterruptRouting @ 0x1405097E8 (HalpTimerSetupMessageInterruptRouting.c)
- *     HalpTimerUnmapInterrupt @ 0x140509920 (HalpTimerUnmapInterrupt.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpInterruptGsiToLine @ 0x1403201A0 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptRemap @ 0x14037C278 (HalpInterruptRemap.c)
+ *     HalpInterruptSetLineState @ 0x14037C8AC (HalpInterruptSetLineState.c)
+ *     HalpInterruptApplyOverrides @ 0x14037CC48 (HalpInterruptApplyOverrides.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptSetIdtEntry @ 0x14037D410 (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptIsMsiSupported @ 0x140380ABC (HalpInterruptIsMsiSupported.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x140505670 (HalpInterruptLineToGsi.c)
+ *     HalpTimerSetupMessageInterruptRouting @ 0x140509D38 (HalpTimerSetupMessageInterruptRouting.c)
+ *     HalpTimerUnmapInterrupt @ 0x140509E70 (HalpTimerUnmapInterrupt.c)
  */
 
 __int64 __fastcall HalpTimerConfigureInterrupt(
@@ -227,10 +227,13 @@ LABEL_28:
     v32 = HalpAcquireHighLevelLock(&HalpInterruptLock);
     v20 = HalpInterruptSetLineState(&v39, a2, a3, v46[2], SHIDWORD(v46[1]), (__int64)&v41, (__int64)v40, v38);
     KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v32 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v32 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

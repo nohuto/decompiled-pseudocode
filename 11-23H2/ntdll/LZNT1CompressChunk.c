@@ -1,7 +1,7 @@
 /*
- * XREFs of LZNT1CompressChunk @ 0x18011B1AC
+ * XREFs of LZNT1CompressChunk @ 0x18011B17C
  * Callers:
- *     RtlCompressBufferLZNT1 @ 0x18011B640 (RtlCompressBufferLZNT1.c)
+ *     RtlCompressBufferLZNT1 @ 0x18011B610 (RtlCompressBufferLZNT1.c)
  * Callees:
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  *     memmove @ 0x1800A7A40 (memmove.c)
@@ -70,7 +70,7 @@ __int64 __fastcall LZNT1CompressChunk(
   v21 = v17 + 1;
   if ( (unsigned __int64)v10 < a3 )
   {
-    v22 = (unsigned int *)&unk_18015C21C;
+    v22 = (unsigned int *)&unk_18015C29C;
     while ( 1 )
     {
       if ( &a2[*v22] < v10 )

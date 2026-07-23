@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSuitableZeroingProcessorAvailable @ 0x1405280BC
+ * XREFs of MiSuitableZeroingProcessorAvailable @ 0x14052A72C
  * Callers:
- *     MiPeriodicZeroingNeeded @ 0x1402A64FC (MiPeriodicZeroingNeeded.c)
- *     MiImmediateZeroingNeeded @ 0x1402DEC2C (MiImmediateZeroingNeeded.c)
+ *     MiPeriodicZeroingNeeded @ 0x1402A58F4 (MiPeriodicZeroingNeeded.c)
+ *     MiImmediateZeroingNeeded @ 0x1402C09EC (MiImmediateZeroingNeeded.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiFindBestZeroingProcessor @ 0x1403E9158 (MiFindBestZeroingProcessor.c)
- *     MiGetNextEngineType @ 0x14051FCA8 (MiGetNextEngineType.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiFindBestZeroingProcessor @ 0x1402F6038 (MiFindBestZeroingProcessor.c)
+ *     MiGetNextEngineType @ 0x14052234C (MiGetNextEngineType.c)
  */
 
 __int64 __fastcall MiSuitableZeroingProcessorAvailable(__int64 a1, unsigned int a2, int a3)
@@ -30,7 +30,7 @@ __int64 __fastcall MiSuitableZeroingProcessorAvailable(__int64 a1, unsigned int 
   memset(v15, 0, sizeof(v15));
   v16 = 0LL;
   v17 = 0LL;
-  if ( stru_140E36558.SystemCallNumber || !*(_QWORD *)(a1 + 14192) )
+  if ( stru_140E366D8.SystemCallNumber || !*(_QWORD *)(a1 + 14192) )
     return 2LL;
   v5 = (volatile LONG *)(a1 + 14200);
   v6 = (volatile LONG *)(a1 + 14200);

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpStartSecurePageListIteration @ 0x14058C5B8
+ * XREFs of HvlpStartSecurePageListIteration @ 0x140589958
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x1405891B4 (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x140589290 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x140589E28 (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x14058A8F8 (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x140586494 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x140586570 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140587118 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x140587BE8 (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     HvlpGetPageListIterator @ 0x14058C440 (HvlpGetPageListIterator.c)
- *     HvlpSetupPageListIteration @ 0x14058C50C (HvlpSetupPageListIteration.c)
- *     VslStartSecurePageIteration @ 0x14058E6C8 (VslStartSecurePageIteration.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     HvlpGetPageListIterator @ 0x1405897E0 (HvlpGetPageListIterator.c)
+ *     HvlpSetupPageListIteration @ 0x1405898AC (HvlpSetupPageListIteration.c)
+ *     VslStartSecurePageIteration @ 0x14058B6FC (VslStartSecurePageIteration.c)
  */
 
 __int64 __fastcall HvlpStartSecurePageListIteration(int a1, int a2, char *a3, void *a4, unsigned int a5, LONGLONG **a6)

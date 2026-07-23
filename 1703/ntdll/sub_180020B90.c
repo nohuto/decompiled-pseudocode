@@ -20,10 +20,10 @@ __int64 __fastcall sub_180020B90(__int64 a1, __int64 a2, __int64 a3, unsigned in
   unsigned __int64 v12; // rdx
   char v13; // al
   char v14; // al
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v16; // rcx
-  unsigned __int64 v18[5]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v19; // [rsp+60h] [rbp+18h] BYREF
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
+  PVOID BaseAddress; // [rsp+20h] [rbp-28h] BYREF
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+18h] BYREF
   unsigned int v20; // [rsp+68h] [rbp+20h]
 
   v4 = 0LL;
@@ -50,9 +50,10 @@ __int64 __fastcall sub_180020B90(__int64 a1, __int64 a2, __int64 a3, unsigned in
       v10 = v20;
     if ( v9 )
     {
-      v19 = v10 << 12;
-      v18[0] = (v4 & 0xFFFFFFFFFFF00000uLL) + ((unsigned int)((__int64)(v4 - (v4 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12);
-      ZwFreeVirtualMemory(-1LL, v18, &v19, 0x4000LL);
+      RegionSize = v10 << 12;
+      BaseAddress = (PVOID)((v4 & 0xFFFFFFFFFFF00000uLL)
+                          + ((unsigned int)((__int64)(v4 - (v4 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12));
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x4000u);
       _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), -v9);
       if ( v4 < v4 + 32LL * v10 )
       {
@@ -72,13 +73,13 @@ __int64 __fastcall sub_180020B90(__int64 a1, __int64 a2, __int64 a3, unsigned in
         while ( v12 );
       }
       *(_BYTE *)(a2 + 26) = ~(~*(_BYTE *)(a2 + 26) - v9);
-      HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-      if ( HotpatchInformation && *HotpatchInformation )
-        v16 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+      SharedData = NtCurrentPeb()->SharedData;
+      if ( SharedData && SharedData->ServiceSessionId )
+        UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
       else
-        v16 = 2147353472LL;
-      if ( *(_BYTE *)v16 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-        sub_1800FFA00(a1, v18[0], v19, 13LL);
+        UserModeGlobalLogger = 2147353472LL;
+      if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+        sub_1800FFA00(a1, BaseAddress, RegionSize, 13LL);
     }
   }
   return (unsigned int)v9;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfReadFeedback @ 0x1402577E0
+ * XREFs of PpmPerfReadFeedback @ 0x140258FC0
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckQueueControlAction @ 0x1402577FC (PpmCheckQueueControlAction.c)
+ *     PpmCheckQueueControlAction @ 0x140258FDC (PpmCheckQueueControlAction.c)
  */
 
 __int64 PpmPerfReadFeedback()
 {
-  return PpmCheckQueueControlAction(stru_140F11D08.SystemAffinityTokenListHead.Next);
+  return PpmCheckQueueControlAction(PpmPerfControlReadFeedback);
 }

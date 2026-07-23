@@ -1,24 +1,24 @@
 /*
- * XREFs of IoGetEnvironmentVariableEx @ 0x140908318
+ * XREFs of IoGetEnvironmentVariableEx @ 0x140A30478
  * Callers:
- *     ExpSetBootEntry @ 0x14083BEC0 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x14083C5DC (ExpSetDriverEntry.c)
- *     NtDeleteBootEntry @ 0x14083D0F0 (NtDeleteBootEntry.c)
- *     NtDeleteDriverEntry @ 0x14083D290 (NtDeleteDriverEntry.c)
- *     NtGetEnvironmentVariableEx @ 0x14083DA50 (NtGetEnvironmentVariableEx.c)
- *     NtQueryBootOptions @ 0x140906480 (NtQueryBootOptions.c)
- *     NtQuerySystemEnvironmentValueEx @ 0x140907320 (NtQuerySystemEnvironmentValueEx.c)
- *     ExpGetFirmwareEnvironmentVariable @ 0x140907D64 (ExpGetFirmwareEnvironmentVariable.c)
- *     NtQueryBootEntryOrder @ 0x140B34660 (NtQueryBootEntryOrder.c)
- *     IopCachePreviousBootData @ 0x140CBA3B8 (IopCachePreviousBootData.c)
- *     IopInitializeOfflineCrashDump @ 0x140CBA6C4 (IopInitializeOfflineCrashDump.c)
+ *     ExpSetBootEntry @ 0x140842100 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x14084281C (ExpSetDriverEntry.c)
+ *     NtDeleteBootEntry @ 0x140843330 (NtDeleteBootEntry.c)
+ *     NtDeleteDriverEntry @ 0x1408434D0 (NtDeleteDriverEntry.c)
+ *     NtGetEnvironmentVariableEx @ 0x140843C90 (NtGetEnvironmentVariableEx.c)
+ *     NtQueryBootEntryOrder @ 0x140A2E370 (NtQueryBootEntryOrder.c)
+ *     NtQueryBootOptions @ 0x140A2E7B0 (NtQueryBootOptions.c)
+ *     NtQuerySystemEnvironmentValueEx @ 0x140A2F580 (NtQuerySystemEnvironmentValueEx.c)
+ *     ExpGetFirmwareEnvironmentVariable @ 0x140A2FEC4 (ExpGetFirmwareEnvironmentVariable.c)
+ *     IopCachePreviousBootData @ 0x140CC03F8 (IopCachePreviousBootData.c)
+ *     IopInitializeOfflineCrashDump @ 0x140CC0704 (IopInitializeOfflineCrashDump.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IopOpenSystemVariableDevice @ 0x1409084B8 (IopOpenSystemVariableDevice.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IopOpenSystemVariableDevice @ 0x140A30618 (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoGetEnvironmentVariableEx(const WCHAR *a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
@@ -68,7 +68,7 @@ __int64 __fastcall IoGetEnvironmentVariableEx(const WCHAR *a1, __int64 a2, __int
     v21 = 4LL;
     LODWORD(v13) = v8;
     v23 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06DC8, (unsigned __int8 *)byte_140047C79, 0LL, 0LL, 7u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06DC8, (unsigned __int8 *)&byte_140048197, 0LL, 0LL, 7u, &v14);
   }
   return (unsigned int)v8;
 }

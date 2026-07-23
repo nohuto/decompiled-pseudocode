@@ -1,23 +1,23 @@
 /*
- * XREFs of PsGetNextPartition @ 0x14036AD70
+ * XREFs of PsGetNextPartition @ 0x14036AF10
  * Callers:
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MmSetTrimWhileAgingState @ 0x14036AD34 (MmSetTrimWhileAgingState.c)
- *     EtwpLogMemNodeInfo @ 0x140467A86 (EtwpLogMemNodeInfo.c)
- *     ExpCheckForWorker @ 0x14060CC08 (ExpCheckForWorker.c)
- *     MiFreeExcessSegments @ 0x140624A1C (MiFreeExcessSegments.c)
- *     MmEmptyAllWorkingSets @ 0x140635650 (MmEmptyAllWorkingSets.c)
- *     MmTrimFilePagesFromWorkingSets @ 0x14063569C (MmTrimFilePagesFromWorkingSets.c)
- *     MmFlushAllPagesEx @ 0x14063BCC8 (MmFlushAllPagesEx.c)
- *     MiWakeAllZeroConductors @ 0x14065560C (MiWakeAllZeroConductors.c)
- *     MmSetMinimumAgeRate @ 0x1407E6E60 (MmSetMinimumAgeRate.c)
- *     ExpNodeHotAddProcessorWorker @ 0x140A007D0 (ExpNodeHotAddProcessorWorker.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MmSetTrimWhileAgingState @ 0x14036AED4 (MmSetTrimWhileAgingState.c)
+ *     EtwpLogMemNodeInfo @ 0x140467E86 (EtwpLogMemNodeInfo.c)
+ *     ExpCheckForWorker @ 0x14060D158 (ExpCheckForWorker.c)
+ *     MiFreeExcessSegments @ 0x140624F6C (MiFreeExcessSegments.c)
+ *     MmEmptyAllWorkingSets @ 0x140635BA0 (MmEmptyAllWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x140635BEC (MmTrimFilePagesFromWorkingSets.c)
+ *     MmFlushAllPagesEx @ 0x14063C218 (MmFlushAllPagesEx.c)
+ *     MiWakeAllZeroConductors @ 0x140655B5C (MiWakeAllZeroConductors.c)
+ *     MmSetMinimumAgeRate @ 0x1407E7130 (MmSetMinimumAgeRate.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x140A00A60 (ExpNodeHotAddProcessorWorker.c)
  *     MmEnablePeriodicAccessClearing @ 0x140A88A18 (MmEnablePeriodicAccessClearing.c)
- *     MiMirrorBrownPhase @ 0x140AAC62C (MiMirrorBrownPhase.c)
+ *     MiMirrorBrownPhase @ 0x140AAC49C (MiMirrorBrownPhase.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     PsGetNextPartitionUnsafe @ 0x140310EF0 (PsGetNextPartitionUnsafe.c)
+ *     PsReferencePartitionSafe @ 0x1402F9EAC (PsReferencePartitionSafe.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     PsGetNextPartitionUnsafe @ 0x140311180 (PsGetNextPartitionUnsafe.c)
  */
 
 _QWORD *__fastcall PsGetNextPartition(_QWORD *a1)

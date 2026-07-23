@@ -1,19 +1,19 @@
 /*
- * XREFs of ExtEnvAllocatePhysicalMemory @ 0x140597C14
+ * XREFs of ExtEnvAllocatePhysicalMemory @ 0x14059A394
  * Callers:
- *     IvtAllocateScalableModePasidTables @ 0x140509A4C (IvtAllocateScalableModePasidTables.c)
- *     IvtAllocateContextTable @ 0x14050F398 (IvtAllocateContextTable.c)
- *     IvtExtendScalableModePasidTables @ 0x1405A6390 (IvtExtendScalableModePasidTables.c)
- *     HsaAllocateRemappingTableEntry @ 0x1405A8C60 (HsaAllocateRemappingTableEntry.c)
+ *     IvtAllocateScalableModePasidTables @ 0x1405034FC (IvtAllocateScalableModePasidTables.c)
+ *     IvtAllocateContextTable @ 0x140508E08 (IvtAllocateContextTable.c)
+ *     IvtExtendScalableModePasidTables @ 0x1405A8BA0 (IvtExtendScalableModePasidTables.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1405AB470 (HsaAllocateRemappingTableEntry.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x140349920 (MmAllocateContiguousMemorySpecifyCacheNode.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140D08980 (HalpAllocPhysicalMemoryEx.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14034B9A0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140D0EC50 (HalpAllocPhysicalMemoryEx.c)
  */
 
 __int64 __fastcall ExtEnvAllocatePhysicalMemory(
@@ -81,7 +81,7 @@ LABEL_14:
   {
     v28 = -1LL;
     v18.QuadPart = HalpAllocPhysicalMemoryEx(
-                     *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[96],
+                     *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[64],
                      (unsigned int)&v28,
                      (unsigned int)(v9 + 4095) >> 12,
                      v8.LowPart,

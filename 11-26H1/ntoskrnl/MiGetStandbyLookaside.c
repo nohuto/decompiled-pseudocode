@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetStandbyLookaside @ 0x1402CC360
+ * XREFs of MiGetStandbyLookaside @ 0x1402AE120
  * Callers:
- *     MiRebuildStandbyLookasideList @ 0x1402CB3C4 (MiRebuildStandbyLookasideList.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402AD184 (MiRebuildStandbyLookasideList.c)
  * Callees:
  *     <none>
  */

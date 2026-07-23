@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpTryToRundownHive @ 0x140361574
+ * XREFs of CmpTryToRundownHive @ 0x140213B70
  * Callers:
- *     CmpLateUnloadHiveWorker @ 0x14071C570 (CmpLateUnloadHiveWorker.c)
+ *     CmpLateUnloadHiveWorker @ 0x1405DFF10 (CmpLateUnloadHiveWorker.c)
  * Callees:
- *     ExRundownCompleted @ 0x140251F40 (ExRundownCompleted.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     ExpUnblockPushLock @ 0x14029CE28 (ExpUnblockPushLock.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
- *     UNLOCK_HIVE_LOAD @ 0x1406725C0 (UNLOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x140672754 (LOCK_HIVE_LOAD.c)
- *     CmSnapshotRMTxArray @ 0x1406A3B98 (CmSnapshotRMTxArray.c)
- *     CmShutdownCmRM @ 0x1406BB458 (CmShutdownCmRM.c)
- *     CmCloseRmHandle @ 0x1406C2CB0 (CmCloseRmHandle.c)
- *     CmCloseTmHandle @ 0x1406C2CD8 (CmCloseTmHandle.c)
- *     CmpLogTransactionAbortedForRollbackPacket @ 0x1406C3144 (CmpLogTransactionAbortedForRollbackPacket.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpDoesKeyHaveOpenSubkeys @ 0x14071984C (CmpDoesKeyHaveOpenSubkeys.c)
- *     CmpCleanupRollbackPacket @ 0x14071C518 (CmpCleanupRollbackPacket.c)
- *     CmpInitializeRollbackPacket @ 0x14071C554 (CmpInitializeRollbackPacket.c)
- *     CmpAbortRollbackPacket @ 0x14077A8CC (CmpAbortRollbackPacket.c)
- *     CmObliterateRMTxArray @ 0x140872A14 (CmObliterateRMTxArray.c)
+ *     ExpUnblockPushLock @ 0x140214048 (ExpUnblockPushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     ExRundownCompleted @ 0x1402F6750 (ExRundownCompleted.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     CmpCleanupRollbackPacket @ 0x1405E094C (CmpCleanupRollbackPacket.c)
+ *     CmpInitializeRollbackPacket @ 0x1405E0988 (CmpInitializeRollbackPacket.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x1405E0998 (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmShutdownCmRM @ 0x1405E0E38 (CmShutdownCmRM.c)
+ *     CmCloseTmHandle @ 0x1405E114C (CmCloseTmHandle.c)
+ *     CmCloseRmHandle @ 0x1405E1174 (CmCloseRmHandle.c)
+ *     CmpLogTransactionAbortedForRollbackPacket @ 0x1405E119C (CmpLogTransactionAbortedForRollbackPacket.c)
+ *     CmSnapshotRMTxArray @ 0x1405E1668 (CmSnapshotRMTxArray.c)
+ *     CmpReleaseShutdownRundown @ 0x14064A4A0 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x14064B8D0 (CmpAcquireShutdownRundown.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406677F0 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x140667920 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x140667984 (LOCK_HIVE_LOAD.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpAbortRollbackPacket @ 0x14077AA8C (CmpAbortRollbackPacket.c)
+ *     CmObliterateRMTxArray @ 0x140872B74 (CmObliterateRMTxArray.c)
  */
 
 char CmpTryToRundownHive(struct _EX_RUNDOWN_REF *a1, __int64 a2, _BYTE *a3, ...)
@@ -102,7 +102,7 @@ LABEL_26:
           {
             _InterlockedOr(v19, 0);
             if ( CmpActiveHiveRundownEvent )
-              ExpUnblockPushLock(&CmpActiveHiveRundownEvent, 0LL, 0);
+              ExpUnblockPushLock(&CmpActiveHiveRundownEvent, 0LL, 0LL);
           }
         }
         CmpCleanupRollbackPacket(v20);
@@ -141,7 +141,7 @@ LABEL_15:
   {
     _InterlockedOr(v19, 0);
     if ( CmpActiveHiveRundownEvent )
-      ExpUnblockPushLock(&CmpActiveHiveRundownEvent, 0LL, 0);
+      ExpUnblockPushLock(&CmpActiveHiveRundownEvent, 0LL, 0LL);
   }
   CmpCleanupRollbackPacket(v20);
   if ( !v9 )

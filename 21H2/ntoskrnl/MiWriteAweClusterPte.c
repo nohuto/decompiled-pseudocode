@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWriteAweClusterPte @ 0x14054E1E4
+ * XREFs of MiWriteAweClusterPte @ 0x14054E424
  * Callers:
- *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
+ *     MiWriteAwePtes @ 0x14054E4D8 (MiWriteAwePtes.c)
  * Callees:
- *     MiWriteValidPteNewPage @ 0x1402B68F8 (MiWriteValidPteNewPage.c)
- *     MiRewritePteWithLockBit @ 0x1403B6C18 (MiRewritePteWithLockBit.c)
+ *     MiWriteValidPteNewPage @ 0x140234AD8 (MiWriteValidPteNewPage.c)
+ *     MiRewritePteWithLockBit @ 0x1403B6D88 (MiRewritePteWithLockBit.c)
  */
 
 void __fastcall MiWriteAweClusterPte(__int64 a1, __int64 *a2, __int64 a3, int a4, __int64 a5)

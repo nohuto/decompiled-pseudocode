@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertMappingNode @ 0x1404D8B44
+ * XREFs of MiInsertMappingNode @ 0x1404D2228
  * Callers:
- *     MmAllocateMappingAddressEx @ 0x140AF1F50 (MmAllocateMappingAddressEx.c)
+ *     MmAllocateMappingAddressEx @ 0x140AF4820 (MmAllocateMappingAddressEx.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
  */
 
 void __fastcall MiInsertMappingNode(_QWORD *a1)
@@ -19,11 +19,11 @@ void __fastcall MiInsertMappingNode(_QWORD *a1)
   _QWORD *v7; // rcx
 
   v1 = a1[3];
-  v3 = ExAcquireSpinLockExclusive(&dword_140E34B68);
-  v4 = (_QWORD *)qword_140E34B70;
+  v3 = ExAcquireSpinLockExclusive(&dword_140E34CE8);
+  v4 = (_QWORD *)qword_140E34CF0;
   v5 = 0;
   v6 = v3;
-  if ( !qword_140E34B70 )
+  if ( !qword_140E34CF0 )
     goto LABEL_5;
   while ( v1 < v4[3] )
   {
@@ -38,9 +38,9 @@ LABEL_8:
     goto LABEL_8;
   v5 = 1;
 LABEL_5:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E34B70, (unsigned __int64)v4, v5, a1);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E34CF0, (unsigned __int64)v4, v5, a1);
   if ( v6 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34B68);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34CE8);
   else
-    ExReleaseSpinLockExclusive(&dword_140E34B68, v6);
+    ExReleaseSpinLockExclusive(&dword_140E34CE8, v6);
 }

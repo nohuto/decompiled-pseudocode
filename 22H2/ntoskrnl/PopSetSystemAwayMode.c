@@ -15,7 +15,7 @@
 __int64 __fastcall PopSetSystemAwayMode(int a1)
 {
   unsigned int v1; // ebx
-  __int64 v2; // rdx
+  char v2; // dl
 
   v1 = 0;
   if ( a1 )
@@ -50,7 +50,7 @@ __int64 __fastcall PopSetSystemAwayMode(int a1)
   else if ( byte_140C23351 )
   {
     PopSetAwayModeStatus(0);
-    PopNotifyConsoleUserPresent(0LL, v2, PopAwaymodeExitReason);
+    PopNotifyConsoleUserPresent(0, v2, PopAwaymodeExitReason);
   }
   return v1;
 }

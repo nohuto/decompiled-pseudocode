@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetIntervalProfile @ 0x1407C43E0
+ * XREFs of NtSetIntervalProfile @ 0x1407C2200
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140A440A4 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140A39934 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     KeSetIntervalProfile @ 0x140AC23D4 (KeSetIntervalProfile.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     KeSetIntervalProfile @ 0x140ABD6BC (KeSetIntervalProfile.c)
  */
 
-__int64 __fastcall NtSetIntervalProfile(unsigned int a1, unsigned int a2)
+NTSTATUS __cdecl NtSetIntervalProfile(ULONG Interval, KPROFILE_SOURCE Source)
 {
   if ( !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, KeGetCurrentThread()->PreviousMode) )
-    return 3221225569LL;
-  KeSetIntervalProfile(a1, a2);
-  return 0LL;
+    return -1073741727;
+  KeSetIntervalProfile(Interval, (unsigned int)Source);
+  return 0;
 }

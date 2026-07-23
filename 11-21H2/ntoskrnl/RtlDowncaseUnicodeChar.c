@@ -3,15 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     NLS_DOWNCASE @ 0x140239F60 (NLS_DOWNCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140239F60 @ 0x140239F60 (sub_140239F60.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
 WCHAR __stdcall RtlDowncaseUnicodeChar(WCHAR SourceCharacter)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
+  _QWORD *v1; // rax
   unsigned __int16 v2; // dx
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  return NLS_DOWNCASE(CurrentServerSiloGlobals[155], v2);
+  v1 = sub_140347DB0();
+  return sub_140239F60(v1[155], v2);
 }

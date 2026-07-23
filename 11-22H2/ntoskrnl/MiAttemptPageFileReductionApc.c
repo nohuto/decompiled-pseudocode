@@ -38,7 +38,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   int v16; // r10d
   unsigned __int64 v17; // r12
   __int64 v18; // r11
-  RTL_BITMAP *v19; // r9
+  _RTL_BITMAP *v19; // r9
   unsigned __int64 v20; // r8
   char v21; // cl
   unsigned int *Buffer; // r9
@@ -58,7 +58,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   _DWORD *v36; // r9
   int v37; // eax
   bool v38; // zf
-  RTL_BITMAP *v39; // rcx
+  _RTL_BITMAP *v39; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -71,7 +71,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   KIRQL v49; // al
   __int64 v50; // rdx
   unsigned __int64 v51; // r15
-  RTL_BITMAP *v52; // rbx
+  _RTL_BITMAP *v52; // rbx
   unsigned __int8 v53; // al
   struct _KPRCB *v54; // r9
   _DWORD *v55; // r8
@@ -85,8 +85,8 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int64 v64; // [rsp+58h] [rbp-21h]
   PEX_SPIN_LOCK SpinLock; // [rsp+60h] [rbp-19h]
   __int64 v66; // [rsp+68h] [rbp-11h]
-  RTL_BITMAP BitMapHeader; // [rsp+70h] [rbp-9h] BYREF
-  RTL_BITMAP v68; // [rsp+80h] [rbp+7h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+70h] [rbp-9h] BYREF
+  _RTL_BITMAP v68; // [rsp+80h] [rbp+7h] BYREF
   PRTL_BITMAP v69; // [rsp+90h] [rbp+17h]
   PRTL_BITMAP v70; // [rsp+98h] [rbp+1Fh]
   struct _KEVENT *Event; // [rsp+E0h] [rbp+67h]
@@ -161,7 +161,7 @@ LABEL_61:
     v16 = *(_DWORD *)v12;
     v17 = v14;
     v18 = *(_QWORD *)(v15 + 16);
-    v19 = (RTL_BITMAP *)(v15 + 24);
+    v19 = (_RTL_BITMAP *)(v15 + 24);
     v20 = (unsigned __int64)(unsigned int)(*(_DWORD *)v12 - 1) >> 3;
     v69 = (PRTL_BITMAP)(v15 + 8);
     v21 = (v16 - 1) & 7;
@@ -226,10 +226,13 @@ LABEL_40:
               RtlSetBits(v70, v31, v28);
               MiInvalidatePageFileBitmapsCache(v12, v31, v28, 0LL);
               ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 232));
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 CurrentIrql = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                  && CurrentIrql <= 0xFu
+                  && (unsigned __int8)v17 <= 0xFu
+                  && CurrentIrql >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -254,17 +257,20 @@ LABEL_40:
                   *(_QWORD *)(v12 + 48) += v28;
                   *(_QWORD *)v12 = v28 + v31;
                   v51 = v49;
-                  v52 = (RTL_BITMAP *)(v50 + 24);
+                  v52 = (_RTL_BITMAP *)(v50 + 24);
                   RtlClearBits((PRTL_BITMAP)(v50 + 8), v31, v28);
                   RtlClearBits(v52, v31, v28);
                   if ( v31 < *(unsigned int *)(v12 + 120) )
                     *(_DWORD *)(v12 + 120) = v31;
                   MiCoalescePageFileBitmapsCache(v12, 0, v31);
                   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 232));
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v53 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && v53 <= 0xFu && (unsigned __int8)v51 <= 0xFu && v53 >= 2u )
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                      && v53 <= 0xFu
+                      && (unsigned __int8)v51 <= 0xFu
+                      && v53 >= 2u )
                     {
                       v54 = KeGetCurrentPrcb();
                       v55 = v54->SchedulerAssist;
@@ -286,10 +292,10 @@ LABEL_40:
             }
           }
           ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v34 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v34 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v34 >= 2u )
             {
               v35 = KeGetCurrentPrcb();
               v36 = v35->SchedulerAssist;
@@ -311,10 +317,10 @@ LABEL_60:
       }
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v45 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v45 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v45 >= 2u )
       {
         v46 = KeGetCurrentPrcb();
         v47 = v46->SchedulerAssist;

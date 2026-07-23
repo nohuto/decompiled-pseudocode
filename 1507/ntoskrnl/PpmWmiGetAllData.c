@@ -22,7 +22,7 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
   __int64 v15; // rax
   __int64 v16; // rbp
   __int64 v17; // rcx
-  unsigned __int64 v18; // rcx
+  __int64 v18; // rcx
   __int64 v19; // rcx
   unsigned int v20; // ecx
   int v21; // r12d
@@ -31,7 +31,7 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
   _DWORD *v24; // rdi
   __int64 v25; // rax
   __int64 v26; // rcx
-  unsigned __int64 v27; // rcx
+  __int64 v27; // rcx
   __int64 v28; // r9
   unsigned int v29; // eax
   __int64 v30; // r8
@@ -47,9 +47,9 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
   char v40; // [rsp+70h] [rbp+8h]
 
   v39 = (__int64)(a1 - 2976);
-  v10 = PPM_IDLESTATES_DATA_GUID - *a2;
+  v10 = *(_QWORD *)&PPM_IDLESTATES_DATA_GUID.Data1 - *a2;
   if ( !v10 )
-    v10 = 0xE710D47A1ACF1686uLL - a2[1];
+    v10 = *(_QWORD *)PPM_IDLESTATES_DATA_GUID.Data4 - a2[1];
   v11 = 0;
   if ( v10 )
   {
@@ -68,19 +68,19 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
   }
   v15 = *a2;
   v16 = a1[46];
-  v17 = PPM_PERFSTATES_DATA_GUID - *a2;
-  if ( PPM_PERFSTATES_DATA_GUID == *a2 )
-    v17 = 0x26018D33012BAAB4LL - a2[1];
+  v17 = *(_QWORD *)&PPM_PERFSTATES_DATA_GUID.Data1 - *a2;
+  if ( *(_QWORD *)&PPM_PERFSTATES_DATA_GUID.Data1 == *a2 )
+    v17 = *(_QWORD *)PPM_PERFSTATES_DATA_GUID.Data4 - a2[1];
   if ( v17 || !v16 )
   {
-    v18 = PPM_IDLESTATES_DATA_GUID - v15;
-    if ( PPM_IDLESTATES_DATA_GUID == v15 )
-      v18 = 0xE710D47A1ACF1686uLL - a2[1];
+    v18 = *(_QWORD *)&PPM_IDLESTATES_DATA_GUID.Data1 - v15;
+    if ( *(_QWORD *)&PPM_IDLESTATES_DATA_GUID.Data1 == v15 )
+      v18 = *(_QWORD *)PPM_IDLESTATES_DATA_GUID.Data4 - a2[1];
     if ( v18 || !*a1 )
     {
-      v19 = PPM_PERFMON_PERFSTATE_GUID - *a2;
-      if ( PPM_PERFMON_PERFSTATE_GUID == *a2 )
-        v19 = 0x9E75876A060BA1B0uLL - a2[1];
+      v19 = *(_QWORD *)&PPM_PERFMON_PERFSTATE_GUID.Data1 - *a2;
+      if ( *(_QWORD *)&PPM_PERFMON_PERFSTATE_GUID.Data1 == *a2 )
+        v19 = *(_QWORD *)PPM_PERFMON_PERFSTATE_GUID.Data4 - a2[1];
       if ( v19 || !v16 )
       {
         v22 = -1073741808;
@@ -119,19 +119,19 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
     v24 = (_DWORD *)(a4 + v20);
     memset(v24, 0, (unsigned int)v10);
     v25 = *a2;
-    v26 = PPM_PERFSTATES_DATA_GUID - *a2;
-    if ( PPM_PERFSTATES_DATA_GUID == *a2 )
-      v26 = 0x26018D33012BAAB4LL - a2[1];
+    v26 = *(_QWORD *)&PPM_PERFSTATES_DATA_GUID.Data1 - *a2;
+    if ( *(_QWORD *)&PPM_PERFSTATES_DATA_GUID.Data1 == *a2 )
+      v26 = *(_QWORD *)PPM_PERFSTATES_DATA_GUID.Data4 - a2[1];
     if ( v26 || !v16 )
     {
-      v27 = PPM_IDLESTATES_DATA_GUID - v25;
-      if ( PPM_IDLESTATES_DATA_GUID == v25 )
-        v27 = 0xE710D47A1ACF1686uLL - a2[1];
+      v27 = *(_QWORD *)&PPM_IDLESTATES_DATA_GUID.Data1 - v25;
+      if ( *(_QWORD *)&PPM_IDLESTATES_DATA_GUID.Data1 == v25 )
+        v27 = *(_QWORD *)PPM_IDLESTATES_DATA_GUID.Data4 - a2[1];
       if ( v27 || !*a1 )
       {
-        v33 = PPM_PERFMON_PERFSTATE_GUID - *a2;
-        if ( PPM_PERFMON_PERFSTATE_GUID == *a2 )
-          v33 = 0x9E75876A060BA1B0uLL - a2[1];
+        v33 = *(_QWORD *)&PPM_PERFMON_PERFSTATE_GUID.Data1 - *a2;
+        if ( *(_QWORD *)&PPM_PERFMON_PERFSTATE_GUID.Data1 == *a2 )
+          v33 = *(_QWORD *)PPM_PERFMON_PERFSTATE_GUID.Data4 - a2[1];
         if ( !v33 && v16 )
           PpmPerfGetCurrentState(v39, v24, 0LL, v24 + 2, v24 + 1, 0LL);
       }

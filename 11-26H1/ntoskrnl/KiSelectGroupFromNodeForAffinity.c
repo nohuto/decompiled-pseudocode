@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSelectGroupFromNodeForAffinity @ 0x1405EFE88
+ * XREFs of KiSelectGroupFromNodeForAffinity @ 0x1405F27F8
  * Callers:
- *     KeSetAffinityProcess @ 0x14050BCE4 (KeSetAffinityProcess.c)
+ *     KeSetAffinityProcess @ 0x140505754 (KeSetAffinityProcess.c)
  * Callees:
  *     KeCountSetBitsGroupMask @ 0x1402007F0 (KeCountSetBitsGroupMask.c)
- *     KeFindNextSetRightGroupMask @ 0x1404C1FA8 (KeFindNextSetRightGroupMask.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeFindNextSetRightGroupMask @ 0x1404BB7F8 (KeFindNextSetRightGroupMask.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiSelectGroupFromNodeForAffinity(__int64 a1, _WORD *a2, __int64 a3)

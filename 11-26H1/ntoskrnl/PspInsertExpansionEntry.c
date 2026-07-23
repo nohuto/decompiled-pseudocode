@@ -1,10 +1,10 @@
 /*
- * XREFs of PspInsertExpansionEntry @ 0x140614D5C
+ * XREFs of PspInsertExpansionEntry @ 0x140617B9C
  * Callers:
- *     PspInitializeQuotaBlock @ 0x1407EFFF0 (PspInitializeQuotaBlock.c)
+ *     PspInitializeQuotaBlock @ 0x1407F5B50 (PspInitializeQuotaBlock.c)
  * Callees:
- *     PspUnlockQuotaExpansion @ 0x1403BDC0C (PspUnlockQuotaExpansion.c)
- *     PspLockQuotaExpansion @ 0x1403BDC84 (PspLockQuotaExpansion.c)
+ *     PspUnlockQuotaExpansion @ 0x1403C7A7C (PspUnlockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x1403C7AF4 (PspLockQuotaExpansion.c)
  */
 
 void __fastcall PspInsertExpansionEntry(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

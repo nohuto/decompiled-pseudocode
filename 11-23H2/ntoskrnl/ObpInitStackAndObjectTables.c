@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpInitStackAndObjectTables @ 0x14097CF68
+ * XREFs of ObpInitStackAndObjectTables @ 0x14097D168
  * Callers:
- *     ObpStartRuntimeStackTrace @ 0x14097D5B4 (ObpStartRuntimeStackTrace.c)
+ *     ObpStartRuntimeStackTrace @ 0x14097D7B4 (ObpStartRuntimeStackTrace.c)
  *     ObpInitStackTrace @ 0x140B71560 (ObpInitStackTrace.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -18,7 +18,7 @@ __int64 ObpInitStackAndObjectTables()
   __int64 v1; // rax
   _WORD *v2; // rcx
   int v3; // ebx
-  struct _SLIST_ENTRY *v4; // rax
+  _SLIST_ENTRY *v4; // rax
   PSLIST_ENTRY v6; // rbx
   PSLIST_ENTRY v7; // rcx
   void *v8; // rcx
@@ -50,7 +50,7 @@ LABEL_14:
       ObpWorkItemFreeList = 0LL;
       while ( 1 )
       {
-        v4 = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 176LL, 1951556175LL);
+        v4 = (_SLIST_ENTRY *)ExAllocatePool2(64LL, 176LL, 1951556175LL);
         if ( !v4 )
           break;
         RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, v4);

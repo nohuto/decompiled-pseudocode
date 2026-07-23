@@ -1,33 +1,33 @@
 /*
- * XREFs of MiInitializeDynamicBitmap @ 0x1407868DC
+ * XREFs of MiInitializeDynamicBitmap @ 0x140786A9C
  * Callers:
- *     MiBuildDynamicRegion @ 0x1403B5F84 (MiBuildDynamicRegion.c)
- *     MiSessionCreate @ 0x14078620C (MiSessionCreate.c)
- *     MiCreatePfnBitMaps @ 0x1407B94E4 (MiCreatePfnBitMaps.c)
- *     MiInitializeSystemPtes @ 0x140A4E1C4 (MiInitializeSystemPtes.c)
- *     MiInitializePteInfo @ 0x140A4E918 (MiInitializePteInfo.c)
- *     MiInitializeMirroring @ 0x140A54728 (MiInitializeMirroring.c)
- *     MiCreateRetpolineBitmap @ 0x140A9244C (MiCreateRetpolineBitmap.c)
+ *     MiBuildDynamicRegion @ 0x1403B60F4 (MiBuildDynamicRegion.c)
+ *     MiSessionCreate @ 0x1407863CC (MiSessionCreate.c)
+ *     MiCreatePfnBitMaps @ 0x1407B9A04 (MiCreatePfnBitMaps.c)
+ *     MiInitializeSystemPtes @ 0x140A4F1C4 (MiInitializeSystemPtes.c)
+ *     MiInitializePteInfo @ 0x140A4F918 (MiInitializePteInfo.c)
+ *     MiInitializeMirroring @ 0x140A55728 (MiInitializeMirroring.c)
+ *     MiCreateRetpolineBitmap @ 0x140A9344C (MiCreateRetpolineBitmap.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiPartitionIdToPointer @ 0x1402CBF58 (MiPartitionIdToPointer.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiSetPfnLink @ 0x14031818C (MiSetPfnLink.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     MiTransformValidPteInPlace @ 0x140379058 (MiTransformValidPteInPlace.c)
- *     MiLockPageTable @ 0x14038216C (MiLockPageTable.c)
- *     MiMakeZeroedPageTables @ 0x14039DE40 (MiMakeZeroedPageTables.c)
- *     MiUnlockPageTable @ 0x1403B6C60 (MiUnlockPageTable.c)
- *     MiReturnPfnList @ 0x1403BA9A0 (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x1403CED94 (MiReturnSplitPageCharges.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiPartitionIdToPointer @ 0x14024A6C4 (MiPartitionIdToPointer.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiReadPteShadow @ 0x140310780 (MiReadPteShadow.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiSetPfnLink @ 0x140322EDC (MiSetPfnLink.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     MiTransformValidPteInPlace @ 0x140378BA8 (MiTransformValidPteInPlace.c)
+ *     MiLockPageTable @ 0x140381CBC (MiLockPageTable.c)
+ *     MiMakeZeroedPageTables @ 0x14039DF90 (MiMakeZeroedPageTables.c)
+ *     MiUnlockPageTable @ 0x1403B6DD0 (MiUnlockPageTable.c)
+ *     MiReturnPfnList @ 0x1403BAB10 (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x1403CEF04 (MiReturnSplitPageCharges.c)
  */
 
 __int64 __fastcall MiInitializeDynamicBitmap(_QWORD *a1, unsigned __int64 a2, __int64 a3, char a4)
@@ -79,13 +79,13 @@ __int64 __fastcall MiInitializeDynamicBitmap(_QWORD *a1, unsigned __int64 a2, __
   v36 = 0LL;
   if ( (a4 & 4) != 0 )
   {
-    v11 = qword_140C4ED80;
-    v12 = qword_140C4EDF0;
+    v11 = qword_140C4EDC0;
+    v12 = qword_140C4EE30;
   }
   else
   {
-    v11 = qword_140C4ED68;
-    v12 = qword_140C4EE00;
+    v11 = qword_140C4EDA8;
+    v12 = qword_140C4EE40;
   }
   AnyMultiplexedVm = 0LL;
   v40 = 17;
@@ -137,7 +137,7 @@ LABEL_26:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v22 = 1;
-        if ( !HIBYTE(word_140C4E008) && (ValidPte & 1) != 0 )
+        if ( !HIBYTE(word_140C4E048) && (ValidPte & 1) != 0 )
           v21 = ValidPte | 0x8000000000000000uLL;
         goto LABEL_12;
       }
@@ -151,7 +151,7 @@ LABEL_26:
 LABEL_12:
     *(_QWORD *)PteAddress = v21;
     if ( v22 )
-      MiWritePteShadow(PteAddress, v21, v18);
+      MiWritePteShadow(PteAddress, v21);
     PteAddress += 8LL;
 LABEL_15:
     v20 = v32;

@@ -9,22 +9,22 @@
  *     _NtFreeVirtualMemory@16 @ 0x4B2F2B60 (_NtFreeVirtualMemory@16.c)
  */
 
-int __stdcall RtlDestroyMemoryZone(int a1)
+NTSTATUS __cdecl RtlDestroyMemoryZone(PVOID MemoryZone)
 {
   _DWORD *v1; // esi
-  _DWORD *v3; // [esp+4h] [ebp-8h] BYREF
-  int v4; // [esp+8h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+4h] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+8h] [ebp-4h] BYREF
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 16));
-  if ( *(_DWORD *)(a1 + 20) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
+  if ( *((_DWORD *)MemoryZone + 5) )
     RtlpUnregisterLockedMemoryZone();
-  v1 = *(_DWORD **)(a1 + 24);
+  v1 = (_DWORD *)*((_DWORD *)MemoryZone + 6);
   while ( v1 )
   {
-    v3 = v1;
-    v4 = v1[1];
+    BaseAddress = v1;
+    LODWORD(RegionSize) = v1[1];
     v1 = (_DWORD *)*v1;
-    NtFreeVirtualMemory(-1, (int)&v3, (int)&v4, 0x8000);
+    NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
   }
   return 0;
 }

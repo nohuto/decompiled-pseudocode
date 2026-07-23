@@ -1,12 +1,12 @@
 /*
- * XREFs of VfTargetDriversGetCounters @ 0x140C29044
+ * XREFs of VfTargetDriversGetCounters @ 0x140C2F054
  * Callers:
- *     VfSuspectDriversGetVerifierInformation @ 0x140C463F0 (VfSuspectDriversGetVerifierInformation.c)
+ *     VfSuspectDriversGetVerifierInformation @ 0x140C4C400 (VfSuspectDriversGetVerifierInformation.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     VfAvlEnumerateNodes @ 0x140C22018 (VfAvlEnumerateNodes.c)
- *     VfTargetDriversGetZeroCounters @ 0x140C290B8 (VfTargetDriversGetZeroCounters.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     VfAvlEnumerateNodes @ 0x140C28028 (VfAvlEnumerateNodes.c)
+ *     VfTargetDriversGetZeroCounters @ 0x140C2F0C8 (VfTargetDriversGetZeroCounters.c)
  */
 
 __int64 __fastcall VfTargetDriversGetCounters(__int64 a1, __int64 a2, __int64 a3)

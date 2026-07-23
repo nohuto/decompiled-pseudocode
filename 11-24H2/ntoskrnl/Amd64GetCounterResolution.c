@@ -1,5 +1,5 @@
 /*
- * XREFs of Amd64GetCounterResolution @ 0x14056B240
+ * XREFs of Amd64GetCounterResolution @ 0x1405686D0
  * Callers:
  *     <none>
  * Callees:

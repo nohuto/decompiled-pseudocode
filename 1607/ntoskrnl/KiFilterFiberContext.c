@@ -3,8 +3,8 @@
  * Callers:
  *     KeInitAmd64SpecificState @ 0x1407988CC (KeInitAmd64SpecificState.c)
  * Callees:
- *     KdDisableDebugger @ 0x1401D1550 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x1401D1624 (KdEnableDebugger.c)
+ *     KdDisableDebugger @ 0x1401D137C (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x1401D1450 (KdEnableDebugger.c)
  *     ExFreePool @ 0x140255B30 (ExFreePool.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  *     KiSwInterruptPresent @ 0x1407BD344 (KiSwInterruptPresent.c)

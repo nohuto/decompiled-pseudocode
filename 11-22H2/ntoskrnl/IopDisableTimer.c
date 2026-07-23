@@ -27,10 +27,10 @@ char __fastcall IopDisableTimer(__int64 a1)
     v2 = --IopTimerCount == 0;
   }
   LOBYTE(v4) = KxReleaseSpinLock((volatile signed __int64 *)&IopTimerLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     LOBYTE(v4) = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)v4 >= 2u )

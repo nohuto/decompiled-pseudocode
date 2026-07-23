@@ -3,7 +3,7 @@
  * Callers:
  *     WMIInitialize @ 0x14079DDF8 (WMIInitialize.c)
  * Callees:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  */
 
 NTSTATUS WmipRegisterFirmwareProviders()
@@ -19,7 +19,7 @@ NTSTATUS WmipRegisterFirmwareProviders()
   v3 = WmipRawSMBiosTableHandler;
   v4 = PnpDriverObject;
   result = NtSetSystemInformation(SystemRegisterFirmwareTableInformationHandler, &SystemInformation, 0x18u);
-  if ( dword_1402FD0D0 == 1 )
+  if ( dword_1402FD030 == 1 )
   {
     SystemInformation = 1179210317;
     v2 = 1;

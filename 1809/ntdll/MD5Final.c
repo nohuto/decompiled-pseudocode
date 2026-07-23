@@ -4,7 +4,7 @@
  *     ImportTablepHashCanonicalLists @ 0x1800E1890 (ImportTablepHashCanonicalLists.c)
  * Callees:
  *     MD5Update @ 0x18006AF00 (MD5Update.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 

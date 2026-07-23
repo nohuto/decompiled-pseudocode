@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckDosCalls @ 0x1408C7404
+ * XREFs of MiCheckDosCalls @ 0x1408C7564
  * Callers:
- *     MiComputeBadImageHeaderType @ 0x1408C74B8 (MiComputeBadImageHeaderType.c)
+ *     MiComputeBadImageHeaderType @ 0x1408C7618 (MiComputeBadImageHeaderType.c)
  * Callees:
  *     <none>
  */

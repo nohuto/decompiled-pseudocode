@@ -1,16 +1,16 @@
 /*
- * XREFs of MiModifiedWriterShouldWrite @ 0x1404066FC
+ * XREFs of MiModifiedWriterShouldWrite @ 0x1403FF7EC
  * Callers:
- *     MiModifiedPageWriter @ 0x1404064D0 (MiModifiedPageWriter.c)
+ *     MiModifiedPageWriter @ 0x1403FF5C0 (MiModifiedPageWriter.c)
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     MiStoreUpdateMemoryConditions @ 0x1403E0ED8 (MiStoreUpdateMemoryConditions.c)
- *     MiModifiedWriterWaitForMdl @ 0x140406350 (MiModifiedWriterWaitForMdl.c)
- *     MiStoreCheckCompleteWriteBatch @ 0x14040684C (MiStoreCheckCompleteWriteBatch.c)
- *     MiModifiedWriterWakeStore @ 0x1404068D8 (MiModifiedWriterWakeStore.c)
- *     MiModifiedWriterWakeMdls @ 0x140406948 (MiModifiedWriterWakeMdls.c)
- *     MiModifiedWriterDeterminePriority @ 0x1404069D8 (MiModifiedWriterDeterminePriority.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1403E40C8 (MiStoreUpdateMemoryConditions.c)
+ *     MiModifiedWriterWaitForMdl @ 0x1403FF444 (MiModifiedWriterWaitForMdl.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x1403FF93C (MiStoreCheckCompleteWriteBatch.c)
+ *     MiModifiedWriterWakeStore @ 0x1403FF9C8 (MiModifiedWriterWakeStore.c)
+ *     MiModifiedWriterWakeMdls @ 0x1403FFA38 (MiModifiedWriterWakeMdls.c)
+ *     MiModifiedWriterDeterminePriority @ 0x1403FFAC8 (MiModifiedWriterDeterminePriority.c)
  */
 
 __int64 __fastcall MiModifiedWriterShouldWrite(__int64 a1, __int64 a2)

@@ -60,7 +60,7 @@ char __fastcall ObCheckObjectAccess(
   int GenericMapping; // [rsp+30h] [rbp-88h]
   __int64 AccessMode; // [rsp+38h] [rbp-80h]
   ULONG Length; // [rsp+50h] [rbp-68h] BYREF
-  ULONG v41; // [rsp+54h] [rbp-64h] BYREF
+  DWORD v41; // [rsp+54h] [rbp-64h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+58h] [rbp-60h] BYREF
   PPRIVILEGE_SET v43; // [rsp+60h] [rbp-58h] BYREF
   unsigned int *p_PrivilegeCount; // [rsp+68h] [rbp-50h]

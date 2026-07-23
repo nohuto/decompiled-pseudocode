@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x1405D9CF8
+ * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x1405D7014
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x1404EC800 (PpmHeteroDistributeUtility.c)
- *     PpmHeteroDistributeUtilityEx @ 0x1405E07D4 (PpmHeteroDistributeUtilityEx.c)
+ *     PpmHeteroDistributeUtility @ 0x1404E3F40 (PpmHeteroDistributeUtility.c)
+ *     PpmHeteroDistributeUtilityEx @ 0x1405DDDF4 (PpmHeteroDistributeUtilityEx.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventTraceHeteroDistributeUtilityEx @ 0x1405DEC14 (PpmEventTraceHeteroDistributeUtilityEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventTraceHeteroDistributeUtilityEx @ 0x1405DBA94 (PpmEventTraceHeteroDistributeUtilityEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceHeteroDistributeUtility(__int64 a1, char a2, char a3)

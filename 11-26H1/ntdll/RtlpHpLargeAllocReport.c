@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLargeAllocReport @ 0x180121664
+ * XREFs of RtlpHpLargeAllocReport @ 0x180121400
  * Callers:
- *     RtlpHpLargeWalkHeap @ 0x180074C98 (RtlpHpLargeWalkHeap.c)
+ *     RtlpHpLargeWalkHeap @ 0x180095248 (RtlpHpLargeWalkHeap.c)
  * Callees:
  *     <none>
  */

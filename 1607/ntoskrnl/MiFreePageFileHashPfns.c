@@ -1,24 +1,24 @@
 /*
- * XREFs of MiFreePageFileHashPfns @ 0x1400BE8F8
+ * XREFs of MiFreePageFileHashPfns @ 0x1400BC788
  * Callers:
- *     MiScanPagefiles @ 0x1400BE8D0 (MiScanPagefiles.c)
- *     MiDeletePartitionResources @ 0x1401F13D0 (MiDeletePartitionResources.c)
- *     MiDeletePagefile @ 0x14065AE08 (MiDeletePagefile.c)
+ *     MiScanPagefiles @ 0x1400BC760 (MiScanPagefiles.c)
+ *     MiDeletePartitionResources @ 0x1401F11FC (MiDeletePartitionResources.c)
+ *     MiDeletePagefile @ 0x14065AEEC (MiDeletePagefile.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
  */
 
 unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
 {
   unsigned __int64 result; // rax
   unsigned __int64 v2; // rbp
-  union _SLIST_HEADER **v3; // r15
+  _SLIST_HEADER **v3; // r15
   __int64 v4; // r12
-  union _SLIST_HEADER *v5; // rcx
+  _SLIST_HEADER *v5; // rcx
   __int64 v6; // r13
   __int64 v7; // rsi
   unsigned __int64 v8; // rbx
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
   v2 = 0LL;
   if ( (_DWORD)result )
   {
-    v3 = (union _SLIST_HEADER **)(a1 + 6304);
+    v3 = (_SLIST_HEADER **)(a1 + 6304);
     v11 = *(unsigned int *)(a1 + 6296);
     v4 = (unsigned int)result;
     do
@@ -70,7 +70,7 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
       else
         _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 6528), v2);
       result = MiReturnCommit(a1, v2);
-      _InterlockedExchangeAdd64(&qword_140327D88, -(__int64)v2);
+      _InterlockedExchangeAdd64(&qword_140327DC8, -(__int64)v2);
     }
   }
   return result;

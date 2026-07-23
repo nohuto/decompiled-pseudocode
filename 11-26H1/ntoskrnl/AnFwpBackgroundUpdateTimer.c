@@ -1,17 +1,17 @@
 /*
- * XREFs of AnFwpBackgroundUpdateTimer @ 0x140C51580
+ * XREFs of AnFwpBackgroundUpdateTimer @ 0x140C57580
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     BgpClearScreen @ 0x140715B44 (BgpClearScreen.c)
- *     xHalGetInterruptTranslator @ 0x140B23920 (xHalGetInterruptTranslator.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140C4F3CC (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpGxDrawBitmapImage @ 0x140C51AD0 (BgpGxDrawBitmapImage.c)
- *     AnFwpDisableProgressTimer @ 0x140C5332C (AnFwpDisableProgressTimer.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     BgpClearScreen @ 0x14071A834 (BgpClearScreen.c)
+ *     xHalGetInterruptTranslator @ 0x140B25D20 (xHalGetInterruptTranslator.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140C553CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpGxDrawBitmapImage @ 0x140C57AD0 (BgpGxDrawBitmapImage.c)
+ *     AnFwpDisableProgressTimer @ 0x140C5932C (AnFwpDisableProgressTimer.c)
  */
 
 void __fastcall AnFwpBackgroundUpdateTimer(
@@ -34,7 +34,7 @@ void __fastcall AnFwpBackgroundUpdateTimer(
     BgpFwAcquireLock();
     if ( v5 >= *(_QWORD *)&gLoadedDiffHivesLock.UserAffinityPrimaryGroup )
     {
-      if ( WheapPfaLock.SchedulerApc.Type )
+      if ( WheapPfaLock.SchedulerApc.ApcMode )
       {
         AnFwpDisableProgressTimer();
         DbgPrintEx(0x65u, 0, "BGFX Secondary Logo Bitmap Display Time (ms): %d\n", v5);

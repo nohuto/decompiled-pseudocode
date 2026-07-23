@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPepPromoteActivities @ 0x140261E28
+ * XREFs of PopPepPromoteActivities @ 0x1402832F8
  * Callers:
- *     PopPepTryPowerDownDevice @ 0x140261410 (PopPepTryPowerDownDevice.c)
- *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
- *     PopPepSurprisePowerOn @ 0x14038BB98 (PopPepSurprisePowerOn.c)
- *     PopPepUpdateConstraints @ 0x1403A056C (PopPepUpdateConstraints.c)
- *     PopPepComponentSetLatency @ 0x14057429C (PopPepComponentSetLatency.c)
- *     PopPepComponentSetResidency @ 0x140574388 (PopPepComponentSetResidency.c)
- *     PopPepComponentSetWakeHint @ 0x140574480 (PopPepComponentSetWakeHint.c)
- *     PopPepIdleTimeoutRoutine @ 0x1405749F0 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepTryPowerDownDevice @ 0x1402828E0 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140282F54 (PopPepProcessEvent.c)
+ *     PopPepSurprisePowerOn @ 0x14038BCE8 (PopPepSurprisePowerOn.c)
+ *     PopPepUpdateConstraints @ 0x1403A06BC (PopPepUpdateConstraints.c)
+ *     PopPepComponentSetLatency @ 0x1405744DC (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x1405745C8 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x1405746C0 (PopPepComponentSetWakeHint.c)
+ *     PopPepIdleTimeoutRoutine @ 0x140574C30 (PopPepIdleTimeoutRoutine.c)
  * Callees:
- *     PopPepAttemptAcitivityPromotion @ 0x140261FE8 (PopPepAttemptAcitivityPromotion.c)
+ *     PopPepAttemptAcitivityPromotion @ 0x1402834B8 (PopPepAttemptAcitivityPromotion.c)
  */
 
 __int64 __fastcall PopPepPromoteActivities(__int64 a1, __int64 a2, int a3)

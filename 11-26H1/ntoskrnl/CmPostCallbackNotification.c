@@ -1,10 +1,10 @@
 /*
- * XREFs of CmPostCallbackNotification @ 0x1408C93B0
+ * XREFs of CmPostCallbackNotification @ 0x1408CF960
  * Callers:
- *     CmpDoQueryKeyName @ 0x140261160 (CmpDoQueryKeyName.c)
+ *     CmpDoQueryKeyName @ 0x1402606D0 (CmpDoQueryKeyName.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
+ *     CmpIsRegistryLockAcquired @ 0x140261E00 (CmpIsRegistryLockAcquired.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
  */
 
 __int64 __fastcall CmPostCallbackNotification(int a1, __int64 a2, unsigned int a3, __int64 a4, _QWORD *a5)
@@ -18,7 +18,7 @@ __int64 __fastcall CmPostCallbackNotification(int a1, __int64 a2, unsigned int a
   __int64 v16; // [rsp+6Ch] [rbp-1Ch]
   int v17; // [rsp+74h] [rbp-14h]
 
-  if ( !WheapPfaLock.ExpectedRunTime || (unsigned int)CmpIsRegistryLockAcquired() || (_QWORD *)*a5 == a5 )
+  if ( !HIDWORD(WheapPfaLock.StateSaveArea) || (unsigned int)CmpIsRegistryLockAcquired() || (_QWORD *)*a5 == a5 )
     return a3;
   v12 = 0;
   v16 = 0LL;

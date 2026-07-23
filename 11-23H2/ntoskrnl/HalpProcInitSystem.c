@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsHvPresent @ 0x140377F7C (HalpIsHvPresent.c)
- *     HalpMcUpdateMicrocode @ 0x14037FF58 (HalpMcUpdateMicrocode.c)
- *     HalpProcGetFeatureBits @ 0x14037FFB4 (HalpProcGetFeatureBits.c)
- *     HalMcFinishMicrocode @ 0x1403B0E04 (HalMcFinishMicrocode.c)
- *     PrExtLogToTelemetry @ 0x1403B4F64 (PrExtLogToTelemetry.c)
- *     HalpInterruptStartBlockedProcessors @ 0x14051AA54 (HalpInterruptStartBlockedProcessors.c)
- *     HalpMcUpdateInitialize @ 0x14081E114 (HalpMcUpdateInitialize.c)
+ *     HalpIsHvPresent @ 0x14037811C (HalpIsHvPresent.c)
+ *     HalpMcUpdateMicrocode @ 0x1403800F8 (HalpMcUpdateMicrocode.c)
+ *     HalpProcGetFeatureBits @ 0x140380154 (HalpProcGetFeatureBits.c)
+ *     HalMcFinishMicrocode @ 0x1403B0FE4 (HalMcFinishMicrocode.c)
+ *     PrExtLogToTelemetry @ 0x1403B5144 (PrExtLogToTelemetry.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x14051AFA4 (HalpInterruptStartBlockedProcessors.c)
+ *     HalpMcUpdateInitialize @ 0x14081E3E4 (HalpMcUpdateInitialize.c)
  *     HalpBlkInitSystem @ 0x140B48F28 (HalpBlkInitSystem.c)
  *     HalpProcInitDiscard @ 0x140B75924 (HalpProcInitDiscard.c)
  */

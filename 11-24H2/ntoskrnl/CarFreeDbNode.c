@@ -1,9 +1,9 @@
 /*
- * XREFs of CarFreeDbNode @ 0x140619570
+ * XREFs of CarFreeDbNode @ 0x140617B30
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CarFreeDbNode(__int64 a1, _QWORD *a2)

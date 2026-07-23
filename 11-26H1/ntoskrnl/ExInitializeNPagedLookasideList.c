@@ -1,11 +1,11 @@
 /*
- * XREFs of ExInitializeNPagedLookasideList @ 0x140498C20
+ * XREFs of ExInitializeNPagedLookasideList @ 0x140492770
  * Callers:
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x14078D880 (FsRtlInitExtraCreateParameterLookasideList.c)
- *     AlpcpInitSystem @ 0x1407C1414 (AlpcpInitSystem.c)
- *     KiFilterFiberContext @ 0x140C80D10 (KiFilterFiberContext.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x1407903B0 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     AlpcpInitSystem @ 0x1407C3E88 (AlpcpInitSystem.c)
+ *     KiFilterFiberContext @ 0x140C86D10 (KiFilterFiberContext.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
  */
 
 void __stdcall ExInitializeNPagedLookasideList(

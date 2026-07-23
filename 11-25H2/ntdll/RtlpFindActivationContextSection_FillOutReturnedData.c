@@ -11,7 +11,7 @@
 __int64 __fastcall RtlpFindActivationContextSection_FillOutReturnedData(
         char a1,
         __int64 a2,
-        __int64 a3,
+        _ACTIVATION_CONTEXT *a3,
         __int64 a4,
         __int64 a5,
         unsigned int a6,
@@ -20,7 +20,7 @@ __int64 __fastcall RtlpFindActivationContextSection_FillOutReturnedData(
 {
   __int64 v12; // rcx
   __int64 result; // rax
-  char *v14; // rcx
+  char *NotificationContext; // rcx
   __int64 v15; // rcx
   __int64 v16; // rcx
   __int64 v17; // rdx
@@ -46,7 +46,7 @@ __int64 __fastcall RtlpFindActivationContextSection_FillOutReturnedData(
   *(_QWORD *)(a2 + 40) = v12;
   if ( (a1 & 1) != 0 )
   {
-    RtlAddRefActivationContext((volatile signed __int32 *)a3);
+    RtlAddRefActivationContext(a3);
     *(_QWORD *)(a2 + 56) = a3;
   }
   if ( (a1 & 2) != 0 )
@@ -54,18 +54,18 @@ __int64 __fastcall RtlpFindActivationContextSection_FillOutReturnedData(
   if ( (a1 & 4) == 0 )
     return 0LL;
   v21[0] = 0LL;
-  v14 = 0LL;
+  NotificationContext = 0LL;
   v22 = 0;
   if ( a3 )
   {
-    if ( a3 == -3 )
+    if ( a3 == (_ACTIVATION_CONTEXT *)-3LL )
     {
-      v14 = "Actx ";
+      NotificationContext = "Actx ";
       goto LABEL_18;
     }
-    if ( a3 != -4 )
+    if ( a3 != (_ACTIVATION_CONTEXT *)-4LL )
     {
-      v14 = *(char **)(a3 + 24);
+      NotificationContext = (char *)a3->NotificationContext;
       goto LABEL_18;
     }
 LABEL_38:
@@ -76,7 +76,7 @@ LABEL_38:
   {
     v15 = 760LL;
 LABEL_17:
-    v14 = *(char **)(&NtCurrentPeb()->InheritedAddressSpace + v15);
+    NotificationContext = *(char **)(&NtCurrentPeb()->InheritedAddressSpace + v15);
     goto LABEL_18;
   }
   if ( (*(_DWORD *)(a4 + 24) & 7) == 2 )
@@ -84,12 +84,12 @@ LABEL_17:
   if ( (*(_DWORD *)(a4 + 24) & 7) != 4 )
     return 3221225712LL;
 LABEL_18:
-  if ( !v14 )
+  if ( !NotificationContext )
     return 3221225701LL;
-  *(_QWORD *)(a2 + 72) = &v14[*(unsigned int *)&v14[24 * *(unsigned int *)(a2 + 64)
-                                                  + 16
-                                                  + *(unsigned int *)&v14[*((unsigned int *)v14 + 6) + 12]]];
-  result = RtlpLocateActivationContextSection(v14, 0LL, 1u, v21, &v22);
+  *(_QWORD *)(a2 + 72) = &NotificationContext[*(unsigned int *)&NotificationContext[24 * *(unsigned int *)(a2 + 64)
+                                                                                  + 16
+                                                                                  + *(unsigned int *)&NotificationContext[*((unsigned int *)NotificationContext + 6) + 12]]];
+  result = RtlpLocateActivationContextSection(NotificationContext, 0LL, 1u, v21, &v22);
   if ( (int)result >= 0 )
   {
     v16 = v21[0];

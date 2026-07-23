@@ -1,32 +1,32 @@
 /*
- * XREFs of CcInitializeCacheMapEx @ 0x1400E8440
+ * XREFs of CcInitializeCacheMapEx @ 0x1400E62E0
  * Callers:
- *     CcInitializeCacheMap @ 0x1400B4648 (CcInitializeCacheMap.c)
+ *     CcInitializeCacheMap @ 0x1400B24C8 (CcInitializeCacheMap.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     CcExtendVacbArray @ 0x14006CF18 (CcExtendVacbArray.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     CcInitializeVolumeCacheMap @ 0x1400A0E00 (CcInitializeVolumeCacheMap.c)
- *     MmDisableModifiedWriteOfSection @ 0x1400AA6AC (MmDisableModifiedWriteOfSection.c)
- *     FsRtlIsNtstatusExpected @ 0x1400AB6F8 (FsRtlIsNtstatusExpected.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x1400CBCE8 (CcInsertIntoCleanSharedCacheMapList.c)
- *     CcDeleteSharedCacheMap @ 0x1400CCD34 (CcDeleteSharedCacheMap.c)
- *     PsGetPagePriorityThread @ 0x1400E7E00 (PsGetPagePriorityThread.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     CcExtendVacbArray @ 0x14006CA98 (CcExtendVacbArray.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     CcInitializeVolumeCacheMap @ 0x14009F728 (CcInitializeVolumeCacheMap.c)
+ *     MmDisableModifiedWriteOfSection @ 0x1400A8C2C (MmDisableModifiedWriteOfSection.c)
+ *     FsRtlIsNtstatusExpected @ 0x1400A9C60 (FsRtlIsNtstatusExpected.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x1400C9B88 (CcInsertIntoCleanSharedCacheMapList.c)
+ *     CcDeleteSharedCacheMap @ 0x1400CABD4 (CcDeleteSharedCacheMap.c)
+ *     PsGetPagePriorityThread @ 0x1400E5CA0 (PsGetPagePriorityThread.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmCreateCacheManagerSection @ 0x140471580 (MmCreateCacheManagerSection.c)
- *     ObDeleteCapturedInsertInfo @ 0x14049C5FC (ObDeleteCapturedInsertInfo.c)
- *     CcCreateVacbArray @ 0x1404CC148 (CcCreateVacbArray.c)
- *     MmExtendSection @ 0x1405218EC (MmExtendSection.c)
+ *     MmCreateCacheManagerSection @ 0x140470450 (MmCreateCacheManagerSection.c)
+ *     ObDeleteCapturedInsertInfo @ 0x1404A4794 (ObDeleteCapturedInsertInfo.c)
+ *     CcCreateVacbArray @ 0x1404B1B74 (CcCreateVacbArray.c)
+ *     MmExtendSection @ 0x14050494C (MmExtendSection.c)
  */
 
 void __fastcall CcInitializeCacheMapEx(_BYTE *Object, __m128i *a2, char a3, __int64 a4, __int64 a5, char a6)
@@ -424,16 +424,16 @@ LABEL_106:
     }
     if ( v10 )
     {
-      v24 = (_QWORD *)qword_140322FA8;
+      v24 = (_QWORD *)qword_140322FC8;
       v23 = (__int64)v10;
       v10 = 0LL;
       v25 = (_QWORD *)(v23 + 136);
-      if ( *(__int64 **)qword_140322FA8 != &CcCleanSharedCacheMapList )
+      if ( *(__int64 **)qword_140322FC8 != &CcCleanSharedCacheMapList )
         __fastfail(3u);
       *v25 = &CcCleanSharedCacheMapList;
       *(_QWORD *)(v23 + 144) = v24;
       *v24 = v25;
-      qword_140322FA8 = v23 + 136;
+      qword_140322FC8 = v23 + 136;
       v60 = 1;
       *(_QWORD *)(*((_QWORD *)Object + 5) + 8LL) = v23;
       ObfReferenceObjectWithTag(Object, 0x746C6644u);

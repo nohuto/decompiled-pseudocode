@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpRasInitializeRasterizer @ 0x140A96518
+ * XREFs of BgpRasInitializeRasterizer @ 0x140A97518
  * Callers:
- *     FopInitializeFonts @ 0x140A95F14 (FopInitializeFonts.c)
+ *     FopInitializeFonts @ 0x140A96F14 (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x1403B35FC (FioFwReadBytesAtOffset.c)
- *     FopGetTableOffsetAndSize @ 0x140A968C8 (FopGetTableOffsetAndSize.c)
+ *     FioFwReadBytesAtOffset @ 0x1403B376C (FioFwReadBytesAtOffset.c)
+ *     FopGetTableOffsetAndSize @ 0x140A978C8 (FopGetTableOffsetAndSize.c)
  */
 
 __int64 __fastcall BgpRasInitializeRasterizer(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpLogProcessPerfCtrs @ 0x1406A23E4
+ * XREFs of EtwpLogProcessPerfCtrs @ 0x1406A251C
  * Callers:
- *     EtwTraceProcess @ 0x14045D50C (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14045C3DC (EtwTraceProcess.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall EtwpLogProcessPerfCtrs(__int64 a1)

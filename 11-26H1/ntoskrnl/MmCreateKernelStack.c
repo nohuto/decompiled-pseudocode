@@ -1,23 +1,23 @@
 /*
- * XREFs of MmCreateKernelStack @ 0x1403D0D34
+ * XREFs of MmCreateKernelStack @ 0x1403D3D00
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140264300 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     KiAllocateXStateStack @ 0x1403D0CB4 (KiAllocateXStateStack.c)
- *     KiEnableOptionalXStateFeatures @ 0x1403D2A3C (KiEnableOptionalXStateFeatures.c)
- *     KiAllocateProcessorStacks @ 0x1405EA004 (KiAllocateProcessorStacks.c)
- *     PspRecheckThreadOptionalXStateFeatures @ 0x140A036E0 (PspRecheckThreadOptionalXStateFeatures.c)
- *     KeUserModeCallback @ 0x140A59280 (KeUserModeCallback.c)
- *     KiCreateKernelShadowStack @ 0x140A8BB80 (KiCreateKernelShadowStack.c)
- *     KeAllocateCalloutStackEx @ 0x140AFADB0 (KeAllocateCalloutStackEx.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x140B6131C (PspEnableProcessOptionalXStateFeatures.c)
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140263870 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KiAllocateXStateStack @ 0x1403D3C80 (KiAllocateXStateStack.c)
+ *     KiEnableOptionalXStateFeatures @ 0x1403D5A0C (KiEnableOptionalXStateFeatures.c)
+ *     KiAllocateProcessorStacks @ 0x1405EC974 (KiAllocateProcessorStacks.c)
+ *     KeUserModeCallback @ 0x140923D90 (KeUserModeCallback.c)
+ *     PspRecheckThreadOptionalXStateFeatures @ 0x140A7BC1C (PspRecheckThreadOptionalXStateFeatures.c)
+ *     KiCreateKernelShadowStack @ 0x140A90E48 (KiCreateKernelShadowStack.c)
+ *     KeAllocateCalloutStackEx @ 0x140AB3C50 (KeAllocateCalloutStackEx.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x140B643BC (PspEnableProcessOptionalXStateFeatures.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
  * Callees:
- *     MiCreateKernelStackInitialize @ 0x1403D0F80 (MiCreateKernelStackInitialize.c)
- *     MiCreateKernelStackFromPrcbCache @ 0x1403D10EC (MiCreateKernelStackFromPrcbCache.c)
- *     MiCreateKernelStackFromNodeCache @ 0x1403D11D4 (MiCreateKernelStackFromNodeCache.c)
- *     MiCreateKernelStackSlow @ 0x1403D1640 (MiCreateKernelStackSlow.c)
- *     MiLogKernelStackEvent @ 0x1405067FC (MiLogKernelStackEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiCreateKernelStackInitialize @ 0x1403D3F4C (MiCreateKernelStackInitialize.c)
+ *     MiCreateKernelStackFromPrcbCache @ 0x1403D40B8 (MiCreateKernelStackFromPrcbCache.c)
+ *     MiCreateKernelStackFromNodeCache @ 0x1403D41A0 (MiCreateKernelStackFromNodeCache.c)
+ *     MiCreateKernelStackSlow @ 0x1403D4610 (MiCreateKernelStackSlow.c)
+ *     MiLogKernelStackEvent @ 0x1405000AC (MiLogKernelStackEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MmCreateKernelStack(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of WdtpCancelTimer @ 0x1409F0120
+ * XREFs of WdtpCancelTimer @ 0x1409ED9F0
  * Callers:
- *     PnpDisableWatchdog @ 0x1409EFFB0 (PnpDisableWatchdog.c)
+ *     PnpDisableWatchdog @ 0x1409ED880 (PnpDisableWatchdog.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExDeleteTimer @ 0x1403BF730 (ExDeleteTimer.c)
- *     ExCancelTimer @ 0x1403C05F0 (ExCancelTimer.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExDeleteTimer @ 0x1403AE2F0 (ExDeleteTimer.c)
+ *     ExCancelTimer @ 0x1403AF1B0 (ExCancelTimer.c)
  */
 
 NTSTATUS __fastcall WdtpCancelTimer(__int64 a1, char a2)

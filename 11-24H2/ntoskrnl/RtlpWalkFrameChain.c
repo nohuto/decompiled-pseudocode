@@ -1,40 +1,40 @@
 /*
- * XREFs of RtlpWalkFrameChain @ 0x14027E270
+ * XREFs of RtlpWalkFrameChain @ 0x140233800
  * Callers:
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
- *     KeQueryCurrentStackInformationEx @ 0x140259BD0 (KeQueryCurrentStackInformationEx.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x14027EDF0 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlpxVirtualUnwind @ 0x14027F030 (RtlpxVirtualUnwind.c)
- *     RtlInitializeExtendedContext2 @ 0x14027FCB0 (RtlInitializeExtendedContext2.c)
- *     RtlpGetStackLimits @ 0x14027FEF0 (RtlpGetStackLimits.c)
- *     RtlGetExtendedContextLength2 @ 0x14027FF40 (RtlGetExtendedContextLength2.c)
- *     RtlLocateExtendedFeature @ 0x140281BD0 (RtlLocateExtendedFeature.c)
- *     RtlpWalkWowStack @ 0x140402A20 (RtlpWalkWowStack.c)
- *     RtlpCaptureContext2 @ 0x1404FC9E0 (RtlpCaptureContext2.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KeGetCurrentStackPointer @ 0x1406AA390 (KeGetCurrentStackPointer.c)
- *     _alloca_probe @ 0x1406B3C80 (_alloca_probe.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     PsWow64GetProcessMachine @ 0x1408FB0E0 (PsWow64GetProcessMachine.c)
- *     RtlWow64GetCpuAreaInfo @ 0x1409E6180 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140234380 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpxVirtualUnwind @ 0x1402345C0 (RtlpxVirtualUnwind.c)
+ *     RtlInitializeExtendedContext2 @ 0x140235240 (RtlInitializeExtendedContext2.c)
+ *     RtlpGetStackLimits @ 0x140235480 (RtlpGetStackLimits.c)
+ *     RtlGetExtendedContextLength2 @ 0x1402354D0 (RtlGetExtendedContextLength2.c)
+ *     RtlLocateExtendedFeature @ 0x140237160 (RtlLocateExtendedFeature.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14028A1E0 (KeQueryCurrentStackInformationEx.c)
+ *     RtlpWalkWowStack @ 0x1403FD020 (RtlpWalkWowStack.c)
+ *     RtlpCaptureContext2 @ 0x1404FA2A0 (RtlpCaptureContext2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x1406AB330 (KeGetCurrentStackPointer.c)
+ *     _alloca_probe @ 0x1406B4C20 (_alloca_probe.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     PsWow64GetProcessMachine @ 0x14091D9C0 (PsWow64GetProcessMachine.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1409E0A10 (RtlWow64GetCpuAreaInfo.c)
  */
 
-__int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsigned int a4)
+__int64 __fastcall RtlpWalkFrameChain(__int64 a1, ULONG a2, char a3, unsigned int a4)
 {
   __int64 v5; // rdx
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 v7; // r13
   int v8; // r12d
   int v9; // edi
-  __int64 v10; // rsi
-  unsigned int v11; // r14d
+  ULONG64 v10; // rsi
+  ULONG v11; // r14d
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rcx
   void *v14; // rsp
   void *v15; // rsp
-  unsigned __int64 SameThreadTransientFlags; // rcx
+  __int64 SameThreadTransientFlags; // rcx
   bool v17; // bl
   struct _KTHREAD *v18; // rsi
   _QWORD *i; // rax
@@ -46,13 +46,13 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   __int64 v26; // rax
   int v27; // r8d
   char v28; // al
-  unsigned __int64 CurrentStackPointer; // rax
+  __int64 CurrentStackPointer; // rax
   int v30; // ecx
   struct _KTHREAD *v31; // r14
   unsigned int v32; // esi
   char v33; // r8
   unsigned __int64 v34; // rax
-  char *StackLimit; // rcx
+  unsigned __int64 StackLimit; // rcx
   __m128i *InitialStack; // rdx
   int v37; // r9d
   _QWORD *ExtendedFeature; // rax
@@ -63,7 +63,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   unsigned int v43; // eax
   struct _KTHREAD *v44; // rax
   _BYTE v45[4]; // [rsp+60h] [rbp+0h] BYREF
-  unsigned int v46; // [rsp+64h] [rbp+4h] BYREF
+  ULONG ContextLength; // [rsp+64h] [rbp+4h] BYREF
   char v47; // [rsp+68h] [rbp+8h] BYREF
   bool v48; // [rsp+69h] [rbp+9h]
   int v49; // [rsp+6Ch] [rbp+Ch]
@@ -75,16 +75,16 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   char *v55; // [rsp+98h] [rbp+38h] BYREF
   unsigned int v56; // [rsp+A0h] [rbp+40h]
   unsigned int v57; // [rsp+A4h] [rbp+44h]
-  unsigned int v58; // [rsp+A8h] [rbp+48h]
+  ULONG v58; // [rsp+A8h] [rbp+48h]
   char *v59; // [rsp+B0h] [rbp+50h]
   char **v60; // [rsp+B8h] [rbp+58h]
-  __int64 v61; // [rsp+C0h] [rbp+60h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+C0h] [rbp+60h] BYREF
   unsigned __int64 v62; // [rsp+C8h] [rbp+68h]
   unsigned __int64 v63; // [rsp+D0h] [rbp+70h]
   int v64; // [rsp+D8h] [rbp+78h]
   void *Teb; // [rsp+E0h] [rbp+80h]
   __int64 v66; // [rsp+E8h] [rbp+88h]
-  char *v67; // [rsp+F0h] [rbp+90h] BYREF
+  unsigned __int64 v67; // [rsp+F0h] [rbp+90h] BYREF
   _QWORD *v68; // [rsp+F8h] [rbp+98h] BYREF
   __m128i v69; // [rsp+100h] [rbp+A0h]
   __m128i v70; // [rsp+110h] [rbp+B0h]
@@ -103,8 +103,8 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   v58 = a2;
   v66 = a1;
   v5 = 0LL;
-  v61 = 0LL;
-  v46 = 0;
+  ContextEx = 0LL;
+  ContextLength = 0;
   v73 = 0LL;
   v74 = 0LL;
   v56 = 0;
@@ -130,32 +130,32 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   if ( (a3 & 1) != 0 )
   {
     if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[4].ThreadListHead.Flink) & 0x4000) != 0 )
-      v5 = qword_140FC64C0;
+      v5 = qword_140FC7540;
     v60 = (char **)v5;
     v7 = v51;
     v8 = v49;
   }
   v10 = v5 != 0 ? 0x800 : 0;
   v11 = v5 != 0 ? 1048651 : 1048587;
-  RtlGetExtendedContextLength2(v11, &v46, v10);
-  v12 = v46 + 15LL;
-  if ( v12 <= v46 )
+  RtlGetExtendedContextLength2(v11, &ContextLength, v10);
+  v12 = ContextLength + 15LL;
+  if ( v12 <= ContextLength )
     v12 = 0xFFFFFFFFFFFFFF0LL;
   v13 = v12 & 0xFFFFFFFFFFFFFFF0uLL;
   v14 = alloca(v13);
   v15 = alloca(v13);
-  RtlInitializeExtendedContext2(v45, v11, &v61, v10);
+  RtlInitializeExtendedContext2((PCONTEXT)v45, v11, &ContextEx, v10);
   RtlpCaptureContext2(v45);
   v47 = 0;
   if ( !(unsigned __int8)RtlpGetStackLimits(&v52, &v55) )
     return 0LL;
-  v46 = 0;
+  ContextLength = 0;
   v17 = (a3 & 2) != 0;
   if ( !v9 )
   {
     v43 = 0;
     SameThreadTransientFlags = 0x80000000LL;
-    if ( (dword_140FC41F4 & 1) == 0 )
+    if ( (dword_140FC51F4 & 1) == 0 )
       v43 = 0x80000000;
     v56 = v43;
   }
@@ -203,9 +203,9 @@ LABEL_25:
       if ( v47 )
         v28 = 0;
       v45[0] = v28;
-      if ( v8 == 1 && v46 && v60 && v76 == v60 )
-        v76 = *(char ***)(*(_QWORD *)(RtlLocateExtendedFeature(v61, 11LL) + 8) - 8LL);
-      SameThreadTransientFlags = (unsigned __int64)v76;
+      if ( v8 == 1 && ContextLength && v60 && v76 == v60 )
+        v76 = *(char ***)(*((_QWORD *)RtlLocateExtendedFeature(ContextEx, 0xBu, 0LL) + 1) - 8LL);
+      SameThreadTransientFlags = (__int64)v76;
       if ( !v76 )
       {
         if ( v9 )
@@ -226,7 +226,7 @@ LABEL_91:
                 v66,
                 0,
                 v40,
-                (unsigned int)&v46,
+                (unsigned int)&ContextLength,
                 v58,
                 v57,
                 *(_DWORD *)(v78 + 180),
@@ -249,7 +249,7 @@ LABEL_91:
             v76 = (char **)*((_QWORD *)v53 + 39);
             v68 = v53 + 320;
             v69.m128i_i64[0] = *((_QWORD *)v53 + 31);
-            v67 = (char *)*((_QWORD *)v53 + 32);
+            v67 = *((_QWORD *)v53 + 32);
             v70.m128i_i64[0] = *((_QWORD *)v53 + 33);
             v69.m128i_i64[1] = *((_QWORD *)v53 + 34);
             v72.m128i_i64[1] = *((_QWORD *)v53 + 35);
@@ -257,7 +257,7 @@ LABEL_91:
             v74 = *((_QWORD *)v53 + 37);
             v75 = (unsigned __int64 *)*((_QWORD *)v53 + 38);
             if ( v60 )
-              *(_QWORD *)RtlLocateExtendedFeature(v61, 11LL) = 0LL;
+              *(_QWORD *)RtlLocateExtendedFeature(ContextEx, 0xBu, 0LL) = 0LL;
             v53 = v24[4];
             v59 = v53;
             v24 = (char **)v24[5];
@@ -321,7 +321,7 @@ LABEL_91:
           if ( v60 )
           {
             LODWORD(v54) = (unsigned int)v54 | 0x100040;
-            ExtendedFeature = (_QWORD *)RtlLocateExtendedFeature(v61, 11LL);
+            ExtendedFeature = RtlLocateExtendedFeature(ContextEx, 0xBu, 0LL);
             *ExtendedFeature = 1LL;
             SameThreadTransientFlags = 1703LL;
             ExtendedFeature[1] = __readmsr(0x6A7u);
@@ -330,15 +330,15 @@ LABEL_91:
           v55 = (char *)v63;
           goto LABEL_40;
         }
-        if ( !v46 )
+        if ( !ContextLength )
         {
 LABEL_40:
-          if ( v46 >= v57 )
+          if ( ContextLength >= v57 )
           {
-            SameThreadTransientFlags = (unsigned __int64)v76;
-            *(_QWORD *)(v66 + 8LL * (v46 - v57)) = v76;
+            SameThreadTransientFlags = (__int64)v76;
+            *(_QWORD *)(v66 + 8LL * (ContextLength - v57)) = v76;
           }
-          if ( ++v46 >= v58 )
+          if ( ++ContextLength >= v58 )
             goto LABEL_127;
         }
       }
@@ -353,7 +353,7 @@ LABEL_40:
     if ( v52 < 0xFFFF800000000000uLL )
       goto LABEL_127;
     CurrentStackPointer = KeGetCurrentStackPointer(SameThreadTransientFlags, 0xFFFF800000000000uLL);
-    KeQueryCurrentStackInformationEx(CurrentStackPointer, &v50, &v67, (unsigned __int64 *)&v68);
+    KeQueryCurrentStackInformationEx(CurrentStackPointer, &v50, &v67, &v68);
     if ( v50 <= 9 )
     {
       v30 = 929;
@@ -376,7 +376,7 @@ LABEL_40:
       }
       v32 = v50;
     }
-    if ( v32 != 10 && KeGetEffectiveIrql() >= 2u )
+    if ( v32 != 10 && (unsigned __int8)KeGetEffectiveIrql() >= 2u )
     {
       v41 = (char *)KeGetPcr()->Prcb.ExceptionStack + 80;
       if ( v25 < (unsigned __int64)v41 && (unsigned __int64)&v41[-(unsigned int)KeExceptionStackSize] <= v25 )
@@ -397,13 +397,13 @@ LABEL_109:
     if ( v69.m128i_i64[0] )
     {
       InitialStack = (__m128i *)v70.m128i_i64[1];
-      StackLimit = (char *)v69.m128i_i64[1];
+      StackLimit = v69.m128i_u64[1];
     }
     else
     {
       v69.m128i_i64[0] = (__int64)v31->StackBase;
-      StackLimit = (char *)v31->StackLimit;
-      v69.m128i_i64[1] = (__int64)StackLimit;
+      StackLimit = (unsigned __int64)v31->StackLimit;
+      v69.m128i_i64[1] = StackLimit;
       v70.m128i_i64[0] = (__int64)v31->KernelStack;
       InitialStack = (__m128i *)v31->InitialStack;
       v70.m128i_i64[1] = (__int64)InitialStack;
@@ -421,14 +421,14 @@ LABEL_109:
       v70 = InitialStack[2];
       v71 = InitialStack[3];
       v72 = InitialStack[4];
-      StackLimit = (char *)_mm_srli_si128(v69, 8).m128i_u64[0];
+      StackLimit = _mm_srli_si128(v69, 8).m128i_u64[0];
       v34 = v69.m128i_i64[0];
     }
     v67 = StackLimit;
     v68 = (_QWORD *)v34;
-    if ( v25 < (unsigned __int64)StackLimit || v25 >= v34 )
+    if ( v25 < StackLimit || v25 >= v34 )
       goto LABEL_127;
-    v52 = (unsigned __int64)StackLimit;
+    v52 = StackLimit;
     v55 = (char *)v34;
     goto LABEL_109;
   }
@@ -443,12 +443,12 @@ LABEL_109:
   if ( (unsigned __int16)PsWow64GetProcessMachine(v18->ApcState.Process) != 332
     || *(_BYTE *)(v7 + 43) == 2
     || *(_WORD *)(v7 + 368) != 35
-    || (++v46,
+    || (++ContextLength,
         !(unsigned __int8)RtlpWalkWowStack(
                             v66,
                             (int)v7 + 360,
                             (_DWORD)v20,
-                            (unsigned int)&v46,
+                            (unsigned int)&ContextLength,
                             v58,
                             v57,
                             *(_DWORD *)(v7 + 344),
@@ -487,5 +487,5 @@ LABEL_127:
       v44->SameThreadTransientFlags &= ~4u;
     }
   }
-  return v46;
+  return ContextLength;
 }

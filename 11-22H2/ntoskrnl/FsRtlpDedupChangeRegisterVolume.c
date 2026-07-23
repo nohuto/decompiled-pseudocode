@@ -21,7 +21,7 @@ __int64 __fastcall FsRtlpDedupChangeRegisterVolume(__int64 a1, const GUID *a2, u
   unsigned int v11; // edx
   __int128 v12; // xmm0
   __int64 *v13; // rcx
-  __int64 v15; // [rsp+20h] [rbp-28h]
+  void *ExplicitScope; // [rsp+20h] [rbp-28h]
 
   ExAcquireResourceExclusiveLite(&Resource, 1u);
   for ( i = FsRtlDedupChangeData; (__int64 *)i != &FsRtlDedupChangeData; i = *(_QWORD *)i )
@@ -83,15 +83,15 @@ LABEL_22:
   {
     if ( (Microsoft_Windows_Dedup_ChangeEnableBits & 1) != 0 )
     {
-      LODWORD(v15) = *a3;
+      LODWORD(ExplicitScope) = *a3;
       McTemplateK0jq_EtwWriteTransfer(
         MS_Dedup_Change_Provider_Context,
         (const EVENT_DESCRIPTOR *)TieredStorage_NewVolume,
         a2,
         a1,
-        v15);
+        (__int64)ExplicitScope);
     }
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v9;
 }

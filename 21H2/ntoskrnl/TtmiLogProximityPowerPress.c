@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogProximityPowerPress @ 0x14090318C
+ * XREFs of TtmiLogProximityPowerPress @ 0x1409032EC
  * Callers:
- *     TtmpShouldEscapeProximity @ 0x1408FE0F0 (TtmpShouldEscapeProximity.c)
+ *     TtmpShouldEscapeProximity @ 0x1408FE250 (TtmpShouldEscapeProximity.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogProximityPowerPress(char a1, __int64 a2, int a3, int a4, int a5)
@@ -73,7 +73,7 @@ char __fastcall TtmiLogProximityPowerPress(char a1, __int64 a2, int a3, int a4, 
       v15 = a4;
       LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140D2D8C8,
-                     (unsigned __int8 *)&unk_14002ABB0,
+                     (unsigned __int8 *)&dword_14002B81D + 1,
                      0LL,
                      0LL,
                      8u,

@@ -11,33 +11,33 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __thiscall EtwpGetCpuSpeedFromRegistry(_DWORD *this)
+NTSTATUS __thiscall EtwpGetCpuSpeedFromRegistry(_DWORD *this)
 {
-  int result; // eax
-  int v3; // esi
-  UNICODE_STRING v4; // [esp+Ch] [ebp-44h] BYREF
-  UNICODE_STRING DestinationString; // [esp+14h] [ebp-3Ch] BYREF
-  _BYTE v6[4]; // [esp+1Ch] [ebp-34h] BYREF
-  _DWORD v7[6]; // [esp+20h] [ebp-30h] BYREF
-  HANDLE Handle; // [esp+38h] [ebp-18h] BYREF
-  _BYTE v9[12]; // [esp+3Ch] [ebp-14h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v3; // esi
+  _UNICODE_STRING ValueName; // [esp+Ch] [ebp-44h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+14h] [ebp-3Ch] BYREF
+  ULONG ResultLength; // [esp+1Ch] [ebp-34h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+20h] [ebp-30h] BYREF
+  HANDLE KeyHandle; // [esp+38h] [ebp-18h] BYREF
+  _BYTE KeyValueInformation[12]; // [esp+3Ch] [ebp-14h] BYREF
   int v10; // [esp+48h] [ebp-8h]
 
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0");
-  v7[0] = 24;
-  v7[2] = &DestinationString;
-  v7[1] = 0;
-  v7[3] = 64;
-  v7[4] = 0;
-  v7[5] = 0;
-  result = ZwOpenKey(&Handle, 131097, v7);
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    RtlInitUnicodeString(&v4, L"~MHz");
-    v3 = ZwQueryValueKey(Handle, &v4, 2, v9, 16, v6);
+    RtlInitUnicodeString(&ValueName, L"~MHz");
+    v3 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x10u, &ResultLength);
     if ( v3 >= 0 )
       *this = v10;
-    NtClose(Handle);
+    NtClose(KeyHandle);
     return v3;
   }
   return result;

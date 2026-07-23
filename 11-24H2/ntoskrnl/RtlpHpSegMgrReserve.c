@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegMgrReserve @ 0x1402C11C4
+ * XREFs of RtlpHpSegMgrReserve @ 0x14035D608
  * Callers:
- *     RtlpHpSegMgrAllocate @ 0x1402C1104 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegMgrAllocate @ 0x14035D548 (RtlpHpSegMgrAllocate.c)
  * Callees:
- *     RtlpHpSegMgrVaCtxAlloc @ 0x1402C1364 (RtlpHpSegMgrVaCtxAlloc.c)
- *     RtlpHpSegMgrVaCtxInitialize @ 0x1402C2BFC (RtlpHpSegMgrVaCtxInitialize.c)
- *     RtlpHpFreeVA @ 0x140420FB8 (RtlpHpFreeVA.c)
- *     RtlpHpVaMgrCtxAlloc @ 0x140421384 (RtlpHpVaMgrCtxAlloc.c)
+ *     RtlpHpSegMgrVaCtxInitialize @ 0x14035D390 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     RtlpHpSegMgrVaCtxAlloc @ 0x14035D7A8 (RtlpHpSegMgrVaCtxAlloc.c)
+ *     RtlpHpFreeVA @ 0x14045928C (RtlpHpFreeVA.c)
+ *     RtlpHpVaMgrCtxAlloc @ 0x140459658 (RtlpHpVaMgrCtxAlloc.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrReserve(__int64 a1, unsigned int a2, __int64 *a3, unsigned int *a4, _DWORD *a5)
@@ -51,14 +51,14 @@ __int64 __fastcall RtlpHpSegMgrReserve(__int64 a1, unsigned int a2, __int64 *a3,
       v20 = 1;
     v21 = *((_QWORD *)&v17 + 1);
     *(_QWORD *)&v17 = v7 - ((v7 - 1) & 0xFFFFF) + 0xFFFFF;
-    v12 = RtlpHpVaMgrCtxAlloc(&unk_140E68358, &v17, v7, v19);
+    v12 = RtlpHpVaMgrCtxAlloc(&unk_140E68558, &v17, v7, v19);
     if ( !v12 )
       return (unsigned int)-1073741670;
     LODWORD(v7) = v17;
     v10 = v12;
     v22 = v17;
     if ( v6 < (unsigned __int64)v17 )
-      RtlpHpSegMgrVaCtxInitialize(v13, v12, v6, (unsigned int)v17);
+      RtlpHpSegMgrVaCtxInitialize(v13, v12, v6, v17);
   }
   v14 = a5;
   *a3 = v10;

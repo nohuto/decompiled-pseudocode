@@ -6,16 +6,16 @@
  *     RtlpxLookupFunctionTable @ 0x180006E00 (RtlpxLookupFunctionTable.c)
  */
 
-__int64 __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall RtlLookupFunctionTable(void *a1, _QWORD *a2, _DWORD *a3)
 {
   __int64 result; // rax
   __int128 v6; // [rsp+20h] [rbp-28h] BYREF
   __int64 v7; // [rsp+30h] [rbp-18h]
 
-  if ( a1 < *((_QWORD *)&xmmword_180178500 + 1)
-    || a1 >= *((_QWORD *)&xmmword_180178500 + 1) + (unsigned __int64)(unsigned int)qword_180178510 )
+  if ( (unsigned __int64)a1 < *((_QWORD *)&xmmword_180178500 + 1)
+    || (unsigned __int64)a1 >= *((_QWORD *)&xmmword_180178500 + 1) + (unsigned __int64)(unsigned int)qword_180178510 )
   {
-    result = RtlpxLookupFunctionTable(a1, (__int64 *)&v6);
+    result = RtlpxLookupFunctionTable(a1, (__int64)&v6);
   }
   else
   {

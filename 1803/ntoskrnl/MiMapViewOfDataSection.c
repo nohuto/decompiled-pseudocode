@@ -102,7 +102,7 @@ __int64 __fastcall MiMapViewOfDataSection(
   unsigned __int64 v44; // r11
   int v45; // ebx
   unsigned __int64 v46; // rdx
-  struct _RTL_BITMAP *v47; // r12
+  _RTL_BITMAP *v47; // r12
   __int64 v48; // r15
   int v49; // ebx
   unsigned __int64 v50; // rdi
@@ -154,7 +154,7 @@ __int64 __fastcall MiMapViewOfDataSection(
   unsigned __int64 v97; // [rsp+98h] [rbp-68h]
   __int64 v98; // [rsp+A0h] [rbp-60h]
   __int64 v99; // [rsp+A8h] [rbp-58h]
-  struct _RTL_BITMAP *v100; // [rsp+B0h] [rbp-50h]
+  _RTL_BITMAP *v100; // [rsp+B0h] [rbp-50h]
   __int64 v101; // [rsp+B8h] [rbp-48h]
   __int64 v102; // [rsp+C0h] [rbp-40h]
   PVOID P; // [rsp+C8h] [rbp-38h]
@@ -356,7 +356,7 @@ LABEL_104:
           v90 = 0LL;
           if ( v39 > v46 - 1 && v46 <= 0x100000000LL )
             v40 = 2;
-          v47 = (struct _RTL_BITMAP *)(56LL * v40 + *(_QWORD *)&Process[1].IdealGlobalNode + 48LL);
+          v47 = (_RTL_BITMAP *)(56LL * v40 + *(_QWORD *)&Process[1].IdealGlobalNode + 48LL);
           if ( (v45 & 0x20400000) != 541065216 && (v45 & 0x20000000) != 0 && v42 >= 0x40000000 && v41 == 0x200000 )
           {
             v91 = 1;

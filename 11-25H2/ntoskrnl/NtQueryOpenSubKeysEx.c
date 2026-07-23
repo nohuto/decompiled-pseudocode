@@ -26,15 +26,20 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
+NTSTATUS __cdecl NtQueryOpenSubKeysEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        ULONG BufferLength,
+        PVOID Buffer,
+        PULONG RequiredSize)
 {
   SIZE_T v6; // rsi
+  int v7; // r14d
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // r8
   __int64 v11; // r9
   __int64 v12; // rcx
-  int v13; // ebx
+  NTSTATUS v13; // ebx
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v15; // rcx
   size_t v16; // r14
@@ -52,7 +57,8 @@ __int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, _DWORD *a3, _DW
   int v29; // [rsp+80h] [rbp-258h]
   _KAFFINITY_EX v30[2]; // [rsp+88h] [rbp-250h] BYREF
 
-  v6 = a2;
+  v6 = BufferLength;
+  v7 = (int)TargetKey;
   memset(v30, 0, 64);
   memset_0(&v30[0].StaticBitmap[8], 0, 0x1D0uLL);
   v29 = 0;
@@ -85,13 +91,13 @@ __int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, _DWORD *a3, _DW
   if ( PreviousMode == 1 )
   {
     v15 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-      v15 = (__int64)a4;
+    if ( (unsigned __int64)RequiredSize < 0x7FFFFFFF0000LL )
+      v15 = (__int64)RequiredSize;
     *(_DWORD *)v15 = *(_DWORD *)v15;
-    ProbeForWrite(a3, v6, 4u);
+    ProbeForWrite(Buffer, v6, 4u);
   }
   v13 = ObReferenceObjectByNameEx(
-          a1,
+          v7,
           0,
           131097,
           (_DWORD)CmKeyObjectType,
@@ -128,12 +134,12 @@ LABEL_8:
         v13 = DWORD1(v27);
         CmpUnlockRegistry(v18);
         v23 = 0;
-        *a4 = v27;
+        *RequiredSize = v27;
         v19 = (char *)Src[1];
-        *a3 = *(_DWORD *)Src[1];
+        *(_DWORD *)Buffer = *(_DWORD *)Src[1];
         if ( v13 >= 0 )
         {
-          v20 = v19 - (char *)a3;
+          v20 = v19 - (_BYTE *)Buffer;
           v21 = 0;
           if ( *(_DWORD *)v19 )
           {
@@ -144,7 +150,7 @@ LABEL_8:
             }
             while ( v21 < *(_DWORD *)Src[1] );
           }
-          memmove(a3, v19, v16);
+          memmove(Buffer, v19, v16);
           v13 = 0;
         }
       }
@@ -165,5 +171,5 @@ LABEL_22:
   if ( Src[1] )
     CmSiFreeMemory((PPRIVILEGE_SET)Src[1]);
   CmCleanupThreadInfo((_KAFFINITY_EX **)v30);
-  return (unsigned int)v13;
+  return v13;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of AuthzBasepQuerySecurityAttributeAndValues @ 0x1403442B0
+ * XREFs of AuthzBasepQuerySecurityAttributeAndValues @ 0x140323790
  * Callers:
- *     SepCanTokenMatchAllPackageSid @ 0x1403440B0 (SepCanTokenMatchAllPackageSid.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1403450F0 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepRestartOperandValueEnumeration @ 0x1403468B0 (AuthzBasepRestartOperandValueEnumeration.c)
- *     AuthzBasepGetNextValue @ 0x14034818C (AuthzBasepGetNextValue.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140477830 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x140323590 (SepCanTokenMatchAllPackageSid.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140323B60 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepRestartOperandValueEnumeration @ 0x140325324 (AuthzBasepRestartOperandValueEnumeration.c)
+ *     AuthzBasepGetNextValue @ 0x140326B8C (AuthzBasepGetNextValue.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140473DD0 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
  * Callees:
- *     AuthzBasepQueryTokenAttributeAndValues @ 0x14034606C (AuthzBasepQueryTokenAttributeAndValues.c)
- *     AuthzBasepEqualUnicodeString @ 0x140357D50 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140357F14 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1409F794C (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x1403239D8 (AuthzBasepQueryTokenAttributeAndValues.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B88F4 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B8930 (AuthzBasepEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1409F02BC (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
  */
 
 __int64 __fastcall AuthzBasepQuerySecurityAttributeAndValues(__int64 a1)

@@ -1,25 +1,25 @@
 /*
- * XREFs of LdrpEnableUMGLTracingStateSync @ 0x1800975E4
+ * XREFs of LdrpEnableUMGLTracingStateSync @ 0x18002C434
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlpEnumProcessHeaps @ 0x1800469B0 (RtlpEnumProcessHeaps.c)
- *     RtlpRunOnceWaitForInit @ 0x180096DD8 (RtlpRunOnceWaitForInit.c)
- *     RtlRunOnceComplete @ 0x180098C20 (RtlRunOnceComplete.c)
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x1800991AC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlpEnumProcessHeaps @ 0x18002A930 (RtlpEnumProcessHeaps.c)
+ *     RtlRunOnceComplete @ 0x18002DA70 (RtlRunOnceComplete.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18002DFFC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlpRunOnceWaitForInit @ 0x1800E5590 (RtlpRunOnceWaitForInit.c)
  */
 
 __int64 LdrpEnableUMGLTracingStateSync()
 {
-  signed __int64 v0; // rax
+  signed __int64 Value; // rax
   signed __int64 v1; // rcx
   signed __int64 v2; // rcx
   int v3; // ebx
-  __int64 v5; // [rsp+60h] [rbp+8h] BYREF
+  PVOID Context; // [rsp+60h] [rbp+8h] BYREF
 
-  v0 = qword_1801D2410;
-  v5 = 0LL;
-  if ( (qword_1801D2410 & 3) == 2 )
+  Value = RunOnce.Value;
+  Context = 0LL;
+  if ( ((__int64)RunOnce.Ptr & 3) == 2 )
   {
     return 0;
   }
@@ -29,15 +29,15 @@ __int64 LdrpEnableUMGLTracingStateSync()
     {
       while ( 1 )
       {
-        v1 = v0 & 3;
-        if ( (v0 & 3) != 0 )
+        v1 = Value & 3;
+        if ( (Value & 3) != 0 )
           break;
-        v2 = v0;
-        v0 = _InterlockedCompareExchange64(&qword_1801D2410, 1LL, v0);
-        if ( v0 == v2 )
+        v2 = Value;
+        Value = _InterlockedCompareExchange64((volatile signed __int64 *)&RunOnce, 1LL, Value);
+        if ( Value == v2 )
         {
           v3 = RtlpSubscribeWnfStateChangeNotificationInternal(
-                 (unsigned int)&v5,
+                 (unsigned int)&Context,
                  WNF_ETW_UMGL_TRACING_CHANGE,
                  0,
                  (unsigned int)LdrpUMGLTracingStateChangeNotification,
@@ -48,11 +48,11 @@ __int64 LdrpEnableUMGLTracingStateSync()
                  17);
           if ( v3 < 0 )
           {
-            RtlRunOnceComplete(&qword_1801D2410, 4LL, 0LL);
+            RtlRunOnceComplete(&RunOnce, 4u, 0LL);
           }
           else
           {
-            RtlRunOnceComplete(&qword_1801D2410, 0LL, v5);
+            RtlRunOnceComplete(&RunOnce, 0, Context);
             RtlpEnumProcessHeaps(
               (__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpSynchronizeHeapLoggingStateCallback,
               0LL,
@@ -63,7 +63,7 @@ __int64 LdrpEnableUMGLTracingStateSync()
       }
       if ( v1 != 1 )
         break;
-      v0 = RtlpRunOnceWaitForInit(v0, &qword_1801D2410);
+      Value = RtlpRunOnceWaitForInit(Value, &RunOnce);
     }
     if ( v1 != 3 )
       return 0;

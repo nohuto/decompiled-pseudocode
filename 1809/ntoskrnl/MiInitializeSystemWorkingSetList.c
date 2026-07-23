@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeSystemWorkingSetList @ 0x140715B48
+ * XREFs of MiInitializeSystemWorkingSetList @ 0x140716DE8
  * Callers:
- *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
- *     MiInitializeSystemCache @ 0x14072A69C (MiInitializeSystemCache.c)
- *     MiInitializeSystemPtes @ 0x1409B68BC (MiInitializeSystemPtes.c)
- *     MiBuildPagedPool @ 0x1409B6A44 (MiBuildPagedPool.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
- *     MiInitializeNonPagedPool @ 0x1409BD0D4 (MiInitializeNonPagedPool.c)
+ *     MiSessionCreate @ 0x1407162A8 (MiSessionCreate.c)
+ *     MiInitializeSystemCache @ 0x14072B88C (MiInitializeSystemCache.c)
+ *     MiInitializeSystemPtes @ 0x1409B78BC (MiInitializeSystemPtes.c)
+ *     MiBuildPagedPool @ 0x1409B7A44 (MiBuildPagedPool.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
+ *     MiInitializeNonPagedPool @ 0x1409BE0D4 (MiInitializeNonPagedPool.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
- *     MiTranslateWsType @ 0x1400EF520 (MiTranslateWsType.c)
- *     MiInitializeWorkingSetList @ 0x1400F31B0 (MiInitializeWorkingSetList.c)
- *     MiAllowWorkingSetExpansion @ 0x1400F3314 (MiAllowWorkingSetExpansion.c)
+ *     MiTranslateWsType @ 0x1400EF5A0 (MiTranslateWsType.c)
+ *     MiInitializeWorkingSetList @ 0x1400F3230 (MiInitializeWorkingSetList.c)
+ *     MiAllowWorkingSetExpansion @ 0x1400F3394 (MiAllowWorkingSetExpansion.c)
  */
 
 __int64 __fastcall MiInitializeSystemWorkingSetList(ULONG_PTR *a1, __int64 a2, int a3, __int64 a4)
@@ -25,7 +25,7 @@ __int64 __fastcall MiInitializeSystemWorkingSetList(ULONG_PTR *a1, __int64 a2, i
 
   if ( a3 == 1 )
   {
-    v13 = (__int64 *)qword_140439FB0;
+    v13 = (__int64 *)qword_14043B070;
 LABEL_8:
     *(_DWORD *)a2 = 0;
     *(_WORD *)(a2 + 174) = *(_WORD *)a1;

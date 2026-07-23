@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpInsertStringAtom @ 0x140989E7C
+ * XREFs of RtlpInsertStringAtom @ 0x140A249F0
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x140431DA0 (RtlAddAtomToAtomTableEx.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1404242E0 (RtlAddAtomToAtomTableEx.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExMapHandleToPointer @ 0x14084ACF0 (ExMapHandleToPointer.c)
- *     ExCreateHandleEx @ 0x14084CE30 (ExCreateHandleEx.c)
- *     ExDestroyHandle @ 0x14098A050 (ExDestroyHandle.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExMapHandleToPointer @ 0x140846FB0 (ExMapHandleToPointer.c)
+ *     ExCreateHandleEx @ 0x1408490F0 (ExCreateHandleEx.c)
+ *     ExDestroyHandle @ 0x1408961C0 (ExDestroyHandle.c)
  */
 
 char __fastcall RtlpInsertStringAtom(__int64 a1, __int64 a2)

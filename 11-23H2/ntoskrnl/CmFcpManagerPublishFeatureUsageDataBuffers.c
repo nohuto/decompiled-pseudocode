@@ -3,19 +3,19 @@
  * Callers:
  *     CmFcpManagerPublishFeatureUsageDataBuffersWorker @ 0x1406802E0 (CmFcpManagerPublishFeatureUsageDataBuffersWorker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x140419CF0 (CmFcpManagerArmFeatureUsageProviderPublishTimer.c)
- *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x140419F14 (CmFcpSendFeatureUsageReportAlpcMessage.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwAlpcDisconnectPort @ 0x14041BDE0 (ZwAlpcDisconnectPort.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x14041A080 (CmFcpManagerArmFeatureUsageProviderPublishTimer.c)
+ *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x14041A2A4 (CmFcpSendFeatureUsageReportAlpcMessage.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwAlpcDisconnectPort @ 0x14041C170 (ZwAlpcDisconnectPort.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
  *     CmFcpManagerOnFeatureUsageDataTransferComplete @ 0x14067FC68 (CmFcpManagerOnFeatureUsageDataTransferComplete.c)
  *     CmFcpConnectToAlpcServer @ 0x140680B8C (CmFcpConnectToAlpcServer.c)
- *     ExUnsubscribeWnfStateChange @ 0x1407E1090 (ExUnsubscribeWnfStateChange.c)
+ *     ExUnsubscribeWnfStateChange @ 0x1407E1360 (ExUnsubscribeWnfStateChange.c)
  */
 
 NTSTATUS __fastcall CmFcpManagerPublishFeatureUsageDataBuffers(_QWORD *a1)
@@ -31,9 +31,9 @@ NTSTATUS __fastcall CmFcpManagerPublishFeatureUsageDataBuffers(_QWORD *a1)
   HANDLE v10; // rsi
   __int64 v11; // rax
   __int64 v12; // rsi
-  HANDLE Handle; // [rsp+60h] [rbp+8h] BYREF
+  HANDLE PortHandle; // [rsp+60h] [rbp+8h] BYREF
 
-  Handle = 0LL;
+  PortHandle = 0LL;
   KeWaitForSingleObject(a1 + 214, Executive, 0, 0, 0LL);
   v2 = a1[213];
   if ( v2 )
@@ -41,18 +41,18 @@ NTSTATUS __fastcall CmFcpManagerPublishFeatureUsageDataBuffers(_QWORD *a1)
     ExUnsubscribeWnfStateChange(v2);
     a1[213] = 0LL;
   }
-  v3 = CmFcpConnectToAlpcServer(&Handle, 0LL);
+  v3 = CmFcpConnectToAlpcServer(&PortHandle, 0LL);
   if ( v3 == -1073741772 || v3 == -1073740031 )
   {
-    result = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_USAGE_DATA_PUBLISH_READY, 0LL);
+    result = ZwUpdateWnfStateData(&WNF_CMFC_FEATURE_USAGE_DATA_PUBLISH_READY, 0LL, 0, 0LL, 0LL, 0, 0);
     if ( result < 0 )
     {
 LABEL_29:
-      v10 = Handle;
+      v10 = PortHandle;
       goto LABEL_30;
     }
     LOBYTE(v5) = 1;
-    v3 = CmFcpConnectToAlpcServer(&Handle, v5);
+    v3 = CmFcpConnectToAlpcServer(&PortHandle, v5);
   }
   if ( v3 < 0 || v3 == 258 )
   {
@@ -71,8 +71,8 @@ LABEL_29:
     if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(a1 + 169);
     KeAbPostRelease((ULONG_PTR)(a1 + 169));
-    v10 = Handle;
-    if ( (int)CmFcpSendFeatureUsageReportAlpcMessage((__int64)Handle, (__int64)(i + 4), *((_DWORD *)i + 4)) < 0 )
+    v10 = PortHandle;
+    if ( (int)CmFcpSendFeatureUsageReportAlpcMessage(PortHandle, i + 4, *((_DWORD *)i + 4)) < 0 )
     {
       CmFcpManagerArmFeatureUsageProviderPublishTimer((__int64)a1);
       goto LABEL_26;
@@ -88,13 +88,13 @@ LABEL_29:
   if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(a1 + 169);
   KeAbPostRelease((ULONG_PTR)(a1 + 169));
-  v10 = Handle;
+  v10 = PortHandle;
 LABEL_26:
   result = CmFcpManagerOnFeatureUsageDataTransferComplete((__int64)a1);
 LABEL_30:
   if ( v10 )
   {
-    ZwAlpcDisconnectPort((__int64)v10, 0LL);
+    ZwAlpcDisconnectPort(v10, 0);
     return ZwClose(v10);
   }
   return result;

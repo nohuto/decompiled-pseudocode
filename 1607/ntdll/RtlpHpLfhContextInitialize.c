@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextInitialize @ 0x18007F714
+ * XREFs of RtlpHpLfhContextInitialize @ 0x18007F704
  * Callers:
- *     RtlpHpSegHeapCreate @ 0x18007F470 (RtlpHpSegHeapCreate.c)
+ *     RtlpHpSegHeapCreate @ 0x18007F460 (RtlpHpSegHeapCreate.c)
  * Callees:
- *     RtlQueryResourcePolicy @ 0x180029F60 (RtlQueryResourcePolicy.c)
- *     RtlInitializeSListHead @ 0x180076C90 (RtlInitializeSListHead.c)
+ *     RtlQueryResourcePolicy @ 0x180029F50 (RtlQueryResourcePolicy.c)
+ *     RtlInitializeSListHead @ 0x180076C80 (RtlInitializeSListHead.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpLfhContextInitialize(unsigned __int64 a1, __int64 a2, c
   __m128i *v13; // rax
   __m128i v14; // xmm1
   __int64 v15; // rax
-  union _SLIST_HEADER *v16; // rdi
+  _SLIST_HEADER *v16; // rdi
   __int64 v17; // rbx
   unsigned __int8 v18; // al
   int v20; // [rsp+60h] [rbp+18h] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall RtlpHpLfhContextInitialize(unsigned __int64 a1, __int64 a2, c
     *(_QWORD *)(a1 + 40) = a1 ^ v12 ^ v15;
   if ( (int)RtlQueryResourcePolicy(0, 0, (__int64)&v20, 4LL) >= 0 && v20 <= 10 )
     a3 = 1;
-  v16 = (union _SLIST_HEADER *)(a1 + 80);
+  v16 = (_SLIST_HEADER *)(a1 + 80);
   v17 = 7LL;
   do
   {

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpDmaIsThinDmaCapable @ 0x140391390
+ * XREFs of HalpDmaIsThinDmaCapable @ 0x140391570
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x140828A90 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140828D90 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeCheckAndApplyBamQos @ 0x140461370
+ * XREFs of KeCheckAndApplyBamQos @ 0x140461770
  * Callers:
- *     KeApplyWobBamQos @ 0x140259D70 (KeApplyWobBamQos.c)
- *     KiUpdateRunTime @ 0x1402C74E0 (KiUpdateRunTime.c)
- *     KeUpdateThreadTag @ 0x140366BD0 (KeUpdateThreadTag.c)
- *     SwapContext @ 0x1404283C0 (SwapContext.c)
- *     KeSetThreadSchedulerAssist @ 0x14056D21C (KeSetThreadSchedulerAssist.c)
+ *     KeApplyWobBamQos @ 0x14025A000 (KeApplyWobBamQos.c)
+ *     KiUpdateRunTime @ 0x1402C7770 (KiUpdateRunTime.c)
+ *     KeUpdateThreadTag @ 0x140366D70 (KeUpdateThreadTag.c)
+ *     SwapContext @ 0x140428750 (SwapContext.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056D8DC (KeSetThreadSchedulerAssist.c)
  * Callees:
- *     KeUpdatePendingQosRequest @ 0x14046147C (KeUpdatePendingQosRequest.c)
- *     PoSetProcessorQoS @ 0x140462E60 (PoSetProcessorQoS.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeUpdatePendingQosRequest @ 0x14046187C (KeUpdatePendingQosRequest.c)
+ *     PoSetProcessorQoS @ 0x140463260 (PoSetProcessorQoS.c)
  */
 
 __int64 __fastcall KeCheckAndApplyBamQos(__int64 a1, __int64 a2)
@@ -64,7 +64,7 @@ __int64 __fastcall KeCheckAndApplyBamQos(__int64 a1, __int64 a2)
         }
         while ( v13 != (_DWORD)result );
         if ( (result & 0x200000) != 0 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
       _enable();
     }

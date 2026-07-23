@@ -1,11 +1,11 @@
 /*
- * XREFs of crc32_z @ 0x180104CA4
+ * XREFs of crc32_z @ 0x180104024
  * Callers:
- *     crc32 @ 0x180104C8C (crc32.c)
+ *     crc32 @ 0x18010400C (crc32.c)
  * Callees:
- *     crc32_avx512_simd_ @ 0x180104FDC (crc32_avx512_simd_.c)
- *     crc32_sse42_simd_ @ 0x1801052A4 (crc32_sse42_simd_.c)
- *     crc_word @ 0x18010547C (crc_word.c)
+ *     crc32_avx512_simd_ @ 0x18010435C (crc32_avx512_simd_.c)
+ *     crc32_sse42_simd_ @ 0x180104624 (crc32_sse42_simd_.c)
+ *     crc_word @ 0x1801047FC (crc_word.c)
  */
 
 __int64 __fastcall crc32_z(unsigned int a1, _DWORD *a2, unsigned __int64 a3)
@@ -81,7 +81,7 @@ __int64 __fastcall crc32_z(unsigned int a1, _DWORD *a2, unsigned __int64 a3)
           break;
         v12 = (unsigned __int8)(v11 ^ *(_BYTE *)v4);
         v4 = (_DWORD *)((char *)v4 + 1);
-        v11 = dword_180183A50[v12] ^ (v11 >> 8);
+        v11 = dword_180182950[v12] ^ (v11 >> 8);
         --v3;
       }
       while ( v3 );
@@ -103,27 +103,27 @@ __int64 __fastcall crc32_z(unsigned int a1, _DWORD *a2, unsigned __int64 a3)
           v23 = v17;
           v24 = v19;
           v25 = v20;
-          v11 = dword_180190990[(unsigned __int8)v17];
+          v11 = dword_18018F990[(unsigned __int8)v17];
           v40 = v21;
           v41 = v4 + 5;
           v26 = v22;
-          v13 = dword_180190990[(unsigned __int8)v19];
-          v14 = dword_180190990[(unsigned __int8)v20];
-          v15 = dword_180190990[(unsigned __int8)v22];
-          v16 = dword_180190990[(unsigned __int8)v21];
+          v13 = dword_18018F990[(unsigned __int8)v19];
+          v14 = dword_18018F990[(unsigned __int8)v20];
+          v15 = dword_18018F990[(unsigned __int8)v22];
+          v16 = dword_18018F990[(unsigned __int8)v21];
           v27 = 256LL;
           do
           {
             v28 = v18;
             v29 = v18;
             v18 += 8;
-            v11 ^= dword_180190990[v27 + (unsigned __int8)(v23 >> v29)];
-            v13 ^= dword_180190990[v27 + (unsigned __int8)(v24 >> v28)];
-            v14 ^= dword_180190990[v27 + (unsigned __int8)(v25 >> v28)];
-            v15 ^= dword_180190990[v27 + (unsigned __int8)(v26 >> v28)];
+            v11 ^= dword_18018F990[v27 + (unsigned __int8)(v23 >> v29)];
+            v13 ^= dword_18018F990[v27 + (unsigned __int8)(v24 >> v28)];
+            v14 ^= dword_18018F990[v27 + (unsigned __int8)(v25 >> v28)];
+            v15 ^= dword_18018F990[v27 + (unsigned __int8)(v26 >> v28)];
             v30 = v27 + (unsigned __int8)(v40 >> v28);
             v27 += 256LL;
-            v16 ^= dword_180190990[v30];
+            v16 ^= dword_18018F990[v30];
           }
           while ( v18 != 32 );
           v31 = v42-- == 1;
@@ -149,7 +149,7 @@ __int64 __fastcall crc32_z(unsigned int a1, _DWORD *a2, unsigned __int64 a3)
         {
           v38 = (unsigned __int8)(v11 ^ *(_BYTE *)v4);
           v4 = (_DWORD *)((char *)v4 + 1);
-          v11 = dword_180183A50[v38] ^ (v11 >> 8);
+          v11 = dword_180182950[v38] ^ (v11 >> 8);
           --v37;
         }
         while ( v37 );
@@ -161,7 +161,7 @@ __int64 __fastcall crc32_z(unsigned int a1, _DWORD *a2, unsigned __int64 a3)
     {
       v39 = (unsigned __int8)(v11 ^ *(_BYTE *)v4);
       v4 = (_DWORD *)((char *)v4 + 1);
-      v11 = dword_180183A50[v39] ^ (v11 >> 8);
+      v11 = dword_180182950[v39] ^ (v11 >> 8);
     }
     return ~v11;
   }

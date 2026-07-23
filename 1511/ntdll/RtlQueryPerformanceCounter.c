@@ -11,24 +11,24 @@
  *     NtQueryPerformanceCounter @ 0x1800A56E0 (NtQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlQueryPerformanceCounter(unsigned __int64 *a1)
+LOGICAL __cdecl RtlQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter)
 {
   __int64 v2; // rcx
-  unsigned __int64 v3; // rax
-  unsigned __int64 v5; // [rsp+38h] [rbp+10h] BYREF
-  char v6; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v3; // rax
+  LARGE_INTEGER PerformanceCountera; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp+18h] BYREF
 
   if ( MEMORY[0x7FFE03C6] == 1 )
   {
     v2 = MEMORY[0x7FFE03B8];
     v3 = __rdtsc();
-    *a1 = v3;
-    *a1 = (v3 + v2) >> MEMORY[0x7FFE03C7];
+    PerformanceCounter->QuadPart = v3;
+    PerformanceCounter->QuadPart = (unsigned __int64)(v3 + v2) >> MEMORY[0x7FFE03C7];
   }
   else
   {
-    NtQueryPerformanceCounter(&v5, &v6);
-    *a1 = v5;
+    NtQueryPerformanceCounter(&PerformanceCountera, &PerformanceFrequency);
+    *PerformanceCounter = PerformanceCountera;
   }
-  return 1LL;
+  return 1;
 }

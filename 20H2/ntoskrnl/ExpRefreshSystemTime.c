@@ -25,7 +25,7 @@ void ExpRefreshSystemTime()
   char v1; // si
   int v2; // edi
   LARGE_INTEGER v3; // rax
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+50h] [rbp+20h] BYREF
   LARGE_INTEGER v6; // [rsp+58h] [rbp+28h] BYREF
   LARGE_INTEGER Time; // [rsp+60h] [rbp+30h] BYREF

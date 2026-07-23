@@ -1,27 +1,27 @@
 /*
- * XREFs of HaliAcpiSleep @ 0x1405A2710
+ * XREFs of HaliAcpiSleep @ 0x1405A4F20
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     HalpAcpiPmRegisterWrite @ 0x1404576C0 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterRead @ 0x14046B750 (HalpAcpiPmRegisterRead.c)
- *     HalSetEnvironmentVariableEx @ 0x140471AF0 (HalSetEnvironmentVariableEx.c)
- *     HalpTimerSaveProcessorCounter @ 0x14050C030 (HalpTimerSaveProcessorCounter.c)
- *     HalReturnToFirmware @ 0x14057F640 (HalReturnToFirmware.c)
- *     HalpHvEnterSleepState @ 0x140585C90 (HalpHvEnterSleepState.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x140594734 (HalpCheckWakeupTimeAndAdjust.c)
- *     VslTerminateSecureServices @ 0x1405C427C (VslTerminateSecureServices.c)
- *     HalpSetupRealModeResume @ 0x140722F80 (HalpSetupRealModeResume.c)
- *     HaliSaveProcessorContextAndSleep @ 0x140723120 (HaliSaveProcessorContextAndSleep.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
- *     HalpCheckLowMemoryPreSleep @ 0x140BECDA8 (HalpCheckLowMemoryPreSleep.c)
- *     HalpPostSleepMP @ 0x140BECEF0 (HalpPostSleepMP.c)
- *     KeWriteProtectPAT @ 0x140BF80B0 (KeWriteProtectPAT.c)
- *     HalpReenableAcpi @ 0x140C073F0 (HalpReenableAcpi.c)
- *     HalpAcpiPreSleep @ 0x140C08988 (HalpAcpiPreSleep.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14044EF30 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterRead @ 0x140464ED0 (HalpAcpiPmRegisterRead.c)
+ *     HalSetEnvironmentVariableEx @ 0x14046B270 (HalSetEnvironmentVariableEx.c)
+ *     HalpTimerSaveProcessorCounter @ 0x140505AA0 (HalpTimerSaveProcessorCounter.c)
+ *     HalReturnToFirmware @ 0x140581B60 (HalReturnToFirmware.c)
+ *     HalpHvEnterSleepState @ 0x1405881B0 (HalpHvEnterSleepState.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x140596EB4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     VslTerminateSecureServices @ 0x1405C6AEC (VslTerminateSecureServices.c)
+ *     HalpSetupRealModeResume @ 0x140727B50 (HalpSetupRealModeResume.c)
+ *     HaliSaveProcessorContextAndSleep @ 0x140727CF0 (HaliSaveProcessorContextAndSleep.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x140BF2DA8 (HalpCheckLowMemoryPreSleep.c)
+ *     HalpPostSleepMP @ 0x140BF2EF0 (HalpPostSleepMP.c)
+ *     KeWriteProtectPAT @ 0x140BFE0B0 (KeWriteProtectPAT.c)
+ *     HalpReenableAcpi @ 0x140C0D600 (HalpReenableAcpi.c)
+ *     HalpAcpiPreSleep @ 0x140C0EB98 (HalpAcpiPreSleep.c)
  */
 
 __int64 __fastcall HaliAcpiSleep(unsigned int a1, __int64 a2, __int64 a3, unsigned int a4, volatile signed __int32 *a5)
@@ -79,7 +79,7 @@ __int64 __fastcall HaliAcpiSleep(unsigned int a1, __int64 a2, __int64 a3, unsign
   _InterlockedDecrement(a5);
   while ( *v14 )
   {
-    if ( (++v15 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+    if ( (++v15 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
     {
       _mm_pause();
     }
@@ -102,12 +102,12 @@ __int64 __fastcall HaliAcpiSleep(unsigned int a1, __int64 a2, __int64 a3, unsign
     if ( (a1 & 0x8000) != 0 )
       v30 = 0;
     else
-      v30 = LODWORD(HalpDeviceBlockUnblockPushLock.QueueListEntry.Flink) + 1504 * Number;
+      v30 = *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[168] + 1504 * Number;
     v9 = HaliSaveProcessorContextAndSleep(v30, a2, a3, v6, (__int64)&v35);
     goto LABEL_83;
   }
-  HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[16] = 0;
-  dword_140F87668 = 0;
+  BYTE1(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) = 0;
+  dword_140F87A48 = 0;
   HalpAcpiPreSleep(a1);
   if ( LOBYTE(IommuInterfaceStateChangeCallbackPushLock.UserWaitTime) )
     HalpAcpiPmRegisterRead(1, 0, (__int64)v37, 2u, 0LL);
@@ -116,18 +116,18 @@ __int64 __fastcall HaliAcpiSleep(unsigned int a1, __int64 a2, __int64 a3, unsign
   v19 = a1 >> 12;
   if ( ((a1 >> 12) & 2) != 0
     && (unsigned __int8)HalpSetupRealModeResume(
-                          *(_QWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[8],
-                          *(unsigned int *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts) )
+                          HalpDeviceBlockUnblockPushLock.SchedulerSharedSystemSlot,
+                          *(unsigned int *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount) )
   {
     goto LABEL_72;
   }
   HalpInterruptProcessorRestarting = 1;
-  _InterlockedIncrement(&dword_140F8766C);
+  _InterlockedIncrement(&dword_140F87A4C);
   v20 = 0;
   v21 = v42;
-  while ( dword_140F8766C != v21 )
+  while ( dword_140F87A4C != v21 )
   {
-    if ( (++v20 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+    if ( (++v20 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
       _mm_pause();
     else
       guard_dispatch_icall_no_overrides(v20, v18);
@@ -141,7 +141,7 @@ __int64 __fastcall HaliAcpiSleep(unsigned int a1, __int64 a2, __int64 a3, unsign
       if ( v22 )
       {
         if ( v22 == 1073742484 )
-          HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[16] = 1;
+          BYTE1(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) = 1;
         else
           HalpReenableAcpi();
 LABEL_72:
@@ -162,16 +162,16 @@ LABEL_72:
   {
     v23 = 0;
   }
-  _InterlockedIncrement(dword_140F87670);
+  _InterlockedIncrement(dword_140F87A50);
   v24 = 0;
-  while ( dword_140F87670[0] != v21 )
+  while ( dword_140F87A50[0] != v21 )
   {
-    if ( (++v24 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+    if ( (++v24 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
       _mm_pause();
     else
       guard_dispatch_icall_no_overrides(v24, v18);
   }
-  _InterlockedOr(dword_140F87670, 0);
+  _InterlockedOr(dword_140F87A50, 0);
   HalpCheckWakeupTimeAndAdjust();
   HalpCheckLowMemoryPreSleep(a1);
   v33[0] = 0x8000;
@@ -222,7 +222,7 @@ LABEL_72:
         HalpAcpiPmRegisterRead(v28, 0, (__int64)v33, 2u, 0LL);
         if ( (v33[0] & 0x8000) != 0 )
           break;
-        if ( (++v27 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+        if ( (++v27 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
           _mm_pause();
         else
           guard_dispatch_icall_no_overrides(v27, v29);
@@ -235,8 +235,8 @@ LABEL_76:
   v41 = -97;
   if ( (v19 & 0x40) != 0 )
     HalSetEnvironmentVariableEx(L"SystemSleepCheckpoint", (int)SYSTEM_SLEEP_ETW_CHECKPOINT_GUID, (__int64)&v41, 1, 1);
-  dword_140F8766C = 0;
-  dword_140F87670[0] = 0;
+  dword_140F87A4C = 0;
+  dword_140F87A50[0] = 0;
   HalpAcpiPostSleep(a1);
   v6 = v42;
   v16 = CurrentPrcb;

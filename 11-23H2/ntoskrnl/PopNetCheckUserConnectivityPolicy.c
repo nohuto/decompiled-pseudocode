@@ -1,12 +1,12 @@
 /*
- * XREFs of PopNetCheckUserConnectivityPolicy @ 0x14099666C
+ * XREFs of PopNetCheckUserConnectivityPolicy @ 0x14099686C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     <none>
  */
 
 bool PopNetCheckUserConnectivityPolicy()
 {
-  return dword_140C3D8B8 != 0;
+  return dword_140C3D9B8 != 0;
 }

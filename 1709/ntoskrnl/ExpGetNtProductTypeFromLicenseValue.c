@@ -9,23 +9,23 @@
 
 char __fastcall ExpGetNtProductTypeFromLicenseValue(__int64 a1)
 {
-  UNICODE_STRING v2; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v3; // [rsp+50h] [rbp+8h] BYREF
-  int v4; // [rsp+58h] [rbp+10h] BYREF
-  unsigned int v5; // [rsp+60h] [rbp+18h] BYREF
+  UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
+  __int64 Type; // [rsp+50h] [rbp+8h] BYREF
+  ULONG ResultDataSize; // [rsp+58h] [rbp+10h] BYREF
+  unsigned int Data; // [rsp+60h] [rbp+18h] BYREF
 
-  v3 = a1;
-  *(_QWORD *)&v2.Length = 0LL;
-  v2.Buffer = 0LL;
-  RtlInitUnicodeString(&v2, L"Kernel-ProductType");
-  if ( (int)NtQueryLicenseValue((unsigned __int64)&v2, &v3, &v5, 4u, &v4) < 0
-    || (_DWORD)v3 != 4
-    || v4 != 4
-    || !v5
-    || v5 > 3 )
+  Type = a1;
+  *(_QWORD *)&ValueName.Length = 0LL;
+  ValueName.Buffer = 0LL;
+  RtlInitUnicodeString(&ValueName, L"Kernel-ProductType");
+  if ( NtQueryLicenseValue(&ValueName, (PULONG)&Type, &Data, 4u, &ResultDataSize) < 0
+    || (_DWORD)Type != 4
+    || ResultDataSize != 4
+    || !Data
+    || Data > 3 )
   {
     return 0;
   }
-  MEMORY[0xFFFFF78000000264] = v5;
+  MEMORY[0xFFFFF78000000264] = Data;
   return 1;
 }

@@ -1,35 +1,35 @@
 /*
- * XREFs of KeFlushQueuedDpcs @ 0x140204EA0
+ * XREFs of KeFlushQueuedDpcs @ 0x14032C480
  * Callers:
- *     KeCleanupThreadState @ 0x140444DEC (KeCleanupThreadState.c)
- *     ExpTimeZoneCleanupSiloState @ 0x1407B698C (ExpTimeZoneCleanupSiloState.c)
- *     ExpPartitionDestroy @ 0x1407BFCAC (ExpPartitionDestroy.c)
- *     MiDeletePartitionResources @ 0x1407FBD44 (MiDeletePartitionResources.c)
- *     MmPageEntireDriver @ 0x140A3E710 (MmPageEntireDriver.c)
- *     IopDeleteDriver @ 0x140A8AC00 (IopDeleteDriver.c)
+ *     KeCleanupThreadState @ 0x14043CF94 (KeCleanupThreadState.c)
+ *     ExpTimeZoneCleanupSiloState @ 0x1407B6DDC (ExpTimeZoneCleanupSiloState.c)
+ *     ExpPartitionDestroy @ 0x1407C00FC (ExpPartitionDestroy.c)
+ *     MiDeletePartitionResources @ 0x1407FC4B4 (MiDeletePartitionResources.c)
+ *     MmPageEntireDriver @ 0x140A34020 (MmPageEntireDriver.c)
+ *     IopDeleteDriver @ 0x140A86F40 (IopDeleteDriver.c)
  * Callees:
- *     PoCopyDeepIdleMask @ 0x140205068 (PoCopyDeepIdleMask.c)
- *     ?KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140205180 (-KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     ?KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140205220 (-KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeGenericProcessorCallback @ 0x1403390A4 (KeGenericProcessorCallback.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeGenericProcessorCallback @ 0x140318580 (KeGenericProcessorCallback.c)
+ *     PoCopyDeepIdleMask @ 0x14032C648 (PoCopyDeepIdleMask.c)
+ *     ?KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14032C760 (-KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     ?KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14032C800 (-KiAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void KeFlushQueuedDpcs(void)
 {
   __int64 v0; // rdx
   __int64 v1; // rcx
-  __int64 v2; // r8
   unsigned __int8 CurrentIrql; // bl
-  __int64 v4; // rdx
-  unsigned __int64 v5; // rdi
-  unsigned __int16 v6; // bx
+  __int64 v3; // rdx
+  unsigned __int64 v4; // rdi
+  unsigned __int16 v5; // bx
   unsigned int Count; // esi
-  unsigned __int64 v8; // rdx
+  unsigned __int64 v7; // rdx
+  __int64 v8; // rdx
   signed __int32 v9[12]; // [rsp+8h] [rbp-100h] BYREF
   struct _KAFFINITY_EX v10; // [rsp+38h] [rbp-D0h] BYREF
   struct _KAFFINITY_EX v11; // [rsp+148h] [rbp+40h] BYREF
@@ -47,32 +47,33 @@ void KeFlushQueuedDpcs(void)
   {
     LOBYTE(v0) = 2;
     LOBYTE(v1) = CurrentIrql;
-    KiRaiseIrqlProcessIrqlFlags(v1, v0, v2);
+    KiRaiseIrqlProcessIrqlFlags(v1, v0);
   }
   PoCopyDeepIdleMask(&v11);
   if ( KiIrqlFlags )
   {
-    LOBYTE(v4) = CurrentIrql;
-    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v4);
+    LOBYTE(v3) = CurrentIrql;
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v3);
   }
   __writecr8(CurrentIrql);
   KiComplementAffinityEx(&v10, v10.Size, &v11);
   KiAndAffinityEx(&v10, &KeActiveProcessors, &v10, v10.Size);
-  v5 = v11.Bitmap[0];
-  v6 = 0;
+  v4 = v11.Bitmap[0];
+  v5 = 0;
   Count = v11.Count;
   while ( 1 )
   {
-    while ( v5 )
+    while ( v4 )
     {
-      _BitScanForward64(&v8, v5);
-      v5 &= ~(1LL << v8);
-      if ( *(_DWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * v6 + (unsigned __int8)v8)] + 14524) )
-        KeAddProcessorAffinityEx(&v10);
+      _BitScanForward64(&v7, v4);
+      v4 &= ~(1LL << v7);
+      v8 = *((unsigned int *)qword_140F22998 + 64 * v5 + (unsigned __int8)v7);
+      if ( *(_DWORD *)(KiProcessorBlock[v8] + 14524) )
+        KeAddProcessorAffinityEx(&v10.Count, v8);
     }
-    if ( ++v6 >= Count )
+    if ( ++v5 >= Count )
       break;
-    v5 = v11.Bitmap[v6];
+    v4 = v11.Bitmap[v5];
   }
-  KeGenericProcessorCallback(&v10, KiFlushQueuedDpcsWorker, 0LL, 2LL);
+  KeGenericProcessorCallback((__int64 *)&v10, (char (__fastcall *)(__int64, __int64))KiFlushQueuedDpcsWorker, 0LL, 2);
 }

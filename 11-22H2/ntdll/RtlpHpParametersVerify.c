@@ -15,18 +15,18 @@ _BOOL8 __fastcall RtlpHpParametersVerify(__int64 a1)
   if ( *(_WORD *)a1 != 3
     || *(_WORD *)(a1 + 2) != 80
     || (*(_DWORD *)(a1 + 4) & 0xFFFFFFFE) != 0
-    || RtlCompareMemoryUlong((_DWORD *)(a1 + 48), 0x20uLL, 0) != 32 )
+    || RtlCompareMemoryUlong((PVOID)(a1 + 48), 0x20uLL, 0) != 32 )
   {
     return 0LL;
   }
   if ( (*(_BYTE *)(a1 + 4) & 1) != 0 )
-    return RtlCompareMemoryUlong((_DWORD *)(a1 + 8), 0x28uLL, 0) == 40;
+    return RtlCompareMemoryUlong((PVOID)(a1 + 8), 0x28uLL, 0) == 40;
   if ( *(_DWORD *)(a1 + 4)
     || *(_DWORD *)(a1 + 8)
     || (unsigned int)(v2 - 1) > 0x3E
     || (v2 & 2) != 0
     || *(_DWORD *)(a1 + 16) != -1
-    || RtlCompareMemoryUlong((_DWORD *)(a1 + 32), 0x10uLL, 0) != 16 )
+    || RtlCompareMemoryUlong((PVOID)(a1 + 32), 0x10uLL, 0) != 16 )
   {
     return 0LL;
   }

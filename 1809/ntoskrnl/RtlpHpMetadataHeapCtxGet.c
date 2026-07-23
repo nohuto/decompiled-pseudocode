@@ -3,8 +3,8 @@
  * Callers:
  *     RtlpHpMetadataFree @ 0x1400080A4 (RtlpHpMetadataFree.c)
  *     RtlpHpMetadataAlloc @ 0x1400099CC (RtlpHpMetadataAlloc.c)
- *     RtlpHpHeapAllocate @ 0x1401410D0 (RtlpHpHeapAllocate.c)
- *     RtlpHpMetadataCommit @ 0x14019210C (RtlpHpMetadataCommit.c)
+ *     RtlpHpHeapAllocate @ 0x1401411D0 (RtlpHpHeapAllocate.c)
+ *     RtlpHpMetadataCommit @ 0x14019224C (RtlpHpMetadataCommit.c)
  * Callees:
  *     RtlpHpEnvGetHeapManager @ 0x14000CE30 (RtlpHpEnvGetHeapManager.c)
  */

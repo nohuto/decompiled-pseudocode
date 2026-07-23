@@ -1,7 +1,7 @@
 /*
- * XREFs of CcHasVolumeTelemetryChanged @ 0x14049BF4C
+ * XREFs of CcHasVolumeTelemetryChanged @ 0x140495A9C
  * Callers:
- *     CcPostVolumeTelemetry @ 0x14049BF90 (CcPostVolumeTelemetry.c)
+ *     CcPostVolumeTelemetry @ 0x140495AE0 (CcPostVolumeTelemetry.c)
  * Callees:
  *     <none>
  */

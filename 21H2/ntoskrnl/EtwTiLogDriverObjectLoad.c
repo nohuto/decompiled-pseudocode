@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTiLogDriverObjectLoad @ 0x1407721C0
+ * XREFs of EtwTiLogDriverObjectLoad @ 0x140772380
  * Callers:
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
- *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
+ *     IoCreateDriver @ 0x1407A5100 (IoCreateDriver.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpTiQueryCodeIntegrityOptions @ 0x14093C5F8 (EtwpTiQueryCodeIntegrityOptions.c)
+ *     EtwProviderEnabled @ 0x14027E6F0 (EtwProviderEnabled.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpTiQueryCodeIntegrityOptions @ 0x14093C7C8 (EtwpTiQueryCodeIntegrityOptions.c)
  */
 
 BOOLEAN __fastcall EtwTiLogDriverObjectLoad(unsigned __int16 *a1)

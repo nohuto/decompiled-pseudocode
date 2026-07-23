@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpPostNotify @ 0x1408CAEE0
+ * XREFs of CmpPostNotify @ 0x1408D1490
  * Callers:
- *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
- *     CmpFlushNotify @ 0x1408BA228 (CmpFlushNotify.c)
- *     CmpDeleteKeyObject @ 0x1408C9470 (CmpDeleteKeyObject.c)
- *     CmpNotifyChangeKey @ 0x14097AF04 (CmpNotifyChangeKey.c)
- *     CmpCloseKeyObject @ 0x140A59A10 (CmpCloseKeyObject.c)
+ *     CmpPerformUnloadKey @ 0x1408B6104 (CmpPerformUnloadKey.c)
+ *     CmpFlushNotify @ 0x1408C07F8 (CmpFlushNotify.c)
+ *     CmpDeleteKeyObject @ 0x1408CFA20 (CmpDeleteKeyObject.c)
+ *     CmpNotifyChangeKey @ 0x14093CF14 (CmpNotifyChangeKey.c)
+ *     CmpCloseKeyObject @ 0x140A66980 (CmpCloseKeyObject.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     CmpSignalDeferredPosts @ 0x1408D0CA0 (CmpSignalDeferredPosts.c)
- *     CmpFreePostBlock @ 0x1408D1020 (CmpFreePostBlock.c)
- *     CmpDelayedDerefKeys @ 0x140A90E58 (CmpDelayedDerefKeys.c)
- *     CmpAddToDelayedDeref @ 0x140AAF31C (CmpAddToDelayedDeref.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     CmpSignalDeferredPosts @ 0x1408D7260 (CmpSignalDeferredPosts.c)
+ *     CmpFreePostBlock @ 0x1408D75E0 (CmpFreePostBlock.c)
+ *     CmpDelayedDerefKeys @ 0x140A959A8 (CmpDelayedDerefKeys.c)
+ *     CmpAddToDelayedDeref @ 0x140AACF6C (CmpAddToDelayedDeref.c)
  */
 
 void __fastcall CmpPostNotify(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, char a5, __int128 *a6, _OWORD *a7)

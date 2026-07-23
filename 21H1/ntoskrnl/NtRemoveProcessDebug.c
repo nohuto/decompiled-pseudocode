@@ -14,13 +14,13 @@
  *     DbgkClearProcessDebugObject @ 0x14075E490 (DbgkClearProcessDebugObject.c)
  */
 
-__int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
+NTSTATUS __cdecl NtRemoveProcessDebug(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v5; // rcx
   _QWORD *v6; // rdi
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   __int64 v8; // rbx
   PVOID *Object; // [rsp+20h] [rbp-C8h]
   PVOID v10; // [rsp+40h] [rbp-A8h] BYREF
@@ -30,8 +30,16 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v11 = 0LL;
   LODWORD(Object) = 1332175428;
-  result = ObpReferenceObjectByHandleWithTag(a1, 2048LL, PsProcessType, PreviousMode, Object, &v11, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ObpReferenceObjectByHandleWithTag(
+             (ULONG_PTR)ProcessHandle,
+             2048LL,
+             PsProcessType,
+             PreviousMode,
+             Object,
+             &v11,
+             0LL,
+             0LL);
+  if ( result >= 0 )
   {
     LOBYTE(v5) = PreviousMode;
     v6 = (_QWORD *)v11;
@@ -50,7 +58,7 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
             v7 >= 0) )
       {
         v10 = 0LL;
-        v7 = ObReferenceObjectByHandle(a2, 2u, DbgkDebugObjectType, PreviousMode, &v10, 0LL);
+        v7 = ObReferenceObjectByHandle(DebugObjectHandle, 2u, DbgkDebugObjectType, PreviousMode, &v10, 0LL);
         if ( v7 >= 0 )
         {
           v7 = DbgkClearProcessDebugObject((ULONG_PTR)v6, (__int64)v10);
@@ -59,7 +67,7 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
       }
     }
     ObfDereferenceObjectWithTag(v6, 0x4F676244u);
-    return (unsigned int)v7;
+    return v7;
   }
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlPrepareMdlWriteDev @ 0x140814AE0
+ * XREFs of FsRtlPrepareMdlWriteDev @ 0x140815CE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,12 +8,12 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CcZeroData @ 0x1400E0C20 (CcZeroData.c)
- *     CcPrepareMdlWrite @ 0x1400E1A40 (CcPrepareMdlWrite.c)
- *     CcCanIWrite @ 0x140104D20 (CcCanIWrite.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CcZeroData @ 0x1400E0CA0 (CcZeroData.c)
+ *     CcPrepareMdlWrite @ 0x1400E1AC0 (CcPrepareMdlWrite.c)
+ *     CcCanIWrite @ 0x140104DA0 (CcCanIWrite.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall FsRtlPrepareMdlWriteDev(

@@ -1,76 +1,71 @@
 /*
- * XREFs of RtlpIsEmptyImageFileOptionsKey @ 0x180138078
+ * XREFs of RtlpIsEmptyImageFileOptionsKey @ 0x1801362A8
  * Callers:
- *     RtlpDeleteEmptyImageFileOptionsKey @ 0x180137FE0 (RtlpDeleteEmptyImageFileOptionsKey.c)
- *     RtlpIsEmptyImageFileOptionsKey @ 0x180138078 (RtlpIsEmptyImageFileOptionsKey.c)
+ *     RtlpDeleteEmptyImageFileOptionsKey @ 0x180136210 (RtlpDeleteEmptyImageFileOptionsKey.c)
+ *     RtlpIsEmptyImageFileOptionsKey @ 0x1801362A8 (RtlpIsEmptyImageFileOptionsKey.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x180072550 (RtlCompareUnicodeStrings.c)
- *     RtlInitUnicodeStringEx @ 0x180082640 (RtlInitUnicodeStringEx.c)
- *     RtlpIsEmptyImageFileOptionsKey @ 0x180138078 (RtlpIsEmptyImageFileOptionsKey.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
- *     ZwEnumerateValueKey @ 0x180161EF0 (ZwEnumerateValueKey.c)
- *     NtEnumerateKey @ 0x1801622D0 (NtEnumerateKey.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlInitUnicodeStringEx @ 0x1800044C0 (RtlInitUnicodeStringEx.c)
+ *     RtlCompareUnicodeStrings @ 0x18008EE30 (RtlCompareUnicodeStrings.c)
+ *     RtlpIsEmptyImageFileOptionsKey @ 0x1801362A8 (RtlpIsEmptyImageFileOptionsKey.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1801602B0 (ZwEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x180160690 (NtEnumerateKey.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-bool __fastcall RtlpIsEmptyImageFileOptionsKey(__int64 a1)
+bool __fastcall RtlpIsEmptyImageFileOptionsKey(void *a1)
 {
-  int inited; // ebx
-  unsigned int v2; // edi
-  int v4; // edi
-  unsigned int v5; // esi
+  NTSTATUS inited; // ebx
+  ULONG v2; // edi
+  NTSTATUS v4; // edi
+  ULONG v5; // esi
   char IsEmptyImageFileOptionsKey; // bl
-  int v8; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v9; // [rsp+38h] [rbp-C8h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
-  __int128 v11; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v12; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v13; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v14; // [rsp+80h] [rbp-80h]
-  __int128 v15; // [rsp+90h] [rbp-70h]
-  _BYTE v16[8]; // [rsp+A0h] [rbp-60h] BYREF
-  __int16 v17; // [rsp+A8h] [rbp-58h]
-  __int16 v18; // [rsp+ACh] [rbp-54h] BYREF
-  char v19; // [rsp+B0h] [rbp-50h] BYREF
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  PCWCH String1[2]; // [rsp+38h] [rbp-C8h] BYREF
+  HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING v12; // [rsp+60h] [rbp-A0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE KeyValueInformation[8]; // [rsp+A0h] [rbp-60h] BYREF
+  __int16 v15; // [rsp+A8h] [rbp-58h]
+  __int16 v16; // [rsp+ACh] [rbp-54h] BYREF
+  char v17; // [rsp+B0h] [rbp-50h] BYREF
 
   inited = 0;
-  v8 = 0;
-  Handle = 0LL;
+  ResultLength = 0;
+  KeyHandle = 0LL;
   v2 = 0;
-  *(_QWORD *)&v15 = 0LL;
-  DWORD2(v15) = 0;
-  v9 = 0LL;
-  v11 = 0LL;
+  *(_OWORD *)String1 = 0LL;
+  DestinationString = 0LL;
   v12 = 0LL;
-  v13 = 0LL;
-  v14 = 0LL;
+  memset(&ObjectAttributes, 0, 44);
   while ( inited >= 0 )
   {
-    inited = ZwEnumerateValueKey(a1, v2, 0LL, v16, 560, &v8);
+    inited = ZwEnumerateValueKey(a1, v2, KeyValueBasicInformation, KeyValueInformation, 0x230u, &ResultLength);
     if ( inited >= 0 )
     {
       if ( v2 )
         return 0;
-      LOWORD(v9) = v17;
-      WORD1(v9) = v17;
-      *((_QWORD *)&v9 + 1) = &v18;
-      if ( (int)RtlInitUnicodeStringEx((__int64)&v11, L"UseFilter") < 0 )
+      LOWORD(String1[0]) = v15;
+      WORD1(String1[0]) = v15;
+      String1[1] = (PCWCH)&v16;
+      if ( RtlInitUnicodeStringEx(&DestinationString, L"UseFilter") < 0 )
         return 0;
-      inited = RtlInitUnicodeStringEx((__int64)&v12, L"FilterFullPath");
+      inited = RtlInitUnicodeStringEx(&v12, L"FilterFullPath");
       if ( inited < 0
-        || (unsigned int)RtlCompareUnicodeStrings(
-                           *((unsigned __int16 **)&v9 + 1),
-                           (unsigned __int64)(unsigned __int16)v9 >> 1,
-                           *((_BYTE **)&v11 + 1),
-                           (unsigned __int64)(unsigned __int16)v11 >> 1,
-                           1)
-        && (unsigned int)RtlCompareUnicodeStrings(
-                           *((unsigned __int16 **)&v9 + 1),
-                           (unsigned __int64)(unsigned __int16)v9 >> 1,
-                           *((_BYTE **)&v12 + 1),
-                           (unsigned __int64)(unsigned __int16)v12 >> 1,
-                           1) )
+        || RtlCompareUnicodeStrings(
+             String1[1],
+             (unsigned __int64)LOWORD(String1[0]) >> 1,
+             DestinationString.Buffer,
+             (unsigned __int64)DestinationString.Length >> 1,
+             1u)
+        && RtlCompareUnicodeStrings(
+             String1[1],
+             (unsigned __int64)LOWORD(String1[0]) >> 1,
+             v12.Buffer,
+             (unsigned __int64)v12.Length >> 1,
+             1u) )
       {
         return 0;
       }
@@ -83,22 +78,22 @@ bool __fastcall RtlpIsEmptyImageFileOptionsKey(__int64 a1)
   v5 = 0;
   while ( v4 >= 0 )
   {
-    v4 = NtEnumerateKey(a1, v5, 0LL, v16, 560, &v8);
+    v4 = NtEnumerateKey(a1, v5, KeyBasicInformation, KeyValueInformation, 0x230u, &ResultLength);
     if ( v4 >= 0 )
     {
-      LOWORD(v9) = v18;
-      WORD1(v9) = v18;
-      LODWORD(v13) = 48;
-      *((_QWORD *)&v9 + 1) = &v19;
-      *((_QWORD *)&v13 + 1) = a1;
-      *(_QWORD *)&v14 = &v9;
-      DWORD2(v14) = 576;
-      v15 = 0LL;
-      v4 = NtOpenKey(&Handle, 9LL, &v13);
+      LOWORD(String1[0]) = v16;
+      WORD1(String1[0]) = v16;
+      ObjectAttributes.Length = 48;
+      String1[1] = (PCWCH)&v17;
+      ObjectAttributes.RootDirectory = a1;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)String1;
+      ObjectAttributes.Attributes = 576;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v4 = NtOpenKey(&KeyHandle, 9u, &ObjectAttributes);
       if ( v4 >= 0 )
       {
-        IsEmptyImageFileOptionsKey = RtlpIsEmptyImageFileOptionsKey(Handle);
-        NtClose(Handle);
+        IsEmptyImageFileOptionsKey = RtlpIsEmptyImageFileOptionsKey(KeyHandle);
+        NtClose(KeyHandle);
         if ( !IsEmptyImageFileOptionsKey )
           return 0;
       }

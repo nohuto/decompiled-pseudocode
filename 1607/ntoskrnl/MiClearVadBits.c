@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClearVadBits @ 0x1400281C0
+ * XREFs of MiClearVadBits @ 0x140027D40
  * Callers:
- *     MiFinishVadDeletion @ 0x1400295E0 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x140029160 (MiFinishVadDeletion.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall MiClearVadBits(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -24,7 +24,7 @@ void __fastcall MiClearVadBits(unsigned __int64 a1, unsigned __int64 a2, __int64
   unsigned int v19; // r9d
   unsigned int v20; // edx
 
-  v4 = (_DWORD *)qword_140327F90;
+  v4 = (_DWORD *)qword_140327FD0;
   v6 = a1 >> 16;
   v8 = a2 >> 16;
   if ( a3
@@ -39,7 +39,7 @@ void __fastcall MiClearVadBits(unsigned __int64 a1, unsigned __int64 a2, __int64
       return;
     LODWORD(v8) = v8 - 1;
   }
-  v9 = *(_DWORD *)(qword_140327F90 + 276840472) - qword_140327F90;
+  v9 = *(_DWORD *)(qword_140327FD0 + 276840472) - qword_140327FD0;
   if ( !(_DWORD)v6 )
   {
     if ( v9 )
@@ -52,7 +52,7 @@ LABEL_8:
   v10 = 8 * v9;
   if ( (unsigned int)v8 >= v10 )
   {
-    v11 = v10 + *(_DWORD *)(qword_140327F90 + 276840464);
+    v11 = v10 + *(_DWORD *)(qword_140327FD0 + 276840464);
     if ( (unsigned int)v6 < v11 )
     {
       if ( (unsigned int)v6 < v10 )
@@ -65,13 +65,13 @@ LABEL_8:
       if ( (_DWORD)v14 )
       {
         v15 = v13 & 7;
-        v16 = (_BYTE *)(*(_QWORD *)(qword_140327F90 + 276840472) + ((unsigned __int64)v13 >> 3));
+        v16 = (_BYTE *)(*(_QWORD *)(qword_140327FD0 + 276840472) + ((unsigned __int64)v13 >> 3));
         if ( (unsigned int)(v15 + v14) > 8 )
         {
           if ( (v13 & 7) != 0 )
           {
             v14 = (unsigned int)(v15 + v14 - 8);
-            *v16++ &= byte_14026F698[v15];
+            *v16++ &= byte_14026F6B8[v15];
           }
           if ( (unsigned int)v14 > 8 )
           {
@@ -80,11 +80,11 @@ LABEL_8:
             v14 &= 7u;
           }
           if ( (_DWORD)v14 )
-            *v16 &= byte_14026F6A8[v14];
+            *v16 &= byte_14026F6C8[v14];
         }
         else
         {
-          *v16 &= ~(byte_14026F698[v14] << v15);
+          *v16 &= ~(byte_14026F6B8[v14] << v15);
         }
         if ( v4[69210120] > v13 )
           v4[69210120] = v13;

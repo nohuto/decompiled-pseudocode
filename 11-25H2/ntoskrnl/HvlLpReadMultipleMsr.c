@@ -22,7 +22,7 @@ __int64 __fastcall HvlLpReadMultipleMsr(int a1, unsigned int a2, int *a3, _QWORD
   _QWORD *p_Next; // rbx
   char v12; // r14
   _SLIST_ENTRY *v13; // rsi
-  struct _SLIST_ENTRY *v14; // r15
+  _SLIST_ENTRY *v14; // r15
   __int64 v15; // r12
   int *v16; // rdx
   _DWORD *v17; // rdi

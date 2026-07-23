@@ -1,13 +1,13 @@
 /*
- * XREFs of VslRegisterSyscallProviderServiceTableMetadata @ 0x140710134
+ * XREFs of VslRegisterSyscallProviderServiceTableMetadata @ 0x14070DCC4
  * Callers:
- *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140AA208C (PsRegisterSyscallProviderServiceTableMetadata.c)
+ *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140A9D41C (PsRegisterSyscallProviderServiceTableMetadata.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslRegisterSyscallProviderServiceTableMetadata(unsigned int a1, unsigned int a2, struct _MDL *a3)
@@ -30,7 +30,7 @@ __int64 __fastcall VslRegisterSyscallProviderServiceTableMetadata(unsigned int a
     v11 = v8[0];
     v12 = v8[7];
     v10 = v4;
-    v7 = VslpEnterIumSecureMode(2u, 233LL, 0, (__int64)v9);
+    v7 = VslpEnterIumSecureMode(2u, 0xE9u, 0, (__int64)v9);
     VslpUnlockPagesForTransfer(v8);
     return v7;
   }

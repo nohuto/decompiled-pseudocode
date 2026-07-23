@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuFlushDomainTB @ 0x14045D0AA
+ * XREFs of HalpIommuFlushDomainTB @ 0x14045D4AA
  * Callers:
- *     HalpIommuFreeDomain @ 0x140515384 (HalpIommuFreeDomain.c)
- *     HalpIommuFlushDmaDomain @ 0x140517F60 (HalpIommuFlushDmaDomain.c)
+ *     HalpIommuFreeDomain @ 0x1405158D4 (HalpIommuFreeDomain.c)
+ *     HalpIommuFlushDmaDomain @ 0x1405184B0 (HalpIommuFlushDmaDomain.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuFlushDomainTB(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

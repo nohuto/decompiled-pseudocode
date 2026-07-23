@@ -1,10 +1,10 @@
 /*
- * XREFs of VmpCheckPinAndReference @ 0x1406C0C08
+ * XREFs of VmpCheckPinAndReference @ 0x1406C47E8
  * Callers:
- *     VmpPinMemoryRanges @ 0x1406C1F74 (VmpPinMemoryRanges.c)
+ *     VmpPinMemoryRanges @ 0x1406C5B54 (VmpPinMemoryRanges.c)
  * Callees:
- *     VmpFindNextPinnedPageStateHelper @ 0x1406C11C8 (VmpFindNextPinnedPageStateHelper.c)
- *     VmpRefDerefPinnedPages @ 0x1406C1A5C (VmpRefDerefPinnedPages.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x1406C4DA8 (VmpFindNextPinnedPageStateHelper.c)
+ *     VmpRefDerefPinnedPages @ 0x1406C563C (VmpRefDerefPinnedPages.c)
  */
 
 __int64 __fastcall VmpCheckPinAndReference(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _DWORD *a6)

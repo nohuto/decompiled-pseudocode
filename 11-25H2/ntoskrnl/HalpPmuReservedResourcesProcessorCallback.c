@@ -28,7 +28,7 @@ __int64 __fastcall HalpPmuReservedResourcesProcessorCallback(__int64 a1, __int64
   __int64 v18; // [rsp+50h] [rbp-10h]
   ULONG ProcIndex; // [rsp+A0h] [rbp+40h] BYREF
   int SystemArgument1; // [rsp+A8h] [rbp+48h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+B0h] [rbp+50h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+B0h] [rbp+50h] BYREF
 
   v17[0] = a2;
   v15 = 0;

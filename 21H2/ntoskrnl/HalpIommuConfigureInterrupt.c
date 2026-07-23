@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuConfigureInterrupt @ 0x1404CBC80
+ * XREFs of HalpIommuConfigureInterrupt @ 0x1404CBEC0
  * Callers:
- *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x14099C3D4 (HalpIommuInitializeAll.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x14027B530 (KeFindFirstSetRightGroupAffinity.c)
- *     HalpInterruptGenerateMessage @ 0x140378448 (HalpInterruptGenerateMessage.c)
- *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
- *     HalpInterruptIsMsiSupported @ 0x1403C9BA8 (HalpInterruptIsMsiSupported.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpIommuSetupMessageInterruptRouting @ 0x1409A761C (HalpIommuSetupMessageInterruptRouting.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402694D0 (KeFindFirstSetRightGroupAffinity.c)
+ *     HalpInterruptGenerateMessage @ 0x140377F98 (HalpInterruptGenerateMessage.c)
+ *     HalpInterruptRemap @ 0x140378130 (HalpInterruptRemap.c)
+ *     HalpInterruptIsMsiSupported @ 0x1403C9D48 (HalpInterruptIsMsiSupported.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpIommuSetupMessageInterruptRouting @ 0x1409A854C (HalpIommuSetupMessageInterruptRouting.c)
  */
 
 __int64 __fastcall HalpIommuConfigureInterrupt(__int64 a1, int a2, __int128 *a3)

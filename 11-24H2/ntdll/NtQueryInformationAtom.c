@@ -1,16 +1,21 @@
 /*
- * XREFs of NtQueryInformationAtom @ 0x1801646C0
+ * XREFs of NtQueryInformationAtom @ 0x180162A80
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryInformationAtom()
+NTSTATUS __cdecl NtQueryInformationAtom(
+        RTL_ATOM Atom,
+        ATOM_INFORMATION_CLASS AtomInformationClass,
+        PVOID AtomInformation,
+        ULONG AtomInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 338LL;
+  result = 338;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtSetBootOptionsWrapper @ 0x14068A830
+ * XREFs of DifNtSetBootOptionsWrapper @ 0x14068E410
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtSetBootOptions @ 0x14083E2B0 (NtSetBootOptions.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtSetBootOptions @ 0x1408444F0 (NtSetBootOptions.c)
  */
 
-__int64 __fastcall DifNtSetBootOptionsWrapper(void *Src, int a2)
+__int64 __fastcall DifNtSetBootOptionsWrapper(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -43,8 +43,8 @@ __int64 __fastcall DifNtSetBootOptionsWrapper(void *Src, int a2)
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v8 = 0;
-    *(_QWORD *)&v16 = Src;
-    DWORD2(v15) = a2;
+    *(_QWORD *)&v16 = BootOptions;
+    DWORD2(v15) = FieldsToChange;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -57,7 +57,7 @@ __int64 __fastcall DifNtSetBootOptionsWrapper(void *Src, int a2)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v16) = NtSetBootOptions(Src);
+  DWORD2(v16) = NtSetBootOptions(BootOptions, FieldsToChange);
   if ( v6 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAssignBootDriveLetter @ 0x1409D65AC
+ * XREFs of IopAssignBootDriveLetter @ 0x1409D75AC
  * Callers:
- *     IopMarkBootPartition @ 0x1409D6100 (IopMarkBootPartition.c)
+ *     IopMarkBootPartition @ 0x1409D7100 (IopMarkBootPartition.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     IopBuildDeviceIoControlRequest @ 0x1400DDCF0 (IopBuildDeviceIoControlRequest.c)
- *     IoGetDeviceObjectPointer @ 0x140661E90 (IoGetDeviceObjectPointer.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1400DDD70 (IopBuildDeviceIoControlRequest.c)
+ *     IoGetDeviceObjectPointer @ 0x140663050 (IoGetDeviceObjectPointer.c)
  */
 
 NTSTATUS IopAssignBootDriveLetter()

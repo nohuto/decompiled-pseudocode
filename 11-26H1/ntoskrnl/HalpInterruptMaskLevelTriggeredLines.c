@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptMaskLevelTriggeredLines @ 0x140599FF0
+ * XREFs of HalpInterruptMaskLevelTriggeredLines @ 0x14059C770
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140C09970 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140C0FB80 (HalpInterruptRestoreAllControllerState.c)
  */
 
 __int64 HalpInterruptMaskLevelTriggeredLines()

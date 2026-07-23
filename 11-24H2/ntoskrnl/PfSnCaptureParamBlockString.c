@@ -1,7 +1,7 @@
 /*
- * XREFs of PfSnCaptureParamBlockString @ 0x1409625CC
+ * XREFs of PfSnCaptureParamBlockString @ 0x14094A08C
  * Callers:
- *     PfSnScanCommandLine @ 0x140961B68 (PfSnScanCommandLine.c)
+ *     PfSnScanCommandLine @ 0x140949628 (PfSnScanCommandLine.c)
  * Callees:
  *     <none>
  */

@@ -21,7 +21,7 @@ __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, int *a4
   __int64 v12; // rbp
   unsigned int i; // edx
   __int64 v14; // r15
-  _QWORD *v15; // r8
+  GUID *v15; // r8
   __int64 v16; // rcx
   _QWORD *GuidEntryByGuid; // rbp
   unsigned int *v18; // r15
@@ -67,15 +67,15 @@ __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, int *a4
   for ( i = 0; i < 0xA; ++i )
   {
     v14 = 2LL * i;
-    v15 = *(&EtwpUmglProviders + 2 * i);
-    v16 = *v15 - *(_QWORD *)a2;
-    if ( *v15 == *(_QWORD *)a2 )
-      v16 = v15[1] - *(_QWORD *)(a2 + 8);
+    v15 = (&EtwpUmglProviders)[2 * i];
+    v16 = *(_QWORD *)&v15->Data1 - *(_QWORD *)a2;
+    if ( *(_QWORD *)&v15->Data1 == *(_QWORD *)a2 )
+      v16 = *(_QWORD *)v15->Data4 - *(_QWORD *)(a2 + 8);
     if ( !v16 )
     {
       memset(a3, 0, (unsigned int)*a4);
       v45 = 24;
-      v46 = *((unsigned __int8 *)&EtwpUmglProviders + 8 * v14 + 8);
+      v46 = *((unsigned __int8 *)&(&EtwpUmglProviders)[v14] + 8);
       if ( *(_BYTE *)(v12 + 2 * v46) )
       {
         v45 = 56;

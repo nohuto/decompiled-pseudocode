@@ -1,20 +1,20 @@
 /*
- * XREFs of KseRegisterShimEx @ 0x140808730
+ * XREFs of KseRegisterShimEx @ 0x140808A00
  * Callers:
- *     KseRegisterShim @ 0x140808710 (KseRegisterShim.c)
+ *     KseRegisterShim @ 0x1408089E0 (KseRegisterShim.c)
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
  *     KsepPoolAllocatePaged @ 0x140209EA8 (KsepPoolAllocatePaged.c)
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     KsepIsShimRegistered @ 0x1408088E0 (KsepIsShimRegistered.c)
- *     KsepGetLoadedModulesList @ 0x14080895C (KsepGetLoadedModulesList.c)
- *     KsepValidateShimProviderAndData @ 0x140808A00 (KsepValidateShimProviderAndData.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     KsepIsShimRegistered @ 0x140808BB0 (KsepIsShimRegistered.c)
+ *     KsepGetLoadedModulesList @ 0x140808C2C (KsepGetLoadedModulesList.c)
+ *     KsepValidateShimProviderAndData @ 0x140808CD0 (KsepValidateShimProviderAndData.c)
  */
 
 __int64 __fastcall KseRegisterShimEx(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -55,7 +55,7 @@ __int64 __fastcall KseRegisterShimEx(__int64 a1, __int64 a2, int a3, __int64 a4)
           KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           LoadedModulesList = -1073741771;
           v16 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v16] = -1073741771;
+          dword_140C40784[2 * v16] = -1073741771;
           KsepHistoryErrors[2 * v16] = 131310;
           if ( (KsepDebugFlag & 2) != 0 )
             KsepDebugPrint(2LL, "KSE: Attempt to re-register shim [0x%08X]\n", **(_DWORD **)(a1 + 8));
@@ -99,7 +99,7 @@ __int64 __fastcall KseRegisterShimEx(__int64 a1, __int64 a2, int a3, __int64 a4)
     {
       LoadedModulesList = -1073741823;
       v15 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140C407C4[2 * v15] = -1073741823;
+      dword_140C40784[2 * v15] = -1073741823;
       KsepHistoryErrors[2 * v15] = 131277;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(2LL, "KSE: Shim [0x%08X] is not valid\n", **(_DWORD **)(a1 + 8));

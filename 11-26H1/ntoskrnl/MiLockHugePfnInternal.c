@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLockHugePfnInternal @ 0x1405013E8
+ * XREFs of MiLockHugePfnInternal @ 0x1404FABD8
  * Callers:
- *     MiTryLockHugePfnAtDpc @ 0x1406EDDCC (MiTryLockHugePfnAtDpc.c)
+ *     MiTryLockHugePfnAtDpc @ 0x1406F2A6C (MiTryLockHugePfnAtDpc.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockHugePfnInternal(__int64 a1, char a2)
@@ -17,8 +17,8 @@ __int64 __fastcall MiLockHugePfnInternal(__int64 a1, char a2)
   signed __int32 v9; // eax
   int v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = *(_QWORD *)&stru_140E2EB88.SystemCallNumber;
-  v4 = ((a1 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
+  v3 = *(_QWORD *)&stru_140E2ED08.SystemCallNumber;
+  v4 = ((a1 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
   v11 = 0;
   v5 = v4 & 0x1F;
   v6 = (unsigned __int64)(unsigned int)v4 >> 5;

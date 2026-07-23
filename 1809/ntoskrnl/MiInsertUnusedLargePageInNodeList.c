@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertUnusedLargePageInNodeList @ 0x1402C5AF0
+ * XREFs of MiInsertUnusedLargePageInNodeList @ 0x1402C5CE0
  * Callers:
  *     MiFreeLargeZeroPages @ 0x14002891C (MiFreeLargeZeroPages.c)
  * Callees:
  *     MiInsertLargePageInNodeList @ 0x140028C1C (MiInsertLargePageInNodeList.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInsertUnusedLargePageInNodeList(ULONG_PTR a1)

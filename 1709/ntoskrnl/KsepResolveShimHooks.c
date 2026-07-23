@@ -14,12 +14,12 @@ __int64 __fastcall KsepResolveShimHooks(__int64 a1, int *a2)
   int v6; // ecx
   int v7; // ecx
   int v8; // ecx
-  char *v9; // rbx
+  void *v9; // rbx
   __int64 v10; // rdi
   int v11; // r15d
   __int64 result; // rax
-  char *ExportedRoutineByName; // rax
-  char *v14; // [rsp+50h] [rbp+8h]
+  PVOID ExportedRoutineByName; // rax
+  void *v14; // [rsp+50h] [rbp+8h]
 
   if ( !a1 || !a2 )
     return 3221225485LL;
@@ -50,12 +50,12 @@ __int64 __fastcall KsepResolveShimHooks(__int64 a1, int *a2)
       }
       else
       {
-        v9 = *(char **)(a1 + 320);
+        v9 = *(void **)(a1 + 320);
       }
     }
     else
     {
-      v9 = *(char **)(a1 + 24);
+      v9 = *(void **)(a1 + 24);
     }
     v14 = v9;
 LABEL_11:
@@ -67,7 +67,7 @@ LABEL_11:
       {
         if ( !*(_DWORD *)v10 )
         {
-          ExportedRoutineByName = RtlFindExportedRoutineByName(v9, *(char **)(v10 + 8));
+          ExportedRoutineByName = RtlFindExportedRoutineByName(v9, *(PCSTR *)(v10 + 8));
           if ( !ExportedRoutineByName )
             return 3221225473LL;
           *(_QWORD *)(v10 + 24) = ExportedRoutineByName;

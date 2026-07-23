@@ -1,8 +1,8 @@
 /*
- * XREFs of PopAcquireUmpoPushLock @ 0x140589AF4
+ * XREFs of PopAcquireUmpoPushLock @ 0x14058AAF4
  * Callers:
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
- *     PopUmpoProcessMessage @ 0x14058AF88 (PopUmpoProcessMessage.c)
+ *     PopUmpoProcessMessage @ 0x14058BF88 (PopUmpoProcessMessage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)

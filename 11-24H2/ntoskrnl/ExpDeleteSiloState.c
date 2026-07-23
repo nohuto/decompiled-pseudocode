@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpDeleteSiloState @ 0x1406556C4
+ * XREFs of ExpDeleteSiloState @ 0x140653DC4
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1407729F4 (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x140772C14 (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PspUserApcKernelRoutine @ 0x1408A8FB0 (PspUserApcKernelRoutine.c)
- *     sub_140972FCC @ 0x140972FCC (sub_140972FCC.c)
- *     MmUnmapViewInSystemSpace @ 0x140A4AE00 (MmUnmapViewInSystemSpace.c)
- *     ExWaitForCallBacks @ 0x140AB7938 (ExWaitForCallBacks.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PspUserApcKernelRoutine @ 0x1408FF210 (PspUserApcKernelRoutine.c)
+ *     sub_14095B7DC @ 0x14095B7DC (sub_14095B7DC.c)
+ *     MmUnmapViewInSystemSpace @ 0x140A41A80 (MmUnmapViewInSystemSpace.c)
+ *     ExWaitForCallBacks @ 0x140AB1CEC (ExWaitForCallBacks.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpDeleteSiloState(PVOID P)
@@ -49,7 +49,7 @@ void __fastcall ExpDeleteSiloState(PVOID P)
   if ( v6 )
   {
     Pa = *v6;
-    if ( (int)sub_140972FCC(&Pa) >= 0 )
+    if ( (int)sub_14095B7DC(&Pa) >= 0 )
       ExFreePoolWithTag(Pa, 0x20534C53u);
     ExFreePoolWithTag(*((PVOID *)P + 5877), 0x20534C53u);
     *((_QWORD *)P + 5877) = 0LL;

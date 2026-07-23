@@ -1,10 +1,10 @@
 /*
- * XREFs of VfGetCommonBufferFromVectorByIndex @ 0x1409CBDF0
+ * XREFs of VfGetCommonBufferFromVectorByIndex @ 0x1409CCDF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaOperation @ 0x1409CFA50 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfGetCommonBufferFromVectorByIndex(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)

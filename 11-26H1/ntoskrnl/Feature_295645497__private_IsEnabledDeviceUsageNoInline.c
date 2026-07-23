@@ -1,14 +1,14 @@
 /*
- * XREFs of Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063AE30
+ * XREFs of Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063DEF8
  * Callers:
- *     SepOneWayLinkLogonSessionsEx @ 0x14063B1C0 (SepOneWayLinkLogonSessionsEx.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
- *     SepTokenDeleteMethod @ 0x140B7CB10 (SepTokenDeleteMethod.c)
- *     SepDeReferenceLogonSession @ 0x140B7CDEC (SepDeReferenceLogonSession.c)
+ *     SepOneWayLinkLogonSessionsEx @ 0x14063E288 (SepOneWayLinkLogonSessionsEx.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
+ *     SepTokenDeleteMethod @ 0x140B85580 (SepTokenDeleteMethod.c)
+ *     SepDeReferenceLogonSession @ 0x140B8585C (SepDeReferenceLogonSession.c)
  * Callees:
- *     Feature_295645497__private_IsEnabledFallback @ 0x14063AE6C (Feature_295645497__private_IsEnabledFallback.c)
+ *     Feature_295645497__private_IsEnabledFallback @ 0x14063DF34 (Feature_295645497__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_295645497__private_IsEnabledDeviceUsageNoInline()

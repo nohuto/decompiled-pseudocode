@@ -1,9 +1,9 @@
 /*
- * XREFs of PspLockThreadSecurityExclusive @ 0x1402C0C04
+ * XREFs of PspLockThreadSecurityExclusive @ 0x14023F0A0
  * Callers:
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall PspLockThreadSecurityExclusive(__int64 a1, __int64 a2)

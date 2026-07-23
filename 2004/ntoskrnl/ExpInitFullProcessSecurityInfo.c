@@ -11,7 +11,7 @@
  *     memset @ 0x14040A280 (memset.c)
  */
 
-_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)
+_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   NTSTATUS v4; // ebx
   ULONG ResultLength; // [rsp+38h] [rbp-59h] BYREF
@@ -46,7 +46,7 @@ _BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Pa
       else
       {
         memmove(&ExpFullProcessInformationSid, (char *)&KeyValueInformation[1] + 4, LODWORD(KeyValueInformation[1]));
-        *Context = &ExpFullProcessInformationSid;
+        *a3 = &ExpFullProcessInformationSid;
       }
     }
     ZwClose(KeyHandle);

@@ -1,16 +1,16 @@
 /*
- * XREFs of HsaFreeRemappingTableEntry @ 0x1405A9970
+ * XREFs of HsaFreeRemappingTableEntry @ 0x1405AC180
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HsaGetDeviceAperture @ 0x14052DBAC (HsaGetDeviceAperture.c)
- *     ExtEnvCriticalFailure @ 0x14052DC00 (ExtEnvCriticalFailure.c)
- *     ExtEnvFreeMemory @ 0x140597DF0 (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x140597E30 (ExtEnvFreePhysicalMemory.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405AAF8C (HsaUpdateRemappingTableInDeviceTableEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HsaGetDeviceAperture @ 0x1405300CC (HsaGetDeviceAperture.c)
+ *     ExtEnvCriticalFailure @ 0x140530120 (ExtEnvCriticalFailure.c)
+ *     ExtEnvFreeMemory @ 0x14059A570 (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14059A5B0 (ExtEnvFreePhysicalMemory.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405AD79C (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
   v4 = 0LL;
   LODWORD(v14) = 0;
   v7 = 0;
-  if ( a2 >> 9 >= dword_140F87388 || a3 + (a2 & 0x1FF) > 0x200 )
+  if ( a2 >> 9 >= dword_140F8774C || a3 + (a2 & 0x1FF) > 0x200 )
   {
     return (unsigned int)-1073741811;
   }
@@ -40,12 +40,12 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
     DeviceAperture = (_QWORD *)HsaGetDeviceAperture(a2);
     if ( *DeviceAperture == a1 )
     {
-      byte_140F87358 = HalpAcquireHighLevelLock(&unk_140F87350);
+      LOBYTE(EmpParseLock.Padding[4]) = HalpAcquireHighLevelLock(&EmpParseLock.Padding[3]);
       v9 = *((_DWORD *)DeviceAperture + 12) == a3;
       *((_DWORD *)DeviceAperture + 12) -= a3;
       if ( v9 )
       {
-        HsaUpdateRemappingTableInDeviceTableEntry(a1, (char *)DeviceAperture + 52, &EmpParseLock.1144);
+        HsaUpdateRemappingTableInDeviceTableEntry(a1, (char *)DeviceAperture + 52, &xmmword_140F87720);
         v13 = *(_OWORD *)(DeviceAperture + 1);
         v15 = DeviceAperture[5];
         v14 = *(_OWORD *)(DeviceAperture + 3);
@@ -53,10 +53,10 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
         v4 = v15;
         v7 = 1;
       }
-      HalpReleaseHighLevelLock(&unk_140F87350, byte_140F87358);
+      HalpReleaseHighLevelLock(&EmpParseLock.Padding[3], EmpParseLock.Padding[4]);
       if ( v7 )
       {
-        if ( *((_QWORD *)&v13 + 1) == EmpParseLock.KcsanThread )
+        if ( *((_QWORD *)&v13 + 1) == *((_QWORD *)&xmmword_140F87720 + 1) )
           ExtEnvCriticalFailure(v10, 0LL, 0LL, 0LL, 0LL);
         ExtEnvFreePhysicalMemory(v10, *((struct _LIST_ENTRY **)&v13 + 1), v14, 1u);
         ExtEnvFreeMemory(v11, v4);

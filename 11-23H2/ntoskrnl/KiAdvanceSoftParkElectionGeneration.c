@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAdvanceSoftParkElectionGeneration @ 0x14057DAB8
+ * XREFs of KiAdvanceSoftParkElectionGeneration @ 0x14057DFA8
  * Callers:
- *     KiSoftParkElectionDpcRoutine @ 0x14057E250 (KiSoftParkElectionDpcRoutine.c)
+ *     KiSoftParkElectionDpcRoutine @ 0x14057E740 (KiSoftParkElectionDpcRoutine.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall KiAdvanceSoftParkElectionGeneration(__int64 a1)

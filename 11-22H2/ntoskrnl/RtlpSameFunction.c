@@ -14,18 +14,18 @@ _BYTE *__fastcall RtlpSameFunction(_BYTE *a1, __int64 a2, unsigned __int64 a3)
   __int64 v3; // rbx
   _BYTE *v5; // rbp
   _BYTE *v6; // rax
-  __int64 v7; // rdi
+  unsigned __int64 v7; // rdi
   __int128 v9; // [rsp+20h] [rbp-28h] BYREF
   __int64 v10; // [rsp+30h] [rbp-18h]
-  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
+  unsigned __int64 ImageBase; // [rsp+60h] [rbp+18h] BYREF
 
   v3 = 0LL;
-  v11 = 0LL;
+  ImageBase = 0LL;
   v5 = RtlpLookupPrimaryFunctionEntry(a1, a2, a3);
   if ( a3 > 0x7FFFFFFEFFFFLL )
   {
-    v6 = RtlLookupFunctionEntry(a3, &v11, 0LL);
-    v7 = v11;
+    v6 = RtlLookupFunctionEntry(a3, &ImageBase, 0LL);
+    v7 = ImageBase;
     if ( v6 )
       goto LABEL_5;
     return 0LL;

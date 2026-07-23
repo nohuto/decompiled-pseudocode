@@ -1,47 +1,47 @@
 /*
- * XREFs of ExWakeTimersPause @ 0x1404B93C0
+ * XREFs of ExWakeTimersPause @ 0x1404B2BF0
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ExpTimerPause @ 0x1404B94C0 (ExpTimerPause.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ExpTimerPause @ 0x1404B2CF0 (ExpTimerPause.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 ExWakeTimersPause()
 {
-  unsigned __int64 *p_KernelWaitTime; // rcx
+  $06DA74891900ABA548658392A057F771 *v0; // rcx
   unsigned __int8 CurrentIrql; // bl
   __int64 v3; // r14
   __int64 v4; // r15
-  struct _KTHREAD *SchedulerAssist; // rdi
+  struct _KTHREAD *v5; // rdi
   KSPIN_LOCK *p_ThreadTimerDelay; // rsi
   __int64 result; // rax
 
-  p_KernelWaitTime = &ExSaPageGroupDescriptorArrayLock.KernelWaitTime;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime, 0LL) )
+  v0 = &ExSaPageGroupDescriptorArrayLock.1008;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.1008, 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      &ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
+      (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.1008,
       0LL,
-      (__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
+      (__int64)&ExSaPageGroupDescriptorArrayLock.1008);
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 2 )
     __writecr8(2uLL);
   if ( KiIrqlFlags )
   {
-    LOBYTE(p_KernelWaitTime) = CurrentIrql;
-    KiRaiseIrqlProcessIrqlFlags(p_KernelWaitTime, 2LL);
+    LOBYTE(v0) = CurrentIrql;
+    KiRaiseIrqlProcessIrqlFlags(v0, 2LL);
   }
   v3 = MEMORY[0xFFFFF78000000008];
   v4 = MEMORY[0xFFFFF78000000014];
-  SchedulerAssist = (struct _KTHREAD *)ExSaPageGroupDescriptorArrayLock.SchedulerAssist;
-  while ( SchedulerAssist != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssist )
+  v5 = *(struct _KTHREAD **)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
+  while ( v5 != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor )
   {
-    p_ThreadTimerDelay = (KSPIN_LOCK *)&SchedulerAssist[-1].ThreadTimerDelay;
-    SchedulerAssist = *(struct _KTHREAD **)&SchedulerAssist->Header.Lock;
+    p_ThreadTimerDelay = (KSPIN_LOCK *)&v5[-1].ThreadTimerDelay;
+    v5 = *(struct _KTHREAD **)&v5->Header.Lock;
     KxAcquireSpinLock(p_ThreadTimerDelay + 8);
     if ( p_ThreadTimerDelay[32] )
       ExpTimerPause(p_ThreadTimerDelay, v4, v3);

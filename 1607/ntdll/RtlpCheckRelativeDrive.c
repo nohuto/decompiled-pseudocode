@@ -1,60 +1,59 @@
 /*
  * XREFs of RtlpCheckRelativeDrive @ 0x180001718
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x18001D830 (RtlGetFullPathName_Ustr.c)
+ *     RtlGetFullPathName_Ustr @ 0x18001D820 (RtlGetFullPathName_Ustr.c)
  * Callees:
  *     RtlpResetDriveEnvironment @ 0x18000189C (RtlpResetDriveEnvironment.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlQueryEnvironmentVariable_U @ 0x18005F1F0 (RtlQueryEnvironmentVariable_U.c)
- *     RtlSetThreadErrorMode @ 0x18007B2F0 (RtlSetThreadErrorMode.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlQueryEnvironmentVariable_U @ 0x18005F1E0 (RtlQueryEnvironmentVariable_U.c)
+ *     RtlSetThreadErrorMode @ 0x18007B2E0 (RtlSetThreadErrorMode.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     NtOpenFile @ 0x1800A6A80 (NtOpenFile.c)
  */
 
-NTSTATUS __fastcall RtlpCheckRelativeDrive(WCHAR a1)
+NTSTATUS __fastcall RtlpCheckRelativeDrive(wchar_t a1)
 {
   NTSTATUS v2; // ebx
-  __int64 v4; // [rsp+38h] [rbp-D0h] BYREF
-  WCHAR *v5; // [rsp+40h] [rbp-C8h]
-  __int64 v6; // [rsp+48h] [rbp-C0h] BYREF
+  _UNICODE_STRING Value; // [rsp+38h] [rbp-D0h] BYREF
+  ULONG OldMode[2]; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE FileHandle; // [rsp+50h] [rbp-B8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-B0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-70h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-B0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-70h] BYREF
   WCHAR SourceString[2]; // [rsp+A8h] [rbp-60h] BYREF
-  int v12; // [rsp+ACh] [rbp-5Ch]
-  __int64 v13; // [rsp+B8h] [rbp-50h] BYREF
-  char v14; // [rsp+C0h] [rbp-48h] BYREF
+  int v11; // [rsp+ACh] [rbp-5Ch]
+  __int64 v12; // [rsp+B8h] [rbp-50h] BYREF
+  char v13; // [rsp+C0h] [rbp-48h] BYREF
 
   SourceString[1] = a1;
   SourceString[0] = 61;
-  v12 = 58;
+  v11 = 58;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  v13 = *(_QWORD *)L"\\??\\";
-  LODWORD(v4) = 34078720;
-  v5 = (WCHAR *)&v14;
-  if ( (int)RtlQueryEnvironmentVariable_U(0LL, &DestinationString, &v4) < 0 )
+  v12 = *(_QWORD *)L"\\??\\";
+  *(_DWORD *)&Value.Length = 34078720;
+  Value.Buffer = (wchar_t *)&v13;
+  if ( RtlQueryEnvironmentVariable_U(0LL, &DestinationString, &Value) < 0 )
   {
-    *v5 = a1;
-    v5[1] = 58;
-    v5[2] = 92;
-    v5[3] = 0;
-    LOWORD(v4) = 6;
+    *Value.Buffer = a1;
+    Value.Buffer[1] = 58;
+    Value.Buffer[2] = 92;
+    Value.Buffer[3] = 0;
+    Value.Length = 6;
   }
   else
   {
-    LOWORD(v4) = v4 + 8;
+    Value.Length += 8;
     ObjectAttributes.Length = 48;
-    WORD1(v4) = 544;
+    Value.MaximumLength = 544;
     ObjectAttributes.RootDirectory = 0LL;
-    v5 = (WCHAR *)&v13;
+    Value.Buffer = (wchar_t *)&v12;
     ObjectAttributes.Attributes = 64;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v4;
+    ObjectAttributes.ObjectName = &Value;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    RtlSetThreadErrorMode(16LL, &v6);
+    RtlSetThreadErrorMode(0x10u, OldMode);
     v2 = NtOpenFile(&FileHandle, 0x100000u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
-    RtlSetThreadErrorMode((unsigned int)v6, 0LL);
+    RtlSetThreadErrorMode(OldMode[0], 0LL);
     if ( v2 >= 0 )
       return NtClose(FileHandle);
   }

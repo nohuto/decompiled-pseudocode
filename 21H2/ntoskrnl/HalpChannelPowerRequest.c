@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpChannelPowerRequest @ 0x140866928
+ * XREFs of HalpChannelPowerRequest @ 0x140866A88
  * Callers:
- *     HaliSetSystemInformation @ 0x140866424 (HaliSetSystemInformation.c)
- *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
+ *     HaliSetSystemInformation @ 0x140866584 (HaliSetSystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x1409909D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpSendPccCommand @ 0x140866BBC (HalpSendPccCommand.c)
+ *     HalpSendPccCommand @ 0x140866D1C (HalpSendPccCommand.c)
  */
 
 __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)
@@ -64,9 +64,9 @@ LABEL_15:
     v6 = HalpSendPccCommand(*((unsigned __int16 *)HalpChannelMemoryRanges + 8 * v3 + 4), a1, v7, v12);
     if ( v6 >= 0 )
     {
-      v14 = qword_140C48CC0;
+      v14 = qword_140C48D00;
       v15 = *((_DWORD *)a1 + 1);
-      *((_DWORD *)a1 + 2) = *(_DWORD *)(qword_140C48CC0 + 4);
+      *((_DWORD *)a1 + 2) = *(_DWORD *)(qword_140C48D00 + 4);
       switch ( v15 )
       {
         case 2:

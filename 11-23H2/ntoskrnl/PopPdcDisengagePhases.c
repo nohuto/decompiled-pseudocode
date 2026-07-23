@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPdcDisengagePhases @ 0x140998050
+ * XREFs of PopPdcDisengagePhases @ 0x140998250
  * Callers:
- *     PopPowerAggregatorEnterScreenOff @ 0x140877CD4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x140993AE0 (PopPowerAggregatorModernStandbyExitStateHandler.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140877F14 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x140993CE0 (PopPowerAggregatorModernStandbyExitStateHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 PopPdcDisengagePhases()

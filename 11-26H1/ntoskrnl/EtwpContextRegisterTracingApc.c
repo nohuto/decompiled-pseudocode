@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpContextRegisterTracingApc @ 0x1406C3900
+ * XREFs of EtwpContextRegisterTracingApc @ 0x1406C7540
  * Callers:
  *     <none>
  * Callees:
- *     EtwpTraceContextRegisters @ 0x1406C4208 (EtwpTraceContextRegisters.c)
+ *     EtwpTraceContextRegisters @ 0x1406C7E48 (EtwpTraceContextRegisters.c)
  */
 
 __int64 __fastcall EtwpContextRegisterTracingApc(__int64 *a1, __int64 a2, int *a3, int *a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of WbSetTrapFrame @ 0x140624794
+ * XREFs of WbSetTrapFrame @ 0x1406257B4
  * Callers:
- *     WbHeapExecuteCall @ 0x140624ABC (WbHeapExecuteCall.c)
- *     sub_140624C6C @ 0x140624C6C (sub_140624C6C.c)
+ *     WbHeapExecuteCall @ 0x140625ADC (WbHeapExecuteCall.c)
+ *     sub_140625C8C @ 0x140625C8C (sub_140625C8C.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
- *     WbSetWowTrapFrame @ 0x1408E552C (WbSetWowTrapFrame.c)
+ *     PspSetContextThreadInternal @ 0x140621A30 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x140621C00 (PspGetContextThreadInternal.c)
+ *     WbSetWowTrapFrame @ 0x1408E67EC (WbSetWowTrapFrame.c)
  */
 
 __int64 __fastcall WbSetTrapFrame(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall WbSetTrapFrame(__int64 a1, __int64 a2)
       *(_QWORD *)(a1 + 296) = *(_QWORD *)(a2 + 8);
       *(_QWORD *)(a1 + 200) = *(_QWORD *)a2;
       *(_DWORD *)(a1 + 116) = *(_DWORD *)(a2 + 16);
-      ContextThreadInternal = PspSetContextThreadInternal(KeGetCurrentThread(), a1 + 48, 0, 1, 1);
+      ContextThreadInternal = PspSetContextThreadInternal(KeGetCurrentThread(), (CONTEXT *)(a1 + 48), 0, 1, 1);
     }
     KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmDisableProfile @ 0x140675B6C
+ * XREFs of PpmDisableProfile @ 0x140675C50
  * Callers:
- *     PdcPoPpmResetProfile @ 0x14066FAE4 (PdcPoPpmResetProfile.c)
+ *     PdcPoPpmResetProfile @ 0x14066FBC8 (PdcPoPpmResetProfile.c)
  * Callees:
- *     PpmResetProfileSettings @ 0x140148D14 (PpmResetProfileSettings.c)
+ *     PpmResetProfileSettings @ 0x140149284 (PpmResetProfileSettings.c)
  */
 
 char __fastcall PpmDisableProfile(__int64 a1)

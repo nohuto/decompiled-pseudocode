@@ -1,23 +1,23 @@
 /*
- * XREFs of MiTrimOrAgeWorkingSet @ 0x14025B4A0
+ * XREFs of MiTrimOrAgeWorkingSet @ 0x14025B730
  * Callers:
  *     MiProcessWorkingSets @ 0x14021FA10 (MiProcessWorkingSets.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiAgeWorkingSet @ 0x14025B770 (MiAgeWorkingSet.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiDrainOldAccessBuffers @ 0x140286DCC (MiDrainOldAccessBuffers.c)
- *     MiCheckAndProcessCcAccessLog @ 0x1402F4CE8 (MiCheckAndProcessCcAccessLog.c)
- *     MiAttachWorkingSet @ 0x14033D9E4 (MiAttachWorkingSet.c)
- *     MiDetachAndUnlockWorkingSet @ 0x14033EF28 (MiDetachAndUnlockWorkingSet.c)
- *     MiTrimWorkingSet @ 0x14035D6C4 (MiTrimWorkingSet.c)
- *     PfLogForegroundProcess @ 0x140361040 (PfLogForegroundProcess.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140361BD0 (MiCaptureAndResetWorkingSetAccessBits.c)
- *     MiEmptyWorkingSetInitiate @ 0x14036DBF4 (MiEmptyWorkingSetInitiate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiComputeTrimAmount @ 0x1406344B4 (MiComputeTrimAmount.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiAgeWorkingSet @ 0x14025BA00 (MiAgeWorkingSet.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiDrainOldAccessBuffers @ 0x14028705C (MiDrainOldAccessBuffers.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1402F4F78 (MiCheckAndProcessCcAccessLog.c)
+ *     MiAttachWorkingSet @ 0x14033DC74 (MiAttachWorkingSet.c)
+ *     MiDetachAndUnlockWorkingSet @ 0x14033F1B8 (MiDetachAndUnlockWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x14035D864 (MiTrimWorkingSet.c)
+ *     PfLogForegroundProcess @ 0x1403611E0 (PfLogForegroundProcess.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x140361D70 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiEmptyWorkingSetInitiate @ 0x14036DD94 (MiEmptyWorkingSetInitiate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeTrimAmount @ 0x140634A04 (MiComputeTrimAmount.c)
  */
 
 __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3)
@@ -157,10 +157,13 @@ LABEL_16:
     *(_WORD *)(a1 + 184) = v29;
     KxReleaseQueuedSpinLock(&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

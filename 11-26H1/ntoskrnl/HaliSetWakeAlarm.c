@@ -1,15 +1,15 @@
 /*
- * XREFs of HaliSetWakeAlarm @ 0x140C0A6E0
+ * XREFs of HaliSetWakeAlarm @ 0x140C108F0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     HalQueryRealTimeClock @ 0x140451480 (HalQueryRealTimeClock.c)
- *     HalpSetWakeAlarm @ 0x1404515F8 (HalpSetWakeAlarm.c)
- *     RtlTimeToTimeFields @ 0x140451D20 (RtlTimeToTimeFields.c)
- *     RtlTimeFieldsToTime @ 0x1404522E0 (RtlTimeFieldsToTime.c)
- *     HalpArmAcpiWakeAlarm @ 0x140B26808 (HalpArmAcpiWakeAlarm.c)
- *     HalpAdjustWakeSecondsDue @ 0x140BE912C (HalpAdjustWakeSecondsDue.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     HalQueryRealTimeClock @ 0x1404495B0 (HalQueryRealTimeClock.c)
+ *     HalpSetWakeAlarm @ 0x140449728 (HalpSetWakeAlarm.c)
+ *     RtlTimeToTimeFields @ 0x140449E50 (RtlTimeToTimeFields.c)
+ *     RtlTimeFieldsToTime @ 0x14044A410 (RtlTimeFieldsToTime.c)
+ *     HalpArmAcpiWakeAlarm @ 0x140B28A68 (HalpArmAcpiWakeAlarm.c)
+ *     HalpAdjustWakeSecondsDue @ 0x140BEF12C (HalpAdjustWakeSecondsDue.c)
  */
 
 __int64 __fastcall HaliSetWakeAlarm(unsigned __int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall HaliSetWakeAlarm(unsigned __int64 a1)
   unsigned int v4; // eax
   __int64 v5; // rbx
   __int64 v6; // rcx
-  TIME_FIELDS TimeFields; // [rsp+30h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-18h] BYREF
   LARGE_INTEGER Time; // [rsp+60h] [rbp+18h] BYREF
 
   HalpWakeupState = 1;
@@ -44,7 +44,7 @@ __int64 __fastcall HaliSetWakeAlarm(unsigned __int64 a1)
         Time.QuadPart += 10000000 * v5;
         RtlTimeToTimeFields(&Time, &TimeFields);
         HIBYTE(HalpWakeupState) = 1;
-        xmmword_140F87E02 = (__int128)TimeFields;
+        xmmword_140F88202 = (__int128)TimeFields;
         return HalpSetWakeAlarm(v6, (unsigned __int8 *)&TimeFields);
       }
       return 3221225473LL;

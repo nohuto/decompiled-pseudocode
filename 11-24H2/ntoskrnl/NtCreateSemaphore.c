@@ -1,24 +1,29 @@
 /*
- * XREFs of NtCreateSemaphore @ 0x14083DDC0
+ * XREFs of NtCreateSemaphore @ 0x14083A3C0
  * Callers:
  *     <none>
  * Callees:
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     KeInitializeSemaphore @ 0x14045C140 (KeInitializeSemaphore.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpFreeObjectNameBuffer @ 0x14083E740 (ObpFreeObjectNameBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObpAllocateObject @ 0x14089B290 (ObpAllocateObject.c)
- *     ObpCaptureObjectCreateInformation @ 0x14089CCA0 (ObpCaptureObjectCreateInformation.c)
- *     ObpRegisterObject @ 0x140AB735C (ObpRegisterObject.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KeInitializeSemaphore @ 0x1404514E0 (KeInitializeSemaphore.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpFreeObjectNameBuffer @ 0x14083AD40 (ObpFreeObjectNameBuffer.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObpAllocateObject @ 0x1408A3930 (ObpAllocateObject.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1408A5340 (ObpCaptureObjectCreateInformation.c)
+ *     ObpRegisterObject @ 0x140AB162C (ObpRegisterObject.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, int a3, LONG a4, int Limit)
+NTSTATUS __cdecl NtCreateSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LONG InitialCount,
+        LONG MaximumCount)
 {
   unsigned __int8 PreviousMode; // r12
   __int64 v8; // rcx
@@ -27,35 +32,34 @@ __int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, int a3, LONG a4, i
   _GENERAL_LOOKASIDE *P; // rdi
   __int64 v12; // rbx
   _GENERAL_LOOKASIDE *L; // rdi
-  __int64 v14; // r9
-  int Information; // edi
-  __int64 v16; // r8
-  __int64 v17; // r9
-  int v18; // ecx
-  void *v19; // rcx
-  struct _KPRCB *v20; // rdx
-  _GENERAL_LOOKASIDE *v21; // rcx
-  struct _KSEMAPHORE *v22; // rbx
-  __int64 v24; // rbx
+  NTSTATUS Information; // edi
+  int v15; // ecx
+  void *v16; // rcx
+  struct _KPRCB *v17; // rdx
+  _GENERAL_LOOKASIDE *v18; // rcx
+  struct _KSEMAPHORE *v19; // rbx
+  __int64 v21; // rbx
   void (__stdcall *FreeEx)(PVOID); // rdx
-  __int64 v26; // [rsp+48h] [rbp-60h] BYREF
-  __int64 v27; // [rsp+50h] [rbp-58h] BYREF
-  _OWORD v28[5]; // [rsp+58h] [rbp-50h] BYREF
+  __int64 v23; // [rsp+48h] [rbp-60h] BYREF
+  __int64 v24; // [rsp+50h] [rbp-58h] BYREF
+  _OWORD v25[5]; // [rsp+58h] [rbp-50h] BYREF
+  int v27; // [rsp+C0h] [rbp+18h]
 
-  v27 = 0LL;
+  v27 = (int)ObjectAttributes;
+  v24 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a1;
+    if ( (unsigned __int64)SemaphoreHandle < 0x7FFFFFFF0000LL )
+      v8 = (__int64)SemaphoreHandle;
     *(_QWORD *)v8 = *(_QWORD *)v8;
   }
-  if ( Limit <= 0 || a4 < 0 || a4 > Limit )
-    return 3221225485LL;
+  if ( MaximumCount <= 0 || InitialCount < 0 || InitialCount > MaximumCount )
+    return -1073741811;
   v9 = ExSemaphoreObjectType;
-  v28[0] = 0LL;
-  v26 = 0LL;
+  v25[0] = 0LL;
+  v23 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   P = CurrentPrcb->PPLookasideList[4].P;
   ++P->TotalAllocates;
@@ -69,13 +73,13 @@ __int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, int a3, LONG a4, i
     if ( !v12 )
     {
       ++L->AllocateMisses;
-      v12 = guard_dispatch_icall_no_overrides((unsigned int)L->Type, L->Size, L->Tag, v14);
+      v12 = guard_dispatch_icall_no_overrides((unsigned int)L->Type, L->Size);
     }
   }
   if ( v12 )
   {
     *(_DWORD *)v12 = CurrentPrcb->Number;
-    Information = ObpCaptureObjectCreateInformation(PreviousMode, PreviousMode, a3, (unsigned int)v28, v12, 0);
+    Information = ObpCaptureObjectCreateInformation(PreviousMode, PreviousMode, v27, (unsigned int)v25, v12, 0);
     if ( Information >= 0 )
     {
       if ( (*(_DWORD *)v12 & (_DWORD)v9[9]) != 0 )
@@ -84,19 +88,19 @@ __int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, int a3, LONG a4, i
       }
       else if ( (*(_DWORD *)v12 & 0x10) == 0 || SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, PreviousMode) )
       {
-        v18 = *((_DWORD *)v9 + 27);
+        v15 = *((_DWORD *)v9 + 27);
         *(_DWORD *)(v12 + 20) = *((_DWORD *)v9 + 26);
-        *(_DWORD *)(v12 + 24) = v18;
-        Information = ObpAllocateObject(v12, PreviousMode, (_DWORD)v9, (unsigned int)v28, 32, (__int64)&v26, 0LL);
+        *(_DWORD *)(v12 + 24) = v15;
+        Information = ObpAllocateObject(v12, PreviousMode, (_DWORD)v9, (unsigned int)v25, 32, (__int64)&v23, 0LL);
         if ( Information >= 0 )
         {
-          v24 = v26;
+          v21 = v23;
           if ( ObpTraceFlags )
           {
-            ObpRegisterObject(v26);
-            ObpPushStackInfo(v24, 1, 1u, 0x746C6644u);
+            ObpRegisterObject(v23);
+            ObpPushStackInfo(v21, 1, 1u, 0x746C6644u);
           }
-          v22 = (struct _KSEMAPHORE *)(v24 + 48);
+          v19 = (struct _KSEMAPHORE *)(v21 + 48);
           goto LABEL_25;
         }
       }
@@ -104,50 +108,50 @@ __int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, int a3, LONG a4, i
       {
         Information = -1073741727;
       }
-      if ( *((_QWORD *)&v28[0] + 1) )
-        ObpFreeObjectNameBuffer(v28);
-      v19 = *(void **)(v12 + 32);
-      if ( v19 )
+      if ( *((_QWORD *)&v25[0] + 1) )
+        ObpFreeObjectNameBuffer(v25);
+      v16 = *(void **)(v12 + 32);
+      if ( v16 )
       {
         if ( *(_BYTE *)(v12 + 16) <= 1u )
-          ExFreePoolWithTag(v19, 0);
+          ExFreePoolWithTag(v16, 0);
         *(_QWORD *)(v12 + 32) = 0LL;
       }
     }
-    v20 = KeGetCurrentPrcb();
-    v21 = v20->PPLookasideList[4].P;
-    ++v21->TotalFrees;
-    if ( LOWORD(v21->ListHead.Alignment) < v21->Depth
-      || (++v21->FreeMisses,
-          v21 = v20->PPLookasideList[4].L,
-          ++v21->TotalFrees,
-          LOWORD(v21->ListHead.Alignment) < v21->Depth) )
+    v17 = KeGetCurrentPrcb();
+    v18 = v17->PPLookasideList[4].P;
+    ++v18->TotalFrees;
+    if ( LOWORD(v18->ListHead.Alignment) < v18->Depth
+      || (++v18->FreeMisses,
+          v18 = v17->PPLookasideList[4].L,
+          ++v18->TotalFrees,
+          LOWORD(v18->ListHead.Alignment) < v18->Depth) )
     {
-      RtlpInterlockedPushEntrySList(&v21->ListHead, (PSLIST_ENTRY)v12);
+      RtlpInterlockedPushEntrySList(&v18->ListHead, (PSLIST_ENTRY)v12);
     }
     else
     {
-      ++v21->FreeMisses;
-      FreeEx = (void (__stdcall *)(PVOID))v21->FreeEx;
+      ++v18->FreeMisses;
+      FreeEx = (void (__stdcall *)(PVOID))v18->FreeEx;
       if ( FreeEx == ExFreePool )
         ExFreePool((PVOID)v12);
       else
-        guard_dispatch_icall_no_overrides(v12, FreeEx, v16, v17);
+        guard_dispatch_icall_no_overrides(v12, FreeEx);
     }
-    v22 = 0LL;
+    v19 = 0LL;
   }
   else
   {
     Information = -1073741670;
-    v22 = 0LL;
+    v19 = 0LL;
   }
 LABEL_25:
   if ( Information >= 0 )
   {
-    KeInitializeSemaphore(v22, a4, Limit);
-    Information = ObInsertObjectEx(v22, 0, 0LL, (__int64)&v27);
+    KeInitializeSemaphore(v19, InitialCount, MaximumCount);
+    Information = ObInsertObjectEx(v19, 0, 0LL, (__int64)&v24);
     if ( Information >= 0 )
-      *a1 = v27;
+      *SemaphoreHandle = (HANDLE)v24;
   }
-  return (unsigned int)Information;
+  return Information;
 }

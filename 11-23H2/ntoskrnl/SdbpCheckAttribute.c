@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCheckAttribute @ 0x140758F80
+ * XREFs of SdbpCheckAttribute @ 0x140759170
  * Callers:
- *     SdbpCheckAllAttributes @ 0x1407576F4 (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x1407578E4 (SdbpCheckAllAttributes.c)
  * Callees:
- *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x14041A2B8 (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
+ *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x14041A648 (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslStringPatternMatchExW @ 0x1407C686C (AslStringPatternMatchExW.c)
- *     SdbpCheckUptoVersion @ 0x140864C04 (SdbpCheckUptoVersion.c)
- *     SdbpCheckFromStringVersion @ 0x140A533E8 (SdbpCheckFromStringVersion.c)
- *     SdbpCheckFromVersion @ 0x140A5351C (SdbpCheckFromVersion.c)
- *     SdbpCheckUptoStringVersion @ 0x140A53560 (SdbpCheckUptoStringVersion.c)
- *     SdbpCheckVersion @ 0x140A536A0 (SdbpCheckVersion.c)
+ *     AslStringPatternMatchExW @ 0x1407C6B3C (AslStringPatternMatchExW.c)
+ *     SdbpCheckUptoVersion @ 0x140864E44 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckFromStringVersion @ 0x140A53698 (SdbpCheckFromStringVersion.c)
+ *     SdbpCheckFromVersion @ 0x140A537CC (SdbpCheckFromVersion.c)
+ *     SdbpCheckUptoStringVersion @ 0x140A53810 (SdbpCheckUptoStringVersion.c)
+ *     SdbpCheckVersion @ 0x140A53950 (SdbpCheckVersion.c)
  */
 
 __int64 __fastcall SdbpCheckAttribute(_DWORD *a1, unsigned __int16 a2, _QWORD *a3, unsigned int a4, __int64 a5)

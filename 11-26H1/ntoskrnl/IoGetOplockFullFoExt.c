@@ -1,7 +1,7 @@
 /*
- * XREFs of IoGetOplockFullFoExt @ 0x1403FD594
+ * XREFs of IoGetOplockFullFoExt @ 0x1403F9D84
  * Callers:
- *     FsRtlpOplockCleanup @ 0x1403FCDAC (FsRtlpOplockCleanup.c)
+ *     FsRtlpOplockCleanup @ 0x1403F959C (FsRtlpOplockCleanup.c)
  * Callees:
  *     <none>
  */

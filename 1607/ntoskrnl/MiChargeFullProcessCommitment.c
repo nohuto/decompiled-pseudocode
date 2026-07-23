@@ -1,23 +1,23 @@
 /*
- * XREFs of MiChargeFullProcessCommitment @ 0x140430960
+ * XREFs of MiChargeFullProcessCommitment @ 0x14042F830
  * Callers:
- *     MiCopyToUserVa @ 0x140014B50 (MiCopyToUserVa.c)
- *     MiCommitExistingVad @ 0x14002AC20 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiSplitPrivatePage @ 0x1400988C0 (MiSplitPrivatePage.c)
- *     MiProtectPrivateMemory @ 0x1400E1040 (MiProtectPrivateMemory.c)
- *     MiSplitReducedCommitClonePage @ 0x1401E2F58 (MiSplitReducedCommitClonePage.c)
- *     MiCommitPageTablesForVad @ 0x140430A30 (MiCommitPageTablesForVad.c)
- *     MiCreateLargePageVad @ 0x1406624FC (MiCreateLargePageVad.c)
+ *     MiCopyToUserVa @ 0x1400146D0 (MiCopyToUserVa.c)
+ *     MiCommitExistingVad @ 0x14002A7A0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiSplitPrivatePage @ 0x1400980C0 (MiSplitPrivatePage.c)
+ *     MiProtectPrivateMemory @ 0x1400DEEE0 (MiProtectPrivateMemory.c)
+ *     MiSplitReducedCommitClonePage @ 0x1401E2D84 (MiSplitReducedCommitClonePage.c)
+ *     MiCommitPageTablesForVad @ 0x14042F900 (MiCommitPageTablesForVad.c)
+ *     MiCreateLargePageVad @ 0x1406625E0 (MiCreateLargePageVad.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiChargeProcessCommitment @ 0x14002BB20 (MiChargeProcessCommitment.c)
- *     PspChargeQuota @ 0x14002BB90 (PspChargeQuota.c)
- *     MiReturnProcessCommitment @ 0x1400A3E4C (MiReturnProcessCommitment.c)
- *     MiCommitRequestFailed @ 0x1401ECDEC (MiCommitRequestFailed.c)
- *     PsReturnProcessPageFileQuota @ 0x14042E3CC (PsReturnProcessPageFileQuota.c)
- *     PsChangeJobMemoryUsageByProcess @ 0x14068008C (PsChangeJobMemoryUsageByProcess.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiChargeProcessCommitment @ 0x14002B6A0 (MiChargeProcessCommitment.c)
+ *     PspChargeQuota @ 0x14002B710 (PspChargeQuota.c)
+ *     MiReturnProcessCommitment @ 0x1400A2774 (MiReturnProcessCommitment.c)
+ *     MiCommitRequestFailed @ 0x1401ECC18 (MiCommitRequestFailed.c)
+ *     PsReturnProcessPageFileQuota @ 0x14042D29C (PsReturnProcessPageFileQuota.c)
+ *     PsChangeJobMemoryUsageByProcess @ 0x140680170 (PsChangeJobMemoryUsageByProcess.c)
  */
 
 __int64 __fastcall MiChargeFullProcessCommitment(ULONG_PTR a1, unsigned __int64 a2)

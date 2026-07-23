@@ -1,15 +1,15 @@
 /*
- * XREFs of ObDereferenceProcessHandleTable @ 0x14069C640
+ * XREFs of ObDereferenceProcessHandleTable @ 0x1405FB710
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1405071D0 (IoRevokeHandlesForProcess.c)
- *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     IoRevokeHandlesForProcess @ 0x140507150 (IoRevokeHandlesForProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     ObDuplicateObject @ 0x1406E4910 (ObDuplicateObject.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
  */
 
 void __fastcall ObDereferenceProcessHandleTable(struct _EX_RUNDOWN_REF *a1)
 {
-  ExReleaseRundownProtection_0(a1 + 139);
+  ExReleaseRundownProtection(a1 + 139);
 }

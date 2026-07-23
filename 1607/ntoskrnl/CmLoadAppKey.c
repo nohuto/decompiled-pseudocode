@@ -1,37 +1,37 @@
 /*
- * XREFs of CmLoadAppKey @ 0x1403FC110
+ * XREFs of CmLoadAppKey @ 0x1403FAFD0
  * Callers:
- *     CmLoadDifferencingKey @ 0x14049B648 (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x1404A37E0 (CmLoadDifferencingKey.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     ExBlockOnAddressPushLock @ 0x1400872BC (ExBlockOnAddressPushLock.c)
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x1401B4690 (CmpCheckHivePrimaryFileReadWriteAccess.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     ExBlockOnAddressPushLock @ 0x14009DC4C (ExBlockOnAddressPushLock.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x1401B4574 (CmpCheckHivePrimaryFileReadWriteAccess.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpOpenHiveFile @ 0x1403F9400 (CmpOpenHiveFile.c)
- *     UNLOCK_HIVE_LOAD @ 0x1403FB7E4 (UNLOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x1403FB854 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x1403FB8B4 (LOCK_HIVE_LOAD.c)
- *     CmpGetNextHive @ 0x1403FC878 (CmpGetNextHive.c)
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
- *     CmpIsThisSameFile @ 0x1403FCA68 (CmpIsThisSameFile.c)
- *     CmpUnlockAppHiveLoadList @ 0x1403FCAE0 (CmpUnlockAppHiveLoadList.c)
- *     CmpLockAppHiveLoadList @ 0x1403FCB3C (CmpLockAppHiveLoadList.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x140404978 (CmpReferenceKeyControlBlockUnsafe.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpCmdHiveOpen @ 0x14049C7BC (CmpCmdHiveOpen.c)
- *     CmpConstructName @ 0x1404A1DCC (CmpConstructName.c)
- *     CmpGetLastHive @ 0x1404DC9D8 (CmpGetLastHive.c)
+ *     CmpOpenHiveFile @ 0x1403F82C0 (CmpOpenHiveFile.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1403FA6A4 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x1403FA714 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1403FA774 (LOCK_HIVE_LOAD.c)
+ *     CmpGetNextHive @ 0x1403FB738 (CmpGetNextHive.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
+ *     CmpIsThisSameFile @ 0x1403FB928 (CmpIsThisSameFile.c)
+ *     CmpUnlockAppHiveLoadList @ 0x1403FB9A0 (CmpUnlockAppHiveLoadList.c)
+ *     CmpLockAppHiveLoadList @ 0x1403FB9FC (CmpLockAppHiveLoadList.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x140403838 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpCmdHiveOpen @ 0x1404A4CD8 (CmpCmdHiveOpen.c)
+ *     CmpGetLastHive @ 0x1404BFFDC (CmpGetLastHive.c)
+ *     CmpConstructName @ 0x14051A1D8 (CmpConstructName.c)
  */
 
 __int64 __fastcall CmLoadAppKey(
@@ -184,12 +184,12 @@ __int64 __fastcall CmLoadAppKey(
   if ( (__int64 *)CmpAppHiveLoadList == &CmpAppHiveLoadList )
   {
 LABEL_32:
-    if ( *(__int64 **)qword_140322D38 != &CmpAppHiveLoadList )
+    if ( *(__int64 **)qword_140322D58 != &CmpAppHiveLoadList )
       __fastfail(3u);
     v65 = &CmpAppHiveLoadList;
-    v66 = (__int64 **)qword_140322D38;
-    *(_QWORD *)qword_140322D38 = &v65;
-    qword_140322D38 = (__int64)&v65;
+    v66 = (__int64 **)qword_140322D58;
+    *(_QWORD *)qword_140322D58 = &v65;
+    qword_140322D58 = (__int64)&v65;
     CmpUnlockAppHiveLoadList();
     goto LABEL_36;
   }
@@ -391,13 +391,13 @@ LABEL_79:
       __fastfail(3u);
     v68->Count = v67;
     *(_QWORD *)(v48 + 8) = v49;
-    v51 = (_QWORD *)qword_140322D38;
-    if ( *(__int64 **)qword_140322D38 != &CmpAppHiveLoadList )
+    v51 = (_QWORD *)qword_140322D58;
+    if ( *(__int64 **)qword_140322D58 != &CmpAppHiveLoadList )
       __fastfail(3u);
     *v50 = &CmpAppHiveLoadList;
     v50[1] = v51;
     *v51 = v50;
-    qword_140322D38 = (__int64)v50;
+    qword_140322D58 = (__int64)v50;
   }
   CmpUnlockAppHiveLoadList();
   KeSetEvent(&Event, 0, 0);

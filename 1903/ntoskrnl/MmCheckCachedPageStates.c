@@ -200,7 +200,7 @@ __int64 __fastcall MmCheckCachedPageStates(unsigned __int64 a1, __int64 a2, unsi
   unsigned __int64 v145; // rdx
   __int64 v146; // rax
   __int64 v147; // rdx
-  struct _SLIST_ENTRY *v148; // rbx
+  _SLIST_ENTRY *v148; // rbx
   __int64 v150; // r10
   __int64 v151; // rax
   int v152; // ecx
@@ -213,7 +213,7 @@ __int64 __fastcall MmCheckCachedPageStates(unsigned __int64 a1, __int64 a2, unsi
   int v159; // [rsp+34h] [rbp-1C4h]
   char v160; // [rsp+38h] [rbp-1C0h]
   unsigned int v161; // [rsp+3Ch] [rbp-1BCh]
-  struct _SLIST_ENTRY *v162; // [rsp+40h] [rbp-1B8h]
+  _SLIST_ENTRY *v162; // [rsp+40h] [rbp-1B8h]
   ULONG_PTR BugCheckParameter1; // [rsp+48h] [rbp-1B0h]
   char v164; // [rsp+50h] [rbp-1A8h]
   unsigned int PfnPriority; // [rsp+54h] [rbp-1A4h]
@@ -710,7 +710,7 @@ LABEL_201:
       {
         while ( 1 )
         {
-          v162 = (struct _SLIST_ENTRY *)MiLockProtoPoolPage(v104, v158);
+          v162 = (_SLIST_ENTRY *)MiLockProtoPoolPage(v104, v158);
           if ( v162 )
             break;
           MmAccessFault(2uLL, v104, 0, 0LL);

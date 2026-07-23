@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPepGetMinimumDevicePowerState @ 0x14059F090
+ * XREFs of PopPepGetMinimumDevicePowerState @ 0x14059F580
  * Callers:
- *     PopPepUpdateDripsDeviceVetoMask @ 0x14059FE64 (PopPepUpdateDripsDeviceVetoMask.c)
- *     PoFxSetTargetDripsDevicePowerState @ 0x1409848B0 (PoFxSetTargetDripsDevicePowerState.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x1405A0354 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PoFxSetTargetDripsDevicePowerState @ 0x140984AB0 (PoFxSetTargetDripsDevicePowerState.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepGetMinimumDevicePowerState(__int64 a1, char a2, char a3, _DWORD *a4, _DWORD *a5)
@@ -61,10 +61,10 @@ char __fastcall PopPepGetMinimumDevicePowerState(__int64 a1, char a2, char a3, _
   if ( a3 )
   {
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

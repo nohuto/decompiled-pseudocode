@@ -95,7 +95,7 @@ NTSTATUS __stdcall NtSetValueKey(
   memset(v50, 0, 24);
   v45 = 0LL;
   if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp(v50, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v50, 0x20000u);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )

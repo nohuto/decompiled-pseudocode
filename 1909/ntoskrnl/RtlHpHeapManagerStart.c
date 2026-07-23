@@ -11,9 +11,9 @@
  */
 
 NTSTATUS __fastcall RtlHpHeapManagerStart(
-        union _RTL_RUN_ONCE *a1,
+        _RTL_RUN_ONCE *a1,
         unsigned int a2,
-        union _RTL_RUN_ONCE a3,
+        _RTL_RUN_ONCE a3,
         unsigned __int64 a4,
         char a5)
 {
@@ -30,7 +30,7 @@ NTSTATUS __fastcall RtlHpHeapManagerStart(
     result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))RtlpHpVaMgrCtxStart)(
                &a1[11],
                a2,
-               (union _RTL_RUN_ONCE)a3.Value,
+               (_RTL_RUN_ONCE)a3.Value,
                a4 - 1);
     if ( result >= 0 )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogWriteDisabled @ 0x1401F4B00
+ * XREFs of MiStoreLogWriteDisabled @ 0x1401F492C
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140118960 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140118ED0 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
  */
 
 void MiStoreLogWriteDisabled()
@@ -21,9 +21,9 @@ void MiStoreLogWriteDisabled()
   int v8; // [rsp+60h] [rbp+0h] BYREF
 
   v0 = (unsigned __int64)&v8 & 0xFFFFFFFFFFFFFFE0uLL;
-  if ( hProvider && hProvider->LevelPlus1 > 5 )
+  if ( qword_1403277E0 && qword_1403277E0->LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(hProvider, 2uLL) )
+    if ( TlgKeywordOn(qword_1403277E0, 2uLL) )
     {
       *(_DWORD *)(((unsigned __int64)&v8 & 0xFFFFFFFFFFFFFFE0uLL) + 0x3C) = 0;
       *(_DWORD *)(((unsigned __int64)&v8 & 0xFFFFFFFFFFFFFFE0uLL) + 0x4C) = 0;
@@ -34,7 +34,7 @@ void MiStoreLogWriteDisabled()
       *(_DWORD *)(((unsigned __int64)&v8 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = v4;
       *(_DWORD *)(((unsigned __int64)&v8 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = v1 + 2;
       *(_DWORD *)(((unsigned __int64)&v8 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) = v1 + 2;
-      TlgWriteEx(v3, &unk_14027C96F, v2, (ULONG)v3, v6, v7, v1 + 2, (EVENT_DATA_DESCRIPTOR *)(v0 + 16));
+      TlgWriteEx(v3, &unk_14027CA6F, v2, (ULONG)v3, v6, v7, v1 + 2, (EVENT_DATA_DESCRIPTOR *)(v0 + 16));
     }
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpInitializeLockAtomTable @ 0x140B3983C
+ * XREFs of RtlpInitializeLockAtomTable @ 0x140B3BA4C
  * Callers:
- *     RtlCreateAtomTableEx @ 0x1404D3CC0 (RtlCreateAtomTableEx.c)
+ *     RtlCreateAtomTableEx @ 0x1404CD530 (RtlCreateAtomTableEx.c)
  * Callees:
  *     <none>
  */

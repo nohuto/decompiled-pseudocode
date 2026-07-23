@@ -1,13 +1,13 @@
 /*
- * XREFs of HviIsHypervisorVendorMicrosoft @ 0x1401863D0
+ * XREFs of HviIsHypervisorVendorMicrosoft @ 0x140186510
  * Callers:
- *     KiIsHyperVCr3RspErrataPresent @ 0x1401B4CA8 (KiIsHyperVCr3RspErrataPresent.c)
- *     HvipApertureDetectParameters @ 0x1402FC804 (HvipApertureDetectParameters.c)
- *     HviGetDebugDeviceOptions @ 0x140322310 (HviGetDebugDeviceOptions.c)
- *     EtwpTraceSystemInitialization @ 0x1409D1A58 (EtwpTraceSystemInitialization.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1401B4DE8 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HvipApertureDetectParameters @ 0x1402FC9F4 (HvipApertureDetectParameters.c)
+ *     HviGetDebugDeviceOptions @ 0x140322500 (HviGetDebugDeviceOptions.c)
+ *     EtwpTraceSystemInitialization @ 0x1409D2A58 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140176BB0 (HviIsAnyHypervisorPresent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HviIsAnyHypervisorPresent @ 0x140176CB0 (HviIsAnyHypervisorPresent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 bool HviIsHypervisorVendorMicrosoft()

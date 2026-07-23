@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x1403796D4
+ * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x140379224
  * Callers:
- *     HalpDmaCheckAdapterToken @ 0x1404B8F10 (HalpDmaCheckAdapterToken.c)
- *     HalpDmaLinkDeviceObjectByToken @ 0x1407647E0 (HalpDmaLinkDeviceObjectByToken.c)
+ *     HalpDmaCheckAdapterToken @ 0x1404B9150 (HalpDmaCheckAdapterToken.c)
+ *     HalpDmaLinkDeviceObjectByToken @ 0x1407649A0 (HalpDmaLinkDeviceObjectByToken.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char a3)
@@ -43,13 +43,13 @@ __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char
     *((_QWORD *)PoolWithTag + 2) = a1;
     *((_QWORD *)PoolWithTag + 3) = a2;
     *((_BYTE *)PoolWithTag + 32) = a3;
-    v11 = (_QWORD *)qword_140C4BEE8;
-    if ( *(__int64 **)qword_140C4BEE8 != &HalpDmaPdoList )
+    v11 = (_QWORD *)qword_140C4BF28;
+    if ( *(__int64 **)qword_140C4BF28 != &HalpDmaPdoList )
       __fastfail(3u);
     *(_QWORD *)PoolWithTag = &HalpDmaPdoList;
     *((_QWORD *)PoolWithTag + 1) = v11;
     *v11 = PoolWithTag;
-    qword_140C4BEE8 = (__int64)PoolWithTag;
+    qword_140C4BF28 = (__int64)PoolWithTag;
   }
   else
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlFreeFileLock @ 0x1403DF720
+ * XREFs of FsRtlFreeFileLock @ 0x1403BF410
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlUninitializeFileLock @ 0x1403DF750 (FsRtlUninitializeFileLock.c)
- *     ExFreeToPagedLookasideList @ 0x1403E03E0 (ExFreeToPagedLookasideList.c)
+ *     FsRtlUninitializeFileLock @ 0x1403BF440 (FsRtlUninitializeFileLock.c)
+ *     ExFreeToPagedLookasideList @ 0x1403C00D0 (ExFreeToPagedLookasideList.c)
  */
 
 void __stdcall FsRtlFreeFileLock(PFILE_LOCK FileLock)

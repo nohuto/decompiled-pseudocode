@@ -1,29 +1,29 @@
 /*
- * XREFs of PiIsDriverBlocked @ 0x14077E304
+ * XREFs of PiIsDriverBlocked @ 0x14077E4C4
  * Callers:
- *     PiLookupInDDB @ 0x14077E1FC (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x14077E3BC (PiLookupInDDB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExIsProcessorFeaturePresent @ 0x1402D1D60 (ExIsProcessorFeaturePresent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     PiUpdateDriverDBCache @ 0x14077E48C (PiUpdateDriverDBCache.c)
- *     SdbGetDatabaseMatch @ 0x14077E648 (SdbGetDatabaseMatch.c)
- *     SdbQueryDataExTagID @ 0x1407C1768 (SdbQueryDataExTagID.c)
- *     SdbReadEntryInformation @ 0x1407C1A3C (SdbReadEntryInformation.c)
- *     SdbTagRefToTagID @ 0x1407C2090 (SdbTagRefToTagID.c)
- *     PiIsHVCIEnabled @ 0x1407D4A7C (PiIsHVCIEnabled.c)
- *     PnpLogEvent @ 0x1408A1EFC (PnpLogEvent.c)
- *     PiNotifyCiDriverBlocked @ 0x1408A2D34 (PiNotifyCiDriverBlocked.c)
- *     PnpTraceDriverBlocked @ 0x1408B1BF8 (PnpTraceDriverBlocked.c)
+ *     ExIsProcessorFeaturePresent @ 0x140250130 (ExIsProcessorFeaturePresent.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D4270 (wcsrchr.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     PiUpdateDriverDBCache @ 0x14077E64C (PiUpdateDriverDBCache.c)
+ *     SdbGetDatabaseMatch @ 0x14077E808 (SdbGetDatabaseMatch.c)
+ *     SdbQueryDataExTagID @ 0x1407C1C88 (SdbQueryDataExTagID.c)
+ *     SdbReadEntryInformation @ 0x1407C1F5C (SdbReadEntryInformation.c)
+ *     SdbTagRefToTagID @ 0x1407C25B0 (SdbTagRefToTagID.c)
+ *     PiIsHVCIEnabled @ 0x1407D4BEC (PiIsHVCIEnabled.c)
+ *     PnpLogEvent @ 0x1408A205C (PnpLogEvent.c)
+ *     PiNotifyCiDriverBlocked @ 0x1408A2E94 (PiNotifyCiDriverBlocked.c)
+ *     PnpTraceDriverBlocked @ 0x1408B1D58 (PnpTraceDriverBlocked.c)
  */
 
 __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _OWORD *a5)
 {
   __int64 v6; // rdx
-  int v7; // esi
-  int v9; // r8d
+  __int64 v7; // rsi
+  __int64 v9; // r8
   unsigned int DatabaseMatch; // r12d
   unsigned int v11; // ebx
   int v13; // r8d
@@ -120,7 +120,7 @@ LABEL_3:
   }
   if ( !v11 || v11 + 1073740949 <= 1 )
   {
-    PiUpdateDriverDBCache(a2, v7, v9, v11, (__int64)v25);
+    PiUpdateDriverDBCache(a2, v7, v9, v11, v25);
     if ( v11 + 1073740949 <= 1 )
     {
       if ( a5 )

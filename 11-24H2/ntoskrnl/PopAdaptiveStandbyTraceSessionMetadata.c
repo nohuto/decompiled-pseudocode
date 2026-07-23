@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAdaptiveStandbyTraceSessionMetadata @ 0x140762800
+ * XREFs of PopAdaptiveStandbyTraceSessionMetadata @ 0x140761FD0
  * Callers:
- *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x1407624E0 (PopAdaptiveStandbyTraceBatteryUpdate.c)
- *     PopAdaptiveStandbyTraceSessionSettings @ 0x14076298C (PopAdaptiveStandbyTraceSessionSettings.c)
+ *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x140761CB0 (PopAdaptiveStandbyTraceBatteryUpdate.c)
+ *     PopAdaptiveStandbyTraceSessionSettings @ 0x14076215C (PopAdaptiveStandbyTraceSessionSettings.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
  */
 
 NTSTATUS __fastcall PopAdaptiveStandbyTraceSessionMetadata(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeSetEvent @ 0x14071268C
+ * XREFs of VerifierKeSetEvent @ 0x140712644
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilCheckKernelAddress @ 0x140702C44 (VfUtilCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VfUtilCheckKernelAddress @ 0x140702C74 (VfUtilCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierKeSetEvent(unsigned __int64 a1, unsigned int a2, char a3)

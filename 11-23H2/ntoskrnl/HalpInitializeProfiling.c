@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInitializeProfiling @ 0x140A913E4
+ * XREFs of HalpInitializeProfiling @ 0x140A91264
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140A91320 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x140A911A0 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x140377F3C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     strncmp @ 0x1403D8E90 (strncmp.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpHvCpuid @ 0x14050B2C0 (HalpHvCpuid.c)
- *     HalpLbrInitialize @ 0x140A9150C (HalpLbrInitialize.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403780DC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D9070 (strncmp.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpHvCpuid @ 0x14050B810 (HalpHvCpuid.c)
+ *     HalpLbrInitialize @ 0x140A9138C (HalpLbrInitialize.c)
  */
 
 __int64 __fastcall HalpInitializeProfiling(int a1)

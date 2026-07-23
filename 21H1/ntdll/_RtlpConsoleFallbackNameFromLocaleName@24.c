@@ -88,7 +88,7 @@ LABEL_5:
         v35 = v17;
         if ( v16 == 1252 || v16 == 1250 || v16 == 1254 || v16 == 1257 )
         {
-          v29 = String2;
+          v29 = (const WCHAR *)String2;
 LABEL_9:
           *a3 = v7;
           RtlInitUnicodeString(DestinationString, v29);
@@ -101,7 +101,7 @@ LABEL_9:
         {
           v21 = String2;
 LABEL_49:
-          v29 = v21;
+          v29 = (const WCHAR *)v21;
           goto LABEL_9;
         }
         if ( !_wcsicmp(v21, L"en") || !_wcsicmp(v21, L"en-US") )

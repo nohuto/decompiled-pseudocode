@@ -1,17 +1,17 @@
 /*
- * XREFs of PopNetWnfLowPowerEpochCallback @ 0x140996A30
+ * XREFs of PopNetWnfLowPowerEpochCallback @ 0x140996C30
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     KeCancelTimer2 @ 0x14031DEE0 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407E21C0 (ExQueryWnfStateData.c)
- *     PopNetArmRefreshTimer @ 0x1409965C0 (PopNetArmRefreshTimer.c)
- *     PopNetDisengageNetworkRefresh @ 0x140996720 (PopNetDisengageNetworkRefresh.c)
- *     PopNetGetNextDueRefreshTime @ 0x1409967B8 (PopNetGetNextDueRefreshTime.c)
- *     PopNetIsNetworkRefreshEnabled @ 0x14099686C (PopNetIsNetworkRefreshEnabled.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     KeCancelTimer2 @ 0x14031E170 (KeCancelTimer2.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1407E2490 (ExQueryWnfStateData.c)
+ *     PopNetArmRefreshTimer @ 0x1409967C0 (PopNetArmRefreshTimer.c)
+ *     PopNetDisengageNetworkRefresh @ 0x140996920 (PopNetDisengageNetworkRefresh.c)
+ *     PopNetGetNextDueRefreshTime @ 0x1409969B8 (PopNetGetNextDueRefreshTime.c)
+ *     PopNetIsNetworkRefreshEnabled @ 0x140996A6C (PopNetIsNetworkRefreshEnabled.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
@@ -23,20 +23,23 @@ __int64 __fastcall PopNetWnfLowPowerEpochCallback(__int64 a1)
   __int64 v3; // rdx
   __int64 v4; // rcx
   __int64 v5; // r8
+  __int64 v6; // r9
   LARGE_INTEGER NextDueRefreshTime; // rax
-  REGHANDLE v7; // rdi
-  unsigned int v9; // [rsp+30h] [rbp-28h] BYREF
-  int v10; // [rsp+38h] [rbp-20h] BYREF
-  _BYTE v11[8]; // [rsp+40h] [rbp-18h] BYREF
+  REGHANDLE v8; // rdi
+  __int64 v10; // [rsp+20h] [rbp-38h]
+  __int64 v11; // [rsp+28h] [rbp-30h]
+  unsigned int v12; // [rsp+30h] [rbp-28h] BYREF
+  int v13; // [rsp+38h] [rbp-20h] BYREF
+  _BYTE v14[8]; // [rsp+40h] [rbp-18h] BYREF
 
-  v9 = 8;
-  v2 = ExQueryWnfStateData(a1, &v10, v11, &v9);
+  v12 = 8;
+  v2 = ExQueryWnfStateData(a1, &v13, v14, &v12);
   if ( v2 >= 0 )
   {
-    if ( v9 >= 8 )
+    if ( v12 >= 8 )
     {
       PopAcquirePolicyLock(v1);
-      if ( (v11[0] & 2) != 0 )
+      if ( (v14[0] & 2) != 0 )
       {
         PopNetInLpePhase = 1;
         if ( PopNetIsNetworkRefreshEnabled() )
@@ -54,15 +57,15 @@ __int64 __fastcall PopNetWnfLowPowerEpochCallback(__int64 a1)
           KeCancelTimer2((__int64)&PopNetRefreshTimer);
           if ( PopDiagHandleRegistered )
           {
-            v7 = PopDiagHandle;
+            v8 = PopDiagHandle;
             if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_NET_REFRESH_TIMER_DISARMED) )
-              EtwWrite(v7, &POP_ETW_EVENT_NET_REFRESH_TIMER_DISARMED, 0LL, 0, 0LL);
+              EtwWrite(v8, &POP_ETW_EVENT_NET_REFRESH_TIMER_DISARMED, 0LL, 0, 0LL);
           }
         }
         if ( PopNetRefreshIntervalActive )
           PopNetDisengageNetworkRefresh();
       }
-      PopReleasePolicyLock(v4, v3, v5);
+      PopReleasePolicyLock(v4, v3, v5, v6, v10, v11);
     }
     else
     {

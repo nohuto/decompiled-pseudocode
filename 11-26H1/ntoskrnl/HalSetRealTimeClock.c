@@ -1,26 +1,26 @@
 /*
- * XREFs of HalSetRealTimeClock @ 0x140578300
+ * XREFs of HalSetRealTimeClock @ 0x14057A830
  * Callers:
- *     ExpRefreshSystemTime @ 0x140836324 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1408366B0 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140C09314 (ExpSetSystemTime.c)
- *     GetBootSystemTime @ 0x140CAA5C4 (GetBootSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x14083C564 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x14083C8F0 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140C0F524 (ExpSetSystemTime.c)
+ *     GetBootSystemTime @ 0x140CB05C4 (GetBootSystemTime.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     HalpWriteCmosTime @ 0x14045130C (HalpWriteCmosTime.c)
- *     HalpSetVirtualRtc @ 0x140451B58 (HalpSetVirtualRtc.c)
- *     RtlpTimeFieldsToTime @ 0x1404522F8 (RtlpTimeFieldsToTime.c)
- *     HalEfiSetTime @ 0x140586BA8 (HalEfiSetTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HalpSetAcpiRealTimeClock @ 0x1407802AC (HalpSetAcpiRealTimeClock.c)
- *     HalpUtcTimeToAcpiRealTime @ 0x140B268C4 (HalpUtcTimeToAcpiRealTime.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     HalpWriteCmosTime @ 0x14044943C (HalpWriteCmosTime.c)
+ *     HalpSetVirtualRtc @ 0x140449C88 (HalpSetVirtualRtc.c)
+ *     RtlpTimeFieldsToTime @ 0x14044A428 (RtlpTimeFieldsToTime.c)
+ *     HalEfiSetTime @ 0x1405890C8 (HalEfiSetTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HalpSetAcpiRealTimeClock @ 0x140782DAC (HalpSetAcpiRealTimeClock.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x140B28B24 (HalpUtcTimeToAcpiRealTime.c)
  */
 
 char __fastcall HalSetRealTimeClock(unsigned __int8 *a1)
 {
   char result; // al
   char v3; // bl
-  volatile unsigned int NextProcessor; // edi
+  int LastXStateSaveDebugInfo; // edi
   int v5; // ecx
   char v6; // al
   char v7; // cl
@@ -43,16 +43,16 @@ char __fastcall HalSetRealTimeClock(unsigned __int8 *a1)
     {
       v3 = 0;
     }
-    NextProcessor = HalpDeviceBlockUnblockPushLock.NextProcessor;
+    LastXStateSaveDebugInfo = HalpDeviceBlockUnblockPushLock.LastXStateSaveDebugInfo;
     v5 = -1073741823;
     if ( KeGetCurrentIrql() >= 2u
-      || HalpDeviceBlockUnblockPushLock.NextProcessor
+      || LODWORD(HalpDeviceBlockUnblockPushLock.LastXStateSaveDebugInfo)
       || (v5 = HalpUtcTimeToAcpiRealTime(&SystemTime, &InputBuffer), v5 < 0)
       || (v5 = HalpSetAcpiRealTimeClock(&InputBuffer), v5 < 0) )
     {
       if ( v3 != 1
-        && HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104]
-        && NextProcessor
+        && HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72]
+        && LastXStateSaveDebugInfo
         && (HalpPlatformFlags & 8) == 0 )
       {
         v5 = HalEfiSetTime(&SystemTime);
@@ -60,7 +60,7 @@ char __fastcall HalSetRealTimeClock(unsigned __int8 *a1)
     }
     if ( v5 >= 0 )
       v3 = 1;
-    v6 = HalpSetVirtualRtc((__int64 *)&SystemTime);
+    v6 = HalpSetVirtualRtc(&SystemTime);
     v7 = v3;
     if ( v6 )
       return 1;

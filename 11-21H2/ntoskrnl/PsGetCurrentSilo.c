@@ -1,47 +1,45 @@
 /*
  * XREFs of PsGetCurrentSilo @ 0x140347D50
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x140558960 (IoRevokeHandlesForProcess.c)
- *     ObReferenceObjectByNameEx @ 0x1406686C8 (ObReferenceObjectByNameEx.c)
- *     ObpInsertOrLocateNamedObject @ 0x14066915C (ObpInsertOrLocateNamedObject.c)
- *     NtQueryFullAttributesFile @ 0x14066E950 (NtQueryFullAttributesFile.c)
- *     NtQueryAttributesFile @ 0x14066EBE0 (NtQueryAttributesFile.c)
+ *     sub_140558960 @ 0x140558960 (sub_140558960.c)
+ *     sub_1406686C8 @ 0x1406686C8 (sub_1406686C8.c)
+ *     sub_14066915C @ 0x14066915C (sub_14066915C.c)
+ *     sub_14066E950 @ 0x14066E950 (sub_14066E950.c)
+ *     sub_14066EBE0 @ 0x14066EBE0 (sub_14066EBE0.c)
  *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
- *     CmCreateKey @ 0x14067F8D0 (CmCreateKey.c)
- *     VRegEnabledInJob @ 0x1406928FC (VRegEnabledInJob.c)
- *     NtOpenSymbolicLinkObject @ 0x1406A0F30 (NtOpenSymbolicLinkObject.c)
- *     NtOpenDirectoryObject @ 0x1406A7AB0 (NtOpenDirectoryObject.c)
- *     ObpCreateSymbolicLinkName @ 0x1406A97F0 (ObpCreateSymbolicLinkName.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
+ *     sub_14067F8D0 @ 0x14067F8D0 (sub_14067F8D0.c)
+ *     sub_1406928FC @ 0x1406928FC (sub_1406928FC.c)
+ *     sub_1406A0F30 @ 0x1406A0F30 (sub_1406A0F30.c)
+ *     sub_1406A7AB0 @ 0x1406A7AB0 (sub_1406A7AB0.c)
+ *     sub_1406A97F0 @ 0x1406A97F0 (sub_1406A97F0.c)
+ *     sub_1407103B0 @ 0x1407103B0 (sub_1407103B0.c)
  *     ObReferenceObjectByName @ 0x14071EEC0 (ObReferenceObjectByName.c)
- *     CmpParseKey @ 0x1407349A0 (CmpParseKey.c)
- *     PopGetSettingNotificationName @ 0x140751120 (PopGetSettingNotificationName.c)
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
- *     CmOpenKey @ 0x1407CABA0 (CmOpenKey.c)
+ *     sub_1407349A0 @ 0x1407349A0 (sub_1407349A0.c)
+ *     sub_140751120 @ 0x140751120 (sub_140751120.c)
+ *     sub_1407ADB90 @ 0x1407ADB90 (sub_1407ADB90.c)
+ *     sub_1407CABA0 @ 0x1407CABA0 (sub_1407CABA0.c)
  *     IoQueryInformationByName @ 0x1407F69E0 (IoQueryInformationByName.c)
- *     CmLockKeyForWrite @ 0x14080F9EC (CmLockKeyForWrite.c)
+ *     sub_14080F9EC @ 0x14080F9EC (sub_14080F9EC.c)
  *     NtDeleteFile @ 0x1408115E0 (NtDeleteFile.c)
  *     PsRegisterSiloMonitor @ 0x1408257B0 (PsRegisterSiloMonitor.c)
- *     IopFastQueryNetworkAttributes @ 0x140936A54 (IopFastQueryNetworkAttributes.c)
- *     PsRootSiloInformation @ 0x1409AB8A0 (PsRootSiloInformation.c)
- *     ObGetSiloRootDirectoryPath @ 0x140A34854 (ObGetSiloRootDirectoryPath.c)
+ *     sub_140936A54 @ 0x140936A54 (sub_140936A54.c)
+ *     sub_1409AB8A0 @ 0x1409AB8A0 (sub_1409AB8A0.c)
+ *     sub_140A34854 @ 0x140A34854 (sub_140A34854.c)
  * Callees:
  *     <none>
  */
 
-struct _LIST_ENTRY *PsGetCurrentSilo()
+__int64 PsGetCurrentSilo()
 {
   struct _KTHREAD *CurrentThread; // rax
-  struct _LIST_ENTRY *result; // rax
+  __int64 result; // rax
 
   CurrentThread = KeGetCurrentThread();
-  if ( CurrentThread[1].WaitBlock[3].WaitListEntry.Blink != (struct _LIST_ENTRY *)-3LL )
-    return CurrentThread[1].WaitBlock[3].WaitListEntry.Blink;
-  for ( result = (struct _LIST_ENTRY *)CurrentThread->Process[1].Affinity.StaticBitmap[16];
-        result;
-        result = result[79].Flink )
+  if ( *((_QWORD *)CurrentThread + 203) != -3LL )
+    return *((_QWORD *)CurrentThread + 203);
+  for ( result = *(_QWORD *)(*((_QWORD *)CurrentThread + 68) + 1296LL); result; result = *(_QWORD *)(result + 1264) )
   {
-    if ( ((__int64)result[94].Blink & 0x40000000) != 0 )
+    if ( (*(_DWORD *)(result + 1512) & 0x40000000) != 0 )
       break;
   }
   return result;

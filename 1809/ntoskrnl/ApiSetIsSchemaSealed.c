@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetIsSchemaSealed @ 0x14032210C
+ * XREFs of ApiSetIsSchemaSealed @ 0x1403222FC
  * Callers:
- *     ApiSetLoadSchemaWithExtensions @ 0x1408DD5E0 (ApiSetLoadSchemaWithExtensions.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x1408DE8A0 (ApiSetLoadSchemaWithExtensions.c)
  * Callees:
  *     <none>
  */

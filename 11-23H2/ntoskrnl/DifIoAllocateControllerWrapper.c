@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoAllocateControllerWrapper @ 0x1405DCE80
+ * XREFs of DifIoAllocateControllerWrapper @ 0x1405DD3F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     IoAllocateController @ 0x1405566D0 (IoAllocateController.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     IoAllocateController @ 0x140556D90 (IoAllocateController.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoAllocateControllerWrapper(

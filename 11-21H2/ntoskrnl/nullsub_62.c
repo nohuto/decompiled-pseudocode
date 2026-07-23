@@ -1,5 +1,5 @@
 /*
- * XREFs of nullsub_62 @ 0x140AD3DF8
+ * XREFs of nullsub_62 @ 0x140A3ED00
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void nullsub_62()
 {
-  ;
+  __asm { retnw }
 }

@@ -12,10 +12,10 @@
  *     sub_18006DE00 @ 0x18006DE00 (sub_18006DE00.c)
  */
 
-__int64 __fastcall sub_18006DB18(unsigned __int64 a1, __int64 a2)
+int __fastcall sub_18006DB18(char *BaseOfImage, __int64 a2)
 {
-  __int64 result; // rax
-  unsigned int *v5; // rcx
+  __int64 VirtualAddress; // rax
+  PIMAGE_NT_HEADERS v5; // rcx
   bool v6; // cc
   __int64 v7; // rdx
   __int64 v8; // rbx
@@ -30,106 +30,111 @@ __int64 __fastcall sub_18006DB18(unsigned __int64 a1, __int64 a2)
   __int64 v17; // r8
   __int64 v18; // rbx
   int v19; // r8d
-  __int16 v20; // r14
+  USHORT v20; // r14
   __int64 v21; // rdx
-  unsigned __int64 v22; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v23; // [rsp+28h] [rbp-18h]
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned int *v25; // [rsp+60h] [rbp+20h] BYREF
+  _UNICODE_STRING String2; // [rsp+20h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp+20h] BYREF
 
-  v22 = a1;
+  *(_QWORD *)&String2.Length = BaseOfImage;
   *(_QWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
-  result = RtlImageNtHeaderEx(3, a1, 0LL, &v25);
-  if ( (int)result >= 0 )
+  LODWORD(VirtualAddress) = RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders);
+  if ( (int)VirtualAddress >= 0 )
   {
-    v5 = v25;
-    *(_DWORD *)a2 = v25[2];
-    *(_DWORD *)(a2 + 4) = v5[22];
-    v6 = v5[33] <= 2;
-    result = v5[20];
-    v23 = result;
+    v5 = OutHeaders;
+    *(_DWORD *)a2 = OutHeaders->FileHeader.TimeDateStamp;
+    *(_DWORD *)(a2 + 4) = v5->OptionalHeader.CheckSum;
+    v6 = v5->OptionalHeader.NumberOfRvaAndSizes <= 2;
+    LODWORD(VirtualAddress) = v5->OptionalHeader.SizeOfImage;
+    String2.Buffer = (PWCH)(unsigned int)VirtualAddress;
     if ( !v6 )
     {
-      result = v5[38];
-      if ( (_DWORD)result )
+      VirtualAddress = v5->OptionalHeader.DataDirectory[2].VirtualAddress;
+      if ( (_DWORD)VirtualAddress )
       {
-        if ( v5[39] >= 0x10 )
+        if ( v5->OptionalHeader.DataDirectory[2].Size >= 0x10 )
         {
-          result = (unsigned int)-sub_18006DD60(&v22, a1 + result, 16LL);
-          v8 = v7 & -(__int64)((_DWORD)result != 0);
+          LODWORD(VirtualAddress) = -(int)sub_18006DD60(&String2, &BaseOfImage[VirtualAddress], 16LL);
+          v8 = v7 & -(__int64)((_DWORD)VirtualAddress != 0);
           if ( v8 )
           {
-            result = sub_18006DAD4(
-                       (__int64)&v22,
-                       v7 & -(__int64)((_DWORD)result != 0),
-                       *(unsigned __int16 *)((v7 & -(__int64)((_DWORD)result != 0)) + 0xC));
-            if ( result )
+            VirtualAddress = sub_18006DAD4(
+                               (__int64)&String2,
+                               v7 & -(__int64)((_DWORD)VirtualAddress != 0),
+                               *(unsigned __int16 *)((v7 & -(__int64)((_DWORD)VirtualAddress != 0)) + 0xC));
+            if ( VirtualAddress )
             {
-              result = ((__int64 (__fastcall *)(unsigned __int64 *, __int64, _QWORD, __int64))sub_18006DD9C)(
-                         &v22,
-                         result,
-                         *(unsigned __int16 *)(v8 + 14),
-                         16LL);
-              if ( result )
+              VirtualAddress = ((__int64 (__fastcall *)(_UNICODE_STRING *, __int64, _QWORD, __int64))sub_18006DD9C)(
+                                 &String2,
+                                 VirtualAddress,
+                                 *(unsigned __int16 *)(v8 + 14),
+                                 16LL);
+              if ( VirtualAddress )
               {
-                v9 = *(unsigned int *)(result + 4);
+                v9 = *(unsigned int *)(VirtualAddress + 4);
                 LODWORD(v9) = v9 & 0x7FFFFFFF;
-                result = sub_18006DD60(&v22, v8 + v9, 16LL);
-                if ( (_DWORD)result )
+                LODWORD(VirtualAddress) = sub_18006DD60(&String2, v8 + v9, 16LL);
+                if ( (_DWORD)VirtualAddress )
                 {
-                  result = sub_18006DAD4((__int64)&v22, v10, *(unsigned __int16 *)(v11 + 12));
-                  if ( result )
+                  VirtualAddress = sub_18006DAD4((__int64)&String2, v10, *(unsigned __int16 *)(v11 + 12));
+                  if ( VirtualAddress )
                   {
-                    result = ((__int64 (__fastcall *)(unsigned __int64 *, __int64, _QWORD, __int64))sub_18006DD9C)(
-                               &v22,
-                               result,
-                               *(unsigned __int16 *)(v12 + 14),
-                               1LL);
-                    if ( result )
+                    VirtualAddress = ((__int64 (__fastcall *)(_UNICODE_STRING *, __int64, _QWORD, __int64))sub_18006DD9C)(
+                                       &String2,
+                                       VirtualAddress,
+                                       *(unsigned __int16 *)(v12 + 14),
+                                       1LL);
+                    if ( VirtualAddress )
                     {
-                      v13 = *(unsigned int *)(result + 4);
+                      v13 = *(unsigned int *)(VirtualAddress + 4);
                       LODWORD(v13) = v13 & 0x7FFFFFFF;
-                      result = sub_18006DD60(&v22, v8 + v13, 16LL);
-                      if ( (_DWORD)result )
+                      LODWORD(VirtualAddress) = sub_18006DD60(&String2, v8 + v13, 16LL);
+                      if ( (_DWORD)VirtualAddress )
                       {
-                        result = sub_18006DAD4((__int64)&v22, v14, 0);
-                        if ( result )
+                        VirtualAddress = sub_18006DAD4((__int64)&String2, v14, 0);
+                        if ( VirtualAddress )
                         {
-                          if ( *(int *)(result + 4) >= 0 )
+                          if ( *(int *)(VirtualAddress + 4) >= 0 )
                           {
-                            result = sub_18006DD60(&v22, v8 + *(unsigned int *)(result + 4), 16LL);
-                            if ( (_DWORD)result )
+                            LODWORD(VirtualAddress) = sub_18006DD60(
+                                                        &String2,
+                                                        v8 + *(unsigned int *)(VirtualAddress + 4),
+                                                        16LL);
+                            if ( (_DWORD)VirtualAddress )
                             {
                               if ( v15[1] >= 0x5C )
                               {
-                                result = (unsigned int)-sub_18006DD60(&v22, a1 + *v15, 92LL);
-                                v18 = v16 & -(__int64)((_DWORD)result != 0);
+                                LODWORD(VirtualAddress) = -(int)sub_18006DD60(&String2, &BaseOfImage[*v15], 92LL);
+                                v18 = v16 & -(__int64)((_DWORD)VirtualAddress != 0);
                                 if ( v18 )
                                 {
-                                  result = sub_18006DD60(&v22, v16 & -(__int64)((_DWORD)result != 0), v17);
-                                  if ( (_DWORD)result )
+                                  LODWORD(VirtualAddress) = sub_18006DD60(
+                                                              &String2,
+                                                              v16 & -(__int64)((_DWORD)VirtualAddress != 0),
+                                                              v17);
+                                  if ( (_DWORD)VirtualAddress )
                                   {
                                     v20 = v19 - 60;
-                                    result = sub_18006DD60(&v22, v18 + 6, (unsigned int)(v19 - 60));
-                                    if ( (_DWORD)result )
+                                    LODWORD(VirtualAddress) = sub_18006DD60(&String2, v18 + 6, (unsigned int)(v19 - 60));
+                                    if ( (_DWORD)VirtualAddress )
                                     {
                                       RtlInitUnicodeString(&DestinationString, L"VS_VERSION_INFO");
-                                      v23 = v18 + 6;
-                                      result = sub_18006DE00(v18 + 6, v21, &v25);
-                                      if ( (int)result >= 0 )
+                                      String2.Buffer = (PWCH)(v18 + 6);
+                                      LODWORD(VirtualAddress) = sub_18006DE00(v18 + 6, v21, &OutHeaders);
+                                      if ( (int)VirtualAddress >= 0 )
                                       {
-                                        LOWORD(v22) = (_WORD)v25;
-                                        WORD1(v22) = v20;
-                                        result = RtlCompareUnicodeString(
-                                                   &DestinationString.Length,
-                                                   (unsigned __int16 *)&v22,
-                                                   0);
-                                        if ( !(_DWORD)result )
+                                        String2.Length = (unsigned __int16)OutHeaders;
+                                        String2.MaximumLength = v20;
+                                        LODWORD(VirtualAddress) = RtlCompareUnicodeString(
+                                                                    &DestinationString,
+                                                                    &String2,
+                                                                    0);
+                                        if ( !(_DWORD)VirtualAddress )
                                         {
                                           *(_DWORD *)(a2 + 8) = *(_DWORD *)(v18 + 48);
-                                          result = *(unsigned int *)(v18 + 52);
-                                          *(_DWORD *)(a2 + 12) = result;
+                                          LODWORD(VirtualAddress) = *(_DWORD *)(v18 + 52);
+                                          *(_DWORD *)(a2 + 12) = VirtualAddress;
                                         }
                                       }
                                     }
@@ -150,5 +155,5 @@ __int64 __fastcall sub_18006DB18(unsigned __int64 a1, __int64 a2)
       }
     }
   }
-  return result;
+  return VirtualAddress;
 }

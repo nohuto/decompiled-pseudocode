@@ -114,9 +114,6 @@ __int64 __fastcall InitBootProcessor(ULONG_PTR a1)
   __int64 v46; // rdx
   __int64 v47; // rcx
   void *v48; // rdi
-  __int64 v49; // rdx
-  __int64 v50; // rcx
-  __int64 v51; // r8
   __int64 result; // rax
   PMESSAGE_RESOURCE_ENTRY *MessageResourceEntry; // [rsp+28h] [rbp-E0h]
   ULONG dwFlags; // [rsp+30h] [rbp-D8h]
@@ -127,13 +124,13 @@ __int64 __fastcall InitBootProcessor(ULONG_PTR a1)
   PVOID Resource; // [rsp+58h] [rbp-B0h] BYREF
   ULONGLONG pullResult; // [rsp+60h] [rbp-A8h] BYREF
   PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry; // [rsp+68h] [rbp-A0h] BYREF
-  PMESSAGE_RESOURCE_ENTRY v62; // [rsp+70h] [rbp-98h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v59; // [rsp+70h] [rbp-98h] BYREF
   NTSTRSAFE_PSTR ppszDestEnd; // [rsp+78h] [rbp-90h] BYREF
   STRING Name; // [rsp+80h] [rbp-88h] BYREF
-  _QWORD v65[3]; // [rsp+90h] [rbp-78h] BYREF
+  _QWORD v62[3]; // [rsp+90h] [rbp-78h] BYREF
   _LDR_RESOURCE_INFO ResourceInfo; // [rsp+A8h] [rbp-60h] BYREF
-  char pszDest[256]; // [rsp+C8h] [rbp-40h] BYREF
-  char Source[64]; // [rsp+1C8h] [rbp+C0h] BYREF
+  CHAR pszDest[256]; // [rsp+C8h] [rbp-40h] BYREF
+  CHAR Source[64]; // [rsp+1C8h] [rbp+C0h] BYREF
 
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
@@ -360,10 +357,10 @@ LABEL_61:
   MEMORY[0xFFFFF780000002B8] = 0x80000000;
   if ( CmNtCSDVersion )
   {
-    Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000087u, &v62);
+    Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000087u, &v59);
     if ( Message < 0 )
       KeBugCheckEx(0x31u, Message, 4uLL, 0LL, 0LL);
-    RtlInitAnsiString(&DestinationString, (PCSZ)v62->Text);
+    RtlInitAnsiString(&DestinationString, (PCSZ)v59->Text);
     DestinationString.Length -= 2;
     dwFlagsa = (unsigned __int8)CmNtCSDVersion != 0 ? (unsigned __int8)CmNtCSDVersion + 64 : 0;
     LODWORD(MessageResourceEntry) = BYTE1(CmNtCSDVersion);
@@ -403,10 +400,10 @@ LABEL_91:
     v48 = v45;
     if ( v45 )
     {
-      v65[0] = v45;
-      v65[1] = 0x800000LL;
-      v65[2] = 0x800000LL;
-      if ( (int)RtlControlStackTraceDataBase(v47, v46, v65) < 0 )
+      v62[0] = v45;
+      v62[1] = 0x800000LL;
+      v62[2] = 0x800000LL;
+      if ( (int)RtlControlStackTraceDataBase(v47, v46, v62) < 0 )
         ExFreePoolWithTag(v48, 0x63617453u);
     }
   }
@@ -419,7 +416,7 @@ LABEL_91:
     KeBugCheck(0x5Fu);
   if ( !PsInitSystem(0, (void *)a1) || (int)DbgkInitialize() < 0 )
     KeBugCheck(0x60u);
-  if ( !(unsigned __int8)PpInitSystem(v50, v49, v51) )
+  if ( !(unsigned __int8)PpInitSystem() )
     KeBugCheck(0x8Fu);
   MEMORY[0xFFFFF7800000026C] = 10;
   MEMORY[0xFFFFF78000000270] = 0;

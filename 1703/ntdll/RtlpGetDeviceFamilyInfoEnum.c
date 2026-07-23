@@ -17,72 +17,69 @@
 void __fastcall RtlpGetDeviceFamilyInfoEnum(_QWORD *a1, unsigned int *a2, unsigned int *a3)
 {
   __int64 v6; // r14
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  unsigned int v10; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v11; // [rsp+38h] [rbp-C8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
-  int v13; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v14[5]; // [rsp+58h] [rbp-A8h] BYREF
-  _BYTE v15[16]; // [rsp+80h] [rbp-80h] BYREF
-  int v16[72]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned int Data; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG Type[2]; // [rsp+38h] [rbp-C8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG ResultDataSize[4]; // [rsp+80h] [rbp-80h] BYREF
+  _OSVERSIONINFOEXW VersionInformation; // [rsp+90h] [rbp-70h] BYREF
 
   if ( a1 )
   {
-    memset(v14, 0, sizeof(v14));
-    v11 = 0LL;
-    v10 = 0;
+    memset(&ObjectAttributes.RootDirectory, 0, 0x28uLL);
+    *(_QWORD *)Type = 0LL;
+    Data = 0;
     v6 = 0LL;
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = 0LL;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion");
-    v14[0] = 0LL;
-    v14[1] = &DestinationString;
-    v13 = 48;
-    LODWORD(v14[2]) = 64;
-    *(_OWORD *)&v14[3] = 0LL;
-    if ( (int)ZwOpenKey(&v11, 131353LL, &v13) >= 0 )
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey((PHANDLE)Type, 0x20119u, &ObjectAttributes) >= 0 )
     {
-      if ( (int)sub_180079820(v11, L"UBR", &v10) >= 0 )
-        v6 = v10;
-      ZwClose(v11);
+      if ( (int)sub_180079820(*(HANDLE *)Type) >= 0 )
+        v6 = Data;
+      ZwClose(*(HANDLE *)Type);
     }
-    v16[0] = 284;
-    RtlGetVersion(v16, v7, v8, v9);
+    VersionInformation.dwOSVersionInfoSize = 284;
+    RtlGetVersion(&VersionInformation);
     *a1 = v6
-        + (((unsigned int)v16[3] + (((unsigned int)v16[2] + ((unsigned __int64)(unsigned int)v16[1] << 16)) << 16)) << 16);
+        + ((VersionInformation.dwBuildNumber
+          + ((VersionInformation.dwMinorVersion + ((unsigned __int64)VersionInformation.dwMajorVersion << 16)) << 16)) << 16);
   }
   if ( a2 )
   {
-    v10 = 3;
+    Data = 3;
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = 0LL;
     RtlInitUnicodeString(&DestinationString, L"Kernel-OneCore-DeviceFamilyID");
-    ZwQueryLicenseValue(&DestinationString, &v11, &v10, 4LL, v15);
-    *a2 = v10;
+    ZwQueryLicenseValue(&DestinationString, Type, &Data, 4u, ResultDataSize);
+    *a2 = Data;
   }
   if ( a3 )
   {
-    memset(v14, 0, sizeof(v14));
-    v11 = 0LL;
-    v10 = 0;
+    memset(&ObjectAttributes.RootDirectory, 0, 0x28uLL);
+    *(_QWORD *)Type = 0LL;
+    Data = 0;
     *a3 = 0;
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = 0LL;
     RtlInitUnicodeString(
       &DestinationString,
       L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM");
-    v14[0] = 0LL;
-    v14[1] = &DestinationString;
-    v13 = 48;
-    LODWORD(v14[2]) = 64;
-    *(_OWORD *)&v14[3] = 0LL;
-    if ( (int)ZwOpenKey(&v11, 131353LL, &v13) >= 0 )
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey((PHANDLE)Type, 0x20119u, &ObjectAttributes) >= 0 )
     {
-      if ( (int)sub_180079820(v11, L"DeviceForm", &v10) >= 0 )
-        *a3 = v10;
-      ZwClose(v11);
+      if ( (int)sub_180079820(*(HANDLE *)Type) >= 0 )
+        *a3 = Data;
+      ZwClose(*(HANDLE *)Type);
     }
   }
 }

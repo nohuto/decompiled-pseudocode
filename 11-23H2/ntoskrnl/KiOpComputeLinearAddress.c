@@ -1,7 +1,7 @@
 /*
- * XREFs of KiOpComputeLinearAddress @ 0x14057F278
+ * XREFs of KiOpComputeLinearAddress @ 0x14057F768
  * Callers:
- *     KiOpRetrieveRegMemAddress @ 0x14057F6EC (KiOpRetrieveRegMemAddress.c)
+ *     KiOpRetrieveRegMemAddress @ 0x14057FBDC (KiOpRetrieveRegMemAddress.c)
  * Callees:
  *     <none>
  */

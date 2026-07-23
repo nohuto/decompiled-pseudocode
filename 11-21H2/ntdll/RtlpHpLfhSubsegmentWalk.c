@@ -122,7 +122,7 @@ LABEL_12:
     v19 = a2 + v23;
     v39 = (((unsigned __int16)v8 + v23 - 1) >> v21) + 1;
     v37 = a2 + *(unsigned __int16 *)(a2 + 46);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a2 + 24));
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
     if ( (unsigned int)v24 < v39 )
     {
       v25 = (__int16 *)(v37 + 2 * v24);
@@ -136,7 +136,7 @@ LABEL_12:
       LODWORD(v24) = -1;
     }
 LABEL_23:
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a2 + 24));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
     if ( (_DWORD)v24 == -1 )
     {
       v11 = (unsigned int)(v11 + 2);

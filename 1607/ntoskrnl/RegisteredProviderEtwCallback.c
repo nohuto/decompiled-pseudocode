@@ -1,10 +1,10 @@
 /*
- * XREFs of RegisteredProviderEtwCallback @ 0x1401490F8
+ * XREFs of RegisteredProviderEtwCallback @ 0x140149668
  * Callers:
  *     <none>
  * Callees:
- *     LookUpTableFlushPartial @ 0x1400AF06C (LookUpTableFlushPartial.c)
- *     LookUpTableFlushComplete @ 0x14014915C (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x1400AD5D4 (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x1401496CC (LookUpTableFlushComplete.c)
  */
 
 void __fastcall RegisteredProviderEtwCallback(

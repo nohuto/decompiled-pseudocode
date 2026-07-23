@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlHpQuerySegmentHeapRoutine @ 0x1800474EC
+ * XREFs of RtlHpQuerySegmentHeapRoutine @ 0x18002B99C
  * Callers:
- *     RtlpQueryProcessEnumHeapsRoutine @ 0x180047340 (RtlpQueryProcessEnumHeapsRoutine.c)
+ *     RtlpQueryProcessEnumHeapsRoutine @ 0x18002B7F0 (RtlpQueryProcessEnumHeapsRoutine.c)
  * Callees:
  *     <none>
  */

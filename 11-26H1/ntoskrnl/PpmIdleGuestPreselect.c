@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleGuestPreselect @ 0x140611CB0
+ * XREFs of PpmIdleGuestPreselect @ 0x140614AF0
  * Callers:
  *     <none>
  * Callees:
- *     Feature_TestForceVPIdleTime__private_IsEnabledDeviceUsageNoInline @ 0x140611C0C (Feature_TestForceVPIdleTime__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_TestForceVPIdleTime__private_IsEnabledDeviceUsageNoInline @ 0x140614A4C (Feature_TestForceVPIdleTime__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 unsigned int __fastcall PpmIdleGuestPreselect(__int64 a1, __int64 a2)
@@ -35,8 +35,8 @@ unsigned int __fastcall PpmIdleGuestPreselect(__int64 a1, __int64 a2)
   else
   {
     StatisticsPage = CurrentPrcb->StatisticsPage;
-    v8 = StatisticsPage[stru_140E3E928.AbCompletedIoQoSBoostCount];
-    v9 = v8 - StatisticsPage[*(unsigned int *)&stru_140E3E928.KeReferenceCount];
+    v8 = StatisticsPage[stru_140E3EAA8.AbCompletedIoQoSBoostCount];
+    v9 = v8 - StatisticsPage[*(unsigned int *)&stru_140E3EAA8.KeReferenceCount];
   }
   HvTargetState = *(_DWORD *)(a2 + 32);
   v11 = 0;

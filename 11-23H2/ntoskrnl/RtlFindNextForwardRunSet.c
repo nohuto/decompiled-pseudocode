@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindNextForwardRunSet @ 0x140294DC4
+ * XREFs of RtlFindNextForwardRunSet @ 0x140295054
  * Callers:
- *     HvpResetPageProtection @ 0x1407084D8 (HvpResetPageProtection.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x14080E008 (CmFcpManagerDrainUsageNotifications.c)
+ *     HvpResetPageProtection @ 0x1407086E8 (HvpResetPageProtection.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x14080E2D8 (CmFcpManagerDrainUsageNotifications.c)
  * Callees:
  *     <none>
  */

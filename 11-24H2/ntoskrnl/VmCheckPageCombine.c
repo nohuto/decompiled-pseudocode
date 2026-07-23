@@ -1,7 +1,7 @@
 /*
- * XREFs of VmCheckPageCombine @ 0x140A53310
+ * XREFs of VmCheckPageCombine @ 0x140A4B300
  * Callers:
- *     MiCapturePfnVm @ 0x14045B3C4 (MiCapturePfnVm.c)
+ *     MiCapturePfnVm @ 0x1404507C4 (MiCapturePfnVm.c)
  * Callees:
  *     <none>
  */

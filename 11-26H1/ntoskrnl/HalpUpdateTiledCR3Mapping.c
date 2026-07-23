@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpUpdateTiledCR3Mapping @ 0x140BEC904
+ * XREFs of HalpUpdateTiledCR3Mapping @ 0x140BF2904
  * Callers:
- *     HalpMmBuildTiledMemoryMap @ 0x140BEC874 (HalpMmBuildTiledMemoryMap.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x140BF2874 (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpStoreFreeCr3 @ 0x140593FC8 (HalpStoreFreeCr3.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpStoreFreeCr3 @ 0x140596748 (HalpStoreFreeCr3.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpUpdateTiledCR3Mapping(unsigned __int64 BaseAddress, PHYSICAL_ADDRESS PhysicalAddress)

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiCpuPartitionCheckGenericDpc @ 0x1405C01CC
+ * XREFs of KiCpuPartitionCheckGenericDpc @ 0x1405BD7FC
  * Callers:
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     KeSwapDirectoryTableBase @ 0x14045B984 (KeSwapDirectoryTableBase.c)
- *     KeGenericCallDpc @ 0x140494DA0 (KeGenericCallDpc.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     KeSwapDirectoryTableBase @ 0x140450D1C (KeSwapDirectoryTableBase.c)
+ *     KeGenericCallDpc @ 0x14048F660 (KeGenericCallDpc.c)
  * Callees:
- *     KeIsEqualAffinityEx @ 0x1403C8980 (KeIsEqualAffinityEx.c)
- *     EtwTraceCpuPartitionGenericDpcViolation @ 0x14064D76C (EtwTraceCpuPartitionGenericDpcViolation.c)
+ *     KeIsEqualAffinityEx @ 0x1403A3520 (KeIsEqualAffinityEx.c)
+ *     EtwTraceCpuPartitionGenericDpcViolation @ 0x14064BD7C (EtwTraceCpuPartitionGenericDpcViolation.c)
  */
 
 __int64 __fastcall KiCpuPartitionCheckGenericDpc(__int64 a1)

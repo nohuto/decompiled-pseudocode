@@ -1,7 +1,7 @@
 /*
- * XREFs of IopSetIrpPriorityHintFromFileObject @ 0x140430B10
+ * XREFs of IopSetIrpPriorityHintFromFileObject @ 0x14041DB40
  * Callers:
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
  * Callees:
  *     <none>
  */

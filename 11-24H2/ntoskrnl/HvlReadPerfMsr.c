@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlReadPerfMsr @ 0x140583970
+ * XREFs of HvlReadPerfMsr @ 0x140580CF0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpReadPerfRegister @ 0x14058497C (HvlpReadPerfRegister.c)
+ *     HvlpReadPerfRegister @ 0x140581CFC (HvlpReadPerfRegister.c)
  */
 
 __int64 __fastcall HvlReadPerfMsr(__int64 a1, unsigned int a2, __int64 a3)

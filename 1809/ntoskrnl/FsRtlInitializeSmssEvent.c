@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlInitializeSmssEvent @ 0x1409D789C
+ * XREFs of FsRtlInitializeSmssEvent @ 0x1409D889C
  * Callers:
- *     FsRtlInitSystem @ 0x1409D7714 (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x1409D8714 (FsRtlInitSystem.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtCreateEvent @ 0x14062CF50 (NtCreateEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtCreateEvent @ 0x14062DF70 (NtCreateEvent.c)
  */
 
 NTSTATUS FsRtlInitializeSmssEvent()

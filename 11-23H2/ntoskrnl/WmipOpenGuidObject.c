@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipOpenGuidObject @ 0x1406C5730
+ * XREFs of WmipOpenGuidObject @ 0x1406C5760
  * Callers:
- *     WmipOpenBlock @ 0x1406C552C (WmipOpenBlock.c)
+ *     WmipOpenBlock @ 0x1406C555C (WmipOpenBlock.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     WmipCreateGuidObject @ 0x1406C5030 (WmipCreateGuidObject.c)
- *     WmipUuidFromString @ 0x1406C57E8 (WmipUuidFromString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     WmipCreateGuidObject @ 0x1406C5060 (WmipCreateGuidObject.c)
+ *     WmipUuidFromString @ 0x1406C5818 (WmipUuidFromString.c)
  */
 
 __int64 __fastcall WmipOpenGuidObject(__int64 a1, __int64 a2, int a3, _QWORD *a4)

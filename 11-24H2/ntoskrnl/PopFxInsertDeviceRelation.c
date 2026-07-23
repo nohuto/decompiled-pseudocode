@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxInsertDeviceRelation @ 0x1405D1540
+ * XREFs of PopFxInsertDeviceRelation @ 0x1405CEC60
  * Callers:
- *     PoFxAddDeviceRelation @ 0x1405D0050 (PoFxAddDeviceRelation.c)
- *     PopFxRegisterDevice @ 0x14074E950 (PopFxRegisterDevice.c)
+ *     PoFxAddDeviceRelation @ 0x1405CD770 (PoFxAddDeviceRelation.c)
+ *     PopFxRegisterDevice @ 0x14074CC80 (PopFxRegisterDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopFxInsertDeviceRelation(__int64 a1, __int64 a2, char a3, __int64 a4)

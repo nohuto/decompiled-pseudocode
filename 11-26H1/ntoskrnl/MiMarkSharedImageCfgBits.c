@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMarkSharedImageCfgBits @ 0x1409C8128
+ * XREFs of MiMarkSharedImageCfgBits @ 0x140999108
  * Callers:
- *     MiCommitVadCfgBits @ 0x1409C7F28 (MiCommitVadCfgBits.c)
+ *     MiCommitVadCfgBits @ 0x140998F08 (MiCommitVadCfgBits.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiSetProtectionOnSection @ 0x140304DE0 (MiSetProtectionOnSection.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiIsCfgBitMapPageShared @ 0x140317EC0 (MiIsCfgBitMapPageShared.c)
- *     MiVadDeleted @ 0x140480A68 (MiVadDeleted.c)
- *     MiGetControlAreaLoadConfig @ 0x140495994 (MiGetControlAreaLoadConfig.c)
- *     MiCopyToCfgBitMap @ 0x1409C8560 (MiCopyToCfgBitMap.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiSetProtectionOnSection @ 0x1402E6E60 (MiSetProtectionOnSection.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiIsCfgBitMapPageShared @ 0x140319EF0 (MiIsCfgBitMapPageShared.c)
+ *     MiVadDeleted @ 0x14047A3A8 (MiVadDeleted.c)
+ *     MiGetControlAreaLoadConfig @ 0x14048F4E4 (MiGetControlAreaLoadConfig.c)
+ *     MiCopyToCfgBitMap @ 0x140999540 (MiCopyToCfgBitMap.c)
  */
 
 __int64 __fastcall MiMarkSharedImageCfgBits(int a1, __int64 a2, __int64 a3)

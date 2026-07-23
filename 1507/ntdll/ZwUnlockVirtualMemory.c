@@ -11,11 +11,11 @@
  *     <none>
  */
 
-__int64 ZwUnlockVirtualMemory()
+NTSTATUS __cdecl ZwUnlockVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG MapType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 430LL;
+  result = 430;
   __asm { syscall; Low latency system call }
   return result;
 }

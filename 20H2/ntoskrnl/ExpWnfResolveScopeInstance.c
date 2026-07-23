@@ -193,7 +193,7 @@ LABEL_14:
   }
   v20 = *v9 + 8 * (2 * v5 + v5 + 5);
   v21 = (unsigned __int64 *)(*v9 + 8 * (v5 + 2 * v5 + 4));
-  v22 = KeAbPreAcquire((ULONG_PTR)v21, 0LL, 0LL);
+  v22 = KeAbPreAcquire((ULONG_PTR)v21, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v21, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v21, v22, (ULONG_PTR)v21);
   if ( v22 )
@@ -215,7 +215,7 @@ LABEL_14:
     CurrentScopeInstance = ExpWnfAllocateScopeInstance(&NumberOfBytes[1], (unsigned int)v5, Sid, NumberOfBytes[0]);
     if ( CurrentScopeInstance < 0 )
       goto LABEL_17;
-    v26 = KeAbPreAcquire((ULONG_PTR)v21, 0LL, 0LL);
+    v26 = KeAbPreAcquire((ULONG_PTR)v21, 0LL, 0);
     v27 = v26;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v21, 0LL) )
       ExfAcquirePushLockExclusiveEx(v21, v26, (ULONG_PTR)v21);

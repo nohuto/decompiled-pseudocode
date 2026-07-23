@@ -1,9 +1,9 @@
 /*
- * XREFs of EvaluateFeature @ 0x1401B83F4
+ * XREFs of EvaluateFeature @ 0x1401B8F60
  * Callers:
- *     EvaluateCurrentState @ 0x1401B8354 (EvaluateCurrentState.c)
+ *     EvaluateCurrentState @ 0x1401B8EC0 (EvaluateCurrentState.c)
  * Callees:
- *     EvaluateCurrentStateFromRegistry @ 0x1401B8378 (EvaluateCurrentStateFromRegistry.c)
+ *     EvaluateCurrentStateFromRegistry @ 0x1401B8EE4 (EvaluateCurrentStateFromRegistry.c)
  */
 
 __int64 __fastcall EvaluateFeature(unsigned int **a1)

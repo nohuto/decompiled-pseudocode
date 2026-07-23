@@ -1,7 +1,7 @@
 /*
- * XREFs of KiFilterBugCheckInfo @ 0x1403E37EC
+ * XREFs of KiFilterBugCheckInfo @ 0x1403E39CC
  * Callers:
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
  * Callees:
  *     <none>
  */

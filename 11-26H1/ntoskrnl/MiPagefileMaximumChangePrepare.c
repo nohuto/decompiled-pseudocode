@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPagefileMaximumChangePrepare @ 0x1406F8F04
+ * XREFs of MiPagefileMaximumChangePrepare @ 0x1406FDBD4
  * Callers:
- *     MiAttemptChangePagingFileMaximum @ 0x1406F866C (MiAttemptChangePagingFileMaximum.c)
- *     MiTargetedPageFileReductionApc @ 0x14070D818 (MiTargetedPageFileReductionApc.c)
+ *     MiAttemptChangePagingFileMaximum @ 0x1406FD33C (MiAttemptChangePagingFileMaximum.c)
+ *     MiTargetedPageFileReductionApc @ 0x1407124C8 (MiTargetedPageFileReductionApc.c)
  * Callees:
- *     MiReleasePageHash @ 0x14070FEE0 (MiReleasePageHash.c)
- *     MiReservePageHash @ 0x14070FF40 (MiReservePageHash.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x14086B018 (MiCreatePageFileSpaceBitmaps.c)
+ *     MiReleasePageHash @ 0x140714BDC (MiReleasePageHash.c)
+ *     MiReservePageHash @ 0x140714C3C (MiReservePageHash.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x1408713F8 (MiCreatePageFileSpaceBitmaps.c)
  */
 
 __int64 __fastcall MiPagefileMaximumChangePrepare(unsigned int a1, int a2, __int64 *a3, __int64 *a4)

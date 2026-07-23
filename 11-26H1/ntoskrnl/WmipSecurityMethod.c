@@ -1,25 +1,25 @@
 /*
- * XREFs of WmipSecurityMethod @ 0x140A2FD20
+ * XREFs of WmipSecurityMethod @ 0x140A41BA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x1408243F0 (WmipSaveGuidSecurityDescriptor.c)
- *     ObQuerySecurityDescriptorInfo @ 0x1408ECA88 (ObQuerySecurityDescriptorInfo.c)
- *     ObSetSecurityDescriptorInfo @ 0x1409214E0 (ObSetSecurityDescriptorInfo.c)
- *     ObAssignObjectSecurityDescriptor @ 0x140A2FDF0 (ObAssignObjectSecurityDescriptor.c)
- *     ObDeassignSecurity @ 0x140A301F0 (ObDeassignSecurity.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x14082A63C (WmipSaveGuidSecurityDescriptor.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x1408F3048 (ObQuerySecurityDescriptorInfo.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1408FCFF0 (ObSetSecurityDescriptorInfo.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x140A41C70 (ObAssignObjectSecurityDescriptor.c)
+ *     ObDeassignSecurity @ 0x140A42070 (ObDeassignSecurity.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipSecurityMethod(
         __int64 a1,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         ULONG *a5,
         struct _KLOCK_ENTRIES *a6,
@@ -78,7 +78,7 @@ __int64 __fastcall WmipSecurityMethod(
         if ( !Pool2 )
           return (unsigned int)-1073741670;
         HIDWORD(v19) = -1;
-        SecurityDescriptorInfo = ObQuerySecurityDescriptorInfo(a1, (ULONG *)&v19 + 1, Pool2, (ULONG *)&v19);
+        SecurityDescriptorInfo = ObQuerySecurityDescriptorInfo(a1, (DWORD *)&v19 + 1, Pool2, (ULONG *)&v19);
         v13 = SecurityDescriptorInfo;
         if ( SecurityDescriptorInfo != -1073741789 )
           break;

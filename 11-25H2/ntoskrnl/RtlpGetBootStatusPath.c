@@ -10,19 +10,19 @@
  *     RtlIsStateSeparationEnabled @ 0x140A28CA0 (RtlIsStateSeparationEnabled.c)
  */
 
-__int64 __fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)
+char __fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)
 {
-  __int64 result; // rax
+  int BootStatusPathFromRegistry; // eax
   char v5; // bl
   const wchar_t *v6; // rcx
 
-  result = RtlpGetBootStatusPathFromRegistry();
+  BootStatusPathFromRegistry = RtlpGetBootStatusPathFromRegistry();
   v5 = 0;
-  if ( (int)result < 0 )
+  if ( BootStatusPathFromRegistry < 0 )
   {
-    result = RtlIsStateSeparationEnabled();
+    LOBYTE(BootStatusPathFromRegistry) = RtlIsStateSeparationEnabled();
     v6 = L"\\OSDataRoot\\Windows\\bootstat.dat";
-    if ( !(_BYTE)result )
+    if ( !(_BYTE)BootStatusPathFromRegistry )
       v6 = L"\\SystemRoot\\bootstat.dat";
     *a1 = v6;
   }
@@ -31,5 +31,5 @@ __int64 __fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)
     v5 = 1;
   }
   *a2 = v5;
-  return result;
+  return BootStatusPathFromRegistry;
 }

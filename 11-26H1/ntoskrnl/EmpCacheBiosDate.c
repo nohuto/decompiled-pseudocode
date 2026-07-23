@@ -1,14 +1,14 @@
 /*
- * XREFs of EmpCacheBiosDate @ 0x140D080CC
+ * XREFs of EmpCacheBiosDate @ 0x140D0E39C
  * Callers:
- *     EmInitSystem @ 0x140D07BB4 (EmInitSystem.c)
+ *     EmInitSystem @ 0x140D0DE84 (EmInitSystem.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     strtoul @ 0x140535858 (strtoul.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwUnmapViewOfSection @ 0x140723930 (ZwUnmapViewOfSection.c)
- *     EmpMapPhysicalAddress @ 0x140CB7B1C (EmpMapPhysicalAddress.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     strtoul @ 0x140537CD8 (strtoul.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x140728500 (ZwUnmapViewOfSection.c)
+ *     EmpMapPhysicalAddress @ 0x140CBDB60 (EmpMapPhysicalAddress.c)
  */
 
 char __fastcall EmpCacheBiosDate(SIZE_T a1, __int64 a2)
@@ -31,7 +31,7 @@ char __fastcall EmpCacheBiosDate(SIZE_T a1, __int64 a2)
   Handle = 0LL;
   EmpCachedBiosDate = 0;
   v9 = 0;
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 1 )
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 1 )
   {
     v3 = EmpMapPhysicalAddress(a1, a2, &Handle, &BaseAddress, (__int64)v13);
     v4 = v3;

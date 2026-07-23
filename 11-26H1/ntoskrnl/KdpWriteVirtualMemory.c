@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpWriteVirtualMemory @ 0x140C159C4
+ * XREFs of KdpWriteVirtualMemory @ 0x140C1B9C4
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x140C17780 (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x140C1D780 (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpWriteVirtualMemory(__int64 a1, unsigned __int16 *a2)

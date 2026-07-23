@@ -21,9 +21,9 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1)
   const wchar_t **v9; // r14
   const wchar_t *v10; // r12
   __int64 v11; // rax
-  __int64 v13; // [rsp+30h] [rbp-168h] BYREF
+  ULONG_PTR PackageSize; // [rsp+30h] [rbp-168h] BYREF
   _QWORD v14[7]; // [rsp+38h] [rbp-160h] BYREF
-  wchar_t String1[128]; // [rsp+70h] [rbp-128h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+70h] [rbp-128h] BYREF
 
   v1 = 0;
   v14[0] = L"svchost.exe";
@@ -84,9 +84,9 @@ LABEL_21:
       ++v4;
     }
 LABEL_19:
-    v13 = 256LL;
-    if ( (int)RtlQueryPackageIdentity(-4, (unsigned int)String1, (unsigned int)&v13, 0, 0LL, 0LL) < 0
-      || wcsnicmp(String1, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
+    PackageSize = 256LL;
+    if ( RtlQueryPackageIdentity((HANDLE)0xFFFFFFFFFFFFFFFCLL, PackageFullName, &PackageSize, 0LL, 0LL, 0LL) < 0
+      || wcsnicmp(PackageFullName, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
     {
       return v1;
     }

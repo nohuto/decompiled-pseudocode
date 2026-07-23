@@ -1,10 +1,10 @@
 /*
- * XREFs of PoSetPowerState @ 0x14012E124
+ * XREFs of PoSetPowerState @ 0x14012E694
  * Callers:
- *     IopPowerDispatch @ 0x14012445C (IopPowerDispatch.c)
+ *     IopPowerDispatch @ 0x1401249CC (IopPowerDispatch.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_TYPE Type, POWER_STATE State)

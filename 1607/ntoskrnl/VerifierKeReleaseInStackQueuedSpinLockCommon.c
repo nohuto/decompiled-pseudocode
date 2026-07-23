@@ -4,7 +4,7 @@
  *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140712220 (VerifierKeReleaseInStackQueuedSpinLock.c)
  *     VerifierKeReleaseInStackQueuedSpinLockNoReboot @ 0x1407123B0 (VerifierKeReleaseInStackQueuedSpinLockNoReboot.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  *     ViKeLowerIrqlSanityChecks @ 0x140712FC8 (ViKeLowerIrqlSanityChecks.c)
  */
 

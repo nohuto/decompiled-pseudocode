@@ -18,7 +18,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
   unsigned __int64 *v5; // rdi
   unsigned __int64 v6; // rax
   unsigned __int64 v7; // rbx
-  struct _SLIST_ENTRY *v8; // rbp
+  _SLIST_ENTRY *v8; // rbp
   unsigned __int64 v9; // rbx
   unsigned __int64 v10; // [rsp+40h] [rbp+8h] BYREF
 
@@ -32,7 +32,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
     if ( (v6 & 1) != 0 )
     {
       *(_DWORD *)v4 = 1;
-      v8 = (struct _SLIST_ENTRY *)MI_GET_PFN_FROM_PTE(&v10);
+      v8 = (_SLIST_ENTRY *)MI_GET_PFN_FROM_PTE(&v10);
       v9 = (unsigned int)v8[1].Next | ((((unsigned __int64)v8[1].Next >> 32) - 1) << 32);
       v10 = v9;
       v8[1].Next = (_SLIST_ENTRY *)v9;

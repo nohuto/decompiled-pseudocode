@@ -1,11 +1,11 @@
 /*
- * XREFs of MiValidateZeroBits @ 0x1407210B0
+ * XREFs of MiValidateZeroBits @ 0x1407212B0
  * Callers:
- *     MiAllocateVirtualMemoryPrepare @ 0x1406F6BB0 (MiAllocateVirtualMemoryPrepare.c)
- *     NtMapViewOfSection @ 0x140720E50 (NtMapViewOfSection.c)
- *     NtCreateEnclave @ 0x140A3EAB0 (NtCreateEnclave.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1406F6DC0 (MiAllocateVirtualMemoryPrepare.c)
+ *     NtMapViewOfSection @ 0x140721050 (NtMapViewOfSection.c)
+ *     NtCreateEnclave @ 0x140A3ED60 (NtCreateEnclave.c)
  * Callees:
- *     RtlFindMostSignificantBit @ 0x140356460 (RtlFindMostSignificantBit.c)
+ *     RtlFindMostSignificantBit @ 0x140356600 (RtlFindMostSignificantBit.c)
  */
 
 ULONGLONG __fastcall MiValidateZeroBits(ULONGLONG *a1)

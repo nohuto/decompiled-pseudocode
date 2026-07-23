@@ -11,7 +11,7 @@ __int64 __fastcall sub_180002E64(__int64 a1, __int64 a2, unsigned int a3)
   unsigned int v3; // ebx
   unsigned int v5; // ecx
   unsigned int v6; // eax
-  __int64 v8; // rcx
+  LONG v8; // ecx
   int v9; // ecx
 
   v3 = 0;
@@ -20,7 +20,7 @@ __int64 __fastcall sub_180002E64(__int64 a1, __int64 a2, unsigned int a3)
     || *(_DWORD *)(a2 + 8) != 1
     || (v5 = *(_DWORD *)(a2 + 28), v5 > *(_DWORD *)(a2 + 32)) )
   {
-    v8 = 13LL;
+    v8 = 13;
 LABEL_16:
     RtlSetLastWin32Error(v8);
     return v3;
@@ -40,7 +40,7 @@ LABEL_16:
     }
     if ( a3 < v6 )
     {
-      v8 = 24LL;
+      v8 = 24;
       goto LABEL_16;
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializePageFaultResources @ 0x1406F76AC
+ * XREFs of MiInitializePageFaultResources @ 0x1406FC31C
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiInsertInPageBlock @ 0x14031C624 (MiInsertInPageBlock.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiAllocateInPageSupportBlock @ 0x14039742C (MiAllocateInPageSupportBlock.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
+ *     MiInsertInPageBlock @ 0x14031E654 (MiInsertInPageBlock.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiAllocateInPageSupportBlock @ 0x1403991AC (MiAllocateInPageSupportBlock.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
  */
 
 __int64 __fastcall MiInitializePageFaultResources(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -51,9 +51,9 @@ __int64 __fastcall MiInitializePageFaultResources(__int64 a1, __int64 a2, __int6
     ++v4;
     ++v5;
   }
-  v12 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 0x10u, a3, a4);
+  v12 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 0x10u, a3, a4);
   if ( !v12 )
     return 0LL;
-  qword_140E35FC8 = v12;
+  qword_140E36148 = v12;
   return 1LL;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertAndUnlockStandbyPages @ 0x14006FEF0
+ * XREFs of MiInsertAndUnlockStandbyPages @ 0x14006FA70
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MiDecrementAndInsertStandbyPages @ 0x140035C70 (MiDecrementAndInsertStandbyPages.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MiDecrementAndInsertStandbyPages @ 0x1400357F0 (MiDecrementAndInsertStandbyPages.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiInsertProtectedStandbyPage @ 0x1400701C0 (MiInsertProtectedStandbyPage.c)
- *     KxAcquireQueuedSpinLock @ 0x1400708F8 (KxAcquireQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiInsertProtectedStandbyPage @ 0x14006FD40 (MiInsertProtectedStandbyPage.c)
+ *     KxAcquireQueuedSpinLock @ 0x140070478 (KxAcquireQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiInsertAndUnlockStandbyPages(__int64 a1, _QWORD *a2, unsigned int a3, unsigned __int8 a4)
@@ -99,7 +99,7 @@ LABEL_5:
       if ( v23 != v14
         || ((v24 = v17 & (HIDWORD(v21) >> 8), v24 == v17)
           ? (v25 = MiSystemPartition)
-          : (v25 = *(int **)(qword_140326FF8 + 8LL * v24)),
+          : (v25 = *(int **)(qword_140327038 + 8LL * v24)),
             v10 != v25) )
       {
         if ( v14 != 0xFFFFFF )

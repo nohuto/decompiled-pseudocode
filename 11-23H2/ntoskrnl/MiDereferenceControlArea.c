@@ -1,17 +1,17 @@
 /*
  * XREFs of MiDereferenceControlArea @ 0x14020B890
  * Callers:
- *     MiRefillPurgedExtents @ 0x14063F174 (MiRefillPurgedExtents.c)
- *     MiFaultGetFileExtents @ 0x140645E84 (MiFaultGetFileExtents.c)
+ *     MiRefillPurgedExtents @ 0x14063F6C4 (MiRefillPurgedExtents.c)
+ *     MiFaultGetFileExtents @ 0x1406463D4 (MiFaultGetFileExtents.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiReleaseVadEventBlocks @ 0x1406FB5DC (MiReleaseVadEventBlocks.c)
- *     MiMapViewOfDataSection @ 0x140720280 (MiMapViewOfDataSection.c)
+ *     MiMapViewInSystemSpace @ 0x1406AD6D4 (MiMapViewInSystemSpace.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiReleaseVadEventBlocks @ 0x1406FB7EC (MiReleaseVadEventBlocks.c)
+ *     MiMapViewOfDataSection @ 0x140720480 (MiMapViewOfDataSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
  */
 
 __int64 __fastcall MiDereferenceControlArea(__int64 a1)

@@ -11,7 +11,7 @@ __int64 __fastcall IopQueryVpbFlagsSafe(__int64 a1)
 {
   unsigned __int16 v2; // di
   __int64 v3; // rax
-  KIRQL Irql; // [rsp+30h] [rbp+8h] BYREF
+  UCHAR Irql; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
   IoAcquireVpbSpinLock(&Irql);

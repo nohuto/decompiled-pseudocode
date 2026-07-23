@@ -14,40 +14,40 @@
  *     sub_1800FE43C @ 0x1800FE43C (sub_1800FE43C.c)
  */
 
-char __fastcall RtlLockHeap(__int64 a1)
+BOOLEAN __cdecl RtlLockHeap(PVOID HeapHandle)
 {
   bool v1; // zf
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v4; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   char v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 16) == -571548178;
+  v1 = *((_DWORD *)HeapHandle + 4) == -571548178;
   v6 = -1;
   if ( v1 )
   {
-    sub_180022E4C(a1, &v6);
+    sub_180022E4C(HeapHandle, &v6);
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_180156440)();
-    if ( !sub_18001FC58((_DWORD *)a1, "RtlLockHeap") )
+    if ( !sub_18001FC58(HeapHandle, "RtlLockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      ++*(_WORD *)(a1 + 384);
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+      ++*((_WORD *)HeapHandle + 192);
     }
   }
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v4 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v4 = 2147353472LL;
-  if ( *(_BYTE *)v4 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_1800FE43C(a1);
+      sub_1800FE43C(HeapHandle);
   }
   return 1;
 }

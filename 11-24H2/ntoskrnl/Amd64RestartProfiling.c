@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64RestartProfiling @ 0x140B51980
+ * XREFs of Amd64RestartProfiling @ 0x140B539D0
  * Callers:
  *     <none>
  * Callees:
- *     Amd64RestartProfilingInternal @ 0x140B519BC (Amd64RestartProfilingInternal.c)
+ *     Amd64RestartProfilingInternal @ 0x140B53A0C (Amd64RestartProfilingInternal.c)
  */
 
 __int64 Amd64RestartProfiling()

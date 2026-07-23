@@ -17,21 +17,21 @@
 __int64 sub_1800D39E4()
 {
   struct _PEB *v0; // rbp
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   __int64 v2; // rsi
-  unsigned int SessionId; // ebx
+  ULONG SessionId; // ebx
   size_t v4; // rsi
   size_t v5; // r15
   __int64 v6; // r14
   size_t v7; // r14
-  __int64 Heap; // rax
+  _QWORD *Heap; // rax
   unsigned __int64 v9; // rdi
-  int SystemInformation; // ebx
-  void **v11; // r13
+  NTSTATUS SystemInformation; // ebx
+  PVOID *v11; // r13
   char *v12; // rbx
-  const void *v13; // rax
+  PWSTR v13; // rax
   char *v14; // rbx
-  const void *v15; // rax
+  PWSTR v15; // rax
   char *v16; // rcx
   __int128 v17; // xmm0
   unsigned __int64 v18; // rdi
@@ -42,11 +42,11 @@ __int64 sub_1800D39E4()
   v2 = -1LL;
   do
     ++v2;
-  while ( *(_WORD *)(NtSystemRoot + 2 * v2) );
+  while ( NtSystemRoot[v2] );
   SessionId = v0->SessionId;
   v4 = 2 * v2;
   v5 = v4 + 18;
-  if ( SessionId == (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( SessionId == RtlGetCurrentServiceSessionId() )
     wcscpy_s(Destination, 0x100uLL, L"\\BaseNamedObjects");
   else
     swprintf_s(Destination, 0x100uLL, L"%ws\\%ld\\BaseNamedObjects", L"\\Sessions", SessionId);
@@ -56,22 +56,22 @@ __int64 sub_1800D39E4()
   while ( Destination[v6] );
   v7 = 2 * v6;
   Heap = RtlAllocateHeap(qword_18015BAA0, 8u, v4 + v7 + v4 + 2960);
-  v9 = Heap;
+  v9 = (unsigned __int64)Heap;
   if ( Heap )
   {
-    v11 = (void **)(Heap + 2920);
-    *(_QWORD *)(Heap + 2928) = Heap;
-    v12 = (char *)(Heap + 2936);
-    *(_QWORD *)(Heap + 8) = Heap + 2936;
+    v11 = (PVOID *)(Heap + 365);
+    Heap[366] = Heap;
+    v12 = (char *)(Heap + 367);
+    Heap[1] = Heap + 367;
     *(_WORD *)Heap = v4;
-    *(_WORD *)(Heap + 2) = v4 + 2;
-    v13 = (const void *)RtlGetNtSystemRoot();
+    *((_WORD *)Heap + 1) = v4 + 2;
+    v13 = RtlGetNtSystemRoot();
     memmove(v12, v13, v4);
     *(_WORD *)(v9 + 16) = v5;
     *(_WORD *)(v9 + 18) = v4 + 20;
     v14 = &v12[v4 + 2];
     *(_QWORD *)(v9 + 24) = v14;
-    v15 = (const void *)RtlGetNtSystemRoot();
+    v15 = RtlGetNtSystemRoot();
     memmove(v14, v15, v4);
     v16 = &v14[v5 + 2];
     *(_OWORD *)&v14[v4] = xmmword_1801247E0;
@@ -84,17 +84,17 @@ __int64 sub_1800D39E4()
     *(_DWORD *)(v9 + 2864) = -1;
     *(_QWORD *)(v9 + 2896) = v9;
     *(_OWORD *)(v9 + 2880) = v17;
-    SystemInformation = ZwQuerySystemInformation();
+    SystemInformation = ZwQuerySystemInformation(SystemTimeOfDayInformation, (PVOID)(v9 + 320), 0x30u, 0LL);
     if ( SystemInformation < 0 )
     {
-      RtlFreeHeap(qword_18015BAA0, 0, v9);
+      RtlFreeHeap(qword_18015BAA0, 0, (PVOID)v9);
     }
     else
     {
       v18 = v9 & 0xFFFFFFFFFFFF0000uLL;
       v0->ReadOnlyStaticServerData = v11;
-      *(_QWORD *)&v0[1].InheritedAddressSpace = v18;
-      v0->ReadOnlySharedMemoryBase = (void *)v18;
+      v0->CsrServerReadOnlySharedMemoryBase = v18;
+      v0->ReadOnlySharedMemoryBase = (PVOID)v18;
     }
   }
   else

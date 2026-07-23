@@ -1,9 +1,9 @@
 /*
- * XREFs of DifpLwSPProcessPrePoolAlloc @ 0x140C43204
+ * XREFs of DifpLwSPProcessPrePoolAlloc @ 0x140C49214
  * Callers:
- *     DifpExAllocatePoolWithTagPriority_LwSP_Enter @ 0x140C43160 (DifpExAllocatePoolWithTagPriority_LwSP_Enter.c)
+ *     DifpExAllocatePoolWithTagPriority_LwSP_Enter @ 0x140C49170 (DifpExAllocatePoolWithTagPriority_LwSP_Enter.c)
  * Callees:
- *     VfRandomGetNumber @ 0x140C215A4 (VfRandomGetNumber.c)
+ *     VfRandomGetNumber @ 0x140C275B4 (VfRandomGetNumber.c)
  */
 
 ULONG __fastcall DifpLwSPProcessPrePoolAlloc(int a1, unsigned __int64 a2)
@@ -16,7 +16,7 @@ ULONG __fastcall DifpLwSPProcessPrePoolAlloc(int a1, unsigned __int64 a2)
   result = DifpLwSPAllowedSPPages;
   v3 = 0LL;
   v4 = DifiPluginControlSparseness;
-  if ( stru_140F066E8.CycleTime < DifpLwSPAllowedSPPages && a2 <= 0xFE0 )
+  if ( *(_QWORD *)&stru_140F06A28.CurrentRunTime < (unsigned __int64)DifpLwSPAllowedSPPages && a2 <= 0xFE0 )
   {
     result = DifpPoolTagsSize - 1;
     if ( (unsigned int)(DifpPoolTagsSize - 1) > 9 )

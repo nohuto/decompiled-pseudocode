@@ -1,46 +1,46 @@
 /*
- * XREFs of RtlRemovePropertyStore @ 0x14061A840
+ * XREFs of RtlRemovePropertyStore @ 0x14061D890
  * Callers:
  *     <none>
  * Callees:
- *     bsearch @ 0x140536920 (bsearch.c)
- *     RtlpAcquirePropStoreLockExclusive @ 0x14061A930 (RtlpAcquirePropStoreLockExclusive.c)
- *     RtlpReleasePropStoreLockExclusive @ 0x14061A9EC (RtlpReleasePropStoreLockExclusive.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     bsearch @ 0x140538DA0 (bsearch.c)
+ *     RtlpAcquirePropStoreLockExclusive @ 0x14061D980 (RtlpAcquirePropStoreLockExclusive.c)
+ *     RtlpReleasePropStoreLockExclusive @ 0x14061DA3C (RtlpReleasePropStoreLockExclusive.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
-__int64 __fastcall RtlRemovePropertyStore(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlRemovePropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
   char v4; // al
   __int64 v5; // r8
-  void *StackBase; // rdx
-  unsigned int v7; // edi
+  unsigned __int64 ThreadLock; // rdx
+  NTSTATUS v7; // edi
   char v8; // si
-  _QWORD *v9; // rax
-  unsigned int ThreadLock_high; // ebx
+  unsigned __int64 *v9; // rax
+  unsigned int StackBase; // ebx
 
   v4 = RtlpAcquirePropStoreLockExclusive((PEX_SPIN_LOCK)&RtlpBootStatHandleLock.Header.WaitListHead.Flink + 1);
-  StackBase = NormalizationListLock.StackBase;
+  ThreadLock = NormalizationListLock.ThreadLock;
   v7 = 0;
   v8 = v4;
-  if ( NormalizationListLock.StackBase
-    && (v9 = bsearch(
-               Key,
-               NormalizationListLock.StackBase,
-               HIDWORD(NormalizationListLock.ThreadLock),
-               0x18uLL,
-               RtlpComparePropertyEntry)) != 0LL )
+  if ( NormalizationListLock.ThreadLock
+    && (v9 = (unsigned __int64 *)bsearch(
+                                   (const void *)Key,
+                                   (const void *)NormalizationListLock.ThreadLock,
+                                   LODWORD(NormalizationListLock.StackBase),
+                                   0x18uLL,
+                                   RtlpComparePropertyEntry)) != 0LL )
   {
-    ThreadLock_high = HIDWORD(NormalizationListLock.ThreadLock);
-    *a2 = v9[2];
-    memmove(v9, v9 + 3, 24 * (ThreadLock_high - ((char *)v9 - (char *)NormalizationListLock.StackBase) / 24) - 24);
-    HIDWORD(NormalizationListLock.ThreadLock) = ThreadLock_high - 1;
+    StackBase = (unsigned int)NormalizationListLock.StackBase;
+    *Context = v9[2];
+    memmove(v9, v9 + 3, 24 * (StackBase - (__int64)((__int64)v9 - NormalizationListLock.ThreadLock) / 24) - 24);
+    LODWORD(NormalizationListLock.StackBase) = StackBase - 1;
   }
   else
   {
     v7 = -1073741275;
   }
-  LOBYTE(StackBase) = v8;
-  RtlpReleasePropStoreLockExclusive((char *)&RtlpBootStatHandleLock.Header.WaitListHead.Flink + 4, StackBase, v5);
+  LOBYTE(ThreadLock) = v8;
+  RtlpReleasePropStoreLockExclusive((char *)&RtlpBootStatHandleLock.Header.WaitListHead.Flink + 4, ThreadLock, v5);
   return v7;
 }

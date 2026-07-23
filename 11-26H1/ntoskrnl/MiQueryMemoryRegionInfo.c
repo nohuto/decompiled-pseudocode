@@ -1,21 +1,21 @@
 /*
- * XREFs of MiQueryMemoryRegionInfo @ 0x14091FF70
+ * XREFs of MiQueryMemoryRegionInfo @ 0x140923AB0
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiGetAweVadPartition @ 0x1403BC184 (MiGetAweVadPartition.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiGetVadPageSize @ 0x14044F880 (MiGetVadPageSize.c)
- *     MiGetControlAreaPartition @ 0x140457F60 (MiGetControlAreaPartition.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiQueryReturnResults @ 0x140920250 (MiQueryReturnResults.c)
- *     MiGetAweVadPageSize @ 0x140B4ACB4 (MiGetAweVadPageSize.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiGetAweVadPartition @ 0x1403C5FF4 (MiGetAweVadPartition.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiGetVadPageSize @ 0x1404479B0 (MiGetVadPageSize.c)
+ *     MiGetControlAreaPartition @ 0x14044F7D0 (MiGetControlAreaPartition.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiQueryReturnResults @ 0x140923994 (MiQueryReturnResults.c)
+ *     MiGetAweVadPageSize @ 0x140B4CA44 (MiGetAweVadPageSize.c)
  */
 
-__int64 __fastcall MiQueryMemoryRegionInfo(int *a1)
+__int64 __fastcall MiQueryMemoryRegionInfo(__int64 a1)
 {
   __int64 v1; // rbx
   unsigned int VadFlags; // eax
@@ -49,9 +49,9 @@ __int64 __fastcall MiQueryMemoryRegionInfo(int *a1)
   __int64 v32; // [rsp+48h] [rbp-30h]
   int v33; // [rsp+80h] [rbp+8h]
 
-  v1 = *((_QWORD *)a1 + 17);
+  v1 = *(_QWORD *)(a1 + 136);
   VadFlags = MiReadVadFlags(v1);
-  v4 = *a1;
+  v4 = *(_DWORD *)a1;
   v5 = (*(unsigned int *)(v1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v1 + 32) << 32)) << 12;
   v33 = MmProtectToValue[(VadFlags >> 5) & 0x1F];
   if ( (VadFlags & 0x80000) != 0 )
@@ -67,7 +67,7 @@ __int64 __fastcall MiQueryMemoryRegionInfo(int *a1)
   v6 = 0x40000;
   if ( v4 == 3 )
   {
-    if ( *((_QWORD *)a1 + 2) < 0x30uLL )
+    if ( *(_QWORD *)(a1 + 16) < 0x30uLL )
       goto LABEL_3;
   }
   else if ( v4 != 7 )
@@ -86,12 +86,12 @@ LABEL_3:
     v8 = *(unsigned int *)(v1 + 52) | ((unsigned __int64)*(unsigned __int8 *)(v1 + 34) << 32);
   v9 = MiReadVadFlags(v1);
   VadPageSize = MiGetVadPageSize(v9);
-  ProcessPartition = MiGetProcessPartition(*((_QWORD *)a1 + 10));
+  ProcessPartition = MiGetProcessPartition(*(_QWORD *)(a1 + 80));
   v14 = 0LL;
   AweVadPartition = (unsigned __int16 *)ProcessPartition;
   if ( (v12 & 0x80000) != 0 )
   {
-    if ( (a1[18] & 0x10) != 0 )
+    if ( (*(_DWORD *)(a1 + 72) & 0x10) != 0 )
     {
       AweVadPartition = (unsigned __int16 *)MiGetAweVadPartition(v1);
       VadPageSize = MiGetAweVadPageSize(v1);
@@ -108,9 +108,9 @@ LABEL_3:
           if ( !PsReferencePartitionSafe(*(_QWORD *)(LockedVadEvent + 56)) )
           {
             MiReadVadFlags(v1);
-            *((_QWORD *)a1 + 3) = 0LL;
-            *((_QWORD *)a1 + 8) = 0LL;
-            *((_QWORD *)a1 + 7) = 0LL;
+            *(_QWORD *)(a1 + 24) = 0LL;
+            *(_QWORD *)(a1 + 64) = 0LL;
+            *(_QWORD *)(a1 + 56) = 0LL;
             MiQueryReturnResults(a1);
             return 3221226656LL;
           }
@@ -129,7 +129,7 @@ LABEL_3:
     PsDereferencePartition((__int64)v14);
   v18 = ((unsigned int)MiReadVadFlags(v1) >> 10) & 0x7F;
   v19 = v8 << 12;
-  v20 = *a1 == 7;
+  v20 = *(_DWORD *)a1 == 7;
   v31 = 0LL;
   v32 = 0LL;
   v27 = v5;
@@ -139,11 +139,11 @@ LABEL_3:
   {
     if ( v6 == 0x20000 )
     {
-      v24 = a1[18] & 0x40 | (2 * (a1[18] & 0x88 | (16 * (a1[18] & 0x30)))) | 1;
+      v24 = *(_DWORD *)(a1 + 72) & 0x40 | (2 * (*(_DWORD *)(a1 + 72) & 0x88 | (16 * (*(_DWORD *)(a1 + 72) & 0x30)))) | 1;
     }
     else
     {
-      v26 = 8 * (a1[18] & 4);
+      v26 = 8 * (*(_DWORD *)(a1 + 72) & 4);
       v29 = v26;
       if ( v6 == 0x40000 )
       {
@@ -176,7 +176,7 @@ LABEL_3:
   {
     v29 = v6;
   }
-  v21 = *((_QWORD *)a1 + 2);
+  v21 = *(_QWORD *)(a1 + 16);
   v22 = 24LL;
   if ( v21 >= 0x20 )
   {
@@ -196,7 +196,7 @@ LABEL_3:
       v32 = 0xFFFFFFFFLL;
     v22 = 48LL;
   }
-  *((_QWORD *)a1 + 8) = &v27;
-  *((_QWORD *)a1 + 7) = v22;
+  *(_QWORD *)(a1 + 64) = &v27;
+  *(_QWORD *)(a1 + 56) = v22;
   return MiQueryReturnResults(a1);
 }

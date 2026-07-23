@@ -1,11 +1,11 @@
 /*
- * XREFs of ExReleaseResourceAndLeavePriorityRegion @ 0x14060AA10
+ * XREFs of ExReleaseResourceAndLeavePriorityRegion @ 0x14060AF60
  * Callers:
- *     DifExReleaseResourceAndLeavePriorityRegionWrapper @ 0x1405D9AE0 (DifExReleaseResourceAndLeavePriorityRegionWrapper.c)
+ *     DifExReleaseResourceAndLeavePriorityRegionWrapper @ 0x1405DA050 (DifExReleaseResourceAndLeavePriorityRegionWrapper.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
  */
 
 _QWORD *__fastcall ExReleaseResourceAndLeavePriorityRegion(struct _ERESOURCE *a1)

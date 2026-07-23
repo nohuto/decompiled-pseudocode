@@ -1,13 +1,13 @@
 /*
- * XREFs of MiQueuePageFileExtension @ 0x1401EED38
+ * XREFs of MiQueuePageFileExtension @ 0x1401EEB64
  * Callers:
- *     MiContractPagingFiles @ 0x140075F3C (MiContractPagingFiles.c)
- *     MiIssuePageExtendRequest @ 0x1401EE988 (MiIssuePageExtendRequest.c)
- *     MiContractWsSwapPageFileWorker @ 0x1401F77BC (MiContractWsSwapPageFileWorker.c)
+ *     MiContractPagingFiles @ 0x140075FBC (MiContractPagingFiles.c)
+ *     MiIssuePageExtendRequest @ 0x1401EE7B4 (MiIssuePageExtendRequest.c)
+ *     MiContractWsSwapPageFileWorker @ 0x1401F75E8 (MiContractWsSwapPageFileWorker.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeReleaseSemaphoreEx @ 0x1400CF090 (KeReleaseSemaphoreEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeReleaseSemaphoreEx @ 0x1400CCF30 (KeReleaseSemaphoreEx.c)
  */
 
 __int64 __fastcall MiQueuePageFileExtension(__int64 a1, char a2, KIRQL a3)

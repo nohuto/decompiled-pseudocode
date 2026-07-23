@@ -1,46 +1,46 @@
 /*
- * XREFs of RtlSidDominates @ 0x1400A9230
+ * XREFs of RtlSidDominates @ 0x1400A9170
  * Callers:
- *     SepMandatorySubProcessToken @ 0x1400D9E94 (SepMandatorySubProcessToken.c)
- *     SepValidLabelSubjectContext @ 0x1406096D0 (SepValidLabelSubjectContext.c)
- *     SepAdjustPrivileges @ 0x140609D70 (SepAdjustPrivileges.c)
- *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
- *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
- *     SeIsTokenAssignableToProcess @ 0x1406B90F8 (SeIsTokenAssignableToProcess.c)
+ *     SepMandatorySubProcessToken @ 0x1400D9F14 (SepMandatorySubProcessToken.c)
+ *     SepValidLabelSubjectContext @ 0x14060A6D0 (SepValidLabelSubjectContext.c)
+ *     SepAdjustPrivileges @ 0x14060AD70 (SepAdjustPrivileges.c)
+ *     RtlpNewSecurityObject @ 0x14062E650 (RtlpNewSecurityObject.c)
+ *     SeTokenCanImpersonate @ 0x140639100 (SeTokenCanImpersonate.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406BA398 (SeIsTokenAssignableToProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memcmp @ 0x140196200 (memcmp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
  */
 
-__int64 __fastcall RtlSidDominates(_DWORD *Buf1, _DWORD *Buf2, bool *a3)
+NTSTATUS __cdecl RtlSidDominates(PSID Sid1, PSID Sid2, PBOOLEAN Dominates)
 {
   int v4; // r9d
   int v7; // eax
   __int16 v8; // si
   __int16 v9; // bp
-  bool v10; // al
+  BOOLEAN v10; // al
   unsigned int v12; // edx
 
-  *a3 = 0;
-  v4 = *(_DWORD *)((char *)Buf1 + 2);
+  *Dominates = 0;
+  v4 = *(_DWORD *)((char *)Sid1 + 2);
   if ( !v4 )
-    v4 = *((unsigned __int16 *)Buf1 + 3) - 4096;
+    v4 = *((unsigned __int16 *)Sid1 + 3) - 4096;
   if ( v4 )
-    return 3221225485LL;
-  v7 = *(_DWORD *)((char *)Buf2 + 2);
+    return -1073741811;
+  v7 = *(_DWORD *)((char *)Sid2 + 2);
   if ( !v7 )
-    v7 = *((unsigned __int16 *)Buf2 + 3) - 4096;
+    v7 = *((unsigned __int16 *)Sid2 + 3) - 4096;
   if ( v7 )
-    return 3221225485LL;
-  v8 = HIBYTE(*(_WORD *)Buf1);
-  v9 = HIBYTE(*(_WORD *)Buf2);
+    return -1073741811;
+  v8 = HIBYTE(*(_WORD *)Sid1);
+  v9 = HIBYTE(*(_WORD *)Sid2);
   v10 = 1;
-  if ( *(_WORD *)Buf1 != *(_WORD *)Buf2 || memcmp(Buf1, Buf2, 4LL * (unsigned __int8)v8 + 8) )
+  if ( *(_WORD *)Sid1 != *(_WORD *)Sid2 || memcmp(Sid1, Sid2, 4LL * (unsigned __int8)v8 + 8) )
   {
-    v12 = (_BYTE)v8 ? Buf1[(unsigned __int8)v8 + 1] : 0;
-    if ( (_BYTE)v9 && v12 < Buf2[(unsigned __int8)v9 + 1] )
+    v12 = (_BYTE)v8 ? *((_DWORD *)Sid1 + (unsigned int)(unsigned __int8)v8 + 1) : 0;
+    if ( (_BYTE)v9 && v12 < *((_DWORD *)Sid2 + (unsigned int)(unsigned __int8)v9 + 1) )
       v10 = 0;
   }
-  *a3 = v10;
-  return 0LL;
+  *Dominates = v10;
+  return 0;
 }

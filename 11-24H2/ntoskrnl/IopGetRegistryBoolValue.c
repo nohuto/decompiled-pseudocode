@@ -1,9 +1,9 @@
 /*
- * XREFs of IopGetRegistryBoolValue @ 0x140597DBC
+ * XREFs of IopGetRegistryBoolValue @ 0x140594D38
  * Callers:
- *     IopLiveDumpInitRegistrySettings @ 0x14059B7E4 (IopLiveDumpInitRegistrySettings.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x140598764 (IopLiveDumpInitRegistrySettings.c)
  * Callees:
- *     IopGetRegistryULongValue @ 0x140597DDC (IopGetRegistryULongValue.c)
+ *     IopGetRegistryULongValue @ 0x140594D58 (IopGetRegistryULongValue.c)
  */
 
 _BOOL8 IopGetRegistryBoolValue()

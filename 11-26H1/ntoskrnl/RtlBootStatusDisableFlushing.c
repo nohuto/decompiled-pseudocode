@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlBootStatusDisableFlushing @ 0x1405306D0
+ * XREFs of RtlBootStatusDisableFlushing @ 0x140532BD0
  * Callers:
- *     PopRecordLongPowerButtonPressDetected @ 0x1407C8FC0 (PopRecordLongPowerButtonPressDetected.c)
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x1407CC060 (PopRecordLongPowerButtonPressDetected.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall RtlBootStatusDisableFlushing(char a1)
 {
-  LOBYTE(NormalizationListLock.StateSaveArea) = a1;
+  LOBYTE(NormalizationListLock.KernelStack) = a1;
 }

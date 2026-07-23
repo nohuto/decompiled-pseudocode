@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpHpSegPageRangeCommit @ 0x180056980
+ * XREFs of RtlpHpSegPageRangeCommit @ 0x18006C560
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpVsSubsegmentCreate @ 0x18004FC80 (RtlpHpVsSubsegmentCreate.c)
- *     RtlpHpLfhSubsegmentCreate @ 0x180050DD0 (RtlpHpLfhSubsegmentCreate.c)
- *     RtlpHpSegAlloc @ 0x180051440 (RtlpHpSegAlloc.c)
- *     RtlpHpVsChunkSplit @ 0x180052BD0 (RtlpHpVsChunkSplit.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x180054AD0 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x180056390 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     RtlpHpSegReAlloc @ 0x1800A3160 (RtlpHpSegReAlloc.c)
- *     RtlpHpMetadataCommit @ 0x1800A4820 (RtlpHpMetadataCommit.c)
- *     RtlpHpSegLfhVsCommit @ 0x1800E0280 (RtlpHpSegLfhVsCommit.c)
- *     RtlpHpSegLfhVsDecommit @ 0x1800E3D90 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpSegReAlloc @ 0x18005CF10 (RtlpHpSegReAlloc.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x180065860 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1800669B0 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpSegAlloc @ 0x180067020 (RtlpHpSegAlloc.c)
+ *     RtlpHpVsChunkSplit @ 0x1800687B0 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x18006A6B0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x18006BF70 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpSegLfhVsCommit @ 0x1800DB380 (RtlpHpSegLfhVsCommit.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x1800DF710 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpMetadataCommit @ 0x1800EF3BC (RtlpHpMetadataCommit.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x180051AD4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlpHpSegMgrCommit @ 0x180091A20 (RtlpHpSegMgrCommit.c)
- *     RtlpLogHeapDecommit @ 0x1800E4560 (RtlpLogHeapDecommit.c)
- *     RtlpLogHeapCommit @ 0x180114118 (RtlpLogHeapCommit.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpLogHeapCommit @ 0x1800235BC (RtlpLogHeapCommit.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x1800676B4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     RtlpHpSegMgrCommit @ 0x18009C5B0 (RtlpHpSegMgrCommit.c)
+ *     RtlpLogHeapDecommit @ 0x1801115D0 (RtlpLogHeapDecommit.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeCommit(
@@ -98,7 +98,7 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(
   __int64 v77; // [rsp+98h] [rbp-68h] BYREF
   __int64 v78; // [rsp+A0h] [rbp-60h] BYREF
   _DWORD *v79; // [rsp+A8h] [rbp-58h]
-  char v80[32]; // [rsp+B0h] [rbp-50h] BYREF
+  _EVENT_DATA_DESCRIPTOR v80; // [rsp+B0h] [rbp-50h] BYREF
   __int64 *v81; // [rsp+D0h] [rbp-30h]
   __int64 v82; // [rsp+D8h] [rbp-28h]
   __int64 *v83; // [rsp+E0h] [rbp-20h]
@@ -267,7 +267,7 @@ LABEL_62:
     if ( (a5 & 2) != 0 )
       v37 = 1073745920;
   }
-  result = RtlpHpSegMgrCommit(a1, v36, v34 + v73, v35, v21, v37, (a5 >> 22) & 2);
+  result = RtlpHpSegMgrCommit(a1, v21, v37, (a5 >> 22) & 2);
   if ( (int)result >= 0 )
   {
     if ( v21 > 0 )
@@ -362,7 +362,7 @@ LABEL_40:
     if ( (RtlpHpHeapFeatures & 8) != 0 )
     {
       v54 = (__int64 *)(a1 + *(__int16 *)(a1 + 22));
-      if ( (unsigned int)dword_1801CC670 > 5 )
+      if ( (unsigned int)dword_1801CB670 > 5 )
       {
         v74 = *(_QWORD *)(a1 + 56);
         v82 = 8LL;
@@ -379,7 +379,13 @@ LABEL_40:
         v86 = 8LL;
         v88 = 8LL;
         v90 = 8LL;
-        tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CC670, byte_1801A2363, v38, v39, 7, (__int64)v80);
+        tlgWriteTransfer_EtwEventWriteTransfer(
+          (__int64)&dword_1801CB670,
+          (unsigned __int8 *)dword_1801A1503,
+          v38,
+          v39,
+          7u,
+          &v80);
       }
     }
     *(_WORD *)(v8 + 28) = ~(v21 + ~*(_WORD *)(v8 + 28));
@@ -391,7 +397,7 @@ LABEL_40:
       if ( v21 <= 0 )
         RtlpLogHeapDecommit(v55, v62, v63, 13LL);
       else
-        RtlpLogHeapCommit(v55, v62, v63, 10LL);
+        RtlpLogHeapCommit(v55, v62, v63, 10);
     }
     goto LABEL_62;
   }

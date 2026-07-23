@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonRestartProfilingInternal @ 0x140596524
+ * XREFs of EmonRestartProfilingInternal @ 0x140598CA4
  * Callers:
- *     EmonRestartProfiling @ 0x140BED670 (EmonRestartProfiling.c)
+ *     EmonRestartProfiling @ 0x140BF3670 (EmonRestartProfiling.c)
  * Callees:
- *     EmonConfigureCounter @ 0x1405950D0 (EmonConfigureCounter.c)
+ *     EmonConfigureCounter @ 0x140597850 (EmonConfigureCounter.c)
  */
 
 __int64 __fastcall EmonRestartProfilingInternal(int a1, int a2)

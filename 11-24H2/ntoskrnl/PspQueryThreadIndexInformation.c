@@ -1,11 +1,11 @@
 /*
- * XREFs of PspQueryThreadIndexInformation @ 0x14077C83C
+ * XREFs of PspQueryThreadIndexInformation @ 0x14077C6EC
  * Callers:
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspQueryThreadIndexInformation(struct _KTHREAD *a1, _DWORD *a2, _DWORD *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall PspQueryThreadIndexInformation(struct _KTHREAD *a1, _DWORD *a
   v8 = Process[4].Padding[4];
   if ( !v8 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x20uLL, 0x69547350u);
     if ( !Pool2 )
       return 3221225626LL;
     v8 = _InterlockedCompareExchange64((volatile signed __int64 *)&Process[4].Padding[4], (signed __int64)Pool2, 0LL);
@@ -45,7 +45,7 @@ LABEL_14:
       a1[1].SchedulerApc.NormalContext = NormalContext;
       goto LABEL_15;
     }
-    v12 = ExAllocatePool2(0x100uLL);
+    v12 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x69547350u);
     NormalContext = (_DWORD *)v12;
     if ( v12 )
     {

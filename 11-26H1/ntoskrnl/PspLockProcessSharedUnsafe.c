@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLockProcessSharedUnsafe @ 0x1404D6B10
+ * XREFs of PspLockProcessSharedUnsafe @ 0x1404D02E0
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  */
 
 signed __int64 __fastcall PspLockProcessSharedUnsafe(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

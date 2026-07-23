@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroComputeUnparkCountEx @ 0x1405E05AC
+ * XREFs of PpmHeteroComputeUnparkCountEx @ 0x1405DDBCC
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DFBD4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
- *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405E0230 (PpmHeteroComputeMultiClassUnparkCountEx.c)
+ *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DD1F4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
+ *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405DD850 (PpmHeteroComputeMultiClassUnparkCountEx.c)
  * Callees:
- *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x140423FEC (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x140417E9C (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
  */
 
 __int64 __fastcall PpmHeteroComputeUnparkCountEx(

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333400
+ * XREFs of KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333690
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiHeteroAttemptPreemptionSwap @ 0x1404617A8 (KiHeteroAttemptPreemptionSwap.c)
- *     KiHeteroChooseTargetProcessor @ 0x140461916 (KiHeteroChooseTargetProcessor.c)
- *     KiSelectCandidateProcessor @ 0x140462BB4 (KiSelectCandidateProcessor.c)
- *     KiPopulateTrivialProcessorSelectionResult @ 0x14057764C (KiPopulateTrivialProcessorSelectionResult.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiHeteroAttemptPreemptionSwap @ 0x140461BA8 (KiHeteroAttemptPreemptionSwap.c)
+ *     KiHeteroChooseTargetProcessor @ 0x140461D16 (KiHeteroChooseTargetProcessor.c)
+ *     KiSelectCandidateProcessor @ 0x140462FB4 (KiSelectCandidateProcessor.c)
+ *     KiPopulateTrivialProcessorSelectionResult @ 0x140577B3C (KiPopulateTrivialProcessorSelectionResult.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x140576D3C (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x14057722C (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
  */
 
 _BYTE *__fastcall KiAcquirePrcbLocksForPreemptionAttempt(__int64 a1, int a2, __int64 *a3)

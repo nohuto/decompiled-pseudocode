@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwCreateDebugObject @ 0x140724950
+ * XREFs of ZwCreateDebugObject @ 0x140729520
  * Callers:
- *     DifZwCreateDebugObjectWrapper @ 0x14069E710 (DifZwCreateDebugObjectWrapper.c)
+ *     DifZwCreateDebugObjectWrapper @ 0x1406A22F0 (DifZwCreateDebugObjectWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateDebugObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateDebugObject(
+        PHANDLE DebugObjectHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DebugObjectHandle);
 }

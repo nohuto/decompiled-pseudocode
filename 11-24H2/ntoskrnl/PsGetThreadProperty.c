@@ -1,129 +1,141 @@
 /*
- * XREFs of PsGetThreadProperty @ 0x14040CD40
+ * XREFs of PsGetThreadProperty @ 0x1404053D0
  * Callers:
  *     <none>
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x140254BA0 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x140254C70 (KxWaitForSpinLockAndAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1402851B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140285280 (KxWaitForSpinLockAndAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 PVOID __stdcall PsGetThreadProperty(PETHREAD Thread, ULONG_PTR Key, ULONG Flags)
 {
-  void *v3; // r15
-  char v4; // r12
-  volatile signed __int32 *v7; // r14
+  __int64 v3; // r9
+  void *v4; // r15
+  char v5; // r12
+  ULONG_PTR v6; // r13
+  __int64 *v8; // r8
+  volatile signed __int32 *v9; // r14
   unsigned __int8 CurrentIrql; // bp
-  volatile signed __int32 *v9; // rax
-  volatile signed __int32 *v10; // rbx
+  volatile signed __int32 *v11; // rax
+  volatile signed __int32 *v12; // rbx
   struct _LIST_ENTRY *Blink; // rbx
   struct _LIST_ENTRY **p_Blink; // rsi
-  unsigned __int8 v13; // bp
-  struct _LIST_ENTRY *v14; // rax
-  struct _LIST_ENTRY *v15; // rdi
+  unsigned __int8 v15; // bp
+  struct _LIST_ENTRY *v16; // rax
+  struct _LIST_ENTRY *v17; // rdi
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  v3 = 0LL;
-  v4 = Flags;
-  if ( (Flags & 0xFFFFFFFE) != 0
-    || Thread == KeGetCurrentPrcb()->IdleThread
-    || KeGetCurrentIrql() < 2u
-    && (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(Thread[-1].Padding[2]) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Thread - 48) >> 8)] != PsThreadType
-    || Thread == KeGetCurrentThread() && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
-  {
+  v4 = 0LL;
+  v5 = Flags;
+  v6 = Key;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
     return 0LL;
+  if ( Thread == KeGetCurrentPrcb()->IdleThread )
+    return 0LL;
+  v8 = ObTypeIndexTable;
+  if ( KeGetCurrentIrql() < 2u )
+  {
+    Key = (unsigned __int8)ObHeaderCookie ^ LOBYTE(Thread[-1].Padding[2]) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Thread - 48) >> 8);
+    if ( (POBJECT_TYPE *)ObTypeIndexTable[Key] != PsThreadType )
+      return 0LL;
   }
-  v7 = (volatile signed __int32 *)&Thread[1].WaitBlockFill11[88];
+  if ( Thread == KeGetCurrentThread() && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
+    return 0LL;
+  v9 = (volatile signed __int32 *)&Thread[1].WaitBlockFill11[88];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    if ( _interlockedbittestandset64(v7 + 4, 0LL) )
-      KxWaitForSpinLockAndAcquire(v7 + 4);
+    if ( _interlockedbittestandset64(v9 + 4, 0LL) )
+      KxWaitForSpinLockAndAcquire(v9 + 4, Key, (__int64)v8, v3);
   }
   else
   {
-    KiAcquireSpinLockInstrumented(v7 + 4);
+    KiAcquireSpinLockInstrumented(v9 + 4);
   }
-  v9 = *(volatile signed __int32 **)v7;
-  v10 = 0LL;
-  while ( v9 != v7 )
+  v11 = *(volatile signed __int32 **)v9;
+  v12 = 0LL;
+  while ( v11 != v9 )
   {
-    if ( *((_QWORD *)v9 + 2) == Key )
+    if ( *((_QWORD *)v11 + 2) == v6 )
     {
-      v10 = v9;
-      if ( v9 )
-        ObfReferenceObjectWithTag(*((PVOID *)v9 + 3), 0x72507350u);
+      v12 = v11;
+      if ( v11 )
+        ObfReferenceObjectWithTag(*((PVOID *)v11 + 3), 0x72507350u);
       break;
     }
-    v9 = *(volatile signed __int32 **)v9;
+    v11 = *(volatile signed __int32 **)v11;
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-    _InterlockedAnd64((volatile signed __int64 *)v7 + 2, 0LL);
+    _InterlockedAnd64((volatile signed __int64 *)v9 + 2, 0LL);
   else
-    KiReleaseSpinLockInstrumented((volatile signed __int64 *)v7 + 2, retaddr);
+    KiReleaseSpinLockInstrumented((volatile signed __int64 *)v9 + 2, retaddr);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  if ( v10 )
-    return (PVOID)*((_QWORD *)v10 + 3);
-  if ( (v4 & 1) == 0 )
+  if ( v12 )
+    return (PVOID)*((_QWORD *)v12 + 3);
+  if ( (v5 & 1) == 0 )
   {
     Blink = Thread[1].WaitBlock[3].WaitListEntry.Blink;
     if ( Blink == (struct _LIST_ENTRY *)-3LL )
       Blink = (struct _LIST_ENTRY *)Thread->Process[1].Padding[3];
-    if ( Blink
-      && (KeGetCurrentIrql() >= 2u
-       || (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(Blink[-2].Blink) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Blink - 48) >> 8)] == PsJobType) )
+    if ( Blink )
     {
-      while ( 1 )
+      if ( KeGetCurrentIrql() >= 2u
+        || (Key = (unsigned __int8)ObHeaderCookie ^ LOBYTE(Blink[-2].Blink) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Blink - 48) >> 8),
+            (POBJECT_TYPE *)ObTypeIndexTable[Key] == PsJobType) )
       {
-        p_Blink = &Blink[94].Blink;
-        v13 = KeGetCurrentIrql();
-        __writecr8(2uLL);
-        if ( KiIrqlFlags )
-          KiRaiseIrqlProcessIrqlFlags(v13, 2LL);
-        if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
+        while ( 1 )
         {
-          if ( _interlockedbittestandset64((volatile signed __int32 *)&Blink[95].Blink, 0LL) )
-            KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&Blink[95].Blink);
-        }
-        else
-        {
-          KiAcquireSpinLockInstrumented((volatile signed __int32 *)&Blink[95].Blink);
-        }
-        v14 = *p_Blink;
-        v15 = 0LL;
-        while ( v14 != (struct _LIST_ENTRY *)p_Blink )
-        {
-          if ( v14[1].Flink == (struct _LIST_ENTRY *)Key )
+          p_Blink = &Blink[94].Blink;
+          v15 = KeGetCurrentIrql();
+          __writecr8(2uLL);
+          if ( KiIrqlFlags )
+            KiRaiseIrqlProcessIrqlFlags(v15, 2LL);
+          if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
           {
-            v15 = v14;
-            if ( v14 )
-              ObfReferenceObjectWithTag(v14[1].Blink, 0x72507350u);
-            break;
+            if ( _interlockedbittestandset64((volatile signed __int32 *)&Blink[95].Blink, 0LL) )
+              KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&Blink[95].Blink, Key, (__int64)v8, v3);
           }
-          v14 = v14->Flink;
+          else
+          {
+            KiAcquireSpinLockInstrumented((volatile signed __int32 *)&Blink[95].Blink);
+          }
+          v16 = *p_Blink;
+          v17 = 0LL;
+          while ( v16 != (struct _LIST_ENTRY *)p_Blink )
+          {
+            if ( v16[1].Flink == (struct _LIST_ENTRY *)v6 )
+            {
+              v17 = v16;
+              if ( v16 )
+                ObfReferenceObjectWithTag(v16[1].Blink, 0x72507350u);
+              break;
+            }
+            v16 = v16->Flink;
+          }
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+            _InterlockedAnd64((volatile signed __int64 *)&Blink[95].Blink, 0LL);
+          else
+            KiReleaseSpinLockInstrumented((volatile signed __int64 *)&Blink[95].Blink, retaddr);
+          if ( KiIrqlFlags )
+            KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v15);
+          __writecr8(v15);
+          if ( v17 )
+            return v17[1].Blink;
+          Blink = Blink[81].Blink;
+          if ( !Blink )
+            return v4;
         }
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-          _InterlockedAnd64((volatile signed __int64 *)&Blink[95].Blink, 0LL);
-        else
-          KiReleaseSpinLockInstrumented((volatile signed __int64 *)&Blink[95].Blink, retaddr);
-        if ( KiIrqlFlags )
-          KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v13);
-        __writecr8(v13);
-        if ( v15 )
-          return v15[1].Blink;
-        Blink = Blink[81].Blink;
-        if ( !Blink )
-          return v3;
       }
     }
   }
-  return v3;
+  return v4;
 }

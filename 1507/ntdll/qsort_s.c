@@ -58,7 +58,7 @@ void __cdecl qsort_s(
           v9 = (v8 - v7) / SizeOfElements + 1;
           if ( v9 <= 8 )
           {
-            shortsort_s((_DWORD)v7, (_DWORD)v8, SizeOfElements, (_DWORD)CompareFunction, (__int64)Context);
+            shortsort_s(v7, v8, SizeOfElements, CompareFunction, Context);
             v10 = v32;
             goto LABEL_10;
           }

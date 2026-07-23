@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x1405A9974
+ * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x1405A9EE4
  * Callers:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExpInitializeResource @ 0x1403C4FB0 (ExpInitializeResource.c)
- *     ExInitializeFastResource2 @ 0x140413770 (ExInitializeFastResource2.c)
+ *     ExpInitializeResource @ 0x1403C5190 (ExpInitializeResource.c)
+ *     ExInitializeFastResource2 @ 0x140413B04 (ExInitializeFastResource2.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpStdExtendUpperWatermark @ 0x1405A9840 (RtlpStdExtendUpperWatermark.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpStdExtendUpperWatermark @ 0x1405A9DB0 (RtlpStdExtendUpperWatermark.c)
  */
 
 __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int16 *a2)
@@ -63,10 +63,13 @@ __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int1
   }
   v11 = *(unsigned __int8 *)(v7 + 744);
   KxReleaseSpinLock((volatile signed __int64 *)(v7 + 736));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v11 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

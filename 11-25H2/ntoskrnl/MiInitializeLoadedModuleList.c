@@ -98,7 +98,7 @@ void __fastcall MiInitializeLoadedModuleList(__int64 a1)
     }
     if ( v2 && (*(_DWORD *)(v6 + 104) & 0x800000) == 0 )
     {
-      v11 = MiCaptureBootDriverRetpolineInfo(*(_QWORD *)(v6 + 48), *(_DWORD *)(v6 + 64), v6 + 280);
+      v11 = MiCaptureBootDriverRetpolineInfo(*(PVOID *)(v6 + 48), *(unsigned int *)(v6 + 64), v6 + 280);
       if ( (int)(v11 + 0x80000000) >= 0 && v11 != -1073741637 )
         goto LABEL_29;
     }

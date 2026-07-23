@@ -24,38 +24,38 @@
  *     RtlpCapabilityCheckSystemCapability @ 0x1407EF4A0 (RtlpCapabilityCheckSystemCapability.c)
  */
 
-__int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING *String2, char *a3)
+NTSTATUS __cdecl RtlCapabilityCheck(HANDLE TokenHandle, PUNICODE_STRING CapabilityName, PBOOLEAN HasCapability)
 {
-  char v4; // di
-  char v5; // si
-  char v6; // r12
+  BOOLEAN v4; // di
+  BOOLEAN v5; // si
+  BOOLEAN v6; // r12
   int v9; // ebx
   PULONG v10; // r13
-  int v11; // eax
-  int v12; // eax
-  int v13; // eax
+  NTSTATUS v11; // eax
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // eax
   PULONG v15; // r13
-  int v16; // eax
-  int v17; // eax
-  char v18; // [rsp+30h] [rbp-D0h] BYREF
-  char v19; // [rsp+31h] [rbp-CFh] BYREF
-  char v20; // [rsp+32h] [rbp-CEh] BYREF
-  char v21; // [rsp+33h] [rbp-CDh] BYREF
-  char v22; // [rsp+34h] [rbp-CCh] BYREF
+  NTSTATUS v16; // eax
+  NTSTATUS v17; // eax
+  BOOLEAN v18; // [rsp+30h] [rbp-D0h] BYREF
+  BOOLEAN v19; // [rsp+31h] [rbp-CFh] BYREF
+  BOOLEAN v20; // [rsp+32h] [rbp-CEh] BYREF
+  BOOLEAN IsMember; // [rsp+33h] [rbp-CDh] BYREF
+  BOOLEAN HasCapabilitya; // [rsp+34h] [rbp-CCh] BYREF
   char v23; // [rsp+35h] [rbp-CBh]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-C8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-C8h] BYREF
   ULONG ResultLength; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
-  UNICODE_STRING *QuadPart; // [rsp+50h] [rbp-B0h] BYREF
+  PUNICODE_STRING QuadPart; // [rsp+50h] [rbp-B0h] BYREF
   LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
   __int128 KeyValueInformation; // [rsp+A0h] [rbp-60h] BYREF
   _BYTE Sid[16]; // [rsp+B0h] [rbp-50h] BYREF
-  _OWORD Group[3]; // [rsp+C0h] [rbp-40h] BYREF
-  _OWORD v34[3]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE CapabilityGroupSid[48]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE CapabilitySid[48]; // [rsp+F0h] [rbp-10h] BYREF
 
-  QuadPart = String2;
+  QuadPart = CapabilityName;
   ResultLength = 0;
   KeyHandle = 0LL;
   v23 = 0;
@@ -63,23 +63,23 @@ __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING
   *(_DWORD *)IdentifierAuthority.Value = 0;
   v4 = 0;
   memset(&ObjectAttributes, 0, 44);
-  v22 = 0;
+  HasCapabilitya = 0;
   v5 = 0;
   v18 = 0;
   v6 = 0;
   KeyValueInformation = 0LL;
   v19 = 0;
   v20 = 0;
-  v21 = 0;
+  IsMember = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  if ( !String2 || !a3 )
+  if ( !CapabilityName || !HasCapability )
   {
     v9 = -1073741811;
     goto LABEL_21;
   }
-  *a3 = 0;
-  v9 = RtlDeriveCapabilitySidsFromName(String2, Group, v34);
+  *HasCapability = 0;
+  v9 = RtlDeriveCapabilitySidsFromName(CapabilityName, CapabilityGroupSid, CapabilitySid);
   if ( v9 < 0 )
     goto LABEL_21;
   if ( RtlIsMultiSessionSku() )
@@ -93,13 +93,19 @@ __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes) >= 0
-      && ZwQueryValueKey(KeyHandle, String2, KeyValuePartialInformation, &KeyValueInformation, 0x10u, &ResultLength) >= 0 )
+      && ZwQueryValueKey(
+           KeyHandle,
+           CapabilityName,
+           KeyValuePartialInformation,
+           &KeyValueInformation,
+           0x10u,
+           &ResultLength) >= 0 )
     {
       v23 = 1;
       RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
       v15 = RtlSubAuthoritySid(Sid, 0);
       *v15 = 18;
-      v16 = RtlCheckTokenMembership(ExistingTokenHandle, Sid, &v19);
+      v16 = RtlCheckTokenMembership(TokenHandle, Sid, &v19);
       v5 = v19;
       v9 = v16;
       if ( v16 < 0 )
@@ -109,7 +115,7 @@ __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING
         RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
         *v15 = 32;
         *RtlSubAuthoritySid(Sid, 1u) = 544;
-        v17 = RtlCheckTokenMembership(ExistingTokenHandle, Sid, &v18);
+        v17 = RtlCheckTokenMembership(TokenHandle, Sid, &v18);
         v4 = v18;
         v9 = v17;
         if ( v17 < 0 )
@@ -120,15 +126,15 @@ __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING
       goto LABEL_15;
     }
   }
-  v9 = RtlCheckTokenMembershipEx(ExistingTokenHandle, Group, 2, &v21);
+  v9 = RtlCheckTokenMembershipEx(TokenHandle, CapabilityGroupSid, 2u, &IsMember);
   if ( v9 < 0 )
     goto LABEL_21;
-  if ( v21 )
+  if ( IsMember )
     goto LABEL_15;
   RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
   v10 = RtlSubAuthoritySid(Sid, 0);
   *v10 = 18;
-  v11 = RtlCheckTokenMembership(ExistingTokenHandle, Sid, &v19);
+  v11 = RtlCheckTokenMembership(TokenHandle, Sid, &v19);
   v5 = v19;
   v9 = v11;
   if ( v11 < 0 )
@@ -138,7 +144,7 @@ __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING
   RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
   *v10 = 32;
   *RtlSubAuthoritySid(Sid, 1u) = 544;
-  v12 = RtlCheckTokenMembership(ExistingTokenHandle, Sid, &v18);
+  v12 = RtlCheckTokenMembership(TokenHandle, Sid, &v18);
   v4 = v18;
   v9 = v12;
   if ( v12 < 0 )
@@ -147,7 +153,7 @@ __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING
     goto LABEL_15;
   RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
   *v10 = 4;
-  v13 = RtlCheckTokenMembershipEx(ExistingTokenHandle, Sid, 2, &v20);
+  v13 = RtlCheckTokenMembershipEx(TokenHandle, Sid, 2u, &v20);
   v6 = v20;
   v9 = v13;
   if ( v13 < 0 )
@@ -155,19 +161,19 @@ __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING
   if ( v20 )
   {
 LABEL_15:
-    v9 = RtlCheckTokenCapability(ExistingTokenHandle, v34, &v22);
+    v9 = RtlCheckTokenCapability(TokenHandle, CapabilitySid, &HasCapabilitya);
     if ( v9 < 0 )
       goto LABEL_21;
-    *a3 = v22;
+    *HasCapability = HasCapabilitya;
   }
 LABEL_17:
-  if ( *a3 && !v4 && !v5 )
-    v9 = RtlpCapabilityCheckSystemCapability(ExistingTokenHandle);
+  if ( *HasCapability && !v4 && !v5 )
+    v9 = RtlpCapabilityCheckSystemCapability(TokenHandle);
 LABEL_21:
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  QuadPart = (UNICODE_STRING *)KeQueryPerformanceCounter(0LL).QuadPart;
+  QuadPart = (PUNICODE_STRING)KeQueryPerformanceCounter(0LL).QuadPart;
   if ( !v5 && !PsIsCurrentThreadInServerSilo() )
-    RtlpLogCapabilityCheckLatency(&PerformanceCounter, &QuadPart, v4, v6, v23, *a3);
-  return (unsigned int)v9;
+    RtlpLogCapabilityCheckLatency(&PerformanceCounter, &QuadPart, v4, v6, v23, *HasCapability);
+  return v9;
 }

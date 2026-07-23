@@ -20,13 +20,13 @@ NTSTATUS __stdcall RtlCustomCPToUnicodeN(
   ULONG v10; // edx
   ULONG v11; // r11d
   ULONG v12; // ecx
-  wchar_t *MultiByteTable; // rdi
+  PUSHORT MultiByteTable; // rdi
   PCH v14; // r8
   __int64 v15; // r9
   __int64 v16; // rax
   ULONG *v18; // r8
   NTSTATUS v19; // eax
-  wchar_t *DBCSOffsets; // r14
+  PUSHORT DBCSOffsets; // r14
   int v21; // esi
   PCH v22; // rdi
   __int64 v23; // rcx

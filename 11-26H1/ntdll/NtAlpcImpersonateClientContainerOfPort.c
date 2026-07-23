@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x180160010
+ * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x18015FF10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtAlpcImpersonateClientContainerOfPort()
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 135LL;
+  result = 135;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

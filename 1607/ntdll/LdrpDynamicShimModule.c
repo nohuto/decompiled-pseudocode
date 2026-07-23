@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpDynamicShimModule @ 0x18002D734
+ * XREFs of LdrpDynamicShimModule @ 0x18002D724
  * Callers:
- *     LdrpPrepareModuleForExecution @ 0x18002DA88 (LdrpPrepareModuleForExecution.c)
+ *     LdrpPrepareModuleForExecution @ 0x18002DA78 (LdrpPrepareModuleForExecution.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     LdrpSendShimEngineInitialNotifications @ 0x18007DEE8 (LdrpSendShimEngineInitialNotifications.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     LdrpSendShimEngineInitialNotifications @ 0x18007DED8 (LdrpSendShimEngineInitialNotifications.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
- *     LdrpGetProcApphelpCheckModule @ 0x1800D20E0 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x1800D21A0 (LdrpGetProcApphelpCheckModule.c)
  */
 
 __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
@@ -48,10 +48,10 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
       }
       v9 = MEMORY[0x7FFE0330];
       v10 = __ROR8__(g_pfnSE_DllLoaded, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-      RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+      RtlEnterCriticalSection(&LdrpDllNotificationLock);
       if ( LdrInitState < 3 && (*(_DWORD *)(*a1 - 56LL) & 0x800) == 0 )
         LdrpSendShimEngineInitialNotifications(a1, v10 ^ v9);
-      RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+      RtlLeaveCriticalSection(&LdrpDllNotificationLock);
     }
     else
     {
@@ -75,7 +75,7 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
 LABEL_3:
   if ( g_pShimmedModuleList && v1 == 1 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, g_pShimmedModuleList);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
     g_pShimmedModuleList = 0LL;
     g_pShimmedModuleListLength = 0LL;
   }

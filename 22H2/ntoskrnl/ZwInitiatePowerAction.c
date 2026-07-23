@@ -6,9 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwInitiatePowerAction(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwInitiatePowerAction(
+        POWER_ACTION SystemAction,
+        SYSTEM_POWER_STATE LightestSystemState,
+        ULONG Flags,
+        BOOLEAN Asynchronous)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&SystemAction);
 }

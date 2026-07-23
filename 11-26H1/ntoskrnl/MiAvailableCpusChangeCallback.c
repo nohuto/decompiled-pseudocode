@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAvailableCpusChangeCallback @ 0x14070E260
+ * XREFs of MiAvailableCpusChangeCallback @ 0x140712F60
  * Callers:
  *     <none>
  * Callees:
- *     MiRefreshBackgroundZeroingAffinity @ 0x14070EA3C (MiRefreshBackgroundZeroingAffinity.c)
- *     MiWakeBackgroundZeroAffinityConductors @ 0x14070EC60 (MiWakeBackgroundZeroAffinityConductors.c)
+ *     MiRefreshBackgroundZeroingAffinity @ 0x14071373C (MiRefreshBackgroundZeroingAffinity.c)
+ *     MiWakeBackgroundZeroAffinityConductors @ 0x140713960 (MiWakeBackgroundZeroAffinityConductors.c)
  */
 
 __int64 __fastcall MiAvailableCpusChangeCallback(__int64 a1)

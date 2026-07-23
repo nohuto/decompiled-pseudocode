@@ -1,58 +1,58 @@
 /*
- * XREFs of PiGetDeviceRegistryProperty @ 0x140954D18
+ * XREFs of PiGetDeviceRegistryProperty @ 0x140954F18
  * Callers:
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     wcsstr @ 0x1403DBBA0 (wcsstr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     wcsstr @ 0x1403DBD80 (wcsstr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PnpFindAlternateStringData @ 0x1407931C4 (PnpFindAlternateStringData.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140798794 (PnpDeviceObjectToDeviceInstance.c)
- *     RtlFormatMessageEx @ 0x1409B9A98 (RtlFormatMessageEx.c)
+ *     PnpFindAlternateStringData @ 0x1407933B4 (PnpFindAlternateStringData.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140798984 (PnpDeviceObjectToDeviceInstance.c)
+ *     RtlFormatMessageEx @ 0x1409B9C98 (RtlFormatMessageEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a3, __int64 a4, wchar_t *a5, __int64 a6)
+__int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a3, __int64 a4, WCHAR *a5, ULONG *a6)
 {
-  __int64 v7; // r12
+  va_list v7; // r12
   struct _KTHREAD *CurrentThread; // rax
   int RegistryValue; // ebx
   _DWORD *v10; // rsi
-  unsigned int v11; // r14d
+  ULONG v11; // r14d
   wchar_t *v12; // rdi
   wchar_t *v13; // r15
   wchar_t *v14; // rax
   __int64 v15; // rcx
   const wchar_t *v16; // rcx
   unsigned int i; // r13d
-  __int64 v18; // rax
+  va_list v18; // rax
   __int64 v19; // rcx
   wchar_t *v20; // rax
   char v21; // cl
-  _DWORD *v22; // r13
+  PULONG v22; // r13
   _DWORD Size[3]; // [rsp+54h] [rbp-ACh] BYREF
   wchar_t *Str; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE KeyHandle; // [rsp+68h] [rbp-98h] BYREF
   PVOID P; // [rsp+70h] [rbp-90h] BYREF
-  NTSTRSAFE_PWSTR v28; // [rsp+78h] [rbp-88h]
-  __int64 v29; // [rsp+80h] [rbp-80h]
+  PWSTR Buffer; // [rsp+78h] [rbp-88h]
+  PULONG ReturnLength; // [rsp+80h] [rbp-80h]
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v32[20]; // [rsp+D0h] [rbp-30h] BYREF
+  va_list Arguments[20]; // [rsp+D0h] [rbp-30h] BYREF
 
   KeyHandle = 0LL;
   DestinationString = 0LL;
-  v28 = a5;
-  v29 = a6;
+  Buffer = a5;
+  ReturnLength = a6;
   v7 = 0LL;
   CurrentThread = KeGetCurrentThread();
   P = 0LL;
@@ -92,15 +92,15 @@ __int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a
       v11 = Size[0];
       v12 = Str;
       v14 = wcsstr(Str, L";(");
-      v7 = (__int64)v14;
+      v7 = (va_list)v14;
       if ( v14 && (v15 = (v11 >> 1) - 2, v13[v15] == 41) )
       {
         *v14 = 0;
-        v7 = (__int64)(v14 + 2);
+        v7 = (va_list)(v14 + 2);
         v13[v15] = 0;
-        memset(&v32[1], 0, 0x98uLL);
+        memset(&Arguments[1], 0, 0x98uLL);
         v16 = (const wchar_t *)v7;
-        v32[0] = v7;
+        Arguments[0] = v7;
         for ( i = 1; ; ++i )
         {
           v20 = wcschr(v16, 0x2Cu);
@@ -110,11 +110,11 @@ __int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a
             goto LABEL_15;
           }
           *v20 = 0;
-          v18 = (__int64)(v20 + 1);
+          v18 = (va_list)(v20 + 1);
           if ( i >= 0x13 )
             break;
           v19 = i;
-          v32[v19] = v18;
+          Arguments[v19] = v18;
           v16 = (const wchar_t *)v18;
         }
         v21 = 1;
@@ -126,12 +126,12 @@ __int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a
     }
     else
     {
-      LODWORD(v13) = (_DWORD)Str;
+      v13 = Str;
       v21 = 0;
     }
 LABEL_15:
-    v22 = (_DWORD *)v29;
-    if ( *(_DWORD *)v29 < v11 )
+    v22 = ReturnLength;
+    if ( *ReturnLength < v11 )
     {
       RegistryValue = -1073741789;
     }
@@ -142,11 +142,11 @@ LABEL_15:
         if ( v21 )
           RegistryValue = -1073741619;
         else
-          RegistryValue = RtlFormatMessageEx((int)v13, 0, 0, 0, 1, (__int64)v32, v28, *(_DWORD *)v29, v29);
+          RegistryValue = RtlFormatMessageEx(v13, 0, 0, 0, 1u, Arguments, Buffer, *ReturnLength, ReturnLength, 0LL);
       }
       else
       {
-        memmove(v28, v12, v11);
+        memmove(Buffer, v12, v11);
       }
     }
     else

@@ -1,16 +1,16 @@
 /*
- * XREFs of KeAllocateProcessorProfileStructures @ 0x1405B0460
+ * XREFs of KeAllocateProcessorProfileStructures @ 0x1405AD3D0
  * Callers:
- *     EmonCompleteInitializeProfiling @ 0x140B4EC80 (EmonCompleteInitializeProfiling.c)
+ *     EmonCompleteInitializeProfiling @ 0x140B50CD0 (EmonCompleteInitializeProfiling.c)
  * Callees:
- *     MmFreeIndependentPages @ 0x14039EC60 (MmFreeIndependentPages.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiIsIntelPebsSupported @ 0x1405B763C (KiIsIntelPebsSupported.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmCreateShadowMapping @ 0x1407F674C (MmCreateShadowMapping.c)
- *     MmDeleteShadowMapping @ 0x1407F699C (MmDeleteShadowMapping.c)
- *     MmAllocateIndependentPages @ 0x140A88F50 (MmAllocateIndependentPages.c)
+ *     MmFreeIndependentPages @ 0x14021D100 (MmFreeIndependentPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiIsIntelPebsSupported @ 0x1405B4C0C (KiIsIntelPebsSupported.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmCreateShadowMapping @ 0x1407F6EC0 (MmCreateShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x1407F7110 (MmDeleteShadowMapping.c)
+ *     MmAllocateIndependentPages @ 0x140A85350 (MmAllocateIndependentPages.c)
  */
 
 __int64 __fastcall KeAllocateProcessorProfileStructures(
@@ -25,10 +25,10 @@ __int64 __fastcall KeAllocateProcessorProfileStructures(
   __int64 v11; // r14
   size_t v12; // rsi
   void *IndependentPages; // rax
-  unsigned __int64 v14; // rbx
-  unsigned int v15; // edi
-  _PROCESSOR_PROFILE_CONTROL_AREA *v16; // r15
-  __int64 v17; // r8
+  __int64 v14; // r8
+  unsigned __int64 v15; // rbx
+  unsigned int v16; // edi
+  _PROCESSOR_PROFILE_CONTROL_AREA *v17; // r15
   _PROCESSOR_PROFILE_CONTROL_AREA *v18; // rax
   unsigned __int64 *PebsGpCounterReset; // rax
   char v20; // [rsp+68h] [rbp+20h]
@@ -55,67 +55,67 @@ __int64 __fastcall KeAllocateProcessorProfileStructures(
   if ( KiKvaShadow )
     v12 = (v12 + 4095) & 0xFFFFFFFFFFFFF000uLL;
   IndependentPages = (void *)MmAllocateIndependentPages(v12, 0LL);
-  v14 = (unsigned __int64)IndependentPages;
+  v15 = (unsigned __int64)IndependentPages;
   if ( IndependentPages )
   {
     memset_0(IndependentPages, 0, v12);
     if ( KiKvaShadow )
     {
-      if ( !(unsigned int)MmCreateShadowMapping(v14, v12) )
+      if ( !(unsigned int)MmCreateShadowMapping(v15, v12) )
       {
-        v15 = -1073741670;
+        v16 = -1073741670;
         goto LABEL_25;
       }
       v20 = 1;
     }
-    v16 = (_PROCESSOR_PROFILE_CONTROL_AREA *)(v14 + v10);
+    v17 = (_PROCESSOR_PROFILE_CONTROL_AREA *)(v15 + v10);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
     if ( (unsigned __int8)KiIsIntelPebsSupported(KeGetCurrentPrcb()) )
     {
-      v18 = *(_PROCESSOR_PROFILE_CONTROL_AREA **)(v17 + 36504);
+      v18 = *(_PROCESSOR_PROFILE_CONTROL_AREA **)(v14 + 36504);
       if ( v18 )
       {
         *a3 = v18;
-        v15 = -1073741302;
+        v16 = -1073741302;
       }
       else
       {
         if ( a1 )
         {
-          PebsGpCounterReset = v16->PebsDsSaveArea.As32Bit.PebsGpCounterReset;
+          PebsGpCounterReset = v17->PebsDsSaveArea.As32Bit.PebsGpCounterReset;
           do
           {
-            *PebsGpCounterReset = v14;
-            v14 += a2;
+            *PebsGpCounterReset = v15;
+            v15 += a2;
             PebsGpCounterReset += 20;
             --v11;
           }
           while ( v11 );
         }
-        v14 = 0LL;
-        *a3 = v16;
-        v15 = 0;
+        v15 = 0LL;
+        *a3 = v17;
+        v16 = 0;
       }
     }
     else
     {
-      v15 = -1073741637;
+      v16 = -1073741637;
     }
     goto LABEL_25;
   }
-  v15 = -1073741801;
+  v16 = -1073741801;
 LABEL_25:
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  if ( v14 )
+  if ( v15 )
   {
     if ( v20 )
-      MmDeleteShadowMapping(v14, v12);
-    MmFreeIndependentPages(v14, v12);
+      MmDeleteShadowMapping(v15, v12);
+    MmFreeIndependentPages(v15, v12, v14);
   }
-  return v15;
+  return v16;
 }

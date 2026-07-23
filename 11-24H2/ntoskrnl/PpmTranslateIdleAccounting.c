@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmTranslateIdleAccounting @ 0x14032C6E0
+ * XREFs of PpmTranslateIdleAccounting @ 0x1404369F0
  * Callers:
- *     PpmEventTraceProcessorIdleAccounting @ 0x14032C460 (PpmEventTraceProcessorIdleAccounting.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x1405D7F80 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmEventTraceProcessorIdleAccounting @ 0x140436770 (PpmEventTraceProcessorIdleAccounting.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x1405D5500 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     PpmUpdateProcessorIdleAccounting @ 0x14032CE98 (PpmUpdateProcessorIdleAccounting.c)
- *     PpmConvertTimeTo @ 0x14032D92C (PpmConvertTimeTo.c)
+ *     PpmConvertTimeTo @ 0x140370A00 (PpmConvertTimeTo.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x1404371A8 (PpmUpdateProcessorIdleAccounting.c)
  */
 
-__int64 __fastcall PpmTranslateIdleAccounting(__int64 a1, __int64 a2, __int64 *a3)
+ULONGLONG __fastcall PpmTranslateIdleAccounting(__int64 a1, __int64 a2, ULONGLONG *a3)
 {
   int *v6; // rcx
   unsigned int v7; // edx
-  __int64 result; // rax
-  __int64 v9; // r13
+  ULONGLONG result; // rax
+  unsigned __int64 v9; // r13
   __int64 v10; // rbx
   __int64 v11; // r15
   _DWORD *v12; // rdi
@@ -51,17 +51,17 @@ __int64 __fastcall PpmTranslateIdleAccounting(__int64 a1, __int64 a2, __int64 *a
       *(_DWORD *)(v10 + 4) = *(v12 - 209);
       *(_DWORD *)(v10 + 20) = *(v12 - 210);
       *(_DWORD *)(v10 + 8) = *(v12 - 207);
-      *(_QWORD *)(v10 - 8) = PpmConvertTimeTo(*((_QWORD *)v12 - 106), 1000000LL);
-      *(_DWORD *)(v10 + 12) = PpmConvertTimeTo(*((_QWORD *)v12 - 103), 1000000LL);
-      *(_DWORD *)(v10 + 16) = PpmConvertTimeTo(*((_QWORD *)v12 - 102), 1000000LL);
+      *(_QWORD *)(v10 - 8) = PpmConvertTimeTo(*((_QWORD *)v12 - 106), 0xF4240uLL);
+      *(_DWORD *)(v10 + 12) = PpmConvertTimeTo(*((_QWORD *)v12 - 103), 0xF4240uLL);
+      *(_DWORD *)(v10 + 16) = PpmConvertTimeTo(*((_QWORD *)v12 - 102), 0xF4240uLL);
       v13 = v12 - 130;
       v14 = (_DWORD *)(v10 + 36);
       v15 = 16LL;
       do
       {
-        *(_QWORD *)(v14 - 3) = PpmConvertTimeTo(*((_QWORD *)v13 - 2), 1000000LL);
-        *(v14 - 1) = PpmConvertTimeTo(*((_QWORD *)v13 - 1), 1000000LL);
-        *v14 = PpmConvertTimeTo(*(_QWORD *)v13, 1000000LL);
+        *(_QWORD *)(v14 - 3) = PpmConvertTimeTo(*((_QWORD *)v13 - 2), 0xF4240uLL);
+        *(v14 - 1) = PpmConvertTimeTo(*((_QWORD *)v13 - 1), 0xF4240uLL);
+        *v14 = PpmConvertTimeTo(*(_QWORD *)v13, 0xF4240uLL);
         v14 += 6;
         v16 = v13[2];
         v13 += 8;
@@ -77,9 +77,9 @@ __int64 __fastcall PpmTranslateIdleAccounting(__int64 a1, __int64 a2, __int64 *a
         if ( v19 )
         {
           *(_DWORD *)(v10 + 40) += v19;
-          *(_QWORD *)(v10 + 24) += PpmConvertTimeTo(*((_QWORD *)v17 - 1), 1000000LL);
-          v22 = PpmConvertTimeTo(*(_QWORD *)v17, 1000000LL);
-          v23 = PpmConvertTimeTo(*((_QWORD *)v17 + 1), 1000000LL);
+          *(_QWORD *)(v10 + 24) += PpmConvertTimeTo(*((_QWORD *)v17 - 1), 0xF4240uLL);
+          v22 = PpmConvertTimeTo(*(_QWORD *)v17, 0xF4240uLL);
+          v23 = PpmConvertTimeTo(*((_QWORD *)v17 + 1), 0xF4240uLL);
           if ( *(_DWORD *)(v10 + 32) > v22 )
             *(_DWORD *)(v10 + 32) = v22;
           if ( *(_DWORD *)(v10 + 36) < v23 )
@@ -108,7 +108,7 @@ __int64 __fastcall PpmTranslateIdleAccounting(__int64 a1, __int64 a2, __int64 *a
   }
   if ( a3 )
   {
-    result = PpmConvertTimeTo(v9, 1000000LL);
+    result = PpmConvertTimeTo(v9, 0xF4240uLL);
     *a3 = result;
   }
   return result;

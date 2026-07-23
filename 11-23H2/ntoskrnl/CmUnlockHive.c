@@ -1,10 +1,10 @@
 /*
- * XREFs of CmUnlockHive @ 0x140747F78
+ * XREFs of CmUnlockHive @ 0x140748168
  * Callers:
- *     CmpWaitForLateUnloadWorker @ 0x1402EC614 (CmpWaitForLateUnloadWorker.c)
+ *     CmpWaitForLateUnloadWorker @ 0x1402EC8A4 (CmpWaitForLateUnloadWorker.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 signed __int32 __fastcall CmUnlockHive(__int64 a1)

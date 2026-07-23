@@ -1,18 +1,19 @@
 /*
- * XREFs of PsTerminateMinimalProcess @ 0x140778C58
+ * XREFs of PsTerminateMinimalProcess @ 0x140778D58
  * Callers:
- *     SmTerminateStoreProcess @ 0x14060CB08 (SmTerminateStoreProcess.c)
- *     PsCreateMinimalProcess @ 0x1407797C4 (PsCreateMinimalProcess.c)
- *     PspTeardownPartition @ 0x14077B050 (PspTeardownPartition.c)
- *     VmTerminateMemoryProcess @ 0x14079EF00 (VmTerminateMemoryProcess.c)
+ *     SmTerminateStoreProcess @ 0x14060B0C8 (SmTerminateStoreProcess.c)
+ *     PsCreateMinimalProcess @ 0x1407798C4 (PsCreateMinimalProcess.c)
+ *     PspTeardownPartition @ 0x14077AF00 (PspTeardownPartition.c)
+ *     VmTerminateMemoryProcess @ 0x14079F010 (VmTerminateMemoryProcess.c)
+ *     NtTerminateProcess @ 0x140ACF260 (NtTerminateProcess.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     PspLockProcessExclusive @ 0x14045AB10 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x140462E74 (PspUnlockProcessExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PspRundownSingleProcess @ 0x1408A8B38 (PspRundownSingleProcess.c)
- *     PspExitLastThread @ 0x1409374F0 (PspExitLastThread.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     PspLockProcessExclusive @ 0x14044FF38 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x140458484 (PspUnlockProcessExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PspExitLastThread @ 0x1408F27B8 (PspExitLastThread.c)
+ *     PspRundownSingleProcess @ 0x1408FED98 (PspRundownSingleProcess.c)
  */
 
 __int64 __fastcall PsTerminateMinimalProcess(PRKPROCESS PROCESS, int a2)
@@ -21,6 +22,8 @@ __int64 __fastcall PsTerminateMinimalProcess(PRKPROCESS PROCESS, int a2)
   signed __int32 v5; // r14d
   char v6; // bp
   __int64 result; // rax
+  __int64 v8; // r8
+  __int64 v9; // r9
   struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-58h] BYREF
 
   memset(&ApcState, 0, sizeof(ApcState));
@@ -46,7 +49,7 @@ __int64 __fastcall PsTerminateMinimalProcess(PRKPROCESS PROCESS, int a2)
       PspExitLastThread(1LL, 0LL, PROCESS, 0LL, -1073741749);
       PspExitLastThread(2LL, 0LL, PROCESS, 0LL, 0);
       PspExitLastThread(3LL, 0LL, PROCESS, 0LL, 0);
-      return KiUnstackDetachProcess((__int64)&ApcState, 0);
+      return KiUnstackDetachProcess((__int64)&ApcState, 0, v8, v9);
     }
     else
     {

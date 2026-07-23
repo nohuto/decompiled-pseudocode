@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsCurrentThread @ 0x18010B990
+ * XREFs of RtlIsCurrentThread @ 0x180106360
  * Callers:
  *     <none>
  * Callees:
- *     NtCompareObjects @ 0x180163060 (NtCompareObjects.c)
+ *     NtCompareObjects @ 0x180161420 (NtCompareObjects.c)
  */
 
-bool __fastcall RtlIsCurrentThread(__int64 a1)
+BOOLEAN __cdecl RtlIsCurrentThread(HANDLE ThreadHandle)
 {
-  return a1 == -2 || (int)NtCompareObjects(-2LL, a1) >= 0;
+  return ThreadHandle == (HANDLE)-2LL || NtCompareObjects((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadHandle) >= 0;
 }

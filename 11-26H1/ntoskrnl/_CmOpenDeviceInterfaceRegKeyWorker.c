@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x14099FC70
+ * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x1409606D0
  * Callers:
- *     _CmOpenDeviceInterfaceRegKey @ 0x14099EF5C (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14095F9BC (_CmOpenDeviceInterfaceRegKey.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegCreateTree @ 0x14091E1FC (_PnpCtxRegCreateTree.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x14099EF5C (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1409A0C40 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2AEE0 (_SysCtxRegOpenCurrentUserKey.c)
- *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140B23E1C (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14095F9BC (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1409616A0 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _PnpCtxRegCreateTree @ 0x140978C5C (_PnpCtxRegCreateTree.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A3DF70 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140B2621C (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDeviceInterfaceRegKeyWorker(
@@ -27,7 +27,7 @@ __int64 __fastcall CmOpenDeviceInterfaceRegKeyWorker(
         ACCESS_MASK a5,
         char a6,
         HANDLE *a7,
-        ULONG *a8)
+        _DWORD *a8)
 {
   __int64 v10; // rbx
   void *v11; // r12
@@ -50,13 +50,13 @@ __int64 __fastcall CmOpenDeviceInterfaceRegKeyWorker(
   unsigned __int64 v29; // r10
   unsigned int v30; // r8d
   _QWORD *v31; // r15
-  __int64 *v32; // rdx
+  _QWORD *v32; // rdx
   char *v33; // rdi
   __int64 v34; // rax
   __int64 v35; // rcx
   int v36; // eax
   __int64 v37; // rcx
-  ACCESS_MASK v38; // r14d
+  int v38; // r14d
   int v39; // eax
   _QWORD *v40; // rdx
   int v41; // eax
@@ -248,7 +248,7 @@ LABEL_102:
     v22 = Pool2 + 47;
   }
   v31 = a1;
-  v32 = (__int64 *)a1[v30 + 12];
+  v32 = (_QWORD *)a1[v30 + 12];
   if ( !v32 )
   {
     switch ( v30 )
@@ -266,7 +266,7 @@ LABEL_102:
         break;
       default:
 LABEL_104:
-        v32 = (__int64 *)a1[11];
+        v32 = (_QWORD *)a1[11];
         break;
     }
     a1[v30 + 12] = v32;
@@ -317,7 +317,7 @@ LABEL_69:
       v38 = a5;
       if ( v42 )
         v38 = 917510;
-      v39 = PnpCtxRegCreateTree((__int64)a1, v33, v22, 0, v38, (__int64)v42, &v43, a8);
+      v39 = PnpCtxRegCreateTree(a1, v33, v22, 0LL, v38, v42, &v43, a8);
       if ( v39 == -1073741444 )
       {
         v11 = v42;

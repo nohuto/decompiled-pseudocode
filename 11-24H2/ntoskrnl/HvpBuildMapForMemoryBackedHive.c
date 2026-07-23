@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1407E37DC
+ * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1407E3D2C
  * Callers:
- *     HvHiveStartMemoryBacked @ 0x1409314FC (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x14093363C (HvHiveStartMemoryBacked.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x14042B480 (RtlNumberOfSetBits.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpClaimGlobalQuota @ 0x14087F12C (CmpClaimGlobalQuota.c)
- *     HvpPointMapEntriesToBuffer @ 0x14098127C (HvpPointMapEntriesToBuffer.c)
- *     HvpInitMap @ 0x140981C6C (HvpInitMap.c)
- *     HvpEnlistFreeCells @ 0x140983CA0 (HvpEnlistFreeCells.c)
- *     HvpValidateLoadedBin @ 0x140984038 (HvpValidateLoadedBin.c)
+ *     RtlNumberOfSetBits @ 0x140377880 (RtlNumberOfSetBits.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpClaimGlobalQuota @ 0x140882FDC (CmpClaimGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x140969A8C (HvpPointMapEntriesToBuffer.c)
+ *     HvpInitMap @ 0x14096A47C (HvpInitMap.c)
+ *     HvpEnlistFreeCells @ 0x14096C4B0 (HvpEnlistFreeCells.c)
+ *     HvpValidateLoadedBin @ 0x14096C848 (HvpValidateLoadedBin.c)
  */
 
 __int64 __fastcall HvpBuildMapForMemoryBackedHive(

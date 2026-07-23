@@ -1,10 +1,10 @@
 /*
- * XREFs of RaiseException @ 0x180098410
+ * XREFs of RaiseException @ 0x180098420
  * Callers:
- *     _raise_exc_ex @ 0x1800988F0 (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x180098900 (_raise_exc_ex.c)
  * Callees:
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 

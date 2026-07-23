@@ -1,15 +1,15 @@
 /*
- * XREFs of PsInitializeVsmEnclave @ 0x14090DF50
+ * XREFs of PsInitializeVsmEnclave @ 0x14090E0B0
  * Callers:
- *     MiInitializeVsmEnclave @ 0x1408D3098 (MiInitializeVsmEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x1408D31F8 (MiInitializeVsmEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     VslInitializeEnclave @ 0x14088FB9C (VslInitializeEnclave.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     VslInitializeEnclave @ 0x14088FCFC (VslInitializeEnclave.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsInitializeVsmEnclave(__int64 a1, __int64 a2, ULONG a3, __int64 a4, __int64 a5)
@@ -24,6 +24,9 @@ __int64 __fastcall PsInitializeVsmEnclave(__int64 a1, __int64 a2, ULONG a3, __in
   _QWORD *v17; // rdx
   __int64 v18; // r8
   _QWORD *v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
 
   CurrentThread = KeGetCurrentThread();
   PoolWithQuotaTag = 0LL;
@@ -87,7 +90,7 @@ LABEL_19:
   if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v11);
   KeAbPostRelease((ULONG_PTR)v11);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v20, v21, v22);
   if ( PoolWithQuotaTag )
     ExFreePoolWithTag(PoolWithQuotaTag, 0);
   return (unsigned int)v13;

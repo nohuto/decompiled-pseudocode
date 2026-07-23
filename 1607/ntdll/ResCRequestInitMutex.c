@@ -1,13 +1,13 @@
 /*
- * XREFs of ResCRequestInitMutex @ 0x180103374
+ * XREFs of ResCRequestInitMutex @ 0x1801032B4
  * Callers:
  *     ResCRuntimeGetSegmentDataEx @ 0x1800FF43C (ResCRuntimeGetSegmentDataEx.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102DF8 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     _ResCloseHandle @ 0x180103AE0 (_ResCloseHandle.c)
- *     _ResCreateMutex @ 0x180103EBC (_ResCreateMutex.c)
- *     _ResWaitForSingleObject @ 0x180104E4C (_ResWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102D38 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     _ResCloseHandle @ 0x180103A20 (_ResCloseHandle.c)
+ *     _ResCreateMutex @ 0x180103DFC (_ResCreateMutex.c)
+ *     _ResWaitForSingleObject @ 0x180104D8C (_ResWaitForSingleObject.c)
  */
 
 __int64 __fastcall ResCRequestInitMutex(__int64 a1)

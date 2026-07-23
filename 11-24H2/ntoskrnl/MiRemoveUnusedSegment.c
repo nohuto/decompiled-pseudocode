@@ -1,20 +1,20 @@
 /*
- * XREFs of MiRemoveUnusedSegment @ 0x14022F72C
+ * XREFs of MiRemoveUnusedSegment @ 0x14030303C
  * Callers:
- *     MiReferencePfBackedSection @ 0x14022EFF8 (MiReferencePfBackedSection.c)
- *     MiComputeDataFlushRange @ 0x14022F300 (MiComputeDataFlushRange.c)
- *     MiPreventControlAreaDeletion @ 0x14022F600 (MiPreventControlAreaDeletion.c)
- *     MiEntireSubsectionIsPurged @ 0x14023C6CC (MiEntireSubsectionIsPurged.c)
- *     MiAttemptSectionDelete @ 0x140314F64 (MiAttemptSectionDelete.c)
- *     MiReferenceExistingControlArea @ 0x140315C60 (MiReferenceExistingControlArea.c)
- *     MiReferenceControlArea @ 0x140415208 (MiReferenceControlArea.c)
- *     MiPrepareSegmentForDeletion @ 0x140416EDC (MiPrepareSegmentForDeletion.c)
- *     MmGetImageFileSignatureInformation @ 0x1404514B0 (MmGetImageFileSignatureInformation.c)
- *     MiSetDeleteOnClose @ 0x1404D3B38 (MiSetDeleteOnClose.c)
+ *     MiEntireSubsectionIsPurged @ 0x1402043F4 (MiEntireSubsectionIsPurged.c)
+ *     MiPrepareSegmentForDeletion @ 0x1402703FC (MiPrepareSegmentForDeletion.c)
+ *     MiReferenceControlArea @ 0x140271068 (MiReferenceControlArea.c)
+ *     MiReferenceExistingControlArea @ 0x1402BE814 (MiReferenceExistingControlArea.c)
+ *     MiReferencePfBackedSection @ 0x140302908 (MiReferencePfBackedSection.c)
+ *     MiComputeDataFlushRange @ 0x140302C10 (MiComputeDataFlushRange.c)
+ *     MiPreventControlAreaDeletion @ 0x140302F10 (MiPreventControlAreaDeletion.c)
+ *     MiAttemptSectionDelete @ 0x1403F25B4 (MiAttemptSectionDelete.c)
+ *     MmGetImageFileSignatureInformation @ 0x140446860 (MmGetImageFileSignatureInformation.c)
+ *     MiSetDeleteOnClose @ 0x1404CCD3C (MiSetDeleteOnClose.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkUnusedControlArea @ 0x14036FCB8 (MiUnlinkUnusedControlArea.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkUnusedControlArea @ 0x140432D38 (MiUnlinkUnusedControlArea.c)
  */
 
 void __fastcall MiRemoveUnusedSegment(__int64 a1)
@@ -23,7 +23,7 @@ void __fastcall MiRemoveUnusedSegment(__int64 a1)
 
   if ( (*(_DWORD *)(a1 + 56) & 0x10000000) != 0 )
   {
-    v2 = *((_QWORD *)qword_140E2FF88 + (*(_WORD *)(a1 + 60) & 0x3FF));
+    v2 = *((_QWORD *)qword_140E300C8 + (*(_WORD *)(a1 + 60) & 0x3FF));
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v2 + 1728));
     MiUnlinkUnusedControlArea(a1);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 1728));

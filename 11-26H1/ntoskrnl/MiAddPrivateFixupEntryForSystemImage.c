@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x1406E6BA8
+ * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x1406EB858
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140AC6DF4 (MiGetSystemAddressForImage.c)
+ *     MiGetSystemAddressForImage @ 0x140AC89E4 (MiGetSystemAddressForImage.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiInitializePrivateFixupBitmap @ 0x1409CE834 (MiInitializePrivateFixupBitmap.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiInitializePrivateFixupBitmap @ 0x14099F814 (MiInitializePrivateFixupBitmap.c)
  */
 
 __int64 __fastcall MiAddPrivateFixupEntryForSystemImage(unsigned __int64 a1, struct _LIST_ENTRY *a2)
@@ -34,18 +34,18 @@ __int64 __fastcall MiAddPrivateFixupEntryForSystemImage(unsigned __int64 a1, str
     v6->Header.WaitListHead.Blink = a2;
     v6->ProfileListHead.Flink = (struct _LIST_ENTRY *)((char *)&a2[256 * v4 - 1].Blink + 7);
     v6->ProfileListHead.Blink = *(struct _LIST_ENTRY **)(*(_QWORD *)a1 + 32LL);
-    v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D150.SchedulerApc.SpareLong0);
-    Process = stru_140E2D150.SavedApcState.Process;
-    if ( *(struct _KTHREAD **)stru_140E2D150.SavedApcState.Process != (struct _KTHREAD *)&stru_140E2D150.SavedApcStateFill[24] )
+    v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D2D0.SchedulerApc.SpareLong0);
+    Process = stru_140E2D2D0.SavedApcState.Process;
+    if ( *(struct _KTHREAD **)stru_140E2D2D0.SavedApcState.Process != (struct _KTHREAD *)&stru_140E2D2D0.SavedApcStateFill[24] )
       __fastfail(3u);
-    v6->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)stru_140E2D150.SavedApcState.Process;
-    *(_QWORD *)&v6->Header.Lock = &stru_140E2D150.SavedApcState.ApcListHead[1].Blink;
+    v6->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)stru_140E2D2D0.SavedApcState.Process;
+    *(_QWORD *)&v6->Header.Lock = &stru_140E2D2D0.SavedApcState.ApcListHead[1].Blink;
     *(_QWORD *)&Process->Header.Lock = v6;
-    stru_140E2D150.SavedApcState.Process = v6;
+    stru_140E2D2D0.SavedApcState.Process = v6;
     if ( v7 == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.SchedulerApc.SpareLong0);
+      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.SchedulerApc.SpareLong0);
     else
-      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D150.SchedulerApc.SpareLong0, v7);
+      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D2D0.SchedulerApc.SpareLong0, v7);
     return 1LL;
   }
   return result;

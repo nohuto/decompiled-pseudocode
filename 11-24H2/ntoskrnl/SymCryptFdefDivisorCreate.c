@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptFdefDivisorCreate @ 0x14053702C
+ * XREFs of SymCryptFdefDivisorCreate @ 0x1405314CC
  * Callers:
- *     SymCryptDivisorCreate @ 0x14052373C (SymCryptDivisorCreate.c)
- *     SymCryptFdefModulusCreate @ 0x140536C7C (SymCryptFdefModulusCreate.c)
+ *     SymCryptDivisorCreate @ 0x140521054 (SymCryptDivisorCreate.c)
+ *     SymCryptFdefModulusCreate @ 0x14053111C (SymCryptFdefModulusCreate.c)
  * Callees:
- *     SymCryptIntCreate @ 0x140523844 (SymCryptIntCreate.c)
- *     SymCryptSizeofDivisorFromDigits @ 0x140523FE4 (SymCryptSizeofDivisorFromDigits.c)
+ *     SymCryptIntCreate @ 0x14052115C (SymCryptIntCreate.c)
+ *     SymCryptSizeofDivisorFromDigits @ 0x1405218FC (SymCryptSizeofDivisorFromDigits.c)
  */
 
 _DWORD *__fastcall SymCryptFdefDivisorCreate(_DWORD *a1, unsigned __int64 a2, int a3)

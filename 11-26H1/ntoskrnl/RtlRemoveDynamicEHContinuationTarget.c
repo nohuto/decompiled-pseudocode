@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlRemoveDynamicEHContinuationTarget @ 0x14080971C
+ * XREFs of RtlRemoveDynamicEHContinuationTarget @ 0x14080F1AC
  * Callers:
- *     PspProcessDynamicEHContinuationTargets @ 0x140B66514 (PspProcessDynamicEHContinuationTargets.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x140B694A0 (PspProcessDynamicEHContinuationTargets.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlpDynamicEHContinuationTargetsTreeCompare @ 0x140A9058C (RtlpDynamicEHContinuationTargetsTreeCompare.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlpDynamicEHContinuationTargetsTreeCompare @ 0x140A950DC (RtlpDynamicEHContinuationTargetsTreeCompare.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlRemoveDynamicEHContinuationTarget(unsigned __int64 *a1, __int64 a2)

@@ -2,8 +2,8 @@
  * XREFs of sub_1407E3BE4 @ 0x1407E3BE4
  * Callers:
  *     sub_1406E73B0 @ 0x1406E73B0 (sub_1406E73B0.c)
- *     WbFreeWarbirdProcess @ 0x1407E17A4 (WbFreeWarbirdProcess.c)
- *     WbHeapExecuteCall @ 0x1407E3070 (WbHeapExecuteCall.c)
+ *     sub_1407E17A4 @ 0x1407E17A4 (sub_1407E17A4.c)
+ *     sub_1407E3070 @ 0x1407E3070 (sub_1407E3070.c)
  *     sub_1407E3F30 @ 0x1407E3F30 (sub_1407E3F30.c)
  * Callees:
  *     sub_1406E62A8 @ 0x1406E62A8 (sub_1406E62A8.c)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PsStartSiloMonitor @ 0x1407FBC40
+ * XREFs of PsStartSiloMonitor @ 0x140801670
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     PspGetServerSiloStatePointer @ 0x140529524 (PspGetServerSiloStatePointer.c)
- *     PspAcquirePushLockExclusive @ 0x1406160AC (PspAcquirePushLockExclusive.c)
- *     PspReleasePushLockExclusive @ 0x140616130 (PspReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PspInvokeCreateCallback @ 0x1407FC018 (PspInvokeCreateCallback.c)
- *     PspInvokeTerminateCallback @ 0x1407FC07C (PspInvokeTerminateCallback.c)
- *     PspGetNextSilo @ 0x140959E18 (PspGetNextSilo.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     PspGetServerSiloStatePointer @ 0x14052B9B8 (PspGetServerSiloStatePointer.c)
+ *     PspAcquirePushLockExclusive @ 0x14061909C (PspAcquirePushLockExclusive.c)
+ *     PspReleasePushLockExclusive @ 0x140619120 (PspReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PspInvokeCreateCallback @ 0x140801A48 (PspInvokeCreateCallback.c)
+ *     PspInvokeTerminateCallback @ 0x140801AAC (PspInvokeTerminateCallback.c)
+ *     PspGetNextSilo @ 0x1409FF6D8 (PspGetNextSilo.c)
  */
 
 __int64 __fastcall PsStartSiloMonitor(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

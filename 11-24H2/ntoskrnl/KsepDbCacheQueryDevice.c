@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepDbCacheQueryDevice @ 0x14095B370
+ * XREFs of KsepDbCacheQueryDevice @ 0x140942E30
  * Callers:
- *     KseQueryDeviceData @ 0x14095C660 (KseQueryDeviceData.c)
+ *     KseQueryDeviceData @ 0x140944120 (KseQueryDeviceData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KsepDbCacheQueryDeviceData @ 0x14073E41C (KsepDbCacheQueryDeviceData.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     KsepCacheLookup @ 0x14095B438 (KsepCacheLookup.c)
- *     KsepCacheUnlock @ 0x14095B51C (KsepCacheUnlock.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KsepDbCacheQueryDeviceData @ 0x14073C34C (KsepDbCacheQueryDeviceData.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     KsepCacheLookup @ 0x140942EF8 (KsepCacheLookup.c)
+ *     KsepCacheUnlock @ 0x140942FDC (KsepCacheUnlock.c)
  */
 
 __int64 __fastcall KsepDbCacheQueryDevice(PCWSTR SourceString, const WCHAR *a2, _DWORD *a3, unsigned int *a4, void *a5)
@@ -23,10 +23,10 @@ __int64 __fastcall KsepDbCacheQueryDevice(PCWSTR SourceString, const WCHAR *a2, 
   DeviceData = -1073741275;
   memset_0(v12, 0, 0x44uLL);
   RtlInitUnicodeString(&DestinationString, SourceString);
-  KsepCacheLock((unsigned __int64 *)qword_140E66B28);
-  v10 = KsepCacheLookup(qword_140E66B28, v12);
+  KsepCacheLock((unsigned __int64 *)qword_140E66C58);
+  v10 = KsepCacheLookup(qword_140E66C58, v12);
   if ( v10 )
     DeviceData = KsepDbCacheQueryDeviceData(v10, a2, a3, a4, a5);
-  KsepCacheUnlock(qword_140E66B28);
+  KsepCacheUnlock(qword_140E66C58);
   return DeviceData;
 }

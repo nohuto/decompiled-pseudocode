@@ -1,9 +1,9 @@
 /*
- * XREFs of WmiGetClock @ 0x14022588C
+ * XREFs of WmiGetClock @ 0x1402256B8
  * Callers:
  *     <none>
  * Callees:
- *     EtwpGetCycleCount @ 0x140059D3C (EtwpGetCycleCount.c)
+ *     EtwpGetCycleCount @ 0x1400598BC (EtwpGetCycleCount.c)
  */
 
 __int64 __fastcall WmiGetClock(int a1)
@@ -12,7 +12,7 @@ __int64 __fastcall WmiGetClock(int a1)
 
   result = 0LL;
   if ( !a1 )
-    return EtwpSystemTimeStamp[(unsigned __int16)word_1402FD362[0]]();
+    return EtwpSystemTimeStamp[(unsigned __int16)word_1402FD342[0]]();
   if ( a1 != 1 )
   {
     if ( a1 == 2 )
@@ -25,5 +25,5 @@ __int64 __fastcall WmiGetClock(int a1)
         return __rdtsc();
     }
   }
-  return RtlGetSystemTimePrecise();
+  return RtlGetSystemTimePrecise().QuadPart;
 }

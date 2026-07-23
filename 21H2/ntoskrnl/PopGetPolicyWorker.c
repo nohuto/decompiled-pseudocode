@@ -1,20 +1,20 @@
 /*
- * XREFs of PopGetPolicyWorker @ 0x140281B10
+ * XREFs of PopGetPolicyWorker @ 0x14026FD50
  * Callers:
- *     PopCheckForIdleness @ 0x140280EE0 (PopCheckForIdleness.c)
- *     PopSetNotificationWork @ 0x140281E90 (PopSetNotificationWork.c)
- *     PoNotifySystemTimeSet @ 0x1403A7804 (PoNotifySystemTimeSet.c)
- *     PopCoalescingCheck @ 0x14056EB5C (PopCoalescingCheck.c)
- *     PopCoalesingTimerDpcCallback @ 0x14056ECD0 (PopCoalesingTimerDpcCallback.c)
- *     PopHandleSystemIdleReset @ 0x140577624 (PopHandleSystemIdleReset.c)
- *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
- *     PopPolicyWorkerAction @ 0x140775870 (PopPolicyWorkerAction.c)
- *     PopPolicyWorkerActionPromote @ 0x14077A020 (PopPolicyWorkerActionPromote.c)
- *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     PopCheckForIdleness @ 0x14026F120 (PopCheckForIdleness.c)
+ *     PopSetNotificationWork @ 0x1402700D0 (PopSetNotificationWork.c)
+ *     PoNotifySystemTimeSet @ 0x1403A7954 (PoNotifySystemTimeSet.c)
+ *     PopCoalescingCheck @ 0x14056ED9C (PopCoalescingCheck.c)
+ *     PopCoalesingTimerDpcCallback @ 0x14056EF10 (PopCoalesingTimerDpcCallback.c)
+ *     PopHandleSystemIdleReset @ 0x140577864 (PopHandleSystemIdleReset.c)
+ *     PopExecutePowerAction @ 0x140775388 (PopExecutePowerAction.c)
+ *     PopPolicyWorkerAction @ 0x140775A30 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerActionPromote @ 0x14077A1E0 (PopPolicyWorkerActionPromote.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FDDC (PopBatteryApplyCompositeState.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

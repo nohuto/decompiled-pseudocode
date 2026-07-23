@@ -213,7 +213,7 @@ LABEL_16:
           if ( *(_DWORD *)HvlpReferenceTscPage == v14 )
             goto LABEL_14;
         }
-        HvlpGetRegister64(589828, (unsigned __int64 *)&v81);
+        HvlpGetRegister64(589828, &v81);
 LABEL_14:
         v15 = (signed __int64)v81;
         goto LABEL_15;
@@ -340,7 +340,7 @@ LABEL_160:
         if ( *(_DWORD *)HvlpReferenceTscPage == v65 )
           goto LABEL_118;
       }
-      HvlpGetRegister64(589828, (unsigned __int64 *)&v87);
+      HvlpGetRegister64(589828, &v87);
 LABEL_118:
       v66 = (signed __int64)v87;
       goto LABEL_119;

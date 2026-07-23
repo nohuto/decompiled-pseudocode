@@ -1,20 +1,20 @@
 /*
- * XREFs of IopDeleteFileObjectExtension @ 0x140252C8C
+ * XREFs of IopDeleteFileObjectExtension @ 0x140285B3C
  * Callers:
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x14071AB40 (IopDeleteFile.c)
  * Callees:
  *     PsReleaseSiloHardReference @ 0x140200960 (PsReleaseSiloHardReference.c)
- *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopCleanupNotifications @ 0x14037C458 (IopCleanupNotifications.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140907BD0 (PspAdjustKeepAliveCountProcess.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseSpinLock @ 0x1402CE500 (KeReleaseSpinLock.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopCleanupNotifications @ 0x14037BFA8 (IopCleanupNotifications.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14069C490 (FsRtlFreeExtraCreateParameter.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140907D30 (PspAdjustKeepAliveCountProcess.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDeleteFileObjectExtension(__int64 a1)
@@ -85,13 +85,13 @@ void __fastcall IopDeleteFileObjectExtension(__int64 a1)
             v16 = (_BYTE *)v7[3];
             v17 = v7;
             v7 = (_QWORD *)*v7;
-            v18 = KeAcquireSpinLockRaiseToDpc(&qword_140C45F70);
+            v18 = KeAcquireSpinLockRaiseToDpc(&qword_140C45BD0);
             v22 = v16[18];
             if ( v16[16] == 1 )
               v16[17] = 1;
             else
               ExFreePoolWithTag(v16, 0);
-            KeReleaseSpinLock(&qword_140C45F70, v18);
+            KeReleaseSpinLock(&qword_140C45BD0, v18);
             if ( *((_DWORD *)v17 + 4) )
             {
               LOBYTE(v19) = v22;

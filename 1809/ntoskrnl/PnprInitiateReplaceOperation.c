@@ -1,22 +1,22 @@
 /*
- * XREFs of PnprInitiateReplaceOperation @ 0x140579814
+ * XREFs of PnprInitiateReplaceOperation @ 0x14057A814
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408349E0 (PnpReplacePartitionUnit.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PnprCompleteWake @ 0x140289F6C (PnprCompleteWake.c)
- *     PnprQuiesce @ 0x14028A56C (PnprQuiesce.c)
- *     PnprSwap @ 0x14028A8D0 (PnprSwap.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
- *     PnprWakeProcessors @ 0x14057AD5C (PnprWakeProcessors.c)
- *     PnprReplaceStart @ 0x140835BB8 (PnprReplaceStart.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PnprCompleteWake @ 0x14028A15C (PnprCompleteWake.c)
+ *     PnprQuiesce @ 0x14028A75C (PnprQuiesce.c)
+ *     PnprSwap @ 0x14028AAC0 (PnprSwap.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
+ *     PnprWakeProcessors @ 0x14057BD5C (PnprWakeProcessors.c)
+ *     PnprReplaceStart @ 0x140836E18 (PnprReplaceStart.c)
  */
 
 __int64 PnprInitiateReplaceOperation()
@@ -142,7 +142,7 @@ LABEL_25:
       v5 = PnprSwap();
       if ( v5 < 0 )
       {
-        ((void (__fastcall *)(__int64, _QWORD))off_1403FE3C8[0])(3LL, *(_QWORD *)(PnprContext + 20872));
+        ((void (__fastcall *)(__int64, _QWORD))off_1403FF3C8[0])(3LL, *(_QWORD *)(PnprContext + 20872));
         v15 = PnprContext;
         v16 = *(_DWORD *)(PnprContext + 20984);
         if ( !v16 )
@@ -175,7 +175,7 @@ LABEL_44:
     KeWaitForSingleObject((PVOID)(PnprContext + 20832), Executive, 0, 0, 0LL);
   }
   if ( *(_QWORD *)(PnprContext + 20872) )
-    off_1403FE3D0[0]();
+    off_1403FF3D0[0]();
   if ( v1 )
   {
     if ( *(_DWORD *)(*(_QWORD *)(PnprContext + 24) + 4LL) )

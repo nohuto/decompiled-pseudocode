@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpShutdownPrivateLoggers @ 0x180003118
+ * XREFs of EtwpShutdownPrivateLoggers @ 0x1800AB8A4
  * Callers:
- *     RtlExitUserProcess @ 0x180004320 (RtlExitUserProcess.c)
+ *     RtlExitUserProcess @ 0x1800AAE10 (RtlExitUserProcess.c)
  * Callees:
- *     EtwpDemuxUmTraceHandle @ 0x18003D4D0 (EtwpDemuxUmTraceHandle.c)
- *     EtwpStopUmLogger @ 0x18008C4B4 (EtwpStopUmLogger.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18001D750 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpStopUmLogger @ 0x1800A7F74 (EtwpStopUmLogger.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 void EtwpShutdownPrivateLoggers()
@@ -62,7 +62,7 @@ LABEL_5:
       if ( (v4 & 0x400) == 0 )
       {
         v8 = v1;
-        EtwpStopUmLogger(v5, v4, v3, &v7);
+        EtwpStopUmLogger(v5, v4, v3, (__int64)&v7);
       }
     }
     goto LABEL_7;

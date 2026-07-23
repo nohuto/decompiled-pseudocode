@@ -1,18 +1,18 @@
 /*
- * XREFs of CmEnumerateValueKeyFromMergedView @ 0x140A179D4
+ * XREFs of CmEnumerateValueKeyFromMergedView @ 0x140A17C84
  * Callers:
- *     CmQueryKey @ 0x1406D71D0 (CmQueryKey.c)
- *     NtEnumerateValueKey @ 0x14070E330 (NtEnumerateValueKey.c)
+ *     CmQueryKey @ 0x1406D7200 (CmQueryKey.c)
+ *     NtEnumerateValueKey @ 0x14070E540 (NtEnumerateValueKey.c)
  * Callees:
- *     CmpFindNameInList @ 0x1406D0EBC (CmpFindNameInList.c)
- *     CmpUnlockTwoKcbs @ 0x1406DBD14 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x1406DBD6C (CmpLockTwoKcbsShared.c)
- *     CmpQueryKeyValueData @ 0x1406DCDD0 (CmpQueryKeyValueData.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1407687FC (CmpTransSearchAddTransFromKeyBody.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpFindNameInList @ 0x1406D0EEC (CmpFindNameInList.c)
+ *     CmpUnlockTwoKcbs @ 0x1406DBD44 (CmpUnlockTwoKcbs.c)
+ *     CmpLockTwoKcbsShared @ 0x1406DBD9C (CmpLockTwoKcbsShared.c)
+ *     CmpQueryKeyValueData @ 0x1406DCE00 (CmpQueryKeyValueData.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1407689EC (CmpTransSearchAddTransFromKeyBody.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x140AF52F0 (CmpIsKeyDeletedForKeyBody.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)

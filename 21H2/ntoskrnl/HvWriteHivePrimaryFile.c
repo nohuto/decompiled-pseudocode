@@ -1,22 +1,23 @@
 /*
- * XREFs of HvWriteHivePrimaryFile @ 0x140725240
+ * XREFs of HvWriteHivePrimaryFile @ 0x140613AFC
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     HvpPerformLogFileRecovery @ 0x14087421C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvpFindNextDirtyBlock @ 0x14064611C (HvpFindNextDirtyBlock.c)
- *     CmpFileFlushAndPurge @ 0x14071DC38 (CmpFileFlushAndPurge.c)
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
- *     HvpFinishPrimaryWrite @ 0x1407253E4 (HvpFinishPrimaryWrite.c)
- *     CmpTraceHiveFlushWrotePrimaryFile @ 0x140725488 (CmpTraceHiveFlushWrotePrimaryFile.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlNumberOfSetBits @ 0x140274DA0 (RtlNumberOfSetBits.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvpFinishPrimaryWrite @ 0x140613CA0 (HvpFinishPrimaryWrite.c)
+ *     CmpTraceHiveFlushWrotePrimaryFile @ 0x140613D44 (CmpTraceHiveFlushWrotePrimaryFile.c)
+ *     HvpFindNextDirtyBlock @ 0x14063AF08 (HvpFindNextDirtyBlock.c)
+ *     CmpFileFlushAndPurge @ 0x1406FA1C8 (CmpFileFlushAndPurge.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HvWriteHivePrimaryFile(ULONG_PTR BugCheckParameter2, char a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvWriteHivePrimaryFile(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
+  char v4; // r14
   int v5; // r15d
   char v7; // r13
   _DWORD *v8; // r9
@@ -25,7 +26,7 @@ __int64 __fastcall HvWriteHivePrimaryFile(ULONG_PTR BugCheckParameter2, char a2,
   __int64 (__fastcall *v11)(ULONG_PTR, _QWORD, __int128 *, __int64, int); // rax
   int v12; // ebx
   _QWORD *PoolWithTag; // rsi
-  unsigned int v14; // ebx
+  unsigned int i; // ebx
   ULONG v15; // eax
   bool v16; // zf
   int v18; // edx
@@ -33,19 +34,19 @@ __int64 __fastcall HvWriteHivePrimaryFile(ULONG_PTR BugCheckParameter2, char a2,
   __int64 v20; // rcx
   __int128 v21; // [rsp+40h] [rbp-28h] BYREF
   __int64 v22; // [rsp+50h] [rbp-18h]
-  unsigned int i; // [rsp+B0h] [rbp+48h] BYREF
-  __int64 v24; // [rsp+B8h] [rbp+50h] BYREF
-  __int64 v25; // [rsp+C0h] [rbp+58h] BYREF
-  __int64 v26; // [rsp+C8h] [rbp+60h] BYREF
+  __int64 v23; // [rsp+B8h] [rbp+50h] BYREF
+  __int64 v24; // [rsp+C0h] [rbp+58h] BYREF
+  __int64 v25; // [rsp+C8h] [rbp+60h]
 
-  v26 = 0LL;
-  LODWORD(v24) = 0;
+  v25 = 0LL;
+  LODWORD(v23) = 0;
+  v4 = a2;
   v22 = 0LL;
-  LODWORD(v25) = 0;
+  LODWORD(v24) = 0;
   v5 = a3 & 1;
   v7 = 0;
   v21 = 0LL;
-  if ( !a2 )
+  if ( !(_BYTE)a2 )
   {
     if ( *(_DWORD *)(BugCheckParameter2 + 128) )
     {
@@ -65,7 +66,7 @@ LABEL_4:
   v9 = *(_DWORD *)(BugCheckParameter2 + 180);
   v8[2] = v9;
   v8[1] = v9 + 1;
-  v10 = HvpHeaderCheckSum(v8);
+  v10 = HvpHeaderCheckSum(v8, a2, a3);
   v16 = CmpFailPrimarySave == 1;
   *(_DWORD *)(a4 + 508) = v10;
   if ( v16 )
@@ -78,7 +79,7 @@ LABEL_4:
   if ( v12 < 0 )
   {
 LABEL_22:
-    v16 = a2 == 0;
+    v16 = v4 == 0;
     goto LABEL_19;
   }
   if ( CmpFailPrimarySave == 2 )
@@ -87,10 +88,10 @@ LABEL_26:
     v12 = -1073741823;
     goto LABEL_22;
   }
-  if ( a2 )
+  if ( v4 )
   {
     PoolWithTag = *(_QWORD **)(BugCheckParameter2 + 1752);
-    v14 = *(_DWORD *)(BugCheckParameter2 + 1760);
+    i = *(_DWORD *)(BugCheckParameter2 + 1760);
   }
   else
   {
@@ -100,16 +101,15 @@ LABEL_26:
       v12 = -1073741801;
       goto LABEL_22;
     }
-    v14 = 0;
-    for ( i = 0; v14 < *(_DWORD *)(BugCheckParameter2 + 128); LODWORD(v24) = v19 + v18 )
+    for ( i = 0; i < *(_DWORD *)(BugCheckParameter2 + 128); LODWORD(v23) = v19 + v18 )
     {
-      if ( !HvpFindNextDirtyBlock(BugCheckParameter2, BugCheckParameter2 + 112, &i, &v26, (unsigned int *)&v25, &v24, 0) )
+      if ( !(unsigned __int8)HvpFindNextDirtyBlock(BugCheckParameter2, (__int64)&v24, (__int64)&v23, 0) )
         break;
-      v18 = v24;
-      v19 = v14++;
+      v18 = v23;
+      v19 = i++;
       v20 = 3 * v19;
-      PoolWithTag[v20 + 1] = v26;
-      LODWORD(v19) = v25;
+      PoolWithTag[v20 + 1] = v25;
+      LODWORD(v19) = v24;
       LODWORD(PoolWithTag[v20]) = v18;
       LODWORD(PoolWithTag[v20 + 2]) = v19;
     }
@@ -120,13 +120,13 @@ LABEL_26:
           BugCheckParameter2,
           0LL,
           PoolWithTag,
-          v14,
+          i,
           v5);
   if ( v12 < 0 )
     goto LABEL_17;
   if ( CmpFailPrimarySave == 4 )
     goto LABEL_20;
-  v12 = CmpFileFlushAndPurge(BugCheckParameter2, 0);
+  v12 = CmpFileFlushAndPurge(BugCheckParameter2, 0LL);
   if ( v12 < 0 )
     goto LABEL_17;
   if ( CmpFailPrimarySave == 5 )
@@ -136,7 +136,7 @@ LABEL_20:
   }
   else
   {
-    if ( a2 )
+    if ( v4 )
       v15 = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 1728));
     else
       v15 = *(_DWORD *)(BugCheckParameter2 + 128);
@@ -147,8 +147,8 @@ LABEL_20:
 LABEL_17:
   if ( !PoolWithTag )
     goto LABEL_22;
-  v16 = a2 == 0;
-  if ( !a2 )
+  v16 = v4 == 0;
+  if ( !v4 )
   {
     ExFreePoolWithTag(PoolWithTag, 0);
     goto LABEL_22;

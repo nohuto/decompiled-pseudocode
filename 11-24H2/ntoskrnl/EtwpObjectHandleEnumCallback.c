@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpObjectHandleEnumCallback @ 0x1407B0D30
+ * XREFs of EtwpObjectHandleEnumCallback @ 0x1407B1180
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExCheckSingleFilter @ 0x140401588 (ExCheckSingleFilter.c)
- *     ExGetHandlePointer @ 0x1404275E0 (ExGetHandlePointer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExUnlockHandleTableEntry @ 0x14093D890 (ExUnlockHandleTableEntry.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExCheckSingleFilter @ 0x1403FBEF8 (ExCheckSingleFilter.c)
+ *     ExGetHandlePointer @ 0x14041B770 (ExGetHandlePointer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExUnlockHandleTableEntry @ 0x140891F80 (ExUnlockHandleTableEntry.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall EtwpObjectHandleEnumCallback(__int64 a1, __int64 *a2, unsigned int a3, __int64 a4)
@@ -27,13 +27,13 @@ char __fastcall EtwpObjectHandleEnumCallback(__int64 a1, __int64 *a2, unsigned i
   __int64 v15; // r8
   __int64 v16; // r11
   int v17; // r8d
-  int v18; // r8d
+  unsigned int v18; // r8d
   _WORD *Pool2; // rbx
   int NameStringMode; // r14d
   int v21; // ecx
   __int64 v22; // rax
   __int64 v23; // rdx
-  int v25; // [rsp+30h] [rbp-39h] BYREF
+  unsigned int v25; // [rsp+30h] [rbp-39h] BYREF
   unsigned __int64 v26; // [rsp+38h] [rbp-31h] BYREF
   int v27; // [rsp+40h] [rbp-29h]
   unsigned int v28; // [rsp+44h] [rbp-25h]
@@ -90,7 +90,7 @@ LABEL_9:
         break;
       if ( Pool2 != *(_WORD **)(a4 + 16) )
         ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v25, 0x74777445u);
       if ( !Pool2 )
         break;
       v18 = v25;

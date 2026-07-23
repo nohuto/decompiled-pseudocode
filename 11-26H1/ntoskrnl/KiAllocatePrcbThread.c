@@ -1,18 +1,18 @@
 /*
- * XREFs of KiAllocatePrcbThread @ 0x1405EC38C
+ * XREFs of KiAllocatePrcbThread @ 0x1405EECFC
  * Callers:
- *     KiAllocateDpcDelegateThread @ 0x1405E9BB8 (KiAllocateDpcDelegateThread.c)
- *     KiAllocateSmtIsolationThread @ 0x1405F6524 (KiAllocateSmtIsolationThread.c)
- *     KiAllocateIdleThread @ 0x140BF8048 (KiAllocateIdleThread.c)
+ *     KiAllocateDpcDelegateThread @ 0x1405EC528 (KiAllocateDpcDelegateThread.c)
+ *     KiAllocateSmtIsolationThread @ 0x1405F8EE4 (KiAllocateSmtIsolationThread.c)
+ *     KiAllocateIdleThread @ 0x140BFE048 (KiAllocateIdleThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlUnicodeStringCopy @ 0x14043D5D0 (RtlUnicodeStringCopy.c)
- *     PsInitializeThreadRngState @ 0x1404936B8 (PsInitializeThreadRngState.c)
- *     KeAbComputeThreadEntriesSize @ 0x1404BD9E4 (KeAbComputeThreadEntriesSize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObject @ 0x140932FB0 (ObCreateObject.c)
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x14042FE80 (RtlUnicodeStringCopy.c)
+ *     PsInitializeThreadRngState @ 0x14048D204 (PsInitializeThreadRngState.c)
+ *     KeAbComputeThreadEntriesSize @ 0x1404B7230 (KeAbComputeThreadEntriesSize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObject @ 0x14090EB60 (ObCreateObject.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KiAllocatePrcbThread(
@@ -70,7 +70,7 @@ __int64 __fastcall KiAllocatePrcbThread(
     v23 = 0;
     v18[1] = a2;
     v21 = a5 + 1;
-    v20 = &unk_140FC8F40;
+    v20 = &unk_140FC9F40;
     v24 = v12 + 1944;
     v18[2] = 0LL;
     v22 = a7 | 2u;
@@ -96,7 +96,7 @@ __int64 __fastcall KiAllocatePrcbThread(
         v12[1831] = -1;
         if ( KiSchedulerAssistThreadFlagEnabled )
           _interlockedbittestandset((volatile signed __int32 *)v12, 0x16u);
-        if ( stru_140F12D20.SchedulerApcFill3[40] )
+        if ( BYTE4(stru_140F12EA0.SystemAffinityTokenListHead.Next) )
           _interlockedbittestandset((volatile signed __int32 *)v12, 0x15u);
         *a1 = v12;
         v12 = 0LL;

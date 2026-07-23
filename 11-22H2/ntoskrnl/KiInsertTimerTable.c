@@ -97,7 +97,7 @@ _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigne
     v22 = *(v15 - 1);
     if ( v10 > v22 )
     {
-      if ( v10 - v22 <= (unsigned __int64)(unsigned int)KeMaximumIncrement >> 2 )
+      if ( v10 - v22 <= (unsigned __int64)KeMaximumIncrement >> 2 )
       {
         v24 = (_QWORD *)*((_QWORD *)v12 + 2);
         v14 = v15;

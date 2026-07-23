@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCommitVadCfgBits @ 0x14061BCBC
+ * XREFs of MiCommitVadCfgBits @ 0x14068592C
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MiCfgInitializeProcess @ 0x1407120DC (MiCfgInitializeProcess.c)
- *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiCfgInitializeProcess @ 0x1406C072C (MiCfgInitializeProcess.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1406E97C0 (MmProtectVirtualMemory.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C3128 (MiMapViewOfPhysicalSection.c)
  * Callees:
- *     MiIsProcessCfgEnabled @ 0x14025B020 (MiIsProcessCfgEnabled.c)
- *     MiMarkProcessCfgBits @ 0x14061BF08 (MiMarkProcessCfgBits.c)
- *     MiSelectCfgBitMap @ 0x14061BF74 (MiSelectCfgBitMap.c)
- *     MiMarkPrivateOpenCfgBits @ 0x1406A9198 (MiMarkPrivateOpenCfgBits.c)
+ *     MiIsProcessCfgEnabled @ 0x14027C590 (MiIsProcessCfgEnabled.c)
+ *     MiMarkPrivateOpenCfgBits @ 0x140607118 (MiMarkPrivateOpenCfgBits.c)
+ *     MiMarkProcessCfgBits @ 0x140685B78 (MiMarkProcessCfgBits.c)
+ *     MiSelectCfgBitMap @ 0x140685BE4 (MiSelectCfgBitMap.c)
  */
 
 __int64 __fastcall MiCommitVadCfgBits(__int64 a1, __int64 a2, char *a3)
@@ -39,7 +39,7 @@ __int64 __fastcall MiCommitVadCfgBits(__int64 a1, __int64 a2, char *a3)
   unsigned __int64 v23; // rcx
   __int16 v24; // cx
   unsigned __int64 v25; // rdx
-  unsigned __int64 v26; // rcx
+  int v26; // ecx
   char v27; // [rsp+98h] [rbp+20h] BYREF
 
   v27 = 0;
@@ -85,13 +85,13 @@ __int64 __fastcall MiCommitVadCfgBits(__int64 a1, __int64 a2, char *a3)
       v25 = Process[1].ActiveProcessorsPadding[8];
       v26 = v25 + 440;
       if ( v18 != v25 + 440 )
-        return MiMarkPrivateOpenCfgBits(v26, v9, v10, 0LL);
+        return MiMarkPrivateOpenCfgBits(v26, v9, v10, 0);
       v26 = v25 + 472;
       if ( v9 <= 0x100000000LL )
       {
         if ( v10 > 0x100000000LL )
           v10 = 0x100000000LL;
-        return MiMarkPrivateOpenCfgBits(v26, v9, v10, 0LL);
+        return MiMarkPrivateOpenCfgBits(v26, v9, v10, 0);
       }
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpSysReadIoSpace @ 0x1405E42D8
+ * XREFs of KdpSysReadIoSpace @ 0x1405E6C48
  * Callers:
- *     KdSystemDebugControl @ 0x14077D2F0 (KdSystemDebugControl.c)
- *     KdpReadIoSpace @ 0x140C14444 (KdpReadIoSpace.c)
- *     KdpReadIoSpaceExtended @ 0x140C144C4 (KdpReadIoSpaceExtended.c)
+ *     KdSystemDebugControl @ 0x14077FDF0 (KdSystemDebugControl.c)
+ *     KdpReadIoSpace @ 0x140C1A444 (KdpReadIoSpace.c)
+ *     KdpReadIoSpaceExtended @ 0x140C1A4C4 (KdpReadIoSpaceExtended.c)
  * Callees:
  *     <none>
  */

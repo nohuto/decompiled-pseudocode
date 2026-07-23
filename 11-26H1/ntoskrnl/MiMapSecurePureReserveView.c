@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapSecurePureReserveView @ 0x140AC4500
+ * XREFs of MiMapSecurePureReserveView @ 0x140AC6170
  * Callers:
- *     MiCfgInitializeProcess @ 0x14077898C (MiCfgInitializeProcess.c)
- *     MmInitializeImageViewExtension @ 0x140CFA084 (MmInitializeImageViewExtension.c)
+ *     MiCfgInitializeProcess @ 0x14077B82C (MiCfgInitializeProcess.c)
+ *     MmInitializeImageViewExtension @ 0x140D00404 (MmInitializeImageViewExtension.c)
  * Callees:
- *     MmMapViewOfSectionEx @ 0x1404BCA5C (MmMapViewOfSectionEx.c)
+ *     MmMapViewOfSectionEx @ 0x1404B623C (MmMapViewOfSectionEx.c)
  */
 
 __int64 __fastcall MiMapSecurePureReserveView(ULONG_PTR a1, ULONG_PTR a2, _QWORD *a3, unsigned __int64 *a4, _QWORD *a5)

@@ -1,15 +1,15 @@
 /*
- * XREFs of BiSpacesUpdatePhysicalDevicePath @ 0x140697A70
+ * XREFs of BiSpacesUpdatePhysicalDevicePath @ 0x140698AF0
  * Callers:
- *     BiUpdateEfiEntry @ 0x1409C14D0 (BiUpdateEfiEntry.c)
+ *     BiUpdateEfiEntry @ 0x1409A7B20 (BiUpdateEfiEntry.c)
  * Callees:
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SyspartGetPhysicalPartitions @ 0x140815CD8 (SyspartGetPhysicalPartitions.c)
- *     SyspartIsSpace @ 0x140815DD8 (SyspartIsSpace.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SyspartGetPhysicalPartitions @ 0x140816418 (SyspartGetPhysicalPartitions.c)
+ *     SyspartIsSpace @ 0x140816518 (SyspartIsSpace.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiSpacesUpdatePhysicalDevicePath(_OWORD **a1)
@@ -50,8 +50,8 @@ __int64 __fastcall BiSpacesUpdatePhysicalDevicePath(_OWORD **a1)
   }
   if ( !v18 )
     return IsSpace;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL);
-  v6 = ExAllocatePool2(0x102uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL, 0x208uLL, 0x4B444342u);
+  v6 = ExAllocatePool2(0x102uLL, 0x208uLL, 0x4B444342u);
   v7 = (wchar_t *)v6;
   if ( Pool2 && v6 )
   {
@@ -61,7 +61,7 @@ __int64 __fastcall BiSpacesUpdatePhysicalDevicePath(_OWORD **a1)
     swprintf_s(Pool2, 0x104uLL, L"%s\\%s", L"\\??\\GLOBALROOT", (char *)*a1 + v8);
     while ( 1 )
     {
-      v9 = ExAllocatePool2(0x102uLL);
+      v9 = ExAllocatePool2(0x102uLL, v4, 0x4B444342u);
       v10 = (_DWORD *)v9;
       if ( !v9 )
         break;
@@ -84,7 +84,7 @@ LABEL_27:
             ++v11;
           while ( v7[v11] );
           v12 = 2 * v11 + 2;
-          v13 = ExAllocatePool2(0x102uLL);
+          v13 = ExAllocatePool2(0x102uLL, (unsigned int)(2 * v11 + 62), 0x4B444342u);
           v14 = (_OWORD *)v13;
           if ( v13 )
           {

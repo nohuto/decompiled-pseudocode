@@ -22,35 +22,35 @@
  *     sub_180104908 @ 0x180104908 (sub_180104908.c)
  */
 
-void __fastcall RtlProtectHeap(_DWORD *a1, char a2)
+void __cdecl RtlProtectHeap(PVOID HeapHandle, BOOLEAN MakeReadOnly)
 {
-  unsigned int v4; // eax
-  unsigned int v5; // edi
+  ULONG v4; // eax
+  ULONG v5; // edi
   int v6; // eax
   int v7; // eax
 
-  if ( a1[4] == -571548178 || (a1[29] & 0x1000000) == 0 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 || (*((_DWORD *)HeapHandle + 29) & 0x1000000) == 0 )
   {
-    RtlEnterCriticalSection((__int64)&unk_18015AAC0);
-    if ( a1[4] == -571548178 )
-      v4 = sub_180011A6C((__int64)a1, (a1[5] & 0x40000000) != 0 ? 64 : 4);
+    RtlEnterCriticalSection(&stru_18015AAC0);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      v4 = sub_180011A6C(HeapHandle, (*((_DWORD *)HeapHandle + 5) & 0x40000000) != 0 ? 64 : 4);
     else
-      v4 = sub_18002AE30(a1, 1LL);
+      v4 = sub_18002AE30(HeapHandle, 1LL);
     v5 = v4;
-    if ( a2 )
+    if ( MakeReadOnly )
     {
-      sub_18002A46C(a1, 1LL, 2LL, 1LL);
+      sub_18002A46C(HeapHandle, 1LL, 2LL, 1LL);
       v6 = 2;
       if ( v5 == 64 )
         v6 = 32;
       v5 = v6;
     }
-    if ( a1[4] == -571548178 )
-      v7 = sub_180104908(a1, v5);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      v7 = sub_180104908(HeapHandle, v5);
     else
-      v7 = sub_18002A38C(a1, v5);
-    if ( v7 >= 0 && !a2 )
-      sub_18002A46C(a1, 2LL, 1LL, 1LL);
-    RtlLeaveCriticalSection((__int64)&unk_18015AAC0);
+      v7 = sub_18002A38C(HeapHandle, v5);
+    if ( v7 >= 0 && !MakeReadOnly )
+      sub_18002A46C(HeapHandle, 2LL, 1LL, 1LL);
+    RtlLeaveCriticalSection(&stru_18015AAC0);
   }
 }

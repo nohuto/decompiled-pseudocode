@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130
+ * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1405F4130
  * Callers:
- *     MiUpdateCfgSystemWideBitmap @ 0x14064F744 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x140650904 (MiUpdateCfgSystemWideBitmap.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
- *     MiMapViewInSystemSpace @ 0x1405DF3F4 (MiMapViewInSystemSpace.c)
- *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
- *     MiEliminateZeroPages @ 0x14066BEB0 (MiEliminateZeroPages.c)
- *     RtlEnumRvaListFirst @ 0x1406AB144 (RtlEnumRvaListFirst.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     MiLocatePagefileSubsection @ 0x140119DB8 (MiLocatePagefileSubsection.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MmUnmapViewInSystemSpace @ 0x1405E0390 (MmUnmapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x1405E03F4 (MiMapViewInSystemSpace.c)
+ *     MiChargeSegmentCommit @ 0x14061F0D0 (MiChargeSegmentCommit.c)
+ *     MiEliminateZeroPages @ 0x14066D070 (MiEliminateZeroPages.c)
+ *     RtlEnumRvaListFirst @ 0x1406AC3E4 (RtlEnumRvaListFirst.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -49,7 +49,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, uns
   unsigned __int64 v32; // [rsp+40h] [rbp-31h] BYREF
   void *v33; // [rsp+48h] [rbp-29h] BYREF
   PVOID MappedBase; // [rsp+50h] [rbp-21h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+58h] [rbp-19h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+58h] [rbp-19h] BYREF
   unsigned int BugCheckParameter3; // [rsp+68h] [rbp-9h] BYREF
   int BugCheckParameter3_4; // [rsp+6Ch] [rbp-5h]
   unsigned int v38; // [rsp+70h] [rbp-1h]
@@ -64,7 +64,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, uns
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = (a4 >> 15) + ((((a3 >> 3) & 0xFFF) + 4095 + ((a4 >> 3) & 0xFFF)) >> 12);
   result = MiMapViewInSystemSpace(
              a1,
-             (__int64)&unk_140438F40,
+             (__int64)&unk_14043A000,
              &MappedBase,
              (unsigned __int64 *)&v33,
              (__int64 *)&v32,

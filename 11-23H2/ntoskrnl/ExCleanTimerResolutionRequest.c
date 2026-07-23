@@ -1,15 +1,15 @@
 /*
  * XREFs of ExCleanTimerResolutionRequest @ 0x140201B70
  * Callers:
- *     PspExitProcess @ 0x140751434 (PspExitProcess.c)
+ *     PspExitProcess @ 0x140751624 (PspExitProcess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ZwSetTimerResolution @ 0x14041E540 (ZwSetTimerResolution.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwSetTimerResolution @ 0x14041E8D0 (ZwSetTimerResolution.c)
  *     PoDiagFreeUsermodeStack @ 0x1406831B8 (PoDiagFreeUsermodeStack.c)
- *     ExReleaseTimeRefreshLock @ 0x14075F930 (ExReleaseTimeRefreshLock.c)
- *     ExAcquireTimeRefreshLock @ 0x14075F954 (ExAcquireTimeRefreshLock.c)
+ *     ExReleaseTimeRefreshLock @ 0x14075FB20 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x14075FB44 (ExAcquireTimeRefreshLock.c)
  */
 
 __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
@@ -25,12 +25,12 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
   bool v11; // zf
-  int v12; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActualTime; // [rsp+30h] [rbp+8h] BYREF
 
-  v12 = 0;
+  ActualTime = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( (Process[1].DirectoryTableBase & 0x100000000000LL) != 0 )
-    ZwSetTimerResolution((unsigned int)KeMaximumIncrement, 0LL, &v12);
+    ZwSetTimerResolution(KeMaximumIncrement, 0, &ActualTime);
   LOBYTE(a1) = 1;
   ExAcquireTimeRefreshLock(a1);
   v2 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);
@@ -44,10 +44,13 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
   *UserWaitTime = (_KPROCESS *)KernelWaitTime;
   *(_QWORD *)(KernelWaitTime + 8) = UserWaitTime;
   KxReleaseSpinLock(&ExpKernelResolutionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

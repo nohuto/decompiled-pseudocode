@@ -7,115 +7,113 @@
  *     RtlRbInsertNodeEx @ 0x180039370 (RtlRbInsertNodeEx.c)
  */
 
-__int64 __fastcall LdrpInsertModuleToIndexLockHeld(__int64 a1, _DWORD *a2, __int64 a3)
+BOOLEAN __fastcall LdrpInsertModuleToIndexLockHeld(__int64 a1, _DWORD *a2)
 {
-  unsigned int v3; // r9d
-  char v4; // bl
-  unsigned int v6; // r10d
-  unsigned __int64 v7; // rdx
+  unsigned int v2; // r9d
+  BOOLEAN v3; // bl
+  unsigned int v5; // r10d
+  unsigned __int64 Root; // rdx
+  BOOLEAN v7; // r8
   unsigned __int64 v8; // rax
-  unsigned __int64 v9; // r8
-  unsigned __int64 v10; // rdx
-  unsigned __int64 v11; // rax
-  __int64 result; // rax
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // rax
+  BOOLEAN result; // al
 
-  v3 = a2[2];
-  *(_DWORD *)(a1 + 128) = v3;
-  v4 = 0;
+  v2 = a2[2];
+  *(_DWORD *)(a1 + 128) = v2;
+  v3 = 0;
   *(_DWORD *)(a1 + 288) = a2[22];
-  v6 = a2[20];
-  *(_DWORD *)(a1 + 64) = v6;
-  v7 = LdrpMappingInfoIndex;
-  if ( (qword_180185020 & 1) != 0 )
+  v5 = a2[20];
+  *(_DWORD *)(a1 + 64) = v5;
+  Root = (unsigned __int64)LdrpMappingInfoIndex.Root;
+  if ( (*(_BYTE *)&LdrpMappingInfoIndex.0 & 1) != 0 )
   {
-    if ( LdrpMappingInfoIndex )
-      v7 = (unsigned __int64)&LdrpMappingInfoIndex ^ LdrpMappingInfoIndex;
+    if ( LdrpMappingInfoIndex.Root )
+      Root = (unsigned __int64)&LdrpMappingInfoIndex ^ (unsigned __int64)LdrpMappingInfoIndex.Root;
     else
-      v7 = 0LL;
+      Root = 0LL;
   }
-  LOBYTE(a3) = 0;
-  if ( v7 )
+  v7 = 0;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( v3 < *(_DWORD *)(v7 - 96) || v3 <= *(_DWORD *)(v7 - 96) && v6 < *(_DWORD *)(v7 - 160) )
+      if ( v2 < *(_DWORD *)(Root - 96) || v2 <= *(_DWORD *)(Root - 96) && v5 < *(_DWORD *)(Root - 160) )
       {
-        v8 = *(_QWORD *)v7;
-        if ( (qword_180185020 & 1) != 0 )
+        v8 = *(_QWORD *)Root;
+        if ( (*(_BYTE *)&LdrpMappingInfoIndex.0 & 1) != 0 )
         {
           if ( !v8 )
             break;
-          v8 ^= v7;
+          v8 ^= Root;
         }
         if ( !v8 )
           break;
       }
       else
       {
-        v8 = *(_QWORD *)(v7 + 8);
-        if ( (qword_180185020 & 1) != 0 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( (*(_BYTE *)&LdrpMappingInfoIndex.0 & 1) != 0 )
         {
           if ( !v8 )
             goto LABEL_19;
-          v8 ^= v7;
+          v8 ^= Root;
         }
         if ( !v8 )
         {
 LABEL_19:
-          LOBYTE(a3) = 1;
+          v7 = 1;
           break;
         }
       }
-      v7 = v8;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx(&LdrpMappingInfoIndex, v7, a3, a1 + 224);
-  v9 = *(_QWORD *)(a1 + 48);
-  v10 = LdrpModuleBaseAddressIndex;
-  if ( (qword_180185010 & 1) != 0 )
+  RtlRbInsertNodeEx(&LdrpMappingInfoIndex, (PRTL_BALANCED_NODE)Root, v7, (PRTL_BALANCED_NODE)(a1 + 224));
+  v9 = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
   {
-    if ( LdrpModuleBaseAddressIndex )
-      v10 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+    if ( LdrpModuleBaseAddressIndex.Root )
+      v9 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
     else
-      v10 = 0LL;
+      v9 = 0LL;
   }
-  if ( v10 )
+  if ( v9 )
   {
     while ( 1 )
     {
-      if ( v9 >= *(_QWORD *)(v10 - 152) )
+      if ( *(_QWORD *)(a1 + 48) >= *(_QWORD *)(v9 - 152) )
       {
-        v11 = *(_QWORD *)(v10 + 8);
-        if ( (qword_180185010 & 1) != 0 )
+        v10 = *(_QWORD *)(v9 + 8);
+        if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
         {
-          if ( !v11 )
+          if ( !v10 )
             goto LABEL_32;
-          v11 ^= v10;
+          v10 ^= v9;
         }
-        if ( !v11 )
+        if ( !v10 )
         {
 LABEL_32:
-          v4 = 1;
+          v3 = 1;
           break;
         }
       }
       else
       {
-        v11 = *(_QWORD *)v10;
-        if ( (qword_180185010 & 1) != 0 )
+        v10 = *(_QWORD *)v9;
+        if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
         {
-          if ( !v11 )
+          if ( !v10 )
             break;
-          v11 ^= v10;
+          v10 ^= v9;
         }
-        if ( !v11 )
+        if ( !v10 )
           break;
       }
-      v10 = v11;
+      v9 = v10;
     }
   }
-  LOBYTE(v9) = v4;
-  result = RtlRbInsertNodeEx(&LdrpModuleBaseAddressIndex, v10, v9, a1 + 200);
+  result = RtlRbInsertNodeEx(&LdrpModuleBaseAddressIndex, (PRTL_BALANCED_NODE)v9, v3, (PRTL_BALANCED_NODE)(a1 + 200));
   *(_DWORD *)(a1 + 104) |= 0x80u;
   return result;
 }

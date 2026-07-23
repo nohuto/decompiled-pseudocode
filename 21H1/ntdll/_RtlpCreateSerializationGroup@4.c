@@ -15,41 +15,43 @@ _DWORD *__thiscall RtlpCreateSerializationGroup(void *this)
 {
   _DWORD *i; // eax
   _DWORD *v3; // esi
-  int Heap; // eax
-  int v6; // eax
-  int v7; // edi
+  _DWORD *Heap; // eax
+  _RTL_SRWLOCK *v6; // eax
+  _RTL_SRWLOCK *v7; // edi
   int v8; // eax
   _DWORD *v9; // ecx
   int **v10; // edx
   int *v11; // ecx
   _DWORD *v12; // edi
+  SIZE_T v13; // [esp-4h] [ebp-10h]
 
-  RtlAcquireSRWLockShared(dword_4B3A664C + 24);
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(dword_4B3A664C + 24));
   for ( i = *(_DWORD **)(dword_4B3A664C + 16); i != (_DWORD *)(dword_4B3A664C + 16); i = (_DWORD *)*i )
   {
     v3 = i - 2;
     if ( (void *)*(i - 1) == this )
     {
       _InterlockedIncrement(v3 + 5);
-      RtlReleaseSRWLockShared(dword_4B3A664C + 24);
+      RtlReleaseSRWLockShared((PRTL_SRWLOCK)(dword_4B3A664C + 24));
       return v3;
     }
   }
-  RtlReleaseSRWLockShared(dword_4B3A664C + 24);
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 24);
-  v3 = (_DWORD *)Heap;
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(dword_4B3A664C + 24));
+  LODWORD(v13) = 24;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v13);
+  v3 = Heap;
   if ( !Heap )
     return 0;
-  *(_DWORD *)(Heap + 8) = 0;
-  *(_DWORD *)(Heap + 12) = 0;
+  Heap[2] = 0;
+  Heap[3] = 0;
   *(_WORD *)Heap = 2323;
-  *(_WORD *)(Heap + 2) = 24;
-  v6 = dword_4B3A664C + 24;
+  *((_WORD *)Heap + 1) = 24;
+  v6 = (_RTL_SRWLOCK *)(dword_4B3A664C + 24);
   v3[1] = this;
   v3[5] = 1;
   v3[4] = 0;
   RtlAcquireSRWLockExclusive(v6);
-  v7 = dword_4B3A664C;
+  v7 = (_RTL_SRWLOCK *)dword_4B3A664C;
   v8 = dword_4B3A664C + 16;
   v9 = *(_DWORD **)(dword_4B3A664C + 16);
   if ( v9 == (_DWORD *)(dword_4B3A664C + 16) )
@@ -63,7 +65,7 @@ LABEL_8:
     v3[3] = v10;
     *v10 = v11;
     *(_DWORD *)(v8 + 4) = v11;
-    RtlReleaseSRWLockExclusive(v7 + 24);
+    RtlReleaseSRWLockExclusive(v7 + 6);
     return v3;
   }
   while ( 1 )
@@ -74,12 +76,12 @@ LABEL_8:
     v9 = (_DWORD *)*v9;
     if ( v9 == (_DWORD *)v8 )
     {
-      v7 = dword_4B3A664C;
+      v7 = (_RTL_SRWLOCK *)dword_4B3A664C;
       goto LABEL_8;
     }
   }
   _InterlockedIncrement(v12 + 5);
-  RtlReleaseSRWLockExclusive(dword_4B3A664C + 24);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(dword_4B3A664C + 24));
   RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   return v12;
 }

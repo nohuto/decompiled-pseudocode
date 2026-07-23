@@ -1,8 +1,8 @@
 /*
- * XREFs of PopIsNotifyForDirectedPowerTransition @ 0x14038342C
+ * XREFs of PopIsNotifyForDirectedPowerTransition @ 0x1403835DC
  * Callers:
- *     PopWakeDeviceList @ 0x140382FD4 (PopWakeDeviceList.c)
- *     PopSleepDeviceList @ 0x1403831B4 (PopSleepDeviceList.c)
+ *     PopWakeDeviceList @ 0x140383184 (PopWakeDeviceList.c)
+ *     PopSleepDeviceList @ 0x140383364 (PopSleepDeviceList.c)
  * Callees:
  *     <none>
  */

@@ -1,32 +1,35 @@
 /*
- * XREFs of KeCancelTimerInternal @ 0x1403E3AA4
+ * XREFs of KeCancelTimerInternal @ 0x14046BBF4
  * Callers:
- *     ExpTimerAdjust @ 0x140657490 (ExpTimerAdjust.c)
+ *     ExpTimerPause @ 0x14046BB18 (ExpTimerPause.c)
+ *     ExpTimerAdjust @ 0x140655B90 (ExpTimerAdjust.c)
  * Callees:
- *     KiCancelTimer @ 0x1403E3B40 (KiCancelTimer.c)
+ *     KiCancelTimer @ 0x1402DC730 (KiCancelTimer.c)
+ *     KiDecodeTolerableDelayValue @ 0x14046BE58 (KiDecodeTolerableDelayValue.c)
  */
 
 char __fastcall KeCancelTimerInternal(__int64 a1, _QWORD *a2, _DWORD *a3, unsigned int *a4)
 {
-  char v8; // r8
-  int v10; // ecx
+  __int64 v8; // rcx
+  char v9; // si
 
-  v8 = KiCancelTimer(a1, 0LL);
-  if ( v8 )
+  v9 = KiCancelTimer(a1, 0);
+  if ( v9 )
   {
-    v10 = *(unsigned __int8 *)(a1 + 1);
+    LOBYTE(v8) = *(_BYTE *)(a1 + 1);
     *a2 = *(_QWORD *)(a1 + 24);
     *a3 = 2;
-    if ( (v10 & 1) != 0 )
+    if ( (v8 & 1) != 0 )
     {
       *a3 = 1;
     }
-    else if ( (v10 & 2) != 0 )
+    else if ( (v8 & 2) != 0 )
     {
       *a3 = 3;
     }
-    *a4 = ((v10 & 0xFFFFFFFC) << 16) / 0x2710;
+    LOBYTE(v8) = (unsigned __int8)v8 >> 2;
+    *a4 = (unsigned int)KiDecodeTolerableDelayValue(v8) / 0x2710;
   }
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  return v8;
+  return v9;
 }

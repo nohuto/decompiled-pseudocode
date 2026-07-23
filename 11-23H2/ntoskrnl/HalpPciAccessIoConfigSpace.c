@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPciAccessIoConfigSpace @ 0x140394A7C
+ * XREFs of HalpPciAccessIoConfigSpace @ 0x140394C5C
  * Callers:
- *     HalpPCIConfig @ 0x14033F3A0 (HalpPCIConfig.c)
+ *     HalpPCIConfig @ 0x14033F630 (HalpPCIConfig.c)
  * Callees:
- *     HalpPCIPerformConfigAccess @ 0x14033F708 (HalpPCIPerformConfigAccess.c)
+ *     HalpPCIPerformConfigAccess @ 0x14033F998 (HalpPCIPerformConfigAccess.c)
  */
 
 char __fastcall HalpPciAccessIoConfigSpace(

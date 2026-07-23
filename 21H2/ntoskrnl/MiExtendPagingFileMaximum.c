@@ -1,26 +1,26 @@
 /*
- * XREFs of MiExtendPagingFileMaximum @ 0x140543090
+ * XREFs of MiExtendPagingFileMaximum @ 0x1405432D0
  * Callers:
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x1402C3CA0 (MiDerefPageFileSpaceBitmaps.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x140242220 (MiDerefPageFileSpaceBitmaps.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
-  RTL_BITMAP *v3; // r13
+  _RTL_BITMAP *v3; // r13
   KIRQL v7; // al
   __int64 v8; // rsi
   unsigned __int64 v9; // r12
@@ -73,7 +73,7 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
   _QWORD *v56; // [rsp+C8h] [rbp+60h]
 
   v55 = a3;
-  v3 = (RTL_BITMAP *)(a2 + 8);
+  v3 = (_RTL_BITMAP *)(a2 + 8);
   RtlSetAllBits((PRTL_BITMAP)(a2 + 8));
   RtlSetAllBits((PRTL_BITMAP)(a2 + 24));
   SpinLock = (volatile LONG *)(a1 + 232);
@@ -266,6 +266,6 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
       v23 = v54;
       v22 = v56;
     }
-    MiReleasePtes((__int64)&qword_140C4EF40, v22, v23);
+    MiReleasePtes((__int64)&qword_140C4EF80, v22, v23);
   }
 }

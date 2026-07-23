@@ -26,7 +26,7 @@ __int64 ExpLicenseWatchInitWorker()
   *(_QWORD *)(KiProcessorBlock[0] + 120) = 0LL;
   *(_QWORD *)(v0 + 112) = 0LL;
   VsmConnection = HvlQueryVsmConnection(0LL);
-  v5 = (_DWORD)InitSafeBootMode != v4 && VsmConnection == 0;
+  v5 = InitSafeBootMode != v4 && VsmConnection == 0;
   v6 = v4 + 1;
   v7 = __rdtsc() >> 3;
   result = 100 * ((unsigned int)v7 / 0x64);

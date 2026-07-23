@@ -1,15 +1,15 @@
 /*
- * XREFs of IopAllocateReserveIrp @ 0x140554C78
+ * XREFs of IopAllocateReserveIrp @ 0x140555338
  * Callers:
- *     IopAllocateIrpMustSucceed @ 0x14022E260 (IopAllocateIrpMustSucceed.c)
- *     IoSynchronousPageWriteEx @ 0x140250F80 (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x1402A6810 (IoPageReadEx.c)
- *     IoAsynchronousPageWrite @ 0x140369A0C (IoAsynchronousPageWrite.c)
+ *     IopAllocateIrpMustSucceed @ 0x14022E370 (IopAllocateIrpMustSucceed.c)
+ *     IoSynchronousPageWriteEx @ 0x140251040 (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x1402A6AA0 (IoPageReadEx.c)
+ *     IoAsynchronousPageWrite @ 0x140369BAC (IoAsynchronousPageWrite.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IopIsActivityTracingEnabled @ 0x1402902B0 (IopIsActivityTracingEnabled.c)
- *     IoInitializeIrp @ 0x140334820 (IoInitializeIrp.c)
- *     IopInitActivityIdIrp @ 0x140555724 (IopInitActivityIdIrp.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IopIsActivityTracingEnabled @ 0x140290540 (IopIsActivityTracingEnabled.c)
+ *     IoInitializeIrp @ 0x140334AB0 (IoInitializeIrp.c)
+ *     IopInitActivityIdIrp @ 0x140555DE4 (IopInitActivityIdIrp.c)
  */
 
 PIRP __fastcall IopAllocateReserveIrp(LARGE_INTEGER a1, char a2, int a3)

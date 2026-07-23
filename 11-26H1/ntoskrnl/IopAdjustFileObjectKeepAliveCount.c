@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x14045506C
+ * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x14044D19C
  * Callers:
- *     IoIncrementKeepAliveCount @ 0x140454F50 (IoIncrementKeepAliveCount.c)
+ *     IoIncrementKeepAliveCount @ 0x14044D080 (IoIncrementKeepAliveCount.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopGetSetSpecificExtension @ 0x140455360 (IopGetSetSpecificExtension.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopGetSetSpecificExtension @ 0x14044D490 (IopGetSetSpecificExtension.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAdjustFileObjectKeepAliveCount(__int64 a1, KSPIN_LOCK a2, int a3, _DWORD *a4, __int64 *a5)

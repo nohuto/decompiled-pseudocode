@@ -1,14 +1,14 @@
 /*
- * XREFs of MmEnableOrDisableVerifierForDriver @ 0x140C46610
+ * XREFs of MmEnableOrDisableVerifierForDriver @ 0x140C4C620
  * Callers:
- *     VfVolatileApplyDifVerification @ 0x1406478F4 (VfVolatileApplyDifVerification.c)
- *     VfVolatileRemoveDifVerification @ 0x140647AAC (VfVolatileRemoveDifVerification.c)
+ *     VfVolatileApplyDifVerification @ 0x14064B4D4 (VfVolatileApplyDifVerification.c)
+ *     VfVolatileRemoveDifVerification @ 0x14064B68C (VfVolatileRemoveDifVerification.c)
  * Callees:
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     VfDriverApplyDifVerification @ 0x140C28168 (VfDriverApplyDifVerification.c)
- *     VfDriverRemoveDifVerification @ 0x140C28310 (VfDriverRemoveDifVerification.c)
- *     VfDriverEnableVerifier @ 0x140C46844 (VfDriverEnableVerifier.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     VfDriverApplyDifVerification @ 0x140C2E174 (VfDriverApplyDifVerification.c)
+ *     VfDriverRemoveDifVerification @ 0x140C2E31C (VfDriverRemoveDifVerification.c)
+ *     VfDriverEnableVerifier @ 0x140C4C854 (VfDriverEnableVerifier.c)
  */
 
 __int64 __fastcall MmEnableOrDisableVerifierForDriver(__int64 a1, _DWORD *a2, char a3)

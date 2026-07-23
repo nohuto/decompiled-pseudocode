@@ -1,10 +1,10 @@
 /*
- * XREFs of IopDumpCallAddPagesCallbacks @ 0x1401C7164
+ * XREFs of IopDumpCallAddPagesCallbacks @ 0x1401C7004
  * Callers:
- *     IoWriteCrashDump @ 0x1401C65BC (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x1401C645C (IoWriteCrashDump.c)
  * Callees:
- *     IopAddPageDumpRange @ 0x1401C6C5C (IopAddPageDumpRange.c)
- *     KeValidateBugCheckCallbackRecord @ 0x1401D4ECC (KeValidateBugCheckCallbackRecord.c)
+ *     IopAddPageDumpRange @ 0x1401C6AFC (IopAddPageDumpRange.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x1401D4CF8 (KeValidateBugCheckCallbackRecord.c)
  */
 
 char __fastcall IopDumpCallAddPagesCallbacks(int a1)

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall EmpRemoveBadS3PageWorker(__int64 a1, __int64 a2)
+__int64 __fastcall EmpRemoveBadS3PageWorker(__int64 a1, BCD_OPEN_FLAGS a2)
 {
-  return WheaPersistOfflinedPage((unsigned int)EmpBadS3Page, a2);
+  return WheaPersistOfflinedPage((UNICODE_STRING *)(unsigned int)EmpBadS3Page, a2);
 }

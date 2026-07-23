@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCreateEnclave @ 0x14065EF30
+ * XREFs of MiCreateEnclave @ 0x14065F014
  * Callers:
- *     NtCreateEnclave @ 0x14065F8F8 (NtCreateEnclave.c)
+ *     NtCreateEnclave @ 0x14065F9DC (NtCreateEnclave.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x14008BE60 (ExReleaseAutoExpandPushLockShared.c)
- *     ExAcquireAutoExpandPushLockShared @ 0x1400C7740 (ExAcquireAutoExpandPushLockShared.c)
- *     MiGetVmPartition @ 0x1401E8344 (MiGetVmPartition.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetEnclavePage @ 0x1401F040C (MiGetEnclavePage.c)
- *     MiInitializeEnclavePfn @ 0x1401F059C (MiInitializeEnclavePfn.c)
- *     MiReserveEnclavePages @ 0x1401F0638 (MiReserveEnclavePages.c)
- *     MiAllocateAweInfo @ 0x14065C02C (MiAllocateAweInfo.c)
- *     MiAllocateEnclaveVad @ 0x14065E4C4 (MiAllocateEnclaveVad.c)
- *     KeCreateEnclave @ 0x1406E5CE4 (KeCreateEnclave.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x14008B5C0 (ExReleaseAutoExpandPushLockShared.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1400C55E0 (ExAcquireAutoExpandPushLockShared.c)
+ *     MiGetVmPartition @ 0x1401E8170 (MiGetVmPartition.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetEnclavePage @ 0x1401F0238 (MiGetEnclavePage.c)
+ *     MiInitializeEnclavePfn @ 0x1401F03C8 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x1401F0464 (MiReserveEnclavePages.c)
+ *     MiAllocateAweInfo @ 0x14065C110 (MiAllocateAweInfo.c)
+ *     MiAllocateEnclaveVad @ 0x14065E5A8 (MiAllocateEnclaveVad.c)
+ *     KeCreateEnclave @ 0x1406E5E1C (KeCreateEnclave.c)
  */
 
 __int64 __fastcall MiCreateEnclave(
@@ -92,7 +92,7 @@ __int64 __fastcall MiCreateEnclave(
           if ( (a1 & 2) != 0 )
           {
             *((_DWORD *)v14 + 22) |= 2u;
-            _InterlockedAdd((volatile signed __int32 *)(qword_140327F90 + 276840556), 1u);
+            _InterlockedAdd((volatile signed __int32 *)(qword_140327FD0 + 276840556), 1u);
             v14 = P[0];
           }
           Enclave = 0;

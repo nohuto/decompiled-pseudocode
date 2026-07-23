@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAccountForLogReservation @ 0x1404DA5F0
+ * XREFs of CmpAccountForLogReservation @ 0x1404BDBF4
  * Callers:
- *     CmKtmNotification @ 0x1404D9B64 (CmKtmNotification.c)
- *     CmpTransInitializeTransaction @ 0x1404DA4B8 (CmpTransInitializeTransaction.c)
+ *     CmKtmNotification @ 0x1404BD168 (CmKtmNotification.c)
+ *     CmpTransInitializeTransaction @ 0x1404BDABC (CmpTransInitializeTransaction.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     LockRMLog @ 0x1404A1D3C (LockRMLog.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     LockRMLog @ 0x14051A148 (LockRMLog.c)
  */
 
 __int64 __fastcall CmpAccountForLogReservation(__int64 a1, __int64 a2, char a3)

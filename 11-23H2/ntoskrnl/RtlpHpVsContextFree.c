@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVsContextFree @ 0x140323630
+ * XREFs of RtlpHpVsContextFree @ 0x1403238C0
  * Callers:
- *     RtlpHpSegFree @ 0x14031515C (RtlpHpSegFree.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     RtlpFreeHeapInternal @ 0x14034CA64 (RtlpFreeHeapInternal.c)
+ *     RtlpHpSegFree @ 0x1403153EC (RtlpHpSegFree.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     RtlpFreeHeapInternal @ 0x14034CC04 (RtlpFreeHeapInternal.c)
  * Callees:
- *     RtlpHpVsContextFreeList @ 0x14024EDF0 (RtlpHpVsContextFreeList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     RtlpHpVsContextFreeList @ 0x14024EEC0 (RtlpHpVsContextFreeList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, unsigned int *a5)
@@ -17,7 +17,7 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   __int64 v6; // rbx
   PSLIST_ENTRY v9; // rsi
   unsigned int v10; // ecx
-  union _SLIST_HEADER *v11; // rcx
+  _SLIST_HEADER *v11; // rcx
   __int64 v13; // rdx
   __int64 v14; // r9
   int v15; // ecx
@@ -92,7 +92,7 @@ LABEL_24:
   *a5 = v10;
   if ( (v5 & 4) != 0 && v10 < 0x1000 )
   {
-    v11 = (union _SLIST_HEADER *)(a1 + 64);
+    v11 = (_SLIST_HEADER *)(a1 + 64);
     if ( *(_WORD *)(a1 + 64) < 0x20u )
     {
       RtlpInterlockedPushEntrySList(v11, (PSLIST_ENTRY)(v6 + 16));

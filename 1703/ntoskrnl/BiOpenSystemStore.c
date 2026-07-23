@@ -100,7 +100,7 @@ LABEL_12:
     {
       BiLogMessage(2LL, L"Synchronizing store with firmware");
       v13 = BiWasFirmwareModified(v2);
-      v14 = BiBindFirmwareToSystemStore(v2);
+      v14 = BiBindFirmwareToSystemStore((HANDLE)v2);
       v5 = v14;
       if ( v14 < 0 )
       {

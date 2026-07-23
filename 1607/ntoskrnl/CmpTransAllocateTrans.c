@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpTransAllocateTrans @ 0x1404EDB60
+ * XREFs of CmpTransAllocateTrans @ 0x1404CFC84
  * Callers:
- *     CmpTransSearchAddLightWeightTrans @ 0x1403FDAD8 (CmpTransSearchAddLightWeightTrans.c)
- *     CmpTransSearchAddTrans @ 0x1403FF144 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x1403FC998 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransSearchAddTrans @ 0x1403FE004 (CmpTransSearchAddTrans.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpBindHiveToTrans @ 0x1403FF08C (CmpBindHiveToTrans.c)
+ *     CmpBindHiveToTrans @ 0x1403FDF4C (CmpBindHiveToTrans.c)
  */
 
 __int64 __fastcall CmpTransAllocateTrans(__int64 a1, __int128 *a2, __int64 a3, __int64 a4)

@@ -105,7 +105,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
   int v78; // [rsp+50h] [rbp-B0h]
   unsigned int NumberOfBytes; // [rsp+54h] [rbp-ACh]
   void *NumberOfBytes_4; // [rsp+58h] [rbp-A8h]
-  UNICODE_STRING v81; // [rsp+60h] [rbp-A0h] BYREF
+  UNICODE_STRING GuidString; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+70h] [rbp-90h] BYREF
   HANDLE v83; // [rsp+78h] [rbp-88h] BYREF
   wchar_t *ppszDest; // [rsp+80h] [rbp-80h] BYREF
@@ -130,15 +130,15 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
   v3 = 0;
   v4 = 0;
   memset(UnicodeString, 0, 0x80uLL);
-  *(_DWORD *)&v81.Length = 6291550;
-  v81.Buffer = L"\\Registry\\Machine\\System\\HardwareConfig\\Current";
-  ComputerId = IopOpenRegistryKeyEx(&v83, 0LL, &v81, 0xF003Fu);
+  *(_DWORD *)&GuidString.Length = 6291550;
+  GuidString.Buffer = L"\\Registry\\Machine\\System\\HardwareConfig\\Current";
+  ComputerId = IopOpenRegistryKeyEx(&v83, 0LL, &GuidString, 0xF003Fu);
   if ( ComputerId < 0 )
     goto LABEL_100;
   PnpCtxRegDeleteTree(*(__int64 *)&PiPnpRtlCtx, (char *)v83, L"ComputerIds");
-  *(_DWORD *)&v81.Length = 1572886;
-  v81.Buffer = L"ComputerIds";
-  ComputerId = IopCreateRegistryKeyEx(&Handle, v83, &v81, 0xF003Fu, 0, 0LL);
+  *(_DWORD *)&GuidString.Length = 1572886;
+  GuidString.Buffer = L"ComputerIds";
+  ComputerId = IopCreateRegistryKeyEx(&Handle, v83, &GuidString, 0xF003Fu, 0, 0LL);
   if ( ComputerId < 0 )
     goto LABEL_100;
   v6 = *(_QWORD *)(*(_QWORD *)(a1 + 240) + 56LL);
@@ -583,15 +583,21 @@ LABEL_80:
       v47 = PoolWithTag;
       if ( PoolWithTag )
       {
-        v81.Buffer = PoolWithTag;
-        v81.MaximumLength = v44;
+        GuidString.Buffer = PoolWithTag;
+        GuidString.MaximumLength = v44;
         v48 = 0;
         if ( v78 )
         {
           do
           {
-            v81.Length = 0;
-            ComputerId = RtlUnicodeStringValidateDestWorker(&v81, &ppszDest, &pcchDest, v46, (const size_t)cchMax, 0);
+            GuidString.Length = 0;
+            ComputerId = RtlUnicodeStringValidateDestWorker(
+                           &GuidString,
+                           &ppszDest,
+                           &pcchDest,
+                           v46,
+                           (const size_t)cchMax,
+                           0);
             if ( ComputerId >= 0 )
             {
               v49 = pcchDest;
@@ -625,39 +631,39 @@ LABEL_80:
                 if ( !ppszDest )
                 {
                   ComputerId = -1073741811;
-                  v81.Length = 0;
+                  GuidString.Length = 0;
                   goto LABEL_99;
                 }
                 ComputerId = -2147483643;
               }
-              v81.Length = 2 * v50;
+              GuidString.Length = 2 * v50;
               if ( ((ComputerId + 0x80000000) & 0x80000000) != 0 || ComputerId == -2147483643 )
               {
-                v81.Length = 0;
-                v81.MaximumLength = 2 * v49;
-                v81.Buffer = v51;
+                GuidString.Length = 0;
+                GuidString.MaximumLength = 2 * v49;
+                GuidString.Buffer = v51;
               }
               v43 = v78;
             }
             if ( ComputerId < 0 )
               goto LABEL_99;
-            ComputerId = RtlStringFromGUIDEx((unsigned int *)&UnicodeString[v48 + 8].Length, (__int64)&v81, 0);
+            ComputerId = RtlStringFromGUIDEx((PGUID)&UnicodeString[v48 + 8], &GuidString, 0);
             if ( ComputerId < 0 )
               goto LABEL_99;
-            ComputerId = RtlUpcaseUnicodeString(&v81, &v81, 0);
+            ComputerId = RtlUpcaseUnicodeString(&GuidString, &GuidString, 0);
             if ( ComputerId < 0 )
               goto LABEL_99;
-            v81.MaximumLength -= 78;
-            PoolWithTag = v81.Buffer + 39;
+            GuidString.MaximumLength -= 78;
+            PoolWithTag = GuidString.Buffer + 39;
             ++v48;
-            v81.Buffer += 39;
+            GuidString.Buffer += 39;
           }
           while ( v48 < v43 );
         }
         if ( ComputerId >= 0 )
         {
           *PoolWithTag = 0;
-          ++v81.Buffer;
+          ++GuidString.Buffer;
           ComputerId = PnpSetObjectProperty(
                          *(__int64 **)&PiPnpRtlCtx,
                          (__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}",

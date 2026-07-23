@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDeleteVadEventPrivateFixup @ 0x1404E6DD0
+ * XREFs of MiDeleteVadEventPrivateFixup @ 0x1404E0270
  * Callers:
  *     <none>
  * Callees:

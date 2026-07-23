@@ -3,9 +3,9 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     PsQuerySystemDllInfo @ 0x14076F1B4 (PsQuerySystemDllInfo.c)
- *     PspReferenceSystemDll @ 0x1407A34A4 (PspReferenceSystemDll.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     PsQuerySystemDllInfo @ 0x14076F3A4 (PsQuerySystemDllInfo.c)
+ *     PspReferenceSystemDll @ 0x1407A3694 (PspReferenceSystemDll.c)
  */
 
 signed __int64 MmInitSystemDll()

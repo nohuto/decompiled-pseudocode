@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpExtendedHeapInformationGenerator @ 0x1801448B0
+ * XREFs of RtlpExtendedHeapInformationGenerator @ 0x180144760
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpExtendedHeapInformationGenerator(__int64 a1, _QWORD *a2)

@@ -1,0 +1,142 @@
+/*
+ * XREFs of sub_14099F3A0 @ 0x14099F3A0
+ * Callers:
+ *     sub_14099F5D8 @ 0x14099F5D8 (sub_14099F5D8.c)
+ * Callees:
+ *     sub_1405CC890 @ 0x1405CC890 (sub_1405CC890.c)
+ *     sub_14098C04C @ 0x14098C04C (sub_14098C04C.c)
+ *     sub_14099EC88 @ 0x14099EC88 (sub_14099EC88.c)
+ *     sub_14099F6D8 @ 0x14099F6D8 (sub_14099F6D8.c)
+ *     sub_14099F860 @ 0x14099F860 (sub_14099F860.c)
+ *     sub_14099F898 @ 0x14099F898 (sub_14099F898.c)
+ *     sub_14099F8D8 @ 0x14099F8D8 (sub_14099F8D8.c)
+ *     sub_14099F920 @ 0x14099F920 (sub_14099F920.c)
+ *     sub_14099FA50 @ 0x14099FA50 (sub_14099FA50.c)
+ */
+
+__int64 __fastcall sub_14099F3A0(__int64 a1, __int64 a2, char a3, _DWORD *a4)
+{
+  int v5; // esi
+  __int64 v8; // rbx
+  __int64 v9; // rax
+  __int64 v10; // r15
+  __int64 v11; // rcx
+  int v12; // r8d
+  __int64 v13; // rdx
+  int v14; // eax
+  __int64 v15; // r8
+  __int64 v16; // rax
+  int v17; // r8d
+  int v18; // r8d
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  int v22; // [rsp+20h] [rbp-30h] BYREF
+  _QWORD v23[2]; // [rsp+28h] [rbp-28h] BYREF
+  _QWORD v24[3]; // [rsp+38h] [rbp-18h] BYREF
+  int v25; // [rsp+80h] [rbp+30h] BYREF
+
+  v22 = 0;
+  v25 = 0;
+  v23[1] = v23;
+  v5 = 0;
+  v23[0] = v23;
+  v24[1] = v24;
+  v24[0] = v24;
+  if ( (*(_DWORD *)(a1 + 760) & 0x30000) == 0 )
+  {
+    sub_14099F898(v23);
+    while ( 1 )
+    {
+      while ( 1 )
+      {
+        do
+        {
+          v8 = v23[0];
+          if ( (_QWORD *)v23[0] == v23 )
+            goto LABEL_24;
+          if ( *(_QWORD **)(v23[0] + 8LL) != v23
+            || (v9 = *(_QWORD *)v23[0], *(_QWORD *)(*(_QWORD *)v23[0] + 8LL) != v23[0]) )
+          {
+LABEL_31:
+            __fastfail(3u);
+          }
+          v23[0] = *(_QWORD *)v23[0];
+          *(_QWORD *)(v9 + 8) = v23;
+          *(_QWORD *)(v8 + 8) = v8;
+          *(_QWORD *)v8 = v8;
+          v10 = *(_QWORD *)(v8 - 728 + 80);
+        }
+        while ( (*(_DWORD *)(v8 + 32) & 0x30000) != 0 );
+        sub_14099FA50(v24, v8, a2, 0LL);
+        if ( (unsigned __int8)sub_14099F8D8(v8 - 728, &v22) )
+        {
+          v17 = v22;
+          *(_DWORD *)(v8 + 32) |= 0x40000u;
+          sub_14099EC88(v11, a2, v17);
+LABEL_22:
+          v15 = 3221225659LL;
+LABEL_23:
+          sub_14099F860(v23, v13, v15);
+          goto LABEL_25;
+        }
+        if ( (a3 & 1) != 0 )
+          break;
+        v12 = 8;
+LABEL_17:
+        sub_14099EC88(v8 - 728, a2, v12);
+        if ( (a3 & 2) == 0 )
+          goto LABEL_22;
+        v14 = sub_14099F6D8(v8 - 728, v24, a2);
+        v15 = (unsigned int)v14;
+        if ( v14 < 0 )
+          goto LABEL_23;
+        v16 = *(_QWORD *)(v8 - 728 + 776);
+        v5 |= 2u;
+        if ( v16 )
+          *(_DWORD *)(v16 + 152) |= 0x10000u;
+      }
+      v25 = 0;
+      if ( !sub_14098C04C(v11) )
+      {
+        if ( !v10 )
+          goto LABEL_14;
+        if ( !sub_1405CC890(v10, &v25) )
+          break;
+      }
+      sub_14099F920(v23, v24, v8, a2);
+      v5 |= 1u;
+    }
+    if ( v25 == 2 )
+    {
+      v12 = 4;
+      goto LABEL_17;
+    }
+LABEL_14:
+    v12 = 1;
+    goto LABEL_17;
+  }
+LABEL_24:
+  v18 = 0;
+LABEL_25:
+  while ( 1 )
+  {
+    v19 = v24[0];
+    if ( (_QWORD *)v24[0] == v24 )
+      break;
+    if ( *(_QWORD **)(v24[0] + 8LL) != v24 )
+      goto LABEL_31;
+    v20 = *(_QWORD *)v24[0];
+    if ( *(_QWORD *)(*(_QWORD *)v24[0] + 8LL) != v24[0] )
+      goto LABEL_31;
+    v24[0] = *(_QWORD *)v24[0];
+    *(_QWORD *)(v20 + 8) = v24;
+    if ( v18 < 0 )
+      *(_DWORD *)(v19 + 16) = *(_DWORD *)(v19 + 20);
+    *(_DWORD *)(v19 + 20) = 0;
+    *(_QWORD *)(v19 + 8) = v19;
+    *(_QWORD *)v19 = v19;
+  }
+  if ( v18 >= 0 )
+    *a4 |= v5;
+  return (unsigned int)v18;
+}

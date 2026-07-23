@@ -1,15 +1,15 @@
 /*
- * XREFs of wcstoxq @ 0x140198148
+ * XREFs of wcstoxq @ 0x140198288
  * Callers:
- *     _wcstoi64 @ 0x140198118 (_wcstoi64.c)
- *     LocalpConvertStringSidToSid @ 0x14074DE6C (LocalpConvertStringSidToSid.c)
- *     RtlUnicodeStringToInt64 @ 0x140895790 (RtlUnicodeStringToInt64.c)
- *     GetOperandValue @ 0x1408A7838 (GetOperandValue.c)
- *     LocalGetRelativeAttributeForString @ 0x1408A9304 (LocalGetRelativeAttributeForString.c)
+ *     _wcstoi64 @ 0x140198258 (_wcstoi64.c)
+ *     LocalpConvertStringSidToSid @ 0x14074F05C (LocalpConvertStringSidToSid.c)
+ *     RtlUnicodeStringToInt64 @ 0x1408969F0 (RtlUnicodeStringToInt64.c)
+ *     GetOperandValue @ 0x1408A8A98 (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x1408AA564 (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
- *     _iswctype_l @ 0x1401983B8 (_iswctype_l.c)
- *     _wchartodigit @ 0x140199C64 (_wchartodigit.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
+ *     _iswctype_l @ 0x1401984F8 (_iswctype_l.c)
+ *     _wchartodigit @ 0x140199DA4 (_wchartodigit.c)
  */
 
 unsigned __int64 __fastcall wcstoxq(__int64 a1, wint_t *a2, wint_t **a3, int a4, int a5, _DWORD *a6)

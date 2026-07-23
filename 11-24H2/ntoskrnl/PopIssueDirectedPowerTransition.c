@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIssueDirectedPowerTransition @ 0x140AB81C4
+ * XREFs of PopIssueDirectedPowerTransition @ 0x140AB2688
  * Callers:
- *     PopWakeDeviceList @ 0x140427ABC (PopWakeDeviceList.c)
- *     PopSleepDeviceList @ 0x140427CE4 (PopSleepDeviceList.c)
+ *     PopWakeDeviceList @ 0x14041BC4C (PopWakeDeviceList.c)
+ *     PopSleepDeviceList @ 0x14041BE74 (PopSleepDeviceList.c)
  * Callees:
- *     PopCompleteDirectedPowerTransitionCallback @ 0x1403D77B8 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PoFxActivateDevice @ 0x140496064 (PoFxActivateDevice.c)
- *     PopFxIssueDirectedPowerTransition @ 0x1405D168C (PopFxIssueDirectedPowerTransition.c)
- *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x14074C66C (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x1402F1298 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PoFxActivateDevice @ 0x1404909F4 (PoFxActivateDevice.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x1405CEDAC (PopFxIssueDirectedPowerTransition.c)
+ *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x14074A99C (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
  */
 
 void __fastcall PopIssueDirectedPowerTransition(__int64 a1, __int64 a2)

@@ -10,10 +10,10 @@
 
 errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, wchar_t WCh, _locale_t Locale)
 {
-  int v7; // [rsp+48h] [rbp+10h] BYREF
-  wchar_t v8; // [rsp+58h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+48h] [rbp+10h] BYREF
+  WCHAR UnicodeString; // [rsp+58h] [rbp+20h] BYREF
 
-  v8 = WCh;
+  UnicodeString = WCh;
   if ( MbCh || !SizeInBytes )
   {
     if ( SizeConverted )
@@ -25,13 +25,13 @@ errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, w
     }
     if ( MbCh )
     {
-      if ( (int)RtlUnicodeToMultiByteN((__int64)MbCh, (unsigned int)SizeInBytes, (__int64)&v7, (__int64)&v8, 2) < 0 )
+      if ( RtlUnicodeToMultiByteN(MbCh, SizeInBytes, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
       {
         *errno() = 42;
         return 42;
       }
       if ( SizeConverted )
-        *SizeConverted = v7;
+        *SizeConverted = BytesInMultiByteString;
     }
     else if ( SizeConverted )
     {

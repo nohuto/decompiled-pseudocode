@@ -56,7 +56,7 @@ __int64 __fastcall Phase1InitializationIoReady(__int64 a1, char a2)
     KeBugCheckEx(0x32u, inited, 8uLL, 1uLL, 0LL);
   TmInitSystemPhase2();
   InbvSetProgressBarSubset();
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     LOBYTE(v7) = a2;
     InitSafeBoot(v7);

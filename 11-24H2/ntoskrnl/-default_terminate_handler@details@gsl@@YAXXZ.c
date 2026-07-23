@@ -1,5 +1,5 @@
 /*
- * XREFs of ?default_terminate_handler@details@gsl@@YAXXZ @ 0x1405E6F00
+ * XREFs of ?default_terminate_handler@details@gsl@@YAXXZ @ 0x1405E44A0
  * Callers:
  *     <none>
  * Callees:

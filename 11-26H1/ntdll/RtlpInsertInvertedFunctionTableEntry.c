@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInsertInvertedFunctionTableEntry @ 0x1800820D0
+ * XREFs of RtlpInsertInvertedFunctionTableEntry @ 0x180079470
  * Callers:
- *     RtlInsertInvertedFunctionTable @ 0x1800818F4 (RtlInsertInvertedFunctionTable.c)
+ *     RtlInsertInvertedFunctionTable @ 0x180078C94 (RtlInsertInvertedFunctionTable.c)
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 void __fastcall RtlpInsertInvertedFunctionTableEntry(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, int a5)
@@ -12,19 +12,19 @@ void __fastcall RtlpInsertInvertedFunctionTableEntry(__int64 a1, unsigned __int6
   unsigned __int64 *v9; // rax
   __int64 v10; // rcx
 
-  if ( LdrpInvertedFunctionTables[0] == dword_1801E0444 )
+  if ( LdrpInvertedFunctionTables[0] == dword_1801DF444 )
   {
-    byte_1801E044C = 1;
+    byte_1801DF44C = 1;
   }
   else
   {
-    _InterlockedIncrement(&dword_1801E0448);
+    _InterlockedIncrement(&dword_1801DF448);
     v8 = 1;
     if ( LdrpInvertedFunctionTables[0] != 1 )
     {
       if ( LdrpInvertedFunctionTables[0] > 1u )
       {
-        v9 = (unsigned __int64 *)&unk_1801E0470;
+        v9 = (unsigned __int64 *)&unk_1801DF470;
         while ( a2 >= *v9 )
         {
           ++v8;
@@ -49,6 +49,6 @@ LABEL_9:
     LdrpInvertedFunctionTables[2 * v10 + 8] = a4;
     LdrpInvertedFunctionTables[2 * v10 + 9] = a5;
     ++LdrpInvertedFunctionTables[0];
-    _InterlockedIncrement(&dword_1801E0448);
+    _InterlockedIncrement(&dword_1801DF448);
   }
 }

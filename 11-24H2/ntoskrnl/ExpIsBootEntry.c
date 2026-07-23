@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpIsBootEntry @ 0x1409658D0
+ * XREFs of ExpIsBootEntry @ 0x14094E360
  * Callers:
- *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x140443F60 (HalpEnumerateEnvironmentVariablesWithFilter.c)
+ *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x140439A00 (HalpEnumerateEnvironmentVariablesWithFilter.c)
  * Callees:
- *     ExpTranslateBootEntryNameToId @ 0x140965918 (ExpTranslateBootEntryNameToId.c)
+ *     ExpTranslateBootEntryNameToId @ 0x14094E3A8 (ExpTranslateBootEntryNameToId.c)
  */
 
 bool __fastcall ExpIsBootEntry(_QWORD *a1, __int64 a2)

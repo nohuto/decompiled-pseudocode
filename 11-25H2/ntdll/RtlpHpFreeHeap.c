@@ -91,10 +91,10 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2)
   }
   else
   {
-    v7 = RtlCSparseBitmapBitmaskRead(&unk_1801D0980, 2 * ((a2 - qword_1801D0978) >> 20));
+    v7 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_1801D0978) >> 20));
     if ( !v7 || (_DWORD)v7 == 3 )
     {
-      v26 = RtlpHpLargeFree((volatile signed __int64 *)a1, a2) != 0;
+      v26 = RtlpHpLargeFree((__int128 *)a1, a2) != 0;
       goto LABEL_29;
     }
     v6 = a1 + 320;

@@ -9,11 +9,11 @@
 
 void __fastcall MiCheckAndProcessCcAccessLog(__int64 a1, int a2)
 {
-  struct _SLIST_ENTRY *v3; // rcx
+  _SLIST_ENTRY *v3; // rcx
 
   if ( qword_140C4E600 )
   {
-    v3 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_140C4E600, 0LL);
+    v3 = (_SLIST_ENTRY *)_InterlockedExchange64(&qword_140C4E600, 0LL);
     if ( v3 )
     {
       if ( a1 - (unsigned __int64)v3[1].Next > PfKernelGlobals || a2 )

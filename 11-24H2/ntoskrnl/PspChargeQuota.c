@@ -1,15 +1,15 @@
 /*
- * XREFs of PspChargeQuota @ 0x14024B520
+ * XREFs of PspChargeQuota @ 0x14027BB30
  * Callers:
- *     PsChargeProcessQuota @ 0x1403CCF70 (PsChargeProcessQuota.c)
- *     ObpIncrementHandleCountEx @ 0x14084FB60 (ObpIncrementHandleCountEx.c)
- *     ObSetSecurityDescriptorInfo @ 0x1408588B0 (ObSetSecurityDescriptorInfo.c)
- *     PsChargeProcessPagedPoolQuota @ 0x140896630 (PsChargeProcessPagedPoolQuota.c)
- *     MiChargeFullProcessCommitment @ 0x1408E3010 (MiChargeFullProcessCommitment.c)
- *     ObpChargeQuotaForObject @ 0x1409857D0 (ObpChargeQuotaForObject.c)
- *     PsChargeSharedPoolQuota @ 0x14098D090 (PsChargeSharedPoolQuota.c)
+ *     PsChargeProcessQuota @ 0x14046CF4C (PsChargeProcessQuota.c)
+ *     ObpIncrementHandleCountEx @ 0x14084BE20 (ObpIncrementHandleCountEx.c)
+ *     ObSetSecurityDescriptorInfo @ 0x140854B90 (ObSetSecurityDescriptorInfo.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x14089EAD0 (PsChargeProcessPagedPoolQuota.c)
+ *     MiChargeFullProcessCommitment @ 0x140919BC0 (MiChargeFullProcessCommitment.c)
+ *     ObpChargeQuotaForObject @ 0x14096DFE0 (ObpChargeQuotaForObject.c)
+ *     PsChargeSharedPoolQuota @ 0x1409779B0 (PsChargeSharedPoolQuota.c)
  * Callees:
- *     PspExpandQuota @ 0x14024B688 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x14027BC98 (PspExpandQuota.c)
  */
 
 __int64 __fastcall PspChargeQuota(__int64 a1, __int64 a2, int a3, unsigned __int64 a4)

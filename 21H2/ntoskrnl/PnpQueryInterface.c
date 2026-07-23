@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpQueryInterface @ 0x140765D84
+ * XREFs of PnpQueryInterface @ 0x140765F44
  * Callers:
- *     PnprQueryReplaceFeatures @ 0x14050F638 (PnprQueryReplaceFeatures.c)
- *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
- *     PiGetDmaAdapterFromBusInterface @ 0x140764E98 (PiGetDmaAdapterFromBusInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x140765388 (IopQueryInterfaceRecurseUp.c)
- *     IoQueryInterface @ 0x140765590 (IoQueryInterface.c)
- *     PiIommuGetInterface @ 0x140765678 (PiIommuGetInterface.c)
- *     PnpGetDeviceLocationStrings @ 0x140765724 (PnpGetDeviceLocationStrings.c)
- *     PnprIdentifyUnits @ 0x1408AD93C (PnprIdentifyUnits.c)
- *     IopQueryBusResourceUpdateInterface @ 0x1408B2B80 (IopQueryBusResourceUpdateInterface.c)
- *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5424 (PiProcessDriversLoadedOnSecureDevice.c)
- *     PipUnprotectDevice @ 0x1408B54F4 (PipUnprotectDevice.c)
+ *     PnprQueryReplaceFeatures @ 0x14050F878 (PnprQueryReplaceFeatures.c)
+ *     PiProcessNewDeviceNode @ 0x140744650 (PiProcessNewDeviceNode.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x140765058 (PiGetDmaAdapterFromBusInterface.c)
+ *     IopQueryInterfaceRecurseUp @ 0x140765548 (IopQueryInterfaceRecurseUp.c)
+ *     IoQueryInterface @ 0x140765750 (IoQueryInterface.c)
+ *     PiIommuGetInterface @ 0x140765838 (PiIommuGetInterface.c)
+ *     PnpGetDeviceLocationStrings @ 0x1407658E4 (PnpGetDeviceLocationStrings.c)
+ *     PnprIdentifyUnits @ 0x1408ADA9C (PnprIdentifyUnits.c)
+ *     IopQueryBusResourceUpdateInterface @ 0x1408B2CE0 (IopQueryBusResourceUpdateInterface.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5584 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     PipUnprotectDevice @ 0x1408B5654 (PipUnprotectDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140362020 (IoGetAttachedDeviceReferenceWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopBuildSynchronousFsdRequest @ 0x1406D1900 (IopBuildSynchronousFsdRequest.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x1402F76F0 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1406A8BE0 (IopBuildSynchronousFsdRequest.c)
  */
 
 __int64 __fastcall PnpQueryInterface(
@@ -33,8 +33,8 @@ __int64 __fastcall PnpQueryInterface(
   struct _DEVICE_OBJECT *AttachedDeviceReferenceWithTag; // rdi
   IRP *v11; // rax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rdx
-  unsigned int v13; // ebx
-  __int128 v15; // [rsp+40h] [rbp-38h] BYREF
+  unsigned int Status; // ebx
+  struct _IO_STATUS_BLOCK v15; // [rsp+40h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-28h] BYREF
   __int64 retaddr; // [rsp+78h] [rbp+0h]
 
@@ -47,15 +47,15 @@ __int64 __fastcall PnpQueryInterface(
   a6[1] = a3;
   KeInitializeEvent(&Event, NotificationEvent, 0);
   AttachedDeviceReferenceWithTag = IoGetAttachedDeviceReferenceWithTag(DeviceObject, 0x49706E50u);
-  v11 = (IRP *)IopBuildSynchronousFsdRequest(
-                 0x1Bu,
-                 (__int64)AttachedDeviceReferenceWithTag,
-                 0LL,
-                 0,
-                 0LL,
-                 (__int64)&Event,
-                 (__int64)&v15,
-                 retaddr);
+  v11 = IopBuildSynchronousFsdRequest(
+          0x1Bu,
+          (__int64)AttachedDeviceReferenceWithTag,
+          0LL,
+          0,
+          0LL,
+          &Event,
+          &v15,
+          retaddr);
   if ( v11 )
   {
     CurrentStackLocation = v11->Tail.Overlay.CurrentStackLocation;
@@ -67,17 +67,17 @@ __int64 __fastcall PnpQueryInterface(
     CurrentStackLocation[-1].Parameters.QueryInterface.Size = a4;
     CurrentStackLocation[-1].Parameters.QueryInterface.Version = a3;
     CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = (LONGLONG)a6;
-    v13 = IofCallDriver(AttachedDeviceReferenceWithTag, v11);
-    if ( v13 == 259 )
+    Status = IofCallDriver(AttachedDeviceReferenceWithTag, v11);
+    if ( Status == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      v13 = v15;
+      Status = v15.Status;
     }
   }
   else
   {
-    v13 = -1073741670;
+    Status = -1073741670;
   }
   ObfDereferenceObjectWithTag(AttachedDeviceReferenceWithTag, 0x49706E50u);
-  return v13;
+  return Status;
 }

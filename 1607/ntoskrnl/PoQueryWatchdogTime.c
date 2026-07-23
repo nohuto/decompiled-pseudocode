@@ -1,11 +1,11 @@
 /*
- * XREFs of PoQueryWatchdogTime @ 0x14012669C
+ * XREFs of PoQueryWatchdogTime @ 0x140126C0C
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     PopComputeWatchdogTimeout @ 0x14012B290 (PopComputeWatchdogTimeout.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopComputeWatchdogTimeout @ 0x14012B800 (PopComputeWatchdogTimeout.c)
  */
 
 BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemaining)

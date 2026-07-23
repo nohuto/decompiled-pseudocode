@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpIsReadErrorTransient @ 0x140983744
+ * XREFs of HvpIsReadErrorTransient @ 0x14096BF54
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140983108 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x14096B918 (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall HvpIsReadErrorTransient(int a1)
@@ -27,7 +27,7 @@ char __fastcall HvpIsReadErrorTransient(int a1)
     return 0;
   if ( a1 != -1073741801 && a1 != -1073741670 && a1 != -1073741663 )
   {
-    if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
     {
       v5 = 1LL;
       v8 = &v5;
@@ -38,7 +38,7 @@ char __fastcall HvpIsReadErrorTransient(int a1)
       v11 = 4LL;
       v6 = 0x1000000LL;
       v13 = 8LL;
-      tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140055E50, v2, v3, (__int64)v7);
+      tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)word_140056982, v2, v3, (__int64)v7);
     }
     return 0;
   }

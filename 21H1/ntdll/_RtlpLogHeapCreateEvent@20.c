@@ -9,9 +9,9 @@
  *     _RtlpEstimateAllocatedSize@4 @ 0x4B35D645 (_RtlpEstimateAllocatedSize@4.c)
  */
 
-int __fastcall RtlpLogHeapCreateEvent(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __fastcall RtlpLogHeapCreateEvent(int a1, int a2, int a3, int a4, HANDLE TraceHandle)
 {
-  _BYTE v6[6]; // [esp+4h] [ebp-38h] BYREF
+  _BYTE Fields[6]; // [esp+4h] [ebp-38h] BYREF
   __int16 v7; // [esp+Ah] [ebp-32h]
   int v8; // [esp+24h] [ebp-18h]
   int v9; // [esp+28h] [ebp-14h]
@@ -25,5 +25,5 @@ int __fastcall RtlpLogHeapCreateEvent(int a1, int a2, int a3, int a4, int a5)
   v11 = a4;
   v12 = RtlpEstimateAllocatedSize(a1);
   v7 = 4128;
-  return NtTraceEvent(a5, 1027, 20, (int)v6);
+  return NtTraceEvent(TraceHandle, 0x403u, 0x14u, Fields);
 }

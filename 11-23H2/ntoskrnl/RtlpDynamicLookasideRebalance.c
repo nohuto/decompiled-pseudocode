@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpDynamicLookasideRebalance @ 0x14032FED0
+ * XREFs of RtlpDynamicLookasideRebalance @ 0x140330160
  * Callers:
- *     ExpScanSystemLookasideList @ 0x14032FC78 (ExpScanSystemLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x14032FF08 (ExpScanSystemLookasideList.c)
  * Callees:
- *     RtlpLookasideAdjustDepth @ 0x140330030 (RtlpLookasideAdjustDepth.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     qsort @ 0x1403DA430 (qsort.c)
+ *     RtlpLookasideAdjustDepth @ 0x1403302C0 (RtlpLookasideAdjustDepth.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
  */
 
 __int64 __fastcall RtlpDynamicLookasideRebalance(__int64 *a1)

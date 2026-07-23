@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpLoadLanguageConfigList @ 0x1408449F4
+ * XREFs of RtlpLoadLanguageConfigList @ 0x140844CF4
  * Callers:
- *     RtlpMuiRegLoadRegistryInfo @ 0x140845360 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140845660 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     LdrpOpenKey @ 0x140844ADC (LdrpOpenKey.c)
- *     RtlpPopulateLanguageConfigList @ 0x14084550C (RtlpPopulateLanguageConfigList.c)
- *     RtlpMuiRegCreateLanguageConfigList @ 0x140845654 (RtlpMuiRegCreateLanguageConfigList.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x140A74334 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     LdrpOpenKey @ 0x140844DDC (LdrpOpenKey.c)
+ *     RtlpPopulateLanguageConfigList @ 0x14084580C (RtlpPopulateLanguageConfigList.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x140845954 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x140A745E4 (RtlpLoadPolicyLanguageSpec.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

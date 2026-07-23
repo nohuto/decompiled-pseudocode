@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFreeThreadActivationContextStack @ 0x180077830
+ * XREFs of RtlFreeThreadActivationContextStack @ 0x180077820
  * Callers:
- *     LdrShutdownThread @ 0x180015E50 (LdrShutdownThread.c)
+ *     LdrShutdownThread @ 0x180015E40 (LdrShutdownThread.c)
  * Callees:
- *     RtlFreeActivationContextStack @ 0x180077870 (RtlFreeActivationContextStack.c)
+ *     RtlFreeActivationContextStack @ 0x180077860 (RtlFreeActivationContextStack.c)
  */
 
 struct _TEB *RtlFreeThreadActivationContextStack()

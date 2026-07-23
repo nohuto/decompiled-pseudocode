@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDcHandleSystemFirmwareUpdate @ 0x1406308A4
+ * XREFs of PiDcHandleSystemFirmwareUpdate @ 0x140630958
  * Callers:
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  * Callees:

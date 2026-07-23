@@ -1,17 +1,17 @@
 /*
- * XREFs of MiModwriterConfirmMdl @ 0x140408738
+ * XREFs of MiModwriterConfirmMdl @ 0x140401828
  * Callers:
- *     MiGatherPagefilePages @ 0x140406D08 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1403FFDF8 (MiGatherPagefilePages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiSetPageFileAllocationBits @ 0x140404AF4 (MiSetPageFileAllocationBits.c)
- *     RtlFindLongestRunClearCapped @ 0x140404B2C (RtlFindLongestRunClearCapped.c)
- *     MiFindFreePageFileSpace @ 0x140405E3C (MiFindFreePageFileSpace.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x14047DE74 (MiInvalidatePageFileBitmapsCache.c)
- *     MiUpdatePagefilePeakUsage @ 0x14047FC40 (MiUpdatePagefilePeakUsage.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSetPageFileAllocationBits @ 0x1403FDBF4 (MiSetPageFileAllocationBits.c)
+ *     RtlFindLongestRunClearCapped @ 0x1403FDC2C (RtlFindLongestRunClearCapped.c)
+ *     MiFindFreePageFileSpace @ 0x1403FEF30 (MiFindFreePageFileSpace.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1404777E4 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiUpdatePagefilePeakUsage @ 0x140479588 (MiUpdatePagefilePeakUsage.c)
  */
 
 void __fastcall MiModwriterConfirmMdl(int *a1)
@@ -65,8 +65,8 @@ void __fastcall MiModwriterConfirmMdl(int *a1)
     if ( (_DWORD)v13 )
     {
       v14 = v27;
-      if ( qword_140E2D740 && (v27 & 0x10) == 0 )
-        v14 = qword_140E2D748 & v27;
+      if ( qword_140E2D8C0 && (v27 & 0x10) == 0 )
+        v14 = qword_140E2D8C8 & v27;
       v3 = HIDWORD(v14);
     }
     else
@@ -94,7 +94,7 @@ void __fastcall MiModwriterConfirmMdl(int *a1)
       v20 = &v17[v13];
       do
       {
-        if ( *v17 != qword_140E36038 || _bittest64(*(const signed __int64 **)(*(_QWORD *)(v4 + 80) + 32LL), v19) )
+        if ( *v17 != qword_140E361B8 || _bittest64(*(const signed __int64 **)(*(_QWORD *)(v4 + 80) + 32LL), v19) )
         {
           if ( v18 != -1 )
           {

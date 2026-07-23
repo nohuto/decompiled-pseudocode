@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetStackLookasideListEntry @ 0x1404407E0
+ * XREFs of EtwpGetStackLookasideListEntry @ 0x1404364B0
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY EtwpGetStackLookasideListEntry()
@@ -17,14 +17,14 @@ PSLIST_ENTRY EtwpGetStackLookasideListEntry()
     result = RtlpInterlockedPopEntrySList(&EtwpStackLookAsideList);
     if ( result )
     {
-      _InterlockedIncrement(&dword_140E28E9C);
-      if ( dword_140E28E9C > dword_140E28EA0 )
-        _InterlockedExchange(&dword_140E28EA0, dword_140E28E9C);
+      _InterlockedIncrement(&dword_140E28FDC);
+      if ( dword_140E28FDC > dword_140E28FE0 )
+        _InterlockedExchange(&dword_140E28FE0, dword_140E28FDC);
     }
     else
     {
-      if ( dword_140E28E90 > 0 )
-        _InterlockedIncrement(&dword_140E28EA4);
+      if ( dword_140E28FD0 > 0 )
+        _InterlockedIncrement(&dword_140E28FE4);
       return 0LL;
     }
   }

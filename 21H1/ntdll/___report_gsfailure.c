@@ -43,6 +43,6 @@ void __cdecl __noreturn __report_gsfailure()
   dword_4B3A3DCC = 1;
   dword_4B3A3DD8 = 1;
   dword_4B3A3DDC = 2;
-  RtlUnhandledExceptionFilter(&off_4B2816CC);
-  ZwTerminateProcess(-1, -1073740791);
+  RtlUnhandledExceptionFilter((PEXCEPTION_POINTERS)&ExceptionPointers);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFF, -1073740791);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetCopyInformationExtension @ 0x140558D40
+ * XREFs of IoGetCopyInformationExtension @ 0x140559400
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x140290278 (IopIrpHasExtensionType.c)
+ *     IopIrpHasExtensionType @ 0x140290508 (IopIrpHasExtensionType.c)
  */
 
 __int64 __fastcall IoGetCopyInformationExtension(__int64 a1)

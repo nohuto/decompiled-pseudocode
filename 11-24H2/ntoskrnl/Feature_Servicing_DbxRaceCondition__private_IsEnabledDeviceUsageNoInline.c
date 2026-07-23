@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_DbxRaceCondition__private_IsEnabledDeviceUsageNoInline @ 0x140609200
+ * XREFs of Feature_Servicing_DbxRaceCondition__private_IsEnabledDeviceUsageNoInline @ 0x1406076A8
  * Callers:
- *     SepSecureBootCheckForUpdates @ 0x140C3ABBC (SepSecureBootCheckForUpdates.c)
+ *     SepSecureBootCheckForUpdates @ 0x140C3CD14 (SepSecureBootCheckForUpdates.c)
  * Callees:
- *     Feature_Servicing_DbxRaceCondition__private_IsEnabledFallback @ 0x140609238 (Feature_Servicing_DbxRaceCondition__private_IsEnabledFallback.c)
+ *     Feature_Servicing_DbxRaceCondition__private_IsEnabledFallback @ 0x1406076E0 (Feature_Servicing_DbxRaceCondition__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_DbxRaceCondition__private_IsEnabledDeviceUsageNoInline()

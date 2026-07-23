@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlCollectLivedump @ 0x1401C0300
+ * XREFs of HvlCollectLivedump @ 0x1401C01E4
  * Callers:
  *     IopLiveDumpEndMirroringCallback @ 0x1403DABEC (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
@@ -29,7 +29,7 @@ NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int
   _BYTE v20[32]; // [rsp+D0h] [rbp-98h] BYREF
   _BYTE v21[64]; // [rsp+F0h] [rbp-78h] BYREF
 
-  if ( (HvlpRootFlags & 2) == 0 || !qword_1403221C8 )
+  if ( (HvlpRootFlags & 2) == 0 || !qword_1403221E8 )
     return -1073741637;
   if ( VslVsmEnabled )
   {
@@ -69,11 +69,11 @@ NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int
     if ( v14 >= 0 )
     {
       v15 = *(void **)(a4 + 32);
-      v16 = dword_1403221D8 << 12;
+      v16 = dword_1403221F8 << 12;
       if ( v15 == *(void **)a4 && *(_DWORD *)(a4 + 8) >= v16 )
-        memmove(v15, qword_1403221C8, v16);
+        memmove(v15, qword_1403221E8, v16);
       else
-        *(_QWORD *)(a4 + 32) = qword_1403221C8;
+        *(_QWORD *)(a4 + 32) = qword_1403221E8;
       *(_DWORD *)(a4 + 40) = v16;
       *(_OWORD *)(a4 + 16) = HvlCrashdumpGuid;
     }

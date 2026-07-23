@@ -28,7 +28,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
   unsigned int v19; // eax
   int v20; // ecx
   const char *v21; // rax
-  unsigned __int16 v22; // ax
+  WCHAR v22; // ax
   int v23; // eax
   int v24; // eax
   const wchar_t *v25; // rax
@@ -50,11 +50,11 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
   int v41; // r9d
   __int64 v42; // r10
   int v43; // r9d
-  char *v44; // rsi
+  UCHAR *v44; // rsi
   int v45; // edi
   int v46; // eax
   __int64 v47; // r9
-  unsigned __int16 *v48; // r10
+  wchar_t *v48; // r10
   int v49; // r9d
   __int64 v50; // r10
   bool i; // zf
@@ -68,9 +68,9 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
   int v60; // [rsp+34h] [rbp-CCh]
   int v61; // [rsp+38h] [rbp-C8h]
   int v62; // [rsp+3Ch] [rbp-C4h]
-  unsigned __int16 v63[2]; // [rsp+40h] [rbp-C0h] BYREF
+  WCHAR v63[2]; // [rsp+40h] [rbp-C0h] BYREF
   int v64; // [rsp+44h] [rbp-BCh]
-  char v65[4]; // [rsp+48h] [rbp-B8h] BYREF
+  UCHAR v65[4]; // [rsp+48h] [rbp-B8h] BYREF
   _WORD v66[2]; // [rsp+4Ch] [rbp-B4h] BYREF
   int v67; // [rsp+50h] [rbp-B0h]
   int v68; // [rsp+54h] [rbp-ACh]
@@ -79,7 +79,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, int *a3)
   int v71; // [rsp+68h] [rbp-98h]
   int v72; // [rsp+70h] [rbp-90h]
   unsigned __int16 *v73; // [rsp+78h] [rbp-88h]
-  _WORD v74[512]; // [rsp+80h] [rbp-80h] BYREF
+  WCHAR v74[512]; // [rsp+80h] [rbp-80h] BYREF
 
   v70 = a1;
   v68 = 0;
@@ -401,7 +401,7 @@ LABEL_117:
                 }
                 if ( v64 == (_DWORD)v9 && (int)v12 > 0 )
                 {
-                  v44 = (char *)v7;
+                  v44 = (UCHAR *)v7;
                   v45 = v12;
                   while ( 1 )
                   {
@@ -445,7 +445,7 @@ LABEL_117:
                   {
                     write_char_2(*v48, v35, &v59);
                     v11 = v59;
-                    v48 = (unsigned __int16 *)(v50 + 2);
+                    v48 = (wchar_t *)(v50 + 2);
                   }
                   while ( v59 != -1 && v49 > 0 );
                 }

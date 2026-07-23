@@ -1,14 +1,14 @@
 /*
- * XREFs of VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x1406172B8
+ * XREFs of VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14061736C
  * Callers:
- *     VrpLoadDifferencingHive @ 0x140617474 (VrpLoadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x140617528 (VrpLoadDifferencingHive.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VrpAllocateDiffHiveEntry @ 0x140616E48 (VrpAllocateDiffHiveEntry.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x140617140 (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpLockDiffHiveTableExclusive @ 0x140617778 (VrpLockDiffHiveTableExclusive.c)
- *     VrpLockDiffHiveTableShared @ 0x1406177D8 (VrpLockDiffHiveTableShared.c)
- *     VrpUnlockDiffHiveTable @ 0x1406179C8 (VrpUnlockDiffHiveTable.c)
+ *     VrpAllocateDiffHiveEntry @ 0x140616EFC (VrpAllocateDiffHiveEntry.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x1406171F4 (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpLockDiffHiveTableExclusive @ 0x14061782C (VrpLockDiffHiveTableExclusive.c)
+ *     VrpLockDiffHiveTableShared @ 0x14061788C (VrpLockDiffHiveTableShared.c)
+ *     VrpUnlockDiffHiveTable @ 0x140617A7C (VrpUnlockDiffHiveTable.c)
  */
 
 __int64 __fastcall VrpFindOrCreateDiffHiveEntryForMountPoint(PCUNICODE_STRING String1, const void **a2, __int64 *a3)
@@ -47,10 +47,10 @@ __int64 __fastcall VrpFindOrCreateDiffHiveEntryForMountPoint(PCUNICODE_STRING St
     }
     else
     {
-      v10 = dword_1403225A4;
+      v10 = dword_1403225C4;
       *a3 = (__int64)DiffHiveEntry;
       v14 = DiffHiveEntry[1] & (-1LL << (v10 & 0x1F));
-      v11 = qword_1403225A8;
+      v11 = qword_1403225C8;
       v12 = (37
            * (BYTE6(v14)
             + 37
@@ -59,7 +59,7 @@ __int64 __fastcall VrpFindOrCreateDiffHiveEntryForMountPoint(PCUNICODE_STRING St
              * (BYTE4(v14)
               + 37 * (BYTE3(v14) + 37 * (BYTE2(v14) + 37 * (BYTE1(v14) + 37 * ((unsigned __int8)v14 + 11623883)))))))
            + HIBYTE(v14)) & ((v10 >> 5) - 1);
-      *DiffHiveEntry = *(_QWORD *)(qword_1403225A8 + 8 * v12);
+      *DiffHiveEntry = *(_QWORD *)(qword_1403225C8 + 8 * v12);
       *(_QWORD *)(v11 + 8 * v12) = DiffHiveEntry;
       ++gLoadedDiffHives;
       DiffHiveEntry = 0LL;

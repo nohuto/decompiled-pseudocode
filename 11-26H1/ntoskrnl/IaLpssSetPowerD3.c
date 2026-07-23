@@ -1,13 +1,13 @@
 /*
- * XREFs of IaLpssSetPowerD3 @ 0x140721A00
+ * XREFs of IaLpssSetPowerD3 @ 0x1407265D0
  * Callers:
  *     <none>
  * Callees:
- *     IaLpssPciSetPower @ 0x1407216F8 (IaLpssPciSetPower.c)
- *     IaLpssReadClockParams @ 0x140721874 (IaLpssReadClockParams.c)
- *     IaLpssReadResetRegister @ 0x140721918 (IaLpssReadResetRegister.c)
- *     IaLpssWriteResetRegister @ 0x140721B34 (IaLpssWriteResetRegister.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     IaLpssPciSetPower @ 0x1407262C8 (IaLpssPciSetPower.c)
+ *     IaLpssReadClockParams @ 0x140726444 (IaLpssReadClockParams.c)
+ *     IaLpssReadResetRegister @ 0x1407264E8 (IaLpssReadResetRegister.c)
+ *     IaLpssWriteResetRegister @ 0x140726704 (IaLpssWriteResetRegister.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IaLpssSetPowerD3(_QWORD *a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall IaLpssSetPowerD3(_QWORD *a1, __int64 a2)
 
   if ( a1 && *a1 )
   {
-    LODWORD(WheapPfaLock.Padding[2]) = IaLpssReadClockParams(a1, a2);
+    dword_140EF00D0 = IaLpssReadClockParams(a1, a2);
     if ( (IaLpssReadResetRegister(a1, v3) & 7) == 7 )
     {
       LOBYTE(v4) = 4;

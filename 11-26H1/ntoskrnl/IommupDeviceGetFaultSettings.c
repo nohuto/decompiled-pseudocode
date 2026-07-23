@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupDeviceGetFaultSettings @ 0x140531D98
+ * XREFs of IommupDeviceGetFaultSettings @ 0x140534238
  * Callers:
- *     HalpIommuCreateDevice @ 0x14051AC18 (HalpIommuCreateDevice.c)
+ *     HalpIommuCreateDevice @ 0x140514688 (HalpIommuCreateDevice.c)
  * Callees:
- *     IommupGetDeviceCreationConfigEntry @ 0x14059FF2C (IommupGetDeviceCreationConfigEntry.c)
+ *     IommupGetDeviceCreationConfigEntry @ 0x1405A271C (IommupGetDeviceCreationConfigEntry.c)
  */
 
 __int64 __fastcall IommupDeviceGetFaultSettings(__int64 a1, int *a2)

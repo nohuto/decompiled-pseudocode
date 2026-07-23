@@ -77,7 +77,7 @@ __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1, __int64 a2)
     }
     return 0LL;
   }
-  result = PopSetNewPolicyValue(a1 + 8, a2, (unsigned int)(*(_DWORD *)a1 - 4));
+  result = PopSetNewPolicyValue(a1 + 8);
   if ( (int)result >= 0 )
     return 0LL;
   return result;

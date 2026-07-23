@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpRtcArmTimer @ 0x1404D5A50
+ * XREFs of HalpRtcArmTimer @ 0x1404D5C90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalSetTimerProblem @ 0x1404D5600 (HalSetTimerProblem.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalSetTimerProblem @ 0x1404D5840 (HalSetTimerProblem.c)
  */
 
 __int64 __fastcall HalpRtcArmTimer(__int64 *a1, int a2, __int64 a3)
@@ -35,7 +35,7 @@ __int64 __fastcall HalpRtcArmTimer(__int64 *a1, int a2, __int64 a3)
     a1[1] = v5;
     ((void (__fastcall *)(_QWORD, __int64, char *, __int64))HalpTimerRtcApi)(0LL, 11LL, &v7, 1LL);
     v7 = v7 & 1 | 0x42;
-    ((void (__fastcall *)(_QWORD, __int64, char *, __int64))qword_140CF4568)(0LL, 11LL, &v7, 1LL);
+    ((void (__fastcall *)(_QWORD, __int64, char *, __int64))qword_140CF45A8)(0LL, 11LL, &v7, 1LL);
     ((void (__fastcall *)(_QWORD, __int64, char *, __int64))HalpTimerRtcApi)(0LL, 12LL, &v8, 1LL);
     ((void (__fastcall *)(_QWORD, __int64, _BYTE *, __int64))HalpTimerRtcApi)(0LL, 13LL, v6, 1LL);
     do

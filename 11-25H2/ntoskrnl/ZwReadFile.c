@@ -33,5 +33,5 @@ NTSTATUS __stdcall ZwReadFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

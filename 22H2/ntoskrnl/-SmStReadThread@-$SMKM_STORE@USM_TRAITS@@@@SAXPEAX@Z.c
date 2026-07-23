@@ -24,11 +24,11 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
   __int64 v3; // rbp
   __int64 Context; // r14
   NTSTATUS v5; // eax
-  struct _SLIST_ENTRY **v6; // rdi
+  _SLIST_ENTRY **v6; // rdi
   KIRQL v7; // al
   __int64 *v8; // rdx
   unsigned __int64 v9; // rbx
-  struct _SLIST_ENTRY *v10; // rsi
+  _SLIST_ENTRY *v10; // rsi
   struct _MDL *v11; // rbx
   unsigned int Issue; // eax
   unsigned __int8 CurrentIrql; // al
@@ -56,7 +56,7 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
         if ( v5 )
           break;
         KeResetEvent((PRKEVENT)Object[0]);
-        v6 = (struct _SLIST_ENTRY **)(v1 + 818);
+        v6 = (_SLIST_ENTRY **)(v1 + 818);
         while ( 1 )
         {
           v7 = KeAcquireSpinLockRaiseToDpc(v1 + 820);
@@ -69,8 +69,8 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
           else
           {
             v10 = *v6;
-            *v6 = (struct _SLIST_ENTRY *)((unsigned __int64)(*v6)->Next & 0xFFFFFFFFFFFFFFF8uLL);
-            if ( v10 == (struct _SLIST_ENTRY *)v8 )
+            *v6 = (_SLIST_ENTRY *)((unsigned __int64)(*v6)->Next & 0xFFFFFFFFFFFFFFF8uLL);
+            if ( v10 == (_SLIST_ENTRY *)v8 )
             {
               *v6 = 0LL;
               *(_QWORD *)(v3 + 64) = v3 + 56;

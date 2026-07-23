@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckPageFileMapping @ 0x140188438
+ * XREFs of MiCheckPageFileMapping @ 0x140188578
  * Callers:
- *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x14074D1A8 (MiCreatePagingFile.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckPageFileMapping(__int64 a1)
@@ -17,11 +17,11 @@ __int64 __fastcall MiCheckPageFileMapping(__int64 a1)
 
   if ( !*(_QWORD *)(a1 + 40) )
     return 0LL;
-  v2 = ExAcquireSpinLockExclusive(&dword_140438BC0);
+  v2 = ExAcquireSpinLockExclusive(&dword_140439C80);
   v3 = *(_QWORD **)(a1 + 40);
   if ( !v3 || !*v3 && !v3[2] )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
@@ -31,7 +31,7 @@ __int64 __fastcall MiCheckPageFileMapping(__int64 a1)
     __writecr8(v2);
     return 0LL;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )
   {
     v6 = KeGetCurrentPrcb();

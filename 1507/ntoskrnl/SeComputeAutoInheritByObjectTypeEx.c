@@ -12,8 +12,9 @@
  *     ExfReleasePushLockShared @ 0x1400F3600 (ExfReleasePushLockShared.c)
  */
 
-__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
+__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *Index)
 {
+  _DWORD *v5; // rsi
   int v10; // ebp
   int v11; // r15d
   struct _KTHREAD *CurrentThread; // rax
@@ -29,22 +30,22 @@ __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __
   struct _KTHREAD *v22; // rcx
   __int16 v23; // ax
   __int16 v25; // ax
-  __int64 v26; // rcx
-  __int64 AceByType; // rax
+  ACL *v26; // rcx
+  _DWORD *AceByType; // rax
   __int64 v28; // rax
   __int16 v29; // ax
-  __int64 v30; // rcx
+  ACL *v30; // rcx
   __int64 v31; // rax
-  __int64 v32; // rax
-  int v33; // [rsp+80h] [rbp+28h]
+  _BYTE *v32; // rax
 
+  v5 = Index;
   v10 = 0;
   v11 = 0;
-  if ( a5 )
+  if ( Index )
   {
-    if ( *a5 != 8 )
+    if ( *Index != 8 )
       return 3221225485LL;
-    a5[1] = -1;
+    Index[1] = -1;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -109,21 +110,21 @@ LABEL_18:
       if ( v25 < 0 )
       {
         v28 = *(unsigned int *)(a2 + 12);
-        v26 = (_DWORD)v28 ? a2 + v28 : 0LL;
+        v26 = (_DWORD)v28 ? (ACL *)(a2 + v28) : 0LL;
       }
       else
       {
-        v26 = *(_QWORD *)(a2 + 24);
+        v26 = *(ACL **)(a2 + 24);
       }
     }
     else
     {
       v26 = 0LL;
     }
-    AceByType = RtlFindAceByType(v26, 17LL);
+    AceByType = RtlFindAceByType(v26, 0x11u, 0LL);
     if ( AceByType )
     {
-      *(_DWORD *)(AceByType + 4) |= v11;
+      AceByType[1] |= v11;
       v10 = 0;
     }
   }
@@ -131,7 +132,7 @@ LABEL_18:
   {
     if ( a2 )
     {
-      v33 = 0;
+      LODWORD(Index) = 0;
       while ( 1 )
       {
         v29 = *(_WORD *)(a2 + 2);
@@ -140,35 +141,35 @@ LABEL_18:
           if ( v29 < 0 )
           {
             v31 = *(unsigned int *)(a2 + 12);
-            v30 = (_DWORD)v31 ? a2 + v31 : 0LL;
+            v30 = (_DWORD)v31 ? (ACL *)(a2 + v31) : 0LL;
           }
           else
           {
-            v30 = *(_QWORD *)(a2 + 24);
+            v30 = *(ACL **)(a2 + 24);
           }
         }
         else
         {
           v30 = 0LL;
         }
-        v32 = RtlFindAceByType(v30, 17LL);
+        v32 = RtlFindAceByType(v30, 0x11u, (PULONG)&Index);
         if ( v32 )
         {
-          if ( (*(_BYTE *)(v32 + 1) & 8) == 0 )
+          if ( (v32[1] & 8) == 0 )
             break;
         }
-        ++v33;
+        LODWORD(Index) = (_DWORD)Index + 1;
         if ( !v32 )
           goto LABEL_64;
       }
-      *(_DWORD *)(v32 + 4) &= v16;
+      *((_DWORD *)v32 + 1) &= v16;
     }
     else
     {
 LABEL_64:
-      if ( a5 )
+      if ( v5 )
       {
-        a5[1] = v16;
+        v5[1] = v16;
         v10 |= 0x800u;
       }
     }

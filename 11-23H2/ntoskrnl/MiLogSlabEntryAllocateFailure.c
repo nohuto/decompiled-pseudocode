@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogSlabEntryAllocateFailure @ 0x1406570EC
+ * XREFs of MiLogSlabEntryAllocateFailure @ 0x14065763C
  * Callers:
- *     MiAllocateSlabEntry @ 0x1402E6C40 (MiAllocateSlabEntry.c)
+ *     MiAllocateSlabEntry @ 0x1402E6ED0 (MiAllocateSlabEntry.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     InsertEventEntryInLookUpTable @ 0x140212F60 (InsertEventEntryInLookUpTable.c)
  *     ExtractAggregateFieldTypes @ 0x14021343C (ExtractAggregateFieldTypes.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiNodeAvailablePages @ 0x14046CCA6 (MiNodeAvailablePages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiNodeAvailablePages @ 0x14046D0A6 (MiNodeAvailablePages.c)
  */
 
 void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4, char a5)
@@ -95,7 +95,7 @@ LABEL_11:
 LABEL_5:
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -146,7 +146,7 @@ LABEL_5:
       *(_DWORD *)&EventDescriptor.Id = 184549376;
       EventDescriptor.Keyword = v16;
       UserData.Size = *(unsigned __int16 *)UserData.Ptr;
-      v39 = &dword_14003992C;
+      v39 = &dword_140039A14;
       UserData.Reserved = 2;
       v40 = 212;
       v41 = 1;
@@ -161,10 +161,10 @@ LABEL_5:
       }
     }
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v22 = CurrentPrcb->SchedulerAssist;

@@ -1,33 +1,37 @@
 /*
- * XREFs of RtlImageRvaToVa @ 0x1800CBAE0
+ * XREFs of RtlImageRvaToVa @ 0x1800C9250
  * Callers:
  *     <none>
  * Callees:
- *     RtlImageRvaToSection @ 0x1800CBB70 (RtlImageRvaToSection.c)
+ *     RtlImageRvaToSection @ 0x1800C92E0 (RtlImageRvaToSection.c)
  */
 
-__int64 __fastcall RtlImageRvaToVa(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
+PVOID __cdecl RtlImageRvaToVa(
+        PIMAGE_NT_HEADERS NtHeaders,
+        PVOID BaseOfImage,
+        ULONG Rva,
+        PIMAGE_SECTION_HEADER *LastRvaSection)
 {
-  __int64 result; // rax
-  _DWORD *v8; // r10
-  unsigned int v9; // r8d
+  PVOID result; // rax
+  _IMAGE_SECTION_HEADER *v8; // r10
+  ULONG VirtualAddress; // r8d
 
-  if ( a4 )
+  if ( LastRvaSection )
   {
-    v8 = (_DWORD *)*a4;
-    if ( *a4 )
+    v8 = *LastRvaSection;
+    if ( *LastRvaSection )
     {
-      v9 = v8[3];
-      if ( a3 >= v9 && a3 < v9 + v8[4] )
+      VirtualAddress = v8->VirtualAddress;
+      if ( Rva >= VirtualAddress && Rva < VirtualAddress + v8->SizeOfRawData )
         goto LABEL_8;
     }
   }
-  result = RtlImageRvaToSection(a1, a2, a3);
-  v8 = (_DWORD *)result;
+  result = RtlImageRvaToSection(NtHeaders, BaseOfImage, Rva);
+  v8 = (_IMAGE_SECTION_HEADER *)result;
   if ( !result )
     return result;
-  if ( a4 )
+  if ( LastRvaSection )
 LABEL_8:
-    *a4 = v8;
-  return a2 + a3 - v8[3] + (unsigned int)v8[5];
+    *LastRvaSection = v8;
+  return (char *)BaseOfImage + Rva - v8->VirtualAddress + v8->PointerToRawData;
 }

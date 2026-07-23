@@ -23,10 +23,10 @@ char __fastcall RtlCSparseBitmapLeaveLockingRegion(unsigned __int8 *a1)
   if ( v1[1].ApcStateFill[0] )
   {
     v2 = *a1;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v1) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v1 <= 0xFu
         && (unsigned __int8)v2 <= 0xFu
         && (unsigned __int8)v1 >= 2u )

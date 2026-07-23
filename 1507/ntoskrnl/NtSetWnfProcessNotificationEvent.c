@@ -9,12 +9,12 @@
  *     ExpWnfCreateProcessContext @ 0x1405458E0 (ExpWnfCreateProcessContext.c)
  */
 
-__int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
+NTSTATUS __cdecl NtSetWnfProcessNotificationEvent(HANDLE NotificationEvent)
 {
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // rcx
   unsigned __int64 v4; // rdi
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   struct _KTHREAD *v6; // rcx
   __int16 v7; // ax
   unsigned __int64 v9; // [rsp+58h] [rbp+10h] BYREF
@@ -32,7 +32,7 @@ __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
       goto LABEL_5;
     v4 = v9;
   }
-  v5 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(NotificationEvent, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
   if ( v5 >= 0 )
   {
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 128), (signed __int64)Object, 0LL) )
@@ -55,5 +55,5 @@ LABEL_5:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v5;
+  return v5;
 }

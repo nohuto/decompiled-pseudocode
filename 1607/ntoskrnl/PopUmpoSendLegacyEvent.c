@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUmpoSendLegacyEvent @ 0x140548730
+ * XREFs of PopUmpoSendLegacyEvent @ 0x140548C70
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x1400FB738 (PopUmpoSendPowerMessage.c)
- *     PfIoPowerEventNotify @ 0x140530748 (PfIoPowerEventNotify.c)
+ *     PopUmpoSendPowerMessage @ 0x1400F94C4 (PopUmpoSendPowerMessage.c)
+ *     PfIoPowerEventNotify @ 0x140530C88 (PfIoPowerEventNotify.c)
  */
 
 __int64 __fastcall PopUmpoSendLegacyEvent(__int128 *a1, __int64 a2)

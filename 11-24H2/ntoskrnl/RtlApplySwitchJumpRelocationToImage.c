@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlApplySwitchJumpRelocationToImage @ 0x1406A2CC4
+ * XREFs of RtlApplySwitchJumpRelocationToImage @ 0x1406A3D14
  * Callers:
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1406A2D60 (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1406A3DB0 (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
- *     RtlpApplyGenericRetpolineFixup @ 0x1404562B4 (RtlpApplyGenericRetpolineFixup.c)
- *     RtlpConstructSwitchJumpRelocationFixup @ 0x1404C0FD0 (RtlpConstructSwitchJumpRelocationFixup.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x14044B280 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpConstructSwitchJumpRelocationFixup @ 0x1404BC5B8 (RtlpConstructSwitchJumpRelocationFixup.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall RtlApplySwitchJumpRelocationToImage(

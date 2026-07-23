@@ -1,12 +1,12 @@
 /*
- * XREFs of AccelQueryDescriptorSize @ 0x1406DF100
+ * XREFs of AccelQueryDescriptorSize @ 0x1406E33A0
  * Callers:
- *     AccelInitializeDescriptor @ 0x1406DEF84 (AccelInitializeDescriptor.c)
- *     SmHwAcceleratorCreate @ 0x14081A864 (SmHwAcceleratorCreate.c)
- *     MiQueryAcceleratorHandle @ 0x14087FAB0 (MiQueryAcceleratorHandle.c)
+ *     AccelInitializeDescriptor @ 0x1406E3224 (AccelInitializeDescriptor.c)
+ *     SmHwAcceleratorCreate @ 0x140820A74 (SmHwAcceleratorCreate.c)
+ *     MiQueryAcceleratorHandle @ 0x140885EB0 (MiQueryAcceleratorHandle.c)
  * Callees:
- *     AccelpInternalOperationHandler @ 0x140531E58 (AccelpInternalOperationHandler.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpInternalOperationHandler @ 0x1405342F8 (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelQueryDescriptorSize(__int64 a1, _DWORD *a2)

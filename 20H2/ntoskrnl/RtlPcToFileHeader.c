@@ -11,19 +11,25 @@
  *     RtlpxLookupFunctionTable @ 0x140228D50 (RtlpxLookupFunctionTable.c)
  */
 
-__int64 __fastcall RtlPcToFileHeader(unsigned __int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+PVOID __cdecl RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
 {
-  __int64 result; // rax
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+30h] [rbp-18h]
+  __int64 v2; // r9
+  PVOID result; // rax
+  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-18h]
 
-  v7 = 0LL;
   v6 = 0LL;
-  if ( a1 >= *(&xmmword_140E00020 + 1) && a1 < *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
-    v6 = *(_OWORD *)&xmmword_140E00020;
+  v5 = 0LL;
+  if ( (unsigned __int64)PcValue >= *(&xmmword_140E00020 + 1)
+    && (unsigned __int64)PcValue < *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
+  {
+    v5 = *(_OWORD *)&xmmword_140E00020;
+  }
   else
-    RtlpxLookupFunctionTable(a1, (unsigned __int64)&v6, *(&xmmword_140E00020 + 1), a4);
-  result = *((_QWORD *)&v6 + 1);
-  *a2 = *((_QWORD *)&v6 + 1);
+  {
+    RtlpxLookupFunctionTable((unsigned __int64)PcValue, (unsigned __int64)&v5, *(&xmmword_140E00020 + 1), v2);
+  }
+  result = (PVOID)*((_QWORD *)&v5 + 1);
+  *BaseOfImage = (PVOID)*((_QWORD *)&v5 + 1);
   return result;
 }

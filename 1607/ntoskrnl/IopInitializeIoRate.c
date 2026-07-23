@@ -1,9 +1,9 @@
 /*
- * XREFs of IopInitializeIoRate @ 0x14013C758
+ * XREFs of IopInitializeIoRate @ 0x14013CCC8
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExRegisterHost @ 0x140553420 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x140553960 (ExRegisterHost.c)
  */
 
 __int64 __fastcall IopInitializeIoRate(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlockStoreLockedPages @ 0x1404075E4
+ * XREFs of MiUnlockStoreLockedPages @ 0x1404006D4
  * Callers:
- *     MmStoreProbeAndLockPages @ 0x1402F0670 (MmStoreProbeAndLockPages.c)
- *     SmKmUnlockMdl @ 0x14040751C (SmKmUnlockMdl.c)
+ *     MmStoreProbeAndLockPages @ 0x1402D26F0 (MmStoreProbeAndLockPages.c)
+ *     SmKmUnlockMdl @ 0x14040060C (SmKmUnlockMdl.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiWriteCompletePfn @ 0x1404077B0 (MiWriteCompletePfn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiWriteCompletePfn @ 0x1404008A0 (MiWriteCompletePfn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiUnlockStoreLockedPages(_DWORD *a1, int a2)
@@ -61,13 +61,13 @@ __int64 __fastcall MiUnlockStoreLockedPages(_DWORD *a1, int a2)
       v3 = v8;
     v9 = MiWriteCompletePfn(v7);
     if ( v9 )
-      v10 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
+      v10 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
     else
       v10 = 0LL;
     v11 = 0x7FFFFFFFFFFFFFFFLL;
     _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v9 )
-      MiReleasePageFileInfo(v10, v9, 1);
+      MiReleasePageFileInfo(v10, v9, 1LL);
     ++v4;
     if ( CurrentIrql != 2 && (v4 & 0xF) == 0 )
     {

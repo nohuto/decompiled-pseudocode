@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogOutswappedProcessCommitReacquire @ 0x1402A3F9C
+ * XREFs of MiLogOutswappedProcessCommitReacquire @ 0x1402A418C
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4BD4 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4DC4 (MiReAcquireOutSwappedProcessCommit.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, int a3, int a4)
@@ -53,7 +53,7 @@ void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, in
           v23 = &v19;
           v24 = v10;
           v27 = 8;
-          TlgWriteEx(v12, &unk_14036DAAC, v11, v10, v17, v18, 5u, &pData);
+          TlgWriteEx(v12, &unk_14036E998, v11, v10, v17, v18, 5u, &pData);
         }
       }
       else if ( hProvider->LevelPlus1 > 5 && TlgKeywordOn(hProvider, 4uLL) )
@@ -67,7 +67,7 @@ void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, in
         v23 = &v19;
         v24 = v14;
         v27 = 8;
-        TlgWriteEx(v16, &unk_14036DA08, v15, v14, v17, v18, 5u, &pData);
+        TlgWriteEx(v16, &unk_14036E9EC, v15, v14, v17, v18, 5u, &pData);
       }
     }
     else if ( hProvider->LevelPlus1 > 5 )
@@ -83,7 +83,7 @@ void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, in
         v23 = &v19;
         v24 = v6;
         v27 = 8;
-        TlgWriteEx(v8, &unk_14036DA5C, v7, v6, v17, v18, 5u, &pData);
+        TlgWriteEx(v8, &unk_14036EAA6, v7, v6, v17, v18, 5u, &pData);
       }
     }
   }

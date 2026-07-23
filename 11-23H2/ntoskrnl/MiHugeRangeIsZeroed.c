@@ -1,7 +1,7 @@
 /*
- * XREFs of MiHugeRangeIsZeroed @ 0x140620D2C
+ * XREFs of MiHugeRangeIsZeroed @ 0x14062127C
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
  *     <none>
  */

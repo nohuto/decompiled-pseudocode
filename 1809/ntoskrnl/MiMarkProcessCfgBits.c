@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkProcessCfgBits @ 0x1405F47C4
+ * XREFs of MiMarkProcessCfgBits @ 0x1405F57C4
  * Callers:
- *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
+ *     MiCommitVadCfgBits @ 0x1405F55BC (MiCommitVadCfgBits.c)
  * Callees:
- *     MiMarkSharedImageCfgBits @ 0x1405F01D0 (MiMarkSharedImageCfgBits.c)
- *     MiMarkPrivateOpenCfgBits @ 0x1405F6524 (MiMarkPrivateOpenCfgBits.c)
- *     MiMarkPrivateImageCfgBits @ 0x1406513B4 (MiMarkPrivateImageCfgBits.c)
+ *     MiMarkSharedImageCfgBits @ 0x1405F11D0 (MiMarkSharedImageCfgBits.c)
+ *     MiMarkPrivateOpenCfgBits @ 0x1405F7524 (MiMarkPrivateOpenCfgBits.c)
+ *     MiMarkPrivateImageCfgBits @ 0x140652574 (MiMarkPrivateImageCfgBits.c)
  */
 
 __int64 __fastcall MiMarkProcessCfgBits(

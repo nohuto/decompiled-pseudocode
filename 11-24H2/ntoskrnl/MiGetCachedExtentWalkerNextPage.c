@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetCachedExtentWalkerNextPage @ 0x14067B0E4
+ * XREFs of MiGetCachedExtentWalkerNextPage @ 0x14067C2C4
  * Callers:
- *     MiTransferFileExtent @ 0x1404BEE98 (MiTransferFileExtent.c)
+ *     MiTransferFileExtent @ 0x1404BA3CC (MiTransferFileExtent.c)
  * Callees:
- *     MiInitializeCachedExtentWalker @ 0x1404BF028 (MiInitializeCachedExtentWalker.c)
+ *     MiInitializeCachedExtentWalker @ 0x1404BA55C (MiInitializeCachedExtentWalker.c)
  */
 
 __int64 __fastcall MiGetCachedExtentWalkerNextPage(__int64 a1, _QWORD *a2)

@@ -20,7 +20,7 @@
 
 __int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, char a3, const WCHAR *a4, _QWORD *a5)
 {
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   GUID *p_Guid; // rcx
   wchar_t *Buffer; // rdi
   unsigned int MaximumLength; // esi
@@ -31,14 +31,14 @@ __int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, char a3, const
   struct _KTHREAD *v16; // rax
   __int16 v17; // cx
   __int64 i; // rdi
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-61h] BYREF
+  UNICODE_STRING GuidString; // [rsp+40h] [rbp-61h] BYREF
   int v20; // [rsp+50h] [rbp-51h] BYREF
   int v21; // [rsp+54h] [rbp-4Dh] BYREF
   GUID Guid; // [rsp+58h] [rbp-49h] BYREF
   WCHAR SourceString[40]; // [rsp+70h] [rbp-31h] BYREF
 
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   v7 = 0;
   *a5 = 0LL;
   if ( !a3 )
@@ -73,9 +73,9 @@ __int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, char a3, const
       {
         KiCheckForKernelApcDelivery();
       }
-      if ( DeviceRegProp >= 0 && v21 == 1 && RtlCreateUnicodeString(&UnicodeString, SourceString) )
+      if ( DeviceRegProp >= 0 && v21 == 1 && RtlCreateUnicodeString(&GuidString, SourceString) )
       {
-        v7 = RtlGUIDFromString(&UnicodeString, &Guid);
+        v7 = RtlGUIDFromString(&GuidString, &Guid);
         if ( v7 >= 0 )
         {
           for ( i = *(_QWORD *)(a1 + 16); i; i = *(_QWORD *)(i + 16) )
@@ -89,7 +89,7 @@ LABEL_4:
           goto LABEL_5;
         }
 LABEL_31:
-        RtlFreeAnsiString(&UnicodeString);
+        RtlFreeAnsiString(&GuidString);
       }
     }
     v7 = ExUuidCreate(&Guid);
@@ -97,23 +97,23 @@ LABEL_31:
       return (unsigned int)v7;
     p_Guid = &Guid;
 LABEL_3:
-    v7 = RtlStringFromGUIDEx(&p_Guid->Data1, (__int64)&UnicodeString, 1);
+    v7 = RtlStringFromGUIDEx(p_Guid, &GuidString, 1u);
     goto LABEL_4;
   }
-  if ( !RtlCreateUnicodeString(&UnicodeString, a4) )
+  if ( !RtlCreateUnicodeString(&GuidString, a4) )
     return (unsigned int)-1073741670;
 LABEL_5:
-  Buffer = UnicodeString.Buffer;
-  if ( UnicodeString.Buffer )
+  Buffer = GuidString.Buffer;
+  if ( GuidString.Buffer )
   {
-    MaximumLength = UnicodeString.MaximumLength;
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, UnicodeString.MaximumLength, 0x6E657050u);
+    MaximumLength = GuidString.MaximumLength;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, GuidString.MaximumLength, 0x6E657050u);
     *a5 = PoolWithTag;
     if ( PoolWithTag )
       memmove(PoolWithTag, Buffer, MaximumLength);
     else
       v7 = -1073741670;
-    RtlFreeAnsiString(&UnicodeString);
+    RtlFreeAnsiString(&GuidString);
   }
   return (unsigned int)v7;
 }

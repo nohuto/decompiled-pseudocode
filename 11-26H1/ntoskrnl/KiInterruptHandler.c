@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInterruptHandler @ 0x1405F08D4
+ * XREFs of KiInterruptHandler @ 0x1405F3244
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn KiInterruptHandler(ULONG_PTR BugCheckParameter1, __int64 a2, ULONG_PTR a3)

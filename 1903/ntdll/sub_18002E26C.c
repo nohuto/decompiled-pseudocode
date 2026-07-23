@@ -20,21 +20,22 @@
  *     sub_1800CE318 @ 0x1800CE318 (sub_1800CE318.c)
  */
 
-__int64 __fastcall sub_18002E26C(__int64 a1, char a2)
+int __fastcall sub_18002E26C(__int64 a1, char a2)
 {
-  __int64 result; // rax
+  __int64 v4; // rax
   int v5; // edi
   int v6; // eax
   int v7; // eax
   char v8; // bl
+  int v10; // [rsp+20h] [rbp-38h]
 
-  result = *(_QWORD *)(a1 + 40);
-  if ( *(int *)result < 0 )
+  v4 = *(_QWORD *)(a1 + 40);
+  if ( *(int *)v4 < 0 )
     goto LABEL_21;
   if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 56) + 152LL) + 56LL) )
   {
-    result = sub_18001C610(a1);
-    v5 = result;
+    LODWORD(v4) = sub_18001C610(a1);
+    v5 = v4;
   }
   else
   {
@@ -50,10 +51,10 @@ __int64 __fastcall sub_18002E26C(__int64 a1, char a2)
         v6 = sub_18002DEC8(a1);
       v5 = v6;
     }
-    result = v5 + 0x80000000;
-    if ( (int)result < 0 || v5 == -1073741267 )
+    LODWORD(v4) = v5 + 0x80000000;
+    if ( (int)(v5 + 0x80000000) < 0 || v5 == -1073741267 )
       goto LABEL_21;
-    result = (unsigned int)dword_18015FAB0;
+    LODWORD(v4) = dword_18015FAB0;
     if ( (dword_18015FAB0 & 3) != 0 )
     {
       sub_1800CE318(
@@ -65,40 +66,41 @@ __int64 __fastcall sub_18002E26C(__int64 a1, char a2)
         a1,
         (*(_QWORD *)(a1 + 48) + 72LL) & (unsigned __int64)((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
         v5);
-      result = (unsigned int)dword_18015FAB0;
+      LODWORD(v4) = dword_18015FAB0;
     }
-    if ( (result & 0x10) != 0 )
+    if ( (v4 & 0x10) != 0 )
       __debugbreak();
     if ( v5 == -1073741515 )
     {
       sub_18007E384(3221225781LL, 25LL, 0LL, a1);
       sub_18007CDAC(a1);
+      LOBYTE(v10) = 0;
       sub_18007D1A8(
         a1,
-        (*(_DWORD *)(a1 + 48) + 72) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
-        -1073741515,
-        (unsigned int)&unk_18011C288,
-        0);
-      result = *(_QWORD *)(a1 + 56);
-      if ( (*(_BYTE *)(result + 104) & 0x20) != 0 )
-        result = sub_18006F388(a1, 0LL, 3221225781LL);
+        (*(_QWORD *)(a1 + 48) + 72LL) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
+        3221225781LL,
+        &unk_18011C288,
+        v10);
+      v4 = *(_QWORD *)(a1 + 56);
+      if ( (*(_BYTE *)(v4 + 104) & 0x20) != 0 )
+        LODWORD(v4) = sub_18006F388(a1, 0LL, 3221225781LL);
     }
   }
   if ( v5 < 0 )
   {
-    result = *(_QWORD *)(a1 + 40);
-    *(_DWORD *)result = v5;
+    v4 = *(_QWORD *)(a1 + 40);
+    *(_DWORD *)v4 = v5;
   }
 LABEL_21:
   if ( !a2 )
   {
-    RtlEnterCriticalSection((__int64)&unk_1801652C0);
+    RtlEnterCriticalSection(&stru_1801652C0);
     v7 = --dword_1801652E8;
     if ( (__int64 *)qword_1801652F0 != &qword_1801652F0 || (v8 = 1, v7 != 1) )
       v8 = 0;
-    result = RtlLeaveCriticalSection(&unk_1801652C0);
+    LODWORD(v4) = RtlLeaveCriticalSection(&stru_1801652C0);
     if ( v8 )
-      return ZwSetEvent(qword_1801652B0, 0LL);
+      LODWORD(v4) = ZwSetEvent(EventHandle, 0LL);
   }
-  return result;
+  return v4;
 }

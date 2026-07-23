@@ -1,10 +1,10 @@
 /*
- * XREFs of PiIommuPutInterface @ 0x140765EF8
+ * XREFs of PiIommuPutInterface @ 0x1407660B8
  * Callers:
- *     PiDmaGuardProcessNewDeviceNode @ 0x1407655E0 (PiDmaGuardProcessNewDeviceNode.c)
- *     PiIommuGetInterface @ 0x140765678 (PiIommuGetInterface.c)
+ *     PiDmaGuardProcessNewDeviceNode @ 0x1407657A0 (PiDmaGuardProcessNewDeviceNode.c)
+ *     PiIommuGetInterface @ 0x140765838 (PiIommuGetInterface.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall PiIommuPutInterface(__int64 a1))(_QWORD)

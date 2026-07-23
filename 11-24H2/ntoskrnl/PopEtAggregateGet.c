@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEtAggregateGet @ 0x140905DBC
+ * XREFs of PopEtAggregateGet @ 0x14099CA3C
  * Callers:
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1409055FC (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x14099C280 (PopEtEnergyTrackerUpdateAggregate.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopEtBucketsFree @ 0x14075D8A4 (PopEtBucketsFree.c)
- *     PopEtAllocate @ 0x1409044A0 (PopEtAllocate.c)
- *     PopEtAggregateKeyCleanup @ 0x1409051DC (PopEtAggregateKeyCleanup.c)
- *     PopEtAggregateKeyCopy @ 0x140905254 (PopEtAggregateKeyCopy.c)
- *     PopEtAggregateFind @ 0x1409060C4 (PopEtAggregateFind.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopEtBucketsFree @ 0x14075C844 (PopEtBucketsFree.c)
+ *     PopEtAggregateKeyCleanup @ 0x14099BE60 (PopEtAggregateKeyCleanup.c)
+ *     PopEtAggregateKeyCopy @ 0x14099BED8 (PopEtAggregateKeyCopy.c)
+ *     PopEtAggregateFind @ 0x14099CD44 (PopEtAggregateFind.c)
+ *     PopEtAllocate @ 0x14099D3A0 (PopEtAllocate.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopEtAggregateGet(__int64 a1, _OWORD *a2, __int64 *a3)
@@ -54,7 +54,7 @@ __int64 __fastcall PopEtAggregateGet(__int64 a1, _OWORD *a2, __int64 *a3)
   }
   else
   {
-    Pool2 = (__int64 *)ExAllocatePool2(0x100uLL);
+    Pool2 = (__int64 *)ExAllocatePool2(0x100uLL, 0x208uLL, 0x54456F50u);
     v9 = Pool2;
     if ( Pool2 )
     {
@@ -66,7 +66,7 @@ __int64 __fastcall PopEtAggregateGet(__int64 a1, _OWORD *a2, __int64 *a3)
         goto LABEL_5;
       if ( (unsigned int)v10 < 4 )
         v10 = 4LL;
-      v15 = (char *)PopEtAllocate();
+      v15 = (char *)PopEtAllocate(8LL * (unsigned int)v10, 0LL);
       if ( v15 )
       {
         if ( (((_DWORD)v10 - 1) & (unsigned int)v10) != 0 )

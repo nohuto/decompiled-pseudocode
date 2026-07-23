@@ -1,32 +1,32 @@
 /*
- * XREFs of MmFreeIndependentPages @ 0x140308D40
+ * XREFs of MmFreeIndependentPages @ 0x1402EADC0
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x140343D08 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x1404E4914 (IopLiveDumpFreeDumpBuffers.c)
- *     HvlStartBootLogicalProcessors @ 0x1405B9968 (HvlStartBootLogicalProcessors.c)
- *     HvlpInitializeHvCrashdump @ 0x1405C0B08 (HvlpInitializeHvCrashdump.c)
- *     IopLiveDumpReleaseResources @ 0x1405D164C (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D304C (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     KeAllocateProcessorProfileStructures @ 0x1405E4550 (KeAllocateProcessorProfileStructures.c)
- *     KiFreeProcessorStacks @ 0x1405EB2E0 (KiFreeProcessorStacks.c)
- *     KiFreeProcessorStateInitializationParameters @ 0x1405EB404 (KiFreeProcessorStateInitializationParameters.c)
- *     ExDeletePoolTagTable @ 0x1406CBB38 (ExDeletePoolTagTable.c)
- *     HvlDeleteProcessor @ 0x140791814 (HvlDeleteProcessor.c)
- *     MmAllocateIsrStack @ 0x140875DEC (MmAllocateIsrStack.c)
- *     MmFreeIsrStack @ 0x140875EE8 (MmFreeIsrStack.c)
- *     HvpFreeBin @ 0x1408B78AC (HvpFreeBin.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140345D88 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x1404DDEB4 (IopLiveDumpFreeDumpBuffers.c)
+ *     HvlStartBootLogicalProcessors @ 0x1405BC1D8 (HvlStartBootLogicalProcessors.c)
+ *     HvlpInitializeHvCrashdump @ 0x1405C3378 (HvlpInitializeHvCrashdump.c)
+ *     IopLiveDumpReleaseResources @ 0x1405D3E34 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D583C (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1405E6EC0 (KeAllocateProcessorProfileStructures.c)
+ *     KiFreeProcessorStacks @ 0x1405EDC50 (KiFreeProcessorStacks.c)
+ *     KiFreeProcessorStateInitializationParameters @ 0x1405EDD74 (KiFreeProcessorStateInitializationParameters.c)
+ *     ExDeletePoolTagTable @ 0x1406CFB68 (ExDeletePoolTagTable.c)
+ *     HvlDeleteProcessor @ 0x140794344 (HvlDeleteProcessor.c)
+ *     MmAllocateIsrStack @ 0x14087C1D0 (MmAllocateIsrStack.c)
+ *     MmFreeIsrStack @ 0x14087C2CC (MmFreeIsrStack.c)
+ *     HvpFreeBin @ 0x1408BDE7C (HvpFreeBin.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiDecreaseUsedPtesInPfn @ 0x140309000 (MiDecreaseUsedPtesInPfn.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiIsPfnFromChargedSlabAllocation @ 0x140309350 (MiIsPfnFromChargedSlabAllocation.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiDecreaseUsedPtesInPfn @ 0x1402EB080 (MiDecreaseUsedPtesInPfn.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiIsPfnFromChargedSlabAllocation @ 0x1402EB3D0 (MiIsPfnFromChargedSlabAllocation.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MmFreeIndependentPages(unsigned __int64 a1, unsigned __int64 a2)
@@ -124,13 +124,13 @@ __int64 __fastcall MmFreeIndependentPages(unsigned __int64 a1, unsigned __int64 
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, v22, v4);
-  result = qword_140E3D858;
-  if ( qword_140E3D858 )
+  MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, v22, v4);
+  result = qword_140E3D9D8;
+  if ( qword_140E3D9D8 )
   {
     MiReturnCommit(&MiSystemPartition, v9 - v8, 0LL);
     result = MiReturnResident(&MiSystemPartition, v5);
-    _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.Timer.Processor, -(__int64)v9);
+    _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.Timer.Processor, -(__int64)v9);
   }
   return result;
 }

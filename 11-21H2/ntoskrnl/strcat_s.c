@@ -1,9 +1,9 @@
 /*
  * XREFs of strcat_s @ 0x1403E7100
  * Callers:
- *     ExpSystemErrorHandler2 @ 0x140A6CC50 (ExpSystemErrorHandler2.c)
+ *     sub_140A6CC50 @ 0x140A6CC50 (sub_140A6CC50.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 errno_t __cdecl strcat_s(char *a1, rsize_t SizeInBytes, const char *Src)
@@ -45,13 +45,13 @@ LABEL_13:
       v6 = 22;
 LABEL_14:
       *a1 = 0;
-      xHalTimerWatchdogStop();
+      _misaligned_access();
       return v6;
     }
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return 22;
   }
 }

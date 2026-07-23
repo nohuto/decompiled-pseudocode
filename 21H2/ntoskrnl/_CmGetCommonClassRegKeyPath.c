@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmGetCommonClassRegKeyPath @ 0x140644FE0
+ * XREFs of _CmGetCommonClassRegKeyPath @ 0x140639DF0
  * Callers:
- *     _CmOpenCommonClassRegKeyWorker @ 0x140645118 (_CmOpenCommonClassRegKeyWorker.c)
- *     PiDqGetRelativeObjectRegPath @ 0x1406A9B6C (PiDqGetRelativeObjectRegPath.c)
- *     _CmDeleteCommonClassRegKeyWorker @ 0x140974E48 (_CmDeleteCommonClassRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x140607AEC (PiDqGetRelativeObjectRegPath.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140639F28 (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x140975028 (_CmDeleteCommonClassRegKeyWorker.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
- *     _CmValidateInstallerClassName @ 0x140645BCC (_CmValidateInstallerClassName.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
+ *     _CmValidateInstallerClassName @ 0x1406184E0 (_CmValidateInstallerClassName.c)
  */
 
 int __fastcall CmGetCommonClassRegKeyPath(
         __int64 a1,
-        __int64 a2,
+        const WCHAR *a2,
         __int16 a3,
         int a4,
         int a5,
@@ -37,14 +37,14 @@ int __fastcall CmGetCommonClassRegKeyPath(
   if ( (unsigned __int8)a3 == 32 )
   {
     v11 = (unsigned __int8)a3 - 30;
-    result = CmValidateInstallerClassName();
+    result = CmValidateInstallerClassName(a1, a2);
   }
   else
   {
     if ( (unsigned __int8)a3 != 64 )
       return -1073741811;
     v11 = 4;
-    result = CmValidateInstallerClassName();
+    result = CmValidateInstallerClassName(a1, a2);
   }
   if ( result < 0 )
     return result;
@@ -63,7 +63,7 @@ int __fastcall CmGetCommonClassRegKeyPath(
     {
       do
         ++v14;
-      while ( *(_WORD *)(a2 + 2 * v14) );
+      while ( a2[v14] );
       v16 += v14 + 1;
     }
     if ( v16 <= 0xFFFFFFFF )
@@ -95,7 +95,7 @@ int __fastcall CmGetCommonClassRegKeyPath(
       {
         do
           ++v20;
-        while ( *(_WORD *)(a2 + 2 * v20) );
+        while ( a2[v20] );
         v22 += v20 + 1;
       }
       if ( v22 > 0xFFFFFFFF )
@@ -140,7 +140,7 @@ int __fastcall CmGetCommonClassRegKeyPath(
   {
     do
       ++v17;
-    while ( *(_WORD *)(a2 + 2 * v17) );
+    while ( a2[v17] );
     v19 += v17 + 1;
   }
   if ( v19 > 0xFFFFFFFF )

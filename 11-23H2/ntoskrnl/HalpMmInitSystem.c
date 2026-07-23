@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMmInitSystem @ 0x140A90A90
+ * XREFs of HalpMmInitSystem @ 0x140A90910
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmReservePageTablePages @ 0x14037E56C (HalpMmReservePageTablePages.c)
- *     HalpMmAllocCtxInit @ 0x1403A3F4C (HalpMmAllocCtxInit.c)
- *     HalpInitMemoryCachingRequirementsTable @ 0x140A90B78 (HalpInitMemoryCachingRequirementsTable.c)
+ *     HalpMmReservePageTablePages @ 0x14037E70C (HalpMmReservePageTablePages.c)
+ *     HalpMmAllocCtxInit @ 0x1403A412C (HalpMmAllocCtxInit.c)
+ *     HalpInitMemoryCachingRequirementsTable @ 0x140A909F8 (HalpInitMemoryCachingRequirementsTable.c)
  *     HalpConsumeLowMemory @ 0x140B64FF0 (HalpConsumeLowMemory.c)
  */
 

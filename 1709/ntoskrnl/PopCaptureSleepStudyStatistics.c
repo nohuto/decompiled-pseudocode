@@ -53,45 +53,42 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
   __int64 v16; // rdx
   __int64 v17; // rdx
   __int64 v18; // rcx
-  __int64 v19; // rdx
+  __int64 v19; // rcx
   __int64 v20; // rcx
-  __int64 v21; // r8
+  __int64 v21; // rdx
   __int64 v22; // rcx
   __int64 v23; // rcx
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // rcx
+  __int64 v25; // [rsp+20h] [rbp-49h]
+  __int64 v26; // [rsp+20h] [rbp-49h]
+  __int64 v27; // [rsp+20h] [rbp-49h]
   __int64 v28; // [rsp+20h] [rbp-49h]
-  __int64 v29; // [rsp+20h] [rbp-49h]
-  __int64 v30; // [rsp+20h] [rbp-49h]
-  __int64 v31; // [rsp+20h] [rbp-49h]
-  int v32; // [rsp+30h] [rbp-39h] BYREF
-  int v33; // [rsp+34h] [rbp-35h] BYREF
-  unsigned int v34; // [rsp+38h] [rbp-31h] BYREF
-  __int64 v35; // [rsp+40h] [rbp-29h] BYREF
-  __int64 v36; // [rsp+48h] [rbp-21h] BYREF
-  _QWORD v37[3]; // [rsp+50h] [rbp-19h] BYREF
-  int v38; // [rsp+68h] [rbp-1h]
-  _BYTE v39[8]; // [rsp+70h] [rbp+7h] BYREF
-  int v40; // [rsp+78h] [rbp+Fh]
-  int v41; // [rsp+7Ch] [rbp+13h]
-  int v42; // [rsp+D0h] [rbp+67h] BYREF
-  int v43; // [rsp+D4h] [rbp+6Bh]
-  unsigned int v44; // [rsp+D8h] [rbp+6Fh] BYREF
-  int v45; // [rsp+E8h] [rbp+7Fh] BYREF
+  int v29; // [rsp+30h] [rbp-39h] BYREF
+  int v30; // [rsp+34h] [rbp-35h] BYREF
+  unsigned int v31; // [rsp+38h] [rbp-31h] BYREF
+  __int64 v32; // [rsp+40h] [rbp-29h] BYREF
+  __int64 v33; // [rsp+48h] [rbp-21h] BYREF
+  _QWORD v34[3]; // [rsp+50h] [rbp-19h] BYREF
+  int v35; // [rsp+68h] [rbp-1h]
+  _BYTE v36[8]; // [rsp+70h] [rbp+7h] BYREF
+  int v37; // [rsp+78h] [rbp+Fh]
+  int v38; // [rsp+7Ch] [rbp+13h]
+  int v39; // [rsp+D0h] [rbp+67h] BYREF
+  int v40; // [rsp+D4h] [rbp+6Bh]
+  unsigned int v41; // [rsp+D8h] [rbp+6Fh] BYREF
+  int v42; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  LOBYTE(v44) = a2;
-  v43 = HIDWORD(a1);
+  LOBYTE(v41) = a2;
+  v40 = HIDWORD(a1);
   v3 = PopWdiCurrentScenarioInstanceId;
   v4 = (_QWORD *)PopWdiCurrentScenario;
   v5 = 0;
+  v39 = 0;
+  v29 = 0;
+  v30 = 0;
   v42 = 0;
-  v32 = 0;
-  v33 = 0;
-  v45 = 0;
   PopBatteryUpdateCurrentState();
   PopAcquirePolicyLock(v7);
-  PopCurrentPowerState(v39);
+  PopCurrentPowerState(v36);
   v8 = MEMORY[0xFFFFF78000000008];
   v9 = *v4 - *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1;
   if ( *v4 == *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1 )
@@ -99,35 +96,35 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
   if ( v9 )
   {
     PopCalculateCsSummary(a3, PopSleepstudyStopReason);
-    PpmIdleCaptureCsVetoAccounting(v22, dword_140389CC0);
+    PpmIdleCaptureCsVetoAccounting(v19, dword_140389CC0);
     ExStopRecordingIRTimerExpiries();
     PopFxStopDeviceAccounting();
-    PpmSnapDripsAccountingSnapshot(v23, 10 * *(_QWORD *)(a3 + 32), 10 * *(_DWORD *)(a3 + 40));
+    PpmSnapDripsAccountingSnapshot(v20, 10 * *(_QWORD *)(a3 + 32), 10 * *(_DWORD *)(a3 + 40));
     PopDiagTraceCsConsumption(a3);
-    LOBYTE(v24) = v3;
-    PopDiagTraceCsExitReason(a3, v24);
+    LOBYTE(v21) = v3;
+    PopDiagTraceCsExitReason(a3, v21);
     if ( PopFxLookupSocSubsystemsByPlatformIdleState((unsigned int)dword_140389CC0) )
     {
-      PopFxLogSocSubsystemBlockingTimes(v25, (unsigned int)dword_140389CC0);
-      v5 = PopFxLogSocSubsystemMetadata(v26, (unsigned int)dword_140389CC0);
+      PopFxLogSocSubsystemBlockingTimes(v22, (unsigned int)dword_140389CC0);
+      v5 = PopFxLogSocSubsystemMetadata(v23, (unsigned int)dword_140389CC0);
     }
-    PopStatsNotifyPowerRequestCsState(v25, 0LL);
+    PopStatsNotifyPowerRequestCsState(v22, 0LL);
     PopClearConnectedStandbyMarker();
     qword_140389BC8 = 0LL;
   }
   else
   {
     PopWnfCsEnterScenarioId = v3;
-    PopCalculateIdleInformation((__int64)v37);
-    PpmGetPlatformSelectionVetoCounts(dword_140389CC0, &v35, &v36);
-    PopCsConsumption = v41;
-    qword_140389BD0 = v37[1];
-    dword_140389BE0 = v38;
-    qword_140389BD8 = v37[0];
-    qword_140389C48 = v37[2];
-    qword_140389C50 = v35;
-    qword_140389C58 = v36;
-    dword_140389C7C = v40;
+    PopCalculateIdleInformation((__int64)v34);
+    PpmGetPlatformSelectionVetoCounts(dword_140389CC0, &v32, &v33);
+    PopCsConsumption = v38;
+    qword_140389BD0 = v34[1];
+    dword_140389BE0 = v35;
+    qword_140389BD8 = v34[0];
+    qword_140389C48 = v34[2];
+    qword_140389C50 = v32;
+    qword_140389C58 = v33;
+    dword_140389C7C = v37;
     qword_140389BC8 = v8;
     qword_140389C00 = 0LL;
     qword_140389BE8 = 0LL;
@@ -137,13 +134,13 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
     qword_140389C30 = 0LL;
     qword_140389C40 = 0LL;
     byte_140389C78 = 0;
-    PopNetIsDisconnectStandbyActive(&v34);
+    PopNetIsDisconnectStandbyActive(&v31);
     PopGetEnergyCounter(&CsSessionEnergyCounter);
     byte_140389C6C = (dword_1403661AC == 0) | byte_140389C6C & 0xFE;
     IsCompliantNicPresent = PopNetIsCompliantNicPresent();
-    v11 = v34;
+    v11 = v31;
     LOBYTE(v12) = (byte_140389C6D ^ IsCompliantNicPresent) & 1 ^ byte_140389C6D;
-    if ( (((v34 - 1) & 0xFFFFFFFC) != 0 || v34 == 2)
+    if ( (((v31 - 1) & 0xFFFFFFFC) != 0 || v31 == 2)
       && (unsigned __int8)PopNetCheckUserConnectivityPolicy(v12)
       && !(unsigned __int8)PopNetCheckOpportunisticDs() )
     {
@@ -154,14 +151,14 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
       v13 = v12 | 2;
     }
     byte_140389C6D = v13;
-    PopGetPowerSettingValue((__int64)&GUID_ENERGY_SAVER_POLICY, v11, 3u, &v42, v28, &v44);
-    byte_140389C6D ^= (byte_140389C6D ^ (4 * v42)) & 4;
-    PopGetPowerSettingValue((__int64)&GUID_VIDEO_POWERDOWN_TIMEOUT, v14, 3u, &v45, v29, &v44);
-    dword_140389C60 = v45;
-    PopGetPowerSettingValue((__int64)&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT, v15, 3u, &v32, v30, &v44);
-    dword_140389C64 = v32;
-    PopGetPowerSettingValue((__int64)&GUID_STANDBY_TIMEOUT, v16, 3u, &v33, v31, &v44);
-    dword_140389C68 = v33;
+    PopGetPowerSettingValue((__int64)&GUID_ENERGY_SAVER_POLICY, v11, 3u, &v39, v25, &v41);
+    byte_140389C6D ^= (byte_140389C6D ^ (4 * v39)) & 4;
+    PopGetPowerSettingValue((__int64)&GUID_VIDEO_POWERDOWN_TIMEOUT, v14, 3u, &v42, v26, &v41);
+    dword_140389C60 = v42;
+    PopGetPowerSettingValue((__int64)&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT, v15, 3u, &v29, v27, &v41);
+    dword_140389C64 = v29;
+    PopGetPowerSettingValue((__int64)&GUID_STANDBY_TIMEOUT, v16, 3u, &v30, v28, &v41);
+    dword_140389C68 = v30;
     _InterlockedExchange64(&qword_140389C80, 0LL);
     if ( PopFxLookupSocSubsystemsByPlatformIdleState((unsigned int)dword_140389CC0) )
       v5 = PopFxResetSocSubsystemAccounting((unsigned int)dword_140389CC0);
@@ -176,6 +173,6 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
     LOBYTE(v17) = 1;
     PopStatsNotifyPowerRequestCsState(v18, v17);
   }
-  PopReleasePolicyLock(v20, v19, v21);
+  PopReleasePolicyLock();
   return v5;
 }

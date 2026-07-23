@@ -6,10 +6,12 @@
  *     RtlUnicodeStringValidateWorker_0 @ 0x4B2ECFE7 (RtlUnicodeStringValidateWorker_0.c)
  */
 
-int __thiscall RtlValidateUnicodeString(void *this, int a2, unsigned __int16 *a3)
+NTSTATUS __cdecl RtlValidateUnicodeString(ULONG Flags, PUNICODE_STRING String)
 {
-  if ( a2 )
+  int v2; // ecx
+
+  if ( Flags )
     return -1073741811;
   else
-    return RtlUnicodeStringValidateWorker_0(a3, (int)this);
+    return RtlUnicodeStringValidateWorker_0(&String->Length, v2);
 }

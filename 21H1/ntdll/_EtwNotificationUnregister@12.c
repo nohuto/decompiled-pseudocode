@@ -20,32 +20,37 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __stdcall EtwNotificationUnregister(int a1, __int16 a2, _DWORD *a3)
+ULONG __cdecl EtwNotificationUnregister(REGHANDLE RegHandle, PVOID *Context)
 {
-  int v3; // ecx
+  void *v2; // ecx
 
-  if ( !a2 || (a1 & 1) != 0 || a2 != *(_WORD *)(a1 + 52) || a1 == PrivateLoggerNotificationEntry )
-    goto LABEL_14;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 40));
-  if ( _InterlockedCompareExchange16((volatile signed __int16 *)(a1 + 52), 0, a2) != a2 )
+  if ( !WORD2(RegHandle)
+    || (RegHandle & 1) != 0
+    || WORD2(RegHandle) != *(_WORD *)(RegHandle + 52)
+    || (_DWORD)RegHandle == PrivateLoggerNotificationEntry )
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 40));
+    goto LABEL_14;
+  }
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(RegHandle + 40));
+  if ( _InterlockedCompareExchange16((volatile signed __int16 *)(RegHandle + 52), 0, SWORD2(RegHandle)) != WORD2(RegHandle) )
+  {
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(RegHandle + 40));
 LABEL_14:
     RtlSetLastWin32Error(6);
     return 6;
   }
-  EtwpRemoveRegistrationFromTable(a1);
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 40));
-  if ( (*(_WORD *)(a1 + 54) & 0x3FFF) != 0xA )
-    NtClose(*(HANDLE *)(a1 + 48));
-  v3 = *(_DWORD *)(a1 + 200);
-  if ( v3 )
+  EtwpRemoveRegistrationFromTable((PRTL_BALANCED_NODE)RegHandle);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(RegHandle + 40));
+  if ( (*(_WORD *)(RegHandle + 54) & 0x3FFF) != 0xA )
+    NtClose(*(HANDLE *)(RegHandle + 48));
+  v2 = *(void **)(RegHandle + 200);
+  if ( v2 )
   {
-    EtwpDereferenceUmGuidEntry(v3);
-    *(_DWORD *)(a1 + 200) = 0;
+    EtwpDereferenceUmGuidEntry(v2);
+    *(_DWORD *)(RegHandle + 200) = 0;
   }
-  if ( a3 )
-    *a3 = *(_DWORD *)(a1 + 32);
-  EtwpFreeRegistration(a1);
+  if ( Context )
+    *Context = *(PVOID *)(RegHandle + 32);
+  EtwpFreeRegistration(RegHandle);
   return 0;
 }

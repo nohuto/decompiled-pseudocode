@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckSnapAllUtility @ 0x14022B0B0
+ * XREFs of PpmCheckSnapAllUtility @ 0x1402CF960
  * Callers:
  *     <none>
  * Callees:
- *     PpmParkSnapNodeStatistics @ 0x14022B018 (PpmParkSnapNodeStatistics.c)
- *     PpmPerfSnapUtility @ 0x14056E8AC (PpmPerfSnapUtility.c)
+ *     PpmParkSnapNodeStatistics @ 0x1402CF8C8 (PpmParkSnapNodeStatistics.c)
+ *     PpmPerfSnapUtility @ 0x14056EAEC (PpmPerfSnapUtility.c)
  */
 
 char PpmCheckSnapAllUtility()
@@ -36,7 +36,7 @@ char PpmCheckSnapAllUtility()
   __int64 v24; // rcx
 
   PpmParkSnapNodeStatistics();
-  v0 = qword_140C113E8[0];
+  v0 = qword_140C113C8[0];
   v1 = 0;
   while ( v0 )
   {
@@ -125,7 +125,7 @@ LABEL_3:
   }
   while ( ++v1 < (unsigned int)(unsigned __int16)PpmCheckRegistered )
   {
-    v0 = qword_140C113E8[v1];
+    v0 = qword_140C113C8[v1];
     if ( v0 )
       goto LABEL_3;
   }

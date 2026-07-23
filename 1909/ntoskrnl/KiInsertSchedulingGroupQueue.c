@@ -7,18 +7,18 @@
  *     RtlRbInsertNodeEx @ 0x140064630 (RtlRbInsertNodeEx.c)
  */
 
-char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
+BOOLEAN __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // r9
   __int64 v4; // rax
   __int64 v7; // rcx
-  unsigned __int64 v8; // rdx
-  bool v9; // r8
+  __int64 v8; // rdx
+  BOOLEAN v9; // r8
   int v10; // r11d
   int v11; // eax
   unsigned __int16 v12; // ax
-  unsigned __int64 v13; // rax
-  char result; // al
+  __int64 v13; // rax
+  BOOLEAN result; // al
   unsigned __int16 v15; // r8
   int v16; // r10d
   int v17; // eax
@@ -98,7 +98,7 @@ LABEL_24:
       v8 = v13;
     }
   }
-  result = RtlRbInsertNodeEx((unsigned __int64 *)v7, v8, v9, a2 + 88);
+  result = RtlRbInsertNodeEx((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v8, v9, (PRTL_BALANCED_NODE)(a2 + 88));
   if ( a3 )
   {
     result = MEMORY[0xFFFFF78000000008];

@@ -1,10 +1,10 @@
 /*
- * XREFs of x86BiosWriteCmosPortByte @ 0x140580F90
+ * XREFs of x86BiosWriteCmosPortByte @ 0x1405834B0
  * Callers:
- *     x86BiosWriteCmosPort @ 0x140580F18 (x86BiosWriteCmosPort.c)
+ *     x86BiosWriteCmosPort @ 0x140583438 (x86BiosWriteCmosPort.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140451A74 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140530540 (HalpAcquireCmosSpinLock.c)
+ *     HalpReleaseCmosSpinLock @ 0x140449BA4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140532A40 (HalpAcquireCmosSpinLock.c)
  */
 
 __int64 __fastcall x86BiosWriteCmosPortByte(char a1, unsigned __int8 a2)

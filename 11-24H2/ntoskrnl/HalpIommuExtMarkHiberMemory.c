@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIommuExtMarkHiberMemory @ 0x1405521C4
+ * XREFs of HalpIommuExtMarkHiberMemory @ 0x14054FB04
  * Callers:
- *     IvtMarkHiberMemoryScalableModePasidTables @ 0x140B526C0 (IvtMarkHiberMemoryScalableModePasidTables.c)
- *     IvtMarkHiberRegions @ 0x140B52760 (IvtMarkHiberRegions.c)
- *     HsaMarkHiberRegions @ 0x140B53270 (HsaMarkHiberRegions.c)
+ *     IvtMarkHiberMemoryScalableModePasidTables @ 0x140B54710 (IvtMarkHiberMemoryScalableModePasidTables.c)
+ *     IvtMarkHiberRegions @ 0x140B547B0 (IvtMarkHiberRegions.c)
+ *     HsaMarkHiberRegions @ 0x140B552C0 (HsaMarkHiberRegions.c)
  * Callees:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
  */
 
 void __fastcall HalpIommuExtMarkHiberMemory(void *a1, void *a2, unsigned int a3)

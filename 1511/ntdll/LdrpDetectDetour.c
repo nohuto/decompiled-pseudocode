@@ -42,7 +42,7 @@ void LdrpDetectDetour()
     LdrpDetourExist = 1;
     if ( LdrpMapAndSnapWork )
     {
-      TpWaitForWork(LdrpMapAndSnapWork, 1LL);
+      TpWaitForWork(LdrpMapAndSnapWork, 1u);
       TpReleaseWork(LdrpMapAndSnapWork);
       LdrpMapAndSnapWork = 0LL;
       TpReleasePool(LdrpThreadPool);

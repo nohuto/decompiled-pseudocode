@@ -1,10 +1,10 @@
 /*
- * XREFs of VfSpIoSetCompletionRoutineEx_Exit @ 0x140AE86A0
+ * XREFs of VfSpIoSetCompletionRoutineEx_Exit @ 0x140AE8690
  * Callers:
  *     <none>
  * Callees:
  *     VfUtilFreePoolCheckIRQL @ 0x14020A910 (VfUtilFreePoolCheckIRQL.c)
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
  */
 
 void __fastcall VfSpIoSetCompletionRoutineEx_Exit(__int64 a1)
@@ -32,7 +32,7 @@ void __fastcall VfSpIoSetCompletionRoutineEx_Exit(__int64 a1)
       *v2 = *(_OWORD *)v4;
       v2[1] = *(_OWORD *)(v4 + 16);
       *(_QWORD *)(v3 - 8) = v2;
-      VfUtilFreePoolCheckIRQL((struct _SLIST_ENTRY *)v4);
+      VfUtilFreePoolCheckIRQL((_SLIST_ENTRY *)v4);
     }
   }
 }

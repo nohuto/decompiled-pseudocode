@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpSymbol @ 0x1409B99C0
+ * XREFs of KdpSymbol @ 0x1409BA9C0
  * Callers:
- *     KdpTrap @ 0x1409BAA20 (KdpTrap.c)
+ *     KdpTrap @ 0x1409BBA20 (KdpTrap.c)
  * Callees:
- *     KiRestoreProcessorControlState @ 0x1403FE170 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x1403FE240 (KiSaveProcessorControlState.c)
- *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
- *     KdpReportLoadSymbolsStateChange @ 0x1409B7DD0 (KdpReportLoadSymbolsStateChange.c)
- *     KdpCopyContext @ 0x1409B9B28 (KdpCopyContext.c)
+ *     KiRestoreProcessorControlState @ 0x1403FE350 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x1403FE420 (KiSaveProcessorControlState.c)
+ *     KdEnterDebugger @ 0x1409B8028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B8190 (KdExitDebugger.c)
+ *     KdpReportLoadSymbolsStateChange @ 0x1409B8DD0 (KdpReportLoadSymbolsStateChange.c)
+ *     KdpCopyContext @ 0x1409BAB28 (KdpCopyContext.c)
  */
 
 void __fastcall KdpSymbol(__int64 a1, __int64 a2, char a3, char a4, __int64 a5, __int64 a6)

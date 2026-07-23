@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpHpCompactHeapCallback @ 0x140346EF0
+ * XREFs of ExpHpCompactHeapCallback @ 0x140348F70
  * Callers:
- *     ExpPoolCompact @ 0x140346EA0 (ExpPoolCompact.c)
+ *     ExpPoolCompact @ 0x140348F20 (ExpPoolCompact.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpFreeHeap @ 0x140347010 (RtlpHpFreeHeap.c)
- *     RtlpHpHeapCompact @ 0x1403473E4 (RtlpHpHeapCompact.c)
- *     RtlpDynamicLookasideFlush @ 0x140347CA8 (RtlpDynamicLookasideFlush.c)
- *     RtlpHpVaMgrCtxQuery @ 0x140350620 (RtlpHpVaMgrCtxQuery.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpFreeHeap @ 0x140349090 (RtlpHpFreeHeap.c)
+ *     RtlpHpHeapCompact @ 0x140349464 (RtlpHpHeapCompact.c)
+ *     RtlpDynamicLookasideFlush @ 0x140349D28 (RtlpDynamicLookasideFlush.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403526A0 (RtlpHpVaMgrCtxQuery.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpHpCompactHeapCallback(__int64 a1)
@@ -36,9 +36,7 @@ __int64 __fastcall ExpHpCompactHeapCallback(__int64 a1)
       v9 = 0LL;
       if ( (_WORD)v4 )
         break;
-      v6 = RtlCSparseBitmapBitmaskRead(
-             (__int64)&ExpUuidLock.ThreadLock,
-             2 * ((v4 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+      v6 = RtlCSparseBitmapBitmaskRead((__int64)&ExpUuidLock.CycleTime, 2 * ((v4 - ExpUuidLock.ThreadLock) >> 20));
       if ( v6 )
       {
         v5 = v6 - 1;
@@ -47,7 +45,7 @@ __int64 __fastcall ExpHpCompactHeapCallback(__int64 a1)
       }
       v9 = 0LL;
       v10 = 0LL;
-      RtlpHpVaMgrCtxQuery(&ExpUuidLock.FirstArgument, v4, &v9);
+      RtlpHpVaMgrCtxQuery(&ExpUuidLock.TrapFrame, v4, &v9);
       v8 = *(_QWORD *)v10;
 LABEL_10:
       if ( !v8 )

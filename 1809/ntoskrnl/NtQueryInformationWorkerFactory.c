@@ -1,19 +1,24 @@
 /*
- * XREFs of NtQueryInformationWorkerFactory @ 0x14031EF60
+ * XREFs of NtQueryInformationWorkerFactory @ 0x14031F150
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x1406E2770 (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ExSystemExceptionFilter @ 0x1406E3A10 (ExSystemExceptionFilter.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
@@ -30,32 +35,32 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsig
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+C0h] [rbp-38h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 != 7 )
+  if ( WorkerFactoryInformationClass != WorkerFactoryBasicInformation )
     return -1073741821;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v10 = 0x7FFFFFFF0000LL;
     v11 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v11 = a3;
+    if ( (unsigned __int64)WorkerFactoryInformation < 0x7FFFFFFF0000LL )
+      v11 = (__int64)WorkerFactoryInformation;
     *(_BYTE *)v11 = *(_BYTE *)v11;
     *(_BYTE *)(v11 + 119) = *(_BYTE *)(v11 + 119);
-    if ( a5 )
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ReturnLength;
       *(_DWORD *)v10 = 120;
     }
   }
-  else if ( a5 )
+  else if ( ReturnLength )
   {
-    *a5 = 120;
+    *ReturnLength = 120;
   }
-  if ( a4 != 120 )
+  if ( WorkerFactoryInformationLength != 120 )
     return -1073741820;
-  result = ObReferenceObjectByHandle(Handle, 8u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(WorkerFactoryHandle, 8u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     memset(v19, 0, 0x78uLL);
@@ -95,14 +100,14 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsig
     }
     __writecr8(OldIrql);
     ObfDereferenceObjectWithTag(v12, 0x746C6644u);
-    *(__m128i *)a3 = si128;
-    *(__m128i *)(a3 + 16) = v19[1];
-    *(__m128i *)(a3 + 32) = v19[2];
-    *(__m128i *)(a3 + 48) = v19[3];
-    *(__m128i *)(a3 + 64) = v19[4];
-    *(__m128i *)(a3 + 80) = v19[5];
-    *(__m128i *)(a3 + 96) = v19[6];
-    *(_QWORD *)(a3 + 112) = v19[7].m128i_i64[0];
+    *(__m128i *)WorkerFactoryInformation = si128;
+    *((__m128i *)WorkerFactoryInformation + 1) = v19[1];
+    *((__m128i *)WorkerFactoryInformation + 2) = v19[2];
+    *((__m128i *)WorkerFactoryInformation + 3) = v19[3];
+    *((__m128i *)WorkerFactoryInformation + 4) = v19[4];
+    *((__m128i *)WorkerFactoryInformation + 5) = v19[5];
+    *((__m128i *)WorkerFactoryInformation + 6) = v19[6];
+    *((_QWORD *)WorkerFactoryInformation + 14) = v19[7].m128i_i64[0];
     return 0;
   }
   return result;

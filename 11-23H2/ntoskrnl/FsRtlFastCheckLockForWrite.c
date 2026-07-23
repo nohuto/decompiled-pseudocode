@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlFastCheckLockForWrite @ 0x140332220
+ * XREFs of FsRtlFastCheckLockForWrite @ 0x1403324B0
  * Callers:
- *     FsRtlCheckLockForWriteAccess @ 0x140332130 (FsRtlCheckLockForWriteAccess.c)
+ *     FsRtlCheckLockForWriteAccess @ 0x1403323C0 (FsRtlCheckLockForWriteAccess.c)
  * Callees:
  *     FsRtlCheckNoExclusiveConflict @ 0x140200D08 (FsRtlCheckNoExclusiveConflict.c)
  *     FsRtlCheckNoSharedConflict @ 0x140200E70 (FsRtlCheckNoSharedConflict.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
@@ -75,10 +75,13 @@ BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
         {
 LABEL_5:
           KxReleaseSpinLock(LockInformation + 3);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v12 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -102,10 +105,10 @@ LABEL_6:
       if ( v19 == 1 )
         v19 = FsRtlCheckNoExclusiveConflict((__int64)v9, v29, &v30, v18, (__int64)v14, (__int64)v15);
       KxReleaseSpinLock(v9);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v25 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v25 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v25 >= 2u )
         {
           v26 = KeGetCurrentPrcb();
           v27 = v26->SchedulerAssist;

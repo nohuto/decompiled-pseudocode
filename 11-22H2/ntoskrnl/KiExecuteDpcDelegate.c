@@ -45,6 +45,6 @@ void __noreturn KiExecuteDpcDelegate()
     }
     _enable();
     CurrentThread->WaitIrql = 2;
-    KiSwapThread((ULONG_PTR)CurrentThread, (__int64)CurrentPrcb, 0LL, v2);
+    KiSwapThread((ULONG_PTR)CurrentThread, (ULONG_PTR)CurrentPrcb, 0LL, v2);
   }
 }

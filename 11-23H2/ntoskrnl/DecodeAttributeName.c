@@ -1,12 +1,12 @@
 /*
- * XREFs of DecodeAttributeName @ 0x1409D2D0C
+ * XREFs of DecodeAttributeName @ 0x1409D2F0C
  * Callers:
- *     GetAttributeName @ 0x1409D30F4 (GetAttributeName.c)
- *     LocalGetRelativeAttributeForString @ 0x1409D5004 (LocalGetRelativeAttributeForString.c)
+ *     GetAttributeName @ 0x1409D32F4 (GetAttributeName.c)
+ *     LocalGetRelativeAttributeForString @ 0x1409D5204 (LocalGetRelativeAttributeForString.c)
  * Callees:
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     GetDigitFromChar2 @ 0x1409D3480 (GetDigitFromChar2.c)
- *     IsEncodedAttributeChar @ 0x1409D4848 (IsEncodedAttributeChar.c)
+ *     GetDigitFromChar2 @ 0x1409D3680 (GetDigitFromChar2.c)
+ *     IsEncodedAttributeChar @ 0x1409D4A48 (IsEncodedAttributeChar.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

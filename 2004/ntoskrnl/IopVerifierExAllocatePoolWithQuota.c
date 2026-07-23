@@ -54,7 +54,7 @@ _WORD *__fastcall IopVerifierExAllocatePoolWithQuota(POOL_TYPE a1, SIZE_T a2)
   unsigned __int64 v34; // rcx
   __int64 HeapFromVA; // rax
   __int64 v36; // rdx
-  int v37; // ebx
+  NTSTATUS v37; // ebx
   signed __int32 v38[8]; // [rsp+0h] [rbp-88h] BYREF
   unsigned __int64 v39; // [rsp+30h] [rbp-58h] BYREF
   __int64 v40; // [rsp+38h] [rbp-50h]
@@ -197,7 +197,7 @@ LABEL_14:
               goto LABEL_21;
             ExFreePoolWithTag(v8, 0x20206F49u);
             if ( v43 )
-              RtlRaiseStatus((unsigned int)v37);
+              RtlRaiseStatus(v37);
             return 0LL;
           }
         }
@@ -206,7 +206,7 @@ LABEL_14:
     else if ( !PoolWithTag && v3 )
     {
 LABEL_55:
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     }
     return v8;
   }

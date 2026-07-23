@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetProcessForegroundBackgroundRequest @ 0x140A37A4C
+ * XREFs of PspSetProcessForegroundBackgroundRequest @ 0x140A2C58C
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
- *     PsSetProcessPriorityByClass @ 0x140A37A20 (PsSetProcessPriorityByClass.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     PsSetProcessPriorityByClass @ 0x140A2C560 (PsSetProcessPriorityByClass.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PspSetProcessPriorityByClass @ 0x140451FC4 (PspSetProcessPriorityByClass.c)
- *     PspLockProcessExclusive @ 0x14045AB10 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x140462E74 (PspUnlockProcessExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PspSetProcessPriorityByClass @ 0x140447074 (PspSetProcessPriorityByClass.c)
+ *     PspLockProcessExclusive @ 0x14044FF38 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x140458484 (PspUnlockProcessExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2, char a3)
@@ -32,7 +32,7 @@ __int64 __fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2,
   int v23; // [rsp+8Ch] [rbp+23h]
 
   v6 = 1;
-  if ( (unsigned int)dword_140E085C0 > 5 )
+  if ( (unsigned int)dword_140E08630 > 5 )
   {
     v7 = *(_DWORD *)(a1 + 464);
     v17 = 0;
@@ -47,7 +47,7 @@ __int64 __fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2,
     v16 = 4;
     v19 = 1;
     v22 = 1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E085C0, (unsigned __int8 *)&byte_14005110F, 0LL, 0LL, 5u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E08630, (unsigned __int8 *)byte_140051C09, 0LL, 0LL, 5u, &v14);
   }
   v8 = a3 != 0 ? 0x20000 : 0x10000;
   PspLockProcessExclusive(a1, (__int64)KeGetCurrentThread());

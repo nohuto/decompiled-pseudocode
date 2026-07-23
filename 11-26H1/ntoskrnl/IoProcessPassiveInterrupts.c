@@ -1,14 +1,14 @@
 /*
- * XREFs of IoProcessPassiveInterrupts @ 0x1402C36B8
+ * XREFs of IoProcessPassiveInterrupts @ 0x14030E378
  * Callers:
- *     KiInterruptDispatchCommon @ 0x1402C3218 (KiInterruptDispatchCommon.c)
- *     KiDispatchPassiveInterrupts @ 0x1402C5640 (KiDispatchPassiveInterrupts.c)
+ *     KiInterruptDispatchCommon @ 0x14030DED8 (KiInterruptDispatchCommon.c)
+ *     KiDispatchPassiveInterrupts @ 0x140516710 (KiDispatchPassiveInterrupts.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     IopReleasePassiveInterruptBlockLock @ 0x1402C4F6C (IopReleasePassiveInterruptBlockLock.c)
- *     IopFindPassiveInterruptBlock @ 0x1402C5658 (IopFindPassiveInterruptBlock.c)
- *     IopAcquirePassiveInterruptBlockLock @ 0x140493660 (IopAcquirePassiveInterruptBlockLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     IopReleasePassiveInterruptBlockLock @ 0x14030FC2C (IopReleasePassiveInterruptBlockLock.c)
+ *     IopFindPassiveInterruptBlock @ 0x1403102F4 (IopFindPassiveInterruptBlock.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x14048CBF0 (IopAcquirePassiveInterruptBlockLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 IoProcessPassiveInterrupts()

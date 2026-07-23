@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetIommuInterface @ 0x1407D4D90
+ * XREFs of IoGetIommuInterface @ 0x1407D4F00
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 IoGetIommuInterface()

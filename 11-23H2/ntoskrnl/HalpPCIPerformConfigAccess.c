@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPCIPerformConfigAccess @ 0x14033F708
+ * XREFs of HalpPCIPerformConfigAccess @ 0x14033F998
  * Callers:
- *     HalpPciAccessMmConfigSpace @ 0x14033F534 (HalpPciAccessMmConfigSpace.c)
- *     HalpPciAccessIoConfigSpace @ 0x140394A7C (HalpPciAccessIoConfigSpace.c)
+ *     HalpPciAccessMmConfigSpace @ 0x14033F7C4 (HalpPciAccessMmConfigSpace.c)
+ *     HalpPciAccessIoConfigSpace @ 0x140394C5C (HalpPciAccessIoConfigSpace.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpPCIPerformConfigAccess(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5)

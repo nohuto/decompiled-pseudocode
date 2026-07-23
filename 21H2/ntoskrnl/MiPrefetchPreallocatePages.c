@@ -1,18 +1,18 @@
 /*
- * XREFs of MiPrefetchPreallocatePages @ 0x140539620
+ * XREFs of MiPrefetchPreallocatePages @ 0x140539860
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x140274EA0 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchVirtualMemory @ 0x140262E40 (MiPrefetchVirtualMemory.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027C7C0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E6690 (MiProtectionToCacheAttribute.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
- *     MiPrefetchReleasePreallocatedPages @ 0x1405399A0 (MiPrefetchReleasePreallocatedPages.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x140539BE0 (MiPrefetchReleasePreallocatedPages.c)
  */
 
 void __fastcall MiPrefetchPreallocatePages(
@@ -27,8 +27,8 @@ void __fastcall MiPrefetchPreallocatePages(
   unsigned __int64 v11; // rax
   unsigned __int64 v12; // rcx
   int *v13; // rsi
-  volatile signed __int32 *v14; // rax
-  volatile signed __int32 *v15; // rdx
+  __int64 v14; // rax
+  __int64 v15; // rdx
   unsigned int v16; // ecx
   unsigned __int64 v17; // rax
   unsigned __int64 v18; // r8
@@ -70,8 +70,8 @@ void __fastcall MiPrefetchPreallocatePages(
       v15 = v14;
       if ( !v14 )
         goto LABEL_41;
-      v16 = *((_DWORD *)v14 + 12);
-      v17 = (((*((unsigned int *)v14 + 7) | ((unsigned __int64)*((unsigned __int8 *)v14 + 33) << 32)) << 12) | 0xFFF)
+      v16 = *(_DWORD *)(v14 + 48);
+      v17 = (((*(unsigned int *)(v14 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 33) << 32)) << 12) | 0xFFF)
           + 1;
       if ( (v16 & 0x100000) != 0
         && (v16 & 0x70) == 0
@@ -80,7 +80,7 @@ void __fastcall MiPrefetchPreallocatePages(
         && (unsigned int)MiProtectionToCacheAttribute((v16 >> 7) & 0x1F) == 1 )
       {
         v13 = (int *)(a1 + 5);
-        v20 = *((unsigned int *)v15 + 6) | ((unsigned __int64)*((unsigned __int8 *)v15 + 32) << 32);
+        v20 = *(unsigned int *)(v15 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v15 + 32) << 32);
         a1[4] = v18;
         a1[3] = v20 << 12;
         *((_DWORD *)a1 + 10) = v19;
@@ -114,7 +114,7 @@ LABEL_18:
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
           }
-          LargePage = MiGetLargePage((__int64)a3, 1u, 1u, v24, 4, 0LL);
+          LargePage = MiGetLargePage((__int64)a3, 1u, 1, v24, 4, 0LL);
           *(_QWORD *)(a2 + 88) = LargePage;
           if ( LargePage )
             MiConvertEntireLargePageToSmall(LargePage, 1, 2LL, 1LL, 0LL, 0LL);

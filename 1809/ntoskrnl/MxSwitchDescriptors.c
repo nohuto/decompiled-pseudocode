@@ -1,10 +1,10 @@
 /*
- * XREFs of MxSwitchDescriptors @ 0x1409F7CFC
+ * XREFs of MxSwitchDescriptors @ 0x1409F8CFC
  * Callers:
- *     MxGetNextPage @ 0x1409BBB2C (MxGetNextPage.c)
+ *     MxGetNextPage @ 0x1409BCB2C (MxGetNextPage.c)
  * Callees:
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiInitializeBootMemoryDescriptor @ 0x1409BBD80 (MiInitializeBootMemoryDescriptor.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     MiInitializeBootMemoryDescriptor @ 0x1409BCD80 (MiInitializeBootMemoryDescriptor.c)
  */
 
 unsigned __int64 *__fastcall MxSwitchDescriptors(unsigned int a1)
@@ -24,7 +24,7 @@ unsigned __int64 *__fastcall MxSwitchDescriptors(unsigned int a1)
   v1 = KeLoaderBlock_0;
   v2 = a1;
   v3 = KeLoaderBlock_0 + 32;
-  v4 = (unsigned __int64 *)&qword_140A0D5B0[5 * a1];
+  v4 = (unsigned __int64 *)&qword_140A0E5B0[5 * a1];
   v5 = v4[4];
   while ( 2 )
   {
@@ -45,7 +45,7 @@ LABEL_14:
         v7 = 0;
         if ( KeNumberNodes )
         {
-          v8 = qword_140A0CBD0;
+          v8 = qword_140A0DBD0;
           do
           {
             if ( v5 == *v8 )

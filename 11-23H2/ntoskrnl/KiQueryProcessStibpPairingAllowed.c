@@ -1,7 +1,7 @@
 /*
- * XREFs of KiQueryProcessStibpPairingAllowed @ 0x140573D6C
+ * XREFs of KiQueryProcessStibpPairingAllowed @ 0x1405742AC
  * Callers:
- *     KiUpdateStibpPairing @ 0x140460E20 (KiUpdateStibpPairing.c)
+ *     KiUpdateStibpPairing @ 0x140461220 (KiUpdateStibpPairing.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvDismissPageFault @ 0x1404D9EB0
+ * XREFs of IommupHvDismissPageFault @ 0x1404DA0F0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvDismissPageFault(__int64 a1, ULONG_PTR *a2, int a3)
@@ -27,7 +27,7 @@ __int64 __fastcall IommupHvDismissPageFault(__int64 a1, ULONG_PTR *a2, int a3)
   }
   a2[4] = v5 | v3;
 LABEL_6:
-  result = ((__int64 (__fastcall *)(__int64, ULONG_PTR *))qword_140C4A2A0)(1LL, a2);
+  result = ((__int64 (__fastcall *)(__int64, ULONG_PTR *))qword_140C4A2E0)(1LL, a2);
   if ( (int)result < 0 )
     KeBugCheckEx(0x159u, 0x3102uLL, (int)result, (ULONG_PTR)a2, *a2);
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCommitPageTableRangesForVad @ 0x1404050D8
+ * XREFs of MiCommitPageTableRangesForVad @ 0x1403C7634
  * Callers:
- *     MiInsertChildVads @ 0x1409C407C (MiInsertChildVads.c)
+ *     MiInsertChildVads @ 0x14091A854 (MiInsertChildVads.c)
  * Callees:
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1402BAD10 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1404065E0 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiCommitPageTablesForVad @ 0x1408E26C0 (MiCommitPageTablesForVad.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140362450 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403C8D90 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiCommitPageTablesForVad @ 0x140919270 (MiCommitPageTablesForVad.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)

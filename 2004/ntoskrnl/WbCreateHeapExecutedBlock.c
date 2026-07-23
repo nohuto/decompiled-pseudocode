@@ -39,12 +39,12 @@ __int64 __fastcall WbCreateHeapExecutedBlock(__int64 a1, __int64 a2, void **a3)
   __int64 v22; // r8
   unsigned int v23; // r9d
   void *v24; // r14
-  __int64 *v25; // rbx
+  _QWORD *v25; // rbx
   _QWORD *v26; // r10
   _QWORD *v27; // rdx
-  __int64 *v28; // r9
+  PVOID *v28; // r9
   __int64 v29; // rax
-  __int64 *v30; // r14
+  PVOID *v30; // r14
   _QWORD *v31; // rbx
   __int64 v32; // r8
   unsigned __int64 v33; // rax
@@ -234,15 +234,15 @@ LABEL_5:
 LABEL_43:
                       v24 = v42;
                       memmove(v42, Src, *(unsigned int *)(a2 + 320));
-                      v25 = (__int64 *)v37;
+                      v25 = v37;
                       v26 = (char *)v37 + 64;
                       *((_QWORD *)v37 + 8) = *(_QWORD *)a2;
                       v27 = v25 + 5;
-                      v25[5] = (__int64)v24;
-                      v28 = v25 + 3;
+                      v25[5] = v24;
+                      v28 = (PVOID *)(v25 + 3);
                       v25[3] = v41 + *(unsigned int *)(a2 + 288);
                       v29 = *(unsigned int *)(a2 + 312);
-                      v30 = v25 + 4;
+                      v30 = (PVOID *)(v25 + 4);
                       if ( (_DWORD)v29 )
                         v25[4] = v41 + v29;
                       else
@@ -250,7 +250,7 @@ LABEL_43:
                       v31 = v37;
                       *((_DWORD *)v37 + 18) = *(_DWORD *)(a2 + 320);
                       v31[6] = *(_QWORD *)(a2 + 272);
-                      v32 = *(_QWORD *)(a2 + 272) - *v28;
+                      v32 = *(_QWORD *)(a2 + 272) - (_QWORD)*v28;
                       v31[7] = v32;
                       v33 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
                       if ( v33 && ((v35 = *(_WORD *)(v33 + 8), v35 == 332) || v35 == 452) )
@@ -258,10 +258,15 @@ LABEL_43:
                       else
                         *(_QWORD *)*v27 = v32;
                       *(_QWORD *)(*v27 + 8LL) = v43;
-                      v5 = ZwFlushInstructionCache(-1LL, *v28);
+                      v5 = ZwFlushInstructionCache((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v28, *(unsigned int *)(a2 + 284));
                       if ( v5 >= 0 )
                       {
-                        if ( !*(_QWORD *)(a2 + 296) || (v5 = ZwFlushInstructionCache(-1LL, *v30), v5 >= 0) )
+                        if ( !*(_QWORD *)(a2 + 296)
+                          || (v5 = ZwFlushInstructionCache(
+                                     (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                                     *v30,
+                                     *(unsigned int *)(a2 + 308)),
+                              v5 >= 0) )
                         {
                           if ( a3 )
                           {

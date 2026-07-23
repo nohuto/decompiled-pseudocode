@@ -8,7 +8,7 @@
 
 __int64 __fastcall RtlpQueryInformationActivationContextBasicInformation(
         char a1,
-        __int64 a2,
+        _ACTIVATION_CONTEXT *a2,
         __int64 a3,
         __int64 a4,
         __int64 a5,

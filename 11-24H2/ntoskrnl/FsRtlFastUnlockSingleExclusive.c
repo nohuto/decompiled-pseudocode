@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlFastUnlockSingleExclusive @ 0x1402498C0
+ * XREFs of FsRtlFastUnlockSingleExclusive @ 0x1402E3B00
  * Callers:
- *     FsRtlPrivateRemoveLock @ 0x1404D8BCC (FsRtlPrivateRemoveLock.c)
+ *     FsRtlPrivateRemoveLock @ 0x1404D201C (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     RtlRealSuccessor @ 0x140248410 (RtlRealSuccessor.c)
- *     RtlDelete @ 0x14024A8A0 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x14024A944 (FsRtlPrivateResetLowestLockOffset.c)
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14024ACAC (FsRtlPrivateCheckWaitingLocks.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRealSuccessor @ 0x1402E2650 (RtlRealSuccessor.c)
+ *     RtlDelete @ 0x1402E4AE0 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x1402E4B84 (FsRtlPrivateResetLowestLockOffset.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402E4EEC (FsRtlPrivateCheckWaitingLocks.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleExclusive(
@@ -29,25 +29,23 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
 {
   _RTL_SPLAY_LINKS *v9; // rbx
   KIRQL v13; // al
-  RTL_SPLAY_LINKS *v14; // rcx
+  _RTL_SPLAY_LINKS *v14; // rcx
   unsigned __int64 v15; // rbp
   unsigned __int64 v17; // rax
   PRTL_SPLAY_LINKS v18; // rsi
   _RTL_SPLAY_LINKS *RightChild; // r9
-  RTL_SPLAY_LINKS *v20; // r10
+  _RTL_SPLAY_LINKS *v20; // r10
   _RTL_SPLAY_LINKS *Parent; // rdx
   bool v22; // zf
   _RTL_SPLAY_LINKS *v23; // rcx
-  RTL_SPLAY_LINKS *v24; // r12
+  _RTL_SPLAY_LINKS *v24; // r12
   PRTL_SPLAY_LINKS v25; // rax
-  __int64 v26; // r8
-  __int64 v27; // r9
-  void *retaddr; // [rsp+48h] [rbp+0h]
-  _RTL_SPLAY_LINKS *v29; // [rsp+50h] [rbp+8h]
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
+  _RTL_SPLAY_LINKS *v27; // [rsp+50h] [rbp+8h]
 
   v9 = *a3;
   v13 = KeAcquireSpinLockRaiseToDpc(a1 + 3);
-  v14 = (RTL_SPLAY_LINKS *)a1[5];
+  v14 = (_RTL_SPLAY_LINKS *)a1[5];
   v15 = v13;
   if ( v14 )
   {
@@ -82,7 +80,7 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
     v23 = *a4;
     if ( !v22 )
       v18 = v20;
-    v29 = *a4;
+    v27 = *a4;
     if ( !v18 )
       v18 = 0LL;
     while ( 1 )
@@ -102,7 +100,7 @@ LABEL_36:
       if ( v18[1].Parent > v9 )
         goto LABEL_36;
       v25 = RtlRealSuccessor(v18);
-      v23 = v29;
+      v23 = v27;
       v18 = v25;
     }
     if ( a2[5].Parent == v24 )
@@ -113,7 +111,7 @@ LABEL_36:
     if ( !a8 && a1[2] )
     {
       KeReleaseSpinLock(a1 + 3, v15);
-      guard_dispatch_icall_no_overrides(a7, &v18[1], v26, v27);
+      guard_dispatch_icall_no_overrides(a7, &v18[1]);
       LOBYTE(v15) = KeAcquireSpinLockRaiseToDpc(a1 + 3);
     }
     ExFreeToNPagedLookasideList(&FsRtlExclusiveLockLookasideList, v18);

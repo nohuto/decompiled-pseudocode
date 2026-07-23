@@ -16,116 +16,121 @@
  *     sub_1800E433C @ 0x1800E433C (sub_1800E433C.c)
  */
 
-__int64 __fastcall RtlAddResourceAttributeAce(
-        unsigned __int8 *a1,
-        unsigned int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        _DWORD *a7)
+NTSTATUS __cdecl RtlAddResourceAttributeAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ULONG AccessMask,
+        PSID Sid,
+        PCLAIM_SECURITY_ATTRIBUTES_INFORMATION AttributeInfo,
+        PULONG ReturnLength)
 {
   _BYTE *v9; // rsi
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   int v12; // ecx
-  int v13; // ecx
-  __int64 Heap; // rax
+  int AclRevision; // ecx
+  _BYTE *Heap; // rax
   size_t v15; // r13
-  unsigned __int16 v16; // ax
+  __int64 v16; // rax
   unsigned __int16 v17; // dx
-  unsigned __int8 *v18; // r8
-  int v19; // ecx
+  PACL v18; // r8
+  ULONG v19; // ecx
   unsigned int v20; // r9d
-  __int64 v21; // r15
-  int v22; // r8d
+  _WORD *v21; // r15
+  ULONG v22; // r8d
   char v23; // al
   unsigned int Size; // [rsp+28h] [rbp-E0h] BYREF
-  int Size_4; // [rsp+2Ch] [rbp-DCh]
+  ULONG Size_4; // [rsp+2Ch] [rbp-DCh]
   __int64 v27; // [rsp+30h] [rbp-D8h]
-  __int64 v28; // [rsp+38h] [rbp-D0h] BYREF
+  PVOID FirstFree; // [rsp+38h] [rbp-D0h] BYREF
   int v29; // [rsp+40h] [rbp-C8h]
   unsigned __int16 v30; // [rsp+44h] [rbp-C4h]
   _BYTE Src[256]; // [rsp+48h] [rbp-C0h] BYREF
 
-  Size_4 = a3;
-  v28 = 0LL;
+  Size_4 = AceFlags;
+  FirstFree = 0LL;
   v29 = 0;
   v9 = 0LL;
   v30 = 256;
   memset(Src, 0, sizeof(Src));
   Size = 256;
-  if ( !a7 )
-    return (unsigned int)-1073741811;
-  *a7 = 0;
-  if ( !a1 )
-    return (unsigned int)-1073741705;
-  if ( !RtlValidSid((_BYTE *)a5) )
-    return (unsigned int)-1073741704;
-  v12 = *(_DWORD *)(a5 + 2) - v29;
+  if ( !ReturnLength )
+    return -1073741811;
+  *ReturnLength = 0;
+  if ( !Acl )
+    return -1073741705;
+  if ( !RtlValidSid(Sid) )
+    return -1073741704;
+  v12 = *(_DWORD *)((char *)Sid + 2) - v29;
   if ( !v12 )
-    v12 = *(unsigned __int16 *)(a5 + 6) - v30;
+    v12 = *((unsigned __int16 *)Sid + 3) - v30;
   if ( v12 )
-    return (unsigned int)-1073741811;
-  if ( *(_BYTE *)(a5 + 1) == 1 && !*(_DWORD *)(a5 + 8) )
+    return -1073741811;
+  if ( *((_BYTE *)Sid + 1) == 1 && !*((_DWORD *)Sid + 2) )
   {
-    if ( *a1 > 4u || a2 > 4 )
-      return (unsigned int)-1073741735;
-    v13 = *a1;
-    if ( *a1 <= (unsigned __int8)a2 )
-      v13 = (unsigned __int8)a2;
-    LODWORD(v27) = v13;
-    if ( (Size_4 & 0xFFFFFFE0) == 0 && !a4 && (unsigned __int8)sub_1800E433C(a6) && *(_DWORD *)(a6 + 4) == 1 )
+    if ( Acl->AclRevision > 4u || AceRevision > 4 )
+      return -1073741735;
+    AclRevision = Acl->AclRevision;
+    if ( Acl->AclRevision <= (unsigned __int8)AceRevision )
+      AclRevision = (unsigned __int8)AceRevision;
+    LODWORD(v27) = AclRevision;
+    if ( (Size_4 & 0xFFFFFFE0) == 0
+      && !AccessMask
+      && (unsigned __int8)sub_1800E433C(AttributeInfo)
+      && AttributeInfo->AttributeCount == 1 )
     {
       v9 = Src;
-      v11 = RtlpConvertAbsoluteToRelativeSecurityAttribute(*(_QWORD *)(a6 + 8), Src, &Size);
+      v11 = RtlpConvertAbsoluteToRelativeSecurityAttribute(AttributeInfo->Attribute.pAttributeV1, Src, &Size);
       if ( v11 == -1073741789 )
       {
-        Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015C294 + 1310720, Size);
-        v9 = (_BYTE *)Heap;
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, Flags + 1310720, Size);
+        v9 = Heap;
         if ( !Heap )
-          return (unsigned int)-1073741801;
-        v11 = RtlpConvertAbsoluteToRelativeSecurityAttribute(*(_QWORD *)(a6 + 8), Heap, &Size);
+          return -1073741801;
+        v11 = RtlpConvertAbsoluteToRelativeSecurityAttribute(AttributeInfo->Attribute.pAttributeV1, Heap, &Size);
       }
       if ( v11 >= 0 )
       {
-        if ( RtlValidAcl((__int64)a1) && RtlFirstFreeAce((__int64)a1, &v28) )
+        if ( RtlValidAcl(Acl) && RtlFirstFreeAce(Acl, &FirstFree) )
         {
           v15 = Size;
-          if ( Size > 0xFFFF || (v16 = 4 * (*(unsigned __int8 *)(a5 + 1) + 4), (unsigned __int16)(v16 + Size) < v16) )
+          if ( Size > 0xFFFF
+            || (v16 = (unsigned __int16)(4 * (*((unsigned __int8 *)Sid + 1) + 4)),
+                (unsigned __int16)(v16 + Size) < (unsigned __int16)v16) )
           {
             v11 = -1073741675;
           }
           else
           {
             v17 = v16 + Size;
-            v18 = a1 + 8;
+            v18 = Acl + 1;
             v19 = 8;
             v20 = 0;
-            for ( *a7 = 8; v20 < *((unsigned __int16 *)a1 + 2); v18 += *((unsigned __int16 *)v18 + 1) )
+            for ( *ReturnLength = 8; v20 < Acl->AceCount; v18 = (PACL)((char *)v18 + v18->AclSize) )
             {
               ++v20;
-              v19 = *a7 + *((unsigned __int16 *)v18 + 1);
-              *a7 = v19;
+              v19 = *ReturnLength + v18->AclSize;
+              *ReturnLength = v19;
             }
-            v21 = v28;
+            v21 = FirstFree;
             v22 = v19 + v17;
-            *a7 = v22;
-            if ( v21 && v21 + (unsigned __int64)v17 <= (unsigned __int64)&a1[*((unsigned __int16 *)a1 + 1)] )
+            *ReturnLength = v22;
+            if ( v21 && (char *)v21 + v17 <= (char *)Acl + Acl->AclSize )
             {
               v23 = Size_4;
-              *(_WORD *)(v21 + 2) = v17;
-              *(_BYTE *)(v21 + 1) = v23;
+              v21[1] = v17;
+              *((_BYTE *)v21 + 1) = v23;
               *(_BYTE *)v21 = 18;
-              *(_DWORD *)(v21 + 4) = 0;
-              RtlCopySid(4 * *(unsigned __int8 *)(a5 + 1) + 8, (void *)(v21 + 8), (unsigned __int8 *)a5);
-              memmove((void *)(v21 + 4 * (unsigned int)*(unsigned __int8 *)(a5 + 1) + 8 + 8LL), v9, v15);
-              ++*((_WORD *)a1 + 2);
-              *a1 = v27;
+              *((_DWORD *)v21 + 1) = 0;
+              RtlCopySid(4 * *((unsigned __int8 *)Sid + 1) + 8, v21 + 4, Sid);
+              memmove(&v21[2 * *((unsigned __int8 *)Sid + 1) + 8], v9, v15);
+              ++Acl->AceCount;
+              Acl->AclRevision = v27;
             }
             else
             {
               v11 = -1073741671;
-              *a7 = (v22 + 3) & 0xFFFFFFFC;
+              *ReturnLength = (v22 + 3) & 0xFFFFFFFC;
             }
           }
         }
@@ -136,11 +141,11 @@ __int64 __fastcall RtlAddResourceAttributeAce(
       }
       goto LABEL_39;
     }
-    return (unsigned int)-1073741811;
+    return -1073741811;
   }
   v11 = -1073741811;
 LABEL_39:
   if ( v9 && v9 != Src )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v9);
-  return (unsigned int)v11;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
+  return v11;
 }

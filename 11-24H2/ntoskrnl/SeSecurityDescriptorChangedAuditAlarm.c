@@ -1,21 +1,21 @@
 /*
- * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x1408F1C3C
+ * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x140912CF0
  * Callers:
- *     NtSetSecurityObject @ 0x14087A070 (NtSetSecurityObject.c)
+ *     NtSetSecurityObject @ 0x1409118E0 (NtSetSecurityObject.c)
  * Callees:
- *     SeMaximumAuditMask @ 0x14049EEA8 (SeMaximumAuditMask.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     SepIsSidEqual @ 0x140794990 (SepIsSidEqual.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     SepAdtAuditThisEventWithContext @ 0x140852C10 (SepAdtAuditThisEventWithContext.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x14088A310 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1408F03C0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x1408F23FC (SepQueryTypeString.c)
- *     SepQueryNameString @ 0x1408F2B48 (SepQueryNameString.c)
- *     SepIsAclEqual @ 0x1408F3200 (SepIsAclEqual.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SeMaximumAuditMask @ 0x140499CD8 (SeMaximumAuditMask.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     SepIsSidEqual @ 0x1407951F4 (SepIsSidEqual.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14084EED0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x140861BC0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepIsAclEqual @ 0x140863BB4 (SepIsAclEqual.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x14088E1C0 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepQueryTypeString @ 0x140913780 (SepQueryTypeString.c)
+ *     SepQueryNameString @ 0x140914194 (SepQueryNameString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeSecurityDescriptorChangedAuditAlarm(
@@ -99,10 +99,10 @@ void __fastcall SeSecurityDescriptorChangedAuditAlarm(
   void *v77; // rcx
   __int16 v78; // ax
   __int64 v79; // rax
-  __int64 v80; // rdx
+  _WORD *v80; // rdx
   __int16 v81; // ax
   __int64 v82; // rax
-  __int64 v83; // rcx
+  _WORD *v83; // rcx
   int v84; // [rsp+58h] [rbp-99h]
   __int64 v85; // [rsp+60h] [rbp-91h]
   ACCESS_MASK AuditMask[2]; // [rsp+68h] [rbp-89h] BYREF
@@ -544,23 +544,23 @@ LABEL_24:
       {
         if ( v78 >= 0 )
         {
-          v80 = *(_QWORD *)(v21 + 32);
+          v80 = *(_WORD **)(v21 + 32);
 LABEL_203:
           v81 = *(_WORD *)(v24 + 2);
           if ( (v81 & 4) != 0 )
           {
             if ( v81 >= 0 )
             {
-              v83 = *(_QWORD *)(v24 + 32);
+              v83 = *(_WORD **)(v24 + 32);
 LABEL_209:
-              if ( !(unsigned __int8)SepIsAclEqual(v83, v80) )
+              if ( !SepIsAclEqual(v83, v80) )
                 v13 |= 4u;
               goto LABEL_25;
             }
             v82 = *(unsigned int *)(v24 + 16);
             if ( (_DWORD)v82 )
             {
-              v83 = v24 + v82;
+              v83 = (_WORD *)(v24 + v82);
               goto LABEL_209;
             }
           }
@@ -570,7 +570,7 @@ LABEL_209:
         v79 = *(unsigned int *)(v21 + 16);
         if ( (_DWORD)v79 )
         {
-          v80 = v21 + v79;
+          v80 = (_WORD *)(v21 + v79);
           goto LABEL_203;
         }
       }

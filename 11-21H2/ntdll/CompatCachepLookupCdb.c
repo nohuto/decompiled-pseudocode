@@ -16,7 +16,7 @@ __int64 __fastcall CompatCachepLookupCdb(wchar_t *Str, int a2)
 {
   unsigned int v4; // ebx
   wchar_t *v5; // rax
-  wchar_t *v6; // rax
+  const WCHAR *v6; // rax
   _QWORD v8[50]; // [rsp+20h] [rbp-198h] BYREF
   int v9; // [rsp+1D0h] [rbp+18h] BYREF
 
@@ -28,7 +28,7 @@ __int64 __fastcall CompatCachepLookupCdb(wchar_t *Str, int a2)
     v6 = v5 + 1;
   else
     v6 = Str;
-  if ( (int)RtlInitUnicodeStringEx((__int64)&v8[31], (__int64)v6) < 0 )
+  if ( RtlInitUnicodeStringEx((PUNICODE_STRING)&v8[31], v6) < 0 )
     return 0LL;
   LODWORD(v8[48]) = 4;
   v8[47] = &v9;

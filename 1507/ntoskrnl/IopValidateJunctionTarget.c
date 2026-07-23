@@ -29,8 +29,8 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
   size_t v5; // r13
   char *v7; // r14
   wchar_t *PoolWithTag; // r15
-  struct _REPARSE_DATA_BUFFER *PoolWithTagPriority; // rax
-  struct _REPARSE_DATA_BUFFER *v10; // rbx
+  _REPARSE_DATA_BUFFER *PoolWithTagPriority; // rax
+  _REPARSE_DATA_BUFFER *v10; // rbx
   int appended; // edi
   _DWORD *v12; // rax
   struct _KPROCESS *Process; // rcx
@@ -49,7 +49,7 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
   PVOID TokenInformation; // [rsp+38h] [rbp-130h] BYREF
   UNICODE_STRING v28; // [rsp+40h] [rbp-128h] BYREF
   char *v29; // [rsp+50h] [rbp-118h]
-  struct _REPARSE_DATA_BUFFER *v30; // [rsp+58h] [rbp-110h]
+  _REPARSE_DATA_BUFFER *v30; // [rsp+58h] [rbp-110h]
   PVOID Object; // [rsp+60h] [rbp-108h] BYREF
   UNICODE_STRING String2; // [rsp+68h] [rbp-100h] BYREF
   UNICODE_STRING DosName; // [rsp+80h] [rbp-E8h] BYREF
@@ -79,21 +79,21 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
   RtlInitUnicodeString(&DosName, 0LL);
   if ( ViVerifierDriverAddedThunkListHead )
   {
-    PoolWithTagPriority = (struct _REPARSE_DATA_BUFFER *)ExAllocatePoolWithTagPriority(
-                                                           NonPagedPoolNx,
-                                                           (unsigned int)v5,
-                                                           0x20206F49u,
-                                                           (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
+    PoolWithTagPriority = (_REPARSE_DATA_BUFFER *)ExAllocatePoolWithTagPriority(
+                                                    NonPagedPoolNx,
+                                                    (unsigned int)v5,
+                                                    0x20206F49u,
+                                                    (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
     v10 = PoolWithTagPriority;
     if ( !PoolWithTagPriority )
       RtlRaiseStatus(-1073741670);
   }
   else
   {
-    PoolWithTagPriority = (struct _REPARSE_DATA_BUFFER *)ExAllocatePoolWithQuotaTag(
-                                                           NonPagedPoolNx,
-                                                           (unsigned int)v5,
-                                                           0x20206F49u);
+    PoolWithTagPriority = (_REPARSE_DATA_BUFFER *)ExAllocatePoolWithQuotaTag(
+                                                    NonPagedPoolNx,
+                                                    (unsigned int)v5,
+                                                    0x20206F49u);
     v10 = PoolWithTagPriority;
   }
   v30 = PoolWithTagPriority;

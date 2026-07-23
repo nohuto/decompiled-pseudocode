@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxStaticWorkPoolThread @ 0x1403B2DC0
+ * XREFs of PopFxStaticWorkPoolThread @ 0x1403B2FA0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     PopFxProcessWorkPool @ 0x140310FF4 (PopFxProcessWorkPool.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     PopFxProcessWorkPool @ 0x140311284 (PopFxProcessWorkPool.c)
  */
 
 NTSTATUS __fastcall PopFxStaticWorkPoolThread(__int64 a1)

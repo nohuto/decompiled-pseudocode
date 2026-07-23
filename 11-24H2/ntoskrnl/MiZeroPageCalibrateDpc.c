@@ -1,16 +1,16 @@
 /*
- * XREFs of MiZeroPageCalibrateDpc @ 0x140694280
+ * XREFs of MiZeroPageCalibrateDpc @ 0x140695350
  * Callers:
  *     <none>
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiFillMemory @ 0x14040A5D0 (MiFillMemory.c)
- *     MiStartDpcZeroingRound @ 0x140693A3C (MiStartDpcZeroingRound.c)
- *     MiWakeAllZeroCalibrationProcessors @ 0x140693ACC (MiWakeAllZeroCalibrationProcessors.c)
- *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x140693B04 (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
- *     MiZeroPageCalibrateLastDpcProcessorDone @ 0x140694468 (MiZeroPageCalibrateLastDpcProcessorDone.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiFillMemory @ 0x140402AB0 (MiFillMemory.c)
+ *     MiStartDpcZeroingRound @ 0x140694B0C (MiStartDpcZeroingRound.c)
+ *     MiWakeAllZeroCalibrationProcessors @ 0x140694B9C (MiWakeAllZeroCalibrationProcessors.c)
+ *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x140694BD4 (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
+ *     MiZeroPageCalibrateLastDpcProcessorDone @ 0x140695538 (MiZeroPageCalibrateLastDpcProcessorDone.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiZeroPageCalibrateDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3)

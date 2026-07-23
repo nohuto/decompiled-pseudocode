@@ -37,7 +37,7 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
   MEMORY_CACHING_TYPE v20; // esi
   PVOID v21; // rbp
   unsigned int v22; // esi
-  __int64 v23; // r8
+  int v23; // r8d
   int v24; // edx
   __int16 v25; // r8
   __int64 v26; // rcx
@@ -115,13 +115,10 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
       {
         v23 = ~(AdapterCacheAlignment - 1);
         v12->ByteOffset = v23 & v18 & 0xFFF;
-        v12->StartVa = (PVOID)((v18 - ((unsigned int)v18 - ((unsigned int)v23 & (unsigned int)v18))) & 0xFFFFFFFFFFFFF000uLL);
+        v12->StartVa = (PVOID)((v18 - ((unsigned int)v18 - (v23 & (unsigned int)v18))) & 0xFFFFFFFFFFFFF000uLL);
         v12->ByteCount = v23 & (v22 + AdapterCacheAlignment + v18 - (v23 & v18) - 1);
         if ( !a8 )
-        {
-          LOBYTE(v23) = 1;
-          KeFlushIoBuffers((ULONG_PTR)v12, 1, v23, AdapterCacheAlignment);
-        }
+          KeFlushIoBuffers((ULONG_PTR)v12, 1, 1, AdapterCacheAlignment);
       }
       if ( !a7 )
         memmove(v21, (const void *)v18, v22);

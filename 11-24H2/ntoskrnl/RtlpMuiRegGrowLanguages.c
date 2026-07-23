@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegGrowLanguages @ 0x14082CCD8
+ * XREFs of RtlpMuiRegGrowLanguages @ 0x14082D508
  * Callers:
- *     RtlpMuiRegGetOrAddLangInfo @ 0x14082C8EC (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x14082D11C (RtlpMuiRegGetOrAddLangInfo.c)
  * Callees:
- *     _SafeReallocBlob @ 0x1406A2AF8 (_SafeReallocBlob.c)
+ *     _SafeReallocBlob @ 0x1406A3B48 (_SafeReallocBlob.c)
  */
 
 unsigned int *__fastcall RtlpMuiRegGrowLanguages(unsigned int *Src, int a2)
@@ -29,7 +29,7 @@ unsigned int *__fastcall RtlpMuiRegGrowLanguages(unsigned int *Src, int a2)
       v6 = v4 + 4;
       if ( v6 >= v4 )
       {
-        v7 = SafeReallocBlob(Src, 0x18u, v6, 0x1Cu, v9, v10, &v11);
+        v7 = SafeReallocBlob(Src, 0x18u, v6, 0x1Cu, v9, v10, (unsigned int *)&v11);
         v5 = v7;
         if ( v7 )
         {

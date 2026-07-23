@@ -1,31 +1,31 @@
 /*
- * XREFs of NtAlpcCreateSectionView @ 0x140AB13A0
+ * XREFs of NtAlpcCreateSectionView @ 0x140AAF390
  * Callers:
- *     DifNtAlpcCreateSectionViewWrapper @ 0x14066C820 (DifNtAlpcCreateSectionViewWrapper.c)
+ *     DifNtAlpcCreateSectionViewWrapper @ 0x140670400 (DifNtAlpcCreateSectionViewWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     AlpcpCreateSectionView @ 0x1408EB2B8 (AlpcpCreateSectionView.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcReferenceBlobByHandle @ 0x1409BED80 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteView @ 0x1409C1A54 (AlpcpDeleteView.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     AlpcpCreateSectionView @ 0x1408F1878 (AlpcpCreateSectionView.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcReferenceBlobByHandle @ 0x14098FD60 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteView @ 0x140992A34 (AlpcpDeleteView.c)
  */
 
-__int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, _QWORD *a3)
+NTSTATUS __cdecl NtAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, PALPC_DATA_VIEW_ATTR ViewAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // si
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   struct _KLOCK_ENTRIES *v8; // r9
   PVOID v9; // r13
   void *v10; // r12
   ULONG_PTR v12; // r14
-  _QWORD *v13; // rcx
+  PVOID *p_ViewBase; // rcx
   PVOID Object[2]; // [rsp+38h] [rbp-60h] BYREF
   __int128 v15; // [rsp+48h] [rbp-50h] BYREF
   __int64 v16; // [rsp+58h] [rbp-40h]
@@ -38,17 +38,17 @@ __int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, _QWORD *a3)
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
     goto LABEL_22;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, 0x20uLL, 4u);
-    RtlCopyFromUser(&v15, a3, 0x20uLL);
+    ProbeForWrite(ViewAttributes, 0x20uLL, 4u);
+    RtlCopyFromUser(&v15, ViewAttributes, 0x20uLL);
   }
   else
   {
-    RtlCopyVolatileMemory(&v15, a3, 0x20uLL);
+    RtlCopyVolatileMemory(&v15, ViewAttributes, 0x20uLL);
   }
   if ( (_DWORD)v15 || !v17 || v16 )
   {
@@ -58,7 +58,7 @@ LABEL_22:
   else
   {
     Object[0] = 0LL;
-    v7 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, Object, 0LL);
+    v7 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, Object, 0LL);
     if ( v7 >= 0 )
     {
       v9 = Object[0];
@@ -74,15 +74,15 @@ LABEL_22:
         if ( v7 >= 0 )
         {
           v12 = BugCheckParameter2;
-          v13 = a3 + 2;
+          p_ViewBase = &ViewAttributes->ViewBase;
           if ( PreviousMode )
-            RtlWriteULong64ToUser(v13, *(_QWORD *)(BugCheckParameter2 + 40));
+            RtlWriteULong64ToUser(p_ViewBase, *(_QWORD *)(BugCheckParameter2 + 40));
           else
-            *v13 = *(_QWORD *)(BugCheckParameter2 + 40);
+            *p_ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
           if ( PreviousMode )
-            RtlWriteULong64ToUser(a3 + 3, *(_QWORD *)(v12 + 48));
+            RtlWriteULong64ToUser(&ViewAttributes->ViewSize, *(_QWORD *)(v12 + 48));
           else
-            a3[3] = *(_QWORD *)(v12 + 48);
+            ViewAttributes->ViewSize = *(_QWORD *)(v12 + 48);
           AlpcpDereferenceBlobEx(v12, 1);
         }
         AlpcpDereferenceBlobEx((ULONG_PTR)v10, 1);
@@ -95,5 +95,5 @@ LABEL_22:
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v7;
+  return v7;
 }

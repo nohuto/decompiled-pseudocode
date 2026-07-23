@@ -5,7 +5,7 @@
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
  *     RtlpSecMemFreeVirtualMemory @ 0x1800611AC (RtlpSecMemFreeVirtualMemory.c)
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  *     RtlpHeapLogRangeRelease @ 0x180103E70 (RtlpHeapLogRangeRelease.c)
  */
 
@@ -44,7 +44,7 @@ __int64 __fastcall RtlpDestroyHeapSegment(__int64 a1)
   v12 = 0LL;
   v13 = v7;
   v9 = RtlpSecMemFreeVirtualMemory(v4, &v13, &v12, 0x8000LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v10 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
     v10 = 2147353480LL;

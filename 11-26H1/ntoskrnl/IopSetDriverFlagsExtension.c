@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSetDriverFlagsExtension @ 0x14045E08C
+ * XREFs of IopSetDriverFlagsExtension @ 0x140457C2C
  * Callers:
- *     IoMakeAssociatedIrpPriv @ 0x14045DD08 (IoMakeAssociatedIrpPriv.c)
+ *     IoMakeAssociatedIrpPriv @ 0x1404578A8 (IoMakeAssociatedIrpPriv.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopSetDriverFlagsExtension(__int64 a1, __int64 a2)

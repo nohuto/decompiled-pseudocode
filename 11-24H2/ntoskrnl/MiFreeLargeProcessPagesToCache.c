@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreeLargeProcessPagesToCache @ 0x140692714
+ * XREFs of MiFreeLargeProcessPagesToCache @ 0x1406937E4
  * Callers:
- *     MiFreeLargePages @ 0x1403CC4F0 (MiFreeLargePages.c)
+ *     MiFreeLargePages @ 0x1402666C0 (MiFreeLargePages.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiFreeLargePageCharges @ 0x1403A9C50 (MiFreeLargePageCharges.c)
- *     MiEmptyCacheSlice @ 0x1406925C4 (MiEmptyCacheSlice.c)
- *     MiFreeCacheSlice @ 0x1406926A8 (MiFreeCacheSlice.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiFreeLargePageCharges @ 0x1403988E0 (MiFreeLargePageCharges.c)
+ *     MiEmptyCacheSlice @ 0x140693694 (MiEmptyCacheSlice.c)
+ *     MiFreeCacheSlice @ 0x140693778 (MiFreeCacheSlice.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
@@ -46,7 +46,7 @@ __int64 __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
   _WORD *v32; // r9
   bool v33; // cf
   int v34; // [rsp+20h] [rbp-C8h]
-  __int64 v35; // [rsp+28h] [rbp-C0h]
+  unsigned __int64 v35; // [rsp+28h] [rbp-C0h]
   volatile _KAFFINITY_EX *ActiveProcessors; // [rsp+30h] [rbp-B8h]
   _QWORD v37[12]; // [rsp+40h] [rbp-A8h] BYREF
 
@@ -56,7 +56,7 @@ __int64 __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
   v6 = ActiveProcessors[3].StaticBitmap[31];
   v34 = *(_DWORD *)(48 * v3 - 0x21FFFFFFFFE0LL);
   v7 = MiPageToNode(v3);
-  v35 = *((_QWORD *)qword_140E2FF88 + HIWORD(Process[2].ProcessListEntry.Blink));
+  v35 = *((_QWORD *)qword_140E300C8 + HIWORD(Process[2].ProcessListEntry.Blink));
   *(_DWORD *)(v6 + 24) = *(_DWORD *)(v35 + 16472);
   v8 = ((3LL * v7 + ((unsigned __int64)BYTE2(v34) >> 6)) << 6) + v6 + 32;
   MiFreeLargePageCharges(v35, 16 * a2, 0);

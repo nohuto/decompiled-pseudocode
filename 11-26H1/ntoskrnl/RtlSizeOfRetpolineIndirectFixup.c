@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlSizeOfRetpolineIndirectFixup @ 0x1404737AC
+ * XREFs of RtlSizeOfRetpolineIndirectFixup @ 0x14046CF2C
  * Callers:
- *     RtlpConstructIndirectRelocationFixup @ 0x140472F40 (RtlpConstructIndirectRelocationFixup.c)
- *     RtlCreateRetpolineRelocationInformation @ 0x1404732EC (RtlCreateRetpolineRelocationInformation.c)
+ *     RtlpConstructIndirectRelocationFixup @ 0x14046C6C0 (RtlpConstructIndirectRelocationFixup.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x14046CA6C (RtlCreateRetpolineRelocationInformation.c)
  * Callees:
  *     <none>
  */

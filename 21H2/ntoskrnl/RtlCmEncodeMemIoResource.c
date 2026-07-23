@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlCmEncodeMemIoResource @ 0x1403AD4E0
+ * XREFs of RtlCmEncodeMemIoResource @ 0x1403AD630
  * Callers:
- *     HalpReportResourceUsage @ 0x140A39D8C (HalpReportResourceUsage.c)
- *     IopInitializeResourceMap @ 0x140A3A34C (IopInitializeResourceMap.c)
+ *     HalpReportResourceUsage @ 0x140A3AD8C (HalpReportResourceUsage.c)
+ *     IopInitializeResourceMap @ 0x140A3B34C (IopInitializeResourceMap.c)
  * Callees:
  *     <none>
  */

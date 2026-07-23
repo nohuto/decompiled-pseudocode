@@ -1,17 +1,17 @@
 /*
- * XREFs of MiWritePteHighLevelIsr @ 0x14064E490
+ * XREFs of MiWritePteHighLevelIsr @ 0x14064E9E0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG_PTR __fastcall MiWritePteHighLevelIsr(ULONG_PTR Argument)
@@ -101,7 +101,7 @@ ULONG_PTR __fastcall MiWritePteHighLevelIsr(ULONG_PTR Argument)
   CurrentIrql = KeGetCurrentIrql();
   v51 = CurrentIrql;
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -301,10 +301,10 @@ LABEL_80:
     MiInsertTbFlushEntry((__int64)v58, qword_140C684E8 << 25 >> 16, 1LL, 0);
     MiFlushTbList((int *)v58);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v46 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && v51 <= 0xFu && v46 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && v51 <= 0xFu && v46 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v48 = CurrentPrcb->SchedulerAssist;

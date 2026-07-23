@@ -1,61 +1,59 @@
 /*
- * XREFs of EtwNotificationRegister @ 0x1800571C0
+ * XREFs of EtwNotificationRegister @ 0x180041740
  * Callers:
- *     EtwEventRegister @ 0x180057A10 (EtwEventRegister.c)
- *     EtwRegisterTraceGuidsW @ 0x180058E60 (EtwRegisterTraceGuidsW.c)
- *     SbSelectProcedure @ 0x1800631F0 (SbSelectProcedure.c)
- *     SbObtainTraceHandle @ 0x1800647E0 (SbObtainTraceHandle.c)
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x18006D830 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     EtwEventRegister @ 0x180041F90 (EtwEventRegister.c)
+ *     EtwRegisterTraceGuidsW @ 0x1800433E0 (EtwRegisterTraceGuidsW.c)
+ *     SbSelectProcedure @ 0x180083640 (SbSelectProcedure.c)
+ *     SbObtainTraceHandle @ 0x180084C30 (SbObtainTraceHandle.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x18008DC80 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlSetLastWin32Error @ 0x180056610 (RtlSetLastWin32Error.c)
- *     EtwpCheckForPrivatePreEnable @ 0x180057A60 (EtwpCheckForPrivatePreEnable.c)
- *     EtwpRegisterProvider @ 0x180057DE0 (EtwpRegisterProvider.c)
- *     EtwpInsertRegistration @ 0x18006CFB0 (EtwpInsertRegistration.c)
- *     ProviderHandleRemove @ 0x18006D270 (ProviderHandleRemove.c)
- *     EtwpFreeRegistration @ 0x18006D308 (EtwpFreeRegistration.c)
- *     RtlpInterlockedPopEntrySList @ 0x180162CD0 (RtlpInterlockedPopEntrySList.c)
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlSetLastWin32Error @ 0x180040B90 (RtlSetLastWin32Error.c)
+ *     EtwpCheckForPrivatePreEnable @ 0x180041FE0 (EtwpCheckForPrivatePreEnable.c)
+ *     EtwpRegisterProvider @ 0x180042360 (EtwpRegisterProvider.c)
+ *     EtwpInsertRegistration @ 0x18008D400 (EtwpInsertRegistration.c)
+ *     ProviderHandleRemove @ 0x18008D6C0 (ProviderHandleRemove.c)
+ *     EtwpFreeRegistration @ 0x18008D758 (EtwpFreeRegistration.c)
+ *     RtlpInterlockedPopEntrySList @ 0x180162BD0 (RtlpInterlockedPopEntrySList.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
-__int64 __fastcall EtwNotificationRegister(
-        struct _SLIST_ENTRY *a1,
-        int a2,
-        _SLIST_ENTRY *a3,
-        __int64 a4,
-        unsigned __int64 *a5)
+ULONG __cdecl EtwNotificationRegister(
+        LPCGUID Guid,
+        ULONG Type,
+        PETW_NOTIFICATION_CALLBACK Callback,
+        PVOID Context,
+        PREGHANDLE RegHandle)
 {
   __int16 v7; // si
   unsigned __int32 i; // edx
   signed __int32 v10; // eax
   PSLIST_ENTRY v11; // rdi
-  __int64 Heap_0; // rax
-  __int64 v13; // rdx
-  struct _SLIST_ENTRY v14; // xmm0
+  _SLIST_ENTRY *Heap_0; // rax
+  GUID v13; // xmm0
   __int16 Next_high; // cx
-  signed __int16 v16; // ax
-  volatile signed __int64 *v17; // r15
-  struct _SLIST_ENTRY *v18; // r12
-  __int64 v19; // rdx
-  unsigned int v20; // ebx
-  __int64 v21; // rbp
-  volatile __int64 *v22; // rcx
-  unsigned int v23; // esi
-  __int64 v24; // rcx
-  __int64 v26; // r8
-  unsigned __int8 v27; // al
-  __int64 v28; // rdx
-  int v29; // [rsp+60h] [rbp+8h]
+  signed __int16 v15; // ax
+  _RTL_SRWLOCK *v16; // r15
+  _SLIST_ENTRY *v17; // r12
+  unsigned int v18; // ebx
+  __int64 v19; // rbp
+  volatile __int64 *v20; // rcx
+  unsigned __int32 v21; // esi
+  __int64 v22; // rcx
+  _QWORD *v24; // r8
+  unsigned __int8 v25; // al
+  __int64 v26; // rdx
+  unsigned int v27; // [rsp+60h] [rbp+8h]
 
-  v7 = a2;
-  if ( !a1 || !a5 || !memcmp(a1, &PrivateLoggerNotificationGuid, 0x10uLL) && PrivateLoggerNotificationEntry )
+  v7 = Type;
+  if ( !Guid || !RegHandle || !memcmp(Guid, &PrivateLoggerNotificationGuid, 0x10uLL) && PrivateLoggerNotificationEntry )
   {
-    v23 = 87;
+    v21 = 87;
     goto LABEL_19;
   }
-  *a5 = 0LL;
+  *RegHandle = 0LL;
   for ( i = EtwpRegistrationCount; ; i = v10 )
   {
     if ( i >= 0x800 )
@@ -67,27 +65,26 @@ __int64 __fastcall EtwNotificationRegister(
   v11 = RtlpInterlockedPopEntrySList(&EtwpFreeRegistrationList);
   if ( v11 )
     goto LABEL_10;
-  Heap_0 = RtlAllocateHeap_0();
-  v11 = (PSLIST_ENTRY)Heap_0;
+  Heap_0 = (_SLIST_ENTRY *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 0x100uLL);
+  v11 = Heap_0;
   if ( Heap_0 )
   {
-    *(_QWORD *)(Heap_0 + 64) = 0LL;
-    *(_QWORD *)(Heap_0 + 72) = 0LL;
+    Heap_0[4].Next = 0LL;
+    *((_QWORD *)&Heap_0[4].Next + 1) = 0LL;
 LABEL_10:
-    v14 = *a1;
-    v11[3].Next = a3;
-    v13 = 0x3FFFLL;
-    *((_QWORD *)&v11[3].Next + 1) = a4;
-    v11[2] = v14;
+    v13 = *Guid;
+    v11[3].Next = (_SLIST_ENTRY *)Callback;
+    *((_QWORD *)&v11[3].Next + 1) = Context;
+    v11[2] = (_SLIST_ENTRY)v13;
     Next_high = HIWORD(v11[5].Next);
     *((_DWORD *)&v11[15].Next + 2) = NtCurrentTeb()->SubProcessTag;
     HIWORD(v11[5].Next) = (HIWORD(v11[5].Next) ^ (v7 ^ Next_high) & 0x3FFF) & 0xBFFF;
     do
     {
-      v16 = _InterlockedExchangeAdd16(&EtwpRegistrationSequence, 1u);
-      WORD2(v11[5].Next) = v16 + 1;
+      v15 = _InterlockedExchangeAdd16(&EtwpRegistrationSequence, 1u);
+      WORD2(v11[5].Next) = v15 + 1;
     }
-    while ( v16 == -1 );
+    while ( v15 == -1 );
     goto LABEL_12;
   }
   _InterlockedDecrement(&EtwpRegistrationCount);
@@ -95,65 +92,66 @@ LABEL_12:
   if ( !v11 )
   {
 LABEL_23:
-    v23 = 14;
+    v21 = 14;
     goto LABEL_19;
   }
-  v17 = (volatile signed __int64 *)&v11[4];
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)&v11[4], v13);
-  v18 = v11 + 5;
+  v16 = (_RTL_SRWLOCK *)&v11[4];
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)&v11[4]);
+  v17 = v11 + 5;
   LODWORD(v11[5].Next) = NtCurrentTeb()->ClientId.UniqueThread;
-  RtlAcquireSRWLockExclusive(&qword_1801C72E8, v19);
-  v20 = dword_1801C72E0;
-  if ( !dword_1801C72E0
-    || (v21 = (__int64)v11,
-        (unsigned int)dword_1801C72E0 >> 4 >= dword_180193038[((unsigned int)dword_1801C72E0 >> 1) & 7]) )
+  RtlAcquireSRWLockExclusive(&SRWLock);
+  v18 = dword_1801C62E0;
+  if ( !dword_1801C62E0
+    || (v19 = (__int64)v11,
+        (unsigned int)dword_1801C62E0 >> 4 >= dword_180192040[((unsigned int)dword_1801C62E0 >> 1) & 7]) )
   {
-    if ( (unsigned __int8)byte_1801C72E4 >= 8u
-      || (v29 = dword_180193038[(unsigned __int8)byte_1801C72E4], (v26 = RtlAllocateHeap_0()) == 0) )
+    if ( (unsigned __int8)byte_1801C62E4 >= 8u
+      || (v27 = dword_180192040[(unsigned __int8)byte_1801C62E4],
+          (v24 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 8LL * v27)) == 0LL) )
     {
-      v23 = 14;
-      RtlReleaseSRWLockExclusive(&qword_1801C72E8);
-      LODWORD(v18->Next) = 0;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)&v11[4]);
+      v21 = 14;
+      RtlReleaseSRWLockExclusive(&SRWLock);
+      LODWORD(v17->Next) = 0;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)&v11[4]);
       EtwpFreeRegistration(v11);
       goto LABEL_19;
     }
-    v27 = byte_1801C72E4;
-    v28 = 0LL;
-    v21 = (__int64)v11;
-    v20 = (2 * (byte_1801C72E4 & 7)) | 1;
-    if ( v29 )
+    v25 = byte_1801C62E4;
+    v26 = 0LL;
+    v19 = (__int64)v11;
+    v18 = (2 * (byte_1801C62E4 & 7)) | 1;
+    if ( v27 )
     {
       do
       {
-        *(_QWORD *)(v26 + 8 * v28) = v20 | (unsigned __int64)(unsigned int)(16 * (v28 + 1));
-        v28 = (unsigned int)(v28 + 1);
+        v24[v26] = v18 | (unsigned __int64)(unsigned int)(16 * (v26 + 1));
+        v26 = (unsigned int)(v26 + 1);
       }
-      while ( (_DWORD)v28 != v29 );
-      v27 = byte_1801C72E4;
+      while ( (_DWORD)v26 != v27 );
+      v25 = byte_1801C62E4;
     }
-    _InterlockedExchange64(&qword_1801C72A0[v27], v26);
-    ++byte_1801C72E4;
+    _InterlockedExchange64(&qword_1801C62A0[v25], (__int64)v24);
+    ++byte_1801C62E4;
   }
-  v22 = (volatile __int64 *)(qword_1801C72A0[(v20 >> 1) & 7] + 8 * ((unsigned __int64)v20 >> 4));
-  dword_1801C72E0 = *(_DWORD *)v22;
-  _InterlockedExchange64(v22, v21);
-  RtlReleaseSRWLockExclusive(&qword_1801C72E8);
-  v23 = 0;
-  if ( a2 == 10 || (v23 = EtwpRegisterProvider(v21, a3)) == 0 )
+  v20 = (volatile __int64 *)(qword_1801C62A0[(v18 >> 1) & 7] + 8 * ((unsigned __int64)v18 >> 4));
+  dword_1801C62E0 = *(_DWORD *)v20;
+  _InterlockedExchange64(v20, v19);
+  RtlReleaseSRWLockExclusive(&SRWLock);
+  v21 = 0;
+  if ( Type == 10 || (v21 = EtwpRegisterProvider(v19, Callback)) == 0 )
   {
-    EtwpInsertRegistration(v21);
-    EtwpCheckForPrivatePreEnable(v21);
-    LODWORD(v18->Next) = 0;
-    RtlReleaseSRWLockExclusive(v17);
-    *a5 = v20 | ((unsigned __int64)*(unsigned __int16 *)(v21 + 84) << 32);
-    return v23;
+    EtwpInsertRegistration((PRTL_BALANCED_NODE)v19);
+    EtwpCheckForPrivatePreEnable(v19);
+    LODWORD(v17->Next) = 0;
+    RtlReleaseSRWLockExclusive(v16);
+    *RegHandle = v18 | ((unsigned __int64)*(unsigned __int16 *)(v19 + 84) << 32);
+    return v21;
   }
-  ProviderHandleRemove(v24, v20);
-  LODWORD(v18->Next) = 0;
-  RtlReleaseSRWLockExclusive(v17);
-  EtwpFreeRegistration(v21);
+  ProviderHandleRemove(v22, v18);
+  LODWORD(v17->Next) = 0;
+  RtlReleaseSRWLockExclusive(v16);
+  EtwpFreeRegistration(v19);
 LABEL_19:
-  RtlSetLastWin32Error(v23);
-  return v23;
+  RtlSetLastWin32Error(v21);
+  return v21;
 }

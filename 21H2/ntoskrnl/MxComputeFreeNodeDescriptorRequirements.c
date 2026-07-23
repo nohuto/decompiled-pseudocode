@@ -1,12 +1,12 @@
 /*
- * XREFs of MxComputeFreeNodeDescriptorRequirements @ 0x140A44D90
+ * XREFs of MxComputeFreeNodeDescriptorRequirements @ 0x140A45D90
  * Callers:
- *     MiFindLargestLoaderDescriptor @ 0x140A44420 (MiFindLargestLoaderDescriptor.c)
+ *     MiFindLargestLoaderDescriptor @ 0x140A45420 (MiFindLargestLoaderDescriptor.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x1403B14C0 (MiRestrictRangeToNode.c)
- *     memset @ 0x140414200 (memset.c)
- *     MxComputePfnPagesNeeded @ 0x140A45040 (MxComputePfnPagesNeeded.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403B1630 (MiRestrictRangeToNode.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MxComputePfnPagesNeeded @ 0x140A46040 (MxComputePfnPagesNeeded.c)
  */
 
 __int64 __fastcall MxComputeFreeNodeDescriptorRequirements(__int64 a1, void *a2)

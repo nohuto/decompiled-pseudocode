@@ -6,8 +6,8 @@
  *     MiPruneProcessLargePageCaches @ 0x14021E690 (MiPruneProcessLargePageCaches.c)
  *     MiGetStandbyRepurposed @ 0x1402204FC (MiGetStandbyRepurposed.c)
  *     MiComputeAgeDistribution @ 0x1402225E8 (MiComputeAgeDistribution.c)
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
- *     MiPulseLowAvailableEvent @ 0x140653820 (MiPulseLowAvailableEvent.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
+ *     MiPulseLowAvailableEvent @ 0x140653D70 (MiPulseLowAvailableEvent.c)
  */
 
 __int64 __fastcall MiComputeSystemTrimCriteria(_QWORD *a1, __int64 a2)

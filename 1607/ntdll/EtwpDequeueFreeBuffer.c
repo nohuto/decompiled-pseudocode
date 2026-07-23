@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpDequeueFreeBuffer @ 0x18005CFFC
+ * XREFs of EtwpDequeueFreeBuffer @ 0x18005CFEC
  * Callers:
- *     EtwpSwitchBuffer @ 0x18005CE98 (EtwpSwitchBuffer.c)
+ *     EtwpSwitchBuffer @ 0x18005CE88 (EtwpSwitchBuffer.c)
  * Callees:
  *     <none>
  */

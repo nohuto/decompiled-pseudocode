@@ -1,44 +1,48 @@
 /*
- * XREFs of RtlGetSaclSecurityDescriptor @ 0x1800DCAF0
+ * XREFs of RtlGetSaclSecurityDescriptor @ 0x1800D9A60
  * Callers:
- *     RtlReplaceSidInSd @ 0x18013D420 (RtlReplaceSidInSd.c)
+ *     RtlReplaceSidInSd @ 0x18013D2D0 (RtlReplaceSidInSd.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetSaclSecurityDescriptor(__int64 a1, _BYTE *a2, _QWORD *a3, bool *a4)
+NTSTATUS __cdecl RtlGetSaclSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PBOOLEAN SaclPresent,
+        PACL *Sacl,
+        PBOOLEAN SaclDefaulted)
 {
   __int16 v4; // ax
   __int64 v5; // rax
-  __int64 v6; // rax
+  ACL *v6; // rax
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
-  if ( (*(_BYTE *)(a1 + 2) & 0x10) == 0 )
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  if ( (*((_BYTE *)SecurityDescriptor + 2) & 0x10) == 0 )
   {
-    *a2 = 0;
-    return 0LL;
+    *SaclPresent = 0;
+    return 0;
   }
-  *a2 = 1;
-  v4 = *(_WORD *)(a1 + 2);
+  *SaclPresent = 1;
+  v4 = *((_WORD *)SecurityDescriptor + 1);
   if ( (v4 & 0x10) != 0 )
   {
     if ( v4 >= 0 )
     {
-      v6 = *(_QWORD *)(a1 + 24);
+      v6 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
       goto LABEL_7;
     }
-    v5 = *(unsigned int *)(a1 + 12);
+    v5 = *((unsigned int *)SecurityDescriptor + 3);
     if ( (_DWORD)v5 )
     {
-      v6 = a1 + v5;
+      v6 = (ACL *)((char *)SecurityDescriptor + v5);
 LABEL_7:
-      *a3 = v6;
-      *a4 = (*(_BYTE *)(a1 + 2) & 0x20) != 0;
-      return 0LL;
+      *Sacl = v6;
+      *SaclDefaulted = (*((_BYTE *)SecurityDescriptor + 2) & 0x20) != 0;
+      return 0;
     }
   }
-  *a3 = 0LL;
-  *a4 = (*(_BYTE *)(a1 + 2) & 0x20) != 0;
-  return 0LL;
+  *Sacl = 0LL;
+  *SaclDefaulted = (*((_BYTE *)SecurityDescriptor + 2) & 0x20) != 0;
+  return 0;
 }

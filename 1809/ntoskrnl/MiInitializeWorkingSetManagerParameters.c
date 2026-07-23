@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeWorkingSetManagerParameters @ 0x140190DFC
+ * XREFs of MiInitializeWorkingSetManagerParameters @ 0x140190F3C
  * Callers:
- *     MiProcessWorkingSets @ 0x14006CED0 (MiProcessWorkingSets.c)
- *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiProcessWorkingSets @ 0x14006CEC0 (MiProcessWorkingSets.c)
+ *     MmCreatePartition @ 0x140190AB0 (MmCreatePartition.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiSetTrimWhileAgingState @ 0x140120320 (MiSetTrimWhileAgingState.c)
- *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSetTrimWhileAgingState @ 0x140120390 (MiSetTrimWhileAgingState.c)
+ *     KeGenericCallDpc @ 0x140120460 (KeGenericCallDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
@@ -111,13 +111,13 @@ __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
     *(_QWORD *)(v1 + 112) = v1 + 112;
     if ( (ULONG_PTR *)a1 != &MiSystemPartition )
       goto LABEL_28;
-    LOWORD(stru_14043AE90.Header.Lock) = 0;
-    stru_14043AE90.Header.WaitListHead.Blink = &stru_14043AE90.Header.WaitListHead;
-    stru_14043AE90.Header.WaitListHead.Flink = &stru_14043AE90.Header.WaitListHead;
-    stru_14043AE90.Header.Size = 6;
-    stru_14043AE90.Header.SignalState = 1;
+    LOWORD(stru_14043BF50.Header.Lock) = 0;
+    stru_14043BF50.Header.WaitListHead.Blink = &stru_14043BF50.Header.WaitListHead;
+    stru_14043BF50.Header.WaitListHead.Flink = &stru_14043BF50.Header.WaitListHead;
+    stru_14043BF50.Header.Size = 6;
+    stru_14043BF50.Header.SignalState = 1;
   }
-  if ( (ULONG_PTR *)a1 != &MiSystemPartition || !qword_1405401C0 || (v13 = qword_1405401C0 << 8) == 0 )
+  if ( (ULONG_PTR *)a1 != &MiSystemPartition || !qword_1405411C0 || (v13 = qword_1405411C0 << 8) == 0 )
   {
 LABEL_28:
     v12 = *(_QWORD *)(v1 + 2392);
@@ -135,8 +135,8 @@ LABEL_28:
   }
   v17[0].Next = (struct _SINGLE_LIST_ENTRY *)v13;
   if ( (ULONG_PTR *)a1 != &MiSystemPartition
-    || !qword_1405401C8
-    || (v14 = (struct _SINGLE_LIST_ENTRY *)(qword_1405401C8 << 8)) == 0LL )
+    || !qword_1405411C8
+    || (v14 = (struct _SINGLE_LIST_ENTRY *)(qword_1405411C8 << 8)) == 0LL )
   {
     v14 = (struct _SINGLE_LIST_ENTRY *)v13;
     if ( v13 <= v6 )

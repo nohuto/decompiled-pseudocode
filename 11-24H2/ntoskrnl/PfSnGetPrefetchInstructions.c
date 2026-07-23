@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnGetPrefetchInstructions @ 0x140970C24
+ * XREFs of PfSnGetPrefetchInstructions @ 0x140959434
  * Callers:
- *     PfSnBeginScenario @ 0x140960CB0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140948770 (PfSnBeginScenario.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PfLockSharedAcquire @ 0x14047FC44 (PfLockSharedAcquire.c)
- *     SmDecompressBuffer @ 0x140481BC0 (SmDecompressBuffer.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     NtReadFile @ 0x14084A380 (NtReadFile.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     IopCreateFile @ 0x14096CD60 (IopCreateFile.c)
- *     NtQueryInformationFile @ 0x14096F610 (NtQueryInformationFile.c)
- *     PfVerifyScenarioBuffer @ 0x140970F50 (PfVerifyScenarioBuffer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SmDecompressBuffer @ 0x1403BB16C (SmDecompressBuffer.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PfLockSharedAcquire @ 0x14047A884 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     NtReadFile @ 0x140846640 (NtReadFile.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     IopCreateFile @ 0x1409557C0 (IopCreateFile.c)
+ *     NtQueryInformationFile @ 0x140957E20 (NtQueryInformationFile.c)
+ *     PfVerifyScenarioBuffer @ 0x140959760 (PfVerifyScenarioBuffer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnGetPrefetchInstructions(__int64 a1, int a2, _QWORD *a3)
@@ -23,7 +23,7 @@ __int64 __fastcall PfSnGetPrefetchInstructions(__int64 a1, int a2, _QWORD *a3)
   _DWORD *v4; // rdi
   void *v5; // rsi
   __int64 v8; // rax
-  unsigned int v9; // ebx
+  ULONG_PTR v9; // rbx
   wchar_t *Pool2; // r15
   int v11; // ebx
   ULONG Length; // r14d
@@ -58,21 +58,21 @@ __int64 __fastcall PfSnGetPrefetchInstructions(__int64 a1, int a2, _QWORD *a3)
   FileHandle = 0LL;
   IoStatusBlock = 0LL;
   FileInformation = 0LL;
-  PfLockSharedAcquire((volatile signed __int64 *)qword_140E66E58);
+  PfLockSharedAcquire((volatile signed __int64 *)qword_140E66FA8);
   v8 = -1LL;
   do
     ++v8;
-  while ( word_140E66CF0[v8] );
-  v9 = 2 * v8 + 102;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  while ( word_140E66E40[v8] );
+  v9 = (unsigned int)(2 * v8 + 102);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v9, 0x46506343u);
   if ( !Pool2 )
   {
     v11 = -1073741670;
-    PfLockSharedRelease((signed __int64 *)qword_140E66E58);
+    PfLockSharedRelease((signed __int64 *)qword_140E66FA8);
     goto LABEL_13;
   }
-  RtlStringCbPrintfW(Pool2, v9, L"%s\\%ws-%08X.%ws", word_140E66CF0, a1, *(_DWORD *)(a1 + 60), L"pf");
-  PfLockSharedRelease((signed __int64 *)qword_140E66E58);
+  RtlStringCbPrintfW(Pool2, (unsigned int)v9, L"%s\\%ws-%08X.%ws", word_140E66E40, a1, *(_DWORD *)(a1 + 60), L"pf");
+  PfLockSharedRelease((signed __int64 *)qword_140E66FA8);
   RtlInitUnicodeString(&DestinationString, Pool2);
   v22[0] = 48;
   *(_QWORD *)&v23 = &DestinationString;
@@ -81,7 +81,7 @@ __int64 __fastcall PfSnGetPrefetchInstructions(__int64 a1, int a2, _QWORD *a3)
   v24 = 0LL;
   v11 = IopCreateFile(
           &FileHandle,
-          0x80100000,
+          -2146435072,
           (__int64)v22,
           (NTSTATUS *)&IoStatusBlock.0,
           0LL,
@@ -109,7 +109,7 @@ LABEL_26:
         v11 = -1073741823;
         goto LABEL_13;
       }
-      Buffer = (void *)ExAllocatePool2(0x100uLL);
+      Buffer = (void *)ExAllocatePool2(0x100uLL, DWORD2(FileInformation), 0x70506343u);
       v5 = Buffer;
       if ( !Buffer )
       {

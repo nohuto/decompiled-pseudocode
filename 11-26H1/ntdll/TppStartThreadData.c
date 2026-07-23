@@ -1,8 +1,8 @@
 /*
- * XREFs of TppStartThreadData @ 0x1800C08B0
+ * XREFs of TppStartThreadData @ 0x1800BE040
  * Callers:
- *     RtlpTpWaitCallback @ 0x1800C0450 (RtlpTpWaitCallback.c)
- *     TppJobpExecuteCallback @ 0x1800C0640 (TppJobpExecuteCallback.c)
+ *     RtlpTpWaitCallback @ 0x1800BDBE0 (RtlpTpWaitCallback.c)
+ *     TppJobpExecuteCallback @ 0x1800BDDD0 (TppJobpExecuteCallback.c)
  * Callees:
  *     <none>
  */

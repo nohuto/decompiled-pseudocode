@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTraceZoneCr3Tripped @ 0x14020A098
+ * XREFs of PopTraceZoneCr3Tripped @ 0x140209EC4
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x140146EF4 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140147464 (PopCheckAndHandleThermalConditions.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     _TlgCreateWsz @ 0x140133CE4 (_TlgCreateWsz.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     _TlgCreateWsz @ 0x140134254 (_TlgCreateWsz.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
@@ -59,9 +59,9 @@ char __fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
   if ( DeviceNode )
   {
     DeviceAttachmentBaseRef = *(PDEVICE_OBJECT *)(a2 + 848);
-    if ( pCallbackContext.LevelPlus1 > 5 )
+    if ( hProvider.LevelPlus1 > 5 )
     {
-      LOBYTE(DeviceAttachmentBaseRef) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+      LOBYTE(DeviceAttachmentBaseRef) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
       if ( (_BYTE)DeviceAttachmentBaseRef )
       {
         v9 = *(_BYTE *)(a2 + 65);
@@ -93,7 +93,7 @@ char __fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
         v18 = v8;
         TlgCreateWsz(&pDesc, v11);
         TlgCreateWsz(&v40, v12);
-        LOBYTE(DeviceAttachmentBaseRef) = TlgWrite(&pCallbackContext, &unk_14027CF79, 0LL, 0LL, 0xAu, &pData);
+        LOBYTE(DeviceAttachmentBaseRef) = TlgWrite(&hProvider, &unk_14027D079, 0LL, 0LL, 0xAu, &pData);
       }
     }
   }

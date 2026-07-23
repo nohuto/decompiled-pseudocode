@@ -19,8 +19,8 @@ void __fastcall sub_180031B40(__int64 a1, unsigned int a2)
   int v2; // eax
   int v3; // r8d
   int v4; // eax
-  __int64 v5; // rcx
-  int v6; // [rsp+38h] [rbp+10h] BYREF
+  void *v5; // rcx
+  int WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
   if ( a2 )
   {
@@ -38,8 +38,8 @@ void __fastcall sub_180031B40(__int64 a1, unsigned int a2)
         return;
       v4 = -1;
     }
-    v5 = *(_QWORD *)(a1 + 56);
-    v6 = v4;
-    ZwSetInformationWorkerFactory(v5, 3LL, &v6);
+    v5 = *(void **)(a1 + 56);
+    WorkerFactoryInformation = v4;
+    ZwSetInformationWorkerFactory(v5, WorkerFactoryBindingCount, &WorkerFactoryInformation, 4u);
   }
 }

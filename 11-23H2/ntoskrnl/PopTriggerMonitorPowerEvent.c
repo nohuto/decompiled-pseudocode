@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTriggerMonitorPowerEvent @ 0x1407A923C
+ * XREFs of PopTriggerMonitorPowerEvent @ 0x1407A942C
  * Callers:
- *     PopProcessSessionDisplayStateChange @ 0x1407A91D8 (PopProcessSessionDisplayStateChange.c)
- *     PoTtmInitiatePowerStateTransition @ 0x140997BF8 (PoTtmInitiatePowerStateTransition.c)
+ *     PopProcessSessionDisplayStateChange @ 0x1407A93C8 (PopProcessSessionDisplayStateChange.c)
+ *     PoTtmInitiatePowerStateTransition @ 0x140997DF8 (PoTtmInitiatePowerStateTransition.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorHandleIntent @ 0x1407A936C (PopPowerAggregatorHandleIntent.c)
- *     PopDiagTracePowerStateEvent @ 0x1407A9554 (PopDiagTracePowerStateEvent.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1407A955C (PopPowerAggregatorHandleIntent.c)
+ *     PopDiagTracePowerStateEvent @ 0x1407A9744 (PopDiagTracePowerStateEvent.c)
  */
 
 __int64 __fastcall PopTriggerMonitorPowerEvent(char a1, int a2)

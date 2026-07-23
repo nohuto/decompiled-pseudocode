@@ -1,9 +1,9 @@
 /*
- * XREFs of IopTranslateBusAddress @ 0x140726138
+ * XREFs of IopTranslateBusAddress @ 0x140723CC8
  * Callers:
- *     IopGenericTranslateOrdering @ 0x1407259A0 (IopGenericTranslateOrdering.c)
+ *     IopGenericTranslateOrdering @ 0x140723530 (IopGenericTranslateOrdering.c)
  * Callees:
- *     HalTranslateBusAddress @ 0x140458FE0 (HalTranslateBusAddress.c)
+ *     HalTranslateBusAddress @ 0x14044E090 (HalTranslateBusAddress.c)
  */
 
 __int64 __fastcall IopTranslateBusAddress(

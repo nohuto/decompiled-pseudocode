@@ -56,9 +56,9 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   PVOID *v41; // rdx
   ULONG_PTR v42; // r8
   __int64 v43; // rax
-  __int64 v44; // rcx
+  void *v44; // rcx
   char v45; // r13
-  __int64 v46; // rax
+  PIMAGE_NT_HEADERS v46; // rax
   char *v47; // r9
   int v48; // r11d
   int v49; // ecx
@@ -84,10 +84,10 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   char v69; // al
   unsigned int v70; // r10d
   char v71; // r14
-  _QWORD *v72; // r12
+  char *v72; // r12
   _QWORD *v73; // r11
-  unsigned __int64 v74; // rcx
-  const char *v75; // rax
+  char *v74; // rcx
+  const char *i; // rax
   ULONG_PTR v76; // r8
   unsigned int v77; // r15d
   __int64 v78; // rax
@@ -101,66 +101,64 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   unsigned __int64 v86; // rax
   ULONG_PTR v87; // rax
   int v88; // r8d
-  __int64 v89; // rdx
-  unsigned __int64 v90; // r13
-  __int64 v91; // rcx
-  __int64 v92; // rax
-  __int64 v93; // r12
-  __int64 v94; // r15
+  PIMAGE_NT_HEADERS v89; // rdx
+  char *v90; // r13
+  __int64 Size; // rcx
+  __int64 VirtualAddress; // rax
+  char *v93; // r12
+  char *v94; // r15
   __int64 v95; // rax
-  unsigned __int64 v96; // r14
-  __int64 v97; // r8
-  __int64 v98; // r9
-  __int64 v99; // rcx
-  __int64 *v100; // rax
-  unsigned __int64 v101; // r14
-  unsigned __int64 v102; // r13
-  __int64 v103; // rbx
-  unsigned __int64 v104; // rdx
-  __int64 v105; // rcx
-  __int64 v106; // rax
-  char v107; // r11
-  __int64 v108; // rcx
-  unsigned int v109; // r9d
-  _QWORD *v110; // r12
-  unsigned __int64 v111; // rcx
-  _QWORD *v112; // r10
-  const char *v113; // rax
-  __int64 *v114; // r8
-  unsigned int v115; // r15d
-  __int64 v116; // rax
-  unsigned __int64 v117; // r8
-  _QWORD *v118; // r10
-  __int64 v119; // r8
-  unsigned __int64 v120; // rcx
-  char v121; // al
-  int v122; // eax
-  unsigned int v123; // r9d
+  char *v96; // r14
+  __int64 v97; // rcx
+  __int64 *v98; // rax
+  unsigned __int64 v99; // r14
+  unsigned __int64 v100; // r13
+  __int64 v101; // rbx
+  unsigned __int64 v102; // rdx
+  __int64 v103; // rcx
+  __int64 v104; // rax
+  char v105; // r11
+  __int64 v106; // rcx
+  unsigned int v107; // r9d
+  _QWORD *v108; // r12
+  unsigned __int64 v109; // rcx
+  _QWORD *v110; // r10
+  const char *v111; // rax
+  __int64 *v112; // r8
+  unsigned int v113; // r15d
+  __int64 v114; // rax
+  unsigned __int64 v115; // r8
+  _QWORD *v116; // r10
+  __int64 v117; // r8
+  unsigned __int64 v118; // rcx
+  char v119; // al
+  int v120; // eax
+  unsigned int v121; // r9d
+  unsigned __int64 v122; // rax
+  __int64 v123; // rax
   unsigned __int64 v124; // rax
-  __int64 v125; // rax
-  unsigned __int64 v126; // rax
-  signed __int32 v128[6]; // [rsp+8h] [rbp-D9h] BYREF
-  __int64 v129; // [rsp+38h] [rbp-A9h] BYREF
-  __int64 v130; // [rsp+40h] [rbp-A1h] BYREF
-  __int64 v131; // [rsp+48h] [rbp-99h]
-  __int64 v132; // [rsp+50h] [rbp-91h]
-  unsigned __int64 v133; // [rsp+58h] [rbp-89h]
-  __int64 v134; // [rsp+60h] [rbp-81h]
+  signed __int32 v126[6]; // [rsp+8h] [rbp-D9h] BYREF
+  __int64 v127; // [rsp+38h] [rbp-A9h] BYREF
+  PVOID BaseOfImage; // [rsp+40h] [rbp-A1h] BYREF
+  PIMAGE_NT_HEADERS v129; // [rsp+48h] [rbp-99h]
+  __int64 v130; // [rsp+50h] [rbp-91h]
+  unsigned __int64 v131; // [rsp+58h] [rbp-89h]
+  __int64 v132; // [rsp+60h] [rbp-81h]
   ULONG_PTR BugCheckParameter3; // [rsp+68h] [rbp-79h]
-  unsigned int *v136; // [rsp+70h] [rbp-71h] BYREF
-  __int128 v137; // [rsp+78h] [rbp-69h]
-  __int128 v138; // [rsp+88h] [rbp-59h]
-  __int64 v139; // [rsp+A0h] [rbp-41h] BYREF
-  unsigned __int64 v140; // [rsp+B0h] [rbp-31h]
-  __int64 v141; // [rsp+B8h] [rbp-29h]
-  __int64 *v142; // [rsp+C0h] [rbp-21h]
-  __int64 v143; // [rsp+E8h] [rbp+7h]
-  __int64 v144; // [rsp+F0h] [rbp+Fh]
-  __int64 v145; // [rsp+F8h] [rbp+17h]
-  char v148; // [rsp+160h] [rbp+7Fh]
-  int v149; // [rsp+160h] [rbp+7Fh]
+  unsigned int *v134; // [rsp+70h] [rbp-71h] BYREF
+  __int128 v135; // [rsp+78h] [rbp-69h]
+  __int128 v136; // [rsp+88h] [rbp-59h]
+  __int64 v137; // [rsp+A0h] [rbp-41h] BYREF
+  unsigned __int64 v138; // [rsp+B0h] [rbp-31h]
+  __int64 v139; // [rsp+B8h] [rbp-29h]
+  __int64 *v140; // [rsp+C0h] [rbp-21h]
+  __int64 v141; // [rsp+E8h] [rbp+7h]
+  __int64 v142; // [rsp+F0h] [rbp+Fh]
+  __int64 v143; // [rsp+F8h] [rbp+17h]
+  char v146; // [rsp+160h] [rbp+7Fh]
+  int v147; // [rsp+160h] [rbp+7Fh]
 
-  v148 = a4;
+  v146 = a4;
   v4 = a3;
   v5 = a4;
   v6 = BugCheckParameter1;
@@ -203,8 +201,8 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
           }
           while ( v17 );
           v21 = __ROL8__((unsigned __int64)&qword_140C12EC0 ^ qword_140C12EC8 ^ ((unsigned __int64)v13 - v6), 17) ^ (unsigned __int64)&qword_140C12EC0 ^ qword_140C12EC8 ^ ((unsigned __int64)v13 - v6);
-          v143 = (v21 * (unsigned __int128)0x7010008004002001uLL) >> 64;
-          v22 = v11 ^ v143 ^ v21;
+          v141 = (v21 * (unsigned __int128)0x7010008004002001uLL) >> 64;
+          v22 = v11 ^ v141 ^ v21;
           LOBYTE(v11) = 1;
           v23 = v22 & 0x3F;
           if ( v23 )
@@ -212,7 +210,7 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
           --v15;
         }
         while ( v15 );
-        v5 = v148;
+        v5 = v146;
       }
       v24 = v10 & 0x7F;
       if ( v24 >= 8 )
@@ -264,8 +262,8 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
           }
           while ( v32 );
           v36 = __ROL8__(v27 ^ ((unsigned __int64)v28 - a2), 17) ^ v27 ^ ((unsigned __int64)v28 - a2);
-          v144 = (v36 * (unsigned __int128)0x7010008004002001uLL) >> 64;
-          v37 = v29 ^ v144 ^ v36;
+          v142 = (v36 * (unsigned __int128)0x7010008004002001uLL) >> 64;
+          v37 = v29 ^ v142 ^ v36;
           v29 = 1;
           *(_QWORD *)&v9 = v37 & 0x3F;
           if ( (_DWORD)v9 )
@@ -273,7 +271,7 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
           --v31;
         }
         while ( v31 );
-        v5 = v148;
+        v5 = v146;
         v6 = BugCheckParameter1;
       }
       v38 = v4 & 0x7F;
@@ -316,24 +314,24 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
         if ( !v42 )
 LABEL_141:
           KeBugCheckEx(0x43u, v6, a2, BugCheckParameter3, 0LL);
-        v149 = 0;
+        v147 = 0;
         v43 = 0LL;
         qword_140C12FC0[0] = (__int64)v41[6];
-        v134 = 0LL;
+        v132 = 0LL;
         do
         {
-          v44 = qword_140C12FC0[v43];
-          v130 = v44;
+          v44 = (void *)qword_140C12FC0[v43];
+          BaseOfImage = v44;
           if ( !v44 )
             break;
           v45 = v40 & 0x3F;
-          LODWORD(v132) = v40 & 0x3F;
+          LODWORD(v130) = v40 & 0x3F;
           v46 = RtlImageNtHeader(v44);
-          v131 = v46;
+          v129 = v46;
           if ( !v46 )
             KeBugCheckEx(0x43u, BugCheckParameter1, a2, BugCheckParameter3, 1uLL);
-          v47 = (char *)(v46 + *(unsigned __int16 *)(v46 + 20) + 24LL);
-          v133 = (unsigned __int64)&v47[40 * *(unsigned __int16 *)(v46 + 6)];
+          v47 = (char *)&v46->OptionalHeader + v46->FileHeader.SizeOfOptionalHeader;
+          v131 = (unsigned __int64)&v47[40 * v46->FileHeader.NumberOfSections];
           do
           {
             v48 = 0;
@@ -349,8 +347,8 @@ LABEL_72:
             {
               v51 = 7;
               v52 = VfExcludeSections[0];
-              v137 = *(_OWORD *)VfExcludeSections;
-              v138 = *(_OWORD *)off_140C0EFE0;
+              v135 = *(_OWORD *)VfExcludeSections;
+              v136 = *(_OWORD *)off_140C0EFE0;
               while ( 1 )
               {
                 v53 = v52[v47 - VfExcludeSections[0]];
@@ -360,7 +358,7 @@ LABEL_72:
                 if ( !--v51 )
                   goto LABEL_72;
               }
-              v55 = (char *)*((_QWORD *)&v137 + 1);
+              v55 = (char *)*((_QWORD *)&v135 + 1);
               v56 = 8;
               v57 = v47;
               while ( 1 )
@@ -388,22 +386,22 @@ LABEL_72:
                 }
               }
 LABEL_65:
-              v62 = (char *)v138;
+              v62 = (char *)v136;
               v63 = 4;
               while ( 1 )
               {
-                v64 = v47[(_QWORD)v62 - v138];
+                v64 = v47[(_QWORD)v62 - v136];
                 v65 = *v62++;
                 if ( v64 != v65 )
                   break;
                 if ( !--v63 )
                   goto LABEL_72;
               }
-              v66 = (char *)*((_QWORD *)&v138 + 1);
+              v66 = (char *)*((_QWORD *)&v136 + 1);
               v67 = 6;
               while ( 1 )
               {
-                v68 = v47[(_QWORD)v66 - *((_QWORD *)&v138 + 1)];
+                v68 = v47[(_QWORD)v66 - *((_QWORD *)&v136 + 1)];
                 v69 = *v66++;
                 if ( v68 != v69 )
                   break;
@@ -419,19 +417,11 @@ LABEL_65:
               v71 = v45;
               if ( v70 <= *((_DWORD *)v47 + 2) )
                 v70 = *((_DWORD *)v47 + 2);
-              v72 = (_QWORD *)(v130 + *((unsigned int *)v47 + 3));
+              v72 = (char *)BaseOfImage + *((unsigned int *)v47 + 3);
               v73 = v72;
-              v74 = (unsigned __int64)v72 + v70;
-              v75 = (const char *)v72;
-              if ( (unsigned __int64)v72 < v74 )
-              {
-                do
-                {
-                  _mm_prefetch(v75, 0);
-                  v75 += 64;
-                }
-                while ( (unsigned __int64)v75 < v74 );
-              }
+              v74 = &v72[v70];
+              for ( i = v72; i < v74; i += 64 )
+                _mm_prefetch(i, 0);
               v76 = v40;
               v77 = v70 >> 7;
               if ( v70 >> 7 )
@@ -449,9 +439,9 @@ LABEL_65:
                     --v78;
                   }
                   while ( v78 );
-                  v82 = __ROL8__(v40 ^ ((char *)v73 - (char *)v72), 17) ^ v40 ^ ((char *)v73 - (char *)v72);
-                  v145 = (v82 * (unsigned __int128)0x7010008004002001uLL) >> 64;
-                  v83 = v71 ^ v145 ^ v82;
+                  v82 = __ROL8__(v40 ^ ((char *)v73 - v72), 17) ^ v40 ^ ((char *)v73 - v72);
+                  v143 = (v82 * (unsigned __int128)0x7010008004002001uLL) >> 64;
+                  v83 = v71 ^ v143 ^ v82;
                   v71 = 1;
                   v84 = v83 & 0x3F;
                   if ( v84 )
@@ -459,7 +449,7 @@ LABEL_65:
                   --v77;
                 }
                 while ( v77 );
-                v45 = v132;
+                v45 = v130;
               }
               v85 = v70 & 0x7F;
               if ( v85 >= 8 )
@@ -483,65 +473,65 @@ LABEL_65:
             }
             v47 += 40;
           }
-          while ( v47 != (char *)v133 );
-          v88 = v149;
-          if ( !v149 )
+          while ( v47 != (char *)v131 );
+          v88 = v147;
+          if ( !v147 )
           {
-            v89 = v131;
-            v90 = v130;
-            v91 = *(unsigned int *)(v131 + 148);
-            if ( (unsigned int)v91 >= 0x14 )
+            v89 = v129;
+            v90 = (char *)BaseOfImage;
+            Size = v129->OptionalHeader.DataDirectory[1].Size;
+            if ( (unsigned int)Size >= 0x14 )
             {
-              v92 = *(unsigned int *)(v131 + 144);
-              v93 = v92 + v91 + v130;
-              v94 = v92 + v130;
-              if ( v92 + v130 != v93 )
+              VirtualAddress = v129->OptionalHeader.DataDirectory[1].VirtualAddress;
+              v93 = (char *)BaseOfImage + Size + VirtualAddress;
+              v94 = (char *)BaseOfImage + VirtualAddress;
+              if ( (char *)BaseOfImage + VirtualAddress != v93 )
               {
                 do
                 {
-                  if ( !*(_DWORD *)(v94 + 12) )
+                  if ( !*((_DWORD *)v94 + 3) )
                     break;
-                  v95 = *(unsigned int *)(v94 + 16);
+                  v95 = *((unsigned int *)v94 + 4);
                   if ( !(_DWORD)v95 )
                     break;
-                  v96 = *(_QWORD *)(v95 + v90);
-                  if ( v96 && (v96 < v90 || v96 >= v90 + *(unsigned int *)(v89 + 80)) )
+                  v96 = *(char **)&v90[v95];
+                  if ( v96 && (v96 < v90 || v96 >= &v90[v89->OptionalHeader.SizeOfImage]) )
                   {
-                    if ( MmIsSessionAddress(v96) )
+                    if ( MmIsSessionAddress((unsigned __int64)v96) )
                     {
-                      RtlPcToFileHeader(v96, &v130, v97, v98);
-                      if ( v130 )
+                      RtlPcToFileHeader(v96, &BaseOfImage);
+                      if ( BaseOfImage )
                       {
-                        v99 = 0LL;
-                        v100 = qword_140C12FC0;
-                        while ( *v100 != v130 )
+                        v97 = 0LL;
+                        v98 = qword_140C12FC0;
+                        while ( (PVOID)*v98 != BaseOfImage )
                         {
-                          if ( !*v100 )
+                          if ( !*v98 )
                           {
-                            qword_140C12FC0[v99] = v130;
+                            qword_140C12FC0[v97] = (__int64)BaseOfImage;
                             break;
                           }
-                          v99 = (unsigned int)(v99 + 1);
-                          ++v100;
-                          if ( (unsigned int)v99 >= 0x10 )
+                          v97 = (unsigned int)(v97 + 1);
+                          ++v98;
+                          if ( (unsigned int)v97 >= 0x10 )
                             break;
                         }
-                        if ( (_DWORD)v99 == 16 )
+                        if ( (_DWORD)v97 == 16 )
                           goto LABEL_115;
                       }
                     }
-                    v89 = v131;
+                    v89 = v129;
                   }
-                  v94 += 20LL;
+                  v94 += 20;
                 }
                 while ( v94 != v93 );
                 v88 = 0;
               }
             }
           }
-          v43 = v134 + 1;
-          v149 = v88 + 1;
-          ++v134;
+          v43 = v132 + 1;
+          v147 = v88 + 1;
+          ++v132;
         }
         while ( (unsigned int)(v88 + 1) < 0x10 );
 LABEL_115:
@@ -551,102 +541,102 @@ LABEL_115:
           *(_QWORD *)&v9 = 0x95EA5DE843D5D824uLL;
           v40 ^= 0x95EA5DE843D5D824uLL;
         }
-        _InterlockedOr(v128, 0);
+        _InterlockedOr(v126, 0);
         qword_140C12EC0 = v40;
       }
     }
   }
   else
   {
-    v101 = (unsigned __int64)&qword_140C12ED0;
-    v102 = (unsigned __int64)&qword_140C12ED0 & 0x3F;
-    v133 = (unsigned __int64)&qword_140C12ED0 & 0x3F;
-    RtlImageNtHeader(0x140000000LL);
-    RtlCaptureImageExceptionValues(0x40000000, &v139, &v129);
-    v103 = v139;
-    v104 = 0x140000000uLL;
-    LODWORD(v129) = (unsigned int)v129 / 0xC;
-    v140 = 0x140000000uLL;
-    v105 = v139 + 12LL * (unsigned int)v129;
-    v141 = v105;
-    v142 = (__int64 *)&v136;
-    while ( v103 && v103 != v105 )
+    v99 = (unsigned __int64)&qword_140C12ED0;
+    v100 = (unsigned __int64)&qword_140C12ED0 & 0x3F;
+    v131 = (unsigned __int64)&qword_140C12ED0 & 0x3F;
+    RtlImageNtHeader((PVOID)0x140000000LL);
+    RtlCaptureImageExceptionValues((void *)0x140000000LL, &v137, (ULONG *)&v127);
+    v101 = v137;
+    v102 = 0x140000000uLL;
+    LODWORD(v127) = (unsigned int)v127 / 0xC;
+    v138 = 0x140000000uLL;
+    v103 = v137 + 12LL * (unsigned int)v127;
+    v139 = v103;
+    v140 = (__int64 *)&v134;
+    while ( v101 && v101 != v103 )
     {
-      v106 = RtlpConvertFunctionEntry(v103, v104);
-      v107 = v102;
-      *v142 = v106;
-      v103 = v139 + 12;
-      v139 += 12LL;
-      v108 = *v136;
-      v109 = v136[1] - v108;
-      v110 = (_QWORD *)(0x140000000LL + v108);
-      v111 = 0x140000000LL + v108 + v109;
-      v112 = v110;
-      v113 = (const char *)v110;
-      if ( (unsigned __int64)v110 < v111 )
+      v104 = RtlpConvertFunctionEntry(v101, v102);
+      v105 = v100;
+      *v140 = v104;
+      v101 = v137 + 12;
+      v137 += 12LL;
+      v106 = *v134;
+      v107 = v134[1] - v106;
+      v108 = (_QWORD *)(0x140000000LL + v106);
+      v109 = 0x140000000LL + v106 + v107;
+      v110 = v108;
+      v111 = (const char *)v108;
+      if ( (unsigned __int64)v108 < v109 )
       {
         do
         {
-          _mm_prefetch(v113, 0);
-          v113 += 64;
+          _mm_prefetch(v111, 0);
+          v111 += 64;
         }
-        while ( (unsigned __int64)v113 < v111 );
+        while ( (unsigned __int64)v111 < v109 );
       }
-      v114 = (__int64 *)v101;
-      v115 = v109 >> 7;
-      if ( v109 >> 7 )
+      v112 = (__int64 *)v99;
+      v113 = v107 >> 7;
+      if ( v107 >> 7 )
       {
         do
         {
-          v116 = 8LL;
+          v114 = 8LL;
           do
           {
-            v117 = *v112 ^ (unsigned __int64)v114;
-            v118 = v112 + 1;
-            v119 = *v118 ^ __ROL8__(v117, v107);
-            v112 = v118 + 1;
-            v114 = (__int64 *)__ROL8__(v119, v107);
-            --v116;
+            v115 = *v110 ^ (unsigned __int64)v112;
+            v116 = v110 + 1;
+            v117 = *v116 ^ __ROL8__(v115, v105);
+            v110 = v116 + 1;
+            v112 = (__int64 *)__ROL8__(v117, v105);
+            --v114;
           }
-          while ( v116 );
-          v120 = __ROL8__(v101 ^ ((char *)v112 - (char *)v110), 17) ^ v101 ^ ((char *)v112 - (char *)v110);
-          v121 = v107 ^ ((v120 * (unsigned __int128)0x7010008004002001uLL) >> 64) ^ v120;
-          v107 = 1;
-          v122 = v121 & 0x3F;
-          if ( v122 )
-            v107 = v122;
-          --v115;
+          while ( v114 );
+          v118 = __ROL8__(v99 ^ ((char *)v110 - (char *)v108), 17) ^ v99 ^ ((char *)v110 - (char *)v108);
+          v119 = v105 ^ ((v118 * (unsigned __int128)0x7010008004002001uLL) >> 64) ^ v118;
+          v105 = 1;
+          v120 = v119 & 0x3F;
+          if ( v120 )
+            v105 = v120;
+          --v113;
         }
-        while ( v115 );
-        LOBYTE(v102) = v133;
+        while ( v113 );
+        LOBYTE(v100) = v131;
       }
-      v123 = v109 & 0x7F;
-      if ( v123 >= 8 )
+      v121 = v107 & 0x7F;
+      if ( v121 >= 8 )
       {
-        v124 = (unsigned __int64)v123 >> 3;
+        v122 = (unsigned __int64)v121 >> 3;
         do
         {
-          v114 = (__int64 *)__ROL8__(*v112++ ^ (unsigned __int64)v114, v107);
-          v123 -= 8;
-          --v124;
+          v112 = (__int64 *)__ROL8__(*v110++ ^ (unsigned __int64)v112, v105);
+          v121 -= 8;
+          --v122;
         }
-        while ( v124 );
+        while ( v122 );
       }
-      for ( ; v123; --v123 )
+      for ( ; v121; --v121 )
       {
-        v125 = *(unsigned __int8 *)v112;
-        v112 = (_QWORD *)((char *)v112 + 1);
-        v114 = (__int64 *)__ROL8__(v125 ^ (unsigned __int64)v114, v107);
+        v123 = *(unsigned __int8 *)v110;
+        v110 = (_QWORD *)((char *)v110 + 1);
+        v112 = (__int64 *)__ROL8__(v123 ^ (unsigned __int64)v112, v105);
       }
-      v105 = v141;
-      v104 = v140;
-      v101 = (unsigned __int64)v114;
+      v103 = v139;
+      v102 = v138;
+      v99 = (unsigned __int64)v112;
     }
-    qword_140C12ED0 = v101;
+    qword_140C12ED0 = v99;
     if ( qword_140C12EC0 )
       KeBugCheckEx(0x31u, 0xFFFFFFFFC0000001uLL, 0LL, 0LL, 0LL);
-    v126 = __rdtsc();
-    v9 = (__ROR8__(v126, 3) ^ v126) * (unsigned __int128)0x7010008004002001uLL;
+    v124 = __rdtsc();
+    v9 = (__ROR8__(v124, 3) ^ v124) * (unsigned __int128)0x7010008004002001uLL;
     qword_140C12EC0 = v9 ^ *((_QWORD *)&v9 + 1);
     if ( (unsigned __int64)v9 == *((_QWORD *)&v9 + 1) )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFcQueryFeatureConfigurationFromBuffers @ 0x18016F36C
+ * XREFs of RtlpFcQueryFeatureConfigurationFromBuffers @ 0x18016E36C
  * Callers:
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x18016F134 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x18016E134 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
  * Callees:
- *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x18016F488 (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
- *     RtlFindLowerBoundInSortedArray @ 0x18016F5B0 (RtlFindLowerBoundInSortedArray.c)
- *     RtlFcpCompareFeatureIdToFeature @ 0x18016F680 (RtlFcpCompareFeatureIdToFeature.c)
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x18016E488 (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlFindLowerBoundInSortedArray @ 0x18016E5B0 (RtlFindLowerBoundInSortedArray.c)
+ *     RtlFcpCompareFeatureIdToFeature @ 0x18016E680 (RtlFcpCompareFeatureIdToFeature.c)
  */
 
 __int64 __fastcall RtlpFcQueryFeatureConfigurationFromBuffers(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)

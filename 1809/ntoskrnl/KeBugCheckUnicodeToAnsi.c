@@ -1,8 +1,8 @@
 /*
- * XREFs of KeBugCheckUnicodeToAnsi @ 0x140291FA0
+ * XREFs of KeBugCheckUnicodeToAnsi @ 0x140292190
  * Callers:
- *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
- *     KiDumpParameterImages @ 0x1402928D4 (KiDumpParameterImages.c)
+ *     KeBugCheck2 @ 0x140291380 (KeBugCheck2.c)
+ *     KiDumpParameterImages @ 0x140292AC4 (KiDumpParameterImages.c)
  * Callees:
  *     <none>
  */

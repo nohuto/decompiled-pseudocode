@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdef369RawSubAsm @ 0x1405398D0
+ * XREFs of SymCryptFdef369RawSubAsm @ 0x140537110
  * Callers:
- *     SymCryptFdef369ModAddGeneric @ 0x140538B10 (SymCryptFdef369ModAddGeneric.c)
- *     SymCryptFdef369ModSubGeneric @ 0x140538E10 (SymCryptFdef369ModSubGeneric.c)
+ *     SymCryptFdef369ModAddGeneric @ 0x140532FB0 (SymCryptFdef369ModAddGeneric.c)
+ *     SymCryptFdef369ModSubGeneric @ 0x1405332B0 (SymCryptFdef369ModSubGeneric.c)
  * Callees:
  *     <none>
  */

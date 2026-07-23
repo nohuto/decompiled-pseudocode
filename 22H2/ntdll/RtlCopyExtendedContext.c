@@ -6,7 +6,12 @@
  *     RtlpCopyExtendedContext @ 0x1800F5C94 (RtlpCopyExtendedContext.c)
  */
 
-__int64 __fastcall RtlCopyExtendedContext(int a1, int a2, __int64 a3)
+NTSTATUS __cdecl RtlCopyExtendedContext(PCONTEXT_EX Destination, ULONG ContextFlags, PCONTEXT_EX Source)
 {
-  return RtlpCopyExtendedContext(a1, a1, a3, a2, a3);
+  return RtlpCopyExtendedContext(
+           (_DWORD)Destination,
+           (_DWORD)Destination,
+           (_DWORD)Source,
+           ContextFlags,
+           (__int64)Source);
 }

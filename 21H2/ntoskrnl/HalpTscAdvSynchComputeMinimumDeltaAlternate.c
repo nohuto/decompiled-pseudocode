@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x14039D2F4
+ * XREFs of HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x14039D444
  * Callers:
- *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14039D104 (HalpTscAdvSynchCalculateRemoteDelta.c)
- *     HalpTscAdvSynchTarget @ 0x14039D1EC (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14039D254 (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscAdvSynchTarget @ 0x14039D33C (HalpTscAdvSynchTarget.c)
  * Callees:
- *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
+ *     HalpProcessorFence @ 0x1403F9EA0 (HalpProcessorFence.c)
  */
 
 __int64 __fastcall HalpTscAdvSynchComputeMinimumDeltaAlternate(unsigned int a1, int a2)

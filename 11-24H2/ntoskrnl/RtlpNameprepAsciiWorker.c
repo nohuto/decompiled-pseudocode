@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpNameprepAsciiWorker @ 0x14078463C
+ * XREFs of RtlpNameprepAsciiWorker @ 0x14078456C
  * Callers:
- *     RtlIdnToAscii @ 0x140784540 (RtlIdnToAscii.c)
- *     RtlIdnToNameprepUnicode @ 0x140784570 (RtlIdnToNameprepUnicode.c)
+ *     RtlIdnToAscii @ 0x140784470 (RtlIdnToAscii.c)
+ *     RtlIdnToNameprepUnicode @ 0x1407844A0 (RtlIdnToNameprepUnicode.c)
  * Callees:
- *     RtlpNameprepAsciiRealWorker @ 0x1405EEC18 (RtlpNameprepAsciiRealWorker.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x1405EC1F8 (RtlpNameprepAsciiRealWorker.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpNameprepAsciiWorker(int a1, const WCHAR *a2, unsigned int a3, void *a4, LONG *a5, char a6)
@@ -18,8 +18,8 @@ __int64 __fastcall RtlpNameprepAsciiWorker(int a1, const WCHAR *a2, unsigned int
   char v15; // [rsp+38h] [rbp-40h]
   char v16; // [rsp+48h] [rbp-30h]
 
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
-  v11 = (const WCHAR *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x3FEuLL, 0x456E6449u);
+  v11 = (const WCHAR *)ExAllocatePool2(0x100uLL, 0x406uLL, 0x456E6449u);
   v12 = (WCHAR *)v11;
   if ( Pool2 && v11 )
   {

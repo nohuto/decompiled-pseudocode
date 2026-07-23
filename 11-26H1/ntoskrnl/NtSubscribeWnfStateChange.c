@@ -1,17 +1,21 @@
 /*
- * XREFs of NtSubscribeWnfStateChange @ 0x140948C50
+ * XREFs of NtSubscribeWnfStateChange @ 0x1409C45C0
  * Callers:
- *     DifNtSubscribeWnfStateChangeWrapper @ 0x14068F1B0 (DifNtSubscribeWnfStateChangeWrapper.c)
+ *     DifNtSubscribeWnfStateChangeWrapper @ 0x140692D90 (DifNtSubscribeWnfStateChangeWrapper.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x140948D34 (ExpWnfSubscribeWnfStateChange.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x1409C46A4 (ExpWnfSubscribeWnfStateChange.c)
  */
 
-__int64 __fastcall NtSubscribeWnfStateChange(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl NtSubscribeWnfStateChange(
+        PCWNF_STATE_NAME StateName,
+        WNF_CHANGE_STAMP ChangeStamp,
+        ULONG EventMask,
+        PULONG64 SubscriptionId)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   __int64 v9; // [rsp+48h] [rbp-10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -19,16 +23,16 @@ __int64 __fastcall NtSubscribeWnfStateChange(__int64 a1, __int64 a2, __int64 a3,
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v9 = 0LL;
-    if ( a4 )
-      RtlWriteULong64ToUser(a4, 0LL);
-    v7 = ExpWnfSubscribeWnfStateChange((unsigned __int64)&v9 & -(__int64)(a4 != 0LL), 0LL, a1);
-    if ( v7 >= 0 && a4 )
-      RtlWriteULong64ToUser(a4, v9);
+    if ( SubscriptionId )
+      RtlWriteULong64ToUser(SubscriptionId, 0LL);
+    v7 = ExpWnfSubscribeWnfStateChange((unsigned __int64)&v9 & -(__int64)(SubscriptionId != 0LL), 0LL, StateName);
+    if ( v7 >= 0 && SubscriptionId )
+      RtlWriteULong64ToUser(SubscriptionId, v9);
   }
   else
   {
     v7 = -1073741796;
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v7;
+  return v7;
 }

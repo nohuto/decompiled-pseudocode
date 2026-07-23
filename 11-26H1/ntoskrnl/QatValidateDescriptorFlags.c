@@ -1,7 +1,7 @@
 /*
- * XREFs of QatValidateDescriptorFlags @ 0x1406E1218
+ * XREFs of QatValidateDescriptorFlags @ 0x1406E5498
  * Callers:
- *     AccelpQatOperationHandler @ 0x1406DF9C4 (AccelpQatOperationHandler.c)
+ *     AccelpQatOperationHandler @ 0x1406E3C44 (AccelpQatOperationHandler.c)
  * Callees:
  *     <none>
  */

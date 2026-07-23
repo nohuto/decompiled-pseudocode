@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsNXSupported @ 0x140BF425C
+ * XREFs of KiIsNXSupported @ 0x140BFA25C
  * Callers:
- *     KiInitializeNxSupportDiscard @ 0x140CCB288 (KiInitializeNxSupportDiscard.c)
+ *     KiInitializeNxSupportDiscard @ 0x140CD1368 (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     KiGetCpuVendor @ 0x140C0A4F8 (KiGetCpuVendor.c)
+ *     KiGetCpuVendor @ 0x140C10708 (KiGetCpuVendor.c)
  */
 
 char KiIsNXSupported()

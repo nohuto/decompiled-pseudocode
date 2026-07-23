@@ -1,23 +1,23 @@
 /*
- * XREFs of PopPepRequestWork @ 0x1403B14B8
+ * XREFs of PopPepRequestWork @ 0x1403BB1C8
  * Callers:
- *     PopPepProcessEvent @ 0x1403AFCF0 (PopPepProcessEvent.c)
- *     PopPepUpdateConstraints @ 0x1403B37EC (PopPepUpdateConstraints.c)
- *     PopPepSurprisePowerOn @ 0x1403B755C (PopPepSurprisePowerOn.c)
- *     PopPepIdleTimeoutRoutine @ 0x140483A70 (PopPepIdleTimeoutRoutine.c)
- *     PopPepComponentSetWakeHint @ 0x1404F524C (PopPepComponentSetWakeHint.c)
- *     PopPepCompleteComponentIdleState @ 0x140506C08 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetResidency @ 0x140611524 (PopPepComponentSetResidency.c)
+ *     PopPepProcessEvent @ 0x1403B9A00 (PopPepProcessEvent.c)
+ *     PopPepUpdateConstraints @ 0x1403BD4FC (PopPepUpdateConstraints.c)
+ *     PopPepSurprisePowerOn @ 0x1403C145C (PopPepSurprisePowerOn.c)
+ *     PopPepIdleTimeoutRoutine @ 0x14047D3E0 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepComponentSetWakeHint @ 0x1404EE82C (PopPepComponentSetWakeHint.c)
+ *     PopPepCompleteComponentIdleState @ 0x1405005E4 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetResidency @ 0x140614364 (PopPepComponentSetResidency.c)
  * Callees:
- *     ExTryQueueWorkItem @ 0x140382070 (ExTryQueueWorkItem.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
+ *     ExTryQueueWorkItem @ 0x140383E20 (ExTryQueueWorkItem.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
  */
 
 void __fastcall PopPepRequestWork(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // r8d
   __int64 v4; // rbp
-  struct _KSEMAPHORE *p_Process; // rbx
+  _ULARGE_INTEGER *p_ReadTransferCount; // rbx
   __int64 v6; // rsi
 
   if ( a3 > a2 )
@@ -26,21 +26,25 @@ void __fastcall PopPepRequestWork(__int64 a1, unsigned int a2, unsigned int a3)
     if ( v3 )
     {
       v4 = v3;
-      p_Process = (struct _KSEMAPHORE *)&unk_140F12260;
+      p_ReadTransferCount = (_ULARGE_INTEGER *)&PopFxBlockingDeviceListLock.ReadTransferCount;
       if ( (*(_QWORD *)(a1 + 24) & 0x20LL) != 0 )
-        p_Process = (struct _KSEMAPHORE *)&stru_140F12420.Process;
+        p_ReadTransferCount = &PopFxBlockingDeviceListLock.Timer.DueTime;
       do
       {
-        KeReleaseSemaphore(p_Process + 2, 0, 1, 0);
+        KeReleaseSemaphore((PRKSEMAPHORE)&p_ReadTransferCount[8], 0, 1, 0);
         v6 = 0LL;
         do
         {
-          _m_prefetchw(&p_Process[3]);
-          if ( ((1 << v6) & _InterlockedOr(&p_Process[3].Header.Lock, 1 << v6)) == 0 )
+          _m_prefetchw(&p_ReadTransferCount[12]);
+          if ( ((1 << v6) & _InterlockedOr((volatile signed __int32 *)&p_ReadTransferCount[12], 1 << v6)) == 0 )
           {
-            if ( ExTryQueueWorkItem((_QWORD *)&p_Process[v6 + 3].Header.WaitListHead.Blink + (unsigned int)v6, 48LL) )
+            if ( ExTryQueueWorkItem(
+                   (_ULARGE_INTEGER *)&p_ReadTransferCount[4 * v6 + 14 + (unsigned int)v6].QuadPart,
+                   48LL) )
+            {
               break;
-            _InterlockedAnd(&p_Process[3].Header.Lock, ~(1 << v6));
+            }
+            _InterlockedAnd((volatile signed __int32 *)&p_ReadTransferCount[12], ~(1 << v6));
           }
           v6 = (unsigned int)(v6 + 1);
         }

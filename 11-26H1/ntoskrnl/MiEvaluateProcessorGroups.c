@@ -1,10 +1,10 @@
 /*
- * XREFs of MiEvaluateProcessorGroups @ 0x1403E9BE4
+ * XREFs of MiEvaluateProcessorGroups @ 0x1402F6AC4
  * Callers:
- *     MiGetNextAffinityWalker @ 0x1403E99EC (MiGetNextAffinityWalker.c)
+ *     MiGetNextAffinityWalker @ 0x1402F68CC (MiGetNextAffinityWalker.c)
  * Callees:
- *     MiEvaluateProcessor @ 0x1403E9E14 (MiEvaluateProcessor.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403E9FB0 (KeFindFirstSetRightGroupAffinity.c)
+ *     MiEvaluateProcessor @ 0x1402F6CF4 (MiEvaluateProcessor.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402F6E90 (KeFindFirstSetRightGroupAffinity.c)
  */
 
 __int64 __fastcall MiEvaluateProcessorGroups(__int64 a1, __int64 a2, __int64 a3)
@@ -55,7 +55,7 @@ __int64 __fastcall MiEvaluateProcessorGroups(__int64 a1, __int64 a2, __int64 a3)
         v17 = KiProcessorBlock[(unsigned int)KeFindFirstSetRightGroupAffinity(&v19)];
         v18 = *(_DWORD *)(v17 + 47412);
         if ( *(_BYTE *)(a2 + 8) )
-          v18 += *(_DWORD *)(*(_QWORD *)(384LL * *(unsigned int *)(v17 + 34644) + qword_140E2D6B8 + 376) + 12LL);
+          v18 += *(_DWORD *)(*(_QWORD *)(384LL * *(unsigned int *)(v17 + 34644) + qword_140E2D838 + 376) + 12LL);
         if ( v18 != *(_DWORD *)(a3 + 24) )
         {
           v16 &= ~*(_QWORD *)(v17 + 200);

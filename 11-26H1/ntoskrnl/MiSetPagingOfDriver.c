@@ -1,21 +1,21 @@
 /*
- * XREFs of MiSetPagingOfDriver @ 0x14030F6BC
+ * XREFs of MiSetPagingOfDriver @ 0x1402F173C
  * Callers:
- *     MmPageEntireDriver @ 0x140AC9AA0 (MmPageEntireDriver.c)
- *     MiEnablePagingOfDriver @ 0x140CF24D0 (MiEnablePagingOfDriver.c)
+ *     MmPageEntireDriver @ 0x140ACBBB0 (MmPageEntireDriver.c)
+ *     MiEnablePagingOfDriver @ 0x140CF8850 (MiEnablePagingOfDriver.c)
  * Callees:
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiWriteWsle @ 0x14029F7F0 (MiWriteWsle.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiTrimSystemImagePages @ 0x14030F0A4 (MiTrimSystemImagePages.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiWriteWsle @ 0x14029ED40 (MiWriteWsle.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiTrimSystemImagePages @ 0x1402F1124 (MiTrimSystemImagePages.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 void __fastcall MiSetPagingOfDriver(__int64 a1, __int64 a2, unsigned __int64 *a3)
@@ -34,7 +34,7 @@ void __fastcall MiSetPagingOfDriver(__int64 a1, __int64 a2, unsigned __int64 *a3
   __int64 v15; // rcx
   char WsleContents; // r8
   __int64 v17; // r10
-  __int64 v18; // rax
+  PVOID v18; // rax
   int v19; // eax
   __int64 v20; // rdx
   __int64 v21; // rcx
@@ -48,7 +48,7 @@ void __fastcall MiSetPagingOfDriver(__int64 a1, __int64 a2, unsigned __int64 *a3
   ProcessorFlushList = 0LL;
   v9 = 0LL;
   v10 = 0LL;
-  v11 = MiLockWorkingSetShared((__int64)&unk_140E36E00, a2, (__int64)a3);
+  v11 = MiLockWorkingSetShared((__int64)&unk_140E36F80, a2, (__int64)a3);
   v24 = v11;
   if ( v4 <= (unsigned __int64)a3 )
   {
@@ -69,9 +69,9 @@ void __fastcall MiSetPagingOfDriver(__int64 a1, __int64 a2, unsigned __int64 *a3
           v6 = 0LL;
         }
         if ( v10 )
-          MiUnlockPageTableInternal((__int64)&unk_140E36E00, v10);
+          MiUnlockPageTableInternal((__int64)&unk_140E36F80, v10);
         v10 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        MiLockPageTableInternal((signed __int64)&unk_140E36E00, v10, 0);
+        MiLockPageTableInternal(&unk_140E36F80, v10, 0LL);
         v13 = 1;
       }
       v12 = a1;
@@ -98,7 +98,7 @@ void __fastcall MiSetPagingOfDriver(__int64 a1, __int64 a2, unsigned __int64 *a3
                 ProcessorFlushList = MiGetProcessorFlushList(v21, v20);
                 MiInitializeTbFlushList(
                   ProcessorFlushList,
-                  (unsigned int)&unk_140E36E00,
+                  (unsigned int)&unk_140E36F80,
                   *(_DWORD *)(ProcessorFlushList + 12),
                   0,
                   1);
@@ -134,18 +134,18 @@ void __fastcall MiSetPagingOfDriver(__int64 a1, __int64 a2, unsigned __int64 *a3
       v9 += MiTrimSystemImagePages(v6, a3, v13);
     }
     if ( v10 )
-      MiUnlockPageTableInternal((__int64)&unk_140E36E00, v10);
+      MiUnlockPageTableInternal((__int64)&unk_140E36F80, v10);
     v11 = v24;
     v5 = a1;
   }
   LOBYTE(v12) = v11;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v12);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v12);
   if ( v9 )
   {
-    v18 = *(_QWORD *)(v5 + 48);
+    v18 = *(PVOID *)(v5 + 48);
     if ( v18 == PsNtosImageBase || v18 == PsHalImageBase )
-      _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[80], v9);
+      _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[80], v9);
     else
-      _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.UserTime, v9);
+      _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.UserTime, v9);
   }
 }

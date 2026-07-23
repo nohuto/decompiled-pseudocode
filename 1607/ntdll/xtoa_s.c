@@ -5,7 +5,7 @@
  *     _ltoa_s @ 0x1800A0C10 (_ltoa_s.c)
  *     _ultoa_s @ 0x1800A0C60 (_ultoa_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  */
 
 __int64 __fastcall xtoa_s(unsigned int a1, char *a2, unsigned __int64 a3, unsigned int a4, int a5)

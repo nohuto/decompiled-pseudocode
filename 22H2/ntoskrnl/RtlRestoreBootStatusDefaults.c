@@ -10,19 +10,18 @@
  *     RtlpRecordBootStatusData @ 0x14078A454 (RtlpRecordBootStatusData.c)
  */
 
-__int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
-  __int64 v2; // rdx
-  const __m128i *v3; // rax
-  __m128i v4; // xmm1
-  __int64 v5; // rcx
-  __m128i v6; // xmm0
+  const __m128i *v2; // rax
+  __m128i v3; // xmm1
+  __int64 v4; // rcx
+  __m128i v5; // xmm0
+  __m128i v6; // xmm1
   __m128i v7; // xmm1
   __m128i v8; // xmm1
-  __m128i v9; // xmm1
-  NTSTATUS v10; // edx
+  int v9; // edx
+  _OWORD *v10; // rcx
   _OWORD *v11; // rcx
-  _OWORD *v12; // rcx
   LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
   _BYTE Buffer[176]; // [rsp+70h] [rbp-90h] BYREF
@@ -30,52 +29,52 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
   IoStatusBlock = 0LL;
   memset(&Buffer[4], 0, 0xACuLL);
   *(_DWORD *)Buffer = 176;
-  RtlGetNtProductType(&Buffer[4], v2);
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)&Buffer[4]);
   *(_DWORD *)&Buffer[168] = 0;
-  v3 = (const __m128i *)Buffer;
-  v4 = 0LL;
+  v2 = (const __m128i *)Buffer;
+  v3 = 0LL;
   *(_WORD *)&Buffer[9] = 286;
-  v5 = 11LL;
+  v4 = 11LL;
   Buffer[49] = 1;
   Buffer[11] = 0;
   do
   {
-    v6 = _mm_loadu_si128(v3++);
-    v4 = _mm_sub_epi8(v4, v6);
-    --v5;
+    v5 = _mm_loadu_si128(v2++);
+    v3 = _mm_sub_epi8(v3, v5);
+    --v4;
   }
-  while ( v5 );
+  while ( v4 );
   ByteOffset.QuadPart = 0LL;
-  v7 = _mm_add_epi8(v4, _mm_srli_si128(v4, 8));
-  v8 = _mm_add_epi8(v7, _mm_srli_si128(v7, 4));
-  v9 = _mm_add_epi8(v8, _mm_srli_si128(v8, 2));
-  Buffer[50] = _mm_cvtsi128_si32(_mm_add_epi8(v9, _mm_srli_si128(v9, 1)));
+  v6 = _mm_add_epi8(v3, _mm_srli_si128(v3, 8));
+  v7 = _mm_add_epi8(v6, _mm_srli_si128(v6, 4));
+  v8 = _mm_add_epi8(v7, _mm_srli_si128(v7, 2));
+  Buffer[50] = _mm_cvtsi128_si32(_mm_add_epi8(v8, _mm_srli_si128(v8, 1)));
   RtlpRecordBootStatusData(0, (__int64)Buffer, 0LL, 176LL);
-  v10 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0xB0u, &ByteOffset, 0LL);
-  if ( v10 >= 0 )
+  v9 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0xB0u, &ByteOffset, 0LL);
+  if ( v9 >= 0 )
   {
     if ( BootStatFileHandleAcquired )
     {
       if ( BootStatFileHandle == FileHandle )
       {
-        v11 = BootStatDataCache;
+        v10 = BootStatDataCache;
         if ( BootStatDataCache )
         {
           *(_OWORD *)BootStatDataCache = *(_OWORD *)Buffer;
-          v11[1] = *(_OWORD *)&Buffer[16];
-          v11[2] = *(_OWORD *)&Buffer[32];
-          v11[3] = *(_OWORD *)&Buffer[48];
-          v11[4] = *(_OWORD *)&Buffer[64];
-          v11[5] = *(_OWORD *)&Buffer[80];
-          v11[6] = *(_OWORD *)&Buffer[96];
-          v12 = v11 + 8;
-          *(v12 - 1) = *(_OWORD *)&Buffer[112];
-          *v12 = *(_OWORD *)&Buffer[128];
-          v12[1] = *(_OWORD *)&Buffer[144];
-          v12[2] = *(_OWORD *)&Buffer[160];
+          v10[1] = *(_OWORD *)&Buffer[16];
+          v10[2] = *(_OWORD *)&Buffer[32];
+          v10[3] = *(_OWORD *)&Buffer[48];
+          v10[4] = *(_OWORD *)&Buffer[64];
+          v10[5] = *(_OWORD *)&Buffer[80];
+          v10[6] = *(_OWORD *)&Buffer[96];
+          v11 = v10 + 8;
+          *(v11 - 1) = *(_OWORD *)&Buffer[112];
+          *v11 = *(_OWORD *)&Buffer[128];
+          v11[1] = *(_OWORD *)&Buffer[144];
+          v11[2] = *(_OWORD *)&Buffer[160];
         }
       }
     }
   }
-  return (unsigned int)v10;
+  return v9;
 }

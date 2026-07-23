@@ -16,62 +16,73 @@
  *     memmove @ 0x1800AAB40 (memmove.c)
  */
 
-__int64 __fastcall RtlQueryImageFileKeyOption(__int64 a1, __int64 a2, int a3, _DWORD *a4, unsigned int a5, int *a6)
+NTSTATUS __fastcall RtlQueryImageFileKeyOption(
+        HANDLE KeyHandle,
+        const WCHAR *a2,
+        int a3,
+        _DWORD *a4,
+        unsigned int a5,
+        ULONG *a6)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v10; // esi
-  _DWORD *v11; // rdi
-  unsigned int v12; // ebx
-  __int64 v13; // r12
-  unsigned int v14; // ebx
+  unsigned __int16 *v11; // rdi
+  NTSTATUS v12; // ebx
+  void *v13; // r12
+  ULONG Length; // ebx
   void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  int v17; // eax
+  PVOID Heap; // rax
+  NTSTATUS v17; // eax
   int v18; // ecx
-  unsigned int v19; // eax
+  ULONG v19; // eax
   size_t v20; // r8
-  int v21; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int16 v22[4]; // [rsp+38h] [rbp-C8h] BYREF
-  _DWORD *v23; // [rsp+40h] [rbp-C0h]
-  int *v24; // [rsp+48h] [rbp-B8h]
-  _BYTE v25[1024]; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
+  ULONG *v23; // [rsp+48h] [rbp-B8h]
+  _BYTE KeyValueInformation[1024]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v24 = a6;
-  result = RtlInitUnicodeStringEx((__int64)v22, a2);
-  if ( (int)result < 0 )
+  v23 = a6;
+  result = RtlInitUnicodeStringEx(&DestinationString, a2);
+  if ( result < 0 )
     return result;
   v10 = a5;
   if ( a5 >= 0x3F4 )
   {
-    v14 = a5 + 12;
+    Length = a5 + 12;
     goto LABEL_9;
   }
-  v11 = v25;
-  result = NtQueryValueKey(a1, v22, 2LL, v25, 1024, &v21);
+  v11 = (unsigned __int16 *)KeyValueInformation;
+  result = NtQueryValueKey(
+             KeyHandle,
+             &DestinationString,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x400u,
+             &ResultLength);
   v12 = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
   {
-    if ( (_DWORD)result == -2147483643 )
+    if ( result == -2147483643 )
     {
       while ( 1 )
       {
-        v14 = v21;
+        Length = ResultLength;
 LABEL_9:
         ProcessHeap = NtCurrentPeb()->ProcessHeap;
         if ( !ProcessHeap )
-          return 3221225495LL;
-        Heap = RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1572864, v14);
+          return -1073741801;
+        Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1572864, Length);
         v13 = Heap;
         if ( !Heap )
-          return 3221225495LL;
-        v11 = (_DWORD *)Heap;
-        v17 = NtQueryValueKey(a1, v22, 2LL, Heap, v14, &v21);
+          return -1073741801;
+        v11 = (unsigned __int16 *)Heap;
+        v17 = NtQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Heap, Length, &ResultLength);
         v12 = v17;
         if ( v17 >= 0 )
           goto LABEL_14;
         if ( v17 != -2147483643 )
           goto LABEL_23;
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v11);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
       }
     }
     return result;
@@ -80,44 +91,44 @@ LABEL_9:
 LABEL_14:
   if ( !a3 )
   {
-    if ( v11[2] > a5 )
+    if ( *((_DWORD *)v11 + 2) > a5 )
     {
-      v21 = v11[2];
+      ResultLength = *((_DWORD *)v11 + 2);
       goto LABEL_17;
     }
-    a3 = v11[1];
-    v10 = v11[2];
+    a3 = *((_DWORD *)v11 + 1);
+    v10 = *((_DWORD *)v11 + 2);
   }
-  v18 = v11[1];
+  v18 = *((_DWORD *)v11 + 1);
   if ( ((v18 - 3) & 0xFFFFFFFB) == 0 )
   {
     if ( a3 != v18 )
       goto LABEL_55;
-    v21 = v11[2];
-    if ( !a4 || v11[2] > v10 )
+    ResultLength = *((_DWORD *)v11 + 2);
+    if ( !a4 || *((_DWORD *)v11 + 2) > v10 )
       goto LABEL_17;
-    v20 = (unsigned int)v11[2];
+    v20 = *((unsigned int *)v11 + 2);
 LABEL_50:
-    memmove(a4, v11 + 3, v20);
+    memmove(a4, v11 + 6, v20);
     goto LABEL_18;
   }
   if ( v18 == 4 )
   {
     if ( a3 == 4 )
     {
-      if ( v10 == 4 && v11[2] == 4 )
+      if ( v10 == 4 && *((_DWORD *)v11 + 2) == 4 )
       {
-        v21 = 4;
+        ResultLength = 4;
         if ( a4 )
         {
-          *a4 = v11[3];
+          *a4 = *((_DWORD *)v11 + 3);
           goto LABEL_18;
         }
 LABEL_17:
         v12 = -2147483643;
 LABEL_18:
-        if ( v24 && ((int)(v12 + 0x80000000) < 0 || v12 == -2147483643) )
-          *v24 = v21;
+        if ( v23 && ((int)(v12 + 0x80000000) < 0 || v12 == -2147483643) )
+          *v23 = ResultLength;
         goto LABEL_22;
       }
       goto LABEL_33;
@@ -130,12 +141,12 @@ LABEL_55:
   {
     if ( a3 != 11 )
       goto LABEL_55;
-    if ( v10 == 8 && v11[2] == 8 )
+    if ( v10 == 8 && *((_DWORD *)v11 + 2) == 8 )
     {
-      v21 = 8;
+      ResultLength = 8;
       if ( a4 )
       {
-        *(_QWORD *)a4 = *(_QWORD *)(v11 + 3);
+        *(_QWORD *)a4 = *(_QWORD *)(v11 + 6);
         goto LABEL_18;
       }
       goto LABEL_17;
@@ -151,8 +162,8 @@ LABEL_33:
   }
   if ( a3 != 4 )
   {
-    v19 = v11[2];
-    v21 = v19;
+    v19 = *((_DWORD *)v11 + 2);
+    ResultLength = v19;
     if ( v19 > v10 )
       goto LABEL_17;
     v20 = v19;
@@ -162,13 +173,13 @@ LABEL_33:
     goto LABEL_33;
   if ( ((unsigned __int8)a4 & 3) == 0 )
   {
-    v21 = 4;
+    ResultLength = 4;
     if ( a4 )
     {
-      v23 = v11 + 3;
-      v22[0] = *((_WORD *)v11 + 4);
-      v22[1] = *((_WORD *)v11 + 4);
-      v12 = RtlUnicodeStringToInteger(v22, 0, a4);
+      DestinationString.Buffer = v11 + 6;
+      DestinationString.Length = v11[4];
+      DestinationString.MaximumLength = v11[4];
+      v12 = RtlUnicodeStringToInteger(&DestinationString, 0, a4);
       goto LABEL_18;
     }
     goto LABEL_17;
@@ -177,6 +188,6 @@ LABEL_33:
 LABEL_22:
   if ( v13 )
 LABEL_23:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v13);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v13);
   return v12;
 }

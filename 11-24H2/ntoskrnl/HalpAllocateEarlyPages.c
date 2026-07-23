@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAllocateEarlyPages @ 0x140542AB0
+ * XREFs of HalpAllocateEarlyPages @ 0x140540400
  * Callers:
  *     <none>
  * Callees:
- *     HalpMap @ 0x140478C5C (HalpMap.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140C673EC (HalpAllocPhysicalMemoryEx.c)
+ *     HalpMap @ 0x140460358 (HalpMap.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140C69568 (HalpAllocPhysicalMemoryEx.c)
  */
 
 unsigned __int64 __fastcall HalpAllocateEarlyPages(int a1, unsigned int a2, __int64 *a3, unsigned int a4)

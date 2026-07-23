@@ -8,25 +8,23 @@
  *     RtlpComputePath @ 0x18006A490 (RtlpComputePath.c)
  */
 
-__int64 __fastcall RtlpComputeExePath(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlpComputeExePath(__int64 a1)
 {
-  _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rdx
   unsigned __int64 EnvironmentVersion; // rdi
-  void *v7; // rcx
-  __int64 v8; // rbx
+  void *v3; // rcx
+  __int64 v4; // rbx
 
-  ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  EnvironmentVersion = ProcessParameters->EnvironmentVersion;
-  RtlAcquireSRWLockShared(&LdrpDllDirectoryLock, (unsigned __int64)ProcessParameters, a3, a4);
-  v7 = &unk_180137958;
+  EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
+  RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
+  v3 = &unk_180137958;
   if ( !a1 )
-    v7 = &unk_180137930;
-  v8 = RtlpComputePath(v7, 5 - (unsigned int)(a1 != 0), 0LL);
+    v3 = &unk_180137930;
+  v4 = RtlpComputePath(v3, 5 - (unsigned int)(a1 != 0), 0LL);
   RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
-  if ( v8 )
+  if ( v4 )
   {
-    *(_QWORD *)(v8 + 88) = EnvironmentVersion;
-    *(_BYTE *)(v8 + 116) = 0;
+    *(_QWORD *)(v4 + 88) = EnvironmentVersion;
+    *(_BYTE *)(v4 + 116) = 0;
   }
-  return v8;
+  return v4;
 }

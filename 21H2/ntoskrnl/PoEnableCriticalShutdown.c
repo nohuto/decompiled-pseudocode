@@ -1,12 +1,12 @@
 /*
- * XREFs of PoEnableCriticalShutdown @ 0x14079039C
+ * XREFs of PoEnableCriticalShutdown @ 0x14079194C
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14079167C (CmCompleteRegistryInitialization.c)
  * Callees:
- *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
- *     PopQueueBatteryStatusTimeout @ 0x14078EC1C (PopQueueBatteryStatusTimeout.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopExecutePowerAction @ 0x140775388 (PopExecutePowerAction.c)
+ *     PopQueueBatteryStatusTimeout @ 0x14078EDDC (PopQueueBatteryStatusTimeout.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PoEnableCriticalShutdown(int a1)

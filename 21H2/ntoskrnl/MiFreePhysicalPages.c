@@ -1,29 +1,29 @@
 /*
- * XREFs of MiFreePhysicalPages @ 0x14054BF44
+ * XREFs of MiFreePhysicalPages @ 0x14054C184
  * Callers:
- *     NtFreeUserPhysicalPages @ 0x1408D6800 (NtFreeUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x1408D6960 (NtFreeUserPhysicalPages.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x1402A22D0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A2710 (ExAcquireAutoExpandPushLockExclusive.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiPageTableLockIsContended @ 0x140308460 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiDecrementAweMapCount @ 0x14054B9E8 (MiDecrementAweMapCount.c)
- *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
- *     MiUpdateAwePageTable @ 0x14054E034 (MiUpdateAwePageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14021F710 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14021FB50 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiPageTableLockIsContended @ 0x1403131B0 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiDecrementAweMapCount @ 0x14054BC28 (MiDecrementAweMapCount.c)
+ *     MiLockAweVadsExclusive @ 0x14054D240 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054E238 (MiUnlockAweVadsExclusive.c)
+ *     MiUpdateAwePageTable @ 0x14054E274 (MiUpdateAwePageTable.c)
  */
 
 __int64 __fastcall MiFreePhysicalPages(__int64 a1, __int64 a2)
@@ -45,70 +45,69 @@ __int64 __fastcall MiFreePhysicalPages(__int64 a1, __int64 a2)
   unsigned __int64 v17; // r15
   unsigned __int64 v18; // rbx
   unsigned __int64 v19; // rbx
-  __int64 v20; // r8
-  int v21; // eax
-  __int64 v22; // rcx
-  char v23; // al
+  int v20; // eax
+  __int64 v21; // rcx
+  char v22; // al
   __int64 result; // rax
-  unsigned __int8 v25; // [rsp+20h] [rbp-168h]
-  int v26; // [rsp+28h] [rbp-160h]
-  int v27; // [rsp+2Ch] [rbp-15Ch]
-  __int64 v28; // [rsp+30h] [rbp-158h]
-  unsigned __int64 v29; // [rsp+38h] [rbp-150h]
-  signed __int64 *v30; // [rsp+40h] [rbp-148h]
-  struct _KTHREAD *v31; // [rsp+48h] [rbp-140h]
-  unsigned __int64 v32; // [rsp+50h] [rbp-138h]
-  __int64 v34; // [rsp+60h] [rbp-128h]
-  unsigned __int64 v35; // [rsp+68h] [rbp-120h]
-  __int64 v36; // [rsp+70h] [rbp-118h]
+  unsigned __int8 v24; // [rsp+20h] [rbp-168h]
+  int v25; // [rsp+28h] [rbp-160h]
+  int v26; // [rsp+2Ch] [rbp-15Ch]
+  __int64 v27; // [rsp+30h] [rbp-158h]
+  unsigned __int64 v28; // [rsp+38h] [rbp-150h]
+  signed __int64 *v29; // [rsp+40h] [rbp-148h]
+  struct _KTHREAD *v30; // [rsp+48h] [rbp-140h]
+  unsigned __int64 v31; // [rsp+50h] [rbp-138h]
+  __int64 v33; // [rsp+60h] [rbp-128h]
+  unsigned __int64 v34; // [rsp+68h] [rbp-120h]
+  __int64 v35; // [rsp+70h] [rbp-118h]
   ULONG_PTR BugCheckParameter2; // [rsp+78h] [rbp-110h]
-  _QWORD v38[24]; // [rsp+80h] [rbp-108h] BYREF
+  _QWORD v37[24]; // [rsp+80h] [rbp-108h] BYREF
 
   v3 = a1;
-  memset(v38, 0, 0xB8uLL);
-  LODWORD(v38[0]) = 1;
-  WORD2(v38[0]) = 0;
+  memset(v37, 0, 0xB8uLL);
+  LODWORD(v37[0]) = 1;
+  WORD2(v37[0]) = 0;
   v4 = (__int64 *)(a2 + 48);
-  v38[2] = 0LL;
+  v37[2] = 0LL;
   v5 = 0;
-  v38[3] = 0LL;
+  v37[3] = 0LL;
   v6 = 0LL;
-  v26 = 0;
+  v25 = 0;
   v7 = (_QWORD *)(a2 + 48);
   v8 = (unsigned __int64)*(unsigned int *)(a2 + 40) >> 12;
-  LODWORD(v38[1]) = 20;
+  LODWORD(v37[1]) = 20;
   CurrentThread = KeGetCurrentThread();
-  v25 = 17;
-  v31 = CurrentThread;
-  v29 = a2 + 48 + 8 * v8;
-  v32 = *(_QWORD *)(v3 + 8);
+  v24 = 17;
+  v30 = CurrentThread;
+  v28 = a2 + 48 + 8 * v8;
+  v31 = *(_QWORD *)(v3 + 8);
   v10 = (__int64)&CurrentThread->ApcState.Process[1].ActiveProcessorsPadding[6];
-  v27 = *(_DWORD *)v3 & 1;
-  if ( v27 )
+  v26 = *(_DWORD *)v3 & 1;
+  if ( v26 )
     MiLockAweVadsExclusive(CurrentThread);
   --CurrentThread->SpecialApcDisable;
   BugCheckParameter2 = v3 + 56;
   ExAcquireAutoExpandPushLockExclusive(v3 + 56, 0LL);
   v11 = *(_QWORD *)(v3 + 16);
   v12 = *(const signed __int64 **)(v3 + 24);
-  v36 = v11;
-  v30 = (signed __int64 *)v12;
-  if ( (unsigned __int64)v4 >= v29 )
+  v35 = v11;
+  v29 = (signed __int64 *)v12;
+  if ( (unsigned __int64)v4 >= v28 )
     goto LABEL_42;
   v13 = (_DWORD *)0xFFFFF68000000000LL;
   while ( 1 )
   {
-    v34 = *v4;
+    v33 = *v4;
     v14 = *v4;
-    *(_QWORD *)&v15 = *v4 / v32;
-    *((_QWORD *)&v15 + 1) = *v4 % v32;
-    v35 = v15;
+    *(_QWORD *)&v15 = *v4 / v31;
+    *((_QWORD *)&v15 + 1) = *v4 % v31;
+    v34 = v15;
     if ( v15 >= (unsigned __int64)v11 )
       break;
     if ( !_bittest64(v12, v15) )
       break;
-    *((_QWORD *)&v15 + 1) = 48 * v34 - 0x58000000000LL;
-    v28 = *((_QWORD *)&v15 + 1);
+    *((_QWORD *)&v15 + 1) = 48 * v33 - 0x58000000000LL;
+    v27 = *((_QWORD *)&v15 + 1);
     if ( (*(_QWORD *)(*((_QWORD *)&v15 + 1) + 24LL) & 0x4000000000000000LL) != 0 )
       break;
     v16 = *(_QWORD *)(*((_QWORD *)&v15 + 1) + 24LL) & 0x3FFFFFFFFFFFFFFFLL;
@@ -120,21 +119,21 @@ __int64 __fastcall MiFreePhysicalPages(__int64 a1, __int64 a2)
       {
         if ( v6 )
         {
-          MiFlushTbList((__int64)v38, *((_KPROCESS **)&v15 + 1));
+          MiFlushTbList((__int64)v37, *((_KPROCESS **)&v15 + 1));
           MiUnlockPageTableInternal(v10, v6);
         }
         v6 = ((v17 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        if ( v25 == 17 )
-          v25 = MiLockWorkingSetShared(v10, *((__int64 *)&v15 + 1), v11, v13);
-        MiLockPageTableInternal(v10, v18, 0LL);
+        if ( v24 == 17 )
+          v24 = MiLockWorkingSetShared(v10, *((__int64 *)&v15 + 1), v11, v13);
+        MiLockPageTableInternal(v10, v18, 0);
       }
       v19 = ZeroPte;
       if ( MiPteInShadowRange(v17) )
       {
         if ( (unsigned int)MiPteHasShadow() )
         {
-          v21 = 1;
-          if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+          v20 = 1;
+          if ( !HIBYTE(word_140C4E048) && (ZeroPte & 1) != 0 )
             v19 = ZeroPte | 0x8000000000000000uLL;
           goto LABEL_25;
         }
@@ -144,54 +143,54 @@ __int64 __fastcall MiFreePhysicalPages(__int64 a1, __int64 a2)
           v19 = ZeroPte | 0x8000000000000000uLL;
         }
       }
-      v21 = 0;
+      v20 = 0;
 LABEL_25:
       *(_QWORD *)v17 = v19;
-      if ( v21 )
-        MiWritePteShadow(v17, v19, v20);
+      if ( v20 )
+        MiWritePteShadow(v17, v19);
       MiUpdateAwePageTable(v6, -1LL, 0xFFFFFFFFLL);
-      MiInsertTbFlushEntry((__int64)v38, (__int64)(v17 << 25) >> 16, 1LL, 0);
-      MiDecrementAweMapCount(v22, v28, (__int64 *)MmBadPointer, 0LL);
-      *((_QWORD *)&v15 + 1) = v28;
+      MiInsertTbFlushEntry((__int64)v37, (__int64)(v17 << 25) >> 16, 1LL, 0);
+      MiDecrementAweMapCount(v21, v27, (__int64 *)MmBadPointer, 0LL);
+      *((_QWORD *)&v15 + 1) = v27;
       v3 = a1;
-      v14 = v34;
+      v14 = v33;
     }
     if ( !MiDecrementAweMapCount(v16, *((__int64 *)&v15 + 1), (__int64 *)MmBadPointer, (_DWORD *)1) )
     {
       *v7++ = v14;
-      _bittestandreset64(v30, v35);
+      _bittestandreset64(v29, v34);
     }
-    v23 = ++v26;
-    if ( v25 != 17
-      && (v23 & 0x3F) == 0
+    v22 = ++v25;
+    if ( v24 != 17
+      && (v22 & 0x3F) == 0
       && (MiWorkingSetIsContended(v10) || (unsigned int)MiPageTableLockIsContended(v10, v6) || KeShouldYieldProcessor()) )
     {
-      MiFlushTbList((__int64)v38, *((_KPROCESS **)&v15 + 1));
+      MiFlushTbList((__int64)v37, *((_KPROCESS **)&v15 + 1));
       MiUnlockPageTableInternal(v10, v6);
-      MiUnlockWorkingSetShared(v10, v25);
+      MiUnlockWorkingSetShared(v10, v24);
       v6 = 0LL;
-      v25 = 17;
+      v24 = 17;
     }
-    v12 = v30;
+    v12 = v29;
     ++v4;
-    v11 = v36;
+    v11 = v35;
     v13 = (_DWORD *)0xFFFFF68000000000LL;
-    if ( (unsigned __int64)v4 >= v29 )
+    if ( (unsigned __int64)v4 >= v28 )
       goto LABEL_39;
   }
   v5 = -1073741800;
 LABEL_39:
   if ( v6 )
   {
-    MiFlushTbList((__int64)v38, *((_KPROCESS **)&v15 + 1));
+    MiFlushTbList((__int64)v37, *((_KPROCESS **)&v15 + 1));
     MiUnlockPageTableInternal(v10, v6);
-    MiUnlockWorkingSetShared(v10, v25);
+    MiUnlockWorkingSetShared(v10, v24);
   }
-  CurrentThread = v31;
+  CurrentThread = v30;
 LABEL_42:
   ExReleaseAutoExpandPushLockExclusive(BugCheckParameter2, 0LL);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
-  if ( v27 )
+  if ( v26 )
     MiUnlockAweVadsExclusive(CurrentThread);
   result = v5;
   *(_DWORD *)(a2 + 44) = ((__int64)v4 - a2 - 48) >> 3;

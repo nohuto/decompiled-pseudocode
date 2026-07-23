@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditTransactionStateChange @ 0x1409F8C00
+ * XREFs of SeAuditTransactionStateChange @ 0x140B33F70
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1409FABB0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14091F7B0 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *ResourceManagerId, ULONG NewTransactionState)
@@ -23,11 +23,11 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   __int64 v9; // rbx
   __int64 v10; // r14
   _KPROCESS *CurrentThreadProcess; // rax
-  PVOID *v12; // rdi
+  __int64 *v12; // rdi
   int v13; // eax
   _KPROCESS *v14; // rax
   struct _LIST_ENTRY *Flink; // rcx
-  PVOID P[3]; // [rsp+28h] [rbp-E0h] BYREF
+  __int64 P[3]; // [rsp+28h] [rbp-E0h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+40h] [rbp-C8h] BYREF
   _DWORD Src[4]; // [rsp+68h] [rbp-A0h] BYREF
   __int16 v19; // [rsp+78h] [rbp-90h]
@@ -55,7 +55,7 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   struct _LIST_ENTRY *v41; // [rsp+148h] [rbp+40h]
   int v42; // [rsp+160h] [rbp+58h]
   int v43; // [rsp+164h] [rbp+5Ch]
-  PVOID *v44; // [rsp+178h] [rbp+70h]
+  __int64 *v44; // [rsp+178h] [rbp+70h]
   __int128 v45; // [rsp+488h] [rbp+380h] BYREF
 
   v3 = NewTransactionState;
@@ -86,11 +86,11 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   v9 = PrimaryToken[3];
   v10 = *ClientToken[19];
   CurrentThreadProcess = PsGetCurrentThreadProcess();
-  if ( (int)PsGetAllocatedFullProcessImageNameEx(CurrentThreadProcess, P) < 0 || (v12 = (PVOID *)P[0]) == 0LL )
+  if ( (int)PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, P) < 0 || (v12 = (__int64 *)P[0]) == 0LL )
   {
     RtlInitUnicodeString((PUNICODE_STRING)&P[1], L"?");
     v12 = &P[1];
-    P[0] = &P[1];
+    P[0] = (__int64)&P[1];
   }
   v13 = *(unsigned __int8 *)(v10 + 1);
   v29 = v9;
@@ -125,7 +125,7 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   SeReleaseSubjectContext(&SubjectContext);
   if ( P[0] )
   {
-    if ( P[0] != &P[1] )
-      ExFreePoolWithTag(P[0], 0);
+    if ( (__int64 *)P[0] != &P[1] )
+      ExFreePoolWithTag((PVOID)P[0], 0);
   }
 }

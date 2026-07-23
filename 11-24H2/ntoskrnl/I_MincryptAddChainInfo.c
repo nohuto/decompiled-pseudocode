@@ -1,11 +1,11 @@
 /*
- * XREFs of I_MincryptAddChainInfo @ 0x14082761C
+ * XREFs of I_MincryptAddChainInfo @ 0x140827DEC
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140824ED4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408256A0 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     I_MincryptFreeChainInfo @ 0x1408278DC (I_MincryptFreeChainInfo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     I_MincryptFreeChainInfo @ 0x1408280AC (I_MincryptFreeChainInfo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall I_MincryptAddChainInfo(
@@ -21,7 +21,7 @@ __int64 __fastcall I_MincryptAddChainInfo(
         const void **a10)
 {
   unsigned int v10; // r13d
-  int v11; // ebx
+  unsigned int v11; // ebx
   __int64 v12; // r14
   unsigned int v13; // r12d
   __int64 v14; // rbp
@@ -56,7 +56,7 @@ __int64 __fastcall I_MincryptAddChainInfo(
   v15 = a3 + a4;
   if ( a3 + a4 + a5 )
   {
-    Pool2 = ExAllocatePool2(0x102uLL);
+    Pool2 = ExAllocatePool2(0x102uLL, v11, 0x72634943u);
     v17 = Pool2;
     if ( !Pool2 )
       return 3221225495LL;

@@ -10,7 +10,7 @@
 
 void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
 {
-  __int64 v3; // rcx
+  _RTL_SRWLOCK *v3; // rcx
   int v5; // eax
   _QWORD *v6; // rax
   __int64 v7; // rcx
@@ -32,12 +32,12 @@ void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
         --v7;
       }
       while ( v7 );
-      v3 = a1 + 64;
+      v3 = (_RTL_SRWLOCK *)(a1 + 64);
       *(_QWORD *)(a1 + 64) = 1LL;
     }
     else
     {
-      v3 = a1 + 64;
+      v3 = (_RTL_SRWLOCK *)(a1 + 64);
     }
     if ( (*(_WORD *)(a1 + 216))-- == 1 )
     {
@@ -49,18 +49,18 @@ void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
         v5 = *(_DWORD *)(a1 + 20);
         if ( (v5 & 1) == 0 )
         {
-          RtlReleaseSRWLockExclusive(a1 + 384);
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 384));
           v5 = *(_DWORD *)(a1 + 20);
           if ( (v5 & 1) == 0 )
           {
-            RtlReleaseSRWLockExclusive(a1 + 576);
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 576));
             v5 = *(_DWORD *)(a1 + 20);
           }
         }
       }
       if ( (v5 & 1) == 0 )
-        RtlReleaseSRWLockExclusive(a1 + 704);
-      RtlReleaseSRWLockExclusive(a1 + 968);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 704));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 968));
     }
   }
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of IopDequeueIrpFromThread @ 0x1402AF730
+ * XREFs of IopDequeueIrpFromThread @ 0x1402AF9C0
  * Callers:
- *     IopCopyCompleteReadRequest @ 0x14028C5D0 (IopCopyCompleteReadRequest.c)
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopfCompleteRequest @ 0x1402C99B0 (IopfCompleteRequest.c)
- *     IopIoRingCompleteIrp @ 0x1405594DC (IopIoRingCompleteIrp.c)
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopCloseFile @ 0x140730000 (IopCloseFile.c)
- *     IopDeleteFile @ 0x140730490 (IopDeleteFile.c)
- *     IoCancelFileOpen @ 0x140946D00 (IoCancelFileOpen.c)
+ *     IopCopyCompleteReadRequest @ 0x14028C860 (IopCopyCompleteReadRequest.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1402C9C40 (IopfCompleteRequest.c)
+ *     IopIoRingCompleteIrp @ 0x140559B9C (IopIoRingCompleteIrp.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopCloseFile @ 0x1407301F0 (IopCloseFile.c)
+ *     IopDeleteFile @ 0x140730680 (IopDeleteFile.c)
+ *     IoCancelFileOpen @ 0x140946F00 (IoCancelFileOpen.c)
  * Callees:
- *     KxWaitForSpinLockAndAcquire @ 0x140250F20 (KxWaitForSpinLockAndAcquire.c)
- *     KiAcquireSpinLockInstrumented @ 0x140460430 (KiAcquireSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140571848 (KiReleaseSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140250FE0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140460830 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140571D88 (KiReleaseSpinLockInstrumented.c)
  */
 
 _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)
@@ -40,7 +40,7 @@ _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -73,10 +73,10 @@ _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)
       KiReleaseSpinLockInstrumented(v1 + 1496, retaddr);
     else
       _InterlockedAnd64((volatile signed __int64 *)v4, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;

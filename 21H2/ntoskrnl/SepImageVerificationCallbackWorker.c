@@ -1,10 +1,10 @@
 /*
- * XREFs of SepImageVerificationCallbackWorker @ 0x1407714F0
+ * XREFs of SepImageVerificationCallbackWorker @ 0x1407716B0
  * Callers:
  *     <none>
  * Callees:
- *     ExNotifyWithProcessing @ 0x1402B0658 (ExNotifyWithProcessing.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExNotifyWithProcessing @ 0x14022E9B8 (ExNotifyWithProcessing.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepImageVerificationCallbackWorker(unsigned int *P)

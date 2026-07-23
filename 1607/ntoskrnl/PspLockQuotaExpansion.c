@@ -1,16 +1,16 @@
 /*
- * XREFs of PspLockQuotaExpansion @ 0x1400C69CC
+ * XREFs of PspLockQuotaExpansion @ 0x1400C486C
  * Callers:
- *     PspReturnResourceQuota @ 0x1400C6840 (PspReturnResourceQuota.c)
- *     PspExpandQuota @ 0x1400C68C4 (PspExpandQuota.c)
- *     PspInsertExpansionEntry @ 0x14014A7F8 (PspInsertExpansionEntry.c)
- *     PspExpandLimit @ 0x14020EFA0 (PspExpandLimit.c)
+ *     PspReturnResourceQuota @ 0x1400C46E0 (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x1400C4764 (PspExpandQuota.c)
+ *     PspInsertExpansionEntry @ 0x14014AD68 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x14020EDCC (PspExpandLimit.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char __fastcall PspLockQuotaExpansion(__int64 a1, _BYTE *a2)
@@ -61,8 +61,8 @@ char __fastcall PspLockQuotaExpansion(__int64 a1, _BYTE *a2)
   v9 = (char *)v5->LockEntries + a1;
   if ( v9 )
   {
-    if ( v6 < qword_140326910
-      || v6 >= qword_140326910 + 0x8000000000LL
+    if ( v6 < qword_140326950
+      || v6 >= qword_140326950 + 0x8000000000LL
       || (Process = v5->ApcState.Process, (v11 = Process[1].ActiveProcessors.Bitmap[2]) == 0)
       || Process == PsInitialSystemProcess )
     {

@@ -21,7 +21,7 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14021EE68 (MI_READ_PTE_LOCK_FREE.c)
  */
 
-__int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
+PVOID __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
 {
   unsigned __int64 *v4; // rsi
   __int64 v6; // r14
@@ -41,7 +41,7 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigne
   __int16 v20; // r10
   __int64 v21; // rcx
   __int64 v22; // rcx
-  __int64 result; // rax
+  PVOID result; // rax
   KIRQL v24; // [rsp+20h] [rbp-E0h]
   unsigned __int64 v25; // [rsp+28h] [rbp-D8h] BYREF
   __int64 AnyMultiplexedVm; // [rsp+30h] [rbp-D0h]
@@ -114,10 +114,10 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigne
     v10 = v24;
   }
   LOBYTE(v11) = v10;
-  result = MiUnlockWorkingSetExclusive(AnyMultiplexedVm, v11);
+  result = (PVOID)MiUnlockWorkingSetExclusive(AnyMultiplexedVm, v11);
   if ( v8 )
   {
-    result = *(_QWORD *)(a1 + 48);
+    result = *(PVOID *)(a1 + 48);
     if ( result == PsNtosImageBase || result == PsHalImageBase )
       _InterlockedExchangeAdd((_DWORD *)&xmmword_14036C0E0 + 2, v8);
     else

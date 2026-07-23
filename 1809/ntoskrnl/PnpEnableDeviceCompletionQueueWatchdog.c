@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpEnableDeviceCompletionQueueWatchdog @ 0x14015A360
+ * XREFs of PnpEnableDeviceCompletionQueueWatchdog @ 0x14015A460
  * Callers:
- *     PnpDeviceCompletionRequestCreate @ 0x1406E8090 (PnpDeviceCompletionRequestCreate.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x1406E9330 (PnpDeviceCompletionRequestCreate.c)
  * Callees:
  *     PnpEnableWatchdog @ 0x140005C04 (PnpEnableWatchdog.c)
  */

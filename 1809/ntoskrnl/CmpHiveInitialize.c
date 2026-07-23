@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpHiveInitialize @ 0x1405A717C
+ * XREFs of CmpHiveInitialize @ 0x1405A817C
  * Callers:
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpCreateEmptyHiveClone @ 0x1407F65D8 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407F77D8 (CmpCreateEmptyHiveClone.c)
  * Callees:
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpInitSecurityCache @ 0x1405A7210 (CmpInitSecurityCache.c)
- *     HvHiveInitialize @ 0x1405A724C (HvHiveInitialize.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpInitSecurityCache @ 0x1405A8210 (CmpInitSecurityCache.c)
+ *     HvHiveInitialize @ 0x1405A824C (HvHiveInitialize.c)
  */
 
 __int64 __fastcall CmpHiveInitialize(__int64 a1)

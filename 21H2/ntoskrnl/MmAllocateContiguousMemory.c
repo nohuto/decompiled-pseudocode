@@ -1,9 +1,9 @@
 /*
- * XREFs of MmAllocateContiguousMemory @ 0x1405316E0
+ * XREFs of MmAllocateContiguousMemory @ 0x140531920
  * Callers:
  *     <none>
  * Callees:
- *     MiAllocateContiguousMemory @ 0x140294F3C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x140216BFC (MiAllocateContiguousMemory.c)
  */
 
 PVOID __stdcall MmAllocateContiguousMemory(SIZE_T NumberOfBytes, PHYSICAL_ADDRESS HighestAcceptableAddress)

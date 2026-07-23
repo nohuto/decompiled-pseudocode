@@ -1,9 +1,9 @@
 /*
- * XREFs of MiJumpStack @ 0x14016A1B0
+ * XREFs of MiJumpStack @ 0x14016A2B0
  * Callers:
  *     <none>
  * Callees:
- *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
+ *     KeGenericCallDpc @ 0x140120460 (KeGenericCallDpc.c)
  */
 
 char __fastcall MiJumpStack(struct _SINGLE_LIST_ENTRY *a1)

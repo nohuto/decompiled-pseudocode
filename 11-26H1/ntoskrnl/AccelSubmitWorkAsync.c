@@ -1,10 +1,10 @@
 /*
- * XREFs of AccelSubmitWorkAsync @ 0x140530C4C
+ * XREFs of AccelSubmitWorkAsync @ 0x14053314C
  * Callers:
- *     AccelpSubmitWork @ 0x1402A1EE4 (AccelpSubmitWork.c)
+ *     AccelpSubmitWork @ 0x1402A1434 (AccelpSubmitWork.c)
  * Callees:
- *     AccelpInternalOperationHandler @ 0x140531E58 (AccelpInternalOperationHandler.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpInternalOperationHandler @ 0x1405342F8 (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelSubmitWorkAsync(__int64 *a1)

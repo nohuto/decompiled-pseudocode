@@ -1,35 +1,35 @@
 /*
- * XREFs of HalpAcpiPrmCacheInit @ 0x140C0D960
+ * XREFs of HalpAcpiPrmCacheInit @ 0x140C0F960
  * Callers:
- *     HalpAcpiInitSystem @ 0x140B4D110 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x140B4F150 (HalpAcpiInitSystem.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 HalpAcpiPrmCacheInit()
 {
   __int64 v0; // rbp
   __int64 *i; // rdi
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   _QWORD *v3; // rbx
-  ULONG_PTR v4; // r14
+  __int64 v4; // r14
   __int64 *j; // rsi
-  ULONG_PTR v6; // rax
-  ULONG_PTR *v7; // rcx
+  __int64 v6; // rax
+  __int64 *v7; // rcx
   _QWORD *v8; // rax
   __int64 *k; // rdi
-  ULONG_PTR v10; // rax
+  __int64 v10; // rax
   _QWORD *v11; // rbx
-  ULONG_PTR v12; // r14
+  __int64 v12; // r14
   __int64 *m; // rsi
-  ULONG_PTR v14; // rax
-  ULONG_PTR *v15; // rcx
+  __int64 v14; // rax
+  __int64 *v15; // rcx
   _QWORD *v16; // rax
 
   v0 = HalpAcpiLoaderBlock;
   if ( !HalpAcpiPrmInitialized )
   {
-    qword_140E0F500 = (__int64)&HalpAcpiPrmUpdateList;
+    qword_140E0F678 = (__int64)&HalpAcpiPrmUpdateList;
     HalpAcpiPrmUpdateList = (__int64)&HalpAcpiPrmUpdateList;
     for ( i = *(__int64 **)(*(_QWORD *)(HalpAcpiLoaderBlock + 240) + 2600LL);
           i != (__int64 *)(*(_QWORD *)(v0 + 240) + 2600LL);
@@ -58,7 +58,7 @@ __int64 HalpAcpiPrmCacheInit()
         *(_OWORD *)(v6 + 32) = *((_OWORD *)j + 2);
         *(_OWORD *)(v6 + 48) = *((_OWORD *)j + 3);
         *(_OWORD *)(v6 + 64) = *((_OWORD *)j + 4);
-        v7 = *(ULONG_PTR **)(v4 + 8);
+        v7 = *(__int64 **)(v4 + 8);
         if ( *v7 != v4 )
           goto LABEL_22;
         *(_QWORD *)v6 = v4;
@@ -66,16 +66,16 @@ __int64 HalpAcpiPrmCacheInit()
         *v7 = v6;
         *(_QWORD *)(v4 + 8) = v6;
       }
-      v8 = (_QWORD *)qword_140E0F500;
-      if ( *(__int64 **)qword_140E0F500 != &HalpAcpiPrmUpdateList )
+      v8 = (_QWORD *)qword_140E0F678;
+      if ( *(__int64 **)qword_140E0F678 != &HalpAcpiPrmUpdateList )
 LABEL_22:
         __fastfail(3u);
       *v3 = &HalpAcpiPrmUpdateList;
       v3[1] = v8;
       *v8 = v3;
-      qword_140E0F500 = (__int64)v3;
+      qword_140E0F678 = (__int64)v3;
     }
-    qword_140E0F538 = (__int64)&HalpAcpiPrmFirmwareList;
+    qword_140E0F6B0 = (__int64)&HalpAcpiPrmFirmwareList;
     HalpAcpiPrmFirmwareList = (__int64)&HalpAcpiPrmFirmwareList;
     for ( k = *(__int64 **)(*(_QWORD *)(v0 + 240) + 2616LL);
           k != (__int64 *)(*(_QWORD *)(v0 + 240) + 2616LL);
@@ -104,7 +104,7 @@ LABEL_22:
         *(_OWORD *)(v14 + 32) = *((_OWORD *)m + 2);
         *(_OWORD *)(v14 + 48) = *((_OWORD *)m + 3);
         *(_OWORD *)(v14 + 64) = *((_OWORD *)m + 4);
-        v15 = *(ULONG_PTR **)(v12 + 8);
+        v15 = *(__int64 **)(v12 + 8);
         if ( *v15 != v12 )
           goto LABEL_22;
         *(_QWORD *)v14 = v12;
@@ -112,13 +112,13 @@ LABEL_22:
         *v15 = v14;
         *(_QWORD *)(v12 + 8) = v14;
       }
-      v16 = (_QWORD *)qword_140E0F538;
-      if ( *(__int64 **)qword_140E0F538 != &HalpAcpiPrmFirmwareList )
+      v16 = (_QWORD *)qword_140E0F6B0;
+      if ( *(__int64 **)qword_140E0F6B0 != &HalpAcpiPrmFirmwareList )
         goto LABEL_22;
       *v11 = &HalpAcpiPrmFirmwareList;
       v11[1] = v16;
       *v16 = v11;
-      qword_140E0F538 = (__int64)v11;
+      qword_140E0F6B0 = (__int64)v11;
     }
     HalpAcpiPrmInitialized = 1;
   }

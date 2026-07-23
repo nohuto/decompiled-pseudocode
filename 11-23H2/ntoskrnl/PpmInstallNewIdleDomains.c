@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmInstallNewIdleDomains @ 0x140585850
+ * XREFs of PpmInstallNewIdleDomains @ 0x140585D40
  * Callers:
  *     <none>
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall PpmInstallNewIdleDomains(__int64 a1, __int64 a2)

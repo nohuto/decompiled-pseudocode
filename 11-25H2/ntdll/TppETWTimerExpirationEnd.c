@@ -8,18 +8,18 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall TppETWTimerExpirationEnd(__int64 a1)
+NTSTATUS __fastcall TppETWTimerExpirationEnd(__int64 a1)
 {
   __int64 v1; // rcx
-  _OWORD v3[2]; // [rsp+20h] [rbp-38h] BYREF
+  _OWORD Fields[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v4; // [rsp+40h] [rbp-18h]
 
   v4 = a1;
-  memset(v3, 0, sizeof(v3));
-  WORD3(v3[0]) = 7215;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  memset(Fields, 0, sizeof(Fields));
+  WORD3(Fields[0]) = 7215;
+  if ( RtlGetCurrentServiceSessionId() )
     v1 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v1 = 2147353478LL;
-  return NtTraceEvent(*(unsigned __int8 *)v1, 1026LL, 8LL, v3);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v1, 0x402u, 8u, Fields);
 }

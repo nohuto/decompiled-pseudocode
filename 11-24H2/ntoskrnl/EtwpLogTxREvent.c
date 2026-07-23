@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpLogTxREvent @ 0x1407A9E8C
+ * XREFs of EtwpLogTxREvent @ 0x1407A9FCC
  * Callers:
- *     EtwpTraceRegistryTransaction @ 0x140AA9A40 (EtwpTraceRegistryTransaction.c)
+ *     EtwpTraceRegistryTransaction @ 0x140AA4AF0 (EtwpTraceRegistryTransaction.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall EtwpLogTxREvent(
@@ -56,7 +56,7 @@ int __fastcall EtwpLogTxREvent(
   }
   v13 = 2LL * v9;
   *(&v22 + 2 * v13) = 0;
-  (&v20)[v13] = &EtwpNull;
+  (&v20)[v13] = (__int64 *)&EtwpNull;
   *(&v21 + 2 * v13) = 2;
   return EtwpLogKernelEvent((__int64)&v20, EtwpHostSiloState, a1, v9 + 1, a2 | 0x900, 0x601902u);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpDoCompareKeyName @ 0x1406DA8B0
+ * XREFs of CmpDoCompareKeyName @ 0x1406DA8E0
  * Callers:
- *     CmpCompareInIndex @ 0x1406D9660 (CmpCompareInIndex.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x140825AB8 (CmpFindSubKeyByHashWithStatus.c)
- *     CmpSelectLeaf @ 0x140874B10 (CmpSelectLeaf.c)
+ *     CmpCompareInIndex @ 0x1406D9690 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x140825DB8 (CmpFindSubKeyByHashWithStatus.c)
+ *     CmpSelectLeaf @ 0x140874D50 (CmpSelectLeaf.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpCompareTwoCompressedNames @ 0x1407BF7D0 (CmpCompareTwoCompressedNames.c)
- *     CmpCompareCompressedName @ 0x1407C46E4 (CmpCompareCompressedName.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpCompareTwoCompressedNames @ 0x1407BFAA0 (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareCompressedName @ 0x1407C49B4 (CmpCompareCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpDoCompareKeyName(ULONG_PTR a1, const UNICODE_STRING *a2, unsigned __int16 *a3, unsigned int a4)

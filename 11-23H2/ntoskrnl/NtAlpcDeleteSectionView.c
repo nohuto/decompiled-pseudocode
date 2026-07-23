@@ -1,23 +1,23 @@
 /*
- * XREFs of NtAlpcDeleteSectionView @ 0x1407CB030
+ * XREFs of NtAlpcDeleteSectionView @ 0x1407CB300
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     AlpcpEnumerateResourcesPort @ 0x14071A408 (AlpcpEnumerateResourcesPort.c)
- *     AlpcpDeleteView @ 0x14071C0E8 (AlpcpDeleteView.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     AlpcpEnumerateResourcesPort @ 0x14071A608 (AlpcpEnumerateResourcesPort.c)
+ *     AlpcpDeleteView @ 0x14071C2E8 (AlpcpDeleteView.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
+NTSTATUS __cdecl NtAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  signed int v5; // ebx
   PVOID v6; // rdi
   signed __int64 *v7; // rbx
   __int64 v8; // rdx
@@ -30,17 +30,17 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
   *(_OWORD *)BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
   else
   {
     Object = 0LL;
-    v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
-      BugCheckParameter2[0] = a3;
+      BugCheckParameter2[0] = (ULONG_PTR)ViewBase;
       v6 = Object;
       BugCheckParameter2[1] = 0LL;
       v7 = (signed __int64 *)((char *)Object + 352);
@@ -69,5 +69,5 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

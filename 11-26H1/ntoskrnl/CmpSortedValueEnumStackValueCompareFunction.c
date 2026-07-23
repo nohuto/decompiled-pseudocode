@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpSortedValueEnumStackValueCompareFunction @ 0x140A47070
+ * XREFs of CmpSortedValueEnumStackValueCompareFunction @ 0x140A50360
  * Callers:
- *     CmpSortedValueEnumStackAdvanceInternal @ 0x140A46DD8 (CmpSortedValueEnumStackAdvanceInternal.c)
+ *     CmpSortedValueEnumStackAdvanceInternal @ 0x140A500CC (CmpSortedValueEnumStackAdvanceInternal.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     CmpCompareCompressedName @ 0x1409E2A30 (CmpCompareCompressedName.c)
- *     CmpCompareTwoCompressedNames @ 0x140A47130 (CmpCompareTwoCompressedNames.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     CmpCompareCompressedName @ 0x1409DFA40 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140A50420 (CmpCompareTwoCompressedNames.c)
  */
 
 LONG __fastcall CmpSortedValueEnumStackValueCompareFunction(__int64 *a1, __int64 *a2)

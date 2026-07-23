@@ -1,18 +1,18 @@
 /*
- * XREFs of DifPushThreadContextData @ 0x140617750
+ * XREFs of DifPushThreadContextData @ 0x140615D10
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DifPushThreadContextData(int a1, const void *a2, unsigned int a3)
 {
   char v4; // si
   unsigned int v5; // edi
-  size_t v6; // rbp
+  ULONG_PTR v6; // rbp
   _QWORD *v8; // rbx
   _DWORD *Pool2; // rax
   size_t v10; // r13
@@ -27,7 +27,7 @@ __int64 __fastcall DifPushThreadContextData(int a1, const void *a2, unsigned int
   v8 = *(_QWORD **)&KeGetCurrentThread()[1].WaitBlockFill11[64];
   if ( !v8 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, 0x10uLL, 0x74436644u);
     v8 = Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741801;
@@ -36,10 +36,10 @@ __int64 __fastcall DifPushThreadContextData(int a1, const void *a2, unsigned int
     *(_QWORD *)&KeGetCurrentThread()[1].WaitBlockFill11[64] = Pool2;
   }
   v10 = v6;
-  v11 = (void *)ExAllocatePool2(0x40uLL);
+  v11 = (void *)ExAllocatePool2(0x40uLL, v6, 0x64506644u);
   if ( v11 )
   {
-    v12 = ExAllocatePool2(0x40uLL);
+    v12 = ExAllocatePool2(0x40uLL, 0x18uLL, 0x74436644u);
     if ( v12 )
     {
       memmove(v11, a2, v10);

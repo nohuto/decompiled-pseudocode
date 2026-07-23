@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSwitchFrozenProcessor @ 0x1404F1C1C
+ * XREFs of KeSwitchFrozenProcessor @ 0x1404EB1FC
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiCheckStall @ 0x14052A940 (KiCheckStall.c)
- *     KiSetDebuggerOwner @ 0x140530774 (KiSetDebuggerOwner.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiCheckStall @ 0x14052CE60 (KiCheckStall.c)
+ *     KiSetDebuggerOwner @ 0x140532C74 (KiSetDebuggerOwner.c)
  */
 
 __int64 __fastcall KeSwitchFrozenProcessor(ULONG a1)
@@ -18,7 +18,7 @@ __int64 __fastcall KeSwitchFrozenProcessor(ULONG a1)
   volatile signed __int32 *v6; // rcx
 
   v1 = a1;
-  if ( a1 < KeQueryActiveProcessorCountEx(0xFFFFu) && !LOBYTE(stru_140F10828.WriteOperationCount) )
+  if ( a1 < KeQueryActiveProcessorCountEx(0xFFFFu) && !PoAllProcIntrDisabled )
   {
     _mm_lfence();
     if ( ((*(_DWORD *)(KiProcessorBlock[v1] + 11656) - 2) & 0xFFFFFFFD) == 0 )

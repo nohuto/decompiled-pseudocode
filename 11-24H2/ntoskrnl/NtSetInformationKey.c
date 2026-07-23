@@ -1,32 +1,36 @@
 /*
- * XREFs of NtSetInformationKey @ 0x1409785A0
+ * XREFs of NtSetInformationKey @ 0x140960DB0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     EtwpTraceRegistry @ 0x140870F40 (EtwpTraceRegistry.c)
- *     CmpIsSystemEntity @ 0x14090D660 (CmpIsSystemEntity.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140978D18 (CmKeyBodyReplicateToVirtual.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x14097A13C (CmKeyBodyNeedsVirtualImage.c)
- *     CmSetLastWriteTimeKey @ 0x14097A430 (CmSetLastWriteTimeKey.c)
- *     CmSetKeyFlags @ 0x14097AE70 (CmSetKeyFlags.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     EtwpTraceRegistry @ 0x140875270 (EtwpTraceRegistry.c)
+ *     CmpIsSystemEntity @ 0x1408E4D80 (CmpIsSystemEntity.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140961528 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x14096294C (CmKeyBodyNeedsVirtualImage.c)
+ *     CmSetLastWriteTimeKey @ 0x140962C40 (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x140963680 (CmSetKeyFlags.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3, int a4)
+NTSTATUS __cdecl NtSetInformationKey(
+        HANDLE KeyHandle,
+        KEY_SET_INFORMATION_CLASS KeySetInformationClass,
+        PVOID KeySetInformation,
+        ULONG KeySetInformationLength)
 {
   char v6; // r13
   __int64 *v7; // rdi
@@ -56,7 +60,7 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   HANDLE Handle; // [rsp+58h] [rbp-140h] BYREF
   __int64 v33; // [rsp+60h] [rbp-138h] BYREF
   __int64 v34; // [rsp+68h] [rbp-130h]
-  int v35; // [rsp+70h] [rbp-128h]
+  ULONG v35; // [rsp+70h] [rbp-128h]
   int v36; // [rsp+74h] [rbp-124h] BYREF
   _QWORD v37[3]; // [rsp+78h] [rbp-120h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+90h] [rbp-108h] BYREF
@@ -76,8 +80,8 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   __int64 v52; // [rsp+130h] [rbp-68h]
   LARGE_INTEGER v53[4]; // [rsp+138h] [rbp-60h] BYREF
 
-  v35 = a4;
-  Handle = a1;
+  v35 = KeySetInformationLength;
+  Handle = KeyHandle;
   v51 = 0LL;
   v52 = 0LL;
   v33 = 0LL;
@@ -108,14 +112,15 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v29 = PreviousMode;
-  if ( a2 == 1 )
+  if ( KeySetInformationClass == KeyWow64FlagsInformation )
     goto LABEL_5;
-  if ( a2 )
+  if ( KeySetInformationClass )
   {
-    if ( a2 != 2 && a2 != 3 )
+    if ( KeySetInformationClass != KeyControlFlagsInformation
+      && KeySetInformationClass != KeySetVirtualizationInformation )
     {
-      v13 = a2 - 4;
-      if ( a2 == 4 )
+      v13 = (unsigned int)(KeySetInformationClass - 4);
+      if ( KeySetInformationClass == KeySetDebugInformation )
       {
 LABEL_5:
         v27 = 1;
@@ -123,7 +128,7 @@ LABEL_6:
         v13 = 4LL;
         goto LABEL_7;
       }
-      if ( a2 != 5 )
+      if ( KeySetInformationClass != KeySetHandleTagsInformation )
       {
         if ( CmpTraceRoutine )
         {
@@ -172,10 +177,10 @@ LABEL_7:
     v21 = 0;
     goto LABEL_23;
   }
-  memmove(&v33, a3, (unsigned int)v13);
+  memmove(&v33, KeySetInformation, (unsigned int)v13);
   Object = 0LL;
   v16 = 0;
-  if ( a2 != 5 )
+  if ( KeySetInformationClass != KeySetHandleTagsInformation )
     v16 = 2;
   v17 = ObReferenceObjectByHandle(Handle, v16, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Object, 0LL);
   v7 = (__int64 *)Object;
@@ -230,7 +235,7 @@ LABEL_39:
   }
   if ( CmpTraceRoutine && v18 )
     v34 = v7[1];
-  if ( a2 == 5 )
+  if ( KeySetInformationClass == KeySetHandleTagsInformation )
   {
 LABEL_15:
     CurrentThread = KeGetCurrentThread();
@@ -241,7 +246,7 @@ LABEL_15:
       {
         v7 = (__int64 *)Object;
         *(_QWORD *)&v39 = Object;
-        DWORD2(v39) = a2;
+        DWORD2(v39) = KeySetInformationClass;
         *(_QWORD *)&v40 = &v33;
         DWORD2(v40) = v35;
         v17 = CmpCallCallBacksEx(3u, (__int64)&v39, 0LL, 1, 0x12u, (__int64)Object, (__int64)v37);
@@ -265,17 +270,19 @@ LABEL_19:
               v17 >= 0) )
         {
           v8 = v19;
-          if ( a2 == 5 )
+          if ( KeySetInformationClass == KeySetHandleTagsInformation )
           {
             *((_WORD *)v7 + 25) = v33;
             v17 = 0;
           }
-          else if ( a2 )
+          else if ( KeySetInformationClass )
           {
-            if ( a2 == 1 || a2 == 2 || (v13 = a2 - 3, (unsigned int)v13 <= 1) )
+            if ( KeySetInformationClass == KeyWow64FlagsInformation
+              || KeySetInformationClass == KeyControlFlagsInformation
+              || (v13 = (unsigned int)(KeySetInformationClass - 3), (unsigned int)v13 <= 1) )
             {
               v8 = v28;
-              v17 = CmSetKeyFlags(v7, a2, (unsigned int)v33);
+              v17 = CmSetKeyFlags(v7, (unsigned int)KeySetInformationClass, (unsigned int)v33);
             }
           }
           else
@@ -336,10 +343,10 @@ LABEL_23:
     if ( (void (__fastcall *)(unsigned __int8, __int64, int, int, __int64, __int64))CmpTraceRoutine == EtwpTraceRegistry )
       EtwpTraceRegistry(0x14u, (__int64)v53, v17, 0, v34, 0LL);
     else
-      guard_dispatch_icall_no_overrides(v24, v53, (unsigned int)v17, 0LL);
+      guard_dispatch_icall_no_overrides(v24, v53);
   }
   if ( v14 )
     CmpReleaseShutdownRundown(v13);
   CmpCleanupThreadInfo((_KAFFINITY_EX **)&v51);
-  return (unsigned int)v17;
+  return v17;
 }

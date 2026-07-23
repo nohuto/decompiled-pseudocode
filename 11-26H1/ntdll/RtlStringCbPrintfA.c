@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringCbPrintfA @ 0x180063E10
+ * XREFs of RtlStringCbPrintfA @ 0x180084260
  * Callers:
- *     RtlpVerCompare @ 0x180063D20 (RtlpVerCompare.c)
+ *     RtlpVerCompare @ 0x180084170 (RtlpVerCompare.c)
  * Callees:
- *     _vsnprintf @ 0x180128D30 (_vsnprintf.c)
+ *     _vsnprintf @ 0x180128AA0 (_vsnprintf.c)
  */
 
 __int64 RtlStringCbPrintfA(char *a1, __int64 a2, const char *a3, ...)

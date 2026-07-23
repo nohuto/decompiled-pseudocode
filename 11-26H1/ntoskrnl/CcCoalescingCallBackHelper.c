@@ -1,14 +1,14 @@
 /*
- * XREFs of CcCoalescingCallBackHelper @ 0x1403E0480
+ * XREFs of CcCoalescingCallBackHelper @ 0x1403E3670
  * Callers:
- *     CcCoalescingCallBack @ 0x140258590 (CcCoalescingCallBack.c)
+ *     CcCoalescingCallBack @ 0x140259D70 (CcCoalescingCallBack.c)
  * Callees:
- *     CcRescheduleLazyWriteScanOnVolume @ 0x140218EC0 (CcRescheduleLazyWriteScanOnVolume.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcNotifyWriteBehindInternal @ 0x1403E07DC (CcNotifyWriteBehindInternal.c)
- *     CcNotifyWriteBehindVolume @ 0x1403E0844 (CcNotifyWriteBehindVolume.c)
- *     CcRescheduleLazyWriteScan @ 0x1403E10AC (CcRescheduleLazyWriteScan.c)
+ *     CcRescheduleLazyWriteScanOnVolume @ 0x140218F44 (CcRescheduleLazyWriteScanOnVolume.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcNotifyWriteBehindInternal @ 0x1403E39CC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403E3A34 (CcNotifyWriteBehindVolume.c)
+ *     CcRescheduleLazyWriteScan @ 0x1403E429C (CcRescheduleLazyWriteScan.c)
  */
 
 char __fastcall CcCoalescingCallBackHelper(__int64 a1, _BYTE *a2, int *a3)

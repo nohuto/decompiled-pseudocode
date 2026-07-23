@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitializeKscpCfgFunctions @ 0x140CDA1AC
+ * XREFs of RtlInitializeKscpCfgFunctions @ 0x140CE052C
  * Callers:
- *     MiApplyDynamicFixupsToKernelAndHal @ 0x140CFA528 (MiApplyDynamicFixupsToKernelAndHal.c)
+ *     MiApplyDynamicFixupsToKernelAndHal @ 0x140D008A8 (MiApplyDynamicFixupsToKernelAndHal.c)
  * Callees:
  *     <none>
  */

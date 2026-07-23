@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetFileObjectFilterContext @ 0x1403C5A00
+ * XREFs of IoGetFileObjectFilterContext @ 0x1403B45C0
  * Callers:
- *     FsRtlInsertPerFileObjectContext @ 0x1403C5500 (FsRtlInsertPerFileObjectContext.c)
- *     IopDeleteFile @ 0x140841DB0 (IopDeleteFile.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x1403B40C0 (FsRtlInsertPerFileObjectContext.c)
+ *     IopDeleteFile @ 0x14083E070 (IopDeleteFile.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x1403C5A80 (IopAllocateFileObjectExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x1403B4640 (IopAllocateFileObjectExtension.c)
  */
 
 __int64 __fastcall IoGetFileObjectFilterContext(__int64 a1, _QWORD *a2, char a3)

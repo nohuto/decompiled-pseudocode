@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSessionCreated @ 0x14071EFF0
+ * XREFs of PopSessionCreated @ 0x140720290
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
- *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
+ *     PopPrintEx @ 0x14014252C (PopPrintEx.c)
+ *     PopDiagTraceSessionStates @ 0x1406DD9F0 (PopDiagTraceSessionStates.c)
  */
 
 void __fastcall PopSessionCreated(int a1)

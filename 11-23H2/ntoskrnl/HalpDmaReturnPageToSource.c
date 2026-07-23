@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaReturnPageToSource @ 0x1405114D4
+ * XREFs of HalpDmaReturnPageToSource @ 0x140511A24
  * Callers:
- *     HalpDmaFreeChildAdapter @ 0x140511170 (HalpDmaFreeChildAdapter.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140933F50 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaFreeChildAdapter @ 0x1405116C0 (HalpDmaFreeChildAdapter.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140934150 (HalpDmaAllocateLocalContiguousPool.c)
  * Callees:
- *     HalpDmaReturnToContiguousPool @ 0x14045C90C (HalpDmaReturnToContiguousPool.c)
- *     HalpDmaReturnToScatterPool @ 0x14045CA08 (HalpDmaReturnToScatterPool.c)
+ *     HalpDmaReturnToContiguousPool @ 0x14045CD0C (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaReturnToScatterPool @ 0x14045CE08 (HalpDmaReturnToScatterPool.c)
  */
 
 void __fastcall HalpDmaReturnPageToSource(__int64 a1, unsigned __int64 a2)

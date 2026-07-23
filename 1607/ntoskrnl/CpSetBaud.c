@@ -1,10 +1,10 @@
 /*
- * XREFs of CpSetBaud @ 0x14023DD4C
+ * XREFs of CpSetBaud @ 0x14023DC30
  * Callers:
- *     CpInitialize @ 0x14023DBF0 (CpInitialize.c)
+ *     CpInitialize @ 0x14023DAD4 (CpInitialize.c)
  * Callees:
- *     MY_READ_PORT_UCHAR @ 0x140171A74 (MY_READ_PORT_UCHAR.c)
- *     MY_WRITE_PORT_UCHAR @ 0x140171A80 (MY_WRITE_PORT_UCHAR.c)
+ *     MY_READ_PORT_UCHAR @ 0x140171F74 (MY_READ_PORT_UCHAR.c)
+ *     MY_WRITE_PORT_UCHAR @ 0x140171F80 (MY_WRITE_PORT_UCHAR.c)
  */
 
 unsigned __int8 __fastcall CpSetBaud(__int64 a1, unsigned int a2)

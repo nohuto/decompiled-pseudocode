@@ -1,11 +1,11 @@
 /*
- * XREFs of PopResetIdlePhaseWatchdogDiagnosticContext @ 0x140A3F16C
+ * XREFs of PopResetIdlePhaseWatchdogDiagnosticContext @ 0x1409FAB8C
  * Callers:
- *     PopDisarmIdlePhaseWatchdog @ 0x140A3EEB4 (PopDisarmIdlePhaseWatchdog.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1409FA8D4 (PopDisarmIdlePhaseWatchdog.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopResetIdlePhaseWatchdogDiagnosticContext(
@@ -14,12 +14,12 @@ __int64 __fastcall PopResetIdlePhaseWatchdogDiagnosticContext(
         __int64 a3,
         struct _KLOCK_ENTRIES *a4)
 {
-  PopAcquireRwLockExclusive((unsigned __int64 *)&PopModernStandbyStateNotify.ForegroundLossTime, a2, a3, a4);
-  LODWORD(PopModernStandbyStateNotify.ReadOperationCount) = 0;
-  if ( PopModernStandbyStateNotify.InGlobalForegroundList )
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPdcDeviceListLock.StackBase, a2, a3, a4);
+  PopPdcDeviceListLock.CurrentRunTime = 0;
+  if ( PopPdcDeviceListLock.CycleTime )
   {
-    ExFreePoolWithTag(PopModernStandbyStateNotify.GlobalForegroundListEntry.Blink, 0x67696450u);
-    PopModernStandbyStateNotify.InGlobalForegroundList = 0LL;
+    ExFreePoolWithTag((PVOID)PopPdcDeviceListLock.CycleTime, 0x67696450u);
+    PopPdcDeviceListLock.CycleTime = 0LL;
   }
-  return PopReleaseRwLock((struct _KTHREAD *)&PopModernStandbyStateNotify.ForegroundLossTime);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopPdcDeviceListLock.StackBase);
 }

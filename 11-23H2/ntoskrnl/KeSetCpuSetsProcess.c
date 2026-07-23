@@ -1,35 +1,35 @@
 /*
- * XREFs of KeSetCpuSetsProcess @ 0x14039CB24
+ * XREFs of KeSetCpuSetsProcess @ 0x14039CD04
  * Callers:
- *     KeAssignCpuPartitionsToProcess @ 0x140574A1C (KeAssignCpuPartitionsToProcess.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x140574F5C (KeAssignCpuPartitionsToProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
- *     KiReadyDeferredReadyList @ 0x140249C90 (KiReadyDeferredReadyList.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiAbPropagateBoosts @ 0x1402BBED0 (KiAbPropagateBoosts.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     KiGetProcessCpuSetMaskPointer @ 0x14039D434 (KiGetProcessCpuSetMaskPointer.c)
- *     KiValidateCpuSetMasks @ 0x14039D66C (KiValidateCpuSetMasks.c)
- *     KiWriteCpuSetMasks @ 0x14039E09C (KiWriteCpuSetMasks.c)
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x14039E9B0 (KiUpdateThreadCpuSetAffinitiesProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSwapContext @ 0x1404282E0 (KiSwapContext.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
+ *     KiReadyDeferredReadyList @ 0x140249D60 (KiReadyDeferredReadyList.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiAbPropagateBoosts @ 0x1402BC160 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     KiGetProcessCpuSetMaskPointer @ 0x14039D614 (KiGetProcessCpuSetMaskPointer.c)
+ *     KiValidateCpuSetMasks @ 0x14039D84C (KiValidateCpuSetMasks.c)
+ *     KiWriteCpuSetMasks @ 0x14039E27C (KiWriteCpuSetMasks.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x14039EB90 (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapContext @ 0x140428670 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, __int64 a3)
@@ -64,7 +64,7 @@ __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, __int64 a3)
   struct _KPRCB *v33; // r9
   _DWORD *v34; // r8
   int v35; // eax
-  void (__fastcall *v36)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  void (__fastcall *v36)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v37; // r12
   unsigned int *v38; // rbx
   unsigned __int64 v39; // rdi
@@ -77,7 +77,7 @@ __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, __int64 a3)
   __int64 (__fastcall *v46)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   int v47; // eax
   _DWORD v48[2]; // [rsp+40h] [rbp-338h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
   int v50; // [rsp+4Ch] [rbp-32Ch]
   _QWORD *v51; // [rsp+50h] [rbp-328h] BYREF
   __int128 v52; // [rsp+58h] [rbp-320h] BYREF
@@ -110,7 +110,7 @@ __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, __int64 a3)
     ProcessCpuSetMaskPointer = KiGetProcessCpuSetMaskPointer(a1, v7, &ProcNumber);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -270,11 +270,12 @@ __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, __int64 a3)
           else
           {
             v67 = 3;
-            ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+            ProcNumber = (_PROCESSOR_NUMBER)-1;
             v50 = 1;
             v48[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
             v48[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-            v36 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
+            v36 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController
+                                                                                               + 120);
             _disable();
             v36(*(_QWORD *)(HalpInterruptController + 16), v48, &v67, 47LL, &ProcNumber);
             if ( (v72 & 0x200) != 0 )
@@ -354,10 +355,10 @@ __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, __int64 a3)
       }
       if ( !v28 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v29 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v29 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v29 - 2) <= 0xDu )
           {
             v30 = KeGetCurrentPrcb();
             v31 = v30->SchedulerAssist;
@@ -371,10 +372,10 @@ __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, __int64 a3)
         *(_DWORD *)(v15 + 116) &= ~0x40u;
         KiDeliverApc(0, 0LL, 0LL);
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v32 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v32 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v32 - 2) <= 0xDu )
         {
           v33 = KeGetCurrentPrcb();
           v34 = v33->SchedulerAssist;

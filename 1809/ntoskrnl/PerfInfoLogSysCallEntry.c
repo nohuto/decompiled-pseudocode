@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfInfoLogSysCallEntry @ 0x140312320
+ * XREFs of PerfInfoLogSysCallEntry @ 0x140312510
  * Callers:
- *     KiSystemCall64 @ 0x1401CF100 (KiSystemCall64.c)
- *     KiTrackSystemCallEntry @ 0x140844C80 (KiTrackSystemCallEntry.c)
+ *     KiSystemCall64 @ 0x1401CF200 (KiSystemCall64.c)
+ *     KiTrackSystemCallEntry @ 0x140845EE0 (KiTrackSystemCallEntry.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
- *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42EC (KeIsExecutingInArbitraryThreadContext.c)
+ *     PsGetThreadServerSilo @ 0x14007E5D0 (PsGetThreadServerSilo.c)
+ *     EtwTraceSiloKernelEvent @ 0x1400891D0 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1401B442C (KeIsExecutingInArbitraryThreadContext.c)
  */
 
 __int64 __fastcall PerfInfoLogSysCallEntry(__int64 a1)

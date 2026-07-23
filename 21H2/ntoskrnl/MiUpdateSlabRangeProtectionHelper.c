@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateSlabRangeProtectionHelper @ 0x140A92900
+ * XREFs of MiUpdateSlabRangeProtectionHelper @ 0x140A93900
  * Callers:
  *     <none>
  * Callees:
- *     MiCompareSlabEntry @ 0x140379C58 (MiCompareSlabEntry.c)
+ *     MiCompareSlabEntry @ 0x1403797A8 (MiCompareSlabEntry.c)
  */
 
 __int64 __fastcall MiUpdateSlabRangeProtectionHelper(__int64 a1, __int64 *a2, _QWORD *a3)

@@ -42,7 +42,7 @@ signed __int32 __usercall RtlpRunOnceWaitForInit@<eax>(
   {
     do
     {
-      ZwWaitForAlertByThreadId(a1, 0);
+      ZwWaitForAlertByThreadId((PVOID)a1, 0);
       a2 = *a1;
     }
     while ( (v7 & 4) == 0 );

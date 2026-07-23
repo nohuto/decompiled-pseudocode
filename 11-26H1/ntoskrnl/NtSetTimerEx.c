@@ -1,19 +1,23 @@
 /*
- * XREFs of NtSetTimerEx @ 0x140436460
+ * XREFs of NtSetTimerEx @ 0x1404253F0
  * Callers:
- *     DifNtSetTimerExWrapper @ 0x14068E210 (DifNtSetTimerExWrapper.c)
+ *     DifNtSetTimerExWrapper @ 0x140691DF0 (DifNtSetTimerExWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExpSetTimerObject2 @ 0x1403A9988 (ExpSetTimerObject2.c)
- *     PoCaptureReasonContext @ 0x140436EC8 (PoCaptureReasonContext.c)
- *     PoDestroyReasonContext @ 0x14050A3C0 (PoDestroyReasonContext.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     ExpSetTimerObject @ 0x1406CEDA8 (ExpSetTimerObject.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1408F9EF0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExpSetTimerObject2 @ 0x1403B3598 (ExpSetTimerObject2.c)
+ *     PoCaptureReasonContext @ 0x140425E58 (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x140503E30 (PoDestroyReasonContext.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     ExpSetTimerObject @ 0x1406D2DD8 (ExpSetTimerObject.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140929E80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtSetTimerEx(void *a1, int a2, _BYTE *a3, unsigned int a4)
+NTSTATUS __cdecl NtSetTimerEx(
+        HANDLE TimerHandle,
+        TIMER_SET_INFORMATION_CLASS TimerSetInformationClass,
+        PVOID TimerSetInformation,
+        ULONG TimerSetInformationLength)
 {
   _BYTE *v5; // rdi
   KPROCESSOR_MODE PreviousMode; // si
@@ -22,35 +26,35 @@ __int64 __fastcall NtSetTimerEx(void *a1, int a2, _BYTE *a3, unsigned int a4)
   ULONG TolerableDelay; // r13d
   __int64 v11; // r15
   __int64 v12; // r14
-  NTSTATUS v13; // ebx
-  __int64 result; // rax
+  int v13; // ebx
+  NTSTATUS result; // eax
   struct _OBJECT_TYPE *v15; // rcx
-  NTSTATUS v16; // eax
+  int v16; // eax
   char v17[8]; // [rsp+50h] [rbp-78h] BYREF
   PVOID Object; // [rsp+58h] [rbp-70h] BYREF
   PVOID P[2]; // [rsp+60h] [rbp-68h] BYREF
   _BYTE v20[48]; // [rsp+70h] [rbp-58h] BYREF
 
-  v5 = a3;
+  v5 = TimerSetInformation;
   memset(v20, 0, sizeof(v20));
   v17[0] = 0;
   P[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
-    ProbeForRead(a3, a4, 4u);
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 48 )
-    return 3221225476LL;
+    ProbeForRead(TimerSetInformation, TimerSetInformationLength, 4u);
+  if ( TimerSetInformationClass )
+    return -1073741821;
+  if ( TimerSetInformationLength != 48 )
+    return -1073741820;
   if ( PreviousMode )
   {
     RtlCopyFromUser(v20, v5, 0x30uLL);
     v5 = v20;
   }
   if ( *((_DWORD *)v5 + 8) > 0x7FFFFFFFu )
-    return 3221225713LL;
+    return -1073741583;
   v8 = (void *)*((_QWORD *)v5 + 3);
-  if ( !v8 || (result = PoCaptureReasonContext(v8, (__int64)v17, (__int64)P), (int)result >= 0) )
+  if ( !v8 || (result = PoCaptureReasonContext(v8, (__int64)v17, (__int64)P), result >= 0) )
   {
     v9 = *((_QWORD *)v5 + 5);
     TolerableDelay = *((_DWORD *)v5 + 9);
@@ -58,7 +62,7 @@ __int64 __fastcall NtSetTimerEx(void *a1, int a2, _BYTE *a3, unsigned int a4)
     v11 = *((_QWORD *)v5 + 2);
     v12 = *((_QWORD *)v5 + 1);
     Object = 0LL;
-    v13 = ObReferenceObjectByHandleWithTag(a1, 2u, 0LL, PreviousMode, 0x53695445u, &Object, 0LL);
+    v13 = ObReferenceObjectByHandleWithTag(TimerHandle, 2u, 0LL, PreviousMode, 0x53695445u, &Object, 0LL);
     if ( v13 < 0 )
     {
 LABEL_10:
@@ -69,7 +73,7 @@ LABEL_10:
         if ( P[0] )
           PoDestroyReasonContext(P[0]);
       }
-      return (unsigned int)v13;
+      return v13;
     }
     v15 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
     if ( v15 == ExpIRTimerObjectType )

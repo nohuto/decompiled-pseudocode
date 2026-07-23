@@ -20,50 +20,51 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall WheaPersistBadPageToBcd(__int64 a1)
+__int64 __fastcall WheaPersistBadPageToBcd(UNICODE_STRING *a1)
 {
   _QWORD *v1; // rdi
-  int v3; // ebx
-  __int64 v4; // rsi
-  int ElementData; // eax
-  unsigned int v6; // r14d
-  int v7; // ebx
-  __int64 Pool2; // rax
+  NTSTATUS v3; // ebx
+  HANDLE v4; // rsi
+  NTSTATUS ElementData; // eax
+  ULONG v6; // r14d
+  NTSTATUS v7; // ebx
+  _QWORD *Pool2; // rax
   __int64 v9; // rbx
   void *v10; // rcx
   unsigned int v11; // ebx
-  __int64 v13; // [rsp+30h] [rbp-10h] BYREF
-  unsigned int v14; // [rsp+88h] [rbp+48h] BYREF
-  __int64 v15; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v16; // [rsp+98h] [rbp+58h] BYREF
+  _BCD_OBJECT_DESCRIPTION Description; // [rsp+30h] [rbp-10h] BYREF
+  ULONG BufferSize; // [rsp+88h] [rbp+48h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+90h] [rbp+50h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+98h] [rbp+58h] BYREF
 
-  v13 = 0LL;
-  v15 = 0LL;
+  Description = 0LL;
+  BcdStoreHandle = 0LL;
   v1 = 0LL;
-  v16 = 0LL;
-  v3 = BcdOpenStore(a1, 0LL, &v15);
+  BcdObjectHandle = 0LL;
+  v3 = BcdOpenStore(a1, BCD_OPEN_NONE, &BcdStoreHandle);
   if ( v3 < 0 )
     goto LABEL_20;
-  if ( (int)BcdOpenObject(v15, &GUID_BAD_MEMORY_GROUP, &v16) < 0 )
+  if ( BcdOpenObject(BcdStoreHandle, &GUID_BAD_MEMORY_GROUP, &BcdObjectHandle) < 0 )
   {
-    v13 = 0x2010000000000001LL;
-    v3 = BcdCreateObject(v15, &GUID_BAD_MEMORY_GROUP, &v13, &v16);
+    Description.Version = 1;
+    Description.Type = 537919488;
+    v3 = BcdCreateObject(BcdStoreHandle, &GUID_BAD_MEMORY_GROUP, &Description, &BcdObjectHandle);
     if ( v3 < 0 )
     {
-      v4 = v16;
+      v4 = BcdObjectHandle;
       goto LABEL_18;
     }
   }
-  v4 = v16;
-  v14 = 0;
-  ElementData = BcdGetElementData(v16, 385875978LL, 0LL, &v14);
-  v6 = v14;
+  v4 = BcdObjectHandle;
+  BufferSize = 0;
+  ElementData = BcdGetElementData(BcdObjectHandle, 0x1700000Au, 0LL, &BufferSize);
+  v6 = BufferSize;
   if ( ElementData != -1073741789 )
     v6 = 0;
   v7 = ElementData;
-  v14 = v6;
-  Pool2 = ExAllocatePool2(0x102uLL);
-  v1 = (_QWORD *)Pool2;
+  BufferSize = v6;
+  Pool2 = (_QWORD *)ExAllocatePool2(0x102uLL);
+  v1 = Pool2;
   if ( !Pool2 )
   {
     v3 = -1073741670;
@@ -84,7 +85,7 @@ LABEL_12:
       qsort_s(v10, v11, 8uLL, WheapPfnComparisonHelper, 0LL);
       if ( (unsigned int)WheapCountBadPageExtents(v1, v11) <= 0x40 )
       {
-        v3 = BcdSetElementData(v4, 385875978LL, v1, v6 + 8);
+        v3 = BcdSetElementData(v4, 0x1700000Au, v1, v6 + 8);
         if ( v3 >= 0 )
           v3 = 0;
       }
@@ -95,18 +96,18 @@ LABEL_12:
     }
     goto LABEL_18;
   }
-  v3 = BcdGetElementData(v4, 385875978LL, Pool2, &v14);
+  v3 = BcdGetElementData(v4, 0x1700000Au, Pool2, &BufferSize);
   if ( v3 >= 0 )
   {
-    v6 = v14;
+    v6 = BufferSize;
     goto LABEL_12;
   }
 LABEL_18:
   if ( v4 )
     BcdCloseObject(v4);
 LABEL_20:
-  if ( v15 )
-    BcdCloseStore(v15);
+  if ( BcdStoreHandle )
+    BcdCloseStore(BcdStoreHandle);
   if ( v1 )
     ExFreePoolWithTag(v1, 0x61656857u);
   return (unsigned int)v3;

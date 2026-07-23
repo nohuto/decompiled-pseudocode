@@ -6,30 +6,30 @@
  *     InsertEventEntryInLookUpTable @ 0x140012AF4 (InsertEventEntryInLookUpTable.c)
  *     ExAcquireCacheAwarePushLockSharedEx @ 0x14004E6D0 (ExAcquireCacheAwarePushLockSharedEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     ExpSaAllocatorFree @ 0x1401671E8 (ExpSaAllocatorFree.c)
- *     ExpSaAllocatorAllocate @ 0x140167808 (ExpSaAllocatorAllocate.c)
- *     WheaConfigureErrorSource @ 0x140573910 (WheaConfigureErrorSource.c)
- *     WbGetWarbirdEncryptionSegment @ 0x14058410C (WbGetWarbirdEncryptionSegment.c)
- *     ExpWnfAcquireSubscriptionByName @ 0x140606C70 (ExpWnfAcquireSubscriptionByName.c)
- *     WbRemoveWarbirdProcess @ 0x140608988 (WbRemoveWarbirdProcess.c)
- *     ExpWnfDeliverThreadNotifications @ 0x14060E5F4 (ExpWnfDeliverThreadNotifications.c)
- *     ExpWnfCompleteThreadSubscriptions @ 0x14060E8D0 (ExpWnfCompleteThreadSubscriptions.c)
- *     ExpWnfLookupNameInstance @ 0x14060F8E0 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x14060F9EC (ExpWnfResolveScopeInstance.c)
- *     ExpWnfReadStateData @ 0x14060FFDC (ExpWnfReadStateData.c)
- *     ExpWnfSubscribeNameInstance @ 0x14061034C (ExpWnfSubscribeNameInstance.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
- *     WbGetHeapExecutedBlock @ 0x14062490C (WbGetHeapExecutedBlock.c)
- *     WbGetWarbirdThread @ 0x14062502C (WbGetWarbirdThread.c)
- *     WbGetWarbirdProcess @ 0x140625584 (WbGetWarbirdProcess.c)
- *     WbAllocateUserMemory @ 0x140690B78 (WbAllocateUserMemory.c)
- *     WbAllocateSlots @ 0x140690E3C (WbAllocateSlots.c)
- *     ExpWnfEnumerateScopeInstances @ 0x1406ABA98 (ExpWnfEnumerateScopeInstances.c)
- *     WbFreeUserMemory @ 0x1406B1B9C (WbFreeUserMemory.c)
- *     ExpWnfNotifySubscription @ 0x1406B7808 (ExpWnfNotifySubscription.c)
- *     ExpWnfDispatchKernelSubscription @ 0x1406B79B4 (ExpWnfDispatchKernelSubscription.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x1406C8324 (ExpWnfAcquireSubscriptionNameInstance.c)
- *     ExRegisterExtension @ 0x1407273C0 (ExRegisterExtension.c)
+ *     ExpSaAllocatorFree @ 0x1401672E8 (ExpSaAllocatorFree.c)
+ *     ExpSaAllocatorAllocate @ 0x140167908 (ExpSaAllocatorAllocate.c)
+ *     WheaConfigureErrorSource @ 0x140574910 (WheaConfigureErrorSource.c)
+ *     WbGetWarbirdEncryptionSegment @ 0x14058510C (WbGetWarbirdEncryptionSegment.c)
+ *     ExpWnfAcquireSubscriptionByName @ 0x140607C70 (ExpWnfAcquireSubscriptionByName.c)
+ *     WbRemoveWarbirdProcess @ 0x140609988 (WbRemoveWarbirdProcess.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x14060F5F4 (ExpWnfDeliverThreadNotifications.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x14060F8D0 (ExpWnfCompleteThreadSubscriptions.c)
+ *     ExpWnfLookupNameInstance @ 0x1406108E0 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x1406109EC (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfReadStateData @ 0x140610FDC (ExpWnfReadStateData.c)
+ *     ExpWnfSubscribeNameInstance @ 0x14061134C (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406119F8 (ExpWnfNotifyNameSubscribers.c)
+ *     WbGetHeapExecutedBlock @ 0x14062592C (WbGetHeapExecutedBlock.c)
+ *     WbGetWarbirdThread @ 0x14062604C (WbGetWarbirdThread.c)
+ *     WbGetWarbirdProcess @ 0x1406265A4 (WbGetWarbirdProcess.c)
+ *     WbAllocateUserMemory @ 0x140691D38 (WbAllocateUserMemory.c)
+ *     WbAllocateSlots @ 0x140691FFC (WbAllocateSlots.c)
+ *     ExpWnfEnumerateScopeInstances @ 0x1406ACD38 (ExpWnfEnumerateScopeInstances.c)
+ *     WbFreeUserMemory @ 0x1406B2E3C (WbFreeUserMemory.c)
+ *     ExpWnfNotifySubscription @ 0x1406B8AA8 (ExpWnfNotifySubscription.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x1406B8C54 (ExpWnfDispatchKernelSubscription.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x1406C95C4 (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     ExRegisterExtension @ 0x140728660 (ExRegisterExtension.c)
  * Callees:
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
  *     RtlBackoff @ 0x140005970 (RtlBackoff.c)
@@ -38,7 +38,7 @@
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  */
 
-signed __int64 __fastcall ExfAcquirePushLockSharedEx(unsigned __int64 *a1, __int64 a2, ULONG_PTR a3)
+signed __int64 __fastcall ExfAcquirePushLockSharedEx(unsigned __int64 *a1, _RTL_BALANCED_NODE *a2, ULONG_PTR a3)
 {
   unsigned __int64 v6; // rbx
   __int64 v7; // rdi
@@ -57,7 +57,7 @@ signed __int64 __fastcall ExfAcquirePushLockSharedEx(unsigned __int64 *a1, __int
   __int64 v21; // [rsp+58h] [rbp-18h]
   int v22; // [rsp+60h] [rbp-10h]
   signed __int32 v23; // [rsp+64h] [rbp-Ch] BYREF
-  __int64 v24; // [rsp+68h] [rbp-8h]
+  _RTL_BALANCED_NODE *v24; // [rsp+68h] [rbp-8h]
   int v25; // [rsp+A0h] [rbp+30h] BYREF
 
   v25 = 0;
@@ -113,7 +113,7 @@ signed __int64 __fastcall ExfAcquirePushLockSharedEx(unsigned __int64 *a1, __int
       KeWaitForSingleObject(&Object, WrPushLock, 0, 0, 0LL);
 LABEL_15:
     if ( a2 )
-      a2 = KeAbPreAcquire(a3);
+      a2 = (_RTL_BALANCED_NODE *)KeAbPreAcquire(a3, a2);
   }
   v8 = (v6 | 1) + 16;
   if ( v7 )

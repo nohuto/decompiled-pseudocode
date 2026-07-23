@@ -1,19 +1,19 @@
 /*
- * XREFs of PopHiberReadChecksums @ 0x140C09444
+ * XREFs of PopHiberReadChecksums @ 0x140C0F654
  * Callers:
- *     PopRestoreHiberContext @ 0x140C03138 (PopRestoreHiberContext.c)
+ *     PopRestoreHiberContext @ 0x140C09348 (PopRestoreHiberContext.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PopGetIoLocation @ 0x140BE9524 (PopGetIoLocation.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PopGetIoLocation @ 0x140BEF524 (PopGetIoLocation.c)
  */
 
-_UNKNOWN **__fastcall PopHiberReadChecksums(ULONG_PTR BugCheckParameter3)
+unsigned __int64 __fastcall PopHiberReadChecksums(ULONG_PTR BugCheckParameter3)
 {
-  _UNKNOWN **result; // rax
+  unsigned __int64 result; // rax
   char *v2; // rsi
   __int64 v3; // r15
   __int64 v5; // r13
@@ -43,7 +43,7 @@ _UNKNOWN **__fastcall PopHiberReadChecksums(ULONG_PTR BugCheckParameter3)
   unsigned __int64 v29; // [rsp+B0h] [rbp+18h] BYREF
   char *v30; // [rsp+B8h] [rbp+20h]
 
-  result = &retaddr;
+  result = (unsigned __int64)&retaddr;
   v2 = *(char **)(BugCheckParameter3 + 464);
   v3 = 0LL;
   v29 = 0LL;
@@ -117,9 +117,8 @@ _UNKNOWN **__fastcall PopHiberReadChecksums(ULONG_PTR BugCheckParameter3)
     }
     *(_QWORD *)(BugCheckParameter3 + 448) = *(_QWORD *)(v5 + 128);
     v23 = __rdtsc();
-    result = (_UNKNOWN **)((((unsigned __int64)HIDWORD(v23) << 32) | (unsigned int)v23) - v26);
-    stru_140F10070.SchedulerApc.SystemArgument1 = (char *)stru_140F10070.SchedulerApc.SystemArgument1
-                                                + (unsigned __int64)result;
+    result = (((unsigned __int64)HIDWORD(v23) << 32) | (unsigned int)v23) - v26;
+    qword_140F10BD8 += result;
   }
   return result;
 }

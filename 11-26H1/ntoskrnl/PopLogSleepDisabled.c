@@ -1,17 +1,17 @@
 /*
- * XREFs of PopLogSleepDisabled @ 0x140945880
+ * XREFs of PopLogSleepDisabled @ 0x1409C11F0
  * Callers:
- *     PopUpdateUpgradeInProgress @ 0x1407C9270 (PopUpdateUpgradeInProgress.c)
- *     PopEnableHiberFile @ 0x14094353C (PopEnableHiberFile.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
- *     PopLogDisabledSleepReason @ 0x14094512C (PopLogDisabledSleepReason.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
- *     PopInitPlatformSettings @ 0x140CCF964 (PopInitPlatformSettings.c)
+ *     PopUpdateUpgradeInProgress @ 0x1407CC310 (PopUpdateUpgradeInProgress.c)
+ *     PopEnableHiberFile @ 0x1409BEEB4 (PopEnableHiberFile.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
+ *     PopLogDisabledSleepReason @ 0x1409C0A9C (PopLogDisabledSleepReason.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
+ *     PopInitPlatformSettings @ 0x140CD5B14 (PopInitPlatformSettings.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     PopGetReasonListByReasonCode @ 0x1409450F4 (PopGetReasonListByReasonCode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PopGetReasonListByReasonCode @ 0x1409C0A64 (PopGetReasonListByReasonCode.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a4)
@@ -19,7 +19,7 @@ __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a
   unsigned int v8; // edi
   __int64 Pool2; // rax
   _QWORD *v10; // rbx
-  _QWORD *IptSaveArea; // rax
+  _QWORD *FirstArgument; // rax
 
   v8 = 0;
   if ( PopGetReasonListByReasonCode(a1) )
@@ -50,13 +50,13 @@ __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a
         *(_DWORD *)(Pool2 + 28) = a4;
         memmove((void *)(Pool2 + 32), a3, a4);
       }
-      IptSaveArea = stru_140F10070.IptSaveArea;
-      if ( *(struct _KTHREAD **)stru_140F10070.IptSaveArea != (struct _KTHREAD *)&stru_140F10070.SystemAffinityTokenListHead )
+      FirstArgument = PpmIdlePolicyLock.FirstArgument;
+      if ( *(struct _KTHREAD **)PpmIdlePolicyLock.FirstArgument != (struct _KTHREAD *)&PpmIdlePolicyLock.SystemCallNumber )
         __fastfail(3u);
-      *v10 = &stru_140F10070.SystemAffinityTokenListHead;
-      v10[1] = IptSaveArea;
-      *IptSaveArea = v10;
-      stru_140F10070.IptSaveArea = v10;
+      *v10 = &PpmIdlePolicyLock.SystemCallNumber;
+      v10[1] = FirstArgument;
+      *FirstArgument = v10;
+      PpmIdlePolicyLock.FirstArgument = v10;
     }
     else
     {

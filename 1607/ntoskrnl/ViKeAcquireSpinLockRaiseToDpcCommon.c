@@ -4,7 +4,7 @@
  *     VerifierKeAcquireSpinLockRaiseToDpc @ 0x140711EA4 (VerifierKeAcquireSpinLockRaiseToDpc.c)
  *     VerifierKeAcquireSpinLockRaiseToDpcNoReboot @ 0x140711EE8 (VerifierKeAcquireSpinLockRaiseToDpcNoReboot.c)
  * Callees:
- *     VfUtilCheckKernelAddress @ 0x140702C44 (VfUtilCheckKernelAddress.c)
+ *     VfUtilCheckKernelAddress @ 0x140702C74 (VfUtilCheckKernelAddress.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x1407130E8 (ViKeRaiseIrqlSanityChecks.c)
  */
 

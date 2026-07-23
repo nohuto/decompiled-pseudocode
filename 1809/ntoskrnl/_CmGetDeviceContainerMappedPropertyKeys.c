@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmGetDeviceContainerMappedPropertyKeys @ 0x1408F932C
+ * XREFs of _CmGetDeviceContainerMappedPropertyKeys @ 0x1408FA5EC
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x1406EA050 (_PnpDispatchDeviceContainer.c)
- *     _CmDeleteDeviceContainerWorker @ 0x1408F8CB8 (_CmDeleteDeviceContainerWorker.c)
+ *     _PnpDispatchDeviceContainer @ 0x1406EB2F0 (_PnpDispatchDeviceContainer.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x1408F9F78 (_CmDeleteDeviceContainerWorker.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall CmGetDeviceContainerMappedPropertyKeys(
   int v14; // eax
   unsigned int v15; // ecx
 
-  v7 = &off_140355000;
+  v7 = &off_140356000;
   result = 0LL;
   *a7 = 0;
   v9 = 0;

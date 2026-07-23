@@ -8,15 +8,15 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlAbortRXact(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlAbortRXact(__int64 a1)
 {
-  __int64 v4; // r8
+  void *v1; // r8
   __int64 result; // rax
 
-  v4 = *(_QWORD *)(a1 + 24);
-  if ( !v4 )
+  v1 = *(void **)(a1 + 24);
+  if ( !v1 )
     return 3221225756LL;
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4, a4);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   *(_QWORD *)(a1 + 24) = 0LL;
   result = 0LL;
   *(_BYTE *)(a1 + 16) = 1;

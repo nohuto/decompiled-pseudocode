@@ -1,7 +1,7 @@
 /*
- * XREFs of PsspQueryInfoClass_PSS_QUERY_PROCESS_INFORMATION @ 0x1800B7254
+ * XREFs of PsspQueryInfoClass_PSS_QUERY_PROCESS_INFORMATION @ 0x1800B4774
  * Callers:
- *     PssNtQuerySnapshot @ 0x1800B5760 (PssNtQuerySnapshot.c)
+ *     PssNtQuerySnapshot @ 0x1800B2C80 (PssNtQuerySnapshot.c)
  * Callees:
  *     <none>
  */

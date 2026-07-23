@@ -7,14 +7,14 @@
  *     LdrpDependencyExist @ 0x180026C78 (LdrpDependencyExist.c)
  */
 
-__int64 __fastcall LdrpRecordModuleDependency(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+_DWORD *__fastcall LdrpRecordModuleDependency(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __int64 v4; // rbx
   __int64 v6; // rdi
-  __int64 v7; // r8
+  _DWORD *v7; // r8
   int v8; // ecx
-  __int64 Heap; // rax
-  __int64 *v11; // rcx
+  _DWORD *Heap; // rax
+  _QWORD *v11; // rcx
   _QWORD *v12; // rcx
   _QWORD *v13; // rdx
   int v14; // eax
@@ -32,7 +32,7 @@ __int64 __fastcall LdrpRecordModuleDependency(__int64 a1, __int64 a2, __int64 a3
   if ( v7 )
   {
 LABEL_8:
-    v11 = *(__int64 **)(v4 + 40);
+    v11 = *(_QWORD **)(v4 + 40);
     if ( v11 )
     {
       *(_QWORD *)v7 = *v11;
@@ -43,8 +43,8 @@ LABEL_8:
       *(_QWORD *)v7 = v7;
     }
     *(_QWORD *)(v4 + 40) = v7;
-    v12 = (_QWORD *)(v7 + 16);
-    *(_QWORD *)(v7 + 8) = v6;
+    v12 = v7 + 4;
+    *((_QWORD *)v7 + 1) = v6;
     v13 = *(_QWORD **)(v6 + 48);
     if ( v13 )
     {
@@ -56,18 +56,18 @@ LABEL_8:
       *v12 = v12;
     }
     *(_QWORD *)(v6 + 48) = v12;
-    v14 = *(_DWORD *)(v7 + 24);
-    *(_QWORD *)(v7 + 24) = v4;
+    v14 = v7[6];
+    *((_QWORD *)v7 + 3) = v4;
     v15 = v14 & 1;
     if ( v15 )
-      *(_DWORD *)(v7 + 24) = v15 | v4 & 0xFFFFFFFE;
+      v7[6] = v15 | v4 & 0xFFFFFFFE;
     return 0LL;
   }
-  Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 32LL);
+  Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
   v7 = Heap;
   if ( Heap )
   {
-    *(_DWORD *)(Heap + 24) |= 1u;
+    Heap[6] |= 1u;
     goto LABEL_8;
   }
   *a4 = -1073741801;

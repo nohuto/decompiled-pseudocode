@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpFastResourceLegacyIsAcquiredShared @ 0x140656CE4
+ * XREFs of ExpFastResourceLegacyIsAcquiredShared @ 0x1406553E4
  * Callers:
- *     ExIsResourceAcquiredSharedLite @ 0x140274B00 (ExIsResourceAcquiredSharedLite.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14022A090 (ExIsResourceAcquiredSharedLite.c)
  * Callees:
- *     ExpIsFastResourceOwned @ 0x1403E1460 (ExpIsFastResourceOwned.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpIsFastResourceOwned @ 0x1403C3A60 (ExpIsFastResourceOwned.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(unsigned __int64 *a1)

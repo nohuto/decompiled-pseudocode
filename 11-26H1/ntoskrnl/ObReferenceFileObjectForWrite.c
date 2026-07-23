@@ -1,22 +1,22 @@
 /*
- * XREFs of ObReferenceFileObjectForWrite @ 0x1408F9590
+ * XREFs of ObReferenceFileObjectForWrite @ 0x140929520
  * Callers:
- *     NtCopyFileChunk @ 0x140AE2060 (NtCopyFileChunk.c)
- *     IopIoRingReferenceFileObject @ 0x140B3E9AC (IopIoRingReferenceFileObject.c)
+ *     NtCopyFileChunk @ 0x140ADF550 (NtCopyFileChunk.c)
+ *     IopIoRingReferenceFileObject @ 0x140B409DC (IopIoRingReferenceFileObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExSlowReplenishHandleTableEntry @ 0x14044D280 (ExSlowReplenishHandleTableEntry.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     ExHandleLogBadReference @ 0x14046C9F0 (ExHandleLogBadReference.c)
- *     ExFastReplenishHandleTableEntry @ 0x1404ACB20 (ExFastReplenishHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
- *     IoComputeDesiredAccessFileObject @ 0x1408FB670 (IoComputeDesiredAccessFileObject.c)
- *     ObpAuditObjectAccess @ 0x1409FA54C (ObpAuditObjectAccess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x1404453A0 (ExSlowReplenishHandleTableEntry.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     ExHandleLogBadReference @ 0x140466170 (ExHandleLogBadReference.c)
+ *     ExFastReplenishHandleTableEntry @ 0x1404A61B0 (ExFastReplenishHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ObpAuditObjectAccess @ 0x14091F14C (ObpAuditObjectAccess.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
+ *     IoComputeDesiredAccessFileObject @ 0x14092B600 (IoComputeDesiredAccessFileObject.c)
  */
 
 __int64 __fastcall ObReferenceFileObjectForWrite(ULONG_PTR BugCheckParameter1, __int64 a2, _QWORD *a3, int *a4)
@@ -37,7 +37,7 @@ __int64 __fastcall ObReferenceFileObjectForWrite(ULONG_PTR BugCheckParameter1, _
   __int64 v18; // rdx
   void *v19; // r15
   int *v20; // r8
-  unsigned int v21; // edx
+  int v21; // edx
   __int64 v22; // rsi
   char v23; // al
   unsigned __int64 v24; // rcx
@@ -49,7 +49,7 @@ __int64 __fastcall ObReferenceFileObjectForWrite(ULONG_PTR BugCheckParameter1, _
   int v30; // eax
   signed __int32 v31[8]; // [rsp+0h] [rbp-78h] BYREF
   __int128 v32; // [rsp+30h] [rbp-48h] BYREF
-  unsigned int v33; // [rsp+80h] [rbp+8h] BYREF
+  int v33; // [rsp+80h] [rbp+8h] BYREF
   _QWORD *v34; // [rsp+90h] [rbp+18h]
   int *v35; // [rsp+98h] [rbp+20h]
 
@@ -170,7 +170,7 @@ LABEL_21:
   if ( (v13 & 0x2000000) == 0 )
     v23 = v22;
   *v20 = v23 & 7;
-  if ( (v13 & 0x1FFFFFF & v21) == 0 )
+  if ( (v13 & 0x1FFFFFF & (unsigned int)v21) == 0 )
   {
     v29 = -1073741790;
 LABEL_45:
@@ -195,10 +195,7 @@ LABEL_46:
       }
     }
   }
-  if ( (*v20 & 4) != 0
-    && v21
-    && v5
-    && !(unsigned __int8)ObpAuditObjectAccess(KernelTime, v6, (_DWORD)v11, HandlePointer, v21) )
+  if ( (*v20 & 4) != 0 && v21 && v5 && !ObpAuditObjectAccess(KernelTime, v6, v11, HandlePointer, v21) )
   {
     v29 = -1073741816;
     goto LABEL_45;

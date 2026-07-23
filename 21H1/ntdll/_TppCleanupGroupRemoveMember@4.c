@@ -11,22 +11,22 @@
 
 void __thiscall TppCleanupGroupRemoveMember(_DWORD *this)
 {
-  int v1; // esi
+  _RTL_SRWLOCK *v1; // esi
   _DWORD *v2; // edi
   int v3; // ecx
   _DWORD *v4; // eax
 
-  v1 = this[2];
+  v1 = (_RTL_SRWLOCK *)this[2];
   v2 = this + 5;
   if ( (_DWORD *)*v2 != v2 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v1 + 8));
+    RtlAcquireSRWLockExclusive(v1 + 2);
     v3 = *v2;
     v4 = (_DWORD *)v2[1];
     if ( *(_DWORD **)(*v2 + 4) != v2 || (_DWORD *)*v4 != v2 )
       __fastfail(3u);
     *v4 = v3;
     *(_DWORD *)(v3 + 4) = v4;
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v1 + 8));
+    RtlReleaseSRWLockExclusive(v1 + 2);
   }
 }

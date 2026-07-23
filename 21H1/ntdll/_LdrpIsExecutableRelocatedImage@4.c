@@ -7,15 +7,16 @@
  *     _NtQueryVirtualMemory@24 @ 0x4B2F2BB0 (_NtQueryVirtualMemory@24.c)
  */
 
-BOOL __thiscall LdrpIsExecutableRelocatedImage(void *this)
+BOOL __thiscall LdrpIsExecutableRelocatedImage(PVOID BaseAddress)
 {
-  void *v3; // [esp+4h] [ebp-10h] BYREF
-  char v4; // [esp+Ch] [ebp-8h]
-  int v5; // [esp+10h] [ebp-4h] BYREF
+  ULONG_PTR *v3; // [esp+0h] [ebp-14h]
+  PVOID MemoryInformation[2]; // [esp+4h] [ebp-10h] BYREF
+  char v5; // [esp+Ch] [ebp-8h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+10h] [ebp-4h] BYREF
 
-  return (int)RtlImageNtHeaderEx(3, this, 0, 0, &v5) >= 0
-      && *(void **)(v5 + 52) == this
-      && (int)NtQueryVirtualMemory(-1, this, 6, &v3, 12, 0) >= 0
-      && v3 == this
-      && (v4 & 3) == 0;
+  return RtlImageNtHeaderEx(3u, BaseAddress, 0LL, &OutHeaders) >= 0
+      && (PVOID)HIDWORD(OutHeaders->OptionalHeader.ImageBase) == BaseAddress
+      && NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, BaseAddress, MemoryImageInformation, MemoryInformation, 0xCuLL, v3) >= 0
+      && MemoryInformation[0] == BaseAddress
+      && (v5 & 3) == 0;
 }

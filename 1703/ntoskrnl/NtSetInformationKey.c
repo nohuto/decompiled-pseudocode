@@ -73,7 +73,7 @@ NTSTATUS __stdcall NtSetInformationKey(
   memset(v44, 0, sizeof(v44));
   v32 = 0LL;
   if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp(v44, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v44, 0x20000u);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
@@ -161,7 +161,7 @@ LABEL_13:
         if ( v13 == -1073741790
           && CmpVEEnabled
           && !CmpIsSystemEntity(&v30)
-          && (((KeySetInformationClass - 2) & 0xFFFFFFFA) != 0 || KeySetInformationClass == MaxKeySetInfoClass) )
+          && (((KeySetInformationClass - 2) & 0xFFFFFFFA) != 0 || KeySetInformationClass == KeySetLayerInformation) )
         {
           v15 = ObReferenceObjectByHandle(Handle, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, v10, v41, 0LL);
           v14 = v41[0];

@@ -1,19 +1,19 @@
 /*
- * XREFs of KeSetEventBoostPriorityEx @ 0x1403D8BE8
+ * XREFs of KeSetEventBoostPriorityEx @ 0x1402E0738
  * Callers:
- *     FsRtlReleaseEofLock @ 0x1403D8730 (FsRtlReleaseEofLock.c)
- *     KeSetEventBoostPriority @ 0x1404F7790 (KeSetEventBoostPriority.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
- *     NtSetEventEx @ 0x14098A780 (NtSetEventEx.c)
+ *     FsRtlReleaseEofLock @ 0x1402E0940 (FsRtlReleaseEofLock.c)
+ *     KeSetEventBoostPriority @ 0x1404F5070 (KeSetEventBoostPriority.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
+ *     NtSetEventEx @ 0x140973E70 (NtSetEventEx.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiRemoveBoostThread @ 0x1403230A4 (KiRemoveBoostThread.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KeAbPreWakeupThread @ 0x1403D8DF0 (KeAbPreWakeupThread.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiRemoveBoostThread @ 0x1402CBC34 (KiRemoveBoostThread.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KeAbPreWakeupThread @ 0x1402DFF50 (KeAbPreWakeupThread.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeSetEventBoostPriorityEx(
@@ -123,7 +123,7 @@ LABEL_12:
     {
       Next = CurrentPrcb->DeferredReadyListHead.Next;
       if ( Next )
-        KeAbPreWakeupThread(&Next[-27], a4);
+        KeAbPreWakeupThread((ULONG_PTR)&Next[-27], a4);
     }
     goto LABEL_16;
   }

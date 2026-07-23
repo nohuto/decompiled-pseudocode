@@ -8,7 +8,7 @@
  *     PspWow64GetContextThread @ 0x1406C85B4 (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbSetWowTrapFrame(int *a1, int *a2)
+__int64 __fastcall WbSetWowTrapFrame(ULONG *a1, ULONG *a2)
 {
   unsigned __int64 v4; // rax
   __int16 v5; // di
@@ -56,7 +56,7 @@ LABEL_7:
       a1[26] = *a2;
       a1[29] = a2[4];
     }
-    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), (unsigned int *)a1 + 12, v6, 0);
+    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), (unsigned __int64)(a1 + 12), v6, 0);
   }
   KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   return (unsigned int)ContextThread;

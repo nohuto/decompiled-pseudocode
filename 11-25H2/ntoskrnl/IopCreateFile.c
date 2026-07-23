@@ -92,7 +92,7 @@ __int64 __fastcall IopCreateFile(
   _GENERAL_LOOKASIDE *L; // r14
   unsigned __int64 v49; // rax
   void *v50; // rax
-  NTSTATUS v51; // eax
+  int v51; // eax
   void (__stdcall *v52)(PVOID); // rdx
   void *v53; // rcx
   struct _KPRCB *v54; // rdx

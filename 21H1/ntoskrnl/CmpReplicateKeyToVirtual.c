@@ -22,7 +22,7 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpReplicateKeyToVirtual(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CmpReplicateKeyToVirtual(__int64 a1, __int64 a2, char a3, ULONG_PTR *a4)
 {
   __int64 v5; // rax
   __int64 v6; // r13
@@ -50,7 +50,7 @@ __int64 __fastcall CmpReplicateKeyToVirtual(__int64 a1, __int64 a2, __int64 a3, 
   PVOID P; // [rsp+68h] [rbp-31h] BYREF
   __int64 v30; // [rsp+70h] [rbp-29h]
   UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-21h] BYREF
-  _QWORD *v32; // [rsp+88h] [rbp-11h]
+  ULONG_PTR *v32; // [rsp+88h] [rbp-11h]
   _OWORD v33[2]; // [rsp+90h] [rbp-9h] BYREF
 
   P = 0LL;
@@ -58,7 +58,7 @@ __int64 __fastcall CmpReplicateKeyToVirtual(__int64 a1, __int64 a2, __int64 a3, 
   v30 = a2;
   v25 = 0;
   v5 = a2;
-  v32 = (_QWORD *)a4;
+  v32 = a4;
   v6 = 0LL;
   v24 = a3;
   UnicodeString = 0LL;
@@ -69,7 +69,7 @@ __int64 __fastcall CmpReplicateKeyToVirtual(__int64 a1, __int64 a2, __int64 a3, 
   memset(v33, 0, sizeof(v33));
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
   {
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v33, 0x20000LL, a3, a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v33, 0x20000u);
     v5 = v30;
   }
   v7 = 0LL;

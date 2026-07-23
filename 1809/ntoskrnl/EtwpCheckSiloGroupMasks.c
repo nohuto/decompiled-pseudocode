@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCheckSiloGroupMasks @ 0x140312678
+ * XREFs of EtwpCheckSiloGroupMasks @ 0x140312868
  * Callers:
- *     EtwpUpdateGroupMasks @ 0x140725E48 (EtwpUpdateGroupMasks.c)
+ *     EtwpUpdateGroupMasks @ 0x1407270E8 (EtwpUpdateGroupMasks.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of CcPerfLogWorkItemEnqueue @ 0x1403BD5AC
+ * XREFs of CcPerfLogWorkItemEnqueue @ 0x1403BD71C
  * Callers:
- *     CcWorkerThread @ 0x1402F31F0 (CcWorkerThread.c)
- *     CcPostWorkQueueRegular @ 0x1402F7008 (CcPostWorkQueueRegular.c)
- *     CcPostWorkQueueCachemapUninit @ 0x1402F71C0 (CcPostWorkQueueCachemapUninit.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402F8664 (CcPostWorkQueueAsyncRead.c)
- *     CcWaitForCurrentLazyWriterActivityInternal @ 0x14038148C (CcWaitForCurrentLazyWriterActivityInternal.c)
+ *     CcWorkerThread @ 0x1402FDF40 (CcWorkerThread.c)
+ *     CcPostWorkQueueRegular @ 0x140301D58 (CcPostWorkQueueRegular.c)
+ *     CcPostWorkQueueCachemapUninit @ 0x140301F10 (CcPostWorkQueueCachemapUninit.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1403033B4 (CcPostWorkQueueAsyncRead.c)
+ *     CcWaitForCurrentLazyWriterActivityInternal @ 0x140380FDC (CcWaitForCurrentLazyWriterActivityInternal.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     CcDereferenceSharedCacheMapFileObject @ 0x1402F5784 (CcDereferenceSharedCacheMapFileObject.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1402F57D0 (CcReferenceSharedCacheMapFileObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1403004D4 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140300520 (CcReferenceSharedCacheMapFileObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogWorkItemEnqueue(__int64 a1, __int64 a2, char a3, char a4)

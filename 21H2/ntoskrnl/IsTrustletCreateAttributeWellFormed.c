@@ -1,7 +1,7 @@
 /*
- * XREFs of IsTrustletCreateAttributeWellFormed @ 0x140582A2C
+ * XREFs of IsTrustletCreateAttributeWellFormed @ 0x140582C5C
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140608C44 (PspBuildCreateProcessContext.c)
+ *     PspBuildCreateProcessContext @ 0x1406986F4 (PspBuildCreateProcessContext.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepShimDatabaseTime @ 0x140A61BF8
+ * XREFs of KsepShimDatabaseTime @ 0x140A5A4EC
  * Callers:
- *     KsepShimDbChanged @ 0x1404A5F7C (KsepShimDbChanged.c)
+ *     KsepShimDbChanged @ 0x1404A0C88 (KsepShimDbChanged.c)
  * Callees:
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KsepLogError @ 0x14048E6F8 (KsepLogError.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KsepLogError @ 0x140488B28 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
  */
 
 __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)

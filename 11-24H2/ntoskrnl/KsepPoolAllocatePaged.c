@@ -1,31 +1,31 @@
 /*
- * XREFs of KsepPoolAllocatePaged @ 0x1404A03F0
+ * XREFs of KsepPoolAllocatePaged @ 0x14049AA70
  * Callers:
- *     KsepEvntLogShimsApplied @ 0x1405CA6B4 (KsepEvntLogShimsApplied.c)
- *     KsepDbGetShimInfo @ 0x14073E5B4 (KsepDbGetShimInfo.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x14073E7D4 (KsepDbQueryRegistryDeviceDataList.c)
- *     KseRegisterShimEx @ 0x14073EBF0 (KseRegisterShimEx.c)
- *     KsepSdbBootInitialize @ 0x14073FF0C (KsepSdbBootInitialize.c)
- *     KsepGetLoadedModulesList @ 0x140740080 (KsepGetLoadedModulesList.c)
- *     KsepStringSplitMultiString @ 0x140740268 (KsepStringSplitMultiString.c)
- *     KsepCacheDeviceInsertData @ 0x1407404BC (KsepCacheDeviceInsertData.c)
- *     KsepCacheInitialize @ 0x14074059C (KsepCacheInitialize.c)
- *     KsepRegistryEnumValue @ 0x14074096C (KsepRegistryEnumValue.c)
- *     KsepRegistryQueryKeyInformation @ 0x140740BB8 (KsepRegistryQueryKeyInformation.c)
- *     KsepRegistryQuerySZ @ 0x140740CAC (KsepRegistryQuerySZ.c)
- *     KsepRegistryQueryValue @ 0x140740F18 (KsepRegistryQueryValue.c)
- *     KsepGetShimsForDriver @ 0x140959F74 (KsepGetShimsForDriver.c)
- *     KsepStringDuplicateUnicode @ 0x14095A274 (KsepStringDuplicateUnicode.c)
- *     KsepEngineGetShimsFromRegistry @ 0x14095A578 (KsepEngineGetShimsFromRegistry.c)
- *     KseAddHardwareId @ 0x14095A8A0 (KseAddHardwareId.c)
- *     KsepDbGetDriverShimsInternal @ 0x14095AE14 (KsepDbGetDriverShimsInternal.c)
- *     KsepDbGetDriverShims @ 0x14095B0A8 (KsepDbGetDriverShims.c)
- *     KsepStringConcatenate @ 0x14095BF50 (KsepStringConcatenate.c)
- *     KsepDbCacheReadDevice @ 0x14095C178 (KsepDbCacheReadDevice.c)
- *     KsepStringDuplicate @ 0x14095CB04 (KsepStringDuplicate.c)
+ *     KsepEvntLogShimsApplied @ 0x1405C7DDC (KsepEvntLogShimsApplied.c)
+ *     KsepDbGetShimInfo @ 0x14073C4E4 (KsepDbGetShimInfo.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x14073C704 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KseRegisterShimEx @ 0x14073CB20 (KseRegisterShimEx.c)
+ *     KsepSdbBootInitialize @ 0x14073DE3C (KsepSdbBootInitialize.c)
+ *     KsepGetLoadedModulesList @ 0x14073DFB0 (KsepGetLoadedModulesList.c)
+ *     KsepStringSplitMultiString @ 0x14073E198 (KsepStringSplitMultiString.c)
+ *     KsepCacheDeviceInsertData @ 0x14073E3EC (KsepCacheDeviceInsertData.c)
+ *     KsepCacheInitialize @ 0x14073E4CC (KsepCacheInitialize.c)
+ *     KsepRegistryEnumValue @ 0x14073E89C (KsepRegistryEnumValue.c)
+ *     KsepRegistryQueryKeyInformation @ 0x14073EAE8 (KsepRegistryQueryKeyInformation.c)
+ *     KsepRegistryQuerySZ @ 0x14073EBDC (KsepRegistryQuerySZ.c)
+ *     KsepRegistryQueryValue @ 0x14073EE48 (KsepRegistryQueryValue.c)
+ *     KsepGetShimsForDriver @ 0x140941A34 (KsepGetShimsForDriver.c)
+ *     KsepStringDuplicateUnicode @ 0x140941D34 (KsepStringDuplicateUnicode.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140942038 (KsepEngineGetShimsFromRegistry.c)
+ *     KseAddHardwareId @ 0x140942360 (KseAddHardwareId.c)
+ *     KsepDbGetDriverShimsInternal @ 0x1409428D4 (KsepDbGetDriverShimsInternal.c)
+ *     KsepDbGetDriverShims @ 0x140942B68 (KsepDbGetDriverShims.c)
+ *     KsepStringConcatenate @ 0x140943A10 (KsepStringConcatenate.c)
+ *     KsepDbCacheReadDevice @ 0x140943C38 (KsepDbCacheReadDevice.c)
+ *     KsepStringDuplicate @ 0x1409445C4 (KsepStringDuplicate.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void *__fastcall KsepPoolAllocatePaged(size_t Size)
@@ -33,16 +33,16 @@ void *__fastcall KsepPoolAllocatePaged(size_t Size)
   void *Pool2; // rax
   void *v3; // rbx
 
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, Size, 0x6145534Bu);
   v3 = Pool2;
   if ( Pool2 )
   {
-    _InterlockedIncrement(&dword_140F0F300);
+    _InterlockedIncrement(&dword_140F0F600);
     memset_0(Pool2, 0, Size);
   }
   else
   {
-    _InterlockedIncrement(&dword_140F0F310);
+    _InterlockedIncrement(&dword_140F0F610);
   }
   return v3;
 }

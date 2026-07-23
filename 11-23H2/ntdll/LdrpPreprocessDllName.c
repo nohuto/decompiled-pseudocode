@@ -15,7 +15,7 @@
  *     LdrpGetFullPath @ 0x18002DDA0 (LdrpGetFullPath.c)
  */
 
-__int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, int a3, int *a4)
+__int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3, int *a4)
 {
   bool v5; // zf
   int FullPath; // ebx
@@ -40,7 +40,7 @@ __int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 
   v9 = 0;
   if ( v5 )
   {
-    FullPath = LdrpApplyFileNameRedirection(a3, (_DWORD)a1, a3, (_DWORD)a2, (__int64)&v23);
+    FullPath = LdrpApplyFileNameRedirection(a3, a1, a3, a2, &v23);
     if ( FullPath < 0 )
       goto LABEL_34;
     v9 = v23;
@@ -108,7 +108,7 @@ LABEL_13:
     if ( (unsigned __int64)j < v13 )
     {
 LABEL_30:
-      FullPath = LdrpAppendUnicodeStringToFilenameBuffer(a2, L"\b\n");
+      FullPath = LdrpAppendUnicodeStringToFilenameBuffer(a2, &LdrpDefaultExtension);
       goto LABEL_23;
     }
     if ( *j == 46 )

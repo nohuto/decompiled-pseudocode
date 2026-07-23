@@ -1,25 +1,25 @@
 /*
- * XREFs of PpmParkSteerInterrupts @ 0x1400D7A40
+ * XREFs of PpmParkSteerInterrupts @ 0x1400D58E0
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KeIntSteerSnapPerf @ 0x1400D6AF0 (KeIntSteerSnapPerf.c)
- *     KeComplementAffinityEx @ 0x1400D6D30 (KeComplementAffinityEx.c)
- *     KiIntSteerCalculateDistribution @ 0x1400D6DA0 (KiIntSteerCalculateDistribution.c)
- *     KiIntSteerDistributeInterrupts @ 0x1400D7010 (KiIntSteerDistributeInterrupts.c)
- *     EtwpLevelKeywordEnabled @ 0x1400D81F0 (EtwpLevelKeywordEnabled.c)
- *     KxWaitForSpinLockAndAcquire @ 0x1400D8260 (KxWaitForSpinLockAndAcquire.c)
- *     KiIntSteerLogState @ 0x14012D718 (KiIntSteerLogState.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KiAcquireSpinLockInstrumented @ 0x1401D3CDC (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x1401D3D8C (KiReleaseSpinLockInstrumented.c)
- *     KeFindFirstSetRightAffinityEx @ 0x1401D3E8C (KeFindFirstSetRightAffinityEx.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KeIntSteerSnapPerf @ 0x1400D4990 (KeIntSteerSnapPerf.c)
+ *     KeComplementAffinityEx @ 0x1400D4BD0 (KeComplementAffinityEx.c)
+ *     KiIntSteerCalculateDistribution @ 0x1400D4C40 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerDistributeInterrupts @ 0x1400D4EB0 (KiIntSteerDistributeInterrupts.c)
+ *     EtwpLevelKeywordEnabled @ 0x1400D6090 (EtwpLevelKeywordEnabled.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1400D6100 (KxWaitForSpinLockAndAcquire.c)
+ *     KiIntSteerLogState @ 0x14012DC88 (KiIntSteerLogState.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1401D3B08 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x1401D3BB8 (KiReleaseSpinLockInstrumented.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x1401D3CB8 (KeFindFirstSetRightAffinityEx.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -469,9 +469,9 @@ LABEL_120:
   }
   KiIntSteerCalculateDistribution((unsigned __int16 *)&v77, v7);
   KiIntSteerMask = v77;
-  dword_140307964 = 0;
+  dword_1403079A4 = 0;
   if ( (_WORD)v77 )
-    memmove(&qword_140307968, &v78[1], 8LL * (unsigned __int16)v77);
+    memmove(&qword_1403079A8, &v78[1], 8LL * (unsigned __int16)v77);
   KiIntSteerMaskCount = v7;
   if ( KiIntSteerEtwHandle )
   {
@@ -487,7 +487,7 @@ LABEL_120:
       v95 = &KiIntSteerMaskCount;
       v97 = &KiIntSteerMask;
       v98 = 2LL;
-      v99 = &qword_140307968;
+      v99 = &qword_1403079A8;
       v101 = 0;
       v100 = 160 * v43;
       EtwWrite(v44, &PPM_ETW_INTERRUPT_STEERING_MASK_CHANGE, 0LL, 5u, &UserData);

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpGetMcaExtendedLogStatusBlock @ 0x140502E04
+ * XREFs of HalpGetMcaExtendedLogStatusBlock @ 0x140503354
  * Callers:
- *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x140501DD4 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
+ *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x140502324 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpVerifyGenericError @ 0x140503ED0 (HalpVerifyGenericError.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpVerifyGenericError @ 0x140504420 (HalpVerifyGenericError.c)
  */
 
 _DWORD *__fastcall HalpGetMcaExtendedLogStatusBlock(__int64 a1)

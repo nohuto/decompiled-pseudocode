@@ -1,17 +1,17 @@
 /*
- * XREFs of TpInitializePackage @ 0x1800A52A0
+ * XREFs of TpInitializePackage @ 0x180022E0C
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlCreateTagHeap @ 0x1800A5370 (RtlCreateTagHeap.c)
- *     TppQueryMaximumGroupCount @ 0x1800A5614 (TppQueryMaximumGroupCount.c)
- *     NtQuerySystemInformation @ 0x180162350 (NtQuerySystemInformation.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlCreateTagHeap @ 0x180022EE0 (RtlCreateTagHeap.c)
+ *     TppQueryMaximumGroupCount @ 0x180023184 (TppQueryMaximumGroupCount.c)
+ *     NtQuerySystemInformation @ 0x180160710 (NtQuerySystemInformation.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 NTSTATUS TpInitializePackage()
 {
-  int TagHeap; // eax
+  ULONG TagHeap; // eax
   NTSTATUS result; // eax
   unsigned __int16 MaximumGroupCount; // ax
   struct _PEB *v3; // rax
@@ -19,7 +19,7 @@ NTSTATUS TpInitializePackage()
   ULONG ReturnLength; // [rsp+440h] [rbp+8h] BYREF
 
   memset_thunk_772440563353939046(SystemInformation, 0, 0x408uLL);
-  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap);
+  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap, 0, (PWSTR)L"Threadpool!", (PWSTR)L"Cleanup Group");
   ReturnLength = 0;
   TppHeapTag = TagHeap;
   result = NtQuerySystemInformation(SystemNumaProcessorMap, SystemInformation, 0x408u, &ReturnLength);

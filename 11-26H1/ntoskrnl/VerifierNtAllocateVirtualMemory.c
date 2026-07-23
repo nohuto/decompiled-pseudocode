@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierNtAllocateVirtualMemory @ 0x140643180
+ * XREFs of VerifierNtAllocateVirtualMemory @ 0x140646D60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierNtAllocateVirtualMemory(__int64 a1, __int64 a2)

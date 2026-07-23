@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCfgInitializeProcess @ 0x1407120DC
+ * XREFs of MiCfgInitializeProcess @ 0x1406C072C
  * Callers:
- *     MiMapProcessExecutable @ 0x140711FB0 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x1406C0600 (MiMapProcessExecutable.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiCommitVadCfgBits @ 0x14061BCBC (MiCommitVadCfgBits.c)
- *     MiMapCfgBitMapSection @ 0x1407113FC (MiMapCfgBitMapSection.c)
- *     MiReferenceCfgVad @ 0x140712A8C (MiReferenceCfgVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14027C780 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReferenceVad @ 0x14027C900 (MiReferenceVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403534E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiCommitVadCfgBits @ 0x14068592C (MiCommitVadCfgBits.c)
+ *     MiMapCfgBitMapSection @ 0x1406BFA4C (MiMapCfgBitMapSection.c)
+ *     MiReferenceCfgVad @ 0x1406C10DC (MiReferenceCfgVad.c)
  */
 
 __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
@@ -49,7 +49,7 @@ __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
       return 3221225595LL;
   }
   v19 = 0x20000000000LL;
-  result = MiMapCfgBitMapSection(a1, qword_140C4CC20, (__int64)&v20, (int)&v18, (__int64)&v19);
+  result = MiMapCfgBitMapSection(a1, qword_140C4CC60, (__int64)&v20, (int)&v18, (__int64)&v19);
   if ( (int)result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -112,7 +112,7 @@ LABEL_5:
       if ( (_DWORD)v16 )
         goto LABEL_30;
     }
-    v14 = *((_QWORD *)&unk_140C4CBB8 + 8 * v16);
+    v14 = *((_QWORD *)&unk_140C4CBF8 + 8 * v16);
 LABEL_30:
     v17 = *(_QWORD *)(a1 + 1496);
     v20 = 0LL;

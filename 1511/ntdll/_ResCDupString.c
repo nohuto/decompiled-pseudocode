@@ -31,10 +31,10 @@ char *__fastcall ResCDupString(_WORD *Src)
   }
   if ( i >= 260 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
-  Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 2LL * (i + 1));
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 2LL * (i + 1));
   if ( !Heap )
     return 0LL;
   v6 = 2LL * i;

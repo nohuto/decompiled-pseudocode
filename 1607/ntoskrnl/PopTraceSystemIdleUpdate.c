@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSystemIdleUpdate @ 0x1403F56E4
+ * XREFs of PopTraceSystemIdleUpdate @ 0x1403F45A8
  * Callers:
- *     PopPolicySystemIdle @ 0x1403F5874 (PopPolicySystemIdle.c)
+ *     PopPolicySystemIdle @ 0x1403F4738 (PopPolicySystemIdle.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceSystemIdleUpdate(

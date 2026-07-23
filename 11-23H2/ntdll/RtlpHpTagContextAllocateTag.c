@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpHpTagContextAllocateTag @ 0x180065AB4
  * Callers:
- *     RtlpHpTagContextGetTag @ 0x1800A04E4 (RtlpHpTagContextGetTag.c)
+ *     RtlpHpTagContextGetTag @ 0x1800A04A4 (RtlpHpTagContextGetTag.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180033C40 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)

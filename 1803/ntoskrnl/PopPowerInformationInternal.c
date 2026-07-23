@@ -128,12 +128,12 @@ __int64 __fastcall PopPowerInformationInternal(
   _BYTE *v74; // rax
   _DWORD *v75; // rcx
   char v76; // bl
-  char v78; // [rsp+40h] [rbp-41h]
-  _BYTE v79[7]; // [rsp+41h] [rbp-40h] BYREF
+  BOOLEAN HasCapability; // [rsp+40h] [rbp-41h] BYREF
+  _BYTE Buffer[7]; // [rsp+41h] [rbp-40h] BYREF
   _BYTE *v80; // [rsp+48h] [rbp-39h]
   int v81; // [rsp+50h] [rbp-31h] BYREF
   int v82; // [rsp+54h] [rbp-2Dh] BYREF
-  UNICODE_STRING SourceString; // [rsp+58h] [rbp-29h] BYREF
+  UNICODE_STRING CapabilityName; // [rsp+58h] [rbp-29h] BYREF
   _DWORD v84[8]; // [rsp+70h] [rbp-11h] BYREF
 
   v8 = 0LL;
@@ -197,8 +197,8 @@ LABEL_157:
     v14 = (int)v11 <= 25;
     if ( (_DWORD)v11 == 25 )
     {
-      SourceString.Buffer = 0LL;
-      *(_DWORD *)&SourceString.Length = 0;
+      CapabilityName.Buffer = 0LL;
+      *(_DWORD *)&CapabilityName.Length = 0;
       v15 = 0x7FFFLL;
       v16 = L"systemManagement";
       while ( *v16 )
@@ -207,14 +207,14 @@ LABEL_157:
         if ( !--v15 )
           goto LABEL_26;
       }
-      SourceString.Buffer = L"systemManagement";
-      SourceString.Length = 2 * (0x7FFF - v15);
-      SourceString.MaximumLength = SourceString.Length + 2;
+      CapabilityName.Buffer = L"systemManagement";
+      CapabilityName.Length = 2 * (0x7FFF - v15);
+      CapabilityName.MaximumLength = CapabilityName.Length + 2;
 LABEL_26:
-      BootSessionStandbyActivationInfo = RtlCapabilityCheckForSingleSessionSku(0LL, &SourceString);
+      BootSessionStandbyActivationInfo = RtlCapabilityCheckForSingleSessionSku(0LL, &CapabilityName, &HasCapability);
       if ( BootSessionStandbyActivationInfo < 0 )
         return (unsigned int)BootSessionStandbyActivationInfo;
-      if ( !v78 )
+      if ( !HasCapability )
         return (unsigned int)-1073741790;
       goto LABEL_138;
     }
@@ -325,9 +325,13 @@ LABEL_26:
         {
           PopVideoInitialized = 1;
           return (unsigned int)ZwUpdateWnfStateData(
-                                 (__int64)&WNF_PO_VIDEO_INITIALIALIZED,
-                                 (__int64)&PopVideoInitialized,
-                                 1LL);
+                                 &WNF_PO_VIDEO_INITIALIALIZED,
+                                 &PopVideoInitialized,
+                                 1u,
+                                 0LL,
+                                 0LL,
+                                 0,
+                                 0);
         }
         v20 = v19 - 1;
         if ( !v20 )
@@ -513,9 +517,13 @@ LABEL_26:
           && (v51 == -1
            || (PopVideoHighPrecisionBrightnessEnabled = 1,
                ZwUpdateWnfStateData(
-                 (__int64)&WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
-                 (__int64)&PopVideoHighPrecisionBrightnessEnabled,
-                 1LL),
+                 &WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
+                 &PopVideoHighPrecisionBrightnessEnabled,
+                 1u,
+                 0LL,
+                 0LL,
+                 0,
+                 0),
                PopDiagTraceEventNoPayload(&POP_ETW_EVENT_BASIC_BRIGHTNESS_ENGINE_OFF),
                !PopVideoHighPrecisionBrightnessEnabled))
           || v51 != -1 )
@@ -582,8 +590,8 @@ LABEL_179:
           {
             if ( a3 == 12 )
             {
-              v79[0] = *(_BYTE *)(a2 + 8);
-              return (unsigned int)ZwUpdateWnfStateData((__int64)&WNF_PO_WAKE_ON_VOICE_STATE, (__int64)v79, 1LL);
+              Buffer[0] = *(_BYTE *)(a2 + 8);
+              return (unsigned int)ZwUpdateWnfStateData(&WNF_PO_WAKE_ON_VOICE_STATE, Buffer, 1u, 0LL, 0LL, 0, 0);
             }
             return (unsigned int)-1073741811;
           }

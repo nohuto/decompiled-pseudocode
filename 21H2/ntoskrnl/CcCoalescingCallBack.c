@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCoalescingCallBack @ 0x1404E9690
+ * XREFs of CcCoalescingCallBack @ 0x1404E98D0
  * Callers:
  *     <none>
  * Callees:
- *     CcForEachPartition @ 0x1402F8C10 (CcForEachPartition.c)
+ *     CcForEachPartition @ 0x140303960 (CcForEachPartition.c)
  */
 
 LONG_PTR __fastcall CcCoalescingCallBack(int a1)

@@ -16,13 +16,13 @@ _RTL_SPLAY_LINKS *__fastcall FsRtlSplitLocks(
         unsigned __int64 *a4)
 {
   _RTL_SPLAY_LINKS *result; // rax
-  struct _RTL_SPLAY_LINKS *v6; // rbp
+  _RTL_SPLAY_LINKS *v6; // rbp
   unsigned __int64 v7; // rdi
   _RTL_SPLAY_LINKS *LeftChild; // rsi
   unsigned __int64 v9; // rbx
   _RTL_SPLAY_LINKS *Parent; // r14
   BOOL v11; // r13d
-  struct _RTL_SPLAY_LINKS *v12; // r15
+  _RTL_SPLAY_LINKS *v12; // r15
   int v13; // ecx
   _RTL_SPLAY_LINKS *v14; // r14
   PRTL_SPLAY_LINKS v15; // rax
@@ -30,7 +30,7 @@ _RTL_SPLAY_LINKS *__fastcall FsRtlSplitLocks(
   int v17; // [rsp+60h] [rbp+8h]
 
   result = (_RTL_SPLAY_LINKS *)&retaddr;
-  v6 = (struct _RTL_SPLAY_LINKS *)a1;
+  v6 = (_RTL_SPLAY_LINKS *)a1;
   v17 = 0;
   if ( *(_BYTE *)(a1 + 8) )
   {

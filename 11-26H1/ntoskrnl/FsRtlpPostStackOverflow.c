@@ -1,53 +1,53 @@
 /*
- * XREFs of FsRtlpPostStackOverflow @ 0x1405B8130
+ * XREFs of FsRtlpPostStackOverflow @ 0x1405BA9A0
  * Callers:
- *     FsRtlPostPagingFileStackOverflow @ 0x1405B7FD0 (FsRtlPostPagingFileStackOverflow.c)
- *     FsRtlPostStackOverflow @ 0x1405B7FF0 (FsRtlPostStackOverflow.c)
+ *     FsRtlPostPagingFileStackOverflow @ 0x1405BA840 (FsRtlPostPagingFileStackOverflow.c)
+ *     FsRtlPostStackOverflow @ 0x1405BA860 (FsRtlPostStackOverflow.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     EtwTraceEnqueueWork @ 0x140268108 (EtwTraceEnqueueWork.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KiWakeOtherQueueWaiters @ 0x1402C2F00 (KiWakeOtherQueueWaiters.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     KiWakeQueueWaiter @ 0x1403F6E10 (KiWakeQueueWaiter.c)
- *     KeIsThreadRunning @ 0x1403F72D0 (KeIsThreadRunning.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     EtwTraceEnqueueWork @ 0x140267678 (EtwTraceEnqueueWork.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KiWakeOtherQueueWaiters @ 0x14030DBC0 (KiWakeOtherQueueWaiters.c)
+ *     KiWakeQueueWaiter @ 0x1403F07C0 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x1403F0C80 (KeIsThreadRunning.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall FsRtlpPostStackOverflow(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
 {
   __int64 v5; // rdi
-  $6CDADE90C2B69D9F3FFCADA247B6EB8A *Pool2; // rbx
+  unsigned __int8 *Pool2; // rbx
   __int64 v9; // r8
-  _LIST_ENTRY *v10; // rdi
-  struct _LIST_ENTRY **p_Blink; // r14
+  PVOID *v10; // rdi
+  _QWORD *v11; // r14
   unsigned __int8 CurrentIrql; // r15
   __int64 v13; // rdx
   struct _KPRCB *CurrentPrcb; // rbp
   __int64 CurrentThread; // rsi
   char IsThreadRunning; // al
-  int Flink_high; // edx
-  _LIST_ENTRY **p_Flink; // rcx
+  int v17; // edx
+  unsigned __int8 **v18; // rcx
 
   v5 = a4;
-  Pool2 = ($6CDADE90C2B69D9F3FFCADA247B6EB8A *)ExAllocatePool2(0x42uLL);
+  Pool2 = (unsigned __int8 *)ExAllocatePool2(0x42uLL);
   if ( !Pool2 )
   {
     if ( !(_BYTE)v5 )
       RtlRaiseStatus(-1073741670);
-    KeWaitForSingleObject(&VslpReservedTransferLock.ThreadListEntry, Executive, 0, 0, 0LL);
-    Pool2 = &VslpReservedTransferLock.792;
+    KeWaitForSingleObject(&VslpReservedTransferLock.PropagateBoostsEntry, Executive, 0, 0, 0LL);
+    Pool2 = &VslpReservedTransferLock.PriorityFloorCounts[16];
   }
-  *(_QWORD *)&Pool2[20].AbWaitEntryCount = a1;
-  *(_QWORD *)&Pool2[24].AbWaitEntryCount = a2;
-  *(_QWORD *)&Pool2[16].AbWaitEntryCount = a3;
-  v10 = (_LIST_ENTRY *)&VslpReservedTransferLock.SavedApcStateFill[64 * v5 + 32];
-  *(_QWORD *)&Pool2[8].AbWaitEntryCount = FsRtlStackOverflowRead;
-  *(_QWORD *)&Pool2[12].AbWaitEntryCount = Pool2;
-  *(_QWORD *)&Pool2->AbWaitEntryCount = 0LL;
-  p_Blink = &v10->Blink;
+  *((_QWORD *)Pool2 + 5) = a1;
+  *((_QWORD *)Pool2 + 6) = a2;
+  *((_QWORD *)Pool2 + 4) = a3;
+  v10 = &VslpReservedTransferLock.SchedulerApc.Reserved[8 * v5];
+  *((_QWORD *)Pool2 + 2) = FsRtlStackOverflowRead;
+  *((_QWORD *)Pool2 + 3) = Pool2;
+  *(_QWORD *)Pool2 = 0LL;
+  v11 = v10 + 1;
   CurrentIrql = KeGetCurrentIrql();
   v13 = 2LL;
   if ( CurrentIrql != 2 )
@@ -62,26 +62,26 @@ void __fastcall FsRtlpPostStackOverflow(__int64 a1, __int64 a2, __int64 a3, unsi
     EtwTraceEnqueueWork(CurrentThread, (__int64)Pool2, IsThreadRunning);
   }
   KiAcquireKobjectLockSafe((volatile signed __int32 *)v10, v13, v9);
-  if ( *p_Blink == (struct _LIST_ENTRY *)p_Blink
-    || LODWORD(v10[2].Blink) >= HIDWORD(v10[2].Blink)
-    || *(_LIST_ENTRY **)(CurrentThread + 232) == v10 && *(_BYTE *)(CurrentThread + 643) == 15
+  if ( (_QWORD *)*v11 == v11
+    || *((_DWORD *)v10 + 10) >= *((_DWORD *)v10 + 11)
+    || *(PVOID **)(CurrentThread + 232) == v10 && *(_BYTE *)(CurrentThread + 643) == 15
     || !KiWakeQueueWaiter((__int64)CurrentPrcb, (__int64)v10, (__int64)Pool2) )
   {
-    Flink_high = HIDWORD(v10->Flink);
-    HIDWORD(v10->Flink) = Flink_high + 1;
-    p_Flink = &v10[2].Flink->Flink;
-    if ( *p_Flink != (_LIST_ENTRY *)&v10[1].Blink )
+    v17 = *((_DWORD *)v10 + 1);
+    *((_DWORD *)v10 + 1) = v17 + 1;
+    v18 = (unsigned __int8 **)v10[4];
+    if ( *v18 != (unsigned __int8 *)(v10 + 3) )
       __fastfail(3u);
-    *(_QWORD *)&Pool2->AbWaitEntryCount = (char *)v10 + 24;
-    *(_QWORD *)&Pool2[4].AbWaitEntryCount = p_Flink;
-    *p_Flink = (_LIST_ENTRY *)Pool2;
-    v10[2].Flink = (struct _LIST_ENTRY *)Pool2;
-    if ( !Flink_high && *p_Blink != (struct _LIST_ENTRY *)p_Blink )
+    *(_QWORD *)Pool2 = v10 + 3;
+    *((_QWORD *)Pool2 + 1) = v18;
+    *v18 = Pool2;
+    v10[4] = Pool2;
+    if ( !v17 && (_QWORD *)*v11 != v11 )
       KiWakeOtherQueueWaiters((__int64)CurrentPrcb, (__int64)v10);
   }
   else
   {
-    *(_QWORD *)&Pool2->AbWaitEntryCount = 0LL;
+    *(_QWORD *)Pool2 = 0LL;
   }
   _InterlockedAnd((volatile signed __int32 *)v10, 0xFFFFFF7F);
   KiExitDispatcher((__int64)CurrentPrcb, 0LL, 1u, 0, CurrentIrql);

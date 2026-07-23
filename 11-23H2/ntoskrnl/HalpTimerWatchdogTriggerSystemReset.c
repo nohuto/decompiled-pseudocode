@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerWatchdogTriggerSystemReset @ 0x14050BC20
+ * XREFs of HalpTimerWatchdogTriggerSystemReset @ 0x14050C170
  * Callers:
- *     HalpTimerClockInterrupt @ 0x1402C4080 (HalpTimerClockInterrupt.c)
- *     HalpTimerClockIpiRoutine @ 0x1402C4590 (HalpTimerClockIpiRoutine.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x14051E850 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerClockInterrupt @ 0x1402C4310 (HalpTimerClockInterrupt.c)
+ *     HalpTimerClockIpiRoutine @ 0x1402C4820 (HalpTimerClockIpiRoutine.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14051EDA0 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     HalpSetTimer @ 0x1403378E0 (HalpSetTimer.c)
- *     HalRequestClockInterrupt @ 0x140365140 (HalRequestClockInterrupt.c)
- *     HalpTimerGetClockRates @ 0x1403B3720 (HalpTimerGetClockRates.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     HalpSetTimer @ 0x140337B70 (HalpSetTimer.c)
+ *     HalRequestClockInterrupt @ 0x1403652E0 (HalRequestClockInterrupt.c)
+ *     HalpTimerGetClockRates @ 0x1403B3900 (HalpTimerGetClockRates.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpTimerWatchdogTriggerSystemReset(char a1)

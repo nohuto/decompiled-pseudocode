@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSelectIdleProcessor @ 0x1402288B0
+ * XREFs of KiSelectIdleProcessor @ 0x14022A240
  * Callers:
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x140226F90 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiFindRankBiasedIdleSmtSet @ 0x140228C34 (KiFindRankBiasedIdleSmtSet.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x140228920 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x14022A5C4 (KiFindRankBiasedIdleSmtSet.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiSelectIdleProcessor(_WORD *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char *a6)
@@ -70,9 +70,8 @@ __int64 __fastcall KiSelectIdleProcessor(_WORD *a1, __int64 a2, __int64 a3, __in
     _BitScanForward64((unsigned __int64 *)&v30, v28);
     v32 = (v30 + *(_BYTE *)(a3 + 209) - v31) & 0x3F;
     _BitScanForward64((unsigned __int64 *)&v30, __ROR8__(v29, v32));
-    v6 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                          + 64 * (_DWORD)v26
-                          + (((_BYTE)v30 + v32) & 0x3Fu))];
+    v6 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (int)v26].Flink
+                          + (((_BYTE)v30 + v32) & 0x3F))];
 LABEL_2:
     memset_0(v47, 0, sizeof(v47));
     v12 = *(unsigned __int16 *)(a4 + 136);
@@ -146,9 +145,8 @@ LABEL_10:
             }
             v23 = *(_BYTE *)(v6 + 209);
             _BitScanForward64(&v24, __ROR8__(v15, v23));
-            return KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                    + 64 * *(unsigned __int8 *)(v6 + 208)
-                                    + (((_BYTE)v24 + v23) & 0x3Fu))];
+            return KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * *(unsigned __int8 *)(v6 + 208)].Flink
+                                    + (((_BYTE)v24 + v23) & 0x3F))];
           }
         }
       }

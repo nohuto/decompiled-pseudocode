@@ -21,100 +21,104 @@
  *     memset_0 @ 0x1406B4D40 (memset_0.c)
  */
 
-__int64 __fastcall RtlInitializeExtendedContext2(__int64 a1, int a2, _QWORD *a3, __int64 a4)
+NTSTATUS __cdecl RtlInitializeExtendedContext2(
+        PCONTEXT Context,
+        ULONG ContextFlags,
+        PCONTEXT_EX *ContextEx,
+        ULONG64 EnabledExtendedFeatures)
 {
   size_t v4; // rsi
-  __int64 v5; // rdi
-  _DWORD *v8; // rbx
+  ULONG64 v5; // rdi
+  _CONTEXT_EX *v8; // rbx
   bool v9; // cl
   char v10; // r15
-  int v11; // r8d
+  ULONG v11; // r8d
   unsigned __int64 v12; // rcx
-  int v13; // ecx
-  _DWORD *v14; // r10
+  ULONG Length; // ecx
+  _CONTEXT_EX *v14; // r10
   int v15; // ecx
   unsigned __int64 v16; // rax
-  __int64 v18; // rdi
+  ULONG64 v18; // rdi
   __int64 v19; // rax
   unsigned int v20; // r9d
   unsigned int i; // r8d
   __int64 v22; // rcx
   _DWORD *v23; // rcx
-  _DWORD *v24; // rcx
+  _CONTEXT_EX *v24; // rcx
   _DWORD *v25; // rcx
 
   LODWORD(v4) = 0;
-  v5 = a4;
+  v5 = EnabledExtendedFeatures;
   v8 = 0LL;
-  if ( (a2 & 0x27FFFF80) != 0x10000
-    && (a2 & 0x7FFFF20) != 0x100000
-    && ((a2 & 0x200000) == 0 || (a2 & 0x7DFFFF0) != 0)
-    && (a2 & 0x7FFFFC0) != 0x400000 )
+  if ( (ContextFlags & 0x27FFFF80) != 0x10000
+    && (ContextFlags & 0x7FFFF20) != 0x100000
+    && ((ContextFlags & 0x200000) == 0 || (ContextFlags & 0x7DFFFF0) != 0)
+    && (ContextFlags & 0x7FFFFC0) != 0x400000 )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
   v9 = 0;
   v10 = 1;
-  if ( (a2 & 0x400020) != 0x400020 )
-    v9 = (a2 & 0x10040) != 65600 && (a2 & 0x100040) != 1048640;
+  if ( (ContextFlags & 0x400020) != 0x400020 )
+    v9 = (ContextFlags & 0x10040) != 65600 && (ContextFlags & 0x100040) != 1048640;
   if ( !v9 )
   {
     if ( !MEMORY[0xFFFFF780000003D8] )
-      return 3221225659LL;
+      return -1073741637;
     v10 = 3;
   }
-  if ( (a2 & 0x100080) == 0x100080 )
+  if ( (ContextFlags & 0x100080) == 0x100080 )
   {
     if ( (_BYTE)KiKernelCetEnabled )
     {
       v10 |= 4u;
       goto LABEL_13;
     }
-    return 3221225659LL;
+    return -1073741637;
   }
 LABEL_13:
-  v11 = a2 & 0x100000;
-  if ( (a2 & 0x10000) != 0 )
+  v11 = ContextFlags & 0x100000;
+  if ( (ContextFlags & 0x10000) != 0 )
   {
-    v23 = (_DWORD *)((a1 + 3) & 0xFFFFFFFFFFFFFFFCuLL);
-    v8 = v23 + 179;
-    *v23 = a2;
+    v23 = (_DWORD *)(((unsigned __int64)&Context->P1Home + 3) & 0xFFFFFFFFFFFFFFFCuLL);
+    v8 = (_CONTEXT_EX *)(v23 + 179);
+    *v23 = ContextFlags;
     v23[182] = 716;
   }
   else if ( v11 )
   {
-    v12 = (a1 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
-    v8 = (_DWORD *)(v12 + 1232);
-    *(_DWORD *)(v12 + 48) = a2;
+    v12 = ((unsigned __int64)&Context->P2Home + 7) & 0xFFFFFFFFFFFFFFF0uLL;
+    v8 = (_CONTEXT_EX *)(v12 + 1232);
+    *(_DWORD *)(v12 + 48) = ContextFlags;
     *(_DWORD *)(v12 + 1244) = 1232;
   }
-  else if ( (a2 & 0x200000) != 0 )
+  else if ( (ContextFlags & 0x200000) != 0 )
   {
-    v24 = (_DWORD *)((a1 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
-    v8 = v24 + 104;
-    *v24 = a2;
-    v24[107] = 416;
+    v24 = (_CONTEXT_EX *)(((unsigned __int64)&Context->P1Home + 7) & 0xFFFFFFFFFFFFFFF8uLL);
+    v8 = v24 + 13;
+    v24->All.Offset = ContextFlags;
+    v24[13].Legacy.Length = 416;
   }
-  else if ( (a2 & 0x400000) != 0 )
+  else if ( (ContextFlags & 0x400000) != 0 )
   {
-    v25 = (_DWORD *)((a1 + 15) & 0xFFFFFFFFFFFFFFF0uLL);
-    v8 = v25 + 228;
-    *v25 = a2;
+    v25 = (_DWORD *)(((unsigned __int64)&Context->P2Home + 7) & 0xFFFFFFFFFFFFFFF0uLL);
+    v8 = (_CONTEXT_EX *)(v25 + 228);
+    *v25 = ContextFlags;
     v25[231] = 912;
   }
-  v13 = v8[3];
-  v8[2] = -v13;
-  *v8 = -v13;
-  v8[1] = v13 + 32;
-  if ( (a2 & 0x10020) != 65568 && (a2 & 0x10000) != 0 )
-    v8[3] = 204;
-  v14 = v8 + 8;
+  Length = v8->Legacy.Length;
+  v8->Legacy.Offset = -Length;
+  v8->All.Offset = -Length;
+  v8->All.Length = Length + 32;
+  if ( (ContextFlags & 0x10020) != 65568 && (ContextFlags & 0x10000) != 0 )
+    v8->Legacy.Length = 204;
+  v14 = v8 + 1;
   if ( (v10 & 2) != 0 )
   {
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
     {
-      v18 = (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & a4;
-      if ( (a2 & 0x10000) != 0 )
+      v18 = (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & EnabledExtendedFeatures;
+      if ( (ContextFlags & 0x10000) != 0 )
       {
         v5 = v18 & 0x40000000000009FFLL;
       }
@@ -122,7 +126,7 @@ LABEL_13:
       {
         v5 = v18 & 0x4000000000060DFFLL;
       }
-      else if ( (a2 & 0x400000) != 0 )
+      else if ( (ContextFlags & 0x400000) != 0 )
       {
         v5 = v18 & 4;
       }
@@ -155,30 +159,30 @@ LABEL_13:
       v20 = MEMORY[0xFFFFF780000003E8];
     }
     v4 = v20 - 512;
-    memset_0((void *)(((unsigned __int64)v8 + 95) & 0xFFFFFFFFFFFFFFC0uLL), 0, v4);
+    memset_0((void *)(((unsigned __int64)&v8[2].KernelCet.Length + 3) & 0xFFFFFFFFFFFFFFC0uLL), 0, v4);
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-      *(_QWORD *)((((unsigned __int64)v8 + 95) & 0xFFFFFFFFFFFFFFC0uLL) + 8) = v5 | 0x8000000000000000uLL;
-    v14 = (_DWORD *)((((unsigned __int64)v8 + 95) & 0xFFFFFFFFFFFFFFC0uLL) + v4);
+      *(_QWORD *)((((unsigned __int64)&v8[2].KernelCet.Length + 3) & 0xFFFFFFFFFFFFFFC0uLL) + 8) = v5 | 0x8000000000000000uLL;
+    v14 = (_CONTEXT_EX *)((((unsigned __int64)&v8[2].KernelCet.Length + 3) & 0xFFFFFFFFFFFFFFC0uLL) + v4);
     v15 = (((_DWORD)v8 + 95) & 0xFFFFFFC0) - (_DWORD)v8;
-    v8[1] = v4 + v15 - *v8;
+    v8->All.Length = v4 + v15 - v8->All.Offset;
   }
   else
   {
     v15 = 33;
   }
-  v8[4] = v15;
-  v8[5] = v4;
+  v8->XState.Offset = v15;
+  v8->XState.Length = v4;
   if ( (v10 & 4) != 0 )
   {
-    v16 = ((unsigned __int64)v14 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+    v16 = ((unsigned __int64)&v14->All.Length + 3) & 0xFFFFFFFFFFFFFFF8uLL;
     *(_OWORD *)v16 = 0LL;
     *(_QWORD *)(v16 + 16) = 0LL;
     LODWORD(v16) = v16 - (_DWORD)v8;
-    v8[6] = v16;
-    LODWORD(v16) = v16 - *v8;
-    v8[7] = 24;
-    v8[1] = v16 + 24;
+    v8->KernelCet.Offset = v16;
+    LODWORD(v16) = v16 - v8->All.Offset;
+    v8->KernelCet.Length = 24;
+    v8->All.Length = v16 + 24;
   }
-  *a3 = v8;
-  return 0LL;
+  *ContextEx = v8;
+  return 0;
 }

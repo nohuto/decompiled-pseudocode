@@ -1,12 +1,12 @@
 /*
- * XREFs of VfAllocateDomainCommonBuffer @ 0x140222A30
+ * XREFs of VfAllocateDomainCommonBuffer @ 0x14022285C
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
- *     ViHalTrackDomainCommonBuffer @ 0x140709BAC (ViHalTrackDomainCommonBuffer.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
+ *     ViHalTrackDomainCommonBuffer @ 0x140709BDC (ViHalTrackDomainCommonBuffer.c)
  */
 
 __int64 __fastcall VfAllocateDomainCommonBuffer(

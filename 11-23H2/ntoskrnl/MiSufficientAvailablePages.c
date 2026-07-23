@@ -1,25 +1,25 @@
 /*
- * XREFs of MiSufficientAvailablePages @ 0x1402E35AC
+ * XREFs of MiSufficientAvailablePages @ 0x1402E383C
  * Callers:
  *     CcCanIWriteStreamEx @ 0x14020FC80 (CcCanIWriteStreamEx.c)
  *     MmEnoughMemoryForWrite @ 0x140210000 (MmEnoughMemoryForWrite.c)
  *     MiScanPagefiles @ 0x14021D8FC (MiScanPagefiles.c)
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiPickClusterForMappedFileFault @ 0x1402E1710 (MiPickClusterForMappedFileFault.c)
- *     MiGetPoolPages @ 0x1402E3304 (MiGetPoolPages.c)
- *     MiRetryNonPagedAllocation @ 0x1402E3508 (MiRetryNonPagedAllocation.c)
- *     MiGetPageTablePages @ 0x1402E40B8 (MiGetPageTablePages.c)
- *     MiAllocateAccessLog @ 0x1402E6400 (MiAllocateAccessLog.c)
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiStoreWriteModifiedPages @ 0x14046DAAA (MiStoreWriteModifiedPages.c)
- *     MiFillNoReservationCluster @ 0x140639468 (MiFillNoReservationCluster.c)
- *     MiNoPagesLastChance @ 0x140650EF4 (MiNoPagesLastChance.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
- *     MiStoreSetEvictPageFile @ 0x14065C960 (MiStoreSetEvictPageFile.c)
- *     MiResolvePageFileFault @ 0x14066B4BC (MiResolvePageFileFault.c)
- *     MiFindLargePageMemory @ 0x140A49768 (MiFindLargePageMemory.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
+ *     MiPickClusterForMappedFileFault @ 0x1402E19A0 (MiPickClusterForMappedFileFault.c)
+ *     MiGetPoolPages @ 0x1402E3594 (MiGetPoolPages.c)
+ *     MiRetryNonPagedAllocation @ 0x1402E3798 (MiRetryNonPagedAllocation.c)
+ *     MiGetPageTablePages @ 0x1402E4348 (MiGetPageTablePages.c)
+ *     MiAllocateAccessLog @ 0x1402E6690 (MiAllocateAccessLog.c)
+ *     MiPrefetchVirtualMemory @ 0x1402EE458 (MiPrefetchVirtualMemory.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiStoreWriteModifiedPages @ 0x14046DEAA (MiStoreWriteModifiedPages.c)
+ *     MiFillNoReservationCluster @ 0x1406399B8 (MiFillNoReservationCluster.c)
+ *     MiNoPagesLastChance @ 0x140651444 (MiNoPagesLastChance.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
+ *     MiStoreSetEvictPageFile @ 0x14065CEB0 (MiStoreSetEvictPageFile.c)
+ *     MiResolvePageFileFault @ 0x14066BA0C (MiResolvePageFileFault.c)
+ *     MiFindLargePageMemory @ 0x140A49A18 (MiFindLargePageMemory.c)
  * Callees:
  *     <none>
  */

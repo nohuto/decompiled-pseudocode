@@ -1,13 +1,13 @@
 /*
  * XREFs of CmpFreeCallbackObjectContexts @ 0x1405D6B4C
  * Callers:
- *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x14065C3E0 (CmpDeleteKeyObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 PVOID *__fastcall CmpFreeCallbackObjectContexts(__int64 a1)
@@ -16,14 +16,17 @@ PVOID *__fastcall CmpFreeCallbackObjectContexts(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   PVOID ***v4; // rbx
   PVOID **v5; // rax
-  PVOID v6; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  PVOID v9; // rcx
   PVOID *result; // rax
-  __int64 v8; // rax
-  PVOID **v9; // rcx
-  PVOID *v10; // r8
-  PVOID ***v11; // rdx
-  PVOID *v12; // rcx
-  signed __int32 v13[8]; // [rsp+0h] [rbp-30h] BYREF
+  __int64 v11; // rax
+  PVOID **v12; // rcx
+  PVOID *v13; // r8
+  PVOID ***v14; // rdx
+  PVOID *v15; // rcx
+  signed __int32 v16[8]; // [rsp+0h] [rbp-30h] BYREF
   PVOID P; // [rsp+20h] [rbp-10h] BYREF
   PVOID *p_P; // [rsp+28h] [rbp-8h]
 
@@ -41,51 +44,51 @@ PVOID *__fastcall CmpFreeCallbackObjectContexts(__int64 a1)
       break;
     if ( v5[1] != (PVOID *)v4 )
       goto LABEL_17;
-    v9 = (PVOID **)*v5;
+    v12 = (PVOID **)*v5;
     if ( (*v5)[1] != v5 )
       goto LABEL_17;
-    *v4 = v9;
-    v9[1] = (PVOID *)v4;
-    v10 = v5[2];
-    if ( v10[1] != v5 + 2 )
+    *v4 = v12;
+    v12[1] = (PVOID *)v4;
+    v13 = v5[2];
+    if ( v13[1] != v5 + 2 )
       goto LABEL_17;
-    v11 = (PVOID ***)v5[3];
-    if ( *v11 != v5 + 2 )
+    v14 = (PVOID ***)v5[3];
+    if ( *v14 != v5 + 2 )
       goto LABEL_17;
-    *v11 = (PVOID **)v10;
-    v10[1] = v11;
-    if ( v11 == (PVOID ***)v10 )
+    *v14 = (PVOID **)v13;
+    v13[1] = v14;
+    if ( v14 == (PVOID ***)v13 )
       v1 = 1;
-    v12 = p_P;
+    v15 = p_P;
     if ( *p_P != &P )
 LABEL_17:
       __fastfail(3u);
     v5[1] = p_P;
     *v5 = &P;
-    *v12 = v5;
+    *v15 = v5;
     p_P = (PVOID *)v5;
   }
   ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
   if ( v1 )
   {
-    _InterlockedOr(v13, 0);
+    _InterlockedOr(v16, 0);
     if ( CallbackListDeleteEvent )
       ExfUnblockPushLock(&CallbackListDeleteEvent, 0LL);
   }
   while ( 1 )
   {
-    v6 = P;
+    v9 = P;
     result = &P;
     if ( P == &P )
       return result;
     if ( *((PVOID **)P + 1) != &P )
       goto LABEL_17;
-    v8 = *(_QWORD *)P;
+    v11 = *(_QWORD *)P;
     if ( *(PVOID *)(*(_QWORD *)P + 8LL) != P )
       goto LABEL_17;
     P = *(PVOID *)P;
-    *(_QWORD *)(v8 + 8) = &P;
-    ExFreePoolWithTag(v6, 0x63634D43u);
+    *(_QWORD *)(v11 + 8) = &P;
+    ExFreePoolWithTag(v9, 0x63634D43u);
   }
 }

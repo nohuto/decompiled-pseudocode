@@ -13,7 +13,7 @@ unsigned __int64 __fastcall KiWriteFixedMtrr(unsigned __int64 *a1)
   unsigned __int64 v3; // rax
   unsigned __int64 v4; // [rsp+8h] [rbp+8h]
 
-  if ( byte_140307B71 == 1 )
+  if ( byte_140307BB1 == 1 )
   {
     v1 = __readmsr(0xC0010010) & 0xFFFFFFFFFFF3FFFFuLL | 0x80000;
 LABEL_7:
@@ -45,7 +45,7 @@ LABEL_4:
   __writemsr(0x26Eu, a1[9]);
   result = a1[10];
   __writemsr(0x26Fu, result);
-  if ( byte_140307B71 == 1 )
+  if ( byte_140307BB1 == 1 )
   {
     result = v1 & 0xFFFFFFFFFFF3FFFFuLL | 0x40000;
     __writemsr(0xC0010010, result);

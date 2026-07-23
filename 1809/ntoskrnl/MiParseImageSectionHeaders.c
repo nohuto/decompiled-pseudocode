@@ -1,13 +1,13 @@
 /*
- * XREFs of MiParseImageSectionHeaders @ 0x14061E300
+ * XREFs of MiParseImageSectionHeaders @ 0x14061F300
  * Callers:
- *     MiBuildImageControlArea @ 0x14061DA70 (MiBuildImageControlArea.c)
+ *     MiBuildImageControlArea @ 0x14061EA70 (MiBuildImageControlArea.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiMakeSubsectionPte @ 0x140095B00 (MiMakeSubsectionPte.c)
- *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiMakeSubsectionPte @ 0x140095A40 (MiMakeSubsectionPte.c)
+ *     MiMakeDemandZeroPte @ 0x140097E20 (MiMakeDemandZeroPte.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)
@@ -103,14 +103,14 @@ __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, i
         {
           if ( (v8 & 0x10000) != 0 )
           {
-            dword_140438DF0 = 61;
+            dword_140439EB0 = 61;
             return 3221225595LL;
           }
           *v24 = 0;
         }
         if ( *v24 + v25 < *v24 )
         {
-          dword_140438DF0 = 25;
+          dword_140439EB0 = 25;
           return 3221225595LL;
         }
         *(_QWORD *)(v7 + 16) = v7 + 56;
@@ -118,19 +118,19 @@ __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, i
         *(_QWORD *)v7 = v11;
         if ( v21 != *(_QWORD *)v18 + *(v24 - 2) || !v26 )
         {
-          dword_140438DF0 = 26;
+          dword_140439EB0 = 26;
           return 3221225595LL;
         }
         if ( v26 + v20 - 1 <= v26 )
         {
-          dword_140438DF0 = 43;
+          dword_140439EB0 = 43;
           return 3221225595LL;
         }
         v27 = ((v26 + (unsigned __int64)v20 - 1) >> 12) & (~((unsigned __int64)v20 - 1) >> 12);
         *(_DWORD *)(v7 + 44) = v27;
         if ( v27 > v23 )
         {
-          dword_140438DF0 = 27;
+          dword_140439EB0 = 27;
           return 3221225595LL;
         }
         v28 = ((v26 + (unsigned __int64)v20 - 1) >> 12) & (~((unsigned __int64)v20 - 1) >> 12);
@@ -146,7 +146,7 @@ __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, i
         v30 = -*(_DWORD *)(v18 + 8) & (*(_DWORD *)(v18 + 8) + *v24 + *(v24 - 1) - 1);
         if ( v30 < *v24 )
         {
-          dword_140438DF0 = 54;
+          dword_140439EB0 = 54;
           return 3221225595LL;
         }
         *(_QWORD *)(v7 + 8) = v12;
@@ -207,7 +207,7 @@ __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, i
               {
                 if ( (unsigned int)MiPteHasShadow() )
                 {
-                  if ( !HIBYTE(word_14043A1AC) && (v50 & 1) != 0 )
+                  if ( !HIBYTE(word_14043B26C) && (v50 & 1) != 0 )
                     v50 |= 0x8000000000000000uLL;
                   *v12 = v50;
                   MiWritePteShadow((__int64)v12, v50);
@@ -234,7 +234,7 @@ LABEL_80:
               {
                 if ( (unsigned int)MiPteHasShadow() )
                 {
-                  if ( !HIBYTE(word_14043A1AC) )
+                  if ( !HIBYTE(word_14043B26C) )
                   {
                     v48 = (v41 & 1) == 0;
                     goto LABEL_56;
@@ -263,7 +263,7 @@ LABEL_61:
               {
                 if ( (unsigned int)MiPteHasShadow() )
                 {
-                  if ( !HIBYTE(word_14043A1AC) )
+                  if ( !HIBYTE(word_14043B26C) )
                   {
                     v48 = (v40 & 1) == 0;
 LABEL_56:
@@ -324,13 +324,13 @@ LABEL_82:
       }
       else
       {
-        dword_140438DF0 = 34;
+        dword_140439EB0 = 34;
         return 3221225595LL;
       }
     }
     else
     {
-      dword_140438DF0 = 33;
+      dword_140439EB0 = 33;
       return 3221225595LL;
     }
   }
@@ -348,14 +348,14 @@ LABEL_82:
         break;
       if ( v16 != *(v13 - 1) || v15 > v14 )
       {
-        dword_140438DF0 = 21;
+        dword_140439EB0 = 21;
         return 3221225595LL;
       }
       v13 += 10;
       if ( !--v10 )
         goto LABEL_10;
     }
-    dword_140438DF0 = 20;
+    dword_140439EB0 = 20;
     return 3221225595LL;
   }
   else

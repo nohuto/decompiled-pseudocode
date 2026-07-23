@@ -1,17 +1,17 @@
 /*
- * XREFs of VfAvlInsertReservedTreeNode @ 0x140371B70
+ * XREFs of VfAvlInsertReservedTreeNode @ 0x1403716C0
  * Callers:
- *     VfTargetDriversAdd @ 0x140371A3C (VfTargetDriversAdd.c)
- *     ViDevObjAdd @ 0x1409D62CC (ViDevObjAdd.c)
- *     VerifierIoInitializeRemoveLockEx @ 0x1409D64C0 (VerifierIoInitializeRemoveLockEx.c)
- *     ViLookasideAdd @ 0x1409E15B4 (ViLookasideAdd.c)
- *     VerifierExInitializeResourceLite @ 0x1409E2200 (VerifierExInitializeResourceLite.c)
+ *     VfTargetDriversAdd @ 0x14037158C (VfTargetDriversAdd.c)
+ *     ViDevObjAdd @ 0x1409D72CC (ViDevObjAdd.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x1409D74C0 (VerifierIoInitializeRemoveLockEx.c)
+ *     ViLookasideAdd @ 0x1409E25B4 (ViLookasideAdd.c)
+ *     VerifierExInitializeResourceLite @ 0x1409E3200 (VerifierExInitializeResourceLite.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x140371C0C (ViAvlReleaseTableLockFromDpcLevel.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140371C40 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     ViAvlRaiseIrqlSafe @ 0x140371C9C (ViAvlRaiseIrqlSafe.c)
- *     ViAvlTableIndex @ 0x140371CD4 (ViAvlTableIndex.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140252BB0 (RtlInsertElementGenericTableAvl.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x14037175C (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140371790 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     ViAvlRaiseIrqlSafe @ 0x1403717EC (ViAvlRaiseIrqlSafe.c)
+ *     ViAvlTableIndex @ 0x140371824 (ViAvlTableIndex.c)
  */
 
 __int64 __fastcall VfAvlInsertReservedTreeNode(__int64 a1, __int64 a2, _QWORD *a3)

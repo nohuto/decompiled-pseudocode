@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveLargeFreeLoaderDescriptors @ 0x140C51ABC
+ * XREFs of MiRemoveLargeFreeLoaderDescriptors @ 0x140C53C4C
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     MiRestrictRangeToNode @ 0x140401E10 (MiRestrictRangeToNode.c)
- *     MiFindDescriptorByPfn @ 0x140C4F100 (MiFindDescriptorByPfn.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     MiRestrictRangeToNode @ 0x1403FC38C (MiRestrictRangeToNode.c)
+ *     MiFindDescriptorByPfn @ 0x140C51290 (MiFindDescriptorByPfn.c)
  */
 
 void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)
@@ -49,7 +49,7 @@ void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)
   __int64 v36; // rax
   __int64 *v37; // r11
   unsigned __int64 v38; // rdx
-  bool v39; // r8
+  BOOLEAN v39; // r8
   unsigned __int64 v40; // rax
 
   if ( !_bittest64(&KeFeatureBits, 0x25u) )
@@ -217,9 +217,9 @@ LABEL_48:
     if ( v32 < 0x40000 )
       continue;
     v33 = 6LL * j;
-    LODWORD(qword_14100B9E8[v33]) = *(_DWORD *)(v27 + 24);
-    qword_14100B9E8[v33 + 1] = v30;
-    qword_14100B9E8[v33 + 2] = v32;
+    LODWORD(qword_14100C9E8[v33]) = *(_DWORD *)(v27 + 24);
+    qword_14100C9E8[v33 + 1] = v30;
+    qword_14100C9E8[v33 + 2] = v32;
     v34 = *(_QWORD *)(v27 + 32);
     v35 = *(_QWORD *)(v27 + 40);
     v36 = v34 + v35;
@@ -281,7 +281,11 @@ LABEL_74:
             v38 = v40;
           }
         }
-        RtlRbInsertNodeEx((__int64 *)v2, v38, v39, (unsigned __int64)&MxDeferredBootSplitDescriptor[v33]);
+        RtlRbInsertNodeEx(
+          (PRTL_RB_TREE)v2,
+          (PRTL_BALANCED_NODE)v38,
+          v39,
+          (PRTL_BALANCED_NODE)&MxDeferredBootSplitDescriptor[v33]);
         continue;
       }
       goto LABEL_62;
@@ -293,6 +297,6 @@ LABEL_62:
       *(_QWORD *)(v27 + 40) = v35 - v32;
       continue;
     }
-    RtlRbRemoveNode((unsigned __int64 *)v2, (unsigned __int64 *)v27);
+    RtlRbRemoveNode((PRTL_RB_TREE)v2, (PRTL_BALANCED_NODE)v27);
   }
 }

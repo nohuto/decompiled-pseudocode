@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringFromGUID @ 0x1404EE054
+ * XREFs of RtlStringFromGUID @ 0x1404D011C
  * Callers:
- *     KsepEvntLogShimsApplied @ 0x1401DCC68 (KsepEvntLogShimsApplied.c)
+ *     KsepEvntLogShimsApplied @ 0x1401DCA94 (KsepEvntLogShimsApplied.c)
  *     PipHardwareConfigInit @ 0x14079930C (PipHardwareConfigInit.c)
  *     SepSecureBootSetRegistryKey @ 0x1407B9D80 (SepSecureBootSetRegistryKey.c)
  *     PiInitFirmwareResources @ 0x1407BD10C (PiInitFirmwareResources.c)
@@ -13,5 +13,5 @@
 
 NTSTATUS __stdcall RtlStringFromGUID(const GUID *const Guid, PUNICODE_STRING GuidString)
 {
-  return RtlStringFromGUIDEx(&Guid->Data1, (__int64)GuidString, 1);
+  return RtlStringFromGUIDEx((PGUID)Guid, GuidString, 1u);
 }

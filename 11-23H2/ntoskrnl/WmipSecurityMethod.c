@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipSecurityMethod @ 0x1407BDD80
+ * XREFs of WmipSecurityMethod @ 0x1407BE050
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ObSetSecurityDescriptorInfo @ 0x14069E860 (ObSetSecurityDescriptorInfo.c)
- *     ObQuerySecurityDescriptorInfo @ 0x1406C09BC (ObQuerySecurityDescriptorInfo.c)
- *     ObAssignObjectSecurityDescriptor @ 0x1407BDF64 (ObAssignObjectSecurityDescriptor.c)
- *     ObDeassignSecurity @ 0x1407BDFE0 (ObDeassignSecurity.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x14085FBC0 (WmipSaveGuidSecurityDescriptor.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x1406C09EC (ObQuerySecurityDescriptorInfo.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x1407BE234 (ObAssignObjectSecurityDescriptor.c)
+ *     ObDeassignSecurity @ 0x1407BE2B0 (ObDeassignSecurity.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x14085FE00 (WmipSaveGuidSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -19,7 +19,7 @@
 __int64 __fastcall WmipSecurityMethod(
         unsigned __int16 *Object,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         ULONG *a5,
         __int64 a6,
@@ -37,7 +37,7 @@ __int64 __fastcall WmipSecurityMethod(
   POOL_TYPE v18[2]; // [rsp+20h] [rbp-F8h]
   PGENERIC_MAPPING v19; // [rsp+28h] [rbp-F0h]
   ULONG i; // [rsp+70h] [rbp-A8h] BYREF
-  ULONG v21; // [rsp+74h] [rbp-A4h] BYREF
+  DWORD v21; // [rsp+74h] [rbp-A4h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-A0h] BYREF
   wchar_t pszDest[40]; // [rsp+90h] [rbp-88h] BYREF
 

@@ -14,7 +14,7 @@ _QWORD *__fastcall MiLogRetpolineImageLoadEvents(__int64 a1)
   _QWORD *result; // rax
   _QWORD *v3; // rcx
 
-  result = (_QWORD *)RtlIsImageFullyRetpolined(*(_QWORD *)(a1 + 48));
+  result = (_QWORD *)RtlIsImageFullyRetpolined(*(void **)(a1 + 48));
   if ( !(_DWORD)result )
   {
     if ( *(_QWORD *)&qword_140C4ED60 )

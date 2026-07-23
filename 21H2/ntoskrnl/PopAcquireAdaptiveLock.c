@@ -1,19 +1,19 @@
 /*
- * XREFs of PopAcquireAdaptiveLock @ 0x14067E094
+ * XREFs of PopAcquireAdaptiveLock @ 0x140671E84
  * Callers:
  *     PopSessionWinlogonNotification @ 0x1405D8DC4 (PopSessionWinlogonNotification.c)
- *     PopSessionInputChange @ 0x14067DE74 (PopSessionInputChange.c)
- *     PopSetDisplayStatus @ 0x14077A87C (PopSetDisplayStatus.c)
- *     PopSessionConnectionChange @ 0x14078D92C (PopSessionConnectionChange.c)
- *     PopAdaptivePowerSettingCallback @ 0x140790F60 (PopAdaptivePowerSettingCallback.c)
- *     PopActiveLockScreenPowerRequest @ 0x1408F4F30 (PopActiveLockScreenPowerRequest.c)
- *     PopIsLockConsoleTimeoutActive @ 0x1408F518C (PopIsLockConsoleTimeoutActive.c)
- *     PopUserPresentOverride @ 0x1408F5380 (PopUserPresentOverride.c)
+ *     PopSessionInputChange @ 0x140671C64 (PopSessionInputChange.c)
+ *     PopSetDisplayStatus @ 0x14077AA3C (PopSetDisplayStatus.c)
+ *     PopSessionConnectionChange @ 0x14078DAEC (PopSessionConnectionChange.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140792510 (PopAdaptivePowerSettingCallback.c)
+ *     PopActiveLockScreenPowerRequest @ 0x1408F5090 (PopActiveLockScreenPowerRequest.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x1408F52EC (PopIsLockConsoleTimeoutActive.c)
+ *     PopUserPresentOverride @ 0x1408F54E0 (PopUserPresentOverride.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PoBlockConsoleSwitch @ 0x14067E978 (PoBlockConsoleSwitch.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PoBlockConsoleSwitch @ 0x140672828 (PoBlockConsoleSwitch.c)
  */
 
 struct _KTHREAD *__fastcall PopAcquireAdaptiveLock(char a1)
@@ -46,7 +46,7 @@ struct _KTHREAD *__fastcall PopAcquireAdaptiveLock(char a1)
     PopLazyContext = 0LL;
     LOBYTE(PopLazyContext) = 1;
     DWORD1(PopLazyContext) = v1;
-    qword_140C205D0 = 0LL;
+    qword_140C20570 = 0LL;
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PiCMCaptureEnumerateInputData @ 0x14091A120
+ * XREFs of PiCMCaptureEnumerateInputData @ 0x140974B80
  * Callers:
- *     PiCMEnumerateSubKeys @ 0x140919E14 (PiCMEnumerateSubKeys.c)
+ *     PiCMEnumerateSubKeys @ 0x140974874 (PiCMEnumerateSubKeys.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureEnumerateInputData(void *Src, unsigned int a2, __int64 a3, _DWORD *a4)

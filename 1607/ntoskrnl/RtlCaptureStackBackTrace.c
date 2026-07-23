@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlCaptureStackBackTrace @ 0x140084730
+ * XREFs of RtlCaptureStackBackTrace @ 0x140082890
  * Callers:
- *     PsBoostThreadIoEx @ 0x14002D440 (PsBoostThreadIoEx.c)
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1400659A0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
- *     MiShowBadMapper @ 0x1401E14D4 (MiShowBadMapper.c)
- *     MiAddMdlTracker @ 0x1401E2B60 (MiAddMdlTracker.c)
- *     MiInsertPteTracker @ 0x1401FC7EC (MiInsertPteTracker.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
- *     RtlStdLogStackTrace @ 0x140211758 (RtlStdLogStackTrace.c)
- *     RtlGetCallersAddress @ 0x140213578 (RtlGetCallersAddress.c)
- *     ViKeLogCriticalRegionStackTrace @ 0x14022392C (ViKeLogCriticalRegionStackTrace.c)
+ *     PsBoostThreadIoEx @ 0x14002CFC0 (PsBoostThreadIoEx.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x140065520 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
+ *     MiShowBadMapper @ 0x1401E1300 (MiShowBadMapper.c)
+ *     MiAddMdlTracker @ 0x1401E298C (MiAddMdlTracker.c)
+ *     MiInsertPteTracker @ 0x1401FC618 (MiInsertPteTracker.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
+ *     RtlStdLogStackTrace @ 0x140211584 (RtlStdLogStackTrace.c)
+ *     RtlGetCallersAddress @ 0x1402133A4 (RtlGetCallersAddress.c)
+ *     ViKeLogCriticalRegionStackTrace @ 0x140223758 (ViKeLogCriticalRegionStackTrace.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpLogDirtyVectorUse @ 0x1404819CC (CmpLogDirtyVectorUse.c)
- *     VfPendingFinishLogging @ 0x14070CEF4 (VfPendingFinishLogging.c)
- *     ViPoolLogStackCallout @ 0x140710B80 (ViPoolLogStackCallout.c)
+ *     CmpLogDirtyVectorUse @ 0x140480720 (CmpLogDirtyVectorUse.c)
+ *     ViPoolLogStackCallout @ 0x140701694 (ViPoolLogStackCallout.c)
+ *     VfPendingFinishLogging @ 0x14070CF24 (VfPendingFinishLogging.c)
  *     ViFaultsInjectionNotification @ 0x1407114AC (ViFaultsInjectionNotification.c)
  *     VfCheckUserHandle @ 0x1407117A8 (VfCheckUserHandle.c)
  *     ViKeIrqlLogCommon @ 0x140712F64 (ViKeIrqlLogCommon.c)
@@ -22,7 +22,7 @@
  *     VfDeadlockInitializeResource @ 0x1407140E4 (VfDeadlockInitializeResource.c)
  *     VfDeadlockReleaseResource @ 0x14071425C (VfDeadlockReleaseResource.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14004F2A0 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x14004EE20 (RtlWalkFrameChain.c)
  */
 
 USHORT __stdcall RtlCaptureStackBackTrace(

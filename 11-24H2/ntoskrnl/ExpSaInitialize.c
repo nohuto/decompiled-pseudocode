@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSaInitialize @ 0x14065A654
+ * XREFs of ExpSaInitialize @ 0x140658D24
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ExpSaAllocatorInitialize @ 0x14065A5EC (ExpSaAllocatorInitialize.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     ExpSaAllocatorInitialize @ 0x140658CBC (ExpSaAllocatorInitialize.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 char ExpSaInitialize()
@@ -29,13 +29,13 @@ char ExpSaInitialize()
   ExSaNonPagedSlotAllocator = 0LL;
   ExSaPagedSlotAllocator = 0LL;
   ExSaPageGroupDescriptorArrayLock = 0LL;
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
+  Pool2 = (void *)ExAllocatePool2(0x40uLL, 0x80uLL, 0x61537845u);
   ExSaPageGroupDescriptorArray = (__int64)Pool2;
   if ( Pool2 )
   {
     memset_0(Pool2, 0, 0x80uLL);
     MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-    ExSaPageArrays = ExAllocatePool2(0x40uLL);
+    ExSaPageArrays = ExAllocatePool2(0x40uLL, 8LL * MaximumProcessorCount, 0x61537845u);
     if ( ExSaPageArrays )
     {
       v3 = KeNumberProcessors_0;
@@ -52,13 +52,13 @@ char ExpSaInitialize()
         if ( Prcb )
           *(_QWORD *)(Prcb + 35760) = *(_QWORD *)(ExSaPageArrays + 8LL * i);
       }
-      v7 = (_QWORD *)ExAllocatePool2(0x40uLL);
+      v7 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x48uLL, 0x61537845u);
       ExSaNonPagedSlotAllocator = (__int64)v7;
       if ( v7 )
       {
         ExpSaAllocatorInitialize(v7, 0);
-        v8 = (_QWORD *)ExAllocatePool2(0x100uLL);
-        ExSaPagedSlotAllocator = (ULONG_PTR)v8;
+        v8 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x48uLL, 0x61537845u);
+        ExSaPagedSlotAllocator = (__int64)v8;
         if ( v8 )
         {
           ExpSaAllocatorInitialize(v8, 1);

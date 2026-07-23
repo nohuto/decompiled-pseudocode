@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSecondaryInterruptQueryPrimaryInformation @ 0x140AA1310
+ * XREFs of HalpSecondaryInterruptQueryPrimaryInformation @ 0x140A9C6A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpQueryPrimaryInterruptInformation @ 0x140AA136C (HalpQueryPrimaryInterruptInformation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x140A9C6FC (HalpQueryPrimaryInterruptInformation.c)
  */
 
 __int64 __fastcall HalpSecondaryInterruptQueryPrimaryInformation(__int64 a1, _DWORD *a2)

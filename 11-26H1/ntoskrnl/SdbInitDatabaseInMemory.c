@@ -1,41 +1,41 @@
 /*
- * XREFs of SdbInitDatabaseInMemory @ 0x1409E62EC
+ * XREFs of SdbInitDatabaseInMemory @ 0x1409D6974
  * Callers:
- *     PpBootDDBHelper @ 0x1407A5AE4 (PpBootDDBHelper.c)
- *     KsepSdbBootInitialize @ 0x1407BE4DC (KsepSdbBootInitialize.c)
- *     KsepSdbMapToMemory @ 0x1409E6578 (KsepSdbMapToMemory.c)
- *     PiInitializeDDB @ 0x140A25EE0 (PiInitializeDDB.c)
+ *     PpBootDDBHelper @ 0x1407A8694 (PpBootDDBHelper.c)
+ *     KsepSdbBootInitialize @ 0x1407C153C (KsepSdbBootInitialize.c)
+ *     KsepSdbMapToMemory @ 0x1409D65BC (KsepSdbMapToMemory.c)
+ *     PiInitializeDDB @ 0x140A38F80 (PiInitializeDDB.c)
  * Callees:
- *     SdbpOpenDatabaseInMemory @ 0x1409E4018 (SdbpOpenDatabaseInMemory.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     SdbCloseDatabaseRead @ 0x1409E6930 (SdbCloseDatabaseRead.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     SdbpInitializeMatchers @ 0x140AF9B98 (SdbpInitializeMatchers.c)
- *     SdbpGetDatabaseRuntimePlatform @ 0x140B38678 (SdbpGetDatabaseRuntimePlatform.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     SdbCloseDatabaseRead @ 0x1409D6398 (SdbCloseDatabaseRead.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     SdbpOpenDatabaseInMemory @ 0x1409D8A34 (SdbpOpenDatabaseInMemory.c)
+ *     SdbpInitializeMatchers @ 0x140AFC024 (SdbpInitializeMatchers.c)
+ *     SdbpGetDatabaseRuntimePlatform @ 0x140B3A888 (SdbpGetDatabaseRuntimePlatform.c)
  */
 
-__int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, int a2)
+__int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rbx
   __int64 v6; // rax
   __int64 v7; // rcx
 
-  v4 = AslAlloc();
+  v4 = AslAlloc(a1, 1784LL);
   if ( !v4 )
   {
-    AslLogCallPrintf(1, (unsigned int)"SdbInitDatabaseInMemory", 2606, (unsigned int)"Failed to allocate sdbcontext");
+    AslLogCallPrintf(1LL, (__int64)"SdbInitDatabaseInMemory");
     return 0LL;
   }
-  v6 = SdbpOpenDatabaseInMemory(a1, a2, 0);
+  v6 = SdbpOpenDatabaseInMemory(a1, a2, 0LL);
   *(_QWORD *)(v4 + 8) = v6;
   if ( !v6 )
   {
-    AslLogCallPrintf(1, (unsigned int)"SdbInitDatabaseInMemory", 2615, (unsigned int)"Unable to open main database");
+    AslLogCallPrintf(1LL, (__int64)"SdbInitDatabaseInMemory");
     v7 = *(_QWORD *)(v4 + 8);
     if ( v7 )
       SdbCloseDatabaseRead(v7);
-    AslFree(v7, v4);
+    AslFree(v7, (void *)v4);
     return 0LL;
   }
   *(_DWORD *)(v4 + 32) = 1;

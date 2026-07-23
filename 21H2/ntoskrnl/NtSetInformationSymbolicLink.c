@@ -1,20 +1,24 @@
 /*
- * XREFs of NtSetInformationSymbolicLink @ 0x1408DCC30
+ * XREFs of NtSetInformationSymbolicLink @ 0x1408DCD90
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, unsigned __int64 a3, int a4)
+NTSTATUS __cdecl NtSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // r14
-  NTSTATUS v8; // ebx
-  int v9; // esi
+  int v8; // ebx
+  __int32 v9; // esi
   __int64 v10; // rdx
   __int64 v11; // rcx
   int v12; // ecx
@@ -28,10 +32,10 @@ __int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, unsigned __int
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   DmaAdapter = 0LL;
-  v8 = ObReferenceObjectByHandle(a1, 2u, ObpSymbolicLinkObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  v8 = ObReferenceObjectByHandle(LinkHandle, 2u, ObpSymbolicLinkObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v8 >= 0 )
   {
-    v9 = a2 - 1;
+    v9 = SymbolicLinkInformationClass - 1;
     if ( v9 )
     {
       if ( v9 != 1 )
@@ -39,23 +43,26 @@ __int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, unsigned __int
         v8 = -1073741821;
 LABEL_30:
         HalPutDmaAdapter(DmaAdapter);
-        return (unsigned int)v8;
+        return v8;
       }
-      if ( a4 == 4 )
+      if ( SymbolicLinkInformationLength == 4 )
       {
         if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) && !PsIsCurrentThreadInServerSilo(v11, v10) )
         {
           if ( PreviousMode )
           {
-            if ( (a3 & 3) != 0 )
+            if ( ((unsigned __int8)SymbolicLinkInformation & 3) != 0 )
               ExRaiseDatatypeMisalignment();
-            if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+            if ( (unsigned __int64)SymbolicLinkInformation + 4 > 0x7FFFFFFF0000LL
+              || (char *)SymbolicLinkInformation + 4 < SymbolicLinkInformation )
+            {
               MEMORY[0x7FFFFFFF0000] = 0;
-            v12 = *(_DWORD *)a3;
+            }
+            v12 = *(_DWORD *)SymbolicLinkInformation;
           }
           else
           {
-            v12 = *(_DWORD *)a3;
+            v12 = *(_DWORD *)SymbolicLinkInformation;
           }
           v13 = DmaAdapter;
           HIDWORD(DmaAdapter[1].DmaOperations) |= 8u;
@@ -66,21 +73,24 @@ LABEL_30:
         goto LABEL_29;
       }
     }
-    else if ( a4 == 4 )
+    else if ( SymbolicLinkInformationLength == 4 )
     {
       if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) && !PsIsCurrentThreadInServerSilo(v15, v14) )
       {
         if ( PreviousMode )
         {
-          if ( (a3 & 3) != 0 )
+          if ( ((unsigned __int8)SymbolicLinkInformation & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+          if ( (unsigned __int64)SymbolicLinkInformation + 4 > 0x7FFFFFFF0000LL
+            || (char *)SymbolicLinkInformation + 4 < SymbolicLinkInformation )
+          {
             MEMORY[0x7FFFFFFF0000] = 0;
-          v16 = *(_DWORD *)a3;
+          }
+          v16 = *(_DWORD *)SymbolicLinkInformation;
         }
         else
         {
-          v16 = *(_DWORD *)a3;
+          v16 = *(_DWORD *)SymbolicLinkInformation;
         }
         v17 = DmaAdapter;
         v18 = HIDWORD(DmaAdapter[1].DmaOperations) | 1;
@@ -96,5 +106,5 @@ LABEL_29:
     v8 = -1073741820;
     goto LABEL_30;
   }
-  return (unsigned int)v8;
+  return v8;
 }

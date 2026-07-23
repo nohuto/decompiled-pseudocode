@@ -1,20 +1,20 @@
 /*
- * XREFs of KeInvalidateAllCaches @ 0x14036DB40
+ * XREFs of KeInvalidateAllCaches @ 0x14036DCE0
  * Callers:
  *     MiChangePageAttributeContiguous @ 0x14021A6A0 (MiChangePageAttributeContiguous.c)
  *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE20 (KeInvalidateRangeAllCachesNoIpi.c)
  *     MiChangePageAttributeBatch @ 0x14021C9B4 (MiChangePageAttributeBatch.c)
- *     KeFlushIoBuffers @ 0x1403472B0 (KeFlushIoBuffers.c)
- *     KeInvalidateRangeAllCaches @ 0x1404606A0 (KeInvalidateRangeAllCaches.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x14061BF84 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiFlushCacheMdl @ 0x140660EA0 (MiFlushCacheMdl.c)
- *     MiFlushCacheRange @ 0x140660EFC (MiFlushCacheRange.c)
+ *     KeFlushIoBuffers @ 0x140347540 (KeFlushIoBuffers.c)
+ *     KeInvalidateRangeAllCaches @ 0x140460AA0 (KeInvalidateRangeAllCaches.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x14061C4D4 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiFlushCacheMdl @ 0x1406613F0 (MiFlushCacheMdl.c)
+ *     MiFlushCacheRange @ 0x14066144C (MiFlushCacheRange.c)
  *     MiInitializeCacheFlushing @ 0x140B6A51C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
- *     KxSetTimeStampBusy @ 0x140346694 (KxSetTimeStampBusy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIpiSendRequestEx @ 0x1402EB880 (KiIpiSendRequestEx.c)
+ *     KxSetTimeStampBusy @ 0x140346924 (KxSetTimeStampBusy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN KeInvalidateAllCaches(void)
@@ -31,7 +31,7 @@ BOOLEAN KeInvalidateAllCaches(void)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -46,10 +46,10 @@ BOOLEAN KeInvalidateAllCaches(void)
     KiIpiSendRequestEx((__int64)CurrentPrcb, 1, 0LL, 0LL, 6LL, (void (__fastcall *)(__int64))KeSweepLocalCaches, 0LL);
     _InterlockedIncrement(&KiCacheFlushTimeStamp);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v5 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
     {
       v6 = KeGetCurrentPrcb();
       v7 = v6->SchedulerAssist;

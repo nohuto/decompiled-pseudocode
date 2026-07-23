@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMReturnHandleResultData @ 0x140633848
+ * XREFs of PiCMReturnHandleResultData @ 0x140628A10
  * Callers:
- *     PiCMOpenDeviceKey @ 0x14062FD18 (PiCMOpenDeviceKey.c)
- *     PiCMOpenObjectKey @ 0x1406338E0 (PiCMOpenObjectKey.c)
- *     PiCMOpenClassKey @ 0x1406BEA68 (PiCMOpenClassKey.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x1408B0B54 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenClassKey @ 0x140622BDC (PiCMOpenClassKey.c)
+ *     PiCMOpenDeviceKey @ 0x140624D98 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenObjectKey @ 0x140628AA8 (PiCMOpenObjectKey.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x1408B0CB4 (PiCMOpenDeviceInterfaceKey.c)
  * Callees:
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PiCMReturnHandleResultData(int a1, __int64 a2, int a3, _DWORD *a4, unsigned int Length, _DWORD *a6)

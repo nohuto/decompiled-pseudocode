@@ -1,29 +1,24 @@
 /*
- * XREFs of ObAssignObjectSecurityDescriptor @ 0x14069D200
+ * XREFs of ObAssignObjectSecurityDescriptor @ 0x1405FC2D0
  * Callers:
- *     WmipSecurityMethod @ 0x14069D030 (WmipSecurityMethod.c)
- *     CmpAssignKeySecurity @ 0x1407D0450 (CmpAssignKeySecurity.c)
+ *     WmipSecurityMethod @ 0x1405FC100 (WmipSecurityMethod.c)
+ *     CmpAssignKeySecurity @ 0x1407D05C0 (CmpAssignKeySecurity.c)
  * Callees:
- *     ObLogSecurityDescriptor @ 0x14065FEB0 (ObLogSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObLogSecurityDescriptor @ 0x140654CD0 (ObLogSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ObAssignObjectSecurityDescriptor(__int64 a1, char *a2)
+__int64 __fastcall ObAssignObjectSecurityDescriptor(__int64 a1, void *a2)
 {
   int v4; // esi
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0LL;
   if ( a2 )
   {
-    v4 = ObLogSecurityDescriptor(a2, &v6, 0x10u);
+    v4 = ObLogSecurityDescriptor(a2);
     if ( v4 >= 0 )
     {
       ExFreePoolWithTag(a2, 0);
-      if ( v6 )
-        *(_QWORD *)(a1 - 8) = v6 + 15;
-      else
-        *(_QWORD *)(a1 - 8) = 0LL;
+      *(_QWORD *)(a1 - 8) = 0LL;
     }
     return (unsigned int)v4;
   }

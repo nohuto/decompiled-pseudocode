@@ -1,9 +1,9 @@
 /*
- * XREFs of CcUninitializeAsyncRead @ 0x1404EC688
+ * XREFs of CcUninitializeAsyncRead @ 0x1404EC8C8
  * Callers:
- *     CcDeletePartition @ 0x1404EBC80 (CcDeletePartition.c)
+ *     CcDeletePartition @ 0x1404EBEC0 (CcDeletePartition.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcUninitializeAsyncRead(_QWORD *a1)

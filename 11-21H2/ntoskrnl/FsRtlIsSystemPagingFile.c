@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmIsFileObjectAPagingFile @ 0x140374EA8 (MmIsFileObjectAPagingFile.c)
+ *     sub_140374EA8 @ 0x140374EA8 (sub_140374EA8.c)
  */
 
 __int64 __fastcall FsRtlIsSystemPagingFile(__int64 a1)
 {
-  return MmIsFileObjectAPagingFile(a1);
+  return sub_140374EA8(a1);
 }

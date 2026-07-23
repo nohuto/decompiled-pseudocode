@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpLocateMessageLog @ 0x140B407C8
+ * XREFs of AlpcpLocateMessageLog @ 0x140B427D8
  * Callers:
- *     AlpcpEnterFreeEventMessageLog @ 0x140B40710 (AlpcpEnterFreeEventMessageLog.c)
+ *     AlpcpEnterFreeEventMessageLog @ 0x140B42720 (AlpcpEnterFreeEventMessageLog.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AlpcpLocateMessageLog(unsigned int a1)
+struct _LIST_ENTRY *__fastcall AlpcpLocateMessageLog(unsigned int a1)
 {
-  unsigned __int64 v2; // rax
-  __int64 i; // rcx
+  struct _LIST_ENTRY *v2; // rax
+  struct _LIST_ENTRY *i; // rcx
 
-  if ( AlpcpMessageLogLock.ThreadLock )
+  if ( AlpcpMessageLogLock.Header.WaitListHead.Flink )
   {
-    v2 = AlpcpMessageLogLock.ThreadLock + 16LL * ((a1 >> 2) & 0x3FF);
-    for ( i = *(_QWORD *)(v2 + 8); i != v2; i = *(_QWORD *)(i + 8) )
+    v2 = &AlpcpMessageLogLock.Header.WaitListHead.Flink[(a1 >> 2) & 0x3FF];
+    for ( i = v2->Blink; i != v2; i = i->Blink )
     {
-      if ( *(_DWORD *)(i + 28) && *(_DWORD *)(i + 24) == a1 )
-        return i - 16;
+      if ( HIDWORD(i[1].Blink) && LODWORD(i[1].Blink) == a1 )
+        return i - 1;
     }
   }
   return 0LL;

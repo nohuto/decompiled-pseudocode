@@ -167,7 +167,7 @@ NTSTATUS __stdcall NtQueryKey(
     }
     v10 = 0LL;
   }
-  if ( (unsigned int)KeyInformationClass <= MaxKeyInfoClass )
+  if ( (unsigned int)KeyInformationClass <= KeyTrustInformation )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode == 1 )

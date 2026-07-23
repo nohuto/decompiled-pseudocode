@@ -1,16 +1,16 @@
 /*
- * XREFs of HvApplyLogFile @ 0x14061212C
+ * XREFs of HvApplyLogFile @ 0x1406121E0
  * Callers:
- *     HvpRecoverData @ 0x1406112B8 (HvpRecoverData.c)
+ *     HvpRecoverData @ 0x14061136C (HvpRecoverData.c)
  * Callees:
- *     SymCryptMarvin32 @ 0x1400847B0 (SymCryptMarvin32.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvpIsMetadataArrayCoherent @ 0x1401B74E8 (HvpIsMetadataArrayCoherent.c)
- *     CmpTraceHiveMountLogEntryApplied @ 0x1405FBDA4 (CmpTraceHiveMountLogEntryApplied.c)
- *     HvpLogEntryCheckHeaderChecksum @ 0x14060302C (HvpLogEntryCheckHeaderChecksum.c)
- *     HvpRecoverDataReadRoutine @ 0x140611514 (HvpRecoverDataReadRoutine.c)
- *     HvpApplyLogEntry @ 0x140612610 (HvpApplyLogEntry.c)
- *     HvpUpdateRecoveryVector @ 0x1406129E8 (HvpUpdateRecoveryVector.c)
+ *     SymCryptMarvin32 @ 0x140082910 (SymCryptMarvin32.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvpIsMetadataArrayCoherent @ 0x1401B73CC (HvpIsMetadataArrayCoherent.c)
+ *     CmpTraceHiveMountLogEntryApplied @ 0x1405FBE58 (CmpTraceHiveMountLogEntryApplied.c)
+ *     HvpLogEntryCheckHeaderChecksum @ 0x1406030E0 (HvpLogEntryCheckHeaderChecksum.c)
+ *     HvpRecoverDataReadRoutine @ 0x1406115C8 (HvpRecoverDataReadRoutine.c)
+ *     HvpApplyLogEntry @ 0x1406126C4 (HvpApplyLogEntry.c)
+ *     HvpUpdateRecoveryVector @ 0x140612A9C (HvpUpdateRecoveryVector.c)
  */
 
 __int64 __fastcall HvApplyLogFile(

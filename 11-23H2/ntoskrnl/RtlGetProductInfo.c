@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetProductInfo @ 0x14036A960
+ * XREFs of RtlGetProductInfo @ 0x14036AB00
  * Callers:
- *     ExGetSuiteMask @ 0x1408231D8 (ExGetSuiteMask.c)
+ *     ExGetSuiteMask @ 0x1408234D8 (ExGetSuiteMask.c)
  *     ExpInitSystemPhase1 @ 0x140B49FE4 (ExpInitSystemPhase1.c)
  * Callees:
- *     CompareVersions @ 0x14036AAA0 (CompareVersions.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x14041D920 (ZwQueryLicenseValue.c)
+ *     CompareVersions @ 0x14036AC40 (CompareVersions.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x14041DCB0 (ZwQueryLicenseValue.c)
  */
 
 BOOLEAN __stdcall RtlGetProductInfo(
@@ -22,49 +22,51 @@ BOOLEAN __stdcall RtlGetProductInfo(
   unsigned __int64 v9; // r8
   int v10; // r9d
   __int64 v11; // r10
-  unsigned int v12; // [rsp+38h] [rbp-D0h] BYREF
-  int v13; // [rsp+3Ch] [rbp-CCh] BYREF
-  ULONG v14; // [rsp+40h] [rbp-C8h] BYREF
-  _DWORD v15[4]; // [rsp+48h] [rbp-C0h] BYREF
+  ULONG ResultDataSize; // [rsp+38h] [rbp-D0h] BYREF
+  ULONG Type; // [rsp+3Ch] [rbp-CCh] BYREF
+  ULONG Data; // [rsp+40h] [rbp-C8h] BYREF
+  _DWORD Data_8[4]; // [rsp+48h] [rbp-C0h] BYREF
   _DWORD v16[4]; // [rsp+58h] [rbp-B0h] BYREF
   __int128 v17; // [rsp+68h] [rbp-A0h] BYREF
   _DWORD v18[52]; // [rsp+78h] [rbp-90h] BYREF
 
   v5 = 0;
-  v13 = 0;
+  Type = 0;
   v6 = 1;
-  v12 = 0;
-  v14 = 0;
-  v15[0] = OSMajorVersion;
-  v15[1] = OSMinorVersion;
-  v15[2] = SpMajorVersion;
-  v15[3] = SpMinorVersion;
+  ResultDataSize = 0;
+  Data = 0;
+  Data_8[0] = OSMajorVersion;
+  Data_8[1] = OSMinorVersion;
+  Data_8[2] = SpMajorVersion;
+  Data_8[3] = SpMinorVersion;
   if ( !ReturnedProductType )
     return 0;
   *ReturnedProductType = 0;
   v16[0] = OSMajorVersion;
   v16[1] = OSMinorVersion;
-  v17 = xmmword_1400176E8;
+  v17 = xmmword_1400176D8;
   v16[2] = SpMajorVersion;
   v16[3] = SpMinorVersion;
   if ( (int)CompareVersions(v16, &v17) < 0 )
     return 0;
-  if ( (int)ZwQueryLicenseValue(L"$&", &v13, &v14, 4LL, &v12) < 0 || v13 != 4 || v12 != 4 )
+  if ( ZwQueryLicenseValue((PUNICODE_STRING)&ValueName, &Type, &Data, 4u, &ResultDataSize) < 0
+    || Type != 4
+    || ResultDataSize != 4 )
   {
     *ReturnedProductType = -1412584499;
     return v6;
   }
-  if ( (int)ZwQueryLicenseValue(L">@", &v13, v18, 200LL, &v12) < 0 )
+  if ( ZwQueryLicenseValue((PUNICODE_STRING)&stru_1400021F0, &Type, v18, 0xC8u, &ResultDataSize) < 0 )
     goto LABEL_7;
-  if ( v13 != 3 || v12 < 0x14 || v12 != 20 * (v12 / 0x14uLL) )
+  if ( Type != 3 || ResultDataSize < 0x14 || ResultDataSize != 20 * (ResultDataSize / 0x14uLL) )
     return 0;
-  if ( v12 / 0x14uLL )
+  if ( ResultDataSize / 0x14uLL )
   {
     v8 = 0LL;
     do
     {
       v17 = *(_OWORD *)&v18[5 * v8];
-      if ( (int)CompareVersions(v15, &v17) < 0 )
+      if ( (int)CompareVersions(Data_8, &v17) < 0 )
         v5 = v18[v11 + 4];
       v8 = (unsigned int)(v10 + 1);
     }
@@ -76,6 +78,6 @@ BOOLEAN __stdcall RtlGetProductInfo(
     }
   }
 LABEL_7:
-  *ReturnedProductType = v14;
+  *ReturnedProductType = Data;
   return v6;
 }

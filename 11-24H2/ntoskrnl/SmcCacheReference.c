@@ -1,14 +1,14 @@
 /*
- * XREFs of SmcCacheReference @ 0x14079D328
+ * XREFs of SmcCacheReference @ 0x14079D438
  * Callers:
- *     SmcGetCacheStats @ 0x14079D63C (SmcGetCacheStats.c)
- *     SmcStoreCreate @ 0x14079D7E4 (SmcStoreCreate.c)
- *     SmcStoreDelete @ 0x14079DA44 (SmcStoreDelete.c)
- *     SmcStoreResize @ 0x14079DD30 (SmcStoreResize.c)
- *     SmcVolumePnpNotification @ 0x14079E340 (SmcVolumePnpNotification.c)
+ *     SmcGetCacheStats @ 0x14079D74C (SmcGetCacheStats.c)
+ *     SmcStoreCreate @ 0x14079D8F4 (SmcStoreCreate.c)
+ *     SmcStoreDelete @ 0x14079DB54 (SmcStoreDelete.c)
+ *     SmcStoreResize @ 0x14079DE40 (SmcStoreResize.c)
+ *     SmcVolumePnpNotification @ 0x14079E450 (SmcVolumePnpNotification.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
  */
 
 __int64 __fastcall SmcCacheReference(__int64 a1, unsigned int a2)
@@ -18,7 +18,7 @@ __int64 __fastcall SmcCacheReference(__int64 a1, unsigned int a2)
 
   v3 = 0LL;
   v4 = a1 + 32LL * (a2 & 0xF);
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v4 + 8)) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v4 + 8)) )
   {
     if ( (*(_DWORD *)(v4 + 24) & 0xFFF) == a2 >> 4 )
       return *(_QWORD *)v4;

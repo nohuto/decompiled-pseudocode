@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwOpenTransaction @ 0x1800A2810
+ * XREFs of ZwOpenTransaction @ 0x1800A2830
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwOpenTransaction()
+NTSTATUS __cdecl ZwOpenTransaction(
+        PHANDLE TransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LPGUID Uow,
+        HANDLE TmHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 298LL;
+  result = 298;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

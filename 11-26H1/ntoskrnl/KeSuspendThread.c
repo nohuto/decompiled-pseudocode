@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSuspendThread @ 0x140208D48
+ * XREFs of KeSuspendThread @ 0x140208E28
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
- *     PspSuspendThread @ 0x140AD5030 (PspSuspendThread.c)
- *     PspWow64SetContextThread @ 0x140B796B0 (PspWow64SetContextThread.c)
+ *     PspSuspendThread @ 0x140949620 (PspSuspendThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
+ *     PspWow64SetContextThread @ 0x140B81920 (PspWow64SetContextThread.c)
  * Callees:
- *     KiSuspendThread @ 0x14020909C (KiSuspendThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSuspendThread @ 0x14020917C (KiSuspendThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeSuspendThread(struct _KTHREAD *a1, _BYTE *a2, _DWORD *a3)

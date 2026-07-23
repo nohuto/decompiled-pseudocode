@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTryLockLeafPage @ 0x140082A0C
+ * XREFs of MiTryLockLeafPage @ 0x1400829FC
  * Callers:
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
- *     MiDeleteClusterSection @ 0x140081F00 (MiDeleteClusterSection.c)
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B824 (MiTryLockLeafAndContainingPagesAtDpc.c)
- *     MiConvertStandbyToProto @ 0x14013EA50 (MiConvertStandbyToProto.c)
- *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
+ *     MiDeleteClusterSection @ 0x140081EF0 (MiDeleteClusterSection.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B894 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     MiConvertStandbyToProto @ 0x14013EB50 (MiConvertStandbyToProto.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEE04 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     MiInvalidPteConforms @ 0x140039720 (MiInvalidPteConforms.c)
  */
@@ -32,10 +32,10 @@ __int64 __fastcall MiTryLockLeafPage(__int64 *a1)
       if ( MiInvalidPteConforms(v2) )
       {
         v3 = v2;
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
           if ( (v2 & 0x10) == 0 )
-            v3 = v2 & ~qword_14043A0C0;
+            v3 = v2 & ~qword_14043B180;
         }
 LABEL_8:
         v4 = 48 * ((v3 >> 12) & 0xFFFFFFFFFLL);

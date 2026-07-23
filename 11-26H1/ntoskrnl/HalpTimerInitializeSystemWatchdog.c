@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerInitializeSystemWatchdog @ 0x140585404
+ * XREFs of HalpTimerInitializeSystemWatchdog @ 0x140587924
  * Callers:
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpInterruptConnect @ 0x14057B950 (HalpInterruptConnect.c)
- *     HalpTimerGetClockRates @ 0x1405813D8 (HalpTimerGetClockRates.c)
- *     HalpTimerWatchdogStart @ 0x140585590 (HalpTimerWatchdogStart.c)
+ *     HalpInterruptConnect @ 0x14057DE80 (HalpInterruptConnect.c)
+ *     HalpTimerGetClockRates @ 0x1405838F8 (HalpTimerGetClockRates.c)
+ *     HalpTimerWatchdogStart @ 0x140587AB0 (HalpTimerWatchdogStart.c)
  */
 
 int HalpTimerInitializeSystemWatchdog()
@@ -45,8 +45,8 @@ int HalpTimerInitializeSystemWatchdog()
   v14 = (PKINTERRUPT *)&v18;
   v3 = 0LL;
   v13 = 5;
-  if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
-    v3 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 4);
+  if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
+    v3 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 4);
   v12 = 15;
   v11 = 0LL;
   v10 = 0LL;

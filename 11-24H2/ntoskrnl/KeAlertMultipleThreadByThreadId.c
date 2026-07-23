@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAlertMultipleThreadByThreadId @ 0x1405B7AE8
+ * XREFs of KeAlertMultipleThreadByThreadId @ 0x1405B50C0
  * Callers:
- *     PspIumAlertMultipleThreadByThreadId @ 0x1405E6164 (PspIumAlertMultipleThreadByThreadId.c)
- *     NtAlertMultipleThreadByThreadId @ 0x14077C170 (NtAlertMultipleThreadByThreadId.c)
+ *     PspIumAlertMultipleThreadByThreadId @ 0x1405E3764 (PspIumAlertMultipleThreadByThreadId.c)
+ *     NtAlertMultipleThreadByThreadId @ 0x14077C020 (NtAlertMultipleThreadByThreadId.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiAlertSingleThreadByThreadId @ 0x140337FDC (KiAlertSingleThreadByThreadId.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiAlertSingleThreadByThreadId @ 0x1402DE880 (KiAlertSingleThreadByThreadId.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall KeAlertMultipleThreadByThreadId(__int64 a1, int a2, __int64 a3)

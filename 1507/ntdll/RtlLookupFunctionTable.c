@@ -6,27 +6,26 @@
  *     RtlpxLookupFunctionTable @ 0x180015180 (RtlpxLookupFunctionTable.c)
  */
 
-__int64 __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall RtlLookupFunctionTable(void *a1, _QWORD *a2, _DWORD *a3)
 {
   __int64 result; // rax
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+30h] [rbp-18h]
+  PS_MITIGATION_OPTIONS_MAP MitigationOptionsMap; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( a1 < *((_QWORD *)&xmmword_180157330 + 1)
-    || a1 >= *((_QWORD *)&xmmword_180157330 + 1) + (unsigned __int64)(unsigned int)qword_180157340 )
+  if ( (unsigned __int64)a1 < LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+    || (unsigned __int64)a1 >= LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+                             + LODWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]) )
   {
-    result = RtlpxLookupFunctionTable(a1, (__int64 *)&v6);
+    result = RtlpxLookupFunctionTable(a1, (__int64)&MitigationOptionsMap);
   }
   else
   {
-    result = xmmword_180157330;
-    v6 = xmmword_180157330;
-    v7 = qword_180157340;
+    result = LdrSystemDllInitBlock.MitigationOptionsMap.Map[0];
+    MitigationOptionsMap = LdrSystemDllInitBlock.MitigationOptionsMap;
   }
   if ( result )
   {
-    *a2 = *((_QWORD *)&v6 + 1);
-    *a3 = HIDWORD(v7);
+    *a2 = MitigationOptionsMap.Map[1];
+    *a3 = HIDWORD(MitigationOptionsMap.Map[2]);
   }
   return result;
 }

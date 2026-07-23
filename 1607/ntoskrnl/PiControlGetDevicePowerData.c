@@ -1,13 +1,13 @@
 /*
- * XREFs of PiControlGetDevicePowerData @ 0x14064A204
+ * XREFs of PiControlGetDevicePowerData @ 0x14064A2E8
  * Callers:
- *     PiControlGetPropertyData @ 0x1403F3F84 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x1403F2E48 (PiControlGetPropertyData.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x1400097B8 (PipIsDevNodeDNStarted.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     PopLockGetDoDevicePowerState @ 0x140205CDC (PopLockGetDoDevicePowerState.c)
- *     PpIrpQueryCapabilities @ 0x140486BB0 (PpIrpQueryCapabilities.c)
+ *     PipIsDevNodeDNStarted @ 0x14000932C (PipIsDevNodeDNStarted.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     PopLockGetDoDevicePowerState @ 0x140205B08 (PopLockGetDoDevicePowerState.c)
+ *     PpIrpQueryCapabilities @ 0x140512E24 (PpIrpQueryCapabilities.c)
  */
 
 __int64 __fastcall PiControlGetDevicePowerData(__int64 a1, __int64 a2, unsigned int a3, _OWORD *a4, _DWORD *a5)
@@ -48,7 +48,7 @@ __int64 __fastcall PiControlGetDevicePowerData(__int64 a1, __int64 a2, unsigned 
     result = 2147483653LL;
     goto LABEL_57;
   }
-  if ( (int)PpIrpQueryCapabilities(*(_QWORD *)(a1 + 32), &v24) < 0 )
+  if ( (int)PpIrpQueryCapabilities(*(struct _DEVICE_OBJECT **)(a1 + 32), &v24) < 0 )
     return 3221225486LL;
   if ( PipIsDevNodeDNStarted(a1) )
   {

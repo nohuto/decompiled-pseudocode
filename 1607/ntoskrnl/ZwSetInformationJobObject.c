@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwSetInformationJobObject @ 0x14015CD00
+ * XREFs of ZwSetInformationJobObject @ 0x14015D270
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationJobObject(
         HANDLE JobHandle,
         JOBOBJECTINFOCLASS JobInformationClass,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSetInformationJobObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(JobHandle, *(_QWORD *)&JobInformationClass, JobInformation);
+  return KiServiceInternal(JobHandle);
 }

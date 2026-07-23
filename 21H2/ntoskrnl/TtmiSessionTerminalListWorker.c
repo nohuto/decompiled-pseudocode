@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmiSessionTerminalListWorker @ 0x1408FD930
+ * XREFs of TtmiSessionTerminalListWorker @ 0x1408FDA90
  * Callers:
- *     TtmpSessionWorker @ 0x140900030 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x140900190 (TtmpSessionWorker.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     TtmiEvacuateDevices @ 0x1408FC2A8 (TtmiEvacuateDevices.c)
- *     TtmpUpdateTerminalState @ 0x1408FE2DC (TtmpUpdateTerminalState.c)
- *     TtmpWriteDisplayStateChangedEvent @ 0x1408FE478 (TtmpWriteDisplayStateChangedEvent.c)
- *     TtmiPurgeSessionPowerRequestEntries @ 0x1408FF024 (TtmiPurgeSessionPowerRequestEntries.c)
- *     TtmiUpdateActiveTerminalCount @ 0x1408FF490 (TtmiUpdateActiveTerminalCount.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x1408FF940 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogTerminalCleanup @ 0x140904634 (TtmiLogTerminalCleanup.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     TtmiEvacuateDevices @ 0x1408FC408 (TtmiEvacuateDevices.c)
+ *     TtmpUpdateTerminalState @ 0x1408FE43C (TtmpUpdateTerminalState.c)
+ *     TtmpWriteDisplayStateChangedEvent @ 0x1408FE5D8 (TtmpWriteDisplayStateChangedEvent.c)
+ *     TtmiPurgeSessionPowerRequestEntries @ 0x1408FF184 (TtmiPurgeSessionPowerRequestEntries.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1408FF5F0 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1408FFAA0 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogTerminalCleanup @ 0x140904794 (TtmiLogTerminalCleanup.c)
  */
 
 void __fastcall TtmiSessionTerminalListWorker(unsigned int *a1, char *a2, _BYTE *a3)

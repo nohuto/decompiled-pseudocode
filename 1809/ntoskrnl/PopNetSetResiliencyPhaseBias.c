@@ -1,13 +1,13 @@
 /*
- * XREFs of PopNetSetResiliencyPhaseBias @ 0x140876F38
+ * XREFs of PopNetSetResiliencyPhaseBias @ 0x140878198
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x14075D9E0 (PopNetEvaluationWorkerCallback.c)
- *     PopNetDisengageNetworkRefresh @ 0x140876CB0 (PopNetDisengageNetworkRefresh.c)
- *     PopNetEngageNetworkRefresh @ 0x140876CF8 (PopNetEngageNetworkRefresh.c)
+ *     PopNetEvaluationWorkerCallback @ 0x14075EBD0 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetDisengageNetworkRefresh @ 0x140877F10 (PopNetDisengageNetworkRefresh.c)
+ *     PopNetEngageNetworkRefresh @ 0x140877F58 (PopNetEngageNetworkRefresh.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 struct _KTHREAD *__fastcall PopNetSetResiliencyPhaseBias(char a1)
@@ -15,10 +15,10 @@ struct _KTHREAD *__fastcall PopNetSetResiliencyPhaseBias(char a1)
   __int64 v2; // rcx
 
   PopReleasePolicyLock();
-  if ( qword_14043FFB8 )
+  if ( qword_140441078 )
   {
     LOBYTE(v2) = a1;
-    qword_14043FFB8(v2);
+    qword_140441078(v2);
   }
   return PopAcquirePolicyLock();
 }

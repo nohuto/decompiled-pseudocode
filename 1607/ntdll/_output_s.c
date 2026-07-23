@@ -3,8 +3,8 @@
  * Callers:
  *     _soutput_s @ 0x1800A3218 (_soutput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     _safecrt_wctomb_s @ 0x1800A3140 (_safecrt_wctomb_s.c)
  *     write_char_1 @ 0x1800A32F4 (write_char_1.c)
  *     write_multi_char_1 @ 0x1800A3344 (write_multi_char_1.c)

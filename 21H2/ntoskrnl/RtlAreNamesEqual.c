@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAreNamesEqual @ 0x14028ACA0
+ * XREFs of RtlAreNamesEqual @ 0x140207E40
  * Callers:
  *     <none>
  * Callees:
- *     RtlpUpcaseUnicodeStringPrivate @ 0x1402069B0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1402AB2E0 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
  */
 
 BOOLEAN __stdcall RtlAreNamesEqual(
@@ -17,19 +17,19 @@ BOOLEAN __stdcall RtlAreNamesEqual(
 {
   unsigned int Length; // eax
   char v5; // di
-  UNICODE_STRING *v6; // rbx
+  PCUNICODE_STRING v6; // rbx
   unsigned int v7; // r10d
   __int64 v8; // rax
-  int v10; // eax
+  NTSTATUS v10; // eax
   int v11; // eax
-  unsigned int v12; // ebx
+  NTSTATUS v12; // ebx
   BOOLEAN v13; // bl
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING v15; // [rsp+30h] [rbp-18h] BYREF
 
   Length = ConstantNameA->Length;
   v5 = 0;
-  v6 = (UNICODE_STRING *)ConstantNameB;
+  v6 = ConstantNameB;
   UnicodeString = 0LL;
   v15 = 0LL;
   if ( (_WORD)Length != ConstantNameB->Length )
@@ -50,10 +50,10 @@ BOOLEAN __stdcall RtlAreNamesEqual(
       }
       return 0;
     }
-    v10 = RtlpUpcaseUnicodeStringPrivate((__int64)&UnicodeString, &ConstantNameA->Length);
+    v10 = RtlpUpcaseUnicodeStringPrivate(&UnicodeString, ConstantNameA);
     if ( v10 < 0 )
-      RtlRaiseStatus((unsigned int)v10);
-    v11 = RtlpUpcaseUnicodeStringPrivate((__int64)&v15, &v6->Length);
+      RtlRaiseStatus(v10);
+    v11 = RtlpUpcaseUnicodeStringPrivate(&v15, v6);
     ConstantNameA = &UnicodeString;
     v12 = v11;
     if ( v11 < 0 )

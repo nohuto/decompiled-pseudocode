@@ -1,14 +1,16 @@
 /*
- * XREFs of ZwSerializeBoot @ 0x1401BB170
+ * XREFs of ZwSerializeBoot @ 0x1401BB2D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSerializeBoot(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS ZwSerializeBoot(void)
 {
+  __int64 v0; // rcx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(v0);
 }

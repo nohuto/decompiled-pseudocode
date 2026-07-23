@@ -52,8 +52,8 @@ __int64 __fastcall PopSaveHiberContext(ULONG_PTR BugCheckParameter3)
   unsigned int v8; // r8d
   _DWORD *v9; // rcx
   _DWORD *v10; // rdx
-  RTL_BITMAP *v11; // r13
-  RTL_BITMAP *v12; // rcx
+  _RTL_BITMAP *v11; // r13
+  _RTL_BITMAP *v12; // rcx
   __int64 v13; // rdx
   __int64 v14; // rcx
   unsigned __int64 v15; // rdi
@@ -237,15 +237,15 @@ LABEL_13:
       }
       while ( v8 < *v7 >> 5 );
     }
-    v11 = (RTL_BITMAP *)(BugCheckParameter3 + 32);
+    v11 = (_RTL_BITMAP *)(BugCheckParameter3 + 32);
     if ( byte_140C23521 )
     {
-      v12 = (RTL_BITMAP *)(BugCheckParameter3 + 32);
+      v12 = (_RTL_BITMAP *)(BugCheckParameter3 + 32);
     }
     else
     {
-      RtlCopyBitMap((unsigned int *)(BugCheckParameter3 + 48), BugCheckParameter3 + 32, 0);
-      v12 = (RTL_BITMAP *)(BugCheckParameter3 + 48);
+      RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter3 + 48), (PRTL_BITMAP)(BugCheckParameter3 + 32), 0);
+      v12 = (_RTL_BITMAP *)(BugCheckParameter3 + 48);
     }
     RtlSetAllBits(v12);
     v13 = *(_QWORD *)(BugCheckParameter3 + 168);
@@ -282,7 +282,7 @@ LABEL_13:
         }
       }
       while ( v18 != (_QWORD *)(BugCheckParameter3 + 64) );
-      v11 = (RTL_BITMAP *)(BugCheckParameter3 + 32);
+      v11 = (_RTL_BITMAP *)(BugCheckParameter3 + 32);
     }
     PopResetRangeEnum((_QWORD *)BugCheckParameter3);
     v22 = *(_QWORD **)(BugCheckParameter3 + 160);

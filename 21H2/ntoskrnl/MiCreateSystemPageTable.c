@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCreateSystemPageTable @ 0x1402E5210
+ * XREFs of MiCreateSystemPageTable @ 0x140296560
  * Callers:
  *     <none>
  * Callees:
- *     MiInitializeSystemPageTable @ 0x1402E5484 (MiInitializeSystemPageTable.c)
- *     MiGetPageTablePages @ 0x1402E59A0 (MiGetPageTablePages.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMakeSystemLeavesNonZero @ 0x1403792AC (MiMakeSystemLeavesNonZero.c)
- *     MiReplicatePteChange @ 0x1403A4544 (MiReplicatePteChange.c)
- *     KeCopyPage @ 0x140402E50 (KeCopyPage.c)
- *     MiMakeLargePageTable @ 0x14053DA14 (MiMakeLargePageTable.c)
- *     MiArePageContentsZero @ 0x14054EBC8 (MiArePageContentsZero.c)
- *     MxCopyPage @ 0x140A568CC (MxCopyPage.c)
+ *     MiInitializeSystemPageTable @ 0x1402967D4 (MiInitializeSystemPageTable.c)
+ *     MiGetPageTablePages @ 0x140296CF0 (MiGetPageTablePages.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14033C800 (MiMapPageInHyperSpaceWorker.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140353660 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMakeSystemLeavesNonZero @ 0x140378DFC (MiMakeSystemLeavesNonZero.c)
+ *     MiReplicatePteChange @ 0x1403A4694 (MiReplicatePteChange.c)
+ *     KeCopyPage @ 0x140403030 (KeCopyPage.c)
+ *     MiMakeLargePageTable @ 0x14053DC54 (MiMakeLargePageTable.c)
+ *     MiArePageContentsZero @ 0x14054EE08 (MiArePageContentsZero.c)
+ *     MxCopyPage @ 0x140A578CC (MxCopyPage.c)
  */
 
 __int64 __fastcall MiCreateSystemPageTable(__int64 a1, __int64 a2, int a3)
@@ -25,32 +25,31 @@ __int64 __fastcall MiCreateSystemPageTable(__int64 a1, __int64 a2, int a3)
   __int16 v8; // bx
   __int64 v9; // r12
   int PageTablePages; // eax
-  __int64 v12; // r9
-  ULONG_PTR v13; // rbx
-  int v14; // edx
-  __int64 v15; // rbx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v19; // [rsp+88h] [rbp+20h] BYREF
+  ULONG_PTR v12; // rbx
+  int v13; // edx
+  __int64 v14; // rbx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v18; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 168);
-  v18 = 0LL;
+  v17 = 0LL;
   v5 = a3;
   v7 = MI_READ_PTE_LOCK_FREE(a2);
-  v19 = v7;
+  v18 = v7;
   v8 = v7;
   v9 = v7 & 1;
   if ( (v7 & 1) != 0
     && ((v7 & 0x80) != 0
-     || (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v19) >> 12) & 0xFFFFFFFFFLL) != MiState[v5 + 1185]
-     && (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v19) >> 12) & 0xFFFFFFFFFLL) != MiState[v5 + 1181]
+     || (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v18) >> 12) & 0xFFFFFFFFFLL) != MiState[v5 + 1185]
+     && (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v18) >> 12) & 0xFFFFFFFFFLL) != MiState[v5 + 1181]
      && ((v8 & 0x800) != 0 || (v8 & 0x42) != 0))
     || (*(_DWORD *)(v3 + 64) & 0x80) != 0 && (unsigned int)MiMakeLargePageTable(a1, a2, (unsigned int)v5) )
   {
     return 0LL;
   }
-  PageTablePages = MiGetPageTablePages(v3, 1LL, &v18);
+  PageTablePages = MiGetPageTablePages(v3, 1LL, &v17);
   if ( PageTablePages < 0 )
   {
     if ( PageTablePages == -1073741801
@@ -70,35 +69,35 @@ __int64 __fastcall MiCreateSystemPageTable(__int64 a1, __int64 a2, int a3)
   else
   {
     ++*(_QWORD *)(v3 + 48);
-    v13 = (v18 + 0x58000000000LL) / 48;
-    if ( (MiFlags & 0x80) != 0 && (++dword_140C4E7CC & MmPageValidationFrequency) == 0 )
-      MiArePageContentsZero((v18 + 0x58000000000LL) / 48);
+    v12 = (v17 + 0x58000000000LL) / 48;
+    if ( (MiFlags & 0x80) != 0 && (++dword_140C4E80C & MmPageValidationFrequency) == 0 )
+      MiArePageContentsZero((v17 + 0x58000000000LL) / 48);
     if ( v9 )
     {
       if ( KeGetCurrentPrcb()->HyperPte )
       {
-        v15 = MiMapPageInHyperSpaceWorker(v13, 0LL, 0x80000000LL, v12);
-        KeCopyPage(v15, a2 << 25 >> 16);
-        LOBYTE(v16) = 17;
-        MiUnmapPageInHyperSpaceWorker(v15, v16, 0x80000000LL);
+        v14 = MiMapPageInHyperSpaceWorker(v12, 0LL, 0x80000000LL);
+        KeCopyPage(v14, a2 << 25 >> 16);
+        LOBYTE(v15) = 17;
+        MiUnmapPageInHyperSpaceWorker(v14, v15, 0x80000000LL);
       }
       else
       {
-        MxCopyPage(v13);
+        MxCopyPage(v12);
       }
     }
-    MiInitializeSystemPageTable(v3, v5, a2, v18, v3 + 80);
-    v14 = 3;
+    MiInitializeSystemPageTable(v3, v5, a2, v17, v3 + 80);
+    v13 = 3;
     if ( (_DWORD)v5 == 3 && *(_DWORD *)(v3 + 56) != 2 )
     {
-      v17 = a2;
+      v16 = a2;
       do
       {
-        v17 = v17 << 25 >> 16;
-        --v14;
+        v16 = v16 << 25 >> 16;
+        --v13;
       }
-      while ( v14 );
-      MiReplicatePteChange(v17, v17);
+      while ( v13 );
+      MiReplicatePteChange(v16, v16);
     }
     if ( (int)v5 <= ((*(unsigned __int8 *)(a1 + 2) >> 2) & 7) )
     {

@@ -10,33 +10,39 @@
  *     RtlResetStackOverflow @ 0x1800DD728 (RtlResetStackOverflow.c)
  */
 
-__int64 __fastcall RtlQueryWnfStateDataWithExplicitScope(
-        unsigned int *a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 (__fastcall *a4)(__int64, __int64, __int64, __int64, _BYTE *, int),
+NTSTATUS __fastcall RtlQueryWnfStateDataWithExplicitScope(
+        ULONG *a1,
+        WNF_STATE_NAME a2,
+        const void *a3,
+        __int64 (__fastcall *a4)(WNF_STATE_NAME, __int64, PCWNF_TYPE_ID, __int64, _BYTE *, ULONG),
         __int64 a5,
-        __int64 a6)
+        PCWNF_TYPE_ID TypeId)
 {
   void *v8; // rsp
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v10; // rdx
-  _BYTE v11[4096]; // [rsp+20h] [rbp-1000h] BYREF
-  int v12; // [rsp+1020h] [rbp+0h] BYREF
-  unsigned int v13; // [rsp+1024h] [rbp+4h] BYREF
+  _BYTE Buffer[4096]; // [rsp+20h] [rbp-1000h] BYREF
+  ULONG BufferSize; // [rsp+1020h] [rbp+0h] BYREF
+  ULONG ChangeStamp; // [rsp+1024h] [rbp+4h] BYREF
   _BYTE *v14; // [rsp+1028h] [rbp+8h]
-  __int64 v15; // [rsp+1030h] [rbp+10h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+1030h] [rbp+10h] BYREF
 
-  v15 = a2;
+  StateName = a2;
   v8 = alloca(4096LL);
-  v14 = v11;
-  v12 = 4096;
-  result = ZwQueryWnfStateData(&v15, a6, a3, &v13, v11, &v12);
-  if ( (int)result >= 0 )
+  v14 = Buffer;
+  BufferSize = 4096;
+  result = ZwQueryWnfStateData(&StateName, TypeId, a3, &ChangeStamp, Buffer, &BufferSize);
+  if ( result >= 0 )
   {
-    v10 = v13;
-    *a1 = v13;
-    return a4(v15, v10, a6, a5, v11, v12);
+    v10 = ChangeStamp;
+    *a1 = ChangeStamp;
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD))a4)(
+             StateName,
+             v10,
+             TypeId,
+             a5,
+             Buffer,
+             BufferSize);
   }
   return result;
 }

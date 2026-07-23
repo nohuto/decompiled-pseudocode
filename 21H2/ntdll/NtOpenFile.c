@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenFile @ 0x18009DCA0
+ * XREFs of NtOpenFile @ 0x18009DC60
  * Callers:
  *     RtlpCheckRelativeDrive @ 0x18004A4B8 (RtlpCheckRelativeDrive.c)
  *     LdrpMapResourceFile @ 0x180058A3C (LdrpMapResourceFile.c)
@@ -10,10 +10,10 @@
  *     LdrpFindLoadedDllByMappingFile @ 0x1800755D0 (LdrpFindLoadedDllByMappingFile.c)
  *     RtlpMUIEnumerateFolder @ 0x1800873AC (RtlpMUIEnumerateFolder.c)
  *     RtlpSysVolTakeOwnership @ 0x180088A2C (RtlpSysVolTakeOwnership.c)
- *     LdrpCheckAppDirType @ 0x1800D06BC (LdrpCheckAppDirType.c)
- *     AvrfMiniLoadDll @ 0x1800DB6D0 (AvrfMiniLoadDll.c)
- *     LdrpCnvrtShortToLongFileName @ 0x1800E100C (LdrpCnvrtShortToLongFileName.c)
- *     RtlpOpenAndMapCustomCultureFile @ 0x1800FD690 (RtlpOpenAndMapCustomCultureFile.c)
+ *     LdrpCheckAppDirType @ 0x1800D067C (LdrpCheckAppDirType.c)
+ *     AvrfMiniLoadDll @ 0x1800DB690 (AvrfMiniLoadDll.c)
+ *     LdrpCnvrtShortToLongFileName @ 0x1800E0FCC (LdrpCnvrtShortToLongFileName.c)
+ *     RtlpOpenAndMapCustomCultureFile @ 0x1800FD650 (RtlpOpenAndMapCustomCultureFile.c)
  * Callees:
  *     <none>
  */

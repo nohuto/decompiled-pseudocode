@@ -29,7 +29,7 @@ __int64 __fastcall RtlpFlsAlloc(
   unsigned int v18; // eax
 
   v6 = 1;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+  RtlAcquireSRWLockExclusive(&RtlpFlsContext);
   v7 = RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotAllocate(&unk_180166138);
   if ( v7 == -1 )
     goto LABEL_8;
@@ -69,7 +69,7 @@ LABEL_8:
     if ( v9 > (unsigned int)qword_180166188 )
       v18 = v7 - 16;
     LODWORD(qword_180166188) = v18;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
     v6 = 0;
     *a4 = v9;
     v14 = 0;
@@ -78,6 +78,6 @@ LABEL_8:
   if ( v7 != -1 )
     RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotFree(&unk_180166138);
   if ( v6 )
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   return v14;
 }

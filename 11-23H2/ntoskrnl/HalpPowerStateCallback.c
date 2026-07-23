@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpPowerStateCallback @ 0x1403B06D0
+ * XREFs of HalpPowerStateCallback @ 0x1403B08B0
  * Callers:
  *     <none>
  * Callees:
- *     MiLockPagableImageSection @ 0x14025A7E0 (MiLockPagableImageSection.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpTscCheckDisposition @ 0x14050A504 (HalpTscCheckDisposition.c)
- *     HalpMcUpdateLock @ 0x14051BC6C (HalpMcUpdateLock.c)
- *     HalpMcUpdateUnlock @ 0x14051BCC4 (HalpMcUpdateUnlock.c)
- *     MmLockPagableSectionByHandle @ 0x1406F5750 (MmLockPagableSectionByHandle.c)
- *     HalpFreeNvsBuffers @ 0x140A96E84 (HalpFreeNvsBuffers.c)
- *     HalpMapNvsArea @ 0x140A96F00 (HalpMapNvsArea.c)
+ *     MiLockPagableImageSection @ 0x14025AA70 (MiLockPagableImageSection.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpTscCheckDisposition @ 0x14050AA54 (HalpTscCheckDisposition.c)
+ *     HalpMcUpdateLock @ 0x14051C1BC (HalpMcUpdateLock.c)
+ *     HalpMcUpdateUnlock @ 0x14051C214 (HalpMcUpdateUnlock.c)
+ *     MmLockPagableSectionByHandle @ 0x1406F5960 (MmLockPagableSectionByHandle.c)
+ *     HalpFreeNvsBuffers @ 0x140A96CF4 (HalpFreeNvsBuffers.c)
+ *     HalpMapNvsArea @ 0x140A96D70 (HalpMapNvsArea.c)
  */
 
 void __fastcall HalpPowerStateCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiFillPhysicalPages @ 0x14012AF80
+ * XREFs of MiFillPhysicalPages @ 0x14012B050
  * Callers:
  *     MiInitializeSystemPageTable @ 0x140026984 (MiInitializeSystemPageTable.c)
  *     MiZeroPhysicalPage @ 0x140032010 (MiZeroPhysicalPage.c)
- *     MiGetPoolPages @ 0x1400CB1C0 (MiGetPoolPages.c)
- *     MiInitializeDummyPages @ 0x1409B96DC (MiInitializeDummyPages.c)
- *     MxMapVa @ 0x1409BB8F8 (MxMapVa.c)
+ *     MiGetPoolPages @ 0x1400CB2A0 (MiGetPoolPages.c)
+ *     MiInitializeDummyPages @ 0x1409BA6DC (MiInitializeDummyPages.c)
+ *     MxMapVa @ 0x1409BC8F8 (MxMapVa.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
- *     MxGetPhase0Mapping @ 0x1409C07B0 (MxGetPhase0Mapping.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1401C0A90 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x1409C17B0 (MxGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MiFillPhysicalPages(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3)
@@ -64,7 +64,7 @@ __int64 __fastcall MiFillPhysicalPages(ULONG_PTR BugCheckParameter2, __int64 a2,
       if ( (unsigned int)MiPteHasShadow() )
       {
         v13 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_8;
         v18 = (v14 & 1) == 0;
       }
@@ -92,7 +92,7 @@ LABEL_8:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v17 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
         v19 = (v16 & 1) == 0;
         goto LABEL_29;

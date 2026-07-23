@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpSetInterruptInformation @ 0x14054D528
+ * XREFs of PnpSetInterruptInformation @ 0x14054D8C8
  * Callers:
- *     PnpSetDevicePropertyData @ 0x14054D39C (PnpSetDevicePropertyData.c)
+ *     PnpSetDevicePropertyData @ 0x14054D73C (PnpSetDevicePropertyData.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

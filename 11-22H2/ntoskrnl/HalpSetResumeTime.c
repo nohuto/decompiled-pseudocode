@@ -52,7 +52,7 @@ void __fastcall HalpSetResumeTime(LARGE_INTEGER *a1, int a2)
         }
         else
         {
-          HalpSetVirtualRtc((__int64 *)&HalpResumeTime);
+          HalpSetVirtualRtc(&HalpResumeTime);
           HalpResumeTime.QuadPart = 0LL;
         }
       }

@@ -1,44 +1,46 @@
 /*
- * XREFs of RtlAreBitsSet @ 0x1800E8D50
+ * XREFs of RtlAreBitsSet @ 0x1800E7F60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned __int8 __fastcall RtlAreBitsSet(__int64 a1, unsigned int a2, unsigned int a3)
+BOOLEAN __cdecl RtlAreBitsSet(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
-  __int64 v4; // rcx
+  unsigned int *Buffer; // rcx
   char v5; // r11
-  int *v6; // r9
-  int v7; // edi
-  int *v8; // rbx
+  unsigned int *v6; // r9
+  unsigned int v7; // edi
+  unsigned int *v8; // rbx
   unsigned int v9; // r8d
   int v10; // eax
   int v11; // edx
 
-  if ( a2 < *(_DWORD *)a1 )
+  if ( StartingIndex < BitMapHeader->SizeOfBitMap )
   {
-    if ( a3 <= 1 )
+    if ( Length <= 1 )
     {
-      if ( a3 == 1 )
-        return _bittest((const signed __int32 *)(*(_QWORD *)(a1 + 8) + 4 * ((unsigned __int64)a2 >> 5)), a2 & 0x1F);
+      if ( Length == 1 )
+        return _bittest(
+                 (const signed __int32 *)&BitMapHeader->Buffer[(unsigned __int64)StartingIndex >> 5],
+                 StartingIndex & 0x1F);
       return 0;
     }
-    if ( *(_DWORD *)a1 - a2 >= a3 )
+    if ( BitMapHeader->SizeOfBitMap - StartingIndex >= Length )
     {
-      v4 = *(_QWORD *)(a1 + 8);
-      v5 = a2 + a3 - 1;
-      v6 = (int *)(v4 + 4 * ((unsigned __int64)a2 >> 5));
+      Buffer = BitMapHeader->Buffer;
+      v5 = StartingIndex + Length - 1;
+      v6 = &Buffer[(unsigned __int64)StartingIndex >> 5];
       v7 = *v6;
-      v8 = (int *)(v4 + 4 * ((unsigned __int64)(a2 + a3 - 1) >> 5));
+      v8 = &Buffer[(unsigned __int64)(StartingIndex + Length - 1) >> 5];
       if ( v6 == v8 )
       {
-        v9 = 0xFFFFFFFF >> (32 - a3) << a2;
+        v9 = 0xFFFFFFFF >> (32 - Length) << StartingIndex;
         v10 = v7 & v9;
         return v10 == v9;
       }
-      if ( (v7 & (-1 << a2)) == -1 << a2 )
+      if ( (v7 & (-1 << StartingIndex)) == -1 << StartingIndex )
       {
         while ( 1 )
         {

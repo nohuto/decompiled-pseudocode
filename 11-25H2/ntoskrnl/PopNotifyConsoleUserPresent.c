@@ -23,7 +23,7 @@
 __int64 __fastcall PopNotifyConsoleUserPresent(__int64 a1, unsigned int a2, __int64 a3)
 {
   char v4; // r12
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   int v6; // r15d
   int v7; // r14d
   char IsStateTransitionBlockingThread; // bl

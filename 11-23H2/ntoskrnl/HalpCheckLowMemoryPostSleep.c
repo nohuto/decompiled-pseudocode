@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCheckLowMemoryPostSleep @ 0x140A96C0C
+ * XREFs of HalpCheckLowMemoryPostSleep @ 0x140A96A7C
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A96600 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140A96470 (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpUnmapVirtualAddress @ 0x14037E180 (HalpUnmapVirtualAddress.c)
- *     HalpMapPhysicalMemory64 @ 0x14040F750 (HalpMapPhysicalMemory64.c)
- *     HalpSimpleCheck @ 0x140A97190 (HalpSimpleCheck.c)
+ *     HalpUnmapVirtualAddress @ 0x14037E320 (HalpUnmapVirtualAddress.c)
+ *     HalpMapPhysicalMemory64 @ 0x14040F930 (HalpMapPhysicalMemory64.c)
+ *     HalpSimpleCheck @ 0x140A97000 (HalpSimpleCheck.c)
  */
 
 _UNKNOWN **__fastcall HalpCheckLowMemoryPostSleep(_DWORD *a1, _DWORD *a2, _DWORD *a3)

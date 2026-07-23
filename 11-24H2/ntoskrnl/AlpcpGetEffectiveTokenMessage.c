@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpGetEffectiveTokenMessage @ 0x140897750
+ * XREFs of AlpcpGetEffectiveTokenMessage @ 0x14089FDF0
  * Callers:
- *     AlpcpQueryTokenModifiedIdMessage @ 0x1407417E0 (AlpcpQueryTokenModifiedIdMessage.c)
- *     AlpcpQuerySidMessage @ 0x14093D8BC (AlpcpQuerySidMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x14073F710 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     AlpcpQuerySidMessage @ 0x140891FAC (AlpcpQuerySidMessage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1403597C0 (SepReconcileTrustSidWithProcessProtection.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     SepCreateClientSecurityEx @ 0x140897AC0 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x140ABC0A8 (SepUpdateSiloInClientSecurity.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1403E3A30 (SepReconcileTrustSidWithProcessProtection.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     SepCreateClientSecurityEx @ 0x1408A0160 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x140AB70C8 (SepUpdateSiloInClientSecurity.c)
  */
 
 __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, _BYTE *a5)
@@ -29,11 +29,11 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
   PEPROCESS *v12; // r14
   struct _KTHREAD *CurrentThread; // rax
   PEPROCESS Process; // r13
-  __int64 *v15; // r15
+  PSID *v15; // r15
   int v16; // r13d
   int ClientSecurity; // ebx
   __int64 v19; // rax
-  _QWORD *v20; // r15
+  char *v20; // r15
   char v21; // bp
   signed __int64 *v22; // rcx
   unsigned __int64 CurrentServerSilo; // rbx
@@ -91,14 +91,14 @@ LABEL_21:
   v27 = *v12;
   v28 = KeGetCurrentThread();
   --v28->KernelApcDisable;
-  v20 = KeAbPreAcquire(v10 + 1424, 0LL);
+  v20 = (char *)KeAbPreAcquire(v10 + 1424, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 1424), 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)(v10 + 1424), 0, v20, v10 + 1424);
   if ( v20 )
-    *((_BYTE *)v20 + 10) = 1;
+    v20[10] = 1;
   if ( (*(_DWORD *)(v10 + 1440) & 8) != 0 )
   {
-    v15 = (__int64 *)(*(_QWORD *)(v10 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);
+    v15 = (PSID *)(*(_QWORD *)(v10 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);
     ObfReferenceObjectWithTag(v15, 0x63436553u);
     v21 = *(_BYTE *)(v10 + 1336);
     v25 = *(_DWORD *)(v10 + 1336) & 3;
@@ -124,7 +124,7 @@ LABEL_21:
   else
   {
 LABEL_11:
-    v15 = (__int64 *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
+    v15 = (PSID *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
     v29 = BYTE2(Process[3].ActiveGroupsMask.Masks[1]);
     v11 = 0;
     v16 = 1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceSuspendResumeNotification @ 0x1407581E0
+ * XREFs of PopDiagTraceSuspendResumeNotification @ 0x140756660
  * Callers:
- *     PopSendSuspendResumeApplicationNotification @ 0x140753B34 (PopSendSuspendResumeApplicationNotification.c)
- *     PopSendSuspendResumeServiceNotification @ 0x140753C5C (PopSendSuspendResumeServiceNotification.c)
+ *     PopSendSuspendResumeApplicationNotification @ 0x140751E54 (PopSendSuspendResumeApplicationNotification.c)
+ *     PopSendSuspendResumeServiceNotification @ 0x140751F7C (PopSendSuspendResumeServiceNotification.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x14048C7B4 (PopDiagTraceEventNoPayload.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404874D4 (PopDiagTraceEventNoPayload.c)
  */
 
 void __fastcall PopDiagTraceSuspendResumeNotification(char a1, char a2, char a3)

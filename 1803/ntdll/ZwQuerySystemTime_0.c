@@ -6,8 +6,8 @@
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySystemTime_0(_QWORD *a1)
+NTSTATUS __cdecl ZwQuerySystemTime_0(PLARGE_INTEGER SystemTime)
 {
-  *a1 = MEMORY[0x7FFE0014];
-  return 0LL;
+  SystemTime->QuadPart = MEMORY[0x7FFE0014];
+  return 0;
 }

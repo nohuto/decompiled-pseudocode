@@ -1,9 +1,9 @@
 /*
- * XREFs of PsSystemSetUILimitJobObject @ 0x1407F7910
+ * XREFs of PsSystemSetUILimitJobObject @ 0x1407FD470
  * Callers:
  *     <none>
  * Callees:
- *     PspSetUILimitJobObject @ 0x1407F9E58 (PspSetUILimitJobObject.c)
+ *     PspSetUILimitJobObject @ 0x1407FF958 (PspSetUILimitJobObject.c)
  */
 
 __int64 __fastcall PsSystemSetUILimitJobObject(__int64 a1)

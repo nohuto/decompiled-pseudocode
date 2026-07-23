@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcSendFeatureUsageNotifications @ 0x18001429C
+ * XREFs of RtlpFcSendFeatureUsageNotifications @ 0x18005F9CC
  * Callers:
- *     RtlNotifyFeatureUsage @ 0x1800140B0 (RtlNotifyFeatureUsage.c)
+ *     RtlNotifyFeatureUsage @ 0x18005F7E0 (RtlNotifyFeatureUsage.c)
  * Callees:
- *     RtlpFcNotifyFeatureUsageTarget @ 0x180117B7C (RtlpFcNotifyFeatureUsageTarget.c)
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x1801175DC (RtlpFcNotifyFeatureUsageTarget.c)
  */
 
 __int64 __fastcall RtlpFcSendFeatureUsageNotifications(__int64 a1, unsigned int *a2, __int64 a3)

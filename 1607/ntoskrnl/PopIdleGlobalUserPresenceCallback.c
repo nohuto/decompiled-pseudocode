@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleGlobalUserPresenceCallback @ 0x14052E89C
+ * XREFs of PopIdleGlobalUserPresenceCallback @ 0x14052EDDC
  * Callers:
  *     <none>
  * Callees:
- *     PopIdleCancelAoAcDozeS4Timer @ 0x1401121A4 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x140112708 (PopIdleCancelAoAcDozeS4Timer.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
  */
@@ -23,8 +23,8 @@ __int64 __fastcall PopIdleGlobalUserPresenceCallback(LPCGUID SettingGuid, int *V
     if ( !v5 )
     {
       PopIdleCancelAoAcDozeS4Timer(2u);
-      qword_1403034B8 = 0LL;
-      dword_1403033B0 = 0;
+      qword_1403033F8 = 0LL;
+      dword_1403032F0 = 0;
     }
     PopReleasePolicyLock();
   }

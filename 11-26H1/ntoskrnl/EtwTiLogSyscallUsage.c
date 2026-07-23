@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwTiLogSyscallUsage @ 0x140A53288
+ * XREFs of EtwTiLogSyscallUsage @ 0x140A5C578
  * Callers:
- *     NtSystemDebugControl @ 0x1408459A0 (NtSystemDebugControl.c)
- *     PfQuerySuperfetchInformation @ 0x140A52EAC (PfQuerySuperfetchInformation.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
+ *     NtSystemDebugControl @ 0x14084A9E0 (NtSystemDebugControl.c)
+ *     PfQuerySuperfetchInformation @ 0x140A5C19C (PfQuerySuperfetchInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlIsSandboxedToken @ 0x1408F4B90 (RtlIsSandboxedToken.c)
- *     SeTokenIsAdmin @ 0x140920530 (SeTokenIsAdmin.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlIsSandboxedToken @ 0x1408FBA10 (RtlIsSandboxedToken.c)
+ *     SeTokenIsAdmin @ 0x1409238F0 (SeTokenIsAdmin.c)
  */
 
 char __fastcall EtwTiLogSyscallUsage(int a1, unsigned int a2)
@@ -51,15 +51,10 @@ char __fastcall EtwTiLogSyscallUsage(int a1, unsigned int a2)
   {
     if ( a1 >= 0 )
     {
-      LOBYTE(CurrentThread) = EtwEventEnabled(
-                                *(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount,
-                                &THREATINT_PROCESS_SYSCALL_USAGE);
+      LOBYTE(CurrentThread) = EtwEventEnabled(EtwThreatIntProvRegHandle, &THREATINT_PROCESS_SYSCALL_USAGE);
       if ( (_BYTE)CurrentThread )
       {
-        LOBYTE(CurrentThread) = EtwProviderEnabled(
-                                  *(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount,
-                                  0,
-                                  0x10000000000uLL);
+        LOBYTE(CurrentThread) = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x10000000000uLL);
         if ( (_BYTE)CurrentThread )
         {
           v6 = KeGetCurrentThread();
@@ -87,7 +82,7 @@ char __fastcall EtwTiLogSyscallUsage(int a1, unsigned int a2)
               UserData[v14].Ptr = (ULONGLONG)&v20;
               *(_QWORD *)&UserData[v14].Size = 4LL;
               IsSandboxedToken = RtlIsSandboxedToken(0LL, PreviousMode);
-              v16 = *(_QWORD *)&EtwpSecurityLock.AbWaitEntryCount;
+              v16 = EtwThreatIntProvRegHandle;
               v17 = v11 + 2;
               LOBYTE(v19) = IsSandboxedToken;
               UserData[v17].Ptr = (ULONGLONG)&v19;

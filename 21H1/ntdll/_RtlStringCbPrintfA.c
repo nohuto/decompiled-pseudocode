@@ -6,17 +6,17 @@
  *     RtlStringVPrintfWorkerA @ 0x4B2AE7CD (RtlStringVPrintfWorkerA.c)
  */
 
-int RtlStringCbPrintfA(char *Buffer, int a2, char *Format, ...)
+int RtlStringCbPrintfA(char *Buffer, int a2, int a3, ...)
 {
   int v3; // ecx
   va_list va; // [esp+14h] [ebp+14h] BYREF
 
-  va_start(va, Format);
+  va_start(va, a3);
   v3 = 0;
   if ( a2 <= 0 )
     v3 = -1073741811;
   if ( v3 >= 0 )
-    return RtlStringVPrintfWorkerA(Buffer, (int)va, Format, va);
+    return RtlStringVPrintfWorkerA(Buffer, (int)va, a3, va);
   if ( a2 )
     *Buffer = 0;
   return v3;

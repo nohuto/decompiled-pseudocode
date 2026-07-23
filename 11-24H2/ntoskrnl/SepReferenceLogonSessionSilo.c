@@ -1,17 +1,17 @@
 /*
- * XREFs of SepReferenceLogonSessionSilo @ 0x140A31B44
+ * XREFs of SepReferenceLogonSessionSilo @ 0x140A25AB4
  * Callers:
- *     SeInitServerSilo @ 0x14078ED4C (SeInitServerSilo.c)
- *     SeSetSessionIdTokenWithLinked @ 0x14078F8F0 (SeSetSessionIdTokenWithLinked.c)
- *     SepSetServerSiloToken @ 0x14078FC08 (SepSetServerSiloToken.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     SeGetLinkedToken @ 0x140A31A00 (SeGetLinkedToken.c)
- *     SepReferenceLogonSession @ 0x140A31B0C (SepReferenceLogonSession.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     SeInitServerSilo @ 0x14078ED1C (SeInitServerSilo.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x14078F8C0 (SeSetSessionIdTokenWithLinked.c)
+ *     SepSetServerSiloToken @ 0x14078FBD8 (SepSetServerSiloToken.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     SeGetLinkedToken @ 0x140A25970 (SeGetLinkedToken.c)
+ *     SepReferenceLogonSession @ 0x140A25A7C (SepReferenceLogonSession.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
  */
 
 __int64 __fastcall SepReferenceLogonSessionSilo(_DWORD *a1, __int64 a2, __int64 *a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiProcessDriverInstance @ 0x1407C1D20
+ * XREFs of PiProcessDriverInstance @ 0x1407C1FF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B720 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C900 (ZwDeleteValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563D88 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     RtlStringCchPrintfExW @ 0x14022B830 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14041CC90 (ZwDeleteValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140564448 (McTemplateK0zzzd_EtwWriteTransfer.c)
  *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PiFindDevInstMatch @ 0x1407C1FB4 (PiFindDevInstMatch.c)
- *     PiRearrangeDeviceInstances @ 0x140882E38 (PiRearrangeDeviceInstances.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PiFindDevInstMatch @ 0x1407C2284 (PiFindDevInstMatch.c)
+ *     PiRearrangeDeviceInstances @ 0x140883078 (PiRearrangeDeviceInstances.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

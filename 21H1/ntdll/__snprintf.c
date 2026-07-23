@@ -12,24 +12,22 @@ int _snprintf(char *const Buffer, const size_t BufferCount, const char *const Fo
 {
   int v3; // edi
   char *v5; // [esp+8h] [ebp-20h] BYREF
-  size_t v6; // [esp+Ch] [ebp-1Ch]
+  int v6; // [esp+Ch] [ebp-1Ch]
   char *v7; // [esp+10h] [ebp-18h]
   int v8; // [esp+14h] [ebp-14h]
-  va_list va; // [esp+3Ch] [ebp+14h] BYREF
 
-  va_start(va, Format);
-  if ( Format && (!BufferCount || Buffer) )
+  if ( HIDWORD(BufferCount) && (!(_DWORD)BufferCount || Buffer) )
   {
     v6 = 0x7FFFFFFF;
-    if ( BufferCount <= 0x7FFFFFFF )
+    if ( (unsigned int)BufferCount <= 0x7FFFFFFF )
       v6 = BufferCount;
     v8 = 66;
     v7 = Buffer;
     v5 = Buffer;
-    v3 = _output_l(&v5, Format, 0, va);
+    v3 = _output_l(&v5, HIDWORD(BufferCount), 0, &Format);
     if ( Buffer )
     {
-      if ( (--v6 & 0x80000000) != 0 )
+      if ( --v6 < 0 )
         _flsbuf_s(0, &v5);
       else
         *v5 = 0;

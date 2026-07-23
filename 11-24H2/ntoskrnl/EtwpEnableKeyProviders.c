@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpEnableKeyProviders @ 0x1407AED8C
+ * XREFs of EtwpEnableKeyProviders @ 0x1407AF1DC
  * Callers:
- *     EtwStartAutoLogger @ 0x1407ADDF8 (EtwStartAutoLogger.c)
- *     EtwpEnableBootLoggerRegistryProviders @ 0x140C3E488 (EtwpEnableBootLoggerRegistryProviders.c)
+ *     EtwStartAutoLogger @ 0x1407AE248 (EtwStartAutoLogger.c)
+ *     EtwpEnableBootLoggerRegistryProviders @ 0x140C405D8 (EtwpEnableBootLoggerRegistryProviders.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x14045C170 (RtlInitializeGenericTableAvl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpFreeKeyNameList @ 0x1407AF160 (EtwpFreeKeyNameList.c)
- *     EtwpEnumerateKeyProviders @ 0x140A99E54 (EtwpEnumerateKeyProviders.c)
+ *     RtlInitializeGenericTableAvl @ 0x140451510 (RtlInitializeGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpFreeKeyNameList @ 0x1407AF5B0 (EtwpFreeKeyNameList.c)
+ *     EtwpEnumerateKeyProviders @ 0x140A953C0 (EtwpEnumerateKeyProviders.c)
  */
 
 __int64 __fastcall EtwpEnableKeyProviders(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  RTL_AVL_TABLE Table; // [rsp+40h] [rbp-1C8h] BYREF
+  _RTL_AVL_TABLE Table; // [rsp+40h] [rbp-1C8h] BYREF
   _BYTE v10[288]; // [rsp+B0h] [rbp-158h] BYREF
 
   memset_0(&Table, 0, sizeof(Table));

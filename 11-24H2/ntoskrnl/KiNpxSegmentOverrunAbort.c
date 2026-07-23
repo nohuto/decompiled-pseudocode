@@ -1,13 +1,13 @@
 /*
- * XREFs of KiNpxSegmentOverrunAbort @ 0x1406B8940
+ * XREFs of KiNpxSegmentOverrunAbort @ 0x1406B9840
  * Callers:
- *     KiNpxSegmentOverrunAbortShadow @ 0x140BBB5C0 (KiNpxSegmentOverrunAbortShadow.c)
+ *     KiNpxSegmentOverrunAbortShadow @ 0x140BBD5C0 (KiNpxSegmentOverrunAbortShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x14041B1F0 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x1404FBC90 (KiSaveDebugRegisterState.c)
- *     KiNpxSegmentOverrunAbort @ 0x1406B8940 (KiNpxSegmentOverrunAbort.c)
- *     KiBugCheckDispatch @ 0x1406BEC80 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406BF740 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14040ED30 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x1404F9550 (KiSaveDebugRegisterState.c)
+ *     KiNpxSegmentOverrunAbort @ 0x1406B9840 (KiNpxSegmentOverrunAbort.c)
+ *     KiBugCheckDispatch @ 0x1406BFB80 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406C0640 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiNpxSegmentOverrunAbort()
@@ -61,7 +61,7 @@ void __noreturn KiNpxSegmentOverrunAbort()
       v6 = KeGetPcr()->Prcb.PrcbPad12a[1];
     }
     if ( (v6 & 2) != 0 )
-      JUMPOUT(0x1406B8BA9LL);
+      JUMPOUT(0x1406B9AA9LL);
     if ( v6 < 0 )
     {
       _mm_lfence();

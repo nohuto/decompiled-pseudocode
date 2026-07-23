@@ -1,11 +1,11 @@
 /*
- * XREFs of VslSetPrivilegedPte @ 0x1404B10CC
+ * XREFs of VslSetPrivilegedPte @ 0x1404AA75C
  * Callers:
- *     KeSetPagePrivilege @ 0x1404B0F70 (KeSetPagePrivilege.c)
+ *     KeSetPagePrivilege @ 0x1404AA600 (KeSetPagePrivilege.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslSetPrivilegedPte(__int64 a1, __int64 a2, __int128 *a3, int a4)

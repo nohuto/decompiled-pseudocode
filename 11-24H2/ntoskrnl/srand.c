@@ -1,5 +1,5 @@
 /*
- * XREFs of srand @ 0x1404FF550
+ * XREFs of srand @ 0x1404FCE10
  * Callers:
  *     <none>
  * Callees:

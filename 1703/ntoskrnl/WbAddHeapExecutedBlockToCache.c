@@ -18,8 +18,8 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v7; // rsi
-  _BYTE *v8; // rax
-  _BYTE *v9; // rdi
+  PRTL_BALANCED_NODE v8; // rax
+  PRTL_BALANCED_NODE v9; // rdi
   int HeapExecutedBlock; // eax
   int v11; // r8d
   int v12; // edi
@@ -31,12 +31,12 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   v15 = 0LL;
   --CurrentThread->SpecialApcDisable;
   v7 = (unsigned __int64 *)(a1 + 48);
-  v8 = (_BYTE *)KeAbPreAcquire(a1 + 48, 0LL, 0LL);
+  v8 = KeAbPreAcquire(a1 + 48, 0LL, 0);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
     ExfAcquirePushLockExclusiveEx(v7, v8, (ULONG_PTR)v7);
   if ( v9 )
-    v9[26] |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   HeapExecutedBlock = WbFindHeapExecutedBlock(a1, *(_QWORD *)(a2 + 48), &v15, &v14);
   v12 = HeapExecutedBlock;
   if ( HeapExecutedBlock >= 0 )

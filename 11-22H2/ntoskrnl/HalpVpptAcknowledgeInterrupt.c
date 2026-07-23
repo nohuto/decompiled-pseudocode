@@ -17,8 +17,8 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
   __int64 InternalData; // rax
   __int64 v3; // rdx
   __int64 v4; // rcx
-  unsigned __int64 InterruptTimePrecise; // rax
-  unsigned __int64 v6; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v6; // rcx
   int *v7; // rdx
   int *v8; // rax
   __int64 v9; // rcx
@@ -29,7 +29,7 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v16; // zf
-  LARGE_INTEGER v17; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   byte_140C628F8 = HalpAcquireHighLevelLock(&qword_140C628F0);
   InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
@@ -48,19 +48,19 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
     *(_QWORD *)(v4 + 8) = &HalpVpptQueue;
     if ( *(_QWORD *)(a1 + 40) )
     {
-      v17.QuadPart = 0LL;
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v17);
-      v6 = *(_QWORD *)(a1 + 32);
-      if ( v6 <= InterruptTimePrecise )
+      PerformanceCounter.QuadPart = 0LL;
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+      v6 = *(LARGE_INTEGER *)(a1 + 32);
+      if ( v6.QuadPart <= (unsigned __int64)InterruptTimePrecise.QuadPart )
       {
         do
-          v6 += *(_QWORD *)(a1 + 40);
-        while ( v6 <= InterruptTimePrecise );
-        *(_QWORD *)(a1 + 32) = v6;
+          v6.QuadPart += *(_QWORD *)(a1 + 40);
+        while ( v6.QuadPart <= (unsigned __int64)InterruptTimePrecise.QuadPart );
+        *(LARGE_INTEGER *)(a1 + 32) = v6;
       }
       v7 = *(int **)&HalpVpptQueue;
       v8 = &HalpVpptQueue;
-      while ( v7 != &HalpVpptQueue && v6 >= *((_QWORD *)v7 + 4) )
+      while ( v7 != &HalpVpptQueue && v6.QuadPart >= *((_QWORD *)v7 + 4) )
       {
         v8 = v7;
         v7 = *(int **)v7;
@@ -95,10 +95,10 @@ LABEL_15:
 LABEL_21:
   v12 = (unsigned __int8)byte_140C628F8;
   result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C628F0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v12 <= 0xFu
       && (unsigned __int8)result >= 2u )

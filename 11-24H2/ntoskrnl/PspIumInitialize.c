@@ -1,13 +1,13 @@
 /*
- * XREFs of PspIumInitialize @ 0x140C35E54
+ * XREFs of PspIumInitialize @ 0x140C37F94
  * Callers:
- *     PspInitPhase0 @ 0x140C65530 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140C676AC (PspInitPhase0.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14027BE44 (VslGetNestedPageProtectionFlags.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140467D20 (KeRegisterBugCheckReasonCallback.c)
- *     PsIumResumeAfterHibernate @ 0x1404F71AC (PsIumResumeAfterHibernate.c)
- *     MmAllocateMappingAddress @ 0x140A5B600 (MmAllocateMappingAddress.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1402313D4 (VslGetNestedPageProtectionFlags.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1404606D0 (KeRegisterBugCheckReasonCallback.c)
+ *     PsIumResumeAfterHibernate @ 0x1404F4A8C (PsIumResumeAfterHibernate.c)
+ *     MmAllocateMappingAddress @ 0x140A531D0 (MmAllocateMappingAddress.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
  */
 
 char PspIumInitialize()

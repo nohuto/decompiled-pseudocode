@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIntSteerDistributeInterrupts @ 0x1400631A0
+ * XREFs of KiIntSteerDistributeInterrupts @ 0x140063190
  * Callers:
  *     KeIntSteerPeriodic @ 0x1400626A0 (KeIntSteerPeriodic.c)
  * Callees:
- *     KiIntSteerUpdateDeviceInterruptMask @ 0x14012F6C0 (KiIntSteerUpdateDeviceInterruptMask.c)
- *     KiIntSteerSetDestination @ 0x140131AC8 (KiIntSteerSetDestination.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x14012F790 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     KiIntSteerSetDestination @ 0x140131B98 (KiIntSteerSetDestination.c)
  */
 
 __int64 KiIntSteerDistributeInterrupts()

@@ -1,5 +1,5 @@
 /*
- * XREFs of ExGetFirmwareType @ 0x1404FAA90
+ * XREFs of ExGetFirmwareType @ 0x1404F8370
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 ExGetFirmwareType()
 {
-  return (unsigned int)dword_140EFEAF0;
+  return (unsigned int)dword_140EFEE10;
 }

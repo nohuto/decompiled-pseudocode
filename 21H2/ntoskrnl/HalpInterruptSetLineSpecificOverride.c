@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptSetLineSpecificOverride @ 0x1403EFDC4
+ * XREFs of HalpInterruptSetLineSpecificOverride @ 0x1403EFF34
  * Callers:
- *     HalpPiix4Detect @ 0x14099A3E0 (HalpPiix4Detect.c)
+ *     HalpPiix4Detect @ 0x14099B3E0 (HalpPiix4Detect.c)
  * Callees:
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpReleaseHighLevelLock @ 0x1404D07BC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpReleaseHighLevelLock @ 0x1404D09FC (HalpReleaseHighLevelLock.c)
  */
 
 __int64 __fastcall HalpInterruptSetLineSpecificOverride(__int64 a1)
@@ -37,15 +37,15 @@ __int64 __fastcall HalpInterruptSetLineSpecificOverride(__int64 a1)
     *(_DWORD *)(v4 + 36) = 2;
     *(_DWORD *)(v4 + 32) = 1;
     v7 = HalpAcquireHighLevelLock(&HalpInterruptOverridesLock);
-    v8 = (__int64 *)qword_140C49888;
+    v8 = (__int64 *)qword_140C498C8;
     v9 = &HalpInterruptOverrides;
-    if ( *(__int64 **)qword_140C49888 != &HalpInterruptOverrides )
+    if ( *(__int64 **)qword_140C498C8 != &HalpInterruptOverrides )
       __fastfail(3u);
     *(_QWORD *)v4 = &HalpInterruptOverrides;
     LOBYTE(v9) = v7;
     *(_QWORD *)(v4 + 8) = v8;
     *v8 = v4;
-    qword_140C49888 = v4;
+    qword_140C498C8 = v4;
     HalpReleaseHighLevelLock(&HalpInterruptOverridesLock, v9);
   }
   return (unsigned int)v2;

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiGetNextTimerExpirationDueTime @ 0x1404FC8E0
+ * XREFs of KiGetNextTimerExpirationDueTime @ 0x1404F5E20
  * Callers:
- *     KeEstimateClockTickDuration @ 0x1404FC594 (KeEstimateClockTickDuration.c)
- *     KePrepareClockTimerForPlatformIdle @ 0x1405ED634 (KePrepareClockTimerForPlatformIdle.c)
+ *     KeEstimateClockTickDuration @ 0x1404F5AD4 (KeEstimateClockTickDuration.c)
+ *     KePrepareClockTimerForPlatformIdle @ 0x1405EFFA4 (KePrepareClockTimerForPlatformIdle.c)
  * Callees:
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     KiFindNextTimerDueTime @ 0x14051589C (KiFindNextTimerDueTime.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x14052FD30 (ExGetNextWakeTimeForDeepSleep.c)
- *     KiGetNextTimer2ExpirationDueTime @ 0x1405F7D78 (KiGetNextTimer2ExpirationDueTime.c)
- *     KiGetPastDueIRTimerInfo @ 0x1405F7E24 (KiGetPastDueIRTimerInfo.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     KiFindNextTimerDueTime @ 0x14050F30C (KiFindNextTimerDueTime.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x140532230 (ExGetNextWakeTimeForDeepSleep.c)
+ *     KiGetNextTimer2ExpirationDueTime @ 0x1405FA798 (KiGetNextTimer2ExpirationDueTime.c)
+ *     KiGetPastDueIRTimerInfo @ 0x1405FA844 (KiGetPastDueIRTimerInfo.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _QWORD *__fastcall KiGetNextTimerExpirationDueTime(
@@ -102,10 +102,11 @@ LABEL_48:
     else if ( (unsigned int)KeCheckProcessorAffinityEx(KiGroupSchedulingOverQuotaMask, *(_DWORD *)(v9 + 36)) )
     {
 LABEL_17:
-      v18 = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+      v18 = (__int64)KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink * KeMaximumIncrement;
       if ( v18 < NextWakeTimeForDeepSleep )
       {
-        NextWakeTimeForDeepSleep = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+        NextWakeTimeForDeepSleep = (__int64)KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink
+                                 * KeMaximumIncrement;
         v15 = 5;
       }
     }

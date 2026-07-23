@@ -20,15 +20,15 @@
  *     ExpWnfDeletePermanentStateData @ 0x1406FC328 (ExpWnfDeletePermanentStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
+NTSTATUS __cdecl NtDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r13
-  int v3; // edi
+  NTSTATUS v3; // edi
   __int64 v4; // rbx
   unsigned __int64 v5; // r15
   unsigned __int64 v6; // r14
-  BOOL v7; // r12d
+  _BOOL8 v7; // r12
   _KPROCESS *Process; // rcx
   __int64 v9; // r9
   void *Ptr; // rdi
@@ -65,7 +65,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
   P = 0LL;
   *(_QWORD *)v25 = 0LL;
   v24 = 0LL;
-  v3 = ExpCaptureWnfStateName(a1, &v28, PreviousMode);
+  v3 = ExpCaptureWnfStateName((__int64 *)StateName, &v28, PreviousMode);
   if ( v3 >= 0 )
   {
     v4 = v28;
@@ -101,7 +101,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
         v3 = v35;
         if ( v35 < 0 )
           goto LABEL_21;
-        v7 = 1;
+        LODWORD(v7) = 1;
       }
       v3 = ExpWnfDeletePermanentName(v4);
       if ( v3 < 0 )
@@ -165,7 +165,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
             v23 = AccessStatus;
             if ( AccessStatus < 0 )
               goto LABEL_21;
-            v7 = 1;
+            LODWORD(v7) = 1;
           }
           if ( v29 == 3 && (_KPROCESS *)v24[19].Count != v26 )
           {
@@ -237,5 +237,5 @@ LABEL_21:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v3;
+  return v3;
 }

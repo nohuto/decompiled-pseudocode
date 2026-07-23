@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTscCompatibilitySynchronization @ 0x14050A574
+ * XREFs of HalpTscCompatibilitySynchronization @ 0x14050AAC4
  * Callers:
- *     HalpTscSynchronizationWorker @ 0x14038D530 (HalpTscSynchronizationWorker.c)
+ *     HalpTscSynchronizationWorker @ 0x14038D710 (HalpTscSynchronizationWorker.c)
  * Callees:
  *     <none>
  */

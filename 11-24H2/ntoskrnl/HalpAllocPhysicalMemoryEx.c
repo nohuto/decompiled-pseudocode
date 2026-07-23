@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpAllocPhysicalMemoryEx @ 0x140C673EC
+ * XREFs of HalpAllocPhysicalMemoryEx @ 0x140C69568
  * Callers:
- *     HalpIommuAllocateAndZeroPageTable @ 0x1403ABF8C (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpAcpiAllocateMemory @ 0x14053D0C0 (HalpAcpiAllocateMemory.c)
- *     HalpAllocateEarlyPages @ 0x140542AB0 (HalpAllocateEarlyPages.c)
- *     HalpMmAllocateAndInsertPageTablePage @ 0x140542C24 (HalpMmAllocateAndInsertPageTablePage.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14055FAA4 (ExtEnvAllocatePhysicalMemory.c)
- *     HalpSocApiAllocatePhysicalMemory @ 0x140561670 (HalpSocApiAllocatePhysicalMemory.c)
- *     HalpAllocPhysicalMemory @ 0x140BDEBF0 (HalpAllocPhysicalMemory.c)
- *     HalpDmaInitMemory @ 0x140C108E8 (HalpDmaInitMemory.c)
- *     HalpBlkAllocateAndShadowMemory @ 0x140C12C34 (HalpBlkAllocateAndShadowMemory.c)
- *     HalpBlkAllocatePageTablePage @ 0x140C12D30 (HalpBlkAllocatePageTablePage.c)
- *     HalpSetupAcpiPhase0 @ 0x140C137FC (HalpSetupAcpiPhase0.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x14039A69C (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpAcpiAllocateMemory @ 0x14053A9C0 (HalpAcpiAllocateMemory.c)
+ *     HalpAllocateEarlyPages @ 0x140540400 (HalpAllocateEarlyPages.c)
+ *     HalpMmAllocateAndInsertPageTablePage @ 0x140540574 (HalpMmAllocateAndInsertPageTablePage.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14055D6D4 (ExtEnvAllocatePhysicalMemory.c)
+ *     HalpSocApiAllocatePhysicalMemory @ 0x14055F2A0 (HalpSocApiAllocatePhysicalMemory.c)
+ *     HalpAllocPhysicalMemory @ 0x140BE0BF0 (HalpAllocPhysicalMemory.c)
+ *     HalpDmaInitMemory @ 0x140C128E8 (HalpDmaInitMemory.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140C14C34 (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140C14D30 (HalpBlkAllocatePageTablePage.c)
+ *     HalpSetupAcpiPhase0 @ 0x140C157FC (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpMap @ 0x140478C5C (HalpMap.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HalpAllocPhysicalMemoryInternal @ 0x140C674D4 (HalpAllocPhysicalMemoryInternal.c)
+ *     HalpMap @ 0x140460358 (HalpMap.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HalpAllocPhysicalMemoryInternal @ 0x140C69650 (HalpAllocPhysicalMemoryInternal.c)
  */
 
 __int64 __fastcall HalpAllocPhysicalMemoryEx(

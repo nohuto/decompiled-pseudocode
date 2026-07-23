@@ -1,27 +1,27 @@
 /*
- * XREFs of PopExecuteOnTargetProcessors @ 0x140428780
+ * XREFs of PopExecuteOnTargetProcessors @ 0x14021AA60
  * Callers:
- *     PpmCheckResetProcessors @ 0x14042A1AC (PpmCheckResetProcessors.c)
- *     PpmUpdatePlatformIdleVeto @ 0x14042CC80 (PpmUpdatePlatformIdleVeto.c)
- *     PoGetPerfStateAndParkingInfo @ 0x14047C978 (PoGetPerfStateAndParkingInfo.c)
- *     PpmUpdateIdleDomains @ 0x140603710 (PpmUpdateIdleDomains.c)
- *     PpmUpdateProcessorIdleVeto @ 0x140603860 (PpmUpdateProcessorIdleVeto.c)
- *     PpmParkRegisterParking @ 0x14060FE58 (PpmParkRegisterParking.c)
- *     PpmIdleRegisterDefaultStates @ 0x1407C9A54 (PpmIdleRegisterDefaultStates.c)
- *     PpmWmiIdleAccountingWork @ 0x1407D9F90 (PpmWmiIdleAccountingWork.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
- *     PpmInitializePepWpsSupport @ 0x1407E3250 (PpmInitializePepWpsSupport.c)
- *     PpmPostProcessMediaBuffering @ 0x140946160 (PpmPostProcessMediaBuffering.c)
- *     EtwpKernelTraceRundown @ 0x140A70518 (EtwpKernelTraceRundown.c)
- *     PpmReapplyIdlePolicy @ 0x140A9C8FC (PpmReapplyIdlePolicy.c)
- *     PpmCheckInitProcessors @ 0x140A9CBF0 (PpmCheckInitProcessors.c)
- *     PpmParkUpdateConcurrencyTracking @ 0x140A9D710 (PpmParkUpdateConcurrencyTracking.c)
- *     PpmUpdateProcessorPolicy @ 0x140A9D7C8 (PpmUpdateProcessorPolicy.c)
- *     PpmUpdateIdleStates @ 0x140AFE7B0 (PpmUpdateIdleStates.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x140421350 (PpmUpdatePlatformIdleVeto.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x1404762E8 (PoGetPerfStateAndParkingInfo.c)
+ *     PpmCheckResetProcessors @ 0x1404FB714 (PpmCheckResetProcessors.c)
+ *     PpmUpdateIdleDomains @ 0x1406061C0 (PpmUpdateIdleDomains.c)
+ *     PpmUpdateProcessorIdleVeto @ 0x140606310 (PpmUpdateProcessorIdleVeto.c)
+ *     PpmParkRegisterParking @ 0x1406130BC (PpmParkRegisterParking.c)
+ *     PpmIdleRegisterDefaultStates @ 0x1407CCAF4 (PpmIdleRegisterDefaultStates.c)
+ *     PpmWmiIdleAccountingWork @ 0x1407DDF30 (PpmWmiIdleAccountingWork.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
+ *     PpmInitializePepWpsSupport @ 0x1407E82E0 (PpmInitializePepWpsSupport.c)
+ *     PpmPostProcessMediaBuffering @ 0x1409C1AD0 (PpmPostProcessMediaBuffering.c)
+ *     EtwpKernelTraceRundown @ 0x140A99DCC (EtwpKernelTraceRundown.c)
+ *     PpmReapplyIdlePolicy @ 0x140AD8F94 (PpmReapplyIdlePolicy.c)
+ *     PpmCheckInitProcessors @ 0x140AEB890 (PpmCheckInitProcessors.c)
+ *     PpmParkUpdateConcurrencyTracking @ 0x140AEBE2C (PpmParkUpdateConcurrencyTracking.c)
+ *     PpmUpdateProcessorPolicy @ 0x140AF0768 (PpmUpdateProcessorPolicy.c)
+ *     PpmUpdateIdleStates @ 0x140B00820 (PpmUpdateIdleStates.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     PopQueueTargetDpc @ 0x14042883C (PopQueueTargetDpc.c)
+ *     PopQueueTargetDpc @ 0x14021AB1C (PopQueueTargetDpc.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
  */
 
 __int64 __fastcall PopExecuteOnTargetProcessors(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -39,15 +39,13 @@ __int64 __fastcall PopExecuteOnTargetProcessors(__int64 a1, __int64 a2, __int64 
   _QWORD *v15; // [rsp+80h] [rbp+7h]
   unsigned int v16; // [rsp+88h] [rbp+Fh]
   int v17; // [rsp+8Ch] [rbp+13h]
-  ULONG_PTR BugCheckParameter2[2]; // [rsp+90h] [rbp+17h] BYREF
-  __int128 v19; // [rsp+A0h] [rbp+27h]
-  __int128 v20; // [rsp+B0h] [rbp+37h]
-  __int64 v21; // [rsp+C0h] [rbp+47h]
-  int v22; // [rsp+C8h] [rbp+4Fh]
+  _OWORD v18[3]; // [rsp+90h] [rbp+17h] BYREF
+  __int64 v19; // [rsp+C0h] [rbp+47h]
+  int v20; // [rsp+C8h] [rbp+4Fh]
 
   Object = 393217LL;
-  v21 = 0LL;
-  v22 = 0;
+  v19 = 0LL;
+  v20 = 0;
   v17 = 0;
   v6[1] = v6;
   v6[0] = v6;
@@ -56,16 +54,14 @@ __int64 __fastcall PopExecuteOnTargetProcessors(__int64 a1, __int64 a2, __int64 
   v7[0] = a1;
   v11 = a2;
   p_Object = &Object;
-  *(_OWORD *)BugCheckParameter2 = 0LL;
+  memset(v18, 0, sizeof(v18));
   v9 = 0;
-  v19 = 0LL;
   v10 = 0;
-  v20 = 0LL;
   v8 = 0;
   v12 = a3;
   v13 = a4;
   v16 = 0;
-  PopQueueTargetDpc((ULONG_PTR)BugCheckParameter2);
+  PopQueueTargetDpc((ULONG_PTR)v18);
   KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
   return v16;
 }

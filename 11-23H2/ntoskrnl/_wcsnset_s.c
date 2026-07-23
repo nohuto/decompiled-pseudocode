@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcsnset_s @ 0x1403D9C30
+ * XREFs of _wcsnset_s @ 0x1403D9E10
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsnset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Val, size_t MaxCount)

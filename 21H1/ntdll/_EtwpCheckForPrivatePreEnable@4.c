@@ -14,32 +14,40 @@
  *     _EtwpPreEnableEventApiCallback@4 @ 0x4B3807EE (_EtwpPreEnableEventApiCallback@4.c)
  */
 
-int __thiscall EtwpCheckForPrivatePreEnable(int this)
+void __thiscall EtwpCheckForPrivatePreEnable(int this)
 {
-  int result; // eax
-  int v3; // esi
-  int v4; // edi
+  _RTL_SRWLOCK *GuidEntry; // eax
+  _RTL_SRWLOCK *v3; // esi
+  _RTL_SRWLOCK *v4; // edi
   int v5; // edx
   unsigned __int8 *v6; // esi
   char v7; // al
-  _DWORD *v8; // [esp+10h] [ebp-90h]
-  int v9; // [esp+18h] [ebp-88h]
-  char v10; // [esp+1Fh] [ebp-81h]
-  _DWORD v11[30]; // [esp+20h] [ebp-80h] BYREF
+  size_t v8; // [esp-4h] [ebp-A4h]
+  _RTL_SRWLOCK *v9; // [esp+10h] [ebp-90h]
+  int v10; // [esp+18h] [ebp-88h]
+  char v11; // [esp+1Fh] [ebp-81h]
+  _BYTE v12[40]; // [esp+20h] [ebp-80h] BYREF
+  unsigned int v13; // [esp+48h] [ebp-58h]
+  unsigned int v14; // [esp+4Ch] [ebp-54h]
+  unsigned int v15; // [esp+50h] [ebp-50h]
+  unsigned int v16; // [esp+54h] [ebp-4Ch]
+  unsigned int Value; // [esp+88h] [ebp-18h]
+  unsigned int v18; // [esp+8Ch] [ebp-14h]
+  unsigned int v19; // [esp+90h] [ebp-10h]
 
-  v10 = 0;
-  result = EtwpFindGuidEntry(this + 12);
-  v3 = result;
-  v8 = (_DWORD *)result;
-  if ( result )
+  v11 = 0;
+  GuidEntry = (_RTL_SRWLOCK *)EtwpFindGuidEntry(this + 12);
+  v3 = GuidEntry;
+  v9 = GuidEntry;
+  if ( GuidEntry )
   {
-    v4 = result + 28;
-    RtlAcquireSRWLockShared(result + 28);
+    v4 = GuidEntry + 7;
+    RtlAcquireSRWLockShared(GuidEntry + 7);
     *(_DWORD *)(this + 200) = v3;
     EtwpPopulatePrivateEnableInfoFromGuidEntry(this);
     v5 = 4;
     v6 = (unsigned __int8 *)(this + 102);
-    v9 = 4;
+    v10 = 4;
     do
     {
       if ( *(v6 - 2) )
@@ -47,44 +55,44 @@ int __thiscall EtwpCheckForPrivatePreEnable(int this)
         if ( (*(_WORD *)(this + 54) & 0x3FFF) == 2 || *(__int16 *)(this + 54) < 0 )
         {
           EtwpGetUmProcessImageInfo(*v6, this);
-          v5 = v9;
+          v5 = v10;
         }
         v7 = 1;
-        v10 = 1;
+        v11 = 1;
       }
       else
       {
-        v7 = v10;
+        v7 = v11;
       }
       v6 += 24;
-      v9 = --v5;
+      v10 = --v5;
     }
     while ( v5 );
     if ( v7 )
     {
       if ( (*(_WORD *)(this + 54) & 0x3FFF) == 2 )
       {
-        memset(v11, 0, sizeof(v11));
-        v11[26] = v8[34];
-        v11[27] = v8[35];
-        v11[28] = v8[36];
-        v11[10] = v8[3];
-        v11[11] = v8[4];
-        v11[12] = v8[5];
-        v11[13] = v8[6];
-        RtlReleaseSRWLockShared(v8 + 7);
-        return EtwpRegisterGuidsApiCallback(1);
+        LODWORD(v8) = 120;
+        memset(v12, 0, v8);
+        Value = v9[34].Value;
+        v18 = v9[35].Value;
+        v19 = v9[36].Value;
+        v13 = v9[3].Value;
+        v14 = v9[4].Value;
+        v15 = v9[5].Value;
+        v16 = v9[6].Value;
+        RtlReleaseSRWLockShared(v9 + 7);
+        EtwpRegisterGuidsApiCallback(1);
       }
       else
       {
         RtlReleaseSRWLockShared(v4);
-        return EtwpPreEnableEventApiCallback(this);
+        EtwpPreEnableEventApiCallback(this);
       }
     }
     else
     {
-      return RtlReleaseSRWLockShared(v4);
+      RtlReleaseSRWLockShared(v4);
     }
   }
-  return result;
 }

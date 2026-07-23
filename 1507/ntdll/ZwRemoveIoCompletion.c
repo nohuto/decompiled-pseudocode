@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwRemoveIoCompletion()
+NTSTATUS __cdecl ZwRemoveIoCompletion(
+        HANDLE IoCompletionHandle,
+        PVOID *KeyContext,
+        PVOID *ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 9LL;
+  result = 9;
   __asm { syscall; Low latency system call }
   return result;
 }

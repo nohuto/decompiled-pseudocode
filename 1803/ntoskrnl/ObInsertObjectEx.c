@@ -90,7 +90,7 @@ __int64 __fastcall ObInsertObjectEx(
         __int64 a6,
         _QWORD *a7)
 {
-  struct _SLIST_ENTRY *v7; // rbx
+  _SLIST_ENTRY *v7; // rbx
   char *v10; // rdx
   int Handle; // r13d
   unsigned __int64 v12; // rcx
@@ -107,7 +107,7 @@ __int64 __fastcall ObInsertObjectEx(
   _SLIST_ENTRY *v24; // rcx
   bool v25; // zf
   int v26; // ecx
-  struct _SLIST_ENTRY *v27; // rax
+  _SLIST_ENTRY *v27; // rax
   int v28; // eax
   int v29; // r15d
   __int64 v30; // r8
@@ -123,9 +123,9 @@ __int64 __fastcall ObInsertObjectEx(
   int v40; // [rsp+40h] [rbp-238h]
   __int64 v41; // [rsp+48h] [rbp-230h]
   ACCESS_MASK v42; // [rsp+64h] [rbp-214h]
-  unsigned int v43; // [rsp+68h] [rbp-210h] BYREF
+  int v43; // [rsp+68h] [rbp-210h] BYREF
   int v44; // [rsp+6Ch] [rbp-20Ch]
-  __int64 v45; // [rsp+70h] [rbp-208h] BYREF
+  ULONG Index[2]; // [rsp+70h] [rbp-208h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+78h] [rbp-200h] BYREF
   char *v47; // [rsp+80h] [rbp-1F8h]
   __int64 v48; // [rsp+88h] [rbp-1F0h]
@@ -133,7 +133,7 @@ __int64 __fastcall ObInsertObjectEx(
   int v50[40]; // [rsp+B0h] [rbp-1C8h] BYREF
   __int64 v51[28]; // [rsp+150h] [rbp-128h] BYREF
 
-  v7 = (struct _SLIST_ENTRY *)*(Object - 2);
+  v7 = (_SLIST_ENTRY *)*(Object - 2);
   v10 = 0LL;
   Handle = 0;
   v44 = a4;
@@ -183,7 +183,7 @@ __int64 __fastcall ObInsertObjectEx(
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v7);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v7);
     }
     goto LABEL_11;
   }
@@ -220,9 +220,10 @@ LABEL_11:
   if ( v47 || (v14->TypeInfo.ObjectTypeFlags & 8) == 0 && !v7[2].Next )
     goto LABEL_24;
   v22 = (__int64)a2->SecurityDescriptor;
+  Index[1] = 0;
   SecurityDescriptor = 0LL;
-  v45 = 8LL;
-  v23 = SeComputeAutoInheritByObjectTypeEx((__int64)v14, v22, 0LL, &v43, &v45);
+  Index[0] = 8;
+  v23 = SeComputeAutoInheritByObjectTypeEx((__int64)v14, v22, 0LL, &v43, Index);
   if ( v23 >= 0 )
   {
     v23 = SeAssignSecurityEx2(
@@ -231,8 +232,8 @@ LABEL_11:
             (int)&SecurityDescriptor,
             0LL,
             v14 == ObpDirectoryObjectType,
-            (16 * (a5 & 1)) | v43,
-            &v45,
+            (16 * (a5 & 1)) | (unsigned int)v43,
+            Index,
             (__int64)&a2->SubjectSecurityContext,
             (__int64)&v14->TypeInfo.GenericMapping);
     if ( v23 >= 0 )
@@ -304,7 +305,7 @@ LABEL_30:
         else
         {
           ++L->FreeMisses;
-          ((void (__fastcall *)(struct _SLIST_ENTRY *))L->FreeEx)(v7);
+          ((void (__fastcall *)(_SLIST_ENTRY *))L->FreeEx)(v7);
         }
         if ( a2 == (struct _ACCESS_STATE *)v50 )
         {

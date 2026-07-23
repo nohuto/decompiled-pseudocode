@@ -56,7 +56,7 @@ char __fastcall KeUpdateThreadCpuSets(__int64 a1)
   struct _KPRCB *v27; // r9
   _DWORD *v28; // r8
   int v29; // eax
-  __int64 (__fastcall *v30)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  __int64 (__fastcall *v30)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v31; // r12
   unsigned int *v32; // rbx
   unsigned __int64 v33; // rdi
@@ -66,7 +66,7 @@ char __fastcall KeUpdateThreadCpuSets(__int64 a1)
   __int64 (__fastcall *v37)(_QWORD, _DWORD *, __int128 *, _QWORD, int *); // rax
   __int64 (__fastcall *v38)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v40[2]; // [rsp+40h] [rbp-328h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
   int v42; // [rsp+4Ch] [rbp-31Ch]
   _QWORD *v43; // [rsp+50h] [rbp-318h] BYREF
   __int128 v44; // [rsp+58h] [rbp-310h] BYREF
@@ -95,7 +95,9 @@ char __fastcall KeUpdateThreadCpuSets(__int64 a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v2 = (unsigned int)(unsigned __int8)v43 + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)((_BYTE)v43 + 1)) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)((_BYTE)v43 + 1)) != 0
+    && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -196,7 +198,7 @@ char __fastcall KeUpdateThreadCpuSets(__int64 a1)
     }
     if ( !v22 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
         if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v2) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
@@ -213,7 +215,7 @@ char __fastcall KeUpdateThreadCpuSets(__int64 a1)
       *(_DWORD *)(v9 + 116) &= ~0x40u;
       KiDeliverApc(0, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v26 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v2) != 0 && (unsigned __int8)(v26 - 2) <= 0xDu )
@@ -246,12 +248,11 @@ char __fastcall KeUpdateThreadCpuSets(__int64 a1)
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v59 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v42 = 1;
     v40[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v40[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v30 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                 + 120);
+    v30 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     _disable();
     LOBYTE(Processor) = v30(*(_QWORD *)(HalpInterruptController + 16), v40, &v59, 47LL, &ProcNumber);
     if ( (v64 & 0x200) != 0 )

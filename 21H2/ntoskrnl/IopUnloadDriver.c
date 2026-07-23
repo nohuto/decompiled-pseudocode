@@ -1,42 +1,42 @@
 /*
- * XREFs of IopUnloadDriver @ 0x140769798
+ * XREFs of IopUnloadDriver @ 0x140769958
  * Callers:
- *     PnpUnloadAttachedDriver @ 0x14073E608 (PnpUnloadAttachedDriver.c)
- *     NtUnloadDriver @ 0x14089B280 (NtUnloadDriver.c)
- *     PipUnloadEarlyLaunchDrivers @ 0x140A728A8 (PipUnloadEarlyLaunchDrivers.c)
+ *     PnpUnloadAttachedDriver @ 0x14073E7C8 (PnpUnloadAttachedDriver.c)
+ *     NtUnloadDriver @ 0x14089B3E0 (NtUnloadDriver.c)
+ *     PipUnloadEarlyLaunchDrivers @ 0x140A738A8 (PipUnloadEarlyLaunchDrivers.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     PnpDiagnosticTraceObject @ 0x140364C6C (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceDriverFullInfo @ 0x14037C1B8 (PnpDiagnosticTraceDriverFullInfo.c)
- *     IopCleanupNotifications @ 0x14037C458 (IopCleanupNotifications.c)
- *     IopCheckUnloadDriver @ 0x14037C4EC (IopCheckUnloadDriver.c)
- *     IopVerifierExAllocatePoolWithQuota_2 @ 0x1403CAF28 (IopVerifierExAllocatePoolWithQuota_2.c)
- *     ZwUnloadDriver @ 0x1403FDCA0 (ZwUnloadDriver.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ObMakeTemporaryObject @ 0x14062C010 (ObMakeTemporaryObject.c)
- *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     PnpIsLegacyDriver @ 0x1407402EC (PnpIsLegacyDriver.c)
- *     IopGetDriverNameFromKeyNode @ 0x140742900 (IopGetDriverNameFromKeyNode.c)
- *     EtwTiLogDriverObjectUnLoad @ 0x140769A3C (EtwTiLogDriverObjectUnLoad.c)
- *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x140364E1C (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceDriverFullInfo @ 0x14037BD08 (PnpDiagnosticTraceDriverFullInfo.c)
+ *     IopCleanupNotifications @ 0x14037BFA8 (IopCleanupNotifications.c)
+ *     IopCheckUnloadDriver @ 0x14037C03C (IopCheckUnloadDriver.c)
+ *     IopVerifierExAllocatePoolWithQuota_2 @ 0x1403CB09C (IopVerifierExAllocatePoolWithQuota_2.c)
+ *     ZwUnloadDriver @ 0x1403FDE80 (ZwUnloadDriver.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObMakeTemporaryObject @ 0x14061C330 (ObMakeTemporaryObject.c)
+ *     ObOpenObjectByName @ 0x14064AA70 (ObOpenObjectByName.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     PnpIsLegacyDriver @ 0x1407404AC (PnpIsLegacyDriver.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140742AC0 (IopGetDriverNameFromKeyNode.c)
+ *     EtwTiLogDriverObjectUnLoad @ 0x140769BFC (EtwTiLogDriverObjectUnLoad.c)
+ *     IopOpenRegistryKey @ 0x140769C64 (IopOpenRegistryKey.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopUnloadDriver(unsigned __int16 *a1, char a2)
 {
-  __int16 v4; // r14
+  unsigned __int16 MinorImageVersion; // r14
   KPROCESSOR_MODE PreviousMode; // dl
   __int64 v6; // rdx
   __int64 v7; // rcx
@@ -73,7 +73,7 @@ __int64 __fastcall IopUnloadDriver(unsigned __int16 *a1, char a2)
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   v20 = 0LL;
   v31 = 0;
-  LOBYTE(v4) = 0;
+  LOBYTE(MinorImageVersion) = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode || a2 )
   {
@@ -113,7 +113,7 @@ __int64 __fastcall IopUnloadDriver(unsigned __int16 *a1, char a2)
           if ( DriverNameFromKeyNode >= 0 )
           {
             v9 = (struct _DMA_ADAPTER *)Object;
-            v4 = *(_WORD *)(RtlImageNtHeader(*((_QWORD *)Object + 3)) + 70);
+            MinorImageVersion = RtlImageNtHeader(*((PVOID *)Object + 3))->OptionalHeader.MinorImageVersion;
             if ( v9[6].DmaOperations && v9[2].DmaOperations )
             {
               if ( a2 || PnpIsLegacyDriver((__int64)v9) )
@@ -163,7 +163,12 @@ __int64 __fastcall IopUnloadDriver(unsigned __int16 *a1, char a2)
       }
     }
 LABEL_17:
-    PnpDiagnosticTraceDriverFullInfo(&KMPnPEvt_DriverUnload_Stop, a1, DriverNameFromKeyNode, (__int64)&Destination, v4);
+    PnpDiagnosticTraceDriverFullInfo(
+      &KMPnPEvt_DriverUnload_Stop,
+      a1,
+      DriverNameFromKeyNode,
+      (__int64)&Destination,
+      MinorImageVersion);
     if ( Destination.Buffer )
       ExFreePoolWithTag(Destination.Buffer, 0);
     return (unsigned int)DriverNameFromKeyNode;

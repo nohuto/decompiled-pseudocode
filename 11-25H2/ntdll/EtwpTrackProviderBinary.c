@@ -18,11 +18,13 @@ __int64 __fastcall EtwpTrackProviderBinary(__int64 a1)
   __int64 v2; // rax
   __int64 v3; // rsi
   NTSTATUS v4; // eax
-  ULONG v5; // edi
+  unsigned __int32 v5; // edi
   void *UniqueThread; // rdx
-  __int64 v8; // [rsp+50h] [rbp+18h] BYREF
+  ULONG ReturnLength; // [rsp+48h] [rbp+10h] BYREF
+  __int64 InputBuffer; // [rsp+50h] [rbp+18h] BYREF
 
-  v8 = 0LL;
+  InputBuffer = 0LL;
+  ReturnLength = 0;
   v1 = WORD2(a1);
   v2 = ProviderHandleLookup(a1, a1);
   v3 = v2;
@@ -31,8 +33,8 @@ __int64 __fastcall EtwpTrackProviderBinary(__int64 a1)
     v5 = 6;
     goto LABEL_8;
   }
-  v8 = *(_QWORD *)(v2 + 88);
-  v4 = NtTraceControl(26LL, &v8, 8LL);
+  InputBuffer = *(_QWORD *)(v2 + 88);
+  v4 = NtTraceControl(EtwTrackBinaryCode, &InputBuffer, 8u, 0LL, 0, &ReturnLength);
   if ( v4 )
   {
     v5 = RtlNtStatusToDosError(v4);
@@ -44,12 +46,12 @@ LABEL_8:
   }
   v5 = 0;
 LABEL_5:
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v3 + 64));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v3 + 64));
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
   *(_WORD *)(v3 + 86) |= 0x8000u;
   *(_DWORD *)(v3 + 80) = (_DWORD)UniqueThread;
   EtwpTrackRegBinaryInfo(v3);
   *(_DWORD *)(v3 + 80) = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v3 + 64));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v3 + 64));
   return v5;
 }

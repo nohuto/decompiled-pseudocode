@@ -1,11 +1,11 @@
 /*
- * XREFs of WbValidateHeapExecuteCallArguments @ 0x14062415C
+ * XREFs of WbValidateHeapExecuteCallArguments @ 0x14062517C
  * Callers:
- *     WbHeapExecuteCall @ 0x140624ABC (WbHeapExecuteCall.c)
+ *     WbHeapExecuteCall @ 0x140625ADC (WbHeapExecuteCall.c)
  * Callees:
- *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E6C (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4DAC (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall WbValidateHeapExecuteCallArguments(__int64 a1, unsigned int a2, _QWORD *a3)
@@ -112,7 +112,7 @@ __int64 __fastcall WbValidateHeapExecuteCallArguments(__int64 a1, unsigned int a
     {
       g_wil_details_pfnFeatureLoggingHook(
         0xE67B5Au,
-        (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B948,
+        (const struct FEATURE_LOGGED_TRAITS *)&unk_14035C848,
         0LL,
         0,
         (const enum wil_ReportingKind *)&v27,

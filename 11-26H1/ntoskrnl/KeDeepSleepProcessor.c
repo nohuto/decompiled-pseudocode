@@ -1,12 +1,12 @@
 /*
- * XREFs of KeDeepSleepProcessor @ 0x1405F0AF4
+ * XREFs of KeDeepSleepProcessor @ 0x1405F3464
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403EB78C (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402F87D0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KeInterlockedSetProcessorAffinityEx @ 0x14042C030 (KeInterlockedSetProcessorAffinityEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x14042C170 (KeInterlockedClearProcessorAffinityEx.c)
- *     HviIsXboxNanovisorPresent @ 0x1406DC9D4 (HviIsXboxNanovisorPresent.c)
- *     KiSetUserTbFlushPending @ 0x1407284C0 (KiSetUserTbFlushPending.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140420700 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140420840 (KeInterlockedClearProcessorAffinityEx.c)
+ *     HviIsXboxNanovisorPresent @ 0x1406E0C74 (HviIsXboxNanovisorPresent.c)
+ *     KiSetUserTbFlushPending @ 0x14072D090 (KiSetUserTbFlushPending.c)
  */
 
 unsigned __int8 KeDeepSleepProcessor()
@@ -27,10 +27,10 @@ unsigned __int8 KeDeepSleepProcessor()
     CurrentPrcb = KeGetCurrentPrcb();
     Number = CurrentPrcb->Number;
     CurrentPrcb->DeepSleep = 1;
-    KeInterlockedSetProcessorAffinityEx((__int64)&KiDpcCorralLock.SListFaultAddress, Number);
+    KeInterlockedSetProcessorAffinityEx((__int64)&KiDpcCorralLock.Header.WaitListHead.Blink, Number);
     if ( !CurrentPrcb->DeepSleep )
     {
-      KeInterlockedClearProcessorAffinityEx((__int64)&KiDpcCorralLock.SListFaultAddress, CurrentPrcb->Number);
+      KeInterlockedClearProcessorAffinityEx((__int64)&KiDpcCorralLock.Header.WaitListHead.Blink, CurrentPrcb->Number);
       if ( KiFlushPcid )
       {
         v5 = __readcr3();

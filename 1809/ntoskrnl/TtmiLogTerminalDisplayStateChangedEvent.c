@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogTerminalDisplayStateChangedEvent @ 0x140885B24
+ * XREFs of TtmiLogTerminalDisplayStateChangedEvent @ 0x140886D84
  * Callers:
- *     TtmpWriteDisplayStateChangedEvent @ 0x14087F6A8 (TtmpWriteDisplayStateChangedEvent.c)
+ *     TtmpWriteDisplayStateChangedEvent @ 0x140880908 (TtmpWriteDisplayStateChangedEvent.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogTerminalDisplayStateChangedEvent(int a1, int a2, int a3)
@@ -33,9 +33,9 @@ char __fastcall TtmiLogTerminalDisplayStateChangedEvent(int a1, int a2, int a3)
   _UNKNOWN *retaddr; // [rsp+C0h] [rbp+5Fh] BYREF
 
   v3 = &retaddr;
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    LOBYTE(v3) = TlgKeywordOn(&stru_14096D820, 1uLL);
+    LOBYTE(v3) = TlgKeywordOn(&stru_14096E820, 1uLL);
     if ( (_BYTE)v3 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -55,7 +55,7 @@ char __fastcall TtmiLogTerminalDisplayStateChangedEvent(int a1, int a2, int a3)
       v18 = 4;
       v21 = 4;
       v24 = 4;
-      LOBYTE(v3) = TlgWrite(&stru_14096D820, &unk_140371A3B, 0LL, 0LL, 6u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_14096E820, &unk_14037288E, 0LL, 0LL, 6u, &pData);
     }
   }
   return (char)v3;

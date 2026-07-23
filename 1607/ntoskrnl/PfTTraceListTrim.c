@@ -1,8 +1,8 @@
 /*
- * XREFs of PfTTraceListTrim @ 0x140533DD0
+ * XREFs of PfTTraceListTrim @ 0x140534310
  * Callers:
- *     PfTTraceListAdd @ 0x1403E6D38 (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x140669770 (PfTCleanup.c)
+ *     PfTTraceListAdd @ 0x1403E8368 (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x140669854 (PfTCleanup.c)
  * Callees:
  *     <none>
  */
@@ -19,15 +19,15 @@ void __fastcall PfTTraceListTrim(int a1, unsigned int a2, __int64 a3)
 
   if ( a1 == 1 )
   {
-    v4 = &unk_140328208;
-    v5 = &dword_140328220;
-    v6 = &dword_140328324;
+    v4 = &unk_140328248;
+    v5 = &dword_140328260;
+    v6 = &dword_140328364;
   }
   else
   {
-    v4 = &unk_1403281F8;
-    v5 = &dword_140328218;
-    v6 = (int *)&unk_140328320;
+    v4 = &unk_140328238;
+    v5 = &dword_140328258;
+    v6 = (int *)&unk_140328360;
   }
   for ( ; *v5 > a2; *(_QWORD *)(a3 + 8) = v7 )
   {

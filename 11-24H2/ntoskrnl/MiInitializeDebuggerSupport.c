@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeDebuggerSupport @ 0x14067FAEC
+ * XREFs of MiInitializeDebuggerSupport @ 0x140680CEC
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MxInstallMoreMemory @ 0x14066C6F0 (MxInstallMoreMemory.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MxInstallMoreMemory @ 0x14066D8C0 (MxInstallMoreMemory.c)
  */
 
 __int64 MiInitializeDebuggerSupport()
@@ -21,15 +21,15 @@ __int64 MiInitializeDebuggerSupport()
   __m128i v9; // xmm3
   __m128i v10; // xmm3
 
-  v0 = (_QWORD *)MiReservePtes((__int64)&qword_140E37568, 2u);
+  v0 = (_QWORD *)MiReservePtes((__int64)&qword_140E376A8, 2u);
   v1 = 0;
-  qword_140E301D0 = (__int64)v0;
+  qword_140E30310 = (__int64)v0;
   if ( !v0 )
     MxInstallMoreMemory(3);
-  v2 = (unsigned int *)&unk_140E31B28;
+  v2 = (unsigned int *)&unk_140E31C68;
   *v0 = CLFS_LSN_NULL_EXT;
-  qword_140E301D8 = qword_140E301D0 + 8;
-  *(_QWORD *)(qword_140E301D0 + 8) = CLFS_LSN_NULL_EXT;
+  qword_140E30318 = qword_140E30310 + 8;
+  *(_QWORD *)(qword_140E30310 + 8) = CLFS_LSN_NULL_EXT;
   do
   {
     v3 = _mm_cvtsi32_si128(v1);

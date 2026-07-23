@@ -8,39 +8,39 @@
  *     NtClose @ 0x180163400 (NtClose.c)
  */
 
-__int64 __fastcall RtlpUninitializeAssemblyStorageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall RtlpUninitializeAssemblyStorageMap(__int64 a1)
 {
-  __int64 *v4; // rdi
+  PVOID *v1; // rdi
   unsigned int i; // esi
-  __int64 result; // rax
-  __int64 v8; // rbp
-  void *v9; // rcx
+  PVOID v4; // rax
+  __int64 v5; // rbp
+  void *v6; // rcx
 
   if ( a1 )
   {
-    v4 = (__int64 *)(a1 + 8);
+    v1 = (PVOID *)(a1 + 8);
     for ( i = 0; i < *(_DWORD *)(a1 + 4); ++i )
     {
-      result = *v4;
-      v8 = *(_QWORD *)(*v4 + 8LL * i);
-      if ( v8 )
+      v4 = *v1;
+      v5 = *((_QWORD *)*v1 + i);
+      if ( v5 )
       {
-        v9 = *(void **)(v8 + 24);
-        *(_DWORD *)(v8 + 8) = 0;
-        *(_QWORD *)(v8 + 16) = 0LL;
-        if ( v9 )
+        v6 = *(void **)(v5 + 24);
+        *(_DWORD *)(v5 + 8) = 0;
+        *(_QWORD *)(v5 + 16) = 0LL;
+        if ( v6 )
         {
-          NtClose(v9);
-          *(_QWORD *)(v8 + 24) = 0LL;
+          NtClose(v6);
+          *(_QWORD *)(v5 + 24) = 0LL;
         }
-        *(_QWORD *)(*v4 + 8LL * i) = 0LL;
-        result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8, a4);
+        *((_QWORD *)*v1 + i) = 0LL;
+        LODWORD(v4) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v5);
       }
     }
     if ( (*(_BYTE *)a1 & 1) != 0 )
-      result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *v4, a4);
+      LODWORD(v4) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *v1);
     *(_QWORD *)a1 = 0LL;
-    *v4 = 0LL;
+    *v1 = 0LL;
   }
-  return result;
+  return (int)v4;
 }

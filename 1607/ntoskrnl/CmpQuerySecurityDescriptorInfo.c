@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpQuerySecurityDescriptorInfo @ 0x1404049A0
+ * XREFs of CmpQuerySecurityDescriptorInfo @ 0x140403860
  * Callers:
- *     CmpQueryKeySecurity @ 0x14000B338 (CmpQueryKeySecurity.c)
+ *     CmpQueryKeySecurity @ 0x14000AEB8 (CmpQueryKeySecurity.c)
  * Callees:
- *     SeQuerySecurityDescriptorInfo @ 0x140404A00 (SeQuerySecurityDescriptorInfo.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140440140 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1404038C0 (SeQuerySecurityDescriptorInfo.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x14043F010 (CmpGetSecurityCacheEntryForKcbStack.c)
  */
 
 NTSTATUS __fastcall CmpQuerySecurityDescriptorInfo(

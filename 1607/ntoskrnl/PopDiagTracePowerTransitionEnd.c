@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTracePowerTransitionEnd @ 0x140530CF8
+ * XREFs of PopDiagTracePowerTransitionEnd @ 0x140531238
  * Callers:
- *     PopIssueActionRequest @ 0x140530068 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1405305A8 (PopIssueActionRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwWriteEndScenario @ 0x1405485B4 (EtwWriteEndScenario.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwWriteEndScenario @ 0x140548AF4 (EtwWriteEndScenario.c)
  */
 
 __int64 __fastcall PopDiagTracePowerTransitionEnd(int a1)

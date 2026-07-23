@@ -1,16 +1,16 @@
 /*
- * XREFs of VrpAddNamespaceNodeToList @ 0x140614330
+ * XREFs of VrpAddNamespaceNodeToList @ 0x1406143E4
  * Callers:
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1406130D8 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14061338C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpPreLoadKey @ 0x140615D08 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14061318C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140613440 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpPreLoadKey @ 0x140615DBC (VrpPreLoadKey.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ULongLongMult @ 0x1401B7584 (ULongLongMult.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ULongLongMult @ 0x1401B7468 (ULongLongMult.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     VrpFindExactNamespaceNode @ 0x140614C9C (VrpFindExactNamespaceNode.c)
+ *     VrpFindExactNamespaceNode @ 0x140614D50 (VrpFindExactNamespaceNode.c)
  */
 
 __int64 __fastcall VrpAddNamespaceNodeToList(ULONGLONG *a1, __int64 a2)

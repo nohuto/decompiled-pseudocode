@@ -1,9 +1,9 @@
 /*
  * XREFs of MiHotAddBootDeferredDescriptorsDiscardable @ 0x140B68BDC
  * Callers:
- *     MiHotAddBootDeferredDescriptors @ 0x1408506A0 (MiHotAddBootDeferredDescriptors.c)
+ *     MiHotAddBootDeferredDescriptors @ 0x1408509A0 (MiHotAddBootDeferredDescriptors.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
  *     MiHotAddBootDescriptor @ 0x140B994C0 (MiHotAddBootDescriptor.c)
  */
 

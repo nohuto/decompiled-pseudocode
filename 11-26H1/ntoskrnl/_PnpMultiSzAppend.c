@@ -1,12 +1,12 @@
 /*
- * XREFs of _PnpMultiSzAppend @ 0x140A933A4
+ * XREFs of _PnpMultiSzAppend @ 0x140A97EF4
  * Callers:
- *     _CmAppendDeclarativeDefaultFilters @ 0x14089B0D4 (_CmAppendDeclarativeDefaultFilters.c)
- *     _CmAppendDeclarativeFilterLevel @ 0x14089B1BC (_CmAppendDeclarativeFilterLevel.c)
- *     _CmGetDeviceChildren @ 0x140A92F7C (_CmGetDeviceChildren.c)
- *     _CmMergeFilterLists @ 0x140B524DC (_CmMergeFilterLists.c)
+ *     _CmAppendDeclarativeDefaultFilters @ 0x1408A14D4 (_CmAppendDeclarativeDefaultFilters.c)
+ *     _CmAppendDeclarativeFilterLevel @ 0x1408A15BC (_CmAppendDeclarativeFilterLevel.c)
+ *     _CmGetDeviceChildren @ 0x140A97ACC (_CmGetDeviceChildren.c)
+ *     _CmMergeFilterLists @ 0x140B54D7C (_CmMergeFilterLists.c)
  * Callees:
- *     RtlStringCbCopyExW @ 0x14044EBB0 (RtlStringCbCopyExW.c)
+ *     RtlStringCbCopyExW @ 0x140446CE0 (RtlStringCbCopyExW.c)
  */
 
 char __fastcall PnpMultiSzAppend(NTSTRSAFE_PWSTR pszDest, unsigned int *a2, const wchar_t *a3, wchar_t **a4)

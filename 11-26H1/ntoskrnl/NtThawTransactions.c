@@ -1,5 +1,5 @@
 /*
- * XREFs of NtThawTransactions @ 0x140534430
+ * XREFs of NtThawTransactions @ 0x1405368B0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 NtThawTransactions()
+NTSTATUS NtThawTransactions(void)
 {
   return __imp_NtThawTransactions();
 }

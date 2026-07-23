@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpGetMappingFromCacheEntry @ 0x140211650
+ * XREFs of LdrpGetMappingFromCacheEntry @ 0x14021147C
  * Callers:
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400FA57C (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F8308 (LdrpGetAlternateResourceModuleHandleEx.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
  */
 
 char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)

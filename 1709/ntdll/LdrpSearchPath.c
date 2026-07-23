@@ -21,34 +21,34 @@
  */
 
 __int64 __fastcall LdrpSearchPath(
-        unsigned __int16 *a1,
+        const UNICODE_STRING *a1,
         __int64 a2,
         char a3,
-        __int16 **a4,
+        wchar_t **a4,
         _WORD *a5,
         __int64 a6,
-        unsigned __int16 *a7,
+        const UNICODE_STRING *a7,
         bool *a8,
         __int64 a9)
 {
   __int64 v11; // r14
-  unsigned __int16 *v12; // rbx
-  unsigned __int16 *v13; // r15
+  const UNICODE_STRING *v12; // rbx
+  PCWCH *v13; // r15
   int v14; // ebx
   unsigned int v15; // r8d
-  __int16 *v16; // rdx
-  __int16 **v17; // rax
-  __int16 *v18; // rcx
-  __int16 **v19; // rsi
-  __int16 v20; // ax
+  wchar_t *v16; // rdx
+  wchar_t **v17; // rax
+  wchar_t *v18; // rcx
+  wchar_t **v19; // rsi
+  wchar_t v20; // ax
   int v21; // r9d
-  _WORD *v22; // rdx
-  __int16 *v23; // r12
-  __int16 **v24; // rax
-  __int16 *v25; // rdi
-  _WORD *v26; // rax
+  wchar_t *Buffer; // rdx
+  wchar_t *v23; // r12
+  wchar_t **v24; // rax
+  wchar_t *v25; // rdi
+  wchar_t *v26; // rax
   bool v27; // si
-  __int16 v28; // cx
+  wchar_t v28; // cx
   int v29; // eax
   _DWORD *v30; // rsi
   char IsSecurityEtwLoggingEnabled; // al
@@ -56,51 +56,44 @@ __int64 __fastcall LdrpSearchPath(
   _QWORD *v34; // rax
   _QWORD *v35; // r14
   _QWORD *v36; // rsi
-  unsigned __int16 **v37; // rcx
+  const UNICODE_STRING *v37; // rcx
   unsigned __int16 v38; // r15
   unsigned __int16 v39; // ax
-  __int64 Heap; // rax
-  int v41; // eax
-  void *v42; // rdx
+  _UNICODE_STRING *Heap; // rax
+  int Length; // eax
+  const EVENT_DESCRIPTOR *v42; // rdx
   _DWORD *v43; // rdx
   unsigned int v44; // r9d
   _QWORD *v45; // r8
-  __int64 v46; // [rsp+20h] [rbp-A9h]
-  unsigned __int16 *v47; // [rsp+28h] [rbp-A1h]
-  unsigned __int16 *v51; // [rsp+50h] [rbp-79h]
-  __int16 v52; // [rsp+60h] [rbp-69h] BYREF
-  _WORD *v53; // [rsp+68h] [rbp-61h]
-  __int64 v54; // [rsp+70h] [rbp-59h]
-  _WORD *v55; // [rsp+78h] [rbp-51h]
-  bool *v56; // [rsp+80h] [rbp-49h]
-  __int64 v57; // [rsp+88h] [rbp-41h]
-  __int64 v58; // [rsp+90h] [rbp-39h] BYREF
-  int v59; // [rsp+98h] [rbp-31h]
-  int v60; // [rsp+9Ch] [rbp-2Dh]
-  __int64 v61; // [rsp+A0h] [rbp-29h]
-  int v62; // [rsp+A8h] [rbp-21h]
-  int v63; // [rsp+ACh] [rbp-1Dh]
-  __int64 v64; // [rsp+B0h] [rbp-19h]
-  int v65; // [rsp+B8h] [rbp-11h]
-  int v66; // [rsp+BCh] [rbp-Dh]
+  _UNICODE_STRING *v49; // [rsp+50h] [rbp-79h]
+  _UNICODE_STRING Destination; // [rsp+60h] [rbp-69h] BYREF
+  __int64 v51; // [rsp+70h] [rbp-59h]
+  wchar_t *v52; // [rsp+78h] [rbp-51h]
+  bool *v53; // [rsp+80h] [rbp-49h]
+  __int64 v54; // [rsp+88h] [rbp-41h]
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+90h] [rbp-39h] BYREF
+  PCWCH v56; // [rsp+A0h] [rbp-29h]
+  int v57; // [rsp+A8h] [rbp-21h]
+  int v58; // [rsp+ACh] [rbp-1Dh]
+  wchar_t *v59; // [rsp+B0h] [rbp-19h]
+  int v60; // [rsp+B8h] [rbp-11h]
+  int v61; // [rsp+BCh] [rbp-Dh]
 
   v11 = a2;
-  v54 = a6;
+  v51 = a6;
   v12 = a1;
   v13 = 0LL;
-  v56 = a8;
-  v57 = a9;
-  v51 = 0LL;
+  v53 = a8;
+  v54 = a9;
+  v49 = 0LL;
   if ( (LdrpDebugFlags & 9) != 0 )
-  {
-    v47 = a1;
     LdrpLogDbgPrint(
       (unsigned int)"minkernel\\ntdll\\ldrfind.c",
       1201,
       (unsigned int)"LdrpSearchPath",
       3,
-      "DLL name: %wZ\n");
-  }
+      "DLL name: %wZ\n",
+      a1);
   if ( !*(_QWORD *)v11 )
   {
     v14 = LdrpComputeLazyDllPath(v11);
@@ -115,13 +108,13 @@ __int64 __fastcall LdrpSearchPath(
   }
   else
   {
-    v17 = (__int16 **)(v11 + 16);
+    v17 = (wchar_t **)(v11 + 16);
     if ( !*(_QWORD *)(v11 + 16) )
-      v17 = (__int16 **)v11;
+      v17 = (wchar_t **)v11;
     v16 = *v17;
     v18 = *v17;
   }
-  v19 = (__int16 **)(v11 + 16);
+  v19 = (wchar_t **)(v11 + 16);
   while ( 1 )
   {
     while ( 1 )
@@ -139,23 +132,23 @@ __int64 __fastcall LdrpSearchPath(
     }
     if ( v16 != *v19 || a3 )
       break;
-    v16 = *(__int16 **)v11;
-    v18 = *(__int16 **)v11;
+    v16 = *(wchar_t **)v11;
+    v18 = *(wchar_t **)v11;
   }
-  v14 = LdrpAllocateUnicodeString(&v52, *v12 + v15 + 2);
+  v14 = LdrpAllocateUnicodeString(&Destination, v12->Length + v15 + 2);
   if ( v14 >= 0 )
   {
-    v22 = v53;
-    v55 = v53;
+    Buffer = Destination.Buffer;
+    v52 = Destination.Buffer;
     if ( a4 && (v23 = *a4) != 0LL )
     {
       v25 = a4[1];
     }
     else
     {
-      v24 = (__int16 **)(v11 + 16);
+      v24 = (wchar_t **)(v11 + 16);
       if ( !*v19 )
-        v24 = (__int16 **)v11;
+        v24 = (wchar_t **)v11;
       v23 = *v24;
       v25 = *v24;
     }
@@ -174,34 +167,34 @@ LABEL_41:
               if ( v13 )
               {
                 if ( v14 < 0
-                  || (unsigned int)RtlCompareUnicodeStrings(
-                                     *((unsigned __int16 **)a7 + 1),
-                                     (unsigned __int64)*a7 >> 1,
-                                     *((_QWORD *)v13 + 1),
-                                     (unsigned __int64)*v13 >> 1,
-                                     1) )
+                  || RtlCompareUnicodeStrings(
+                       a7->Buffer,
+                       (unsigned __int64)a7->Length >> 1,
+                       v13[1],
+                       (unsigned __int64)*(unsigned __int16 *)v13 >> 1,
+                       1u) )
                 {
-                  v60 = 0;
-                  v63 = 0;
-                  v58 = *(_QWORD *)(LdrpImageEntry + 80);
-                  v59 = *(unsigned __int16 *)(LdrpImageEntry + 72) + 2;
-                  v61 = *((_QWORD *)v13 + 1);
-                  v62 = *v13 + 2;
+                  UserData.Reserved = 0;
+                  v58 = 0;
+                  UserData.Ptr = *(_QWORD *)(LdrpImageEntry + 80);
+                  UserData.Size = *(unsigned __int16 *)(LdrpImageEntry + 72) + 2;
+                  v56 = v13[1];
+                  v57 = *(unsigned __int16 *)v13 + 2;
                   if ( v14 >= 0 )
                   {
-                    v64 = *((_QWORD *)a7 + 1);
-                    v41 = *a7;
-                    v66 = 0;
-                    v65 = v41 + 2;
+                    v59 = a7->Buffer;
+                    Length = a7->Length;
+                    v61 = 0;
+                    v60 = Length + 2;
                   }
-                  v42 = &CurDirDllLoadFailureWarning;
+                  v42 = (const EVENT_DESCRIPTOR *)&CurDirDllLoadFailureWarning;
                   if ( v14 < 0 )
                     v42 = &CurDirDllLoadFailureError;
-                  EtwEventWriteNoRegistration(&UserLoaderGuid, v42, (unsigned int)((v14 >> 31) + 3), &v58, v46, v47);
+                  EtwEventWriteNoRegistration(&UserLoaderGuid, v42, (v14 >> 31) + 3, &UserData);
                 }
-                RtlFreeHeap(LdrpHeap, 0, (unsigned __int64)v13);
+                RtlFreeHeap(LdrpHeap, 0, v13);
               }
-              LdrpFreeUnicodeString(&v52);
+              LdrpFreeUnicodeString(&Destination);
               if ( v14 >= 0 )
               {
                 if ( a4 )
@@ -209,11 +202,11 @@ LABEL_41:
                   *a4 = v23;
                   a4[1] = v25;
                 }
-                if ( v56 )
-                  *v56 = v23 == *(__int16 **)(v11 + 16);
+                if ( v53 )
+                  *v53 = v23 == *(wchar_t **)(v11 + 16);
               }
-              v30 = (_DWORD *)v57;
-              if ( v57 )
+              v30 = (_DWORD *)v54;
+              if ( v54 )
               {
                 IsSecurityEtwLoggingEnabled = LdrpIsSecurityEtwLoggingEnabled();
                 v32 = 0;
@@ -240,15 +233,15 @@ LABEL_41:
               }
               goto LABEL_49;
             }
-            v23 = *(__int16 **)v11;
-            v25 = *(__int16 **)v11;
+            v23 = *(wchar_t **)v11;
+            v25 = *(wchar_t **)v11;
           }
           if ( *v25 != 59 )
             break;
           ++v25;
         }
-        v26 = v22;
-        v27 = v25 == *(__int16 **)(v11 + 8);
+        v26 = Buffer;
+        v27 = v25 == *(wchar_t **)(v11 + 8);
         while ( 1 )
         {
           v28 = *v25;
@@ -262,18 +255,18 @@ LABEL_41:
         if ( *v25 == 59 )
 LABEL_34:
           ++v25;
-        if ( v26 != v22 )
+        if ( v26 != Buffer )
           break;
-        v19 = (__int16 **)(v11 + 16);
+        v19 = (wchar_t **)(v11 + 16);
       }
       if ( *(v26 - 1) != 92 && *(v26 - 1) != 47 )
       {
         *v26 = 92;
         LOWORD(v26) = (_WORD)v26 + 2;
       }
-      v52 = (_WORD)v26 - (_WORD)v22;
-      RtlAppendUnicodeStringToString(&v52, a1);
-      v29 = LdrpResolveDllName((unsigned int)&v52, (_DWORD)a5, v54, (_DWORD)a7, 0);
+      Destination.Length = (_WORD)v26 - (_WORD)Buffer;
+      RtlAppendUnicodeStringToString(&Destination, a1);
+      v29 = LdrpResolveDllName(&Destination, a5, v51, a7, 0);
       v14 = v29;
       if ( v27 )
       {
@@ -286,35 +279,35 @@ LABEL_34:
           v36 = (_QWORD *)*v34;
           if ( (_QWORD *)*v34 != v34 )
           {
-            v37 = (unsigned __int16 **)a7;
-            v38 = *a7 >> 1;
+            v37 = a7;
+            v38 = a7->Length >> 1;
             do
             {
               v39 = *((_WORD *)v36 + 8) >> 1;
               if ( v38 > v39 )
               {
-                if ( !(unsigned int)RtlCompareUnicodeStrings(v37[1], v39, v36[3], v39, 1) )
+                if ( !RtlCompareUnicodeStrings(v37->Buffer, v39, (PCWCH)v36[3], v39, 1u) )
                 {
-                  v13 = v51;
+                  v13 = (PCWCH *)v49;
                   goto LABEL_82;
                 }
-                v37 = (unsigned __int16 **)a7;
+                v37 = a7;
               }
               v36 = (_QWORD *)*v36;
             }
             while ( v36 != v35 );
           }
         }
-        Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, *a7 + 18LL);
-        v51 = (unsigned __int16 *)Heap;
-        v13 = (unsigned __int16 *)Heap;
+        Heap = (_UNICODE_STRING *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, a7->Length + 18LL);
+        v49 = Heap;
+        v13 = (PCWCH *)Heap;
         if ( Heap )
         {
-          *(_WORD *)Heap = 0;
-          *(_WORD *)(Heap + 2) = *a7;
-          *(_QWORD *)(Heap + 8) = Heap + 16;
-          RtlCopyUnicodeString((unsigned __int16 *)Heap, a7);
-          *(_WORD *)(*((_QWORD *)v13 + 1) + 2 * ((unsigned __int64)*a7 >> 1)) = 0;
+          Heap->Length = 0;
+          Heap->MaximumLength = a7->Length;
+          Heap->Buffer = &Heap[1].Length;
+          RtlCopyUnicodeString(Heap, a7);
+          v13[1][(unsigned __int64)a7->Length >> 1] = 0;
         }
         v14 = -1073741515;
 LABEL_82:
@@ -325,8 +318,8 @@ LABEL_82:
 LABEL_53:
       if ( v14 != -1073741515 && v14 != -1073741790 && v14 != -1073741757 && v14 != -1073741715 )
         goto LABEL_41;
-      v19 = (__int16 **)(v11 + 16);
-      v22 = v55;
+      v19 = (wchar_t **)(v11 + 16);
+      Buffer = v52;
       *a5 = 0;
     }
   }

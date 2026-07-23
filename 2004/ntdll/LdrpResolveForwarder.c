@@ -13,7 +13,7 @@
  *     LdrpCheckRedirection @ 0x1800D4F30 (LdrpCheckRedirection.c)
  */
 
-__int64 __fastcall LdrpResolveForwarder(char *Str, __int64 a2, __int64 a3, char **a4)
+__int64 __fastcall LdrpResolveForwarder(char *Str, _QWORD *a2, __int64 a3, char **a4)
 {
   __int64 v4; // rax
   int v5; // r15d
@@ -24,20 +24,20 @@ __int64 __fastcall LdrpResolveForwarder(char *Str, __int64 a2, __int64 a3, char 
   unsigned int v14; // ebx
   __int64 v15; // rax
   int ProcedureAddress; // eax
-  __int64 v17; // rcx
-  char *v19; // rdi
-  unsigned __int64 v20; // r8
-  unsigned __int64 v21; // r9
+  char *v18; // rdi
+  int v19; // eax
+  char *v20; // r8
+  char *v21; // r9
   __int64 v22; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v23; // [rsp+38h] [rbp-28h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-28h] BYREF
   __int64 v24; // [rsp+40h] [rbp-20h]
-  STRING SourceString; // [rsp+48h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+48h] [rbp-18h] BYREF
   ULONG Value; // [rsp+A0h] [rbp+40h] BYREF
 
   v4 = *(_QWORD *)(a3 + 176);
   v5 = 0;
   v22 = 0LL;
-  v23 = 0LL;
+  BaseAddress = 0LL;
   v24 = v4;
   while ( 1 )
   {
@@ -61,15 +61,15 @@ LABEL_29:
     if ( v11 == 5 && (*(_DWORD *)Str | 0x20202020) == 0x6C64746E && ((unsigned __int8)Str[4] | 0x20) == 0x6C )
     {
       a2 = LdrpNtDllDataTableEntry;
-      v22 = LdrpNtDllDataTableEntry;
+      v22 = (__int64)LdrpNtDllDataTableEntry;
     }
     else
     {
-      v13 = LdrpLoadDependentModule(&SourceString, v24, a2, 1, (volatile signed __int32 **)&v22, (__int64)&v23);
+      v13 = LdrpLoadDependentModule(&SourceString, v24, (__int64)a2, 1, (PVOID *)&v22, (__int64)&BaseAddress);
       v14 = v13;
       if ( v13 < 0 || v13 == 259 )
         goto LABEL_30;
-      a2 = v22;
+      a2 = (_QWORD *)v22;
     }
     if ( (*(_DWORD *)(*(_QWORD *)(a3 + 176) + 32LL) & 0x2000000) != 0 )
     {
@@ -81,7 +81,7 @@ LABEL_29:
           return 0LL;
       }
     }
-    ProcedureAddress = LdrpGetProcedureAddress(*(_QWORD *)(a2 + 48), v12, Value, a4);
+    ProcedureAddress = LdrpGetProcedureAddress(a2[6], v12, Value, a4);
     v14 = ProcedureAddress;
     if ( ProcedureAddress != -1073741267 )
       break;
@@ -91,25 +91,26 @@ LABEL_29:
   }
   if ( ProcedureAddress >= 0 )
   {
-    v19 = *(char **)(a2 + 48);
-    if ( (unsigned int)LdrControlFlowGuardEnforced(v17) )
+    v18 = (char *)a2[6];
+    LOBYTE(v19) = LdrControlFlowGuardEnforced();
+    if ( v19 )
     {
-      if ( (unsigned __int64)v19 < *((_QWORD *)&xmmword_18017F510 + 1)
-        || (unsigned __int64)v19 >= *((_QWORD *)&xmmword_18017F510 + 1)
+      if ( (unsigned __int64)v18 < *((_QWORD *)&xmmword_18017F510 + 1)
+        || (unsigned __int64)v18 >= *((_QWORD *)&xmmword_18017F510 + 1)
                                   + (unsigned __int64)(unsigned int)qword_18017F520 )
       {
-        RtlpxLookupFunctionTable((unsigned __int64)v19, (signed __int64)&SourceString, v20, v21);
+        RtlpxLookupFunctionTable((unsigned __int64)v18, (signed __int64)&SourceString, v20, v21);
       }
       else
       {
-        SourceString = (STRING)xmmword_18017F510;
+        SourceString = (ANSI_STRING)xmmword_18017F510;
       }
-      if ( SourceString.Buffer != v19 )
+      if ( SourceString.Buffer != v18 )
         __fastfail(0x18u);
     }
   }
 LABEL_30:
-  if ( v23 )
-    RtlFreeHeap(LdrpHeap, 0, v23);
+  if ( BaseAddress )
+    RtlFreeHeap(LdrpHeap, 0, BaseAddress);
   return v14;
 }

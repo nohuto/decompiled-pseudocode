@@ -1,154 +1,162 @@
 /*
- * XREFs of MiFindProcessorsForMemoryOnlyNode @ 0x140CFD7F4
+ * XREFs of MiFindProcessorsForMemoryOnlyNode @ 0x140D03B74
  * Callers:
- *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140CFDB40 (MiReassignProcessorsToMemoryOnlyNodes.c)
+ *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140D03EE8 (MiReassignProcessorsToMemoryOnlyNodes.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x1403E9FB0 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402F6E90 (KeFindFirstSetRightGroupAffinity.c)
  */
 
 __int64 __fastcall MiFindProcessorsForMemoryOnlyNode(unsigned int a1, unsigned int a2)
 {
-  _DWORD *v3; // r14
-  __int64 v4; // rdx
-  unsigned __int64 v5; // rax
-  unsigned int *i; // r15
-  int v7; // r13d
-  _QWORD *v8; // rax
-  __int64 v9; // rcx
-  _WORD *j; // rdi
-  unsigned int v11; // esi
-  __int64 v12; // rbp
-  __int64 v13; // rbx
-  __int64 FirstSetRightGroupAffinity; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  bool v17; // zf
-  __int64 v18; // r11
-  __int64 v19; // r10
-  __int64 v20; // rcx
-  __int16 v21; // r8
-  __int64 v22; // r9
+  __int64 v3; // r8
+  unsigned __int64 v4; // rax
+  unsigned int *v5; // r15
+  int v6; // r13d
+  _QWORD *v7; // rax
+  __int64 v8; // rcx
+  _WORD *i; // rdi
+  unsigned int j; // esi
+  __int64 v11; // rbp
+  __int64 v12; // rbx
+  __int64 FirstSetRightGroupAffinity; // r9
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  bool v16; // zf
+  __int64 v17; // r11
+  __int16 v18; // r8
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // r10
+  __int64 v22; // rbx
   __int64 v23; // rbx
-  __int64 v24; // rbx
-  __int64 v25; // rax
+  __int64 v24; // rax
   __int64 result; // rax
-  __int64 v27; // [rsp+20h] [rbp-68h]
-  unsigned __int64 v28; // [rsp+28h] [rbp-60h]
-  __int64 v29; // [rsp+30h] [rbp-58h]
-  __int128 v30[5]; // [rsp+38h] [rbp-50h] BYREF
-  __int16 v31; // [rsp+90h] [rbp+8h]
-  _QWORD *v32; // [rsp+A0h] [rbp+18h]
-  __int64 v33; // [rsp+A8h] [rbp+20h]
+  __int64 v26; // [rsp+20h] [rbp-78h]
+  _WORD *v27; // [rsp+28h] [rbp-70h]
+  unsigned int *v28; // [rsp+30h] [rbp-68h]
+  _DWORD *v29; // [rsp+38h] [rbp-60h]
+  unsigned __int64 v30; // [rsp+40h] [rbp-58h]
+  __int64 v31; // [rsp+48h] [rbp-50h]
+  __int128 v32[4]; // [rsp+50h] [rbp-48h] BYREF
+  __int16 v33; // [rsp+A0h] [rbp+8h]
+  _QWORD *v34; // [rsp+B0h] [rbp+18h]
+  __int64 v35; // [rsp+B8h] [rbp+20h]
 
-  v3 = *(_DWORD **)(384LL * a1 + qword_140E2D6B8 + 376);
-  v4 = qword_140E2D690 + 4LL * (unsigned __int16)KeNumberNodes * a1;
-  v5 = v4 + 4LL * (unsigned __int16)KeNumberNodes;
+  v29 = *(_DWORD **)(384LL * a1 + qword_140E2D838 + 376);
+  v3 = qword_140E2D810 + 4LL * (unsigned __int16)KeNumberNodes * a1;
+  v4 = v3 + 4LL * (unsigned __int16)KeNumberNodes;
+  v5 = (unsigned int *)(v3 + 4);
+  v30 = v4;
+LABEL_2:
   v28 = v5;
-  for ( i = (unsigned int *)(v4 + 4); (unsigned __int64)i < v5; ++i )
+  if ( (unsigned __int64)v5 >= v4 )
+    return 0LL;
+  v6 = 1;
+  v31 = *v5;
+  v7 = *(_QWORD **)(384 * v31 + qword_140E2D838 + 376);
+  v8 = 1LL;
+  v34 = v7;
+  for ( i = (_WORD *)v7 + 13; ; ++i )
   {
-    v7 = 1;
-    v29 = *i;
-    v8 = *(_QWORD **)(384 * v29 + qword_140E2D6B8 + 376);
-    v9 = 1LL;
-    v32 = v8;
-    for ( j = (_WORD *)v8 + 13; ; ++j )
+    v27 = i;
+    v26 = v8;
+    if ( v8 >= 3 )
     {
-      v27 = v9;
-      if ( v9 >= 3 )
-        break;
-      v31 = *(j - 3);
-      if ( v31 )
-      {
-        v11 = *((unsigned __int16 *)v8 + 8) - 1;
-        while ( 2 )
-        {
-          v12 = 16LL * v11;
-          v30[0] = *(_OWORD *)(*v8 + v12);
-          v13 = *(_QWORD *)&v30[0];
-          while ( 1 )
-          {
-            if ( !v13 )
-              goto LABEL_25;
-            FirstSetRightGroupAffinity = (unsigned int)KeFindFirstSetRightGroupAffinity((unsigned __int64 *)v30);
-            v15 = KiProcessorBlock[FirstSetRightGroupAffinity];
-            v16 = *(_QWORD *)(v15 + 200);
-            v13 &= ~v16;
-            v17 = *(_BYTE *)(v15 + 35352) == 1;
-            *(_QWORD *)&v30[0] = v13;
-            if ( !v17 + 1 == v7 )
-            {
-              v18 = *(_QWORD *)(v15 + 36512);
-              v19 = 0LL;
-              v33 = v13;
-              v20 = v16 | v13 & v18;
-              v21 = 0;
-              while ( v20 )
-              {
-                v22 = KiProcessorBlock[FirstSetRightGroupAffinity];
-                if ( (*(_BYTE *)(v22 + 35352) != 1) + 1 != v7 )
-                  break;
-                v23 = *(_QWORD *)(v22 + 200);
-                v19 |= v23;
-                ++v21;
-                v24 = ~v23;
-                v20 &= v24;
-                v13 = v33 & v24;
-                v33 = v13;
-                v25 = v13;
-                *(_QWORD *)&v30[0] = v13;
-                if ( a2 == 1 )
-                {
-                  v13 &= ~v18;
-                  *(_QWORD *)&v30[0] = v25 & ~v18;
-                  v20 = v20 == 0;
-                  break;
-                }
-                if ( a2 == 2 )
-                {
-                  v20 = 0LL;
-                  break;
-                }
-                FirstSetRightGroupAffinity = (unsigned int)(FirstSetRightGroupAffinity + 1);
-              }
-              if ( (!v21 || a2 == 2 || v21 != v31) && !v20 )
-                break;
-            }
-          }
-          if ( v21 )
-          {
-            if ( a2 > 1 )
-              goto LABEL_32;
-            if ( *(j - 3) != v21 )
-            {
-              *(_QWORD *)(*v32 + 16LL * v11) &= ~v19;
-              *(j - 3) -= v21;
-              if ( !a2 )
-                --*j;
-LABEL_32:
-              result = 1LL;
-              **(_QWORD **)v3 = v19;
-              *(_WORD *)(*(_QWORD *)v3 + 8LL) = *(_WORD *)(*(_QWORD *)v3 + v12 + 8);
-              *((_WORD *)v3 + v7 + 9) = v21;
-              *((_WORD *)v3 + v7 + 12) = 1;
-              v3[11] = v29;
-              return result;
-            }
-          }
-LABEL_25:
-          v8 = v32;
-          if ( v11 )
-          {
-            --v11;
-            continue;
-          }
-          break;
-        }
-        v9 = v27;
-      }
-      ++v7;
-      ++v9;
+      v4 = v30;
+      ++v5;
+      goto LABEL_2;
     }
-    v5 = v28;
+    v33 = *(i - 3);
+    if ( v33 )
+      break;
+LABEL_28:
+    ++v6;
+    ++v8;
   }
-  return 0LL;
+  for ( j = *((unsigned __int16 *)v7 + 8) - 1; ; --j )
+  {
+    v11 = 16LL * j;
+    v32[0] = *(_OWORD *)(*v7 + v11);
+    v12 = *(_QWORD *)&v32[0];
+    if ( *(_QWORD *)&v32[0] )
+    {
+      do
+      {
+        FirstSetRightGroupAffinity = (unsigned int)KeFindFirstSetRightGroupAffinity((unsigned __int64 *)v32);
+        v14 = KiProcessorBlock[FirstSetRightGroupAffinity];
+        v15 = *(_QWORD *)(v14 + 200);
+        v12 &= ~v15;
+        v16 = *(_BYTE *)(v14 + 35352) == 1;
+        *(_QWORD *)&v32[0] = v12;
+        if ( !v16 + 1 == v6 )
+        {
+          v17 = *(_QWORD *)(v14 + 36512);
+          v18 = 0;
+          v35 = v12;
+          v19 = v15 | v12 & v17;
+          v20 = 0LL;
+          while ( v19 )
+          {
+            v21 = KiProcessorBlock[FirstSetRightGroupAffinity];
+            if ( (*(_BYTE *)(v21 + 35352) != 1) + 1 != v6 )
+              break;
+            v22 = *(_QWORD *)(v21 + 200);
+            v20 |= v22;
+            ++v18;
+            v23 = ~v22;
+            v19 &= v23;
+            v12 = v35 & v23;
+            v35 = v12;
+            v24 = v12;
+            *(_QWORD *)&v32[0] = v12;
+            if ( a2 == 1 )
+            {
+              v12 &= ~v17;
+              *(_QWORD *)&v32[0] = v24 & ~v17;
+              v19 = v19 == 0;
+              break;
+            }
+            if ( a2 == 2 )
+            {
+              v19 = 0LL;
+              break;
+            }
+            FirstSetRightGroupAffinity = (unsigned int)(FirstSetRightGroupAffinity + 1);
+          }
+          if ( (!v18 || a2 == 2 || v18 != v33) && !v19 )
+            break;
+        }
+        v20 = 0LL;
+        v18 = 0;
+      }
+      while ( v12 );
+      i = v27;
+      v5 = v28;
+      if ( v18 )
+      {
+        if ( a2 > 1 )
+          goto LABEL_32;
+        if ( *(v27 - 3) != v18 )
+          break;
+      }
+    }
+    v7 = v34;
+    if ( !j )
+    {
+      v8 = v26;
+      goto LABEL_28;
+    }
+  }
+  *(_QWORD *)(*v34 + 16LL * j) &= ~v20;
+  *(v27 - 3) -= v18;
+  if ( !a2 )
+    --*v27;
+LABEL_32:
+  result = 1LL;
+  **(_QWORD **)v29 = v20;
+  *(_WORD *)(*(_QWORD *)v29 + 8LL) = *(_WORD *)(*(_QWORD *)v29 + v11 + 8);
+  *((_WORD *)v29 + v6 + 9) = v18;
+  *((_WORD *)v29 + v6 + 12) = 1;
+  v29[11] = v31;
+  return result;
 }

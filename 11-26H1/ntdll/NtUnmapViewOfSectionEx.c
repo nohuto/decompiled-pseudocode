@@ -1,16 +1,16 @@
 /*
- * XREFs of NtUnmapViewOfSectionEx @ 0x180162B30
+ * XREFs of NtUnmapViewOfSectionEx @ 0x180162A30
  * Callers:
- *     RtlGetImageFileMachines @ 0x180044D50 (RtlGetImageFileMachines.c)
+ *     RtlGetImageFileMachines @ 0x18002F2C0 (RtlGetImageFileMachines.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtUnmapViewOfSectionEx()
+NTSTATUS __cdecl NtUnmapViewOfSectionEx(HANDLE ProcessHandle, PVOID BaseAddress, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 480LL;
+  result = 480;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

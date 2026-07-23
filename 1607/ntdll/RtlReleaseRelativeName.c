@@ -1,35 +1,32 @@
 /*
- * XREFs of RtlReleaseRelativeName @ 0x18000E930
+ * XREFs of RtlReleaseRelativeName @ 0x18000E920
  * Callers:
- *     LdrpMapResourceFile @ 0x18000E970 (LdrpMapResourceFile.c)
- *     RtlpResolveAssemblyStorageMapEntry @ 0x180068EAC (RtlpResolveAssemblyStorageMapEntry.c)
- *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800697C0 (RtlpProbeAssemblyStorageRootForAssembly.c)
- *     RtlpFileIsWin32WithRCManifest @ 0x18006A95C (RtlpFileIsWin32WithRCManifest.c)
- *     LdrpCnvrtShortToLongFileName @ 0x1800DC01C (LdrpCnvrtShortToLongFileName.c)
- *     LdrpResMapFile @ 0x1800DD12C (LdrpResMapFile.c)
- *     RtlpMUIEnumerateFolder @ 0x1800E7250 (RtlpMUIEnumerateFolder.c)
- *     _ResCreateFile @ 0x180103B80 (_ResCreateFile.c)
- *     _ResGetFileAttributesEx @ 0x180104948 (_ResGetFileAttributesEx.c)
+ *     LdrpMapResourceFile @ 0x18000E960 (LdrpMapResourceFile.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x180068E9C (RtlpResolveAssemblyStorageMapEntry.c)
+ *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800697B0 (RtlpProbeAssemblyStorageRootForAssembly.c)
+ *     RtlpFileIsWin32WithRCManifest @ 0x18006A94C (RtlpFileIsWin32WithRCManifest.c)
+ *     LdrpCnvrtShortToLongFileName @ 0x1800DC0DC (LdrpCnvrtShortToLongFileName.c)
+ *     LdrpResMapFile @ 0x1800DD1EC (LdrpResMapFile.c)
+ *     RtlpMUIEnumerateFolder @ 0x1800E7310 (RtlpMUIEnumerateFolder.c)
+ *     _ResCreateFile @ 0x180103AC0 (_ResCreateFile.c)
+ *     _ResGetFileAttributesEx @ 0x180104888 (_ResGetFileAttributesEx.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  */
 
-__int64 __fastcall RtlReleaseRelativeName(__int64 a1)
+void __cdecl RtlReleaseRelativeName(PRTL_RELATIVE_NAME_U RelativeName)
 {
-  __int64 v1; // rbx
-  __int64 result; // rax
+  PRTLP_CURDIR_REF CurDirRef; // rbx
 
-  v1 = *(_QWORD *)(a1 + 24);
-  if ( v1 )
+  CurDirRef = RelativeName->CurDirRef;
+  if ( CurDirRef )
   {
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v1, 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
+    if ( _InterlockedExchangeAdd(&CurDirRef->ReferenceCount, 0xFFFFFFFF) == 1 )
     {
-      NtClose(*(HANDLE *)(v1 + 8));
-      result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v1);
+      NtClose(CurDirRef->DirectoryHandle);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, CurDirRef);
     }
-    *(_QWORD *)(a1 + 24) = 0LL;
+    RelativeName->CurDirRef = 0LL;
   }
-  return result;
 }

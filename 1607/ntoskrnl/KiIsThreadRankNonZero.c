@@ -1,13 +1,13 @@
 /*
- * XREFs of KiIsThreadRankNonZero @ 0x1400D0190
+ * XREFs of KiIsThreadRankNonZero @ 0x1400CE030
  * Callers:
- *     KiDirectSwitchThread @ 0x140052C70 (KiDirectSwitchThread.c)
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
- *     KiSearchForNewThread @ 0x14005B980 (KiSearchForNewThread.c)
- *     KeQueryEffectiveBasePriorityThread @ 0x1400BF138 (KeQueryEffectiveBasePriorityThread.c)
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
+ *     KiDirectSwitchThread @ 0x1400527F0 (KiDirectSwitchThread.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
+ *     KiSearchForNewThread @ 0x14005B500 (KiSearchForNewThread.c)
+ *     KeQueryEffectiveBasePriorityThread @ 0x1400BCFC8 (KeQueryEffectiveBasePriorityThread.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D0220 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400CE0C0 (KiGetThreadEffectiveRankNonZero.c)
  */
 
 bool __fastcall KiIsThreadRankNonZero(__int64 a1, struct _KPRCB *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpCloseDirectoryObject @ 0x1404D5BC4
+ * XREFs of ObpCloseDirectoryObject @ 0x1404B91C8
  * Callers:
  *     <none>
  * Callees:

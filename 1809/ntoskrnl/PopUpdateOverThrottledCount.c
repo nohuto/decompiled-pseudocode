@@ -1,33 +1,33 @@
 /*
- * XREFs of PopUpdateOverThrottledCount @ 0x14086C7E0
+ * XREFs of PopUpdateOverThrottledCount @ 0x14086DA40
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x14018BEF4 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalZoneRemove @ 0x14086C640 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x14018C034 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalZoneRemove @ 0x14086D8A0 (PopThermalZoneRemove.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     PopDiagTraceThermalOverthrottleState @ 0x1402E1F38 (PopDiagTraceThermalOverthrottleState.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceThermalOverthrottleState @ 0x1402E2128 (PopDiagTraceThermalOverthrottleState.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopUpdateOverThrottledCount(__int64 a1, unsigned __int8 a2)
 {
-  int v4; // [rsp+58h] [rbp+10h] BYREF
+  int Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   PopDiagTraceThermalOverthrottleState(*(_QWORD *)(a1 + 48), a2);
   PopAcquirePolicyLock();
   if ( a2 )
   {
-    if ( ++dword_140417258 == 1 )
+    if ( ++dword_140418218 == 1 )
     {
-      v4 = 1;
+      Buffer = 1;
 LABEL_6:
-      ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_OVERTHROTTLE, (__int64)&v4, 4LL);
+      ZwUpdateWnfStateData(&WNF_PO_THERMAL_OVERTHROTTLE, &Buffer, 4u, 0LL, 0LL, 0, 0);
     }
   }
-  else if ( !--dword_140417258 )
+  else if ( !--dword_140418218 )
   {
-    v4 = 0;
+    Buffer = 0;
     goto LABEL_6;
   }
   return PopReleasePolicyLock();

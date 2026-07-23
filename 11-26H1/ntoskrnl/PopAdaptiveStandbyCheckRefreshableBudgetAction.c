@@ -1,8 +1,8 @@
 /*
- * XREFs of PopAdaptiveStandbyCheckRefreshableBudgetAction @ 0x1407DEEF4
+ * XREFs of PopAdaptiveStandbyCheckRefreshableBudgetAction @ 0x1407E3724
  * Callers:
- *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407DE80C (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
- *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x1407DF07C (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
+ *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407E2E8C (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
+ *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x1407E38AC (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ char __fastcall PopAdaptiveStandbyCheckRefreshableBudgetAction(__int64 a1, __int
     v6 = *(_DWORD *)(a2 + 8);
     if ( v6 && (v7 = *(_DWORD *)(a2 + 4)) != 0 )
     {
-      if ( *(_BYTE *)(a1 + 176) )
+      if ( *(_BYTE *)(a1 + 196) )
       {
         *a4 = 12;
       }

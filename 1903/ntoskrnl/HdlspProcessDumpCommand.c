@@ -33,8 +33,8 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
   const char *v15; // rcx
   bool v16; // zf
   struct _KPRCB *v17; // rcx
-  struct _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
-  STRING v19; // [rsp+50h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
+  _STRING v19; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   char v21; // [rsp+A8h] [rbp+38h] BYREF
 

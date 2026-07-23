@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlTryAcquireSRWLockExclusive @ 0x18001B950
+ * XREFs of RtlTryAcquireSRWLockExclusive @ 0x180048350
  * Callers:
- *     RtlpWnfWalkUserSubscriptionList @ 0x180021030 (RtlpWnfWalkUserSubscriptionList.c)
- *     RtlpHeapTrkFindStack @ 0x18003E9C0 (RtlpHeapTrkFindStack.c)
- *     RtlpHeapTrkDumpOutstandingAllocs @ 0x18003F3E0 (RtlpHeapTrkDumpOutstandingAllocs.c)
- *     RtlpFcUpdateLocalConfiguration @ 0x1800D6550 (RtlpFcUpdateLocalConfiguration.c)
- *     RtlpHpVsContextAllocate @ 0x1800ED0DC (RtlpHpVsContextAllocate.c)
- *     RtlpHeapTrkDumpStacks @ 0x18010DCB4 (RtlpHeapTrkDumpStacks.c)
- *     RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x180141DD8 (RtlpAcquireDescriptorPseudoGlobalLockEx.c)
+ *     RtlpHeapTrkFindStack @ 0x18001EC40 (RtlpHeapTrkFindStack.c)
+ *     RtlpHeapTrkDumpOutstandingAllocs @ 0x18001F660 (RtlpHeapTrkDumpOutstandingAllocs.c)
+ *     RtlpWnfWalkUserSubscriptionList @ 0x18004DA30 (RtlpWnfWalkUserSubscriptionList.c)
+ *     RtlpFcUpdateLocalConfiguration @ 0x1800D18C0 (RtlpFcUpdateLocalConfiguration.c)
+ *     RtlpHpVsContextAllocate @ 0x1800E80AC (RtlpHpVsContextAllocate.c)
+ *     RtlpHeapTrkDumpStacks @ 0x180108B94 (RtlpHeapTrkDumpStacks.c)
+ *     RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x18013FF88 (RtlpAcquireDescriptorPseudoGlobalLockEx.c)
  * Callees:
- *     RtlpAbFreeKernelEntry @ 0x180019D70 (RtlpAbFreeKernelEntry.c)
+ *     RtlpAbFreeKernelEntry @ 0x180046770 (RtlpAbFreeKernelEntry.c)
  */
 
-char __fastcall RtlTryAcquireSRWLockExclusive(volatile signed __int32 *a1)
+BOOLEAN __cdecl RtlTryAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
   char *v1; // rbx
   char *SchedulerSharedDataSlot; // r9
   __int64 i; // rdx
-  volatile signed __int32 **v4; // r8
+  PRTL_SRWLOCK *v4; // r8
 
   v1 = 0LL;
   SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -25,17 +25,17 @@ char __fastcall RtlTryAcquireSRWLockExclusive(volatile signed __int32 *a1)
   {
     for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
     {
-      v4 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * i];
+      v4 = (PRTL_SRWLOCK *)&SchedulerSharedDataSlot[8 * i];
       if ( !*v4 )
       {
         v1 = &SchedulerSharedDataSlot[8 * i];
         if ( v4 )
-          *v4 = a1;
+          *v4 = SRWLock;
         break;
       }
     }
   }
-  if ( !_interlockedbittestandset64(a1, 0LL) )
+  if ( !_interlockedbittestandset64((volatile signed __int32 *)SRWLock, 0LL) )
     return 1;
   if ( v1 )
   {

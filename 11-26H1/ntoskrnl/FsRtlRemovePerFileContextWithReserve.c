@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlRemovePerFileContextWithReserve @ 0x1405B5980
+ * XREFs of FsRtlRemovePerFileContextWithReserve @ 0x1405B8190
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlLookupPerFileContext @ 0x14046F460 (FsRtlLookupPerFileContext.c)
- *     FsRtlRemovePerFileContext @ 0x1405B58B0 (FsRtlRemovePerFileContext.c)
+ *     FsRtlLookupPerFileContext @ 0x140468BE0 (FsRtlLookupPerFileContext.c)
+ *     FsRtlRemovePerFileContext @ 0x1405B80C0 (FsRtlRemovePerFileContext.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __fastcall FsRtlRemovePerFileContextWithReserve(

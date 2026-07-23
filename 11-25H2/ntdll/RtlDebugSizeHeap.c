@@ -14,12 +14,12 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlDebugSizeHeap(__int64 a1, int a2, __int64 a3)
+SIZE_T __fastcall RtlDebugSizeHeap(__int64 a1, int a2, char *a3)
 {
   char v6; // r14
-  __int64 v7; // rdi
-  unsigned int v8; // esi
-  __int64 v9; // rdx
+  SIZE_T v7; // rdi
+  ULONG v8; // esi
+  char *v9; // rdx
 
   v6 = 0;
   if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
@@ -30,23 +30,23 @@ __int64 __fastcall RtlDebugSizeHeap(__int64 a1, int a2, __int64 a3)
     v8 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
     if ( (v8 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v8 |= 1u;
       v6 = 1;
     }
-    RtlpValidateHeap(a1, 0LL);
+    RtlpValidateHeap(a1);
     v9 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
-      v9 -= 16LL * *(unsigned __int8 *)(v9 + 14);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
+      v9 -= 16 * (unsigned __int8)v9[14];
     if ( (unsigned __int8)RtlpValidateHeapEntry(a1, v9, "RtlSizeHeap") )
-      v7 = RtlSizeHeap(a1, v8, a3);
+      v7 = RtlSizeHeap((PVOID)a1, v8, a3);
   }
   else
   {
     v7 = 0LL;
   }
   if ( v6 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return v7;
 }

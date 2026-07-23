@@ -1,5 +1,5 @@
 /*
- * XREFs of KeIsEmptyAffinityEx @ 0x140474980
+ * XREFs of KeIsEmptyAffinityEx @ 0x14046E100
  * Callers:
  *     <none>
  * Callees:

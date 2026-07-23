@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPfAllocateMdls @ 0x140499560
+ * XREFs of MiPfAllocateMdls @ 0x140499FF0
  * Callers:
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
  * Callees:
- *     MiEndingOffsetWithLock @ 0x140023560 (MiEndingOffsetWithLock.c)
- *     MiGetSubsectionDriverProtos @ 0x140026CD4 (MiGetSubsectionDriverProtos.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     MiSetInPagePriority @ 0x1400869D8 (MiSetInPagePriority.c)
- *     MmCreateMdl @ 0x140086A14 (MmCreateMdl.c)
- *     MiFreeInPageSupportBlock @ 0x1400C63A0 (MiFreeInPageSupportBlock.c)
- *     MiGetInPageSupportBlock @ 0x1400E7520 (MiGetInPageSupportBlock.c)
- *     MiGetSharedProtos @ 0x1401F5088 (MiGetSharedProtos.c)
+ *     MiEndingOffsetWithLock @ 0x1400230E0 (MiEndingOffsetWithLock.c)
+ *     MiGetSubsectionDriverProtos @ 0x140026854 (MiGetSubsectionDriverProtos.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     MiSetInPagePriority @ 0x1400882C8 (MiSetInPagePriority.c)
+ *     MmCreateMdl @ 0x140088304 (MmCreateMdl.c)
+ *     MiFreeInPageSupportBlock @ 0x1400C4240 (MiFreeInPageSupportBlock.c)
+ *     MiGetInPageSupportBlock @ 0x1400E53C0 (MiGetInPageSupportBlock.c)
+ *     MiGetSharedProtos @ 0x1401F4EB4 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, __int64 a3)
@@ -77,7 +77,7 @@ __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, __int64 a3)
   v38 = 0LL;
   if ( (unsigned __int64)v3 >= v5 )
     return v6;
-  v9 = dword_14032763C;
+  v9 = dword_14032767C;
   v10 = v3 + 1;
   v34 = v3 + 1;
   while ( 1 )
@@ -259,7 +259,7 @@ LABEL_21:
     *v25 = v41;
     *(_QWORD *)(a1 + 96) = v41;
     ++*(_DWORD *)(a1 + 76);
-    v9 = dword_14032763C;
+    v9 = dword_14032767C;
     v6 = 0;
     v7 = 0LL;
     goto LABEL_10;

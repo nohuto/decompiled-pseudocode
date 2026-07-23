@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaRemoveWcb @ 0x1404B8264
+ * XREFs of HalpDmaRemoveWcb @ 0x1404B84A4
  * Callers:
- *     HalCancelAdapterChannel @ 0x1404C5EC0 (HalCancelAdapterChannel.c)
- *     HalCancelAdapterChannelThin @ 0x1404CACE0 (HalCancelAdapterChannelThin.c)
+ *     HalCancelAdapterChannel @ 0x1404C6100 (HalCancelAdapterChannel.c)
+ *     HalCancelAdapterChannelThin @ 0x1404CAF20 (HalCancelAdapterChannelThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -20,10 +20,10 @@
  *     RtlpGetFreeBlockInsidePageBoundaries @ 0x180046ADC (RtlpGetFreeBlockInsidePageBoundaries.c)
  *     RtlpSecMemFreeVirtualMemory @ 0x180046B30 (RtlpSecMemFreeVirtualMemory.c)
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x180116748 (RtlpHeapHandleError.c)
- *     RtlpLogHeapContractEvent @ 0x180118520 (RtlpLogHeapContractEvent.c)
- *     RtlpLogHeapDecommit @ 0x180118654 (RtlpLogHeapDecommit.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x180116718 (RtlpHeapHandleError.c)
+ *     RtlpLogHeapContractEvent @ 0x1801184F0 (RtlpLogHeapContractEvent.c)
+ *     RtlpLogHeapDecommit @ 0x180118624 (RtlpLogHeapDecommit.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  */
 
 void __fastcall RtlpDeCommitFreeBlock(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
@@ -80,17 +80,17 @@ void __fastcall RtlpDeCommitFreeBlock(__int64 a1, __int64 a2, unsigned __int64 a
   __int64 v54; // r15
   __int64 v55; // rdi
   __int64 v56; // rcx
-  unsigned __int64 v59; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v60; // [rsp+48h] [rbp-18h]
-  __int64 v61; // [rsp+50h] [rbp-10h]
-  _QWORD *v62; // [rsp+58h] [rbp-8h] BYREF
-  unsigned __int64 v63; // [rsp+A0h] [rbp+40h] BYREF
-  unsigned __int64 v64; // [rsp+B0h] [rbp+50h] BYREF
-  char v65; // [rsp+B8h] [rbp+58h]
+  int v57[2]; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v58; // [rsp+48h] [rbp-18h]
+  __int64 v59; // [rsp+50h] [rbp-10h]
+  _QWORD *v60; // [rsp+58h] [rbp-8h] BYREF
+  unsigned __int64 v61; // [rsp+A0h] [rbp+40h] BYREF
+  unsigned __int64 v62; // [rsp+B0h] [rbp+50h] BYREF
+  char v63; // [rsp+B8h] [rbp+58h]
 
-  v65 = a4;
-  v64 = a3;
-  v61 = 0LL;
+  v63 = a4;
+  v62 = a3;
+  v59 = 0LL;
   v4 = 0;
   v6 = a3;
   v7 = a2;
@@ -102,8 +102,8 @@ void __fastcall RtlpDeCommitFreeBlock(__int64 a1, __int64 a2, unsigned __int64 a
     if ( (*(_BYTE *)(a2 + 10) & 8) != 0 )
     {
       --*(_DWORD *)(a1 + 660);
-      if ( (unsigned __int8)RtlpGetFreeBlockInsidePageBoundaries(a1, a2, &v62, &v63) )
-        *(_QWORD *)(v8 + 664) -= v63;
+      if ( (unsigned __int8)RtlpGetFreeBlockInsidePageBoundaries(a1, a2, &v60, &v61) )
+        *(_QWORD *)(v8 + 664) -= v61;
     }
     v11 = v7;
   }
@@ -123,12 +123,12 @@ LABEL_11:
       a3 = v6;
       goto LABEL_12;
     }
-    v10 = RtlpCoalesceFreeBlocks(a1, a2, &v64, 0LL);
-    v6 = v64;
+    v10 = RtlpCoalesceFreeBlocks(a1);
+    v6 = v62;
     v11 = v10;
-    if ( v64 - 257 <= 0xFDFF )
+    if ( v62 - 257 <= 0xFDFF )
     {
-      RtlpInsertFreeBlock(v8, v10, v64);
+      RtlpInsertFreeBlock(v8, v10, v62);
       v12 = *(_QWORD *)(v8 + 576) - 16LL * *(_QWORD *)(v8 + 192);
       if ( v12 < *(_QWORD *)(v8 + 672) - (*(_QWORD *)(v8 + 672) >> 4)
         && v12 > *(_QWORD *)(v8 + 680) - (*(_QWORD *)(v8 + 680) >> 2) )
@@ -150,8 +150,8 @@ LABEL_11:
   {
     RtlpRemoveUCRBlock(v8, v15 + 16, a3, 1LL);
     v25 = *(_QWORD *)(v15 + 56);
-    v61 = *(_QWORD *)(v15 + 48);
-    v60 = v25;
+    v59 = *(_QWORD *)(v15 + 48);
+    v58 = v25;
     --*(_DWORD *)(v14 + 84);
     *(_DWORD *)(v14 + 80) -= *(_QWORD *)(v15 + 56) >> 12;
     *(_QWORD *)(v8 + 576) += *(_QWORD *)(v15 + 56);
@@ -161,38 +161,38 @@ LABEL_11:
       *(_QWORD *)(v8 + 584) -= v26;
     v6 += (*(_QWORD *)(v15 + 56) >> 4) + 64LL;
     v4 = 1;
-    v64 = v6;
+    v62 = v6;
   }
   else
   {
-    v60 = 0LL;
+    v58 = 0LL;
   }
   if ( *(_WORD *)(v8 + 140) != *(_WORD *)(v11 + 12) )
     goto LABEL_18;
-  v59 = v11;
+  *(_QWORD *)v57 = v11;
   v34 = *(_QWORD **)(v14 + 96);
   v35 = v11;
   while ( (_QWORD *)(v14 + 96) != v34 )
   {
     v36 = v34 - 2;
     v37 = v34[2] + v34[3];
-    v62 = v34 - 2;
+    v60 = v34 - 2;
     if ( v37 == v11 )
       goto LABEL_53;
     v34 = (_QWORD *)*v34;
   }
   v36 = 0LL;
-  v62 = 0LL;
+  v60 = 0LL;
 LABEL_53:
   if ( a4 && !v36 )
   {
 LABEL_18:
     v16 = (v11 + 4159) & 0xFFFFFFFFFFFFF000uLL;
-    v59 = v16;
+    *(_QWORD *)v57 = v16;
     if ( v16 == v11 + 80 )
     {
       v16 += 4096LL;
-      v59 = v16;
+      *(_QWORD *)v57 = v16;
     }
     if ( v4 )
       v17 = v11 + 16 * v6;
@@ -209,8 +209,8 @@ LABEL_18:
     }
     v19 = v18 - v16;
     v20 = 2147353472LL;
-    v63 = v19;
-    if ( v65 || *(_BYTE *)(v15 + 15) == 3 )
+    v61 = v19;
+    if ( v63 || *(_BYTE *)(v15 + 15) == 3 )
     {
       if ( !v19 )
         goto LABEL_30;
@@ -220,14 +220,14 @@ LABEL_18:
       goto LABEL_155;
     }
     ++*(_DWORD *)(v8 + 612);
-    if ( (int)RtlpSecMemFreeVirtualMemory(v19, &v59, &v63, 0x4000LL) < 0 )
+    if ( (int)RtlpSecMemFreeVirtualMemory(v19, v57, &v61, 0x4000LL) < 0 )
     {
       ++*(_DWORD *)(v8 + 628);
       goto LABEL_106;
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v6 = v64;
+      v6 = v62;
       v21 = (__int64)NtCurrentPeb()->SharedData + 550;
     }
     else
@@ -237,16 +237,16 @@ LABEL_18:
     if ( *(_BYTE *)v21 )
     {
       if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-        RtlpLogHeapDecommit(v8, v59, v63, 6LL);
-      v6 = v64;
+        RtlpLogHeapDecommit(v8, *(_QWORD *)v57, v61, 6LL);
+      v6 = v62;
     }
 LABEL_30:
     if ( !v4 )
     {
-      v27 = (_BYTE *)(v59 + v63);
+      v27 = (_BYTE *)(*(_QWORD *)v57 + v61);
       v28 = 16 * v6;
-      *(_WORD *)(v59 + v63 + 12) = *(_WORD *)(v8 + 140);
-      if ( v28 + v11 == v63 + v59 )
+      *(_WORD *)(*(_QWORD *)v57 + v61 + 12) = *(_WORD *)(v8 + 140);
+      if ( v28 + v11 == v61 + *(_QWORD *)v57 )
       {
         if ( *(_DWORD *)(v8 + 124) )
         {
@@ -258,7 +258,7 @@ LABEL_30:
       {
         v27[15] = 0;
         v27[10] = 0;
-        v29 = (v11 + v28 - v63 - v59) >> 4;
+        v29 = (v11 + v28 - v61 - *(_QWORD *)v57) >> 4;
         v30 = RtlpHeapErrorHandlerThreshold < 1;
         *((_WORD *)v27 + 4) = v29;
         if ( !v30 && (unsigned __int16)v29 <= 1u )
@@ -287,28 +287,28 @@ LABEL_30:
         RtlpInsertFreeBlock(v8, (__int64)v27, v33);
       }
     }
-    RtlpCreateUCREntry(v8, v14, v59 - 48, v63, v11, (__int64)&v62);
-    RtlpInsertFreeBlock(v8, v11, (unsigned __int64)v62);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    RtlpCreateUCREntry(v8, v14, v57[0] - 48, v61, v11, (__int64)&v60);
+    RtlpInsertFreeBlock(v8, v11, (unsigned __int64)v60);
+    if ( RtlGetCurrentServiceSessionId() )
       v22 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
       v22 = 2147353472LL;
     if ( *(_BYTE *)v22 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v20 = (__int64)NtCurrentPeb()->SharedData + 550;
-      RtlpLogHeapContractEvent(v8, v59, v63, 16 * *(_QWORD *)(v8 + 192), 0, 0LL, *(unsigned __int8 *)v20);
+      RtlpLogHeapContractEvent(v8, v57[0], v61, 16 * *(_QWORD *)(v8 + 192), 0, 0LL, (HANDLE)*(unsigned __int8 *)v20);
     }
     v23 = 2147353482LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v24 = (__int64)NtCurrentPeb()->SharedData + 560;
     else
       v24 = 2147353482LL;
     if ( *(_BYTE *)v24 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v23 = (__int64)NtCurrentPeb()->SharedData + 560;
-      RtlpLogHeapContractEvent(v8, v59, v63, 16 * *(_QWORD *)(v8 + 192), 0, 0LL, *(unsigned __int8 *)v23);
+      RtlpLogHeapContractEvent(v8, v57[0], v61, 16 * *(_QWORD *)(v8 + 192), 0, 0LL, (HANDLE)*(unsigned __int8 *)v23);
     }
     return;
   }
@@ -321,16 +321,16 @@ LABEL_30:
       DbgPrint("HEAP: ");
     DbgPrint("(UCRBlock != NULL)");
     RtlpHeapHandleError(1LL);
-    v35 = v59;
+    v35 = *(_QWORD *)v57;
     v38 = RtlpHeapErrorHandlerThreshold;
-    v6 = v64;
+    v6 = v62;
   }
   if ( v4 )
     v39 = v11 + 16 * v6;
   else
     v39 = 16 * v6 + v11 - 32;
   v40 = (v39 & 0xFFFFFFFFFFFFF000uLL) - v35;
-  v63 = v40;
+  v61 = v40;
   if ( !v40 )
   {
     if ( v38 < 1 || !v4 )
@@ -348,7 +348,7 @@ LABEL_153:
     RtlpHeapHandleError(1LL);
     goto LABEL_154;
   }
-  if ( (int)RtlpSecMemFreeVirtualMemory(v40, &v59, &v63, 0x4000LL) < 0 )
+  if ( (int)RtlpSecMemFreeVirtualMemory(v40, v57, &v61, 0x4000LL) < 0 )
   {
     ++*(_DWORD *)(v8 + 628);
 LABEL_106:
@@ -358,15 +358,15 @@ LABEL_155:
       a2 = v11;
       goto LABEL_11;
     }
-    RtlpCreateUCREntry(v8, v14, v61 - 48, v60, v11, (__int64)&v64);
+    RtlpCreateUCREntry(v8, v14, v59 - 48, v58, v11, (__int64)&v62);
 LABEL_154:
-    v6 = v64;
+    v6 = v62;
     goto LABEL_155;
   }
   v43 = 2147353472LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    v6 = v64;
+    v6 = v62;
     v44 = (__int64)NtCurrentPeb()->SharedData + 550;
   }
   else
@@ -376,27 +376,27 @@ LABEL_154:
   if ( *(_BYTE *)v44 )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapDecommit(v8, v59, v63, 5LL);
-    v6 = v64;
+      RtlpLogHeapDecommit(v8, *(_QWORD *)v57, v61, 5LL);
+    v6 = v62;
   }
   ++*(_DWORD *)(v8 + 612);
-  v45 = (unsigned __int64)v62;
-  if ( v62[5] >= 0xFF000uLL )
-    *(_QWORD *)(v8 + 584) -= v62[5];
+  v45 = (unsigned __int64)v60;
+  if ( v60[5] >= 0xFF000uLL )
+    *(_QWORD *)(v8 + 584) -= v60[5];
   RtlpRemoveUCRBlock(v8, v45, v41, v42);
-  *(_QWORD *)(v45 + 40) += v63;
+  *(_QWORD *)(v45 + 40) += v61;
   RtlpInsertUCRBlock(v8, v45);
-  *(_DWORD *)(v14 + 80) += v63 >> 12;
-  *(_QWORD *)(v8 + 576) -= v63;
+  *(_DWORD *)(v14 + 80) += v61 >> 12;
+  *(_QWORD *)(v8 + 576) -= v61;
   v46 = *(_QWORD *)(v45 + 40);
   if ( v46 >= 0xFF000 )
     *(_QWORD *)(v8 + 584) += v46;
   if ( !v4 )
   {
-    v47 = (_BYTE *)(v59 + v63);
+    v47 = (_BYTE *)(*(_QWORD *)v57 + v61);
     v48 = 16 * v6;
-    *(_WORD *)(v59 + v63 + 12) = *(_WORD *)(v8 + 140);
-    if ( v48 + v11 == v63 + v59 )
+    *(_WORD *)(*(_QWORD *)v57 + v61 + 12) = *(_WORD *)(v8 + 140);
+    if ( v48 + v11 == v61 + *(_QWORD *)v57 )
     {
       if ( *(_DWORD *)(v8 + 124) )
       {
@@ -408,7 +408,7 @@ LABEL_154:
     {
       v47[15] = 0;
       v47[10] = 0;
-      v49 = (v48 - v63) >> 4;
+      v49 = (v48 - v61) >> 4;
       v30 = RtlpHeapErrorHandlerThreshold < 1;
       *((_WORD *)v47 + 4) = v49;
       if ( !v30 && (unsigned __int16)v49 <= 1u )
@@ -437,30 +437,30 @@ LABEL_154:
       RtlpInsertFreeBlock(v8, (__int64)v47, v52);
     }
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v53 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v53 = 2147353472LL;
   if ( *(_BYTE *)v53 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v43 = (__int64)NtCurrentPeb()->SharedData + 550;
-    v54 = v60;
-    RtlpLogHeapContractEvent(v8, v59, v63, 16 * *(_QWORD *)(v8 + 192), v4, v60, *(unsigned __int8 *)v43);
+    v54 = v58;
+    RtlpLogHeapContractEvent(v8, v57[0], v61, 16 * *(_QWORD *)(v8 + 192), v4, v58, (HANDLE)*(unsigned __int8 *)v43);
   }
   else
   {
-    v54 = v60;
+    v54 = v58;
   }
   v55 = 2147353482LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v56 = (__int64)NtCurrentPeb()->SharedData + 560;
   else
     v56 = 2147353482LL;
   if ( *(_BYTE *)v56 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v55 = (__int64)NtCurrentPeb()->SharedData + 560;
-    RtlpLogHeapContractEvent(v8, v59, v63, 16 * *(_QWORD *)(v8 + 192), v4, v54, *(unsigned __int8 *)v55);
+    RtlpLogHeapContractEvent(v8, v57[0], v61, 16 * *(_QWORD *)(v8 + 192), v4, v54, (HANDLE)*(unsigned __int8 *)v55);
   }
 }

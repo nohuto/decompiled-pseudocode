@@ -17,6 +17,6 @@ __int64 HvlSetRootFaultReportingReady()
   memset(v2, 0, sizeof(v2));
   v3 = 0LL;
   LODWORD(v2[0]) = 32;
-  v0 = HvcallFastExtended(65647LL, (__int64)v2, 40LL, 0LL, 0);
+  v0 = HvcallFastExtended(65647LL, (__int64)v2, 0x28u, 0, 0);
   return HvlpHvToNtStatus(v0);
 }

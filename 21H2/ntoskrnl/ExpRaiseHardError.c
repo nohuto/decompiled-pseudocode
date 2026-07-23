@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpRaiseHardError @ 0x140956428
+ * XREFs of ExpRaiseHardError @ 0x1409565F8
  * Callers:
- *     ExRaiseHardError @ 0x140956110 (ExRaiseHardError.c)
- *     NtRaiseHardError @ 0x1409567C0 (NtRaiseHardError.c)
+ *     ExRaiseHardError @ 0x1409562E0 (ExRaiseHardError.c)
+ *     NtRaiseHardError @ 0x140956990 (NtRaiseHardError.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExpSystemErrorHandler @ 0x140409710 (ExpSystemErrorHandler.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     PsCaptureExceptionPort @ 0x14064CAA8 (PsCaptureExceptionPort.c)
- *     LpcSendWaitReceivePort @ 0x1406AFDD0 (LpcSendWaitReceivePort.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExpSystemErrorHandler @ 0x1404098F0 (ExpSystemErrorHandler.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     LpcSendWaitReceivePort @ 0x14060E670 (LpcSendWaitReceivePort.c)
+ *     PsCaptureExceptionPort @ 0x1406418C8 (PsCaptureExceptionPort.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall ExpRaiseHardError(
@@ -42,21 +42,19 @@ __int64 __fastcall ExpRaiseHardError(
   int v23; // eax
   unsigned int v24; // r15d
   int v25; // r14d
-  __int64 v26; // [rsp+20h] [rbp-358h]
-  int v28; // [rsp+5Ch] [rbp-31Ch]
-  unsigned __int64 v30; // [rsp+78h] [rbp-300h] BYREF
-  __int128 v31[2]; // [rsp+80h] [rbp-2F8h] BYREF
-  unsigned int v32; // [rsp+A8h] [rbp-2D0h]
-  __int64 v33; // [rsp+B0h] [rbp-2C8h]
-  int v34; // [rsp+B8h] [rbp-2C0h]
-  unsigned int v35; // [rsp+BCh] [rbp-2BCh]
-  int v36; // [rsp+C0h] [rbp-2B8h]
-  unsigned int v37; // [rsp+C4h] [rbp-2B4h]
-  char v38[616]; // [rsp+C8h] [rbp-2B0h] BYREF
+  int v27; // [rsp+5Ch] [rbp-31Ch]
+  __int64 v29; // [rsp+78h] [rbp-300h] BYREF
+  _DWORD v30[12]; // [rsp+80h] [rbp-2F8h] BYREF
+  __int64 v31; // [rsp+B0h] [rbp-2C8h]
+  int v32; // [rsp+B8h] [rbp-2C0h]
+  unsigned int v33; // [rsp+BCh] [rbp-2BCh]
+  int v34; // [rsp+C0h] [rbp-2B8h]
+  unsigned int v35; // [rsp+C4h] [rbp-2B4h]
+  char v36[616]; // [rsp+C8h] [rbp-2B0h] BYREF
 
   v7 = a2;
   v8 = a1;
-  v28 = a2;
+  v27 = a2;
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(a1, a2);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v11 = 0;
@@ -77,17 +75,13 @@ __int64 __fastcall ExpRaiseHardError(
   v17 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10;
   if ( !v17 && (v8 & 0xC0000000) == 0xC0000000 && (!*((_DWORD *)CurrentServerSiloGlobals + 224) || v13) )
   {
-    LOBYTE(v26) = PreviousMode != 0;
-    ExpSystemErrorHandler(v8, v7, a3, a5, v26);
+    ExpSystemErrorHandler(v8, v7, a3, a5, PreviousMode != 0);
     return 0LL;
   }
   if ( Process == *((_KPROCESS **)CurrentServerSiloGlobals + 110) )
   {
     if ( (v8 & 0xC0000000) == 0xC0000000 )
-    {
-      LOBYTE(v26) = PreviousMode != 0;
-      ExpSystemErrorHandler(v8, v7, a3, a5, v26);
-    }
+      ExpSystemErrorHandler(v8, v7, a3, a5, PreviousMode != 0);
 LABEL_37:
     *a7 = 0;
     return 0LL;
@@ -127,22 +121,23 @@ LABEL_37:
   }
   if ( !v18 )
     goto LABEL_37;
-  *(_QWORD *)&v31[0] = 0x900700048LL;
-  v32 = v8 & 0xEFFFFFFF;
-  v34 = a6;
-  v37 = v24;
-  v36 = v28;
+  v30[0] = 7340104;
+  v30[1] = 9;
+  v30[10] = v8 & 0xEFFFFFFF;
+  v32 = a6;
+  v35 = v24;
+  v34 = v27;
   if ( a4 )
-    memmove(v38, a4, 8LL * v7);
-  v33 = MEMORY[0xFFFFF78000000014];
-  v30 = 688LL;
-  v25 = LpcSendWaitReceivePort((__int64)v18, 0x20000, v31, (unsigned __int64)v31, &v30, 0LL);
+    memmove(v36, a4, 8LL * v7);
+  v31 = MEMORY[0xFFFFF78000000014];
+  v29 = 688LL;
+  v25 = LpcSendWaitReceivePort((int)v18, 0x20000, (int)v30, (__int64)v30, (__int64)&v29, 0LL);
   if ( v19 == 1 )
     HalPutDmaAdapter(v18);
   if ( v25 >= 0 )
   {
-    if ( v35 <= 0xA )
-      v11 = v35;
+    if ( v33 <= 0xA )
+      v11 = v33;
     *a7 = v11;
   }
   return (unsigned int)v25;

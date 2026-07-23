@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCreateRegistryKey @ 0x1407D0D00
+ * XREFs of RtlCreateRegistryKey @ 0x1407D0E70
  * Callers:
- *     WheapCommitPolicy @ 0x14095DD50 (WheapCommitPolicy.c)
+ *     WheapCommitPolicy @ 0x14095DF30 (WheapCommitPolicy.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     RtlpGetRegistryHandle @ 0x140642460 (RtlpGetRegistryHandle.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     RtlpGetRegistryHandle @ 0x140637270 (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __stdcall RtlCreateRegistryKey(ULONG RelativeTo, PWSTR Path)

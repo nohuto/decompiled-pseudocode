@@ -15,7 +15,7 @@
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpResolveDllName(unsigned __int16 *a1, __int64 a2, __int64 a3, _OWORD *a4, __int16 a5)
+__int64 __fastcall LdrpResolveDllName(unsigned __int16 *a1, __int64 a2, _UNICODE_STRING *a3, _OWORD *a4, __int16 a5)
 {
   __m128i v9; // xmm0
   int v10; // ebx
@@ -26,7 +26,7 @@ __int64 __fastcall LdrpResolveDllName(unsigned __int16 *a1, __int64 a2, __int64 
   __m128i v15; // xmm0
   unsigned __int16 v16; // ax
   unsigned __int64 v17; // xmm0_8
-  _WORD *i; // rdx
+  const WCHAR *i; // rdx
   int FullPath; // eax
   unsigned __int64 v21; // rax
   __int64 v22; // rcx
@@ -93,7 +93,7 @@ __int64 __fastcall LdrpResolveDllName(unsigned __int16 *a1, __int64 a2, __int64 
         v16 = _mm_cvtsi128_si32(Src);
         *a4 = Src;
         v17 = _mm_srli_si128(v15, 8).m128i_u64[0];
-        for ( i = (_WORD *)(v16 + v17 - 2); (unsigned __int64)i >= v17; --i )
+        for ( i = (const WCHAR *)(v16 + v17 - 2); (unsigned __int64)i >= v17; --i )
         {
           if ( *i == 92 || *i == 47 )
           {
@@ -101,7 +101,7 @@ __int64 __fastcall LdrpResolveDllName(unsigned __int16 *a1, __int64 a2, __int64 
             break;
           }
         }
-        RtlInitUnicodeStringEx(a3, (__int64)i);
+        RtlInitUnicodeStringEx(a3, i);
       }
     }
   }

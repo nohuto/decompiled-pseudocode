@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLogFailedDriverLoad @ 0x1406593A0
+ * XREFs of MiLogFailedDriverLoad @ 0x140659484
  * Callers:
- *     MiResolveImageReferences @ 0x14046C67C (MiResolveImageReferences.c)
- *     MiCreateSectionForDriver @ 0x14047D2C8 (MiCreateSectionForDriver.c)
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MiResolveImageReferences @ 0x14046B54C (MiResolveImageReferences.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
+ *     MiCreateSectionForDriver @ 0x14048338C (MiCreateSectionForDriver.c)
  * Callees:
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     MiIsRetryIoStatus @ 0x14008F178 (MiIsRetryIoStatus.c)
- *     IoWriteErrorLogEntry @ 0x1401310F8 (IoWriteErrorLogEntry.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     IoAllocateGenericErrorLogEntry @ 0x1401C89D4 (IoAllocateGenericErrorLogEntry.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     MiIsRetryIoStatus @ 0x14008E8D8 (MiIsRetryIoStatus.c)
+ *     IoWriteErrorLogEntry @ 0x140131668 (IoWriteErrorLogEntry.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x1401C8874 (IoAllocateGenericErrorLogEntry.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
  */
 
-void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const char *a3, NTSTATUS a4)
+void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const CHAR *a3, NTSTATUS a4)
 {
   int v4; // esi
   __int128 v5; // xmm0
@@ -39,7 +39,7 @@ void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2
   size_t v23; // rbx
   char *v24; // rsi
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-49h] BYREF
-  STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF
   __int128 v27; // [rsp+40h] [rbp-29h] BYREF
   __int16 v28; // [rsp+50h] [rbp-19h]
   const wchar_t *v29; // [rsp+58h] [rbp-11h]

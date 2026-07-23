@@ -1,13 +1,13 @@
 /*
- * XREFs of MmCommitHotPatchTable @ 0x140874A28
+ * XREFs of MmCommitHotPatchTable @ 0x14087AD88
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiCommitHotPatchTable @ 0x1406FBFCC (MiCommitHotPatchTable.c)
- *     MiImageVadHotPatchEligible @ 0x140870654 (MiImageVadHotPatchEligible.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiCommitHotPatchTable @ 0x140700C9C (MiCommitHotPatchTable.c)
+ *     MiImageVadHotPatchEligible @ 0x1408769B4 (MiImageVadHotPatchEligible.c)
  */
 
 __int64 __fastcall MmCommitHotPatchTable(unsigned __int64 a1, __int64 a2)
@@ -32,10 +32,10 @@ LABEL_10:
         MiUnlockAndDereferenceVad((volatile signed __int32 *)v5);
         return v9;
       }
-      v7 = (unsigned int)stru_140E2D150.ThreadFlags2
+      v7 = (unsigned int)stru_140E2D2D0.ThreadFlags2
          + ((*(unsigned int *)(v5 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v5 + 32) << 32)) << 12)
          + (unsigned int)(*(_DWORD *)(***(_QWORD ***)(v5 + 80) + 8LL) << 12);
-      if ( v7 <= a1 && a1 + (a2 << 12) - v7 <= HIDWORD(stru_140E36558.SListFaultAddress) )
+      if ( v7 <= a1 && a1 + (a2 << 12) - v7 <= HIDWORD(stru_140E366D8.SListFaultAddress) )
       {
         v9 = MiCommitHotPatchTable(v5, a1, a2);
         if ( (v9 & 0x80000000) == 0 )

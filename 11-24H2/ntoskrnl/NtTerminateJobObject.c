@@ -1,32 +1,38 @@
 /*
- * XREFs of NtTerminateJobObject @ 0x1408EA3F0
+ * XREFs of NtTerminateJobObject @ 0x14085BC20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     EtwTraceJob @ 0x1408EAEF8 (EtwTraceJob.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1408EAFCC (PspTerminateAllProcessesInJobHierarchy.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     EtwTraceJob @ 0x14085C728 (EtwTraceJob.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x14085C7FC (PspTerminateAllProcessesInJobHierarchy.c)
  */
 
-__int64 __fastcall NtTerminateJobObject(void *a1)
+NTSTATUS __cdecl NtTerminateJobObject(HANDLE JobHandle, NTSTATUS ExitStatus)
 {
-  NTSTATUS v1; // eax
-  unsigned int v2; // ebx
+  NTSTATUS v2; // eax
+  NTSTATUS v3; // ebx
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
 
   Object = 0LL;
-  v1 = ObReferenceObjectByHandle(a1, 8u, (POBJECT_TYPE)PsJobType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
-  v2 = v1;
-  if ( v1 < 0 )
+  v2 = ObReferenceObjectByHandle(
+         JobHandle,
+         8u,
+         (POBJECT_TYPE)PsJobType,
+         KeGetCurrentThread()->PreviousMode,
+         &Object,
+         0LL);
+  v3 = v2;
+  if ( v2 < 0 )
   {
     if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-      EtwTraceJob(0LL, 0LL, (unsigned int)v1, 1825LL);
+      EtwTraceJob(0LL, 0LL, (unsigned int)v2, 1825LL);
   }
   else
   {
     PspTerminateAllProcessesInJobHierarchy((PRKEVENT)Object);
     ObfDereferenceObject(Object);
   }
-  return v2;
+  return v3;
 }

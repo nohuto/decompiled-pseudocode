@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIsInterruptTypeSecondary @ 0x140423170
+ * XREFs of HalpIsInterruptTypeSecondary @ 0x140430260
  * Callers:
- *     HalpCheckInterruptType @ 0x140423104 (HalpCheckInterruptType.c)
- *     HalacpiIrqTranslateResourceRequirementsIsa @ 0x140786210 (HalacpiIrqTranslateResourceRequirementsIsa.c)
- *     HalacpiIrqTranslateResourcesIsa @ 0x140786570 (HalacpiIrqTranslateResourcesIsa.c)
- *     HalpQueryPrimaryInterruptInformation @ 0x140B47C9C (HalpQueryPrimaryInterruptInformation.c)
+ *     HalpCheckInterruptType @ 0x1404301F4 (HalpCheckInterruptType.c)
+ *     HalacpiIrqTranslateResourceRequirementsIsa @ 0x140788D40 (HalacpiIrqTranslateResourceRequirementsIsa.c)
+ *     HalacpiIrqTranslateResourcesIsa @ 0x1407890A0 (HalacpiIrqTranslateResourcesIsa.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x140B49A2C (HalpQueryPrimaryInterruptInformation.c)
  * Callees:
  *     <none>
  */

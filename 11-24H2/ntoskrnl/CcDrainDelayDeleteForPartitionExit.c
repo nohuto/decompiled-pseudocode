@@ -1,12 +1,12 @@
 /*
- * XREFs of CcDrainDelayDeleteForPartitionExit @ 0x14057C3FC
+ * XREFs of CcDrainDelayDeleteForPartitionExit @ 0x14057988C
  * Callers:
- *     CcDeletePartition @ 0x14057C6EC (CcDeletePartition.c)
+ *     CcDeletePartition @ 0x140579B7C (CcDeletePartition.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x1402CB768 (CcDeletePrivateVolumeCacheMap.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1404309A4 (CcDeletePrivateVolumeCacheMap.c)
  */
 
 void __fastcall CcDrainDelayDeleteForPartitionExit(__int64 a1)

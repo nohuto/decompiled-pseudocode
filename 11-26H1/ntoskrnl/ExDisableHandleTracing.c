@@ -1,11 +1,11 @@
 /*
- * XREFs of ExDisableHandleTracing @ 0x1406CB8EC
+ * XREFs of ExDisableHandleTracing @ 0x1406CF91C
  * Callers:
- *     PsSetProcessHandleTracingInformation @ 0x14077B370 (PsSetProcessHandleTracingInformation.c)
+ *     PsSetProcessHandleTracingInformation @ 0x14077DFB0 (PsSetProcessHandleTracingInformation.c)
  * Callees:
- *     ExpUnlockHandleTableExclusive @ 0x1403151FC (ExpUnlockHandleTableExclusive.c)
- *     ExpLockHandleTableExclusive @ 0x1404839F0 (ExpLockHandleTableExclusive.c)
- *     ExDereferenceHandleDebugInfo @ 0x140A8F64C (ExDereferenceHandleDebugInfo.c)
+ *     ExpUnlockHandleTableExclusive @ 0x14031722C (ExpUnlockHandleTableExclusive.c)
+ *     ExpLockHandleTableExclusive @ 0x14047D358 (ExpLockHandleTableExclusive.c)
+ *     ExDereferenceHandleDebugInfo @ 0x140A9431C (ExDereferenceHandleDebugInfo.c)
  */
 
 __int64 __fastcall ExDisableHandleTracing(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,18 +1,18 @@
 /*
- * XREFs of CmMoveKey @ 0x1405FCFA8
+ * XREFs of CmMoveKey @ 0x1405FD05C
  * Callers:
- *     NtCompactKeys @ 0x1405F9400 (NtCompactKeys.c)
+ *     NtCompactKeys @ 0x1405F94B4 (NtCompactKeys.c)
  * Callees:
- *     CmpRebuildKcbCache @ 0x1403FDA60 (CmpRebuildKcbCache.c)
- *     CmpCleanUpSubKeyInfo @ 0x1403FDC28 (CmpCleanUpSubKeyInfo.c)
- *     CmpMarkKeyDirty @ 0x14040024C (CmpMarkKeyDirty.c)
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140439400 (CmpIsKeyDeletedForKeyBody.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpDuplicateKey @ 0x1405FEC0C (CmpDuplicateKey.c)
- *     CmpFreeIndexByCell @ 0x140609F58 (CmpFreeIndexByCell.c)
- *     CmpUpdateParentForEachSon @ 0x14060B25C (CmpUpdateParentForEachSon.c)
+ *     CmpRebuildKcbCache @ 0x1403FC920 (CmpRebuildKcbCache.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1403FCAE8 (CmpCleanUpSubKeyInfo.c)
+ *     CmpMarkKeyDirty @ 0x1403FF10C (CmpMarkKeyDirty.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1404382D0 (CmpIsKeyDeletedForKeyBody.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpDuplicateKey @ 0x1405FECC0 (CmpDuplicateKey.c)
+ *     CmpFreeIndexByCell @ 0x14060A00C (CmpFreeIndexByCell.c)
+ *     CmpUpdateParentForEachSon @ 0x14060B310 (CmpUpdateParentForEachSon.c)
  */
 
 __int64 __fastcall CmMoveKey(__int64 a1)

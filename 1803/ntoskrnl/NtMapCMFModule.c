@@ -26,14 +26,20 @@
  *     CMFUnmapModules @ 0x1407C9930 (CMFUnmapModules.c)
  */
 
-__int64 __fastcall NtMapCMFModule(int a1, unsigned int a2, int *a3, unsigned int *a4, _DWORD *a5, PVOID *a6)
+NTSTATUS __cdecl NtMapCMFModule(
+        ULONG What,
+        ULONG Index,
+        PULONG CacheIndexOut,
+        PULONG CacheFlagsOut,
+        PULONG ViewSizeOut,
+        PVOID *BaseAddress)
 {
-  unsigned int *v6; // r15
-  int *v7; // r12
-  unsigned int v8; // esi
+  PULONG v6; // r15
+  PULONG v7; // r12
+  ULONG v8; // esi
   char PreviousMode; // r13
-  unsigned int v11; // edx
-  int v13; // ebx
+  NTSTATUS v11; // edx
+  ULONG v13; // ebx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v15; // r8
   unsigned int v16; // eax
@@ -41,7 +47,7 @@ __int64 __fastcall NtMapCMFModule(int a1, unsigned int a2, int *a3, unsigned int
   _DWORD *v18; // rcx
   struct _KTHREAD *v19; // rax
   __int64 v20; // r8
-  unsigned int v21; // ebx
+  ULONG v21; // ebx
   unsigned int v22; // r12d
   int v23; // ebx
   unsigned int v24; // r15d
@@ -59,7 +65,7 @@ __int64 __fastcall NtMapCMFModule(int a1, unsigned int a2, int *a3, unsigned int
   __int64 v36; // rcx
   __int64 v37; // rcx
   __int64 v38; // rcx
-  unsigned int v39; // [rsp+50h] [rbp-118h]
+  NTSTATUS v39; // [rsp+50h] [rbp-118h]
   bool v40; // [rsp+54h] [rbp-114h]
   char v41; // [rsp+55h] [rbp-113h]
   int v42; // [rsp+58h] [rbp-110h]
@@ -76,9 +82,9 @@ __int64 __fastcall NtMapCMFModule(int a1, unsigned int a2, int *a3, unsigned int
   bool v53; // [rsp+ACh] [rbp-BCh]
   struct _KEVENT *p_Event; // [rsp+B0h] [rbp-B8h]
   unsigned int v55; // [rsp+B8h] [rbp-B0h]
-  unsigned int v56; // [rsp+BCh] [rbp-ACh]
+  ULONG v56; // [rsp+BCh] [rbp-ACh]
   int v57; // [rsp+C0h] [rbp-A8h]
-  unsigned int v58; // [rsp+C4h] [rbp-A4h]
+  NTSTATUS v58; // [rsp+C4h] [rbp-A4h]
   PVOID *v59; // [rsp+C8h] [rbp-A0h]
   int v60; // [rsp+D0h] [rbp-98h]
   struct _KEVENT Event; // [rsp+E0h] [rbp-88h] BYREF
@@ -88,9 +94,9 @@ __int64 __fastcall NtMapCMFModule(int a1, unsigned int a2, int *a3, unsigned int
   __int128 v66; // [rsp+118h] [rbp-50h]
   int v68; // [rsp+170h] [rbp+8h]
 
-  v6 = a4;
-  v7 = a3;
-  v8 = a2;
+  v6 = CacheFlagsOut;
+  v7 = CacheIndexOut;
+  v8 = Index;
   MappedBase = 0LL;
   ViewSize = 0LL;
   v42 = 0;
@@ -102,7 +108,7 @@ __int64 __fastcall NtMapCMFModule(int a1, unsigned int a2, int *a3, unsigned int
     v11 = -1073741823;
     goto LABEL_9;
   }
-  if ( (a1 & 0xFFE0FE81) != 0 )
+  if ( (What & 0xFFE0FE81) != 0 )
   {
 LABEL_8:
     v11 = -1073741811;
@@ -114,11 +120,11 @@ LABEL_9:
   v39 = v11;
   if ( (v11 & 0xC0000000) == 0xC0000000 )
     goto LABEL_10;
-  if ( (a1 & 0x20000) != 0 )
+  if ( (What & 0x20000) != 0 )
   {
-    if ( (a1 & 0x180000) != 0 && (a1 & 0x40000) != 0 || (a1 & 0x180000) == 0x180000 )
+    if ( (What & 0x180000) != 0 && (What & 0x40000) != 0 || (What & 0x180000) == 0x180000 )
       goto LABEL_8;
-    v13 = a1 & 0x1C0000;
+    v13 = What & 0x1C0000;
     if ( v13 != (CMFFlagsCache & 0x1C0000) )
     {
       CurrentThread = KeGetCurrentThread();
@@ -186,7 +192,7 @@ LABEL_35:
   ExAcquireResourceSharedLite(CMFLock, 1u);
   if ( !CMFFlagsCache )
   {
-    v21 = a1 | 1;
+    v21 = What | 1;
 LABEL_53:
     v22 = v21 & 0xFFFFFECF;
     v44 = v22;
@@ -276,7 +282,7 @@ LABEL_94:
               MappedBase = 0LL;
               ViewSize = 0LL;
               v48 = 0LL;
-              if ( a6 )
+              if ( BaseAddress )
               {
                 if ( v23 == 256
                   || (LOBYTE(v20) = v41, v39 = CMFCheckAccess(*v27, v24, v20), (v39 & 0xC0000000) != 0xC0000000) )
@@ -319,7 +325,7 @@ LABEL_94:
             v52[2] = v47;
             v53 = v26;
             v55 = v22;
-            v56 = a2;
+            v56 = Index;
             v31 = v45;
             v57 = v45;
             v59 = v27;
@@ -362,7 +368,7 @@ LABEL_94:
               }
             }
 LABEL_62:
-            v7 = a3;
+            v7 = CacheIndexOut;
             goto LABEL_63;
           }
           v25 = -1073741823;
@@ -378,9 +384,9 @@ LABEL_93:
     goto LABEL_61;
   }
   if ( (CMFFlagsCache & 0xF) != 0 )
-    v21 = CMFFlagsCache & 0xF | a1 & 0xFFFFFFF0;
+    v21 = CMFFlagsCache & 0xF | What & 0xFFFFFFF0;
   else
-    v21 = a1 | 1;
+    v21 = What | 1;
   if ( (CMFFlagsCache & 0x100000) != 0 )
   {
     if ( (v21 & 0x10000) == 0 )
@@ -401,12 +407,12 @@ LABEL_93:
   {
     v21 |= 0x80000u;
 LABEL_51:
-    v8 = a2;
+    v8 = Index;
     goto LABEL_53;
   }
   v39 = -1073741672;
 LABEL_63:
-  v6 = a4;
+  v6 = CacheFlagsOut;
 LABEL_104:
   ExReleaseResourceLite(CMFLock);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
@@ -414,22 +420,22 @@ LABEL_104:
   if ( (v39 & 0xC0000000) != 0xC0000000 )
   {
     v35 = 0x7FFFFFFF0000LL;
-    if ( a6 )
+    if ( BaseAddress )
     {
       v36 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-        v36 = (__int64)a6;
+      if ( (unsigned __int64)BaseAddress < 0x7FFFFFFF0000LL )
+        v36 = (__int64)BaseAddress;
       *(_QWORD *)v36 = *(_QWORD *)v36;
-      *a6 = MappedBase;
+      *BaseAddress = MappedBase;
       MappedBase = 0LL;
     }
-    if ( a5 )
+    if ( ViewSizeOut )
     {
       v37 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v37 = (__int64)a5;
+      if ( (unsigned __int64)ViewSizeOut < 0x7FFFFFFF0000LL )
+        v37 = (__int64)ViewSizeOut;
       *(_DWORD *)v37 = *(_DWORD *)v37;
-      *a5 = ViewSize;
+      *ViewSizeOut = ViewSize;
     }
     if ( v7 )
     {

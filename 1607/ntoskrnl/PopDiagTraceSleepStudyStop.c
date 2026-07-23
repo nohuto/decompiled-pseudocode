@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSleepStudyStop @ 0x140671C20
+ * XREFs of PopDiagTraceSleepStudyStop @ 0x140671D04
  * Callers:
- *     PopWdiTimerWorkerThread @ 0x14020A258 (PopWdiTimerWorkerThread.c)
+ *     PopWdiTimerWorkerThread @ 0x14020A084 (PopWdiTimerWorkerThread.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void PopDiagTraceSleepStudyStop()
@@ -61,34 +61,34 @@ void PopDiagTraceSleepStudyStop()
     if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SPM_SCENARIO_STOP) )
     {
       v23 = 1LL;
-      v1 = byte_140302AA4 & 1;
+      v1 = byte_140302B04 & 1;
       *(_QWORD *)&UserData.Size = 4LL;
       v7 = 8LL;
-      v3 = byte_140302AA5 & 1;
-      v2 = ((unsigned __int8)byte_140302AA5 >> 1) & 1;
-      v4 = ((unsigned __int8)byte_140302AA5 >> 2) & 1;
+      v3 = byte_140302B05 & 1;
+      v2 = ((unsigned __int8)byte_140302B05 >> 1) & 1;
+      v4 = ((unsigned __int8)byte_140302B05 >> 2) & 1;
       UserData.Ptr = (ULONGLONG)&PopWdiScenarioStopEventData;
       v9 = 4LL;
-      v6 = &unk_140302A58;
+      v6 = &unk_140302AB8;
       v11 = 8LL;
       v8 = &v1;
-      v10 = &unk_140302AA8;
-      v12 = &unk_140302AB0;
-      v14 = &unk_140302AB8;
-      v16 = &unk_140302A50;
-      v18 = &unk_140302A48;
-      v20 = &unk_140302A88;
-      v22 = &unk_140302AC8;
-      v24 = &unk_140302A44;
-      v26 = &unk_140302A80;
-      v28 = &unk_140302AA0;
+      v10 = &unk_140302B08;
+      v12 = &unk_140302B10;
+      v14 = &unk_140302B18;
+      v16 = &unk_140302AB0;
+      v18 = &unk_140302AA8;
+      v20 = &unk_140302AE8;
+      v22 = &unk_140302B28;
+      v24 = &unk_140302AA4;
+      v26 = &unk_140302AE0;
+      v28 = &unk_140302B00;
       v30 = &v2;
       v32 = &v3;
-      v34 = &unk_140302A90;
+      v34 = &unk_140302AF0;
       v36 = &v4;
-      v38 = &unk_140302ACC;
-      v40 = &unk_140302AD0;
-      v42 = &unk_140302AD4;
+      v38 = &unk_140302B2C;
+      v40 = &unk_140302B30;
+      v42 = &unk_140302B34;
       v13 = 8LL;
       v15 = 8LL;
       v17 = 8LL;

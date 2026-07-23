@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxGetParentFxDevice @ 0x140604FC8
+ * XREFs of PopFxGetParentFxDevice @ 0x140607AC8
  * Callers:
- *     PopFxRegisterDevice @ 0x140B4F9A0 (PopFxRegisterDevice.c)
+ *     PopFxRegisterDevice @ 0x140B52230 (PopFxRegisterDevice.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     PopFxReferenceDevice @ 0x1403948D4 (PopFxReferenceDevice.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     PopFxReferenceDevice @ 0x140396654 (PopFxReferenceDevice.c)
  */
 
 __int64 __fastcall PopFxGetParentFxDevice(__int64 a1)

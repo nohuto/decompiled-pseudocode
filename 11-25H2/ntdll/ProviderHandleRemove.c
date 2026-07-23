@@ -15,7 +15,7 @@ __int64 __fastcall ProviderHandleRemove(__int64 a1, unsigned int a2)
   unsigned __int64 v5; // rdx
   __int64 v6; // rdi
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&qword_1801D02E8);
+  RtlAcquireSRWLockExclusive(&stru_1801D02E8);
   if ( (a2 & 1) == 0
     || ((a2 >> 1) & 7) >= (unsigned __int8)byte_1801D02E4
     || (v3 = (a2 >> 1) & 7, a2 >> 4 >= dword_18019C7E0[v3])
@@ -28,6 +28,6 @@ __int64 __fastcall ProviderHandleRemove(__int64 a1, unsigned int a2)
     v6 = _InterlockedExchange64((volatile __int64 *)(v4 + 8 * v5), (unsigned int)dword_1801D02E0);
     dword_1801D02E0 = a2;
   }
-  RtlReleaseSRWLockExclusive(&qword_1801D02E8);
+  RtlReleaseSRWLockExclusive(&stru_1801D02E8);
   return v6;
 }

@@ -4,10 +4,10 @@
  *     RtlReportException @ 0x1800DDD10 (RtlReportException.c)
  * Callees:
  *     WerpProcessId @ 0x18006DAAC (WerpProcessId.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtUnmapViewOfSection @ 0x1800A0820 (NtUnmapViewOfSection.c)
- *     ZwDuplicateObject @ 0x1800A0A60 (ZwDuplicateObject.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtUnmapViewOfSection @ 0x1800A0840 (NtUnmapViewOfSection.c)
+ *     ZwDuplicateObject @ 0x1800A0A80 (ZwDuplicateObject.c)
  *     ReportExceptionInternal @ 0x1800DDBD4 (ReportExceptionInternal.c)
  *     WerpCreateCompletionEvent @ 0x1800DEC7C (WerpCreateCompletionEvent.c)
  *     WerpCreateCrashDataSection @ 0x1800DECF0 (WerpCreateCrashDataSection.c)
@@ -25,72 +25,98 @@ __int64 __fastcall RtlReportExceptionHelper(__int64 a1, _OWORD *a2, __int64 a3, 
   __int64 v9; // rbx
   unsigned int v10; // ebx
   int v11; // eax
-  _DWORD *v12; // rcx
-  _DWORD *v13; // rax
+  _QWORD *v12; // rcx
+  char *v13; // rax
   _OWORD *v14; // rdx
   __int64 v15; // rax
   unsigned int v17; // [rsp+40h] [rbp-88h]
-  HANDLE v18; // [rsp+58h] [rbp-70h] BYREF
-  _DWORD *v19; // [rsp+60h] [rbp-68h] BYREF
+  HANDLE TargetHandle; // [rsp+48h] [rbp-80h] BYREF
+  HANDLE v19; // [rsp+50h] [rbp-78h] BYREF
+  HANDLE EventHandle; // [rsp+58h] [rbp-70h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp-68h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-60h] BYREF
-  HANDLE v21; // [rsp+70h] [rbp-58h] BYREF
-  unsigned int v22; // [rsp+78h] [rbp-50h]
-  __int64 v23; // [rsp+80h] [rbp-48h]
-  _QWORD v24[4]; // [rsp+88h] [rbp-40h] BYREF
+  HANDLE v23; // [rsp+70h] [rbp-58h] BYREF
+  unsigned int v24; // [rsp+78h] [rbp-50h]
+  __int64 v25; // [rsp+80h] [rbp-48h]
+  _QWORD v26[4]; // [rsp+88h] [rbp-40h] BYREF
 
-  v23 = a4;
+  v25 = a4;
   v4 = a3;
   v5 = a2;
-  v21 = 0LL;
-  v18 = 0LL;
+  v23 = 0LL;
+  EventHandle = 0LL;
   Handle = 0LL;
-  v7 = 0;
+  TargetHandle = 0LL;
   v19 = 0LL;
+  v7 = 0;
+  BaseAddress = 0LL;
   if ( (a3 & 4) == 0 )
     WerpSetProcessFaultInformation(-1LL, a2, a3);
-  if ( (int)WerpCreateCompletionEvent(&v18, a2, a3) < 0 )
+  if ( (int)WerpCreateCompletionEvent(&EventHandle) < 0 )
   {
-    v18 = 0LL;
+    EventHandle = 0LL;
   }
   else
   {
-    v24[0] = v18;
+    v26[0] = EventHandle;
     v7 = 1;
   }
-  v8 = WerpCreateCrashDataSection(&Handle, &v19);
+  v8 = WerpCreateCrashDataSection(&Handle, &BaseAddress);
   if ( v8 >= 0 )
   {
-    v24[v7] = Handle;
+    v26[v7] = Handle;
     v9 = (unsigned int)(v7 + 1);
     v17 = v9;
-    if ( (int)ZwDuplicateObject() >= 0 )
+    if ( ZwDuplicateObject(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &TargetHandle,
+           0x1FFFFFu,
+           2u,
+           0) < 0 )
     {
-      v24[v9] = 0LL;
+      TargetHandle = 0LL;
+    }
+    else
+    {
+      v26[v9] = TargetHandle;
       v9 = (unsigned int)(v9 + 1);
       v17 = v9;
     }
-    if ( (int)ZwDuplicateObject() >= 0 )
+    if ( ZwDuplicateObject(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           (HANDLE)0xFFFFFFFFFFFFFFFELL,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &v19,
+           0x1FFFFFu,
+           2u,
+           0) < 0 )
     {
-      v24[v9] = 0LL;
+      v19 = 0LL;
+    }
+    else
+    {
+      v26[v9] = v19;
       v17 = v9 + 1;
     }
     v10 = WerpProcessId((void *)0xFFFFFFFFFFFFFFFFLL);
-    v22 = v10;
+    v24 = v10;
     v11 = WerpThreadId(-2LL);
-    v12 = v19;
-    *v19 = 240;
-    *((_QWORD *)v12 + 21) = 1LL;
-    v12[1] = v10;
-    v12[2] = v11;
-    *((_QWORD *)v12 + 23) = 0LL;
-    *((_QWORD *)v12 + 24) = 0LL;
-    *((_QWORD *)v12 + 26) = v18;
-    *((_QWORD *)v12 + 27) = 0LL;
-    v12[56] = -1073741823;
-    v12[57] = v4;
-    v13 = v19;
-    v19[58] = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
-    v14 = v13 + 102;
+    v12 = BaseAddress;
+    *(_DWORD *)BaseAddress = 240;
+    v12[21] = 1LL;
+    *((_DWORD *)v12 + 1) = v10;
+    *((_DWORD *)v12 + 2) = v11;
+    v12[23] = TargetHandle;
+    v12[24] = v19;
+    v12[26] = EventHandle;
+    v12[27] = 0LL;
+    *((_DWORD *)v12 + 56) = -1073741823;
+    *((_DWORD *)v12 + 57) = v4;
+    v13 = (char *)BaseAddress;
+    *((_DWORD *)BaseAddress + 58) = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
+    v14 = v13 + 408;
     *((_QWORD *)v13 + 30) = 1LL;
     *((_QWORD *)v13 + 31) = 1LL;
     *((_OWORD *)v13 + 16) = *(_OWORD *)a1;
@@ -124,22 +150,32 @@ __int64 __fastcall RtlReportExceptionHelper(__int64 a1, _OWORD *a2, __int64 a3, 
     v14[2] = v5[2];
     v14[3] = v5[3];
     v14[4] = v5[4];
-    v8 = ReportExceptionInternal(v22, (__int64)Handle, v24, v17, v4, &v21);
+    v8 = ReportExceptionInternal(v24, Handle, v26, v17, v4, &v23);
     if ( v8 >= 0 )
     {
-      if ( !v21 || (v8 = WerpWaitForCrashReporting(0LL, v18, v21, v23), v8 >= 0) )
+      if ( !v23 || (v8 = WerpWaitForCrashReporting(0LL, EventHandle, v23, v25), v8 >= 0) )
         v8 = 0;
     }
   }
-  if ( v19 )
+  if ( BaseAddress )
   {
-    NtUnmapViewOfSection();
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
     if ( Handle )
       NtClose(Handle);
-    if ( v21 )
-      NtClose(v21);
+    if ( v23 )
+      NtClose(v23);
   }
-  if ( v18 )
-    NtClose(v18);
+  if ( TargetHandle )
+  {
+    NtClose(TargetHandle);
+    TargetHandle = 0LL;
+  }
+  if ( v19 )
+  {
+    NtClose(v19);
+    v19 = 0LL;
+  }
+  if ( EventHandle )
+    NtClose(EventHandle);
   return (unsigned int)v8;
 }

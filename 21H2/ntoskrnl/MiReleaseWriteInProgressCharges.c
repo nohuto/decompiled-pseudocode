@@ -1,26 +1,26 @@
 /*
- * XREFs of MiReleaseWriteInProgressCharges @ 0x140255824
+ * XREFs of MiReleaseWriteInProgressCharges @ 0x140276D94
  * Callers:
- *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
- *     MiFreeModWriterEntry @ 0x1402557E8 (MiFreeModWriterEntry.c)
- *     MiBuildMappedCluster @ 0x1402560D0 (MiBuildMappedCluster.c)
- *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x140256844 (MiGatherPagefilePages.c)
+ *     MiWriteComplete @ 0x1402766E0 (MiWriteComplete.c)
+ *     MiFreeModWriterEntry @ 0x140276D58 (MiFreeModWriterEntry.c)
+ *     MiBuildMappedCluster @ 0x140277640 (MiBuildMappedCluster.c)
  * Callees:
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
  */
 
-unsigned __int64 __fastcall MiReleaseWriteInProgressCharges(__int64 a1, unsigned __int64 a2, int a3)
+unsigned __int64 __fastcall MiReleaseWriteInProgressCharges(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v3; // rbx
+  unsigned __int64 v4; // rbx
   unsigned __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   __int64 CachedResidentAvailable; // rdx
-  bool v8; // zf
+  bool v9; // zf
 
-  v3 = a2;
-  if ( a3 )
+  v4 = a2;
+  if ( (_DWORD)a3 )
   {
-    MiReturnCommit(a1, a2);
+    MiReturnCommit(a1, a2, a3, a4);
     result = (unsigned __int64)&MiSystemPartition;
     if ( (ULONG_PTR *)a1 == &MiSystemPartition )
     {
@@ -28,17 +28,17 @@ unsigned __int64 __fastcall MiReleaseWriteInProgressCharges(__int64 a1, unsigned
       CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
       if ( (_DWORD)CachedResidentAvailable != -1 )
       {
-        for ( ; v3 + CachedResidentAvailable <= 0x100; result = v3 + (int)result )
+        for ( ; v4 + CachedResidentAvailable <= 0x100; result = v4 + (int)result )
         {
-          if ( v3 >= 0x80000 )
+          if ( v4 >= 0x80000 )
             break;
           result = (unsigned int)_InterlockedCompareExchange(
                                    (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                   CachedResidentAvailable + v3,
+                                   CachedResidentAvailable + v4,
                                    CachedResidentAvailable);
-          v8 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
+          v9 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
           CachedResidentAvailable = (int)result;
-          if ( v8 )
+          if ( v9 )
             return result;
           if ( (_DWORD)result == -1 )
             break;
@@ -53,7 +53,7 @@ LABEL_8:
           if ( (_DWORD)CachedResidentAvailable == (_DWORD)result )
           {
             result = (unsigned int)(CachedResidentAvailable - 192);
-            v3 += (int)result;
+            v4 += (int)result;
           }
         }
       }
@@ -68,17 +68,17 @@ LABEL_8:
       CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
       if ( (_DWORD)CachedResidentAvailable != -1 )
       {
-        for ( ; v3 + CachedResidentAvailable <= 0x100; result = v3 + (int)result )
+        for ( ; v4 + CachedResidentAvailable <= 0x100; result = v4 + (int)result )
         {
-          if ( v3 >= 0x80000 )
+          if ( v4 >= 0x80000 )
             break;
           result = (unsigned int)_InterlockedCompareExchange(
                                    (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                   CachedResidentAvailable + v3,
+                                   CachedResidentAvailable + v4,
                                    CachedResidentAvailable);
-          v8 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
+          v9 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
           CachedResidentAvailable = (int)result;
-          if ( v8 )
+          if ( v9 )
             return result;
           if ( (_DWORD)result == -1 )
             break;
@@ -87,7 +87,7 @@ LABEL_8:
       }
     }
   }
-  if ( v3 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v3);
+  if ( v4 )
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v4);
   return result;
 }

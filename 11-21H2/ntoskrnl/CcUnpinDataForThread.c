@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     ExReleaseResourceForThreadLite @ 0x140220DF0 (ExReleaseResourceForThreadLite.c)
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
+ *     sub_14028A370 @ 0x14028A370 (sub_14028A370.c)
  *     CcUnpinData @ 0x1406FE6A0 (CcUnpinData.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -19,7 +19,7 @@ void __stdcall CcUnpinDataForThread(PVOID Bcb, ERESOURCE_THREAD ResourceThreadId
   {
     v2 = (char *)((unsigned __int64)Bcb & 0xFFFFFFFFFFFFFFFEuLL);
 LABEL_9:
-    CcUnpinFileDataEx(v2, 1, 0);
+    sub_14028A370(v2, 1, 0);
     return;
   }
   if ( *(_WORD *)Bcb != 762 )

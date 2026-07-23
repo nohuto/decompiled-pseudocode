@@ -1,25 +1,26 @@
 /*
- * XREFs of WdipSemDisableScenario @ 0x140A47AF0
+ * XREFs of WdipSemDisableScenario @ 0x140A3D910
  * Callers:
- *     EtwWriteEndScenario @ 0x140A476E0 (EtwWriteEndScenario.c)
- *     WdipStartEndScenario @ 0x140A482B0 (WdipStartEndScenario.c)
+ *     EtwWriteEndScenario @ 0x140A3D500 (EtwWriteEndScenario.c)
+ *     WdipStartEndScenario @ 0x140A3E060 (WdipStartEndScenario.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     WdipSemShutdown @ 0x1407A2184 (WdipSemShutdown.c)
- *     WdipSemMarkInstanceForDeletion @ 0x1407A24B4 (WdipSemMarkInstanceForDeletion.c)
- *     WdipSemWriteSemFailureEvent @ 0x1407A2E64 (WdipSemWriteSemFailureEvent.c)
- *     WdipSemDisableContextProviders @ 0x140A47CA4 (WdipSemDisableContextProviders.c)
- *     WdipSemDeleteTransitionalInstance @ 0x140A47D18 (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemActivateInstance @ 0x140A489E0 (WdipSemActivateInstance.c)
- *     WdipSemGetLoggerIds @ 0x140A48AF4 (WdipSemGetLoggerIds.c)
- *     WdipSemWriteSemActionsEvent @ 0x140AA4368 (WdipSemWriteSemActionsEvent.c)
- *     WdipSemValidateEndEvent @ 0x140ABDC8C (WdipSemValidateEndEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     WdipSemShutdown @ 0x1407A2294 (WdipSemShutdown.c)
+ *     WdipSemMarkInstanceForDeletion @ 0x1407A25C4 (WdipSemMarkInstanceForDeletion.c)
+ *     WdipSemWriteSemFailureEvent @ 0x1407A2F74 (WdipSemWriteSemFailureEvent.c)
+ *     WdipSemDisableContextProviders @ 0x140A3DAC4 (WdipSemDisableContextProviders.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140A3DB38 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemActivateInstance @ 0x140A3E790 (WdipSemActivateInstance.c)
+ *     WdipSemGetLoggerIds @ 0x140A3E8A4 (WdipSemGetLoggerIds.c)
+ *     WdipSemWriteSemActionsEvent @ 0x140A9F6F8 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemValidateEndEvent @ 0x140AB8CFC (WdipSemValidateEndEvent.c)
  */
 
 __int64 __fastcall WdipSemDisableScenario(__int64 a1, unsigned __int16 a2, __int64 a3)
@@ -27,14 +28,14 @@ __int64 __fastcall WdipSemDisableScenario(__int64 a1, unsigned __int16 a2, __int
   struct _KTHREAD *CurrentThread; // rax
   __int64 v7; // rdi
   char v8; // si
-  _QWORD *v9; // rbx
+  char *v9; // rbx
   int LoggerIds; // ebx
   signed __int64 v11; // rdx
   ULONG_PTR v12; // rtt
   struct _KTHREAD *v14; // rax
-  _QWORD *v15; // rax
+  char *v15; // rax
   signed __int8 v16; // cf
-  _QWORD *v17; // rdi
+  char *v17; // rdi
   __int64 v18; // rax
   signed __int64 v19; // rdx
   ULONG_PTR v20; // rtt
@@ -43,11 +44,11 @@ __int64 __fastcall WdipSemDisableScenario(__int64 a1, unsigned __int16 a2, __int
   --CurrentThread->KernelApcDisable;
   v7 = 0LL;
   v8 = 0;
-  v9 = KeAbPreAcquire((__int64)&WdipSemPushLock, 0LL);
+  v9 = (char *)KeAbPreAcquire((__int64)&WdipSemPushLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WdipSemPushLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&WdipSemPushLock, 0, v9, (__int64)&WdipSemPushLock);
   if ( v9 )
-    *((_BYTE *)v9 + 10) = 1;
+    v9[10] = 1;
   if ( !a1 || !a3 )
   {
     LoggerIds = -1073741811;
@@ -98,13 +99,13 @@ LABEL_13:
   {
     v14 = KeGetCurrentThread();
     --v14->KernelApcDisable;
-    v15 = KeAbPreAcquire((__int64)&WdipSemPushLock, 0LL);
+    v15 = (char *)KeAbPreAcquire((__int64)&WdipSemPushLock, 0LL);
     v16 = _interlockedbittestandset64((volatile signed __int32 *)&WdipSemPushLock, 0LL);
     v17 = v15;
     if ( v16 )
-      ExfAcquirePushLockExclusiveEx(&WdipSemPushLock, (__int64)v15, (__int64)&WdipSemPushLock);
+      ExfAcquirePushLockExclusiveEx(&WdipSemPushLock, v15, (__int64)&WdipSemPushLock);
     if ( v17 )
-      *((_BYTE *)v17 + 10) = 1;
+      v17[10] = 1;
     if ( WdipSemEnabled )
       WdipSemShutdown();
     _m_prefetchw(&WdipSemPushLock);

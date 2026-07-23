@@ -1,20 +1,20 @@
 /*
- * XREFs of SeMakeAnonymousLogonTokenNoEveryone @ 0x1409AE3B0
+ * XREFs of SeMakeAnonymousLogonTokenNoEveryone @ 0x1409AF3B0
  * Callers:
- *     SepInitializationPhase1 @ 0x140726F24 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x1407281C4 (SepInitializationPhase1.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140127158 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSetMandatoryPolicyToken @ 0x1405BDA08 (SeSetMandatoryPolicyToken.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1406555B0 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
- *     SepCreateToken @ 0x140727850 (SepCreateToken.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140127228 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSetMandatoryPolicyToken @ 0x1405BEA08 (SeSetMandatoryPolicyToken.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140656740 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140656770 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406567D0 (RtlSetOwnerSecurityDescriptor.c)
+ *     SepCreateToken @ 0x140728AF0 (SepCreateToken.c)
  */
 
 __int64 SeMakeAnonymousLogonTokenNoEveryone()
@@ -42,14 +42,14 @@ __int64 SeMakeAnonymousLogonTokenNoEveryone()
   __int64 v21; // [rsp+B8h] [rbp-70h] BYREF
   int v22[2]; // [rsp+C0h] [rbp-68h] BYREF
   __m128i si128; // [rsp+C8h] [rbp-60h] BYREF
-  struct _SID_AND_ATTRIBUTES v24; // [rsp+D8h] [rbp-50h] BYREF
+  _SID_AND_ATTRIBUTES v24; // [rsp+D8h] [rbp-50h] BYREF
   int v25; // [rsp+E8h] [rbp-40h] BYREF
   __int64 v26; // [rsp+F0h] [rbp-38h]
   __int64 v27; // [rsp+F8h] [rbp-30h]
   int v28; // [rsp+100h] [rbp-28h]
   void *v29; // [rsp+108h] [rbp-20h]
   __int64 v30; // [rsp+110h] [rbp-18h]
-  struct _SID_AND_ATTRIBUTES v31; // [rsp+118h] [rbp-10h] BYREF
+  _SID_AND_ATTRIBUTES v31; // [rsp+118h] [rbp-10h] BYREF
 
   v0 = (char *)ExLeapSecondData;
   v19 = 1;

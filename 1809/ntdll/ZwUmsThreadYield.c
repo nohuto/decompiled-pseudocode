@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwUmsThreadYield @ 0x1800A3A90
+ * XREFs of ZwUmsThreadYield @ 0x1800A3AB0
  * Callers:
  *     RtlUmsThreadYield @ 0x1800F6840 (RtlUmsThreadYield.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwUmsThreadYield()
+NTSTATUS __cdecl ZwUmsThreadYield(PVOID SchedulerParam)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 446LL;
+  result = 446;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

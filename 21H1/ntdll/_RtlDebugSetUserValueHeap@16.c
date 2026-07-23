@@ -16,46 +16,41 @@
  *     _RtlpHeapExceptionFilter@8 @ 0x4B375DFF (_RtlpHeapExceptionFilter@8.c)
  */
 
-char __fastcall RtlDebugSetUserValueHeap(_DWORD *a1, int a2, int a3, int a4)
+BOOLEAN __fastcall RtlDebugSetUserValueHeap(unsigned int a1, int a2, char *BaseAddress, PVOID UserValue)
 {
-  int v7; // edx
-  int v8; // ebx
-  unsigned int v9; // edx
-  void *v10; // ecx
-  int v11; // edx
-  char v13; // [esp+1Eh] [ebp-1Ah]
-  char v14; // [esp+1Fh] [ebp-19h]
+  ULONG v7; // ebx
+  char *v8; // edx
+  char v10; // [esp+1Eh] [ebp-1Ah]
+  BOOLEAN v11; // [esp+1Fh] [ebp-19h]
 
-  v14 = 0;
-  v13 = 0;
-  if ( (a1[17] & 0x1000000) != 0 )
-    return dword_4B3A3778(dword_4B3A3778, a1, a2, a3, a4);
-  if ( RtlpCheckHeapSignature(a1, "RtlSetUserValueHeap") )
+  v11 = 0;
+  v10 = 0;
+  if ( (*(_DWORD *)(a1 + 68) & 0x1000000) != 0 )
+    return dword_4B3A3778(dword_4B3A3778, a1, a2, BaseAddress, UserValue);
+  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlSetUserValueHeap") )
   {
-    v8 = a1[17] | 0x10000000 | a2;
-    if ( (v8 & 1) == 0 )
+    v7 = *(_DWORD *)(a1 + 68) | 0x10000000 | a2;
+    if ( (v7 & 1) == 0 )
     {
-      RtlEnterCriticalSection(a1[50]);
-      v13 = 1;
-      v8 |= 1u;
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+      v10 = 1;
+      v7 |= 1u;
     }
-    LOBYTE(v7) = 0;
-    RtlpValidateHeap(a1, v7);
-    v9 = a3 - 8;
-    if ( *(_BYTE *)(a3 - 8 + 7) == 5 )
-      v9 -= 8 * *(unsigned __int8 *)(v9 + 6);
-    if ( RtlpValidateHeapEntry((unsigned int)a1, v9, "RtlSetUserValueHeap") )
+    RtlpValidateHeap((PVOID)a1);
+    v8 = BaseAddress - 8;
+    if ( *(BaseAddress - 1) == 5 )
+      v8 -= 8 * (unsigned __int8)v8[6];
+    if ( RtlpValidateHeapEntry(a1, (unsigned int)v8, "RtlSetUserValueHeap") )
     {
-      v14 = RtlSetUserValueHeap(v10, (int)a1, v8, a3, a4);
-      LOBYTE(v11) = 0;
-      RtlpValidateHeap(a1, v11);
+      v11 = RtlSetUserValueHeap((PVOID)a1, v7, BaseAddress, UserValue);
+      RtlpValidateHeap((PVOID)a1);
     }
   }
   else
   {
-    v14 = 0;
+    v11 = 0;
   }
-  if ( v13 )
-    RtlLeaveCriticalSection(a1[50]);
-  return v14;
+  if ( v10 )
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+  return v11;
 }

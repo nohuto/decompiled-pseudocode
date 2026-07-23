@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPCIReleaseConfigSpaceLock @ 0x14043A8A0
+ * XREFs of HalpPCIReleaseConfigSpaceLock @ 0x14042D150
  * Callers:
- *     HaliPciInterfaceReadConfig @ 0x140439FA0 (HaliPciInterfaceReadConfig.c)
- *     HalpPCIConfig @ 0x14043A4F0 (HalpPCIConfig.c)
+ *     HaliPciInterfaceReadConfig @ 0x14042C850 (HaliPciInterfaceReadConfig.c)
+ *     HalpPCIConfig @ 0x14042CDA0 (HalpPCIConfig.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
  */
 
 __int64 __fastcall HalpPCIReleaseConfigSpaceLock(unsigned __int8 a1)
@@ -15,10 +15,10 @@ __int64 __fastcall HalpPCIReleaseConfigSpaceLock(unsigned __int8 a1)
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   v1 = a1;
-  if ( !LOBYTE(HalpDeviceBlockUnblockPushLock.Timer.TimerListEntry.Flink) )
+  if ( !LOBYTE(HalpDeviceBlockUnblockPushLock.Timer.DueTime.LowPart) )
   {
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-      || (result = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
+      || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     {
       _InterlockedAnd64(&HalpPCIConfigLock, 0LL);
     }

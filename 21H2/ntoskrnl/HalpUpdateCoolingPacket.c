@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpUpdateCoolingPacket @ 0x1404DCA00
+ * XREFs of HalpUpdateCoolingPacket @ 0x1404DCC40
  * Callers:
- *     HalpStartPccCommand @ 0x140866C28 (HalpStartPccCommand.c)
+ *     HalpStartPccCommand @ 0x140866D88 (HalpStartPccCommand.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -26,14 +26,14 @@ char __fastcall HalpUpdateCoolingPacket(__int64 a1)
   {
     HalpMemoryCoolingPacket = *(_OWORD *)a1;
     HalpAcquiredInterface = 1;
-    xmmword_140C48C50 = *(_OWORD *)(a1 + 16);
-    xmmword_140C48C60 = *(_OWORD *)(a1 + 32);
-    xmmword_140C48C70 = *(_OWORD *)(a1 + 48);
-    xmmword_140C48C80 = *(_OWORD *)(a1 + 64);
-    xmmword_140C48C90 = *(_OWORD *)(a1 + 80);
-    xmmword_140C48CA0 = *(_OWORD *)(a1 + 96);
-    xmmword_140C48CB0 = *(_OWORD *)(a1 + 112);
-    qword_140C48CC0 = *(_QWORD *)(a1 + 72);
+    xmmword_140C48C90 = *(_OWORD *)(a1 + 16);
+    xmmword_140C48CA0 = *(_OWORD *)(a1 + 32);
+    xmmword_140C48CB0 = *(_OWORD *)(a1 + 48);
+    xmmword_140C48CC0 = *(_OWORD *)(a1 + 64);
+    xmmword_140C48CD0 = *(_OWORD *)(a1 + 80);
+    xmmword_140C48CE0 = *(_OWORD *)(a1 + 96);
+    xmmword_140C48CF0 = *(_OWORD *)(a1 + 112);
+    qword_140C48D00 = *(_QWORD *)(a1 + 72);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&HalpMemoryCoolingPacketLock);
   if ( KiIrqlFlags )

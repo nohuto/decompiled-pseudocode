@@ -1,26 +1,22 @@
 /*
- * XREFs of RtlpEtcGetDwordFromRegistry @ 0x1800A00E0
+ * XREFs of RtlpEtcGetDwordFromRegistry @ 0x1800A00A0
  * Callers:
- *     RtlIsFeatureEnabledForEnterprise @ 0x18009FE80 (RtlIsFeatureEnabledForEnterprise.c)
- *     RtlpEtcGetDwordFromPersistedState @ 0x1800A0024 (RtlpEtcGetDwordFromPersistedState.c)
- *     RtlpEtcIsValidFeatureId @ 0x1800A015C (RtlpEtcIsValidFeatureId.c)
+ *     RtlIsFeatureEnabledForEnterprise @ 0x18009FE40 (RtlIsFeatureEnabledForEnterprise.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x18009FFE4 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpEtcIsValidFeatureId @ 0x1800A011C (RtlpEtcIsValidFeatureId.c)
  * Callees:
  *     RtlQueryRegistryValuesEx @ 0x1800882B0 (RtlQueryRegistryValuesEx.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpEtcGetDwordFromRegistry(const WCHAR *a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall RtlpEtcGetDwordFromRegistry(PCWSTR Path, WCHAR *a2, void *a3)
 {
-  _BYTE v7[8]; // [rsp+30h] [rbp-78h] BYREF
-  int v8; // [rsp+38h] [rbp-70h]
-  __int64 v9; // [rsp+40h] [rbp-68h]
-  __int64 v10; // [rsp+48h] [rbp-60h]
-  int v11; // [rsp+50h] [rbp-58h]
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+30h] [rbp-78h] BYREF
 
-  memset_thunk_772440563353939046(v7, 0, 0x70uLL);
-  v8 = 308;
-  v9 = a2;
-  v11 = 0x4000000;
-  v10 = a3;
-  return RtlQueryRegistryValuesEx(0LL, a1, (__int64)v7, 0LL, 0LL);
+  memset_thunk_772440563353939046(&QueryTable, 0, 0x70uLL);
+  QueryTable.Flags = 308;
+  QueryTable.Name = a2;
+  QueryTable.DefaultType = 0x4000000;
+  QueryTable.EntryContext = a3;
+  return RtlQueryRegistryValuesEx(0, Path, &QueryTable, 0LL, 0LL);
 }

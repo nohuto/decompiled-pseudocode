@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpLogEventRequest @ 0x140B4F4BC
+ * XREFs of PfpLogEventRequest @ 0x140B51D4C
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
  * Callees:
- *     PfLogEvent @ 0x1403829A0 (PfLogEvent.c)
- *     MmGetDefaultPagePriority @ 0x1404B6960 (MmGetDefaultPagePriority.c)
- *     PfpPartitionToParent @ 0x1404D5F40 (PfpPartitionToParent.c)
- *     PfGenerateTrace @ 0x1407794E8 (PfGenerateTrace.c)
- *     MmIssueMemoryListCommand @ 0x14086AD20 (MmIssueMemoryListCommand.c)
- *     PfTSetTracingPriority @ 0x140BF8F54 (PfTSetTracingPriority.c)
+ *     PfLogEvent @ 0x140384750 (PfLogEvent.c)
+ *     MmGetDefaultPagePriority @ 0x1404AFDB0 (MmGetDefaultPagePriority.c)
+ *     PfpPartitionToParent @ 0x1404CF710 (PfpPartitionToParent.c)
+ *     PfGenerateTrace @ 0x14077C418 (PfGenerateTrace.c)
+ *     MmIssueMemoryListCommand @ 0x140871100 (MmIssueMemoryListCommand.c)
+ *     PfTSetTracingPriority @ 0x140BFEF54 (PfTSetTracingPriority.c)
  */
 
 __int64 __fastcall PfpLogEventRequest(__int64 a1, __int64 a2)
@@ -34,8 +34,8 @@ __int64 __fastcall PfpLogEventRequest(__int64 a1, __int64 a2)
     PfTSetTracingPriority(a1, DefaultPagePriority);
   }
   if ( (*(_BYTE *)(a2 + 4) & 0x1F) == 0x1B && (*(_DWORD *)(*(_QWORD *)(a2 + 16) + 8LL) & 3) == 1 )
-    _InterlockedAnd((_DWORD *)&stru_140F12D20.Padding[2] + 1, 0xFFFFFFFE);
-  v7 = HIDWORD(stru_140E66B30.WriteOperationCount)
+    _InterlockedAnd((_DWORD *)&xmmword_140F13528 + 1, 0xFFFFFFFE);
+  v7 = HIDWORD(stru_140E66D40.WriteOperationCount)
      + ((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
        + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10);
   if ( (*(_DWORD *)(a2 + 4) & 0x20) != 0 )

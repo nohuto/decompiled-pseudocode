@@ -6,22 +6,30 @@
  * Callees:
  *     TppSetTimer @ 0x1800309F8 (TppSetTimer.c)
  *     ZwAssociateWaitCompletionPacket @ 0x1800A20A0 (ZwAssociateWaitCompletionPacket.c)
- *     TppRaiseHandleStatus @ 0x1801271D0 (TppRaiseHandleStatus.c)
+ *     TppRaiseHandleStatus @ 0x1801271A0 (TppRaiseHandleStatus.c)
  */
 
-__int64 __fastcall TppSetupNextWait(_QWORD *a1, __int64 a2, __int64 *a3)
+__int64 __fastcall TppSetupNextWait(__int64 a1, void *a2, __int64 *a3)
 {
   __int64 v3; // rbp
-  int v7; // eax
+  NTSTATUS v7; // eax
   __int64 v9; // rax
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // rax
   int v12; // ecx
-  char v13; // [rsp+50h] [rbp+8h] BYREF
+  BOOLEAN v13; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = a1[18];
-  a1[45] = a2;
-  v7 = ZwAssociateWaitCompletionPacket(a1[46], *(_QWORD *)(v3 + 64), a2, a1 + 49, a1, 0, 0LL, &v13);
+  v3 = *(_QWORD *)(a1 + 144);
+  *(_QWORD *)(a1 + 360) = a2;
+  v7 = ZwAssociateWaitCompletionPacket(
+         *(HANDLE *)(a1 + 368),
+         *(HANDLE *)(v3 + 64),
+         a2,
+         (PVOID)(a1 + 392),
+         (PVOID)a1,
+         0,
+         0LL,
+         &v13);
   if ( v7 >= 0 )
   {
     if ( !a3 || v13 )
@@ -45,14 +53,14 @@ __int64 __fastcall TppSetupNextWait(_QWORD *a1, __int64 a2, __int64 *a3)
     if ( v11 > 0x12C )
     {
 LABEL_8:
-      TppSetTimer((_DWORD)a1, v3 + 112, (_DWORD)a3, 0, v12);
+      TppSetTimer(a1, v3 + 112, a3, 0LL, v12);
       return 2LL;
     }
 LABEL_12:
     v12 = v11;
     goto LABEL_8;
   }
-  a1[45] = 0LL;
+  *(_QWORD *)(a1 + 360) = 0LL;
   TppRaiseHandleStatus((unsigned int)v7, a2, a1);
   return 0LL;
 }

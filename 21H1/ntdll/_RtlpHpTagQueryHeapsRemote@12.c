@@ -12,63 +12,85 @@
  *     _RtlpHeapPerformCrossProcessQuery@8 @ 0x4B358165 (_RtlpHeapPerformCrossProcessQuery@8.c)
  */
 
-int __fastcall RtlpHpTagQueryHeapsRemote(void *a1, unsigned int a2, _DWORD *a3)
+NTSTATUS __fastcall RtlpHpTagQueryHeapsRemote(void *a1, unsigned int a2, _DWORD *a3)
 {
-  int Section; // edi
-  int v6; // ecx
-  size_t v7; // ecx
-  void *v8; // esi
-  int v10[18]; // [esp+10h] [ebp-64h] BYREF
-  unsigned int v11; // [esp+58h] [ebp-1Ch] BYREF
-  int v12; // [esp+5Ch] [ebp-18h]
-  unsigned int v13; // [esp+60h] [ebp-14h] BYREF
-  void *v14; // [esp+64h] [ebp-10h]
-  HANDLE Handle; // [esp+68h] [ebp-Ch] BYREF
-  void *Src; // [esp+6Ch] [ebp-8h] BYREF
+  NTSTATUS v5; // edi
+  void *v6; // ecx
+  unsigned int v7; // ecx
+  PVOID v8; // esi
+  ULONG_PTR v10; // [esp-1Ch] [ebp-90h]
+  SIZE_T v11; // [esp-14h] [ebp-88h]
+  size_t v12; // [esp-4h] [ebp-78h]
+  size_t v13; // [esp-4h] [ebp-78h]
+  ULONG v14; // [esp+0h] [ebp-74h]
+  ULONG v15; // [esp+4h] [ebp-70h]
+  HANDLE v16[2]; // [esp+10h] [ebp-64h] BYREF
+  LARGE_INTEGER v17; // [esp+18h] [ebp-5Ch]
+  int v18; // [esp+24h] [ebp-50h]
+  size_t Size; // [esp+2Ch] [ebp-48h]
+  LARGE_INTEGER MaximumSize; // [esp+58h] [ebp-1Ch] BYREF
+  unsigned int v21; // [esp+60h] [ebp-14h] BYREF
+  void *v22; // [esp+64h] [ebp-10h]
+  HANDLE SectionHandle; // [esp+68h] [ebp-Ch] BYREF
+  PVOID BaseAddress; // [esp+6Ch] [ebp-8h] BYREF
 
-  v14 = a1;
-  Handle = 0;
-  Src = 0;
-  v11 = (a2 + 0xFFFF) & 0xFFFF0000;
-  v12 = 0;
-  Section = NtCreateSection((int)&Handle, 983071, 0, (int)&v11, 4, 0x8000000, 0);
-  if ( Section < 0 )
+  v22 = a1;
+  SectionHandle = 0;
+  BaseAddress = 0;
+  MaximumSize.QuadPart = (a2 + 0xFFFF) & 0xFFFF0000;
+  v5 = NtCreateSection(&SectionHandle, 0xF001Fu, 0, &MaximumSize, 4u, 0x8000000u, 0);
+  if ( v5 < 0 )
     goto LABEL_7;
-  v13 = a2;
-  Section = ZwMapViewOfSection((int)Handle, -1, (int)&Src, 0, a2, 0, (int)&v13, 2, 0, 4);
-  if ( Section < 0 )
+  v21 = a2;
+  HIDWORD(v11) = &v21;
+  LODWORD(v11) = 0;
+  HIDWORD(v10) = a2;
+  LODWORD(v10) = 0;
+  v5 = ZwMapViewOfSection(
+         SectionHandle,
+         (HANDLE)0xFFFFFFFF,
+         &BaseAddress,
+         v10,
+         v11,
+         (PLARGE_INTEGER)2,
+         0,
+         (SECTION_INHERIT)4,
+         v14,
+         v15);
+  if ( v5 < 0 )
     goto LABEL_7;
-  qmemcpy(Src, a1, 0x20u);
-  memset(v10, 0, sizeof(v10));
-  v10[0] = (int)Handle;
-  v10[2] = v11;
-  v6 = *((_DWORD *)v14 + 1);
-  v10[3] = v12;
-  v10[5] = 0x40000000;
-  Section = RtlpHeapPerformCrossProcessQuery(v6, v10);
-  if ( Section < 0 )
+  LODWORD(v12) = 72;
+  qmemcpy(BaseAddress, a1, 0x20u);
+  memset(v16, 0, v12);
+  v16[0] = SectionHandle;
+  v17 = MaximumSize;
+  v6 = (void *)*((_DWORD *)v22 + 1);
+  v18 = 0x40000000;
+  v5 = RtlpHeapPerformCrossProcessQuery(v6, v16);
+  if ( v5 < 0 )
   {
 LABEL_7:
-    v8 = Src;
+    v8 = BaseAddress;
   }
   else
   {
-    v7 = v10[7];
-    v8 = Src;
-    *a3 = v10[7];
+    v7 = Size;
+    v8 = BaseAddress;
+    *a3 = Size;
     if ( v7 <= a2 )
     {
-      memcpy(v14, v8, v7);
-      Section = 0;
+      LODWORD(v13) = v7;
+      memcpy(v22, v8, v13);
+      v5 = 0;
     }
     else
     {
-      Section = -1073741789;
+      v5 = -1073741789;
     }
   }
   if ( v8 )
-    NtUnmapViewOfSection(-1, (int)v8);
-  if ( Handle )
-    NtClose(Handle);
-  return Section;
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, v8);
+  if ( SectionHandle )
+    NtClose(SectionHandle);
+  return v5;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSrcuRequiresRebalance @ 0x1405F5D28
+ * XREFs of KiSrcuRequiresRebalance @ 0x1405F86E4
  * Callers:
- *     KiSrcuReportQuiescent @ 0x1404628BC (KiSrcuReportQuiescent.c)
+ *     KiSrcuReportQuiescent @ 0x14045B87C (KiSrcuReportQuiescent.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall KiSrcuRequiresRebalance(__int64 a1)

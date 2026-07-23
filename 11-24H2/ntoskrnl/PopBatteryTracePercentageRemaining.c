@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBatteryTracePercentageRemaining @ 0x140ABF474
+ * XREFs of PopBatteryTracePercentageRemaining @ 0x140ABA554
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a4)
@@ -71,9 +71,9 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       result = EtwWrite(PopBatteryEtwHandle, &BATTERY_EVT_BATTERY_PERCENT_REMAINING, 0LL, 4u, &UserData);
     }
   }
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
     if ( result )
     {
       v6 = v38;
@@ -85,13 +85,13 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v26 = &v8;
       v9 = v40;
       v28 = &v9;
-      v10 = DWORD1(xmmword_140F0AE80);
+      v10 = DWORD1(xmmword_140F0BCC0);
       v30 = &v10;
-      v11 = HIDWORD(xmmword_140F0B060);
+      v11 = HIDWORD(xmmword_140F0BEA0);
       v32 = &v11;
-      v12 = HIDWORD(qword_140F0AEB4);
+      v12 = HIDWORD(qword_140F0BCF4);
       v34 = &v12;
-      v13 = DWORD2(xmmword_140F0B060);
+      v13 = DWORD2(xmmword_140F0BEA0);
       v36 = &v13;
       v25 = 4LL;
       v27 = 4LL;
@@ -101,8 +101,8 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v35 = 4LL;
       v37 = 4LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E076F0,
-               (unsigned __int8 *)&word_14004C5AE,
+               (__int64)&dword_140E07680,
+               (unsigned __int8 *)&byte_14004C9EF,
                0LL,
                0LL,
                0xAu,

@@ -22,7 +22,7 @@ __int64 __fastcall sub_18004CFC0(__int16 a1, __int64 a2)
   _DWORD v13[10]; // [rsp+20h] [rbp-38h] BYREF
 
   LODWORD(v3) = 0;
-  RtlAcquireSRWLockShared(&qword_18015C3A8);
+  RtlAcquireSRWLockShared(&SRWLock);
   if ( (a1 & 0x100) != 0 )
   {
     v13[0] = 5;
@@ -38,7 +38,7 @@ __int64 __fastcall sub_18004CFC0(__int16 a1, __int64 a2)
   {
     v11 = (unsigned int)v3;
     v3 = (unsigned int)(v3 + 1);
-    v12 = (_WORD)xmmword_18015BF60 == 0;
+    v12 = stru_18015BF60.Length == 0;
     v13[v11] = 6;
     if ( !v12 )
     {
@@ -60,7 +60,7 @@ __int64 __fastcall sub_18004CFC0(__int16 a1, __int64 a2)
     v13[v9] = 8;
   }
   v7 = ((__int64 (__fastcall *)(_DWORD *, _QWORD, __int64, __int64))sub_18004D108)(v13, (unsigned int)v3, a2, v5);
-  RtlReleaseSRWLockShared(&qword_18015C3A8);
+  RtlReleaseSRWLockShared(&SRWLock);
   if ( v7 )
   {
     *(_BYTE *)(v7 + 100) = 1;

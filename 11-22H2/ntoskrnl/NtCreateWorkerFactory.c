@@ -24,31 +24,31 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtCreateWorkerFactory(
-        __int64 *a1,
-        int a2,
-        __int64 a3,
-        void *a4,
-        ULONG_PTR BugCheckParameter1,
-        __int64 a6,
-        __int64 a7,
-        int a8,
-        __int64 a9,
-        __int64 a10)
+NTSTATUS __cdecl NtCreateWorkerFactory(
+        PHANDLE WorkerFactoryHandleReturn,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE CompletionPortHandle,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v14; // rcx
   __int64 Pool2; // rax
   __int64 v16; // rsi
-  int v17; // ebx
+  NTSTATUS v17; // ebx
   volatile signed __int32 *v18; // rcx
   PVOID v19; // r14
   __int64 MiniCompletionPacket; // rax
   _QWORD *v21; // rdi
-  __int64 v22; // rax
-  __int64 v23; // rax
+  SIZE_T v22; // rax
+  SIZE_T v23; // rax
   PVOID v24; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   ULONG_PTR v26; // rcx
   PVOID *Object; // [rsp+20h] [rbp-98h]
   HANDLE Handle; // [rsp+58h] [rbp-60h] BYREF
@@ -66,31 +66,31 @@ __int64 __fastcall NtCreateWorkerFactory(
   if ( PreviousMode )
   {
     v14 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v14 = (__int64)a1;
+    if ( (unsigned __int64)WorkerFactoryHandleReturn < 0x7FFFFFFF0000LL )
+      v14 = (__int64)WorkerFactoryHandleReturn;
     *(_QWORD *)v14 = *(_QWORD *)v14;
   }
   Pool2 = ExAllocatePool2(65LL, 40LL, 1666674772LL);
   v16 = Pool2;
   if ( !Pool2 )
-    return (unsigned int)-1073741801;
+    return -1073741801;
   *(_QWORD *)Pool2 = 0LL;
   *(_QWORD *)(Pool2 + 24) = 0LL;
   *(_WORD *)(Pool2 + 32) = 0;
   *(_BYTE *)(Pool2 + 34) = 0;
   v29 = 0LL;
-  v17 = ObReferenceObjectByHandle(a4, 2u, IoCompletionObjectType, PreviousMode, &v29, 0LL);
+  v17 = ObReferenceObjectByHandle(CompletionPortHandle, 2u, IoCompletionObjectType, PreviousMode, &v29, 0LL);
   v18 = (volatile signed __int32 *)v29;
   *(_QWORD *)(v16 + 8) = v29;
   if ( v17 < 0 )
   {
 LABEL_26:
     ExFreePoolWithTag((PVOID)v16, 0);
-    return (unsigned int)v17;
+    return v17;
   }
   KeDisableQueueingPriorityIncrement(v18);
   v17 = ObpReferenceObjectByHandleWithTag(
-          BugCheckParameter1,
+          (ULONG_PTR)WorkerProcessHandle,
           42,
           (__int64)PsProcessType,
           PreviousMode,
@@ -129,7 +129,7 @@ LABEL_23:
   v17 = ObCreateObjectEx(
           PreviousMode,
           ExpWorkerFactoryObjectType,
-          a3,
+          (__int64)ObjectAttributes,
           PreviousMode,
           (__int64)Object,
           672,
@@ -148,21 +148,21 @@ LABEL_23:
   *((_QWORD *)v31 + 2) = v16;
   v21[14] = -10000000LL * ExpWorkerFactoryThreadIdleTimeoutInSeconds;
   *((_DWORD *)v21 + 94) = 0;
-  *((_DWORD *)v21 + 95) = a8;
+  *((_DWORD *)v21 + 95) = MaxThreadCount;
   *((_DWORD *)v21 + 99) = 0;
   v21[48] = 0LL;
   v22 = 0x10000LL;
-  if ( a9 )
-    v22 = a9;
+  if ( StackReserve )
+    v22 = StackReserve;
   v21[7] = v22;
   memset(v21 + 15, 0, 0x100uLL);
   v21[51] = 0LL;
   v23 = 4096LL;
-  if ( a10 )
-    v23 = a10;
+  if ( StackCommit )
+    v23 = StackCommit;
   v21[8] = v23;
-  v21[3] = a6;
-  v21[4] = a7;
+  v21[3] = StartRoutine;
+  v21[4] = StartParameter;
   v21[50] = 0LL;
   *((_DWORD *)v21 + 104) = 0;
   v21[5] = Handle;
@@ -178,8 +178,8 @@ LABEL_23:
   v33[0] = 0LL;
   v33[1] = -1LL;
   KeSetTimer2((__int64)(v21 + 53), v21[14], -v21[14], (__int64)v33);
-  result = ObInsertObjectEx((char *)v21, 0LL, a2, 0, 0, 0LL, &v32);
-  if ( (int)result >= 0 )
-    *a1 = v32;
+  result = ObInsertObjectEx((char *)v21, 0LL, DesiredAccess, 0, 0, 0LL, &v32);
+  if ( result >= 0 )
+    *WorkerFactoryHandleReturn = (HANDLE)v32;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTypeToPriority @ 0x1402A8C10
+ * XREFs of ExpTypeToPriority @ 0x14027AA00
  * Callers:
- *     ExQueueWorkItemEx @ 0x1402A7430 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     ExQueueWorkItemExFromIo @ 0x140483044 (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemEx @ 0x1402D6B60 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemExFromIo @ 0x1403A9120 (ExQueueWorkItemExFromIo.c)
  * Callees:
  *     <none>
  */

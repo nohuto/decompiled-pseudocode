@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
 _QWORD *__fastcall RtlSetConsoleSessionForegroundProcessId(_QWORD *a1)
@@ -13,7 +13,7 @@ _QWORD *__fastcall RtlSetConsoleSessionForegroundProcessId(_QWORD *a1)
 
   if ( PsIsCurrentThreadInServerSilo() )
   {
-    result = PsGetCurrentServerSiloGlobals();
+    result = sub_140347DB0();
     *(_QWORD *)(result[165] + 8LL) = a1;
   }
   else

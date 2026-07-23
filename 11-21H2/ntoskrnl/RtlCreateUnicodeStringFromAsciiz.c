@@ -1,20 +1,20 @@
 /*
  * XREFs of RtlCreateUnicodeStringFromAsciiz @ 0x140837640
  * Callers:
- *     CmpSetSystemRegistryString @ 0x1403C7CF8 (CmpSetSystemRegistryString.c)
- *     IopInitializeBootLogging @ 0x1409346B0 (IopInitializeBootLogging.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
- *     VhdiInitializeBootDisk @ 0x140B54800 (VhdiInitializeBootDisk.c)
+ *     sub_1403C7CF8 @ 0x1403C7CF8 (sub_1403C7CF8.c)
+ *     sub_1409346B0 @ 0x1409346B0 (sub_1409346B0.c)
+ *     sub_140AFB264 @ 0x140AFB264 (sub_140AFB264.c)
+ *     sub_140B54800 @ 0x140B54800 (sub_140B54800.c)
  * Callees:
  *     RtlInitAnsiStringEx @ 0x1403C7DA0 (RtlInitAnsiStringEx.c)
  *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
  */
 
-bool __fastcall RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING DestinationString, const char *a2)
+BOOLEAN __cdecl RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING DestinationString, PCSTR SourceString)
 {
-  STRING DestinationStringa; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationStringa; // [rsp+20h] [rbp-18h] BYREF
 
   DestinationStringa = 0LL;
-  return RtlInitAnsiStringEx(&DestinationStringa, a2) >= 0
+  return RtlInitAnsiStringEx(&DestinationStringa, SourceString) >= 0
       && RtlAnsiStringToUnicodeString(DestinationString, &DestinationStringa, 1u) >= 0;
 }

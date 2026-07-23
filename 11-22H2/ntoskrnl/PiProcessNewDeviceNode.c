@@ -122,7 +122,7 @@ __int64 __fastcall PiProcessNewDeviceNode(__int64 MaxDataSize)
   int v38; // r15d
   PVOID v39; // rsi
   WCHAR *v40; // rbx
-  __int64 v41; // r8
+  char v41; // r8
   __int64 v42; // rdx
   struct _KTHREAD *v43; // rax
   struct _KTHREAD *v44; // rax
@@ -796,13 +796,10 @@ LABEL_56:
   }
   if ( (int)PiQueryRemovableDeviceOverride(MaxDataSize, v39, v130, &v114) >= 0 )
   {
-    LOBYTE(v41) = v114;
+    v41 = v114;
     goto LABEL_63;
   }
-  if ( (v146[1] & 0x20) != 0 || (v146[1] & 0x40000) != 0 || (v146[1] & 0x10) == 0 )
-    LOBYTE(v41) = 0;
-  else
-    v41 = 1LL;
+  v41 = (v146[1] & 0x20) == 0 && (v146[1] & 0x40000) == 0 && (v146[1] & 0x10) != 0;
   if ( !v40 )
   {
 LABEL_63:

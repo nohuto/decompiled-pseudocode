@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaIommuWaitCommand @ 0x1404E3F78
+ * XREFs of HsaIommuWaitCommand @ 0x1404E41B8
  * Callers:
- *     HsaUpdateDeviceTableEntry @ 0x1404E43F8 (HsaUpdateDeviceTableEntry.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1404E4638 (HsaUpdateDeviceTableEntry.c)
  * Callees:
- *     HsaIommuSendCommand @ 0x1404E3D08 (HsaIommuSendCommand.c)
+ *     HsaIommuSendCommand @ 0x1404E3F48 (HsaIommuSendCommand.c)
  */
 
 unsigned __int64 __fastcall HsaIommuWaitCommand(unsigned __int64 *a1, int a2)

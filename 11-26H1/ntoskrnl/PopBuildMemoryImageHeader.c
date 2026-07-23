@@ -1,18 +1,18 @@
 /*
- * XREFs of PopBuildMemoryImageHeader @ 0x140BF9C6C
+ * XREFs of PopBuildMemoryImageHeader @ 0x140BFFC6C
  * Callers:
- *     PopEndMirroring @ 0x140C03D50 (PopEndMirroring.c)
+ *     PopEndMirroring @ 0x140C09F60 (PopEndMirroring.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
- *     MmGetHighestPhysicalPage @ 0x1404C3B80 (MmGetHighestPhysicalPage.c)
- *     Feature_PlutonDynamicUpgrade__private_IsEnabledDeviceUsageNoInline @ 0x14060707C (Feature_PlutonDynamicUpgrade__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline @ 0x1406070F8 (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline.c)
- *     Feature_SrtmAntiRollback__private_IsEnabledNoReportingNoInline @ 0x140607190 (Feature_SrtmAntiRollback__private_IsEnabledNoReportingNoInline.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopBootLoaderTraceCopyPfnList @ 0x140BE9388 (PopBootLoaderTraceCopyPfnList.c)
- *     PopAllocatePages @ 0x140C09D28 (PopAllocatePages.c)
- *     PopCopyFirmwareRuntimeInformationPfnList @ 0x140C0D1B4 (PopCopyFirmwareRuntimeInformationPfnList.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
+ *     MmGetHighestPhysicalPage @ 0x1404BD3D0 (MmGetHighestPhysicalPage.c)
+ *     Feature_PlutonDynamicUpgrade__private_IsEnabledDeviceUsageNoInline @ 0x140609B7C (Feature_PlutonDynamicUpgrade__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline @ 0x140609C54 (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_SrtmAntiRollback__private_IsEnabledNoReportingNoInline @ 0x140609CEC (Feature_SrtmAntiRollback__private_IsEnabledNoReportingNoInline.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopBootLoaderTraceCopyPfnList @ 0x140BEF388 (PopBootLoaderTraceCopyPfnList.c)
+ *     PopAllocatePages @ 0x140C0FF38 (PopAllocatePages.c)
+ *     PopCopyFirmwareRuntimeInformationPfnList @ 0x140C133C4 (PopCopyFirmwareRuntimeInformationPfnList.c)
  */
 
 __int64 __fastcall PopBuildMemoryImageHeader(_QWORD *MemoryMap, int a2)
@@ -45,24 +45,24 @@ __int64 __fastcall PopBuildMemoryImageHeader(_QWORD *MemoryMap, int a2)
   if ( !a2 )
   {
     v3 = MemoryMap[27];
-    PoSetHiberRange(MemoryMap, 0x8000u, (PVOID)v3, 0x4D8uLL, 0x676D694Du);
+    PoSetHiberRange(MemoryMap, 0x8000u, (PVOID)v3, 0x4E0uLL, 0x676D694Du);
     memset_0((void *)v3, 0, 0x1000uLL);
     *(_DWORD *)(v3 + 24) = 4096;
-    *(_DWORD *)(v3 + 12) = 1240;
+    *(_DWORD *)(v3 + 12) = 1248;
     *(_QWORD *)(v3 + 16) = (unsigned __int64)MmGetPhysicalAddress((PVOID)v3).QuadPart >> 12;
     *(_QWORD *)(v3 + 32) = MEMORY[0xFFFFF78000000014];
     *(_QWORD *)(v3 + 40) = MEMORY[0xFFFFF78000000008];
-    *(_QWORD *)(v3 + 64) = *((_QWORD *)&xmmword_140F0FD88 + 1);
+    *(_QWORD *)(v3 + 64) = *((_QWORD *)&xmmword_140F10908 + 1);
     *(_DWORD *)(v3 + 60) = 10;
     *(_QWORD *)(v3 + 48) = KeFeatureBits;
     *(_DWORD *)(v3 + 4) = (unsigned __int16)KeProcessorArchitecture;
     *(_BYTE *)(v3 + 56) = *(_BYTE *)MemoryMap;
     v4 = *(_DWORD *)(v3 + 1124);
     *(_BYTE *)(v3 + 57) = -54;
-    *(_DWORD *)(v3 + 1124) = v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)byte_140F0FDA0) & 1;
+    *(_DWORD *)(v3 + 1124) = v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)byte_140F10920) & 1;
     HighestPhysicalPage = MmGetHighestPhysicalPage(0);
-    v6 = BYTE2(stru_140F11D08.Header.WaitListHead.Blink);
-    v7 = 2 * LOBYTE(stru_140F11D08.Header.WaitListHead.Blink);
+    v6 = PopFasr;
+    v7 = 2 * PopSecureLaunched;
     *(_QWORD *)(v3 + 1176) = HighestPhysicalPage;
     v8 = *(_DWORD *)(v3 + 1124) ^ ((unsigned __int8)*(_DWORD *)(v3 + 1124) ^ v7) & 2;
     *(_DWORD *)(v3 + 1124) = v8;

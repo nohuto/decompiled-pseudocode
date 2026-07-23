@@ -1,26 +1,26 @@
 /*
- * XREFs of NtAlertThreadByThreadId @ 0x140649FA0
+ * XREFs of NtAlertThreadByThreadId @ 0x14064B160
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeAlertThreadByThreadId @ 0x1400CCDAC (KeAlertThreadByThreadId.c)
- *     PsLookupThreadByThreadId @ 0x1406487A0 (PsLookupThreadByThreadId.c)
+ *     KeAlertThreadByThreadId @ 0x1400CCE2C (KeAlertThreadByThreadId.c)
+ *     PsLookupThreadByThreadId @ 0x140649960 (PsLookupThreadByThreadId.c)
  */
 
-NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)
+NTSTATUS __cdecl NtAlertThreadByThreadId(HANDLE ThreadId)
 {
   struct _KTHREAD *CurrentThread; // rbx
   NTSTATUS result; // eax
   __int64 v3; // rdx
   __int64 v4; // r8
-  int v5; // edi
+  NTSTATUS v5; // edi
   _KPROCESS *Process; // rax
   PETHREAD v7; // rbx
   PETHREAD Thread; // [rsp+38h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  result = PsLookupThreadByThreadId(a1, &Thread);
+  result = PsLookupThreadByThreadId(ThreadId, &Thread);
   v5 = 0;
   if ( result >= 0 )
   {

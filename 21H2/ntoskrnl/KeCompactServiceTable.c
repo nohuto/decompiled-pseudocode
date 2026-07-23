@@ -1,10 +1,10 @@
 /*
- * XREFs of KeCompactServiceTable @ 0x14039F134
+ * XREFs of KeCompactServiceTable @ 0x14039F284
  * Callers:
- *     MiCompactServiceTable @ 0x14078A028 (MiCompactServiceTable.c)
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
+ *     MiCompactServiceTable @ 0x14078A1E8 (MiCompactServiceTable.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
  * Callees:
- *     KiLockServiceTable @ 0x14039F194 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x14039F2E4 (KiLockServiceTable.c)
  */
 
 __int64 __fastcall KeCompactServiceTable(ULONG_PTR a1, unsigned __int8 *a2, unsigned int a3, __int64 a4, int a5)

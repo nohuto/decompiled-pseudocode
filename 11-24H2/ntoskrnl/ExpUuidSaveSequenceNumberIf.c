@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpUuidSaveSequenceNumberIf @ 0x140A8B754
+ * XREFs of ExpUuidSaveSequenceNumberIf @ 0x140A87C44
  * Callers:
- *     ExUuidCreate @ 0x1408EA880 (ExUuidCreate.c)
- *     NtAllocateUuids @ 0x140A8B540 (NtAllocateUuids.c)
+ *     ExUuidCreate @ 0x14085C0B0 (ExUuidCreate.c)
+ *     NtAllocateUuids @ 0x140A87A30 (NtAllocateUuids.c)
  * Callees:
- *     ExpUuidSaveSequenceNumber @ 0x1407C0CD4 (ExpUuidSaveSequenceNumber.c)
+ *     ExpUuidSaveSequenceNumber @ 0x1407C1124 (ExpUuidSaveSequenceNumber.c)
  */
 
 __int64 ExpUuidSaveSequenceNumberIf()

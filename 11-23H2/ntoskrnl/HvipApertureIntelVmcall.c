@@ -1,7 +1,7 @@
 /*
- * XREFs of HvipApertureIntelVmcall @ 0x14042ADB0
+ * XREFs of HvipApertureIntelVmcall @ 0x14042B140
  * Callers:
- *     HvipApertureDirectHypercall @ 0x1405B5E18 (HvipApertureDirectHypercall.c)
+ *     HvipApertureDirectHypercall @ 0x1405B6388 (HvipApertureDirectHypercall.c)
  * Callees:
  *     <none>
  */

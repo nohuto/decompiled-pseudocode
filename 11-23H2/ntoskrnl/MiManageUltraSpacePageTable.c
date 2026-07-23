@@ -1,15 +1,15 @@
 /*
- * XREFs of MiManageUltraSpacePageTable @ 0x14046EC9C
+ * XREFs of MiManageUltraSpacePageTable @ 0x14046F09C
  * Callers:
- *     MiDeleteUltraMapContext @ 0x1402E92DC (MiDeleteUltraMapContext.c)
- *     MiReuseUltraPageTable @ 0x14046F08C (MiReuseUltraPageTable.c)
+ *     MiDeleteUltraMapContext @ 0x1402E956C (MiDeleteUltraMapContext.c)
+ *     MiReuseUltraPageTable @ 0x14046F48C (MiReuseUltraPageTable.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiManageUltraSpacePageTable(__int64 *a1, unsigned int a2, int a3)
@@ -173,7 +173,9 @@ LABEL_38:
   *v15 = v21;
 LABEL_41:
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v25 = v40;
     if ( v40 <= 0xFu && CurrentIrql >= 2u )
@@ -184,7 +186,7 @@ LABEL_41:
       v29 = (v28 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v28;
       if ( v29 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   else

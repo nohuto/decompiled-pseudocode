@@ -14,22 +14,22 @@ __int64 __fastcall PopEsPublishStateV2(char a1)
   int v4; // [rsp+60h] [rbp+20h] BYREF
   int v5; // [rsp+68h] [rbp+28h] BYREF
   BOOL v6; // [rsp+70h] [rbp+30h] BYREF
-  unsigned int v7; // [rsp+78h] [rbp+38h] BYREF
+  unsigned int Buffer; // [rsp+78h] [rbp+38h] BYREF
   int v8; // [rsp+7Ch] [rbp+3Ch]
 
   v4 = 0;
   v8 = -1;
-  v7 = ((unsigned __int8)dword_140E6748C << 14) | 1;
-  ZwUpdateWnfStateData((__int64)&WNF_SEB_ENERGY_SAVER_STATE_V2, (__int64)&v7);
+  Buffer = ((unsigned __int8)dword_140E6748C << 14) | 1;
+  ZwUpdateWnfStateData(&WNF_SEB_ENERGY_SAVER_STATE_V2, &Buffer, 8u, 0LL, 0LL, 0, 0);
   v5 = dword_140E6748C;
-  ZwUpdateWnfStateData((__int64)&WNF_PO_ENERGY_SAVER_STATE_V2, (__int64)&v5);
+  ZwUpdateWnfStateData(&WNF_PO_ENERGY_SAVER_STATE_V2, &v5, 4u, 0LL, 0LL, 0, 0);
   if ( a1 )
   {
     v2 = 0;
     if ( dword_140E6748C == 240 )
       v2 = 2;
-    v7 = v2 | v7 & 0xFFC03FFD;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_ENERGY_SAVER_STATE, (__int64)&v7);
+    Buffer = v2 | Buffer & 0xFFC03FFD;
+    ZwUpdateWnfStateData(&WNF_PO_ENERGY_SAVER_STATE, &Buffer, 8u, 0LL, 0LL, 0, 0);
   }
   v6 = dword_140E6748C == 240;
   PopSetPowerSettingValueAcDc(&GUID_POWER_SAVING_STATUS, 4LL, &v6);

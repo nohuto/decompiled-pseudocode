@@ -1,14 +1,14 @@
 /*
- * XREFs of ViIrpAllocateLockedPacket @ 0x14070C11C
+ * XREFs of ViIrpAllocateLockedPacket @ 0x14070C14C
  * Callers:
  *     IovAllocateIrp @ 0x14070066C (IovAllocateIrp.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140029BD0 (PsChargeProcessNonPagedPoolQuota.c)
- *     IoInitializeIrp @ 0x14009D234 (IoInitializeIrp.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140029750 (PsChargeProcessNonPagedPoolQuota.c)
+ *     IoInitializeIrp @ 0x14009CA34 (IoInitializeIrp.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VeAllocatePoolWithTagPriority @ 0x140701D78 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140701DA8 (VeAllocatePoolWithTagPriority.c)
  *     VfPacketCreateAndLock @ 0x1407179C0 (VfPacketCreateAndLock.c)
  */
 

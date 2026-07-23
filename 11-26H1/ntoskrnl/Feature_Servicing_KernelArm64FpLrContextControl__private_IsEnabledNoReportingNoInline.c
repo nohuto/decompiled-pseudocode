@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline @ 0x14061AA9C
+ * XREFs of Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline @ 0x14061DAEC
  * Callers:
- *     RtlpCopyLegacyContextArm64 @ 0x14061AC74 (RtlpCopyLegacyContextArm64.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x14061DCC4 (RtlpCopyLegacyContextArm64.c)
  * Callees:
- *     Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledFallback @ 0x14061AA78 (Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledFallback.c)
+ *     Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledFallback @ 0x14061DAC8 (Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline()

@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpUninitialize @ 0x140C342E8
+ * XREFs of SshpUninitialize @ 0x140C36428
  * Callers:
- *     SshInitialize @ 0x140C341AC (SshInitialize.c)
+ *     SshInitialize @ 0x140C362EC (SshInitialize.c)
  * Callees:
- *     SleepstudyHelperDestroyLibrary @ 0x140767660 (SleepstudyHelperDestroyLibrary.c)
- *     SSHSupportUnregisterPowerSettingCallback @ 0x14076796C (SSHSupportUnregisterPowerSettingCallback.c)
- *     EtwUnregister @ 0x140A00060 (EtwUnregister.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x140767890 (SleepstudyHelperDestroyLibrary.c)
+ *     SSHSupportUnregisterPowerSettingCallback @ 0x140767B9C (SSHSupportUnregisterPowerSettingCallback.c)
+ *     EtwUnregister @ 0x140A52EC0 (EtwUnregister.c)
  */
 
 __int64 *SshpUninitialize()
@@ -20,9 +20,9 @@ __int64 *SshpUninitialize()
   }
   if ( _InterlockedExchange(&SshpTelemetryHandleRegistered, 0) )
   {
-    v0 = qword_140E08510;
-    qword_140E08510 = 0LL;
-    dword_140E084F0 = 0;
+    v0 = qword_140E08580;
+    qword_140E08580 = 0LL;
+    dword_140E08560 = 0;
     EtwUnregister(v0);
   }
   if ( _InterlockedExchange(&SshpTraceHandleRegistered, 0) )

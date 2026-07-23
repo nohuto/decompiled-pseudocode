@@ -10,27 +10,27 @@
 
 char __fastcall FsRtlPrivateCheckForExclusiveLockAccess(__int64 a1, _RTL_SPLAY_LINKS **a2)
 {
-  RTL_SPLAY_LINKS *v2; // r8
-  RTL_SPLAY_LINKS *v3; // rbx
-  RTL_SPLAY_LINKS *v6; // rax
+  _RTL_SPLAY_LINKS *v2; // r8
+  _RTL_SPLAY_LINKS *v3; // rbx
+  _RTL_SPLAY_LINKS *v6; // rax
   _RTL_SPLAY_LINKS *v8; // r8
-  RTL_SPLAY_LINKS *v9; // rcx
+  _RTL_SPLAY_LINKS *v9; // rcx
   _RTL_SPLAY_LINKS *RightChild; // r10
-  RTL_SPLAY_LINKS *v11; // r11
+  _RTL_SPLAY_LINKS *v11; // r11
   _RTL_SPLAY_LINKS *v12; // r9
   _RTL_SPLAY_LINKS *v13; // rdx
-  RTL_SPLAY_LINKS *v14; // rsi
+  _RTL_SPLAY_LINKS *v14; // rsi
   _RTL_SPLAY_LINKS *Parent; // r9
   _RTL_SPLAY_LINKS *LeftChild; // r10
   _RTL_SPLAY_LINKS *v17; // rax
-  RTL_SPLAY_LINKS *v18; // r11
-  RTL_SPLAY_LINKS *v19; // rax
+  _RTL_SPLAY_LINKS *v18; // r11
+  _RTL_SPLAY_LINKS *v19; // rax
   __int64 v20; // r11
   __int64 v21; // rcx
   __int64 v22; // rax
   _RTL_SPLAY_LINKS *v23; // rdx
 
-  v2 = *(RTL_SPLAY_LINKS **)(a1 + 8);
+  v2 = *(_RTL_SPLAY_LINKS **)(a1 + 8);
   v3 = 0LL;
   if ( !v2 )
     goto LABEL_2;
@@ -82,7 +82,7 @@ LABEL_32:
     v3 = 0LL;
   }
 LABEL_2:
-  v6 = *(RTL_SPLAY_LINKS **)(a1 + 16);
+  v6 = *(_RTL_SPLAY_LINKS **)(a1 + 16);
   if ( !v6 )
     goto LABEL_3;
   v8 = *a2;

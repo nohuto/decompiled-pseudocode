@@ -6,7 +6,23 @@
  *     RtlpSetSecurityObject @ 0x180047EB8 (RtlpSetSecurityObject.c)
  */
 
-__int64 __fastcall RtlSetSecurityObjectEx(int a1, int a2, int a3, char a4)
+NTSTATUS __cdecl RtlSetSecurityObjectEx(
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR ModificationDescriptor,
+        PSECURITY_DESCRIPTOR *ObjectsSecurityDescriptor,
+        ULONG AutoInheritFlags,
+        PGENERIC_MAPPING GenericMapping,
+        HANDLE TokenHandle)
 {
-  return RtlpSetSecurityObject(a1, a1, a2, a3, a4);
+  int v7; // [rsp+28h] [rbp-20h]
+
+  return RtlpSetSecurityObject(
+           SecurityInformation,
+           SecurityInformation,
+           (int)ModificationDescriptor,
+           (int)ObjectsSecurityDescriptor,
+           AutoInheritFlags,
+           v7,
+           (__int64)GenericMapping,
+           TokenHandle);
 }

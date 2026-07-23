@@ -1,24 +1,24 @@
 /*
- * XREFs of MiNoPagesLastChance @ 0x1406849B0
+ * XREFs of MiNoPagesLastChance @ 0x140685ADC
  * Callers:
- *     MiWaitForFreePage @ 0x1402CF708 (MiWaitForFreePage.c)
+ *     MiWaitForFreePage @ 0x140260F64 (MiWaitForFreePage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiPfnReferenceCountIsZero @ 0x14022C950 (MiPfnReferenceCountIsZero.c)
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiSufficientAvailablePages @ 0x1402AA420 (MiSufficientAvailablePages.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     MiSetPfnModified @ 0x1402E4730 (MiSetPfnModified.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObFastReferenceObjectLocked @ 0x140397714 (ObFastReferenceObjectLocked.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiSetPfnModified @ 0x140215EC0 (MiSetPfnModified.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     MiPfnReferenceCountIsZero @ 0x140300260 (MiPfnReferenceCountIsZero.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     ObFastReferenceObjectLocked @ 0x1403517CC (ObFastReferenceObjectLocked.c)
+ *     MiSufficientAvailablePages @ 0x1403526D0 (MiSufficientAvailablePages.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall MiNoPagesLastChance(__int64 a1, unsigned int a2)
@@ -105,7 +105,7 @@ LABEL_13:
   if ( v9 >= 0x400 )
     v16 = v12;
   BugCheckParameter3 = v16;
-  if ( dword_140E30044 )
+  if ( dword_140E30184 )
   {
     v18 = 243;
   }
@@ -173,8 +173,8 @@ LABEL_13:
             v29 = 48 * v28 - 0x220000000000LL;
             v28 = *(_QWORD *)v29 & 0xFFFFFFFFFFLL;
             v30 = *(_QWORD *)(v29 + 16);
-            if ( qword_140E2DB80 && (v30 & 0x10) == 0 )
-              v30 &= ~qword_140E2DB80;
+            if ( qword_140E2DCC0 && (v30 & 0x10) == 0 )
+              v30 &= ~qword_140E2DCC0;
             v31 = *(_QWORD *)(v30 >> 16);
             if ( (*(_DWORD *)(v31 + 56) & 0x28) == 0
               && (!v26 || v26 == v31)
@@ -205,7 +205,7 @@ LABEL_13:
                 MiSetPfnModified(v29, 0);
                 MiPfnReferenceCountIsZero(v29, v40);
                 MiUnlockPage(v29, CurrentIrql);
-                ++dword_140E2D6F4;
+                ++dword_140E2D834;
                 CurrentIrql = KeGetCurrentIrql();
                 __writecr8(2uLL);
                 if ( KiIrqlFlags )
@@ -240,7 +240,7 @@ LABEL_13:
           *(_QWORD *)(a1 + 16136) = a1 + 16112;
           v33->List.Flink = 0LL;
           ExQueueWorkItem(v33, DelayedWorkQueue);
-          ++dword_140E2D6F0;
+          ++dword_140E2D830;
         }
         else
         {

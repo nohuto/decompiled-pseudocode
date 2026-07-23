@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSetEventBoostPriority()
+NTSTATUS __cdecl ZwSetEventBoostPriority(HANDLE EventHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 45LL;
+  result = 45;
   __asm { syscall; Low latency system call }
   return result;
 }

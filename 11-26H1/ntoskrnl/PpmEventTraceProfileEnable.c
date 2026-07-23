@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceProfileEnable @ 0x140A9C864
+ * XREFs of PpmEventTraceProfileEnable @ 0x140AD86A4
  * Callers:
- *     PpmEnableProfile @ 0x140A9C6CC (PpmEnableProfile.c)
- *     PpmDisableProfile @ 0x140A9C784 (PpmDisableProfile.c)
+ *     PpmEnableProfile @ 0x140AD850C (PpmEnableProfile.c)
+ *     PpmDisableProfile @ 0x140AD85C4 (PpmDisableProfile.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceProfileEnable(char a1, char a2)
@@ -23,17 +23,12 @@ char __fastcall PpmEventTraceProfileEnable(char a1, char a2)
     v3 = &PPM_ETW_PROCESSOR_PROFILE_DISABLED;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v2) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v3);
+    LOBYTE(v2) = EtwEventEnabled(PpmEtwHandle, v3);
     if ( (_BYTE)v2 )
     {
       UserData.Ptr = (ULONGLONG)&v6;
       *(_QWORD *)&UserData.Size = 1LL;
-      LOBYTE(v2) = EtwWrite(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v3,
-                     0LL,
-                     1u,
-                     &UserData);
+      LOBYTE(v2) = EtwWrite(PpmEtwHandle, v3, 0LL, 1u, &UserData);
     }
   }
   return (char)v2;

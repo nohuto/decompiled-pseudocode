@@ -1,10 +1,10 @@
 /*
- * XREFs of SbAtomicCaptureContextGuid @ 0x18002C6E0
+ * XREFs of SbAtomicCaptureContextGuid @ 0x18002C6D0
  * Callers:
- *     SbpUpdateCache @ 0x18002C538 (SbpUpdateCache.c)
+ *     SbpUpdateCache @ 0x18002C528 (SbpUpdateCache.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x180042570 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x180042650 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x180042560 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180042640 (RtlAcquireSRWLockShared.c)
  */
 
 __int64 __fastcall SbAtomicCaptureContextGuid(int a1, _OWORD *a2, _QWORD *a3)

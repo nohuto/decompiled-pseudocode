@@ -1,14 +1,14 @@
 /*
- * XREFs of MiZeroAndConvertPage @ 0x140650034
+ * XREFs of MiZeroAndConvertPage @ 0x140650584
  * Callers:
- *     MiZeroInParallelWorker @ 0x1402D1300 (MiZeroInParallelWorker.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9810 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiZeroInParallelWorker @ 0x1402D1590 (MiZeroInParallelWorker.c)
+ *     MiAllocateLargeZeroPages @ 0x1402E7A70 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9AA0 (MiInitializeMdlOneNodeBatchPages.c)
  * Callees:
  *     MiChangePageAttributeContiguous @ 0x14021A6A0 (MiChangePageAttributeContiguous.c)
- *     MiZeroLargePage @ 0x1402EC08C (MiZeroLargePage.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiPfnBestZeroAttribute @ 0x14033956C (MiPfnBestZeroAttribute.c)
+ *     MiZeroLargePage @ 0x1402EC31C (MiZeroLargePage.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiPfnBestZeroAttribute @ 0x1403397FC (MiPfnBestZeroAttribute.c)
  */
 
 unsigned __int64 __fastcall MiZeroAndConvertPage(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, char a5)

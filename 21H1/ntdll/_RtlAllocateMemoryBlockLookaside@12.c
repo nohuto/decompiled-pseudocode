@@ -8,70 +8,76 @@
  *     _RtlAllocateMemoryZone@12 @ 0x4B3A20A0 (_RtlAllocateMemoryZone@12.c)
  */
 
-int __stdcall RtlAllocateMemoryBlockLookaside(int *a1, unsigned int a2, _DWORD *a3)
+NTSTATUS __cdecl RtlAllocateMemoryBlockLookaside(PVOID MemoryBlockLookaside, ULONG BlockSize, PVOID *Block)
 {
-  unsigned int v3; // ecx
-  int *v4; // esi
-  int *v5; // eax
-  _DWORD *v6; // ecx
-  int *v8; // edi
-  int *v9; // eax
-  _DWORD *v10; // [esp+4h] [ebp-4h] BYREF
+  PVOID *v3; // esi
+  ULONG v4; // ecx
+  char *v5; // esi
+  int *v6; // eax
+  _DWORD *v7; // ecx
+  char *v9; // edi
+  int *v10; // eax
+  SIZE_T v11; // [esp-Ch] [ebp-14h]
+  PVOID *v12; // [esp-4h] [ebp-Ch]
+  _DWORD *v13; // [esp+4h] [ebp-4h] BYREF
 
-  if ( a2 > a1[4] )
+  if ( BlockSize > *((_DWORD *)MemoryBlockLookaside + 4) )
     return -1073741811;
-  v3 = a1[3];
-  v4 = a1 + 8;
-  while ( v3 < a2 )
+  v4 = *((_DWORD *)MemoryBlockLookaside + 3);
+  v12 = v3;
+  v5 = (char *)MemoryBlockLookaside + 32;
+  while ( v4 < BlockSize )
   {
-    v4 += 4;
-    v3 *= 2;
+    v5 += 16;
+    v4 *= 2;
   }
-  v5 = RtlpInterlockedPopEntrySList((unsigned int)v4);
-  v6 = v5;
-  if ( v5 )
+  v6 = RtlpInterlockedPopEntrySList((unsigned int)v5);
+  v7 = v6;
+  if ( v6 )
   {
-    if ( ((unsigned __int8)v5 & 3) != 0 || (int *)v5[3] != v4 || v5[1] != v4[2] )
+    if ( ((unsigned __int8)v6 & 3) != 0 || (char *)v6[3] != v5 || v6[1] != *((_DWORD *)v5 + 2) )
     {
-      *v4 = 0;
-      v4[1] = 0;
-      v6 = 0;
+      *(_DWORD *)v5 = 0;
+      *((_DWORD *)v5 + 1) = 0;
+      v7 = 0;
     }
-    v10 = v6;
-    if ( v6 )
+    v13 = v7;
+    if ( v7 )
       goto LABEL_9;
   }
   else
   {
-    v10 = 0;
+    v13 = 0;
   }
-  if ( RtlAllocateMemoryZone(a1[2], v4[2] + 20, (int)&v10) >= 0 )
+  HIDWORD(v11) = &v13;
+  LODWORD(v11) = *((_DWORD *)v5 + 2) + 20;
+  if ( RtlAllocateMemoryZone(*((PVOID *)MemoryBlockLookaside + 2), v11, v12) >= 0 )
   {
-    v6 = (_DWORD *)(((unsigned int)v10 + 3) & 0xFFFFFFFC);
-    v6[3] = v4;
-    v6[1] = v4[2];
+    v7 = (_DWORD *)(((unsigned int)v13 + 3) & 0xFFFFFFFC);
+    v7[3] = v5;
+    v7[1] = *((_DWORD *)v5 + 2);
 LABEL_9:
-    v6[2] = a2;
-    *a3 = v6 + 4;
+    v7[2] = BlockSize;
+    *Block = v7 + 4;
     return 0;
   }
-  v8 = &a1[4 * a1[5] + 8];
-  while ( v4 < v8 )
+  v9 = (char *)MemoryBlockLookaside + 16 * *((_DWORD *)MemoryBlockLookaside + 5) + 32;
+  while ( v5 < v9 )
   {
-    v9 = RtlpInterlockedPopEntrySList((unsigned int)v4);
-    v6 = v9;
-    if ( v9 )
+    v10 = RtlpInterlockedPopEntrySList((unsigned int)v5);
+    v7 = v10;
+    if ( v10 )
     {
-      if ( ((unsigned __int8)v9 & 3) != 0 || (int *)v9[3] != v4 || v9[1] != v4[2] )
+      if ( ((unsigned __int8)v10 & 3) != 0 || (char *)v10[3] != v5 || v10[1] != *((_DWORD *)v5 + 2) )
       {
-        *v4 = 0;
-        v4[1] = 0;
-        v6 = 0;
+        *(_DWORD *)v5 = 0;
+        *((_DWORD *)v5 + 1) = 0;
+        v7 = 0;
       }
-      if ( v6 )
+      if ( v7 )
         goto LABEL_9;
     }
-    v4 += 4;
+    v5 += 16;
   }
   return -1073741670;
 }

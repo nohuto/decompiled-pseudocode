@@ -1,15 +1,15 @@
 /*
- * XREFs of PspGetNextJob @ 0x140617C40
+ * XREFs of PspGetNextJob @ 0x1406818A0
  * Callers:
- *     PspGetNextSilo @ 0x140617AF0 (PspGetNextSilo.c)
- *     PspEnforceLimits @ 0x140617B3C (PspEnforceLimits.c)
+ *     PspGetNextSilo @ 0x140681750 (PspGetNextSilo.c)
+ *     PspEnforceLimits @ 0x14068179C (PspEnforceLimits.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 *__fastcall PspGetNextJob(_QWORD *Object)
@@ -17,8 +17,7 @@ __int64 *__fastcall PspGetNextJob(_QWORD *Object)
   struct _KTHREAD *CurrentThread; // rbx
   __int64 *v3; // rsi
   __int64 *v4; // r14
-  __int64 v5; // rcx
-  bool v6; // zf
+  bool v5; // zf
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
@@ -42,9 +41,9 @@ LABEL_6:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspJobListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PspJobListLock);
   KeAbPostRelease((ULONG_PTR)&PspJobListLock);
-  v6 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v6 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery(v5);
+  v5 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v5 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery();
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x6E457350u);
   return v3;

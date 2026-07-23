@@ -1,16 +1,29 @@
 /*
- * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x1404CBF20
+ * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x1404C5390
  * Callers:
- *     wil_details_RegisterFeatureStagingChangeNotification @ 0x1407D612C (wil_details_RegisterFeatureStagingChangeNotification.c)
+ *     wil_details_RegisterFeatureStagingChangeNotification @ 0x1407D666C (wil_details_RegisterFeatureStagingChangeNotification.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
- *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x1406FB0B8 (CmFcRegisterFeatureConfigurationChangeNotification.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
+ *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x1406F8CF8 (CmFcRegisterFeatureConfigurationChangeNotification.c)
  */
 
-__int64 __fastcall RtlRegisterFeatureConfigurationChangeNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlRegisterFeatureConfigurationChangeNotification(
+        PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK Callback,
+        PVOID Context,
+        PRTL_FEATURE_CHANGE_STAMP ObservedChangeStamp,
+        PRTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  if ( KeGetEffectiveIrql() && ((KiBugCheckActive & 3) != 0 || PoPowerDownActionInProgress) )
-    return 3221225659LL;
+  if ( KeGetEffectiveIrql((__int64)Callback, (__int64)Context)
+    && ((KiBugCheckActive & 3) != 0 || PoPowerDownActionInProgress) )
+  {
+    return -1073741637;
+  }
   else
-    return CmFcRegisterFeatureConfigurationChangeNotification(a1, a2, a3, a4);
+  {
+    return CmFcRegisterFeatureConfigurationChangeNotification(
+             Callback,
+             Context,
+             ObservedChangeStamp,
+             RegistrationHandle);
+  }
 }

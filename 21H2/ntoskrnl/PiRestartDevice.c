@@ -1,11 +1,11 @@
 /*
- * XREFs of PiRestartDevice @ 0x140733C40
+ * XREFs of PiRestartDevice @ 0x140733E00
  * Callers:
- *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x140381DA0 (PnpDeviceActionWorker.c)
  * Callees:
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     PnpRestartDeviceNode @ 0x140731838 (PnpRestartDeviceNode.c)
- *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     PnpRestartDeviceNode @ 0x1407319F8 (PnpRestartDeviceNode.c)
+ *     PipProcessDevNodeTree @ 0x1407413C4 (PipProcessDevNodeTree.c)
  */
 
 __int64 __fastcall PiRestartDevice(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpGetRegister64 @ 0x1401C13BC
+ * XREFs of HvlpGetRegister64 @ 0x1401C12A0
  * Callers:
- *     HvlEnlightenProcessor @ 0x140139B58 (HvlEnlightenProcessor.c)
- *     HvlLogGuestCrashInformation @ 0x1401BAB4C (HvlLogGuestCrashInformation.c)
- *     HvlGetReferenceTime @ 0x1401BCD24 (HvlGetReferenceTime.c)
- *     HvlGetReferenceTimeUsingTscPage @ 0x1401BCD58 (HvlGetReferenceTimeUsingTscPage.c)
- *     HvlpTryToLockCpuManagementVersion @ 0x1401BFD1C (HvlpTryToLockCpuManagementVersion.c)
- *     HvlDeleteProcessor @ 0x1406203EC (HvlDeleteProcessor.c)
+ *     HvlEnlightenProcessor @ 0x14013A0C8 (HvlEnlightenProcessor.c)
+ *     HvlLogGuestCrashInformation @ 0x1401BAA30 (HvlLogGuestCrashInformation.c)
+ *     HvlGetReferenceTime @ 0x1401BCC08 (HvlGetReferenceTime.c)
+ *     HvlGetReferenceTimeUsingTscPage @ 0x1401BCC3C (HvlGetReferenceTimeUsingTscPage.c)
+ *     HvlpTryToLockCpuManagementVersion @ 0x1401BFC00 (HvlpTryToLockCpuManagementVersion.c)
+ *     HvlDeleteProcessor @ 0x1406204A0 (HvlDeleteProcessor.c)
  * Callees:
  *     <none>
  */

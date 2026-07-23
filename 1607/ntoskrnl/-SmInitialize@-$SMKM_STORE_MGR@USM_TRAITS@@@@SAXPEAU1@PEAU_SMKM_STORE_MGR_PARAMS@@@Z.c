@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140148544
+ * XREFs of ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140148AB4
  * Callers:
  *     SmGlobalsInitialize @ 0x1407B6398 (SmGlobalsInitialize.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SmKmInitialize @ 0x140576594 (SmKmInitialize.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SmKmInitialize @ 0x140576AD4 (SmKmInitialize.c)
  */
 
 void (__fastcall *__fastcall SMKM_STORE_MGR<SM_TRAITS>::SmInitialize(__int64 a1, _OWORD *a2))(__int64 a1)

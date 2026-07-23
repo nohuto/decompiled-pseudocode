@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpNumaParseHmat @ 0x140CB22A0
+ * XREFs of HalpNumaParseHmat @ 0x140CB82E0
  * Callers:
- *     HalpNumaInitializeHmaConfiguration @ 0x140CB1974 (HalpNumaInitializeHmaConfiguration.c)
+ *     HalpNumaInitializeHmaConfiguration @ 0x140CB79B4 (HalpNumaInitializeHmaConfiguration.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
- *     HalpNumaCalculateSllbiSize @ 0x140591B58 (HalpNumaCalculateSllbiSize.c)
- *     HalpNumaGetHmatConfigSize @ 0x140591BC8 (HalpNumaGetHmatConfigSize.c)
- *     HalpNumaQueryProximityNode @ 0x140592130 (HalpNumaQueryProximityNode.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     HalpNumaCalculateSllbiSize @ 0x1405942D8 (HalpNumaCalculateSllbiSize.c)
+ *     HalpNumaGetHmatConfigSize @ 0x140594348 (HalpNumaGetHmatConfigSize.c)
+ *     HalpNumaQueryProximityNode @ 0x1405948B0 (HalpNumaQueryProximityNode.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpNumaParseHmat(__int64 a1, _DWORD *a2, unsigned int a3, _DWORD *a4)

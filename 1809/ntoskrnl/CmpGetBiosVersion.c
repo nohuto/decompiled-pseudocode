@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetBiosVersion @ 0x1409C28D4
+ * XREFs of CmpGetBiosVersion @ 0x1409C38D4
  * Callers:
- *     CmpSetVideoBiosInformation @ 0x1409C2418 (CmpSetVideoBiosInformation.c)
- *     CmpSetSystemBiosInformation @ 0x1409C25D4 (CmpSetSystemBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x1409C3418 (CmpSetVideoBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x1409C35D4 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     strstr @ 0x140194EC0 (strstr.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     strstr @ 0x140195000 (strstr.c)
  */
 
 char __fastcall CmpGetBiosVersion(__int64 a1, unsigned int a2, __int64 a3)

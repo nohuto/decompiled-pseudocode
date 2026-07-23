@@ -21,10 +21,10 @@ bool LdrControlFlowGuardEnforcedWithExportSuppression()
   bool result; // al
 
   result = 0;
-  if ( qword_1801993B8 )
+  if ( LdrSystemDllInitBlock.CfgBitMap )
   {
-    if ( (dword_18019939C & 1) == 0 )
-      return (BYTE5(qword_1801993A0) & 3) == 3;
+    if ( (LdrSystemDllInitBlock.Flags & 1) == 0 )
+      return (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) == 3;
   }
   return result;
 }

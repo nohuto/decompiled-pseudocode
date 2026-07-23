@@ -6,15 +6,15 @@
  *     sub_1800CF1D4 @ 0x1800CF1D4 (sub_1800CF1D4.c)
  */
 
-__int64 __fastcall LdrResolveDelayLoadsFromDll(__int64 a1, __int64 a2, int a3)
+NTSTATUS __cdecl LdrResolveDelayLoadsFromDll(PVOID ParentModuleBase, PCSTR TargetDllName, ULONG Flags)
 {
-  __int64 v5; // rax
+  const IMAGE_DELAYLOAD_DESCRIPTOR *v5; // rax
 
-  if ( a3 )
-    return 3221225485LL;
-  v5 = sub_1800CF1D4(a1);
+  if ( Flags )
+    return -1073741811;
+  v5 = (const IMAGE_DELAYLOAD_DESCRIPTOR *)sub_1800CF1D4(ParentModuleBase);
   if ( v5 )
-    return sub_180017368(a1, v5);
+    return sub_180017368((char *)ParentModuleBase, v5);
   else
-    return 3221225781LL;
+    return -1073741515;
 }

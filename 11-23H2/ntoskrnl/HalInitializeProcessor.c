@@ -1,5 +1,5 @@
 /*
- * XREFs of HalInitializeProcessor @ 0x140381030
+ * XREFs of HalInitializeProcessor @ 0x1403811D0
  * Callers:
  *     KiInitializeBootStructures @ 0x140A8B590 (KiInitializeBootStructures.c)
  * Callees:

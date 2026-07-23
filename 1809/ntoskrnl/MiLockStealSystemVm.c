@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLockStealSystemVm @ 0x1400E9978
+ * XREFs of MiLockStealSystemVm @ 0x1400E99F8
  * Callers:
- *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MiStealPage @ 0x1400EBFC4 (MiStealPage.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiVaIsPageFileHash @ 0x14009DA88 (MiVaIsPageFileHash.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiSynchronizeSystemVa @ 0x1400E9F68 (MiSynchronizeSystemVa.c)
- *     MiUnlockStealVm @ 0x1400ECD64 (MiUnlockStealVm.c)
- *     MiAttachToOwningSession @ 0x14011A4CC (MiAttachToOwningSession.c)
- *     MiSmallVaStillMapsFrame @ 0x1401349F4 (MiSmallVaStillMapsFrame.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiVaIsPageFileHash @ 0x14009D9C8 (MiVaIsPageFileHash.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiSynchronizeSystemVa @ 0x1400E9FE8 (MiSynchronizeSystemVa.c)
+ *     MiUnlockStealVm @ 0x1400ECDE4 (MiUnlockStealVm.c)
+ *     MiAttachToOwningSession @ 0x14011A53C (MiAttachToOwningSession.c)
+ *     MiSmallVaStillMapsFrame @ 0x140134AC4 (MiSmallVaStillMapsFrame.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockStealSystemVm(__int64 a1, unsigned __int8 a2, unsigned __int64 a3, __int64 a4)
@@ -119,7 +119,7 @@ LABEL_10:
         goto LABEL_10;
       }
       if ( SystemRegionType == 9
-        && MiVaIsPageFileHash(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL)), v7) )
+        && MiVaIsPageFileHash(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL)), v7) )
       {
         v16 = MiGetAnyMultiplexedVm(3);
         *(_DWORD *)(a4 + 48) = 2;

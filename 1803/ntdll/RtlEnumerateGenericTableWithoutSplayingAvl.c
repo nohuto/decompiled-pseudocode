@@ -6,44 +6,44 @@
  *     <none>
  */
 
-__int64 __fastcall RtlEnumerateGenericTableWithoutSplayingAvl(__int64 a1, _QWORD *a2)
+PVOID __cdecl RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table, PVOID *RestartKey)
 {
-  _QWORD *v3; // rdx
-  _QWORD *v4; // rax
-  _QWORD *j; // rcx
-  _QWORD *k; // rcx
-  _QWORD *i; // rcx
+  _RTL_BALANCED_LINKS *v3; // rdx
+  _RTL_BALANCED_LINKS *RightChild; // rax
+  _RTL_BALANCED_LINKS *j; // rcx
+  _RTL_BALANCED_LINKS *k; // rcx
+  _RTL_BALANCED_LINKS *i; // rcx
 
-  if ( *(_DWORD *)(a1 + 44) )
+  if ( Table->NumberGenericTableElements )
   {
-    v3 = (_QWORD *)*a2;
+    v3 = (_RTL_BALANCED_LINKS *)*RestartKey;
     if ( v3 )
     {
-      v4 = (_QWORD *)v3[2];
-      if ( v4 )
+      RightChild = v3->RightChild;
+      if ( RightChild )
       {
-        for ( i = (_QWORD *)v4[1]; i; i = (_QWORD *)i[1] )
-          v4 = i;
+        for ( i = RightChild->LeftChild; i; i = i->LeftChild )
+          RightChild = i;
       }
       else
       {
-        for ( j = (_QWORD *)*v3; (_QWORD *)j[2] == v3; j = (_QWORD *)*j )
+        for ( j = v3->Parent; j->RightChild == v3; j = j->Parent )
           v3 = j;
-        v4 = 0LL;
-        if ( (_QWORD *)j[1] == v3 )
-          v4 = j;
+        RightChild = 0LL;
+        if ( j->LeftChild == v3 )
+          RightChild = j;
       }
-      if ( !v4 )
-        return (unsigned __int64)(v4 + 4) & -(__int64)(v4 != 0LL);
+      if ( !RightChild )
+        return (PVOID)((unsigned __int64)&RightChild[1] & -(__int64)(RightChild != 0LL));
     }
     else
     {
-      v4 = *(_QWORD **)(a1 + 16);
-      for ( k = (_QWORD *)v4[1]; k; k = (_QWORD *)k[1] )
-        v4 = k;
+      RightChild = Table->BalancedRoot.RightChild;
+      for ( k = RightChild->LeftChild; k; k = k->LeftChild )
+        RightChild = k;
     }
-    *a2 = v4;
-    return (unsigned __int64)(v4 + 4) & -(__int64)(v4 != 0LL);
+    *RestartKey = RightChild;
+    return (PVOID)((unsigned __int64)&RightChild[1] & -(__int64)(RightChild != 0LL));
   }
   return 0LL;
 }

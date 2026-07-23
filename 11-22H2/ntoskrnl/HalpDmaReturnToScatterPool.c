@@ -33,10 +33,10 @@ __int64 __fastcall HalpDmaReturnToScatterPool(__int64 a1, __int64 a2, char a3)
   {
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
     OldIrql = v12.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && v12.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )

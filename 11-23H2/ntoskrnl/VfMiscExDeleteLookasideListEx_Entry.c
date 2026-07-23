@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscExDeleteLookasideListEx_Entry @ 0x140ADFAC0
+ * XREFs of VfMiscExDeleteLookasideListEx_Entry @ 0x140ADFAB0
  * Callers:
  *     <none>
  * Callees:
- *     VfLookasideDelete @ 0x140AE238C (VfLookasideDelete.c)
+ *     VfLookasideDelete @ 0x140AE237C (VfLookasideDelete.c)
  */
 
 __int64 __fastcall VfMiscExDeleteLookasideListEx_Entry(__int64 a1)

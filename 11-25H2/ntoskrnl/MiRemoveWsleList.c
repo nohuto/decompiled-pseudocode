@@ -258,7 +258,7 @@ LABEL_28:
     if ( (v5 & 0xF) == 3 )
     {
       v37 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-      if ( v37 && (v16 >= v37 && v16 < PsNtosImageEnd || v16 >= PsHalImageBase && v16 < PsHalImageEnd) )
+      if ( v37 && (v16 >= v37 && v16 < PsNtosImageEnd || v16 >= (unsigned __int64)PsHalImageBase && v16 < PsHalImageEnd) )
       {
         v8 = ++v40;
         goto LABEL_11;

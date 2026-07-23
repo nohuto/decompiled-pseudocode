@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateUltraThreadContextHelper @ 0x1402EC46C
+ * XREFs of MiCreateUltraThreadContextHelper @ 0x1402EC6FC
  * Callers:
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     MiGetUltraMdlContext @ 0x1406619CC (MiGetUltraMdlContext.c)
+ *     MiCreateUltraThreadContext @ 0x1402EC680 (MiCreateUltraThreadContext.c)
+ *     MiGetUltraMdlContext @ 0x140661F1C (MiGetUltraMdlContext.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiGetUltraPage @ 0x1402EC570 (MiGetUltraPage.c)
- *     MiReplenishUltraPageTables @ 0x140661B7C (MiReplenishUltraPageTables.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiGetUltraPage @ 0x1402EC800 (MiGetUltraPage.c)
+ *     MiReplenishUltraPageTables @ 0x1406620CC (MiReplenishUltraPageTables.c)
  */
 
 __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)

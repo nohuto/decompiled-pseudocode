@@ -1,10 +1,10 @@
 /*
- * XREFs of MiZeroBootMappings @ 0x140C503D0
+ * XREFs of MiZeroBootMappings @ 0x140C52560
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x1403AFDC8 (MiIssueFlushTbEntire.c)
- *     MxZeroBootMappings @ 0x140C505C4 (MxZeroBootMappings.c)
+ *     MiIssueFlushTbEntire @ 0x14039E5D8 (MiIssueFlushTbEntire.c)
+ *     MxZeroBootMappings @ 0x140C52754 (MxZeroBootMappings.c)
  */
 
 __int64 MiZeroBootMappings()

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwDeviceFree @ 0x1404C3B98
+ * XREFs of PiSwDeviceFree @ 0x140483DD0
  * Callers:
- *     PiSwDeviceDereference @ 0x1404C3AB4 (PiSwDeviceDereference.c)
+ *     PiSwDeviceDereference @ 0x1404869A8 (PiSwDeviceDereference.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PiSwPdoAssociationFree @ 0x1404C39D0 (PiSwPdoAssociationFree.c)
- *     PiSwInstanceInfoFree @ 0x1404C3AE8 (PiSwInstanceInfoFree.c)
- *     PiSwPnPInfoFree @ 0x1404C3B28 (PiSwPnPInfoFree.c)
- *     PiSwFreeInterfaceList @ 0x1404C6C98 (PiSwFreeInterfaceList.c)
- *     PnpFreeDevPropertyArray @ 0x140502730 (PnpFreeDevPropertyArray.c)
- *     PiSwQueuedCreateInfoFree @ 0x140645918 (PiSwQueuedCreateInfoFree.c)
+ *     PiSwPdoAssociationFree @ 0x140483CEC (PiSwPdoAssociationFree.c)
+ *     PiSwPnPInfoFree @ 0x140483E58 (PiSwPnPInfoFree.c)
+ *     PiSwInstanceInfoFree @ 0x140483EC8 (PiSwInstanceInfoFree.c)
+ *     PiSwFreeInterfaceList @ 0x1404878CC (PiSwFreeInterfaceList.c)
+ *     PnpFreeDevPropertyArray @ 0x1404E56C0 (PnpFreeDevPropertyArray.c)
+ *     PiSwQueuedCreateInfoFree @ 0x1406459FC (PiSwQueuedCreateInfoFree.c)
  */
 
 void __fastcall PiSwDeviceFree(__int64 a1)

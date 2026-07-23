@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakePageBad @ 0x1401FE1A0
+ * XREFs of MiMakePageBad @ 0x1401FDFCC
  * Callers:
- *     MiScrubLargeMappedPage @ 0x1401FE334 (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x1401FE660 (MiScrubNode.c)
- *     MiScrubProcesses @ 0x140664E40 (MiScrubProcesses.c)
+ *     MiScrubLargeMappedPage @ 0x1401FE160 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x1401FE48C (MiScrubNode.c)
+ *     MiScrubProcesses @ 0x140664F24 (MiScrubProcesses.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  */
 
 void __fastcall MiMakePageBad(__int64 a1, int a2)
@@ -26,5 +26,5 @@ void __fastcall MiMakePageBad(__int64 a1, int a2)
   }
   if ( a2 == 1 )
     MiInsertPageInList(a1, 0x20u);
-  _InterlockedIncrement(&dword_140327130);
+  _InterlockedIncrement(&dword_140327170);
 }

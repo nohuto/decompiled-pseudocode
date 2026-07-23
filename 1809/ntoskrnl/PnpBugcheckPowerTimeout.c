@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpBugcheckPowerTimeout @ 0x140288984
+ * XREFs of PnpBugcheckPowerTimeout @ 0x140288B74
  * Callers:
- *     PopBuildDeviceNotifyListWatchdog @ 0x14057D9F0 (PopBuildDeviceNotifyListWatchdog.c)
+ *     PopBuildDeviceNotifyListWatchdog @ 0x14057E9F0 (PopBuildDeviceNotifyListWatchdog.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __noreturn PnpBugcheckPowerTimeout()

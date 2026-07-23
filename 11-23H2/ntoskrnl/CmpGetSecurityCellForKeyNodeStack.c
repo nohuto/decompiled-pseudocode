@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetSecurityCellForKeyNodeStack @ 0x140A1B964
+ * XREFs of CmpGetSecurityCellForKeyNodeStack @ 0x140A1BC14
  * Callers:
- *     CmpCheckKeyNodeStackAccess @ 0x140A1B2C0 (CmpCheckKeyNodeStackAccess.c)
- *     CmpCopyMergeOfLayeredKeyNode @ 0x140A210D8 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x140A1B570 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x140A21388 (CmpCopyMergeOfLayeredKeyNode.c)
  * Callees:
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D1D10 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1FCF0 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D1FE0 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1FFA0 (CmpGetEffectiveKeyNodeSemantics.c)
  */
 
 __int64 __fastcall CmpGetSecurityCellForKeyNodeStack(__int16 *a1, _QWORD *a2, _DWORD *a3)

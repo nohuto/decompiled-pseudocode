@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMSetProblem @ 0x14072F648
+ * XREFs of PiCMSetProblem @ 0x14072F814
  * Callers:
- *     PiCMSetDeviceProblem @ 0x14072EC10 (PiCMSetDeviceProblem.c)
- *     PiCMDeviceAction @ 0x14072EF74 (PiCMDeviceAction.c)
+ *     PiCMSetDeviceProblem @ 0x14072EDDC (PiCMSetDeviceProblem.c)
+ *     PiCMDeviceAction @ 0x14072F140 (PiCMDeviceAction.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x1403FCA00 (ZwPlugPlayControl.c)
- *     _CmGetDeviceStatus @ 0x1406A0340 (_CmGetDeviceStatus.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x1403FCBE0 (ZwPlugPlayControl.c)
+ *     _CmGetDeviceStatus @ 0x1405FF680 (_CmGetDeviceStatus.c)
  */
 
-__int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
+NTSTATUS __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v7; // edi
   unsigned int v8; // [rsp+30h] [rbp-40h]
   int v9; // [rsp+40h] [rbp-30h] BYREF
@@ -25,13 +25,13 @@ __int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
   v13 = 0;
   v14 = 0;
   if ( (unsigned int)(a3 - 1) > 1 )
-    return 3221225485LL;
-  result = CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, SourceString, 0LL, &v14, &v13, &v9, v8);
-  if ( (int)result >= 0 )
+    return -1073741811;
+  result = CmGetDeviceStatus(PiPnpRtlCtx, SourceString, 0, &v14, &v13, &v9, v8);
+  if ( result >= 0 )
   {
     v7 = v13;
     if ( a2 && (v14 & 0x400) != 0 && a3 != 2 && v13 != a2 )
-      return 3221225485LL;
+      return -1073741811;
     DestinationString = 0LL;
     v12 = 0LL;
     v11 = 0LL;
@@ -47,7 +47,7 @@ __int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
       LODWORD(v11) = 2;
       DWORD2(v11) = v7;
     }
-    return ZwPlugPlayControl(14LL, (__int64)&DestinationString);
+    return ZwPlugPlayControl(PlugPlayControlDeviceStatus, &DestinationString, 0x28u);
   }
   return result;
 }

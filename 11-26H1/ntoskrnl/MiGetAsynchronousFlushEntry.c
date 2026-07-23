@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetAsynchronousFlushEntry @ 0x1403C1A94
+ * XREFs of MiGetAsynchronousFlushEntry @ 0x1403CB994
  * Callers:
- *     MiFlushSubsection @ 0x1403C1390 (MiFlushSubsection.c)
- *     MiIssueAsynchronousFlush @ 0x1403C1974 (MiIssueAsynchronousFlush.c)
+ *     MiFlushSubsection @ 0x1403CB290 (MiFlushSubsection.c)
+ *     MiIssueAsynchronousFlush @ 0x1403CB874 (MiIssueAsynchronousFlush.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 _DWORD *__fastcall MiGetAsynchronousFlushEntry(__int64 a1, __int64 a2)

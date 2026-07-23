@@ -3,14 +3,17 @@
  * Callers:
  *     LdrResSearchResource @ 0x180037450 (LdrResSearchResource.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtQueryInformationFile @ 0x1800A0500 (NtQueryInformationFile.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtQueryInformationFile @ 0x1800A0520 (NtQueryInformationFile.c)
  */
 
-__int64 __fastcall LdrpResValidateFileHandle(__int64 a1)
+NTSTATUS __fastcall LdrpResValidateFileHandle(char *a1)
 {
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-48h] BYREF
+  _BYTE FileInformation[40]; // [rsp+40h] [rbp-38h] BYREF
+
   if ( (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
-    return 3221225480LL;
+    return -1073741816;
   else
-    return NtQueryInformationFile();
+    return NtQueryInformationFile(a1, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of PsFreezeProcess @ 0x14051E428
+ * XREFs of PsFreezeProcess @ 0x140501490
  * Callers:
- *     PspChangeProcessExecutionState @ 0x140469960 (PspChangeProcessExecutionState.c)
- *     DbgkpSuspendProcess @ 0x14061ADB4 (DbgkpSuspendProcess.c)
+ *     PspChangeProcessExecutionState @ 0x140468830 (PspChangeProcessExecutionState.c)
+ *     DbgkpSuspendProcess @ 0x14061AE68 (DbgkpSuspendProcess.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     PspLockProcessExclusive @ 0x140088FB8 (PspLockProcessExclusive.c)
- *     KeForceResumeProcess @ 0x1400C8E70 (KeForceResumeProcess.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
- *     KeFreezeProcessNew @ 0x1401D2130 (KeFreezeProcessNew.c)
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
- *     PsSetProcessTelemetryAppState @ 0x1404A33DC (PsSetProcessTelemetryAppState.c)
- *     EtwTraceFreezeThawProcess @ 0x1406A16CC (EtwTraceFreezeThawProcess.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1406A5FA4 (EtwTiLogSuspendResumeProcess.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KeForceResumeProcess @ 0x1400C6D10 (KeForceResumeProcess.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x14010D1A8 (PspLockProcessExclusive.c)
+ *     KeFreezeProcessNew @ 0x1401D1F5C (KeFreezeProcessNew.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
+ *     PsSetProcessTelemetryAppState @ 0x14051B7DC (PsSetProcessTelemetryAppState.c)
+ *     EtwTraceFreezeThawProcess @ 0x1406A1804 (EtwTraceFreezeThawProcess.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1406A60DC (EtwTiLogSuspendResumeProcess.c)
  */
 
-char __fastcall PsFreezeProcess(__int64 BugCheckParameter1, char a2)
+char __fastcall PsFreezeProcess(ULONG_PTR BugCheckParameter1, char a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
   int v6; // eax
@@ -51,7 +51,7 @@ char __fastcall PsFreezeProcess(__int64 BugCheckParameter1, char a2)
       LOBYTE(v8) = 1;
       EtwTraceFreezeThawProcess(BugCheckParameter1, v8);
     }
-    PsSetProcessTelemetryAppState((struct _EX_RUNDOWN_REF *)BugCheckParameter1, 1);
+    PsSetProcessTelemetryAppState(BugCheckParameter1);
   }
   return 1;
 }

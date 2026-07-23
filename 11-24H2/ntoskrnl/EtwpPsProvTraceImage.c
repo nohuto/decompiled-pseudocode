@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPsProvTraceImage @ 0x140A033D8
+ * XREFs of EtwpPsProvTraceImage @ 0x1409FF944
  * Callers:
- *     EtwpTraceImageUnload @ 0x1403C4AF8 (EtwpTraceImageUnload.c)
+ *     EtwpTraceImageUnload @ 0x1403B36B8 (EtwpTraceImageUnload.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __int16 a3, int a4)
@@ -30,7 +30,7 @@ NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __i
   __int64 v23; // [rsp+A0h] [rbp+27h]
   int v24; // [rsp+A8h] [rbp+2Fh]
   int v25; // [rsp+ACh] [rbp+33h]
-  __int64 *v26; // [rsp+B0h] [rbp+37h]
+  int *v26; // [rsp+B0h] [rbp+37h]
   int v27; // [rsp+B8h] [rbp+3Fh]
   int v28; // [rsp+BCh] [rbp+43h]
 

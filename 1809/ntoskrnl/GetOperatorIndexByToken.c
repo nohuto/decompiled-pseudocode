@@ -1,8 +1,8 @@
 /*
- * XREFs of GetOperatorIndexByToken @ 0x1408A7FE4
+ * XREFs of GetOperatorIndexByToken @ 0x1408A9244
  * Callers:
- *     LocalGetConditionForString @ 0x1408A8BCC (LocalGetConditionForString.c)
- *     LocalpGetStringForCondition @ 0x1408AA8D0 (LocalpGetStringForCondition.c)
+ *     LocalGetConditionForString @ 0x1408A9E2C (LocalGetConditionForString.c)
+ *     LocalpGetStringForCondition @ 0x1408ABB30 (LocalpGetStringForCondition.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall GetOperatorIndexByToken(char a1)
   _BYTE *i; // rdx
 
   result = 0LL;
-  for ( i = &unk_140355FD8; *i != a1; i += 24 )
+  for ( i = &unk_140356FD8; *i != a1; i += 24 )
   {
     result = (unsigned int)(result + 1);
     if ( (unsigned int)result >= 0x18 )

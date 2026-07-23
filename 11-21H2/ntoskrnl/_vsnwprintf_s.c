@@ -3,8 +3,8 @@
  * Callers:
  *     _snwprintf_s @ 0x1403E6640 (_snwprintf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _swoutput_s @ 0x1403E847C (_swoutput_s.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
+ *     sub_1403E847C @ 0x1403E847C (sub_1403E847C.c)
  */
 
 int __cdecl vsnwprintf_s(wchar_t *DstBuf, size_t SizeInWords, size_t MaxCount, const wchar_t *Format, va_list ArgList)
@@ -18,7 +18,7 @@ int __cdecl vsnwprintf_s(wchar_t *DstBuf, size_t SizeInWords, size_t MaxCount, c
     if ( !DstBuf )
     {
 LABEL_12:
-      xHalTimerWatchdogStop();
+      _misaligned_access();
       return -1;
     }
   }
@@ -32,12 +32,12 @@ LABEL_12:
     goto LABEL_12;
   if ( SizeInWords > MaxCount )
   {
-    result = swoutput_s(DstBuf, MaxCount + 1, Format, ArgList);
+    result = sub_1403E847C(DstBuf, MaxCount + 1, Format, ArgList);
     if ( result == -2 )
       return -1;
     goto LABEL_10;
   }
-  result = swoutput_s(DstBuf, SizeInWords, Format, ArgList);
+  result = sub_1403E847C(DstBuf, SizeInWords, Format, ArgList);
   if ( result != -2 )
   {
 LABEL_10:

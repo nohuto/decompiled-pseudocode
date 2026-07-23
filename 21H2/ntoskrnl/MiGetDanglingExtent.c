@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetDanglingExtent @ 0x140541220
+ * XREFs of MiGetDanglingExtent @ 0x140541460
  * Callers:
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -41,17 +41,17 @@ __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
   v2 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   v3 = 0LL;
-  KeAcquireInStackQueuedSpinLock(&qword_140C51DA0, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C51DE0, &LockHandle);
   do
   {
-    v4 = qword_140C4CAE8;
+    v4 = qword_140C4CB28;
     v5 = v3;
     v6 = v2;
-    if ( !qword_140C4CAE8 )
+    if ( !qword_140C4CB28 )
       break;
-    v7 = *(_QWORD *)qword_140C4CAE8;
+    v7 = *(_QWORD *)qword_140C4CB28;
     ++v2;
-    qword_140C4CAE8 = *(_QWORD *)qword_140C4CAE8;
+    qword_140C4CB28 = *(_QWORD *)qword_140C4CB28;
     v3 = v4;
     if ( v6 )
       v3 = v5;

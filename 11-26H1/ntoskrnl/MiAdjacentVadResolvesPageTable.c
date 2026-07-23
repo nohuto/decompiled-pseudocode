@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAdjacentVadResolvesPageTable @ 0x1404F5B30
+ * XREFs of MiAdjacentVadResolvesPageTable @ 0x1404EF0F0
  * Callers:
- *     MiComputeVadCommitBelow @ 0x140B24174 (MiComputeVadCommitBelow.c)
- *     MiComputeVadCommitAbove @ 0x140B241BC (MiComputeVadCommitAbove.c)
+ *     MiComputeVadCommitBelow @ 0x140B26574 (MiComputeVadCommitBelow.c)
+ *     MiComputeVadCommitAbove @ 0x140B265BC (MiComputeVadCommitAbove.c)
  * Callees:
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
  */
 
 __int64 __fastcall MiAdjacentVadResolvesPageTable(__int64 a1, __int64 a2, int a3)

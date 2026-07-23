@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUserPdeOrAbove @ 0x1402A1440
+ * XREFs of MiUserPdeOrAbove @ 0x1402A0990
  * Callers:
- *     MiCreateSharedZeroPages @ 0x140283980 (MiCreateSharedZeroPages.c)
- *     MiGetPteFromCopyList @ 0x140285490 (MiGetPteFromCopyList.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiCachedPageFinish @ 0x1402A0710 (MiCachedPageFinish.c)
- *     MiMapFrame @ 0x1402A0B50 (MiMapFrame.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiCompletePrivateZeroFault @ 0x1402D6770 (MiCompletePrivateZeroFault.c)
- *     MiProtoFaultGetProtection @ 0x1402D93F0 (MiProtoFaultGetProtection.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiMapArbitraryPage @ 0x1402F2C80 (MiMapArbitraryPage.c)
- *     MiComputeCombineHash @ 0x1402F39F0 (MiComputeCombineHash.c)
- *     MiMakeTransitionPteValid @ 0x1403035C0 (MiMakeTransitionPteValid.c)
- *     MiCompleteRestrictedImageFault @ 0x1403744A0 (MiCompleteRestrictedImageFault.c)
+ *     MiCreateSharedZeroPages @ 0x140282EF0 (MiCreateSharedZeroPages.c)
+ *     MiGetPteFromCopyList @ 0x1402849F0 (MiGetPteFromCopyList.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiCachedPageFinish @ 0x14029FC60 (MiCachedPageFinish.c)
+ *     MiMapFrame @ 0x1402A00A0 (MiMapFrame.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiCompletePrivateZeroFault @ 0x1402B8530 (MiCompletePrivateZeroFault.c)
+ *     MiProtoFaultGetProtection @ 0x1402BB1B0 (MiProtoFaultGetProtection.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiMapArbitraryPage @ 0x1402D4D00 (MiMapArbitraryPage.c)
+ *     MiComputeCombineHash @ 0x1402D5A70 (MiComputeCombineHash.c)
+ *     MiMakeTransitionPteValid @ 0x1402E5640 (MiMakeTransitionPteValid.c)
+ *     MiCompleteRestrictedImageFault @ 0x140376250 (MiCompleteRestrictedImageFault.c)
  * Callees:
  *     <none>
  */

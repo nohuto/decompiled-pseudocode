@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlertResumeThread @ 0x1401B8F30
+ * XREFs of ZwAlertResumeThread @ 0x1401B9090
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwAlertResumeThread(HANDLE ThreadHandle, PULONG SuspendCount)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, SuspendCount, v2);
+  return KiServiceInternal(ThreadHandle);
 }

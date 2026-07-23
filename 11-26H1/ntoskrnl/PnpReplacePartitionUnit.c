@@ -1,42 +1,42 @@
 /*
- * XREFs of PnpReplacePartitionUnit @ 0x1407ADDC0
+ * XREFs of PnpReplacePartitionUnit @ 0x1407B0E20
  * Callers:
- *     IoReplacePartitionUnit @ 0x1407A0210 (IoReplacePartitionUnit.c)
+ *     IoReplacePartitionUnit @ 0x1407A2D50 (IoReplacePartitionUnit.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     KeFindFirstSetLeftAffinityEx @ 0x14042D560 (KeFindFirstSetLeftAffinityEx.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PnprQueryReplaceFeatures @ 0x1405DBCE8 (PnprQueryReplaceFeatures.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PnprAllocateMappingReserves @ 0x1407AEC04 (PnprAllocateMappingReserves.c)
- *     PnprCollectResources @ 0x1407AED90 (PnprCollectResources.c)
- *     PnprFreeMappingReserve @ 0x1407AF0E4 (PnprFreeMappingReserve.c)
- *     PnprIdentifyUnits @ 0x1407AF35C (PnprIdentifyUnits.c)
- *     PnprLoadPluginDriver @ 0x1407AF818 (PnprLoadPluginDriver.c)
- *     PnprLockPagesForReplace @ 0x1407AF998 (PnprLockPagesForReplace.c)
- *     PnprLogFailureEvent @ 0x1407AF9C8 (PnprLogFailureEvent.c)
- *     PnprLogStartEvent @ 0x1407AFAF4 (PnprLogStartEvent.c)
- *     PnprLogSuccessEvent @ 0x1407AFBC8 (PnprLogSuccessEvent.c)
- *     PnprMmConstruct @ 0x1407AFFB8 (PnprMmConstruct.c)
- *     PnprMmFree @ 0x1407B00BC (PnprMmFree.c)
- *     PnprUnlockPagesForReplace @ 0x1407B029C (PnprUnlockPagesForReplace.c)
- *     IoGetLegacyVetoList @ 0x140944C40 (IoGetLegacyVetoList.c)
- *     MmUnloadSystemImage @ 0x140AC7670 (MmUnloadSystemImage.c)
- *     PnprGetMillisecondCounter @ 0x140BF16E4 (PnprGetMillisecondCounter.c)
- *     PnprInitiateReplaceOperation @ 0x140BF1744 (PnprInitiateReplaceOperation.c)
- *     PnprQuiesceDevices @ 0x140BF20F0 (PnprQuiesceDevices.c)
- *     PnprWakeDevices @ 0x140BF2D2C (PnprWakeDevices.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     KeFindFirstSetLeftAffinityEx @ 0x140421C30 (KeFindFirstSetLeftAffinityEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PnprQueryReplaceFeatures @ 0x1405DE598 (PnprQueryReplaceFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PnprAllocateMappingReserves @ 0x1407B1C64 (PnprAllocateMappingReserves.c)
+ *     PnprCollectResources @ 0x1407B1DF0 (PnprCollectResources.c)
+ *     PnprFreeMappingReserve @ 0x1407B2144 (PnprFreeMappingReserve.c)
+ *     PnprIdentifyUnits @ 0x1407B23BC (PnprIdentifyUnits.c)
+ *     PnprLoadPluginDriver @ 0x1407B2878 (PnprLoadPluginDriver.c)
+ *     PnprLockPagesForReplace @ 0x1407B29F8 (PnprLockPagesForReplace.c)
+ *     PnprLogFailureEvent @ 0x1407B2A28 (PnprLogFailureEvent.c)
+ *     PnprLogStartEvent @ 0x1407B2B54 (PnprLogStartEvent.c)
+ *     PnprLogSuccessEvent @ 0x1407B2C28 (PnprLogSuccessEvent.c)
+ *     PnprMmConstruct @ 0x1407B3018 (PnprMmConstruct.c)
+ *     PnprMmFree @ 0x1407B311C (PnprMmFree.c)
+ *     PnprUnlockPagesForReplace @ 0x1407B32FC (PnprUnlockPagesForReplace.c)
+ *     IoGetLegacyVetoList @ 0x1409C05B0 (IoGetLegacyVetoList.c)
+ *     MmUnloadSystemImage @ 0x140AC9260 (MmUnloadSystemImage.c)
+ *     PnprGetMillisecondCounter @ 0x140BF76E4 (PnprGetMillisecondCounter.c)
+ *     PnprInitiateReplaceOperation @ 0x140BF7744 (PnprInitiateReplaceOperation.c)
+ *     PnprQuiesceDevices @ 0x140BF80F0 (PnprQuiesceDevices.c)
+ *     PnprWakeDevices @ 0x140BF8D2C (PnprWakeDevices.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall PnpReplacePartitionUnit(ULONG_PTR *a1)
@@ -116,8 +116,8 @@ LONG __fastcall PnpReplacePartitionUnit(ULONG_PTR *a1)
   ULONG v75; // [rsp+38h] [rbp-D0h]
   int v76; // [rsp+3Ch] [rbp-CCh] BYREF
   PVOID P; // [rsp+40h] [rbp-C8h] BYREF
-  struct _GROUP_AFFINITY P_8; // [rsp+48h] [rbp-C0h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity_8; // [rsp+58h] [rbp-B0h] BYREF
+  _GROUP_AFFINITY P_8; // [rsp+48h] [rbp-C0h] BYREF
+  _GROUP_AFFINITY PreviousAffinity_8; // [rsp+58h] [rbp-B0h] BYREF
   struct _KAFFINITY_EX v80; // [rsp+68h] [rbp-A0h] BYREF
   _BYTE v81[80]; // [rsp+178h] [rbp+70h] BYREF
 
@@ -336,10 +336,10 @@ LABEL_9:
   if ( !KeDynamicPartitioningSupported && *((int *)a1 + 4) >= 0 )
   {
     v46 = *(_DWORD *)(Pool2 + 33288);
-    v11 = 170LL;
+    v11 = 164LL;
     PluginDriver = -1073741637;
     if ( !v46 )
-      v46 = 170;
+      v46 = 164;
     *(_DWORD *)(v12 + 33288) = v46;
     v47 = *(_DWORD *)(v12 + 33292);
     if ( !v47 )
@@ -359,7 +359,7 @@ LABEL_9:
     v11 = PnprContext;
     v49 = *(_DWORD *)(PnprContext + 33288);
     if ( !v49 )
-      v49 = 182;
+      v49 = 176;
     v10 = 7LL;
 LABEL_158:
     PluginDriver = -1073741621;
@@ -389,10 +389,10 @@ LABEL_161:
     if ( PluginDriver < 0 )
     {
       v11 = PnprContext;
-      v10 = 232LL;
+      v10 = 226LL;
       v52 = *(_DWORD *)(PnprContext + 33288);
       if ( !v52 )
-        v52 = 232;
+        v52 = 226;
       *(_DWORD *)(PnprContext + 33288) = v52;
       v53 = *(_DWORD *)(v11 + 33292);
       if ( !v53 )
@@ -405,7 +405,7 @@ LABEL_161:
     {
       if ( *(_DWORD *)(*(_QWORD *)(v12 + 24) + 4LL) )
       {
-        v10 = 258LL;
+        v10 = 252LL;
 LABEL_122:
         v11 = PnprContext;
         v3 = v75;
@@ -431,12 +431,12 @@ LABEL_122:
       v57 = *(_DWORD *)(v12 + 33200);
       if ( (v57 & 1) == 0 || !*(_QWORD *)(v12 + 33232) )
       {
-        v58 = 273;
+        v58 = 267;
         goto LABEL_116;
       }
       if ( (v57 & 2) != 0 && !*(_QWORD *)(v12 + 33240) )
       {
-        v58 = 281;
+        v58 = 275;
 LABEL_116:
         v3 = v75;
         goto LABEL_117;
@@ -444,7 +444,7 @@ LABEL_116:
       PluginDriver = PnprMmConstruct(v56, v12 + 152);
       if ( PluginDriver < 0 )
       {
-        v10 = 293LL;
+        v10 = 287LL;
         goto LABEL_122;
       }
       if ( (v54 & 8) != 0 )
@@ -453,7 +453,7 @@ LABEL_116:
       }
       else if ( !*(_QWORD *)(v12 + 33272) || (*(_DWORD *)(v12 + 64) & 0x20) != 0 )
       {
-        v58 = 317;
+        v58 = 311;
         goto LABEL_116;
       }
       v3 = v75;
@@ -463,7 +463,7 @@ LABEL_116:
         v11 = PnprContext;
         v49 = *(_DWORD *)(PnprContext + 33288);
         if ( !v49 )
-          v49 = 332;
+          v49 = 326;
         v10 = 10LL;
         goto LABEL_159;
       }
@@ -478,7 +478,7 @@ LABEL_116:
       *(_DWORD *)(v12 + 176) = v3;
       *(_QWORD *)&v80.Count = 2097153LL;
       memset_0(&v80.8, 0, sizeof(v80.8));
-      RtlpCopyAffinityEx(&v80, v80.Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+      RtlpCopyAffinityEx(&v80, v80.Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
       v60 = *(_QWORD *)(v12 + 16);
       v61 = *(_DWORD *)(v60 + 8);
       if ( v61 )
@@ -503,7 +503,7 @@ LABEL_116:
           else
             FirstSetLeftAffinity = KeFindFirstSetLeftAffinityEx((__int16 *)&v80);
           *(_DWORD *)(v12 + 180) = FirstSetLeftAffinity;
-          v67 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * FirstSetLeftAffinity);
+          v67 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + FirstSetLeftAffinity);
           *(_QWORD *)&P_8.Group = (unsigned __int16)(v67 >> 6);
           P_8.Mask = 1LL << v67;
           KeSetSystemGroupAffinityThread(&P_8, &PreviousAffinity_8);
@@ -515,11 +515,11 @@ LABEL_116:
       v11 = PnprContext;
       v49 = *(_DWORD *)(PnprContext + 33288);
       if ( !v49 )
-        v49 = 379;
+        v49 = 373;
       v10 = 6LL;
       goto LABEL_158;
     }
-    v58 = 352;
+    v58 = 346;
 LABEL_117:
     v11 = PnprContext;
     PluginDriver = -1073741637;
@@ -532,7 +532,7 @@ LABEL_117:
   v10 = PnprContext;
   v50 = *(_DWORD *)(PnprContext + 33288);
   if ( !v50 )
-    v50 = 219;
+    v50 = 213;
   v51 = *(_DWORD *)(PnprContext + 33292);
   *(_DWORD *)(PnprContext + 33288) = v50;
   v11 = 3LL;

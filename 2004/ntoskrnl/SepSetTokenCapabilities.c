@@ -16,12 +16,12 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsigned int a4)
+__int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, ULONG a4)
 {
   __int64 result; // rax
   unsigned int v8; // ebp
-  PVOID PoolWithTag; // rax
-  void *v10; // rsi
+  _SID_AND_ATTRIBUTES *PoolWithTag; // rax
+  _SID_AND_ATTRIBUTES *v10; // rsi
   int v11; // eax
   unsigned int v12; // ebp
   void *v13; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsig
     v13 = *(void **)(a1 + 784);
     if ( v13 )
     {
-      if ( !(unsigned __int8)RtlIsParentOfChildAppContainer(v13, a2) )
+      if ( !RtlIsParentOfChildAppContainer(v13, a2) )
         return 3221225506LL;
     }
   }
@@ -58,7 +58,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsig
         return result;
       v8 = NumberOfBytes;
     }
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x73536553u);
+    PoolWithTag = (_SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v8, 0x73536553u);
     v10 = PoolWithTag;
     if ( PoolWithTag )
     {
@@ -77,7 +77,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsig
           SepFreeTokenCapabilities(a1);
         *(_QWORD *)(a1 + 792) = v10;
         *(_DWORD *)(a1 + 800) = a4;
-        RtlSidHashInitialize((__int64 *)v10, a4, (_QWORD *)(a1 + 808));
+        RtlSidHashInitialize(v10, a4, (PSID_AND_ATTRIBUTES_HASH)(a1 + 808));
       }
       return v12;
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLookupEntryHashTable @ 0x140418450
+ * XREFs of RtlLookupEntryHashTable @ 0x14040CA60
  * Callers:
- *     SepRmReferenceFindCap @ 0x1403BE3D8 (SepRmReferenceFindCap.c)
- *     SepFindMatchingLuidEntry @ 0x140816468 (SepFindMatchingLuidEntry.c)
- *     SepFindMatchingCachedHandlesEntry @ 0x140A29EFC (SepFindMatchingCachedHandlesEntry.c)
- *     SepFindMatchingLowBoxNumberEntry @ 0x140A2C938 (SepFindMatchingLowBoxNumberEntry.c)
- *     SepFindSharedSidEntry @ 0x140A46BB4 (SepFindSharedSidEntry.c)
+ *     SepRmReferenceFindCap @ 0x1403C82D8 (SepRmReferenceFindCap.c)
+ *     SepFindMatchingLuidEntry @ 0x14081C678 (SepFindMatchingLuidEntry.c)
+ *     SepFindSharedSidEntry @ 0x1409E470C (SepFindSharedSidEntry.c)
+ *     SepFindMatchingCachedHandlesEntry @ 0x140A3CF9C (SepFindMatchingCachedHandlesEntry.c)
+ *     SepFindMatchingLowBoxNumberEntry @ 0x140A3E594 (SepFindMatchingLowBoxNumberEntry.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlLookupEntryHashTable(
   unsigned int v7; // ecx
   unsigned int v8; // edx
   _QWORD *Directory; // r8
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v10; // r10
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v10; // r10
   PRTL_DYNAMIC_HASH_TABLE_ENTRY *v11; // rcx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY *v12; // r8
   _QWORD *v13; // rdx

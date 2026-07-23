@@ -1,33 +1,33 @@
 /*
  * XREFs of ZwQueryKey @ 0x14041BA20
  * Callers:
- *     BiZwQueryKey @ 0x1403A7874 (BiZwQueryKey.c)
- *     HalpMcEnumerateAndSetPatchConfig @ 0x14051EAEC (HalpMcEnumerateAndSetPatchConfig.c)
- *     PipIs32bitKey @ 0x14055F2A0 (PipIs32bitKey.c)
- *     DifZwQueryKeyWrapper @ 0x1406253D0 (DifZwQueryKeyWrapper.c)
- *     BiOpenStoreKeyFromObject @ 0x14064CC20 (BiOpenStoreKeyFromObject.c)
- *     IopGetRegistryKeyInformation @ 0x14067A3F4 (IopGetRegistryKeyInformation.c)
- *     IopGetDriverNameFromKeyNode @ 0x14067B694 (IopGetDriverNameFromKeyNode.c)
- *     VrpPostEnumerateKey @ 0x140691CD8 (VrpPostEnumerateKey.c)
- *     IopApplyMutableTagToRegistryKey @ 0x1406C55CC (IopApplyMutableTagToRegistryKey.c)
- *     _RegRtlQueryInfoKey @ 0x1406CB590 (_RegRtlQueryInfoKey.c)
- *     RtlpValidateKeyTrust @ 0x1406DAA38 (RtlpValidateKeyTrust.c)
- *     PiNormalizeDeviceText @ 0x1406E1D34 (PiNormalizeDeviceText.c)
- *     PiRearrangeDeviceInstances @ 0x1406E74D0 (PiRearrangeDeviceInstances.c)
- *     CmpGetAcpiProfileInformation @ 0x1408386A0 (CmpGetAcpiProfileInformation.c)
- *     SepLoadNgenLocations @ 0x140859794 (SepLoadNgenLocations.c)
- *     SepReadAndPopulateCapes @ 0x14085D7FC (SepReadAndPopulateCapes.c)
- *     CmpCloneHwProfile @ 0x14091DBC4 (CmpCloneHwProfile.c)
- *     CmpMoveBiosAliasTable @ 0x14091E6AC (CmpMoveBiosAliasTable.c)
- *     PipCallbackHasDeviceOverrides @ 0x14093FE38 (PipCallbackHasDeviceOverrides.c)
- *     PiDrvDbOverlayCopyKeys @ 0x14095C264 (PiDrvDbOverlayCopyKeys.c)
- *     KsepRegistryQueryKeyInformation @ 0x1409654F8 (KsepRegistryQueryKeyInformation.c)
- *     SepReadAndInsertCaps @ 0x1409CF26C (SepReadAndInsertCaps.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1409E190C (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     _RegRtlCopyTreeInternal @ 0x140A2D248 (_RegRtlCopyTreeInternal.c)
- *     HalpInitChipHacks @ 0x140AF6E6C (HalpInitChipHacks.c)
- *     EmInitSystem @ 0x140B0B630 (EmInitSystem.c)
- *     PipInitDeviceOverrideCache @ 0x140B107D8 (PipInitDeviceOverrideCache.c)
+ *     sub_1403A7874 @ 0x1403A7874 (sub_1403A7874.c)
+ *     sub_14051EAEC @ 0x14051EAEC (sub_14051EAEC.c)
+ *     sub_14055F2A0 @ 0x14055F2A0 (sub_14055F2A0.c)
+ *     sub_1406253D0 @ 0x1406253D0 (sub_1406253D0.c)
+ *     sub_14064CC20 @ 0x14064CC20 (sub_14064CC20.c)
+ *     sub_14067A3F4 @ 0x14067A3F4 (sub_14067A3F4.c)
+ *     sub_14067B694 @ 0x14067B694 (sub_14067B694.c)
+ *     sub_140691CD8 @ 0x140691CD8 (sub_140691CD8.c)
+ *     sub_1406C55CC @ 0x1406C55CC (sub_1406C55CC.c)
+ *     sub_1406CB590 @ 0x1406CB590 (sub_1406CB590.c)
+ *     sub_1406DAA38 @ 0x1406DAA38 (sub_1406DAA38.c)
+ *     sub_1406E1D34 @ 0x1406E1D34 (sub_1406E1D34.c)
+ *     sub_1406E74D0 @ 0x1406E74D0 (sub_1406E74D0.c)
+ *     sub_1408386A0 @ 0x1408386A0 (sub_1408386A0.c)
+ *     sub_140859794 @ 0x140859794 (sub_140859794.c)
+ *     sub_14085D7FC @ 0x14085D7FC (sub_14085D7FC.c)
+ *     sub_14091DBC4 @ 0x14091DBC4 (sub_14091DBC4.c)
+ *     sub_14091E6AC @ 0x14091E6AC (sub_14091E6AC.c)
+ *     sub_14093FE38 @ 0x14093FE38 (sub_14093FE38.c)
+ *     sub_14095C264 @ 0x14095C264 (sub_14095C264.c)
+ *     sub_1409654F8 @ 0x1409654F8 (sub_1409654F8.c)
+ *     sub_1409CF26C @ 0x1409CF26C (sub_1409CF26C.c)
+ *     sub_1409E190C @ 0x1409E190C (sub_1409E190C.c)
+ *     sub_140A2D248 @ 0x140A2D248 (sub_140A2D248.c)
+ *     sub_140AF6E6C @ 0x140AF6E6C (sub_140AF6E6C.c)
+ *     sub_140B0B630 @ 0x140B0B630 (sub_140B0B630.c)
+ *     sub_140B107D8 @ 0x140B107D8 (sub_140B107D8.c)
  * Callees:
  *     <none>
  */
@@ -42,5 +42,5 @@ NTSTATUS __stdcall ZwQueryKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&KeyInformationClass);
+  return sub_140433F80(KeyHandle, *(_QWORD *)&KeyInformationClass);
 }

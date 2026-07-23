@@ -1,16 +1,16 @@
 /*
- * XREFs of IoFreeAdapterChannelV3 @ 0x140510200
+ * XREFs of IoFreeAdapterChannelV3 @ 0x140510750
  * Callers:
- *     HalCancelAdapterChannel @ 0x14050EEA0 (HalCancelAdapterChannel.c)
- *     HalFreeAdapterObject @ 0x14050EF60 (HalFreeAdapterObject.c)
- *     IoFreeAdapterChannelV3Passive @ 0x1405102B0 (IoFreeAdapterChannelV3Passive.c)
- *     HalCancelAdapterChannelDmaThin @ 0x140512F30 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x140513720 (HalCancelAdapterChannelDmarThin.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514EBC (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannel @ 0x14050F3F0 (HalCancelAdapterChannel.c)
+ *     HalFreeAdapterObject @ 0x14050F4B0 (HalFreeAdapterObject.c)
+ *     IoFreeAdapterChannelV3Passive @ 0x140510800 (IoFreeAdapterChannelV3Passive.c)
+ *     HalCancelAdapterChannelDmaThin @ 0x140513480 (HalCancelAdapterChannelDmaThin.c)
+ *     HalCancelAdapterChannelDmarThin @ 0x140513C70 (HalCancelAdapterChannelDmarThin.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14051540C (HalpAllocateDmaResourcesInternal.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     HalpContinueProcessingWaitQueue @ 0x14050FBE4 (HalpContinueProcessingWaitQueue.c)
- *     IoFreeAdapterChannelV3Internal @ 0x140510254 (IoFreeAdapterChannelV3Internal.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     HalpContinueProcessingWaitQueue @ 0x140510134 (HalpContinueProcessingWaitQueue.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x1405107A4 (IoFreeAdapterChannelV3Internal.c)
  */
 
 void __fastcall IoFreeAdapterChannelV3(__int64 a1)

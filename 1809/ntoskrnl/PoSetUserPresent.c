@@ -1,11 +1,11 @@
 /*
- * XREFs of PoSetUserPresent @ 0x140177770
+ * XREFs of PoSetUserPresent @ 0x140177870
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopSetSystemState @ 0x1401777B4 (PopSetSystemState.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     PopSetSystemState @ 0x1401778B4 (PopSetSystemState.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PoSetUserPresent(__int64 a1)

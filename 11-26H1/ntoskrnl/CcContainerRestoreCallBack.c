@@ -1,11 +1,11 @@
 /*
- * XREFs of CcContainerRestoreCallBack @ 0x1405B0660
+ * XREFs of CcContainerRestoreCallBack @ 0x1405B2E70
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcGetContainerPolicyForDTP @ 0x1405B06D4 (CcGetContainerPolicyForDTP.c)
- *     ExUnsubscribeWnfStateChange @ 0x140A41930 (ExUnsubscribeWnfStateChange.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcGetContainerPolicyForDTP @ 0x1405B2EE4 (CcGetContainerPolicyForDTP.c)
+ *     ExUnsubscribeWnfStateChange @ 0x1409FD2E0 (ExUnsubscribeWnfStateChange.c)
  */
 
 __int64 __fastcall CcContainerRestoreCallBack(__int64 a1)

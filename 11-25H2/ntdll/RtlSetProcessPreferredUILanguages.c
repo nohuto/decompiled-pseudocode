@@ -18,7 +18,7 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, _WORD *a2, _DWORD *
   unsigned __int64 v3; // rbx
   int v6; // r14d
   int RegistryInfo; // ebp
-  __int64 v8; // rsi
+  _QWORD *v8; // rsi
   __int64 v9; // rdx
   __int16 v10; // r9
   _WORD *v11; // r8
@@ -127,10 +127,10 @@ LABEL_45:
   }
   RtlpInitMuiCriticalSection();
   RtlEnterCriticalSection(&RegistryInfoCritSect);
-  v19 = *(_QWORD *)(v8 + 72);
-  *(_QWORD *)(v8 + 72) = v17;
-  ++*(_DWORD *)(v8 + 16);
-  v20 = *(_QWORD *)(v8 + 96);
+  v19 = v8[9];
+  v8[9] = v17;
+  ++*((_DWORD *)v8 + 4);
+  v20 = v8[12];
   if ( v20 )
     *(_DWORD *)(v20 + 40) |= 0x80u;
   RtlLeaveCriticalSection(&RegistryInfoCritSect);

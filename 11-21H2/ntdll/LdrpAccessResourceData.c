@@ -13,77 +13,70 @@
  *     LdrpTraceLoadMUIDll @ 0x1800EC820 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrpAccessResourceData(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall LdrpAccessResourceData(unsigned __int64 BaseOfImage, unsigned __int64 a2)
 {
-  __int64 v6; // r13
-  unsigned __int64 v7; // rsi
-  __int64 v8; // r14
+  __int64 v4; // r14
   _DWORD *SharedData; // rcx
-  __int64 v10; // rcx
-  __int64 v11; // rdi
+  __int64 v6; // rcx
+  __int64 v7; // rdi
   unsigned int ImageSize; // ebp
-  _DWORD *v13; // rcx
-  unsigned __int64 v15; // r15
-  int v16; // eax
-  __int64 v17; // rdx
-  unsigned __int64 v18; // rcx
-  __int64 v19; // rcx
-  __int64 AlternateResourceModuleHandle; // rax
-  __int64 v21; // [rsp+30h] [rbp-48h] BYREF
-  unsigned __int64 v22; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-38h] BYREF
-  char v24; // [rsp+80h] [rbp+8h] BYREF
+  _DWORD *v9; // rcx
+  unsigned __int64 v11; // r15
+  int v12; // eax
+  __int64 v13; // rdx
+  unsigned __int64 v14; // rcx
+  __int64 v15; // rcx
+  char *AlternateResourceModuleHandle; // rax
+  __int64 v17; // [rsp+30h] [rbp-48h] BYREF
+  unsigned __int64 OutHeaders; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v19; // [rsp+40h] [rbp-38h] BYREF
 
-  v23 = 0LL;
-  v21 = 0LL;
-  v6 = a3;
-  v7 = a2;
-  v8 = 2147353477LL;
+  v19 = 0LL;
+  v17 = 0LL;
+  v4 = 2147353477LL;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    v10 = (__int64)NtCurrentPeb()->SharedData + 555;
+    v6 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
-    v10 = 2147353477LL;
-  v11 = 2147353476LL;
-  if ( (*(_BYTE *)v10 & 1) != 0 )
+    v6 = 2147353477LL;
+  v7 = 2147353476LL;
+  if ( (*(_BYTE *)v6 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v19 = (__int64)NtCurrentPeb()->SharedData + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v15 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v19 = 2147353476LL;
-    LdrpTraceLoadMUIDll(L",.", *(unsigned __int8 *)v19);
+      v15 = 2147353476LL;
+    LdrpTraceLoadMUIDll(L",.", *(unsigned __int8 *)v15);
   }
-  if ( !a1 || !v7 )
+  if ( !BaseOfImage || !a2 )
     return 3221225485LL;
   if ( NtCurrentTeb()->ResourceRetValue
-    && *(_QWORD *)NtCurrentTeb()->ResourceRetValue == a1
-    && *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 1) == v7 )
+    && *(_QWORD *)NtCurrentTeb()->ResourceRetValue == BaseOfImage
+    && *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 1) == a2 )
   {
-    a1 = *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 2);
+    BaseOfImage = *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 2);
 LABEL_10:
-    ImageSize = LdrpAccessResourceDataNoMultipleLanguage(a1, v7, v6, a4);
+    ImageSize = LdrpAccessResourceDataNoMultipleLanguage((PVOID)BaseOfImage);
     goto LABEL_11;
   }
-  LOWORD(a3) = 2;
-  LOBYTE(a2) = 1;
-  v15 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-  v16 = RtlpImageDirectoryEntryToDataEx(a1, a2, a3, (unsigned int)&v24, (__int64)&v22);
-  v18 = v22;
-  if ( v16 < 0 )
-    v18 = 0LL;
-  if ( v18 )
+  v11 = BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL;
+  v12 = RtlpImageDirectoryEntryToDataEx((PVOID)BaseOfImage, (PIMAGE_NT_HEADERS)&OutHeaders);
+  v14 = OutHeaders;
+  if ( v12 < 0 )
+    v14 = 0LL;
+  if ( v14 )
   {
-    if ( v7 < v18 )
+    if ( a2 < v14 )
       goto LABEL_30;
-    ImageSize = LdrpGetImageSize(a1, &v21);
+    ImageSize = LdrpGetImageSize(BaseOfImage, &v17);
     if ( ImageSize != -1073741701 )
     {
-      if ( !v21 || v7 >= v15 && v7 < v15 + v21 )
+      if ( !v17 || a2 >= v11 && a2 < v11 + v17 )
         goto LABEL_10;
 LABEL_30:
-      AlternateResourceModuleHandle = LdrpGetAlternateResourceModuleHandleEx(a1, v17, v7, &v23);
+      AlternateResourceModuleHandle = (char *)LdrpGetAlternateResourceModuleHandleEx(BaseOfImage, v13, a2, &v19);
       if ( (unsigned __int64)(AlternateResourceModuleHandle - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-        a1 = AlternateResourceModuleHandle;
+        BaseOfImage = (unsigned __int64)AlternateResourceModuleHandle;
       goto LABEL_10;
     }
   }
@@ -92,14 +85,14 @@ LABEL_30:
     ImageSize = -1073741687;
   }
 LABEL_11:
-  v13 = NtCurrentPeb()->SharedData;
-  if ( v13 && *v13 )
-    v8 = (__int64)NtCurrentPeb()->SharedData + 555;
-  if ( (*(_BYTE *)v8 & 1) != 0 )
+  v9 = NtCurrentPeb()->SharedData;
+  if ( v9 && *v9 )
+    v4 = (__int64)NtCurrentPeb()->SharedData + 555;
+  if ( (*(_BYTE *)v4 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v11 = (__int64)NtCurrentPeb()->SharedData + 554;
-    LdrpTraceLoadMUIDll(L"*,", *(unsigned __int8 *)v11);
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 554;
+    LdrpTraceLoadMUIDll(L"*,", *(unsigned __int8 *)v7);
   }
   return ImageSize;
 }

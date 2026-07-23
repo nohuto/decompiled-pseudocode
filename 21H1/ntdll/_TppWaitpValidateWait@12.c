@@ -10,10 +10,10 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __thiscall TppWaitpValidateWait(int (__stdcall ***this)(int), int a2)
+int __thiscall TppWaitpValidateWait(int (__stdcall ***this)(PVOID BaseAddress), int a2)
 {
   if ( TppValidateCleanupGroupMember()
-    && this[1] == TppWaitpCleanupGroupMemberVFuncs
+    && this[1] == &TppWaitpCleanupGroupMemberVFuncs
     && !NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     return 1;

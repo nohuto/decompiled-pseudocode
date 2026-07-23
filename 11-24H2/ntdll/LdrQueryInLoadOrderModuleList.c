@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrQueryInLoadOrderModuleList @ 0x1800B12F0
+ * XREFs of LdrQueryInLoadOrderModuleList @ 0x18007DB90
  * Callers:
- *     LdrQueryProcessModuleInformationEx2 @ 0x1800AFEE0 (LdrQueryProcessModuleInformationEx2.c)
- *     LdrQueryProcessModuleInformationEx @ 0x1800B0720 (LdrQueryProcessModuleInformationEx.c)
+ *     LdrQueryProcessModuleInformationEx2 @ 0x18007C780 (LdrQueryProcessModuleInformationEx2.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x18007CFC0 (LdrQueryProcessModuleInformationEx.c)
  * Callees:
- *     LdrpReadMemory @ 0x1800B0B90 (LdrpReadMemory.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrpReadMemory @ 0x18007D430 (LdrpReadMemory.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall LdrQueryInLoadOrderModuleList(__int64 *a1, _QWORD *a2, _QWORD *a3)
+NTSTATUS __fastcall LdrQueryInLoadOrderModuleList(_QWORD *a1, _QWORD *a2, _QWORD *a3)
 {
   int *v3; // r9
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _OWORD v8[2]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v9; // [rsp+50h] [rbp-18h]
   int v10; // [rsp+58h] [rbp-10h]
@@ -22,12 +22,12 @@ __int64 __fastcall LdrQueryInLoadOrderModuleList(__int64 *a1, _QWORD *a2, _QWORD
   memset(v8, 0, sizeof(v8));
   v9 = 0LL;
   v10 = 0;
-  if ( a1 != (__int64 *)&LdrpLocalProcess )
+  if ( a1 != (_QWORD *)&LdrpLocalProcess )
   {
-    if ( ((int (__fastcall *)(__int64, _QWORD, _OWORD *, __int64, _QWORD))a1[2])(*a1, 0LL, v8, 48LL, 0LL) >= 0 )
+    if ( ((int (__fastcall *)(_QWORD, _QWORD, _OWORD *, __int64, _QWORD))a1[2])(*a1, 0LL, v8, 48LL, 0LL) >= 0 )
     {
-      result = LdrpReadMemory(a1, *((_QWORD *)&v8[0] + 1) + 24LL, (__int64)&v11, 8LL);
-      if ( (int)result < 0 )
+      result = LdrpReadMemory((__int64)a1, (void *)(*((_QWORD *)&v8[0] + 1) + 24LL), &v11, 8uLL);
+      if ( result < 0 )
         return result;
     }
     v3 = v11;
@@ -35,5 +35,5 @@ __int64 __fastcall LdrQueryInLoadOrderModuleList(__int64 *a1, _QWORD *a2, _QWORD
   *a2 = v3 + 4;
   if ( a3 )
     *a3 = v3 + 12;
-  return 0LL;
+  return 0;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiFindFreePageFileSpace @ 0x1402946D4
+ * XREFs of MiFindFreePageFileSpace @ 0x140294964
  * Callers:
- *     MiReservePageFileSpace @ 0x1402849A0 (MiReservePageFileSpace.c)
- *     MiGetKernelStackSwapSupport @ 0x140341E0C (MiGetKernelStackSwapSupport.c)
- *     MiFindPageFileWriteCluster @ 0x1406398F0 (MiFindPageFileWriteCluster.c)
- *     MiTrimUnusedPageFileRegionsApc @ 0x14063B5F0 (MiTrimUnusedPageFileRegionsApc.c)
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x140A4338C (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiReservePageFileSpace @ 0x140284C30 (MiReservePageFileSpace.c)
+ *     MiGetKernelStackSwapSupport @ 0x14034209C (MiGetKernelStackSwapSupport.c)
+ *     MiFindPageFileWriteCluster @ 0x140639E40 (MiFindPageFileWriteCluster.c)
+ *     MiTrimUnusedPageFileRegionsApc @ 0x14063BB40 (MiTrimUnusedPageFileRegionsApc.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x140A4363C (MiReserveWorkingSetSwapSpaceRuns.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiTransferSoftwarePte @ 0x1402857D0 (MiTransferSoftwarePte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140294B3C (MiInvalidatePageFileBitmapsCache.c)
- *     MiPageFileLargestBitmapsRun @ 0x140294C94 (MiPageFileLargestBitmapsRun.c)
- *     RtlLengthCurrentClearRunForward @ 0x1402957A0 (RtlLengthCurrentClearRunForward.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     MiRescanPagefileBitmaps @ 0x140395940 (MiRescanPagefileBitmaps.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFindFreePageFileSpaceForward @ 0x1406397B0 (MiFindFreePageFileSpaceForward.c)
- *     MiSetPageFileAllocationBits @ 0x14063B5B8 (MiSetPageFileAllocationBits.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiTransferSoftwarePte @ 0x140285A60 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140294DCC (MiInvalidatePageFileBitmapsCache.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140294F24 (MiPageFileLargestBitmapsRun.c)
+ *     RtlLengthCurrentClearRunForward @ 0x140295A30 (RtlLengthCurrentClearRunForward.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     MiRescanPagefileBitmaps @ 0x140395B20 (MiRescanPagefileBitmaps.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindFreePageFileSpaceForward @ 0x140639D00 (MiFindFreePageFileSpaceForward.c)
+ *     MiSetPageFileAllocationBits @ 0x14063BB08 (MiSetPageFileAllocationBits.c)
  */
 
 __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, __int64 *a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -183,10 +183,10 @@ LABEL_91:
             ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
           else
             ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v21 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v21 <= 0xFu && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -352,10 +352,10 @@ LABEL_49:
                 ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
               else
                 ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v47 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v21 <= 0xFu && v47 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v21 <= 0xFu && v47 >= 2u )
                 {
                   v48 = KeGetCurrentPrcb();
                   v49 = v48->SchedulerAssist;
@@ -422,10 +422,10 @@ LABEL_49:
         break;
       }
       ExReleaseSpinLockSharedFromDpcLevel(v17);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v44 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v21 <= 0xFu && v44 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v21 <= 0xFu && v44 >= 2u )
         {
           v45 = KeGetCurrentPrcb();
           a4 = (unsigned __int64)v45->SchedulerAssist;

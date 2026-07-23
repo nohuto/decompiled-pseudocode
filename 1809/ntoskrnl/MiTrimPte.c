@@ -1,20 +1,20 @@
 /*
- * XREFs of MiTrimPte @ 0x140087BD0
+ * XREFs of MiTrimPte @ 0x140087BC0
  * Callers:
  *     <none>
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiTrimmedEnough @ 0x140087DD8 (MiTrimmedEnough.c)
- *     MiWalkVaCheckCommon @ 0x140087E1C (MiWalkVaCheckCommon.c)
- *     MiTrimThisWsle @ 0x140087EC0 (MiTrimThisWsle.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
- *     MiGetVaAge @ 0x1400880B0 (MiGetVaAge.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiTrimWorkingSetTail @ 0x14011C6B0 (MiTrimWorkingSetTail.c)
- *     MiTrimWorkingSetBuildup @ 0x14011C718 (MiTrimWorkingSetBuildup.c)
- *     MiComputeNextWalkPte @ 0x1402B2D14 (MiComputeNextWalkPte.c)
- *     MiInsertVmAccessedEntry @ 0x1402B315C (MiInsertVmAccessedEntry.c)
+ *     MiTrimmedEnough @ 0x140087DC8 (MiTrimmedEnough.c)
+ *     MiWalkVaCheckCommon @ 0x140087E0C (MiWalkVaCheckCommon.c)
+ *     MiTrimThisWsle @ 0x140087EB0 (MiTrimThisWsle.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140088034 (MI_WSLE_LOG_ACCESS.c)
+ *     MiGetVaAge @ 0x1400880A0 (MiGetVaAge.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiTrimWorkingSetTail @ 0x14011C720 (MiTrimWorkingSetTail.c)
+ *     MiTrimWorkingSetBuildup @ 0x14011C788 (MiTrimWorkingSetBuildup.c)
+ *     MiComputeNextWalkPte @ 0x1402B2F04 (MiComputeNextWalkPte.c)
+ *     MiInsertVmAccessedEntry @ 0x1402B334C (MiInsertVmAccessedEntry.c)
  */
 
 __int64 __fastcall MiTrimPte(__int64 a1, unsigned __int64 a2, int a3)

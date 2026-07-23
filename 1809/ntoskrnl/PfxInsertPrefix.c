@@ -1,24 +1,24 @@
 /*
- * XREFs of PfxInsertPrefix @ 0x1408922B0
+ * XREFs of PfxInsertPrefix @ 0x140893510
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     CompareNamesCaseSensitive @ 0x140891FA0 (CompareNamesCaseSensitive.c)
- *     ComputeNameLength @ 0x140892120 (ComputeNameLength.c)
+ *     RtlSplay @ 0x14008D5A0 (RtlSplay.c)
+ *     CompareNamesCaseSensitive @ 0x140893200 (CompareNamesCaseSensitive.c)
+ *     ComputeNameLength @ 0x140893380 (ComputeNameLength.c)
  */
 
 BOOLEAN __stdcall PfxInsertPrefix(PPREFIX_TABLE PrefixTable, PSTRING Prefix, PPREFIX_TABLE_ENTRY PrefixTableEntry)
 {
   CSHORT v6; // ax
   RTL_SPLAY_LINKS *p_Links; // r14
-  struct _PREFIX_TABLE *i; // rdi
-  struct _PREFIX_TABLE *j; // rsi
+  _PREFIX_TABLE *i; // rdi
+  _PREFIX_TABLE *j; // rsi
   int v11; // eax
   PPREFIX_TABLE_ENTRY NextPrefixTree; // rax
-  struct _RTL_SPLAY_LINKS *v13; // rcx
-  struct _PREFIX_TABLE_ENTRY *v14; // rbx
-  struct _PREFIX_TABLE_ENTRY *p_LeftChild; // rax
+  _RTL_SPLAY_LINKS *v13; // rcx
+  _PREFIX_TABLE_ENTRY *v14; // rbx
+  _PREFIX_TABLE_ENTRY *p_LeftChild; // rax
 
   v6 = ComputeNameLength(&Prefix->Length);
   PrefixTableEntry->NameLength = v6;
@@ -27,15 +27,11 @@ BOOLEAN __stdcall PfxInsertPrefix(PPREFIX_TABLE PrefixTable, PSTRING Prefix, PPR
   PrefixTableEntry->Links.LeftChild = 0LL;
   PrefixTableEntry->Links.RightChild = 0LL;
   PrefixTableEntry->Links.Parent = &PrefixTableEntry->Links;
-  for ( i = (struct _PREFIX_TABLE *)PrefixTable->NextPrefixTree;
-        i->NameLength > v6;
-        i = (struct _PREFIX_TABLE *)i->NextPrefixTree )
-  {
+  for ( i = (_PREFIX_TABLE *)PrefixTable->NextPrefixTree; i->NameLength > v6; i = (_PREFIX_TABLE *)i->NextPrefixTree )
     PrefixTable = i;
-  }
   if ( i->NameLength == v6 )
   {
-    for ( j = i; ; j = (struct _PREFIX_TABLE *)&NextPrefixTree[-1].Links.RightChild )
+    for ( j = i; ; j = (_PREFIX_TABLE *)&NextPrefixTree[-1].Links.RightChild )
     {
       v11 = CompareNamesCaseSensitive((unsigned __int16 *)j[2].NextPrefixTree, &Prefix->Length);
       if ( v11 == 2 )
@@ -46,7 +42,7 @@ BOOLEAN __stdcall PfxInsertPrefix(PPREFIX_TABLE PrefixTable, PSTRING Prefix, PPR
         if ( !NextPrefixTree )
         {
           PrefixTableEntry->NextPrefixTree = 0LL;
-          v13 = (struct _RTL_SPLAY_LINKS *)&j[1];
+          v13 = (_RTL_SPLAY_LINKS *)&j[1];
           PrefixTableEntry->NodeTypeCode = 514;
           j[1].NextPrefixTree = (PPREFIX_TABLE_ENTRY)p_Links;
 LABEL_15:
@@ -54,7 +50,7 @@ LABEL_15:
           v14 = i->NextPrefixTree;
           i->NextPrefixTree = 0LL;
           i->NodeTypeCode = 514;
-          p_LeftChild = (struct _PREFIX_TABLE_ENTRY *)&RtlSplay(v13)[-1].LeftChild;
+          p_LeftChild = (_PREFIX_TABLE_ENTRY *)&RtlSplay(v13)[-1].LeftChild;
           p_LeftChild->NodeTypeCode = 513;
           PrefixTable->NextPrefixTree = p_LeftChild;
           p_LeftChild->NextPrefixTree = v14;
@@ -67,7 +63,7 @@ LABEL_15:
         if ( !NextPrefixTree )
         {
           PrefixTableEntry->NextPrefixTree = 0LL;
-          v13 = (struct _RTL_SPLAY_LINKS *)&j[1];
+          v13 = (_RTL_SPLAY_LINKS *)&j[1];
           PrefixTableEntry->NodeTypeCode = 514;
           *(_QWORD *)&j[2].NodeTypeCode = p_Links;
           goto LABEL_15;
@@ -80,7 +76,7 @@ LABEL_15:
   {
     PrefixTable->NextPrefixTree = PrefixTableEntry;
     PrefixTableEntry->NodeTypeCode = 513;
-    PrefixTableEntry->NextPrefixTree = (struct _PREFIX_TABLE_ENTRY *)i;
+    PrefixTableEntry->NextPrefixTree = (_PREFIX_TABLE_ENTRY *)i;
     return 1;
   }
 }

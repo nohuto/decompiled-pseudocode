@@ -2,7 +2,7 @@
  * XREFs of EtwpGetKmRegHandle @ 0x180068844
  * Callers:
  *     EtwEventWriteEndScenario @ 0x180068760 (EtwEventWriteEndScenario.c)
- *     EtwEventWriteStartScenario @ 0x18008F130 (EtwEventWriteStartScenario.c)
+ *     EtwEventWriteStartScenario @ 0x18008F140 (EtwEventWriteStartScenario.c)
  * Callees:
  *     <none>
  */

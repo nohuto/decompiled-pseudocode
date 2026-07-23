@@ -1,5 +1,5 @@
 /*
- * XREFs of CsrVerifyRegion @ 0x1800CB640
+ * XREFs of CsrVerifyRegion @ 0x1800CB600
  * Callers:
  *     <none>
  * Callees:

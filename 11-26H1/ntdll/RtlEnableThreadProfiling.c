@@ -1,43 +1,47 @@
 /*
- * XREFs of RtlEnableThreadProfiling @ 0x1801390C0
+ * XREFs of RtlEnableThreadProfiling @ 0x180138E30
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     NtSetInformationThread @ 0x18015F0E0 (NtSetInformationThread.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     NtSetInformationThread @ 0x18015EFE0 (NtSetInformationThread.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlEnableThreadProfiling(__int64 a1, int a2, __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl RtlEnableThreadProfiling(
+        HANDLE ThreadHandle,
+        ULONG Flags,
+        ULONG64 HardwareCounters,
+        PVOID *PerformanceDataHandle)
 {
   _QWORD *Heap_0; // rax
   _QWORD *v10; // rbx
   int v11; // edi
-  __int64 v12; // [rsp+20h] [rbp-38h] BYREF
-  int v13; // [rsp+28h] [rbp-30h]
+  ULONG64 ThreadInformation; // [rsp+20h] [rbp-38h] BYREF
+  ULONG v13; // [rsp+28h] [rbp-30h]
   int v14; // [rsp+2Ch] [rbp-2Ch]
   _QWORD *v15; // [rsp+30h] [rbp-28h]
 
-  if ( (a2 & 0xFFFFFFFE) != 0 )
-    return 3221225712LL;
-  if ( (a3 & 0xFFFFFFFFFFFF0000uLL) != 0 )
-    return 3221225713LL;
-  Heap_0 = (_QWORD *)RtlAllocateHeap_0();
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741584;
+  if ( (HardwareCounters & 0xFFFFFFFFFFFF0000uLL) != 0 )
+    return -1073741583;
+  Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, 0x1C0uLL);
   v10 = Heap_0;
   if ( !Heap_0 )
-    return 3221225495LL;
+    return -1073741801;
   memset_thunk_772440563353939046(Heap_0, 0, 0x1C0uLL);
   *(_DWORD *)v10 = 65984;
-  v10[4] = a3;
+  v10[4] = HardwareCounters;
   v14 = 1;
-  v13 = a2;
-  v12 = a3;
+  v13 = Flags;
+  ThreadInformation = HardwareCounters;
   v15 = v10;
-  v11 = NtSetInformationThread(a1, 32LL, &v12, 24LL);
+  v11 = NtSetInformationThread(ThreadHandle, ThreadCounterProfiling, &ThreadInformation, 0x18u);
   if ( v11 < 0 )
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v10);
   else
-    *a4 = v10;
-  return (unsigned int)v11;
+    *PerformanceDataHandle = v10;
+  return v11;
 }

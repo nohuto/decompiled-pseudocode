@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCmosRangeHandler @ 0x14051FECC
+ * XREFs of HalpCmosRangeHandler @ 0x14052041C
  * Callers:
- *     HalpcGetCmosDataByType @ 0x1405201F0 (HalpcGetCmosDataByType.c)
- *     HalpcSetCmosDataByType @ 0x140520220 (HalpcSetCmosDataByType.c)
+ *     HalpcGetCmosDataByType @ 0x140520740 (HalpcGetCmosDataByType.c)
+ *     HalpcSetCmosDataByType @ 0x140520770 (HalpcSetCmosDataByType.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpReadRtcStdPCAT @ 0x14051FFB0 (HalpReadRtcStdPCAT.c)
- *     HalpWriteRtcStdPCAT @ 0x1405200B0 (HalpWriteRtcStdPCAT.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpReadRtcStdPCAT @ 0x140520500 (HalpReadRtcStdPCAT.c)
+ *     HalpWriteRtcStdPCAT @ 0x140520600 (HalpWriteRtcStdPCAT.c)
  */
 
 __int64 __fastcall HalpCmosRangeHandler(int a1, int a2, unsigned int a3, __int64 a4, int a5)
@@ -57,7 +57,7 @@ LABEL_13:
       }
       else
       {
-        v16 = ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD))funcs_14051FF54[v12])(a3, a4 + v10, v15);
+        v16 = ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD))funcs_1405204A4[v12])(a3, a4 + v10, v15);
       }
       a4 = v17;
       goto LABEL_13;

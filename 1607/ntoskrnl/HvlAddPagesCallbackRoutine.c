@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlAddPagesCallbackRoutine @ 0x1401C0018
+ * XREFs of HvlAddPagesCallbackRoutine @ 0x1401BFEFC
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetPageList @ 0x1401C1EC4 (HvlpGetPageList.c)
- *     HvlpGetPageListIterator @ 0x1401C1F80 (HvlpGetPageListIterator.c)
- *     HvlpStartPageListIteration @ 0x1401C2194 (HvlpStartPageListIteration.c)
+ *     HvlpGetPageList @ 0x1401C1DA8 (HvlpGetPageList.c)
+ *     HvlpGetPageListIterator @ 0x1401C1E64 (HvlpGetPageListIterator.c)
+ *     HvlpStartPageListIteration @ 0x1401C2078 (HvlpStartPageListIteration.c)
  */
 
 void __fastcall HvlAddPagesCallbackRoutine(
@@ -21,7 +21,7 @@ void __fastcall HvlAddPagesCallbackRoutine(
 
   ReasonSpecificData[3] = 0LL;
   *((_DWORD *)ReasonSpecificData + 2) = 0;
-  if ( qword_1403221C8 && (*((_DWORD *)qword_1403221C8 + 1) & 1) != 0 && HvlpFallbackScratchPage )
+  if ( qword_1403221E8 && (*((_DWORD *)qword_1403221E8 + 1) & 1) != 0 && HvlpFallbackScratchPage )
   {
     if ( !*ReasonSpecificData )
     {

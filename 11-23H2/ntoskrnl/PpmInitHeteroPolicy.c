@@ -17,7 +17,7 @@ __int64 PpmInitHeteroPolicy()
   __int64 result; // rax
 
   PpmHeteroMinRelativePerformance = 0x10000;
-  v0 = (char *)&unk_140C397A1;
+  v0 = (char *)&unk_140C39721;
   v1 = 2LL;
   do
   {
@@ -37,16 +37,16 @@ __int64 PpmInitHeteroPolicy()
     --v1;
   }
   while ( v1 );
-  word_140C3967A = -1;
+  word_140C395FA = -1;
   result = 5LL;
-  word_140C39832 = -1;
-  dword_140C39674 = 5;
-  dword_140C3982C = 5;
-  dword_140C39670 = 5;
-  dword_140C39828 = 5;
-  byte_140C39567 = 3;
-  byte_140C3971F = 3;
-  word_140C39669 = 12850;
-  word_140C39821 = 12850;
+  word_140C397B2 = -1;
+  dword_140C395F4 = 5;
+  dword_140C397AC = 5;
+  dword_140C395F0 = 5;
+  dword_140C397A8 = 5;
+  byte_140C394E7 = 3;
+  byte_140C3969F = 3;
+  word_140C395E9 = 12850;
+  word_140C397A1 = 12850;
   return result;
 }

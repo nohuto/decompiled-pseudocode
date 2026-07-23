@@ -9,7 +9,7 @@
 void __stdcall RtlRemoveUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, PUNICODE_PREFIX_TABLE_ENTRY PrefixTableEntry)
 {
   int NodeTypeCode; // eax
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v3; // r8
+  _UNICODE_PREFIX_TABLE_ENTRY *v3; // r8
   _RTL_SPLAY_LINKS *Parent; // rax
   RTL_SPLAY_LINKS *j; // rbx
   RTL_SPLAY_LINKS *v6; // rbx
@@ -19,14 +19,14 @@ void __stdcall RtlRemoveUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, PUNICOD
   _RTL_SPLAY_LINKS *v10; // rdx
   _RTL_SPLAY_LINKS *v11; // rax
   _RTL_SPLAY_LINKS **k; // rcx
-  struct _UNICODE_PREFIX_TABLE_ENTRY *CaseMatch; // r8
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v14; // rax
-  struct _UNICODE_PREFIX_TABLE_ENTRY **i; // rcx
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v16; // rcx
-  struct _UNICODE_PREFIX_TABLE_ENTRY **m; // rax
+  _UNICODE_PREFIX_TABLE_ENTRY *CaseMatch; // r8
+  _UNICODE_PREFIX_TABLE_ENTRY *v14; // rax
+  _UNICODE_PREFIX_TABLE_ENTRY **i; // rcx
+  _UNICODE_PREFIX_TABLE_ENTRY *v16; // rcx
+  _UNICODE_PREFIX_TABLE_ENTRY **m; // rax
   RTL_SPLAY_LINKS *p_Links; // rax
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v19; // r8
-  struct _UNICODE_PREFIX_TABLE_ENTRY *n; // r8
+  _UNICODE_PREFIX_TABLE_ENTRY *v19; // r8
+  _UNICODE_PREFIX_TABLE_ENTRY *n; // r8
   _RTL_SPLAY_LINKS *v21; // rdx
   _RTL_SPLAY_LINKS *RightChild; // rdx
 
@@ -89,21 +89,21 @@ void __stdcall RtlRemoveUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, PUNICOD
         v16->NextPrefixTree = PrefixTableEntry->NextPrefixTree;
         p_Links = &v16->Links;
         v16->Links = PrefixTableEntry->Links;
-        v19 = (struct _UNICODE_PREFIX_TABLE_ENTRY *)PrefixTableEntry->Links.Parent;
-        if ( v19 == (struct _UNICODE_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
+        v19 = (_UNICODE_PREFIX_TABLE_ENTRY *)PrefixTableEntry->Links.Parent;
+        if ( v19 == (_UNICODE_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
         {
           p_Links->Parent = p_Links;
           for ( n = PrefixTableEntry->NextPrefixTree; n->NextPrefixTree != PrefixTableEntry; n = n->NextPrefixTree )
             ;
           n->NextPrefixTree = v16;
         }
-        else if ( v19->NextPrefixTree == (struct _UNICODE_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
+        else if ( v19->NextPrefixTree == (_UNICODE_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
         {
-          v19->NextPrefixTree = (struct _UNICODE_PREFIX_TABLE_ENTRY *)p_Links;
+          v19->NextPrefixTree = (_UNICODE_PREFIX_TABLE_ENTRY *)p_Links;
         }
         else
         {
-          v19->CaseMatch = (struct _UNICODE_PREFIX_TABLE_ENTRY *)p_Links;
+          v19->CaseMatch = (_UNICODE_PREFIX_TABLE_ENTRY *)p_Links;
         }
         v21 = v16->Links.LeftChild;
         if ( v21 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAdaptiveStandbyTraceSessionMetadata @ 0x1407E0B28
+ * XREFs of PopAdaptiveStandbyTraceSessionMetadata @ 0x1407E5984
  * Callers:
- *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x1407E0808 (PopAdaptiveStandbyTraceBatteryUpdate.c)
- *     PopAdaptiveStandbyTraceSessionSettings @ 0x1407E0CBC (PopAdaptiveStandbyTraceSessionSettings.c)
+ *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x1407E5664 (PopAdaptiveStandbyTraceBatteryUpdate.c)
+ *     PopAdaptiveStandbyTraceSessionSettings @ 0x1407E5B18 (PopAdaptiveStandbyTraceSessionSettings.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
  */
 
 NTSTATUS __fastcall PopAdaptiveStandbyTraceSessionMetadata(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -97,5 +97,10 @@ NTSTATUS __fastcall PopAdaptiveStandbyTraceSessionMetadata(__int64 a1, unsigned 
   v23 = 2LL * v6;
   *(_QWORD *)(a4 + 8 * v23) = &v25;
   *(_QWORD *)(a4 + 8 * v23 + 8) = 8LL;
-  return EtwWrite(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER_DATA, 0LL, v6 + 1, (PEVENT_DATA_DESCRIPTOR)a4);
+  return EtwWrite(
+           PopDiagSleepStudyHandle,
+           &SLEEPSTUDY_EVT_SCENARIO_BLOCKER_DATA,
+           0LL,
+           v6 + 1,
+           (PEVENT_DATA_DESCRIPTOR)a4);
 }

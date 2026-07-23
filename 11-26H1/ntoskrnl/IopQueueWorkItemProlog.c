@@ -1,12 +1,12 @@
 /*
- * XREFs of IopQueueWorkItemProlog @ 0x140202F00
+ * XREFs of IopQueueWorkItemProlog @ 0x140202FE0
  * Callers:
- *     IoQueueWorkItemToNode @ 0x140202EB0 (IoQueueWorkItemToNode.c)
- *     IoTryQueueWorkItem @ 0x1405CBA50 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItemToNode @ 0x140202F90 (IoQueueWorkItemToNode.c)
+ *     IoTryQueueWorkItem @ 0x1405CE2C0 (IoTryQueueWorkItem.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -38,7 +38,7 @@ __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, int a2, __int64 a3, __int6
     Object = CurrentThread[1].WaitBlock[1].Object;
     if ( Object && CurrentThread != KeGetCurrentThread() )
     {
-      v12 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime);
+      v12 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument);
       Object = CurrentThread[1].WaitBlock[1].Object;
       v13 = v12;
       if ( Object )
@@ -46,7 +46,7 @@ __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, int a2, __int64 a3, __int6
         ObfReferenceObjectWithTag(CurrentThread[1].WaitBlock[1].Object, 0x746C6644u);
         v8 = 1;
       }
-      ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime, v13);
+      ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument, v13);
     }
     *(_QWORD *)(a1 + 56) = Object;
     if ( Object )
@@ -54,7 +54,8 @@ __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, int a2, __int64 a3, __int6
       if ( !v8 )
         ObfReferenceObjectWithTag(Object, 0x746C6644u);
     }
-    else if ( KeGetCurrentThread()->ApcState.Process[1].Padding[3] || stru_140F12D20.SchedulerApcFill3[40] )
+    else if ( KeGetCurrentThread()->ApcState.Process[1].Padding[3]
+           || BYTE4(stru_140F12EA0.SystemAffinityTokenListHead.Next) )
     {
       ObfReferenceObjectWithTag(CurrentThread, 0x746C6644u);
       *(_QWORD *)(a1 + 56) = CurrentThread;

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCleanupExtraCreateParameters @ 0x1409B5CF0
+ * XREFs of IopCleanupExtraCreateParameters @ 0x140986DB0
  * Callers:
- *     IopCreateFile @ 0x1409B3A58 (IopCreateFile.c)
+ *     IopCreateFile @ 0x140984B18 (IopCreateFile.c)
  * Callees:
- *     FsRtlpCleanupEcps @ 0x1409B5D30 (FsRtlpCleanupEcps.c)
+ *     FsRtlpCleanupEcps @ 0x140986DF0 (FsRtlpCleanupEcps.c)
  */
 
 void __fastcall IopCleanupExtraCreateParameters(__int64 a1)

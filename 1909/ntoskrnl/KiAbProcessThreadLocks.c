@@ -35,7 +35,7 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, __int64 a4, _
   __int64 v14; // rax
   bool v15; // zf
   int v16; // esi
-  __int64 LockedHeadEntry; // rax
+  char *LockedHeadEntry; // rax
   __int64 v18; // rdx
   __int64 v19; // r8
   __int64 v20; // rdi
@@ -99,16 +99,16 @@ LABEL_11:
             v16 = 0;
             memset(&LockHandle, 0, sizeof(LockHandle));
             v31 = 0;
-            LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v13, a2, &LockHandle);
-            v20 = LockedHeadEntry;
+            LockedHeadEntry = KiAbEntryGetLockedHeadEntry((char *)v13, a2, &LockHandle);
+            v20 = (__int64)LockedHeadEntry;
             if ( LockedHeadEntry )
             {
               if ( (*(_BYTE *)(v13 + 25) & 1) != 0 )
               {
                 if ( v8 )
                 {
-                  if ( v13 != LockedHeadEntry )
-                    KiAbEntryUpdateWaiterTreePosition(v13, LockedHeadEntry);
+                  if ( (char *)v13 != LockedHeadEntry )
+                    KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v13);
                   v21 = *(_QWORD *)(v20 + 56);
                   if ( v21 )
                     v22 = *(_BYTE *)(v21 + 48);
@@ -169,15 +169,15 @@ LABEL_41:
               }
               if ( !v7 )
                 goto LABEL_41;
-              if ( v13 != LockedHeadEntry )
-                KiAbEntryUpdateOwnerTreePosition(v13, LockedHeadEntry);
+              if ( (char *)v13 != LockedHeadEntry )
+                KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v13);
               KiAbDetermineMaxWaiterPriority(v20, &v34);
               if ( v34 )
               {
                 if ( (unsigned int)KiAbSetMinimumThreadPriority(v13, (unsigned int)&v34, a5, a6, a7, (__int64)&v31)
                   && v13 != v20 )
                 {
-                  KiAbEntryUpdateOwnerTreePosition(v13, v20);
+                  KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v13);
                 }
                 v16 = v31;
                 goto LABEL_41;

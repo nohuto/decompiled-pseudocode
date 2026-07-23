@@ -1,14 +1,14 @@
 /*
- * XREFs of KiOpDecode @ 0x1400A3648
+ * XREFs of KiOpDecode @ 0x1400A3588
  * Callers:
- *     KiPreprocessFault @ 0x1400A3490 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x1400A33D0 (KiPreprocessFault.c)
  * Callees:
- *     KiOpFetchNextByte @ 0x1400A37A8 (KiOpFetchNextByte.c)
- *     KiOpIsPrefix @ 0x1400A37CC (KiOpIsPrefix.c)
- *     KiOpLocateDecodeEntry @ 0x1400A3870 (KiOpLocateDecodeEntry.c)
- *     KiOpDecodeModRM @ 0x1401932B0 (KiOpDecodeModRM.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiOpFetchBytes @ 0x14029C5A0 (KiOpFetchBytes.c)
+ *     KiOpFetchNextByte @ 0x1400A36E8 (KiOpFetchNextByte.c)
+ *     KiOpIsPrefix @ 0x1400A370C (KiOpIsPrefix.c)
+ *     KiOpLocateDecodeEntry @ 0x1400A37B0 (KiOpLocateDecodeEntry.c)
+ *     KiOpDecodeModRM @ 0x1401933F0 (KiOpDecodeModRM.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiOpFetchBytes @ 0x14029C790 (KiOpFetchBytes.c)
  */
 
 __int64 __fastcall KiOpDecode(__int64 a1, __int64 a2, char a3, int a4, _DWORD *a5)

@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpDoAccessCheckOnLayeredSubtree @ 0x140984A10
+ * XREFs of CmpDoAccessCheckOnLayeredSubtree @ 0x140946A20
  * Callers:
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmSaveKey @ 0x140A7626C (CmSaveKey.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmSaveKey @ 0x140A7EF8C (CmSaveKey.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpCheckKcbStackAccess @ 0x140772FB8 (CmpCheckKcbStackAccess.c)
- *     CmpSubtreeEnumeratorCleanup @ 0x140981988 (CmpSubtreeEnumeratorCleanup.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140981D5C (CmpSubtreeEnumeratorAdvance.c)
- *     CmpInitializeKeyNodeStack @ 0x140982128 (CmpInitializeKeyNodeStack.c)
- *     CmpCheckKeyNodeStackAccess @ 0x140983680 (CmpCheckKeyNodeStackAccess.c)
- *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x14098542C (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
- *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140B61DD8 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpCheckKcbStackAccess @ 0x140775FB8 (CmpCheckKcbStackAccess.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x140943998 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140943D6C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpInitializeKeyNodeStack @ 0x140944138 (CmpInitializeKeyNodeStack.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x140945690 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140947434 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140B64E78 (CmpSubtreeEnumeratorStartForKcbStack.c)
  */
 
 __int64 __fastcall CmpDoAccessCheckOnLayeredSubtree(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, char a6)

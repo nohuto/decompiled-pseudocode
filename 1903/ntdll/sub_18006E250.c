@@ -8,55 +8,53 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-signed __int64 sub_18006E250()
+void sub_18006E250()
 {
-  __int64 v0; // rdi
-  HANDLE *v1; // rsi
+  _QWORD *v0; // rdi
+  _QWORD *v1; // rsi
   unsigned __int64 UniqueThread; // r14
-  void *ProcessHeap; // r15
-  volatile signed __int64 *v4; // rbx
-  HANDLE *v5; // rax
-  signed __int64 result; // rax
-  _QWORD *v7; // rcx
-  __int64 v8; // rbx
+  PVOID ProcessHeap; // r15
+  _RTL_SRWLOCK *v4; // rbx
+  _QWORD *Ptr; // rax
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rbx
 
   v0 = 0LL;
   v1 = 0LL;
   UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  v4 = (volatile signed __int64 *)((char *)&unk_1801661C0 + 16 * ((UniqueThread >> 2) & 0xF));
+  v4 = (_RTL_SRWLOCK *)((char *)&unk_1801661C0 + 16 * ((UniqueThread >> 2) & 0xF));
   RtlAcquireSRWLockExclusive(v4 + 1);
-  v5 = (HANDLE *)*v4;
-  if ( *v4 )
+  Ptr = v4->Ptr;
+  if ( v4->Ptr )
   {
     do
     {
-      v7 = v5[1];
-      if ( *v5 == (HANDLE)UniqueThread )
+      v6 = (_QWORD *)Ptr[1];
+      if ( *Ptr == UniqueThread )
       {
         if ( v1 )
-          v1[1] = v7;
+          v1[1] = v6;
         else
-          *v4 = (volatile signed __int64)v7;
-        v5[1] = (HANDLE)v0;
-        v0 = (__int64)v5;
-        v5 = v1;
+          v4->Ptr = v6;
+        Ptr[1] = v0;
+        v0 = Ptr;
+        Ptr = v1;
       }
-      v1 = v5;
-      v5 = (HANDLE *)v7;
+      v1 = Ptr;
+      Ptr = v6;
     }
-    while ( v7 );
+    while ( v6 );
   }
-  result = RtlReleaseSRWLockExclusive(v4 + 1);
+  RtlReleaseSRWLockExclusive(v4 + 1);
   if ( v0 )
   {
     do
     {
-      v8 = *(_QWORD *)(v0 + 8);
-      result = RtlFreeHeap((__int64)ProcessHeap, 0, v0);
-      v0 = v8;
+      v7 = (_QWORD *)v0[1];
+      RtlFreeHeap(ProcessHeap, 0, v0);
+      v0 = v7;
     }
-    while ( v8 );
+    while ( v7 );
   }
-  return result;
 }

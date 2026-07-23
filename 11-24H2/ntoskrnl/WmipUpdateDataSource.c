@@ -1,26 +1,26 @@
 /*
- * XREFs of WmipUpdateDataSource @ 0x1409D1534
+ * XREFs of WmipUpdateDataSource @ 0x1409AF500
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x1409D0800 (WmipProcessWmiRegInfo.c)
+ *     WmipProcessWmiRegInfo @ 0x1409B008C (WmipProcessWmiRegInfo.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WmipGenerateBinaryMofNotification @ 0x1407A5A68 (WmipGenerateBinaryMofNotification.c)
- *     WmipUpdateModifyGuid @ 0x1407A5EB8 (WmipUpdateModifyGuid.c)
- *     WmipSendGuidUpdateNotifications @ 0x1409CA5B4 (WmipSendGuidUpdateNotifications.c)
- *     WmipEnableCollectionForNewGuid @ 0x1409CB9CC (WmipEnableCollectionForNewGuid.c)
- *     WmipUnreferenceEntry @ 0x1409CE1D4 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x1409CFA30 (WmipUnlinkInstanceSetFromGuidEntry.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x1409CFA88 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipCachePtrs @ 0x140A4AFD8 (WmipCachePtrs.c)
- *     WmipFindISInDSByGuid @ 0x140AA8F3C (WmipFindISInDSByGuid.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WmipGenerateBinaryMofNotification @ 0x1407A5BA8 (WmipGenerateBinaryMofNotification.c)
+ *     WmipUpdateModifyGuid @ 0x1407A5FF8 (WmipUpdateModifyGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x1409B0A84 (WmipSendGuidUpdateNotifications.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x1409B0E04 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipEnableCollectionForNewGuid @ 0x1409B20EC (WmipEnableCollectionForNewGuid.c)
+ *     WmipUnreferenceEntry @ 0x1409B31A8 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     WmipCachePtrs @ 0x140A41C58 (WmipCachePtrs.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140A49B80 (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipFindISInDSByGuid @ 0x140AA3FE8 (WmipFindISInDSByGuid.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
 {
-  volatile signed __int64 *v3; // rdi
+  ULONG_PTR v3; // rdi
   unsigned int v4; // esi
   _QWORD *v7; // rbx
   unsigned int v8; // r12d
@@ -28,7 +28,7 @@ __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
   unsigned int v10; // r13d
   int v11; // r12d
   __int64 v12; // rdx
-  volatile signed __int64 *ISInDSByGuid; // rax
+  __int64 ISInDSByGuid; // rax
   __int64 v14; // r15
   PVOID *p_P; // rax
   int *v16; // r9
@@ -40,14 +40,14 @@ __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
   char *v22; // rdi
   __int64 v23; // rcx
   __int64 v24; // rbx
-  _OWORD **v25; // rdi
+  PVOID v25; // rdi
   __int64 v26; // rdx
   _QWORD *v27; // rcx
-  _OWORD **v28; // rsi
+  PVOID v28; // rsi
   __int64 *v29; // rbx
   __int64 v30; // rdi
   __int64 v31; // rcx
-  _OWORD **v32; // r14
+  PVOID v32; // r14
   __int64 *v33; // rbx
   __int64 v34; // rsi
   __int64 v35; // rcx
@@ -64,12 +64,12 @@ __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
   unsigned int v46; // [rsp+B8h] [rbp+58h] BYREF
 
   v45 = a3;
-  v3 = *(volatile signed __int64 **)(a1 + 32);
+  v3 = *(_QWORD *)(a1 + 32);
   v4 = 0;
   v41 = 0LL;
   if ( !v3 )
     return 3221225524LL;
-  WmipReferenceEntry((ULONG_PTR)v3);
+  WmipReferenceEntry(v3);
   v7 = 0LL;
   v46 = 0;
   P = 0LL;
@@ -92,11 +92,11 @@ __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
     v12 = a2 + 32LL * v4 + 24;
     if ( (*(_DWORD *)(v12 + 16) & 0x10000) != 0 )
     {
-      ISInDSByGuid = (volatile signed __int64 *)WmipFindISInDSByGuid(v3, v12);
-      v14 = (__int64)ISInDSByGuid;
+      ISInDSByGuid = WmipFindISInDSByGuid(v3, v12);
+      v14 = ISInDSByGuid;
       if ( !ISInDSByGuid )
         goto LABEL_14;
-      WmipUnreferenceEntry((__int64)&WmipISChunkInfo, ISInDSByGuid);
+      WmipUnreferenceEntry(&WmipISChunkInfo, ISInDSByGuid);
       p_P = &P;
       v41 = v14;
       v16 = &v37;
@@ -105,7 +105,7 @@ __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
     }
     else
     {
-      updated = WmipUpdateModifyGuid((__int64)v3, v12, a2, v11, &v41);
+      updated = WmipUpdateModifyGuid(v3, v12, a2, v11, &v41);
       if ( updated == 1 )
       {
         p_P = &v43;
@@ -133,7 +133,7 @@ LABEL_14:
   v7 = P;
 LABEL_16:
   KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
-  WmipUnreferenceEntry((__int64)&WmipDSChunkInfo, v3);
+  WmipUnreferenceEntry(&WmipDSChunkInfo, v3);
   if ( v10 )
   {
     v20 = 0;
@@ -147,31 +147,31 @@ LABEL_16:
       if ( !v23 )
         WmipGenerateBinaryMofNotification(*((_QWORD *)v22 + 1), &GUID_MOF_RESOURCE_REMOVED_NOTIFICATION);
       v24 = *((_QWORD *)v22 + 1);
-      v25 = (_OWORD **)P;
-      WmipDisableCollectionForRemovedGuid(*((_QWORD **)P + 2 * v20), v24);
+      v25 = P;
+      WmipDisableCollectionForRemovedGuid(*((_QWORD *)P + 2 * v20), v24);
       KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       if ( *(_QWORD *)v24 )
-        WmipUnlinkInstanceSetFromGuidEntry((__int64 *)v24);
+        WmipUnlinkInstanceSetFromGuidEntry(v24);
       if ( (*(_DWORD *)(v24 + 16) & 8) == 0 )
-        WmipUnreferenceEntry((__int64)&WmipGEChunkInfo, *(volatile signed __int64 **)(v24 + 56));
+        WmipUnreferenceEntry(&WmipGEChunkInfo, *(_QWORD *)(v24 + 56));
       *(_QWORD *)(v24 + 56) = 0LL;
       v26 = *(_QWORD *)(v24 + 40);
       if ( *(_QWORD *)(v26 + 8) != v24 + 40 || (v27 = *(_QWORD **)(v24 + 48), *v27 != v24 + 40) )
         __fastfail(3u);
       *v27 = v26;
       *(_QWORD *)(v26 + 8) = v27;
-      WmipUnreferenceEntry((__int64)&WmipISChunkInfo, (volatile signed __int64 *)v24);
+      WmipUnreferenceEntry(&WmipISChunkInfo, v24);
       KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
       if ( ++v20 >= v10 )
         break;
       v7 = P;
     }
-    WmipSendGuidUpdateNotifications(2, v10, v25);
+    WmipSendGuidUpdateNotifications(2LL, v10, v25);
     ExFreePoolWithTag(v25, 0);
   }
   if ( v9 )
   {
-    v28 = (_OWORD **)v42;
+    v28 = v42;
     v29 = (__int64 *)v42;
     v30 = v9;
     do
@@ -185,12 +185,12 @@ LABEL_16:
       --v30;
     }
     while ( v30 );
-    WmipSendGuidUpdateNotifications(4, v9, v28);
+    WmipSendGuidUpdateNotifications(4LL, v9, v28);
     ExFreePoolWithTag(v28, 0);
   }
   if ( v8 )
   {
-    v32 = (_OWORD **)v43;
+    v32 = v43;
     v33 = (__int64 *)v43;
     v34 = v8;
     do
@@ -200,12 +200,12 @@ LABEL_16:
         v35 = *(_QWORD *)(*v33 + 8) - 0x102906C9A000F0B2LL;
       if ( !v35 )
         WmipGenerateBinaryMofNotification(v33[1], &GUID_MOF_RESOURCE_ADDED_NOTIFICATION);
-      WmipEnableCollectionForNewGuid((_OWORD *)*v33, v33[1]);
+      WmipEnableCollectionForNewGuid(*v33, v33[1]);
       v33 += 2;
       --v34;
     }
     while ( v34 );
-    WmipSendGuidUpdateNotifications(1, v8, v32);
+    WmipSendGuidUpdateNotifications(1LL, v8, v32);
     ExFreePoolWithTag(v32, 0);
   }
   return 0LL;

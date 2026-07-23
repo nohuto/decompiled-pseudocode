@@ -3,8 +3,8 @@
  * Callers:
  *     ViInitSystemPhase0 @ 0x140B69A68 (ViInitSystemPhase0.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     VfRandomGetNumber @ 0x140AC2388 (VfRandomGetNumber.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VfRandomGetNumber @ 0x140AC2378 (VfRandomGetNumber.c)
  */
 
 __int64 ViInitPickRandomTargets()

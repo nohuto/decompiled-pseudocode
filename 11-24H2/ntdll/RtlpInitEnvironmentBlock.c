@@ -1,54 +1,54 @@
 /*
- * XREFs of RtlpInitEnvironmentBlock @ 0x18011AFD4
+ * XREFs of RtlpInitEnvironmentBlock @ 0x180119204
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlCreateEnvironmentEx @ 0x180082D50 (RtlCreateEnvironmentEx.c)
- *     RtlpAllocateEnvBlock @ 0x180083998 (RtlpAllocateEnvBlock.c)
- *     RtlpWow64ThunkEnvironmentTo64 @ 0x1800839E4 (RtlpWow64ThunkEnvironmentTo64.c)
- *     RtlpGetBlockSizeEx @ 0x1800E7020 (RtlpGetBlockSizeEx.c)
- *     RtlpSetupEnvironmentHashTable @ 0x18011B09C (RtlpSetupEnvironmentHashTable.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlCreateEnvironmentEx @ 0x180004BD0 (RtlCreateEnvironmentEx.c)
+ *     RtlpAllocateEnvBlock @ 0x180005818 (RtlpAllocateEnvBlock.c)
+ *     RtlpWow64ThunkEnvironmentTo64 @ 0x180005890 (RtlpWow64ThunkEnvironmentTo64.c)
+ *     RtlpGetBlockSizeEx @ 0x1800E24D0 (RtlpGetBlockSizeEx.c)
+ *     RtlpSetupEnvironmentHashTable @ 0x1801192CC (RtlpSetupEnvironmentHashTable.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 RtlpInitEnvironmentBlock()
+NTSTATUS RtlpInitEnvironmentBlock()
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rbx
-  void *Environment; // rbp
-  unsigned __int64 BlockSize; // rdi
-  void *EnvBlock; // rax
-  void *v4; // rsi
-  __int64 result; // rax
-  void *v6; // [rsp+30h] [rbp+8h] BYREF
+  void *v1; // rbp
+  SIZE_T BlockSize; // rdi
+  PVOID EnvBlock; // rax
+  PVOID v4; // rsi
+  NTSTATUS result; // eax
+  PVOID Environment; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0LL;
+  Environment = 0LL;
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  Environment = ProcessParameters->Environment;
-  if ( Environment )
+  v1 = ProcessParameters->Environment;
+  if ( v1 )
   {
     BlockSize = RtlpGetBlockSizeEx((char *)ProcessParameters->Environment, 1);
-    EnvBlock = (void *)RtlpAllocateEnvBlock(BlockSize);
+    EnvBlock = RtlpAllocateEnvBlock(BlockSize);
     v4 = EnvBlock;
     if ( !EnvBlock )
-      return 3221225626LL;
-    memmove(EnvBlock, Environment, BlockSize);
+      return -1073741670;
+    memmove(EnvBlock, v1, BlockSize);
   }
   else
   {
     BlockSize = 4LL;
-    result = RtlCreateEnvironmentEx(0LL, &v6, 4);
-    if ( (int)result < 0 )
+    result = RtlCreateEnvironmentEx(0LL, &Environment, 4u);
+    if ( result < 0 )
       return result;
-    v4 = v6;
+    v4 = Environment;
   }
   ++ProcessParameters->EnvironmentVersion;
   ProcessParameters->Environment = v4;
   ProcessParameters->EnvironmentSize = BlockSize;
   result = RtlpSetupEnvironmentHashTable();
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     RtlpWow64ThunkEnvironmentTo64();
-    return 0LL;
+    return 0;
   }
   return result;
 }

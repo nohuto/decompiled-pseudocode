@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAddEventToBuffer @ 0x140493004
+ * XREFs of EtwpAddEventToBuffer @ 0x140493A94
  * Callers:
- *     EtwpAddDebugInfoEvents @ 0x140492EAC (EtwpAddDebugInfoEvents.c)
- *     EtwpAddBinaryInfoEvents @ 0x1406A6618 (EtwpAddBinaryInfoEvents.c)
+ *     EtwpAddDebugInfoEvents @ 0x14049393C (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1406A6750 (EtwpAddBinaryInfoEvents.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall EtwpAddEventToBuffer(

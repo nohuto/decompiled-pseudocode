@@ -17,141 +17,160 @@
  *     _RtlpValidAttributeInfo@4 @ 0x4B34CC0F (_RtlpValidAttributeInfo@4.c)
  */
 
-int __stdcall RtlAddResourceAttributeAce(int a1, unsigned int a2, int a3, int a4, int a5, int a6, unsigned int *a7)
+NTSTATUS __cdecl RtlAddResourceAttributeAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ULONG AccessMask,
+        PSID Sid,
+        PCLAIM_SECURITY_ATTRIBUTES_INFORMATION AttributeInfo,
+        PULONG ReturnLength)
 {
   _BYTE *Heap; // ebx
-  int v8; // esi
-  unsigned __int8 v9; // al
+  NTSTATUS v8; // esi
+  unsigned __int8 AclRevision; // al
   unsigned __int16 v10; // ax
-  int *v11; // eax
-  int v12; // ebx
+  _DWORD *v11; // eax
+  PACL v12; // ebx
   int v13; // esi
   int v14; // ecx
   unsigned __int8 *v15; // edx
-  unsigned int v16; // eax
+  char *v16; // eax
   __int16 v17; // cx
-  char v18; // al
-  unsigned __int8 *v20; // [esp-4h] [ebp-140h]
-  unsigned int v21; // [esp+Ch] [ebp-130h]
-  int v22; // [esp+10h] [ebp-12Ch]
-  unsigned int v23; // [esp+14h] [ebp-128h] BYREF
-  void *v24; // [esp+18h] [ebp-124h]
-  unsigned int *v25; // [esp+1Ch] [ebp-120h]
-  size_t Size; // [esp+20h] [ebp-11Ch] BYREF
-  int v27; // [esp+24h] [ebp-118h]
-  int v28; // [esp+28h] [ebp-114h]
-  char v29; // [esp+2Fh] [ebp-10Dh]
+  unsigned __int8 v18; // al
+  size_t v20; // [esp-4h] [ebp-140h]
+  size_t v21; // [esp-4h] [ebp-140h]
+  SIZE_T v22; // [esp-4h] [ebp-140h]
+  unsigned int v23; // [esp+Ch] [ebp-130h]
+  NTSTATUS v24; // [esp+10h] [ebp-12Ch]
+  PVOID FirstFree; // [esp+14h] [ebp-128h] BYREF
+  PSID SourceSid; // [esp+18h] [ebp-124h]
+  PULONG v27; // [esp+1Ch] [ebp-120h]
+  unsigned int Size; // [esp+20h] [ebp-11Ch] BYREF
+  int Size_4; // [esp+24h] [ebp-118h]
+  PCLAIM_SECURITY_ATTRIBUTES_INFORMATION v30; // [esp+28h] [ebp-114h]
+  unsigned __int8 v31; // [esp+2Fh] [ebp-10Dh]
   _BYTE *Buf2; // [esp+30h] [ebp-10Ch] BYREF
-  __int16 v31; // [esp+34h] [ebp-108h]
+  __int16 v33; // [esp+34h] [ebp-108h]
   _BYTE Src[256]; // [esp+38h] [ebp-104h] BYREF
 
-  v28 = a6;
-  v25 = a7;
-  v23 = 0;
+  v30 = AttributeInfo;
+  v27 = ReturnLength;
+  LODWORD(v20) = 256;
+  FirstFree = 0;
   Heap = 0;
   Buf2 = 0;
-  v24 = (void *)a5;
-  v31 = 256;
-  memset(Src, 0, sizeof(Src));
+  SourceSid = Sid;
+  v33 = 256;
+  memset(Src, 0, v20);
   Size = 256;
-  if ( !a7 )
+  if ( !ReturnLength )
     return -1073741811;
-  *v25 = 0;
-  if ( !a1 )
+  *v27 = 0;
+  if ( !Acl )
     return -1073741705;
-  if ( !RtlValidSid((_BYTE *)a5) )
+  if ( !RtlValidSid(Sid) )
     return -1073741704;
-  if ( memcmp((const void *)(a5 + 2), &Buf2, 6u) )
+  LODWORD(v21) = 6;
+  if ( memcmp((char *)Sid + 2, &Buf2, v21) )
     return -1073741811;
-  if ( *(_BYTE *)(a5 + 1) != 1 || *(_DWORD *)(a5 + 8) )
+  if ( *((_BYTE *)Sid + 1) != 1 || *((_DWORD *)Sid + 2) )
   {
     v8 = -1073741811;
     goto LABEL_40;
   }
-  v9 = *(_BYTE *)a1;
-  v29 = v9;
-  if ( v9 > 4u )
+  AclRevision = Acl->AclRevision;
+  v31 = AclRevision;
+  if ( AclRevision > 4u )
     return -1073741735;
-  v27 = 4;
-  if ( a2 > 4 )
+  Size_4 = 4;
+  if ( AceRevision > 4 )
     return -1073741735;
-  if ( v9 <= (unsigned __int8)a2 )
-    v29 = a2;
-  if ( (a3 & 0xFFFFFFE0) != 0 || a4 || !(unsigned __int8)RtlpValidAttributeInfo(v28) || *(_DWORD *)(v28 + 4) != 1 )
+  if ( AclRevision <= (unsigned __int8)AceRevision )
+    v31 = AceRevision;
+  if ( (AceFlags & 0xFFFFFFE0) != 0
+    || AccessMask
+    || !(unsigned __int8)RtlpValidAttributeInfo(v30)
+    || v30->AttributeCount != 1 )
+  {
     return -1073741811;
+  }
   Heap = Src;
   Buf2 = Src;
-  v8 = RtlpConvertAbsoluteToRelativeSecurityAttribute(*(_DWORD *)(v28 + 8), Src, (int)&Size);
-  v22 = v8;
+  v8 = RtlpConvertAbsoluteToRelativeSecurityAttribute((int)v30->Attribute.pAttributeV1, Src, (int)&Size);
+  v24 = v8;
   if ( v8 == -1073741789 )
   {
-    Heap = (_BYTE *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, Size);
+    LODWORD(v22) = Size;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v22);
     Buf2 = Heap;
     if ( !Heap )
       return -1073741801;
-    v8 = RtlpConvertAbsoluteToRelativeSecurityAttribute(*(_DWORD *)(v28 + 8), Heap, (int)&Size);
-    v22 = v8;
+    v8 = RtlpConvertAbsoluteToRelativeSecurityAttribute((int)v30->Attribute.pAttributeV1, Heap, (int)&Size);
+    v24 = v8;
   }
   if ( v8 < 0 )
     goto LABEL_40;
-  if ( RtlValidAcl(a1) && RtlFirstFreeAce(a1, &v23) )
+  if ( RtlValidAcl(Acl) && RtlFirstFreeAce(Acl, &FirstFree) )
   {
-    if ( Size > 0xFFFF || (v10 = 4 * (v27 + *((unsigned __int8 *)v24 + 1)), (unsigned __int16)(v10 + Size) < v10) )
+    if ( Size > 0xFFFF
+      || (v10 = 4 * (Size_4 + *((unsigned __int8 *)SourceSid + 1)), (unsigned __int16)(v10 + Size) < v10) )
     {
       v8 = -1073741675;
       goto LABEL_40;
     }
-    v21 = 0;
-    v28 = (unsigned __int16)(v10 + Size);
-    v11 = (int *)v25;
-    v27 = 8;
-    *v25 = 8;
-    if ( *(_WORD *)(a1 + 4) )
+    v23 = 0;
+    v30 = (PCLAIM_SECURITY_ATTRIBUTES_INFORMATION)(unsigned __int16)(v10 + Size);
+    v11 = v27;
+    Size_4 = 8;
+    *v27 = 8;
+    if ( Acl->AceCount )
     {
-      v12 = a1 + 8;
+      v12 = Acl + 1;
       do
       {
-        v13 = *v11 + *(unsigned __int16 *)(v12 + 2);
+        v13 = *v11 + v12->AclSize;
         *v11 = v13;
-        v12 += *(unsigned __int16 *)(v12 + 2);
-        v27 = v13;
-        ++v21;
+        v12 = (PACL)((char *)v12 + v12->AclSize);
+        Size_4 = v13;
+        ++v23;
       }
-      while ( v21 < *(unsigned __int16 *)(a1 + 4) );
+      while ( v23 < Acl->AceCount );
       Heap = Buf2;
     }
-    v14 = v27 + (unsigned __int16)v28;
+    v14 = Size_4 + (unsigned __int16)v30;
     *v11 = v14;
-    v27 = v14;
-    if ( v23 )
+    Size_4 = v14;
+    if ( FirstFree )
     {
-      v8 = v22;
-      v15 = (unsigned __int8 *)v24;
-      if ( (unsigned __int16)v28 + v23 <= a1 + (unsigned int)*(unsigned __int16 *)(a1 + 2) )
+      v8 = v24;
+      v15 = (unsigned __int8 *)SourceSid;
+      if ( (char *)FirstFree + (unsigned __int16)v30 <= (char *)Acl + Acl->AclSize )
       {
-        v16 = v23;
-        v20 = (unsigned __int8 *)v24;
-        *(_DWORD *)(v23 + 4) = 0;
-        *(_BYTE *)(v16 + 1) = a3;
-        v17 = v28;
-        *(_BYTE *)v16 = 18;
-        *(_WORD *)(v16 + 2) = v17;
-        RtlCopySid(4 * v15[1] + 8, (void *)(v16 + 8), v20);
-        memcpy((void *)(v23 + 16 + 4 * *((unsigned __int8 *)v24 + 1)), Heap, Size);
-        v18 = v29;
-        ++*(_WORD *)(a1 + 4);
-        *(_BYTE *)a1 = v18;
+        v16 = (char *)FirstFree;
+        LODWORD(v22) = SourceSid;
+        *((_DWORD *)FirstFree + 1) = 0;
+        v16[1] = AceFlags;
+        v17 = (__int16)v30;
+        *v16 = 18;
+        *((_WORD *)v16 + 1) = v17;
+        RtlCopySid(4 * v15[1] + 8, v16 + 8, (PSID)v22);
+        LODWORD(v22) = Size;
+        memcpy((char *)FirstFree + 4 * *((unsigned __int8 *)SourceSid + 1) + 16, Heap, v22);
+        v18 = v31;
+        ++Acl->AceCount;
+        Acl->AclRevision = v18;
         goto LABEL_40;
       }
-      v14 = v27;
+      v14 = Size_4;
     }
     v8 = -1073741671;
-    *v25 = (v14 + 3) & 0xFFFFFFFC;
+    *v27 = (v14 + 3) & 0xFFFFFFFC;
     goto LABEL_40;
   }
   v8 = -1073741705;
 LABEL_40:
   if ( Heap && Heap != Src )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v8;
 }

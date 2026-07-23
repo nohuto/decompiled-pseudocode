@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReplenishCombineResources @ 0x1402FB82C
+ * XREFs of MiReplenishCombineResources @ 0x1403447DC
  * Callers:
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     MiGetSlabPage @ 0x1402F3934 (MiGetSlabPage.c)
+ *     MiGetSlabPage @ 0x14021CE24 (MiGetSlabPage.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiReplenishCombineResources(__int64 *a1)
@@ -47,7 +47,7 @@ __int64 __fastcall MiReplenishCombineResources(__int64 *a1)
     return 0LL;
   v4 = *((_DWORD *)a1 + 82);
   v5 = a1[39];
-  v6 = _InterlockedExchangeAdd((volatile signed __int32 *)a1[40], 1u) % (unsigned int)dword_140E2DBC0[HIWORD(v4) & 3];
+  v6 = _InterlockedExchangeAdd((volatile signed __int32 *)a1[40], 1u) % (unsigned int)dword_140E2DD00[HIWORD(v4) & 3];
   v7 = a1 + 39;
   if ( v5 )
     v7 = 0LL;

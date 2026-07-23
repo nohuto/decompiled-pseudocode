@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAcquireKsrPersistentMemory @ 0x140952470
+ * XREFs of IoAcquireKsrPersistentMemory @ 0x140952670
  * Callers:
  *     <none>
  * Callees:
- *     IoAcquireKsrPersistentMemoryEx @ 0x1409524A0 (IoAcquireKsrPersistentMemoryEx.c)
+ *     IoAcquireKsrPersistentMemoryEx @ 0x1409526A0 (IoAcquireKsrPersistentMemoryEx.c)
  */
 
 __int64 __fastcall IoAcquireKsrPersistentMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

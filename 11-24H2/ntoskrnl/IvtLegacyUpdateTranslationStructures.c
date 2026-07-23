@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtLegacyUpdateTranslationStructures @ 0x1405710FC
+ * XREFs of IvtLegacyUpdateTranslationStructures @ 0x14056E58C
  * Callers:
- *     IvtLegacyAttachDeviceDomainInternal @ 0x14056FB5C (IvtLegacyAttachDeviceDomainInternal.c)
- *     IvtLegacyProcessDeviceExceptions @ 0x140B5250C (IvtLegacyProcessDeviceExceptions.c)
- *     HalpIvtpLegacyInitializeReservedDomain @ 0x140B534E4 (HalpIvtpLegacyInitializeReservedDomain.c)
+ *     IvtLegacyAttachDeviceDomainInternal @ 0x14056CFEC (IvtLegacyAttachDeviceDomainInternal.c)
+ *     IvtLegacyProcessDeviceExceptions @ 0x140B5455C (IvtLegacyProcessDeviceExceptions.c)
+ *     HalpIvtpLegacyInitializeReservedDomain @ 0x140B55534 (HalpIvtpLegacyInitializeReservedDomain.c)
  * Callees:
- *     IvtUpdateContextEntry @ 0x1404C80CC (IvtUpdateContextEntry.c)
- *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x140570FFC (IvtLegacyUpdateScalableModeTranslationStructures.c)
+ *     IvtUpdateContextEntry @ 0x1404C1800 (IvtUpdateContextEntry.c)
+ *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x14056E48C (IvtLegacyUpdateScalableModeTranslationStructures.c)
  */
 
 __int64 __fastcall IvtLegacyUpdateTranslationStructures(

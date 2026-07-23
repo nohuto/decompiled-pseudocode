@@ -8,5 +8,5 @@
 
 ULONG __stdcall vDbgPrintEx(ULONG ComponentId, ULONG Level, PCCH Format, va_list arglist)
 {
-  return vDbgPrintExWithPrefixInternal((void *)&Src, arglist, 1);
+  return vDbgPrintExWithPrefixInternal((void *)&Src, ComponentId, Level, arglist, 1);
 }

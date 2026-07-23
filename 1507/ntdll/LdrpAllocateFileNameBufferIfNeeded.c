@@ -39,7 +39,7 @@ __int64 __fastcall LdrpAllocateFileNameBufferIfNeeded(unsigned __int16 *a1, unsi
     }
     else
     {
-      v8 = NtdllpReallocateStringRoutine(v7);
+      v8 = NtdllpReallocateStringRoutine(v7, v6);
     }
     if ( v8 )
     {

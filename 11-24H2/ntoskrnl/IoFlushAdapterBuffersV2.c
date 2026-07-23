@@ -1,14 +1,14 @@
 /*
- * XREFs of IoFlushAdapterBuffersV2 @ 0x1403911F0
+ * XREFs of IoFlushAdapterBuffersV2 @ 0x14038AB20
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x14038D160 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaFlushBuffer @ 0x14038D450 (HalpDmaFlushBuffer.c)
- *     HalpDmaNextContiguousPiece @ 0x14038FC00 (HalpDmaNextContiguousPiece.c)
- *     HalpDmaSyncMapBuffers @ 0x14038FF20 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaFlushContiguousTransferV2 @ 0x1403910E4 (HalpDmaFlushContiguousTransferV2.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140386AA0 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaFlushBuffer @ 0x140386D90 (HalpDmaFlushBuffer.c)
+ *     HalpDmaNextContiguousPiece @ 0x140389540 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaSyncMapBuffers @ 0x140389860 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x14038AA14 (HalpDmaFlushContiguousTransferV2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall IoFlushAdapterBuffersV2(
@@ -20,7 +20,6 @@ char __fastcall IoFlushAdapterBuffersV2(
         char a6)
 {
   unsigned int v6; // r14d
-  unsigned __int64 v7; // rbp
   __int64 *v11; // rsi
   __int64 ContiguousPiece; // r12
   unsigned __int64 v14; // r13
@@ -34,20 +33,19 @@ char __fastcall IoFlushAdapterBuffersV2(
   size_t v22; // [rsp+20h] [rbp-48h]
 
   v6 = a5;
-  v7 = a4;
   if ( !a5 )
     return 1;
   if ( a1 && !*(_BYTE *)(a1 + 441) )
-    guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 432), a2, a3, a4);
+    guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 432), a2);
   if ( !a3 )
   {
     if ( !a6 && !*(_BYTE *)(a1 + 445) )
-      HalpDmaFlushBuffer(a1, a2, v7, a5, 0, 0);
+      HalpDmaFlushBuffer(a1, a2, a4, a5, 0, 0);
     return 1;
   }
   if ( !a1 || !*(_BYTE *)(a1 + 442) )
   {
-    HalpDmaFlushContiguousTransferV2(a1, a2, a3, v7, a5, a6);
+    HalpDmaFlushContiguousTransferV2(a1, a2, a3, a4, a5, a6);
     return 1;
   }
   v11 = (__int64 *)(a3 + 56);
@@ -56,11 +54,11 @@ char __fastcall IoFlushAdapterBuffersV2(
   *v11 = a3;
   do
   {
-    ContiguousPiece = (unsigned int)HalpDmaNextContiguousPiece(a1, a2, a3, v7, 0, v6);
-    v14 = v7 & 0xFFF;
+    ContiguousPiece = (unsigned int)HalpDmaNextContiguousPiece(a1, a2, a3, a4, 0, v6);
+    v14 = a4 & 0xFFF;
     v15 = 0;
     if ( *(_QWORD *)(a1 + 144) < v14
-                               + (*(_QWORD *)(a2 + 8LL * (unsigned int)((v7 - *(_QWORD *)(a2 + 32)) >> 12) + 48) << 12)
+                               + (*(_QWORD *)(a2 + 8LL * (unsigned int)((a4 - *(_QWORD *)(a2 + 32)) >> 12) + 48) << 12)
                                + ContiguousPiece
                                - 1 )
       goto LABEL_17;
@@ -71,7 +69,7 @@ char __fastcall IoFlushAdapterBuffersV2(
     {
 LABEL_17:
       LODWORD(v22) = ContiguousPiece;
-      HalpDmaSyncMapBuffers(a1, a2, v7, *v11, v22, v15, v15, v15);
+      HalpDmaSyncMapBuffers(a1, a2, a4, *v11, v22, v15, v15, v15);
       v16 = *v11;
       v17 = (v14 + ContiguousPiece + 4095) >> 12;
       if ( (_DWORD)v17 )
@@ -88,10 +86,10 @@ LABEL_17:
     }
     else
     {
-      HalpDmaFlushBuffer(v19, a2, v7, ContiguousPiece, v15, v15);
+      HalpDmaFlushBuffer(v19, a2, a4, ContiguousPiece, v15, v15);
     }
 LABEL_21:
-    v7 += ContiguousPiece;
+    a4 += ContiguousPiece;
     v6 -= ContiguousPiece;
   }
   while ( v6 );

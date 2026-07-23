@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSetPropertyHelper @ 0x140460FE8
+ * XREFs of PspSetPropertyHelper @ 0x1404593E8
  * Callers:
- *     PsSetThreadProperty @ 0x140460F20 (PsSetThreadProperty.c)
- *     PsSetJobProperty @ 0x140614FD0 (PsSetJobProperty.c)
+ *     PsSetThreadProperty @ 0x140459320 (PsSetThreadProperty.c)
+ *     PsSetJobProperty @ 0x140617E90 (PsSetJobProperty.c)
  * Callees:
- *     PspInsertProperty @ 0x14046100C (PspInsertProperty.c)
- *     PspRemoveProperty @ 0x1404610F0 (PspRemoveProperty.c)
+ *     PspInsertProperty @ 0x14045940C (PspInsertProperty.c)
+ *     PspRemoveProperty @ 0x1404594F0 (PspRemoveProperty.c)
  */
 
 __int64 __fastcall PspSetPropertyHelper(__int64 a1, __int64 a2, __int64 a3)

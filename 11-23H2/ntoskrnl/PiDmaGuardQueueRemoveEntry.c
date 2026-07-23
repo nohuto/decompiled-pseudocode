@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmaGuardQueueRemoveEntry @ 0x1405650C8
+ * XREFs of PiDmaGuardQueueRemoveEntry @ 0x140565788
  * Callers:
- *     PiDmaGuardProcessPostRemove @ 0x140869D84 (PiDmaGuardProcessPostRemove.c)
+ *     PiDmaGuardProcessPostRemove @ 0x140869FC4 (PiDmaGuardProcessPostRemove.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PipDgqFreeEntry @ 0x140972038 (PipDgqFreeEntry.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PipDgqFreeEntry @ 0x140972238 (PipDgqFreeEntry.c)
  */
 
 void __fastcall PiDmaGuardQueueRemoveEntry(PVOID a1)

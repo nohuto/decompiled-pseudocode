@@ -1,14 +1,14 @@
 /*
- * XREFs of ExWaitForRundownProtectionReleaseCacheAware @ 0x14045AE50
+ * XREFs of ExWaitForRundownProtectionReleaseCacheAware @ 0x1404501F0
  * Callers:
- *     RawVerifyVolume @ 0x1405E6F0C (RawVerifyVolume.c)
- *     MiDrainCrossPartitionUsage @ 0x14068A0B4 (MiDrainCrossPartitionUsage.c)
- *     PfDeletePartition @ 0x140747214 (PfDeletePartition.c)
- *     PfpPartitionAllocateState @ 0x14074736C (PfpPartitionAllocateState.c)
- *     RawUserFsCtrl @ 0x1409A2EE4 (RawUserFsCtrl.c)
- *     EtwpFreeLoggerContext @ 0x1409D77E0 (EtwpFreeLoggerContext.c)
+ *     RawVerifyVolume @ 0x1405E4500 (RawVerifyVolume.c)
+ *     MiDrainCrossPartitionUsage @ 0x14068B1E4 (MiDrainCrossPartitionUsage.c)
+ *     PfDeletePartition @ 0x140745504 (PfDeletePartition.c)
+ *     PfpPartitionAllocateState @ 0x14074565C (PfpPartitionAllocateState.c)
+ *     RawUserFsCtrl @ 0x1408AE174 (RawUserFsCtrl.c)
+ *     EtwpFreeLoggerContext @ 0x140A48E90 (EtwpFreeLoggerContext.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
  */
 
 void __stdcall ExWaitForRundownProtectionReleaseCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRef)

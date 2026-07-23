@@ -1,14 +1,14 @@
 /*
- * XREFs of MiZeroPageFile @ 0x1402A5F60
+ * XREFs of MiZeroPageFile @ 0x1402A6150
  * Callers:
- *     MiZeroAllPageFiles @ 0x14057BD54 (MiZeroAllPageFiles.c)
+ *     MiZeroAllPageFiles @ 0x14057CD54 (MiZeroAllPageFiles.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MmZeroPageWrite @ 0x1401283B8 (MmZeroPageWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MmZeroPageWrite @ 0x140128488 (MmZeroPageWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiZeroPageFile(_QWORD *a1)

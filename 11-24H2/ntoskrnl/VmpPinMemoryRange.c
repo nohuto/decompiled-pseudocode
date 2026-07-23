@@ -1,23 +1,23 @@
 /*
- * XREFs of VmpPinMemoryRange @ 0x14064ACC0
+ * XREFs of VmpPinMemoryRange @ 0x140649280
  * Callers:
- *     VmPinMemoryRange @ 0x14079EC80 (VmPinMemoryRange.c)
+ *     VmPinMemoryRange @ 0x14079ED90 (VmPinMemoryRange.c)
  * Callees:
- *     VmpProcessContextLockExclusive @ 0x1403B0458 (VmpProcessContextLockExclusive.c)
- *     VmpProcessContextUnlockExclusive @ 0x14047F1E4 (VmpProcessContextUnlockExclusive.c)
- *     VmpCheckPinAndReference @ 0x14064A43C (VmpCheckPinAndReference.c)
- *     VmpCountNewPinnedRangesNeeded @ 0x14064A61C (VmpCountNewPinnedRangesNeeded.c)
- *     VmpDereferencePinInProgress @ 0x14064A7B4 (VmpDereferencePinInProgress.c)
- *     VmpUpdatePinRangesForFirstPin @ 0x14064B79C (VmpUpdatePinRangesForFirstPin.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     VmpAllocatePinnedRanges @ 0x14079F12C (VmpAllocatePinnedRanges.c)
- *     VmpCheckPinTooLate @ 0x14079F1C0 (VmpCheckPinTooLate.c)
- *     VmpSecureMemoryForPin @ 0x14079F704 (VmpSecureMemoryForPin.c)
- *     VmpUnsecureMemoryForPin @ 0x14079F88C (VmpUnsecureMemoryForPin.c)
- *     MmLockPhysicalPagesByVa @ 0x1407EA9A0 (MmLockPhysicalPagesByVa.c)
- *     MmUnlockPhysicalPagesByVa @ 0x1407EAAAC (MmUnlockPhysicalPagesByVa.c)
- *     VmAccessFault @ 0x140A07D80 (VmAccessFault.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VmpProcessContextLockExclusive @ 0x14039EC68 (VmpProcessContextLockExclusive.c)
+ *     VmpProcessContextUnlockExclusive @ 0x14047A000 (VmpProcessContextUnlockExclusive.c)
+ *     VmpCheckPinAndReference @ 0x1406489FC (VmpCheckPinAndReference.c)
+ *     VmpCountNewPinnedRangesNeeded @ 0x140648BDC (VmpCountNewPinnedRangesNeeded.c)
+ *     VmpDereferencePinInProgress @ 0x140648D74 (VmpDereferencePinInProgress.c)
+ *     VmpUpdatePinRangesForFirstPin @ 0x140649D5C (VmpUpdatePinRangesForFirstPin.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     VmpAllocatePinnedRanges @ 0x14079F23C (VmpAllocatePinnedRanges.c)
+ *     VmpCheckPinTooLate @ 0x14079F2D0 (VmpCheckPinTooLate.c)
+ *     VmpSecureMemoryForPin @ 0x14079F814 (VmpSecureMemoryForPin.c)
+ *     VmpUnsecureMemoryForPin @ 0x14079F99C (VmpUnsecureMemoryForPin.c)
+ *     MmLockPhysicalPagesByVa @ 0x1407EAF70 (MmLockPhysicalPagesByVa.c)
+ *     MmUnlockPhysicalPagesByVa @ 0x1407EB07C (MmUnlockPhysicalPagesByVa.c)
+ *     VmAccessFault @ 0x140A042B0 (VmAccessFault.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPinMemoryRange(

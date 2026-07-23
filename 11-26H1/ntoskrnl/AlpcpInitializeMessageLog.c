@@ -1,64 +1,64 @@
 /*
- * XREFs of AlpcpInitializeMessageLog @ 0x1407C1D14
+ * XREFs of AlpcpInitializeMessageLog @ 0x1407C4D74
  * Callers:
- *     AlpcpInitSystem @ 0x1407C1414 (AlpcpInitSystem.c)
+ *     AlpcpInitSystem @ 0x1407C3E88 (AlpcpInitSystem.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpInitializeMessageLog(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // ebx
-  _QWORD *Pool2; // rax
+  struct _LIST_ENTRY *Pool2; // rax
   __int64 v7; // rcx
   __int64 v8; // rbp
-  void *ThreadLock; // rcx
+  struct _LIST_ENTRY *Flink; // rcx
   __int64 v10; // r8
   unsigned int v11; // edx
   __int64 v12; // rax
-  unsigned __int64 **v13; // rcx
-  _QWORD *InitialStack; // rax
+  void ***v13; // rcx
+  _QWORD *StackLimit; // rax
   __int64 v15; // rax
-  void *volatile *StackBase; // rcx
-  void *volatile **v17; // rax
+  void **QuantumTarget; // rcx
+  void ***v17; // rax
 
   v2 = 0;
   *(_QWORD *)&AlpcpMessageLogLock.Header.Lock = 0LL;
-  AlpcpMessageLogLock.SListFaultAddress = &AlpcpMessageLogLock.Header.WaitListHead.Blink;
-  AlpcpMessageLogLock.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&AlpcpMessageLogLock.Header.WaitListHead.Blink;
-  AlpcpMessageLogLock.InitialStack = &AlpcpMessageLogLock.QuantumTarget;
-  AlpcpMessageLogLock.QuantumTarget = (unsigned __int64)&AlpcpMessageLogLock.QuantumTarget;
-  AlpcpMessageLogLock.StackBase = (void *)&AlpcpMessageLogLock.StackLimit;
-  AlpcpMessageLogLock.StackLimit = (void *volatile)&AlpcpMessageLogLock.StackLimit;
+  AlpcpMessageLogLock.ThreadLock = (unsigned __int64)&AlpcpMessageLogLock.StackBase;
+  AlpcpMessageLogLock.StackBase = &AlpcpMessageLogLock.StackBase;
+  AlpcpMessageLogLock.StackLimit = &AlpcpMessageLogLock.InitialStack;
+  AlpcpMessageLogLock.InitialStack = &AlpcpMessageLogLock.InitialStack;
+  AlpcpMessageLogLock.QuantumTarget = (unsigned __int64)&AlpcpMessageLogLock.SListFaultAddress;
+  AlpcpMessageLogLock.SListFaultAddress = &AlpcpMessageLogLock.SListFaultAddress;
   if ( a1 && a2 )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
-    AlpcpMessageLogLock.ThreadLock = (unsigned __int64)Pool2;
+    Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(0x100uLL);
+    AlpcpMessageLogLock.Header.WaitListHead.Flink = Pool2;
     if ( !Pool2 )
       return 3221225626LL;
     v7 = 1024LL;
     do
     {
-      Pool2[1] = Pool2;
-      *Pool2 = Pool2;
-      Pool2 += 2;
+      Pool2->Blink = Pool2;
+      Pool2->Flink = Pool2;
+      ++Pool2;
       --v7;
     }
     while ( v7 );
     v8 = ExAllocatePool2(0x100uLL);
     if ( !v8 )
     {
-      ThreadLock = (void *)AlpcpMessageLogLock.ThreadLock;
+      Flink = AlpcpMessageLogLock.Header.WaitListHead.Flink;
 LABEL_9:
-      ExFreePoolWithTag(ThreadLock, 0);
+      ExFreePoolWithTag(Flink, 0);
       return 3221225626LL;
     }
     v10 = ExAllocatePool2(0x100uLL);
     if ( !v10 )
     {
-      ExFreePoolWithTag((PVOID)AlpcpMessageLogLock.ThreadLock, 0);
-      ThreadLock = (void *)v8;
+      ExFreePoolWithTag(AlpcpMessageLogLock.Header.WaitListHead.Flink, 0);
+      Flink = (struct _LIST_ENTRY *)v8;
       goto LABEL_9;
     }
     v11 = 0;
@@ -67,18 +67,18 @@ LABEL_9:
       v12 = 0LL;
       while ( 1 )
       {
-        v13 = (unsigned __int64 **)((v12 << 6) + v8);
-        v13[7] = (unsigned __int64 *)(v13 + 6);
-        v13[6] = (unsigned __int64 *)(v13 + 6);
-        InitialStack = AlpcpMessageLogLock.InitialStack;
-        if ( *(struct _KTHREAD **)AlpcpMessageLogLock.InitialStack != (struct _KTHREAD *)&AlpcpMessageLogLock.QuantumTarget )
+        v13 = (void ***)((v12 << 6) + v8);
+        v13[7] = (void **)(v13 + 6);
+        v13[6] = (void **)(v13 + 6);
+        StackLimit = AlpcpMessageLogLock.StackLimit;
+        if ( *(struct _KTHREAD **)AlpcpMessageLogLock.StackLimit != (struct _KTHREAD *)&AlpcpMessageLogLock.InitialStack )
           break;
-        v13[1] = (unsigned __int64 *)AlpcpMessageLogLock.InitialStack;
+        v13[1] = (void **)AlpcpMessageLogLock.StackLimit;
         ++v11;
-        *v13 = &AlpcpMessageLogLock.QuantumTarget;
-        *InitialStack = v13;
+        *v13 = &AlpcpMessageLogLock.InitialStack;
+        *StackLimit = v13;
         v12 = v11;
-        AlpcpMessageLogLock.InitialStack = v13;
+        AlpcpMessageLogLock.StackLimit = v13;
         if ( v11 >= a1 )
           goto LABEL_16;
       }
@@ -91,15 +91,15 @@ LABEL_16:
       v15 = 0LL;
       while ( 1 )
       {
-        StackBase = (void *volatile *)AlpcpMessageLogLock.StackBase;
-        v17 = (void *volatile **)(v10 + 120 * v15);
-        if ( *(struct _KTHREAD **)AlpcpMessageLogLock.StackBase != (struct _KTHREAD *)&AlpcpMessageLogLock.StackLimit )
+        QuantumTarget = (void **)AlpcpMessageLogLock.QuantumTarget;
+        v17 = (void ***)(v10 + 120 * v15);
+        if ( *(struct _KTHREAD **)AlpcpMessageLogLock.QuantumTarget != (struct _KTHREAD *)&AlpcpMessageLogLock.SListFaultAddress )
           break;
-        *v17 = &AlpcpMessageLogLock.StackLimit;
+        *v17 = &AlpcpMessageLogLock.SListFaultAddress;
         ++v2;
-        v17[1] = StackBase;
-        *StackBase = v17;
-        AlpcpMessageLogLock.StackBase = v17;
+        v17[1] = QuantumTarget;
+        *QuantumTarget = v17;
+        AlpcpMessageLogLock.QuantumTarget = (unsigned __int64)v17;
         v15 = v2;
         if ( v2 >= a2 )
           return 0LL;

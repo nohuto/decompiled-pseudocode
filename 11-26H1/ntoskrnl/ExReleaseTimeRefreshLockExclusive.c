@@ -1,32 +1,29 @@
 /*
- * XREFs of ExReleaseTimeRefreshLockExclusive @ 0x140A66AE4
+ * XREFs of ExReleaseTimeRefreshLockExclusive @ 0x140A73AB4
  * Callers:
- *     ExCleanTimerResolutionRequest @ 0x1404E2B78 (ExCleanTimerResolutionRequest.c)
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
- *     ExpReadLeapSecondData @ 0x140835F5C (ExpReadLeapSecondData.c)
- *     ExpRefreshSystemTime @ 0x140836324 (ExpRefreshSystemTime.c)
- *     ExpTimeZoneInitSiloState @ 0x1408364F8 (ExpTimeZoneInitSiloState.c)
- *     NtSetSystemTime @ 0x1408366B0 (NtSetSystemTime.c)
- *     ExUpdateTimerResolutionPolicy @ 0x140A6677C (ExUpdateTimerResolutionPolicy.c)
- *     NtSetTimerResolution @ 0x140A667F0 (NtSetTimerResolution.c)
- *     ExpTimeRefreshWork @ 0x140BFF300 (ExpTimeRefreshWork.c)
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
- *     KdpTimeSlipWork @ 0x140C15460 (KdpTimeSlipWork.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     ExCleanTimerResolutionRequest @ 0x1404DC1EC (ExCleanTimerResolutionRequest.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
+ *     ExpReadLeapSecondData @ 0x14083C19C (ExpReadLeapSecondData.c)
+ *     ExpRefreshSystemTime @ 0x14083C564 (ExpRefreshSystemTime.c)
+ *     ExpTimeZoneInitSiloState @ 0x14083C738 (ExpTimeZoneInitSiloState.c)
+ *     NtSetSystemTime @ 0x14083C8F0 (NtSetSystemTime.c)
+ *     ExUpdateTimerResolutionPolicy @ 0x140A7374C (ExUpdateTimerResolutionPolicy.c)
+ *     NtSetTimerResolution @ 0x140A737C0 (NtSetTimerResolution.c)
+ *     ExpTimeRefreshWork @ 0x140C05510 (ExpTimeRefreshWork.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
+ *     KdpTimeSlipWork @ 0x140C1B460 (KdpTimeSlipWork.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 __int64 ExReleaseTimeRefreshLockExclusive()
 {
-  __int64 v0; // rdx
-  __int64 v1; // r8
-
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpSysDbgLock.ApcStateFill[40], 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.ApcStateFill[40]);
-  KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.ApcStateFill[40]);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v0, v1);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpSysDbgLock.WaitBlockFill11[112], 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.WaitBlockFill11[112]);
+  KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.WaitBlockFill11[112]);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

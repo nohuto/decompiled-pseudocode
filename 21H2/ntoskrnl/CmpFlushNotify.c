@@ -1,31 +1,29 @@
 /*
- * XREFs of CmpFlushNotify @ 0x14066AE8C
+ * XREFs of CmpFlushNotify @ 0x14065FCAC
  * Callers:
- *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14066CC00 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
+ *     CmpPerformUnloadKey @ 0x1405DFA8C (CmpPerformUnloadKey.c)
+ *     CmpDeleteKeyObject @ 0x14065C3E0 (CmpDeleteKeyObject.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140661A20 (CmpFlushNotifiesOnKeyBodyList.c)
  * Callees:
- *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     CmUnlockHive @ 0x140663A5C (CmUnlockHive.c)
- *     CmLockHive @ 0x140663D98 (CmLockHive.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     CmUnlockHive @ 0x14065887C (CmUnlockHive.c)
+ *     CmLockHive @ 0x140658BB8 (CmLockHive.c)
+ *     CmpPostNotify @ 0x1406DC820 (CmpPostNotify.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall CmpFlushNotify(__int64 a1, __int64 a2, __int128 *a3)
+void __fastcall CmpFlushNotify(__int64 a1, char a2, __int64 a3)
 {
   char *v3; // rbx
-  char v5; // si
   __int64 v7; // rax
   __int64 v8; // rdi
 
   v3 = *(char **)(a1 + 16);
-  v5 = a2;
   if ( v3 )
   {
     v7 = *(_QWORD *)(a1 + 8);
     v8 = *(_QWORD *)(v7 + 32);
-    if ( !(_BYTE)a2 )
+    if ( !a2 )
     {
       CmLockHive(*(_QWORD *)(v7 + 32));
       v3 = *(char **)(a1 + 16);
@@ -34,7 +32,7 @@ void __fastcall CmpFlushNotify(__int64 a1, __int64 a2, __int128 *a3)
       goto LABEL_14;
     if ( *((char **)v3 + 2) != v3 + 16 )
     {
-      CmpPostNotify((__int64)v3, a2, (__int64)a3, 267LL, 0, 0LL, a3);
+      CmpPostNotify((_DWORD)v3, a2, a3, 267, 0, 0LL, a3);
       v3 = *(char **)(a1 + 16);
     }
     if ( v3 )
@@ -44,14 +42,14 @@ void __fastcall CmpFlushNotify(__int64 a1, __int64 a2, __int128 *a3)
       if ( *(_QWORD *)v3 )
         *(_QWORD *)(*(_QWORD *)v3 + 8LL) = *((_QWORD *)v3 + 1);
       *(_QWORD *)(a1 + 16) = 0LL;
-      if ( !v5 )
+      if ( !a2 )
         CmUnlockHive(v8);
       ExFreePoolWithTag(v3, 0);
     }
     else
     {
 LABEL_14:
-      if ( !v5 )
+      if ( !a2 )
         CmUnlockHive(v8);
     }
   }

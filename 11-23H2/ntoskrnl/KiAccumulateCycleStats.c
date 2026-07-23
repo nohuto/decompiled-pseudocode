@@ -1,11 +1,11 @@
 /*
  * XREFs of KiAccumulateCycleStats @ 0x14020E7C0
  * Callers:
- *     KeYieldExecution @ 0x1402469F0 (KeYieldExecution.c)
+ *     KeYieldExecution @ 0x140246AC0 (KeYieldExecution.c)
  * Callees:
  *     KiGetProcessorEfficiencyClass @ 0x14020E8D4 (KiGetProcessorEfficiencyClass.c)
  *     RtlTimelineBitmapUpdate @ 0x14020E900 (RtlTimelineBitmapUpdate.c)
- *     PoGetFrequencyBucket @ 0x140249C20 (PoGetFrequencyBucket.c)
+ *     PoGetFrequencyBucket @ 0x140249CF0 (PoGetFrequencyBucket.c)
  */
 
 void __fastcall KiAccumulateCycleStats(__int64 a1, __int64 a2, __int64 a3)

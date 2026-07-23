@@ -39,57 +39,57 @@
  *     LdrRelocateImageWithBias @ 0x1800EFA48 (LdrRelocateImageWithBias.c)
  *     LdrVerifyMappedImageMatchesChecksum @ 0x180102900 (LdrVerifyMappedImageMatchesChecksum.c)
  * Callees:
- *     RtlImageNtHeaderEx_ExceptionFilter @ 0x18010D1D0 (RtlImageNtHeaderEx_ExceptionFilter.c)
+ *     RtlImageNtHeaderEx_ExceptionFilter @ 0x18010D1A0 (RtlImageNtHeaderEx_ExceptionFilter.c)
  */
 
-__int64 __fastcall RtlImageNtHeaderEx(int a1, unsigned __int64 a2, unsigned __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl RtlImageNtHeaderEx(ULONG Flags, PVOID BaseOfImage, ULONG64 Size, PIMAGE_NT_HEADERS *OutHeaders)
 {
-  __int64 result; // rax
-  _DWORD *v5; // r10
+  NTSTATUS result; // eax
+  _IMAGE_NT_HEADERS64 *v5; // r10
   char v6; // r11
   unsigned int v7; // ecx
 
-  result = 0LL;
+  result = 0;
   v5 = 0LL;
-  if ( !a4 )
-    return 3221225485LL;
-  *a4 = 0LL;
-  if ( (a1 & 0xFFFFFFFC) != 0 || a2 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
-    return 3221225485LL;
-  if ( (a1 & 1) != 0 )
+  if ( !OutHeaders )
+    return -1073741811;
+  *OutHeaders = 0LL;
+  if ( (Flags & 0xFFFFFFFC) != 0 || (char *)BaseOfImage - 1 > (char *)0xFFFFFFFFFFFFFFFDLL )
+    return -1073741811;
+  if ( (Flags & 1) != 0 )
   {
     v6 = 0;
   }
   else
   {
     v6 = 1;
-    if ( a3 < 0x40 )
-      return 3221225595LL;
+    if ( Size < 0x40 )
+      return -1073741701;
   }
-  if ( *(_WORD *)a2 != 23117 )
+  if ( *(_WORD *)BaseOfImage != 23117 )
   {
 LABEL_16:
-    result = 3221225595LL;
+    result = -1073741701;
     goto LABEL_18;
   }
-  v7 = *(_DWORD *)(a2 + 60);
-  if ( v6 && (v7 >= a3 || v7 >= 0xFFFFFFE7 || (unsigned __int64)v7 + 24 >= a3) )
+  v7 = *((_DWORD *)BaseOfImage + 15);
+  if ( v6 && (v7 >= Size || v7 >= 0xFFFFFFE7 || (unsigned __int64)v7 + 24 >= Size) )
   {
-    result = 3221225595LL;
+    result = -1073741701;
     v5 = 0LL;
     goto LABEL_18;
   }
   if ( v7 < 0x10000000 )
   {
-    v5 = (_DWORD *)(a2 + v7);
-    if ( (unsigned __int64)v5 >= a2 && *v5 == 17744 )
+    v5 = (_IMAGE_NT_HEADERS64 *)((char *)BaseOfImage + v7);
+    if ( v5 >= BaseOfImage && v5->Signature == 17744 )
       goto LABEL_18;
     goto LABEL_16;
   }
-  result = 3221225595LL;
+  result = -1073741701;
   v5 = 0LL;
 LABEL_18:
-  if ( (int)result >= 0 )
-    *a4 = v5;
+  if ( result >= 0 )
+    *OutHeaders = v5;
   return result;
 }

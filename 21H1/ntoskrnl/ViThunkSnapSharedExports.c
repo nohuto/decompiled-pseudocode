@@ -11,7 +11,7 @@ __int64 __fastcall ViThunkSnapSharedExports(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         unsigned int a5,
         __int64 a6)
 {

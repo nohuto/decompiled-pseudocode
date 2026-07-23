@@ -20,7 +20,7 @@ __int64 __fastcall LdrpGetDllPath(LPCWSTR pwsz, int a2, _QWORD *a3, _QWORD *a4, 
   __int64 CachedPath; // rcx
   __int64 v15; // rax
   _QWORD *v16; // rdx
-  int v18; // eax
+  RTL_PATH_TYPE v18; // eax
   __int64 v19; // rax
   __int64 v20; // r8
   __int64 v21; // rax
@@ -52,7 +52,9 @@ LABEL_4:
   {
     v18 = RtlDetermineDosPathNameType_U(pwsz);
     if ( (unsigned int)(v18 - 1) > 1 )
-      v10 = v18 != 6 || pwsz[2] != 63 || (unsigned int)RtlDetermineDosPathNameType_U(pwsz + 4) != 2;
+      v10 = v18 != RtlPathTypeLocalDevice
+         || pwsz[2] != 63
+         || RtlDetermineDosPathNameType_U(pwsz + 4) != RtlPathTypeDriveAbsolute;
     v13 = pwsz;
     if ( v10 )
     {

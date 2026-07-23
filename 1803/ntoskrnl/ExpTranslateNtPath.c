@@ -16,7 +16,7 @@
  *     ExpTranslateSymbolicLink @ 0x1407C24A4 (ExpTranslateSymbolicLink.c)
  */
 
-NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
+int __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
 {
   const WCHAR *v4; // rbx
   char *v7; // rsi
@@ -25,15 +25,15 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   unsigned __int64 v10; // r9
   __int64 v11; // rax
   wchar_t *v12; // r14
-  NTSTATUS result; // eax
+  int result; // eax
   wchar_t *Buffer; // rbx
   int OutputARC; // esi
   NTSTATUS v16; // ebx
   SIZE_T OutputBufferLength; // r15
   SIZE_T i; // rdx
   NTSTATUS v19; // esi
-  int *PoolWithTag; // rbx
-  int *v21; // r8
+  _DWORD *PoolWithTag; // rbx
+  GUID *v21; // r8
   _WORD v22[4]; // [rsp+50h] [rbp-B0h] BYREF
   wchar_t *v23; // [rsp+58h] [rbp-A8h]
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
@@ -42,7 +42,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   int OutputBuffer; // [rsp+B0h] [rbp-50h] BYREF
   __int64 v28; // [rsp+B8h] [rbp-48h] BYREF
   __int64 v29; // [rsp+C0h] [rbp-40h] BYREF
-  int v30[6]; // [rsp+C8h] [rbp-38h] BYREF
+  unsigned int v30[6]; // [rsp+C8h] [rbp-38h] BYREF
   char v31; // [rsp+E0h] [rbp-20h] BYREF
   HANDLE FileHandle; // [rsp+180h] [rbp+80h] BYREF
   int v33; // [rsp+188h] [rbp+88h] BYREF
@@ -89,7 +89,7 @@ LABEL_22:
       LODWORD(OutputBufferLength) = 2352;
       for ( i = 2352LL; ; i = OutputBufferLength )
       {
-        PoolWithTag = (int *)ExAllocatePoolWithTag(NonPagedPoolNx, i, 0x72766E45u);
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, i, 0x72766E45u);
         if ( !PoolWithTag )
         {
           v16 = -1073741670;
@@ -123,17 +123,17 @@ LABEL_22:
     ZwClose(FileHandle);
     if ( OutputBuffer == 1 )
     {
-      v21 = (int *)&v31;
+      v21 = (GUID *)&v31;
     }
     else
     {
-      v21 = &v33;
+      v21 = (GUID *)&v33;
       v8 = 0;
     }
     if ( a2 == 4 )
-      return ExpCreateOutputEFI(v7, a4, v21, v30, &v28, &v29, v12, v8);
+      return ExpCreateOutputEFI(v7, a4, v21, (int *)v30, &v28, &v29, v12, v8);
     else
-      return ExpCreateOutputSIGNATURE((__int64)v7, a4, (unsigned int *)v21, (unsigned int *)v30, &v28, &v29, v12, v8);
+      return ExpCreateOutputSIGNATURE((__int64)v7, a4, v21, v30, &v28, &v29, v12, v8);
   }
   result = ExpTranslateSymbolicLink(v4);
   if ( result >= 0 )

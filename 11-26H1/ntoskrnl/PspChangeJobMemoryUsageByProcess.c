@@ -1,21 +1,21 @@
 /*
- * XREFs of PspChangeJobMemoryUsageByProcess @ 0x140960360
+ * XREFs of PspChangeJobMemoryUsageByProcess @ 0x140A05C20
  * Callers:
- *     MiReturnFullProcessCharges @ 0x1404C9B60 (MiReturnFullProcessCharges.c)
- *     MmAssignProcessToJob @ 0x14096022C (MmAssignProcessToJob.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
- *     MmDeleteProcessAddressSpace @ 0x140B3F940 (MmDeleteProcessAddressSpace.c)
+ *     MiReturnFullProcessCharges @ 0x1404C3598 (MiReturnFullProcessCharges.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
+ *     MmAssignProcessToJob @ 0x140A05AEC (MmAssignProcessToJob.c)
+ *     MmDeleteProcessAddressSpace @ 0x140B41970 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PspSendJobNotification @ 0x1404D0290 (PspSendJobNotification.c)
- *     PspScheduleEnforcementWorker @ 0x14077BE1C (PspScheduleEnforcementWorker.c)
- *     PspLockJobMemoryLimitsExclusive @ 0x140957FF0 (PspLockJobMemoryLimitsExclusive.c)
- *     PspUnlockJobMemoryLimitsExclusive @ 0x1409615A0 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PspSendJobNotification @ 0x1404C9CC0 (PspSendJobNotification.c)
+ *     PspScheduleEnforcementWorker @ 0x14077EA5C (PspScheduleEnforcementWorker.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x140A06E50 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspLockJobMemoryLimitsExclusive @ 0x140A07050 (PspLockJobMemoryLimitsExclusive.c)
  */
 
 char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -27,7 +27,7 @@ char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3
   __int64 v10; // r14
   struct _KLOCK_ENTRIES *v11; // rax
   __int64 v12; // rdi
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v14; // rcx
+  $241382875694CED3D471BC5892DE3337 *v14; // rcx
   unsigned __int64 v16; // r12
   AutoBoost *v17; // rax
   void *v18; // rdx
@@ -45,13 +45,13 @@ char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3
   int v30; // eax
   unsigned __int64 v31; // rdx
   __int64 v32; // rcx
-  __int64 i; // rdi
+  struct _KLOCK_ENTRIES *i; // rdi
   __int64 v34; // rax
   int v35; // [rsp+20h] [rbp-68h]
   __int64 v36; // [rsp+28h] [rbp-60h]
   __int64 v37; // [rsp+30h] [rbp-58h]
   unsigned __int64 v38; // [rsp+30h] [rbp-58h]
-  __int64 v39; // [rsp+38h] [rbp-50h]
+  struct _KLOCK_ENTRIES *v39; // [rsp+38h] [rbp-50h]
   __int64 v41; // [rsp+98h] [rbp+10h]
   struct _KLOCK_ENTRIES *v42; // [rsp+A8h] [rbp+20h]
 
@@ -92,7 +92,7 @@ char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3
   {
     v11 = *(struct _KLOCK_ENTRIES **)(a3 + 632);
   }
-  v39 = (__int64)v11;
+  v39 = v11;
   v12 = (__int64)v11;
   if ( v11 != a4 )
   {
@@ -204,10 +204,10 @@ LABEL_49:
         }
         else
         {
-          for ( i = v39; i != v36; i = *(_QWORD *)(i + 1304) )
+          for ( i = v39; i != (struct _KLOCK_ENTRIES *)v36; i = (struct _KLOCK_ENTRIES *)i[12].Entries[0].OwnerTree.Root )
           {
-            PspLockJobMemoryLimitsExclusive(i, v10, 0LL, a4);
-            *(_QWORD *)(i + 1208) -= v41;
+            PspLockJobMemoryLimitsExclusive(i, v10, 0LL);
+            i[11].Entries[0].OwnerTree.Min = (_RTL_BALANCED_NODE *)((char *)i[11].Entries[0].OwnerTree.Min - v41);
             PspUnlockJobMemoryLimitsExclusive(i, v10, 0LL);
           }
         }
@@ -250,7 +250,7 @@ LABEL_15:
     if ( CurrentThread->SpecialApcDisable++ == -1 )
     {
       v14 = &CurrentThread->152;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v14->ApcState.ApcListHead[0].Flink != v14 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v14->ApcState.ApcListHead[0].Flink != v14 )
         KiCheckForKernelApcDelivery((__int64)v14, a2);
     }
   }

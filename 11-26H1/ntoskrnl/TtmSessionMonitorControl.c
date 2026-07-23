@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmSessionMonitorControl @ 0x140A3A808
+ * XREFs of TtmSessionMonitorControl @ 0x1409F6408
  * Callers:
- *     PopControlMonitor @ 0x140A39C20 (PopControlMonitor.c)
+ *     PopControlMonitor @ 0x1409F5820 (PopControlMonitor.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiTerminalMonitorControl @ 0x1407EC424 (TtmiTerminalMonitorControl.c)
- *     TtmiLogSessionMonitorControl @ 0x140A3A8BC (TtmiLogSessionMonitorControl.c)
- *     TtmpAcquireSessionById @ 0x140A3AA34 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiTerminalMonitorControl @ 0x1407F1F88 (TtmiTerminalMonitorControl.c)
+ *     TtmiLogSessionMonitorControl @ 0x1409F64BC (TtmiLogSessionMonitorControl.c)
+ *     TtmpAcquireSessionById @ 0x1409F6634 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmSessionMonitorControl(unsigned int a1, unsigned int a2, unsigned int a3)
@@ -39,7 +39,7 @@ __int64 __fastcall TtmSessionMonitorControl(unsigned int a1, unsigned int a2, un
 LABEL_6:
   if ( v7 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
   TtmiLogSessionMonitorControl(a1, a2, a3, v8);

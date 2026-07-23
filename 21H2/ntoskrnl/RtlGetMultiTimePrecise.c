@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetMultiTimePrecise @ 0x1402ECFA0
+ * XREFs of RtlGetMultiTimePrecise @ 0x14029E2F0
  * Callers:
- *     EtwpGetTimeStampAndQpcDelta @ 0x1405AB7A4 (EtwpGetTimeStampAndQpcDelta.c)
- *     EtwpInitializeTimeStamp @ 0x1406DDD64 (EtwpInitializeTimeStamp.c)
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
+ *     EtwpGetTimeStampAndQpcDelta @ 0x1405AB9D4 (EtwpGetTimeStampAndQpcDelta.c)
+ *     EtwpInitializeTimeStamp @ 0x1406B5044 (EtwpInitializeTimeStamp.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     RtlBeginReadTickLock @ 0x1402EBB60 (RtlBeginReadTickLock.c)
- *     HvlGetSharedPageVa @ 0x1402ED170 (HvlGetSharedPageVa.c)
+ *     RtlBeginReadTickLock @ 0x14029CEB0 (RtlBeginReadTickLock.c)
+ *     HvlGetSharedPageVa @ 0x14029E4C0 (HvlGetSharedPageVa.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)

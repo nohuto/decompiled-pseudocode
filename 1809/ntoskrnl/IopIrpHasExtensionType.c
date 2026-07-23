@@ -1,19 +1,19 @@
 /*
- * XREFs of IopIrpHasExtensionType @ 0x140107C4C
+ * XREFs of IopIrpHasExtensionType @ 0x140107CCC
  * Callers:
- *     IoReuseIrp @ 0x1400DF790 (IoReuseIrp.c)
- *     IopFreeIrpExtension @ 0x140107850 (IopFreeIrpExtension.c)
- *     IoMakeAssociatedIrpPriv @ 0x1401078F4 (IoMakeAssociatedIrpPriv.c)
- *     IoPropagateActivityIdToThread @ 0x140107BC0 (IoPropagateActivityIdToThread.c)
- *     IoGetFsTrackOffsetState @ 0x140107C20 (IoGetFsTrackOffsetState.c)
- *     IoSetGenericIrpExtension @ 0x1401407E0 (IoSetGenericIrpExtension.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140284F30 (IoClearAdapterCryptoEngineExtension.c)
- *     IoClearFsTrackOffsetState @ 0x140284F80 (IoClearFsTrackOffsetState.c)
- *     IoGetAdapterCryptoEngineExtension @ 0x140284FB0 (IoGetAdapterCryptoEngineExtension.c)
- *     IoGetFsZeroingOffset @ 0x140284FF0 (IoGetFsZeroingOffset.c)
- *     IoSetFsZeroingOffset @ 0x1402850E0 (IoSetFsZeroingOffset.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140285120 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCompleteRequest @ 0x14028544C (IopPerfCompleteRequest.c)
+ *     IoReuseIrp @ 0x1400DF810 (IoReuseIrp.c)
+ *     IopFreeIrpExtension @ 0x1401078D0 (IopFreeIrpExtension.c)
+ *     IoMakeAssociatedIrpPriv @ 0x140107974 (IoMakeAssociatedIrpPriv.c)
+ *     IoPropagateActivityIdToThread @ 0x140107C40 (IoPropagateActivityIdToThread.c)
+ *     IoGetFsTrackOffsetState @ 0x140107CA0 (IoGetFsTrackOffsetState.c)
+ *     IoSetGenericIrpExtension @ 0x1401408E0 (IoSetGenericIrpExtension.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140285120 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x140285170 (IoClearFsTrackOffsetState.c)
+ *     IoGetAdapterCryptoEngineExtension @ 0x1402851A0 (IoGetAdapterCryptoEngineExtension.c)
+ *     IoGetFsZeroingOffset @ 0x1402851E0 (IoGetFsZeroingOffset.c)
+ *     IoSetFsZeroingOffset @ 0x1402852D0 (IoSetFsZeroingOffset.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140285310 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCompleteRequest @ 0x14028563C (IopPerfCompleteRequest.c)
  * Callees:
  *     <none>
  */

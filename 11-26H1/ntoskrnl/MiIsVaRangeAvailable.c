@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsVaRangeAvailable @ 0x1409CE424
+ * XREFs of MiIsVaRangeAvailable @ 0x14099F404
  * Callers:
- *     MiReserveUserMemoryInsertVad @ 0x14095BBAC (MiReserveUserMemoryInsertVad.c)
- *     MiMapViewOfPhysicalSection @ 0x14095C9CC (MiMapViewOfPhysicalSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x14095D148 (MiMapLockedPagesInUserSpace.c)
- *     MiSelectDataMapAddress @ 0x1409C4E10 (MiSelectDataMapAddress.c)
- *     MiSelectImageMapAddress @ 0x1409CDB18 (MiSelectImageMapAddress.c)
- *     MiAllocateEnclaveVad @ 0x140B693A0 (MiAllocateEnclaveVad.c)
+ *     MiSelectDataMapAddress @ 0x140995DF0 (MiSelectDataMapAddress.c)
+ *     MiSelectImageMapAddress @ 0x14099EAF8 (MiSelectImageMapAddress.c)
+ *     MiReserveUserMemoryInsertVad @ 0x140A0146C (MiReserveUserMemoryInsertVad.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0228C (MiMapViewOfPhysicalSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140A02A08 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateEnclaveVad @ 0x140B6C330 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiCheckForConflictingVadExistence @ 0x140480590 (MiCheckForConflictingVadExistence.c)
- *     MmIsBelowLowestUserAddress @ 0x140483720 (MmIsBelowLowestUserAddress.c)
+ *     MiCheckForConflictingVadExistence @ 0x140479ED0 (MiCheckForConflictingVadExistence.c)
+ *     MmIsBelowLowestUserAddress @ 0x14047D050 (MmIsBelowLowestUserAddress.c)
  */
 
 _BOOL8 __fastcall MiIsVaRangeAvailable(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, unsigned __int64 a5)

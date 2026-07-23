@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpVpptArmTimer @ 0x140509C60
+ * XREFs of HalpVpptArmTimer @ 0x14050A1B0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x14050A200 (HalpVpptUpdatePhysicalTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x14050A750 (HalpVpptUpdatePhysicalTimer.c)
  */
 
 __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
   int v8; // esi
   __int64 *v9; // rcx
   __int64 **v10; // rax
-  unsigned __int64 v11; // r8
+  LARGE_INTEGER v11; // r8
   unsigned __int64 v12; // rax
   int *v13; // rax
   int *i; // rdx
@@ -29,7 +29,7 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
   _DWORD *SchedulerAssist; // r9
   int v20; // eax
   bool v21; // zf
-  LARGE_INTEGER v22; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = a3;
   if ( ((a2 - 1) & 0xFFFFFFFD) != 0 )
@@ -56,15 +56,15 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
     *v10 = v9;
     v9[1] = (__int64)v10;
   }
-  v22.QuadPart = 0LL;
-  v11 = RtlGetInterruptTimePrecise(&v22) + v3;
+  PerformanceCounter.QuadPart = 0LL;
+  v11.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) + v3;
   v12 = 0LL;
-  a1[4] = v11;
+  a1[4] = v11.QuadPart;
   if ( a2 != 3 )
     v12 = v3;
   a1[5] = v12;
   v13 = &HalpVpptQueue;
-  for ( i = *(int **)&HalpVpptQueue; i != &HalpVpptQueue && v11 >= *((_QWORD *)i + 4); i = *(int **)i )
+  for ( i = *(int **)&HalpVpptQueue; i != &HalpVpptQueue && v11.QuadPart >= *((_QWORD *)i + 4); i = *(int **)i )
     v13 = i;
   v15 = *(_QWORD *)v13;
   if ( *(int **)(*(_QWORD *)v13 + 8LL) != v13 )
@@ -80,10 +80,13 @@ LABEL_19:
   *((_BYTE *)a1 + 24) = 1;
   v16 = (unsigned __int8)byte_140C62818;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C62810);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v16 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -91,7 +94,7 @@ LABEL_19:
       v21 = (v20 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v20;
       if ( v21 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v16);

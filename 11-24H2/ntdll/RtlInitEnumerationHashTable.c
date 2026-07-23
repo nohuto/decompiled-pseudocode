@@ -1,33 +1,35 @@
 /*
- * XREFs of RtlInitEnumerationHashTable @ 0x1800E0B00
+ * XREFs of RtlInitEnumerationHashTable @ 0x1800DBFF0
  * Callers:
- *     RtlInitWeakEnumerationHashTable @ 0x180143930 (RtlInitWeakEnumerationHashTable.c)
+ *     RtlInitWeakEnumerationHashTable @ 0x180141CE0 (RtlInitWeakEnumerationHashTable.c)
  * Callees:
- *     RtlpPopulateContext @ 0x1800E0B80 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x1800DC070 (RtlpPopulateContext.c)
  */
 
-char __fastcall RtlInitEnumerationHashTable(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlInitEnumerationHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
   __int64 v4; // r8
-  __int64 *v5; // rax
-  __int64 *v6; // rcx
+  _LIST_ENTRY *v5; // rax
+  _LIST_ENTRY *Flink; // rcx
   __int128 v8; // [rsp+20h] [rbp-28h] BYREF
 
   v8 = 0LL;
-  RtlpPopulateContext(a1, &v8);
-  v5 = (__int64 *)v8;
-  ++*(_DWORD *)(a1 + 28);
-  if ( (__int64 *)*v5 == v5 )
-    ++*(_DWORD *)(a1 + 24);
-  v6 = (__int64 *)*v5;
-  if ( *(__int64 **)(*v5 + 8) != v5 )
+  RtlpPopulateContext(HashTable, &v8);
+  v5 = (_LIST_ENTRY *)v8;
+  ++HashTable->NumEnumerators;
+  if ( v5->Flink == v5 )
+    ++HashTable->NonEmptyBuckets;
+  Flink = v5->Flink;
+  if ( v5->Flink->Blink != v5 )
     __fastfail(3u);
-  *(_QWORD *)(a2 + 8) = v5;
-  *(_QWORD *)a2 = v6;
-  v6[1] = a2;
-  *v5 = a2;
-  *(_DWORD *)(a2 + 32) &= v4;
-  *(_QWORD *)(a2 + 16) &= v4;
-  *(_QWORD *)(a2 + 24) = v5;
+  Enumerator->HashEntry.Linkage.Blink = v5;
+  Enumerator->HashEntry.Linkage.Flink = Flink;
+  Flink->Blink = &Enumerator->HashEntry.Linkage;
+  v5->Flink = &Enumerator->HashEntry.Linkage;
+  Enumerator->BucketIndex &= v4;
+  Enumerator->HashEntry.Signature &= v4;
+  Enumerator->ChainHead = v5;
   return 1;
 }

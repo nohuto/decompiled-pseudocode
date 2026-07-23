@@ -10,5 +10,5 @@ __int64 __fastcall ZwCreateCrossVmEvent(__int64 a1, __int64 a2)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(a1, a2);
 }

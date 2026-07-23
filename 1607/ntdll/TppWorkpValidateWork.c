@@ -1,10 +1,10 @@
 /*
- * XREFs of TppWorkpValidateWork @ 0x18003BCF0
+ * XREFs of TppWorkpValidateWork @ 0x18003BCE0
  * Callers:
- *     TpReleaseWork @ 0x18003BA30 (TpReleaseWork.c)
- *     TpWaitForWork @ 0x180082090 (TpWaitForWork.c)
+ *     TpReleaseWork @ 0x18003BA20 (TpReleaseWork.c)
+ *     TpWaitForWork @ 0x180082080 (TpWaitForWork.c)
  * Callees:
- *     TppValidateCleanupGroupMember @ 0x18003C240 (TppValidateCleanupGroupMember.c)
+ *     TppValidateCleanupGroupMember @ 0x18003C230 (TppValidateCleanupGroupMember.c)
  *     TppRaiseInvalidParameter @ 0x1800FE5C4 (TppRaiseInvalidParameter.c)
  */
 
@@ -19,7 +19,7 @@ __int64 __fastcall TppWorkpValidateWork(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 
   {
     if ( (unsigned int)TppValidateCleanupGroupMember(Ldr, a2, a3, Ldr) )
     {
-      if ( v4->SsHandle == TppWorkpCleanupGroupMemberVFuncs )
+      if ( v4->SsHandle == &TppWorkpCleanupGroupMemberVFuncs )
       {
         Ldr = NtCurrentPeb()->Ldr;
         if ( !Ldr->ShutdownInProgress )

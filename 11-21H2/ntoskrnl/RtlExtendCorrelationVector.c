@@ -3,30 +3,26 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetCorrelationVectorEndPosition @ 0x1405EC264 (RtlpGetCorrelationVectorEndPosition.c)
- *     RtlpGetCorrelationVectorBufferLength @ 0x1409BBA8C (RtlpGetCorrelationVectorBufferLength.c)
+ *     sub_1405EC264 @ 0x1405EC264 (sub_1405EC264.c)
+ *     sub_1409BBA8C @ 0x1409BBA8C (sub_1409BBA8C.c)
  */
 
-__int64 __fastcall RtlExtendCorrelationVector(__int64 a1, __int64 a2)
+DWORD __cdecl RtlExtendCorrelationVector(PCORRELATION_VECTOR CorrelationVector)
 {
-  int CorrelationVectorEndPosition; // eax
+  __int64 v1; // rdx
+  int v3; // eax
   __int64 v4; // rdx
-  int CorrelationVectorBufferLength; // eax
+  int v5; // eax
   __int64 v6; // r8
-  unsigned int v7; // r11d
+  DWORD v7; // r11d
 
-  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition(a1, a2);
-  if ( CorrelationVectorEndPosition < 0 )
-    return (unsigned int)-2147483643;
-  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(a1, v4, CorrelationVectorEndPosition);
-  if ( (int)v6 >= CorrelationVectorBufferLength - 3 )
-  {
-    return (unsigned int)-2147483643;
-  }
-  else
-  {
-    *(_WORD *)(v6 + a1 + 1) = 12334;
-    *(_BYTE *)(v6 + a1 + 3) = v7;
-  }
+  v3 = sub_1405EC264((__int64)CorrelationVector, v1);
+  if ( v3 < 0 )
+    return -2147483643;
+  v5 = sub_1409BBA8C(CorrelationVector, v4, v3);
+  if ( (int)v6 >= v5 - 3 )
+    return -2147483643;
+  *(_WORD *)&CorrelationVector->Vector[v6] = 12334;
+  CorrelationVector->Vector[v6 + 2] = v7;
   return v7;
 }

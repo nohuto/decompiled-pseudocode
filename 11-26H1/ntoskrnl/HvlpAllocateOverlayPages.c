@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpAllocateOverlayPages @ 0x1405BFA48
+ * XREFs of HvlpAllocateOverlayPages @ 0x1405C22B8
  * Callers:
- *     HvlSetupPhysicalFaultNotificationQueue @ 0x1405B9830 (HvlSetupPhysicalFaultNotificationQueue.c)
- *     HvlpMapApicBackingPage @ 0x1405BFC2C (HvlpMapApicBackingPage.c)
- *     HvlInitializeProcessor @ 0x1407918C4 (HvlInitializeProcessor.c)
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x1405BC0A0 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     HvlpMapApicBackingPage @ 0x1405C249C (HvlpMapApicBackingPage.c)
+ *     HvlInitializeProcessor @ 0x1407943F4 (HvlInitializeProcessor.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x14034A0F0 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14034C170 (MmAllocateContiguousNodeMemory.c)
  */
 
 __int64 HvlpAllocateOverlayPages()

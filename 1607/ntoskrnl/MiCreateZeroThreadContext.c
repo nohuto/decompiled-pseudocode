@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCreateZeroThreadContext @ 0x14013AB00
+ * XREFs of MiCreateZeroThreadContext @ 0x14013B070
  * Callers:
- *     MiZeroPageThread @ 0x140139C40 (MiZeroPageThread.c)
- *     MiZeroNodePages @ 0x14013A830 (MiZeroNodePages.c)
- *     MiInitializePageZeroing @ 0x14013AE70 (MiInitializePageZeroing.c)
+ *     MiZeroPageThread @ 0x14013A1B0 (MiZeroPageThread.c)
+ *     MiZeroNodePages @ 0x14013ADA0 (MiZeroNodePages.c)
+ *     MiInitializePageZeroing @ 0x14013B3E0 (MiInitializePageZeroing.c)
  * Callees:
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiGetLargePageWorkMapping @ 0x14013ADC0 (MiGetLargePageWorkMapping.c)
- *     MiDeleteZeroThreadContext @ 0x14013F1EC (MiDeleteZeroThreadContext.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiMakePageFilePte @ 0x1401F274C (MiMakePageFilePte.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiGetLargePageWorkMapping @ 0x14013B330 (MiGetLargePageWorkMapping.c)
+ *     MiDeleteZeroThreadContext @ 0x14013F75C (MiDeleteZeroThreadContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiMakePageFilePte @ 0x1401F2578 (MiMakePageFilePte.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -50,7 +50,7 @@ unsigned __int64 *__fastcall MiCreateZeroThreadContext(int *a1, unsigned __int64
   v7[18] = a2;
   if ( !a3 )
   {
-    v10 = MiReservePtes((__int64)&qword_140327870, 0x100uLL, v9);
+    v10 = MiReservePtes((__int64)&qword_1403278B0, 0x100uLL, v9);
     if ( !v10 )
     {
 LABEL_5:

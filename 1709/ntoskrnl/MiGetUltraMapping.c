@@ -41,7 +41,7 @@ __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __in
   _QWORD *v20; // rsi
   unsigned __int64 v21; // rdi
   unsigned __int64 v22; // rax
-  __int64 i; // rbp
+  ULONG64 i; // rbp
   __int64 v24; // r8
   unsigned __int64 v25; // r9
   unsigned __int64 j; // r10
@@ -82,17 +82,17 @@ LABEL_24:
     }
     else
     {
-      for ( i = RtlFindSetBitsAndClearEx(&qword_140389050, 1LL, qword_140389048);
-            i == -1;
-            i = RtlFindSetBitsAndClearEx(&qword_140389050, 1LL, qword_140389048) )
+      for ( i = RtlFindSetBitsAndClearEx(&BitMapHeader, 1uLL, HintIndex);
+            i == -1LL;
+            i = RtlFindSetBitsAndClearEx(&BitMapHeader, 1uLL, HintIndex) )
       {
         KeFlushTb(0LL, 2LL, v24);
         v25 = 0LL;
-        for ( j = (unsigned __int64)qword_140389050 >> 6; v25 < j; ++v25 )
-          *(_QWORD *)(qword_140389058 + 8 * v25) |= *((_QWORD *)qword_140389068 + v25);
+        for ( j = BitMapHeader.SizeOfBitMap >> 6; v25 < j; ++v25 )
+          BitMapHeader.Buffer[v25] |= *((_QWORD *)qword_140389068 + v25);
         memset(qword_140389068, 0, 4 * (((unsigned __int64)qword_140389060 >> 5) + ((qword_140389060 & 0x1F) != 0)));
       }
-      qword_140389048 = i + 1;
+      HintIndex = i + 1;
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       __writecr8(LockHandle.OldIrql);
       v27 = qword_140389040 + (i << 30);

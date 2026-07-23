@@ -12,7 +12,7 @@ __int64 __fastcall sub_18000638C(__int64 a1)
 {
   int v1; // r8d
   int v2; // r9d
-  union _SLIST_HEADER *v3; // rsi
+  _SLIST_HEADER *v3; // rsi
   unsigned int v4; // edi
   _QWORD *v5; // rbx
   __int64 v6; // rbp
@@ -21,7 +21,7 @@ __int64 __fastcall sub_18000638C(__int64 a1)
   v2 = *(_DWORD *)(a1 + 40);
   if ( v2 )
     LOBYTE(v1) = v2 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread);
-  v3 = (union _SLIST_HEADER *)(a1 + 288);
+  v3 = (_SLIST_HEADER *)(a1 + 288);
   v4 = *(_DWORD *)(a1 + 20) & 0x13000002 | 1;
   v5 = (_QWORD *)(a1 + 480);
   v6 = 129LL;

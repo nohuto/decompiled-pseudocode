@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmMapRegPropToPropertyKey @ 0x1409D4EF8
+ * XREFs of _CmMapRegPropToPropertyKey @ 0x1409C4D28
  * Callers:
- *     _CmRaisePropertyChangeEvent @ 0x1409D4494 (_CmRaisePropertyChangeEvent.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1409C42C4 (_CmRaisePropertyChangeEvent.c)
  * Callees:
  *     <none>
  */

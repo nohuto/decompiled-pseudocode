@@ -1,10 +1,10 @@
 /*
- * XREFs of InterlockedPushListSList @ 0x180162D80
+ * XREFs of InterlockedPushListSList @ 0x180162C80
  * Callers:
- *     RtlpLocalInfoAllocFromCache @ 0x18001B870 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpLowFragHeapAllocFromContext @ 0x18001CED0 (RtlpLowFragHeapAllocFromContext.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     RtlInterlockedPushListSListEx @ 0x180106030 (RtlInterlockedPushListSListEx.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180006940 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x180007FA0 (RtlpLowFragHeapAllocFromContext.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     RtlInterlockedPushListSListEx @ 0x180105A30 (RtlInterlockedPushListSListEx.c)
  * Callees:
  *     <none>
  */

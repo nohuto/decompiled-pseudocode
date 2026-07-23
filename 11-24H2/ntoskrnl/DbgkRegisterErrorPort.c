@@ -1,90 +1,90 @@
 /*
- * XREFs of DbgkRegisterErrorPort @ 0x140A852C4
+ * XREFs of DbgkRegisterErrorPort @ 0x140A7FE04
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     PsGetProcessServerSilo @ 0x140445660 (PsGetProcessServerSilo.c)
- *     DbgkpDereferenceErrorPort @ 0x14057E5A8 (DbgkpDereferenceErrorPort.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwAlpcConnectPort @ 0x1406A7370 (ZwAlpcConnectPort.c)
- *     ZwAlpcDisconnectPort @ 0x1406A74D0 (ZwAlpcDisconnectPort.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     PsGetProcessServerSilo @ 0x14043D810 (PsGetProcessServerSilo.c)
+ *     DbgkpDereferenceErrorPort @ 0x14057BA38 (DbgkpDereferenceErrorPort.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwAlpcConnectPort @ 0x1406A8310 (ZwAlpcConnectPort.c)
+ *     ZwAlpcDisconnectPort @ 0x1406A8470 (ZwAlpcDisconnectPort.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
 {
-  size_t v2; // rbx
-  void *Pool2; // rax
+  ULONG_PTR v2; // rbx
+  wchar_t *Pool2; // rax
   __int64 v6; // rax
   _DWORD *v7; // r15
-  int v8; // eax
+  NTSTATUS v8; // eax
   unsigned int v9; // ebx
   struct _KTHREAD *CurrentThread; // r13
   __int64 ProcessServerSilo; // r12
   char *v12; // rsi
-  _QWORD *v13; // rax
-  _QWORD *v14; // r14
+  char *v13; // rax
+  char *v14; // r14
   __int64 v15; // r14
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  PVOID P[2]; // [rsp+68h] [rbp-100h] BYREF
+  ULONG_PTR BufferLength; // [rsp+60h] [rbp-108h] BYREF
+  UNICODE_STRING PortName; // [rsp+68h] [rbp-100h] BYREF
   _KPROCESS *Process; // [rsp+78h] [rbp-F0h]
-  __int128 v21; // [rsp+80h] [rbp-E8h]
-  __int128 v22; // [rsp+90h] [rbp-D8h]
-  __int128 v23; // [rsp+A0h] [rbp-C8h]
-  __int128 v24; // [rsp+B0h] [rbp-B8h]
-  __int128 v25; // [rsp+C0h] [rbp-A8h]
-  __int64 v26; // [rsp+D0h] [rbp-98h]
-  int v27[4]; // [rsp+E0h] [rbp-88h] BYREF
-  __int64 v28; // [rsp+F0h] [rbp-78h]
-  __int64 v29; // [rsp+100h] [rbp-68h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-E8h] BYREF
+  _PORT_MESSAGE ConnectionMessage; // [rsp+B0h] [rbp-B8h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+E0h] [rbp-88h] BYREF
 
   v2 = (unsigned int)Size;
-  *(_OWORD *)P = 0LL;
-  v24 = 0LL;
-  v25 = 0LL;
-  v26 = 0LL;
-  v21 = 0LL;
-  v22 = 0LL;
-  *(_QWORD *)&v23 = 0LL;
-  DWORD2(v23) = 0;
-  memset_0(v27, 0, 0x48uLL);
+  PortName = 0LL;
+  memset(&ConnectionMessage, 0, sizeof(ConnectionMessage));
+  BufferLength = 0LL;
+  memset(&ObjectAttributes, 0, 44);
+  memset_0(&PortAttributes, 0, sizeof(PortAttributes));
   if ( !(_DWORD)v2 || (v2 & 1) != 0 || (unsigned int)v2 > 0xFFFF )
     return 3221225485LL;
-  Pool2 = (void *)ExAllocatePool2(0x101uLL);
-  P[1] = Pool2;
+  Pool2 = (wchar_t *)ExAllocatePool2(0x101uLL, v2, 0x50676244u);
+  PortName.Buffer = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
-  WORD1(P[0]) = v2;
-  LOWORD(P[0]) = v2;
+  PortName.MaximumLength = v2;
+  PortName.Length = v2;
   memmove(Pool2, Src, v2);
-  v6 = ExAllocatePool2(0x101uLL);
+  v6 = ExAllocatePool2(0x101uLL, 0x10uLL, 0x50676244u);
   v7 = (_DWORD *)v6;
   if ( v6 )
   {
-    *(_DWORD *)((char *)&v24 + 2) = -2147483608;
-    v28 = 272LL;
-    v29 = 8704LL;
-    v27[0] = 0x100000;
-    LODWORD(v21) = 48;
-    *((_QWORD *)&v21 + 1) = 0LL;
-    DWORD2(v22) = 512;
-    *(_QWORD *)&v22 = 0LL;
-    v23 = 0LL;
-    v8 = ZwAlpcConnectPort(v6 + 8, (__int64)P);
+    *(unsigned int *)((char *)&ConnectionMessage.u1.Length + 2) = -2147483608;
+    BufferLength = 40LL;
+    PortAttributes.MaxMessageLength = 272LL;
+    PortAttributes.MaxPoolUsage = 8704LL;
+    PortAttributes.Flags = 0x100000;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 512;
+    ObjectAttributes.ObjectName = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v8 = ZwAlpcConnectPort(
+           (PHANDLE)(v6 + 8),
+           &PortName,
+           &ObjectAttributes,
+           &PortAttributes,
+           0x120000u,
+           0LL,
+           &ConnectionMessage,
+           &BufferLength,
+           0LL,
+           0LL,
+           0LL);
     v9 = v8;
     if ( v8 == 192 )
     {
@@ -99,12 +99,12 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
       ProcessServerSilo = PsGetProcessServerSilo((__int64)Process);
       v12 = (char *)PsGetServerSiloGlobals(ProcessServerSilo) + 936;
       --CurrentThread->KernelApcDisable;
-      v13 = KeAbPreAcquire((__int64)v12, 0LL);
+      v13 = (char *)KeAbPreAcquire((__int64)v12, 0LL);
       v14 = v13;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v12, (__int64)v13, (__int64)v12);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v12, v13, (__int64)v12);
       if ( v14 )
-        *((_BYTE *)v14 + 10) = 1;
+        v14[10] = 1;
       v15 = *((_QWORD *)v12 + 1);
       if ( !v15 && PsIsHostSilo(ProcessServerSilo) )
         _interlockedbittestandset((volatile signed __int32 *)(MmWriteableSharedUserData + 752), 0);
@@ -113,13 +113,13 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)v12);
       KeAbPostRelease((ULONG_PTR)v12);
-      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v16, v17, v18);
+      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
       v9 = 0;
       v7 = 0LL;
       if ( v15 )
       {
         if ( !_interlockedbittestandset((volatile signed __int32 *)(v15 + 4), 0) )
-          ZwAlpcDisconnectPort(*(_QWORD *)(v15 + 8), 0LL);
+          ZwAlpcDisconnectPort(*(HANDLE *)(v15 + 8), 0);
         DbgkpDereferenceErrorPort((volatile signed __int32 *)v15);
       }
       KeSetEvent(*((PRKEVENT *)v12 + 3), 0, 0);
@@ -131,7 +131,7 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
   {
     v9 = -1073741670;
   }
-  if ( P[1] )
-    ExFreePool(P[1]);
+  if ( PortName.Buffer )
+    ExFreePool(PortName.Buffer);
   return v9;
 }

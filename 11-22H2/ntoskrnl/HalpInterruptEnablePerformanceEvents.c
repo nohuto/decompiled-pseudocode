@@ -77,10 +77,10 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
     if ( !a1 )
     {
       KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -117,10 +117,10 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
         LOBYTE(v16) = 15;
         HalpInterruptSetLineState(&v24, 254LL, v16, v14 != 0, 1, &v19, &v25);
         result = KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)result <= 0xFu
             && (unsigned __int8)v15 <= 0xFu
             && (unsigned __int8)result >= 2u )

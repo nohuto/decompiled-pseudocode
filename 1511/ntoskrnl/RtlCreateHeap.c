@@ -229,7 +229,7 @@ LABEL_65:
         if ( (v8 & 0x40000) != 0 && (v57 & 0x40) == 0 )
           goto LABEL_64;
         memset(MemoryInformation[0], 0, 0x1000uLL);
-        if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryBasicVlmInformation, v58, 0x20uLL, 0LL) < 0 )
+        if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryRegionInformation, v58, 0x20uLL, 0LL) < 0 )
           goto LABEL_64;
         InitialReserve = v59;
         v41 = v55;

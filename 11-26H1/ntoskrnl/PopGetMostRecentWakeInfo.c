@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetMostRecentWakeInfo @ 0x1404F9218
+ * XREFs of PopGetMostRecentWakeInfo @ 0x1404F2828
  * Callers:
- *     PopQueryMostRecentWakeSourceAttributes @ 0x1407CF840 (PopQueryMostRecentWakeSourceAttributes.c)
- *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1407D6B00 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
- *     PopQueryMostRecentWakeSourceInfo @ 0x140B62680 (PopQueryMostRecentWakeSourceInfo.c)
- *     PopIsMostRecentWakeAttended @ 0x140C0C3F8 (PopIsMostRecentWakeAttended.c)
+ *     PopQueryMostRecentWakeSourceAttributes @ 0x1407D28E0 (PopQueryMostRecentWakeSourceAttributes.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1407D9C70 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140B65720 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopIsMostRecentWakeAttended @ 0x140C12608 (PopIsMostRecentWakeAttended.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
  */
 
 __int64 PopGetMostRecentWakeInfo()
@@ -17,11 +17,11 @@ __int64 PopGetMostRecentWakeInfo()
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v0 = 0LL;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F11D08.Teb, &LockHandle);
-  if ( LODWORD(stru_140F11D08.Queue) )
+  KeAcquireInStackQueuedSpinLock(&PopWakeSourceLock, &LockHandle);
+  if ( PopWakeInfoCount )
   {
-    v0 = *(_QWORD *)&stru_140F11D08.Timer.Header.Lock;
-    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)&stru_140F11D08.Timer.Header.Lock + 16LL));
+    v0 = qword_140F12208;
+    _InterlockedIncrement((volatile signed __int32 *)(qword_140F12208 + 16));
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   return v0;

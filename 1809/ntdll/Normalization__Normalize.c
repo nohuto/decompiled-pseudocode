@@ -1,10 +1,10 @@
 /*
- * XREFs of Normalization__Normalize @ 0x180083B08
+ * XREFs of Normalization__Normalize @ 0x180083B18
  * Callers:
- *     RtlpNormalizeStringWorker @ 0x180083A80 (RtlpNormalizeStringWorker.c)
+ *     RtlpNormalizeStringWorker @ 0x180083A90 (RtlpNormalizeStringWorker.c)
  * Callees:
- *     Normalization__NormalizeCharacter @ 0x180083C50 (Normalization__NormalizeCharacter.c)
- *     NormBuffer__Append @ 0x180083E14 (NormBuffer__Append.c)
+ *     Normalization__NormalizeCharacter @ 0x180083C60 (Normalization__NormalizeCharacter.c)
+ *     NormBuffer__Append @ 0x180083E24 (NormBuffer__Append.c)
  *     Normalization__GuessCharCountBySize @ 0x1800FCB40 (Normalization__GuessCharCountBySize.c)
  */
 

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReplaceWsleHash @ 0x1400FF144
+ * XREFs of MiReplaceWsleHash @ 0x1400FCEC4
  * Callers:
- *     MiExchangeWsle @ 0x1400B1E68 (MiExchangeWsle.c)
- *     MiMoveValidWsle @ 0x1400FEECC (MiMoveValidWsle.c)
+ *     MiExchangeWsle @ 0x1400AFDA8 (MiExchangeWsle.c)
+ *     MiMoveValidWsle @ 0x1400FCC4C (MiMoveValidWsle.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiLocateIndirectHash @ 0x14004BB10 (MiLocateIndirectHash.c)
- *     MiGetWsleHashVa @ 0x1400FF1D4 (MiGetWsleHashVa.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiLocateIndirectHash @ 0x14004B690 (MiLocateIndirectHash.c)
+ *     MiGetWsleHashVa @ 0x1400FCF54 (MiGetWsleHashVa.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReplaceWsleHash(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, ULONG_PTR a4)

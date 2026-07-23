@@ -7,16 +7,33 @@
  *     RtlpFcValidateFeatureConfigurationBuffer @ 0x18012E510 (RtlpFcValidateFeatureConfigurationBuffer.c)
  */
 
-__int64 __fastcall RtlOverwriteFeatureConfigurationBuffer(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+NTSTATUS __cdecl RtlOverwriteFeatureConfigurationBuffer(
+        PRTL_FEATURE_CHANGE_STAMP PreviousChangeStamp,
+        RTL_FEATURE_CONFIGURATION_TYPE ConfigurationType,
+        PVOID ConfigurationBuffer,
+        ULONG ConfigurationBufferSize)
 {
-  __int64 result; // rax
+  __int64 v5; // rbp
+  NTSTATUS result; // eax
+  int SystemInformation; // [rsp+20h] [rbp-48h] BYREF
+  ULONGLONG v10; // [rsp+28h] [rbp-40h]
+  RTL_FEATURE_CONFIGURATION_TYPE v11; // [rsp+30h] [rbp-38h]
+  __int64 v12; // [rsp+38h] [rbp-30h]
+  PVOID v13; // [rsp+40h] [rbp-28h]
 
-  result = RtlpFcValidateFeatureConfigurationBuffer(a3, a4);
-  if ( (int)result >= 0 )
+  v5 = ConfigurationBufferSize;
+  result = RtlpFcValidateFeatureConfigurationBuffer(ConfigurationBuffer, ConfigurationBufferSize);
+  if ( result >= 0 )
   {
-    result = ZwSetSystemInformation();
-    if ( (int)result >= 0 )
-      return 0LL;
+    SystemInformation = 1;
+    v11 = ConfigurationType;
+    if ( PreviousChangeStamp )
+      v10 = *PreviousChangeStamp;
+    v12 = v5;
+    v13 = ConfigurationBuffer;
+    result = ZwSetSystemInformation(SystemFeatureConfigurationInformation, &SystemInformation, 0x28u);
+    if ( result >= 0 )
+      return 0;
   }
   return result;
 }

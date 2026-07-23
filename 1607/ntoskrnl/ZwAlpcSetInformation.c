@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlpcSetInformation @ 0x14015ADA0
+ * XREFs of ZwAlpcSetInformation @ 0x14015B310
  * Callers:
  *     PopUmpoInitializeChannel @ 0x1407B93C4 (PopUmpoInitializeChannel.c)
  *     PopUmpoInitializeMonitorChannel @ 0x1407BA6CC (PopUmpoInitializeMonitorChannel.c)
@@ -7,9 +7,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcSetInformation(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

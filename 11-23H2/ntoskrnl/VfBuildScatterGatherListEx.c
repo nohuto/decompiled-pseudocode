@@ -1,17 +1,17 @@
 /*
- * XREFs of VfBuildScatterGatherListEx @ 0x140AC59E0
+ * XREFs of VfBuildScatterGatherListEx @ 0x140AC59D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140AC43F0 (DECREMENT_SCATTER_GATHER_LISTS.c)
- *     VERIFY_BUFFER_LOCKED @ 0x140AC4650 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_IRQL @ 0x140AC46DC (VF_ASSERT_IRQL.c)
- *     ViCheckMdlLength @ 0x140AC834C (ViCheckMdlLength.c)
- *     ViGetAdapterInformationInternal @ 0x140AC8E74 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140AC9188 (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140AC9324 (ViHalPreprocessOptions.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140AC43E0 (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140AC4640 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_IRQL @ 0x140AC46CC (VF_ASSERT_IRQL.c)
+ *     ViCheckMdlLength @ 0x140AC833C (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC8E64 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC9178 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140AC9314 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall VfBuildScatterGatherListEx(
@@ -53,13 +53,13 @@ __int64 __fastcall VfBuildScatterGatherListEx(
     {
       v23 = v22;
       ViHalPreprocessOptions(
-        byte_140C0DDB8,
+        byte_140C0DDA4,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v22,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v23, 0LL, 0LL, byte_140C0DDB8);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v23, 0LL, 0LL, byte_140C0DDA4);
     }
   }
   v24 = (*(__int64 (__fastcall **)(__int64, __int64, __int64, ULONG_PTR, __int64, unsigned int, int, __int64, __int64, char, __int64, int, __int64, __int64, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 200LL))(

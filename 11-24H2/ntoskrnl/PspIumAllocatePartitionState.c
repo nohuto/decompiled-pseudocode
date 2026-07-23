@@ -1,15 +1,15 @@
 /*
- * XREFs of PspIumAllocatePartitionState @ 0x1405E61E8
+ * XREFs of PspIumAllocatePartitionState @ 0x1405E37E8
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MmFreeNonChargedSecurePages @ 0x14041098C (MmFreeNonChargedSecurePages.c)
- *     MmAllocateNonChargedSecurePages @ 0x14049D980 (MmAllocateNonChargedSecurePages.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     MmFreeNonChargedSecurePages @ 0x140433BCC (MmFreeNonChargedSecurePages.c)
+ *     MmAllocateNonChargedSecurePages @ 0x140498780 (MmAllocateNonChargedSecurePages.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspIumAllocatePartitionState(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall PspIumAllocatePartitionState(__int64 a1)
   v12 = v2;
   v3 = 0;
   v11 = 0;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0xA8uLL, 0x70507549u);
   v5 = Pool2;
   v13 = Pool2;
   if ( !Pool2 )
@@ -49,7 +49,7 @@ __int64 __fastcall PspIumAllocatePartitionState(__int64 a1)
   *(_DWORD *)(v5 + 140) = v5 & 0xFFF;
   *(_DWORD *)(v5 + 136) = 168;
   MmProbeAndLockPages((PMDL)(v5 + 96), 0, IoModifyAccess);
-  v8 = (__int64 *)ExAllocatePool2(0x40uLL);
+  v8 = (__int64 *)ExAllocatePool2(0x40uLL, 8LL * *(unsigned int *)(v5 + 152), 0x61507549u);
   *(_QWORD *)(v5 + 160) = v8;
   if ( v8
     && (v11 = *(_DWORD *)(v5 + 152),
@@ -70,7 +70,7 @@ __int64 __fastcall PspIumAllocatePartitionState(__int64 a1)
     if ( (*(_BYTE *)(v5 + 106) & 2) != 0 )
       MmUnlockPages((PMDL)(v5 + 96));
     if ( v3 )
-      MmFreeNonChargedSecurePages((ULONG_PTR)v2, 1, v3, *(_QWORD **)(v5 + 160));
+      MmFreeNonChargedSecurePages((ULONG **)v2, 1, v3, *(_QWORD **)(v5 + 160));
     v10 = *(void **)(v5 + 160);
     if ( v10 )
       ExFreePoolWithTag(v10, 0);

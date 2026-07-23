@@ -1,19 +1,19 @@
 /*
- * XREFs of PspDeleteServerSiloGlobals @ 0x14067E784
+ * XREFs of PspDeleteServerSiloGlobals @ 0x14067E868
  * Callers:
- *     PspConvertSiloToServerSilo @ 0x14067E520 (PspConvertSiloToServerSilo.c)
- *     PspDeleteSilo @ 0x14067E8C0 (PspDeleteSilo.c)
+ *     PspConvertSiloToServerSilo @ 0x14067E604 (PspConvertSiloToServerSilo.c)
+ *     PspDeleteSilo @ 0x14067E9A4 (PspDeleteSilo.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     MmUnmapViewInSystemSpace @ 0x140525E34 (MmUnmapViewInSystemSpace.c)
- *     EtwDeleteSiloState @ 0x1406A3110 (EtwDeleteSiloState.c)
- *     ExpWnfDeleteScopeInstances @ 0x1406BA26C (ExpWnfDeleteScopeInstances.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     MmUnmapViewInSystemSpace @ 0x140508E94 (MmUnmapViewInSystemSpace.c)
+ *     EtwDeleteSiloState @ 0x1406A3248 (EtwDeleteSiloState.c)
+ *     ExpWnfDeleteScopeInstances @ 0x1406BA3A4 (ExpWnfDeleteScopeInstances.c)
  */
 
 void __fastcall PspDeleteServerSiloGlobals(__int64 a1)

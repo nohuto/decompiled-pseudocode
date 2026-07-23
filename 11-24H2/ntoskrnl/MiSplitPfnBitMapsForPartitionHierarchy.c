@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSplitPfnBitMapsForPartitionHierarchy @ 0x14068B494
+ * XREFs of MiSplitPfnBitMapsForPartitionHierarchy @ 0x14068C5C4
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140688F24 (MiActOnPartitionNodePages.c)
- *     MiAcquireAddMemoryResources @ 0x1407E85A8 (MiAcquireAddMemoryResources.c)
+ *     MiActOnPartitionNodePages @ 0x14068A054 (MiActOnPartitionNodePages.c)
+ *     MiAcquireAddMemoryResources @ 0x1407E8B78 (MiAcquireAddMemoryResources.c)
  * Callees:
- *     MiSplitPfnBitMaps @ 0x1407FAE60 (MiSplitPfnBitMaps.c)
+ *     MiSplitPfnBitMaps @ 0x1407FB5D0 (MiSplitPfnBitMaps.c)
  */
 
 __int64 __fastcall MiSplitPfnBitMapsForPartitionHierarchy(__int64 a1, __int64 a2, __int64 a3)

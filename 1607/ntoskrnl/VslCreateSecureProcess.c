@@ -1,10 +1,10 @@
 /*
- * XREFs of VslCreateSecureProcess @ 0x140620670
+ * XREFs of VslCreateSecureProcess @ 0x140620724
  * Callers:
- *     KeInitializeProcess @ 0x14046EE78 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x14046DD48 (KeInitializeProcess.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslCreateSecureProcess(__int64 a1)

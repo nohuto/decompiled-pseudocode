@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageUserIsAdmin @ 0x140935758
+ * XREFs of EtwpCoverageUserIsAdmin @ 0x140935928
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x140771BB8 (EtwSetProcessTelemetryCoverage.c)
- *     EtwQueryProcessTelemetryCoverage @ 0x140934D4C (EtwQueryProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140771D78 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwQueryProcessTelemetryCoverage @ 0x140934F1C (EtwQueryProcessTelemetryCoverage.c)
  * Callees:
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
- *     SeTokenIsAdmin @ 0x140717530 (SeTokenIsAdmin.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeTokenIsAdmin @ 0x1406C5B80 (SeTokenIsAdmin.c)
+ *     SeLockSubjectContext @ 0x14070D210 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14070D270 (SeUnlockSubjectContext.c)
  */
 
 BOOLEAN EtwpCoverageUserIsAdmin()

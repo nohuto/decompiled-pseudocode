@@ -1,12 +1,12 @@
 /*
- * XREFs of PipSetDevNodeStateFlags @ 0x1407246F8
+ * XREFs of PipSetDevNodeStateFlags @ 0x140722288
  * Callers:
- *     IopQueueDeviceResetEvent @ 0x140721694 (IopQueueDeviceResetEvent.c)
+ *     IopQueueDeviceResetEvent @ 0x14071F224 (IopQueueDeviceResetEvent.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRef @ 0x1402D4AC0 (IoGetDeviceAttachmentBaseRef.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PpDevNodeLockTree @ 0x140A08C10 (PpDevNodeLockTree.c)
- *     PpDevNodeUnlockTree @ 0x140A145FC (PpDevNodeUnlockTree.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x140355D40 (IoGetDeviceAttachmentBaseRef.c)
+ *     PpDevNodeLockTree @ 0x140A05140 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x140A0D4DC (PpDevNodeUnlockTree.c)
  */
 
 __int64 __fastcall PipSetDevNodeStateFlags(PDEVICE_OBJECT DeviceObject)

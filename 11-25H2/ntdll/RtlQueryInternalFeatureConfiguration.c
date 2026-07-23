@@ -13,7 +13,7 @@
 __int64 __fastcall RtlQueryInternalFeatureConfiguration(__int64 a1, unsigned int a2, _QWORD *a3, _OWORD *a4)
 {
   unsigned int v7; // r14d
-  unsigned int FeatureConfigurationFromKernel; // ebx
+  unsigned __int32 FeatureConfigurationFromKernel; // ebx
   int FeatureConfigurationFromBufferSet; // eax
   __int64 v11; // [rsp+20h] [rbp-18h] BYREF
   unsigned __int64 v12; // [rsp+28h] [rbp-10h] BYREF
@@ -21,7 +21,7 @@ __int64 __fastcall RtlQueryInternalFeatureConfiguration(__int64 a1, unsigned int
   v12 = 0LL;
   v11 = 0LL;
   v7 = a1;
-  if ( (int)RtlpFcReferenceFeatureConfigurationBuffers(a1, 0, &v12, &v11) < 0 )
+  if ( (int)RtlpFcReferenceFeatureConfigurationBuffers(a1, 0LL, &v12, &v11) < 0 )
   {
     FeatureConfigurationFromKernel = RtlpFcQueryFeatureConfigurationFromKernel(v7, a2, a3, a4);
     goto LABEL_9;
@@ -39,6 +39,6 @@ LABEL_8:
     goto LABEL_8;
 LABEL_9:
   if ( v11 )
-    RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)&xmmword_1801D5CE8, v11);
+    RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&xmmword_1801D5CE8, v11);
   return FeatureConfigurationFromKernel;
 }

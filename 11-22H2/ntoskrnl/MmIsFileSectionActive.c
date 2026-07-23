@@ -42,7 +42,9 @@ __int64 __fastcall MmIsFileSectionActive(_QWORD *a1, int a2, _DWORD *a3)
     goto LABEL_31;
   IsSectionActive = MiIsSectionActive(v7);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v14 = v23;
     if ( v23 <= 0xFu && CurrentIrql >= 2u )
@@ -72,7 +74,7 @@ LABEL_31:
       {
         IsSectionActive = MiIsSectionActive(v8);
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v10 + 72));
-        if ( KiIrqlFlags && (v19 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v19 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && (v19 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v19 <= 0xFu )
         {
           v11 = v23;
           if ( v23 <= 0xFu && v19 >= 2u )

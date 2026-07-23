@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAttachDeviceToDeviceStack @ 0x14016CD50
+ * XREFs of IoAttachDeviceToDeviceStack @ 0x14016CE50
  * Callers:
- *     VfFilterAttach @ 0x140942F44 (VfFilterAttach.c)
+ *     VfFilterAttach @ 0x140943F44 (VfFilterAttach.c)
  * Callees:
- *     IopAttachDeviceToDeviceStackSafe @ 0x140132740 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x140132810 (IopAttachDeviceToDeviceStackSafe.c)
  */
 
 PDEVICE_OBJECT __stdcall IoAttachDeviceToDeviceStack(PDEVICE_OBJECT SourceDevice, PDEVICE_OBJECT TargetDevice)

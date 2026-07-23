@@ -1,13 +1,13 @@
 /*
- * XREFs of KiGetNextTimerExpirationDueTime @ 0x14009D0B8
+ * XREFs of KiGetNextTimerExpirationDueTime @ 0x14009C8B8
  * Callers:
- *     KePrepareClockTimerForIdle @ 0x1400D8760 (KePrepareClockTimerForIdle.c)
- *     KeEstimateClockTickDuration @ 0x14013BBB0 (KeEstimateClockTickDuration.c)
+ *     KePrepareClockTimerForIdle @ 0x1400D6600 (KePrepareClockTimerForIdle.c)
+ *     KeEstimateClockTickDuration @ 0x14013C120 (KeEstimateClockTickDuration.c)
  * Callees:
- *     KiGetNextTimer2ExpirationDueTime @ 0x14009D1E8 (KiGetNextTimer2ExpirationDueTime.c)
- *     KeIsEmptyAffinityEx @ 0x1400D4810 (KeIsEmptyAffinityEx.c)
- *     KiFindNextTimerDueTime @ 0x1400DCD50 (KiFindNextTimerDueTime.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x14022E180 (ExGetNextWakeTimeForDeepSleep.c)
+ *     KiGetNextTimer2ExpirationDueTime @ 0x14009C9E8 (KiGetNextTimer2ExpirationDueTime.c)
+ *     KeIsEmptyAffinityEx @ 0x1400D26B0 (KeIsEmptyAffinityEx.c)
+ *     KiFindNextTimerDueTime @ 0x1400DABF0 (KiFindNextTimerDueTime.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x14022DFAC (ExGetNextWakeTimeForDeepSleep.c)
  */
 
 int *__fastcall KiGetNextTimerExpirationDueTime(

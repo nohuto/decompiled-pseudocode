@@ -14,7 +14,7 @@ PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
         PKSPIN_LOCK Lock)
 {
   bool v6; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rbp
+  _SINGLE_LIST_ENTRY *Next; // rbp
   struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 *SchedulerAssist; // r8
   signed __int32 v10; // eax

@@ -17,7 +17,6 @@ __int64 __fastcall RtlpHpHeapCompact(__int64 a1, int a2)
   __int64 v4; // rdx
   int v5; // r8d
   unsigned int v6; // ebx
-  __int64 v7; // rax
 
   v3 = a2 | *(_DWORD *)(a1 + 20) & 0x13000003;
   v4 = 0LL;
@@ -27,11 +26,10 @@ __int64 __fastcall RtlpHpHeapCompact(__int64 a1, int a2)
   v6 = v3 | 1;
   if ( !(_DWORD)v4 )
     v6 = v3;
-  v7 = RtlpInterlockedFlushSList(a1 + 704, v4);
-  if ( v7 )
-    RtlpHpVsContextFreeList(a1 + 640, v6, v7);
+  if ( RtlpInterlockedFlushSList(a1 + 704, v4) )
+    RtlpHpVsContextFreeList((PRTL_SRWLOCK)(a1 + 640));
   RtlpHpLfhContextCompact(a1 + 832, v6);
-  RtlpHpSegContextCompact(a1 + 256, v6);
-  RtlpHpSegContextCompact(a1 + 448, v6);
+  RtlpHpSegContextCompact(a1 + 256);
+  RtlpHpSegContextCompact(a1 + 448);
   return 0LL;
 }

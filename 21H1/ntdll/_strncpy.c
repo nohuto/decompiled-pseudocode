@@ -8,26 +8,26 @@
 
 char *__cdecl strncpy(char *Destination, const char *Source, size_t Count)
 {
-  size_t v3; // ecx
-  size_t v4; // ebx
+  unsigned int v3; // ecx
+  int v4; // ebx
   const char *v5; // esi
   char *v6; // edi
-  size_t v7; // ecx
+  unsigned int v7; // ecx
   char v8; // al
-  size_t v10; // ecx
+  unsigned int v10; // ecx
   int v11; // eax
   int v12; // edx
 
   v3 = Count;
-  if ( !Count )
+  if ( !(_DWORD)Count )
     return Destination;
   v4 = Count;
   v5 = Source;
   v6 = Destination;
   if ( ((unsigned __int8)Source & 3) == 0 )
   {
-    v7 = Count >> 2;
-    if ( Count >> 2 )
+    v7 = (unsigned int)Count >> 2;
+    if ( (unsigned int)Count >> 2 )
       goto LABEL_21;
 LABEL_10:
     while ( 1 )

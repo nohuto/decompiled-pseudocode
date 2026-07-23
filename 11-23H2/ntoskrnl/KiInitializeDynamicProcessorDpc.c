@@ -1,23 +1,23 @@
 /*
- * XREFs of KiInitializeDynamicProcessorDpc @ 0x140A9F2E0
+ * XREFs of KiInitializeDynamicProcessorDpc @ 0x140A9F150
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C02F0 (KiIpiStallOnPacketTargetsPrcb.c)
- *     KiIpiSendPacket @ 0x1402C0330 (KiIpiSendPacket.c)
- *     KeSetAffinityProcess @ 0x1403AEA68 (KeSetAffinityProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiReconfigureSubNodeSchedulingInformation @ 0x14056BECC (KiReconfigureSubNodeSchedulingInformation.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeSignalCallDpcSynchronize @ 0x140572430 (KeSignalCallDpcSynchronize.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C0580 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402C05C0 (KiIpiSendPacket.c)
+ *     KeSetAffinityProcess @ 0x1403AEC48 (KeSetAffinityProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiReconfigureSubNodeSchedulingInformation @ 0x14056C58C (KiReconfigureSubNodeSchedulingInformation.c)
+ *     KeSignalCallDpcSynchronize @ 0x140572970 (KeSignalCallDpcSynchronize.c)
  *     KiConfigureProcessorBlock @ 0x140A88BB0 (KiConfigureProcessorBlock.c)
- *     KiConfigureSchedulingInformation @ 0x140A8E204 (KiConfigureSchedulingInformation.c)
- *     KiInitializeProcessor @ 0x140A8EC24 (KiInitializeProcessor.c)
- *     KeRestoreMtrrBroadcast @ 0x140A8F8CC (KeRestoreMtrrBroadcast.c)
- *     KiUpdateNumberProcessors @ 0x140A9F504 (KiUpdateNumberProcessors.c)
+ *     KiConfigureSchedulingInformation @ 0x140A8E07C (KiConfigureSchedulingInformation.c)
+ *     KiInitializeProcessor @ 0x140A8EA9C (KiInitializeProcessor.c)
+ *     KeRestoreMtrrBroadcast @ 0x140A8F74C (KeRestoreMtrrBroadcast.c)
+ *     KiUpdateNumberProcessors @ 0x140A9F374 (KiUpdateNumberProcessors.c)
  */
 
 __int64 __fastcall KiInitializeDynamicProcessorDpc(__int64 a1, _QWORD **a2, volatile signed __int32 *a3, __int64 a4)
@@ -46,7 +46,7 @@ __int64 __fastcall KiInitializeDynamicProcessorDpc(__int64 a1, _QWORD **a2, vola
     KeAddProcessorAffinityEx((unsigned __int16 *)v17, *((_DWORD *)*a2 + 9));
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xCuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 12 )
@@ -57,10 +57,10 @@ __int64 __fastcall KiInitializeDynamicProcessorDpc(__int64 a1, _QWORD **a2, vola
     }
     KiIpiSendPacket(0, (int)v17, (__int64)KiInitDynamicProcessorIpi, 0LL, 0LL, 0LL);
     KiIpiStallOnPacketTargetsPrcb(v10, (__int64)KeGetCurrentPrcb());
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v13 = CurrentPrcb->SchedulerAssist;

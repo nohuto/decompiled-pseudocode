@@ -11,7 +11,7 @@
 __int64 __fastcall ExpKernelExpirationDateCacheProvider(_DWORD *a1, _OWORD *a2, unsigned int a3, _DWORD *a4, _BYTE *a5)
 {
   int v6; // ebx
-  struct _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-40h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-40h] BYREF
   LARGE_INTEGER Time; // [rsp+30h] [rbp-30h] BYREF
   __int128 v10; // [rsp+38h] [rbp-28h]
 

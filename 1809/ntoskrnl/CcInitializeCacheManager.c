@@ -1,21 +1,21 @@
 /*
- * XREFs of CcInitializeCacheManager @ 0x1409B06D8
+ * XREFs of CcInitializeCacheManager @ 0x1409B16D8
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14015F9A0 (ExInitializeNPagedLookasideListInternal.c)
- *     CcCreatePartition @ 0x14018A55C (CcCreatePartition.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExInitializeSystemLookasideList @ 0x140570370 (ExInitializeSystemLookasideList.c)
- *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1406D0C2C (MmGetNumberOfPhysicalPagesForPartitionObject.c)
- *     FsRtlIsMobileOS @ 0x1406DC050 (FsRtlIsMobileOS.c)
- *     CcInitializeProcessor @ 0x14072920C (CcInitializeProcessor.c)
- *     PoRegisterCoalescingCallback @ 0x140748360 (PoRegisterCoalescingCallback.c)
- *     CcInitializeBcbProfiler @ 0x14098E324 (CcInitializeBcbProfiler.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x14015FAA0 (ExInitializeNPagedLookasideListInternal.c)
+ *     CcCreatePartition @ 0x14018A69C (CcCreatePartition.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExInitializeSystemLookasideList @ 0x140571370 (ExInitializeSystemLookasideList.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1406D1ECC (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     FsRtlIsMobileOS @ 0x1406DD2F0 (FsRtlIsMobileOS.c)
+ *     CcInitializeProcessor @ 0x14072A3FC (CcInitializeProcessor.c)
+ *     PoRegisterCoalescingCallback @ 0x140749550 (PoRegisterCoalescingCallback.c)
+ *     CcInitializeBcbProfiler @ 0x14098F324 (CcInitializeBcbProfiler.c)
  */
 
 char CcInitializeCacheManager()
@@ -29,12 +29,12 @@ char CcInitializeCacheManager()
   unsigned __int64 v11; // rdx
   int v12; // ecx
 
-  v0 = (unsigned __int8)dword_14054019C;
+  v0 = (unsigned __int8)dword_14054119C;
   CcMasterLock = 0LL;
   CcChangeSharedCacheMapFileLock = 0LL;
   CcMaxNestingLevel = 2;
   CcMaxAsyncReadWorkerThreads = 100;
-  if ( (_BYTE)dword_14054019C )
+  if ( (_BYTE)dword_14054119C )
   {
     CcMaxNumberCompleteAsyncReadExWorkItems = 500;
   }
@@ -54,7 +54,7 @@ char CcInitializeCacheManager()
   if ( !PoolWithTag )
     KeBugCheckEx(0x34u, 0x90444uLL, 0xFFFFFFFFC000009AuLL, 0LL, 0LL);
   memset(PoolWithTag, 0, 0x2800uLL);
-  qword_140438298 = (__int64)&CcVacbFreeList;
+  qword_140439358 = (__int64)&CcVacbFreeList;
   CcVacbFreeList = (__int64)&CcVacbFreeList;
   CcMinimumFreeHighPriorityVacbs = 128;
   CcGlobalPartitionLock = 0LL;
@@ -80,11 +80,11 @@ char CcInitializeCacheManager()
   CcBcbTrimNotificationListLock.Contention = 0;
   LOWORD(CcBcbTrimNotificationListLock.Event.Header.Lock) = 1;
   CcIdleDelayTick = 0x989680 / KeMaximumIncrement;
-  qword_1404382F8 = (__int64)&CcVolumeCacheMapList;
+  qword_1404393B8 = (__int64)&CcVolumeCacheMapList;
   CcVolumeCacheMapList = (__int64)&CcVolumeCacheMapList;
   CcBcbTrimNotificationListLock.Event.Header.WaitListHead.Blink = &CcBcbTrimNotificationListLock.Event.Header.WaitListHead;
   CcBcbTrimNotificationListLock.Event.Header.WaitListHead.Flink = &CcBcbTrimNotificationListLock.Event.Header.WaitListHead;
-  qword_140438348 = (__int64)&CcBcbTrimNotificationList;
+  qword_140439408 = (__int64)&CcBcbTrimNotificationList;
   CcBcbTrimNotificationList = (__int64)&CcBcbTrimNotificationList;
   CcBcbTrimNotificationListLock.Event.Header.Size = 6;
   CcBcbTrimNotificationListLock.Event.Header.SignalState = 0;
@@ -94,11 +94,11 @@ char CcInitializeCacheManager()
   if ( (unsigned int)(CcMaxLazyWritePagesOverride - 1) <= 0x7FFF )
     CcMaxLazyWritePages = CcMaxLazyWritePagesOverride;
   CcAggressiveZeroCount = 0;
-  qword_140438370 = (__int64)&qword_140438368;
-  qword_140438368 = (__int64)&qword_140438368;
+  qword_140439430 = (__int64)&qword_140439428;
+  qword_140439428 = (__int64)&qword_140439428;
   CcCoalescingFlushEvent = 1;
-  byte_140438362 = 6;
-  dword_140438364 = 0;
+  byte_140439422 = 6;
+  dword_140439424 = 0;
   ExInitializeSystemLookasideList(
     (__int64)&CcTwilightLookasideList,
     512,
@@ -127,7 +127,7 @@ char CcInitializeCacheManager()
     0,
     0);
   CcExternalCacheListLock = 0LL;
-  qword_140438398 = (__int64)&CcExternalCacheList;
+  qword_140439458 = (__int64)&CcExternalCacheList;
   CcExternalCacheList = (__int64)&CcExternalCacheList;
   if ( CcRemoteFileDPInlineFlushThreshold != -1 )
   {
@@ -143,8 +143,8 @@ char CcInitializeCacheManager()
     v12 = 8;
   CcUnmapBehindLength = v12 << 20;
   CcTestControlData = 0LL;
-  qword_140438268 = 0LL;
-  qword_140438270 = 0LL;
+  qword_140439328 = 0LL;
+  qword_140439330 = 0LL;
   if ( (int)PoRegisterCoalescingCallback(
               (unsigned __int64)CcCoalescingCallBack,
               1,

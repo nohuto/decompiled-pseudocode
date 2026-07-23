@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpReleaseSearchDBContext @ 0x140757018
+ * XREFs of SdbpReleaseSearchDBContext @ 0x140757208
  * Callers:
  *     SdbGetDatabaseMatch @ 0x140693044 (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x140756E58 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x140757048 (SdbpCheckKObject.c)
  * Callees:
- *     SdbpFreeAppAttributes @ 0x140A50D2C (SdbpFreeAppAttributes.c)
- *     AslHashFree @ 0x140A56C50 (AslHashFree.c)
+ *     SdbpFreeAppAttributes @ 0x140A50FDC (SdbpFreeAppAttributes.c)
+ *     AslHashFree @ 0x140A56F00 (AslHashFree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

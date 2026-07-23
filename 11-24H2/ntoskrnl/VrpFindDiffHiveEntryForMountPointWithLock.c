@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x140843574
+ * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x14083F834
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14092A8CC (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
- *     VrpFindDiffHiveEntryForMountPoint @ 0x14092AC5C (VrpFindDiffHiveEntryForMountPoint.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14092CA0C (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpFindDiffHiveEntryForMountPoint @ 0x14092CD9C (VrpFindDiffHiveEntryForMountPoint.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING String1)
@@ -33,12 +33,12 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
     v12 = RtlUpcaseUnicodeChar(*Buffer++);
     v5 = HIBYTE(v12) + 37 * ((unsigned __int8)v12 + 37 * v5);
   }
-  v7 = -1LL << (dword_140EEFEA4 & 0x1F);
+  v7 = -1LL << (dword_140EF00F4 & 0x1F);
   v8 = v5 & v7;
-  if ( !((unsigned int)dword_140EEFEA4 >> 5) )
+  if ( !((unsigned int)dword_140EF00F4 >> 5) )
     goto LABEL_12;
   v13 = v5 & v7;
-  v9 = qword_140EEFEA8
+  v9 = qword_140EF00F8
      + 8LL
      * ((37
        * (BYTE6(v13)
@@ -47,7 +47,7 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
          + 37
          * (BYTE4(v13)
           + 37 * (BYTE3(v13) + 37 * (BYTE2(v13) + 37 * (BYTE1(v13) + 37 * ((unsigned __int8)v8 + 11623883)))))))
-       + HIBYTE(v13)) & (((unsigned int)dword_140EEFEA4 >> 5) - 1));
+       + HIBYTE(v13)) & (((unsigned int)dword_140EF00F4 >> 5) - 1));
   do
   {
     v9 = *(_QWORD *)v9;
@@ -68,7 +68,7 @@ LABEL_8:
       v9 = *(_QWORD *)v9;
       if ( (v9 & 1) != 0 )
         break;
-      if ( (v5 & (-1LL << (dword_140EEFEA4 & 0x1F))) == ((-1LL << (dword_140EEFEA4 & 0x1F)) & *(_QWORD *)(v9 + 8)) )
+      if ( (v5 & (-1LL << (dword_140EF00F4 & 0x1F))) == ((-1LL << (dword_140EF00F4 & 0x1F)) & *(_QWORD *)(v9 + 8)) )
         goto LABEL_8;
     }
 LABEL_12:

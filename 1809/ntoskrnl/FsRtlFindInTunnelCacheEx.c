@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlFindInTunnelCacheEx @ 0x140581D00
+ * XREFs of FsRtlFindInTunnelCacheEx @ 0x140582D00
  * Callers:
- *     FsRtlFindInTunnelCache @ 0x1405BFE70 (FsRtlFindInTunnelCache.c)
+ *     FsRtlFindInTunnelCache @ 0x1405C0E70 (FsRtlFindInTunnelCache.c)
  * Callees:
  *     FsRtlCompareNodeAndKey @ 0x140014750 (FsRtlCompareNodeAndKey.c)
  *     FsRtlEmptyFreePoolList @ 0x1400147C8 (FsRtlEmptyFreePoolList.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     FsRtlPruneTunnelCache @ 0x1405C007C (FsRtlPruneTunnelCache.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     FsRtlPruneTunnelCache @ 0x1405C107C (FsRtlPruneTunnelCache.c)
  */
 
 char __fastcall FsRtlFindInTunnelCacheEx(

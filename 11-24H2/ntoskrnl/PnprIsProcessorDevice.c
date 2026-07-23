@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprIsProcessorDevice @ 0x14072FB78
+ * XREFs of PnprIsProcessorDevice @ 0x14072DB88
  * Callers:
- *     PnprAddDeviceResources @ 0x14072ED10 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x14072CD20 (PnprAddDeviceResources.c)
  * Callees:
- *     HalGetProcessorIdByNtNumber @ 0x1403B88E0 (HalGetProcessorIdByNtNumber.c)
- *     IoGetDeviceInterfaces @ 0x140966D40 (IoGetDeviceInterfaces.c)
- *     IoGetDevicePropertyData @ 0x140A11F10 (IoGetDevicePropertyData.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1402B4970 (HalGetProcessorIdByNtNumber.c)
+ *     IoGetDeviceInterfaces @ 0x14094F7D0 (IoGetDeviceInterfaces.c)
+ *     IoGetDevicePropertyData @ 0x1409C0320 (IoGetDevicePropertyData.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PnprIsProcessorDevice(PDEVICE_OBJECT Pdo, char a2, unsigned int *a3, void *a4)

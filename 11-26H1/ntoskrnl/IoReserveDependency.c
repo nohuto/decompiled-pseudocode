@@ -1,11 +1,11 @@
 /*
- * XREFs of IoReserveDependency @ 0x14079F9E0
+ * XREFs of IoReserveDependency @ 0x1407A2520
  * Callers:
  *     <none>
  * Callees:
- *     PipSetDependency @ 0x1407A0160 (PipSetDependency.c)
- *     PnpReleaseDependencyRelationsLock @ 0x14090ECA0 (PnpReleaseDependencyRelationsLock.c)
- *     PnpAcquireDependencyRelationsLock @ 0x14090ECD0 (PnpAcquireDependencyRelationsLock.c)
+ *     PipSetDependency @ 0x1407A2CA0 (PipSetDependency.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409B0DD0 (PnpReleaseDependencyRelationsLock.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409B0E00 (PnpAcquireDependencyRelationsLock.c)
  */
 
 __int64 __fastcall IoReserveDependency(__int64 a1, _WORD *a2, int a3)

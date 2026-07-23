@@ -1,11 +1,11 @@
 /*
- * XREFs of HvAllocateOffsetArraysForHiveSnapshot @ 0x1407E36B4
+ * XREFs of HvAllocateOffsetArraysForHiveSnapshot @ 0x1407E3C04
  * Callers:
- *     CmDumpKeyToFile @ 0x1407CCD84 (CmDumpKeyToFile.c)
- *     CmpFlushBackupHive @ 0x1407DC2B8 (CmpFlushBackupHive.c)
+ *     CmDumpKeyToFile @ 0x1407CD274 (CmDumpKeyToFile.c)
+ *     CmpFlushBackupHive @ 0x1407DC808 (CmpFlushBackupHive.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HvAllocateOffsetArraysForHiveSnapshot(__int64 a1, unsigned int *a2, PVOID **a3, unsigned int *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall HvAllocateOffsetArraysForHiveSnapshot(__int64 a1, unsigned in
   int v9; // r15d
   unsigned int v10; // r12d
   __int64 i; // rbx
-  int v12; // esi
+  unsigned int v12; // esi
   __int64 v13; // rax
   PVOID *v14; // rsi
   __int64 v15; // rbp
@@ -26,7 +26,7 @@ __int64 __fastcall HvAllocateOffsetArraysForHiveSnapshot(__int64 a1, unsigned in
   v6 = (v4 >> 20) + 1;
   if ( (v4 & 0xFFFFF) == 0 )
     v6 = v4 >> 20;
-  Pool2 = (PVOID *)ExAllocatePool2(0x100uLL);
+  Pool2 = (PVOID *)ExAllocatePool2(0x100uLL, 24 * v6, 0x20204D43u);
   if ( Pool2 )
   {
     v9 = 0;
@@ -36,7 +36,7 @@ __int64 __fastcall HvAllocateOffsetArraysForHiveSnapshot(__int64 a1, unsigned in
       v12 = 0x100000;
       if ( v10 < 0x100000 )
         v12 = v10;
-      v13 = ExAllocatePool2(0x100uLL);
+      v13 = ExAllocatePool2(0x100uLL, v12, 0x20204D43u);
       Pool2[3 * i + 1] = (PVOID)v13;
       if ( !v13 )
       {

@@ -9,45 +9,47 @@
  *     _RtlpDidUnicodeToOemWork@8 @ 0x4B344552 (_RtlpDidUnicodeToOemWork@8.c)
  */
 
-int __stdcall RtlDnsHostNameToComputerName(unsigned __int16 *a1, _DWORD *a2, char a3)
+NTSTATUS __cdecl RtlDnsHostNameToComputerName(
+        PUNICODE_STRING ComputerNameString,
+        PUNICODE_STRING DnsHostNameString,
+        BOOLEAN AllocateComputerNameString)
 {
-  int v3; // esi
+  wchar_t *Buffer; // esi
   int v4; // eax
   unsigned __int16 v5; // cx
-  int result; // eax
-  unsigned int v7; // [esp+8h] [ebp-28h] BYREF
-  unsigned __int16 v8[2]; // [esp+Ch] [ebp-24h] BYREF
-  _BYTE *v9; // [esp+10h] [ebp-20h]
-  _DWORD v10[2]; // [esp+14h] [ebp-1Ch] BYREF
-  _BYTE v11[16]; // [esp+1Ch] [ebp-14h] BYREF
+  NTSTATUS result; // eax
+  ULONG BytesInOemString; // [esp+8h] [ebp-28h] BYREF
+  _STRING SourceString; // [esp+Ch] [ebp-24h] BYREF
+  _DWORD v9[2]; // [esp+14h] [ebp-1Ch] BYREF
+  CHAR OemString[16]; // [esp+1Ch] [ebp-14h] BYREF
 
-  v3 = a2[1];
-  v10[0] = *a2;
+  Buffer = DnsHostNameString->Buffer;
+  v9[0] = *(_DWORD *)&DnsHostNameString->Length;
   v4 = 0;
-  v5 = v10[0];
-  v10[1] = v3;
-  if ( LOWORD(v10[0]) >> 1 )
+  v5 = v9[0];
+  v9[1] = Buffer;
+  if ( LOWORD(v9[0]) >> 1 )
   {
-    while ( *(_WORD *)(v3 + 2 * v4) != 46 )
+    while ( Buffer[v4] != 46 )
     {
-      if ( ++v4 >= (unsigned int)(LOWORD(v10[0]) >> 1) )
+      if ( ++v4 >= (unsigned int)(LOWORD(v9[0]) >> 1) )
         goto LABEL_6;
     }
     v5 = 2 * v4;
-    LOWORD(v10[0]) = 2 * v4;
+    LOWORD(v9[0]) = 2 * v4;
   }
 LABEL_6:
   if ( v5 < 2u )
     return -1073741534;
-  result = RtlUpcaseUnicodeToOemN((int)v11, 0xFu, &v7, v3, v5);
+  result = RtlUpcaseUnicodeToOemN(OemString, 0xFu, &BytesInOemString, (PCWCH)Buffer, v5);
   if ( result >= 0 || result == -2147483643 )
   {
-    v9 = v11;
-    v8[1] = 16;
-    v8[0] = v7;
-    if ( RtlpDidUnicodeToOemWork(v8, (int)v10) )
+    SourceString.Buffer = OemString;
+    SourceString.MaximumLength = 16;
+    SourceString.Length = BytesInOemString;
+    if ( RtlpDidUnicodeToOemWork(&SourceString.Length, (int)v9) )
     {
-      result = RtlOemStringToUnicodeString(a1, v8, a3);
+      result = RtlOemStringToUnicodeString(ComputerNameString, &SourceString, AllocateComputerNameString);
       if ( result >= 0 )
         return 0;
       return result;

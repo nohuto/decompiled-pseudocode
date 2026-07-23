@@ -39,18 +39,18 @@ __int64 __fastcall ObpGetDosDevicesProtection(PSECURITY_DESCRIPTOR SecurityDescr
     if ( Pool2 )
     {
       RtlCreateAcl(Pool2, v5, 2u);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, -1610612736, (unsigned __int8 *)SeWorldSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x20000000, (unsigned __int8 *)SeWorldSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, -1610612736, (unsigned __int8 *)SeWorldSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x20000000, (unsigned __int8 *)SeWorldSid, 0);
       RtlGetAce(v7, 2u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeAliasAdminsSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeAliasAdminsSid, 0);
       RtlGetAce(v7, 3u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
       RtlGetAce(v7, 4u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeCreatorOwnerSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeCreatorOwnerSid, 0);
       v8 = 5;
 LABEL_4:
       RtlGetAce(v7, v8, &Ace);
@@ -68,9 +68,9 @@ LABEL_4:
     if ( v12 )
     {
       RtlCreateAcl(v12, v11, 2u);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, -536870912, (unsigned __int8 *)SeWorldSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeWorldSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, -536870912, (unsigned __int8 *)SeWorldSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeWorldSid, 0);
       v8 = 2;
       goto LABEL_4;
     }

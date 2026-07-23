@@ -1,18 +1,23 @@
 /*
- * XREFs of ZwQueryObject @ 0x180161E90
+ * XREFs of ZwQueryObject @ 0x180160250
  * Callers:
- *     PsspWalkHandleTable @ 0x1800C425C (PsspWalkHandleTable.c)
- *     RtlpWow64SuspendThread @ 0x1800F8F50 (RtlpWow64SuspendThread.c)
- *     RtlpWow64SuspendProcess @ 0x1801323E8 (RtlpWow64SuspendProcess.c)
+ *     PsspWalkHandleTable @ 0x1800BBE1C (PsspWalkHandleTable.c)
+ *     RtlpWow64SuspendThread @ 0x1800F3B20 (RtlpWow64SuspendThread.c)
+ *     RtlpWow64SuspendProcess @ 0x180130618 (RtlpWow64SuspendProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryObject()
+NTSTATUS __cdecl ZwQueryObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 16LL;
+  result = 16;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

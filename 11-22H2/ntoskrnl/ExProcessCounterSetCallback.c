@@ -26,9 +26,9 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   __int64 CurrentServerSilo; // rsi
   struct _PCW_BUFFER *v6; // r12
   char v7; // r14
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   _DWORD *NextProcess; // rbx
-  __int64 v10; // r15
+  LARGE_INTEGER v10; // r15
   int v11; // edi
   struct _KPROCESS *v12; // rcx
   __int128 v13; // xmm0
@@ -38,8 +38,8 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   unsigned __int16 i; // r8
   __int16 v18; // ax
   __int128 v19; // [rsp+38h] [rbp-D0h] BYREF
-  LARGE_INTEGER String; // [rsp+48h] [rbp-C0h] BYREF
-  UNICODE_STRING String_8; // [rsp+50h] [rbp-B8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-C0h] BYREF
+  UNICODE_STRING PerformanceCounter_8; // [rsp+50h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+60h] [rbp-A8h] BYREF
   struct _PCW_DATA Data; // [rsp+70h] [rbp-98h] BYREF
   _QWORD v24[32]; // [rsp+88h] [rbp-80h] BYREF
@@ -54,7 +54,7 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   v6 = *(struct _PCW_BUFFER **)(a2 + 24);
   v7 = (unsigned int)ExIsRestrictedCaller(1) != 0;
   KeFlushProcessWriteBuffers(1);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&String);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   NextProcess = PsIdleProcess;
   v10 = InterruptTimePrecise;
   v11 = 0;
@@ -65,9 +65,9 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
       memset(v26, 0, 0xD8uLL);
       memset(v24, 0, sizeof(v24));
       memset(v25, 0, 0x68uLL);
-      String.QuadPart = 0LL;
+      PerformanceCounter.QuadPart = 0LL;
       v19 = 0LL;
-      String_8 = 0LL;
+      PerformanceCounter_8 = 0LL;
       DestinationString_8 = 0LL;
       if ( !ExpSysInfoShouldSkipProcess((__int64)NextProcess) && PsIsProcessInSilo(v12, CurrentServerSilo) )
       {
@@ -101,8 +101,8 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         v26[23] = v24[31];
         v26[24] = v24[1];
         v26[25] = 10000000LL;
-        v26[26] = v10;
-        String.QuadPart = 0LL;
+        v26[26] = v10.QuadPart;
+        PerformanceCounter.QuadPart = 0LL;
         if ( NextProcess == PsIdleProcess )
         {
           v13 = *(_OWORD *)L"\b\n";
@@ -125,7 +125,7 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         else
         {
           v14 = (int)PsGetAllocatedFullProcessImageNameEx((__int64)NextProcess) < 0;
-          QuadPart = (__int128 *)String.QuadPart;
+          QuadPart = (__int128 *)PerformanceCounter.QuadPart;
           if ( v14 )
             QuadPart = (__int128 *)*((_QWORD *)NextProcess + 184);
           v13 = *QuadPart;
@@ -145,24 +145,24 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
           if ( *(_WORD *)(*((_QWORD *)&v13 + 1) + 2LL * i - 2) == 92 )
             break;
         }
-        *(_DWORD *)&String_8.Length = 1310720;
+        *(_DWORD *)&PerformanceCounter_8.Length = 1310720;
         LOWORD(v19) = 2 * (v16 - i);
         WORD1(v19) = v19;
         *((_QWORD *)&v19 + 1) = *((_QWORD *)&v13 + 1) + 2LL * i;
-        String_8.Buffer = (wchar_t *)&v27;
-        RtlIntegerToUnicodeString(v26[13], 0xAu, &String_8);
+        PerformanceCounter_8.Buffer = (wchar_t *)&v27;
+        RtlIntegerToUnicodeString(v26[13], 0xAu, &PerformanceCounter_8);
         v18 = v19;
         *(_DWORD *)&DestinationString_8.Length = 0x800000;
-        if ( (unsigned __int16)(126 - String_8.Length) < (unsigned __int16)v19 )
-          v18 = 126 - String_8.Length;
+        if ( (unsigned __int16)(126 - PerformanceCounter_8.Length) < (unsigned __int16)v19 )
+          v18 = 126 - PerformanceCounter_8.Length;
         LOWORD(v19) = v18;
         DestinationString_8.Buffer = (wchar_t *)&v28;
-        RtlUnicodeStringPrintf(&DestinationString_8, L"%wZ:%wZ", &v19, &String_8);
+        RtlUnicodeStringPrintf(&DestinationString_8, L"%wZ:%wZ", &v19, &PerformanceCounter_8);
         Data.Data = v26;
         Data.Size = 216;
         v11 = PcwAddInstance(v6, &DestinationString_8, v26[13], 1u, &Data);
-        if ( String.QuadPart )
-          ExFreePoolWithTag((PVOID)String.QuadPart, 0);
+        if ( PerformanceCounter.QuadPart )
+          ExFreePoolWithTag((PVOID)PerformanceCounter.QuadPart, 0);
         if ( v11 < 0 )
           break;
       }

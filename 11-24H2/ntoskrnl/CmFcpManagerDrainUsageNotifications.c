@@ -1,16 +1,16 @@
 /*
- * XREFs of CmFcpManagerDrainUsageNotifications @ 0x140A360EC
+ * XREFs of CmFcpManagerDrainUsageNotifications @ 0x140A2B5FC
  * Callers:
- *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x1407E402C (CmFcManagerDrainAllFeatureUsageNotifications.c)
- *     CmFcpManagerRetryUsageNotificationsWorker @ 0x1407E5070 (CmFcpManagerRetryUsageNotificationsWorker.c)
- *     CmFcpManagerSoftwareHiveReady @ 0x1407E5130 (CmFcpManagerSoftwareHiveReady.c)
- *     CmFcpManagerDrainUsageNotificationsWorker @ 0x140A36040 (CmFcpManagerDrainUsageNotificationsWorker.c)
+ *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x1407E457C (CmFcManagerDrainAllFeatureUsageNotifications.c)
+ *     CmFcpManagerRetryUsageNotificationsWorker @ 0x1407E5640 (CmFcpManagerRetryUsageNotificationsWorker.c)
+ *     CmFcpManagerSoftwareHiveReady @ 0x1407E5700 (CmFcpManagerSoftwareHiveReady.c)
+ *     CmFcpManagerDrainUsageNotificationsWorker @ 0x140A2B550 (CmFcpManagerDrainUsageNotificationsWorker.c)
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1403A68E8 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6924 (RtlpFcBufferManagerReferenceBuffers.c)
- *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x14066879C (CmFcpManagerArmFeatureUsageRetryTimer.c)
- *     RtlUpdateSwapReference @ 0x140A36190 (RtlUpdateSwapReference.c)
- *     RtlpFcDrainDelayedUsageReportBuffer @ 0x140A36200 (RtlpFcDrainDelayedUsageReportBuffer.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x140496128 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1404975C8 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x14066708C (CmFcpManagerArmFeatureUsageRetryTimer.c)
+ *     RtlUpdateSwapReference @ 0x140A2B6A0 (RtlUpdateSwapReference.c)
+ *     RtlpFcDrainDelayedUsageReportBuffer @ 0x140A2B710 (RtlpFcDrainDelayedUsageReportBuffer.c)
  */
 
 __int64 __fastcall CmFcpManagerDrainUsageNotifications(__int64 a1, char a2, __int64 a3)
@@ -38,7 +38,7 @@ __int64 __fastcall CmFcpManagerDrainUsageNotifications(__int64 a1, char a2, __in
     *(_QWORD *)(v11 + 56),
     *(_QWORD *)(v11 + 64),
     (__int64)&v10);
-  result = RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)(a1 + 136), v7);
+  result = RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)(a1 + 136), v7);
   if ( v10 )
     return CmFcpManagerArmFeatureUsageRetryTimer(a1);
   return result;

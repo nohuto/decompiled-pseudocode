@@ -1,12 +1,12 @@
 /*
- * XREFs of SwitchedRtlGetVersion @ 0x18002B7F0
+ * XREFs of SwitchedRtlGetVersion @ 0x18002B7E0
  * Callers:
- *     RtlSwitchedVVI @ 0x18002B390 (RtlSwitchedVVI.c)
+ *     RtlSwitchedVVI @ 0x18002B380 (RtlSwitchedVVI.c)
  * Callees:
- *     RtlGetNtProductType @ 0x18002CD40 (RtlGetNtProductType.c)
- *     RtlGetSuiteMask @ 0x18002CDC0 (RtlGetSuiteMask.c)
- *     SbSelectProcedure @ 0x18002E9C0 (SbSelectProcedure.c)
- *     RtlStringCbCopyW @ 0x180040FD4 (RtlStringCbCopyW.c)
+ *     RtlGetNtProductType @ 0x18002CD30 (RtlGetNtProductType.c)
+ *     RtlGetSuiteMask @ 0x18002CDB0 (RtlGetSuiteMask.c)
+ *     SbSelectProcedure @ 0x18002E9B0 (SbSelectProcedure.c)
+ *     RtlStringCbCopyW @ 0x180040FC4 (RtlStringCbCopyW.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
@@ -17,9 +17,8 @@ __int64 __fastcall SwitchedRtlGetVersion(__int64 a1)
   __int64 (*v4)(void); // rax
   int v5; // edi
   wchar_t *Buffer; // r8
-  __int64 v7; // rcx
-  int v8; // eax
-  int v10; // [rsp+30h] [rbp+8h] BYREF
+  _NT_PRODUCT_TYPE v7; // eax
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = NtCurrentPeb();
   v3 = 0;
@@ -56,15 +55,15 @@ LABEL_5:
   {
     *(_WORD *)(a1 + 276) = HIBYTE(v1->OSCSDVersion);
     *(_WORD *)(a1 + 278) = (unsigned __int8)v1->OSCSDVersion;
-    *(_WORD *)(a1 + 280) = RtlGetSuiteMask(255LL);
+    *(_WORD *)(a1 + 280) = RtlGetSuiteMask();
     if ( *(_DWORD *)a1 == 292 )
-      *(_DWORD *)(a1 + 284) = RtlGetSuiteMask(v7) & 0x1FFFF;
+      *(_DWORD *)(a1 + 284) = RtlGetSuiteMask() & 0x1FFFF;
     *(_BYTE *)(a1 + 282) = 0;
-    if ( (unsigned __int8)RtlGetNtProductType(&v10) )
+    if ( RtlGetNtProductType(&NtProductType) )
     {
-      v8 = v10;
-      *(_BYTE *)(a1 + 282) = v10;
-      if ( v8 == 1 )
+      v7 = NtProductType;
+      *(_BYTE *)(a1 + 282) = NtProductType;
+      if ( v7 == NtProductWinNt )
       {
         *(_WORD *)(a1 + 280) &= ~0x10u;
         if ( *(_DWORD *)a1 == 292 )

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-unsigned __int8 __fastcall RtlTestBit(__int64 a1, unsigned int a2)
+BOOLEAN __cdecl RtlTestBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
-  return _bittest(*(const signed __int32 **)(a1 + 8), a2);
+  return _bittest((const signed __int32 *)BitMapHeader->Buffer, BitNumber);
 }

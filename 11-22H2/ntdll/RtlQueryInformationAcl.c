@@ -6,54 +6,58 @@
  *     RtlFirstFreeAce @ 0x18001B350 (RtlFirstFreeAce.c)
  */
 
-__int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, _DWORD *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlQueryInformationAcl(
+        PACL Acl,
+        PVOID AclInformation,
+        ULONG AclInformationLength,
+        ACL_INFORMATION_CLASS AclInformationClass)
 {
-  int v6; // ecx
-  int v7; // r9d
-  char v8; // al
+  int AclRevision; // ecx
+  __int32 v7; // r9d
+  BOOLEAN v8; // al
   int v9; // edx
-  __int64 v10; // rcx
+  PVOID v10; // rcx
   int v11; // ecx
-  __int64 v13; // [rsp+30h] [rbp+8h] BYREF
+  PVOID FirstFree; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = *a1;
-  if ( (unsigned __int8)(v6 - 2) <= 2u )
+  AclRevision = Acl->AclRevision;
+  if ( (unsigned __int8)(AclRevision - 2) <= 2u )
   {
-    v7 = a4 - 1;
+    v7 = AclInformationClass - 1;
     if ( v7 )
     {
       if ( v7 != 1 )
-        return 3221225475LL;
-      if ( a3 >= 0xC )
+        return -1073741821;
+      if ( AclInformationLength >= 0xC )
       {
-        v8 = RtlFirstFreeAce((__int64)a1, &v13);
+        v8 = RtlFirstFreeAce(Acl, &FirstFree);
         v9 = 0;
         if ( v8 )
         {
-          v10 = v13;
-          *a2 = *((unsigned __int16 *)a1 + 2);
+          v10 = FirstFree;
+          *(_DWORD *)AclInformation = Acl->AceCount;
           if ( v10 )
           {
-            v11 = v10 - (_DWORD)a1;
-            a2[1] = v11;
-            v9 = *((unsigned __int16 *)a1 + 1) - v11;
+            v11 = (_DWORD)v10 - (_DWORD)Acl;
+            *((_DWORD *)AclInformation + 1) = v11;
+            v9 = Acl->AclSize - v11;
           }
           else
           {
-            a2[1] = *((unsigned __int16 *)a1 + 1);
+            *((_DWORD *)AclInformation + 1) = Acl->AclSize;
           }
-          a2[2] = v9;
-          return 0LL;
+          *((_DWORD *)AclInformation + 2) = v9;
+          return 0;
         }
-        return 3221225485LL;
+        return -1073741811;
       }
     }
-    else if ( a3 >= 4 )
+    else if ( AclInformationLength >= 4 )
     {
-      *a2 = v6;
-      return 0LL;
+      *(_DWORD *)AclInformation = AclRevision;
+      return 0;
     }
-    return 3221225507LL;
+    return -1073741789;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

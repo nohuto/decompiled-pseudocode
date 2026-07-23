@@ -1,12 +1,12 @@
 /*
- * XREFs of Win81RtlGetVersion @ 0x1407412F0
+ * XREFs of Win81RtlGetVersion @ 0x14073F220
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetVersion @ 0x140A08A00 (RtlGetVersion.c)
+ *     RtlGetVersion @ 0x140A04F30 (RtlGetVersion.c)
  */
 
-NTSTATUS __fastcall Win81RtlGetVersion(struct _OSVERSIONINFOW *a1)
+NTSTATUS __fastcall Win81RtlGetVersion(_OSVERSIONINFOW *a1)
 {
   NTSTATUS result; // eax
   int v3; // edx

@@ -6,8 +6,8 @@
  *     LdrResSearchResource @ 0x180037450 (LdrResSearchResource.c)
  */
 
-__int64 __fastcall LdrResFindResource(
-        unsigned __int64 a1,
+NTSTATUS __fastcall LdrResFindResource(
+        WCHAR *a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -20,7 +20,7 @@ __int64 __fastcall LdrResFindResource(
   _QWORD v10[5]; // [rsp+40h] [rbp-28h] BYREF
 
   if ( (a9 & 0xC02) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   v10[2] = a4;
   v10[0] = a2;
   v10[1] = a3;

@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDmObjectProcessPropertyChange @ 0x140991140
+ * XREFs of PiDmObjectProcessPropertyChange @ 0x140951BA0
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x140990D44 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1409517A4 (PiPnpRtlObjectEventWorker.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     PiDmGetCachedKeyIndex @ 0x140991590 (PiDmGetCachedKeyIndex.c)
- *     PnpGetObjectProperty @ 0x14099D8E0 (PnpGetObjectProperty.c)
- *     PiDmCacheDataDecode @ 0x1409A21E0 (PiDmCacheDataDecode.c)
- *     PiDmGetObject @ 0x1409A2D70 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     CmpUnlockSiloKeyLockTracker @ 0x1409A604C (CmpUnlockSiloKeyLockTracker.c)
- *     KsepCacheLock @ 0x1409A73D0 (KsepCacheLock.c)
- *     PiDmCacheDataFree @ 0x1409A7440 (PiDmCacheDataFree.c)
- *     PiDmCacheDataEncode @ 0x140ADD9AC (PiDmCacheDataEncode.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x140AFBBCC (PiDmGetReferencedObjectFromProperty.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     PiDmGetCachedKeyIndex @ 0x140951FF0 (PiDmGetCachedKeyIndex.c)
+ *     PnpGetObjectProperty @ 0x14095E340 (PnpGetObjectProperty.c)
+ *     PiDmCacheDataDecode @ 0x140962C40 (PiDmCacheDataDecode.c)
+ *     PiDmGetObject @ 0x1409637D0 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140966AAC (CmpUnlockSiloKeyLockTracker.c)
+ *     KsepCacheLock @ 0x140967E30 (KsepCacheLock.c)
+ *     PiDmCacheDataFree @ 0x140967EA0 (PiDmCacheDataFree.c)
+ *     PiDmCacheDataEncode @ 0x140ADA71C (PiDmCacheDataEncode.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x140AFD84C (PiDmGetReferencedObjectFromProperty.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDmObjectProcessPropertyChange(

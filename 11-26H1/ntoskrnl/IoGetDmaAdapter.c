@@ -1,17 +1,17 @@
 /*
- * XREFs of IoGetDmaAdapter @ 0x1407A16A0
+ * XREFs of IoGetDmaAdapter @ 0x1407A41E0
  * Callers:
- *     DifIoGetDmaAdapterWrapper @ 0x14065C720 (DifIoGetDmaAdapterWrapper.c)
- *     VfGetDmaAdapter @ 0x140C248E0 (VfGetDmaAdapter.c)
+ *     DifIoGetDmaAdapterWrapper @ 0x140660300 (DifIoGetDmaAdapterWrapper.c)
+ *     VfGetDmaAdapter @ 0x140C2A8F0 (VfGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiGetDmaAdapterFromBusInterface @ 0x1407A19C4 (PiGetDmaAdapterFromBusInterface.c)
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x1407A4504 (PiGetDmaAdapterFromBusInterface.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
  */
 
 struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(

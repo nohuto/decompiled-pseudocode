@@ -1,10 +1,10 @@
 /*
- * XREFs of KiEpfHandleNotification @ 0x1405C3550
+ * XREFs of KiEpfHandleNotification @ 0x1405C0B20
  * Callers:
- *     KiVirtualizationException @ 0x1406BBD00 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x1406BCC00 (KiVirtualizationException.c)
  * Callees:
- *     KiEpfDrainCompletionQueue @ 0x1405C34CC (KiEpfDrainCompletionQueue.c)
- *     KiEpfStart @ 0x1405C3574 (KiEpfStart.c)
+ *     KiEpfDrainCompletionQueue @ 0x1405C0A9C (KiEpfDrainCompletionQueue.c)
+ *     KiEpfStart @ 0x1405C0B44 (KiEpfStart.c)
  */
 
 __int64 __fastcall KiEpfHandleNotification(__int64 a1)

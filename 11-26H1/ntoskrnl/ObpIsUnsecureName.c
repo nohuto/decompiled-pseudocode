@@ -1,30 +1,30 @@
 /*
- * XREFs of ObpIsUnsecureName @ 0x140A289B4
+ * XREFs of ObpIsUnsecureName @ 0x140A3BA54
  * Callers:
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
  */
 
 char __fastcall ObpIsUnsecureName(PCUNICODE_STRING String2, BOOLEAN a2)
 {
-  unsigned __int64 *p_ThreadLock; // rbx
+  unsigned int *p_CurrentRunTime; // rbx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
-  if ( !LOWORD(stru_140E66B30.ThreadLock) )
+  if ( !LOWORD(stru_140E66D40.CurrentRunTime) )
     return 0;
-  p_ThreadLock = &stru_140E66B30.ThreadLock;
+  p_CurrentRunTime = &stru_140E66D40.CurrentRunTime;
   while ( 1 )
   {
-    RtlInitUnicodeString(&DestinationString, (PCWSTR)p_ThreadLock);
+    RtlInitUnicodeString(&DestinationString, (PCWSTR)p_CurrentRunTime);
     if ( DestinationString.Length )
     {
       if ( RtlPrefixUnicodeString(&DestinationString, String2, a2) )
         break;
     }
-    p_ThreadLock = (unsigned __int64 *)((char *)p_ThreadLock
+    p_CurrentRunTime = (unsigned int *)((char *)p_CurrentRunTime
                                       + 2 * (((unsigned __int64)DestinationString.Length + 2) >> 1));
     if ( !DestinationString.Length )
       return 0;

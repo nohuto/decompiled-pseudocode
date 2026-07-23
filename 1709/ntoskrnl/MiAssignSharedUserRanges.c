@@ -16,7 +16,7 @@ __int64 __fastcall MiAssignSharedUserRanges(__int64 a1)
   __int64 v3; // rsi
   __int16 v4; // ax
   __int64 result; // rax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-39h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-39h] BYREF
   int v7; // [rsp+38h] [rbp-29h]
   _DWORD v8[11]; // [rsp+3Ch] [rbp-25h] BYREF
   _BYTE v9[64]; // [rsp+68h] [rbp+7h] BYREF

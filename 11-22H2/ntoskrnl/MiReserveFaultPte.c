@@ -18,7 +18,7 @@ __int64 MiReserveFaultPte()
   _DWORD *SchedulerAssist; // r9
   int v5; // eax
   bool v6; // zf
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE v9; // [rsp+30h] [rbp-28h] BYREF
 
   BitMapHeader.SizeOfBitMap = 16;
@@ -29,10 +29,10 @@ __int64 MiReserveFaultPte()
   ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, 1u, 0);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v9);
   OldIrql = v9.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

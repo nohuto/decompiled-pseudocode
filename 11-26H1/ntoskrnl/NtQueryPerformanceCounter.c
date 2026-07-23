@@ -1,15 +1,15 @@
 /*
- * XREFs of NtQueryPerformanceCounter @ 0x140A8E4E0
+ * XREFs of NtQueryPerformanceCounter @ 0x140A931B0
  * Callers:
- *     DifNtQueryPerformanceCounterWrapper @ 0x140684E50 (DifNtQueryPerformanceCounterWrapper.c)
+ *     DifNtQueryPerformanceCounterWrapper @ 0x140688A30 (DifNtQueryPerformanceCounterWrapper.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQueryPerformanceCounter(_QWORD *a1, _QWORD *a2)
+NTSTATUS __cdecl NtQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter, PLARGE_INTEGER PerformanceFrequency)
 {
   char PreviousMode; // bl
   LARGE_INTEGER v5; // rax
@@ -22,27 +22,27 @@ __int64 __fastcall NtQueryPerformanceCounter(_QWORD *a1, _QWORD *a2)
   Src[0] = v5;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a1 & 3) != 0 )
+    if ( ((unsigned __int8)PerformanceCounter & 3) != 0 )
       goto LABEL_3;
-    RtlWriteULong64ToUser(a1, v5.QuadPart);
+    RtlWriteULong64ToUser(PerformanceCounter, v5.QuadPart);
   }
   else
   {
-    RtlCopyVolatileMemory(a1, Src, 8uLL);
+    RtlCopyVolatileMemory(PerformanceCounter, Src, 8uLL);
   }
-  if ( a2 )
+  if ( PerformanceFrequency )
   {
     if ( PreviousMode )
     {
-      if ( ((unsigned __int8)a2 & 3) != 0 )
+      if ( ((unsigned __int8)PerformanceFrequency & 3) != 0 )
 LABEL_3:
         ExRaiseDatatypeMisalignment();
-      RtlWriteULong64ToUser(a2, v8.QuadPart);
+      RtlWriteULong64ToUser(PerformanceFrequency, v8.QuadPart);
     }
     else
     {
-      RtlCopyVolatileMemory(a2, &v8, 8uLL);
+      RtlCopyVolatileMemory(PerformanceFrequency, &v8, 8uLL);
     }
   }
-  return 0LL;
+  return 0;
 }

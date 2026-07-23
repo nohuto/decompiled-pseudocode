@@ -1,21 +1,21 @@
 /*
- * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x140AB2F6C
+ * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x140AB430C
  * Callers:
- *     NtImpersonateAnonymousToken @ 0x140AB2A30 (NtImpersonateAnonymousToken.c)
+ *     NtImpersonateAnonymousToken @ 0x140AB3DD0 (NtImpersonateAnonymousToken.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     SepGetAnonymousToken @ 0x1403C9F7C (SepGetAnonymousToken.c)
- *     PsGetServerSiloServiceSessionId @ 0x140487140 (PsGetServerSiloServiceSessionId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SepSetServerSiloToken @ 0x14081221C (SepSetServerSiloToken.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     SepFinalizeTokenAcls @ 0x140926FDC (SepFinalizeTokenAcls.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     SeCreateAccessState @ 0x140A10980 (SeCreateAccessState.c)
- *     SeSetSessionIdToken @ 0x140AE7F2C (SeSetSessionIdToken.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     SepGetAnonymousToken @ 0x1403B321C (SepGetAnonymousToken.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140480B10 (PsGetServerSiloServiceSessionId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SepSetServerSiloToken @ 0x140818078 (SepSetServerSiloToken.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     SepFinalizeTokenAcls @ 0x140902AEC (SepFinalizeTokenAcls.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     SeCreateAccessState @ 0x140A0FB70 (SeCreateAccessState.c)
+ *     SeSetSessionIdToken @ 0x140AE5DDC (SeSetSessionIdToken.c)
  */
 
 __int64 __fastcall SepCopyAnonymousTokenAndSetSilo(__int64 a1, PVOID *a2)
@@ -45,8 +45,8 @@ __int64 __fastcall SepCopyAnonymousTokenAndSetSilo(__int64 a1, PVOID *a2)
     (signed __int64 *)&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors,
     (ULONG_PTR)v10.SubjectSecurityContext.PrimaryToken,
     0x75536553u);
-  ObfReferenceObjectWithTag(PspSiloMonitorLock.WaitBlock[3].Thread, 0x75536553u);
-  v10.SubjectSecurityContext.PrimaryToken = PspSiloMonitorLock.WaitBlock[3].Thread;
+  ObfReferenceObjectWithTag(*(PVOID *)&PspSiloMonitorLock.WaitBlockFill11[160], 0x75536553u);
+  v10.SubjectSecurityContext.PrimaryToken = *(PACCESS_TOKEN *)&PspSiloMonitorLock.WaitBlockFill11[160];
   AnonymousToken = ObInsertObjectEx(v5, &v10, 0, 0, 0, 0LL, 0LL);
   SeDeleteAccessState((__int64)&v10);
   if ( AnonymousToken < 0 )

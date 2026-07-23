@@ -1,15 +1,15 @@
 /*
- * XREFs of HeadlessInit @ 0x140A74260
+ * XREFs of HeadlessInit @ 0x140A75260
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     MmLockPagableDataSection @ 0x1406D0CD0 (MmLockPagableDataSection.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     HdlspEnableTerminal @ 0x1409EF52C (HdlspEnableTerminal.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MmLockPagableDataSection @ 0x1406A7FB0 (MmLockPagableDataSection.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     HdlspEnableTerminal @ 0x1409F052C (HdlspEnableTerminal.c)
  */
 
 void __fastcall HeadlessInit(__int64 a1)

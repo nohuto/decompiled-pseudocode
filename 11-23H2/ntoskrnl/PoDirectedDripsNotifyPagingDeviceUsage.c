@@ -1,10 +1,10 @@
 /*
- * XREFs of PoDirectedDripsNotifyPagingDeviceUsage @ 0x140853DE0
+ * XREFs of PoDirectedDripsNotifyPagingDeviceUsage @ 0x1408540E0
  * Callers:
- *     PiPagePathSetState @ 0x140853C48 (PiPagePathSetState.c)
+ *     PiPagePathSetState @ 0x140853F48 (PiPagePathSetState.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
  */
 
 LONG_PTR __fastcall PoDirectedDripsNotifyPagingDeviceUsage(__int64 a1, char a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetVadWakeList @ 0x140318020
+ * XREFs of MiGetVadWakeList @ 0x140322D70
  * Callers:
- *     MiFreePlaceholderStorage @ 0x1406C3E08 (MiFreePlaceholderStorage.c)
- *     MiReleaseVadEventBlocks @ 0x1406ED390 (MiReleaseVadEventBlocks.c)
- *     MiFreeRotateView @ 0x1408C857C (MiFreeRotateView.c)
- *     MiFreeVadEventBitmap @ 0x1408C8758 (MiFreeVadEventBitmap.c)
- *     MiDeletePartialCloneVads @ 0x1408D9528 (MiDeletePartialCloneVads.c)
+ *     MiFreePlaceholderStorage @ 0x1406229E8 (MiFreePlaceholderStorage.c)
+ *     MiReleaseVadEventBlocks @ 0x140704770 (MiReleaseVadEventBlocks.c)
+ *     MiFreeRotateView @ 0x1408C86DC (MiFreeRotateView.c)
+ *     MiFreeVadEventBitmap @ 0x1408C88B8 (MiFreeVadEventBitmap.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9688 (MiDeletePartialCloneVads.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1402C1A70 (ExpAcquireSpinLockExclusive.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 __int64 *__fastcall MiGetVadWakeList(__int64 a1, int a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -26,7 +26,7 @@ __int64 *__fastcall MiGetVadWakeList(__int64 a1, int a2, __int64 a3, _DWORD *Sch
   v5 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( (Process[1].IdealProcessorPadding[10] & 7) == 2 )
-    v8 = &dword_140C4F780;
+    v8 = &dword_140C4F7C0;
   else
     v8 = (LONG *)&Process[1].IdealNode[2];
   CurrentIrql = KeGetCurrentIrql();

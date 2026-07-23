@@ -8,18 +8,18 @@
  *     RtlGuardCheckLongJumpTarget @ 0x140589918 (RtlGuardCheckLongJumpTarget.c)
  */
 
-__int64 __fastcall RtlGuardRestoreContext(__int64 a1, __int64 a2)
+void __fastcall RtlGuardRestoreContext(PCONTEXT ContextRecord, _EXCEPTION_RECORD *ExceptionRecord, BOOL *a3)
 {
-  if ( a2 )
+  if ( ExceptionRecord )
   {
-    if ( *(_DWORD *)a2 == -2147483610 )
+    if ( ExceptionRecord->ExceptionCode == -2147483610 )
     {
-      RtlGuardCheckLongJumpTarget(*(_QWORD *)(*(_QWORD *)(a2 + 32) + 80LL));
+      RtlGuardCheckLongJumpTarget(*(PVOID *)(ExceptionRecord->ExceptionInformation[0] + 80), (BOOL)ExceptionRecord, a3);
     }
-    else if ( *(_DWORD *)a2 == -1073741785 )
+    else if ( ExceptionRecord->ExceptionCode == -1073741785 )
     {
-      RtlGuardCheckExceptionHandler(*(_QWORD *)(a1 + 248));
+      RtlGuardCheckExceptionHandler((PVOID)ContextRecord->Rip);
     }
   }
-  return RtlRestoreContext(a1, a2);
+  RtlRestoreContext(ContextRecord, ExceptionRecord);
 }

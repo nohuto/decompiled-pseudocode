@@ -8,19 +8,15 @@
  *     RtlLargeIntegerToChar @ 0x1800D3D60 (RtlLargeIntegerToChar.c)
  */
 
-NTSTATUS __fastcall RtlInt64ToUnicodeString(__int64 a1, __int64 a2, UNICODE_STRING *a3)
+NTSTATUS __cdecl RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE_STRING String)
 {
   NTSTATUS result; // eax
   __int64 v5; // rax
-  STRING SourceString; // [rsp+20h] [rbp-78h] BYREF
-  _BYTE v7[80]; // [rsp+30h] [rbp-68h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-78h] BYREF
+  CHAR v7[80]; // [rsp+30h] [rbp-68h] BYREF
 
-  *(_QWORD *)&SourceString.Length = a1;
-  result = ((__int64 (__fastcall *)(STRING *, __int64, __int64, _BYTE *))RtlLargeIntegerToChar)(
-             &SourceString,
-             a2,
-             65LL,
-             v7);
+  *(_QWORD *)&SourceString.Length = Value;
+  result = RtlLargeIntegerToChar((PLARGE_INTEGER)&SourceString, Base, 65, v7);
   if ( result >= 0 )
   {
     SourceString.MaximumLength = 65;
@@ -30,7 +26,7 @@ NTSTATUS __fastcall RtlInt64ToUnicodeString(__int64 a1, __int64 a2, UNICODE_STRI
       ++v5;
     while ( v7[v5] );
     SourceString.Length = v5;
-    return RtlAnsiStringToUnicodeString(a3, &SourceString, 0);
+    return RtlAnsiStringToUnicodeString(String, &SourceString, 0);
   }
   return result;
 }

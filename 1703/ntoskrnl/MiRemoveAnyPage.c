@@ -37,12 +37,12 @@ __int64 __fastcall MiRemoveAnyPage(__int64 a1, __int64 a2, unsigned int a3)
   unsigned __int8 CurrentIrql; // di
   int v18; // r15d
   __int64 i; // rbx
-  union _SLIST_HEADER *v20; // rcx
+  _SLIST_HEADER *v20; // rcx
   PSLIST_ENTRY v21; // rax
   _QWORD *p_Next; // rdi
   ULONG_PTR v23; // rbx
   volatile __int64 *v24; // rdx
-  union _SLIST_HEADER *v25; // rcx
+  _SLIST_HEADER *v25; // rcx
   PSLIST_ENTRY v26; // rax
   _QWORD *v27; // rbx
   __int64 v28; // kr00_8
@@ -111,7 +111,7 @@ LABEL_22:
       {
         for ( i = v10; ; i = v7 )
         {
-          v20 = (union _SLIST_HEADER *)(16LL * (unsigned int)v3 + *(_QWORD *)(v5 + 8 * i + 3944));
+          v20 = (_SLIST_HEADER *)(16LL * (unsigned int)v3 + *(_QWORD *)(v5 + 8 * i + 3944));
           if ( !LOWORD(v20->Alignment) )
             goto LABEL_28;
           v21 = RtlpInterlockedPopEntrySList(v20);
@@ -211,7 +211,7 @@ LABEL_60:
       if ( (_DWORD)v3 == v35 )
         goto LABEL_60;
 LABEL_62:
-      v25 = (union _SLIST_HEADER *)(16LL * (unsigned int)v3 + *(_QWORD *)(v5 + 8 * v12 + 3944));
+      v25 = (_SLIST_HEADER *)(16LL * (unsigned int)v3 + *(_QWORD *)(v5 + 8 * v12 + 3944));
       a2 = (unsigned int)v3;
       if ( LOWORD(v25->Alignment) )
       {

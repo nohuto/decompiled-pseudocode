@@ -1,16 +1,16 @@
 /*
- * XREFs of ViDeadlockAnalyze @ 0x14093CAA8
+ * XREFs of ViDeadlockAnalyze @ 0x14093DAA8
  * Callers:
- *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
- *     ViDeadlockAnalyze @ 0x14093CAA8 (ViDeadlockAnalyze.c)
+ *     VfDeadlockAcquireResource @ 0x14093C514 (VfDeadlockAcquireResource.c)
+ *     ViDeadlockAnalyze @ 0x14093DAA8 (ViDeadlockAnalyze.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x1401BC2A0 (KeGetCurrentStackPointer.c)
- *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
- *     ViDeadlockAddParticipant @ 0x14093C71C (ViDeadlockAddParticipant.c)
- *     ViDeadlockAnalyze @ 0x14093CAA8 (ViDeadlockAnalyze.c)
- *     ViDeadlockCertify @ 0x14093CD8C (ViDeadlockCertify.c)
- *     ViDeadlockPreprocessOptions @ 0x14093D718 (ViDeadlockPreprocessOptions.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAC30 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x1401BC400 (KeGetCurrentStackPointer.c)
+ *     VfReportIssueWithOptions @ 0x14030B008 (VfReportIssueWithOptions.c)
+ *     ViDeadlockAddParticipant @ 0x14093D71C (ViDeadlockAddParticipant.c)
+ *     ViDeadlockAnalyze @ 0x14093DAA8 (ViDeadlockAnalyze.c)
+ *     ViDeadlockCertify @ 0x14093DD8C (ViDeadlockCertify.c)
+ *     ViDeadlockPreprocessOptions @ 0x14093E718 (ViDeadlockPreprocessOptions.c)
  */
 
 __int64 __fastcall ViDeadlockAnalyze(ULONG_PTR a1, ULONG_PTR a2, int a3, unsigned int a4, __int64 a5)
@@ -117,13 +117,13 @@ LABEL_30:
     {
       *((_QWORD *)ViDeadlockGlobals + 4107) = a1;
       ViDeadlockPreprocessOptions(
-        byte_140405544,
+        byte_14040655C,
         "Type !deadlock in the debugger for more information.",
         4097LL,
         a1,
         a2,
         0LL);
-      VfReportIssueWithOptions(0xC4u, 0x1001uLL, a1, a2, 0LL, byte_140405544);
+      VfReportIssueWithOptions(0xC4u, 0x1001uLL, a1, a2, 0LL, byte_14040655C);
       return 0LL;
     }
     v8 = 0;

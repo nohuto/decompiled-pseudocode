@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrefetchDriverPages @ 0x14061F120
+ * XREFs of MiPrefetchDriverPages @ 0x140620120
  * Callers:
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
  * Callees:
- *     MiReadPteShadow @ 0x14006C550 (MiReadPteShadow.c)
- *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
+ *     MiReadPteShadow @ 0x14006C540 (MiReadPteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x140097E20 (MiMakeDemandZeroPte.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA1C0 (MiPrefetchVirtualMemory.c)
  */
 
 __int64 MiPrefetchDriverPages()

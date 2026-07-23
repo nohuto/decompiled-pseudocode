@@ -3,10 +3,10 @@
  * Callers:
  *     PspAddSchedulingGroupToJobChain @ 0x140683BA8 (PspAddSchedulingGroupToJobChain.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobRateControl @ 0x1409B2DDC (PspSetJobRateControl.c)
+ *     PspSetJobRateControl @ 0x1409B2FDC (PspSetJobRateControl.c)
  * Callees:
  *     PspGetRateControlSize @ 0x140684F74 (PspGetRateControlSize.c)
- *     PsChargeSharedPoolQuota @ 0x14075C144 (PsChargeSharedPoolQuota.c)
+ *     PsChargeSharedPoolQuota @ 0x14075C334 (PsChargeSharedPoolQuota.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

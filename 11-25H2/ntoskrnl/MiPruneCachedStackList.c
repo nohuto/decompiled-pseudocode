@@ -10,11 +10,11 @@
  *     RtlpInterlockedPushEntrySList @ 0x1406A8600 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall MiPruneCachedStackList(union _SLIST_HEADER *a1, union _SLIST_HEADER *a2, unsigned int a3, int a4)
+__int64 __fastcall MiPruneCachedStackList(_SLIST_HEADER *a1, _SLIST_HEADER *a2, unsigned int a3, int a4)
 {
   __int64 result; // rax
   PSLIST_ENTRY v9; // rax
-  struct _SLIST_ENTRY *v10; // rbx
+  _SLIST_ENTRY *v10; // rbx
 
   for ( result = LOWORD(a2->Alignment); (unsigned int)result > a3; result = LOWORD(a2->Alignment) )
   {

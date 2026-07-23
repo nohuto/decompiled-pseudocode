@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoGetFileObjectFilterContext @ 0x1402A3610 (IoGetFileObjectFilterContext.c)
- *     IoChangeFileObjectFilterContext @ 0x1402A3984 (IoChangeFileObjectFilterContext.c)
+ *     sub_1402A3610 @ 0x1402A3610 (sub_1402A3610.c)
+ *     sub_1402A3984 @ 0x1402A3984 (sub_1402A3984.c)
  *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
  *     ExReleaseAutoExpandPushLockExclusive @ 0x1402AC890 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -29,7 +29,7 @@ NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSR
   BugCheckParameter2 = 0LL;
   if ( !FileObject )
     return -1073741811;
-  result = IoGetFileObjectFilterContext(FileObject, &BugCheckParameter2, 1);
+  result = sub_1402A3610(FileObject, &BugCheckParameter2, 1);
   if ( result >= 0 )
   {
     if ( BugCheckParameter2 )
@@ -46,14 +46,12 @@ NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSR
     v9 = Pool2 + 1;
     v9[1] = v9;
     *v9 = v9;
-    if ( (int)IoChangeFileObjectFilterContext(FileObject, v8, v6) >= 0
-      || (ExFreePoolWithTag(v7, 0),
-          IoGetFileObjectFilterContext(FileObject, &BugCheckParameter2, 0LL),
-          BugCheckParameter2) )
+    if ( (int)sub_1402A3984(FileObject, v8, v6) >= 0
+      || (ExFreePoolWithTag(v7, 0), sub_1402A3610(FileObject, &BugCheckParameter2, 0LL), BugCheckParameter2) )
     {
 LABEL_6:
       CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
+      --*((_WORD *)CurrentThread + 242);
       v11 = BugCheckParameter2;
       ExAcquireAutoExpandPushLockExclusive(BugCheckParameter2, 0LL);
       v12 = (struct _LIST_ENTRY *)(v11 + 16);
@@ -65,7 +63,7 @@ LABEL_6:
       v13->Blink = &Ptr->Links;
       v12->Flink = &Ptr->Links;
       ExReleaseAutoExpandPushLockExclusive(v11, 0LL);
-      KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+      sub_1402F9540(KeGetCurrentThread());
       return 0;
     }
     else

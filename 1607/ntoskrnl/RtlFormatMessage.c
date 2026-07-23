@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFormatMessage @ 0x140686F04
+ * XREFs of RtlFormatMessage @ 0x140686FE8
  * Callers:
- *     PiGetDeviceRegProperty @ 0x1404F9894 (PiGetDeviceRegProperty.c)
- *     PiGetDeviceRegistryProperty @ 0x14062A568 (PiGetDeviceRegistryProperty.c)
+ *     PiGetDeviceRegProperty @ 0x1404DC820 (PiGetDeviceRegProperty.c)
+ *     PiGetDeviceRegistryProperty @ 0x14062A61C (PiGetDeviceRegistryProperty.c)
  * Callees:
- *     RtlFormatMessageEx @ 0x140686F50 (RtlFormatMessageEx.c)
+ *     RtlFormatMessageEx @ 0x140687034 (RtlFormatMessageEx.c)
  */
 
 NTSTATUS __stdcall RtlFormatMessage(
@@ -18,14 +18,17 @@ NTSTATUS __stdcall RtlFormatMessage(
         ULONG BufferSize,
         PULONG ReturnLength)
 {
+  _PARSE_MESSAGE_CONTEXT *v10; // [rsp+48h] [rbp-10h]
+
   return RtlFormatMessageEx(
-           (int)Message,
+           Message,
            MaxWidth,
            IgnoreInserts,
            ArgumentsAreAnsi,
            ArgumentsAreAnArray,
-           (__int64)Arguments,
+           Arguments,
            Buffer,
            BufferSize,
-           (__int64)ReturnLength);
+           ReturnLength,
+           v10);
 }

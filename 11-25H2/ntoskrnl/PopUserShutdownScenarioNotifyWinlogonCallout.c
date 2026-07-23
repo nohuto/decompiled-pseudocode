@@ -24,7 +24,11 @@ void __fastcall PopUserShutdownScenarioNotifyWinlogonCallout(__int64 a1, __int64
       SleepstudyHelperBlockerActiveReference(PopUserShutdownPoBlockerHandle);
     }
     v2 = 0LL;
-    if ( (unsigned __int8)KeSetTimer2((__int64)&PopUserShutdownCalloutDelayTimer, -900000000LL, 0LL, (__int64)&v2) )
+    if ( (unsigned __int8)KeSetTimer2(
+                            (__int64)&PopUserShutdownCalloutDelayTimer,
+                            (LARGE_INTEGER)-900000000LL,
+                            0LL,
+                            (__int64)&v2) )
     {
       PdcTaskClientRequest(PopUserShutdownTaskClient, 0LL);
       if ( (unsigned int)Feature_RsUserModeShutdown__private_IsEnabledDeviceUsageNoInline() )

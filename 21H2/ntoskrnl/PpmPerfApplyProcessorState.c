@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmPerfApplyProcessorState @ 0x140398B3C
+ * XREFs of PpmPerfApplyProcessorState @ 0x140398C8C
  * Callers:
- *     PpmPerfAction @ 0x140220770 (PpmPerfAction.c)
- *     PpmPerfApplyProcessorStates @ 0x140398950 (PpmPerfApplyProcessorStates.c)
+ *     PpmPerfAction @ 0x1402C5070 (PpmPerfAction.c)
+ *     PpmPerfApplyProcessorStates @ 0x140398AA0 (PpmPerfApplyProcessorStates.c)
  * Callees:
- *     PpmUpdatePerformanceFeedback @ 0x140224070 (PpmUpdatePerformanceFeedback.c)
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14027B9CC (PpmContinueActiveTimeAccumulation.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x140398CA4 (PpmPerfArbitratorApplyProcessorState.c)
- *     PpmEventTraceExpectedUtility @ 0x140398F28 (PpmEventTraceExpectedUtility.c)
- *     PpmScaleIdleStateValues @ 0x140399014 (PpmScaleIdleStateValues.c)
- *     PpmEventLegacyProcessorPerfStateChange @ 0x140399034 (PpmEventLegacyProcessorPerfStateChange.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PpmGetIdleGenerationCounter @ 0x140565D10 (PpmGetIdleGenerationCounter.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14026996C (PpmContinueActiveTimeAccumulation.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1402C8970 (PpmUpdatePerformanceFeedback.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x140398DF4 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmEventTraceExpectedUtility @ 0x140399078 (PpmEventTraceExpectedUtility.c)
+ *     PpmScaleIdleStateValues @ 0x140399164 (PpmScaleIdleStateValues.c)
+ *     PpmEventLegacyProcessorPerfStateChange @ 0x140399184 (PpmEventLegacyProcessorPerfStateChange.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PpmGetIdleGenerationCounter @ 0x140565F50 (PpmGetIdleGenerationCounter.c)
  */
 
 char __fastcall PpmPerfApplyProcessorState(struct _KPRCB *a1, char a2)

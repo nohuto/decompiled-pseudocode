@@ -1,10 +1,10 @@
 /*
- * XREFs of CcInitializeAsyncLazywriteForNodeHelper @ 0x1404F5890
+ * XREFs of CcInitializeAsyncLazywriteForNodeHelper @ 0x1404EEE50
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTagFromNode @ 0x140398280 (ExAllocatePoolWithTagFromNode.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140399FE0 (ExAllocatePoolWithTagFromNode.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall CcInitializeAsyncLazywriteForNodeHelper(__int64 a1, __int64 a2, __int64 a3, char *a4)
@@ -12,7 +12,7 @@ char __fastcall CcInitializeAsyncLazywriteForNodeHelper(__int64 a1, __int64 a2, 
   char v4; // bl
   __int64 v5; // r14
   __int64 v7; // r15
-  __int64 v9; // rdx
+  __int64 PriorityFloorSummary; // rdx
   int v12; // r9d
   void *PoolWithTagFromNode; // rax
   __int64 *v14; // rcx
@@ -27,7 +27,7 @@ char __fastcall CcInitializeAsyncLazywriteForNodeHelper(__int64 a1, __int64 a2, 
   *(_QWORD *)(a3 + 296) = a3 + 288;
   v7 = a3 + 360;
   *(_QWORD *)(a3 + 288) = a3 + 288;
-  v9 = *(unsigned int *)&EmpParseLock.PriorityFloorCounts[24];
+  PriorityFloorSummary = EmpParseLock.PriorityFloorSummary;
   *(_QWORD *)(a3 + 368) = a3 + 360;
   *(_QWORD *)(a3 + 360) = a3 + 360;
   *(_QWORD *)(a3 + 320) = a3 + 312;
@@ -42,12 +42,16 @@ char __fastcall CcInitializeAsyncLazywriteForNodeHelper(__int64 a1, __int64 a2, 
   v12 = *(_DWORD *)(a3 + 24);
   *(_DWORD *)(a3 + 304) = 0;
   *(_DWORD *)(a3 + 376) = 0;
-  PoolWithTagFromNode = (void *)ExAllocatePoolWithTagFromNode(a1, 4 * v9, 0x71576343u, v12 | 0x80000000);
+  PoolWithTagFromNode = (void *)ExAllocatePoolWithTagFromNode(
+                                  a1,
+                                  4 * PriorityFloorSummary,
+                                  0x71576343u,
+                                  v12 | 0x80000000);
   *(_QWORD *)(a3 + 352) = PoolWithTagFromNode;
   if ( PoolWithTagFromNode )
   {
-    memset_0(PoolWithTagFromNode, 255, 4LL * *(unsigned int *)&EmpParseLock.PriorityFloorCounts[24]);
-    for ( i = 0; i < *(_DWORD *)&EmpParseLock.PriorityFloorCounts[24]; ++i )
+    memset_0(PoolWithTagFromNode, 255, 4LL * EmpParseLock.PriorityFloorSummary);
+    for ( i = 0; i < EmpParseLock.PriorityFloorSummary; ++i )
     {
       v16 = ExAllocatePoolWithTagFromNode((__int64)v14, 0x50uLL, 0x71576343u, *(_DWORD *)(a3 + 24) | 0x80000000);
       if ( !v16 )

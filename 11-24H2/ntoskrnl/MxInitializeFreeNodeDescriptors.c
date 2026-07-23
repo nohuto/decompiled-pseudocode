@@ -1,11 +1,11 @@
 /*
- * XREFs of MxInitializeFreeNodeDescriptors @ 0x140C52C0C
+ * XREFs of MxInitializeFreeNodeDescriptors @ 0x140C54D9C
  * Callers:
- *     MxWalkFreeNodeDescriptors @ 0x140C53438 (MxWalkFreeNodeDescriptors.c)
+ *     MxWalkFreeNodeDescriptors @ 0x140C555C8 (MxWalkFreeNodeDescriptors.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x140401E10 (MiRestrictRangeToNode.c)
- *     MxPageAlwaysHot @ 0x140C57D28 (MxPageAlwaysHot.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x1403FC38C (MiRestrictRangeToNode.c)
+ *     MxPageAlwaysHot @ 0x140C59EB8 (MxPageAlwaysHot.c)
  */
 
 __int64 *__fastcall MxInitializeFreeNodeDescriptors(__int64 a1, __int64 a2)

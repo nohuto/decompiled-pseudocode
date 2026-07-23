@@ -1,9 +1,9 @@
 /*
- * XREFs of HvIsInPlaceBaseBlockValid @ 0x140876A74
+ * XREFs of HvIsInPlaceBaseBlockValid @ 0x140876BD4
  * Callers:
- *     HvHiveStartMemoryBacked @ 0x14076FE14 (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x14076FFD4 (HvHiveStartMemoryBacked.c)
  * Callees:
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
  */
 
 bool __fastcall HvIsInPlaceBaseBlockValid(_DWORD *a1)

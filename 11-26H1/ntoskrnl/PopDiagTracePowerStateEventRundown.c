@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePowerStateEventRundown @ 0x140AC118C
+ * XREFs of PopDiagTracePowerStateEventRundown @ 0x140AC322C
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140AC0910 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140AC29B0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PopDiagTracePowerStateEventRundown()
@@ -18,12 +18,9 @@ void PopDiagTracePowerStateEventRundown()
   char *v5; // [rsp+50h] [rbp-28h]
   __int64 v6; // [rsp+58h] [rbp-20h]
 
-  if ( byte_140E67628
-    && EtwEventEnabled(
-         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-         &POP_ETW_EVENT_POWER_STATE_RUNDOWN) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_STATE_RUNDOWN) )
   {
-    v0 = (char *)&unk_140FD5FD0;
+    v0 = (char *)&unk_140FD6FE0;
     v1 = 56LL;
     do
     {
@@ -33,12 +30,7 @@ void PopDiagTracePowerStateEventRundown()
       v4 = 4LL;
       v5 = v0;
       v6 = 8LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_POWER_STATE_RUNDOWN,
-        0LL,
-        3u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_STATE_RUNDOWN, 0LL, 3u, &UserData);
       v0 += 48;
       --v1;
     }

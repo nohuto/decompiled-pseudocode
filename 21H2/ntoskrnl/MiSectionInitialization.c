@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSectionInitialization @ 0x140A55074
+ * XREFs of MiSectionInitialization @ 0x140A56074
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
- *     ObCreateObject @ 0x1406D4AE0 (ObCreateObject.c)
- *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     ObInsertObject @ 0x1406AB4A0 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1406ABDC0 (ObCreateObject.c)
+ *     ObCreateObjectType @ 0x140795AD0 (ObCreateObjectType.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 MiSectionInitialization()
@@ -29,8 +29,8 @@ __int64 MiSectionInitialization()
   v4[1] = 0;
   v8 = 0;
   Handle = 0LL;
-  dword_140C4ED50 = -1;
-  qword_140C4C988 = 0LL;
+  dword_140C4ED90 = -1;
+  qword_140C4C9C8 = 0LL;
   v2.Buffer = L"Section";
   v3[1] = L"\\Device\\PhysicalMemory";
   *(_QWORD *)&v2.Length = 1048590LL;
@@ -52,15 +52,15 @@ __int64 MiSectionInitialization()
     Pool = MiAllocatePool(256, 0x48uLL, 0x67536D4Du);
     if ( Pool )
     {
-      memset(&qword_140C4C9B0, 0, 0x110uLL);
+      memset(&qword_140C4C9F0, 0, 0x110uLL);
       Pool[5] = 0LL;
-      dword_140C4CA78 |= 0x400u;
+      dword_140C4CAB8 |= 0x400u;
       v5 = 0LL;
       v6 = v3;
-      qword_140C4C9B0 = (__int64)&qword_140C4CA40;
-      qword_140C4CA40 = (__int64)Pool;
-      qword_140C4CA58 = 1LL;
-      *Pool = &qword_140C4CA40;
+      qword_140C4C9F0 = (__int64)&qword_140C4CA80;
+      qword_140C4CA80 = (__int64)Pool;
+      qword_140C4CA98 = 1LL;
+      *Pool = &qword_140C4CA80;
       v4[0] = 48;
       v7 = 65552;
       v9 = 0LL;
@@ -70,7 +70,7 @@ __int64 MiSectionInitialization()
       }
       else
       {
-        MEMORY[0x28] = &qword_140C4CA40;
+        MEMORY[0x28] = &qword_140C4CA80;
         MEMORY[0x30] = 0xFFFFFFFFFFFFLL;
         MEMORY[0x38] = 0;
         MEMORY[0x3C] = MEMORY[0x3C] & 0xFFFFF000 | 0x40;

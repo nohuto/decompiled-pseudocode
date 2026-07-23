@@ -8,43 +8,37 @@
  *     RtlRbInsertNodeEx @ 0x1400F70F0 (RtlRbInsertNodeEx.c)
  */
 
-__int64 __fastcall KiAbEntryUpdateWaiterTreePosition(__int64 a1, __int64 a2)
+char __fastcall KiAbEntryUpdateWaiterTreePosition(PRTL_BALANCED_NODE Node, _RTL_RB_TREE *a2)
 {
-  char v3; // r8
-  __int64 result; // rax
-  char **v5; // rdi
-  char *v6; // rdx
-  char v7; // al
-  __int64 v8; // r8
-  char *v9; // rcx
+  char result; // al
+  _RTL_RB_TREE *v4; // rdi
+  _RTL_BALANCED_NODE *Root; // rdx
+  BOOLEAN v6; // al
+  _RTL_BALANCED_NODE *v7; // rcx
 
-  v3 = *(_BYTE *)(a1 - (unsigned __int16)(16 * *(unsigned __int8 *)(a1 + 24)) + 195);
-  result = (unsigned __int8)v3;
-  if ( v3 > 15 )
-    result = 15LL;
-  if ( *(_BYTE *)(a1 + 48) == (_BYTE)result )
+  result = ((_BYTE *)&Node[8].Left - (unsigned __int16)(16 * LOBYTE(Node[1].Children[0])))[3];
+  if ( result > 15 )
+    result = 15;
+  if ( LOBYTE(Node[2].Children[0]) == result )
     return result;
-  v5 = (char **)(a2 + 64);
-  *(_BYTE *)(a1 + 48) = result;
-  RtlRbRemoveNode(a2 + 64, a1);
-  v6 = *v5;
-  v7 = 0;
-  v8 = *(char *)(a1 + 48);
-  if ( !*v5 )
-    goto LABEL_8;
-  while ( v6[48] < (char)v8 )
+  v4 = a2 + 4;
+  LOBYTE(Node[2].Children[0]) = result;
+  RtlRbRemoveNode(a2 + 4, Node);
+  Root = v4->Root;
+  v6 = 0;
+  if ( !v4->Root )
+    return RtlRbInsertNodeEx(v4, Root, v6, Node);
+  while ( SLOBYTE(Root[2].Children[0]) < SLOBYTE(Node[2].Children[0]) )
   {
-    v9 = *(char **)v6;
-    if ( !*(_QWORD *)v6 )
-      goto LABEL_8;
+    v7 = Root->Children[0];
+    if ( !Root->Children[0] )
+      return RtlRbInsertNodeEx(v4, Root, v6, Node);
 LABEL_10:
-    v6 = v9;
+    Root = v7;
   }
-  v9 = (char *)*((_QWORD *)v6 + 1);
-  if ( v9 )
+  v7 = Root->Children[1];
+  if ( v7 )
     goto LABEL_10;
-  v7 = 1;
-LABEL_8:
-  LOBYTE(v8) = v7;
-  return RtlRbInsertNodeEx(v5, v6, v8, a1);
+  v6 = 1;
+  return RtlRbInsertNodeEx(v4, Root, v6, Node);
 }

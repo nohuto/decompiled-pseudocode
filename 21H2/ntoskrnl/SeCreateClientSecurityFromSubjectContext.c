@@ -1,12 +1,12 @@
 /*
- * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1406BE420
+ * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x14061D680
  * Callers:
  *     <none>
  * Callees:
- *     RtlSidDominatesForTrust @ 0x14027DDE0 (RtlSidDominatesForTrust.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     SepCreateClientSecurityEx @ 0x14065E160 (SepCreateClientSecurityEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlSidDominatesForTrust @ 0x14026BD80 (RtlSidDominatesForTrust.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     SepCreateClientSecurityEx @ 0x140652F80 (SepCreateClientSecurityEx.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
@@ -17,41 +17,43 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
 {
   struct _DMA_ADAPTER *ClientToken; // rbx
   __int64 v5; // r14
-  unsigned __int8 v6; // r15
-  int v11; // ebp
+  char v6; // r15
+  int v11; // r8d
+  int v12; // ebp
   NTSTATUS ClientSecurity; // edi
-  __int64 v14; // r11
-  char v15; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v15; // r11
+  BOOLEAN DominatesTrust; // [rsp+90h] [rbp+8h] BYREF
 
   ClientToken = (struct _DMA_ADAPTER *)SubjectContext->ClientToken;
   v5 = 0LL;
   v6 = 0;
-  v15 = 0;
+  DominatesTrust = 0;
   if ( !ClientToken )
     ClientToken = (struct _DMA_ADAPTER *)SubjectContext->PrimaryToken;
   ObfReferenceObject(ClientToken);
   if ( SubjectContext->ClientToken )
   {
-    v11 = 2;
+    v12 = 2;
     RtlSidDominatesForTrust(
-      *((_QWORD *)SubjectContext->PrimaryToken + 138),
-      *((_QWORD *)SubjectContext->ClientToken + 138),
-      &v15);
-    if ( !v15 )
+      *((PSID *)SubjectContext->PrimaryToken + 138),
+      *((PSID *)SubjectContext->ClientToken + 138),
+      &DominatesTrust);
+    if ( !DominatesTrust )
     {
       v6 = 1;
-      v5 = v14;
+      v5 = v15;
     }
   }
   else
   {
-    v11 = 1;
+    v12 = 1;
   }
+  LOBYTE(v11) = ServerIsRemote;
   ClientSecurity = SepCreateClientSecurityEx(
-                     (__int64)ClientToken,
-                     (__int64)ClientSecurityQos,
-                     ServerIsRemote,
+                     (_DWORD)ClientToken,
+                     (_DWORD)ClientSecurityQos,
                      v11,
+                     v12,
                      0,
                      SubjectContext->ImpersonationLevel,
                      0,

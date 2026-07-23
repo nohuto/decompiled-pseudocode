@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateLastBranchTracingConfiguration @ 0x1409F04DC
+ * XREFs of EtwpUpdateLastBranchTracingConfiguration @ 0x1409F076C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1E84 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409E2114 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     EtwpAllocateLbrData @ 0x1409F041C (EtwpAllocateLbrData.c)
- *     EtwpReferenceLastBranchLookasideList @ 0x1409F045C (EtwpReferenceLastBranchLookasideList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     EtwpAllocateLbrData @ 0x1409F06AC (EtwpAllocateLbrData.c)
+ *     EtwpReferenceLastBranchLookasideList @ 0x1409F06EC (EtwpReferenceLastBranchLookasideList.c)
  */
 
 __int64 __fastcall EtwpUpdateLastBranchTracingConfiguration(__int64 a1, __int64 a2)

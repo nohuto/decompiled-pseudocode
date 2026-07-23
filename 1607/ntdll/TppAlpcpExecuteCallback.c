@@ -1,24 +1,24 @@
 /*
- * XREFs of TppAlpcpExecuteCallback @ 0x18001D460
+ * XREFs of TppAlpcpExecuteCallback @ 0x18001D450
  * Callers:
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
  * Callees:
  *     RtlpTpETWCallbackStop @ 0x1800010F4 (RtlpTpETWCallbackStop.c)
  *     RtlpTpETWCallbackStart @ 0x18000116C (RtlpTpETWCallbackStart.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x180016370 (RtlActivateActivationContextUnsafeFast.c)
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     LdrAddRefDll @ 0x180039C20 (LdrAddRefDll.c)
- *     TppIteWakeWaiters @ 0x180064004 (TppIteWakeWaiters.c)
- *     AlpcAdjustCompletionListConcurrencyCount @ 0x1800653F0 (AlpcAdjustCompletionListConcurrencyCount.c)
- *     TpCallbackMayRunLong @ 0x1800776C0 (TpCallbackMayRunLong.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x180016360 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     LdrAddRefDll @ 0x180039C10 (LdrAddRefDll.c)
+ *     TppIteWakeWaiters @ 0x180063FF4 (TppIteWakeWaiters.c)
+ *     AlpcAdjustCompletionListConcurrencyCount @ 0x1800653E0 (AlpcAdjustCompletionListConcurrencyCount.c)
+ *     TpCallbackMayRunLong @ 0x1800776B0 (TpCallbackMayRunLong.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtSetInformationThread @ 0x1800A65C0 (NtSetInformationThread.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
+int __fastcall TppAlpcpExecuteCallback(_DWORD *Instance, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
   signed __int32 v7; // eax
@@ -38,24 +38,24 @@ __int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
   int v21; // eax
   unsigned int v22; // eax
   _QWORD *v23; // r8
-  __int64 result; // rax
+  __int64 v24; // rax
   __int64 v25; // rcx
   struct _TEB *v26; // rax
   void *SubProcessTag; // rdx
   __int64 v28; // rbx
-  _BYTE v29[6]; // [rsp+38h] [rbp-70h] BYREF
-  __int16 v30; // [rsp+3Eh] [rbp-6Ah]
-  int v31; // [rsp+58h] [rbp-50h]
-  int v32; // [rsp+5Ch] [rbp-4Ch]
+  _BYTE Fields[6]; // [rsp+38h] [rbp-70h] BYREF
+  __int16 v31; // [rsp+3Eh] [rbp-6Ah]
+  int v32; // [rsp+58h] [rbp-50h]
+  int v33; // [rsp+5Ch] [rbp-4Ch]
 
   v3 = *(_QWORD *)(a2 + 208);
   if ( v3 )
   {
-    result = LdrAddRefDll(0LL, *(_QWORD *)(a2 + 208));
-    if ( (int)result < 0 )
-      return result;
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v3;
+    LODWORD(v24) = LdrAddRefDll(0, *(PVOID *)(a2 + 208));
+    if ( (int)v24 < 0 )
+      return v24;
+    Instance[36] |= 0x100u;
+    *((_QWORD *)Instance + 21) = v3;
   }
   _InterlockedIncrement((volatile signed __int32 *)(a2 + 72));
   if ( (*(_BYTE *)(a2 + 288) & 3) == 3 )
@@ -68,7 +68,7 @@ __int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
       if ( v7 >= v8 && v7 <= (int)(v9 + MEMORY[0x7FFE03C0]) )
         break;
       if ( v7 == _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 284), v9, v7) )
-        AlpcAdjustCompletionListConcurrencyCount(*(_QWORD *)(a2 + 272), v9);
+        AlpcAdjustCompletionListConcurrencyCount(*(HANDLE *)(a2 + 272), v9);
     }
   }
   v10 = 0;
@@ -78,7 +78,7 @@ __int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
   {
     if ( v10 )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 136));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 136));
       v10 = 0;
     }
     v12 = v11;
@@ -87,7 +87,7 @@ __int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
     {
       v13 &= ~0x8000000000000000uLL;
       v10 = 1;
-      RtlAcquireSRWLockExclusive(a2 + 136);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 136));
     }
     v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 128), v13, v12);
   }
@@ -97,24 +97,24 @@ __int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
   {
     v28 = *(_QWORD *)(a2 + 144);
     *(_QWORD *)(a2 + 144) = 0LL;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 136));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 136));
     TppIteWakeWaiters(v28);
   }
   if ( (unsigned __int64)(*(_QWORD *)(a2 + 168) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    *(_QWORD *)a1 = 72LL;
-    *(_DWORD *)(a1 + 8) = 1;
-    RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 + 168));
-    *(_BYTE *)(a1 + 76) |= 1u;
+    *(_QWORD *)Instance = 72LL;
+    Instance[2] = 1;
+    RtlActivateActivationContextUnsafeFast((__int64)Instance, *(_QWORD *)(a2 + 168));
+    *((_BYTE *)Instance + 76) |= 1u;
   }
-  *(_DWORD *)(a1 + 144) |= 0x240u;
-  *(_QWORD *)(a1 + 184) = a2 + 72;
+  Instance[36] |= 0x240u;
+  *((_QWORD *)Instance + 23) = a2 + 72;
   if ( (*(_DWORD *)(a2 + 240) & 3) == 1 )
-    TpCallbackMayRunLong(a1);
+    TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
   v15 = *(void **)(a2 + 176);
   if ( v15 )
   {
-    *(_QWORD *)(a1 + 80) = v15;
+    *((_QWORD *)Instance + 10) = v15;
     v26 = NtCurrentTeb();
     SubProcessTag = v26->SubProcessTag;
     v26->SubProcessTag = v15;
@@ -122,10 +122,10 @@ __int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
     {
       if ( v15 != SubProcessTag )
       {
-        v31 = (int)SubProcessTag;
-        v30 = 1349;
-        v32 = (int)v15;
-        NtTraceEvent(MEMORY[0x7FFE0390], 1026LL, 8LL, v29);
+        v32 = (int)SubProcessTag;
+        v31 = 1349;
+        v33 = (int)v15;
+        NtTraceEvent((HANDLE)MEMORY[0x7FFE0390], 0x402u, 8u, Fields);
       }
     }
   }
@@ -133,7 +133,7 @@ __int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
   v16 = (_QWORD *)(a2 + 200);
   if ( a2 != -200
     && *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket != *v16
-    && (int)NtSetInformationThread(-2LL, 44LL, v16) >= 0 )
+    && NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v16, 8u) >= 0 )
   {
     *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v16;
   }
@@ -161,41 +161,41 @@ __int64 __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
     v23[6] = v17;
     v23[7] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
   }
-  *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 152);
-  *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 160);
+  *((_QWORD *)Instance + 11) = *(_QWORD *)(a2 + 152);
+  *((_QWORD *)Instance + 12) = *(_QWORD *)(a2 + 160);
   if ( (*(_BYTE *)(a2 + 288) & 1) != 0 )
   {
-    *(_QWORD *)(a1 + 136) = a2;
-    result = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int64))(a2 + 152))(
-               a1,
-               *(_QWORD *)(a2 + 160),
-               a2,
-               a3);
+    *((_QWORD *)Instance + 17) = a2;
+    LODWORD(v24) = (*(__int64 (__fastcall **)(_DWORD *, _QWORD, __int64, __int64))(a2 + 152))(
+                     Instance,
+                     *(_QWORD *)(a2 + 160),
+                     a2,
+                     a3);
   }
   else
   {
-    result = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int64))(a2 + 152))(
-               a1,
-               *(_QWORD *)(a2 + 160),
-               a2,
-               v18);
+    LODWORD(v24) = (*(__int64 (__fastcall **)(_DWORD *, _QWORD, __int64, __int64))(a2 + 152))(
+                     Instance,
+                     *(_QWORD *)(a2 + 160),
+                     a2,
+                     v18);
   }
   if ( MEMORY[0x7FFE0386] )
-    result = RtlpTpETWCallbackStop(
-               *(_QWORD *)(a2 + 216),
-               a2,
-               *(_QWORD *)(a2 + 152),
-               *(_QWORD *)(a2 + 160),
-               *(_QWORD *)(a2 + 176));
+    LODWORD(v24) = RtlpTpETWCallbackStop(
+                     *(_QWORD *)(a2 + 216),
+                     a2,
+                     *(_QWORD *)(a2 + 152),
+                     *(_QWORD *)(a2 + 160),
+                     *(_QWORD *)(a2 + 176));
   if ( v14 )
   {
     v25 = v14[3];
-    result = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
+    v24 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
     if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v25 )
     {
-      result -= v25;
-      v14[3] = result;
+      v24 -= v25;
+      v14[3] = v24;
     }
   }
-  return result;
+  return v24;
 }

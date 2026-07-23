@@ -6,13 +6,13 @@
  *     _RtlImageNtHeader@4 @ 0x4B2BB8E0 (_RtlImageNtHeader@4.c)
  */
 
-char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
+char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned int a2, _DWORD *a3, DWORD *a4)
 {
   int v5; // esi
-  int v6; // ecx
+  DWORD SizeOfImage; // ecx
   int v7; // esi
-  int v8; // eax
-  __int16 v9; // cx
+  PIMAGE_NT_HEADERS v8; // eax
+  WORD Magic; // cx
 
   if ( !a2 )
     return 0;
@@ -22,26 +22,26 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned int a2, _
     return 0;
   _mm_lfence();
   v5 = 32 * a1;
-  v6 = *(_DWORD *)(32 * a1 + AlternateResourceModules + 24);
-  v7 = *(_DWORD *)(v5 + AlternateResourceModules + 16);
+  SizeOfImage = *((_DWORD *)AlternateResourceModules + 8 * a1 + 6);
+  v7 = *(_DWORD *)((char *)AlternateResourceModules + v5 + 16);
   if ( !v7 || v7 == -1 )
     return 0;
-  if ( !v6 )
+  if ( !SizeOfImage )
   {
-    v8 = RtlImageNtHeader(v7 & 0xFFFFFFFC);
+    v8 = RtlImageNtHeader((PVOID)(v7 & 0xFFFFFFFC));
     if ( !v8 )
       return 0;
-    v9 = *(_WORD *)(v8 + 24);
-    if ( v9 == 267 || v9 == 523 )
-      v6 = *(_DWORD *)(v8 + 80);
+    Magic = v8->OptionalHeader.Magic;
+    if ( Magic == 267 || Magic == 523 )
+      SizeOfImage = v8->OptionalHeader.SizeOfImage;
     else
-      v6 = 0;
-    if ( !v6 )
+      SizeOfImage = 0;
+    if ( !SizeOfImage )
       return 0;
   }
-  if ( a2 < (v7 & 0xFFFFFFFC) || a2 >= v6 + (v7 & 0xFFFFFFFC) )
+  if ( a2 < (v7 & 0xFFFFFFFC) || a2 >= SizeOfImage + (v7 & 0xFFFFFFFC) )
     return 0;
   *a3 = v7;
-  *a4 = v6;
+  *a4 = SizeOfImage;
   return 1;
 }

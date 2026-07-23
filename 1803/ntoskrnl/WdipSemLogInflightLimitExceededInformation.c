@@ -63,7 +63,7 @@ LABEL_14:
   if ( LODWORD(v10[125]) )
   {
     do
-      WdipSemFastFree(5, (struct _SLIST_ENTRY *)v10[v6++]);
+      WdipSemFastFree(5, (_SLIST_ENTRY *)v10[v6++]);
     while ( v6 < LODWORD(v10[125]) );
   }
   return (unsigned int)updated;

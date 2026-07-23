@@ -35,7 +35,7 @@ ULONG __stdcall RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToF
 {
   unsigned int SizeOfBitMap; // r15d
   ULONG v4; // esi
-  RTL_BITMAP *v6; // r13
+  _RTL_BITMAP *v6; // r13
   ULONG v7; // ebx
   unsigned int v8; // r9d
   unsigned int *Buffer; // r10

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSymlinkApplyToOpenedName @ 0x140905410
+ * XREFs of IopSymlinkApplyToOpenedName @ 0x1409353A0
  * Callers:
- *     IopGraftName @ 0x140904274 (IopGraftName.c)
+ *     IopGraftName @ 0x140934204 (IopGraftName.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopSymlinkUpdateECP @ 0x140904868 (IopSymlinkUpdateECP.c)
- *     IopReplaceSymlinkPath @ 0x1409055A4 (IopReplaceSymlinkPath.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IopSymlinkUpdateECP @ 0x1409347F8 (IopSymlinkUpdateECP.c)
+ *     IopReplaceSymlinkPath @ 0x140935534 (IopReplaceSymlinkPath.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSymlinkApplyToOpenedName(__int64 a1, __int64 a2, __int64 a3, IRP *a4, PVOID P, __int16 a6)

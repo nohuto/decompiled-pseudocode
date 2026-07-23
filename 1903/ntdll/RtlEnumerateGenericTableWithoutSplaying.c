@@ -6,44 +6,44 @@
  *     <none>
  */
 
-__int64 __fastcall RtlEnumerateGenericTableWithoutSplaying(__int64 *a1, __int64 *a2)
+PVOID __cdecl RtlEnumerateGenericTableWithoutSplaying(PRTL_GENERIC_TABLE Table, PVOID *RestartKey)
 {
-  __int64 result; // rax
-  _QWORD *v4; // rdx
+  PVOID result; // rax
+  PVOID v4; // rdx
   _QWORD *j; // rcx
-  __int64 i; // rcx
-  __int64 k; // rcx
+  _QWORD *i; // rcx
+  _QWORD *k; // rcx
 
-  result = *a1;
-  if ( *a1 )
+  result = Table->TableRoot;
+  if ( Table->TableRoot )
   {
-    v4 = (_QWORD *)*a2;
+    v4 = *RestartKey;
     if ( v4 )
     {
-      result = v4[2];
+      result = (PVOID)*((_QWORD *)v4 + 2);
       if ( result )
       {
-        for ( i = *(_QWORD *)(result + 8); i; i = *(_QWORD *)(i + 8) )
+        for ( i = (_QWORD *)*((_QWORD *)result + 1); i; i = (_QWORD *)i[1] )
           result = i;
       }
       else
       {
-        for ( j = (_QWORD *)*v4; (_QWORD *)j[2] == v4; j = (_QWORD *)*j )
+        for ( j = *(_QWORD **)v4; (PVOID)j[2] == v4; j = (_QWORD *)*j )
           v4 = j;
         result = 0LL;
-        if ( (_QWORD *)j[1] == v4 )
-          result = (__int64)j;
+        if ( (PVOID)j[1] == v4 )
+          result = j;
       }
       if ( !result )
-        return (result + 40) & -(__int64)(result != 0);
+        return (PVOID)(((unsigned __int64)result + 40) & -(__int64)(result != 0LL));
     }
     else
     {
-      for ( k = *(_QWORD *)(result + 8); k; k = *(_QWORD *)(k + 8) )
+      for ( k = (_QWORD *)*((_QWORD *)result + 1); k; k = (_QWORD *)k[1] )
         result = k;
     }
-    *a2 = result;
-    return (result + 40) & -(__int64)(result != 0);
+    *RestartKey = result;
+    return (PVOID)(((unsigned __int64)result + 40) & -(__int64)(result != 0LL));
   }
   return result;
 }

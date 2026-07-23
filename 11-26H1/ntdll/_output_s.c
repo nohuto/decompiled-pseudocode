@@ -1,15 +1,15 @@
 /*
- * XREFs of _output_s @ 0x1801346DC
+ * XREFs of _output_s @ 0x18013444C
  * Callers:
- *     _soutput_s @ 0x18013505C (_soutput_s.c)
+ *     _soutput_s @ 0x180134DCC (_soutput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     _safecrt_wctomb_s @ 0x180134F78 (_safecrt_wctomb_s.c)
- *     write_char_1 @ 0x18013515C (write_char_1.c)
- *     write_multi_char_1 @ 0x1801351AC (write_multi_char_1.c)
- *     write_string_1 @ 0x180135204 (write_string_1.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     _safecrt_wctomb_s @ 0x180134CE8 (_safecrt_wctomb_s.c)
+ *     write_char_1 @ 0x180134ECC (write_char_1.c)
+ *     write_multi_char_1 @ 0x180134F1C (write_multi_char_1.c)
+ *     write_string_1 @ 0x180134F74 (write_string_1.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall output_s(__int64 a1, char *a2, unsigned __int16 *a3)

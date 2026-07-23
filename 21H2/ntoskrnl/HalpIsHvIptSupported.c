@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIsHvIptSupported @ 0x1404C239C
+ * XREFs of HalpIsHvIptSupported @ 0x1404C25DC
  * Callers:
- *     HalpProcGetFeatureBits @ 0x1403A803C (HalpProcGetFeatureBits.c)
+ *     HalpProcGetFeatureBits @ 0x1403A8DCC (HalpProcGetFeatureBits.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A20E8 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall HalpIsHvIptSupported(__int64 a1)

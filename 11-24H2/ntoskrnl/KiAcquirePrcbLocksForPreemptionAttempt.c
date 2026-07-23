@@ -1,16 +1,17 @@
 /*
- * XREFs of KiAcquirePrcbLocksForPreemptionAttempt @ 0x140293070
+ * XREFs of KiAcquirePrcbLocksForPreemptionAttempt @ 0x1402A2C70
  * Callers:
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041FF3C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041592C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1404CC7A8 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1402A6534 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
  */
 
-_BYTE *__fastcall KiAcquirePrcbLocksForPreemptionAttempt(__int64 a1, int a2, unsigned __int64 *a3)
+_BYTE *__fastcall KiAcquirePrcbLocksForPreemptionAttempt(__int64 a1, __int64 a2, unsigned __int64 *a3)
 {
-  unsigned int v4; // r9d
+  __int64 v4; // r9
+  unsigned int v6; // r12d
   unsigned int v7; // ebx
   _BYTE *v8; // rax
   __int64 v9; // rcx
@@ -21,15 +22,16 @@ _BYTE *__fastcall KiAcquirePrcbLocksForPreemptionAttempt(__int64 a1, int a2, uns
   _BYTE *result; // rax
   __int64 v15; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = a2;
+  v4 = (unsigned int)a2;
+  v6 = a2;
   v7 = **(unsigned __int8 **)(a1 + 56);
   v15 = a1;
-  if ( a2 < (int)(v7 >> 7) )
+  if ( (int)a2 < (int)(v7 >> 7) )
     v4 = v7 >> 7;
   *a3 = (int)v4 ^ (a1 ^ (int)v4) & 0xFFFFFFFFFFFFFFFEuLL;
-  if ( v4 )
+  if ( (_DWORD)v4 )
   {
-    if ( v4 != 1 )
+    if ( (_DWORD)v4 != 1 )
       goto LABEL_10;
     v8 = *(_BYTE **)(a1 + 36440);
     v9 = (unsigned __int8)*v8;
@@ -53,7 +55,7 @@ _BYTE *__fastcall KiAcquirePrcbLocksForPreemptionAttempt(__int64 a1, int a2, uns
       {
         if ( (++v13 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v9) )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v9, a2, a3, v4) )
         {
           HvlNotifyLongSpinWait(v13);
         }
@@ -71,6 +73,6 @@ _BYTE *__fastcall KiAcquirePrcbLocksForPreemptionAttempt(__int64 a1, int a2, uns
 LABEL_10:
   result = *(_BYTE **)(a1 + 56);
   if ( ((*result ^ v7) & 0x80u) != 0 )
-    return (_BYTE *)KiAcquirePrcbLocksForPreemptionAttemptSlowPath(a1, (unsigned int)a2, a3);
+    return (_BYTE *)KiAcquirePrcbLocksForPreemptionAttemptSlowPath(a1, v6, a3);
   return result;
 }

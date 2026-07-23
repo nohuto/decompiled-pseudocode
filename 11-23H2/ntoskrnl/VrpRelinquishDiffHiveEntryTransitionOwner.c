@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14077C560
+ * XREFs of VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14077C750
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14077BA9C (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x14077BECC (VrpUnloadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14077BC8C (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14077C0BC (VrpUnloadDifferencingHive.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeWakeWaitChain @ 0x140260940 (KeWakeWaitChain.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeWakeWaitChain @ 0x140260BD0 (KeWakeWaitChain.c)
  */
 
 _QWORD *__fastcall VrpRelinquishDiffHiveEntryTransitionOwner(__int64 a1)

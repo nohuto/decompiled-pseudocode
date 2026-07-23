@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlVerifyUserUnwindTarget @ 0x14091A994
+ * XREFs of RtlVerifyUserUnwindTarget @ 0x14091AAF4
  * Callers:
- *     KiVerifyContextIpForUserCet @ 0x1403F2DF8 (KiVerifyContextIpForUserCet.c)
+ *     KiVerifyContextIpForUserCet @ 0x1403F2E48 (KiVerifyContextIpForUserCet.c)
  * Callees:
- *     bsearch_s @ 0x1403D2590 (bsearch_s.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x1403F88A8 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlpFindDynamicEHContinuationTarget @ 0x14091AB88 (RtlpFindDynamicEHContinuationTarget.c)
+ *     bsearch_s @ 0x1403D2700 (bsearch_s.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1403F88D8 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlpFindDynamicEHContinuationTarget @ 0x14091ACE8 (RtlpFindDynamicEHContinuationTarget.c)
  */
 
 __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int6
   v17 = 0LL;
   v16 = 0LL;
   Key = 0;
-  result = RtlGetImageBaseAndLoadConfig(a1, &v16, (__int64 *)&v17);
+  result = RtlGetImageBaseAndLoadConfig(a1, (PVOID *)&v16, (__int64 *)&v17);
   if ( (int)result >= 0 )
   {
     v7 = v17;

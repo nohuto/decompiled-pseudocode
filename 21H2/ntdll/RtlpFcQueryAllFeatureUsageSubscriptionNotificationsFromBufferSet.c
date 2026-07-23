@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet @ 0x18011B400
  * Callers:
- *     RtlQueryFeatureUsageNotificationSubscriptions @ 0x180101C90 (RtlQueryFeatureUsageNotificationSubscriptions.c)
+ *     RtlQueryFeatureUsageNotificationSubscriptions @ 0x180101C50 (RtlQueryFeatureUsageNotificationSubscriptions.c)
  * Callees:
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet(

@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmUpdateProcessorIdleAccounting @ 0x140145DC4
+ * XREFs of PpmUpdateProcessorIdleAccounting @ 0x140146334
  * Callers:
- *     PpmInstallNewIdleStates @ 0x1401456F8 (PpmInstallNewIdleStates.c)
- *     PpmTranslateIdleAccounting @ 0x14020A8C4 (PpmTranslateIdleAccounting.c)
+ *     PpmInstallNewIdleStates @ 0x140145C68 (PpmInstallNewIdleStates.c)
+ *     PpmTranslateIdleAccounting @ 0x14020A6F0 (PpmTranslateIdleAccounting.c)
  * Callees:
  *     <none>
  */

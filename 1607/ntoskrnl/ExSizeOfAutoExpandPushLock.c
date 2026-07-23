@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSizeOfAutoExpandPushLock @ 0x14022D498
+ * XREFs of ExSizeOfAutoExpandPushLock @ 0x14022D2C4
  * Callers:
  *     <none>
  * Callees:

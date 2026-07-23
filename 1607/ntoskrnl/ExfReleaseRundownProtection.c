@@ -1,23 +1,23 @@
 /*
- * XREFs of ExfReleaseRundownProtection @ 0x140090D30
+ * XREFs of ExfReleaseRundownProtection @ 0x140090490
  * Callers:
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     PfFileInfoNotify @ 0x1400EEAD0 (PfFileInfoNotify.c)
- *     PfFbLogEntryComplete @ 0x1400EFFD4 (PfFbLogEntryComplete.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     CmpConstructNameWithStatus @ 0x140437710 (CmpConstructNameWithStatus.c)
- *     NtEnumerateValueKey @ 0x140439540 (NtEnumerateValueKey.c)
- *     NtEnumerateKey @ 0x140439B70 (NtEnumerateKey.c)
- *     NtQueryKey @ 0x14043B2A0 (NtQueryKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     PsReleaseProcessExitSynchronization @ 0x1404C03A0 (PsReleaseProcessExitSynchronization.c)
- *     ExpCopyProcessInfo @ 0x140507350 (ExpCopyProcessInfo.c)
- *     ObpCallPreOperationCallbacks @ 0x140511820 (ObpCallPreOperationCallbacks.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     PfFileInfoNotify @ 0x1400EC950 (PfFileInfoNotify.c)
+ *     PfFbLogEntryComplete @ 0x1400EDE54 (PfFbLogEntryComplete.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     CmpConstructNameWithStatus @ 0x1404365E0 (CmpConstructNameWithStatus.c)
+ *     NtEnumerateValueKey @ 0x140438410 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x140438A40 (NtEnumerateKey.c)
+ *     NtQueryKey @ 0x14043A170 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     PsReleaseProcessExitSynchronization @ 0x1404AC0D0 (PsReleaseProcessExitSynchronization.c)
+ *     ExpCopyProcessInfo @ 0x1404EA2E0 (ExpCopyProcessInfo.c)
+ *     ObpCallPreOperationCallbacks @ 0x1404F4C10 (ObpCallPreOperationCallbacks.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  */
 
 void __stdcall ExfReleaseRundownProtection(PEX_RUNDOWN_REF RunRef)

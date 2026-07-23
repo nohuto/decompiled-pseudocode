@@ -1,10 +1,10 @@
 /*
- * XREFs of IopVerifierExAllocatePool_2 @ 0x140506E44
+ * XREFs of IopVerifierExAllocatePool_2 @ 0x140506DC4
  * Callers:
- *     NtRemoveIoCompletionEx @ 0x1405E41A0 (NtRemoveIoCompletionEx.c)
+ *     NtRemoveIoCompletionEx @ 0x1406D3900 (NtRemoveIoCompletionEx.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePool_2(__int64 a1, SIZE_T a2)

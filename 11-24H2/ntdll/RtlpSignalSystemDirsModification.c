@@ -1,31 +1,29 @@
 /*
- * XREFs of RtlpSignalSystemDirsModification @ 0x18015E5B4
+ * XREFs of RtlpSignalSystemDirsModification @ 0x18015C974
  * Callers:
- *     LdrpInitializePerUserWindowsDirectory @ 0x1800FAF6C (LdrpInitializePerUserWindowsDirectory.c)
+ *     LdrpInitializePerUserWindowsDirectory @ 0x1800F5EA4 (LdrpInitializePerUserWindowsDirectory.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpInvalidatePathCache @ 0x18010D3AC (RtlpInvalidatePathCache.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpInvalidatePathCache @ 0x18010828C (RtlpInvalidatePathCache.c)
  */
 
-__int64 __fastcall RtlpSignalSystemDirsModification(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void RtlpSignalSystemDirsModification()
 {
-  unsigned __int64 v3; // rsi
-  unsigned __int64 v4; // rdi
-  unsigned __int64 v5; // rbx
-  __int64 result; // rax
+  void *v0; // rsi
+  void *v1; // rdi
+  void *v2; // rbx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpCachedPathLock, a2, a3);
-  v3 = RtlpInvalidatePathCache(&RtlpDllSearchPath);
-  v4 = RtlpInvalidatePathCache(&RtlpExeSearchPath);
-  v5 = RtlpInvalidatePathCache(&RtlpSearchPath);
-  result = RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-  if ( v3 )
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
-  if ( v4 )
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
-  if ( v5 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
-  return result;
+  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
+  v0 = (void *)RtlpInvalidatePathCache(&RtlpDllSearchPath);
+  v1 = (void *)RtlpInvalidatePathCache(&RtlpExeSearchPath);
+  v2 = (void *)RtlpInvalidatePathCache(&RtlpSearchPath);
+  RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  if ( v0 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v0);
+  if ( v1 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
+  if ( v2 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
 }

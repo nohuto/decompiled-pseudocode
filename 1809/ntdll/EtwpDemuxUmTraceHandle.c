@@ -5,12 +5,12 @@
  *     EtwpTraceUmEvent @ 0x18004D7B8 (EtwpTraceUmEvent.c)
  *     EtwpWriteToPrivateBuffers @ 0x18004DFCC (EtwpWriteToPrivateBuffers.c)
  *     EtwpGetPrivateLoggerContextByName @ 0x180052320 (EtwpGetPrivateLoggerContextByName.c)
- *     EtwpShutdownPrivateLoggers @ 0x180086170 (EtwpShutdownPrivateLoggers.c)
- *     EtwpIsPrivateLoggerOn @ 0x1800866CC (EtwpIsPrivateLoggerOn.c)
- *     EtwpTraceUmMessage @ 0x18008C35C (EtwpTraceUmMessage.c)
+ *     EtwpShutdownPrivateLoggers @ 0x180086180 (EtwpShutdownPrivateLoggers.c)
+ *     EtwpIsPrivateLoggerOn @ 0x1800866DC (EtwpIsPrivateLoggerOn.c)
+ *     EtwpTraceUmMessage @ 0x18008C36C (EtwpTraceUmMessage.c)
  *     EtwpGetUmProcessImageInfo @ 0x18010F5A0 (EtwpGetUmProcessImageInfo.c)
  * Callees:
- *     NtTraceControl @ 0x1800A3A50 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1800A3A70 (NtTraceControl.c)
  */
 
 __int64 __fastcall EtwpDemuxUmTraceHandle(int a1, _DWORD *a2)
@@ -19,8 +19,8 @@ __int64 __fastcall EtwpDemuxUmTraceHandle(int a1, _DWORD *a2)
   __int64 v5; // rbx
   __int64 v6; // rsi
   int v7; // eax
-  unsigned __int16 v9; // [rsp+80h] [rbp+18h]
-  int v10; // [rsp+88h] [rbp+20h]
+  unsigned __int16 OutputBuffer; // [rsp+80h] [rbp+18h] BYREF
+  ULONG ReturnLength; // [rsp+88h] [rbp+20h] BYREF
 
   v4 = 0;
   while ( 1 )
@@ -37,10 +37,13 @@ __int64 __fastcall EtwpDemuxUmTraceHandle(int a1, _DWORD *a2)
     }
     else
     {
-      if ( (unsigned int)NtTraceControl() || v10 != 2 )
+      if ( NtTraceControl(EtwQuerySessionDemuxObject, (PVOID)(v6 + 544), 8u, &OutputBuffer, 2u, &ReturnLength)
+        || ReturnLength != 2 )
+      {
         goto LABEL_10;
-      v7 = v9;
-      *(_WORD *)(v6 + 552) = v9;
+      }
+      v7 = OutputBuffer;
+      *(_WORD *)(v6 + 552) = OutputBuffer;
     }
     if ( v7 == a1 )
       break;

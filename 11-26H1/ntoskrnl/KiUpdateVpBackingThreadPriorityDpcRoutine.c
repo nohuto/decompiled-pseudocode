@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x1403BFD40
+ * XREFs of KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x1403C9C40
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403BFE80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403C9D80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  */
 
 void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
@@ -17,7 +17,7 @@ void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
         PVOID SystemArgument2)
 {
   struct _KTHREAD *v4; // rdi
-  struct _KTHREAD *AbWaitObject; // rcx
+  struct _KTHREAD *AllFields; // rcx
   __int64 v6; // r8
   __int64 v7; // r9
   struct _KTHREAD *v8; // rsi
@@ -31,13 +31,13 @@ void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
 
   v4 = 0LL;
   v15.Next = 0LL;
-  KxAcquireSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Blink);
-  AbWaitObject = (struct _KTHREAD *)KiSupervisorXStateFeaturesLock.AbWaitObject;
-  while ( AbWaitObject != (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.AbWaitObject )
+  KxAcquireSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.WpsFeedback);
+  AllFields = (struct _KTHREAD *)KiSupervisorXStateFeaturesLock.KernelShadowStackLimit.AllFields;
+  while ( AllFields != (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.KernelShadowStackLimit )
   {
-    v10 = *(struct _KTHREAD **)&AbWaitObject->Header.Lock;
-    v11 = AbWaitObject;
-    AbWaitObject = v10;
+    v10 = *(struct _KTHREAD **)&AllFields->Header.Lock;
+    v11 = AllFields;
+    AllFields = v10;
     Flink = v11->Header.WaitListHead.Flink;
     if ( (struct _KTHREAD *)v10->Header.WaitListHead.Flink != v11 || (struct _KTHREAD *)Flink->Flink != v11 )
       __fastfail(3u);
@@ -48,7 +48,7 @@ void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
     v11->Header.WaitListHead.Flink = 0LL;
     _InterlockedAdd16((volatile signed __int16 *)&v11[-1].WpsFeedback + 2, 1u);
   }
-  KxReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Blink);
+  KxReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.WpsFeedback);
   if ( v4 )
   {
     do

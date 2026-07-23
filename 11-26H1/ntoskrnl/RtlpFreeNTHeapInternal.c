@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFreeNTHeapInternal @ 0x140352C30
+ * XREFs of RtlpFreeNTHeapInternal @ 0x140354CB0
  * Callers:
- *     RtlFreeHeapFull @ 0x140619770 (RtlFreeHeapFull.c)
+ *     RtlFreeHeapFull @ 0x14061C7CC (RtlFreeHeapFull.c)
  * Callees:
- *     RtlpCallInterceptRoutine @ 0x1403528A8 (RtlpCallInterceptRoutine.c)
- *     RtlpHpVsContextFree @ 0x140352D10 (RtlpHpVsContextFree.c)
- *     RtlpProbeUserBufferSafe @ 0x140521C24 (RtlpProbeUserBufferSafe.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpFreeHeap @ 0x14061C6E0 (RtlpFreeHeap.c)
+ *     RtlpCallInterceptRoutine @ 0x14035492C (RtlpCallInterceptRoutine.c)
+ *     RtlpHpVsContextFree @ 0x140354D90 (RtlpHpVsContextFree.c)
+ *     RtlpProbeUserBufferSafe @ 0x140524290 (RtlpProbeUserBufferSafe.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpFreeHeap @ 0x14061F730 (RtlpFreeHeap.c)
  */
 
 __int64 __fastcall RtlpFreeNTHeapInternal(_DWORD *a1, unsigned __int64 a2, int a3)

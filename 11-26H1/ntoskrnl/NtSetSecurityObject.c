@@ -1,18 +1,18 @@
 /*
- * XREFs of NtSetSecurityObject @ 0x1408ECC30
+ * XREFs of NtSetSecurityObject @ 0x1408F31F0
  * Callers:
- *     DifNtSetSecurityObjectWrapper @ 0x14068D600 (DifNtSetSecurityObjectWrapper.c)
- *     RtlpSysVolTakeOwnership @ 0x14080620C (RtlpSysVolTakeOwnership.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A95EB0 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     DifNtSetSecurityObjectWrapper @ 0x1406911E0 (DifNtSetSecurityObjectWrapper.c)
+ *     RtlpSysVolTakeOwnership @ 0x14080BCAC (RtlpSysVolTakeOwnership.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A992E0 (RtlpSysVolCheckOwnerAndSecurity.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObSetSecurityObjectByPointer @ 0x1408EC3B0 (ObSetSecurityObjectByPointer.c)
- *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1408ED22C (ObpAllocateAndQuerySecurityDescriptorInfo.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SeCaptureSecurityDescriptor @ 0x1409263C0 (SeCaptureSecurityDescriptor.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1409F966C (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SepRmGlobalSaclFind @ 0x140A906C0 (SepRmGlobalSaclFind.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObSetSecurityObjectByPointer @ 0x1408F2970 (ObSetSecurityObjectByPointer.c)
+ *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1408F37EC (ObpAllocateAndQuerySecurityDescriptorInfo.c)
+ *     SeCaptureSecurityDescriptor @ 0x140901ED0 (SeCaptureSecurityDescriptor.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140A6173C (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SepRmGlobalSaclFind @ 0x140A95210 (SepRmGlobalSaclFind.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtSetSecurityObject(

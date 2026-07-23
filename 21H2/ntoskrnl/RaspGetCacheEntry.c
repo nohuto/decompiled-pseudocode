@@ -1,8 +1,8 @@
 /*
- * XREFs of RaspGetCacheEntry @ 0x1403B22A8
+ * XREFs of RaspGetCacheEntry @ 0x1403B2418
  * Callers:
- *     BgpRasPrintGlyph @ 0x1403B1B48 (BgpRasPrintGlyph.c)
- *     RaspGetXExtent @ 0x1403B2104 (RaspGetXExtent.c)
+ *     BgpRasPrintGlyph @ 0x1403B1CB8 (BgpRasPrintGlyph.c)
+ *     RaspGetXExtent @ 0x1403B2274 (RaspGetXExtent.c)
  * Callees:
  *     <none>
  */

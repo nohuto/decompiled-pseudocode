@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpQueryElamCertInfo @ 0x1407B4C04
+ * XREFs of ExpQueryElamCertInfo @ 0x1407B5054
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1406A6910 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1406A6950 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x1406A6D50 (ZwCreateSection.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeRegisterElamCertResources @ 0x14078E2C8 (SeRegisterElamCertResources.c)
- *     SeValidateFileAsImageType @ 0x14078E40C (SeValidateFileAsImageType.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     FsRtlGetFileSize @ 0x140942760 (FsRtlGetFileSize.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140A6E1F0 (IoConvertFileHandleToKernelHandle.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1406A78B0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1406A78F0 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1406A7CF0 (ZwCreateSection.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeRegisterElamCertResources @ 0x14078E1F8 (SeRegisterElamCertResources.c)
+ *     SeValidateFileAsImageType @ 0x14078E33C (SeValidateFileAsImageType.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x14098C9D0 (FsRtlGetFileSize.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140A676F0 (IoConvertFileHandleToKernelHandle.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryElamCertInfo(__int64 a1, __int64 a2)
@@ -24,11 +24,9 @@ __int64 __fastcall ExpQueryElamCertInfo(__int64 a1, __int64 a2)
   void *v3; // r15
   int v4; // esi
   HANDLE FileHandle; // r12
-  LARGE_INTEGER v6; // rbx
-  __int64 v7; // r9
+  ULONG_PTR QuadPart; // rbx
   void *Pool2; // rax
-  __int64 v9; // r9
-  __int64 v10; // rdx
+  __int64 v8; // rdx
   PVOID Object; // [rsp+58h] [rbp-90h] BYREF
   LARGE_INTEGER FileSize; // [rsp+60h] [rbp-88h] BYREF
   ULONG_PTR ViewSize[4]; // [rsp+68h] [rbp-80h] BYREF
@@ -73,7 +71,7 @@ __int64 __fastcall ExpQueryElamCertInfo(__int64 a1, __int64 a2)
           v4 = ZwCreateSection(&SectionHandle, 4u, &ObjectAttributes, 0LL, 2u, 0x8000000u, FileHandle);
           if ( v4 >= 0 )
           {
-            v6 = FileSize;
+            QuadPart = FileSize.QuadPart;
             ViewSize[0] = FileSize.QuadPart;
             v4 = ZwMapViewOfSection(
                    SectionHandle,
@@ -88,19 +86,19 @@ __int64 __fastcall ExpQueryElamCertInfo(__int64 a1, __int64 a2)
                    2u);
             if ( v4 >= 0 )
             {
-              v4 = SeValidateFileAsImageType(0LL, (__int64)BaseAddress, v6.QuadPart, v7);
+              v4 = SeValidateFileAsImageType(0LL, (__int64)BaseAddress);
               if ( v4 >= 0 )
               {
-                Pool2 = (void *)ExAllocatePool2(0x101uLL);
+                Pool2 = (void *)ExAllocatePool2(0x101uLL, QuadPart, 0x4D414C45u);
                 v3 = Pool2;
                 ViewSize[2] = (ULONG_PTR)Pool2;
                 if ( Pool2 )
                 {
-                  memmove(Pool2, BaseAddress, v6.QuadPart);
-                  v4 = SeValidateFileAsImageType(0LL, (__int64)v3, v6.QuadPart, v9);
+                  memmove(Pool2, BaseAddress, QuadPart);
+                  v4 = SeValidateFileAsImageType(0LL, (__int64)v3);
                   if ( v4 >= 0 )
                   {
-                    v4 = SeRegisterElamCertResources((int)v3, v10, 1);
+                    v4 = SeRegisterElamCertResources((int)v3, v8, 1);
                     if ( v4 >= 0 )
                       v4 = 0;
                   }

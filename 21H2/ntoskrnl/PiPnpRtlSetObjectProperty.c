@@ -1,27 +1,27 @@
 /*
- * XREFs of PiPnpRtlSetObjectProperty @ 0x14074578C
+ * XREFs of PiPnpRtlSetObjectProperty @ 0x14074594C
  * Callers:
- *     PiDqIrpPropertySet @ 0x14072E3E4 (PiDqIrpPropertySet.c)
- *     PiDevCfgSetObjectProperty @ 0x1407452EC (PiDevCfgSetObjectProperty.c)
- *     PnpSetDevicePropertyData @ 0x140746BDC (PnpSetDevicePropertyData.c)
- *     PiCMSetObjectProperty @ 0x1407473B8 (PiCMSetObjectProperty.c)
- *     PiSwPropertySet @ 0x140748358 (PiSwPropertySet.c)
- *     PnpSetDeviceInterfacePropertyData @ 0x14077DEA8 (PnpSetDeviceInterfacePropertyData.c)
+ *     PiDqIrpPropertySet @ 0x14072682C (PiDqIrpPropertySet.c)
+ *     PiDevCfgSetObjectProperty @ 0x1407454AC (PiDevCfgSetObjectProperty.c)
+ *     PnpSetDevicePropertyData @ 0x140746D9C (PnpSetDevicePropertyData.c)
+ *     PiCMSetObjectProperty @ 0x140747578 (PiCMSetObjectProperty.c)
+ *     PiSwPropertySet @ 0x140748518 (PiSwPropertySet.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x14077E068 (PnpSetDeviceInterfacePropertyData.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _CmIsRootEnumeratedDevice @ 0x140639EA8 (_CmIsRootEnumeratedDevice.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     _CmSplitDevicePanelId @ 0x1407AFCD8 (_CmSplitDevicePanelId.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x1408B5604 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceOperation @ 0x1408B5648 (PiAuditDeviceOperation.c)
- *     _CmUpdateDevicePanelInterface @ 0x140978E20 (_CmUpdateDevicePanelInterface.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _CmIsRootEnumeratedDevice @ 0x14062ECB8 (_CmIsRootEnumeratedDevice.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1406981E0 (SeAuditingWithTokenForSubcategory.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     _CmSplitDevicePanelId @ 0x1407AFE78 (_CmSplitDevicePanelId.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x1408B5764 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceOperation @ 0x1408B57A8 (PiAuditDeviceOperation.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140979000 (_CmUpdateDevicePanelInterface.c)
  */
 
 __int64 __fastcall PiPnpRtlSetObjectProperty(
@@ -64,61 +64,64 @@ __int64 __fastcall PiPnpRtlSetObjectProperty(
   __int64 v39; // rax
   __int64 v40; // rax
   __int64 v41; // rax
-  __int64 v42; // rcx
-  __int64 v43; // rax
-  __int64 v44; // rax
-  __int64 v45; // rax
+  __int64 v42; // rdx
+  __int64 v43; // r8
+  __int64 v44; // r9
+  __int64 v45; // rcx
   __int64 v46; // rax
-  bool v47; // zf
+  __int64 v47; // rax
   __int64 v48; // rax
+  __int64 v49; // rax
+  bool v50; // zf
+  __int64 v51; // rax
   int DeviceRegProp; // eax
   int ObjectProperty; // eax
-  __int64 v51; // r9
-  __int64 v52; // r8
-  char v53; // [rsp+60h] [rbp-81h]
-  int v54; // [rsp+64h] [rbp-7Dh] BYREF
-  int v55; // [rsp+68h] [rbp-79h] BYREF
-  unsigned int v56; // [rsp+6Ch] [rbp-75h] BYREF
-  int v57; // [rsp+70h] [rbp-71h] BYREF
-  int v58; // [rsp+74h] [rbp-6Dh] BYREF
-  unsigned int v59; // [rsp+78h] [rbp-69h]
-  __int64 v60; // [rsp+80h] [rbp-61h]
-  int v61; // [rsp+88h] [rbp-59h]
-  int v62; // [rsp+8Ch] [rbp-55h]
-  __int64 v63; // [rsp+90h] [rbp-51h]
+  __int64 v54; // r9
+  __int64 v55; // r8
+  char v56; // [rsp+60h] [rbp-81h]
+  int v57; // [rsp+64h] [rbp-7Dh] BYREF
+  int v58; // [rsp+68h] [rbp-79h] BYREF
+  unsigned int v59; // [rsp+6Ch] [rbp-75h] BYREF
+  int v60; // [rsp+70h] [rbp-71h] BYREF
+  int v61; // [rsp+74h] [rbp-6Dh] BYREF
+  unsigned int v62; // [rsp+78h] [rbp-69h]
+  __int64 v63; // [rsp+80h] [rbp-61h]
+  int v64; // [rsp+88h] [rbp-59h]
+  int v65; // [rsp+8Ch] [rbp-55h]
+  __int64 v66; // [rsp+90h] [rbp-51h]
   UNICODE_STRING DestinationString; // [rsp+98h] [rbp-49h] BYREF
-  __int64 v65; // [rsp+A8h] [rbp-39h]
-  __int128 v66; // [rsp+B0h] [rbp-31h] BYREF
+  __int64 v68; // [rsp+A8h] [rbp-39h]
+  __int128 v69; // [rsp+B0h] [rbp-31h] BYREF
   GUID Guid; // [rsp+C0h] [rbp-21h] BYREF
 
-  v63 = a1;
-  v60 = a4;
-  v65 = a5;
-  v62 = 0;
+  v66 = a1;
+  v63 = a4;
+  v68 = a5;
+  v65 = 0;
   v13 = 0;
-  v61 = 0;
-  v54 = 0;
-  v58 = 0;
-  v56 = 0;
-  v59 = 0;
-  v55 = 0;
+  v64 = 0;
   v57 = 0;
-  v53 = 0;
+  v61 = 0;
+  v59 = 0;
+  v62 = 0;
+  v58 = 0;
+  v60 = 0;
+  v56 = 0;
   DestinationString = 0LL;
   Guid = 0LL;
-  v66 = 0LL;
+  v69 = 0LL;
   if ( a3 != 1 )
   {
     if ( a3 == 3 )
     {
       if ( *(_DWORD *)(a6 + 16) == 256 )
       {
-        v46 = *(_QWORD *)a6 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
+        v49 = *(_QWORD *)a6 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
         if ( *(_QWORD *)a6 == *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1 )
-          v46 = *(_QWORD *)(a6 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
-        v47 = v46 == 0;
+          v49 = *(_QWORD *)(a6 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
+        v50 = v49 == 0;
 LABEL_95:
-        if ( v47 )
+        if ( v50 )
           return (unsigned int)-1073741790;
       }
     }
@@ -132,10 +135,10 @@ LABEL_95:
         v32 = (__int64 *)*v30;
         if ( v29 == LODWORD((**v30)[2]) )
         {
-          v42 = *(_QWORD *)a6 - *v32;
+          v45 = *(_QWORD *)a6 - *v32;
           if ( *(_QWORD *)a6 == *v32 )
-            v42 = *(_QWORD *)(a6 + 8) - v32[1];
-          if ( !v42 )
+            v45 = *(_QWORD *)(a6 + 8) - v32[1];
+          if ( !v45 )
             return (unsigned int)-1073741790;
         }
         ++v31;
@@ -195,7 +198,7 @@ LABEL_9:
       if ( !v41 )
       {
 LABEL_94:
-        v47 = CmIsRootEnumeratedDevice(a2) == 0;
+        v50 = CmIsRootEnumeratedDevice(a2) == 0;
         goto LABEL_95;
       }
     }
@@ -215,23 +218,23 @@ LABEL_94:
                     a1,
                     (__int64)a2,
                     1LL,
-                    v60,
+                    v63,
                     0LL,
                     (__int64)&DEVPKEY_Device_ContainerId,
-                    (__int64)&v55,
-                    (__int64)&v66,
+                    (__int64)&v58,
+                    (__int64)&v69,
                     16,
-                    (__int64)&v54,
+                    (__int64)&v57,
                     0) < 0
-          || v55 != 13
-          || v54 != 16 )
+          || v58 != 13
+          || v57 != 16 )
         {
           return (unsigned int)-1073741811;
         }
-        v48 = v66 - *(_QWORD *)&Guid.Data1;
-        if ( (_QWORD)v66 == *(_QWORD *)&Guid.Data1 )
-          v48 = *((_QWORD *)&v66 + 1) - *(_QWORD *)Guid.Data4;
-        v34 = v48 == 0;
+        v51 = v69 - *(_QWORD *)&Guid.Data1;
+        if ( (_QWORD)v69 == *(_QWORD *)&Guid.Data1 )
+          v51 = *((_QWORD *)&v69 + 1) - *(_QWORD *)Guid.Data4;
+        v34 = v51 == 0;
 LABEL_43:
         if ( !v34 )
           return (unsigned int)-1073741811;
@@ -241,10 +244,10 @@ LABEL_43:
   }
   v19 = *(_QWORD *)&DEVPKEY_Device_ConfigFlags.fmtid.Data1;
   v18 = *(_QWORD *)DEVPKEY_Device_ConfigFlags.fmtid.Data4;
-  v43 = *(_QWORD *)a6 - *(_QWORD *)&DEVPKEY_Device_ConfigFlags.fmtid.Data1;
+  v46 = *(_QWORD *)a6 - *(_QWORD *)&DEVPKEY_Device_ConfigFlags.fmtid.Data1;
   if ( *(_QWORD *)a6 == *(_QWORD *)&DEVPKEY_Device_ConfigFlags.fmtid.Data1 )
-    v43 = *(_QWORD *)(a6 + 8) - *(_QWORD *)DEVPKEY_Device_ConfigFlags.fmtid.Data4;
-  if ( !v43 && (!pszSrc || a9 != 4) )
+    v46 = *(_QWORD *)(a6 + 8) - *(_QWORD *)DEVPKEY_Device_ConfigFlags.fmtid.Data4;
+  if ( !v46 && (!pszSrc || a9 != 4) )
     return (unsigned int)-1073741811;
 LABEL_10:
   v20 = 5;
@@ -262,20 +265,20 @@ LABEL_10:
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
           ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-          v53 = 1;
+          v56 = 1;
         }
         break;
       case 12:
-        v44 = *(_QWORD *)a6 - v19;
+        v47 = *(_QWORD *)a6 - v19;
         if ( *(_QWORD *)a6 == v19 )
-          v44 = *(_QWORD *)(a6 + 8) - v18;
-        if ( !v44 && SeAuditingWithTokenForSubcategory(138, 0LL) )
+          v47 = *(_QWORD *)(a6 + 8) - v18;
+        if ( !v47 && SeAuditingWithTokenForSubcategory(138, 0LL) )
         {
-          v54 = 4;
-          DeviceRegProp = CmGetDeviceRegProp(v63, (__int64)a2, v60, 11, (__int64)&v58, (__int64)&v56, (__int64)&v54, 0);
-          if ( DeviceRegProp < 0 || v54 != 4 || v58 != 4 )
-            v56 = 0;
-          v59 = *(_DWORD *)pszSrc;
+          v57 = 4;
+          DeviceRegProp = CmGetDeviceRegProp(v66, (__int64)a2, v63, 11, (__int64)&v61, (__int64)&v59, (__int64)&v57, 0);
+          if ( DeviceRegProp < 0 || v57 != 4 || v61 != 4 )
+            v59 = 0;
+          v62 = *(_DWORD *)pszSrc;
         }
         break;
       case 5:
@@ -284,29 +287,29 @@ LABEL_10:
           v39 = *(_QWORD *)(a6 + 8) - 0x293B573F92A15394LL;
         if ( !v39 && SeAuditingWithTokenForSubcategory(138, 0LL) )
         {
-          v54 = 4;
+          v57 = 4;
           ObjectProperty = PnpGetObjectProperty(
-                             v63,
+                             v66,
                              (__int64)a2,
                              1LL,
-                             v60,
+                             v63,
                              0LL,
                              (__int64)&DEVPKEY_Device_InstallError,
-                             (__int64)&v55,
-                             (__int64)&v57,
+                             (__int64)&v58,
+                             (__int64)&v60,
                              4,
-                             (__int64)&v54,
+                             (__int64)&v57,
                              0);
-          if ( ObjectProperty < 0 || v54 != 4 || v55 != 23 )
-            v57 = 0;
+          if ( ObjectProperty < 0 || v57 != 4 || v58 != 23 )
+            v60 = 0;
           if ( a9 == 4 && a7 == 23 )
             v13 = *(_DWORD *)pszSrc;
         }
         break;
     }
   }
-  v22 = v63;
-  v23 = PnpSetObjectProperty(v63, (_DWORD)a2, a3, v65, a6, a7, (__int64)pszSrc, a9, a10);
+  v22 = v66;
+  v23 = PnpSetObjectProperty(v66, (_DWORD)a2, a3, v68, a6, a7, (__int64)pszSrc, a9, a10);
   v24 = a3 - 1;
   if ( v24 )
   {
@@ -316,21 +319,21 @@ LABEL_10:
       if ( *(_QWORD *)a6 == *(_QWORD *)&DEVPKEY_Device_PhysicalDeviceLocation.fmtid.Data1 )
         v27 = *(_QWORD *)(a6 + 8) - *(_QWORD *)DEVPKEY_Device_PhysicalDeviceLocation.fmtid.Data4;
       if ( !v27 )
-        CmUpdateDevicePanelInterface(v22, a2, v60);
+        CmUpdateDevicePanelInterface(v22, a2, v63);
     }
     goto LABEL_17;
   }
   v25 = *(_DWORD *)(a6 + 16);
   if ( v25 == 12 )
   {
-    v45 = *(_QWORD *)a6 - *(_QWORD *)&DEVPKEY_Device_ConfigFlags.fmtid.Data1;
+    v48 = *(_QWORD *)a6 - *(_QWORD *)&DEVPKEY_Device_ConfigFlags.fmtid.Data1;
     if ( *(_QWORD *)a6 == *(_QWORD *)&DEVPKEY_Device_ConfigFlags.fmtid.Data1 )
-      v45 = *(_QWORD *)(a6 + 8) - *(_QWORD *)DEVPKEY_Device_ConfigFlags.fmtid.Data4;
-    if ( !v45 && SeAuditingWithTokenForSubcategory(138, 0LL) )
+      v48 = *(_QWORD *)(a6 + 8) - *(_QWORD *)DEVPKEY_Device_ConfigFlags.fmtid.Data4;
+    if ( !v48 && SeAuditingWithTokenForSubcategory(138, 0LL) )
     {
       RtlInitUnicodeString(&DestinationString, a2);
-      LOBYTE(v51) = v23 >= 0;
-      PiAuditDeviceEnableDisableRequest(&DestinationString, v56, v59, v51);
+      LOBYTE(v54) = v23 >= 0;
+      PiAuditDeviceEnableDisableRequest(&DestinationString, v59, v62, v54);
     }
     goto LABEL_17;
   }
@@ -342,7 +345,7 @@ LABEL_10:
     if ( !v40 && SeAuditingWithTokenForSubcategory(138, 0LL) )
     {
       RtlInitUnicodeString(&DestinationString, a2);
-      if ( v57 == -536870328 )
+      if ( v60 == -536870328 )
       {
         if ( v13 == -536870328 )
           goto LABEL_17;
@@ -352,15 +355,15 @@ LABEL_10:
       {
         goto LABEL_17;
       }
-      LOBYTE(v52) = v23 >= 0;
-      PiAuditDeviceOperation(&DestinationString, v20, v52);
+      LOBYTE(v55) = v23 >= 0;
+      PiAuditDeviceOperation(&DestinationString, v20, v55);
     }
   }
 LABEL_17:
-  if ( v53 )
+  if ( v56 )
   {
     ExReleaseResourceLite(&PnpRegistryDeviceResource);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v42, v43, v44);
   }
   return (unsigned int)v23;
 }

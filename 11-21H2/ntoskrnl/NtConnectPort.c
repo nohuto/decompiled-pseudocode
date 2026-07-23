@@ -3,10 +3,27 @@
  * Callers:
  *     <none>
  * Callees:
- *     NtSecureConnectPort @ 0x140664220 (NtSecureConnectPort.c)
+ *     sub_140664220 @ 0x140664220 (sub_140664220.c)
  */
 
-__int64 __fastcall NtConnectPort(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7, __int64 a8)
+NTSTATUS __cdecl NtConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
-  return NtSecureConnectPort(a1, a2, a3, a4, 0LL, a5, a6, a7, a8);
+  return sub_140664220(
+           (int)PortHandle,
+           (int)PortName,
+           (int)SecurityQos,
+           (int)ClientView,
+           0LL,
+           (__int64)ServerView,
+           (__int64)MaxMessageLength,
+           (__int64)ConnectionInformation,
+           (__int64)ConnectionInformationLength);
 }

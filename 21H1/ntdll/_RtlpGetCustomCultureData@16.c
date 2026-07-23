@@ -13,13 +13,13 @@
 int __fastcall RtlpGetCustomCultureData(int a1, char a2, char a3, int a4)
 {
   int CustomCultureDataFromFile; // esi
-  _DWORD v7[2]; // [esp+8h] [ebp-8h] BYREF
+  PVOID v7[2]; // [esp+8h] [ebp-8h] BYREF
 
   CustomCultureDataFromFile = RtlpOpenAndMapCustomCultureFile(v7);
   if ( CustomCultureDataFromFile >= 0 )
   {
     CustomCultureDataFromFile = RtlpGetCustomCultureDataFromFile(a2, a3, a4);
-    NtUnmapViewOfSection(-1, v7[1]);
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, v7[1]);
   }
   return CustomCultureDataFromFile;
 }

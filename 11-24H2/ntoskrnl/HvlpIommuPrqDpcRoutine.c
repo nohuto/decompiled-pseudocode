@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpIommuPrqDpcRoutine @ 0x14058AFE0
+ * XREFs of HvlpIommuPrqDpcRoutine @ 0x1405882D0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void __fastcall HvlpIommuPrqDpcRoutine(__int64 a1, __int64 a2)

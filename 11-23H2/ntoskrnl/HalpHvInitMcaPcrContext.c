@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpHvInitMcaPcrContext @ 0x1403802E4
+ * XREFs of HalpHvInitMcaPcrContext @ 0x140380484
  * Callers:
  *     HalpMceInit @ 0x140A8A918 (HalpMceInit.c)
  * Callees:
- *     KeGetCurrentProcessorNumberEx @ 0x1403264B0 (KeGetCurrentProcessorNumberEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033AFA0 (KeQueryMaximumProcessorCountEx.c)
- *     KeSetTargetProcessorDpcEx @ 0x14036BCD0 (KeSetTargetProcessorDpcEx.c)
- *     HalpGetMcaPcrContext @ 0x140380334 (HalpGetMcaPcrContext.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140326740 (KeGetCurrentProcessorNumberEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14033B230 (KeQueryMaximumProcessorCountEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14036BE70 (KeSetTargetProcessorDpcEx.c)
+ *     HalpGetMcaPcrContext @ 0x1403804D4 (HalpGetMcaPcrContext.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -35,7 +35,7 @@ void HalpHvInitMcaPcrContext()
   __int64 v15; // rax
   __int64 j; // rbx
   unsigned int v17; // [rsp+70h] [rbp+8h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+78h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+78h] [rbp+10h] BYREF
   unsigned __int64 v19; // [rsp+80h] [rbp+18h]
 
   v17 = 0;

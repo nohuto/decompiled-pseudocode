@@ -3,10 +3,10 @@
  * Callers:
  *     FsRtlPrepareMdlWriteEx @ 0x1406E4AF0 (FsRtlPrepareMdlWriteEx.c)
  *     FsRtlMdlReadEx @ 0x1406E4C10 (FsRtlMdlReadEx.c)
- *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x1409303C0 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140930460 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     sub_1409303C0 @ 0x1409303C0 (sub_1409303C0.c)
+ *     sub_140930460 @ 0x140930460 (sub_140930460.c)
  * Callees:
- *     IopBuildAsynchronousFsdRequest @ 0x14029BAD0 (IopBuildAsynchronousFsdRequest.c)
+ *     sub_14029BAD0 @ 0x14029BAD0 (sub_14029BAD0.c)
  */
 
 PIRP __stdcall IoBuildAsynchronousFsdRequest(
@@ -19,12 +19,5 @@ PIRP __stdcall IoBuildAsynchronousFsdRequest(
 {
   void *retaddr; // [rsp+48h] [rbp+0h]
 
-  return (PIRP)IopBuildAsynchronousFsdRequest(
-                 MajorFunction,
-                 DeviceObject,
-                 Buffer,
-                 Length,
-                 StartingOffset,
-                 IoStatusBlock,
-                 retaddr);
+  return (PIRP)sub_14029BAD0(MajorFunction, DeviceObject, Buffer, Length, StartingOffset, IoStatusBlock, retaddr);
 }

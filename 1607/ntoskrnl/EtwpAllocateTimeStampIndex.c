@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpAllocateTimeStampIndex @ 0x1404F0DE4
+ * XREFs of EtwpAllocateTimeStampIndex @ 0x1404D2ED8
  * Callers:
- *     EtwpStartLogger @ 0x14048EE94 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x14048F924 (EtwpStartLogger.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ unsigned __int8 __fastcall EtwpAllocateTimeStampIndex(int a1)
   for ( i = 0; i < 2u; ++i )
   {
     v3 = EtwpTimeStampStatus[2 * i];
-    if ( v3 > 0 && (unsigned __int8)byte_1402FD1C9[2 * i] == a1 )
+    if ( v3 > 0 && (unsigned __int8)byte_1402FD1A9[2 * i] == a1 )
     {
       v7 = i;
       result = i;
@@ -37,7 +37,7 @@ unsigned __int8 __fastcall EtwpAllocateTimeStampIndex(int a1)
   v5 = a1 - 2;
   if ( a1 == 2 )
   {
-    v6 = EtwpGetSystemTime;
+    v6 = (__int64 (__fastcall *)())EtwpGetSystemTime;
   }
   else if ( v5 == 1 )
   {
@@ -49,7 +49,7 @@ unsigned __int8 __fastcall EtwpAllocateTimeStampIndex(int a1)
   }
   v7 = result;
   EtwpSystemTimeStamp[result] = v6;
-  byte_1402FD1C9[2 * result] = a1;
+  byte_1402FD1A9[2 * result] = a1;
 LABEL_10:
   EtwpTimeStampStatus[2 * v7] = v3 + 1;
   return result;

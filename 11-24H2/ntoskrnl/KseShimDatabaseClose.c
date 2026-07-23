@@ -1,39 +1,39 @@
 /*
- * XREFs of KseShimDatabaseClose @ 0x14095C27C
+ * XREFs of KseShimDatabaseClose @ 0x140943D3C
  * Callers:
- *     KsepDbGetShimInfo @ 0x14073E5B4 (KsepDbGetShimInfo.c)
- *     KsepDbGetDriverShims @ 0x14095B0A8 (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x14095C178 (KsepDbCacheReadDevice.c)
- *     KseInitialize @ 0x140C2B3FC (KseInitialize.c)
+ *     KsepDbGetShimInfo @ 0x14073C4E4 (KsepDbGetShimInfo.c)
+ *     KsepDbGetDriverShims @ 0x140942B68 (KsepDbGetDriverShims.c)
+ *     KsepDbCacheReadDevice @ 0x140943C38 (KsepDbCacheReadDevice.c)
+ *     KseInitialize @ 0x140C2D51C (KseInitialize.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlAssert @ 0x1405E9340 (RtlAssert.c)
- *     KseShimDatabaseBootRelease @ 0x14095A670 (KseShimDatabaseBootRelease.c)
- *     KsepSdbUnmapFromMemory @ 0x14095CBB4 (KsepSdbUnmapFromMemory.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlAssert @ 0x1405E6890 (RtlAssert.c)
+ *     KseShimDatabaseBootRelease @ 0x140942130 (KseShimDatabaseBootRelease.c)
+ *     KsepSdbUnmapFromMemory @ 0x140944674 (KsepSdbUnmapFromMemory.c)
  */
 
 void __fastcall KseShimDatabaseClose(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rdi
+  char *v5; // rdi
   int v6; // eax
   __int64 v7; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire((__int64)&KsepShimDbLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&KsepShimDbLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&KsepShimDbLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&KsepShimDbLock, (__int64)v3, (__int64)&KsepShimDbLock);
+    ExfAcquirePushLockExclusiveEx(&KsepShimDbLock, v3, (__int64)&KsepShimDbLock);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   if ( a1 != KsepShimDbHandle )
   {
     v7 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
@@ -58,7 +58,7 @@ void __fastcall KseShimDatabaseClose(__int64 a1)
       if ( !KsepShimDbRefCount || (--KsepShimDbRefCount, v6 == 1) )
       {
         KsepSdbUnmapFromMemory(KsepShimDb);
-        KsepSdbUnmapFromMemory(qword_140F0F7F8);
+        KsepSdbUnmapFromMemory(qword_140F0FAD8);
         KsepShimDbHandle = 0LL;
       }
     }

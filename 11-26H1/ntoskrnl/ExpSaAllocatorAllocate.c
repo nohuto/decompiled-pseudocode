@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpSaAllocatorAllocate @ 0x14049943C
+ * XREFs of ExpSaAllocatorAllocate @ 0x140492F8C
  * Callers:
- *     ExSaAllocate @ 0x1404993B0 (ExSaAllocate.c)
+ *     ExSaAllocate @ 0x140492F00 (ExSaAllocate.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     ExpSaPageGroupAllocateMemory @ 0x14049964C (ExpSaPageGroupAllocateMemory.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x1404997AC (ExpSaPageGroupDescriptorAllocate.c)
- *     ExpSaAllocatorOptimizeList @ 0x140499B64 (ExpSaAllocatorOptimizeList.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x14049319C (ExpSaPageGroupAllocateMemory.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1404932FC (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaAllocatorOptimizeList @ 0x1404936B4 (ExpSaAllocatorOptimizeList.c)
  */
 
 __int64 __fastcall ExpSaAllocatorAllocate(struct _KTHREAD *a1, unsigned int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

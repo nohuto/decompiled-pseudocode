@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwRecoverEnlistment @ 0x1800A0390
+ * XREFs of ZwRecoverEnlistment @ 0x1800A0350
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwRecoverEnlistment()
+NTSTATUS __cdecl ZwRecoverEnlistment(HANDLE EnlistmentHandle, PVOID EnlistmentKey)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 363LL;
+  result = 363;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

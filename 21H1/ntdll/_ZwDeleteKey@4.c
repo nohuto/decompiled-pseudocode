@@ -12,7 +12,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwDeleteKey(int a1)
+NTSTATUS __cdecl ZwDeleteKey(HANDLE KeyHandle)
 {
   return Wow64SystemServiceCall();
 }

@@ -1,13 +1,13 @@
 /*
  * XREFs of TppETWTimerSet @ 0x18000193C
  * Callers:
- *     TppSetTimer @ 0x18003C388 (TppSetTimer.c)
+ *     TppSetTimer @ 0x18003C378 (TppSetTimer.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  */
 
-__int64 __fastcall TppETWTimerSet(__int64 a1, __int64 a2)
+NTSTATUS __fastcall TppETWTimerSet(__int64 a1, __int64 a2)
 {
   int v2; // eax
   _WORD v4[16]; // [rsp+20h] [rbp-68h] BYREF
@@ -26,5 +26,5 @@ __int64 __fastcall TppETWTimerSet(__int64 a1, __int64 a2)
   v8 = v2;
   v9 = *(_DWORD *)(a2 + 344);
   v10 = (*(unsigned __int8 *)(a2 + 354) >> 1) & 1;
-  return NtTraceEvent(MEMORY[0x7FFE0386], 132098LL, 36LL, v4);
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE0386], 0x20402u, 0x24u, v4);
 }

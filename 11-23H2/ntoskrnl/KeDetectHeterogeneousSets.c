@@ -1,8 +1,8 @@
 /*
  * XREFs of KeDetectHeterogeneousSets @ 0x14067E998
  * Callers:
- *     KeDoesSystemHaveHeterogeneousCoreTypes @ 0x140382D78 (KeDoesSystemHaveHeterogeneousCoreTypes.c)
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     KeDoesSystemHaveHeterogeneousCoreTypes @ 0x140382F18 (KeDoesSystemHaveHeterogeneousCoreTypes.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */

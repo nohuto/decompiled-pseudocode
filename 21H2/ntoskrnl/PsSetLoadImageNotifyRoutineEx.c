@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetLoadImageNotifyRoutineEx @ 0x14078FC90
+ * XREFs of PsSetLoadImageNotifyRoutineEx @ 0x140791240
  * Callers:
- *     PsSetLoadImageNotifyRoutine @ 0x14078FC40 (PsSetLoadImageNotifyRoutine.c)
+ *     PsSetLoadImageNotifyRoutine @ 0x1407911F0 (PsSetLoadImageNotifyRoutine.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     ExCompareExchangeCallBack @ 0x1403A7E6C (ExCompareExchangeCallBack.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExAllocateCallBack @ 0x140790070 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     ExCompareExchangeCallBack @ 0x1403A8BFC (ExCompareExchangeCallBack.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExAllocateCallBack @ 0x140791620 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsSetLoadImageNotifyRoutineEx(__int64 a1, __int64 a2)

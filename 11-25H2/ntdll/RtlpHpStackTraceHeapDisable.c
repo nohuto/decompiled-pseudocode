@@ -16,6 +16,6 @@ __int64 __fastcall RtlpHpStackTraceHeapDisable(__int64 a1)
   if ( *(_DWORD *)(a1 + 16) == -571548178 && !(unsigned int)RtlpIsProtectedHeap(a1) )
     _InterlockedAnd((volatile signed __int32 *)(a1 + 20), 0xFFFFFFBF);
   IsProtectedHeap = RtlpIsProtectedHeap(a1);
-  RtlpHpPerHeapStackTraceCleanup((volatile signed __int64 *)(v3 + v2), IsProtectedHeap, 1);
+  RtlpHpPerHeapStackTraceCleanup((_RTL_RUN_ONCE *)(v3 + v2), IsProtectedHeap, 1);
   return 0LL;
 }

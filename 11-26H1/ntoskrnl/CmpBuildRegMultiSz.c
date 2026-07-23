@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpBuildRegMultiSz @ 0x140CE9720
+ * XREFs of CmpBuildRegMultiSz @ 0x140CEFAC0
  * Callers:
- *     CmpInitializeSystemBiosInformation @ 0x140CEB4A0 (CmpInitializeSystemBiosInformation.c)
+ *     CmpInitializeSystemBiosInformation @ 0x140CF1840 (CmpInitializeSystemBiosInformation.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 unsigned __int64 __fastcall CmpBuildRegMultiSz(__int64 a1, __int64 a2, _DWORD *a3, const void *a4, unsigned int Size)

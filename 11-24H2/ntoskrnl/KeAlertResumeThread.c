@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAlertResumeThread @ 0x1405B7BA8
+ * XREFs of KeAlertResumeThread @ 0x1405B5180
  * Callers:
- *     NtAlertResumeThread @ 0x14077A3D0 (NtAlertResumeThread.c)
+ *     NtAlertResumeThread @ 0x14077A4D0 (NtAlertResumeThread.c)
  * Callees:
- *     KeResumeThread @ 0x140460900 (KeResumeThread.c)
- *     KeAlertThread @ 0x140479900 (KeAlertThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeResumeThread @ 0x140455D98 (KeResumeThread.c)
+ *     KeAlertThread @ 0x140475190 (KeAlertThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeAlertResumeThread(__int64 a1)

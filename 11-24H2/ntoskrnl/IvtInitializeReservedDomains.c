@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtInitializeReservedDomains @ 0x140B535C8
+ * XREFs of IvtInitializeReservedDomains @ 0x140B55618
  * Callers:
- *     IvtLegacyProcessDeviceExceptions @ 0x140B5250C (IvtLegacyProcessDeviceExceptions.c)
- *     IvtProcessDeviceExceptions @ 0x140B527F4 (IvtProcessDeviceExceptions.c)
+ *     IvtLegacyProcessDeviceExceptions @ 0x140B5455C (IvtLegacyProcessDeviceExceptions.c)
+ *     IvtProcessDeviceExceptions @ 0x140B54844 (IvtProcessDeviceExceptions.c)
  * Callees:
- *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x14053C180 (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
- *     HalpIvtpInitializeReservedDomain @ 0x140B533F8 (HalpIvtpInitializeReservedDomain.c)
- *     HalpIvtpLegacyInitializeReservedDomain @ 0x140B534E4 (HalpIvtpLegacyInitializeReservedDomain.c)
+ *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x140539A0C (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x140B55448 (HalpIvtpInitializeReservedDomain.c)
+ *     HalpIvtpLegacyInitializeReservedDomain @ 0x140B55534 (HalpIvtpLegacyInitializeReservedDomain.c)
  */
 
 __int64 __fastcall IvtInitializeReservedDomains(__int64 a1)

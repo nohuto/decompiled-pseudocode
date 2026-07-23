@@ -35,25 +35,25 @@
  *     RtlInitUnicodeString @ 0x1800461D0 (RtlInitUnicodeString.c)
  */
 
-char __fastcall RtlLCIDToCultureName(unsigned int a1, __int64 a2)
+BOOLEAN __cdecl RtlLCIDToCultureName(LCID Lcid, PUNICODE_STRING String)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   __int64 v5; // rax
   __int64 v6; // rcx
   __int64 v7; // r10
   __int64 v8; // rdx
-  unsigned __int64 v9; // rax
+  void *v9; // rax
   __int64 v11; // rcx
   __int64 v12; // rax
-  unsigned __int16 Length; // di
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
+  USHORT Length; // di
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
 
   v2 = 0;
-  if ( !a1 || !a2 || a1 == 4096 )
+  if ( !Lcid || !String || Lcid == 4096 )
     return v2;
-  if ( qword_18015BF90 && (_WORD)a1 && (_WORD)a1 != 4096 )
+  if ( qword_18015BF90 && (_WORD)Lcid && (_WORD)Lcid != 4096 )
   {
-    v5 = *(_QWORD *)(qword_18015BF90 + 24);
+    v5 = *((_QWORD *)qword_18015BF90 + 3);
     v6 = 0LL;
     if ( *(_WORD *)(v5 + 6) )
     {
@@ -61,27 +61,26 @@ char __fastcall RtlLCIDToCultureName(unsigned int a1, __int64 a2)
       while ( 1 )
       {
         v8 = 28LL * (int)v6;
-        if ( *(_WORD *)(v8 + v7 + 4) == (_WORD)a1 && (*(_WORD *)(v8 + v7) & 0x1020) == 0x20 )
+        if ( *(_WORD *)(v8 + v7 + 4) == (_WORD)Lcid && (*(_WORD *)(v8 + v7) & 0x1020) == 0x20 )
           break;
         v6 = (unsigned int)(v6 + 1);
         if ( (int)v6 >= *(unsigned __int16 *)(v5 + 6) )
           goto LABEL_11;
       }
       v11 = 28LL * (__int16)v6;
-      v12 = *(_QWORD *)(*(_QWORD *)(qword_18015BF90 + 24) + 16LL);
+      v12 = *(_QWORD *)(*((_QWORD *)qword_18015BF90 + 3) + 16LL);
       if ( *(__int16 *)(v12 + v11 + 6) > 0 )
       {
         RtlInitUnicodeString(
           &DestinationString,
-          (PCWSTR)(*(_QWORD *)(*(_QWORD *)(qword_18015BF90 + 32) + 24LL)
+          (PCWSTR)(*(_QWORD *)(*((_QWORD *)qword_18015BF90 + 4) + 24LL)
                  + 2LL
-                 * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(qword_18015BF90 + 32) + 16LL) + 2LL
-                                                                                      * *(__int16 *)(v12 + v11 + 6))));
+                 * *(__int16 *)(*(_QWORD *)(*((_QWORD *)qword_18015BF90 + 4) + 16LL) + 2LL * *(__int16 *)(v12 + v11 + 6))));
         Length = DestinationString.Length;
-        if ( DestinationString.Length <= *(_WORD *)(a2 + 2)
-          && (int)sub_1800456F0(*(_QWORD *)(a2 + 8), *(unsigned __int16 *)(a2 + 2)) >= 0 )
+        if ( DestinationString.Length <= String->MaximumLength
+          && (int)sub_1800456F0(String->Buffer, String->MaximumLength) >= 0 )
         {
-          *(_WORD *)a2 = Length;
+          String->Length = Length;
           return 1;
         }
         return v2;
@@ -90,12 +89,12 @@ char __fastcall RtlLCIDToCultureName(unsigned int a1, __int64 a2)
     else
     {
 LABEL_11:
-      v9 = sub_180045488(v6, 85LL);
+      v9 = (void *)sub_180045488(v6, 85LL);
       if ( v9 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
     }
   }
-  if ( (int)RtlLcidToLocaleName(a1, a2, 2LL) >= 0 )
+  if ( RtlLcidToLocaleName(Lcid, String, 2u, 0) >= 0 )
     return 1;
   return v2;
 }

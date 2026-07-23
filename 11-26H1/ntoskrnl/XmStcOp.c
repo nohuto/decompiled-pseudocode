@@ -1,5 +1,5 @@
 /*
- * XREFs of XmStcOp @ 0x1405AD6C0
+ * XREFs of XmStcOp @ 0x1405AFED0
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of KseSkipDriverUnloadCallbackHookDriverUnload @ 0x1401DE26C
+ * XREFs of KseSkipDriverUnloadCallbackHookDriverUnload @ 0x1401DE098
  * Callers:
  *     <none>
  * Callees:

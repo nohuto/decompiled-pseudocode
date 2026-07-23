@@ -1,21 +1,21 @@
 /*
- * XREFs of MiWriteLargePte @ 0x1403090A0
+ * XREFs of MiWriteLargePte @ 0x140312F80
  * Callers:
- *     MiZeroLargePage @ 0x140308BDC (MiZeroLargePage.c)
- *     MiZeroWithUltraSpace @ 0x140308F60 (MiZeroWithUltraSpace.c)
- *     MiInsertLargeUserMapping @ 0x14036ECE0 (MiInsertLargeUserMapping.c)
- *     MiMapWithLargePages @ 0x1403A7068 (MiMapWithLargePages.c)
- *     MiInitializeNewUltraHugeContext @ 0x1403F98CC (MiInitializeNewUltraHugeContext.c)
- *     MiMapMdlWithLargePages @ 0x1404C71D0 (MiMapMdlWithLargePages.c)
- *     MiHugePageOperation @ 0x140685BC0 (MiHugePageOperation.c)
- *     MiReleaseProcessorHugeMappingAtDpc @ 0x140685DBC (MiReleaseProcessorHugeMappingAtDpc.c)
- *     MiUseProcessorHugeMappingAtDpc @ 0x140685FC4 (MiUseProcessorHugeMappingAtDpc.c)
- *     MiScrubLargePage @ 0x14068DA04 (MiScrubLargePage.c)
- *     MxMapVa @ 0x140C53144 (MxMapVa.c)
+ *     MiInsertLargeUserMapping @ 0x14026AC6C (MiInsertLargeUserMapping.c)
+ *     MiMapWithLargePages @ 0x14026BB00 (MiMapWithLargePages.c)
+ *     MiZeroLargePage @ 0x140312ABC (MiZeroLargePage.c)
+ *     MiZeroWithUltraSpace @ 0x140312E40 (MiZeroWithUltraSpace.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403EF7D8 (MiInitializeNewUltraHugeContext.c)
+ *     MiMapMdlWithLargePages @ 0x1404C0630 (MiMapMdlWithLargePages.c)
+ *     MiHugePageOperation @ 0x140686CF0 (MiHugePageOperation.c)
+ *     MiReleaseProcessorHugeMappingAtDpc @ 0x140686EEC (MiReleaseProcessorHugeMappingAtDpc.c)
+ *     MiUseProcessorHugeMappingAtDpc @ 0x1406870F4 (MiUseProcessorHugeMappingAtDpc.c)
+ *     MiScrubLargePage @ 0x14068EB34 (MiScrubLargePage.c)
+ *     MxMapVa @ 0x140C552D4 (MxMapVa.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiUserPdeOrAbove @ 0x140238638 (MiUserPdeOrAbove.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiUserPdeOrAbove @ 0x1402127C8 (MiUserPdeOrAbove.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
  */
 
 unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, unsigned int a3, int a4)
@@ -43,7 +43,7 @@ unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, uns
   unsigned __int64 v26; // rbx
   unsigned int v27; // esi
   __int64 v28; // rax
-  volatile __int64 *v29; // rcx
+  _QWORD *v29; // rcx
   __int64 v30; // rcx
 
   v4 = a3;
@@ -101,14 +101,14 @@ unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, uns
         v13 = v9;
       if ( v11 < 0xFFFF800000000000uLL )
       {
-        v14 = HIBYTE(word_140E2ED84);
+        v14 = HIBYTE(word_140E2EEC4);
       }
       else if ( v11 < 0xFFFFF68000000000uLL || v11 > 0xFFFFF6FFFFFFFFFFuLL )
       {
-        if ( v11 < qword_140E2F280 || v11 > qword_140E2F290 )
-          v14 = (unsigned __int8)word_140E2ED84;
+        if ( v11 < qword_140E2F3C0 || v11 > qword_140E2F3D0 )
+          v14 = (unsigned __int8)word_140E2EEC4;
         else
-          v14 = HIBYTE(word_140E2ED84);
+          v14 = HIBYTE(word_140E2EEC4);
       }
       else
       {
@@ -125,7 +125,7 @@ unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, uns
     if ( (a4 & 0x40000000) == 0 )
       v17 = v16;
     if ( (a4 & 0x20000000) != 0 )
-      v17 = ((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ v17) & 0xFFFFFFFFFFFFFEFFuLL;
+      v17 = ((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ v17) & 0xFFFFFFFFFFFFFEFFuLL;
     v18 = v17 & 0xFFFFFFFFFFFFFEFFuLL;
     v19 = (a4 & 0x8000000) == 0;
     v20 = MiPtesToSupportLargePageSizes[v4];
@@ -142,7 +142,7 @@ unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, uns
       {
         v24 = (ULONG_PTR *)(v6 + 8 * v23);
         if ( _bittest64(&MiFlags, 0x24u) && (v22 & 0x20) == 0 && (unsigned __int64)v24 >= 0xFFFFF6C000000000uLL )
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v24, v22, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v24, v22, 128LL);
         *v24 = v22;
         v23 = ++v10;
         v22 = (v22 + 4096) ^ ((v22 + 4096) ^ v22) & 0xFFF0000000000FFFuLL;
@@ -160,11 +160,11 @@ unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, uns
       v28 = 0LL;
       do
       {
-        v29 = (volatile __int64 *)(v6 + 8 * v28);
+        v29 = (_QWORD *)(v6 + 8 * v28);
         if ( *v29 )
         {
           if ( (unsigned int)v4 <= 1 )
-            MiRewritePteWithLockBit(0LL, 0, v29, CLFS_LSN_NULL_EXT);
+            MiRewritePteWithLockBit(0LL, 0LL, v29, CLFS_LSN_NULL_EXT);
           else
             *v29 = CLFS_LSN_NULL_EXT;
         }

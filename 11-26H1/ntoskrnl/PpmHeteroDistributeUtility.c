@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmHeteroDistributeUtility @ 0x140259CF0
+ * XREFs of PpmHeteroDistributeUtility @ 0x14025B4D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     PpmParkDistributeUtility @ 0x14025AB54 (PpmParkDistributeUtility.c)
- *     ?RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025B1B0 (-RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     PpmEventTraceHeteroDistributeUtility @ 0x14060ECFC (PpmEventTraceHeteroDistributeUtility.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     PpmParkDistributeUtility @ 0x14025C334 (PpmParkDistributeUtility.c)
+ *     ?RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025C98C (-RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     PpmEventTraceHeteroDistributeUtility @ 0x140611DFC (PpmEventTraceHeteroDistributeUtility.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 PpmHeteroDistributeUtility()
@@ -29,7 +29,7 @@ __int64 PpmHeteroDistributeUtility()
   unsigned int v10; // ebx
   char v11; // di
   char v12; // si
-  __int64 *v13; // r13
+  char *v13; // r13
   __int64 v14; // r12
   __int64 v15; // rdx
   __int64 v16; // r8
@@ -43,14 +43,14 @@ __int64 PpmHeteroDistributeUtility()
   __int64 v24; // rcx
   __int64 v25; // rcx
   char v26; // bl
-  __int64 *v27; // r13
+  char *v27; // r13
   __int64 v28; // rcx
   __int64 v29; // rcx
   unsigned int v30; // [rsp+3Ch] [rbp-CCh] BYREF
   unsigned int v31; // [rsp+40h] [rbp-C8h]
   __int128 v32; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v33; // [rsp+58h] [rbp-B0h]
-  __int64 *v34; // [rsp+60h] [rbp-A8h]
+  char *v34; // [rsp+60h] [rbp-A8h]
   struct _KAFFINITY_EX v35; // [rsp+68h] [rbp-A0h] BYREF
   struct _KAFFINITY_EX v36; // [rsp+178h] [rbp+70h] BYREF
 
@@ -58,24 +58,24 @@ __int64 PpmHeteroDistributeUtility()
   v33 = 0LL;
   v32 = 0LL;
   memset_0(&v35.8, 0, sizeof(v35.8));
-  v34 = &PpmCurrentProfile[89 * dword_140F106CC];
+  v34 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   *(_QWORD *)&v36.Count = 2097153LL;
   memset_0(&v36.8, 0, sizeof(v36.8));
   *(_QWORD *)&v35.Count = 2097153LL;
   result = (__int64)memset_0(&v35.8, 0, sizeof(v35.8));
   v1 = 0;
   v31 = 0;
-  if ( PopModernStandbyStateNotify.SystemCallNumber )
+  if ( PpmParkNumNodes )
   {
     while ( 1 )
     {
-      v2 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * v1;
+      v2 = PpmParkNodes + 1264LL * v1;
       if ( PpmHeteroPolicy == 4 )
         break;
       result = PpmParkDistributeUtility((struct _KAFFINITY_EX *)(v2 + 16), (struct _KAFFINITY_EX *)(v2 + 280), 0, 0LL);
 LABEL_4:
       v31 = ++v1;
-      if ( v1 >= PopModernStandbyStateNotify.SystemCallNumber )
+      if ( v1 >= PpmParkNumNodes )
         return result;
     }
     v3 = 0;
@@ -146,7 +146,7 @@ LABEL_13:
                     v24 = *(_QWORD *)(KeGetPrcb(v30) + 35280);
                     if ( v24 )
                     {
-                      v11 = *((_BYTE *)v13 + 689);
+                      v11 = v13[689];
                       *(_BYTE *)(v24 + 239) = v11;
                     }
                   }
@@ -191,7 +191,7 @@ LABEL_13:
                     v28 = *(_QWORD *)(KeGetPrcb(v30) + 35280);
                     if ( v28 )
                     {
-                      v26 = *((_BYTE *)v27 + 688);
+                      v26 = v27[688];
                       *(_BYTE *)(v28 + 238) = v26;
                     }
                   }

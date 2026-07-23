@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllComboListBoxProc_A @ 0x18009D3B0
+ * XREFs of NtdllComboListBoxProc_A @ 0x18009D370
  * Callers:
  *     <none>
  * Callees:

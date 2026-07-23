@@ -49,7 +49,7 @@ __int64 __fastcall SeCaptureSecurityDescriptor(__int64 a1, char a2, int a3, char
   SIZE_T v28; // rbx
   _DWORD *PoolWithTag; // rax
   _DWORD *v30; // rdi
-  __int64 v31; // rbx
+  ACL *v31; // rbx
   char v32; // r13
   int v33; // ecx
   int v34; // ebx
@@ -365,17 +365,17 @@ __int64 __fastcall SeCaptureSecurityDescriptor(__int64 a1, char a2, int a3, char
   memset(PoolWithTag, 0, (unsigned int)v28);
   *(_OWORD *)v30 = *(_OWORD *)v45;
   v30[4] = v46;
-  v31 = (__int64)(v30 + 5);
+  v31 = (ACL *)(v30 + 5);
   *((_WORD *)v30 + 1) |= 0x8000u;
   if ( (BYTE2(v45[0]) & 0x10) != 0 && v14 )
   {
     memmove(v30 + 5, v14, v40);
     v32 = a2;
-    if ( a2 && !SepCheckAcl((__int64)(v30 + 5), v40) )
+    if ( a2 && !SepCheckAcl((ACL *)(v30 + 5), v40) )
       goto LABEL_124;
     v30[3] = 20;
     *((_WORD *)v30 + 11) = v50;
-    v31 += v50;
+    v31 = (ACL *)((char *)v31 + v50);
   }
   else
   {
@@ -384,12 +384,12 @@ __int64 __fastcall SeCaptureSecurityDescriptor(__int64 a1, char a2, int a3, char
   }
   if ( (BYTE2(v45[0]) & 4) != 0 && v15 )
   {
-    memmove((void *)v31, v15, v16);
-    if ( !v32 || v16 >= 8 && v16 == *(unsigned __int16 *)(v31 + 2) && RtlValidAcl(v31) )
+    memmove(v31, v15, v16);
+    if ( !v32 || v16 >= 8 && v16 == v31->AclSize && RtlValidAcl(v31) )
     {
-      v30[4] = v31 - (_DWORD)v30;
-      *(_WORD *)(v31 + 2) = v7;
-      v31 += v7;
+      v30[4] = (_DWORD)v31 - (_DWORD)v30;
+      v31->AclSize = v7;
+      v31 = (ACL *)((char *)v31 + v7);
       goto LABEL_86;
     }
 LABEL_124:
@@ -403,12 +403,12 @@ LABEL_86:
     v33 = 0;
     goto LABEL_90;
   }
-  memmove((void *)v31, v12, (unsigned int)Size);
-  *(_BYTE *)(v31 + 1) = v49;
-  if ( !v32 || RtlValidSid((PSID)v31) )
+  memmove(v31, v12, (unsigned int)Size);
+  v31->Sbz1 = v49;
+  if ( !v32 || RtlValidSid(v31) )
   {
-    v33 = v31 - (_DWORD)v30;
-    v31 += v51;
+    v33 = (_DWORD)v31 - (_DWORD)v30;
+    v31 = (ACL *)((char *)v31 + v51);
 LABEL_90:
     v30[1] = v33;
     if ( !v44 )
@@ -416,11 +416,11 @@ LABEL_90:
       v34 = 0;
       goto LABEL_94;
     }
-    memmove((void *)v31, v44, v53);
-    *(_BYTE *)(v31 + 1) = v41;
-    if ( !v32 || RtlValidSid((PSID)v31) )
+    memmove(v31, v44, v53);
+    v31->Sbz1 = v41;
+    if ( !v32 || RtlValidSid(v31) )
     {
-      v34 = v31 - (_DWORD)v30;
+      v34 = (_DWORD)v31 - (_DWORD)v30;
 LABEL_94:
       v30[2] = v34;
       *a5 = v30;

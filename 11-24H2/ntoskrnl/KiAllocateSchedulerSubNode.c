@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAllocateSchedulerSubNode @ 0x1405BB0AC
+ * XREFs of KiAllocateSchedulerSubNode @ 0x1405B86DC
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1405BAF4C (KiAllocateProcessorNumber.c)
+ *     KiAllocateProcessorNumber @ 0x1405B857C (KiAllocateProcessorNumber.c)
  * Callees:
- *     KiInitializeSchedulerSubNode @ 0x1405BB7C4 (KiInitializeSchedulerSubNode.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     KiInitializeSchedulerSubNode @ 0x1405B8DF4 (KiInitializeSchedulerSubNode.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall KiAllocateSchedulerSubNode(__int64 a1)

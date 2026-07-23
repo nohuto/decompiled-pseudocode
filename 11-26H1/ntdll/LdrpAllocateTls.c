@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpAllocateTls @ 0x18007F910
+ * XREFs of LdrpAllocateTls @ 0x180076CB0
  * Callers:
- *     LdrpInitializeTls @ 0x18009299C (LdrpInitializeTls.c)
- *     LdrpInitializeThread @ 0x1800CF3C0 (LdrpInitializeThread.c)
+ *     LdrpInitializeTls @ 0x180073B08 (LdrpInitializeTls.c)
+ *     LdrpInitializeThread @ 0x1800CCB30 (LdrpInitializeThread.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     LdrpGetNewTlsVector @ 0x18007FB84 (LdrpGetNewTlsVector.c)
- *     LdrpGenericExceptionFilter @ 0x18015B768 (LdrpGenericExceptionFilter.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     LdrpGetNewTlsVector @ 0x180076F24 (LdrpGetNewTlsVector.c)
+ *     LdrpGenericExceptionFilter @ 0x18015B628 (LdrpGenericExceptionFilter.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 LdrpAllocateTls()
@@ -24,21 +24,22 @@ __int64 LdrpAllocateTls()
   size_t v5; // r12
   char v6; // cl
   unsigned int v7; // edi
-  __int64 Heap_0; // rax
-  _QWORD *v9; // rcx
+  __int64 v8; // rbx
+  PVOID Heap_0; // rax
+  _QWORD *v10; // rcx
   _QWORD *p_ThreadLocalStoragePointer; // rax
-  void **v12; // rbx
-  __int64 v13; // r14
-  struct _TEB *v14; // [rsp+70h] [rbp-48h]
-  unsigned int v15; // [rsp+C8h] [rbp+10h]
+  void **v13; // rbx
+  __int64 v14; // r14
+  struct _TEB *v15; // [rsp+70h] [rbp-48h]
+  unsigned int SizeOfBitMap; // [rsp+C8h] [rbp+10h]
 
   v0 = NtCurrentTeb();
-  v14 = v0;
+  v15 = v0;
   RtlAcquireSRWLockShared(&LdrpTlsLock);
-  v15 = LdrpTlsBitmap;
-  if ( LdrpTlsBitmap )
+  SizeOfBitMap = LdrpTlsBitmap.SizeOfBitMap;
+  if ( LdrpTlsBitmap.SizeOfBitMap )
   {
-    NewTlsVector = (void **)LdrpGetNewTlsVector((unsigned int)LdrpTlsBitmap);
+    NewTlsVector = (void **)LdrpGetNewTlsVector(LdrpTlsBitmap.SizeOfBitMap);
     if ( NewTlsVector )
     {
       v2 = (_UNKNOWN **)LdrpTlsList;
@@ -46,7 +47,7 @@ __int64 LdrpAllocateTls()
       {
         if ( v2 == &LdrpTlsList )
         {
-          p_ThreadLocalStoragePointer = &v14->ThreadLocalStoragePointer;
+          p_ThreadLocalStoragePointer = &v15->ThreadLocalStoragePointer;
           goto LABEL_12;
         }
         v3 = v2;
@@ -59,15 +60,16 @@ __int64 LdrpAllocateTls()
         v7 = 1 << v6;
         if ( (unsigned int)(1 << v6) < 0x10 )
           v7 = 16;
-        Heap_0 = RtlAllocateHeap_0();
+        v8 = v7 - 1;
+        Heap_0 = RtlAllocateHeap_0(LdrpTlsHeap, NtdllBaseTag + 786432, v8 + v5 + 1);
         if ( !Heap_0 )
           break;
-        v9 = (_QWORD *)(~(unsigned __int64)(v7 - 1) & (Heap_0 + v7));
-        *(v9 - 1) = Heap_0;
-        NewTlsVector[*((unsigned int *)v3 + 16)] = v9;
-        memmove(v9, *v4, v5);
+        v10 = (_QWORD *)(~v8 & ((unsigned __int64)Heap_0 + v7));
+        *(v10 - 1) = Heap_0;
+        NewTlsVector[*((unsigned int *)v3 + 16)] = v10;
+        memmove(v10, *v4, v5);
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrtls.c",
+          "minkernel\\ldr\\ldrtls.c",
           963,
           (__int64)"LdrpAllocateTls",
           2,
@@ -79,17 +81,17 @@ __int64 LdrpAllocateTls()
           NewTlsVector[*((unsigned int *)v3 + 16)]);
       }
       RtlReleaseSRWLockShared(&LdrpTlsLock);
-      v12 = NewTlsVector;
-      v13 = v15;
+      v13 = NewTlsVector;
+      v14 = SizeOfBitMap;
       do
       {
-        if ( *v12 )
-          RtlFreeHeap_0();
-        ++v12;
-        --v13;
+        if ( *v13 )
+          RtlFreeHeap_0(LdrpTlsHeap, 0, *((PVOID *)*v13 - 1));
+        ++v13;
+        --v14;
       }
-      while ( v13 );
-      RtlFreeHeap_0();
+      while ( v14 );
+      RtlFreeHeap_0(LdrpTlsHeap, 0, NewTlsVector - 2);
       return 3221225495LL;
     }
     else

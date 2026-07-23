@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFreeCopyObjectsFromIrp @ 0x14040F98C
+ * XREFs of IopFreeCopyObjectsFromIrp @ 0x14040F0AC
  * Callers:
- *     IopFreeIrpExtension @ 0x140268930 (IopFreeIrpExtension.c)
+ *     IopFreeIrpExtension @ 0x140267EA0 (IopFreeIrpExtension.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopUnlockAndFreeMdl @ 0x14040FCD4 (IopUnlockAndFreeMdl.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopUnlockAndFreeMdl @ 0x14040F3F4 (IopUnlockAndFreeMdl.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeCopyObjectsFromIrp(__int64 a1)
@@ -25,9 +25,9 @@ void __fastcall IopFreeCopyObjectsFromIrp(__int64 a1)
       *(_QWORD *)(a1 + 8) = 0LL;
     }
     v4 = *(_QWORD *)(a1 + 112);
-    v5 = *(void **)(v4 - 16);
+    v5 = *(void **)(v4 - 24);
     if ( v5 )
       ObfDereferenceObjectWithTag(v5, 0x746C6644u);
-    ExFreePoolWithTag((PVOID)(v4 - 72), 0);
+    ExFreePoolWithTag((PVOID)(v4 - 80), 0);
   }
 }

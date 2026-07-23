@@ -14,14 +14,14 @@
  *     PopSleepstudyStartNextSession @ 0x140878B14 (PopSleepstudyStartNextSession.c)
  */
 
-__int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KEVENT *a1)
+__int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(__int64 a1)
 {
   _OWORD v3[2]; // [rsp+30h] [rbp-28h] BYREF
 
-  KeResetEvent(a1 + 11);
+  KeResetEvent((PRKEVENT)(a1 + 264));
   memset(v3, 0, sizeof(v3));
   LODWORD(v3[0]) = 3;
-  PopPowerAggregatorSetCurrentState((__int64)a1, (__int64)v3);
+  PopPowerAggregatorSetCurrentState((LARGE_INTEGER *)a1, (__int64)v3);
   PopReleaseRwLock(&PopPowerAggregatorLock);
   PopSleepstudyStartNextSession(1, 0x14u);
   if ( PopIdleScanInterval )

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpValidateContextFlags @ 0x1403D6B50
+ * XREFs of RtlpValidateContextFlags @ 0x1403D9B20
  * Callers:
- *     KiContinuePreviousModeUser @ 0x1403D5A70 (KiContinuePreviousModeUser.c)
- *     RtlpWriteExtendedContext @ 0x1409EC994 (RtlpWriteExtendedContext.c)
- *     RtlpReadExtendedContext @ 0x1409EE360 (RtlpReadExtendedContext.c)
- *     RtlCopyContext @ 0x140A32A50 (RtlCopyContext.c)
- *     RtlpWow64SanitizeContextFlags @ 0x140A83F08 (RtlpWow64SanitizeContextFlags.c)
- *     PspWow64SetContextThread @ 0x140B796B0 (PspWow64SetContextThread.c)
+ *     KiContinuePreviousModeUser @ 0x1403D8A40 (KiContinuePreviousModeUser.c)
+ *     RtlpWriteExtendedContext @ 0x1409E9164 (RtlpWriteExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x1409EAB30 (RtlpReadExtendedContext.c)
+ *     RtlCopyContext @ 0x140A4D9B0 (RtlCopyContext.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x140A8925C (RtlpWow64SanitizeContextFlags.c)
+ *     PspWow64SetContextThread @ 0x140B81920 (PspWow64SetContextThread.c)
  * Callees:
  *     <none>
  */

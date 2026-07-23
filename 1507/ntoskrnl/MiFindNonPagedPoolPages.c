@@ -18,7 +18,7 @@
 
 __int64 __fastcall MiFindNonPagedPoolPages(unsigned int a1, unsigned __int64 a2)
 {
-  union _SLIST_HEADER *v4; // rbx
+  _SLIST_HEADER *v4; // rbx
   __int64 v5; // rbp
   __int64 v6; // r12
   __int16 v7; // r14

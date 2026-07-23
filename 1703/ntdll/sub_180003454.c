@@ -9,26 +9,26 @@
  *     RtlSetLastWin32Error @ 0x18005D580 (RtlSetLastWin32Error.c)
  */
 
-unsigned int *__fastcall sub_180003454(__int64 a1, unsigned int a2, int a3)
+void *__fastcall sub_180003454(__int64 a1, unsigned int a2, int a3)
 {
-  unsigned int *Heap; // rax
-  unsigned int *v7; // rbx
+  _DWORD *Heap; // rax
+  void *v7; // rbx
 
   if ( a1 )
   {
-    Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 40LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x28uLL);
     v7 = Heap;
     if ( Heap )
     {
       *Heap = a3 & 0xFFFFFFFB;
       if ( (unsigned int)sub_1800034D4(Heap, a1, a2) )
         return v7;
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     }
   }
   else
   {
-    RtlSetLastWin32Error(87LL);
+    RtlSetLastWin32Error(87);
   }
   return 0LL;
 }

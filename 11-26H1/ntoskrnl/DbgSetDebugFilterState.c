@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgSetDebugFilterState @ 0x1406180A0
+ * XREFs of DbgSetDebugFilterState @ 0x14061B0F0
  * Callers:
  *     <none>
  * Callees:
- *     NtSetDebugFilterState @ 0x1408A6EF0 (NtSetDebugFilterState.c)
+ *     NtSetDebugFilterState @ 0x1408AD360 (NtSetDebugFilterState.c)
  */
 
 NTSTATUS __stdcall DbgSetDebugFilterState(ULONG ComponentId, ULONG Level, BOOLEAN State)

@@ -1,14 +1,14 @@
 /*
  * XREFs of qsort_s @ 0x1403E2250
  * Callers:
- *     ?StDmCombineBufferAddEntry@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_SM_PAGE_COMBINE_BUFFER@@PEAU_STDM_COMBINE_ENTRY_CACHE@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14037F4B4 (-StDmCombineBufferAddEntry@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_SM_PAGE_COMBINE_B.c)
- *     WheaPersistBadPageToBcd @ 0x140644D30 (WheaPersistBadPageToBcd.c)
- *     WheapFormatBadPageList @ 0x1406451CC (WheapFormatBadPageList.c)
+ *     sub_14037F4B4 @ 0x14037F4B4 (sub_14037F4B4.c)
+ *     sub_140644D30 @ 0x140644D30 (sub_140644D30.c)
+ *     sub_1406451CC @ 0x1406451CC (sub_1406451CC.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_check_icall @ 0x14042A590 (_guard_check_icall.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A590 @ 0x14042A590 (sub_14042A590.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     memset @ 0x140435E00 (memset.c)
  */
 
@@ -63,6 +63,7 @@ void __cdecl qsort_s(
   {
     if ( NumOfElements >= 2 )
     {
+      sub_14042A590(PtFuncCompare);
       v9 = &v7[SizeOfElements * (NumOfElements - 1)];
       v10 = 0LL;
       v39 = 0LL;
@@ -80,7 +81,7 @@ void __cdecl qsort_s(
                 v12 = v7;
                 for ( i = &v7[SizeOfElements]; i <= v9; i += SizeOfElements )
                 {
-                  if ( ((int (__fastcall *)(void *, char *, char *))PtFuncCompare)(Context, i, v12) > 0 )
+                  if ( (int)sub_14042A5E0(Context, i) > 0 )
                     v12 = i;
                 }
                 v14 = SizeOfElements;
@@ -260,6 +261,6 @@ LABEL_18:
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
   }
 }

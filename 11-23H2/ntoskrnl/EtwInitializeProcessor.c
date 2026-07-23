@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwInitializeProcessor @ 0x14081D7D8
+ * XREFs of EtwInitializeProcessor @ 0x14081DAA8
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  * Callees:
- *     EtwpCCSwapDeleteProcessor @ 0x14060420C (EtwpCCSwapDeleteProcessor.c)
- *     EtwpCCSwapInitializeProcessor @ 0x14081D8E4 (EtwpCCSwapInitializeProcessor.c)
+ *     EtwpCCSwapDeleteProcessor @ 0x14060475C (EtwpCCSwapDeleteProcessor.c)
+ *     EtwpCCSwapInitializeProcessor @ 0x14081DBB4 (EtwpCCSwapInitializeProcessor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

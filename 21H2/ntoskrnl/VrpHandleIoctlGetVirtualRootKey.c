@@ -1,15 +1,15 @@
 /*
- * XREFs of VrpHandleIoctlGetVirtualRootKey @ 0x140882BB8
+ * XREFs of VrpHandleIoctlGetVirtualRootKey @ 0x140882D18
  * Callers:
  *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
  *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
- *     PsIsThreadInSilo @ 0x14025C988 (PsIsThreadInSilo.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     PsIsThreadInSilo @ 0x14027DEF8 (PsIsThreadInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlGetVirtualRootKey(
@@ -26,12 +26,13 @@ __int64 __fastcall VrpHandleIoctlGetVirtualRootKey(
   struct _LIST_ENTRY *v11; // r14
   ULONG v12; // ecx
   HANDLE v13; // rcx
+  _QWORD *Tag; // [rsp+20h] [rbp-60h]
   PVOID Object; // [rsp+40h] [rbp-40h] BYREF
-  __int64 v16; // [rsp+48h] [rbp-38h]
+  __int64 v17; // [rsp+48h] [rbp-38h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+B8h] [rbp+38h] BYREF
 
-  v16 = 0LL;
+  v17 = 0LL;
   Object = 0LL;
   KeyHandle = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
@@ -41,21 +42,14 @@ __int64 __fastcall VrpHandleIoctlGetVirtualRootKey(
   }
   else
   {
-    JobSilo = ObpReferenceObjectByHandleWithTag(
-                *(_QWORD *)a1,
-                4,
-                (__int64)PsJobType,
-                a3,
-                0x52566D43u,
-                &Object,
-                0LL,
-                0LL);
+    LODWORD(Tag) = 1381395779;
+    JobSilo = ObpReferenceObjectByHandleWithTag(*(_QWORD *)a1, 4LL, PsJobType, a3, Tag, &Object, 0LL, 0LL);
     if ( JobSilo >= 0 )
     {
       JobSilo = PsGetJobSilo((__int64)Object);
       if ( JobSilo >= 0 )
       {
-        if ( PsIsThreadInSilo((__int64)KeGetCurrentThread(), v16) )
+        if ( PsIsThreadInSilo((__int64)KeGetCurrentThread(), v17) )
         {
           JobSilo = -1073741811;
         }

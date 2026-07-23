@@ -1,11 +1,11 @@
 /*
- * XREFs of IoDeleteSymbolicLink @ 0x140547320
+ * XREFs of IoDeleteSymbolicLink @ 0x140547860
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwMakeTemporaryObject @ 0x14015BCE0 (ZwMakeTemporaryObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x14015C040 (ZwOpenSymbolicLinkObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwMakeTemporaryObject @ 0x14015C250 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x14015C5B0 (ZwOpenSymbolicLinkObject.c)
  */
 
 NTSTATUS __stdcall IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName)

@@ -1,16 +1,16 @@
 /*
- * XREFs of SepCreateAccessStateFromSubjectContext @ 0x14000F860
+ * XREFs of SepCreateAccessStateFromSubjectContext @ 0x14000F3E0
  * Callers:
- *     SeCreateAccessState @ 0x1404063B0 (SeCreateAccessState.c)
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
- *     PsOpenProcess @ 0x14041F410 (PsOpenProcess.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     SeSubProcessToken @ 0x14046EA48 (SeSubProcessToken.c)
- *     SeCreateAccessStateEx @ 0x1404D339C (SeCreateAccessStateEx.c)
+ *     SeCreateAccessState @ 0x140405270 (SeCreateAccessState.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
+ *     PsOpenProcess @ 0x14041E2D0 (PsOpenProcess.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     SeSubProcessToken @ 0x14046D918 (SeSubProcessToken.c)
+ *     SeCreateAccessStateEx @ 0x1404B6E3C (SeCreateAccessStateEx.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlMapGenericMask @ 0x140400910 (RtlMapGenericMask.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlMapGenericMask @ 0x1403FF7D0 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall SepCreateAccessStateFromSubjectContext(

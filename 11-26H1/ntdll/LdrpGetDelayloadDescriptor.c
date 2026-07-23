@@ -1,36 +1,36 @@
 /*
- * XREFs of LdrpGetDelayloadDescriptor @ 0x18015C44C
+ * XREFs of LdrpGetDelayloadDescriptor @ 0x18015C30C
  * Callers:
- *     LdrQueryOptionalDelayLoadedAPI @ 0x1801150A0 (LdrQueryOptionalDelayLoadedAPI.c)
- *     LdrResolveDelayLoadsFromDll @ 0x18015C2D0 (LdrResolveDelayLoadsFromDll.c)
+ *     LdrQueryOptionalDelayLoadedAPI @ 0x180114880 (LdrQueryOptionalDelayLoadedAPI.c)
+ *     LdrResolveDelayLoadsFromDll @ 0x18015C190 (LdrResolveDelayLoadsFromDll.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x180081250 (RtlImageDirectoryEntryToData.c)
- *     _stricmp @ 0x180128830 (_stricmp.c)
+ *     RtlImageDirectoryEntryToData @ 0x1800785F0 (RtlImageDirectoryEntryToData.c)
+ *     _stricmp @ 0x1801285A0 (_stricmp.c)
  */
 
-_DWORD *__fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
+char *__fastcall LdrpGetDelayloadDescriptor(void *a1, const char *a2)
 {
   __int64 v4; // rdi
-  _DWORD *v5; // r14
-  unsigned int v6; // esi
-  unsigned int i; // ebx
-  _DWORD *v8; // rbp
-  unsigned int v10; // [rsp+60h] [rbp+18h] BYREF
+  char *v5; // r14
+  ULONG v6; // esi
+  ULONG i; // ebx
+  char *v8; // rbp
+  ULONG v10; // [rsp+60h] [rbp+18h] BYREF
 
   v10 = 0;
   v4 = 0LL;
-  v5 = RtlImageDirectoryEntryToData(a1, 1, 0xDu, &v10);
+  v5 = (char *)RtlImageDirectoryEntryToData(a1, 1u, 0xDu, &v10);
   if ( v5 )
   {
     v6 = v10 >> 5;
     for ( i = 0; ; ++i )
     {
-      v8 = &v5[8 * i];
-      if ( !v8[1] || i >= v6 )
+      v8 = &v5[32 * i];
+      if ( !*((_DWORD *)v8 + 1) || i >= v6 )
         break;
-      if ( !stricmp((const char *)(a1 + (unsigned int)v8[1]), a2) )
-        return &v5[8 * i];
+      if ( !stricmp((const char *)a1 + *((unsigned int *)v8 + 1), a2) )
+        return &v5[32 * i];
     }
   }
-  return (_DWORD *)v4;
+  return (char *)v4;
 }

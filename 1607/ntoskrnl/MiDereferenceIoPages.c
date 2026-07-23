@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDereferenceIoPages @ 0x14009BF70
+ * XREFs of MiDereferenceIoPages @ 0x14009B770
  * Callers:
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MiDeletePteRun @ 0x140065140 (MiDeletePteRun.c)
- *     MiZeroAndFlushPtes @ 0x14009B608 (MiZeroAndFlushPtes.c)
- *     MiMapContiguousMemory @ 0x14009B8AC (MiMapContiguousMemory.c)
- *     MiReferenceIoPages @ 0x14009C300 (MiReferenceIoPages.c)
- *     MiReplaceRotateWithDemandZero @ 0x14010DAD4 (MiReplaceRotateWithDemandZero.c)
- *     MiDeletePhysmemVad @ 0x1401115BC (MiDeletePhysmemVad.c)
- *     MmRotatePhysicalView @ 0x1405281DC (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x140528600 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MiDeletePteRun @ 0x140064CC0 (MiDeletePteRun.c)
+ *     MiZeroAndFlushPtes @ 0x14009AE08 (MiZeroAndFlushPtes.c)
+ *     MiMapContiguousMemory @ 0x14009B0AC (MiMapContiguousMemory.c)
+ *     MiReferenceIoPages @ 0x14009BB00 (MiReferenceIoPages.c)
+ *     MiReplaceRotateWithDemandZero @ 0x14010E038 (MiReplaceRotateWithDemandZero.c)
+ *     MiDeletePhysmemVad @ 0x140111B20 (MiDeletePhysmemVad.c)
+ *     MmRotatePhysicalView @ 0x14052871C (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140528B40 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -65,17 +65,17 @@ void __fastcall MiDereferenceIoPages(int a1, __int64 a2, ULONG_PTR a3)
   BugCheckParameter3 = a3;
   v42 = a3;
   v40 = 0LL;
-  i = (unsigned __int64 *)&qword_1403275C8[a1];
+  i = (unsigned __int64 *)&qword_140327608[a1];
   v5 = a2 & 0xFFFFFFFFFLL;
   v36 = i;
-  v6 = &qword_1403275D8;
+  v6 = &qword_140327618;
   BugCheckParameter4 = a2 & 0xFFFFFFFFFLL;
   if ( a1 != 1 )
     v6 = 0LL;
   v37 = v6;
   v8 = a3;
   v9 = 0LL;
-  KeAcquireInStackQueuedSpinLock(&qword_1403275C0, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140327600, &LockHandle);
 LABEL_5:
   for ( i = (unsigned __int64 *)*i; i; i = (unsigned __int64 *)i[1] )
   {
@@ -153,17 +153,17 @@ LABEL_19:
       _InterlockedOr(v35, 0);
       v28 = KiCacheFlushTimeStamp;
       *((_DWORD *)v16 + 14) = KiCacheFlushTimeStamp;
-      if ( (__int64 *)qword_1403275E0 == &qword_1403275E0 )
-        dword_1403275F0 = v28;
-      v29 = (_QWORD *)qword_1403275E8;
+      if ( (__int64 *)qword_140327620 == &qword_140327620 )
+        dword_140327630 = v28;
+      v29 = (_QWORD *)qword_140327628;
       v30 = v16 + 3;
-      if ( *(__int64 **)qword_1403275E8 != &qword_1403275E0 )
+      if ( *(__int64 **)qword_140327628 != &qword_140327620 )
         __fastfail(3u);
-      *v30 = &qword_1403275E0;
+      *v30 = &qword_140327620;
       v31 = 0;
       v16[4] = (unsigned __int64)v29;
       *v29 = v30;
-      qword_1403275E8 = (__int64)(v16 + 3);
+      qword_140327628 = (__int64)(v16 + 3);
       v32 = (_QWORD *)*v22;
       if ( *v22 )
       {
@@ -192,7 +192,7 @@ LABEL_19:
       }
       RtlAvlInsertNodeEx(v22, (unsigned __int64)v32, v31, (unsigned __int64)i);
       v16 = 0LL;
-      ++qword_1403275F8;
+      ++qword_140327638;
     }
 LABEL_35:
     if ( !v16 )

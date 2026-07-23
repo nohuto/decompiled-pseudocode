@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCompleteMemoryRemoval @ 0x140865CFC
+ * XREFs of MiCompleteMemoryRemoval @ 0x14086C0DC
  * Callers:
- *     MiRemovePhysicalMemory @ 0x140866D5C (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14086D13C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiPerformMemoryChange @ 0x1406E9974 (MiPerformMemoryChange.c)
- *     MiClearMirrorBitmaps @ 0x1406EF634 (MiClearMirrorBitmaps.c)
- *     MiReduceCommitLimits @ 0x140705B5C (MiReduceCommitLimits.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiPerformMemoryChange @ 0x1406EE614 (MiPerformMemoryChange.c)
+ *     MiClearMirrorBitmaps @ 0x1406F42D4 (MiClearMirrorBitmaps.c)
+ *     MiReduceCommitLimits @ 0x14070A82C (MiReduceCommitLimits.c)
  */
 
 void __fastcall MiCompleteMemoryRemoval(__int64 a1)

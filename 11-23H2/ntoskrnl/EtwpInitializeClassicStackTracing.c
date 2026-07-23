@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpInitializeClassicStackTracing @ 0x1409E8AD4
+ * XREFs of EtwpInitializeClassicStackTracing @ 0x1409E8D64
  * Callers:
- *     EtwpUpdateStackTracing @ 0x1409E8BC8 (EtwpUpdateStackTracing.c)
+ *     EtwpUpdateStackTracing @ 0x1409E8E58 (EtwpUpdateStackTracing.c)
  * Callees:
- *     EtwpAllocateStackwalkApcPool @ 0x1409E8A34 (EtwpAllocateStackwalkApcPool.c)
- *     EtwpReferenceStackLookasideList @ 0x1409E8B5C (EtwpReferenceStackLookasideList.c)
+ *     EtwpAllocateStackwalkApcPool @ 0x1409E8CC4 (EtwpAllocateStackwalkApcPool.c)
+ *     EtwpReferenceStackLookasideList @ 0x1409E8DEC (EtwpReferenceStackLookasideList.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

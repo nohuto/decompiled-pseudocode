@@ -43,10 +43,9 @@ __int64 __fastcall SepRmCallLsa(__int64 a1)
   void *v17; // rcx
   __int64 result; // rax
   __int64 v19; // rax
-  __int64 v20; // rdx
-  int v21; // ebx
-  struct _KEVENT *v22; // rcx
-  _BYTE v23[8]; // [rsp+20h] [rbp-60h] BYREF
+  NTSTATUS v20; // ebx
+  struct _KEVENT *v21; // rcx
+  _BYTE v22[8]; // [rsp+20h] [rbp-60h] BYREF
   HANDLE Handle; // [rsp+28h] [rbp-58h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-50h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-38h] BYREF
@@ -61,11 +60,10 @@ __int64 __fastcall SepRmCallLsa(__int64 a1)
     result = SepAdtOpenEtwReadyEvent(&Handle);
     if ( (int)result < 0 )
       return result;
-    LOBYTE(v20) = 1;
-    v21 = NtWaitForSingleObject(Handle, v20, 0LL);
+    v20 = NtWaitForSingleObject(Handle, 1u, 0LL);
     NtClose(Handle);
-    if ( v21 < 0 )
-      return (unsigned int)v21;
+    if ( v20 < 0 )
+      return (unsigned int)v20;
   }
   if ( v1 )
     KeStackAttachProcess(SepRmLsaCallProcess, &ApcState);
@@ -105,9 +103,9 @@ LABEL_45:
       v10 = *(__int64 **)(a1 + 16);
       if ( v10 == (__int64 *)(a1 + 16) )
       {
-        v22 = *(struct _KEVENT **)(a1 + 200);
-        if ( v22 )
-          KeSetEvent(v22, 0, 0);
+        v21 = *(struct _KEVENT **)(a1 + 200);
+        if ( v21 )
+          KeSetEvent(v21, 0, 0);
       }
       else if ( *((_DWORD *)v10 + 13) == *(_DWORD *)(a1 + 184) + 1 )
       {
@@ -133,16 +131,16 @@ LABEL_45:
     {
       v12 = KeGetCurrentThread();
       v13 = *(struct _LIST_ENTRY **)(v4 + 56);
-      v23[0] = 0;
+      v22[0] = 0;
       Blink = v12[1].WaitBlock[3].WaitListEntry.Blink;
       v12[1].WaitBlock[3].WaitListEntry.Blink = v13;
-      v15 = AdtpWriteToEtw(*(_QWORD *)(v4 + 24), v23);
+      v15 = AdtpWriteToEtw(*(_QWORD *)(v4 + 24), v22);
       KeGetCurrentThread()[1].WaitBlock[3].WaitListEntry.Blink = Blink;
       if ( v15 < 0 )
       {
         SepAdtLastAuditFailStatus = v15;
         _InterlockedIncrement(&SepAdtAuditFailureCount);
-        if ( !v23[0] )
+        if ( !v22[0] )
           SepAuditFailed((unsigned int)v15);
       }
       if ( (unsigned int)(*(_DWORD *)(v4 + 16) - 4) <= 1 )

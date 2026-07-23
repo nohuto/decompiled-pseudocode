@@ -35,10 +35,10 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
     if ( v5 < 0 )
     {
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrinit.c",
-        4141,
-        (int)"LdrpDynamicShimModule",
-        0,
+        "minkernel\\ldr\\ldrinit.c",
+        4141LL,
+        "LdrpDynamicShimModule",
+        0LL,
         "Getting ApphelpCheckModule failed with status 0x%08lx\n",
         v5);
       v3 = 0;
@@ -68,7 +68,7 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
 LABEL_3:
   if ( v1 == 1 && g_pShimmedModuleList )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, g_pShimmedModuleList);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
     g_pShimmedModuleList = 0LL;
     g_pShimmedModuleListLength = 0LL;
   }

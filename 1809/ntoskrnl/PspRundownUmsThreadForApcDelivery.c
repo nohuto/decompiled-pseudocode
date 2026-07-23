@@ -1,21 +1,21 @@
 /*
- * XREFs of PspRundownUmsThreadForApcDelivery @ 0x14088F14C
+ * XREFs of PspRundownUmsThreadForApcDelivery @ 0x1408903AC
  * Callers:
- *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
- *     KiSuspendUmsThread @ 0x140845714 (KiSuspendUmsThread.c)
- *     PspUmsUnInitThread @ 0x14088AE54 (PspUmsUnInitThread.c)
+ *     PspGetSetContextInternal @ 0x140620940 (PspGetSetContextInternal.c)
+ *     KiSuspendUmsThread @ 0x140846974 (KiSuspendUmsThread.c)
+ *     PspUmsUnInitThread @ 0x14088C0B4 (PspUmsUnInitThread.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
- *     KeInitializeGate @ 0x14013A374 (KeInitializeGate.c)
- *     PsLookupThreadByThreadId @ 0x1406487A0 (PsLookupThreadByThreadId.c)
- *     KeClearUmsThreadKernelLock @ 0x1408452B8 (KeClearUmsThreadKernelLock.c)
- *     KeSetUmsThreadKernelLock @ 0x140845468 (KeSetUmsThreadKernelLock.c)
- *     KeSynchronizeUmsThread @ 0x1408454D8 (KeSynchronizeUmsThread.c)
+ *     KeInitializeApc @ 0x14008A350 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     ObReferenceObjectSafe @ 0x14010C190 (ObReferenceObjectSafe.c)
+ *     KeInitializeGate @ 0x14013A474 (KeInitializeGate.c)
+ *     PsLookupThreadByThreadId @ 0x140649960 (PsLookupThreadByThreadId.c)
+ *     KeClearUmsThreadKernelLock @ 0x140846518 (KeClearUmsThreadKernelLock.c)
+ *     KeSetUmsThreadKernelLock @ 0x1408466C8 (KeSetUmsThreadKernelLock.c)
+ *     KeSynchronizeUmsThread @ 0x140846738 (KeSynchronizeUmsThread.c)
  */
 
 __int64 __fastcall PspRundownUmsThreadForApcDelivery(__int64 a1, _DWORD *a2, __int64 a3, char a4)

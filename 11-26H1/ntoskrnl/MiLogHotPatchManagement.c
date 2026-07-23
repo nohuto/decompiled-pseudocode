@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogHotPatchManagement @ 0x140871768
+ * XREFs of MiLogHotPatchManagement @ 0x140877AC8
  * Callers:
- *     NtManageHotPatch @ 0x140A993D0 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x140A9D550 (NtManageHotPatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchManagement(__int64 a1, int a2, __int64 a3, unsigned __int16 *a4, int a5)
@@ -15,7 +15,7 @@ char __fastcall MiLogHotPatchManagement(__int64 a1, int a2, __int64 a3, unsigned
   _KPROCESS *Process; // rsi
   void *FirstArgument; // rbx
   __int64 v10; // r8
-  int *v11; // rdx
+  char *v11; // rdx
   int v12; // eax
   int v14; // [rsp+28h] [rbp-E0h]
   int v15; // [rsp+30h] [rbp-D8h]
@@ -50,14 +50,14 @@ char __fastcall MiLogHotPatchManagement(__int64 a1, int a2, __int64 a3, unsigned
   {
     if ( a2 == 3 )
     {
-      FirstArgument = stru_140E36558.FirstArgument;
-      if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+      FirstArgument = stru_140E366D8.FirstArgument;
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
       {
-        LOBYTE(CurrentThread) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL);
+        LOBYTE(CurrentThread) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL);
         if ( (_BYTE)CurrentThread )
         {
           ProcessId = (unsigned int)PsGetProcessId(Process);
-          v11 = (int *)byte_1400587D9;
+          v11 = byte_140059813;
           v25 = 4LL;
           p_ProcessId = &ProcessId;
           v19 = a5;
@@ -95,14 +95,14 @@ LABEL_14:
     }
     else if ( a2 == 7 )
     {
-      FirstArgument = stru_140E36558.FirstArgument;
-      if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+      FirstArgument = stru_140E366D8.FirstArgument;
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
       {
-        LOBYTE(CurrentThread) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL);
+        LOBYTE(CurrentThread) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL);
         if ( (_BYTE)CurrentThread )
         {
           ProcessId = (unsigned int)PsGetProcessId(Process);
-          v11 = (int *)&byte_140058859;
+          v11 = (char *)&byte_14005979D;
           v25 = 4LL;
           p_ProcessId = &ProcessId;
           v19 = a5;
@@ -126,14 +126,14 @@ LABEL_14:
   }
   else
   {
-    FirstArgument = stru_140E36558.FirstArgument;
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+    FirstArgument = stru_140E366D8.FirstArgument;
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
     {
-      LOBYTE(CurrentThread) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL);
+      LOBYTE(CurrentThread) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL);
       if ( (_BYTE)CurrentThread )
       {
         LODWORD(v21) = (unsigned int)PsGetProcessId(Process);
-        v11 = &dword_140058B84;
+        v11 = byte_140059893;
         v25 = 4LL;
         p_ProcessId = (unsigned int *)&v21;
         v18 = a5;

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReturnImageBase @ 0x14042EDB4
+ * XREFs of MiReturnImageBase @ 0x14042DC84
  * Callers:
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     MiRelocateImageAgain @ 0x14042C2BC (MiRelocateImageAgain.c)
- *     MiFreeRelocations @ 0x14052CC54 (MiFreeRelocations.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     MiRelocateImageAgain @ 0x14042B18C (MiRelocateImageAgain.c)
+ *     MiFreeRelocations @ 0x14052D194 (MiFreeRelocations.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiGetImageBitMapInfo @ 0x14007CA7C (MiGetImageBitMapInfo.c)
- *     MiZeroCfgSystemWideBitmap @ 0x1400AA66C (MiZeroCfgSystemWideBitmap.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiReturnSystemImageAddress @ 0x1405448F0 (MiReturnSystemImageAddress.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiGetImageBitMapInfo @ 0x14007CAFC (MiGetImageBitMapInfo.c)
+ *     MiZeroCfgSystemWideBitmap @ 0x1400A8BEC (MiZeroCfgSystemWideBitmap.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiReturnSystemImageAddress @ 0x140544E30 (MiReturnSystemImageAddress.c)
  */
 
 void __fastcall MiReturnImageBase(unsigned int *a1)
@@ -41,19 +41,19 @@ void __fastcall MiReturnImageBase(unsigned int *a1)
       MiZeroCfgSystemWideBitmap((__int64)a1, v9 - ((*a1 + (unsigned __int64)a1[1]) << 16));
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      v4 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326710, 0LL, 0);
-      v5 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326710, 0LL);
+      v4 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326750, 0LL, 0);
+      v5 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326750, 0LL);
       v6 = v4;
       if ( v5 )
-        ExfAcquirePushLockExclusiveEx(&qword_140326710, v4, (ULONG_PTR)&qword_140326710);
+        ExfAcquirePushLockExclusiveEx(&qword_140326750, v4, (ULONG_PTR)&qword_140326750);
       if ( v6 )
         v6[26] |= 1u;
       if ( v8 )
         RtlClearBits(v8, *a1, a1[1]);
       RtlClearBits(BitMapHeader, *a1, a1[1]);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326710, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326710);
-      KeAbPostRelease((ULONG_PTR)&qword_140326710);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326750, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326750);
+      KeAbPostRelease((ULONG_PTR)&qword_140326750);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     }
   }

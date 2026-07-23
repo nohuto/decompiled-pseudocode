@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpBinarySearchFirst @ 0x140B18DD0
+ * XREFs of SdbpBinarySearchFirst @ 0x140B1B218
  * Callers:
- *     SdbpGetFirstIndexedRecord @ 0x1409E5EDC (SdbpGetFirstIndexedRecord.c)
+ *     SdbpGetFirstIndexedRecord @ 0x1409D6DD4 (SdbpGetFirstIndexedRecord.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
  */
 
 __int64 __fastcall SdbpBinarySearchFirst(unsigned __int64 a1, unsigned int a2, unsigned __int64 a3, _DWORD *a4)

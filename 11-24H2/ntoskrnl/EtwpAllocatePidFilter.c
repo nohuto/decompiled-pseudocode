@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAllocatePidFilter @ 0x1409F4560
+ * XREFs of EtwpAllocatePidFilter @ 0x1409E88C0
  * Callers:
- *     EtwpAllocateFilter @ 0x1409F33DC (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1409E773C (EtwpAllocateFilter.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAllocatePidFilter(__int64 a1, unsigned int **a2)
@@ -20,7 +20,7 @@ __int64 __fastcall EtwpAllocatePidFilter(__int64 a1, unsigned int **a2)
   v4 = *(_DWORD *)(a1 + 8) >> 2;
   if ( v4 > 8 )
     return 3221225485LL;
-  Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+  Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, 0x24uLL, 0x46777445u);
   v6 = Pool2;
   if ( !Pool2 )
     return 3221225495LL;

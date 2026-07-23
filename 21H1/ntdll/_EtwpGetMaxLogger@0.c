@@ -11,13 +11,13 @@
 int __thiscall EtwpGetMaxLogger(void *this)
 {
   int result; // eax
-  void *v2; // [esp+0h] [ebp-4h] BYREF
+  ULONG ReturnLength; // [esp+0h] [ebp-4h] BYREF
 
-  v2 = this;
+  ReturnLength = (ULONG)this;
   result = EtwpMaxLoggers;
   if ( !EtwpMaxLoggers )
   {
-    if ( ZwTraceControl(42, 0, 0, &EtwpMaxLoggers, 4, &v2) || v2 != (void *)4 )
+    if ( ZwTraceControl(EtwMaxLoggers, 0, 0, &EtwpMaxLoggers, 4u, &ReturnLength) || ReturnLength != 4 )
     {
       result = 64;
       EtwpMaxLoggers = 64;

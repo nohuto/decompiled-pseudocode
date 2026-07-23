@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReplaceTransitionPageInitializeTargetPfn @ 0x140293DE0
+ * XREFs of MiReplaceTransitionPageInitializeTargetPfn @ 0x140293340
  * Callers:
- *     MiReplaceTransitionPage @ 0x140293C88 (MiReplaceTransitionPage.c)
- *     MiTradePageMarkedTransition @ 0x1402FD5C0 (MiTradePageMarkedTransition.c)
+ *     MiReplaceTransitionPage @ 0x1402931E8 (MiReplaceTransitionPage.c)
+ *     MiTradePageMarkedTransition @ 0x1402DF640 (MiTradePageMarkedTransition.c)
  * Callees:
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
  */
 
 __int64 __fastcall MiReplaceTransitionPageInitializeTargetPfn(__int64 a1)

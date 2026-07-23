@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpNumaSystemLocalityInfoIncludeQueryDataType @ 0x140558BF4
+ * XREFs of HalpNumaSystemLocalityInfoIncludeQueryDataType @ 0x140556534
  * Callers:
- *     HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo @ 0x1405583A0 (HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo.c)
+ *     HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo @ 0x140555CE0 (HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo.c)
  * Callees:
  *     <none>
  */

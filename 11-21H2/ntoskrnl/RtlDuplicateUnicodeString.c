@@ -1,27 +1,27 @@
 /*
  * XREFs of RtlDuplicateUnicodeString @ 0x1406A9D20
  * Callers:
- *     DifRtlDuplicateUnicodeStringWrapper @ 0x14061B410 (DifRtlDuplicateUnicodeStringWrapper.c)
- *     NtManageHotPatch @ 0x1406C9390 (NtManageHotPatch.c)
- *     MiResolveImageReferences @ 0x140757FFC (MiResolveImageReferences.c)
- *     DrvDbGetObjectDatabaseNode @ 0x140784454 (DrvDbGetObjectDatabaseNode.c)
- *     PiDrvDbRegisterNode @ 0x14082666C (PiDrvDbRegisterNode.c)
- *     PipAddBindingId @ 0x1408442E8 (PipAddBindingId.c)
- *     PipAddRequestToEdge @ 0x140942760 (PipAddRequestToEdge.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x14095D038 (PiDrvDbQuerySystemPathWin32.c)
- *     MiApplyImageHotPatchRequest @ 0x140971DC0 (MiApplyImageHotPatchRequest.c)
- *     MiFindHotPatchRecord @ 0x1409730F0 (MiFindHotPatchRecord.c)
- *     EtwpCovSampModuleGetName @ 0x1409F18BC (EtwpCovSampModuleGetName.c)
- *     ExpCovCreateUnloadedModuleEntry @ 0x140A02E2C (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovQueryInformation @ 0x140A0350C (ExpCovQueryInformation.c)
- *     ExpCovReadFriendlyName @ 0x140A03B84 (ExpCovReadFriendlyName.c)
- *     ExpCovReadRequestBuffer @ 0x140A03C14 (ExpCovReadRequestBuffer.c)
- *     ExpCovResetInformation @ 0x140A03DA4 (ExpCovResetInformation.c)
- *     PnpEarlyLaunchImageNotificationPreProcess @ 0x140B24550 (PnpEarlyLaunchImageNotificationPreProcess.c)
+ *     sub_14061B410 @ 0x14061B410 (sub_14061B410.c)
+ *     sub_1406C9390 @ 0x1406C9390 (sub_1406C9390.c)
+ *     sub_140757FFC @ 0x140757FFC (sub_140757FFC.c)
+ *     sub_140784454 @ 0x140784454 (sub_140784454.c)
+ *     sub_14082666C @ 0x14082666C (sub_14082666C.c)
+ *     sub_1408442E8 @ 0x1408442E8 (sub_1408442E8.c)
+ *     sub_140942760 @ 0x140942760 (sub_140942760.c)
+ *     sub_14095D038 @ 0x14095D038 (sub_14095D038.c)
+ *     sub_140971DC0 @ 0x140971DC0 (sub_140971DC0.c)
+ *     sub_1409730F0 @ 0x1409730F0 (sub_1409730F0.c)
+ *     sub_1409F18BC @ 0x1409F18BC (sub_1409F18BC.c)
+ *     sub_140A02E2C @ 0x140A02E2C (sub_140A02E2C.c)
+ *     sub_140A0350C @ 0x140A0350C (sub_140A0350C.c)
+ *     sub_140A03B84 @ 0x140A03B84 (sub_140A03B84.c)
+ *     sub_140A03C14 @ 0x140A03C14 (sub_140A03C14.c)
+ *     sub_140A03DA4 @ 0x140A03DA4 (sub_140A03DA4.c)
+ *     sub_140B24550 @ 0x140B24550 (sub_140B24550.c)
  * Callees:
  *     RtlValidateUnicodeString @ 0x140232A80 (RtlValidateUnicodeString.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
+ *     sub_1406BE560 @ 0x1406BE560 (sub_1406BE560.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -33,7 +33,7 @@ NTSTATUS __stdcall RtlDuplicateUnicodeString(ULONG Flags, PCUNICODE_STRING Strin
   ULONG v8; // r13d
   NTSTATUS result; // eax
   unsigned __int16 v10; // bx
-  wchar_t *StringRoutine; // rax
+  wchar_t *v11; // rax
 
   Length = 0;
   v6 = 0LL;
@@ -60,12 +60,12 @@ NTSTATUS __stdcall RtlDuplicateUnicodeString(ULONG Flags, PCUNICODE_STRING Strin
     v10 = 0;
   if ( !v10 )
     goto LABEL_20;
-  StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v10);
-  v6 = StringRoutine;
-  if ( StringRoutine )
+  v11 = (wchar_t *)sub_1406BE560(v10);
+  v6 = v11;
+  if ( v11 )
   {
     if ( Length )
-      memmove(StringRoutine, StringIn->Buffer, Length);
+      memmove(v11, StringIn->Buffer, Length);
     if ( v7 )
       v6[(unsigned __int64)Length >> 1] = 0;
 LABEL_20:

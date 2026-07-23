@@ -1,31 +1,31 @@
 /*
- * XREFs of BiOpenKey @ 0x140784404
+ * XREFs of BiOpenKey @ 0x1407845C4
  * Callers:
- *     BiOpenStoreKeyFromObject @ 0x1405C3A50 (BiOpenStoreKeyFromObject.c)
- *     BiDeleteKey @ 0x140779960 (BiDeleteKey.c)
- *     BiAddStoreFromFile @ 0x140781DD8 (BiAddStoreFromFile.c)
- *     BiGetObjectDescription @ 0x140781FD8 (BiGetObjectDescription.c)
- *     BiCleanupLoadedStores @ 0x1407820A8 (BiCleanupLoadedStores.c)
- *     BiDeleteRegistryValue @ 0x1407821E4 (BiDeleteRegistryValue.c)
- *     BiDeleteElement @ 0x14078319C (BiDeleteElement.c)
- *     BiOpenSystemStore @ 0x14078381C (BiOpenSystemStore.c)
- *     BcdOpenObject @ 0x140783A40 (BcdOpenObject.c)
- *     BiGetRegistryValue @ 0x140783DF8 (BiGetRegistryValue.c)
- *     BcdSetElementDataWithFlags @ 0x140783FDC (BcdSetElementDataWithFlags.c)
- *     BcdGetElementDataWithFlags @ 0x1407841C0 (BcdGetElementDataWithFlags.c)
- *     BiSetRegistryValue @ 0x140784A64 (BiSetRegistryValue.c)
- *     BcdEnumerateObjects @ 0x14096ED0C (BcdEnumerateObjects.c)
- *     BiCreateObject @ 0x14096EFC8 (BiCreateObject.c)
- *     BiIsPortableWorkspaceBoot @ 0x14096F8A8 (BiIsPortableWorkspaceBoot.c)
- *     BiBuildIdentifierList @ 0x140970928 (BiBuildIdentifierList.c)
+ *     BiOpenStoreKeyFromObject @ 0x1405C3C80 (BiOpenStoreKeyFromObject.c)
+ *     BiDeleteKey @ 0x140779B20 (BiDeleteKey.c)
+ *     BiAddStoreFromFile @ 0x140781F98 (BiAddStoreFromFile.c)
+ *     BiGetObjectDescription @ 0x140782198 (BiGetObjectDescription.c)
+ *     BiCleanupLoadedStores @ 0x140782268 (BiCleanupLoadedStores.c)
+ *     BiDeleteRegistryValue @ 0x1407823A4 (BiDeleteRegistryValue.c)
+ *     BiDeleteElement @ 0x14078335C (BiDeleteElement.c)
+ *     BiOpenSystemStore @ 0x1407839DC (BiOpenSystemStore.c)
+ *     BcdOpenObject @ 0x140783C00 (BcdOpenObject.c)
+ *     BiGetRegistryValue @ 0x140783FB8 (BiGetRegistryValue.c)
+ *     BcdSetElementDataWithFlags @ 0x14078419C (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x140784380 (BcdGetElementDataWithFlags.c)
+ *     BiSetRegistryValue @ 0x140784C24 (BiSetRegistryValue.c)
+ *     BcdEnumerateObjects @ 0x14096EEEC (BcdEnumerateObjects.c)
+ *     BiCreateObject @ 0x14096F1A8 (BiCreateObject.c)
+ *     BiIsPortableWorkspaceBoot @ 0x14096FA88 (BiIsPortableWorkspaceBoot.c)
+ *     BiBuildIdentifierList @ 0x140970B08 (BiBuildIdentifierList.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     CmSiCloseSection @ 0x1402C81B8 (CmSiCloseSection.c)
- *     BiSanitizeHandle @ 0x1402D333C (BiSanitizeHandle.c)
- *     BiZwOpenKey @ 0x14039B584 (BiZwOpenKey.c)
- *     BiZwSetSecurityObject @ 0x14039B5AC (BiZwSetSecurityObject.c)
- *     BiCreateKeySecurityDescriptor @ 0x1407845E0 (BiCreateKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     CmSiCloseSection @ 0x140246A18 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x14025166C (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     BiZwOpenKey @ 0x14039B6D4 (BiZwOpenKey.c)
+ *     BiZwSetSecurityObject @ 0x14039B6FC (BiZwSetSecurityObject.c)
+ *     BiCreateKeySecurityDescriptor @ 0x1407847A0 (BiCreateKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiOpenKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, _QWORD *a4)
@@ -67,7 +67,7 @@ __int64 __fastcall BiOpenKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, _QWORD
     {
       if ( (a3 & 0x60019) == a3 )
         goto LABEL_6;
-      KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103);
+      KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103LL);
       v12 = BiZwSetSecurityObject(v15, v14, KeySecurityDescriptor);
       if ( v12 >= 0 )
       {

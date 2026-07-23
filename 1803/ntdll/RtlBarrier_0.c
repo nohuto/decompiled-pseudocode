@@ -10,60 +10,60 @@
  *     sub_18004AABC @ 0x18004AABC (sub_18004AABC.c)
  */
 
-char __fastcall RtlBarrier_0(__int64 a1, char *a2, __int64 a3, __int64 a4)
+BOOLEAN __cdecl RtlBarrier_0(PRTL_BARRIER Barrier, ULONG Flags)
 {
-  unsigned __int64 v4; // rbx
-  int v6; // edi
-  unsigned int v7; // esi
-  unsigned __int64 v8; // rax
-  unsigned int v9; // r8d
-  unsigned __int64 v10; // rcx
-  char v11; // bp
-  unsigned __int64 v12; // rtt
-  _DWORD *v13; // rdi
-  signed __int32 v14[8]; // [rsp+0h] [rbp-38h] BYREF
-  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v2; // rbx
+  int v4; // edi
+  ULONG v5; // esi
+  unsigned __int64 v6; // rax
+  unsigned int v7; // r8d
+  unsigned __int64 v8; // rcx
+  BOOLEAN v9; // bp
+  unsigned __int64 v10; // rtt
+  _DWORD *v11; // rdi
+  signed __int32 v12[8]; // [rsp+0h] [rbp-38h] BYREF
+  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = (a1 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-  if ( !v4 )
+  v2 = ((unsigned __int64)&Barrier->Reserved2 + 3) & 0xFFFFFFFFFFFFFFF8uLL;
+  if ( !v2 )
     return 0;
-  v6 = *(_DWORD *)(v4 + 16);
-  v7 = (unsigned int)a2 & 0x10000;
-  if ( ((unsigned int)a2 & 0x10000) != 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(v4 + 8), a2, a3, a4);
-  v8 = *(_QWORD *)v4;
+  v4 = *(_DWORD *)(v2 + 16);
+  v5 = Flags & 0x10000;
+  if ( (Flags & 0x10000) != 0 )
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(v2 + 8));
+  v6 = *(_QWORD *)v2;
   do
   {
-    v9 = v8 + 1;
-    v10 = HIDWORD(v8);
-    v11 = 0;
-    LODWORD(v15) = HIDWORD(v8);
-    if ( (_DWORD)v8 + 1 == v6 )
+    v7 = v6 + 1;
+    v8 = HIDWORD(v6);
+    v9 = 0;
+    LODWORD(v13) = HIDWORD(v6);
+    if ( (_DWORD)v6 + 1 == v4 )
     {
-      v9 = 0;
-      v11 = 1;
-      LODWORD(v10) = HIDWORD(v8) + 1;
-      LODWORD(v15) = HIDWORD(v8) + 1;
+      v7 = 0;
+      v9 = 1;
+      LODWORD(v8) = HIDWORD(v6) + 1;
+      LODWORD(v13) = HIDWORD(v6) + 1;
     }
-    v12 = v8;
-    v8 = _InterlockedCompareExchange64(
-           (volatile signed __int64 *)v4,
-           v9 | ((unsigned __int64)(unsigned int)v10 << 32),
-           v8);
+    v10 = v6;
+    v6 = _InterlockedCompareExchange64(
+           (volatile signed __int64 *)v2,
+           v7 | ((unsigned __int64)(unsigned int)v8 << 32),
+           v6);
   }
-  while ( v12 != v8 );
-  v13 = (_DWORD *)(v4 + 4);
-  if ( v11 )
+  while ( v10 != v6 );
+  v11 = (_DWORD *)(v2 + 4);
+  if ( v9 )
   {
-    _InterlockedOr(v14, 0);
-    sub_18004A8A8(v4 + 4, 1);
+    _InterlockedOr(v12, 0);
+    sub_18004A8A8(v2 + 4, 1);
   }
   else
   {
-    while ( (_DWORD)v15 == *v13 )
-      sub_18004AABC((_QWORD *)(v4 + 4), &v15, 4LL, 0LL, dword_1801596D8);
+    while ( (_DWORD)v13 == *v11 )
+      sub_18004AABC((_QWORD *)(v2 + 4), &v13, 4LL, 0LL, dword_1801596D8);
   }
-  if ( v7 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(v4 + 8));
-  return v11;
+  if ( v5 )
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(v2 + 8));
+  return v9;
 }

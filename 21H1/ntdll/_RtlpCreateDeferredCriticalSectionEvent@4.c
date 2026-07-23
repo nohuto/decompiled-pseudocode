@@ -15,28 +15,28 @@ HANDLE __thiscall RtlpCreateDeferredCriticalSectionEvent(volatile signed __int32
   signed __int32 v2; // ecx
   signed __int32 v3; // esi
   HANDLE result; // eax
-  HANDLE Handle; // [esp+4h] [ebp-4h] BYREF
+  HANDLE EventHandle; // [esp+4h] [ebp-4h] BYREF
 
   v2 = -1;
-  Handle = (HANDLE)-1;
+  EventHandle = (HANDLE)-1;
   if ( RtlpForceCSToUseEvents )
   {
-    if ( (int)NtCreateEvent(&Handle, 1048579, 0, 1, 0) >= 0 )
+    if ( NtCreateEvent(&EventHandle, 0x100003u, 0, SynchronizationEvent, 0) >= 0 )
     {
-      v2 = (signed __int32)Handle;
+      v2 = (signed __int32)EventHandle;
     }
     else
     {
       v2 = -1;
-      Handle = (HANDLE)-1;
+      EventHandle = (HANDLE)-1;
     }
   }
   v3 = _InterlockedCompareExchange(this + 4, v2, 0);
-  result = Handle;
+  result = EventHandle;
   if ( v3 )
   {
-    if ( Handle != (HANDLE)-1 )
-      NtClose(Handle);
+    if ( EventHandle != (HANDLE)-1 )
+      NtClose(EventHandle);
     return (HANDLE)v3;
   }
   return result;

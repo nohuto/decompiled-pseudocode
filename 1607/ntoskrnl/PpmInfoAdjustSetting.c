@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmInfoAdjustSetting @ 0x1403F8A60
+ * XREFs of PpmInfoAdjustSetting @ 0x1403F7920
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x1403F766C (PpmSetProfilePolicySetting.c)
+ *     PpmSetProfilePolicySetting @ 0x1403F652C (PpmSetProfilePolicySetting.c)
  * Callees:
- *     PpmPerfComputePerfReductionTolerance @ 0x140204F78 (PpmPerfComputePerfReductionTolerance.c)
- *     PpmInfoWriteData @ 0x1403F8B10 (PpmInfoWriteData.c)
+ *     PpmPerfComputePerfReductionTolerance @ 0x140204DA4 (PpmPerfComputePerfReductionTolerance.c)
+ *     PpmInfoWriteData @ 0x1403F79D0 (PpmInfoWriteData.c)
  */
 
 char __fastcall PpmInfoAdjustSetting(

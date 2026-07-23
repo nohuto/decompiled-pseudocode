@@ -1,24 +1,24 @@
 /*
- * XREFs of MiConstructLoaderEntry @ 0x140682470
+ * XREFs of MiConstructLoaderEntry @ 0x140683630
  * Callers:
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
- *     MiInitializeLoadedModuleList @ 0x1409CF350 (MiInitializeLoadedModuleList.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140855628 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiInitializeLoadedModuleList @ 0x1409D0350 (MiInitializeLoadedModuleList.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiManageSubsectionView @ 0x1400ADC80 (MiManageSubsectionView.c)
- *     MiProcessLoaderEntry @ 0x1400F5BAC (MiProcessLoaderEntry.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpCovGetSectionInfo @ 0x140682B80 (ExpCovGetSectionInfo.c)
- *     MiLockdownSections @ 0x140682BE4 (MiLockdownSections.c)
- *     MiCaptureImageExceptionValues @ 0x140682CC4 (MiCaptureImageExceptionValues.c)
- *     ExCovReadjustUnloadedModuleEntry @ 0x14070F404 (ExCovReadjustUnloadedModuleEntry.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     MiManageSubsectionView @ 0x1400ADBC0 (MiManageSubsectionView.c)
+ *     MiProcessLoaderEntry @ 0x1400F5C2C (MiProcessLoaderEntry.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpCovGetSectionInfo @ 0x140683D40 (ExpCovGetSectionInfo.c)
+ *     MiLockdownSections @ 0x140683DA4 (MiLockdownSections.c)
+ *     MiCaptureImageExceptionValues @ 0x140683E84 (MiCaptureImageExceptionValues.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x1407106A4 (ExCovReadjustUnloadedModuleEntry.c)
  */
 
 __int64 __fastcall MiConstructLoaderEntry(__int64 a1, const void **a2, const void **a3, int a4, int a5, _QWORD *a6)
@@ -339,7 +339,7 @@ LABEL_74:
   }
   if ( !a5 )
     *((_DWORD *)v29 + 9) |= 1u;
-  if ( (dword_140540174 & 1) != 0 || (v70 & 2) != 0 )
+  if ( (dword_140541174 & 1) != 0 || (v70 & 2) != 0 )
     *((_DWORD *)v29 + 9) |= 0x10u;
   *((_QWORD *)v11 + 16) = 0LL;
   if ( ExCovMaxPagedPoolToUse )

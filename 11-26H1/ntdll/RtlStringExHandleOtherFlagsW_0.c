@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringExHandleOtherFlagsW_0 @ 0x18010FCC0
+ * XREFs of RtlStringExHandleOtherFlagsW_0 @ 0x18010F850
  * Callers:
- *     RtlStringCbPrintfExW @ 0x1800C27B4 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x1800BFE84 (RtlStringCbPrintfExW.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlStringExHandleOtherFlagsW_0(_WORD *a1, size_t a2, __int64 a3, _QWORD *a4, size_t *a5, __int16 a6)

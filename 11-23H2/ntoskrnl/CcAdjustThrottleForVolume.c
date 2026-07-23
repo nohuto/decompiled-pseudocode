@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAdjustThrottleForVolume @ 0x140356F58
+ * XREFs of CcAdjustThrottleForVolume @ 0x1403570F8
  * Callers:
- *     CcLazyWriteScanVolume @ 0x14029A600 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScanVolume @ 0x14029A890 (CcLazyWriteScanVolume.c)
  * Callees:
  *     <none>
  */

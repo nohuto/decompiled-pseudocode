@@ -1,18 +1,18 @@
 /*
  * XREFs of KeIntSteerPeriodic @ 0x1400626A0
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140063570 (PpmParkSteerInterrupts.c)
+ *     PpmParkSteerInterrupts @ 0x140063560 (PpmParkSteerInterrupts.c)
  * Callees:
  *     KiIntSteerEtwEventEnabled @ 0x14005B8E0 (KiIntSteerEtwEventEnabled.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiIntSteerDistributeInterrupts @ 0x1400631A0 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerCalculateDistribution @ 0x1400632F0 (KiIntSteerCalculateDistribution.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     KiIntSteerLogState @ 0x14016E22C (KiIntSteerLogState.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiIntSteerDistributeInterrupts @ 0x140063190 (KiIntSteerDistributeInterrupts.c)
+ *     KiIntSteerCalculateDistribution @ 0x1400632E0 (KiIntSteerCalculateDistribution.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     KiIntSteerLogState @ 0x14016E32C (KiIntSteerLogState.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeIntSteerPeriodic(int *a1, unsigned int a2)
@@ -49,7 +49,7 @@ __int64 __fastcall KeIntSteerPeriodic(int *a1, unsigned int a2)
   KiIntSteerCalculateDistribution(a1, a2);
   KiIntSteerMask[0] = *a1;
   v5 = 0;
-  for ( dword_14041B224 = 0; v5 < *(_WORD *)a1; *(_QWORD *)&KiIntSteerMask[2 * v6 + 2] = *(_QWORD *)&a1[2 * v6 + 2] )
+  for ( dword_14041C2C4 = 0; v5 < *(_WORD *)a1; *(_QWORD *)&KiIntSteerMask[2 * v6 + 2] = *(_QWORD *)&a1[2 * v6 + 2] )
     v6 = v5++;
   KiIntSteerMaskCount = a2;
   if ( KiIntSteerEtwEventEnabled((__int64)&PPM_ETW_INTERRUPT_STEERING_MASK_CHANGE) )
@@ -63,13 +63,13 @@ __int64 __fastcall KeIntSteerPeriodic(int *a1, unsigned int a2)
     v23 = v7;
     v24 = 2LL;
     v27 = 0;
-    v25 = &qword_14041B228;
+    v25 = &qword_14041C2C8;
     v26 = 160 * LOWORD(KiIntSteerMask[0]);
     EtwWriteEx(KiIntSteerEtwHandle, &PPM_ETW_INTERRUPT_STEERING_MASK_CHANGE, 0LL, 0, 0LL, 0LL, 5u, &UserData);
   }
   if ( KiIntSteerEtwEventEnabled((__int64)&PPM_ETW_INTERRUPT_STEERING_PROC_CHANGE) )
   {
-    v13[1] = qword_1405416A8;
+    v13[1] = qword_1405426A8;
     v13[0] = KeActiveProcessors;
     v14 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v12, v13) )

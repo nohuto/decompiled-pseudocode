@@ -22,8 +22,8 @@ BOOLEAN __stdcall RtlCutoverTimeToSystemTime(
   __int16 v11; // di
   __int16 v12; // r14
   BOOLEAN result; // al
-  struct _TIME_FIELDS v14; // [rsp+20h] [rbp-20h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-10h] BYREF
+  _TIME_FIELDS v14; // [rsp+20h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+70h] [rbp+30h] BYREF
 
   RtlTimeToTimeFields(CurrentTime, &TimeFields);

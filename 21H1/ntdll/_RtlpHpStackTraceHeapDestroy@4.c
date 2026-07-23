@@ -8,10 +8,10 @@
  *     _RtlpHpPerHeapStackTraceCleanup@12 @ 0x4B36DA1B (_RtlpHpPerHeapStackTraceCleanup@12.c)
  */
 
-int RtlpHpStackTraceHeapDestroy()
+void __thiscall RtlpHpStackTraceHeapDestroy(_DWORD *this)
 {
   RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
   if ( (dword_4B3A6834 & 1) != 0 && (dword_4B3A6834 & 2) != 0 )
-    RtlpHpPerHeapStackTraceCleanup(0);
-  return RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
+    RtlpHpPerHeapStackTraceCleanup((PRTL_RUN_ONCE)((char *)this + (this[2] == -571548178 ? 84 : 208)), 0);
+  RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
 }

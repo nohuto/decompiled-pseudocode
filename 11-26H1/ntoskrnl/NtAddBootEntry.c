@@ -1,15 +1,15 @@
 /*
- * XREFs of NtAddBootEntry @ 0x14083D090
+ * XREFs of NtAddBootEntry @ 0x1408432D0
  * Callers:
- *     DifNtAddBootEntryWrapper @ 0x14066A390 (DifNtAddBootEntryWrapper.c)
+ *     DifNtAddBootEntryWrapper @ 0x14066DF70 (DifNtAddBootEntryWrapper.c)
  * Callees:
- *     ExpSetBootEntry @ 0x14083BEC0 (ExpSetBootEntry.c)
+ *     ExpSetBootEntry @ 0x140842100 (ExpSetBootEntry.c)
  */
 
-__int64 __fastcall NtAddBootEntry(unsigned int *a1, unsigned int *a2)
+NTSTATUS __cdecl NtAddBootEntry(PBOOT_ENTRY BootEntry, PULONG Id)
 {
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 2 )
-    return ExpSetBootEntry(1, a1, a2);
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 2 )
+    return ExpSetBootEntry(1, &BootEntry->Version, Id);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

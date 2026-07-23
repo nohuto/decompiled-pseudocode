@@ -1,11 +1,11 @@
 /*
- * XREFs of PspThreadOpen @ 0x1409854A0
+ * XREFs of PspThreadOpen @ 0x1409474A0
  * Callers:
  *     <none>
  * Callees:
- *     PspIsParentProcess @ 0x14047F71C (PspIsParentProcess.c)
- *     Feature_ID51912085__private_IsEnabledPreCheck @ 0x140494E80 (Feature_ID51912085__private_IsEnabledPreCheck.c)
- *     PsTestProtectedProcessIncompatibility @ 0x140985588 (PsTestProtectedProcessIncompatibility.c)
+ *     PspIsParentProcess @ 0x14047908C (PspIsParentProcess.c)
+ *     Feature_ID51912085__private_IsEnabledPreCheck @ 0x14048E9D0 (Feature_ID51912085__private_IsEnabledPreCheck.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x140947588 (PsTestProtectedProcessIncompatibility.c)
  */
 
 __int64 __fastcall PspThreadOpen(__int64 a1, char a2, __int64 a3, __int64 a4, int *a5)
@@ -28,8 +28,13 @@ __int64 __fastcall PspThreadOpen(__int64 a1, char a2, __int64 a3, __int64 a4, in
     if ( (unsigned __int8)PsTestProtectedProcessIncompatibility(v11, a3, *(_QWORD *)(a4 + 544)) )
       return 3221225506LL;
   }
-  if ( *(_QWORD *)(a4 + 1648) && !*(_QWORD *)(a3 + 1600) && a2 && (~HIDWORD(xmmword_140F0A060) & *a5) != 0 )
+  if ( *(_QWORD *)(a4 + 1648)
+    && !*(_QWORD *)(a3 + 1600)
+    && a2
+    && (~*(_DWORD *)&PsAltSystemCallRegistrationLock.Tag & *a5) != 0 )
+  {
     return 3221225506LL;
+  }
   v12 = *a5;
   if ( (*a5 & 0x40) != 0 )
   {

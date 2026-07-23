@@ -1,11 +1,11 @@
 /*
- * XREFs of PoFxPowerControl @ 0x14038CD70
+ * XREFs of PoFxPowerControl @ 0x14038CEC0
  * Callers:
  *     <none>
  * Callees:
- *     IoAcquireRemoveLockEx @ 0x1402607C0 (IoAcquireRemoveLockEx.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     PopPluginRequestPowerControl @ 0x14056E074 (PopPluginRequestPowerControl.c)
+ *     IoAcquireRemoveLockEx @ 0x140281C90 (IoAcquireRemoveLockEx.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     PopPluginRequestPowerControl @ 0x14056E2B4 (PopPluginRequestPowerControl.c)
  */
 
 __int64 __fastcall PoFxPowerControl(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6, _QWORD *a7)

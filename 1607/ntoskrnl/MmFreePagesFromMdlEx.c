@@ -1,9 +1,9 @@
 /*
- * XREFs of MmFreePagesFromMdlEx @ 0x1401E49C0
+ * XREFs of MmFreePagesFromMdlEx @ 0x1401E47EC
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int16 __fastcall MmFreePagesFromMdlEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

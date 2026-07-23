@@ -4,35 +4,38 @@
  *     RtlCreateBootStatusDataFile @ 0x1800ED9E0 (RtlCreateBootStatusDataFile.c)
  * Callees:
  *     RtlGetNtProductType @ 0x180062D30 (RtlGetNtProductType.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtWriteFile @ 0x1800A03E0 (NtWriteFile.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtWriteFile @ 0x1800A0400 (NtWriteFile.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlpRecordBootStatusData @ 0x1800EE178 (RtlpRecordBootStatusData.c)
  */
 
-__int64 RtlRestoreBootStatusDefaults()
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
-  char v0; // cl
-  _BYTE *v1; // rax
-  __int64 v2; // rdx
-  _DWORD v4[44]; // [rsp+70h] [rbp-90h] BYREF
+  char v2; // cl
+  _BYTE *v3; // rax
+  __int64 v4; // rdx
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
+  _DWORD Buffer[44]; // [rsp+70h] [rbp-90h] BYREF
 
-  memset(v4, 0, 0xA8uLL);
-  v4[0] = 168;
-  RtlGetNtProductType(&v4[1]);
-  v0 = 0;
-  *(_WORD *)((char *)&v4[2] + 1) = 286;
-  v1 = v4;
-  BYTE1(v4[12]) = 1;
-  v2 = 168LL;
-  HIBYTE(v4[2]) = 0;
+  memset(Buffer, 0, 0xA8uLL);
+  Buffer[0] = 168;
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)&Buffer[1]);
+  v2 = 0;
+  *(_WORD *)((char *)&Buffer[2] + 1) = 286;
+  v3 = Buffer;
+  BYTE1(Buffer[12]) = 1;
+  v4 = 168LL;
+  HIBYTE(Buffer[2]) = 0;
   do
   {
-    v0 -= *v1++;
-    --v2;
+    v2 -= *v3++;
+    --v4;
   }
-  while ( v2 );
-  BYTE2(v4[12]) = v0;
-  RtlpRecordBootStatusData(0LL, v4, 0LL, 168LL);
-  return NtWriteFile();
+  while ( v4 );
+  ByteOffset.QuadPart = 0LL;
+  BYTE2(Buffer[12]) = v2;
+  RtlpRecordBootStatusData(0LL, Buffer, 0LL, 168LL);
+  return NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0xA8u, &ByteOffset, 0LL);
 }

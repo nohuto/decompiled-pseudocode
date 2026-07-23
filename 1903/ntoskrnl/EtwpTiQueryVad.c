@@ -44,7 +44,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned
       VirtualMemory = ZwQueryVirtualMemory(
                         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                         *a3,
-                        MemoryBasicVlmInformation,
+                        MemoryRegionInformation,
                         v13,
                         0x28uLL,
                         0LL);
@@ -57,7 +57,13 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned
           PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x6E734954u);
           *v12 = PoolWithTag;
           if ( !PoolWithTag
-            || ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *a3, MemorySectionName, PoolWithTag, 0x200uLL, 0LL) >= 0 )
+            || ZwQueryVirtualMemory(
+                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                 *a3,
+                 MemoryMappedFilenameInformation,
+                 PoolWithTag,
+                 0x200uLL,
+                 0LL) >= 0 )
           {
             goto LABEL_12;
           }

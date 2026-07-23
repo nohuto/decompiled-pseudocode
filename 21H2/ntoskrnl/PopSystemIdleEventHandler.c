@@ -1,5 +1,5 @@
 /*
- * XREFs of PopSystemIdleEventHandler @ 0x1408F0C10
+ * XREFs of PopSystemIdleEventHandler @ 0x1408F0D70
  * Callers:
  *     <none>
  * Callees:

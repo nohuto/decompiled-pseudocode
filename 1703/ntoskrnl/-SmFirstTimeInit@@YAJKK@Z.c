@@ -43,7 +43,7 @@ __int64 __fastcall SmFirstTimeInit(int a1, int a2)
   struct _KTHREAD *v9; // rdi
   __int64 SessionId; // rdx
   unsigned __int8 v11; // r15
-  __int64 v12; // r8
+  unsigned int v12; // r8d
   bool v13; // zf
   __int64 v14; // rcx
   int v15; // eax
@@ -216,7 +216,7 @@ LABEL_12:
     SessionId = 0xFFFFFFFFLL;
   --v9->SpecialApcDisable;
   v11 = ++v9->AbAllocationRegionCount;
-  LODWORD(v12) = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
+  v12 = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v13 = !_BitScanReverse((unsigned int *)&v14, v12);
@@ -226,7 +226,7 @@ LABEL_12:
     v15 = 1 << v14;
     v16 = v14;
     v17 = &v9->LockEntries[v16];
-    v12 = ~v15 & (unsigned int)v12;
+    v12 &= ~v15;
     if ( (v17->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v17->LockState.0 & 1) == 0
       && (*(_QWORD *)&v17->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_1403FA180 & 0x7FFFFFFFFFFFFFFCLL)
@@ -239,7 +239,7 @@ LABEL_12:
         {
           v17->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v17->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v9->LockEntries[v16], SessionId, v12);
+            KiAbEntryRemoveFromTree(&v9->LockEntries[v16].TreeNode, SessionId);
           v23 = 0;
           v23 = v17->BoostBitmap.AllFields & 0x1FFFF;
           v17->BoostBitmap.AllFields &= 0xFFFE0000;

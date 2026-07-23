@@ -1,16 +1,16 @@
 /*
- * XREFs of MmUpdateMdlTracker @ 0x14061D2B4
+ * XREFs of MmUpdateMdlTracker @ 0x14061D804
  * Callers:
- *     IopProbeAndLockPages @ 0x140371DD4 (IopProbeAndLockPages.c)
- *     IopProbeAndLockPages_0 @ 0x1403D4174 (IopProbeAndLockPages_0.c)
- *     IopProbeAndLockPages_1 @ 0x140555AD0 (IopProbeAndLockPages_1.c)
- *     IopProbeAndLockPages_2 @ 0x140559CDC (IopProbeAndLockPages_2.c)
- *     IopXxxControlFile @ 0x1406E54E0 (IopXxxControlFile.c)
- *     NtWriteFileGather @ 0x1407E82F0 (NtWriteFileGather.c)
+ *     IopProbeAndLockPages @ 0x140371F74 (IopProbeAndLockPages.c)
+ *     IopProbeAndLockPages_0 @ 0x1403D4354 (IopProbeAndLockPages_0.c)
+ *     IopProbeAndLockPages_1 @ 0x140556190 (IopProbeAndLockPages_1.c)
+ *     IopProbeAndLockPages_2 @ 0x14055A39C (IopProbeAndLockPages_2.c)
+ *     IopXxxControlFile @ 0x1406E5510 (IopXxxControlFile.c)
+ *     NtWriteFileGather @ 0x1407E85C0 (NtWriteFileGather.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmUpdateMdlTracker(unsigned __int64 a1, __int64 a2, __int64 a3)
@@ -56,10 +56,10 @@ LABEL_5:
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v16);
     OldIrql = v16.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16.OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

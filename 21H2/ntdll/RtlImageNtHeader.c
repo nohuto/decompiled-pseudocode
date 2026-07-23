@@ -7,21 +7,21 @@
  *     RtlpFileIsWin32WithRCManifest @ 0x180058DDC (RtlpFileIsWin32WithRCManifest.c)
  *     TpAllocPoolInternal @ 0x180062D34 (TpAllocPoolInternal.c)
  *     RtlCreateUserStack @ 0x180077340 (RtlCreateUserStack.c)
- *     LdrpCorFixupImage @ 0x1800CE838 (LdrpCorFixupImage.c)
- *     AVrfpLoadAndInitializeProvider @ 0x1800DADA8 (AVrfpLoadAndInitializeProvider.c)
- *     AvrfMiniLoadDll @ 0x1800DB6D0 (AvrfMiniLoadDll.c)
- *     RtlComputeImportTableHash @ 0x1800E06F0 (RtlComputeImportTableHash.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1800E124C (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpGetMappingFromCacheEntry @ 0x1800E13D8 (LdrpGetMappingFromCacheEntry.c)
+ *     LdrpCorFixupImage @ 0x1800CE7F8 (LdrpCorFixupImage.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x1800DAD68 (AVrfpLoadAndInitializeProvider.c)
+ *     AvrfMiniLoadDll @ 0x1800DB690 (AvrfMiniLoadDll.c)
+ *     RtlComputeImportTableHash @ 0x1800E06B0 (RtlComputeImportTableHash.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1800E120C (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetMappingFromCacheEntry @ 0x1800E1398 (LdrpGetMappingFromCacheEntry.c)
  * Callees:
  *     RtlImageNtHeaderEx @ 0x180032AD0 (RtlImageNtHeaderEx.c)
  */
 
-__int64 __fastcall RtlImageNtHeader(unsigned __int64 a1)
+PIMAGE_NT_HEADERS __cdecl RtlImageNtHeader(PVOID BaseOfImage)
 {
-  __int64 v2; // [rsp+38h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 0LL;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v2);
-  return v2;
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &OutHeaders);
+  return OutHeaders;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlInitializeBitMap @ 0x1800F48F0
+ * XREFs of RtlInitializeBitMap @ 0x1800EF510
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall RtlInitializeBitMap(__int64 a1, __int64 a2, int a3)
+void __cdecl RtlInitializeBitMap(PRTL_BITMAP BitMapHeader, PULONG BitMapBuffer, ULONG SizeOfBitMap)
 {
-  *(_DWORD *)a1 = a3;
-  *(_QWORD *)(a1 + 8) = a2;
+  BitMapHeader->SizeOfBitMap = SizeOfBitMap;
+  BitMapHeader->Buffer = BitMapBuffer;
 }

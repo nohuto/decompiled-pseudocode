@@ -1,9 +1,9 @@
 /*
- * XREFs of MmObtainChargesToLockPagedPool @ 0x14056CEE8
+ * XREFs of MmObtainChargesToLockPagedPool @ 0x14056D428
  * Callers:
- *     PopPreallocateHibernateMemory @ 0x14056CCF8 (PopPreallocateHibernateMemory.c)
+ *     PopPreallocateHibernateMemory @ 0x14056D238 (PopPreallocateHibernateMemory.c)
  * Callees:
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  */
 
 _BOOL8 __fastcall MmObtainChargesToLockPagedPool(__int16 a1, __int64 a2)

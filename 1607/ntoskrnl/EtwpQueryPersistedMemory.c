@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpQueryPersistedMemory @ 0x1406AA194
+ * XREFs of EtwpQueryPersistedMemory @ 0x1406AA2CC
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1406AA264 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x1406AA39C (EtwpSavePersistedLogger.c)
  * Callees:
  *     KsrClaimPersistedMemory_0 @ 0x1400012A0 (KsrClaimPersistedMemory_0.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)

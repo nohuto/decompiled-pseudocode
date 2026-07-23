@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRemoveViewsFromSection @ 0x14029F8E8
+ * XREFs of MiRemoveViewsFromSection @ 0x14029FB78
  * Callers:
- *     MiRemoveViewsFromSectionWithPfn @ 0x14029CA84 (MiRemoveViewsFromSectionWithPfn.c)
- *     MiConvertStaticSubsections @ 0x1402A0F18 (MiConvertStaticSubsections.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
- *     MiRemoveMappedPtes @ 0x1402E65E0 (MiRemoveMappedPtes.c)
- *     MiRemoveSystemCacheReferences @ 0x14062EF6C (MiRemoveSystemCacheReferences.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14029CD14 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiConvertStaticSubsections @ 0x1402A11A8 (MiConvertStaticSubsections.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
+ *     MiRemoveMappedPtes @ 0x1402E6870 (MiRemoveMappedPtes.c)
+ *     MiRemoveSystemCacheReferences @ 0x14062F4BC (MiRemoveSystemCacheReferences.c)
  * Callees:
- *     MiInsertUnusedSubsection @ 0x14028BD00 (MiInsertUnusedSubsection.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsection @ 0x14028BF90 (MiInsertUnusedSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
  */
 
 __int64 __fastcall MiRemoveViewsFromSection(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3)

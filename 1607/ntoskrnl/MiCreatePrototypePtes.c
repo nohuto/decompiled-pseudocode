@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCreatePrototypePtes @ 0x14008FE84
+ * XREFs of MiCreatePrototypePtes @ 0x14008F5E4
  * Callers:
- *     MiAddViewsForSection @ 0x14002C690 (MiAddViewsForSection.c)
+ *     MiAddViewsForSection @ 0x14002C210 (MiAddViewsForSection.c)
  * Callees:
- *     MiDecrementSubsectionViewCount @ 0x140022860 (MiDecrementSubsectionViewCount.c)
- *     MiIncrementSubsectionViewCount @ 0x14002CF20 (MiIncrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiUpdatePageFileSectionList @ 0x14009021C (MiUpdatePageFileSectionList.c)
- *     MiGetSubsectionCharges @ 0x1401F50F8 (MiGetSubsectionCharges.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400223E0 (MiDecrementSubsectionViewCount.c)
+ *     MiIncrementSubsectionViewCount @ 0x14002CAA0 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiUpdatePageFileSectionList @ 0x14008F97C (MiUpdatePageFileSectionList.c)
+ *     MiGetSubsectionCharges @ 0x1401F4F24 (MiGetSubsectionCharges.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInitializePrototypePtes @ 0x1404B8A74 (MiInitializePrototypePtes.c)
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MiInitializePrototypePtes @ 0x1404A2E54 (MiInitializePrototypePtes.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiCreatePrototypePtes(__int64 *BugCheckParameter2, char a2, unsigned int a3, unsigned int a4)
@@ -71,7 +71,7 @@ __int64 __fastcall MiCreatePrototypePtes(__int64 *BugCheckParameter2, char a2, u
         if ( v21 != MiSystemPartition )
         {
           FileExtents = -1073741740;
-          ++dword_140327008;
+          ++dword_140327048;
           goto LABEL_20;
         }
         FileExtents = MiGetSubsectionCharges(v20, v7);

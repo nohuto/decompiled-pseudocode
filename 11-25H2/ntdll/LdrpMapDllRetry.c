@@ -19,7 +19,7 @@ __int64 __fastcall LdrpMapDllRetry(__int64 a1)
   unsigned __int16 *v4; // rsi
   int ExistingModule; // ebx
   __int64 v7; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING v8; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING v8; // [rsp+40h] [rbp-C0h] BYREF
   _WORD v9[128]; // [rsp+50h] [rbp-B0h] BYREF
 
   v7 = 0LL;
@@ -37,11 +37,11 @@ __int64 __fastcall LdrpMapDllRetry(__int64 a1)
   }
   else
   {
-    ExistingModule = LdrpGetNtPathFromDosPath(v4, (__int64)&v8);
+    ExistingModule = LdrpGetNtPathFromDosPath(v4, &v8);
     if ( ExistingModule >= 0 )
       ExistingModule = LdrpMapDllNtFileName(a1, &v8);
   }
   if ( v9 != v8.Buffer )
-    RtlpSysVolFree((__int64)v8.Buffer);
+    RtlpSysVolFree(v8.Buffer);
   return (unsigned int)ExistingModule;
 }

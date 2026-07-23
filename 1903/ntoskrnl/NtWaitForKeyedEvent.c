@@ -22,8 +22,8 @@ NTSTATUS __stdcall NtWaitForKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   char *v8; // rcx
   unsigned __int64 *v9; // rsi
   struct _LIST_ENTRY *v10; // r15
-  __int64 v11; // rax
-  __int64 v12; // r12
+  _RTL_BALANCED_NODE *v11; // rax
+  _RTL_BALANCED_NODE *v12; // r12
   struct _LIST_ENTRY *i; // rcx
   LIST_ENTRY *p_WaitListHead; // rax
   struct _LIST_ENTRY *v15; // rcx
@@ -33,8 +33,8 @@ NTSTATUS __stdcall NtWaitForKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *v20; // rdx
   struct _LIST_ENTRY *Blink; // rax
-  __int64 v22; // rax
-  __int64 v23; // r15
+  _RTL_BALANCED_NODE *v22; // rax
+  _RTL_BALANCED_NODE *v23; // r15
   LIST_ENTRY *v24; // rax
   struct _KTHREAD *v25; // rcx
   struct _LIST_ENTRY *v26; // rdx
@@ -90,7 +90,7 @@ NTSTATUS __stdcall NtWaitForKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
     ExfAcquirePushLockExclusiveEx(v9, v11, (ULONG_PTR)v9);
   if ( v12 )
-    *(_BYTE *)(v12 + 26) |= 1u;
+    BYTE2(v12[1].Left) |= 1u;
   for ( i = v10->Flink; i != v10; i = i->Flink )
   {
     p_Blink = &i[-97].Blink;
@@ -144,7 +144,7 @@ LABEL_12:
       if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
         ExfAcquirePushLockExclusiveEx(v9, v22, (ULONG_PTR)v9);
       if ( v23 )
-        *(_BYTE *)(v23 + 26) |= 1u;
+        BYTE2(v23[1].Left) |= 1u;
       v24 = &CurrentThread[1].Header.WaitListHead;
       v25 = (struct _KTHREAD *)CurrentThread[1].Header.WaitListHead.Flink;
       if ( v25 != (struct _KTHREAD *)&CurrentThread[1].Header.WaitListHead )

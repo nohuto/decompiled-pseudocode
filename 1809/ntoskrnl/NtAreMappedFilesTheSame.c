@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAreMappedFilesTheSame @ 0x140704CA0
+ * XREFs of NtAreMappedFilesTheSame @ 0x140705F40
  * Callers:
  *     <none>
  * Callees:
@@ -8,13 +8,13 @@
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1400754A0 (MiUnlockAndDereferenceVadShared.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x140075570 (MiLockVadShared.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiDereferenceVad @ 0x1402CB0C4 (MiDereferenceVad.c)
- *     MiVadIsCfgBitmap @ 0x140604D30 (MiVadIsCfgBitmap.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140075490 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x140075560 (MiLockVadShared.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     MiDereferenceVad @ 0x1402CB2B4 (MiDereferenceVad.c)
+ *     MiVadIsCfgBitmap @ 0x140605D30 (MiVadIsCfgBitmap.c)
  */
 
 NTSTATUS __stdcall NtAreMappedFilesTheSame(PVOID File1MappedAsAnImage, PVOID File2MappedAsFile)

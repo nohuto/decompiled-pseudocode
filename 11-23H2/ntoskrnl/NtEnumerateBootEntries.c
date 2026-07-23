@@ -1,42 +1,42 @@
 /*
- * XREFs of NtEnumerateBootEntries @ 0x14083DAB0
+ * XREFs of NtEnumerateBootEntries @ 0x14083DDB0
  * Callers:
  *     <none>
  * Callees:
  *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     ExpIsDevicePathForRemovableMedia @ 0x140399D10 (ExpIsDevicePathForRemovableMedia.c)
- *     strcmp @ 0x1403DB0F0 (strcmp.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     ExpIsDevicePathForRemovableMedia @ 0x140399EF0 (ExpIsDevicePathForRemovableMedia.c)
+ *     strcmp @ 0x1403DB2D0 (strcmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     ExpTranslateBootEntryNameToId @ 0x14083E028 (ExpTranslateBootEntryNameToId.c)
- *     ExpSafeWcslen @ 0x14083E104 (ExpSafeWcslen.c)
- *     ExpVerifyFilePath @ 0x14083E410 (ExpVerifyFilePath.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x14083EA20 (IoEnumerateEnvironmentVariablesEx.c)
- *     ExpVerifyWindowsOsOptions @ 0x1409FE7C8 (ExpVerifyWindowsOsOptions.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     ExpTranslateBootEntryNameToId @ 0x14083E328 (ExpTranslateBootEntryNameToId.c)
+ *     ExpSafeWcslen @ 0x14083E404 (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x14083E710 (ExpVerifyFilePath.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14083ED20 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpVerifyWindowsOsOptions @ 0x1409FEA58 (ExpVerifyWindowsOsOptions.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
-  _DWORD *v2; // r12
+  PULONG v2; // r12
   KPROCESSOR_MODE v4; // si
   unsigned int v5; // ebx
   __int64 v6; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _DWORD *v8; // rsi
   _DWORD *v9; // r13
   struct _KTHREAD *v10; // rax
   __int64 Pool2; // rax
   unsigned int *v12; // r15
   unsigned int v13; // edi
-  int v14; // r14d
+  NTSTATUS v14; // r14d
   unsigned int *v15; // r12
   char *v16; // rdi
   __int64 v17; // rax
@@ -69,7 +69,7 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
   unsigned int v44; // eax
   unsigned int i; // [rsp+30h] [rbp-D8h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+34h] [rbp-D4h]
-  unsigned int v47; // [rsp+38h] [rbp-D0h]
+  NTSTATUS v47; // [rsp+38h] [rbp-D0h]
   unsigned int v48; // [rsp+3Ch] [rbp-CCh]
   BOOL v49; // [rsp+40h] [rbp-C8h]
   unsigned int v50; // [rsp+44h] [rbp-C4h]
@@ -91,36 +91,37 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
   struct _KTHREAD *CurrentThread; // [rsp+C8h] [rbp-40h]
   char v68; // [rsp+120h] [rbp+18h]
 
-  v2 = a2;
+  v2 = BufferLength;
   v57 = 0LL;
   P = 0LL;
-  if ( dword_140C31B10 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+  if ( dword_140C31AB0 != 2 )
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   CurrentThread = KeGetCurrentThread();
   v4 = CurrentThread->PreviousMode;
   PreviousMode = v4;
   if ( v4 )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a2;
+    if ( (unsigned __int64)BufferLength < 0x7FFFFFFF0000LL )
+      v6 = (__int64)BufferLength;
     *(_DWORD *)v6 = *(_DWORD *)v6;
-    v5 = Address != 0 ? *a2 : 0;
+    v5 = Buffer != 0LL ? *BufferLength : 0;
     v50 = v5;
     if ( v5 )
-      ProbeForWrite((volatile void *)Address, v5, 4u);
+      ProbeForWrite(Buffer, v5, 4u);
     v4 = PreviousMode;
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v5 = Address != 0 ? *a2 : 0;
+    v5 = Buffer != 0LL ? *BufferLength : 0;
     v50 = v5;
   }
-  if ( !v5 || (result = ExLockUserBuffer(Address, v5, v4, IoWriteAccess, &v57, (struct _MDL **)&P), (int)result >= 0) )
+  if ( !v5
+    || (result = ExLockUserBuffer((unsigned __int64)Buffer, v5, v4, IoWriteAccess, &v57, (struct _MDL **)&P), result >= 0) )
   {
     v8 = v57;
     v49 = v5 != 0;
@@ -318,7 +319,7 @@ LABEL_53:
         v43 = *v15;
         if ( !(_DWORD)v43 )
         {
-          v2 = a2;
+          v2 = BufferLength;
           if ( v9 )
             *v9 = 0;
           goto LABEL_57;
@@ -335,7 +336,7 @@ LABEL_57:
       ExUnlockUserBuffer((struct _MDL *)P);
     result = v47;
     if ( v14 < 0 )
-      result = (unsigned int)v14;
+      result = v14;
     *v2 = (_DWORD)v8 - (_DWORD)v57;
   }
   return result;

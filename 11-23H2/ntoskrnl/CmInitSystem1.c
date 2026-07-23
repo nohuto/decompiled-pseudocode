@@ -5,39 +5,39 @@
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
  *     ExInitializeLookasideListExInternal @ 0x140222220 (ExInitializeLookasideListExInternal.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmpInitializeLoadOptions @ 0x1403B4BA4 (CmpInitializeLoadOptions.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmpInitializeLoadOptions @ 0x1403B4D84 (CmpInitializeLoadOptions.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
  *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
  *     CmpInitializeKcbCache @ 0x140690F1C (CmpInitializeKcbCache.c)
  *     CmpInitializeParseContext @ 0x1406929E0 (CmpInitializeParseContext.c)
  *     CmpCleanupParseContext @ 0x140692A84 (CmpCleanupParseContext.c)
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
- *     CmpHashUnicodeComponent @ 0x140708CE0 (CmpHashUnicodeComponent.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
- *     CmpAddToHiveFileList @ 0x1407E4E64 (CmpAddToHiveFileList.c)
- *     CmpInitializeRegistryProcess @ 0x14080AADC (CmpInitializeRegistryProcess.c)
- *     CmpAdminSystemSecurityDescriptor @ 0x14080B888 (CmpAdminSystemSecurityDescriptor.c)
- *     CmpHiveRootSecurityDescriptor @ 0x14080C110 (CmpHiveRootSecurityDescriptor.c)
- *     CmpInitSiloSupport @ 0x14080C5C0 (CmpInitSiloSupport.c)
- *     HvInitializeHashLibrary @ 0x14080C5F0 (HvInitializeHashLibrary.c)
- *     CmpInitializeLightWeightTransactionType @ 0x14080C710 (CmpInitializeLightWeightTransactionType.c)
- *     CmpInitializeNameCache @ 0x14083D5EC (CmpInitializeNameCache.c)
- *     CmpMarkCurrentProfileDirty @ 0x14084A84C (CmpMarkCurrentProfileDirty.c)
- *     CmpInitializeMachineHiveLoadedCallbacks @ 0x14085BAA4 (CmpInitializeMachineHiveLoadedCallbacks.c)
- *     CmpInitializeDelayedCloseTable @ 0x1408635A8 (CmpInitializeDelayedCloseTable.c)
- *     CmpInitCallbacks @ 0x140863F0C (CmpInitCallbacks.c)
- *     CmpVolumeManagerInitialize @ 0x1408656C0 (CmpVolumeManagerInitialize.c)
- *     CmpInitializeFreezeThaw @ 0x140865858 (CmpInitializeFreezeThaw.c)
- *     CmpInitializeGlobalKeyLockTracker @ 0x140865890 (CmpInitializeGlobalKeyLockTracker.c)
- *     CmpValidateGlobalFlushControlFlags @ 0x140865DE8 (CmpValidateGlobalFlushControlFlags.c)
- *     CmpInitSIDToHiveMapping @ 0x140865ED4 (CmpInitSIDToHiveMapping.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
+ *     CmpHashUnicodeComponent @ 0x140708EF0 (CmpHashUnicodeComponent.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
+ *     CmpAddToHiveFileList @ 0x1407E5134 (CmpAddToHiveFileList.c)
+ *     CmpInitializeRegistryProcess @ 0x14080ADAC (CmpInitializeRegistryProcess.c)
+ *     CmpAdminSystemSecurityDescriptor @ 0x14080BB58 (CmpAdminSystemSecurityDescriptor.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x14080C3E0 (CmpHiveRootSecurityDescriptor.c)
+ *     CmpInitSiloSupport @ 0x14080C890 (CmpInitSiloSupport.c)
+ *     HvInitializeHashLibrary @ 0x14080C8C0 (HvInitializeHashLibrary.c)
+ *     CmpInitializeLightWeightTransactionType @ 0x14080C9E0 (CmpInitializeLightWeightTransactionType.c)
+ *     CmpInitializeNameCache @ 0x14083D8EC (CmpInitializeNameCache.c)
+ *     CmpMarkCurrentProfileDirty @ 0x14084AB4C (CmpMarkCurrentProfileDirty.c)
+ *     CmpInitializeMachineHiveLoadedCallbacks @ 0x14085BCE4 (CmpInitializeMachineHiveLoadedCallbacks.c)
+ *     CmpInitializeDelayedCloseTable @ 0x1408637E8 (CmpInitializeDelayedCloseTable.c)
+ *     CmpInitCallbacks @ 0x14086414C (CmpInitCallbacks.c)
+ *     CmpVolumeManagerInitialize @ 0x140865900 (CmpVolumeManagerInitialize.c)
+ *     CmpInitializeFreezeThaw @ 0x140865A98 (CmpInitializeFreezeThaw.c)
+ *     CmpInitializeGlobalKeyLockTracker @ 0x140865AD0 (CmpInitializeGlobalKeyLockTracker.c)
+ *     CmpValidateGlobalFlushControlFlags @ 0x140866028 (CmpValidateGlobalFlushControlFlags.c)
+ *     CmpInitSIDToHiveMapping @ 0x140866114 (CmpInitSIDToHiveMapping.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
@@ -131,7 +131,7 @@ char __fastcall CmInitSystem1(ULONG_PTR BugCheckParameter3)
   CmpHiveListHeadLock = 0LL;
   qword_140D54C70 = (__int64)&CmpHiveListHead;
   CmpHiveListHead = (__int64)&CmpHiveListHead;
-  qword_140C13E28 = (__int64)&CmpAppHiveLoadList;
+  qword_140C13DE8 = (__int64)&CmpAppHiveLoadList;
   CmpAppHiveLoadList = (__int64)&CmpAppHiveLoadList;
   CmpLoadHiveLock = 0LL;
   CmpShutdownRundown.Count = 0LL;
@@ -152,7 +152,7 @@ char __fastcall CmInitSystem1(ULONG_PTR BugCheckParameter3)
   CmpPostLock.Event.Header.SignalState = 0;
   CmpInitializeNameCache();
   ExInitializeLookasideListExInternal(
-    &CmpKcbLookaside.L.ListHead,
+    &CmpKcbLookaside,
     (__int64 (__fastcall *)())CmpAllocatePoolLookaside,
     CmSiFreeMemory,
     1,

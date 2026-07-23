@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeCurrentZeroBandwidth @ 0x14051FC08
+ * XREFs of MiComputeCurrentZeroBandwidth @ 0x1405222AC
  * Callers:
- *     MiFindOptimalEngineToAddThread @ 0x14051F998 (MiFindOptimalEngineToAddThread.c)
+ *     MiFindOptimalEngineToAddThread @ 0x14052203C (MiFindOptimalEngineToAddThread.c)
  * Callees:
  *     <none>
  */

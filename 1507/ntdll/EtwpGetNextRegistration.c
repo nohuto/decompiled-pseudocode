@@ -11,13 +11,13 @@
  *     RtlTryAcquireSRWLockShared @ 0x180070C50 (RtlTryAcquireSRWLockShared.c)
  */
 
-__int64 __fastcall EtwpGetNextRegistration(unsigned __int64 a1)
+__int64 __fastcall EtwpGetNextRegistration(_RTL_SRWLOCK *a1)
 {
   char v2; // si
   unsigned __int64 v3; // rbp
-  unsigned __int64 v4; // rbx
+  unsigned __int64 Value; // rbx
   unsigned __int64 v5; // rax
-  __int64 j; // rbx
+  unsigned __int64 j; // rbx
   _QWORD *i; // rax
   _QWORD *v9; // rax
   unsigned __int64 v10; // rcx
@@ -28,43 +28,43 @@ __int64 __fastcall EtwpGetNextRegistration(unsigned __int64 a1)
   EtwpProvLockOwner = (int)NtCurrentTeb()->ClientId.UniqueThread;
   if ( a1 )
   {
-    v4 = *(_QWORD *)(a1 + 8);
-    v5 = a1;
-    if ( v4 )
+    Value = a1[1].Value;
+    v5 = (unsigned __int64)a1;
+    if ( Value )
     {
-      for ( i = *(_QWORD **)v4; i; i = (_QWORD *)*i )
-        v4 = (unsigned __int64)i;
+      for ( i = *(_QWORD **)Value; i; i = (_QWORD *)*i )
+        Value = (unsigned __int64)i;
     }
     else
     {
-      for ( j = *(_QWORD *)(a1 + 16); ; j = *(_QWORD *)(v4 + 16) )
+      for ( j = a1[2].Value; ; j = *(_QWORD *)(Value + 16) )
       {
-        v4 = j & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v4 || *(_QWORD *)v4 == v5 )
+        Value = j & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !Value || *(_QWORD *)Value == v5 )
           break;
-        v5 = v4;
+        v5 = Value;
       }
     }
   }
   else
   {
-    v4 = qword_180147600;
+    Value = (unsigned __int64)EtwpRegistrationTable.Min;
   }
-  while ( v4 )
+  while ( Value )
   {
-    v3 = v4;
-    if ( (unsigned __int8)RtlTryAcquireSRWLockShared(v4 + 72) )
+    v3 = Value;
+    if ( RtlTryAcquireSRWLockShared((PRTL_SRWLOCK)(Value + 72)) )
     {
       v2 = 1;
       break;
     }
-    v9 = *(_QWORD **)(v4 + 8);
-    v10 = v4;
+    v9 = *(_QWORD **)(Value + 8);
+    v10 = Value;
     if ( v9 )
     {
       do
       {
-        v4 = (unsigned __int64)v9;
+        Value = (unsigned __int64)v9;
         v9 = (_QWORD *)*v9;
       }
       while ( v9 );
@@ -73,16 +73,16 @@ __int64 __fastcall EtwpGetNextRegistration(unsigned __int64 a1)
     {
       while ( 1 )
       {
-        v4 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v4 || *(_QWORD *)v4 == v10 )
+        Value = *(_QWORD *)(Value + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !Value || *(_QWORD *)Value == v10 )
           break;
-        v10 = v4;
+        v10 = Value;
       }
     }
   }
   EtwpProvLockOwner = 0;
   RtlReleaseSRWLockExclusive(&EtwpProvLock);
   if ( a1 )
-    RtlReleaseSRWLockShared(a1 + 72);
+    RtlReleaseSRWLockShared(a1 + 9);
   return v3 & -(__int64)(v2 != 0);
 }

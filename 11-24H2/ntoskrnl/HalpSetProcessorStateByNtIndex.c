@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpSetProcessorStateByNtIndex @ 0x140557548
+ * XREFs of HalpSetProcessorStateByNtIndex @ 0x140554E88
  * Callers:
- *     HalpInterruptStartProcessor @ 0x140B4BED0 (HalpInterruptStartProcessor.c)
+ *     HalpInterruptStartProcessor @ 0x140B4DF10 (HalpInterruptStartProcessor.c)
  * Callees:
  *     <none>
  */

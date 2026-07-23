@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetClockTickRate @ 0x14009DFAC
+ * XREFs of KiSetClockTickRate @ 0x14009D7AC
  * Callers:
- *     KiSetClockIntervalToMinimumRequested @ 0x14009DF80 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14009D780 (KiSetClockIntervalToMinimumRequested.c)
  * Callees:
- *     KiEventClockStateChange @ 0x14009E0BC (KiEventClockStateChange.c)
- *     KiSetPendingTick @ 0x14009E0F8 (KiSetPendingTick.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
+ *     KiEventClockStateChange @ 0x14009D8BC (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x14009D8F8 (KiSetPendingTick.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
  */
 
 __int64 __fastcall KiSetClockTickRate(unsigned int a1)
@@ -30,14 +30,14 @@ __int64 __fastcall KiSetClockTickRate(unsigned int a1)
   KeTimeIncrement = v8;
   v4.QuadPart = MEMORY[0xFFFFF78000000008];
   KiClockTimerNextTickTime = MEMORY[0xFFFFF78000000008] + v8;
-  if ( v8 < dword_14030DDB4 )
-    dword_14030DDB4 = v8;
-  if ( v8 > dword_14030DDB0 )
-    dword_14030DDB0 = v8;
-  if ( a1 < dword_14030DDBC )
-    dword_14030DDBC = a1;
-  if ( a1 > dword_14030DDB8 )
-    dword_14030DDB8 = a1;
+  if ( v8 < dword_14030DDF4 )
+    dword_14030DDF4 = v8;
+  if ( v8 > dword_14030DDF0 )
+    dword_14030DDF0 = v8;
+  if ( a1 < dword_14030DDFC )
+    dword_14030DDFC = a1;
+  if ( a1 > dword_14030DDF8 )
+    dword_14030DDF8 = a1;
   v5 = 3LL * (unsigned int)KiClockIncrementTraceCount;
   v6 = KiClockIncrementTraceCount + 1;
   KiClockIncrementTrace[v5].LowPart = v8;

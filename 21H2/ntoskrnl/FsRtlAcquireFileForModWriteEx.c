@@ -1,45 +1,45 @@
 /*
- * XREFs of FsRtlAcquireFileForModWriteEx @ 0x1402559CC
+ * XREFs of FsRtlAcquireFileForModWriteEx @ 0x140276F3C
  * Callers:
- *     MiGatherMappedPages @ 0x140255BC8 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x140277138 (MiGatherMappedPages.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ExConvertExclusiveToSharedLite @ 0x1402B21C0 (ExConvertExclusiveToSharedLite.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     FsFilterPerformCompletionCallbacks @ 0x140356C80 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x140356D10 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlInit @ 0x140357030 (FsFilterCtrlInit.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x1403570C0 (IoGetBaseFileSystemDeviceObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     FsFilterFreeCompletionStack @ 0x1404F1198 (FsFilterFreeCompletionStack.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1405B4D70 (ExAcquireSharedWaitForExclusive.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140230370 (ExConvertExclusiveToSharedLite.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x1403619D0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x140361A60 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlInit @ 0x140361D80 (FsFilterCtrlInit.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x140361E10 (IoGetBaseFileSystemDeviceObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     FsFilterFreeCompletionStack @ 0x1404F1118 (FsFilterFreeCompletionStack.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4FA0 (ExAcquireSharedWaitForExclusive.c)
  */
 
-__int64 __fastcall FsRtlAcquireFileForModWriteEx(PFILE_OBJECT FileObject, _QWORD *a2, struct _ERESOURCE **a3)
+__int64 __fastcall FsRtlAcquireFileForModWriteEx(PFILE_OBJECT FileObject, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx
   char v5; // r12
   PDEVICE_OBJECT RelatedDeviceObject; // r13
   int v7; // edx
   int v8; // r9d
-  PDEVICE_OBJECT BaseFileSystemDeviceObject; // r14
-  struct _DRIVER_OBJECT *DriverObject; // rax
-  PFAST_IO_DISPATCH FastIoDispatch; // rsi
-  PDRIVER_ADD_DEVICE AddDevice; // rdi
+  _QWORD *BaseFileSystemDeviceObject; // r14
+  __int64 v10; // rax
+  __int64 v11; // rsi
+  __int64 v12; // rdi
   __int64 result; // rax
   __int64 v14; // rdx
   __int64 v15; // r8
   _QWORD *v16; // r13
-  struct _ERESOURCE **v17; // r12
+  _QWORD *v17; // r12
   int v18; // eax
   char v19; // r13
-  __int64 (__fastcall *AcquireForModWrite)(_QWORD, _QWORD, _QWORD, _QWORD); // rax
-  struct _DRIVER_OBJECT *v21; // rax
+  __int64 (__fastcall *v20)(PFILE_OBJECT, __int64, _QWORD *, _QWORD *); // rax
+  __int64 v21; // rax
   PVOID FsContext; // rdi
   char v23; // dl
   __int64 v24; // rcx
@@ -49,10 +49,10 @@ __int64 __fastcall FsRtlAcquireFileForModWriteEx(PFILE_OBJECT FileObject, _QWORD
   char v28; // cl
   struct _ERESOURCE *v29; // rcx
   int v30; // [rsp+34h] [rbp-CCh] BYREF
-  _QWORD *v31; // [rsp+38h] [rbp-C8h]
-  struct _ERESOURCE **v32; // [rsp+40h] [rbp-C0h]
-  _QWORD *v33; // [rsp+48h] [rbp-B8h]
-  _QWORD v34[72]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v31; // [rsp+38h] [rbp-C8h]
+  __int64 v32; // [rsp+40h] [rbp-C0h]
+  __int64 *v33; // [rsp+48h] [rbp-B8h]
+  __int64 v34[72]; // [rsp+50h] [rbp-B0h] BYREF
 
   v32 = a3;
   v31 = a2;
@@ -63,30 +63,25 @@ __int64 __fastcall FsRtlAcquireFileForModWriteEx(PFILE_OBJECT FileObject, _QWORD
   v5 = 0;
   RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
   BaseFileSystemDeviceObject = IoGetBaseFileSystemDeviceObject(FileObject);
-  DriverObject = BaseFileSystemDeviceObject->DriverObject;
-  FastIoDispatch = DriverObject->FastIoDispatch;
-  AddDevice = DriverObject->DriverExtension[1].AddDevice;
-  if ( AddDevice
-    && (*(_DWORD *)AddDevice >= 0x50u && *((_QWORD *)AddDevice + 9)
-     || *(_DWORD *)AddDevice >= 0x58u && *((_QWORD *)AddDevice + 10)) )
-  {
+  v10 = BaseFileSystemDeviceObject[1];
+  v11 = *(_QWORD *)(v10 + 80);
+  v12 = *(_QWORD *)(*(_QWORD *)(v10 + 48) + 48LL);
+  if ( v12 && (*(_DWORD *)v12 >= 0x50u && *(_QWORD *)(v12 + 72) || *(_DWORD *)v12 >= 0x58u && *(_QWORD *)(v12 + 80)) )
     v5 = 1;
-  }
-  if ( RelatedDeviceObject == BaseFileSystemDeviceObject && !v5 )
+  if ( RelatedDeviceObject == (PDEVICE_OBJECT)BaseFileSystemDeviceObject && !v5 )
   {
-    v17 = v32;
+    v17 = (_QWORD *)v32;
     v33 = 0LL;
     v19 = 0;
 LABEL_12:
-    if ( !AddDevice
-      || (*(_DWORD *)AddDevice < 0x50u || !*((_QWORD *)AddDevice + 9))
-      && (*(_DWORD *)AddDevice < 0x58u || !*((_QWORD *)AddDevice + 10)) )
+    if ( !v12
+      || (*(_DWORD *)v12 < 0x50u || !*(_QWORD *)(v12 + 72)) && (*(_DWORD *)v12 < 0x58u || !*(_QWORD *)(v12 + 80)) )
     {
-      if ( FastIoDispatch
-        && FastIoDispatch->SizeOfFastIoDispatch >= 0x80
-        && (AcquireForModWrite = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))FastIoDispatch->AcquireForModWrite) != 0LL )
+      if ( v11
+        && *(_DWORD *)v11 >= 0x80u
+        && (v20 = *(__int64 (__fastcall **)(PFILE_OBJECT, __int64, _QWORD *, _QWORD *))(v11 + 120)) != 0LL )
       {
-        v4 = AcquireForModWrite(FileObject, v31, v17, BaseFileSystemDeviceObject);
+        v4 = v20(FileObject, v31, v17, BaseFileSystemDeviceObject);
       }
       else
       {
@@ -96,15 +91,15 @@ LABEL_12:
     }
     if ( v19 )
       ObfDereferenceObjectWithTag(BaseFileSystemDeviceObject, 0x746C6644u);
-    v16 = v31;
+    v16 = (_QWORD *)v31;
     goto LABEL_25;
   }
   LOBYTE(v7) = -3;
   result = FsFilterCtrlInit((unsigned int)v34, v7, (_DWORD)RelatedDeviceObject, v8, (__int64)FileObject, 1);
   if ( (int)result < 0 )
     return result;
-  v16 = v31;
-  v17 = v32;
+  v16 = (_QWORD *)v31;
+  v17 = (_QWORD *)v32;
   LOBYTE(v15) = 1;
   v34[3] = v31;
   LOBYTE(v14) = 1;
@@ -123,11 +118,11 @@ LABEL_12:
     FileObject = (PFILE_OBJECT)v34[2];
     if ( (v34[8] & 4) != 0 )
     {
-      BaseFileSystemDeviceObject = (PDEVICE_OBJECT)IoGetDeviceAttachmentBaseRefWithTag(v34[1], 1953261124LL);
+      BaseFileSystemDeviceObject = IoGetDeviceAttachmentBaseRefWithTag(v34[1], 0x746C6644u);
       v19 = 1;
-      v21 = BaseFileSystemDeviceObject->DriverObject;
-      FastIoDispatch = v21->FastIoDispatch;
-      AddDevice = v21->DriverExtension[1].AddDevice;
+      v21 = BaseFileSystemDeviceObject[1];
+      v11 = *(_QWORD *)(v21 + 80);
+      v12 = *(_QWORD *)(*(_QWORD *)(v21 + 48) + 48LL);
     }
     else
     {

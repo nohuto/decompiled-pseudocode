@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpPoolMgrRebalanceWorker @ 0x140AC3610
+ * XREFs of ExpPoolMgrRebalanceWorker @ 0x140AC5280
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     ExpPoolLookasideRebalance @ 0x140433A84 (ExpPoolLookasideRebalance.c)
- *     ExpPoolMgrGetFirstPool @ 0x1404E62D4 (ExpPoolMgrGetFirstPool.c)
- *     ExpPoolMgrGetNextPool @ 0x1404E76F8 (ExpPoolMgrGetNextPool.c)
- *     ExpPoolMgrResolveMaintenanceHint @ 0x140AC3850 (ExpPoolMgrResolveMaintenanceHint.c)
- *     ExpPoolMgrSetMaintenanceHint @ 0x140AC38B0 (ExpPoolMgrSetMaintenanceHint.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     ExpPoolLookasideRebalance @ 0x140428B54 (ExpPoolLookasideRebalance.c)
+ *     ExpPoolMgrGetFirstPool @ 0x1404DF874 (ExpPoolMgrGetFirstPool.c)
+ *     ExpPoolMgrGetNextPool @ 0x1404E0AB4 (ExpPoolMgrGetNextPool.c)
+ *     ExpPoolMgrResolveMaintenanceHint @ 0x140AC54C0 (ExpPoolMgrResolveMaintenanceHint.c)
+ *     ExpPoolMgrSetMaintenanceHint @ 0x140AC5520 (ExpPoolMgrSetMaintenanceHint.c)
  */
 
 ULONG __fastcall ExpPoolMgrRebalanceWorker(volatile signed __int32 *a1)

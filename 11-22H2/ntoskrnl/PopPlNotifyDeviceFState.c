@@ -124,10 +124,10 @@ __int64 __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned
       PopPlPublishSystemPowerChange(v10, v13);
       v21 = *(unsigned __int8 *)(v10 + 24);
       result = KxReleaseSpinLock((volatile signed __int64 *)(v10 + 16));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v21 <= 0xFu
           && (unsigned __int8)result >= 2u )

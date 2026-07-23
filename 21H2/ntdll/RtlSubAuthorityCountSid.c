@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSubAuthorityCountSid(__int64 a1)
+PUCHAR __cdecl RtlSubAuthorityCountSid(PSID Sid)
 {
-  return a1 + 1;
+  return (PUCHAR)Sid + 1;
 }

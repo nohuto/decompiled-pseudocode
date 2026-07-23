@@ -1,8 +1,8 @@
 /*
- * XREFs of KeQueryGroupMaskProcess @ 0x140483990
+ * XREFs of KeQueryGroupMaskProcess @ 0x14047EEAC
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     MmCreatePeb @ 0x140AE79AC (MmCreatePeb.c)
+ *     MmCreatePeb @ 0x1408DDBA4 (MmCreatePeb.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

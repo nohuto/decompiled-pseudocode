@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReservePoolMemory @ 0x1402A4C9C
+ * XREFs of MiReservePoolMemory @ 0x1402A41EC
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
- *     MmAllocateSecurePoolMemory @ 0x1406FBC98 (MmAllocateSecurePoolMemory.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
+ *     MmAllocateSecurePoolMemory @ 0x140700968 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiObtainSystemVa @ 0x1402A4D3C (MiObtainSystemVa.c)
- *     MiObtainDynamicVa @ 0x1402A4DF8 (MiObtainDynamicVa.c)
- *     MiMarkSystemVaAllocated @ 0x14050AA78 (MiMarkSystemVaAllocated.c)
+ *     MiObtainSystemVa @ 0x1402A428C (MiObtainSystemVa.c)
+ *     MiObtainDynamicVa @ 0x1402A4348 (MiObtainDynamicVa.c)
+ *     MiMarkSystemVaAllocated @ 0x1405044E8 (MiMarkSystemVaAllocated.c)
  */
 
 __int64 __fastcall MiReservePoolMemory(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
@@ -19,7 +19,7 @@ __int64 __fastcall MiReservePoolMemory(unsigned __int64 a1, __int64 a2, unsigned
   switch ( (_DWORD)a2 )
   {
     case 4:
-      return MiObtainDynamicVa(qword_140E2D6B8 + 384LL * a4, (unsigned int)v4);
+      return MiObtainDynamicVa(qword_140E2D838 + 384LL * a4, (unsigned int)v4);
     case 5:
       return MiObtainSystemVa((unsigned int)v4, a2);
     case 0xE:

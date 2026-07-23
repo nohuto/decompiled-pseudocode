@@ -1,11 +1,11 @@
 /*
- * XREFs of KiBugCheckProgressCpusFrozen @ 0x1405E7784
+ * XREFs of KiBugCheckProgressCpusFrozen @ 0x1405EA0F4
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     WheaSelLogCheckPointNoLock @ 0x1406D43F0 (WheaSelLogCheckPointNoLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     WheaSelLogCheckPointNoLock @ 0x1406D8470 (WheaSelLogCheckPointNoLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall KiBugCheckProgressCpusFrozen(char a1)
@@ -32,7 +32,7 @@ char __fastcall KiBugCheckProgressCpusFrozen(char a1)
     ++v1;
   }
   v4 = (unsigned int)(a1 != 0) - 2147483552;
-  if ( !LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) )
+  if ( !*(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] )
     return WheaSelLogCheckPointNoLock(81LL, v4);
   *(_QWORD *)&Src = 0x1674C6857LL;
   *((_QWORD *)&Src + 1) = 32LL;

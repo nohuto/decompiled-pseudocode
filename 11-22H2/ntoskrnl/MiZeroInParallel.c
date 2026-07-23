@@ -76,7 +76,7 @@ void __fastcall MiZeroInParallel(__int64 a1)
   HANDLE Handle; // [rsp+88h] [rbp-80h] BYREF
   PKTHREAD Thread; // [rsp+90h] [rbp-78h]
   __int64 v46; // [rsp+98h] [rbp-70h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-60h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-60h] BYREF
   _OWORD v48[3]; // [rsp+B8h] [rbp-50h] BYREF
   _OWORD v49[3]; // [rsp+E8h] [rbp-20h] BYREF
   _OWORD v50[3]; // [rsp+118h] [rbp+10h] BYREF
@@ -269,7 +269,7 @@ LABEL_54:
     memset(v48, 0, sizeof(v48));
     if ( BYTE1(v37) && (int)MiGetNextAffinityWalker(v29, v48) >= 0 && v29[8] )
     {
-      Affinity = *(struct _GROUP_AFFINITY *)((char *)v48 + 8);
+      Affinity = *(_GROUP_AFFINITY *)((char *)v48 + 8);
       v34 = MiSetIdealProcessorThread(&Affinity);
     }
     if ( v31 && _InterlockedIncrement64((volatile signed __int64 *)(v31 + 32)) <= 1 )

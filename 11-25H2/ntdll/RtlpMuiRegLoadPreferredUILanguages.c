@@ -26,7 +26,7 @@
 
 __int64 __fastcall RtlpMuiRegLoadPreferredUILanguages(
         __int64 a1,
-        int a2,
+        ULONG a2,
         unsigned int a3,
         int a4,
         _BYTE *a5,
@@ -41,213 +41,199 @@ __int64 __fastcall RtlpMuiRegLoadPreferredUILanguages(
   size_t v12; // rax
   int GlobalizationUserModelType; // eax
   __int64 v14; // rdx
-  int v15; // eax
+  NTSTATUS v15; // eax
   HANDLE v16; // rsi
   size_t v17; // rax
-  __int64 Heap; // rbx
-  int v19; // edi
-  __int64 v20; // r9
-  int v21; // ebx
-  unsigned int v22; // eax
-  __int64 v23; // r9
-  unsigned int v24; // esi
-  int v25; // r13d
-  __int64 v26; // r9
-  int v27; // eax
-  __int64 v28; // rax
-  HANDLE v30; // rcx
-  size_t v31; // rax
-  size_t v32; // rax
-  size_t v33; // rax
+  _DWORD *Heap; // rbx
+  NTSTATUS v19; // edi
+  int PolicyLanguageSpec; // ebx
+  unsigned int v21; // eax
+  unsigned int v22; // esi
+  int v23; // r13d
+  int v24; // eax
+  _DWORD *v25; // rax
+  HANDLE v27; // rcx
+  size_t v28; // rax
+  size_t v29; // rax
+  size_t v30; // rax
+  HANDLE v31; // rbx
+  _DWORD *v32; // rdi
+  NTSTATUS v33; // ebx
   HANDLE v34; // rbx
-  __int64 v35; // rdi
-  int v36; // ebx
-  __int64 v37; // r9
-  HANDLE v38; // rbx
-  unsigned int v39; // edi
-  _DWORD *v40; // rsi
-  int v41; // eax
-  __int64 v42; // r9
-  int v43; // edi
+  unsigned int v35; // edi
+  _DWORD *v36; // rsi
+  NTSTATUS v37; // eax
+  int v38; // edi
+  size_t v39; // rax
+  _OBJECT_ATTRIBUTES *p_ObjectAttributes; // r8
+  size_t v41; // rax
+  wchar_t *v42; // rcx
+  _WORD *v43; // r15
   size_t v44; // rax
-  __int64 *v45; // r8
+  HANDLE v45; // rbx
   size_t v46; // rax
-  const wchar_t *v47; // rcx
-  _WORD *v48; // r15
-  size_t v49; // rax
-  HANDLE v50; // rbx
-  size_t v51; // rax
-  __int64 v52; // rdi
-  int v53; // ebx
-  __int64 v54; // r9
-  HANDLE v55; // rbx
-  unsigned int v56; // r13d
-  _DWORD *v57; // rdi
-  int v58; // eax
-  unsigned int v59; // eax
-  unsigned int v60; // eax
-  __int64 v61; // rax
-  int v62; // eax
-  __int64 v63; // rdx
-  int v64; // eax
-  __int64 v65; // rdx
+  _DWORD *v47; // rdi
+  NTSTATUS v48; // ebx
+  HANDLE v49; // rbx
+  unsigned int v50; // r13d
+  _DWORD *v51; // rdi
+  NTSTATUS v52; // eax
+  unsigned int v53; // eax
+  unsigned int v54; // eax
+  __int64 v55; // rax
+  int v56; // eax
+  __int64 v57; // rdx
+  NTSTATUS v58; // eax
+  __int64 v59; // rdx
   __int64 LanguageList; // rax
-  __int64 v67; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v68; // [rsp+48h] [rbp-B8h] BYREF
-  HANDLE v69; // [rsp+58h] [rbp-A8h] BYREF
-  HANDLE v70; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v61; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING v62; // [rsp+48h] [rbp-B8h] BYREF
+  HANDLE v63; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE CurrentUserKey; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v72; // [rsp+70h] [rbp-90h] BYREF
-  int v73; // [rsp+80h] [rbp-80h]
-  int v74; // [rsp+84h] [rbp-7Ch]
-  HANDLE v75; // [rsp+88h] [rbp-78h] BYREF
-  HANDLE v76; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v77; // [rsp+98h] [rbp-68h] BYREF
-  HANDLE v78; // [rsp+A0h] [rbp-60h]
-  __int128 *v79; // [rsp+A8h] [rbp-58h]
-  __int64 v80; // [rsp+B0h] [rbp-50h]
-  __int128 v81; // [rsp+B8h] [rbp-48h]
-  HANDLE v82[2]; // [rsp+C8h] [rbp-38h] BYREF
-  __int64 v83; // [rsp+D8h] [rbp-28h] BYREF
-  HANDLE v84; // [rsp+E0h] [rbp-20h]
-  __int128 *v85; // [rsp+E8h] [rbp-18h]
-  __int64 v86; // [rsp+F0h] [rbp-10h]
-  __int128 v87; // [rsp+F8h] [rbp-8h]
-  int v88; // [rsp+108h] [rbp+8h] BYREF
-  int v89; // [rsp+10Ch] [rbp+Ch] BYREF
-  int v90; // [rsp+110h] [rbp+10h] BYREF
-  _WORD v91[2]; // [rsp+118h] [rbp+18h] BYREF
-  int v92; // [rsp+11Ch] [rbp+1Ch]
-  const wchar_t *v93; // [rsp+120h] [rbp+20h]
-  int v95; // [rsp+188h] [rbp+88h] BYREF
-  int v96; // [rsp+190h] [rbp+90h] BYREF
-  int v97; // [rsp+198h] [rbp+98h]
+  _UNICODE_STRING v66; // [rsp+70h] [rbp-90h] BYREF
+  int v67; // [rsp+80h] [rbp-80h]
+  int v68; // [rsp+84h] [rbp-7Ch]
+  HANDLE v69; // [rsp+88h] [rbp-78h] BYREF
+  HANDLE KeyHandle; // [rsp+90h] [rbp-70h] BYREF
+  _OBJECT_ATTRIBUTES v71; // [rsp+98h] [rbp-68h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+C8h] [rbp-38h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-28h] BYREF
+  int v74; // [rsp+108h] [rbp+8h] BYREF
+  ULONG v75; // [rsp+10Ch] [rbp+Ch] BYREF
+  ULONG v76; // [rsp+110h] [rbp+10h] BYREF
+  _WORD v77[2]; // [rsp+118h] [rbp+18h] BYREF
+  int v78; // [rsp+11Ch] [rbp+1Ch]
+  const wchar_t *v79; // [rsp+120h] [rbp+20h]
+  ULONG v81; // [rsp+188h] [rbp+88h] BYREF
+  ULONG ResultLength; // [rsp+190h] [rbp+90h] BYREF
+  int v83; // [rsp+198h] [rbp+98h]
 
-  v97 = a4;
-  v95 = a2;
-  v70 = 0LL;
-  v69 = 0LL;
+  v83 = a4;
+  v81 = a2;
+  CurrentUserKey = 0LL;
+  v63 = 0LL;
   v6 = a3;
-  v76 = 0LL;
+  KeyHandle = 0LL;
   v7 = a1;
-  v74 = 7;
+  v68 = 7;
   v8 = 0;
-  v73 = 7;
+  v67 = 7;
   v9 = 0LL;
-  v67 = 0LL;
+  v61 = 0LL;
   v10 = 0LL;
-  v68 = 0LL;
+  v62 = 0LL;
   if ( !a1 || (v11 = a5) == 0LL || !a6 )
   {
-    v21 = -1073741811;
+    PolicyLanguageSpec = -1073741811;
     goto LABEL_40;
   }
   *a5 = 0;
   if ( a3 > 1 )
     return 3221225485LL;
-  DWORD1(v68) = 0;
-  *((_QWORD *)&v68 + 1) = L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings";
+  *(_DWORD *)(&v62.MaximumLength + 1) = 0;
+  v62.Buffer = (wchar_t *)L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings";
   v12 = 2 * wcslen(L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-  v83 = 48LL;
-  v86 = 64LL;
-  v84 = 0LL;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+  ObjectAttributes.RootDirectory = 0LL;
   if ( v12 >= 0xFFFE )
     LOWORD(v12) = -4;
-  LOWORD(v68) = v12;
-  WORD1(v68) = v12 + 2;
-  v85 = &v68;
-  v87 = 0LL;
-  if ( (int)NtOpenKey(&v76, 131097LL, &v83) < 0 )
+  v62.Length = v12;
+  v62.MaximumLength = v12 + 2;
+  ObjectAttributes.ObjectName = &v62;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
   {
-    v76 = 0LL;
+    KeyHandle = 0LL;
     goto LABEL_9;
   }
-  v30 = v76;
+  v27 = KeyHandle;
   Handle = 0LL;
-  LOBYTE(v95) = 0;
-  LOWORD(v96) = 0;
-  v72 = 0LL;
-  if ( v76 )
+  LOBYTE(v81) = 0;
+  LOWORD(ResultLength) = 0;
+  v66 = 0LL;
+  if ( KeyHandle )
     goto LABEL_153;
-  DWORD1(v72) = 0;
-  *((_QWORD *)&v72 + 1) = L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings";
-  v31 = 2 * wcslen(L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-  v83 = 48LL;
-  v86 = 64LL;
-  v84 = 0LL;
-  if ( v31 >= 0xFFFE )
-    LOWORD(v31) = -4;
-  LOWORD(v72) = v31;
-  WORD1(v72) = v31 + 2;
-  v85 = &v72;
-  v87 = 0LL;
-  v21 = NtOpenKey(&Handle, 131097LL, &v83);
-  if ( v21 >= 0 )
+  *(_DWORD *)(&v66.MaximumLength + 1) = 0;
+  v66.Buffer = (wchar_t *)L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings";
+  v28 = 2 * wcslen(L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  if ( v28 >= 0xFFFE )
+    LOWORD(v28) = -4;
+  v66.Length = v28;
+  v66.MaximumLength = v28 + 2;
+  ObjectAttributes.ObjectName = &v66;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  PolicyLanguageSpec = NtOpenKey(&Handle, 0x20019u, &ObjectAttributes);
+  if ( PolicyLanguageSpec >= 0 )
   {
-    v30 = Handle;
+    v27 = Handle;
 LABEL_153:
-    v21 = RtlpLoadPolicyLanguageSpec(v30, v7, &v95, &v96);
-    if ( !v21 )
+    PolicyLanguageSpec = RtlpLoadPolicyLanguageSpec(v27);
+    if ( !PolicyLanguageSpec )
     {
-      LOBYTE(v65) = 1;
-      LanguageList = RtlpMuiRegCreateLanguageList(1LL, v65, v7);
-      v67 = LanguageList;
+      LOBYTE(v59) = 1;
+      LanguageList = RtlpMuiRegCreateLanguageList(1LL, v59, v7);
+      v61 = LanguageList;
       v10 = LanguageList;
       if ( LanguageList )
       {
-        *(_WORD *)(*(_QWORD *)(LanguageList + 24) + 6LL * *(unsigned __int16 *)(LanguageList + 4)) = (unsigned __int8)v95;
-        *(_WORD *)(*(_QWORD *)(LanguageList + 24) + 6LL * (unsigned __int16)(*(_WORD *)(LanguageList + 4))++ + 4) = v96;
+        *(_WORD *)(*(_QWORD *)(LanguageList + 24) + 6LL * *(unsigned __int16 *)(LanguageList + 4)) = (unsigned __int8)v81;
+        *(_WORD *)(*(_QWORD *)(LanguageList + 24) + 6LL * (unsigned __int16)(*(_WORD *)(LanguageList + 4))++ + 4) = ResultLength;
       }
       else
       {
-        v21 = -1073741801;
+        PolicyLanguageSpec = -1073741801;
       }
     }
   }
   if ( Handle )
     NtClose(Handle);
-  if ( !v21 && v10 )
+  if ( !PolicyLanguageSpec && v10 )
   {
-    v24 = 0;
+    v22 = 0;
     goto LABEL_99;
   }
 LABEL_9:
   if ( v6 != 1 )
     goto LABEL_10;
-  v16 = v76;
-  if ( v76 )
+  v16 = KeyHandle;
+  if ( KeyHandle )
   {
-    v95 = -1;
-    v82[1] = (HANDLE)L"MachineUILock";
-    HIDWORD(v82[0]) = 0;
+    v81 = -1;
+    ValueName.Buffer = (wchar_t *)L"MachineUILock";
+    *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
     v17 = 2 * wcslen(L"MachineUILock");
-    v96 = 0;
+    ResultLength = 0;
     if ( v17 >= 0xFFFE )
       LOWORD(v17) = -4;
-    LOWORD(v82[0]) = v17;
-    WORD1(v82[0]) = v17 + 2;
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
+    ValueName.Length = v17;
+    ValueName.MaximumLength = v17 + 2;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
     if ( Heap )
     {
-      v19 = NtQueryValueKey(v16, v82, 2LL, Heap, 16, &v96);
+      v19 = NtQueryValueKey(v16, &ValueName, KeyValuePartialInformation, Heap, 0x10u, &ResultLength);
       if ( v19 >= 0 )
       {
-        v60 = *(_DWORD *)(Heap + 8);
-        if ( v60 > 4 )
+        v54 = Heap[2];
+        if ( v54 > 4 )
           v19 = -2147483643;
         else
-          memmove(&v95, (const void *)(Heap + 12), v60);
+          memmove(&v81, Heap + 3, v54);
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v20);
-      if ( v19 >= 0 && v95 == 1 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      if ( v19 >= 0 && v81 == 1 )
       {
-        v10 = v67;
+        v10 = v61;
         v7 = a1;
         v6 = 0;
         goto LABEL_10;
       }
     }
-    v10 = v67;
+    v10 = v61;
   }
   v7 = a1;
 LABEL_10:
@@ -255,20 +241,20 @@ LABEL_10:
   switch ( GlobalizationUserModelType )
   {
     case 1:
-      v15 = RtlOpenCurrentUser(0x2000000u, (__int64)&v70);
+      v15 = RtlOpenCurrentUser(0x2000000u, &CurrentUserKey);
       break;
     case 2:
-      v15 = OpenGlobalizationUserSettingsKey_ForSingleUserModel(0x2000000LL, &v70);
+      v15 = OpenGlobalizationUserSettingsKey_ForSingleUserModel(0x2000000u, &CurrentUserKey);
       break;
     case 3:
-      v95 = 0;
-      v15 = OpenGlobalizationUserSettingsKey_ForMua(0x2000000LL, v14, &v70, &v95);
+      v81 = 0;
+      v15 = OpenGlobalizationUserSettingsKey_ForMua(0x2000000LL, v14, &CurrentUserKey, &v81);
       break;
     default:
-      v21 = -1073741595;
+      PolicyLanguageSpec = -1073741595;
       goto LABEL_129;
   }
-  v21 = v15;
+  PolicyLanguageSpec = v15;
   if ( v15 < 0 )
   {
 LABEL_129:
@@ -277,397 +263,404 @@ LABEL_129:
   }
   if ( v6 == 1 )
   {
-    v93 = L"Software\\Policies\\Microsoft\\Control Panel\\Desktop";
-    v82[0] = 0LL;
-    v75 = 0LL;
-    LOBYTE(v95) = 0;
-    LOWORD(v96) = 0;
-    v92 = 0;
-    v44 = 2 * wcslen(L"Software\\Policies\\Microsoft\\Control Panel\\Desktop");
-    if ( v44 >= 0xFFFE )
-      LOWORD(v44) = -4;
-    v91[0] = v44;
-    v91[1] = v44 + 2;
-    if ( v70 )
+    v79 = L"Software\\Policies\\Microsoft\\Control Panel\\Desktop";
+    *(_QWORD *)&ValueName.Length = 0LL;
+    v69 = 0LL;
+    LOBYTE(v81) = 0;
+    LOWORD(ResultLength) = 0;
+    v78 = 0;
+    v39 = 2 * wcslen(L"Software\\Policies\\Microsoft\\Control Panel\\Desktop");
+    if ( v39 >= 0xFFFE )
+      LOWORD(v39) = -4;
+    v77[0] = v39;
+    v77[1] = v39 + 2;
+    if ( CurrentUserKey )
     {
-      v77 = 48LL;
-      v79 = (__int128 *)v91;
-      v81 = 0LL;
-      v80 = 64LL;
-      v45 = &v77;
-      v78 = v70;
+      *(_QWORD *)&v71.Length = 48LL;
+      v71.ObjectName = (PUNICODE_STRING)v77;
+      *(_OWORD *)&v71.SecurityDescriptor = 0LL;
+      *(_QWORD *)&v71.Attributes = 64LL;
+      p_ObjectAttributes = &v71;
+      v71.RootDirectory = CurrentUserKey;
     }
     else
     {
-      v62 = GetGlobalizationUserModelType();
-      switch ( v62 )
+      v56 = GetGlobalizationUserModelType();
+      switch ( v56 )
       {
         case 1:
-          v64 = RtlOpenCurrentUser(0x2000000u, (__int64)v82);
+          v58 = RtlOpenCurrentUser(0x2000000u, (PHANDLE)&ValueName);
           break;
         case 2:
-          v64 = OpenGlobalizationUserSettingsKey_ForSingleUserModel(0x2000000LL, v82);
+          v58 = OpenGlobalizationUserSettingsKey_ForSingleUserModel(0x2000000u, (PHANDLE)&ValueName);
           break;
         case 3:
-          v88 = 0;
-          v64 = OpenGlobalizationUserSettingsKey_ForMua(0x2000000LL, v63, v82, &v88);
+          v74 = 0;
+          v58 = OpenGlobalizationUserSettingsKey_ForMua(0x2000000LL, v57, &ValueName, &v74);
           break;
         default:
-          v21 = -1073741595;
+          PolicyLanguageSpec = -1073741595;
           goto LABEL_84;
       }
-      v21 = v64;
-      if ( v64 < 0 )
+      PolicyLanguageSpec = v58;
+      if ( v58 < 0 )
         goto LABEL_84;
-      v45 = &v83;
-      v84 = v82[0];
-      v83 = 48LL;
-      v85 = (__int128 *)v91;
-      v86 = 64LL;
-      v87 = 0LL;
+      p_ObjectAttributes = &ObjectAttributes;
+      ObjectAttributes.RootDirectory = *(HANDLE *)&ValueName.Length;
+      *(_QWORD *)&ObjectAttributes.Length = 48LL;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)v77;
+      *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     }
-    v21 = NtOpenKey(&v75, 131097LL, v45);
-    if ( v21 >= 0 )
+    PolicyLanguageSpec = NtOpenKey(&v69, 0x20019u, p_ObjectAttributes);
+    if ( PolicyLanguageSpec >= 0 )
     {
-      v21 = RtlpLoadPolicyLanguageSpec(v75, v7, &v95, &v96);
-      if ( !v21 )
+      PolicyLanguageSpec = RtlpLoadPolicyLanguageSpec(v69);
+      if ( !PolicyLanguageSpec )
       {
         if ( v10 )
         {
           if ( *(_WORD *)(v10 + 4) < *(_WORD *)(v10 + 6) )
           {
 LABEL_141:
-            *(_WORD *)(*(_QWORD *)(v10 + 24) + 6LL * *(unsigned __int16 *)(v10 + 4)) = (unsigned __int8)v95;
-            *(_WORD *)(*(_QWORD *)(v10 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(v10 + 4))++ + 4) = v96;
+            *(_WORD *)(*(_QWORD *)(v10 + 24) + 6LL * *(unsigned __int16 *)(v10 + 4)) = (unsigned __int8)v81;
+            *(_WORD *)(*(_QWORD *)(v10 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(v10 + 4))++ + 4) = ResultLength;
             goto LABEL_84;
           }
-          v61 = RtlpMuiRegGrowLanguageList(v10);
+          v55 = RtlpMuiRegGrowLanguageList(v10);
         }
         else
         {
-          v61 = RtlpMuiRegCreateLanguageList(1LL, 0LL, v7);
+          v55 = RtlpMuiRegCreateLanguageList(1LL, 0LL, v7);
         }
-        v67 = v61;
-        v10 = v61;
-        if ( !v61 )
+        v61 = v55;
+        v10 = v55;
+        if ( !v55 )
         {
-          v21 = -1073741801;
+          PolicyLanguageSpec = -1073741801;
           goto LABEL_84;
         }
         goto LABEL_141;
       }
     }
 LABEL_84:
-    if ( v75 )
+    if ( v69 )
     {
-      NtClose(v75);
-      v24 = 0;
-      v75 = 0LL;
+      NtClose(v69);
+      v22 = 0;
+      v69 = 0LL;
     }
     else
     {
-      v24 = 0;
+      v22 = 0;
     }
-    if ( v82[0] )
-      NtClose(v82[0]);
-    if ( !v21 && v10 )
+    if ( *(_QWORD *)&ValueName.Length )
+      NtClose(*(HANDLE *)&ValueName.Length);
+    if ( !PolicyLanguageSpec && v10 )
       goto LABEL_38;
-    *(_QWORD *)&v68 = 0LL;
-    *((_QWORD *)&v68 + 1) = L"Control Panel\\Desktop";
-    v46 = 2 * wcslen(L"Control Panel\\Desktop");
-    v77 = 48LL;
-    v80 = 64LL;
-    v69 = 0LL;
-    if ( v46 >= 0xFFFE )
-      LOWORD(v46) = -4;
-    LOWORD(v68) = v46;
-    WORD1(v68) = v46 + 2;
-    v78 = v70;
-    v79 = &v68;
-    v81 = 0LL;
-    v21 = NtOpenKey(&v69, 131097LL, &v77);
-    if ( v21 < 0 )
+    *(_QWORD *)&v62.Length = 0LL;
+    v62.Buffer = (wchar_t *)L"Control Panel\\Desktop";
+    v41 = 2 * wcslen(L"Control Panel\\Desktop");
+    *(_QWORD *)&v71.Length = 48LL;
+    *(_QWORD *)&v71.Attributes = 64LL;
+    v63 = 0LL;
+    if ( v41 >= 0xFFFE )
+      LOWORD(v41) = -4;
+    v62.Length = v41;
+    v62.MaximumLength = v41 + 2;
+    v71.RootDirectory = CurrentUserKey;
+    v71.ObjectName = &v62;
+    *(_OWORD *)&v71.SecurityDescriptor = 0LL;
+    PolicyLanguageSpec = NtOpenKey(&v63, 0x20019u, &v71);
+    if ( PolicyLanguageSpec < 0 )
     {
       *v11 = 1;
       goto LABEL_40;
     }
-    v47 = L"PreferredUILanguages";
-    *(_QWORD *)&v68 = 0LL;
-    if ( v97 != 3 )
-      v47 = L"PreferredUILanguagesPending";
-    *((_QWORD *)&v68 + 1) = v47;
-    v33 = 2 * wcslen(v47);
-    if ( v33 >= 0xFFFE )
-      LOWORD(v33) = -4;
+    v42 = (wchar_t *)L"PreferredUILanguages";
+    *(_QWORD *)&v62.Length = 0LL;
+    if ( v83 != 3 )
+      v42 = (wchar_t *)L"PreferredUILanguagesPending";
+    v62.Buffer = v42;
+    v30 = 2 * wcslen(v42);
+    if ( v30 >= 0xFFFE )
+      LOWORD(v30) = -4;
     goto LABEL_66;
   }
-  v24 = 0;
-  *(_QWORD *)&v68 = 0LL;
-  *((_QWORD *)&v68 + 1) = L"Control Panel\\Desktop\\MuiCached";
-  v32 = 2 * wcslen(L"Control Panel\\Desktop\\MuiCached");
-  v77 = 48LL;
-  v80 = 64LL;
-  v69 = 0LL;
-  if ( v32 >= 0xFFFE )
-    LOWORD(v32) = -4;
-  LOWORD(v68) = v32;
-  WORD1(v68) = v32 + 2;
-  v78 = v70;
-  v79 = &v68;
-  v81 = 0LL;
-  if ( (int)NtOpenKey(&v69, 131097LL, &v77) < 0 )
+  v22 = 0;
+  *(_QWORD *)&v62.Length = 0LL;
+  v62.Buffer = (wchar_t *)L"Control Panel\\Desktop\\MuiCached";
+  v29 = 2 * wcslen(L"Control Panel\\Desktop\\MuiCached");
+  *(_QWORD *)&v71.Length = 48LL;
+  *(_QWORD *)&v71.Attributes = 64LL;
+  v63 = 0LL;
+  if ( v29 >= 0xFFFE )
+    LOWORD(v29) = -4;
+  v62.Length = v29;
+  v62.MaximumLength = v29 + 2;
+  v71.RootDirectory = CurrentUserKey;
+  v71.ObjectName = &v62;
+  *(_OWORD *)&v71.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&v63, 0x20019u, &v71) < 0 )
   {
-    v21 = 0;
+    PolicyLanguageSpec = 0;
     *v11 = 1;
     goto LABEL_99;
   }
-  *(_QWORD *)&v68 = 0LL;
-  *((_QWORD *)&v68 + 1) = L"MachinePreferredUILanguages";
-  v33 = 2 * wcslen(L"MachinePreferredUILanguages");
-  if ( v33 >= 0xFFFE )
-    LOWORD(v33) = -4;
+  *(_QWORD *)&v62.Length = 0LL;
+  v62.Buffer = (wchar_t *)L"MachinePreferredUILanguages";
+  v30 = 2 * wcslen(L"MachinePreferredUILanguages");
+  if ( v30 >= 0xFFFE )
+    LOWORD(v30) = -4;
 LABEL_66:
-  v34 = v69;
-  LOWORD(v68) = v33;
-  WORD1(v68) = v33 + 2;
-  v95 = 0;
-  v35 = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0xCuLL);
-  if ( !v35 )
+  v31 = v63;
+  v62.Length = v30;
+  v62.MaximumLength = v30 + 2;
+  v81 = 0;
+  v32 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xCuLL);
+  if ( !v32 )
     goto LABEL_78;
-  v36 = NtQueryValueKey(v34, &v68, 2LL, v35, 12, &v95);
-  if ( (int)(v36 + 0x80000000) < 0 || v36 == -2147483643 )
+  v33 = NtQueryValueKey(v31, &v62, KeyValuePartialInformation, v32, 0xCu, &v81);
+  if ( (int)(v33 + 0x80000000) < 0 || v33 == -2147483643 )
   {
-    v8 = *(_DWORD *)(v35 + 8);
-    v73 = *(_DWORD *)(v35 + 4);
+    v8 = v32[2];
+    v67 = v32[1];
   }
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v35, v37);
-  if ( v36 == -1073741772 || !v8 )
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v32);
+  if ( v33 == -1073741772 || !v8 )
     goto LABEL_78;
-  if ( v36 != -2147483643 )
+  if ( v33 != -2147483643 )
   {
-    v21 = -1073741772;
+    PolicyLanguageSpec = -1073741772;
     goto LABEL_40;
   }
-  v9 = (_WORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v8 + 2);
+  v9 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v8 + 2);
   if ( !v9 )
   {
-    v21 = -1073741801;
+    PolicyLanguageSpec = -1073741801;
     goto LABEL_40;
   }
-  v38 = v69;
-  v39 = v8 + 12;
-  v95 = 0;
-  if ( v8 == -12 || (v40 = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v39)) == 0LL )
+  v34 = v63;
+  v35 = v8 + 12;
+  v81 = 0;
+  if ( v8 == -12 || (v36 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v35)) == 0LL )
   {
-    v21 = -1073741670;
+    PolicyLanguageSpec = -1073741670;
     goto LABEL_39;
   }
-  v41 = NtQueryValueKey(v38, &v68, 2LL, v40, v8 + 12, &v95);
-  v21 = v41;
-  if ( v41 >= 0 )
+  v37 = NtQueryValueKey(v34, &v62, KeyValuePartialInformation, v36, v8 + 12, &v81);
+  PolicyLanguageSpec = v37;
+  if ( v37 >= 0 )
   {
-    v59 = v40[2];
-    if ( v59 > v8 )
+    v53 = v36[2];
+    if ( v53 > v8 )
     {
-      v21 = -2147483643;
+      PolicyLanguageSpec = -2147483643;
     }
-    else if ( v59 <= v39 )
+    else if ( v53 <= v35 )
     {
-      memmove(v9, v40 + 3, v59);
+      memmove(v9, v36 + 3, v53);
     }
   }
-  else if ( v41 != -2147483643 )
+  else if ( v37 != -2147483643 )
   {
-    v43 = v73;
+    v38 = v67;
     goto LABEL_123;
   }
-  v8 = v40[2];
-  v43 = v40[1];
+  v8 = v36[2];
+  v38 = v36[1];
 LABEL_123:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v40, v42);
-  if ( v21 < 0 )
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v36);
+  if ( PolicyLanguageSpec < 0 )
   {
-    v24 = 0;
+    v22 = 0;
   }
   else
   {
-    if ( v43 != 1 && v43 != 7 )
+    if ( v38 != 1 && v38 != 7 )
     {
-      v24 = 0;
+      v22 = 0;
 LABEL_78:
-      v10 = v67;
-      v21 = 0;
+      v10 = v61;
+      PolicyLanguageSpec = 0;
       *v11 = 1;
       goto LABEL_99;
     }
-    v24 = 0;
-    v21 = RtlpMuiRegAddMultiSzToLangFallbackList(a1, v9, v8 >> 1, 8, (unsigned int)(v6 != 1) + 2, 1u, &v67);
+    v22 = 0;
+    PolicyLanguageSpec = RtlpMuiRegAddMultiSzToLangFallbackList(
+                           a1,
+                           v9,
+                           v8 >> 1,
+                           8,
+                           (unsigned int)(v6 != 1) + 2,
+                           1u,
+                           &v61);
   }
-  if ( v21 )
+  if ( PolicyLanguageSpec )
     goto LABEL_39;
-  v10 = v67;
+  v10 = v61;
 LABEL_99:
   if ( v6 || v10 && *(_WORD *)(v10 + 4) )
   {
 LABEL_35:
     if ( !v10 )
     {
-      v28 = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x46uLL);
-      v10 = v28;
-      if ( v28 )
+      v25 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x46uLL);
+      v10 = (__int64)v25;
+      if ( v25 )
       {
-        *(_DWORD *)v28 = 70;
-        *(_DWORD *)(v28 + 4) = 0x10000;
-        *(_DWORD *)(v28 + 40) = 0;
-        *(_BYTE *)(v28 + 8) = v6 != 1;
-        *(_QWORD *)(v28 + 24) = v28 + 64;
-        *(_QWORD *)(v28 + 16) = a1;
+        *v25 = 70;
+        v25[1] = 0x10000;
+        v25[10] = 0;
+        *((_BYTE *)v25 + 8) = v6 != 1;
+        *((_QWORD *)v25 + 3) = v25 + 16;
+        *((_QWORD *)v25 + 2) = a1;
       }
       else
       {
         v10 = 0LL;
-        v21 = -1073741801;
+        PolicyLanguageSpec = -1073741801;
       }
     }
     goto LABEL_38;
   }
-  v21 = 0;
-  v48 = 0LL;
-  DWORD1(v72) = 0;
-  *((_QWORD *)&v72 + 1) = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings";
-  v49 = 2 * wcslen(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-  v77 = 48LL;
-  v80 = 64LL;
+  PolicyLanguageSpec = 0;
+  v43 = 0LL;
+  *(_DWORD *)(&v66.MaximumLength + 1) = 0;
+  v66.Buffer = (wchar_t *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings";
+  v44 = 2 * wcslen(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
+  *(_QWORD *)&v71.Length = 48LL;
+  *(_QWORD *)&v71.Attributes = 64LL;
   Handle = 0LL;
-  if ( v49 >= 0xFFFE )
-    LOWORD(v49) = -4;
-  v78 = 0LL;
-  LOWORD(v72) = v49;
-  WORD1(v72) = v49 + 2;
-  v79 = &v72;
-  v81 = 0LL;
-  if ( (int)NtOpenKey(&Handle, 131097LL, &v77) < 0 )
+  if ( v44 >= 0xFFFE )
+    LOWORD(v44) = -4;
+  v71.RootDirectory = 0LL;
+  v66.Length = v44;
+  v66.MaximumLength = v44 + 2;
+  v71.ObjectName = &v66;
+  *(_OWORD *)&v71.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&Handle, 0x20019u, &v71) < 0 )
     goto LABEL_162;
-  *(_QWORD *)&v72 = 0LL;
-  *((_QWORD *)&v72 + 1) = L"PreferredUILanguages";
-  v50 = Handle;
-  v51 = 2 * wcslen(L"PreferredUILanguages");
-  v89 = 0;
-  if ( v51 >= 0xFFFE )
-    LOWORD(v51) = -4;
-  LOWORD(v72) = v51;
-  WORD1(v72) = v51 + 2;
-  v52 = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0xCuLL);
-  if ( !v52 )
+  *(_QWORD *)&v66.Length = 0LL;
+  v66.Buffer = (wchar_t *)L"PreferredUILanguages";
+  v45 = Handle;
+  v46 = 2 * wcslen(L"PreferredUILanguages");
+  v75 = 0;
+  if ( v46 >= 0xFFFE )
+    LOWORD(v46) = -4;
+  v66.Length = v46;
+  v66.MaximumLength = v46 + 2;
+  v47 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xCuLL);
+  if ( !v47 )
     goto LABEL_161;
-  v53 = NtQueryValueKey(v50, &v72, 2LL, v52, 12, &v89);
-  if ( (int)(v53 + 0x80000000) < 0 || v53 == -2147483643 )
+  v48 = NtQueryValueKey(v45, &v66, KeyValuePartialInformation, v47, 0xCu, &v75);
+  if ( (int)(v48 + 0x80000000) < 0 || v48 == -2147483643 )
   {
-    v24 = *(_DWORD *)(v52 + 8);
-    v74 = *(_DWORD *)(v52 + 4);
+    v22 = v47[2];
+    v68 = v47[1];
   }
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v52, v54);
-  if ( v53 == -1073741772 || !v24 )
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v47);
+  if ( v48 == -1073741772 || !v22 )
   {
 LABEL_161:
-    v10 = v67;
-    v21 = 0;
+    v10 = v61;
+    PolicyLanguageSpec = 0;
 LABEL_162:
     *v11 = 1;
     goto LABEL_30;
   }
-  if ( v53 != -2147483643 )
+  if ( v48 != -2147483643 )
   {
-    v10 = v67;
-    v21 = -1073741772;
+    v10 = v61;
+    PolicyLanguageSpec = -1073741772;
     goto LABEL_30;
   }
-  v48 = (_WORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v24 + 2);
-  if ( !v48 )
+  v43 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v22 + 2);
+  if ( !v43 )
   {
-    v21 = -1073741801;
+    PolicyLanguageSpec = -1073741801;
     goto LABEL_146;
   }
-  v55 = Handle;
-  v56 = v24 + 12;
-  v90 = 0;
-  if ( v24 == -12 || (v57 = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v56)) == 0LL )
+  v49 = Handle;
+  v50 = v22 + 12;
+  v76 = 0;
+  if ( v22 == -12 || (v51 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v50)) == 0LL )
   {
-    v10 = v67;
-    v21 = -1073741670;
+    v10 = v61;
+    PolicyLanguageSpec = -1073741670;
     goto LABEL_30;
   }
-  v58 = NtQueryValueKey(v55, &v72, 2LL, v57, v24 + 12, &v90);
-  v21 = v58;
-  if ( v58 >= 0 )
+  v52 = NtQueryValueKey(v49, &v66, KeyValuePartialInformation, v51, v22 + 12, &v76);
+  PolicyLanguageSpec = v52;
+  if ( v52 >= 0 )
   {
-    v22 = v57[2];
-    if ( v22 > v24 )
+    v21 = v51[2];
+    if ( v21 > v22 )
     {
-      v21 = -2147483643;
+      PolicyLanguageSpec = -2147483643;
     }
-    else if ( v22 <= v56 )
+    else if ( v21 <= v50 )
     {
-      memmove(v48, v57 + 3, v22);
+      memmove(v43, v51 + 3, v21);
     }
     goto LABEL_26;
   }
-  if ( v58 == -2147483643 )
+  if ( v52 == -2147483643 )
   {
 LABEL_26:
-    v24 = v57[2];
-    v25 = v57[1];
+    v22 = v51[2];
+    v23 = v51[1];
     goto LABEL_27;
   }
-  v25 = v74;
+  v23 = v68;
 LABEL_27:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v57, v23);
-  if ( v21 < 0 )
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v51);
+  if ( PolicyLanguageSpec < 0 )
   {
 LABEL_146:
-    v10 = v67;
+    v10 = v61;
     goto LABEL_30;
   }
-  if ( v25 == 7 || v25 == 1 )
+  if ( v23 == 7 || v23 == 1 )
   {
     *a5 = 0;
-    v27 = RtlpMuiRegAddMultiSzToLangFallbackList(a1, v48, v24 >> 1, 8, 3, 1u, &v67);
-    v10 = v67;
-    v21 = v27;
+    v24 = RtlpMuiRegAddMultiSzToLangFallbackList(a1, v43, v22 >> 1, 8, 3, 1u, &v61);
+    v10 = v61;
+    PolicyLanguageSpec = v24;
   }
   else
   {
-    v21 = 0;
-    v10 = v67;
+    PolicyLanguageSpec = 0;
+    v10 = v61;
     *a5 = 1;
   }
 LABEL_30:
   if ( Handle )
     NtClose(Handle);
-  if ( v48 )
+  if ( v43 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v48, v26);
-    v10 = v67;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v43);
+    v10 = v61;
   }
-  if ( !v21 )
+  if ( !PolicyLanguageSpec )
     goto LABEL_35;
 LABEL_38:
   *a6 = v10;
   if ( v9 )
 LABEL_39:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v9, v26);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
 LABEL_40:
-  if ( v69 )
+  if ( v63 )
   {
-    NtClose(v69);
-    v69 = 0LL;
+    NtClose(v63);
+    v63 = 0LL;
   }
-  if ( v70 )
+  if ( CurrentUserKey )
   {
-    NtClose(v70);
-    v70 = 0LL;
+    NtClose(CurrentUserKey);
+    CurrentUserKey = 0LL;
   }
-  if ( v76 )
-    NtClose(v76);
-  return (unsigned int)v21;
+  if ( KeyHandle )
+    NtClose(KeyHandle);
+  return (unsigned int)PolicyLanguageSpec;
 }

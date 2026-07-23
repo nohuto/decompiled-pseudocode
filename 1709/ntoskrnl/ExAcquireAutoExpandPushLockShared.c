@@ -20,7 +20,7 @@
 
 ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  unsigned __int64 v2; // rsi
+  __int64 v2; // rsi
   int v4; // ebp
   struct _KTHREAD *CurrentThread; // rdi
   unsigned int AbEntrySummary; // edx
@@ -65,7 +65,7 @@ ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParamet
     _BitScanForward((unsigned int *)&v7, AbEntrySummary);
     v19 = v7;
     CurrentThread->AbEntrySummary = AbEntrySummary & ~(1 << v7);
-    v2 = (unsigned __int64)&CurrentThread->LockEntries[v7];
+    v2 = (__int64)&CurrentThread->LockEntries[v7];
     if ( v2 )
     {
       if ( BugCheckParameter2 >= 0xFFFF800000000000uLL

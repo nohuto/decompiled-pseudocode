@@ -1,10 +1,10 @@
 /*
- * XREFs of CcNotifyWriteBehind @ 0x140384670
+ * XREFs of CcNotifyWriteBehind @ 0x1403847C0
  * Callers:
- *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
- *     MiShutdownSystem @ 0x1409AFDB8 (MiShutdownSystem.c)
+ *     MmDuplicateMemory @ 0x14099625C (MmDuplicateMemory.c)
+ *     MiShutdownSystem @ 0x1409B0CE8 (MiShutdownSystem.c)
  * Callees:
- *     CcForEachPartition @ 0x1402F8C10 (CcForEachPartition.c)
+ *     CcForEachPartition @ 0x140303960 (CcForEachPartition.c)
  */
 
 LONG_PTR CcNotifyWriteBehind()

@@ -6,35 +6,35 @@
  *     <none>
  */
 
-__int64 __fastcall RtlFindNextForwardRunClear(__int64 a1, unsigned int a2, unsigned int *a3)
+ULONG __cdecl RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
-  unsigned int v3; // r10d
-  unsigned int v5; // r9d
-  const signed __int32 *v6; // rdx
-  const signed __int32 *v7; // rbx
-  const signed __int32 *v8; // r8
-  unsigned int v9; // edx
+  unsigned int SizeOfBitMap; // r10d
+  ULONG v5; // r9d
+  unsigned int *Buffer; // rdx
+  unsigned int *v7; // rbx
+  unsigned int *v8; // r8
+  ULONG v9; // edx
   int v10; // edi
-  const signed __int32 *v11; // r8
+  unsigned int *v11; // r8
   unsigned int i; // eax
 
-  v3 = *(_DWORD *)a1;
-  v5 = a2;
-  if ( *(_DWORD *)a1 <= a2 )
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
+  v5 = FromIndex;
+  if ( BitMapHeader->SizeOfBitMap <= FromIndex )
   {
-    *a3 = a2;
+    *StartingRunIndex = FromIndex;
     return 0;
   }
-  v6 = *(const signed __int32 **)(a1 + 8);
-  v7 = &v6[(unsigned __int64)(v3 - 1) >> 5];
-  v8 = &v6[(unsigned __int64)v5 >> 5];
-  if ( v8 != v7 && (*v8 | dword_1801272A0[v5 & 0x1F]) == -1 )
+  Buffer = BitMapHeader->Buffer;
+  v7 = &Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
+  v8 = &Buffer[(unsigned __int64)v5 >> 5];
+  if ( v8 != v7 && (*v8 | dword_1801272A0[v5 & 0x1F]) == 0xFFFFFFFF )
   {
     v5 = v5 - (v5 & 0x1F) + 32;
     for ( ++v8; v8 < v7 && *v8 == -1; ++v8 )
       v5 += 32;
   }
-  while ( v5 < v3 && _bittest(v6, v5) )
+  while ( v5 < SizeOfBitMap && _bittest((const signed __int32 *)Buffer, v5) )
     ++v5;
   v9 = 0;
   if ( v8 == v7 )
@@ -54,9 +54,9 @@ __int64 __fastcall RtlFindNextForwardRunClear(__int64 a1, unsigned int a2, unsig
         goto LABEL_20;
     }
 LABEL_16:
-    for ( i = v9 + v5; i < *(_DWORD *)a1; ++v9 )
+    for ( i = v9 + v5; i < BitMapHeader->SizeOfBitMap; ++v9 )
     {
-      if ( _bittest(*(const signed __int32 **)(a1 + 8), i) )
+      if ( _bittest((const signed __int32 *)BitMapHeader->Buffer, i) )
         break;
       if ( v9 == -1 )
         break;
@@ -64,6 +64,6 @@ LABEL_16:
     }
   }
 LABEL_20:
-  *a3 = v5;
+  *StartingRunIndex = v5;
   return v9;
 }

@@ -60,10 +60,13 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
       v9 = (unsigned __int8)byte_140C5FCD8;
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5FCD0);
       v10 = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v10 = (unsigned int)(v9 + 1);

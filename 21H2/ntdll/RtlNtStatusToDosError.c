@@ -31,32 +31,32 @@
  *     EtwpProviderArrivalCallback @ 0x180087974 (EtwpProviderArrivalCallback.c)
  *     EtwSetMark @ 0x18008AEC0 (EtwSetMark.c)
  *     EtwRegisterSecurityProvider @ 0x18008C5A0 (EtwRegisterSecurityProvider.c)
- *     RtlCompactHeap @ 0x1800F23F0 (RtlCompactHeap.c)
- *     RtlSetUserFlagsHeap @ 0x1800F2E70 (RtlSetUserFlagsHeap.c)
- *     RtlDebugAllocateHeap @ 0x1800F89E0 (RtlDebugAllocateHeap.c)
- *     RtlDebugCompactHeap @ 0x1800F8D9C (RtlDebugCompactHeap.c)
- *     RtlDebugCreateTagHeap @ 0x1800F91E4 (RtlDebugCreateTagHeap.c)
- *     RtlDebugFreeHeap @ 0x1800F93EC (RtlDebugFreeHeap.c)
- *     RtlDebugGetUserInfoHeap @ 0x1800F96E0 (RtlDebugGetUserInfoHeap.c)
- *     RtlDebugQueryTagHeap @ 0x1800F9884 (RtlDebugQueryTagHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800F99D0 (RtlDebugReAllocateHeap.c)
- *     RtlDebugSetUserFlagsHeap @ 0x1800F9F54 (RtlDebugSetUserFlagsHeap.c)
- *     RtlDebugSetUserValueHeap @ 0x1800FA120 (RtlDebugSetUserValueHeap.c)
- *     RtlDebugSizeHeap @ 0x1800FA2B4 (RtlDebugSizeHeap.c)
- *     RtlDebugWalkHeap @ 0x1800FA438 (RtlDebugWalkHeap.c)
- *     EtwEventWriteString @ 0x180110740 (EtwEventWriteString.c)
- *     EtwpUseDescriptorType @ 0x180110970 (EtwpUseDescriptorType.c)
- *     EtwTraceEventInstance @ 0x180110AC0 (EtwTraceEventInstance.c)
- *     EtwpBufferingModeFlush @ 0x180110C60 (EtwpBufferingModeFlush.c)
- *     EtwpIncrementUmLoggerFile @ 0x180111040 (EtwpIncrementUmLoggerFile.c)
- *     EtwpUpdateUmLogger @ 0x180111500 (EtwpUpdateUmLogger.c)
+ *     RtlCompactHeap @ 0x1800F23B0 (RtlCompactHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x1800F2E30 (RtlSetUserFlagsHeap.c)
+ *     RtlDebugAllocateHeap @ 0x1800F89A0 (RtlDebugAllocateHeap.c)
+ *     RtlDebugCompactHeap @ 0x1800F8D5C (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x1800F91A4 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800F93AC (RtlDebugFreeHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x1800F96A0 (RtlDebugGetUserInfoHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x1800F9844 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x1800F9990 (RtlDebugReAllocateHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x1800F9F14 (RtlDebugSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x1800FA0E0 (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugSizeHeap @ 0x1800FA274 (RtlDebugSizeHeap.c)
+ *     RtlDebugWalkHeap @ 0x1800FA3F8 (RtlDebugWalkHeap.c)
+ *     EtwEventWriteString @ 0x180110700 (EtwEventWriteString.c)
+ *     EtwpUseDescriptorType @ 0x180110930 (EtwpUseDescriptorType.c)
+ *     EtwTraceEventInstance @ 0x180110A80 (EtwTraceEventInstance.c)
+ *     EtwpBufferingModeFlush @ 0x180110C20 (EtwpBufferingModeFlush.c)
+ *     EtwpIncrementUmLoggerFile @ 0x180111000 (EtwpIncrementUmLoggerFile.c)
+ *     EtwpUpdateUmLogger @ 0x1801114C0 (EtwpUpdateUmLogger.c)
  * Callees:
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
  */
 
 ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
 {
-  unsigned int v1; // edx
+  unsigned __int32 v1; // edx
   struct _TEB *v2; // rax
   ULONG result; // eax
   unsigned int v4; // eax

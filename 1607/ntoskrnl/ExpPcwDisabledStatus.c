@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPcwDisabledStatus @ 0x1406B6A1C
+ * XREFs of ExpPcwDisabledStatus @ 0x1406B6B54
  * Callers:
- *     PcwAddInstance @ 0x1404F1B90 (PcwAddInstance.c)
- *     PcwCreateInstance @ 0x14054CD60 (PcwCreateInstance.c)
- *     PcwRegister @ 0x1405538AC (PcwRegister.c)
+ *     PcwAddInstance @ 0x1404D4324 (PcwAddInstance.c)
+ *     PcwCreateInstance @ 0x14054D2A0 (PcwCreateInstance.c)
+ *     PcwRegister @ 0x140553DEC (PcwRegister.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
  */
 
 __int64 ExpPcwDisabledStatus()

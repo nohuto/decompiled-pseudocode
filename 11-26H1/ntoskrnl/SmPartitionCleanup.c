@@ -1,17 +1,17 @@
 /*
- * XREFs of SmPartitionCleanup @ 0x140818F90
+ * XREFs of SmPartitionCleanup @ 0x14081F1A0
  * Callers:
- *     SmDeletePartition @ 0x140818D10 (SmDeletePartition.c)
- *     SmCreatePartition @ 0x140AB0DEC (SmCreatePartition.c)
+ *     SmDeletePartition @ 0x14081EF20 (SmDeletePartition.c)
+ *     SmCreatePartition @ 0x140AAEDD0 (SmCreatePartition.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     SmKmStoreDereference @ 0x140265B10 (SmKmStoreDereference.c)
- *     SmFpCleanup @ 0x1403F02E0 (SmFpCleanup.c)
- *     MmStoreReleaseResidentAvailableForRead @ 0x14047D1B4 (MmStoreReleaseResidentAvailableForRead.c)
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14063C534 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmTerminateStoreProcess @ 0x14063E81C (SmTerminateStoreProcess.c)
- *     SmpKeyedStoreCtxCleanup @ 0x14063E8E8 (SmpKeyedStoreCtxCleanup.c)
- *     SmHwAcceleratorPartitionMgrCleanup @ 0x14081B83C (SmHwAcceleratorPartitionMgrCleanup.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     SmKmStoreDereference @ 0x140265080 (SmKmStoreDereference.c)
+ *     SmFpCleanup @ 0x1403E9CB0 (SmFpCleanup.c)
+ *     MmStoreReleaseResidentAvailableForRead @ 0x140476B24 (MmStoreReleaseResidentAvailableForRead.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140640114 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmTerminateStoreProcess @ 0x1406423FC (SmTerminateStoreProcess.c)
+ *     SmpKeyedStoreCtxCleanup @ 0x1406424C8 (SmpKeyedStoreCtxCleanup.c)
+ *     SmHwAcceleratorPartitionMgrCleanup @ 0x140821A4C (SmHwAcceleratorPartitionMgrCleanup.c)
  */
 
 unsigned __int64 __fastcall SmPartitionCleanup(__int64 a1)
@@ -23,7 +23,7 @@ unsigned __int64 __fastcall SmPartitionCleanup(__int64 a1)
   v1 = *(_DWORD *)(a1 + 2384);
   if ( v1 != -1 )
     SmKmStoreDereference(a1, v1);
-  SMKM_STORE_MGR<SM_TRAITS>::SmCleanup((union _SLIST_HEADER *)a1);
+  SMKM_STORE_MGR<SM_TRAITS>::SmCleanup((_SLIST_HEADER *)a1);
   SmpKeyedStoreCtxCleanup(a1 + 2344);
   v3 = *(void **)(a1 + 2400);
   if ( v3 )

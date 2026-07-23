@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFinishHoldingDirtyFaults @ 0x14053EB04
+ * XREFs of MiFinishHoldingDirtyFaults @ 0x14053ED44
  * Callers:
- *     MiReleaseHotPatchResources @ 0x1408CE44C (MiReleaseHotPatchResources.c)
+ *     MiReleaseHotPatchResources @ 0x1408CE5AC (MiReleaseHotPatchResources.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 char __fastcall MiFinishHoldingDirtyFaults(_QWORD *a1)

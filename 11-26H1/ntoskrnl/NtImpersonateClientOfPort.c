@@ -1,29 +1,29 @@
 /*
- * XREFs of NtImpersonateClientOfPort @ 0x1407BFBD0
+ * XREFs of NtImpersonateClientOfPort @ 0x1407C2C30
  * Callers:
- *     DifNtImpersonateClientOfPortWrapper @ 0x140679B50 (DifNtImpersonateClientOfPortWrapper.c)
+ *     DifNtImpersonateClientOfPortWrapper @ 0x14067D730 (DifNtImpersonateClientOfPortWrapper.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     NtAlpcImpersonateClientOfPort @ 0x1409C1390 (NtAlpcImpersonateClientOfPort.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x140992370 (NtAlpcImpersonateClientOfPort.c)
  */
 
-__int64 __fastcall NtImpersonateClientOfPort(void *a1)
+NTSTATUS __cdecl NtImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( *(_DWORD *)&AlpcpMessageLogLock.ApcStateFill[8] )
+  if ( LODWORD(AlpcpMessageLogLock.TrapFrame) )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     KeLeaveCriticalRegion();
-    return 3221225659LL;
+    return -1073741637;
   }
   else
   {
-    result = NtAlpcImpersonateClientOfPort(a1);
-    if ( (_DWORD)result == -1073740030 )
-      return 3221226015LL;
+    result = NtAlpcImpersonateClientOfPort(PortHandle, Message, 0LL);
+    if ( result == -1073740030 )
+      return -1073741281;
   }
   return result;
 }

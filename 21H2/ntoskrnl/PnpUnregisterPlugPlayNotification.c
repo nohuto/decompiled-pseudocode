@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpUnregisterPlugPlayNotification @ 0x14037FC30
+ * XREFs of PnpUnregisterPlugPlayNotification @ 0x14037F780
  * Callers:
- *     IoUnregisterPlugPlayNotification @ 0x140771BA0 (IoUnregisterPlugPlayNotification.c)
- *     IoUnregisterPlugPlayNotificationEx @ 0x14078EB20 (IoUnregisterPlugPlayNotificationEx.c)
- *     PopCleanCoolingExtension @ 0x1408E2ABC (PopCleanCoolingExtension.c)
- *     PopPolicyDeviceTargetChange @ 0x1408F15D0 (PopPolicyDeviceTargetChange.c)
- *     SmKmFileInfoCleanup @ 0x14092B278 (SmKmFileInfoCleanup.c)
+ *     IoUnregisterPlugPlayNotification @ 0x140771D60 (IoUnregisterPlugPlayNotification.c)
+ *     IoUnregisterPlugPlayNotificationEx @ 0x14078ECE0 (IoUnregisterPlugPlayNotificationEx.c)
+ *     PopCleanCoolingExtension @ 0x1408E2C1C (PopCleanCoolingExtension.c)
+ *     PopPolicyDeviceTargetChange @ 0x1408F1730 (PopPolicyDeviceTargetChange.c)
+ *     SmKmFileInfoCleanup @ 0x14092B3D8 (SmKmFileInfoCleanup.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PnpDereferenceNotify @ 0x1406E5E00 (PnpDereferenceNotify.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpDereferenceNotify @ 0x1406FD1E8 (PnpDereferenceNotify.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpUnregisterPlugPlayNotification(PVOID P, char a2)
@@ -21,11 +21,17 @@ __int64 __fastcall PnpUnregisterPlugPlayNotification(PVOID P, char a2)
   struct _FAST_MUTEX *v2; // rbx
   char v5; // r12
   struct _KTHREAD *CurrentThread; // rax
-  PVOID *v8; // rsi
-  PVOID *v9; // r15
-  PVOID *v10; // r14
-  PVOID *v11; // rax
-  PVOID **v12; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  PVOID *v11; // rsi
+  PVOID *v12; // r15
+  PVOID *v13; // r14
+  PVOID *v14; // rax
+  PVOID **v15; // rdx
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r9
 
   v2 = (struct _FAST_MUTEX *)*((_QWORD *)P + 8);
   v5 = 0;
@@ -33,30 +39,30 @@ __int64 __fastcall PnpUnregisterPlugPlayNotification(PVOID P, char a2)
   if ( BYTE2(NlsMbCodePageTag) )
   {
     ExAcquireFastMutex(&PnpDeferredRegistrationLock);
-    v8 = (PVOID *)PnpDeferredRegistrationList;
-    while ( v8 != &PnpDeferredRegistrationList )
+    v11 = (PVOID *)PnpDeferredRegistrationList;
+    while ( v11 != &PnpDeferredRegistrationList )
     {
-      v9 = v8 + 2;
-      v10 = v8;
-      if ( v8[2] == P )
+      v12 = v11 + 2;
+      v13 = v11;
+      if ( v11[2] == P )
       {
         v5 = 1;
         if ( v2 )
           ExAcquireFastMutex(v2);
-        v11 = (PVOID *)*v8;
-        v8 = v11;
-        if ( v11[1] != v10 || (v12 = (PVOID **)v10[1], *v12 != v10) )
+        v14 = (PVOID *)*v11;
+        v11 = v14;
+        if ( v14[1] != v13 || (v15 = (PVOID **)v13[1], *v15 != v13) )
           __fastfail(3u);
-        *v12 = v11;
-        v11[1] = v12;
-        PnpDereferenceNotify(*v9);
+        *v15 = v14;
+        v14[1] = v15;
+        PnpDereferenceNotify(*v12);
         if ( v2 )
           KeReleaseGuardedMutex(v2);
-        ExFreePoolWithTag(v10, 0x37706E50u);
+        ExFreePoolWithTag(v13, 0x37706E50u);
       }
       else
       {
-        v8 = (PVOID *)*v8;
+        v11 = (PVOID *)*v11;
       }
     }
     KeReleaseGuardedMutex(&PnpDeferredRegistrationLock);
@@ -78,7 +84,7 @@ __int64 __fastcall PnpUnregisterPlugPlayNotification(PVOID P, char a2)
     if ( a2 )
     {
       ExReleaseResourceLite(*((PERESOURCE *)P + 9));
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v8, v9, v10);
       if ( v2 )
         ExAcquireFastMutex(v2);
     }
@@ -87,7 +93,7 @@ __int64 __fastcall PnpUnregisterPlugPlayNotification(PVOID P, char a2)
   else if ( a2 )
   {
     ExReleaseResourceLite(*((PERESOURCE *)P + 9));
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17, v18);
     return 0LL;
   }
   if ( v2 )

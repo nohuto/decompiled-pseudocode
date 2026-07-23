@@ -1,34 +1,34 @@
 /*
- * XREFs of MiFillSystemPtes @ 0x14035F448
+ * XREFs of MiFillSystemPtes @ 0x1403611E8
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x140363E10 (MiMapContiguousMemory.c)
- *     MmMapMdl @ 0x1404E1360 (MmMapMdl.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x140710120 (MiAllocateZeroCalibrationBuffer.c)
- *     MiLockAndMapEntireDriver @ 0x14086D784 (MiLockAndMapEntireDriver.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x140872E78 (MiMapHotPatchImageInSystemSpace.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMapContiguousMemory @ 0x140365BB0 (MiMapContiguousMemory.c)
+ *     MmMapMdl @ 0x1404DAA40 (MmMapMdl.c)
+ *     MiAllocateZeroCalibrationBuffer @ 0x140714E1C (MiAllocateZeroCalibrationBuffer.c)
+ *     MiLockAndMapEntireDriver @ 0x140873B54 (MiLockAndMapEntireDriver.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x1408791D8 (MiMapHotPatchImageInSystemSpace.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiClearMappingAndDereferenceIoSpace @ 0x140282A34 (MiClearMappingAndDereferenceIoSpace.c)
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiAssignInitialPageAttribute @ 0x1402A2C40 (MiAssignInitialPageAttribute.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F09B0 (MiLegitimatePageForDriversToMap.c)
- *     MiIoSpaceGetBounds @ 0x140313748 (MiIoSpaceGetBounds.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiShowBadMapper @ 0x1403669CC (MiShowBadMapper.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiIoPagesInRun @ 0x1404A45BC (MiIoPagesInRun.c)
- *     MiLogSystemImageReadOnlyPageViolation @ 0x1404C3220 (MiLogSystemImageReadOnlyPageViolation.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiClearMappingAndDereferenceIoSpace @ 0x140281FA4 (MiClearMappingAndDereferenceIoSpace.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiAssignInitialPageAttribute @ 0x1402A2190 (MiAssignInitialPageAttribute.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402D2A30 (MiLegitimatePageForDriversToMap.c)
+ *     MiIoSpaceGetBounds @ 0x140315778 (MiIoSpaceGetBounds.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiShowBadMapper @ 0x14036876C (MiShowBadMapper.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiIoPagesInRun @ 0x14049DC4C (MiIoPagesInRun.c)
+ *     MiLogSystemImageReadOnlyPageViolation @ 0x1404BCA70 (MiLogSystemImageReadOnlyPageViolation.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiFillSystemPtes(_QWORD *a1, unsigned __int64 a2, __int64 a3, unsigned int a4, int a5, _DWORD *a6)
@@ -129,13 +129,13 @@ __int64 __fastcall MiFillSystemPtes(_QWORD *a1, unsigned __int64 a2, __int64 a3,
       v21 = 0LL;
     v17 = v21;
     v58 = v21;
-    if ( (a5 & 2) == 0 || v16 != qword_140E35FF8 )
+    if ( (a5 & 2) == 0 || v16 != qword_140E36178 )
       break;
 LABEL_24:
     --v11;
     v62 = (unsigned __int64)++v6;
   }
-  if ( v16 <= qword_140E2D7A0 )
+  if ( v16 <= qword_140E2D920 )
   {
     if ( ((*(_QWORD *)(48 * v16 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
     {
@@ -155,7 +155,7 @@ LABEL_24:
         MiAssignInitialPageAttribute(48 * v16 - 0x220000000000LL, v65);
       if ( v65 == ((*(_DWORD *)(v22 + 32) >> 22) & 3) )
       {
-        v25 = (v16 << 12) ^ (v59 ^ (v16 << 12)) & 0xFFF0000000000FFFuLL;
+        v25 = (v16 << 12) ^ ((v16 << 12) ^ v59) & 0xFFF0000000000FFFuLL;
       }
       else
       {
@@ -185,7 +185,7 @@ LABEL_24:
   }
   if ( v19 )
   {
-    v28 = 2 * ((v16 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *(_DWORD *)(v8 + 24));
+    v28 = 2 * ((v16 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *(_DWORD *)(v8 + 24));
     v29 = *(_DWORD *)(v8 + 4 * ((unsigned __int64)v28 >> 5) + 44);
 LABEL_30:
     v30 = (v29 >> v28) & 3;
@@ -265,7 +265,7 @@ LABEL_23:
         v52 = *v50;
         if ( *v50 != *(v50 - 1) + 1
           || (v52 & 0x1FF) == 0
-          || v52 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v52 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+          || v52 <= qword_140E2D920 && ((*(_QWORD *)(48 * v52 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
         {
           break;
         }
@@ -286,7 +286,7 @@ LABEL_23:
   if ( v53 >= 0 )
   {
     v54 = v56;
-    v55 = dword_140E2D6F8 - 12;
+    v55 = dword_140E2D878 - 12;
     v6 = (_QWORD *)v62;
     *a6 |= 1u;
     v28 = 2 * ((v16 & ((1LL << v55) - 1)) - *(_DWORD *)(v54 + 24));

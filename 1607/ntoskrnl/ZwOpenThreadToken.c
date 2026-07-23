@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwOpenThreadToken @ 0x14015A100
+ * XREFs of ZwOpenThreadToken @ 0x14015A670
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenThreadToken(
         HANDLE ThreadHandle,
         ACCESS_MASK DesiredAccess,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwOpenThreadToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, *(_QWORD *)&DesiredAccess, OpenAsSelf);
+  return KiServiceInternal(ThreadHandle);
 }

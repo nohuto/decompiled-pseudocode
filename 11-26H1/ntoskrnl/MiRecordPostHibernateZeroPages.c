@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRecordPostHibernateZeroPages @ 0x140C01070
+ * XREFs of MiRecordPostHibernateZeroPages @ 0x140C07280
  * Callers:
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
- *     HvlQueryBootZeroMemory @ 0x14071E6F4 (HvlQueryBootZeroMemory.c)
- *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C007C4 (MiAddPostHibernateZeroPagesToBitmap.c)
- *     MiActOnMirrorBitmap @ 0x140C0CAE8 (MiActOnMirrorBitmap.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     HvlQueryBootZeroMemory @ 0x140723384 (HvlQueryBootZeroMemory.c)
+ *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C069D4 (MiAddPostHibernateZeroPagesToBitmap.c)
+ *     MiActOnMirrorBitmap @ 0x140C12CF8 (MiActOnMirrorBitmap.c)
  */
 
 void __fastcall MiRecordPostHibernateZeroPages(__int64 a1)
@@ -22,7 +22,7 @@ void __fastcall MiRecordPostHibernateZeroPages(__int64 a1)
 
   for ( i = 0; i < 2; ++i )
     MiActOnMirrorBitmap((unsigned int)i, 1LL, 2LL);
-  if ( (stru_140E36558.WaitRegister.Flags & 8) != 0 )
+  if ( (stru_140E366D8.WaitRegister.Flags & 8) != 0 )
   {
     v3 = *(void **)(a1 + 48);
     NumOfElements = *(_QWORD *)(a1 + 56);

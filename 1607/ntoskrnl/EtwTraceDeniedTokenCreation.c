@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceDeniedTokenCreation @ 0x1406A133C
+ * XREFs of EtwTraceDeniedTokenCreation @ 0x1406A1474
  * Callers:
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     TraceLoggingProviderEnabled @ 0x140088D10 (TraceLoggingProviderEnabled.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     TraceLoggingProviderEnabled @ 0x14010CF00 (TraceLoggingProviderEnabled.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     EtwpQueryProcessCommandLine @ 0x14045DC34 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessCommandLine @ 0x14045CB04 (EtwpQueryProcessCommandLine.c)
  */
 
 void __fastcall EtwTraceDeniedTokenCreation(__int64 a1, UNICODE_STRING *a2)
@@ -96,7 +96,7 @@ void __fastcall EtwTraceDeniedTokenCreation(__int64 a1, UNICODE_STRING *a2)
       v26[1] = 0;
       v28 = 2LL;
       v30[1] = 0;
-      TlgWrite(&stru_1402F3640, &unk_14027E591, 0LL, 0LL, 0xAu, &pData);
+      TlgWrite(&stru_1402F3640, &unk_14027E691, 0LL, 0LL, 0xAu, &pData);
     }
     if ( v6 )
       ExFreePoolWithTag(Buffer, 0);

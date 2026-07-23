@@ -6,15 +6,18 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall RtlGetCompressionWorkSpaceSize(__int16 a1, int a2, int a3)
+NTSTATUS __cdecl RtlGetCompressionWorkSpaceSize(
+        USHORT CompressionFormatAndEngine,
+        PULONG CompressBufferWorkSpaceSize,
+        PULONG CompressFragmentWorkSpaceSize)
 {
-  if ( !(_BYTE)a1 || (unsigned __int8)a1 == 1 )
+  if ( !(_BYTE)CompressionFormatAndEngine || (unsigned __int8)CompressionFormatAndEngine == 1 )
     return -1073741811;
-  if ( (unsigned __int8)a1 <= 4u )
-    return ((int (__thiscall *)(int, int, int, int))RtlWorkSpaceProcs[(unsigned __int8)a1])(
-             RtlWorkSpaceProcs[(unsigned __int8)a1],
-             a1 & 0xFF00,
-             a2,
-             a3);
+  if ( (unsigned __int8)CompressionFormatAndEngine <= 4u )
+    return ((int (__thiscall *)(int, int, PULONG, PULONG))RtlWorkSpaceProcs[(unsigned __int8)CompressionFormatAndEngine])(
+             RtlWorkSpaceProcs[(unsigned __int8)CompressionFormatAndEngine],
+             CompressionFormatAndEngine & 0xFF00,
+             CompressBufferWorkSpaceSize,
+             CompressFragmentWorkSpaceSize);
   return -1073741217;
 }

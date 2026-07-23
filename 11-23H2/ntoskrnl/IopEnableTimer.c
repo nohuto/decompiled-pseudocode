@@ -1,13 +1,13 @@
 /*
- * XREFs of IopEnableTimer @ 0x1405553D8
+ * XREFs of IopEnableTimer @ 0x140555A98
  * Callers:
- *     IoStartTimer @ 0x140557490 (IoStartTimer.c)
+ *     IoStartTimer @ 0x140557B50 (IoStartTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIoTimerEvent @ 0x1405FCE90 (EtwTraceIoTimerEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIoTimerEvent @ 0x1405FD400 (EtwTraceIoTimerEvent.c)
  */
 
 __int64 __fastcall IopEnableTimer(__int64 a1)
@@ -27,10 +27,10 @@ __int64 __fastcall IopEnableTimer(__int64 a1)
     *(_WORD *)(a1 + 2) = 1;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&IopTimerLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -41,7 +41,7 @@ __int64 __fastcall IopEnableTimer(__int64 a1)
       v6 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v6 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);

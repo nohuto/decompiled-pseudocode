@@ -1,16 +1,16 @@
 /*
- * XREFs of MiHotAddPartitionMemory @ 0x1408DB27C
+ * XREFs of MiHotAddPartitionMemory @ 0x1408DB3DC
  * Callers:
- *     MmManagePartitionInitialAddMemory @ 0x1408DB9C4 (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionInitialAddMemory @ 0x1408DBB24 (MmManagePartitionInitialAddMemory.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     RtlAreBitsClearEx @ 0x140348F90 (RtlAreBitsClearEx.c)
- *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
- *     MiAddRangeToPartitionTree @ 0x14056116C (MiAddRangeToPartitionTree.c)
- *     MiFreePartitionTree @ 0x14056233C (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x140562540 (MiInsertPartitionPages.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x1408DB778 (MiUpdatePartitionLargePfnBitMap.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlAreBitsClearEx @ 0x140353CE0 (RtlAreBitsClearEx.c)
+ *     MiActOnPartitionNodePages @ 0x140560AE0 (MiActOnPartitionNodePages.c)
+ *     MiAddRangeToPartitionTree @ 0x1405613AC (MiAddRangeToPartitionTree.c)
+ *     MiFreePartitionTree @ 0x14056257C (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x140562780 (MiInsertPartitionPages.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x1408DB8D8 (MiUpdatePartitionLargePfnBitMap.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiHotAddPartitionMemory(unsigned __int64 a1, unsigned __int64 *a2, int *a3, __int64 a4)

@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpResolveMatchingFile @ 0x1407539DC
+ * XREFs of SdbpResolveMatchingFile @ 0x140753B9C
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x1407544C0 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingDir @ 0x140964370 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingTextEntry @ 0x140964C94 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140965080 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x140754680 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingDir @ 0x140964550 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140964E74 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140965260 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     AslEnvExpandStrings2 @ 0x140753C30 (AslEnvExpandStrings2.c)
- *     AslImageFileToArchitecture @ 0x140754238 (AslImageFileToArchitecture.c)
- *     AslEnvGetProcessWowInfo @ 0x140754264 (AslEnvGetProcessWowInfo.c)
- *     AslPathToNetworkPathNt @ 0x14075431C (AslPathToNetworkPathNt.c)
- *     AslPathClean @ 0x140754394 (AslPathClean.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     AslEnvExpandStrings2 @ 0x140753DF0 (AslEnvExpandStrings2.c)
+ *     AslImageFileToArchitecture @ 0x1407543F8 (AslImageFileToArchitecture.c)
+ *     AslEnvGetProcessWowInfo @ 0x140754424 (AslEnvGetProcessWowInfo.c)
+ *     AslPathToNetworkPathNt @ 0x1407544DC (AslPathToNetworkPathNt.c)
+ *     AslPathClean @ 0x140754554 (AslPathClean.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbpResolveMatchingFile(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4, __int64 a5, _QWORD *a6)

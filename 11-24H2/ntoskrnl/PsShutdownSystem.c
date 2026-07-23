@@ -1,26 +1,26 @@
 /*
- * XREFs of PsShutdownSystem @ 0x140778944
+ * XREFs of PsShutdownSystem @ 0x140778A44
  * Callers:
- *     PopGracefulShutdown @ 0x140B5BA88 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140B5DAF8 (PopGracefulShutdown.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140418A5C (ExfAcquireReleasePushLockExclusive.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     ObFastReplaceObject @ 0x1404512EC (ObFastReplaceObject.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PsTerminateServerSilo @ 0x1407723C0 (PsTerminateServerSilo.c)
- *     PspWaitForUsermodeExit @ 0x1407790CC (PspWaitForUsermodeExit.c)
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
- *     PspGetNextSilo @ 0x1408EBA34 (PspGetNextSilo.c)
- *     PsEnumProcesses @ 0x1408EE0F4 (PsEnumProcesses.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
- *     PsTerminateProcess @ 0x140938BD4 (PsTerminateProcess.c)
- *     EtwUnregister @ 0x140A00060 (EtwUnregister.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14040880C (ExfAcquireReleasePushLockExclusive.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     ObFastReplaceObject @ 0x14044674C (ObFastReplaceObject.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PsTerminateServerSilo @ 0x1407725E0 (PsTerminateServerSilo.c)
+ *     PspWaitForUsermodeExit @ 0x1407791CC (PspWaitForUsermodeExit.c)
+ *     PspGetNextSilo @ 0x14085D264 (PspGetNextSilo.c)
+ *     PsEnumProcesses @ 0x14085F924 (PsEnumProcesses.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     PsTerminateProcess @ 0x1408F32A4 (PsTerminateProcess.c)
+ *     EtwUnregister @ 0x140A52EC0 (EtwUnregister.c)
  */
 
 __int64 PsShutdownSystem()
@@ -44,20 +44,17 @@ __int64 PsShutdownSystem()
   __int64 v17; // rdi
   struct _KTHREAD *CurrentThread; // rsi
   __int64 v19; // rbp
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  void *v23; // r14
+  void *v20; // r14
   void *UserWaitTime; // rcx
-  REGHANDLE v25; // rcx
-  signed __int32 v26[8]; // [rsp+0h] [rbp-88h] BYREF
+  REGHANDLE v22; // rcx
+  signed __int32 v23[8]; // [rsp+0h] [rbp-88h] BYREF
   LARGE_INTEGER Timeout; // [rsp+40h] [rbp-48h] BYREF
   PVOID Object[2]; // [rsp+48h] [rbp-40h] BYREF
-  __int64 v29; // [rsp+58h] [rbp-30h]
+  __int64 v26; // [rsp+58h] [rbp-30h]
 
   Timeout.QuadPart = -1000000000LL;
   *(_OWORD *)Object = 0LL;
-  v29 = 0LL;
+  v26 = 0LL;
   v0 = 1;
   ServerSiloGlobals = (_DWORD **)PsGetServerSiloGlobals(0LL);
   if ( _InterlockedCompareExchange64(&PspShutdownThread, (signed __int64)KeGetCurrentThread(), 0LL) )
@@ -145,15 +142,15 @@ LABEL_26:
         MiUnmapViewOfSection(PsInitialSystemProcess);
       CurrentThread = KeGetCurrentThread();
       v19 = **v16;
-      v23 = (void *)ObFastReplaceObject((volatile __int64 *)v19, 0LL);
-      if ( v23 )
+      v20 = (void *)ObFastReplaceObject((volatile __int64 *)v19, 0LL);
+      if ( v20 )
       {
         --CurrentThread->KernelApcDisable;
-        _InterlockedOr(v26, 0);
+        _InterlockedOr(v23, 0);
         if ( (*(_QWORD *)(v19 + 8) & 1) != 0 )
           ExfAcquireReleasePushLockExclusive((unsigned __int64 *)(v19 + 8));
-        KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v20, v21, v22);
-        ObfDereferenceObject(v23);
+        KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+        ObfDereferenceObject(v20);
       }
     }
     ++v16;
@@ -168,9 +165,9 @@ LABEL_26:
     ObfDereferenceObject(UserWaitTime);
     PsInitialSystemProcess[1].UserWaitTime = 1LL;
   }
-  v25 = qword_140E085E0;
-  qword_140E085E0 = 0LL;
-  dword_140E085C0 = 0;
-  EtwUnregister(v25);
+  v22 = qword_140E08650;
+  qword_140E08650 = 0LL;
+  dword_140E08630 = 0;
+  EtwUnregister(v22);
   return v0;
 }

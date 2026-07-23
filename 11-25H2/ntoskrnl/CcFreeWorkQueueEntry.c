@@ -22,7 +22,7 @@
  *     ExFreePool @ 0x140B62CB0 (ExFreePool.c)
  */
 
-__int64 __fastcall CcFreeWorkQueueEntry(struct _SLIST_ENTRY *P)
+__int64 __fastcall CcFreeWorkQueueEntry(_SLIST_ENTRY *P)
 {
   struct _KPRCB *CurrentPrcb; // r8
   __int64 v3; // rdi

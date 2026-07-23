@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindPageFileMemoryExtent @ 0x1406600C0
+ * XREFs of MiFindPageFileMemoryExtent @ 0x140660610
  * Callers:
- *     MiTransferMemoryPagefileData @ 0x140660AA8 (MiTransferMemoryPagefileData.c)
+ *     MiTransferMemoryPagefileData @ 0x140660FF8 (MiTransferMemoryPagefileData.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiComparePageFileMemoryExtents @ 0x14065FB0C (MiComparePageFileMemoryExtents.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComparePageFileMemoryExtents @ 0x14066005C (MiComparePageFileMemoryExtents.c)
  */
 
 __int64 __fastcall MiFindPageFileMemoryExtent(__int64 a1, int a2)
@@ -57,10 +57,13 @@ __int64 __fastcall MiFindPageFileMemoryExtent(__int64 a1, int a2)
   if ( !v8 )
     NT_ASSERT("Node != ((void *)0)");
   ExReleaseSpinLockSharedFromDpcLevel(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

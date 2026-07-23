@@ -6,7 +6,7 @@
  *     RtlpComputeCrcInternal @ 0x14033B560 (RtlpComputeCrcInternal.c)
  */
 
-__int64 __fastcall RtlCrc32(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)
+DWORD __cdecl RtlCrc32(const void *Buffer, size_t Size, DWORD InitialCrc)
 {
-  return RtlpComputeCrcInternal(a1, a2, a3, (__int64)&Crc32Ctrl);
+  return RtlpComputeCrcInternal((unsigned __int64)Buffer, Size, InitialCrc, (__int64)&Crc32Ctrl);
 }

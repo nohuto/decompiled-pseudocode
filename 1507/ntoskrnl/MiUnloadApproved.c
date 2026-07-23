@@ -9,7 +9,7 @@
 
 __int64 __fastcall MiUnloadApproved(__int64 a1)
 {
-  __int64 v1; // rbx
+  void *v1; // rbx
   __int16 v2; // ax
   _QWORD *v4; // rax
   int v5; // ecx
@@ -18,8 +18,8 @@ __int64 __fastcall MiUnloadApproved(__int64 a1)
 
   if ( *(_QWORD *)(a1 + 136) == 1LL )
     return 0LL;
-  v1 = *(_QWORD *)(a1 + 48);
-  if ( (unsigned __int64)(v1 + 0x70000000000LL) <= 0x7FFFFFFFFFLL )
+  v1 = *(void **)(a1 + 48);
+  if ( (unsigned __int64)v1 + 0x70000000000LL <= 0x7FFFFFFFFFLL )
   {
     v4 = MiSessionLookupImage(*(_QWORD *)(a1 + 48));
     v5 = *((_DWORD *)v4 + 15);

@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDqActionDataGetChangedProperties @ 0x140771174
+ * XREFs of PiDqActionDataGetChangedProperties @ 0x140771334
  * Callers:
- *     PiDqActionDataCreate @ 0x14062F9AC (PiDqActionDataCreate.c)
+ *     PiDqActionDataCreate @ 0x140624A2C (PiDqActionDataCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PnpFreeDevProperty @ 0x1406336E0 (PnpFreeDevProperty.c)
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PiDqPnPGetObjectProperty @ 0x140637F94 (PiDqPnPGetObjectProperty.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x140638D94 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqOpenObjectRegKey @ 0x1406A9838 (PiDqOpenObjectRegKey.c)
- *     PiDqGrowPropertyArray @ 0x140771474 (PiDqGrowPropertyArray.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PiDqOpenObjectRegKey @ 0x1406077B8 (PiDqOpenObjectRegKey.c)
+ *     PnpFreeDevProperty @ 0x1406288A8 (PnpFreeDevProperty.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PiDqPnPGetObjectProperty @ 0x14062CDA4 (PiDqPnPGetObjectProperty.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14062DBA4 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqGrowPropertyArray @ 0x140771634 (PiDqGrowPropertyArray.c)
  */
 
 __int64 __fastcall PiDqActionDataGetChangedProperties(
         __int64 a1,
-        unsigned int a2,
+        int a2,
         __int64 a3,
         char a4,
         const wchar_t *a5,
@@ -129,7 +129,7 @@ __int64 __fastcall PiDqActionDataGetChangedProperties(
     v20 = 0;
     if ( !Handle )
     {
-      v11 = PiDqOpenObjectRegKey(1, *(__int64 *)v45, a2, 1, 0, v49, &Handle);
+      v11 = PiDqOpenObjectRegKey(1, v45[0], a2, 1, 0, v49, &Handle);
       if ( v11 == -1073741772 )
       {
         Handle = (HANDLE)-1LL;

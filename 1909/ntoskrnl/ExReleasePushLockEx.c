@@ -221,7 +221,7 @@ char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugC
   int v9; // ebx
   unsigned int SessionId; // r8d
   unsigned __int8 v11; // r15
-  __int64 v12; // rdx
+  unsigned int v12; // edx
   bool v13; // zf
   __int64 v14; // rcx
   int v15; // eax
@@ -257,7 +257,7 @@ char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugC
       SessionId = -1;
     --CurrentThread->SpecialApcDisable;
     v11 = ++CurrentThread->AbAllocationRegionCount;
-    LODWORD(v12) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    v12 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
     v13 = !_BitScanReverse((unsigned int *)&v14, v12);
     if ( v13 )
       goto LABEL_27;
@@ -266,7 +266,7 @@ char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugC
       v15 = 1 << v14;
       v16 = v14;
       v17 = &CurrentThread->LockEntries[v16];
-      v12 = ~v15 & (unsigned int)v12;
+      v12 &= ~v15;
       if ( (v17->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v17->LockState.0 & 1) == 0
         && (*(_QWORD *)&v17->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
@@ -291,7 +291,7 @@ LABEL_27:
     {
       v17->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v17->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v16], v12);
+        KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v16].TreeNode);
       v9 = v17->BoostBitmap.AllFields & 0x1FFFF;
       v18 = v17->BoostBitmap.AllFields & 0xFFFE0000;
       v17->ThreadLocalFlags &= ~1u;

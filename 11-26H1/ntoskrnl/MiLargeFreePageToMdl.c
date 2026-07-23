@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLargeFreePageToMdl @ 0x1404CF258
+ * XREFs of MiLargeFreePageToMdl @ 0x1404C8C88
  * Callers:
- *     MiTradePageMarkedFreeZero @ 0x14028E304 (MiTradePageMarkedFreeZero.c)
+ *     MiTradePageMarkedFreeZero @ 0x14028D864 (MiTradePageMarkedFreeZero.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiConvertLargeFreePageToActive @ 0x1404CF3A8 (MiConvertLargeFreePageToActive.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiChangePageHeatImmediate @ 0x140529498 (MiChangePageHeatImmediate.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiConvertLargeFreePageToActive @ 0x1404C8DD8 (MiConvertLargeFreePageToActive.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiChangePageHeatImmediate @ 0x14052B92C (MiChangePageHeatImmediate.c)
  */
 
 __int64 __fastcall MiLargeFreePageToMdl(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, int a4, int a5)
@@ -38,8 +38,8 @@ __int64 __fastcall MiLargeFreePageToMdl(ULONG_PTR BugCheckParameter2, unsigned i
     __writecr8(v11);
   }
   v12 = *(_QWORD *)(v9 + 16);
-  if ( qword_140E2D740 && (v12 & 0x10) == 0 )
-    HIDWORD(v12) &= HIDWORD(qword_140E2D748);
+  if ( qword_140E2D8C0 && (v12 & 0x10) == 0 )
+    HIDWORD(v12) &= HIDWORD(qword_140E2D8C8);
   if ( HIDWORD(v12) == -3 && (a4 & 0x3000000) == 0 )
   {
     MiChangePageHeatImmediate(v8, a2, 1LL);

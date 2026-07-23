@@ -1,5 +1,5 @@
 /*
- * XREFs of KiOp_INT @ 0x1404F4620
+ * XREFs of KiOp_INT @ 0x1404EDC00
  * Callers:
  *     <none>
  * Callees:
@@ -16,13 +16,13 @@ __int64 __fastcall KiOp_INT(__int64 a1)
   __int64 v7; // rax
   __int64 v8; // rcx
 
-  if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 && VslVsmEnabled && !*(_BYTE *)(a1 + 81) )
+  if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0 && VslVsmEnabled && !*(_BYTE *)(a1 + 81) )
   {
     v2 = *(_QWORD *)(a1 + 72);
     if ( v2 == 44 )
     {
       v7 = *(_QWORD *)(a1 + 24);
-      ++HIDWORD(KsepShimDbLock.AbWaitObject);
+      ++LODWORD(KsepShimDbLock.ReadTransferCount);
       *(_BYTE *)(a1 + 97) = 1;
       v8 = *(_QWORD *)(a1 + 32);
       *(_DWORD *)v8 = -1073740768;
@@ -42,7 +42,7 @@ __int64 __fastcall KiOp_INT(__int64 a1)
       *(_DWORD *)(v4 + 24) = 1;
       *(_QWORD *)(v4 + 32) = *(_QWORD *)(v3 + 120);
       v6 = *(_QWORD *)(v3 + 248) + 1LL;
-      ++KsepShimDbLock.ReservedPreviousReadyTimeValue;
+      ++HIDWORD(KsepShimDbLock.ReadTransferCount);
       *(_QWORD *)(v4 + 16) = v6;
     }
   }

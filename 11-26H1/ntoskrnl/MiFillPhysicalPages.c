@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFillPhysicalPages @ 0x140289560
+ * XREFs of MiFillPhysicalPages @ 0x140288AC0
  * Callers:
- *     MiInitializeSystemPageTable @ 0x14033AB8C (MiInitializeSystemPageTable.c)
- *     MiGetCachedPoolPages @ 0x1404B2E60 (MiGetCachedPoolPages.c)
- *     MiInitializeDummyPages @ 0x140CF32F0 (MiInitializeDummyPages.c)
- *     MxMapVa @ 0x140CF7FB0 (MxMapVa.c)
+ *     MiInitializeSystemPageTable @ 0x14033CC0C (MiInitializeSystemPageTable.c)
+ *     MiGetCachedPoolPages @ 0x1404AC4E0 (MiGetCachedPoolPages.c)
+ *     MiInitializeDummyPages @ 0x140CF9670 (MiInitializeDummyPages.c)
+ *     MxMapVa @ 0x140CFE330 (MxMapVa.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     AccelFillMemory @ 0x1402A19C4 (AccelFillMemory.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     MxGetPhase0Mapping @ 0x140C80058 (MxGetPhase0Mapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     AccelFillMemory @ 0x1402A0F14 (AccelFillMemory.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x140C86058 (MxGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MiFillPhysicalPages(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -53,7 +53,7 @@ LABEL_5:
     }
     if ( (int)AccelFillMemory(a1, Phase0Mapping, 4096, 0, 3LL) < 0 )
     {
-      _InterlockedIncrement(&dword_140EF4A84);
+      _InterlockedIncrement(&dword_140EF4DEC);
       goto LABEL_5;
     }
   }

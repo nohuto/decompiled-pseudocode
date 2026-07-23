@@ -15,7 +15,7 @@
  *     _LdrpTraceLoadMUIDll@8 @ 0x4B33FAF1 (_LdrpTraceLoadMUIDll@8.c)
  */
 
-int __fastcall LdrResFallbackLangList(int a1, int a2, __int16 a3, int a4, unsigned __int16 *a5)
+NTSTATUS __fastcall LdrResFallbackLangList(int a1, int a2, __int16 a3, int a4, unsigned __int16 *a5)
 {
   _DWORD *SharedData; // eax
   int v6; // eax
@@ -40,19 +40,19 @@ int __fastcall LdrResFallbackLangList(int a1, int a2, __int16 a3, int a4, unsign
   unsigned __int16 v26; // [esp+14h] [ebp-4Ch] BYREF
   __int16 v27; // [esp+18h] [ebp-48h] BYREF
   int v28; // [esp+1Ch] [ebp-44h]
-  int v29; // [esp+20h] [ebp-40h]
+  NTSTATUS v29; // [esp+20h] [ebp-40h]
   int v30; // [esp+24h] [ebp-3Ch]
   unsigned int v31; // [esp+28h] [ebp-38h]
-  struct _TEB *v32; // [esp+2Ch] [ebp-34h] BYREF
+  DWORD DefaultLocaleId; // [esp+2Ch] [ebp-34h] BYREF
   int v33; // [esp+30h] [ebp-30h]
   int v34; // [esp+34h] [ebp-2Ch]
   PCWSTR SourceString; // [esp+38h] [ebp-28h] BYREF
-  unsigned __int16 v36; // [esp+3Ch] [ebp-24h] BYREF
+  DWORD Lcid; // [esp+3Ch] [ebp-24h] BYREF
   int v37; // [esp+40h] [ebp-20h] BYREF
-  struct _TEB *v38; // [esp+44h] [ebp-1Ch] BYREF
+  DWORD v38; // [esp+44h] [ebp-1Ch] BYREF
   _DWORD v39[2]; // [esp+48h] [ebp-18h] BYREF
   _DWORD v40[2]; // [esp+50h] [ebp-10h] BYREF
-  UNICODE_STRING DestinationString; // [esp+58h] [ebp-8h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+58h] [ebp-8h] BYREF
 
   SharedData = NtCurrentPeb()->SharedData;
   v34 = a2;
@@ -87,7 +87,7 @@ int __fastcall LdrResFallbackLangList(int a1, int a2, __int16 a3, int a4, unsign
   v31 = 0;
   v29 = 0;
   v25 = 0;
-  v32 = 0;
+  DefaultLocaleId = 0;
 LABEL_6:
   v28 = v7;
   while ( 2 )
@@ -195,12 +195,11 @@ LABEL_35:
         if ( !v33 || RtlpResUltimateFallbackInfo(v33, v34, &SourceString, &v37, a4) < 0 )
           goto LABEL_24;
         RtlInitUnicodeString(&DestinationString, SourceString);
-        v20 = RtlCultureNameToLCID(&DestinationString, &v36);
-        if ( (_BYTE)v20 )
+        if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
         {
-          LOWORD(v20) = v36;
+          LOWORD(v20) = Lcid;
           v28 = v20;
-          v26 = v36;
+          v26 = Lcid;
           if ( (a4 & 0x100000) != 0 )
           {
             LCIDFromLangListNodeWithLICCheck = GetLCIDFromLangListNodeWithLICCheck(0, &v26, &v25);
@@ -239,19 +238,19 @@ LABEL_14:
         goto LABEL_15;
       case 5u:
         LOWORD(v28) = -4370;
-        v9 = (struct _TEB *)NtQueryDefaultLocale(1, &v32);
-        v29 = (int)v9;
+        v9 = (struct _TEB *)NtQueryDefaultLocale(1u, &DefaultLocaleId);
+        v29 = (NTSTATUS)v9;
         if ( (int)v9 < 0 )
           continue;
-        LOWORD(v9) = (_WORD)v32;
+        LOWORD(v9) = DefaultLocaleId;
         goto LABEL_14;
       case 6u:
         LOWORD(v28) = -4370;
         v29 = NtQueryDefaultLocale(0, &v38);
         if ( v29 < 0 )
           continue;
-        v9 = v38;
-        if ( v38 == v32 )
+        v9 = (struct _TEB *)v38;
+        if ( v38 == DefaultLocaleId )
           continue;
         goto LABEL_14;
       case 7u:

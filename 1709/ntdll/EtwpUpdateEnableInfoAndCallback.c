@@ -71,9 +71,9 @@ LABEL_4:
       if ( v8 )
       {
         *(_DWORD *)(GuidEntry + 48) = 0;
-        RtlReleaseSRWLockExclusive(GuidEntry + 40);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(GuidEntry + 40));
         if ( v4 < 4 && !v2 )
-          EtwpDereferenceUmGuidEntry(GuidEntry);
+          EtwpDereferenceUmGuidEntry((PRTL_BALANCED_NODE)GuidEntry);
       }
       goto LABEL_6;
     }
@@ -158,7 +158,7 @@ LABEL_47:
         goto LABEL_4;
     }
     *(_DWORD *)(GuidEntry + 48) = 0;
-    RtlReleaseSRWLockExclusive(GuidEntry + 40);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(GuidEntry + 40));
     return;
   }
 LABEL_6:

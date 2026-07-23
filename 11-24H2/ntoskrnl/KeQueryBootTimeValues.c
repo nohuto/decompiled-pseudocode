@@ -1,14 +1,14 @@
 /*
- * XREFs of KeQueryBootTimeValues @ 0x14049462C
+ * XREFs of KeQueryBootTimeValues @ 0x14048F0BC
  * Callers:
- *     PipUpdateDeviceProducts @ 0x1405A36C0 (PipUpdateDeviceProducts.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
- *     PipHardwareConfigInit @ 0x140C20B04 (PipHardwareConfigInit.c)
- *     EtwpFixBootSystemTime @ 0x140C3D028 (EtwpFixBootSystemTime.c)
- *     EtwpInitializeBootTimeStamps @ 0x140C3D738 (EtwpInitializeBootTimeStamps.c)
+ *     PipUpdateDeviceProducts @ 0x1405A0600 (PipUpdateDeviceProducts.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
+ *     PipHardwareConfigInit @ 0x140C22B44 (PipHardwareConfigInit.c)
+ *     EtwpFixBootSystemTime @ 0x140C3F178 (EtwpFixBootSystemTime.c)
+ *     EtwpInitializeBootTimeStamps @ 0x140C3F888 (EtwpInitializeBootTimeStamps.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeQueryBootTimeValues(_QWORD *a1, LARGE_INTEGER *a2, _QWORD *a3)

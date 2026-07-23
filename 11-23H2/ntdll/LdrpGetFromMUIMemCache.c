@@ -12,16 +12,16 @@
  *     LdrUnloadAlternateResourceModuleEx @ 0x18006B800 (LdrUnloadAlternateResourceModuleEx.c)
  */
 
-_DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, int a4)
+_DWORD *__fastcall LdrpGetFromMUIMemCache(unsigned __int64 DllHandle, __int16 a2, _QWORD *a3, int a4)
 {
   char v4; // si
   _DWORD *v8; // rbx
   int v9; // r14d
-  __int64 v10; // r13
+  PIMAGE_NT_HEADERS v10; // r13
   int v11; // r8d
   __int64 v12; // rcx
   int v14; // [rsp+20h] [rbp-48h]
-  __int64 v15; // [rsp+28h] [rbp-40h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+28h] [rbp-40h] BYREF
   _DWORD *v16; // [rsp+30h] [rbp-38h]
   char v17; // [rsp+88h] [rbp+20h]
 
@@ -35,10 +35,10 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, in
   v9 = a4 & 4;
   if ( (a4 & 4) != 0 && !a2 )
     return 0LL;
-  v15 = 0LL;
-  RtlImageNtHeaderEx(1LL, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v15);
-  v10 = v15;
-  if ( !v15 )
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, (PVOID)(DllHandle & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
+  v10 = OutHeaders;
+  if ( !OutHeaders )
     return 0LL;
   if ( a3 )
     *a3 = 0LL;
@@ -47,20 +47,20 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, in
   v14 = AlternateResourceModuleCount - 1;
   while ( v11 >= 0 )
   {
-    if ( *(_QWORD *)(((__int64)v11 << 6) + AlternateResourceModules + 8) == a1 )
+    if ( *((_QWORD *)AlternateResourceModules + 8 * (__int64)v11 + 1) == DllHandle )
     {
       v12 = (__int64)v11 << 6;
-      if ( *(_DWORD *)(v12 + AlternateResourceModules + 24) != *(_DWORD *)(v10 + 88) )
+      if ( *(_DWORD *)((char *)AlternateResourceModules + v12 + 24) != v10->OptionalHeader.CheckSum )
       {
         v17 = 1;
         break;
       }
       if ( (v4 & 8) != 0 )
       {
-        if ( *(_QWORD *)(v12 + AlternateResourceModules + 16) )
+        if ( *(_QWORD *)((char *)AlternateResourceModules + v12 + 16) )
         {
           _mm_lfence();
-          v8 = *(_DWORD **)(((__int64)v14 << 6) + AlternateResourceModules + 16);
+          v8 = (_DWORD *)*((_QWORD *)AlternateResourceModules + 8 * (__int64)v14 + 2);
           v16 = v8;
           if ( (unsigned __int64)v8 - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *v8 != -20054323 )
           {
@@ -71,12 +71,12 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, in
           break;
         }
       }
-      else if ( v9 && a2 && *(_WORD *)(v12 + AlternateResourceModules) == a2 )
+      else if ( v9 && a2 && *(_WORD *)((char *)AlternateResourceModules + v12) == a2 )
       {
-        v8 = *(_DWORD **)(v12 + AlternateResourceModules + 32);
+        v8 = *(_DWORD **)((char *)AlternateResourceModules + v12 + 32);
         v16 = v8;
         if ( a3 )
-          *a3 = *(_QWORD *)(v12 + AlternateResourceModules + 48);
+          *a3 = *(_QWORD *)((char *)AlternateResourceModules + v12 + 48);
         break;
       }
     }
@@ -84,6 +84,6 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, in
   }
   RtlReleaseSRWLockShared(&MuiCacheSWRLock);
   if ( v17 )
-    LdrUnloadAlternateResourceModuleEx(a1, 0LL);
+    LdrUnloadAlternateResourceModuleEx((PVOID)DllHandle, 0);
   return v8;
 }

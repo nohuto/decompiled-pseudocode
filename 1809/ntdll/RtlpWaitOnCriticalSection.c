@@ -9,9 +9,9 @@
  *     RtlpWaitCouldDeadlock @ 0x18005EDEC (RtlpWaitCouldDeadlock.c)
  *     RtlpCreateDeferredCriticalSectionEvent @ 0x18005F030 (RtlpCreateDeferredCriticalSectionEvent.c)
  *     RtlpAddDebugInfoToCriticalSection @ 0x180061B00 (RtlpAddDebugInfoToCriticalSection.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     NtWaitForSingleObject @ 0x1800A0360 (NtWaitForSingleObject.c)
- *     ZwTerminateProcess @ 0x1800A0860 (ZwTerminateProcess.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     NtWaitForSingleObject @ 0x1800A0380 (NtWaitForSingleObject.c)
+ *     ZwTerminateProcess @ 0x1800A0880 (ZwTerminateProcess.c)
  *     LdrpLogEtwEvent @ 0x1800D1238 (LdrpLogEtwEvent.c)
  *     RtlpDbgPrintCriticalSectionTimeout @ 0x1800E9768 (RtlpDbgPrintCriticalSectionTimeout.c)
  *     RtlpLogWaitForCriticalSection @ 0x1800E9884 (RtlpLogWaitForCriticalSection.c)
@@ -42,13 +42,13 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, __int64 a2, __int64 a3, __i
   v21 = v4;
   v19 = 0;
   v6 = 0;
-  if ( (_UNKNOWN **)a1 == &LdrpLoaderLock )
+  if ( (_RTL_CRITICAL_SECTION *)a1 == &LdrpLoaderLock )
   {
     v19 = 1;
     v4->WaitingOnLoaderLock = 1;
   }
   if ( (unsigned __int8)RtlpWaitCouldDeadlock(a1, a2, a3, a4) )
-    ZwTerminateProcess(-1LL, 3221225547LL);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
   v7 = &RtlpTimeout;
   if ( RtlpTimeoutDisable )
     v7 = 0LL;
@@ -70,7 +70,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, __int64 a2, __int64 a3, __i
   v10 = *(void **)(a1 + 24);
   while ( 1 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v11 = (__int64)NtCurrentPeb()->SharedData + 552;
     else
       v11 = 2147353474LL;
@@ -98,17 +98,17 @@ LABEL_33:
       v14 = 0;
     else
       v14 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
-    if ( v6 > 2 && (_UNKNOWN **)a1 != &LdrpLoaderLock && v14 == v9 )
+    if ( v6 > 2 && (_RTL_CRITICAL_SECTION *)a1 != &LdrpLoaderLock && v14 == v9 )
       RtlpPossibleDeadlock(a1);
     v9 = v14;
-    DbgPrintEx(101, 0, "RTL: Re-Waiting\n");
+    DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
   }
   if ( (int)v12 < 0 )
-    RtlRaiseStatus((unsigned int)v12);
+    RtlRaiseStatus((NTSTATUS)v12);
   if ( v19 )
   {
     v21->WaitingOnLoaderLock = 0;
-    LODWORD(v12) = (unsigned int)RtlGetCurrentServiceSessionId();
+    LODWORD(v12) = RtlGetCurrentServiceSessionId();
     if ( (_DWORD)v12 )
     {
       v12 = NtCurrentPeb();
@@ -123,7 +123,7 @@ LABEL_33:
       v12 = NtCurrentPeb();
       if ( (v12->TracingFlags & 4) != 0 )
       {
-        LODWORD(v12) = (unsigned int)RtlGetCurrentServiceSessionId();
+        LODWORD(v12) = RtlGetCurrentServiceSessionId();
         if ( (_DWORD)v12 )
         {
           v12 = NtCurrentPeb();

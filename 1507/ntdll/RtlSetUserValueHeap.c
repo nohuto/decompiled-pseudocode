@@ -6,10 +6,10 @@
  *     <none>
  */
 
-__int64 RtlSetUserValueHeap()
+BOOLEAN __cdecl RtlSetUserValueHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress, PVOID UserValue)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpVirtSetUserValueHeap();
+    return RtlpHpVirtSetUserValueHeap(HeapHandle, Flags, BaseAddress, UserValue);
   else
-    return RtlpSetUserValueHeapInternal();
+    return RtlpSetUserValueHeapInternal(HeapHandle);
 }

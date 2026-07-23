@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmRegisterProfiles @ 0x140849B18
+ * XREFs of PpmRegisterProfiles @ 0x140849E18
  * Callers:
- *     PdcPoPpmRegisterProfiles @ 0x140849B00 (PdcPoPpmRegisterProfiles.c)
+ *     PdcPoPpmRegisterProfiles @ 0x140849E00 (PdcPoPpmRegisterProfiles.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BEE0 (RtlStringCbLengthW.c)
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PpmResetProfileSettings @ 0x1403A5848 (PpmResetProfileSettings.c)
- *     PpmEventTraceProfiles @ 0x140849D10 (PpmEventTraceProfiles.c)
+ *     RtlStringCbLengthW @ 0x14022BFF0 (RtlStringCbLengthW.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PpmResetProfileSettings @ 0x1403A5A28 (PpmResetProfileSettings.c)
+ *     PpmEventTraceProfiles @ 0x14084A010 (PpmEventTraceProfiles.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

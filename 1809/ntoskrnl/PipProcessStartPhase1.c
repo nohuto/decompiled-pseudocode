@@ -1,17 +1,17 @@
 /*
- * XREFs of PipProcessStartPhase1 @ 0x1406EBCB0
+ * XREFs of PipProcessStartPhase1 @ 0x1406ECF50
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     McTemplateK0dz @ 0x14028ACE4 (McTemplateK0dz.c)
- *     PnpStartDeviceNode @ 0x1406EBA5C (PnpStartDeviceNode.c)
- *     IopUncacheInterfaceInformation @ 0x1406EBD64 (IopUncacheInterfaceInformation.c)
- *     PpProfileBeginHardwareProfileTransition @ 0x140832794 (PpProfileBeginHardwareProfileTransition.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x140832A3C (PpProfileIncludeInHardwareProfileTransition.c)
- *     PpProfileQueryHardwareProfileChange @ 0x140832B44 (PpProfileQueryHardwareProfileChange.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     McTemplateK0dz @ 0x14028AED4 (McTemplateK0dz.c)
+ *     PnpStartDeviceNode @ 0x1406ECCFC (PnpStartDeviceNode.c)
+ *     IopUncacheInterfaceInformation @ 0x1406ED004 (IopUncacheInterfaceInformation.c)
+ *     PpProfileBeginHardwareProfileTransition @ 0x1408339F4 (PpProfileBeginHardwareProfileTransition.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x140833C9C (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x140833DA4 (PpProfileQueryHardwareProfileChange.c)
  */
 
 __int64 __fastcall PipProcessStartPhase1(ULONG_PTR BugCheckParameter4, int a2, __int64 a3)
@@ -25,7 +25,7 @@ __int64 __fastcall PipProcessStartPhase1(ULONG_PTR BugCheckParameter4, int a2, _
   char v12; // [rsp+60h] [rbp+18h] BYREF
 
   v3 = a3;
-  if ( (byte_140405847 & 0x10) != 0 )
+  if ( (byte_140406847 & 0x10) != 0 )
     McTemplateK0dz(
       BugCheckParameter4,
       &KMPnPEvt_ProcessDeviceStart_Start,
@@ -52,7 +52,7 @@ __int64 __fastcall PipProcessStartPhase1(ULONG_PTR BugCheckParameter4, int a2, _
         {
           if ( (*(_BYTE *)(v8 + 16) & 1) == 0 )
           {
-            v9 = ((__int64 (__fastcall *)(_QWORD, __int64))off_1403FE708[0])(*(_QWORD *)v8, v8 + 8);
+            v9 = ((__int64 (__fastcall *)(_QWORD, __int64))off_1403FF708[0])(*(_QWORD *)v8, v8 + 8);
             v10 = v9;
             if ( v9 < 0 )
             {
@@ -88,7 +88,7 @@ __int64 __fastcall PipProcessStartPhase1(ULONG_PTR BugCheckParameter4, int a2, _
       started = PnpStartDeviceNode(BugCheckParameter4, 0, a2);
     }
   }
-  if ( (byte_140405847 & 0x10) != 0 )
+  if ( (byte_140406847 & 0x10) != 0 )
     McTemplateK0dz(
       BugCheckParameter4,
       &KMPnPEvt_ProcessDeviceStart_Stop,

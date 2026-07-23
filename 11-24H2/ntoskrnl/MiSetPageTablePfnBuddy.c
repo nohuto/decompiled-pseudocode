@@ -1,43 +1,45 @@
 /*
- * XREFs of MiSetPageTablePfnBuddy @ 0x140498190
+ * XREFs of MiSetPageTablePfnBuddy @ 0x140492B70
  * Callers:
- *     MiSetSystemCacheReverseMap @ 0x140242480 (MiSetSystemCacheReverseMap.c)
- *     MmInSwapProcess @ 0x140338A94 (MmInSwapProcess.c)
- *     MiReadPagefilePage @ 0x14066A47C (MiReadPagefilePage.c)
- *     MiCreatePfnTemplate @ 0x14066C510 (MiCreatePfnTemplate.c)
- *     MiAllocateTopLevelPage @ 0x140A5A2FC (MiAllocateTopLevelPage.c)
- *     MiInitializeBootProcess @ 0x140C4E3F8 (MiInitializeBootProcess.c)
- *     MxInsertEnclaveBootPages @ 0x140C581C4 (MxInsertEnclaveBootPages.c)
+ *     MiSetSystemCacheReverseMap @ 0x14020A5D0 (MiSetSystemCacheReverseMap.c)
+ *     MmInSwapProcess @ 0x1402DFEE4 (MmInSwapProcess.c)
+ *     MiReadPagefilePage @ 0x14066B64C (MiReadPagefilePage.c)
+ *     MiCreatePfnTemplate @ 0x14066D6E0 (MiCreatePfnTemplate.c)
+ *     MiAllocateTopLevelPage @ 0x140A51BBC (MiAllocateTopLevelPage.c)
+ *     MiInitializeBootProcess @ 0x140C50588 (MiInitializeBootProcess.c)
+ *     MxInsertEnclaveBootPages @ 0x140C5A354 (MxInsertEnclaveBootPages.c)
  * Callees:
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
-__int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, unsigned __int64 a2, char a3)
+__int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int8 v5; // bp
-  int v6; // r14d
-  unsigned int v7; // esi
+  unsigned __int64 v4; // rbx
+  unsigned __int8 v6; // bp
+  int v7; // r14d
+  unsigned int v8; // esi
   __int64 result; // rax
 
-  v5 = 17;
-  v6 = a3 & 1;
+  v4 = a2;
+  v6 = 17;
+  v7 = a3 & 1;
   if ( (a3 & 1) == 0 )
   {
     if ( (a3 & 0x10) != 0 )
     {
-      v7 = 0;
+      v8 = 0;
       while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
       {
         do
         {
-          if ( (++v7 & HvlLongSpinCountMask) == 0
+          if ( (++v8 & HvlLongSpinCountMask) == 0
             && (HvlEnlightenments & 0x40) != 0
             && KiCheckVpBackingLongSpinWaitHypercall() )
           {
-            HvlNotifyLongSpinWait(v7);
+            HvlNotifyLongSpinWait(v8);
           }
           else
           {
@@ -49,24 +51,24 @@ __int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, unsigned __int64 a2, char 
     }
     else
     {
-      v5 = MiLockPageInline(a1);
+      v6 = MiLockPageInline(a1, a2, a3, a4);
     }
   }
-  if ( (a2 & 0xFFFFFEFFFFFFFFFEuLL) != 0 || a2 == 1 )
-    a2 = ((a2 - qword_140E38AB8) >> 4) + 1;
-  *(_QWORD *)a1 = (2 * a2) ^ (*(_QWORD *)a1 ^ (2 * a2)) & 0xFFFFFFFF00000001uLL;
+  if ( (v4 & 0xFFFFFEFFFFFFFFFEuLL) != 0 || v4 == 1 )
+    v4 = ((v4 - qword_140E38BF8) >> 4) + 1;
+  *(_QWORD *)a1 = (2 * v4) ^ (*(_QWORD *)a1 ^ (2 * v4)) & 0xFFFFFFFF00000001uLL;
   result = *(unsigned int *)(a1 + 36);
-  *(_DWORD *)(a1 + 36) = ((unsigned int)(a2 >> 31) << 16) ^ (result ^ ((unsigned int)(a2 >> 31) << 16)) & 0xFC00FFFF;
-  if ( !v6 )
+  *(_DWORD *)(a1 + 36) = ((unsigned int)(v4 >> 31) << 16) ^ (result ^ ((unsigned int)(v4 >> 31) << 16)) & 0xFC00FFFF;
+  if ( !v7 )
   {
-    if ( v5 == 17 )
+    if ( v6 == 17 )
     {
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
     else
     {
-      return MiUnlockPage(a1, v5);
+      return MiUnlockPage(a1, v6);
     }
   }
   return result;

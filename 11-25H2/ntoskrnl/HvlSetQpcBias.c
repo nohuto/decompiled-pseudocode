@@ -22,7 +22,7 @@ __int64 __fastcall HvlSetQpcBias(__int64 a1)
   PHYSICAL_ADDRESS Next; // rsi
   struct _KPRCB *CurrentPrcb; // rdi
   PSLIST_ENTRY v7; // rax
-  struct _SLIST_ENTRY *v8; // r15
+  _SLIST_ENTRY *v8; // r15
   int v9; // edx
   unsigned __int8 CurrentIrql; // cl
   __int16 v11; // ax

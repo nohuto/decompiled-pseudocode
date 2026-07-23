@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetJobTimeLimitCallback @ 0x140680BA8
+ * XREFs of PspSetJobTimeLimitCallback @ 0x140680C8C
  * Callers:
  *     <none>
  * Callees:
- *     PsQueryRuntimeProcess @ 0x1404B9F30 (PsQueryRuntimeProcess.c)
+ *     PsQueryRuntimeProcess @ 0x1404A5C60 (PsQueryRuntimeProcess.c)
  */
 
 __int64 __fastcall PspSetJobTimeLimitCallback(__int64 a1, _QWORD *a2)

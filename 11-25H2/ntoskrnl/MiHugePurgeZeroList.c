@@ -64,7 +64,7 @@ __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
       do
       {
         v13 = v5 & 0x3FFFFF;
-        if ( !_bittest64((const signed __int64 *)qword_140E2FD78, v13) )
+        if ( !_bittest64((const signed __int64 *)stru_140E2FD70.Buffer, v13) )
           goto LABEL_19;
         v14 = (_QWORD *)(qword_140E2FD80 + 8 * v13);
         if ( CurrentIrql == 17 )

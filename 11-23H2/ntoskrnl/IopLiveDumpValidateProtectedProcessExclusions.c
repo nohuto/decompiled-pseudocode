@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpValidateProtectedProcessExclusions @ 0x140A9C740
+ * XREFs of IopLiveDumpValidateProtectedProcessExclusions @ 0x140A9C5B0
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x140A9B0F0 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140A9AF60 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     IopLiveDumpLookupProcessFilter @ 0x140A9B964 (IopLiveDumpLookupProcessFilter.c)
+ *     IopLiveDumpLookupProcessFilter @ 0x140A9B7D4 (IopLiveDumpLookupProcessFilter.c)
  */
 
 __int64 __fastcall IopLiveDumpValidateProtectedProcessExclusions(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiUEventGetDeviceInstanceIdFromUserHandle @ 0x1404EA8E4
+ * XREFs of PiUEventGetDeviceInstanceIdFromUserHandle @ 0x1404CCAE8
  * Callers:
- *     PiUEventHandleRegistration @ 0x14048D21C (PiUEventHandleRegistration.c)
+ *     PiUEventHandleRegistration @ 0x14048DCAC (PiUEventHandleRegistration.c)
  * Callees:
- *     PnpGetRelatedTargetDevice @ 0x1400081E4 (PnpGetRelatedTargetDevice.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopIsProcessAppContainer @ 0x1400B2774 (IopIsProcessAppContainer.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     PnpGetRelatedTargetDevice @ 0x140007D58 (PnpGetRelatedTargetDevice.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopIsProcessAppContainer @ 0x1400B06B4 (IopIsProcessAppContainer.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall PiUEventGetDeviceInstanceIdFromUserHandle(void *a1, _QWORD *a2, _QWORD *a3)

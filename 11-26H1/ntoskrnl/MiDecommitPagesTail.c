@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDecommitPagesTail @ 0x14044B7AC
+ * XREFs of MiDecommitPagesTail @ 0x1404438DC
  * Callers:
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiDeleteEmptyPageTableTail @ 0x14044B6E0 (MiDeleteEmptyPageTableTail.c)
- *     MiStoreDiscardPoisonedPage @ 0x14070A464 (MiStoreDiscardPoisonedPage.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiDeleteEmptyPageTableTail @ 0x140443810 (MiDeleteEmptyPageTableTail.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14070F118 (MiStoreDiscardPoisonedPage.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiDecommitFreePagesTail @ 0x1402DA750 (MiDecommitFreePagesTail.c)
- *     MiRemoveWsleList @ 0x1402EA570 (MiRemoveWsleList.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiReducePteUseCount @ 0x140361410 (MiReducePteUseCount.c)
- *     MiDecayPfnFullyInitialized @ 0x140498358 (MiDecayPfnFullyInitialized.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiDecommitFreePagesTail @ 0x1402BC510 (MiDecommitFreePagesTail.c)
+ *     MiRemoveWsleList @ 0x1402CC5B0 (MiRemoveWsleList.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiReducePteUseCount @ 0x1403631B0 (MiReducePteUseCount.c)
+ *     MiDecayPfnFullyInitialized @ 0x140491EA8 (MiDecayPfnFullyInitialized.c)
  */
 
 void __fastcall MiDecommitPagesTail(__int64 a1, int a2)
@@ -21,7 +21,7 @@ void __fastcall MiDecommitPagesTail(__int64 a1, int a2)
   unsigned int v2; // r8d
   unsigned __int64 v5; // rdx
   __int64 v6; // rdi
-  struct _SLIST_ENTRY *v7; // rcx
+  _SLIST_ENTRY *v7; // rcx
   char v8; // di
   unsigned __int64 v9; // rdx
 
@@ -46,7 +46,7 @@ void __fastcall MiDecommitPagesTail(__int64 a1, int a2)
     }
     *(_DWORD *)(v6 + 12376) = 0;
     MiReleaseProcessorFlushList();
-    v7 = *(struct _SLIST_ENTRY **)(a1 + 104);
+    v7 = *(_SLIST_ENTRY **)(a1 + 104);
     *(_QWORD *)(a1 + 16) = 0LL;
     if ( v7 )
     {

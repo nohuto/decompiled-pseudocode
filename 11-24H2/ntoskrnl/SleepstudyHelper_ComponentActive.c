@@ -1,12 +1,11 @@
 /*
- * XREFs of SleepstudyHelper_ComponentActive @ 0x1404EE600
+ * XREFs of SleepstudyHelper_ComponentActive @ 0x1404E5D90
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     SleepstudyHelper_ComponentActiveLocked @ 0x1404EE670 (SleepstudyHelper_ComponentActiveLocked.c)
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x1405E45D8 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SleepstudyHelper_ComponentActiveLocked @ 0x1404E5DF0 (SleepstudyHelper_ComponentActiveLocked.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ComponentActive(PKSPIN_LOCK SpinLock)
@@ -17,8 +16,7 @@ __int64 __fastcall SleepstudyHelper_ComponentActive(PKSPIN_LOCK SpinLock)
   active = 0;
   if ( SpinLock )
   {
-    if ( !(unsigned int)Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline()
-      || SpinLock != (PKSPIN_LOCK)&SleepstudyHelperUnsupportedHandle )
+    if ( SpinLock != (PKSPIN_LOCK)&SleepstudyHelperUnsupportedHandle )
     {
       v3 = KeAcquireSpinLockRaiseToDpc(SpinLock);
       active = SleepstudyHelper_ComponentActiveLocked(SpinLock);

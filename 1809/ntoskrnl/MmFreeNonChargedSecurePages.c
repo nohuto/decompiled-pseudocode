@@ -1,14 +1,14 @@
 /*
- * XREFs of MmFreeNonChargedSecurePages @ 0x1402AA4B8
+ * XREFs of MmFreeNonChargedSecurePages @ 0x1402AA6A8
  * Callers:
- *     PspIumFreePartitionPages @ 0x1402EB76C (PspIumFreePartitionPages.c)
+ *     PspIumFreePartitionPages @ 0x1402EB95C (PspIumFreePartitionPages.c)
  * Callees:
  *     MiPartitionObjectToPartition @ 0x140011CE4 (MiPartitionObjectToPartition.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall MmFreeNonChargedSecurePages(ULONG_PTR **a1, int a2, ULONG_PTR *a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14088A000
+ * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14088DEB0
  * Callers:
- *     SeOpenObjectForDeleteAuditAlarm @ 0x14088A2B0 (SeOpenObjectForDeleteAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarm @ 0x14088E160 (SeOpenObjectForDeleteAuditAlarm.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x14079193C (SepAdtOpenObjectForDeleteAuditAlarm.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140851030 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x140852D20 (SepAdtAuditPrivilegeUseWithContext.c)
- *     SeExamineSacl @ 0x140889B70 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x140889DD8 (SeExamineGlobalSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1408F1214 (SepAdtOpenObjectAuditAlarm.c)
- *     SepQueryTypeString @ 0x1408F23FC (SepQueryTypeString.c)
- *     SepQueryNameString @ 0x1408F2B48 (SepQueryNameString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x14079190C (SepAdtOpenObjectForDeleteAuditAlarm.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x14084D2F0 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x14084EFE0 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x140862A14 (SepAdtOpenObjectAuditAlarm.c)
+ *     SeExamineSacl @ 0x14088DA20 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x14088DC88 (SeExamineGlobalSacl.c)
+ *     SepQueryTypeString @ 0x140913780 (SepQueryTypeString.c)
+ *     SepQueryNameString @ 0x140914194 (SepQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(
@@ -37,7 +37,7 @@ void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(
   UNICODE_STRING *v16; // rdi
   UNICODE_STRING *v17; // r14
   SECURITY_SUBJECT_CONTEXT *p_SubjectSecurityContext; // rdx
-  unsigned int *v19; // rcx
+  int *v19; // rcx
   ACL *v20; // rdx
   __int16 v21; // ax
   __int16 v22; // cx
@@ -50,7 +50,7 @@ void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(
   int v29; // eax
   __int64 v30; // rax
   __int64 v31; // rax
-  GUID *v32; // rax
+  __int128 *v32; // rax
   GUID *v33; // r15
   wchar_t *Buffer; // rcx
   wchar_t *Pool2; // rax
@@ -62,7 +62,7 @@ void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(
   BOOLEAN GenerateAlarm[3]; // [rsp+A9h] [rbp-28h] BYREF
   unsigned __int16 v42[2]; // [rsp+ACh] [rbp-25h] BYREF
   signed int v43; // [rsp+B0h] [rbp-21h]
-  __int64 *AuxData; // [rsp+B8h] [rbp-19h]
+  int **AuxData; // [rsp+B8h] [rbp-19h]
   PVOID v45; // [rsp+C0h] [rbp-11h] BYREF
   PVOID P; // [rsp+C8h] [rbp-9h] BYREF
   PACCESS_TOKEN Token; // [rsp+D0h] [rbp-1h]
@@ -84,7 +84,7 @@ void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(
   if ( AccessMode )
   {
     p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
-    AuxData = (__int64 *)AccessState->AuxData;
+    AuxData = (int **)AccessState->AuxData;
     Token = AccessState->SubjectSecurityContext.ClientToken;
     if ( !Token )
       Token = AccessState->SubjectSecurityContext.PrimaryToken;
@@ -205,7 +205,7 @@ LABEL_53:
             (__int64)AccessState->SubjectSecurityContext.PrimaryToken,
             v38,
             AccessState->PreviouslyGrantedAccess,
-            (_DWORD *)*AuxData,
+            *AuxData,
             v39,
             (__int64)AccessState->SubjectSecurityContext.ProcessAuditId,
             (__int128 *)TransactionId);
@@ -218,7 +218,7 @@ LABEL_53:
               AccessState->ObjectName.Length = 0;
               AccessState->ObjectName.MaximumLength = 0;
             }
-            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v16->MaximumLength, 0x20206553u);
             AccessState->ObjectName.Buffer = Pool2;
             if ( Pool2 )
             {
@@ -236,7 +236,7 @@ LABEL_53:
               AccessState->ObjectTypeName.Length = 0;
               AccessState->ObjectTypeName.MaximumLength = 0;
             }
-            v37 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            v37 = (wchar_t *)ExAllocatePool2(0x100uLL, v17->MaximumLength, 0x20206553u);
             AccessState->ObjectTypeName.Buffer = v37;
             if ( v37 )
             {
@@ -249,18 +249,18 @@ LABEL_53:
         }
         else
         {
-          v32 = TransactionId;
+          v32 = (__int128 *)TransactionId;
           if ( !TransactionId )
-            v32 = (GUID *)(AuxData + 4);
+            v32 = (__int128 *)(AuxData + 4);
           SepAdtOpenObjectAuditAlarm(
             v42[0],
-            (int)&SeSubsystemName,
-            0,
-            (int)v17,
-            (__int64)v16,
-            SecurityDescriptor,
-            (__int64)AccessState->SubjectSecurityContext.ClientToken,
-            (__int64)AccessState->SubjectSecurityContext.PrimaryToken,
+            &SeSubsystemName,
+            0LL,
+            &v17->Length,
+            &v16->Length,
+            (__int16 *)SecurityDescriptor,
+            (_QWORD *)AccessState->SubjectSecurityContext.ClientToken,
+            (_QWORD *)AccessState->SubjectSecurityContext.PrimaryToken,
             AccessState->OriginalDesiredAccess,
             AccessState->PreviouslyGrantedAccess,
             *AuxData,
@@ -270,7 +270,7 @@ LABEL_53:
             0LL,
             0,
             0LL,
-            (__int64)v32,
+            v32,
             (__int64)AccessState);
         }
         goto LABEL_70;
@@ -296,11 +296,16 @@ LABEL_13:
 LABEL_8:
     if ( AccessGranted )
     {
-      v19 = (unsigned int *)*AuxData;
+      v19 = *AuxData;
       if ( *AuxData )
       {
         if ( *v19
-          && SepAdtAuditPrivilegeUseWithContext(v19, AccessGranted, 0, &AccessState->SubjectSecurityContext, v42) )
+          && SepAdtAuditPrivilegeUseWithContext(
+               (unsigned int *)v19,
+               AccessGranted,
+               0,
+               &AccessState->SubjectSecurityContext,
+               v42) )
         {
           v13 = 1;
           AccessState->AuditPrivileges = 1;

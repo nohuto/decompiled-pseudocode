@@ -1,13 +1,13 @@
 /*
- * XREFs of SddlpReAlloc @ 0x140796BF8
+ * XREFs of SddlpReAlloc @ 0x140796D08
  * Callers:
- *     GetOperandValue @ 0x14086038C (GetOperandValue.c)
- *     GetPrintableOperandValue @ 0x140861C7C (GetPrintableOperandValue.c)
+ *     GetOperandValue @ 0x140864998 (GetOperandValue.c)
+ *     GetPrintableOperandValue @ 0x140866288 (GetPrintableOperandValue.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall SddlpReAlloc(size_t Size, SIZE_T a2, PVOID P)

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeTokenIsNoChildProcessRestricted @ 0x14007BF2C
+ * XREFs of SeTokenIsNoChildProcessRestricted @ 0x14007BFAC
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     SeSubProcessToken @ 0x14046EA48 (SeSubProcessToken.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     SeSubProcessToken @ 0x14046D918 (SeSubProcessToken.c)
  * Callees:
  *     <none>
  */

@@ -4,7 +4,7 @@
  *     ReadStringDelimited_0 @ 0x1800A35C0 (ReadStringDelimited_0.c)
  *     _input_s @ 0x1800A3754 (_input_s.c)
  * Callees:
- *     _ungetc_nolock @ 0x1800A0AD4 (_ungetc_nolock.c)
+ *     _ungetc_nolock @ 0x1800A0AD0 (_ungetc_nolock.c)
  *     _inc_0 @ 0x1800A3728 (_inc_0.c)
  */
 

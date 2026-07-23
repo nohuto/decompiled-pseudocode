@@ -32,15 +32,15 @@ void PopFreeHiberContext()
   _QWORD *v6; // rax
   void *v7; // rcx
   __int64 v8; // rcx
-  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp+8h] BYREF
 
   v0 = qword_140443000;
   if ( qword_140443000 )
   {
-    if ( (int)PopBcdOpen(&v9) >= 0 )
+    if ( (int)PopBcdOpen(&BcdStoreHandle) >= 0 )
     {
-      PopBcdClearPendingResume(v9);
-      PopBcdClose(v9);
+      PopBcdClearPendingResume(BcdStoreHandle);
+      PopBcdClose(BcdStoreHandle);
     }
     v1 = *(void **)(v0 + 240);
     if ( v1 )

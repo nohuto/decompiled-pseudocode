@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTscTraceProcessorSynchronization @ 0x14038DAB4
+ * XREFs of HalpTscTraceProcessorSynchronization @ 0x14038DC94
  * Callers:
- *     HalpTscAdvSynchToLeader @ 0x14038D734 (HalpTscAdvSynchToLeader.c)
- *     HalpTscAdvSynchToTarget @ 0x14050A368 (HalpTscAdvSynchToTarget.c)
+ *     HalpTscAdvSynchToLeader @ 0x14038D914 (HalpTscAdvSynchToLeader.c)
+ *     HalpTscAdvSynchToTarget @ 0x14050A8B8 (HalpTscAdvSynchToTarget.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char HalpTscTraceProcessorSynchronization(int a1, int a2, ...)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDeleteDevice @ 0x140A0F0B0
+ * XREFs of IopDeleteDevice @ 0x1409BD4C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IopCleanupNotifications @ 0x1404A60A8 (IopCleanupNotifications.c)
- *     PnpDeleteAllDependencyRelations @ 0x140A0F124 (PnpDeleteAllDependencyRelations.c)
- *     IopDestroyDeviceNode @ 0x140A0F43C (IopDestroyDeviceNode.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IopCleanupNotifications @ 0x1404A0DB4 (IopCleanupNotifications.c)
+ *     PnpDeleteAllDependencyRelations @ 0x1409BD534 (PnpDeleteAllDependencyRelations.c)
+ *     IopDestroyDeviceNode @ 0x1409BD84C (IopDestroyDeviceNode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDeleteDevice(__int64 a1)

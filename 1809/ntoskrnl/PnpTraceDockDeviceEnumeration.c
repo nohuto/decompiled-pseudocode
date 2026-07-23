@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDockDeviceEnumeration @ 0x140839A48
+ * XREFs of PnpTraceDockDeviceEnumeration @ 0x14083ACA8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E51B4 (PiProcessNewDeviceNode.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PnpTraceDockDeviceEnumeration()
@@ -24,9 +24,9 @@ void PnpTraceDockDeviceEnumeration()
   int *v11; // [rsp+90h] [rbp+37h]
   __int64 v12; // [rsp+98h] [rbp+3Fh]
 
-  if ( stru_1403FFBC8.LevelPlus1 > 5 )
+  if ( stru_140400BC8.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL) )
     {
       v2 = *(_DWORD *)(v0 + 568);
       v5 = v8;
@@ -39,7 +39,7 @@ void PnpTraceDockDeviceEnumeration()
       v8[1] = 0;
       v10 = 4LL;
       v12 = 4LL;
-      TlgWrite(&stru_1403FFBC8, &unk_14036D573, 0LL, 0LL, 6u, &pData);
+      TlgWrite(&stru_140400BC8, &unk_14036E632, 0LL, 0LL, 6u, &pData);
     }
   }
 }

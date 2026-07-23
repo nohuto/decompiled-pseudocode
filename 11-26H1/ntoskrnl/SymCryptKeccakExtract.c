@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptKeccakExtract @ 0x1405759D4
+ * XREFs of SymCryptKeccakExtract @ 0x140577E84
  * Callers:
- *     SymCryptShake256Extract @ 0x140574974 (SymCryptShake256Extract.c)
- *     SymCryptShake256 @ 0x1405749AC (SymCryptShake256.c)
- *     SymCryptShake256Result @ 0x140574A60 (SymCryptShake256Result.c)
+ *     SymCryptShake256Extract @ 0x140573BD8 (SymCryptShake256Extract.c)
+ *     SymCryptShake256 @ 0x140573C10 (SymCryptShake256.c)
+ *     SymCryptShake256Result @ 0x140573CC4 (SymCryptShake256Result.c)
  * Callees:
- *     SymCryptKeccakApplyPadding @ 0x14057596C (SymCryptKeccakApplyPadding.c)
- *     SymCryptKeccakExtractLanes @ 0x140575B10 (SymCryptKeccakExtractLanes.c)
- *     SymCryptKeccakPermute @ 0x140575BC0 (SymCryptKeccakPermute.c)
- *     SymCryptKeccakReset @ 0x1405761F8 (SymCryptKeccakReset.c)
+ *     SymCryptKeccakApplyPadding @ 0x140577E1C (SymCryptKeccakApplyPadding.c)
+ *     SymCryptKeccakExtractLanes @ 0x140577FC0 (SymCryptKeccakExtractLanes.c)
+ *     SymCryptKeccakPermute @ 0x140578070 (SymCryptKeccakPermute.c)
+ *     SymCryptKeccakReset @ 0x1405786A8 (SymCryptKeccakReset.c)
  */
 
 __int64 __fastcall SymCryptKeccakExtract(__int64 a1, _BYTE *a2, unsigned __int64 a3, char a4)

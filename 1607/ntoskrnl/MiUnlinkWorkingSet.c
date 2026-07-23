@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkWorkingSet @ 0x140101484
+ * XREFs of MiUnlinkWorkingSet @ 0x1400FF204
  * Callers:
- *     MiUnlinkSessionWorkingSet @ 0x140123238 (MiUnlinkSessionWorkingSet.c)
- *     MiDeletePartitionResources @ 0x1401F13D0 (MiDeletePartitionResources.c)
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
+ *     MiUnlinkSessionWorkingSet @ 0x1401237A8 (MiUnlinkSessionWorkingSet.c)
+ *     MiDeletePartitionResources @ 0x1401F11FC (MiDeletePartitionResources.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     MiDeleteAllHashMappings @ 0x140101410 (MiDeleteAllHashMappings.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     MiDeleteAllHashMappings @ 0x1400FF190 (MiDeleteAllHashMappings.c)
  */
 
 void __fastcall MiUnlinkWorkingSet(__int64 a1, struct _KLOCK_QUEUE_HANDLE *p_LockHandle)
@@ -52,7 +52,7 @@ void __fastcall MiUnlinkWorkingSet(__int64 a1, struct _KLOCK_QUEUE_HANDLE *p_Loc
   p_LockHandle = &LockHandle;
   for ( i = &LockHandle; ; i = p_LockHandle )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, i);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, i);
 LABEL_6:
     v9 = *(_BYTE *)(a1 + 185);
     if ( (v9 & 6) == 0 && (v9 & 0xF0) == 0 )

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiAllocateLargeProcessPagesFromCache @ 0x14031070C
+ * XREFs of MiAllocateLargeProcessPagesFromCache @ 0x1402F278C
  * Callers:
- *     MiCreateLargePfnList @ 0x14031037C (MiCreateLargePfnList.c)
+ *     MiCreateLargePfnList @ 0x1402F23FC (MiCreateLargePfnList.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiFreeLargeZeroPages @ 0x1402A5600 (MiFreeLargeZeroPages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiComputePreferredNode @ 0x14030EAE0 (MiComputePreferredNode.c)
- *     MiCreateLargePfnList @ 0x14031037C (MiCreateLargePfnList.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiInitializeLargePfnList @ 0x1404617F0 (MiInitializeLargePfnList.c)
- *     MiGetVadCacheAttribute @ 0x1404E25CC (MiGetVadCacheAttribute.c)
- *     MiPopLargePfnList @ 0x1404ECC38 (MiPopLargePfnList.c)
- *     MiCreateProcessLargePageCacheAnchor @ 0x140526544 (MiCreateProcessLargePageCacheAnchor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiFreeLargeZeroPages @ 0x1402A4B50 (MiFreeLargeZeroPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiComputePreferredNode @ 0x1402F0B60 (MiComputePreferredNode.c)
+ *     MiCreateLargePfnList @ 0x1402F23FC (MiCreateLargePfnList.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiInitializeLargePfnList @ 0x14045A7B0 (MiInitializeLargePfnList.c)
+ *     MiGetVadCacheAttribute @ 0x1404DBCAC (MiGetVadCacheAttribute.c)
+ *     MiPopLargePfnList @ 0x1404E6218 (MiPopLargePfnList.c)
+ *     MiCreateProcessLargePageCacheAnchor @ 0x140528BB4 (MiCreateProcessLargePageCacheAnchor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
@@ -91,7 +91,7 @@ __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
   int v67; // [rsp+58h] [rbp-A8h]
   char v69; // [rsp+60h] [rbp-A0h]
   int v70; // [rsp+64h] [rbp-9Ch]
-  RTL_BITMAP BitMapHeader; // [rsp+68h] [rbp-98h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+68h] [rbp-98h] BYREF
   __int64 v72; // [rsp+78h] [rbp-88h]
   __int64 v73; // [rsp+80h] [rbp-80h]
   volatile _KAFFINITY_EX *v74; // [rsp+88h] [rbp-78h]
@@ -133,7 +133,7 @@ __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
 LABEL_9:
   v66 = VadCacheAttribute;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v13 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * HIWORD(Process[2].ProcessListEntry.Blink));
+  v13 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * HIWORD(Process[2].ProcessListEntry.Blink));
   ActiveProcessors = Process[2].ActiveProcessors;
   v73 = v13;
   v74 = ActiveProcessors;

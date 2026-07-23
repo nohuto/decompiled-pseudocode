@@ -1,20 +1,20 @@
 /*
- * XREFs of PopConnectToPolicyDevice @ 0x140740E94
+ * XREFs of PopConnectToPolicyDevice @ 0x140742084
  * Callers:
- *     PopNotifyPolicyDevice @ 0x140740E10 (PopNotifyPolicyDevice.c)
- *     PopPolicyDeviceTargetChange @ 0x140876530 (PopPolicyDeviceTargetChange.c)
+ *     PopNotifyPolicyDevice @ 0x140742000 (PopNotifyPolicyDevice.c)
+ *     PopPolicyDeviceTargetChange @ 0x140877790 (PopPolicyDeviceTargetChange.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
- *     IoRegisterPlugPlayNotification @ 0x140703140 (IoRegisterPlugPlayNotification.c)
- *     PopGetPolicyDeviceObject @ 0x140741020 (PopGetPolicyDeviceObject.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlCompareUnicodeString @ 0x1405C0F20 (RtlCompareUnicodeString.c)
+ *     IoRegisterPlugPlayNotification @ 0x1407043E0 (IoRegisterPlugPlayNotification.c)
+ *     PopGetPolicyDeviceObject @ 0x140742210 (PopGetPolicyDeviceObject.c)
  */
 
 void __fastcall PopConnectToPolicyDevice(int a1, const UNICODE_STRING *a2)

@@ -69,7 +69,7 @@ __int64 PopPdcCsCheckSystemVolumeDevice()
           BYTE1(v5) = 1;
       }
     }
-    PopPdcCsDeviceNotification((__int64)&Buffer);
+    PopPdcCsDeviceNotification(&Buffer);
     if ( FileHandle )
       ZwClose(FileHandle);
     PopAcquirePolicyLock();

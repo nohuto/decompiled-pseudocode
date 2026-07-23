@@ -7,10 +7,10 @@
  *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PopSendFanNoiseChangeWnf(int a1)
+NTSTATUS __fastcall PopSendFanNoiseChangeWnf(int a1)
 {
-  int v2; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = a1;
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_FAN_NOISE_CHANGE, (__int64)&v2);
+  Buffer = a1;
+  return ZwUpdateWnfStateData(&WNF_PO_FAN_NOISE_CHANGE, &Buffer, 4u, 0LL, 0LL, 0, 0);
 }

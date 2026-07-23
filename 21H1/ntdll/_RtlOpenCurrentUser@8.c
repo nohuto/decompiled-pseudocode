@@ -9,39 +9,34 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __stdcall RtlOpenCurrentUser(int a1, int a2)
+NTSTATUS __cdecl RtlOpenCurrentUser(ACCESS_MASK DesiredAccess, PHANDLE CurrentUserKey)
 {
   int v2; // esi
-  int v4; // [esp+10h] [ebp-20h] BYREF
-  int v5; // [esp+14h] [ebp-1Ch]
-  UNICODE_STRING *p_UnicodeString; // [esp+18h] [ebp-18h]
-  int v7; // [esp+1Ch] [ebp-14h]
-  int v8; // [esp+20h] [ebp-10h]
-  int v9; // [esp+24h] [ebp-Ch]
-  UNICODE_STRING UnicodeString; // [esp+28h] [ebp-8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-20h] BYREF
+  _UNICODE_STRING CurrentUserKeyPath; // [esp+28h] [ebp-8h] BYREF
 
-  v2 = RtlFormatCurrentUserKeyPath(&UnicodeString);
+  v2 = RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath);
   if ( v2 >= 0 )
   {
-    v4 = 24;
-    p_UnicodeString = &UnicodeString;
-    v5 = 0;
-    v7 = 1600;
-    v8 = 0;
-    v9 = 0;
-    v2 = ZwOpenKey(a2, a1, &v4);
-    RtlFreeAnsiString(&UnicodeString);
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &CurrentUserKeyPath;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 1600;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    v2 = ZwOpenKey(CurrentUserKey, DesiredAccess, &ObjectAttributes);
+    RtlFreeAnsiString(&CurrentUserKeyPath);
   }
   if ( v2 == -1073741772 )
   {
-    RtlInitUnicodeString(&UnicodeString, L"\\Registry\\User\\.Default");
-    v4 = 24;
-    p_UnicodeString = &UnicodeString;
-    v5 = 0;
-    v7 = 1600;
-    v8 = 0;
-    v9 = 0;
-    return ZwOpenKey(a2, a1, &v4);
+    RtlInitUnicodeString(&CurrentUserKeyPath, (PCWSTR)L"\\Registry\\User\\.Default");
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &CurrentUserKeyPath;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 1600;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    return ZwOpenKey(CurrentUserKey, DesiredAccess, &ObjectAttributes);
   }
   return v2;
 }

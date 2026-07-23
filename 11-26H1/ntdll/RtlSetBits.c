@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlSetBits @ 0x180092430
+ * XREFs of RtlSetBits @ 0x180073DE0
  * Callers:
- *     RtlpValidateRange @ 0x1800908B4 (RtlpValidateRange.c)
- *     LdrpInitializeTls @ 0x18009299C (LdrpInitializeTls.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeTls @ 0x180073B08 (LdrpInitializeTls.c)
+ *     RtlpValidateRange @ 0x180075614 (RtlpValidateRange.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlSetVolatileMemory @ 0x1801646A0 (RtlSetVolatileMemory.c)
+ *     RtlSetVolatileMemory @ 0x1801645A0 (RtlSetVolatileMemory.c)
  */
 
-void __fastcall RtlSetBits(__int64 a1, unsigned int a2, unsigned int a3)
+void __cdecl RtlSetBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToSet)
 {
   unsigned __int64 v3; // rsi
   __int64 v4; // rdx
@@ -16,23 +16,23 @@ void __fastcall RtlSetBits(__int64 a1, unsigned int a2, unsigned int a3)
   __int64 v6; // rdi
   char v7; // al
 
-  if ( a3 )
+  if ( NumberToSet )
   {
-    v3 = a2;
-    v4 = a2 & 7;
-    v5 = (_BYTE *)(*(_QWORD *)(a1 + 8) + (v3 >> 3));
-    v6 = a3;
-    if ( (unsigned int)v4 + a3 <= 8 )
+    v3 = StartingIndex;
+    v4 = StartingIndex & 7;
+    v5 = (char *)BitMapHeader->Buffer + (v3 >> 3);
+    v6 = NumberToSet;
+    if ( (unsigned int)v4 + NumberToSet <= 8 )
     {
-      v7 = byte_18018B198[a3] << v4;
+      v7 = byte_18018A108[NumberToSet] << v4;
 LABEL_4:
       *v5 |= v7;
       return;
     }
     if ( (_DWORD)v4 )
     {
-      v6 = (unsigned int)v4 + a3 - 8;
-      *v5++ |= byte_18017CAF8[v4];
+      v6 = (unsigned int)v4 + NumberToSet - 8;
+      *v5++ |= byte_18017B818[v4];
     }
     if ( (unsigned int)v6 > 8 )
     {
@@ -42,7 +42,7 @@ LABEL_4:
     }
     if ( (_DWORD)v6 )
     {
-      v7 = byte_18018B198[v6];
+      v7 = byte_18018A108[v6];
       goto LABEL_4;
     }
   }

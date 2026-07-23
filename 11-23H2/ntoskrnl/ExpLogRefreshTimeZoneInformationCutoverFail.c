@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpLogRefreshTimeZoneInformationCutoverFail @ 0x1409F7C70
+ * XREFs of ExpLogRefreshTimeZoneInformationCutoverFail @ 0x1409F7F00
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x14083EB98 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14083EE98 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 int ExpLogRefreshTimeZoneInformationCutoverFail()
@@ -61,7 +61,7 @@ int ExpLogRefreshTimeZoneInformationCutoverFail()
 
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   v5 = (_DWORD *)CurrentServerSiloGlobals[157];
-  if ( (unsigned int)dword_140C06798 > 5 )
+  if ( (unsigned int)dword_140C06790 > 5 )
   {
     v11 = v1;
     v21 = &v9;
@@ -103,8 +103,8 @@ int ExpLogRefreshTimeZoneInformationCutoverFail()
     v41 = 4LL;
     v43 = 4LL;
     LODWORD(CurrentServerSiloGlobals) = tlgWriteTransfer_EtwWriteTransfer(
-                                          (__int64)&dword_140C06798,
-                                          (unsigned __int8 *)byte_1400361F9,
+                                          (__int64)&dword_140C06790,
+                                          (unsigned __int8 *)byte_14003657D,
                                           0LL,
                                           0LL,
                                           0x10u,

@@ -1,21 +1,22 @@
 /*
- * XREFs of PopOkayToQueueNextWorkItem @ 0x1404A4D54
+ * XREFs of PopOkayToQueueNextWorkItem @ 0x14049FAE4
  * Callers:
- *     PopClearUserShutdownMarkerWorker @ 0x140749340 (PopClearUserShutdownMarkerWorker.c)
- *     PopSetUserShutdownMarkerWorker @ 0x1407499E0 (PopSetUserShutdownMarkerWorker.c)
- *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x140749CA0 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
- *     PpmPerfTelemetryWorker @ 0x14074FD20 (PpmPerfTelemetryWorker.c)
- *     PopThermalStateTransitionWorker @ 0x140754760 (PopThermalStateTransitionWorker.c)
- *     PopNetRefreshTimerWorkerCallback @ 0x14075C980 (PopNetRefreshTimerWorkerCallback.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14075FC80 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x14075FF20 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopAdaptiveStandbyPolicyTimerWorker @ 0x140761DE0 (PopAdaptiveStandbyPolicyTimerWorker.c)
- *     PopWin32kActivatorWorker @ 0x1409EE3D0 (PopWin32kActivatorWorker.c)
- *     PopBsdFlushWorker @ 0x140A6B8F0 (PopBsdFlushWorker.c)
- *     PopBsdUpdateWorker @ 0x140A6B930 (PopBsdUpdateWorker.c)
- *     PopExternalMonitorUpdatedWorker @ 0x140A9AC50 (PopExternalMonitorUpdatedWorker.c)
- *     PopRecordLidStateWorker @ 0x140AB48F0 (PopRecordLidStateWorker.c)
- *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140B5F5B0 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
+ *     PopClearUserShutdownMarkerWorker @ 0x140747670 (PopClearUserShutdownMarkerWorker.c)
+ *     PopSetUserShutdownMarkerWorker @ 0x140747D10 (PopSetUserShutdownMarkerWorker.c)
+ *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x140747FD0 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
+ *     PpmPerfTelemetryWorker @ 0x14074E040 (PpmPerfTelemetryWorker.c)
+ *     PopThermalStateTransitionWorker @ 0x140752A80 (PopThermalStateTransitionWorker.c)
+ *     PopUsb4DisplayPresenceUpdatedWorker @ 0x140758580 (PopUsb4DisplayPresenceUpdatedWorker.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x14075B920 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14075EC80 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14075EF20 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopAdaptiveStandbyPolicyTimerWorker @ 0x1407611B0 (PopAdaptiveStandbyPolicyTimerWorker.c)
+ *     PopWin32kActivatorWorker @ 0x1409EBE10 (PopWin32kActivatorWorker.c)
+ *     PopBsdFlushWorker @ 0x140A64E50 (PopBsdFlushWorker.c)
+ *     PopBsdUpdateWorker @ 0x140A64E90 (PopBsdUpdateWorker.c)
+ *     PopExternalMonitorUpdatedWorker @ 0x140A961C0 (PopExternalMonitorUpdatedWorker.c)
+ *     PopRecordLidStateWorker @ 0x140AAF860 (PopRecordLidStateWorker.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140B61630 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
  * Callees:
  *     <none>
  */

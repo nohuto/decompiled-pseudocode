@@ -3,7 +3,7 @@
  * Callers:
  *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall CmSiWaitForSingleEvent(__int64 a1)

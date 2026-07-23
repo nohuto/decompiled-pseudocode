@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindNextForwardRunSet @ 0x14026A25C
+ * XREFs of RtlFindNextForwardRunSet @ 0x1402581FC
  * Callers:
- *     HvpResetPageProtection @ 0x140646428 (HvpResetPageProtection.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x1407CABF0 (CmFcpManagerDrainUsageNotifications.c)
+ *     HvpResetPageProtection @ 0x14063B214 (HvpResetPageProtection.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x1407CAF10 (CmFcpManagerDrainUsageNotifications.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ __int64 __fastcall RtlFindNextForwardRunSet(__int64 a1, unsigned int a2, unsigne
   v8 = (_DWORD *)(v7 + 4 * ((unsigned __int64)(v3 - 1) >> 5));
   v9 = (_DWORD *)(v7 + 4 * ((unsigned __int64)v5 >> 5));
   v10 = 0;
-  if ( v9 != v8 && (~*((_DWORD *)qword_140011C70 + (v5 & 0x1F)) & *v9) == 0 )
+  if ( v9 != v8 && (~*((_DWORD *)qword_140012120 + (v5 & 0x1F)) & *v9) == 0 )
   {
     v5 = v5 - (v5 & 0x1F) + 32;
     for ( ++v9; v9 < v8 && !*v9; ++v9 )
@@ -45,7 +45,7 @@ __int64 __fastcall RtlFindNextForwardRunSet(__int64 a1, unsigned int a2, unsigne
   if ( v9 == v8 )
     goto LABEL_9;
   v11 = v5 & 0x1F;
-  if ( (*v9 | *((_DWORD *)qword_140011C70 + (v5 & 0x1F))) != -1 )
+  if ( (*v9 | *((_DWORD *)qword_140012120 + (v5 & 0x1F))) != -1 )
     goto LABEL_9;
   v10 = 32 - v11;
   if ( v11 != 33 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpSetBlockerActive @ 0x14044DE60
+ * XREFs of SshpSetBlockerActive @ 0x140444D60
  * Callers:
- *     SshpBlockerActiveReferenceOperationCallback @ 0x14044DDDC (SshpBlockerActiveReferenceOperationCallback.c)
- *     SleepstudyHelper_ComponentActiveLocked @ 0x1404EE670 (SleepstudyHelper_ComponentActiveLocked.c)
- *     SleepstudyHelper_ComponentInactive @ 0x1404EE6E0 (SleepstudyHelper_ComponentInactive.c)
+ *     SshpBlockerActiveReferenceOperationCallback @ 0x140444CDC (SshpBlockerActiveReferenceOperationCallback.c)
+ *     SleepstudyHelper_ComponentActiveLocked @ 0x1404E5DF0 (SleepstudyHelper_ComponentActiveLocked.c)
+ *     SleepstudyHelper_ComponentInactive @ 0x1404E5E50 (SleepstudyHelper_ComponentInactive.c)
  * Callees:
- *     SshpTracingWriteBlockerStateChange @ 0x14044DF2C (SshpTracingWriteBlockerStateChange.c)
+ *     SshpTracingWriteBlockerStateChange @ 0x140444E2C (SshpTracingWriteBlockerStateChange.c)
  */
 
 __int64 __fastcall SshpSetBlockerActive(__int64 a1, __int64 a2)

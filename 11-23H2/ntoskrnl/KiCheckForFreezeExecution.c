@@ -4,7 +4,7 @@
  *     KiProcessNMI @ 0x14020EA60 (KiProcessNMI.c)
  * Callees:
  *     KiFreezeTargetExecution @ 0x14020E1D0 (KiFreezeTargetExecution.c)
- *     VslKernelShadowStackAssist @ 0x14054BA40 (VslKernelShadowStackAssist.c)
+ *     VslKernelShadowStackAssist @ 0x14054C100 (VslKernelShadowStackAssist.c)
  */
 
 char __fastcall KiCheckForFreezeExecution(__int64 a1, __int64 a2)

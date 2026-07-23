@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapReportBootError @ 0x1405BAEC4
+ * XREFs of WheapReportBootError @ 0x1405BB0F4
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403BAB88 (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403BACF8 (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     WheapGetErrorSourceFunction @ 0x1403BAF90 (WheapGetErrorSourceFunction.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     WheapAllocErrorRecord @ 0x1405BB64C (WheapAllocErrorRecord.c)
- *     WheapCompressErrorRecord @ 0x1405BB8F0 (WheapCompressErrorRecord.c)
- *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
- *     WheapWorkQueueAddItem @ 0x1405BD7A8 (WheapWorkQueueAddItem.c)
+ *     WheapGetErrorSourceFunction @ 0x1403BB100 (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     WheapAllocErrorRecord @ 0x1405BB87C (WheapAllocErrorRecord.c)
+ *     WheapCompressErrorRecord @ 0x1405BBB20 (WheapCompressErrorRecord.c)
+ *     WheapGetErrorSource @ 0x1405BBCFC (WheapGetErrorSource.c)
+ *     WheapWorkQueueAddItem @ 0x1405BD9D8 (WheapWorkQueueAddItem.c)
  */
 
 char __fastcall WheapReportBootError(__int64 a1)

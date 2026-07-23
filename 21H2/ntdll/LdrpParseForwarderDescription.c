@@ -3,7 +3,7 @@
  * Callers:
  *     LdrpResolveProcedureAddress @ 0x1800303F4 (LdrpResolveProcedureAddress.c)
  *     LdrpHandleProtectedDelayload @ 0x1800318A0 (LdrpHandleProtectedDelayload.c)
- *     LdrpEnclaveAddForwarderModules @ 0x1800CD6B4 (LdrpEnclaveAddForwarderModules.c)
+ *     LdrpEnclaveAddForwarderModules @ 0x1800CD674 (LdrpEnclaveAddForwarderModules.c)
  * Callees:
  *     RtlCharToInteger @ 0x180076B90 (RtlCharToInteger.c)
  *     strrchr @ 0x180091A40 (strrchr.c)

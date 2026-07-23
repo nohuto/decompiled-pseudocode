@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapSqmIncrementDword @ 0x140321C40
+ * XREFs of WheapSqmIncrementDword @ 0x140321E30
  * Callers:
- *     WheapPfaMemoryCheck @ 0x1408DCAB8 (WheapPfaMemoryCheck.c)
+ *     WheapPfaMemoryCheck @ 0x1408DDD78 (WheapPfaMemoryCheck.c)
  * Callees:
- *     WheapSqmDwordCommon @ 0x140321B98 (WheapSqmDwordCommon.c)
+ *     WheapSqmDwordCommon @ 0x140321D88 (WheapSqmDwordCommon.c)
  */
 
 NTSTATUS __fastcall WheapSqmIncrementDword(int a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckPteReserve @ 0x1404C3D18
+ * XREFs of MiCheckPteReserve @ 0x1404BD5F8
  * Callers:
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckPteReserve(__int64 a1, __int64 a2, ULONG_PTR a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReduceShareCount @ 0x1401F2F08
+ * XREFs of MiReduceShareCount @ 0x1401F2D34
  * Callers:
- *     MiDeletePteList @ 0x1400DFAC0 (MiDeletePteList.c)
+ *     MiDeletePteList @ 0x1400DD960 (MiDeletePteList.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReduceShareCount(__int64 a1, __int64 a2)

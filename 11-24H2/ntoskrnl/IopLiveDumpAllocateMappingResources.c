@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpAllocateMappingResources @ 0x1405997A8
+ * XREFs of IopLiveDumpAllocateMappingResources @ 0x140596728
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1405982F0 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140595270 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     IopLiveDumpFreeMappingResources @ 0x14059AF20 (IopLiveDumpFreeMappingResources.c)
- *     MmAllocateDumpHibernateResources @ 0x140A9D1CC (MmAllocateDumpHibernateResources.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     IopLiveDumpFreeMappingResources @ 0x140597EA0 (IopLiveDumpFreeMappingResources.c)
+ *     MmAllocateDumpHibernateResources @ 0x140A9873C (MmAllocateDumpHibernateResources.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateMappingResources(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall IopLiveDumpAllocateMappingResources(__int64 a1)
   PMDL Mdl; // rax
 
   v1 = KeNumberProcessors_0;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 16LL * (unsigned int)KeNumberProcessors_0, 0x706D644Cu);
   v4 = 0;
   *(_QWORD *)(a1 + 896) = Pool2;
   if ( Pool2 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlQueryProcessBackTraceInformation @ 0x1800D4EB0
+ * XREFs of RtlQueryProcessBackTraceInformation @ 0x1800D4F70
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x18006D3B0 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x18006D3A0 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x18006DF8C (RtlpCommitQueryDebugInfo.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18006DF7C (RtlpCommitQueryDebugInfo.c)
  *     memmove @ 0x1800AC980 (memmove.c)
- *     RtlpDeCommitQueryDebugInfo @ 0x1800D5654 (RtlpDeCommitQueryDebugInfo.c)
+ *     RtlpDeCommitQueryDebugInfo @ 0x1800D5714 (RtlpDeCommitQueryDebugInfo.c)
  */
 
 __int64 __fastcall RtlQueryProcessBackTraceInformation(_QWORD *a1)

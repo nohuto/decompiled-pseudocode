@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeLargePages @ 0x14055E498
+ * XREFs of MiFreeLargePages @ 0x14055E6D8
  * Callers:
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
  *     MiDeleteSubsectionLargePages @ 0x1403F6534 (MiDeleteSubsectionLargePages.c)
- *     MiDecommitRegion @ 0x1406EE5F0 (MiDecommitRegion.c)
+ *     MiDecommitRegion @ 0x1407059D0 (MiDecommitRegion.c)
  * Callees:
- *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
- *     MiGetLeafPfnBuddy @ 0x140380A4C (MiGetLeafPfnBuddy.c)
+ *     MiFreeLargePageMemory @ 0x1403093A4 (MiFreeLargePageMemory.c)
+ *     MiGetLeafPfnBuddy @ 0x14038059C (MiGetLeafPfnBuddy.c)
  *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)
  *     MiFreeLargePageCrossPartitionCharges @ 0x1403F7AD8 (MiFreeLargePageCrossPartitionCharges.c)
  */
@@ -28,7 +28,7 @@ __int64 __fastcall MiFreeLargePages(_QWORD *a1, _QWORD *a2)
   v3 = 0LL;
   v5 = 0LL;
   v6 = 0LL;
-  v7 = *(_QWORD *)(qword_140C4E648 + 8 * ((a1[5] >> 39) & 0x3FFLL));
+  v7 = *(_QWORD *)(qword_140C4E688 + 8 * ((a1[5] >> 39) & 0x3FFLL));
   do
   {
     LeafPfnBuddy = MiGetLeafPfnBuddy(v2);

@@ -1,23 +1,27 @@
 /*
- * XREFs of RtlUserThreadStart @ 0x180086920
+ * XREFs of RtlUserThreadStart @ 0x18007DCC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlDecodePointer @ 0x18004D5D0 (RtlDecodePointer.c)
- *     RtlExitUserThread @ 0x180086970 (RtlExitUserThread.c)
- *     RtlUnhandledExceptionFilter2 @ 0x18011F2F0 (RtlUnhandledExceptionFilter2.c)
- *     ZwTerminateProcess @ 0x18015F4C0 (ZwTerminateProcess.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlDecodePointer @ 0x180037B50 (RtlDecodePointer.c)
+ *     RtlExitUserThread @ 0x18007DD10 (RtlExitUserThread.c)
+ *     RtlUnhandledExceptionFilter2 @ 0x18011F0A0 (RtlUnhandledExceptionFilter2.c)
+ *     ZwTerminateProcess @ 0x18015F3C0 (ZwTerminateProcess.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlUserThreadStart(__int64 (__fastcall *a1)(__int64), __int64 a2)
+void __cdecl RtlUserThreadStart(PTHREAD_START_ROUTINE Function, PVOID Parameter)
 {
-  unsigned int v3; // eax
-  unsigned int v4; // eax
+  NTSTATUS v2; // eax
 
-  if ( Kernel32ThreadInitThunkFunction )
-    return Kernel32ThreadInitThunkFunction(0LL, a1, a2, a1);
-  v3 = a1(a2);
-  v4 = RtlExitUserThread(v3);
-  return ZwTerminateProcess(-1LL, v4);
+  if ( !Kernel32ThreadInitThunkFunction )
+  {
+    v2 = ((__int64 (__fastcall *)(PVOID))Function)(Parameter);
+    RtlExitUserThread(v2);
+  }
+  ((void (__fastcall *)(_QWORD, PTHREAD_START_ROUTINE, PVOID, PTHREAD_START_ROUTINE))Kernel32ThreadInitThunkFunction)(
+    0LL,
+    Function,
+    Parameter,
+    Function);
 }

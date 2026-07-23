@@ -57,13 +57,13 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   char MountFlag; // cl
   _DMA_OPERATIONS *DmaOperations; // rbx
   int FreeAdapterChannel_high; // eax
-  bool v28; // r14
+  char v28; // r14
   struct _KTHREAD *v29; // rax
   PADAPTER_OBJECT v30; // rbx
   __int64 v31; // rax
   NTSTATUS v32; // ebx
   _BYTE *PoolWithQuota; // r14
-  signed int DriverPathInformation; // eax
+  NTSTATUS DriverPathInformation; // eax
   struct _KEVENT *Pool_1; // rax
   struct _KEVENT *v36; // r14
   IRP *v37; // rax
@@ -76,7 +76,7 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   char v44; // si
   KPROCESSOR_MODE v45; // r14
   char v46; // [rsp+40h] [rbp-78h] BYREF
-  unsigned __int8 v47; // [rsp+41h] [rbp-77h]
+  KPROCESSOR_MODE v47; // [rsp+41h] [rbp-77h]
   bool v48; // [rsp+42h] [rbp-76h]
   NTSTATUS v49; // [rsp+44h] [rbp-74h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-70h] BYREF
@@ -178,7 +178,7 @@ LABEL_32:
     v29 = KeGetCurrentThread();
     --v29->KernelApcDisable;
     v30 = DmaAdapter;
-    v31 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0LL);
+    v31 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0);
     v46 = 0;
     if ( _InterlockedExchange((volatile __int32 *)(&v30[7].Size + 1), 1) )
     {

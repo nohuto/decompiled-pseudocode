@@ -1,35 +1,40 @@
 /*
- * XREFs of RtlWriteNonVolatileMemory @ 0x1402F4190
+ * XREFs of RtlWriteNonVolatileMemory @ 0x1402F4380
  * Callers:
  *     <none>
  * Callees:
- *     RtlCopyMemoryNonTemporal @ 0x1401C5C80 (RtlCopyMemoryNonTemporal.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlFlushNonVolatileMemory @ 0x1402ED030 (RtlFlushNonVolatileMemory.c)
+ *     RtlCopyMemoryNonTemporal @ 0x1401C5DE0 (RtlCopyMemoryNonTemporal.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlFlushNonVolatileMemory @ 0x1402ED220 (RtlFlushNonVolatileMemory.c)
  */
 
-__int64 __fastcall RtlWriteNonVolatileMemory(char a1, void *a2, const void *a3, size_t a4, __int16 a5)
+DWORD __cdecl RtlWriteNonVolatileMemory(
+        PVOID NvToken,
+        void *NvDestination,
+        const void *Source,
+        SIZE_T Size,
+        DWORD Flags)
 {
-  unsigned int v5; // ebx
+  DWORD v5; // ebx
 
   v5 = 0;
-  if ( (a1 & 1) == 0 )
-    return 3221225485LL;
-  if ( (a5 & 1) != 0 )
+  if ( ((unsigned __int8)NvToken & 1) == 0 )
+    return -1073741811;
+  if ( (Flags & 1) != 0 )
     goto LABEL_8;
-  if ( (a5 & 2) == 0 )
+  if ( (Flags & 2) == 0 )
   {
-    memmove(a2, a3, a4);
+    memmove(NvDestination, Source, Size);
     return v5;
   }
-  if ( a4 < 8 )
+  if ( Size < 8 )
   {
 LABEL_8:
-    if ( (a5 & 3) == 1 && (a5 & 0x100) != 0 )
-      LOBYTE(v5) = 1;
-    memmove(a2, a3, a4);
-    return (unsigned int)RtlFlushNonVolatileMemory(a1, (__int64)a2, a4, v5);
+    if ( (Flags & 3) == 1 && (Flags & 0x100) != 0 )
+      v5 = 1;
+    memmove(NvDestination, Source, Size);
+    return RtlFlushNonVolatileMemory(NvToken, NvDestination, Size, v5);
   }
-  RtlCopyMemoryNonTemporal(a2, a3, a4);
+  RtlCopyMemoryNonTemporal(NvDestination, Source, Size);
   return v5;
 }

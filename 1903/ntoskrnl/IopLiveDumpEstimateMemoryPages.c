@@ -66,9 +66,9 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     *(_QWORD *)(a1 + 120) = v8;
     IopLiveDumpTraceBufferEstimation();
   }
-  RtlClearAllBitsEx(a1 + 368);
-  RtlClearAllBitsEx(a1 + 424);
-  RtlClearAllBitsEx(a1 + 464);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 368));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 424));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 464));
   *(_DWORD *)(a1 + 80) &= ~1u;
   return v5;
 }

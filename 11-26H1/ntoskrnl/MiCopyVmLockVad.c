@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCopyVmLockVad @ 0x140A22620
+ * XREFs of MiCopyVmLockVad @ 0x140A2BC40
  * Callers:
- *     MiCopyVirtualMemory @ 0x140A22370 (MiCopyVirtualMemory.c)
+ *     MiCopyVirtualMemory @ 0x140A2B990 (MiCopyVirtualMemory.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiVadRangeIsIoSpace @ 0x1404F4AF0 (MiVadRangeIsIoSpace.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiVadRangeIsIoSpace @ 0x1404EE0D0 (MiVadRangeIsIoSpace.c)
  */
 
 __int64 __fastcall MiCopyVmLockVad(__int64 a1)
@@ -83,7 +83,7 @@ __int64 __fastcall MiCopyVmLockVad(__int64 a1)
   else
   {
     v15 = v9 & 0xFFFFFFFFFFFFF000uLL;
-    if ( ((v9 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 || v15 == qword_140E2D638 && qword_140E2D638)
+    if ( ((v9 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 || v15 == qword_140E2D7B8 && qword_140E2D7B8)
       && (*(_DWORD *)(v7 + 1532) & 1) == 0 )
     {
       v17 = v15 + 4096;

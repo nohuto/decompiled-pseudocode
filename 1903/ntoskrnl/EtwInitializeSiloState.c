@@ -151,7 +151,7 @@ LABEL_26:
 LABEL_12:
   *(_QWORD *)(v4 + 416) = v4;
   *(_QWORD *)(v4 + 432) = 0LL;
-  *(_OWORD *)(v4 + 64) = SecurityProviderGuid;
+  *(GUID *)(v4 + 64) = SecurityProviderGuid;
   KeInitializeMutex((PRKMUTEX)(v4 + 4584), 0);
   *((_QWORD *)PsGetServerSiloGlobals((__int64)a1) + 108) = v4;
   IsHostSilo = PsIsHostSilo(v21);

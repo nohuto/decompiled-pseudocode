@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeInPageSupport @ 0x1402E13A0
+ * XREFs of MiInitializeInPageSupport @ 0x1402E1630
  * Callers:
- *     MiGetInPageSupportBlock @ 0x1402E12E4 (MiGetInPageSupportBlock.c)
- *     MiMakeOutswappedPageResident @ 0x14061856C (MiMakeOutswappedPageResident.c)
- *     MiPfIssueCoalescedSupport @ 0x140631DAC (MiPfIssueCoalescedSupport.c)
- *     MiGetReadyInPageBlock @ 0x140A31330 (MiGetReadyInPageBlock.c)
+ *     MiGetInPageSupportBlock @ 0x1402E1574 (MiGetInPageSupportBlock.c)
+ *     MiMakeOutswappedPageResident @ 0x140618ABC (MiMakeOutswappedPageResident.c)
+ *     MiPfIssueCoalescedSupport @ 0x1406322FC (MiPfIssueCoalescedSupport.c)
+ *     MiGetReadyInPageBlock @ 0x140A315E0 (MiGetReadyInPageBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     PsGetPagePriorityThread @ 0x1402E1520 (PsGetPagePriorityThread.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     PsGetPagePriorityThread @ 0x1402E17B0 (PsGetPagePriorityThread.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiInitializeInPageSupport(__int64 a1, char a2, volatile signed __int64 *a3)

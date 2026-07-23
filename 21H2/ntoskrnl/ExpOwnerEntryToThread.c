@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpOwnerEntryToThread @ 0x1402F7A88
+ * XREFs of ExpOwnerEntryToThread @ 0x1403027D8
  * Callers:
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     ExReinitializeResourceLite @ 0x1402F7920 (ExReinitializeResourceLite.c)
- *     ExQuerySystemLockInformation @ 0x1409B2C64 (ExQuerySystemLockInformation.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     ExReinitializeResourceLite @ 0x140302670 (ExReinitializeResourceLite.c)
+ *     ExQuerySystemLockInformation @ 0x1409B3B94 (ExQuerySystemLockInformation.c)
  * Callees:
  *     <none>
  */

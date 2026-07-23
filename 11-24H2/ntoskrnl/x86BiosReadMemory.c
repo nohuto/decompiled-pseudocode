@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosReadMemory @ 0x140468070
+ * XREFs of x86BiosReadMemory @ 0x140460A20
  * Callers:
  *     <none>
  * Callees:
- *     x86BiosTranslateAddress @ 0x140469260 (x86BiosTranslateAddress.c)
+ *     x86BiosTranslateAddress @ 0x140461C10 (x86BiosTranslateAddress.c)
  */
 
 __int64 __fastcall x86BiosReadMemory(unsigned __int16 a1, unsigned __int16 a2, _BYTE *a3, int a4)

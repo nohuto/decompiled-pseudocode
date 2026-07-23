@@ -10,22 +10,22 @@
  *     LdrpGenericExceptionFilter @ 0x18011B640 (LdrpGenericExceptionFilter.c)
  */
 
-__int64 __fastcall LdrpAllocateTlsEntry(__int64 a1, __int64 a2, int *a3, __int64 a4, __int64 *a5)
+__int64 __fastcall LdrpAllocateTlsEntry(__int64 a1, __int64 a2, int *a3, __int64 a4, _QWORD *a5)
 {
-  __int64 Heap; // rax
-  __int64 v9; // rbx
+  _QWORD *Heap; // rax
+  _QWORD *v9; // rbx
   int v10; // edx
-  __int64 *v11; // rax
+  _QWORD *v11; // rax
   int v12; // edi
 
-  Heap = RtlAllocateHeap((void *)LdrpTlsHeap);
+  Heap = RtlAllocateHeap(LdrpTlsHeap, NtdllBaseTag + 786432, 0x48uLL);
   v9 = Heap;
   if ( !Heap )
     return 3221225495LL;
-  *(_OWORD *)(Heap + 16) = *(_OWORD *)a1;
-  *(_OWORD *)(Heap + 32) = *(_OWORD *)(a1 + 16);
-  *(_QWORD *)(Heap + 48) = *(_QWORD *)(a1 + 32);
-  if ( *(_QWORD *)(Heap + 24) < *(_QWORD *)(Heap + 16) )
+  *((_OWORD *)Heap + 1) = *(_OWORD *)a1;
+  *((_OWORD *)Heap + 2) = *(_OWORD *)(a1 + 16);
+  Heap[6] = *(_QWORD *)(a1 + 32);
+  if ( Heap[3] < Heap[2] )
   {
     v12 = -1073741701;
     goto LABEL_13;
@@ -39,19 +39,19 @@ __int64 __fastcall LdrpAllocateTlsEntry(__int64 a1, __int64 a2, int *a3, __int64
       goto LABEL_5;
     }
 LABEL_13:
-    RtlFreeHeap(LdrpTlsHeap, 0LL, v9);
+    RtlFreeHeap(LdrpTlsHeap, 0, v9);
     return (unsigned int)v12;
   }
   v10 = (*a3)++;
 LABEL_5:
-  **(_DWORD **)(v9 + 32) = v10;
-  *(_DWORD *)(v9 + 64) = v10;
-  *(_QWORD *)(v9 + 56) = a2;
-  v11 = (__int64 *)off_1801CE940;
+  *(_DWORD *)v9[4] = v10;
+  *((_DWORD *)v9 + 16) = v10;
+  v9[7] = a2;
+  v11 = off_1801CE940;
   if ( *off_1801CE940 != (_UNKNOWN *)&LdrpTlsList )
     __fastfail(3u);
-  *(_QWORD *)v9 = &LdrpTlsList;
-  *(_QWORD *)(v9 + 8) = v11;
+  *v9 = &LdrpTlsList;
+  v9[1] = v11;
   *v11 = v9;
   off_1801CE940 = (_UNKNOWN **)v9;
   if ( a5 )

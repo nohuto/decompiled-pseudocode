@@ -1,33 +1,33 @@
 /*
- * XREFs of ObCreateObjectTypeEx @ 0x140A9DB20
+ * XREFs of ObCreateObjectTypeEx @ 0x140A99090
  * Callers:
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     AlpcpInitSystem @ 0x1407422BC (AlpcpInitSystem.c)
- *     TtmiInitTerminals @ 0x14076F7E0 (TtmiInitTerminals.c)
- *     TtmiInitQueues @ 0x140770908 (TtmiInitQueues.c)
- *     EtwpInitializePrivateSessionDemuxObject @ 0x1407AD2E4 (EtwpInitializePrivateSessionDemuxObject.c)
- *     CmpInitializeLightWeightTransactionType @ 0x1407DE434 (CmpInitializeLightWeightTransactionType.c)
- *     VRegSetup @ 0x140829110 (VRegSetup.c)
- *     IoCreateObjectTypes @ 0x140C1A624 (IoCreateObjectTypes.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     AlpcpInitSystem @ 0x14073FD1C (AlpcpInitSystem.c)
+ *     TtmiInitTerminals @ 0x14076FA00 (TtmiInitTerminals.c)
+ *     TtmiInitQueues @ 0x140770B28 (TtmiInitQueues.c)
+ *     EtwpInitializePrivateSessionDemuxObject @ 0x1407AD7B4 (EtwpInitializePrivateSessionDemuxObject.c)
+ *     CmpInitializeLightWeightTransactionType @ 0x1407DE984 (CmpInitializeLightWeightTransactionType.c)
+ *     VRegSetup @ 0x140829940 (VRegSetup.c)
+ *     IoCreateObjectTypes @ 0x140C1C664 (IoCreateObjectTypes.c)
  * Callees:
- *     ObpReleaseLookupContext @ 0x14025E7E0 (ObpReleaseLookupContext.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObpInitObjectTypeSD @ 0x1407444C8 (ObpInitObjectTypeSD.c)
- *     ObpLookupDirectoryEntry @ 0x140842540 (ObpLookupDirectoryEntry.c)
- *     ObpAllocateObject @ 0x14089B290 (ObpAllocateObject.c)
- *     RtlUnicodeToMultiByteSize @ 0x1408AEEA0 (RtlUnicodeToMultiByteSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x1408AEF80 (RtlUnicodeStringToAnsiString.c)
- *     ObpUnlockObjectType @ 0x1409D66BC (ObpUnlockObjectType.c)
- *     ObpLockObjectTypeExclusive @ 0x1409D6734 (ObpLockObjectTypeExclusive.c)
- *     ObpLockDirectoryExclusive @ 0x1409E4E58 (ObpLockDirectoryExclusive.c)
- *     ObpInsertDirectoryEntry @ 0x140A078AC (ObpInsertDirectoryEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     ObpReleaseLookupContext @ 0x14028EDF0 (ObpReleaseLookupContext.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObpInitObjectTypeSD @ 0x1407427B8 (ObpInitObjectTypeSD.c)
+ *     ObpLookupDirectoryEntry @ 0x14083E800 (ObpLookupDirectoryEntry.c)
+ *     ObpAllocateObject @ 0x1408A3930 (ObpAllocateObject.c)
+ *     RtlUnicodeToMultiByteSize @ 0x140905100 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1409051E0 (RtlUnicodeStringToAnsiString.c)
+ *     ObpUnlockObjectType @ 0x1409C64EC (ObpUnlockObjectType.c)
+ *     ObpLockObjectTypeExclusive @ 0x1409C6564 (ObpLockObjectTypeExclusive.c)
+ *     ObpLockDirectoryExclusive @ 0x1409DF8B8 (ObpLockDirectoryExclusive.c)
+ *     ObpInsertDirectoryEntry @ 0x140A03DDC (ObpInsertDirectoryEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObCreateObjectTypeEx(PCUNICODE_STRING SourceString, _DWORD *Src, void *a3, __int16 *a4, _QWORD *a5)
@@ -80,7 +80,7 @@ __int64 __fastcall ObCreateObjectTypeEx(PCUNICODE_STRING SourceString, _DWORD *S
   __int128 P_8; // [rsp+70h] [rbp-98h] BYREF
   __int64 v56; // [rsp+80h] [rbp-88h]
   __int16 *v57; // [rsp+88h] [rbp-80h]
-  STRING v58; // [rsp+90h] [rbp-78h] BYREF
+  _STRING v58; // [rsp+90h] [rbp-78h] BYREF
   PVOID v59; // [rsp+A0h] [rbp-68h]
   _QWORD *v60; // [rsp+A8h] [rbp-60h]
   __int128 v61; // [rsp+B8h] [rbp-50h] BYREF
@@ -147,7 +147,7 @@ LABEL_24:
       return v17;
     }
   }
-  DestinationString_8.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+  DestinationString_8.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, SourceString->MaximumLength, 0x6D4E624Fu);
   if ( !DestinationString_8.Buffer )
   {
     v17 = -1073741670;
@@ -217,7 +217,7 @@ LABEL_24:
     BytesInMultiByteString = 0;
     RtlUnicodeToMultiByteSize(&BytesInMultiByteString, v33, v32);
     v34 = ((BytesInMultiByteString + 3) & 0xFFFC) + 1;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v34, 0x6E54624Fu);
     v59 = Pool2;
     if ( !Pool2 )
       goto LABEL_45;

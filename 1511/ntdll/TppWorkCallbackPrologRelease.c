@@ -17,9 +17,9 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall TppWorkCallbackPrologRelease(_DWORD *Instance, __int64 a2, int a3)
 {
-  __int64 v3; // rbx
+  void *v3; // rbx
   int v4; // r15d
   unsigned __int32 v8; // ecx
   __int64 v9; // r8
@@ -28,13 +28,13 @@ __int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
   int v12; // ebp
   int v13; // esi
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
-  unsigned __int64 v16; // [rsp+68h] [rbp+10h] BYREF
+  PVOID Cookie; // [rsp+68h] [rbp+10h] BYREF
 
-  v3 = *(_QWORD *)(a2 + 128);
+  v3 = *(void **)(a2 + 128);
   v4 = 0;
-  v16 = 0LL;
+  Cookie = 0LL;
   if ( v3 )
-    LdrLockLoaderLock(0LL, 0LL, &v16);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   _m_prefetchw((const void *)(a2 + 224));
   v8 = *(_DWORD *)(a2 + 224);
   v9 = 1LL;
@@ -65,7 +65,7 @@ LABEL_7:
   {
     if ( v12 )
     {
-      if ( (int)LdrAddRefDll(0, v3) < 0 )
+      if ( LdrAddRefDll(0, v3) < 0 )
       {
         v12 = 0;
         v13 = 0;
@@ -73,15 +73,15 @@ LABEL_7:
       }
       else
       {
-        *(_DWORD *)(a1 + 144) |= 0x100u;
-        *(_QWORD *)(a1 + 168) = v3;
+        Instance[36] |= 0x100u;
+        *((_QWORD *)Instance + 21) = v3;
       }
     }
-    LdrUnlockLoaderLock(0LL, v16);
+    LdrUnlockLoaderLock(0, Cookie);
     if ( v4 )
     {
-      TppBarrierAdjust((unsigned __int64 *)(a2 + 56), -1, 0);
-      TppWorkCancelPendingCallbacks((_QWORD *)a2);
+      TppBarrierAdjust((_RTL_SRWLOCK *)(a2 + 56), -1, 0);
+      TppWorkCancelPendingCallbacks((_RTL_SRWLOCK *)a2);
     }
   }
   if ( v13 )
@@ -109,7 +109,7 @@ LABEL_7:
   }
   if ( v12 )
   {
-    TppCleanupGroupMemberCallbackProlog(a1, a2);
+    TppCleanupGroupMemberCallbackProlog((PTP_CALLBACK_INSTANCE)Instance);
     return 1LL;
   }
   else

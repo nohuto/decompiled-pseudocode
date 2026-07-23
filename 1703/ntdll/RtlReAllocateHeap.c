@@ -18,13 +18,13 @@
  *     sub_1800A4DFC @ 0x1800A4DFC (sub_1800A4DFC.c)
  */
 
-__int64 __fastcall RtlReAllocateHeap(__int64 a1, int a2, int a3, __int64 a4)
+PVOID __cdecl RtlReAllocateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress, SIZE_T Size)
 {
-  if ( !a1 )
-    sub_1800A4DFC(18, 0, a3, 0, 0LL, 0LL);
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    return sub_180021168(a1, a2, a3, a4);
+  if ( !HeapHandle )
+    sub_1800A4DFC(18, 0, (_DWORD)BaseAddress, 0, 0LL, 0LL);
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+    return (PVOID)sub_180021168(HeapHandle, Flags, (__int64)BaseAddress, Size);
   if ( (byte_18015BFBC & 2) != 0 )
-    return sub_18001EF1C(a1, a3, a4, a2);
-  return sub_1800222E0(a1, a2, a3, a4, 0LL, 0LL);
+    return (PVOID)sub_18001EF1C(HeapHandle, (__int64)BaseAddress, Size);
+  return (PVOID)sub_1800222E0(HeapHandle, 0LL, 0LL);
 }

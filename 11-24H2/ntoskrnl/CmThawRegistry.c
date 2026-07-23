@@ -1,23 +1,23 @@
 /*
- * XREFs of CmThawRegistry @ 0x1407D85E0
+ * XREFs of CmThawRegistry @ 0x1407D8B30
  * Callers:
- *     NtThawRegistry @ 0x1407D1340 (NtThawRegistry.c)
- *     CmFreezeRegistry @ 0x1407D841C (CmFreezeRegistry.c)
- *     CmpFreezeThawWorker @ 0x1407D8740 (CmpFreezeThawWorker.c)
+ *     NtThawRegistry @ 0x1407D1830 (NtThawRegistry.c)
+ *     CmFreezeRegistry @ 0x1407D896C (CmFreezeRegistry.c)
+ *     CmpFreezeThawWorker @ 0x1407D8C90 (CmpFreezeThawWorker.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     CmpEnableLazyFlush @ 0x1404AD184 (CmpEnableLazyFlush.c)
- *     CmpUnLockFreezeQueue @ 0x1406FB388 (CmpUnLockFreezeQueue.c)
- *     CmpLockFreezeQueue @ 0x1406FB3E4 (CmpLockFreezeQueue.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     CmpGetNextActiveHive @ 0x14090B0EC (CmpGetNextActiveHive.c)
- *     HvMarkBaseBlockDirty @ 0x140931488 (HvMarkBaseBlockDirty.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     CmpEnableLazyFlush @ 0x1404A7864 (CmpEnableLazyFlush.c)
+ *     CmpUnLockFreezeQueue @ 0x1406F8FC8 (CmpUnLockFreezeQueue.c)
+ *     CmpLockFreezeQueue @ 0x1406F9024 (CmpLockFreezeQueue.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     CmpGetNextActiveHive @ 0x1408E280C (CmpGetNextActiveHive.c)
+ *     HvMarkBaseBlockDirty @ 0x1409335C8 (HvMarkBaseBlockDirty.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 CmThawRegistry()

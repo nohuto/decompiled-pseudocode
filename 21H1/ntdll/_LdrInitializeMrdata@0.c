@@ -14,7 +14,7 @@ NTSTATUS __stdcall LdrInitializeMrdata()
   int v2; // [esp+8h] [ebp-28h]
   int v3; // [esp+18h] [ebp-18h]
 
-  LdrpMrdataLock = 0;
+  LdrpMrdataLock.0 = 0;
   result = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x2Cu, 0);
   if ( result >= 0 )
   {

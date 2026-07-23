@@ -19,223 +19,249 @@
  *     _RtlpHpQueryVA@20 @ 0x4B37951B (_RtlpHpQueryVA@20.c)
  */
 
-void *__fastcall RtlpHpLargeAlloc(int a1, int a2, size_t Size, char a4)
+PVOID __fastcall RtlpHpLargeAlloc(_RTL_SRWLOCK *BaseAddress, int a2, size_t Size)
 {
-  void *v5; // edi
-  _DWORD *v6; // ebx
-  size_t v7; // edx
-  int v8; // edi
-  bool v9; // zf
-  int v10; // ecx
-  unsigned int v11; // eax
-  int v12; // edi
-  int v13; // edx
-  int v14; // edi
-  int v15; // ecx
-  unsigned int v16; // ecx
-  unsigned int v17; // eax
-  unsigned int v18; // ecx
-  int v19; // edi
-  unsigned int v20; // eax
-  int v21; // eax
-  int v23; // [esp-8h] [ebp-78h]
-  int v24; // [esp-4h] [ebp-74h]
-  void *v25; // [esp+10h] [ebp-60h] BYREF
-  int v26; // [esp+14h] [ebp-5Ch] BYREF
-  int v27; // [esp+18h] [ebp-58h]
-  int v28; // [esp+1Ch] [ebp-54h] BYREF
-  size_t v29; // [esp+20h] [ebp-50h] BYREF
-  void *v30; // [esp+24h] [ebp-4Ch]
-  int v31; // [esp+28h] [ebp-48h]
-  size_t v32; // [esp+2Ch] [ebp-44h]
-  int *v33; // [esp+30h] [ebp-40h] BYREF
-  int v34; // [esp+34h] [ebp-3Ch]
-  int v35; // [esp+38h] [ebp-38h] BYREF
-  int v36; // [esp+3Ch] [ebp-34h]
-  int v37; // [esp+54h] [ebp-1Ch] BYREF
-  int v38; // [esp+58h] [ebp-18h]
-  int v39; // [esp+7Ch] [ebp+Ch]
+  PVOID v4; // edi
+  _RTL_BALANCED_NODE *v5; // ebx
+  unsigned int v6; // edx
+  int v7; // edi
+  bool v8; // zf
+  int v9; // ecx
+  unsigned int v10; // eax
+  ULONG v11; // edi
+  int v12; // edx
+  ULONG v13; // edi
+  _RTL_BALANCED_NODE *v14; // ecx
+  unsigned int v15; // ecx
+  unsigned int v16; // eax
+  unsigned int v17; // ecx
+  int v18; // edi
+  unsigned int v19; // eax
+  int v20; // eax
+  int v22; // [esp-8h] [ebp-78h]
+  size_t v23; // [esp-4h] [ebp-74h]
+  int Value; // [esp-4h] [ebp-74h]
+  PVOID BaseAddressa; // [esp+10h] [ebp-60h] BYREF
+  ULONG_PTR RegionSize; // [esp+14h] [ebp-5Ch] BYREF
+  int v27; // [esp+1Ch] [ebp-54h] BYREF
+  BOOLEAN Right[4]; // [esp+20h] [ebp-50h] BYREF
+  void *v29; // [esp+24h] [ebp-4Ch]
+  int v30; // [esp+28h] [ebp-48h]
+  unsigned int v31; // [esp+2Ch] [ebp-44h]
+  _RTL_SRWLOCK **v32; // [esp+30h] [ebp-40h] BYREF
+  int v33; // [esp+34h] [ebp-3Ch]
+  _RTL_SRWLOCK *MemoryInformation; // [esp+38h] [ebp-38h] BYREF
+  int v35; // [esp+3Ch] [ebp-34h]
+  _RTL_SRWLOCK *v36; // [esp+54h] [ebp-1Ch] BYREF
+  int v37; // [esp+58h] [ebp-18h]
+  int Size_4; // [esp+7Ch] [ebp+Ch]
 
-  v34 = a2;
-  v5 = 0;
-  v25 = 0;
-  v30 = 0;
-  v6 = (_DWORD *)RtlpHpMetadataAlloc(0x14u, 0x14u, 0, *(_DWORD *)a1, *(_DWORD *)(a1 + 4));
-  if ( v6 )
+  v33 = a2;
+  v4 = 0;
+  BaseAddressa = 0;
+  v29 = 0;
+  v5 = (_RTL_BALANCED_NODE *)RtlpHpMetadataAlloc(0x14u, 0x14u, 0, BaseAddress->Value, BaseAddress[1].Value);
+  if ( v5 )
   {
-    v7 = Size;
-    *v6 = 0;
-    v6[1] = 0;
-    v6[2] = 0;
-    v6[3] = 0;
-    v6[4] = 0;
-    v8 = 0;
-    v9 = (*(_DWORD *)(a1 + 12) & 0x4000000) == 0;
-    v27 = 0;
-    if ( !v9 && 0x1FFFFF - ((Size - 1) & 0x1FFFFF) < Size >> 2 )
+    v6 = Size;
+    v5->Children[0] = 0;
+    v5->Children[1] = 0;
+    v5->ParentValue = 0;
+    v5[1].Children[0] = 0;
+    v5[1].Children[1] = 0;
+    v7 = 0;
+    v8 = (BaseAddress[3].Value & 0x4000000) == 0;
+    HIDWORD(RegionSize) = 0;
+    if ( !v8 && 0x1FFFFF - (((_DWORD)Size - 1) & 0x1FFFFFu) < (unsigned int)Size >> 2 )
     {
-      v8 = 1;
-      v27 = 1;
+      v7 = 1;
+      HIDWORD(RegionSize) = 1;
     }
     while ( 1 )
     {
-      v10 = 0;
-      v31 = 0;
-      if ( v8 )
+      v9 = 0;
+      v30 = 0;
+      if ( v7 )
       {
-        v29 = 0x200000;
-        v11 = v7 - ((v7 - 1) & 0x1FFFFF) + 0x1FFFFF;
+        *(_DWORD *)Right = 0x200000;
+        v10 = v6 - ((v6 - 1) & 0x1FFFFF) + 0x1FFFFF;
       }
       else
       {
-        if ( BYTE1(*(_DWORD *)a1) < 2u && (v7 & 0xFFFFF) - 1 <= 0xFEFFF )
+        if ( BYTE1(BaseAddress->Value) < 2u && (v6 & 0xFFFFF) - 1 <= 0xFEFFF )
         {
-          v10 = 1;
-          v31 = 1;
+          v9 = 1;
+          v30 = 1;
         }
-        v29 = 0;
-        v11 = v7 + (v10 << 12);
+        *(_DWORD *)Right = 0;
+        v10 = v6 + (v9 << 12);
       }
-      v26 = v11;
-      if ( v11 < v7 )
+      LODWORD(RegionSize) = v10;
+      if ( v10 < v6 )
         goto LABEL_61;
-      v12 = (*(_DWORD *)(a1 + 12) & 0x40000000) != 0 ? 64 : 4;
-      if ( (*(_DWORD *)(a1 + 12) & 0x40000000) != 0
-        && (NtQueryVirtualMemory(-1, a1, 3, (int)&v35, 28, 0) < 0 || (v36 & 0x60) == 0 || v35 != a1) )
+      v11 = (BaseAddress[3].Value & 0x40000000) != 0 ? 64 : 4;
+      if ( (BaseAddress[3].Value & 0x40000000) != 0
+        && (NtQueryVirtualMemory(
+              (HANDLE)0xFFFFFFFF,
+              BaseAddress,
+              MemoryRegionInformation,
+              &MemoryInformation,
+              0x1CuLL,
+              (PSIZE_T)HIDWORD(v23)) < 0
+         || (v35 & 0x60) == 0
+         || MemoryInformation != BaseAddress) )
       {
-        RtlpLogHeapFailure(0, a1, 1, v36, 0, 0);
-        v12 = 4;
+        RtlpLogHeapFailure(0, (int)BaseAddress, 1, v35, 0, 0);
+        v11 = 4;
       }
-      if ( RtlpHpAllocVA(&v25, (size_t *)&v26, v29, 0x2000, v12, *(_DWORD *)a1, *(_DWORD *)(a1 + 4)) < 0 )
+      if ( RtlpHpAllocVA(
+             &BaseAddressa,
+             (int *)&RegionSize,
+             *(int *)Right,
+             0x2000,
+             v11,
+             BaseAddress->Value,
+             BaseAddress[1].Value) < 0 )
       {
-        v25 = 0;
+        BaseAddressa = 0;
 LABEL_61:
-        v5 = v30;
+        v4 = v29;
 LABEL_62:
-        if ( v6 )
-          RtlpHpMetadataFree(*(_DWORD *)a1, *(_DWORD *)(a1 + 4));
+        if ( v5 )
+          RtlpHpMetadataFree(BaseAddress->Value, BaseAddress[1].Value);
         goto LABEL_64;
       }
-      RtlpHpQueryVA((int)v25, &v33, &v28, *(_DWORD *)a1, *(_DWORD *)(a1 + 4));
-      *v33 = a1;
-      v13 = *(_DWORD *)(a1 + 80) + *(_DWORD *)(a1 + 132);
-      v32 = (Size + 4095) >> 12;
-      v29 = v32 << 12;
-      if ( !RtlpHpHeapCheckCommitLimit(v32 << 12, v13 << 12, a1, (int *)(a1 + 24)) )
+      RtlpHpQueryVA((int)BaseAddressa, &v32, &v27, BaseAddress->Value, BaseAddress[1].Value);
+      *v32 = BaseAddress;
+      v12 = BaseAddress[20].Value + BaseAddress[33].Value;
+      v31 = (unsigned int)(Size + 4095) >> 12;
+      *(_DWORD *)Right = v31 << 12;
+      if ( !RtlpHpHeapCheckCommitLimit(v31 << 12, v12 << 12, (int)BaseAddress, (int *)&BaseAddress[6]) )
         goto LABEL_61;
-      v28 = 4096;
-      if ( v27 )
+      v27 = 4096;
+      if ( HIDWORD(RegionSize) )
       {
-        v28 = 536875008;
-        v29 += 0x1FFFFF - ((v29 - 1) & 0x1FFFFF);
+        v27 = 536875008;
+        *(_DWORD *)Right += 0x1FFFFF - ((*(_DWORD *)Right - 1) & 0x1FFFFF);
       }
-      else if ( (a4 & 2) != 0 )
+      else if ( (Size & 0x200000000LL) != 0 )
       {
-        v28 = 1073745920;
+        v27 = 1073745920;
       }
-      v14 = (*(_DWORD *)(a1 + 12) & 0x40000000) != 0 ? 64 : 4;
-      if ( (*(_DWORD *)(a1 + 12) & 0x40000000) != 0
-        && (NtQueryVirtualMemory(-1, a1, 3, (int)&v37, 28, 0) < 0 || (v38 & 0x60) == 0 || v37 != a1) )
+      v13 = (BaseAddress[3].Value & 0x40000000) != 0 ? 64 : 4;
+      if ( (BaseAddress[3].Value & 0x40000000) != 0
+        && (NtQueryVirtualMemory(
+              (HANDLE)0xFFFFFFFF,
+              BaseAddress,
+              MemoryRegionInformation,
+              &v36,
+              0x1CuLL,
+              (PSIZE_T)HIDWORD(v23)) < 0
+         || (v37 & 0x60) == 0
+         || v36 != BaseAddress) )
       {
-        RtlpLogHeapFailure(0, a1, 1, v38, 0, 0);
-        v14 = 4;
+        RtlpLogHeapFailure(0, (int)BaseAddress, 1, v37, 0, 0);
+        v13 = 4;
       }
-      if ( RtlpHpAllocVA(&v25, &v29, 0, v28, v14, *(_DWORD *)a1, *(_DWORD *)(a1 + 4)) >= 0 )
+      if ( RtlpHpAllocVA(&BaseAddressa, (int *)Right, 0, v27, v13, BaseAddress->Value, BaseAddress[1].Value) >= 0 )
         break;
-      if ( !v27 )
+      if ( !HIDWORD(RegionSize) )
         goto LABEL_61;
-      v24 = *(_DWORD *)(a1 + 4);
-      v8 = 0;
-      v23 = *(_DWORD *)a1;
-      v27 = 0;
-      RtlpHpFreeVA((int *)&v25, &v26, 0x8000, v23, v24);
-      v25 = 0;
-      v7 = Size;
+      Value = BaseAddress[1].Value;
+      v7 = 0;
+      v22 = BaseAddress->Value;
+      HIDWORD(RegionSize) = 0;
+      RtlpHpFreeVA(&BaseAddressa, &RegionSize, 0x8000, v22, Value);
+      BaseAddressa = 0;
+      v6 = Size;
     }
-    if ( v27 && (a4 & 2) != 0 )
-      memset(v25, 0, Size);
-    v15 = v6[4];
-    v6[3] = v25;
-    v16 = (2 * v31) | (v32 << 12) | v15 & 0xFFD;
-    v6[4] = v16;
-    _BitScanForward(&v17, v26);
-    v6[4] = v16 ^ ((unsigned __int8)v16 ^ (unsigned __int8)(4 * v17)) & 0xFC;
-    *((_WORD *)v6 + 6) = ((_WORD)v32 << 12) - v34;
-    v39 = a4 & 1;
-    if ( !v39 )
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
-    v18 = *(_DWORD *)(a1 + 68);
-    if ( (*(_BYTE *)(a1 + 72) & 1) != 0 )
+    if ( HIDWORD(RegionSize) && (Size & 0x200000000LL) != 0 )
     {
-      if ( v18 )
-        v18 ^= a1 + 68;
-      else
-        v18 = 0;
+      LODWORD(v23) = Size;
+      memset(BaseAddressa, 0, v23);
     }
-    v19 = *(_BYTE *)(a1 + 72) & 1;
-    LOBYTE(v29) = 0;
-    if ( v18 )
+    v14 = v5[1].Children[1];
+    v5[1].Children[0] = (_RTL_BALANCED_NODE *)BaseAddressa;
+    v15 = (2 * v30) | (v31 << 12) | (unsigned __int16)v14 & 0xFFD;
+    v5[1].Children[1] = (_RTL_BALANCED_NODE *)v15;
+    _BitScanForward(&v16, RegionSize);
+    v5[1].Children[1] = (_RTL_BALANCED_NODE *)(v15 ^ ((unsigned __int8)v15 ^ (unsigned __int8)(4 * v16)) & 0xFC);
+    LOWORD(v5[1].Children[0]) = ((_WORD)v31 << 12) - v33;
+    Size_4 = BYTE4(Size) & 1;
+    if ( !Size_4 )
+      RtlAcquireSRWLockExclusive(BaseAddress + 16);
+    v17 = BaseAddress[17].Value;
+    if ( (*(_BYTE *)&BaseAddress[18].0 & 1) != 0 )
+    {
+      if ( v17 )
+        v17 ^= (unsigned int)&BaseAddress[17];
+      else
+        v17 = 0;
+    }
+    v18 = *(_BYTE *)&BaseAddress[18].0 & 1;
+    Right[0] = 0;
+    if ( v17 )
     {
       while ( 1 )
       {
-        if ( (unsigned int)v25 < (*(_DWORD *)(v18 + 12) & 0xFFFF0000) )
+        if ( (unsigned int)BaseAddressa < (*(_DWORD *)(v17 + 12) & 0xFFFF0000) )
         {
-          v20 = *(_DWORD *)v18;
-          if ( v19 )
+          v19 = *(_DWORD *)v17;
+          if ( v18 )
           {
-            if ( !v20 )
+            if ( !v19 )
               goto LABEL_52;
-            v20 ^= v18;
+            v19 ^= v17;
           }
-          if ( !v20 )
+          if ( !v19 )
           {
 LABEL_52:
-            LOBYTE(v29) = 0;
+            Right[0] = 0;
             break;
           }
         }
         else
         {
-          v20 = *(_DWORD *)(v18 + 4);
-          if ( v19 )
+          v19 = *(_DWORD *)(v17 + 4);
+          if ( v18 )
           {
-            if ( !v20 )
+            if ( !v19 )
               goto LABEL_46;
-            v20 ^= v18;
+            v19 ^= v17;
           }
-          if ( !v20 )
+          if ( !v19 )
           {
 LABEL_46:
-            LOBYTE(v29) = 1;
+            Right[0] = 1;
             break;
           }
         }
-        v18 = v20;
+        v17 = v19;
       }
     }
-    RtlRbInsertNodeEx((int *)(a1 + 68), v18, v29, (int)v6);
-    if ( !v39 )
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
-    _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 76), v26 / 4096);
-    _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 80), v32);
-    v5 = v25;
-    v6 = 0;
-    v25 = 0;
+    RtlRbInsertNodeEx((PRTL_RB_TREE)&BaseAddress[17], (PRTL_BALANCED_NODE)v17, Right[0], v5);
+    if ( !Size_4 )
+      RtlReleaseSRWLockExclusive(BaseAddress + 16);
+    _InterlockedExchangeAdd((volatile signed __int32 *)&BaseAddress[19], (int)RegionSize / 4096);
+    _InterlockedExchangeAdd((volatile signed __int32 *)&BaseAddress[20], v31);
+    v4 = BaseAddressa;
+    v5 = 0;
+    BaseAddressa = 0;
     if ( RtlGetCurrentServiceSessionId() )
-      v21 = (int)NtCurrentPeb()->SharedData + 558;
+      v20 = (int)NtCurrentPeb()->SharedData + 558;
     else
-      v21 = 2147353480;
-    if ( *(_BYTE *)v21 )
+      v20 = 2147353480;
+    if ( *(_BYTE *)v20 )
     {
-      RtlpHeapLogRangeReserve(a1, (int)v5, v26);
+      RtlpHeapLogRangeReserve((int)BaseAddress, (int)v4, RegionSize);
       goto LABEL_62;
     }
   }
   else
   {
 LABEL_64:
-    if ( v25 )
-      RtlpHpFreeVA((int *)&v25, &v26, 0x8000, *(_DWORD *)a1, *(_DWORD *)(a1 + 4));
+    if ( BaseAddressa )
+      RtlpHpFreeVA(&BaseAddressa, &RegionSize, 0x8000, BaseAddress->Value, BaseAddress[1].Value);
   }
-  return v5;
+  return v4;
 }

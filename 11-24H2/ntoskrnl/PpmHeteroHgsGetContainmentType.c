@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroHgsGetContainmentType @ 0x1404BAFC0
+ * XREFs of PpmHeteroHgsGetContainmentType @ 0x1404B5E60
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140203248 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1404E2E24 (PpmHeteroUpdateHgsConfiguration.c)
  * Callees:
- *     KeIsSubsetAffinityEx @ 0x1403B34F0 (KeIsSubsetAffinityEx.c)
+ *     KeIsSubsetAffinityEx @ 0x1403A1D00 (KeIsSubsetAffinityEx.c)
  */
 
 __int64 __fastcall PpmHeteroHgsGetContainmentType(unsigned __int16 *a1, unsigned int *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PpmHeteroHgsGetContainmentType(unsigned __int16 *a1, unsigned
   if ( PpmParkNumNodes )
   {
     v5 = (unsigned int)PpmParkNumNodes;
-    v6 = (unsigned int **)(PpmParkNodes + 1272);
+    v6 = (unsigned int **)(PpmParkNodes + 1280);
     do
     {
       v7 = *v6;
@@ -40,7 +40,7 @@ __int64 __fastcall PpmHeteroHgsGetContainmentType(unsigned __int16 *a1, unsigned
         }
         ++v8;
       }
-      v6 += 161;
+      v6 += 162;
       --v5;
     }
     while ( v5 );

@@ -1,14 +1,14 @@
 /*
- * XREFs of AslpPathWildcardFreeFindContext @ 0x14088AC24
+ * XREFs of AslpPathWildcardFreeFindContext @ 0x140891020
  * Callers:
- *     AslPathWildcardFindClose @ 0x14077C9BC (AslPathWildcardFindClose.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x14077E1F0 (SdbpCheckMatchingWildcardFiles.c)
- *     AslPathWildcardFindFirst @ 0x140889920 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindClose @ 0x14077F4B0 (AslPathWildcardFindClose.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140780CF0 (SdbpCheckMatchingWildcardFiles.c)
+ *     AslPathWildcardFindFirst @ 0x14088FD1C (AslPathWildcardFindFirst.c)
  * Callees:
- *     ULongLongMult @ 0x14046FB90 (ULongLongMult.c)
- *     AslpPathWildcardFreeMatchNode @ 0x14088ACFC (AslpPathWildcardFreeMatchNode.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ULongLongMult @ 0x140469310 (ULongLongMult.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x1408910F8 (AslpPathWildcardFreeMatchNode.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AslpPathWildcardFreeFindContext(__int64 *a1)

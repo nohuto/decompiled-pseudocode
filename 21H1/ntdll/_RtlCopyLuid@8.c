@@ -6,12 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlCopyLuid(_DWORD *a1, _DWORD *a2)
+void __cdecl RtlCopyLuid(PLUID DestinationLuid, PLUID SourceLuid)
 {
-  int result; // eax
-
-  *a1 = *a2;
-  result = a2[1];
-  a1[1] = result;
-  return result;
+  *DestinationLuid = *SourceLuid;
 }

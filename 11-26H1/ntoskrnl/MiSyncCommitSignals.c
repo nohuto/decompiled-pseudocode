@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSyncCommitSignals @ 0x14047FAB8
+ * XREFs of MiSyncCommitSignals @ 0x140479400
  * Callers:
- *     MiComputeCommitThresholds @ 0x1404FA2DC (MiComputeCommitThresholds.c)
+ *     MiComputeCommitThresholds @ 0x1404F38EC (MiComputeCommitThresholds.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
  */
 
 void __fastcall MiSyncCommitSignals(__int64 a1, int a2)

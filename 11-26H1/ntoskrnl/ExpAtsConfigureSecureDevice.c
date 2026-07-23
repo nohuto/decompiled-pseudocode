@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAtsConfigureSecureDevice @ 0x1406D0540
+ * XREFs of ExpAtsConfigureSecureDevice @ 0x1406D4570
  * Callers:
- *     ExpAtsDereferenceDevice @ 0x1406D05D8 (ExpAtsDereferenceDevice.c)
- *     ExpPrepareNewAtsDevice @ 0x1406D06AC (ExpPrepareNewAtsDevice.c)
- *     ExAtsSvmSecureDevicePowerCallback @ 0x1406D10D0 (ExAtsSvmSecureDevicePowerCallback.c)
+ *     ExpAtsDereferenceDevice @ 0x1406D4608 (ExpAtsDereferenceDevice.c)
+ *     ExpPrepareNewAtsDevice @ 0x1406D46DC (ExpPrepareNewAtsDevice.c)
+ *     ExAtsSvmSecureDevicePowerCallback @ 0x1406D5100 (ExAtsSvmSecureDevicePowerCallback.c)
  * Callees:
- *     VslConfigureSecureAtsDevice @ 0x1405C2B74 (VslConfigureSecureAtsDevice.c)
+ *     VslConfigureSecureAtsDevice @ 0x1405C53E4 (VslConfigureSecureAtsDevice.c)
  */
 
 __int64 __fastcall ExpAtsConfigureSecureDevice(__int64 a1, char a2)

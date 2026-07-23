@@ -1,16 +1,16 @@
 /*
- * XREFs of AhcCacheQueryHwId @ 0x140828F30
+ * XREFs of AhcCacheQueryHwId @ 0x14082976C
  * Callers:
- *     NtApphelpCacheControl @ 0x140967860 (NtApphelpCacheControl.c)
+ *     NtApphelpCacheControl @ 0x1409502F0 (NtApphelpCacheControl.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     ExGetPreviousMode @ 0x140445830 (ExGetPreviousMode.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KseLookupHardwareId @ 0x14073FD4C (KseLookupHardwareId.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     ExGetPreviousMode @ 0x14043D9E0 (ExGetPreviousMode.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KseLookupHardwareId @ 0x14073DC7C (KseLookupHardwareId.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AhcCacheQueryHwId(char *Src)
@@ -39,7 +39,7 @@ __int64 __fastcall AhcCacheQueryHwId(char *Src)
       && SourceString.Length <= SourceString.MaximumLength
       && SourceString.Length <= 0xFFFCu )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, SourceString.Length + 2LL, 0x6F637061u);
       DestinationString.Buffer = Pool2;
       if ( Pool2 )
       {

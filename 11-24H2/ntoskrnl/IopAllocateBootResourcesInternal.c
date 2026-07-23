@@ -1,17 +1,17 @@
 /*
- * XREFs of IopAllocateBootResourcesInternal @ 0x1407252A8
+ * XREFs of IopAllocateBootResourcesInternal @ 0x140722E38
  * Callers:
- *     IopReleaseResources @ 0x1407244C4 (IopReleaseResources.c)
- *     IopAllocateBootResources @ 0x140725220 (IopAllocateBootResources.c)
+ *     IopReleaseResources @ 0x140722054 (IopReleaseResources.c)
+ *     IopAllocateBootResources @ 0x140722DB0 (IopAllocateBootResources.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopFreeReqList @ 0x14072192C (IopFreeReqList.c)
- *     IopBootAllocation @ 0x140725438 (IopBootAllocation.c)
- *     PnpCmResourcesToIoResources @ 0x140733330 (PnpCmResourcesToIoResources.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     IopResourceRequirementsListToReqList @ 0x140A6BCB4 (IopResourceRequirementsListToReqList.c)
- *     PnpBuildCmResourceList @ 0x140A936D4 (PnpBuildCmResourceList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopFreeReqList @ 0x14071F4BC (IopFreeReqList.c)
+ *     IopBootAllocation @ 0x140722FC8 (IopBootAllocation.c)
+ *     PnpCmResourcesToIoResources @ 0x140731264 (PnpCmResourcesToIoResources.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     IopResourceRequirementsListToReqList @ 0x140A65214 (IopResourceRequirementsListToReqList.c)
+ *     PnpBuildCmResourceList @ 0x140A8FE84 (PnpBuildCmResourceList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateBootResourcesInternal(int a1, __int64 a2, __int64 a3)

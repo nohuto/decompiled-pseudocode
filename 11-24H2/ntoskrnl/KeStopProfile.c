@@ -1,18 +1,18 @@
 /*
- * XREFs of KeStopProfile @ 0x1405BF174
+ * XREFs of KeStopProfile @ 0x1405BC7A4
  * Callers:
- *     KeStartProfile @ 0x1404D6890 (KeStartProfile.c)
- *     EtwTimeProfileReset @ 0x1407A95AC (EtwTimeProfileReset.c)
- *     ExpProfileDelete @ 0x1407C4160 (ExpProfileDelete.c)
- *     NtStopProfile @ 0x1407C4740 (NtStopProfile.c)
- *     EtwpDisableKernelTrace @ 0x1408E9BB0 (EtwpDisableKernelTrace.c)
- *     EtwpCoverageSamplerStop @ 0x140ADAAD0 (EtwpCoverageSamplerStop.c)
+ *     KeStartProfile @ 0x1404CFCE0 (KeStartProfile.c)
+ *     EtwTimeProfileReset @ 0x1407A96EC (EtwTimeProfileReset.c)
+ *     ExpProfileDelete @ 0x1407C1F80 (ExpProfileDelete.c)
+ *     NtStopProfile @ 0x1407C2560 (NtStopProfile.c)
+ *     EtwpDisableKernelTrace @ 0x14085B3E0 (EtwpDisableKernelTrace.c)
+ *     EtwpCoverageSamplerStop @ 0x140ADC310 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     KiStopProfileTarget @ 0x1403C8500 (KiStopProfileTarget.c)
- *     KeIpiGenericCall @ 0x1404677F0 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiStopProfileTarget @ 0x1403A55C0 (KiStopProfileTarget.c)
+ *     KeIpiGenericCall @ 0x14045F290 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall KeStopProfile(ULONG_PTR a1)

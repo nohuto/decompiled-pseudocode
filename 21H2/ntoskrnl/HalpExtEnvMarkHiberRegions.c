@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpExtEnvMarkHiberRegions @ 0x1403883E4
+ * XREFs of HalpExtEnvMarkHiberRegions @ 0x140388534
  * Callers:
- *     HaliLocateHiberRanges @ 0x140996620 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140997620 (HaliLocateHiberRanges.c)
  * Callees:
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
  */
 
 void __fastcall HalpExtEnvMarkHiberRegions(PVOID MemoryMap)

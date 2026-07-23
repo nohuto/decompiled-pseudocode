@@ -18,8 +18,8 @@ __int64 __fastcall PpmIdleInitializeConcurrency(unsigned __int16 *a1, _QWORD *a2
   int v6; // esi
   unsigned int GroupAffinity; // ebp
   _DWORD *PoolWithTag; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

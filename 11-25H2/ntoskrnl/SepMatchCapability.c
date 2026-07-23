@@ -9,19 +9,25 @@
  *     RtlSidHashLookup @ 0x140369A50 (RtlSidHashLookup.c)
  */
 
-__int64 __fastcall SepMatchCapability(__int64 a1, int a2, __int64 a3, int a4, _BYTE *a5, _DWORD *a6)
+PSID_AND_ATTRIBUTES __fastcall SepMatchCapability(
+        __int64 a1,
+        int a2,
+        void *a3,
+        int a4,
+        _SID_AND_ATTRIBUTES *a5,
+        _DWORD *a6)
 {
-  __int64 result; // rax
+  PSID_AND_ATTRIBUTES result; // rax
 
-  result = RtlSidHashLookup(a1 + 808, a3);
+  result = RtlSidHashLookup((PSID_AND_ATTRIBUTES_HASH)(a1 + 808), a3);
   if ( result )
   {
-    result = *(unsigned int *)(result + 8);
-    if ( (result & 4) != 0 )
+    result = (PSID_AND_ATTRIBUTES)result->Attributes;
+    if ( ((unsigned __int8)result & 4) != 0 )
     {
       *a6 |= a4 & a2;
-      result = (__int64)a5;
-      *a5 = 1;
+      result = a5;
+      LOBYTE(a5->Sid) = 1;
     }
   }
   return result;

@@ -48,7 +48,7 @@ __int64 __fastcall EtwpDisableTraceProviders(__int16 a1)
           v6 = 0;
           if ( *(_DWORD *)(result + 80) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
           {
-            RtlAcquireSRWLockExclusive((volatile signed __int32 *)(result + 64));
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(result + 64));
             v6 = 1;
             *(_DWORD *)(v4 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
           }
@@ -70,7 +70,7 @@ __int64 __fastcall EtwpDisableTraceProviders(__int16 a1)
           if ( v6 )
           {
             *(_DWORD *)(v4 + 80) = 0;
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v4 + 64));
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 64));
           }
         }
         break;

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapProcessExecutable @ 0x140962988
+ * XREFs of MiMapProcessExecutable @ 0x140A08810
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1409622B0 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x140A08138 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiFillPteHierarchy @ 0x14039FA50 (MiFillPteHierarchy.c)
- *     MmMapViewOfSectionEx @ 0x1404BCA5C (MmMapViewOfSectionEx.c)
- *     MiCfgInitializeProcess @ 0x14077898C (MiCfgInitializeProcess.c)
- *     PsMapSystemDlls @ 0x140962ADC (PsMapSystemDlls.c)
- *     MiMapAllImageScpPages @ 0x140962E18 (MiMapAllImageScpPages.c)
- *     MiCommitInitialVadMetadataBits @ 0x140962EBC (MiCommitInitialVadMetadataBits.c)
- *     PsSessionCreate @ 0x1409638D4 (PsSessionCreate.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiFillPteHierarchy @ 0x1403A17B0 (MiFillPteHierarchy.c)
+ *     MmMapViewOfSectionEx @ 0x1404B623C (MmMapViewOfSectionEx.c)
+ *     MiCfgInitializeProcess @ 0x14077B82C (MiCfgInitializeProcess.c)
+ *     PsMapSystemDlls @ 0x140A08964 (PsMapSystemDlls.c)
+ *     MiMapAllImageScpPages @ 0x140A08CA0 (MiMapAllImageScpPages.c)
+ *     MiCommitInitialVadMetadataBits @ 0x140A08D44 (MiCommitInitialVadMetadataBits.c)
+ *     PsSessionCreate @ 0x140A0975C (PsSessionCreate.c)
  */
 
 __int64 __fastcall MiMapProcessExecutable(ULONG_PTR a1, ULONG_PTR a2, _DWORD *a3)

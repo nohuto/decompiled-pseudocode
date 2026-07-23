@@ -1,10 +1,10 @@
 /*
- * XREFs of HvcallInitiateHypercall @ 0x140322550
+ * XREFs of HvcallInitiateHypercall @ 0x140322740
  * Callers:
- *     HvlpCommitLpIndices @ 0x1401B3CBC (HvlpCommitLpIndices.c)
- *     HvlpCreateRootVirtualProcessor @ 0x1408178D0 (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpCommitLpIndices @ 0x1401B3B5C (HvlpCommitLpIndices.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x140818AD0 (HvlpCreateRootVirtualProcessor.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
  */
 
 __int64 HvcallInitiateHypercall()

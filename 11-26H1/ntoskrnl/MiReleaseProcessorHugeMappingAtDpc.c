@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReleaseProcessorHugeMappingAtDpc @ 0x140705328
+ * XREFs of MiReleaseProcessorHugeMappingAtDpc @ 0x140709FF8
  * Callers:
- *     MiSoloZeroHugeRange @ 0x140705384 (MiSoloZeroHugeRange.c)
+ *     MiSoloZeroHugeRange @ 0x14070A054 (MiSoloZeroHugeRange.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
  */
 
 unsigned __int64 __fastcall MiReleaseProcessorHugeMappingAtDpc(unsigned __int64 a1, __int64 a2, unsigned __int8 a3)

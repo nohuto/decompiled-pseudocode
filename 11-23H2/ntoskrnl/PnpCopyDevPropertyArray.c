@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpCopyDevPropertyArray @ 0x140819B60
+ * XREFs of PnpCopyDevPropertyArray @ 0x140819E30
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
- *     PiSwCompleteCreate @ 0x1408197E4 (PiSwCompleteCreate.c)
- *     PiSwInterfaceCreate @ 0x14081B368 (PiSwInterfaceCreate.c)
- *     PiSwQueuedCreateInfoCreate @ 0x140967A00 (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x140819AB4 (PiSwCompleteCreate.c)
+ *     PiSwInterfaceCreate @ 0x14081B638 (PiSwInterfaceCreate.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x140967C00 (PiSwQueuedCreateInfoCreate.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     PnpCopyDevProperty @ 0x140819C30 (PnpCopyDevProperty.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     PnpCopyDevProperty @ 0x140819F00 (PnpCopyDevProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

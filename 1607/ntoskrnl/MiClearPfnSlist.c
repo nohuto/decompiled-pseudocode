@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClearPfnSlist @ 0x1401F2C58
+ * XREFs of MiClearPfnSlist @ 0x1401F2A84
  * Callers:
- *     MiCoalesceFreePages @ 0x140067870 (MiCoalesceFreePages.c)
+ *     MiCoalesceFreePages @ 0x1400673F0 (MiCoalesceFreePages.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 __fastcall MiClearPfnSlist(__int64 a1)

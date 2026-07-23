@@ -1,14 +1,14 @@
 /*
- * XREFs of PspCreateActivityReference @ 0x140A77250
+ * XREFs of PspCreateActivityReference @ 0x140A71370
  * Callers:
- *     NtAcquireProcessActivityReference @ 0x140A77130 (NtAcquireProcessActivityReference.c)
+ *     NtAcquireProcessActivityReference @ 0x140A71250 (NtAcquireProcessActivityReference.c)
  * Callees:
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     PsChargeProcessWakeCounter @ 0x14088E7A0 (PsChargeProcessWakeCounter.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     PsChargeProcessWakeCounter @ 0x1408983D0 (PsChargeProcessWakeCounter.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
  */
 
-__int64 __fastcall PspCreateActivityReference(__int64 a1, __int64 a2)
+__int64 __fastcall PspCreateActivityReference(void *a1, __int64 a2)
 {
   char PreviousMode; // r9
   __int64 result; // rax

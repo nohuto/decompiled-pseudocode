@@ -14,22 +14,19 @@ __int64 __fastcall HvlpSlowAcknowledgePageRequest(unsigned int a1, const void *a
 {
   __int64 v3; // rbx
   _QWORD *v6; // rcx
-  __int64 v8; // r9
-  __int128 v9; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v10; // [rsp+30h] [rbp-18h]
-  __int64 v11; // [rsp+68h] [rbp+20h]
+  PHYSICAL_ADDRESS v8[5]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+68h] [rbp+20h]
 
   v3 = a1;
-  v9 = 0LL;
-  v10 = 0LL;
-  v6 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v9, 5, 0LL, 0LL);
+  memset(v8, 0, 32);
+  v6 = HvlpAcquireHypercallPage(v8, 5, 0LL, 0LL);
   if ( v6 )
   {
     memmove(v6, a2, 40 * v3);
-    v11 = HvcallInitiateHypercall(166, *((__int64 *)&v10 + 1), 0LL, v8);
-    HvlpReleaseHypercallPage((__int64)&v9);
-    *a3 = WORD2(v11) & 0xFFF;
-    return (unsigned __int16)v11;
+    v9 = HvcallInitiateHypercall(166);
+    HvlpReleaseHypercallPage((__int64)v8);
+    *a3 = WORD2(v9) & 0xFFF;
+    return (unsigned __int16)v9;
   }
   else
   {

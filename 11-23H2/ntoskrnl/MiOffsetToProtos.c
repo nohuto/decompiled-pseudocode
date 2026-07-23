@@ -1,24 +1,24 @@
 /*
- * XREFs of MiOffsetToProtos @ 0x140288540
+ * XREFs of MiOffsetToProtos @ 0x1402887D0
  * Callers:
  *     MiReferenceDataSubsections @ 0x140211CA8 (MiReferenceDataSubsections.c)
  *     MiInsertInSystemSpace @ 0x140213D10 (MiInsertInSystemSpace.c)
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
- *     MiSetSystemCodeProtection @ 0x140284310 (MiSetSystemCodeProtection.c)
- *     MmMapViewInSystemCache @ 0x14029F630 (MmMapViewInSystemCache.c)
- *     MiRemoveMappedPtes @ 0x1402E65E0 (MiRemoveMappedPtes.c)
- *     MiSystemImageHasPrivateFixups @ 0x14033DD80 (MiSystemImageHasPrivateFixups.c)
- *     MiDereferenceDataSubsections @ 0x14066B108 (MiDereferenceDataSubsections.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
+ *     MiSetSystemCodeProtection @ 0x1402845A0 (MiSetSystemCodeProtection.c)
+ *     MmMapViewInSystemCache @ 0x14029F8C0 (MmMapViewInSystemCache.c)
+ *     MiRemoveMappedPtes @ 0x1402E6870 (MiRemoveMappedPtes.c)
+ *     MiSystemImageHasPrivateFixups @ 0x14033E010 (MiSystemImageHasPrivateFixups.c)
+ *     MiDereferenceDataSubsections @ 0x14066B658 (MiDereferenceDataSubsections.c)
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  *     MiScanRelocationPage @ 0x1406A9BD0 (MiScanRelocationPage.c)
  *     MiLogRelocationRva @ 0x1406ABDA0 (MiLogRelocationRva.c)
- *     MiAddMappedPtes @ 0x1406AD7A0 (MiAddMappedPtes.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiAddMappedPtes @ 0x1406AD7D0 (MiAddMappedPtes.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiLocatePagefileSubsection @ 0x140273840 (MiLocatePagefileSubsection.c)
- *     MiGetControlAreaPtes @ 0x140288610 (MiGetControlAreaPtes.c)
- *     MiLocateSubsectionNode @ 0x1402892C0 (MiLocateSubsectionNode.c)
+ *     MiLocatePagefileSubsection @ 0x140273AD0 (MiLocatePagefileSubsection.c)
+ *     MiGetControlAreaPtes @ 0x1402888A0 (MiGetControlAreaPtes.c)
+ *     MiLocateSubsectionNode @ 0x140289550 (MiLocateSubsectionNode.c)
  */
 
 unsigned int *__fastcall MiOffsetToProtos(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3)

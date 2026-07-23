@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipGetSMBiosEventlog @ 0x1408229B8
+ * XREFs of WmipGetSMBiosEventlog @ 0x140828BC8
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x140AC49C0 (WmipQueryWmiDataBlock.c)
+ *     WmipQueryWmiDataBlock @ 0x140AC6630 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     MmUnmapIoSpace @ 0x140343610 (MmUnmapIoSpace.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     RtlCopyDeviceMemory @ 0x14055978C (RtlCopyDeviceMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     WmipFindSMBiosStructure @ 0x1408227A4 (WmipFindSMBiosStructure.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     MmUnmapIoSpace @ 0x140345690 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     RtlCopyDeviceMemory @ 0x14055BC1C (RtlCopyDeviceMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     WmipFindSMBiosStructure @ 0x1408289B4 (WmipFindSMBiosStructure.c)
  */
 
 __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
@@ -57,7 +57,7 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
     {
       if ( BaseAddress )
         MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
-      ExReleaseResourceLite((PERESOURCE)&EtwpSecurityLock.WpsFeedback);
+      ExReleaseResourceLite(&WmipSMBiosLock);
       KeLeaveCriticalRegion();
       return 3221225473LL;
     }
@@ -67,7 +67,7 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
   {
     if ( BaseAddress )
       MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
-    ExReleaseResourceLite((PERESOURCE)&EtwpSecurityLock.WpsFeedback);
+    ExReleaseResourceLite(&WmipSMBiosLock);
     KeLeaveCriticalRegion();
     result = 3221225507LL;
   }
@@ -90,7 +90,7 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
     }
     if ( BaseAddress )
       MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
-    ExReleaseResourceLite((PERESOURCE)&EtwpSecurityLock.WpsFeedback);
+    ExReleaseResourceLite(&WmipSMBiosLock);
     KeLeaveCriticalRegion();
     if ( v9 == 3 && (NumberOfBytes = v10, v16 = (char *)MmMapIoSpaceEx(v10, v8, 4u), v17 = v16, v14) && v16 )
     {

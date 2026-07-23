@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptPowerChange @ 0x1404D1974
+ * XREFs of HalpInterruptPowerChange @ 0x1404D1BB4
  * Callers:
- *     HalpInterruptPowerComponentActiveCallback @ 0x1404D1A10 (HalpInterruptPowerComponentActiveCallback.c)
- *     HalpInterruptPowerComponentIdleCallback @ 0x1404D1A30 (HalpInterruptPowerComponentIdleCallback.c)
- *     HalpInterruptPowerCriticalTransitionCallback @ 0x1404D1A70 (HalpInterruptPowerCriticalTransitionCallback.c)
+ *     HalpInterruptPowerComponentActiveCallback @ 0x1404D1C50 (HalpInterruptPowerComponentActiveCallback.c)
+ *     HalpInterruptPowerComponentIdleCallback @ 0x1404D1C70 (HalpInterruptPowerComponentIdleCallback.c)
+ *     HalpInterruptPowerCriticalTransitionCallback @ 0x1404D1CB0 (HalpInterruptPowerCriticalTransitionCallback.c)
  * Callees:
- *     HalpInterruptRestoreController @ 0x14038B5B0 (HalpInterruptRestoreController.c)
- *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalpInterruptRestoreController @ 0x14038B700 (HalpInterruptRestoreController.c)
+ *     HalpInterruptInitializeController @ 0x1403A37A8 (HalpInterruptInitializeController.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpInterruptPowerChange(ULONG_PTR BugCheckParameter3, char a2)

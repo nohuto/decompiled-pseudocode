@@ -1,16 +1,16 @@
 /*
- * XREFs of ObReleaseObjectSecurity @ 0x140A5AB20
+ * XREFs of ObReleaseObjectSecurity @ 0x140A67A90
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x140260160 (SepSetProcessTrustLabelAceForToken.c)
- *     DifObReleaseObjectSecurityWrapper @ 0x140692750 (DifObReleaseObjectSecurityWrapper.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x140406340 (SepSetProcessTrustLabelAceForToken.c)
+ *     DifObReleaseObjectSecurityWrapper @ 0x140696330 (DifObReleaseObjectSecurityWrapper.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ObReleaseObjectSecurity(PSECURITY_DESCRIPTOR SecurityDescriptor, BOOLEAN MemoryAllocated)
@@ -29,10 +29,6 @@ void __stdcall ObReleaseObjectSecurity(PSECURITY_DESCRIPTOR SecurityDescriptor, 
   bool v13; // cc
   signed __int64 v14; // rcx
   volatile signed __int64 *i; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // rdx
-  __int64 v19; // r8
 
   if ( SecurityDescriptor )
   {
@@ -82,7 +78,7 @@ void __stdcall ObReleaseObjectSecurity(PSECURITY_DESCRIPTOR SecurityDescriptor, 
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock((volatile signed __int64 *)v7);
         KeAbPostRelease((unsigned __int64)v7);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread, v16, v17);
+        KeLeaveCriticalRegionThread((__int64)CurrentThread);
         ExFreePoolWithTag((PVOID)v3, 0x6353624Fu);
       }
       else
@@ -90,7 +86,7 @@ void __stdcall ObReleaseObjectSecurity(PSECURITY_DESCRIPTOR SecurityDescriptor, 
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock((volatile signed __int64 *)v7);
         KeAbPostRelease((unsigned __int64)v7);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread, v18, v19);
+        KeLeaveCriticalRegionThread((__int64)CurrentThread);
       }
     }
   }

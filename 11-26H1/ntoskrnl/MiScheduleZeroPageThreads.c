@@ -1,15 +1,15 @@
 /*
- * XREFs of MiScheduleZeroPageThreads @ 0x1402A8034
+ * XREFs of MiScheduleZeroPageThreads @ 0x1402A7444
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiIsCalibrationWorthwhile @ 0x1404CACF0 (MiIsCalibrationWorthwhile.c)
- *     MiReduceZeroingThreads @ 0x14051EB08 (MiReduceZeroingThreads.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIsCalibrationWorthwhile @ 0x1404C4720 (MiIsCalibrationWorthwhile.c)
+ *     MiReduceZeroingThreads @ 0x1405211AC (MiReduceZeroingThreads.c)
  */
 
 LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
@@ -118,7 +118,7 @@ LABEL_33:
       ++v9[1];
       goto LABEL_33;
     }
-    v12 = (unsigned int *)(v10 + *(_QWORD *)(384LL * v5 + qword_140E2D6B8 + 376) + 128LL);
+    v12 = (unsigned int *)(v10 + *(_QWORD *)(384LL * v5 + qword_140E2D838 + 376) + 128LL);
     IsCalibrationWorthwhile = MiIsCalibrationWorthwhile(v12, *v12, v5, 0LL);
     LowPart = v22.LowPart;
     if ( IsCalibrationWorthwhile )

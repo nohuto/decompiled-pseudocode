@@ -3,7 +3,7 @@
  * Callers:
  *     sub_1407E4280 @ 0x1407E4280 (sub_1407E4280.c)
  * Callees:
- *     WarbirdCrypto::CCipherFeistel64::CallRoundFunction @ 0x140361AB0 (WarbirdCrypto--CCipherFeistel64--CallRoundFunction.c)
+ *     sub_140361AB0 @ 0x140361AB0 (sub_140361AB0.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -58,18 +58,18 @@ void __fastcall sub_1406491E0(__int64 a1, _BYTE *a2, char *a3, unsigned int a4, 
     Size = a4 & 7;
     if ( (a4 & 7) != 0 )
     {
-      v14 = v11 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 9u, a5, a6);
-      v15 = a6 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 8u, a5, v14);
-      v16 = v14 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 7u, a5, v15);
-      v17 = v15 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 6u, a5, v16);
-      v18 = v16 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 5u, a5, v17);
-      v19 = v17 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 4u, a5, v18);
-      v20 = v18 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 3u, a5, v19);
-      v21 = v19 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 2u, a5, v20);
-      v22 = v20 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 1u, a5, v21);
+      v14 = v11 ^ sub_140361AB0(a1, 9u, a5, a6);
+      v15 = a6 ^ sub_140361AB0(a1, 8u, a5, v14);
+      v16 = v14 ^ sub_140361AB0(a1, 7u, a5, v15);
+      v17 = v15 ^ sub_140361AB0(a1, 6u, a5, v16);
+      v18 = v16 ^ sub_140361AB0(a1, 5u, a5, v17);
+      v19 = v17 ^ sub_140361AB0(a1, 4u, a5, v18);
+      v20 = v18 ^ sub_140361AB0(a1, 3u, a5, v19);
+      v21 = v19 ^ sub_140361AB0(a1, 2u, a5, v20);
+      v22 = v20 ^ sub_140361AB0(a1, 1u, a5, v21);
       v42 = 0LL;
       v43 = Size;
-      v23 = v21 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 0, a5, v22);
+      v23 = v21 ^ sub_140361AB0(a1, 0, a5, v22);
       memmove(&v42, a2, Size);
       v12 = v42;
       LODWORD(Src) = v42 ^ v22;
@@ -99,16 +99,16 @@ void __fastcall sub_1406491E0(__int64 a1, _BYTE *a2, char *a3, unsigned int a4, 
       {
         v27 = *(_QWORD *)((char *)v24 + (_QWORD)v26);
         v28 = v27 ^ v11;
-        v29 = HIDWORD(v27) ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(v10, 0, a5, v28) ^ v7;
-        v30 = v28 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(v10, 1u, a5, v29);
-        v31 = v29 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 2u, a5, v30);
-        v32 = v30 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 3u, a5, v31);
-        v33 = v31 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 4u, a5, v32);
-        v34 = v32 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 5u, a5, v33);
-        v35 = v33 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 6u, a5, v34);
-        v36 = v34 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 7u, a5, v35);
-        v37 = v35 ^ WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 8u, a5, v36);
-        v38 = WarbirdCrypto::CCipherFeistel64::CallRoundFunction(a1, 9u, a5, v37);
+        v29 = HIDWORD(v27) ^ sub_140361AB0(v10, 0, a5, v28) ^ v7;
+        v30 = v28 ^ sub_140361AB0(v10, 1u, a5, v29);
+        v31 = v29 ^ sub_140361AB0(a1, 2u, a5, v30);
+        v32 = v30 ^ sub_140361AB0(a1, 3u, a5, v31);
+        v33 = v31 ^ sub_140361AB0(a1, 4u, a5, v32);
+        v34 = v32 ^ sub_140361AB0(a1, 5u, a5, v33);
+        v35 = v33 ^ sub_140361AB0(a1, 6u, a5, v34);
+        v36 = v34 ^ sub_140361AB0(a1, 7u, a5, v35);
+        v37 = v35 ^ sub_140361AB0(a1, 8u, a5, v36);
+        v38 = sub_140361AB0(a1, 9u, a5, v37);
         v39 = Src;
         v11 = v12 ^ v36 ^ v38;
         v12 = v27;

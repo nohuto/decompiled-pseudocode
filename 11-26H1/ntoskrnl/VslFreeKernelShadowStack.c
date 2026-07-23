@@ -1,11 +1,11 @@
 /*
- * XREFs of VslFreeKernelShadowStack @ 0x140AE4C64
+ * XREFs of VslFreeKernelShadowStack @ 0x140AE2A1C
  * Callers:
- *     MiDeleteShadowStackPtes @ 0x1403407F4 (MiDeleteShadowStackPtes.c)
+ *     MiDeleteShadowStackPtes @ 0x140342874 (MiDeleteShadowStackPtes.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslFreeKernelShadowStack(__int64 a1)

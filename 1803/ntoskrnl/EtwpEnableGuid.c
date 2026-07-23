@@ -61,7 +61,7 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, __int64 a2, char a3)
   struct _KTHREAD *CurrentThread; // rax
   int CurrentThreadProcessId; // eax
   char v17; // bl
-  __int128 *v18; // rdx
+  const GUID *v18; // rdx
   bool v19; // zf
   __int64 GuidEntryByGuid; // rax
   unsigned int v21; // r13d
@@ -221,7 +221,7 @@ LABEL_31:
   v19 = BYTE2(v79) == 0;
   *(_DWORD *)(a2 + 36) = CurrentThreadProcessId;
   if ( v19 )
-    v18 = (__int128 *)(a2 + 40);
+    v18 = (const GUID *)(a2 + 40);
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, v18, v63);
   v8 = GuidEntryByGuid;
   if ( GuidEntryByGuid )

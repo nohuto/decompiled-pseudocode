@@ -1,9 +1,9 @@
 /*
- * XREFs of SepFlattenAcl @ 0x1405B8614
+ * XREFs of SepFlattenAcl @ 0x1405B8B84
  * Callers:
- *     SeLogAccessFailure @ 0x14035B34C (SeLogAccessFailure.c)
+ *     SeLogAccessFailure @ 0x14035B4EC (SeLogAccessFailure.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

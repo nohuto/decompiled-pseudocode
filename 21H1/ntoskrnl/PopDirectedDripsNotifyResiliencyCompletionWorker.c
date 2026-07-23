@@ -22,7 +22,7 @@ char __fastcall PopDirectedDripsNotifyResiliencyCompletionWorker(__int64 a1)
   unsigned int SessionId; // edx
   unsigned __int8 v6; // r14
   unsigned int v7; // r8d
-  unsigned __int64 v8; // rdi
+  __int64 v8; // rdi
   bool v9; // zf
   __int64 v10; // rcx
   int v11; // eax
@@ -61,7 +61,7 @@ char __fastcall PopDirectedDripsNotifyResiliencyCompletionWorker(__int64 a1)
     v9 = !_BitScanReverse((unsigned int *)&v10, v7);
     if ( v9 )
       goto LABEL_15;
-    v8 = (unsigned __int64)&CurrentThread->LockEntries[v10];
+    v8 = (__int64)&CurrentThread->LockEntries[v10];
     v7 &= ~(1 << v10);
     if ( (*(_BYTE *)(v8 + 26) & 1) != 0
       && (*(_DWORD *)(v8 + 32) & 1) == 0
@@ -82,14 +82,14 @@ LABEL_15:
   }
   *(_BYTE *)(v8 + 32) |= 2u;
   if ( *(__int64 *)(v8 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v8);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v8);
   v11 = *(_DWORD *)(v8 + 88) & 0x1FFFF;
   v12 = *(_DWORD *)(v8 + 88) & 0xFFFE0000;
   *(_BYTE *)(v8 + 25) &= ~1u;
   v20 = v11;
   *(_DWORD *)(v8 + 88) = v12;
   *(_QWORD *)(v8 + 32) = 0LL;
-  v13 = (__int64)(v8 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+  v13 = (signed __int64)(v8 - (unsigned __int64)CurrentThread->LockEntries) / 96;
   if ( v6 == 1 )
     CurrentThread->AbEntrySummary |= 1 << v13;
   else

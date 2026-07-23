@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIsCmciImplementedAMD @ 0x140B4C35C
+ * XREFs of HalpIsCmciImplementedAMD @ 0x140B4E39C
  * Callers:
- *     HalpCmciInitProcessor @ 0x14047D1E4 (HalpCmciInitProcessor.c)
+ *     HalpCmciInitProcessor @ 0x140478374 (HalpCmciInitProcessor.c)
  * Callees:
- *     HalpWheaReadMsrMisc @ 0x14047CEEC (HalpWheaReadMsrMisc.c)
+ *     HalpWheaReadMsrMisc @ 0x14047807C (HalpWheaReadMsrMisc.c)
  */
 
 char HalpIsCmciImplementedAMD()

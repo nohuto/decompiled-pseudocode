@@ -1,16 +1,16 @@
 /*
- * XREFs of IopCreateDefaultDeviceSecurityDescriptor @ 0x14047391C
+ * XREFs of IopCreateDefaultDeviceSecurityDescriptor @ 0x1404727EC
  * Callers:
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1404E1F74 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x1404D3B60 (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
- *     RtlGetNtProductType @ 0x1400ACBEC (RtlGetNtProductType.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlGetNtProductType @ 0x1400AB154 (RtlGetNtProductType.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     IopCreateSecurityDescriptorPerType @ 0x1404739FC (IopCreateSecurityDescriptorPerType.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x1404728CC (IopCreateSecurityDescriptorPerType.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
  */
 
 void *__fastcall IopCreateDefaultDeviceSecurityDescriptor(
@@ -33,7 +33,7 @@ void *__fastcall IopCreateDefaultDeviceSecurityDescriptor(
   ACL *v17; // rbp
   PSID v18; // r9
   ACCESS_MASK v19; // r8d
-  enum _NT_PRODUCT_TYPE ProductType; // [rsp+60h] [rbp+18h] BYREF
+  _NT_PRODUCT_TYPE ProductType; // [rsp+60h] [rbp+18h] BYREF
 
   LOBYTE(ProductType) = a3;
   v7 = a7;

@@ -3,19 +3,19 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 (*InbvNotifyDisplayOwnershipLost())(void)
+__int64 __fastcall InbvNotifyDisplayOwnershipLost(__int64 a1, __int64 a2)
 {
-  __int64 (*result)(void); // rax
+  __int64 result; // rax
 
-  result = (__int64 (*)(void))qword_140C54D10;
+  result = qword_140C54D10;
   if ( qword_140C54D10 )
   {
-    result = *(__int64 (**)(void))qword_140C54D10;
+    result = *(_QWORD *)qword_140C54D10;
     if ( *(_QWORD *)qword_140C54D10 )
-      return (__int64 (*)(void))result();
+      return sub_14042A5E0(a1, a2);
   }
   return result;
 }

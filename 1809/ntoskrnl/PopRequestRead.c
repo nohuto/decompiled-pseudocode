@@ -1,19 +1,19 @@
 /*
- * XREFs of PopRequestRead @ 0x14057D27C
+ * XREFs of PopRequestRead @ 0x14057E27C
  * Callers:
- *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
- *     PopDecompressCallback @ 0x14057CCC0 (PopDecompressCallback.c)
+ *     PopRestoreHiberContext @ 0x14056A770 (PopRestoreHiberContext.c)
+ *     PopDecompressCallback @ 0x14057DCC0 (PopDecompressCallback.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
- *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
- *     PopGetIoLocation @ 0x14056A930 (PopGetIoLocation.c)
- *     PopHiberChecksumHiberFileData @ 0x14056AA44 (PopHiberChecksumHiberFileData.c)
- *     ProducerConsumerBufferComplete @ 0x14056AED8 (ProducerConsumerBufferComplete.c)
- *     ProducerGetBuffer @ 0x14056AF68 (ProducerGetBuffer.c)
- *     PopHiberCheckForDebugBreak @ 0x14056AFF8 (PopHiberCheckForDebugBreak.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3514 (PopInternalAddToDumpFile.c)
+ *     PopCheckpointSystemSleep @ 0x14056A714 (PopCheckpointSystemSleep.c)
+ *     PopGetIoLocation @ 0x14056B930 (PopGetIoLocation.c)
+ *     PopHiberChecksumHiberFileData @ 0x14056BA44 (PopHiberChecksumHiberFileData.c)
+ *     ProducerConsumerBufferComplete @ 0x14056BED8 (ProducerConsumerBufferComplete.c)
+ *     ProducerGetBuffer @ 0x14056BF68 (ProducerGetBuffer.c)
+ *     PopHiberCheckForDebugBreak @ 0x14056BFF8 (PopHiberCheckForDebugBreak.c)
  */
 
 void __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, char a3)
@@ -67,14 +67,14 @@ void __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, char a3
             *(_QWORD *)(BugCheckParameter3 + 384),
             *(_QWORD *)(BugCheckParameter3 + 360));
           v9 = __rdtsc();
-          qword_140417CC8 += v9 - *(_QWORD *)(BugCheckParameter3 + 336);
+          qword_140418D68 += v9 - *(_QWORD *)(BugCheckParameter3 + 336);
           ProducerConsumerBufferComplete(
             v6,
             v6 + 32,
             *(_QWORD *)(BugCheckParameter3 + 384),
             *(_DWORD *)(BugCheckParameter3 + 360));
           v10 = __rdtsc();
-          qword_140417CF8 += (((unsigned __int64)HIDWORD(v10) << 32) | (unsigned int)v10) - v9;
+          qword_140418D98 += (((unsigned __int64)HIDWORD(v10) << 32) | (unsigned int)v10) - v9;
           v11 = *(_QWORD *)(BugCheckParameter3 + 360);
           v12 = *(_QWORD *)(BugCheckParameter3 + 400) == v11;
           *(_QWORD *)(BugCheckParameter3 + 400) -= v11;
@@ -88,7 +88,7 @@ void __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, char a3
           *(_DWORD *)(BugCheckParameter3 + 328) = 0;
           continue;
         }
-        ++qword_140417CD8;
+        ++qword_140418D78;
         v14 = __rdtsc();
         v15 = (*(__int64 (__fastcall **)(__int64, ULONG_PTR, __int64))(*(_QWORD *)(BugCheckParameter3 + 168) + 160LL))(
                 2LL,
@@ -103,7 +103,7 @@ void __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, char a3
           KeBugCheckEx(0xA0u, 0x10AuLL, 0xAuLL, BugCheckParameter3, BugCheckParameter4);
         }
         v17 = __rdtsc();
-        qword_140417CF0 += (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v14;
+        qword_140418D90 += (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v14;
         if ( (_DWORD)BugCheckParameter4 == 259 )
           return;
         *(_DWORD *)(BugCheckParameter3 + 328) = 2;
@@ -174,7 +174,7 @@ LABEL_34:
           KeBugCheckEx(0xA0u, 0x10AuLL, 0xAuLL, BugCheckParameter3, v27);
         }
         v28 = __rdtsc();
-        qword_140417CF0 += (((unsigned __int64)HIDWORD(v28) << 32) | (unsigned int)v28)
+        qword_140418D90 += (((unsigned __int64)HIDWORD(v28) << 32) | (unsigned int)v28)
                          - *(_QWORD *)(BugCheckParameter3 + 336);
         v29 = v20;
         v30 = *(_QWORD *)(BugCheckParameter3 + 400);

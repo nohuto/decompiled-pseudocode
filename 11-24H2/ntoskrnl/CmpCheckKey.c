@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCheckKey @ 0x14088506C
+ * XREFs of CmpCheckKey @ 0x140888F1C
  * Callers:
- *     CmpCheckRegistry2 @ 0x140884BD0 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x140888A80 (CmpCheckRegistry2.c)
  * Callees:
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmpKeySecurityIncrementReferenceCount @ 0x140494ECC (CmpKeySecurityIncrementReferenceCount.c)
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvIsCellAllocated @ 0x140875570 (HvIsCellAllocated.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpIncrementCachedSecurityRefcount @ 0x14088711C (CmpIncrementCachedSecurityRefcount.c)
- *     CmpCheckValueList @ 0x140887180 (CmpCheckValueList.c)
- *     CmpGetIndexElementSize @ 0x140A15234 (CmpGetIndexElementSize.c)
- *     CmpCheckLeaf @ 0x140AE363C (CmpCheckLeaf.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x14048F78C (CmpKeySecurityIncrementReferenceCount.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvIsCellAllocated @ 0x1408798A0 (HvIsCellAllocated.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpIncrementCachedSecurityRefcount @ 0x14088AFCC (CmpIncrementCachedSecurityRefcount.c)
+ *     CmpCheckValueList @ 0x14088B030 (CmpCheckValueList.c)
+ *     CmpGetIndexElementSize @ 0x140A0E054 (CmpGetIndexElementSize.c)
+ *     CmpCheckLeaf @ 0x140AE4F1C (CmpCheckLeaf.c)
  */
 
 __int64 __fastcall CmpCheckKey(

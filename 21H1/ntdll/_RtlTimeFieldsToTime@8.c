@@ -6,7 +6,7 @@
  *     _RtlpTimeFieldsToTime@12 @ 0x4B2DCF80 (_RtlpTimeFieldsToTime@12.c)
  */
 
-int __stdcall RtlTimeFieldsToTime(int a1, int a2)
+BOOLEAN __cdecl RtlTimeFieldsToTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time)
 {
-  return RtlpTimeFieldsToTime(a1, a2, 0);
+  return RtlpTimeFieldsToTime(TimeFields, Time, 0);
 }

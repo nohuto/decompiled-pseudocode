@@ -6,7 +6,7 @@
  *     _RtlDoesFileExists_UEx@8 @ 0x4B2E3164 (_RtlDoesFileExists_UEx@8.c)
  */
 
-char __stdcall RtlDoesFileExists_U(_WORD *a1)
+BOOLEAN __cdecl RtlDoesFileExists_U(PCWSTR FileName)
 {
-  return RtlDoesFileExists_UEx(a1, 1);
+  return RtlDoesFileExists_UEx(FileName, 1);
 }

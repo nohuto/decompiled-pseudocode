@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAdjustTraceBuffers @ 0x14008F670
+ * XREFs of EtwpAdjustTraceBuffers @ 0x14008F590
  * Callers:
  *     <none>
  * Callees:
  *     EtwpAdjustSiloTraceBuffers @ 0x140014E94 (EtwpAdjustSiloTraceBuffers.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PspGetNextSilo @ 0x140600968 (PspGetNextSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PspGetNextSilo @ 0x140601968 (PspGetNextSilo.c)
  */
 
 void EtwpAdjustTraceBuffers()
@@ -42,7 +42,7 @@ void EtwpAdjustTraceBuffers()
       v1 = v3;
       KeGetCurrentThread()[1].WaitBlock[3].WaitListEntry.Blink = Blink;
     }
-    if ( dword_14043F9E4 > 2 * (int)KeNumberProcessors_0 * dword_14043F9E0 )
+    if ( dword_140440AA4 > 2 * (int)KeNumberProcessors_0 * dword_140440AA0 )
     {
       do
       {
@@ -51,9 +51,9 @@ void EtwpAdjustTraceBuffers()
           break;
         ExFreePoolWithTag(v7, 0);
       }
-      while ( _InterlockedDecrement(&dword_14043F9E4) > 2 * (int)KeNumberProcessors_0 * dword_14043F9E0 );
+      while ( _InterlockedDecrement(&dword_140440AA4) > 2 * (int)KeNumberProcessors_0 * dword_140440AA0 );
     }
-    if ( dword_14043FA04 > 2 * (int)KeNumberProcessors_0 * dword_14043FA00 )
+    if ( dword_140440AC4 > 2 * (int)KeNumberProcessors_0 * dword_140440AC0 )
     {
       do
       {
@@ -62,7 +62,7 @@ void EtwpAdjustTraceBuffers()
           break;
         ExFreePoolWithTag(v8, 0);
       }
-      while ( _InterlockedDecrement(&dword_14043FA04) > 2 * (int)KeNumberProcessors_0 * dword_14043FA00 );
+      while ( _InterlockedDecrement(&dword_140440AC4) > 2 * (int)KeNumberProcessors_0 * dword_140440AC0 );
     }
     _InterlockedExchange(&EtwpBufferAdjustmentActive, 0);
   }

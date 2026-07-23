@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNetCompliantNicUpdate @ 0x14075C6B4
+ * XREFs of PopNetCompliantNicUpdate @ 0x14075B650
  * Callers:
- *     PopPdcCsDeviceNotification @ 0x140A89968 (PopPdcCsDeviceNotification.c)
+ *     PopPdcCsDeviceNotification @ 0x140A85D68 (PopPdcCsDeviceNotification.c)
  * Callees:
- *     PopNetSetConnectivityConstraint @ 0x14075CAB8 (PopNetSetConnectivityConstraint.c)
- *     PopNetClearConnectivityConstraint @ 0x140AC166C (PopNetClearConnectivityConstraint.c)
+ *     PopNetSetConnectivityConstraint @ 0x14075BA58 (PopNetSetConnectivityConstraint.c)
+ *     PopNetClearConnectivityConstraint @ 0x140ABC954 (PopNetClearConnectivityConstraint.c)
  */
 
 __int64 __fastcall PopNetCompliantNicUpdate(char a1)

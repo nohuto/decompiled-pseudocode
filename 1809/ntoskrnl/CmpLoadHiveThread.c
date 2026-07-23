@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpLoadHiveThread @ 0x140735B30
+ * XREFs of CmpLoadHiveThread @ 0x140736D20
  * Callers:
  *     <none>
  * Callees:
@@ -10,38 +10,38 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmpApplyAdminSdOnHiveFiles @ 0x1401B2E58 (CmpApplyAdminSdOnHiveFiles.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpGetFileSize @ 0x1405A6250 (CmpGetFileSize.c)
- *     CmpAcquireShutdownRundown @ 0x1405B0138 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x1405B0174 (CmpReleaseShutdownRundown.c)
- *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpInitHiveFromFile @ 0x1405B3D68 (CmpInitHiveFromFile.c)
- *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpDoFileSetSizeEx @ 0x1406B8940 (CmpDoFileSetSizeEx.c)
- *     RtlAppendStringToString @ 0x1406CB3E0 (RtlAppendStringToString.c)
- *     PsTerminateSystemThread @ 0x1406CC570 (PsTerminateSystemThread.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140736450 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
- *     CmpMarkCurrentValueDirty @ 0x1407367B4 (CmpMarkCurrentValueDirty.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140736880 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpInitBackupHive @ 0x1407F4420 (CmpInitBackupHive.c)
- *     CmpLogFailureToGetFileSize @ 0x1407FAAC0 (CmpLogFailureToGetFileSize.c)
- *     CmpDiskFullWarning @ 0x1407FB064 (CmpDiskFullWarning.c)
- *     ExRaiseHardError @ 0x1408D65E0 (ExRaiseHardError.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmpApplyAdminSdOnHiveFiles @ 0x1401B2F98 (CmpApplyAdminSdOnHiveFiles.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpGetFileSize @ 0x1405A7250 (CmpGetFileSize.c)
+ *     CmpAcquireShutdownRundown @ 0x1405B1138 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x1405B1174 (CmpReleaseShutdownRundown.c)
+ *     CmpLockRegistryExclusive @ 0x1405B26C8 (CmpLockRegistryExclusive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     CmpInitHiveFromFile @ 0x1405B4D68 (CmpInitHiveFromFile.c)
+ *     CmpOpenHiveFile @ 0x1405B5330 (CmpOpenHiveFile.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpDoFileSetSizeEx @ 0x1406B9BE0 (CmpDoFileSetSizeEx.c)
+ *     RtlAppendStringToString @ 0x1406CC680 (RtlAppendStringToString.c)
+ *     PsTerminateSystemThread @ 0x1406CD810 (PsTerminateSystemThread.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140737640 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     HvpDropPagedBins @ 0x140737784 (HvpDropPagedBins.c)
+ *     CmpMarkCurrentValueDirty @ 0x1407379A4 (CmpMarkCurrentValueDirty.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140737A70 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpInitBackupHive @ 0x1407F5620 (CmpInitBackupHive.c)
+ *     CmpLogFailureToGetFileSize @ 0x1407FBCC0 (CmpLogFailureToGetFileSize.c)
+ *     CmpDiskFullWarning @ 0x1407FC264 (CmpDiskFullWarning.c)
+ *     ExRaiseHardError @ 0x1408D78A0 (ExRaiseHardError.c)
  */
 
 PVOID __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
@@ -331,7 +331,7 @@ LABEL_92:
     if ( (_BYTE)v31 )
     {
       CmpInitRmLogOnLoad = 1;
-      v6 = &stru_1403FEE50;
+      v6 = &stru_1403FFE50;
       v7 = 7LL;
       do
       {

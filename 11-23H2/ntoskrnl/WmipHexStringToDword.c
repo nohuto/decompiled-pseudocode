@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipHexStringToDword @ 0x1406C5950
+ * XREFs of WmipHexStringToDword @ 0x1406C5980
  * Callers:
- *     WmipUuidFromString @ 0x1406C57E8 (WmipUuidFromString.c)
+ *     WmipUuidFromString @ 0x1406C5818 (WmipUuidFromString.c)
  * Callees:
  *     <none>
  */

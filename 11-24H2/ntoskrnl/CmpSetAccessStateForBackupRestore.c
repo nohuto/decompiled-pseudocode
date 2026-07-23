@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpSetAccessStateForBackupRestore @ 0x1409174CC
+ * XREFs of CmpSetAccessStateForBackupRestore @ 0x14090AF3C
  * Callers:
- *     CmpCheckCreateAccessOnKcbStack @ 0x140868520 (CmpCheckCreateAccessOnKcbStack.c)
- *     CmpCheckKeySecurityDescriptorAccess @ 0x14091735C (CmpCheckKeySecurityDescriptorAccess.c)
+ *     CmpCheckCreateAccessOnKcbStack @ 0x14086C810 (CmpCheckCreateAccessOnKcbStack.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x14090ADCC (CmpCheckKeySecurityDescriptorAccess.c)
  * Callees:
- *     SeSinglePrivilegeCheckEx @ 0x140853CA0 (SeSinglePrivilegeCheckEx.c)
- *     SepAdjustAccessStateForConstraints @ 0x1409175B0 (SepAdjustAccessStateForConstraints.c)
+ *     SeSinglePrivilegeCheckEx @ 0x14084FF60 (SeSinglePrivilegeCheckEx.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14090B020 (SepAdjustAccessStateForConstraints.c)
  */
 
 __int64 __fastcall CmpSetAccessStateForBackupRestore(_DWORD *a1, char a2, __int64 a3, char a4)

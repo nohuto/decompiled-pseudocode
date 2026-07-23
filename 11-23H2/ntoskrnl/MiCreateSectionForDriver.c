@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateSectionForDriver @ 0x1407D4148
+ * XREFs of MiCreateSectionForDriver @ 0x1407D4418
  * Callers:
- *     MiObtainSectionForDriver @ 0x1407047B8 (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x1407049C8 (MiObtainSectionForDriver.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     MiCreateSystemSection @ 0x14035F7A0 (MiCreateSystemSection.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     MiLogFailedDriverLoad @ 0x140A30284 (MiLogFailedDriverLoad.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     MiCreateSystemSection @ 0x14035F940 (MiCreateSystemSection.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     MiLogFailedDriverLoad @ 0x140A30534 (MiLogFailedDriverLoad.c)
  *     KdPullRemoteFile @ 0x140AB0CCC (KdPullRemoteFile.c)
  */
 

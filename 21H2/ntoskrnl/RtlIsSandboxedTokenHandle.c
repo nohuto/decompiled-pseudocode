@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlIsSandboxedTokenHandle @ 0x1402D2E70
+ * XREFs of RtlIsSandboxedTokenHandle @ 0x140251410
  * Callers:
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwDuplicateToken @ 0x1403FABE0 (ZwDuplicateToken.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwDuplicateToken @ 0x1403FADC0 (ZwDuplicateToken.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     RtlIsSandboxedToken @ 0x14071C8A0 (RtlIsSandboxedToken.c)
  */
 
 char __fastcall RtlIsSandboxedTokenHandle(void *a1)

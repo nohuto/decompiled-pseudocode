@@ -1,52 +1,61 @@
 /*
- * XREFs of CmpDoLocalizeNextHive @ 0x14071C8D0
+ * XREFs of CmpDoLocalizeNextHive @ 0x140664500
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     HvHiveConvertLockedPagesToCowByPolicy @ 0x14071C980 (HvHiveConvertLockedPagesToCowByPolicy.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     HvHiveConvertLockedPagesToCowByPolicy @ 0x140664438 (HvHiveConvertLockedPagesToCowByPolicy.c)
+ *     CmpGetNextActiveHive @ 0x140667750 (CmpGetNextActiveHive.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
  */
 
 char __fastcall CmpDoLocalizeNextHive(_BYTE *a1, _QWORD *a2)
 {
   char v2; // di
   struct _KTHREAD *CurrentThread; // rax
-  struct _EX_RUNDOWN_REF *i; // rcx
-  __int64 *NextActiveHive; // rsi
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 i; // rcx
+  __int64 v8; // rcx
+  __int64 NextActiveHive; // rsi
   int locked; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
 
   v2 = 0;
   *a2 = 10000000LL * (unsigned int)dword_140C00584;
   *a1 = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
-    for ( i = 0LL; ; i = (struct _EX_RUNDOWN_REF *)NextActiveHive )
+    for ( i = 0LL; ; i = NextActiveHive )
     {
       NextActiveHive = CmpGetNextActiveHive(i);
       if ( !NextActiveHive )
         break;
-      CmpLockRegistry();
+      CmpLockRegistry(v8);
       locked = HvHiveConvertLockedPagesToCowByPolicy(NextActiveHive);
-      CmpUnlockRegistry();
+      CmpUnlockRegistry(v12, v11);
       if ( locked < 0 )
       {
         v2 = 1;
         break;
       }
     }
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
   }
   else
   {
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v4, v5, v6);
     return 1;
   }
   return v2;

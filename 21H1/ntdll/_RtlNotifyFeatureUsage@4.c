@@ -8,10 +8,11 @@
  *     _RtlpFcSendFeatureUsageNotifications@12 @ 0x4B375C97 (_RtlpFcSendFeatureUsageNotifications@12.c)
  */
 
-int __thiscall RtlNotifyFeatureUsage(void *this, int a2)
+NTSTATUS __cdecl RtlNotifyFeatureUsage(PRTL_FEATURE_USAGE_REPORT FeatureUsageReport)
 {
-  int v2; // esi
-  int v3; // eax
+  int v1; // ecx
+  NTSTATUS v2; // esi
+  NTSTATUS v3; // eax
   int v4; // edi
   int v6; // [esp+0h] [ebp-1Ch]
   int v7; // [esp+4h] [ebp-18h]
@@ -21,7 +22,7 @@ int __thiscall RtlNotifyFeatureUsage(void *this, int a2)
   v9 = 0;
   if ( byte_4B3A5DA8 )
     return -1073741058;
-  v3 = RtlpFcReferenceFeatureConfigurationBuffers((int)this, 1, v8, &v9);
+  v3 = RtlpFcReferenceFeatureConfigurationBuffers(v1, 1, v8, &v9);
   v4 = v9;
   v2 = v3;
   if ( v3 >= 0 )

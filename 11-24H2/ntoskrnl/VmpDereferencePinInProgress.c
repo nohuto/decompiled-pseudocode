@@ -1,10 +1,10 @@
 /*
- * XREFs of VmpDereferencePinInProgress @ 0x14064A7B4
+ * XREFs of VmpDereferencePinInProgress @ 0x140648D74
  * Callers:
- *     VmpPinMemoryRange @ 0x14064ACC0 (VmpPinMemoryRange.c)
- *     VmpUnpinMemoryRangeHelper @ 0x14064B360 (VmpUnpinMemoryRangeHelper.c)
+ *     VmpPinMemoryRange @ 0x140649280 (VmpPinMemoryRange.c)
+ *     VmpUnpinMemoryRangeHelper @ 0x140649920 (VmpUnpinMemoryRangeHelper.c)
  * Callees:
- *     VmpVaRangeCheckPinnedGpaRanges @ 0x14064B89C (VmpVaRangeCheckPinnedGpaRanges.c)
+ *     VmpVaRangeCheckPinnedGpaRanges @ 0x140649E5C (VmpVaRangeCheckPinnedGpaRanges.c)
  */
 
 __int64 __fastcall VmpDereferencePinInProgress(__int64 a1)

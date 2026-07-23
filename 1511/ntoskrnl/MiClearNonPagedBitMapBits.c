@@ -9,11 +9,11 @@
 
 __int64 __fastcall MiClearNonPagedBitMapBits(__int64 a1, volatile LONG *a2, ULONG a3, ULONG a4)
 {
-  struct _RTL_BITMAP *v4; // rdi
+  _RTL_BITMAP *v4; // rdi
   KIRQL v8; // bl
   __int64 v9; // rdx
 
-  v4 = *(struct _RTL_BITMAP **)(a1 + 80);
+  v4 = *(_RTL_BITMAP **)(a1 + 80);
   v8 = ExAcquireSpinLockExclusive(a2);
   RtlClearBits(v4, a3, a4);
   LOBYTE(v9) = v8;

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCreate @ 0x1800C0E1C
+ * XREFs of RtlpHpLfhSubsegmentCreate @ 0x1800BE5AC
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x1800B2AA0 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1800AFFC0 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpLogHeapSubSegmentActivate @ 0x180016F40 (RtlpLogHeapSubSegmentActivate.c)
- *     RtlpLogHeapSubSegmentAlloc @ 0x180038044 (RtlpLogHeapSubSegmentAlloc.c)
- *     RtlpLogHeapSubSegmentInitialize @ 0x1800752EC (RtlpLogHeapSubSegmentInitialize.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x1800933DC (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpCalculateSubsegmentSizeIndex @ 0x1800C10B0 (RtlpCalculateSubsegmentSizeIndex.c)
- *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x1800C10F0 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
- *     RtlpHpLfhSubsegmentInitialize @ 0x1800C11AC (RtlpHpLfhSubsegmentInitialize.c)
- *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x1800C1680 (RtlpHpLfhSubsegmentComputeCommitUnit.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpLogHeapSubSegmentAlloc @ 0x180001D14 (RtlpLogHeapSubSegmentAlloc.c)
+ *     RtlpLogHeapSubSegmentActivate @ 0x180002020 (RtlpLogHeapSubSegmentActivate.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x180072340 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpLogHeapSubSegmentInitialize @ 0x180095EDC (RtlpLogHeapSubSegmentInitialize.c)
+ *     RtlpCalculateSubsegmentSizeIndex @ 0x1800BE840 (RtlpCalculateSubsegmentSizeIndex.c)
+ *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x1800BE880 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1800BE93C (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x1800BEE10 (RtlpHpLfhSubsegmentComputeCommitUnit.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 unsigned __int16 *__fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, volatile signed __int64 *a2, int a3)
@@ -34,17 +34,15 @@ unsigned __int16 *__fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, volatile sign
   unsigned int v22; // ecx
   unsigned __int64 v23; // rcx
   void **TlsExpansionSlots; // rdx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  signed __int32 v27[8]; // [rsp+0h] [rbp-88h] BYREF
-  __int64 v28; // [rsp+40h] [rbp-48h]
-  int v29; // [rsp+90h] [rbp+8h] BYREF
-  int v30; // [rsp+98h] [rbp+10h] BYREF
-  int v31; // [rsp+A8h] [rbp+20h] BYREF
+  signed __int32 v25[8]; // [rsp+0h] [rbp-88h] BYREF
+  __int64 v26; // [rsp+40h] [rbp-48h]
+  int v27; // [rsp+90h] [rbp+8h] BYREF
+  int v28; // [rsp+98h] [rbp+10h] BYREF
+  int v29; // [rsp+A8h] [rbp+20h] BYREF
 
   v3 = 0LL;
-  v31 = 0;
   v29 = 0;
+  v27 = 0;
   v7 = (unsigned __int16)RtlpBucketBlockSizes[(*(unsigned __int8 *)a2 >> 1) + 1];
   v8 = RtlpHpLfhBucketComputeNewSubsegmentBlockCount(a2, (unsigned int)a3);
   v9 = (8 * (((unsigned __int64)v8 + 31) >> 5) + 79) & 0xFFFFFFF0;
@@ -64,18 +62,18 @@ unsigned __int16 *__fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, volatile sign
   v14 = (unsigned __int16 *)((__int64 (__fastcall *)(_QWORD, _QWORD, int *, int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 8)))(
                               *(_QWORD *)a1,
                               v13,
-                              &v29,
-                              &v31);
+                              &v27,
+                              &v29);
   if ( v14 )
   {
-    if ( a3 >= 1 || (v29 & 1) != 0 )
+    if ( a3 >= 1 || (v27 & 1) != 0 )
       v15 = v13;
     else
       v15 = RtlpHpLfhSubsegmentComputeCommitUnit(v13, (unsigned int)v7);
     v16 = *(_QWORD *)a1;
     v17 = (int (__fastcall *)(__int64, unsigned __int16 *, _QWORD, int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24));
-    v30 = 0;
-    if ( v17(v16, v14, v15, &v30) < 0 )
+    v28 = 0;
+    if ( v17(v16, v14, v15, &v28) < 0 )
     {
       ((void (__fastcall *)(_QWORD, unsigned __int16 *, _QWORD, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 16)))(
         *(_QWORD *)a1,
@@ -84,8 +82,8 @@ unsigned __int16 *__fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, volatile sign
         0LL);
       return (unsigned __int16 *)v3;
     }
-    RtlpHpLfhSubsegmentInitialize(v14, (__int64)a2, a1, v30 == 0);
-    _InterlockedOr(v27, 0);
+    RtlpHpLfhSubsegmentInitialize(v14, (__int64)a2, a1, v28 == 0);
+    _InterlockedOr(v25, 0);
     _InterlockedAdd64(a2 + 8, 1uLL);
     _InterlockedAdd64(a2 + 7, v14[17]);
     if ( *(char *)(*(_QWORD *)(*(_QWORD *)a1 + 56LL) + 20LL) >= 0 )
@@ -104,15 +102,15 @@ unsigned __int16 *__fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, volatile sign
     }
     if ( v23 )
     {
-      v28 = v23;
+      v26 = v23;
 LABEL_26:
       RtlpLogHeapSubSegmentAlloc(*(_QWORD *)(*(_QWORD *)a1 + 56LL), (__int64)v14, v13, v7, 2);
-      RtlpLogHeapSubSegmentInitialize(*(_QWORD *)(*(_QWORD *)a1 + 56LL), (__int64)v14, v7 >> 4, v14[17], BYTE4(v28));
-      RtlpLogHeapSubSegmentActivate(*(_QWORD *)(*(_QWORD *)a1 + 56LL), (__int64)v14, v25, v26);
+      RtlpLogHeapSubSegmentInitialize(*(_QWORD *)(*(_QWORD *)a1 + 56LL), (__int64)v14, v7 >> 4, v14[17], BYTE4(v26));
+      RtlpLogHeapSubSegmentActivate(*(_QWORD *)(*(_QWORD *)a1 + 56LL), (__int64)v14);
       return v14;
     }
 LABEL_25:
-    v28 = RtlpHpLfhThreadDataInitializeSet(a1);
+    v26 = RtlpHpLfhThreadDataInitializeSet(a1);
     goto LABEL_26;
   }
   return (unsigned __int16 *)v3;

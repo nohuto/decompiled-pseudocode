@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpWorkItemQueueWork @ 0x14037459C
+ * XREFs of CmpWorkItemQueueWork @ 0x14037473C
  * Callers:
- *     CmpNotifyMachineHiveLoaded @ 0x1403743E4 (CmpNotifyMachineHiveLoaded.c)
- *     CmFcManagerRecordFeatureUsage @ 0x140419A58 (CmFcManagerRecordFeatureUsage.c)
- *     CmFcpManagerFlushUsageTimerRoutine @ 0x140419D60 (CmFcpManagerFlushUsageTimerRoutine.c)
- *     CmFcpManagerPublishFeatureUsageDataIfNearCapacityDpc @ 0x140419DB0 (CmFcpManagerPublishFeatureUsageDataIfNearCapacityDpc.c)
- *     CmFcpManagerPublishUsageTimerRoutine @ 0x140419E00 (CmFcpManagerPublishUsageTimerRoutine.c)
- *     CmFcManagerNotifyFeatureUsage @ 0x140617134 (CmFcManagerNotifyFeatureUsage.c)
- *     CmFcpManagerDrainUsageNotificationsDpc @ 0x140617290 (CmFcpManagerDrainUsageNotificationsDpc.c)
- *     CmFcpManagerRetryUsageNotificationsTimerRoutine @ 0x1406172B0 (CmFcpManagerRetryUsageNotificationsTimerRoutine.c)
+ *     CmpNotifyMachineHiveLoaded @ 0x140374584 (CmpNotifyMachineHiveLoaded.c)
+ *     CmFcManagerRecordFeatureUsage @ 0x140419DE8 (CmFcManagerRecordFeatureUsage.c)
+ *     CmFcpManagerFlushUsageTimerRoutine @ 0x14041A0F0 (CmFcpManagerFlushUsageTimerRoutine.c)
+ *     CmFcpManagerPublishFeatureUsageDataIfNearCapacityDpc @ 0x14041A140 (CmFcpManagerPublishFeatureUsageDataIfNearCapacityDpc.c)
+ *     CmFcpManagerPublishUsageTimerRoutine @ 0x14041A190 (CmFcpManagerPublishUsageTimerRoutine.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x140617684 (CmFcManagerNotifyFeatureUsage.c)
+ *     CmFcpManagerDrainUsageNotificationsDpc @ 0x1406177E0 (CmFcpManagerDrainUsageNotificationsDpc.c)
+ *     CmFcpManagerRetryUsageNotificationsTimerRoutine @ 0x140617800 (CmFcpManagerRetryUsageNotificationsTimerRoutine.c)
  *     CmFcManagerFlushFeatureUsage @ 0x14067F5CC (CmFcManagerFlushFeatureUsage.c)
  *     CmFcpManagerProcessUsageDataProviders @ 0x14067FD84 (CmFcpManagerProcessUsageDataProviders.c)
  *     CmFcpManagerPublishFeatureUsageData @ 0x14067FF3C (CmFcpManagerPublishFeatureUsageData.c)
- *     CmRegisterMachineHiveLoadedNotification @ 0x14080E160 (CmRegisterMachineHiveLoadedNotification.c)
- *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x14080E75C (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
- *     CmFcpManagerPublishChangeNotifications @ 0x140A27C54 (CmFcpManagerPublishChangeNotifications.c)
+ *     CmRegisterMachineHiveLoadedNotification @ 0x14080E430 (CmRegisterMachineHiveLoadedNotification.c)
+ *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x14080EA2C (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
+ *     CmFcpManagerPublishChangeNotifications @ 0x140A27F04 (CmFcpManagerPublishChangeNotifications.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void __fastcall CmpWorkItemQueueWork(PWORK_QUEUE_ITEM WorkItem)

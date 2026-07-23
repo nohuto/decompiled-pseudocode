@@ -47,15 +47,13 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
     if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v8) )
       break;
     if ( (MiFlags & 0x10000) != 0 )
-      MiActOnLargeKernelHalPages(
-        v8,
-        (__int64 (__fastcall *)(unsigned __int64, __int64))MiValidateKernelHalLargePageRange);
+      MiActOnLargeKernelHalPages((char *)v8, (__int64 (__fastcall *)(char *, char *))MiValidateKernelHalLargePageRange);
 LABEL_13:
     v2 = (__int64 *)*v2;
   }
   v9 = ((unsigned int)dword_140C4CBF0 >> 12)
      + (unsigned int)(((unsigned __int64)*((unsigned int *)v2 + 16) + 4095) >> 12);
-  if ( v8 != PsHalImageBase && v8 != PsNtosImageBase )
+  if ( (PVOID)v8 != PsHalImageBase && (PVOID)v8 != PsNtosImageBase )
     v9 = (unsigned int)(dword_140C4CB8C + v9);
   v10 = v6 + 8 * v9;
   v7 = (unsigned int)v9;
@@ -64,7 +62,7 @@ LABEL_13:
   if ( v6 >= v10 )
   {
 LABEL_10:
-    if ( v8 != PsHalImageBase && v8 != PsNtosImageBase )
+    if ( (PVOID)v8 != PsHalImageBase && (PVOID)v8 != PsNtosImageBase )
     {
       _InterlockedExchangeAdd(&dword_140C4EF10, v9);
       qword_140C4EEF0 -= v7;

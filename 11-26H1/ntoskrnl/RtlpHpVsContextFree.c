@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVsContextFree @ 0x140352D10
+ * XREFs of RtlpHpVsContextFree @ 0x140354D90
  * Callers:
- *     RtlpHpSegFreeInternal @ 0x140352AC8 (RtlpHpSegFreeInternal.c)
- *     RtlpFreeNTHeapInternal @ 0x140352C30 (RtlpFreeNTHeapInternal.c)
+ *     RtlpHpSegFreeInternal @ 0x140354B48 (RtlpHpSegFreeInternal.c)
+ *     RtlpFreeNTHeapInternal @ 0x140354CB0 (RtlpFreeNTHeapInternal.c)
  * Callees:
- *     RtlpHpVsSlotFreeList @ 0x140352F9C (RtlpHpVsSlotFreeList.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
+ *     RtlpHpVsSlotFreeList @ 0x14035501C (RtlpHpVsSlotFreeList.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFree(__int64 a1, _WORD *a2, __int64 a3, unsigned int *a4)
@@ -16,8 +16,8 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, _WORD *a2, __int64 a3, unsign
   PSLIST_ENTRY v6; // rsi
   __int64 v7; // rax
   unsigned int v8; // ecx
-  union _SLIST_HEADER *v9; // r14
-  union _SLIST_HEADER *v10; // rcx
+  _SLIST_HEADER *v9; // r14
+  _SLIST_HEADER *v10; // rcx
   __int64 v12; // rdx
   int v13; // ecx
 
@@ -72,7 +72,7 @@ LABEL_21:
     {
       LOBYTE(v7) = *(_BYTE *)(a1 + 4);
       v8 = 16 * WORD1(v7) - 16;
-      v9 = (union _SLIST_HEADER *)(a1 + ((unsigned __int64)(unsigned __int16)a2[17] << 6));
+      v9 = (_SLIST_HEADER *)(a1 + ((unsigned __int64)(unsigned __int16)a2[17] << 6));
       *a4 = v8;
       if ( (v7 & 2) != 0 && v8 < 0x1000 )
       {

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViCopyDeviceDescription @ 0x14092D248
+ * XREFs of ViCopyDeviceDescription @ 0x14092E248
  * Callers:
- *     ViHookDmaAdapter @ 0x14092DF30 (ViHookDmaAdapter.c)
+ *     ViHookDmaAdapter @ 0x14092EF30 (ViHookDmaAdapter.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030B008 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x14092ED28 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall ViCopyDeviceDescription(__int64 a1, unsigned int *a2)
@@ -13,8 +13,8 @@ __int64 __fastcall ViCopyDeviceDescription(__int64 a1, unsigned int *a2)
 
   if ( *a2 > 3 )
   {
-    ViHalPreprocessOptions(byte_140405450, "Unknown version %x for DEVICE_DESCRIPTION (%p)", 37, (const void *)*a2);
-    VfReportIssueWithOptions(0xE6u, 0x25uLL, *a2, (ULONG_PTR)a2, 0LL, byte_140405450);
+    ViHalPreprocessOptions(byte_14040646C, "Unknown version %x for DEVICE_DESCRIPTION (%p)", 37, (const void *)*a2);
+    VfReportIssueWithOptions(0xE6u, 0x25uLL, *a2, (ULONG_PTR)a2, 0LL, byte_14040646C);
   }
   *(_BYTE *)(a1 + 4) = *((_BYTE *)a2 + 4);
   *(_BYTE *)(a1 + 5) = *((_BYTE *)a2 + 5);

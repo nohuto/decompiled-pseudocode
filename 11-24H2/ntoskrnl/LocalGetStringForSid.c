@@ -1,15 +1,15 @@
 /*
- * XREFs of LocalGetStringForSid @ 0x140A6C7F0
+ * XREFs of LocalGetStringForSid @ 0x140A66038
  * Callers:
- *     GetPrintableOperandValue @ 0x140861C7C (GetPrintableOperandValue.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x140862DB8 (LocalConvertSDToStringSD_Rev1.c)
- *     LocalGetStringForRelativeAttribute @ 0x140AAA0A0 (LocalGetStringForRelativeAttribute.c)
+ *     GetPrintableOperandValue @ 0x140866288 (GetPrintableOperandValue.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1408673C8 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalGetStringForRelativeAttribute @ 0x140AA5150 (LocalGetStringForRelativeAttribute.c)
  * Callees:
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     LocalConvertSidToStringSidW @ 0x140861E34 (LocalConvertSidToStringSidW.c)
- *     SddlpAlloc @ 0x1408638C4 (SddlpAlloc.c)
- *     LookupSidInTable @ 0x140866BD0 (LookupSidInTable.c)
- *     RtlNtStatusToDosError @ 0x140867430 (RtlNtStatusToDosError.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     LocalConvertSidToStringSidW @ 0x140866440 (LocalConvertSidToStringSidW.c)
+ *     SddlpAlloc @ 0x140867ED4 (SddlpAlloc.c)
+ *     LookupSidInTable @ 0x14086B1E0 (LookupSidInTable.c)
+ *     RtlNtStatusToDosError @ 0x14086B8C0 (RtlNtStatusToDosError.c)
  */
 
 __int64 __fastcall LocalGetStringForSid(PSID Sid, wchar_t **a2, __int64 a3, __int64 a4, int a5, char a6)

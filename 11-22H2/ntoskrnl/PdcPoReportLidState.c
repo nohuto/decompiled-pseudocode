@@ -9,36 +9,38 @@
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PdcPoReportLidState(int a1)
-{
-  char v1; // di
-  int v2; // ebx
-  bool v3; // zf
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  int v8; // [rsp+30h] [rbp+8h] BYREF
-
-  v1 = a1;
-  PopAcquirePolicyLock(a1);
-  v2 = 0;
-  if ( PopErrataReportingIncorrectLidState || PopLidOpened == v1 )
-  {
-LABEL_6:
-    v3 = v1 == 0;
-    goto LABEL_7;
-  }
-  PopLidOpened = v1;
-  v3 = v1 == 0;
-  if ( !v1 )
-  {
-    if ( PopPlatformAoAc )
-      PopPowerAggregatorForceSessionSwitch(4u);
-    goto LABEL_6;
-  }
-LABEL_7:
-  LOBYTE(v2) = !v3;
-  v8 = v2;
-  PopSetPowerSettingValueAcDc(&GUID_LIDSWITCH_STATE_CHANGE, 4u, &v8);
-  return PopReleasePolicyLock(v5, v4, v6);
-}
+/*
+ * Hex-Rays decompilation failed for PdcPoReportLidState @ 0x140997B20
+ * Reason: Hex-Rays returned no pseudocode for 0x140997B20
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 0000000140997B20: mov     [rsp+arg_8], rbx
+ * 0000000140997B25: push    rdi
+ * 0000000140997B26: sub     rsp, 20h
+ * 0000000140997B2A: mov     dil, cl
+ * 0000000140997B2D: call    PopAcquirePolicyLock
+ * 0000000140997B32: xor     ebx, ebx
+ * 0000000140997B34: cmp     cs:PopErrataReportingIncorrectLidState, bl
+ * 0000000140997B3A: jnz     short loc_140997B61
+ * 0000000140997B3C: cmp     cs:PopLidOpened, dil
+ * 0000000140997B43: jz      short loc_140997B61
+ * 0000000140997B45: mov     cs:PopLidOpened, dil
+ * 0000000140997B4C: test    dil, dil
+ * 0000000140997B4F: jnz     short loc_140997B64
+ * 0000000140997B51: cmp     cs:PopPlatformAoAc, bl
+ * 0000000140997B57: jz      short loc_140997B61
+ * 0000000140997B59: lea     ecx, [rbx+4]
+ * 0000000140997B5C: call    PopPowerAggregatorForceSessionSwitch
+ * 0000000140997B61: test    dil, dil
+ * 0000000140997B64: setnz   bl
+ * 0000000140997B67: lea     r8, [rsp+28h+arg_0]
+ * 0000000140997B6C: mov     edx, 4
+ * 0000000140997B71: mov     [rsp+28h+arg_0], ebx
+ * 0000000140997B75: lea     rcx, GUID_LIDSWITCH_STATE_CHANGE
+ * 0000000140997B7C: call    PopSetPowerSettingValueAcDc
+ * 0000000140997B81: call    PopReleasePolicyLock
+ * 0000000140997B86: mov     rbx, [rsp+28h+arg_8]
+ * 0000000140997B8B: add     rsp, 20h
+ * 0000000140997B8F: pop     rdi
+ * 0000000140997B90: retn
+ */

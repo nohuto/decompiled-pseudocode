@@ -1,12 +1,12 @@
 /*
- * XREFs of BiGetPartitionVhdFilePathFromUnicodeString @ 0x1408069EC
+ * XREFs of BiGetPartitionVhdFilePathFromUnicodeString @ 0x140806CBC
  * Callers:
- *     BiGetPartitionVhdFilePath @ 0x1408069BC (BiGetPartitionVhdFilePath.c)
+ *     BiGetPartitionVhdFilePath @ 0x140806C8C (BiGetPartitionVhdFilePath.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     BiTranslateSymbolicLinkFile @ 0x140A5D278 (BiTranslateSymbolicLinkFile.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     BiTranslateSymbolicLinkFile @ 0x140A5D528 (BiTranslateSymbolicLinkFile.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

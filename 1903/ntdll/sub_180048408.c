@@ -13,14 +13,14 @@
  *     sub_1800489CC @ 0x1800489CC (sub_1800489CC.c)
  */
 
-__int64 __fastcall sub_180048408(__int64 a1, int a2, int a3, int a4)
+NTSTATUS __fastcall sub_180048408(__int64 a1, int a2, int a3, int a4)
 {
   int v8; // edi
   int v9; // ebx
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !a4 )
-    result = RtlEnterCriticalSection((__int64)&unk_180163BE0);
+    result = RtlEnterCriticalSection(&stru_180163BE0);
   if ( a2 )
   {
     v8 = a2 - 1;
@@ -48,6 +48,6 @@ __int64 __fastcall sub_180048408(__int64 a1, int a2, int a3, int a4)
     }
   }
   if ( !a4 )
-    return RtlLeaveCriticalSection((__int64)&unk_180163BE0);
+    return RtlLeaveCriticalSection(&stru_180163BE0);
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilIsSignedDriver @ 0x1405CE338
+ * XREFs of VfUtilIsSignedDriver @ 0x1405CE8A8
  * Callers:
- *     ViMiscEnforceRule @ 0x140AE1558 (ViMiscEnforceRule.c)
+ *     ViMiscEnforceRule @ 0x140AE1548 (ViMiscEnforceRule.c)
  * Callees:
- *     VfUtilGetSigningLevel @ 0x140AC2710 (VfUtilGetSigningLevel.c)
+ *     VfUtilGetSigningLevel @ 0x140AC2700 (VfUtilGetSigningLevel.c)
  */
 
 bool VfUtilIsSignedDriver()

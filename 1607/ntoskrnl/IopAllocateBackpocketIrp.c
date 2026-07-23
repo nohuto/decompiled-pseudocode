@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAllocateBackpocketIrp @ 0x1401C443C
+ * XREFs of IopAllocateBackpocketIrp @ 0x1401C4320
  * Callers:
- *     IoAsynchronousPageWrite @ 0x14008DEA4 (IoAsynchronousPageWrite.c)
- *     IoSynchronousPageWriteEx @ 0x14008E368 (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x1400E9F10 (IoPageReadEx.c)
+ *     IoAsynchronousPageWrite @ 0x14008D604 (IoAsynchronousPageWrite.c)
+ *     IoSynchronousPageWriteEx @ 0x14008DAC8 (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x1400E7D80 (IoPageReadEx.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoInitializeIrp @ 0x14009D234 (IoInitializeIrp.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     IopInitActivityIdIrp @ 0x1401C4FA8 (IopInitActivityIdIrp.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoInitializeIrp @ 0x14009CA34 (IoInitializeIrp.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     IopInitActivityIdIrp @ 0x1401C4E8C (IopInitActivityIdIrp.c)
  */
 
 __int64 __fastcall IopAllocateBackpocketIrp(__int64 a1, char a2, char a3)
@@ -26,17 +26,17 @@ __int64 __fastcall IopAllocateBackpocketIrp(__int64 a1, char a2, char a3)
   void *retaddr; // [rsp+48h] [rbp+0h]
   LARGE_INTEGER Timeout; // [rsp+68h] [rbp+20h] BYREF
 
-  if ( a2 > byte_140320A80 )
+  if ( a2 > byte_140320AA0 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   if ( !a3 )
   {
-    if ( (struct _KTHREAD *)qword_140320A58 != CurrentThread )
+    if ( (struct _KTHREAD *)qword_140320A78 != CurrentThread )
     {
       v14.QuadPart = -300000000LL;
-      while ( _InterlockedExchange(&dword_140320A50, 1) == 1 )
+      while ( _InterlockedExchange(&dword_140320A70, 1) == 1 )
       {
-        if ( KeWaitForSingleObject(&word_140320A60, Executive, 0, 0, &v14) == 258 )
+        if ( KeWaitForSingleObject(&word_140320A80, Executive, 0, 0, &v14) == 258 )
         {
           LOBYTE(v12) = a2;
           result = pIoAllocateIrp(a1, v12, 0LL, retaddr);
@@ -44,16 +44,16 @@ __int64 __fastcall IopAllocateBackpocketIrp(__int64 a1, char a2, char a3)
             return result;
         }
       }
-      v8 = qword_140320A48;
-      IoInitializeIrp(qword_140320A48, 72 * a2 + 280, a2 + 1);
+      v8 = qword_140320A68;
+      IoInitializeIrp(qword_140320A68, 72 * a2 + 280, a2 + 1);
       v8->AllocationFlags = 33;
-      qword_140320A58 = (__int64)KeGetCurrentThread();
+      qword_140320A78 = (__int64)KeGetCurrentThread();
       goto LABEL_10;
     }
-    v8 = qword_140320A78;
-    if ( !qword_140320A78 )
+    v8 = qword_140320A98;
+    if ( !qword_140320A98 )
       return 0LL;
-    qword_140320A78 = *(PIRP *)&qword_140320A78->Type;
+    qword_140320A98 = *(PIRP *)&qword_140320A98->Type;
     IoInitializeIrp(v8, 72 * a2 + 280, a2 + 1);
     --v8->Tail.Overlay.CurrentStackLocation;
     --v8->CurrentLocation;
@@ -65,12 +65,12 @@ LABEL_22:
     v8->AllocationFlags = 33;
     goto LABEL_23;
   }
-  if ( (struct _KTHREAD *)qword_140320A28 == CurrentThread )
+  if ( (struct _KTHREAD *)qword_140320A48 == CurrentThread )
   {
-    v8 = qword_140320A78;
-    if ( !qword_140320A78 )
+    v8 = qword_140320A98;
+    if ( !qword_140320A98 )
       KeBugCheckEx(0x11Eu, 0LL, 0LL, 0LL, 0LL);
-    qword_140320A78 = *(PIRP *)&qword_140320A78->Type;
+    qword_140320A98 = *(PIRP *)&qword_140320A98->Type;
     IoInitializeIrp(v8, 72 * a2 + 280, a2 + 1);
     --v8->Tail.Overlay.CurrentStackLocation;
     --v8->CurrentLocation;
@@ -81,9 +81,9 @@ LABEL_22:
     goto LABEL_22;
   }
   Timeout.QuadPart = -300000000LL;
-  while ( _InterlockedExchange(&dword_140320A20, 1) == 1 )
+  while ( _InterlockedExchange(&dword_140320A40, 1) == 1 )
   {
-    if ( KeWaitForSingleObject(&word_140320A30, Executive, 0, 0, &Timeout) == 258 )
+    if ( KeWaitForSingleObject(&word_140320A50, Executive, 0, 0, &Timeout) == 258 )
     {
       LOBYTE(v7) = a2;
       result = pIoAllocateIrp(a1, v7, 0LL, retaddr);
@@ -94,7 +94,7 @@ LABEL_22:
   v8 = Irp;
   IoInitializeIrp(Irp, 72 * a2 + 280, a2 + 1);
   v8->AllocationFlags = 33;
-  qword_140320A28 = (__int64)KeGetCurrentThread();
+  qword_140320A48 = (__int64)KeGetCurrentThread();
 LABEL_10:
   --v8->CurrentLocation;
   --v8->StackCount;

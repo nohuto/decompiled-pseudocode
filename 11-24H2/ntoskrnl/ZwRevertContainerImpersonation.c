@@ -1,14 +1,16 @@
 /*
- * XREFs of ZwRevertContainerImpersonation @ 0x1406A9570
+ * XREFs of ZwRevertContainerImpersonation @ 0x1406AA510
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRevertContainerImpersonation(__int64 a1, __int64 a2)
+NTSTATUS ZwRevertContainerImpersonation(void)
 {
+  __int64 v0; // rcx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(v0);
 }

@@ -19,7 +19,7 @@ __int64 __fastcall AslEnvVarQuery(
 {
   WCHAR *v6; // r13
   unsigned int v7; // edi
-  _WORD *NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   unsigned __int64 v12; // rbx
   size_t v14; // rbx
   WCHAR *v15; // rbp
@@ -109,7 +109,7 @@ LABEL_21:
   }
   else
   {
-    NtSystemRoot = (_WORD *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v12 = -1LL;
     do
       ++v12;

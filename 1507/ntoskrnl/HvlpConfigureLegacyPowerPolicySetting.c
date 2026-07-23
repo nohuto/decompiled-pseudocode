@@ -10,11 +10,11 @@
 __int64 __fastcall HvlpConfigureLegacyPowerPolicySetting(__int64 *a1)
 {
   char v2; // si
-  union _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_HEADER *CurrentPrcb; // rbx
   _QWORD *p_Next; // rcx
   _SLIST_ENTRY *Next; // rbp
   PSLIST_ENTRY v6; // rax
-  struct _SLIST_ENTRY *v7; // r14
+  _SLIST_ENTRY *v7; // r14
   char v8; // di
   __int16 v9; // ax
   __int64 v10; // rax
@@ -22,14 +22,14 @@ __int64 __fastcall HvlpConfigureLegacyPowerPolicySetting(__int64 *a1)
   bool v12; // zf
   __int64 HypercallCachedPages; // rax
   struct _KPRCB *v14; // rcx
-  union _SLIST_HEADER *v16; // [rsp+28h] [rbp-40h]
-  struct _SLIST_ENTRY *v17; // [rsp+30h] [rbp-38h]
+  _SLIST_HEADER *v16; // [rsp+28h] [rbp-40h]
+  _SLIST_ENTRY *v17; // [rsp+30h] [rbp-38h]
   _SLIST_ENTRY *v18; // [rsp+38h] [rbp-30h]
   __int16 v19; // [rsp+60h] [rbp-8h]
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v6 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     p_Next = &v6->Next;
     if ( v6 )

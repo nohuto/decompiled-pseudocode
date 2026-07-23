@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckPteForWriteCluster @ 0x14046C612
+ * XREFs of MiCheckPteForWriteCluster @ 0x14046CA12
  * Callers:
- *     MiGetPageForWriteCluster @ 0x14046C716 (MiGetPageForWriteCluster.c)
+ *     MiGetPageForWriteCluster @ 0x14046CB16 (MiGetPageForWriteCluster.c)
  * Callees:
- *     MiLockTransitionLeafPageEx @ 0x140347CA8 (MiLockTransitionLeafPageEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTransitionLeafPageEx @ 0x140347F38 (MiLockTransitionLeafPageEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckPteForWriteCluster(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, _BYTE *a4)
@@ -33,10 +33,13 @@ __int64 __fastcall MiCheckPteForWriteCluster(__int64 a1, ULONG_PTR a2, unsigned 
 LABEL_10:
     v8 = (unsigned __int8)*a4;
     _InterlockedAnd64((volatile signed __int64 *)(result + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -44,7 +47,7 @@ LABEL_10:
         v13 = (v12 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v12;
         if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v8);

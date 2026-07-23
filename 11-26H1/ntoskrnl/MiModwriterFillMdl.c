@@ -1,14 +1,14 @@
 /*
- * XREFs of MiModwriterFillMdl @ 0x140407040
+ * XREFs of MiModwriterFillMdl @ 0x140400130
  * Callers:
- *     MiGatherPagefilePages @ 0x140406D08 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1403FFDF8 (MiGatherPagefilePages.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiFillNoReservationCluster @ 0x1402F29A4 (MiFillNoReservationCluster.c)
- *     MiBuildReservationCluster @ 0x14033D2B4 (MiBuildReservationCluster.c)
- *     MiFindPageFileWriteCluster @ 0x140405CC8 (MiFindPageFileWriteCluster.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x14040646C (MiMakePagefileWriterEntryAvailable.c)
- *     MiPageFileNoFreeSpace @ 0x140512338 (MiPageFileNoFreeSpace.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiFillNoReservationCluster @ 0x1402D4A24 (MiFillNoReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x14033F334 (MiBuildReservationCluster.c)
+ *     MiFindPageFileWriteCluster @ 0x1403FEDBC (MiFindPageFileWriteCluster.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x1403FF560 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiPageFileNoFreeSpace @ 0x14050BDA8 (MiPageFileNoFreeSpace.c)
  */
 
 __int64 __fastcall MiModwriterFillMdl(int *a1)

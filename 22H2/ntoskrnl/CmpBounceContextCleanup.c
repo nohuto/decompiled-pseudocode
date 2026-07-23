@@ -12,10 +12,10 @@
 
 void __fastcall CmpBounceContextCleanup(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // r8
+  _SLIST_ENTRY *v1; // r8
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 8);
-  if ( v1 && v1 != *(struct _SLIST_ENTRY **)a1 && v1 != (struct _SLIST_ENTRY *)(a1 + 17) )
+  v1 = *(_SLIST_ENTRY **)(a1 + 8);
+  if ( v1 && v1 != *(_SLIST_ENTRY **)a1 && v1 != (_SLIST_ENTRY *)(a1 + 17) )
   {
     if ( (*(_BYTE *)(a1 + 16) & 1) != 0 )
     {
@@ -23,9 +23,7 @@ void __fastcall CmpBounceContextCleanup(__int64 a1)
       if ( LOWORD(CmpBounceBufferLookaside.Alignment) >= (unsigned __int16)word_140CDB910 )
       {
         ++dword_140CDB920;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *, union _SLIST_HEADER *))qword_140CDB938)(
-          v1,
-          &CmpBounceBufferLookaside);
+        ((void (__fastcall *)(_SLIST_ENTRY *, _SLIST_HEADER *))qword_140CDB938)(v1, &CmpBounceBufferLookaside);
       }
       else
       {

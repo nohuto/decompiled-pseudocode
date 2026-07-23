@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpQueryFileSecurityDescriptor @ 0x140672000
+ * XREFs of CmpQueryFileSecurityDescriptor @ 0x14066AB70
  * Callers:
- *     CmpInitHiveFromFile @ 0x140670FA8 (CmpInitHiveFromFile.c)
- *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
- *     CmpLogHiveFileInaccessible @ 0x1406772F4 (CmpLogHiveFileInaccessible.c)
- *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
- *     CmpStartRMLog @ 0x14077D4E4 (CmpStartRMLog.c)
+ *     CmpLogHiveFileInaccessible @ 0x14066A9C4 (CmpLogHiveFileInaccessible.c)
+ *     CmpInitHiveFromFile @ 0x1406A3018 (CmpInitHiveFromFile.c)
+ *     CmpOpenHiveFile @ 0x1406A3938 (CmpOpenHiveFile.c)
+ *     CmpInitCmRM @ 0x1406C46C8 (CmpInitCmRM.c)
+ *     CmpStartRMLog @ 0x14077D6A4 (CmpStartRMLog.c)
  * Callees:
- *     ZwQuerySecurityObject @ 0x1403FCF20 (ZwQuerySecurityObject.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwQuerySecurityObject @ 0x1403FD100 (ZwQuerySecurityObject.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpQueryFileSecurityDescriptor(HANDLE Handle, _QWORD *a2)

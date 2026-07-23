@@ -1,11 +1,11 @@
 /*
- * XREFs of MiQueryLeafPte @ 0x1402BF070
+ * XREFs of MiQueryLeafPte @ 0x1402BF260
  * Callers:
  *     <none>
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIdentifyPfnWrapper @ 0x1400A7E30 (MiIdentifyPfnWrapper.c)
- *     MiGetPfnProtection @ 0x14011FD90 (MiGetPfnProtection.c)
+ *     MiIdentifyPfnWrapper @ 0x1400A7D70 (MiIdentifyPfnWrapper.c)
+ *     MiGetPfnProtection @ 0x14011FE00 (MiGetPfnProtection.c)
  */
 
 __int64 __fastcall MiQueryLeafPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, unsigned __int64 a2, int a3)
   __int64 v19; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = (__int64)(a2 << 25) >> 16;
-  if ( (v3 < qword_14043A528 || v3 >= qword_14043A528 + 276840448) && a3 < 1 )
+  if ( (v3 < qword_14043B5E8 || v3 >= qword_14043B5E8 + 276840448) && a3 < 1 )
   {
     v19 = MI_READ_PTE_LOCK_FREE(a2);
     if ( (v19 & 1) != 0 )

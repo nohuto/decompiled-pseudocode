@@ -1,21 +1,21 @@
 /*
- * XREFs of NtCommitRegistryTransaction @ 0x140A045D0
+ * XREFs of NtCommitRegistryTransaction @ 0x140A00B00
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     CmpCommitLightWeightTransaction @ 0x140A064F0 (CmpCommitLightWeightTransaction.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A02A20 (CmpCommitLightWeightTransaction.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
+NTSTATUS __cdecl NtCommitRegistryTransaction(HANDLE RegistryTransactionHandle, ULONG Flags)
 {
   __int64 v4; // rdx
   __int64 v5; // rcx
@@ -24,7 +24,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
   __int64 v8; // rcx
   NTSTATUS v9; // eax
   PVOID v10; // rdi
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   PVOID Object; // [rsp+38h] [rbp-9h] BYREF
   __int128 v14; // [rsp+40h] [rbp-1h] BYREF
   __int64 v15; // [rsp+50h] [rbp+Fh]
@@ -36,7 +36,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v14);
   if ( (unsigned __int8)CmpAcquireShutdownRundown(v5, v4, v6, v7) )
   {
-    if ( a2 )
+    if ( Flags )
     {
       v11 = -1073741811;
     }
@@ -44,7 +44,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
     {
       Object = 0LL;
       v9 = ObReferenceObjectByHandle(
-             Handle,
+             RegistryTransactionHandle,
              8u,
              CmRegistryTransactionType,
              KeGetCurrentThread()->PreviousMode,
@@ -70,5 +70,5 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
     v11 = -1073741431;
   }
   CmpCleanupThreadInfo((_KAFFINITY_EX **)&v14);
-  return (unsigned int)v11;
+  return v11;
 }

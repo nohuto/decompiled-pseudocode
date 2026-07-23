@@ -205,7 +205,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
           {
             *(_BYTE *)(v36 + 32) |= 2u;
             if ( *(__int64 *)(v36 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v36);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v36);
             v52 = *(_DWORD *)(v36 + 88) & 0x1FFFF;
             *(_DWORD *)(v36 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v36 + 25) &= ~1u;

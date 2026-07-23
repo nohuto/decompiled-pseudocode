@@ -1,49 +1,49 @@
 /*
- * XREFs of PopBcdSetDefaultResumeObjectElements @ 0x140A71D1C
+ * XREFs of PopBcdSetDefaultResumeObjectElements @ 0x140A6B0FC
  * Callers:
- *     PopBcdEstablishResumeObject @ 0x1407633AC (PopBcdEstablishResumeObject.c)
- *     PopBcdRegenerateResumeObject @ 0x140763790 (PopBcdRegenerateResumeObject.c)
+ *     PopBcdEstablishResumeObject @ 0x140762D7C (PopBcdEstablishResumeObject.c)
+ *     PopBcdRegenerateResumeObject @ 0x140763154 (PopBcdRegenerateResumeObject.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     BcdSetElementDataWithFlags @ 0x1409BEB2C (BcdSetElementDataWithFlags.c)
- *     BcdGetElementData @ 0x1409BF8B0 (BcdGetElementData.c)
- *     PopBcdSetupResumeObject @ 0x140A72070 (PopBcdSetupResumeObject.c)
- *     PopBcdReadElement @ 0x140A72168 (PopBcdReadElement.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A517C (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementData @ 0x1409A5F00 (BcdGetElementData.c)
+ *     PopBcdSetupResumeObject @ 0x140A6B450 (PopBcdSetupResumeObject.c)
+ *     PopBcdReadElement @ 0x140A6B548 (PopBcdReadElement.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 PopBcdSetDefaultResumeObjectElements(void *a1, __int64 a2, ...)
+__int64 PopBcdSetDefaultResumeObjectElements(HANDLE BcdObjectHandle, HANDLE a2, ...)
 {
   wchar_t *v4; // rsi
   char *Pool2; // r14
-  int v6; // ebx
-  int v7; // eax
+  NTSTATUS Element; // ebx
+  NTSTATUS v7; // eax
   wchar_t *v8; // rbx
   const wchar_t *v9; // r12
   __int64 v10; // r15
   __int64 v11; // rbx
   __int64 v12; // rax
   size_t v13; // rbx
-  unsigned int v14; // r15d
-  __int64 v15; // r8
-  __int64 v16; // r8
-  __int64 v17; // r8
-  unsigned int v18; // ebx
-  __int64 v19; // r8
+  ULONG v14; // r15d
+  BCD_FLAGS v15; // r8d
+  BCD_FLAGS v16; // r8d
+  BCD_FLAGS v17; // r8d
+  ULONG v18; // ebx
+  BCD_FLAGS v19; // r8d
   char v21; // al
   _WORD v22[2]; // [rsp+30h] [rbp-40h] BYREF
-  unsigned int v23; // [rsp+34h] [rbp-3Ch] BYREF
-  unsigned int v24; // [rsp+38h] [rbp-38h] BYREF
-  unsigned int v25; // [rsp+3Ch] [rbp-34h] BYREF
-  wchar_t *Str; // [rsp+40h] [rbp-30h] BYREF
-  PVOID P; // [rsp+48h] [rbp-28h] BYREF
-  int ElementData; // [rsp+50h] [rbp-20h]
-  int v29; // [rsp+54h] [rbp-1Ch]
+  ULONG v23; // [rsp+34h] [rbp-3Ch] BYREF
+  ULONG BufferSize; // [rsp+38h] [rbp-38h] BYREF
+  ULONG v25; // [rsp+3Ch] [rbp-34h]
+  wchar_t *Str; // [rsp+40h] [rbp-30h]
+  PVOID P; // [rsp+48h] [rbp-28h]
+  NTSTATUS ElementData; // [rsp+50h] [rbp-20h]
+  NTSTATUS v29; // [rsp+54h] [rbp-1Ch]
   int v30; // [rsp+58h] [rbp-18h]
-  _QWORD v31[2]; // [rsp+60h] [rbp-10h] BYREF
+  _QWORD Buffer[2]; // [rsp+60h] [rbp-10h] BYREF
   __int64 v32; // [rsp+B0h] [rbp+40h] BYREF
   va_list va; // [rsp+B0h] [rbp+40h]
   __int64 v34; // [rsp+B8h] [rbp+48h] BYREF
@@ -58,37 +58,37 @@ __int64 PopBcdSetDefaultResumeObjectElements(void *a1, __int64 a2, ...)
   v34 = va_arg(va2, _QWORD);
   LOWORD(v34) = 0;
   LOWORD(v32) = 0;
-  v31[0] = 0LL;
+  Buffer[0] = 0LL;
   v22[0] = 0;
   P = 0LL;
   v25 = 0;
   v4 = 0LL;
   Str = 0LL;
   Pool2 = 0LL;
-  v24 = 0;
-  v6 = PopBcdReadElement(a2, 285212673LL, &P, &v25);
-  if ( v6 >= 0 )
+  BufferSize = 0;
+  Element = PopBcdReadElement(a2, 0x11000001u);
+  if ( Element >= 0 )
   {
-    v6 = PopBcdReadElement(a2, 301989890LL, &Str, &v24);
-    if ( v6 < 0 )
+    Element = PopBcdReadElement(a2, 0x12000002u);
+    if ( Element < 0 )
     {
       v4 = Str;
     }
     else
     {
-      v24 = 8;
-      ElementData = BcdGetElementData(a2, 0x15000052u, (__int64)v31, &v24);
+      BufferSize = 8;
+      ElementData = BcdGetElementData(a2, 0x15000052u, Buffer, &BufferSize);
       v23 = 2;
-      v29 = BcdGetElementData(a2, 0x16000054u, (__int64)va, &v23);
+      v29 = BcdGetElementData(a2, 0x16000054u, va, &v23);
       v23 = 2;
-      v7 = BcdGetElementData(a2, 0x16000046u, (__int64)v22, &v23);
+      v7 = BcdGetElementData(a2, 0x16000046u, v22, &v23);
       v4 = Str;
       v30 = v7;
       v8 = wcsrchr(Str, 0x5Cu);
       if ( v8 )
       {
         v9 = L"winresume.efi";
-        if ( dword_140EFEAF0 != 2 )
+        if ( dword_140EFEE10 != 2 )
           v9 = L"winresume.exe";
         v10 = -1LL;
         v11 = ((char *)v8 - (char *)v4 + 2) >> 1;
@@ -97,7 +97,7 @@ __int64 PopBcdSetDefaultResumeObjectElements(void *a1, __int64 a2, ...)
           ++v12;
         while ( v9[v12] );
         LODWORD(Str) = 2 * (v11 + v12) + 2;
-        Pool2 = (char *)ExAllocatePool2(0x100uLL);
+        Pool2 = (char *)ExAllocatePool2(0x100uLL, (unsigned int)Str, 0x64634250u);
         if ( Pool2 )
         {
           v13 = 2LL * (unsigned int)v11;
@@ -107,32 +107,32 @@ __int64 PopBcdSetDefaultResumeObjectElements(void *a1, __int64 a2, ...)
           while ( v9[v10] );
           memmove(&Pool2[v13], v9, 2 * v10 + 2);
           v14 = v25;
-          v6 = BcdSetElementDataWithFlags(a1, 285212673LL, v15, (__int64)P, v25);
-          if ( v6 >= 0 )
+          Element = BcdSetElementDataWithFlags(BcdObjectHandle, 0x11000001u, v15, P, v25);
+          if ( Element >= 0 )
           {
             if ( !CmIsStateSeparationEnabled()
-              || (v6 = BcdSetElementDataWithFlags(a1, 553648133LL, v16, (__int64)P, v14), v6 >= 0) )
+              || (Element = BcdSetElementDataWithFlags(BcdObjectHandle, 0x21000005u, v16, P, v14), Element >= 0) )
             {
-              v6 = BcdSetElementDataWithFlags(a1, 301989890LL, v16, (__int64)Pool2, (unsigned int)Str);
-              if ( v6 >= 0 )
+              Element = BcdSetElementDataWithFlags(BcdObjectHandle, 0x12000002u, v16, Pool2, (ULONG)Str);
+              if ( Element >= 0 )
               {
                 if ( ElementData >= 0 )
-                  BcdSetElementDataWithFlags(a1, 352321618LL, v17, (__int64)v31, v24);
+                  BcdSetElementDataWithFlags(BcdObjectHandle, 0x15000052u, v17, Buffer, BufferSize);
                 v18 = v23;
                 if ( v29 >= 0 )
-                  BcdSetElementDataWithFlags(a1, 369098836LL, v17, (__int64)va, v23);
+                  BcdSetElementDataWithFlags(BcdObjectHandle, 0x16000054u, v17, va, v23);
                 if ( v30 >= 0 )
-                  BcdSetElementDataWithFlags(a1, 369098822LL, v17, (__int64)v22, v18);
-                v6 = PopBcdSetupResumeObject(a1);
-                if ( v6 >= 0 )
+                  BcdSetElementDataWithFlags(BcdObjectHandle, 0x16000046u, v17, v22, v18);
+                Element = PopBcdSetupResumeObject(BcdObjectHandle);
+                if ( Element >= 0 )
                 {
                   v21 = v34;
                   if ( (_BYTE)KdDebuggerEnabled )
                     v21 = 1;
                   LOBYTE(v34) = v21;
-                  v6 = BcdSetElementDataWithFlags(a1, 637534214LL, v19, (__int64)va1, 2u);
-                  if ( v6 >= 0 )
-                    v6 = 0;
+                  Element = BcdSetElementDataWithFlags(BcdObjectHandle, 0x26000006u, v19, va1, 2u);
+                  if ( Element >= 0 )
+                    Element = 0;
                 }
               }
             }
@@ -140,12 +140,12 @@ __int64 PopBcdSetDefaultResumeObjectElements(void *a1, __int64 a2, ...)
         }
         else
         {
-          v6 = -1073741670;
+          Element = -1073741670;
         }
       }
       else
       {
-        v6 = -1073741788;
+        Element = -1073741788;
       }
     }
   }
@@ -155,5 +155,5 @@ __int64 PopBcdSetDefaultResumeObjectElements(void *a1, __int64 a2, ...)
     ExFreePoolWithTag(v4, 0);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v6;
+  return (unsigned int)Element;
 }

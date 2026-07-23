@@ -2,7 +2,7 @@
  * XREFs of CarInitializeRuleViolationDetails @ 0x1406039D0
  * Callers:
  *     CarCreateRuleViolationDetails @ 0x140603630 (CarCreateRuleViolationDetails.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     sub_140A8C924 @ 0x140A8C924 (sub_140A8C924.c)
  * Callees:
  *     memset @ 0x140435E00 (memset.c)
  */

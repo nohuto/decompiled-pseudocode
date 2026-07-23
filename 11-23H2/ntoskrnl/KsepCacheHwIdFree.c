@@ -1,5 +1,5 @@
 /*
- * XREFs of KsepCacheHwIdFree @ 0x140580D20
+ * XREFs of KsepCacheHwIdFree @ 0x140581210
  * Callers:
  *     <none>
  * Callees:
@@ -13,6 +13,6 @@ void __fastcall KsepCacheHwIdFree(char *P)
   {
     KsepStringFree(P + 40);
     ExFreePoolWithTag(P, 0x6145534Bu);
-    _InterlockedIncrement(&dword_140C40744);
+    _InterlockedIncrement(&dword_140C40704);
   }
 }

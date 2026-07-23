@@ -1,15 +1,15 @@
 /*
- * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14032A450
+ * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14032A640
  * Callers:
- *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x140168764 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
+ *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x140168864 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14015B510 (RtlComputeCrc32.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140329DE4 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x140329F4C (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x140329FD4 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C2880 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x140704F28 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
+ *     RtlComputeCrc32 @ 0x14015B610 (RtlComputeCrc32.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140329FD4 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x14032A13C (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14032A1C4 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C3B20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x1407061C8 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
  */
 
 __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)

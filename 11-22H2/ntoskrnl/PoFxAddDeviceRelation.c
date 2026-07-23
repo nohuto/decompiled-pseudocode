@@ -74,10 +74,13 @@ __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, int
   if ( !v10 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -93,10 +96,10 @@ __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, int
   }
   PopFxAddRefDevice(v10);
   ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;
@@ -169,7 +172,7 @@ __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, int
           *v30 = v28;
           *(_QWORD *)(a1 + 1272) = v28;
           KxReleaseSpinLock((volatile signed __int64 *)(a1 + 1240));
-          if ( KiIrqlFlags && (v31 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v31 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && (v31 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v31 <= 0xFu )
           {
             v32 = v45;
             if ( v45 <= 0xFu && v31 >= 2u )
@@ -201,10 +204,10 @@ LABEL_57:
           *v39 = v44 + 32;
           v37[1] = v44 + 32;
           KxReleaseSpinLock(v46);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v40 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v38 <= 0xFu && v40 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v38 <= 0xFu && v40 >= 2u )
             {
               v41 = KeGetCurrentPrcb();
               v42 = v41->SchedulerAssist;

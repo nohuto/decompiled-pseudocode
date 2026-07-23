@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDefragmentAllSlabAllocators @ 0x1404A0AE8
+ * XREFs of MiDefragmentAllSlabAllocators @ 0x14049A638
  * Callers:
- *     MmManagePartitionCreateLargePages @ 0x14077E0A0 (MmManagePartitionCreateLargePages.c)
+ *     MmManagePartitionCreateLargePages @ 0x1407809E4 (MmManagePartitionCreateLargePages.c)
  * Callees:
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
- *     MiDeletePendingSlabIdentities @ 0x1404A0CF8 (MiDeletePendingSlabIdentities.c)
- *     MiDefragmentAllSlabsHelper @ 0x140706200 (MiDefragmentAllSlabsHelper.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
+ *     MiDeletePendingSlabIdentities @ 0x14049A848 (MiDeletePendingSlabIdentities.c)
+ *     MiDefragmentAllSlabsHelper @ 0x14070AED0 (MiDefragmentAllSlabsHelper.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiDefragmentAllSlabAllocators(__int64 a1, int a2, unsigned int a3, __int64 a4)

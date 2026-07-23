@@ -6,7 +6,7 @@
  *     RtlpHpMetadataFree @ 0x18000AB68 (RtlpHpMetadataFree.c)
  */
 
-unsigned __int64 __fastcall RtlpHpStackDbFreeRoutine(unsigned __int64 a1)
+NTSTATUS __fastcall RtlpHpStackDbFreeRoutine(unsigned __int64 a1)
 {
   __int128 v2; // [rsp+20h] [rbp-18h] BYREF
 

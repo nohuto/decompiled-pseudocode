@@ -1,40 +1,41 @@
 /*
- * XREFs of RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1800DA360
+ * XREFs of RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1800D7320
  * Callers:
- *     RtlEnumerateGenericTableAvl @ 0x1800DA340 (RtlEnumerateGenericTableAvl.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1800D7300 (RtlEnumerateGenericTableAvl.c)
  * Callees:
- *     RealSuccessor @ 0x1800DA3D8 (RealSuccessor.c)
+ *     RealSuccessor @ 0x1800D7398 (RealSuccessor.c)
  */
 
-__int64 __fastcall RtlEnumerateGenericTableWithoutSplayingAvl(__int64 a1, _QWORD *a2, __int64 a3)
+PVOID __cdecl RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table, PVOID *RestartKey)
 {
+  __int64 v2; // r8
   __int64 v3; // rax
   __int64 *v4; // r9
   __int64 v5; // rcx
-  __int64 result; // rax
-  __int64 v7; // rcx
-  __int64 i; // rax
+  PVOID result; // rax
+  _RTL_BALANCED_LINKS *RightChild; // rcx
+  _RTL_BALANCED_LINKS *i; // rax
 
-  if ( !*(_DWORD *)(a1 + 44) )
+  if ( !Table->NumberGenericTableElements )
     return 0LL;
-  if ( *a2 )
+  if ( *RestartKey )
   {
-    v3 = RealSuccessor(*a2, a2, a3, a2);
+    v3 = RealSuccessor(*RestartKey, RestartKey, v2, RestartKey);
     v5 = v3;
     if ( v3 )
       *v4 = v3;
-    result = v3 + 32;
+    result = (PVOID)(v3 + 32);
     if ( !v5 )
       return 0LL;
   }
   else
   {
-    v7 = *(_QWORD *)(a1 + 16);
-    for ( i = *(_QWORD *)(v7 + 8); i; i = *(_QWORD *)(i + 8) )
-      v7 = i;
-    *a2 = v7;
-    result = v7 + 32;
-    if ( !v7 )
+    RightChild = Table->BalancedRoot.RightChild;
+    for ( i = RightChild->LeftChild; i; i = i->LeftChild )
+      RightChild = i;
+    *RestartKey = RightChild;
+    result = &RightChild[1];
+    if ( !RightChild )
       return 0LL;
   }
   return result;

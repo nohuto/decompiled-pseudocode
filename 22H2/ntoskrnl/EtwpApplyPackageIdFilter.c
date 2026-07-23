@@ -27,10 +27,10 @@ char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
   char v16; // [rsp+30h] [rbp-D0h] BYREF
   _BYTE v17[7]; // [rsp+31h] [rbp-CFh] BYREF
   __int64 v18; // [rsp+38h] [rbp-C8h]
-  size_t v19[52]; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG_PTR PackageSize[52]; // [rsp+40h] [rbp-C0h] BYREF
 
   v18 = a1;
-  memset(v19, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   v6 = *(struct _KPROCESS **)(a1 + 80);
   v7 = 0;
   v16 = 0;
@@ -39,19 +39,19 @@ char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
   PsQueryProcessAttributesByToken((__int64)v9, &v16, v17);
   if ( v16 )
   {
-    v19[0] = 256LL;
-    v19[1] = 130LL;
-    if ( RtlQueryPackageIdentity((int)v9, (wchar_t *)&v19[2], v19, (wchar_t *)&v19[34], &v19[1], 0LL) >= 0 )
+    PackageSize[0] = 256LL;
+    PackageSize[1] = 130LL;
+    if ( RtlQueryPackageIdentity(v9, (PWSTR)&PackageSize[2], PackageSize, (PWSTR)&PackageSize[34], &PackageSize[1], 0LL) >= 0 )
     {
       v10 = a2 == 0LL;
       if ( a2 )
       {
         v11 = 0;
-        v12 = (v19[0] >> 1) - 1;
+        v12 = (PackageSize[0] >> 1) - 1;
         if ( *a2 )
         {
           while ( (unsigned __int16)a2[8 * v11 + 4] != v12
-               || wcsnicmp(*(const wchar_t **)&a2[8 * v11 + 8], (const wchar_t *)&v19[2], v12) )
+               || wcsnicmp(*(const wchar_t **)&a2[8 * v11 + 8], (const wchar_t *)&PackageSize[2], v12) )
           {
             if ( ++v11 >= *a2 )
               goto LABEL_8;
@@ -67,11 +67,11 @@ LABEL_8:
       if ( a3 )
       {
         v13 = 0;
-        v14 = (v19[1] >> 1) - 1;
+        v14 = (PackageSize[1] >> 1) - 1;
         if ( *a3 )
         {
           while ( (unsigned __int16)a3[8 * v13 + 4] != v14
-               || wcsnicmp(*(const wchar_t **)&a3[8 * v13 + 8], (const wchar_t *)&v19[34], v14) )
+               || wcsnicmp(*(const wchar_t **)&a3[8 * v13 + 8], (const wchar_t *)&PackageSize[34], v14) )
           {
             if ( ++v13 >= *a3 )
               goto LABEL_14;

@@ -1,7 +1,7 @@
 /*
- * XREFs of SepAppendAdminAceToTokenAcl @ 0x1404F12F0
+ * XREFs of SepAppendAdminAceToTokenAcl @ 0x1404D33E4
  * Callers:
- *     SepCreateTokenEx @ 0x14007FBC8 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x14007FC48 (SepCreateTokenEx.c)
  * Callees:
  *     <none>
  */

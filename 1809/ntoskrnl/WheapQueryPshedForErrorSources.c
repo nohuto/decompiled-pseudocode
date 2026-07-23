@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapQueryPshedForErrorSources @ 0x1409B0110
+ * XREFs of WheapQueryPshedForErrorSources @ 0x1409B1110
  * Callers:
- *     WheaInitialize @ 0x1409AFD68 (WheaInitialize.c)
+ *     WheaInitialize @ 0x1409B0D68 (WheaInitialize.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ __int64 __fastcall WheapQueryPshedForErrorSources(_DWORD *a1, _QWORD *a2)
     }
     LODWORD(WheapStatus) = WheapStatus + 1;
     HIDWORD(WheapStatus) |= 0x20u;
-    dword_140406718 = AllErrorSources;
+    dword_140407758 = AllErrorSources;
   }
   else
   {

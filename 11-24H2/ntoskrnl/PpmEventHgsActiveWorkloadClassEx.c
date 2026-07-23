@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHgsActiveWorkloadClassEx @ 0x1405DD690
+ * XREFs of PpmEventHgsActiveWorkloadClassEx @ 0x1405DA510
  * Callers:
- *     PpmEventHgsActiveWorkloadClass @ 0x1404ECDC0 (PpmEventHgsActiveWorkloadClass.c)
+ *     PpmEventHgsActiveWorkloadClass @ 0x1404E4500 (PpmEventHgsActiveWorkloadClass.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventHgsActiveWorkloadClassEx(__int64 a1, ULONGLONG a2, ULONGLONG a3, int a4)
@@ -52,10 +52,10 @@ void __fastcall PpmEventHgsActiveWorkloadClassEx(__int64 a1, ULONGLONG a2, ULONG
           &v18);
         v8 = v18;
         v9 = v18;
-        UserData[v9].Ptr = a1 + 1262;
+        UserData[v9].Ptr = a1 + 1270;
         *(_QWORD *)&UserData[v9].Size = 1LL;
         v10 = v8 + 1;
-        UserData[v10].Ptr = a1 + 1263;
+        UserData[v10].Ptr = a1 + 1271;
         *(_QWORD *)&UserData[v10].Size = 1LL;
         v11 = v8 + 2;
         UserData[v11].Ptr = (ULONGLONG)&v17;

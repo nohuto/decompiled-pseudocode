@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpPowerStateCallback @ 0x1404AE270
+ * XREFs of HalpPowerStateCallback @ 0x1404A8B80
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     MmUnlockPagableImageSection @ 0x1402C7030 (MmUnlockPagableImageSection.c)
- *     HalpMcUpdateUnlock @ 0x1404AE2F8 (HalpMcUpdateUnlock.c)
- *     HalpMcUpdateLock @ 0x1404BAD8C (HalpMcUpdateLock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     MmLockPagableSectionByHandle @ 0x140A3FE90 (MmLockPagableSectionByHandle.c)
- *     HalpFreeNvsBuffers @ 0x140B6C400 (HalpFreeNvsBuffers.c)
- *     HalpMapNvsArea @ 0x140B6D6A0 (HalpMapNvsArea.c)
+ *     MmUnlockPagableImageSection @ 0x1402BBBB0 (MmUnlockPagableImageSection.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     HalpMcUpdateUnlock @ 0x1404A8C08 (HalpMcUpdateUnlock.c)
+ *     HalpMcUpdateLock @ 0x1404B5C2C (HalpMcUpdateLock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     MmLockPagableSectionByHandle @ 0x140A35770 (MmLockPagableSectionByHandle.c)
+ *     HalpFreeNvsBuffers @ 0x140B6DCA4 (HalpFreeNvsBuffers.c)
+ *     HalpMapNvsArea @ 0x140B6EF40 (HalpMapNvsArea.c)
  */
 
-void __fastcall HalpPowerStateCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2, __int64 a4)
+void __fastcall HalpPowerStateCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
 {
-  ULONG_PTR v4; // rbx
-  unsigned int v5; // ecx
+  ULONG_PTR v3; // rbx
+  unsigned int v4; // ecx
 
   if ( (_DWORD)Argument1 == 3 )
   {
@@ -28,23 +28,23 @@ void __fastcall HalpPowerStateCallback(PVOID CallbackContext, PVOID Argument1, P
         MmUnlockPagableImageSection(HalpSleepPageLock);
         HalpFreeNvsBuffers();
         HalpMcUpdateUnlock();
-        v4 = HalpPerformanceCounter;
+        v3 = HalpPerformanceCounter;
         SystemPowerPhase = 0;
         if ( *(_DWORD *)(HalpPerformanceCounter + 228) == 5
           && (*(_DWORD *)(HalpPerformanceCounter + 184) & 0x20) == 0
           && KeQueryActiveProcessorCountEx(0xFFFFu) > 1 )
         {
-          v5 = -1;
+          v4 = -1;
           if ( HalpTscMaximumComputedSpread < 0xFFFFFFFF )
-            v5 = HalpTscMaximumComputedSpread;
-          KeBugCheckEx(0x5Cu, 0x110uLL, v4, 0x2AuLL, v5);
+            v4 = HalpTscMaximumComputedSpread;
+          KeBugCheckEx(0x5Cu, 0x110uLL, v3, 0x2AuLL, v4);
         }
       }
     }
     else
     {
       SystemPowerPhase = 1;
-      guard_dispatch_icall_no_overrides(0LL, 0LL, Argument2, a4);
+      guard_dispatch_icall_no_overrides(0LL, 0LL);
       MmLockPagableSectionByHandle(HalpSleepPageLock);
       HalpMapNvsArea();
       HalpMcUpdateLock();

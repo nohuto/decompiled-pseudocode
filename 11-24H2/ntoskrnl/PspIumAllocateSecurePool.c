@@ -1,15 +1,15 @@
 /*
- * XREFs of PspIumAllocateSecurePool @ 0x1405E64D8
+ * XREFs of PspIumAllocateSecurePool @ 0x1405E3AD8
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MmAllocateSecurePoolMemory @ 0x14067CB78 (MmAllocateSecurePoolMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocateSecurePoolMemory @ 0x14067DD58 (MmAllocateSecurePoolMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspIumAllocateSecurePool(__int64 a1)
@@ -52,7 +52,7 @@ __int64 __fastcall PspIumAllocateSecurePool(__int64 a1)
         v20[v4] = v5;
         if ( (unsigned int)v6 < 2 )
         {
-          Pool2 = ExAllocatePool2(0x40uLL);
+          Pool2 = ExAllocatePool2(0x40uLL, 8 * (v5 & 0xFFFFFFFFFFFFFLL) + 48, 0x6C644Du);
           MemoryDescriptorList[v6] = (PMDL)Pool2;
           if ( !Pool2 )
           {

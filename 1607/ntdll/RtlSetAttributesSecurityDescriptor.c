@@ -1,16 +1,19 @@
 /*
- * XREFs of RtlSetAttributesSecurityDescriptor @ 0x1800DFC70
+ * XREFs of RtlSetAttributesSecurityDescriptor @ 0x1800DFD30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetAttributesSecurityDescriptor(_BYTE *a1, __int16 a2, _DWORD *a3)
+NTSTATUS __cdecl RtlSetAttributesSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        SECURITY_DESCRIPTOR_CONTROL Control,
+        PULONG Revision)
 {
-  *a3 = (unsigned __int8)*a1;
-  if ( *a1 == 1 )
-    return RtlSetControlSecurityDescriptor((__int64)a1, a2 & 0x3FC0, a2 & 0x3FC0);
+  *Revision = *(unsigned __int8 *)SecurityDescriptor;
+  if ( *(_BYTE *)SecurityDescriptor == 1 )
+    return RtlSetControlSecurityDescriptor(SecurityDescriptor, Control & 0x3FC0, Control & 0x3FC0);
   else
-    return 3221225560LL;
+    return -1073741736;
 }

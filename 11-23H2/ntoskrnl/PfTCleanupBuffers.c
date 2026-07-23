@@ -1,7 +1,7 @@
 /*
- * XREFs of PfTCleanupBuffers @ 0x14097F31C
+ * XREFs of PfTCleanupBuffers @ 0x14097F51C
  * Callers:
- *     PfTCleanup @ 0x14097F168 (PfTCleanup.c)
+ *     PfTCleanup @ 0x14097F368 (PfTCleanup.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

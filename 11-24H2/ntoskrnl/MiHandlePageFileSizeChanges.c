@@ -1,17 +1,17 @@
 /*
- * XREFs of MiHandlePageFileSizeChanges @ 0x1403F81CC
+ * XREFs of MiHandlePageFileSizeChanges @ 0x1403EE2E4
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1403F7BB0 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x1403EDB20 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiProcessingPageExtendComplete @ 0x1403F8668 (MiProcessingPageExtendComplete.c)
- *     MiAttemptPageFileReduction @ 0x1403F9154 (MiAttemptPageFileReduction.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiExtendPagingFiles @ 0x1407EF148 (MiExtendPagingFiles.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiProcessingPageExtendComplete @ 0x1403EE778 (MiProcessingPageExtendComplete.c)
+ *     MiAttemptPageFileReduction @ 0x1403EF264 (MiAttemptPageFileReduction.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiExtendPagingFiles @ 0x1407EF718 (MiExtendPagingFiles.c)
  */
 
 __int64 __fastcall MiHandlePageFileSizeChanges(__int64 a1)
@@ -42,7 +42,7 @@ __int64 __fastcall MiHandlePageFileSizeChanges(__int64 a1)
     v5[1] = v2;
     if ( v6[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)-1LL )
     {
-      if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 1000)) )
+      if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1000)) )
       {
         MiReleaseSpinLockExclusive((_DWORD *)(a1 + 1728), v3);
         MiAttemptPageFileReduction(v6);
@@ -67,7 +67,7 @@ LABEL_16:
       v11[4] = v7;
       v6[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v11;
       MiReleaseSpinLockExclusive((_DWORD *)(a1 + 1728), v3);
-      if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 1000)) )
+      if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1000)) )
       {
         MiExtendPagingFiles(v11);
         ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1000));

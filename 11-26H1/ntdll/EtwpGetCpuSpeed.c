@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpGetCpuSpeed @ 0x180058630
+ * XREFs of EtwpGetCpuSpeed @ 0x180042BB0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall EtwpGetCpuSpeed(_DWORD *a1)
+NTSTATUS __fastcall EtwpGetCpuSpeed(_DWORD *a1)
 {
   return EtwpGetCpuSpeedFromRegistry(a1);
 }

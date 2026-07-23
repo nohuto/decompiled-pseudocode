@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCSparseBitmapPageDecommit @ 0x1402A3A20
+ * XREFs of RtlpCSparseBitmapPageDecommit @ 0x140220E60
  * Callers:
- *     RtlCSparseBitmapBitsClear @ 0x1402A3714 (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140220B54 (RtlCSparseBitmapBitsClear.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x14029CE28 (ExpUnblockPushLock.c)
- *     RtlCSparseBitmapLeaveLockingRegion @ 0x1402A47EC (RtlCSparseBitmapLeaveLockingRegion.c)
- *     RtlpCSparseBitmapUnlock @ 0x1402A4830 (RtlpCSparseBitmapUnlock.c)
- *     RtlpCSparseBitmapLock @ 0x1402A4BD0 (RtlpCSparseBitmapLock.c)
- *     RtlCSparseBitmapEnterLockingRegion @ 0x1402A4C4C (RtlCSparseBitmapEnterLockingRegion.c)
- *     RtlpHpEnvFreeVA @ 0x1402FA804 (RtlpHpEnvFreeVA.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x140595810 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     ExpUnblockPushLock @ 0x140214048 (ExpUnblockPushLock.c)
+ *     RtlCSparseBitmapLeaveLockingRegion @ 0x140221C2C (RtlCSparseBitmapLeaveLockingRegion.c)
+ *     RtlpCSparseBitmapUnlock @ 0x140221C70 (RtlpCSparseBitmapUnlock.c)
+ *     RtlpCSparseBitmapLock @ 0x140222010 (RtlpCSparseBitmapLock.c)
+ *     RtlCSparseBitmapEnterLockingRegion @ 0x14022208C (RtlCSparseBitmapEnterLockingRegion.c)
+ *     RtlpHpEnvFreeVA @ 0x140305554 (RtlpHpEnvFreeVA.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x140595A40 (RtlpCSparseBitmapWaitOnAddress.c)
  */
 
 __int64 __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of IoVerifyVolume @ 0x1409476B0
+ * XREFs of IoVerifyVolume @ 0x1409478B0
  * Callers:
  *     <none>
  * Callees:
- *     IopQueueThreadIrp @ 0x14022ED60 (IopQueueThreadIrp.c)
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     IopDecrementVpbRefCount @ 0x1402AFF90 (IopDecrementVpbRefCount.c)
- *     IopDereferenceVpbAndFree @ 0x140319F50 (IopDereferenceVpbAndFree.c)
- *     IopReferenceVerifyVpb @ 0x140555B3C (IopReferenceVerifyVpb.c)
- *     IopMountVolume @ 0x1407014E8 (IopMountVolume.c)
- *     PoVolumeDevice @ 0x1408721CC (PoVolumeDevice.c)
- *     IopCreateVpb @ 0x1408748A0 (IopCreateVpb.c)
+ *     IopQueueThreadIrp @ 0x14022EE70 (IopQueueThreadIrp.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     IopDecrementVpbRefCount @ 0x1402B0220 (IopDecrementVpbRefCount.c)
+ *     IopDereferenceVpbAndFree @ 0x14031A1E0 (IopDereferenceVpbAndFree.c)
+ *     IopReferenceVerifyVpb @ 0x1405561FC (IopReferenceVerifyVpb.c)
+ *     IopMountVolume @ 0x1407016F8 (IopMountVolume.c)
+ *     PoVolumeDevice @ 0x14087240C (PoVolumeDevice.c)
+ *     IopCreateVpb @ 0x140874AE0 (IopCreateVpb.c)
  */
 
 NTSTATUS __stdcall IoVerifyVolume(PDEVICE_OBJECT DeviceObject, BOOLEAN AllowRawMount)

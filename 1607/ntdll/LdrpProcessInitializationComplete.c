@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpProcessInitializationComplete @ 0x180087C20
+ * XREFs of LdrpProcessInitializationComplete @ 0x180087C10
  * Callers:
  *     <none>
  * Callees:
- *     LdrpLogEtwEvent @ 0x1800D1538 (LdrpLogEtwEvent.c)
+ *     LdrpLogEtwEvent @ 0x1800D15F8 (LdrpLogEtwEvent.c)
  */
 
 struct _PEB *LdrpProcessInitializationComplete()

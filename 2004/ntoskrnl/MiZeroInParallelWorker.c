@@ -49,7 +49,7 @@ void __fastcall MiZeroInParallelWorker(char *StartContext)
   struct _KTHREAD *v26; // [rsp+40h] [rbp-F8h]
   __int64 v27; // [rsp+48h] [rbp-F0h]
   __int64 *v28; // [rsp+58h] [rbp-E0h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+70h] [rbp-C8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+70h] [rbp-C8h] BYREF
   _BYTE v31[128]; // [rsp+80h] [rbp-B8h] BYREF
 
   v1 = StartContext;
@@ -92,7 +92,7 @@ void __fastcall MiZeroInParallelWorker(char *StartContext)
       {
         if ( CurrentThread )
         {
-          Affinity = *(struct _GROUP_AFFINITY *)(v12 - 3);
+          Affinity = *(_GROUP_AFFINITY *)(v12 - 3);
           v22 = MiSetIdealProcessorThread(&Affinity);
           v11 = 3LL;
         }

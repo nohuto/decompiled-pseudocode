@@ -1,11 +1,11 @@
 /*
- * XREFs of ViIsContextIdValid @ 0x140AC40CC
+ * XREFs of ViIsContextIdValid @ 0x140AC40BC
  * Callers:
- *     VfInsertContext @ 0x1405CE440 (VfInsertContext.c)
- *     VfQueryDeviceContext @ 0x1405CE510 (VfQueryDeviceContext.c)
- *     VfQueryDriverContext @ 0x1405CE550 (VfQueryDriverContext.c)
- *     VfQueryIrpContext @ 0x1405CE590 (VfQueryIrpContext.c)
- *     VfRemoveContext @ 0x1405CE5D0 (VfRemoveContext.c)
+ *     VfInsertContext @ 0x1405CE9B0 (VfInsertContext.c)
+ *     VfQueryDeviceContext @ 0x1405CEA80 (VfQueryDeviceContext.c)
+ *     VfQueryDriverContext @ 0x1405CEAC0 (VfQueryDriverContext.c)
+ *     VfQueryIrpContext @ 0x1405CEB00 (VfQueryIrpContext.c)
+ *     VfRemoveContext @ 0x1405CEB40 (VfRemoveContext.c)
  * Callees:
  *     <none>
  */

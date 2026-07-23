@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpDeprioritizeOldPagesInWs @ 0x140AEF1A0
+ * XREFs of PfpDeprioritizeOldPagesInWs @ 0x140AF2140
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MmUpdateOldWorkingSetPages @ 0x1404CA524 (MmUpdateOldWorkingSetPages.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MmUpdateOldWorkingSetPages @ 0x1404C3F54 (MmUpdateOldWorkingSetPages.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PfpDeprioritizeOldPagesInWs(__int64 a1, char a2)
@@ -47,8 +47,8 @@ __int64 __fastcall PfpDeprioritizeOldPagesInWs(__int64 a1, char a2)
     {
       updated = ObpReferenceObjectByHandleWithTag(
                   BugCheckParameter1[1],
-                  0x2000LL,
-                  PsProcessType,
+                  0x2000,
+                  (__int64)PsProcessType,
                   a2,
                   0x73576650u,
                   &Object,

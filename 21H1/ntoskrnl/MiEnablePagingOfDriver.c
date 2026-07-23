@@ -28,7 +28,7 @@ __int64 __fastcall MiEnablePagingOfDriver(__int64 a1)
       result = MiSnapDriverRange(a1, v4, 1, 0LL, &v5, &v6);
       v4 = result;
       if ( v5 )
-        result = MiSetPagingOfDriver(a1, v5, v6);
+        result = (__int64)MiSetPagingOfDriver(a1, v5, v6);
     }
     while ( v4 );
   }

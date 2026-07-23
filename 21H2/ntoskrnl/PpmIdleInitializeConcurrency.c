@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmIdleInitializeConcurrency @ 0x1407BAB28
+ * XREFs of PpmIdleInitializeConcurrency @ 0x1407BB2B8
  * Callers:
- *     PpmParkRegisterParking @ 0x1403C1460 (PpmParkRegisterParking.c)
+ *     PpmParkRegisterParking @ 0x1403C1890 (PpmParkRegisterParking.c)
  * Callees:
- *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
- *     KeFirstGroupAffinityEx @ 0x1402C2670 (KeFirstGroupAffinityEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     PpmQueryTime @ 0x1403C2400 (PpmQueryTime.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeFirstGroupAffinityEx @ 0x140240B10 (KeFirstGroupAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140269420 (KeCountSetBitsAffinityEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     PpmQueryTime @ 0x1403C2830 (PpmQueryTime.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmIdleInitializeConcurrency(unsigned __int16 *a1, _QWORD *a2, _QWORD *a3)
@@ -18,8 +18,8 @@ __int64 __fastcall PpmIdleInitializeConcurrency(unsigned __int16 *a1, _QWORD *a2
   int v6; // esi
   unsigned int GroupAffinity; // ebp
   _DWORD *PoolWithTag; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

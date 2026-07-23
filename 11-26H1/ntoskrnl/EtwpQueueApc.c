@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpQueueApc @ 0x14020AA10
+ * XREFs of EtwpQueueApc @ 0x14020AAF0
  * Callers:
- *     EtwpStackTraceDispatcher @ 0x14020A3A0 (EtwpStackTraceDispatcher.c)
- *     EtwpQueueStackWalkApc @ 0x14020A930 (EtwpQueueStackWalkApc.c)
- *     EtwpApcPoolDpc @ 0x140257CF0 (EtwpApcPoolDpc.c)
- *     EtwpContextRegisterTracingDispatcher @ 0x140507CB4 (EtwpContextRegisterTracingDispatcher.c)
+ *     EtwpStackTraceDispatcher @ 0x14020A480 (EtwpStackTraceDispatcher.c)
+ *     EtwpQueueStackWalkApc @ 0x14020AA10 (EtwpQueueStackWalkApc.c)
+ *     EtwpApcPoolDpc @ 0x1402594D0 (EtwpApcPoolDpc.c)
+ *     EtwpContextRegisterTracingDispatcher @ 0x140501688 (EtwpContextRegisterTracingDispatcher.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeTryToInsertQueueApc @ 0x1403F7408 (KeTryToInsertQueueApc.c)
- *     KeRemoveQueueApc @ 0x140467790 (KeRemoveQueueApc.c)
- *     EtwpQueueApcPoolDpc @ 0x1405097A4 (EtwpQueueApcPoolDpc.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeTryToInsertQueueApc @ 0x1403F0DB8 (KeTryToInsertQueueApc.c)
+ *     KeRemoveQueueApc @ 0x140460EE0 (KeRemoveQueueApc.c)
+ *     EtwpQueueApcPoolDpc @ 0x140503254 (EtwpQueueApcPoolDpc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpQueueApc(
@@ -39,8 +39,8 @@ __int64 __fastcall EtwpQueueApc(
   __int64 v23; // r9
   signed __int64 *v24; // r8
   signed __int64 v25; // rdx
-  struct _SLIST_ENTRY *Pool2; // rax
-  struct _SLIST_ENTRY *v27; // rbp
+  _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *v27; // rbp
   unsigned __int64 v28; // rdx
   int v30; // [rsp+98h] [rbp+20h]
 
@@ -78,7 +78,7 @@ __int64 __fastcall EtwpQueueApc(
   {
     if ( (unsigned int)_InterlockedIncrement((volatile signed __int32 *)a1 + 41) <= *((_DWORD *)a1 + 43) )
     {
-      Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(0x48uLL);
+      Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(0x48uLL);
       v27 = Pool2;
       if ( Pool2 )
       {

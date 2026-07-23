@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpValidatePayloadFilter @ 0x140832260
+ * XREFs of EtwpValidatePayloadFilter @ 0x1408384A0
  * Callers:
- *     EtwpAllocatePayloadFilterData @ 0x14083201C (EtwpAllocatePayloadFilterData.c)
+ *     EtwpAllocatePayloadFilterData @ 0x14083825C (EtwpAllocatePayloadFilterData.c)
  * Callees:
  *     <none>
  */

@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryIoCompletion()
+NTSTATUS __cdecl NtQueryIoCompletion(
+        HANDLE IoCompletionHandle,
+        IO_COMPLETION_INFORMATION_CLASS IoCompletionInformationClass,
+        PVOID IoCompletionInformation,
+        ULONG IoCompletionInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 313LL;
+  result = 313;
   __asm { syscall; Low latency system call }
   return result;
 }

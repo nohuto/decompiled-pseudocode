@@ -7,26 +7,26 @@
  *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
  *     KeSetSchedulingGroupCpuRates @ 0x140205474 (KeSetSchedulingGroupCpuRates.c)
  *     KeSetSchedulingGroupRankBias @ 0x140205AD8 (KeSetSchedulingGroupRankBias.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KeAddGroupAffinityEx @ 0x140307E60 (KeAddGroupAffinityEx.c)
- *     KeFirstGroupAffinityEx @ 0x1403090E0 (KeFirstGroupAffinityEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     PspHardDereferenceSiloWorker @ 0x14035457C (PspHardDereferenceSiloWorker.c)
- *     KeQueryActiveGroupCount @ 0x140362470 (KeQueryActiveGroupCount.c)
- *     KeQuerySchedulingGroupReadyTime @ 0x140362CF8 (KeQuerySchedulingGroupReadyTime.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcsnlen @ 0x1403DBAE0 (wcsnlen.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeSetSchedulingGroupCycleNotification @ 0x14057D2C0 (KeSetSchedulingGroupCycleNotification.c)
- *     PspJobIsAppSilo @ 0x1405A3958 (PspJobIsAppSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KeAddGroupAffinityEx @ 0x1403080F0 (KeAddGroupAffinityEx.c)
+ *     KeFirstGroupAffinityEx @ 0x140309370 (KeFirstGroupAffinityEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     PspHardDereferenceSiloWorker @ 0x14035471C (PspHardDereferenceSiloWorker.c)
+ *     KeQueryActiveGroupCount @ 0x140362610 (KeQueryActiveGroupCount.c)
+ *     KeQuerySchedulingGroupReadyTime @ 0x140362E98 (KeQuerySchedulingGroupReadyTime.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcsnlen @ 0x1403DBCC0 (wcsnlen.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeSetSchedulingGroupCycleNotification @ 0x14057D7B0 (KeSetSchedulingGroupCycleNotification.c)
+ *     PspJobIsAppSilo @ 0x1405A3E48 (PspJobIsAppSilo.c)
  *     PspAddSchedulingGroupToJobChain @ 0x140683BA8 (PspAddSchedulingGroupToJobChain.c)
  *     PspFreeRateControl @ 0x140684EAC (PspFreeRateControl.c)
  *     PspAllocateRateControl @ 0x140684EF8 (PspAllocateRateControl.c)
@@ -46,49 +46,53 @@
  *     PspUnlockJobMemoryLimitsExclusive @ 0x1406A6B5C (PspUnlockJobMemoryLimitsExclusive.c)
  *     PspNotificationLimitRateControlToleranceIntervalField @ 0x1406A6BB4 (PspNotificationLimitRateControlToleranceIntervalField.c)
  *     PspNotificationLimitRateControlToleranceField @ 0x1406A6BDC (PspNotificationLimitRateControlToleranceField.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     IopFreeMiniCompletionPacket @ 0x140728C00 (IopFreeMiniCompletionPacket.c)
- *     SePrivilegeCheck @ 0x14072F2B0 (SePrivilegeCheck.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
- *     PsChargeSharedPoolQuota @ 0x14075C144 (PsChargeSharedPoolQuota.c)
- *     IoAllocateMiniCompletionPacket @ 0x140785FE0 (IoAllocateMiniCompletionPacket.c)
- *     PspIsContextAdmin @ 0x1407D0278 (PspIsContextAdmin.c)
- *     PspSetEnergyTrackingStateJobTree @ 0x1407D02DC (PspSetEnergyTrackingStateJobTree.c)
- *     PspSetJobIoRateControl @ 0x1407D809C (PspSetJobIoRateControl.c)
- *     PspSetJobIoAttribution @ 0x1407D82E4 (PspSetJobIoAttribution.c)
- *     PspScheduleEnforcementWorker @ 0x1407D87D8 (PspScheduleEnforcementWorker.c)
- *     PspFreezeJobTree @ 0x1407DA0C8 (PspFreezeJobTree.c)
- *     SeCheckPrivilegedObject @ 0x1407E0064 (SeCheckPrivilegedObject.c)
- *     PspSetBackgroundJobTree @ 0x1407E5838 (PspSetBackgroundJobTree.c)
- *     PspCreateSilo @ 0x1407E6408 (PspCreateSilo.c)
- *     PspAssignSiloSystemRootPath @ 0x1409AC9B0 (PspAssignSiloSystemRootPath.c)
- *     PspConvertSiloToServerSilo @ 0x1409ACBE4 (PspConvertSiloToServerSilo.c)
- *     PspAddProcessToWorkingSetChangeList @ 0x1409B1DE8 (PspAddProcessToWorkingSetChangeList.c)
- *     PspApplyWorkingSetLimits @ 0x1409B1EB0 (PspApplyWorkingSetLimits.c)
- *     PspDoesJobHierarchyPermitUILimits @ 0x1409B21B8 (PspDoesJobHierarchyPermitUILimits.c)
- *     PspSetIoPriorityLimitJobTree @ 0x1409B2A04 (PspSetIoPriorityLimitJobTree.c)
- *     PspSetJobMemoryPartition @ 0x1409B2C24 (PspSetJobMemoryPartition.c)
- *     PspSetJobSiloThreadImpersonationPolicy @ 0x1409B2F68 (PspSetJobSiloThreadImpersonationPolicy.c)
- *     PspSetNetRateControl @ 0x1409B2FF4 (PspSetNetRateControl.c)
- *     PspSetPagePriorityLimitJobTree @ 0x1409B32C0 (PspSetPagePriorityLimitJobTree.c)
- *     EtwTraceJobSetQuery @ 0x1409E569C (EtwTraceJobSetQuery.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
- *     ObCreateSiloRootDirectory @ 0x140A73B00 (ObCreateSiloRootDirectory.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     IopFreeMiniCompletionPacket @ 0x140728E00 (IopFreeMiniCompletionPacket.c)
+ *     SePrivilegeCheck @ 0x14072F4B0 (SePrivilegeCheck.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
+ *     PsChargeSharedPoolQuota @ 0x14075C334 (PsChargeSharedPoolQuota.c)
+ *     IoAllocateMiniCompletionPacket @ 0x1407861D0 (IoAllocateMiniCompletionPacket.c)
+ *     PspIsContextAdmin @ 0x1407D0548 (PspIsContextAdmin.c)
+ *     PspSetEnergyTrackingStateJobTree @ 0x1407D05AC (PspSetEnergyTrackingStateJobTree.c)
+ *     PspSetJobIoRateControl @ 0x1407D836C (PspSetJobIoRateControl.c)
+ *     PspSetJobIoAttribution @ 0x1407D85B4 (PspSetJobIoAttribution.c)
+ *     PspScheduleEnforcementWorker @ 0x1407D8AA8 (PspScheduleEnforcementWorker.c)
+ *     PspFreezeJobTree @ 0x1407DA398 (PspFreezeJobTree.c)
+ *     SeCheckPrivilegedObject @ 0x1407E0334 (SeCheckPrivilegedObject.c)
+ *     PspSetBackgroundJobTree @ 0x1407E5B08 (PspSetBackgroundJobTree.c)
+ *     PspCreateSilo @ 0x1407E66D8 (PspCreateSilo.c)
+ *     PspAssignSiloSystemRootPath @ 0x1409ACBB0 (PspAssignSiloSystemRootPath.c)
+ *     PspConvertSiloToServerSilo @ 0x1409ACDE4 (PspConvertSiloToServerSilo.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x1409B1FE8 (PspAddProcessToWorkingSetChangeList.c)
+ *     PspApplyWorkingSetLimits @ 0x1409B20B0 (PspApplyWorkingSetLimits.c)
+ *     PspDoesJobHierarchyPermitUILimits @ 0x1409B23B8 (PspDoesJobHierarchyPermitUILimits.c)
+ *     PspSetIoPriorityLimitJobTree @ 0x1409B2C04 (PspSetIoPriorityLimitJobTree.c)
+ *     PspSetJobMemoryPartition @ 0x1409B2E24 (PspSetJobMemoryPartition.c)
+ *     PspSetJobSiloThreadImpersonationPolicy @ 0x1409B3168 (PspSetJobSiloThreadImpersonationPolicy.c)
+ *     PspSetNetRateControl @ 0x1409B31F4 (PspSetNetRateControl.c)
+ *     PspSetPagePriorityLimitJobTree @ 0x1409B34C0 (PspSetPagePriorityLimitJobTree.c)
+ *     EtwTraceJobSetQuery @ 0x1409E592C (EtwTraceJobSetQuery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
+ *     ObCreateSiloRootDirectory @ 0x140A73DB0 (ObCreateSiloRootDirectory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a2, void *a3, unsigned int a4)
+NTSTATUS __cdecl NtSetInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength)
 {
   size_t v4; // r14
   __int64 v5; // r13
   unsigned int v7; // ecx
   bool v8; // zf
   __m128i *v9; // rdi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v11; // rbx
   __int64 v12; // rdx
   int v13; // esi
@@ -116,7 +120,7 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   char v35; // al
   int v36; // ecx
   __int64 v37; // rcx
-  int v38; // edi
+  JOBOBJECTINFOCLASS v38; // edi
   struct _SECURITY_SUBJECT_CONTEXT *Pool2; // rdi
   ULONG v40; // edx
   struct _SECURITY_SUBJECT_CONTEXT *v41; // rcx
@@ -211,7 +215,7 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   signed __int32 v130[8]; // [rsp+0h] [rbp-D08h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+40h] [rbp-CC8h]
   PRKEVENT Event; // [rsp+48h] [rbp-CC0h] BYREF
-  int v133; // [rsp+50h] [rbp-CB8h]
+  JOBOBJECTINFOCLASS v133; // [rsp+50h] [rbp-CB8h]
   int v134; // [rsp+58h] [rbp-CB0h]
   __int16 v135; // [rsp+5Ch] [rbp-CACh] BYREF
   KPROCESSOR_MODE v136; // [rsp+5Eh] [rbp-CAAh]
@@ -250,7 +254,7 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   __int64 v169; // [rsp+168h] [rbp-BA0h]
   unsigned __int8 *v170; // [rsp+170h] [rbp-B98h]
   unsigned int v171; // [rsp+178h] [rbp-B90h]
-  ULONG_PTR BugCheckParameter1a[2]; // [rsp+180h] [rbp-B88h]
+  ULONG_PTR BugCheckParameter1[2]; // [rsp+180h] [rbp-B88h]
   PVOID v173[2]; // [rsp+190h] [rbp-B78h]
   __int128 v174; // [rsp+1A0h] [rbp-B68h] BYREF
   __int128 v175; // [rsp+1B0h] [rbp-B58h]
@@ -280,14 +284,14 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   _QWORD v199[20]; // [rsp+3F0h] [rbp-918h] BYREF
   _QWORD v200[262]; // [rsp+490h] [rbp-878h] BYREF
 
-  v4 = a4;
-  Size[0] = a4;
-  v5 = a2;
-  v150 = BugCheckParameter1;
-  v133 = a2;
-  Src = a3;
+  v4 = JobObjectInformationLength;
+  Size[0] = JobObjectInformationLength;
+  v5 = JobObjectInformationClass;
+  v150 = (__int64)JobHandle;
+  v133 = JobObjectInformationClass;
+  Src = JobObjectInformation;
   memset(&v200[1], 0, 0x100uLL);
-  *(_OWORD *)BugCheckParameter1a = 0LL;
+  *(_OWORD *)BugCheckParameter1 = 0LL;
   v169 = 0LL;
   v168 = 0LL;
   v160 = 0LL;
@@ -326,28 +330,28 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   v165 = 0LL;
   *(_OWORD *)v173 = 0LL;
   if ( (unsigned int)(v5 - 1) > 0x30 )
-    return 3221225475LL;
+    return -1073741821;
   switch ( (_DWORD)v5 )
   {
     case 9:
       if ( (_DWORD)v4 == 144 || (_DWORD)v4 == 152 )
         goto LABEL_14;
-      return 3221225476LL;
+      return -1073741820;
     case 0xC:
       v8 = (((_DWORD)v4 - 48) & 0xFFFFFFF7) == 0;
 LABEL_13:
       if ( v8 )
         goto LABEL_14;
-      return 3221225476LL;
+      return -1073741820;
     case 0x1F:
       if ( (_DWORD)v4 == 48 || (_DWORD)v4 == 96 )
         goto LABEL_14;
       v8 = (_DWORD)v4 == 144;
       goto LABEL_13;
   }
-  v7 = dword_140A7AD6C[v5];
+  v7 = dword_140A7B01C[v5];
   if ( (_DWORD)v4 != v7 && ((_DWORD)v5 != 11 && (_DWORD)v5 != 14 || (unsigned int)v4 < v7) )
-    return 3221225476LL;
+    return -1073741820;
 LABEL_14:
   Thread = KeGetCurrentThread();
   PreviousMode = Thread->PreviousMode;
@@ -357,7 +361,7 @@ LABEL_14:
     v9 = (__m128i *)Src;
     if ( (_DWORD)v4 )
     {
-      if ( ((dword_140A7AE3C[v5] - 1) & (unsigned int)Src) != 0 )
+      if ( ((dword_140A7B0EC[v5] - 1) & (unsigned int)Src) != 0 )
         ExRaiseDatatypeMisalignment();
       if ( (unsigned __int64)Src + v4 > 0x7FFFFFFF0000LL || (char *)Src + v4 < Src )
         MEMORY[0x7FFFFFFF0000] = 0;
@@ -367,11 +371,11 @@ LABEL_14:
   {
     v9 = (__m128i *)Src;
   }
-  if ( !BugCheckParameter1 )
-    return 3221225480LL;
+  if ( !JobHandle )
+    return -1073741816;
   v11 = 2LL;
-  result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x79517350u, (__int64)&Event, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)JobHandle, 0x79517350u, (__int64)&Event, 0LL, 0LL);
+  if ( result >= 0 )
   {
     v13 = 0;
     v134 = 0;
@@ -994,8 +998,8 @@ LABEL_351:
               goto LABEL_495;
             }
             v143 = 0LL;
-            *(__m128i *)BugCheckParameter1a = *v9;
-            if ( !BugCheckParameter1a[1] )
+            *(__m128i *)BugCheckParameter1 = *v9;
+            if ( !BugCheckParameter1[1] )
             {
               v20 = Event;
               ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
@@ -1009,7 +1013,7 @@ LABEL_351:
                 ObfDereferenceObjectWithTag(v21, 0x624A7350u);
               goto LABEL_495;
             }
-            v13 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1a[1], 0x624A7350u, (__int64)&Object, 0LL, 0LL);
+            v13 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1[1], 0x624A7350u, (__int64)&Object, 0LL, 0LL);
             v20 = Event;
             if ( v13 >= 0 )
             {
@@ -1048,7 +1052,7 @@ LABEL_351:
                   MiniCompletionPacket = 0LL;
                 }
                 ExAcquirePushLockExclusiveEx((ULONG_PTR)&v20[52], 0LL);
-                v20[23].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)BugCheckParameter1a[0];
+                v20[23].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)BugCheckParameter1[0];
                 *(_QWORD *)&v20[23].Header.Lock = Object;
                 v20[23].Header.WaitListHead.Blink = 0LL;
                 PspUnlockJobMemoryLimitsExclusive(v20, 0LL, 0LL);
@@ -1481,7 +1485,7 @@ LABEL_495:
               EtwTraceJobSetQuery((_DWORD)v20, v5, 0, 0, v13, 1831);
           }
           ObfDereferenceObjectWithTag(v20, 0x79517350u);
-          return (unsigned int)v13;
+          return v13;
         }
         goto LABEL_347;
       }

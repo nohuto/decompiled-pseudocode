@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockKeWaitForSingleObject_Exit @ 0x140C47EA0
+ * XREFs of ViDeadlockKeWaitForSingleObject_Exit @ 0x140C4DEB0
  * Callers:
  *     <none>
  * Callees:
- *     ViDeadlockObjectAcquired @ 0x140C37CE0 (ViDeadlockObjectAcquired.c)
+ *     ViDeadlockObjectAcquired @ 0x140C3DCF0 (ViDeadlockObjectAcquired.c)
  */
 
 char __fastcall ViDeadlockKeWaitForSingleObject_Exit(__int64 a1)

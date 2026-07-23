@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeImageProtos @ 0x140093198
+ * XREFs of MiInitializeImageProtos @ 0x1400930D8
  * Callers:
- *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14061DEB8 (MiCreateImageFileMap.c)
  * Callees:
  *     MiGetEffectivePagePriorityThread @ 0x14001AEA8 (MiGetEffectivePagePriorityThread.c)
  *     MiInitializeTransitionPfn @ 0x140028D84 (MiInitializeTransitionPfn.c)
@@ -15,11 +15,11 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetPageForHeader @ 0x1400934B8 (MiGetPageForHeader.c)
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiGetPageForHeader @ 0x1400933F8 (MiGetPageForHeader.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int64 __fastcall MiInitializeImageProtos(__int64 a1, __int64 a2, __int64 a3)
@@ -54,7 +54,7 @@ unsigned __int64 __fastcall MiInitializeImageProtos(__int64 a1, __int64 a2, __in
 
   v3 = a1;
   v4 = a2;
-  v25 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+  v25 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
   v24 = *(unsigned int *)(a2 + 40);
   EffectivePagePriorityThread = MiGetEffectivePagePriorityThread((__int64)KeGetCurrentThread());
   v6 = EffectivePagePriorityThread;

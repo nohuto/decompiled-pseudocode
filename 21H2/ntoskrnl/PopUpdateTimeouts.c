@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdateTimeouts @ 0x14067D7CC
+ * XREFs of PopUpdateTimeouts @ 0x1406715BC
  * Callers:
  *     PopSessionWinlogonNotification @ 0x1405D8DC4 (PopSessionWinlogonNotification.c)
- *     PopConsoleSessionPassiveInput @ 0x14067E160 (PopConsoleSessionPassiveInput.c)
- *     PopConsoleSessionActiveInput @ 0x140772E14 (PopConsoleSessionActiveInput.c)
- *     PopActiveLockScreenPowerRequest @ 0x1408F4F30 (PopActiveLockScreenPowerRequest.c)
+ *     PopConsoleSessionPassiveInput @ 0x140672010 (PopConsoleSessionPassiveInput.c)
+ *     PopConsoleSessionActiveInput @ 0x140772FD4 (PopConsoleSessionActiveInput.c)
+ *     PopActiveLockScreenPowerRequest @ 0x1408F5090 (PopActiveLockScreenPowerRequest.c)
  * Callees:
- *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
- *     PopDiagTraceInputTimeout @ 0x14067D8C4 (PopDiagTraceInputTimeout.c)
- *     PopDiagTraceDisplayTimeout @ 0x14067DC7C (PopDiagTraceDisplayTimeout.c)
+ *     PopPrintEx @ 0x140272730 (PopPrintEx.c)
+ *     PopDiagTraceInputTimeout @ 0x1406716B4 (PopDiagTraceInputTimeout.c)
+ *     PopDiagTraceDisplayTimeout @ 0x140671A6C (PopDiagTraceDisplayTimeout.c)
  */
 
 __int64 __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
@@ -30,7 +30,7 @@ __int64 __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
   {
     v8 = "Zeroed";
     if ( !*((_BYTE *)a3 + 5) )
-      v8 = (const char *)qword_1407DDA70;
+      v8 = (const char *)qword_1407DDBE0;
   }
   else
   {
@@ -41,18 +41,18 @@ __int64 __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
   {
     v10 = "Computed";
     if ( !*((_BYTE *)a3 + 4) )
-      v10 = (const char *)qword_1407DDA70;
+      v10 = (const char *)qword_1407DDBE0;
   }
   else
   {
     v10 = "NULL";
   }
   if ( !*((_BYTE *)a2 + 5) )
-    v7 = (const char *)qword_1407DDA70;
+    v7 = (const char *)qword_1407DDBE0;
   if ( !*((_BYTE *)a2 + 4) )
-    v9 = (const char *)qword_1407DDA70;
+    v9 = (const char *)qword_1407DDBE0;
   PopPrintEx(
-    3LL,
+    3u,
     (__int64)"PopAdaptive: Console session %u timeouts: %s%s Display:%u,: %s%sInput:%u\n",
     a1,
     v9,
@@ -71,7 +71,7 @@ __int64 __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
   if ( *((_BYTE *)a2 + 4) )
   {
     result = MEMORY[0xFFFFF78000000320];
-    HIDWORD(xmmword_140C20590) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+    HIDWORD(xmmword_140C205B0) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
   }
   return result;
 }

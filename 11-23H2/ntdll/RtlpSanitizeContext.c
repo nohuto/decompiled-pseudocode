@@ -4,7 +4,7 @@
  *     RtlpWalkFrameChain @ 0x18001E1EC (RtlpWalkFrameChain.c)
  *     RtlDispatchException @ 0x18001E680 (RtlDispatchException.c)
  *     RtlUnwindEx @ 0x18001FF80 (RtlUnwindEx.c)
- *     RtlVirtualUnwind2 @ 0x180111040 (RtlVirtualUnwind2.c)
+ *     RtlVirtualUnwind2 @ 0x180111010 (RtlVirtualUnwind2.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PipInitializeDriverDependentDLLs @ 0x1409CAB40
+ * XREFs of PipInitializeDriverDependentDLLs @ 0x1409CBB40
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x1409CA89C (PipInitializeCoreDriversAndElam.c)
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
+ *     PipInitializeCoreDriversAndElam @ 0x1409CB89C (PipInitializeCoreDriversAndElam.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     MmCallDllInitialize @ 0x14071B6FC (MmCallDllInitialize.c)
- *     PnpDoPolicyCheck @ 0x1409CBEDC (PnpDoPolicyCheck.c)
- *     PnpNotifyEarlyLaunchImageLoad @ 0x1409CBF3C (PnpNotifyEarlyLaunchImageLoad.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MmCallDllInitialize @ 0x14071C99C (MmCallDllInitialize.c)
+ *     PnpDoPolicyCheck @ 0x1409CCEDC (PnpDoPolicyCheck.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x1409CCF3C (PnpNotifyEarlyLaunchImageLoad.c)
  */
 
 void __fastcall PipInitializeDriverDependentDLLs(int a1, __int64 a2)
@@ -67,7 +67,7 @@ LABEL_8:
               HIDWORD(v11[11]) = *(_DWORD *)(v6 + 212);
               HIDWORD(v11[12]) = *(_DWORD *)(v6 + 220);
               v11[10] = *(_QWORD *)(v6 + 200);
-              v11[4] = qword_1409E12F0;
+              v11[4] = qword_1409E22F0;
               LODWORD(v11[3]) = 0x20000;
               *(_OWORD *)&v11[7] = *(_OWORD *)(v6 + 176);
               *(_OWORD *)&v11[5] = *(_OWORD *)(v6 + 160);

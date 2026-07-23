@@ -1,14 +1,14 @@
 /*
- * XREFs of NtAllocateVirtualMemory @ 0x1405FA740
+ * XREFs of NtAllocateVirtualMemory @ 0x1406E9EA0
  * Callers:
  *     <none>
  * Callees:
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1405F99F0 (MiAllocateVirtualMemoryPrepare.c)
- *     PsReferencePartitionByHandle @ 0x140692204 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsReferencePartitionByHandle @ 0x14067CE44 (PsReferencePartitionByHandle.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1406E9150 (MiAllocateVirtualMemoryPrepare.c)
  */
 
 NTSTATUS __stdcall NtAllocateVirtualMemory(
@@ -32,7 +32,7 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
   PVOID v19; // [rsp+88h] [rbp-120h]
   ULONG_PTR v20; // [rsp+90h] [rbp-118h]
   PVOID Object; // [rsp+98h] [rbp-110h] BYREF
-  _QWORD v22[10]; // [rsp+B0h] [rbp-F8h] BYREF
+  ULONG_PTR v22[10]; // [rsp+B0h] [rbp-F8h] BYREF
   _QWORD v23[16]; // [rsp+100h] [rbp-A8h] BYREF
 
   v8 = 0LL;
@@ -88,7 +88,7 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
       }
       else
       {
-        v14 = PsReferencePartitionByHandle(v22[3], 2LL, v16, 1633054029LL, &v17);
+        v14 = PsReferencePartitionByHandle(v22[3], 2LL, v16, 0x61566D4Du, &v17);
         v8 = v17;
         if ( v14 < 0 )
           goto LABEL_13;
@@ -99,9 +99,9 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
       v14 = -1073741811;
 LABEL_21:
       if ( v23[0] )
-        ++dword_140C4E7EC;
+        ++dword_140C4E82C;
       else
-        ++dword_140C4E7E8;
+        ++dword_140C4E828;
       goto LABEL_14;
     }
     v14 = MiAllocateVirtualMemory((__int64)v23, (_QWORD *)v8, &v18);

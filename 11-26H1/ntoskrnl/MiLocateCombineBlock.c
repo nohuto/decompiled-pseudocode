@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLocateCombineBlock @ 0x1404698E0
+ * XREFs of MiLocateCombineBlock @ 0x140463060
  * Callers:
- *     MiProcessCrcList @ 0x140A5ACD0 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140A67C40 (MiProcessCrcList.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 *__fastcall MiLocateCombineBlock(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, _QWORD *a5)
@@ -62,7 +62,7 @@ LABEL_19:
   v12 = v6 + 2;
   if ( v10 != 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v12, 0xBFFFFFFF);
       _InterlockedDecrement(v12);
@@ -76,7 +76,7 @@ LABEL_19:
     __writecr8(v10);
     return v5;
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd(v12, 0xBFFFFFFF);
     _InterlockedDecrement(v12);

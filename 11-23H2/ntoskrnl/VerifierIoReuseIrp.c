@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoReuseIrp @ 0x140ABFE70
+ * XREFs of VerifierIoReuseIrp @ 0x140ABFE60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoReuseIrp()

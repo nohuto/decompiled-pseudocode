@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlSetProxiedProcessId @ 0x180107FD0
+ * XREFs of RtlSetProxiedProcessId @ 0x1801079D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetProxiedProcessId(unsigned int a1)
+ULONG __cdecl RtlSetProxiedProcessId(ULONG ProxiedProcessId)
 {
   struct _TEB *v1; // rdx
-  __int64 result; // rax
+  ULONG result; // eax
 
   v1 = NtCurrentTeb();
   if ( !v1 )
-    return 0LL;
+    return 0;
   result = v1->ProxiedProcessId;
-  v1->ProxiedProcessId = a1;
+  v1->ProxiedProcessId = ProxiedProcessId;
   return result;
 }

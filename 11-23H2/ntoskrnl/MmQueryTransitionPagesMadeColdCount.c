@@ -1,7 +1,7 @@
 /*
- * XREFs of MmQueryTransitionPagesMadeColdCount @ 0x1402F5F74
+ * XREFs of MmQueryTransitionPagesMadeColdCount @ 0x1402F6204
  * Callers:
- *     PfSnCheckActionsNeeded @ 0x14074DFF8 (PfSnCheckActionsNeeded.c)
+ *     PfSnCheckActionsNeeded @ 0x14074E1E8 (PfSnCheckActionsNeeded.c)
  * Callees:
  *     <none>
  */

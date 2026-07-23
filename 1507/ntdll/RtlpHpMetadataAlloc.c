@@ -12,23 +12,19 @@
  *     RtlpHpAllocateHeap @ 0x1800589AC (RtlpHpAllocateHeap.c)
  */
 
-void *__fastcall RtlpHpMetadataAlloc(size_t a1, int a2)
+void *__fastcall RtlpHpMetadataAlloc(size_t Size, int a2)
 {
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 v5; // r8
 
-  v4 = RtlRunOnceExecuteOnce(
-         &RtlpHpMetadataHeapInitVar,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpHpMetadataHeapInit,
-         0LL,
-         0LL);
+  v4 = RtlRunOnceExecuteOnce(&RtlpHpMetadataHeapInitVar, (PRTL_RUN_ONCE_INIT_FN)RtlpHpMetadataHeapInit, 0LL, 0LL);
   v5 = 0LL;
   if ( v4 >= 0 )
   {
     if ( a2 )
-      return RtlpHpSegAlloc(RtlpHpMetadataHeap, a1, a1, 0);
+      return RtlpHpSegAlloc(RtlpHpMetadataHeap, Size, Size, 0);
     else
-      return (void *)RtlpHpAllocateHeap(RtlpHpMetadataHeap, a1, 0LL);
+      return (void *)RtlpHpAllocateHeap(RtlpHpMetadataHeap);
   }
   return (void *)v5;
 }

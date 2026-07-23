@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetInstallerClassCompoundFilterList @ 0x1408FE038
+ * XREFs of _CmGetInstallerClassCompoundFilterList @ 0x1408FF2F8
  * Callers:
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x1408FE268 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x1408FF528 (_CmGetInstallerClassCompoundFiltersWorker.c)
  * Callees:
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     _CmAppendInstallerClassFiltersLevel @ 0x1408FC9C8 (_CmAppendInstallerClassFiltersLevel.c)
- *     _PnpMultiSzAppend @ 0x14090028C (_PnpMultiSzAppend.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     _CmAppendInstallerClassFiltersLevel @ 0x1408FDC88 (_CmAppendInstallerClassFiltersLevel.c)
+ *     _PnpMultiSzAppend @ 0x14090154C (_PnpMultiSzAppend.c)
  */
 
 __int64 __fastcall CmGetInstallerClassCompoundFilterList(

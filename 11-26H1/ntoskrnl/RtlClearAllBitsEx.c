@@ -1,15 +1,18 @@
 /*
- * XREFs of RtlClearAllBitsEx @ 0x140483500
+ * XREFs of RtlClearAllBitsEx @ 0x14047CE30
  * Callers:
- *     MiIdentifyPatchImageDataPages @ 0x140870540 (MiIdentifyPatchImageDataPages.c)
- *     MiCopyToCfgBitMap @ 0x1409C8560 (MiCopyToCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1409C9790 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiCachedPageNotifyPf @ 0x140A5CB60 (MiCachedPageNotifyPf.c)
+ *     MiIdentifyPatchImageDataPages @ 0x1408768A0 (MiIdentifyPatchImageDataPages.c)
+ *     MiCopyToCfgBitMap @ 0x140999540 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14099A770 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiCachedPageNotifyPf @ 0x140A69B20 (MiCachedPageNotifyPf.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-void *__fastcall RtlClearAllBitsEx(__int64 a1)
+void __cdecl RtlClearAllBitsEx(PRTL_BITMAP_EX BitMapHeader)
 {
-  return memset_0(*(void **)(a1 + 8), 0, 4 * ((*(_QWORD *)a1 >> 5) + ((*(_QWORD *)a1 & 0x1F) != 0)));
+  memset_0(
+    BitMapHeader->Buffer,
+    0,
+    4 * ((BitMapHeader->SizeOfBitMap >> 5) + ((BitMapHeader->SizeOfBitMap & 0x1F) != 0)));
 }

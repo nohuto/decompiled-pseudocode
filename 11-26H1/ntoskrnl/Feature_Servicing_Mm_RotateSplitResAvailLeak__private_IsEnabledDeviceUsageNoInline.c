@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x14070D064
+ * XREFs of Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x140711D14
  * Callers:
- *     MiDeletePartialVad @ 0x1403BCC54 (MiDeletePartialVad.c)
- *     MiDeleteNewlyCreatedPartialVads @ 0x14087EFD4 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiInitializePartialVad @ 0x140AC0654 (MiInitializePartialVad.c)
+ *     MiDeletePartialVad @ 0x1403C6AC4 (MiDeletePartialVad.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1408853D4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInitializePartialVad @ 0x140AC26F4 (MiInitializePartialVad.c)
  * Callees:
- *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledFallback @ 0x14070D0A0 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledFallback.c)
+ *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledFallback @ 0x140711D50 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline()

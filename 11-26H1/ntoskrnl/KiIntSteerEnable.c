@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIntSteerEnable @ 0x140425410
+ * XREFs of KiIntSteerEnable @ 0x140432500
  * Callers:
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
  * Callees:
  *     <none>
  */
@@ -38,7 +38,7 @@ __int64 __fastcall KiIntSteerEnable(_QWORD *a1, unsigned int a2)
   }
   v7 = 0;
   *(_BYTE *)(v5 + 132) = 1;
-  _InterlockedExchange(&KiIntTrackRootEnabled, 1);
+  _InterlockedExchange((_DWORD *)&KsepShimDbLock.UpdateVpThreadPriorityDpcStackListEntry.Next + 1, 1);
   if ( a2 )
   {
     v9 = a2;

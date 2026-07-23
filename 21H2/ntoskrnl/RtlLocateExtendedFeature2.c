@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlLocateExtendedFeature2 @ 0x140381600
+ * XREFs of RtlLocateExtendedFeature2 @ 0x140381150
  * Callers:
- *     RtlpWalkFrameChain @ 0x14021D250 (RtlpWalkFrameChain.c)
- *     RtlpUnwindPrologue @ 0x14021E5C0 (RtlpUnwindPrologue.c)
- *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
- *     KeVerifyContextXStateCetU @ 0x14027794C (KeVerifyContextXStateCetU.c)
- *     KiInitializeContextThread @ 0x140278B0C (KiInitializeContextThread.c)
- *     RtlpPopUserShadowStack @ 0x1402D23DC (RtlpPopUserShadowStack.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x140525194 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     RtlLocateExtendedFeature @ 0x14058F520 (RtlLocateExtendedFeature.c)
+ *     RtlpPopUserShadowStack @ 0x1402507AC (RtlpPopUserShadowStack.c)
+ *     KiContinuePreviousModeUser @ 0x1402649A0 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextXStateCetU @ 0x1402658EC (KeVerifyContextXStateCetU.c)
+ *     KiInitializeContextThread @ 0x140266AAC (KiInitializeContextThread.c)
+ *     RtlpWalkFrameChain @ 0x1402C1B50 (RtlpWalkFrameChain.c)
+ *     RtlpUnwindPrologue @ 0x1402C2EC0 (RtlpUnwindPrologue.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x1405253D4 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     RtlLocateExtendedFeature @ 0x14058F750 (RtlLocateExtendedFeature.c)
  * Callees:
  *     <none>
  */

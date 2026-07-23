@@ -1,7 +1,7 @@
 /*
- * XREFs of Amd64CheckCoreEventConstraints @ 0x1405A353C
+ * XREFs of Amd64CheckCoreEventConstraints @ 0x1405A5D4C
  * Callers:
- *     Amd64AllocateCounter @ 0x1405A320C (Amd64AllocateCounter.c)
+ *     Amd64AllocateCounter @ 0x1405A5A1C (Amd64AllocateCounter.c)
  * Callees:
  *     <none>
  */
@@ -51,7 +51,7 @@ char __fastcall Amd64CheckCoreEventConstraints(int a1, int a2, unsigned __int64 
     v7 = *(_DWORD *)(v12 + 4);
   v8 += v7;
 LABEL_17:
-  if ( __readmsr(*((_DWORD *)&xmmword_140F87600 + (unsigned int)(v8 + a1 + 1))) )
+  if ( __readmsr(*((_DWORD *)&xmmword_140F879E0 + (unsigned int)(v8 + a1 + 1))) )
     return 0;
   *v5 = 1;
   return 1;

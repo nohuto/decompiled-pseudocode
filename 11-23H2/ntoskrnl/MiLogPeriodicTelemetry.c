@@ -7,10 +7,10 @@
  *     InsertEventEntryInLookUpTable @ 0x140212F60 (InsertEventEntryInLookUpTable.c)
  *     ExtractAggregateFieldTypes @ 0x14021343C (ExtractAggregateFieldTypes.c)
  *     MiEnumerateSlabAllocators @ 0x14021EF7C (MiEnumerateSlabAllocators.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLogPeriodicTelemetry(unsigned __int16 *a1)
@@ -127,7 +127,7 @@ __int64 __fastcall MiLogPeriodicTelemetry(unsigned __int16 *a1)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -158,7 +158,7 @@ __int64 __fastcall MiLogPeriodicTelemetry(unsigned __int16 *a1)
             *(_DWORD *)&EventDescriptor.Id = 184549376;
             EventDescriptor.Keyword = v5;
             UserData.Size = *(unsigned __int16 *)UserData.Ptr;
-            v51 = &word_140039F86;
+            v51 = &word_14003A06E;
             UserData.Reserved = v15;
             v52 = 94;
             v53 = 1;
@@ -200,7 +200,7 @@ __int64 __fastcall MiLogPeriodicTelemetry(unsigned __int16 *a1)
             *(_DWORD *)&v32.Id = 184549376;
             v32.Keyword = v18;
             v60.Size = *(unsigned __int16 *)v60.Ptr;
-            v61 = &unk_140039FF0;
+            v61 = &unk_14003A0D8;
             v60.Reserved = v21;
             v62 = 87;
             v63 = 1;
@@ -264,7 +264,7 @@ __int64 __fastcall MiLogPeriodicTelemetry(unsigned __int16 *a1)
           *(_DWORD *)&v33.Id = 184549376;
           v33.Keyword = v7;
           v70.Size = *(unsigned __int16 *)v70.Ptr;
-          v71 = byte_14003A053;
+          v71 = byte_14003A13B;
           v70.Reserved = 2;
           v72 = 447;
           v73 = 1;
@@ -283,10 +283,10 @@ __int64 __fastcall MiLogPeriodicTelemetry(unsigned __int16 *a1)
         (unsigned int (__fastcall *)(__int64, unsigned __int64, __int64))MiLogPeriodicTelemetryForSlabAllocator,
         0LL,
         0xFFFFFFFF);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v25 = CurrentPrcb->SchedulerAssist;

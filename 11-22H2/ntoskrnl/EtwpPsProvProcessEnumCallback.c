@@ -23,16 +23,16 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(_KPROCESS *BugCheckParameter1, 
   char v4; // si
   _QWORD *v5; // rcx
   bool v6; // zf
-  ULONG_PTR v7; // r14
+  void *v7; // r14
   int v9; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v10; // [rsp+38h] [rbp-C8h] BYREF
   $115DCDF994C6370D29323EAB0E0C9502 v11; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v12[104]; // [rsp+70h] [rbp-90h] BYREF
+  unsigned int PackageSize[104]; // [rsp+70h] [rbp-90h] BYREF
 
   v10 = 0LL;
   v4 = 0;
   memset(&v11, 0, sizeof(v11));
-  memset(v12, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   if ( !EtwpIsProcessZombie((__int64)BugCheckParameter1) )
   {
     if ( a2[9] )
@@ -59,12 +59,15 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(_KPROCESS *BugCheckParameter1, 
       if ( (*a2 & 0x10) != 0 )
       {
         v9 = 0;
-        v7 = PsReferencePrimaryTokenWithTag((__int64)BugCheckParameter1, 0x746C6644u);
-        EtwpQueryTokenPackageInfo(v7, (__int64)v12, &v9);
+        v7 = (void *)PsReferencePrimaryTokenWithTag((__int64)BugCheckParameter1, 0x746C6644u);
+        EtwpQueryTokenPackageInfo(v7, (WCHAR *)PackageSize, &v9);
         if ( a2[8] )
           EtwpQueryProcessOtherInfo((__int64)BugCheckParameter1, (__int64)&v10);
-        ObFastDereferenceObject((signed __int64 *)&BugCheckParameter1[1].Affinity.StaticBitmap[5], v7, 0x746C6644u);
-        EtwpPsProvTraceProcess((__int64)BugCheckParameter1, v9, v12, (int *)&v10, 771);
+        ObFastDereferenceObject(
+          (signed __int64 *)&BugCheckParameter1[1].Affinity.StaticBitmap[5],
+          (unsigned __int64)v7,
+          0x746C6644u);
+        EtwpPsProvTraceProcess((__int64)BugCheckParameter1, v9, PackageSize, (int *)&v10, 771);
       }
       if ( v4 )
       {

@@ -1,18 +1,18 @@
 /*
- * XREFs of LookupSidInTable @ 0x1406B03A0
+ * XREFs of LookupSidInTable @ 0x1406B1640
  * Callers:
- *     SeConvertStringSidToSid @ 0x1401893E0 (SeConvertStringSidToSid.c)
- *     LocalGetSidForString @ 0x1406B02AC (LocalGetSidForString.c)
- *     LocalConvertAclToString @ 0x1408A4F50 (LocalConvertAclToString.c)
- *     LocalGetStringForSid @ 0x1408A62B4 (LocalGetStringForSid.c)
+ *     SeConvertStringSidToSid @ 0x140189520 (SeConvertStringSidToSid.c)
+ *     LocalGetSidForString @ 0x1406B154C (LocalGetSidForString.c)
+ *     LocalConvertAclToString @ 0x1408A61B0 (LocalConvertAclToString.c)
+ *     LocalGetStringForSid @ 0x1408A7514 (LocalGetStringForSid.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
- *     RtlSubAuthorityCountSid @ 0x1400DCAE0 (RtlSubAuthorityCountSid.c)
- *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
+ *     RtlEqualSid @ 0x1400A7D30 (RtlEqualSid.c)
+ *     RtlSubAuthorityCountSid @ 0x1400DCB60 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1400DCB70 (RtlSubAuthoritySid.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     SddlpAlloc @ 0x1406B1814 (SddlpAlloc.c)
  */
 
 __int64 __fastcall LookupSidInTable(
@@ -78,12 +78,12 @@ LABEL_25:
   v10 = wcsnicmp(Str1, L"RO", 2uLL) == 0;
 LABEL_6:
   v12 = 0;
-  v13 = (PSID *)&unk_140402000;
+  v13 = (PSID *)&unk_140403000;
   do
   {
     if ( !v25 )
     {
-      Str2a = (wchar_t *)((char *)&unk_140401FF0 + 104 * v12 + 2);
+      Str2a = (wchar_t *)((char *)&unk_140402FF0 + 104 * v12 + 2);
       if ( !wcsnicmp(Str1, Str2a, *((unsigned int *)v13 - 1)) )
         break;
       if ( v10 && a6 && !a3 && *((_BYTE *)v13 - 16) && *v13 && !wcsnicmp(L"DA", Str2a, *((unsigned int *)v13 - 1)) )
@@ -100,7 +100,7 @@ LABEL_10:
   if ( v12 < 0x3F )
   {
     v14 = v12;
-    return (__int64)&unk_140401FF0 + 104 * v14;
+    return (__int64)&unk_140402FF0 + 104 * v14;
   }
   if ( v10 && a6 && !a3 && v11 < 0x3F )
   {
@@ -113,7 +113,7 @@ LABEL_10:
       else
       {
         v18 = 104LL * v11;
-        v19 = *(void **)((char *)&unk_140401FF0 + v18 + 16);
+        v19 = *(void **)((char *)&unk_140402FF0 + v18 + 16);
         if ( v19 )
         {
           v20 = RtlLengthSid(v19);
@@ -122,8 +122,8 @@ LABEL_10:
           if ( v21 )
           {
             _mm_lfence();
-            memmove(v21, *(const void **)((char *)&unk_140401FF0 + v18 + 16), v20);
-            v22 = RtlSubAuthorityCountSid(*(PSID *)((char *)&unk_140401FF0 + v18 + 16));
+            memmove(v21, *(const void **)((char *)&unk_140402FF0 + v18 + 16), v20);
+            v22 = RtlSubAuthorityCountSid(*(PSID *)((char *)&unk_140402FF0 + v18 + 16));
             *RtlSubAuthoritySid(v21, (unsigned int)*v22 - 1) = 518;
           }
         }
@@ -132,7 +132,7 @@ LABEL_10:
     else
     {
       v14 = v11;
-      return (__int64)&unk_140401FF0 + 104 * v14;
+      return (__int64)&unk_140402FF0 + 104 * v14;
     }
   }
   return v7;

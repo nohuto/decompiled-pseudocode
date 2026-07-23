@@ -46,7 +46,7 @@ char __fastcall RtlpHpVaMgrCtxFree(__int64 a1, ULONG_PTR *a2, ULONG_PTR *a3)
   unsigned int v24; // r8d
   bool v25; // zf
   __int64 v26; // rcx
-  unsigned __int64 v27; // rsi
+  __int64 v27; // rsi
   __int64 v28; // rdx
   __int64 v29; // rcx
   struct _KPRCB *CurrentPrcb; // r9
@@ -146,7 +146,7 @@ LABEL_4:
         v25 = !_BitScanReverse((unsigned int *)&v26, v24);
         if ( v25 )
           goto LABEL_39;
-        v27 = (unsigned __int64)&CurrentThread->LockEntries[v26];
+        v27 = (__int64)&CurrentThread->LockEntries[v26];
         v24 &= ~(1 << v26);
         if ( (*(_BYTE *)(v27 + 26) & 1) != 0
           && (*(_DWORD *)(v27 + 32) & 1) == 0
@@ -167,12 +167,12 @@ LABEL_39:
       }
       *(_BYTE *)(v27 + 32) |= 2u;
       if ( *(__int64 *)(v27 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v27);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v27);
       v33 = *(_DWORD *)(v27 + 88) & 0x1FFFF;
       *(_DWORD *)(v27 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v27 + 25) &= ~1u;
       *(_QWORD *)(v27 + 32) = 0LL;
-      v28 = (__int64)(v27 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+      v28 = (signed __int64)(v27 - (unsigned __int64)CurrentThread->LockEntries) / 96;
       if ( v23 == 1 )
         CurrentThread->AbEntrySummary |= 1 << v28;
       else

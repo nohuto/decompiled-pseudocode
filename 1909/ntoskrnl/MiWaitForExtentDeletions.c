@@ -13,7 +13,7 @@
 
 __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
 {
-  __int64 v2; // rax
+  PRTL_BALANCED_NODE v2; // rax
   _KLOCK_ENTRY *v3; // rbx
   unsigned __int8 OldIrql; // di
   struct _KPRCB *CurrentPrcb; // rcx
@@ -29,7 +29,7 @@ __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
   v2 = KeAbPreAcquire((ULONG_PTR)&qword_140464410, 0LL, 0);
   v3 = (_KLOCK_ENTRY *)v2;
   if ( v2 )
-    KeAbPreWait(v2);
+    KeAbPreWait((__int64)v2);
   v11 = 0;
   v12[1] = v12;
   v8 = 263;
@@ -49,7 +49,7 @@ __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
   result = KeWaitForGate((__int64)&v8, 18);
   if ( v3 )
   {
-    KeAbPreAcquire((ULONG_PTR)&qword_140464410, (__int64)v3, 0);
+    KeAbPreAcquire((ULONG_PTR)&qword_140464410, &v3->TreeNode, 0);
     return KeAbPostReleaseEx((ULONG_PTR)&qword_140464410, v3);
   }
   return result;

@@ -8,25 +8,21 @@
  *     ZwCreateFile @ 0x1800A5B60 (ZwCreateFile.c)
  */
 
-__int64 __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, _QWORD *a2)
+NTSTATUS __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, HANDLE *a2)
 {
   __int64 v2; // r9
   __int64 v4; // rax
   wchar_t *v5; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v7; // [rsp+60h] [rbp-29h] BYREF
   wchar_t *v8; // [rsp+68h] [rbp-21h]
-  __int64 v9; // [rsp+70h] [rbp-19h] BYREF
-  int v10; // [rsp+78h] [rbp-11h] BYREF
-  __int64 v11; // [rsp+80h] [rbp-9h]
-  int *v12; // [rsp+88h] [rbp-1h]
-  int v13; // [rsp+90h] [rbp+7h]
-  __int128 v14; // [rsp+98h] [rbp+Fh]
-  _BYTE v15[16]; // [rsp+A8h] [rbp+1Fh] BYREF
+  HANDLE FileHandle; // [rsp+70h] [rbp-19h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-11h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp+1Fh] BYREF
   wchar_t pszDest[12]; // [rsp+B8h] [rbp+2Fh] BYREF
 
   v2 = *a1;
-  v9 = 0LL;
+  FileHandle = 0LL;
   StringCbPrintfW(pszDest, 0x14uLL, L"\\??\\%C:", v2);
   v7 = 0;
   v4 = 0x7FFFLL;
@@ -46,16 +42,16 @@ __int64 __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, _QWORD *a2)
     HIWORD(v7) = v7 + 2;
     v8 = pszDest;
   }
-  v10 = 48;
-  v11 = 0LL;
-  v13 = 64;
-  v12 = &v7;
-  v14 = 0LL;
-  result = ZwCreateFile(&v9, 1048704LL, &v10, v15, 0LL, 0, 7, 1, 32, 0LL, 0);
-  if ( (int)result >= 0 )
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v7;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = ZwCreateFile(&FileHandle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x20u, 0LL, 0);
+  if ( result >= 0 )
   {
-    *a2 = v9;
-    return 0LL;
+    *a2 = FileHandle;
+    return 0;
   }
   return result;
 }

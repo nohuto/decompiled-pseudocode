@@ -9,33 +9,44 @@
  *     ViZwShouldCheck @ 0x1406D4C58 (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwAlpcConnectPort(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        int a11)
+NTSTATUS __fastcall VfZwAlpcConnectPort(
+        HANDLE *a1,
+        UNICODE_STRING *a2,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        _ALPC_PORT_ATTRIBUTES *a4,
+        ULONG a5,
+        void *a6,
+        _PORT_MESSAGE *a7,
+        ULONG_PTR *a8,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   void *retaddr; // [rsp+88h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
   {
-    ViZwCheckVirtualAddress(a1, (int)retaddr);
-    ViZwCheckVirtualAddress(a4, (int)retaddr);
-    ViZwCheckVirtualAddress(a6, (int)retaddr);
-    ViZwCheckVirtualAddress(a7, (int)retaddr);
-    ViZwCheckVirtualAddress(a8, (int)retaddr);
-    ViZwCheckVirtualAddress(a9, (int)retaddr);
-    ViZwCheckVirtualAddress(a10, (int)retaddr);
-    ViZwCheckVirtualAddress(a11, (int)retaddr);
-    ViZwCheckObjectAttributes(a3, retaddr);
-    ViZwCheckUnicodeString(a2, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a1, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a4, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a6, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a7, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a8, (int)retaddr);
+    ViZwCheckVirtualAddress((int)OutMessageAttributes, (int)retaddr);
+    ViZwCheckVirtualAddress((int)InMessageAttributes, (int)retaddr);
+    ViZwCheckVirtualAddress((int)Timeout, (int)retaddr);
+    ViZwCheckObjectAttributes(ObjectAttributes, retaddr);
+    ViZwCheckUnicodeString((int)a2, (int)retaddr);
   }
-  return pXdvZwAlpcConnectPort(a1, a2, a3);
+  return pXdvZwAlpcConnectPort(
+           a1,
+           a2,
+           ObjectAttributes,
+           a4,
+           a5,
+           a6,
+           a7,
+           a8,
+           OutMessageAttributes,
+           InMessageAttributes,
+           Timeout);
 }

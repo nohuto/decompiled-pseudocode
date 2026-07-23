@@ -6,9 +6,9 @@
  *     RtlInitUnicodeString @ 0x1800369B0 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall sub_1800E5100(__int16 a1, char a2, UNICODE_STRING *a3)
+__int64 __fastcall sub_1800E5100(__int16 a1, char a2, _UNICODE_STRING *a3)
 {
-  UNICODE_STRING *v4; // rcx
+  _UNICODE_STRING *v4; // rcx
   const WCHAR *v5; // rdx
   bool v6; // zf
 

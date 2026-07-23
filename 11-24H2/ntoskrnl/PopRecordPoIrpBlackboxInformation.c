@@ -1,19 +1,19 @@
 /*
- * XREFs of PopRecordPoIrpBlackboxInformation @ 0x1404C229C
+ * XREFs of PopRecordPoIrpBlackboxInformation @ 0x1404BD7D4
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1407663B8 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x140765D88 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     PopDiagGetDriverName @ 0x1403D9940 (PopDiagGetDriverName.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopDiagGetDriverName @ 0x1403CBCB8 (PopDiagGetDriverName.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PopRecordPoIrpBlackboxInformation()
@@ -21,7 +21,7 @@ void PopRecordPoIrpBlackboxInformation()
   __int64 v0; // rsi
   int v1; // r14d
   void *v2; // rdi
-  unsigned __int64 v3; // rbx
+  ULONG_PTR v3; // rbx
   KIRQL v4; // al
   int v5; // r12d
   KIRQL v6; // dl
@@ -82,7 +82,7 @@ LABEL_14:
     v3 = 0LL;
     goto LABEL_26;
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, v3, 0x42424F50u);
   v2 = (void *)Pool2;
   if ( Pool2 )
   {

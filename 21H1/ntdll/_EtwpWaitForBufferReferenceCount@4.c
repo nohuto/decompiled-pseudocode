@@ -10,16 +10,15 @@
 int __thiscall EtwpWaitForBufferReferenceCount(_DWORD *this)
 {
   int result; // eax
-  _DWORD v3[2]; // [esp+4h] [ebp-8h] BYREF
+  LARGE_INTEGER DelayInterval; // [esp+4h] [ebp-8h] BYREF
 
-  v3[1] = -1;
-  v3[0] = -2500000;
+  DelayInterval.QuadPart = -2500000LL;
   while ( 1 )
   {
     result = this[3];
     if ( !result )
       break;
-    ZwDelayExecution(0, v3);
+    ZwDelayExecution(0, &DelayInterval);
   }
   return result;
 }

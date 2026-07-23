@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReturnPageTablePageCommitment @ 0x1406EE990
+ * XREFs of MiReturnPageTablePageCommitment @ 0x140705D70
  * Callers:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
  *     MiDeleteEmptyPageTableCommit @ 0x1403F4B14 (MiDeleteEmptyPageTableCommit.c)
  * Callees:
- *     MiVadPureReserve @ 0x14021B990 (MiVadPureReserve.c)
- *     MiVadPageTableChargeLevel @ 0x14021BA20 (MiVadPageTableChargeLevel.c)
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
- *     MiCreateSystemWsles @ 0x1402C0BD0 (MiCreateSystemWsles.c)
- *     MiBitmapRangeZeroEx @ 0x1403096C0 (MiBitmapRangeZeroEx.c)
- *     RtlAreBitsClearEx @ 0x140348F90 (RtlAreBitsClearEx.c)
- *     MiUpdateChargedWsles @ 0x14055C45C (MiUpdateChargedWsles.c)
- *     MiReturnFullProcessCommitment @ 0x1406EE838 (MiReturnFullProcessCommitment.c)
+ *     MiCreateSystemWsles @ 0x14023F040 (MiCreateSystemWsles.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     MiVadDeleted @ 0x14027C8A0 (MiVadDeleted.c)
+ *     MiVadPureReserve @ 0x1402C0290 (MiVadPureReserve.c)
+ *     MiVadPageTableChargeLevel @ 0x1402C0320 (MiVadPageTableChargeLevel.c)
+ *     MiBitmapRangeZeroEx @ 0x140314410 (MiBitmapRangeZeroEx.c)
+ *     RtlAreBitsClearEx @ 0x140353CE0 (RtlAreBitsClearEx.c)
+ *     MiUpdateChargedWsles @ 0x14055C69C (MiUpdateChargedWsles.c)
+ *     MiReturnFullProcessCommitment @ 0x140705C18 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiReturnPageTablePageCommitment(

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetIoCompletion @ 0x1407E99F0
+ * XREFs of IoSetIoCompletion @ 0x1407E9CC0
  * Callers:
- *     PspSendJobNotification @ 0x14036DF48 (PspSendJobNotification.c)
+ *     PspSendJobNotification @ 0x14036E0E8 (PspSendJobNotification.c)
  * Callees:
- *     IoSetIoCompletionEx2 @ 0x1402B91F0 (IoSetIoCompletionEx2.c)
+ *     IoSetIoCompletionEx2 @ 0x1402B9480 (IoSetIoCompletionEx2.c)
  */
 
 __int64 __fastcall IoSetIoCompletion(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, unsigned __int8 a6)

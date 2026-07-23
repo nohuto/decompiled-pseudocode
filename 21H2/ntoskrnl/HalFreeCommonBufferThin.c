@@ -1,29 +1,29 @@
 /*
- * XREFs of HalFreeCommonBufferThin @ 0x1404CADB0
+ * XREFs of HalFreeCommonBufferThin @ 0x1404CAFF0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     MiFreePagesFromMdl @ 0x14030A23C (MiFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaDereferenceDomainObject @ 0x1404C4AF8 (HalpDmaDereferenceDomainObject.c)
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4D38 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PTR a3, void *a4)
+__int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PTR a3, _RTL_BALANCED_NODE *a4)
 {
-  void *v4; // r14
+  _RTL_BALANCED_NODE *v4; // r14
   unsigned __int64 v6; // rbp
   __int64 v7; // r15
   unsigned __int64 v8; // rdi
-  _QWORD *v9; // rsi
+  _RTL_BALANCED_NODE *v9; // rsi
   unsigned __int64 v10; // r13
-  __int64 v11; // rax
+  _RTL_BALANCED_NODE *v11; // rax
   unsigned __int64 v12; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -32,7 +32,7 @@ __int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PT
   bool v17; // zf
   __int64 v18; // r14
   KSPIN_LOCK *v19; // rsi
-  __int64 v20; // rax
+  _RTL_BALANCED_NODE *v20; // rax
   unsigned __int64 v21; // rax
   unsigned __int8 v22; // al
   struct _KPRCB *v23; // r10
@@ -51,14 +51,13 @@ __int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PT
   int v36; // eax
   _DWORD *v37; // r8
   struct _MDL *v38; // rbx
-  __int64 v39; // r8
-  unsigned __int64 v40; // [rsp+60h] [rbp+8h] BYREF
-  unsigned int v41; // [rsp+68h] [rbp+10h]
-  void *v42; // [rsp+78h] [rbp+20h]
+  unsigned __int64 v39; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v40; // [rsp+68h] [rbp+10h]
+  _RTL_BALANCED_NODE *v41; // [rsp+78h] [rbp+20h]
 
-  v42 = a4;
-  v41 = a2;
-  v40 = 0LL;
+  v41 = a4;
+  v40 = a2;
+  v39 = 0LL;
   v4 = a4;
   LOBYTE(v6) = KeGetCurrentIrql();
   v7 = *(_QWORD *)(a1 + 504);
@@ -73,10 +72,10 @@ __int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PT
     v8 ^= v7 + 80;
   while ( v8 )
   {
-    v11 = *(_QWORD *)(v8 + 24);
-    if ( *(void **)(v11 + 24) == v4 )
+    v11 = *(_RTL_BALANCED_NODE **)(v8 + 24);
+    if ( v11[1].Children[0] == v4 )
       break;
-    if ( *(_QWORD *)(v11 + 24) <= (unsigned __int64)v4 )
+    if ( v11[1].Children[0] <= v4 )
       v12 = *(_QWORD *)(v8 + 8);
     else
       v12 = *(_QWORD *)v8;
@@ -87,7 +86,7 @@ __int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PT
   }
   if ( v8 )
   {
-    v9 = (_QWORD *)v8;
+    v9 = (_RTL_BALANCED_NODE *)v8;
   }
   else
   {
@@ -130,10 +129,10 @@ LABEL_26:
         {
           do
           {
-            v20 = *(_QWORD *)(v8 + 24);
-            if ( *(void **)(v20 + 24) == v42 )
+            v20 = *(_RTL_BALANCED_NODE **)(v8 + 24);
+            if ( v20[1].Children[0] == v41 )
               break;
-            v21 = *(_QWORD *)(v20 + 24) <= (unsigned __int64)v42 ? *(_QWORD *)(v8 + 8) : *(_QWORD *)v8;
+            v21 = v20[1].Children[0] <= v41 ? *(_QWORD *)(v8 + 8) : *(_QWORD *)v8;
             if ( (*(_BYTE *)(v18 + 88) & 1) != 0 && v21 )
               v8 ^= v21;
             else
@@ -167,7 +166,7 @@ LABEL_26:
         if ( (__int64 *)v18 == &HalpDmaDomainList )
           goto LABEL_52;
       }
-      v9 = (_QWORD *)v8;
+      v9 = (_RTL_BALANCED_NODE *)v8;
     }
     if ( !v7 )
     {
@@ -194,13 +193,13 @@ LABEL_52:
       __writecr8(v10);
       return result;
     }
-    v4 = v42;
+    v4 = v41;
   }
   v29 = *(_QWORD *)(v7 + 40);
-  v40 = v41;
-  HalpIommuDomainUnmapLogicalRange(v29, a3, &v40, 0);
+  v39 = v40;
+  HalpIommuDomainUnmapLogicalRange(v29, a3, &v39, 0);
   HalpDomainLaDelete(v7, a3);
-  RtlRbRemoveNode((unsigned __int64 *)(v7 + 80), v8);
+  RtlRbRemoveNode((PRTL_RB_TREE)(v7 + 80), (PRTL_BALANCED_NODE)v8);
   KxReleaseSpinLock((PKSPIN_LOCK)(v7 + 96));
   if ( KiIrqlFlags )
   {
@@ -240,8 +239,8 @@ LABEL_52:
   }
   __writecr8(v10);
   HalpDmaDereferenceDomainObject((__int64 *)v7);
-  v38 = (struct _MDL *)v9[3];
+  v38 = (struct _MDL *)v9[1].Children[0];
   ExFreePoolWithTag(v9, 0);
   MmUnmapLockedPages(v4, v38);
-  return (__int64)MiFreePagesFromMdl((ULONG_PTR)v38, 0, v39);
+  return (__int64)MiFreePagesFromMdl((ULONG_PTR)v38, 0);
 }

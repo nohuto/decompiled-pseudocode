@@ -10,143 +10,141 @@
  *     sub_180104440 @ 0x180104440 (sub_180104440.c)
  */
 
-__int64 __fastcall sub_180067A40(_QWORD *a1, unsigned __int64 a2, _QWORD *a3, unsigned __int64 a4)
+__int64 __fastcall sub_180067A40(_QWORD *a1, SIZE_T a2, _QWORD *a3)
 {
-  int v6; // eax
-  __int64 v7; // r8
-  unsigned int v8; // edi
-  char v9; // al
+  int v5; // eax
+  __int64 v6; // r8
+  unsigned int v7; // edi
+  char v8; // al
+  __int16 v9; // cx
   __int16 v10; // cx
-  __int16 v11; // cx
-  char *v12; // r14
-  unsigned __int64 v13; // rbx
-  char *v14; // r12
-  __int64 v15; // r9
+  char *v11; // r14
+  unsigned __int64 v12; // rbx
+  char *v13; // r12
+  __int64 v14; // r9
   _QWORD *i; // r8
-  _QWORD *v17; // rcx
-  __int64 v18; // rdx
+  _QWORD *v16; // rcx
+  __int64 v17; // rdx
   _QWORD **j; // rdx
-  unsigned __int8 *v21; // r9
-  __int64 v22; // rbx
+  unsigned __int8 *v20; // r9
+  __int64 v21; // rbx
+  __int64 v22; // rax
   __int64 v23; // rax
-  unsigned __int64 v24; // rdx
-  __int64 v25; // rax
-  __int64 v26; // rax
+  __int64 v24; // rax
 
   if ( a2 < 0x18 )
     return (unsigned int)-1073741811;
   if ( *(_WORD *)a1 != 1 )
     return (unsigned int)-1073741811;
-  v6 = *((unsigned __int16 *)a1 + 1);
-  if ( (v6 & 0xFFFFFFFD) != 0 )
+  v5 = *((unsigned __int16 *)a1 + 1);
+  if ( (v5 & 0xFFFFFFFD) != 0 )
     return (unsigned int)-1073741811;
   if ( a1[1] == -1LL )
   {
-    v7 = 2LL;
-    if ( (v6 & 2) != 0 && a2 < 0x30 )
+    v6 = 2LL;
+    if ( (v5 & 2) != 0 && a2 < 0x30 )
       return (unsigned int)-1073741811;
-    v8 = 0;
-    v9 = (unsigned __int8)byte_180166058 >> 1;
+    v7 = 0;
+    v8 = (unsigned __int8)byte_180166058 >> 1;
     a1[2] = 0LL;
-    v10 = *((_WORD *)a1 + 1);
-    if ( (v9 & 1) != 0 )
+    v9 = *((_WORD *)a1 + 1);
+    if ( (v8 & 1) != 0 )
     {
-      v11 = v10 | 1;
-      v12 = (char *)(a1 + 3);
-      *((_WORD *)a1 + 1) = v11;
-      if ( (v11 & 2) != 0 )
+      v10 = v9 | 1;
+      v11 = (char *)(a1 + 3);
+      *((_WORD *)a1 + 1) = v10;
+      if ( (v10 & 2) != 0 )
       {
-        v21 = (unsigned __int8 *)(a1 + 3);
-        v22 = 314159LL;
+        v20 = (unsigned __int8 *)(a1 + 3);
+        v21 = 314159LL;
         do
         {
-          v23 = *v21;
-          v21 += 8;
-          v24 = *(v21 - 3)
-              + 37 * (*(v21 - 4) + 37 * (*(v21 - 5) + 37 * (*(v21 - 6) + 37 * (*(v21 - 7) + 37 * (v23 + 37 * v22)))));
-          v22 = *(v21 - 1) + 37 * (*(v21 - 2) + 37 * v24);
-          --v7;
+          v22 = *v20;
+          v20 += 8;
+          v21 = *(v20 - 1)
+              + 37
+              * (*(v20 - 2)
+               + 37
+               * (*(v20 - 3)
+                + 37 * (*(v20 - 4) + 37 * (*(v20 - 5) + 37 * (*(v20 - 6) + 37 * (*(v20 - 7) + 37 * (v22 + 37 * v21)))))));
+          --v6;
         }
-        while ( v7 );
-        RtlAcquireSRWLockShared(&qword_180163B40, v24, 0LL, (unsigned __int64)v21);
-        v25 = sub_18004EE4C((__int64)&qword_180163B40, (__int64)(a1 + 3), v22);
+        while ( v6 );
+        RtlAcquireSRWLockShared(&Parameter);
+        v23 = sub_18004EE4C((__int64)&Parameter, (__int64)(a1 + 3), v21);
         a1[2] = 1LL;
-        if ( v25 )
-          v26 = *(_QWORD *)(v25 + 32);
+        if ( v23 )
+          v24 = *(_QWORD *)(v23 + 32);
         else
-          v26 = 0LL;
-        a1[5] = v26;
-        RtlReleaseSRWLockShared(&qword_180163B40);
+          v24 = 0LL;
+        a1[5] = v24;
+        RtlReleaseSRWLockShared(&Parameter);
         *a3 = 48LL;
       }
       else
       {
-        v13 = (a2 - 24) / 0x18;
-        v14 = &v12[24 * v13];
-        RtlAcquireSRWLockShared(
-          &qword_180163B40,
-          ((a2 - 24) * (unsigned __int128)0xAAAAAAAAAAAAAAABuLL) >> 64,
-          2uLL,
-          a4);
-        if ( (unsigned int)dword_180163B48 > v13 )
+        v12 = (a2 - 24) / 0x18;
+        v13 = &v11[24 * v12];
+        RtlAcquireSRWLockShared(&Parameter);
+        if ( (unsigned int)dword_180163B48 > v12 )
         {
-          v8 = -1073741789;
+          v7 = -1073741789;
           *a3 = 8 * (3LL * (unsigned int)dword_180163B48 + 3);
-          RtlReleaseSRWLockShared(&qword_180163B40);
+          RtlReleaseSRWLockShared(&Parameter);
         }
         else
         {
-          v15 = qword_180163B50;
-          for ( i = (_QWORD *)qword_180163B50; v12 < v14; v12 += 24 )
+          v14 = qword_180163B50;
+          for ( i = (_QWORD *)qword_180163B50; v11 < v13; v11 += 24 )
           {
             if ( !i )
               goto LABEL_20;
-            v17 = (_QWORD *)*i;
+            v16 = (_QWORD *)*i;
             if ( (*i & 0x8000000000000002uLL) == 0x8000000000000002uLL )
-              v17 = (_QWORD *)*i;
-            if ( ((unsigned __int8)v17 & 1) != 0 )
+              v16 = (_QWORD *)*i;
+            if ( ((unsigned __int8)v16 & 1) != 0 )
             {
 LABEL_20:
-              for ( j = (_QWORD **)(v15 + 8);
+              for ( j = (_QWORD **)(v14 + 8);
                     (unsigned __int64)j < qword_180163B50 + 8 * ((unsigned __int64)(unsigned int)dword_180163B4C >> 5);
                     ++j )
               {
                 if ( (*(_BYTE *)j & 1) == 0 )
                 {
                   i = *j;
-                  v15 = (__int64)j;
-                  v17 = *j;
+                  v14 = (__int64)j;
+                  v16 = *j;
                   goto LABEL_16;
                 }
               }
-              v17 = 0LL;
+              v16 = 0LL;
             }
             else
             {
-              i = v17;
+              i = v16;
             }
 LABEL_16:
-            if ( !v17 )
+            if ( !v16 )
               break;
-            *(_OWORD *)v12 = *((_OWORD *)v17 + 1);
-            *((_QWORD *)v12 + 2) = v17[4];
+            *(_OWORD *)v11 = *((_OWORD *)v16 + 1);
+            *((_QWORD *)v11 + 2) = v16[4];
           }
-          RtlReleaseSRWLockShared(&qword_180163B40);
-          v18 = (v12 - (char *)a1 - 24) / 24;
-          a1[2] = v18;
-          *a3 = 24 * (v18 + 1);
+          RtlReleaseSRWLockShared(&Parameter);
+          v17 = (v11 - (char *)a1 - 24) / 24;
+          a1[2] = v17;
+          *a3 = 24 * (v17 + 1);
         }
       }
     }
     else
     {
-      *((_WORD *)a1 + 1) = v10 & 0xFFFE;
+      *((_WORD *)a1 + 1) = v9 & 0xFFFE;
       *a3 = 24LL;
     }
   }
   else
   {
-    return (unsigned int)sub_180104440(a1);
+    return (unsigned int)sub_180104440(a1, a2);
   }
-  return v8;
+  return v7;
 }

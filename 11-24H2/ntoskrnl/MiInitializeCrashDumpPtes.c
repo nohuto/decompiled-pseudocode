@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeCrashDumpPtes @ 0x140C53FC0
+ * XREFs of MiInitializeCrashDumpPtes @ 0x140C56150
  * Callers:
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline @ 0x1405D3348 (Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline @ 0x1405D0A68 (Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 MiInitializeCrashDumpPtes()
@@ -13,13 +13,13 @@ __int64 MiInitializeCrashDumpPtes()
 
   if ( (unsigned int)Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline() )
   {
-    result = MiReservePtes((__int64)&qword_140E37568, 0x101u);
-    dword_140E300C0 = 257;
+    result = MiReservePtes((__int64)&qword_140E376A8, 0x101u);
+    dword_140E30200 = 257;
   }
   else
   {
-    result = MiReservePtes((__int64)&qword_140E37568, 0x20u);
+    result = MiReservePtes((__int64)&qword_140E376A8, 0x20u);
   }
-  qword_140E300B8 = result;
+  qword_140E301F8 = result;
   return result;
 }

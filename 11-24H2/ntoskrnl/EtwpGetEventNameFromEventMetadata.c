@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetEventNameFromEventMetadata @ 0x14032BEA0
+ * XREFs of EtwpGetEventNameFromEventMetadata @ 0x1403FB210
  * Callers:
- *     EtwpTraceLostEvent @ 0x14032BB34 (EtwpTraceLostEvent.c)
+ *     EtwpTraceLostEvent @ 0x1403FAEA8 (EtwpTraceLostEvent.c)
  * Callees:
- *     strnlen @ 0x1404FF8C0 (strnlen.c)
+ *     strnlen @ 0x1404FD180 (strnlen.c)
  */
 
 const char *__fastcall EtwpGetEventNameFromEventMetadata(__int64 a1, unsigned int a2, _WORD *a3)

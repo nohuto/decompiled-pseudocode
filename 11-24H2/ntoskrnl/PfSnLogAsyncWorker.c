@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogAsyncWorker @ 0x14095259C
+ * XREFs of PfSnLogAsyncWorker @ 0x140935F4C
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x140951F40 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1409358F0 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogAsyncWorker(__int64 a1, __int64 *a2)
@@ -24,7 +24,7 @@ void __fastcall PfSnLogAsyncWorker(__int64 a1, __int64 *a2)
   __int64 v15; // [rsp+80h] [rbp+37h]
   __int64 v16; // [rsp+88h] [rbp+3Fh]
 
-  if ( a1 && qword_140E67108 && EtwEventEnabled(qword_140E67108, (PCEVENT_DESCRIPTOR)a2) )
+  if ( a1 && qword_140E67258 && EtwEventEnabled(qword_140E67258, (PCEVENT_DESCRIPTOR)a2) )
   {
     v4 = -1LL;
     do
@@ -47,6 +47,6 @@ void __fastcall PfSnLogAsyncWorker(__int64 a1, __int64 *a2)
       v15 = a1 + 124;
       v5 = 5;
     }
-    EtwWrite(qword_140E67108, (PCEVENT_DESCRIPTOR)a2, 0LL, v5, &UserData);
+    EtwWrite(qword_140E67258, (PCEVENT_DESCRIPTOR)a2, 0LL, v5, &UserData);
   }
 }

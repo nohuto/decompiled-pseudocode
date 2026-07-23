@@ -6,7 +6,7 @@
  *     _RtlpEnumProcessHeaps@12 @ 0x4B35791E (_RtlpEnumProcessHeaps@12.c)
  */
 
-int __stdcall RtlFlushHeaps()
+void RtlFlushHeaps(void)
 {
-  return RtlpEnumProcessHeaps(0);
+  RtlpEnumProcessHeaps(0);
 }

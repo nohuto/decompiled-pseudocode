@@ -24,6 +24,6 @@ __int64 __fastcall HvlRestoreTime(int a1, __int64 a2, __int64 a3)
   v6 = a1;
   v8 = a2;
   v9 = a3;
-  v4 = HvcallFastExtended(65795LL, (__int64)&v5, 32LL, 0LL, 0);
+  v4 = HvcallFastExtended(65795LL, (__int64)&v5, 0x20u, 0, 0);
   return HvlpHvToNtStatus(v4);
 }

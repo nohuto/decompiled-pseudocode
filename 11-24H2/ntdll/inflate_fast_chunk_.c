@@ -1,11 +1,11 @@
 /*
- * XREFs of inflate_fast_chunk_ @ 0x180154DF4
+ * XREFs of inflate_fast_chunk_ @ 0x1801531B4
  * Callers:
- *     inflate @ 0x180151674 (inflate.c)
+ *     inflate @ 0x18014FA34 (inflate.c)
  * Callees:
- *     chunkcopy_core @ 0x1801514DC (chunkcopy_core.c)
- *     chunkset_core_0 @ 0x180154C64 (chunkset_core_0.c)
- *     chunkunroll_relaxed @ 0x180154DB4 (chunkunroll_relaxed.c)
+ *     chunkcopy_core @ 0x18014F89C (chunkcopy_core.c)
+ *     chunkset_core_0 @ 0x180153024 (chunkset_core_0.c)
+ *     chunkunroll_relaxed @ 0x180153174 (chunkunroll_relaxed.c)
  */
 
 __int64 __fastcall inflate_fast_chunk_(__int64 a1, int a2)

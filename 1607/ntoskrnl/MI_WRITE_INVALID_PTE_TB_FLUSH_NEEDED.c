@@ -1,11 +1,11 @@
 /*
- * XREFs of MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14010D140
+ * XREFs of MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14010D6A4
  * Callers:
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
  * Callees:
- *     MiPteHasShadow @ 0x1401EF38C (MiPteHasShadow.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1401EF1B8 (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED(_QWORD *a1, signed __int64 a2)

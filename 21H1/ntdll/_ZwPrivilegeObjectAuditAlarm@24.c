@@ -6,7 +6,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwPrivilegeObjectAuditAlarm(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl ZwPrivilegeObjectAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN AccessGranted)
 {
   return Wow64SystemServiceCall();
 }

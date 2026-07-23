@@ -1,31 +1,30 @@
 /*
- * XREFs of WmipFindRegEntryByProviderId @ 0x140338ED0
+ * XREFs of WmipFindRegEntryByProviderId @ 0x1402DDC64
  * Callers:
- *     WmipForwardWmiIrp @ 0x1409CE2C0 (WmipForwardWmiIrp.c)
- *     IoWMISystemControl @ 0x140A41AC4 (IoWMISystemControl.c)
+ *     WmipForwardWmiIrp @ 0x1409B3294 (WmipForwardWmiIrp.c)
+ *     IoWMISystemControl @ 0x140A373A4 (IoWMISystemControl.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     WmipDoFindRegEntryByProviderId @ 0x140338F70 (WmipDoFindRegEntryByProviderId.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x1402DDC30 (WmipDoFindRegEntryByProviderId.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
+_DWORD *__fastcall WmipFindRegEntryByProviderId(int a1)
 {
   unsigned __int64 v2; // rdi
-  __int64 RegEntryByProviderId; // rax
-  __int64 v4; // rbx
+  _DWORD *RegEntryByProviderId; // rax
+  _DWORD *v4; // rbx
   __int64 v5; // rdx
-  int v7; // [rsp+48h] [rbp+10h] BYREF
 
   KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v2 = KeAcquireSpinLockRaiseToDpc(&WmipRegistrationSpinLock);
   RegEntryByProviderId = WmipDoFindRegEntryByProviderId(a1);
   v4 = RegEntryByProviderId;
   if ( RegEntryByProviderId )
-    _InterlockedIncrement((volatile signed __int32 *)(RegEntryByProviderId + 48));
+    _InterlockedIncrement(RegEntryByProviderId + 12);
   KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
   if ( KiIrqlFlags )
   {
@@ -33,6 +32,6 @@ __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v5);
   }
   __writecr8(v2);
-  KeReleaseMutantEx((ULONG_PTR)&WmipSMMutex, 1u, 4, &v7);
+  KeReleaseMutantEx((ULONG_PTR)&WmipSMMutex);
   return v4;
 }

@@ -19,7 +19,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmHighMemPriorityTimerStart(__int6
     {
       v2[0] = 0LL;
       v2[1] = -1LL;
-      return KeSetTimer2(a1 + 1824, -3000000000LL, 3000000000LL, (__int64)v2);
+      return KeSetTimer2(a1 + 1824, (LARGE_INTEGER)-3000000000LL, 3000000000LL, (__int64)v2);
     }
   }
   return result;

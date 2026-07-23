@@ -24,10 +24,10 @@
  *     EtwTraceEnqueueWork @ 0x1405A22F0 (EtwTraceEnqueueWork.c)
  */
 
-__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, _DWORD *a4)
+__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, LARGE_INTEGER a3, _DWORD *a4)
 {
   __int64 v4; // r15
-  unsigned __int64 v6; // r11
+  LARGE_INTEGER v6; // r11
   __int64 v7; // r12
   int v8; // r13d
   __int64 v9; // rcx
@@ -76,7 +76,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   bool v52; // cc
   __int64 *v53; // rax
   unsigned __int64 v54; // rcx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   char v56; // dl
   unsigned __int64 v57; // rax
   __int64 v58; // rdx
@@ -108,7 +108,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   __int64 v84; // [rsp+40h] [rbp-69h]
   __int64 v85; // [rsp+48h] [rbp-61h]
   ULONG_PTR BugCheckParameter3; // [rsp+50h] [rbp-59h]
-  LARGE_INTEGER v87; // [rsp+58h] [rbp-51h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-51h] BYREF
   _DWORD *v88; // [rsp+60h] [rbp-49h]
   __int64 v89; // [rsp+68h] [rbp-41h] BYREF
   __int64 v90; // [rsp+70h] [rbp-39h]
@@ -132,7 +132,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   v94 = 0LL;
   v95 = 0LL;
   memset(v96, 0, sizeof(v96));
-  v87.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   LODWORD(BugCheckParameter3) = *(_DWORD *)(v4 + 484);
   v91 = 0LL;
   v81 = 0;
@@ -157,13 +157,13 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   v17 = *(unsigned __int8 *)(a1 + 129);
   if ( (v17 & 4) != 0 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v87);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     v9 = *(_QWORD *)(a1 + 88);
     v6 = InterruptTimePrecise;
     v17 = *(unsigned __int8 *)(a1 + 129);
   }
-  v18 = v9 + v6;
-  if ( v9 + v6 < v6 || v18 == -1 )
+  v18 = v9 + v6.QuadPart;
+  if ( (unsigned __int64)(v9 + v6.QuadPart) < v6.QuadPart || v18 == -1 )
   {
     v18 = -2LL;
     v19 = 1;
@@ -219,8 +219,8 @@ LABEL_15:
     v48 = v20 - *(_QWORD *)(a1 + 72);
     if ( v48 )
     {
-      v54 = v48 + v6;
-      if ( v48 + v6 < v6 || v54 == -1LL )
+      v54 = v48 + v6.QuadPart;
+      if ( (unsigned __int64)(v48 + v6.QuadPart) < v6.QuadPart || v54 == -1LL )
         v54 = -2LL;
       v49 = v54 + *(_QWORD *)(a1 + 88);
       if ( v49 < v54 || v49 == -1LL )

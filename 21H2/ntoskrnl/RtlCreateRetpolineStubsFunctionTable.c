@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlCreateRetpolineStubsFunctionTable @ 0x14058FAE8
+ * XREFs of RtlCreateRetpolineStubsFunctionTable @ 0x14058FD18
  * Callers:
- *     MiInitializeRetpoline @ 0x140A56538 (MiInitializeRetpoline.c)
+ *     MiInitializeRetpoline @ 0x140A57538 (MiInitializeRetpoline.c)
  * Callees:
- *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x14058F958 (RtlCalculateUnwindInfoSizeForRetpoline.c)
- *     RtlpGetRetpolineStubsFunctionTable @ 0x14058FBE0 (RtlpGetRetpolineStubsFunctionTable.c)
+ *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x14058FB88 (RtlCalculateUnwindInfoSizeForRetpoline.c)
+ *     RtlpGetRetpolineStubsFunctionTable @ 0x14058FE10 (RtlpGetRetpolineStubsFunctionTable.c)
  */
 
 __int64 __fastcall RtlCreateRetpolineStubsFunctionTable(__int64 a1, _DWORD *a2, int a3)
 {
-  __int64 v3; // rdi
+  PVOID v3; // rdi
   _DWORD *RetpolineStubsFunctionTable; // rsi
   __int64 result; // rax
   unsigned int v7; // r10d
@@ -26,8 +26,8 @@ __int64 __fastcall RtlCreateRetpolineStubsFunctionTable(__int64 a1, _DWORD *a2, 
   v3 = PsNtosImageBase;
   v14 = 0;
   RetpolineStubsFunctionTable = (_DWORD *)RtlpGetRetpolineStubsFunctionTable(
-                                            PsNtosImageBase,
-                                            PsNtosImageBase,
+                                            (_DWORD)PsNtosImageBase,
+                                            (_DWORD)PsNtosImageBase,
                                             (_DWORD)a2,
                                             a3,
                                             (__int64)&v14);
@@ -43,11 +43,11 @@ __int64 __fastcall RtlCreateRetpolineStubsFunctionTable(__int64 a1, _DWORD *a2, 
     v10 = v14;
     do
     {
-      v11 = v3 + RetpolineStubsFunctionTable[1];
-      *(v9 - 1) = v3 + *RetpolineStubsFunctionTable - (_DWORD)a2;
+      v11 = (_DWORD)v3 + RetpolineStubsFunctionTable[1];
+      *(v9 - 1) = (_DWORD)v3 + *RetpolineStubsFunctionTable - (_DWORD)a2;
       *v9 = v11 - (_DWORD)a2;
       v9[1] = v8 - (_DWORD)a2;
-      v12 = RtlCalculateUnwindInfoSizeForRetpoline(v3, (__int64)RetpolineStubsFunctionTable, 0LL);
+      v12 = RtlCalculateUnwindInfoSizeForRetpoline((__int64)v3, (__int64)RetpolineStubsFunctionTable, 0LL);
       v9 += 3;
       v8 = v12 + v13;
       RetpolineStubsFunctionTable += 3;

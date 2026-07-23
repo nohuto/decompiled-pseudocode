@@ -1,113 +1,125 @@
 /*
- * XREFs of PopUmpoProcessMessage @ 0x1407A6A78
+ * XREFs of PopUmpoProcessMessage @ 0x1407A6C68
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x14032D1A0 (PopUmpoSendPowerMessage.c)
- *     PopUmpoProcessMessages @ 0x1407A6948 (PopUmpoProcessMessages.c)
+ *     PopUmpoSendPowerMessage @ 0x14032D430 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessages @ 0x1407A6B38 (PopUmpoProcessMessages.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwAlpcAcceptConnectPort @ 0x14041BC40 (ZwAlpcAcceptConnectPort.c)
- *     ZwAlpcCancelMessage @ 0x14041BC60 (ZwAlpcCancelMessage.c)
- *     ZwAlpcOpenSenderProcess @ 0x14041BE40 (ZwAlpcOpenSenderProcess.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     PopUmpoProcessPowerMessage @ 0x1407A6C54 (PopUmpoProcessPowerMessage.c)
- *     PopAcquireUmpoPushLock @ 0x1407A7CF4 (PopAcquireUmpoPushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x14041BFD0 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcCancelMessage @ 0x14041BFF0 (ZwAlpcCancelMessage.c)
+ *     ZwAlpcOpenSenderProcess @ 0x14041C1D0 (ZwAlpcOpenSenderProcess.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407A6E44 (PopUmpoProcessPowerMessage.c)
+ *     PopAcquireUmpoPushLock @ 0x1407A7EE4 (PopAcquireUmpoPushLock.c)
  */
 
-__int64 __fastcall PopUmpoProcessMessage(__int64 a1)
+__int64 __fastcall PopUmpoProcessMessage(PPORT_MESSAGE ConnectionRequest, PALPC_CONTEXT_ATTR MessageContext)
 {
-  __int16 v1; // r8
-  int v2; // ebx
-  NTSTATUS v4; // eax
-  PVOID v5; // rcx
-  HANDLE v6; // rbx
-  HANDLE Handle; // [rsp+50h] [rbp-59h] BYREF
+  __int16 Type; // r8
+  NTSTATUS v4; // ebx
+  NTSTATUS v6; // eax
+  PVOID v7; // rcx
+  HANDLE v8; // rbx
+  HANDLE ProcessHandle; // [rsp+50h] [rbp-59h] BYREF
   PVOID Object; // [rsp+58h] [rbp-51h] BYREF
-  int v9; // [rsp+60h] [rbp-49h]
-  int v10; // [rsp+64h] [rbp-45h]
-  __int64 v11; // [rsp+68h] [rbp-41h]
-  __int64 v12; // [rsp+70h] [rbp-39h]
-  int v13; // [rsp+78h] [rbp-31h]
-  int v14; // [rsp+7Ch] [rbp-2Dh]
-  __int128 v15; // [rsp+80h] [rbp-29h]
-  _QWORD v16[9]; // [rsp+90h] [rbp-19h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-49h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+90h] [rbp-19h] BYREF
 
-  v1 = *(_WORD *)(a1 + 4);
-  v10 = 0;
-  v14 = 0;
-  if ( (unsigned __int8)v1 == 1 )
+  Type = ConnectionRequest->u2.s2.Type;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  if ( (unsigned __int8)Type == 1 )
     goto LABEL_21;
-  if ( (unsigned __int8)v1 != 2 && (unsigned __int8)v1 != 3 )
+  if ( (unsigned __int8)Type != 2 && (unsigned __int8)Type != 3 )
   {
-    if ( (unsigned __int8)v1 == 5 || (unsigned __int8)v1 == 6 )
+    if ( (unsigned __int8)Type == 5 || (unsigned __int8)Type == 6 )
     {
       PopUmpoAlpcClientConnected = 0;
       PopUmpoSyncEventInProgress = 0;
-      v5 = PopConnectedUmpoProcess;
+      v7 = PopConnectedUmpoProcess;
       if ( PopConnectedUmpoProcess )
       {
         ObfDereferenceObjectWithTag(PopConnectedUmpoProcess, 0x746C6644u);
         PopConnectedUmpoProcess = 0LL;
       }
-      LOBYTE(v5) = 1;
-      PopAcquireUmpoPushLock(v5);
-      v6 = PopAlpcClientPort;
+      LOBYTE(v7) = 1;
+      PopAcquireUmpoPushLock(v7);
+      v8 = PopAlpcClientPort;
       PopAlpcClientPort = 0LL;
       ExReleasePushLockEx((__int64 *)&PopUmpoPushLock, 0LL);
       KeLeaveCriticalRegion();
-      ZwClose(v6);
+      ZwClose(v8);
       return (unsigned int)-1073740032;
     }
     else
     {
-      if ( (unsigned __int8)v1 != 10 )
+      if ( (unsigned __int8)Type != 10 )
         return 0;
-      v9 = 48;
-      v11 = 0LL;
-      v13 = 512;
-      v12 = 0LL;
-      v15 = 0LL;
-      memset(v16, 0, sizeof(v16));
-      v16[2] = 4096LL;
-      v2 = ZwAlpcAcceptConnectPort((__int64)&PopAlpcClientPort, PopAlpcServerPort);
-      if ( v2 < 0 )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 512;
+      ObjectAttributes.ObjectName = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      memset(&PortAttributes, 0, sizeof(PortAttributes));
+      PortAttributes.MaxMessageLength = 4096LL;
+      v4 = ZwAlpcAcceptConnectPort(
+             &PopAlpcClientPort,
+             PopAlpcServerPort,
+             0,
+             &ObjectAttributes,
+             &PortAttributes,
+             0LL,
+             ConnectionRequest,
+             0LL,
+             PopUmpoAlpcClientConnected == 0);
+      if ( v4 < 0 )
       {
-        ZwAlpcAcceptConnectPort((__int64)&PopAlpcClientPort, PopAlpcServerPort);
-        return (unsigned int)v2;
+        ZwAlpcAcceptConnectPort(
+          &PopAlpcClientPort,
+          PopAlpcServerPort,
+          0,
+          &ObjectAttributes,
+          &PortAttributes,
+          0LL,
+          ConnectionRequest,
+          0LL,
+          0);
+        return (unsigned int)v4;
       }
       PopUmpoAlpcClientConnected = 1;
-      v9 = 48;
-      v11 = 0LL;
-      v13 = 512;
-      v12 = 0LL;
-      v15 = 0LL;
-      Handle = 0LL;
-      v2 = ZwAlpcOpenSenderProcess((__int64)&Handle, PopAlpcServerPort);
-      if ( v2 >= 0 && Handle )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 512;
+      ObjectAttributes.ObjectName = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      ProcessHandle = 0LL;
+      v4 = ZwAlpcOpenSenderProcess(&ProcessHandle, PopAlpcServerPort, ConnectionRequest, 0, 0x400u, &ObjectAttributes);
+      if ( v4 >= 0 && ProcessHandle )
       {
         Object = 0LL;
-        v4 = ObReferenceObjectByHandle(Handle, 0x10000000u, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
+        v6 = ObReferenceObjectByHandle(ProcessHandle, 0x10000000u, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
         PopConnectedUmpoProcess = Object;
-        if ( v4 < 0 )
+        if ( v6 < 0 )
           PopConnectedUmpoProcess = 0LL;
-        ZwClose(Handle);
+        ZwClose(ProcessHandle);
         return 0;
       }
     }
-    return (unsigned int)v2;
+    return (unsigned int)v4;
   }
-  if ( (v1 & 0x2000) != 0 )
+  if ( (Type & 0x2000) != 0 )
   {
 LABEL_21:
-    ZwAlpcCancelMessage(PopAlpcServerPort, 0LL);
+    ZwAlpcCancelMessage(PopAlpcServerPort, 0, MessageContext);
     return 0;
   }
-  v2 = PopUmpoProcessPowerMessage(a1 + 40);
-  if ( v2 >= 0 )
+  v4 = PopUmpoProcessPowerMessage(&ConnectionRequest[1], MessageContext);
+  if ( v4 >= 0 )
     return 0;
-  return (unsigned int)v2;
+  return (unsigned int)v4;
 }

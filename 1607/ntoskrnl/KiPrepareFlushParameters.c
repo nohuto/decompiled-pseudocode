@@ -1,11 +1,11 @@
 /*
- * XREFs of KiPrepareFlushParameters @ 0x1401D6234
+ * XREFs of KiPrepareFlushParameters @ 0x1401D6060
  * Callers:
- *     MmSetAddressRangeModified @ 0x140016FA0 (MmSetAddressRangeModified.c)
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x1400B5D3C (KeFlushMultipleRangeTb.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x14012F798 (KeFlushMultipleRangeCurrentTb.c)
+ *     MmSetAddressRangeModified @ 0x140016B20 (MmSetAddressRangeModified.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x1400B3B64 (KeFlushMultipleRangeTb.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x14012FD08 (KeFlushMultipleRangeCurrentTb.c)
  * Callees:
  *     <none>
  */

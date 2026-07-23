@@ -1,10 +1,10 @@
 /*
- * XREFs of SepCommonAccessCheckEx @ 0x14037303C
+ * XREFs of SepCommonAccessCheckEx @ 0x140372B8C
  * Callers:
- *     SeAccessCheckEx @ 0x140373010 (SeAccessCheckEx.c)
- *     SeSrpAccessCheck @ 0x140595F40 (SeSrpAccessCheck.c)
+ *     SeAccessCheckEx @ 0x140372B60 (SeAccessCheckEx.c)
+ *     SeSrpAccessCheck @ 0x140596170 (SeSrpAccessCheck.c)
  * Callees:
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140372BC4 (SepCommonAccessCheckExWithAdminlessChecks.c)
  */
 
 __int64 __fastcall SepCommonAccessCheckEx(

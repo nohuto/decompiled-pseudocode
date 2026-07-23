@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSvmAcknowledgePageRequest @ 0x1404F69C0
+ * XREFs of HvlSvmAcknowledgePageRequest @ 0x1404F6940
  * Callers:
  *     <none>
  * Callees:
- *     HvlpFastAcknowledgePageRequest @ 0x1404F7580 (HvlpFastAcknowledgePageRequest.c)
- *     HvlpSlowAcknowledgePageRequest @ 0x1404F778C (HvlpSlowAcknowledgePageRequest.c)
- *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvlpFastAcknowledgePageRequest @ 0x1404F7500 (HvlpFastAcknowledgePageRequest.c)
+ *     HvlpSlowAcknowledgePageRequest @ 0x1404F770C (HvlpSlowAcknowledgePageRequest.c)
+ *     HvlpHvToNtStatus @ 0x1404FAC74 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmAcknowledgePageRequest(unsigned int a1, __int64 a2, _DWORD *a3)

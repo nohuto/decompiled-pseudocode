@@ -8,33 +8,43 @@
  *     NtQueryInformationToken @ 0x180093B10 (NtQueryInformationToken.c)
  */
 
-__int64 __fastcall RtlNewInstanceSecurityObject(
-        char a1,
-        char a2,
-        _DWORD *a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        _QWORD *a7,
-        char a8,
-        __int64 a9,
-        __int64 a10)
+NTSTATUS __cdecl RtlNewInstanceSecurityObject(
+        BOOLEAN ParentDescriptorChanged,
+        BOOLEAN CreatorDescriptorChanged,
+        PLUID OldClientTokenModifiedId,
+        PLUID NewClientTokenModifiedId,
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CreatorDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        BOOLEAN IsDirectoryObject,
+        HANDLE TokenHandle,
+        PGENERIC_MAPPING GenericMapping)
 {
-  __int64 result; // rax
-  __int64 v15; // [rsp+70h] [rbp-38h]
+  NTSTATUS result; // eax
+  ULONG ReturnLength; // [rsp+38h] [rbp-70h] BYREF
+  _QWORD v16[7]; // [rsp+40h] [rbp-68h] BYREF
 
-  result = NtQueryInformationToken();
-  if ( (int)result >= 0 )
+  result = NtQueryInformationToken(TokenHandle, 0xAu, v16, 0x38u, &ReturnLength);
+  if ( result >= 0 )
   {
-    *(_QWORD *)a4 = v15;
-    if ( *(_DWORD *)a4 != *a3 || *(_DWORD *)(a4 + 4) != a3[1] || a1 || a2 )
+    *NewClientTokenModifiedId = (_LUID)v16[6];
+    if ( NewClientTokenModifiedId->LowPart != OldClientTokenModifiedId->LowPart
+      || NewClientTokenModifiedId->HighPart != OldClientTokenModifiedId->HighPart
+      || ParentDescriptorChanged
+      || CreatorDescriptorChanged )
     {
-      return RtlNewSecurityObject(a5, a6, (int)a7, a8, a9, a10);
+      return RtlNewSecurityObject(
+               ParentDescriptor,
+               CreatorDescriptor,
+               NewDescriptor,
+               IsDirectoryObject,
+               TokenHandle,
+               GenericMapping);
     }
     else
     {
-      *a7 = 0LL;
-      return 0LL;
+      *NewDescriptor = 0LL;
+      return 0;
     }
   }
   return result;

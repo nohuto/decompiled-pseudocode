@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeTryToAcquireQueuedSpinLock @ 0x1409DB750
+ * XREFs of VerifierKeTryToAcquireQueuedSpinLock @ 0x1409DC750
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DD27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKeTryToAcquireQueuedSpinLock(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall VerifierKeTryToAcquireQueuedSpinLock(__int64 a1, __int64 a2)
   __int64 result; // rax
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  ++dword_140C2A868;
+  ++dword_140C2A8A8;
   v4 = retaddr;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(retaddr, 156LL);

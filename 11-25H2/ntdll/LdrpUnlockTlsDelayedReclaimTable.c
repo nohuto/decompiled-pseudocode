@@ -9,45 +9,45 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrpUnlockTlsDelayedReclaimTable(int a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall LdrpUnlockTlsDelayedReclaimTable(int a1)
 {
-  __int64 *v5; // rdi
-  int v6; // esi
-  volatile signed __int64 *v7; // rbp
-  __int64 v8; // r8
-  __int64 v9; // rbx
+  char *v2; // rdi
+  int v3; // esi
+  _RTL_SRWLOCK *v4; // rbp
+  _QWORD *v5; // r8
+  _QWORD *v6; // rbx
 
-  v5 = (__int64 *)&unk_1801D45E0;
-  v6 = 15;
-  v7 = (volatile signed __int64 *)&unk_1801D45E8;
+  v2 = (char *)&unk_1801D45E0;
+  v3 = 15;
+  v4 = &stru_1801D45E8;
   do
   {
     if ( a1 )
     {
-      v8 = *v5;
-      if ( *v5 )
+      v5 = *(_QWORD **)v2;
+      if ( *(_QWORD *)v2 )
       {
         do
         {
-          v9 = *(_QWORD *)(v8 + 8);
-          RtlFreeHeap(LdrpTlsHeap, 0, v8, a4);
-          v8 = v9;
+          v6 = (_QWORD *)v5[1];
+          RtlFreeHeap(LdrpTlsHeap, 0, v5);
+          v5 = v6;
         }
-        while ( v9 );
-        *v5 = 0LL;
+        while ( v6 );
+        *(_QWORD *)v2 = 0LL;
       }
-      v5[1] = 1LL;
+      *((_QWORD *)v2 + 1) = 1LL;
     }
-    RtlReleaseSRWLockExclusive(v7);
-    v7 -= 2;
-    v5 -= 2;
-    --v6;
+    RtlReleaseSRWLockExclusive(v4);
+    v4 -= 2;
+    v2 -= 16;
+    --v3;
   }
-  while ( v6 >= 0 );
+  while ( v3 >= 0 );
   if ( a1 )
   {
     LdrpActiveThreadCount = 1;
-    LdrpTlsLock = 17LL;
+    LdrpTlsLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)17LL;
   }
-  return RtlReleaseSRWLockShared(&LdrpTlsLock);
+  RtlReleaseSRWLockShared(&LdrpTlsLock);
 }

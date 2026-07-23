@@ -171,7 +171,7 @@ void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
       *((_QWORD *)&v52 + 1) = v50 + 768;
       v30 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v30 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu )
       {
         v37 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v30 == 2 )
@@ -228,10 +228,10 @@ LABEL_70:
         }
       }
       v34 = (unsigned __int8)v53;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v40 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v53 <= 0xFu && v40 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v53 <= 0xFu && v40 >= 2u )
         {
           v41 = KeGetCurrentPrcb();
           v42 = v41->SchedulerAssist;
@@ -278,10 +278,10 @@ LABEL_22:
       v24 = _InterlockedCompareExchange((volatile signed __int32 *)v11, 1, 0);
       if ( v24 )
         ExpReleaseFastMutexContended((volatile signed __int32 *)&v8[36], v24);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v45 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)LowPart_low <= 0xFu && v45 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)LowPart_low <= 0xFu && v45 >= 2u )
         {
           v46 = KeGetCurrentPrcb();
           v47 = v46->SchedulerAssist;

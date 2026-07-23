@@ -17,15 +17,15 @@
  *     RtlpHpSegPageRangeDecommit @ 0x140298A98 (RtlpHpSegPageRangeDecommit.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, unsigned __int64 a2, char a3, _QWORD *a4, KIRQL *a5)
+__int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, _QWORD *a4, KIRQL *a5)
 {
   KIRQL *v5; // r13
-  unsigned __int64 v9; // rdi
+  __int64 v9; // rdi
   unsigned __int64 v10; // rdx
   unsigned __int64 v11; // r8
   __int64 v12; // rbp
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // rsi
+  __int64 v13; // rcx
+  __int64 v14; // rsi
   char v15; // cl
   char v16; // cl
   __int64 v17; // rcx
@@ -50,7 +50,7 @@ unsigned __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, unsigned __in
   while ( 1 )
   {
     v9 = 0LL;
-    v10 = (__int64)(a2 - (a2 & *(_QWORD *)a1)) >> 5;
+    v10 = (a2 - (a2 & *(_QWORD *)a1)) >> 5;
     v11 = (unsigned __int8)HIBYTE(*(_DWORD *)(a2 + 28));
     v12 = (unsigned __int16)~(*(_DWORD *)(a2 + 28) >> 8);
     if ( (unsigned int)(v10 + v11) < 0x100 )
@@ -160,7 +160,7 @@ unsigned __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, unsigned __in
               {
                 v29->CrossThreadReleasableAndBusyByte |= 2u;
                 if ( (__int64)v29->LockState.LockState < 0 )
-                  KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v28], v24);
+                  KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v28].TreeNode, v24);
                 v33 = 0;
                 v33 = v29->BoostBitmap.AllFields & 0x1FFFF;
                 v29->BoostBitmap.AllFields &= 0xFFFE0000;

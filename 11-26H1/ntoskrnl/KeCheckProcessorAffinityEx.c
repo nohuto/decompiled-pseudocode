@@ -1,36 +1,36 @@
 /*
- * XREFs of KeCheckProcessorAffinityEx @ 0x14042D260
+ * XREFs of KeCheckProcessorAffinityEx @ 0x140421930
  * Callers:
- *     KiComputeThreadAffinity @ 0x140229B90 (KiComputeThreadAffinity.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x14022B26C (KiRescheduleThreadAfterAffinityChange.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140237654 (KiUpdateGlobalCpuSetConfiguration.c)
- *     PpmParkReportParkedCore @ 0x140253514 (PpmParkReportParkedCore.c)
- *     PpmHeteroUpdateHgsConfiguration @ 0x14025B888 (PpmHeteroUpdateHgsConfiguration.c)
- *     PpmParkCalculateCoreParkingMask @ 0x14025C720 (PpmParkCalculateCoreParkingMask.c)
- *     PpmIdleUpdateProcessorLatencyLimit @ 0x14028FA08 (PpmIdleUpdateProcessorLatencyLimit.c)
- *     PpmExitCoordinatedIdle @ 0x1403EC374 (PpmExitCoordinatedIdle.c)
- *     KiForwardTick @ 0x1403ED6F0 (KiForwardTick.c)
- *     KiCheckKeepAlive @ 0x1403EF0E4 (KiCheckKeepAlive.c)
- *     PpmHeteroRestrictToFavoredClass @ 0x14042BAD8 (PpmHeteroRestrictToFavoredClass.c)
- *     PpmParkReportSoftParkChange @ 0x14042BF38 (PpmParkReportSoftParkChange.c)
- *     PpmParkReportForceParkChange @ 0x14042C088 (PpmParkReportForceParkChange.c)
- *     KiStopProfileTarget @ 0x14042CA60 (KiStopProfileTarget.c)
- *     PpmUpdatePlatformIdleVeto @ 0x14042CC80 (PpmUpdatePlatformIdleVeto.c)
- *     KiProcessProfileList @ 0x1404B7C3C (KiProcessProfileList.c)
- *     KiStartProfileTarget @ 0x1404CEFB0 (KiStartProfileTarget.c)
- *     KiGetNextTimerExpirationDueTime @ 0x1404FC8E0 (KiGetNextTimerExpirationDueTime.c)
- *     EmonEnableMonitoring @ 0x140595350 (EmonEnableMonitoring.c)
- *     EmonRemoveProfileSource @ 0x140596260 (EmonRemoveProfileSource.c)
- *     Amd64EnableMonitoring @ 0x1405A3B40 (Amd64EnableMonitoring.c)
- *     Amd64RemoveProfileSource @ 0x1405A4AC0 (Amd64RemoveProfileSource.c)
- *     KeUpdateProcessorRestrictions @ 0x1405E9610 (KeUpdateProcessorRestrictions.c)
- *     KiGetNextClockOwner @ 0x1405EE394 (KiGetNextClockOwner.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x140601910 (PpmIdleCheckCoordinatedDependency.c)
- *     PpmTestAndLockProcessor @ 0x140603458 (PpmTestAndLockProcessor.c)
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
- *     KiSetCacheInformationAmd @ 0x140BF70E8 (KiSetCacheInformationAmd.c)
- *     PopReadLegacySimulatedArchitecturalClasses @ 0x140CD3884 (PopReadLegacySimulatedArchitecturalClasses.c)
+ *     KiComputeThreadAffinity @ 0x14022B520 (KiComputeThreadAffinity.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x14022CBFC (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140238FB4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     PpmParkReportParkedCore @ 0x140254E74 (PpmParkReportParkedCore.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x14025D070 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmIdleUpdateProcessorLatencyLimit @ 0x14028EF68 (PpmIdleUpdateProcessorLatencyLimit.c)
+ *     PpmExitCoordinatedIdle @ 0x1402F93B8 (PpmExitCoordinatedIdle.c)
+ *     PpmHeteroRestrictToFavoredClass @ 0x1404201A8 (PpmHeteroRestrictToFavoredClass.c)
+ *     PpmParkReportSoftParkChange @ 0x140420608 (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportForceParkChange @ 0x140420758 (PpmParkReportForceParkChange.c)
+ *     KiStopProfileTarget @ 0x140421130 (KiStopProfileTarget.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x140421350 (PpmUpdatePlatformIdleVeto.c)
+ *     KiForwardTick @ 0x140452220 (KiForwardTick.c)
+ *     KiCheckKeepAlive @ 0x140453C14 (KiCheckKeepAlive.c)
+ *     KiProcessProfileList @ 0x1404B146C (KiProcessProfileList.c)
+ *     KiStartProfileTarget @ 0x1404C89E0 (KiStartProfileTarget.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1404F5E20 (KiGetNextTimerExpirationDueTime.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x140517458 (PpmHeteroUpdateHgsConfiguration.c)
+ *     EmonEnableMonitoring @ 0x140597AD0 (EmonEnableMonitoring.c)
+ *     EmonRemoveProfileSource @ 0x1405989E0 (EmonRemoveProfileSource.c)
+ *     Amd64EnableMonitoring @ 0x1405A6350 (Amd64EnableMonitoring.c)
+ *     Amd64RemoveProfileSource @ 0x1405A72D0 (Amd64RemoveProfileSource.c)
+ *     KeUpdateProcessorRestrictions @ 0x1405EBF80 (KeUpdateProcessorRestrictions.c)
+ *     KiGetNextClockOwner @ 0x1405F0D04 (KiGetNextClockOwner.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1406043C0 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmTestAndLockProcessor @ 0x140605F08 (PpmTestAndLockProcessor.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
+ *     KiSetCacheInformationAmd @ 0x140BFD0E8 (KiSetCacheInformationAmd.c)
+ *     PopReadLegacySimulatedArchitecturalClasses @ 0x140CD9A24 (PopReadLegacySimulatedArchitecturalClasses.c)
  * Callees:
  *     <none>
  */
@@ -40,7 +40,7 @@ __int64 __fastcall KeCheckProcessorAffinityEx(unsigned __int16 *a1, unsigned int
   unsigned int v3; // ecx
   __int64 v4; // rdx
 
-  v3 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * a2);
+  v3 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + a2);
   v4 = v3 >> 6;
   if ( (unsigned int)v4 >= *a1 )
     return 0LL;

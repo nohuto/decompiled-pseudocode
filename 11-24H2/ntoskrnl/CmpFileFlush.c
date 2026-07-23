@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFileFlush @ 0x140982C0C
+ * XREFs of CmpFileFlush @ 0x14096B41C
  * Callers:
- *     CmpSaveKeyByFileCopy @ 0x1407CEFE0 (CmpSaveKeyByFileCopy.c)
- *     CmpFileFlushAndPurge @ 0x140981014 (CmpFileFlushAndPurge.c)
- *     HvLoadHive @ 0x14098133C (HvLoadHive.c)
- *     HvWriteExternal @ 0x140A6D050 (HvWriteExternal.c)
+ *     CmpSaveKeyByFileCopy @ 0x1407CF4D0 (CmpSaveKeyByFileCopy.c)
+ *     CmpFileFlushAndPurge @ 0x140969824 (CmpFileFlushAndPurge.c)
+ *     HvLoadHive @ 0x140969B4C (HvLoadHive.c)
+ *     HvWriteExternal @ 0x140A66710 (HvWriteExternal.c)
  * Callees:
- *     CmpDoFileFlush @ 0x140490EF0 (CmpDoFileFlush.c)
+ *     CmpDoFileFlush @ 0x14048BB7C (CmpDoFileFlush.c)
  */
 
 NTSTATUS __fastcall CmpFileFlush(__int64 a1, unsigned int a2)

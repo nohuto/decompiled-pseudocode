@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerSaveProcessorFrequency @ 0x14037AEF8
+ * XREFs of HalpTimerSaveProcessorFrequency @ 0x14037B098
  * Callers:
- *     HalpTimerInitSystem @ 0x14037AA30 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x14037ABD0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
  */
 
 __int64 HalpTimerSaveProcessorFrequency()

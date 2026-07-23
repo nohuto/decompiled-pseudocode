@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpSetProviderTraitsUm @ 0x140836014
+ * XREFs of EtwpSetProviderTraitsUm @ 0x1409F67DC
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpEventWriteRegistrationStatus @ 0x1407A7600 (EtwpEventWriteRegistrationStatus.c)
- *     EtwpSetProviderTraitsCommon @ 0x1408361EC (EtwpSetProviderTraitsCommon.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x1407A7740 (EtwpEventWriteRegistrationStatus.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1409F69B4 (EtwpSetProviderTraitsCommon.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
@@ -23,11 +23,11 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
   __int64 v11; // rax
   unsigned __int64 v12; // rcx
   __int64 Pool2; // rax
-  void *v14; // rbx
+  _RTL_BALANCED_NODE *v14; // rbx
   __int64 v16; // rdx
   __int64 v17; // rcx
   __int64 v18; // r8
-  PVOID v19; // [rsp+20h] [rbp-58h]
+  PRTL_BALANCED_NODE Node; // [rsp+20h] [rbp-58h]
   PVOID Object; // [rsp+80h] [rbp+8h] BYREF
   PVOID v21; // [rsp+98h] [rbp+20h]
 
@@ -58,8 +58,8 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
         if ( v12 + v11 > 0x7FFFFFFF0000LL || v12 + v11 < v12 )
           v9 = (int)Object;
       }
-      Pool2 = ExAllocatePool2(0x100uLL);
-      v14 = (void *)Pool2;
+      Pool2 = ExAllocatePool2(0x100uLL, *(unsigned __int16 *)(a1 + 16) + 28LL, 0x54777445u);
+      v14 = (_RTL_BALANCED_NODE *)Pool2;
       if ( Pool2 )
       {
         memmove((void *)(Pool2 + 28), *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
@@ -71,7 +71,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
                v14,
                *(unsigned __int16 *)(a1 + 16),
                &EtwpProviderTraitsUmMutex,
-               (__int64)&EtwpProviderTraitsUmTree);
+               &EtwpProviderTraitsUmTree);
       }
       else
       {
@@ -89,8 +89,8 @@ LABEL_14:
   {
     if ( v8 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SET_TRAITS_FAILED) )
     {
-      LODWORD(v19) = v8;
-      EtwpEventWriteRegistrationStatus(v17, v16, v18, (__int64)v6, (__int64)v19);
+      LODWORD(Node) = v8;
+      EtwpEventWriteRegistrationStatus(v17, v16, v18, (__int64)v6, (__int64)Node);
     }
     ObfDereferenceObject(v6);
   }

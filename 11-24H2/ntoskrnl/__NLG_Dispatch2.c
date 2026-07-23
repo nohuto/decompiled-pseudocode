@@ -1,7 +1,7 @@
 /*
- * XREFs of __NLG_Dispatch2 @ 0x1404FDC60
+ * XREFs of __NLG_Dispatch2 @ 0x1404FB520
  * Callers:
- *     _NLG_Notify @ 0x1404FDC40 (_NLG_Notify.c)
+ *     _NLG_Notify @ 0x1404FB500 (_NLG_Notify.c)
  * Callees:
  *     <none>
  */

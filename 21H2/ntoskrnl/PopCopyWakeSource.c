@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCopyWakeSource @ 0x1408E69A0
+ * XREFs of PopCopyWakeSource @ 0x1408E6B00
  * Callers:
- *     PopGetWakeSource @ 0x1407787B8 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x140778978 (PopGetWakeSource.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     PopWakeSourceSize @ 0x1408E6EA0 (PopWakeSourceSize.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PopWakeSourceSize @ 0x1408E7000 (PopWakeSourceSize.c)
  */
 
 __int64 __fastcall PopCopyWakeSource(__int64 a1, __int64 a2, __int64 a3)

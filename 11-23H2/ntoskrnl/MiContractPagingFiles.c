@@ -1,13 +1,13 @@
 /*
- * XREFs of MiContractPagingFiles @ 0x140292D44
+ * XREFs of MiContractPagingFiles @ 0x140292FD4
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x1407059E8 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140705BF8 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiOkToShrinkPageFiles @ 0x140292DE0 (MiOkToShrinkPageFiles.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiQueuePageFileExtension @ 0x14063B2DC (MiQueuePageFileExtension.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiOkToShrinkPageFiles @ 0x140293070 (MiOkToShrinkPageFiles.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiQueuePageFileExtension @ 0x14063B82C (MiQueuePageFileExtension.c)
  */
 
 void __fastcall MiContractPagingFiles(__int64 a1)
@@ -49,10 +49,13 @@ void __fastcall MiContractPagingFiles(__int64 a1)
       if ( *(_QWORD *)(a1 + 600) == -1LL )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v8 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));

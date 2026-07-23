@@ -1,34 +1,39 @@
 /*
- * XREFs of NtInitiatePowerAction @ 0x140754BF0
+ * XREFs of NtInitiatePowerAction @ 0x140752F10
  * Callers:
- *     IopWarmEjectDevice @ 0x14073639C (IopWarmEjectDevice.c)
- *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140B5F5B0 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
+ *     IopWarmEjectDevice @ 0x1407342CC (IopWarmEjectDevice.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140B61630 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
  * Callees:
- *     PoDestroyReasonContext @ 0x140331BA4 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x140331D38 (PoCaptureReasonContext.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     PopBsdHandleRequest @ 0x1404A8F44 (PopBsdHandleRequest.c)
- *     PopThermalEventTransitionEnableDeepSleep @ 0x1404F9EE4 (PopThermalEventTransitionEnableDeepSleep.c)
- *     PopExecutePowerAction @ 0x140753574 (PopExecutePowerAction.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     PopDiagTracePolicyInitiatePowerActionApiCall @ 0x140AA8818 (PopDiagTracePolicyInitiatePowerActionApiCall.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PoDestroyReasonContext @ 0x1402BC528 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1402BC6B8 (PoCaptureReasonContext.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     PopBsdHandleRequest @ 0x1404A3364 (PopBsdHandleRequest.c)
+ *     PopThermalEventTransitionEnableDeepSleep @ 0x1404F77C4 (PopThermalEventTransitionEnableDeepSleep.c)
+ *     PopExecutePowerAction @ 0x140751894 (PopExecutePowerAction.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     PopDiagTracePolicyInitiatePowerActionApiCall @ 0x140AA389C (PopDiagTracePolicyInitiatePowerActionApiCall.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtInitiatePowerAction(int a1, __int64 a2, unsigned int a3, char a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtInitiatePowerAction(
+        POWER_ACTION SystemAction,
+        SYSTEM_POWER_STATE LightestSystemState,
+        ULONG Flags,
+        BOOLEAN Asynchronous)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v7; // r15d
+  SYSTEM_POWER_STATE v7; // r15d
   __int64 v9; // rdi
   char PreviousMode; // r12
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   __int64 v12; // rdx
   __int64 v13; // rcx
   PVOID v14; // rax
@@ -59,12 +64,12 @@ __int64 __fastcall NtInitiatePowerAction(int a1, __int64 a2, unsigned int a3, ch
   v33.QuadPart = -1500000000LL;
   *(_OWORD *)P = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v7 = a2;
+  v7 = LightestSystemState;
   v9 = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a1 == 7 )
+    if ( SystemAction == PowerActionWarmEject )
     {
 LABEL_41:
       v11 = -1073741811;
@@ -76,35 +81,41 @@ LABEL_41:
       goto LABEL_42;
     }
   }
-  if ( v7 > 7 || a1 > 7 || (a3 & 0x10000000) != 0 || a1 == 2 && v7 >= 5 || (a3 & 0xCFFFFC0) != 0 )
+  if ( v7 > PowerSystemMaximum
+    || SystemAction > PowerActionWarmEject
+    || (Flags & 0x10000000) != 0
+    || SystemAction == PowerActionSleep && v7 >= PowerSystemHibernate
+    || (Flags & 0xCFFFFC0) != 0 )
+  {
     goto LABEL_41;
-  if ( (unsigned int)(a1 - 4) > 2 && PsIsCurrentThreadInServerSilo() )
+  }
+  if ( (unsigned int)(SystemAction - 4) > 2 && PsIsCurrentThreadInServerSilo() )
   {
     v11 = -1073741637;
     goto LABEL_42;
   }
   LODWORD(v35) = 0;
-  LOBYTE(a2) = PreviousMode;
-  v34 = __PAIR64__(a3, a1);
+  LOBYTE(LightestSystemState) = PreviousMode;
+  v34 = __PAIR64__(Flags, SystemAction);
   DWORD1(v36) = 128;
-  v11 = PoCaptureReasonContext(0LL, a2, 0LL, 0, 0LL, P);
+  v11 = PoCaptureReasonContext(0LL, *(__int64 *)&LightestSystemState, 0LL, 0, 0LL, P);
   v13 = 0LL;
   v14 = P[0];
   if ( v11 < 0 )
     v14 = 0LL;
   P[0] = v14;
-  if ( !PreviousMode && a1 == 6 && (a3 & 0x3000000) != 0 )
+  if ( !PreviousMode && SystemAction == PowerActionShutdownOff && (Flags & 0x3000000) != 0 )
   {
     LODWORD(v36) = 15;
   }
   else
   {
     LODWORD(v36) = 4;
-    PopDiagTracePolicyInitiatePowerActionApiCall((unsigned int)a1, (unsigned int)v7);
+    PopDiagTracePolicyInitiatePowerActionApiCall((unsigned int)SystemAction, (unsigned int)v7);
   }
-  if ( !a4 )
+  if ( !Asynchronous )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x57634150u);
     v9 = Pool2;
     if ( !Pool2 )
     {
@@ -117,13 +128,13 @@ LABEL_41:
     DWORD1(v36) |= 0x20u;
     *((_QWORD *)&v36 + 1) = v9;
   }
-  if ( (unsigned int)(a1 - 4) <= 2 && (BYTE8(PopBsdPowerTransition) & 8) == 0 )
+  if ( (unsigned int)(SystemAction - 4) <= 2 && (BYTE8(PopBsdPowerTransition) & 8) == 0 )
   {
-    PopAcquireRwLockExclusive(&PopBsdUpdateLock);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock);
     BYTE8(PopBsdPowerTransition) |= 8u;
-    LOBYTE(PopBsdPowerTransitionExtension) = dword_140F0B114;
+    LOBYTE(PopBsdPowerTransitionExtension) = dword_140F0B994;
     PopBsdHandleRequest(0xBu);
-    PopReleaseRwLock((signed __int64 *)&PopBsdUpdateLock);
+    PopReleaseRwLock(&PopBsdUpdateLock);
   }
   PopAcquirePolicyLock(v13, v12);
   PopExecutePowerAction(&v36, 0, &v34, v7, 1u);
@@ -138,14 +149,14 @@ LABEL_41:
     v34,
     v35,
     v36);
-  PopThermalEventTransitionEnableDeepSleep(a1);
+  PopThermalEventTransitionEnableDeepSleep(SystemAction);
   if ( v9 )
   {
     v20 = v9 + 32;
     if ( *(_QWORD *)(v9 + 32) )
     {
       v11 = KeWaitForSingleObject((PVOID)v9, Suspended, 0, 1u, &v33);
-      if ( v11 == 258 && (byte_140F0B101 & 3) != 0 )
+      if ( v11 == 258 && (byte_140F0B981 & 3) != 0 )
         v11 = KeWaitForSingleObject((PVOID)v9, Suspended, 0, 1u, 0LL);
       PopAcquirePolicyLock(v22, v21);
       v26 = *(_QWORD *)v20;
@@ -176,5 +187,5 @@ LABEL_41:
 LABEL_42:
   if ( P[0] )
     PoDestroyReasonContext((_QWORD *)P[0]);
-  return (unsigned int)v11;
+  return v11;
 }

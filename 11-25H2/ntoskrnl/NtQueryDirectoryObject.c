@@ -19,38 +19,37 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryDirectoryObject(
-        HANDLE Handle,
-        char *Address,
-        SIZE_T Length,
-        char a4,
-        char a5,
-        int *a6,
-        unsigned int *a7)
+NTSTATUS __cdecl NtQueryDirectoryObject(
+        HANDLE DirectoryHandle,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        BOOLEAN RestartScan,
+        PULONG Context,
+        PULONG ReturnLength)
 {
-  unsigned int v7; // ebx
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v10; // rdx
   __int64 v11; // rcx
   void *Pool2; // rsi
-  NTSTATUS v14; // ebx
-  unsigned int v15; // r14d
-  int v16; // r12d
-  int v17; // r13d
+  int v14; // ebx
+  ULONG v15; // r14d
+  ULONG v16; // r12d
+  NTSTATUS v17; // r13d
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v19; // rbx
   __int64 *v20; // rdi
   unsigned int v21; // ecx
   _QWORD *v22; // rax
-  int v23; // esi
+  ULONG v23; // esi
   _QWORD *v24; // rdi
-  int v25; // eax
+  ULONG v25; // eax
   __int64 v26; // rbx
   __int64 v27; // rax
   unsigned __int16 v28; // r13
   int v29; // r15d
-  unsigned int v30; // r8d
-  unsigned int v31; // r15d
+  ULONG v30; // r8d
+  ULONG v31; // r15d
   unsigned __int16 *v32; // r10
   unsigned __int64 v33; // rdx
   unsigned __int16 *v34; // rbx
@@ -68,10 +67,10 @@ __int64 __fastcall NtQueryDirectoryObject(
   __int64 v46; // rdx
   __int64 v47; // r8
   __int64 v48; // r9
-  int v49; // [rsp+30h] [rbp-A8h]
+  ULONG v49; // [rsp+30h] [rbp-A8h]
   int v50; // [rsp+34h] [rbp-A4h]
-  int v51; // [rsp+38h] [rbp-A0h]
-  int Size; // [rsp+3Ch] [rbp-9Ch]
+  ULONG v51; // [rsp+38h] [rbp-A0h]
+  size_t Size; // [rsp+3Ch] [rbp-9Ch]
   unsigned __int8 Size_4; // [rsp+40h] [rbp-98h]
   PVOID Object; // [rsp+48h] [rbp-90h] BYREF
   unsigned int v55; // [rsp+50h] [rbp-88h]
@@ -81,57 +80,54 @@ __int64 __fastcall NtQueryDirectoryObject(
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-68h] BYREF
   __int128 v60; // [rsp+80h] [rbp-58h]
   __int64 v61; // [rsp+90h] [rbp-48h]
-  unsigned int v63; // [rsp+F0h] [rbp+18h]
 
-  v63 = Length;
-  v7 = Length;
   DestinationString = 0LL;
   v60 = 0LL;
   v61 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(Address, (unsigned int)Length, 2u);
+    ProbeForWrite(Buffer, Length, 2u);
     v10 = 0x7FFFFFFF0000LL;
     v11 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-      v11 = (__int64)a6;
+    if ( (unsigned __int64)Context < 0x7FFFFFFF0000LL )
+      v11 = (__int64)Context;
     *(_DWORD *)v11 = *(_DWORD *)v11;
-    if ( a7 )
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a7 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a7;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ReturnLength;
       *(_DWORD *)v10 = *(_DWORD *)v10;
     }
-    if ( a5 )
+    if ( RestartScan )
       v49 = 0;
     else
-      v49 = *a6;
+      v49 = *Context;
   }
-  else if ( a5 )
+  else if ( RestartScan )
   {
     v49 = 0;
   }
   else
   {
-    v49 = *a6;
+    v49 = *Context;
   }
-  if ( v7 >= v7 + 32 )
-    return 3221225485LL;
+  if ( Length >= Length + 32 )
+    return -1073741811;
   Pool2 = (void *)ExAllocatePool2(0x101uLL);
   Src = Pool2;
   if ( !Pool2 )
-    return 3221225626LL;
+    return -1073741670;
   Object = 0LL;
-  v14 = ObReferenceObjectByHandle(Handle, 1u, ObpDirectoryObjectType, PreviousMode, &Object, 0LL);
+  v14 = ObReferenceObjectByHandle(DirectoryHandle, 1u, ObpDirectoryObjectType, PreviousMode, &Object, 0LL);
   if ( v14 < 0 )
   {
     ExFreePoolWithTag(Pool2, 0);
-    return (unsigned int)v14;
+    return v14;
   }
   v57 = (unsigned __int16 *)Pool2;
   v15 = 32;
-  Size = 32;
+  LODWORD(Size) = 32;
   v16 = 0;
   v51 = 0;
   v50 = 0;
@@ -160,7 +156,7 @@ LABEL_41:
     if ( v21 >= 0x25 )
     {
 LABEL_42:
-      v31 = v63;
+      v31 = Length;
       goto LABEL_43;
     }
   }
@@ -201,8 +197,8 @@ LABEL_39:
     goto LABEL_42;
   }
   v30 = v29 + v15;
-  v31 = v63;
-  if ( v30 <= v63 )
+  v31 = Length;
+  if ( v30 <= Length )
   {
     v32 = v57;
     *v57 = v28;
@@ -220,17 +216,17 @@ LABEL_39:
     Size = v30;
     v57 = v32 + 16;
     ++v50;
-    if ( a4 )
+    if ( ReturnSingleEntry )
       goto LABEL_42;
     ++v23;
     goto LABEL_39;
   }
-  if ( a4 )
+  if ( ReturnSingleEntry )
     v15 = v30;
-  Size = v15;
+  LODWORD(Size) = v15;
   v51 = --v16;
   v41 = -1073741789;
-  if ( !a4 )
+  if ( !ReturnSingleEntry )
     v41 = 261;
   v17 = v41;
 LABEL_43:
@@ -248,12 +244,12 @@ LABEL_43:
       do
       {
         memmove(v35, *(v36 - 2), *((unsigned __int16 *)v36 - 12));
-        *(v36 - 2) = &Address[v35 - v38];
+        *(v36 - 2) = (char *)Buffer + v35 - v38;
         v39 = &v35[*((unsigned __int16 *)v36 - 12)];
         *(_WORD *)v39 = 0;
         v39 += 2;
         memmove(v39, *v36, *((unsigned __int16 *)v36 - 4));
-        *v36 = &Address[v39 - v38];
+        *v36 = (char *)Buffer + v39 - v38;
         v40 = &v39[*((unsigned __int16 *)v36 - 4)];
         *(_WORD *)v40 = 0;
         v35 = v40 + 2;
@@ -263,7 +259,7 @@ LABEL_43:
       while ( v37 );
       v15 = Size;
       v16 = v51;
-      v31 = v63;
+      v31 = Length;
     }
   }
   v42 = (signed __int64 *)((char *)Object + 296);
@@ -280,12 +276,12 @@ LABEL_43:
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v46, v47, v48);
   if ( v15 <= v31 )
     v31 = v15;
-  memmove(Address, Src, v31);
-  if ( a7 )
-    *a7 = v15;
+  memmove(Buffer, Src, v31);
+  if ( ReturnLength )
+    *ReturnLength = v15;
   if ( v17 >= 0 )
-    *a6 = v16;
+    *Context = v16;
   ObfDereferenceObject(Object);
   ExFreePoolWithTag(Src, 0);
-  return (unsigned int)v17;
+  return v17;
 }

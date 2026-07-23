@@ -1,18 +1,18 @@
 /*
- * XREFs of CcUpdateSharedCacheMapFlag @ 0x1402EE374
+ * XREFs of CcUpdateSharedCacheMapFlag @ 0x1402F90C0
  * Callers:
- *     CcBoostLowPriorityWorkerThread @ 0x1402D083C (CcBoostLowPriorityWorkerThread.c)
- *     CcPurgeAndClearCacheSection @ 0x1402EF194 (CcPurgeAndClearCacheSection.c)
- *     CcApplyLowIoPriorityToThread @ 0x1402F6308 (CcApplyLowIoPriorityToThread.c)
- *     CcUpdateReadHistory @ 0x1402F9D80 (CcUpdateReadHistory.c)
- *     CcCopyReadEx @ 0x140320720 (CcCopyReadEx.c)
- *     CcMdlRead @ 0x1406D3BB0 (CcMdlRead.c)
- *     CcUnmapVacb @ 0x1406EA378 (CcUnmapVacb.c)
- *     CcMapAndCopyFromCache @ 0x1406EF550 (CcMapAndCopyFromCache.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x14024ECCC (CcBoostLowPriorityWorkerThread.c)
+ *     CcPurgeAndClearCacheSection @ 0x1402F9EE4 (CcPurgeAndClearCacheSection.c)
+ *     CcApplyLowIoPriorityToThread @ 0x140301058 (CcApplyLowIoPriorityToThread.c)
+ *     CcUpdateReadHistory @ 0x140304AD0 (CcUpdateReadHistory.c)
+ *     CcCopyReadEx @ 0x14032B470 (CcCopyReadEx.c)
+ *     CcMdlRead @ 0x1406AAE90 (CcMdlRead.c)
+ *     CcUnmapVacb @ 0x140701758 (CcUnmapVacb.c)
+ *     CcMapAndCopyFromCache @ 0x140706930 (CcMapAndCopyFromCache.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -29,7 +29,7 @@ __int64 __fastcall CcUpdateSharedCacheMapFlag(__int64 a1, int a2, char a3)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  Partition = CcGetPartition(a1);
+  Partition = CcGetPartition(a1, a2, a3);
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
   v7 = *(_DWORD *)(a1 + 152);
   if ( a3 )

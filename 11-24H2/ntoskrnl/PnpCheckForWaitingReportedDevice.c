@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpCheckForWaitingReportedDevice @ 0x1403C5014
+ * XREFs of PnpCheckForWaitingReportedDevice @ 0x1403B3BD4
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x1403C4D24 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x1403B38E4 (IopAttachDeviceToDeviceStackSafe.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
  */
 
 __int64 __fastcall PnpCheckForWaitingReportedDevice(__int64 a1)

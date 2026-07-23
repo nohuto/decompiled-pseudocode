@@ -1,16 +1,16 @@
 /*
- * XREFs of PspApplyMitigationOptions @ 0x140A5333C
+ * XREFs of PspApplyMitigationOptions @ 0x140A4B32C
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExpLockHandleTableExclusive @ 0x1404527A8 (ExpLockHandleTableExclusive.c)
- *     ExpUnlockHandleTableExclusive @ 0x140458444 (ExpUnlockHandleTableExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObReferenceProcessHandleTable @ 0x140940570 (ObReferenceProcessHandleTable.c)
- *     PspSetRedirectionTrustPolicy @ 0x140A65014 (PspSetRedirectionTrustPolicy.c)
- *     PspDecodeMitigationExecuteOptions @ 0x140A675F4 (PspDecodeMitigationExecuteOptions.c)
- *     PspSetNoChildProcessRestrictedPolicy @ 0x140A9BC5C (PspSetNoChildProcessRestrictedPolicy.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExpLockHandleTableExclusive @ 0x140447858 (ExpLockHandleTableExclusive.c)
+ *     ExpUnlockHandleTableExclusive @ 0x14044D754 (ExpUnlockHandleTableExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObReferenceProcessHandleTable @ 0x140894BB0 (ObReferenceProcessHandleTable.c)
+ *     PspSetRedirectionTrustPolicy @ 0x140A5D7E4 (PspSetRedirectionTrustPolicy.c)
+ *     PspDecodeMitigationExecuteOptions @ 0x140A60AEC (PspDecodeMitigationExecuteOptions.c)
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x140A971CC (PspSetNoChildProcessRestrictedPolicy.c)
  */
 
 __int64 __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __m128i *a3, __int128 *a4, int a5)

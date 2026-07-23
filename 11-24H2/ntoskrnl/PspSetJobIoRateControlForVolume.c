@@ -1,19 +1,24 @@
 /*
- * XREFs of PspSetJobIoRateControlForVolume @ 0x14085E97C
+ * XREFs of PspSetJobIoRateControlForVolume @ 0x140AB24C8
  * Callers:
- *     PspSetJobIoRateControl @ 0x14085E618 (PspSetJobIoRateControl.c)
+ *     PspSetJobIoRateControl @ 0x14085A388 (PspSetJobIoRateControl.c)
  * Callees:
- *     PspIoRateControlInfoIsAnySet @ 0x1404AEE38 (PspIoRateControlInfoIsAnySet.c)
- *     PspJobIoRateVolumeEntryInsert @ 0x1405E5A68 (PspJobIoRateVolumeEntryInsert.c)
- *     PspJobIoRateVolumeEntryRemove @ 0x1405E5C0C (PspJobIoRateVolumeEntryRemove.c)
- *     PspIoRateEntryDeactivate @ 0x14085E900 (PspIoRateEntryDeactivate.c)
- *     PspIoRateEntryActivate @ 0x14085F29C (PspIoRateEntryActivate.c)
- *     PspIoRateEntryInitialize @ 0x1408EAAB4 (PspIoRateEntryInitialize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PspIoRateControlInfoIsAnySet @ 0x1404A9810 (PspIoRateControlInfoIsAnySet.c)
+ *     PspJobIoRateVolumeEntryInsert @ 0x1405E3008 (PspJobIoRateVolumeEntryInsert.c)
+ *     PspJobIoRateVolumeEntryRemove @ 0x1405E31AC (PspJobIoRateVolumeEntryRemove.c)
+ *     PspIoRateEntryDeactivate @ 0x14085A670 (PspIoRateEntryDeactivate.c)
+ *     PspIoRateEntryInitialize @ 0x14085C2E4 (PspIoRateEntryInitialize.c)
+ *     PspIoRateEntryActivate @ 0x140A6D2B4 (PspIoRateEntryActivate.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PspSetJobIoRateControlForVolume(__int64 a1, _QWORD *a2, _BYTE *a3, _BYTE *a4, unsigned __int64 *a5)
+__int64 __fastcall PspSetJobIoRateControlForVolume(
+        unsigned __int64 a1,
+        _QWORD *a2,
+        _BYTE *a3,
+        _BYTE *a4,
+        unsigned __int64 *a5)
 {
   __int64 Pool2; // rax
   struct _EX_RUNDOWN_REF *v10; // rbx
@@ -24,12 +29,12 @@ __int64 __fastcall PspSetJobIoRateControlForVolume(__int64 a1, _QWORD *a2, _BYTE
   *a3 = 0;
   *a4 = 0;
   *a5 = 0LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x694A7350u);
   v10 = (struct _EX_RUNDOWN_REF *)Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741670;
   PspIoRateEntryInitialize(Pool2);
-  v11 = PspIoRateEntryActivate(v10, a1, a2, 0LL);
+  v11 = PspIoRateEntryActivate(v10, a1, (__int64)a2, 0LL);
   if ( v11 < 0 )
   {
 LABEL_10:
@@ -47,7 +52,7 @@ LABEL_10:
   if ( PspIoRateControlInfoIsAnySet(a2) )
   {
     *a5 = v10[5].Count;
-    PspJobIoRateVolumeEntryInsert(a1, (unsigned __int64)v10);
+    PspJobIoRateVolumeEntryInsert(a1, (_RTL_BALANCED_NODE *)v10);
     v10 = 0LL;
     *a4 = 1;
   }

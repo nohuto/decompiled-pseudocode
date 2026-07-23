@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqQueryAppendActionEntry @ 0x1409A8588
+ * XREFs of PiDqQueryAppendActionEntry @ 0x140968F98
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14098EA84 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqQueryApplyObjectEvent @ 0x14098F6F0 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryEnumObject @ 0x1409A83F4 (PiDqQueryEnumObject.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14094F4E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140950150 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x140968E04 (PiDqQueryEnumObject.c)
  * Callees:
- *     RtlNumberGenericTableElementsAvl @ 0x14048DA40 (RtlNumberGenericTableElementsAvl.c)
- *     PiDqQueryFreeActiveData @ 0x140990044 (PiDqQueryFreeActiveData.c)
- *     PiDqGetPnpObjectType @ 0x14099CD00 (PiDqGetPnpObjectType.c)
- *     PiDmObjectManagerReleaseLock @ 0x1409D90A4 (PiDmObjectManagerReleaseLock.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1409D90D0 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x1409D911C (PiDmObjectManagerAcquireSharedLock.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x140487580 (RtlNumberGenericTableElementsAvl.c)
+ *     PiDqQueryFreeActiveData @ 0x140950AA4 (PiDqQueryFreeActiveData.c)
+ *     PiDqGetPnpObjectType @ 0x14095D760 (PiDqGetPnpObjectType.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1409A9F94 (PiDmObjectManagerReleaseLock.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1409A9FC0 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1409AA00C (PiDmObjectManagerAcquireSharedLock.c)
  */
 
 char __fastcall PiDqQueryAppendActionEntry(__int64 a1, __int64 *a2)
@@ -18,7 +18,7 @@ char __fastcall PiDqQueryAppendActionEntry(__int64 a1, __int64 *a2)
   __int64 v2; // rax
   __int64 **v4; // rcx
   unsigned int PnpObjectType; // eax
-  RTL_AVL_TABLE *ObjectManagerForObjectType; // rdi
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // rdi
   ULONG v7; // ebx
 
   v2 = a1 + 192;
@@ -32,7 +32,7 @@ char __fastcall PiDqQueryAppendActionEntry(__int64 a1, __int64 *a2)
   if ( ++*(_DWORD *)(a1 + 208) > 0x3E8u )
   {
     PnpObjectType = PiDqGetPnpObjectType(*(_DWORD *)(*(_QWORD *)(a1 + 24) + 16LL));
-    ObjectManagerForObjectType = (RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(PnpObjectType);
+    ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(PnpObjectType);
     PiDmObjectManagerAcquireSharedLock(ObjectManagerForObjectType);
     v7 = RtlNumberGenericTableElementsAvl(ObjectManagerForObjectType + 1);
     PiDmObjectManagerReleaseLock(ObjectManagerForObjectType);

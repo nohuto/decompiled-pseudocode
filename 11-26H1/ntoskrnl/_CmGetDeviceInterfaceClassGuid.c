@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmGetDeviceInterfaceClassGuid @ 0x1409A2474
+ * XREFs of _CmGetDeviceInterfaceClassGuid @ 0x140962ED4
  * Callers:
- *     PiSwCompleteCreate @ 0x14090F730 (PiSwCompleteCreate.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x14099EC38 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     IopProcessSetInterfaceState @ 0x1409D82B0 (IopProcessSetInterfaceState.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x14095F698 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     IopProcessSetInterfaceState @ 0x1409A91A0 (IopProcessSetInterfaceState.c)
+ *     PiSwCompleteCreate @ 0x1409B1860 (PiSwCompleteCreate.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1409A1980 (_CmGetDeviceInterfaceSubkeyPath.c)
- *     ScanHexFormat @ 0x1409A2050 (ScanHexFormat.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1409623E0 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     ScanHexFormat @ 0x140962AB0 (ScanHexFormat.c)
  */
 
 int __fastcall CmGetDeviceInterfaceClassGuid(__int64 a1, const WCHAR *a2, __int64 a3)

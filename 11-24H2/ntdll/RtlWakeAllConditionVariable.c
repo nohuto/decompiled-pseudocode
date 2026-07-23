@@ -1,55 +1,49 @@
 /*
- * XREFs of RtlWakeAllConditionVariable @ 0x18008E480
+ * XREFs of RtlWakeAllConditionVariable @ 0x1800A9F40
  * Callers:
- *     EtwpStopLoggerInstance @ 0x18008DE70 (EtwpStopLoggerInstance.c)
- *     EtwpFlushActiveBuffers @ 0x18008E264 (EtwpFlushActiveBuffers.c)
- *     RtlCloneUserProcess @ 0x18015F270 (RtlCloneUserProcess.c)
- *     RtlCompleteProcessCloning @ 0x18015F580 (RtlCompleteProcessCloning.c)
+ *     EtwpStopLoggerInstance @ 0x1800A9930 (EtwpStopLoggerInstance.c)
+ *     EtwpFlushActiveBuffers @ 0x1800A9D24 (EtwpFlushActiveBuffers.c)
+ *     RtlCloneUserProcess @ 0x18015D630 (RtlCloneUserProcess.c)
+ *     RtlCompleteProcessCloning @ 0x18015D940 (RtlCompleteProcessCloning.c)
  * Callees:
- *     ZwAlertThreadByThreadId @ 0x180162AA0 (ZwAlertThreadByThreadId.c)
+ *     ZwAlertThreadByThreadId @ 0x180160E60 (ZwAlertThreadByThreadId.c)
  */
 
-void __fastcall RtlWakeAllConditionVariable(volatile signed __int64 *a1)
+void __cdecl RtlWakeAllConditionVariable(PRTL_CONDITION_VARIABLE ConditionVariable)
 {
-  signed __int64 v1; // rdx
-  volatile signed __int64 *v2; // r8
-  __int64 v3; // r9
-  signed __int64 v4; // rax
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // rbx
+  unsigned __int64 i; // rdx
+  signed __int64 v2; // rax
+  unsigned __int64 v3; // rdx
+  unsigned __int64 v4; // rbx
 
-  v1 = *a1;
-  v2 = a1;
-  v3 = 0LL;
-  while ( v1 && (v1 & 7) != 7 )
+  for ( i = ConditionVariable->Value; i && (i & 7) != 7; i = v2 )
   {
-    if ( (v1 & 8) != 0 )
+    if ( (i & 8) != 0 )
     {
-      v4 = _InterlockedCompareExchange64(a1, v1 | 7, v1);
-      if ( v1 == v4 )
+      v2 = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, i | 7, i);
+      if ( i == v2 )
         return;
     }
     else
     {
-      v4 = _InterlockedCompareExchange64(a1, 0LL, v1);
-      if ( v1 == v4 )
+      v2 = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, 0LL, i);
+      if ( i == v2 )
       {
-        v5 = v1 & 0xFFFFFFFFFFFFFFF0uLL;
-        if ( v5 )
+        v3 = i & 0xFFFFFFFFFFFFFFF0uLL;
+        if ( v3 )
         {
           do
           {
-            v6 = *(_QWORD *)v5;
-            _interlockedbittestandset((volatile signed __int32 *)(v5 + 36), 2u);
-            if ( !_interlockedbittestandreset((volatile signed __int32 *)(v5 + 36), 1u) )
-              ZwAlertThreadByThreadId(*(_QWORD *)(v5 + 24), v5, v2, v3);
-            v5 = v6;
+            v4 = *(_QWORD *)v3;
+            _interlockedbittestandset((volatile signed __int32 *)(v3 + 36), 2u);
+            if ( !_interlockedbittestandreset((volatile signed __int32 *)(v3 + 36), 1u) )
+              ZwAlertThreadByThreadId(*(HANDLE *)(v3 + 24));
+            v3 = v4;
           }
-          while ( v6 );
+          while ( v4 );
         }
         return;
       }
     }
-    v1 = v4;
   }
 }

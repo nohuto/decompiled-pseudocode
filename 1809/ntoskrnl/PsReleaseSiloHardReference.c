@@ -1,13 +1,13 @@
 /*
- * XREFs of PsReleaseSiloHardReference @ 0x1402E9620
+ * XREFs of PsReleaseSiloHardReference @ 0x1402E9810
  * Callers:
- *     IopDeleteFileObjectExtension @ 0x140092150 (IopDeleteFileObjectExtension.c)
- *     IopCloseFileObjectExtension @ 0x140121990 (IopCloseFileObjectExtension.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x1405F9484 (IopAllocateFoExtensionsOnCreate.c)
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     IopDeleteFileObjectExtension @ 0x140092090 (IopDeleteFileObjectExtension.c)
+ *     IopCloseFileObjectExtension @ 0x140121A60 (IopCloseFileObjectExtension.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x1405FA484 (IopAllocateFoExtensionsOnCreate.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PspHardDereferenceSiloWorker @ 0x1402E9694 (PspHardDereferenceSiloWorker.c)
+ *     PspHardDereferenceSiloWorker @ 0x1402E9884 (PspHardDereferenceSiloWorker.c)
  */
 
 LONG_PTR __fastcall PsReleaseSiloHardReference(PVOID Object)

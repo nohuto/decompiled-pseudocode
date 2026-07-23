@@ -1,15 +1,15 @@
 /*
- * XREFs of CcCoalescingCallBackHelper @ 0x14043C800
+ * XREFs of CcCoalescingCallBackHelper @ 0x140264D90
  * Callers:
- *     CcCoalescingCallBack @ 0x14043C700 (CcCoalescingCallBack.c)
+ *     CcCoalescingCallBack @ 0x140263B80 (CcCoalescingCallBack.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcNotifyWriteBehindInternal @ 0x1402CF16C (CcNotifyWriteBehindInternal.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x14043C9B0 (CcScheduleLazyWriteScan.c)
- *     CcNotifyWriteBehindVolume @ 0x14043CB2C (CcNotifyWriteBehindVolume.c)
- *     CcRescheduleLazyWriteScanOnVolume @ 0x14043CC1C (CcRescheduleLazyWriteScanOnVolume.c)
- *     CcRescheduleLazyWriteScan @ 0x14043CD34 (CcRescheduleLazyWriteScan.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcNotifyWriteBehindInternal @ 0x1402638AC (CcNotifyWriteBehindInternal.c)
+ *     CcScheduleLazyWriteScan @ 0x140264F40 (CcScheduleLazyWriteScan.c)
+ *     CcNotifyWriteBehindVolume @ 0x1402650BC (CcNotifyWriteBehindVolume.c)
+ *     CcRescheduleLazyWriteScanOnVolume @ 0x1402651AC (CcRescheduleLazyWriteScanOnVolume.c)
+ *     CcRescheduleLazyWriteScan @ 0x1402652C4 (CcRescheduleLazyWriteScan.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
@@ -37,7 +37,14 @@ char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
         return 1;
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 768), &LockHandle);
       LOBYTE(v11) = 1;
-      CcScheduleLazyWriteScan(a1, a2, v11);
+      CcScheduleLazyWriteScan(
+        a1,
+        a2,
+        v11,
+        0LL,
+        LockHandle.LockQueue.Next,
+        LockHandle.LockQueue.Lock,
+        *(_QWORD *)&LockHandle.OldIrql);
     }
     else
     {
@@ -46,7 +53,7 @@ char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
       if ( CcEnablePerVolumeLazyWriter )
         CcRescheduleLazyWriteScanOnVolume(a2);
       else
-        CcRescheduleLazyWriteScan(a1, 0LL);
+        CcRescheduleLazyWriteScan(a1);
     }
   }
   else

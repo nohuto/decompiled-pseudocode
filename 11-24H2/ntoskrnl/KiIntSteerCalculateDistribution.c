@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerCalculateDistribution @ 0x140353BC0
+ * XREFs of KiIntSteerCalculateDistribution @ 0x1402B1990
  * Callers:
- *     KeIntSteerPeriodic @ 0x1403534C4 (KeIntSteerPeriodic.c)
+ *     KeIntSteerPeriodic @ 0x1402B1294 (KeIntSteerPeriodic.c)
  * Callees:
- *     KiIntSteerCalculatePriorityDistribution @ 0x140354390 (KiIntSteerCalculatePriorityDistribution.c)
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140354604 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KiIntSteerCalculateUniformDistribution @ 0x14035531C (KiIntSteerCalculateUniformDistribution.c)
- *     KiIntSteerComputeCpuSet @ 0x140355440 (KiIntSteerComputeCpuSet.c)
+ *     KiIntSteerCalculatePriorityDistribution @ 0x1402B20C0 (KiIntSteerCalculatePriorityDistribution.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x1402B2334 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KiIntSteerCalculateUniformDistribution @ 0x1402B304C (KiIntSteerCalculateUniformDistribution.c)
+ *     KiIntSteerComputeCpuSet @ 0x1404A16C4 (KiIntSteerComputeCpuSet.c)
  */
 
 __int64 __fastcall KiIntSteerCalculateDistribution(int a1, __int64 a2, __int64 *a3, __int64 a4)

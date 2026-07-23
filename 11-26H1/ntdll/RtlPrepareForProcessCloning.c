@@ -1,76 +1,70 @@
 /*
- * XREFs of RtlPrepareForProcessCloning @ 0x18015CB00
+ * XREFs of RtlPrepareForProcessCloning @ 0x18015C9C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     LdrpAcquireLoaderLock @ 0x180084090 (LdrpAcquireLoaderLock.c)
- *     LdrpDrainWorkQueue @ 0x180087180 (LdrpDrainWorkQueue.c)
- *     LdrForkMrdata @ 0x18013811C (LdrForkMrdata.c)
- *     RtlLockHeapManagerForCloning @ 0x180144390 (RtlLockHeapManagerForCloning.c)
- *     RtlpFeatureConfigurationCloneComplete @ 0x180148E30 (RtlpFeatureConfigurationCloneComplete.c)
- *     RtlpFeatureConfigurationClonePrepare @ 0x180148E9C (RtlpFeatureConfigurationClonePrepare.c)
- *     RtlpFlsCloneComplete @ 0x18014F270 (RtlpFlsCloneComplete.c)
- *     RtlpFlsClonePrepare @ 0x18014F308 (RtlpFlsClonePrepare.c)
- *     LdrpUnlockTlsDelayedReclaimTable @ 0x18015CD9C (LdrpUnlockTlsDelayedReclaimTable.c)
- *     LdrpCompleteProcessCloning @ 0x18015DDF8 (LdrpCompleteProcessCloning.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     LdrpAcquireLoaderLock @ 0x18007B430 (LdrpAcquireLoaderLock.c)
+ *     LdrpDrainWorkQueue @ 0x18007E4F0 (LdrpDrainWorkQueue.c)
+ *     LdrForkMrdata @ 0x180137E8C (LdrForkMrdata.c)
+ *     RtlLockHeapManagerForCloning @ 0x180144290 (RtlLockHeapManagerForCloning.c)
+ *     RtlpFeatureConfigurationCloneComplete @ 0x180148CE0 (RtlpFeatureConfigurationCloneComplete.c)
+ *     RtlpFeatureConfigurationClonePrepare @ 0x180148D4C (RtlpFeatureConfigurationClonePrepare.c)
+ *     RtlpFlsCloneComplete @ 0x18014F120 (RtlpFlsCloneComplete.c)
+ *     RtlpFlsClonePrepare @ 0x18014F1B8 (RtlpFlsClonePrepare.c)
+ *     LdrpUnlockTlsDelayedReclaimTable @ 0x18015CC5C (LdrpUnlockTlsDelayedReclaimTable.c)
+ *     LdrpCompleteProcessCloning @ 0x18015DCB8 (LdrpCompleteProcessCloning.c)
  */
 
 __int64 RtlPrepareForProcessCloning()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rdx
-  volatile signed __int64 *v2; // rbx
-  __int64 v3; // rdi
-  __int64 v4; // rdx
-  __int64 v5; // rdx
-  int v6; // ebx
-  __int64 v7; // rdx
+  _RTL_SRWLOCK *v0; // rbx
+  __int64 v1; // rdi
+  int v2; // ebx
   __int64 result; // rax
-  __int64 v9; // rdx
 
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     return 3221225876LL;
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
-  RtlpFlsClonePrepare((__int64)&RtlpFlsContext, v0);
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
+  RtlpFlsClonePrepare(&RtlpFlsContext);
+  RtlEnterCriticalSection(&FastPebLock);
   RtlAcquireSRWLockShared(&LdrpTlsLock);
-  v2 = (volatile signed __int64 *)&unk_1801CB458;
-  v3 = 16LL;
+  v0 = &stru_1801CA4A8;
+  v1 = 16LL;
   do
   {
-    RtlAcquireSRWLockExclusive(v2, v1);
-    v2 += 2;
-    --v3;
+    RtlAcquireSRWLockExclusive(v0);
+    v0 += 2;
+    --v1;
   }
-  while ( v3 );
-  RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock, v1);
-  LdrForkMrdata(0, v4);
+  while ( v1 );
+  RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
+  LdrForkMrdata(0);
   RtlpFeatureConfigurationClonePrepare();
-  v6 = RtlLockHeapManagerForCloning();
-  if ( v6 >= 0 )
+  v2 = RtlLockHeapManagerForCloning();
+  if ( v2 >= 0 )
   {
-    RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock, v5);
-    RtlAcquireSRWLockExclusive(&LdrpForkActiveLock, v9);
+    RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
+    RtlAcquireSRWLockExclusive(&LdrpForkActiveLock);
     result = 0LL;
     LdrpForkInProgress = 1;
   }
   else
   {
     RtlpFeatureConfigurationCloneComplete(0);
-    LdrForkMrdata(2, v7);
+    LdrForkMrdata(2);
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
     LdrpUnlockTlsDelayedReclaimTable(0LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
     RtlpFlsCloneComplete((__int64)&RtlpFlsContext, 0);
     LdrpCompleteProcessCloning(0LL);
-    return (unsigned int)v6;
+    return (unsigned int)v2;
   }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmFcInitSystem3 @ 0x140D0A8C4
+ * XREFs of CmFcInitSystem3 @ 0x140D10B94
  * Callers:
- *     CmInitSystem2 @ 0x140D0A83C (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140D10B0C (CmInitSystem2.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TlgRegisterAggregateProvider @ 0x14077B9B0 (TlgRegisterAggregateProvider.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TlgRegisterAggregateProvider @ 0x14077E5F0 (TlgRegisterAggregateProvider.c)
  */
 
 char CmFcInitSystem3()
@@ -78,7 +78,7 @@ char CmFcInitSystem3()
       v29 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140E09EB0,
-               (unsigned __int8 *)&dword_140055C64,
+               (unsigned __int8 *)&byte_140056C57,
                0LL,
                0LL,
                0xBu,

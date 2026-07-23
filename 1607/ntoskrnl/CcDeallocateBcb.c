@@ -1,11 +1,11 @@
 /*
- * XREFs of CcDeallocateBcb @ 0x140088578
+ * XREFs of CcDeallocateBcb @ 0x14010C768
  * Callers:
- *     CcDeleteMbcb @ 0x140088410 (CcDeleteMbcb.c)
- *     CcUnpinFileDataEx @ 0x1400CF860 (CcUnpinFileDataEx.c)
- *     CcDeleteBcbs @ 0x140111D74 (CcDeleteBcbs.c)
+ *     CcUnpinFileDataEx @ 0x1400CD700 (CcUnpinFileDataEx.c)
+ *     CcDeleteMbcb @ 0x14010C600 (CcDeleteMbcb.c)
+ *     CcDeleteBcbs @ 0x1401122D8 (CcDeleteBcbs.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1400885B0 (ExDeleteResourceLite.c)
+ *     ExDeleteResourceLite @ 0x14010C7A0 (ExDeleteResourceLite.c)
  */
 
 void __fastcall CcDeallocateBcb(char *a1)

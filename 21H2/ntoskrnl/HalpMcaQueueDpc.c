@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaQueueDpc @ 0x1402D06F8
+ * XREFs of HalpMcaQueueDpc @ 0x14024EA78
  * Callers:
- *     HalpTimerClockInterrupt @ 0x14022A590 (HalpTimerClockInterrupt.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x1404D47D0 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerClockInterrupt @ 0x1402CEE40 (HalpTimerClockInterrupt.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x1404D4A10 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall HalpMcaQueueDpc(char a1, char a2))(_QWORD, _QWORD)
@@ -26,12 +26,7 @@ __int64 (__fastcall *__fastcall HalpMcaQueueDpc(char a1, char a2))(_QWORD, _QWOR
     if ( v4 )
     {
       *(_QWORD *)(KiProcessorBlock[0] + 128) = 0LL;
-      return (__int64 (__fastcall *)(_QWORD, _QWORD))KiInsertQueueDpc(
-                                                       v4,
-                                                       MEMORY[0xFFFFF78000000014],
-                                                       HIDWORD(MEMORY[0xFFFFF78000000014]),
-                                                       0LL,
-                                                       0);
+      return (__int64 (__fastcall *)(_QWORD, _QWORD))KiInsertQueueDpc(v4, 0);
     }
   }
   return result;

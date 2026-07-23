@@ -13,10 +13,10 @@
  */
 
 // local variable allocation has failed, the output may be wrong!
-__int64 __fastcall MiInsertNonPagedPoolOnSlist(struct _SLIST_ENTRY *a1, unsigned __int64 a2)
+__int64 __fastcall MiInsertNonPagedPoolOnSlist(_SLIST_ENTRY *a1, unsigned __int64 a2)
 {
   volatile __int64 *v2; // rsi
-  struct _SLIST_ENTRY *v3; // r9
+  _SLIST_ENTRY *v3; // r9
   unsigned __int64 *v4; // r14
   unsigned __int64 PteShadow; // rax
   __int64 v6; // r10
@@ -31,7 +31,7 @@ __int64 __fastcall MiInsertNonPagedPoolOnSlist(struct _SLIST_ENTRY *a1, unsigned
   __int64 v15; // r10
   unsigned __int64 v16; // r11
   __int64 v18; // r12
-  union _SLIST_HEADER *v19; // r12
+  _SLIST_HEADER *v19; // r12
   int v20; // r15d
   unsigned __int64 v21; // r13
   unsigned __int64 v22; // rbp

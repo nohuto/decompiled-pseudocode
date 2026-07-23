@@ -11,46 +11,44 @@
  *     RtlRbRemoveNode @ 0x14005EF60 (RtlRbRemoveNode.c)
  */
 
-unsigned __int64 __fastcall KiRemoveTimer2(__int64 a1)
+char __fastcall KiRemoveTimer2(__int64 a1)
 {
-  unsigned __int8 *v2; // r14
+  _BYTE *v2; // r14
   int v3; // r15d
   unsigned int v4; // ebp
   unsigned __int64 v5; // rbx
   __int64 v6; // r12
-  unsigned __int64 result; // rax
-  __int64 v8; // rax
-  __int64 v9; // rdi
-  __int64 *v10; // rcx
-  __int64 v11; // rdx
-  char *v12; // [rsp+58h] [rbp+10h]
+  unsigned __int64 v7; // rax
+  __int64 v8; // rdi
+  __int64 *v9; // rcx
+  __int64 v10; // rdx
+  _RTL_RB_TREE *v12; // [rsp+58h] [rbp+10h]
 
-  v2 = (unsigned __int8 *)(a1 + 130);
+  v2 = (_BYTE *)(a1 + 130);
   v3 = 0;
   v4 = 0;
   v5 = -1LL;
   v6 = 48LL;
   do
   {
-    result = *v2;
-    if ( (result & 0x10) == 0 )
+    LOBYTE(v7) = *v2;
+    if ( (*v2 & 0x10) == 0 )
     {
-      v8 = 3 * (result & 3);
-      v9 = *((_QWORD *)&KiTimer2Collections + v8 + 1);
-      v12 = (char *)&KiTimer2Collections + 8 * v8;
-      result = RtlRbRemoveNode(v12, a1 + 24 * (v4 + 1LL));
-      if ( (v9 & 0xFFFFFFFFFFFFFFFEuLL) == a1 + 24 * (v4 + 1LL) )
+      v8 = *((_QWORD *)&KiTimer2Collections + 3 * (*v2 & 3) + 1);
+      v12 = (_RTL_RB_TREE *)((char *)&KiTimer2Collections + 24 * (*v2 & 3));
+      LOBYTE(v7) = RtlRbRemoveNode(v12, (PRTL_BALANCED_NODE)(a1 + 24 * (v4 + 1LL)));
+      if ( (v8 & 0xFFFFFFFFFFFFFFFEuLL) == a1 + 24 * (v4 + 1LL) )
       {
         v3 = 1;
-        result = *((_QWORD *)v12 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
-        if ( result )
+        v7 = (unsigned __int64)v12->Min & 0xFFFFFFFFFFFFFFFEuLL;
+        if ( v7 )
         {
-          result = *(_QWORD *)(v6 + result);
-          *((_QWORD *)v12 + 2) = result;
+          v7 = *(_QWORD *)(v6 + v7);
+          v12[1].Root = (_RTL_BALANCED_NODE *)v7;
         }
         else
         {
-          *((_QWORD *)v12 + 2) = -1LL;
+          v12[1].Root = (_RTL_BALANCED_NODE *)-1LL;
         }
       }
     }
@@ -61,22 +59,22 @@ unsigned __int64 __fastcall KiRemoveTimer2(__int64 a1)
   while ( v4 < 2 );
   if ( v3 )
   {
-    result = *(_QWORD *)(a1 + 72);
-    if ( KiNextTimer2DueTime == result )
+    v7 = *(_QWORD *)(a1 + 72);
+    if ( KiNextTimer2DueTime == v7 )
     {
-      v10 = &qword_140371250;
-      v11 = 4LL;
+      v9 = &qword_140371250;
+      v10 = 4LL;
       do
       {
-        result = *v10;
-        v10 += 3;
-        if ( result < v5 )
-          v5 = result;
-        --v11;
+        v7 = *v9;
+        v9 += 3;
+        if ( v7 < v5 )
+          v5 = v7;
+        --v10;
       }
-      while ( v11 );
+      while ( v10 );
       KiNextTimer2DueTime = v5;
     }
   }
-  return result;
+  return v7;
 }

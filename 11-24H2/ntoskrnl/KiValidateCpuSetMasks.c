@@ -1,12 +1,12 @@
 /*
- * XREFs of KiValidateCpuSetMasks @ 0x1403C8288
+ * XREFs of KiValidateCpuSetMasks @ 0x14048B8AC
  * Callers:
- *     NtSetInformationWorkerFactory @ 0x140204420 (NtSetInformationWorkerFactory.c)
- *     KeSetSelectedCpuSetsThread @ 0x1403C6670 (KeSetSelectedCpuSetsThread.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x1403C82C8 (KiModifySystemAllowedCpuSetsWithLock.c)
- *     KeSetCpuSetsProcess @ 0x1405BFD04 (KeSetCpuSetsProcess.c)
- *     KeSetTagCpuSets @ 0x1405BFDEC (KeSetTagCpuSets.c)
- *     KiInitializeReservedCpuSets @ 0x140C29BDC (KiInitializeReservedCpuSets.c)
+ *     NtSetInformationWorkerFactory @ 0x14032BA00 (NtSetInformationWorkerFactory.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14048B570 (KeSetSelectedCpuSetsThread.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x14048B680 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     KeSetCpuSetsProcess @ 0x1405BD334 (KeSetCpuSetsProcess.c)
+ *     KeSetTagCpuSets @ 0x1405BD41C (KeSetTagCpuSets.c)
+ *     KiInitializeReservedCpuSets @ 0x140C2BCFC (KiInitializeReservedCpuSets.c)
  * Callees:
  *     <none>
  */

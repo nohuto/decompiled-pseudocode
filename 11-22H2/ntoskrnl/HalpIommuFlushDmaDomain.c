@@ -38,10 +38,10 @@ void __fastcall HalpIommuFlushDmaDomain(__int64 a1, __int64 a2)
       v6 = (volatile signed __int64 *)(a1 + 88);
 LABEL_16:
       KxReleaseSpinLock(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && v3 <= 0xFu && v8 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && v3 <= 0xFu && v8 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

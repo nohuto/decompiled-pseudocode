@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeTbFlush @ 0x1409B9C04
+ * XREFs of MiInitializeTbFlush @ 0x1409BAC04
  * Callers:
- *     MiInitializeTbFlushing @ 0x1409B9BB8 (MiInitializeTbFlushing.c)
+ *     MiInitializeTbFlushing @ 0x1409BABB8 (MiInitializeTbFlushing.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG_PTR __fastcall MiInitializeTbFlush(unsigned __int64 a1)
@@ -61,7 +61,7 @@ ULONG_PTR __fastcall MiInitializeTbFlush(unsigned __int64 a1)
   v32 = a1;
   v1 = a1;
   v31 = 0uLL;
-  result = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)a1);
+  result = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)a1);
   v33 = result;
   v3 = result;
   if ( result )
@@ -72,7 +72,7 @@ ULONG_PTR __fastcall MiInitializeTbFlush(unsigned __int64 a1)
     v39 = 0LL;
     v40 = 0LL;
     v37 = 20;
-    MiMakeValidPte(result, qword_14043ADC8, 1);
+    MiMakeValidPte(result, qword_14043BE88, 1);
     v4 = (__int64)(v3 << 25) >> 16;
     v5 = v4;
     if ( !v1 )
@@ -145,13 +145,13 @@ LABEL_7:
             LODWORD(v27) = v21;
             if ( v21 == 3 )
             {
-              qword_14043A110 = v24;
+              qword_14043B1D0 = v24;
 LABEL_25:
               if ( v21 == 3 )
-                return MiReleasePtes((__int64)&qword_14043AFA0, v33, v1);
+                return MiReleasePtes((__int64)&qword_14043C060, v33, v1);
 LABEL_29:
-              qword_14043A110 = v8;
-              return MiReleasePtes((__int64)&qword_14043AFA0, v33, v1);
+              qword_14043B1D0 = v8;
+              return MiReleasePtes((__int64)&qword_14043C060, v33, v1);
             }
           }
           else
@@ -175,7 +175,7 @@ LABEL_29:
       {
         if ( (unsigned int)MiPteHasShadow() )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v25 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v25 & 1) != 0 )
             v7 |= 0x8000000000000000uLL;
           *(_QWORD *)v3 = v7;
           MiWritePteShadow(v3, v7);

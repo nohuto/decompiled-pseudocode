@@ -6,31 +6,31 @@
  *     <none>
  */
 
-int __stdcall RtlFindClosestEncodableLength(unsigned __int64 a1, int a2)
+NTSTATUS __cdecl RtlFindClosestEncodableLength(ULONGLONG SourceLength, PULONGLONG TargetLength)
 {
   int v2; // ecx
   unsigned int v3; // edx
   unsigned int v4; // edi
   unsigned int v5; // edi
 
-  v2 = HIDWORD(a1);
-  v3 = a1;
-  if ( !HIDWORD(a1) )
+  v2 = HIDWORD(SourceLength);
+  v3 = SourceLength;
+  if ( !HIDWORD(SourceLength) )
     goto LABEL_4;
-  if ( a1 <= 0xFFFFFFFF00LL )
+  if ( SourceLength <= 0xFFFFFFFF00LL )
   {
-    v4 = a1 & 0xFFFFFF00;
-    if ( (_DWORD)a1 == (a1 & 0xFFFFFF00) )
+    v4 = SourceLength & 0xFFFFFF00;
+    if ( (_DWORD)SourceLength == (SourceLength & 0xFFFFFF00) )
     {
 LABEL_4:
-      *(_QWORD *)a2 = a1;
+      *TargetLength = SourceLength;
       return 0;
     }
     v3 = v4 + 256;
-    *(_DWORD *)a2 = v4 + 256;
-    v2 = __CFADD__(v4, 256) + HIDWORD(a1);
-    *(_DWORD *)(a2 + 4) = v2;
-    if ( __PAIR64__(HIDWORD(a1), v4) + 256 <= 0xFFFFFFFF00LL )
+    *(_DWORD *)TargetLength = v4 + 256;
+    v2 = __CFADD__(v4, 256) + HIDWORD(SourceLength);
+    *((_DWORD *)TargetLength + 1) = v2;
+    if ( __PAIR64__(HIDWORD(SourceLength), v4) + 256 <= 0xFFFFFFFF00LL )
       return 0;
   }
   if ( __PAIR64__(v2, v3) <= 0xFFFFFFFF0000LL )
@@ -39,9 +39,9 @@ LABEL_4:
     if ( v3 == (v3 & 0xFFFF0000) )
       goto LABEL_8;
     v3 = v5 + 0x10000;
-    *(_DWORD *)a2 = v5 + 0x10000;
+    *(_DWORD *)TargetLength = v5 + 0x10000;
     v2 += __CFADD__(v5, 0x10000);
-    *(_DWORD *)(a2 + 4) = v2;
+    *((_DWORD *)TargetLength + 1) = v2;
     if ( __PAIR64__(v2, v5) + 0x10000 <= 0xFFFFFFFF0000LL )
       return 0;
   }
@@ -49,17 +49,16 @@ LABEL_4:
   {
     if ( v3 )
     {
-      *(_DWORD *)a2 = 0;
+      *(_DWORD *)TargetLength = 0;
       ++v2;
       goto LABEL_9;
     }
 LABEL_8:
-    *(_DWORD *)a2 = v3;
+    *(_DWORD *)TargetLength = v3;
 LABEL_9:
-    *(_DWORD *)(a2 + 4) = v2;
+    *((_DWORD *)TargetLength + 1) = v2;
     return 0;
   }
-  *(_DWORD *)a2 = 0;
-  *(_DWORD *)(a2 + 4) = 0;
+  *TargetLength = 0LL;
   return -1073741823;
 }

@@ -7,11 +7,11 @@
  *     memset @ 0x1800A3DC0 (memset.c)
  */
 
-void *RtlInitializeExceptionLog()
+PVOID RtlInitializeExceptionLog()
 {
-  void *result; // rax
+  PVOID result; // rax
 
-  result = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 71200LL);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x11620uLL);
   RtlpExceptionLog2 = (__int64)result;
   if ( result )
     return memset(result, 0, 0x11620uLL);

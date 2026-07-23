@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprReplaceStart @ 0x140645448
+ * XREFs of PnprReplaceStart @ 0x14064552C
  * Callers:
  *     PnprInitiateReplaceOperation @ 0x1403DBA90 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     xHalAllocatePmcCounterSet @ 0x140581930 (xHalAllocatePmcCounterSet.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     xHalAllocatePmcCounterSet @ 0x140581DE0 (xHalAllocatePmcCounterSet.c)
  */
 
 __int64 PnprReplaceStart()

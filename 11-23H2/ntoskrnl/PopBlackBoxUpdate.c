@@ -1,15 +1,15 @@
 /*
- * XREFs of PopBlackBoxUpdate @ 0x140785340
+ * XREFs of PopBlackBoxUpdate @ 0x140785530
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlTestProtectedAccess @ 0x1406B828C (RtlTestProtectedAccess.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlTestProtectedAccess @ 0x1406B82BC (RtlTestProtectedAccess.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -48,7 +48,9 @@ __int64 __fastcall PopBlackBoxUpdate(char **a1, char a2)
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     if ( ((_DWORD)v4[2] & 1) != 0
-      && !RtlTestProtectedAccess(BYTE2(KeGetCurrentThread()->Process[2].Header.WaitListHead.Flink), 0x61u) )
+      && !RtlTestProtectedAccess(
+            (PS_PROTECTION)SBYTE2(KeGetCurrentThread()->Process[2].Header.WaitListHead.Flink),
+            (PS_PROTECTION)97) )
     {
       v10 = -1073741790;
       goto LABEL_12;

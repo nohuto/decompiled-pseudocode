@@ -1,22 +1,22 @@
 /*
- * XREFs of SmcProcessCreateRequest @ 0x140798E7C
+ * XREFs of SmcProcessCreateRequest @ 0x140798F8C
  * Callers:
- *     SmSetStoreInformation @ 0x140A5F8F0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x140A57E40 (SmSetStoreInformation.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     StEtaInitialize @ 0x1404BAFA4 (StEtaInitialize.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SmcCacheCreatePrepare @ 0x140798D7C (SmcCacheCreatePrepare.c)
- *     SmcCacheAdd @ 0x14079CEA0 (SmcCacheAdd.c)
- *     SmcCacheCleanup @ 0x14079CFE4 (SmcCacheCleanup.c)
- *     SmcCacheDelete @ 0x14079D07C (SmcCacheDelete.c)
- *     SmcCacheDereference @ 0x14079D0D8 (SmcCacheDereference.c)
- *     SmcCacheStart @ 0x14079D478 (SmcCacheStart.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     StEtaInitialize @ 0x1404B5E44 (StEtaInitialize.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SmcCacheCreatePrepare @ 0x140798E8C (SmcCacheCreatePrepare.c)
+ *     SmcCacheAdd @ 0x14079CFB0 (SmcCacheAdd.c)
+ *     SmcCacheCleanup @ 0x14079D0F4 (SmcCacheCleanup.c)
+ *     SmcCacheDelete @ 0x14079D18C (SmcCacheDelete.c)
+ *     SmcCacheDereference @ 0x14079D1E8 (SmcCacheDereference.c)
+ *     SmcCacheStart @ 0x14079D588 (SmcCacheStart.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmcProcessCreateRequest(unsigned __int64 a1, int a2, char a3)
@@ -82,7 +82,7 @@ __int64 __fastcall SmcProcessCreateRequest(unsigned __int64 a1, int a2, char a3)
       Prepare = SmcCacheCreatePrepare((__int64)v7);
       if ( Prepare >= 0 )
       {
-        v13 = (struct _PRIVILEGE_SET *)SmAllocEx(1064LL, 1631808883LL, -1);
+        v13 = (struct _PRIVILEGE_SET *)SmAllocEx(0x428uLL, 0x61436D73u, -1);
         v6 = v13;
         if ( v13 )
         {

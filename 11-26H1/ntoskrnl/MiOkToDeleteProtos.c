@@ -1,15 +1,15 @@
 /*
- * XREFs of MiOkToDeleteProtos @ 0x14045884C
+ * XREFs of MiOkToDeleteProtos @ 0x1404500BC
  * Callers:
- *     MiFreeDanglingProtos @ 0x1402A60A0 (MiFreeDanglingProtos.c)
- *     MiFreeProtoPool @ 0x140458808 (MiFreeProtoPool.c)
+ *     MiFreeDanglingProtos @ 0x1402A5498 (MiFreeDanglingProtos.c)
+ *     MiFreeProtoPool @ 0x140450078 (MiFreeProtoPool.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiOkToDeleteProtos(ULONG_PTR BugCheckParameter4, __int64 a2, int a3)

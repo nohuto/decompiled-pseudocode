@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline @ 0x140454568
+ * XREFs of Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline @ 0x140449408
  * Callers:
- *     RtlCrc32 @ 0x140454510 (RtlCrc32.c)
+ *     RtlCrc32 @ 0x1404493B0 (RtlCrc32.c)
  * Callees:
- *     Feature_FasterCrc32__private_IsEnabledFallback @ 0x1404FB504 (Feature_FasterCrc32__private_IsEnabledFallback.c)
+ *     Feature_FasterCrc32__private_IsEnabledFallback @ 0x1404F8DE4 (Feature_FasterCrc32__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline()

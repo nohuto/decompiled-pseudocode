@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFreeCalloutStack @ 0x140532E30
+ * XREFs of KeFreeCalloutStack @ 0x140533370
  * Callers:
  *     <none>
  * Callees:
- *     MmDeleteKernelStack @ 0x1400F1B80 (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400EF9D0 (MmDeleteKernelStack.c)
  */
 
 void __fastcall KeFreeCalloutStack(_BYTE *a1, __int64 a2, __int64 a3, __int64 a4)

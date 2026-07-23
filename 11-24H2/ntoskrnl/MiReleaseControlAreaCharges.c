@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseControlAreaCharges @ 0x14037024C
+ * XREFs of MiReleaseControlAreaCharges @ 0x140432B78
  * Callers:
- *     MiInsertUnusedSegment @ 0x14037016C (MiInsertUnusedSegment.c)
- *     MiSegmentDelete @ 0x140A131E4 (MiSegmentDelete.c)
+ *     MiInsertUnusedSegment @ 0x140432A98 (MiInsertUnusedSegment.c)
+ *     MiSegmentDelete @ 0x140A0B944 (MiSegmentDelete.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x14036F3BC (MiComputeCrossPartitionSectionCharges.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x1404C8FF8 (MiComputeCrossPartitionSectionCharges.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiReleaseControlAreaCharges(__int64 a1, int a2)
@@ -29,11 +29,11 @@ __int64 __fastcall MiReleaseControlAreaCharges(__int64 a1, int a2)
   v6 = 1;
   if ( (v5 & 0x20) == 0 )
   {
-    if ( (v5 & 0x400) != 0 || a1 == qword_140E2D708 || v3 )
+    if ( (v5 & 0x400) != 0 || a1 == qword_140E2D848 || v3 )
       return 0LL;
     while ( !(_DWORD)v3 )
     {
-      if ( a1 == unk_140E2D6A0 )
+      if ( a1 == unk_140E2D7E0 )
         return 0LL;
       LODWORD(v3) = 1;
     }
@@ -64,7 +64,7 @@ LABEL_31:
         if ( !v11 )
           goto LABEL_15;
       }
-      v7 += MiComputeCrossPartitionSectionCharges((__int64 *)v11);
+      v7 += MiComputeCrossPartitionSectionCharges(v11);
 LABEL_30:
       if ( v6 )
         goto LABEL_15;

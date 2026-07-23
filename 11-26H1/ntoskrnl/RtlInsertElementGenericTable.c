@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertElementGenericTable @ 0x1402C0FD0
+ * XREFs of RtlInsertElementGenericTable @ 0x14030BC90
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1402C0DB0 (RtlSplay.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     RtlSplay @ 0x14030BA70 (RtlSplay.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -21,7 +21,7 @@ PVOID __stdcall RtlInsertElementGenericTable(
   PRTL_SPLAY_LINKS v10; // rsi
   int v11; // eax
   int v12; // ebp
-  RTL_SPLAY_LINKS *v13; // rdi
+  _RTL_SPLAY_LINKS *v13; // rdi
   __int64 v15; // rdx
   _QWORD *v16; // rax
   struct _LIST_ENTRY *v17; // rax
@@ -67,7 +67,7 @@ LABEL_14:
   if ( (unsigned int)v15 >= (unsigned int)v6 )
   {
     v16 = (_QWORD *)guard_dispatch_icall_no_overrides(Table, v15, *(_QWORD *)&BufferSize);
-    v13 = (RTL_SPLAY_LINKS *)v16;
+    v13 = (_RTL_SPLAY_LINKS *)v16;
     if ( v16 )
     {
       *v16 = v16;

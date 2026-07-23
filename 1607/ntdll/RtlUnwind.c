@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnwindEx @ 0x180035340 (RtlUnwindEx.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlUnwindEx @ 0x180035330 (RtlUnwindEx.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 void __stdcall RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue)

@@ -37,7 +37,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int64 v15; // rcx
   int v16; // esi
   unsigned __int64 v17; // r12
-  RTL_BITMAP *v18; // r10
+  _RTL_BITMAP *v18; // r10
   const signed __int32 *v19; // r8
   unsigned int v20; // eax
   const signed __int32 *v21; // rdx
@@ -68,7 +68,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   KIRQL v46; // al
   __int64 v47; // rdx
   unsigned __int64 v48; // r15
-  RTL_BITMAP *v49; // rbx
+  _RTL_BITMAP *v49; // rbx
   unsigned __int8 v50; // al
   struct _KPRCB *v51; // r9
   _DWORD *v52; // r8
@@ -84,8 +84,8 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int64 v63; // [rsp+68h] [rbp-11h]
   volatile LONG *v64; // [rsp+70h] [rbp-9h]
   PRTL_BITMAP v65; // [rsp+78h] [rbp-1h]
-  RTL_BITMAP BitMapHeader; // [rsp+80h] [rbp+7h] BYREF
-  RTL_BITMAP v67; // [rsp+90h] [rbp+17h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+80h] [rbp+7h] BYREF
+  _RTL_BITMAP v67; // [rsp+90h] [rbp+17h] BYREF
   struct _KEVENT *Event; // [rsp+E0h] [rbp+67h]
   int v69; // [rsp+F8h] [rbp+7Fh]
 
@@ -156,7 +156,7 @@ LABEL_55:
     v15 = *(_QWORD *)(v12 + 112);
     v16 = *(_DWORD *)v12;
     v17 = v14;
-    v18 = (RTL_BITMAP *)(v15 + 8);
+    v18 = (_RTL_BITMAP *)(v15 + 8);
     v19 = *(const signed __int32 **)(v15 + 16);
     v20 = *(_DWORD *)v12 - 1;
     v61 = (PRTL_BITMAP)(v15 + 8);
@@ -258,7 +258,7 @@ LABEL_43:
               *(_QWORD *)(v12 + 48) += v29;
               *(_QWORD *)v12 = v29 + v38;
               v48 = v46;
-              v49 = (RTL_BITMAP *)(v47 + 24);
+              v49 = (_RTL_BITMAP *)(v47 + 24);
               RtlClearBits((PRTL_BITMAP)(v47 + 8), v38, v29);
               RtlClearBits(v49, v38, v29);
               if ( v38 < *(unsigned int *)(v12 + 120) )

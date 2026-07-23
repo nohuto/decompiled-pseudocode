@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCoverageEnsureStringBuffer @ 0x140856ED8
+ * XREFs of EtwpCoverageEnsureStringBuffer @ 0x140857118
  * Callers:
- *     EtwpCoverageRecord @ 0x1407DD580 (EtwpCoverageRecord.c)
- *     EtwpCoverageEnsureContext @ 0x140856AD4 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageRecord @ 0x1407DD850 (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureContext @ 0x140856D14 (EtwpCoverageEnsureContext.c)
  * Callees:
- *     EtwpCoverageInitializeStringBuffer @ 0x14036EFA4 (EtwpCoverageInitializeStringBuffer.c)
+ *     EtwpCoverageInitializeStringBuffer @ 0x14036F144 (EtwpCoverageInitializeStringBuffer.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

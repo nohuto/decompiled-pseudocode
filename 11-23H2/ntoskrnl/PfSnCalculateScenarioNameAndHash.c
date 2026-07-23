@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnCalculateScenarioNameAndHash @ 0x1407C2520
+ * XREFs of PfSnCalculateScenarioNameAndHash @ 0x1407C27F0
  * Callers:
- *     PfSnBeginAppLaunch @ 0x1407604F8 (PfSnBeginAppLaunch.c)
- *     PfSnSetAltPrefetchParam @ 0x14097F9F8 (PfSnSetAltPrefetchParam.c)
+ *     PfSnBeginAppLaunch @ 0x1407606E8 (PfSnBeginAppLaunch.c)
+ *     PfSnSetAltPrefetchParam @ 0x14097FBF8 (PfSnSetAltPrefetchParam.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     PfSnFindImageFileName @ 0x1407C2654 (PfSnFindImageFileName.c)
- *     PfSnScanCommandLine @ 0x1407C26A0 (PfSnScanCommandLine.c)
- *     PfSnCheckModernApp @ 0x1407C29A4 (PfSnCheckModernApp.c)
- *     PfSnIsHostingApplication @ 0x1407C2BD8 (PfSnIsHostingApplication.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PfSnFindImageFileName @ 0x1407C2924 (PfSnFindImageFileName.c)
+ *     PfSnScanCommandLine @ 0x1407C2970 (PfSnScanCommandLine.c)
+ *     PfSnCheckModernApp @ 0x1407C2C74 (PfSnCheckModernApp.c)
+ *     PfSnIsHostingApplication @ 0x1407C2EA8 (PfSnIsHostingApplication.c)
  */
 
 __int64 __fastcall PfSnCalculateScenarioNameAndHash(

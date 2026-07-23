@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtReplaceKeyWrapper @ 0x140688FE0
+ * XREFs of DifNtReplaceKeyWrapper @ 0x14068CBC0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtReplaceKey @ 0x14084FD20 (NtReplaceKey.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtReplaceKey @ 0x140856030 (NtReplaceKey.c)
  */
 
-__int64 __fastcall DifNtReplaceKeyWrapper(void *a1, __int64 a2, __int64 a3)
+__int64 __fastcall DifNtReplaceKeyWrapper(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -45,9 +45,9 @@ __int64 __fastcall DifNtReplaceKeyWrapper(void *a1, __int64 a2, __int64 a3)
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    *((_QWORD *)&v18 + 1) = a1;
-    *(_QWORD *)&v18 = a2;
-    *((_QWORD *)&v17 + 1) = a3;
+    *((_QWORD *)&v18 + 1) = NewFile;
+    *(_QWORD *)&v18 = TargetHandle;
+    *((_QWORD *)&v17 + 1) = OldFile;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -60,7 +60,7 @@ __int64 __fastcall DifNtReplaceKeyWrapper(void *a1, __int64 a2, __int64 a3)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = NtReplaceKey(a1);
+  LODWORD(v19) = NtReplaceKey(NewFile, TargetHandle, OldFile);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

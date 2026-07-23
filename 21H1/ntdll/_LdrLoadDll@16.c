@@ -18,29 +18,28 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-int __stdcall LdrLoadDll(__int16 a1, _DWORD *a2, unsigned __int16 *a3, _DWORD *a4)
+NTSTATUS __cdecl LdrLoadDll(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
   int Flags; // ebx
-  int v5; // esi
-  int v6; // ecx
+  NTSTATUS v5; // esi
+  char *v6; // ecx
   int v8; // [esp+10h] [ebp-170h] BYREF
   int v9; // [esp+14h] [ebp-16Ch] BYREF
-  int v10; // [esp+18h] [ebp-168h] BYREF
-  _DWORD *v11; // [esp+1Ch] [ebp-164h]
-  int v12; // [esp+20h] [ebp-160h] BYREF
-  _WORD *v13; // [esp+24h] [ebp-15Ch]
-  _WORD v14[128]; // [esp+28h] [ebp-158h] BYREF
-  _DWORD v15[19]; // [esp+128h] [ebp-58h] BYREF
-  char v16; // [esp+174h] [ebp-Ch]
+  PVOID BaseAddress; // [esp+18h] [ebp-168h] BYREF
+  PVOID *v11; // [esp+1Ch] [ebp-164h]
+  _UNICODE_STRING SystemPath; // [esp+20h] [ebp-160h] BYREF
+  _WORD v13[128]; // [esp+28h] [ebp-158h] BYREF
+  PWSTR Path[19]; // [esp+128h] [ebp-58h] BYREF
+  char v15; // [esp+174h] [ebp-Ch]
 
-  v11 = a4;
-  if ( a2 )
-    Flags = LdrpDllCharacteristicsToLoadFlags(*a2);
+  v11 = DllHandle;
+  if ( DllCharacteristics )
+    Flags = LdrpDllCharacteristicsToLoadFlags(*DllCharacteristics);
   else
     Flags = 0;
   if ( (ShowSnaps & 9) != 0 )
-    LdrpLogDbgPrint("minkernel\\ntdll\\ldrapi.c", 151, "LdrLoadDll", 3, "DLL name: %wZ\n", a3);
-  if ( (LdrpPolicyBits & 4) == 0 && (a1 & 0x401) == 0x401 )
+    LdrpLogDbgPrint("minkernel\\ntdll\\ldrapi.c", 151, "LdrLoadDll", 3, "DLL name: %wZ\n", DllName);
+  if ( (LdrpPolicyBits & 4) == 0 && ((unsigned __int16)DllPath & 0x401) == 0x401 )
     return -1073741811;
   if ( (Flags & 8) == 0 || (LdrpPolicyBits & 8) != 0 )
   {
@@ -50,28 +49,28 @@ int __stdcall LdrLoadDll(__int16 a1, _DWORD *a2, unsigned __int16 *a3, _DWORD *a
     }
     else
     {
-      LdrpInitializeDllPath(v15);
+      LdrpInitializeDllPath(Path);
       v8 = Flags;
       LdrpLogDllState(5288);
-      v12 = 0x1000000;
-      v13 = v14;
-      v14[0] = 0;
-      v9 = LdrpPreprocessDllName(a3, (unsigned __int16 *)&v12, 0, &v8);
+      *(_DWORD *)&SystemPath.Length = 0x1000000;
+      SystemPath.Buffer = v13;
+      v13[0] = 0;
+      v9 = LdrpPreprocessDllName(DllName, &SystemPath, 0, &v8);
       if ( v9 >= 0 )
-        LdrpLoadDllInternal(v8, 4, 0, 0, &v10, &v9);
-      if ( v14 != v13 )
-        RtlDeleteBoundaryDescriptor((int)v13);
-      v12 = 0x1000000;
-      v13 = v14;
-      v14[0] = 0;
+        LdrpLoadDllInternal(v8, 4, 0, 0, &BaseAddress, &v9);
+      if ( v13 != SystemPath.Buffer )
+        RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)SystemPath.Buffer);
+      *(_DWORD *)&SystemPath.Length = 0x1000000;
+      SystemPath.Buffer = v13;
+      v13[0] = 0;
       LdrpLogDllState(5289);
       v5 = v9;
-      if ( v16 )
-        RtlReleasePath(v15[0]);
+      if ( v15 )
+        RtlReleasePath(Path[0]);
       if ( v5 >= 0 )
       {
-        v6 = v10;
-        *v11 = *(_DWORD *)(v10 + 24);
+        v6 = (char *)BaseAddress;
+        *v11 = (PVOID)*((_DWORD *)BaseAddress + 6);
         LdrpDereferenceModule(v6);
       }
     }

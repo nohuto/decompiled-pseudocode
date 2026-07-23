@@ -8,10 +8,10 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __stdcall TppJobpFree(_DWORD *a1)
+LOGICAL __stdcall TppJobpFree(int a1)
 {
-  TpAdjustBindingCount(a1[23], 0xFFFFFFFF);
-  *(a1 - 4) = 0;
+  TpAdjustBindingCount(*(_DWORD *)(a1 + 92), 0xFFFFFFFF);
+  *(_DWORD *)(a1 - 48 + 32) = 0;
   TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, TppHeapTag + 3407872, (int)(a1 - 12));
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3407872, (PVOID)(a1 - 48));
 }

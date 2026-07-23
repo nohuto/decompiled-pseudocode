@@ -1,9 +1,9 @@
 /*
- * XREFs of KiReconfigureSubNodeSchedulingInformation @ 0x1405B73DC
+ * XREFs of KiReconfigureSubNodeSchedulingInformation @ 0x1405B473C
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140B575C0 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140B59640 (KiInitializeDynamicProcessorDpc.c)
  * Callees:
- *     KiRegisterProcessorWithCooperativeIdleSearchContext @ 0x1405C7A74 (KiRegisterProcessorWithCooperativeIdleSearchContext.c)
+ *     KiRegisterProcessorWithCooperativeIdleSearchContext @ 0x1405C51A4 (KiRegisterProcessorWithCooperativeIdleSearchContext.c)
  */
 
 __int64 __fastcall KiReconfigureSubNodeSchedulingInformation(__int64 a1, _QWORD *a2)
@@ -16,7 +16,7 @@ __int64 __fastcall KiReconfigureSubNodeSchedulingInformation(__int64 a1, _QWORD 
   __int64 v8; // r8
 
   *(_QWORD *)(a1 + 160) |= a2[25];
-  qword_140FC7810[4 * *(unsigned __int16 *)(a1 + 136)] |= a2[25];
+  qword_140FC8870[4 * *(unsigned __int16 *)(a1 + 136)] |= a2[25];
   v3 = *(_QWORD *)(a1 + 168);
   if ( (v3 & a2[4558]) == 0 )
     *(_QWORD *)(a1 + 168) = a2[25] | v3;

@@ -8,47 +8,57 @@
  *     _RtlCompressBuffer@32 @ 0x4B35A4F0 (_RtlCompressBuffer@32.c)
  */
 
-int __fastcall EtwpWriteBufferCompressed(int *a1, int a2, int *a3, int *a4)
+NTSTATUS __fastcall EtwpWriteBufferCompressed(int a1, int a2, _DWORD *a3, _DWORD *a4)
 {
   int v6; // ecx
   int v7; // edx
-  int v8; // edx
-  unsigned int v9; // eax
-  int v10; // eax
-  int v11; // edi
-  size_t v12; // edx
+  UCHAR *v8; // edx
+  ULONG v9; // eax
+  NTSTATUS v10; // eax
+  NTSTATUS v11; // edi
+  ULONG v12; // edx
   int v13; // eax
-  unsigned int v14; // eax
-  unsigned int v15; // ecx
+  ULONG v14; // eax
+  ULONG v15; // ecx
   _DWORD *v16; // esi
   int v17; // eax
   int v18; // ecx
   int v19; // eax
   bool v20; // cf
-  size_t v21; // edx
+  int v21; // edx
   int v22; // eax
   void *v24; // [esp-Ch] [ebp-28h]
-  char v25[8]; // [esp+Ch] [ebp-10h] BYREF
-  int v26; // [esp+14h] [ebp-8h] BYREF
-  int v27; // [esp+18h] [ebp-4h]
+  size_t v25; // [esp-4h] [ebp-20h]
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+Ch] [ebp-10h] BYREF
+  ULONG FinalCompressedSize; // [esp+14h] [ebp-8h] BYREF
+  NTSTATUS v28; // [esp+18h] [ebp-4h]
 
   *a3 = 0;
-  v6 = a1[80];
-  v7 = a1[78];
+  v6 = *(_DWORD *)(a1 + 320);
+  v7 = *(_DWORD *)(a1 + 312);
   *a4 = 0;
-  v8 = v6 + v7 + 72;
-  v9 = a1[79] - v6 - 72;
-  if ( v9 >= a1[35] )
-    v9 = a1[35];
-  v10 = RtlCompressBuffer(3, a2 + 72, *(_DWORD *)(a2 + 48) - 72, v8, v9, 0, (int)&v26, a1[77]);
+  v8 = (UCHAR *)(v6 + v7 + 72);
+  v9 = *(_DWORD *)(a1 + 316) - v6 - 72;
+  if ( v9 >= *(_DWORD *)(a1 + 140) )
+    v9 = *(_DWORD *)(a1 + 140);
+  v10 = RtlCompressBuffer(
+          3u,
+          (PUCHAR)(a2 + 72),
+          *(_DWORD *)(a2 + 48) - 72,
+          v8,
+          v9,
+          0,
+          &FinalCompressedSize,
+          *(PVOID *)(a1 + 308));
   v11 = v10;
-  v27 = v10;
+  v28 = v10;
   if ( v10 == -1073741789 )
   {
-    v24 = (void *)(a1[78] + a1[80]);
-    v27 = *(_DWORD *)(a2 + 48);
-    memcpy(v24, (const void *)a2, v27);
-    v12 = v27;
+    v24 = (void *)(*(_DWORD *)(a1 + 312) + *(_DWORD *)(a1 + 320));
+    v28 = *(_DWORD *)(a2 + 48);
+    LODWORD(v25) = v28;
+    memcpy(v24, (const void *)a2, v25);
+    v12 = v28;
   }
   else
   {
@@ -58,51 +68,61 @@ int __fastcall EtwpWriteBufferCompressed(int *a1, int a2, int *a3, int *a4)
       return v11;
     }
     *(_WORD *)(a2 + 52) |= 0x40u;
-    qmemcpy((void *)(a1[78] + a1[80]), (const void *)a2, 0x48u);
-    v11 = v27;
-    v12 = v26 + 72;
+    qmemcpy((void *)(*(_DWORD *)(a1 + 312) + *(_DWORD *)(a1 + 320)), (const void *)a2, 0x48u);
+    v11 = v28;
+    v12 = FinalCompressedSize + 72;
   }
-  *(_DWORD *)(a1[80] + a1[78]) = v12;
-  v13 = a1[80];
-  ++a1[81];
+  *(_DWORD *)(*(_DWORD *)(a1 + 320) + *(_DWORD *)(a1 + 312)) = v12;
+  v13 = *(_DWORD *)(a1 + 320);
+  ++*(_DWORD *)(a1 + 324);
   v14 = v12 + v13;
-  a1[80] = v14;
-  v15 = a1[35];
+  *(_DWORD *)(a1 + 320) = v14;
+  v15 = *(_DWORD *)(a1 + 140);
   if ( v14 >= v15 )
   {
-    v16 = a1 + 62;
-    v11 = NtWriteFile(a1[26], 0, 0, 0, (int)v25, a1[78], v15, (int)(a1 + 62), 0);
+    v16 = (_DWORD *)(a1 + 248);
+    v11 = NtWriteFile(
+            *(HANDLE *)(a1 + 104),
+            0,
+            0,
+            0,
+            &IoStatusBlock,
+            *(PVOID *)(a1 + 312),
+            v15,
+            (PLARGE_INTEGER)(a1 + 248),
+            0);
     if ( v11 >= 0 )
     {
-      v19 = a1[35];
+      v19 = *(_DWORD *)(a1 + 140);
       v20 = __CFADD__(v19, *v16);
       *v16 += v19;
-      a1[63] += v20;
-      v21 = a1[80] - v19;
-      v22 = a1[81];
-      a1[80] = v21;
-      a1[82] = v21;
+      *(_DWORD *)(a1 + 252) += v20;
+      v21 = *(_DWORD *)(a1 + 320) - v19;
+      v22 = *(_DWORD *)(a1 + 324);
+      *(_DWORD *)(a1 + 320) = v21;
+      *(_DWORD *)(a1 + 328) = v21;
       if ( v21 )
       {
-        a1[81] = 1;
+        *(_DWORD *)(a1 + 324) = 1;
         *a3 = v22 - 1;
-        memcpy((void *)a1[78], (const void *)(a1[78] + a1[35]), v21);
+        LODWORD(v25) = v21;
+        memcpy(*(void **)(a1 + 312), (const void *)(*(_DWORD *)(a1 + 312) + *(_DWORD *)(a1 + 140)), v25);
       }
       else
       {
-        a1[81] = 0;
+        *(_DWORD *)(a1 + 324) = 0;
         *a3 = v22;
       }
     }
     else
     {
-      v17 = a1[82];
-      v18 = a1[81];
-      a1[80] = v17;
+      v17 = *(_DWORD *)(a1 + 328);
+      v18 = *(_DWORD *)(a1 + 324);
+      *(_DWORD *)(a1 + 320) = v17;
       if ( v17 )
         --v18;
       *a4 = v18;
-      a1[81] = v17 != 0;
+      *(_DWORD *)(a1 + 324) = v17 != 0;
     }
   }
   return v11;

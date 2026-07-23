@@ -1,9 +1,9 @@
 /*
- * XREFs of CcUnInitializeAsyncReadForNodeHelper @ 0x1404D3DE0
+ * XREFs of CcUnInitializeAsyncReadForNodeHelper @ 0x1404CD650
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CcUnInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int64 a3)
@@ -38,7 +38,7 @@ char __fastcall CcUnInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __i
       }
       ++v11;
     }
-    while ( v11 <= LODWORD(EmpParseLock.WriteOperationCount) );
+    while ( v11 <= HIDWORD(EmpParseLock.OtherOperationCount) );
     ExFreePoolWithTag(*(PVOID *)(a3 + 232), 0x71576343u);
     *(_QWORD *)(a3 + 232) = 0LL;
   }

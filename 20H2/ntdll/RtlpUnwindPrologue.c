@@ -225,7 +225,7 @@ __int64 __fastcall RtlpUnwindPrologue(
     v11 = a1;
     if ( v9 > 0x20 )
 LABEL_71:
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( !v14 )
   {

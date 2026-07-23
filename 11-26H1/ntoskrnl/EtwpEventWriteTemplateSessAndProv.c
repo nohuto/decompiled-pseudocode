@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteTemplateSessAndProv @ 0x140AB2240
+ * XREFs of EtwpEventWriteTemplateSessAndProv @ 0x140AAFF14
  * Callers:
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSessAndProv(
@@ -40,7 +40,7 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSessAndProv(
     v9 = &EtwpNull;
     UserData.Reserved = 0;
     v10 = 2LL;
-    return EtwWrite(EtwpEventTracingProvRegHandle, a2, 0LL, v6, &UserData);
+    return EtwWrite((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, a2, 0LL, v6, &UserData);
   }
   v6 = 0;
   if ( a6 )
@@ -50,5 +50,5 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSessAndProv(
 LABEL_5:
     *(_QWORD *)&UserData.Size = 16LL;
   }
-  return EtwWrite(EtwpEventTracingProvRegHandle, a2, 0LL, v6, &UserData);
+  return EtwWrite((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, a2, 0LL, v6, &UserData);
 }

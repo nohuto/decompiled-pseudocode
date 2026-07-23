@@ -1,11 +1,11 @@
 /*
- * XREFs of KdpSearchMemory @ 0x1409B8018
+ * XREFs of KdpSearchMemory @ 0x1409B9018
  * Callers:
- *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B94F4 (KdpSendWaitContinue.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MmDbgCopyMemory @ 0x140546A9C (MmDbgCopyMemory.c)
- *     KdpQuickMoveMemory @ 0x1409B9CF0 (KdpQuickMoveMemory.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MmDbgCopyMemory @ 0x140546CDC (MmDbgCopyMemory.c)
+ *     KdpQuickMoveMemory @ 0x1409BACF0 (KdpQuickMoveMemory.c)
  */
 
 __int64 __fastcall KdpSearchMemory(__int64 a1, __int64 a2)

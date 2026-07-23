@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFlushHeaps @ 0x180050ED0
+ * XREFs of RtlFlushHeaps @ 0x180050EC0
  * Callers:
- *     RtlSetHeapInformation @ 0x18007E700 (RtlSetHeapInformation.c)
+ *     RtlSetHeapInformation @ 0x18007E6F0 (RtlSetHeapInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 RtlFlushHeaps()
+void RtlFlushHeaps(void)
 {
-  return RtlpEnumProcessHeaps((__int64)RtlpFlushHeapsCallback, 0LL, 0);
+  RtlpEnumProcessHeaps((__int64)RtlpFlushHeapsCallback, 0LL, 0);
 }

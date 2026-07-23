@@ -32,34 +32,33 @@ __int64 __fastcall ViMapDoubleBuffer(__int64 a1, PMDL MemoryDescriptorList, ULON
   unsigned __int64 v20; // rbx
   unsigned __int64 v21; // rbp
   ULONG_PTR v22; // rbx
-  __int64 v23; // r8
-  ULONG_PTR v24; // rdx
-  __int64 v25; // rax
-  _DWORD *v26; // r9
-  PMDL v27; // r15
-  unsigned int v28; // r14d
+  ULONG_PTR v23; // rdx
+  __int64 v24; // rax
+  _DWORD *v25; // r9
+  PMDL v26; // r15
+  unsigned int v27; // r14d
   struct _MDL *Next; // rax
-  __int64 v30; // rbx
-  const char *v31; // rdx
-  CHAR *v32; // rbp
+  __int64 v29; // rbx
+  const char *v30; // rdx
+  CHAR *v31; // rbp
   ULONG ByteCount; // ecx
-  unsigned __int64 v34; // rbx
-  PVOID v35; // rax
-  unsigned __int8 v36; // cl
-  struct _KPRCB *v37; // r10
-  int v38; // eax
-  ULONG_PTR v39; // rcx
+  unsigned __int64 v33; // rbx
+  PVOID v34; // rax
+  unsigned __int8 v35; // cl
+  struct _KPRCB *v36; // r10
+  int v37; // eax
+  ULONG_PTR v38; // rcx
   PMDL BugCheckOnFailure; // [rsp+20h] [rbp-68h]
   CHAR *Priority; // [rsp+28h] [rbp-60h]
-  int v42; // [rsp+30h] [rbp-58h]
+  int v41; // [rsp+30h] [rbp-58h]
   void *Src; // [rsp+38h] [rbp-50h]
-  char *v44; // [rsp+40h] [rbp-48h]
-  _DWORD *v45; // [rsp+48h] [rbp-40h]
-  unsigned __int64 v46; // [rsp+50h] [rbp-38h]
-  ULONG v47; // [rsp+A8h] [rbp+20h] BYREF
+  char *v43; // [rsp+40h] [rbp-48h]
+  _DWORD *v44; // [rsp+48h] [rbp-40h]
+  unsigned __int64 v45; // [rsp+50h] [rbp-38h]
+  ULONG v46; // [rsp+A8h] [rbp+20h] BYREF
 
   v5 = a4;
-  v47 = 0;
+  v46 = 0;
   if ( !a4 )
   {
     ViHalPreprocessOptions(byte_140C12CE0, "Driver is attempting to map a 0-length transfer.", 33LL, a1, 0LL, 0LL);
@@ -132,47 +131,47 @@ LABEL_10:
   v20 = a3 - MemoryDescriptorList->ByteOffset - (unsigned __int64)MemoryDescriptorList->StartVa;
   v21 = MemoryDescriptorList->ByteCount - v20;
   v22 = (ULONG_PTR)MappedSystemVa + v20;
-  v42 = 1;
-  v46 = v21;
+  v41 = 1;
+  v45 = v21;
   Src = (void *)v22;
-  if ( !(unsigned int)ViAllocateMapRegistersFromFile(a1, v22, v5, a5, &v47) )
+  if ( !(unsigned int)ViAllocateMapRegistersFromFile(a1, v22, v5, a5, &v46) )
     return 0LL;
-  v24 = (v47 << 12) + (v22 & 0xFFF);
-  v25 = *(_QWORD *)(a1 + 72);
-  v26 = (_DWORD *)(v24 + *(_QWORD *)(a1 + 64));
-  v45 = v26;
-  if ( !v25 )
+  v23 = (v46 << 12) + (v22 & 0xFFF);
+  v24 = *(_QWORD *)(a1 + 72);
+  v25 = (_DWORD *)(v23 + *(_QWORD *)(a1 + 64));
+  v44 = v25;
+  if ( !v24 )
     return 0LL;
-  v27 = MemoryDescriptorList;
-  v44 = (char *)(v24 + v25);
-  v28 = v5;
+  v26 = MemoryDescriptorList;
+  v43 = (char *)(v23 + v24);
+  v27 = v5;
   if ( v5 )
   {
     while ( 1 )
     {
-      if ( !v27 )
+      if ( !v26 )
         return 0LL;
-      Next = v27->Next;
-      if ( v42 )
+      Next = v26->Next;
+      if ( v41 )
       {
-        v42 = 0;
-        if ( !Next && v28 > v21 )
+        v41 = 0;
+        if ( !Next && v27 > v21 )
         {
-          v30 = v5;
-          if ( (((v5 - 1) ^ (v21 + v5 - (unsigned __int64)v28)) & 0xFFFFFFFFFFFFF000uLL) != 0 )
+          v29 = v5;
+          if ( (((v5 - 1) ^ (v21 + v5 - (unsigned __int64)v27)) & 0xFFFFFFFFFFFFF000uLL) != 0 )
           {
-            v31 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x.";
-            v32 = (CHAR *)&unk_140C12CEC;
+            v30 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x.";
+            v31 = (CHAR *)&unk_140C12CEC;
 LABEL_33:
-            ViHalPreprocessOptions(v32, v31, 268435487LL, 3LL, (__int64)MemoryDescriptorList, v30);
-            Priority = v32;
+            ViHalPreprocessOptions(v31, v30, 268435487LL, 3LL, (__int64)MemoryDescriptorList, v29);
+            Priority = v31;
             v9 = MemoryDescriptorList;
-            BugCheckOnFailure = (PMDL)v30;
+            BugCheckOnFailure = (PMDL)v29;
             v10 = 3LL;
             goto LABEL_10;
           }
 LABEL_37:
-          LODWORD(v21) = v28;
+          LODWORD(v21) = v27;
           goto LABEL_41;
         }
       }
@@ -180,72 +179,68 @@ LABEL_37:
       {
         if ( !Next )
         {
-          ByteCount = v27->ByteCount;
-          if ( v28 > ByteCount )
+          ByteCount = v26->ByteCount;
+          if ( v27 > ByteCount )
           {
-            if ( (((v5 - 1) ^ (v5 + ByteCount - v28)) & 0xFFFFF000) != 0 )
+            if ( (((v5 - 1) ^ (v5 + ByteCount - v27)) & 0xFFFFF000) != 0 )
             {
-              v30 = v5;
-              v31 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x";
-              v32 = (CHAR *)&unk_140C12CD4;
+              v29 = v5;
+              v30 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x";
+              v31 = (CHAR *)&unk_140C12CD4;
               goto LABEL_33;
             }
             goto LABEL_37;
           }
         }
-        LODWORD(v21) = v27->ByteCount;
+        LODWORD(v21) = v26->ByteCount;
       }
-      if ( v28 < (unsigned int)v21 )
-        LODWORD(v21) = v28;
+      if ( v27 < (unsigned int)v21 )
+        LODWORD(v21) = v27;
 LABEL_41:
-      memmove(v26, Src, (unsigned int)v21);
-      v45 = (_DWORD *)((char *)v45 + (unsigned int)v21);
-      memmove(v44, Src, (unsigned int)v21);
-      v44 += (unsigned int)v21;
-      v27 = v27->Next;
-      if ( v27 )
+      memmove(v25, Src, (unsigned int)v21);
+      v44 = (_DWORD *)((char *)v44 + (unsigned int)v21);
+      memmove(v43, Src, (unsigned int)v21);
+      v43 += (unsigned int)v21;
+      v26 = v26->Next;
+      if ( v26 )
       {
-        v34 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 80));
-        if ( (v27->MdlFlags & 5) != 0 )
-          v35 = v27->MappedSystemVa;
+        v33 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 80));
+        if ( (v26->MdlFlags & 5) != 0 )
+          v34 = v26->MappedSystemVa;
         else
-          v35 = MmMapLockedPagesSpecifyCache(v27, 0, MmCached, 0LL, 0, 0x40000010u);
-        Src = v35;
+          v34 = MmMapLockedPagesSpecifyCache(v26, 0, MmCached, 0LL, 0, 0x40000010u);
+        Src = v34;
         KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 80));
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v36 = KeGetCurrentIrql();
-            if ( v36 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v36 >= 2u )
+            v35 = KeGetCurrentIrql();
+            if ( v35 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v35 >= 2u )
             {
-              v37 = KeGetCurrentPrcb();
-              v26 = v37->SchedulerAssist;
-              v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v34 + 1));
-              v19 = (v38 & v26[5]) == 0;
-              v23 = (unsigned int)v38 & v26[5];
-              v26[5] = v23;
+              v36 = KeGetCurrentPrcb();
+              v25 = v36->SchedulerAssist;
+              v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v33 + 1));
+              v19 = (v37 & v25[5]) == 0;
+              v25[5] &= v37;
               if ( v19 )
-                KiRemoveSystemWorkPriorityKick((__int64)v37);
+                KiRemoveSystemWorkPriorityKick((__int64)v36);
             }
           }
         }
-        __writecr8(v34);
+        __writecr8(v33);
         if ( !Src )
           return 0LL;
       }
-      v28 -= v21;
-      if ( !v28 )
+      v27 -= v21;
+      if ( !v27 )
         break;
-      v21 = v46;
-      v26 = v45;
+      v21 = v45;
+      v25 = v44;
     }
   }
-  v39 = *(_QWORD *)(a1 + 56);
-  if ( v39 )
-  {
-    LOBYTE(v23) = 1;
-    KeFlushIoBuffers(v39, a5 == 0, v23, (__int64)v26);
-  }
+  v38 = *(_QWORD *)(a1 + 56);
+  if ( v38 )
+    KeFlushIoBuffers(v38, a5 == 0, 1, (__int64)v25);
   return v5;
 }

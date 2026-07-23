@@ -1,16 +1,16 @@
 /*
- * XREFs of KeIsEqualAffinityEx @ 0x1402BFED0
+ * XREFs of KeIsEqualAffinityEx @ 0x1402C0160
  * Callers:
  *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
- *     KiComputeThreadAffinity @ 0x1402BF834 (KiComputeThreadAffinity.c)
- *     KiTestNodeAffinity @ 0x1402BFDFC (KiTestNodeAffinity.c)
- *     PpmParkReportMask @ 0x14035AD60 (PpmParkReportMask.c)
- *     KiForwardTick @ 0x1403CB6E0 (KiForwardTick.c)
- *     KeCpuPartitionMoveCpus @ 0x140574DC4 (KeCpuPartitionMoveCpus.c)
- *     PspSetEffectiveJobLimits @ 0x1407D97F4 (PspSetEffectiveJobLimits.c)
- *     PpmRegisterPerfStates @ 0x14082E54C (PpmRegisterPerfStates.c)
- *     PpmHeteroComputeRelativePerformance @ 0x14082F108 (PpmHeteroComputeRelativePerformance.c)
- *     ExpWorkQueueManagerThread @ 0x140838DC0 (ExpWorkQueueManagerThread.c)
+ *     KiComputeThreadAffinity @ 0x1402BFAC4 (KiComputeThreadAffinity.c)
+ *     KiTestNodeAffinity @ 0x1402C008C (KiTestNodeAffinity.c)
+ *     PpmParkReportMask @ 0x14035AF00 (PpmParkReportMask.c)
+ *     KiForwardTick @ 0x1403CB8C0 (KiForwardTick.c)
+ *     KeCpuPartitionMoveCpus @ 0x140575304 (KeCpuPartitionMoveCpus.c)
+ *     PspSetEffectiveJobLimits @ 0x1407D9AC4 (PspSetEffectiveJobLimits.c)
+ *     PpmRegisterPerfStates @ 0x14082E84C (PpmRegisterPerfStates.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x14082F408 (PpmHeteroComputeRelativePerformance.c)
+ *     ExpWorkQueueManagerThread @ 0x1408390C0 (ExpWorkQueueManagerThread.c)
  * Callees:
  *     <none>
  */

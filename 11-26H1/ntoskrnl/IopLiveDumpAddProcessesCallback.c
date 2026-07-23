@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpAddProcessesCallback @ 0x1405CC730
+ * XREFs of IopLiveDumpAddProcessesCallback @ 0x1405CEF40
  * Callers:
  *     <none>
  * Callees:
- *     IoAddProcessThreadsToDump @ 0x1405D48DC (IoAddProcessThreadsToDump.c)
+ *     IoAddProcessThreadsToDump @ 0x1405D70CC (IoAddProcessThreadsToDump.c)
  */
 
 __int64 __fastcall IopLiveDumpAddProcessesCallback(__int64 a1, __int64 a2, __int64 a3)

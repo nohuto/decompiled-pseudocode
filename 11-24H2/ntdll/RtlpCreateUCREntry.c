@@ -1,15 +1,14 @@
 /*
- * XREFs of RtlpCreateUCREntry @ 0x1800A0100
+ * XREFs of RtlpCreateUCREntry @ 0x1801173C0
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x180042E70 (RtlpDeCommitFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x1800A03B0 (RtlpFindAndCommitPages.c)
- *     RtlpInitializeHeapSegment @ 0x1800A88DC (RtlpInitializeHeapSegment.c)
+ *     RtlpFindAndCommitPages @ 0x18000D030 (RtlpFindAndCommitPages.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010840 (RtlpDeCommitFreeBlock.c)
+ *     RtlpInitializeHeapSegment @ 0x180025C40 (RtlpInitializeHeapSegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x180031DD0 (RtlpHeapHandleError.c)
- *     RtlpFindUCREntry @ 0x1800A0970 (RtlpFindUCREntry.c)
- *     RtlpUpdateUCRIndexInsert @ 0x1800A0BD4 (RtlpUpdateUCRIndexInsert.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpInsertUCRBlock @ 0x1800DB980 (RtlpInsertUCRBlock.c)
+ *     RtlpReportHeapFailure @ 0x18011D71C (RtlpReportHeapFailure.c)
  */
 
 __int64 *__fastcall RtlpCreateUCREntry(
@@ -22,18 +21,12 @@ __int64 *__fastcall RtlpCreateUCREntry(
 {
   unsigned __int64 v6; // rbx
   __int64 v10; // rdx
-  unsigned __int64 v11; // r14
+  unsigned __int64 v11; // rsi
   bool v12; // cc
   bool v13; // zf
-  __int64 UCREntry; // rax
-  __int64 *v15; // rcx
-  __int64 v16; // rax
-  unsigned __int64 v17; // r8
-  __int64 v18; // rcx
-  _QWORD *v19; // rax
-  _QWORD *v20; // r8
-  __int64 v21; // r9
-  unsigned __int64 v22; // rax
+  __int64 v14; // rax
+  int v15; // eax
+  unsigned __int64 v16; // rax
   __int64 *result; // rax
 
   a3[5] = a4;
@@ -57,80 +50,44 @@ __int64 *__fastcall RtlpCreateUCREntry(
   if ( v12 )
   {
     v13 = a5 == v6;
-    goto LABEL_6;
+LABEL_13:
+    if ( v13 )
+      goto LABEL_15;
+    goto LABEL_14;
   }
   v13 = a5 == v6;
   if ( a5 <= v6 )
-  {
-LABEL_6:
-    if ( v13 )
-      goto LABEL_8;
-    goto LABEL_7;
-  }
+    goto LABEL_13;
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else
     DbgPrint("HEAP: ");
   DbgPrint("((PHEAP_ENTRY)LastKnownEntry <= Entry)");
-  RtlpHeapHandleError();
-LABEL_7:
+  if ( !byte_1801D1908 )
+    RtlpReportHeapFailure(1LL);
+LABEL_14:
   *(_WORD *)(v6 + 12) = *(_WORD *)(a1 + 140);
-LABEL_8:
+LABEL_15:
   if ( *(_DWORD *)(a1 + 124) )
   {
     *(_BYTE *)(v6 + 11) = *(_BYTE *)(v6 + 8) ^ *(_BYTE *)(v6 + 9) ^ *(_BYTE *)(v6 + 10);
     *(_DWORD *)(v6 + 8) ^= *(_DWORD *)(a1 + 136);
   }
-  if ( a3[5] )
-  {
-    UCREntry = RtlpFindUCREntry(a1);
-    v15 = *(__int64 **)(UCREntry + 8);
-    if ( *v15 == UCREntry )
-    {
-      *a3 = UCREntry;
-      a3[1] = (__int64)v15;
-      *v15 = (__int64)a3;
-      *(_QWORD *)(UCREntry + 8) = a3;
-    }
-    else
-    {
-      RtlpLogHeapFailure(13, 0LL, UCREntry, 0LL, *v15, 0LL);
-    }
-    RtlpUpdateUCRIndexInsert(a1, a3);
-  }
-  v16 = *(unsigned __int8 *)(v6 + 14);
-  if ( (_BYTE)v16 )
-    v17 = (v6 & 0xFFFFFFFFFFFF0000uLL) - (v16 << 16) + 0x10000;
-  else
-    v17 = a1;
-  v18 = *(_QWORD *)(v17 + 96);
-  v19 = a3 + 2;
-  v20 = (_QWORD *)(v17 + 96);
-  v21 = *(_QWORD *)(v18 + 8);
-  if ( (_QWORD *)v21 == v20 )
-  {
-    *v19 = v18;
-    a3[3] = (__int64)v20;
-    *(_QWORD *)(v18 + 8) = v19;
-    *v20 = v19;
-  }
-  else
-  {
-    RtlpLogHeapFailure(13, 0LL, (__int64)v20, v21, 0LL, 0LL);
-  }
+  RtlpInsertUCRBlock(a1, a3);
   ++*(_DWORD *)(a2 + 84);
   *(_DWORD *)(a2 + 80) += (unsigned __int64)a3[5] >> 12;
-  *(_QWORD *)(a1 + 576) -= a3[5];
-  if ( ++*(_DWORD *)(a1 + 604) > 0xAu
-    && !*(_QWORD *)(a1 + 320)
-    && (*(_DWORD *)(a1 + 112) & 3) == 2
-    && (RtlpDisableHeapLookaside & 1) == 0 )
+  v14 = *(_QWORD *)(a1 + 576) - a3[5];
+  v12 = ++*(_DWORD *)(a1 + 612) <= 0xAu;
+  *(_QWORD *)(a1 + 576) = v14;
+  if ( !v12 && !*(_QWORD *)(a1 + 320) )
   {
-    *(_DWORD *)(a1 + 120) |= 0x10000000u;
+    v15 = *(_DWORD *)(a1 + 112);
+    if ( (v15 & 1) == 0 && (v15 & 2) != 0 && (RtlpDisableHeapLookaside & 1) == 0 )
+      *(_DWORD *)(a1 + 120) |= 0x10000000u;
   }
-  v22 = a3[5];
-  if ( v22 >= 0xFF000 )
-    *(_QWORD *)(a1 + 584) += v22;
+  v16 = a3[5];
+  if ( v16 >= 0xFF000 )
+    *(_QWORD *)(a1 + 584) += v16;
   result = a6;
   *a6 = (__int64)(v6 - a5) >> 4;
   return result;

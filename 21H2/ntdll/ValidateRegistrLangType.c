@@ -1,7 +1,7 @@
 /*
- * XREFs of ValidateRegistrLangType @ 0x180106218
+ * XREFs of ValidateRegistrLangType @ 0x1801061D8
  * Callers:
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x180106CD8 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x180106C98 (_RtlpMuiRegLoadInstalledFromKey.c)
  * Callees:
  *     <none>
  */

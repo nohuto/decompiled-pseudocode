@@ -1,13 +1,13 @@
 /*
- * XREFs of HvFoldBackDirtyData @ 0x1407FAC68
+ * XREFs of HvFoldBackDirtyData @ 0x1407FBE68
  * Callers:
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     HvFreeDirtyData @ 0x1405AFF14 (HvFreeDirtyData.c)
- *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     HvFreeDirtyData @ 0x1405B0F14 (HvFreeDirtyData.c)
+ *     HvpMarkDirty @ 0x1405FBD2C (HvpMarkDirty.c)
  */
 
 void __fastcall HvFoldBackDirtyData(ULONG_PTR a1)

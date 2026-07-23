@@ -8,12 +8,15 @@
 
 PWSTR __stdcall RtlIpv4AddressToStringW(const struct in_addr *Addr, PWSTR S)
 {
+  size_t v3; // [esp-18h] [ebp-1Ch]
+
+  HIDWORD(v3) = L"%u.%u.%u.%u";
+  LODWORD(v3) = 16;
   return &S[swprintf_s(
-              S,
-              0x10u,
-              L"%u.%u.%u.%u",
-              Addr->S_un.S_un_b.s_b1,
-              Addr->S_un.S_un_b.s_b2,
-              Addr->S_un.S_un_b.s_b3,
-              Addr->S_un.S_un_b.s_b4)];
+              (wchar_t *const)S,
+              v3,
+              (const wchar_t *const)*(unsigned __int8 *)Addr,
+              *((unsigned __int8 *)Addr + 1),
+              *((unsigned __int8 *)Addr + 2),
+              *((unsigned __int8 *)Addr + 3))];
 }

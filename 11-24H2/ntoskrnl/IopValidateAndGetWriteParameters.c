@@ -1,18 +1,18 @@
 /*
- * XREFs of IopValidateAndGetWriteParameters @ 0x140400A70
+ * XREFs of IopValidateAndGetWriteParameters @ 0x1403FB3F0
  * Callers:
- *     IopPopulateCopyWriteWorkerData @ 0x140400990 (IopPopulateCopyWriteWorkerData.c)
- *     IopWriteFile @ 0x1408C1630 (IopWriteFile.c)
+ *     IopPopulateCopyWriteWorkerData @ 0x1403FB310 (IopPopulateCopyWriteWorkerData.c)
+ *     IopWriteFile @ 0x1408BEFF0 (IopWriteFile.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     IopReleaseFileObjectLock @ 0x14031D520 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IopExceptionFilter @ 0x1405962D8 (IopExceptionFilter.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     IopReleaseFileObjectLock @ 0x1402C60B0 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopExceptionFilter @ 0x140593308 (IopExceptionFilter.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
  */
 
 __int64 __fastcall IopValidateAndGetWriteParameters(

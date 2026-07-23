@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080DEC8
+ * XREFs of VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080F0C8
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14080D8F8 (VrpLoadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14080EAF8 (VrpLoadDifferencingHive.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
@@ -9,18 +9,18 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     RtlInsertHeadCircularList @ 0x1401352D0 (RtlInsertHeadCircularList.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     RtlInsertHeadCircularList @ 0x1401353A0 (RtlInsertHeadCircularList.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
 {
   ULONG_PTR v2; // rdi
   ULONG_PTR v3; // rsi
-  __int64 v4; // rax
+  PRTL_BALANCED_NODE v4; // rax
   __int64 v5; // rdx
   _KLOCK_ENTRY *v6; // rbx
   struct _KTHREAD *CurrentThread; // rax
@@ -39,11 +39,11 @@ void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
   v4 = KeAbPreAcquire(v3, 0LL, 0);
   v6 = (_KLOCK_ENTRY *)v4;
   if ( v4 )
-    KeAbPreWait(v4, v5);
+    KeAbPreWait((__int64)v4, v5);
   KeWaitForSingleObject(&v8[1], Executive, 0, 0, 0LL);
   if ( v6 )
   {
-    KeAbPreAcquire(v3, (__int64)v6, 0);
+    KeAbPreAcquire(v3, &v6->TreeNode, 0);
     KeAbPostReleaseEx(v3, v6);
   }
   CurrentThread = KeGetCurrentThread();

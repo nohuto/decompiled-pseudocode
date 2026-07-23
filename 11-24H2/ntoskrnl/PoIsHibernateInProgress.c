@@ -1,7 +1,7 @@
 /*
- * XREFs of PoIsHibernateInProgress @ 0x140433400
+ * XREFs of PoIsHibernateInProgress @ 0x140425540
  * Callers:
- *     KdExitDebugger @ 0x140B75008 (KdExitDebugger.c)
+ *     KdExitDebugger @ 0x140B77008 (KdExitDebugger.c)
  * Callees:
  *     <none>
  */

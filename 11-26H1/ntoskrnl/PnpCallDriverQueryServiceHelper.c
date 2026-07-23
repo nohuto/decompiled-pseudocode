@@ -1,32 +1,32 @@
 /*
- * XREFs of PnpCallDriverQueryServiceHelper @ 0x1409161E0
+ * XREFs of PnpCallDriverQueryServiceHelper @ 0x140970C4C
  * Callers:
- *     PipCallDriverAddDevice @ 0x1409156CC (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x140970138 (PipCallDriverAddDevice.c)
  * Callees:
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140916458 (PipCallDriverAddDeviceQueryRoutine.c)
- *     _CmGetInstallerClassRegProp @ 0x140918E5C (_CmGetInstallerClassRegProp.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140970EC4 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     _CmGetInstallerClassRegProp @ 0x1409738BC (_CmGetInstallerClassRegProp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCallDriverQueryServiceHelper(
         PVOID *a1,
-        unsigned int *a2,
-        int a3,
+        ULONG *a2,
+        unsigned int a3,
         __int64 a4,
         __int64 a5,
-        __int64 a6,
+        char *a6,
         char a7,
         int a8,
         char a9,
         __int64 a10)
 {
   char v10; // r15
-  int v11; // edi
-  int v12; // esi
-  unsigned int v15; // ecx
+  char *v11; // rdi
+  __int64 v12; // rsi
+  ULONG v15; // ecx
   int v17; // r13d
   PVOID v18; // r8
   int ObjectProperty; // eax
@@ -43,7 +43,7 @@ __int64 __fastcall PnpCallDriverQueryServiceHelper(
   int InstallerClassRegProp; // eax
   int v32; // [rsp+60h] [rbp-10h] BYREF
   _DWORD v33[3]; // [rsp+64h] [rbp-Ch] BYREF
-  unsigned int v35; // [rsp+C8h] [rbp+58h] BYREF
+  ULONG v35; // [rsp+C8h] [rbp+58h] BYREF
 
   v10 = a7;
   v11 = a6;
@@ -58,13 +58,13 @@ __int64 __fastcall PnpCallDriverQueryServiceHelper(
   {
     v17 = (a7 != 0) + 1;
     ObjectProperty = PnpGetObjectProperty(
-                       PiPnpRtlCtx,
+                       *(__int64 *)&PiPnpRtlCtx,
                        a5,
                        v17,
                        a6,
                        0LL,
                        a4,
-                       (__int64)v33,
+                       v33,
                        (__int64)v18,
                        v15,
                        (__int64)&v35,
@@ -72,11 +72,26 @@ __int64 __fastcall PnpCallDriverQueryServiceHelper(
   }
   else if ( a7 )
   {
-    ObjectProperty = CmGetInstallerClassRegProp(PiPnpRtlCtx, a5, a6, a3, (__int64)&v32, (__int64)v18, (__int64)&v35);
+    ObjectProperty = CmGetInstallerClassRegProp(
+                       PiPnpRtlCtx,
+                       a5,
+                       (_DWORD)a6,
+                       a3,
+                       (__int64)&v32,
+                       (__int64)v18,
+                       (__int64)&v35);
   }
   else
   {
-    ObjectProperty = CmGetDeviceRegProp(PiPnpRtlCtx, a5, a6, a3, (__int64)&v32, (__int64)v18, (__int64)&v35, 0);
+    ObjectProperty = CmGetDeviceRegProp(
+                       *(__int64 *)&PiPnpRtlCtx,
+                       a5,
+                       (__int64)a6,
+                       a3,
+                       (__int64)&v32,
+                       (__int64)v18,
+                       (__int64)&v35,
+                       0);
   }
   v20 = ObjectProperty;
   if ( ObjectProperty == -1073741789 )
@@ -89,7 +104,7 @@ __int64 __fastcall PnpCallDriverQueryServiceHelper(
       return (unsigned int)-1073741670;
     if ( a4 )
     {
-      v20 = PnpGetObjectProperty(PiPnpRtlCtx, v12, v17, v11, 0LL, a4, (__int64)v33, Pool2, v35, (__int64)&v35, 0);
+      v20 = PnpGetObjectProperty(*(__int64 *)&PiPnpRtlCtx, v12, v17, v11, 0LL, a4, v33, Pool2, v35, (__int64)&v35, 0);
     }
     else
     {
@@ -97,13 +112,21 @@ __int64 __fastcall PnpCallDriverQueryServiceHelper(
         InstallerClassRegProp = CmGetInstallerClassRegProp(
                                   PiPnpRtlCtx,
                                   v12,
-                                  v11,
+                                  (_DWORD)v11,
                                   a3,
                                   (__int64)&v32,
                                   Pool2,
                                   (__int64)&v35);
       else
-        InstallerClassRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, v12, v11, a3, (__int64)&v32, Pool2, (__int64)&v35, 0);
+        InstallerClassRegProp = CmGetDeviceRegProp(
+                                  *(__int64 *)&PiPnpRtlCtx,
+                                  v12,
+                                  (__int64)v11,
+                                  a3,
+                                  (__int64)&v32,
+                                  Pool2,
+                                  (__int64)&v35,
+                                  0);
       v20 = InstallerClassRegProp;
     }
   }

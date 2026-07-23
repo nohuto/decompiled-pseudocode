@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierSeDeassignSecurity @ 0x14070CD44
+ * XREFs of VerifierSeDeassignSecurity @ 0x14070CD74
  * Callers:
  *     <none>
  * Callees:

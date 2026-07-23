@@ -1,18 +1,18 @@
 /*
- * XREFs of BiCreateKeySecurityDescriptor @ 0x1408052B0
+ * XREFs of BiCreateKeySecurityDescriptor @ 0x140805580
  * Callers:
- *     BiCreateKey @ 0x140803E04 (BiCreateKey.c)
- *     BiOpenKey @ 0x1408050D0 (BiOpenKey.c)
- *     BiCloseKey @ 0x14080525C (BiCloseKey.c)
+ *     BiCreateKey @ 0x1408040D4 (BiCreateKey.c)
+ *     BiOpenKey @ 0x1408053A0 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14080552C (BiCloseKey.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710F40 (RtlLengthSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140781FF0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x140711150 (RtlLengthSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1407821E0 (RtlSetOwnerSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -42,8 +42,8 @@ ACL *__fastcall BiCreateKeySecurityDescriptor(int a1)
   {
     v9 = Pool2 + 5;
     if ( RtlCreateAcl(Pool2 + 5, v5, 2u) >= 0
-      && (int)RtlpAddKnownAce((__int64)v9, 2u, 0, a1, (unsigned __int8 *)Src, 0) >= 0
-      && (int)RtlpAddKnownAce((__int64)v9, 2u, 0, 983103, (unsigned __int8 *)SeLocalSystemSid, 0) >= 0
+      && (int)RtlpAddKnownAce(v9, 2u, 0, a1, (unsigned __int8 *)Src, 0) >= 0
+      && (int)RtlpAddKnownAce(v9, 2u, 0, 983103, (unsigned __int8 *)SeLocalSystemSid, 0) >= 0
       && RtlCreateSecurityDescriptor(v8, 1u) >= 0
       && RtlSetDaclSecurityDescriptor(v8, 1u, v9, 0) >= 0 )
     {

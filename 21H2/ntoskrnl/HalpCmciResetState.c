@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCmciResetState @ 0x1404BCCD0
+ * XREFs of HalpCmciResetState @ 0x1404BCF10
  * Callers:
- *     HalpCmciHandler @ 0x1404BCAA8 (HalpCmciHandler.c)
+ *     HalpCmciHandler @ 0x1404BCCE8 (HalpCmciHandler.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
- *     HalpCmciResetStateAMD @ 0x1404BCD20 (HalpCmciResetStateAMD.c)
+ *     HalpGetCpuInfo @ 0x1403A10C0 (HalpGetCpuInfo.c)
+ *     HalpCmciResetStateAMD @ 0x1404BCF60 (HalpCmciResetStateAMD.c)
  */
 
 char __fastcall HalpCmciResetState(__int64 a1, __int64 a2)

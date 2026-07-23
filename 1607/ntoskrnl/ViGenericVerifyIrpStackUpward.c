@@ -1,11 +1,11 @@
 /*
- * XREFs of ViGenericVerifyIrpStackUpward @ 0x140703B4C
+ * XREFs of ViGenericVerifyIrpStackUpward @ 0x140703B7C
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
- *     ViErrorReport6 @ 0x140223804 (ViErrorReport6.c)
- *     VfMajorIsValidIrpStatus @ 0x14070E55C (VfMajorIsValidIrpStatus.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
+ *     ViErrorReport6 @ 0x140223630 (ViErrorReport6.c)
+ *     VfMajorIsValidIrpStatus @ 0x14070E58C (VfMajorIsValidIrpStatus.c)
  */
 
 __int64 __fastcall ViGenericVerifyIrpStackUpward(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)

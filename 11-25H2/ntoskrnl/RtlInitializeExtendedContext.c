@@ -11,33 +11,33 @@
  *     RtlInitializeExtendedContext2 @ 0x140258C20 (RtlInitializeExtendedContext2.c)
  */
 
-__int64 __fastcall RtlInitializeExtendedContext(__int64 a1, int a2, _QWORD *a3)
+NTSTATUS __cdecl RtlInitializeExtendedContext(PCONTEXT Context, ULONG ContextFlags, PCONTEXT_EX *ContextEx)
 {
   char v4; // r11
-  __int64 v5; // r10
+  ULONG64 v5; // r10
   bool v6; // cl
 
-  if ( (a2 & 0x27FFFF80) != 0x10000
-    && (a2 & 0x7FFFF20) != 0x100000
-    && ((a2 & 0x200000) == 0 || (a2 & 0x7DFFFF0) != 0)
-    && (a2 & 0x7FFFFC0) != 0x400000 )
+  if ( (ContextFlags & 0x27FFFF80) != 0x10000
+    && (ContextFlags & 0x7FFFF20) != 0x100000
+    && ((ContextFlags & 0x200000) == 0 || (ContextFlags & 0x7DFFFF0) != 0)
+    && (ContextFlags & 0x7FFFFC0) != 0x400000 )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
   v4 = 1;
   v5 = 0LL;
   v6 = 0;
-  if ( (a2 & 0x400020) != 0x400020 )
-    v6 = (a2 & 0x10040) != 65600 && (a2 & 0x100040) != 1048640;
+  if ( (ContextFlags & 0x400020) != 0x400020 )
+    v6 = (ContextFlags & 0x10040) != 65600 && (ContextFlags & 0x100040) != 1048640;
   if ( !v6 )
   {
     if ( !MEMORY[0xFFFFF780000003D8] )
-      return 3221225659LL;
+      return -1073741637;
     v4 = 3;
   }
-  if ( !(_BYTE)KiKernelCetEnabled && (a2 & 0x100080) == 0x100080 )
-    return 3221225659LL;
+  if ( !(_BYTE)KiKernelCetEnabled && (ContextFlags & 0x100080) == 0x100080 )
+    return -1073741637;
   if ( (v4 & 2) != 0 )
     v5 = MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708];
-  return RtlInitializeExtendedContext2(a1, a2, a3, v5);
+  return RtlInitializeExtendedContext2(Context, ContextFlags, ContextEx, v5);
 }

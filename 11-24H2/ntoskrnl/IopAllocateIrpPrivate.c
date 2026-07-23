@@ -1,18 +1,18 @@
 /*
- * XREFs of IopAllocateIrpPrivate @ 0x140253E10
+ * XREFs of IopAllocateIrpPrivate @ 0x140284420
  * Callers:
- *     IoAllocateIrpEx @ 0x140253BB0 (IoAllocateIrpEx.c)
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IoAllocateIrp @ 0x1403724A0 (IoAllocateIrp.c)
- *     IopAllocateIrpWithExtension @ 0x14037592C (IopAllocateIrpWithExtension.c)
- *     IovAllocateIrp @ 0x140BA9550 (IovAllocateIrp.c)
+ *     IoAllocateIrp @ 0x14025AD60 (IoAllocateIrp.c)
+ *     IopAllocateIrpWithExtension @ 0x14025E1EC (IopAllocateIrpWithExtension.c)
+ *     IoAllocateIrpEx @ 0x1402841C0 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     IovAllocateIrp @ 0x140BAB550 (IovAllocateIrp.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     IopInitActivityIdIrp @ 0x140454AF0 (IopInitActivityIdIrp.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     IopInitActivityIdIrp @ 0x140449990 (IopInitActivityIdIrp.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
@@ -117,7 +117,7 @@ __int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
       v14 = 0;
 LABEL_27:
       LOBYTE(v8) = a3 != 0;
-      result = ExAllocatePool2(v8 + 66);
+      result = ExAllocatePool2(v8 + 66, v10, 0x20707249u);
       v9 = (PSLIST_ENTRY)result;
       if ( !result )
         return result;

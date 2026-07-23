@@ -1,9 +1,9 @@
 /*
- * XREFs of XpressDecodeClose @ 0x1406A1D14
+ * XREFs of XpressDecodeClose @ 0x1406A2D64
  * Callers:
- *     CMFReadCompressedSegment @ 0x1407C22EC (CMFReadCompressedSegment.c)
+ *     CMFReadCompressedSegment @ 0x1407C3520 (CMFReadCompressedSegment.c)
  * Callees:
- *     CMFFreeFn @ 0x140A9E2A0 (CMFFreeFn.c)
+ *     CMFFreeFn @ 0x140A99810 (CMFFreeFn.c)
  */
 
 __int64 __fastcall XpressDecodeClose(__int64 a1)

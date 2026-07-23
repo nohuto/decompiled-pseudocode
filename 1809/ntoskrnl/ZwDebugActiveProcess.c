@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwDebugActiveProcess @ 0x1401B9A90
+ * XREFs of ZwDebugActiveProcess @ 0x1401B9BF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwDebugActiveProcess(HANDLE Process, HANDLE DebugObject)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Process, DebugObject, v2);
+  return KiServiceInternal(Process);
 }

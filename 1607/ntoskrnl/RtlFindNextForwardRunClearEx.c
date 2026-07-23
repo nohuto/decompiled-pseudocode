@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFindNextForwardRunClearEx @ 0x1401129E8
+ * XREFs of RtlFindNextForwardRunClearEx @ 0x140112F58
  * Callers:
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1403DB598 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
  *     IopLiveDumpPopulateBitmapForDump @ 0x1403DB694 (IopLiveDumpPopulateBitmapForDump.c)
- *     MiCleanPhysicalProcessPages @ 0x14065C30C (MiCleanPhysicalProcessPages.c)
+ *     MiCleanPhysicalProcessPages @ 0x14065C3F0 (MiCleanPhysicalProcessPages.c)
  * Callees:
  *     <none>
  */

@@ -2,14 +2,14 @@
  * XREFs of KiIntSteerLogStatus @ 0x14022183C
  * Callers:
  *     KeIntSteerPeriodic @ 0x140221440 (KeIntSteerPeriodic.c)
- *     KiIntSteerEventTraceControlCallback @ 0x140865EB0 (KiIntSteerEventTraceControlCallback.c)
+ *     KiIntSteerEventTraceControlCallback @ 0x1408660F0 (KiIntSteerEventTraceControlCallback.c)
  * Callees:
  *     KiIntSteerEtwEventEnabled @ 0x140221928 (KiIntSteerEtwEventEnabled.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
- *     KiIntSteerLogState @ 0x1403213C8 (KiIntSteerLogState.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
+ *     KiIntSteerLogState @ 0x140321658 (KiIntSteerLogState.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiIntSteerLogStatus(char a1)

@@ -1,53 +1,53 @@
 /*
- * XREFs of NtQuerySystemInformationEx @ 0x1407C2330
+ * XREFs of NtQuerySystemInformationEx @ 0x1407C2600
  * Callers:
  *     <none>
  * Callees:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-int __fastcall NtQuerySystemInformationEx(
-        int a1,
-        void *a2,
-        unsigned int a3,
-        __int64 a4,
-        unsigned int a5,
-        unsigned int *a6)
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  int v8; // ecx
+  __int32 v8; // ecx
   int v9; // edx
-  unsigned __int64 v10; // rcx
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  int v17; // ecx
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // ecx
+  char *v10; // rcx
+  __int32 v12; // ecx
+  __int32 v13; // ecx
+  __int32 v14; // ecx
+  __int32 v15; // ecx
+  __int32 v16; // ecx
+  __int32 v17; // ecx
+  __int32 v18; // ecx
+  __int32 v19; // ecx
+  __int32 v20; // ecx
   int v21; // ecx
   int v22; // ecx
-  int v23; // ecx
-  int v24; // ecx
-  int v25; // ecx
+  __int32 v23; // ecx
+  __int32 v24; // ecx
+  __int32 v25; // ecx
   int v26; // ecx
-  int v27; // ecx
-  int v28; // ecx
+  __int32 v27; // ecx
+  __int32 v28; // ecx
   int v29; // ecx
-  int v30; // ecx
+  __int32 v30; // ecx
   int v31; // ecx
 
-  if ( !a2 || !a3 )
+  if ( !InputBuffer || !InputBufferLength )
     return -1073741811;
-  if ( a1 > 175 )
+  if ( SystemInformationClass > SystemCpuSetInformation )
   {
-    if ( a1 <= 211 )
+    if ( SystemInformationClass <= SystemFeatureConfigurationSectionInformation )
     {
-      if ( a1 != 211 )
+      if ( SystemInformationClass != SystemFeatureConfigurationSectionInformation )
       {
-        v15 = a1 - 178;
+        v15 = SystemInformationClass - 178;
         if ( v15 )
         {
           v16 = v15 - 2;
@@ -72,7 +72,7 @@ int __fastcall NtQuerySystemInformationEx(
     }
     else
     {
-      v12 = a1 - 222;
+      v12 = SystemInformationClass - 222;
       if ( !v12 )
         goto LABEL_7;
       v13 = v12 - 1;
@@ -97,13 +97,13 @@ LABEL_19:
     v9 = 8;
     goto LABEL_8;
   }
-  if ( a1 == 175 )
+  if ( SystemInformationClass == SystemCpuSetInformation )
     goto LABEL_19;
-  if ( a1 <= 100 )
+  if ( SystemInformationClass <= SystemProcessorPerformanceDistribution )
   {
-    if ( a1 != 100 )
+    if ( SystemInformationClass != SystemProcessorPerformanceDistribution )
     {
-      v17 = a1 - 8;
+      v17 = SystemInformationClass - 8;
       if ( v17 )
       {
         v18 = v17 - 15;
@@ -131,7 +131,7 @@ LABEL_19:
     }
     goto LABEL_31;
   }
-  v8 = a1 - 107;
+  v8 = SystemInformationClass - 107;
   if ( v8 )
   {
     v23 = v8 - 1;
@@ -162,11 +162,17 @@ LABEL_7:
 LABEL_8:
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( ((v9 - 1) & (unsigned int)a2) != 0 )
+    if ( ((v9 - 1) & (unsigned int)InputBuffer) != 0 )
       ExRaiseDatatypeMisalignment();
-    v10 = (unsigned __int64)a2 + a3;
-    if ( v10 > 0x7FFFFFFF0000LL || v10 < (unsigned __int64)a2 )
+    v10 = (char *)InputBuffer + InputBufferLength;
+    if ( (unsigned __int64)v10 > 0x7FFFFFFF0000LL || v10 < InputBuffer )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  return ExpQuerySystemInformation(a1, a2, a3, a4, a5, a6);
+  return ExpQuerySystemInformation(
+           SystemInformationClass,
+           InputBuffer,
+           InputBufferLength,
+           (__int64)SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

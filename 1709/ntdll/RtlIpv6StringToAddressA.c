@@ -20,14 +20,14 @@ LONG __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_ad
   unsigned int v8; // edi
   unsigned int v9; // r12d
   unsigned int v10; // r14d
-  int v11; // edx
+  unsigned int v11; // edx
   int v12; // eax
   CHAR v13; // bl
   unsigned int v15; // eax
   unsigned int v16; // eax
   char *String; // [rsp+20h] [rbp-58h]
   char v18; // [rsp+80h] [rbp+8h]
-  int v21; // [rsp+98h] [rbp+20h]
+  unsigned int v21; // [rsp+98h] [rbp+20h]
 
   v4 = Addr;
   v5 = 0;
@@ -56,7 +56,7 @@ LONG __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_ad
         v5 = 2;
         v21 = v11 + 1;
         ++S;
-        v4->u.Word[v11] = 0;
+        *((_WORD *)v4 + v11) = 0;
         v6 = String;
         goto LABEL_9;
       }
@@ -149,7 +149,7 @@ LABEL_9:
           if ( v15 > 0xFF )
             return -1073741811;
           v4 = Addr;
-          Addr->u.Byte[2 * v21 - 1 + v8] = v15;
+          *((_BYTE *)Addr + 2 * v21 + v8 - 1) = v15;
 LABEL_47:
           v11 = v21;
         }
@@ -158,7 +158,7 @@ LABEL_47:
           if ( v9 > 4 )
             return -1073741811;
           v4 = Addr;
-          Addr->u.Word[v21] = __ROR2__(strtol(v6, 0LL, 16), 8);
+          *((_WORD *)Addr + v21) = __ROR2__(strtol(v6, 0LL, 16), 8);
           v11 = ++v21;
         }
         v6 = String;
@@ -194,7 +194,7 @@ LABEL_38:
   {
     if ( v5 == 2 )
     {
-      v4->u.Word[v11] = 0;
+      *((_WORD *)v4 + v11) = 0;
       goto LABEL_43;
     }
     return -1073741811;
@@ -206,7 +206,7 @@ LABEL_38:
       v16 = strtol(v6, 0LL, 10);
       if ( v16 <= 0xFF )
       {
-        v4->u.Byte[2 * v21 + v8] = v16;
+        *((_BYTE *)v4 + 2 * v21 + v8) = v16;
         goto LABEL_43;
       }
     }
@@ -214,11 +214,11 @@ LABEL_38:
   }
   if ( v9 > 4 )
     return -1073741811;
-  v4->u.Word[v21] = __ROR2__(strtol(v6, 0LL, 16), 8);
+  *((_WORD *)v4 + v21) = __ROR2__(strtol(v6, 0LL, 16), 8);
 LABEL_43:
   if ( v10 )
   {
-    memmove((char *)&v4[1] + 2 * (v10 - v7), (char *)v4 + 2 * v10, 2LL * (v7 - v10));
+    memmove((char *)v4 + 2 * (v10 - v7) + 16, (char *)v4 + 2 * v10, 2LL * (v7 - v10));
     memset((char *)v4 + 2 * v10, 0, 2LL * (8 - v7));
   }
   return 0;

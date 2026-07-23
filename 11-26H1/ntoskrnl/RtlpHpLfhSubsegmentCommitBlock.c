@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x14034CDC0
+ * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x14034EE40
  * Callers:
- *     RtlpHpAllocateHeap @ 0x140397A80 (RtlpHpAllocateHeap.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpAllocateHeap @ 0x140399800 (RtlpHpAllocateHeap.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(_QWORD *a1, unsigned __int64 a2, unsigned int a3)
@@ -171,8 +171,8 @@ LABEL_7:
       {
         *((_BYTE *)a1 + v19 + 92) = 1;
         if ( !(BYTE1(**(_QWORD **)(*a1 + 56LL)) == 1
-             ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-             : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+             ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+             : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
         {
           RtlpHpEnvCompactionSchedule(*(_QWORD *)(*a1 + 56LL), v18, v15, v3);
           v6 = v60;
@@ -229,8 +229,8 @@ LABEL_7:
           {
             *((_BYTE *)a1 + v54 + 92) = 1;
             if ( !(BYTE1(**(_QWORD **)(*a1 + 56LL)) == 1
-                 ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-                 : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+                 ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+                 : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
               RtlpHpEnvCompactionSchedule(*(_QWORD *)(*a1 + 56LL), (v52 >> 31) & 0xFFF, v31, v32);
           }
         }
@@ -289,8 +289,8 @@ LABEL_36:
         {
           *((_BYTE *)a1 + v44 + 92) = 1;
           if ( !(BYTE1(**(_QWORD **)(*a1 + 56LL)) == 1
-               ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-               : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+               ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+               : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
             RtlpHpEnvCompactionSchedule(*(_QWORD *)(*a1 + 56LL), v43, v39, v38);
         }
       }

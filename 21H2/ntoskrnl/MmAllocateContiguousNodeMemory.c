@@ -1,19 +1,19 @@
 /*
- * XREFs of MmAllocateContiguousNodeMemory @ 0x140294EA0
+ * XREFs of MmAllocateContiguousNodeMemory @ 0x140216B60
  * Callers:
- *     HalAllocateCommonBufferExV2 @ 0x140381350 (HalAllocateCommonBufferExV2.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x1403A11F4 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalpAllocateCR3Root @ 0x1403CBAC8 (HalpAllocateCR3Root.c)
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403CF7A0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
- *     HalpDmaAllocateContiguousMemory @ 0x1404C67F8 (HalpDmaAllocateContiguousMemory.c)
- *     HalpDmaControllerInitializeController @ 0x1404CE7A8 (HalpDmaControllerInitializeController.c)
- *     HvlpAllocateOverlayPages @ 0x1404FAC4C (HvlpAllocateOverlayPages.c)
- *     IopInitializeInMemoryDumpData @ 0x1405042D0 (IopInitializeInMemoryDumpData.c)
- *     ViAllocateContiguousMemory @ 0x1409CD3AC (ViAllocateContiguousMemory.c)
- *     IommupHvInitializeLibrary @ 0x140A8D764 (IommupHvInitializeLibrary.c)
+ *     HalAllocateCommonBufferExV2 @ 0x140380EA0 (HalAllocateCommonBufferExV2.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A1344 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateCR3Root @ 0x1403CBC38 (HalpAllocateCR3Root.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403CF910 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x1404C6A38 (HalpDmaAllocateContiguousMemory.c)
+ *     HalpDmaControllerInitializeController @ 0x1404CE9E8 (HalpDmaControllerInitializeController.c)
+ *     HvlpAllocateOverlayPages @ 0x1404FABCC (HvlpAllocateOverlayPages.c)
+ *     IopInitializeInMemoryDumpData @ 0x140504250 (IopInitializeInMemoryDumpData.c)
+ *     ViAllocateContiguousMemory @ 0x1409CE3AC (ViAllocateContiguousMemory.c)
+ *     IommupHvInitializeLibrary @ 0x140A8E764 (IommupHvInitializeLibrary.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
- *     MiAllocateContiguousMemory @ 0x140294F3C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x140216BFC (MiAllocateContiguousMemory.c)
+ *     MiMakeProtectionMask @ 0x1402BF320 (MiMakeProtectionMask.c)
  */
 
 __int64 __fastcall MmAllocateContiguousNodeMemory(int a1, __int64 a2, __int64 a3, __int16 a4, unsigned int a5, int a6)

@@ -18,7 +18,7 @@ __int64 __fastcall KeAbCrossThreadRelease(__int64 a1, unsigned __int64 a2, ULONG
   v4 = a2;
   if ( (a2 & 1) != 0 )
     v4 = 96LL * (unsigned __int8)(a2 >> 1) + a3 + 800;
-  KiAbEntryRemoveFromTree(v4);
+  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v4);
   v6 = *(_DWORD *)(v4 + 88);
   *(_BYTE *)(v4 + 26) &= ~1u;
   *(_DWORD *)(v4 + 88) = v6 & 0xFFFE0000;

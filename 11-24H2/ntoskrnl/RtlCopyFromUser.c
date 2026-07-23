@@ -1,11 +1,13 @@
 /*
- * XREFs of RtlCopyFromUser @ 0x1404FBE18
+ * XREFs of RtlCopyFromUser @ 0x1404F96D8
  * Callers:
- *     ExpQueryRuntimeAttestationReport @ 0x1407B5580 (ExpQueryRuntimeAttestationReport.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x140AD198C (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     ExpQueryRuntimeAttestationReport @ 0x1407B59D0 (ExpQueryRuntimeAttestationReport.c)
+ *     PspBuildCreateProcessContext @ 0x1408F9210 (PspBuildCreateProcessContext.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x140ACFCF8 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     ProbeForRead @ 0x1409B18E0 (ProbeForRead.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     ProbeForRead @ 0x1409A8C30 (ProbeForRead.c)
  */
 
 __int64 (*__fastcall RtlCopyFromUser(void *a1, void *Src, size_t Size))(void)

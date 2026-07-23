@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestHandleRequestUpdate @ 0x140AE70C8
+ * XREFs of PopPowerRequestHandleRequestUpdate @ 0x140AE4F44
  * Callers:
- *     PopPowerRequestCallbackWorker @ 0x1404A68A0 (PopPowerRequestCallbackWorker.c)
- *     PopPowerRequestDebounceTimerWorker @ 0x1407C9450 (PopPowerRequestDebounceTimerWorker.c)
+ *     PopPowerRequestCallbackWorker @ 0x14049FF30 (PopPowerRequestCallbackWorker.c)
+ *     PopPowerRequestDebounceTimerWorker @ 0x1407CC4F0 (PopPowerRequestDebounceTimerWorker.c)
  * Callees:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopUmpoSendPowerRequestAction @ 0x1407DB5D0 (PopUmpoSendPowerRequestAction.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopUmpoSendPowerRequestAction @ 0x1407DF5DC (PopUmpoSendPowerRequestAction.c)
  */
 
 char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, char a3)
@@ -44,7 +44,7 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, 
     {
       if ( a2 <= 3 )
       {
-        v10 = LOBYTE(stru_140F12D20.CurrentRunTime) == 0;
+        v10 = LOBYTE(stru_140F12EA0.OtherTransferCount) == 0;
         *(_BYTE *)((int)a2 + a1 + 153) = a3;
         if ( !v10 )
           LOBYTE(v9) = PopUmpoSendPowerRequestAction(*(_DWORD *)(a1 + 36), a2, a3);
@@ -66,9 +66,9 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, 
         LOBYTE(v9) = v14 != 0;
         if ( (_BYTE)v9 == v15 )
           break;
-        PopReleaseRwLock(&stru_140F12D20);
+        PopReleaseRwLock((struct _KTHREAD *)stru_140F12EA0.TracingPrivate);
         guard_dispatch_icall_no_overrides(0LL, a2);
-        PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20, v16, v17, v18);
+        PopAcquireRwLockExclusive(stru_140F12EA0.TracingPrivate, v16, v17, v18);
         v12 = *(_DWORD *)((_BYTE *)&PopPowerRequestAttributes + v6 + 12) & 0xFFFFFFFD | (2 * v15);
         *(_DWORD *)((char *)&PopPowerRequestAttributes + v6 + 12) = v12;
         if ( v14 )
@@ -79,7 +79,7 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, 
             v23[0] = 0LL;
             *(_DWORD *)((char *)&PopPowerRequestAttributes + v6 + 12) = v12 | 8;
             v23[1] = -1LL;
-            LOBYTE(v9) = KeSetTimer2((__int64)&stru_140F12D20.320, -50000000LL, 0LL, (__int64)v23);
+            LOBYTE(v9) = KeSetTimer2((__int64)&stru_140F12EA0.SavedApcStateFill[40], -50000000LL, 0LL, (__int64)v23);
             break;
           }
         }
@@ -89,9 +89,9 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, 
   }
   else
   {
-    PopReleaseRwLock(&stru_140F12D20);
+    PopReleaseRwLock((struct _KTHREAD *)stru_140F12EA0.TracingPrivate);
     guard_dispatch_icall_no_overrides(a1, a2);
-    LOBYTE(v9) = (unsigned __int8)PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20, v19, v20, v21);
+    LOBYTE(v9) = (unsigned __int8)PopAcquireRwLockExclusive(stru_140F12EA0.TracingPrivate, v19, v20, v21);
   }
   return v9;
 }

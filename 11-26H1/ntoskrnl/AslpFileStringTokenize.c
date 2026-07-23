@@ -1,7 +1,7 @@
 /*
- * XREFs of AslpFileStringTokenize @ 0x1404DFFE8
+ * XREFs of AslpFileStringTokenize @ 0x1404D96C8
  * Callers:
- *     AslpFileVerQueryBlock @ 0x1409E5068 (AslpFileVerQueryBlock.c)
+ *     AslpFileVerQueryBlock @ 0x1409D7CBC (AslpFileVerQueryBlock.c)
  * Callees:
  *     <none>
  */
@@ -26,9 +26,9 @@ _WORD *__fastcall AslpFileStringTokenize(_WORD *a1, __int64 a2, _WORD **a3)
   while ( *a1 )
   {
     v4 = L"\\";
-    if ( asc_140021D04[0] )
+    if ( asc_1400214D4[0] )
     {
-      v10 = asc_140021D04[0];
+      v10 = asc_1400214D4[0];
       do
       {
         if ( v10 == *a1 )
@@ -46,9 +46,9 @@ _WORD *__fastcall AslpFileStringTokenize(_WORD *a1, __int64 a2, _WORD **a3)
   while ( *a1 )
   {
     v7 = L"\\";
-    if ( asc_140021D04[0] )
+    if ( asc_1400214D4[0] )
     {
-      v8 = asc_140021D04[0];
+      v8 = asc_1400214D4[0];
       do
       {
         if ( v8 == *a1 )

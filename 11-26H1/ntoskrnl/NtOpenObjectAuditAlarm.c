@@ -1,27 +1,27 @@
 /*
- * XREFs of NtOpenObjectAuditAlarm @ 0x1409F7550
+ * XREFs of NtOpenObjectAuditAlarm @ 0x140A60090
  * Callers:
- *     DifNtOpenObjectAuditAlarmWrapper @ 0x14067DFA0 (DifNtOpenObjectAuditAlarmWrapper.c)
+ *     DifNtOpenObjectAuditAlarmWrapper @ 0x140681B80 (DifNtOpenObjectAuditAlarmWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SeCaptureSecurityDescriptor @ 0x1409263C0 (SeCaptureSecurityDescriptor.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x14092FDE0 (SepAdtAuditObjectAccessWithContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SepProbeAndCaptureString_U @ 0x1409F71E8 (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x1409F7320 (SeCheckAuditPrivilege.c)
- *     SeReleaseSecurityDescriptor @ 0x1409F8160 (SeReleaseSecurityDescriptor.c)
- *     SeExamineSacl @ 0x1409F8430 (SeExamineSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409FAF0C (SepAdtOpenObjectAuditAlarm.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeCaptureSecurityDescriptor @ 0x140901ED0 (SeCaptureSecurityDescriptor.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x14090B910 (SepAdtAuditObjectAccessWithContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091FB0C (SepAdtOpenObjectAuditAlarm.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SepProbeAndCaptureString_U @ 0x140A5FD38 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x140A5FE70 (SeCheckAuditPrivilege.c)
+ *     SeReleaseSecurityDescriptor @ 0x140A60CA0 (SeReleaseSecurityDescriptor.c)
+ *     SeExamineSacl @ 0x140A60F70 (SeExamineSacl.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtOpenObjectAuditAlarm(
@@ -43,7 +43,7 @@ NTSTATUS __stdcall NtOpenObjectAuditAlarm(
   ULONG *v14; // r12
   BOOLEAN PreviousMode; // si
   NTSTATUS v16; // edi
-  PVOID v17; // r14
+  _QWORD *v17; // r14
   unsigned int *v18; // rsi
   __int64 v19; // rdx
   ULONG PrivilegeCount; // eax
@@ -61,11 +61,11 @@ NTSTATUS __stdcall NtOpenObjectAuditAlarm(
   __int64 v33; // rax
   _KPROCESS *Process; // rax
   bool v35; // cf
-  BOOLEAN v36; // [rsp+A0h] [rbp-C8h]
+  bool v36; // [rsp+A0h] [rbp-C8h]
   BOOLEAN GenerateAudit; // [rsp+A1h] [rbp-C7h] BYREF
   BOOLEAN v38; // [rsp+A2h] [rbp-C6h]
   BOOLEAN GenerateAlarm[5]; // [rsp+A3h] [rbp-C5h] BYREF
-  unsigned __int16 v40; // [rsp+A8h] [rbp-C0h] BYREF
+  __int16 v40; // [rsp+A8h] [rbp-C0h] BYREF
   int v41; // [rsp+ACh] [rbp-BCh]
   PVOID v42; // [rsp+B0h] [rbp-B8h] BYREF
   void *v43; // [rsp+B8h] [rbp-B0h] BYREF
@@ -217,7 +217,7 @@ LABEL_21:
           AccessGranted == 0,
           &SubjectContext,
           0,
-          (__int16 *)&v40) )
+          &v40) )
     goto LABEL_23;
   v29 = *((_WORD *)v18 + 1);
   if ( (v29 & 0x10) == 0 )
@@ -265,16 +265,16 @@ LABEL_62:
   Address = (volatile void *)-(__int64)Address;
   v36 = SepAdtOpenObjectAuditAlarm(
           v40,
-          (int)v42,
-          (unsigned __int64)&v49 & -(__int64)v35,
-          (int)v12,
-          (__int64)v13,
-          v18,
-          (__int64)v17,
-          (__int64)SubjectContext.PrimaryToken,
+          (const int *)v42,
+          (unsigned __int64 *)((unsigned __int64)&v49 & -(__int64)v35),
+          (unsigned __int16 *)v12,
+          (unsigned __int16 *)v13,
+          (__int16 *)v18,
+          v17,
+          (_QWORD *)SubjectContext.PrimaryToken,
           DesiredAccess,
           GrantedAccess,
-          (__int64)v14,
+          (int *)v14,
           AccessGranted,
           (__int64)Process[1].Header.WaitListHead.Flink,
           2,

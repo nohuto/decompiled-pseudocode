@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpReplaceAttributes @ 0x1409BCA1C
+ * XREFs of AlpcpReplaceAttributes @ 0x14098D9FC
  * Callers:
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
  * Callees:
- *     AlpcpReleaseAttributes @ 0x1409BCAB0 (AlpcpReleaseAttributes.c)
+ *     AlpcpReleaseAttributes @ 0x14098DA90 (AlpcpReleaseAttributes.c)
  */
 
 __int64 __fastcall AlpcpReplaceAttributes(__int64 a1, __int64 a2, int a3)

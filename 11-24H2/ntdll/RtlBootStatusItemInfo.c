@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlBootStatusItemInfo @ 0x18013E0B4
+ * XREFs of RtlBootStatusItemInfo @ 0x18013C2A4
  * Callers:
- *     RtlCheckBootStatusIntegrity @ 0x18013E0F0 (RtlCheckBootStatusIntegrity.c)
- *     RtlpGetSetBootStatusData @ 0x18013E908 (RtlpGetSetBootStatusData.c)
+ *     RtlCheckBootStatusIntegrity @ 0x18013C2E0 (RtlCheckBootStatusIntegrity.c)
+ *     RtlpGetSetBootStatusData @ 0x18013CAF8 (RtlpGetSetBootStatusData.c)
  * Callees:
  *     <none>
  */

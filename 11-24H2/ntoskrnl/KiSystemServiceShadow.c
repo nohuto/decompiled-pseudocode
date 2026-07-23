@@ -1,5 +1,5 @@
 /*
- * XREFs of KiSystemServiceShadow @ 0x140BBBEC0
+ * XREFs of KiSystemServiceShadow @ 0x140BBDEC0
  * Callers:
  *     <none>
  * Callees:

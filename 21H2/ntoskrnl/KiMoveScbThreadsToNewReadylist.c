@@ -1,12 +1,12 @@
 /*
- * XREFs of KiMoveScbThreadsToNewReadylist @ 0x14037E04C
+ * XREFs of KiMoveScbThreadsToNewReadylist @ 0x14037DB9C
  * Callers:
- *     KeSetSchedulingGroupRankBias @ 0x140288488 (KeSetSchedulingGroupRankBias.c)
- *     KiResetScb @ 0x1402887DC (KiResetScb.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140205628 (KeSetSchedulingGroupRankBias.c)
+ *     KiResetScb @ 0x14020597C (KiResetScb.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x14024D500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiAddThreadToPrcbQueue @ 0x14029C210 (KiAddThreadToPrcbQueue.c)
- *     KiInsertDeferredReadyList @ 0x1402EA540 (KiInsertDeferredReadyList.c)
+ *     KiAddThreadToPrcbQueue @ 0x140214370 (KiAddThreadToPrcbQueue.c)
+ *     KiInsertDeferredReadyList @ 0x14029B890 (KiInsertDeferredReadyList.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1402F1D50 (KiGetThreadEffectiveRankNonZero.c)
  */
 
 __int64 __fastcall KiMoveScbThreadsToNewReadylist(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
@@ -101,7 +101,7 @@ __int64 __fastcall KiMoveScbThreadsToNewReadylist(__int64 a1, __int64 a2, _QWORD
         if ( !v6 )
           continue;
         KiGetThreadEffectiveRankNonZero(v18, a1, (__int64)a3, 0, (bool *)&v27);
-        result = KiAddThreadToPrcbQueue(v16, v19, (unsigned int)*(char *)(v19 + 195), 0LL, v27);
+        result = KiAddThreadToPrcbQueue(v16, v19, *(char *)(v19 + 195), 0, v27);
         v4 = 0LL;
       }
       v6 = v26;

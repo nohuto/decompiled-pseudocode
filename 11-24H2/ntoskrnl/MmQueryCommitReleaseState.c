@@ -1,17 +1,17 @@
 /*
- * XREFs of MmQueryCommitReleaseState @ 0x14047DB54
+ * XREFs of MmQueryCommitReleaseState @ 0x140478DE4
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
- *     MiPrepareAttachThread @ 0x140228180 (MiPrepareAttachThread.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiAttachThreadDone @ 0x1402E2710 (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x1402F9B70 (KeForceDetachProcess.c)
- *     KeForceAttachProcess @ 0x14042D8D0 (KeForceAttachProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiAttachThreadDone @ 0x1402FE6F0 (MiAttachThreadDone.c)
+ *     MiPrepareAttachThread @ 0x140342180 (MiPrepareAttachThread.c)
+ *     KeForceDetachProcess @ 0x1403422E0 (KeForceDetachProcess.c)
+ *     KeForceAttachProcess @ 0x140424E30 (KeForceAttachProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MmQueryCommitReleaseState(__int64 a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
@@ -30,27 +30,30 @@ char __fastcall MmQueryCommitReleaseState(__int64 a1, _DWORD *a2, _QWORD *a3, _Q
   char v17; // cl
   int v18; // ebx
   unsigned __int8 v19; // r9
-  unsigned __int8 v20; // al
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  int v24; // [rsp+20h] [rbp-B8h]
-  _DWORD *v25; // [rsp+28h] [rbp-B0h]
-  _QWORD *v26; // [rsp+30h] [rbp-A8h]
-  _QWORD *v27; // [rsp+38h] [rbp-A0h]
-  _OWORD v29[3]; // [rsp+50h] [rbp-88h] BYREF
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  unsigned __int8 v23; // al
+  __int64 v24; // r8
+  __int64 v25; // r9
+  int v27; // [rsp+20h] [rbp-B8h]
+  _DWORD *v28; // [rsp+28h] [rbp-B0h]
+  _QWORD *v29; // [rsp+30h] [rbp-A8h]
+  _QWORD *v30; // [rsp+38h] [rbp-A0h]
+  _OWORD v32[3]; // [rsp+50h] [rbp-88h] BYREF
 
   v5 = a5;
   v6 = a1 + 1024;
   v7 = *(_DWORD *)(a1 + 1208) & 0xF;
-  v27 = a4;
-  v26 = a3;
-  v25 = a2;
-  memset(v29, 0, sizeof(v29));
+  v30 = a4;
+  v29 = a3;
+  v28 = a2;
+  memset(v32, 0, sizeof(v32));
   if ( v7 == 1 )
   {
-    v9 = &unk_140E38760;
-    v10 = (__int64 *)&unk_140E38750;
-    v11 = (__int64 *)&unk_140E38748;
+    v9 = &unk_140E388A0;
+    v10 = (__int64 *)&unk_140E38890;
+    v11 = (__int64 *)&unk_140E38888;
   }
   else
   {
@@ -63,8 +66,8 @@ char __fastcall MmQueryCommitReleaseState(__int64 a1, _DWORD *a2, _QWORD *a3, _Q
   v14 = 0LL;
   v15 = *v11;
   v16 = 0LL;
-  HIBYTE(v24) = HIBYTE(v12);
-  if ( dword_140FC4250 == 1 )
+  HIBYTE(v27) = HIBYTE(v12);
+  if ( dword_140FC5250 == 1 )
   {
     v17 = HIBYTE(v12);
     v15 = 0LL;
@@ -73,31 +76,31 @@ char __fastcall MmQueryCommitReleaseState(__int64 a1, _DWORD *a2, _QWORD *a3, _Q
   {
     if ( (HIBYTE(v12) & 0x30) == 0x20 )
     {
-      ExAcquireSpinLockExclusive(&dword_140E373C0);
+      ExAcquireSpinLockExclusive(&SpinLock);
       v18 = MiPrepareAttachThread(a1, v6);
-      MiReleaseSpinLockExclusive(&dword_140E373C0, v19);
+      MiReleaseSpinLockExclusive(&SpinLock, v19);
       if ( v18 )
       {
-        KeForceAttachProcess((_KPROCESS *)a1, v29, 0);
-        v20 = MiLockWorkingSetShared(v6);
-        v24 = *(_DWORD *)(v6 + 184);
-        if ( (HIBYTE(v24) & 0x30) == 0x20 )
+        KeForceAttachProcess((_KPROCESS *)a1, v32, 0);
+        v23 = MiLockWorkingSetShared(v6, v20, v21, v22);
+        v27 = *(_DWORD *)(v6 + 184);
+        if ( (HIBYTE(v27) & 0x30) == 0x20 )
         {
           v16 = *v10;
           v14 = *(_QWORD *)(*(_QWORD *)v9 + 32LL);
         }
-        MiUnlockWorkingSetShared(v6, v20);
-        KeForceDetachProcess((volatile _KAFFINITY_EX *)v29, 0);
-        MiAttachThreadDone(v6, v21, v22);
+        MiUnlockWorkingSetShared(v6, v23);
+        KeForceDetachProcess((volatile _KAFFINITY_EX *)v32, 0, v24, v25);
+        MiAttachThreadDone(v6);
       }
       v5 = a5;
-      a4 = v27;
-      a3 = v26;
-      a2 = v25;
+      a4 = v30;
+      a3 = v29;
+      a2 = v28;
     }
-    v17 = HIBYTE(v24);
-    LOBYTE(v12) = HIBYTE(v24) & 0x30;
-    if ( (HIBYTE(v24) & 0x30u) < 0x20 )
+    v17 = HIBYTE(v27);
+    LOBYTE(v12) = HIBYTE(v27) & 0x30;
+    if ( (HIBYTE(v27) & 0x30u) < 0x20 )
       v15 = 0LL;
   }
   LOBYTE(v13) = (v17 & 0x30u) >= 0x10;

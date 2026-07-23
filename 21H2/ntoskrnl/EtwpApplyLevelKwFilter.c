@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpApplyLevelKwFilter @ 0x1405ABF88
+ * XREFs of EtwpApplyLevelKwFilter @ 0x1405AC1B8
  * Callers:
- *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14027FA90 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140690950 (EtwpWriteUserEvent.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpApplyLevelKwFilterInner @ 0x1403F934C (EtwpApplyLevelKwFilterInner.c)
+ *     EtwpApplyLevelKwFilterInner @ 0x1403F94CC (EtwpApplyLevelKwFilterInner.c)
  */
 
 char __fastcall EtwpApplyLevelKwFilter(__int64 a1, unsigned int a2, unsigned __int8 a3, __int64 a4, char a5)

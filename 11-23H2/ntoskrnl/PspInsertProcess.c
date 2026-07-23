@@ -1,30 +1,30 @@
 /*
- * XREFs of PspInsertProcess @ 0x1406B9FA4
+ * XREFs of PspInsertProcess @ 0x1406B9FD4
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PsCreateMinimalProcess @ 0x140852EAC (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x14085C7C0 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
+ *     PsCreateMinimalProcess @ 0x1408531AC (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x14085CA00 (PspCreateProcess.c)
  * Callees:
- *     PspUnlockProcessListExclusive @ 0x1402268E4 (PspUnlockProcessListExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232270 (SepDeleteAccessState.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PspInheritSyscallProvider @ 0x1406B9F50 (PspInheritSyscallProvider.c)
- *     ObCheckRefTraceProcess @ 0x1406BA268 (ObCheckRefTraceProcess.c)
- *     DbgkCopyProcessDebugPort @ 0x1406BA2B0 (DbgkCopyProcessDebugPort.c)
- *     SeAuditingWithTokenForSubcategory @ 0x1406BB250 (SeAuditingWithTokenForSubcategory.c)
- *     SeCreateAccessStateEx @ 0x1406C2EA0 (SeCreateAccessStateEx.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     PspImplicitAssignProcessToJob @ 0x1407E5FBC (PspImplicitAssignProcessToJob.c)
- *     SeAuditProcessCreation @ 0x140840CC4 (SeAuditProcessCreation.c)
- *     PspValidateJobAffinityState @ 0x140884928 (PspValidateJobAffinityState.c)
+ *     PspUnlockProcessListExclusive @ 0x1402269F4 (PspUnlockProcessListExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140232340 (SepDeleteAccessState.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PspInheritSyscallProvider @ 0x1406B9F80 (PspInheritSyscallProvider.c)
+ *     ObCheckRefTraceProcess @ 0x1406BA298 (ObCheckRefTraceProcess.c)
+ *     DbgkCopyProcessDebugPort @ 0x1406BA2E0 (DbgkCopyProcessDebugPort.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1406BB280 (SeAuditingWithTokenForSubcategory.c)
+ *     SeCreateAccessStateEx @ 0x1406C2ED0 (SeCreateAccessStateEx.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     PspImplicitAssignProcessToJob @ 0x1407E628C (PspImplicitAssignProcessToJob.c)
+ *     SeAuditProcessCreation @ 0x140840FC4 (SeAuditProcessCreation.c)
+ *     PspValidateJobAffinityState @ 0x140884B68 (PspValidateJobAffinityState.c)
  */
 
 __int64 __fastcall PspInsertProcess(
@@ -66,14 +66,14 @@ __int64 __fastcall PspInsertProcess(
   {
     --CurrentThread->SpecialApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspActiveProcessLock, 0LL);
-    v14 = (_QWORD *)qword_140C382C8;
+    v14 = (_QWORD *)qword_140C38268;
     v15 = Object + 1096;
-    if ( *(__int64 **)qword_140C382C8 != &PsActiveProcessHead )
+    if ( *(__int64 **)qword_140C38268 != &PsActiveProcessHead )
       __fastfail(3u);
-    *((_QWORD *)Object + 138) = qword_140C382C8;
+    *((_QWORD *)Object + 138) = qword_140C38268;
     *v15 = &PsActiveProcessHead;
     *v14 = v15;
-    qword_140C382C8 = (__int64)(Object + 1096);
+    qword_140C38268 = (__int64)(Object + 1096);
     *((_QWORD *)Object + 287) = ++PspProcessSequenceNumber;
     PspUnlockProcessListExclusive((__int64)CurrentThread);
     if ( (Process[1].DirectoryTableBase & 0x800000000LL) != 0 )

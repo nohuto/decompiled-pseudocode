@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlDoesFileExists_UEx @ 0x180076D10
+ * XREFs of RtlDoesFileExists_UEx @ 0x1800935F0
  * Callers:
- *     RtlpGetMUIRedirectedFilePathInternal @ 0x1800766F0 (RtlpGetMUIRedirectedFilePathInternal.c)
- *     RtlpAssemblyStorageMapResolutionDefaultCallback @ 0x180081C00 (RtlpAssemblyStorageMapResolutionDefaultCallback.c)
- *     RtlDosSearchPath_U @ 0x180082890 (RtlDosSearchPath_U.c)
- *     RtlDoesFileExists_U @ 0x18010A2F0 (RtlDoesFileExists_U.c)
- *     RtlpCheckDeviceName @ 0x1801145F0 (RtlpCheckDeviceName.c)
+ *     RtlpAssemblyStorageMapResolutionDefaultCallback @ 0x180003A80 (RtlpAssemblyStorageMapResolutionDefaultCallback.c)
+ *     RtlDosSearchPath_U @ 0x180004710 (RtlDosSearchPath_U.c)
+ *     RtlpGetMUIRedirectedFilePathInternal @ 0x180092FD0 (RtlpGetMUIRedirectedFilePathInternal.c)
+ *     RtlDoesFileExists_U @ 0x180105220 (RtlDoesFileExists_U.c)
+ *     RtlpCheckDeviceName @ 0x18010F840 (RtlpCheckDeviceName.c)
  * Callees:
- *     RtlDoesFileExists_UstrEx @ 0x180076D70 (RtlDoesFileExists_UstrEx.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
+ *     RtlDoesFileExists_UstrEx @ 0x180093650 (RtlDoesFileExists_UstrEx.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
  */
 
 char __fastcall RtlDoesFileExists_UEx(const wchar_t *a1, __int64 a2)

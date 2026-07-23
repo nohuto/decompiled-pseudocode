@@ -1,19 +1,19 @@
 /*
- * XREFs of KiForwardTick @ 0x1403ED6F0
+ * XREFs of KiForwardTick @ 0x140452220
  * Callers:
- *     KiUpdateTime @ 0x14021D690 (KiUpdateTime.c)
+ *     KiUpdateTime @ 0x14021F020 (KiUpdateTime.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     HalRequestClockInterrupt @ 0x1403EC4D0 (HalRequestClockInterrupt.c)
- *     PoCopyDeepIdleMask @ 0x1403EDFE0 (PoCopyDeepIdleMask.c)
- *     ?RtlpComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403EE0E4 (-RtlpComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     HalRequestClockInterrupt @ 0x1402F9510 (HalRequestClockInterrupt.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     PoCopyDeepIdleMask @ 0x140452B10 (PoCopyDeepIdleMask.c)
+ *     ?RtlpComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140452C14 (-RtlpComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, struct _KAFFINITY_EX *a5)
@@ -32,7 +32,7 @@ void __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, stru
   __int64 v19; // r9
   __int64 v20; // r8
   unsigned __int16 k; // cx
-  __int64 v22; // rdx
+  unsigned int v22; // edx
   int v23; // edi
   struct _KAFFINITY_EX v25; // [rsp+38h] [rbp-D0h] BYREF
 
@@ -43,7 +43,7 @@ void __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, stru
 LABEL_7:
     v10 = 1;
     v11 = 0LL;
-    RtlpCopyAffinityEx(a5, a5->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+    RtlpCopyAffinityEx(a5, a5->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
 LABEL_8:
     if ( !KiClockTimerPerCpuTickScheduling )
     {
@@ -63,7 +63,7 @@ LABEL_8:
       break;
   }
   RtlpComplementAffinityEx(a5, a5->Size, &v25);
-  RtlAndAffinityEx(v12, (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags, (__int64)a5);
+  RtlAndAffinityEx(v12, (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags, (__int64)a5);
   if ( a4 )
     RtlOrAffinityEx(a5, (struct _KAFFINITY_EX *)KiGroupSchedulingOverQuotaMask, (__int64)a5);
   if ( KiSerializeTimerExpiration )
@@ -75,7 +75,7 @@ LABEL_8:
   do
   {
     LOBYTE(v18) = v16 - 1;
-    v19 = qword_140FC1698[2 * v17];
+    v19 = qword_140FC2698[2 * v17];
     do
     {
       v18 = (unsigned __int8)(v18 + 1);
@@ -97,14 +97,14 @@ LABEL_25:
   v6 = a2;
 LABEL_15:
   Count = a5->Count;
-  if ( a5->Count >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+  if ( a5->Count >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
   {
     p_WaitRegister = (_KWAIT_STATUS_REGISTER *)a5;
-    Count = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+    Count = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
   }
   else
   {
-    p_WaitRegister = &stru_140FC01F0.WaitRegister;
+    p_WaitRegister = &stru_140FC11F0.WaitRegister;
   }
   for ( j = 0; ; ++j )
   {
@@ -118,7 +118,7 @@ LABEL_15:
       }
       goto LABEL_7;
     }
-    if ( a5->Bitmap[j] != *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * j + 4) )
+    if ( a5->Bitmap[j] != *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * j + 4) )
       break;
   }
 LABEL_29:
@@ -135,12 +135,12 @@ LABEL_29:
 LABEL_10:
   if ( (_BYTE)KdDebuggerEnabled )
   {
-    v22 = (unsigned int)KiPollSlotNext;
+    v22 = KiPollSlotNext;
     KiPollSlot = KiPollSlotNext++;
     if ( KiPollSlotNext >= v6 )
       KiPollSlotNext = 0;
     v23 = *(_DWORD *)(a1 + 36);
-    if ( (_DWORD)v22 != v23 && !(unsigned int)KeCheckProcessorAffinityEx(a5, v22) )
+    if ( v22 != v23 && !(unsigned int)KeCheckProcessorAffinityEx(&a5->Count, v22) )
       KiPollSlot = v23;
   }
 }

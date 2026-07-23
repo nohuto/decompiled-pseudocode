@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerPowerComponentIdleCallback @ 0x1405487C0
+ * XREFs of HalpTimerPowerComponentIdleCallback @ 0x140546080
  * Callers:
  *     <none>
  * Callees:
- *     PoFxCompleteIdleCondition @ 0x1404592B0 (PoFxCompleteIdleCondition.c)
+ *     PoFxCompleteIdleCondition @ 0x14044E360 (PoFxCompleteIdleCondition.c)
  */
 
 __int64 __fastcall HalpTimerPowerComponentIdleCallback(__int64 a1, ULONG_PTR a2)

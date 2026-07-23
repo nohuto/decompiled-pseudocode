@@ -1,15 +1,15 @@
 /*
- * XREFs of MxCreatePfnsForPtes @ 0x140CF6200
+ * XREFs of MxCreatePfnsForPtes @ 0x140CFC580
  * Callers:
- *     MxWalkBootPageTables @ 0x140CF8610 (MxWalkBootPageTables.c)
+ *     MxWalkBootPageTables @ 0x140CFE990 (MxWalkBootPageTables.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MxCreatePfn @ 0x140CF5E34 (MxCreatePfn.c)
- *     MxIsRegularMemory @ 0x140CF7C60 (MxIsRegularMemory.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MxCreatePfn @ 0x140CFC1B4 (MxCreatePfn.c)
+ *     MxIsRegularMemory @ 0x140CFDFE0 (MxIsRegularMemory.c)
  */
 
 __int64 __fastcall MxCreatePfnsForPtes(__int64 a1, __int64 *a2, unsigned int a3)
@@ -71,8 +71,8 @@ __int64 __fastcall MxCreatePfnsForPtes(__int64 a1, __int64 *a2, unsigned int a3)
         v6 = v13 | 0x20;
         if ( (v13 & 0x20) != 0 )
           v6 = v13;
-        if ( ((v6 >> 8) & 1) != BYTE4(stru_140E2D930.Header.WaitListHead.Blink) )
-          v6 = ((unsigned __int64)BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) ^ (v6 ^ ((unsigned __int64)BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8)) & 0xFFFFFFFFFFFFFEFFuLL;
+        if ( ((v6 >> 8) & 1) != BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) )
+          v6 = ((unsigned __int64)BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) ^ (v6 ^ ((unsigned __int64)BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8)) & 0xFFFFFFFFFFFFFEFFuLL;
         if ( v6 != v3 )
           MiWriteValidPteNewProtection(v4, v6);
         v12 = v4 + 1;

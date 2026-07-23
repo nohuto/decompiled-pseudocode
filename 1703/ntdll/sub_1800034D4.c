@@ -10,7 +10,7 @@ __int64 __fastcall sub_1800034D4(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v3; // eax
   __int64 result; // rax
-  __int64 v5; // rcx
+  LONG v5; // ecx
 
   if ( a3 - 1 > 0x26
     && a2
@@ -25,11 +25,11 @@ __int64 __fastcall sub_1800034D4(__int64 a1, __int64 a2, unsigned int a3)
       *(_QWORD *)(a1 + 32) = a2 + 40;
       return result;
     }
-    v5 = 24LL;
+    v5 = 24;
   }
   else
   {
-    v5 = 13LL;
+    v5 = 13;
   }
   RtlSetLastWin32Error(v5);
   return 0LL;

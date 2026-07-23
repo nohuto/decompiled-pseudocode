@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpFixBootLoggers @ 0x140CE1DAC
+ * XREFs of EtwpFixBootLoggers @ 0x140CE814C
  * Callers:
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1403DD0B0 (KeReleaseMutant.c)
- *     EtwpStartLoggerThread @ 0x1404E4D30 (EtwpStartLoggerThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x140920D60 (EtwpGetSecurityDescriptorByGuid.c)
- *     SeCreateClientSecurity @ 0x140929880 (SeCreateClientSecurity.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     EtwpEnableKernelTrace @ 0x14095ACA0 (EtwpEnableKernelTrace.c)
- *     EtwpInitializeLoggerSecurityDescriptor @ 0x140A6D3B8 (EtwpInitializeLoggerSecurityDescriptor.c)
- *     EtwpFreeSecurityDescriptor @ 0x140A8F2C8 (EtwpFreeSecurityDescriptor.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutant @ 0x1403E02A0 (KeReleaseMutant.c)
+ *     EtwpStartLoggerThread @ 0x1404DE2D0 (EtwpStartLoggerThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1408FC870 (EtwpGetSecurityDescriptorByGuid.c)
+ *     SeCreateClientSecurity @ 0x140905390 (SeCreateClientSecurity.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpEnableKernelTrace @ 0x140A00560 (EtwpEnableKernelTrace.c)
+ *     EtwpFreeSecurityDescriptor @ 0x140A93F98 (EtwpFreeSecurityDescriptor.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x140AB28FC (EtwpInitializeLoggerSecurityDescriptor.c)
  */
 
 __int64 EtwpFixBootLoggers()
@@ -59,7 +59,7 @@ __int64 EtwpFixBootLoggers()
           *(_WORD *)&ClientSecurityQos.ContextTrackingMode = 257;
           SeCreateClientSecurity(KeGetCurrentThread(), &ClientSecurityQos, 0, (PSECURITY_CLIENT_CONTEXT)(v5 + 704));
           v6 = *(__int64 **)(v5 + 1360);
-          *(_QWORD *)(v5 + 304) = EtwpRefTimeSystem;
+          *(_QWORD *)(v5 + 304) = *(_QWORD *)&stru_140F03830.NextProcessor;
           EtwpStartLoggerThread(*v6, v5);
         }
         EtwpReleaseLoggerContext((unsigned int *)v5, 0);
@@ -73,7 +73,7 @@ __int64 EtwpFixBootLoggers()
   v8 = 2LL;
   do
   {
-    v9 = (__m128)_mm_loadu_si128((const __m128i *)&stru_140FC01F0.Padding[v7 / 8 + 4]);
+    v9 = (__m128)_mm_loadu_si128((const __m128i *)&stru_140FC11F0.Padding[v7 / 8 + 4]);
     v10 = (__m128)_mm_loadu_si128((const __m128i *)&PerfGlobalGroupMask[v7 / 0x10]);
     v7 += 16LL;
     *(__m128 *)(&ClientSecurityQos.ContextTrackingMode + v7) = _mm_and_ps(v9, v10);
@@ -86,7 +86,7 @@ __int64 EtwpFixBootLoggers()
               (_QWORD *)EtwpHostSiloState,
               0) < 0 )
   {
-    KeWaitForSingleObject(&EtwpSecurityLock.SchedulerApcFill5[72], Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&stru_140F03830.880, Executive, 0, 0, 0LL);
     do
     {
       PerfGlobalGroupMask[v0] = (__int128)_mm_and_ps(
@@ -98,7 +98,7 @@ __int64 EtwpFixBootLoggers()
       --v3;
     }
     while ( v3 );
-    KeReleaseMutant((PRKMUTANT)&EtwpSecurityLock.SchedulerApcFill5[72], 1, 0, 0);
+    KeReleaseMutant((PRKMUTANT)&stru_140F03830.880, 1, 0, 0);
   }
   return 0LL;
 }

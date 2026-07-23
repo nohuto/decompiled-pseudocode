@@ -3,10 +3,10 @@
  * Callers:
  *     HalpMceInitProcessor @ 0x140A8AA48 (HalpMceInitProcessor.c)
  * Callees:
- *     HalpGetMcaPcrContext @ 0x140380334 (HalpGetMcaPcrContext.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     HalpGetMcaPcrContext @ 0x1403804D4 (HalpGetMcaPcrContext.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     HalpMceInitializeErrorPacketContents @ 0x140A8AB48 (HalpMceInitializeErrorPacketContents.c)
  */
 

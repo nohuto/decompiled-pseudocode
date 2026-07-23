@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAddTriageDumpDataBlock @ 0x140291070
+ * XREFs of KeAddTriageDumpDataBlock @ 0x140291260
  * Callers:
  *     <none>
  * Callees:
- *     KiIsAddressRangeValid @ 0x140191DF4 (KiIsAddressRangeValid.c)
- *     KiValidateTriageDumpDataArray @ 0x140293010 (KiValidateTriageDumpDataArray.c)
+ *     KiIsAddressRangeValid @ 0x140191F34 (KiIsAddressRangeValid.c)
+ *     KiValidateTriageDumpDataArray @ 0x140293200 (KiValidateTriageDumpDataArray.c)
  */
 
 NTSTATUS __stdcall KeAddTriageDumpDataBlock(

@@ -5,9 +5,9 @@
  *     RtlMultiByteToUnicodeSize @ 0x14075A850 (RtlMultiByteToUnicodeSize.c)
  *     RtlAnsiCharToUnicodeChar @ 0x1407CD880 (RtlAnsiCharToUnicodeChar.c)
  *     RtlUTF8StringToUnicodeString @ 0x1409BEC80 (RtlUTF8StringToUnicodeString.c)
- *     EtwpApplyContainerFilter @ 0x1409F4B98 (EtwpApplyContainerFilter.c)
+ *     sub_1409F4B98 @ 0x1409F4B98 (sub_1409F4B98.c)
  * Callees:
- *     CountUTF8ToUnicode @ 0x1403CAFEC (CountUTF8ToUnicode.c)
+ *     sub_1403CAFEC @ 0x1403CAFEC (sub_1403CAFEC.c)
  */
 
 NTSTATUS __stdcall RtlUTF8ToUnicodeN(
@@ -53,7 +53,7 @@ NTSTATUS __stdcall RtlUTF8ToUnicodeN(
   if ( !UnicodeStringDestination )
   {
     if ( UnicodeStringActualByteCount )
-      return CountUTF8ToUnicode((char *)UTF8StringSource, UTF8StringByteCount, UnicodeStringActualByteCount);
+      return sub_1403CAFEC((char *)UTF8StringSource, UTF8StringByteCount, UnicodeStringActualByteCount);
     else
       return -1073741811;
   }

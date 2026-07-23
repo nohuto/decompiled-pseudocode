@@ -35,7 +35,7 @@ _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1)
   v14 = &v14;
   if ( !v1 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 64);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v5 = *(_QWORD **)(a1 + 72);
     for ( i = -1; v5 != (_QWORD *)(a1 + 72); v5 = (_QWORD *)*v5 )
     {
@@ -70,7 +70,7 @@ _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1)
         }
       }
     }
-    RtlReleaseSRWLockExclusive(a1 + 64);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v2 = v14;
   }
   for ( result = &v14; v2 != &v14; result = &v14 )

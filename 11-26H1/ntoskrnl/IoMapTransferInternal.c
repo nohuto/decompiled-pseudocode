@@ -1,20 +1,20 @@
 /*
- * XREFs of IoMapTransferInternal @ 0x14043F90C
+ * XREFs of IoMapTransferInternal @ 0x14043841C
  * Callers:
- *     HalMapTransferEx @ 0x14043F260 (HalMapTransferEx.c)
+ *     HalMapTransferEx @ 0x140437D70 (HalMapTransferEx.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     HalpDmaNextContiguousPiece @ 0x14035BB44 (HalpDmaNextContiguousPiece.c)
- *     HalpDmaNextContiguousPieceV2 @ 0x14035BB90 (HalpDmaNextContiguousPieceV2.c)
- *     HalpDmaSyncMapBuffers @ 0x14035BE40 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaGetAdapterVersion @ 0x14035C9B8 (HalpDmaGetAdapterVersion.c)
- *     HalpMapTransferV3 @ 0x14043FD60 (HalpMapTransferV3.c)
- *     HalpDmaNextContiguousPieceV3 @ 0x14043FE38 (HalpDmaNextContiguousPieceV3.c)
- *     HalpDmaFlushBuffer @ 0x14044011C (HalpDmaFlushBuffer.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x140440B80 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaZeroMapBuffers @ 0x140589598 (HalpDmaZeroMapBuffers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     HalpDmaNextContiguousPiece @ 0x14035D8E4 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaNextContiguousPieceV2 @ 0x14035D930 (HalpDmaNextContiguousPieceV2.c)
+ *     HalpDmaSyncMapBuffers @ 0x14035DBE0 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaGetAdapterVersion @ 0x14035E758 (HalpDmaGetAdapterVersion.c)
+ *     HalpMapTransferV3 @ 0x140438870 (HalpMapTransferV3.c)
+ *     HalpDmaNextContiguousPieceV3 @ 0x140438948 (HalpDmaNextContiguousPieceV3.c)
+ *     HalpDmaFlushBuffer @ 0x140438C2C (HalpDmaFlushBuffer.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140439690 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaZeroMapBuffers @ 0x14058BC68 (HalpDmaZeroMapBuffers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IoMapTransferInternal(
@@ -43,22 +43,21 @@ __int64 __fastcall IoMapTransferInternal(
   __int64 v26; // rax
   unsigned __int64 v27; // rdx
   __int64 v28; // r9
-  __int64 v29; // r8
-  unsigned int v30; // r11d
-  __int64 v31; // rcx
-  __int64 *v32; // r9
-  __int64 v33; // rdx
-  __int64 v34; // rdi
+  __int64 v29; // rcx
+  __int64 *v30; // r10
+  __int64 v31; // r9
+  __int64 v32; // rdi
+  unsigned int v33; // r11d
+  __int64 v34; // r9
   __int64 v35; // r9
-  __int64 v36; // r9
-  __int64 v37; // r10
-  size_t v38; // [rsp+20h] [rbp-68h]
-  int v39; // [rsp+28h] [rbp-60h]
-  char v40; // [rsp+28h] [rbp-60h]
-  char v41; // [rsp+30h] [rbp-58h]
-  __int64 v42; // [rsp+40h] [rbp-48h]
+  __int64 v36; // r10
+  size_t v37; // [rsp+20h] [rbp-68h]
+  int v38; // [rsp+28h] [rbp-60h]
+  char v39; // [rsp+28h] [rbp-60h]
+  char v40; // [rsp+30h] [rbp-58h]
+  __int64 v41; // [rsp+40h] [rbp-48h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+48h] [rbp-40h] BYREF
-  char v44; // [rsp+A0h] [rbp+18h]
+  char v43; // [rsp+A0h] [rbp+18h]
 
   v7 = 0LL;
   if ( a3 )
@@ -69,8 +68,8 @@ __int64 __fastcall IoMapTransferInternal(
     v12 = *a5;
     if ( *a5 )
     {
-      v44 = *(_BYTE *)(a1 + 441);
-      v42 = a3[7];
+      v43 = *(_BYTE *)(a1 + 441);
+      v41 = a3[7];
       if ( !*(_BYTE *)(a1 + 442) )
       {
         v13 = a6;
@@ -83,7 +82,7 @@ __int64 __fastcall IoMapTransferInternal(
         if ( *(_QWORD *)(a1 + 144) < v17 + (unsigned __int64)(a4 & 0xFFF) + ContiguousPiece - 1
           || !a6
           && !*(_BYTE *)(a1 + 445)
-          && ((v17 = (unsigned int)HalpDmaGetAdapterCacheAlignment(a1) - 1, (v17 & v37) != 0) || (v36 & v17) != 0) )
+          && ((v17 = (unsigned int)HalpDmaGetAdapterCacheAlignment(a1) - 1, (v17 & v36) != 0) || (v35 & v17) != 0) )
         {
           v12 = *a5;
           v15 = *a5;
@@ -91,13 +90,13 @@ LABEL_6:
           v18 = *a3 + (a4 & 0xFFF);
           if ( a6 )
           {
-            LODWORD(v38) = v15;
-            HalpDmaSyncMapBuffers(a1, a2, a4, (__int64)a3, v38, a6, 0, 0);
+            LODWORD(v37) = v15;
+            HalpDmaSyncMapBuffers(a1, a2, a4, (__int64)a3, v37, a6, 0, 0);
           }
           else if ( !*(_BYTE *)(a1 + 445) )
           {
-            LODWORD(v38) = v12;
-            HalpDmaSyncMapBuffers(a1, a2, a4, (__int64)a3, v38, 0, 1, 0);
+            LODWORD(v37) = v12;
+            HalpDmaSyncMapBuffers(a1, a2, a4, (__int64)a3, v37, 0, 1, 0);
           }
           goto LABEL_9;
         }
@@ -122,18 +121,18 @@ LABEL_6:
         if ( *(_BYTE *)(a1 + 445) )
           goto LABEL_9;
         v17 = (unsigned int)HalpDmaGetAdapterCacheAlignment(a1) - 1;
-        if ( (v17 & v18) == 0 && (v17 & v35) == 0 )
+        if ( (v17 & v18) == 0 && (v17 & v34) == 0 )
         {
 LABEL_58:
           if ( *(_BYTE *)(a1 + 445) )
           {
 LABEL_9:
-            if ( !v44 )
+            if ( !v43 )
             {
               if ( !v13 )
               {
                 if ( *(_BYTE *)(a1 + 444) )
-                  HalpDmaZeroMapBuffers(v17, v42, a4 & 0xFFF, *a5);
+                  HalpDmaZeroMapBuffers(v17, v41, a4 & 0xFFF, *a5);
               }
               KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(a1 + 160) + 128LL), &LockHandle);
               guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 432), a2);
@@ -143,9 +142,9 @@ LABEL_9:
           }
           v28 = v23;
 LABEL_31:
-          LOBYTE(v39) = 0;
-          LOBYTE(v38) = v13;
-          HalpDmaFlushBuffer(v17, a2, a4, v28, v38, v39);
+          LOBYTE(v38) = 0;
+          LOBYTE(v37) = v13;
+          HalpDmaFlushBuffer(v17, a2, a4, v28, v37, v38);
           goto LABEL_9;
         }
       }
@@ -153,18 +152,18 @@ LABEL_31:
       v18 = v24 + *v25;
       if ( a6 )
       {
-        v41 = 0;
-        v40 = a6;
+        v40 = 0;
+        v39 = a6;
       }
       else
       {
         if ( *(_BYTE *)(a1 + 445) )
           goto LABEL_18;
-        v41 = 1;
-        v40 = 0;
+        v40 = 1;
+        v39 = 0;
       }
-      LODWORD(v38) = v23;
-      HalpDmaSyncMapBuffers(a1, a2, a4, (__int64)v25, v38, v40, v41, 0);
+      LODWORD(v37) = v23;
+      HalpDmaSyncMapBuffers(a1, a2, a4, (__int64)v25, v37, v39, v40, 0);
 LABEL_18:
       v26 = a3[7];
       v17 = (a4 & 0xFFF) + 4095;
@@ -184,31 +183,30 @@ LABEL_18:
     }
     return v7;
   }
-  v29 = a4 & 0xFFF;
-  v30 = *a5;
-  v31 = 4096 - (unsigned int)(a4 & 0xFFF);
-  v32 = (__int64 *)(a2 + 48 + 8 * ((unsigned __int64)(a4 - *(_QWORD *)(a2 + 32)) >> 12));
-  v33 = *v32;
-  v34 = v29 + (*v32 << 12);
-  if ( (unsigned int)v31 < *a5 )
+  v29 = 4096 - (unsigned int)(a4 & 0xFFF);
+  v30 = (__int64 *)(a2 + 8 * (((unsigned __int64)(a4 - *(_QWORD *)(a2 + 32)) >> 12) + 6));
+  v31 = *v30;
+  v32 = (a4 & 0xFFF) + (*v30 << 12);
+  v33 = *a5;
+  if ( (unsigned int)v29 < *a5 )
   {
-    while ( v33 + 1 == *++v32 )
+    while ( v31 + 1 == *++v30 )
     {
-      if ( ((v33 ^ *v32) & 0xFFFFFFFFFFF00000uLL) == 0 )
+      if ( ((v31 ^ *v30) & 0xFFFFFFFFFFF00000uLL) == 0 )
       {
-        v31 = (unsigned int)(v31 + 4096);
-        v33 = *v32;
-        if ( (unsigned int)v31 < v30 )
+        v29 = (unsigned int)(v29 + 4096);
+        v31 = *v30;
+        if ( (unsigned int)v29 < v33 )
           continue;
       }
-      if ( (unsigned int)v31 >= v30 )
+      if ( (unsigned int)v29 >= v33 )
         goto LABEL_39;
       break;
     }
-    *a5 = v31;
+    *a5 = v29;
   }
 LABEL_39:
   if ( !*(_BYTE *)(a1 + 445) )
-    HalpDmaFlushBuffer(v31, a2, a4, *a5, a6, a7);
-  return v34;
+    HalpDmaFlushBuffer(v29, a2, a4, *a5, a6, a7);
+  return v32;
 }

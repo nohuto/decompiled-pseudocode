@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptFdefModDivSmallPow2 @ 0x140535A78
+ * XREFs of SymCryptFdefModDivSmallPow2 @ 0x14052FF18
  * Callers:
- *     SymCryptFdefModDivPow2 @ 0x1405359F8 (SymCryptFdefModDivPow2.c)
- *     SymCryptFdefModInvGeneric @ 0x140536010 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptFdefModDivPow2 @ 0x14052FE98 (SymCryptFdefModDivPow2.c)
+ *     SymCryptFdefModInvGeneric @ 0x1405304B0 (SymCryptFdefModInvGeneric.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x14048D93C (SymCryptCpuFeaturesNeverPresent.c)
- *     SymCryptFdefModDivSmallPow2Mulx @ 0x140531730 (SymCryptFdefModDivSmallPow2Mulx.c)
- *     SymCryptFdefModDivSmallPow2Generic @ 0x140535AE0 (SymCryptFdefModDivSmallPow2Generic.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x1404881BC (SymCryptCpuFeaturesNeverPresent.c)
+ *     SymCryptFdefModDivSmallPow2Mulx @ 0x14052BBD0 (SymCryptFdefModDivSmallPow2Mulx.c)
+ *     SymCryptFdefModDivSmallPow2Generic @ 0x14052FF80 (SymCryptFdefModDivSmallPow2Generic.c)
  */
 
 __int64 __fastcall SymCryptFdefModDivSmallPow2(__int64 a1, _QWORD *a2, unsigned int a3, _QWORD *a4)

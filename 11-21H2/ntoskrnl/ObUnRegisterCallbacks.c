@@ -15,7 +15,7 @@ void __stdcall ObUnRegisterCallbacks(PVOID RegistrationHandle)
   unsigned int i; // ebx
   struct _EX_RUNDOWN_REF *v3; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 Count; // rcx
+  ULONG_PTR Count; // rcx
   struct _EX_RUNDOWN_REF **v6; // rax
   struct _KTHREAD *v7; // rax
   bool v8; // zf
@@ -25,7 +25,7 @@ void __stdcall ObUnRegisterCallbacks(PVOID RegistrationHandle)
     v3 = (struct _EX_RUNDOWN_REF *)((char *)RegistrationHandle + 64 * (unsigned __int64)i + 32);
     ExWaitForRundownProtectionRelease(v3 + 7);
     CurrentThread = KeGetCurrentThread();
-    --CurrentThread->SpecialApcDisable;
+    --*((_WORD *)CurrentThread + 243);
     ExAcquirePushLockExclusiveEx(v3[4].Count + 184, 0LL);
     Count = v3->Count;
     if ( *(struct _EX_RUNDOWN_REF **)(v3->Count + 8) != v3 || (v6 = (struct _EX_RUNDOWN_REF **)v3[1].Count, *v6 != v3) )
@@ -34,8 +34,8 @@ void __stdcall ObUnRegisterCallbacks(PVOID RegistrationHandle)
     *(_QWORD *)(Count + 8) = v6;
     ExReleasePushLockEx(v3[4].Count + 184, 0LL);
     v7 = KeGetCurrentThread();
-    v8 = v7->SpecialApcDisable++ == -1;
-    if ( v8 && ($CEA84C04E3712D858E5667A507841A2A *)v7->ApcState.ApcListHead[0].Flink != &v7->152 )
+    v8 = (*((_WORD *)v7 + 243))++ == 0xFFFF;
+    if ( v8 && *((struct _KTHREAD **)v7 + 19) != (struct _KTHREAD *)((char *)v7 + 152) )
       KiCheckForKernelApcDelivery();
   }
   ExFreePoolWithTag(RegistrationHandle, 0x6C46624Fu);

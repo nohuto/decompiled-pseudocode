@@ -18,5 +18,5 @@ __int64 __fastcall RtlpHpLfhBucketAllocate(__int64 a1, __int64 a2, unsigned int 
     v6 = 0;
   else
     v6 = *(_BYTE *)(v8 + BYTE1(NtCurrentTeb()->HeapData) + a2);
-  return RtlpHpLfhSlotAllocate(a1, (_QWORD *)a2, *(_QWORD *)(v5 + 8LL * v6 + a2), a3, a4);
+  return RtlpHpLfhSlotAllocate(a1, (_RTL_SRWLOCK *)a2, *(_QWORD *)(v5 + 8LL * v6 + a2), a3, a4);
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of DrvDbDeleteObjectSubKey @ 0x1408215CC
+ * XREFs of DrvDbDeleteObjectSubKey @ 0x140821D0C
  * Callers:
- *     DrvDbDeleteObjectRegKey @ 0x140821450 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x140821B90 (DrvDbDeleteObjectRegKey.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxRegDeleteKey @ 0x1406F8D28 (_PnpCtxRegDeleteKey.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegDeleteValue @ 0x14098FA7C (_PnpCtxRegDeleteValue.c)
- *     _PnpDeletePropertyWorker @ 0x140991470 (_PnpDeletePropertyWorker.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1409920EC (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpCtxRegEnumValue @ 0x14099359C (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140993F58 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxRegDeleteKey @ 0x1406F6960 (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x14097AAB4 (_PnpCtxRegDeleteValue.c)
+ *     _PnpDeletePropertyWorker @ 0x14097C4B0 (_PnpDeletePropertyWorker.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x14097D12C (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpCtxRegEnumValue @ 0x14097E5DC (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14097EF98 (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbDeleteObjectSubKey(__int64 *a1, __int64 a2, const wchar_t *a3, unsigned int a4)
@@ -44,7 +44,7 @@ __int64 __fastcall DrvDbDeleteObjectSubKey(__int64 *a1, __int64 a2, const wchar_
   bool v26; // zf
   int v27; // eax
   int v28; // ecx
-  int v29; // r14d
+  unsigned int v29; // r14d
   __int64 v30; // rcx
   __int64 v31; // rcx
   int dwFlags; // [rsp+28h] [rbp-38h]
@@ -52,7 +52,7 @@ __int64 __fastcall DrvDbDeleteObjectSubKey(__int64 *a1, __int64 a2, const wchar_
   int v35; // [rsp+48h] [rbp-18h] BYREF
   int v36; // [rsp+4Ch] [rbp-14h] BYREF
   HANDLE Handle[2]; // [rsp+50h] [rbp-10h] BYREF
-  int v38; // [rsp+A8h] [rbp+48h] BYREF
+  unsigned int v38; // [rsp+A8h] [rbp+48h] BYREF
 
   v4 = 0;
   v6 = *a1;
@@ -92,7 +92,7 @@ LABEL_3:
     if ( Pool2 )
       ExFreePoolWithTag(Pool2, 0);
     v10 = v34;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, 20LL * v34, 0x42444450u);
     if ( !Pool2 )
     {
       InfoKey = -1073741801;
@@ -136,7 +136,7 @@ LABEL_3:
           ++v18;
         while ( a3[v18] );
         v19 = v18 + 1;
-        v20 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        v20 = (wchar_t *)ExAllocatePool2(0x100uLL, 2 * v19, 0x42444450u);
         v21 = v20;
         if ( v20 )
         {
@@ -194,7 +194,7 @@ LABEL_32:
           v29 = v36 + 1;
           if ( v38 )
           {
-            v21 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            v21 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v29, 0x42444450u);
             if ( v21 )
             {
               while ( 1 )

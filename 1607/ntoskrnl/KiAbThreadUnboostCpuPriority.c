@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAbThreadUnboostCpuPriority @ 0x1400A13E8
+ * XREFs of KiAbThreadUnboostCpuPriority @ 0x14009FD10
  * Callers:
- *     ExReleaseCacheAwarePushLockSharedEx @ 0x1400139A0 (ExReleaseCacheAwarePushLockSharedEx.c)
- *     KeAbEntryFree @ 0x14002C430 (KeAbEntryFree.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
+ *     ExReleaseCacheAwarePushLockSharedEx @ 0x140013520 (ExReleaseCacheAwarePushLockSharedEx.c)
+ *     KeAbEntryFree @ 0x14002BFB0 (KeAbEntryFree.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
  * Callees:
- *     KiClearPriorityFloor @ 0x1400A1458 (KiClearPriorityFloor.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
+ *     KiClearPriorityFloor @ 0x14009FD80 (KiClearPriorityFloor.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
  */
 
 __int64 __fastcall KiAbThreadUnboostCpuPriority(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3)

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiComputeMaximumFaultCluster @ 0x14020F650
+ * XREFs of MiComputeMaximumFaultCluster @ 0x1402B3F50
  * Callers:
- *     MiDispatchFault @ 0x14020EF00 (MiDispatchFault.c)
+ *     MiDispatchFault @ 0x1402B3800 (MiDispatchFault.c)
  * Callees:
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     MiFaultListPagesRemaining @ 0x1402B7B64 (MiFaultListPagesRemaining.c)
- *     KiRspInIstStack @ 0x140518BF8 (KiRspInIstStack.c)
+ *     MiFaultListPagesRemaining @ 0x140235D44 (MiFaultListPagesRemaining.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     KiRspInIstStack @ 0x140518E38 (KiRspInIstStack.c)
  */
 
-__int64 __fastcall MiComputeMaximumFaultCluster(_QWORD *a1, unsigned __int64 a2)
+__int64 __fastcall MiComputeMaximumFaultCluster(unsigned __int64 *a1, unsigned __int64 a2)
 {
-  __int64 v2; // r10
+  unsigned __int64 v2; // r10
   unsigned __int64 v4; // rbx
   unsigned __int64 v6; // rax
   unsigned __int64 v7; // rax
   __int64 v8; // r11
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // r10
-  __int64 Address; // rax
+  __int64 **Address; // rax
   __int64 v12; // rdx
 
   v2 = a1[2];
@@ -32,12 +32,12 @@ __int64 __fastcall MiComputeMaximumFaultCluster(_QWORD *a1, unsigned __int64 a2)
        || !(unsigned int)KiRspInIstStack(3LL, *(_QWORD *)(v2 + 384)) && !(unsigned int)KiRspInIstStack(2LL, v12)) )
     {
       v6 = *(_QWORD *)(v2 + 360);
-      if ( KiDynamicTraceEnabled && v6 >= qword_140CFCBD8 && v6 < qword_140CFCBE0 )
+      if ( KiDynamicTraceEnabled && v6 >= ControlPc && v6 < qword_140CFCBE0 )
         KeGetCurrentIrql();
     }
     return 1LL;
   }
-  v7 = MiFaultListPagesRemaining();
+  v7 = MiFaultListPagesRemaining(a1);
   if ( v7 == 1 )
     return 1LL;
   if ( !a2 || a2 > v7 )
@@ -48,9 +48,9 @@ __int64 __fastcall MiComputeMaximumFaultCluster(_QWORD *a1, unsigned __int64 a2)
     v10 = a2;
   if ( v4 < 0xFFFF800000000000uLL )
   {
-    Address = *(_QWORD *)(v8 + 88);
-    if ( Address || (Address = MiLocateAddress(v4)) != 0 )
-      v9 = (*(unsigned int *)(Address + 28) | ((unsigned __int64)*(unsigned __int8 *)(Address + 33) << 32))
+    Address = *(__int64 ***)(v8 + 88);
+    if ( Address || (Address = MiLocateAddress(v4)) != 0LL )
+      v9 = (*((unsigned int *)Address + 7) | ((unsigned __int64)*((unsigned __int8 *)Address + 33) << 32))
          - (v4 >> 12)
          + 1;
     else

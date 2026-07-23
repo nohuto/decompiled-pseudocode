@@ -14,15 +14,16 @@
  *     RtlpGetNtProductTypeFromRegistry @ 0x14077A904 (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1, __int64 a2)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
+  __int64 v1; // rdx
   __int64 v3; // rdx
   __int64 v4; // rcx
-  char v5; // bl
+  BOOLEAN v5; // bl
   __int64 ThreadServerSilo; // rax
   _QWORD *v7; // rax
 
-  if ( PsIsCurrentThreadInServerSilo((__int64)a1, a2) )
+  if ( PsIsCurrentThreadInServerSilo((__int64)NtProductType, v1) )
   {
     if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(v4, v3)
       || (ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread())) == 0 )
@@ -34,18 +35,18 @@ char __fastcall RtlGetNtProductType(_DWORD *a1, __int64 a2)
       v7 = *(_QWORD **)(ThreadServerSilo + 1272);
     }
     v5 = 1;
-    *a1 = *(_DWORD *)(v7[141] + 16LL);
+    *NtProductType = *(PNT_PRODUCT_TYPE)(v7[141] + 16LL);
   }
   else
   {
     v5 = 1;
     if ( MEMORY[0xFFFFF78000000268] )
     {
-      *a1 = MEMORY[0xFFFFF78000000264];
+      *NtProductType = MEMORY[0xFFFFF78000000264];
     }
-    else if ( KeGetCurrentIrql() > 1u || (int)RtlpGetNtProductTypeFromRegistry(a1) < 0 )
+    else if ( KeGetCurrentIrql() > 1u || (int)RtlpGetNtProductTypeFromRegistry(NtProductType) < 0 )
     {
-      *a1 = 1;
+      *NtProductType = NtProductWinNt;
       return 0;
     }
   }

@@ -8,11 +8,11 @@
  *     RtlpReleasePropStoreLockShared @ 0x1405DE1C0 (RtlpReleasePropStoreLockShared.c)
  */
 
-__int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlQueryPropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
   char v4; // al
   void *v5; // rdx
-  unsigned int v6; // ebx
+  NTSTATUS v6; // ebx
   char v7; // di
   _QWORD *v8; // rax
 
@@ -22,13 +22,13 @@ __int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
   v7 = v4;
   if ( RtlpPropStoreEntries
     && (v8 = bsearch(
-               Key,
+               (const void *)Key,
                RtlpPropStoreEntries,
                (unsigned int)RtlpPropStoreEntriesActiveCount,
                0x18uLL,
                RtlpComparePropertyEntry)) != 0LL )
   {
-    *a2 = v8[2];
+    *Context = v8[2];
   }
   else
   {

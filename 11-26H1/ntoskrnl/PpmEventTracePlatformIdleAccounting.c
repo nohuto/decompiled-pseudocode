@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTracePlatformIdleAccounting @ 0x140B421E8
+ * XREFs of PpmEventTracePlatformIdleAccounting @ 0x140B440D8
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PpmTranslatePlatformIdleAccounting @ 0x14042924C (PpmTranslatePlatformIdleAccounting.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PpmTranslatePlatformIdleAccounting @ 0x1404237D8 (PpmTranslatePlatformIdleAccounting.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PpmEventTracePlatformIdleAccounting()
@@ -43,9 +43,7 @@ void PpmEventTracePlatformIdleAccounting()
   v10 = 64;
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_PLATFORM_IDLE_ACCOUNTING_RUNDOWN) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PLATFORM_IDLE_ACCOUNTING_RUNDOWN) )
     {
       if ( PpmPlatformStates )
       {
@@ -92,12 +90,7 @@ void PpmEventTracePlatformIdleAccounting()
             v21 = v1;
             v22 = 0;
             v24 = 8LL;
-            EtwWrite(
-              (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-              &PPM_ETW_PLATFORM_IDLE_ACCOUNTING_RUNDOWN,
-              0LL,
-              6u,
-              &UserData);
+            EtwWrite(PpmEtwHandle, &PPM_ETW_PLATFORM_IDLE_ACCOUNTING_RUNDOWN, 0LL, 6u, &UserData);
             ExFreePoolWithTag(v9, 0x654D5050u);
           }
           ExFreePoolWithTag(Pool2, 0x654D5050u);

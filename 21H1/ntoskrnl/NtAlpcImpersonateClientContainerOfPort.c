@@ -17,11 +17,12 @@
  *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, _KPROCESS *Process, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
-  __int64 v3; // r9
+  PPORT_MESSAGE v3; // r9
   struct _KTHREAD *CurrentThread; // rax
-  int v6; // edi
+  NTSTATUS v6; // edi
   KPROCESSOR_MODE PreviousMode; // r9
   struct _KTHREAD *v8; // r14
   struct _KTHREAD *WorkOnBehalfThread; // rax
@@ -39,7 +40,7 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, _KPROCE
   int v22; // [rsp+80h] [rbp+18h] BYREF
   unsigned int v23; // [rsp+88h] [rbp+20h] BYREF
 
-  v3 = (__int64)Process;
+  v3 = Message;
   v22 = 0;
   v17[0] = 0;
   v18 = 0LL;
@@ -48,23 +49,23 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, _KPROCE
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   DmaAdapter = 0LL;
-  if ( (_DWORD)a3 )
+  if ( Flags )
   {
     v6 = -1073741811;
   }
   else
   {
-    AlpcpCaptureIdMessage((__int64)Process, &v23, &v22);
+    AlpcpCaptureIdMessage((__int64)Message, &v23, &v22);
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    v6 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v6 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     DmaAdapter = (PADAPTER_OBJECT)Object;
     if ( v6 >= 0 )
     {
       if ( (*((_BYTE *)Object + 416) & 6) == 6
-        && (Process = KeGetCurrentThread()->ApcState.Process, Process == *((_KPROCESS **)Object + 3)) )
+        && (Message = (PPORT_MESSAGE)KeGetCurrentThread()->ApcState.Process, Message == *((PPORT_MESSAGE *)Object + 3)) )
       {
-        v6 = AlpcpLookupMessage((__int64)Object, v23, v22, v3, &v18);
+        v6 = AlpcpLookupMessage((__int64)Object, v23, v22, (__int64)v3, &v18);
         v17[1] = v6;
         if ( v6 >= 0 )
         {
@@ -121,6 +122,6 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, _KPROCE
   }
   if ( DmaAdapter )
     HalPutDmaAdapter(DmaAdapter);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), (__int64)Process, a3, v3);
-  return (unsigned int)v6;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), (__int64)Message, *(__int64 *)&Flags, (__int64)v3);
+  return v6;
 }

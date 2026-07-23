@@ -1,7 +1,7 @@
 /*
- * XREFs of IoCsqInsertIrpEx @ 0x14009CE88
+ * XREFs of IoCsqInsertIrpEx @ 0x14009C688
  * Callers:
- *     IoCsqInsertIrp @ 0x14009CE80 (IoCsqInsertIrp.c)
+ *     IoCsqInsertIrp @ 0x14009C680 (IoCsqInsertIrp.c)
  * Callees:
  *     <none>
  */

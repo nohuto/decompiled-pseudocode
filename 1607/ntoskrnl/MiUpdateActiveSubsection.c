@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateActiveSubsection @ 0x1401EAC88
+ * XREFs of MiUpdateActiveSubsection @ 0x1401EAAB4
  * Callers:
- *     MmExtendSection @ 0x1405218EC (MmExtendSection.c)
+ *     MmExtendSection @ 0x14050494C (MmExtendSection.c)
  * Callees:
- *     MiReferenceSubsection @ 0x140021B6C (MiReferenceSubsection.c)
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MiReferenceSubsection @ 0x1400216EC (MiReferenceSubsection.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiUpdateActiveSubsection(_QWORD *BugCheckParameter2)
